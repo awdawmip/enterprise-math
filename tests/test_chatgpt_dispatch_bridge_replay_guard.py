@@ -1,3 +1,7 @@
+import os
+import subprocess
+import tempfile
+import textwrap
 import unittest
 from pathlib import Path
 
@@ -23,13 +27,59 @@ class ChatGPTDispatchBridgeReplayGuardTests(unittest.TestCase):
             self.workflow,
         )
 
-    def test_workflow_only_push_is_validation_replay_not_new_request(self):
+    def test_persistence_gate_uses_receipt_recovery_decision(self):
         self.assertIn("id: request_change", self.workflow)
         self.assertIn("REQUEST_REPLAY_VALIDATION_ONLY", self.workflow)
         self.assertIn(
-            "if: github.event_name == 'push' && steps.request_change.outputs.changed == 'true'",
+            "if: github.event_name == 'push' && steps.request_change.outputs.persist == 'true'",
             self.workflow,
         )
+
+    def detect_request(self, *, changed, receipt_exists):
+        # Run the actual workflow detection script with only git diff stubbed.
+        # No checkout or remote write is involved in these three routing cases.
+        step = self.workflow.split("- name: Detect request-producing push", 1)[1]
+        step = step.split("\n      - name:", 1)[0]
+        script = textwrap.dedent(step.split("        run: |\n", 1)[1])
+        git_stub = 'git() { test "$1" = diff || return 2; return "$REQUEST_DIFF_EXIT"; }\n'
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / "output"
+            receipt = Path(tmp) / "receipt.json"
+            if receipt_exists:
+                receipt.write_text("{}", encoding="utf-8")
+            result = subprocess.run(
+                ["bash", "-c", git_stub + script],
+                env={
+                    **os.environ,
+                    "REQUEST_DIFF_EXIT": "1" if changed else "0",
+                    "PUSH_BEFORE": "1" * 40,
+                    "GITHUB_SHA": "2" * 40,
+                    "GITHUB_OUTPUT": str(output),
+                    "REQUEST_PATH": "request.json",
+                    "REQUEST_ID": "test-request",
+                    "IMMUTABLE_RECEIPT_PATH": str(receipt),
+                },
+                capture_output=True,
+                text=True,
+                check=True,
+            )
+            flags = dict(line.split("=", 1) for line in output.read_text().splitlines())
+            return flags, result.stdout
+
+    def test_workflow_only_push_with_existing_receipt_is_validation_only(self):
+        flags, log = self.detect_request(changed=False, receipt_exists=True)
+        self.assertEqual({"changed": "false", "persist": "false"}, flags)
+        self.assertIn("REQUEST_REPLAY_VALIDATION_ONLY", log)
+
+    def test_workflow_only_push_recovers_missing_receipt(self):
+        flags, log = self.detect_request(changed=False, receipt_exists=False)
+        self.assertEqual({"changed": "false", "persist": "true"}, flags)
+        self.assertIn("REQUEST_REPLAY_MISSING_RECEIPT", log)
+
+    def test_changed_request_push_persists(self):
+        flags, log = self.detect_request(changed=True, receipt_exists=False)
+        self.assertEqual({"changed": "true", "persist": "true"}, flags)
+        self.assertIn("REQUEST_PRODUCING_PUSH", log)
 
     def test_replay_still_runs_live_router_and_compact_builder_before_persistence_gate(self):
         detect = self.workflow.index("- name: Detect request-producing push")

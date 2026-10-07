@@ -166,10 +166,14 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
         dispatch = self.load("research_dispatch_contract.json")
         self.assertEqual("research_control_dispatch.py", dispatch["canonical_tool"])
         self.assertEqual("tools/research_dispatch.py", dispatch["fresh_task_dispatch_tool"])
-        self.assertEqual("tools/research_runtime_guard.py", dispatch["session_adoption_tool"])
+        self.assertEqual("control_plane/research_continuation.py", dispatch["session_adoption_tool"])
         self.assertEqual(
-            "ADOPT_EXISTING_WINNING_CLAIM_WITHOUT_NEW_CLAIM",
+            "PREPARE_AUTHENTICATED_SUCCESSOR_CLAIM_WITH_PREDECESSOR_CAS_AND_FENCING",
             dispatch["session_liveness_routing"]["valid_owner_plus_stale_session"],
+        )
+        self.assertEqual(
+            "control_plane.research_continuation.prepare_takeover",
+            dispatch["session_liveness_routing"]["adoption_guard"],
         )
 
     def test_human_architecture_routes_all_roles_through_current_control_authority(self):

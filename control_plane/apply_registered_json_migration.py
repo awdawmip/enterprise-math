@@ -320,9 +320,11 @@ def plan(migration_ids: list[str], root: Path = ROOT) -> dict[str, Any]:
         migration_id = str(entry["migration_id"])
         for pointer, old, target in _field_rows(entry):
             actual = _get(source, pointer)
-            if actual == old:
+            if actual == target:
+                pass
+            elif actual == old:
                 all_already_target = False
-            elif actual != target:
+            else:
                 raise MigrationApplyError(
                     f"{migration_id}: {pointer} has third-state value {actual!r}"
                 )

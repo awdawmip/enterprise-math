@@ -43,7 +43,7 @@ def packet(fn, effect):
     edges=[]
     for s in STATES:
         target=fn(s)
-        edges.append((idx(s),idx(target),1,Affine(eye(6),efffect(s)),1))
+        edges.append((idx(s),idx(target),1,Affine(eye(6),effect(s)),1))
     return ControlPacket.from_edges(len(STATES),0,1,edges)
 
 def test_aligned_mask_is_exact_gauge_quotient():

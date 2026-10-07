@@ -17,6 +17,20 @@ from enterprise_math.brc_transport import Affine, EffectHistogram, eye, mm, inv
 from enterprise_math.brc_histogram import WeightHistogram
 
 REPORT = {}
+HISTORICAL_SOURCE_PINS = {
+    'heartbeat_residual_holonomy.py': '2b66743c3f4cd52263aa6e15c00d7837008fb8ad',
+    'brc_transport.py': 'be1debe367263931bd5e93fd750be3ed54624fe1',
+    'brc_histogram.py': '9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1',
+}
+# Later carry-spectrum/controller APIs were appended to the residual module.
+# Current regression execution is distinct from the published historical run.
+CURRENT_SOURCE_PINS = {
+    **HISTORICAL_SOURCE_PINS,
+    'heartbeat_residual_holonomy.py': '0363975eb9223c0081a513bbcba588bbda51b757',
+}
+
+def git_blob_sha1(data):
+    return hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
 
 def block_diag(blocks):
     d = sum(map(len, blocks)); a = [[0]*d for _ in range(d)]; offset = 0
@@ -46,13 +60,23 @@ BAL = block_diag((B,B,B)); DRIFT = block_diag((D,D,D))
 
 class NewtonHeartbeatTests(unittest.TestCase):
     def test_01_source_pins(self):
-        pins = {'heartbeat_residual_holonomy.py':'2b66743c3f4cd52263aa6e15c00d7837008fb8ad',
-                'brc_transport.py':'be1debe367263931bd5e93fd750be3ed54624fe1',
-                'brc_histogram.py':'9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1'}
-        for file, expected in pins.items():
+        historical = (ROOT/'research_notes/heartbeat_newton_spectrum_20260920_AD0416/RESULTS.json').read_bytes()
+        self.assertEqual(hashlib.sha256(historical).hexdigest(),
+                         'b3a8742cfa3a8f80f01c69ad58edfa39850146b519a136f45a64ba9ac33ea0de')
+        self.assertEqual(json.loads(historical)['checks']['executed_unchanged_sources'],
+                         HISTORICAL_SOURCE_PINS)
+        for file, expected in CURRENT_SOURCE_PINS.items():
             b=(ROOT/'src/enterprise_math'/file).read_bytes()
-            self.assertEqual(hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest(),expected)
-        REPORT['executed_unchanged_sources']=pins
+            self.assertEqual(git_blob_sha1(b),expected)
+        # The original 359-line, 12,846-byte implementation is byte-identical
+        # after removing the one import needed by the appended Fraction APIs.
+        current=(ROOT/'src/enterprise_math/heartbeat_residual_holonomy.py').read_bytes()
+        historical_prefix=current.replace(b'from fractions import Fraction\n',b'',1)[:12846]
+        self.assertEqual(git_blob_sha1(historical_prefix),
+                         HISTORICAL_SOURCE_PINS['heartbeat_residual_holonomy.py'])
+        REPORT['historical_source_pins']=HISTORICAL_SOURCE_PINS
+        REPORT['executed_source_pins']=CURRENT_SOURCE_PINS
+        self.assertNotIn('executed_unchanged_sources',REPORT)
 
     def test_02_independent_characteristic_and_smith(self):
         try:
@@ -244,6 +268,6 @@ if __name__=='__main__':
          'skipped':len(result.skipped),'failures':len(result.failures),'errors':len(result.errors),
          'checks':REPORT,'independent_mathematical_review':False,'full_repository_tests':False,
          'production_changed':False}
-    folder=ROOT/'research_notes/heartbeat_newton_spectrum_20260920_AD0416';folder.mkdir(parents=True,exist_ok=True)
-    (folder/'RESULTS.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n')
+    # Reruns report current execution without overwriting published evidence.
+    print(json.dumps(out,ensure_ascii=False,indent=2))
     raise SystemExit(not result.wasSuccessful())
