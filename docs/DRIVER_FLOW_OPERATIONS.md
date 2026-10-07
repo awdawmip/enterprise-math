@@ -127,6 +127,35 @@ reading those diagnostics. The original raw receipt remains available in bounded
 pages. This exception concerns routing metadata only: actual task, Result, review
 and artifact evidence still must be read as needed, across pages.
 
+For an existing integration route selected by an `ACCEPTED / FOLLOWUP_TASK`
+exact-set synthesis, `EXISTING_CONTROL_ASSET_BOUND` creates only a follow-up
+binding. Set `tasks: []`, and supply one `existing_task_publications` row with
+the synthesis's exact `task_id`, `publication_id`, and
+`task_role: INTEGRATION_OR_TOOL_HARVEST`. Its integration gate must use
+`SATISFIED_BY_EXISTING_CONTROL_ASSET` and cite `Task-ID/Publication-ID` in
+`evidence_refs`. This narrow decision cannot use the integration asset to
+satisfy any other gate, leave REQUIRED gates, or declare Task/parent closure.
+
+If that exact destination has been superseded, the current authorized Driver
+may explicitly supply `current_destination_continuation` with exactly
+`publication_id`, a nonblank `rationale`, and unique `evidence_refs` containing
+both the original and current `Task-ID/Publication-ID` references. Read the
+current taskbook and explain the routing decision. Source requires a complete
+same-Task, same-parent, Driver-published INTEGRATION/MAINTENANCE supersession
+chain to the current operational publication and pins every publication's raw
+bytes and taskbook. It never advances the destination automatically. An absent
+or quarantined current head must first be repaired through canonical publication
+authority; the continuation cannot restore its Result or review authority.
+Use a new immutable taskbook path for any repairing publication; overwriting a
+historical taskbook does not preserve the chain's pinned evidence.
+
+The binding retains the original synthesis, reviews and destination publisher;
+the current Driver/session/DA is recorded separately. Existing destinations are
+not newly derived task publications. This routes remaining work only: it does
+not transfer mathematical acceptance to a later generation, resolve selectors,
+grant Working Truth/Foundation, or close the parent. Do not create another
+review or synthesis merely to update this routing reference.
+
 No Working Truth, Foundation, P000 change, automatic ACCEPTED disposition or
 unperformed experiment is implied by this transport. A result is a mathematical
 or evidence contribution; registering, polling or inspecting the queue alone is

@@ -56,7 +56,7 @@ def _validate_packet_candidate(
     import research_driver_followup as impl
     from control_plane import research_driver_followup_fault_isolation as isolation
 
-    if packet.get("decision") == impl.TASK_SCOPE_DECISION:
+    if packet.get("decision") in {impl.TASK_SCOPE_DECISION, impl.EXISTING_ASSET_DECISION}:
         impl.validate_packet(packet, root, current_publication_required=True)
     else:
         impl.validate_packet(packet, root)
@@ -204,7 +204,15 @@ def materialize(
         ) != binding:
             raise DriverFollowupTransactionError("materialization authority/review/Result changed before write")
 
-    if decision in {"PARENT_OBJECTIVE_CLOSURE", impl.TASK_SCOPE_DECISION}:
+    existing_rows = spec.get("existing_task_publications", [])
+    if decision != impl.EXISTING_ASSET_DECISION and (existing_rows or spec.get("current_destination_continuation") is not None):
+        raise DriverFollowupTransactionError("existing publications require the existing-asset decision")
+    if decision == impl.EXISTING_ASSET_DECISION and binding is None:
+        raise DriverFollowupTransactionError("existing asset binding requires an authenticated current publisher")
+    if decision == impl.EXISTING_ASSET_DECISION and (
+            spec.get("terminal_scope") is not None or spec.get("portfolio_continuation") is not None):
+        raise DriverFollowupTransactionError("existing asset binding is not Task or parent closure")
+    if decision in {"PARENT_OBJECTIVE_CLOSURE", impl.TASK_SCOPE_DECISION, impl.EXISTING_ASSET_DECISION}:
         if task_specs:
             raise DriverFollowupTransactionError(
                 "zero-task follow-up spec cannot include tasks"
@@ -220,6 +228,8 @@ def materialize(
                 "zero-task follow-up cannot leave REQUIRED gates"
             )
         extra = {}
+        if decision == impl.EXISTING_ASSET_DECISION:
+            extra["current_destination_continuation"] = spec.get("current_destination_continuation")
         if decision == impl.TASK_SCOPE_DECISION:
             extra = {"terminal_scope": spec.get("terminal_scope"),
                      "portfolio_continuation": spec.get("portfolio_continuation")}
@@ -227,7 +237,7 @@ def materialize(
             review_id=review_id,
             decision=decision,
             gate_decisions=[normalized_gates[name] for name in impl.GATES],
-            task_publications=[],
+            task_publications=existing_rows if decision == impl.EXISTING_ASSET_DECISION else [],
             driver_id=str(review["driver_id"]),
             created_at=timestamp,
             root=root,

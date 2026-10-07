@@ -8,7 +8,9 @@ immutable follow-up packet.  The packet either:
 * pins one or more post-review immutable task publications (the normal case); or
 * proves that the canonical parent Objective is already CLOSED; or
 * closes a satisfied Task and records a concrete return to the portfolio queue,
-  without closing its parent Objective.
+  without closing its parent Objective; or
+* binds an exact synthesized integration route to an existing published task,
+  with explicit current-Driver continuation when that publication is superseded.
 
 The packet explicitly evaluates formalization, external prior-art/duplication,
 independent replication, integration/tool harvest, adversarial audit, and
@@ -42,9 +44,10 @@ POLICY = "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1"
 CUTOVER_REVIEWED_AT = "2026-08-27T09:19:00+00:00"
 
 TASK_SCOPE_DECISION = "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION"
+EXISTING_ASSET_DECISION = "EXISTING_CONTROL_ASSET_BOUND"
 TASK_COMPLETION_ASSESSMENT_SCHEMA = "ENTERPRISE_MATH_DRIVER_TASK_COMPLETION_ASSESSMENT_V1"
-DECISIONS = {"TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE", TASK_SCOPE_DECISION}
-GATE_DECISIONS = {"REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "NOT_REQUIRED"}
+DECISIONS = {"TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE", TASK_SCOPE_DECISION, EXISTING_ASSET_DECISION}
+GATE_DECISIONS = {"REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET", "NOT_REQUIRED"}
 GATES = (
     "MATHEMATICAL_CONTINUATION",
     "LEAN_FORMALIZATION",
@@ -396,9 +399,9 @@ def _gate_map(value: Any) -> dict[str, dict[str, Any]]:
             or len(evidence) != len(set(evidence))
         ):
             raise DriverFollowupError(f"{gate}: evidence_refs must be a unique string list")
-        if decision == "SATISFIED_BY_REVIEWED_RESULT" and not evidence:
+        if decision in {"SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET"} and not evidence:
             raise DriverFollowupError(
-                f"{gate}: SATISFIED_BY_REVIEWED_RESULT requires evidence_refs"
+                f"{gate}: {decision} requires evidence_refs"
             )
         out[gate] = {
             "gate": gate,
@@ -444,7 +447,7 @@ def _forced_gate_rules(
             )
 
     if disposition == "REQUEST_REPLICATION":
-        if gates["INDEPENDENT_REPLICATION"]["decision"] != "REQUIRED":
+        if gates["INDEPENDENT_REPLICATION"]["decision"] not in {"REQUIRED", "SATISFIED_BY_EXISTING_CONTROL_ASSET"}:
             raise DriverFollowupError(
                 "REQUEST_REPLICATION disposition requires an INDEPENDENT_REPLICATION task"
             )
@@ -475,6 +478,130 @@ def _task_rows(value: Any) -> list[dict[str, Any]]:
         task_id = _safe(row.get("task_id"), "task_id")
         out.append({"task_id": task_id, "publication_id": pid, "task_role": role})
     return out
+
+
+def _synthesis_record_pin(review: dict[str, Any], root: Path) -> dict[str, str]:
+    synthesis = review.get("review_synthesis")
+    rid = _safe(review.get("result_id"), "synthesis result_id")
+    sid = _safe(review.get("review_id"), "synthesis_id")
+    relative = f"research_review_syntheses/{rid}/{sid}.json"
+    path = root / relative
+    if not isinstance(synthesis, dict) or not path.is_file():
+        raise DriverFollowupError("existing asset binding requires the raw exact-set synthesis")
+    raw = _load(path)
+    if (raw.get("schema") != "ENTERPRISE_MATH_REVIEW_SYNTHESIS_V1"
+            or raw.get("synthesis_id") != sid or raw.get("result_id") != rid
+            or raw.get("synthesized_by") != review.get("driver_id")
+            or len(raw.get("review_ids", [])) < 2
+            or sorted(raw.get("review_ids", [])) != sorted(review.get("source_review_ids", []))
+            or raw != {key: value for key, value in synthesis.items() if not key.startswith("_")}):
+        raise DriverFollowupError("existing asset raw synthesis differs from its exact operational authority")
+    return {"synthesis_id": sid, "record_path": relative,
+            "record_sha256": "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest()}
+
+
+def _existing_asset_pins(
+    review: dict[str, Any], rows: list[dict[str, Any]],
+    gates: dict[str, dict[str, Any]], parent: str, root: Path, *,
+    bound_at: str, continuation: Any = None,
+    current_publication_required: bool = False,
+) -> list[dict[str, str]]:
+    """Bind an exact integration route, optionally continued by the live Driver.
+
+    Continuation is an explicit routing judgment, never a replacement synthesis
+    or permission to use a quarantined publication. Preserve every source pin.
+    """
+    if (review.get("review_authority_kind") != "REVIEW_SYNTHESIS"
+            or review.get("disposition") != "ACCEPTED"
+            or review.get("destination_class") != "FOLLOWUP_TASK"):
+        raise DriverFollowupError("existing asset binding requires ACCEPTED/FOLLOWUP_TASK review synthesis")
+    if len(rows) != 1 or rows[0]["task_role"] != "INTEGRATION_OR_TOOL_HARVEST":
+        raise DriverFollowupError("existing asset binding requires one integration task publication")
+    row = rows[0]
+    reference = f"{row['task_id']}/{row['publication_id']}"
+    if review.get("destination_ref_or_none") != reference:
+        raise DriverFollowupError("existing asset differs from the exact synthesis destination")
+    if any(gate["decision"] == "REQUIRED" for gate in gates.values()):
+        raise DriverFollowupError("existing asset binding cannot leave REQUIRED follow-up gates")
+    integration = gates["INTEGRATION_OR_TOOL_HARVEST"]
+    if (integration["decision"] != "SATISFIED_BY_EXISTING_CONTROL_ASSET"
+            or reference not in integration["evidence_refs"]):
+        raise DriverFollowupError("existing integration gate must pin the exact destination reference")
+    for gate in gates.values():
+        if (gate["decision"] == "SATISFIED_BY_EXISTING_CONTROL_ASSET"
+                and gate["gate"] != "INTEGRATION_OR_TOOL_HARVEST"):
+            raise DriverFollowupError("an integration asset cannot satisfy another follow-up gate")
+    publications = publication_map(root)
+    original = publications.get(row["publication_id"])
+    if original is None or original.get("task_lineage") != "INTEGRATION":
+        raise DriverFollowupError("existing synthesis destination must be an integration publication")
+    selected_id = row["publication_id"]
+    if continuation is not None:
+        if not isinstance(continuation, dict) or set(continuation) != {"publication_id", "rationale", "evidence_refs"}:
+            raise DriverFollowupError("current destination continuation requires publication_id, rationale and evidence_refs")
+        selected_id = _safe(continuation.get("publication_id"), "continued destination publication_id")
+        if selected_id == row["publication_id"]:
+            raise DriverFollowupError("destination continuation must identify a later publication")
+        if not isinstance(continuation.get("rationale"), str) or not continuation["rationale"].strip():
+            raise DriverFollowupError("destination continuation requires the current Driver's routing rationale")
+        evidence = continuation.get("evidence_refs")
+        if (not isinstance(evidence, list) or not evidence
+                or any(not isinstance(ref, str) or not ref.strip() for ref in evidence)
+                or len(evidence) != len(set(evidence))
+                or reference not in evidence
+                or f"{row['task_id']}/{selected_id}" not in evidence):
+            raise DriverFollowupError("destination continuation must cite both exact source and current publication references")
+    if current_publication_required:
+        current = research_task_records.current_records(root).get(row["task_id"])
+        if current is None or current.get("publication_id") != selected_id:
+            raise DriverFollowupError(
+                "existing asset requires the current operational publication; the authorized Driver must "
+                "explicitly continue the exact route to a valid current publication, or repair its publication first"
+            )
+    # Resolve only the explicitly selected publication; never advance it from a
+    # timestamp or automatically replace the synthesis destination.
+    pins = []
+    seen = set()
+    pid = selected_id
+    while True:
+        if pid in seen:
+            raise DriverFollowupError("existing asset publication succession contains a cycle")
+        seen.add(pid)
+        publication = publications.get(pid)
+        if (publication is None or publication.get("task_id") != row["task_id"]
+                or publication.get("parent_objective_id") != parent
+                or publication.get("publisher_role") != "RESEARCH_DRIVER"
+                or publication.get("task_lineage") not in {"INTEGRATION", "MAINTENANCE"}):
+            raise DriverFollowupError("existing asset requires a Driver-published integration/maintenance chain in the same parent")
+        if _parse_time(publication.get("published_at"), "published_at") > _parse_time(bound_at, "bound_at"):
+            raise DriverFollowupError("existing asset publication postdates its binding")
+        relative = research_task_records.record_path(root, row["task_id"], pid).relative_to(root).as_posix()
+        path = root / relative
+        if not path.is_file():
+            raise DriverFollowupError("existing asset raw publication is unavailable")
+        raw = _load(path)
+        for key in ("task_id", "publication_id", "publisher_role", "publisher_id", "published_at",
+                    "parent_objective_id", "task_lineage", "taskbook_path", "taskbook_blob_sha1",
+                    "supersedes_publication_id", "publication_generation"):
+            if raw.get(key) != publication.get(key):
+                raise DriverFollowupError("existing asset raw publication differs from its validated view")
+        taskbook_relative = publication.get("taskbook_path")
+        taskbook = (root / str(taskbook_relative)).resolve()
+        if not taskbook.is_relative_to((root / "research_tasks").resolve()) or not taskbook.is_file():
+            raise DriverFollowupError("existing asset taskbook is unavailable")
+        blob = research_task_records.taskbook_blob(taskbook)
+        if blob != publication.get("taskbook_blob_sha1"):
+            raise DriverFollowupError("existing asset taskbook blob drift")
+        pins.append({"task_id": row["task_id"], "publication_id": pid,
+                     "record_path": relative,
+                     "record_sha256": "sha256:" + hashlib.sha256(path.read_bytes()).hexdigest(),
+                     "taskbook_path": taskbook_relative, "taskbook_blob_sha1": blob})
+        if pid == row["publication_id"]:
+            break
+        pid = publication.get("supersedes_publication_id")
+        if not isinstance(pid, str) or not pid:
+            raise DriverFollowupError("current destination is not a successor of the exact synthesis destination")
+    return list(reversed(pins))
 
 
 def _source_review_record_pin(
@@ -586,6 +713,7 @@ def build_packet(
     portfolio_continuation: dict[str, Any] | None = None,
     publishing_driver_id: str | None = None,
     publisher_session_id: str | None = None,
+    current_destination_continuation: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     reviews = review_map(root)
     results = result_map(root)
@@ -637,6 +765,22 @@ def build_packet(
     )
     if publisher is not None:
         value["materialization_publisher"] = publisher
+    if decision == EXISTING_ASSET_DECISION:
+        if publisher is None:
+            raise DriverFollowupError("existing asset binding requires an authenticated current publisher")
+        current = research_task_records.current_records(root).get(result["task_id"])
+        if current is None or current.get("publication_id") != result.get("publication_id"):
+            raise DriverFollowupError("existing asset binding requires the current source Task publication")
+        value.update(
+            task_publications=[], existing_task_publications=rows,
+            source_synthesis_record_pin=_synthesis_record_pin(review, root),
+            existing_asset_pins=_existing_asset_pins(review, rows, gates, parent, root,
+                bound_at=created_at, continuation=current_destination_continuation,
+                current_publication_required=True),
+            parent_completion_granted=False, parent_final_granted=False,
+        )
+        if current_destination_continuation is not None:
+            value["current_destination_continuation"] = current_destination_continuation
     if decision == TASK_SCOPE_DECISION:
         continuation = _task_scope_continuation(
             review, result, terminal_scope=terminal_scope,
@@ -714,6 +858,12 @@ def validate_packet(
     decision = packet.get("decision")
     if decision not in DECISIONS:
         raise DriverFollowupError("invalid follow-up decision")
+    if decision == EXISTING_ASSET_DECISION:
+        if rows:
+            raise DriverFollowupError("existing asset binding cannot publish new tasks")
+        rows = _task_rows(packet.get("existing_task_publications"))
+    elif packet.get("existing_task_publications") or packet.get("current_destination_continuation") is not None:
+        raise DriverFollowupError("existing publications require the existing-asset decision")
 
     created = _parse_time(packet.get("created_at"), "packet created_at")
     reviewed = _parse_time(review.get("reviewed_at"), "reviewed_at")
@@ -735,6 +885,25 @@ def validate_packet(
             raise DriverFollowupError(
                 f"required follow-up gates have no matching published task role: {missing}"
             )
+    elif decision == EXISTING_ASSET_DECISION:
+        if publisher is None:
+            raise DriverFollowupError("existing asset binding requires an authenticated current publisher")
+        if packet.get("source_synthesis_record_pin") != _synthesis_record_pin(review, root):
+            raise DriverFollowupError("existing asset raw synthesis pin drift")
+        if current_publication_required:
+            current = research_task_records.current_records(root).get(result["task_id"])
+            if current is None or current.get("publication_id") != result.get("publication_id"):
+                raise DriverFollowupError("existing asset binding requires the current source Task publication")
+        pins = _existing_asset_pins(review, rows, gates, parent, root,
+            bound_at=packet.get("created_at"), continuation=packet.get("current_destination_continuation"),
+            current_publication_required=current_publication_required)
+        if packet.get("existing_asset_pins") != pins:
+            raise DriverFollowupError("existing asset publication/taskbook pin drift")
+        for flag in ("parent_completion_granted", "parent_final_granted"):
+            if packet.get(flag) is not False:
+                raise DriverFollowupError("existing asset binding cannot grant parent completion/final")
+        if packet.get("terminal_scope") is not None or packet.get("portfolio_continuation") is not None:
+            raise DriverFollowupError("existing asset binding is not Task or parent closure")
     elif decision == TASK_SCOPE_DECISION:
         _task_scope_continuation(
             review, result, terminal_scope=packet.get("terminal_scope"),
@@ -782,7 +951,8 @@ def validate_packet(
             raise DriverFollowupError(
                 f"{row['publication_id']}: automatic review follow-up must be Driver-published"
             )
-        if str(publication.get("publisher_id", "")).strip().upper() != str(publishing_driver).strip().upper():
+        if (decision != EXISTING_ASSET_DECISION and
+                str(publication.get("publisher_id", "")).strip().upper() != str(publishing_driver).strip().upper()):
             raise DriverFollowupError(
                 f"{row['publication_id']}: " + (
                     "follow-up task publisher differs from the bound materializing Driver"
@@ -790,7 +960,9 @@ def validate_packet(
                 )
             )
         published = _parse_time(publication.get("published_at"), "published_at")
-        if published < reviewed:
+        if decision == EXISTING_ASSET_DECISION and published > created:
+            raise DriverFollowupError("existing asset publication postdates its binding")
+        if decision != EXISTING_ASSET_DECISION and published < reviewed:
             raise DriverFollowupError(
                 f"{row['publication_id']}: follow-up task was published before the review"
             )
@@ -908,6 +1080,7 @@ def state_for_review(review_id: str, root: Path = ROOT) -> dict[str, Any]:
             "TASK_SET_PUBLISHED": "FOLLOWUP_TASKSET_READY",
             "PARENT_OBJECTIVE_CLOSURE": "PARENT_OBJECTIVE_CLOSED",
             TASK_SCOPE_DECISION: "TASK_SCOPE_CLOSED_PORTFOLIO_CONTINUATION",
+            EXISTING_ASSET_DECISION: "EXISTING_CONTROL_ASSET_READY",
         }[packet["decision"]],
         "packet": packet,
     }
@@ -1036,7 +1209,7 @@ def materialize(
     publishing_driver_id: str | None = None,
     publisher_session_id: str | None = None,
 ) -> dict[str, Any]:
-    if (spec.get("decision") == TASK_SCOPE_DECISION
+    if (spec.get("decision") in {TASK_SCOPE_DECISION, EXISTING_ASSET_DECISION}
             or publishing_driver_id is not None or publisher_session_id is not None):
         # The public and storage entry points share the same candidate-first,
         # exact-byte transaction for this new decision.

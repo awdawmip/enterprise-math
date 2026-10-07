@@ -456,6 +456,8 @@ def _preflight_first_review_followup(
     tasks = spec.get("tasks", [])
     if decision not in _followup_impl.DECISIONS:
         raise ResultRecordError("follow-up spec decision is invalid")
+    if decision == _followup_impl.EXISTING_ASSET_DECISION:
+        raise ResultRecordError("existing asset binding requires an existing exact-set review synthesis")
     if not isinstance(tasks, list):
         raise ResultRecordError("follow-up spec tasks must be a list")
     if decision == "TASK_SET_PUBLISHED":

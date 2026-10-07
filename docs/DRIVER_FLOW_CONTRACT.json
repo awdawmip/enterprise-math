@@ -266,7 +266,8 @@
       "decision_enum": [
         "TASK_SET_PUBLISHED",
         "PARENT_OBJECTIVE_CLOSURE",
-        "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION"
+        "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION",
+        "EXISTING_CONTROL_ASSET_BOUND"
       ],
       "tasks_default": [],
       "gate_decisions": {
@@ -353,12 +354,92 @@
       "decision_conditions": {
         "TASK_SET_PUBLISHED": "One or more substantive tasks; preserve Result successor restrictions and parent Objective.",
         "PARENT_OBJECTIVE_CLOSURE": "No tasks or REQUIRED gates; parent Objective must already be canonically CLOSED.",
-        "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": "No tasks or REQUIRED gates; accepted PASS/SUCCESS Task with SATISFIED hard target or the native pinned explicit Driver satisfaction assessment. Requires terminal_scope=TASK and portfolio_continuation; grants no parent completion."
+        "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": "No tasks or REQUIRED gates; accepted PASS/SUCCESS Task with SATISFIED hard target or the native pinned explicit Driver satisfaction assessment. Requires terminal_scope=TASK and portfolio_continuation; grants no parent completion.",
+        "EXISTING_CONTROL_ASSET_BOUND": "No new tasks or REQUIRED gates. Bind exactly the existing integration publication named by an ACCEPTED/FOLLOWUP_TASK exact-set synthesis. Require the current source Task publication, own active Driver session/DA, and current operational destination; any later destination generation requires explicit current_destination_continuation. Preserve historical authors and grant no Task or parent closure."
       },
       "conditional_required_fields": {
         "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": [
           "terminal_scope",
           "portfolio_continuation"
+        ],
+        "EXISTING_CONTROL_ASSET_BOUND": [
+          "existing_task_publications"
+        ]
+      },
+      "existing_task_publications": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 1,
+        "items": {
+          "type": "object",
+          "required": [
+            "task_id",
+            "publication_id",
+            "task_role"
+          ],
+          "properties": {
+            "task_id": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Exact synthesis destination Task ID."
+            },
+            "publication_id": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Exact original synthesis destination publication ID; never replace it with a later generation."
+            },
+            "task_role": {
+              "type": "string",
+              "const": "INTEGRATION_OR_TOOL_HARVEST"
+            }
+          }
+        },
+        "rules": [
+          "Only valid for EXISTING_CONTROL_ASSET_BOUND; tasks must be empty.",
+          "The original destination must be a Driver-published INTEGRATION Task in the same parent Objective.",
+          "INTEGRATION_OR_TOOL_HARVEST must use SATISFIED_BY_EXISTING_CONTROL_ASSET and cite task_id/publication_id.",
+          "Other gates cannot use this integration asset as satisfaction evidence; no gate may remain REQUIRED.",
+          "The native writer pins raw publication bytes and taskbook blobs and preserves the original publisher; existing references are not newly published tasks."
+        ]
+      },
+      "current_destination_continuation": {
+        "type": "object",
+        "required": [
+          "publication_id",
+          "rationale",
+          "evidence_refs"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "publication_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Explicit current operational publication of the same destination Task, later than the exact synthesis destination."
+          },
+          "rationale": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "\\S",
+            "description": "Current Driver judgment explaining why this continuation preserves the synthesis routing."
+          },
+          "evidence_refs": {
+            "type": "array",
+            "minItems": 2,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "\\S"
+            },
+            "description": "Must include both task_id/original_publication_id and task_id/current_publication_id."
+          }
+        },
+        "rules": [
+          "Optional only for EXISTING_CONTROL_ASSET_BOUND; no implicit advance to a newer publication.",
+          "The entire supersedes chain must reach the exact original destination and preserve Task ID and parent Objective.",
+          "Every chain publication must be Driver-published INTEGRATION or MAINTENANCE; the original remains INTEGRATION.",
+          "The native writer generates and verifies every raw publication/taskbook pin; callers do not supply chain pins.",
+          "No synthesis rewrite, duplicate Task, closure, or change of historical authorship is authorized."
         ]
       },
       "terminal_scope": {
