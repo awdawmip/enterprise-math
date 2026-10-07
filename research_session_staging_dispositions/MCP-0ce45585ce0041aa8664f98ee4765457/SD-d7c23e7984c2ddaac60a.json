@@ -1,0 +1,102 @@
+{
+  "authority_granted": false,
+  "classification": "NEUTRAL_STAGING_PRESERVATION_NOT_RESEARCH_PROGRESS",
+  "disposition": "PRESERVED_FOR_SESSION_SUCCESSION",
+  "disposition_id": "SD-d7c23e7984c2ddaac60a",
+  "execution_authorized": false,
+  "execution_id": "EM-DIRECT-B63A06",
+  "inventory_sha256": "48f488f6ae3d65ee603b2928408987f9c7c53147844ab70079136c84c27c3c74",
+  "mathematical_acceptance_granted": false,
+  "preservation_semantics": "EXACT_OLD_SESSION_STAGING_PROVENANCE_ONLY",
+  "prior_contribution_ids": [],
+  "reason": "Neutral preservation of the three unresolved 2026-09-23 staging uploads before closing the predecessor session. Keep their original provenance and independent-source disposition; do not treat them as D25 progress, task inputs, or accepted UR evidence.",
+  "research_progress_claimed": false,
+  "role": "RESEARCHER",
+  "schema": "ENTERPRISE_MATH_MCP_STAGING_DISPOSITION_V1",
+  "session_id": "MCP-0ce45585ce0041aa8664f98ee4765457",
+  "total_staged_bytes": 11301,
+  "upload_count": 3,
+  "uploads": [
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "c61952fcf86513fd6e6dee208d49855bd86898a1ee2c465d59c0e4d87cd88b1d",
+          "native_payload_sha256": "186f9712982b6674b34cd4b9b07196dc4daa60c95d20b2653cc6fabaa99ae6c7",
+          "part_index": 0,
+          "request_id": "research-onhour-upload-checker-20260923-1400",
+          "request_sha256": "ad89b19562da3c318c0f894cdbfea839ab1edae869c8ba8244786916b8a6dba6",
+          "session_id": "MCP-0ce45585ce0041aa8664f98ee4765457"
+        }
+      ],
+      "complete": true,
+      "filename": "check_ur_chisholm_weighted_w2_20260923.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 1005,
+          "content_utf8": "def is_prime(n):\n    if n < 2:\n        return False\n    if n % 2 == 0:\n        return n == 2\n    d = 3\n    while d*d <= n:\n        if n % d == 0:\n            return False\n        d += 2\n    return True\n\ndef weighted_W_mod_p2(p):\n    mod = p*p\n    c = 1\n    total = 1\n    for k in range(p-1):\n        num = (2*k+1)*(3*k+1)*(3*k+2)\n        den = 36*(k+1)**3\n        c = (c * (num % mod) * pow(den, -1, mod)) % mod\n        n = k+1\n        total = (total + (6*n+1)*c) % mod\n    return total\n\ntested = []\nfailures = []\nfor p in range(5, 2000):\n    if is_prime(p) and p % 24 in (13, 19):\n        tested.append(p)\n        got = weighted_W_mod_p2(p)\n        if got != p % (p*p):\n            failures.append((p, got))\n\nprint({\"tested\": len(tested),\n       \"class13\": sum(p % 24 == 13 for p in tested),\n       \"class19\": sum(p % 24 == 19 for p in tested),\n       \"failures\": failures})\nassert len(tested) == 77\nassert failures == []\n# Exact finite regression/falsification only; not proof of the all-prime theorem.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "22ade4f93276cb6bd6a3a760597b8d517bb185cd22e41aef091662f67854ea87"
+        }
+      ],
+      "sha256": "22ade4f93276cb6bd6a3a760597b8d517bb185cd22e41aef091662f67854ea87",
+      "total_bytes": 1005,
+      "upload_id": "ur-chisholm-checker-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "36041a2b4507de7f96fe3794cf8293f512174519cafa9973cced8ce8ed74716e",
+          "native_payload_sha256": "e3208b8246a863699041bd449048e33558b9ae217934d9c0c727919c516befd8",
+          "part_index": 0,
+          "request_id": "research-onhour-upload-audit-20260923-1359",
+          "request_sha256": "c62375a54560fbcffc798a965798eb802100591098733cc387ea9bfd363ba96e",
+          "session_id": "MCP-0ce45585ce0041aa8664f98ee4765457"
+        }
+      ],
+      "complete": true,
+      "filename": "ur_chisholm_independent_audit_20260923.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 6463,
+          "content_utf8": "# Independent Chisholm audit for D=-24 UR/JT0\n\nStatus: `UNPUBLISHED_RESEARCH_DRAFT / MATHEMATICAL_AUDIT_PASSES / SOURCE_CHECKPOINT_BLOCKED_BY_CONTINUATION_AUTH_BUG`\n\nTask: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY`\nPublication: `TP2-C0E85430A37213F301EB`\nFrozen task Source pin from the current canonical continuation packet: `f0b30607e9abd6d578c0fee9d3bfc8aeb53a06d7`.\n\nThis note does not claim Result, freeze, Driver acceptance, Working Truth, or Foundation promotion. It independently audits the successor handoff's unreviewed Sep-8 prior-art closure candidate.\n\n## 1. Frozen accepted input\n\nFor every prime p ≡ 13 or 19 (mod 24), m=(p-1)/6, the accepted predecessor RR-82F6383FB6634F72B457 / DR-2EA60F5817976E662FA6 supplies B_0=1 and B_{k+1}/B_k=((6k+1)(3k+1))/(36(k+1)^2); g=sum_{k=0}^{p-1} B_k, h=sum_{k=0}^{p-1}(12k+1)B_k, p|g, and G_p=g/p; Q_m(1/2)=0 (mod p), Q'_m(1/2) != 0 (mod p); h ≡ -6 Q'_m(1/2) (mod p); and JT0 iff UR, where UR is G_p(-6Q'_m(1/2)) ≡ 1 (mod p). CM0, SIMPLE and this scalar reduction are frozen and are not reproved here.\n\n## 2. Exact normalization d=3, lambda=1/2, a=6\n\nChan--Liaw, Pacific J. Math. 192 (2000), Theorem 1.1, writes 1/pi = sum_{r>=0}(a_n+b_n r) C_r H_n^r, C_r=((1/2)_r(1/3)_r(2/3)_r)/(r!)^3. Their Table 6 gives at n=2 a_2=1/(3 sqrt(3)), b_2=2/sqrt(3), H_2=1/2. Therefore 3 sqrt(3)/pi = sum_{r>=0}(6r+1) C_r (1/2)^r. Thus, in the normalization of Chisholm--Deines--Long--Nebe--Swisher Theorem 1, the exact parameters are d=3, lambda_3=1/2, a=6 (and delta=3 sqrt(3)). No numerical fitting is used.\n\nPrimary references: H. H. Chan, W.-C. Liaw, \"Cubic modular equations and new Ramanujan-type series for 1/pi\", Pacific J. Math. 192(2) (2000), Theorem 1.1 and Table 6; S. Chisholm, A. Deines, L. Long, G. Nebe, H. Swisher, \"p-Adic Analogues of Ramanujan Type Formulas for 1/pi\", Mathematics 1(1) (2013), 9-30, DOI 10.3390/math1010009, Theorem 1.\n\n## 3. Exact Chisholm curve binding and good reduction\n\nFor d=3 the Chisholm family is E~_3(t): y^2 + xy + (t/27)y = x^3, with lambda=-4t(t-1)=4t(1-t) and t=(1-sqrt(1-lambda))/2. At lambda=1/2, t=(1-1/sqrt(2))/2 and t(1-t)=1/8. For a1=1, a3=t/27, a2=a4=a6=0: b2=1, b4=t/27, b6=t^2/729, b8=0, Delta=t^3(1-t)/3^9, c4=(9-8t)/9, j=c4^3/Delta. Substitution gives j = 2417472 + 1707264 sqrt(2) for the chosen square root, with the conjugate sign for the other port. The accepted predecessor identifies precisely these two j-values as the roots of the Hilbert class polynomial of discriminant -24, hence CM by Q(sqrt(-6)). Therefore the curve in Chisholm Theorem 1 is the same CM isomorphism class used by the accepted project CM0 argument.\n\nFor every target p: p>=13, so p is odd and p does not divide 6; Q(sqrt(1-lambda))=Q(sqrt(2)) has discriminant 8, hence p is unramified; t and 1-t are p-integral and t(1-t)=1/8 is a p-unit, so Delta=t^3(1-t)/3^9 is a p-unit and reduction is good; a=6 and lambda=1/2 are p-adic units; the accepted CM calculation has (-6/p)=-1 on both target classes, so the good CM reduction is supersingular. Thus every hypothesis of Chisholm Theorem 1 is satisfied for every target prime.\n\n## 4. Chisholm sign on both residue classes\n\nTheorem 1 gives W_p ≡ sgn * ((1-lambda)/p) * p (mod p^2), where W_p=sum_{k=0}^{p-1}(6k+1) C_k 2^{-k}, and sgn=1 iff the CM curve is ordinary modulo p. Here the curve is supersingular, hence sgn=-1. For p≡13 or 19 (mod 24), p≡5 or 3 (mod 8), respectively, so ((1-lambda)/p)=(1/2|p)=(2|p)=-1. Therefore the two signs cancel: W_p ≡ p (mod p^2) uniformly on both target residue classes.\n\n## 5. Independent exact bridge W_p <-> UR\n\nThis bridge is rederived algebraically so the unreviewed Sep-8 claim is not used as authority. The accepted recurrence and B_0=1 give exactly B_k=((1/6)_k(1/3)_k)/(k!)^2 * 2^{-k}. Define C_n=((1/2)_n(1/3)_n(2/3)_n)/(n!)^3 * 2^{-n}. Clausen's identity with a=1/6, b=1/3 gives C_n = sum_{i+j=n} B_i B_j. By symmetry, sum_{i+j=n}(12j+1)B_iB_j=(6n+1)C_n. Hence g h - W_p is exactly the convolution tail over 0<=i,j<p and i+j>=p.\n\nWrite p=6m+1. For k<p, denominators are p-units and v_p(B_k)=1_{k>=m+1}+1_{k>=2m+1}. The unique p-factor in (1/6)_k occurs at r=m and the unique p-factor in (1/3)_k occurs at r=2m. If i+j>=6m+1: if i,j>=m+1 then v_p(B_iB_j)>=2; if, say, i<=m then j>=5m+1>=2m+1, so v_p(B_j)>=2. Thus every omitted convolution term is in p^2 Z_(p), and W_p ≡ g h (mod p^2). Since g=pG_p, W_p≡p (mod p^2) iff G_p h≡1 (mod p). The accepted parent has h≡-6Q'_m(1/2) (mod p), so this is exactly UR, and the accepted parent gives UR iff JT0. Therefore Chisholm Theorem 1 plus the independently checked normalization/hypotheses proves UR and JT0 for every target prime.\n\n## 6. BRC information audit\n\nPopulation: all primes p≡13,19 (mod 24), keeping the two residue classes labeled. Carrier before theorem factorization: labeled k, exact rational B_k and C_k, v_p(B_k), g,h,G_p,Q'_m(1/2), and the Chisholm CM/model provenance. Observers: W_p mod p^2 and UR mod p. Operations retained: convolution, p-adic valuation, division g/p only after p|g, and multiplication by transverse unit h. Loss guard: W_p may quotient-close the first digit only because W_p≡gh (mod p^2) and the accepted scalar reconstruction are proved. It does not replace G_p mod p^2, h mod p^2, R_p, Frobenius-port data, or any second-digit coordinate needed for LIFT. Positive mass is not used as signed cancellation evidence. `BRC_REUSE_RESOLUTION = REUSE_APPLIED + COMPOSE_APPLIED`.\n\n## 7. Exact regression/falsification only\n\nA deterministic modular checker evaluates C_{k+1}/C_k=((2k+1)(3k+1)(3k+2))/(36(k+1)^3) mod p^2 and W_p directly. It was executed on every target prime p<2000: 77 primes total; 40 in class 13 mod 24; 37 in class 19 mod 24; failures of W_p≡p mod p^2: 0. This finite run is regression/falsification only and is not part of the all-prime proof.\n\n## 8. Disposition and boundary\n\nResearcher-level mathematical disposition: `UR = PROVED_BY_INDEPENDENT_AUDIT_OF_CHISHOLM_THEOREM_1`; `JT0 = PROVED` through the accepted JT0<->UR interface; `LIFT/JT2 = NOT CLAIMED / DEFERRED`. Formal control disposition remains unchanged until Source publication and independent Driver review. The current ordinary-Chat continuation path is blocked because stable last_progress_ref `DR-2EA60F5817976E662FA6` is not authenticated against its immutable review path by continuation_prepare, despite a complete hash-verified artifact read of that exact path.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "f87ff550eddcc138c4e88606c995f8608fa07dc2eeb3184e5aa4e43013e560ef"
+        }
+      ],
+      "sha256": "f87ff550eddcc138c4e88606c995f8608fa07dc2eeb3184e5aa4e43013e560ef",
+      "total_bytes": 6463,
+      "upload_id": "ur-chisholm-independent-audit-20260923"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "94d3580809860722f214b407ce2bcc3fa3c8c6e11ab4270ce6af60696cb9bcc7",
+          "native_payload_sha256": "d69b3e4d9ccd27a5340e0250be2d3516c827b51afb5ad0a6f5ba6f7be950c3f5",
+          "part_index": 0,
+          "request_id": "research-onhour-upload-handoff-20260923-1403",
+          "request_sha256": "323b2dea1e169b7e7a6f40f3343dfbd3a751f306975cfe96ecc7b03d9eface4b",
+          "session_id": "MCP-0ce45585ce0041aa8664f98ee4765457"
+        }
+      ],
+      "complete": true,
+      "filename": "ur_recovery_handoff_20260923.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 3833,
+          "content_utf8": "# UR task recovery handoff — unpublished staged evidence\n\nTask: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SUPERSINGULAR-UNIT-RECIPROCITY`\nPublication: `TP2-C0E85430A37213F301EB`\nLogical conversation: `chatgpt-research-onhour-enterprise-math-20260923`\nFrozen Source pin from current canonical continuation: `f0b30607e9abd6d578c0fee9d3bfc8aeb53a06d7`.\n\n## Highest immutable input\nAccepted predecessor Result `RR-82F6383FB6634F72B457` and Driver Review `DR-2EA60F5817976E662FA6`: CM0 and SIMPLE proved; JT0 iff UR; JT2 iff UR+LIFT. Do not reopen those units. Successor handoff requires an independent audit of the unreviewed Sep-8 Chisholm closure candidate before longer UR work.\n\n## New completed scientific unit in this continuation\nIndependent source-and-algebra audit passes uniformly for both p mod 24 classes. Chan--Liaw Theorem 1.1 + Table 6 fixes the exact Ramanujan normalization d=3, lambda=1/2, a=6. The Chisholm d=3 model has Delta=t^3(1-t)/3^9 and j=2417472±1707264 sqrt(2), binding it to the accepted D=-24 CM isomorphism class. All Chisholm Theorem 1 local hypotheses are verified for every target p; supersingular sgn=-1 and (1/2|p)=-1, hence W_p≡p mod p^2. Independently, Clausen plus exact B_k valuations proves W_p≡g h mod p^2, so the accepted g=pG_p and h≡-6Q'_m(1/2) interface gives W_p≡p iff UR iff JT0. No finite scan is used in the proof.\n\nDeterministic exact regression was executed for all 77 target primes p<2000 (40 in class 13, 37 in class 19), zero W_p mod p^2 failures; regression only.\n\n## Staged evidence\n- `research-onhour-upload-audit-20260923-1359`: `ur_chisholm_independent_audit_20260923.md`, complete=1, SHA-256 `f87ff550eddcc138c4e88606c995f8608fa07dc2eeb3184e5aa4e43013e560ef`, source_published=false.\n- `research-onhour-upload-checker-20260923-1400`: `check_ur_chisholm_weighted_w2_20260923.py`, complete=1, SHA-256 `22ade4f93276cb6bd6a3a760597b8d517bb185cd22e41aef091662f67854ea87`, source_published=false.\n\n## Control blocker and bounded diagnosis\nFresh dispatch `research-onhour-dispatch-20260923-1341` selected `CLAIM_NEW_OWNER`, but ordinary prepare `research-onhour-prepare-20260923-1348` failed `TYPED_CONTINUATION_REQUIRED_FOR_PREDECESSOR`. Exact continuation `research-onhour-continuation-20260923-1351` reports `last_progress_ref=DR-2EA60F5817976E662FA6`, `progress_reference_readback=null`, `persisted_checkpoint=NOT_FOUND`. Exact immutable review artifact request `research-onhour-review-artifact-20260923-1354` succeeded with complete hash verification, yet typed continuation_prepare `research-onhour-continuation-prepare-20260923-1356` still rejected `CHAT_AUTHENTICATED_LAST_PROGRESS_ARTIFACT_REQUIRED`. Existing support issue Enterprise Math #1501 was updated with this acceptance-path evidence; do not open a duplicate support ticket or replay the same mutation until the mapping changes.\n\nNo CLAIM/open/run was obtained; `execution_authorized=false`. Therefore no Source checkpoint, Result, freeze, or review is claimed.\n\n## Do not repeat\nDo not redo CM0/SIMPLE, finite-tail, harmonic-block or eliminated Clausen-tail work. Do not re-audit the same Chisholm normalization/model/hypotheses unless source bytes or the accepted interface changes. Do not enter LIFT/JT2 while UR lacks terminal accepted Result/Review.\n\n## Next precise action\nAfter #1501's stable-record-ID -> immutable review mapping is deployed and a fresh continuation authenticates its last progress, use the canonical typed continuation path once, obtain the real CLAIM and OPEN, then publish the staged audit + checker (and this handoff if useful) in one checkpoint with readback. Freeze the UR/JT0 Result candidate only after that publication succeeds, then route to an independent Driver. LIFT becomes eligible only after terminal acceptance of UR or an explicit canonical route change.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "5657a5587cd82332edbf2c045ff30a351110b24cbdde3a6a7769e12e7936dd23"
+        }
+      ],
+      "sha256": "5657a5587cd82332edbf2c045ff30a351110b24cbdde3a6a7769e12e7936dd23",
+      "total_bytes": 3833,
+      "upload_id": "ur-recovery-handoff-20260923"
+    }
+  ]
+}
