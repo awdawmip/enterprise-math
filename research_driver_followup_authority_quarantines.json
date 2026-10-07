@@ -446,6 +446,38 @@
       "foundation_authority_granted": false,
       "canonical_promotion_granted": false,
       "successor_triggered": false
+    },
+    {
+      "packet_id": "DFU-DE13EAB9DD2E957054F1",
+      "review_id": "DR-CC898FED6F444A808B06",
+      "result_id": "RR-15457ACA568B33A04CE7",
+      "packet_path": "research_driver_followups/DR-CC898FED6F444A808B06/DFU-DE13EAB9DD2E957054F1.json",
+      "packet_blob_sha1": "sha1:351237800034fefd704f6086fe5f25ff5b2e02e6",
+      "state": "NONOPERATIONAL_SOURCE_REVIEW",
+      "operational": false,
+      "history_preserved": true,
+      "source_review_basis": "DRIVER_REVIEW_AUTHORITY",
+      "isolation_kind": "PACKET_AND_DERIVED_TASKS",
+      "packet_decision": "TASK_SET_PUBLISHED",
+      "expected_post_review_isolation_error": "packet references unknown review",
+      "derived_task_publications": [
+        {
+          "task_id": "GV-P000-Q30-N14-PRIOR-ART-AND-CONTINUATION-AUDIT",
+          "publication_id": "TP2-27E91D099F0486EF316E",
+          "publication_record_path": "research_task_records/GV-P000-Q30-N14-PRIOR-ART-AND-CONTINUATION-AUDIT/TP2-27E91D099F0486EF316E.json",
+          "publication_record_blob_sha1": "sha1:a5a9d5eaef331ebeee28ae97b101c243cd1238a9",
+          "taskbook_path": "research_tasks/P000_Q30_N14_PRIOR_ART_AND_CONTINUATION_AUDIT_20261003.md",
+          "taskbook_blob_sha1": "sha1:f54b32e7a303c702794cad438649e15fc0ec038a",
+          "source_packet_ids": [
+            "DFU-DE13EAB9DD2E957054F1"
+          ]
+        }
+      ],
+      "reason": "The exact source review currently fails the Source-backed Driver authority gate. Preserve this packet, its materialization publisher binding and its sole derived governance publication as immutable history while withholding their operational authority. The independently published n15 task appears only as evidence and is not isolated by this entry. No disposition, historical authority, claim, replacement review or mathematical outcome is created.",
+      "working_truth_granted": false,
+      "foundation_authority_granted": false,
+      "canonical_promotion_granted": false,
+      "successor_triggered": false
     }
   ]
 }
