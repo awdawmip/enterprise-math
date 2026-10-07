@@ -1,0 +1,82 @@
+{
+  "schema": "CELL_U5_LIFECYCLE_CHECKPOINT_V1",
+  "event_id": "EM-20261007-CELL-U5-LIFECYCLE-3E72B9",
+  "status": "CONDITIONAL_NOT_NATIVE_FORCE_NOT_ADMITTED",
+  "activity_id": "RA-C064C8C07A1537D58768B0BC",
+  "global_read_snapshot": "d4b7e8a3a08512e5826d88d8d08f1a145098c20a",
+  "recovered_U4_source": "01a5bd2d33dc832686a82bef60c49cbbf02bb28d",
+  "current_scientific_source_rule": "PIN_THIS_DIRECTORY_BY_ITS_CONTAINING_IMMUTABLE_COMMIT",
+  "source_directory": "research_notes/chatgpt_direct/20261007_cell_u5_lifecycle_3e72b9",
+  "theorems": [
+    "all_future_adaptive_occupancy_TV_bound_under_U4_infinity",
+    "finite_fading_pulse_finitely_many_moves_almost_sure_under_trial_measure",
+    "new_local_release_budget_identity_and_changed_state_boundary"
+  ],
+  "two_query": {
+    "left_first_outcomes": 143,
+    "right_first_outcomes": 155,
+    "left_path_outcomes": 20515,
+    "right_path_outcomes": 22386,
+    "left_second_resolution_branches": 20617,
+    "right_second_resolution_branches": 22490,
+    "first_TV": "3/110656",
+    "path_TV": "3/110656",
+    "final_TV": "37068120941770227148392795729569336949876019047355/1367300349502536462790895453460777220512683905183706688",
+    "delta3_l1": "1/18432",
+    "delta4_l1": "1/73728",
+    "uniform_infinite_future_TV_bound": "1/1152",
+    "uniform_two_query_TV_bound": "5/6144",
+    "first_step_refined_infinite_TV_bound": "124477/509902848"
+  },
+  "motion_cutoffs": {
+    "2": {
+      "after_stage": 13,
+      "future_any_motion_bound": "1/2097152",
+      "previous_bound": "1/524288"
+    },
+    "4": {
+      "after_stage": 13,
+      "future_any_motion_bound": "1/1048576",
+      "previous_bound": "1/262144"
+    }
+  },
+  "new_release": {
+    "rho": "1/4",
+    "epsilon": "1/8",
+    "global_active_limit_fraction": "1/7",
+    "same_active_field_next_TV": "1/9",
+    "sustained_local_motion_proved": false
+  },
+  "checks": 302958,
+  "actual_BRC_calls": {
+    "cwm_edge": 51320,
+    "cwm_propagate": 916531,
+    "cwm_recoalesce": 904560,
+    "one_state_recurrent_cwm": 35
+  },
+  "trace_sha256": "23d2dd85642fae0682f16bcfe2fa99bc4bd7f5326d312c6d0baa9d05524af594",
+  "trace_compressed_sha256": "3c70082b86f21f6a30aaf828fae4565a254ef54681ff4c6d92edf7baf33f4587",
+  "full_trace_uploaded_to_Source": false,
+  "same_author_isolated_replay_bytes_match": true,
+  "native_force": false,
+  "prime_claim": false,
+  "physical_clock": false,
+  "files": {
+    "NOTE.md": {
+      "sha256": "a6df7371e1302bbd33c0d31b88e4fa641d41555b750fea78a08a871dd6c4e276",
+      "git_blob": "065b66858c2e3a6d9f92a7f23801098f3f74d5ea",
+      "bytes": 10035
+    },
+    "lifecycle.py": {
+      "sha256": "4a1a47b00beba7995eb7243c0acfd540a5770f05621af1eca636ffdb270e9deb",
+      "git_blob": "389bd51a2a71a62a4c533ef781920bef00783bc3",
+      "bytes": 7997
+    },
+    "check_u5.py": {
+      "sha256": "59ce483899d7d9aa494ae47f1b02549535f0ed42e81fd33a425a644ee52ad80d",
+      "git_blob": "6284e326d099835cb6f2b75f116da95d3d7c7d27",
+      "bytes": 10158
+    }
+  },
+  "next": "Source and verify local storage-to-action mechanism; test material-local recurrence rather than global active total. Re-establish future-state certificate when dormant response can rearm."
+}
