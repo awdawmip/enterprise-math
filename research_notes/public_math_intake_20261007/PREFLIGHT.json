@@ -1,0 +1,61 @@
+{
+  "status": "PASS_SCOPED_LOCAL_NEW_TRANSACTION",
+  "scope": "One new Objective generation, selected head, receipt, and one NEW_DIRECTION taskbook/publication pair; incomplete repository checkout, no full aggregate claim",
+  "source_ref": "417f898f10b11fcdd9fa10602796a7f85ae73739",
+  "policy_digest": "sha256:d74aad6dd53d0df42d950f7b1207b27d80696f23410bd06f53a038c459577bb2",
+  "objective_generation_id": "OG-9C0E1497D407F544BF64",
+  "task_id": "RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007",
+  "publication_id": "TP2-61D08EEA98B46ED15916",
+  "native_task_audit_errors": [],
+  "native_objective_authority_audit_errors": [],
+  "native_taskbook_dispatch_findings": [],
+  "objective_authority_verified": true,
+  "dependencies": [],
+  "artifacts": [
+    {
+      "path": "research_objective_records/OBJ-PUBLIC-MATH-ABSORPTION-20261007/OG-9C0E1497D407F544BF64.json",
+      "git_blob_sha1": "24af9522c9441c5206f33cc5a14d68039a98e5a4",
+      "sha256": "8bc148daa716ebbae8234e2ff01624c24e952c136c6799d73ccf6efd2bdbba4c",
+      "size_bytes": 2212
+    },
+    {
+      "path": "research_objective_heads/OBJ-PUBLIC-MATH-ABSORPTION-20261007.json",
+      "git_blob_sha1": "15caaef34bf801b1b222aae4952510c7d7865ce6",
+      "sha256": "ea5a5fdfc5ac3a15ce5e6604a53c3589269b8b1f307e483ff58083737110b943",
+      "size_bytes": 786
+    },
+    {
+      "path": "research_objective_head_events/OBJ-PUBLIC-MATH-ABSORPTION-20261007/OG-9C0E1497D407F544BF64.json",
+      "git_blob_sha1": "d2eff1849f41141123bbbd857708aca99d8033e9",
+      "sha256": "e082e16c3bd90ae6dc2c709d62f80cb08dc584d52bdd5c7efdada8d32a11fe5d",
+      "size_bytes": 760
+    },
+    {
+      "path": "research_tasks/RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007.md",
+      "git_blob_sha1": "d520ebd913ea5594de55d16f43c2a4728f17eece",
+      "sha256": "cd4f3f901c25bc9786d76b8ac03584728778b4e987fa6dfb1f1a4c8e1ff0103d",
+      "size_bytes": 15158
+    },
+    {
+      "path": "research_task_records/RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007/TP2-61D08EEA98B46ED15916.json",
+      "git_blob_sha1": "d65c07c14c80496d0ec6939137ba2a0957e1df17",
+      "sha256": "a1080f19fcdeb5889b6fb27f9095873670c6d16a05bf2a8278b5f14ba9367e4e",
+      "size_bytes": 3925
+    }
+  ],
+  "remote_publication_complete": false,
+  "pending_before_remote_publication": [
+    "Fresh remote own-Driver active check",
+    "Exact new task/Objective target path absence or CAS conflict resolution",
+    "Include research_notes/public_math_intake_20261007/LITERATURE_INTAKE.md and SOURCE_LEDGER.json in same batch",
+    "Non-force atomic Git publication and immutable-commit full-file readback"
+  ],
+  "fresh_remote_checks": {
+    "checked_at": "2026-10-07T01:49:05Z",
+    "source_head": "417f898f10b11fcdd9fa10602796a7f85ae73739",
+    "global_head": "cde32bc54cccbb9e19da0d54187f4a982848afc4",
+    "policy_change_since_math_input_pin": false,
+    "target_task_absent_in_complete_409_directory_listing": true,
+    "own_native_driver_activation_receipt": "https://github.com/awdawmip/kimi-query-bridge/issues/2766#issuecomment-6029108020"
+  }
+}

@@ -1,0 +1,679 @@
+{
+  "schema": "public-math-literature-intake-v1",
+  "review_date_utc": "2026-10-07",
+  "repository": "openai/math",
+  "commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+  "announcement": {
+    "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+    "published_date": "2026-10-06",
+    "read": true
+  },
+  "selected_papers": [
+    {
+      "id": "family129_one_way_liveness",
+      "title": "An exponential two-way deterministic state lower bound for one-way liveness",
+      "directory": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026",
+      "pdf_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/main.pdf",
+      "read_scope": "Complete manuscript text from TeX, all figures, bibliography, and README; no build executed",
+      "main_declaration": "OAI.OneWayLiveness.main_theorem",
+      "solution_path": "lean/OAI/Combinatorics/Automata/Main.lean",
+      "comparator_path": "lean/ComparatorChallenges/OneWayLiveness.json"
+    },
+    {
+      "id": "family129_two_way_complementation",
+      "title": "An exponential state lower bound for two-way nondeterministic complementation",
+      "directory": "preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026",
+      "pdf_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/paper.pdf",
+      "read_scope": "Complete manuscript text from TeX, all figures, bibliography, and README; no build executed",
+      "main_declaration": "OAI.TwoWayComplementation.complementation_lower_bound_finite",
+      "solution_path": "lean/OAI/Combinatorics/TwoWayAutomata/Main.lean",
+      "comparator_path": "lean/ComparatorChallenges/TwoWayComplementation.json"
+    }
+  ],
+  "deferred": [
+    {
+      "family": "376",
+      "directory": "preprints/Prefix-Instructions-and-Incompressible-Flows-September-27-2026",
+      "full_text_read": false,
+      "reason": "Overlap with existing EM history/residual work; continuous-to-native bridge absent; not specifically covered in the family Lean scope"
+    }
+  ],
+  "verification": {
+    "lean_toolchain": "leanprover/lean4:v4.34.1",
+    "mathlib_revision": "d13f23b723b8a846827a245b89c10fc7d3f11612",
+    "catalog_scope": "Partial progress.",
+    "catalog_review": "unchecked",
+    "permitted_comparator_axioms": [
+      "propext",
+      "Quot.sound",
+      "Classical.choice"
+    ],
+    "enable_nanoda": false,
+    "solution_directory_files_scanned": 42,
+    "solution_text_flags_found": [],
+    "scope": "Text-level import/token screen and selected proof reading only",
+    "lean_run": false,
+    "comparator_run": false,
+    "repository_code_executed": false,
+    "independent_kernel_verified": false
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/README.md",
+      "git_blob_sha1": null,
+      "kind": "metadata",
+      "retrieved_utf8_sha256": "ccc000307d778c57fbaa80845f0c2bc16b53b38d0c3f840194b5ff1861d87737",
+      "retrieved_size_bytes": 4132
+    },
+    {
+      "path": "lean/README.md",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/README.md",
+      "git_blob_sha1": null,
+      "kind": "metadata",
+      "retrieved_utf8_sha256": "1f5ec703c89f78623a49d562399f2f46f0ca682ad04c30498cfb24a684baf0ef",
+      "retrieved_size_bytes": 651
+    },
+    {
+      "path": "lean/docs/129.md",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/129.md",
+      "git_blob_sha1": null,
+      "kind": "metadata",
+      "retrieved_utf8_sha256": "cf3916a3b688370dfdde13cbcb33edce5d2a539f3a97e24ef68112a9bc16a177",
+      "retrieved_size_bytes": 2307
+    },
+    {
+      "path": "lean/docs/376.md",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/376.md",
+      "git_blob_sha1": null,
+      "kind": "metadata",
+      "retrieved_utf8_sha256": "4d366d46f219c316252bb4d449c9ef72031d080ad1d5cf6693e092b4c1bf59f2",
+      "retrieved_size_bytes": 5002
+    },
+    {
+      "path": "lean/lean-toolchain",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/lean-toolchain",
+      "git_blob_sha1": null,
+      "kind": "metadata",
+      "retrieved_utf8_sha256": "0fbd6253482ea3f6f129d0f176c9f6296e49a67b71d52f4c2c23bdc058bf9350",
+      "retrieved_size_bytes": 26
+    },
+    {
+      "path": "lean/lake-manifest.json",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/lake-manifest.json",
+      "git_blob_sha1": null,
+      "kind": "configuration",
+      "retrieved_utf8_sha256": "aa62a20fdfcc25519efa99685a04e6694ffe91a4bebc35ff407b48c43d3dc335",
+      "retrieved_size_bytes": 14623
+    },
+    {
+      "path": "lean/formalization.yaml",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/formalization.yaml",
+      "git_blob_sha1": null,
+      "kind": "metadata",
+      "retrieved_utf8_sha256": "7c4c51c30ec2da88a1a8464264ea28c0401a31c66c3b741816f50a72c5087df1",
+      "retrieved_size_bytes": 73926
+    },
+    {
+      "path": "lean/ComparatorChallenges/README.md",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/README.md",
+      "git_blob_sha1": null,
+      "kind": "metadata",
+      "retrieved_utf8_sha256": "cef9877ef413055a68c53a1c803166db873f6160afa12bd9aa3151d8dbfb00cb",
+      "retrieved_size_bytes": 288
+    },
+    {
+      "path": "lean/ComparatorChallenges/OneWayLiveness.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/OneWayLiveness.lean",
+      "git_blob_sha1": null,
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "bd614956cf519cb0d4f1e33b4d05a8edc86140cfa89f92db1840e476d61b9277",
+      "retrieved_size_bytes": 4191
+    },
+    {
+      "path": "lean/ComparatorChallenges/OneWayLiveness.json",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/OneWayLiveness.json",
+      "git_blob_sha1": null,
+      "kind": "configuration",
+      "retrieved_utf8_sha256": "5a53f9f5071da84908f91a0b8002aad7f41401bc024164d450f37bb8b60f54ae",
+      "retrieved_size_bytes": 322
+    },
+    {
+      "path": "lean/ComparatorChallenges/TwoWayComplementation.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/TwoWayComplementation.lean",
+      "git_blob_sha1": null,
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "235277e45bcf3d759bd44976ddb59b2517f4571c5e507f1726e5e8080518d274",
+      "retrieved_size_bytes": 1453
+    },
+    {
+      "path": "lean/ComparatorChallenges/TwoWayComplementation.json",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/TwoWayComplementation.json",
+      "git_blob_sha1": null,
+      "kind": "configuration",
+      "retrieved_utf8_sha256": "29f63a190f1c4344be7d0ff71654dedaabc2c634d2c2680b59e83afedd529f69",
+      "retrieved_size_bytes": 364
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Cells.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Cells.lean",
+      "git_blob_sha1": "df266338b2753096cf2d17929bb81886a509f51b",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "9ebc5595214a52e72e07142671623a4bc705204906dcb3eb7dc7872b88621def",
+      "retrieved_size_bytes": 6114
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Corners.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Corners.lean",
+      "git_blob_sha1": "bd1d0baa158259d02ddcb53d667f500834afd167",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "1a22e2828b4d9c62b55391970ebea9cec4e25cdee10d6d9cd45cdfb87f8cae69",
+      "retrieved_size_bytes": 9659
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Diagram.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Diagram.lean",
+      "git_blob_sha1": "145f3764818a163b675d26eb36031f3eef9819ef",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "608d31c5462beb860801c54ea6277233ba5d458c2f5261f7cfd6e20c8c9ea53c",
+      "retrieved_size_bytes": 12566
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Diagrams.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Diagrams.lean",
+      "git_blob_sha1": "ea52f1a3d054c843657b564b3e9171a2ff6b4b98",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "443b38cf17cfe6bb54627b17bc7cd16e917b0337ee42abf96f6a57ef7aabfd8d",
+      "retrieved_size_bytes": 14362
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Main.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Main.lean",
+      "git_blob_sha1": "a039744c40e96e7e52f8ac71847c3aafd5cb96c8",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "d860a6d4875e67b445c485636345b4fe2df457ef4d62dfa3a94b7cd59dd23932",
+      "retrieved_size_bytes": 3536
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Model.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Model.lean",
+      "git_blob_sha1": "a0f5c99d528ca3228f159263aa5307d2cff8f104",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "f9d3698b810f9cfba014836363537abcfee3254528aee2db7987c0df57169ac8",
+      "retrieved_size_bytes": 4646
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Network.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Network.lean",
+      "git_blob_sha1": "e79ad8296960e46678585972c168b79545583967",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "6cd0d2397cef9f717bfd7250dd7dff5a5d2475b8fc9be130c1cd2af38ddeefcf",
+      "retrieved_size_bytes": 16560
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Normalization.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Normalization.lean",
+      "git_blob_sha1": "568fd6d39d47b4c84cd13377ace5ce29d3d20d75",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "b37fbad71613dae5b61ecc5a1d69ac333d140c4f6377e7efad1e5a19e5cc04ce",
+      "retrieved_size_bytes": 10338
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/PathNFA.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/PathNFA.lean",
+      "git_blob_sha1": "5983a29f07b4f33d1e9bef41daae87fc1872fea4",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "e7784b46fdff562893308e5a36e923e05db9943b3e81b8aee15cd8623a746572",
+      "retrieved_size_bytes": 10718
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Rank.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Rank.lean",
+      "git_blob_sha1": "b48d53865209eecce157d2aacf267c96f92a36ed",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "a9b83ef70638f782399e2a052496e4751f86a685601e3b3abea331607eb09398",
+      "retrieved_size_bytes": 14746
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/RankLoss.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/RankLoss.lean",
+      "git_blob_sha1": "4b69f695fb18345dc12866b42ef503746f0d3186",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "65cb8b35b604de781a10e98e433d6a8380301e023ac04ef5fbb7fd500aeea535",
+      "retrieved_size_bytes": 18570
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Recognition.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Recognition.lean",
+      "git_blob_sha1": "2ac56b75c70b1d37ed0b56bcab38910bc94dbb22",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "629f6bd4b208d782d89e99c2663a13b0b728043334068ddc8effa5a0455d8d81",
+      "retrieved_size_bytes": 4271
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Relations.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Relations.lean",
+      "git_blob_sha1": "418a3bb4d54acc0b4a0e1dd1d7dc4f47c576d0a7",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "ad397bd41e6ecb89cb33845eba9bbb7576686178e59c65b57ab4697a79156896",
+      "retrieved_size_bytes": 15423
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Syntactic.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Syntactic.lean",
+      "git_blob_sha1": "aa880b5e753d7aeb9f912c6e42b05e5d23cc9df5",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "f3633491d2dbaa229274cbcf94030d8b447aadcb015939b0cd4d006e3818ec7f",
+      "retrieved_size_bytes": 2375
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Tours.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Tours.lean",
+      "git_blob_sha1": "f7d71b07f442a6a21918870e7009e5503a7330d2",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "4530369e061bb95fc2cca642d4d962b18de7a7345f3a68a092119fd27964bc61",
+      "retrieved_size_bytes": 9866
+    },
+    {
+      "path": "lean/OAI/Combinatorics/Automata/Wiring.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/Automata/Wiring.lean",
+      "git_blob_sha1": "6c646593bd3a04d79916485f4d3ae738bdfb9a42",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "f4014be9b902f7166291c4decdd240459954ec96087990ccee3929af94531912",
+      "retrieved_size_bytes": 18785
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Amplification.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Amplification.lean",
+      "git_blob_sha1": "d877dea09da637947b65e6927e1c25d72e209545",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "99da279c96d3d7f89a3fcc3359e0b7d28ab90fa014af6961ce0679e2002b1d62",
+      "retrieved_size_bytes": 15186
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Chain.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Chain.lean",
+      "git_blob_sha1": "e2a70f5879f4588359617d9e3b040e900d3e8d7f",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "4c644bc293da997d276386a3826932599e7f39b52712e75ac93f7ca01a9b1e63",
+      "retrieved_size_bytes": 9836
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Classes.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Classes.lean",
+      "git_blob_sha1": "bf606c746a5a92b8b50078f18e81c159406a413a",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "6c3ba6373d7ffb2041715fa520d3552eb813d137356fd6fa74f7aef118bc6743",
+      "retrieved_size_bytes": 16003
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Corners.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Corners.lean",
+      "git_blob_sha1": "29922e127f35288be4b88028db1e1c96721286c4",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "799837124297cc0459ff83356c138167194f12d47f3c4d6fe27d6799cf656858",
+      "retrieved_size_bytes": 10674
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/DeterministicBound.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/DeterministicBound.lean",
+      "git_blob_sha1": "4d99245644c0dcbb7e5bfa3a30623d4240b86c64",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "a83cec86705552410b3f6ad4143c60037472ed32e9ac6217c56096444436ce82",
+      "retrieved_size_bytes": 2878
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/DeterministicCore.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/DeterministicCore.lean",
+      "git_blob_sha1": "bfbbdeabc3f9a9cc57e62e8c68700208493249c7",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "fe3c33b82241cc4414c545e9cc6f273f254fa11918b4662ba127ad118d3b61c1",
+      "retrieved_size_bytes": 334
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/DeterministicTransport.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/DeterministicTransport.lean",
+      "git_blob_sha1": "6844beb6557e1b9cda877f668dc71e7e3ff08d2f",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "96ed3966dccf3cb395326aa1afe16aeb48ba834cdae87b6c94bd4557ff1fc5d5",
+      "retrieved_size_bytes": 778
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Diagram.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Diagram.lean",
+      "git_blob_sha1": "8107e9a40a0dc66cd7edce5ea3fe7eeb6175b6e7",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "8b99775a717df9b446985820c9ecc2be42da41e16ab6206fa8fe29c27f4b49e3",
+      "retrieved_size_bytes": 15615
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/ExplicitFamily.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/ExplicitFamily.lean",
+      "git_blob_sha1": "89d9abada59ed8333aac1e8132bc39db08afcd2c",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "835ff1c8188c766e7311c25aeca1faabeccb8697a8730ff904f3585c2512ab07",
+      "retrieved_size_bytes": 2462
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/ImageBound.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/ImageBound.lean",
+      "git_blob_sha1": "260225588cbb4e6a38ab0e7802de791d7f2db5b5",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "1930fad2b1a7911683838ec6c02dd17148147b53b4b3222fa00af2ac6162554d",
+      "retrieved_size_bytes": 14006
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Main.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Main.lean",
+      "git_blob_sha1": "39e982dc1acba2a325614b46a90922a4d59c2643",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "83788678610f277c48208fd3a7b2ca954dd6b30b43fb6ee946733c726a453126",
+      "retrieved_size_bytes": 6384
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Model.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Model.lean",
+      "git_blob_sha1": "e18f184b843e40c4840c4397f50adaa7ffbea5de",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "faf4766a9fcab21bb7e490885096d6a804d6c3d6cf74dca835b08617ff0a0850",
+      "retrieved_size_bytes": 1735
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Nesting.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Nesting.lean",
+      "git_blob_sha1": "3dca5e6af4c06d369f87123ee2d2f767bc63269c",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "05a714fb9d0dddbd95e359676cf9a30b4211d1ca7d9d135ad48db8b6d4524655",
+      "retrieved_size_bytes": 18123
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Network.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Network.lean",
+      "git_blob_sha1": "97a7393f6404937765debeaee53eddaae811e5d2",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "dd10736b660e9998b810a230cde1e51b9645168db4eecba82aabc681f187469a",
+      "retrieved_size_bytes": 9490
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Normalization.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Normalization.lean",
+      "git_blob_sha1": "8ee7c0bdbf24b544e5ee15df74355cbd6b187d9a",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "48c10943d165281ea7ebb67db8b12d3463b49400910c5277bb6f2d2fe39c2264",
+      "retrieved_size_bytes": 9318
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/PolynomialBound.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/PolynomialBound.lean",
+      "git_blob_sha1": "4a674044610a4d5fd497157a2312e3414be8ba34",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "752e4ce1074fc509a53d79925c2a739d36ebac7ebd92083c37c65bfd3d136957",
+      "retrieved_size_bytes": 1754
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Recognition.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Recognition.lean",
+      "git_blob_sha1": "eddc37971e71a324a2053de33b71bd7198b0e824",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "53fe68256e03d5973f235a8893ceb90a3ca075f87b2abf1d1422e3bb5847986b",
+      "retrieved_size_bytes": 4925
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/RelationBridge.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/RelationBridge.lean",
+      "git_blob_sha1": "83e2170d91f34b94f0380a51335e1698e90dc7ce",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "eb8da7d386b1fd7491b3c438f15b6f1e617d2aa6248d761cefb287dd56ab55bb",
+      "retrieved_size_bytes": 1248
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/RelationMonoid.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/RelationMonoid.lean",
+      "git_blob_sha1": "db95e3c2b940c237a8f8422138d7480c73409de6",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "0c6d284fd1cb1f3fb518e96e86406cb0cfa3a1349cf7e6f20eb0f4fd8965f495",
+      "retrieved_size_bytes": 10427
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Relations.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Relations.lean",
+      "git_blob_sha1": "f7408e5fce1ee9892ead93e8a50f16ed00bdc9f0",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "0e95118edf8564e0ff62458a9c1c585d2371bec6304a3fc782d78904a1691034",
+      "retrieved_size_bytes": 15303
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Representation.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Representation.lean",
+      "git_blob_sha1": "febd17a24a3621ccde160e8c7671ddfa2cfb95b0",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "3318d17473fb8a245ec8773264bc1ac546b7adac68ffca1ae067c6621515ebce",
+      "retrieved_size_bytes": 4092
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Retained.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Retained.lean",
+      "git_blob_sha1": "1639490fa603240d3fc808ed66f81007298555d6",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "8abdce67790e6a9c8fb317602a2a5e9080321e2711dc2c20b88bb227402f8370",
+      "retrieved_size_bytes": 7393
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Source.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Source.lean",
+      "git_blob_sha1": "4fb472915701c2e78aa3d20d2e8ab1271c2380da",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "006e5ddf7ae26a5ae9840a000bb0c3bea299907e3bc8747c3278e4ca95b80d06",
+      "retrieved_size_bytes": 7781
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Tape.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Tape.lean",
+      "git_blob_sha1": "13ee6b7f53b7b75a5f8dda965eb65f38d2cfe2d1",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "600f097a0ec344c6c9c649f5f6f11f94d1e54480bcce0f1f8106ca3231147421",
+      "retrieved_size_bytes": 8056
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/TransitionBridge.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/TransitionBridge.lean",
+      "git_blob_sha1": "958f57dec4bfe3eb787c4a2645543e4fde7a07d2",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "cacc45cca107f2a892240a79f40b939d422add80f570263cbab806c96c3fd5f3",
+      "retrieved_size_bytes": 5564
+    },
+    {
+      "path": "lean/OAI/Combinatorics/TwoWayAutomata/Transport.lean",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/OAI/Combinatorics/TwoWayAutomata/Transport.lean",
+      "git_blob_sha1": "ca96a6812dfe2c4b1a9b4d83018fd484220424e6",
+      "kind": "lean_source",
+      "retrieved_utf8_sha256": "5e0448b4f4955ce2bce1a1b78d4b23413843b5dfecb1b1e26f4b2742c74d4c8b",
+      "retrieved_size_bytes": 8591
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/README.md",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/README.md",
+      "git_blob_sha1": null,
+      "kind": "metadata",
+      "retrieved_utf8_sha256": "f61eb28c231924cc7cd89d6f96bf93ff8ce37213d09a6ee55d92b5ad7983a924",
+      "retrieved_size_bytes": 734
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/main.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/main.tex",
+      "git_blob_sha1": "1eb6b2913cd759cc4d55741dab17b24e156ddd5b",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "44c55d287c28fa160db70acffc81c1386acac163e91f5f3dce22ebc4f343e727",
+      "retrieved_size_bytes": 1085
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/preamble.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/preamble.tex",
+      "git_blob_sha1": "10b050709504af4aaf00a9dcaa443f9747a31aa6",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "be6d24027427037ab4aa707cfb23a0b4cb41cf9edcb8f8cdfdefaabe4435e4e3",
+      "retrieved_size_bytes": 1331
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/references.bib",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/references.bib",
+      "git_blob_sha1": "b5b7c94ce1f8b6d80dbcbf54898813a5924af245",
+      "kind": "metadata",
+      "retrieved_utf8_sha256": "d7c99227c62b27a94f7b32c179b6f6cf8b7a0f57b5cd4c4c9f0ef55cc82a689a",
+      "retrieved_size_bytes": 6130
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/sections/introduction.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/sections/introduction.tex",
+      "git_blob_sha1": "dfdb874773c1cbe0a5297416633424908c16c336",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "1fb9e015240210ede72a93ec305c6629b762cab79e31f276ff39b6ec555a8f2e",
+      "retrieved_size_bytes": 10012
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/sections/machines.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/sections/machines.tex",
+      "git_blob_sha1": "f4a51079fd327b79fc339842dbbc6ebcce573a9c",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "8d0cffc696a7989e4a171ae1f95d1370b26d381527b6a6a7dc7795b9de9a5cbd",
+      "retrieved_size_bytes": 15578
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/sections/matching.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/sections/matching.tex",
+      "git_blob_sha1": "c4919c166883e82f6d983353c25c4c78f2f31f6c",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "101a45ea07b66f8e4ef4a88458a038c5bf36066c9588d3939675674204e005f5",
+      "retrieved_size_bytes": 14334
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/sections/rank.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/sections/rank.tex",
+      "git_blob_sha1": "add2ea4679144df27b50038e7e5dd287c042adb0",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "2f9cbdc311656fabbc23cd9dff6ffa7964d2c9662660a2cb0c759ffffccc48e8",
+      "retrieved_size_bytes": 12663
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/sections/separation.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/sections/separation.tex",
+      "git_blob_sha1": "4f7b9feb631736f004273bbdb212adea3eee9d3a",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "ff7323d8424459e0d10283cd765514b48331f6dbb24181fe1a069354d902c6ae",
+      "retrieved_size_bytes": 4476
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/figures/amplification.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/figures/amplification.tex",
+      "git_blob_sha1": "a8b9113b31e6de606615ecf9b24ae164ab6d10d7",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "03fd75662722fdb06c65f8f4202f5d8d758399c94cc85d727df6a46ed9d6effa",
+      "retrieved_size_bytes": 1854
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/figures/candidate-slot.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/figures/candidate-slot.tex",
+      "git_blob_sha1": "031bdffca9b740cd041e48cf23c97098e4e2c14b",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "b10f9e4685fa291504076a4c823269f5aa1a7bf540c33988e9dade2f1bf092fa",
+      "retrieved_size_bytes": 1607
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/figures/corner-reduction.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/figures/corner-reduction.tex",
+      "git_blob_sha1": "bcc71898ce1676a3c7452da395a951206b9b9c90",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "bddad58cdb2c4813ac4d923af94fbe51ad375c1d044f9867b6bbbb79ac9742dd",
+      "retrieved_size_bytes": 3032
+    },
+    {
+      "path": "preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/figures/tour-test-ports.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-two-way-deterministic-state-lower-bound-for-one-way-liveness-September-25-2026/build/figures/tour-test-ports.tex",
+      "git_blob_sha1": "b1325f8304e01d74141ed7cf0434589add8d8bf8",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "d14256315bc3fc4ea01556084d7665985866d187f113888c109e4db963c55a70",
+      "retrieved_size_bytes": 2511
+    },
+    {
+      "path": "preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/README.md",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/README.md",
+      "git_blob_sha1": null,
+      "kind": "metadata",
+      "retrieved_utf8_sha256": "276818f62d4cc49938caf9295c0a941af7e948ad707156967a51b21af42e3c34",
+      "retrieved_size_bytes": 746
+    },
+    {
+      "path": "preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/paper.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/paper.tex",
+      "git_blob_sha1": "c33f0f1a09d172eac6f6420a8305a74cd1da83cf",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "5be4517002acf98e73bb451349b0ac9b5483610aeef7924f425652df7aeb4879",
+      "retrieved_size_bytes": 1707
+    },
+    {
+      "path": "preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/references.bib",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/references.bib",
+      "git_blob_sha1": "e065bea512b77b5eead6f608ced8d8f4e57cb245",
+      "kind": "metadata",
+      "retrieved_utf8_sha256": "fb7ca808a9ff6a61a9182a0946f6c27fda5405b473779bcc6e22331fb164a8ff",
+      "retrieved_size_bytes": 3980
+    },
+    {
+      "path": "preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/sections/amplification.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/sections/amplification.tex",
+      "git_blob_sha1": "d45feee7ec9c35e0393729ae9781d9942f139128",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "c1a290d75c80b91ac9f204e7a65271168f918934ec5c8551da9b424247e14b83",
+      "retrieved_size_bytes": 13099
+    },
+    {
+      "path": "preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/sections/automata.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/sections/automata.tex",
+      "git_blob_sha1": "33dbd8a8d4c37bd62bfa16a01964f416cb0716a4",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "dbd5953570dd29a821bd67a4981130330498a4e7a460dec5bf8354908afc393b",
+      "retrieved_size_bytes": 10745
+    },
+    {
+      "path": "preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/sections/diagrams.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/sections/diagrams.tex",
+      "git_blob_sha1": "dafe8ecbf5525327f0f360d943c874f58275f516",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "726bb8fe2bee0b58feeca45b2e5ecde9f0083ac96166c67edfead2755021b759",
+      "retrieved_size_bytes": 17033
+    },
+    {
+      "path": "preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/sections/introduction.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/sections/introduction.tex",
+      "git_blob_sha1": "aff1d003159d7925cd00dc4734242ba4f5f422ec",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "d628df5fdb509fb591383c141e1ac1aee06a15e80530d4aead870186eaaa6721",
+      "retrieved_size_bytes": 8082
+    },
+    {
+      "path": "preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/sections/nesting.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/sections/nesting.tex",
+      "git_blob_sha1": "be4ed47b66b9ba70a25b9af2791c8b48f1ff02bf",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "5226cc02802f45bd64ce6374ba984836f9575a1a87d678aa13c862eba7f369d3",
+      "retrieved_size_bytes": 7655
+    },
+    {
+      "path": "preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/figures/hub.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/figures/hub.tex",
+      "git_blob_sha1": "551a91775196e61b52419feeefa73041515f80aa",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "ae21e2cf05d2b073f6bd43a3189718657ec45201d99d93574ed9330411cf5bc9",
+      "retrieved_size_bytes": 891
+    },
+    {
+      "path": "preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/figures/nesting-budget.tex",
+      "immutable_url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/An-exponential-state-lower-bound-for-two-way-nondeterministic-complementation-September-25-2026/build/figures/nesting-budget.tex",
+      "git_blob_sha1": "ac2143e826ea4a4013fbd3a4cb3ff2072d532902",
+      "kind": "manuscript_source",
+      "retrieved_utf8_sha256": "2d3e31ab7f20731f3a8e2144f0e3bec22a035771386562c4932c5117072b66da",
+      "retrieved_size_bytes": 1277
+    }
+  ],
+  "hash_scope": "SHA-256 values are computed from the retained connector-retrieved UTF-8 source bytes; null git_blob_sha1 means no connector-provided blob identity was recorded. No kernel/build execution is inferred."
+}
