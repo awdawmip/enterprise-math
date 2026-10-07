@@ -187,5 +187,14 @@ output={'status':'CONDITIONAL_ONE_TRANSACTION_CERTIFICATE_NOT_NATIVE_FORCE',
  'sample_results':results,'gap_pair_center_marginal':str(ma.total),
  'false_independent_double_occupation':str(r.serial(ma,mb).total),
  'stale_request_witnesses':len(rebasing),'cube_cases':cube_cases,'cube_proposals':cube_proposals,'cube_resolved_branches':cube_resolved,
- 'cube_moving_branches':cube_moves,'native_force_lift':False,'native_triads_admitted':False,
- 'primitive_quantum_realization':False,'physical_time':False,'prime_claim':False},indent=2))
+ 'cube_moving_branches':cube_moves,'native_force_lift':False,'native_triad_legality':False,
+ 'mechanical_reaction_law':False,'physical_time':False,'prime_criterion':False,
+ 'successor_is_integer_candidate_output':True,'all_future_dynamics_claimed':False}
+# Save full finite evidence deterministically; no trace or old field is silently discarded.
+full['stored_request_rebasing']=rebasing
+raw=(json.dumps(conv(full),ensure_ascii=False,sort_keys=True,separators=(',',':'))+'\n').encode()
+(ev/'full_trace.json.gz').write_bytes(gzip.compress(raw,mtime=0))
+output['trace_uncompressed_sha256']=hashlib.sha256(raw).hexdigest()
+(ev/'results.json').write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n')
+print(json.dumps({k:v for k,v in output.items() if k!='sample_results'},indent=2))
+for name,item in results.items():print(name,{k:v for k,v in item.items() if k!='outcomes'})
