@@ -1,4 +1,8 @@
+import hashlib
+import json
+import tempfile
 import unittest
+from pathlib import Path
 from unittest import mock
 
 from tools import research_runtime_guard as guard
@@ -69,9 +73,38 @@ def lane_binding():
 
 
 class RuntimeLaneAuthorityTests(unittest.TestCase):
+    def setUp(self):
+        directory = tempfile.TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        self.root = Path(directory.name)
+        policy_path = Path("control_plane/executor_succession_policy.json")
+        (self.root / policy_path.parent).mkdir()
+        (self.root / policy_path).write_bytes(
+            (Path(__file__).resolve().parents[1] / policy_path).read_bytes()
+        )
+        taskbook_path = "research_tasks/lane-test.md"
+        taskbook = self.root / taskbook_path
+        taskbook.parent.mkdir()
+        taskbook.write_text(
+            "<!-- ENTERPRISE_MATH_TASK_V1\n"
+            + json.dumps({"task_id": TASK_ID, "kind": "RESEARCH", "base_state": "READY"})
+            + "\n-->\n# Lane authority fixture\n",
+            encoding="utf-8",
+        )
+        raw = taskbook.read_bytes()
+        self.current_record = {
+            **CURRENT,
+            "kind": "RESEARCH",
+            "published_at": "2026-08-27T00:00:00+00:00",
+            "taskbook_path": taskbook_path,
+            "taskbook_blob_sha1": "sha1:" + hashlib.sha1(
+                f"blob {len(raw)}\0".encode() + raw
+            ).hexdigest(),
+        }
+
     def base_patches(self, *, cohort_terminal=False):
         return (
-            mock.patch.object(guard.research_task_records, "current_records", return_value={TASK_ID: dict(CURRENT)}),
+            mock.patch.object(guard.research_task_records, "current_records", return_value={TASK_ID: dict(self.current_record)}),
             mock.patch.object(
                 guard.research_cohort_runtime,
                 "active_cohorts",
@@ -117,12 +150,14 @@ class RuntimeLaneAuthorityTests(unittest.TestCase):
                 runtime_state(scope=scope()),
                 events=[{"raw": "fixture"}],
                 now=runtime_reducer.parse_time("2026-08-27T00:10:00+00:00"),
+                root=self.root,
             )
         self.assertTrue(result["authorized"])
         self.assertEqual("CURRENT_AUTHORIZED_WINNING_ISSUE_240_LANE_CLAIM", result["authorization_authority"])
         self.assertEqual("TP2-RETAINED", result["task_registration"]["publication_id"])
         self.assertEqual("EC-1", result["execution_binding"]["execution_cohort_id"])
         self.assertEqual("audit", result["owner_claim"]["execution_lane_id"])
+        self.assertEqual("RESEARCHER", result["execution_binding"]["executor_role"])
 
     def test_old_task_global_terminal_result_does_not_block_explicit_active_lane(self):
         patches = self.base_patches()
@@ -139,9 +174,11 @@ class RuntimeLaneAuthorityTests(unittest.TestCase):
                 runtime_state(scope=scope()),
                 events=[{"raw": "fixture"}],
                 now=runtime_reducer.parse_time("2026-08-27T00:10:00+00:00"),
+                root=self.root,
             )
         self.assertTrue(result["authorized"])
         self.assertEqual("AUDIT", result["execution_binding"]["lane_role"])
+        self.assertEqual("RESEARCHER", result["execution_binding"]["executor_role"])
 
     def test_terminal_cohort_synthesis_blocks_further_lane_execution(self):
         patches = self.base_patches(cohort_terminal=True)

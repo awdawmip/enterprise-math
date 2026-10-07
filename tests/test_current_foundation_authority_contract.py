@@ -20,7 +20,11 @@ def test_root_project_definition_routes_current_routers_only():
         assert "120" in text
         assert not re.search(r"\bR0\d{2}\b", text)
         assert "SUPERSEDED_BY_USER" not in text
-        assert "six native" not in text.lower()
+        # The current X6 axis statement is required; it is not the retired
+        # foundation-menu wording that this router regression excludes.
+        assert not re.search(r"\bsix native\b(?! spatial axis labels\b)", text.lower())
+
+    assert "Six native spatial axis labels and existing forward/reverse operations are unchanged." in en
 
     assert machine["schema"] == "ENTERPRISE_MATH_PROJECT_DEFINITION_V4"
     assert machine["authority_chain"]["current_native_router"] == "definitions/00_CURRENT_NATIVE_FOUNDATION.md"

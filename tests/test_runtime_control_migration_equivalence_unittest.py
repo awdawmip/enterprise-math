@@ -39,7 +39,7 @@ class RuntimeControlMigrationEquivalenceTests(unittest.TestCase):
         )
         self.assertIs(proof["after_values"]["/owner_lease_is_session_liveness"], False)
         self.assertEqual(
-            "ADOPT_EXISTING_CLAIM",
+            "PREPARE_AUTHENTICATED_SUCCESSOR_CLAIM_WITH_PREDECESSOR_CAS",
             proof["after_values"]["/stale_valid_owner_action"],
         )
         # Exact activity evidence moved to its owning dispatch contract in V2.

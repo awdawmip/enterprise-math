@@ -6,14 +6,10 @@ Status: `ACTIVE / STABLE EXECUTION ROUTER / V3.1`
 
 ## 0. Mandatory native semantics before reasoning or clarification
 
-For **every** Enterprise Math role and conversation, including direct questions,
-TASK continuation and delegated subagents, load `p000_reality_foundation.json`
-before substantive reasoning, model selection or semantic clarification. This
-requirement applies beyond FREE discovery. Every research task must also load
-`definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json`; it is the required spatial
-basis for all research, not only explicit world descriptions. Load other
-mandatory companion contracts at their declared boundaries; before information-reducing
-projection it includes
+For **every** Enterprise Math role and conversation, including direct questions, TASK continuation and delegated subagents, load `p000_reality_foundation.json`
+before substantive reasoning, model selection or semantic clarification. This requirement applies beyond FREE discovery. Every research task must also load
+`definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json`; it is the required spatial basis for all research, not only explicit world descriptions. Load other
+mandatory companion contracts at their declared boundaries; before information-reducing projection it includes
 `definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`.
 
 本项目／进取数论中：**进取坐标系没有“平面”；所有研究必须基于心跳世界的原生六维立体离散 Cell 空间。时间维度按问题需要显式引入，并与空间分别定型。**
@@ -35,10 +31,8 @@ Freeze:
 - `CURRENT_THREE_AXIS_MODEL=RESTRICTED_STATE_OR_OBSERVER_WITHIN_HEARTBEAT_X6`.
 - `P000_PROOF_OBLIGATION=NONE` and `P000_FALSIFICATION_ROUTE=DISABLED`.
 
-Do not reinterpret native six-dimensional space as classical three-space with
-six directions, three positions plus three velocities, or an unverified choice
-between 3D and 6D. Explicit external models retain their declared types and do
-not override P000. Scalar fits, lower-dimensional calculations and observer
+Do not reinterpret native six-dimensional space as classical three-space with six directions, three positions plus three velocities, or an unverified choice
+between 3D and 6D. Explicit external models retain their declared types and do not override P000. Scalar fits, lower-dimensional calculations and observer
 projections do not reduce the native ontology; they also require an explicit
 native-state/readout bridge before supporting full-X6 propagation claims.
 Do not assume classical continuum shell/flux laws merely from the dimension

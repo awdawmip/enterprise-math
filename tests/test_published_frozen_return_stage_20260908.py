@@ -127,17 +127,33 @@ class PublishedFrozenReturnStageTests(unittest.TestCase):
         self.assertTrue(any(item["reason"] == "task is not dispatchable" for item in state["ignored_events"]))
 
     def test_ordinary_handoff_keeps_fresh_and_typed_continuation_routes(self):
-        _, definition = self.publish("HANDOFF_READY")
-        state = self.reduce(definition)
+        # The preserved template carries an unresolved legacy handoff marker.
+        # Establish an ordinary handoff through the typed current event contract.
+        _, definition = self.publish("READY")
+        events = [self.comment(definition), self.comment(definition, "HANDOFF", 2,
+            "2026-09-08T00:10:00+00:00", handoff_scope="CONTINUATION", next_action="Continue the preserved unit")]
+        state = self.reduce(definition, events)
         self.assertEqual("HANDOFF_READY", state["state"])
         self.assertEqual("NEEDS_DISPATCH", state["dispatch_state"])
         selected = reducer.select_state([state], reducer.load_policy(self.root))
         route = router.route_from_candidates([], observations={}, now=NOW, fresh_task=selected, fresh_lane=None)
         self.assertEqual(runtime.CLAIM_NEW_OWNER, route["action"])
-        resumed = self.reduce(definition, [self.comment(definition), self.comment(definition, "HANDOFF", 2,
-            "2026-09-08T00:10:00+00:00", handoff_scope="CONTINUATION", next_action="Continue the preserved unit")])
+        resumed = self.reduce(definition, events + [
+            self.comment(definition, "CLAIM", 3, "2026-09-08T00:15:00+00:00",
+                claim_id="temporary-fixture-continuation-claim"),
+            self.comment(definition, "HANDOFF", 4, "2026-09-08T00:20:00+00:00",
+                claim_id="temporary-fixture-continuation-claim",
+                handoff_scope="CONTINUATION", next_action="Continue the preserved unit")])
         self.assertEqual("HANDOFF_READY", resumed["state"])
         self.assertEqual("NEEDS_DISPATCH", resumed["dispatch_state"])
+        self.assertEqual([], resumed["ignored_events"])
+
+    def test_legacy_untyped_initial_handoff_still_requires_scope_reconciliation(self):
+        _, definition = self.publish("HANDOFF_READY")
+        state = self.reduce(definition)
+        self.assertEqual("BLOCKED", state["state"])
+        self.assertEqual("LEGACY_HANDOFF_SCOPE_UNRESOLVED", state["hard_block"]["code"])
+        self.assertIsNone(reducer.select_state([state], reducer.load_policy(self.root)))
 
     def test_ready_claim_and_existing_owner_session_recovery_are_preserved(self):
         _, definition = self.publish("READY")
