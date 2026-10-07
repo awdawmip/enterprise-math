@@ -91,6 +91,59 @@ class WriteAdmissionTests(unittest.TestCase):
             record["write_authorization"]["task_definition"]["claim_lease_minutes"] = 99999
             self.assertIn("immutable publication/taskbook", admission.receipt_error(record, "RESULT", self.root))
 
+    def _replay_lease_receipt(self, task_lease, authorized_at, progress_lease=None):
+        from tools import research_dispatch, research_taskbook
+        metadata = {"task_id": "RS-TEST", "base_state": "READY"}
+        if task_lease is not None:
+            metadata["claim_lease_minutes"] = task_lease
+        taskbook = research_taskbook.render_taskbook(metadata, "Control lease fixture only.").encode()
+        blob = "sha1:" + hashlib.sha1(f"blob {len(taskbook)}\0".encode() + taskbook).hexdigest()
+        pub = {"task_id": "RS-TEST", "publication_id": "TP2-TEST", "claimable": True,
+               "taskbook_blob_sha1": blob, "taskbook_path": "research_tasks/fixture.md",
+               "published_at": "2026-10-06T00:00:00Z"}
+        publication = self.root / "research_task_records/RS-TEST/TP2-TEST.json"
+        publication.parent.mkdir(parents=True)
+        publication.write_text(json.dumps(pub))
+        book_receipt = {"taskbook_content_base64": base64.b64encode(taskbook).decode()}
+        definition = admission._canonical_frozen_definition(pub, book_receipt)
+        claim = {"event": "CLAIM", "task_id": "RS-TEST", "publication_id": "TP2-TEST",
+                 "claim_id": "old", "researcher_id": "EM-TEST-OLD1", "session_id": "lease-session",
+                 "lease_minutes": 120, "at": "2026-10-07T04:43:48Z", "_github": {"comment_id": 101}}
+        progress = {**claim, "event": "PROGRESS", "at": "2026-10-07T05:08:36Z",
+                    "progress_ref": "fixture:published-checkpoint", "_github": {"comment_id": 102}}
+        progress.pop("lease_minutes")
+        if progress_lease is not None:
+            progress["lease_minutes"] = progress_lease
+        events = [claim, progress]
+        record = {**self.result, "taskbook_blob_sha1": blob}
+        context = {"source_commit": "a" * 40, "authorized_at": authorized_at,
+                   "server_comments": [], "task_definition": definition, **book_receipt,
+                   "principal": {"claim_id": "old", "researcher_id": "EM-TEST-OLD1",
+                                 "session_id": "lease-session", "ownership_epoch": 101}}
+        record["write_authorization"] = admission.build_receipt(record, "RESULT", context)
+        # Isolate lease replay from the separately tested server authentication
+        # and registered-intent gates; frozen taskbook validation and reducer
+        # remain real, including expiry and explicit event lease precedence.
+        with mock.patch.object(research_dispatch, "events_from_github_comments", return_value=events), \
+             mock.patch.object(research_dispatch, "_event_authentication_filter", return_value=(events, [])), \
+             mock.patch.object(research_dispatch, "_filter_registered_events", return_value=(events, [])):
+            return admission.receipt_error(record, "RESULT", self.root)
+
+    def test_receipt_honors_long_frozen_task_lease_after_default_progress(self):
+        self.assertIsNone(self._replay_lease_receipt(1440, "2026-10-07T07:28:03Z"))
+
+    def test_receipt_does_not_extend_short_frozen_task_lease_to_two_hours(self):
+        self.assertIn("fenced", self._replay_lease_receipt(30, "2026-10-07T06:08:36Z"))
+
+    def test_receipt_preserves_explicit_short_event_lease_override(self):
+        self.assertIn("fenced", self._replay_lease_receipt(1440, "2026-10-07T06:08:36Z", progress_lease=20))
+
+    def test_receipt_rejects_real_expiry_at_frozen_task_lease_boundary(self):
+        self.assertIn("fenced", self._replay_lease_receipt(1440, "2026-10-08T05:08:36Z"))
+
+    def test_receipt_uses_existing_default_when_task_omits_lease(self):
+        self.assertIsNone(self._replay_lease_receipt(None, "2026-10-07T06:08:36Z"))
+
 
 if __name__ == "__main__":
     unittest.main()

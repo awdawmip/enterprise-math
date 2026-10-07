@@ -110,7 +110,10 @@ def receipt_error(record: Mapping[str, Any], kind: str, root: Path) -> str | Non
                 return "write_authorization task definition differs from immutable publication/taskbook authority"
             accepted, rejected = research_dispatch._event_authentication_filter(definition, events)
             filtered, _ = research_dispatch._filter_registered_events(definition, accepted, root, result_state=None)
-            state = reducer.reduce_task(definition, filtered, default_lease_minutes=120, now=at)
+            # Replay the frozen task's lease contract exactly as the live guard.
+            # Explicit per-event lease_minutes still takes precedence in reducer.
+            lease = int(definition.get("claim_lease_minutes") or 120)
+            state = reducer.reduce_task(definition, filtered, default_lease_minutes=lease, now=at)
             for field in ("claim_id", "researcher_id"):
                 if state.get(field) != record.get(field) or principal.get(field) != record.get(field):
                     return f"write_authorization {field} belongs to a fenced or different execution"
