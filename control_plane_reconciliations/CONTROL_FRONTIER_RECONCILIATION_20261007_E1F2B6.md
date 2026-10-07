@@ -1,0 +1,63 @@
+# Control frontier reconciliation — 2026-10-07
+
+Status: `BOUNDED_AUDIT_COMPLETE / CONTROL_PLANE_MAINTENANCE / NO_NEW_MATHEMATICS`
+
+This record reconciles control evidence and research routing. It grants no Researcher, Driver, Steward, CLAIM, review, theorem, Working Truth, Foundation, or promotion authority. All research remains on the Heartbeat World's native six-dimensional discrete Cell substrate; time is separately typed when the question requires it.
+
+## Coherent source and live coverage
+
+- Audited local source: `9800fa40569c9541ffa8f0c917050cfb067418a3`; working tree was clean at audit entry.
+- Parent coordinator independently read remote main as `9c37360771bc2917888c6e0a43521d6fd2adb4c6`, whose sole parent is the audited local source and whose only added file is an MCP session registration. This earlier read is not mutation authority; the publisher must refresh the exact target before any CAS write.
+- GitHub Issue [#240](https://github.com/awdawmip/enterprise-math/issues/240) metadata reported **1,034 comments**, `updated_at=2026-10-02T15:04:17Z` (2026-10-02 23:04:17 Asia/Shanghai).
+- A bounded last-page read (`per_page=20&page=52`) returned 14 raw comments, IDs `5814382646` through `5955243781`. A separate bounded query for comments since `2026-10-06T00:00:00Z` returned an empty array.
+- This is a verified live tail, **not** a reconstructed complete authenticated event history. No task-wide dispatch counts, owner-session death, or fresh-selector eligibility are inferred from it.
+- Live inventory request `CTRL-AUDIT-20261007-BOUNDED-1` was submitted through `em_control_tasks(limit=20)`. Its receipt remained `QUEUED` at the one subsequent result read. No CLAIM or formal task was created. Bounded GitHub evidence was used instead of repeatedly polling that unchanged receipt.
+
+The exact raw tail and metadata were also handed to the parent coordinator as temporary workspace inputs. Durable provenance is the original Issue #240 comment IDs/URLs, rather than those local temporary paths.
+
+## Read-only checks
+
+| Command | Observed result |
+|---|---|
+| `python control_plane/check_current_control_authority.py` | PASS: current control authority, exact owner-scope liveness, role transitions, publication, dispatch and tool-reuse surfaces consistent. |
+| `python control_plane/check_publication_fault_isolation.py` | PASS: strict publication integrity and exact task-local fork/current-integrity isolation retained; no operational publication selected for isolated tasks. |
+| `python control_plane/check_result_review_binding_fault_isolated.py` | PASS: exact stale-binding/invalid-review isolation and audit-only superseded-result containment retained. |
+
+The binding checker reported `binding_reviews=1`, `invalid_reviews=26`, `superseded_result_audit_rows=3`, and `withheld_result_authority_rows=13`. These are established containment records, not newly discovered defects and not mathematical completion.
+
+The optional broader `python control_plane/check_driver_followup_fault_isolated.py` audit was interrupted with SIGINT after about 2.5 minutes to respect the control-plane bounded watchdog. It yielded no verdict; its status is **NOT VERIFIED**, not PASS or FAIL. The interruption stack was inside per-packet validation and result-map reconstruction. No follow-up records were edited, and no repository-wide all-gates claim is made.
+
+## Latest verified routing and progress boundaries
+
+The latest Issue #240 event is [comment 5955243781](https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5955243781), a `HANDOFF` with `handoff_scope=CONTINUATION` for `RS-GOV-FOUNDATION-BACKFLOW`, publication `TP2-2C438651496A928ADCB7`, claim `MCP-5f7130a45f3747fda41ecf92`. It points to the immutable [FQ007 checkpoint](https://github.com/awdawmip/enterprise-math/blob/30e72e470ac292c306ab7aca110fe22770d1f98d/research_artifacts/mcp/RS-GOV-FOUNDATION-BACKFLOW/MCP-9b47757c06ed4919ae3396b0255a1037/ee03e7a7752a96e9a126/_checkpoint.json). Its recorded next action is to consume the verified FQ007 closure and select a different eligible governance packet only when the evidence warrants integration. It explicitly excludes task-wide DONE and mathematical acceptance. Do not replay FQ007, PR444, completed validation, or S15.
+
+The latest research PROGRESS in that same bounded tail is [comment 5817933564](https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5817933564), 2026-09-24T16:20:57Z, for `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`. Its unfinished unit is the actual normalized d=3 Gauss–Manin companion at lambda=1/2, including exact lift/quartic/local-parameter/exact-form provenance, followed by the finite-Gauss cutoff/endpoint bridge toward R_p. This is a recorded mathematical frontier; control maintenance must neither erase the blocker nor identify the companion with an ordinary derivative by convention.
+
+The latest task-publication commit in the audited checkout is `e614138f7e5c2651dfe947fad1b97018e89fbfc8`, “Publish P21 typed integer phase BRC interface task,” following the P01–P21 publication batch on 2026-10-05. Since Issue #240's latest event predates that batch, no post-publication Issue #240 CLAIM was observed for it. Published task existence does not itself prove ownership, execution, acceptance, or completion.
+
+The latest source commits `1eaca5bd`, `fe9ce582`, `ccd05f7e`, and `9800fa40` preserve the U2 replay, universal turning claim, reachable triple-memory witness, fixed-layout X6 feedback evidence, scientific frontier and immutable readback. The separate research-direction review must use those exact artifacts to formulate new bounded tasks. This maintenance note does not decide their mathematics.
+
+## Minimum control disposition
+
+1. Preserve existing isolated publication/review records and their exact authority withholding. The completed checks do not justify changing any mathematical disposition or marking a task COMPLETE.
+2. Preserve active exact sessions. Owner lease, silence in Issue #240, a queued adapter, and absent old chat access are not evidence authorizing takeover. Any future recovery needs exact current authority, durable frontier and canonical predecessor CAS.
+3. Keep `HANDOFF/CONTINUATION`, `AWAITING_REVIEW`, mathematical blockage, integrity quarantine, and actual completion distinct.
+4. Publish any genuinely new research direction with its taskbook and immutable V2 publication together, after canonical preflight under the publisher's actual authorized identity. Retain source evidence, scope, completed/no-repeat units, discriminating outcomes and kill/return conditions.
+5. Refresh Source/target authority at the write boundary. The existing bounded audit establishes no newly verified structural defect requiring a control rewrite.
+
+## New direction publication
+
+本次依据用户明确发布指令，以 `RESEARCHER / TASK_RESEARCH` 捕获两个新正式方向；publisher 为 `EM-DIRECT-E1F2B6`，本地命名会话 `codex-local-control-publication-20261007-E1F2B6`，并非平台认证会话ID。轻量活动 `RA-8F522569B3E8D50F54D21EB4` 已在 `708b4493fc1d8bf28aeb6b1d8f49629c25f3699f` 完整回读，启动guard允许activity但不授正式任务执行权。
+
+| 新方向 | 不可变 publication | 继承前沿和下一信息缺口 |
+|---|---|---|
+| [U2带符号三元关联与两单位占位后继桥](../research_tasks/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007.md) | [TP2-E49C20B8D0A6569355F6](../research_task_records/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/TP2-E49C20B8D0A6569355F6.json) | 2/3固定线性转向下界、三元记忆和固定布局反馈已有候选证书；新增目标是合法三元作用及反作用／存储到两单位占位后继。 |
+| [Euler 输入场条件率与未来联合状态闭合](../research_tasks/RS-EULER-FIELD-RATE-JOINT-CLOSURE-20261007.md) | [TP2-6C1EA6CEE36525DB03C7](../research_task_records/RS-EULER-FIELD-RATE-JOINT-CLOSURE-20261007/TP2-6C1EA6CEE36525DB03C7.json) | 共同计划记忆界、状态依赖率反例和误差组合界已有候选结果；新增目标是有来源输入场率law和保留联合关系的未来闭合。 |
+
+两项均为 `P2 / MEDIUM`、`taskbook/unassigned`；任务书与对应不可变记录同一提交进入main。五项必填内容、策略审计及513代publication完整性审计均PASS。它们捕获的是此前没有正式父Task-ID的直接研究源，故使用 `NEW_DIRECTION` 并保留原始科学来源；没有另造父任务、CLAIM、RR或DR，也没有作新的科学计算或接受原结论。该发布不改变原研究会话的责任和前沿。
+
+去重范围已覆盖P05、P07、P08、P20：本次两项分别冻结10月7日U2公开源和Euler输入场接口，不重发旧有限匹配预算、单节点反馈表族、五Cell无重置识别或永久相位门槛。新任务接续时仍须检查同范围新证据和已存在owner。
+
+Euler Source仅保存证明／验证前沿。执行包指纹来自[固定知识库交接](https://github.com/awdawmip/chatgpt-global-knowledge/blob/cd1d535d01bc045a4753cfa483adb7dd79ab16ac/journal/enterprise-math/2026-10-06/20261006T165434Z-euler-variable-memory-state-feedback.md)，本次未取得原包下载位置。任务允许先进行公开证明审计；未取得匹配原包时复现范围为SOURCE_UNAVAILABLE，不能以重写程序冒充原执行复现。
+
+发布是新增任务存在性的控制进展，U2和Euler科学结果仍未正式准入；已发布、可领取、实际领取、科学执行、独立审查和完成分别记录。
