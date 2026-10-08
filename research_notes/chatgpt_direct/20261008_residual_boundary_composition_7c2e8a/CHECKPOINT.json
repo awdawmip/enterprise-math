@@ -1,0 +1,168 @@
+{
+  "BRC_calls": {
+    "cwm_edge": 7081,
+    "cwm_propagate": 84031,
+    "cwm_recoalesce": 177390
+  },
+  "activity_id": "RA-D689D52D161CC3245E45ECBE",
+  "artifacts": [
+    {
+      "bytes": 10146,
+      "git_blob": "db3813166cfef3d2c26dd9ba3b56d5851b991e25",
+      "path": "NOTE.md",
+      "sha256": "5eb2b1b67898b5436d1fbcf62287426db77522a0c04f3a9a91da2f77150beb61"
+    },
+    {
+      "bytes": 13271,
+      "git_blob": "2bb803c111c89158e7cdadd2106cbd3f3824660a",
+      "path": "check_boundary.py",
+      "sha256": "5edce08b8b6fa4051a4757124eba7b635954ffeed287de955b9c9d393ef93a2d"
+    }
+  ],
+  "boundary_probe_pairs": 2016,
+  "checks": 11756,
+  "event_id": "EM-20261008-RESIDUAL-BOUNDARY-COMPOSITION-7C2E8A",
+  "fixed_three_module_cases": 1140,
+  "global_read": "8de6086e90d954b05672cbee20a5da5eb86bb741",
+  "independent_review": false,
+  "long_path": {
+    "compatible_assembly_C": "1188518561323126046432205871807859915657177",
+    "events": 201,
+    "maximum_selected": 101,
+    "occurrences": 403,
+    "optimal_CWM": {
+      "C": 1,
+      "M": "1",
+      "W": "1"
+    },
+    "unassigned_at_maximum": 100
+  },
+  "long_path_peak_tables": {
+    "boundary_occurrences": 1,
+    "full_score_entries": 201,
+    "optimal_entries": 2
+  },
+  "native_release_permission_or_cost_supplied": false,
+  "next": "Type one source-justified native reallocation operation and its member association, release side effects and cost before using this quotient for native dynamics.",
+  "original_opt_repair": {
+    "at_eta_2_full_W": "11",
+    "at_eta_2_optimized_W": "4",
+    "first_boundary_table": [
+      {
+        "C": 1,
+        "M": "1",
+        "W": "1",
+        "occupied": [],
+        "score": 0
+      },
+      {
+        "C": 1,
+        "M": "1",
+        "W": "1",
+        "occupied": [
+          1,
+          4,
+          5
+        ],
+        "score": 1
+      }
+    ],
+    "full_score_table": [
+      {
+        "C": 1,
+        "M": "1",
+        "W": "1",
+        "occupied": [],
+        "score": 0
+      },
+      {
+        "C": 3,
+        "M": "1",
+        "W": "3",
+        "occupied": [],
+        "score": 1
+      },
+      {
+        "C": 1,
+        "M": "1",
+        "W": "1",
+        "occupied": [],
+        "score": 2
+      }
+    ],
+    "repaired_optimum": [
+      {
+        "C": 1,
+        "M": "1",
+        "W": "1",
+        "occupied": [],
+        "score": 2
+      }
+    ]
+  },
+  "output": {
+    "bytes": 142311,
+    "full_uploaded_to_source": false,
+    "git_blob": "79162d578abd6db000202e3fc5a383b509147218",
+    "location": "CONVERSATION_PACKAGE_AND_DETERMINISTIC_SOURCE_REGENERATION",
+    "path": "results.json",
+    "sha256": "d5afd42c316acdf5de0a0463304478a6e2c8e57f1d7bd9278ce1db4b842ed24d"
+  },
+  "parent_native_objective_complete": false,
+  "release_counterexample": [
+    {
+      "F_accepted": true,
+      "after_release": [
+        "C"
+      ],
+      "before": [
+        "A",
+        "C"
+      ],
+      "proposal_CWM": {
+        "C": 1,
+        "M": "1",
+        "W": "1"
+      },
+      "rejected_proposal_retained": false,
+      "release_member": 1,
+      "released_event": "A",
+      "unassigned": [
+        1,
+        2,
+        3,
+        7
+      ]
+    },
+    {
+      "F_accepted": false,
+      "after_release": [
+        "E"
+      ],
+      "before": [
+        "D",
+        "E"
+      ],
+      "proposal_CWM": {
+        "C": 1,
+        "M": "1",
+        "W": "1"
+      },
+      "rejected_proposal_retained": true,
+      "release_member": 1,
+      "released_event": "D",
+      "unassigned": [
+        1,
+        2,
+        4,
+        7
+      ]
+    }
+  ],
+  "researcher_id": "EM-DIRECT-FAB38C",
+  "same_author_repeat_byte_identical": true,
+  "schema": "EM_DIRECT_RESEARCH_CHECKPOINT_V1",
+  "session_id": "MCP-355c23097e004058a85dbeb7b7281256",
+  "source_read": "1c1d4c19b0cfa5ab9b22cb0aae3fbfa93fefacf0",
+  "status": "CONDITIONAL_BRC_INTERFACE_UNREVIEWED_NOT_NATIVE_DYNAMICS"
+}
