@@ -1,0 +1,64 @@
+{
+  "schema": "CELL_U12_SYNCHRONOUS_ROUTING_CHECKPOINT_V1",
+  "event_id": "EM-20261008-CELL-U12-SYNCHRONOUS-ROUTING-93F4C2",
+  "status": "CONDITIONAL_ROUTING_NOT_NATIVE_FORCE_NOT_ADMITTED",
+  "activity_id": null,
+  "registration": "PENDING_PRIOR_PLATFORM_BLOCK_NO_RETRY_THIS_TURN",
+  "global_read_snapshot": "552f8bb63a7205e55f6878f3a0573234c2641259",
+  "source_intake": "671bbbb2a46f08f62cad08060adb682d647533d5",
+  "source_directory": "research_notes/chatgpt_direct/20261008_cell_u12_synchronous_routing_93f4c2",
+  "files": {
+    "NOTE.md": {
+      "bytes": 17906,
+      "sha256": "a2122580e39acb06379c2e3a5e6a7967cebc8605a25ed56183bc08ca83310582",
+      "git_blob": "1859991fd2479ce1e39fe1741fe97b14fcb26112"
+    },
+    "synchronized_events.py": {
+      "bytes": 10921,
+      "sha256": "d3b0edf3c6c247f156a292f3f68d15aa9438923f6c394ba3c7b66735ecafb04b",
+      "git_blob": "4ba3187b38bba59d55eb00974de4f71a6e39938e"
+    },
+    "check_u12.py": {
+      "bytes": 13516,
+      "sha256": "f81eabbbcf8cd95223c1b20b3d63e958f6b61788cc481bd598182e871d43eaeb",
+      "git_blob": "5dca52de7a3d1e5695cd9b1493d3f0ce5778ee39"
+    }
+  },
+  "checks": 18498,
+  "BRC_calls": {
+    "cwm_edge": 3121,
+    "one_state_recurrent_cwm": 15,
+    "cwm_recoalesce": 81723,
+    "cwm_propagate": 99436
+  },
+  "new_results": [
+    "common_clock_parity_and_epoch_holding_invariant",
+    "static_overlap_not_synchronous_coincidence",
+    "positive_joint_rendezvous_normalizer_and_tail",
+    "original_square_must_move_synchronous_tree_score_exact_zero",
+    "holding_and_fresh_arrival_are_distinct_operations",
+    "explicit_third_source_prefix_route_with_sharp_five_hop_three_tick_bound"
+  ],
+  "exact_examples": {
+    "must_move_neighbor_same_clock": "ZERO_ALL_TIMES",
+    "square_H0_tree_score": "ZERO_ALL_TIMES",
+    "three_corners_tick2_fresh_axis_candidates": 32,
+    "three_corners_tick2_weight": "1/382205952",
+    "minimal_prefix_spatial_hops": 5,
+    "minimal_parallel_protocol_ticks": 3,
+    "holding_operations": 4
+  },
+  "results_sha256": "cdeb5426ad979049d79f2312a38c225bc3cce4f5f9c4072972e303ad480c49da",
+  "evidence": {
+    "trace_bytes": 896720,
+    "trace_sha256": "f541d4d2ba6a5d9cc947f2f63e542c8a5b8f43a0052e676e16c4d73c20e75d71",
+    "trace_compressed_sha256": "975c89d2306f8d00dad9b23b5cf590f8b16374b7dac8e1faea2ca31af70f92eb"
+  },
+  "same_author_isolated_replay_byte_identical": true,
+  "independent_review": false,
+  "full_trace_uploaded_to_Source": false,
+  "native_closure_certified": false,
+  "physical_force_or_clock": false,
+  "prime_claim": false,
+  "next": "Supply actual native action-incidence and material/third-source reaction for the source-accounted event-ready trace; no directions-only admission."
+}
