@@ -1,0 +1,178 @@
+{
+  "schema": "FOUNDATION_BACKFLOW_CANDIDATE_TECHNICAL_REVIEW_V1",
+  "classification": "LIMITED_TECHNICAL_DOCUMENTATION_REVIEW_NO_MATHEMATICAL_REVIEW",
+  "disposition": "PASS",
+  "source_pin": "f03e5e2f27d04fa2f72fd70af1a712f90fc58546",
+  "repository": "awdawmip/enterprise-math",
+  "scope": {
+    "candidate_root": "/workspace/em-driver-owner-20261008/foundation-driver/candidate",
+    "baseline_root": "/workspace/em-driver-owner-20261008/foundation-driver/doc-audit/source",
+    "files": [
+      "docs/FOUNDATION_BACKFLOW_LOOP.en.md",
+      "docs/FOUNDATION_BACKFLOW_LOOP.zh-CN.md"
+    ],
+    "exact_replacement_count": 4,
+    "per_file_baseline_spans": [
+      {
+        "start_line": 125,
+        "end_line": 125
+      },
+      {
+        "start_line": 195,
+        "end_line": 201
+      }
+    ],
+    "repository_source_files_edited": false,
+    "candidate_files_edited": false,
+    "remote_writes": false,
+    "new_tests_written": false
+  },
+  "findings": [],
+  "checks": [
+    {
+      "id": "EXACT_FOUR_SPANS",
+      "status": "PASS",
+      "method": "For each of the four declared replacements, verified baseline line span and unique expected-text occurrence; reconstructed each entire candidate from baseline bytes by exactly the two declared replacements for that file, then compared complete bytes. Both candidates differed from baseline only by those replacements.",
+      "outside_spans_byte_identical": true,
+      "trailing_newline_preserved": true
+    },
+    {
+      "id": "BILINGUAL_EXISTING_SCRIPT_LIMITED",
+      "status": "PASS",
+      "script_path": "/workspace/enterprise-math/tools/check_bilingual_pairs.py",
+      "script_sha256": "36dd537bd7a4cba21048d5ec1d04b60693085821fffee3cd58f3df1898fa9b03",
+      "script_git_blob_sha": "ede99a625e58fbec0585d9aa5f25bcf3e25bc7a3",
+      "local_script_repository_head": "9800fa40569c9541ffa8f0c917050cfb067418a3",
+      "script_is_claimed_as_source_pin_copy": false,
+      "invocation": "Python importlib.util.spec_from_file_location loaded the existing script with sys.dont_write_bytecode=True. Reused heading_levels and CJK_RE directly for the two candidate texts; main() was not invoked.",
+      "checked": [
+        "English candidate has no match for the original CJK_RE",
+        "Original heading_levels returns equal vectors for English and Chinese candidates",
+        "Each candidate heading vector equals its own baseline vector",
+        "Both pair members are changed in this local candidate package"
+      ],
+      "heading_levels": [
+        1,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        2
+      ],
+      "excluded": [
+        "Whole-repository bilingual main()",
+        "bilingual_pairs.json manifest traversal or pair-registration validation",
+        "Repository git changed_files/base-commit calculation",
+        "Any new test file"
+      ],
+      "python_exit_code": 0
+    },
+    {
+      "id": "BILINGUAL_MEANING",
+      "status": "PASS",
+      "assessment": "Both languages state the same immutable V2 publication store and governing contract, recovery-aware live routing, runtime policy/reducer, and #240 event-log role. Both state CANONICALIZED FQ-005, PR #436 and the same commit; the three API-domain clauses match the machine result. Both preserve the separate RS-P022-OBSERVATION-HISTORY frontier/live-lease boundary and identify both examples as canonicalized provenance outside the active link set.",
+      "second_bounded_wording_check": {
+        "agent_task": "/root/foundation_backflow_driver/backflow_doc_audit/bilingual_wording_check",
+        "scope": "Only the four replacement strings already in context; no remote reads, files, identity registration, or mathematical review.",
+        "result": "PASS; no meaning mismatch or translation-induced status overstatement. No independent fact verification claimed."
+      }
+    },
+    {
+      "id": "CURRENT_V2_CONTROL_AUTHORITY",
+      "status": "PASS",
+      "authority_path": "/workspace/em-driver-owner-20261008/source/control_plane/current_control_authority.json",
+      "authority_sha256": "a4ae386e9c4b095b457f78b1dfbbafeb1514691780613c71203ced13ca386ce4",
+      "selectors": {
+        "/task_publication/contract": "research_task_publication_contract_v2.json",
+        "/task_publication/record_store": "research_task_records/<task-id>/<publication-id>.json",
+        "/live_dispatch/canonical_entrypoint": "research_control_dispatch.py",
+        "/live_dispatch/runtime_policy": "research_runtime_policy_v2.json",
+        "/live_dispatch/event_reducer": "tools/research_runtime_reducer.py",
+        "/live_dispatch/task_definition_source": "IMMUTABLE_V2_TASK_PUBLICATIONS_ONLY",
+        "/live_dispatch/legacy_definition_fallback": false
+      },
+      "agents_support": {
+        "path": "/workspace/em-driver-owner-20261008/source/AGENTS.md",
+        "lines": [
+          96,
+          222,
+          223,
+          224,
+          225,
+          226
+        ],
+        "assessment": "The scoped control precedence and current V2 publication/runtime/live-routing entries agree with the candidate sentence. Naming research_control_dispatch.py also respects recovery-aware live routing rather than treating the fresh selector as the top-level entrypoint."
+      }
+    },
+    {
+      "id": "RECORDED_FQ005_STATUS_NO_NEW_MATH",
+      "status": "PASS",
+      "evidence_path": "/workspace/em-driver-owner-20261008/foundation-driver/doc-audit/source/foundation_backflow.json",
+      "source_git_blob_sha": "09ad3591e8dbd68cb8d1659d343d12e2d899e615",
+      "evidence_lines": {
+        "fq005": [
+          144,
+          160
+        ],
+        "active_link_arrays": [
+          106,
+          107
+        ]
+      },
+      "machine_fields": {
+        "question_id": "FQ-20260809-005",
+        "phase": "CANONICALIZED",
+        "canonical_pr": 436,
+        "canonical_merge": "3a40fe680e7aad4bc458540483c3c753e15f2cc4",
+        "result_class": "THEOREM_TOOL_API_REPAIR",
+        "foundation_result": "stable graph_distance is the P012 undirected-simple theorem-facing API; directed_graph_distance preserves literal outgoing shortest-walk semantics; componentwise ordinary metric is retained"
+      },
+      "assessment": "The patch restates existing canonicalized machine status and result. It attributes the state to foundation_backflow.json, does not reopen an FQ or task, does not create an acceptance or promotion, and preserves the unrelated frontier/lease boundary. No new theorem, widened API domain, new proof or newly rerun gate success is asserted.",
+      "found_new_mathematics": false,
+      "found_status_overstatement": false
+    }
+  ],
+  "artifact_binding": {
+    "replacements_json_sha256": "cdeeb5e744822f9b97a4870a69d060427c52c97616adc363313f14d62c071214",
+    "files": [
+      {
+        "path": "docs/FOUNDATION_BACKFLOW_LOOP.en.md",
+        "baseline_sha256": "b8fcca6555d77c78cd86373eee22af086f3658dce7dff91feae7810f3559d527",
+        "candidate_sha256": "61bd22a60b56c74164485e5ea1427cfaa1631ad79d2a0372b4b777d7976c6b68",
+        "candidate_git_blob_sha": "e6cdabc9755a5541ee425ad119197dddfc7d78f1",
+        "bytes": 11625,
+        "line_count": 216
+      },
+      {
+        "path": "docs/FOUNDATION_BACKFLOW_LOOP.zh-CN.md",
+        "baseline_sha256": "4e609e389afaca24dc55840b74ce075c8e8172d6daae7b4eb8b4e519943ea0fe",
+        "candidate_sha256": "f33676944aefd055504209e7339144c23199068e8c450914ee044cc845569e29",
+        "candidate_git_blob_sha": "f3664dde5f13858b596e2b9755defe1f3bc917f0",
+        "bytes": 10663,
+        "line_count": 216
+      }
+    ]
+  },
+  "limits": [
+    "This is a bounded technical review, not a formal Driver/Steward mathematical disposition, Result/Review record, identity registration, task/claim authorization, or new backflow result.",
+    "The existing checker was reused from its recorded local path/head and content hashes. It was not represented as fetched from the source pin.",
+    "The limited checks do not claim the full repository bilingual, reference-integrity, quality, or promotion gates passed.",
+    "Canonical status is verified against the already-read exact source-pin machine record; old PR gates and mathematics were not rerun.",
+    "The parent Driver retains its original parent_liveness and owns its unified PRE_FINAL evaluation."
+  ]
+}
