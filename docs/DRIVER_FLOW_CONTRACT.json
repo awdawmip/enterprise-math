@@ -354,7 +354,7 @@
       "decision_conditions": {
         "TASK_SET_PUBLISHED": "One or more substantive tasks; preserve Result successor restrictions and parent Objective.",
         "PARENT_OBJECTIVE_CLOSURE": "No tasks or REQUIRED gates; parent Objective must already be canonically CLOSED.",
-        "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": "No tasks or REQUIRED gates; accepted PASS/SUCCESS Task with SATISFIED hard target or the native pinned explicit Driver satisfaction assessment. Requires terminal_scope=TASK and portfolio_continuation; grants no parent completion.",
+        "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": "No tasks or REQUIRED gates; accepted PASS/SUCCESS Task with SATISFIED hard target or the native pinned explicit Driver satisfaction assessment, or accepted AUDIT_COMPLETE with literal SATISFIED hard target only. An assessment cannot retype an AUDIT_COMPLETE target. Requires terminal_scope=TASK and portfolio_continuation; preserves raw Result bytes and grants no parent completion.",
         "EXISTING_CONTROL_ASSET_BOUND": "No new tasks or REQUIRED gates. Bind exactly the existing integration publication named by an ACCEPTED/FOLLOWUP_TASK exact-set synthesis. Require the current source Task publication, own active Driver session/DA, and current operational destination; any later destination generation requires explicit current_destination_continuation. Preserve historical authors and grant no Task or parent closure."
       },
       "conditional_required_fields": {

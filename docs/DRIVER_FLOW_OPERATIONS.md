@@ -93,7 +93,11 @@ For `TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION`, explicitly include
 `"terminal_scope":"TASK"` and the exact seven-field `portfolio_continuation`
 object. Its `remaining_parent_scope` and `evidence_refs` are nonempty arrays of
 unique nonblank strings; `next_action` is a concrete nonblank string. The native
-accepted PASS/SUCCESS and satisfaction prerequisites still apply.
+accepted PASS/SUCCESS and satisfaction prerequisites still apply. A native
+`AUDIT_COMPLETE` Result also qualifies only when its raw hard target is literally
+`SATISFIED`; the explicit Driver assessment alternative cannot retype an audit
+target. The Result verdict and bytes remain unchanged, and parent completion
+is not granted.
 
 For a definite adapter `REJECTED` response, no native submission occurred.
 Read `recovery`, correct the exact rejected fields after truthful judgment,

@@ -212,8 +212,13 @@ def _task_scope_continuation(
     """Validate the completed-Task decision; grant no parent or claim authority."""
     if review.get("disposition") != "ACCEPTED":
         raise DriverFollowupError("TASK-scope closure requires ACCEPTED review authority")
-    if result.get("terminal_verdict") not in {"PASS", "SUCCESS"}:
-        raise DriverFollowupError("TASK-scope closure requires a PASS/SUCCESS Result")
+    if result.get("terminal_verdict") == "AUDIT_COMPLETE":
+        # Audit completion is a native Result verdict, not a PASS alias. Only
+        # its literal satisfied target admits this Task-only continuation.
+        if result.get("hard_target_disposition") != "SATISFIED":
+            raise DriverFollowupError("AUDIT_COMPLETE TASK-scope closure requires literal hard_target_disposition SATISFIED; a Driver assessment cannot retype it")
+    elif result.get("terminal_verdict") not in {"PASS", "SUCCESS"}:
+        raise DriverFollowupError("TASK-scope closure requires a PASS/SUCCESS Result or AUDIT_COMPLETE with literal SATISFIED")
     if result.get("hard_target_disposition") != "SATISFIED":
         if str(result.get("hard_target_disposition", "")).strip().upper() in {
             "PARTIAL", "PARTIALLY_SATISFIED", "INCOMPLETE", "NOT_SATISFIED", "UNSATISFIED",
