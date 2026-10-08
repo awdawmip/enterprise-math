@@ -1,0 +1,163 @@
+{
+  "BRC_calls": {
+    "cwm_edge": 797,
+    "cwm_propagate": 6008,
+    "cwm_recoalesce": 6944
+  },
+  "activity_id": "RA-ACD478EE7347AE5A2E94106C",
+  "artifacts": {
+    "NOTE.md": {
+      "bytes": 11450,
+      "git_blob": "0d9de9a30a71382280d1ed329d451b715cc8981d",
+      "sha256": "489376285d1ba59cab2f9359230416f2065941da8655ef91026952cf3fc09e21"
+    },
+    "check_selector.py": {
+      "bytes": 12815,
+      "git_blob": "e2c84a17f3c9f59a28d51bd65460c48d3fc90a08",
+      "sha256": "6a53f7fa30610f183bca5885790f1267dc6db3b7b56be359ba573fce91824f4f"
+    }
+  },
+  "checks": 1887,
+  "event_id": "EM-20261008-RESIDUAL-SELECTOR-7C2E8A",
+  "independent_review": false,
+  "n_exchange_checks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "native_force": false,
+  "new_results": [
+    "intermediate_Opt_is_not_context_safe",
+    "explicit_reallocation_selector_detailed_balance",
+    "exact_B_to_AC_hitting_cost",
+    "strong_closure_bias_can_delay_escape",
+    "bounded_strict_exchange_no_go_with_neutral_path"
+  ],
+  "next": "Supply one source-justified native event reallocation interface, including release permission, side effects, provenance and cost; no physical closure reversibility follows from the test selector.",
+  "output": {
+    "bytes": 156611,
+    "full_output_uploaded_to_source": false,
+    "local_capsule_uploaded_to_source": false,
+    "location": "CONVERSATION_PACKAGE_AND_DETERMINISTIC_SOURCE_REGENERATION",
+    "path": "results.json",
+    "sha256": "a5c7bddd4dd183b4aaa3daa2f6306946bcd98200c3d517507d775ce3825f4c0c"
+  },
+  "parent_objective_complete": false,
+  "physical_time": false,
+  "recurrent_analysis_calls": 16,
+  "recurrent_power_calls": 168,
+  "same_author_repeat_identical": true,
+  "samples": [
+    {
+      "eta": "1/10",
+      "hitting_mean_from_B": "4719/20",
+      "integer_potential": [
+        141,
+        130,
+        143,
+        130
+      ],
+      "optimum_exit_probability": "20/33",
+      "stationary_mean_unassigned": "690/131",
+      "stationary_optimum": "1/131"
+    },
+    {
+      "eta": "1/2",
+      "hitting_mean_from_B": "135/4",
+      "integer_potential": [
+        13,
+        10,
+        15,
+        10
+      ],
+      "optimum_exit_probability": "4/9",
+      "stationary_mean_unassigned": "42/11",
+      "stationary_optimum": "1/11"
+    },
+    {
+      "eta": "1",
+      "hitting_mean_from_B": "24",
+      "integer_potential": [
+        3,
+        2,
+        4,
+        2
+      ],
+      "optimum_exit_probability": "1/3",
+      "stationary_mean_unassigned": "3",
+      "stationary_optimum": "1/5"
+    },
+    {
+      "eta": "3/2",
+      "hitting_mean_from_B": "275/12",
+      "integer_potential": [
+        37,
+        22,
+        55,
+        22
+      ],
+      "optimum_exit_probability": "4/15",
+      "stationary_mean_unassigned": "78/31",
+      "stationary_optimum": "9/31"
+    },
+    {
+      "eta": "2",
+      "hitting_mean_from_B": "189/8",
+      "integer_potential": [
+        13,
+        7,
+        21,
+        7
+      ],
+      "optimum_exit_probability": "2/9",
+      "stationary_mean_unassigned": "24/11",
+      "stationary_optimum": "4/11"
+    },
+    {
+      "eta": "3",
+      "hitting_mean_from_B": "80/3",
+      "integer_potential": [
+        11,
+        5,
+        20,
+        5
+      ],
+      "optimum_exit_probability": "1/6",
+      "stationary_mean_unassigned": "33/19",
+      "stationary_optimum": "9/19"
+    },
+    {
+      "eta": "10",
+      "hitting_mean_from_B": "11253/200",
+      "integer_potential": [
+        141,
+        31,
+        341,
+        31
+      ],
+      "optimum_exit_probability": "2/33",
+      "stationary_mean_unassigned": "96/131",
+      "stationary_optimum": "100/131"
+    },
+    {
+      "eta": "100",
+      "hitting_mean_from_B": "9211503/20000",
+      "integer_potential": [
+        10401,
+        301,
+        30401,
+        301
+      ],
+      "optimum_exit_probability": "2/303",
+      "stationary_mean_unassigned": "906/10301",
+      "stationary_optimum": "10000/10301"
+    }
+  ],
+  "schema": "EM_DIRECT_RESEARCH_CHECKPOINT_V1",
+  "source_commit": "43f18c87ec6c4466d03835a49ae5a203176709a3",
+  "source_directory": "research_notes/chatgpt_direct/20261008_residual_selector_7c2e8a",
+  "status": "NEW_CONDITIONAL_SELECTOR_UNREVIEWED_NOT_NATIVE_FORCE"
+}
