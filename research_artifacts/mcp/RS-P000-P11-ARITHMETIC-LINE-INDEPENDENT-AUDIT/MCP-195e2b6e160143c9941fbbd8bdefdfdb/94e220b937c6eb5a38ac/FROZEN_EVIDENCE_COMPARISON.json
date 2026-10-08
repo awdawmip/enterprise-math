@@ -1,0 +1,94 @@
+{
+  "schema": "P11_FROZEN_EVIDENCE_COMPARISON_V1",
+  "author_code_executed": false,
+  "all_matches": true,
+  "matching_published_rows": [
+    {
+      "branch": "diagonal",
+      "n": 1,
+      "exact_point_signed_fiber_primitive_roots": true
+    },
+    {
+      "branch": "diagonal",
+      "n": 2,
+      "exact_point_signed_fiber_primitive_roots": true
+    },
+    {
+      "branch": "diagonal",
+      "n": 3,
+      "exact_point_signed_fiber_primitive_roots": true
+    },
+    {
+      "branch": "offdiagonal",
+      "n": 1,
+      "exact_point_cell_labeled_roots_AP": true
+    },
+    {
+      "branch": "offdiagonal",
+      "n": 3,
+      "exact_point_cell_labeled_roots_AP": true
+    },
+    {
+      "branch": "offdiagonal",
+      "n": 5,
+      "exact_point_cell_labeled_roots_AP": true
+    },
+    {
+      "branch": "offdiagonal",
+      "n": 7,
+      "exact_point_cell_labeled_roots_AP": true
+    },
+    {
+      "branch": "offdiagonal",
+      "n": 9,
+      "exact_point_cell_labeled_roots_AP": true
+    },
+    {
+      "branch": "offdiagonal",
+      "n": 11,
+      "exact_point_cell_labeled_roots_AP": true
+    }
+  ],
+  "known_witnesses": [
+    {
+      "sextuple": [
+        176,
+        57,
+        185,
+        105,
+        208,
+        56
+      ],
+      "independent_direct_pairability_and_gcd": true
+    },
+    {
+      "sextuple": [
+        2720,
+        165,
+        2725,
+        1533,
+        2444,
+        2044
+      ],
+      "independent_direct_pairability_and_gcd": true
+    }
+  ],
+  "unpublished_extra_control_multipliers": {
+    "diagonal": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "offdiagonal": [
+      13
+    ]
+  },
+  "documentary_limits": [
+    "ARITHMETIC.md is named in diagonal VALIDATION.md but absent from accepted output manifest; audit does not rely on it.",
+    "Temporary REPRODUCED.json and external PDF bytes are not contained in the accepted manifest; their historical byte claims were not independently reproduced.",
+    "Native source controls and immutable input artifacts were verified separately.",
+    "SymPy version is recorded by the independent audit run; source authors did not pin it in the offdiagonal manifest."
+  ]
+}
