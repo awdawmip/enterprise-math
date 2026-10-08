@@ -15,10 +15,15 @@ REPO = Path(__file__).resolve().parents[1]
 CASES = ("open_parent", "absent_parent", "parked_parent", "invalid_specs", "invalid_driver", "historical_generation",
          "review_pin_race", "duplicate_packet_race", "result_pin_postcheck",
          "second_review_race", "packet_bytes_race", "publication_pin_postcheck",
-         "assessment_success", "assessment_invalid", "assessment_report_drift")
+         "assessment_success", "assessment_invalid", "assessment_report_drift",
+         "success_parent", "audit_open_parent", "audit_invalid_targets", "audit_invalid_specs",
+         "audit_invalid_driver", "audit_historical_generation", "audit_review_pin_race",
+         "audit_result_pin_postcheck", "audit_publication_pin_postcheck")
 
 
 def run_case(case):
+    audit_result = case.startswith("audit_")
+    scenario = case.removeprefix("audit_") if audit_result else case
     import contextlib
     import copy
     import hashlib
@@ -62,7 +67,11 @@ def run_case(case):
         result = {k: v for k, v in records.result_map(root)[fixture.TARGET_ID].items() if not k.startswith('_')}
         result.update(result_id='RR-TASK-SCOPE-FIXTURE', terminal_verdict='PASS', hard_target_disposition='SATISFIED',
                       unresolved_residue='Parent classification remains open outside this Task.')
-        if case.startswith('assessment_'):
+        if audit_result:
+            result['terminal_verdict'] = 'AUDIT_COMPLETE'
+        elif scenario == 'success_parent':
+            result['terminal_verdict'] = 'SUCCESS'
+        if scenario.startswith('assessment_'):
             result['hard_target_disposition'] = 'ACHIEVED_BY_THE_FROZEN_FINITE_PROOF'
         # Do not rewrite a legacy normalized record under its exact legacy pin.
         # This is a new TEMP Result, backed by the fixture's copied ER/outputs.
@@ -78,13 +87,13 @@ def run_case(case):
         objective_path = write(f'research_objective_heads/{parent}.json',
                                {'objective_id': parent, 'objective_status': 'OPEN'})
         parent_status = 'OPEN'
-        if case == 'absent_parent':
+        if scenario == 'absent_parent':
             objective_path.unlink()
             parent_status = 'ABSENT_NOT_CLOSED'
-        elif case == 'parked_parent':
+        elif scenario == 'parked_parent':
             write(f'research_objective_heads/{parent}.json', {'objective_id': parent, 'objective_status': 'PARKED'})
             parent_status = 'PARKED'
-        elif case == 'historical_generation':
+        elif scenario == 'historical_generation':
             _write_current_record(root, task_id=result['task_id'], publication_id='TP2-CURRENT-FIXTURE',
                                   parent_objective_id=parent, publication_generation=2,
                                   supersedes_publication_id=result['publication_id'])
@@ -122,6 +131,15 @@ def run_case(case):
                 'evidence_refs': [result['return_path']],
             },
         }
+        if audit_result:
+            # Match P11's native AUDIT_COMPLETE/SATISFIED + accepted Task-only
+            # follow-up shape, including reuse of an existing integration asset.
+            # All records and publications here remain disposable fixture data.
+            integration = next(row for row in spec['gate_decisions']
+                               if row['gate'] == 'INTEGRATION_OR_TOOL_HARVEST')
+            integration.update(decision='SATISFIED_BY_EXISTING_CONTROL_ASSET',
+                               reason='Continue through the already published integration task.',
+                               evidence_refs=[f"research_task_records/{result['task_id']}/{result['publication_id']}.json"])
         spec_path = write('fixtures/completed-task-followup.json', spec)
         args = copy.copy(setup.args)
         args.result_id = result['result_id']
@@ -143,7 +161,7 @@ def run_case(case):
             return ('# Temporary Driver review\n\n<!-- ' + impl.TASK_COMPLETION_ASSESSMENT_SCHEMA
                     + '\n' + json.dumps(value, ensure_ascii=False, indent=2) + '\n-->\n')
 
-        if case.startswith('assessment_'):
+        if scenario.startswith('assessment_'):
             setup.review_path.write_text(assessment_text(assessment), encoding='utf-8')
         guard._bind_guard(root)
         captured = io.StringIO()
@@ -151,7 +169,35 @@ def run_case(case):
         with mock.patch.object(guard, 'baseline_audit', side_effect=lambda _root=root: baseline_audit(REPO)), \
              mock.patch.object(records, '_install_canonical_write_view', side_effect=lambda: bootstrap.install(root)), \
              contextlib.redirect_stdout(captured):
-            if case == 'assessment_invalid':
+            if scenario == 'invalid_targets':
+                for label, target in (
+                    ('negative', 'PARTIAL'), ('incomplete', 'INCOMPLETE'),
+                    ('negative_boundary', 'NEGATIVE_BOUNDARY'), ('null', None),
+                    ('empty', ''), ('lowercase', 'satisfied'), ('padded', ' SATISFIED '),
+                    ('named_success', 'ACHIEVED_BY_THE_FROZEN_FINITE_PROOF'), ('missing', None),
+                ):
+                    changed_result = {**result, 'hard_target_disposition': target}
+                    if label == 'missing':
+                        changed_result.pop('hard_target_disposition')
+                    write(target_path.relative_to(root).as_posix(), changed_result)
+                    changed_assessment = {**assessment, 'original_hard_target_disposition': target,
+                                          'result_record_sha256': 'sha256:' + hashlib.sha256(target_path.read_bytes()).hexdigest()}
+                    # Even an otherwise valid exact-pinned explicit assessment
+                    # cannot reinterpret an AUDIT_COMPLETE target as SATISFIED.
+                    setup.review_path.write_text(assessment_text(changed_assessment), encoding='utf-8')
+                    with mock.patch.object(records._write_tx, 'commit', wraps=records._write_tx.commit) as commit, \
+                         mock.patch.object(impl, '_driver_task_completion_assessment',
+                                           wraps=impl._driver_task_completion_assessment) as assess:
+                        with unittest.TestCase().assertRaisesRegex(ValueError, 'AUDIT_COMPLETE.*literal.*SATISFIED'):
+                            records.command_review_with_authority(args)
+                        commit.assert_not_called()
+                        assess.assert_not_called()
+                    rejected.append(label)
+                target_path.write_bytes(original_result_bytes)
+                assert not list(root.joinpath('research_result_reviews', result['result_id']).glob('*.json'))
+                assert not list(root.joinpath('research_driver_followups').glob('*/*.json'))
+                print_value = {'case': case, 'status': 'PASS', 'rejected_before_write': rejected}
+            elif scenario == 'assessment_invalid':
                 variants = []
                 for field, value in (
                     ('schema', 'WRONG'), ('driver_id', 'EM-DVR-OTHER'),
@@ -196,7 +242,7 @@ def run_case(case):
                 assert not list(root.joinpath('research_result_reviews', result['result_id']).glob('*.json'))
                 assert not list(root.joinpath('research_driver_followups').glob('*/*.json'))
                 print_value = {'case': case, 'status': 'PASS', 'rejected_before_write': rejected}
-            elif case in {'invalid_specs', 'invalid_driver', 'historical_generation'}:
+            elif scenario in {'invalid_specs', 'invalid_driver', 'historical_generation'}:
                 # Each rejection enters the real public first-review command.
                 # No write candidate or permission/claim adapter is substituted.
                 changes = [
@@ -209,6 +255,9 @@ def run_case(case):
                     ('missing_continuation', {}, {'portfolio_continuation': None}, {}, 'exact typed'),
                     ('new_task', {}, {'tasks': [{}]}, {}, 'cannot publish new tasks'),
                 ]
+                for verdict in ('FORMALIZED', 'INTEGRATED', 'KILL', 'REFUTED', 'NO_GO', 'BLOCKED'):
+                    changes.append(('unsupported_' + verdict, {'terminal_verdict': verdict}, {}, {}, 'PASS/SUCCESS'))
+                changes.append(('missing_followup', {}, {}, {'followup_spec': None}, 'requires --followup-spec'))
                 for field, value, fragment in (
                     ('source_result_id', 'RR-OTHER', 'Result mismatch'),
                     ('parent_objective_id', 'OBJ-OTHER', 'parent Objective mismatch'),
@@ -224,9 +273,9 @@ def run_case(case):
                 required = copy.deepcopy(spec['gate_decisions']); required[0]['decision'] = 'REQUIRED'
                 changes.append(('required_gate', {}, {'gate_decisions': required}, {}, 'REQUIRED'))
                 changes.append(('missing_gate', {}, {'gate_decisions': spec['gate_decisions'][:-1]}, {}, 'exactly 6'))
-                if case == 'invalid_driver':
+                if scenario == 'invalid_driver':
                     changes = [('inactive_driver', {}, {}, {'driver_id': 'EM-DVR-FFFF'}, 'ACTIVE authority')]
-                elif case == 'historical_generation':
+                elif scenario == 'historical_generation':
                     changes = [('historical_generation', {}, {}, {}, 'current operational Task publication')]
                 for label, result_changes, spec_changes, arg_changes, fragment in changes:
                     write(target_path.relative_to(root).as_posix(), {**result, **result_changes})
@@ -254,10 +303,10 @@ def run_case(case):
                 altered = []
 
                 def materialize_with_race(**kwargs):
-                    if case == 'review_pin_race':
+                    if scenario == 'review_pin_race':
                         target_path.write_bytes(target_path.read_bytes() + b'\n')
                         altered.append(target_path)
-                    elif case == 'assessment_report_drift':
+                    elif scenario == 'assessment_report_drift':
                         setup.review_path.write_bytes(setup.review_path.read_bytes() + b'\n')
                         altered.append(setup.review_path)
                     return original_materialize(**kwargs)
@@ -267,19 +316,19 @@ def run_case(case):
                     assert len(packets) == 1
                     packet_path = packets[0]
                     frozen = json.loads(packet_path.read_bytes())
-                    if case == 'duplicate_packet_race':
+                    if scenario == 'duplicate_packet_race':
                         duplicate = {**frozen, 'packet_id': 'DFU-ANOTHER-FIXTURE'}
                         altered.append(write('research_driver_followups/DR-OTHER/DFU-ANOTHER-FIXTURE.json', duplicate))
-                    elif case == 'result_pin_postcheck':
+                    elif scenario == 'result_pin_postcheck':
                         target_path.write_bytes(target_path.read_bytes() + b'\n'); altered.append(target_path)
-                    elif case == 'second_review_race':
+                    elif scenario == 'second_review_race':
                         review_paths = list(root.joinpath('research_result_reviews', result['result_id']).glob('*.json'))
                         another = json.loads(review_paths[0].read_bytes())
                         another['review_id'] = 'DR-SECOND-FIXTURE'
                         altered.append(write(f"research_result_reviews/{result['result_id']}/DR-SECOND-FIXTURE.json", another))
-                    elif case == 'packet_bytes_race':
+                    elif scenario == 'packet_bytes_race':
                         packet_path.write_bytes(packet_path.read_bytes() + b'\n'); altered.append(packet_path)
-                    elif case == 'publication_pin_postcheck':
+                    elif scenario == 'publication_pin_postcheck':
                         _write_current_record(root, task_id=result['task_id'], publication_id='TP2-LATER-FIXTURE',
                                               parent_objective_id=parent, publication_generation=2,
                                               supersedes_publication_id=result['publication_id'])
@@ -294,14 +343,14 @@ def run_case(case):
                         assert records.command_review_with_authority(args) == 0
                     except ValueError as exc:
                         failure = str(exc)
-                if case.endswith('race') or case in {'result_pin_postcheck', 'publication_pin_postcheck', 'assessment_report_drift'}:
+                if scenario.endswith('race') or scenario in {'result_pin_postcheck', 'publication_pin_postcheck', 'assessment_report_drift'}:
                     expected = {'review_pin_race': 'current Result bytes',
                                 'duplicate_packet_race': 'unique exact review packet',
                                 'result_pin_postcheck': 'current Result bytes',
                                 'second_review_race': 'unknown review',
                                 'publication_pin_postcheck': 'current operational Task publication',
                                 'assessment_report_drift': 'review',
-                                'packet_bytes_race': 'frozen candidate bytes'}[case]
+                                'packet_bytes_race': 'frozen candidate bytes'}[scenario]
                     assert failure and expected in failure, (case, failure)
                     # The committed first DR stays; only the transaction's own
                     # unchanged packet is rolled back. External drift is kept.
@@ -332,6 +381,7 @@ def run_case(case):
                         assert 'existing review/packet identity' in str(exc), str(exc)
                     else:
                         raise AssertionError('duplicate follow-up accepted')
+                assert target_path.read_bytes() == original_result_bytes
                 assert state['terminal'] is True, state
                 assert state['terminal_scope'] == 'TASK', state
                 assert state['driver_followup_state'] == 'TASK_SCOPE_CLOSED_PORTFOLIO_CONTINUATION', state
@@ -339,7 +389,28 @@ def run_case(case):
                 assert state['parent_final_granted'] is False
                 assert packet['parent_status_at_materialization'] == parent_status
                 assert packet['source_result_record_sha256'] == 'sha256:' + hashlib.sha256(target_path.read_bytes()).hexdigest()
-                if case == 'assessment_success':
+                if audit_result:
+                    from tools import research_dispatch_core, research_runtime_reducer
+                    from control_plane import research_dependency_release
+                    definition = research_dispatch_core.registered_definition(publication, root)
+                    done = research_dispatch_core._overlay_result_state(definition, {}, root, state)
+                    assert done['state'] == 'DONE' and done['dispatch_state'] == 'COMPLETE', done
+                    # Check the existing read-only dependency gate against the
+                    # real fixture RR/DR/DFU; this submits no UNBLOCK or claim.
+                    review_id = packet['review_id']
+                    gate = {'canonical_main': '0' * 40, 'result_id': result['result_id'],
+                            'result_record_sha256': packet['source_result_record_sha256'],
+                            'review_id': review_id, 'followup_id': packet['packet_id']}
+                    review_ref = (f"https://github.com/awdawmip/enterprise-math/blob/{gate['canonical_main']}/"
+                                  f"research_result_reviews/{result['result_id']}/{review_id}.json")
+                    entry = {'publication_id': result['publication_id'], 'gate_evidence': gate,
+                             'review_ref': review_ref}
+                    dependency = {'task_id': result['task_id'], 'required_artifact': 'ACCEPTED_AUDIT'}
+                    proof = research_dependency_release._current_gate(
+                        entry, dependency, {result['task_id']: publication}, records.result_map(root),
+                        research_runtime_reducer.parse_time(args.followup_created_at), root)
+                    assert proof['result_id'] == result['result_id']
+                if scenario == 'assessment_success':
                     assert target_path.read_bytes() == original_result_bytes
                     assert result['hard_target_disposition'] == 'ACHIEVED_BY_THE_FROZEN_FINITE_PROOF'
                     review = impl.review_map(root)[packet['review_id']]
@@ -358,7 +429,7 @@ def run_case(case):
                                      ('source_result_record_sha256', 'sha256:' + '0' * 64)):
                     with unittest.TestCase().assertRaises(ValueError):
                         impl.validate_packet({**packet, field: value}, root)
-                if case == 'open_parent':
+                if scenario == 'open_parent':
                     # A later, independently published generation changes the
                     # current task, not the integrity of an old immutable packet.
                     _write_current_record(root, task_id=result['task_id'], publication_id='TP2-LATER-FIXTURE',
