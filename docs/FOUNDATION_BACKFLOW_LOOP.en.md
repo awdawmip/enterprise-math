@@ -122,7 +122,7 @@ This closes back into `DETECTED`: revised Foundation is an input to the next rou
 
 ## 4. Scheduler integration
 
-`research_scheduler.json` remains the durable task/frontier definition and #240 remains the runtime event log when available.
+Immutable V2 task publications under `research_task_records/<task-id>/<publication-id>.json`, governed by `research_task_publication_contract_v2.json`, define tasks. `research_control_dispatch.py` provides recovery-aware live routing; `research_runtime_policy_v2.json` and `tools/research_runtime_reducer.py` provide runtime policy and event reduction. #240 remains the runtime event log when available.
 
 `foundation_backflow.json` adds only **semantic links**; it does not duplicate the scheduler state machine. Each active FQ link records at least:
 
@@ -192,13 +192,13 @@ The whole P018 substrate was not promoted:
 
 This example now lives under `canonicalized_examples`, not the active scheduler-link set.
 
-### FQ-20260809-005 — active scheduled example
+### FQ-20260809-005 — canonicalized theorem/API repair example
 
-FQ-005 remains at `FQ_OPEN -> RESEARCH_SCHEDULED`: the stable `graph_distance` API has a broader operational domain than the P012 ordinary-metric theorem domain.
+FQ-005 is `CANONICALIZED`: the theorem/API repair reached source main through PR #436 at `3a40fe680e7aad4bc458540483c3c753e15f2cc4`, as recorded in `foundation_backflow.json`.
 
-A5/P012/P022 geometry research must decide the API/domain layering. The foundation steward must not silently choose between narrowing the stable API and retaining a separately named directed shortest-walk helper. `foundation_backflow.json` links this question to the dedicated `RS-P022-GRAPH-DISTANCE-API` research task under `program/p022-geometry-v2`. This deliberately does **not** reinterpret the separate `RS-P022-OBSERVATION-HISTORY` frontier or any live lease on it.
+The stable `graph_distance` is the P012 undirected-simple theorem-facing API; `directed_graph_distance` preserves literal outgoing shortest-walk semantics; componentwise ordinary metric is retained. `foundation_backflow.json` records this result under `canonicalized_examples`. This propagation does **not** reinterpret the separate `RS-P022-OBSERVATION-HISTORY` frontier or any live lease on it.
 
-The two examples intentionally occupy opposite ends of the loop so the mechanism stays regression-testable.
+Both examples are retained as canonicalized provenance; neither occupies the active scheduler-link set.
 
 ## 8. Completion test
 

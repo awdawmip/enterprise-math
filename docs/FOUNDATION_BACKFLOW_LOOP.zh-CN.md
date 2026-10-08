@@ -122,7 +122,7 @@
 
 ## 4. Scheduler 接入规则
 
-`research_scheduler.json` 继续是 durable task/frontier 定义；#240 在可用时继续是 runtime event log。
+任务定义来自 `research_task_records/<task-id>/<publication-id>.json` 下的不可变 V2 task publications，由 `research_task_publication_contract_v2.json` 约束。`research_control_dispatch.py` 提供考虑恢复状态的实时路由；`research_runtime_policy_v2.json` 与 `tools/research_runtime_reducer.py` 提供运行策略和事件归约。#240 在可用时继续是 runtime event log。
 
 `foundation_backflow.json` 只增加**语义链接**，不复制 scheduler 状态机。每个 active FQ link 至少记录：
 
@@ -192,13 +192,13 @@ FQ-004 是第一条已经完整走通的 research-to-Foundation 样板。A1/A2 �
 
 该实例现在只保留在 `canonicalized_examples`，不再占 active scheduler link。
 
-### FQ-20260809-005 —— 活跃调度样板
+### FQ-20260809-005 —— 已 canonicalized 的 theorem/API 修复样板
 
-FQ-005 仍处于 `FQ_OPEN -> RESEARCH_SCHEDULED`：稳定 `graph_distance` API 的运行域比 P012 ordinary metric theorem domain 更宽。
+FQ-005 已为 `CANONICALIZED`：theorem/API 修复经 PR #436 合入 source main，commit 为 `3a40fe680e7aad4bc458540483c3c753e15f2cc4`；该状态已记录于 `foundation_backflow.json`。
 
-它应由 A5/P012/P022 几何 owner 研究 API/domain layering，而不是由 foundation steward 直接选择“收窄 API”或“保留 directed helper”。`foundation_backflow.json` 已将该问题链接到 `program/p022-geometry-v2` 下独立的 `RS-P022-GRAPH-DISTANCE-API` research task；这**不会**改写另一条 `RS-P022-OBSERVATION-HISTORY` frontier，也不会事后重解释其任何 live lease。
+稳定 `graph_distance` 是面向 P012 定理的 undirected-simple API；`directed_graph_distance` 保留按字面 outgoing 边计算 shortest-walk 的语义；componentwise ordinary metric 保留。`foundation_backflow.json` 已在 `canonicalized_examples` 中记录这一结果。这项传播**不会**改写另一条 `RS-P022-OBSERVATION-HISTORY` frontier，也不会事后重解释其任何 live lease。
 
-这两个实例故意位于闭环两端，用于持续回归整条流程。
+两个实例都作为 canonicalized provenance 保留，均不占 active scheduler-link set。
 
 ## 8. 完成判据
 
