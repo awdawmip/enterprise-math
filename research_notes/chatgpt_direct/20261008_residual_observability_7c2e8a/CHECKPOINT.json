@@ -1,0 +1,129 @@
+{
+  "BRC_calls": {
+    "cwm_edge": 6894,
+    "cwm_propagate": 53223,
+    "cwm_recoalesce": 35906
+  },
+  "activity_id": "RA-5C2961A7D26839991CE93DFD",
+  "artifacts": {
+    "NOTE.md": {
+      "bytes": 12118,
+      "git_blob": "237fac393fd825b9226451d3a51d0b778be1ff08",
+      "sha256": "c3641d7e9a231a47459425a4c80da05bd57dc421b1e349fd1f14665312f93086"
+    },
+    "check_observability.py": {
+      "bytes": 13312,
+      "git_blob": "84e7d8a2a3e823c43e818543d4ad2323eab918ba",
+      "sha256": "f8a7c66f840ff2d6abcfffcd8d83a9e57a9a3fe0fb6a61fd9ea70b928121de3f"
+    }
+  },
+  "causal_contrasts": [
+    {
+      "after_cross_gate": [
+        "1/2",
+        "3/4"
+      ],
+      "before_cross_gate": [
+        "1/2",
+        "1/2"
+      ],
+      "conditional_third_type0": "1",
+      "control_release_members": [
+        7,
+        13
+      ],
+      "cross_gate": [
+        "reserve",
+        [
+          3,
+          9,
+          15
+        ]
+      ],
+      "intervention_difference": "1/4",
+      "parity": 0,
+      "physical_force_or_coordinate_claim": false,
+      "rejected_raw_W": "3/4",
+      "selected_raw_W": "1/4",
+      "target": 15,
+      "treated_release_members": [
+        1,
+        7,
+        13
+      ],
+      "unconditional_third_type0": "1/2"
+    },
+    {
+      "after_cross_gate": [
+        "1/2",
+        "1/2"
+      ],
+      "before_cross_gate": [
+        "1/2",
+        "1/2"
+      ],
+      "conditional_third_type0": "0",
+      "control_release_members": [
+        7,
+        13
+      ],
+      "cross_gate": [
+        "reserve",
+        [
+          3,
+          9,
+          15
+        ]
+      ],
+      "intervention_difference": "0",
+      "parity": 1,
+      "physical_force_or_coordinate_claim": false,
+      "rejected_raw_W": "3/4",
+      "selected_raw_W": "1/4",
+      "target": 15,
+      "treated_release_members": [
+        1,
+        7,
+        13
+      ],
+      "unconditional_third_type0": "1/2"
+    }
+  ],
+  "checks": 26310,
+  "event_id": "EM-20261008-RESIDUAL-OBSERVABILITY-7C2E8A",
+  "global_read": "552f8bb63a7205e55f6878f3a0573234c2641259",
+  "independent_review": false,
+  "inherited_helper_checks": 128,
+  "native_action_law_supplied": false,
+  "new_results": [
+    "fixed_release_transcript_recovers_interface_partition",
+    "mixed_joint_W_law_operational_distance_equals_TV",
+    "all_fixed_order_marginals_can_hide_response_trace",
+    "local_unconditional_W_invariance_vs_conditioning",
+    "inherited_cross_event_converts_joint_structure_into_controlled_response"
+  ],
+  "next": "Source-grounded native A_i, crossing context G, six-axis readouts and side effects; verify same-preparation intervention contrasts, not conditional selection.",
+  "output": {
+    "bytes": 1523819,
+    "full_uploaded_to_source": false,
+    "git_blob": "3c3b0d174d4b8455be41e8ee10cfd79ca8728272",
+    "location": "CONVERSATION_PACKAGE_AND_DETERMINISTIC_SOURCE_REGENERATION",
+    "path": "results.json",
+    "sha256": "47501dc79b78cc4f49f42e7877b5612a98d07a8eabd91db8fa38a536ae533c90"
+  },
+  "parent_native_objective_complete": false,
+  "proper_marginal_tests_n": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "researcher_id": "EM-DIRECT-F1E807",
+  "same_author_repeat_byte_identical": true,
+  "schema": "EM_DIRECT_RESEARCH_CHECKPOINT_V1",
+  "session_id": "MCP-052eaa97973d4b3b9190df9e986f440a",
+  "source_directory": "research_notes/chatgpt_direct/20261008_residual_observability_7c2e8a",
+  "source_read": "671bbbb2a46f08f62cad08060adb682d647533d5",
+  "status": "CONDITIONAL_EXECUTED_BRC_UNREVIEWED_NOT_NATIVE_FORCE",
+  "tomography_states": 1578
+}
