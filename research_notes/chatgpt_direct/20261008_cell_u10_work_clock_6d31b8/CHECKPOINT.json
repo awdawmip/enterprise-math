@@ -1,0 +1,77 @@
+{
+  "schema": "CELL_U10_WORK_CLOCK_CHECKPOINT_V1",
+  "event_id": "EM-20261008-CELL-U10-WORK-CLOCK-6D31B8",
+  "status": "CONDITIONAL_UNREVIEWED_NOT_NATIVE_FORCE",
+  "activity_id": null,
+  "registration": "PLATFORM_BLOCKED_BEFORE_ISSUE_NO_RETRY",
+  "global_read_snapshot": "8de6086e90d954b05672cbee20a5da5eb86bb741",
+  "source_intake": "1c1d4c19b0cfa5ab9b22cb0aae3fbfa93fefacf0",
+  "source_directory": "research_notes/chatgpt_direct/20261008_cell_u10_work_clock_6d31b8",
+  "files": {
+    "NOTE.md": {
+      "bytes": 17246,
+      "sha256": "c5584842a8c3a4a333a2af06dca87f2c35ed707cb827557cfb746a3deb9e8315",
+      "git_blob": "3f89e09818a10862d95f53f87a765d801ec1d77f"
+    },
+    "local_work_clock.py": {
+      "bytes": 10382,
+      "sha256": "94c4f95d43304338c4f4811440c4c1b29acd7a2e06a88700cf0f443255845050",
+      "git_blob": "2d5cd2ffd4c9fb47e21fc37684eee2816e72c14e"
+    },
+    "check_u10.py": {
+      "bytes": 9712,
+      "sha256": "d3aabcdac2d1100d3061c97f1276c6dbb6be71ae562b50e293307431e4a18920",
+      "git_blob": "df6d061be9475283821b2fe35ae0ac4545bc3995"
+    }
+  },
+  "checks": 2000,
+  "BRC_calls": {
+    "cwm_edge": 521,
+    "cwm_propagate": 11933,
+    "cwm_recoalesce": 102553,
+    "one_state_recurrent_cwm": 6
+  },
+  "new_results": [
+    "uncached_occurrence_local_slide_has_no_uniform_fixed_communication_time",
+    "executed_local_equality_and_acknowledgement_traces",
+    "work_phase_invariant_is_completion_weight_times_duration",
+    "corrected_acceptance_restores_specified_work_clock_law",
+    "full_shape_marked_path_work_observer_changes_stationary_shape_odds",
+    "subcritical_positive_exponential_record_and_work_tail_bounds"
+  ],
+  "exact_example": {
+    "completion": "1/49",
+    "work": "3/115",
+    "TV": "32/5635",
+    "corrected_acceptance": "7/439",
+    "corrected_work": "1/49"
+  },
+  "finite_scope": {
+    "locality_inputs": 34,
+    "radii": [
+      0,
+      16
+    ],
+    "two_state_clock_examples": 8,
+    "phase_states_each": 16,
+    "finite_ticks_each": 41,
+    "shape_first_moment_inputs": 3,
+    "link_depth": 20
+  },
+  "evidence": {
+    "trace_bytes": 268606,
+    "trace_sha256": "2e38a01eda37d421495a8597b980151740d18fafea571dcaf58cd5d6452202bb",
+    "trace_compressed_sha256": "8abe41913ab5d2dc948575d0c02a029e5f0712fc1d87d81b9793c5b4fdcfaf2f"
+  },
+  "results_sha256": "460c4a338316b9b5b51445d222bdeca12ed35522a3a5bbf30440e2c2d4ec424a",
+  "isolated_same_author_results_and_trace_byte_equal": true,
+  "independent_review": false,
+  "native_force": false,
+  "physical_clock": false,
+  "complete_distributed_compiler": false,
+  "prime_claim": false,
+  "full_trace_uploaded_to_Source": false,
+  "previous_U9_pre_final": "FAILED_RuntimeAuthorizationError",
+  "U10_pre_final": "NOT_INVOKED_NO_REGISTERED_SESSION",
+  "next": "Source one native action/reaction update and its resource/clock semantics; do not identify a comparison protocol with triadic balance."
+}
