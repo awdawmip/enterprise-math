@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-FREE-NATIVE-20261008-01",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "54097805d55c20cd9caec0dc351e11c60c798284",
+          "path": "research_notes/FREE_X6_MARGINAL_32_20261008.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "ba2bf5f0d0e568ebacd2d7d6f517d95d3d1fe7c8ef3de736accc8633df5451cf",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "4989d8ccc8278adaff8f542093e1a410152269b8",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/54097805d55c20cd9caec0dc351e11c60c798284/research_notes/FREE_X6_MARGINAL_32_20261008.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-free-native-packet-01",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-FREE-NATIVE-20261008-01/readbacks/bc52b4228a41943d308d6700d630c1ca34caa29c080cefee32f461cb46a73629.json",
+          "verification_receipt_sha256": "bc52b4228a41943d308d6700d630c1ca34caa29c080cefee32f461cb46a73629"
+        }
+      ],
+      "event_id": "FREE-X6-MARGINAL-32-PACKET-01",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "FREE_AXIOM_DISCOVERY",
+  "recorded_at": "2026-10-08T12:54:52.065450+00:00",
   "registration_key": "session:codex-owner-20261008-free-native:FREE_AXIOM_DISCOVERY",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "FREE_AXIOM_DISCOVERY",
   "researcher_id": "EM-FREE-1956D3",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "codex-owner-20261008-free-native",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-08T12:54:52.065450+00:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
