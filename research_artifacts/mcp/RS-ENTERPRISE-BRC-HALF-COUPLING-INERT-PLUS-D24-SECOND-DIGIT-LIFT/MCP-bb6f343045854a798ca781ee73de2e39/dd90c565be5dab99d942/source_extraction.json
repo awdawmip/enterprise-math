@@ -1,0 +1,147 @@
+{
+  "schema": "KATZ_BOUNDED_SOURCE_EXTRACTION_V1",
+  "author_role": "RESEARCH_DRIVER",
+  "driver_id": "EM-DVR-41F848",
+  "session_id": "MCP-84e5caaa95ca486794779330c98ecc25",
+  "authority": "DA-2B8D2B82D64B3F7DA323",
+  "purpose": "只读原文定位和公式转录；不构造、证明或审阅 D25 数学命题；不重开 FREE 审计；不改变 Source 数学状态。",
+  "source": {
+    "author": "Nicholas M. Katz",
+    "title": "Crystalline Cohomology, Dieudonné Modules, and Jacobi Sums",
+    "url": "https://web.math.princeton.edu/~nmk/old/CrCohDModJacSum.pdf",
+    "pdf_pages": 84,
+    "bytes": 1191723,
+    "sha256": "547d6d6059d66b3809bed2d3f9c0301a62e07355bd994259ccc0533815b99da0",
+    "local_pdf": "/workspace/em-owner-continuation-20261008/katz-source-support/Katz-Crystalline-Cohomology-Dieudonne-Jacobi.pdf",
+    "acquisition": "复用 D25 researcher 已下载的作者网站 PDF；本地独立计算完整文件 hash 后复制。未读取研究员数学 WIP。"
+  },
+  "method": {
+    "evidence": "以下事实和公式均以视觉核对扫描页为依据。OCR 仅检索定位，不作为未核字形的证据。自然语言是有界事实转述，不是整段英文复制。",
+    "page_numbering": "PDF 页指 1-based 文件页面序号；纸页指扫描中心完整页面印刷页码。已核本条目所在纸页 = PDF 页 + 164；不以邻页残边作为另一页已读。",
+    "visually_opened_pdf_pages": [1,17,18,19,20,22,23,24,25,26,27,28,29,30,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50],
+    "reading_granularity": "仅核与本任务相关的定义、命题、图和上下文；打开页面不表示逐字审查整页证明。PDF32 为所需 p-adic 定义的定位页，完整定义在 PDF33。",
+    "ocr_only_not_visual_evidence": [15,16,31],
+    "unread_or_not_visually_verified_pdf_pages": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,21,31,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84],
+    "unresolved_scope": "未在上述核读范围定位到一句可直接引用的、将 (5.5.5)/(5.5.7) 中 F 一般定义为任意 pointed degree-p lift 的 sigma-semilinear coefficient-substitution 的原文定义；不把标准约定或多个陈述拼接后冒充原文。未读范围仍开放。"
+  },
+  "entries": [
+    {
+      "id": "formal_complex_and_primitive",
+      "pdf_pages": [22,23],
+      "printed_pages": [186,187],
+      "locator": "5.1 Basic constructions; Lemma 5.1.1",
+      "hypotheses": "R 任意环；V 是 R 上 n 维 formal Lie variety；G 是 R 上 commutative formal Lie group。",
+      "facts": [
+        "选形式坐标后 A(V)=R[[X_1,...,X_n]]。形式 de Rham 复形是 A(V) 的通常 de Rham 复形的 separated completion，其一形式由 dX_i 生成。",
+        "D(G/R) 定义为 H^1_DR(G/R) 内的 primitive 元素，即 sum^*(a)=pr_1^*(a)+pr_2^*(a)，等式位于 H^1_DR((G×G)/R)。",
+        "Lemma 5.1.1 在任意 R 上断言 G↦D(G/R) 为 commutative formal Lie groups 到 R-modules 的反变可加函子。"
+      ]
+    },
+    {
+      "id": "rational_primitive_function_quotients",
+      "pdf_pages": [24,29,30],
+      "printed_pages": [188,193,194],
+      "locator": "Lemma 5.1.2; 5.1 A variant; Theorem 5.1.6 and following discussion",
+      "hypotheses": "5.1 的后续约定：R flat over Z，K=R⊗Q，R⊂K；I⊂R 为 ideal。除特别需要 lifting-independence 外，商的定义允许任意 ideal I；相应 key lemma/functoriality 另要求 I 有 divided powers（i^n/n!∈I）。(V,0) 或 G 有所用原点。",
+      "notation": "X=(X_1,...,X_n)，δ_G f=f(X+_G Y)−f(X)−f(Y)；integral 的含义是属于 A(V) 或相应 Ω^j_(V/R)，而不是仅位于有理化对象。",
+      "formulas": [
+        "H^1_DR(V/R) ≅ {f∈A(V⊗K): f(0)=0, df integral}/{f∈A(V): f(0)=0}, by d (Lemma 5.1.2).",
+        "H^1_DR(V/R;I)=H^1 of the complex \"IA(V)\"→Ω^1_(V/R)→Ω^2_(V/R)→..., where \"IA(V)\"=ker(A(V)→A(V_0)); equivalently the power series with all coefficients in I.",
+        "H^1_DR(V/R;I) ≅ {f∈A(V⊗K):f(0)=0,df integral}/{f∈\"IA(V)\":f(0)=0}, by d.",
+        "D_I(G/R)={f∈K[[X]]:f(0)=0,df integral,δ_G f∈I[[X,Y]]}/{f∈I[[X]]:f(0)=0}.",
+        "D(G/R)={f∈K[[X]]:f(0)=0,df integral,δ_G f integral}/{f∈R[[X]]:f(0)=0}."
+      ],
+      "facts": [
+        "D_I 是修改后 cohomology 中的 primitive submodule；其分母和 cocycle 条件同时涉及 I。",
+        "纸194 的 natural map D_I→D 被明确区分：一般并非同构，其 kernel 和 cokernel 被 I 杀死。此处与纸199 图中另外标作 (1/p)F 的箭头应分别引用。",
+        "本记录不把 D_p 的下标 p 自动翻译成某个未经原文定义的 p-divided primitive 新对象；此处确切含义为 I=(p) 的 D_I。"
+      ]
+    },
+    {
+      "id": "pointed_lifting_independence",
+      "pdf_pages": [25,26,27,28,30],
+      "printed_pages": [189,190,191,192,194],
+      "locator": "Key Lemma 5.1.3; Theorems 5.1.4–5.1.6",
+      "hypotheses": "R flat over Z；I⊂R 有 divided powers；R_0=R/I。key lemma 使用 pointed formal Lie varieties 和两个 mod I 相同的 pointed morphisms。Theorems 5.1.4–5.1.5 使用 commutative formal Lie groups G,G′ 及 special-fiber group homomorphism f_0:G′_0→G_0。",
+      "facts": [
+        "Key Lemma 5.1.3：两个 pointed morphisms mod I 相同则在 H^1_DR 上诱导同一映射。",
+        "Theorem 5.1.4：pointed formal-variety lifting 若 reduction 为 group homomorphism，则 pullback 将 D 映入 D；reduction 上可加关系也传递到 D 上。",
+        "Theorem 5.1.5：以 Hom(G′_0,G_0) 为 morphisms 的 CFG(R;R_0) 上，D 是反变可加函子，任一 pointed lifting 给同一 pullback。",
+        "Theorem 5.1.6 把同一 key lemma 推广到 H^1_DR(;I)，把相应函子结论推广到 D_I。这些是其原文范围，本记录不另推导 sigma-semilinear Frobenius substitution 命题。"
+      ]
+    },
+    {
+      "id": "p_adic_and_p_divisible_scope",
+      "pdf_pages": [33,34],
+      "printed_pages": [197,198],
+      "locator": "5.3; Theorem 5.3.3(1); beginning of 5.5",
+      "facts": [
+        "p 为素数；p-adic ring 的原文约定是 R≅lim_n R/p^nR，即 p-adic 拓扑 complete and separated。",
+        "Theorem 5.3.3(1)：R 为 Z-flat p-adic ring、G 为 p-divisible commutative formal group，则 D(G/R) locally free，秩等于 G 的 height，且形成与 Z-flat p-adic rings 的任意扩张相容。",
+        "5.5 改用 k perfect、char(k)=p>0、R=W(k)、I=(p)，CW 表示 Witt covectors。"
+      ]
+    },
+    {
+      "id": "w_psi_and_p_inverse_F",
+      "pdf_pages": [34,35],
+      "printed_pages": [198,199],
+      "locator": "(5.5.1)–(5.5.7)",
+      "hypotheses": "k perfect of characteristic p>0，R=W(k)，I=(p)；(5.5.1)–(5.5.5) 对 W(k) 上任意 formal Lie variety V；(5.5.6)–(5.5.7) 另假设 G 为 W(k) 上 p-divisible commutative formal Lie group。",
+      "formulas": [
+        "w:CW(A(V⊗k)) ≅ H^1_DR(V/W(k);(p)) is W(k)-linear; w(...,a_{−n},...,a_0)=d(Σ_{n≥0} (ã_{−n})^{p^n}/p^n).",
+        "ψ:CW(A(V⊗k)) ≅ H^1_DR(V/W(k)) is σ-linear; ψ(...,a_{−n},...,a_0)=d(Σ_{n≥0} (ã_{−n})^{p^{n+1}}/p^{n+1}).",
+        "Each ã_{−n} is any lift of a_{−n} to A(V).",
+        "(5.5.5): the commuting triangle has w, ψ, and (1/p)F:H^1_DR(V/W(k);(p))→H^1_DR(V/W(k)).",
+        "(5.5.6): M(G_0):=Hom_{k-gp}(G_0,CW)=the primitive elements of CW(A(G_0)).",
+        "(5.5.7): the triangle of isomorphisms has w:M(G_0)→D_p(G/W(k)), ψ:M(G_0)→D(G/W(k)), and (1/p)F:D_p(G/W(k))→D(G/W(k))."
+      ],
+      "boundary": "图上该 operator 的标签可以确证；这些页没有一段文字把 F 的一般 coefficient-substitution 定义写全。本记录不把图本身换成未给出的新定义，不把 natural D_p→D 与图中箭头默认为同一个。"
+    },
+    {
+      "id": "abelian_formal_comparison",
+      "pdf_pages": [38,39,40,41,43,44],
+      "printed_pages": [202,203,204,205,207,208],
+      "locator": "Theorem 5.7.1; (5.7.2), (5.7.3); General Fact 5.7.6; Corollaries 5.7.7–5.7.8",
+      "hypotheses": "Theorem 5.7.1：A 为 W(k) 上 abelian scheme，k algebraically closed，char(k)=p>0。Corollaries 5.7.7–5.7.8 改为 k perfect，几何 étale 项取 Gal(kbar/k) invariants。Â 为原点处 formal completion。",
+      "facts": [
+        "Theorem 5.7.1 的 exact sequence 为 0→H^1_et(A⊗k,Z_p)⊗W→H^1_cris(A⊗k/W)→D(Â/W)→0，且对 special fiber functorial。",
+        "纸203 定义 β_n：crystalline class 在 A⊗k↪A⊗W_n 上的评价给 Ga-torsor with integrable connection；经 canonical H^1_cris≅H^1_DR，再经 H^1_DR≅Ext^rig，限制到 Â⊗W_n。",
+        "(5.7.3) 明示 β 与 H^1_cris(A⊗k/W)≅H^1_DR(A/W)、restriction to Â、D(Â/W)↪H^1_DR(Â/W)（primitive inclusion）组成交换图。",
+        "General Fact 5.7.6：A,B 为 proper smooth pointed W-schemes，f_0:B⊗k→A⊗k pointed；任意 i≥0，上述 cris/DR/restriction 图与 f_0 的 pullback 及 formal completion 上任意 lifting 的 pullback 相容。",
+        "Corollary 5.7.7 对 perfect k 的 étale 左项是 (H^1_et(A⊗kbar,Z_p)⊗W(kbar))^{Gal(kbar/k)}。",
+        "Corollary 5.7.8 将该 exact sequence 标识为 F-crystal 的 slope 0 与 slope >0 两部分。证明说 formal D 上 F topologically nilpotent；其末段对 any pointed lifting of X↦X^p 写 F(dX)=d(F(X))=d(X^p+pY)∈pΩ^1。该公式的原文用途是 formal de Rham cohomology 的 p-adic nilpotence。"
+      ],
+      "typographic_boundary": "PDF41 纸205 标题实际是 General Fact 5.7.6；PDF45 纸209 的回指打印为 general fact (5.7.7)。本记录保留这一编号差异，不静默修正原文。"
+    },
+    {
+      "id": "comparison_lifting_details",
+      "pdf_pages": [45,46,47,48,49,50],
+      "printed_pages": [209,210,211,212,213,214],
+      "locator": "Lemmas 5.8.1–5.8.4 and Remark 5.8.5",
+      "facts": [
+        "Lemma 5.8.1：R 为 Z-flat p-adic ring，R_n=R/p^nR，V 为 formal Lie variety，则 H^i_DR(V/R)≅lim_n H^i_DR(V⊗R_n/R_n)。",
+        "Lemma 5.8.2：k perfect of characteristic p>0；A,B proper smooth pointed W(k)-schemes；f_0:B⊗k→A⊗k pointed k-morphism；f̂:B̂→Â 为 f_0 在 formal completions 上的 W-lifting，把 formal completions 视为仅作用于 p-adic W-algebras 的 functors。其 cris/DR/restriction 图交换。证明中的 liftings 不必为 pointed。",
+        "Lemma 5.8.3：R 为 p-adic ring；V,V′ formal Lie varieties；f_1,f_2:V′→V 是限制到 p-adic R-algebras 后的 functor morphisms；若 f_1≡f_2 mod p，则所有 i 上诱导的 H^i_DR(V/R)→H^i_DR(V′/R) 相同。",
+        "Lemma 5.8.4 将上一条 mod p 换成 mod I，I 为 divided-power ideal，仍为任意 i；Remark 5.8.5 在 I closed 时给修改复形 cohomology 的同类不变性。",
+        "PDF50 下半为 5.9 开头，未继续读后续曲线应用。本范围未出现此前所求完整 sigma-substitution operator 定义。"
+      ]
+    },
+    {
+      "id": "general_crystalline_de_rham_context",
+      "pdf_pages": [17,18,19],
+      "printed_pages": [181,182,183],
+      "locator": "Section III, chosen smooth projective lifting context",
+      "hypotheses": "X/F_q 为 projective smooth geometrically connected scheme，选择 W(F_q) 上 projective smooth lifting 𝓧 并识别 special fiber。",
+      "facts": [
+        "此处给 canonical H^i_cris(X)≅H^i_DR(𝓧/W(F_q))。若 X 的 F_q-endomorphism f 实际可 lift 为 𝓧 的 W-endomorphism，则 crystalline f^* 与 de Rham lifting pullback 相合。",
+        "本段特别区分不能 global lift 的情形，不提供 formal quotient 上 arbitrary sigma coefficient-substitution 的定义。"
+      ]
+    }
+  ],
+  "persistence": {
+    "agreed_route": "D25 line researcher 将本来源记录与 manifest 纳入其实际 Source checkpoint，line Driver 负责该 checkpoint review；本记录尚不声称已 publish。",
+    "root_objective": "OPEN",
+    "user_requested_stop_pause_review_or_wait": false
+  },
+  "footer": "Driver-ID: EM-DVR-41F848 / CONTROL_PLANE; Global-Knowledge-Sync: main@a71d8a09 / GLOBAL_KNOWLEDGE_V1"
+}
