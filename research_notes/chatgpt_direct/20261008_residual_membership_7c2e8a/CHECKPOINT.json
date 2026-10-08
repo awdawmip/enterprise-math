@@ -1,0 +1,93 @@
+{
+  "BRC_calls": {
+    "cwm_edge": 173,
+    "cwm_propagate": 127241,
+    "cwm_recoalesce": 190312
+  },
+  "acceptance": {
+    "even": "1/4",
+    "odd": "0"
+  },
+  "activity_id": "RA-8EF97590CAD2EE63367ADB41",
+  "artifacts": {
+    "NOTE.md": {
+      "bytes": 10795,
+      "git_blob": "99982b6f7e52a66471049edfbe714ab7e829a4a4",
+      "sha256": "c34b744b5e718c92ec9dc7036557c4e5fc580f6a4b37e15ef6e405fc77d3e8ea"
+    },
+    "check_membership.py": {
+      "bytes": 13417,
+      "git_blob": "be1b60446e31c2c8489d1ce0db16cc1e952d11c8",
+      "sha256": "0436b8c0d283333d3dc3adfc44ca57af77c3c06867cd0471ae8c121d81e81adc"
+    }
+  },
+  "checks": 134391,
+  "coarse_common_prediction_error_bound": "1/8",
+  "event_count_each": 6,
+  "event_id": "EM-20261008-RESIDUAL-MEMBERSHIP-7C2E8A",
+  "global_read": "50f7f62ad67b6573ef86e307fac9cb2f47a2b3a7",
+  "independent_review": false,
+  "interface_patterns": 789,
+  "interface_shrink_checks": 50496,
+  "joint_commands": 16,
+  "joint_final": {
+    "command": [
+      "reserve",
+      [
+        0,
+        4,
+        5
+      ]
+    ],
+    "full_terms": 2627,
+    "interface_sha256": "9b2e9d5350cd97e428b30d7bb2d41fe800e9ed4bdf946c96de79e8edaa8c0f57",
+    "interface_terms": 905,
+    "length": 16,
+    "total": {
+      "C": 78970880,
+      "M": "65536/43046721",
+      "W": "1205"
+    }
+  },
+  "joint_initial_assemblies": 1205,
+  "native_action_law_supplied": false,
+  "new_readout_word": [
+    "release(1)",
+    "release(7)",
+    "release(13)",
+    "reserve(3,9,15)"
+  ],
+  "next": "Verify one source-justified native release under equal interface partitions: legality, outputs/reaction, branch weights/costs, hidden-field dependence. Do not promote TEST_ONLY reallocation.",
+  "occupancy_each": "1..18",
+  "output": {
+    "bytes": 641921,
+    "full_uploaded_to_source": false,
+    "git_blob": "fe1642b00545aa40518fd0a0d0d394a0918ab1c1",
+    "location": "CONVERSATION_PACKAGE_AND_DETERMINISTIC_REGENERATION",
+    "path": "results.json",
+    "sha256": "dee67827e3038234f8584fa5f6f8328565d6c9ca89b54ed1472aecc2852104f6"
+  },
+  "parent_native_objective_complete": false,
+  "prepared_bits": {
+    "even": [
+      "000",
+      "011",
+      "101",
+      "110"
+    ],
+    "odd": [
+      "001",
+      "010",
+      "100",
+      "111"
+    ]
+  },
+  "prepared_weight_each": "1/4",
+  "primitive_projection_checks": 82056,
+  "researcher_id": "EM-DIRECT-0C65FF",
+  "same_author_repeat_byte_identical": true,
+  "schema": "EM_DIRECT_RESEARCH_CHECKPOINT_V1",
+  "session_id": "MCP-fbd134b336d7495cb25a9a7d4f18f5f7",
+  "source_read": "f7eebe767e574ff2672737814bdb62fde7dfd78a",
+  "status": "CONDITIONAL_UNREVIEWED_NOT_NATIVE_FORCE"
+}
