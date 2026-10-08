@@ -1,0 +1,185 @@
+--- a/src/control_transport.py
++++ b/src/control_transport.py
+@@ -10,6 +10,7 @@
+ from pathlib import Path
+ import re
+ import shutil
++import stat
+ import subprocess
+ import sys
+ import tarfile
+@@ -18,6 +19,7 @@
+ import time
+ from urllib.parse import quote
+ import httpx
++from native_writer_closure import MAX_INPUT_BYTES as MAX_LIGHT_CACHE_BYTES
+ 
+ REPOSITORY='awdawmip/enterprise-math'
+ API='https://api.github.com'
+@@ -35,7 +37,6 @@
+ MAX_API_RESPONSE=48*1024*1024
+ MAX_LIGHT_SCOPE_ENTRIES=64000
+ MAX_LIGHT_SCOPE_BYTES=16*1024*1024
+-MAX_LIGHT_CACHE_BYTES=64*1024*1024
+ LIGHT_READ_OPERATIONS=frozenset({'tasks','task','dispatch','continuation','pre_final','driver_status','driver_flow_state'})
+ # Private candidate only: Source/capture/budget equivalence is not deployment
+ # authority. The accepted seven-read route is independent of these flags.
+@@ -122,7 +123,59 @@
+ 
+ 
+ def sha256(b):return hashlib.sha256(b).hexdigest()
+-def blob_sha(b):return hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
++def blob_sha(b):
++    digest=hashlib.sha1()
++    digest.update(b'blob '+str(len(b)).encode()+b'\0')
++    digest.update(b)
++    return digest.hexdigest()
++
++
++def blob_sha_file(path):
++    """Hash one stable regular file without allocating its complete contents.
++
++    Keep the descriptor bound to the opened inode, reject symlinks, and fail
++    closed if the inode, path identity, size or timestamps change during hashing.
++    Private request materialization remains a copy, never a cache hardlink.
++    """
++    path=Path(path)
++    try:
++        before=path.lstat()
++        if not stat.S_ISREG(before.st_mode):raise ControlError('BLOB_FILE_NOT_REGULAR')
++        fd=os.open(path,os.O_RDONLY|os.O_NOFOLLOW|os.O_CLOEXEC|os.O_NONBLOCK)
++    except OSError as exc:
++        raise ControlError('BLOB_FILE_NOT_REGULAR') from exc
++    def identity(value):
++        return (value.st_dev,value.st_ino,value.st_mode,value.st_size,
++                value.st_mtime_ns,value.st_ctime_ns)
++    try:
++        opened=os.fstat(fd)
++        if not stat.S_ISREG(opened.st_mode) or identity(opened)!=identity(before):
++            raise ControlError('BLOB_FILE_CHANGED')
++        digest=hashlib.sha1();digest.update(b'blob '+str(opened.st_size).encode()+b'\0')
++        count=0
++        while chunk:=os.read(fd,1024*1024):
++            count+=len(chunk)
++            if count>opened.st_size:raise ControlError('BLOB_FILE_CHANGED')
++            digest.update(chunk)
++        try:after=path.lstat()
++        except OSError as exc:raise ControlError('BLOB_FILE_CHANGED') from exc
++        if (count!=opened.st_size or identity(os.fstat(fd))!=identity(opened)
++                or identity(after)!=identity(opened)):
++            raise ControlError('BLOB_FILE_CHANGED')
++        return digest.hexdigest()
++    finally:
++        os.close(fd)
++
++
++def _writer_initial_document_path(name):
++    """Only JSON keys read by the initial writer's three prefetch selectors.
++
++    This does not filter materialized files or native audit inputs. Demand
++    expansion has an additional checkpoint consumer and keeps its own logic.
++    """
++    return name.endswith('.json') and (
++        name.startswith(('research_result_records/','research_result_reviews/','research_task_records/'))
++        or '/' not in name or name.startswith('control_plane/') and name.count('/')==1)
+ 
+ 
+ def safe_task_id(value):
+@@ -262,7 +315,7 @@
+             relative=Path(name);target=(root/relative).resolve()
+             if relative.is_absolute() or '..' in relative.parts or '\\' in name or ':' in name or not target.is_relative_to(root.resolve()) or not target.is_file():
+                 raise ControlError('SOURCE_TREE_FILE_MISSING_OR_UNSAFE')
+-            if blob_sha(target.read_bytes())!=expected:raise ControlError('SOURCE_TREE_BLOB_MISMATCH')
++            if blob_sha_file(target)!=expected:raise ControlError('SOURCE_TREE_BLOB_MISMATCH')
+         if not path.exists():path.write_text(json.dumps(value,sort_keys=True,separators=(',',':')),encoding='utf-8')
+         return value
+     @staticmethod
+@@ -395,13 +448,16 @@
+         return result
+     def code_check(self,root):
+         policy=self.settings()['reviewed_python_blobs']
+-        actual={p.relative_to(root).as_posix():blob_sha(p.read_bytes()) for p in root.rglob('*.py') if control_code_path(p.relative_to(root))}
++        actual={p.relative_to(root).as_posix():blob_sha_file(p) for p in root.rglob('*.py') if control_code_path(p.relative_to(root))}
+         if actual!=policy:
+             changed=sorted(k for k in set(actual)|set(policy) if actual.get(k)!=policy.get(k))
+             raise ControlError('UPSTREAM_CODE_REVIEW_REQUIRED: '+', '.join(changed[:5]))
+-    def _light_cache(self,sha,tree,selected,evidence_pins=None):
+-        """Keep only the validated current light selection, at most 64 MiB."""
+-        from native_closure import enforce_bounds
++    def _light_cache(self,sha,tree,selected,evidence_pins=None,*,writer=False):
++        """Keep only immutable verified blobs within the shared finite cap."""
++        if writer:
++            from native_writer_closure import enforce_bounds
++        else:
++            from native_closure import enforce_bounds
+         enforce_bounds(tree,selected)
+         cache=self.state/'native-input-cache'
+         if cache.is_symlink():raise ControlError('UNSAFE_NATIVE_INPUT_CACHE')
+@@ -434,7 +490,7 @@
+             if path.is_symlink() or not path.is_file() or not re.fullmatch(r'[0-9a-f]{40}(?:\.tmp)?|scope\.json\.tmp',path.name):
+                 raise ControlError('UNSAFE_NATIVE_INPUT_CACHE_ENTRY')
+             if path.name not in sizes:path.unlink();continue
+-            if path.stat().st_size==sizes[path.name] and blob_sha(path.read_bytes())==path.name:verified[path.name]=path
++            if path.stat().st_size==sizes[path.name] and blob_sha_file(path)==path.name:verified[path.name]=path
+             else:path.unlink()
+         requested={tree[name]['sha']:tree[name]['size'] for name in selected}
+         for entries in evidence_members.values():requested.update({item['sha']:item['size'] for item in entries.values()})
+@@ -602,14 +658,14 @@
+         frontier=payload.get('frontier') or payload.get('claim_event',{}).get('continuation',{}).get('frontier')
+         pins=frontier.get('artifacts',[]) if isinstance(frontier,dict) else []
+         if not isinstance(pins,list) or len(pins)>64:raise ControlError('EVIDENCE_PIN_LIMIT')
+-        root.mkdir();context,verified=self._light_cache(sha,tree,selected,pins);seen=set();documents={}
++        root.mkdir();context,verified=self._light_cache(sha,tree,selected,pins,writer=True);seen=set();documents={}
+         while pending:=selected-seen:
+             enforce_bounds(tree,selected)
+             context['members'].update({name:tree[name] for name in pending})
+             self._light_fetch_paths(tree,pending,root,verified,started,context)
+             for name in sorted(pending):
+                 seen.add(name)
+-                if name.endswith('.json'):documents[name]=document_value((root/name).read_bytes(),name)
++                if _writer_initial_document_path(name):documents[name]=document_value((root/name).read_bytes(),name)
+             selected.update(authority_dependency_paths(documents,tree,source_commit=sha))
+             selected.update(strict_audit_paths(documents,tree,operation))
+             selected.update(publication_head_taskbook_paths(documents,tree,operation))
+@@ -742,14 +798,14 @@
+         for name,item in old_tree.items():
+             path=old/name
+             if path.is_symlink() or not path.is_file() or not path.resolve().is_relative_to(old.resolve()):continue
+-            if path.stat().st_size==item['size'] and blob_sha(path.read_bytes())==item['sha']:
++            if path.stat().st_size==item['size'] and blob_sha_file(path)==item['sha']:
+                 reusable.setdefault(item['sha'],path)
+             else:dirty+=1
+         cached=0
+         for git_sha,size in wanted.items():
+             path=cache/git_sha
+             if not path.exists():continue
+-            if path.stat().st_size==size and blob_sha(path.read_bytes())==git_sha:
++            if path.stat().st_size==size and blob_sha_file(path)==git_sha:
+                 reusable.setdefault(git_sha,path);cached+=1
+             else:path.unlink()
+         pending={};copied=0
+@@ -1065,9 +1121,9 @@
+                     if writer:
+                         scope['selected_paths']=sorted(selected)
+                         self._writer_combined_bounds(scope,evidence_scopes)
+-                    value['result']['expected_old_blobs']={name:blob_sha((root/name).read_bytes()) for name in old_paths}
++                    value['result']['expected_old_blobs']={name:blob_sha_file(root/name) for name in old_paths}
+                 else:
+-                    value['result']['expected_old_blobs']={item['path']:blob_sha((root/item['path']).read_bytes())
++                    value['result']['expected_old_blobs']={item['path']:blob_sha_file(root/item['path'])
+                         for item in value['result']['files'] if (root/item['path']).is_file()}
+         event_bytes=json.dumps(raw,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()
+         return {'result':value['result'],'source_sha':sha,'server_comments':len(raw),
+--- a/src/native_writer_closure.py
++++ b/src/native_writer_closure.py
+@@ -12,7 +12,9 @@
+ from typing import Mapping
+ 
+ SCHEMA = "EM_NATIVE_WRITER_INPUT_POLICY_V1"
+-MAX_INPUT_BYTES = 64 * 1024 * 1024
++# Shared with the verified-blob cache; caller overrides remain bounded by this
++# finite code ceiling. A reviewed increase requires measured resource evidence.
++MAX_INPUT_BYTES = 68 * 1024 * 1024
+ MAX_INPUT_FILES = 15000
+ OPERATIONS = frozenset({
+     "session_prepare", "driver_prepare", "driver_record", "driver_authorize",

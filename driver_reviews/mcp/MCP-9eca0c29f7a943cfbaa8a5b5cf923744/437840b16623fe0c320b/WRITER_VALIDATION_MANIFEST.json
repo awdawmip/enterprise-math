@@ -1,0 +1,252 @@
+{
+  "status": "LOCAL_VALIDATION_PASS",
+  "deployment_performed": false,
+  "local_candidate_only": true,
+  "source_commit": "bb617defd96a2a8b7931ec7c2f569658ebec928a",
+  "source_root_tree": "763abd7118eca283b4d4a771766726dee7cc834d",
+  "source_tree_complete": true,
+  "source_tree_blobs": 11586,
+  "live_reviewed_code_map_exact_match": true,
+  "reviewed_python_blobs": 156,
+  "changed_files": [
+    {
+      "path": "src/control_transport.py",
+      "baseline_sha256": "cb15bb944cf4e6a37c89167f9b02fdc34c8158ba6831bbca6c2b5eb9a0a6373d",
+      "candidate_sha256": "47636148484e576b8d057714f73cd51b6d427ea1d4e28f243a797887919bb5f9",
+      "candidate_bytes": 78217
+    },
+    {
+      "path": "src/native_writer_closure.py",
+      "baseline_sha256": "5976b405fb558c4449cfb89806a8c280d20581362e14b69dc3a3631e230ed070",
+      "candidate_sha256": "cc55498a4d4ab14cfca2e4545a272d7ae2a836590a8c798333386d64b7484132",
+      "candidate_bytes": 19796
+    }
+  ],
+  "unchanged_native_dependencies": {
+    "native_closure.py": "359175ec1fce65a93e777374609a1b3f22dbe1bac093466b020658bc9865c64d",
+    "canonical_runner.py": "ac55ecc35640b5a206eb24756808bd33c916ebc25bd238a0be37ed3624e74857",
+    "native_input_guard.py": "91a055ae39adb348a0e08ed6f4cf6a6d2e80c5504b4a71206148855291fda2d6"
+  },
+  "finite_capacity": {
+    "previous_bytes": 67108864,
+    "candidate_writer_and_cache_bytes": 71303168,
+    "largest_measured_review_materialized_bytes": 67807046,
+    "remaining_bytes": 3496122,
+    "max_files": 15000,
+    "max_blob_bytes": 33554432,
+    "max_inflight_bytes": 33554432,
+    "service_cgroup_bytes_unchanged": 671088640,
+    "environment_config_added": false,
+    "caller_can_raise_cap": false
+  },
+  "tests": {
+    "baseline_historical_passed": 34,
+    "candidate_passed": 62,
+    "candidate_failed": 0,
+    "historical_boundary_test_adaptation": "Writer now uses 68MiB; read remains64MiB. One existing test chooses the relevant route constant and retains before-any-fetch rejection assertion.",
+    "new_tests": {
+      "streaming_and_cache_isolation": 16,
+      "projection_and_budgets": 9,
+      "unchanged_live_native_guard_negatives": 3
+    }
+  },
+  "native_replays": {
+    "p11": {
+      "status": "PASS",
+      "cache_condition": "warm",
+      "elapsed_seconds": 79.79045515299367,
+      "peak_simultaneous_process_tree_rss_kib": 216284,
+      "observed_processes": 4,
+      "immutable_blob_requests": 0,
+      "native_review_id": "DR-2F805343ED6728A5CD35",
+      "native_followup_id": "DFU-832FD239C5CBEBCC2310",
+      "candidate_file_paths": [
+        "research_driver_followups/DR-2F805343ED6728A5CD35/DFU-832FD239C5CBEBCC2310.json",
+        "research_result_reviews/RR-C1F5BD75CF29E3970097/DR-2F805343ED6728A5CD35.json"
+      ],
+      "outcome_file": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/p11/OUTCOME.json",
+      "memory_file": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/p11/MEMORY_MEASUREMENT.json",
+      "curve_file": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/p11/MEMORY_CURVE.jsonl",
+      "native_result_file": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/p11/NATIVE_RESULT.json"
+    },
+    "cm24": {
+      "status": "PASS",
+      "cache_condition": "cold",
+      "elapsed_seconds": 80.96230646400363,
+      "peak_simultaneous_process_tree_rss_kib": 257912,
+      "observed_processes": 4,
+      "immutable_blob_requests": 3221,
+      "native_review_id": "DR-8D5946CCB0DC16621369",
+      "native_followup_id": "DFU-38B3529ECDAB4C6EC4F0",
+      "candidate_file_paths": [
+        "research_driver_followups/DR-8D5946CCB0DC16621369/DFU-38B3529ECDAB4C6EC4F0.json",
+        "research_result_reviews/RR-E0E9D0026B3BBAAD1F9A/DR-8D5946CCB0DC16621369.json"
+      ],
+      "outcome_file": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/cm24/OUTCOME.json",
+      "memory_file": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/cm24/MEMORY_MEASUREMENT.json",
+      "curve_file": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/cm24/MEMORY_CURVE.jsonl",
+      "native_result_file": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/cm24/NATIVE_RESULT.json"
+    }
+  },
+  "p11_initial_cold_functional_pass": true,
+  "discarded_measurement": "p11-initial-functional/MEMORY_MEASUREMENT.json marked invalid: initial sampler saw only unshare supervisor",
+  "scope_limits": [
+    "Payloads reconstructed from verified failed request and live mapping, not server native request captures.",
+    "Events fixture is explicit []; native review_plan itself does not consume events. No server snapshot/outer Driver authorization replay claimed.",
+    "RSS curves cover the local simultaneous transport/runner/CLI process tree. They exclude service baseline and filesystem page cache and may double-count shared pages.",
+    "No service cgroup peak, production deployment, publication or mathematical acceptance is claimed. Preserve640MiB; Owner must use fresh idle/live verification before any service activation."
+  ],
+  "artifacts": [
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/candidate.patch",
+      "bytes": 9843,
+      "sha256": "0cc23401a5cf8e0e8de4255299fb63eec9a5255f4f080092ffc8d99a1d188633"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/offline-tests.log",
+      "bytes": 99,
+      "sha256": "82755afba01d0f50332115e1e326bb8db599bb2ec1542d3133aac1aafebebd71"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/OFFLINE_TEST_RESULT.json",
+      "bytes": 138,
+      "sha256": "14a8d9fad76700144f37fd962fb444fd53cfe4f2fb6db4e1886d63274e43cb84"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/OFFLINE_TEST_INVOCATION.json",
+      "bytes": 2023,
+      "sha256": "a746d34557aa116fe7dd65456f72c8fd0e78abfa6ab7b475bad9d3ed30aea849"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/CURRENT_SOURCE_TREE.json",
+      "bytes": 2670632,
+      "sha256": "df0f000c4ce3fa0beca91b7fdf776d9d25d532a0c02e766e683b5fb0e8346492"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/CURRENT_CLOSURE_SUMMARY.json",
+      "bytes": 1128,
+      "sha256": "5e7b2f20ab9af279f42d39b46aab02f53fcde94b57c66b3dddbbf93911cad0ec"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/REPLAY_CODE_APPROVAL_CHECK.json",
+      "bytes": 263,
+      "sha256": "64d3e3bd61f02d568214a0eb9d059d15e589f5994c160f339e0eb5035648faa5"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/REPLAY_BLOB_PREPARATION.json",
+      "bytes": 380415,
+      "sha256": "b8a9334a38f577c09f5395c7735d482950904f330eee8b325525cef49926c09a"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/tests/test_light_fetch_size_groups.py",
+      "bytes": 5922,
+      "sha256": "c118154074249c25e10249f722c27607c9ad0a9b24ab8e0c9a111e0f38502a14"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/tests/test_cache_residual_budget.py",
+      "bytes": 7296,
+      "sha256": "f9693dfd1be8383429deaad0d06ad3155feac0a3fe5ba5c73074a0ff5a7652a8"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/tests/test_light_cache_across_heads.py",
+      "bytes": 10387,
+      "sha256": "3352d009124cf5e1534ff7d9345d449130964ee0e4d9da90ffb9ce7693729188"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/tests/test_streaming_blob_integrity.py",
+      "bytes": 12132,
+      "sha256": "d127e7c60d9231ab3ef94c9f1c01e05f3e08bc97fb7697774c606569e72056c9"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/tests/test_freeze_old_blob_deadline.py",
+      "bytes": 3735,
+      "sha256": "912aabcc20a3a21e24618c4107572c51c1c119d811c88b6c9ff01bda7ac0d95d"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/tests/test_live_native_guard_integrity.py",
+      "bytes": 1720,
+      "sha256": "658382679f067b6f3229cd1c74c2b45e1a7353d63ea568a794590b473a7d7c8a"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/tests/test_checkpoint_demand_closure.py",
+      "bytes": 15235,
+      "sha256": "7f2c12d2719748848c4e032d8b19d255850dc97c6f3a1dead328342173d52215"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/tests/test_writer_projection_and_bounds.py",
+      "bytes": 9754,
+      "sha256": "4eb3a6c7d1f502a5a2793196ff25ed6cef73ef713d836922ce9ebf121e66f475"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/p11/INVOCATION.json",
+      "bytes": 1884,
+      "sha256": "04217bb96aedc8c92ba4c0a91751a3c371f60e86be8af36eecc79eced9f412c7"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/p11/MEMORY_MEASUREMENT.json",
+      "bytes": 764,
+      "sha256": "f06776a596bba1f9b90bb9399eed3ec2996360bd03205ef3e9719bda33b7ad88"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/p11/NATIVE_RESULT.json",
+      "bytes": 22581,
+      "sha256": "30e2d15bd89773b27bc3d1a015aeaa21be2396a728283080b0ca1b845562bc5c"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/p11/fixture-config.json",
+      "bytes": 16186,
+      "sha256": "03dc0927b0ea2fa37f1adb592e268b1d7d68bfb0edd0566c19ad28c6a5436da7"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/p11/OUTCOME.json",
+      "bytes": 987,
+      "sha256": "ebfcc8b4418ce02139175e870f74e5771f9bf03372c849b9e0d9ca0e8bcaf499"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/p11/MEMORY_CURVE.jsonl",
+      "bytes": 857377,
+      "sha256": "f97d0a5e2db35ba5a334acf19fdbabc0de9b237af28fb5dccaa57f218fb91b45"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/cm24/INVOCATION.json",
+      "bytes": 1885,
+      "sha256": "06096a3ceea44065ad8b620553e4ef07f66ccd413e9bcc1c2630611eff21c802"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/cm24/MEMORY_MEASUREMENT.json",
+      "bytes": 764,
+      "sha256": "77430961bc94f733fcb0fa7bd25a3214cbc80509e1ceab76461ddf031f578dd0"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/cm24/NATIVE_RESULT.json",
+      "bytes": 23878,
+      "sha256": "3bd44530316ab069efecdabd30c28a1624ac58efc57c4aa9b92f0e1ac72088f2"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/cm24/fixture-config.json",
+      "bytes": 16186,
+      "sha256": "03dc0927b0ea2fa37f1adb592e268b1d7d68bfb0edd0566c19ad28c6a5436da7"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/cm24/OUTCOME.json",
+      "bytes": 992,
+      "sha256": "0012bfda74b284c28e97fcd88788f53ff748313983b973b37062453f98f39a24"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/replay-runs/cm24/MEMORY_CURVE.jsonl",
+      "bytes": 864165,
+      "sha256": "cb8923bf38edeae567a2fadb5e713230f57c1811733677628f8ceca0a38b93ab"
+    },
+    {
+      "path": "/workspace/em-driver-owner-20261008/control-audit/backend-fix/README.md",
+      "bytes": 4344,
+      "sha256": "a26041c069e21cedbf022873616edee304799804e8d6da0879fffdfd1148066d"
+    }
+  ],
+  "independent_review": {
+    "agent": "/root/driver_protocol_audit/writer_fix_tests",
+    "status": "NO_NEW_BLOCKER",
+    "scope": "read-only final patch, capacity coupling, isolation, boundary test adaptation and validation scope review",
+    "implementation_changes_by_reviewer": false
+  }
+}
