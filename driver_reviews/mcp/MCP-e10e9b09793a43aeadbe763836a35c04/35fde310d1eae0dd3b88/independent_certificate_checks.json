@@ -1,0 +1,101 @@
+{
+  "scope": "INDEPENDENT_DRIVER_CERTIFICATE_CHECK_NOT_CROSS_BRANCH_AUDIT",
+  "author_code_imported": false,
+  "inherited_code_imported": false,
+  "rows": [
+    {
+      "n": 1,
+      "D_digits": 1,
+      "recovered_root_gcd": 1,
+      "signs": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "n": 3,
+      "D_digits": 19,
+      "recovered_root_gcd": 1,
+      "signs": [
+        -1,
+        -1,
+        1
+      ]
+    },
+    {
+      "n": 5,
+      "D_digits": 55,
+      "recovered_root_gcd": 1,
+      "signs": [
+        -1,
+        -1,
+        1
+      ]
+    },
+    {
+      "n": 7,
+      "D_digits": 109,
+      "recovered_root_gcd": 1,
+      "signs": [
+        -1,
+        -1,
+        1
+      ]
+    },
+    {
+      "n": 9,
+      "D_digits": 182,
+      "recovered_root_gcd": 1,
+      "signs": [
+        -1,
+        -1,
+        1
+      ]
+    },
+    {
+      "n": 11,
+      "D_digits": 272,
+      "recovered_root_gcd": 1,
+      "signs": [
+        -1,
+        -1,
+        1
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "t": 210,
+      "all_positive_candidates": [
+        "3",
+        "44"
+      ],
+      "admissible": [
+        "3"
+      ]
+    },
+    {
+      "t": 0,
+      "all_positive_candidates": [
+        "4",
+        "33"
+      ],
+      "admissible": []
+    },
+    {
+      "t": -210,
+      "all_positive_candidates": [
+        "11",
+        "12"
+      ],
+      "admissible": []
+    }
+  ],
+  "negative_controls": [
+    "Even multiple does not satisfy negative-factor square cut",
+    "D-1 fails denominator clearing when D>1",
+    "Factor swap changes h sign and ordered factors"
+  ],
+  "all_passed": true
+}

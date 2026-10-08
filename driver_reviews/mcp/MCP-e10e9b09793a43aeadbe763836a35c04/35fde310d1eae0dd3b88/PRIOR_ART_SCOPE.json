@@ -1,0 +1,26 @@
+{
+  "schema": "P11_OFFDIAG_BOUNDED_PRIOR_ART_SCOPE_V1",
+  "searched_at_utc": "2026-10-08",
+  "queries": ["\"1945\" \"265\" \"elliptic\"", "\"concordant forms\" \"two quadrics\" elliptic curve"],
+  "primary_sources_read": [
+    {
+      "url": "https://www.maths.tcd.ie/pub/Maths/Courseware/EllipticCurves/EllipticCurves.pdf",
+      "location": "Chapter 6, Theorem 6.2, PDF page 91, source lines 3991-4009",
+      "comparison": "The stated theorem applies to an integral monic cubic including its x-squared term. A finite-order rational point has y=0 or y squared dividing the polynomial discriminant. This verifies the exact theorem form used; no short-Weierstrass substitution is needed."
+    },
+    {
+      "url": "https://arxiv.org/abs/1906.10230",
+      "title": "Explicit transformation of an intersection of two quadrics to an elliptic curve in Weierstrass form",
+      "authors": ["Hagen Knaf", "Erich Selder", "Karlheinz Spindler"],
+      "version": "v2, 2020-03-24",
+      "read_scope": "Primary paper abstract and bibliographic record, not a full proof comparison",
+      "comparison": "Classical neighboring method: a rational-point-bearing smooth intersection of two quadrics has an explicitly constructed elliptic-curve isomorphism; applications include concordant forms and four rational squares in arithmetic progression. This does not establish the P11 ordered reconstruction or sixteen-root primitive theorem."
+    }
+  ],
+  "fetch_limit": "The MDPI 2015 concordant-forms primary page returned HTTP 429; no substantive conclusion relies on that page.",
+  "resolution": "CLASSICAL_METHOD_REUSE_WITH_TASK_SPECIFIC_DERIVED_ARITHMETIC_RESULT",
+  "exact_duplicate_found": false,
+  "exhaustive_duplicate_search": false,
+  "historical_novelty_claim": false,
+  "new_tool_family_claim": false
+}
