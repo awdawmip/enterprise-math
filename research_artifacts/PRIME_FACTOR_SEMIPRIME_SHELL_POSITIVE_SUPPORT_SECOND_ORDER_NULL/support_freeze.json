@@ -1,0 +1,66 @@
+{
+  "schema": "PFSS2R_POSITIVE_SUPPORT_FREEZE_V1",
+  "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-POSITIVE-SUPPORT-SECOND-ORDER-NULL",
+  "publication_id": "TP2-D8A51502065004783B7B",
+  "researcher_id": "EM-PFSS2R-C60E73",
+  "claim_id": "chatgpt-pfss2r-20260828-1340-c60e73",
+  "claim_comment_id": 5448772244,
+  "frozen_before_corrected_residual_z": true,
+  "new_holdouts_accessed_at_freeze": false,
+  "discovery_scales": [1000000, 3000000, 10000000, 30000000, 100000000],
+  "holdouts": [300000000, 1000000000],
+  "shell_widths": ["1/100", "3/1000", "1/1000"],
+  "bins": 32,
+  "null_a": {
+    "seed_label": "PFSS2R_NULL_A_V1",
+    "seed_uint64": 6970043005407847698,
+    "replicates": 4096,
+    "wheel_modulus": 210,
+    "minimum_wheel_blocks": 8,
+    "block_count": "s_A(k)=2^max(3,k-10)",
+    "fixed_prefix": "t=floor(q/210)<8",
+    "partial_final_cell": "FIXED"
+  },
+  "null_b": {
+    "seed_label": "PFSS2R_NULL_B_V1",
+    "seed_uint64": 1878891929265112161,
+    "replicates": 4096,
+    "wheel_modulus": 210,
+    "minimum_wheel_blocks": 16,
+    "block_count": "s_B(k)=2^max(4,k-6)",
+    "fixed_prefix": "t=floor(q/210)<16",
+    "partial_final_band": "FIXED"
+  },
+  "holdout_seeds": {
+    "null_a_label": "PFSS2R_HOLDOUT_A_V1",
+    "null_a_uint64": 13662240961308225767,
+    "null_b_label": "PFSS2R_HOLDOUT_B_V1",
+    "null_b_uint64": 13833895319766628775
+  },
+  "support_definition": {
+    "A": "Some full A-cell/residue stratum has 0<K<s_A and nonconstant exact feature weight w_f(q) across candidate positions.",
+    "B": "Some full B-band has two allowed cyclic shifts with unequal aggregate exact feature contribution.",
+    "eligible": "Both A and B support are true for the same (eta,bin) at all five discovery scales."
+  },
+  "support_feature_counts_by_scale": {
+    "A": [78, 96, 96, 96, 96],
+    "B": [60, 81, 96, 96, 96]
+  },
+  "eligible_count": 60,
+  "eligible_eta_bins": [
+    {"eta":"1/100","bin":1},{"eta":"1/100","bin":2},{"eta":"1/100","bin":3},{"eta":"1/100","bin":4},{"eta":"1/100","bin":5},{"eta":"1/100","bin":6},{"eta":"1/100","bin":7},{"eta":"1/100","bin":8},{"eta":"1/100","bin":9},{"eta":"1/100","bin":10},{"eta":"1/100","bin":11},{"eta":"1/100","bin":12},{"eta":"1/100","bin":14},{"eta":"1/100","bin":15},{"eta":"1/100","bin":16},{"eta":"1/100","bin":17},{"eta":"1/100","bin":18},{"eta":"1/100","bin":19},{"eta":"1/100","bin":20},{"eta":"1/100","bin":21},
+    {"eta":"3/1000","bin":1},{"eta":"3/1000","bin":2},{"eta":"3/1000","bin":3},{"eta":"3/1000","bin":4},{"eta":"3/1000","bin":5},{"eta":"3/1000","bin":6},{"eta":"3/1000","bin":7},{"eta":"3/1000","bin":8},{"eta":"3/1000","bin":9},{"eta":"3/1000","bin":10},{"eta":"3/1000","bin":11},{"eta":"3/1000","bin":12},{"eta":"3/1000","bin":14},{"eta":"3/1000","bin":15},{"eta":"3/1000","bin":16},{"eta":"3/1000","bin":17},{"eta":"3/1000","bin":18},{"eta":"3/1000","bin":19},{"eta":"3/1000","bin":20},{"eta":"3/1000","bin":21},
+    {"eta":"1/1000","bin":1},{"eta":"1/1000","bin":2},{"eta":"1/1000","bin":3},{"eta":"1/1000","bin":4},{"eta":"1/1000","bin":5},{"eta":"1/1000","bin":6},{"eta":"1/1000","bin":7},{"eta":"1/1000","bin":8},{"eta":"1/1000","bin":9},{"eta":"1/1000","bin":10},{"eta":"1/1000","bin":11},{"eta":"1/1000","bin":12},{"eta":"1/1000","bin":14},{"eta":"1/1000","bin":15},{"eta":"1/1000","bin":16},{"eta":"1/1000","bin":17},{"eta":"1/1000","bin":18},{"eta":"1/1000","bin":19},{"eta":"1/1000","bin":20},{"eta":"1/1000","bin":21}
+  ],
+  "candidate_tiebreak": "Among eligible cells clearing both 99% family-wise thresholds: maximize the smaller threshold margin; then smaller eta; then lower bin.",
+  "candidate_sign_rule": "Same sign on at least 4 of 5 discovery scales under both null standardizations.",
+  "forbidden_before_candidate_freeze": [
+    "enumerating X=300000000 shell counts",
+    "enumerating X=1000000000 shell counts",
+    "changing support cell sizes",
+    "changing eligible-set rule",
+    "changing bin count or coordinate",
+    "dropping discovery scales",
+    "adding epsilon regularization"
+  ]
+}
