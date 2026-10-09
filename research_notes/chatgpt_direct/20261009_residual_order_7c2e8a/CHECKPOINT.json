@@ -1,0 +1,62 @@
+{
+  "activity_id": "RA-7F39A32659547E2F417CCA60",
+  "artifacts": {
+    "NOTE.md": {
+      "bytes": 12286,
+      "git_blob": "b1f3b635d8ecbd51f7109fba0d645f3191d5d2a8",
+      "sha256": "ccd04e422cf8fb57f7a785cb21d34c8c25fb05301009a018920ebaec7df063ef"
+    },
+    "check_order.py": {
+      "bytes": 13560,
+      "git_blob": "ab887c88015dd3278e2efb14d4d8fe7d0469c9ed",
+      "sha256": "02d3bbfc57eec723a6b0f46ff75bd4a628be1a39ee7a93727e110b7ba699fd2c"
+    },
+    "summary.json": {
+      "bytes": 610,
+      "git_blob": "58f0b35b3fb8f90833d13adcb6d1aa81aefb67d5",
+      "sha256": "fd9795f35f91b7f738952493143c0ab1ad07734a933cf82ed70d453cb6e84e5d"
+    }
+  },
+  "event_id": "EM-20261009-RESIDUAL-ORDER-7C2E8A",
+  "execution": {
+    "BRC_calls": {
+      "cwm_edge": 35,
+      "cwm_propagate": 118981,
+      "cwm_recoalesce": 24937
+    },
+    "actual_full_step_calls": 107594,
+    "assertions": 46224,
+    "event_id": "EM-20261009-RESIDUAL-ORDER-7C2E8A",
+    "fanout_full_response_orders": 16,
+    "fanout_partial_response_orders": 8,
+    "membership_helper_assertions": 0,
+    "ordered_pair_tests": 20956,
+    "output_bytes": 158455,
+    "output_sha256": "43f8a0534061485754816b56c07dcbbb6cc2c63b711542dd51a30f88858802e4",
+    "schedule_cases": 1172,
+    "scheduler_negative_differences": [
+      -1,
+      0
+    ],
+    "status": "CONDITIONAL_UNREVIEWED_NOT_NATIVE_DYNAMICS"
+  },
+  "global_read": "a5016513f59f5b4d690eff09ff11e19551bf351f",
+  "independent_review": false,
+  "native_force": false,
+  "new_results": [
+    "statewise_complete_commutation_criteria",
+    "nonidentity_idempotents_prevent_faithful_group_embedding_at_current_state_level",
+    "resource_release_can_inhibit_a_target",
+    "reserve_only_order_support_equals_maximal_extensions",
+    "five_target_response_is_not_schedule_robust_with_competition"
+  ],
+  "next": "Source-grounded native action/context/readout plus full support and licensed schedule; retain ordering branches until scope-typed commutation or robustness proof.",
+  "output_full_uploaded_to_source": false,
+  "parent_native_objective_complete": false,
+  "researcher_id": "EM-DIRECT-EE4A69",
+  "same_author_repeat_byte_identical": true,
+  "schema": "EM_DIRECT_RESEARCH_CHECKPOINT_V1",
+  "session_id": "MCP-986f44cef3834401895b2f060a914291",
+  "source_read": "eef565a6e15271ff6afc2688099f5fdae1139fde",
+  "status": "CONDITIONAL_EXECUTED_BRC_UNREVIEWED_NOT_NATIVE_DYNAMICS"
+}
