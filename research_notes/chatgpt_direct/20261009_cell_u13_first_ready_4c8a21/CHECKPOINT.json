@@ -1,0 +1,66 @@
+{
+  "schema": "CELL_U13_FIRST_READY_CHECKPOINT_V1",
+  "event_id": "EM-20261009-CELL-U13-FIRST-READY-4C8A21",
+  "status": "CONDITIONAL_ROUTING_UNREVIEWED_NOT_NATIVE_FORCE",
+  "activity_id": null,
+  "registration": "PRIOR_PLATFORM_BLOCK_PRESERVED_NO_RETRY",
+  "global_read_snapshot": "9944ec5937a4024fbdad0c6de6d3f0bd6f33e5f0",
+  "source_intake": "2a563624c36515fdf38f93a7b78b62833c93ea6a",
+  "source_directory": "research_notes/chatgpt_direct/20261009_cell_u13_first_ready_4c8a21",
+  "files": {
+    "NOTE.md": {
+      "bytes": 14659,
+      "sha256": "e440668605a44e8fa62c3c701f48f593baf22426e53f052d7db3c1f158514e3c",
+      "git_blob": "4193eb435697203d72caf403608c24f37aa4f0a5"
+    },
+    "first_ready.py": {
+      "bytes": 10360,
+      "sha256": "6fab0e2f71ebb5770a8741cd794521469c5bb557804f4510be248fff9ebac703",
+      "git_blob": "06eb1bae314e017038d951fdf4b1c32625c439f9"
+    },
+    "check_u13.py": {
+      "bytes": 10636,
+      "sha256": "b480b0b8da690bf6502274f8fe391d54a89652a85346caacc987e698ccecb8b4",
+      "git_blob": "6d985a2c3b227d112a0b39bd1adf9dc1adcc6770"
+    }
+  },
+  "checks": 6247,
+  "BRC_calls": {
+    "cwm_edge": 28073,
+    "cwm_propagate": 96042,
+    "cwm_recoalesce": 98059,
+    "one_state_recurrent_cwm": 116
+  },
+  "new_results": [
+    "single_use_first_ready_is_arrival_time_range",
+    "positive_last_arrival_partition_with_exact_CWM_prefix_identity",
+    "all_time_absorption_via_positive_loop_closure",
+    "arrival_age_counterexample_and_scoped_max_age_quotient",
+    "finite_lifetime_whole_future_loss_bound"
+  ],
+  "exact_examples": {
+    "H0": "1/343",
+    "H1": "41/1372",
+    "H2": "849/5488",
+    "H4": "46087/87808",
+    "H8": "20639019/22478848",
+    "Hinfinite": "1",
+    "age_witness_TV": "1/4",
+    "deterministic_minimum_window": 2
+  },
+  "results_sha256": "0b8001f93d6cd1e83ff3d0a4e0313696a840ddf31cb1586d44fe11899bef5f0f",
+  "evidence": {
+    "trace_bytes": 260893,
+    "trace_sha256": "ee7f4e1e96dd15e3c531edca5da2d61bce72992debba77ededac91f6051378eb",
+    "trace_compressed_sha256": "1339686864672dd291064c8ec2c69e9c57f289b4aaba9ff097ed6615114eeb0f"
+  },
+  "same_author_isolated_replay_byte_equal": true,
+  "independent_review": false,
+  "native_incidence": false,
+  "native_firing": false,
+  "physical_time": false,
+  "material_reaction": false,
+  "prime_claim": false,
+  "full_trace_uploaded_to_Source": false,
+  "next": "A sourced age-dependent retained-action eligibility and native event/successor map for the reserved A/R/C tuple; no automatic native promotion of stored direction tags."
+}
