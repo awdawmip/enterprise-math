@@ -1,0 +1,158 @@
+{
+  "schema": "CELL_U19_JOINT_RETRACTION_RESULTS_V1",
+  "event_id": "EM-20261010-CELL-U19-JOINT-RETRACTION-67D92A",
+  "checks": 490586,
+  "BRC_calls": {
+    "cwm_edge": 97,
+    "cwm_propagate": 427939,
+    "cwm_recoalesce": 841274,
+    "one_state_recurrent_cwm": 4
+  },
+  "degrees": [
+    1,
+    2,
+    2,
+    1
+  ],
+  "finite_graphs": [
+    {
+      "cap": 0,
+      "all_admissible": 1,
+      "root_component": 1,
+      "Z_all": "1",
+      "Z_root_component": "1",
+      "root_stationary": "1",
+      "nonself_labelled_edges": 0,
+      "all_pops_blocked_nonroot": 0,
+      "census": {
+        "0": {
+          "count": 1,
+          "total": "1",
+          "dominant": "1"
+        }
+      }
+    },
+    {
+      "cap": 1,
+      "all_admissible": 21,
+      "root_component": 21,
+      "Z_all": "17/12",
+      "Z_root_component": "17/12",
+      "root_stationary": "12/17",
+      "nonself_labelled_edges": 40,
+      "all_pops_blocked_nonroot": 0,
+      "census": {
+        "0": {
+          "count": 1,
+          "total": "1",
+          "dominant": "1"
+        },
+        "1": {
+          "count": 20,
+          "total": "5/12",
+          "dominant": "1/48"
+        }
+      }
+    },
+    {
+      "cap": 2,
+      "all_admissible": 446,
+      "root_component": 401,
+      "Z_all": "3689/2304",
+      "Z_root_component": "911/576",
+      "root_stationary": "576/911",
+      "nonself_labelled_edges": 1000,
+      "all_pops_blocked_nonroot": 45,
+      "census": {
+        "0": {
+          "count": 1,
+          "total": "1",
+          "dominant": "1"
+        },
+        "1": {
+          "count": 20,
+          "total": "5/12",
+          "dominant": "1/48"
+        },
+        "2": {
+          "count": 425,
+          "total": "425/2304",
+          "dominant": "1/2304"
+        }
+      }
+    },
+    {
+      "cap": 3,
+      "all_admissible": 7274,
+      "root_component": 6730,
+      "Z_all": "15325/9216",
+      "Z_root_component": "10129/6144",
+      "root_stationary": "6144/10129",
+      "nonself_labelled_edges": 21016,
+      "all_pops_blocked_nonroot": 87,
+      "census": {
+        "0": {
+          "count": 1,
+          "total": "1",
+          "dominant": "1"
+        },
+        "1": {
+          "count": 20,
+          "total": "5/12",
+          "dominant": "1/48"
+        },
+        "2": {
+          "count": 425,
+          "total": "425/2304",
+          "dominant": "1/2304"
+        },
+        "3": {
+          "count": 6828,
+          "total": "569/9216",
+          "dominant": "1/110592"
+        }
+      }
+    }
+  ],
+  "bridge_cases": 23192,
+  "resource_transactions": 364,
+  "jam": [
+    [
+      2
+    ],
+    [],
+    [],
+    [
+      3
+    ]
+  ],
+  "jam_record_drift": "203/2316",
+  "preparation_probability": "1/82944000000",
+  "escape_one_path_probability": "1/36000000",
+  "minimum_recovery_proposals": 6,
+  "all_shortest_recoveries": {
+    "count": 180,
+    "total": "1/200000",
+    "dominant": "1/36000000"
+  },
+  "root_normalizer_upper": "65536/36481",
+  "cap2_inside_recovered_at_cap3": 23,
+  "cap2_inside_missing_stationary_lower": "839063/150994944",
+  "root_stationary_lower": "36481/65536",
+  "mean_first_return_upper": "65536/36481",
+  "root_departure_probability": "33/386",
+  "mean_excursion_after_departure_upper": "3738410/401291",
+  "unbounded_root_class_eventual_return": "1",
+  "cap2_jam_eventual_return": "0",
+  "cap3_jam_eventual_return": "1",
+  "core_is_prepared_and_retained": true,
+  "all_four_bodies_enabled": true,
+  "native_force_or_triad_certificate": false,
+  "spontaneous_contact_formation": false,
+  "physical_clock": false,
+  "prime_claim": false,
+  "independent_review": false,
+  "trace_bytes": 774228,
+  "trace_sha256": "29afc3b727fca00702456c9afba1a01e26bf372c082598ad44e634ad5d6cf9ac",
+  "trace_compressed_sha256": "d06514f00a83b4a2fd9b686f7d0168b281a881c63c89bcf821b7b5c3b6935cc4"
+}
