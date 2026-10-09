@@ -1,0 +1,34 @@
+{
+  "schema": "SOURCE_EXCERPTS_AND_BRC_CORRESPONDENCE_V1",
+  "repository": "awdawmip/enterprise-math",
+  "source_commit": "00697049758a4d709f3fce00d356e58dc0d82fbb",
+  "checker_path": "research_checks/P000_LOCAL_TO_GLOBAL_BACKGROUND_EQUIVARIANCE_V18_CHECK_20260831.py",
+  "checker_blob": "32aa00fd8f36b7c5bf5285e4cec79499dec87509",
+  "full_checker_read": true,
+  "full_checker_executed": false,
+  "full_checker_bytes_bundled": false,
+  "retained_excerpts": {
+    "channels": "EDGES = ((\"A\",\"B\"),(\"A\",\"C\"),(\"A\",\"D\"),(\"B\",\"C\"),(\"B\",\"D\"),(\"C\",\"D\"))",
+    "star": "def star(x):\n    return tuple(1 if x in EDGES[i] else 0 for i in range(6))",
+    "profile": "PF_GLOBAL=tuple(star(x) for x in V)",
+    "transport": "T_NONFLAT={}\nfor x,y in ORIENTED:\n    i=EDGE_IDX[tuple(sorted((x,y)))]\n    T_NONFLAT[(x,y)]=swap6(i,opp[i])"
+  },
+  "copied_excerpt_scope": "Selected source text; the JSON is not the full source file or original HTTP bytes.",
+  "brc_lift": "A permutation edge i->j becomes a single CWM_ONE relation edge. Path concatenation is actual cwm_propagate followed by cwm_recoalesce on equal retained source/destination keys.",
+  "source_return": {
+    "path": "research_returns/P000_LOCAL_TO_GLOBAL_BACKGROUND_EQUIVARIANCE_V18_RETURN_20260831.md",
+    "blob": "9ef58775c372f1019d3c1d0f1a6bd84565374e90"
+  },
+  "source_review": {
+    "path": "driver_reviews/P000_LOCAL_TO_GLOBAL_BACKGROUND_EQUIVARIANCE_V18_DRIVER_REVIEW_20260831.md",
+    "blob": "581a53c11867fdb8e3f8f346381603c2c146d86d",
+    "status": "ACCEPTED_AT_FINITE_K4_WITNESS_AND_VERIFICATION_INTERFACE_STRENGTH"
+  },
+  "new_claim_status": "Same-author source-derived mathematical increment, independent review pending",
+  "not_inferred": [
+    "native force law",
+    "native six-axis identification",
+    "native physical clock",
+    "new acceptance of the current increment"
+  ]
+}
