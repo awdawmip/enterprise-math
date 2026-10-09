@@ -1,0 +1,70 @@
+{
+  "schema": "CELL_U18_CHECKPOINT_V1",
+  "event_id": "EM-20261009-CELL-U18-RESTORATION-AND-RETURN-A6D3E2",
+  "status": "CONDITIONAL_UNREVIEWED",
+  "activity_id": null,
+  "global_read_snapshot": "71105c0e7b8227dd8cee9bf6d212cbc4efc3b726",
+  "source_intake": "00bd05e0a4d9f115b490925ca38d0505e425de6b",
+  "files": {
+    "RESULT.md": {
+      "bytes": 8555,
+      "sha256": "360f8915f4308f740a4fda4dfd3372ef60a3e513b6469d8fc136c10ba955c5f4",
+      "git_blob": "c5e8f8b679839a84c6dedb9a6b49c4c2b95d696c"
+    },
+    "NOTE.md": {
+      "bytes": 17092,
+      "sha256": "fd337d69cceb51d2915088225ee9105d5d7a4576355759ee87a161ce31adfc39",
+      "git_blob": "6e1e0d1d2c63be567cbc1587aa25cbe2c00108d1"
+    },
+    "check_u18.py": {
+      "bytes": 17908,
+      "sha256": "34488856d644c061cdf1447503b70bdfc2835bdd776eb5ea9fde7f1fe47bcb8e",
+      "git_blob": "5bf812e3d76b97e77ecbf69baf74c6ce097fd9f9"
+    },
+    "evidence/results.json": {
+      "bytes": 3863,
+      "sha256": "5d62b91492b443623b2d3f86d0778b82bee2cc42751883d7e0b231e4fb2151f4",
+      "git_blob": "f227901b4d4b5c213cb1fc61274663ba9a91d059"
+    },
+    "evidence/full_trace.json.gz": {
+      "bytes": 27110,
+      "sha256": "6cddd60aecdd8d25e2860fbce388840f80662a3fe0a005c1542d7b5aacdae207",
+      "git_blob": "fa2532f3c40929e458add7b0bcf8b0b43fdef6fa"
+    },
+    "evidence/replays.json": {
+      "bytes": 280,
+      "sha256": "fbd035fd40e329e7d6346eeeaa7b5b0b081f1ca985faea57893b62b7f98bf337",
+      "git_blob": "6ad9517c779d9938ab917967481899445561440a"
+    }
+  },
+  "checks": 29417,
+  "BRC_calls": {
+    "cwm_edge": 106767,
+    "cwm_recoalesce": 218339,
+    "cwm_propagate": 118339,
+    "one_state_recurrent_cwm": 12
+  },
+  "key_results": {
+    "four_cell_graph_distance_minimum": 8,
+    "single_vacancy_increase": 3,
+    "joint_minimum_plans": 47,
+    "return_probability_lower": "3/4",
+    "negative_drift_threshold": "25/58",
+    "negative_drift_upper": "-37/22",
+    "restored_geometry_bound_path_lengths": [
+      3,
+      4,
+      5
+    ],
+    "resource_moves_upper": "B-L0"
+  },
+  "full_code_package": "CONVERSATION_PACKAGE",
+  "source_publication_scope": "RESULT.md and CHECKPOINT.json; full execution files in package, not all in Source",
+  "same_author_replays": true,
+  "independent_review": false,
+  "native_force": false,
+  "native_triad": false,
+  "physical_clock": false,
+  "prime_claim": false,
+  "next": "A source-accounted repeated response with both prefix growth and legal release, with material/field/support updates and round ownership."
+}
