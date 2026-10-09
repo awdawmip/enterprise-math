@@ -1,0 +1,91 @@
+{
+  "schema": "CELL_U16_CAUSAL_ACTUATION_CHECKPOINT_V1",
+  "event_id": "EM-20261009-CELL-U16-CAUSAL-ACTUATION-52A7D9",
+  "status": "CONDITIONAL_CONTROLLED_ACTUATION_UNREVIEWED",
+  "activity_id": null,
+  "registration": "PENDING_PRIOR_PLATFORM_REJECTION_NO_CURRENT_RETRY",
+  "global_read_snapshot": "147dfe8735b97ca1db494d4aa40daeb86f69ead5",
+  "source_intake": "00697049758a4d709f3fce00d356e58dc0d82fbb",
+  "source_directory": "research_notes/chatgpt_direct/20261009_cell_u16_causal_actuation_52a7d9",
+  "files": {
+    "NOTE.md": {
+      "bytes": 15176,
+      "sha256": "b63f4ad67ecd8085640d2fad9ed8c04c3b7c599bde8abe1d65d57c99a6e87a71",
+      "git_blob": "c7f1a61605e7096a3ee917b30735f16ef8cab0d4"
+    },
+    "causal_actuation.py": {
+      "bytes": 10173,
+      "sha256": "93f198376f8aba09f96eb569150f3f5b0e47bba685445d87f7f684983fb20bed",
+      "git_blob": "701bb1c3e287f7c0d438815dcc187731a60befff"
+    },
+    "check_u16.py": {
+      "bytes": 12546,
+      "sha256": "a901c70ccf591a8739a1d70f0f653fd72f600ebbe5434c04f61df6b4a5034eac",
+      "git_blob": "cd4f8ce0ce313c41dfdd59a194895a2f6c4abab0",
+      "publication": "LOCAL_CONVERSATION_PACKAGE_ONLY_PLATFORM_BLOCKED_GITHUB_CREATE_BLOB"
+    },
+    "evidence/results.json": {
+      "bytes": 1947,
+      "sha256": "71d8a0c27da0b763fc4eef75b123c76b76a50c203b4411909d9a1f706b1f402e",
+      "git_blob": "f5283dea533b996e22faade2b14673c00d47e556"
+    }
+  },
+  "checks": 62876,
+  "BRC_calls": {
+    "cwm_edge": 30474,
+    "cwm_propagate": 57838,
+    "cwm_recoalesce": 4867,
+    "one_state_recurrent_cwm": 30
+  },
+  "signed_frames": {
+    "executed": 800,
+    "target_collision": 160
+  },
+  "finite_arrival_window_cases": 720,
+  "actual_example": {
+    "arrival_ticks": [
+      1,
+      3,
+      1
+    ],
+    "calibrated_at": 7,
+    "ticket_returned_at": 8,
+    "resource_reserved_at": 9,
+    "material_moved_at": 10,
+    "prefix_bound_at": 11,
+    "minimum_window_for_this_schedule": 10,
+    "post_arrival_stages": 8
+  },
+  "exact_examples": {
+    "selection_vs_intervention": [
+      "7/8",
+      "343/512"
+    ],
+    "first_material_movement_H10": "49/512",
+    "eventual_material_effect_H10": "849/5488"
+  },
+  "trace_bytes": 24720,
+  "trace_sha256": "f7c7c31043ad527181c2de5245c73ce5e1e27ea65d4194fbcea18ce1bb9e1365",
+  "trace_compressed_sha256": "1c5be1827a796c794db2a5c4284af92ca3fb06018db2aa65e97a8a2a49e7e239",
+  "same_author_isolated_and_repository_layout_replays_byte_equal": true,
+  "independent_review": false,
+  "native_force_derived": false,
+  "native_triad_admission": false,
+  "mechanical_reaction_derived": false,
+  "physical_clock": false,
+  "prime_claim": false,
+  "new_controlled_material_prefix_update_executed": true,
+  "next": "Characterize a sourced native response on the explicit pre-command tuple; use the paired causal observer to test material, field and support outputs. The current Boolean actuator is a stated experimental completion, not the derived force law.",
+  "source_checker_available": false,
+  "publication_boundary": {
+    "blocked_operation": "GitHub.create_blob for check_u16.py",
+    "actual_result": "This tool call was blocked by OpenAI safety checks",
+    "denied_payload_retried": false,
+    "alternative_transport_for_denied_payload_used": false,
+    "allowed_preexisting_blobs": [
+      "NOTE.md",
+      "causal_actuation.py"
+    ],
+    "full_suite_reproduction": "checker and fixed dependencies are in the conversation research package; Source-only complete suite reproduction is pending"
+  }
+}
