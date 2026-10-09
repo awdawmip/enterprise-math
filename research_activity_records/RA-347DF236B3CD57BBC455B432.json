@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-347DF236B3CD57BBC455B432",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "2c36497138694a92f47c5e22f615b625b5627f33",
+          "path": "research_notes/chatgpt_direct/20261009_EULER_SECTOR_CONSERVATION_CHECKPOINT.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "3c9fee792ac8a9ffb484106b199cf7b06e60aa3a1cde879c2b7e1d0b25d00976",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "ca18e0e49c5553a1c6b3dba23fa46dfda9bf0a3c",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/2c36497138694a92f47c5e22f615b625b5627f33/research_notes/chatgpt_direct/20261009_EULER_SECTOR_CONSERVATION_CHECKPOINT.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-observation-turn538-sector-checkpoint",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-347DF236B3CD57BBC455B432/readbacks/cf1229c58c8b035af3fc85174a65aa462844a4f9c2125859f69a1ec110c16dd7.json",
+          "verification_receipt_sha256": "cf1229c58c8b035af3fc85174a65aa462844a4f9c2125859f69a1ec110c16dd7"
+        }
+      ],
+      "event_id": "euler-sector-charges-shared-field-20261009-28",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-09T14:44:45.896147+00:00",
   "registration_key": "session:chatgpt-heartbeat-euler-20261004-layer-01/local-sector-charges-20261009:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-DIRECT-9C64E4",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "chatgpt-heartbeat-euler-20261004-layer-01/local-sector-charges-20261009",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-09T14:44:45.896147+00:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
