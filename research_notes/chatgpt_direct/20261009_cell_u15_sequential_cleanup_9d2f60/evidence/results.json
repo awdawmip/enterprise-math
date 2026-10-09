@@ -1,0 +1,118 @@
+{
+  "schema": "CELL_U15_SEQUENTIAL_CLEANUP_RESULTS_V1",
+  "event_id": "EM-20261009-CELL-U15-SEQUENTIAL-CLEANUP-9D2F60",
+  "checks": 46156,
+  "BRC_calls": {
+    "cwm_edge": 89931,
+    "cwm_propagate": 140741,
+    "cwm_recoalesce": 55640,
+    "one_state_recurrent_cwm": 48
+  },
+  "full_eight_register_states": 6817,
+  "local_three_register_inputs": 783,
+  "consistent_captured_snapshots": 2274,
+  "finite_arrival_protocol_cases": 17600,
+  "new_infinite_statement": "P_success(H,d)=P_U13(H-d) for H>=d; 0 otherwise",
+  "example_start_tick": 3,
+  "example_end_tick": 7,
+  "example_output": {
+    "phases": [
+      0,
+      0,
+      0
+    ],
+    "scratch": [
+      0,
+      0
+    ],
+    "arrival_residues": [
+      1,
+      3,
+      1
+    ]
+  },
+  "exact_deadline_results": {
+    "d2_H2": "1/343",
+    "d2_H4": "849/5488",
+    "d2_H6": "46087/87808",
+    "d2_H8": "1109389/1404928",
+    "d2_H10": "20639019/22478848",
+    "d4_H2": "0",
+    "d4_H4": "1/343",
+    "d4_H6": "849/5488",
+    "d4_H8": "46087/87808",
+    "d4_H10": "1109389/1404928"
+  },
+  "side_information_fibre_checks": [
+    {
+      "k": 2,
+      "largest_indistinguishable_fibre": {
+        "none": 4,
+        "sum": 2,
+        "pair": 1
+      }
+    },
+    {
+      "k": 3,
+      "largest_indistinguishable_fibre": {
+        "none": 9,
+        "sum": 3,
+        "pair": 1
+      }
+    },
+    {
+      "k": 4,
+      "largest_indistinguishable_fibre": {
+        "none": 16,
+        "sum": 4,
+        "pair": 1
+      }
+    },
+    {
+      "k": 5,
+      "largest_indistinguishable_fibre": {
+        "none": 25,
+        "sum": 5,
+        "pair": 1
+      }
+    },
+    {
+      "k": 6,
+      "largest_indistinguishable_fibre": {
+        "none": 36,
+        "sum": 6,
+        "pair": 1
+      }
+    },
+    {
+      "k": 7,
+      "largest_indistinguishable_fibre": {
+        "none": 49,
+        "sum": 7,
+        "pair": 1
+      }
+    },
+    {
+      "k": 8,
+      "largest_indistinguishable_fibre": {
+        "none": 64,
+        "sum": 8,
+        "pair": 1
+      }
+    }
+  ],
+  "joint_record_association_binary_TV": "1",
+  "scratch_recycled_only_with_valid_side_information": true,
+  "native_force": false,
+  "native_triad_certificate": false,
+  "material_head_bound": false,
+  "physical_clock": false,
+  "mechanical_reaction": false,
+  "prime_claim": false,
+  "independent_review": false,
+  "registration": "PRIOR_PLATFORM_BLOCK_PRESERVED_NO_RETRY",
+  "old_full_suites_rerun": false,
+  "trace_bytes": 21349,
+  "trace_sha256": "f63a4eef0d48f3423ec42e0bcd9e90a6e3e399bb49d5adbcd8a97ba99faadaa7",
+  "trace_compressed_sha256": "eb668fde28693e99e067249001793117e6fd47a5a60a1f751eda320055183d83"
+}
