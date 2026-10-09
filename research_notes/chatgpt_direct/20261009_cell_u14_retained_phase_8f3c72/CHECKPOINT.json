@@ -1,0 +1,74 @@
+{
+  "schema": "CELL_U14_RETAINED_PHASE_CHECKPOINT_V1",
+  "event_id": "EM-20261009-CELL-U14-RETAINED-PHASE-8F3C72",
+  "status": "CONDITIONAL_RETAINED_STATE_NOT_NATIVE_FORCE_NOT_ADMITTED",
+  "activity_id": null,
+  "registration": "PRIOR_PLATFORM_BLOCK_PRESERVED_NO_RETRY",
+  "global_read_snapshot": "a5016513f59f5b4d690eff09ff11e19551bf351f",
+  "source_intake": "eef565a6e15271ff6afc2688099f5fdae1139fde",
+  "source_directory": "research_notes/chatgpt_direct/20261009_cell_u14_retained_phase_8f3c72",
+  "files": {
+    "NOTE.md": {
+      "bytes": 17315,
+      "sha256": "d319cf5b0dd5eb5c342ae55e9118ceb123d0efb64dd9918eff0898e825dae2c9",
+      "git_blob": "d46d0d1867b0281d1397efe02089e2a1e3e16bbe"
+    },
+    "retained_phase.py": {
+      "bytes": 11925,
+      "sha256": "fd1bff1f3f3dcf1dafce721dc705cc2259f29193f90ada49acfa093e7976d26f",
+      "git_blob": "713bf2ddcce9abd5f8b3ddbd9990f102055ce90d"
+    },
+    "check_u14.py": {
+      "bytes": 12674,
+      "sha256": "765c703167046fb533be9f1acc9e0ef0ec11e01ee3f581748c6f5e8ef27368b0",
+      "git_blob": "5b921620eb1bc0492a5285066a6b3126f444652f"
+    }
+  },
+  "checks": 16938,
+  "BRC_calls": {
+    "cwm_edge": 144641,
+    "cwm_propagate": 636377,
+    "cwm_recoalesce": 542718,
+    "one_state_recurrent_cwm": 1927
+  },
+  "parameter_window_cases": 60,
+  "new_results": [
+    "common_injective_drift_preserves_relative_mismatch",
+    "phase_compatible_first_ready_is_range_and_congruence",
+    "positive_cyclic_BRC_all_time_plateaus",
+    "largest_age_quotient_fails_after_internal_phase_extension",
+    "progress_max_age_phase_vector_sufficient_in_declared_scope",
+    "reversible_local_coupling_moves_offsets_into_sourced_records",
+    "whole_future_finite_lifetime_error_around_correct_phase_plateau"
+  ],
+  "exact_examples": {
+    "binary_infinite": "23/81",
+    "four_state_infinite": "4631/50625",
+    "binary_H2": "409/5488",
+    "same_max_age_H4": [
+      "1/4",
+      "0"
+    ],
+    "same_max_age_infinite": [
+      "1/3",
+      "0"
+    ],
+    "alignment": "(2,0,2;0,0)->(1,1,1;2,2)",
+    "repeat_without_blank_records": "(1,1,1;2,2)->(0,2,0;0,0)"
+  },
+  "results_sha256": "7f97b032038dede5d8d2b22264e1c487515789ab0bfd63317f7052e6990afb0b",
+  "evidence": {
+    "trace_bytes": 893959,
+    "trace_sha256": "66b7f7f4781dad10e539a52a2bbb4b24d92ea435900554ee1e114130578f4a50",
+    "trace_compressed_sha256": "90bf19ee32c60dc1e79d2fedbc2c37c397d4676068e12cb40e36115aca624441"
+  },
+  "same_author_isolated_replay_byte_equal": true,
+  "independent_review": false,
+  "full_trace_uploaded_to_Source": false,
+  "native_force": false,
+  "native_firing": false,
+  "physical_clock": false,
+  "physical_reaction": false,
+  "prime_claim": false,
+  "next": "A sourced native implementation or falsifier for the relative-offset transfer, including memory preparation, third-action incidence, material/support reaction and actual duration; do not replace it with passive common drift."
+}
