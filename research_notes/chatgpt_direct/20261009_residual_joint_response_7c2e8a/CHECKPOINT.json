@@ -1,0 +1,58 @@
+{
+  "schema": "EM_DIRECT_RESEARCH_CHECKPOINT_V1",
+  "event_id": "EM-20261009-RESIDUAL-JOINT-RESPONSE-7C2E8A",
+  "activity_id": "RA-3AA730924D9E9BB44368F3A9",
+  "researcher_id": "EM-DIRECT-B704F3",
+  "session_id": "MCP-15be3bbbe4fe4c519654d81db1d2b72c",
+  "global_read": "9944ec5937a4024fbdad0c6de6d3f0bd6f33e5f0",
+  "source_read": "2a563624c36515fdf38f93a7b78b62833c93ea6a",
+  "status": "CONDITIONAL_EXECUTED_BRC_UNREVIEWED_NOT_NATIVE_DYNAMICS",
+  "artifacts": {
+    "NOTE.md": {
+      "bytes": 10291,
+      "sha256": "9e4ae38802f3424a7d99064cb9db1ecfe064fdef1761f9d41a51afd876a0ff4f",
+      "git_blob": "102bfdb29431fcd2c774403d869ce74c0f4121ee"
+    },
+    "check_joint_response.py": {
+      "bytes": 12308,
+      "sha256": "36b51a4798dc37f366e534c94f6c85672350d0c3afe69d2e06e2d3817ad0082d",
+      "git_blob": "ef967f09ef16a872ae68c34949bef8fe7ac3cd6a"
+    },
+    "summary.json": {
+      "bytes": 427,
+      "sha256": "be5d8ddabc9366390a1e000f54ea11f6274bca5c35644ddcdf3918f7177549a1",
+      "git_blob": "aad0c59c007ab9703de873f3a88f04968f43deb0"
+    }
+  },
+  "execution": {
+    "checks": 12605,
+    "inherited_helper_checks": 396,
+    "BRC_calls": {
+      "cwm_edge": 7359,
+      "cwm_propagate": 3377,
+      "cwm_recoalesce": 43501
+    },
+    "protocols": 384,
+    "mask_laws_checked": 3504,
+    "theta_parity": [
+      "0",
+      "1/4"
+    ],
+    "deterministic_mask": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "output_bytes": 1774298,
+    "output_sha256": "a356cfc8d5156f08ffdabd26a266432774b3fb57343f248a7559d16adbcf1ba8"
+  },
+  "same_author_repeat_byte_identical": true,
+  "independent_review": false,
+  "native_force": false,
+  "six_modules_are_six_axes": false,
+  "parent_native_objective_complete": false,
+  "output_full_uploaded_to_source": false,
+  "next": "Provide Source-grounded native A_i/G/readout and complete support plus justified branch pairing; evaluate five-output joint spectrum, not just average responses."
+}
