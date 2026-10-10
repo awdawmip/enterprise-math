@@ -34,7 +34,7 @@
       "id": "r2-20261010-session-reconcile-07",
       "issue": 3577,
       "operation": "reconcile",
-      "status": "SUBMITTED"
+      "status": "SUCCEEDED_TARGET_RECONCILE"
     },
     {
       "id": "r2-20261010-continuation-05",
@@ -59,5 +59,21 @@
     "Unknown session publication under a new request/identity"
   ],
   "global_read_snapshot": "4fee912db8c3af8bc0ade10af2bad97664e9364d",
-  "admission": "UNREVIEWED_NOT_ADMITTED"
+  "admission": "UNREVIEWED_NOT_ADMITTED",
+  "reconciliation_observation": {
+    "issue": 3577,
+    "request_id": "r2-20261010-session-reconcile-07",
+    "status": "SUCCEEDED",
+    "target_status": "RECONCILE",
+    "receipt_sha256": "0cadad098b208d2bc201ec87c6a5bad40775c1e4a55986605cb6d26dc195adcf",
+    "actual_registration_succeeded": false
+  },
+  "pre_final": {
+    "issue": 3578,
+    "request_id": "r2-20261010-pre-final-08",
+    "status": "REJECTED",
+    "error": "PREREQUISITE_NOT_SUCCEEDED",
+    "native_final_gate_passed": false,
+    "next_action": "Consume original session reconciliation before retrying; retain supplemental scientific delivery as unadmitted."
+  }
 }
