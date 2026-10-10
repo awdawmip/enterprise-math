@@ -1,0 +1,100 @@
+# U21 continuation: exact reconnection after first dissociation
+
+Progress-Event-ID: EM-R6-20261010-U21-REBIND-970CF510
+Status: CONDITIONAL_MODEL_DERIVATION / EXECUTED_TYPED_BRC / UNREVIEWED / NOT_ADMITTED
+Author logical conversation: em-research6-970cf5104ed5-20261010
+Global read snapshot: 521d47fb0a701690ba0c240511eba40dd0de9f9b
+Scientific Source snapshot: 52ec9404626e8cc2dbb920fbb8618b59552ebdbe
+Research-Activity-ID: REGISTER_PENDING (session request r6-session-20261010-970cf510-03, bridge Issue 3562; no native success observed when this note was prepared)
+Formal Task/CLAIM/run: none. This is authorized portable research preservation, not execution of the dispatch-selected NFHJPA audit task.
+
+## Exact inherited input and new question
+
+Read U21 RESULT.md at the scientific Source snapshot, path research_notes/chatgpt_direct/20261010_cell_u21_contact_topology_c83e5a/RESULT.md. Its conditional scientific model remains unreviewed; this note does not promote it. Reuse its fixed square of four materials and contact-only experiment: four possible adjacent side links, each absent or one of two cuts; twelve uniformly proposed pair/side labels, including four ineligible diagonal labels. Every state retains graph and cut provenance. Activity x=eta*lambda is positive; association acceptance x/(1+x), dissociation acceptance 1/(1+x). This experiment has 81 states.
+
+U21 already evaluated formation and time to FIRST dissociation. Do not repeat its accepted algebraic/computational units as new work. This note asks what follows AFTER a connected tree loses one edge: starting at n=2 present side links, compute the first return to connected states (n=3), and the competing first-hit event n=3 before n=0.
+
+The observation is contact-PROPOSAL count, not physical heartbeat time. No moving materials, path edits, support capacity or persistent field is added. P000 and all six native spatial axes remain unchanged; four fixed points use explicit zero values on axes 3--6 in the inherited preparation. This is a graph observable over a declared fixed preparation, not a new native plane or primitive force law.
+
+## Positive BRC transfer and safe quotient
+
+Use exact original brc_weighted.py blob 3f205696709e847909958a153f8fe10d3f6b70f0. Verify its Git blob SHA before loading. Only the two unused symbolic-log/readout imports are omitted by the explicitly recorded loader adapter; all scientific function bodies are unchanged and those readouts are never called.
+
+Each one-step label is a positive branch with target edge count and identity (pair, side, accept/reject/ineligible). Accepted and rejected outcomes are distinct. Use cwm_edge, cwm_recoalesce and cwm_propagate for positive transfers. For n present sides:
+
+    births: 2(4-n) accepted branches, weight x/[12(1+x)] each;
+    deaths: n accepted branches, weight 1/[12(1+x)] each;
+    waits: 4+n ineligible labels at weight 1/12, plus
+           2(4-n) rejected births at 1/[12(1+x)] and
+           n rejected deaths at x/[12(1+x)].
+
+Consequently every state in the same n-fiber has the SAME complete target CWM (count,total,dominant), not just the same total mass. The exact future_cwm_equivalent interface verifies all 81 states for each of four x inputs. The semiring alternative and serial laws then preserve that equivalence for every finite horizon with only target-n observations. This is a proven safe quotient for this grammar. It is not safe if future operations observe cuts, identities, material motion, support records or fields; no such quotient is claimed.
+
+Let b=x/[6(1+x)] and d=1/[12(1+x)]. The quotient transitions are
+
+    P(n,n+1)=(4-n)b,
+    P(n,n-1)=nd,
+    P(n,n)=1-(4-n)b-nd.
+
+All-time first-hit calculations use TOTAL and pointed proposal-count observers. After a recurrent closure we do not claim a finite raw history count or dominant-history summary. A one-edge CWM is explicitly a total-only representative.
+
+For a transfer A let W_A be its total and M_A its total pointed-time mass (a k-step history has k distinguishable time marks, each carrying its history weight). Serial pointing satisfies
+
+    W_AB=W_A W_B,
+    M_AB=M_A W_B+W_A M_B.
+
+For a positive loop family L with W_L<1, original one_state_recurrent_cwm returns C=1/(1-W_L). A marked recurrent history has a uniquely chosen marked loop, unmarked prefix and unmarked suffix, so its pointed total is C M_L C. This is a positive BRC identity, not signed cancellation or a renamed ordinary matrix inverse. State elimination uses A_ij + A_ik L_k* A_kj, with all alternatives and serial products through the original BRC functions. The script records loop masses, pointed masses and closures.
+
+## New exact propositions, all positive x
+
+Write tau_3 for first hitting n=3 from n=2. Then
+
+    Pr(tau_3<infinity)=1,
+    E_2[tau_3]=(1+x)(24x^2+8x+1)/(8x^3).
+
+Proof of finiteness: from any transient n=0,1,2 there is a positive sequence of at most three births reaching n=3. Over this finite set the minimum such probability is positive. Blocks of three proposals therefore have a geometric survival bound. This also proves uniqueness of the finite first-step solution. If t_n is the mean time to n=3 and u_n=t_n-t_(n+1), the exact equations give
+
+    u_0=1/(4b),
+    u_1=(1+d u_0)/(3b),
+    u_2=(1+2d u_1)/(2b).
+
+Thus t_2=u_2 has the stated expression. These are a symbolic crosscheck of the BRC first-hit computation, not an alternative non-BRC scientific reference run.
+
+For sigma=first hit of {0,3}, let h_n=Pr_n(n_sigma=3). With r=b/d=2x, h_0=0,h_3=1 and the birth/death equations imply
+
+    h_2=(3r^2+r)/(3r^2+r+1)
+       =(12x^2+2x)/(12x^2+2x+1).
+
+This is the probability of reconnecting BEFORE all contacts disappear, not the eventual reconnect probability. From the equation for h_1, h_1=3r h_2/(3r+1); substituting in the equation for h_2 yields the formula. The all-x result follows by this algebra and positive first-hit uniqueness; four numerical inputs are verification scope, not proof by interpolation.
+
+At U21's principal x=1/48:
+
+    eventual reconnect probability = 1;
+    mean reconnect proposals = 16611;
+    reconnect before empty = 3/67;
+    empty before reconnect = 64/67;
+    mean proposals to either boundary = 1225/67;
+    mean reconnect proposals CONDITIONAL on reconnect before empty = 4753/603.
+
+The last two values are executed pointed-BRC observations. No general symbolic formula for them is claimed in this note. The distinction explains why conditioning on quick rescue can hide the much longer unconditional delay after visits to empty states.
+
+For x tending to zero, the displayed exact expressions give E_2 tau_3 ~ 1/(8x^3) and h_2 ~ 2x. This is activity dependence in this finite fixed-geometry model; it is not a spatial thermodynamic limit, fixed-density law or physical dissociation timescale.
+
+## Verification and actual execution
+
+Executed rebind_brc.py with original source blob checked before load. Four exact inputs: x=1/48,1/2,1,2. 392 recorded checks: 324 full-state row/lumpability checks, 40 quotient birth/death checks, 16 first-hit/normalization checks, 12 mean first-step checks. BRC calls: edge 5848; alternative 6536; serial 1372; recurrent 20. Full raw label rows are generated in branches.json by the reproducible script. No previous U21 suite is counted as new work.
+
+Separate-process same-author replay reproduced results.json and branches.json byte for byte:
+
+    results.json SHA256 335c7933c3a062a6a01d756ceb745fb8a7e072d2091018e22b832ac5a9cfd973
+    branches.json SHA256 dcce91d6ba408e7d2de70c8a5fc458ec44e34b4bcae9752c05af86692e6bc6c2
+
+This is not independent review. There is no classical trigonometric, pi, propagator or signed-amplitude calculation. Input probability ratios are the inherited declared kernel, not fitted native energy. Exact positive weight arithmetic inside the pinned BRC interface retains the stated carrier and observer semantics.
+
+## State, next question and recovery
+
+Registration request is pending; no session/RA, winning CLAIM, run, official checkpoint or formal Result is invented. Recovery_status Issue 3560 succeeded with no own pending work at that time. Dispatch Issue 3561 later selected a released NFHJPA external-prior-art audit task; it does not assign U21, and this note neither claims that audit nor borrows its previous owner. The submitted identity request remains the same original operation and must be read/reconciled before any further registration.
+
+Smallest next scientific unit: release a link in the FULL moving-material/path grammar, retain its actual free record and field/support state, and identify which post-release variables alter subsequent reconnection laws. Establish a safe quotient or a pair of states with the same positions and edge count but different future rebinding transfer. The present n-quotient is only a benchmark; stored history alone does not prove continuing influence or a primitive triadic attraction.
+
+Do not repeat U21's formation/first-break work or the present fixed-geometry first-return result. Before formal continuation use the current Source task/publication/owner check and the actual own session. Preserve prior authors and disclose same-context dependence on U21.
