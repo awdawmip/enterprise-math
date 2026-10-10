@@ -1,0 +1,853 @@
+{
+  "schema": "EM_NEUTRAL_PORTABLE_RESEARCH_BUNDLE_V1",
+  "status": "UNREVIEWED_NOT_ADMITTED",
+  "report": "# Dixon normal two-jet: normalization, carry and representative dependence\nDate: 2026-10-10\nStatus: AUTHOR_DERIVATION / FINITE_EXACT_CHECKS / UNREVIEWED / NOT_ADMITTED.\nAuthor: local logical conversation em-r1-work-54068cda92ae-20261010; no inherited author identity, CLAIM, Driver authority or independence claim.\nResearch registration: pending request r1-20261010-chat-session-01 (Issue #3566). Dispatch #3565 and direct read-only r1-20261010T1005-dispatch remain pending. This is neutral supplemental research, not formal owner-task execution or a canonical Result. No claim/owner record is changed.\n\nQuestion: extend the exact F_m normal-displacement interface to precision p^3 and state which representatives define a divided second digit.\n\nExact input source read at enterprise-math@e6326343c5d73c0f91e5bccc8a5b0a148abe9645:\nresearch_notes/directed_recovery/20260926_13C1B7/math/D25_LOCAL_PROGRESS.md\n(blob 51dd15a8142f3dda0506a306f9c0693a036f5891). Its own status remains UNREVIEWED / NOT_ADMITTED. No assertion that this is the newest admitted D25 frontier; the pending dispatcher has not established that.\n\nSet p=6m+1 prime, a=-1/3, d=m+2/3, h=p/3.\nF_m(a,d)=sum_{j=0}^m [(-m)_j/(d)_j] a/(a+j).\nC=F_m(a,d), S=F_m(a,d+h), N=partial_d F_m(a,d), K=partial_d^2 F_m(a,d).\nAll arithmetic is in Z_(p); congruences of rational numbers require p-unit denominators.\n\nFor t_j=[(-m)_j/(d)_j]a/(a+j), H_j=sum_{l=0}^{j-1}(d+l)^(-1), H2_j=sum_{l=0}^{j-1}(d+l)^(-2):\nN=-sum_j t_j H_j; K=sum_j t_j(H_j^2+H2_j).\nClaim (finite-family algebra): S-C = p N/3 + p^2 K/18 modulo p^3.\nProof: each inverse denominator has the exact truncated geometric expansion\n(d+l+h)^(-1)=(d+l)^(-1)[1-h/(d+l)+h^2/(d+l)^2] modulo p^3.\nMultiplying j such factors gives 1-h H_j + h^2(H_j^2+H2_j)/2.\nSumming t_j proves the identity. For l<=m-1, 3(d+l)=3m+2+3l ranges up to 6m-1=p-2; 3(a+j)=3j-1 is nonzero mod p. Hence denominators are p-units. p>=7 also makes 2,3,18 units. This is an all-admissible-prime algebraic proof, separately from the finite scan.\n\nPrecise quotients:\nD=(S-C)/p mod p^2 is intrinsic once exact inputs modulo p^3 and divisibility by p are certified.\nD = N/3 + p K/18 mod p^2.\nThe normal-subtracted quotient E_N=(S-C-pN/3)/p^2 mod p is intrinsic only when N is retained modulo p^2.\nE_N=K/18 mod p.\nReplacing N by N+p*u preserves its first residue but sends E_N to E_N-u/3 mod p.\nReplacing N by N+p^2*u does preserve E_N. Merely knowing N mod p is insufficient.\nLikewise, a second digit (D-r)/p uses a specified lift r of D mod p; r->r+p*t sends the digit to digit-t mod p.\n\nCanonical base-p digit rule:\nchoose r in {0,...,p-1} with r=D mod p; choose n in {0,...,p^2-1} with n=N/3 mod p^2.\nThen n mod p=r, c=(n-r)/p is the first-derivative carry, and canonical_second(D)=c+K/18 mod p.\nThus curvature alone is not the canonical second digit. Minimal sufficient local data for this observer is (N mod p^2,K mod p), together with the declared exact basepoint/direction and digit-lift convention. No global minimality or LOW endpoint closure is claimed.\n\nExact witness p=13, m=2:\nD mod169=21; r=8; canonical_second(D)=1.\nN mod169=141; n=(N/3) mod169=47; c=3.\nK mod13=3; K/18 mod13=11.\n3+11=1 mod13, whereas curvature alone gives 11.\nNormal-subtracted E_N=11; replacing N by N+13 changes it to 2.\nThese are distinct observables/conventions, not contradictory values.\nThe original p=13 first-digit witness is consumed, not reported as a new discovery.\n\nExecuted verification: bundled check.py ran with Python fractions.Fraction, exit 0.\nExhaustive prime selection in 7<=p<=300, p=1 mod6: 28 primes.\nFor each: exact Dixon specialization; rational Taylor remainder mod p^3; E_N=K/18; canonical carry law; four representative shifts u=0,1,2,-1.\nOriginal checker artifacts were not executed; this transparent checker verifies only these displayed finite-family equations.\nProof not formalized in Lean; no independent review; no newest-frontier dedup certification or claimed novelty.\n\nBRC reuse:\nRead tool_invocation_policy.json, current toolbox/method inventory and weighted universal substrate.\nREUSE_APPLIED: retain finite index j, signed rational t_j, parameter direction, valuation precision and the full two-jet before observer quotient.\nPositive weighted/affine mass carriers are NOT_APPLICABLE to this signed hypergeometric cancellation.\nThis extends the input source's F_m derivative interface, not a new top-level BRC family. No native-coordinate/world-dynamics transfer is claimed; P000 is unchanged.\n\nNext scientific question: in the actual latest authorized LOW/Beta-to-B11 transport, identify the coefficient multiplying K and the first-derivative carry; prove cancellation against remaining endpoint jets or retain both. Read current continuation and its accepted/source-restricted inputs first. Do not reopen B11 or substitute this supplemental note for that frontier.\nRecovery: inspect original pending requests before creating a successor or CLAIM; bind this neutral source to an authorized activity/checkpoint only after registration and exact owner/authority checks. Do not repeat the 28-prime scan without a changed formula or failed integrity check.\nGlobal snapshot: main@1320e8a99ff8e5e89cbeca9eb8a8286f2999db68 / GLOBAL_KNOWLEDGE_V1; P000 projection blob c6d4d2d79b09537bdae55253baef9c28583e44dc matched canonical blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc.\n",
+  "checker": "from fractions import Fraction as Q\nimport json\n\ndef prime(p):\n    return p>1 and all(p%d for d in range(2,int(p**.5)+1))\n\ndef jets(m,a,d):\n    ratio=Q(1); h=Q(0); h2=Q(0)\n    f=Q(1); n=Q(0); k=Q(0)\n    for j in range(1,m+1):\n        u=1/(d+j-1)\n        ratio*=Q(j-1-m)/(d+j-1)\n        h+=u; h2+=u*u\n        term=ratio*a/(a+j)\n        f+=term; n-=term*h; k+=term*(h*h+h2)\n    return f,n,k\n\ndef residue(x,mod):\n    assert x.denominator%mod != 0\n    return (x.numerator*pow(x.denominator,-1,mod))%mod\n\nrows=[]\nfor p in range(7,301):\n    if p%6!=1 or not prime(p): continue\n    m=(p-1)//6; a=Q(-1,3); d=Q(m)+Q(2,3)\n    c,n,k=jets(m,a,d); s=jets(m,a,d+Q(p,3))[0]\n    explicit=1+a*sum((1/(a+2*r+2)-1/(a+2*r+1) for r in range(m)),Q(0))\n    assert c==explicit\n    error=s-c-Q(p,3)*n-Q(p*p,18)*k\n    assert residue(error,p**3)==0\n    e=(s-c-Q(p,3)*n)/(p*p)\n    assert residue(e,p)==residue(k/Q(18),p)\n    divided=residue((s-c)/p,p*p)\n    first=divided%p\n    canonical_second=(divided-first)//p\n    normal_third=residue(n/Q(3),p*p)\n    carry=(normal_third-first)//p\n    assert canonical_second==(carry+residue(k/Q(18),p))%p\n    shifts=[]\n    for u in [0,1,2,-1]:\n        shifted=(s-c-Q(p,3)*(n+p*u))/(p*p)\n        assert residue(shifted-e+Q(u,3),p)==0\n        shifts.append({'u':u,'second_digit':residue(shifted,p)})\n    rows.append({'p':p,'m':m,'first_divided_mod_p2':residue((s-c)/p,p*p),\n        'canonical_first':first,'canonical_second':canonical_second,'normal_carry':carry,\n        'normal_mod_p2':residue(n,p*p),'hessian_mod_p':residue(k,p),\n        'second_digit_exact_normal':residue(e,p),'representative_shifts':shifts,\n        'taylor_remainder_mod_p3':0})\nprint(json.dumps({'status':'PASS_FINITE_EXACT_RATIONAL_CHECKS','prime_count':len(rows),\n    'range':'7<=p<=300; prime p=1 mod 6','rows':rows},indent=2))\n",
+  "checks": {
+    "status": "PASS_FINITE_EXACT_RATIONAL_CHECKS",
+    "prime_count": 28,
+    "range": "7<=p<=300; prime p=1 mod 6",
+    "rows": [
+      {
+        "p": 7,
+        "m": 1,
+        "first_divided_mod_p2": 11,
+        "canonical_first": 4,
+        "canonical_second": 1,
+        "normal_carry": 6,
+        "normal_mod_p2": 40,
+        "hessian_mod_p": 1,
+        "second_digit_exact_normal": 2,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 2
+          },
+          {
+            "u": 1,
+            "second_digit": 4
+          },
+          {
+            "u": 2,
+            "second_digit": 6
+          },
+          {
+            "u": -1,
+            "second_digit": 0
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 13,
+        "m": 2,
+        "first_divided_mod_p2": 21,
+        "canonical_first": 8,
+        "canonical_second": 1,
+        "normal_carry": 3,
+        "normal_mod_p2": 141,
+        "hessian_mod_p": 3,
+        "second_digit_exact_normal": 11,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 11
+          },
+          {
+            "u": 1,
+            "second_digit": 2
+          },
+          {
+            "u": 2,
+            "second_digit": 6
+          },
+          {
+            "u": -1,
+            "second_digit": 7
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 19,
+        "m": 3,
+        "first_divided_mod_p2": 264,
+        "canonical_first": 17,
+        "canonical_second": 13,
+        "normal_carry": 4,
+        "normal_mod_p2": 279,
+        "hessian_mod_p": 10,
+        "second_digit_exact_normal": 9,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 9
+          },
+          {
+            "u": 1,
+            "second_digit": 15
+          },
+          {
+            "u": 2,
+            "second_digit": 2
+          },
+          {
+            "u": -1,
+            "second_digit": 3
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 31,
+        "m": 5,
+        "first_divided_mod_p2": 488,
+        "canonical_first": 23,
+        "canonical_second": 15,
+        "normal_carry": 7,
+        "normal_mod_p2": 720,
+        "hessian_mod_p": 20,
+        "second_digit_exact_normal": 8,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 8
+          },
+          {
+            "u": 1,
+            "second_digit": 18
+          },
+          {
+            "u": 2,
+            "second_digit": 28
+          },
+          {
+            "u": -1,
+            "second_digit": 29
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 37,
+        "m": 6,
+        "first_divided_mod_p2": 143,
+        "canonical_first": 32,
+        "canonical_second": 3,
+        "normal_carry": 15,
+        "normal_mod_p2": 392,
+        "hessian_mod_p": 6,
+        "second_digit_exact_normal": 25,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 25
+          },
+          {
+            "u": 1,
+            "second_digit": 0
+          },
+          {
+            "u": 2,
+            "second_digit": 12
+          },
+          {
+            "u": -1,
+            "second_digit": 13
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 43,
+        "m": 7,
+        "first_divided_mod_p2": 107,
+        "canonical_first": 21,
+        "canonical_second": 2,
+        "normal_carry": 7,
+        "normal_mod_p2": 966,
+        "hessian_mod_p": 39,
+        "second_digit_exact_normal": 38,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 38
+          },
+          {
+            "u": 1,
+            "second_digit": 9
+          },
+          {
+            "u": 2,
+            "second_digit": 23
+          },
+          {
+            "u": -1,
+            "second_digit": 24
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 61,
+        "m": 10,
+        "first_divided_mod_p2": 175,
+        "canonical_first": 53,
+        "canonical_second": 2,
+        "normal_carry": 16,
+        "normal_mod_p2": 3087,
+        "hessian_mod_p": 53,
+        "second_digit_exact_normal": 47,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 47
+          },
+          {
+            "u": 1,
+            "second_digit": 6
+          },
+          {
+            "u": 2,
+            "second_digit": 26
+          },
+          {
+            "u": -1,
+            "second_digit": 27
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 67,
+        "m": 11,
+        "first_divided_mod_p2": 1150,
+        "canonical_first": 11,
+        "canonical_second": 17,
+        "normal_carry": 60,
+        "normal_mod_p2": 3115,
+        "hessian_mod_p": 30,
+        "second_digit_exact_normal": 24,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 24
+          },
+          {
+            "u": 1,
+            "second_digit": 46
+          },
+          {
+            "u": 2,
+            "second_digit": 1
+          },
+          {
+            "u": -1,
+            "second_digit": 2
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 73,
+        "m": 12,
+        "first_divided_mod_p2": 1897,
+        "canonical_first": 72,
+        "canonical_second": 25,
+        "normal_carry": 37,
+        "normal_mod_p2": 2990,
+        "hessian_mod_p": 3,
+        "second_digit_exact_normal": 61,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 61
+          },
+          {
+            "u": 1,
+            "second_digit": 12
+          },
+          {
+            "u": 2,
+            "second_digit": 36
+          },
+          {
+            "u": -1,
+            "second_digit": 37
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 79,
+        "m": 13,
+        "first_divided_mod_p2": 3873,
+        "canonical_first": 2,
+        "canonical_second": 49,
+        "normal_carry": 68,
+        "normal_mod_p2": 3640,
+        "hessian_mod_p": 53,
+        "second_digit_exact_normal": 60,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 60
+          },
+          {
+            "u": 1,
+            "second_digit": 7
+          },
+          {
+            "u": 2,
+            "second_digit": 33
+          },
+          {
+            "u": -1,
+            "second_digit": 34
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 97,
+        "m": 16,
+        "first_divided_mod_p2": 8494,
+        "canonical_first": 55,
+        "canonical_second": 87,
+        "normal_carry": 3,
+        "normal_mod_p2": 1038,
+        "hessian_mod_p": 57,
+        "second_digit_exact_normal": 84,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 84
+          },
+          {
+            "u": 1,
+            "second_digit": 19
+          },
+          {
+            "u": 2,
+            "second_digit": 51
+          },
+          {
+            "u": -1,
+            "second_digit": 52
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 103,
+        "m": 17,
+        "first_divided_mod_p2": 7543,
+        "canonical_first": 24,
+        "canonical_second": 73,
+        "normal_carry": 93,
+        "normal_mod_p2": 7591,
+        "hessian_mod_p": 52,
+        "second_digit_exact_normal": 83,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 83
+          },
+          {
+            "u": 1,
+            "second_digit": 14
+          },
+          {
+            "u": 2,
+            "second_digit": 48
+          },
+          {
+            "u": -1,
+            "second_digit": 49
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 109,
+        "m": 18,
+        "first_divided_mod_p2": 1376,
+        "canonical_first": 68,
+        "canonical_second": 12,
+        "normal_carry": 72,
+        "normal_mod_p2": 11867,
+        "hessian_mod_p": 10,
+        "second_digit_exact_normal": 49,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 49
+          },
+          {
+            "u": 1,
+            "second_digit": 85
+          },
+          {
+            "u": 2,
+            "second_digit": 12
+          },
+          {
+            "u": -1,
+            "second_digit": 13
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 127,
+        "m": 21,
+        "first_divided_mod_p2": 14275,
+        "canonical_first": 51,
+        "canonical_second": 112,
+        "normal_carry": 110,
+        "normal_mod_p2": 9805,
+        "hessian_mod_p": 36,
+        "second_digit_exact_normal": 2,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 2
+          },
+          {
+            "u": 1,
+            "second_digit": 44
+          },
+          {
+            "u": 2,
+            "second_digit": 86
+          },
+          {
+            "u": -1,
+            "second_digit": 87
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 139,
+        "m": 23,
+        "first_divided_mod_p2": 1372,
+        "canonical_first": 121,
+        "canonical_second": 9,
+        "normal_carry": 72,
+        "normal_mod_p2": 11066,
+        "hessian_mod_p": 117,
+        "second_digit_exact_normal": 76,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 76
+          },
+          {
+            "u": 1,
+            "second_digit": 122
+          },
+          {
+            "u": 2,
+            "second_digit": 29
+          },
+          {
+            "u": -1,
+            "second_digit": 30
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 151,
+        "m": 25,
+        "first_divided_mod_p2": 10231,
+        "canonical_first": 114,
+        "canonical_second": 67,
+        "normal_carry": 73,
+        "normal_mod_p2": 10610,
+        "hessian_mod_p": 43,
+        "second_digit_exact_normal": 145,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 145
+          },
+          {
+            "u": 1,
+            "second_digit": 44
+          },
+          {
+            "u": 2,
+            "second_digit": 94
+          },
+          {
+            "u": -1,
+            "second_digit": 95
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 157,
+        "m": 26,
+        "first_divided_mod_p2": 711,
+        "canonical_first": 83,
+        "canonical_second": 4,
+        "normal_carry": 135,
+        "normal_mod_p2": 14536,
+        "hessian_mod_p": 154,
+        "second_digit_exact_normal": 26,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 26
+          },
+          {
+            "u": 1,
+            "second_digit": 78
+          },
+          {
+            "u": 2,
+            "second_digit": 130
+          },
+          {
+            "u": -1,
+            "second_digit": 131
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 163,
+        "m": 27,
+        "first_divided_mod_p2": 13407,
+        "canonical_first": 41,
+        "canonical_second": 82,
+        "normal_carry": 126,
+        "normal_mod_p2": 8599,
+        "hessian_mod_p": 23,
+        "second_digit_exact_normal": 119,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 119
+          },
+          {
+            "u": 1,
+            "second_digit": 10
+          },
+          {
+            "u": 2,
+            "second_digit": 64
+          },
+          {
+            "u": -1,
+            "second_digit": 65
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 181,
+        "m": 30,
+        "first_divided_mod_p2": 14244,
+        "canonical_first": 126,
+        "canonical_second": 78,
+        "normal_carry": 62,
+        "normal_mod_p2": 1283,
+        "hessian_mod_p": 107,
+        "second_digit_exact_normal": 16,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 16
+          },
+          {
+            "u": 1,
+            "second_digit": 76
+          },
+          {
+            "u": 2,
+            "second_digit": 136
+          },
+          {
+            "u": -1,
+            "second_digit": 137
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 193,
+        "m": 32,
+        "first_divided_mod_p2": 26451,
+        "canonical_first": 10,
+        "canonical_second": 137,
+        "normal_carry": 120,
+        "normal_mod_p2": 32261,
+        "hessian_mod_p": 113,
+        "second_digit_exact_normal": 17,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 17
+          },
+          {
+            "u": 1,
+            "second_digit": 81
+          },
+          {
+            "u": 2,
+            "second_digit": 145
+          },
+          {
+            "u": -1,
+            "second_digit": 146
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 199,
+        "m": 33,
+        "first_divided_mod_p2": 12518,
+        "canonical_first": 180,
+        "canonical_second": 62,
+        "normal_carry": 186,
+        "normal_mod_p2": 32380,
+        "hessian_mod_p": 156,
+        "second_digit_exact_normal": 75,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 75
+          },
+          {
+            "u": 1,
+            "second_digit": 141
+          },
+          {
+            "u": 2,
+            "second_digit": 8
+          },
+          {
+            "u": -1,
+            "second_digit": 9
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 211,
+        "m": 35,
+        "first_divided_mod_p2": 39738,
+        "canonical_first": 70,
+        "canonical_second": 188,
+        "normal_carry": 94,
+        "normal_mod_p2": 15191,
+        "hessian_mod_p": 4,
+        "second_digit_exact_normal": 94,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 94
+          },
+          {
+            "u": 1,
+            "second_digit": 164
+          },
+          {
+            "u": 2,
+            "second_digit": 23
+          },
+          {
+            "u": -1,
+            "second_digit": 24
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 223,
+        "m": 37,
+        "first_divided_mod_p2": 12826,
+        "canonical_first": 115,
+        "canonical_second": 57,
+        "normal_carry": 120,
+        "normal_mod_p2": 30896,
+        "hessian_mod_p": 204,
+        "second_digit_exact_normal": 160,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 160
+          },
+          {
+            "u": 1,
+            "second_digit": 11
+          },
+          {
+            "u": 2,
+            "second_digit": 85
+          },
+          {
+            "u": -1,
+            "second_digit": 86
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 229,
+        "m": 38,
+        "first_divided_mod_p2": 20216,
+        "canonical_first": 64,
+        "canonical_second": 88,
+        "normal_carry": 225,
+        "normal_mod_p2": 49885,
+        "hessian_mod_p": 53,
+        "second_digit_exact_normal": 92,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 92
+          },
+          {
+            "u": 1,
+            "second_digit": 168
+          },
+          {
+            "u": 2,
+            "second_digit": 15
+          },
+          {
+            "u": -1,
+            "second_digit": 16
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 241,
+        "m": 40,
+        "first_divided_mod_p2": 29793,
+        "canonical_first": 150,
+        "canonical_second": 123,
+        "normal_carry": 231,
+        "normal_mod_p2": 51301,
+        "hessian_mod_p": 225,
+        "second_digit_exact_normal": 133,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 133
+          },
+          {
+            "u": 1,
+            "second_digit": 213
+          },
+          {
+            "u": 2,
+            "second_digit": 52
+          },
+          {
+            "u": -1,
+            "second_digit": 53
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 271,
+        "m": 45,
+        "first_divided_mod_p2": 11076,
+        "canonical_first": 236,
+        "canonical_second": 40,
+        "normal_carry": 95,
+        "normal_mod_p2": 4502,
+        "hessian_mod_p": 94,
+        "second_digit_exact_normal": 216,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 216
+          },
+          {
+            "u": 1,
+            "second_digit": 35
+          },
+          {
+            "u": 2,
+            "second_digit": 125
+          },
+          {
+            "u": -1,
+            "second_digit": 126
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 277,
+        "m": 46,
+        "first_divided_mod_p2": 14966,
+        "canonical_first": 8,
+        "canonical_second": 54,
+        "normal_carry": 227,
+        "normal_mod_p2": 35203,
+        "hessian_mod_p": 210,
+        "second_digit_exact_normal": 104,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 104
+          },
+          {
+            "u": 1,
+            "second_digit": 196
+          },
+          {
+            "u": 2,
+            "second_digit": 11
+          },
+          {
+            "u": -1,
+            "second_digit": 12
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      },
+      {
+        "p": 283,
+        "m": 47,
+        "first_divided_mod_p2": 20117,
+        "canonical_first": 24,
+        "canonical_second": 71,
+        "normal_carry": 113,
+        "normal_mod_p2": 15920,
+        "hessian_mod_p": 93,
+        "second_digit_exact_normal": 241,
+        "representative_shifts": [
+          {
+            "u": 0,
+            "second_digit": 241
+          },
+          {
+            "u": 1,
+            "second_digit": 52
+          },
+          {
+            "u": 2,
+            "second_digit": 146
+          },
+          {
+            "u": -1,
+            "second_digit": 147
+          }
+        ],
+        "taylor_remainder_mod_p3": 0
+      }
+    ]
+  }
+}
