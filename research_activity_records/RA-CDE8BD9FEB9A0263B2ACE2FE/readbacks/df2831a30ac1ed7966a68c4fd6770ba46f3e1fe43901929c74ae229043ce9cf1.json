@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/chatgpt_direct/20261010_em5_clock_j1_1594ab/check_clock_observer.py",
+    "ref": "9ee792edd414e67144add15b3ca5f7884cb66fe9",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "em5-immutable-check_clock_observer.py",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"Observer-law audit only; does not rerun or emulate the underlying BRC worlds.\"\"\"\nimport json\nimport sys\nfrom fractions import Fraction\nfrom pathlib import Path\nsys.path.insert(0, str(Path(__file__).parent / 'reuse'))\nfrom enterprise_math.relation_future_powerset import relation_support_image\n\nassertions = 0\ndef check(ok):\n    global assertions\n    assertions += 1\n    assert ok\n\nrows = []\nfor L in range(2, 25):\n    for budget in range(21):\n        deadline = (L - 1) * (budget + 1)\n        clock = [n + min(n // (L - 1), budget) for n in range(deadline + 1)]\n        check(clock[0] == 0)\n        check(all(1 <= clock[n + 1] - clock[n] <= 2 for n in range(deadline)))\n        check(all(0 <= clock[n] - n <= budget for n in range(deadline + 1)))\n        check(all(k % L != L - 1 for k in clock[:-1]))\n        check(clock[-1] % L == L - 1)\n        # Exact finite support DP, through inherited T8 relation kernel.\n        # State = (sample n, accumulated skipped rounds).  Kill a branch only\n        # for this clock-avoidance query when its sampled residue is the target.\n        states = frozenset(range(budget + 1))\n        support = frozenset({0})\n        last_nonempty = 0\n        for n in range(1, deadline + 1):\n            edges = frozenset((b, c) for b in states for c in range(b, budget + 1)\n                              if (n + c) % L != L - 1)\n            support = relation_support_image(states, edges, support)\n            check(all((n + c) % L != L - 1 for c in support))\n            if support:\n                last_nonempty = n\n        check(not support)\n        check(last_nonempty == deadline - 1)\n        if L == 12:\n            rows.append({'skip_budget': budget, 'first_guaranteed_sample_index': deadline,\n                         'readings_including_n0': deadline + 1})\n\nL = 12\nhold_clock = [n + int(n % L == L - 1) for n in range(1201)]\ncheck(hold_clock[0] == 0)\ncheck(all(0 <= hold_clock[n + 1] - hold_clock[n] <= 2 for n in range(1200)))\ncheck(all(0 <= hold_clock[n] - n <= 1 for n in range(1201)))\ncheck(all(k % L != L - 1 for k in hold_clock))\ninherited_pulse_readout = lambda k: Fraction(1, 4) if k % L == L - 1 else Fraction(0)\ncheck(all(inherited_pulse_readout(k) == 0 for k in hold_clock))\ncheck(inherited_pulse_readout(11) == Fraction(1, 4))\n\nresult = {'status': 'PASS_OBSERVER_LAW_CHECKS_ONLY', 'assertions': assertions,\n          'grid': {'periods': [2, 24], 'skip_budgets': [0, 20]},\n          'clock_support_kernel': 'unchanged relation_future_powerset.relation_support_image',\n          'underlying_brc_world_rerun': False, 'independent_replication': False,\n          'L12_bounds': rows, 'hold_counterexample_samples': len(hold_clock),\n          'unexecuted': ['384-atom BRC controller suite', 'physical clock', 'measurement backreaction'],\n          'new_proof': 'counting bound plus explicit all-n sharp clock and periodic hold witness'}\nPath('CLOCK_OBSERVER_VALIDATION.json').write_text(json.dumps(result, indent=2) + '\\n')\nprint(json.dumps(result))\n",
+      "display_title": "check_clock_observer.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/9ee792edd414e67144add15b3ca5f7884cb66fe9/research_notes/chatgpt_direct/20261010_em5_clock_j1_1594ab/check_clock_observer.py",
+      "encoding": "utf-8",
+      "sha": "900eedad80c923182a6dda2da2c63c7edd83f040"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
