@@ -1,0 +1,56 @@
+{
+  "schema": "EM_AUTHOR_PRIME_CUT_RANK_CERT_V1",
+  "source_model": "prime seeds >= 5, S={2,3}, nonblocking Boolean threshold at every legal word prefix",
+  "claim": "For any finite plan of (H,L), C=1+number of distinct predecessor primes <= floor(H/u), u in U_L, cutoff >=5.",
+  "counts": {
+    "singleton_plans": 505,
+    "paired_plans": 8320,
+    "word_tree_plans": 97,
+    "migration_pairs": 1503,
+    "migration_safe": 222,
+    "migration_unsafe": 1281
+  },
+  "worked_example": {
+    "singleton_H27_L2": {
+      "cuts": [
+        5,
+        7,
+        13,
+        23
+      ],
+      "classes": 5,
+      "bits": 3
+    },
+    "singleton_H28_L2": {
+      "cuts": [
+        7,
+        13,
+        23
+      ],
+      "classes": 4,
+      "bits": 2
+    },
+    "joint_H27_H28_L2": {
+      "cuts": [
+        5,
+        7,
+        13,
+        23
+      ],
+      "classes": 5,
+      "bits": 3
+    },
+    "F_H27_r5": 4,
+    "F_H27_r7": 3,
+    "F_H28_r5": 4,
+    "F_H28_r7": 4
+  },
+  "single_H_near_27_30": {
+    "27": 5,
+    "28": 4,
+    "29": 4,
+    "30": 5
+  },
+  "integer_validation_only": true,
+  "full_infinite_theorem_from_written_proof_not_exhaustive_scan": true
+}
