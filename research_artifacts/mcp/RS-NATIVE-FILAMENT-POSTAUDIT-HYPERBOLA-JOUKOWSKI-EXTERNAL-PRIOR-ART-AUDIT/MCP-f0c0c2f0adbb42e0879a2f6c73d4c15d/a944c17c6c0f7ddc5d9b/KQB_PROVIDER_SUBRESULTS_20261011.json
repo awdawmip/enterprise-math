@@ -1,0 +1,278 @@
+{
+  "schema": "J1_KQB_MATCHED_PROVIDER_SUBRESULTS_V1",
+  "archive_state": "ARCHIVE_PENDING",
+  "evidence_scope": "Exact JSON result fences extracted from original private GitHub comments; not a dump of unseen upstream HTTP responses.",
+  "conversation_id": "codex-agent-canonical-research-unit-20261011",
+  "turn_id": "b8d7d14d-77c2-4a4b-8719-e1230a7029a0",
+  "jobs_used": 3,
+  "no_hit_evidence": false,
+  "batches": [
+    {
+      "issue": 3621,
+      "result_comment_id": 6106660769,
+      "result": {
+        "accepted_at": "2026-10-11T07:25:35.563509+00:00",
+        "bridge_kimi_llm_calls": 0,
+        "completed_at": "2026-10-11T07:25:57.687896+00:00",
+        "github_request": {
+          "conversation_id": "codex-agent-canonical-research-unit-20261011",
+          "issue_number": 3621,
+          "mode": "standard",
+          "request_sha256": "91c61ca60ee8faede1bf1ad361f08474e55744d78a1b0dcb1deefa76c47a1682",
+          "turn_id": "b8d7d14d-77c2-4a4b-8719-e1230a7029a0"
+        },
+        "read_not_before": "2026-10-11T07:25:35.563509+00:00",
+        "request_hash": "1204106844b8e779ac8ba5bfaa77f8479a6cf50874078b9748a1d96164255e05",
+        "request_id": "44e0965e-ff7b-4703-82d1-c15f25e92595",
+        "results": [
+          {
+            "api": "search_papers",
+            "billable_calls": null,
+            "bridge_kimi_llm_calls": 0,
+            "completed_at": 1791703555.3276424,
+            "content_scope": "Paper search metadata and supplied abstracts only; full text has not been read. arXiv entries are preprints unless independently verified otherwise.",
+            "coverage": {
+              "complete": false,
+              "provider_total": null,
+              "published_rows": 0,
+              "reason": "UPSTREAM_TOTAL_UNKNOWN",
+              "records_received": 0,
+              "request_options": {
+                "categories": [
+                  "math.NT"
+                ],
+                "date_to": "2026-10-11"
+              },
+              "requested_max_items": 5
+            },
+            "observed_at": 1791703555.3276403,
+            "operation": "paper_search",
+            "provider_query_calls": 1,
+            "provider_query_calls_confirmed": 1,
+            "provider_query_calls_unknown": 0,
+            "provider_tool_attempts": 1,
+            "query": "\"modular hyperbolas\" intervals",
+            "records": [],
+            "request_hash": "63490fa8e6c67a5046213a3f14b057fb6747e0d3ea62d33d6e609b7ec579c53f",
+            "request_id": "06611b78-40d5-5675-acd3-67cc265a1b63",
+            "retrieval_verified": false,
+            "source": "arxiv",
+            "state": "PROVIDER_ERROR",
+            "upstream_internal_llm_calls": null
+          },
+          {
+            "api": "scholar_search",
+            "billable_calls": null,
+            "bridge_kimi_llm_calls": 0,
+            "completed_at": 1791703557.0571554,
+            "content_scope": "Paper search metadata and supplied abstracts only; full text has not been read. arXiv entries are preprints unless independently verified otherwise.",
+            "coverage": {
+              "complete": false,
+              "provider_total": null,
+              "published_rows": 3,
+              "reason": "UPSTREAM_TOTAL_UNKNOWN",
+              "records_received": 3,
+              "request_options": {
+                "end_year": 2026,
+                "hl": "en",
+                "sort_by": "relevance"
+              },
+              "requested_max_items": 5
+            },
+            "observed_at": 1791703557.0571537,
+            "operation": "paper_search",
+            "preview_sha256": "98063ef50d90cec307ca7a9af1ebf9adf2cb7ffe8a219f93f2ac893d9d10ae01",
+            "provider_query_calls": 1,
+            "provider_query_calls_confirmed": 1,
+            "provider_query_calls_unknown": 0,
+            "provider_request_id": "925ff9adf68d7dae6af57e257846a7d8",
+            "provider_tool_attempts": 1,
+            "query": "\"Joukowski\" \"finite fields\" \"interval\"",
+            "raw_file_sha256": "98063ef50d90cec307ca7a9af1ebf9adf2cb7ffe8a219f93f2ac893d9d10ae01",
+            "raw_tool_response_sha256": "19f045df01900893a0ac9fdb1e6c7379be4a9c2781dc7595a4b5bc46047df444",
+            "records": [
+              {
+                "abstract": "… the endpoiats of the integration interval the method has been … Thus, for example, flows satisfying the Joukowski - Chaplygin … In this article we prove that the theory T of finite fields in the …",
+                "authors": "VÉ Saren",
+                "citations": "4",
+                "pdf_links": "[]",
+                "publication_info": "VÉ Saren - Siberian Mathematical Journal, 1978 - Springer",
+                "result_id": "x7dET8iHTUcJ",
+                "search_time": "unknown",
+                "title": "Convergence of the method of discrete vortices",
+                "total_results": "unknown",
+                "url": "https://link.springer.com/article/10.1007/BF00970510",
+                "year": "1978"
+              },
+              {
+                "abstract": "Text on the theory of functions of one complex variable contains, with many elaborations, the subject of the courses and seminars offered by the author over a period of 40 years, and …",
+                "authors": "M Gonzalez",
+                "citations": "97",
+                "pdf_links": "[]",
+                "publication_info": "M Gonzalez - 1991 - books.google.com",
+                "result_id": "vwyFFgj8U_AJ",
+                "search_time": "unknown",
+                "title": "Classical complex analysis",
+                "total_results": "unknown",
+                "url": "https://books.google.com/books?hl=en&lr=&id=ncxL7EFr7GsC&oi=fnd&pg=PR5&dq=%22Joukowski%22+%22finite+fields%22+%22interval%22&ots=wAD5T76SF5&sig=lrVcexbco8Z_icVjFKkmBWQG3bc",
+                "year": "1991"
+              },
+              {
+                "abstract": "… within the interval [a, b]. Establishing the inequality x < y reduces to establishing that the upper bound for the x-interval is less than the bound for the y-interval. The interval arithmeticcan …",
+                "authors": "A Jaffe",
+                "citations": "72",
+                "pdf_links": "[]",
+                "publication_info": "A Jaffe - Siam Review, 1984 - SIAM",
+                "result_id": "rTiVfbmXvFsJ",
+                "search_time": "unknown",
+                "title": "Ordering the universe: The role of mathematics",
+                "total_results": "unknown",
+                "url": "https://epubs.siam.org/doi/pdf/10.1137/1026103",
+                "year": "1984"
+              }
+            ],
+            "request_hash": "3543a9b65045d12717699e88daff91a0aef6ea035503a4af78c0c7ab6aa3c766",
+            "request_id": "4526643b-d54e-50d4-b056-4490be9c5dfb",
+            "retrieval_verified": true,
+            "source": "scholar",
+            "state": "COMPLETED",
+            "tool_call_id": "4c0285d6-54c8-4114-bd23-94296f73fa68",
+            "upstream_internal_llm_calls": null
+          }
+        ],
+        "schema_version": "KQB_WEB_BATCH_RESULT_V1",
+        "state": "PARTIAL",
+        "upstream_internal_llm_calls": null
+      }
+    },
+    {
+      "issue": 3622,
+      "result_comment_id": 6106696289,
+      "result": {
+        "accepted_at": "2026-10-11T07:30:28.363485+00:00",
+        "bridge_kimi_llm_calls": 0,
+        "completed_at": "2026-10-11T07:30:41.520878+00:00",
+        "github_request": {
+          "conversation_id": "codex-agent-canonical-research-unit-20261011",
+          "issue_number": 3622,
+          "mode": "standard",
+          "request_sha256": "47f9a985778bec41a5627f5787482a34534dd0c56de71bbaaef0dc0d67f3d3dc",
+          "turn_id": "b8d7d14d-77c2-4a4b-8719-e1230a7029a0"
+        },
+        "read_not_before": "2026-10-11T07:30:28.363485+00:00",
+        "request_hash": "8de30784b8bb89489784ba8803ba95df7dcb8807fe5a1f216bd1b37ef1ade22c",
+        "request_id": "bf73c65c-b9cc-4d7a-90ce-dc43e8559743",
+        "results": [
+          {
+            "api": "scholar_search",
+            "billable_calls": null,
+            "bridge_kimi_llm_calls": 0,
+            "completed_at": 1791703832.8587825,
+            "content_scope": "Paper search metadata and supplied abstracts only; full text has not been read. arXiv entries are preprints unless independently verified otherwise.",
+            "coverage": {
+              "complete": false,
+              "provider_total": null,
+              "published_rows": 5,
+              "reason": "BOUNDED_SELECTION_LIMIT",
+              "records_received": 5,
+              "request_options": {
+                "end_year": 2026,
+                "hl": "en",
+                "sort_by": "relevance"
+              },
+              "requested_max_items": 5
+            },
+            "observed_at": 1791703832.8587806,
+            "operation": "paper_search",
+            "preview_sha256": "5934c6ae8d6a9ea1d6bc9722d19f1e8c3afdc5ce475f571e7c6343f7e6aae6fb",
+            "provider_query_calls": 1,
+            "provider_query_calls_confirmed": 1,
+            "provider_query_calls_unknown": 0,
+            "provider_request_id": "b0d419410f6239c729dc53e5344bc784",
+            "provider_tool_attempts": 1,
+            "query": "\"modular hyperbolas\" \"short intervals\"",
+            "raw_file_sha256": "5934c6ae8d6a9ea1d6bc9722d19f1e8c3afdc5ce475f571e7c6343f7e6aae6fb",
+            "raw_tool_response_sha256": "4332094646087ac291f92c95d4bf7db6f31185d0379ecd584bce040854360fd0",
+            "records": [
+              {
+                "abstract": "… An extensive survey of these “modular hyperbolas” can be found in the work of Shparlinski [5]. From a heuristic point of view we would expect this congruence to have a solution …",
+                "authors": "TD Browning, A Haynes",
+                "citations": "12",
+                "pdf_links": "['https://arxiv.org/pdf/1204.6374']",
+                "publication_info": "TD Browning, A Haynes - International Journal of Number Theory, 2013 - World Scientific",
+                "result_id": "Yn9IQ0HIn6QJ",
+                "search_time": "unknown",
+                "title": "Incomplete Kloosterman sums and multiplicative inverses in short intervals",
+                "total_results": "unknown",
+                "url": "https://www.worldscientific.com/doi/abs/10.1142/S1793042112501448",
+                "year": "2013"
+              },
+              {
+                "abstract": "… version of a more precise result about divisors in short intervals, see, for example, [CiJ]. … DR Heath-Brown, Almost-primes in arithmetic progressions and short intervals, Math. Proc. …",
+                "authors": "J Cilleruelo, MZ Garaev",
+                "citations": "68",
+                "pdf_links": "['https://arxiv.org/pdf/1007.1526']",
+                "publication_info": "J Cilleruelo, MZ Garaev - Geometric and Functional Analysis, 2011 - Springer",
+                "result_id": "s2JQnksoW-oJ",
+                "search_time": "unknown",
+                "title": "Concentration of points on two and three dimensional modular hyperbolas and applications",
+                "total_results": "unknown",
+                "url": "https://link.springer.com/article/10.1007/s00039-011-0127-6",
+                "year": "2011"
+              },
+              {
+                "abstract": "We give an alternative proof of a recent result by TD Browning and A. Haynes (arXiv:1204.6374v1) on multiplicative inverses in sequences of intervals and improve this result under …",
+                "authors": "S Baier",
+                "citations": "4",
+                "pdf_links": "['https://arxiv.org/pdf/1208.3393']",
+                "publication_info": "S Baier - International Journal of Number Theory, 2013 - World Scientific",
+                "result_id": "CS7G0jY7Iv8J",
+                "search_time": "unknown",
+                "title": "Multiplicative inverses in short intervals",
+                "total_results": "unknown",
+                "url": "https://www.worldscientific.com/doi/abs/10.1142/S1793042113500036",
+                "year": "2013"
+              },
+              {
+                "abstract": "… of solutions of congruences related to modular hyperbolas and exponential curves. For instance, … version of a more precise result about divisors in short intervals, see, for example, [4]. …",
+                "authors": "J Cilleruelo, MZ Garaev",
+                "citations": "1",
+                "pdf_links": "['https://www.researchgate.net/profile/Javier-Cilleruelo/publication/45928344_Concentration_of_Points_on_Two_and_Three_Dimensional_Modular_Hyperbolas_and_Applications/links/004635239dcf993622000000/Concentration-of-Points-on-Two-and-Three-Dimensional-Modular-Hyperbolas-and-Applications.pdf']",
+                "publication_info": "J Cilleruelo, MZ Garaev - arXiv preprint arXiv:1007.1526, 2010 - researchgate.net",
+                "result_id": "EQhjFLOUiz0J",
+                "search_time": "unknown",
+                "title": "Concentration points on modular hyperbolas and exponential curves",
+                "total_results": "unknown",
+                "url": "https://www.researchgate.net/profile/Javier-Cilleruelo/publication/45928344_Concentration_of_Points_on_Two_and_Three_Dimensional_Modular_Hyperbolas_and_Applications/links/004635239dcf993622000000/Concentration-of-Points-on-Two-and-Three-Dimensional-Modular-Hyperbolas-and-Applications.pdf",
+                "year": "2010"
+              },
+              {
+                "abstract": "… Zaharescu, Average estimates for the number of tuples of inverses modp in short intervals, … MZ Garaev, Character sums in short intervals and the multiplication table modulo a prime, …",
+                "authors": "IE Shparlinski",
+                "citations": "11",
+                "pdf_links": "[]",
+                "publication_info": "IE Shparlinski - Number Theory: Sailing on the Sea of Number …, 2007 - World Scientific",
+                "result_id": "-ByxssFEv6AJ",
+                "search_time": "unknown",
+                "title": "Distribution of points on modular hyperbolas",
+                "total_results": "unknown",
+                "url": "https://www.worldscientific.com/doi/abs/10.1142/9789812770134_0007",
+                "year": "2007"
+              }
+            ],
+            "request_hash": "35fd2684dde5ff28668bc95cf6fdfe4c79a805b498b611f0014baaca1f4e647a",
+            "request_id": "431d1459-925b-5586-b041-0fe974a2f6e6",
+            "retrieval_verified": true,
+            "source": "scholar",
+            "state": "PARTIAL",
+            "tool_call_id": "47e1a192-fe96-4ada-983b-d388411c6d19",
+            "upstream_internal_llm_calls": null
+          }
+        ],
+        "schema_version": "KQB_WEB_BATCH_RESULT_V1",
+        "state": "FAILED",
+        "upstream_internal_llm_calls": null
+      }
+    }
+  ]
+}
