@@ -111,6 +111,11 @@ def _text(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
 
+def _same_executor(left: Any, right: Any) -> bool:
+    """Match the canonical identity normalization used by ER and reducer."""
+    return _text(left) and _text(right) and left.strip().upper() == right.strip().upper()
+
+
 def _source(source_commit: str) -> str:
     _require(isinstance(source_commit, str) and bool(HEX40.fullmatch(source_commit)),
              "trusted source_commit must be a 40-hex immutable snapshot")
@@ -232,7 +237,13 @@ def validate_claim_continuation(task: Mapping[str, Any], event: Mapping[str, Any
     cid = value.get("expected_previous_comment_id")
     _require(type(cid) is int and cid > 0, "continuation requires actual predecessor server comment ID")
     _require(event.get("claim_id") != value["expected_previous_claim_id"], "successor must use a fresh claim ID")
-    _require(event.get("researcher_id") != value["previous_researcher_id"], "new conversation must use its own identity")
+    if _same_executor(event.get("researcher_id"), value["previous_researcher_id"]):
+        # Resuming one's already released work does not require inventing a new
+        # person. Static equality is necessary only; the reducer below compares
+        # the predecessor session derived from authenticated canonical history.
+        _require(value["mode"] == "RESUME" and _text(value.get("previous_session_id"))
+                 and value["previous_session_id"] == value["session_id"],
+                 "same-identity continuation requires released exact-same-session RESUME")
     _require(event.get("session_id") == value["session_id"], "continuation session binding mismatch")
     validate_frontier(value.get("frontier"), root=root, verify_artifacts=verify_artifacts, evidence_roots=evidence_roots)
     _require(value["previous_researcher_id"] in value["frontier"]["contributor_ids"], "predecessor contribution provenance cannot be erased")
@@ -276,10 +287,17 @@ def continuation_cas_reason(state: Mapping[str, Any], event: Mapping[str, Any]) 
         return "continuation predecessor CLAIM CAS changed"
     if value.get("previous_researcher_id") != (state.get("researcher_id") or state.get("last_researcher_id")):
         return "continuation predecessor identity changed"
-    if event.get("claim_id") == state.get("last_claim_id") or event.get("researcher_id") == value.get("previous_researcher_id"):
-        return "continuation must use a new claim and real new execution identity"
+    if event.get("claim_id") == state.get("last_claim_id"):
+        return "continuation must use a new claim ID"
     if not _text(value.get("session_id")) or event.get("session_id") != value["session_id"]:
         return "continuation requires exact successor session binding"
+    if _same_executor(event.get("researcher_id"), value.get("previous_researcher_id")):
+        if (value.get("mode") != "RESUME" or state.get("claim_id")
+                or state.get("state") not in {"READY", "HANDOFF_READY"}
+                or not _text(state.get("session_id"))
+                or value.get("previous_session_id") != state["session_id"]
+                or value["session_id"] != state["session_id"]):
+            return "same-identity RESUME requires the released authenticated predecessor's exact session"
     if value.get("mode") == "TAKEOVER":
         if state.get("claim_id") != value.get("expected_previous_claim_id") or state.get("state") not in {"CLAIMED", "IN_PROGRESS"}:
             return "TAKEOVER requires the exact live predecessor claim"
@@ -560,9 +578,18 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                     result_errors.append({"path": path, "error": str(exc)})
         for selected in selected_results:
             refs += [value for value in (selected.get("_record_path"), selected.get("return_path")) if isinstance(value, str)]
-            if selected.get("result_id"):
+            if selected.get("record_schema") == "ENTERPRISE_MATH_HISTORICAL_RESULT_INTAKE_V1":
+                intake = selected["historical_intake"]
+                refs.append(f"research_historical_result_intakes/{task_id}/{intake['intake_id']}.json")
+                refs += [pin["path"] for pin in intake["target_pins"].values()]
+                for review_id in result_state.get("historical_review_history_ids", []):
+                    review_path = f"research_historical_result_reviews/{intake['intake_id']}/{review_id}.json"
+                    refs.append(review_path)
+                    review = json.loads(_path(root, review_path).read_text(encoding="utf-8"))
+                    refs.append(review["review_artifact_pin"]["path"])
+            elif selected.get("result_id"):
                 refs.append(f"research_result_records/{task_id}/{selected['result_id']}.json")
-            if selected.get("execution_record_id"):
+            if selected.get("execution_record_id") and selected.get("record_schema") != "ENTERPRISE_MATH_HISTORICAL_RESULT_INTAKE_V1":
                 refs.append(f"research_execution_records/{task_id}/{selected['execution_record_id']}.json")
             refs += [item["path"] for item in selected.get("output_manifest", []) if isinstance(item, dict) and isinstance(item.get("path"), str)]
     pins, artifact_errors = [], result_errors
@@ -752,6 +779,11 @@ def prepare_takeover(task_id: str, *, root: Path, events: list[dict[str, Any]],
                     "expected_previous_comment_id": expected_previous_comment_id,
                     "previous_researcher_id": previous_id, "session_id": new_session_id,
                     "reason": reason, "frontier": copy.deepcopy(dict(frontier))}
+    if _same_executor(new_researcher_id, previous_id):
+        _require(not state.get("claim_id") and _text(state.get("session_id"))
+                 and new_session_id == state["session_id"],
+                 "same-identity RESUME cannot change or borrow a predecessor session")
+        continuation["previous_session_id"] = state["session_id"]
     if state.get("claim_id"):
         validate_recovery_evidence(recovery_evidence, frontier, now)
         validate_owner_activity(state, recovery_evidence, now)
@@ -813,6 +845,9 @@ This preflight grants no authority and manufactures no server comment envelope.
             validate_owner_activity(state, value["recovery_evidence"], now)
         else:
             _require(state.get("dispatch_state") == "NEEDS_DISPATCH" and not state.get("claim_id"), "prepared resume no longer has an unowned task")
+            if _same_executor(claim_event.get("researcher_id"), value["previous_researcher_id"]):
+                _require(_text(state.get("session_id")) and value.get("previous_session_id") == state["session_id"]
+                         and claim_event.get("session_id") == state["session_id"], "prepared same-identity resume predecessor session changed")
     else:
         _require(state.get("dispatch_state") == "NEEDS_DISPATCH" and not state.get("claim_id"), "task is no longer dispatchable")
     return {"ready_to_submit": True, "execution_authorized": False,

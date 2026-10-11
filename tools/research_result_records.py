@@ -37,6 +37,7 @@ from control_plane import research_immutable_candidate_validation as _candidate_
 from control_plane import research_result_records_compat_runtime as _base  # noqa: E402
 from control_plane import research_result_authority_fault_isolation as _result_authority  # noqa: E402
 from control_plane import research_continuation_write_authority as _write_authority  # noqa: E402
+from control_plane import research_historical_result_intake as _historical_intake  # noqa: E402
 
 for _name in dir(_base):
     if not _name.startswith("__"):
@@ -146,6 +147,7 @@ def result_map(root: Path = ROOT) -> dict[str, dict[str, Any]]:
 def audit(root: Path = ROOT) -> list[str]:
     errors = list(_BASE_AUDIT(root))
     errors.extend(_result_replacements.audit(root))
+    errors.extend(_historical_intake.audit(root))
     try:
         iter_results(root)
         iter_reviews(root)
@@ -314,6 +316,29 @@ def task_result_state(
     root: Path = ROOT,
     publication_id: str | None = None,
 ) -> dict[str, Any] | None:
+    # Prospective historical-science handles have their own exact validator and
+    # fresh-review contract. They are never inserted into ordinary result_map or
+    # ER indexes, and no historical DR is inherited by this route.
+    selected = _base._publication_for_state(task_id, root, publication_id)
+    historical_provenance = None
+    if selected is not None:
+        intake_state = _historical_intake.task_state(task_id, selected, root=root)
+        if intake_state is not None:
+            surviving = [row for row in iter_results(root)
+                         if row.get("task_id") == task_id and row.get("publication_id") == selected]
+            if surviving:
+                # Preserve the canonical ordinary science/review/followup path.
+                # HRI may document history; it can neither accept nor stall a
+                # later valid ordinary Result or enter its exact Result set.
+                historical_provenance = {
+                    "historical_intake_provenance_id": intake_state["historical_intake_id"],
+                    "historical_intake_review_state": intake_state["state"],
+                    "historical_review_history_ids": intake_state["historical_review_history_ids"],
+                    "historical_authentication_status": intake_state["historical_authentication_status"],
+                    "historical_review_inherited": False,
+                }
+            else:
+                return intake_state
     raw_results = []
     write_publication = publication_id
     if _write_authority._pins(root) is not None:
@@ -366,6 +391,8 @@ def task_result_state(
         held_reviews = _write_authority.diagnostics(raw_reviews, "REVIEW", root)
         if value is not None and held_reviews:
             value["write_authority_holds"] = held_reviews
+        if value is not None and historical_provenance is not None:
+            value.update(historical_provenance)
         return value
 
 
