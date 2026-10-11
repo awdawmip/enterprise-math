@@ -1,0 +1,118 @@
+{
+  "schema": "DIRECTED_CM24_GLOBAL_HASSE_CHECK_V1",
+  "context": "DIRECTED_SHARED_NONBLIND_NONOFFICIAL_DRIVER_REVIEW",
+  "professional_queries": 0,
+  "source_pins": [
+    {
+      "path": "/workspace/em-owner-resume-20261011/cm24-directed-review-20261011/input-snapshot-19b59309/CM24_MARKED_HESSE_FRICKE_LOCAL_QUOTIENT_20261011.md",
+      "bytes": 14059,
+      "sha256": "19b59309b7acc37fb2fa2681ae63273886edf81a960932a697e1eec6267e0772"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/cm24-directed-review-20261011/input-snapshot-19b59309/check_local_quotient.py",
+      "bytes": 6026,
+      "sha256": "300dbfcc57746e989c86ef8a804335b79708f8224bc71ad33df7349e53a1e209"
+    }
+  ],
+  "symbolic_chain_checks": {
+    "G_second": "0",
+    "G_first": "0",
+    "G_zero": "0"
+  },
+  "elliptic_correspondence_square_identity": true,
+  "cases": [
+    {
+      "p": 19,
+      "m": 3,
+      "S_coefficients_ascending": [
+        12,
+        5,
+        6,
+        1
+      ],
+      "Hasse_degree": 18,
+      "H_degree": 18,
+      "H_monic": true,
+      "direct_ternary_equals_correct_pullback": true,
+      "G_ODE": true,
+      "F_ODE": true,
+      "coefficient_recurrence": true,
+      "endpoint_values": {
+        "S0": 12,
+        "S108": 1,
+        "Hasse_h0": 12,
+        "Hasse_h1": 1
+      },
+      "Hasse_squarefree": true,
+      "j1728_Hesse_factor": "h**6 - h**3 - 8",
+      "j1728_gcd_degree": 6,
+      "j1728_gcd": "h**6 - h**3 - 8",
+      "Hasse_factorization_h": "(h**2 - 9*h - 8)*(h**2 - 8*h + 2)*(h**2 - 6*h + 7)*(h**2 - 4*h + 1)*(h**2 - 3*h + 5)*(h**2 - 2*h - 2)*(h**2 + h + 3)*(h**2 + 5*h - 3)*(h**2 + 7*h - 5)",
+      "old_wrong_polynomial_gcd_degree": 0,
+      "old_normalization_first_counterexample": {
+        "H": [
+          5,
+          3
+        ],
+        "correct_Hasse": [
+          0,
+          0
+        ],
+        "old_extra_27_minus_k": [
+          10,
+          15
+        ]
+      },
+      "six_marked_216_lifts_old_normalization_fail_count": 6
+    },
+    {
+      "p": 37,
+      "m": 6,
+      "S_coefficients_ascending": [
+        11,
+        34,
+        27,
+        7,
+        30,
+        6,
+        1
+      ],
+      "Hasse_degree": 36,
+      "H_degree": 36,
+      "H_monic": true,
+      "direct_ternary_equals_correct_pullback": true,
+      "G_ODE": true,
+      "F_ODE": true,
+      "coefficient_recurrence": true,
+      "endpoint_values": {
+        "S0": 11,
+        "S108": 36,
+        "Hasse_h0": 11,
+        "Hasse_h1": 1
+      },
+      "Hasse_squarefree": true,
+      "j1728_Hesse_factor": "h**6 + 17*h**3 - 8",
+      "j1728_gcd_degree": 0,
+      "j1728_gcd": "1",
+      "Hasse_factorization_h": "(h**2 - 17*h - 17)*(h**2 - 11*h + 13)*(h**2 - 10*h - 4)*(h**2 - 8*h + 10)*(h**2 - 6*h + 1)*(h**2 - 4*h - 10)*(h**2 - 4*h - 4)*(h**2 - 3*h - 1)*(h**2 - 3*h + 7)*(h**2 - h - 3)*(h**2 + h + 5)*(h**2 + 2*h + 15)*(h**2 + 7*h - 3)*(h**2 + 7*h + 11)*(h**2 + 10*h - 18)*(h**2 + 11*h + 7)*(h**2 + 14*h - 11)*(h**2 + 15*h + 2)",
+      "old_wrong_polynomial_gcd_degree": 12,
+      "old_normalization_first_counterexample": {
+        "H": [
+          4,
+          8
+        ],
+        "correct_Hasse": [
+          0,
+          0
+        ],
+        "old_extra_27_minus_k": [
+          25,
+          17
+        ]
+      },
+      "six_marked_216_lifts_old_normalization_fail_count": 6
+    }
+  ],
+  "all_prime_argument": "See REPORT.md: finite-field ODE uniqueness, not characteristic-zero series reduction.",
+  "scope": "Hesse plane-cubic Hasse polynomial and inherited hypergeometric Fricke pullback; no period/G_p/UR acceptance."
+}

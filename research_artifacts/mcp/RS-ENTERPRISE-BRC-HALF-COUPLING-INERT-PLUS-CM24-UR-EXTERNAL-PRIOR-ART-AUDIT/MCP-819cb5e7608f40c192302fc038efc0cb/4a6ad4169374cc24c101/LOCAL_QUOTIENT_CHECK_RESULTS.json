@@ -1,0 +1,606 @@
+{
+  "schema": "CM24_EXACT_LOCAL_QUOTIENT_CHECK_V1",
+  "symbolic_checks": {
+    "hesse_to_j_H": "EXACT_ZERO",
+    "Maier_gamma_27_over_H_marking": "EXACT_ZERO",
+    "Maier_to_selected_h_Mobius": "EXACT_ZERO",
+    "t3_small_cover": "EXACT_ZERO",
+    "j_t_H_composition": "EXACT_ZERO",
+    "Fricke_H_composition": "EXACT_ZERO",
+    "Fricke_j_correspondence": "EXACT_ZERO",
+    "Fricke_involution": "EXACT_ZERO",
+    "local_H_derivative": "EXACT_ZERO",
+    "degree_six_fiber_discriminant": {
+      "degree": 6,
+      "discriminant": "2^21*3^36",
+      "all_target_p_at_least_5_unramified": true
+    },
+    "j_collision_exception_only": {
+      "target_j_collision_primes": [
+        13,
+        19
+      ],
+      "fricke_cover_still_unramified": true
+    }
+  },
+  "global_fiber_discriminant": "3^12*X^5*(X-108)^3",
+  "p19_j1728_factor_included": "S19=(X-7)*(X^2-6X+1)",
+  "field_cases": [
+    {
+      "p": 13,
+      "m": 2,
+      "six_distinct_branches": [
+        {
+          "h": [
+            7,
+            2
+          ],
+          "H": [
+            5,
+            6
+          ],
+          "t": [
+            3,
+            11
+          ],
+          "norm_h": 2,
+          "cube_root_branch": 1,
+          "jacobian": [
+            2,
+            12
+          ],
+          "norm_U": 2,
+          "norm_P_H_prime": 6
+        },
+        {
+          "h": [
+            7,
+            11
+          ],
+          "H": [
+            5,
+            7
+          ],
+          "t": [
+            3,
+            2
+          ],
+          "norm_h": 2,
+          "cube_root_branch": 1,
+          "jacobian": [
+            2,
+            1
+          ],
+          "norm_U": 2,
+          "norm_P_H_prime": 6
+        },
+        {
+          "h": [
+            8,
+            6
+          ],
+          "H": [
+            8,
+            5
+          ],
+          "t": [
+            3,
+            11
+          ],
+          "norm_h": 5,
+          "cube_root_branch": 9,
+          "jacobian": [
+            5,
+            4
+          ],
+          "norm_U": 6,
+          "norm_P_H_prime": 5
+        },
+        {
+          "h": [
+            8,
+            7
+          ],
+          "H": [
+            8,
+            8
+          ],
+          "t": [
+            3,
+            2
+          ],
+          "norm_h": 5,
+          "cube_root_branch": 9,
+          "jacobian": [
+            5,
+            9
+          ],
+          "norm_U": 6,
+          "norm_P_H_prime": 5
+        },
+        {
+          "h": [
+            11,
+            5
+          ],
+          "H": [
+            4,
+            2
+          ],
+          "t": [
+            3,
+            11
+          ],
+          "norm_h": 6,
+          "cube_root_branch": 3,
+          "jacobian": [
+            6,
+            10
+          ],
+          "norm_U": 5,
+          "norm_P_H_prime": 2
+        },
+        {
+          "h": [
+            11,
+            8
+          ],
+          "H": [
+            4,
+            11
+          ],
+          "t": [
+            3,
+            2
+          ],
+          "norm_h": 6,
+          "cube_root_branch": 3,
+          "jacobian": [
+            6,
+            3
+          ],
+          "norm_U": 5,
+          "norm_P_H_prime": 2
+        }
+      ],
+      "S_prime_216": 9,
+      "local_pullback_derivative_checks": 6,
+      "directed_derivative_sign_not_recovered_by_norm": true
+    },
+    {
+      "p": 19,
+      "m": 3,
+      "six_distinct_branches": [
+        {
+          "h": [
+            4,
+            8
+          ],
+          "H": [
+            9,
+            5
+          ],
+          "t": [
+            5,
+            16
+          ],
+          "norm_h": 2,
+          "cube_root_branch": 1,
+          "jacobian": [
+            12,
+            8
+          ],
+          "norm_U": 16,
+          "norm_P_H_prime": 17
+        },
+        {
+          "h": [
+            4,
+            11
+          ],
+          "H": [
+            9,
+            14
+          ],
+          "t": [
+            5,
+            3
+          ],
+          "norm_h": 2,
+          "cube_root_branch": 1,
+          "jacobian": [
+            12,
+            11
+          ],
+          "norm_U": 16,
+          "norm_P_H_prime": 17
+        },
+        {
+          "h": [
+            6,
+            7
+          ],
+          "H": [
+            15,
+            2
+          ],
+          "t": [
+            5,
+            3
+          ],
+          "norm_h": 14,
+          "cube_root_branch": 7,
+          "jacobian": [
+            8,
+            1
+          ],
+          "norm_U": 5,
+          "norm_P_H_prime": 16
+        },
+        {
+          "h": [
+            6,
+            12
+          ],
+          "H": [
+            15,
+            17
+          ],
+          "t": [
+            5,
+            16
+          ],
+          "norm_h": 14,
+          "cube_root_branch": 7,
+          "jacobian": [
+            8,
+            18
+          ],
+          "norm_U": 5,
+          "norm_P_H_prime": 16
+        },
+        {
+          "h": [
+            9,
+            1
+          ],
+          "H": [
+            5,
+            3
+          ],
+          "t": [
+            5,
+            3
+          ],
+          "norm_h": 3,
+          "cube_root_branch": 11,
+          "jacobian": [
+            18,
+            7
+          ],
+          "norm_U": 17,
+          "norm_P_H_prime": 5
+        },
+        {
+          "h": [
+            9,
+            18
+          ],
+          "H": [
+            5,
+            16
+          ],
+          "t": [
+            5,
+            16
+          ],
+          "norm_h": 3,
+          "cube_root_branch": 11,
+          "jacobian": [
+            18,
+            12
+          ],
+          "norm_U": 17,
+          "norm_P_H_prime": 5
+        }
+      ],
+      "S_prime_216": 8,
+      "local_pullback_derivative_checks": 6,
+      "directed_derivative_sign_not_recovered_by_norm": true
+    },
+    {
+      "p": 37,
+      "m": 6,
+      "six_distinct_branches": [
+        {
+          "h": [
+            11,
+            2
+          ],
+          "H": [
+            30,
+            6
+          ],
+          "t": [
+            7,
+            17
+          ],
+          "norm_h": 2,
+          "cube_root_branch": 1,
+          "jacobian": [
+            16,
+            33
+          ],
+          "norm_U": 2,
+          "norm_P_H_prime": 32
+        },
+        {
+          "h": [
+            11,
+            35
+          ],
+          "H": [
+            30,
+            31
+          ],
+          "t": [
+            7,
+            20
+          ],
+          "norm_h": 2,
+          "cube_root_branch": 1,
+          "jacobian": [
+            16,
+            4
+          ],
+          "norm_U": 2,
+          "norm_P_H_prime": 32
+        },
+        {
+          "h": [
+            27,
+            15
+          ],
+          "H": [
+            4,
+            8
+          ],
+          "t": [
+            7,
+            17
+          ],
+          "norm_h": 20,
+          "cube_root_branch": 10,
+          "jacobian": [
+            12,
+            34
+          ],
+          "norm_U": 15,
+          "norm_P_H_prime": 18
+        },
+        {
+          "h": [
+            27,
+            22
+          ],
+          "H": [
+            4,
+            29
+          ],
+          "t": [
+            7,
+            20
+          ],
+          "norm_h": 20,
+          "cube_root_branch": 10,
+          "jacobian": [
+            12,
+            3
+          ],
+          "norm_U": 15,
+          "norm_P_H_prime": 18
+        },
+        {
+          "h": [
+            36,
+            17
+          ],
+          "H": [
+            31,
+            14
+          ],
+          "t": [
+            7,
+            20
+          ],
+          "norm_h": 15,
+          "cube_root_branch": 26,
+          "jacobian": [
+            9,
+            30
+          ],
+          "norm_U": 20,
+          "norm_P_H_prime": 24
+        },
+        {
+          "h": [
+            36,
+            20
+          ],
+          "H": [
+            31,
+            23
+          ],
+          "t": [
+            7,
+            17
+          ],
+          "norm_h": 15,
+          "cube_root_branch": 26,
+          "jacobian": [
+            9,
+            7
+          ],
+          "norm_U": 20,
+          "norm_P_H_prime": 24
+        }
+      ],
+      "S_prime_216": 33,
+      "local_pullback_derivative_checks": 6,
+      "directed_derivative_sign_not_recovered_by_norm": true
+    },
+    {
+      "p": 43,
+      "m": 7,
+      "six_distinct_branches": [
+        {
+          "h": [
+            3,
+            5
+          ],
+          "H": [
+            6,
+            15
+          ],
+          "t": [
+            38,
+            32
+          ],
+          "norm_h": 2,
+          "cube_root_branch": 1,
+          "jacobian": [
+            7,
+            2
+          ],
+          "norm_U": 41,
+          "norm_P_H_prime": 17
+        },
+        {
+          "h": [
+            3,
+            38
+          ],
+          "H": [
+            6,
+            28
+          ],
+          "t": [
+            38,
+            11
+          ],
+          "norm_h": 2,
+          "cube_root_branch": 1,
+          "jacobian": [
+            7,
+            41
+          ],
+          "norm_U": 41,
+          "norm_P_H_prime": 17
+        },
+        {
+          "h": [
+            18,
+            13
+          ],
+          "H": [
+            8,
+            39
+          ],
+          "t": [
+            38,
+            11
+          ],
+          "norm_h": 29,
+          "cube_root_branch": 36,
+          "jacobian": [
+            37,
+            14
+          ],
+          "norm_U": 31,
+          "norm_P_H_prime": 16
+        },
+        {
+          "h": [
+            18,
+            30
+          ],
+          "H": [
+            8,
+            4
+          ],
+          "t": [
+            38,
+            32
+          ],
+          "norm_h": 29,
+          "cube_root_branch": 36,
+          "jacobian": [
+            37,
+            29
+          ],
+          "norm_U": 31,
+          "norm_P_H_prime": 16
+        },
+        {
+          "h": [
+            22,
+            8
+          ],
+          "H": [
+            20,
+            24
+          ],
+          "t": [
+            38,
+            32
+          ],
+          "norm_h": 12,
+          "cube_root_branch": 6,
+          "jacobian": [
+            42,
+            12
+          ],
+          "norm_U": 14,
+          "norm_P_H_prime": 10
+        },
+        {
+          "h": [
+            22,
+            35
+          ],
+          "H": [
+            20,
+            19
+          ],
+          "t": [
+            38,
+            11
+          ],
+          "norm_h": 12,
+          "cube_root_branch": 6,
+          "jacobian": [
+            42,
+            31
+          ],
+          "norm_U": 14,
+          "norm_P_H_prime": 10
+        }
+      ],
+      "S_prime_216": 23,
+      "local_pullback_derivative_checks": 6,
+      "directed_derivative_sign_not_recovered_by_norm": true
+    }
+  ],
+  "verification_history": [
+    {
+      "first_run": "FAILED_ASSERTION_AT_P_H_ROOT",
+      "reason": "Incorrect extra 27^-k was introduced during H-to-h coefficient conversion",
+      "correction": "Use common 27^-2m=3^-(p-1)=1 for all coefficients; never per-k 27^-k",
+      "corrected_fresh_run": "PASS"
+    }
+  ],
+  "claim_scope": "Exact conditional/source-normalized local-map and derivative-norm transport; four primes are falsification checks, not UR proof or repetition of 77-prime regression",
+  "UR_proved": false,
+  "G_p_identified": false,
+  "period_divided_coordinate_identified": false
+}

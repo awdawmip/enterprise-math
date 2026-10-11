@@ -1,0 +1,323 @@
+{
+  "schema": "CM24_DIRECTED_LOCAL_MATH_REVIEW_V1",
+  "shared_context": true,
+  "blind": false,
+  "official_Source_DR": false,
+  "symbolic": {
+    "h_fiber": "h**6 - 8*h**3 + 8",
+    "H_fiber": "H**6 + 18*H**5 + 135*H**4 + 324*H**3 - 729*H**2 - 4374*H + 729",
+    "h_discriminant": "1528823808",
+    "H_discriminant": "314771264602372300603392",
+    "general_H_fiber_discriminant": "3^12*X^5*(X-108)^3",
+    "trace_cubic_discriminant": -864,
+    "CM_j_correspondence": "J**2 - 4834944*J + 14670139392",
+    "symbolic_exact_assertions": 17,
+    "norm_u_minus_1": 1,
+    "norm_u_minus_2": -4,
+    "norm_U": "-2^7*3^6*r^2, r=(Norm(h)/2), r^3=1",
+    "scope": "Pullback derivative norm determines S_prime(216)^2 only"
+  },
+  "finite_cases": [
+    {
+      "p": 13,
+      "m": 2,
+      "S_coefficients": [
+        1,
+        6,
+        5
+      ],
+      "S_prime_216": 9,
+      "S_prime_216_square": 3,
+      "six_roots_three_Frobenius_pairs": true,
+      "correct_pullback_degree": 12,
+      "correct_pullback_monic": true,
+      "wrong_formula_equals_correct": true,
+      "Q1728_divides_S": false,
+      "branches": [
+        {
+          "quadratic_h_coefficients": [
+            1,
+            12,
+            2
+          ],
+          "trace_h": 1,
+          "norm_h": 2,
+          "r": 1,
+          "norm_U": 2,
+          "norm_derivative": 6,
+          "recovered_S_prime_square": 3,
+          "wrong_extra_27_inverse_k_remainder": [
+            0,
+            0
+          ]
+        },
+        {
+          "quadratic_h_coefficients": [
+            1,
+            10,
+            5
+          ],
+          "trace_h": 3,
+          "norm_h": 5,
+          "r": 9,
+          "norm_U": 6,
+          "norm_derivative": 5,
+          "recovered_S_prime_square": 3,
+          "wrong_extra_27_inverse_k_remainder": [
+            0,
+            0
+          ]
+        },
+        {
+          "quadratic_h_coefficients": [
+            1,
+            4,
+            6
+          ],
+          "trace_h": 9,
+          "norm_h": 6,
+          "r": 3,
+          "norm_U": 5,
+          "norm_derivative": 2,
+          "recovered_S_prime_square": 3,
+          "wrong_extra_27_inverse_k_remainder": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "p": 19,
+      "m": 3,
+      "S_coefficients": [
+        1,
+        6,
+        5,
+        12
+      ],
+      "S_prime_216": 8,
+      "S_prime_216_square": 7,
+      "six_roots_three_Frobenius_pairs": true,
+      "correct_pullback_degree": 18,
+      "correct_pullback_monic": true,
+      "wrong_formula_equals_correct": false,
+      "Q1728_divides_S": true,
+      "branches": [
+        {
+          "quadratic_h_coefficients": [
+            1,
+            11,
+            2
+          ],
+          "trace_h": 8,
+          "norm_h": 2,
+          "r": 1,
+          "norm_U": 16,
+          "norm_derivative": 17,
+          "recovered_S_prime_square": 7,
+          "wrong_extra_27_inverse_k_remainder": [
+            8,
+            10
+          ]
+        },
+        {
+          "quadratic_h_coefficients": [
+            1,
+            1,
+            3
+          ],
+          "trace_h": 18,
+          "norm_h": 3,
+          "r": 11,
+          "norm_U": 17,
+          "norm_derivative": 5,
+          "recovered_S_prime_square": 7,
+          "wrong_extra_27_inverse_k_remainder": [
+            8,
+            15
+          ]
+        },
+        {
+          "quadratic_h_coefficients": [
+            1,
+            7,
+            14
+          ],
+          "trace_h": 12,
+          "norm_h": 14,
+          "r": 7,
+          "norm_U": 5,
+          "norm_derivative": 16,
+          "recovered_S_prime_square": 7,
+          "wrong_extra_27_inverse_k_remainder": [
+            8,
+            13
+          ]
+        }
+      ]
+    },
+    {
+      "p": 37,
+      "m": 6,
+      "S_coefficients": [
+        1,
+        6,
+        30,
+        7,
+        27,
+        34,
+        11
+      ],
+      "S_prime_216": 33,
+      "S_prime_216_square": 16,
+      "six_roots_three_Frobenius_pairs": true,
+      "correct_pullback_degree": 36,
+      "correct_pullback_monic": true,
+      "wrong_formula_equals_correct": false,
+      "Q1728_divides_S": false,
+      "branches": [
+        {
+          "quadratic_h_coefficients": [
+            1,
+            15,
+            2
+          ],
+          "trace_h": 22,
+          "norm_h": 2,
+          "r": 1,
+          "norm_U": 2,
+          "norm_derivative": 32,
+          "recovered_S_prime_square": 16,
+          "wrong_extra_27_inverse_k_remainder": [
+            24,
+            27
+          ]
+        },
+        {
+          "quadratic_h_coefficients": [
+            1,
+            2,
+            15
+          ],
+          "trace_h": 35,
+          "norm_h": 15,
+          "r": 26,
+          "norm_U": 20,
+          "norm_derivative": 24,
+          "recovered_S_prime_square": 16,
+          "wrong_extra_27_inverse_k_remainder": [
+            24,
+            36
+          ]
+        },
+        {
+          "quadratic_h_coefficients": [
+            1,
+            20,
+            20
+          ],
+          "trace_h": 17,
+          "norm_h": 20,
+          "r": 10,
+          "norm_U": 15,
+          "norm_derivative": 18,
+          "recovered_S_prime_square": 16,
+          "wrong_extra_27_inverse_k_remainder": [
+            24,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "p": 43,
+      "m": 7,
+      "S_coefficients": [
+        1,
+        6,
+        37,
+        23,
+        37,
+        5,
+        12,
+        8
+      ],
+      "S_prime_216": 23,
+      "S_prime_216_square": 13,
+      "six_roots_three_Frobenius_pairs": true,
+      "correct_pullback_degree": 42,
+      "correct_pullback_monic": true,
+      "wrong_formula_equals_correct": false,
+      "Q1728_divides_S": true,
+      "branches": [
+        {
+          "quadratic_h_coefficients": [
+            1,
+            37,
+            2
+          ],
+          "trace_h": 6,
+          "norm_h": 2,
+          "r": 1,
+          "norm_U": 41,
+          "norm_derivative": 17,
+          "recovered_S_prime_square": 13,
+          "wrong_extra_27_inverse_k_remainder": [
+            34,
+            37
+          ]
+        },
+        {
+          "quadratic_h_coefficients": [
+            1,
+            7,
+            29
+          ],
+          "trace_h": 36,
+          "norm_h": 29,
+          "r": 36,
+          "norm_U": 31,
+          "norm_derivative": 16,
+          "recovered_S_prime_square": 13,
+          "wrong_extra_27_inverse_k_remainder": [
+            34,
+            42
+          ]
+        },
+        {
+          "quadratic_h_coefficients": [
+            1,
+            42,
+            12
+          ],
+          "trace_h": 1,
+          "norm_h": 12,
+          "r": 6,
+          "norm_U": 14,
+          "norm_derivative": 10,
+          "recovered_S_prime_square": 13,
+          "wrong_extra_27_inverse_k_remainder": [
+            34,
+            7
+          ]
+        }
+      ]
+    }
+  ],
+  "conditional_width_note": {
+    "representative": "1/p",
+    "standard_forgetful_map": "z -> z",
+    "computed_widths": {
+      "13": 3,
+      "19": 3,
+      "37": 3,
+      "43": 3
+    },
+    "paper_higher_doublepole_not_consumed_by_base_map": true,
+    "specific_cusp_marking_reconciliation_pending": true
+  },
+  "global_supersingular_identification_not_proved_by_this_local_script": true,
+  "UR_proved": false,
+  "G_p_identified": false
+}
