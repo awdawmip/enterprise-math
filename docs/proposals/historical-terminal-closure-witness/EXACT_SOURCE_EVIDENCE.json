@@ -1,0 +1,199 @@
+{
+  "all_exact_pins_verified": true,
+  "binding": {
+    "binding_source": "LEGACY_UNBOUND",
+    "objective": null,
+    "objective_authority_verified": false,
+    "objective_generation_id": null,
+    "objective_id": "RS-NATIVE-FILAMENT-COUPLED-SELECTION-INDEPENDENT-AUDIT",
+    "publication_id": "TP2-7022EC048DC373BFA4CB",
+    "task_id": "RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-INDEPENDENT-REPLICATION"
+  },
+  "followup_state": {
+    "error": "follow-up packet_id mismatch",
+    "packet": {
+      "_path": "research_driver_followups/DR-289F116DBE89C6FA1339/DFU-2D40311F1784F024C5CA.json",
+      "canonical_promotion_granted": false,
+      "created_at": "2026-08-29T01:34:30+00:00",
+      "decision": "TASK_SET_PUBLISHED",
+      "driver_id": "EM-DVR-P8H4Q2",
+      "foundation_authority_granted": false,
+      "gate_decisions": [
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [
+            "research_returns/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_RETURN_20260829.md",
+            "driver_reviews/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_DRIVER_REVIEW_20260829.md"
+          ],
+          "gate": "MATHEMATICAL_CONTINUATION",
+          "reason": "The independent replication closes its classification mother question with no unresolved mathematical residue at task scope; PASS alone is not used to manufacture another theorem stage."
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [],
+          "gate": "LEAN_FORMALIZATION",
+          "reason": "This review does not promote the accepted rows to an L4/formalization boundary."
+        },
+        {
+          "decision": "REQUIRED",
+          "evidence_refs": [
+            "research_result_records/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-INDEPENDENT-REPLICATION/RR-680C6257EEF10F6F1C16.json",
+            "driver_reviews/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_DRIVER_REVIEW_20260829.md"
+          ],
+          "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+          "reason": "The accepted rows use classical-looking split-hyperbola, Burnside, quadratic-character and Joukowski/Dickson structures; successful independent reconstruction does not establish novelty or non-duplication."
+        },
+        {
+          "decision": "SATISFIED_BY_REVIEWED_RESULT",
+          "evidence_refs": [
+            "research_returns/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_RETURN_20260829.md",
+            "research_checks/NATIVE_FILAMENT_POSTAUDIT_HJ_INDEPENDENT_CHECK_20260829.py"
+          ],
+          "gate": "INDEPENDENT_REPLICATION",
+          "reason": "The reviewed task is itself the clean statement-only independent replication and includes an independently reconstructed checker."
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [],
+          "gate": "INTEGRATION_OR_TOOL_HARVEST",
+          "reason": "The result is classified RESULT_ONLY / NO_TOOL_PAYLOAD and introduces no shared executable tool family."
+        },
+        {
+          "decision": "SATISFIED_BY_REVIEWED_RESULT",
+          "evidence_refs": [
+            "research_checks/NATIVE_FILAMENT_POSTAUDIT_HJ_INDEPENDENT_CHECK_20260829.py",
+            "driver_reviews/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_DRIVER_REVIEW_20260829.md"
+          ],
+          "gate": "ADVERSARIAL_AUDIT",
+          "reason": "The independent execution actively searched H1 diagonal counterexamples, J2 extremal counterexamples and finite-field boundary failures; the Driver review independently rechecked the decisive algebra and narrowing boundaries."
+        }
+      ],
+      "packet_id": "DFU-2D40311F1784F024C5CA",
+      "parent_objective_id": "RS-NATIVE-FILAMENT-COUPLED-SELECTION-INDEPENDENT-AUDIT",
+      "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+      "result_id": "RR-680C6257EEF10F6F1C16",
+      "review_destination_class": "FOLLOWUP_TASK",
+      "review_disposition": "ACCEPTED",
+      "review_id": "DR-289F116DBE89C6FA1339",
+      "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+      "source_next_control_plane_recommendation": "Driver review RR-680C6257EEF10F6F1C16. Consume J1/J2/C1 as VERIFIED_EXACT; adopt the frozen narrowed wording for H1/H2/C2; do not promote, merge, or compare against withheld source proofs/checkers automatically.",
+      "source_publication_id": "TP2-7022EC048DC373BFA4CB",
+      "task_id": "RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-INDEPENDENT-REPLICATION",
+      "task_publications": [
+        {
+          "publication_id": "TP2-39ACFC69F85D8661CFBF",
+          "task_id": "RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT",
+          "task_role": "EXTERNAL_PRIOR_ART_DUPLICATION"
+        }
+      ],
+      "working_truth_granted": false
+    },
+    "ready": false,
+    "required": true,
+    "review_authority_kind": "IMMUTABLE_REVIEW",
+    "review_id": "DR-289F116DBE89C6FA1339",
+    "source_review_ids": [
+      "DR-289F116DBE89C6FA1339"
+    ],
+    "state": "FOLLOWUP_PACKET_INVALID"
+  },
+  "followup_validation_error": "follow-up packet_id mismatch",
+  "implementation_status": "PROPOSAL_ONLY_NO_EXECUTABLE_CHANGE",
+  "math_checker_executed": false,
+  "mutation_performed": false,
+  "parent_projection": {
+    "derived_parent_complete": false,
+    "final_permission_granted": false,
+    "objective_generation_id": "OG-7190F25EA3CAE970C90A",
+    "objective_head_status": "OPEN",
+    "objective_id": "RS-NATIVE-FILAMENT-COUPLED-SELECTION-INDEPENDENT-AUDIT",
+    "state": "OBJECTIVE_HEAD_NOT_CLOSED",
+    "unbound_active_children": [
+      {
+        "publication_id": "TP2-7022EC048DC373BFA4CB",
+        "reason": "task has no canonical objective-generation authority",
+        "task_id": "RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-INDEPENDENT-REPLICATION"
+      }
+    ]
+  },
+  "pins": [
+    {
+      "bytes": 2287,
+      "exact_pin_verified": true,
+      "git_blob_sha1": "1a6510d7d466563d12415ae0674bac1cfd05931d",
+      "path": "research_task_records/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-INDEPENDENT-REPLICATION/TP2-7022EC048DC373BFA4CB.json",
+      "sha256": "e2649879162f998c52094ceaa49e1b7aec9b277463bf5ff416d81b7705b3b9e3"
+    },
+    {
+      "bytes": 7918,
+      "exact_pin_verified": true,
+      "git_blob_sha1": "43fe3d6b49b2e01a1f8a89ade123586e0c7a50e9",
+      "path": "research_tasks/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_MIGRATION_20260829.md",
+      "sha256": "0370cc346af381014ee66abcb4421409de55986d5e3fc8594c220f11231be9ab"
+    },
+    {
+      "bytes": 2555,
+      "exact_pin_verified": true,
+      "git_blob_sha1": "88ef0c4ada16a9889c90fabaf0724598e4f1676e",
+      "path": "research_result_records/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-INDEPENDENT-REPLICATION/RR-680C6257EEF10F6F1C16.json",
+      "sha256": "2260864263ff531575f91e8a0cb01454d74c1bb0f7989ed7b9d1015dbdd260e5"
+    },
+    {
+      "bytes": 1135,
+      "exact_pin_verified": true,
+      "git_blob_sha1": "d7c57e8e2f49171dbdb22a32aa160c5599c45856",
+      "path": "research_execution_records/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-INDEPENDENT-REPLICATION/ER-6B4DCE596D23FB49EC67.json",
+      "sha256": "43700d865ad5d405b06dc4040c3aee248d1aac62ff71d7ca33c505f360f03ad8"
+    },
+    {
+      "bytes": 1299,
+      "exact_pin_verified": true,
+      "git_blob_sha1": "b7b22522fa7595442317160ec0c17b1f51a41a30",
+      "path": "research_result_reviews/RR-680C6257EEF10F6F1C16/DR-289F116DBE89C6FA1339.json",
+      "sha256": "81c5c54aa8d6f9ca78382cd773ddb79b203a38751b60fa7d13e36c14aee06173"
+    },
+    {
+      "bytes": 5613,
+      "exact_pin_verified": true,
+      "git_blob_sha1": "80b550aa21d0695d0ca9e4853bd707319f6413e4",
+      "path": "driver_reviews/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_DRIVER_REVIEW_20260829.md",
+      "sha256": "5f08f144d6b4729d661556062411698739b1e4d077519db0dcae6f7e6728e6d5"
+    },
+    {
+      "bytes": 4000,
+      "exact_pin_verified": true,
+      "git_blob_sha1": "5624cbbfb67a7946c476e95f33e01131a08f9cb5",
+      "path": "research_driver_followups/DR-289F116DBE89C6FA1339/DFU-2D40311F1784F024C5CA.json",
+      "sha256": "b69f1c4c93d0110691489b6707e7453b386a5413877f8bc0dd99eb72a9c99938"
+    },
+    {
+      "bytes": 16330,
+      "exact_pin_verified": true,
+      "git_blob_sha1": "0a4596c8cb8bcfb64863becb1009ff13f3980a09",
+      "path": "research_returns/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_RETURN_20260829.md",
+      "sha256": "1e40bfe1b3b24a604f703233887200b30a2816acc56a38f63711e4b3bf640d3e"
+    },
+    {
+      "bytes": 7268,
+      "exact_pin_verified": true,
+      "git_blob_sha1": "367c537a0f5ba8baa3ea221a5fba45c5b08d7cc1",
+      "path": "research_checks/NATIVE_FILAMENT_POSTAUDIT_HJ_INDEPENDENT_CHECK_20260829.py",
+      "sha256": "372a98490b29894bcb271018639355cb6e1905406dbac300731d32de8c6e941b"
+    }
+  ],
+  "runtime_owner_observation_available": false,
+  "source_commit": "012706a3ac1e42acbd86cab977afac7659264992",
+  "source_commit_provenance": "Exact commit reported by Root; this branch independently verified local full tree and exact nine historical blobs, and evaluated native readers on that tree. No additional remote ref read.",
+  "source_tree": "fecf38f002032638972aaee4e8b6db521fcee583",
+  "task_result_state": {
+    "driver_followup_state": "FOLLOWUP_PACKET_INVALID",
+    "publication_id": "TP2-7022EC048DC373BFA4CB",
+    "result_id": "RR-680C6257EEF10F6F1C16",
+    "review_id": "DR-289F116DBE89C6FA1339",
+    "review_parallel_state": "SINGLE_REVIEW_FLOW",
+    "state": "AWAITING_DRIVER_REVIEW",
+    "summary_field_provenance": "state/terminal/followup/review_parallel fields are top-level native outputs; result_id/publication_id are from native result, review_id is from native review. The underlying RR is present.",
+    "terminal": false
+  },
+  "witness_authorized": false
+}
