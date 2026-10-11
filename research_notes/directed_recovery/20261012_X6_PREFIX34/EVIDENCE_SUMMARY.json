@@ -1,0 +1,69 @@
+{
+  "schema": "X6_SIG_PREFIX34_REMOTE_EVIDENCE_SUMMARY_V1",
+  "scientific_status": "UNREVIEWED_AUXILIARY_EXACT_REFERENCE_PASS_NOT_FORMALLY_ADMITTED",
+  "mathematics_input": {
+    "states": 9,
+    "positive_edges": 38,
+    "operations": [
+      "P",
+      "Q",
+      "H",
+      "K",
+      "E1",
+      "E2",
+      "R"
+    ],
+    "effects": "X=(12), Y=(23) acting on six labels",
+    "pinned_global_main": "330b2c1378bf343fb35d70425573cae9aa2070f2",
+    "pinned_em_main": "9eb4f07b2f1fd9f853a860fa156a5bf2a78ce0a2"
+  },
+  "result": {
+    "partition_classes_by_depth": [
+      1,
+      4,
+      6,
+      8,
+      9,
+      9
+    ],
+    "full_future_fixed_row_minimum": 9,
+    "critical_pairs": {
+      "F3P_F3Q": {
+        "word": "E1R",
+        "weights": [
+          "1/22",
+          "1/33"
+        ]
+      },
+      "F2P_F2Q": {
+        "word": "KE1R",
+        "weights": [
+          "1/374",
+          "1/561"
+        ]
+      },
+      "F1P_F1Q": {
+        "word": "HKE1R",
+        "weights": [
+          "1/4862",
+          "1/7293"
+        ]
+      }
+    },
+    "source_paths_k8": 65536,
+    "joint_effect_atoms_k8": 508,
+    "largest_integer_multiplicity_k8": 1296,
+    "uniform_control_row_mass": "3702/7735",
+    "mass_sum_e1": "11957805167982249875/138748133856252806952",
+    "mass_sum_e2": "11993960558995387765/239655867569891212008"
+  },
+  "local_execution": {
+    "exact_history_compiled_comparisons": 235296,
+    "terminal_checks": 7200,
+    "all_36_pairs_witnessed": true,
+    "full_historical_script_sha256": "70b473b04d385c0c971be67607f0b0ad3388245b3da552f298f71b0f99bf30d4",
+    "full_local_certificate_sha256": "8c020df2d75bbb9e698b23ee089b8fea9ccab918641c4093f966894b71055963",
+    "native_controlpacket_execution": false
+  },
+  "source_caveat": "Local script and complete JSON certificate are available in local handoff, not embedded in this source branch. This remote summary is a provenance pointer, not native Result or review."
+}
