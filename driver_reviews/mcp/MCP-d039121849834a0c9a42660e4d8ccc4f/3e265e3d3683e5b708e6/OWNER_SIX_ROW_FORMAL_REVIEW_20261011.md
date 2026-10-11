@@ -1,0 +1,50 @@
+# Driver review — bounded Hyperbola/Joukowski source comparison
+
+Disposition: ACCEPTED at TASK scope, destination ARCHIVE. This report is prepared for the current Driver's native review transaction; only its actual admitted receipt creates an immutable DR.
+
+Driver EM-DVR-4C90FB, session MCP-d039121849834a0c9a42660e4d8ccc4f, active authority DA-8B47223F04F43FF8D934. Task RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT, publication TP2-0B9541A191FE5231A19B, objective generation OG-7190F25EA3CAE970C90A. Own successful native Result artifact requests em-owner-six-row-frozen-result-artifact-20261011-109, -110 and -111 consumed all 64,491 characters at immutable Source a42d76506a1adc8d2d18ee1cb7051490a688f966. All three reported complete underlying hash verification. Their contiguous aggregate exactly equals the independently retrieved 64,499 UTF-8 bytes: SHA256 a1d384583af8f33b1da53929d94295f501aa5cfd26daeee4e613640d0243966c, Git blob 2c31b03cf89c7c51437ccf51775faab8564f1d62. Result RR-2280B8F2EFAAD8463C92 binds this current publication, ER-5B465B5230FB299C5643, released claim MCP-897b55afb2162d0eaaa4c357 and author EM-NATIVE-79EB13. The authenticated frozen HANDOFF is Source issue240 comment6107530039. This report grants no immutable review authority before the actual native transaction.
+
+## Evidence and scope
+
+At immutable Source 410647cefb6872123fe829748aaa5224dbb23fca, the author return is 20,865 UTF-8 bytes, SHA256 e77ec32da7a8bff86ef9384e7250e2e905b19b29764269355882c65f26479288, Git blob 7a9c898d90ee6f41e2206c4fc8d75863ff0e277a. The companion manifest is 33,460 bytes, SHA256 fa8935d9ca14487ffb6420b527a9c04f42e0e34fbe467d17323bdec8d805ee5f, Git blob 757da2b414587a0ab6b8a63554c39776f4789db6. Root independently retrieved and verified their complete connector bytes. The full return and the manifest's hypotheses, declared read extents, ten immutable upstream pins, historical inputs, contributors and coverage exclusions were consumed. Byte integrity does not certify mathematics or search completeness.
+
+The existing accepted replication return and Driver review were read at their frozen strengths. H1/H2/C2 remain narrowed; J1/J2/C1 retain their original accepted status. The new Task's authority was established prospectively, preserving its old publication and historical checkpoint rather than pretending those historical inputs possess the current binding.
+
+An additional local-only source-consistency review, SIX_ROW_READONLY_REVIEW.md (SHA256 73615e21f7ce56f00849d769fb31edc5b1ff8dbaa837979b7be88bffec223427), found no blocking hypothesis or source-to-target mismatch and verified 82 bounded byte/hash pins. It has no Source review identity or native authority and is disclosed as directed/shared context. It supplements Root's decisive reading rather than standing in for actual Result intake or the author/contribution gate.
+
+## Decisive source-to-target review
+
+H1: difference-of-squares factorization and the invertible half-sum/half-difference map are valid with characteristic different from two. C/B is nonzero, so z maps to (z,C/(Bz)) on the full split hyperbola. Distinct tangent concurrence imposes a != b. Removing the diagonal is generally not stable under the full multiplicative-group action, so the report correctly declines a full or inherited subtorsor assertion. The standard coordinate and group-model kernels support PARTIAL_ANTECEDENT for the whole project row, not an external tangent-family theorem.
+
+H2: the cited Burnside declaration requires a finite group action, finite fixed sets and finite orbit quotient. The sign action has order four, with fixed counts q-1, 1+eta(BC), 1+eta(-BC), and zero. The cited square-root theorem is for a finite field of characteristic different from two; C/B and BC have the same quadratic character because their ratio is a nonzero square. These hypotheses support the displayed count and the one-orbit bound. The report keeps general finite-field quadratic character separate from prime-only Legendre notation and keeps the typed breaker interpretation outside the external theorem.
+
+J1: the original statement packet is good-prime scoped. Setting u=sa and alpha=s/2 makes Lambda_s the negated u+alpha/u map, with alpha/c=s^2; invertibility uses p not dividing 2s. The inherited rational-map/cardinality comparison remains historical source-backed work. The later publisher 403 is explicitly retained, so no new independent full-paper verification is claimed. Bower's prime-field square-discriminant membership criterion directly yields the complement-character test. The report correctly credits that positive antecedent. Its negative conclusion is only the absence of a direct assertion or classification for the designated central J_s in the finite inspected passages. General-field transfer requires characteristic not dividing 2s, and residue-set cardinality is not assumed from integer interval length.
+
+J2: the actual finite-field power-sum theorem gives sum of unit powers equal to zero when q-1 does not divide the exponent. The lower and upper prime regimes give q>=5 and q>=7, respectively, so exponent two meets this condition; inversion permutes units. Weighted fiber summation and Faulhaber supply generic methods rather than the project's particular fibers or its final extremal classification. The central residues are distinct, and denominators two and three are invertible in these prime regimes. The claims q divides 25 or 7 and the final (3,5)/(3,7) pair are attributed to the frozen project proof. This supports whole-row PARTIAL_ANTECEDENT without restating the final classification as an external theorem.
+
+C1: nonzero integer cancellation and order reflection can instantiate the arithmetic boundary deduction, and the prime-divisor criterion is a generic means to verify the accepted factor. These declarations do not state the authorized breaker bound or the named closure. They are ADJACENT_METHOD. The whole-row no-material-match claim is explicitly limited to four declaration sets, and makes no novelty assertion about elementary arithmetic. Capacity nine remains separate from the typed-Cell incidence cap with the same numeral.
+
+C2: integer-polynomial evaluation admits the negative coefficients and the stated specializations. The generic evaluation declarations are ADJACENT_METHOD. The accepted conclusion remains numerical equality at 105. Neither that equality nor source terminology creates a native causal/provenance bridge. The bounded whole-row negative classification does not assert novelty or global literature absence.
+
+## Coverage, independence and disposition boundary
+
+The audit separates exact source kernels, authored instances, generic methods and project compositions. Complete upstream file retrieval is distinguished from inspection of named declarations. Generated additive aliases are distinguished from literal source declarations. No Lean build, new theorem proof or physical inference is claimed. Dynamic arXiv HTML dates do not replace the frozen version dates. Partial metadata, failed opens, provider errors and unread originals are excluded from negative evidence; the KQB archive retains those statuses and the original three-used/zero-remaining budget.
+
+Context is SHARED_CONTROL_CONTEXT_DISCLOSED. Root coordinated the lawful control repair and provided bibliographic/semantic boundary guidance before publication. This is not a blind review. Reviewer contribution history remains EM-DIRECT-E1F2B6, EM-DIRECT-FA0C27, EM-DIRECT-49ADE6 and EM-DVR-C1A1D9; it is supplemented, never reset. Authors/inherited contributors EM-DIRECT-5DD273, EM-NFHJPA-5B519F, EM-NATIVE-0B2763 and EM-NATIVE-79EB13 remain attributed. The native author/contribution isolation check must decide actual review admissibility; a new identity or local declaration cannot bypass it.
+
+After complete actual Result intake and the decisive source-to-target reading above, my bounded judgment is ACCEPTED for this finite six-row classification at TASK scope. Actual native admission must still pass the current Driver authority and author/contribution checks. It supplies no global novelty, stronger theorem, Working Truth, Foundation or parent closure. No mathematical successor is justified solely by PASS. Remaining parent control obligations include the exact historical publication-binding and follow-up-ID compatibility gaps; draft PR #1542 proposes a typed authenticated witness design but implements no exception. The next control action is canonical portfolio reevaluation, preserving active owners and completed work.
+
+<!-- ENTERPRISE_MATH_DRIVER_TASK_COMPLETION_ASSESSMENT_V1
+{
+  "schema": "ENTERPRISE_MATH_DRIVER_TASK_COMPLETION_ASSESSMENT_V1",
+  "driver_id": "EM-DVR-4C90FB",
+  "task_id": "RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT",
+  "publication_id": "TP2-0B9541A191FE5231A19B",
+  "result_id": "RR-2280B8F2EFAAD8463C92",
+  "result_record_sha256": "sha256:a1d384583af8f33b1da53929d94295f501aa5cfd26daeee4e613640d0243966c",
+  "original_hard_target_disposition": "ACHIEVED_AT_EXPLICIT_FINITE_AUDITED_SET_SCOPE / NATIVE_FILAMENT_HJ_EXTERNAL_PRIOR_ART_DUPLICATION_BOUNDARY_CLASSIFIED",
+  "disposition": "SATISFIED",
+  "terminal_scope": "TASK",
+  "assessment": "The Task hard target is satisfied at the explicitly finite audited-six-row scope: the complete return and evidence manifest supply authoritative statements, hypotheses and explicit source-to-target maps for H1/H2/J1/J2/C1/C2, classify positive classical kernels and partial antecedents, and bound negative comparisons to named inspected declarations. The retained deleted-diagonal, finite-field character, good-prime, residue-set, denominator and native-type guards prevent stronger claims. Global literature completeness and novelty are unclaimed. The raw PASS and descriptive hard_target_disposition are preserved verbatim. This judgment closes only this current Task; the OPEN parent, historical binding/follow-up compatibility residue, other active work and all source/contribution disclosures remain."
+}
+-->
