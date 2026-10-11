@@ -1,0 +1,86 @@
+{
+  "schema": "CELL_U25_RELEASE_FLUX_CHECKPOINT_V1",
+  "event_id": "EM-20261011-CELL-U25-RELEASE-FLUX-2A7E94",
+  "status": "CONDITIONAL_UNREVIEWED",
+  "activity_id": null,
+  "global_read": "699c95d89660c2de0650d8c27cc91bc71371be17",
+  "source_intake": "89974331cd0c1cb1bddad09a1bca47d1956693b8",
+  "source_observed": {
+    "RESULT.md": {
+      "commit": "321afcf5b7850d8e5fcb52f9ee5f44e5ff814119",
+      "bytes": 11509,
+      "sha256": "d5fe9d2f2166c2b5ba2a7c9ea43d36150c193c41566686647b448df467a97d57",
+      "git_blob_sha1": "c834b0f53b78b71e73b382b3a5788b2df93e548f"
+    }
+  },
+  "package_files": {
+    "NOTE.md": {
+      "bytes": 18364,
+      "sha256": "e8ff8202157b42cc93f1855704433c968f27768cdd6a160164402efa5cbcda6c",
+      "git_blob_sha1": "a42fd158e08e96ecfa01826fc328496c69aec3d0"
+    },
+    "release_flux.py": {
+      "bytes": 17907,
+      "sha256": "5473366d81bee9e04d7ef5bdcdf3dc3d58ba1d5ed589e31f6a3b39f844f3ffb7",
+      "git_blob_sha1": "b906929703dfbd5c31a1c4355dfd33ddf15d8d5e"
+    },
+    "check_u25.py": {
+      "bytes": 7867,
+      "sha256": "54c91cc8389e37a68436cd46f11ba227162b8702ad7bda50ff74500212ea8a31",
+      "git_blob_sha1": "7bf7d0e1368f938912e9a8e4c0b760a789b0c3d2"
+    },
+    "evidence/results.json": {
+      "bytes": 10579,
+      "sha256": "3d783942543bda0d1b6b28838686247d89738d4fec1e6c2f10aa13ddf7d62407",
+      "git_blob_sha1": "c49d0775fc038f6e392c331359e4b9a808a896cf"
+    },
+    "evidence/full_trace.json.gz": {
+      "bytes": 43898,
+      "sha256": "77b3eb3d1b3cfe7f58f661939f4005642b7978841a61986049342e46b39d5526",
+      "git_blob_sha1": "7e51de295308d6ba147e5c7972970e657c2c850f"
+    }
+  },
+  "finite_checks": {
+    "full_state_rows": 1040,
+    "quotient_rows": 130,
+    "labelled_inverse_edges": 8240,
+    "actual_body_edges": 3200,
+    "labels_per_full_row": 438,
+    "finite_parameter_cases": 9,
+    "new_top_level_assertions": 349
+  },
+  "infinite_constants": {
+    "two_word_majorant": "7/9",
+    "tree_normalizer_upper": "2744/729",
+    "four_first_excursion_release_coefficient": "1/392",
+    "root_path_weight": "1/5308416",
+    "minimal_release_states": 15360,
+    "minimal_stationary_release_flux": "5/84672",
+    "stationary_release_mean_upper": "8605184/135",
+    "own_first_loss_mean_uniform_upper": "281974669312/9",
+    "mean_bound_is_deliberately_loose": true,
+    "tree_L_marked_mass_upper": "12544/729",
+    "tree_cost_1plusL_mass_upper": "5096/243",
+    "stationary_release_work_upper_cost_1plusL": "15981056/45"
+  },
+  "actual_two_tick_first_release_mass": "1/6272",
+  "actual_first_repair_by_two": "3133/1843968",
+  "BRC_calls": {
+    "cwm_edge": 316136,
+    "cwm_recoalesce": 1023949,
+    "cwm_propagate": 1068806,
+    "one_state_recurrent_cwm": 198
+  },
+  "trace_bytes": 143596,
+  "trace_sha256": "7ffa249fe489d1f943f1c305da8837b5577aa9e006ac6e1a19b182b5f65a7c96",
+  "compressed_trace_sha256": "77b3eb3d1b3cfe7f58f661939f4005642b7978841a61986049342e46b39d5526",
+  "same_author_isolated_replay_byte_equal": true,
+  "independent_review": false,
+  "full_resource_delivery_lift": false,
+  "full_moving_lifetime_power_proved": false,
+  "native_force_or_triad_admission": false,
+  "physical_clock": false,
+  "prime_criterion": false,
+  "full_code_location": "CONVERSATION_PACKAGE_WITH_SEVEN_PINNED_DEPENDENCIES",
+  "next": "Lift the exact mobile one-loss repair test to finite source-identified records and actual delivery; verify the weighted work moment under its own first-release law."
+}
