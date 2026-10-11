@@ -1,0 +1,46 @@
+{
+  "scope": "TEN_SELECTED_PRIMES_EXACT_REGRESSION_NOT_ALL_PRIME_PROOF_OR_UR_LIFT",
+  "status": "PASS",
+  "selected_primes": [
+    7,
+    13,
+    19,
+    31,
+    37,
+    43,
+    61,
+    67,
+    73,
+    97
+  ],
+  "excluded_p5_negative": {
+    "p": 5,
+    "excluded_reason": "p is not 1 mod 6; no integer m=(p-1)/6",
+    "coefficient_mod_25_failure": [
+      [
+        5,
+        3
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        7,
+        20
+      ],
+      [
+        8,
+        20
+      ]
+    ]
+  },
+  "reused_precision_source_sha256": "d8a19c7e4a319b5e9b17b66a1b5ef4ac563bd984815c7355bd73784e0bc521d8",
+  "positive_mod_p2_cases": 10,
+  "target_divided_digit_cases": 6,
+  "polynomial_mod_p3_negative_cases": 10,
+  "literal_p_power_is_sigma_mod_p2": false,
+  "period_normal_identified": false,
+  "UR_proved": false,
+  "LIFT_proved": false
+}

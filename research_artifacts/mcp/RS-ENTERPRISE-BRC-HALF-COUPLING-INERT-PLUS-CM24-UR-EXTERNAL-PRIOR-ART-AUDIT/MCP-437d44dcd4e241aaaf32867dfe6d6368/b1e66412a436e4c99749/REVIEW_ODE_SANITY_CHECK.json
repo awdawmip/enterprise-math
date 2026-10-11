@@ -1,0 +1,33 @@
+{
+  "scope": "BOUNDED_READ_ONLY_SANITY_CHECK_OF_PROOF_SECTIONS_2_3",
+  "status": "BOUNDARY_PASS_NO_DEFECT_FOUND_IN_SECTIONS_2_3",
+  "frozen_proof": {
+    "path": "/workspace/em-owner-resume-20261011/cm24-p2-directed-review-20261011/frozen-inputs/CM24_QUADRATIC_MOD_P2_TASK_LIFT_PROOF.md",
+    "bytes": 12379,
+    "sha256": "dbe74c73a06875332cf12e7d550eedbcacf9f9a46367c447e875347490ce5632"
+  },
+  "symbolic_residuals": {
+    "F_second": "0",
+    "F_first": "0",
+    "F_constant": "0"
+  },
+  "recurrence_residual": "0",
+  "prime_hypothesis": "p prime, p=6m+1, m>=1, hence p>=7",
+  "valuation_reasoning": "For 0<=j<n<p the three arithmetic progressions contain respectively only p at j=m, p at j=2m, and 2p at j=4m; factorials and 3,6 are p-units. Entry occurs when n>j.",
+  "cutoffs": {
+    "gauss_effective_degree_mod_p2": "2m",
+    "hesse_effective_degree_mod_p2": "4m",
+    "composed_effective_degree_mod_p2": "4m<p"
+  },
+  "coefficient_dependency": "q has order one at zero, so coefficient x^k for k<p only depends on Gauss indices n<=k<p. Both truncated polynomials retain all those coefficients exactly over Q.",
+  "high_degree_reasoning": "k>=p lies above 4m, hence all remaining coefficients vanish modulo p^2; no assertion about n>=p infinite-tail integrality is needed.",
+  "boundaries": [
+    "only sections 2-3 checked",
+    "no source/native authority validation",
+    "no statement modulo p^3",
+    "no Task point/lift/derivative/period acceptance",
+    "shared context and directed, nonformal DR",
+    "original author file unchanged",
+    "zero provider queries and zero remote/native writes"
+  ]
+}
