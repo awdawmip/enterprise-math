@@ -1,0 +1,278 @@
+{
+  "schema": "U25_PACKAGE_AVAILABILITY_INTAKE_V1",
+  "date": "2026-10-11",
+  "status": "PARTIAL_BYTE_RETRIEVAL",
+  "operation": "READ_ONLY_DRIVER_EVIDENCE_INTAKE",
+  "scientific_review": false,
+  "scientific_execution": false,
+  "canonical_task_or_identity_created": false,
+  "remote_write": false,
+  "source": {
+    "repository": "awdawmip/enterprise-math",
+    "read_commit": "7f3671187aca1c041294766fa4704715698e3dc6",
+    "gk_verified_commit_retained": "dfa87940e18c6e4b8017bb0d01e20fe878a2189e"
+  },
+  "complete_u25_package_retrieved": false,
+  "u25_checkpoint_package_location_statement": "CONVERSATION_PACKAGE_WITH_SEVEN_PINNED_DEPENDENCIES",
+  "actual_conversation_package_reference_obtained": false,
+  "retrieved_u25_dependency_count": 4,
+  "retrieved_u25_dependencies": [
+    {
+      "name": "local_latent",
+      "source_path": "research_notes/chatgpt_direct/20261008_cell_u9_local_latent_4b7e62/local_latent.py",
+      "local_path": "/workspace/em-owner-resume-20261011/u25-package-intake/retrieved/local_latent.py",
+      "actual_bytes": 8248,
+      "actual_sha256": "fc98fd83ee409bfaedd12dae634f63416d1cd779a3f27e58a06b841fb3cb482b",
+      "actual_git_blob_sha1": "67408af5b977bed7295f7225cdd3f550c41b9729",
+      "digest_kinds": [
+        "SHA256_OF_RAW_BYTES",
+        "GIT_BLOB_SHA1_WITH_BLOB_HEADER"
+      ],
+      "report_pin_match": true,
+      "scientific_execution": false
+    },
+    {
+      "name": "connected_retention",
+      "source_path": "research_notes/chatgpt_direct/20261008_cell_u8_connected_retention_5e91c4/connected_retention.py",
+      "local_path": "/workspace/em-owner-resume-20261011/u25-package-intake/retrieved/connected_retention.py",
+      "actual_bytes": 7879,
+      "actual_sha256": "25aa7780fad05cd0c5fcfa0611b43069af0640fb2cfd2bd97acb11f55cd3ac39",
+      "actual_git_blob_sha1": "569e6171d0052fbfd41cf007b09a8327b339228b",
+      "digest_kinds": [
+        "SHA256_OF_RAW_BYTES",
+        "GIT_BLOB_SHA1_WITH_BLOB_HEADER"
+      ],
+      "report_pin_match": true,
+      "scientific_execution": false
+    },
+    {
+      "name": "packet_router",
+      "source_path": "research_notes/chatgpt_direct/20261007_cell_closure_u2_7f21d8/packet_router.py",
+      "local_path": "/workspace/em-owner-resume-20261011/u25-package-intake/retrieved/packet_router.py",
+      "actual_bytes": 8724,
+      "actual_sha256": "2e1beb9c510cd8235633e33f41d3e3d93ce20665b9d72847d6a13b1d15cda582",
+      "actual_git_blob_sha1": "7465f5aa16cbb8fba61ba4be80f8a6884b879c53",
+      "digest_kinds": [
+        "SHA256_OF_RAW_BYTES",
+        "GIT_BLOB_SHA1_WITH_BLOB_HEADER"
+      ],
+      "report_pin_match": true,
+      "scientific_execution": false
+    },
+    {
+      "name": "brc_weighted",
+      "source_path": "src/enterprise_math/brc_weighted.py",
+      "local_path": "/workspace/em-owner-resume-20261011/u25-package-intake/retrieved/brc_weighted.py",
+      "actual_bytes": 9635,
+      "actual_sha256": "4f3e356227a1c964d33a3ddae94922463ba28097a43b8d1b8f6cd9ca5615fc9f",
+      "actual_git_blob_sha1": "3f205696709e847909958a153f8fe10d3f6b70f0",
+      "digest_kinds": [
+        "SHA256_OF_RAW_BYTES",
+        "GIT_BLOB_SHA1_WITH_BLOB_HEADER"
+      ],
+      "report_pin_match": true,
+      "scientific_execution": false
+    }
+  ],
+  "u25_package_files_not_retrieved": [
+    {
+      "filename": "NOTE.md",
+      "declared_bytes": 18364,
+      "declared_sha256": "e8ff8202157b42cc93f1855704433c968f27768cdd6a160164402efa5cbcda6c",
+      "declared_git_blob_sha1": "a42fd158e08e96ecfa01826fc328496c69aec3d0",
+      "actual_bytes": null,
+      "actual_digest_verified": false,
+      "attempted_endpoint": "GitHub.fetch_blob awdawmip/enterprise-math",
+      "outcome": "404_NOT_FOUND"
+    },
+    {
+      "filename": "release_flux.py",
+      "declared_bytes": 17907,
+      "declared_sha256": "5473366d81bee9e04d7ef5bdcdf3dc3d58ba1d5ed589e31f6a3b39f844f3ffb7",
+      "declared_git_blob_sha1": "b906929703dfbd5c31a1c4355dfd33ddf15d8d5e",
+      "actual_bytes": null,
+      "actual_digest_verified": false,
+      "attempted_endpoint": "GitHub.fetch_blob awdawmip/enterprise-math",
+      "outcome": "404_NOT_FOUND"
+    },
+    {
+      "filename": "check_u25.py",
+      "declared_bytes": 7867,
+      "declared_sha256": "54c91cc8389e37a68436cd46f11ba227162b8702ad7bda50ff74500212ea8a31",
+      "declared_git_blob_sha1": "7bf7d0e1368f938912e9a8e4c0b760a789b0c3d2",
+      "actual_bytes": null,
+      "actual_digest_verified": false,
+      "attempted_endpoint": "GitHub.fetch_blob awdawmip/enterprise-math",
+      "outcome": "404_NOT_FOUND"
+    },
+    {
+      "filename": "evidence/results.json",
+      "declared_bytes": 10579,
+      "declared_sha256": "3d783942543bda0d1b6b28838686247d89738d4fec1e6c2f10aa13ddf7d62407",
+      "declared_git_blob_sha1": "c49d0775fc038f6e392c331359e4b9a808a896cf",
+      "actual_bytes": null,
+      "actual_digest_verified": false,
+      "attempted_endpoint": "GitHub.fetch_blob awdawmip/enterprise-math",
+      "outcome": "404_NOT_FOUND"
+    },
+    {
+      "filename": "evidence/full_trace.json.gz",
+      "declared_bytes": 43898,
+      "declared_sha256": "77b3eb3d1b3cfe7f58f661939f4005642b7978841a61986049342e46b39d5526",
+      "declared_git_blob_sha1": "7e51de295308d6ba147e5c7972970e657c2c850f",
+      "actual_bytes": null,
+      "actual_digest_verified": false,
+      "attempted_endpoint": "GitHub.fetch_blob awdawmip/enterprise-math",
+      "outcome": "404_NOT_FOUND"
+    }
+  ],
+  "unretrieved_dependencies": [
+    {
+      "name": "residual_contact",
+      "declared_40_hex_pin": "6160eb24cda9ef576d2972ef45df8e16e9fe67a4",
+      "declared_digest_kind": "UNSPECIFIED_40_HEX_REPORT_PIN",
+      "requested_endpoint_kind": "GIT_BLOB_SHA1_CANDIDATE",
+      "retrieval_status": "GITHUB_REPOSITORY_BLOB_ENDPOINT_404",
+      "scope_note": "No actual bytes retrieved in this authorized intake; no global absence claim."
+    },
+    {
+      "name": "contact_network",
+      "declared_40_hex_pin": "5f89fe162f230c5ce31c317bda17089935f1c7fc",
+      "declared_digest_kind": "UNSPECIFIED_40_HEX_REPORT_PIN",
+      "requested_endpoint_kind": "GIT_BLOB_SHA1_CANDIDATE",
+      "retrieval_status": "GITHUB_REPOSITORY_BLOB_ENDPOINT_404",
+      "scope_note": "No actual bytes retrieved in this authorized intake; no global absence claim."
+    },
+    {
+      "name": "mobile_junction",
+      "declared_40_hex_pin": "37931d40d7a2edc36889366d4766c83319eef0e7",
+      "declared_digest_kind": "UNSPECIFIED_40_HEX_REPORT_PIN",
+      "requested_endpoint_kind": "GIT_BLOB_SHA1_CANDIDATE",
+      "retrieval_status": "GITHUB_REPOSITORY_BLOB_ENDPOINT_404",
+      "scope_note": "No actual bytes retrieved in this authorized intake; no global absence claim."
+    },
+    {
+      "name": "repair_reserve",
+      "declared_40_hex_pin": "95426d4c2b3b0060c3f166696cf950eb7c0bb83f",
+      "declared_digest_kind": "UNSPECIFIED_40_HEX_REPORT_PIN",
+      "requested_endpoint_kind": "GIT_BLOB_SHA1_CANDIDATE",
+      "retrieval_status": "GITHUB_REPOSITORY_BLOB_ENDPOINT_404",
+      "scope_note": "No actual bytes retrieved in this authorized intake; no global absence claim."
+    }
+  ],
+  "u24": {
+    "source_path": "research_notes/chatgpt_direct/20261011_cell_u24_transport_repair_8c4d71",
+    "report_retrieved": {
+      "bytes": 10264,
+      "sha256": "2f97982803ae8c5c7e334e4c7b4f531c19121505fad32266ccd0edef7970d325",
+      "git_blob_sha1": "38d59ffcd4c5671dafe4393aca586c08a409c41b"
+    },
+    "checkpoint_retrieved": {
+      "bytes": 2467,
+      "sha256": "af58c6608c567e7b33cb120057d83edb9b8995d0add72317705ffd042a31d7c4",
+      "git_blob_sha1": "b84148c2e7260fa5b34380f227fe67874de832ab"
+    },
+    "actual_contact_inventory_code_retrieved": false,
+    "actual_transport_repair_code_retrieved": false,
+    "source_report_rule_statement": "After BC release, the same released record supplies B's new AB prefix under U9 material growth; all four records become bound and immediate BC recapture is ineligible. Report also states actual inverse restores the record and permits recapture.",
+    "source_report_rule_statement_status": "UNREVIEWED_REPORT_NOT_REPLACEMENT_IMPLEMENTATION",
+    "u9_actual_material_source_lines": {
+      "path": "/workspace/em-owner-resume-20261011/u25-package-intake/retrieved/local_latent.py",
+      "start": 83,
+      "end": 99,
+      "scope": "Static source reference only; this interface has no complete record inventory/delivery fields."
+    },
+    "core_package_files_not_retrieved": [
+      {
+        "filename": "NOTE.md",
+        "declared_bytes": 17162,
+        "declared_sha256": "502ce43a9d86deb5570f99f1bfde80040e56e582b21d8ea7c9925b8d1436681f",
+        "declared_git_blob_sha1": "368ed12837467c50d8085628f01083de59dc71c1",
+        "outcome": "REPOSITORY_BLOB_ENDPOINT_404",
+        "actual_bytes": null
+      },
+      {
+        "filename": "transport_repair.py",
+        "declared_bytes": 10287,
+        "declared_sha256": "7658be3d6a62250570beb8723a7b36133225ef7da0c2bd734557cf8221e024b2",
+        "declared_git_blob_sha1": "468371af72c570900a0557b7b0400fc6631d593c",
+        "outcome": "REPOSITORY_BLOB_ENDPOINT_404",
+        "actual_bytes": null
+      },
+      {
+        "filename": "check_u24.py",
+        "declared_bytes": 9994,
+        "declared_sha256": "6faaf2820b91009383ccf11dcc0e3520ba27c107a83d35e5a40bc0a3dd09e116",
+        "declared_git_blob_sha1": "1fe64914a6644f728167face06b29c17ece98533",
+        "outcome": "REPOSITORY_BLOB_ENDPOINT_404",
+        "actual_bytes": null
+      }
+    ],
+    "archive_name_in_report": "cell_closure_u24_evidence.zip",
+    "archive_reference_obtained": false,
+    "archive_global_nonexistence_claim": false,
+    "completed_full_suite_repeated": false
+  },
+  "u11_background": {
+    "classification": "ADJACENT_SOURCE_BACKGROUND_NOT_U24_OR_U25_IMPLEMENTATION_SUBSTITUTE",
+    "source_path": "research_notes/chatgpt_direct/20261008_cell_u11_resource_reaction_c7e4a1/resource_lift.py",
+    "local_path": "/workspace/em-owner-resume-20261011/u25-package-intake/retrieved/U11_resource_lift.py",
+    "actual_bytes": 9675,
+    "actual_sha256": "68d4f298d058332a237ce9b3747abfb36484569800e4107b23fb57212cb323fd",
+    "actual_git_blob_sha1": "0a7e0890eb08dc722d2e85fb3ad1a7b2d6b29621",
+    "source_declared_scope": "An isolated material grow/shrink transaction; not a distributed implementation of every U9 channel.",
+    "no_new_rule_adopted": true
+  },
+  "search_scope": {
+    "workspace": "Relevant filenames/pins and explicitly mentioned archive paths; existing actual packet_router/brc_weighted located and byte-verified.",
+    "root_shallow_entries": 219,
+    "u25_note_directory_files": [
+      "CHECKPOINT.json",
+      "RESULT.md"
+    ],
+    "u24_note_directory_files": [
+      "CHECKPOINT.json",
+      "RESULT.md"
+    ],
+    "complete_recursive_subtrees": {
+      "research_notes": 4097,
+      "artifacts": 6,
+      "research_artifacts": 1783,
+      "src": 302,
+      "experiments": 499,
+      "research_toolkits": 1
+    },
+    "scanned_subtrees_truncated": false,
+    "whole_repository_recursive_attempt": "TRANSPORT_CLOSED_NOT_A_NEGATIVE_RESULT",
+    "github_index_queries": [
+      "CONVERSATION_PACKAGE_WITH_SEVEN_PINNED_DEPENDENCIES",
+      "8C4D71",
+      "cell_closure_u24_evidence.zip",
+      "release_flux.py",
+      "ContactInventory"
+    ],
+    "github_index_query_results": "EMPTY_BOUNDED_INDEX_RESULTS_NOT_ABSENCE_PROOF",
+    "other_chats_accessed": false,
+    "other_people_messaged": false
+  },
+  "missing_proof_boundary": "404 proves only that this specific repository blob endpoint did not yield the object during this intake. Directory/tree evidence establishes inspected paths only. No global absence claim for the conversation package, other repositories or histories.",
+  "minimal_next_input": [
+    "U25 five checkpoint-declared package files and trace.",
+    "U25 residual_contact/contact_network/mobile_junction exact actual dependencies.",
+    "U24 actual NOTE/transport_repair/check_u24/ContactInventory and repair_reserve mapping.",
+    "A resolvable authorized original package reference and manifest."
+  ],
+  "model_type_gate_passed": false,
+  "mathematical_audit_gate_passed": false,
+  "no_impossibility_or_lifetime_claim": true,
+  "legal_park_statement": "Complete conversation package and listed actual implementations were not located within this authorized intake scope.",
+  "artifacts": {
+    "markdown": "/workspace/em-owner-resume-20261011/U25_PACKAGE_AVAILABILITY_INTAKE.md",
+    "retrieved_root": "/workspace/em-owner-resume-20261011/u25-package-intake/retrieved",
+    "byte_manifest": "/workspace/em-owner-resume-20261011/u25-package-intake/LOCAL_BYTE_MANIFEST.json",
+    "search_receipts": "/workspace/em-owner-resume-20261011/u25-package-intake/SEARCH_AND_BLOB_RECEIPTS.json",
+    "tree_evidence": "/workspace/em-owner-resume-20261011/u25-package-intake/TREE_SEARCH_EVIDENCE.json",
+    "tree_evidence_local_serialized_bytes": 2542645,
+    "tree_evidence_local_serialized_sha256": "e871493d47255c389856fc6fb941b47a2d36cf2ccd0858c77c236bf7e62e8764"
+  }
+}
