@@ -1,0 +1,144 @@
+{
+  "scope": "BOUNDED_READ_ONLY_PRECISE_SECOND_DIGIT_PRIMARY_LITERATURE",
+  "start_utc": "2026-10-11 18:03:00 UTC",
+  "target": {
+    "sum": "sum_(k=0)^(p-1) (6k+1)*binom(2k,k)^2*binom(3k,k)/216^k",
+    "parameters": [
+      "1/2",
+      "1/3",
+      "2/3"
+    ],
+    "hypergeom_argument": "1/2",
+    "weight": "6k+1",
+    "inclusive_truncation": "k=0..p-1",
+    "prime_classes_mod24": [
+      13,
+      19
+    ],
+    "wanted": "S_p = +p (mod p^3)",
+    "excluded_stronger_goal": "OLD Sun A14 normalized mod p^3 / weighted Bernoulli mod p^4"
+  },
+  "primary_rows": [
+    {
+      "id": "BRSTT_EQ_6_8",
+      "url": "https://arxiv.org/pdf/2408.08844v3",
+      "version_date": "2025-03-12",
+      "locator": "Section 6, printed p.23, equation (6.8)",
+      "same_parameters": true,
+      "same_weight": true,
+      "same_argument": true,
+      "same_truncation": true,
+      "precision": "mod p^3",
+      "statement_math": "[F_(6,(1/2,1/3,2/3))]_(p-1)(1/2) = sgn*((1-lambda)/p)*p (mod p^3), lambda=1/2",
+      "status": "EXACT_TARGET_FINITE_NUMERICAL_VERIFICATION_ONLY",
+      "reported_prime_scope": "applicable primes 5 <= p < 150",
+      "project_rhs_translation": {
+        "sgn": -1,
+        "legendre_2_p": -1,
+        "rhs_sign": 1
+      },
+      "proof": false
+    },
+    {
+      "id": "BRSTT_THM_2_1",
+      "url": "https://arxiv.org/pdf/2408.08844v3",
+      "locator": "Theorem 2.1, printed p.6; Section 6 discussion",
+      "precision": "mod p^2",
+      "status": "KNOWN_FIRST_DIGIT_ONLY",
+      "project_second_digit_proof": false
+    },
+    {
+      "id": "BRSTT_THM_6_1",
+      "url": "https://arxiv.org/pdf/2408.08844v3",
+      "locator": "Theorem 6.1, printed p.22",
+      "precision": "mod p^3",
+      "parameters": [
+        "1/2",
+        "1/6",
+        "5/6"
+      ],
+      "hypotheses": [
+        "notation and assumptions of Theorem 2.1 and (6.1)",
+        "lambda=1728/j(omega_D)",
+        "ordinary prime"
+      ],
+      "status": "PROVED_DIFFERENT_PARAMETERS_AND_ORDINARY_SCOPE",
+      "project_second_digit_proof": false
+    },
+    {
+      "id": "BRSTT_PROP_6_3",
+      "url": "https://arxiv.org/pdf/2408.08844v3",
+      "locator": "Proposition 6.3, printed p.23",
+      "statement_type": "conditional implication",
+      "premise": "Theorem 2.1 holds mod p^3",
+      "conclusion": "Conjecture 6.2 is true",
+      "status": "DOES_NOT_PROVE_REQUIRED_WEIGHTED_PREMISE"
+    },
+    {
+      "id": "BEUKERS_THM_1_22_AND_SEC_9_3",
+      "url": "https://arxiv.org/pdf/2403.03301v3",
+      "version_date": "2025-06-16",
+      "locator": "Theorem 1.22 printed p.9; Appendix C 9.3 printed p.29",
+      "precision": "mod p^3",
+      "statement_math": "sum_(k=0)^(p-1) (1-k/delta(alpha))*g_k*t(alpha)^k = chi(w_e)*p (mod p^3)",
+      "generating_function": "3F2(1/3,1/2,2/3;1,1;108t)",
+      "g_k": "(3k)!*(2k)!/(k!)^5",
+      "cm_alpha": "sqrt(-6)/3",
+      "t_alpha": "1/216",
+      "hypotheses_relevant": [
+        "Assumption (II)",
+        "imaginary quadratic alpha with positive imaginary part and denominator dividing N",
+        "alpha not zero of t'",
+        "p not dividing N",
+        "p splits in Q(alpha)",
+        "embedding Q(alpha) into Q_p",
+        "existence of w_e and c,d satisfying stated norm/divisibility/unit conditions",
+        "t(alpha) p-adic integer",
+        "delta(alpha) p-adic unit"
+      ],
+      "needed_target_delta": "-1/6 (not independently computed here)",
+      "prime_obstruction": "Both p13/19mod24 have (-6/p)=-1, hence are inert in Q(sqrt(-6))",
+      "status": "EXACT_GENERATING_FUNCTION_POINT_BUT_SPLIT_PRIME_HYPOTHESIS_FAILS",
+      "project_second_digit_proof": false
+    }
+  ],
+  "bounded_screened_adjacent_candidates": [
+    {
+      "source": "Zudilin 0805.2788",
+      "limit": "Different parameters/arguments/weights in inspected primary theorems; no proved exact-target transform obtained"
+    },
+    {
+      "source": "Guillera 1910.01961",
+      "limit": "Heuristic p-adic expansions; no exact-target primary proof obtained"
+    },
+    {
+      "source": "Guo-Zudilin divergent Ramanujan-type congruences",
+      "limit": "Different weight 11k+3 and argument 27/16; no proved exact-target transform obtained"
+    },
+    {
+      "source": "Long half^3, -1/8 and q-analogues",
+      "limit": "Not imported as the target without a proved transformation preserving truncation, precision and prime scope"
+    }
+  ],
+  "first_digit_reference": {
+    "note": "../ur-first-digit-prior-art-bounded-20261011/ROOT_PRIOR_ART_HANDOFF.md",
+    "note_sha256": "5522445447818111a2eb45eb546f4a806291074f3927d6620063e7f7b0b75e71",
+    "status": "preserved; no first-digit or curve recheck"
+  },
+  "evidence": {
+    "child_note": "modular-citation-scout/ROOT_MODULAR_CITATION_HANDOFF.md",
+    "child_pins": "modular-citation-scout/ARTIFACT_PINS.json",
+    "root_receipts": "ROOT_WEB_READ_RECEIPTS.json"
+  },
+  "verdict": "NO_EXACT_PROJECT_MOD_P3_PROOF_FOUND_IN_THIS_BOUNDED_SEARCH",
+  "next_mathematical_unit": "Continue independently fixed OLD-R + 6*tau cancellation / LIFT finite certificate",
+  "nonclaims": [
+    "No global absence-of-proof claim",
+    "No novelty audit completion",
+    "No proof from finite numerical evidence",
+    "No theorem acceptance or task completion",
+    "No Source/Task/Claim/provider/API-quota mutation",
+    "No Full-X6 propagation"
+  ],
+  "semantic_binding": "Existing P000 / Heartbeat session binding retained"
+}
