@@ -1,0 +1,1099 @@
+{
+  "status": "PASS",
+  "scope": "SIX_SELECTED_PRIMES_NEW_P3_CARRIER_REGRESSION_NOT_UR_LIFT_PROOF",
+  "task_id": "RS-ENTERPRISE-CM24-HESSE-INHOMOGENEOUS-P3-TRANSPORT",
+  "binding": {
+    "schema": "CM24_P3_OWN_EXECUTION_BINDING_V1",
+    "task_id": "RS-ENTERPRISE-CM24-HESSE-INHOMOGENEOUS-P3-TRANSPORT",
+    "own_authorized_open": true,
+    "current_session_id": "MCP-2888969f687249df8f9ee8722d9368b1",
+    "current_claim_id": "MCP-cd633c2351ee73d5bda513bd",
+    "run_id": "cm24-hesse-p3-open-20261011-05",
+    "researcher_id": "EM-ENTERPRISE-CB50ED",
+    "execution_record_id": "ER-CBB2ABB4514A4C6B1A45",
+    "publication_id": "TP2-21DFFFD4A8788C0FF5CA",
+    "ownership_epoch": 6110256688,
+    "source_commit": "31d29efd75d5f9ac88e36e5bbd942a55c2b23e6c",
+    "claim_comment_id": 6110256688,
+    "execution_record_blob_sha1": "2794e522ba8e3c2e52633e5f043485646cd96761",
+    "execution_record_sha256": "f2b1a9778e12b24b831ad404578780d18b753fdae27aaccd8007add8c321f1c4",
+    "open_request_id": "cm24-hesse-p3-open-20261011-05",
+    "authorization_authority": "CURRENT_AUTHORIZED_WINNING_ISSUE_240_CLAIM",
+    "verified_full_source_readbacks": true,
+    "mathematical_acceptance_granted": false
+  },
+  "cases": [
+    {
+      "p": 7,
+      "m": 1,
+      "p_mod_24": 7,
+      "target": false,
+      "beta_seed_mod_p": 5,
+      "harmonic_seed_mod_p": 5,
+      "harmonic_input": {
+        "q2_mod_p2": 9,
+        "S2_mod_p2": 25,
+        "divided_minus_3S2_minus_q2_mod_p": 2,
+        "T2_T3_T6_mod_p": {
+          "2": 2,
+          "3": 4,
+          "6": 1
+        }
+      },
+      "full_J_coefficients_mod_p": [
+        5,
+        4,
+        1,
+        3,
+        5,
+        5
+      ],
+      "zero_seed_particular_coefficients_mod_p": [
+        0,
+        6,
+        6,
+        3,
+        5,
+        5
+      ],
+      "full_coefficientwise_p3_correction": true,
+      "endpoint_residual": 0,
+      "factor_entry_residuals": {
+        "2": 0,
+        "4": 0
+      },
+      "zero_seed_polynomial_failure_degrees": [
+        7,
+        8,
+        9
+      ],
+      "branches": [
+        {
+          "sign": 1,
+          "x_mod_p3": [
+            172,
+            86
+          ],
+          "uncorrected_Hesse_minus_Gauss_mod_p3": [
+            245,
+            245
+          ],
+          "x_power_p_mod_p": [
+            4,
+            2
+          ],
+          "Hasse_value_mod_p": [
+            2,
+            0
+          ],
+          "full_J_value_mod_p": [
+            0,
+            4
+          ],
+          "zero_seed_particular_value_mod_p": [
+            4,
+            4
+          ],
+          "full_seed_derivative_transport": true,
+          "zero_seed_derivative_error_mod_p3": [
+            196,
+            196
+          ],
+          "second_digit": null
+        },
+        {
+          "sign": -1,
+          "x_mod_p3": [
+            172,
+            257
+          ],
+          "uncorrected_Hesse_minus_Gauss_mod_p3": [
+            245,
+            98
+          ],
+          "x_power_p_mod_p": [
+            4,
+            5
+          ],
+          "Hasse_value_mod_p": [
+            2,
+            0
+          ],
+          "full_J_value_mod_p": [
+            0,
+            3
+          ],
+          "zero_seed_particular_value_mod_p": [
+            4,
+            3
+          ],
+          "full_seed_derivative_transport": true,
+          "zero_seed_derivative_error_mod_p3": [
+            196,
+            147
+          ],
+          "second_digit": null
+        }
+      ]
+    },
+    {
+      "p": 13,
+      "m": 2,
+      "p_mod_24": 13,
+      "target": true,
+      "beta_seed_mod_p": 2,
+      "harmonic_seed_mod_p": 2,
+      "harmonic_input": {
+        "q2_mod_p2": 146,
+        "S2_mod_p2": 64,
+        "divided_minus_3S2_minus_q2_mod_p": 0,
+        "T2_T3_T6_mod_p": {
+          "2": 9,
+          "3": 12,
+          "6": 5
+        }
+      },
+      "full_J_coefficients_mod_p": [
+        2,
+        6,
+        4,
+        9,
+        0,
+        6,
+        8,
+        4,
+        5,
+        11,
+        4,
+        4
+      ],
+      "zero_seed_particular_coefficients_mod_p": [
+        0,
+        7,
+        6,
+        3,
+        3,
+        6,
+        8,
+        4,
+        5,
+        11,
+        4,
+        4
+      ],
+      "full_coefficientwise_p3_correction": true,
+      "endpoint_residual": 0,
+      "factor_entry_residuals": {
+        "4": 0,
+        "8": 0
+      },
+      "zero_seed_polynomial_failure_degrees": [
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "branches": [
+        {
+          "sign": 1,
+          "x_mod_p3": [
+            1099,
+            1648
+          ],
+          "uncorrected_Hesse_minus_Gauss_mod_p3": [
+            507,
+            1690
+          ],
+          "x_power_p_mod_p": [
+            7,
+            3
+          ],
+          "Hasse_value_mod_p": [
+            0,
+            0
+          ],
+          "full_J_value_mod_p": [
+            0,
+            6
+          ],
+          "zero_seed_particular_value_mod_p": [
+            0,
+            6
+          ],
+          "full_seed_derivative_transport": true,
+          "zero_seed_derivative_error_mod_p3": [
+            338,
+            1859
+          ],
+          "second_digit": {
+            "Gauss_divided_mod_p2": [
+              76,
+              0
+            ],
+            "Hesse_uncorrected_divided_mod_p2": [
+              115,
+              130
+            ],
+            "particular_correction_mod_p": [
+              10,
+              3
+            ],
+            "Hesse_corrected_divided_mod_p2": [
+              76,
+              0
+            ]
+          }
+        },
+        {
+          "sign": -1,
+          "x_mod_p3": [
+            1099,
+            549
+          ],
+          "uncorrected_Hesse_minus_Gauss_mod_p3": [
+            507,
+            507
+          ],
+          "x_power_p_mod_p": [
+            7,
+            10
+          ],
+          "Hasse_value_mod_p": [
+            0,
+            0
+          ],
+          "full_J_value_mod_p": [
+            0,
+            7
+          ],
+          "zero_seed_particular_value_mod_p": [
+            0,
+            7
+          ],
+          "full_seed_derivative_transport": true,
+          "zero_seed_derivative_error_mod_p3": [
+            338,
+            338
+          ],
+          "second_digit": {
+            "Gauss_divided_mod_p2": [
+              76,
+              0
+            ],
+            "Hesse_uncorrected_divided_mod_p2": [
+              115,
+              39
+            ],
+            "particular_correction_mod_p": [
+              10,
+              10
+            ],
+            "Hesse_corrected_divided_mod_p2": [
+              76,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "p": 19,
+      "m": 3,
+      "p_mod_24": 19,
+      "target": true,
+      "beta_seed_mod_p": 2,
+      "harmonic_seed_mod_p": 2,
+      "harmonic_input": {
+        "q2_mod_p2": 79,
+        "S2_mod_p2": 265,
+        "divided_minus_3S2_minus_q2_mod_p": 11,
+        "T2_T3_T6_mod_p": {
+          "2": 13,
+          "3": 8,
+          "6": 17
+        }
+      },
+      "full_J_coefficients_mod_p": [
+        2,
+        15,
+        3,
+        18,
+        14,
+        0,
+        17,
+        9,
+        5,
+        8,
+        13,
+        2,
+        15,
+        17,
+        11,
+        16,
+        2,
+        2
+      ],
+      "zero_seed_particular_coefficients_mod_p": [
+        0,
+        4,
+        18,
+        15,
+        3,
+        15,
+        12,
+        9,
+        5,
+        8,
+        13,
+        2,
+        15,
+        17,
+        11,
+        16,
+        2,
+        2
+      ],
+      "full_coefficientwise_p3_correction": true,
+      "endpoint_residual": 0,
+      "factor_entry_residuals": {
+        "6": 0,
+        "12": 0
+      },
+      "zero_seed_polynomial_failure_degrees": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "branches": [
+        {
+          "sign": 1,
+          "x_mod_p3": [
+            3430,
+            1715
+          ],
+          "uncorrected_Hesse_minus_Gauss_mod_p3": [
+            1805,
+            5054
+          ],
+          "x_power_p_mod_p": [
+            10,
+            14
+          ],
+          "Hasse_value_mod_p": [
+            0,
+            0
+          ],
+          "full_J_value_mod_p": [
+            0,
+            10
+          ],
+          "zero_seed_particular_value_mod_p": [
+            0,
+            10
+          ],
+          "full_seed_derivative_transport": true,
+          "zero_seed_derivative_error_mod_p3": [
+            1444,
+            5415
+          ],
+          "second_digit": {
+            "Gauss_divided_mod_p2": [
+              84,
+              0
+            ],
+            "Hesse_uncorrected_divided_mod_p2": [
+              179,
+              266
+            ],
+            "particular_correction_mod_p": [
+              14,
+              5
+            ],
+            "Hesse_corrected_divided_mod_p2": [
+              84,
+              0
+            ]
+          }
+        },
+        {
+          "sign": -1,
+          "x_mod_p3": [
+            3430,
+            5144
+          ],
+          "uncorrected_Hesse_minus_Gauss_mod_p3": [
+            1805,
+            1805
+          ],
+          "x_power_p_mod_p": [
+            10,
+            5
+          ],
+          "Hasse_value_mod_p": [
+            0,
+            0
+          ],
+          "full_J_value_mod_p": [
+            0,
+            9
+          ],
+          "zero_seed_particular_value_mod_p": [
+            0,
+            9
+          ],
+          "full_seed_derivative_transport": true,
+          "zero_seed_derivative_error_mod_p3": [
+            1444,
+            1444
+          ],
+          "second_digit": {
+            "Gauss_divided_mod_p2": [
+              84,
+              0
+            ],
+            "Hesse_uncorrected_divided_mod_p2": [
+              179,
+              95
+            ],
+            "particular_correction_mod_p": [
+              14,
+              14
+            ],
+            "Hesse_corrected_divided_mod_p2": [
+              84,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "p": 31,
+      "m": 5,
+      "p_mod_24": 7,
+      "target": false,
+      "beta_seed_mod_p": 30,
+      "harmonic_seed_mod_p": 30,
+      "harmonic_input": {
+        "q2_mod_p2": 471,
+        "S2_mod_p2": 556,
+        "divided_minus_3S2_minus_q2_mod_p": 24,
+        "T2_T3_T6_mod_p": {
+          "2": 5,
+          "3": 9,
+          "6": 17
+        }
+      },
+      "full_J_coefficients_mod_p": [
+        30,
+        3,
+        24,
+        7,
+        26,
+        10,
+        17,
+        28,
+        12,
+        3,
+        16,
+        15,
+        22,
+        27,
+        7,
+        16,
+        18,
+        5,
+        7,
+        3,
+        24,
+        29,
+        3,
+        29,
+        19,
+        24,
+        2,
+        15,
+        28,
+        28
+      ],
+      "zero_seed_particular_coefficients_mod_p": [
+        0,
+        17,
+        18,
+        4,
+        25,
+        26,
+        9,
+        10,
+        2,
+        23,
+        12,
+        15,
+        22,
+        27,
+        7,
+        16,
+        18,
+        5,
+        7,
+        3,
+        24,
+        29,
+        3,
+        29,
+        19,
+        24,
+        2,
+        15,
+        28,
+        28
+      ],
+      "full_coefficientwise_p3_correction": true,
+      "endpoint_residual": 0,
+      "factor_entry_residuals": {
+        "10": 0,
+        "20": 0
+      },
+      "zero_seed_polynomial_failure_degrees": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "branches": [
+        {
+          "sign": 1,
+          "x_mod_p3": [
+            14896,
+            7448
+          ],
+          "uncorrected_Hesse_minus_Gauss_mod_p3": [
+            25947,
+            25947
+          ],
+          "x_power_p_mod_p": [
+            16,
+            8
+          ],
+          "Hasse_value_mod_p": [
+            21,
+            0
+          ],
+          "full_J_value_mod_p": [
+            0,
+            8
+          ],
+          "zero_seed_particular_value_mod_p": [
+            21,
+            8
+          ],
+          "full_seed_derivative_transport": true,
+          "zero_seed_derivative_error_mod_p3": [
+            11532,
+            11532
+          ],
+          "second_digit": null
+        },
+        {
+          "sign": -1,
+          "x_mod_p3": [
+            14896,
+            22343
+          ],
+          "uncorrected_Hesse_minus_Gauss_mod_p3": [
+            25947,
+            3844
+          ],
+          "x_power_p_mod_p": [
+            16,
+            23
+          ],
+          "Hasse_value_mod_p": [
+            21,
+            0
+          ],
+          "full_J_value_mod_p": [
+            0,
+            23
+          ],
+          "zero_seed_particular_value_mod_p": [
+            21,
+            23
+          ],
+          "full_seed_derivative_transport": true,
+          "zero_seed_derivative_error_mod_p3": [
+            11532,
+            18259
+          ],
+          "second_digit": null
+        }
+      ]
+    },
+    {
+      "p": 37,
+      "m": 6,
+      "p_mod_24": 13,
+      "target": true,
+      "beta_seed_mod_p": 30,
+      "harmonic_seed_mod_p": 30,
+      "harmonic_input": {
+        "q2_mod_p2": 556,
+        "S2_mod_p2": 160,
+        "divided_minus_3S2_minus_q2_mod_p": 9,
+        "T2_T3_T6_mod_p": {
+          "2": 5,
+          "3": 29,
+          "6": 3
+        }
+      },
+      "full_J_coefficients_mod_p": [
+        30,
+        27,
+        17,
+        30,
+        8,
+        16,
+        10,
+        29,
+        8,
+        32,
+        13,
+        15,
+        14,
+        18,
+        13,
+        27,
+        6,
+        21,
+        15,
+        18,
+        36,
+        36,
+        24,
+        21,
+        7,
+        35,
+        13,
+        20,
+        24,
+        1,
+        17,
+        6,
+        13,
+        1,
+        26,
+        26
+      ],
+      "zero_seed_particular_coefficients_mod_p": [
+        0,
+        8,
+        27,
+        36,
+        28,
+        33,
+        6,
+        30,
+        18,
+        23,
+        33,
+        34,
+        17,
+        18,
+        13,
+        27,
+        6,
+        21,
+        15,
+        18,
+        36,
+        36,
+        24,
+        21,
+        7,
+        35,
+        13,
+        20,
+        24,
+        1,
+        17,
+        6,
+        13,
+        1,
+        26,
+        26
+      ],
+      "full_coefficientwise_p3_correction": true,
+      "endpoint_residual": 0,
+      "factor_entry_residuals": {
+        "12": 0,
+        "24": 0
+      },
+      "zero_seed_polynomial_failure_degrees": [
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "branches": [
+        {
+          "sign": 1,
+          "x_mod_p3": [
+            25327,
+            37990
+          ],
+          "uncorrected_Hesse_minus_Gauss_mod_p3": [
+            27380,
+            23273
+          ],
+          "x_power_p_mod_p": [
+            19,
+            9
+          ],
+          "Hasse_value_mod_p": [
+            0,
+            0
+          ],
+          "full_J_value_mod_p": [
+            0,
+            3
+          ],
+          "zero_seed_particular_value_mod_p": [
+            0,
+            3
+          ],
+          "full_seed_derivative_transport": true,
+          "zero_seed_derivative_error_mod_p3": [
+            46546,
+            4107
+          ],
+          "second_digit": {
+            "Gauss_divided_mod_p2": [
+              689,
+              0
+            ],
+            "Hesse_uncorrected_divided_mod_p2": [
+              60,
+              629
+            ],
+            "particular_correction_mod_p": [
+              17,
+              20
+            ],
+            "Hesse_corrected_divided_mod_p2": [
+              689,
+              0
+            ]
+          }
+        },
+        {
+          "sign": -1,
+          "x_mod_p3": [
+            25327,
+            12663
+          ],
+          "uncorrected_Hesse_minus_Gauss_mod_p3": [
+            27380,
+            27380
+          ],
+          "x_power_p_mod_p": [
+            19,
+            28
+          ],
+          "Hasse_value_mod_p": [
+            0,
+            0
+          ],
+          "full_J_value_mod_p": [
+            0,
+            34
+          ],
+          "zero_seed_particular_value_mod_p": [
+            0,
+            34
+          ],
+          "full_seed_derivative_transport": true,
+          "zero_seed_derivative_error_mod_p3": [
+            46546,
+            46546
+          ],
+          "second_digit": {
+            "Gauss_divided_mod_p2": [
+              689,
+              0
+            ],
+            "Hesse_uncorrected_divided_mod_p2": [
+              60,
+              740
+            ],
+            "particular_correction_mod_p": [
+              17,
+              17
+            ],
+            "Hesse_corrected_divided_mod_p2": [
+              689,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "p": 43,
+      "m": 7,
+      "p_mod_24": 19,
+      "target": true,
+      "beta_seed_mod_p": 41,
+      "harmonic_seed_mod_p": 41,
+      "harmonic_input": {
+        "q2_mod_p2": 240,
+        "S2_mod_p2": 565,
+        "divided_minus_3S2_minus_q2_mod_p": 41,
+        "T2_T3_T6_mod_p": {
+          "2": 14,
+          "3": 25,
+          "6": 4
+        }
+      },
+      "full_J_coefficients_mod_p": [
+        41,
+        28,
+        37,
+        16,
+        14,
+        31,
+        30,
+        12,
+        8,
+        24,
+        12,
+        27,
+        37,
+        37,
+        5,
+        21,
+        10,
+        24,
+        42,
+        40,
+        10,
+        38,
+        14,
+        24,
+        7,
+        25,
+        19,
+        37,
+        3,
+        41,
+        26,
+        15,
+        34,
+        24,
+        18,
+        33,
+        5,
+        4,
+        14,
+        35,
+        13,
+        13
+      ],
+      "zero_seed_particular_coefficients_mod_p": [
+        0,
+        38,
+        33,
+        35,
+        10,
+        27,
+        7,
+        11,
+        1,
+        20,
+        34,
+        1,
+        26,
+        11,
+        21,
+        21,
+        10,
+        24,
+        42,
+        40,
+        10,
+        38,
+        14,
+        24,
+        7,
+        25,
+        19,
+        37,
+        3,
+        41,
+        26,
+        15,
+        34,
+        24,
+        18,
+        33,
+        5,
+        4,
+        14,
+        35,
+        13,
+        13
+      ],
+      "full_coefficientwise_p3_correction": true,
+      "endpoint_residual": 0,
+      "factor_entry_residuals": {
+        "14": 0,
+        "28": 0
+      },
+      "zero_seed_polynomial_failure_degrees": [
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57
+      ],
+      "branches": [
+        {
+          "sign": 1,
+          "x_mod_p3": [
+            39754,
+            19877
+          ],
+          "uncorrected_Hesse_minus_Gauss_mod_p3": [
+            70262,
+            9245
+          ],
+          "x_power_p_mod_p": [
+            22,
+            32
+          ],
+          "Hasse_value_mod_p": [
+            0,
+            0
+          ],
+          "full_J_value_mod_p": [
+            0,
+            33
+          ],
+          "zero_seed_particular_value_mod_p": [
+            0,
+            33
+          ],
+          "full_seed_derivative_transport": true,
+          "zero_seed_derivative_error_mod_p3": [
+            11094,
+            68413
+          ],
+          "second_digit": {
+            "Gauss_divided_mod_p2": [
+              1106,
+              0
+            ],
+            "Hesse_uncorrected_divided_mod_p2": [
+              891,
+              215
+            ],
+            "particular_correction_mod_p": [
+              5,
+              38
+            ],
+            "Hesse_corrected_divided_mod_p2": [
+              1106,
+              0
+            ]
+          }
+        },
+        {
+          "sign": -1,
+          "x_mod_p3": [
+            39754,
+            59630
+          ],
+          "uncorrected_Hesse_minus_Gauss_mod_p3": [
+            70262,
+            70262
+          ],
+          "x_power_p_mod_p": [
+            22,
+            11
+          ],
+          "Hasse_value_mod_p": [
+            0,
+            0
+          ],
+          "full_J_value_mod_p": [
+            0,
+            10
+          ],
+          "zero_seed_particular_value_mod_p": [
+            0,
+            10
+          ],
+          "full_seed_derivative_transport": true,
+          "zero_seed_derivative_error_mod_p3": [
+            11094,
+            11094
+          ],
+          "second_digit": {
+            "Gauss_divided_mod_p2": [
+              1106,
+              0
+            ],
+            "Hesse_uncorrected_divided_mod_p2": [
+              891,
+              1634
+            ],
+            "particular_correction_mod_p": [
+              5,
+              5
+            ],
+            "Hesse_corrected_divided_mod_p2": [
+              1106,
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "provider_calls": 0,
+  "UR_proved": false,
+  "LIFT_proved": false,
+  "period_normal_identified": false,
+  "general_tool_family_created": false,
+  "shared_nonblind_context": true
+}
