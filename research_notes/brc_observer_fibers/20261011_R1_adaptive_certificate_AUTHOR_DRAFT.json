@@ -1,0 +1,24 @@
+{
+  "schema": "EM_ADAPTIVE_PRIME_POLICY_CERT_V1",
+  "model": "finite deterministic policy with conditional Boolean threshold comparisons, initial prime >=5",
+  "example": {
+    "root_test": "r<=7",
+    "if_true_test": "4*r<=92",
+    "if_false": "stop",
+    "naive_predecessor_prime_cuts": [
+      7,
+      23
+    ],
+    "effective_cuts": [
+      7
+    ],
+    "actual_classes": 2,
+    "nonadaptive_naive_classes": 3
+  },
+  "counts": {
+    "random_policies": 1200,
+    "adaptive_inaccessible_cut_policies": 851,
+    "direct_vs_interval_mismatches": 0
+  },
+  "theorem_domain": "all finite deterministic policy trees with r-independent legal operation words and threshold tests; proof is analytic; tests are finite only"
+}
