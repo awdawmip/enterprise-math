@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/2a8ebb4c8c682d5d99dd/SHARED_GREEN_KERNEL_FINAL_BYTE_REVIEW.md",
+    "ref": "b66755e47e67bd328b0324ee543fd0f31ebb2f9b",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "OWN-CM24-SUPPLEMENT-SOURCE-FULL-20261011-7",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# Independent exact-byte paper review of the shared Green kernel\n\nVerdict: PASS for the explicit finite kernel and constant-term identities.\nNo new numerical or lifted calculation was performed. This is directed,\nshared, nonblind review, with no formal DR acceptance or UR/LIFT completion.\n\nReviewed author memo SHARED_GAUSS_GREEN_KERNEL_NEXT_UNIT_PREPARATION.md,\n3491B, SHA256 c900f291f9a45ef65bf77350f0009261377304e305c73e0a430ad80f043219d7,\nGit blob 65e44bedfe5f0fc5a2b620c32d29d251b44af265.\nI full-read its final bytes and independently checked the following algebra.\nThe reverse constructor and old target inputs remain those in the 11012B\nauthor certificate, SHA256\n4de6c2ae746acf9dad026c334b9aa2998d49e3147606fc35422be4d3901d8869,\nindependently reviewed in REVERSE_GAUSS_AND_FIXED_TARGET_INTERFACE_REVIEW.md,\nSHA256 d48e893d7d2e6992cb6a1179191f51ef779cb056025f38bed1f9bd60db1a5d52.\n\nWriting d_j=(2/3)_j(5/6)_j/(j!)^2, the displayed product quotient is\n\n    prod_(a=j)^(r-2)(a+1)^2 / prod_(a=j)^(r-1)(a+2/3)(a+5/6)\n    =d_j (r-1)!^2/[(2/3)_r(5/6)_r].\n\nFor r=j+1 its numerator product is empty, correctly equal to one.\nCombining with -r_(r-1)=(-1)^r binom(3m,r)/9 and the exact D_r\nformula gives\n\n    c_j=d_j sum_(r=j+1)^(3m)(-1)^r binom(3m,r)2^(2-r)D_r.\n\nSwapping finite sums proves the memo's full C(w) expansion, with the\npartial K_(r-1) coefficients through exactly r-1. Every Pochhammer factor\nis a unit for r<=3m: its first vanishing index corresponds to factor\nj=4m or 5m, outside j<=3m-1. Extending D_r's formula to this range\ntherefore does not introduce a singular inverse or modify the old R_p,\nwhose original range is r<=i<=m.\n\nFor the old observer, (1+5z)/(1-z)^2 has coefficient 1+6j at z^j.\nThe constant term in B_m(z^(-1)) D_m(z) W(z) occurs precisely when\nj=i-r>=0. D_m has no constant term, so i=0 contributes nothing. The\nresult is exactly sum_(i=1)^m B_i sum_(r=1)^i(1+6(i-r))D_r, giving\nthe source-fixed old R_p after the displayed factor two. The formal\npower series can be truncated at degree m for this coefficient extraction;\nno convergence assumption or analytic specialization is required.\n\nThe memo accurately distinguishes shared kernel from equality of the\ntwo different observers. Its final target U=1+p[R_p-(3/2)C(1/2)M'(1/2)]\nis the correctly signed independently fixed target, not a definition of R_p\nfrom U. The remaining proposed adjoint/endpoints proof is substantive work\nstill to do; neither the kernel identity nor this review proves UR/LIFT.\n\nReviewer EM-ENTERPRISE-3F2857 supplied the original c0/reciprocal-kernel\nobservation. Author EM-ENTERPRISE-CB50ED extended it to the full C polynomial\nand the constant-term observer; Root EM-DVR-4C90FB coordinates the direction.\nCredit is shared as stated in the reviewed memo. No original frozen primary\nor previous supplement bytes were changed for this review.\n\nResearcher-ID: EM-ENTERPRISE-3F2857 / RS-ENTERPRISE-CM24-HESSE-INHOMOGENEOUS-P3-TRANSPORT\n",
+      "display_title": "SHARED_GREEN_KERNEL_FINAL_BYTE_REVIEW.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/b66755e47e67bd328b0324ee543fd0f31ebb2f9b/driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/2a8ebb4c8c682d5d99dd/SHARED_GREEN_KERNEL_FINAL_BYTE_REVIEW.md",
+      "encoding": "utf-8",
+      "sha": "1d08ec1aeabf2c1fbd5f76ff84f6b43270e9c244"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
