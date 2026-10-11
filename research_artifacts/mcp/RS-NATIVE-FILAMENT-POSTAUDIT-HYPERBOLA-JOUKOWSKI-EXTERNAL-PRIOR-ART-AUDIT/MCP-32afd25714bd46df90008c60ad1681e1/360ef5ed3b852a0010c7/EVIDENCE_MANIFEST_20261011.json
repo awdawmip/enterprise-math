@@ -1,0 +1,651 @@
+{
+  "schema": "EM_SIX_ROW_PRIOR_ART_AUTHOR_EVIDENCE_V1",
+  "task_id": "RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT",
+  "publication_id": "TP2-0B9541A191FE5231A19B",
+  "objective_generation_id": "OG-7190F25EA3CAE970C90A",
+  "conversation_id": "codex-agent-remaining-prior-art-owner-20261011",
+  "researcher_id": "EM-NATIVE-79EB13",
+  "session_id": "MCP-32afd25714bd46df90008c60ad1681e1",
+  "activity_id": "RA-1D40E9E918430BBF8B403CBF",
+  "claim_id": "MCP-897b55afb2162d0eaaa4c357",
+  "execution_record_id": "ER-5B465B5230FB299C5643",
+  "run_request_id": "remaining-prior-art-open-20261011-16",
+  "run_id": "RUN-1f9ba540831fb2f7fef898bc",
+  "generation": 1,
+  "actual_open_authorized": true,
+  "open_observed_at": "2026-10-11T08:40:29Z",
+  "open_source": "02ef54a80620195ed848902037cd200ad102ea96",
+  "claim_comment_id": 6107176706,
+  "mathematical_acceptance_granted": false,
+  "parent_objective_complete": false,
+  "independence_status": "AUTHOR_SOURCE_COMPARISON; DIRECTED_NOT_BLIND_NOT_CLEAN",
+  "contributors": [
+    "EM-DIRECT-5DD273",
+    "EM-NFHJPA-5B519F",
+    "EM-NATIVE-0B2763",
+    "EM-NATIVE-79EB13"
+  ],
+  "helpers": [
+    {
+      "helper": "h1-h2-helper",
+      "local_comparison": "H1_H2_SOURCE_COMPARISON.md",
+      "bytes": 8126,
+      "sha256": "c6a7c76f8f716967ffb92f4e8f395db0bf5e71e2f9c421347646018baba513ed",
+      "git_blob_sha1": "dc84bd0f87b457208cf4ccc2e2568cbbf821909b",
+      "role": "DIRECTED_READONLY_HELPER; no native identity/claim/acceptance",
+      "professional_queries": 0
+    },
+    {
+      "helper": "j2-helper",
+      "local_comparison": "J2_SOURCE_COMPARISON_20261011.md",
+      "bytes": 7642,
+      "sha256": "cd1425a7fa6e369fad9a0505a92e0dac8b212ca85cbeb9b9652bbf1d480bb938",
+      "git_blob_sha1": "e0aea569422c8dc6615e0649afaf35fb7fd7387c",
+      "role": "DIRECTED_READONLY_HELPER; no native identity/claim/acceptance",
+      "professional_queries": 0
+    },
+    {
+      "helper": "c1-c2-helper",
+      "local_comparison": "C1_C2_PRIOR_ART_BOUNDARY_20261011.md",
+      "bytes": 8144,
+      "sha256": "3da410e2900ff5b49030ca84604974c8fd849a7ec0ab73906d2a4644eacdfb24",
+      "git_blob_sha1": "1d91460b648f44c83a6485ee72b9622f2f1babd1",
+      "role": "DIRECTED_READONLY_HELPER; no native identity/claim/acceptance",
+      "professional_queries": 0
+    }
+  ],
+  "Root_assistance": "Control coordination, bibliographic/semantic boundary guidance; not independent acceptance.",
+  "whole_row_classification": {
+    "H1": "PARTIAL_ANTECEDENT",
+    "H2": "PARTIAL_ANTECEDENT",
+    "J1": "PARTIAL_ANTECEDENT",
+    "J2": "PARTIAL_ANTECEDENT",
+    "C1": "NO_MATERIAL_MATCH_IN_AUDITED_SET",
+    "C2": "NO_MATERIAL_MATCH_IN_AUDITED_SET"
+  },
+  "classification_granularity": "Proper source theorem kernels separated from authored specialization and project composition. Generic C1/C2 proof tools only ADJACENT_METHOD.",
+  "source_evidence_limit": "Ten complete immutable mathlib file contents connector/Gitblob/SHA256 verified by current author; mathematical inspection at named declarations only. Official docs generated aliases distinguished from literal source declarations; no new Lean build or project formalization.",
+  "primary_sources": [
+    {
+      "source_id": "ML0",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "2da3ab0a20dc0c66f56a557e37df39f7d36cb953",
+      "path": "Mathlib/GroupTheory/GroupAction/Quotient.lean",
+      "official_doc_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/GroupTheory/GroupAction/Quotient.html",
+      "git_blob_sha1": "d8607d879e09ec2c733ac386e460f276d9a9c789",
+      "sha256": "7f8c8c50b51c7b4c642e8b4d038e0dcc8512c43c26372c2de2978b65e3b451d6",
+      "utf8_bytes": 22269,
+      "mathematical_read_extent": [
+        "context Group/MulAction and quotient Ω",
+        "lines184–187 orbit–stabilizer",
+        "lines267–270 Burnside"
+      ],
+      "github_pinned_url": "https://github.com/leanprover-community/mathlib4/blob/2da3ab0a20dc0c66f56a557e37df39f7d36cb953/Mathlib/GroupTheory/GroupAction/Quotient.lean",
+      "full_connector_bytes_verified_by_current_author": true
+    },
+    {
+      "source_id": "ML1",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "d3739f06187591e81887886ca767b6a2dc1416ea",
+      "path": "Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/Basic.lean",
+      "official_doc_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/Basic.html",
+      "git_blob_sha1": "6249e38204aa028364f15e5cffee58ce5062a648",
+      "sha256": "058559d94b75d829673cc4b386760ba0e22ba046707171c8f767bd5ffcf420cd",
+      "utf8_bytes": 11854,
+      "mathematical_read_extent": [
+        "finite-field/character context",
+        "character definition",
+        "multiplicativity",
+        "quadraticChar_sq_one",
+        "lines213–235 quadraticChar_card_sqrts"
+      ],
+      "github_pinned_url": "https://github.com/leanprover-community/mathlib4/blob/d3739f06187591e81887886ca767b6a2dc1416ea/Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/Basic.lean",
+      "full_connector_bytes_verified_by_current_author": true
+    },
+    {
+      "source_id": "ML2",
+      "repository": "leanprover-community/mathlib4",
+      "commit": "2da3ab0a20dc0c66f56a557e37df39f7d36cb953",
+      "path": "Mathlib/Algebra/Ring/Commute.lean",
+      "official_doc_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/Ring/Commute.html",
+      "git_blob_sha1": "11039e3c48c9c656d3c197920e34dac3de34f67d",
+      "sha256": "5a4278e6fd4f2b428b55ac9923b921bcd18ad7232fca54613ce4c66286b26a51",
+      "utf8_bytes": 7978,
+      "mathematical_read_extent": [
+        "CommRing context",
+        "line199 sq_sub_sq",
+        "NoZeroDivisors context and lines216–217 sq_eq_sq_iff_eq_or_eq_neg"
+      ],
+      "github_pinned_url": "https://github.com/leanprover-community/mathlib4/blob/2da3ab0a20dc0c66f56a557e37df39f7d36cb953/Mathlib/Algebra/Ring/Commute.lean",
+      "full_connector_bytes_verified_by_current_author": true
+    },
+    {
+      "source_id": "J2-S1",
+      "repository": "leanprover-community/mathlib4",
+      "source_commit": "2da3ab0a20dc0c66f56a557e37df39f7d36cb953",
+      "path": "Mathlib/FieldTheory/Finite/Basic.lean",
+      "declaration": "FiniteField.sum_pow_units",
+      "source_line": 291,
+      "candidate_classification": "PARTIAL_ANTECEDENT",
+      "git_blob_sha1": "3d73633f25099d2d4917e1086000bfb293eea4c8",
+      "sha256": "8bb5aeefbb9eee88141976ee84710631efd0307ffb3fc88cee5bf011a458fee0",
+      "utf8_bytes": 36302,
+      "github_pinned_url": "https://github.com/leanprover-community/mathlib4/blob/2da3ab0a20dc0c66f56a557e37df39f7d36cb953/Mathlib/FieldTheory/Finite/Basic.lean#L291",
+      "official_docs_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/FieldTheory/Finite/Basic.html#FiniteField.sum_pow_units",
+      "read_extent": "Complete source-file bytes retrieved; relevant context and named declarations inspected.",
+      "full_connector_bytes_verified_by_current_author": true
+    },
+    {
+      "source_id": "J2-S2",
+      "repository": "leanprover-community/mathlib4",
+      "source_commit": "2da3ab0a20dc0c66f56a557e37df39f7d36cb953",
+      "path": "Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean",
+      "declaration": "Finset.sum_comp",
+      "source_line": 730,
+      "candidate_classification": "ADJACENT_METHOD",
+      "git_blob_sha1": "649d68e258b80e8106429765e21514ae5136acd9",
+      "sha256": "621a6f463595a14642b7c10d31f143807138d7570e8eda99917fe9eaf6cb8ed3",
+      "utf8_bytes": 53130,
+      "github_pinned_url": "https://github.com/leanprover-community/mathlib4/blob/2da3ab0a20dc0c66f56a557e37df39f7d36cb953/Mathlib/Algebra/BigOperators/Group/Finset/Basic.lean#L730",
+      "official_docs_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/BigOperators/Group/Finset/Basic.html#Finset.sum_comp",
+      "read_extent": "Complete source-file bytes retrieved; relevant context and named declarations inspected.",
+      "full_connector_bytes_verified_by_current_author": true
+    },
+    {
+      "source_id": "J2-S3",
+      "repository": "leanprover-community/mathlib4",
+      "source_commit": "2da3ab0a20dc0c66f56a557e37df39f7d36cb953",
+      "path": "Mathlib/NumberTheory/Bernoulli.lean",
+      "declaration": "sum_Ico_pow",
+      "source_line": 358,
+      "candidate_classification": "ADJACENT_METHOD",
+      "git_blob_sha1": "45d389886738789e80185fd2a6da4185727ab502",
+      "sha256": "9890865449ef6e5f775e6b29ec027cab7ab3e35ee6cdc0f2a6dc5737a14e406a",
+      "utf8_bytes": 35239,
+      "github_pinned_url": "https://github.com/leanprover-community/mathlib4/blob/2da3ab0a20dc0c66f56a557e37df39f7d36cb953/Mathlib/NumberTheory/Bernoulli.lean#L358",
+      "official_docs_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/NumberTheory/Bernoulli.html#sum_Ico_pow",
+      "read_extent": "Complete source-file bytes retrieved; relevant context and named declarations inspected.",
+      "full_connector_bytes_verified_by_current_author": true
+    },
+    {
+      "repository": "leanprover-community/mathlib4",
+      "source_commit": "2da3ab0a20dc0c66f56a557e37df39f7d36cb953",
+      "path": "Mathlib/Algebra/GroupWithZero/Defs.lean",
+      "git_blob_sha1": "6e409fb317ecec19dd209fe684d4e294e0fe797a",
+      "upstream_sha256": "fb85527ccab74eb4340c5c49c235028f63564b82c0ff866dc75c78119af67fb4",
+      "upstream_utf8_bytes": 13509,
+      "source_id": "C-A",
+      "declaration": "mul_left_cancel₀",
+      "source_line": 56,
+      "candidate_classification": "ADJACENT_METHOD",
+      "read_extent": "Named declaration/signature context; complete file retrieved, not all mathematics audited",
+      "full_connector_bytes_verified_by_current_author": true,
+      "github_pinned_url": "https://github.com/leanprover-community/mathlib4/blob/2da3ab0a20dc0c66f56a557e37df39f7d36cb953/Mathlib/Algebra/GroupWithZero/Defs.lean",
+      "official_docs_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/GroupWithZero/Defs.html"
+    },
+    {
+      "repository": "leanprover-community/mathlib4",
+      "source_commit": "2da3ab0a20dc0c66f56a557e37df39f7d36cb953",
+      "path": "Mathlib/Algebra/Order/Group/Defs.lean",
+      "git_blob_sha1": "111df7647d41da483accf3e45b4d9c473a68ceb4",
+      "upstream_sha256": "768a58c4cdc303e6078a2851fd2f0622c4371a2b245571c7fff166c3015d866b",
+      "upstream_utf8_bytes": 5452,
+      "source_id": "C-B",
+      "declaration": "OrderedCommGroup.le_of_add_le_add_left",
+      "source_line": 34,
+      "candidate_classification": "ADJACENT_METHOD",
+      "read_extent": "Named declaration/signature context; complete file retrieved, not all mathematics audited",
+      "full_connector_bytes_verified_by_current_author": true,
+      "github_pinned_url": "https://github.com/leanprover-community/mathlib4/blob/2da3ab0a20dc0c66f56a557e37df39f7d36cb953/Mathlib/Algebra/Order/Group/Defs.lean",
+      "official_docs_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/Order/Group/Defs.html"
+    },
+    {
+      "repository": "leanprover-community/mathlib4",
+      "source_commit": "2da3ab0a20dc0c66f56a557e37df39f7d36cb953",
+      "path": "Mathlib/Data/Nat/Prime/Defs.lean",
+      "git_blob_sha1": "7d707a1d85dc27fa8036d4eb9828e2cd023d70f2",
+      "upstream_sha256": "5d27fa24d32aa6e8aad251239417bb50051489ca00b40eac4ac8a43916b7748d",
+      "upstream_utf8_bytes": 16830,
+      "source_id": "C-C",
+      "declaration": "Nat.prime_def_le_sqrt",
+      "source_line": 124,
+      "candidate_classification": "ADJACENT_METHOD",
+      "read_extent": "Named declaration/signature context; complete file retrieved, not all mathematics audited",
+      "full_connector_bytes_verified_by_current_author": true,
+      "github_pinned_url": "https://github.com/leanprover-community/mathlib4/blob/2da3ab0a20dc0c66f56a557e37df39f7d36cb953/Mathlib/Data/Nat/Prime/Defs.lean",
+      "official_docs_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Data/Nat/Prime/Defs.html"
+    },
+    {
+      "repository": "leanprover-community/mathlib4",
+      "source_commit": "2da3ab0a20dc0c66f56a557e37df39f7d36cb953",
+      "path": "Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+      "git_blob_sha1": "a3613233cf77bcd882324d5fc47ccc47bae764b4",
+      "upstream_sha256": "afa7c31da6dcf12342807acae8aaacb8f634cc79214f8fecfe0bbead0ba38b9b",
+      "upstream_utf8_bytes": 25350,
+      "source_id": "C-D",
+      "declaration": "Polynomial.eval₂_C / eval₂_X / eval₂_add / eval₂_mul / eval₂_pow",
+      "source_line": [
+        70,
+        73,
+        86,
+        200,
+        226
+      ],
+      "candidate_classification": "ADJACENT_METHOD",
+      "read_extent": "Named declaration/signature context; complete file retrieved, not all mathematics audited",
+      "full_connector_bytes_verified_by_current_author": true,
+      "github_pinned_url": "https://github.com/leanprover-community/mathlib4/blob/2da3ab0a20dc0c66f56a557e37df39f7d36cb953/Mathlib/Algebra/Polynomial/Eval/Defs.lean",
+      "official_docs_url": "https://leanprover-community.github.io/mathlib4_docs/Mathlib/Algebra/Polynomial/Eval/Defs.html"
+    }
+  ],
+  "public_html_passages": [
+    {
+      "source_id": "ST",
+      "url": "https://stacks.math.columbia.edu/tag/047F",
+      "location": "Examples39.5.1 and39.5.3",
+      "mathematical_read_extent": "multiplicative/additive group scheme examples and functor-of-points definitions; web lines18–51",
+      "representation_basis": "HTML paragraph responses",
+      "original_document_bytes_hash_verified": false
+    },
+    {
+      "source_id": "B",
+      "url": "https://arxiv.org/html/1212.2930v1",
+      "arxiv_header_date": "2012-12-12",
+      "location": "Lemma2.3 and AppendixA.2 proof; introduction modular-hyperbola definitions",
+      "mathematical_read_extent": "HTML lines77–92,125–140,366–386",
+      "representation_basis": "current arXiv HTML paragraphs",
+      "original_pdf_bytes_hash_verified": false,
+      "date_warning": "HTML internal Date August24,2026 differs from arXiv v1 header; not used as original publication date"
+    },
+    {
+      "source_id": "S",
+      "url": "https://arxiv.org/html/1103.2879v4",
+      "arxiv_header_date": "2012-06-03",
+      "location": "section1.1 modular-hyperbola definition",
+      "mathematical_read_extent": "HTML lines66–87",
+      "representation_basis": "current arXiv HTML paragraphs",
+      "original_pdf_bytes_hash_verified": false,
+      "date_warning": "HTML internal Date August24,2026 differs from arXiv v4 header; not used as original publication date"
+    }
+  ],
+  "inherited_J1_primary_passages": [
+    {
+      "id": "B",
+      "url": "https://arxiv.org/pdf/1212.2930v1",
+      "version": "1212.2930v1",
+      "header_date": "2012-12-12",
+      "read_extent": [
+        "Section2 Lemmas2.2-2.3",
+        "AppendixA.2",
+        "contents/conclusion as scope checks"
+      ],
+      "extraction_local": [
+        "PRIMARY_DETAIL_8.json",
+        "PRIMARY_DETAIL_9.json",
+        "PRIMARY_EXACT_VERSION.json"
+      ]
+    },
+    {
+      "id": "S",
+      "url": "https://arxiv.org/pdf/1103.2879v4",
+      "version": "1103.2879v4",
+      "header_date": "2012-06-03",
+      "read_extent": [
+        "definitions/notation",
+        "Section3.1 Theorem13/equation10",
+        "Section4.1 Question24 and discussion",
+        "bibliography70/182"
+      ],
+      "extraction_local": [
+        "RESEARCH_READ_1.json",
+        "PRIMARY_DETAIL_3.json",
+        "PRIMARY_DETAIL_4.json",
+        "PRIMARY_EXACT_VERSION.json"
+      ]
+    },
+    {
+      "id": "C",
+      "url": "https://arxiv.org/pdf/1007.1526v2",
+      "version": "1007.1526v2",
+      "header_date": "2010-10-12",
+      "read_extent": [
+        "Introduction",
+        "Theorem1"
+      ],
+      "extraction_local": [
+        "PRIMARY_DETAIL_2.json",
+        "PRIMARY_DETAIL_3.json",
+        "PRIMARY_EXACT_VERSION.json"
+      ]
+    },
+    {
+      "id": "U",
+      "url": "https://arxiv.org/pdf/1304.3283v2",
+      "version": "1304.3283v2",
+      "header_date": "2013-07-03",
+      "doi": "10.1016/j.jnt.2014.02.024",
+      "read_extent": [
+        "Introduction",
+        "Section2 definitions/conjugacy interface"
+      ],
+      "extraction_local": [
+        "PRIMARY_DETAIL_4.json",
+        "PRIMARY_DETAIL_9.json",
+        "PRIMARY_EXACT_VERSION.json"
+      ]
+    },
+    {
+      "id": "BH",
+      "url": "https://arxiv.org/pdf/1204.6374v1",
+      "version": "1204.6374v1",
+      "header_date": "2012-04-28",
+      "read_extent": [
+        "Introduction",
+        "Theorem1"
+      ],
+      "extraction_local": [
+        "PRIMARY_DETAIL_7.json"
+      ]
+    },
+    {
+      "id": "Ba",
+      "url": "https://arxiv.org/pdf/1208.3393v1",
+      "version": "1208.3393v1",
+      "header_date": "2012-08-16",
+      "read_extent": [
+        "Introduction",
+        "Theorems1-4; Theorem1 attributed BH"
+      ],
+      "extraction_local": [
+        "PRIMARY_DETAIL_7.json"
+      ]
+    }
+  ],
+  "inherited_J1_status_qualification": "Exact generic kernel and membership; complement-character containment criterion has positive external antecedent. NO_MATERIAL_MATCH only no direct specified Js assertion/classification in finite inspected passages; no novelty.",
+  "Zheng_readback_boundary": "Historical frozen comparison consumed; Root later publisher open403, no new independent full-paper verification. Theorem3.1 normal form used only with nonzero alpha; issue Feb2027 not elapsed at audit.",
+  "accepted_original_prime_scope": {
+    "local_evidence": "ROOT_ORIGINAL_HJ_PACKET_FULL_BYTES.md",
+    "git_blob_sha1": "6ce9ea10f02fded1959c55a1b78044ada434360f",
+    "sha256": "5c63a56fddb5235601d036574ce480fa3c1d352b03881313b224778466b27da0",
+    "read_extent": "Complete5289UTF8bytes; J1goodprime line85"
+  },
+  "domain_guards": [
+    "H1 distinct tangent quotient = H minus diagonal; not automatically inherited Gm torsor",
+    "H2 quadratic character on odd finite fields; no Legendre misuse",
+    "J1 original good-prime scope; general field transfer needs char(Fq) not dividing2s",
+    "Bower Z/p^eZ not F_(p^e)",
+    "Js residue SET; integer length not automatic cardinality",
+    "J2 q=2s±1 PRIME only",
+    "C1 capacity9 distinct from typedCell incidence cap9",
+    "C2 numerical105 coherence only"
+  ],
+  "input_pins": [
+    {
+      "role": "current_taskbook",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/012706a3ac1e42acbd86cab977afac7659264992/research_tasks/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_EXTERNAL_PRIOR_ART_AUDIT_AUTHORITY_MIGRATION_20261011.md",
+      "git_blob_sha1": "bed9b1a0976f00ab8a545acca1a5007cf5538642",
+      "utf8_bytes": 21460,
+      "sha256": "a6331a7280deb74cc17c8b991c7a7238ccc4ec24b4e5c99ca1ecdef446477307",
+      "complete_connector_bytes_and_git_blob_verified": true
+    },
+    {
+      "role": "current_immutable_publication",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/012706a3ac1e42acbd86cab977afac7659264992/research_task_records/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/TP2-0B9541A191FE5231A19B.json",
+      "git_blob_sha1": "a5671203cd0042956bedec4f66d2ed87740958e3",
+      "utf8_bytes": 16605,
+      "sha256": "65033978a45484976c862421f5675eb6e7df5a40fab762be909f4dff996d6933",
+      "complete_connector_bytes_and_git_blob_verified": true
+    },
+    {
+      "role": "frozen_accepted_replication_return",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a4bb65133eadf128fa2f9fa8b2a33656ea478bc0/research_returns/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_RETURN_20260829.md",
+      "git_blob_sha1": "0a4596c8cb8bcfb64863becb1009ff13f3980a09",
+      "utf8_bytes": 16330,
+      "sha256": "1e40bfe1b3b24a604f703233887200b30a2816acc56a38f63711e4b3bf640d3e",
+      "complete_connector_bytes_and_git_blob_verified": true
+    },
+    {
+      "role": "frozen_accepted_Driver_review",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a4bb65133eadf128fa2f9fa8b2a33656ea478bc0/driver_reviews/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_DRIVER_REVIEW_20260829.md",
+      "git_blob_sha1": "80b550aa21d0695d0ca9e4853bd707319f6413e4",
+      "utf8_bytes": 5613,
+      "sha256": "5f08f144d6b4729d661556062411698739b1e4d077519db0dcae6f7e6728e6d5",
+      "complete_connector_bytes_and_git_blob_verified": true
+    },
+    {
+      "role": "frozen_accepted_Result",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/012706a3ac1e42acbd86cab977afac7659264992/research_result_records/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-INDEPENDENT-REPLICATION/RR-680C6257EEF10F6F1C16.json",
+      "git_blob_sha1": "88ef0c4ada16a9889c90fabaf0724598e4f1676e",
+      "utf8_bytes": 2555,
+      "sha256": "2260864263ff531575f91e8a0cb01454d74c1bb0f7989ed7b9d1015dbdd260e5",
+      "complete_connector_bytes_and_git_blob_verified": true
+    },
+    {
+      "role": "historical_checkpoint",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a4bb65133eadf128fa2f9fa8b2a33656ea478bc0/research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-f0c0c2f0adbb42e0879a2f6c73d4c15d/a944c17c6c0f7ddc5d9b/_checkpoint.json",
+      "git_blob_sha1": "d26428adcb677f2f24ad68772cf4454ddce186d2",
+      "utf8_bytes": 4553,
+      "sha256": "919e9fddcb225e0e3677758ad3d6308a14c33c9f051f76552e710df073caaa01",
+      "complete_connector_bytes_and_git_blob_verified": true,
+      "historical_input_only": true,
+      "current_result_admission": false,
+      "native_review_authority": false
+    },
+    {
+      "role": "historical_pointer",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a4bb65133eadf128fa2f9fa8b2a33656ea478bc0/research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/latest_checkpoint.json",
+      "git_blob_sha1": "37686f4a3b6cfc8c31af675e6a2fd825757fc4f3",
+      "utf8_bytes": 741,
+      "sha256": "2f29b7ebbf4b040013d5638543eedebc29e32a61407e44b16d683ca54aa47532",
+      "complete_connector_bytes_and_git_blob_verified": true,
+      "historical_input_only": true,
+      "current_result_admission": false,
+      "native_review_authority": false
+    },
+    {
+      "role": "historical_J1_report",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a4bb65133eadf128fa2f9fa8b2a33656ea478bc0/research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-f0c0c2f0adbb42e0879a2f6c73d4c15d/a944c17c6c0f7ddc5d9b/J1_SATURATION_PRIOR_ART_BOUNDARY_20261011.md",
+      "git_blob_sha1": "e330eb764f4b52b1c981079d480f25786775c340",
+      "utf8_bytes": 12773,
+      "sha256": "7205245c6fda0a31aeb8297ac362b171b23e01ee140add318824df067f67144d",
+      "complete_connector_bytes_and_git_blob_verified": true,
+      "historical_input_only": true,
+      "current_result_admission": false,
+      "native_review_authority": false
+    },
+    {
+      "role": "historical_J1_manifest",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a4bb65133eadf128fa2f9fa8b2a33656ea478bc0/research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-f0c0c2f0adbb42e0879a2f6c73d4c15d/a944c17c6c0f7ddc5d9b/J1_SATURATION_EVIDENCE_MANIFEST_20261011.json",
+      "git_blob_sha1": "1a3ef4be58a0d8ae7feb3a3c34147d857fe522a0",
+      "utf8_bytes": 9419,
+      "sha256": "3c21ccdff99217eba47b26ae4393ac1a2a8380ad66059c57be675b3aac0441f4",
+      "complete_connector_bytes_and_git_blob_verified": true,
+      "historical_input_only": true,
+      "current_result_admission": false,
+      "native_review_authority": false
+    },
+    {
+      "role": "historical_provider_subresults",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a4bb65133eadf128fa2f9fa8b2a33656ea478bc0/research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-f0c0c2f0adbb42e0879a2f6c73d4c15d/a944c17c6c0f7ddc5d9b/KQB_PROVIDER_SUBRESULTS_20261011.json",
+      "git_blob_sha1": "7be86cb4d6f68c8bc02941889ba3436494d45192",
+      "utf8_bytes": 14892,
+      "sha256": "94a145355e50bc0d42a5407330a83b04cb6ebc18ddc5d56bdc785af702cb596f",
+      "complete_connector_bytes_and_git_blob_verified": true,
+      "historical_input_only": true,
+      "current_result_admission": false,
+      "native_review_authority": false
+    },
+    {
+      "role": "historical_closed_cardinality_report",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/33e6a1ba9c299c7c20a5a9dd9a6be6edeea8d038/research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-cd2f0d5e07b24117a4493046af3c3777/a6c13cc2576dd668c5da/J1_EXTERNAL_PRIOR_ART_AUDIT_20260923.md",
+      "git_blob_sha1": "13299f94ba47be9e7e1daface3180dcdf88e762a",
+      "utf8_bytes": 6974,
+      "sha256": "55a0c09794240ca4339afd7c6d3eeec9f5ecf229782984725e18919c529c6a1b",
+      "complete_connector_bytes_and_git_blob_verified": true,
+      "historical_input_only": true,
+      "current_result_admission": false,
+      "native_review_authority": false
+    }
+  ],
+  "required_historical_reads": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "a4bb65133eadf128fa2f9fa8b2a33656ea478bc0",
+      "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-f0c0c2f0adbb42e0879a2f6c73d4c15d/a944c17c6c0f7ddc5d9b/_checkpoint.json",
+      "git_blob_sha1": "d26428adcb677f2f24ad68772cf4454ddce186d2",
+      "sha256": "919e9fddcb225e0e3677758ad3d6308a14c33c9f051f76552e710df073caaa01"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "a4bb65133eadf128fa2f9fa8b2a33656ea478bc0",
+      "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/latest_checkpoint.json",
+      "git_blob_sha1": "37686f4a3b6cfc8c31af675e6a2fd825757fc4f3",
+      "sha256": "2f29b7ebbf4b040013d5638543eedebc29e32a61407e44b16d683ca54aa47532"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "a4bb65133eadf128fa2f9fa8b2a33656ea478bc0",
+      "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-f0c0c2f0adbb42e0879a2f6c73d4c15d/a944c17c6c0f7ddc5d9b/J1_SATURATION_PRIOR_ART_BOUNDARY_20261011.md",
+      "git_blob_sha1": "e330eb764f4b52b1c981079d480f25786775c340",
+      "sha256": "7205245c6fda0a31aeb8297ac362b171b23e01ee140add318824df067f67144d"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "a4bb65133eadf128fa2f9fa8b2a33656ea478bc0",
+      "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-f0c0c2f0adbb42e0879a2f6c73d4c15d/a944c17c6c0f7ddc5d9b/J1_SATURATION_EVIDENCE_MANIFEST_20261011.json",
+      "git_blob_sha1": "1a3ef4be58a0d8ae7feb3a3c34147d857fe522a0",
+      "sha256": "3c21ccdff99217eba47b26ae4393ac1a2a8380ad66059c57be675b3aac0441f4"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "source_commit": "a4bb65133eadf128fa2f9fa8b2a33656ea478bc0",
+      "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-f0c0c2f0adbb42e0879a2f6c73d4c15d/a944c17c6c0f7ddc5d9b/KQB_PROVIDER_SUBRESULTS_20261011.json",
+      "git_blob_sha1": "7be86cb4d6f68c8bc02941889ba3436494d45192",
+      "sha256": "94a145355e50bc0d42a5407330a83b04cb6ebc18ddc5d56bdc785af702cb596f"
+    }
+  ],
+  "historical_inputs_scope": "Historical scientific context only; never retroactive publication/Result or native review authority.",
+  "integrity_verification": {
+    "upstream_sources_checked": 10,
+    "helper_local_checks": 52,
+    "all_passed": true,
+    "script_local": "verify_evidence_integrity.py",
+    "no_network_in_script": true,
+    "no_mathematical_acceptance": true
+  },
+  "professional_queries": {
+    "turn_id": "b8d7d14d-77c2-4a4b-8719-e1230a7029a0",
+    "confirmed_calls": 3,
+    "effective_remaining_jobs": 0,
+    "current_author_new_calls": 0,
+    "helper_new_calls": 0,
+    "no_turn_reset": true,
+    "no_hit_evidence": false,
+    "arxiv_status": "PROVIDER_ERROR; missing provider_request_id; diagnostic raw only",
+    "Scholar_statuses": "COMPLETED but partial/gap coverage; PARTIAL bounded selection/conflict; metadata not primary fulltext",
+    "actual_global_archive": {
+      "schema": "KQB_ARCHIVE_ROOT_ACTUAL_READBACK_V1",
+      "repository": "awdawmip/chatgpt-global-knowledge",
+      "commit": "f605ab2093429f3e552678854337a584793dc055",
+      "expected_parent": "a38729f22a5896436d56c5c7b4ed5896614da2fc",
+      "nonforce_cas_succeeded": true,
+      "files": [
+        {
+          "path": "sources/professional/raw/kimi-query-bridge/4bd3670fd5f01cd2cd994d7071420eba7c8fa1caff024dd4e4e39aa0c085d082.json",
+          "bytes": 9140,
+          "sha256": "4bd3670fd5f01cd2cd994d7071420eba7c8fa1caff024dd4e4e39aa0c085d082",
+          "git_blob_sha1": "cc7670b9931f8d9e142c6eaa7941012753bc39d6",
+          "full_connector_bytes_equal": true,
+          "git_blob_verified": true
+        },
+        {
+          "path": "sources/professional/raw/arxiv/c86378423ca09e45826a8b806c6cb73a461e33ff61f9b36a5ee6bca7f25c854f.json",
+          "bytes": 5005,
+          "sha256": "c86378423ca09e45826a8b806c6cb73a461e33ff61f9b36a5ee6bca7f25c854f",
+          "git_blob_sha1": "a9edb5a79bc6a62e66d0d4cc21530ffb74153a4e",
+          "full_connector_bytes_equal": true,
+          "git_blob_verified": true
+        },
+        {
+          "path": "sources/professional/raw/scholar/5548f3033adcd26d3c328f9cf810e941895988de0814b7c40b7cbce7a9c65270.json",
+          "bytes": 7507,
+          "sha256": "5548f3033adcd26d3c328f9cf810e941895988de0814b7c40b7cbce7a9c65270",
+          "git_blob_sha1": "8afc3079052e7ee6453c7cbcfb193c92d952f1a9",
+          "full_connector_bytes_equal": true,
+          "git_blob_verified": true
+        },
+        {
+          "path": "sources/professional/records/PQ-20261011-KQB3621-SCHOLAR-JOUKOWSKI-FINITE-FIELDS-INTERVAL.json",
+          "bytes": 4112,
+          "sha256": "41185b5468803df6c35f00589743558829147112cb16bbdec27949272a21f16d",
+          "git_blob_sha1": "4f22b07f9f456040e4030252743ed6992c505e2e",
+          "full_connector_bytes_equal": true,
+          "git_blob_verified": true
+        },
+        {
+          "path": "sources/professional/raw/scholar/2a4a18f02370ffdcf40fcad517fe361b110fc316cea3dac997e0356186d60a98.json",
+          "bytes": 9419,
+          "sha256": "2a4a18f02370ffdcf40fcad517fe361b110fc316cea3dac997e0356186d60a98",
+          "git_blob_sha1": "3f144ac5ee8f614ab80560764325091cd4a2e5a6",
+          "full_connector_bytes_equal": true,
+          "git_blob_verified": true
+        },
+        {
+          "path": "sources/professional/records/PQ-20261011-KQB3622-SCHOLAR-MODULAR-HYPERBOLAS-SHORT-INTERVALS.json",
+          "bytes": 4138,
+          "sha256": "49c93f4bdefe1ece2d195e3627cbb529b58c8435aa59ddb2ab4ccbd41bef58c0",
+          "git_blob_sha1": "c0cfec9edf3df6f75757c461058d6cfd33fab489",
+          "full_connector_bytes_equal": true,
+          "git_blob_verified": true
+        },
+        {
+          "path": "sources/professional/catalog.json",
+          "bytes": 14511,
+          "sha256": "231dd4da681d225992941c5d2f0622e0cbfa48356ca893154efa5c70fda3d82e",
+          "git_blob_sha1": "1dd6d724a02f857a417bb752c838fe4e945b3a7c",
+          "full_connector_bytes_equal": true,
+          "git_blob_verified": true
+        },
+        {
+          "path": "projects/enterprise-math/KQB_J1_20261011_MIXED_ARCHIVE_MANIFEST.json",
+          "bytes": 4882,
+          "sha256": "f76d452c9bcf44eb4c74261bffb090f6909cc1f7827528d7bace0998be4ec709",
+          "git_blob_sha1": "ab77c608e192b5d29e616cee94d0f3b51f4b9e6a",
+          "full_connector_bytes_equal": true,
+          "git_blob_verified": true
+        }
+      ],
+      "typed_scholar_records_archived_verified": 2,
+      "arxiv_typed_record_archived_verified": false,
+      "arxiv_diagnostic_and_mixed_raw_verified": true,
+      "mathematical_acceptance": false,
+      "coverage_complete": false,
+      "confirmed_provider_calls": 3,
+      "remaining_query_budget": 0,
+      "tests": {
+        "unittest": 35,
+        "all_local_records_validated": 41,
+        "network_calls": 0
+      },
+      "verified_at": "2026-10-11T07:47:41Z"
+    }
+  },
+  "coverage_boundary": "Finite explicitly inspected declarations/passages only; not a complete literature search. Generic library ability to prove an instance is not an external named theorem.",
+  "excluded_negative_evidence": [
+    "failed URLopens",
+    "C helper mismatched WEB_FIND_6 reference resolution",
+    "partial academic metadata",
+    "arxiv provider error",
+    "unread EKSY2009 original chapter",
+    "SW2008 author-institution abstract only",
+    "Shparlinski2007 metadata only"
+  ],
+  "report": {
+    "filename": "FULL_PRIOR_ART_RETURN_20261011.md",
+    "bytes": 20865,
+    "sha256": "e77ec32da7a8bff86ef9384e7250e2e905b19b29764269355882c65f26479288",
+    "git_blob_sha1": "7a9c898d90ee6f41e2206c4fc8d75863ff0e277a"
+  },
+  "completed_author_scope": "Remaining5 source comparisons and full6row inheritedJ1 integration",
+  "remaining_control_scope": "Actual Source publication/checkpoint/readback/freezing and formal Driver review; parent remains OPEN."
+}
