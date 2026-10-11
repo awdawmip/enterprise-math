@@ -1,0 +1,219 @@
+# Independent review of the global reflection normalization
+
+Verdict: PASS for the conditional all-prime algebraic consequence below,
+with a separate bounded Fp computation. This is a shared, directed,
+nonblind peer review under my own lightweight activity identity. It is
+neither a new Task claim nor a formal DR acceptance. The primary reviewed
+16-file result and earlier Wronskian supplement remain immutable.
+
+Task: RS-ENTERPRISE-CM24-HESSE-INHOMOGENEOUS-P3-TRANSPORT.
+Publication: TP2-21DFFFD4A8788C0FF5CA.
+Original published Task Source: fd987230250bfd620f8943f529bdd573ac05c655.
+Reviewer: /root/cm24_hesse_p3_independent_review, EM-ENTERPRISE-3F2857,
+activity RA-C05628958AD19A1F120F685E.
+Author: /root/number_theory_next_unit, EM-ENTERPRISE-CB50ED.
+Root independently supplied the same degree argument before this report;
+the author supplied the reviewed memo. I checked its argument and add the
+explicit reflected derivative, quadratic-ring branch shape and ramification
+point consequences below. No claim of exclusive discovery is made.
+
+## Exact mathematical inputs and scope
+
+The reviewed new memo is GLOBAL_REFLECTION_FIXES_CARRIER_BOUNDARY_PREPARATION.md,
+3882 bytes, SHA256
+3986eced7ef50cc03bc8191ecc7336af728aec702d42a3c386ac9d627f4375fa,
+Git blob 31f32bbfe528a86b863086b92e4c21afa31197f7.
+
+The consumed primary proof is HESSE_P3_SECOND_DIGIT_PROOF_FINAL.md,
+14441 bytes, SHA256
+7a99a69226b5d726aac31bc558dd9ed2fbddb489000761f444da8b43027ab0bf,
+Git blob 1333df4da1a0964fbf2d12fe00654e658f71eebc. Its exact-byte independent
+review remains DECISIVE_FINAL_BYTE_REVIEW.md, 12733 bytes, SHA256
+6eddfc1f0fd5747df14f55a107fb3b3d1335d8764ba43bcb800da4617ba3bb43.
+
+Here p=6m+1>=7, q=4x(1-x), and arithmetic of the correction is in Fp[x].
+The primary all-prime argument supplies
+
+    E=(f_p(q)-L_p)/p^2 mod p = x^p K,     deg K <= p-2,
+    D_H K = F = -(2/9) sum_(j=0)^(p-2) x^j,
+    D_H=x(1-x) d^2/dx^2 + (1-2x) d/dx -2/9.
+
+It also supplies H=L_p mod p=P_(2m)(1-2x), H(0)=H(1)=1,
+deg H=2m, D_H H=0, and the zero-seed polynomial I with I(0)=0,
+D_H I=F, deg I<=p-2. The terminal forcing equation for I is consumed
+from the primary argument; specifying a recurrence without its terminal
+equation would not by itself prove polynomial solvability.
+
+The following identification does not consume the lifted harmonic formula
+HB. It uses the original unit16 comparison and cutoff forcing as above.
+Thus it simplifies the definition of the correction, rather than proving
+the preceding comparison from symmetry alone. E is a proof object;
+the independently defined new expression for the same carrier will use
+I and H, not the discrepancy or a target value.
+
+## Homogeneous polynomial uniqueness, including p=7
+
+For U=sum u_j x^j of degree at most p-2, the coefficient equation D_H U=0
+is
+
+    (j+1)^2 u_(j+1) = ((3j+1)(3j+2)/9) u_j.
+
+For j=0,...,p-3 every denominator is a unit. Hence u_0 determines all
+coefficients through u_(p-2), and a homogeneous U with u_0=0 is zero.
+Since H is already a polynomial solution with H(0)=1, every such U is
+u_0 H, including its terminal equation. Numerator zeros at j=2m and
+j=4m create no new freedom: the next coefficient is still uniquely
+determined. The recurrence argument only applies in this degree range;
+no claim is made about unrestricted characteristic-p differential kernels.
+
+At p=7 this means degrees <=5, denominators 1^2,...,5^2, and the nonzero
+H has degree 2. The subsequent degree contradiction has leading degree
+7+2=9 against an upper bound 6, so the smallest allowed prime is covered.
+
+## The reflection condition fixes the entire carrier
+
+Write R U(x)=U(1-x). D_H commutes with R. For S=sum_(j=0)^(p-2)x^j,
+
+    x(1-x)(S+R S)=1-x^p-(1-x)^p=0.
+
+Because Fp[x] is a domain, S+R S=0. Also R H=H, by the even Legendre
+degree 2m. Therefore K+R K is homogeneous of degree <=p-2, giving
+
+    K+R K=C H,       C=K(0)+K(1).
+
+The exact rational polynomial f_p(q) is invariant under reflection.
+Consequently
+
+    E-R E=(L_p(1-x)-L_p(x))/p^2 mod p
+
+has degree <=p-1. Divisibility of this numerator follows from the already
+proved coefficientwise p^2 divisibility of f_p(q)-L_p and its reflection;
+it is not an additional unverified harmonic divisibility claim.
+In characteristic p,
+
+    E-R E=x^p(K+R K)-R K=C x^p H-R K.
+
+If C is nonzero, the first term has exact degree p+2m because the leading
+coefficient of H is nonzero. The other term has degree <=p-2 and cannot
+cancel it. This contradicts degree <=p-1. Thus C=0 and R K=-K globally.
+
+Similarly I+R I=I(1)H by homogeneous uniqueness and evaluation at zero.
+Writing K=I+B H then gives I(1)+2B=0. Accordingly the already proved
+full carrier has the independent residue-field definition
+
+    A=I-(I(1)/2)H=(I-R I)/2,
+    B=-I(1)/2 mod p,
+    f_p(q)=L_p+p^2 x^p A mod p^3.
+
+These equations identify A with the primary J, preserving its history.
+There is no new discrepancy-fitted candidate. The old HB formula remains
+an independently checked identity for this same B. Neither a Fermat
+quotient nor a harmonic sum modulo p^2 is needed to compute A.
+The exact lift required for L_p(x)/p modulo p^2 remains necessary.
+
+## Derivatives and the two marked preimages
+
+Differentiating the odd projection gives a plus sign:
+
+    A'(x)=(I'(x)+I'(1-x))/2
+          =I'(x)-(I(1)/2)H'(x),       A'(1-x)=A'(x).
+
+Here I'(1-x) means evaluating I' at 1-x; it is not the derivative of R I.
+Using a minus sign instead is an incorrect chain rule. The full first
+derivative transport remains
+
+    q'(x) f'_p(q)=L'_p(x)+p^2 x^p A'(x) mod p^3.
+
+Let s^2=2 in Fp[s]/(s^2-2), x_+=(2+s)/4 and x_-=(2-s)/4.
+These satisfy x_-=1-x_+ and q(x_+)=q(x_-)=1/2. Reflection and coefficient
+conjugation give, without needing CM0,
+
+    A(x_+) = b s,      A(x_-)=-b s,
+    A'(x_+)=A'(x_-)=a in Fp.
+
+This remains a statement in the quadratic etale ring if 2 is a square;
+it does not assume this ring is always a field. At target CM0 primes
+p mod 24 in {13,19}, H(x_+)=H(x_-)=0, so A values equal I values.
+Their derivatives instead require the full correction, or equivalently
+the average of the two evaluated I' values. A single branch's I' is
+generally insufficient, exactly as the previous derivative negatives show.
+Also q'(x_+)=-2s and q'(x_-)=2s are units; these two marked preimages are
+not the ramification point of q. This finite arithmetic symmetry preserves
+both branch labels and does not calibrate an external raw modular period.
+
+## Consequence at the actual ramification point
+
+The finite ramification point is x=1/2, q=1, q'=0. Reflection fixes it,
+so A(1/2)=0. Thus the primary polynomial congruence implies
+
+    f_p(1)=L_p(1/2) mod p^3.
+
+This is a conditional corollary of that congruence, not a newly claimed
+independent p^3 campaign. H'(1/2)=0 by even symmetry, whereas
+H(1/2)=(-1)^m binom(2m,m)/4^m is nonzero. Therefore
+
+    I(1/2)=I(1)H(1/2)/2,       A'(1/2)=I'(1/2),
+    A''(1/2)=0.
+
+The first derivative congruence at this point is the consistency equation
+
+    L'_p(1/2)+p^2 (1/2)^p A'(1/2)=0 mod p^3.
+
+It cannot be divided by q'. If a derivative of f at q=1 is needed,
+one must account for ramification, for example by differentiating the
+polynomial identity again; no unramified Jacobian inverse is legitimate.
+
+## Separate finite verification and exact artifacts
+
+The new implementation independent_reflection_supplement.py was frozen
+before its single execution: 6260 bytes, SHA256
+77fe47b928c518c37d7ef986da803711de55a7c0837b7811b2fcc9a8ac361b15,
+Git blob b6b34bac851e781131e51097a0b14993b12c1ba7.
+REFLECTION_SUPPLEMENT_PRE_EXECUTION_FREEZE.json pins it, the reviewed memo,
+and the unchanged earlier proof/review inputs.
+
+The implementation builds H using explicit Legendre coefficients
+(-1)^n binom(2m,n)binom(2m+n,n), I from its Fp recurrence, reflection by
+binomial expansion, and an independent row reduction of the full D_H
+matrix. It imports or executes no author code and does not rerun the
+original six-prime campaign, Gauss composition, harmonic lift or provider
+query. Earlier independent boundary results are used only for comparison.
+It checks p=7,13,19, including the last forcing equation, all reflection
+coefficients, homogeneous kernel dimension, derivative sign and both
+marked points. Execution exited zero and every check passed.
+
+REFLECTION_SUPPLEMENT_FP_RESULTS.json is 6670 bytes, SHA256
+6095d7bfe154bf5334ab65b3aefd8d995ce248075fa5416286a84c49a1efc511,
+Git blob a4ac2ace4ac32cace47d343adcf8442f38e7e32b.
+
+| p | I(1) | B=-I(1)/2 | D_H matrix rank / dimension | A(x_+) | A'(x_+) |
+|---|---:|---:|---:|---|---|
+| 7 | 4 | 5 | 5 / 6 | 4s | 3 |
+| 13 | 9 | 2 | 11 / 12 | 6s | 10 |
+| 19 | 15 | 2 | 17 / 18 | 10s | 0 |
+
+At p=7 the marked H value is 2, so I(x_+)=4+4s differs from A(x_+);
+no CM0 root assertion is made there. At p=13, I'(x_+)=10+4s and
+I'(x_-)=10+9s; at p=19 they are 8s and 11s. Their averages give the
+displayed full A'. The deliberately wrong minus formula disagrees in
+every coefficient of the derivative polynomial for these three primes.
+
+A separate evaluation of the already saved Fp arrays at x=1/2 checked
+A=0, H'=0, A'=I', A''=0 and the stated nonzero H/value relation, without
+regenerating a polynomial or running lifted arithmetic. It produced
+REFLECTION_BRANCHPOINT_FP_RESULTS.json, 1122 bytes, SHA256
+24317a2b1bce8207a7a578fed6869c6b661e1aafd0027dfb54d7c9975142cf34,
+Git blob a85250dd90f072997d88bf0a97c916f77477348d. The center values
+(I,H,A; I',H',A') are (6,3,0;3,0,3) at 7,
+(9,2,0;3,0,3) at 13 and (3,8,0;16,0,16) at 19.
+
+Earlier independent results consumed only as comparison are
+INDEPENDENT_FINITE_RESULTS.json, SHA256
+5a54695b1b40dfe75b3c332d22fb1758b3939c0dd3061db0ebd8347c0b043fb6.
+The earlier Wronskian preparation stays at SHA256
+ee3f73f6b81985333694ce83d826e11e1db9902681be6bff490e2a2ab9430b1e.
+This supplement refines the precision inputs for the full correction;
+it neither replaces those frozen files nor asserts a new raw-period,
+UR/LIFT, full native-world, mother-goal or global research completion.
+
+Researcher-ID: EM-ENTERPRISE-3F2857 / RS-ENTERPRISE-CM24-HESSE-INHOMOGENEOUS-P3-TRANSPORT
