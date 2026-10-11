@@ -43,6 +43,8 @@ def _pins(root: Path) -> dict[str, Any] | None:
 
 
 def record_path(record: Mapping[str, Any], kind: str) -> str:
+    if kind not in {"RESULT", "REVIEW"}:
+        raise ValueError("unknown ordinary write authorization kind")
     stored = record.get("_record_path" if kind == "RESULT" else "_review_path")
     if isinstance(stored, str):
         return stored
@@ -52,6 +54,8 @@ def record_path(record: Mapping[str, Any], kind: str) -> str:
 
 
 def build_receipt(record: Mapping[str, Any], kind: str, context: Mapping[str, Any]) -> dict[str, Any]:
+    if kind not in {"RESULT", "REVIEW"}:
+        raise ValueError("unknown ordinary write authorization kind")
     return {"schema": SCHEMA, "kind": kind,
             "evidence_kind": "CANONICAL_LOCAL_GUARD_WITH_SERVER_SOURCE_ENVELOPES_NOT_PLATFORM_ATTESTATION",
             "payload_sha256": payload_digest(record), **copy.deepcopy(dict(context))}
@@ -75,6 +79,8 @@ def _canonical_frozen_definition(publication: Mapping[str, Any], receipt: Mappin
 
 
 def receipt_error(record: Mapping[str, Any], kind: str, root: Path) -> str | None:
+    if kind not in {"RESULT", "REVIEW"}:
+        return "unknown ordinary write authorization kind"
     pins = _pins(root)
     if pins is None:
         return None

@@ -568,6 +568,13 @@ def _overlay_result_state(
     result_state: dict[str, Any] | None,
 ) -> dict[str, Any]:
     """Treat nonterminal Driver review as a reopen edge, not a permanent overlay."""
+    if (isinstance(result_state, dict) and result_state.get("historical_intake_id")
+            and state.get("dispatch_state") == "LEASED"):
+        # A scientific intake/review is not succession or an all-ingress fence.
+        # Preserve an actual current target-task owner, including another chat.
+        value = copy.deepcopy(state)
+        value["historical_review_available"] = result_state["historical_intake_id"]
+        return value
     if (_core._is_registered(task) and isinstance(result_state, dict)
             and result_state.get("state") == _result_authority.STATE):
         value = copy.deepcopy(state)
