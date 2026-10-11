@@ -1,0 +1,242 @@
+{
+  "scope": "ONE_BOUNDED_FIXED_SOURCE_INTERFACE_GATE",
+  "overall_verdict": "NORM_ONLY_WITH_GAP",
+  "review_context": {
+    "directed": true,
+    "shared_context": true,
+    "formal_independent_DR": false,
+    "native_Result_or_review_created": false
+  },
+  "previous_14_units": "retained as fixed normalization conditions; not rederived",
+  "source": "Betina-Lecouturier arXiv:1611.01044v3 original frozen TeX/PDF",
+  "objects": [
+    {
+      "object": "K_field_and_k",
+      "field": "unramified quadratic K_field/Q_p; k=F_(p^2)",
+      "quotient": null,
+      "normal": "base field only",
+      "task_lift": null,
+      "existence": "EXPLICIT",
+      "interface_status": "EXPLICIT",
+      "tex_lines": [
+        103,
+        111
+      ]
+    },
+    {
+      "object": "H_coordinate",
+      "field": "rational coordinate over Z[1/3], characteristic-zero eta expression",
+      "quotient": null,
+      "normal": "marked full-level-3 coordinate; previous 14-unit marking retained conditionally",
+      "task_lift": null,
+      "existence": "EXPLICIT",
+      "interface_status": "EXPLICIT",
+      "tex_lines": [
+        622,
+        626,
+        628,
+        633,
+        635
+      ]
+    },
+    {
+      "object": "a_i",
+      "field": "k^times for a fixed distinct marked supersingular root set",
+      "quotient": null,
+      "normal": "a_i=prod_(j!=i)(H_i-H_j)^(-1)=P_H_prime(H_i)^(-1)",
+      "task_lift": null,
+      "existence": "CONDITIONAL_ON_MARKED_ROOT_INPUT",
+      "interface_status": "CONDITIONAL",
+      "tex_lines": [
+        139,
+        140,
+        148,
+        662
+      ],
+      "source_names_this_a_i": false,
+      "exists_as_marked_algebraic_factor": true,
+      "source_identifies_with_Task_G_p": false
+    },
+    {
+      "object": "residual_diagonal_pairing_divided_by_p",
+      "field": "K_field^times/U_1(K_field); unit residue in k^times after division by p",
+      "quotient": "principal units U_1(K_field)",
+      "normal": "stated N=3 analogue: Phi_bar(e_i,e_i)/p=a_i^(p+1)=Norm_(k/F_p)(a_i)",
+      "task_lift": null,
+      "existence": "EXPLICIT_VIA_STATED_N3_ANALOGUE",
+      "interface_status": "NORM_ONLY_WITH_GAP",
+      "tex_lines": [
+        132,
+        134,
+        139,
+        140,
+        148,
+        662
+      ],
+      "norm_interpretation": "local finite-field inference, not a distinct scalar definition quoted from paper"
+    },
+    {
+      "object": "raw_theta_and_augmentation_Phi",
+      "field": "K_field^times; analytic theta products and period ratios",
+      "quotient": null,
+      "normal": "independent raw object defined before reduction; no calibrated Task normal equality supplied",
+      "task_lift": null,
+      "existence": "EXPLICIT",
+      "interface_status": "CONDITIONAL",
+      "tex_lines": [
+        294,
+        295,
+        296,
+        300,
+        315,
+        317,
+        323,
+        335
+      ]
+    },
+    {
+      "object": "extended_Phi_e_i_e_j",
+      "field": "K_field^times in main N=2 cusp-limit construction",
+      "quotient": null,
+      "normal": "limit of lambda_prime composed with uniformization squared times theta ratio; N=3 analogue asserted separately",
+      "task_lift": "cusp approach, not z_Task=1/2 mod p^2",
+      "existence": "EXPLICIT_FOR_MAIN_N2_AND_ASSERTED_N3_ANALOGUE",
+      "interface_status": "CONDITIONAL",
+      "tex_lines": [
+        337,
+        338,
+        340,
+        348,
+        351,
+        372,
+        376,
+        379,
+        380,
+        662
+      ]
+    },
+    {
+      "object": "cusp_and_graph_orientation",
+      "field": "cusp sections, graph edges, annuli",
+      "quotient": null,
+      "normal": "c_prime above [1]_Gamma3 and [infinity]_Gamma0p, c=w_p(c_prime); main graph edges point out of v_cprime",
+      "task_lift": null,
+      "existence": "EXPLICIT_CUSPS_AND_MAIN_GRAPH_CONVENTION",
+      "interface_status": "CONDITIONAL",
+      "tex_lines": [
+        249,
+        251,
+        253,
+        265,
+        270,
+        272,
+        276,
+        633
+      ]
+    },
+    {
+      "object": "N3_mu_and_nu",
+      "field": "raw modular unit and powered theta product",
+      "quotient": null,
+      "normal": "mu=u((z+2)/3)^3/u(z); u=(Delta(pz)/Delta(z))^(1/d); nu=(prod theta)^(24/d); proportionality asserted without listed constant",
+      "task_lift": null,
+      "existence": "EXPLICIT",
+      "interface_status": "CONDITIONAL",
+      "tex_lines": [
+        638,
+        639,
+        640,
+        641,
+        642,
+        659,
+        660,
+        662
+      ]
+    },
+    {
+      "object": "cusp_Fourier_and_sign",
+      "field": "complex q expansion and p-adic residual limit",
+      "quotient": "displayed N2 final limit modulo principal units",
+      "normal": "N2 lambda_prime leading coefficient -1/16 appears raised to p-1; N3 appendix states Fourier computation gives analogue without listing Task coefficient",
+      "task_lift": null,
+      "existence": "EXPLICIT_N2_COEFFICIENT_AND_ASSERTED_N3_COMPUTATION",
+      "interface_status": "CONDITIONAL",
+      "tex_lines": [
+        514,
+        516,
+        564,
+        602,
+        610,
+        635,
+        651,
+        652,
+        653,
+        654,
+        662
+      ]
+    },
+    {
+      "object": "Task_rational_mod_p_squared_lift",
+      "field": "required lift in Z_p/p^2 of hypergeometric base coordinate z_Task",
+      "quotient": null,
+      "normal": null,
+      "task_lift": null,
+      "requested_task_lift": "z_Task=1/2 mod p^2",
+      "existence": "NOT_SUPPLIED_IN_THIS_FIXED_SOURCE",
+      "interface_status": "CONDITIONAL",
+      "tex_lines": [
+        294,
+        295,
+        317,
+        372,
+        379,
+        625,
+        654
+      ],
+      "false_witness_excluded": "[1/2] in N3 cusp list/table is a rational cusp, not the Task lift"
+    }
+  ],
+  "positive_data_retained": [
+    "marked H",
+    "marked algebraic a_i before norm",
+    "raw theta/Phi objects",
+    "fixed cusps and main graph orientation",
+    "N3 mu/nu and annular degrees",
+    "explicit N2 Fourier/sign evidence",
+    "stated N3 analogue of Theorem 1.1"
+  ],
+  "precision_distinctions": {
+    "principal_unit_quotient_retains_first_nonzero_unit_residue": true,
+    "principal_unit_quotient_retains_minus_one_for_odd_p": true,
+    "principal_unit_quotient_discards_higher_principal_unit_digits": true,
+    "norm_map_a_to_a_pow_p_plus_1_is_injective": false,
+    "norm_kernel_cardinality": "p+1 on F_(p^2)^times",
+    "norm_of_minus_a_equals_norm_of_a": true,
+    "raw_Phi_div_p_equals_a_i_supplied": false,
+    "a_i_equals_Task_G_p_supplied": false,
+    "Task_rational_mod_p_squared_lift_supplied": false
+  },
+  "remaining_required_witness_fields": [
+    "independently defined oriented local scalar before norm",
+    "field, chosen full-level branch and normal parameter/gauge",
+    "exact z_Task=1/2 mod p^2 lift prescription",
+    "proved normalization/equality to G_p before applying norm"
+  ],
+  "bounded_limitations": {
+    "paper_false_claimed": false,
+    "global_no_go_claimed": false,
+    "all_raw_objects_absent_claimed": false,
+    "multiplier_c_backselected": false,
+    "parent_mathematical_objective_complete": false
+  },
+  "operations": {
+    "remote_reads": 0,
+    "remote_writes": 0,
+    "provider_queries": 0,
+    "registrations": 0,
+    "claims": 0,
+    "opens": 0,
+    "native_source_gk_writes": 0
+  },
+  "source_digest_and_locator_manifest": "/workspace/em-owner-resume-20261011/cm24-normal-gate-20261011/source-interface-readcheck/FIXED_SOURCE_FULL_DIGEST_AND_LOCATORS.json"
+}

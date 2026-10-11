@@ -1,0 +1,102 @@
+## pole_limit_and_Fourier_argument | fixed original TeX lines [482, 533] | SHA256 b789d7b7ab5d8eb0cf6c739ef678934447ef663e3e8db038c51780b73ce12896
+
+482: To summarize the various cases, there are exactly two elements $\gamma \in \Gamma$ for which the factor associated to $\gamma$ is not a principal unit, namely $\gamma=1$ and $\gamma = \alpha_i^{-1}$. In the first case, the factor is equivalent modulo principal units to 
+483: $$ \frac{(z-z_0)}{-z_0^2}\cdot (\lambda(e_{i})-\lambda(e_0))^p$$
+484: and in the second case to 
+485: $$ \frac{(z-z_0)}{-z_0^2}\cdot (\lambda(e_{i})-\lambda(e_0)) \text{ .}$$
+486: Thus, in to conclude the proof of (\ref{thm_ij}), it suffices to show: 
+487: \begin{prop}
+488: We have $$ \emph{lim } \frac{\left( \lambda' \circ \tau(z) \right) \cdot (z_0-z)}{z_0^2} = 1\text{ .}$$
+489: \end{prop}
+490: \begin{proof}
+491: This follows from Lemma \ref{H' identity} and \cite{shalit} Lemma $2.1$.
+492: \end{proof}
+493: 
+494: 
+495: \subsection{Case $i=j$}
+496: 
+497: To conclude this article, we prove the formula (\ref{thm_i}) of Theorem~\ref{thm_principal}. Let $d = \text{gcd(}p-1, 12\text{)}$. Let $X = M_{\Gamma_0(p) \cap \Gamma(2)}$ over $\mathbf{Z}[\frac{1}{2}]$.
+498: 
+499: Let $\mu$ in the function field of $X_\Q=M_{\Gamma_0(p)\cap \Gamma(2)} \otimes \Q$ as in Appendix section \ref{section_mu}. We see $\mu$ as a meromorphic function on $\mathfrak{X}_K^{an}$ (or on $\mathfrak{H}_{\Gamma}$ via the uniformization $\tau : \mathfrak{H}_{\Gamma} \rightarrow \mathfrak{X}_K$, as the context will make clear). It is shown in the appendix that the divisor of $\mu$ is $6\cdot \frac{p-1}{d} \cdot \left( (\xi_{c'}) - (\xi_{c})\right)$.
+500: 
+501: For $z \in \mathfrak{H}_{\Gamma}$, let
+502: $$\nu(z) = \left( \prod_{0 \leq \ell \leq g} \theta(\xi_{c'}^{(\ell)},z_0,z) \right)^{\frac{12}{d}} \text{ .}$$
+503: \begin{prop}\label{mu_nu}
+504: The two functions $\nu$ et $\mu$ are proportionals.
+505: \end{prop}
+506: Let us show how we conclude the proof of Theorem~\ref{thm_principal} before we prove the above proposition. Let $z$ and $z'$ be as in the definition $\Phi$. 
+507: By definition, we have: 
+508: $$\bar{\Phi}(e_i, \hat{e})^{\frac{12}{d}}= \text{lim } \left( \lambda' \circ \tau(z)\right)^{\frac{12}{d}\cdot 2\cdot\frac{p-1}{2}} \cdot \frac{\nu(z')}{\nu(z)} \text{ .}$$
+509: Proposition \ref{mu_nu} shows that: 
+510: \begin{equation}
+511: \bar{\Phi}(e_i, \hat{e})^{\frac{12}{d}} = \text{lim } \left( \lambda' \circ \tau(z)\right)^{\frac{12}{d}\cdot 2 \cdot \frac{p-1}{2}} \cdot \frac{\mu(z')}{\mu(z)} \text{ .}
+512: \label{limite_algebrique}
+513: \end{equation}
+514: The function $\mu$ is algebraic in $\tau(z)$, and since $\tau(z') = w_p(\tau(z))$, $\frac{\mu(z')}{\mu(z)}$ is algebraic in $\tau(z)$. This is also the case for $\lambda'$. Therefore, in (\ref{limite_algebrique}), it suffices to do a Fourier expansion computation at the cusp $\xi_c$ of $X$ (recall that $\lambda'(\xi_c) = \lambda(\xi_{c'}) = \infty$, by section \ref{section_cusps_N=2} of Appendix)
+515: 
+516: We know that the Fourier expansion of $\lambda'$ begins with $\frac{-1}{16q_{c}}$, where $q_{c}$ is a local parameter at $\xi_{c}$ (\textit{c.f.} Appendix, section \ref{section_cusps_N=2}). Since $\mu(z') = p^{-\frac{12}{d}} \cdot \mu(z)^{-1}$ by Lemma \ref{functional_equation_mu} and the Fourier expansion of $\mu$ at $\xi_c$ begins with $p^{\frac{-12}{d}} \cdot q_{c}^{-\frac{6(p-1)}{d}}$ by Lemma \ref{Fourier_mu}, the limit we seek is $\left(\left(-\frac{1}{16} \right)^{p-1} \cdot p\right)^{\frac{12}{d}}=p^{\frac{12}{d}}$ modulo principal units. This concludes the proof of Theorem ~\ref{thm_principal}.
+517: 
+518: Let us now prove Proposition \ref{mu_nu}.
+519: 
+520: We have seen that both functions have divisor $$\frac{12}{d}\cdot (g+1)\cdot(\Gamma \cdot  \xi_{c'} - \Gamma \cdot \xi_c) =\frac{12}{d}\cdot \frac{p-1}{2}\cdot(\Gamma \cdot  \xi_{c'} - \Gamma\cdot \xi_c) \text{ .}$$ Hence $\frac{\nu}{\mu}$ is entire with no zeroes in $\mathfrak{H}_{\Gamma}$. To conclude, we are going to use the criterion of Corollary $2.4$ of \cite{shalit}. If $\epsilon$ is in an oriented annulus of $\mathfrak{H}_{\Gamma}$ and $f$ is an analytic function on $\mathfrak{H}_{\Gamma}$, the degree $\text{deg}_{\epsilon}(f)$ of the restriction of $f$ to $\epsilon$ was defined by de Shalit in section $2.2$ of \cite{shalit}. It suffices to show that for any edge $e$ of $\mathcal{T}_{\Gamma}$ (with the orientation of $\mathcal{T}_{\Gamma}$ we have fixed before), $\mu$ and $\nu$ have the same degree on the annulus $\rho^{-1}(e)$. Let $\epsilon$ be such an annulus.
+521: 
+522: It is clear that $\text{deg}_{\epsilon}(\nu) = \frac{12}{d}$. Let $F = \tau(A)$ and $F' = \tau(A')$ be affinoids of $X$. We first show that $\mid \mu(z) \mid =  \mid p \mid^{-\frac{12}{d}}$ for all $z \in F$ and that $\mid \mu(z') \mid =1$ for all $z' \in F'$. Recall that $\mu \circ w_p = p^{\frac{-12}{d}} \cdot \mu^{-1}$ by Lemma \ref{functional_equation_mu}. Therefore it suffices to prove the first norm equality. The affinoid $F$ parametrizes the triples $(E,C,\alpha)$ where $E$ is an elliptic curve with ordinary good reduction at $p$, and $C$ extends to an \'etale group-scheme over some ring of integer. Likewise $F'$ parametrizes triples where $C$ is of multiplicative type. 
+523: 
+524: If $z \in F$ corresponds to $(E,C,\alpha=(P_1,P_2))$, and $\omega$ is differential on $E$, we let $\omega'$ be the unique differential on $E/C$ whose pullback to $E$ is $\omega$. We then have 
+525: $$\frac{\Delta(pz)}{\Delta(z)} = \frac{\Delta(E/C, p^{-1}\cdot \omega')}{\Delta(E, \omega)} \text{ .}$$
+526: Note that the right hand side is independent of the choice of $\omega$, since if we change $\omega$ by $c\cdot \omega$ then both the numerator and the denominator are multiplied by $c^{12}$.
+527: 
+528: We now choose $\omega$ to be a N\'eron differential on $E$. Then $\Delta(E, \omega)$ is a unit. Since $C$ extends to an \'etale group scheme over some integer ring, the isogeny $E \rightarrow E/C$ is \'etale and $\omega'$ is also a N\'eron differential on $E/C$. Therefore both $\Delta(E, \omega)$ and $\Delta(E/C, \omega')$ are units, and $\mid u(z) \mid = \mid p \mid^{\frac{-12}{d}}$ where $u$ is defined in Appendix \ref{section_mu}. The complex correspondance $z \mapsto \frac{z+1}{2}$ has a moduli interpretation (see the proof of Lemma \ref{functional_equation_mu}) which shows that the numerator of $\mu$ has norm $\mid p \mid^{\frac{-24}{d}}$ on $F$ and its denominator has norm $ \mid p \mid^{\frac{-12}{d}}$. Thus $\mid u(z) \mid = \mid p \mid^{\frac{-12}{d}}$, as wanted.
+529: 
+530: Let us finish the proof of Proposition \ref{mu_nu}. Let $f$ be a rigid analytic function on the annulus $\epsilon = \{z, \mid p \mid < z < 1\}$. Then we see, by definition of the degree, that: 
+531: $$\text{deg}_{\epsilon}(f) = \text{lim }_{\mid z \mid \rightarrow \mid p \mid} \text{ord}(f(z)) - \text{lim }_{\mid z \mid \rightarrow 1} \text{ord}(f(z))$$
+532: (where $\text{ord}$ is the $p$-adic valuation normalized by $\text{ord}(p)=1$).
+533: Therefore $\text{deg}_{\epsilon}(\mu)=0-(-\frac{12}{d})=\frac{12}{d}$, which concludes the proof of Proposition \ref{mu_nu}.
+
+## N3_complete_interface | fixed original TeX lines [620, 663] | SHA256 be3c2e968903ae0e9a7eb872a2a9cee8117962dcb50019a9a9392f67c79089f5
+
+620: \subsection{Case $N=3$}\label{N=3}
+621: \subsubsection{The cusps}
+622: We assume $p \equiv 1 \text{ (mod }3 \text{)}$. Let $X = M_{\Gamma_0(p) \cap K}$ over $\mathbf{Z}[\frac{1}{3}]$, where $K$ is congruence subgroup of $\text{SL}_2(\mathbf{Z})$ corresponding to the diagonal matrices modulo $3$. By Remark \ref{champ N=3}, $X$ is geometrically irreducible and we have a natural isomorphism
+623: $$X(\mathbf{C}) \simeq (\Gamma_0(p) \cap \Gamma(3)) \backslash (\mathcal{H} \cup \mathbf{P}^1 (\mathbf{Q}))  \text{ .}$$ 
+624: 
+625: The curve $X(\mathbf{C})$ has $8 = 2 \cdot \text{Card}(\mathbf{P}^1(\mathbf{F}_3))$ cusps, namely $[0]_{\Gamma_0(p) \cap \Gamma(3)}$, $[1]_{\Gamma_0(p) \cap \Gamma(3)}$, $[\frac{1}{3}]_{\Gamma_0(p) \cap \Gamma(3)}$, $[\frac{1}{2}]_{\Gamma_0(p) \cap \Gamma(3)}$, $[\infty]_{\Gamma_0(p) \cap \Gamma(3)}$, $[\frac{2}{p}]_{\Gamma_0(p) \cap \Gamma(3)}$, $[\frac{1}{p}]_{\Gamma_0(p) \cap \Gamma(3)}$, $[\frac{3}{p}]_{\Gamma_0(p) \cap \Gamma(3)}$ (the first three are above the cusp $[0]_{\Gamma_0(p)}$ of $M_{\Gamma_0(p)}(\C)$, and the last three are above $[\infty]_{\Gamma_0(p)}$; $w_p$ exchanges the first group of three cusps with the second group). The genus of $X$ is $g=p-2$, so $X$ has $g+1 = p-1$ supersingular points in its special fiber $p$.
+626: We choose the Hauptmodul $H:M_K \xrightarrow{\sim} \mathbf{P}^1$ (defined over $\Z[\frac{1}{3}]$) such that over $\mathbf{C}$ we get the classical meromorphic function for $\Gamma(3)$: 
+627: \begin{equation}
+628: H(z) = \left( \frac{\eta(\frac{z}{3(1-z)})}{\eta(\frac{3z}{1-z})} \right)^3
+629: \label{q_exp_mu3}
+630: \end{equation}
+631: where $\eta$ is the Dedekind eta function. 
+632: 
+633: Let $c'$ be the (unique) cusp of $X(\mathbf{C})$ above $[1]_{\Gamma(3)}$ on $X(3)(\mathbf{C})$ and above $[\infty]_{\Gamma_0(p)}$ on $X_0(p)(\mathbf{C})$ (via the forgetful maps). Let $c= w_p(c')$.
+634: 
+635: The function $H$ has a pole of order $1$ at the cusp $[1]_{\Gamma(3)}$ of $M_H$ (because a local parameter at $[1]_{\Gamma(3)}$ is $e^{\frac{-2i \pi z}{3(z-1)}}$). 
+636: For $0 \leq i \leq 2$, let $\pi_i(z) = \frac{z+i}{3}$, $\pi_{-1}(z) = z$ and $\pi_3(z) = 3z$. Then the $\pi_i$'s induce maps $X \rightarrow X_0(p)$. We computed in table \ref{ramification} the ramification index of these maps at the cusps of $X$ above $[0]_{\Gamma_0(p)}$ (the result being the same for the cusps above $[\infty]_{\Gamma_0(p)}$, thanks to $w_p$). 
+637: 
+638: \subsubsection{The modular unit $\mu$}
+639: We define $$\mu(z) = \frac{u(\pi_2(z))^3}{u(\pi_{-1}(z))} = \frac{u(\frac{z+2}{3})^3}{u(z)}$$
+640: where, as in the case $N=2$, $u(z) = \left(\frac{\Delta(pz)}{\Delta(z)}\right)^{\frac{1}{d}}$ (with $d = \text{gcd}(p-1,12)$). The divisor of $\mu$ is $24\cdot \frac{p-1}{d} \cdot \left( (c') - (c)\right)$. Its degree on the various annuli is $\frac{24}{d}$. We have 
+641: $$\mu \circ w_p = p^{\frac{-12}{d}} \cdot \mu^{-1} \text{ .}$$
+642: Finally, $H$ (viewed as a function on $X$) has a double pole at $c'$.
+643: \begin{table}[]
+644: \centering
+645: \caption{Ramification index at the cusps}
+646: \label{ramification}
+647: \begin{tabular}{|l|l|l|l|l|l|l|}
+648:   \hline
+649:   Cusp of X & Local parameter & $\pi_{-1}$ & $\pi_0$ & $\pi_1$ & $\pi_2$ & $\pi_3$\\
+650:   \hline
+651:   $0$ & $e^{\frac{-2i \pi}{3pz}}$ & 3 & 1 & 1 & 1 & 9 \\
+652:   $\frac{1}{3}$ & $e^{\frac{-2i \pi}{9p(3z-1)}} $& 3 & 1 & 1 & 1 & 9 \\
+653:   $1$ & $e^{\frac{-2i \pi}{3p(z-1)}}$ & 3 & 1 & 1 & 9 & 1\\
+654:   $\frac{1}{2}$ &$e^{\frac{-i \pi}{3p(2z-1)}}$&3 & 1 & 9 & 1 & 1\\
+655:   \hline
+656: \end{tabular}
+657: \end{table}
+658: 
+659: We define:
+660: $$\nu(z) = \left( \prod_{0 \leq \ell \leq g} \theta(\xi_{c'}^{(\ell)},z_0,z) \right)^{\frac{24}{d}} \text{ .}$$
+661: 
+662: The same proof as in Proposition \ref{mu_nu} shows that $\mu$ and $\nu$ are proportionals. A Fourier expansion computation shows the analogue of Theorem \ref{main-thm} in the case $N=3$, with $\lambda$ remplaced by $H$.
+663: 
+

@@ -1,0 +1,98 @@
+## cusp_lifts_and_extension | fixed original TeX lines [333, 388] | SHA256 eef7f08e51c73b543e1bbe6d4232d39b204101540d8804566a563f196ecf566b
+
+333: \end{proof}
+334: 
+335: Note that our pairing $\Phi:\mathbf{Z}[S]^0 \times \mathbf{Z}[S]^0 \rightarrow \Q_p^{\times}$ does not depend on the choice of $\lambda:X(2)_\Q = M_{\Gamma(2)} \otimes \Q \xrightarrow{\sim} \mathbf{P}^1_\Q$. We are going to define an extension $\Phi: \mathbf{Z}[S] \times \mathbf{Z}[S] \rightarrow K^{\times}$ (which depends on the choice of $\lambda$). 
+336: 
+337: \subsection{Extension of $\Phi$ to $\mathbf{Z}[S]^0 \times \mathbf{Z}[S]$}
+338: For all $0 \leq i \leq g$, we choose $\xi_c^{(i)}$ (resp. $\xi_{c'}^{(i)}$) in $\mathfrak{H}_{\Gamma}$ which reduces modulo $\Gamma$ to the cusp $\xi_c \otimes \Q_p$ (resp. $\xi_{c'} \otimes \Q_p$), and such that $\xi_c^{(i)}$ and $\xi_{c'}^{(i)}$ are separated by an annulus reducing to $e_i$.  
+339: 
+340: Let $\tilde{v}_c^{(i)}$ and $\tilde{v}_{c'}^{(i)}$ be two neighbour vertices of $\mathcal{T}_{\Gamma}$ above $v_c$ and $v_{c'}$ respectively, separated by an edge reducing to $e_i$. We fix $\tilde{v}_c^{(0)} = \tilde{v}_c$ and $\tilde{v}_{c'}^{(0)} = \tilde{v}_{c'}$. We then choose $\xi_c^{(i)}$ (resp. $\xi_{c'}^{(i)}$) in $\rho^{-1}(\tilde{v}_c^{(i)})$ (resp.  $\rho^{-1}(\tilde{v}_{c'}^{(i)})$). If we choose, for all $0 \leq i \leq g$, $\xi_c^{(i)} = z_0 \in A$, then the $\xi_{c'}^{(i)}$ are uniquely determined, and satisfy
+341: $$\xi_{c'}^{(i)} = \alpha_i^{-1}(\xi_{c'}^{(0)}) \in B_i \text{ .}$$
+342: Indeed, we have $\xi_{c'}^{(0)} \in \rho^{-1}(\tilde{v}_{c'})=A'$ and $\alpha_i^{-1}(A') \subset \alpha_i^{-1}(\mathbf{P}^1 - C_i') \subset B_i$.
+343: 
+344: Note that for all $i$, the pair $(\xi_c^{(i)}, \xi_{c'}^{(i)})$ is uniquely determined modulo $\Gamma$. We can assume that $z_0 \neq \infty$.
+345: 
+346: Let $a \in \mathfrak{H}_{\Gamma}$. We then define, for all $\alpha \in \Gamma$, 
+347: \begin{equation}
+348: \Phi(\alpha, e_i) = \frac{\theta(a, \alpha(a), \xi_{c'}^{(i)})}{\theta(a, \alpha(a), \xi_{c}^{(i)})}=\frac{u_{\alpha}(\xi_{c'}^{(i)})}{u_{\alpha}(\xi_{c}^{(i)})}=\frac{u_{\alpha}(\xi_{c'}^{(i)})}{u_{\alpha}(z_0)}
+349: \label{def_Q_1}
+350: \end{equation}
+351: This definition does not depend on the choice of $a$ and $(\xi_c^{(i)}, \xi_{c'}^{(i)})$, by Proposition \ref{theta}. Since $K$ is complete and $\xi_c^{(i)}$ and $\xi_{c'}^{(i)}$ are defined over $K$, $\Phi$ takes values in $K^{\times}$.
+352: \begin{lemma}
+353: The pairing $\Phi$ defined above extends the previous pairing $\Phi$ on $\Z[S]^0 \times \Z[S]^0$.
+354: \end{lemma}
+355: \begin{proof}
+356: Using Proposition \ref{theta}, we have: $$\frac{\Phi(\alpha, e_i)}{\Phi(\alpha, e_0)} = \frac{u_{\alpha}(\xi_{c'}^{(i)})}{u_{\alpha}(\xi_{c'}^{(0)})} = \frac{u_{\alpha}(\xi_{c'}^{(i)})}{u_{\alpha}\left(\alpha_i(\xi_{c'}^{(i)})\right)}  = \Phi(\alpha, \alpha_i) = \Phi(\alpha, e_i-e_0)\text{ .}$$
+357: \end{proof}
+358: 
+359: \section{Extension of $\Phi$ to $\Z[S] \times \Z[S]$}
+360: 
+361: 
+362: Let $\lambda$ be the Hauptmodul for $M_{\Gamma(2)}$; recall that $\lambda$ induces an isomorphism $$M_{\Gamma(2)} \otimes \mathbf{Q} \simeq \mathbf{P}^{1}_{\mathbf{Q}} \text{ .}$$ 
+363: We define $\lambda' :\mathfrak{X}_K^{an}\rightarrow \mathbf{P}^1_K$ by $\lambda' = \lambda \circ w_p$ 
+364:  
+365: 
+366: \subsection{Atkin--Lehner involution on $\mathfrak{H}_{\Gamma}$}
+367: The Atkin--Lehner involution acts on $\Gamma \backslash \mathcal{T}_{\Gamma}$ and lifts to an orientation reversing involution $w_p$ of $\mathcal{T}_{\Gamma}$ (by the universal covering property). By \cite{G} ch. VII Sect. $1$, there is a unique class in $N(\Gamma)/\Gamma$ (where $N(\Gamma)$ is the normalizer of $\Gamma$ in $\PGL_2(K)$) inducing $w_p$ on $\mathcal{T}_{\Gamma}$. We denote by $w_p$ the induced map of $\mathfrak{H}_{\Gamma}$ (it is only unique modulo $\Gamma$). 
+368: 
+369: \subsection{Definition of $\Phi$}
+370: Fix $0 \leq i , j \leq g$. 
+371: 
+372: Let $z \in \mathfrak{H}_{\Gamma}$ near $\xi_{c}^{(i)}$ and $z'$ near $\xi_{c'}^{(i)}$ such that $\tau(z) = w_p(\tau(z'))$. Recall that by hypothesis, $\xi_{c}^{(i)}=z_0$ is independent of $i$.
+373: 
+374: For $0 \leq i,j \leq g$, we let:
+375: \begin{equation}
+376: \Phi(e_i,e_j) = \text{lim } \lambda'(\tau(z))^2 \cdot \frac{\theta(z',z,\xi_{c'}^{(j)})}{\theta(z',z,\xi_{c}^{(j)})}
+377: \label{def_Q_2}
+378: \end{equation}
+379: where $z$ and $z'$ approach $\xi_{c}^{(i)}$ et $\xi_{c'}^{(i)}$ respectively.
+380: Since at $z = z_0$, $\lambda' \circ \tau$ has a simple pole and the numerator and denominator have a simple zero and simple pole respectively, $\Phi(e_i,e_j)$ is finite, and is in $K^{\times}$ since $K$ is complete (we choose $z$ and $z'$ in $K$ to compute the limit). We bilinearly extend $\Phi$ to $\Z[S] \times \Z[S]$.
+381: 
+382: \begin{lemma}
+383: The pairing $\Phi$ defined above extends the previous pairing on $\Z[S] \times \Z[S]^0$.\end{lemma}
+384: \begin{proof}
+385: Since $\xi_c^{(i)} = \xi_c^{(0)} = z_0$, we have: 
+386: $$\frac{\Phi(e_i, e_j)}{\Phi(e_0, e_j)} =  \text{lim } \frac{\theta(z',z,\xi_{c'}^{(j)})}{\theta(\zeta',z,\xi_{c'}^{(j)})} \cdot \frac{\theta(\zeta', z, \xi_{c}^{(j)})}{\theta(z',z,\xi_{c}^{(j)})} $$
+387: where $\zeta' = \alpha_i(z')$ approaches $\xi_{c'}^{(0)}$. Since $$\frac{\theta(a,b,z)}{\theta(\gamma(a),b, z)} = \theta(a, \gamma(a), z)$$ (which is obvious by the infinite product definition of $\theta$), we get:
+388: $$\frac{\Phi(e_i, e_j)}{\Phi(e_0, e_j)} =  \text{lim } \frac{\theta(z',\alpha_i(z'),\xi_{c'}^{(j)})}{\theta(z',\alpha_i(z'),\xi_{c}^{(j)})} = \Phi(\alpha_i, e_j) \text{ .}$$
+
+## powered_theorem_and_root_reason | fixed original TeX lines [391, 405] | SHA256 cbc432e231c2c11c357ed0df06d340caf03f9708c24f97731e2b3d00b991f673
+
+391: \section{Proof of the main theorem}
+392: Let $\hat{e} = \sum_{e_i \in S} [e_i] \in \Z[S]$ be \textit{the Eisenstein element}. Let $\bar{\Phi}$ be the reduction of $\Phi$ modulo principal units. Let $d = \text{gcd}(p-1, 12)$.
+393: \begin{theorem}\label{thm_principal}
+394: If $i \neq j$, we have:
+395: \begin{equation}
+396: \overline{\Phi}(e_i,e_j)^{\frac{12}{d}}=(\lambda(e_i)-\lambda(e_j))^{(p+1)\cdot \frac{12}{d}} \text{ .}
+397: \label{thm_ij}
+398: \end{equation}
+399: Else, we have:
+400: \begin{equation}
+401: \bar{\Phi}(e_i,\hat{e})^{\frac{12}{d}} =  p^{\frac{12}{d}} \text{ .}
+402: \label{thm_i}
+403: \end{equation}
+404: \end{theorem}
+405: Theorem \ref{main-thm} follows from Theorem \ref{thm_principal} since $\mathbf{Q}_p^{\times}/U_1(\mathbf{Q}_p)$ has no $\frac{12}{d}$-torsion.
+
+## separate_Frobenius_factors | fixed original TeX lines [423, 440] | SHA256 39bce54073597f0b7dd5a1719be33db289805ad254732c20572631083021b42e
+
+423: 
+424: \subsubsection{Case $\gamma=1$}
+425: If $\gamma=1$, $$\frac{(z' - \gamma(\xi_{c'}^{(0)}) )\cdot ( z - \gamma(z_0) )}{(z'-\gamma(z_0) )\cdot (z-\gamma(\xi_{c'}^{(0)}) )}$$ is equivalent, modulo principal units, to 
+426: $$\frac{(\lambda(e_i)^p-\lambda(e_0)^p)\cdot (z-z_0)}{-z_0^2} = \frac{(\lambda(e_i)-\lambda(e_0))^p\cdot (z-z_0)}{-z_0^2}\text{ .}$$
+427: Note that this equality mixes terms in $k^{\times}$ and $K^{\times}$. In fact, this equality (and all the similar equalities below) is viewed in $K^{\times}/U_1(K)$.
+428: 
+429: \subsubsection{Case $\gamma \neq 1$}
+430: Let $\gamma \neq 1 \in \Gamma$, written in reduced form as $\alpha_{i_1}^{\epsilon_1}\alpha_{i_2}^{\epsilon_2} \cdot \cdot \cdot$ with $i_k \in \{1,...,g\}$ and $\epsilon_{i_k} \in \Z \backslash \{0\}$. Then for all $u$ in the fundamental domain $$D=\mathbf{P}^1_K-\underset{1\leq i \leq g}{\coprod} B_i \cup \underset{1\leq i \leq g}{\coprod} C_i \text{ ,}$$ we have $\gamma(u) \in B_{i_1}$ if $\epsilon_1 < 0$ and $\gamma(u) \in C_{i_1}$ if $\epsilon_1 > 0$. Note that $\gamma(z_0)$ is not in $A$, so it is not in the residue disk containing $\infty$ (\textit{i.e.} the residue disk containing $z_0$). Hence $\gamma(z_0)$ does not reduce to $\infty$ modulo $p$.
+431: 
+432: In particular, $\gamma(D) \subset B_{i_1}$ or $C_{i_1}$. Thus $$\frac{z - \gamma(z_0) }{z-\gamma(\xi_{c'}^{(0)}) }$$ is a principal unit.
+433: 
+434: 
+435: Assume first that $\alpha_j^{k}$ with $i \ne j $ or $\alpha_i ^n$ with $n>0$ occurs as the first term in the reduced form of $\gamma$. In that case, $\gamma(\xi_{c'}^{(0)})$ and $\gamma(z_0)$ are both in $B_j$, $C_j$ or $C_i$ and $z' \in B_i$, so $$\frac{z' - \gamma(\xi_{c'}^{(0)}) }{z'-\gamma(z_0) }$$ is a principal unit. So in this case, the factor associated to $\gamma$ in the definition of $\phi(e_i,e_0)$ is a principal unit.
+436: 
+437: 
+438: Thus, in what follows, assume that $\gamma=\alpha_i^{-1}\cdot \gamma'$, where $\gamma'$ is such that its reduced expression in terms of the $\alpha_k$'s does not begin with $\alpha_i$. By invariance of the cross-ratio by the action $\text{PGL}_2(K)$ (here by the action of $\alpha_i$), we have:
+439: $$\frac{(z' - \gamma(\xi_{c'}^{(0)}) )\cdot ( z - \gamma(z_0) )}{(z'-\gamma(z_0) )\cdot (z-\gamma(\xi_{c'}^{(0)}) )} = \frac{(\alpha_i(z') - \gamma'(\xi_{c'}^{(0)}) )\cdot (\alpha_i(z) -\gamma'(z_0) )}{(\alpha_i(z')-\gamma'(z_0) )\cdot (\alpha_i(z)-\gamma'(\xi_{c'}^{(0)}) )}\text{ .}$$
+440: 
+

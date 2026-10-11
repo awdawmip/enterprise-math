@@ -1,0 +1,107 @@
+## raw_pairing_orientation | fixed original TeX lines [102, 108] | SHA256 b3d927b7feecf06a6f90fad9c9caf1f90647947b77d5b765d68a147f74c708ee
+
+102: Let $p \geq 5$ be a prime.
+103: Let $X_0(p)$ be a regular, proper and flat model over $\Z_p$ of the modular curve of level $\Gamma_0(p)$, obtained by several blowing-up of the coarse moduli space of the algebraic stack $\mathfrak{M}_{\Gamma_0(p)}$ parametrizing generalised elliptic curves with $\Gamma_0(p)$-level structure \cite{D-R}. Deligne and Rapoport proved that the special fiber of $X_0(p)$ is semi-stable. Let $K$ be the quadratic unramified extension of $\Q_p$, $\mathcal{O}_K$ be the ring of integers of $K$, $k$ be the residue field of $\mathcal{O}_K$ and $X_0^{rig}(p)_K$ be the rigid variety associated to the proper flat curve $X_0(p)_K$. Since the supersingular points of the special fiber of $X_0(p)_{\mathbf{F}_p}$ are $k$-rational, as well as its irreducible components, Mumford's theorem \cite{M} implies that $X_0^{rig}(p)_K$ is the quotient of a $p$-adic half plane $\mathcal{H}_\Gamma=\mathbf{P}_K^1-\mathcal{L}$ by a Schottky group $\Gamma$, where $\mathcal{L}$ is the set of the limits points of $\Gamma$. Manin and Drinfeld constructed a pairing $\Phi: \Gamma^{ab} \times \Gamma^{ab} \rightarrow K^{\times}$ in \cite{D} and explained how this pairing gives a $p$-adic uniformization of the Jacobian $J_0(p)_K$ of $X_0(p)_K$.
+104: 
+105: Let $\Delta$ be the dual graph of the special fiber of $X_0(p)_{\cO_K}$. Mumford's construction shows that $\Gamma$ is isomorphic to the fundamental group $\pi_1(\Delta)$. The abelianization of $\Gamma$ is isomorphic to to the augmentation subgroup of the free $\mathbf{Z}$-module with basis the isomorphism classes of supersingular elliptic curves over $\overline{\mathbf{F}}_p$. Oesterl\'e conjectured that the pairing $\Phi$ can be expressed, modulo the principal units, in terms of the modular invariant $j$. E. de Shalit proved this conjecture in \cite{shalit} (up to a sign if $p \equiv 3 \text{ (mod }4\text{)}$). The aim of this paper is to prove a variant of Oesterl\'e conjecture for modular curves with a $\Gamma_0(p) \cap \Gamma(2)$-level structure by replacing $j$ by the modular invariant $\lambda$.
+106: 
+107: \section*{Notation}
+108: \begin{enumerate}
+
+## theorem_residual_interface | fixed original TeX lines [129, 149] | SHA256 b24d695cdd5a950458b3f4b8011fd7fd517831997ef5d062421cfc620754283e
+
+129: 
+130: \begin{enumerate} 
+131: \item The scheme $\mathfrak{X} $ is regular and the irreducible components of its special fiber are isomorphic to $\mathbf{P}^1_k$. 
+132: \item Let $S:=\{e_i\}$ ($i \in \{0,...,g\}$ where $g = \frac{p-3}{2}$ is the genus of $\mathfrak{X}$) be the set of supersingular points of $\mathfrak{X}_{k}$ and let $\Gamma \subset \PGL_2(K)$ be a Schottky group such that there exists an isomorphism of rigid spaces $\mathfrak{H}_{\Gamma}/\Gamma \simeq \mathfrak{X}_K^{an}$, where $\mathfrak{H}_{\Gamma}=\mathbf{P}^1_K - \mathcal{L}$ and $\mathcal{L}$ are the limits points of $\Gamma$. Then the Drinfeld pairing $\Phi:\Gamma^{ab} \times \Gamma^{ab} \rightarrow K^{\times}$  takes values in $\Q_p^{\times}$.
+133: 
+134: \item Let $\bar{\Phi}$ be the residual pairing modulo the principal units $U_1(\Q_p^{\times})$ of $\Q_p^{\times}$, then, after the identification $\Gamma^{ab} \simeq H_1(\Delta, \mathbf{Z}) \simeq \Z[S]^0$ (the augmentation subgroup of $\mathbf{Z}[S]$), $\bar{\Phi}$ extends to a pairing (still denoted $\bar{\Phi}$) $\Z[S]\times \Z[S] \rightarrow K^{\times}/U_1(K)$ such that:
+135: 
+136: {\small 
+137:  $$ \bar{\Phi}(e_i,e_j) = \left\{ 
+138:  \begin{array}{cl}
+139:  (\lambda(e_i)-\lambda(e_j))^{p+1} & \mbox{ if  }  i \ne j \text{;} \\
+140:  p \cdot \prod_{k \ne i} (\lambda(e_i)-\lambda(e_k))^{-(p+1)}   \mbox{ if  } \text{ i=j} .   
+141:  \end{array}
+142:  \right. $$ }
+143: 
+144: 
+145: \end{enumerate}
+146: \end{theorem} 
+147: \begin{rem}
+148: One can also prove an analogue of the theorem above when $N=3$ and $p \equiv 1 \text{ (mod }3\text{)}$, for a suitable model $\mathfrak{X}$ over $\Z_p$ of the modular curve of level $\Gamma_0(p) \cap \Gamma(3)$ (\textit{c.f.} \ref{N=3} in appendix).
+149: \end{rem}
+
+## oriented_graph_and_Schottky_normalization | fixed original TeX lines [249, 318] | SHA256 3cc51ef5e088d66a43d35e3b84af3cf357dd8d8f6ad2d167e7592270754fa2ad
+
+249: Let $c$ and $c'=w_p(c)$ be two cusps of $M_{\Gamma_0(p)\cap \Gamma(2)}(\C)$ defined in Appendix, section \ref{section_cusps_N=2}. They are $\Q$-rational and $M_{\Gamma_0(p)\cap \Gamma(2)}$ is proper over $\Z[1/2]$. The valuative criterion shows that there exists two cusps $\xi_c :\Spec \Z_p \rightarrow \mathfrak{X}$ (resp. $\xi_{c'}: \Spec \Z_p \rightarrow \mathfrak{X}$) corresponding to the cusps $c$ and $c'$ of $M_{\Gamma_0(p)\cap \Gamma(2)}(\C)$ after taking the generic fiber. The cusp $\xi_{c}$ corresponds to a $2p$-gon and $\xi_{c'}=w_p(\xi_c)$ corresponds to a $2$-gon. 
+250: 
+251: The dual graph $\Delta$ of the special fiber of $\mathfrak{X}$ has two vertices $v_{c'}$ and $v_{c}$ indexed respectively by the cusps $\xi_{c'}$ and $\xi_c$. There are $g+1$ edges $e_i$ ($i \in \{0,...,g\}$) corresponding to supersingular elliptic curves with a $\Gamma(2)$-structure. We orient these edges so that they point out of $v_{c'}$.
+252: 
+253: The Atkin-Lehner involution $w_p$ exchanges the two vertices $v_{c'}$ and $v_{c}$ and also acts on edges (reversing the orientation). More precisely, if $E_i$ is a supersingular elliptic curve corresponding to $e_i$, then $w_p(e_i)=e_j$ where $e_j$ is the elliptic curve associated to $E_i^{(p)}=w_p(E_i)$ (here $w_p$ is the Frobenius). Thanks to Lemma \ref{normalization} below, one can identify the generators $\{\gamma_i\}_{1\leq i\leq g+1}$ of $\Gamma$ with $(e_i-e_0)_{1\leq i \leq g+1}$. 
+254: 
+255: Let $\tilde{v}_{c}$ and $\tilde{v}_{c'}$ be two neighbour vertices of $\mathcal{T}_{\Gamma}$ reducing to $v_{c'}$ and $v_{c}$ respectively, such that the edge linking $\tilde{v}_{c}$ to $\tilde{v}_{c'}$ reduces to $e_0$ modulo $\Gamma$. For $0 \leq i \leq g$, let $\tilde{e}_i'$ be an edge pointing out of $\tilde{v}_{c'}$ and reducing to $e_i$ modulo $\Gamma$. Let $\tilde{e}_i$ be oriented edges of $\mathcal{T}_{\Gamma}$ lifting $e_i$ and pointing to $\tilde{v}_c$. Note that $\tilde{e}_0 = \tilde{e}_0'$.
+256: 
+257:  Let $A=\rho^{-1}(\tilde{v}_{c})$ and $A'=\rho^{-1}(\tilde{v}_{c'})$.  Proposition \ref{red2} implies that $A$ (resp. $A'$) is the complement of $g+1$ open disks in $\mathbf{P}^1_K$, hence $\mathbf{P}^1_K - A= \underset{0\leq i \leq g}{\coprod} B_i$ and $\mathbf{P}^1_K - A'=\underset{0\leq i \leq g}{\coprod} C'_i$ where $0 \leq i \leq g$. We index $B_i$ and $C'_i$ such that $A \subset C'_0$, $A' \subset B_0$, $B_i$ and $C'_i$ are associated to $\tilde{e}_i'$ and the inverse of $\tilde{e}_i$ respectively.
+258: 
+259: For all $0\leq i \leq g$, $\rho^{-1}(\tilde{e}_i')=c_i$ is an annulus of $C'_i$ and $C_i=C'_i-\rho^{-1}(\tilde{e}_i')$ is a closed disk; we also have $\mathbf{P}^1_K-C_0=B_0$. We have $$\mathbf{P}^1_K - \rho^{-1}(\underset{0 \leq i \leq g}{\cup} \tilde{e_i}' \cup \tilde{v}_{c'})=\underset{0\leq i \leq g}{\coprod} C_i \text{ .}$$
+260: 
+261: Note that $\tilde{v}_{c} \cup \tilde{v}_{c'} \cup_i \{\tilde{e}_i'\}$ is a fundamental domain of $\mathcal{T}_{\Gamma}$, so $$D=\mathbf{P}^1_K-\underset{1\leq i \leq g}{\coprod} B_i \cup \underset{1\leq i \leq g}{\coprod} C_i$$ is a fundamental domain of $\mathfrak{H}_{\Gamma}$. 
+262: 
+263: Using the same techniques as in \cite[\S1]{shalit}, we get the following lemma:
+264: 
+265: \begin{lemma}[Normalization of $\Gamma$]\label{normalization}
+266: We can choose $\Gamma$ such that there is a Schottky basis $\alpha_1,..., \alpha_g$ of $\Gamma$,  and a fundamental domain $D$ satisfying:
+267: 
+268: \begin{enumerate}
+269: 
+270: \item $B_i$ is the open residue disk in the closed unit disk of $\mathbf{P}^1_K$ which reduces to $\lambda(e_i)^p$, $\forall 0\leq i \leq g$.
+271: 
+272: \item For $1\leq i \leq g$, $\alpha_i$ corresponds, under the identification $\Gamma^{ab} = \Z[S]^0$, to $e_i-e_0$.
+273: 
+274: \item $\alpha_i$ sends bijectively $\mathbf{P}^1_K-B_i$ to $C_i$ and $\alpha_i^{-1}$ sends bijectively $\mathbf{P}^1_K-C_i$ to $B_i$.
+275: 
+276: \item The annulus $c_i$ is isomorphic, as a rigid analytic space, to $\{z , |p| < |z|< 1\}$.
+277: 
+278: \end{enumerate}
+279: 
+280: \end{lemma}
+281: 
+282: \begin{proof}\
+283: \begin{enumerate}
+284: 
+285: \item The standard reduction sends $\mathbf{P}^1_K $ to $\mathbf{P}^1_k$ (see \cite[II.2.4.2]{W-L}). If we restrict the standard reduction to $A$, we get back $\rho$, so $\rho$ sends $A$ to $\mathbf{G}_m$ minus the $\rho(B_i\cap \mathfrak{H}_{\Gamma})=\lambda(e_i)^p$'s.
+286: \item $\mathcal{T}_{\Gamma}$ is the universal covering of $\Delta$, so $\pi_1(\Delta) \simeq \Gamma$. Let $\tilde{v}_i$ be a neighbour of $\tilde{v}_{c'}$ whose edge to $\tilde{v}_{c'}$ lifts $e_i$. By monodromy, we can choose $\alpha_i$ which lifts $e_i-e_0$, such that $\alpha_i^{-1}(\tilde{v}_i)=\tilde{v}_{c}$, and since the action of $\Gamma$ on the graph is continuous, we see that $\alpha_i(\mathbf{P}^1_K - B_i)=C_i$ (\textit{i.e.} $\alpha_i^{-1}$ sends neighbours of $\tilde{v}_i$ to neighbours of $\tilde{v}_{c}$). This also shows (iii).
+287: 
+288: 
+289: \end{enumerate} 
+290: 
+291: \end{proof}
+292: 
+293: 
+294: \section{Extension of $\Phi$ to $\mathbf{Z}[S] \times \mathbf{Z}[S]$}
+295: For $a, b \in \mathfrak{H}_{\Gamma}$, define the meromorphic function $\theta(a,b; z) = \theta((a)-(b); z)$ ($z \in \mathfrak{H}_{\Gamma}$) by the convergent product 
+296: $$ \theta(a,b;z)= \prod_{\gamma \in \Gamma} \frac{z-\gamma a}{z-\gamma b} \text{ .}$$
+297: 
+298: See \cite{D} for the basic properties of these theta functions. 
+299: 
+300: For all $a,b \in \mathfrak{H}_{\Gamma}$, the theta series $\theta(a,b,.)$ converges and defines a rigid meromorphic function on $\mathfrak{H}_{\Gamma}$ (which is modified by a constant if we conjugate $\Gamma$). We extend $\theta$ to degree zero divisors $D$ of $\mathcal{H}_\Gamma$. The series $\theta(D,.)$ is entire if and only if $\tau_{*}(D)=0$, where we recall that $\tau : \mathfrak{H}_{\Gamma} \rightarrow \mathfrak{X}^{an}_K$ is the uniformization. 
+301: 
+302: The proposition below follows from \cite{D} (see also \cite{shalit}).
+303: 
+304: \begin{prop}\label{theta}\cite{D}
+305: \begin{enumerate}
+306: \item $\theta(a,b,z)=c(a,b,\alpha) \theta(a,b,\alpha z)$, where $\alpha \in \Gamma$ and $c(a,b,\alpha \beta)=c(a,b,\alpha)c(a,b,\beta)$.
+307: \item The function $u_{\alpha}(z)=\theta(a,\alpha a,z)$ does not depend on $a$, and $u_{\alpha \beta}=u_{\alpha} u_{\beta}$.
+308: \item $c(a,b,\alpha)= u_{\alpha}(a)/u_{\alpha}(b)$.
+309: \item $\theta(a,b,z)/\theta(a,b,z')=\theta(z,z',a)/\theta(z,z',b)$.
+310: 
+311: \end{enumerate}
+312: \end{prop}
+313: 
+314:  
+315: We recall that $\Phi:\mathbf{Z}[S]^0 \times \mathbf{Z}[S]^0 \rightarrow K^{\times}$ is defined by:
+316: 
+317: $$\Phi (\alpha, \beta)=\theta(a,\alpha a,z)/\theta(a,\alpha a, \beta z)=u_{\alpha}(z)/u_{\alpha}(\beta z).$$ 
+318: 
+
