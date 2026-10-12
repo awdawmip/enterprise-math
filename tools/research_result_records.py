@@ -751,15 +751,17 @@ _base.task_result_state = task_result_state
 
 
 if __name__ == "__main__":
+    from tools import research_result_records as _canonical_entrypoint
+
     try:
-        raise SystemExit(canonical_main())
+        raise SystemExit(_canonical_entrypoint.canonical_main())
     except (
-        ResultRecordError,
-        _followup_impl.DriverFollowupError,
-        _driver_authority.DriverAuthorityError,
-        _result_replacements.ResultControlReplacementError,
-        _candidate_validation.ImmutableCandidateValidationError,
-        _write_tx.ImmutableWriteTransactionError,
+        _canonical_entrypoint.ResultRecordError,
+        _canonical_entrypoint._followup_impl.DriverFollowupError,
+        _canonical_entrypoint._driver_authority.DriverAuthorityError,
+        _canonical_entrypoint._result_replacements.ResultControlReplacementError,
+        _canonical_entrypoint._candidate_validation.ImmutableCandidateValidationError,
+        _canonical_entrypoint._write_tx.ImmutableWriteTransactionError,
     ) as exc:
         print("ERROR:", exc)
         raise SystemExit(1)
