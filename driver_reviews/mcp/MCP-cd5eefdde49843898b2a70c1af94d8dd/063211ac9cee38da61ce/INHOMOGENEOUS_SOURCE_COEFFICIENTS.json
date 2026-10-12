@@ -1,0 +1,27 @@
+{
+  "operator": "U=delta(n+3)+gamma(n+3)E+bcoef(n+3)E**2+alpha(n+3)E**3",
+  "identity": "U(E-1) beta(n) = sum_c c**n F_c(n)",
+  "coefficients": [
+    {
+      "phase": "1",
+      "coefficient_F_c": "(70543872*n**12 + 2147389056*n**11 + 29507913792*n**10 + 241704044064*n**9 + 1312071303312*n**8 + 4960987313112*n**7 + 13354826580252*n**6 + 25679552999526*n**5 + 34795965336321*n**4 + 32118642701002*n**3 + 18910353234761*n**2 + 6229734856430*n + 829942897600)/(3*(n + 1)*(n + 2)*(2*n + 1)*(2*n + 3)*(2*n + 5)*(2*n + 7))",
+      "phase_convention": "c**n times coefficient"
+    },
+    {
+      "phase": "1/2",
+      "coefficient_F_c": "(8817984*n**11 + 223528896*n**10 + 2466092304*n**9 + 15309854064*n**8 + 56938641228*n**7 + 118366513812*n**6 + 66918625563*n**5 - 324649314119*n**4 - 981883215077*n**3 - 1289430379293*n**2 - 858919856482*n - 234228111280)/(2*(n + 1)*(n + 2)*(2*n + 1)*(2*n + 3)*(2*n + 5)*(2*n + 7))",
+      "phase_convention": "c**n times coefficient"
+    },
+    {
+      "phase": "1/4",
+      "coefficient_F_c": "-(26453952*n**13 + 808735104*n**12 + 11326385520*n**11 + 96481482048*n**10 + 560081814948*n**9 + 2353939462296*n**8 + 7426168790661*n**7 + 17958254513148*n**6 + 33536502755919*n**5 + 47947137069645*n**4 + 50917563197234*n**3 + 37747717176739*n**2 + 17306450690746*n + 3654663461840)/(48*(n + 1)*(n + 2)*(2*n + 1)*(2*n + 3)*(2*n + 5)*(2*n + 7))",
+      "phase_convention": "c**n times coefficient"
+    }
+  ],
+  "finite_beta_window": "0 <= n <= N-4",
+  "guaranteed_common_beta_minus_R_window": "0 <= n <= m-3",
+  "source_derived_from": "fixed beta increments and literal OLD-R coefficients",
+  "prime_instances": 0,
+  "target_scalar_fit": false,
+  "target_status": "OPEN"
+}

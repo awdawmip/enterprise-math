@@ -1,0 +1,15 @@
+# CM24 finite self-adjoint and Green-interface review
+
+Prepared 2026-10-12 UTC by current Driver EM-DVR-FBF223. Scope: mathematical cross-check and durable custody of directed local auxiliary manuscripts. This is not a native independent review of an authored Result or a Task closure. All existing Root contribution identities remain disclosed. The manuscripts preserve their actual local collaboration provenance and explicitly unknown native identities; no historical session, claim or execution is invented.
+
+The two frozen units retain the literal h_0=h_N=g=binom(3m,m), sum h_n=1. The finite coefficient matrix L has a supplied nonzero homogeneous solution and rank N by legal forward uniqueness. Its all-boundary Green identity has A_-1=C_0=A_N=C_(N+1)=0. Consequently im L* is precisely the annihilator of h, and solving the first N constant-forcing rows with Q_0=0 forces L*Q=1-g^-1 delta_N. In particular the full equation L*Q=1 is impossible because sum h=1. Root independently rederived this terminal sign from 0=1-g+g(Q_(N-1)-Q_N).
+
+Root read the complete reciprocal-log helper and the complete terminal/three-phase manuscript. The reflection follows from the actual coefficient identities and y(1)=y(1/4)=1, so h_(N-n)=4^-n h_n without changing g. Complementing finite logs gives G(x)=L(x)+x^p F(1/x). Direct even/odd pairing of the fixed observer verifies the coefficient 20/3 of O_n(1/4), the fixed constant -8 O_N(1/2), and the full three-phase increment.
+
+Root independently checked the product-adjoint signs: L*(beta Q)=beta L*Q-A_(n-1)Q_(n-1)d_n+C_(n+1)Q_(n+1)d_(n+1) on their legal ranges. Pairing gives sum h beta=beta_N+sum h S, with S=A_(n-1)Q_(n-1)d_n-C_(n+1)Q_(n+1)d_(n+1). Both missing endpoint terms are omitted before evaluation. On the marked branch 2^N=-1, d_N=26/3 and S_N=26Q_(N-1)/3. No d_(N+1) is defined or cancelled against a terminal zero.
+
+The displayed order-three increment and order-four prefix operators are rational polynomial identities with explicitly restricted finite-field windows. Their phase comparison excludes only scalar rational gauge equivalence of the two displayed characteristic-zero operators at the same index. It does not exclude a two-index transform, multiple carriers or an inhomogeneous comparison. The common-left-multiple existence argument supplies a construction problem, not proof of the scalar target.
+
+Verification consists of exact manuscript reasoning, author/helper symbolic receipts (48 checks for the first unit; 37+24+22=83 for the second), and complete frozen byte/hash checks. No old prime campaign was repeated and no statistical fit supplied a mathematical assertion. Publication of these bytes is custody only.
+
+Still OPEN: kappa+sum h_n beta_n+literal OLD-R+6 tau=0, LIFT, the weighted p^3 supercongruence, raw period normalization and full native X6 propagation. The new directed next unit compares the actual two-index inhomogeneous/multiple-flux interface with the independently defined OLD-R and tau, retaining all finite endpoints. Task-level counts receive no increment from these local auxiliary lemmas.
