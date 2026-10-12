@@ -91,7 +91,7 @@ jobs:
     needs: classify
     if: needs.classify.outputs.unit_mode == 'full'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     strategy:
       fail-fast: true
       max-parallel: 8

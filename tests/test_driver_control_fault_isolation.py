@@ -64,11 +64,29 @@ class DriverControlFaultIsolationTests(unittest.TestCase):
         self.assertNotIn(PACKET_ID, packet_ids)
 
         current = research_task_records.current_records()
-        self.assertNotIn(DERIVED_TASK_ID, current)
+        current_record = current.get(DERIVED_TASK_ID)
+        # Quarantine binds the old publication, not all future generations of
+        # this Task. A separately authorized successor may be operational.
+        if current_record is not None:
+            self.assertNotEqual(
+                current_record["publication_id"], DERIVED_PUBLICATION_ID
+            )
         definitions = {
             item["task_id"]: item for item in research_dispatch.merged_definitions()
         }
         item = definitions[DERIVED_TASK_ID]
+        if current_record is not None:
+            self.assertEqual(
+                item["publication_id"], current_record["publication_id"]
+            )
+            self.assertNotEqual(
+                item["registration_source"], "DRIVER_FOLLOWUP_AUTHORITY_QUARANTINE"
+            )
+            self.assertNotEqual(
+                (item.get("hard_block") or {}).get("code"),
+                "NONOPERATIONAL_SOURCE_REVIEW_FOLLOWUP",
+            )
+            return
         self.assertEqual(item["base_state"], "BLOCKED")
         self.assertIsNone(item["publication_id"])
         self.assertEqual(item["publication_ids"], [DERIVED_PUBLICATION_ID])

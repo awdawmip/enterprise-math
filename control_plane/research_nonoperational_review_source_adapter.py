@@ -70,6 +70,21 @@ def review_rows(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     ), root)
 
 
+def _install_review_dependencies(root: Path) -> None:
+    """Establish bootstrap's review-only view before reading Gen2 authority."""
+    from control_plane import research_driver_review_authority_fault_isolation as authority
+    from control_plane import research_driver_review_authority_compat_runtime as authority_compat
+    from control_plane import research_result_review_audit_fault_isolation as invalid_review
+    from control_plane import research_result_review_binding_fault_isolation as binding
+    from control_plane import research_result_authority_fault_isolation as result_authority
+
+    invalid_review.install(root)
+    binding.install(root)
+    authority_compat.install(root)
+    authority.install(root)
+    result_authority.install(root)
+
+
 def install(root: Path = ROOT) -> None:
     """Teach the existing follow-up isolation to consume the union of causes."""
     from control_plane import research_driver_followup_fault_isolation as followup
@@ -77,9 +92,15 @@ def install(root: Path = ROOT) -> None:
 
     if getattr(followup, "_nonoperational_review_source_adapter_installed", False):
         return
+    # A prospective successor validates its packet through the canonical review
+    # authority map. Do not install either task-blocking layer or recurse into
+    # the whole bootstrap while establishing these exact review prerequisites.
+    _install_review_dependencies(root)
+
     def combined_followup_validated(local_root: Path = followup.ROOT) -> dict[str, dict[str, Any]]:
         from control_plane import research_result_review_binding_fault_isolation as binding
         from control_plane import research_result_review_audit_fault_isolation as invalid_review
+        from tools import research_dispatch
 
         source_rows = _merge_causes(
             [
@@ -88,7 +109,11 @@ def install(root: Path = ROOT) -> None:
                 ("INVALID_REVIEW_RECORD", invalid_review.validated_rows(local_root)),
             ]
         )
-        return followup._validated_quarantines(local_root, source_rows)
+        # Native successor checks reread the same canonical Result/Review view
+        # for packet and publisher binding. Reuse the existing bounded reader;
+        # its byte-drift guard and reader restoration finish before returning.
+        with research_dispatch._dispatch_result_read_snapshot(local_root):
+            return followup._validated_quarantines(local_root, source_rows)
 
     followup.validated_quarantines = combined_followup_validated
     followup._nonoperational_review_source_adapter_installed = True
