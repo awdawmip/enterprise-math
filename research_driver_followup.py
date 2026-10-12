@@ -46,6 +46,7 @@ CUTOVER_REVIEWED_AT = "2026-08-27T09:19:00+00:00"
 TASK_SCOPE_DECISION = "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION"
 EXISTING_ASSET_DECISION = "EXISTING_CONTROL_ASSET_BOUND"
 TASK_COMPLETION_ASSESSMENT_SCHEMA = "ENTERPRISE_MATH_DRIVER_TASK_COMPLETION_ASSESSMENT_V1"
+NEGATIVE_TASK_ALTERNATIVE_SCHEMA = "ENTERPRISE_MATH_DECLARED_NEGATIVE_TASK_ALTERNATIVE_V1"
 DECISIONS = {"TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE", TASK_SCOPE_DECISION, EXISTING_ASSET_DECISION}
 GATE_DECISIONS = {"REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET", "NOT_REQUIRED"}
 GATES = (
@@ -217,9 +218,25 @@ def _task_scope_continuation(
         # its literal satisfied target admits this Task-only continuation.
         if result.get("hard_target_disposition") != "SATISFIED":
             raise DriverFollowupError("AUDIT_COMPLETE TASK-scope closure requires literal hard_target_disposition SATISFIED; a Driver assessment cannot retype it")
+    elif result.get("terminal_verdict") == "NEGATIVE_BOUNDARY":
+        if str(result.get("hard_target_disposition", "")).strip().upper() in {
+            "PARTIAL", "PARTIALLY_SATISFIED", "INCOMPLETE", "NOT_SATISFIED", "UNSATISFIED",
+            "NEGATIVE_BOUNDARY", "NO_GO", "FAIL", "FAILED", "BLOCKED",
+        }:
+            raise DriverFollowupError("TASK-scope closure cannot retype an explicitly incomplete or negative target")
+        # A negative scientific verdict is never retyped into PASS. Even a
+        # literal SATISFIED target needs the Driver's explicit pinned branch.
+        try:
+            _driver_task_completion_assessment(review, result, root)
+        except DriverFollowupError as exc:
+            raise DriverFollowupError(
+                "TASK-scope closure requires a PASS/SUCCESS Result or a valid "
+                "NEGATIVE_BOUNDARY assessment: " + str(exc)
+            ) from exc
     elif result.get("terminal_verdict") not in {"PASS", "SUCCESS"}:
         raise DriverFollowupError("TASK-scope closure requires a PASS/SUCCESS Result or AUDIT_COMPLETE with literal SATISFIED")
-    if result.get("hard_target_disposition") != "SATISFIED":
+    if (result.get("terminal_verdict") != "NEGATIVE_BOUNDARY"
+            and result.get("hard_target_disposition") != "SATISFIED"):
         if str(result.get("hard_target_disposition", "")).strip().upper() in {
             "PARTIAL", "PARTIALLY_SATISFIED", "INCOMPLETE", "NOT_SATISFIED", "UNSATISFIED",
             "NEGATIVE_BOUNDARY", "NO_GO", "FAIL", "FAILED", "BLOCKED",
@@ -290,20 +307,80 @@ def _result_record_pin(
     return relative, digest
 
 
+def _task_scope_synthesis_sources(
+    review: dict[str, Any], result: dict[str, Any], root: Path,
+) -> list[dict[str, Any]]:
+    """Use the current canonical exact set, never quarantined physical history."""
+    from tools import research_result_records as canonical
+    import research_review_evidence as evidence
+
+    _synthesis_record_pin(review, root)
+    state = evidence.state(str(result["result_id"]), root)
+    synthesis = review["review_synthesis"]
+    if (state.get("review_state") != "REVIEW_SYNTHESIS_TERMINAL"
+            or state.get("synthesis") != synthesis
+            or synthesis.get("operational_disposition") != "ACCEPTED"
+            or review.get("disposition") != "ACCEPTED"
+            or any(review.get(key) != result.get(key)
+                   for key in ("result_id", "task_id", "publication_id"))):
+        raise DriverFollowupError("TASK-scope assessment requires current exact accepted synthesis")
+    ids = review.get("source_review_ids")
+    if (not isinstance(ids, list) or len(ids) < 2
+            or any(not isinstance(item, str) or not item for item in ids)
+            or len(ids) != len(set(ids))):
+        raise DriverFollowupError("TASK-scope synthesis source set is invalid")
+    sources = [row for row in canonical.iter_reviews(root)
+               if row.get("result_id") == result["result_id"]]
+    if (len(sources) != len(ids)
+            or {row.get("review_id") for row in sources} != set(ids)):
+        raise DriverFollowupError("TASK-scope synthesis differs from canonical current review set")
+    for row in sources:
+        _source_review_record_pin(row, row["review_id"], result["result_id"], root)
+        # An invalid immutable DR/report is not an ineligible assessment to skip.
+        # All sources must retain their actual Result and report byte bindings.
+        _driver_task_assessment_report(row, result, root)
+    return sources
+
+
 def _driver_task_completion_assessment(
     review: dict[str, Any], result: dict[str, Any], root: Path,
 ) -> dict[str, Any]:
-    """Read the reviewing Driver's explicit judgment, never infer it from prose.
+    """Select one valid assessment by the synthesis author, never by timestamp."""
+    if review.get("review_authority_kind") != "REVIEW_SYNTHESIS":
+        return _immutable_driver_task_completion_assessment(review, result, root)
+    sources = _task_scope_synthesis_sources(review, result, root)
+    candidates = []
+    for source in sources:
+        if (source.get("driver_id") != review["review_synthesis"].get("synthesized_by")
+                or source.get("disposition") != "ACCEPTED"):
+            continue
+        bound_report = _driver_task_assessment_report(source, result, root)
+        try:
+            candidates.append(_parse_driver_task_completion_assessment(source, *bound_report, root))
+        except DriverFollowupError:
+            # Preserve old genuine reports, including an erroneous typed block.
+            # Such a block grants nothing; source/report integrity was checked
+            # above. A corrected report must be separately reviewed and pinned.
+            continue
+    if len(candidates) != 1:
+        raise DriverFollowupError(
+            "TASK-scope synthesis requires exactly one valid assessment by synthesized_by; "
+            f"found {len(candidates)}"
+        )
+    return candidates[0]
 
-    The immutable DR already binds its report bytes and the current raw Result.
-    A first-review candidate has those same pins before transactional creation.
-    This path adds no Result normalization or independent review authority.
-    """
+
+def _driver_task_assessment_report(
+    review: dict[str, Any], result: dict[str, Any], root: Path,
+) -> tuple[dict[str, Any], str, str]:
+    """Validate a genuine immutable DR/candidate and return its pinned report."""
     if (review.get("record_schema") != result_impl.REVIEW_SCHEMA
             or review.get("review_authority_kind") not in {None, "IMMUTABLE_REVIEW"}):
         raise DriverFollowupError(
             "TASK-scope closure requires hard_target_disposition SATISFIED or an explicit "
             "assessment bound to an immutable Driver review")
+    if any(review.get(key) != result.get(key) for key in ("result_id", "task_id", "publication_id")):
+        raise DriverFollowupError("Task completion assessment review/Result publication mismatch")
     result_path, result_digest = _result_record_pin(review, result, root)
     raw_result = _load(root / result_path)
     for field in ("result_id", "task_id", "publication_id", "terminal_verdict", "hard_target_disposition"):
@@ -330,8 +407,64 @@ def _driver_task_completion_assessment(
     if review.get("review_id") != expected_review:
         raise DriverFollowupError("Task completion assessment review identity differs from its report")
 
+    return raw_result, result_digest, report_bytes.decode("utf-8")
+
+
+def _negative_task_alternative(
+    assessment: dict[str, Any], result: dict[str, Any], root: Path,
+) -> None:
+    """Pin a Driver-declared Taskbook alternative; do not infer its semantics."""
+    proof = assessment.get("negative_return_evidence")
+    fields = {"schema", "taskbook_path", "taskbook_blob_sha1", "taskbook_sha256",
+              "negative_return_clause", "completion_basis", "parent_completion_granted"}
+    if not isinstance(proof, dict) or set(proof) != fields:
+        raise DriverFollowupError("negative Task completion requires exact negative_return_evidence fields")
+    if (proof["schema"] != NEGATIVE_TASK_ALTERNATIVE_SCHEMA
+            or proof["completion_basis"] != "DECLARED_TASKBOOK_NEGATIVE_ALTERNATIVE"
+            or proof["parent_completion_granted"] is not False):
+        raise DriverFollowupError("negative Task alternative cannot grant parent completion or other scope")
+    relative = proof["taskbook_path"]
+    if not isinstance(relative, str) or not relative or relative != result.get("taskbook_path"):
+        raise DriverFollowupError("negative Task alternative taskbook differs from the raw Result")
+    path = (root / relative).resolve()
+    if (Path(relative).is_absolute() or ".." in Path(relative).parts
+            or not path.is_relative_to(root.resolve()) or not path.is_file()):
+        raise DriverFollowupError("negative Task alternative taskbook must be repository-local")
+    content = path.read_bytes()
+    blob = result_impl._blob(path)
+    if (not result_impl._same_git_blob_identity(blob, result.get("taskbook_blob_sha1"))
+            or proof["taskbook_blob_sha1"] != blob
+            or proof["taskbook_sha256"] != "sha256:" + hashlib.sha256(content).hexdigest()):
+        raise DriverFollowupError("negative Task alternative taskbook byte binding mismatch")
+    publications = [row for row in research_task_records.iter_records(root)
+                    if row.get("task_id") == result.get("task_id")
+                    and row.get("publication_id") == result.get("publication_id")]
+    if (len(publications) != 1 or publications[0].get("taskbook_path") != relative
+            or not result_impl._same_git_blob_identity(
+                publications[0].get("taskbook_blob_sha1"), blob)):
+        raise DriverFollowupError("negative Task alternative requires the exact published Taskbook")
+    clause = proof["negative_return_clause"]
+    if (not isinstance(clause, str) or not clause.strip()
+            or content.decode("utf-8").count(clause) != 1):
+        raise DriverFollowupError("negative Task alternative requires an exact unique Taskbook clause")
+
+
+def _immutable_driver_task_completion_assessment(
+    review: dict[str, Any], result: dict[str, Any], root: Path,
+) -> dict[str, Any]:
+    bound_report = _driver_task_assessment_report(review, result, root)
+    return _parse_driver_task_completion_assessment(review, *bound_report, root)
+
+
+def _parse_driver_task_completion_assessment(
+    review: dict[str, Any], raw_result: dict[str, Any], result_digest: str,
+    report_text: str, root: Path,
+) -> dict[str, Any]:
+    """Parse already verified report bytes; binding failures are never skipped."""
+    if review.get("disposition") != "ACCEPTED":
+        raise DriverFollowupError("Task completion assessment requires ACCEPTED Driver review")
     pattern = rf"(?ms)^<!-- {TASK_COMPLETION_ASSESSMENT_SCHEMA}\s*\n(.*?)\n-->\s*$"
-    blocks = re.findall(pattern, report_bytes.decode("utf-8"))
+    blocks = re.findall(pattern, report_text)
     if len(blocks) != 1:
         raise DriverFollowupError(
             "TASK-scope closure requires hard_target_disposition SATISFIED or exactly one "
@@ -357,13 +490,18 @@ def _driver_task_completion_assessment(
         "original_hard_target_disposition": raw_result["hard_target_disposition"],
         "disposition": "SATISFIED", "terminal_scope": "TASK",
     }
-    if not isinstance(assessment, dict) or set(assessment) != set(expected) | {"assessment"}:
+    fields = set(expected) | {"assessment"}
+    if raw_result.get("terminal_verdict") == "NEGATIVE_BOUNDARY":
+        fields.add("negative_return_evidence")
+    if not isinstance(assessment, dict) or set(assessment) != fields:
         raise DriverFollowupError("Driver Task completion assessment requires exact typed fields")
     for field, value in expected.items():
         if assessment.get(field) != value:
             raise DriverFollowupError(f"Driver Task completion assessment binding mismatch: {field}")
     if not isinstance(assessment["assessment"], str) or not assessment["assessment"].strip():
         raise DriverFollowupError("Driver Task completion assessment requires an explicit bounded judgment")
+    if raw_result.get("terminal_verdict") == "NEGATIVE_BOUNDARY":
+        _negative_task_alternative(assessment, raw_result, root)
     return assessment
 
 
