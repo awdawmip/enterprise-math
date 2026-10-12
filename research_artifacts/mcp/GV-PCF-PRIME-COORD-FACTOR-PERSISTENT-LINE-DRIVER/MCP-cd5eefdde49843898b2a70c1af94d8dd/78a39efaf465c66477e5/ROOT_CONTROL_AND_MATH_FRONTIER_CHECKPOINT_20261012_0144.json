@@ -1,0 +1,221 @@
+{
+  "schema": "ROOT_DRIVER_CONTROL_AND_MATH_FRONTIER_CHECKPOINT_V1",
+  "created_at_utc": "2026-10-12T01:47:20.598202+00:00",
+  "driver_id": "EM-DVR-FBF223",
+  "session_id": "MCP-cd5eefdde49843898b2a70c1af94d8dd",
+  "own_governance_run": {
+    "claim_id": "MCP-e13189531905d2d61f6cd5bf",
+    "fenced_by_claim_id": null,
+    "generation": 1,
+    "publication_id": "TP2-D5F8B97303D440E64FAB",
+    "researcher_id": "EM-DVR-FBF223",
+    "revision": 0,
+    "run_id": "RUN-3afc9358eea410e7792c48e4",
+    "session_id": "MCP-cd5eefdde49843898b2a70c1af94d8dd",
+    "task_id": "GV-PCF-PRIME-COORD-FACTOR-PERSISTENT-LINE-DRIVER",
+    "open_request_id": "em-owner-refreshed-driver-own-gov-open-20261012-309"
+  },
+  "current_driver_claim": {
+    "claim_id": "MCP-e13189531905d2d61f6cd5bf",
+    "epoch": 6115511581,
+    "execution_record_id": "ER-2068957EED98A8142C81",
+    "authority_id": "DA-A1DB35C00ED2F8C2A9FA",
+    "session_id": "MCP-cd5eefdde49843898b2a70c1af94d8dd",
+    "source_commit": "9eb9e4a445e44c380349d545a60e4c4e89b4924e",
+    "own_predecessor_history_preserved": true
+  },
+  "status_query_only_does_not_stop_research": true,
+  "last_verified_native_counts": {
+    "schema": "EM_BACKLOG_CURRENT_VERIFIED_COUNTS_V1",
+    "as_of_utc": "2026-10-12T01:40:41.808107+00:00",
+    "source_sha": "7689fa0b6c88e24f2b77bad0a11796e4eef46423",
+    "snapshot_id": "INV-bf034b9278b38e16cf858e9cb9295c47",
+    "counts": {
+      "AWAITING_REVIEW": 52,
+      "BLOCKED": 22,
+      "COMPLETE": 101,
+      "DORMANT": 20,
+      "LEASED": 1,
+      "NEEDS_DISPATCH": 225
+    },
+    "total_from_counts_sum": 421,
+    "scope": "ALL_UNIQUE_TASKS_RESEARCH_AND_GOVERNANCE",
+    "complete_percent": 24,
+    "closed_or_review_count": 153,
+    "closed_or_review_percent": 36.3,
+    "unfinished": 320,
+    "current_native_execution_claim_count": 1,
+    "counts_from_native_full_inventory_header": true,
+    "full_receipt_bytes_stitched": false,
+    "kind_breakdown_currently_verified": false,
+    "kind_breakdown_limit": "Fresh native 4000-character count header contains full dispatch-state aggregate; no RESEARCH/GOVERNANCE totals are inferred from the first page.",
+    "source_receipt_request_id": "em-backlog-status-user-after-current-review-inventory-20261012-agent-count-verify-20261012014008",
+    "source_receipt_issue": 4073,
+    "source_receipt_sha256": "9eed53629da9847190c6575330edbfbf47035758374826800d46eb3c635a96c0",
+    "read_request_id": "em-backlog-status-user-after-current-review-count-header-20261012-agent-count-verify-20261012014256",
+    "read_request_issue": 4075,
+    "read_receipt_sha256": "8bad81d3373cb44d171f0a7845a068a60eeb8244570d2ef7abb51f6de39dfce4",
+    "full_inventory_receipt_characters": 71391,
+    "native_request_count": 2,
+    "previous_010644_snapshot": {
+      "as_of_utc": "2026-10-12T01:06:44.781999+00:00",
+      "source_sha": "0579b98f40e327fd580eb87f3ac02555e886971f",
+      "total": 412,
+      "counts": {
+        "AWAITING_REVIEW": 53,
+        "BLOCKED": 22,
+        "COMPLETE": 101,
+        "DORMANT": 20,
+        "LEASED": 1,
+        "NEEDS_DISPATCH": 215
+      }
+    },
+    "delta_since_010644_snapshot": {
+      "total": 9,
+      "AWAITING_REVIEW": -1,
+      "BLOCKED": 0,
+      "COMPLETE": 0,
+      "DORMANT": 0,
+      "LEASED": 0,
+      "NEEDS_DISPATCH": 10
+    },
+    "delta_since_000711_snapshot": {
+      "total": 13,
+      "AWAITING_REVIEW": -1,
+      "BLOCKED": 0,
+      "COMPLETE": 0,
+      "DORMANT": 0,
+      "LEASED": 1,
+      "NEEDS_DISPATCH": 13
+    },
+    "delta_attribution": "All changes are observed in global fixed snapshots. Task visibility, registrations and concurrent work are not attributed to this chat from aggregate counts alone.",
+    "complete_semantics": "Task-scoped closure may include accepted or rejected dispositions; not completion of parent mathematical objectives.",
+    "no_manual_addition_for_RSA_review": true,
+    "rsa_inventory_task_row_verified": false,
+    "rsa_inventory_task_row_reason": "Inventory response was truncated and the bounded complete-count header does not include the RSA Task row. No additional Task query was sent.",
+    "rsa_original_current_review": {
+      "task_id": "RS-RSA-EXPONENT-COLLISION-CRT-COLLAPSE",
+      "review_id": "DR-EA5EFB3177111D8A8A44",
+      "disposition": "ACCEPTED",
+      "terminal": true,
+      "source_commit": "768dc30e5a16e6b441ae476360d655349d101a8a",
+      "evidence": "ROOT_RECEIPT_353_FINAL.json; ROOT_RECEIPT_355_FINAL.json confirms single current review",
+      "scope": "Original bounded extraction/CRT-collapse claims only; no efficient collision generation or completion of the whole RSA parent objective.",
+      "not_used_to_adjust_inventory_counts": true
+    },
+    "rsa_followup_356": {
+      "status": "FAILED",
+      "formal_task_created": false,
+      "request_id": "em-owner-rsa-current-single-real-review-identical-same-task-gen2-materialize-20261012-356",
+      "issue_number": 4071,
+      "outcome_reconciled_by_original_GET": true,
+      "reissued": false,
+      "gen2_materialization_not_claimed": true
+    },
+    "t6_current_review": {
+      "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+      "disposition": "RETURN_TO_OWNER",
+      "terminal": false,
+      "source_commit": "41d294b39debb64e07625dfb25ff1ab50f11f308",
+      "child_publication_id": "TP2-26869C0B4D63A6BB761D",
+      "parent_mathematical_objective_remains_open": true
+    },
+    "read_only_native_operations": true,
+    "no_claim_open_or_task_mutation": true
+  },
+  "actual_Code_and_Host_refresh": {
+    "invocation_id": "inv-c9s62pg78t",
+    "receipt": "/workspace/em-owner-resume-20261011/new-round-20261011/ROOT_CODE_PIN_CONFIG_ONLY_APPLY_TASK.json",
+    "status": "ACTUAL_CONFIG_ONLY_LEXICAL_POINTER_SWAP_VERIFIED",
+    "native_operations_not_yet_verified": false,
+    "service_restarted": false,
+    "pending_source_publication_requests": [
+      339,
+      340
+    ],
+    "Source_publication_status": "SUCCEEDED_TWO_ACTUAL_REQUESTS_339_340"
+  },
+  "scientific_Source_custody": [
+    {
+      "commit": "295e9a24164ee1b2ef082ec7ed2d0f1d2a2bb74c",
+      "files": 16,
+      "verification": "/workspace/em-owner-resume-20261011/new-round-20261011/native-republish-339-340-readback-20261012/HEUN_SIXTEEN_FILES_ACTUAL_SOURCE_VERIFICATION.json"
+    },
+    {
+      "commit": "73e0acb74436fa9009d60cf96a3cf336d2ef2f5a",
+      "files": 2,
+      "verification": "/workspace/em-owner-resume-20261011/new-round-20261011/native-republish-339-340-readback-20261012/RSA_TWO_FILES_ACTUAL_SOURCE_VERIFICATION.json"
+    },
+    {
+      "commit": "bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4",
+      "files": 9,
+      "verification": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-nine-published-source-readback-20261012/T6_NINE_PUBLISHED_SOURCE_FULL_READBACK_MANIFEST.json"
+    },
+    {
+      "commit": "595f266520c324eb67394fa90ec3c4acfb79ccf0",
+      "files": 2,
+      "verification": "/workspace/em-owner-resume-20261011/new-round-20261011/T6_FINAL_NATIVE_REPORT_AND_SPEC_ACTUAL_SOURCE_VERIFICATION.json"
+    }
+  ],
+  "T6_nonterminal_review_and_child": {
+    "review_id": "DR-0D8591E64A4073A61E6A",
+    "terminal": false,
+    "disposition": "RETURN_TO_OWNER",
+    "followup_id": "DFU-A781ABC4981EC521CA0B",
+    "child_task_id": "RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET",
+    "child_publication_id": "TP2-26869C0B4D63A6BB761D",
+    "Source": "41d294b39debb64e07625dfb25ff1ab50f11f308",
+    "parent_objective_id": "EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD",
+    "parent_goal": "OPEN"
+  },
+  "T6_actual_researcher": {
+    "researcher_id": "EM-T6-B4F89F",
+    "session_id": "MCP-2b2adc7725e84b0c90908ba5db66a17f",
+    "claim_id": "MCP-f7422f9980234e77b1447f3a",
+    "execution_record_id": "ER-54E4BF295C6FB5AA017B",
+    "publication_id": "TP2-26869C0B4D63A6BB761D",
+    "claim_authorized": true,
+    "open_issue_pending": 4077,
+    "actual_census_not_yet_observed": false,
+    "own_subagent": "/root/fair_number_theory_backlog_scout",
+    "run_id": "RUN-7660266e1c79ee012f9dc469",
+    "Root_scope_verification_sha256": "ed659f46cc74cf17f486946dbca292c598c34009df21cafbbe93b87cdc176df4",
+    "new_actual_affine_result": "299/299 potential paths EXACT_NORM_PRUNED; 12 admissible EMPTY,4 OUTSIDE,0 local survivors; no299sidebudgetchecksclaimed",
+    "independent_check": "Separate Gram-LDL/determinant:1490 exact decisions PASS per author/helper report; formal Sourcefreeze/Driveracceptance stillpending"
+  },
+  "RSA_current_independent_review": {
+    "review_id": "DR-EA5EFB3177111D8A8A44",
+    "Source": "768dc30e5a16e6b441ae476360d655349d101a8a",
+    "native_review_request": 353,
+    "disposition": "ACCEPTED",
+    "original_math_task_scope_only": true,
+    "actual_Source_full_DR_readback_pending": true,
+    "actual_Task_DONE_readback_pending": true,
+    "Generation2_followup_not_yet_verified": true,
+    "confirmed_operational_review_state": "SINGLE_REVIEW_FLOW",
+    "confirmed_authority_kind": "IMMUTABLE_REVIEW",
+    "Generation2_materialize_request": 356,
+    "actual_native_task_complete_not_verified": true,
+    "Generation2_materialize_status": "FAILED_DEFINITIVE_TASK_RECORD_AUDIT_PREFLIGHT"
+  },
+  "RSA_Gen2_failed_original_receipt": "/workspace/em-owner-resume-20261011/new-round-20261011/backlog-status-user-20261012/after-current-review-20261012/ORIGINAL_RSA_FOLLOWUP_356_DEFINITIVE_RECEIPT.json",
+  "CM24_literal_normalization": "Literal frozen Y=G(w(t)) has h0=hN=g=binom(3m,m), sum h=1; normalized h0=1 in a recovery instruction was corrected and was not published as mathematical truth.",
+  "CM24_new_local_Green_unit": {
+    "path": "/workspace/em-owner-resume-20261011/cm24-three-phase-green-recovery-20261012/FINAL_UNIT_PINS.json",
+    "pins_sha256": "839844257473d799e6fd6e786500d7ab6d0ef36f11abe9c727f9aeb1350cc97d",
+    "actual_Source_published": false,
+    "local_symbolic_checks_reported": 83,
+    "prime_instances": 0,
+    "ultimate_scalar_comparison": "OPEN"
+  },
+  "parent_mathematical_goals": {
+    "EM_T6_GLOBAL": "OPEN",
+    "CM24_FINAL_SCALAR_COMPARISON": "OPEN",
+    "CM24_LIFT": "OPEN",
+    "RSA_COLLISION_GENERATION_AND_COMPLEXITY": "NOT_PROVED"
+  },
+  "next_action": "Continue the real own T6 child run and freeze/review its complete first-order affine ledger. Diagnose exact RSA Gen2 record-audit rejection preserving old G1/others and prepare minimal reviewed repair. Source-save correctly normalized CM24 local Green and self-adjoint supplements after independent literal review. No stop_goal or mathematical parent completion from status report.",
+  "no_other_chat_intervention": true,
+  "native_task_closure_inferred_from_review_label": false,
+  "no_forced_stop_or_discard": true
+}
