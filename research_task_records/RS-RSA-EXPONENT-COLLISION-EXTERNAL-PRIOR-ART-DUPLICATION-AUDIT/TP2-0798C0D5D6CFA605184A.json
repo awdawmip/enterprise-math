@@ -1,0 +1,59 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-RSA-EXPONENT-COLLISION-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT",
+  "registry_key": "RS-RSA-EXPONENT-COLLISION-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-0798C0D5D6CFA605184A",
+  "publication_generation": 2,
+  "supersedes_publication_id": "TP2-DCBF9A9ACA18BF64FFCF",
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RSA_EXPONENT_COLLISION_EXTERNAL_PRIOR_ART_DUPLICATION_AUDIT_GEN2_20261012.md",
+  "taskbook_blob_sha1": "sha1:b30896dbd8f4db229322b57dc2334a1b89c4b303",
+  "publisher_role": "RESEARCH_DRIVER",
+  "publisher_id": "EM-DVR-FBF223",
+  "published_at": "2026-10-12T02:40:09.699922+00:00",
+  "parent_objective_id": "RSA_COLLISION_COLLAPSE_PRACTICE_20260827",
+  "origin_kind": "DRIVER_ROADMAP",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-RSA-EXPONENT-COLLISION-CRT-COLLAPSE",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "PUBLISHER_DECLARED",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "The accepted RSA exponent-collision result cleanly overlaps the classical Miller/Rabin known-annihilating-exponent route for global exponent-map collisions, but the exact prior-art status of the local iff 2-depth criterion, its closed random-unit probability, and the multi-certificate diagonal-graph obstruction has not yet been exhaustively classified.",
+  "next_action": "Search primary and high-quality secondary literature for exact or equivalent formulations of the local collision-depth criterion, its probability law, and the subgroup/graph obstruction; classify each match as exact duplicate, partial antecedent, adjacent method, or no material match, without turning absence of a match into a novelty claim.",
+  "research_value": "Separate classical RSA/Miller-Rabin content from the sharper local and multi-certificate formulations so the accepted mathematics is interpreted at the correct provenance strength without false novelty claims.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "RSAPA",
+  "source_refs": [
+    "Gary L. Miller, Riemann's hypothesis and tests for primality, JCSS 13 (1976), DOI 10.1016/S0022-0000(76)80043-8",
+    "Menezes–van Oorschot–Vanstone, Handbook of Applied Cryptography, §8.2 Fact 8.6"
+  ],
+  "dependencies": [
+    "research_result_records/RS-RSA-EXPONENT-COLLISION-CRT-COLLAPSE/RR-2D43CCB30B906AFB6E20.json",
+    "research_returns/RSA_EXPONENT_COLLISION_CRT_COLLAPSE_RETURN_20260827.md"
+  ],
+  "evidence_status": "DRIVER_REVIEW_FOLLOWUP_V1",
+  "successor_gate": {
+    "new_information_gap": "The source result proves the mathematics but does not exhaustively establish whether its exact local iff criterion, probability formula, or multi-certificate diagonal-graph characterization already appears in the literature.",
+    "why_parent_result_does_not_close_it": "Mathematical correctness and prior-art duplication are distinct questions. The result itself deliberately makes no novelty claim and only identifies the classical global-annihilator overlap.",
+    "discriminating_outcomes": [
+      "An exact equivalent prior theorem is located and the corresponding source claim is classified as duplicate.",
+      "Only partial antecedents are located, isolating which sharpenings are genuinely beyond the cited classical reduction without asserting novelty.",
+      "No material match is found after a reproducible search; the output records only a bounded no-match audit, not a novelty theorem."
+    ],
+    "kill_condition": "Kill any route that drifts into generating collisions, improving RSA factorization complexity, or inferring novelty from a negative search. This task is evidence classification only.",
+    "alternative_route_or_free_exploration_considered": "Immediate closure was considered, but the accepted-result control gate requires explicit prior-art/duplication classification before the parent line can close cleanly. A new mathematical continuation is not justified because the hard target has no unresolved mathematical residue.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "A separate audit preserves the accepted proof unchanged while isolating literature provenance and duplicate detection from mathematics, preventing both overclaiming and unnecessary re-opening of the completed extraction theorem."
+  }
+}
