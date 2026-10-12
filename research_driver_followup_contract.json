@@ -193,15 +193,37 @@
       "result_terminal_verdict": [
         "PASS",
         "SUCCESS",
-        "AUDIT_COMPLETE"
+        "AUDIT_COMPLETE",
+        "NEGATIVE_BOUNDARY"
       ],
       "hard_target_satisfaction": {
         "literal_result_value": "SATISFIED",
         "alternative": "PINNED_EXPLICIT_DRIVER_TASK_COMPLETION_ASSESSMENT",
-        "alternative_terminal_verdicts": ["PASS", "SUCCESS"],
+        "alternative_terminal_verdicts": ["PASS", "SUCCESS", "NEGATIVE_BOUNDARY"],
+        "negative_boundary_requirement": "EXPLICIT_TYPED_ASSESSMENT_ALWAYS_REQUIRED_EVEN_FOR_LITERAL_SATISFIED; RAW_RESULT_VERDICT_AND_TARGET_UNCHANGED",
+        "negative_return_evidence": {
+          "required_only_for_terminal_verdict": "NEGATIVE_BOUNDARY",
+          "schema": "ENTERPRISE_MATH_DECLARED_NEGATIVE_TASK_ALTERNATIVE_V1",
+          "required_fields": ["schema", "taskbook_path", "taskbook_blob_sha1", "taskbook_sha256", "negative_return_clause", "completion_basis", "parent_completion_granted"],
+          "completion_basis": "DECLARED_TASKBOOK_NEGATIVE_ALTERNATIVE",
+          "parent_completion_granted": false,
+          "taskbook_binding": "EXACT_RAW_RESULT_AND_SOURCE_PUBLICATION_PATH_AND_GIT_BLOB_PLUS_ACTUAL_SHA256",
+          "negative_return_clause": "EXACT_NONBLANK_UNIQUE_SUBSTRING_OF_THE_PINNED_TASKBOOK; SEMANTIC_SATISFACTION_IS_THE_ACTUAL_DRIVER_JUDGMENT_NOT_KEYWORD_INFERENCE"
+        },
+        "synthesis_assessment_selection": {
+          "source": "CURRENT_CANONICAL_EXACT_REVIEW_SET_AND_RAW_SYNTHESIS",
+          "driver": "EXACT_RAW_SYNTHESIS_SYNTHESIZED_BY",
+          "review_disposition": "ACCEPTED",
+          "valid_assessment_count": 1,
+          "all_source_result_and_report_pins_required": true,
+          "quarantined_or_missing_source_review_allowed": false,
+          "ineligible_preserved_typed_assessments_grant_authority": false,
+          "latest_timestamp_selection_allowed": false,
+          "new_selector_field": false
+        },
         "audit_complete_requirement": "LITERAL_SATISFIED_ONLY_NO_ASSESSMENT_REINTERPRETATION",
         "assessment_schema": "ENTERPRISE_MATH_DRIVER_TASK_COMPLETION_ASSESSMENT_V1",
-        "source": "EXACTLY_ONE_TYPED_HTML_COMMENT_IN_THE_IMMUTABLE_DR_BOUND_REVIEW_REPORT",
+        "source": "EXACTLY_ONE_TYPED_HTML_COMMENT_IN_THE_IMMUTABLE_DR_BOUND_REVIEW_REPORT; SYNTHESIS_SELECTS_EXACTLY_ONE_VALID_SAME_AUTHOR_ASSESSMENT_FROM_ITS_CANONICAL_EXACT_SET",
         "required_fields": [
           "schema", "driver_id", "task_id", "publication_id", "result_id",
           "result_record_sha256", "original_hard_target_disposition",
