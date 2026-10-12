@@ -418,10 +418,21 @@ def _validate_independent_successor(
 
 def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     from control_plane import research_driver_review_authority_fault_isolation as review_isolation
+
+    return _validated_quarantines(root, review_isolation.validated_quarantines(root))
+
+
+def _validated_quarantines(
+    root: Path, review_rows: dict[str, dict[str, Any]],
+) -> dict[str, dict[str, Any]]:
+    """Validate packets with source rows supplied by strict cause validators.
+
+    Keep this input local: successor validation reenters operational review
+    readers, whose independent quarantine validators must remain unchanged.
+    """
     from control_plane import research_result_review_audit_fault_isolation as review_audit
 
     rows = quarantine_rows(root)
-    review_rows = review_isolation.validated_quarantines(root)
     audit_rows = review_audit.validated_rows(root) if any(
         row.get("source_review_basis") == AUDIT_SOURCE for row in rows.values()
     ) else {}

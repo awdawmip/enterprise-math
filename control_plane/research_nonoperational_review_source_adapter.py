@@ -10,7 +10,7 @@ changing any underlying quarantine's semantics.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -77,30 +77,18 @@ def install(root: Path = ROOT) -> None:
 
     if getattr(followup, "_nonoperational_review_source_adapter_installed", False):
         return
-    base_validated: Callable[[Path], dict[str, dict[str, Any]]] = followup.validated_quarantines
-    original_authority_validated = authority.validated_quarantines
-
     def combined_followup_validated(local_root: Path = followup.ROOT) -> dict[str, dict[str, Any]]:
-        def combined_review_rows(review_root: Path = local_root) -> dict[str, dict[str, Any]]:
-            # Use the original authority validator here so this temporary adapter
-            # cannot recurse through itself.
-            from control_plane import research_result_review_binding_fault_isolation as binding
-            from control_plane import research_result_review_audit_fault_isolation as invalid_review
+        from control_plane import research_result_review_binding_fault_isolation as binding
+        from control_plane import research_result_review_audit_fault_isolation as invalid_review
 
-            return _merge_causes(
-                [
-                    ("DRIVER_AUTHORITY", original_authority_validated(review_root)),
-                    ("RESULT_BINDING", binding.validated_quarantines(review_root)),
-                    ("INVALID_REVIEW_RECORD", invalid_review.validated_rows(review_root)),
-                ]
-            )
-
-        saved = authority.validated_quarantines
-        authority.validated_quarantines = combined_review_rows
-        try:
-            return base_validated(local_root)
-        finally:
-            authority.validated_quarantines = saved
+        source_rows = _merge_causes(
+            [
+                ("DRIVER_AUTHORITY", authority.validated_quarantines(local_root)),
+                ("RESULT_BINDING", binding.validated_quarantines(local_root)),
+                ("INVALID_REVIEW_RECORD", invalid_review.validated_rows(local_root)),
+            ]
+        )
+        return followup._validated_quarantines(local_root, source_rows)
 
     followup.validated_quarantines = combined_followup_validated
     followup._nonoperational_review_source_adapter_installed = True
