@@ -315,8 +315,10 @@ assert not held.intersection(item['result_id'] for item in p.iter_results(root))
 assert not held.intersection(item['result_id'] for item in p.iter_reviews(root))
 assert p.iter_reviews._exact_result_authority_filter is True
 """
+        # Fresh imports validate retained history twice; match the bounded budget
+        # of the sibling fresh-import bootstrap checks on slower CI workers.
         process = subprocess.run([sys.executable, "-c", script, str(ROOT)], cwd=ROOT,
-                                 capture_output=True, text=True, encoding="utf-8", timeout=45)
+                                 capture_output=True, text=True, encoding="utf-8", timeout=180)
         self.assertEqual(0, process.returncode, process.stdout + process.stderr)
 
 
