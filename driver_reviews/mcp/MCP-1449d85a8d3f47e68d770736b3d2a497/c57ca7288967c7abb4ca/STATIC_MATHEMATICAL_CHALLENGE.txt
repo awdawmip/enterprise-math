@@ -1,0 +1,113 @@
+Static mathematical challenge of frozen T6 p17/order1 review candidate
+Date: 2026-10-12
+Exact object: RR-81586AD70E1CEA1B7140 / TP2-26869C0B4D63A6BB761D
+
+Verdict: No blocking defect found. ACCEPTED is mathematically supportable for
+the frozen child only: complete sixteen-row domain classification, with twelve
+admissible affine classes empty under the original separate side budgets 2331.
+This is a reasoned static challenge of existing evidence, not a new census,
+formal kernel proof, native Driver review, or broader T6 conclusion.
+
+Method and evidence boundary
+
+I read the actual producer, COMPLETE_ENUMERATION_ARGUMENT, small-branch paper,
+task, RETURN, complete ledger row metadata, and the new reviewer script and
+receipt. I loaded raw P000, joint-relation preservation, Heartbeat World and
+residual-fidelity semantics before substantive review. Reads and SHA256 checks
+were the only executed checks: no producer, scientific verifier, modular solve,
+Gram-Schmidt algorithm, enumeration or research algorithm was run by this
+challenge helper. The shared, directed, nonblind context is retained. No native
+identity is claimed or borrowed by this helper; no frozen/native/control file
+was changed.
+
+The read-byte hashes agree with the existing bindings:
+  result: 00d5f2341117c50600ff530be92779e933983748f7c3028ab20112bf041a5d6f
+  reviewer script: dafa61534666fd7322457dfa1864c94e794e4d4a36fc196bb913cebcee98a97a
+  restored ledger: 185adc2dca61819c662e52523c9fea398f60a283864874d108d0cb03a7c593aa
+The parent's SOURCE_PIN_VERIFICATION and PACKED_BYTE_ROUNDTRIP bind the restored
+ledger to the complete frozen packed Source output. Those receipts are
+transport/input evidence, distinct from mathematical evidence.
+
+Decisive obligations challenged
+
+1. Saturation is valid. A six-column matrix whose determinant is a unit modulo
+17 is invertible over Z/17^6. Lift any target in the six mixed groups to that
+ring and solve there; reducing row k modulo 17^k proves surjectivity of the
+mixed map. Its kernel index is 17^(1+2+3+4+5+6)=17^21. Integral basis membership
+and determinant magnitude 17^21 therefore prove equality with the full mixed
+kernel. The receipt reports determinant -17^21 and first/alternate minor
+residues 15. Choosing a stronger-modulus representative supplies an offset; it
+does not restrict the subsequently searched mixed-kernel coset. All sixteen
+coordinates and their weights are retained, including composite denominators.
+Relevant code: producer lines 183-205, 224-235; reviewer lines 185-200.
+
+2. Floor/ceil coverage is complete. Exact GS expresses the full weighted norm
+as a sum of nonnegative D_i*(z_i+c_i)^2. For a feasible path, D_i>R_r^2 implies
+|z_i+c_i|<1. Every such integer brackets -c_i. At an integral center the adjacent
+integers are distance one and cannot be feasible, so the singleton branch is
+correct. The reviewer admits equality in total<=radius and prunes only above
+the radius; neither boundary candidates nor half-integer ties are lost.
+
+3. At most two nonpreferred choices is proved, rather than assumed. The other
+distinct bracket integer is distance at least 1/2, including an exact tie.
+Three such choices cost at least 3*min(D)/4>max(R_r^2). A feasible label must
+therefore be an empty/singleton/pair set with sum(D_i)<=4R_r^2. For a fixed set,
+descending centers depend only on the already chosen higher coefficients, and
+the fixed lower-at-tie rule determines one path. Integer-center disappearance
+of a requested nonpreferred branch excludes that label only. The actual
+receipt verifies all 299 saved labels and 1490 saved decisions, with strict
+final norm pruning on every path. Relevant code: producer lines 209-220,
+263-288; reviewer lines 216-255.
+
+4. The alternate-representative DFS provides a distinct completeness check.
+It uses columns 11..16, validates the original mixed constraints and the
+homogeneous difference from the saved representative, and reconstructs the
+full GS offset identity. Saturation then identifies the same complete coset.
+Its visit function considers every bracket branch, has no label/cardinality
+gate, and reads only z[j] for j>i. Stale lower coordinates left by recursion
+cannot affect a center; every accepted descendant overwrites its own coordinate
+before descent. A leaf reconstructs all coordinates and checks full norm and
+congruences. The zero-leaf assertion occurs after the complete recursion.
+The existing receipt reports 236 coordinate choices and zero leaves across
+the twelve admissible rows. Relevant reviewer lines 141-178, 262-286. I did not
+rerun this DFS or independently recompute its recorded rational arithmetic.
+
+5. All sixteen domain rows are preserved. Their cofactors are 18..33. Only
+r=2,6,12,14 have larger prime factors, respectively 19,23,29,31. Both ledger and
+reviewer mark them OUTSIDE_MAXIMAL_P17_DOMAIN, with zero affine paths and no
+relaxed-class-empty claim. The other cofactors 18,20,21,22,24,25,26,27,28,30,32,33
+are retained as composite integers. Their recorded path counts, in residue
+order, are 36,32,31,30,26,24,23,23,22,18,17,17; all twelve statuses are EMPTY and
+all survivor counts are zero. The reviewer requires the ordered domain 1..16
+and the exact admissible list, rather than trusting a summary count.
+
+6. The signed-budget implication has the correct direction. Order1 has one
+q=1 atom up to sign, costing 288+17r on the positive side. Thus P(u)<=2043-17r
+and N(u)<=2331. On their disjoint supports, sum of squares is bounded by the
+square of each mass sum, giving ||Wu||^2<=C_r^2+2331^2. Empty necessary spheres
+exclude every signed-budget feasible point. Zero complete leaves therefore
+justify zero actual signed-budget candidate checks in this frozen outcome;
+they do not mean the two budgets were checked on 299 completed vectors. The
+producer retains direct separate-side checks at any possible leaf. Scalar
+atom cancellation is scoped to identical denominator atoms and the additive
+seven-observer shape algebra, not asserted as arbitrary native-state collapse.
+
+7. Scope and contribution separation remain explicit. The result, RETURN and
+review receipt preserve higher p17 orders, lower maximal primes and global
+T6 as open, record no p19 replay, and make no formal-kernel/Working Truth or
+Foundation claim. Existing valuation/order0 inputs are frozen dependencies;
+this challenge did not reverify them. The reviewer is listed separately from
+the seven declared result/preparation contributor IDs, and shared-owner,
+directed exposure is disclosed. A new identity is not treated as proof of
+independence. The auxiliary 16-coordinate arithmetic lattice is not promoted
+to native physical spatial axes or a native plane.
+
+Recommendation
+
+Keep the decisive review limited to this exact frozen child. Its strongest
+supported statement is that the twelve actual maximal-p17 total-order1 mixed
+affine necessary spheres are empty, implying absence of local separate-budget
+feasible vectors; the four outside rows remain domain exclusions. There is no
+order1 local survivor whose H0/lower-prime completion needs enumeration. This
+does not settle completion or higher-order/global obligations. No revision is
+required by this static challenge, and no native/control action was taken.
