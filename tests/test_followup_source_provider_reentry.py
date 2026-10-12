@@ -1,7 +1,7 @@
 """Strict cause composition must not change a reentrant authority reader."""
 from __future__ import annotations
 
-from contextlib import ExitStack
+from contextlib import ExitStack, nullcontext
 from pathlib import Path
 import sys
 import unittest
@@ -36,12 +36,28 @@ class FollowupSourceProviderReentryTests(unittest.TestCase):
         setattr(followup, flag, False)
         self.stack = ExitStack()
         self.addCleanup(self.stack.close)
+        # These small rows model cause composition, not full Source records.
+        # Real review-dependency installation is covered by the fresh-process
+        # integrity/follow-up composition tests; keep that boundary separate.
+        self.review_dependencies = self.stack.enter_context(mock.patch.object(
+            adapter, "_install_review_dependencies"))
+        from tools import research_dispatch
+        self.stack.enter_context(mock.patch.object(
+            research_dispatch, "_dispatch_result_read_snapshot", side_effect=lambda root: nullcontext()))
         self.strict_authority = self.stack.enter_context(mock.patch.object(
             authority, "validated_quarantines", return_value=self.authority_rows))
         self.strict_binding = self.stack.enter_context(mock.patch.object(
             binding, "validated_quarantines", return_value=self.binding_rows))
         self.strict_invalid = self.stack.enter_context(mock.patch.object(
             invalid, "validated_rows", return_value=self.invalid_rows))
+
+    def test_dependency_failure_prevents_adapter_activation(self):
+        self.review_dependencies.side_effect = ValueError("exact review dependency pin drift")
+        with mock.patch.object(followup, "_validated_quarantines") as packet_validator:
+            with self.assertRaisesRegex(ValueError, "exact review dependency pin drift"):
+                adapter.install(self.root)
+            packet_validator.assert_not_called()
+        self.assertFalse(followup._nonoperational_review_source_adapter_installed)
 
     def test_reentrant_operational_reader_keeps_its_exact_authority_scope(self):
         # Earlier binding/audit filters have already removed their own IDs.
