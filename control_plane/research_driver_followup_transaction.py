@@ -336,13 +336,6 @@ def materialize(
         _tx.commit(record_files)
         created.extend(record_files)
 
-        publication_errors = research_task_records.audit(root)
-        if publication_errors:
-            raise DriverFollowupTransactionError(
-                "follow-up task publication audit failed: "
-                + "; ".join(publication_errors)
-            )
-
         packet = impl.build_packet(
             review_id=review_id,
             decision="TASK_SET_PUBLISHED",
@@ -365,7 +358,11 @@ def materialize(
         _tx.commit([packet_file])
         created.append(packet_file)
 
-        errors = _candidate_post_audit(packet, root, created=created)
+        # The exact successor-publication reader needs this new native packet
+        # as evidence. Audit the complete local taskset inside the same owned
+        # rollback boundary, rather than its deliberately incomplete prefix.
+        errors = list(research_task_records.audit(root))
+        errors.extend(_candidate_post_audit(packet, root, created=created))
         assert_current_binding()
         if errors:
             raise DriverFollowupTransactionError(

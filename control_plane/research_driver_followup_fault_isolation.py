@@ -273,6 +273,149 @@ def _complete_source_sets(
             raise DriverFollowupIsolationError(f"{task_id}: derived source packet set drift")
 
 
+def _validate_independent_successor(
+    task: dict[str, Any], row: dict[str, Any], source_packet: dict[str, Any],
+    active_heads: set[str], root: Path,
+) -> None:
+    """Validate a prospective native chain without re-admitting its old source.
+
+    This is not an adoption or HIRR-to-DR adapter. Every intervening generation
+    needs its own existing native follow-up authority, source-backed publisher
+    binding and exact review/Result pins. HRI/HIRR remain separate record kinds.
+    """
+    from tools import research_task_records, research_taskbook
+    import research_driver_authority as authority
+    import research_driver_followup as followup
+    from control_plane import research_result_review_audit_fault_isolation as review_audit
+    from control_plane import research_continuation_write_authority as write_authority
+
+    def require(value: bool, reason: str) -> None:
+        if not value:
+            raise DriverFollowupIsolationError(f"{task['task_id']}: {reason}")
+
+    require(len(active_heads) == 1, "successor requires one unambiguous active head")
+    records: dict[str, dict[str, Any]] = {}
+    for record in research_task_records.iter_records(root):
+        pub = record.get("publication_id")
+        require(isinstance(pub, str) and pub not in records, "publication identity is missing or duplicated")
+        records[pub] = record
+    anchor = records.get(task["publication_id"])
+    require(anchor is not None, "quarantined ancestor publication is missing")
+    original_meta, original_body = research_taskbook.split_taskbook(
+        (root / task["taskbook_path"]).read_text(encoding="utf-8")
+    )
+    def body_scope(body: str) -> tuple[str, dict[str, str]]:
+        lines = body.splitlines()
+        first = next((index for index, line in enumerate(lines)
+                      if line.lstrip().startswith("##") and "mother question" in line.lower()), len(lines))
+        headings = [line for line in lines if line.lstrip().startswith("##")]
+        require(len(headings) == len(research_task_records.MANDATORY_BODY_SECTIONS),
+                "successor contains an extra or missing semantic section")
+        return "\n".join(lines[:first]).strip(), research_task_records._section_payloads(body)
+
+    original_prefix, original_sections = body_scope(original_body)
+    native_prefix = f"# {original_meta['title']}\n\nStatus: `READY / DRIVER REVIEW FOLLOW-UP / PENDING IMMUTABLE PUBLICATION`"
+    scope_fields = (
+        "task_id", "registry_key", "kind", "parent_objective_id", "origin_kind",
+        "origin_candidate_id", "origin_candidate_state", "task_lineage",
+        "parent_task_id", "identity_lane", "successor_gate", "source_refs", "dependencies",
+        "frontier", "next_action",
+    )
+    packets = _raw_packets(root)
+    forbidden_reviews = {item["review_id"] for item in quarantine_rows(root).values()}
+    current_id = next(iter(active_heads))
+    seen: set[str] = set()
+    while current_id != task["publication_id"]:
+        require(current_id not in seen, "supersedes chain contains a cycle")
+        seen.add(current_id)
+        current = records.get(current_id)
+        require(current is not None, "supersedes chain publication is missing")
+        require(current.get("task_id") == task["task_id"], "supersedes chain left the same Task")
+        predecessor = records.get(current.get("supersedes_publication_id"))
+        require(predecessor is not None and predecessor.get("task_id") == task["task_id"],
+                "supersedes chain has a missing or cross-Task predecessor")
+        generation, previous_generation = current.get("publication_generation"), predecessor.get("publication_generation")
+        require(type(generation) is int and type(previous_generation) is int
+                and generation == previous_generation + 1, "supersedes generation is not the next exact generation")
+        require(current.get("record_schema") == research_task_records.RECORD_SCHEMA
+                and current.get("record_state") == "ACTIVE", "successor publication schema or state is invalid")
+        relative = current.get("taskbook_path")
+        require(isinstance(relative, str), "successor taskbook path is missing")
+        path = (root / relative).resolve()
+        require(path.is_relative_to((root / "research_tasks").resolve()) and path.is_file(),
+                "successor taskbook path is outside the native taskbook store")
+        meta, body = research_task_records._prepared(path, root=root)
+        prefix, sections = body_scope(body)
+        require(prefix in {original_prefix, native_prefix} and sections == original_sections
+                and meta.get("title") == original_meta.get("title")
+                and all(meta.get(field) == original_meta.get(field) for field in scope_fields),
+                "successor changed the frozen scope, parent, target, lineage or dependencies")
+        blob = research_task_records.taskbook_blob(path)
+        require(current.get("taskbook_blob_sha1") == blob, "successor taskbook blob drift")
+        require(current.get("publication_id") == research_task_records.publication_id(
+            task["task_id"], blob, current.get("publisher_id", ""), original_meta["parent_objective_id"]),
+            "successor publication identity does not bind its exact bytes and publisher")
+        for field in scope_fields:
+            require(current.get(field) == meta.get(field), f"successor record/taskbook mismatch: {field}")
+        require(current.get("publisher_role") == "RESEARCH_DRIVER"
+                and current.get("working_truth_granted") is False
+                and current.get("canonical_promotion_granted") is False,
+                "successor publisher or no-grant flags are invalid")
+        candidates = [packet for packet in packets if any(
+            isinstance(item, dict) and item.get("task_id") == task["task_id"]
+            and item.get("publication_id") == current_id
+            for item in packet.get("task_publications", [])
+        )]
+        require(len(candidates) == 1, "successor requires one exact native follow-up packet")
+        packet = candidates[0]
+        require(packet.get("decision") == "TASK_SET_PUBLISHED"
+                and packet.get("review_id") not in forbidden_reviews
+                and packet.get("result_id") == row["result_id"]
+                and packet.get("task_id") == source_packet.get("task_id")
+                and packet.get("source_publication_id") == source_packet.get("source_publication_id"),
+                "successor follow-up reused a quarantined review or changed the reviewed target")
+        followup.validate_packet(packet, root)
+        publisher = packet.get("materialization_publisher")
+        require(isinstance(publisher, dict), "successor lacks its native authenticated publisher binding")
+        expected = followup._materialization_binding(
+            packet["review_id"], publisher.get("driver_id"), publisher.get("session_id"),
+            packet.get("created_at"), root,
+        )
+        require(publisher == expected and current.get("publisher_id") == publisher.get("driver_id"),
+                "successor publisher is not bound to the native Source Driver session")
+        review = followup.review_map(root).get(packet["review_id"])
+        require(review is not None and review.get("disposition") == "ACCEPTED",
+                "successor needs independently accepted operational review authority")
+        published = followup._parse_time(current.get("published_at"), "successor publication time")
+        require(followup._parse_time(review.get("reviewed_at"), "successor review time") <= published
+                <= followup._parse_time(packet.get("created_at"), "successor packet time")
+                and followup._parse_time(predecessor.get("published_at"), "predecessor publication time") <= published,
+                "successor publication time is outside its prospective review, predecessor and packet boundary")
+        published_authority = authority.require_active_driver(current["publisher_id"], current["published_at"], root)
+        require(published_authority is not None
+                and published_authority["authority_record_id"] == publisher["authority_record_id"]
+                and json.loads(published_authority["source_body"]).get("session_id") == publisher["session_id"],
+                "successor publication did not use the exact Source Driver authority and session active at publication")
+        result = followup.result_map(root).get(row["result_id"])
+        require(result is not None, "successor reviewed Result is unavailable")
+        for pin in publisher["source_review_records"]:
+            require(pin["review_id"] not in forbidden_reviews, "successor inherited a quarantined source review")
+            raw_review = _load(root / pin["record_path"])
+            cutover = write_authority._pins(root)
+            receipt = raw_review.get("write_authorization")
+            require(cutover is not None
+                    and write_authority.record_path(raw_review, "REVIEW") not in cutover
+                    and isinstance(receipt, dict) and receipt.get("schema") == write_authority.SCHEMA
+                    and receipt.get("kind") == "REVIEW"
+                    and receipt.get("payload_sha256") == write_authority.payload_digest(raw_review),
+                    "successor requires a prospective payload-bound review receipt without a legacy exemption")
+            require(not review_audit._review_errors(raw_review, result, root)
+                    and not authority.review_authority_errors(raw_review, root)
+                    and write_authority.receipt_error(raw_review, "REVIEW", root) is None,
+                    "successor source review failed its existing native integrity or Driver-authority audit")
+        current_id = predecessor["publication_id"]
+
+
 def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
     from control_plane import research_driver_review_authority_fault_isolation as review_isolation
     from control_plane import research_result_review_audit_fault_isolation as review_audit
@@ -355,10 +498,7 @@ def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
             if task["publication_record_path"] != f"research_task_records/{task_id}/{publication_id}.json":
                 raise DriverFollowupIsolationError(f"{publication_id}: exact publication record path mismatch")
             if active_heads.get(task_id, set()) != {publication_id}:
-                raise DriverFollowupIsolationError(
-                    f"{QUARANTINE_FILE}: {task_id} derived quarantine requires exactly the pinned active head; "
-                    f"expected={[publication_id]!r} actual={sorted(active_heads.get(task_id, set()))!r}"
-                )
+                _validate_independent_successor(task, row, packet, active_heads.get(task_id, set()), root)
             record_path = root / task["publication_record_path"]
             if not record_path.exists():
                 raise DriverFollowupIsolationError(
@@ -576,8 +716,9 @@ def install(root: Path = ROOT) -> None:
 
         def current_records(local_root: Path = root) -> dict[str, dict[str, Any]]:
             current = dict(base_current(local_root))
-            for task_id in derived_task_rows(local_root):
-                current.pop(task_id, None)
+            for task_id, task in derived_task_rows(local_root).items():
+                if current.get(task_id, {}).get("publication_id") == task["publication_id"]:
+                    current.pop(task_id, None)
             return current
 
         research_task_records.current_records = current_records
@@ -598,6 +739,9 @@ def install(root: Path = ROOT) -> None:
             tasks = _derived_task_rows(packet_rows)
             overlaps = _integrity_overlaps(tasks, local_root)
             for task_id, task in tasks.items():
+                selected = by_id.get(task_id, {}).get("publication_id")
+                if selected is not None and selected != task["publication_id"]:
+                    continue
                 by_id[task_id] = _composed_blocked_definition(
                     task_id, task, by_id.get(task_id), overlaps.get(task_id), packet_rows,
                 )
@@ -643,7 +787,10 @@ def audit(root: Path = ROOT) -> list[str]:
         tasks = _derived_task_rows(rows)
         overlaps = _integrity_overlaps(tasks, root)
         for task_id, task in tasks.items():
-            if task_id in current:
+            selected = current.get(task_id, {}).get("publication_id")
+            if selected is not None and selected != task["publication_id"]:
+                continue
+            if selected == task["publication_id"]:
                 errors.append(f"{task_id}: review-derived quarantined task remains current")
             definition = definitions.get(task_id)
             if definition is None:
