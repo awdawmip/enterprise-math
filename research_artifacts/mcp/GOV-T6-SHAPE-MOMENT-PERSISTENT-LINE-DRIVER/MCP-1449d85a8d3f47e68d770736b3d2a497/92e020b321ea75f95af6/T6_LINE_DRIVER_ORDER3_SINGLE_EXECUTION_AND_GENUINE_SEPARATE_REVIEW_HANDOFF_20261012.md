@@ -1,0 +1,39 @@
+# T6 Driver increment: actual order3 execution and separate review handoff
+
+Driver EM-DVR-4CF7AF / SID MCP-1449d85a8d3f47e68d770736b3d2a497 / DA-DB1EC465C88B810F231D continues the existing GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER under the original own run RUN-d4c926feb22dd9e6ac1bc753 and claim MCP-ebb2da5fc6d0435c778ab8f2. This increment records genuine new execution and independent-review routing milestones. It does not freeze a scientific Result, decide order3 mathematics, close GOV, or complete the parent objective.
+
+## Current bounded Task and immutable input
+
+The current Task is RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012 / TP2-7B92A919379F827FE997, generation2, at immutable publication Source 4fe301b4c4005cdc8dc4131d5f4923c26a41ccef. Its corrected current book is research_tasks/T6_P17_TOTAL_ORDER3_LITERAL_PORTABLE_GEN2_20261012.md, 13104 bytes, SHA256 32067491c97cfafad73d5054dc5b1b59999f165af187716da11ea759ceea58fb, Git blob 95f3a2a9743e2f7d9ed62e1d3e8f6f9200904859. The current publication record is 5723 bytes, SHA256 4b2e7e445e03ea582607a09baca58325448dfd1e5f28ff9e62fdef44116feef0, Git blob 4d711af1f7bb667c9eaadc0824c0afac57e31615.
+
+This prospectively supersedes exactly Gen1 TP2-74DDE98D322E020794E5 while preserving its book, record, prepared-intent history and every unchanged scientific input byte. The correction distinguishes p17 order0 Source-pinned progress with original Root-author/partial-Result limitations from formally accepted bounded order1 and order2. No live winning claim existed at the correction boundary.
+
+The full3264 literal input is unchanged: 1405 admissible and1859 outside-domain relaxed systems, all of which require literal classification. Raw input is1704986 bytes, SHA256 c7a2624f7b9fbb9437b0b1756b323a879926ff138f82b816c6de60790a36371a, Git blob f615f79df601665c03bf5655fe1680d454e780f4. Its immutable lossless Source carrier is257883 bytes, SHA256 30309bfd7691257d804e42b5c246cafd26c14631443421863037e4f40fcd741e. All six targets, separate signed-side budgets, repeated/composite atoms, outside labels and both integer choices remain obligations. The common portable basis is SHA2567060ee638986a5c71a9775093e6b7f03ff3d5ff205ed438e3f5fa5aa93ca62ce. The prior887808-choice bound is a cost statement, not a result.
+
+## Genuine Researcher admission and one execution
+
+The existing genuine Researcher EM-T6-B4F89F / SID MCP-2b2adc7725e84b0c90908ba5db66a17f / RA-B6662BE3C64EEFC2AA156A87 reported its actual winning own claim06 (Issue4511) and own open09 (Issue4514), both SUCCEEDED at Source9a5f7d73ba01533ad4b790a472cefe9470195066. Actual claim MCP-18b6941bcefb78bff971609b / ER-1840F655EE7DE24068A4 / epoch6122498034 / RUN-56050ddbae8ccb1f54296dd8 generation1 were authorized and unfenced, with reported lease12:33:03UTC. These are its authority receipts; this Driver does not borrow them.
+
+This Driver separately full-byte/hash/blob checked the actual917-byte Source ER: SHA25655da9fb140f7ed8b2950cb31496ec8ab61f9adf1e6e51d849cd14f6f5b3e7823, Git blob1c4e66dddd1ba52e267f6693fa0e5f3f93e43adf. That prepared CLAIM_INTENT record alone does not grant execution. The Researcher joined its actual winning claim/open receipts and nine actual Source control/input/Goal files before execution.
+
+The Researcher reported exactly one new full3264 scientific invocation from10:42:32.620116UTC to10:43:08UTC, duration35.427s, exit0. Producer code SHA256110b7d64efe6953a246cc1ee57be425e0e62c488fdab1280408018e7fa990f38 and actual context were frozen. Producer reported3264 literal EMPTY,1405 admissible+1859 outside,17298 nodes and34596 both-candidate edges, zero survivors/failures. No q2, p19, order0 or order1 scientific execution was repeated.
+
+The separate local four-input standalone saved-certificate consumer then reported PASS: all3264 literal systems,17298 nodes,34596 edges and20562 strict rational prunes, zero full leaves, budget prunes, kernels or resource stops. This is local evidence. No complete new scientific Source publication, actualSource-only validation, frozen order3 RR or native mathematical acceptance is asserted by this checkpoint.
+
+## Byte custody and actual independent-review route
+
+The frozen compact certificate is4881759 bytes, SHA256 aa981b6b66b8c40172041bb8990a7a79a1de777044edebe5686c9998ac5d3117, Git blob d7464838995e0b4f59937b5fae7f019862d94f48. The reported byte-only strict roundtrip restores that exact sole member from a908015-byte lossless capsule, SHA256 c321aef501eb5bd3aba916a00a8f76e6693477d21aa63d98776ec74e1f321da9, Git blob e8051f54f785db3db4c23ad3f46e709d165234de. The original complete3267-member verbose archive remains explicitly local custody; no unuploaded byte is represented as Source.
+
+The Researcher reports four complete prospective capsules: compact plus49 scientific/code/support originals,33 native originals and12 byte-custody originals. Outer total is approximately1.9MiB and individual native files remain under the1MiB limit. Original serial staging/publication will use its own existing run and unique requests. Frozen outer manifests and final actual Source readbacks are still pending at this increment boundary. Byte custody alone is not mathematical review.
+
+Genuinely separate reviewer /root/t6_order16_static_review reported its own actual native role ACTIVE: EM-DVR-F9E6BA / SID MCP-f0a10badcb554eeda7dc189aef9e4a8f / DA-48D2373ED86588674808 / authority Source comment6122788788. Its original setup Issues4516 and4517 reached SUCCEEDED and its own complete Source DA/session bytes passed verification. This does not take over this Driver's GOV, DA or run. It has no q3 construction/execution contribution. It will independently audit actual immutable Source proofs and frozen RR under its own real native authority, then decide the result and bounded closure routing if justified. Setup success does not decide mathematics.
+
+## Contributors, scope and next frontier
+
+All seven inherited scientific IDs remain: EM-DIRECT-E1F2B6, EM-DIRECT-FA0C27, EM-DIRECT-49ADE6, EM-DVR-C1A1D9, EM-DVR-4C90FB, EM-DVR-FBF223 and EM-T6-B4F89F. New q3 input/static author EM-DVR-4CF7AF must also be explicit in actual Result metadata; the Researcher confirms its freeze will list eight distinct contributor_ids and scientific_contributor_ids with a role map. Root EM-DVR-FBF223 is already inherited but has new direction/cost credit. Researcher construction, operator and execution credit and helper UNKNOWN native identities remain honest. Original publisher EM-DIRECT-3AD825 and mother EM-T6SM-B134BD provenance are retained. All shared owner/control and directed preview exposure is nonblind. Neither this Driver nor Root may decisively accept the authored q3 claims.
+
+The order2 Task is actually DONE/COMPLETE/ACCEPTED at Source d1dacc1001d64f7414129a90359cfbee63508ead under RR-AD107A4A930BFF07FAB9 / DR-B02CEB5F5E99A5D947AE / DFU-7635387422703AB9DCA1. It is not replayed. Order3 still requires complete immutable scientific Source, actualSource-only portable proof consumption, genuine frozen RR, independent full-family audit and actual Task status readback.
+
+The parent EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD / OG-F252ABC3F5BB7B9499E7 remains OPEN. No global2332 completion, parent Foundation, WorkingTruth or canonical promotion is requested. Separately authored prospective order4/static high-order cost support is planning only, local or separately reviewed custody; it creates no Task ladder or feasibility result and does not delay the active order3 closure route.
+
+Next action: consume the Researcher's actual immutable scientific Source/RR, route full pins to the already ACTIVE separate reviewer, and preserve genuine own GOV progress/authority. Keep every domain/provenance limitation and all eight contributor IDs. Do not rerun completed science, override a live owner, reuse an old prepared claim as execution permission or substitute a new identity for independence.
