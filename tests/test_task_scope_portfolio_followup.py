@@ -15,7 +15,7 @@ REPO = Path(__file__).resolve().parents[1]
 CASES = ("open_parent", "absent_parent", "parked_parent", "invalid_specs", "invalid_driver", "historical_generation",
          "review_pin_race", "duplicate_packet_race", "result_pin_postcheck",
          "second_review_race", "packet_bytes_race", "publication_pin_postcheck",
-         "assessment_success", "assessment_invalid", "assessment_report_drift",
+         "assessment_success", "assessment_invalid", "assessment_report_drift", "assessment_negative",
          "success_parent", "audit_open_parent", "audit_invalid_targets", "audit_invalid_specs",
          "audit_invalid_driver", "audit_historical_generation", "audit_review_pin_race",
          "audit_result_pin_postcheck", "audit_publication_pin_postcheck")
@@ -73,6 +73,9 @@ def run_case(case):
             result['terminal_verdict'] = 'SUCCESS'
         if scenario.startswith('assessment_'):
             result['hard_target_disposition'] = 'ACHIEVED_BY_THE_FROZEN_FINITE_PROOF'
+        if scenario == 'assessment_negative':
+            result['terminal_verdict'] = 'NEGATIVE_BOUNDARY'
+            result['hard_target_disposition'] = 'DECLARED_NEGATIVE_ALTERNATIVE_COMPLETED; PARENT_OPEN'
         # Do not rewrite a legacy normalized record under its exact legacy pin.
         # This is a new TEMP Result, backed by the fixture's copied ER/outputs.
         root.joinpath(fixture.TARGET_PATH).unlink()
@@ -156,6 +159,18 @@ def run_case(case):
             'disposition': 'SATISFIED', 'terminal_scope': 'TASK',
             'assessment': 'The reviewing Driver confirms the exact finite Task under its frozen assumptions; the parent remains open.',
         }
+
+        if scenario == 'assessment_negative':
+            book = root / result['taskbook_path']
+            assessment['negative_return_evidence'] = {
+                'schema': impl.NEGATIVE_TASK_ALTERNATIVE_SCHEMA,
+                'taskbook_path': result['taskbook_path'],
+                'taskbook_blob_sha1': impl.result_impl._blob(book),
+                'taskbook_sha256': 'sha256:' + hashlib.sha256(book.read_bytes()).hexdigest(),
+                'negative_return_clause': 'The task is explicitly allowed to return a negative result. A visually striking raw six-wing picture is not itself evidence of a new arithmetic law.',
+                'completion_basis': 'DECLARED_TASKBOOK_NEGATIVE_ALTERNATIVE',
+                'parent_completion_granted': False,
+            }
 
         def assessment_text(value):
             return ('# Temporary Driver review\n\n<!-- ' + impl.TASK_COMPLETION_ASSESSMENT_SCHEMA
@@ -410,6 +425,9 @@ def run_case(case):
                         entry, dependency, {result['task_id']: publication}, records.result_map(root),
                         research_runtime_reducer.parse_time(args.followup_created_at), root)
                     assert proof['result_id'] == result['result_id']
+                if scenario == 'assessment_negative':
+                    assert result['terminal_verdict'] == 'NEGATIVE_BOUNDARY'
+                    assert target_path.read_bytes() == original_result_bytes
                 if scenario == 'assessment_success':
                     assert target_path.read_bytes() == original_result_bytes
                     assert result['hard_target_disposition'] == 'ACHIEVED_BY_THE_FROZEN_FINITE_PROOF'
