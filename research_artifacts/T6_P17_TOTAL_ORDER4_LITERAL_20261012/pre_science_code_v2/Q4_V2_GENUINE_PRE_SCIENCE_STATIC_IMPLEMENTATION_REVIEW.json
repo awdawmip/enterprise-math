@@ -1,0 +1,252 @@
+{
+  "schema": "T6_Q4_PRE_SCIENCE_STATIC_IMPLEMENTATION_REVIEW_V1",
+  "review_scope": "NEW_Q4_IMPLEMENTATION_STATIC_ONLY",
+  "scientific_execution": false,
+  "reviewer_actor": "EM-DVR-F9E6BA",
+  "verdict": "PASS",
+  "producer_sha256": "41e635763d482317f01c373aaa9b003f108689de319c3dadf506e0c59ef06abe",
+  "verifier_sha256": "4a2df77e298a123b58f9c7780a67e2e51fa7e1e6fb61b534f895c5da660e7605",
+  "input_sha256": "62dc2e5b6a3fceb129c25a0c19fc27dbe6ac195c6cdedecde7cfb1639789e16a",
+  "implementation_pins": [
+    {
+      "path": "/workspace/em-owner-resume-20261011/t6-p17-order4-own-execution-preparation-20261012/order4_exact_math_and_input.py",
+      "bytes": 12509,
+      "sha256": "996aee84084be108e925c402480d34e71384bc16cfb84958b4bf6e6a68b59beb",
+      "git_blob_sha1": "814a81ccdec52a4626503af6d15658ef90976eb2",
+      "filename": "order4_exact_math_and_input.py"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/t6-p17-order4-own-execution-preparation-20261012/q4_native_admission_guard.py",
+      "bytes": 24558,
+      "sha256": "9f85558d5f52e6bf1ab26efd142407add080845b1a807c845409981a5e5d2013",
+      "git_blob_sha1": "be72e601fa62b9456cb2ea1d259f485fd65b9c4b",
+      "filename": "q4_native_admission_guard.py"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/t6-p17-order4-own-execution-preparation-20261012/q4_dfs_wire.py",
+      "bytes": 1773,
+      "sha256": "5e31c86577c66c1c59f6322b4be5242c3ddc8e4f231285b0d7273e64c5f106b7",
+      "git_blob_sha1": "3b87e5f849fc05f4cd0029e0e6570163d132b07f",
+      "filename": "q4_dfs_wire.py"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/t6-p17-order4-own-execution-preparation-20261012/order4_exact_batch_executor.py",
+      "bytes": 9847,
+      "sha256": "41e635763d482317f01c373aaa9b003f108689de319c3dadf506e0c59ef06abe",
+      "git_blob_sha1": "a9c711e66adf6759b4f43c267fb91bd1acf9b916",
+      "filename": "order4_exact_batch_executor.py"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/t6-p17-order4-own-execution-preparation-20261012/pack_q4_binary_proof_source.py",
+      "bytes": 3240,
+      "sha256": "0ac7f80c2da13f5d7c78c7455e604990be5b81041cb593c8a89e48375cbb20b8",
+      "git_blob_sha1": "74ae4f42d237b7db121b1bd0f47d1a8b4c00e355",
+      "filename": "pack_q4_binary_proof_source.py"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/t6-p17-order4-own-execution-preparation-20261012/verify_order4_source_only_dfs_certificate.py",
+      "bytes": 48050,
+      "sha256": "4a2df77e298a123b58f9c7780a67e2e51fa7e1e6fb61b534f895c5da660e7605",
+      "git_blob_sha1": "36925adb9b3544a14345da7a57b9088be171a6bb",
+      "filename": "verify_order4_source_only_dfs_certificate.py"
+    }
+  ],
+  "reviewed_at_utc": "2026-10-12T15:03:52.238525+00:00",
+  "reviewer_actual_session_id": "MCP-f0a10badcb554eeda7dc189aef9e4a8f",
+  "reviewer_actual_authority_id": "DA-48D2373ED86588674808",
+  "native_identity_reset": false,
+  "new_native_or_Source_write": false,
+  "own_pending_requests": 0,
+  "next_unused_request_counter": 35,
+  "source_exposure": "DIRECTED_NONBLIND_DISCLOSED",
+  "source_scientific_author_ids": [
+    "EM-DIRECT-49ADE6",
+    "EM-DIRECT-E1F2B6",
+    "EM-DIRECT-FA0C27",
+    "EM-DVR-4C90FB",
+    "EM-DVR-C1A1D9",
+    "EM-DVR-FBF223",
+    "EM-T6-B4F89F",
+    "EM-DVR-4CF7AF"
+  ],
+  "new_construction_authors": [
+    "EM-DVR-FBF223",
+    "EM-DVR-4CF7AF",
+    "EM-T6-B4F89F"
+  ],
+  "construction_helpers_native_identity": "UNKNOWN",
+  "review_byte_only_helper_native_identity": "UNKNOWN_DIRECTED_NONBLIND_NO_MATH_VERDICT",
+  "reviewer_authored_new_math_input_producer_or_consumer": false,
+  "reviewer_contribution": "Independent review evidence and two guard control-code findings; author repaired V2, no mathematical/operator/input construction supplied.",
+  "full_30992_frozen_input_static_review": "PASS_PREVIOUS_SEPARATE_PHASE_NOT_REPEATED",
+  "math_and_wire_static_conformance": {
+    "canonical_M_17_power6_fixed_firstsix_entry_lifts_and_target_lifts_centering": true,
+    "full_mixed_kernel_saturation_and_weighted_exact_GS_prerequisites": true,
+    "both_ordered_candidates_full_recursive_N_C_B_S_grammar": true,
+    "sphere_and_both_signed_budget_equalities_retained": true,
+    "six_original_leaf_congruences_and_norm_identity": true,
+    "all_literal_outside_composite_and_multiplicity_cases_retained": true,
+    "partial_stop_is_unfinished_never_EMPTY_or_full_completion": true,
+    "strict_ULEB_padding_count_hash_and_exact_EOF": true,
+    "Source_carrier_lossless_complete_hash_blob_offsets_safe_paths": true,
+    "Source_only_consumer_stdlib_dependency_separation_and_inherited13_AST_reuse": true,
+    "execute_authorize_precedes_common_case_science": true,
+    "V2_actual_Source_machine_review_and_six_code_fingerprint_binding": true
+  },
+  "implementation_version": "V2_GUARD_ONLY_FIX_OTHER5_FILES_BYTE_IDENTICAL",
+  "V1_manifest_sha256": "6570a86ac8e7db1e8ad40cccade6d5ae3f73b8d647ba58f88cb9dfc084e53b6d",
+  "V2_manifest_pin": {
+    "path": "/workspace/em-owner-resume-20261011/t6-p17-order4-own-execution-preparation-20261012/FROZEN_Q4_NEW_IMPLEMENTATION_CODE_V2_PINS.json",
+    "bytes": 2929,
+    "sha256": "15f8adb7cefce31971a17d8bb266d1fbc76b240701cb6d3feaaafabf6b52e16d",
+    "git_blob_sha1": "d124dccda386ea9985b17df2fb81c0114c2ee695"
+  },
+  "all_V1_original_bytes_preserved": true,
+  "all_final_V2_selected_file_bytes_unchanged_during_final_checks": true,
+  "byte_codec_checks": {
+    "synthetic_checks": 72,
+    "valid_checks": 19,
+    "expected_rejections": 53,
+    "additional_static_nonblocking_resource_observation": 1,
+    "total_audit_entries": 73
+  },
+  "own_Source_review_binding_JSON_byte_checks": {
+    "total": 26,
+    "expected_passes": 4,
+    "expected_rejections": 22,
+    "whole_authorize_called": false,
+    "fixtures": "SYNTHETIC_NOT_SOURCE_NO_REAL_NATIVE_OR_SOURCE_CONTROL"
+  },
+  "actual_q4_case_particular_GS_inverse_DFS_or_proof_consumption_in_implementation_review": 0,
+  "author_mathcode_import_or_execute_in_review": false,
+  "prior_static_common_basis_GS_was_actual_separately_pinned": true,
+  "actual_q4_feasibility_result_or_native_acceptance_asserted": false,
+  "actual_new_code_or_review_Source_publication_asserted": false,
+  "separate_Task_InputSource_milestone_imported_from_lineDriver": {
+    "Source": "af938ca9f0904bf3f4bc8ccb5101143eeddc31ce",
+    "publication_id": "TP2-9FEEEAE0918EF884A26B",
+    "fresh_claim_or_run_authority_granted_by_this_review": false,
+    "not_independently_fetched_in_this_implementation_review": true
+  },
+  "known_packet_condition": {
+    "proof_raw_bound": 1881352,
+    "proof_Base64_bound": 2508472,
+    "input_outer_unit_bytes": 1702669,
+    "combined_excess_over_4MiB_before_other_overhead": 16837,
+    "resolved_plan": "fixed input adopted separately and referenced; actual future whole output still measured",
+    "actual_scientific_proof_and_final_packet_bytes": null
+  },
+  "nonblocking_resource_note": "Manifest parsing has no independent preallocation bound; native Source outer and total output limits are separately measured. No mathematical acceptance hole or extra permission requirement asserted.",
+  "next_action": "Ordinary genuine Driver/author Source-adopts exact V2 code and this static review, verifies complete bytes/current oneTask authority and own winning claim/open, then one bounded q4 science. Eventual whole or honest partial proof and actual Source/RR need genuinely separate result review.",
+  "native_or_Source_identity_provided_by_review": false,
+  "mathematical_q4_Result_RR_or_DR_created": false,
+  "mother_goal_status": "OPEN",
+  "evidence_pins": [
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/FROZEN_INPUT_AND_DESIGN_REVIEW_FINAL_PINS.json",
+      "bytes": 6518,
+      "sha256": "225d70b4656c35e07932114a605f035474531c3abe0913d03758acb296bae121",
+      "git_blob_sha1": "ea3cce923fae0ba00ce5a35adc28c3fcb1b9d70b"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/INDEPENDENT_FULL30992_STATIC_INPUT_AND_COMMON_AUDIT_RECEIPT.json",
+      "bytes": 6978,
+      "sha256": "45e08255f6ab31386b29c8077d300f521b99618d90be8824f0a7a46e636c61db",
+      "git_blob_sha1": "d4e00094841d85544fbe6318ab20e249ed9eb7ce"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/INDEPENDENT_Q4_FROZEN_INPUT_CANONICAL_DFS_STATIC_REVIEW.md",
+      "bytes": 9359,
+      "sha256": "22f01d0807f81f6d51aecbb96941038fb1008405a8b99d69c30a67b577b2634e",
+      "git_blob_sha1": "86d0df1235805d6c78a62fac038e00e389fdd3c8"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/V1_GENUINE_STATIC_FINDINGS_AND_REVIEW_BOUNDARY.md",
+      "bytes": 7209,
+      "sha256": "fa1d001249338cdac69e3e6bc02119b8738cedd5c49e5d90eb33d143a6f6f9bb",
+      "git_blob_sha1": "0084d1bda0fd2a6767c7538781d3b5dd7acf4ff5"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/OWN_STATIC_AST_IMPORT_REUSE_AND_ENTRY_GUARD_RECEIPT.json",
+      "bytes": 4891,
+      "sha256": "64020447003321aef0d965a8be3d419904aae75b0815bf160af422241138ef19",
+      "git_blob_sha1": "05c8b8143823865d198ea15b1766cc0ebd228194"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/OWN_EXACT_V1_V2_DELTA_REVIEW_RECEIPT.json",
+      "bytes": 2749,
+      "sha256": "3da5c179c95a3a23bc85efb0b194e3d3536b95ce49be72af13224a67ae43e203",
+      "git_blob_sha1": "6207935fac64617284fec141f6cd034c46f0a3d6"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/OWN_EXACT_V1_TO_V2_GUARD_DIFF.patch",
+      "bytes": 3288,
+      "sha256": "976467b370c1bb1a1c7ab81c9fab283df3f0efe14182f08f46dfc51afd1580a7",
+      "git_blob_sha1": "e550256f3b211481b66165e15aa6035e4930dee3"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/independent_v2_source_review_binding_byte_tests.py",
+      "bytes": 9741,
+      "sha256": "9a868490fd28299614365de1eee7e0f0eedf57a212680972bca5e44fde1c5e35",
+      "git_blob_sha1": "af608d75768bd0029977cde0a97a90925232cdf9"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/OWN_V2_SOURCE_REVIEW_BINDING_JSON_BYTE_TEST_RECEIPT.json",
+      "bytes": 11847,
+      "sha256": "8d4cb481bf5b805d9cf2accdce22d3d92c98fd615baa240fd35beead6fc645fe",
+      "git_blob_sha1": "f2c2846a1742d87f1c781839cf01ce73dc9b4898"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/byte-codec-helper/BYTE_CODEC_STATIC_REVIEW_FINAL_PINS.json",
+      "bytes": 5183,
+      "sha256": "5f0c9d00851571f09a57e8605ea10c5b79f4fde640e0bf8485958afa6ae613be",
+      "git_blob_sha1": "0a5edbced3af4a7c305981026273099614713eda"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/byte-codec-helper/INDEPENDENT_Q4_BYTE_CODEC_STATIC_REVIEW.md",
+      "bytes": 6983,
+      "sha256": "fd42481a60a02e7dc1bf6340b7370a83f1a040ae644316f4db71359303f9291f",
+      "git_blob_sha1": "c1d2415672adfc9093f7150c270c0eaf83064f39"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/INDEPENDENT_Q4_V2_IMPLEMENTATION_STATIC_REVIEW.md",
+      "bytes": 10875,
+      "sha256": "6a25c69c092451856737d3df887ebd2332c0298b525123aab47176fea556b9f2",
+      "git_blob_sha1": "47c56b95d0d6a56451694a90bd19ba71a3516cc6"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/FROZEN_V2_CODE_AND_REFERENCES_BEFORE.json",
+      "bytes": 2495,
+      "sha256": "239ecb0b39213114f19d0a7592d9fc4cf0b69733d923eaa3bce074eafe06765e",
+      "git_blob_sha1": "ed8b4faadaecdb93bc7c95136b112854bcb9a360"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/FROZEN_V2_CODE_AND_REFERENCES_AFTER.json",
+      "bytes": 2495,
+      "sha256": "239ecb0b39213114f19d0a7592d9fc4cf0b69733d923eaa3bce074eafe06765e",
+      "git_blob_sha1": "ed8b4faadaecdb93bc7c95136b112854bcb9a360"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/OWN_ACTUAL_Q4_PUBLISHED_SCHEMA_SOURCE_MATH_EQUIVALENCE_RECEIPT.json",
+      "bytes": 2242,
+      "sha256": "64e641eb29dd830adf922a8f5f39f5ef11bb10764225bb8c93dbfaba6c472580",
+      "git_blob_sha1": "75333bdd33e25445aa01b1b5f74c46118bfc8b32"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/t6-p17-order4-genuine-independent-pre-science-review-20261012/implementation-static-review/ACTUAL_SOURCE_Q4_FROZEN_COMPLETE_DFS_SCHEMA_SPECIFICATION.json",
+      "bytes": 6573,
+      "sha256": "95a77b9eea347e27f206d99fc2fc4d6a2400f38ddd7e49106e4f6e8c077f25c2",
+      "git_blob_sha1": "7bc860815bb725266b6bd9c2616f99c2f96018de"
+    }
+  ],
+  "actual_published_schema_source_join": {
+    "Source": "af938ca9f0904bf3f4bc8ccb5101143eeddc31ce",
+    "Source_path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/Q4_FROZEN_COMPLETE_DFS_SCHEMA_SPECIFICATION.json",
+    "bytes": 6573,
+    "sha256": "95a77b9eea347e27f206d99fc2fc4d6a2400f38ddd7e49106e4f6e8c077f25c2",
+    "git_blob_sha1": "7bc860815bb725266b6bd9c2616f99c2f96018de",
+    "canonical_DFS_wire_completion_unchanged": true,
+    "input_hash_and_order_resolved": true,
+    "fresh_execution_authority_inferred": false
+  }
+}
