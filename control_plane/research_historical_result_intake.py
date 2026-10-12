@@ -227,7 +227,14 @@ def freeze_intake(spec: dict[str, Any], authority_context: dict[str, Any], *, ro
     _require(_text(spec["reason"]), "intake reason missing")
     target = _target(root, spec["target_task_id"], spec["publication_id"], spec["historical_result_id"])
     from tools import research_task_records
-    current = research_task_records.current_records(root).get(target["task_id"])
+    from control_plane.research_result_authority_fault_isolation import ResultAuthorityIsolationError
+    try:
+        current_records = research_task_records.current_records(root)
+    except ResultAuthorityIsolationError as exc:
+        # Canonical views can reject pinned evidence before _science runs.
+        # Preserve that strict rejection through the intake error surface.
+        raise HistoricalIntakeError(str(exc)) from exc
+    current = current_records.get(target["task_id"])
     _require(isinstance(current, dict) and current.get("publication_id") == target["publication_id"], "historical target publication is no longer current")
     fields = (("expected_result_sha256", "result_pin", "sha256"), ("expected_result_blob_sha1", "result_pin", "git_blob_sha1"),
         ("expected_execution_sha256", "execution_pin", "sha256"), ("expected_execution_blob_sha1", "execution_pin", "git_blob_sha1"),
