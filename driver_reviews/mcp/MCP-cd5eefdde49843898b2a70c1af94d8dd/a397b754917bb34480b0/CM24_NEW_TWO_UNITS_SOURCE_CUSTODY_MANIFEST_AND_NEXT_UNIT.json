@@ -1,0 +1,554 @@
+{
+  "schema": "CM24_NEW_TWO_UNITS_SOURCE_CUSTODY_MANIFEST_AND_NEXT_UNIT_V1",
+  "prepared_at_actual_utc": "2026-10-12T03:24:42.810123+00:00",
+  "status": "LOCAL_PUBLICATION_INPUTS_READY_NOT_YET_STAGED_OR_SOURCE_PUBLISHED",
+  "publication_file_count": 8,
+  "custodied_new_unique_byte_file_count": 43,
+  "custodied_original_byte_total": 335758,
+  "directory_counts": [
+    {
+      "relative_directory": "cm24-inhomogeneous-multiple-flux-20261012",
+      "files": 17,
+      "bytes": 127835
+    },
+    {
+      "relative_directory": "cm24-new-flux-independent-review-20261012",
+      "files": 12,
+      "bytes": 90952
+    },
+    {
+      "relative_directory": "cm24-gauss-weighted-terminal-comparison-20261012",
+      "files": 14,
+      "bytes": 116971
+    }
+  ],
+  "closure_rule": "All regular byte files in the three completed local unit/review directories, including two self-manifests, local PRE_FINAL and nested transform review; external pinned inputs are verified/referenced, not repacked.",
+  "declared_unit_outputs": [
+    16,
+    13
+  ],
+  "declaration_self_manifest_count": 2,
+  "separate_independent_review_file_count": 12,
+  "all_new_files": [
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/FINAL_UNIT_PINS.json",
+      "bytes": 23769,
+      "sha256": "7317cf1dfca3aefc212aa3c3d698446a2b9e97a0e37e4cb9fbb6356e807f828d",
+      "git_blob_sha1": "8ec9bb97f36cb28cd4f5a6af381265e418d4323a"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/FROZEN_INPUT_BYTE_AUDIT.json",
+      "bytes": 13977,
+      "sha256": "287c6b860f1ec1e96337b517ac1cb9ff4ba09992c4c7820127040e3b50353fe5",
+      "git_blob_sha1": "8ef7c5045a24479a23c15f3a999a16b9036e475d"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/FROZEN_INPUT_POSTWORK_AUDIT.json",
+      "bytes": 18518,
+      "sha256": "0102b7a55479b6f80e0ce4810583836933772ccf03384c8619cf8df4ba3ea61a",
+      "git_blob_sha1": "91577c8c0baf40808ae59daaef386d388ff1bd12"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/GAUSS_WEIGHTED_PREFIX_SYMBOLIC_CHECK.json",
+      "bytes": 6062,
+      "sha256": "1485c492cb67865965e521f728c093dd654ba6a5c25dd760c457e0a21823924a",
+      "git_blob_sha1": "094fc1233ede265cb33f9ea3fe4adf4dcf88bd3a"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/GAUSS_WEIGHTED_TELESCOPERS_AND_EXACT_PREFIX_RESIDUAL.md",
+      "bytes": 15944,
+      "sha256": "a36dd3154d6a599d2a92703c3420d08e834c9e868bc4134ec4fbf6907a0f2eac",
+      "git_blob_sha1": "407e45c376ba715fd0dd6b4e3d46879dc045a490"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/GAUSS_WEIGHTED_TELESCOPER_COEFFICIENTS.json",
+      "bytes": 1242,
+      "sha256": "0882ffa356a029eb5626b919d1add0391c8007e37c28fe4df1738446040fcb2a",
+      "git_blob_sha1": "e67dc7c1c5661683cfadc3d51b5d643b1293d574"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/NEXT_PRECISE_LEMMA.json",
+      "bytes": 2591,
+      "sha256": "64576b28bead3df9912570dc97f03089fa7d7a729839127a6dbb8212e9e21034",
+      "git_blob_sha1": "487095c3b7f08df5b2ab00b7c5f39b2b0f8eb9ad"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/ROOT_HANDOFF.md",
+      "bytes": 3118,
+      "sha256": "0489e035924e5a43e9881936c0e0d3a297fd0c3b1a0b792a551c708ebf09d95c",
+      "git_blob_sha1": "b749cdba1ff16b50b545eaea98394e9246ff72fa"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/check_gauss_weighted_prefix_telescoper.py",
+      "bytes": 7465,
+      "sha256": "f61ae6c1bbec86288b75cd34966c6afe8f6b8f5544cacf7fc6ee5ba2a4f9287d",
+      "git_blob_sha1": "a0f8b350575c13902f4cbb0550da69bea2838532"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/independent-check/GAUSS_WEIGHTED_TELESCOPER_CHECK.json",
+      "bytes": 3888,
+      "sha256": "790467aa331522b77d44bfa19320bbf536ecab6c6e080dd90f14eb4fb3a817fd",
+      "git_blob_sha1": "9659c2aa362e270ce03c6f604a5d12245be567c8"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/independent-check/INDEPENDENT_PREFIX_AND_AFFINE_WEIGHT_TELESCOPERS.md",
+      "bytes": 8751,
+      "sha256": "d9f6528b9b94dbb643607d64d07dc89e73caf522f10e23a55f73d694ad6031da",
+      "git_blob_sha1": "28a849d4eb123e1270ac249e4cc4cdd780ece973"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/independent-check/INDEPENDENT_WEIGHTED_UNIT_PINS.json",
+      "bytes": 2806,
+      "sha256": "1f7674f7cb4f7d247af0cd7540014ac4d7a8dd9807f97fadbc306ad07b062a3e",
+      "git_blob_sha1": "edc34b5fe14b7f0b66e245bb10aba5dd83b47ff3"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/independent-check/MAIN_PAPER_REVIEW.md",
+      "bytes": 3051,
+      "sha256": "2bcec0efba3a5e5108d04d246be8295e66cc4943cc1d381d3f76e70f2b77351a",
+      "git_blob_sha1": "e7acdd119081644e2aa0f5b9bb7826ca1493ec23"
+    },
+    {
+      "path": "cm24-gauss-weighted-terminal-comparison-20261012/independent-check/check_gauss_weighted_telescopers.py",
+      "bytes": 5789,
+      "sha256": "d50e26fa4fddec983d572cf497ffdc6f17be52ea3b1ac3f4c9563c77fa1646d4",
+      "git_blob_sha1": "29e80a98068541bd6620ebea535d233b3ba93b6d"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/FINAL_UNIT_PINS.json",
+      "bytes": 9619,
+      "sha256": "0ec7e3032b4e7471c7831b11021b892b8fd9accffcee7af17a2a4b42a9a6d908",
+      "git_blob_sha1": "e2022e14acc1f6ff948c253d8bd99e7d4d077eb7"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/FIXED_TRIANGLE_MULTIPLE_FLUX_AND_FROBENIUS_TERMINAL.md",
+      "bytes": 16893,
+      "sha256": "3b93a6d4ab46fec8cd5beacfdff73da5fc3c31b2a53b4bc3b6fc00fea0546142",
+      "git_blob_sha1": "8ea049fa745581396edb08ea7d3d6a04a28325f1"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/FROZEN_INPUT_BYTE_AUDIT.json",
+      "bytes": 18509,
+      "sha256": "f727e250eae2326039a4efaf1f16387dd90dfefbecb33877f7d1109c9d7f35fe",
+      "git_blob_sha1": "adc3dc3981cd565f7ec1cc6c5834bcbd90d8d3ce"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/FROZEN_INPUT_POSTWORK_AUDIT.json",
+      "bytes": 15505,
+      "sha256": "f76cc6e15ef5bf9affd70c050749a7d405d48b5b2b5705d8d2a636a1f5f679d9",
+      "git_blob_sha1": "935da116f2b269e7c3a17ac1f05d7a3005fb3b5e"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/MULTIPLE_FLUX_SYMBOLIC_CHECK.json",
+      "bytes": 10776,
+      "sha256": "56b820261a0c08321d283180c44ff96e6d5f6de12cf52935e75f6936ed15bf07",
+      "git_blob_sha1": "cc9e3261603bbe19f82dfdf57f17fd7c96e99e2e"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/NEXT_UNIT_SPEC.json",
+      "bytes": 2420,
+      "sha256": "ae785403134572ad4dbd8265a179e901314593936c00e33936be55c4f06bed62",
+      "git_blob_sha1": "05674c4407bf114b2fb3276a2f5e3be8fe31a660"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/POLYNOMIAL_MULTIPLE_FLUX_COEFFICIENTS.json",
+      "bytes": 1240,
+      "sha256": "aa348511401acbea2bc26e8ac24e23675cdbaa42e1191c0d26c4e18a29cc161b",
+      "git_blob_sha1": "b5c46c6381bfb1e4f784d68b69abd53aafa84a9c"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/ROOT_HANDOFF.md",
+      "bytes": 3172,
+      "sha256": "7cd762e6a3af8d631a6d568bdab4c691f1f6612b5ba3fd4d61af6eabeb1ed742",
+      "git_blob_sha1": "fb048b4a52b417d4d37dc8cdaaa2f31a42501a4c"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/check_multiple_flux_moments.py",
+      "bytes": 9369,
+      "sha256": "cf4e28d7e77a1f841613910f46fb0aaefa5ee7f5c28da9d99e40a7d7d8dd2928",
+      "git_blob_sha1": "666d8f792be4f0b35e0e9b028103b02935cc6c79"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/independent-check/FINITE_GAUSS_COEFFICIENT_MULTIPLE_FLUX.md",
+      "bytes": 9256,
+      "sha256": "f89666ca7c42b0768e5bd45b2e35c001ef890ce515031dccde35c2c98b852101",
+      "git_blob_sha1": "9eb1c4b67eabd3e863af96c88f7ff20d056b1f34"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/independent-check/FINITE_GAUSS_MULTIPLE_FLUX_CHECK.json",
+      "bytes": 6905,
+      "sha256": "359e4427e9e80e55859791d17083b0e8d549cb4cde185748620030a67f11a2b2",
+      "git_blob_sha1": "58b148d49a1f700891fd0ece6601992a60045c2e"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/independent-check/INDEPENDENT_CHECK_PINS.json",
+      "bytes": 3324,
+      "sha256": "02c51a78bba67bd5ea29df24ca4e61e3986c98903a5fac04ad2d883d89023550",
+      "git_blob_sha1": "4452e55ae3f9e4fa14f2b46a35bf63dbee4f72f9"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/independent-check/MAIN_PAPER_ALGEBRA_CHECK.json",
+      "bytes": 1756,
+      "sha256": "3e6a11e4907b86315a8f0e1f53b6227759631483762e76bdf7828aa828d9b697",
+      "git_blob_sha1": "ef6ef8660f48c56b79ff6e7d2c20388b42325a7a"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/independent-check/MAIN_PAPER_ALGEBRA_REVIEW.md",
+      "bytes": 3872,
+      "sha256": "8ee58769dd7d9a8aaa86069dce912c2973068502db6751a3fb7944443ff392fd",
+      "git_blob_sha1": "6a30c90f0e5ca74b3e9151a9fdb1b3c24d9a3828"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/independent-check/O_MOMENT_FROBENIUS_TERMINAL_REVIEW.md",
+      "bytes": 4531,
+      "sha256": "02d57b33a0ec88a5af31f2a161faa3552b90879e4a94e3f74ea70e7a90582a70",
+      "git_blob_sha1": "98d033ec99ba382423968670e8f5d22eb90f1bbe"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/independent-check/check_finite_gauss_multiple_flux.py",
+      "bytes": 6914,
+      "sha256": "c22496987dcb089f08d57bab034c2266951c0daa973d4d49017b882873c03717",
+      "git_blob_sha1": "bb5b35d379d59d6c6d6816b9f526607d83e4eea7"
+    },
+    {
+      "path": "cm24-inhomogeneous-multiple-flux-20261012/independent-check/check_main_paper_algebra.py",
+      "bytes": 3774,
+      "sha256": "d51ee8a07718e470a8949f6509d0aabdf817a42f7d3faf2740f5c8d97fde7871",
+      "git_blob_sha1": "9897a74d9218be41f4d17cc69f7f466d3954f6e6"
+    },
+    {
+      "path": "cm24-new-flux-independent-review-20261012/INDEPENDENT_MATHEMATICAL_REVIEW.md",
+      "bytes": 8106,
+      "sha256": "b09218c5099fb37bbf562e66c661ec3efaf4c50b0f6e00a89a93ceae5c4deb3e",
+      "git_blob_sha1": "da1e17d7a00cb586761df7d72a6eee3ec82956b2"
+    },
+    {
+      "path": "cm24-new-flux-independent-review-20261012/INDEPENDENT_REVIEW_RECEIPTS.json",
+      "bytes": 2444,
+      "sha256": "b493049a0f7ee9447a60d4dcbe12ee5eb9cf18bc33980f4536eca6df43f39ad7",
+      "git_blob_sha1": "2fa8f0ff36329983b8380c28d3b0e4c870dcf238"
+    },
+    {
+      "path": "cm24-new-flux-independent-review-20261012/INPUT_PIN_VERIFICATION_AFTER.json",
+      "bytes": 17697,
+      "sha256": "59ff5dd9f3de5e15ec59393b14d54afa7ddac85a8141cf11ba7acb0f00001acd",
+      "git_blob_sha1": "5f666b20c13a24fb95eaaddeff240e741186fdbb"
+    },
+    {
+      "path": "cm24-new-flux-independent-review-20261012/INPUT_PIN_VERIFICATION_BEFORE.json",
+      "bytes": 18830,
+      "sha256": "a50ae229f3e43e31cd55626c435ee97e54f86f0fe9445b85354e8184c4fb002c",
+      "git_blob_sha1": "00f0f376c5575e332f54a55c2019d4f7854a3b83"
+    },
+    {
+      "path": "cm24-new-flux-independent-review-20261012/PRE_FINAL_RECEIPT.json",
+      "bytes": 1188,
+      "sha256": "c8574ef383ba890cd3aa58031a808b6bf0584c2d40a7bb55fb9a30b459270c03",
+      "git_blob_sha1": "26dfc51cddfcf8891d45c36b764083c16bc7d5cf"
+    },
+    {
+      "path": "cm24-new-flux-independent-review-20261012/TERMINAL_GAUSS_RESIDUAL_CHECK_RECEIPTS.json",
+      "bytes": 4424,
+      "sha256": "c7cc75e4fea3342f9edf892bbe96a97f26652d0f41f50f6c52c258906ab95473",
+      "git_blob_sha1": "2b5aac8e829a49f47791c770cad5d70712721834"
+    },
+    {
+      "path": "cm24-new-flux-independent-review-20261012/check_terminal_gauss_residual.py",
+      "bytes": 6342,
+      "sha256": "69193ad487ed621d58e259b702d932924798914b73405fce310ec0d4f8eb2215",
+      "git_blob_sha1": "450e0a8fb5aec8658a4e0a7a43e9274d2522d060"
+    },
+    {
+      "path": "cm24-new-flux-independent-review-20261012/flux-subreview/FLUX_SUBREVIEW_MANIFEST.json",
+      "bytes": 1699,
+      "sha256": "d2bdb64860e9f3937e8634c3d7f329ea1da7a3db3f3f03fc62694170af7aace8",
+      "git_blob_sha1": "a580f51f18ad04b0e2880c54cf7ff9dcced6fa71"
+    },
+    {
+      "path": "cm24-new-flux-independent-review-20261012/flux-subreview/INDEPENDENT_FLUX_RESULTS.json",
+      "bytes": 9684,
+      "sha256": "090ae80660de7cc499b483bb170c876c70cc252976f5b32ee3c9cf225b360e61",
+      "git_blob_sha1": "09250f9faf7d7fc17a33c8b2a2f01ca3ed455113"
+    },
+    {
+      "path": "cm24-new-flux-independent-review-20261012/flux-subreview/INDEPENDENT_FLUX_REVIEW.md",
+      "bytes": 5028,
+      "sha256": "2653d73bce51d8177be7b4bd6bac3ff2f040e35625906540626b7fccdfee7960",
+      "git_blob_sha1": "f7c1e3d43125f273227cb2768b0b0da2d9c7a510"
+    },
+    {
+      "path": "cm24-new-flux-independent-review-20261012/flux-subreview/independent_flux_check.py",
+      "bytes": 12493,
+      "sha256": "86f6bd5cdca4b92084809b8d157ec895dc3932884835027d20da3674165d1e57",
+      "git_blob_sha1": "ed0244c8f0d2ee6aa1e5a70c0e01af93ec47a68b"
+    },
+    {
+      "path": "cm24-new-flux-independent-review-20261012/flux-subreview/transform-crosscheck/TRANSFORM_REVIEW.md",
+      "bytes": 3017,
+      "sha256": "e78aff1f42859ed896e74942a3b4ee9f36c7b20b1a11fab3bdced5a6e319dd28",
+      "git_blob_sha1": "34b2a47539038c3a659937ad4ebf4b1fcae985cc"
+    }
+  ],
+  "container_pin": {
+    "path": "/workspace/em-owner-resume-20261011/new-round-20261011/cm24-new-multiple-flux-source-custody-20261012/publication-files/CM24_NEW_FLUX_AND_WEIGHTED_UNITS_COMPLETE_FROZEN_SOURCE_BUNDLE.json",
+    "bytes": 120248,
+    "sha256": "cf253c72a54b7bd21a1520f8038c088ef673d8e3a39638f1601434f9a672fc41",
+    "git_blob_sha1": "9486a9337e5ef9a085c914937264b6beaabd0698"
+  },
+  "standalone_exact_original_papers_and_reviews": [
+    {
+      "original_path": "/workspace/em-owner-resume-20261011/cm24-inhomogeneous-multiple-flux-20261012/FIXED_TRIANGLE_MULTIPLE_FLUX_AND_FROBENIUS_TERMINAL.md",
+      "publication_filename": "FIXED_TRIANGLE_MULTIPLE_FLUX_AND_FROBENIUS_TERMINAL.md",
+      "bytes": 16893,
+      "sha256": "3b93a6d4ab46fec8cd5beacfdff73da5fc3c31b2a53b4bc3b6fc00fea0546142",
+      "git_blob_sha1": "8ea049fa745581396edb08ea7d3d6a04a28325f1"
+    },
+    {
+      "original_path": "/workspace/em-owner-resume-20261011/cm24-gauss-weighted-terminal-comparison-20261012/GAUSS_WEIGHTED_TELESCOPERS_AND_EXACT_PREFIX_RESIDUAL.md",
+      "publication_filename": "GAUSS_WEIGHTED_TELESCOPERS_AND_EXACT_PREFIX_RESIDUAL.md",
+      "bytes": 15944,
+      "sha256": "a36dd3154d6a599d2a92703c3420d08e834c9e868bc4134ec4fbf6907a0f2eac",
+      "git_blob_sha1": "407e45c376ba715fd0dd6b4e3d46879dc045a490"
+    },
+    {
+      "original_path": "/workspace/em-owner-resume-20261011/cm24-new-flux-independent-review-20261012/INDEPENDENT_MATHEMATICAL_REVIEW.md",
+      "publication_filename": "INDEPENDENT_MATHEMATICAL_REVIEW.md",
+      "bytes": 8106,
+      "sha256": "b09218c5099fb37bbf562e66c661ec3efaf4c50b0f6e00a89a93ceae5c4deb3e",
+      "git_blob_sha1": "da1e17d7a00cb586761df7d72a6eee3ec82956b2"
+    },
+    {
+      "original_path": "/workspace/em-owner-resume-20261011/cm24-inhomogeneous-multiple-flux-20261012/independent-check/MAIN_PAPER_ALGEBRA_REVIEW.md",
+      "publication_filename": "MAIN_PAPER_ALGEBRA_REVIEW.md",
+      "bytes": 3872,
+      "sha256": "8ee58769dd7d9a8aaa86069dce912c2973068502db6751a3fb7944443ff392fd",
+      "git_blob_sha1": "6a30c90f0e5ca74b3e9151a9fdb1b3c24d9a3828"
+    },
+    {
+      "original_path": "/workspace/em-owner-resume-20261011/cm24-gauss-weighted-terminal-comparison-20261012/independent-check/MAIN_PAPER_REVIEW.md",
+      "publication_filename": "MAIN_PAPER_REVIEW.md",
+      "bytes": 3051,
+      "sha256": "2bcec0efba3a5e5108d04d246be8295e66cc4943cc1d381d3f76e70f2b77351a",
+      "git_blob_sha1": "e7acdd119081644e2aa0f5b9bb7826ca1493ec23"
+    }
+  ],
+  "reused_unpacker_pin": {
+    "path": "/workspace/em-owner-resume-20261011/new-round-20261011/cm24-new-multiple-flux-source-custody-20261012/publication-files/unpack_cm24_frozen_source_bundle.py",
+    "bytes": 1599,
+    "sha256": "7d34da9f10cf00442d6f1653bb9fb7f96e09c285195674546b41101aad8e85ed",
+    "git_blob_sha1": "ddc75b0b61632be0d09d1fd65f8bd205e33767c9"
+  },
+  "reused_unpacker_old_Source": {
+    "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/063211ac9cee38da61ce/unpack_cm24_frozen_source_bundle.py",
+    "bytes": 1599,
+    "sha256": "7d34da9f10cf00442d6f1653bb9fb7f96e09c285195674546b41101aad8e85ed",
+    "blob": "ddc75b0b61632be0d09d1fd65f8bd205e33767c9",
+    "Source": "3488bc24abcab8790c4370e0187b6ffac0cde670",
+    "full_bytes_verified": true
+  },
+  "upstream_old26_Source_bundle": {
+    "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/063211ac9cee38da61ce/CM24_TWO_FINITE_UNITS_COMPLETE_FROZEN_SOURCE_BUNDLE.json",
+    "bytes": 74723,
+    "sha256": "7444c24c42d11dbb55030ae9515784728fadd0b6b081396f4e67b85d14493c00",
+    "blob": "65ae701bc4c8e5c86a0ddef4b60c8abebbfaebe5",
+    "Source": "3488bc24abcab8790c4370e0187b6ffac0cde670",
+    "full_bytes_verified": true
+  },
+  "upstream_source_repository": "awdawmip/enterprise-math",
+  "upstream_old26_not_duplicated": true,
+  "upstream_Source_pin_evidence_path": "/workspace/em-owner-resume-20261011/new-round-20261011/cm24-finite-source-custody-20261012/ALL_EIGHT_ACTUAL_SOURCE_FILES_FULL_VERIFIED.json",
+  "upstream_Source_freshness": "Exact immutable Source 3488bc24... and existing full-byte readback reused; no new remote refetch or current-head assertion is made by this packaging step.",
+  "verification": {
+    "declared_final_outputs_and_inputs_match": true,
+    "declared_output_pin_count": 29,
+    "separate_review_outer_sha256_count": 9,
+    "separate_review_nested_artifact_count": 4,
+    "roundtrip": {
+      "schema": "CM24_NEW_43_FILE_CUSTODY_ROUNDTRIP_PROOF_V1",
+      "original_file_count": 43,
+      "original_member_bytes": 335758,
+      "container": {
+        "path": "/workspace/em-owner-resume-20261011/new-round-20261011/cm24-new-multiple-flux-source-custody-20261012/publication-files/CM24_NEW_FLUX_AND_WEIGHTED_UNITS_COMPLETE_FROZEN_SOURCE_BUNDLE.json",
+        "bytes": 120248,
+        "sha256": "cf253c72a54b7bd21a1520f8038c088ef673d8e3a39638f1601434f9a672fc41",
+        "git_blob_sha1": "9486a9337e5ef9a085c914937264b6beaabd0698"
+      },
+      "raw_json_bytes": 359972,
+      "raw_json_sha256": "d0208f4769eb182318dc6b0a6067c0aed288a8ec354e8f986808790247417c00",
+      "gzip_bytes": 80624,
+      "gzip_sha256": "78583e02c58a232c3b0d3adc97689a37e34c3f7a0d056a02f766bed8fee7f881",
+      "original_unmodified": true,
+      "all_original_frozen_byte_files_included": true,
+      "all_original_files_are_exact_utf8": true,
+      "roundtrip_output_root": "/workspace/em-owner-resume-20261011/new-round-20261011/cm24-new-multiple-flux-source-custody-20261012/roundtrip-restored",
+      "unpacker": {
+        "path": "/workspace/em-owner-resume-20261011/new-round-20261011/cm24-new-multiple-flux-source-custody-20261012/publication-files/unpack_cm24_frozen_source_bundle.py",
+        "bytes": 1599,
+        "sha256": "7d34da9f10cf00442d6f1653bb9fb7f96e09c285195674546b41101aad8e85ed",
+        "git_blob_sha1": "ddc75b0b61632be0d09d1fd65f8bd205e33767c9"
+      },
+      "unpacker_byte_identical_to_old_actual_Source": true,
+      "unpacker_result": {
+        "complete_files_verified": 43,
+        "all_bytes_hashes_blobs_match": true
+      },
+      "all_restored_bytes_equal_original_bytes": true,
+      "old26_bundle_paths_disjoint": true,
+      "old26_source_commit": "3488bc24abcab8790c4370e0187b6ffac0cde670",
+      "scientific_checkers_executed": false,
+      "new_math_computation": false,
+      "native_or_remote_host_or_Source_write": false
+    },
+    "mathematical_check_counts": {
+      "multiple_flux_unit_declared": {
+        "main": 124,
+        "independent_gauss_and_terminal": 80,
+        "independent_main_paper": 18,
+        "total": 222
+      },
+      "separate_independent_review_declared": {
+        "fixed_triangle_and_flux": 100,
+        "terminal_gauss_literal_sources_residual": 39,
+        "total": 139
+      },
+      "weighted_unit_declared": {
+        "main": 61,
+        "independent": 43,
+        "total": 104
+      }
+    },
+    "mathematical_checks_rerun_for_packaging": false,
+    "byte_level_packaging_checks_only": true
+  },
+  "native_author_provenance": "UNKNOWN; only local collaboration labels in original papers and helper reports. No native author, Task, claim, run, accepted Result or independent native review identity is inferred.",
+  "local_PRE_FINAL_receipt_interpretation": "PRE_FINAL_RECEIPT.json is preserved literally. Its bounded-review parent_objective_complete/final_allowed assertions have no native mathematical Task authority and are not accepted as evidence of any global parent closure.",
+  "source_custody_is_mathematical_acceptance": false,
+  "native_or_remote_host_or_Source_mutation": false,
+  "publication_actor_or_session_borrowed": false,
+  "root_future_publication": "Root may stage and publish these eight exact local inputs under its actual current Driver/native authorization. This file itself creates no publication authority.",
+  "literal_normalization": "h0=hN=g=binom(3m,m) unit; sum h=1; sum a=1/g. OLD-R and original normalized tau remain literal.",
+  "parents_open": [
+    "scalar comparison",
+    "LIFT",
+    "weighted p^3 supercongruence",
+    "raw period normalization",
+    "complete native X6 propagation"
+  ],
+  "global_parent_complete": false,
+  "source_unit_next_spec": {
+    "status": "LOCAL_PREPARED_PRECISE_REMAINING_LEMMA; SCALAR_TARGET_OPEN",
+    "name": "CM24 fixed-triangle reciprocal-moment and reverse-Gauss comparison",
+    "normalization": "literal h0=hN=g=binom(3m,m) unit, sum h=1; sum a=1/g",
+    "fixed_moment_system": {
+      "U_definition": "2I_half(f_k)-I_1(f_k)/3-7I_quarter(f_k)/3",
+      "V_definition": "8J_half(f_k)+8J_1(f_k)/3+20J_quarter(f_k)/3",
+      "f_k": "(1-4x)^2[x(4x-3)^2]^k",
+      "T_increment": "T_(k+1)-T_k=U_k+V_k, 0<=k<m",
+      "D_H": "6(k+2)(3k+4)(3k+5)",
+      "B_H": "27(k+2)(k+1)(2k+1)",
+      "S_H": "2^(-k)(9k^2+30k+26)-9k-86/3",
+      "D_O": "3(2k+3)(6k+7)(6k+11)",
+      "B_O": "54(2k+3)(k+1)(2k+1)",
+      "S_O": "2^(1-k)(36k^2+96k+67)+144k+656/3",
+      "interior_window": "0<=k<=m-2, every divided coefficient a unit",
+      "initial_values": {
+        "T0": "0",
+        "U0": "-23/36",
+        "V0": "308/45"
+      },
+      "last_odd_source": "V_(m-1)=(16^m-19)/3-2^(1-m)",
+      "last_moment_defect": "16 J_c(f_(m-1))=16^(m+1)c^(N+1)-c z(c)^(m-1)R_T(c)"
+    },
+    "canonical_adjoint": "F0=-1; Fk=[lambda_(k-1)F_(k-1)-1]/mu_k for 1<=k<m; K*F=1-(g a_m)^(-1)delta_m",
+    "literal_old_R_source": "Z_k=t_k[D_k+6Ptri_(k-1)-(2k+1)Htri_(k-1)/(2k-1)], 1<=k<=m",
+    "remaining_lemma": "sum_(k=1)^m a_k lambda_(k-1)F_(k-1)[g(U_(k-1)+V_(k-1))+2Z_k]=-kappa-T_m-2W_m/g-6tau",
+    "proof_location": "FIXED_TRIANGLE_MULTIPLE_FLUX_AND_FROBENIUS_TERMINAL.md equation (22)",
+    "fixed_tau_boundary": "P(a)E(a)Yprime(a)=-tau, E=t(4t^2-3)C(w(t))/6",
+    "required_endpoints": [
+      "n=0,N",
+      "k=0,m",
+      "j=0,2k",
+      "r=1,m",
+      "Heun defect g^-1",
+      "Gauss defect (g a_m)^-1",
+      "degree-p moment Frobenius term",
+      "original normalized tau concomitant"
+    ],
+    "forbidden_substitutions": [
+      "h0=1",
+      "undefined J_c(f_m) assigned through D_O=0",
+      "T_(m+1) or d_(N+1) continued",
+      "R_m assigned from R_(m+1)-R_m=0",
+      "sources fitted from target scalar",
+      "terminal residual declared zero because an adjoint exists"
+    ],
+    "success_boundary": "Proved source/boundary comparison or a precisely derived obstruction in a stated class; no automatic parent theorem completion",
+    "prime_instances": 0,
+    "scalar_fits": 0,
+    "frozen_checker_read_or_executed": false,
+    "Source_written": false,
+    "native_mutation": false,
+    "parents_open": [
+      "scalar comparison",
+      "LIFT",
+      "weighted p^3 supercongruence",
+      "raw period normalization",
+      "complete native X6 propagation"
+    ]
+  },
+  "latest_weighted_next_precise_lemma": {
+    "status": "LOCAL_PRECISE_REMAINING_LEMMA_ONLY; ORIGINAL_SCALAR_TARGET_OPEN",
+    "name": "CM24 fixed Gauss-prefix remainder versus reciprocal triangle and normalized tau boundary",
+    "normalization": "literal h0=hN=g=binom(3m,m) unit; sum h=1; sum a=1/g",
+    "previous_target": "kappa+sum h beta+literal OLD-R+6tau=0",
+    "new_precise_comparison": "g(B_H+B_O)+2M_R=kappa+T_m+2W_m/g+6tau",
+    "location": "GAUSS_WEIGHTED_TELESCOPERS_AND_EXACT_PREFIX_RESIDUAL.md equation24",
+    "independent_data": {
+      "S_k": "sum_(r=0)^k a_r, S_last=1/g-a_m",
+      "M_R": "sum0..m-1 S_k Z_(k+1), unchanged OLD-R increment",
+      "B_H": "(44/27)(1/g-a_m)U_last+R_H-E_H+2L_H+(28/27)A_H",
+      "B_O": "(41/27)(1/g-a_m)[(16^m-19)/3-2^(1-m)]+R_O-E_O+2L_O+(40/27)A_O",
+      "R_H": "(70/243)sum0..m-2 S_k U_k/b_H(k)",
+      "R_O": "(40/243)sum0..m-2 S_k V_k/b_O(k)",
+      "E_X": "sum0..m-2 S_k p_X(k+1)s_X(k)/D_X(k)",
+      "A_X": "sum0..m-1 a_k X_k",
+      "L_H": "-23/81-a_m U_m/6+sum0..m-1 a_next s_H/[27(k+2)]",
+      "L_O": "154/81-2a_m16^m/27+sum0..m-1 a_next s_O/[54(2k+3)]",
+      "legal_H_extra": "U_m is independently defined by canonical I-only polynomial moments; no beta/T/J extension",
+      "undefined_O_extra": "V_m never defined",
+      "fixed_tau": "P(a)E(a)Yprime(a)=-tau, E=t(4t^2-3)C(w(t))/6"
+    },
+    "proved_obstruction_scope": "Over Q(k), no coefficientwise rational flux S_k p(k)X_k+a_k q(k)X_k for either prescribed independent homogeneous moment mode can yield unit-prefix density plus forcing independent of X; not a finite-field/global no-go",
+    "required_endpoints": [
+      "k=0,m-1 and a_m",
+      "I-only U_m",
+      "actual V_last Frobenius correction",
+      "effective O weighted boundary -2a_m16^m/27",
+      "OLD-R r=1,m",
+      "original normalized tau concomitant",
+      "literal Heun and Gauss terminal defects"
+    ],
+    "forbidden_substitutions": [
+      "h0=1",
+      "zero times undefined V_m",
+      "extend T/beta past m/N",
+      "terminal R increment assigned as value of R_m",
+      "tau chosen from target discrepancy",
+      "characteristic-zero rational obstruction promoted to finite-field impossibility"
+    ],
+    "success_boundary": "Evaluate or relate prescribed remaining forcing/unit/interior moment sums to unchanged OLD-R and tau through an actual endpoint proof; no new prime campaign or scalar fit",
+    "prime_instances": 0,
+    "scalar_fits": 0,
+    "old_frozen_bytes_changed": false,
+    "Source_written": false,
+    "native_mutation": false,
+    "parents_open": [
+      "scalar comparison",
+      "LIFT",
+      "weighted p^3 supercongruence",
+      "raw period normalization",
+      "complete native X6 propagation"
+    ]
+  },
+  "one_next_mathematical_unit": "Prove the already prescribed equation (24) comparison g(B_H+B_O)+2M_R=kappa+T_m+2W_m/g+6tau by an actual finite forcing/endpoint identity retaining literal OLD-R, degree-p odd boundary and normalized tau; otherwise save a precise residual in an explicitly stated scope. No automatic parent closure."
+}
