@@ -1,0 +1,138 @@
+{
+  "schema": "T6_P17_ORDER4_CANONICAL_DFS_2BIT_V1_SPECIFICATION",
+  "status": "MATHEMATICAL_INPUT_AND_WIRE_SPECIFICATION_FROZEN_IMPLEMENTATION_REVIEW_REQUIRED_BEFORE_SCIENCE",
+  "native_identity": "UNKNOWN_FOR_ORIGINAL_CONSTRUCTION_HELPER",
+  "exposure": "DIRECTED_NONBLIND_CONSTRUCTION_PREPARATION",
+  "root_proposal_credit": "EM-DVR-FBF223",
+  "driver_Task_input_interface_preparation_credit": "EM-DVR-4CF7AF",
+  "scientific_execution": false,
+  "authority_granted": false,
+  "existing_q3_recovery_or_reinterpretation": false,
+  "input_pins": {
+    "common_source_commit": "953db05d78bd0f175a99d0406f850691d479ae26",
+    "common_source_path": "research_artifacts/T6_P17_ORDER1_SUPPORT_20260923/portable_input.json",
+    "common_bytes": 32208,
+    "common_sha256": "7060ee638986a5c71a9775093e6b7f03ff3d5ff205ed438e3f5fa5aa93ca62ce",
+    "common_git_blob_sha1": "654212795533a51039bab2b752095ab19b649535",
+    "q4_ordered_literal_input_sha256": "62dc2e5b6a3fceb129c25a0c19fc27dbe6ac195c6cdedecde7cfb1639789e16a",
+    "q4_ordered_literal_input_bytes": 13084243,
+    "q4_ordered_literal_input_Source_custody": {
+      "planned_index_path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/T6_P17_ORDER4_FIXED_INPUT_LOSSLESS_PACKAGE.json",
+      "index_sha256": "870a56a5a6da305023e16fc6f3e0bd3f08ab95a17a813208da8e1091661511a5",
+      "source_commit": "RESOLVE_FROM_ACTUAL_ATOMIC_TASK_INPUT_READBACK_NOT_SELF_REFERENTIAL"
+    },
+    "producer_code_sha256": null,
+    "independent_verifier_code_sha256": null
+  },
+  "reported_scope_not_recomputed_here": {
+    "literal_cases": 30992,
+    "admissible_cases": 10212,
+    "literal_outside_cases": 20780,
+    "conservative_quarter_cases": 4724,
+    "ordinary_cases": 26268,
+    "conditional_choice_ceiling": 7296064,
+    "conditional_raw_proof_bytes": 1881352,
+    "conditional_base64_payload_bytes": 2508472
+  },
+  "fixed_rule": {
+    "prime": 17,
+    "dimension": 16,
+    "degree": 6,
+    "total_vertical_order": 4,
+    "side_mass_limits": [
+      2331,
+      2331
+    ],
+    "atom_cofactor": "17*q+r",
+    "atom_denominator": "17*(17*q+r)",
+    "atom_mass": "17*(17*q+r)-1",
+    "q0_weight_j": "17*j-1 for j=1..16",
+    "mixed_rhs_k": "(-sum_plus(cofactor^(-k))+sum_minus(cofactor^(-k))) mod 17^k",
+    "primitive": "cancel opposite identical atoms; retain same-side repeats; quotient global sign once",
+    "all_literal_outside_cases_must_classify": true,
+    "ordered_case_definition": "Exact frozen30992 input array: ascending order partitions, residue multisets and support-sign tails; lexicographically first distinct(q,r) support positive; unique q4-literal-00001 throughq4-literal-30992 at indices0..30991."
+  },
+  "canonical_particular": {
+    "M": "24137569",
+    "coordinate_order": "j=1..16; first six columns j=1..6",
+    "A_kj_integer_lift": "least nonnegative j^(-k) mod 17^k for k,j=1..6, then interpreted mod M",
+    "target_lift_k": "least nonnegative t_k mod 17^k",
+    "inverse": "exact 6x6 inverse modulo M; check A*inverse == I mod M",
+    "y": "inverse*t mod M",
+    "center": "((y+12068784) mod M)-12068784",
+    "a": "six centered coordinates followed by ten zeros",
+    "check_original_six_congruences": true,
+    "particular_need_not_meet_signed_budgets": true,
+    "transmit_particular_vectors": false
+  },
+  "dfs": {
+    "basis_row_order": "exact order of the pinned common unweighted_basis",
+    "coordinate_order": "15 down to 0",
+    "center_i": "<weighted_a,b_i_star>/D_i + sum_{j>i}(z_j*mu[j][i])",
+    "candidate_order": [
+      "-floor(c_i)-1",
+      "-floor(c_i)"
+    ],
+    "partial_norm": "p+D_i*(z_i+c_i)^2, exact rational",
+    "N": "iff partial_norm > R2; no child",
+    "C": "partial_norm <= R2 and i>0; consume complete child before sibling",
+    "B": "partial_norm <= R2 and i==0; reconstruct/check six congruences, then at least one signed mass exceeds budget",
+    "S": "partial_norm <= R2 and i==0; reconstructed six congruences and both signed budgets pass",
+    "quarter_mask": "4*R2 < 16901460; conservative frozen sizing mask",
+    "quarter_exact_precondition": "D_min > 16901460 and each D_i > 4*R2",
+    "ordinary_exact_precondition": "D_min > 16901460 and 2*R2 < 16901460, hence each D_i > 2*R2",
+    "maximum_actions_quarter": 32,
+    "maximum_actions_ordinary": 272,
+    "equality_retained": true,
+    "resource_stop_symbol": null
+  },
+  "wire": {
+    "magic_ascii": "T6Q4DFS1",
+    "header_layout": [
+      "8 magic/version bytes",
+      "32 raw common SHA256 bytes",
+      "32 raw ordered q4 input SHA256 bytes",
+      "uint32 little-endian case count=30992"
+    ],
+    "header_bytes_for_this_count": 76,
+    "dimension_and_coordinate_rules_implicit_in_version": true,
+    "alternate_dimension_byte_plus_ULEB_count_header_forbidden": true,
+    "case_record": [
+      "canonical unsigned-LEB128 action count",
+      "ceil(action_count/4) packed action bytes"
+    ],
+    "symbol_values": {
+      "N": 0,
+      "C": 1,
+      "B": 2,
+      "S": 3
+    },
+    "pair_order": "least-significant two-bit pair first within each byte",
+    "unused_tail_padding_bits": 0,
+    "exact_case_count_and_EOF_required": true,
+    "per_case_action_count_must_fit_independently_justified_mask_bound": true,
+    "no_stored_outcomes_or_survivors": true
+  },
+  "completion": {
+    "no_S_in_complete_verified_case": "EMPTY for its literal relaxation only",
+    "S_in_complete_verified_case": "LOCAL_KERNEL; derive witness/masses/congruences and retain H0/lower-prime obligations",
+    "full_family": "all 30992 complete cases plus genuine independent nonauthor review",
+    "first_survivor": "bounded partial handoff with witness and exact unfinished frontier; remaining cases and mother Goal stay open",
+    "interrupted": "separate incomplete checkpoint with exact completed/unfinished positions; never complete proof"
+  },
+  "unresolved_gates": [
+    "actualonecanonicalTask/inputatomicSourcepublicationandwholebytesreadback",
+    "independentnewproducer/verifierimplementationreviewandactualSourcecode/reviewdescriptor",
+    "actualmeasuredwholepacketandfilelimits",
+    "actualownResearcherprepare-claim-openunfencedrunandSourceinput/controljoins",
+    "eventualgenuineindependentwholeproof/Source/RRreview"
+  ],
+  "prospective_publisher_driver_id": "EM-DVR-4CF7AF",
+  "gates_already_verified_locally": [
+    "actualq3TaskDONE/COMPLETE/ACCEPTED",
+    "actualOPENGoalandownGOVlease16:53",
+    "complete437metadata+14candidatepublications+fiveT6books findnoexistingfiniteq4asset",
+    "newfixedinputandlosslesscarriersfrozen",
+    "genuineF9independentinput/designstaticPASS"
+  ]
+}
