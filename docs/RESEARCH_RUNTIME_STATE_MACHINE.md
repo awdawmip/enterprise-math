@@ -23,6 +23,7 @@ Canonical tools:
 - `tools/research_runtime_guard.py` — repository-backed execution/adoption/final guard;
 - `tools/research_task_records.py` — immutable task publication;
 - `tools/research_execution_records.py` and `tools/research_result_records.py` — durable execution/result records;
+- `tools/research_historical_result_intake.py` — Source-bound historical Result intake, independent review, audit and state projection; native guard supplies the current authority context;
 - `tools/active_turn_liveness.py` — session-liveness primitive.
 
 ## Invariants

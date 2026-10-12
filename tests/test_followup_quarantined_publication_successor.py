@@ -27,6 +27,7 @@ import research_driver_followup as followup
 from tools import research_task_records as tasks, research_taskbook as books
 from control_plane import research_continuation_write_authority as receipts
 from control_plane import research_result_review_audit_fault_isolation as review_audit
+from control_plane import research_task_semantic_integrity_fault_isolation as semantic
 
 TASK = "RS-RSA-EXPONENT-COLLISION-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT"
 OLD = "TP2-DCBF9A9ACA18BF64FFCF"
@@ -46,6 +47,19 @@ class PublicationScopeRepairTests(unittest.TestCase):
         write_json(self.root / receipts.CUTOVER, {
             "schema": "ENTERPRISE_MATH_CONTINUATION_RECORD_CUTOVER_V1", "records": {},
         })
+        # The full CI shard installs this real wrapper before collecting tests.
+        # Its canonical registry must be nonempty. Keep unrelated historical
+        # quarantine bytes/pins in the specimen store instead of weakening that
+        # validator or pretending an empty registry satisfies its contract.
+        registry = BASE / semantic.QUARANTINE_FILE
+        payload = json.loads(registry.read_text())
+        self.assertTrue(all(row["task_id"] not in {TASK, "RS-OLD"} for row in payload["quarantines"]))
+        shutil.copyfile(registry, self.root / semantic.QUARANTINE_FILE)
+        for row in payload["quarantines"]:
+            for field in ("record_path", "taskbook_path", "source_taskbook_path"):
+                destination = self.root / row[field]
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(BASE / row[field], destination)
         source = BASE / f"research_task_records/{TASK}/{OLD}.json"
         self.anchor = json.loads(source.read_text())
         original = self.root / self.anchor["taskbook_path"]
@@ -147,6 +161,13 @@ class PublicationScopeRepairTests(unittest.TestCase):
         self.assertEqual(2, self.new["publication_generation"])
         self.assertEqual([], authority.review_authority_errors(self.fixture.review, self.root))
         self.assertIsNone(receipts.receipt_error(self.fixture.review, "REVIEW", self.root))
+
+    def test_bootstrapped_semantic_current_records_wrapper_precedes_fixture_selection(self):
+        semantic.install(self.root)
+        from control_plane import research_task_records_impl as core
+        self.assertTrue(core._task_semantic_integrity_fault_isolation_installed)
+        self.assertNotIn(TASK, semantic.open_quarantines(self.root))
+        self.assertEqual(self.new["publication_id"], tasks.current_records(self.root)[TASK]["publication_id"])
 
     def configure_old_quarantine(self):
         from control_plane import research_driver_review_authority_fault_isolation as old_reviews
