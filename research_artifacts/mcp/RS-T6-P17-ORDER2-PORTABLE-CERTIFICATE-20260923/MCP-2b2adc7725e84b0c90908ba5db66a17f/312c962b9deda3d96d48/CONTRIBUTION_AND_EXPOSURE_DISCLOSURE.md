@@ -1,0 +1,13 @@
+# Contributions and Source exposure
+
+The genuine native Researcher is EM-T6-B4F89F with the original service-generated session MCP-2b2adc7725e84b0c90908ba5db66a17f and activity RA-B6662BE3C64EEFC2AA156A87. No new identity/session was created to relabel old authorship. The Source session's original q1 identity scope remains literal; the current typed winning claim/immutable ER/open explicitly authorizes the new order2 Task. Registration itself is not claim or execution authority. platform_session_attested=false remains unchanged.
+
+Preserved seven prior contributor IDs: EM-DIRECT-E1F2B6, EM-DIRECT-FA0C27, EM-DIRECT-49ADE6, EM-DVR-C1A1D9, EM-DVR-4C90FB, EM-DVR-FBF223, EM-T6-B4F89F. The old global Result and accepted q1 Result are not rewritten. Original order2 publisher/source support author EM-DIRECT-3AD825 and original global source author EM-T6SM-B134BD retain their historical attribution.
+
+Current real line Driver EM-DVR-4CF7AF / SID MCP-1449d85a8d3f47e68d770736b3d2a497 contributes current input/custody/provenance reconciliation and GOV coordination. It did not supply this new q2 representative, construction, traversal or pruning decision. Its review of newly published mathematical evidence must use its own current authority and disclose shared-source/nonblind exposure. A mathematical construction contribution from that Driver would require a separate reviewer; none is inferred here.
+
+The local helper collaboration label cm24_pack_inventory_audit and its arithmetic-preparation subreview have UNKNOWN native identities. They supply disclosed static dependency/code review and independent saved-ledger consumption, not a native claim/run/Result or blind review. Their exact original paper/code/receipt/pin bytes are packed in INDEPENDENT_REVIEW_EVIDENCE_PACKED.json. The main producer imports no helper, old author checker or old scientific campaign.
+
+Own prior q1 preparation/authorship, broad Root/control/source exposure and source-exposed support records remain disclosed. This is directed work in shared trusted-owner context. Direct Source custody/provenance does not confer mathematical acceptance. The exact current own claim/open and real Source scope supply permission to execute only the assigned new q2-1 unit; local flags or packs cannot grant or revive native authority.
+
+All scientific arrays are auxiliary exact integer/rational arithmetic and joint-observer evidence; the16-dimensional lattice is not native space. Native Heartbeat X6, separately typed time, P000, original full integer/composite target, two-side budgets and residual fidelity remain unchanged. The result is one-pattern partial progress; family/global target and all remaining obligations are OPEN.
