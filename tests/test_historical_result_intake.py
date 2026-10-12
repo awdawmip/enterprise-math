@@ -170,10 +170,47 @@ class HistoricalIntakeTests(unittest.TestCase):
         self.assertFalse((self.root / h.INTAKE_ROOT).exists())
 
     def test_scientific_output_drift_cannot_be_intaken(self):
-        path = self.root / json.loads((self.root / self.target["result_pin"]["path"]).read_text())["return_path"]
-        path.write_bytes(path.read_bytes() + b"drift")
-        with self.assertRaisesRegex(h.HistoricalIntakeError, "byte drift"):
+        old = json.loads((self.root / self.target["result_pin"]["path"]).read_text())
+        scientific_paths = [row["path"] for row in old["output_manifest"]]
+        scientific_paths += [self.target[key]["path"] for key in ("result_pin", "execution_pin")]
+        expected_bytes = {relative: (self.root / relative).read_bytes() for relative in scientific_paths}
+        path = self.root / old["return_path"]
+        expected_bytes[old["return_path"]] += b"drift"
+        path.write_bytes(expected_bytes[old["return_path"]])
+        self.assertNotEqual(old["return_sha256"].removeprefix("sha256:"), hashlib.sha256(path.read_bytes()).hexdigest())
+        result_bytes = {p.relative_to(self.root): p.read_bytes() for p in (self.root / "research_result_records").rglob("*.json")}
+        with mock.patch.object(h.tx, "commit") as commit, self.assertRaisesRegex(h.HistoricalIntakeError, "byte drift"):
             self.intake()
+        commit.assert_not_called()
+        for relative, raw in expected_bytes.items():
+            self.assertEqual(raw, (self.root / relative).read_bytes())
+        self.assertEqual(result_bytes, {p.relative_to(self.root): p.read_bytes() for p in (self.root / "research_result_records").rglob("*.json")})
+        self.assertFalse((self.root / h.INTAKE_ROOT).exists())
+        self.assertFalse((self.root / h.REVIEW_ROOT).exists())
+
+    def test_canonical_result_authority_rejection_keeps_intake_error_and_cause(self):
+        from control_plane.research_result_authority_fault_isolation import ResultAuthorityIsolationError
+        from tools import research_task_records
+        cause = ResultAuthorityIsolationError("exact dependency byte drift: fixture")
+        with mock.patch.object(research_task_records, "current_records", side_effect=cause), \
+             mock.patch.object(h, "_authority") as authority, mock.patch.object(h.tx, "commit") as commit:
+            with self.assertRaisesRegex(h.HistoricalIntakeError, "exact dependency byte drift") as caught:
+                self.intake()
+        self.assertIs(caught.exception.__cause__, cause)
+        authority.assert_not_called()
+        commit.assert_not_called()
+        self.assertFalse((self.root / h.INTAKE_ROOT).exists())
+
+    def test_unrelated_current_view_error_is_not_reclassified(self):
+        from tools import research_task_records
+        cause = ValueError("unrelated current-view failure")
+        with mock.patch.object(research_task_records, "current_records", side_effect=cause), \
+             mock.patch.object(h.tx, "commit") as commit:
+            with self.assertRaises(ValueError) as caught:
+                self.intake()
+        self.assertIs(caught.exception, cause)
+        self.assertNotIsInstance(caught.exception, h.HistoricalIntakeError)
+        commit.assert_not_called()
         self.assertFalse((self.root / h.INTAKE_ROOT).exists())
 
     def test_foreign_session_epoch_gov_scope_and_stale_authorization_reject(self):
