@@ -226,6 +226,7 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
                 "tools/research_dispatch_core.py",
                 "tools/research_driver_queue.py",
                 "tools/research_execution_records.py",
+                "tools/research_historical_result_intake.py",
                 "tools/research_lane_claims.py",
                 "tools/research_lane_dispatch.py",
                 "tools/research_result_records.py",
