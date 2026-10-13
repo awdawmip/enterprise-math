@@ -1,0 +1,217 @@
+{
+  "schema": "ROOT_UNIT16_MID40_ACTUAL_TERMINAL_SAVED_RAW_INDEPENDENT_CHECK_V1",
+  "verified_at": "2026-10-13T21:02:43.259649+00:00",
+  "raw_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/unit16-mid40-train-index0-plan-only/ONE_MID40_STRONG_CONTROL_ACTUAL_MEASUREMENT_RAW.json",
+  "raw_bytes": 19684964,
+  "raw_sha256": "535018603673b332235ddbf006ac4dcc20e0439bf6cf3f77b8a452d584e4050d",
+  "N": 805701046001,
+  "same_original_owner": "EM-SEMIPRIME-1F8B9B",
+  "matrix_status": "COMPLETE_SIX_METHOD_ACTUAL_UNCENSORED_MATRIX",
+  "new_one_harness_invocation": true,
+  "diagnostics": {
+    "ascending": {
+      "status": "ACTUAL_DIAGNOSTIC_COMPLETED",
+      "factor": 300557,
+      "visits": 1284,
+      "audit_keys": [
+        "event_counts",
+        "algorithm_named_units",
+        "operand_width_histograms",
+        "diagnostic_observer_counts",
+        "serialized_retained_record_bytes",
+        "events",
+        "fermat_compact",
+        "integrity_only_rolling_sha256",
+        "fee_type",
+        "diagnostic_cost_in_unmetered_walltime",
+        "Fermat_coverage_proof"
+      ],
+      "diagnostic_envelope_wall_ns": 39922929
+    },
+    "stride120_sameK": {
+      "status": "ACTUAL_DIAGNOSTIC_COMPLETED",
+      "factor": 300557,
+      "visits": 1351,
+      "audit_keys": [
+        "event_counts",
+        "algorithm_named_units",
+        "operand_width_histograms",
+        "diagnostic_observer_counts",
+        "serialized_retained_record_bytes",
+        "events",
+        "fermat_compact",
+        "integrity_only_rolling_sha256",
+        "fee_type",
+        "diagnostic_cost_in_unmetered_walltime",
+        "Fermat_coverage_proof"
+      ],
+      "diagnostic_envelope_wall_ns": 29160743
+    },
+    "classic480_full_MeqK": {
+      "status": "ACTUAL_DIAGNOSTIC_COMPLETED",
+      "factor": 300557,
+      "visits": 407,
+      "audit_keys": [
+        "event_counts",
+        "algorithm_named_units",
+        "operand_width_histograms",
+        "diagnostic_observer_counts",
+        "serialized_retained_record_bytes",
+        "events",
+        "fermat_compact",
+        "integrity_only_rolling_sha256",
+        "fee_type",
+        "diagnostic_cost_in_unmetered_walltime",
+        "Fermat_coverage_proof"
+      ],
+      "diagnostic_envelope_wall_ns": 10489164
+    },
+    "fermat_complete": {
+      "status": "ACTUAL_DIAGNOSTIC_COMPLETED",
+      "factor": 300557,
+      "visits": 593017,
+      "audit_keys": [
+        "event_counts",
+        "algorithm_named_units",
+        "operand_width_histograms",
+        "diagnostic_observer_counts",
+        "serialized_retained_record_bytes",
+        "events",
+        "fermat_compact",
+        "integrity_only_rolling_sha256",
+        "fee_type",
+        "diagnostic_cost_in_unmetered_walltime",
+        "Fermat_coverage_proof"
+      ],
+      "diagnostic_envelope_wall_ns": 8086106769
+    },
+    "priority_uncached": {
+      "status": "ACTUAL_DIAGNOSTIC_COMPLETED",
+      "factor": 2680693,
+      "visits": 5575,
+      "audit_keys": [
+        "event_counts",
+        "algorithm_named_units",
+        "operand_width_histograms",
+        "diagnostic_observer_counts",
+        "serialized_retained_record_bytes",
+        "events",
+        "fermat_compact",
+        "integrity_only_rolling_sha256",
+        "fee_type",
+        "diagnostic_cost_in_unmetered_walltime",
+        "Fermat_coverage_proof"
+      ],
+      "diagnostic_envelope_wall_ns": 128226144
+    },
+    "priority_lazy": {
+      "status": "ACTUAL_DIAGNOSTIC_COMPLETED",
+      "factor": 2680693,
+      "visits": 5575,
+      "audit_keys": [
+        "event_counts",
+        "algorithm_named_units",
+        "operand_width_histograms",
+        "diagnostic_observer_counts",
+        "serialized_retained_record_bytes",
+        "events",
+        "fermat_compact",
+        "integrity_only_rolling_sha256",
+        "fee_type",
+        "diagnostic_cost_in_unmetered_walltime",
+        "Fermat_coverage_proof"
+      ],
+      "diagnostic_envelope_wall_ns": 179365666
+    }
+  },
+  "actual_timed_calls_by_method": {
+    "ascending": 144,
+    "stride120_sameK": 144,
+    "classic480_full_MeqK": 144,
+    "fermat_complete": 144,
+    "priority_uncached": 144,
+    "priority_lazy": 144
+  },
+  "all870_actual_outputs_proper_productive": true,
+  "fixed_9x16_order_no_missing_slots": true,
+  "median_mean_call_wall_ns": {
+    "ascending": 721199.25,
+    "stride120_sameK": 855167.4375,
+    "classic480_full_MeqK": 295238.0625,
+    "fermat_complete": 153666537.875,
+    "priority_uncached": 2602482.9375,
+    "priority_lazy": 3993955.375
+  },
+  "independently_recomputed_pairs": {
+    "priority_uncached": {
+      "ascending": {
+        "ratio": 3.608549145745784,
+        "strict_wins_of9": 0,
+        "finite_policy_pass": false,
+        "matched_universe": true
+      },
+      "stride120_sameK": {
+        "ratio": 3.0432437244197574,
+        "strict_wins_of9": 0,
+        "finite_policy_pass": false,
+        "matched_universe": true
+      },
+      "classic480_full_MeqK": {
+        "ratio": 8.814862539954516,
+        "strict_wins_of9": 0,
+        "finite_policy_pass": false,
+        "matched_universe": false
+      },
+      "fermat_complete": {
+        "ratio": 0.016935911835385977,
+        "strict_wins_of9": 9,
+        "finite_policy_pass": true,
+        "matched_universe": false
+      }
+    },
+    "priority_lazy": {
+      "ascending": {
+        "ratio": 5.537936118208664,
+        "strict_wins_of9": 0,
+        "finite_policy_pass": false,
+        "matched_universe": true
+      },
+      "stride120_sameK": {
+        "ratio": 4.6703782205224575,
+        "strict_wins_of9": 0,
+        "finite_policy_pass": false,
+        "matched_universe": true
+      },
+      "classic480_full_MeqK": {
+        "ratio": 13.52791486700669,
+        "strict_wins_of9": 0,
+        "finite_policy_pass": false,
+        "matched_universe": false
+      },
+      "fermat_complete": {
+        "ratio": 0.025991054592828022,
+        "strict_wins_of9": 9,
+        "finite_policy_pass": true,
+        "matched_universe": false
+      }
+    }
+  },
+  "elapsed_ns": 68039515970,
+  "cold_import_wall_ns": 35753762,
+  "preflight_corpus_validation_wall_ns": 136354,
+  "experiment_guard_counts": {
+    "measurement_clock_reads": 871,
+    "measurement_budget_comparisons": 871,
+    "raw_atomic_saves": 64,
+    "raw_serialized_bytes_written_before_current_save": 1093057702,
+    "actual_output_validations": 871
+  },
+  "fees_scope": "algorithm named fees in diagnostics; experimentguards/validation/logging counted separately; imports/preflight separately recorded; none inferredfree/bitoperations",
+  "last_actual_finish": "2026-10-13T20:58:53.289563+00:00",
+  "old_or_new_science_reexecuted_by_Root": false,
+  "checker_or_producer_imports_by_Root": 0,
+  "scope": "one declared-registry40midTRAIN index0; complete six matrix here, no all-sample/population or physical native claim",
+  "all63_Target": "UNFINISHED",
+  "parent": "OPEN",
+  "novelty": "UNKNOWN"
+}
