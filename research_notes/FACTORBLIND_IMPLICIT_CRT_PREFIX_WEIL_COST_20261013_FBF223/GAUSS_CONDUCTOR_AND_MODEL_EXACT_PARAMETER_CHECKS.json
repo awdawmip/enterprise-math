@@ -1,0 +1,92 @@
+{
+  "schema": "QR_CRT_PREFIX_GAUSS_CONDUCTOR_EXACT_PARAMETER_PAPER_CHECK_V1",
+  "status": "PAPER_DERIVED_AWAITING_SEPARATE_ROOT_REVIEW",
+  "auxiliary_identity": "UNKNOWN",
+  "context": "DIRECTED_NONBLIND",
+  "formal_parent_task": "RS-FACTOR-BLIND-QR-CRT-PREFIX-INDEX-COST",
+  "formal_parent_publication": "TP2-F3369CF79B942BBC9DAB",
+  "native_operations": 0,
+  "old63_or3043_or600_or1400_executions": 0,
+  "new_numeric_experiment_executions": 0,
+  "parameters": {
+    "M": "Squarefree product of k distinct odd primes; M=1 allowed",
+    "gcd": "gcd(N,M)=1",
+    "c": "Arbitrary integer shift",
+    "L": "Positive integer candidate count",
+    "predicate": "Pure QR conjunction including zero; no extra x-unit filter",
+    "cost": "Every nontrivial complete group list really materialized; virtual mod1 singleton uncharged; every prefix survivor inspected",
+    "lambda_mu": "Fixed positive per-real-entry/per-survivor costs"
+  },
+  "manually_verified_derivations": [
+    {
+      "id": "GAUSS_NONZERO",
+      "result": "|tau|^2=p, so universal chi(z) Gauss expansion including z=0 is legitimate."
+    },
+    {
+      "id": "LOCAL_IDENTITY",
+      "result": "B_p(h)=Σ_(u≠0)e_p(−Nu−h²/(4u)); χ(u)^2=1 and same tau cancels, no χ(−1) phase."
+    },
+    {
+      "id": "WEIL_NONDEGENERACY",
+      "result": "p>2, p∤N, h≠0 imply A=−N and B=−h²/4 are nonzero. h=0 handled separately as exact −1."
+    },
+    {
+      "id": "ZERO_CORRECTION",
+      "result": "I_p=(1+chi(x²−N)+1_(x²=N))/2; root term contributes at most2. H_p(0)=a_p=(p+chi(N))/2≥1."
+    },
+    {
+      "id": "LOCAL_RELATIVE_FIVE",
+      "result": "|H_p(h)|/a_p≤2/(√p−1)≤5/√p because 3√p≥5 for p≥3."
+    },
+    {
+      "id": "CRT_LOCAL_FREQUENCY",
+      "result": "H_M(h)=∏H_p(h·(M/p)^−1 modp); frequency vanishes iff p|h; retain exact local means there."
+    },
+    {
+      "id": "CONDUCTOR",
+      "result": "d=M/gcd(h,M); frequencies exactly h=(M/d)b with gcd(b,d)=1; |H_M(h)|≤S5^omega(d)/√d."
+    },
+    {
+      "id": "SHIFT_AND_GEOMETRIC",
+      "result": "c contributes only |e_M(−hc)|=1. Σ_units_b |Σ_(t<L)e_d(bt)|≤d·H_((d−1)/2)≤d(1+logd)."
+    },
+    {
+      "id": "PRODUCT_SIX",
+      "result": "Σ_(d|M,d>1)5^omega(d)√d=∏_(p|M)(1+5√p)−1≤6^k√M."
+    },
+    {
+      "id": "UNIFORM_DISCREPANCY",
+      "result": "|C_L(c)−δL|≤δ6^k√M(1+logM); no unproved conversion of full-period density into prefix density."
+    },
+    {
+      "id": "REAL_LIST_COUNTS",
+      "result": "M>1: two real groups E≥SP+SQ≥2√S; one real/one virtual group E≥S≥√S. M1: E may0 but C_L=L."
+    },
+    {
+      "id": "FINITE_MODERATE_M",
+      "result": "For M≤L², k≤K2(L). D≤L/2 gives C≥δL/2; D>L/2 gives λ√S, and √(2(K+2))≤K+2 retains common finite Phi."
+    },
+    {
+      "id": "FINITE_HUGE_M",
+      "result": "For M>L² take shortest sorted prime-prefix R_j>L². Its preceding prefix≤L² gives j≤K+1; Sj>L²/[2^K(K+3)], and all other a_p≥1 ensure S≥Sj. No false bound on total k."
+    },
+    {
+      "id": "L1_K0",
+      "result": "Phi(1)=2; M1 uses W≥mu, M>1 uses at least one real nonempty group W≥lambda."
+    },
+    {
+      "id": "FINITE_BOUND",
+      "result": "W≥min(lambda,mu)L/[(6√2)^K(K+2)(1+2logL)] with K=max{j:(j+2)!/2≤L²}."
+    }
+  ],
+  "remaining_scope_gap": "Other compressed/adaptive/amortized structures, rank-only or early-stop uses, additional filters, batched inspection, prime powers/even primes and general factoring complexity are not covered.",
+  "primary_reference": {
+    "url": "https://users.renyi.hu/~gharcos/weil.pdf",
+    "author": "Gergely Harcos",
+    "locator": "Theorem1/page1, exact actual PDF locally read and extracted",
+    "pdf_bytes": 229506,
+    "pdf_sha256": "ee17d5dff37e572d0a00727954cb5cbab0ea57693f90e010a4e6446edb2cc394",
+    "statement": "Prime p>2; A,B coprime to p; |Σ_(u≠0)e_p(Au+B/u)|≤2√p.",
+    "classical_source_not_new_novelty": true
+  }
+}
