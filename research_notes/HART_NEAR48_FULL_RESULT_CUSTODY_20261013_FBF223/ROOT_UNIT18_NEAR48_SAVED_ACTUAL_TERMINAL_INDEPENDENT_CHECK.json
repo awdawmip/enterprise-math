@@ -1,0 +1,99 @@
+{
+  "schema": "ROOT_UNIT18_NEAR48_SAVED_ACTUAL_TERMINAL_INDEPENDENT_CHECK_V1",
+  "verified_at": "2026-10-13T23:36:00.907748+00:00",
+  "status": "PASS_SAVED_NEW_RAW_ONLY_NO_PRODUCER_CHECKER_IMPORT_OR_RERUN",
+  "raw_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/unit18-near48-train-index0-plan-only/ONE_NEAR48_STRONG_CONTROL_ACTUAL_MEASUREMENT_RAW.json",
+  "raw_bytes": 22066384,
+  "raw_sha256": "632d7bf7cc1a94ba464f75d92f38d9191373c00eb673cb5023a77ffe6e8c18b4",
+  "raw_git_blob_sha1": "af7f987768803cea985d3c86dade9e357d44c6bb",
+  "actual_PID": 202691,
+  "actual_exit": 0,
+  "matrix_status": "COMPLETE_SIX_METHOD_ACTUAL_UNCENSORED_MATRIX",
+  "actual_one_measurement_dispatch": true,
+  "diagnostics": 6,
+  "timed_calls": 864,
+  "proper_factor_returns_verified": 870,
+  "calls_by_method": {
+    "ascending": 144,
+    "stride120_sameK": 144,
+    "classic480_full_MeqK": 144,
+    "fermat_complete": 144,
+    "priority_uncached": 144,
+    "priority_lazy": 144
+  },
+  "fixed9x16_order_and_uncensored_proper_returns": "PASS",
+  "median_mean_wall_ns": {
+    "ascending": 3771568.9375,
+    "stride120_sameK": 189837.5,
+    "classic480_full_MeqK": 199585.0,
+    "fermat_complete": 55467745.5,
+    "priority_uncached": 3784573.0625,
+    "priority_lazy": 5415467.6875
+  },
+  "pairs": {
+    "priority_uncached": {
+      "ascending": {
+        "ratio": 1.003447935120767,
+        "strict_wins": 4,
+        "policy_pass": false,
+        "matched_universe": true
+      },
+      "stride120_sameK": {
+        "ratio": 19.935855995259104,
+        "strict_wins": 0,
+        "policy_pass": false,
+        "matched_universe": true
+      },
+      "classic480_full_MeqK": {
+        "ratio": 18.96221190219706,
+        "strict_wins": 0,
+        "policy_pass": false,
+        "matched_universe": false
+      },
+      "fermat_complete": {
+        "ratio": 0.06823015841702093,
+        "strict_wins": 9,
+        "policy_pass": true,
+        "matched_universe": false
+      }
+    },
+    "priority_lazy": {
+      "ascending": {
+        "ratio": 1.4358660221360464,
+        "strict_wins": 0,
+        "policy_pass": false,
+        "matched_universe": true
+      },
+      "stride120_sameK": {
+        "ratio": 28.52685948508593,
+        "strict_wins": 0,
+        "policy_pass": false,
+        "matched_universe": true
+      },
+      "classic480_full_MeqK": {
+        "ratio": 27.13364074203973,
+        "strict_wins": 0,
+        "policy_pass": false,
+        "matched_universe": false
+      },
+      "fermat_complete": {
+        "ratio": 0.09763273482063553,
+        "strict_wins": 9,
+        "policy_pass": true,
+        "matched_universe": false
+      }
+    }
+  },
+  "measurement_elapsed_ns": 54571070207,
+  "measurement_finished_at": "2026-10-13T23:31:47.889539+00:00",
+  "guard_and_IO_counts": {
+    "measurement_clock_reads": 871,
+    "measurement_budget_comparisons": 871,
+    "raw_atomic_saves": 64,
+    "raw_serialized_bytes_written_before_current_save": 1242554503,
+    "actual_output_validations": 871
+  },
+  "scope": "finite structured TRAIN48near0; no globalexposure/holdout/strongestcontrol/generalbitcost/wholeTaskgain",
+  "science_Source": "PENDING_COMPLETE_LOSSLESS_CAPSULE",
+  "parent": "OPEN"
+}
