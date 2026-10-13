@@ -1,0 +1,54 @@
+{
+  "schema": "HART_NORMALIZED_4KN_BUCKET_GENERATOR_FREEZE_V1",
+  "scientist_id": "EM-SEMIPRIME-1F8B9B",
+  "task_id": "RS-SEMIPRIME-RESIDUAL-PRIORITY-HART-STREAMING-COST-AUDIT",
+  "publication_id": "TP2-7BCC256B5EA65F8D5085",
+  "actual_run_id": "RUN-02bc03dfff15c15ce7daf2f3",
+  "actual_open_request_id": "hart-streaming-own-cost-audit-20261013-005",
+  "stage": "FIRST_POSTOPEN_GENERATOR_AND_PAID_COST_UNIT; NOT_FULL_TASK_CLASSIFICATION",
+  "family": {
+    "D": "4*N",
+    "public_inputs": [
+      "N",
+      "predeclared positive K(N)",
+      "positive integer B"
+    ],
+    "main_growing_multiplier_budget": "K(N)=ceil(N^(1/3)) computed by exact public integer arithmetic",
+    "frozen_bucket_count": 4,
+    "x_k": "ceil_sqrt(4*k*N)",
+    "e_k": "x_k*x_k-4*k*N",
+    "score": "e_k/(2*x_k-1)",
+    "bucket": "floor(B*e_k/(2*x_k-1))",
+    "priority": "(bucket,k), increasing; exact score not fully sorted within a bucket",
+    "candidate_universe": "One original upper-square point per multiplier1<=k<=K; never replace ceil(2*sqrt(kN)) by2*ceil_sqrt(kN)"
+  },
+  "generator": {
+    "range": "a from ceil_sqrt(D) through ceil_sqrt(D*K), inclusive; a increases within each bucket pass",
+    "per_a_multiplier_interval": "max(1,floor((a-1)^2/D)+1) <= k <= min(K,floor(a^2/D))",
+    "bucket_lower": "floor((B*a*a-(b+1)*(2*a-1))/(B*D))+1",
+    "bucket_upper": "floor((B*a*a-b*(2*a-1))/(B*D))",
+    "output": "Intersect both intervals; emit increasing k, recomputing e=a*a-D*k with charged arithmetic",
+    "square_transport": "s_next=s+(2*a+1); previous_s=s; denominator_next=denominator+2; every inspected a and every empty interval is charged",
+    "scope": "General multi-k intervals retained; do not reduce to floor(a^2/D) outside the proved unique regime K<=N",
+    "exact_row_ledger": "Completed all B passes: square_index_row=B*A; row_floor_divisions=4*B*A; square_index_transport=B*(A−1); integer_sqrt=2; candidate_emission=K."
+  },
+  "matched_baselines": {
+    "ascending_k_hart": "Same4kN upper points, increasing k, exact ceil_sqrt, same QR filters/square-test/gcd stopping",
+    "multiplier_fermat": "Same upper-point budget: offset0 at each same multiplier, no hidden additional Fermat scan",
+    "stronger_optimized_baseline": "May replace ordinary sqrt arithmetic by any correct charged implementation; the paper comparison uses a polynomial-bit upper bound for the ordinary baseline, so it also bounds a no-more-costly optimized implementation",
+    "preparation": "Identical fixed QR lookup moduli64,3,5,7 includingzero; table creation/memory/prechecks charged to both",
+    "productive_stop": "Perfect-square e and a nontrivial gcd(x−sqrt(e),N) or gcd(x+sqrt(e),N); test minus first, plus only after a trivial minus gcd; every gcd1/N failure is charged. Same predicate and sequence in both algorithms; neither receives p,q."
+  },
+  "units": {
+    "generation": "2 exact boundary roots, complete a row inspections,4 floor divisions/row, explicit products/transports, output emission and bucket maintenance",
+    "screening": "Every actual modular check, residual square test/root and gcd, including failures",
+    "storage": "Generator bounded integer state plus emitted output cells if a downstream consumer materializes; no free precomputed lists",
+    "bit_cost": "All integer operands have O(log(NK)+logB) bits; unit event counts and bit-cost statements are separate"
+  },
+  "proof_boundary": "Literal square-index scanning only; no universal factoring no-go or lower bound for arbitrary skip/compressed/factor-blind selectors",
+  "inherited_scope": "OriginalRR-2A424 negative static feature boundary unchanged; no K<=64 correlations/census/old check reruns",
+  "identity_context": "DIRECTED_CONTEXT_EXPOSED/NONBLIND_DISCLOSED/NOT_INDEPENDENT; old JoukID andRoot6 preserved; helper native identities UNKNOWN; no clean independence",
+  "full_required_remaining": "32/40/48/56/64/80/96-bit ratio strata and unseen holdout full cost classification remain required; this unit does not satisfy whole hard target",
+  "parent_status": "OPEN",
+  "implementation_version_note": "Frozen mathematical model unchanged; exact implementation preserves both original §7 signs for proper-factor extraction. Correctness checks begin only after this final freeze."
+}
