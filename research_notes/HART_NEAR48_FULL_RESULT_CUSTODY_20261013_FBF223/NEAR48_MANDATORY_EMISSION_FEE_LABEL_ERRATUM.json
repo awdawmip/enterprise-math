@@ -1,0 +1,91 @@
+{
+  "schema": "HART_UNIT18_MANDATORY_EMISSION_FEE_LABEL_ERRATUM_V1",
+  "saved_at": "2026-10-13T23:39:50.076131+00:00",
+  "status": "EXACT_ACCOUNTING_LABEL_CORRECTION_NOT_NEW_SCIENCE_OR_RESULT",
+  "mandatory_combined_reading": "Read this erratum with frozen summary and unchanged48-membercapsule. Do not interpret summary.actual_emitted_consumer_entries as a candidatecount. It is the namedunitcounter from _fee(event,2).",
+  "affected_summary_pin": {
+    "path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/unit18-near48-train-index0-plan-only/NEAR48_FIRST_ACTUAL_SCOPED_FULL_COST_FACTS_AND_SUMMARY.json",
+    "bytes": 62016,
+    "sha256": "e556c412c92ea21f68c5c0176f58ecd85301d00926a78bbf9132b4197e59df98",
+    "git_blob_sha1": "ed4f3e20e5a85cef68cf32a99ad8137151bd4dea"
+  },
+  "unchanged_capsule_pin": {
+    "path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/unit18-near48-train-index0-plan-only/NEAR48_RESULT_COMPLETE_LOSSLESS_CAPSULE.json",
+    "bytes": 2662275,
+    "sha256": "ff6f8f20c17c12dcb4b240b1b0e5289868bc569e6a51940875a66a8454c7d7ee",
+    "git_blob_sha1": "959ee8900c36134a458189d041c1b7f13028a0e0"
+  },
+  "unchanged_first_raw_pin": {
+    "path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/unit18-near48-train-index0-plan-only/ONE_NEAR48_STRONG_CONTROL_ACTUAL_MEASUREMENT_RAW.json",
+    "bytes": 22066384,
+    "sha256": "632d7bf7cc1a94ba464f75d92f38d9191373c00eb673cb5023a77ffe6e8c18b4",
+    "git_blob_sha1": "af7f987768803cea985d3c86dade9e357d44c6bb"
+  },
+  "actual_fee_charge_source_pins": [
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/fresh32far-total-cost-pilot-unit/shared_optimized_fee_core_template.py",
+      "bytes": 12209,
+      "sha256": "cfa7dde1d14f40fb7434dc37cdc5dfc4bc899cc59c3eb3fa649b3eb2ad5f5638",
+      "git_blob_sha1": "6fc9d12b41e24c7551e7dc00fb2cf53d82edebbd"
+    },
+    {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/unit18-near48-train-index0-plan-only/strong_classical_fermat_fee_core_template.py",
+      "bytes": 13851,
+      "sha256": "a2ea77bdd5a734f795d1ab3016658fc71a58c406091d1d926f1cae1788be1614",
+      "git_blob_sha1": "dc7171eab93bea1ba19bcfd56983ee8595dfd73d"
+    }
+  ],
+  "correction_by_method": {
+    "ascending": {
+      "old_summary_field_value_fee_units": 12540,
+      "correct_fee_field_name": "candidate_emission_and_consumer_entry_fee_units",
+      "actual_consumer_count": 6270,
+      "fee_units_per_consumer": 2,
+      "crosscheck": "actualQRreject+actualconsumerisqrt = completeconsumer count; allQRpassconsumer paths squaretest exactlyonce"
+    },
+    "stride120_sameK": {
+      "old_summary_field_value_fee_units": 418,
+      "correct_fee_field_name": "candidate_emission_and_consumer_entry_fee_units",
+      "actual_consumer_count": 209,
+      "fee_units_per_consumer": 2,
+      "crosscheck": "actualQRreject+actualconsumerisqrt = completeconsumer count; allQRpassconsumer paths squaretest exactlyonce"
+    },
+    "classic480_full_MeqK": {
+      "old_summary_field_value_fee_units": 418,
+      "correct_fee_field_name": "candidate_emission_and_consumer_entry_fee_units",
+      "actual_consumer_count": 209,
+      "fee_units_per_consumer": 2,
+      "crosscheck": "actualQRreject+actualconsumerisqrt = completeconsumer count; allQRpassconsumer paths squaretest exactlyonce"
+    },
+    "fermat_complete": {
+      "old_summary_field_value_fee_units": 0,
+      "actual_consumer_count": 221592,
+      "meaning": "Fermat uses a separateoffsetconsumer path; this Hart emissionfee is absent, not zeroactualconsumers."
+    },
+    "priority_uncached": {
+      "old_summary_field_value_fee_units": 3048,
+      "correct_fee_field_name": "candidate_emission_and_consumer_entry_fee_units",
+      "actual_consumer_count": 1524,
+      "fee_units_per_consumer": 2,
+      "crosscheck": "actualQRreject+actualconsumerisqrt = completeconsumer count; allQRpassconsumer paths squaretest exactlyonce"
+    },
+    "priority_lazy": {
+      "old_summary_field_value_fee_units": 3048,
+      "correct_fee_field_name": "candidate_emission_and_consumer_entry_fee_units",
+      "actual_consumer_count": 1524,
+      "fee_units_per_consumer": 2,
+      "crosscheck": "actualQRreject+actualconsumerisqrt = completeconsumer count; allQRpassconsumer paths squaretest exactlyonce"
+    }
+  },
+  "all_raw_events_fee_histograms_named_total_measured_times_policies_and_firsthits_unchanged": true,
+  "frozen48package_summary_report_not_rewritten": true,
+  "new_scientific_or_checker_or_timing_calls": 0,
+  "old_method_or_candidate_replay": 0,
+  "native_Source_requests": 0,
+  "next_RID": 401,
+  "owner": "EM-SEMIPRIME-1F8B9B",
+  "same_claim_run_release_false": true,
+  "full_Task": "UNFINISHED",
+  "parent": "OPEN",
+  "provenance": "UNKNOWN/directedNONBLIND;explicitself-correction ofnewsummarylabel;noNative mathacceptance"
+}
