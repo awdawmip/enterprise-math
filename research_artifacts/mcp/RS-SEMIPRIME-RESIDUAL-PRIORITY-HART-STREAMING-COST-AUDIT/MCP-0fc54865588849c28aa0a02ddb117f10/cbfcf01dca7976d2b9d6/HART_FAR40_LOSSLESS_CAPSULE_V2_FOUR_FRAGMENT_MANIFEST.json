@@ -1,0 +1,701 @@
+{
+  "schema": "HART_FAR40_V2_FOUR_LOSSLESS_UTF8_FRAGMENT_MANIFEST_V1",
+  "prepared_at": "2026-10-13T18:35:08.250972+00:00",
+  "status": "LOCAL_COMPLETE_FOUR_FRAGMENT_AND39_ORIGINAL_BYTE_ROUNDTRIP_PASS_NO_NATIVE_SOURCE",
+  "original_capsule": {
+    "path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/HART_FAR40_FIRST_ACTUAL_LOSSLESS_CAPSULE_V2.json",
+    "bytes": 3991517,
+    "sha256": "a61fcd80c4e72129e395fcbf617b38fbaeaead8d4ed2bda18b848b317f6d3a70",
+    "git_blob_sha1": "dc0db503e8ddf8aaf6a1d44d3e9df48598ac5824"
+  },
+  "ordered_fragments": [
+    {
+      "index": 0,
+      "filename": "HART_FAR40_LOSSLESS_CAPSULE_V2_FRAGMENT_00.txt",
+      "byte_offset_start": 0,
+      "byte_offset_end_exclusive": 1000000,
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/HART_FAR40_LOSSLESS_CAPSULE_V2_FRAGMENT_00.txt",
+      "bytes": 1000000,
+      "sha256": "a86540a723288530a3f4991c3acf4e84a0bbe5c2fdf21c88b7297915155407fe",
+      "git_blob_sha1": "d45659315082cb4e59ecb201b897f50fc3382dee"
+    },
+    {
+      "index": 1,
+      "filename": "HART_FAR40_LOSSLESS_CAPSULE_V2_FRAGMENT_01.txt",
+      "byte_offset_start": 1000000,
+      "byte_offset_end_exclusive": 2000000,
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/HART_FAR40_LOSSLESS_CAPSULE_V2_FRAGMENT_01.txt",
+      "bytes": 1000000,
+      "sha256": "6d5b160c819c067d0610cd15163d72054c5e1bd9dac7aabca20907e4a66e5261",
+      "git_blob_sha1": "bde5d354d862bf74718f79009faf6f9d808dd6f5"
+    },
+    {
+      "index": 2,
+      "filename": "HART_FAR40_LOSSLESS_CAPSULE_V2_FRAGMENT_02.txt",
+      "byte_offset_start": 2000000,
+      "byte_offset_end_exclusive": 3000000,
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/HART_FAR40_LOSSLESS_CAPSULE_V2_FRAGMENT_02.txt",
+      "bytes": 1000000,
+      "sha256": "c3cf91be2e067217d39b3c18f12836772a6330eb44b224bce313802fc26ce5c7",
+      "git_blob_sha1": "ad11f47c868c2471352ae6db8e601a0619b99aa3"
+    },
+    {
+      "index": 3,
+      "filename": "HART_FAR40_LOSSLESS_CAPSULE_V2_FRAGMENT_03.txt",
+      "byte_offset_start": 3000000,
+      "byte_offset_end_exclusive": 3991517,
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/HART_FAR40_LOSSLESS_CAPSULE_V2_FRAGMENT_03.txt",
+      "bytes": 991517,
+      "sha256": "d95435f92bf3187fde59701aa214f7de643d9f13451c556c584cdc0572fec20f",
+      "git_blob_sha1": "4266f2a4a0638d35c70326e5657e6f1315f51360"
+    }
+  ],
+  "fragment_count": 4,
+  "sum_fragment_bytes": 3991517,
+  "join_rule": "Read each numbered txt file as its exact UTF8 bytes in ascending index and concatenate with NO delimiter, newline insertion, JSON escaping or whitespace edits; compare capsule bytes/SHA256/Gitblob before decoding.",
+  "capsule_decoding": "archive=json.loads(zlib.decompress(base64.b64decode(payload)).decode('utf-8')); each member bytes=member['content'].encode('utf-8'); compare complete len/SHA256/Gitblob against members before use. Decode only, do not execute code.",
+  "archive": {
+    "filename": "HART_FAR40_FIRST_ACTUAL_LOSSLESS_WHOLE_UTF8_ARCHIVE_V2.json",
+    "bytes": 42895426,
+    "sha256": "58d6c108ca0ca245963d2b8e62578a25cae41ccecc7398e9f5f6e3f64ca28961",
+    "git_blob_sha1": "e6f4000628ac9fd742e892476b6f8c9a57411d6b"
+  },
+  "archive_schema": "HART_LOSSLESS_WHOLE_UTF8_FILE_ARCHIVE_V2",
+  "compressed_bytes": 2977154,
+  "payload_base64_bytes": 3969540,
+  "member_count": 39,
+  "member_bytes": 39219541,
+  "members": [
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FAR40_SELECTED_IMPLEMENTATION_AND_PREGEN_SCOPE.md",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FAR40_SELECTED_IMPLEMENTATION_AND_PREGEN_SCOPE.md",
+      "bytes": 8622,
+      "sha256": "b1f561b1767a47d7281c71eb3678c6ebc7420a89dde434c40abb293392a759c6",
+      "git_blob_sha1": "8734ed759961c5ae26570ccf46bb6abd2114809e"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FAR40_SELECTED_INTEGRATION_PURE_STATIC_SELFCHECK.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FAR40_SELECTED_INTEGRATION_PURE_STATIC_SELFCHECK.json",
+      "bytes": 7952,
+      "sha256": "1ec7738e6e9d5844f66cd8e609c4ec81004bd65406f58512fd5f71ff45828ac0",
+      "git_blob_sha1": "81a1cf168ba895e4cd247ba730ea88da0e178d73"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FAR40_SELECTED_RESOURCE_AND_PAIRWISE_PROTOCOL_V2.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FAR40_SELECTED_RESOURCE_AND_PAIRWISE_PROTOCOL_V2.json",
+      "bytes": 3226,
+      "sha256": "65a2a74aa298f60b4df9572cae5112d3975d8b1b1e2a5a50a2800a2baeb45386",
+      "git_blob_sha1": "d9766410db1d2b810f3417cddee52597c6a04235"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FAR40_UNCHANGED_PRODUCTION_EXACT_AST_PREPARATION_PINS.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FAR40_UNCHANGED_PRODUCTION_EXACT_AST_PREPARATION_PINS.json",
+      "bytes": 2007,
+      "sha256": "93cb7a08fbe21d24990982c123aa199482e1e1bb2f0a51d676969f5a65e8d177",
+      "git_blob_sha1": "d6fb105a666bcba593aea2bbcad96324dfdbb299"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FAR40_VALIDATION_PRIMITIVES_STATIC_EXTRACTION_PINS.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FAR40_VALIDATION_PRIMITIVES_STATIC_EXTRACTION_PINS.json",
+      "bytes": 1157,
+      "sha256": "a86461f9aaeb95210eaf057537f39d4b6e2d6e72ca6c0740f99289169bd3d1c1",
+      "git_blob_sha1": "5f6f42c1afcd49e25245c0eccbad4e82a033ce9e"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FORTY_BIT_FAR_TRAIN_INDEX0_DRAFT_RESOURCE_PROTOCOL.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FORTY_BIT_FAR_TRAIN_INDEX0_DRAFT_RESOURCE_PROTOCOL.json",
+      "bytes": 2068,
+      "sha256": "c5837cedf913808f2f8bebc46daf1b9705dd53cbf47b9cd8e97d9b8eef7fb8c0",
+      "git_blob_sha1": "09f6c6c13071e01e6f2a51b1bace48a693036bd7"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FORTY_BIT_FAR_TRAIN_INDEX0_LOCAL_PREGEN_PLAN_PINS.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FORTY_BIT_FAR_TRAIN_INDEX0_LOCAL_PREGEN_PLAN_PINS.json",
+      "bytes": 1079,
+      "sha256": "779bebd8b31905e57eeeee6e77d100e0f7a976e9a64f21f3783c740434d4fdbd",
+      "git_blob_sha1": "435f51ce7eefe28e451f0866c6d949e5ce0b4327"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FORTY_BIT_FAR_TRAIN_INDEX0_STRONG_CONTROLS_PREGEN_PLAN.md",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FORTY_BIT_FAR_TRAIN_INDEX0_STRONG_CONTROLS_PREGEN_PLAN.md",
+      "bytes": 10333,
+      "sha256": "d34a27e86ca1a3d751c0b88b0b48d43f49d7cde3ce13659eac5fee092863be92",
+      "git_blob_sha1": "3ac750d23940a30286ed459fb27c87216acdc83a"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/KNOWN_DISCLOSED_N_PREFREEZE_REGISTRY.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/KNOWN_DISCLOSED_N_PREFREEZE_REGISTRY.json",
+      "bytes": 43269,
+      "sha256": "1a8c7c7b5c0df89a596007d85aa899759fb5265dd45919c0cb8e06c7627397ea",
+      "git_blob_sha1": "b0a3d6b5ee711f121ad1848024d25447750ebc3e"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/KNOWN_DISCLOSED_N_REGISTRY_READ_PINS.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/KNOWN_DISCLOSED_N_REGISTRY_READ_PINS.json",
+      "bytes": 8761,
+      "sha256": "21279c09e1c5fcb67b29a0314b4bc994ee9116ff2c6bb3f194983a0b3e266843",
+      "git_blob_sha1": "77c3355c416aea9417d9d50b93a36f8cd0a3f0f2"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/ROOT_ACTUAL_SELECTED_FAR40_RESOURCE_DIRECTION_FINAL.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/ROOT_ACTUAL_SELECTED_FAR40_RESOURCE_DIRECTION_FINAL.json",
+      "bytes": 5385,
+      "sha256": "e66e16d8b5e271d9d5e79f78b22a98ac7b8ce640e74371e6101bcb1b8972980f",
+      "git_blob_sha1": "28d26dfcb53feff5da3953fa0855c158c48b4fd6"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/ROOT_ACTUAL_SELECTED_FAR40_RESOURCE_DIRECTION_FINAL_6376.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/ROOT_ACTUAL_SELECTED_FAR40_RESOURCE_DIRECTION_FINAL_6376.json",
+      "bytes": 6376,
+      "sha256": "d1fdce65574fe1e5913d42231281a0d5dfa2c8b9d34fef4cf52a5fee1fdbc0c8",
+      "git_blob_sha1": "3834468454f39ff21efc64b41a0fe569f34df9d7"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/far40_actual_prefix_validation_primitives.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/far40_actual_prefix_validation_primitives.py",
+      "bytes": 15933,
+      "sha256": "be0b93ecadfd777263bc8f94610f71d52b263fbcc9df5eea47ea99c3ca13f036",
+      "git_blob_sha1": "a9c3cb3b3878738e261d195cfc4fe26a21893752"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/generate_one_frozen_independent_far40_offline.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/generate_one_frozen_independent_far40_offline.py",
+      "bytes": 3605,
+      "sha256": "6d4b491350a9bcd457d5882fc97a46dd2aacd2654934962b4cbae700d722015d",
+      "git_blob_sha1": "a3d131b5472542fb5f7556c969fa8223382bdebc"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/prepare_far40_unchanged_production_ast_pins_only.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/prepare_far40_unchanged_production_ast_pins_only.py",
+      "bytes": 2847,
+      "sha256": "c15bcfba79237762e4b7fca2b93e39f113359a554c2382c1f6ed6b59479256eb",
+      "git_blob_sha1": "fb286339a4bd6d73f1bc92d3b539476d32a79d7d"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/prepare_final_far40_integration_code_pins_only.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/prepare_final_far40_integration_code_pins_only.py",
+      "bytes": 4890,
+      "sha256": "e5cb572bb0511ff39697a88d4466d54f7a3a8a0ccabb2f5b3508442ef19ad0d4",
+      "git_blob_sha1": "eb71e8ecc5684446e80f21c35199bacee0ba47ef"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/run_one_frozen_far40_strong_control_measurement.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/run_one_frozen_far40_strong_control_measurement.py",
+      "bytes": 15690,
+      "sha256": "f1bea76fa8a995bf8d04ee452764adca074055b0ab6531614afbcf878db7e0e0",
+      "git_blob_sha1": "3ccfd88056d300aa4e82b7fb4175282ab843f133"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/validate_one_far40_actual_measurement.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/validate_one_far40_actual_measurement.py",
+      "bytes": 9586,
+      "sha256": "62e514404ef87a67efe82a689e70d418fdb1c48f2af39971500828583a2c59a6",
+      "git_blob_sha1": "cc3bb5dff51780e2300f8e2bdf440540a67ede5b"
+    },
+    {
+      "path": "strong-controls-independent-anchors-far32-next-unit/strong_classical_fermat_fee_core_template.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/strong-controls-independent-anchors-far32-next-unit/strong_classical_fermat_fee_core_template.py",
+      "bytes": 13864,
+      "sha256": "01cb6157e02bff3a4a1dd7e051e4cdc6d9f99955eb456a95b7e66115192d442a",
+      "git_blob_sha1": "7482ff2dba10e301c210cc55ca066c794a0ce465"
+    },
+    {
+      "path": "strong-controls-independent-anchors-far32-next-unit/strong_classical_fermat_unmetered_core.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/strong-controls-independent-anchors-far32-next-unit/strong_classical_fermat_unmetered_core.py",
+      "bytes": 8537,
+      "sha256": "cebfdf6121bcab8c6d56f478d9d823cb7f3e3c915ad081fb3458261fa29ca2db",
+      "git_blob_sha1": "c109f836825b8be888d2f4e56e7ef8cce51bcb39"
+    },
+    {
+      "path": "strong-controls-independent-anchors-far32-next-unit/strong_cost_compact_diagnostic_observer.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/strong-controls-independent-anchors-far32-next-unit/strong_cost_compact_diagnostic_observer.py",
+      "bytes": 4026,
+      "sha256": "eed59f2496c92b29d3205bc08d845533d6b81bdb67e04276fa258eb1efeba80f",
+      "git_blob_sha1": "02bddad589cfd4f3b9afb24e8e60cd5da49036d7"
+    },
+    {
+      "path": "strong-controls-independent-anchors-far32-next-unit/validate_actual_independent_controls_raw.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/strong-controls-independent-anchors-far32-next-unit/validate_actual_independent_controls_raw.py",
+      "bytes": 18138,
+      "sha256": "3be8544b0eaa6e4aa938da1f09f26894a1d3cae414dc41c39df69cf2993be55c",
+      "git_blob_sha1": "5d27079fbad7be0a095664e8075e28086c04620f"
+    },
+    {
+      "path": "fresh32far-total-cost-pilot-unit/shared_optimized_fee_core_template.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/fresh32far-total-cost-pilot-unit/shared_optimized_fee_core_template.py",
+      "bytes": 12209,
+      "sha256": "cfa7dde1d14f40fb7434dc37cdc5dfc4bc899cc59c3eb3fa649b3eb2ad5f5638",
+      "git_blob_sha1": "6fc9d12b41e24c7551e7dc00fb2cf53d82edebbd"
+    },
+    {
+      "path": "fresh32far-total-cost-pilot-unit/shared_optimized_unmetered_core.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/fresh32far-total-cost-pilot-unit/shared_optimized_unmetered_core.py",
+      "bytes": 7026,
+      "sha256": "5d276e19f611bb3cd4c04ad9c87cd9179c254c27c35c127dbafb64852b4b9746",
+      "git_blob_sha1": "24b5a78d7ee0005c1f758b011aed95092640e131"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FINAL_FAR40_SELECTED_INTEGRATION_CODE_PREGEN_PINS.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FINAL_FAR40_SELECTED_INTEGRATION_CODE_PREGEN_PINS.json",
+      "bytes": 13975,
+      "sha256": "6be7f530981ed0d4e32a64465010e8077cdf86bf523ae274934a8627511c78a2",
+      "git_blob_sha1": "199bdf4bf569c5d4129166bb82618bc5cf56a788"
+    },
+    {
+      "path": "root-control/ROOT_FAR40_ONE_FINAL_DIRECTED_DELTA_ACTUAL_FINAL_PASS.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/ROOT_FAR40_ONE_FINAL_DIRECTED_DELTA_ACTUAL_FINAL_PASS.json",
+      "bytes": 2243,
+      "sha256": "ef1c23ebe9b9454e7da368523dadce919fa98488f0130b4104e573edc4588587",
+      "git_blob_sha1": "a3edceee8d663e46e67c3746c04eb927b26ea677"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FAR40_ALL_CODE_SEED_RESOURCE_FREEZE.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FAR40_ALL_CODE_SEED_RESOURCE_FREEZE.json",
+      "bytes": 13719,
+      "sha256": "2e65284b6fb29804e41a563fd74536b015adeefd2361288d7426017d72fa5cda",
+      "git_blob_sha1": "9156cd37890069c5dc55a25763fadc60a87c463e"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/OFFLINE_FAR40_SAMPLE_STARTED_BEFORE_HASH_PRIMES.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/OFFLINE_FAR40_SAMPLE_STARTED_BEFORE_HASH_PRIMES.json",
+      "bytes": 202,
+      "sha256": "4dc365b9aa29ba1180d4d212723b83ebbed5cf920cfeb862ce304f12daa65906",
+      "git_blob_sha1": "f0ee741b6c37e203af8963a65d3212d17873308d"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/OFFLINE_FAR40_INDEPENDENT_ANCHORS_TRAIN_INDEX0_CORPUS_RAW.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/OFFLINE_FAR40_INDEPENDENT_ANCHORS_TRAIN_INDEX0_CORPUS_RAW.json",
+      "bytes": 21628,
+      "sha256": "79e07b4cdb4cdccc791a24d078a78cf3beb92e94f3fd31f7b5650e04d3b1435a",
+      "git_blob_sha1": "1249847fdf396114132fb734061988d36024811c"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FAR40_ACTUAL_CORPUS_PREEXECUTION_PINS.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FAR40_ACTUAL_CORPUS_PREEXECUTION_PINS.json",
+      "bytes": 13102,
+      "sha256": "4444872b15504e680470ebe98e6526008dc53751b577a0b769199f2a421aebae",
+      "git_blob_sha1": "f7f29ed4a303c4061b75daa5348cc89b1b139c71"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/ONE_FAR40_STRONG_CONTROL_ACTUAL_MEASUREMENT_RAW.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/ONE_FAR40_STRONG_CONTROL_ACTUAL_MEASUREMENT_RAW.json",
+      "bytes": 38775949,
+      "sha256": "956da03facf67662756a263c3efbef15235eb322745e3cbb5792adbf9cf4a10a",
+      "git_blob_sha1": "96629c48f6fa18873e41dadf05d84944d0a9549c"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/ONE_FAR40_MEASUREMENT_STARTED_BEFORE_PRODUCTION_IMPORT.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/ONE_FAR40_MEASUREMENT_STARTED_BEFORE_PRODUCTION_IMPORT.json",
+      "bytes": 288,
+      "sha256": "ff5cb6e399a9361901ae9673beec0281bd71ff221ee29807faaa22ad5f947c7f",
+      "git_blob_sha1": "ac54e1c181d7363e15b2153a4201460cb9750a64"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FIRST_ACTUAL_FAR40_TERMINAL_AND_COST_FACTS_FROM_SAVED_RAW.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FIRST_ACTUAL_FAR40_TERMINAL_AND_COST_FACTS_FROM_SAVED_RAW.json",
+      "bytes": 30590,
+      "sha256": "ddfd1fb4758a43412cb24d28b5f8fbdc6b750ec12a955e8e20f4c237ec86ed53",
+      "git_blob_sha1": "324a28bb9a5f9c0c501ee67d89f69cbd1f10dbed"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FAR40_FIRST_ACTUAL_SCOPED_RESULT_SUMMARY_AND_FEE_FACTS.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FAR40_FIRST_ACTUAL_SCOPED_RESULT_SUMMARY_AND_FEE_FACTS.json",
+      "bytes": 50004,
+      "sha256": "f0ebbad523950ae6529ab7cebc7a2c6cb6b3b409a9a985568817ac517120b044",
+      "git_blob_sha1": "7e61c3f4157ad0691fa0cb9f851bc8fab6232ebe"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FAR40_ONE_ACTUAL_TRAIN_SCOPED_FULL_COST_REPORT.md",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FAR40_ONE_ACTUAL_TRAIN_SCOPED_FULL_COST_REPORT.md",
+      "bytes": 15681,
+      "sha256": "8f0790b1c14d6c8af20e343911b06ccd7a619e4098d3adb32727d8568cd99fa4",
+      "git_blob_sha1": "051cd555e32e9add96c3a00a78c493e4d4091e86"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/preserve_first_far40_measurement_result_from_saved_json_only.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/preserve_first_far40_measurement_result_from_saved_json_only.py",
+      "bytes": 26920,
+      "sha256": "9c8252044d0b9892b6fcb7a774acfba9cbed6e74ade4883a57bad5aef0648b3c",
+      "git_blob_sha1": "34c160c011940655f9bf2b5c5627d328e5d1a11c"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/FAR40_FIRST_RESULT_LOCAL_HANDOFF_AND_COMPLETE_PINS.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FAR40_FIRST_RESULT_LOCAL_HANDOFF_AND_COMPLETE_PINS.json",
+      "bytes": 16138,
+      "sha256": "d86d1f0daeabd880995be8a3fff9e3f2fe95d570c39ba297d8e835107bc01cc2",
+      "git_blob_sha1": "f4784b7f5a3d95ac7ba03f4ee448ab7e58e76adb"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/OWN_FAR40_FINAL_PREGEN_SOURCE26_COMPLETE_COLD_PINS.json",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/OWN_FAR40_FINAL_PREGEN_SOURCE26_COMPLETE_COLD_PINS.json",
+      "bytes": 14651,
+      "sha256": "4f49e3cc98ea8c6aa2fdcee5780b8a0326fe76ce233adffade1dbe8789d13245",
+      "git_blob_sha1": "8ac92cab3c522888aa267061ac50d4efb60451f7"
+    },
+    {
+      "path": "full-cost40-far-train-index0-plan-only/package_first_far40_result_losslessly_local_only.py",
+      "original_local_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/package_first_far40_result_losslessly_local_only.py",
+      "bytes": 7865,
+      "sha256": "1cdda4164baeb618eb22404382298ad7b293bda0be1b3fa0a3d99927248ed23e",
+      "git_blob_sha1": "53c527ef8d02bbadeade693b2f05740157798ee6"
+    }
+  ],
+  "complete_local_cold_checks": {
+    "four_fragments_equal_original_capsule_bytes": true,
+    "decoded_archive_length_sha256_gitblob_match": true,
+    "all39_complete_original_bytes_length_sha256_gitblob_local_match": true,
+    "first_raw38775949B_and62757FermatSQwitnesses_and144unmeasuredslots_preserved": true,
+    "science_or_checker_invocations": 0,
+    "Root_custody_record_pin": {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/ROOT_FAR40_LOCAL39_FULL_LOSSLESS_CUSTODY_CHECK.json",
+      "bytes": 13984,
+      "sha256": "1996b9e355a83fc7ccbf367e5c3730fcbb98d68e69a0da81169310c0d5c96a0c",
+      "git_blob_sha1": "7d0293561b5356f781efdd81432a012e3d8416fc"
+    },
+    "Root_custody_record": {
+      "schema": "ROOT_FAR40_LOCAL_FULL39_LOSSLESS_CUSTODY_CHECK_V1",
+      "verified_at_utc": "2026-10-13T18:28:05.328408+00:00",
+      "status": "PASS_COMPLETE_CAPSULE_ARCHIVE_39ORIGINALS_FULL_BYTES_SHA_BLOB_LOCAL",
+      "capsule": {
+        "bytes": 3991517,
+        "sha256": "a61fcd80c4e72129e395fcbf617b38fbaeaead8d4ed2bda18b848b317f6d3a70",
+        "git_blob_sha1": "dc0db503e8ddf8aaf6a1d44d3e9df48598ac5824"
+      },
+      "capsule_path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/HART_FAR40_FIRST_ACTUAL_LOSSLESS_CAPSULE_V2.json",
+      "compressed_bytes": 2977154,
+      "archive": {
+        "bytes": 42895426,
+        "sha256": "58d6c108ca0ca245963d2b8e62578a25cae41ccecc7398e9f5f6e3f64ca28961",
+        "git_blob_sha1": "e6f4000628ac9fd742e892476b6f8c9a57411d6b"
+      },
+      "member_count": 39,
+      "original_bytes": 39219541,
+      "members": [
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FAR40_SELECTED_IMPLEMENTATION_AND_PREGEN_SCOPE.md",
+          "bytes": 8622,
+          "sha256": "b1f561b1767a47d7281c71eb3678c6ebc7420a89dde434c40abb293392a759c6",
+          "git_blob_sha1": "8734ed759961c5ae26570ccf46bb6abd2114809e",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FAR40_SELECTED_INTEGRATION_PURE_STATIC_SELFCHECK.json",
+          "bytes": 7952,
+          "sha256": "1ec7738e6e9d5844f66cd8e609c4ec81004bd65406f58512fd5f71ff45828ac0",
+          "git_blob_sha1": "81a1cf168ba895e4cd247ba730ea88da0e178d73",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FAR40_SELECTED_RESOURCE_AND_PAIRWISE_PROTOCOL_V2.json",
+          "bytes": 3226,
+          "sha256": "65a2a74aa298f60b4df9572cae5112d3975d8b1b1e2a5a50a2800a2baeb45386",
+          "git_blob_sha1": "d9766410db1d2b810f3417cddee52597c6a04235",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FAR40_UNCHANGED_PRODUCTION_EXACT_AST_PREPARATION_PINS.json",
+          "bytes": 2007,
+          "sha256": "93cb7a08fbe21d24990982c123aa199482e1e1bb2f0a51d676969f5a65e8d177",
+          "git_blob_sha1": "d6fb105a666bcba593aea2bbcad96324dfdbb299",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FAR40_VALIDATION_PRIMITIVES_STATIC_EXTRACTION_PINS.json",
+          "bytes": 1157,
+          "sha256": "a86461f9aaeb95210eaf057537f39d4b6e2d6e72ca6c0740f99289169bd3d1c1",
+          "git_blob_sha1": "5f6f42c1afcd49e25245c0eccbad4e82a033ce9e",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FORTY_BIT_FAR_TRAIN_INDEX0_DRAFT_RESOURCE_PROTOCOL.json",
+          "bytes": 2068,
+          "sha256": "c5837cedf913808f2f8bebc46daf1b9705dd53cbf47b9cd8e97d9b8eef7fb8c0",
+          "git_blob_sha1": "09f6c6c13071e01e6f2a51b1bace48a693036bd7",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FORTY_BIT_FAR_TRAIN_INDEX0_LOCAL_PREGEN_PLAN_PINS.json",
+          "bytes": 1079,
+          "sha256": "779bebd8b31905e57eeeee6e77d100e0f7a976e9a64f21f3783c740434d4fdbd",
+          "git_blob_sha1": "435f51ce7eefe28e451f0866c6d949e5ce0b4327",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FORTY_BIT_FAR_TRAIN_INDEX0_STRONG_CONTROLS_PREGEN_PLAN.md",
+          "bytes": 10333,
+          "sha256": "d34a27e86ca1a3d751c0b88b0b48d43f49d7cde3ce13659eac5fee092863be92",
+          "git_blob_sha1": "3ac750d23940a30286ed459fb27c87216acdc83a",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/KNOWN_DISCLOSED_N_PREFREEZE_REGISTRY.json",
+          "bytes": 43269,
+          "sha256": "1a8c7c7b5c0df89a596007d85aa899759fb5265dd45919c0cb8e06c7627397ea",
+          "git_blob_sha1": "b0a3d6b5ee711f121ad1848024d25447750ebc3e",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/KNOWN_DISCLOSED_N_REGISTRY_READ_PINS.json",
+          "bytes": 8761,
+          "sha256": "21279c09e1c5fcb67b29a0314b4bc994ee9116ff2c6bb3f194983a0b3e266843",
+          "git_blob_sha1": "77c3355c416aea9417d9d50b93a36f8cd0a3f0f2",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/ROOT_ACTUAL_SELECTED_FAR40_RESOURCE_DIRECTION_FINAL.json",
+          "bytes": 5385,
+          "sha256": "e66e16d8b5e271d9d5e79f78b22a98ac7b8ce640e74371e6101bcb1b8972980f",
+          "git_blob_sha1": "28d26dfcb53feff5da3953fa0855c158c48b4fd6",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/ROOT_ACTUAL_SELECTED_FAR40_RESOURCE_DIRECTION_FINAL_6376.json",
+          "bytes": 6376,
+          "sha256": "d1fdce65574fe1e5913d42231281a0d5dfa2c8b9d34fef4cf52a5fee1fdbc0c8",
+          "git_blob_sha1": "3834468454f39ff21efc64b41a0fe569f34df9d7",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/far40_actual_prefix_validation_primitives.py",
+          "bytes": 15933,
+          "sha256": "be0b93ecadfd777263bc8f94610f71d52b263fbcc9df5eea47ea99c3ca13f036",
+          "git_blob_sha1": "a9c3cb3b3878738e261d195cfc4fe26a21893752",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/generate_one_frozen_independent_far40_offline.py",
+          "bytes": 3605,
+          "sha256": "6d4b491350a9bcd457d5882fc97a46dd2aacd2654934962b4cbae700d722015d",
+          "git_blob_sha1": "a3d131b5472542fb5f7556c969fa8223382bdebc",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/prepare_far40_unchanged_production_ast_pins_only.py",
+          "bytes": 2847,
+          "sha256": "c15bcfba79237762e4b7fca2b93e39f113359a554c2382c1f6ed6b59479256eb",
+          "git_blob_sha1": "fb286339a4bd6d73f1bc92d3b539476d32a79d7d",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/prepare_final_far40_integration_code_pins_only.py",
+          "bytes": 4890,
+          "sha256": "e5cb572bb0511ff39697a88d4466d54f7a3a8a0ccabb2f5b3508442ef19ad0d4",
+          "git_blob_sha1": "eb71e8ecc5684446e80f21c35199bacee0ba47ef",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/run_one_frozen_far40_strong_control_measurement.py",
+          "bytes": 15690,
+          "sha256": "f1bea76fa8a995bf8d04ee452764adca074055b0ab6531614afbcf878db7e0e0",
+          "git_blob_sha1": "3ccfd88056d300aa4e82b7fb4175282ab843f133",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/validate_one_far40_actual_measurement.py",
+          "bytes": 9586,
+          "sha256": "62e514404ef87a67efe82a689e70d418fdb1c48f2af39971500828583a2c59a6",
+          "git_blob_sha1": "cc3bb5dff51780e2300f8e2bdf440540a67ede5b",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "strong-controls-independent-anchors-far32-next-unit/strong_classical_fermat_fee_core_template.py",
+          "bytes": 13864,
+          "sha256": "01cb6157e02bff3a4a1dd7e051e4cdc6d9f99955eb456a95b7e66115192d442a",
+          "git_blob_sha1": "7482ff2dba10e301c210cc55ca066c794a0ce465",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "strong-controls-independent-anchors-far32-next-unit/strong_classical_fermat_unmetered_core.py",
+          "bytes": 8537,
+          "sha256": "cebfdf6121bcab8c6d56f478d9d823cb7f3e3c915ad081fb3458261fa29ca2db",
+          "git_blob_sha1": "c109f836825b8be888d2f4e56e7ef8cce51bcb39",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "strong-controls-independent-anchors-far32-next-unit/strong_cost_compact_diagnostic_observer.py",
+          "bytes": 4026,
+          "sha256": "eed59f2496c92b29d3205bc08d845533d6b81bdb67e04276fa258eb1efeba80f",
+          "git_blob_sha1": "02bddad589cfd4f3b9afb24e8e60cd5da49036d7",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "strong-controls-independent-anchors-far32-next-unit/validate_actual_independent_controls_raw.py",
+          "bytes": 18138,
+          "sha256": "3be8544b0eaa6e4aa938da1f09f26894a1d3cae414dc41c39df69cf2993be55c",
+          "git_blob_sha1": "5d27079fbad7be0a095664e8075e28086c04620f",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "fresh32far-total-cost-pilot-unit/shared_optimized_fee_core_template.py",
+          "bytes": 12209,
+          "sha256": "cfa7dde1d14f40fb7434dc37cdc5dfc4bc899cc59c3eb3fa649b3eb2ad5f5638",
+          "git_blob_sha1": "6fc9d12b41e24c7551e7dc00fb2cf53d82edebbd",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "fresh32far-total-cost-pilot-unit/shared_optimized_unmetered_core.py",
+          "bytes": 7026,
+          "sha256": "5d276e19f611bb3cd4c04ad9c87cd9179c254c27c35c127dbafb64852b4b9746",
+          "git_blob_sha1": "24b5a78d7ee0005c1f758b011aed95092640e131",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FINAL_FAR40_SELECTED_INTEGRATION_CODE_PREGEN_PINS.json",
+          "bytes": 13975,
+          "sha256": "6be7f530981ed0d4e32a64465010e8077cdf86bf523ae274934a8627511c78a2",
+          "git_blob_sha1": "199bdf4bf569c5d4129166bb82618bc5cf56a788",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "root-control/ROOT_FAR40_ONE_FINAL_DIRECTED_DELTA_ACTUAL_FINAL_PASS.json",
+          "bytes": 2243,
+          "sha256": "ef1c23ebe9b9454e7da368523dadce919fa98488f0130b4104e573edc4588587",
+          "git_blob_sha1": "a3edceee8d663e46e67c3746c04eb927b26ea677",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FAR40_ALL_CODE_SEED_RESOURCE_FREEZE.json",
+          "bytes": 13719,
+          "sha256": "2e65284b6fb29804e41a563fd74536b015adeefd2361288d7426017d72fa5cda",
+          "git_blob_sha1": "9156cd37890069c5dc55a25763fadc60a87c463e",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/OFFLINE_FAR40_SAMPLE_STARTED_BEFORE_HASH_PRIMES.json",
+          "bytes": 202,
+          "sha256": "4dc365b9aa29ba1180d4d212723b83ebbed5cf920cfeb862ce304f12daa65906",
+          "git_blob_sha1": "f0ee741b6c37e203af8963a65d3212d17873308d",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/OFFLINE_FAR40_INDEPENDENT_ANCHORS_TRAIN_INDEX0_CORPUS_RAW.json",
+          "bytes": 21628,
+          "sha256": "79e07b4cdb4cdccc791a24d078a78cf3beb92e94f3fd31f7b5650e04d3b1435a",
+          "git_blob_sha1": "1249847fdf396114132fb734061988d36024811c",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FAR40_ACTUAL_CORPUS_PREEXECUTION_PINS.json",
+          "bytes": 13102,
+          "sha256": "4444872b15504e680470ebe98e6526008dc53751b577a0b769199f2a421aebae",
+          "git_blob_sha1": "f7f29ed4a303c4061b75daa5348cc89b1b139c71",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/ONE_FAR40_STRONG_CONTROL_ACTUAL_MEASUREMENT_RAW.json",
+          "bytes": 38775949,
+          "sha256": "956da03facf67662756a263c3efbef15235eb322745e3cbb5792adbf9cf4a10a",
+          "git_blob_sha1": "96629c48f6fa18873e41dadf05d84944d0a9549c",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/ONE_FAR40_MEASUREMENT_STARTED_BEFORE_PRODUCTION_IMPORT.json",
+          "bytes": 288,
+          "sha256": "ff5cb6e399a9361901ae9673beec0281bd71ff221ee29807faaa22ad5f947c7f",
+          "git_blob_sha1": "ac54e1c181d7363e15b2153a4201460cb9750a64",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FIRST_ACTUAL_FAR40_TERMINAL_AND_COST_FACTS_FROM_SAVED_RAW.json",
+          "bytes": 30590,
+          "sha256": "ddfd1fb4758a43412cb24d28b5f8fbdc6b750ec12a955e8e20f4c237ec86ed53",
+          "git_blob_sha1": "324a28bb9a5f9c0c501ee67d89f69cbd1f10dbed",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FAR40_FIRST_ACTUAL_SCOPED_RESULT_SUMMARY_AND_FEE_FACTS.json",
+          "bytes": 50004,
+          "sha256": "f0ebbad523950ae6529ab7cebc7a2c6cb6b3b409a9a985568817ac517120b044",
+          "git_blob_sha1": "7e61c3f4157ad0691fa0cb9f851bc8fab6232ebe",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FAR40_ONE_ACTUAL_TRAIN_SCOPED_FULL_COST_REPORT.md",
+          "bytes": 15681,
+          "sha256": "8f0790b1c14d6c8af20e343911b06ccd7a619e4098d3adb32727d8568cd99fa4",
+          "git_blob_sha1": "051cd555e32e9add96c3a00a78c493e4d4091e86",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/preserve_first_far40_measurement_result_from_saved_json_only.py",
+          "bytes": 26920,
+          "sha256": "9c8252044d0b9892b6fcb7a774acfba9cbed6e74ade4883a57bad5aef0648b3c",
+          "git_blob_sha1": "34c160c011940655f9bf2b5c5627d328e5d1a11c",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/FAR40_FIRST_RESULT_LOCAL_HANDOFF_AND_COMPLETE_PINS.json",
+          "bytes": 16138,
+          "sha256": "d86d1f0daeabd880995be8a3fff9e3f2fe95d570c39ba297d8e835107bc01cc2",
+          "git_blob_sha1": "f4784b7f5a3d95ac7ba03f4ee448ab7e58e76adb",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/OWN_FAR40_FINAL_PREGEN_SOURCE26_COMPLETE_COLD_PINS.json",
+          "bytes": 14651,
+          "sha256": "4f49e3cc98ea8c6aa2fdcee5780b8a0326fe76ce233adffade1dbe8789d13245",
+          "git_blob_sha1": "8ac92cab3c522888aa267061ac50d4efb60451f7",
+          "full_local_bytes_equal": true
+        },
+        {
+          "path": "full-cost40-far-train-index0-plan-only/package_first_far40_result_losslessly_local_only.py",
+          "bytes": 7865,
+          "sha256": "1cdda4164baeb618eb22404382298ad7b293bda0be1b3fa0a3d99927248ed23e",
+          "git_blob_sha1": "53c527ef8d02bbadeade693b2f05740157798ee6",
+          "full_local_bytes_equal": true
+        }
+      ],
+      "first_raw_complete_and_unmodified": true,
+      "science_or_checker_or_member_code_execution_by_Root": false,
+      "scientific_canonical_Source": "PENDING_NOT_UPLOADED",
+      "full_Task": "UNFINISHED",
+      "parent": "OPEN"
+    }
+  },
+  "companion_publication_files": {
+    "own_report": {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/FAR40_ONE_ACTUAL_TRAIN_SCOPED_FULL_COST_REPORT.md",
+      "bytes": 15681,
+      "sha256": "8f0790b1c14d6c8af20e343911b06ccd7a619e4098d3adb32727d8568cd99fa4",
+      "git_blob_sha1": "051cd555e32e9add96c3a00a78c493e4d4091e86"
+    },
+    "Root_saved_JSON_statistics_and_point_facts": {
+      "path": "/workspace/em-owner-resume-20261011/new-round-20261011/ROOT_FAR40_ONE_ACTUAL_RAW_JSON_STATISTICS_AND_NEW_POINT_FACTS.json",
+      "bytes": 3587,
+      "sha256": "bf8e373d1249f0ccda9b6c2984a530ef657f7893e96a658052f747e829de36d4",
+      "git_blob_sha1": "51ebde03124e47c4eccb236584116a48e25910d7"
+    }
+  },
+  "bounded_upload_contract": {
+    "part_UTF8_bytes_max": 16000,
+    "part_JSON_escaped_bytes_max": 24000,
+    "file_UTF8_bytes_max": 1048576,
+    "part_index_max": 128,
+    "transaction_file_count_max": 16,
+    "transaction_UTF8_bytes_max": 4194304,
+    "SourceRefs_extra_checkpoint_payload_supported": false,
+    "original_protocol_ref": "https://github.com/awdawmip/enterprise-math/blob/a93177822d7be97342614634c51af69bd52ab5e4/docs/CHATGPT_ORDINARY_CONTROL.zh-CN.md#L73"
+  },
+  "Root_selected_two_phase_route": {
+    "phase1": "own report plus Root savedJSON facts only, then same-run release=false partial PROGRESS; full39 Source remains explicitly PENDING",
+    "phase2": "same owner/session/claim/run own4fragments plus thismanifest, then same-run release=false full scientific custody checkpoint",
+    "this_record_is_not_a_transport_receipt": true,
+    "Native_Source_submitted": false,
+    "phase1_Source_commit": null,
+    "phase2_Source_commit": null
+  },
+  "actor": "EM-SEMIPRIME-1F8B9B",
+  "SID": "MCP-0fc54865588849c28aa0a02ddb117f10",
+  "claim": "MCP-39d67949464bba2e72b3625a",
+  "epoch": "6138448969",
+  "run": "RUN-02bc03dfff15c15ce7daf2f3",
+  "next_unused_RID": 126,
+  "release": false,
+  "full_Task": "UNFINISHED",
+  "parent": "OPEN",
+  "Native_mathematical_acceptance": false,
+  "novelty": "UNKNOWN",
+  "exposure": "DIRECTED_CONTEXT_EXPOSED/NONBLIND",
+  "Root_contribution": "savedJSON mathematical/statistical facts plus actual cold custody, directed nonblind; not Native decisive review",
+  "no_new_sample_producer_timing_checker_or_oldcase": true
+}

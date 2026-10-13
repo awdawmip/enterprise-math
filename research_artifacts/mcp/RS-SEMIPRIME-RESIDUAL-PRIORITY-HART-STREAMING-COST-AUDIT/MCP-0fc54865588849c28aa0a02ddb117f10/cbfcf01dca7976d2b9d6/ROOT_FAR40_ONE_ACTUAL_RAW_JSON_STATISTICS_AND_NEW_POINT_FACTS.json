@@ -1,0 +1,107 @@
+{
+  "schema": "ROOT_FAR40_ONE_ACTUAL_RAW_JSON_STATISTICS_AND_NEW_POINT_FACTS_V1",
+  "verified_at_utc": "2026-10-13T18:22:09.034752+00:00",
+  "status": "PASS_RECOMPUTED_720ACTUAL_CALLS_AND144PRESPECIFIED_SKIPS",
+  "raw": {
+    "path": "/workspace/em-owner-resume-20261011/new-round-20261011/hart-streaming-cost-audit-20261013/full-cost40-far-train-index0-plan-only/ONE_FAR40_STRONG_CONTROL_ACTUAL_MEASUREMENT_RAW.json",
+    "bytes": 38775949,
+    "sha256": "956da03facf67662756a263c3efbef15235eb322745e3cbb5792adbf9cf4a10a",
+    "git_blob_sha1": "96629c48f6fa18873e41dadf05d84944d0a9549c"
+  },
+  "N": 572212439713,
+  "started_at": "2026-10-13T18:09:18.373242+00:00",
+  "finished_at": "2026-10-13T18:10:56.297586+00:00",
+  "measurement_elapsed_ns": 97878051185,
+  "actual_instrumented_calls": 6,
+  "actual_unmetered_calls": 720,
+  "prespecified_Fermat_unmeasured_slots": 144,
+  "complete_six_matrix": false,
+  "medians_wall_ns": {
+    "ascending": 1660704.5625,
+    "stride120_sameK": 1957615.6875,
+    "classic480_full_MeqK": 109114.4375,
+    "priority_uncached": 2289555.4375,
+    "priority_lazy": 3688851.3125
+  },
+  "medians_cpu_ns": {
+    "ascending": 1661789.0,
+    "stride120_sameK": 1958948.375,
+    "classic480_full_MeqK": 109678.6875,
+    "priority_uncached": 2290800.5,
+    "priority_lazy": 3694859.9375
+  },
+  "pairs": {
+    "priority_uncached": {
+      "ascending": {
+        "ratio": 1.3786651094962594,
+        "wins": 0,
+        "policy_pass": false
+      },
+      "stride120_sameK": {
+        "ratio": 1.169563286665274,
+        "wins": 2,
+        "policy_pass": false
+      },
+      "classic480_full_MeqK": {
+        "ratio": 20.983065943954482,
+        "wins": 0,
+        "policy_pass": false
+      }
+    },
+    "priority_lazy": {
+      "ascending": {
+        "ratio": 2.2212568061756017,
+        "wins": 0,
+        "policy_pass": false
+      },
+      "stride120_sameK": {
+        "ratio": 1.8843592928144637,
+        "wins": 0,
+        "policy_pass": false
+      },
+      "classic480_full_MeqK": {
+        "ratio": 33.8071789308358,
+        "wins": 0,
+        "policy_pass": false
+      }
+    }
+  },
+  "new_actual_point_order_facts": {
+    "ASC_first_k": 2940,
+    "ASC_first_point_bucket_if_scored": 1,
+    "Punc_actual_first_k": 4595,
+    "Punc_actual_bucket": 0,
+    "Punc_factor": 10254887,
+    "ASC_factor": 55799,
+    "fullclassic_actual_j": 98,
+    "fullclassic_k": 11760,
+    "fullclassic_maxmapped": 996360,
+    "observed_classic_vs_ASC_scaling_equalities": {
+      "k_classic": "4*k_ASC",
+      "a_classic": "2*a_ASC",
+      "e_classic": "4*e_ASC",
+      "SQroot_classic": "2*SQroot_ASC"
+    },
+    "math_scope": "new saveddata application of old coverage/bucket principles, not a new generallemma or factorbasedschedule; prioritybucket0 postpones the productiveASCbucket1 point"
+  },
+  "Fermat_actual_censor": {
+    "reason": "30s cooperative offset boundary",
+    "completed_offsets": 2196480,
+    "paidSQ_actual_witnesses": 62757,
+    "public_T": 5318775,
+    "pending": {
+      "phase": "NEXT_OFFSET_UNCONSUMED",
+      "t": 2196480,
+      "A": 2952928,
+      "z": 8147571333471
+    },
+    "plainwall_status": "UNKNOWN_NOT_BENCHMARKED",
+    "censor_diagnostic_is_algorithm_negative": false
+  },
+  "Root_producer_checker_ordinaryroot_window_or_timing_rerun": false,
+  "global_budget_stop": null,
+  "read_scope": "one full byte/raw JSON read and statistical/data arithmetic, no scienceinvocation",
+  "review": "UNKNOWN/directed NONBLIND; actual codechecker authorPASS preserved not formalNative acceptance",
+  "full_Task": "UNFINISHED",
+  "parent": "OPEN"
+}
