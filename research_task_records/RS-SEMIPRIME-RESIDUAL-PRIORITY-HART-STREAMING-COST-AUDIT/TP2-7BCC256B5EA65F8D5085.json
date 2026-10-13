@@ -1,0 +1,72 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-SEMIPRIME-RESIDUAL-PRIORITY-HART-STREAMING-COST-AUDIT",
+  "registry_key": "RS-SEMIPRIME-RESIDUAL-PRIORITY-HART-STREAMING-COST-AUDIT",
+  "publication_id": "TP2-7BCC256B5EA65F8D5085",
+  "publication_generation": 2,
+  "supersedes_publication_id": "TP2-8E5A7D21C30F694B2D11",
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/SEMIPRIME_RESIDUAL_PRIORITY_HART_STREAMING_COST_AUDIT_CANONICAL_REPUBLICATION_20261013.md",
+  "taskbook_blob_sha1": "sha1:ff759ba7675a7134c30045c64be86abef4fd0d4f",
+  "publisher_role": "RESEARCH_DRIVER",
+  "publisher_id": "EM-DVR-FBF223",
+  "published_at": "2026-10-13T04:25:20.029229+00:00",
+  "parent_objective_id": "OBJ-SEMIPRIME-SQUARE-SHELL-FACTORIZATION",
+  "origin_kind": "DRIVER_ROADMAP",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-SEMIPRIME-SQUARE-SHELL-MIDPOINT-BOUNDARY-FACTORIZATION",
+  "claimable": true,
+  "effective_priority": "P1",
+  "effective_leverage": "HIGH",
+  "priority_source": "PUBLISHER_DECLARED",
+  "publisher_priority_request": "P1",
+  "publisher_leverage_request": "HIGH",
+  "owner": "research/semiprime-residual-priority-hart-streaming-cost-audit",
+  "frontier": "Determine whether the only surviving finite-window residual-priority multiplier ordering from RR-2A424E3B8EC11DC1278C yields any factor-blind total-cost improvement over explicitly matched Hart/Fermat baselines once coverage collapse, square tests, gcds, modular sieving and preprocessing are counted.",
+  "next_action": "Freeze matched streaming baselines and cost units, implement factor-blind residual-priority and Hart/Fermat orderings with the same modular sieve budget, then compare total work across stratified bit sizes and factor ratios with explicit kill conditions.",
+  "research_value": "Resolve the only remaining algorithmic-cost question after the static square-shell correlation route closed negatively.",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "SSMFCOST",
+  "source_refs": [
+    "research_returns/SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY_FACTORIZATION_RETURN_20260829.md@e93b8427ced87bc1ce740082df3d2edf52f141fc",
+    "research_result_records/RS-SEMIPRIME-SQUARE-SHELL-MIDPOINT-BOUNDARY-FACTORIZATION/RR-2A424E3B8EC11DC1278C.json@e93b8427ced87bc1ce740082df3d2edf52f141fc",
+    "research_task_records/RS-SEMIPRIME-RESIDUAL-PRIORITY-HART-STREAMING-COST-AUDIT/TP2-8E5A7D21C30F694B2D11.json@e93b8427ced87bc1ce740082df3d2edf52f141fc",
+    "research_tasks/SEMIPRIME_RESIDUAL_PRIORITY_HART_STREAMING_COST_AUDIT_20260829.md@e93b8427ced87bc1ce740082df3d2edf52f141fc",
+    "research_tasks/SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY_FACTORIZATION_EXPLORATION_20260829.md@e93b8427ced87bc1ce740082df3d2edf52f141fc"
+  ],
+  "dependencies": [
+    "research_result_records/RS-SEMIPRIME-SQUARE-SHELL-MIDPOINT-BOUNDARY-FACTORIZATION/RR-2A424E3B8EC11DC1278C.json@e93b8427ced87bc1ce740082df3d2edf52f141fc"
+  ],
+  "evidence_status": "DRIVER_ACCEPTED_NEGATIVE_BOUNDARY / ONLY_SURVIVING_COST_QUESTION",
+  "successor_gate": {
+    "new_information_gap": "The accepted parent rules out a stable static shell predictor but leaves one finite-window multiplier ordering whose total streaming cost has not been compared fairly to Hart/Fermat under the same sieve budget.",
+    "why_parent_result_does_not_close_it": "RR-2A424 measures conditional rank and coverage but explicitly does not prove a total-cost or asymptotic advantage.",
+    "discriminating_outcomes": [
+      "prove a reproducible factor-blind total-cost gain in a precisely delimited regime",
+      "classify the ordering as cost-equivalent to a known Hart/Fermat schedule",
+      "show coverage/preprocessing/square-test cost eliminates the apparent rank gain"
+    ],
+    "kill_condition": "Terminate negative if matched total work does not improve, if productive coverage collapses with bit size, or if the ordering reduces to standard Hart ordering plus ordinary modular sieving.",
+    "alternative_route_or_free_exploration_considered": "Further static shell correlation and larger census were rejected by the accepted negative boundary.",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "This is a distinct algorithmic-cost question with a binary/quantitative outcome, not another correlation scan."
+  },
+  "migration_source": {
+    "original_publication_id": "TP2-8E5A7D21C30F694B2D11",
+    "original_taskbook_path": "research_tasks/SEMIPRIME_RESIDUAL_PRIORITY_HART_STREAMING_COST_AUDIT_20260829.md",
+    "original_taskbook_blob_sha1": "sha1:23ce96521bbec8c970256c91e390519a03ebc111",
+    "original_origin_kind": "DRIVER_REVIEW_FOLLOWUP",
+    "original_publisher_id": "EM-DVR-P8H4Q2",
+    "original_published_at": "2026-08-29T06:20:30+00:00",
+    "source_commit": "e93b8427ced87bc1ce740082df3d2edf52f141fc",
+    "reason": "Same-task Generation-2 canonical body completion; exact scientific target, lineage, successor gate and original immutable evidence retained."
+  },
+  "parent_objective_generation_id": "OG-94F9DC002F795C10ACF9"
+}
