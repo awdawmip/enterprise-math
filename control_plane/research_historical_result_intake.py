@@ -107,7 +107,7 @@ def _science(root: Path, target: dict[str, Any]) -> tuple[dict[str, Any], list[d
     for key in ("task_id", "publication_id"):
         _require(old[key] == target[key] == publication[key] == er[key], "historical publication scope mismatch")
     _require(old["result_id"] == target["historical_result_id"], "historical Result identity mismatch")
-    _execution_evidence(root, target, old, er, publication)
+    audit_execution = _execution_evidence(root, target, old, er, publication)
     for key in ("claim_id", "researcher_id", "execution_branch"):
         _require(old[key] == er[key], "historical execution-linked field mismatch: " + key)
     _require(publication["taskbook_blob_sha1"] == old["taskbook_blob_sha1"], "historical taskbook mismatch")
@@ -117,20 +117,65 @@ def _science(root: Path, target: dict[str, Any]) -> tuple[dict[str, Any], list[d
     _require(any(row["path"] == old["return_path"] and row["sha256"] == old["return_sha256"].removeprefix("sha256:")
                  and row["git_blob_sha1"] == old["return_blob_sha1"].removeprefix("sha1:") for row in outputs), "return outside historical manifest")
     from control_plane import research_result_records_impl as impl
-    _require(old["execution_record_id"] not in impl.execution_map(root), "historical flat ER cannot be imported or aliased")
-    failures = impl.audit_result_record(old, None, root)
+    executions = impl.execution_map(root)
+    if audit_execution is None:
+        _require(old["execution_record_id"] not in executions, "historical flat ER cannot be imported or aliased")
+    else:
+        # Bind a preexisting canonical row to its exact original bytes; do not
+        # create an alias or infer authenticated execution from its presence.
+        canonical = executions.get(old["execution_record_id"])
+        _require(isinstance(canonical, dict), "pinned canonical execution evidence is absent from execution map")
+        _require(canonical.get("_record_path") == target["execution_pin"]["path"],
+                 "pinned canonical execution map path mismatch")
+        _require(canonical == {**audit_execution, "_record_path": target["execution_pin"]["path"]},
+                 "pinned canonical execution map content mismatch")
+    failures = impl.audit_result_record(old, audit_execution, root)
     errors = {error.split(": ", 1)[-1] for error in failures}
     _require(errors == set(target["allowed_ordinary_audit_errors"]), "historical audit has an unapproved failure or changed diagnosis")
     return old, outputs
 
 
 def _execution_evidence(root: Path, target: dict[str, Any], old: dict[str, Any],
-                        er: dict[str, Any], publication: dict[str, Any]) -> None:
+                        er: dict[str, Any], publication: dict[str, Any]) -> dict[str, Any] | None:
     """Validate pinned historical provenance; never normalize an ER or authorize it."""
     if "historical_execution_evidence" not in target:
         _require(old["execution_record_id"] == er.get("execution_record_id"), "historical execution identity mismatch")
         _require(old["taskbook_blob_sha1"] == er.get("taskbook_blob_sha1"), "historical execution-linked field mismatch: taskbook_blob_sha1")
         return
+    profile = target["historical_execution_evidence"]
+    if isinstance(profile, dict) and profile.get("schema") == "ENTERPRISE_MATH_EXACT_EXISTING_CANONICAL_EXECUTION_EVIDENCE_V1":
+        expected = {
+            "schema": "ENTERPRISE_MATH_EXACT_EXISTING_CANONICAL_EXECUTION_EVIDENCE_V1",
+            "historical_identifier_field": "execution_record_id",
+            "required_fields": ["execution_record_id", "taskbook_blob_sha1"],
+            "execution_map_binding": "EXACT_PREEXISTING_RECORD_PATH_AND_BYTES",
+            "taskbook_binding_basis": "EXACT_RESULT_PUBLICATION_AND_TASKBOOK_PINS",
+            "execution_authentication_restored": False,
+            "canonical_execution_alias_created": False,
+        }
+        _keys(profile, frozenset(expected), "existing canonical execution evidence profile")
+        _require(profile == expected and profile["execution_authentication_restored"] is False
+                 and profile["canonical_execution_alias_created"] is False,
+                 "unsupported existing canonical execution evidence profile")
+        _require(target.get("historical_authentication_status") == "UNKNOWN_NO_RECOVERED_AUTHENTICATED_SERVER_ENVELOPES",
+                 "existing canonical evidence cannot restore historical authentication")
+        _require(target.get("allowed_ordinary_audit_errors") == ["invalid method_harvest", "invalid independence_status", "invalid source_exposure_status"],
+                 "existing canonical evidence permits only the three exact legacy enum errors")
+        _require(er.get("record_schema") == "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1"
+                 and "_record_path" not in er and all(_text(er.get(key)) for key in expected["required_fields"]),
+                 "existing canonical evidence requires original canonical execution fields")
+        _require(er["execution_record_id"] == old["execution_record_id"]
+                 and Path(target["execution_pin"]["path"]).name == old["execution_record_id"] + ".json",
+                 "existing canonical execution evidence identity mismatch")
+        _require(er.get("execution_branch_base") == old["execution_branch_base"],
+                 "historical execution-linked field mismatch: execution_branch_base")
+        _require(old["taskbook_path"] == er.get("taskbook_path") == publication.get("taskbook_path") == target["taskbook_pin"]["path"],
+                 "existing canonical evidence requires exact Result/execution/publication/Taskbook path binding")
+        actual = pin(root, target["taskbook_pin"]["path"])
+        _require(all(item["taskbook_blob_sha1"].removeprefix("sha1:") == actual["git_blob_sha1"]
+                     for item in (old, er, publication)),
+                 "existing canonical evidence requires exact Result/execution/publication/Taskbook byte binding")
+        return er
     expected = {
         "schema": "ENTERPRISE_MATH_EXACT_LEGACY_EXECUTION_EVIDENCE_V1",
         "historical_identifier_field": "record_id",
@@ -139,7 +184,6 @@ def _execution_evidence(root: Path, target: dict[str, Any], old: dict[str, Any],
         "execution_authentication_restored": False,
         "canonical_execution_alias_created": False,
     }
-    profile = target["historical_execution_evidence"]
     _keys(profile, frozenset(expected), "historical execution evidence profile")
     _require(profile == expected and profile["execution_authentication_restored"] is False
              and profile["canonical_execution_alias_created"] is False,
