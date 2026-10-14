@@ -179,9 +179,11 @@ class ExistingCanonicalExecutionEvidenceTests(unittest.TestCase):
                 h._science(self.root, target)
 
     def test_existing_three_targets_still_audit_with_no_canonical_alias(self):
-        for target in self.contract["targets"]:
-            if target["historical_result_id"] == Q24:
-                continue
+        original_ids = {"RR-F97259D79B7E7EF3F69F", "RR-65F19B398F4D33FEAE9C", "RR-4B7576B2FDCA2CCBAB37"}
+        targets = [target for target in self.contract["targets"] if target["historical_result_id"] in original_ids]
+        self.assertEqual({target["historical_result_id"] for target in targets}, original_ids)
+        self.assertEqual(len(targets), 3)
+        for target in targets:
             self.copy_target(target)
             with self.subTest(result=target["historical_result_id"]):
                 old, outputs = h._science(self.root, target)
