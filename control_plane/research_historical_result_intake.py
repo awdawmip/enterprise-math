@@ -107,8 +107,8 @@ def _science(root: Path, target: dict[str, Any]) -> tuple[dict[str, Any], list[d
     for key in ("task_id", "publication_id"):
         _require(old[key] == target[key] == publication[key] == er[key], "historical publication scope mismatch")
     _require(old["result_id"] == target["historical_result_id"], "historical Result identity mismatch")
-    _require(old["execution_record_id"] == er["execution_record_id"], "historical execution identity mismatch")
-    for key in ("claim_id", "researcher_id", "execution_branch", "taskbook_blob_sha1"):
+    _execution_evidence(root, target, old, er, publication)
+    for key in ("claim_id", "researcher_id", "execution_branch"):
         _require(old[key] == er[key], "historical execution-linked field mismatch: " + key)
     _require(publication["taskbook_blob_sha1"] == old["taskbook_blob_sha1"], "historical taskbook mismatch")
     _require(old.get("output_manifest") and isinstance(old["output_manifest"], list), "missing historical outputs")
@@ -122,6 +122,43 @@ def _science(root: Path, target: dict[str, Any]) -> tuple[dict[str, Any], list[d
     errors = {error.split(": ", 1)[-1] for error in failures}
     _require(errors == set(target["allowed_ordinary_audit_errors"]), "historical audit has an unapproved failure or changed diagnosis")
     return old, outputs
+
+
+def _execution_evidence(root: Path, target: dict[str, Any], old: dict[str, Any],
+                        er: dict[str, Any], publication: dict[str, Any]) -> None:
+    """Validate pinned historical provenance; never normalize an ER or authorize it."""
+    if "historical_execution_evidence" not in target:
+        _require(old["execution_record_id"] == er.get("execution_record_id"), "historical execution identity mismatch")
+        _require(old["taskbook_blob_sha1"] == er.get("taskbook_blob_sha1"), "historical execution-linked field mismatch: taskbook_blob_sha1")
+        return
+    expected = {
+        "schema": "ENTERPRISE_MATH_EXACT_LEGACY_EXECUTION_EVIDENCE_V1",
+        "historical_identifier_field": "record_id",
+        "absent_fields": ["execution_record_id", "taskbook_blob_sha1"],
+        "taskbook_binding_basis": "EXACT_RESULT_PUBLICATION_AND_TASKBOOK_PINS",
+        "execution_authentication_restored": False,
+        "canonical_execution_alias_created": False,
+    }
+    profile = target["historical_execution_evidence"]
+    _keys(profile, frozenset(expected), "historical execution evidence profile")
+    _require(profile == expected and profile["execution_authentication_restored"] is False
+             and profile["canonical_execution_alias_created"] is False,
+             "unsupported historical execution evidence profile")
+    _require(target.get("historical_authentication_status") == "UNKNOWN_NO_RECOVERED_AUTHENTICATED_SERVER_ENVELOPES",
+             "legacy evidence profile cannot restore historical authentication")
+    _require(all(key not in er for key in expected["absent_fields"]),
+             "legacy evidence profile requires exact missing execution fields")
+    _require(er.get("record_id") == old["execution_record_id"]
+             and Path(target["execution_pin"]["path"]).name == old["execution_record_id"] + ".json",
+             "legacy execution evidence identity mismatch")
+    _require(er.get("execution_branch_base") == old["execution_branch_base"],
+             "historical execution-linked field mismatch: execution_branch_base")
+    _require(old["taskbook_path"] == publication.get("taskbook_path") == target["taskbook_pin"]["path"],
+             "legacy evidence requires exact Result/publication/Taskbook path binding")
+    actual = pin(root, target["taskbook_pin"]["path"])
+    _require(old["taskbook_blob_sha1"].removeprefix("sha1:") == actual["git_blob_sha1"]
+             and publication["taskbook_blob_sha1"].removeprefix("sha1:") == actual["git_blob_sha1"],
+             "legacy evidence requires exact Result/publication/Taskbook byte binding")
 
 
 def _authority(context: dict[str, Any], root: Path, *, governance: str | None = None, fresh: bool = False) -> None:
