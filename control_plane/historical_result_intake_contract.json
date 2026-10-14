@@ -165,6 +165,53 @@
         "execution_authentication_restored": false,
         "canonical_execution_alias_created": false
       }
+    },
+    {
+      "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+      "publication_id": "TP2-B4A441B23DA3159232C2",
+      "historical_result_id": "RR-943A793DB1F7B8012A85",
+      "authorizing_governance_task_id": "RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003",
+      "result_pin": {
+        "path": "research_artifacts/HISTORICAL_RESULT_CUSTODY/RS-X6-LEGACY-PLANE-RECONCILIATION/a0bfa8eace20b061f5b228c733acdc46221388d7/originals/research_result_records/RS-X6-LEGACY-PLANE-RECONCILIATION/RR-943A793DB1F7B8012A85.json",
+        "sha256": "64d2f629b61941c765a063fc63b0b5fa579366c1cb7dd0833073a5a6cd836879",
+        "git_blob_sha1": "87c35fce381e97ec11d3cb7d63db6d5088a21bf6"
+      },
+      "execution_pin": {
+        "path": "research_artifacts/HISTORICAL_RESULT_CUSTODY/RS-X6-LEGACY-PLANE-RECONCILIATION/a0bfa8eace20b061f5b228c733acdc46221388d7/originals/research_execution_records/RS-X6-LEGACY-PLANE-RECONCILIATION/ER-1508037CD774DEDA90E8.json",
+        "sha256": "32716434e8e7cc0ef1beaf49dda222bb2cb5663ae91f6b2e5b8f25cd82310212",
+        "git_blob_sha1": "bf4c24fabf0ed428c5f0e0274cdbf7e8998e9032"
+      },
+      "publication_pin": {
+        "path": "research_task_records/RS-X6-LEGACY-PLANE-RECONCILIATION/TP2-B4A441B23DA3159232C2.json",
+        "sha256": "847d53b0113ebf218cad6cc10a6bd4bcb28a5bf89bcef0d822351326e93fdfa4",
+        "git_blob_sha1": "1da00d4e4b4b128b05b92b2d0c5314513d1ab38f"
+      },
+      "taskbook_pin": {
+        "path": "research_tasks/RS_X6_LEGACY_PLANE_RECONCILIATION_20260905.md",
+        "sha256": "e72295cc75b8b3e3711a7a33dd10b676a2909d76cb8b0af4f417bc236162f2f6",
+        "git_blob_sha1": "9cbefbb8886a0ce4f312b1a52cde0990d55aa7eb"
+      },
+      "historical_authentication_status": "UNKNOWN_NO_RECOVERED_AUTHENTICATED_SERVER_ENVELOPES",
+      "allowed_ordinary_audit_errors": [
+        "unknown execution record",
+        "invalid method_harvest",
+        "invalid independence_status",
+        "output digest drift: research_artifacts/X6_LEGACY_PLANE_RECONCILIATION/recomputation_summary.json"
+      ],
+      "historical_source_custody": {
+        "schema": "ENTERPRISE_MATH_EXACT_SOURCE_CUSTODY_EVIDENCE_V1",
+        "map_pin": {
+          "path": "research_artifacts/HISTORICAL_RESULT_CUSTODY/RS-X6-LEGACY-PLANE-RECONCILIATION/a0bfa8eace20b061f5b228c733acdc46221388d7/CUSTODY_MAP_V1.json",
+          "sha256": "92cfe0e6dadb7bb52d6b25703e071bb0c4273503d39a84a62f89ad7955f96ad2",
+          "git_blob_sha1": "2682c36453108b3deab251d061d3a861523ded7b"
+        },
+        "scientific_path_binding": "EXACT_NONCANONICAL_CUSTODY_MAP_ONLY",
+        "secondary_digest_policy": "EXACT_SINGLE_PINNED_PRIMARY_BLOB_OBSERVATION",
+        "execution_authentication_restored": false,
+        "canonical_execution_alias_created": false,
+        "hard_target_alias_created": false,
+        "scientific_bytes_rewritten": false
+      }
     }
   ],
   "review_contract": {
