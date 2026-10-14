@@ -1,0 +1,64 @@
+{
+  "status": "PASS_SAVED_ACTUAL_RESULT_ARITHMETIC_ONLY",
+  "verified_at": "2026-10-14T01:09:11.782551+00:00",
+  "raw_bytes": 45047138,
+  "raw_sha256": "f88d9eff2eca129d4a7361b44a071be7cef7f736eda92a97ff9d3aa9c624e0c5",
+  "actual_diagnostics": 6,
+  "actual_timed_calls": 720,
+  "actual_completed_proper_returns": 725,
+  "slot_status_counts": {
+    "MEASURED_VALIDATED": 720,
+    "UNMEASURED_DIAGNOSTIC_CENSORED": 144
+  },
+  "matrix": "INCOMPLETE_SIX_METHOD_MATRIX_FERMAT_DIAGNOSTIC_CENSOR",
+  "elapsed_ns": 108848390914,
+  "complete_method_median_wall_ns": {
+    "ascending": 2086691.5,
+    "stride120_sameK": 2772636.5625,
+    "classic480_full_MeqK": 5577304.8125,
+    "priority_uncached": 2289431.6875,
+    "priority_lazy": 3267807.9375
+  },
+  "pairs": {
+    "priority_uncached": {
+      "ascending": {
+        "ratio": 1.0971586779837843,
+        "wins": 3,
+        "policy_pass": false
+      },
+      "stride120_sameK": {
+        "ratio": 0.8257236878661409,
+        "wins": 8,
+        "policy_pass": true
+      },
+      "classic480_full_MeqK": {
+        "ratio": 0.4104906876111319,
+        "wins": 9,
+        "policy_pass": true
+      }
+    },
+    "priority_lazy": {
+      "ascending": {
+        "ratio": 1.5660235053911897,
+        "wins": 2,
+        "policy_pass": false
+      },
+      "stride120_sameK": {
+        "ratio": 1.1785922402153997,
+        "wins": 1,
+        "policy_pass": false
+      },
+      "classic480_full_MeqK": {
+        "ratio": 0.5859116629552152,
+        "wins": 9,
+        "policy_pass": true
+      }
+    }
+  },
+  "Fermat_completed_offsets": 2632192,
+  "Fermat_pair_status": "UNKNOWN",
+  "owner_summary_arithmetic_matches": true,
+  "new_or_repeated_producer_sampler_prime_checker_timing_invocations": 0,
+  "scope": "one structured frozenMID48TRAIN0, conditional five-method measured subset; not full63/population/generalbitcost gain",
+  "parent": "OPEN"
+}
