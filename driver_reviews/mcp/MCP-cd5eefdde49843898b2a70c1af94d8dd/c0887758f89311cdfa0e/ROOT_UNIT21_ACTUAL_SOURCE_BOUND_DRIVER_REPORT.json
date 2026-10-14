@@ -1,0 +1,59 @@
+{
+  "schema": "ROOT_UNIT21_LOSSLESS_SAVE_CODE_AND_SYNTHETIC_EVIDENCE_DRIVER_REPORT_V1",
+  "saved_at": "2026-10-14T05:47:00.728369+00:00",
+  "driver_id": "EM-DVR-FBF223",
+  "role": "CONTROL_PLANE",
+  "driver_session": "MCP-cd5eefdde49843898b2a70c1af94d8dd",
+  "driver_authorization_id": "DA-A1DB35C00ED2F8C2A9FA",
+  "original_owner": "EM-SEMIPRIME-1F8B9B",
+  "original_SID": "MCP-0fc54865588849c28aa0a02ddb117f10",
+  "claim_id": "MCP-39d67949464bba2e72b3625a",
+  "ownership_epoch": 6138448969,
+  "run_id": "RUN-02bc03dfff15c15ce7daf2f3",
+  "same_original_owner_and_run_preserved": true,
+  "new_owner_Task_claim_run_branch": false,
+  "unit": "Unit21 storage implementation, synthetic fixtures only",
+  "status": "ROOT_CONTRIBUTED_CANDIDATE_V2_IMPLEMENTED_AND_SYNTHETIC_VERIFIED_NOT_SCIENCE_DEPLOYED",
+  "candidate_directory": "/workspace/em-owner-resume-20261011/new-round-20261011/unit21-root-independent-acceptance-fixtures/failure-accounting-fixed-v2",
+  "implementation": [
+    "Immutable diagnostic shards, JSON small manifests with exact logical key/event order, atomic LATEST after file/directory fsync",
+    "Typed nested mutation validation: create a new shard only on actual changes; previously saved state stays immutable",
+    "Small future save adapter retains call shape, explicit phase assignment, logical attempts vs acknowledged commits, and boundary export-once guard",
+    "Separate encode/hash/mutation/copy/write/flush/fsync/publish/restore/export wall/CPU counters and known logical write-return bytes",
+    "Post-publication failure latches old writer; explicit new-instance pinned readback/cache copy/directory sync required before further writes"
+  ],
+  "actual_verification": {
+    "candidate_v1_new_synthetic_checks": 11,
+    "independent_expected_logical_snapshots": 5,
+    "adapter_behavior_checks": 6,
+    "v2_focused_failure_fix_checks": 5,
+    "old_scientific_source_files_still_byte_identical": 8,
+    "old_Unit20_or_other_N_rerun": false,
+    "new_N_or_solver_checker_or_prime_invocations": 0
+  },
+  "limits": [
+    "Only normal supported JSON trees and one externally controlled writer/process; no multiprocess lock or CAS is claimed",
+    "Mutation validation scans and retained deep copies are paid; no CPU/memory reduction is claimed",
+    "Byte totals are application serialization/known write-return counts, not physical disk writes or I/O seconds; write exceptions before return have unknown accepted counts",
+    "Timing stages can nest and cannot be summed indiscriminately; returned telemetry still needs separately paid persistence",
+    "Old 64MiB observer and algorithm fees/timer brackets unchanged; no CENSOR was removed",
+    "Future actual harness integration, protocol/code/source freeze and genuinely unrun scientific sample remain unperformed"
+  ],
+  "peer_review": "/workspace/em-owner-resume-20261011/new-round-20261011/unit21-root-independent-acceptance-fixtures/ACTUAL_NONAUTHOR_REVIEW_AND_FIXED_FINDINGS.json",
+  "original_owner_activity": "Original owner has not yet delivered Unit21 module or actual413 Issue acknowledgement; responsive team status is not proof of any in-flight remote mutation. Root contributed candidate rather than replacing owner. Do not retry413 blindly or stop other chats.",
+  "scientific_Source": "4f60d29d3fe682b96d40c2d71f1cee82b79a9437",
+  "mathematical_acceptance": false,
+  "all_Unit20_priority_pairs": "UNKNOWN_INCOMPLETE_PAIR_MEASUREMENTS",
+  "full_63_position_Task": "UNFINISHED",
+  "parent": "OPEN",
+  "next_action": "Original owner integrate the reviewed candidate and future save adapter into the next genuinely unrun unit, preserving algorithms/resource/call slots; review and actual pre-generation freeze before any science.",
+  "scientific_Source_path": "research_notes/ROOT_UNIT21_LOSSLESS_SAVE_CODE_SYNTHETIC_COMPLETE_CAPSULE_20261014_FBF223.json",
+  "actual_Source_cold": {
+    "status": "PASS",
+    "full_originals": 127,
+    "full_original_bytes": 205655,
+    "proof_path": "/workspace/em-owner-resume-20261011/new-round-20261011/ROOT_UNIT21_IMPLEMENTATION_SOURCE_FULL127_COMPLETE_COLD_VERIFICATION.json",
+    "proof_bytes": 1185,
+    "proof_sha256": "d757c59e0c3f2d50a3f9abf3f344a307eef5ff45d1e314ad1970d07cc4c0252b"
+  }
+}
