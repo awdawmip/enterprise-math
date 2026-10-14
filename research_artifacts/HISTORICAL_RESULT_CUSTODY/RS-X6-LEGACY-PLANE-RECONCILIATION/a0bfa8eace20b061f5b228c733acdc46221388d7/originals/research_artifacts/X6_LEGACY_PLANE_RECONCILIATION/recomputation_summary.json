@@ -1,0 +1,66 @@
+{
+  "schema": "ENTERPRISE_MATH_X6_LEGACY_PLANE_RECOMPUTATION_V1",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "researcher_id": "EM-X6P-40B5BD",
+  "semantics": {
+    "native_slice": "AFFINE_Z3_SIGNED_SUBTORSOR_OF_X6",
+    "center": [0, 0, 0],
+    "observer_address": "rho(z)=z-min(z)*(1,1,1)",
+    "common_level": "mu(z)=min(z)",
+    "lossless_reconstruction": "z=rho(z)+mu(z)*(1,1,1)",
+    "signed_displacement": "delta=q-p",
+    "quadratic_gauge": "G(delta)=sum_i delta_i^2",
+    "step_count": "T(delta)=sum_i |delta_i|",
+    "shortest_path_multiplicity": "M(delta)=T(delta)!/prod_i |delta_i|!",
+    "brc_sign_rule": "BRC weights are positive/nonnegative multiplicities; signed displacement is provenance, not algebraic cancellation."
+  },
+  "exact_witnesses": {
+    "observer_collision": {
+      "z1": [2, -1, 0],
+      "rho_z1": [3, 0, 1],
+      "mu_z1": -1,
+      "z2": [3, 0, 1],
+      "rho_z2": [3, 0, 1],
+      "mu_z2": 0,
+      "conclusion": "rho alone is not injective; (rho,mu) distinguishes and reconstructs both points."
+    },
+    "legacy_reversal_artifact": {
+      "signed_forward": [3, 4, 0],
+      "legacy_forward_rho": [3, 4, 0],
+      "legacy_forward_square": 25,
+      "signed_reverse": [-3, -4, 0],
+      "legacy_reverse_rho": [1, 0, 4],
+      "legacy_reverse_square": 17,
+      "centered_forward_square": 25,
+      "centered_reverse_square": 25,
+      "conclusion": "25->17 is observer normalization artifact, not intrinsic reversal asymmetry."
+    },
+    "n25_shell": {
+      "signed_endpoint_count": 30,
+      "support_one_count": 6,
+      "support_two_count": 24,
+      "support_three_count": 0,
+      "signed_total_shortest_route_mass": 846,
+      "legacy_nonnegative_minzero_address_count": 9,
+      "legacy_observer_section_route_mass": 213
+    },
+    "centered_neighbors": [
+      [1, 0, 0], [-1, 0, 0],
+      [0, 1, 0], [0, -1, 0],
+      [0, 0, 1], [0, 0, -1]
+    ]
+  },
+  "audited_live_consumers": [
+    "definitions/00_CURRENT_NATIVE_FOUNDATION.md",
+    "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
+    "definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
+    "definitions/ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md",
+    "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md",
+    "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md",
+    "definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md",
+    "definitions/P000_FCC_PRIMARY_COORDINATE_CARRIER_20260829.md"
+  ],
+  "live_consumer_audit_result": "NO_BROKEN_CURRENT_CONSUMER_FOUND",
+  "live_definition_edits_required": false,
+  "reason_no_live_edit": "The centered-slice rebase and subsequent P000/FCC hardening already repaired the task's named live consumers by latest main audit; this reconciliation adds claim-level certification and anti-regression rather than reverting/overwriting newer Foundation work."
+}

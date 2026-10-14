@@ -1,0 +1,191 @@
+{
+  "schema": "ENTERPRISE_MATH_X6_LEGACY_PLANE_CLAIM_LEDGER_V1",
+  "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+  "publication_id": "TP2-B4A441B23DA3159232C2",
+  "researcher_id": "EM-X6P-40B5BD",
+  "frozen_legacy_baseline": "fd2bcff10ca6e147348b6c1236027fc0d2877df3",
+  "centered_signed_baseline": "59538f585d037d09ef687b28715c4bc1a3f9fe03",
+  "latest_main_audit_ref": "3435b1a4e59b029037ee6bdb026091afc1be8d27",
+  "classification_vocabulary": [
+    "SALVAGEABLE_AFTER_RETYPING",
+    "ARCHIVE_ONLY",
+    "BROKEN_CURRENT_CONSUMER"
+  ],
+  "claims": [
+    {
+      "claim_id": "LP-001",
+      "legacy_claim": "Native/physical plane origin is the triple-circle overlap / origin-one object.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "Native centered X6 slice zero is the chosen Cell center (0,0,0); triple-circle overlap survives only as carrier-incidence provenance."
+    },
+    {
+      "claim_id": "LP-002",
+      "legacy_claim": "A selected three-axis plane is intrinsically a three-positive-ray object.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "Selected native slice is an affine Z^3 signed sub-torsor with primitive directions ±e_i, ±e_j, ±e_k."
+    },
+    {
+      "claim_id": "LP-003",
+      "legacy_claim": "Nonnegative triples with min=0 are native point identities.",
+      "classification": "SALVAGEABLE_AFTER_RETYPING",
+      "centered_resolution": "They remain a canonical relative/carrier observer section rho(z)=z-min(z)1, not native identity."
+    },
+    {
+      "claim_id": "LP-004",
+      "legacy_claim": "The min-zero observer address rho(z) alone uniquely determines the native signed point.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "rho is lossy: diagonal common level is erased."
+    },
+    {
+      "claim_id": "LP-005",
+      "legacy_claim": "Observer address plus common level is lossless.",
+      "classification": "SALVAGEABLE_AFTER_RETYPING",
+      "centered_resolution": "With mu=min(z), z=rho(z)+mu(1,1,1)."
+    },
+    {
+      "claim_id": "LP-006",
+      "legacy_claim": "Endpoint displacement should be computed from independently min-zero-normalized endpoints/relative addresses.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "Intrinsic displacement is raw signed q-p in Z^3."
+    },
+    {
+      "claim_id": "LP-007",
+      "legacy_claim": "Anchor-normalized clr(q-p)=rho(q-p) is an intrinsic directed displacement.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "clr/rho is an observer quotient representative only."
+    },
+    {
+      "claim_id": "LP-008",
+      "legacy_claim": "The component-square gauge of independently normalized displacement is an intrinsic directed metric.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "Intrinsic squared gauge is sum_i (q_i-p_i)^2 on signed displacement."
+    },
+    {
+      "claim_id": "LP-009",
+      "legacy_claim": "Squared signed displacement gauge is reversal invariant.",
+      "classification": "SALVAGEABLE_AFTER_RETYPING",
+      "centered_resolution": "g(p,q)=g(q,p)=sum_i delta_i^2."
+    },
+    {
+      "claim_id": "LP-010",
+      "legacy_claim": "Native shortest step count is the sum of displacement components after positive normalization.",
+      "classification": "SALVAGEABLE_AFTER_RETYPING",
+      "centered_resolution": "Use T=sum_i |delta_i|; the old formula survives only after absolute-value retyping."
+    },
+    {
+      "claim_id": "LP-011",
+      "legacy_claim": "Dominant branch is max of a positive/min-zero normalized displacement.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "Dominant native axis is argmax_i |delta_i|; orientation sign(delta_i) is separate."
+    },
+    {
+      "claim_id": "LP-012",
+      "legacy_claim": "Physical direction/orientation can be recovered from a min-zero displacement triple alone.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "Observer normalization loses common level and can distort reversal; keep signed delta."
+    },
+    {
+      "claim_id": "LP-013",
+      "legacy_claim": "Endpoint reversal can intrinsically change a length-25 segment to length 17.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "25→17 is a rho/min-zero observer artifact from re-normalizing reverse displacement."
+    },
+    {
+      "claim_id": "LP-014",
+      "legacy_claim": "Endpoint reversal preserves native quadratic gauge, L1 step count and shortest-path multiplicity.",
+      "classification": "SALVAGEABLE_AFTER_RETYPING",
+      "centered_resolution": "delta reverses to -delta; |delta_i| is unchanged."
+    },
+    {
+      "claim_id": "LP-015",
+      "legacy_claim": "The N=25 physical shell has 9 points under nonnegative min-zero coordinates.",
+      "classification": "SALVAGEABLE_AFTER_RETYPING",
+      "centered_resolution": "The 9 triples are an observer/positive-section census only, not the full native shell."
+    },
+    {
+      "claim_id": "LP-016",
+      "legacy_claim": "The centered signed N=25 shell has 30 displacement vectors.",
+      "classification": "SALVAGEABLE_AFTER_RETYPING",
+      "centered_resolution": "Exact recomputation: 6 support-one and 24 support-two signed vectors."
+    },
+    {
+      "claim_id": "LP-017",
+      "legacy_claim": "The full physical BRC route mass on N=25 is 213.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "213 is the old 9-address observer-section mass."
+    },
+    {
+      "claim_id": "LP-018",
+      "legacy_claim": "The full centered signed N=25 shortest-route BRC mass is 846.",
+      "classification": "SALVAGEABLE_AFTER_RETYPING",
+      "centered_resolution": "6*1 + 24*35 = 846."
+    },
+    {
+      "claim_id": "LP-019",
+      "legacy_claim": "BRC route multiplicity can be treated as signed cancellation when displacement signs differ.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "Positive/weighted BRC multiplicities remain nonnegative; sign is provenance/label, not coefficient cancellation."
+    },
+    {
+      "claim_id": "LP-020",
+      "legacy_claim": "Multinomial shortest-path multiplicity survives the rebase.",
+      "classification": "SALVAGEABLE_AFTER_RETYPING",
+      "centered_resolution": "For signed delta, M=(sum |delta_i|)!/prod |delta_i|!."
+    },
+    {
+      "claim_id": "LP-021",
+      "legacy_claim": "Z^3/Z(1,1,1) is a valid algebraic quotient for the min-zero section.",
+      "classification": "SALVAGEABLE_AFTER_RETYPING",
+      "centered_resolution": "Retain as a derived displacement/carrier observer quotient with explicit type boundary."
+    },
+    {
+      "claim_id": "LP-022",
+      "legacy_claim": "Diagonal-shift equivalence in Z^3 is native Cell identity.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "Native centered slice does not quotient by (1,1,1); the quotient is lower-information observer/carrier structure."
+    },
+    {
+      "claim_id": "LP-023",
+      "legacy_claim": "A quotient/min-zero representative can replace a signed endpoint in later native operations without repair data.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "Future native operations require signed endpoint or rho plus common level."
+    },
+    {
+      "claim_id": "LP-024",
+      "legacy_claim": "The local seven-cell patch centered at the historical triple-overlap point is the literal centered native neighborhood.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "Centered native slice has Cell center plus six nearest signed neighbors ±e_1, ±e_2, ±e_3."
+    },
+    {
+      "claim_id": "LP-025",
+      "legacy_claim": "A six-neighbor centered planar adjacency survives as a structural local fact.",
+      "classification": "SALVAGEABLE_AFTER_RETYPING",
+      "centered_resolution": "Retype the neighborhood around the actual Cell center using ± selected native axes."
+    },
+    {
+      "claim_id": "LP-026",
+      "legacy_claim": "Square/parity and affine trace identities that depend only on raw signed displacement remain valid.",
+      "classification": "SALVAGEABLE_AFTER_RETYPING",
+      "centered_resolution": "Replace positive/min-zero variables by signed displacement variables and use absolute counts where path length enters."
+    },
+    {
+      "claim_id": "LP-027",
+      "legacy_claim": "Unoriented segment data should be a two-value intrinsic spectrum {g_AB,g_BA}.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "Intrinsic spectrum collapses to {N,N}; any unequal pair is an observer diagnostic, not native geometry."
+    },
+    {
+      "claim_id": "LP-028",
+      "legacy_claim": "Current live plane consumers still require the legacy origin/min-zero semantics after the centered-slice rebase.",
+      "classification": "ARCHIVE_ONLY",
+      "centered_resolution": "Audit at current main finds the named live consumers already retyped; no broken current consumer remains in this task's audited set."
+    }
+  ],
+  "classification_counts": {
+    "SALVAGEABLE_AFTER_RETYPING": 12,
+    "ARCHIVE_ONLY": 16,
+    "BROKEN_CURRENT_CONSUMER": 0
+  },
+  "broken_current_consumers": [],
+  "audit_note": "BROKEN_CURRENT_CONSUMER is reserved for a superseded claim still consumed as current. None was found in the audited live definition set at latest_main_audit_ref; historical claims are retained as archive/provenance or salvaged with explicit retyping."
+}
