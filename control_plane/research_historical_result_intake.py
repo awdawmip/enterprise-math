@@ -99,6 +99,9 @@ def _target(root: Path, task: str, publication: str, result: str) -> dict[str, A
 
 
 def _science(root: Path, target: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    if "historical_source_custody" in target:
+        from control_plane import research_historical_source_custody as custody
+        return custody.science(root, target)
     for field in ("result_pin", "execution_pin", "publication_pin", "taskbook_pin"):
         _check_pin(root, target[field])
     old = json.loads(_path(root, target["result_pin"]["path"]).read_text(encoding="utf-8"))
@@ -264,13 +267,21 @@ def _validate_receipt(record: dict[str, Any], root: Path, governance: str | None
     _authority(auth["context"], root, governance=governance)
 
 
+def _target_pins(target: dict[str, Any]) -> dict[str, Any]:
+    pins = {k: copy.deepcopy(target[k]) for k in ("result_pin", "execution_pin", "publication_pin", "taskbook_pin")}
+    if "historical_source_custody" in target:
+        from control_plane import research_historical_source_custody as custody
+        pins["custody_map_pin"] = custody.map_pin(target)
+    return pins
+
+
 def validate_intake(record: dict[str, Any], *, root: Path) -> None:
     _keys(record, INTAKE_RECORD_KEYS, "historical intake record")
     _require(record.get("record_schema") == SCHEMA, "wrong historical intake schema")
     target = _target(root, record["task_id"], record["publication_id"], record["historical_result_id"])
     old, outputs = _science(root, target)
     _require(record["scientific_record"] == old and record["scientific_manifest"] == outputs, "historical science or author provenance changed")
-    _require(record["target_pins"] == {k: target[k] for k in ("result_pin", "execution_pin", "publication_pin", "taskbook_pin")}, "intake target pins changed")
+    _require(record["target_pins"] == _target_pins(target), "intake target pins changed")
     expected_id = "HRI-" + hashlib.sha256((target["task_id"] + "|" + target["publication_id"] + "|" + target["result_pin"]["sha256"]).encode()).hexdigest()[:24].upper()
     _require(record["intake_id"] == expected_id, "wrong historical intake ID")
     _require(record["historical_authentication_status"] == target["historical_authentication_status"], "historical authentication cannot be restored")
@@ -327,7 +338,7 @@ def freeze_intake(spec: dict[str, Any], authority_context: dict[str, Any], *, ro
     old, outputs = _science(root, target)
     identifier = "HRI-" + hashlib.sha256((target["task_id"] + "|" + target["publication_id"] + "|" + target["result_pin"]["sha256"]).encode()).hexdigest()[:24].upper()
     record = {"record_schema": SCHEMA, "intake_id": identifier, "task_id": target["task_id"], "publication_id": target["publication_id"],
-        "historical_result_id": target["historical_result_id"], "target_pins": {k: copy.deepcopy(target[k]) for k in ("result_pin", "execution_pin", "publication_pin", "taskbook_pin")},
+        "historical_result_id": target["historical_result_id"], "target_pins": _target_pins(target),
         "scientific_record": old, "scientific_manifest": outputs, "historical_authentication_status": target["historical_authentication_status"],
         "effect": "PROSPECTIVE_SCIENTIFIC_REVIEW_ONLY", "historical_review_inherited": False, "terminal": False,
         "created_at": authority_context["authorized_at"], "request_binding": spec["run_request_id"], "reason": spec["reason"]}
