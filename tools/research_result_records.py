@@ -616,6 +616,16 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
             "materialize follow-up only after review synthesis"
         )
 
+    publisher_args = {}
+    if spec is not None and "prospective_result_authority_binding" in spec:
+        # This opt-in route needs the live reviewer as publisher. Ordinary
+        # follow-ups retain their existing legacy/no-publisher behavior.
+        session = getattr(args, "reviewer_session_id", None)
+        if current_authority is None or not isinstance(session, str) or not session.strip():
+            raise ResultRecordError("prospective follow-up requires current review authority and session")
+        publisher_args = {"publishing_driver_id": args.driver_id,
+                          "publisher_session_id": session}
+
     reviewed_at = _now(args.reviewed_at)
     try:
         driver_authority = _driver_authority.require_active_driver(
@@ -692,6 +702,7 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
             spec=spec,
             created_at=args.followup_created_at,
             root=ROOT,
+            **publisher_args,
         )
         # A successful canonical materialize return has already validated the
         # exact persisted candidate and the current CI isolation chain.
