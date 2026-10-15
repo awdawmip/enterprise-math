@@ -1,0 +1,652 @@
+{
+  "schema": "LOCAL_GOV_FOUR_OBJECT_NEXT_UNFINISHED_DELTA_V1",
+  "prepared_at": "2026-10-15T03:40:03.942964+00:00",
+  "role": "READONLY_CONTROL_SUPPORT_NOT_NATIVE_DECISION",
+  "independence_status": "UNKNOWN",
+  "source_exposure_status": "DIRECTED_NONBLIND",
+  "scope": [
+    "RR65",
+    "RR4B",
+    "Q24",
+    "X6"
+  ],
+  "remote_host_native_source_state_writes": false,
+  "scientific_runs": 0,
+  "gov": {
+    "task_id": "RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003",
+    "publication_id": "TP2-67EBB45C1264C62A32E5",
+    "last_full_task_receipt_at": "2026-10-15T01:03:52.288196+00:00",
+    "last_full_task_receipt_source": "fd3e31980efba0ca8344ee47d26f83dadc8cbc7f",
+    "taskbook_path": "research_tasks/GOV_ORPHAN_CONTROL_RECOVERY_20261003.md",
+    "taskbook_blob_sha1": "7756dd90be6aeea19f3a37c019a6a6ffe0eeaefc",
+    "taskbook_body_line_clauses": {
+      "102": "5. 保存可接手报告，逐对象列 before/after、认证更正或 replacement/review/followup ID、不可变 commit/path/blob、尚存依赖、下一执行角色与接手条件。PCF7 给出其既有治理任务的精确任务/发布 ID 与独立纠错入口；不新增同义 PCF7 研究任务。检查新任务没有重复原有治理范围。",
+      "110": "SUCCESS：四个对象各有经回读验证的合法终局控制去向，或精确可接手的来源缺口与角色路径；PCF7 已明确绑定既有治理入口。每项实际 mutation 必须有对应合法授权、CAS、持久成果和认证回读。本治理任务的完成不是原数学任务接受，也不自动关闭任何数学 Objective。",
+      "112": "ALREADY_REPAIRED：发现已有效恢复或已有治理任务完整覆盖，直接消费并保留该来源，返回去重结果。不得再做相同 mutation 或重跑已冻结研究。",
+      "114": "BLOCKED：缺不可恢复的 execution/来源事实、当前授权或合法 replacement 路径时，只冻结该单元的具体阻碍、所需最小证据和解除条件；继续其他独立单元。报告必须区分路由已接上与底层 authority 已修复，不能把发出任务当作修复成功。",
+      "116": "KILL / RETURN：需要改 validator、删隔离、扩大网络权限、伪造旧身份、重新解释 P000、借控制修复重开已关闭数学范围时立即停止该路线，保存准确证据。结果不支持恢复时允许返回有界 NO-GO；禁止为得到 READY 而篡改真值。"
+    },
+    "can_prepare_terminal_governance_result": true,
+    "basis": "前三对象实际DONE/COMPLETE/ACCEPTED；X6合法intake+当前REQUEST_REVISION+HANDOFF_READY与精确科学缺口/角色路线。满足第110行允许的两类去向。",
+    "remaining_control_step": "保存本四行最终矩阵/接手清单为原GOV最终产物，并走当前原run正常freeze及治理审阅。没有已证还欠的四对象接入步骤；本报告不是Native GOV_DONE。",
+    "excluded": "RR133不得纳入本GOV；PCF7既有治理入口沿用655，不重新审计。",
+    "current_run_read": "Root原665正在读取当前GOV/lease；本整理不重复读。写入条件由Root消费真实665，不从655旧lease推断当前授权。"
+  },
+  "objects": [
+    {
+      "object": "RR65",
+      "task_id": "RS-N-COUPLED-PUBLIC-N-NONREFLECTIVE-CAPABILITY-ASYMMETRY",
+      "publication_id": "TP2-08FEE1835AC7CB784181",
+      "historical_result_id": "RR-65F19B398F4D33FEAE9C",
+      "last_actual_state": {
+        "observed_at": "2026-10-14T15:30:14.366369+00:00",
+        "source_commit": "44270717b3b983a892beb5b0da785afd423ef78c",
+        "fields": {
+          "state": "DONE",
+          "dispatch_state": "COMPLETE",
+          "driver_disposition": "ACCEPTED",
+          "result_id": "HRI-49FCA3BCD1F24162833B46DB",
+          "review_id": "HIRR-850DA2F223307A2910655F33",
+          "claim_id": null,
+          "session_id": null,
+          "lease_until": null,
+          "hard_block": {
+            "code": "LEGACY_HANDOFF_SCOPE_UNRESOLVED",
+            "missing_object": "an explicit continuation versus frozen-return scope for this exact frontier",
+            "necessity": "An untyped old handoff must not silently redispatch completed research.",
+            "owner": "control-plane/handoff-scope-reconciliation",
+            "publication_id": "TP2-08FEE1835AC7CB784181",
+            "source_handoff": {
+              "progress_at": "2026-09-02T00:00:28+00:00",
+              "progress_ref": "PR#1069 / RR-65F19B398F4D33FEAE9C / ER-020EE42FBD97E1978ADD / head 8ea4327a62f6a6ef2131ab6f790489540fc587de",
+              "server_comment_id": 5502262070
+            },
+            "taskbook_blob_sha1": "sha1:21346d14f5ed3069cee2a26cc985b234379fdbbb",
+            "unblock_condition": "Append an authorized exact-frontier RECONCILE_HANDOFF_SCOPE event with verified immutable source evidence, or consume the ordinary Result/review lifecycle."
+          }
+        },
+        "review_id_present_in_state": true,
+        "local_receipts": [
+          "/workspace/em-research-continuation-20261014/control/ROOT_RECEIPT_614_RR65_POSTREVIEW_TASK_STATE_ACTUAL_TERMINAL.json"
+        ],
+        "live_requery_performed": false
+      },
+      "hri": {
+        "intake_id": "HRI-49FCA3BCD1F24162833B46DB",
+        "effect": "PROSPECTIVE_SCIENTIFIC_REVIEW_ONLY",
+        "intake_terminal_field": false,
+        "historical_authentication_status": "UNKNOWN_NO_RECOVERED_AUTHENTICATED_SERVER_ENVELOPES",
+        "historical_review_inherited": false,
+        "source_pin": {
+          "source_commit": "392779696b036299fc7a631b1dd71a59229566dd",
+          "path": "research_historical_result_intakes/RS-N-COUPLED-PUBLIC-N-NONREFLECTIVE-CAPABILITY-ASYMMETRY/HRI-49FCA3BCD1F24162833B46DB.json",
+          "bytes": 37224,
+          "sha256": "736b2ab4a235dc75b330a35d463896a31097f4d488fce308681927f0274acc5a",
+          "git_blob_sha1": "7facf2641320357511021def7fb0624ebef7a24c",
+          "local_full_readback": "/workspace/em-research-continuation-20261014/control/ROOT610_RR65_INTAKE_FULL_IMMUTABLE_READBACK_ACTUAL.json"
+        }
+      },
+      "hirr": {
+        "review_id": "HIRR-850DA2F223307A2910655F33",
+        "disposition": "ACCEPTED",
+        "terminal_scope": "TASK",
+        "parent_completion_granted": false,
+        "source_pin": {
+          "source_commit": "b54001d77faeba9eafc82ce0f8cb5ff9ae3c239a",
+          "path": "research_historical_result_reviews/HRI-49FCA3BCD1F24162833B46DB/HIRR-850DA2F223307A2910655F33.json",
+          "bytes": 3387,
+          "sha256": "fbe6b96df23e77a5d110cd9c336f0eca65d51798ac7bbf0626d7537e919cf209",
+          "git_blob_sha1": "a66dfae0fdfac3378969afa37602c284f696e125",
+          "local_full_readback": "/workspace/em-research-continuation-20261014/control/ROOT613_RR65_HIRR_FULL_SOURCE_READBACK_ACTUAL.json"
+        },
+        "report_pin": {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/416c25c899b556daf83b/ROOT_RR65_TRACE_LINEAR_PROSPECTIVE_DRIVER_REVIEW_20261014.md",
+          "bytes": 7780,
+          "sha256": "0500adeb71853a2df38bd0af4e7a5fbf19eba0d75bf259b129b9e2c9da9a5d9a",
+          "git_blob_sha1": "461701b594910f000f544550f0ac86e73d6b4220"
+        },
+        "exact_followup": {
+          "next_action": "Preserve the exact G_trace-lin closure and the open unrestricted N-coupled objective. First reconcile the highest verified saved frontier of existing RS-N-COUPLED-PUBLIC-N-REALIZED-EFFECT-TRACE-NONCOMPILABILITY and RS-DRIVER-NCOUPLED-COVERAGE-CLOSURE-ROUTING; do not create duplicate successors or repeat completed scientific checks. The distinct residual requires a publicly specified, non-oracular realized transition outside public presentation compilation while also lacking extensional recovery. Continue other orphan GOV recovery objects separately; this review closes only the target Task scope.",
+          "next_task_id": null,
+          "parent_objective_status": "OPEN"
+        }
+      },
+      "original_target_pins": {
+        "result_pin": {
+          "path": "research_result_records/RS-N-COUPLED-PUBLIC-N-NONREFLECTIVE-CAPABILITY-ASYMMETRY/RR-65F19B398F4D33FEAE9C.json",
+          "sha256": "4e0f999358d53c866f650dbf667e356e38f166e8eeb18ce78cd5495049447fdf",
+          "git_blob_sha1": "6a2405630b87d97ad7aeb0508e41ffcf12e94e75"
+        },
+        "execution_pin": {
+          "path": "research_execution_records/RS-N-COUPLED-PUBLIC-N-NONREFLECTIVE-CAPABILITY-ASYMMETRY/ER-020EE42FBD97E1978ADD.json",
+          "sha256": "031c0737be17b9a82dcfa60c15029bd7f04ab8c77b9efa091a753ea1e98654bd",
+          "git_blob_sha1": "e7e364226af86810b58c94eb98442fa25c568f0e"
+        },
+        "publication_pin": {
+          "path": "research_task_records/RS-N-COUPLED-PUBLIC-N-NONREFLECTIVE-CAPABILITY-ASYMMETRY/TP2-08FEE1835AC7CB784181.json",
+          "sha256": "951f8029141638b2624e1faefa5335cbcabffb65448902f7f17c6f26aeba04e2",
+          "git_blob_sha1": "9744d76da45a3c69fff4be42abf3199ac3a20c37"
+        },
+        "taskbook_pin": {
+          "path": "research_tasks/N_COUPLED_PUBLIC_N_NONREFLECTIVE_CAPABILITY_ASYMMETRY_20260901.md",
+          "sha256": "5ab77456c3a2c1641fac29746c2df907df97516a14728415633f881979078769",
+          "git_blob_sha1": "21346d14f5ed3069cee2a26cc985b234379fdbbb"
+        }
+      },
+      "accepted_or_retained_scope": "有限公开presentation-transparent G_trace-lin负边界；marked-coordinate compilation/maximal minors，非一切capability不可能。",
+      "actual_unfinished_or_outside_scope": [
+        "本Task无已证仍欠的intake、当前review或科学重算。",
+        "更广母题仍OPEN；先消费既有RS-DRIVER-NCOUPLED-COVERAGE-CLOSURE-ROUTING的最高frontier，不新建重复后继。"
+      ],
+      "gov_next_action": "ALREADY_REPAIRED：在原GOV最终矩阵引用真实HRI/HIRR/reducer，不重复intake/review/checker。",
+      "historical_limit": "原execution认证及历史阅读/checker执行仍UNKNOWN，不倒填；此限制不是前三项再次接入的先决条件。",
+      "actual_continuation_route": {
+        "action": "CONSUME_COMPLETED_RECORDS",
+        "execution_authorized": false,
+        "required_role": "NONE",
+        "requires_current_role_authorization": false,
+        "requires_predecessor_contact": false
+      },
+      "retained_hard_block_note": "历史LEGACY_HANDOFF_SCOPE_UNRESOLVED不覆盖本次DONE/COMPLETE/ACCEPTED；其unblock文字本身允许consume ordinary Result/review lifecycle。不得据此再发reconcile。"
+    },
+    {
+      "object": "RR4B",
+      "task_id": "RS-N-COUPLED-PUBLIC-N-REALIZED-EFFECT-TRACE-NONCOMPILABILITY",
+      "publication_id": "TP2-6E2A94C1B7D3058F2A41",
+      "historical_result_id": "RR-4B7576B2FDCA2CCBAB37",
+      "last_actual_state": {
+        "observed_at": "2026-10-14T17:10:16.294523+00:00",
+        "source_commit": "8fe479e6bb1940550256063b557764d76b1a0733",
+        "fields": {
+          "state": "DONE",
+          "dispatch_state": "COMPLETE",
+          "driver_disposition": "ACCEPTED",
+          "result_id": "HRI-60672C16D99BF564DA896458",
+          "review_id": "HIRR-788F8A1C5209C68A6319D355",
+          "claim_id": null,
+          "session_id": null,
+          "lease_until": null,
+          "hard_block": "PUBLIC_N_ONLY_REALIZED_EFFECT_WITH_PRE_READOUT_TRACE_NONCOMPILABILITY_AND_NONORACULAR_SUPPORT_ASYMMETRY"
+        },
+        "review_id_present_in_state": true,
+        "local_receipts": [
+          "/workspace/em-research-continuation-20261014/control/ROOT_RECEIPT_624_RR4B_POSTREVIEW_TASK_STATE_ACTUAL_TERMINAL.json"
+        ],
+        "live_requery_performed": false
+      },
+      "hri": {
+        "intake_id": "HRI-60672C16D99BF564DA896458",
+        "effect": "PROSPECTIVE_SCIENTIFIC_REVIEW_ONLY",
+        "intake_terminal_field": false,
+        "historical_authentication_status": "UNKNOWN_NO_RECOVERED_AUTHENTICATED_SERVER_ENVELOPES",
+        "historical_review_inherited": false,
+        "source_pin": {
+          "source_commit": "905bb45f2ccbb1f77c376a77ef9c961676f2545d",
+          "path": "research_historical_result_intakes/RS-N-COUPLED-PUBLIC-N-REALIZED-EFFECT-TRACE-NONCOMPILABILITY/HRI-60672C16D99BF564DA896458.json",
+          "bytes": 40421,
+          "sha256": "7773d67935a34061c56973363e3fc83c094832811c2b859d39f1210f9bbea306",
+          "git_blob_sha1": "2a8f93cc9f8bdaeca118717441ba1f2ee4aba5c2",
+          "local_full_readback": "/workspace/em-research-continuation-20261014/control/ROOT617_HRI_ACTUAL_FULL_SOURCE_READBACK.json"
+        }
+      },
+      "hirr": {
+        "review_id": "HIRR-788F8A1C5209C68A6319D355",
+        "disposition": "ACCEPTED",
+        "terminal_scope": "TASK",
+        "parent_completion_granted": false,
+        "source_pin": {
+          "source_commit": "f18bce7bb7a66fb526b3bcd7fea8997048e57185",
+          "path": "research_historical_result_reviews/HRI-60672C16D99BF564DA896458/HIRR-788F8A1C5209C68A6319D355.json",
+          "bytes": 3383,
+          "sha256": "b2fa5f16c6ed4f2b5cdc636ce005c890204baab1d5f762f7060715baa2c908eb",
+          "git_blob_sha1": "71ed8cf17ac060609f157c89c42440d3d59f8000",
+          "local_full_readback": "/workspace/em-research-continuation-20261014/control/ROOT622_HIRR_ACTUAL_FULL_SOURCE_READBACK.json"
+        },
+        "report_pin": {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/d87fb83fa47dae503b63/ROOT_RR4B_PUBLIC_SEED_EXTERNALIZATION_CURRENT_DRIVER_REVIEW_20261014.md",
+          "bytes": 8422,
+          "sha256": "2c451b093920dee7197b3d72f0f2ba5129871a9d3febe4da747530d66decbbff",
+          "git_blob_sha1": "c4da22255315e92fdea6106cde5bc113a999130d"
+        },
+        "exact_followup": {
+          "next_action": "Preserve completed exact trace-linear and public-seed negative scopes. First consume the highest current verified frontier of existing RS-DRIVER-NCOUPLED-COVERAGE-CLOSURE-ROUTING before selecting a genuinely distinct, fully specified non-oracular realized mechanism. Do not create a duplicate successor or rerun completed science. Original orphan GOV separately continues exact Q24 and X6 source/provenance recovery with their old bytes preserved; this review closes only the target Task scope.",
+          "next_task_id": null,
+          "parent_objective_status": "OPEN"
+        }
+      },
+      "original_target_pins": {
+        "result_pin": {
+          "path": "research_result_records/RS-N-COUPLED-PUBLIC-N-REALIZED-EFFECT-TRACE-NONCOMPILABILITY/RR-4B7576B2FDCA2CCBAB37.json",
+          "sha256": "efd6b116e7b74ae3e2bc5c69961d97441bd22609365bff66d3056e1d65c132f1",
+          "git_blob_sha1": "f1aabc914bd1aa1381464c6a5a451de68b2207b1"
+        },
+        "execution_pin": {
+          "path": "research_execution_records/RS-N-COUPLED-PUBLIC-N-REALIZED-EFFECT-TRACE-NONCOMPILABILITY/ER-36B4FE8C61A135DD3AAE.json",
+          "sha256": "ac91c58ec5cc12c1f4ab76bf5161b19378674630c4eaed68b06eb390169d2543",
+          "git_blob_sha1": "4534e1b172c1ec40edba5db11f54a1a54de894b5"
+        },
+        "publication_pin": {
+          "path": "research_task_records/RS-N-COUPLED-PUBLIC-N-REALIZED-EFFECT-TRACE-NONCOMPILABILITY/TP2-6E2A94C1B7D3058F2A41.json",
+          "sha256": "d91ffe7c9f8bac8674695f0875efab67c45fa70d37dee4b324e079e7f4b6a6d6",
+          "git_blob_sha1": "216dee7abc6f9fa3d9c894ac494cd6be65868dd4"
+        },
+        "taskbook_pin": {
+          "path": "research_tasks/N_COUPLED_PUBLIC_N_REALIZED_EFFECT_TRACE_NONCOMPILABILITY_20260902.md",
+          "sha256": "0b08d38e8908518a1787bdefa23146e3bb5c0daaddf963947fd54284633631ae",
+          "git_blob_sha1": "243efaef4fb6e0b9f2faad08a6c8397ee5be844b"
+        }
+      },
+      "accepted_or_retained_scope": "有限公开conditional-law G_effect-seed联合分布externalization；非恢复原hidden branch，proper-success=(p+q−2)/(pq)。",
+      "actual_unfinished_or_outside_scope": [
+        "本Task无已证仍欠的intake、当前review或科学重算。",
+        "后续研究应区分真正distributional nonexternalizability与hidden randomness/branch opacity；既有coverage路线不是本GOV待补科学。"
+      ],
+      "gov_next_action": "ALREADY_REPAIRED：在原GOV最终矩阵引用真实HRI/HIRR/reducer，不重复intake/review/checker。",
+      "historical_limit": "原execution认证及历史阅读/checker执行仍UNKNOWN，不倒填；此限制不是前三项再次接入的先决条件。",
+      "actual_continuation_route": {
+        "action": "CONSUME_COMPLETED_RECORDS",
+        "execution_authorized": false,
+        "required_role": "NONE",
+        "requires_current_role_authorization": false,
+        "requires_predecessor_contact": false
+      },
+      "retained_next_action_note": "hard_block是原target文字，旧next_action仍说review PR1139；当前HIRR/reducer已完成，不能因此要求重复审阅。"
+    },
+    {
+      "object": "Q24",
+      "task_id": "RS-P000-PHILOSOPHY-FIRST-NATIVE-MODEL-CHANGE-ARROW-AUDIT",
+      "publication_id": "TP2-299847960EBDCF2A0846",
+      "historical_result_id": "RR-1DE3F3213271AED2625C",
+      "last_actual_state": {
+        "observed_at": "2026-10-14T23:29:25.454677+00:00",
+        "source_commit": "5a0a8b5402485805fdd71690826e03ecb2750e12",
+        "fields": {
+          "state": "DONE",
+          "dispatch_state": "COMPLETE",
+          "driver_disposition": "ACCEPTED",
+          "result_id": "HRI-A310063B68EA769D3CC86146",
+          "review_id": "HIRR-B59D7E8C25AA446327648B22",
+          "claim_id": null,
+          "session_id": null,
+          "lease_until": null,
+          "hard_block": null
+        },
+        "review_id_present_in_state": true,
+        "local_receipts": [
+          "/workspace/em-research-continuation-20261014/control/ROOT_NATIVE_645_ACTUAL_RECEIPT.json",
+          "/workspace/em-research-continuation-20261014/control/ROOT_NATIVE_648_ACTUAL_RECEIPT.json"
+        ],
+        "live_requery_performed": false,
+        "complete_joined_receipt_sha256": "50c11ee1693e82d848fb760b08c959548d3c6be2b7556e6b825b12128d5e0512"
+      },
+      "hri": {
+        "intake_id": "HRI-A310063B68EA769D3CC86146",
+        "effect": "PROSPECTIVE_SCIENTIFIC_REVIEW_ONLY",
+        "intake_terminal_field": false,
+        "historical_authentication_status": "UNKNOWN_NO_RECOVERED_AUTHENTICATED_SERVER_ENVELOPES",
+        "historical_review_inherited": false,
+        "source_pin": {
+          "source_commit": "1c2913ac2c3b0412b3aedca30dfa9cf16ac8bee7",
+          "path": "research_historical_result_intakes/RS-P000-PHILOSOPHY-FIRST-NATIVE-MODEL-CHANGE-ARROW-AUDIT/HRI-A310063B68EA769D3CC86146.json",
+          "bytes": 43991,
+          "sha256": "0747b7a107f6ae4cd98e1841b4c7e4500fce3f1d96ac0862bc8da6618189829d",
+          "git_blob_sha1": "1219f304f09ccfb8327bdab5407902caa1ae114b",
+          "local_full_readback": "/workspace/em-research-continuation-20261014/control/ROOT_SOURCE_627_intake_FULL_ACTUAL_20261014T2310.json"
+        }
+      },
+      "hirr": {
+        "review_id": "HIRR-B59D7E8C25AA446327648B22",
+        "disposition": "ACCEPTED",
+        "terminal_scope": "TASK",
+        "parent_completion_granted": false,
+        "source_pin": {
+          "source_commit": "1be792e4b020895a15c13c6a89d34c4e90a0c056",
+          "path": "research_historical_result_reviews/HRI-A310063B68EA769D3CC86146/HIRR-B59D7E8C25AA446327648B22.json",
+          "bytes": 3634,
+          "sha256": "b9784cf7c87d788d69f651b10074bba276f307dafd6332be0bb5502e8129ec25",
+          "git_blob_sha1": "cbea03b8938bef26eb03b2f366d9f542f0073967",
+          "local_full_readback": "/workspace/em-research-continuation-20261014/control/ROOT631_Q24_HIRR_ACTUAL_FULL_SOURCE_READBACK.json"
+        },
+        "report_pin": {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/5dcc7b48df1cd17f903e/ROOT_Q24_DECLARED_LANGUAGE_BOUNDED_CURRENT_DRIVER_REVIEW_20261014.md",
+          "bytes": 8481,
+          "sha256": "46865b2447bad54ec654e6f6c51a7da27eb6d9cfbef455dc35f96e9ba34f81fc",
+          "git_blob_sha1": "ec464f754444498fcb0797832f2b87fd2e85607d"
+        },
+        "exact_followup": {
+          "next_action": "Preserve Q24 frozen nine-candidate negative and current scope limits. Any new native law must have exact source/target/update/observer and future-operation semantics, be checked against existing work and independently justified under fixed P000; no worldview change or completed-task replay. Original four-object orphan GOV separately continues X6 exact custody/current review and remaining source-bound consumer/ledger obligations with its original scientific owner. CM24 original owner continues the saved Y/Z frontier; no new competing owner or blanket class expansion.",
+          "next_task_id": null,
+          "parent_objective_status": "OPEN"
+        }
+      },
+      "original_target_pins": {
+        "result_pin": {
+          "path": "research_result_records/RS-P000-PHILOSOPHY-FIRST-NATIVE-MODEL-CHANGE-ARROW-AUDIT/RR-1DE3F3213271AED2625C.json",
+          "sha256": "13232e7733c96cfd1ca66d707ade2b17f060a2672db233453d0237a55622d4e7",
+          "git_blob_sha1": "10debd66fe28265a45203a42723603428e21ccbc"
+        },
+        "execution_pin": {
+          "path": "research_execution_records/RS-P000-PHILOSOPHY-FIRST-NATIVE-MODEL-CHANGE-ARROW-AUDIT/ER-5DF67BCC22CCA14CC422.json",
+          "sha256": "10f5456bd9e511ba6592af999283754116517fc346ff54cd4156cd13ef6c9ea6",
+          "git_blob_sha1": "dcc0a7a1183785298cb206f6ddc8fa38925d17e7"
+        },
+        "publication_pin": {
+          "path": "research_task_records/RS-P000-PHILOSOPHY-FIRST-NATIVE-MODEL-CHANGE-ARROW-AUDIT/TP2-299847960EBDCF2A0846.json",
+          "sha256": "f1b585e58095158d9f10bd802ceadf7dc62b50ffca9b2b5c7617573e55d9d222",
+          "git_blob_sha1": "0a98d1ab1ab35ddb299de562bc3ed8f2a1ab5f47"
+        },
+        "taskbook_pin": {
+          "path": "research_tasks/P000_PHILOSOPHY_FIRST_NATIVE_MODEL_CHANGE_ARROW_AUDIT_20260831.md",
+          "sha256": "225ea84ca5f70ac86e0802e7270d1abf65d712700afbde69460b71af76a7fd5e",
+          "git_blob_sha1": "4d144741f33631ce3d4a70ae5f029712f0ce37bd"
+        }
+      },
+      "accepted_or_retained_scope": "冻结九候选declared-language negative alternative及限定finite-action/observer结论；非所有native model-change laws不可能。",
+      "actual_unfinished_or_outside_scope": [
+        "本Task无已证仍欠的intake/review；不重做九候选/有限checker。",
+        "新native law的source/target/update/observer/future-operation语义属于开放母题。"
+      ],
+      "gov_next_action": "ALREADY_REPAIRED：在原GOV最终矩阵引用真实HRI/HIRR/reducer，不重复intake/review/checker。",
+      "historical_limit": "原execution认证及历史阅读/checker执行仍UNKNOWN，不倒填；此限制不是前三项再次接入的先决条件。"
+    },
+    {
+      "object": "X6",
+      "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+      "publication_id": "TP2-B4A441B23DA3159232C2",
+      "historical_result_id": "RR-943A793DB1F7B8012A85",
+      "last_actual_state": {
+        "observed_at": "2026-10-15T01:17:30.301303+00:00",
+        "source_commit": "6370cd86865a585b1508dc1bd98fcc8995181ace",
+        "fields": {
+          "state": "HANDOFF_READY",
+          "dispatch_state": "NEEDS_DISPATCH",
+          "driver_disposition": "REQUEST_REVISION",
+          "result_id": "HRI-1A48B2D7F0E242FCC2C57D7E",
+          "review_id": null,
+          "claim_id": null,
+          "session_id": null,
+          "lease_until": null,
+          "hard_block": null
+        },
+        "review_id_present_in_state": false,
+        "local_receipts": [
+          "/workspace/em-research-continuation-20261014/control/ROOT_NATIVE_659_X6_POST_REVIEW_ACTUAL_TASK_STATE.json"
+        ],
+        "live_requery_performed": false
+      },
+      "hri": {
+        "intake_id": "HRI-1A48B2D7F0E242FCC2C57D7E",
+        "effect": "PROSPECTIVE_SCIENTIFIC_REVIEW_ONLY",
+        "intake_terminal_field": false,
+        "historical_authentication_status": "UNKNOWN_NO_RECOVERED_AUTHENTICATED_SERVER_ENVELOPES",
+        "historical_review_inherited": false,
+        "source_pin": {
+          "source_commit": "d76271c2560ae6047f179ab27a53303a28768a86",
+          "path": "research_historical_result_intakes/RS-X6-LEGACY-PLANE-RECONCILIATION/HRI-1A48B2D7F0E242FCC2C57D7E.json",
+          "bytes": 54394,
+          "sha256": "d209b1543af45c33d9b2d2964c45c789973ca311bcaff24bf0280e2915626612",
+          "git_blob_sha1": "86d7033ef17ef008b800f1b9787ae487f1b0c406",
+          "local_full_readback": "/workspace/em-research-continuation-20261014/control/ROOT_SOURCE_649_X6_HRI_ACTUAL_FULL_READBACK.json"
+        }
+      },
+      "hirr": {
+        "review_id": "HIRR-1C60C7CCFAE8636E82F43A76",
+        "disposition": "REQUEST_REVISION",
+        "terminal_scope": "TASK",
+        "parent_completion_granted": false,
+        "source_pin": {
+          "source_commit": "fd3e31980efba0ca8344ee47d26f83dadc8cbc7f",
+          "path": "research_historical_result_reviews/HRI-1A48B2D7F0E242FCC2C57D7E/HIRR-1C60C7CCFAE8636E82F43A76.json",
+          "bytes": 4214,
+          "sha256": "f8cc809adeb3d2e5a9f14efa1c5e5903b837185db61343d3ad5a61bcb1949daa",
+          "git_blob_sha1": "b06ae3b489ec200affd88c7904446ff70a52e29f",
+          "local_full_readback": "/workspace/em-research-continuation-20261014/control/ROOT_SOURCE_654_X6_HIRR_ACTUAL_FULL_READBACK.json"
+        },
+        "report_pin": {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/2c350117dac3441a2cd7/ROOT_X6_CURRENT_BOUNDED_REVIEW_AND_PRECISE_REVISION_20261014.md",
+          "bytes": 9411,
+          "sha256": "64bdd016dde22708bbba359468eba175611ec81b21d3b1de818b34cbfd8a9f42",
+          "git_blob_sha1": "c5db3f82f5ae0e7976e74e5331d5f91de53a3f15"
+        },
+        "exact_followup": {
+          "next_action": "Return only genuine uncompleted provenance/caller/case obligations to the existing X6 scientific owner. Reuse all verified signed-sector,72/111 and original filled-disk carrier results and the Source28-row supplement. Locate exact remaining old claims and actual consumer contracts, especially dominant-axis/sign/tie including zero; identify keep/retype/revise decisions with bounded corpus coverage. Do not rerun completed scientific checkers or create a competing owner. No current intake/review grants execution or clears the original parent's mathematics.",
+          "next_task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+          "parent_objective_status": "OPEN"
+        }
+      },
+      "original_target_pins": {
+        "result_pin": {
+          "path": "research_artifacts/HISTORICAL_RESULT_CUSTODY/RS-X6-LEGACY-PLANE-RECONCILIATION/a0bfa8eace20b061f5b228c733acdc46221388d7/originals/research_result_records/RS-X6-LEGACY-PLANE-RECONCILIATION/RR-943A793DB1F7B8012A85.json",
+          "sha256": "64d2f629b61941c765a063fc63b0b5fa579366c1cb7dd0833073a5a6cd836879",
+          "git_blob_sha1": "87c35fce381e97ec11d3cb7d63db6d5088a21bf6"
+        },
+        "execution_pin": {
+          "path": "research_artifacts/HISTORICAL_RESULT_CUSTODY/RS-X6-LEGACY-PLANE-RECONCILIATION/a0bfa8eace20b061f5b228c733acdc46221388d7/originals/research_execution_records/RS-X6-LEGACY-PLANE-RECONCILIATION/ER-1508037CD774DEDA90E8.json",
+          "sha256": "32716434e8e7cc0ef1beaf49dda222bb2cb5663ae91f6b2e5b8f25cd82310212",
+          "git_blob_sha1": "bf4c24fabf0ed428c5f0e0274cdbf7e8998e9032"
+        },
+        "publication_pin": {
+          "path": "research_task_records/RS-X6-LEGACY-PLANE-RECONCILIATION/TP2-B4A441B23DA3159232C2.json",
+          "sha256": "847d53b0113ebf218cad6cc10a6bd4bcb28a5bf89bcef0d822351326e93fdfa4",
+          "git_blob_sha1": "1da00d4e4b4b128b05b92b2d0c5314513d1ab38f"
+        },
+        "taskbook_pin": {
+          "path": "research_tasks/RS_X6_LEGACY_PLANE_RECONCILIATION_20260905.md",
+          "sha256": "e72295cc75b8b3e3711a7a33dd10b676a2909d76cb8b0af4f417bc236162f2f6",
+          "git_blob_sha1": "9cbefbb8886a0ce4f312b1a52cde0990d55aa7eb"
+        },
+        "custody_map_pin": {
+          "path": "research_artifacts/HISTORICAL_RESULT_CUSTODY/RS-X6-LEGACY-PLANE-RECONCILIATION/a0bfa8eace20b061f5b228c733acdc46221388d7/CUSTODY_MAP_V1.json",
+          "sha256": "92cfe0e6dadb7bb52d6b25703e071bb0c4273503d39a84a62f89ad7955f96ad2",
+          "git_blob_sha1": "2682c36453108b3deab251d061d3a861523ded7b"
+        }
+      },
+      "accepted_or_retained_scope": "whole Task未接受；已证明局部核心与来源证据保留，当前REQUEST_REVISION。",
+      "actual_unfinished_or_outside_scope": [
+        "声明有限corpus、逐项检查覆盖与actual downstream caller bindings；27文档/接口非runtime graph。",
+        "LP011旧dominant公式与consumer输入域/返回类型/separate sign/tie含零/唯一index契约仍BOUNDED_UNLOCATED。",
+        "LP015/017欠将9/213称完整physical shell/mass的真实旧原文。",
+        "LP022已读旧文禁止native diagonal quotient，不能反记为误论；LP023欠无条件endpoint替换旧断言。",
+        "LP026欠逐个named parity/quadratic/affine identity、原域和证明或限定处置。"
+      ],
+      "gov_next_action": "精确handoff-ready gap+同一X6 Task合法科学角色路线；不是全Task接受。",
+      "historical_limit": "原execution认证及历史阅读/checker执行仍UNKNOWN，不倒填；此限制不是前三项再次接入的先决条件。",
+      "completed_evidence_do_not_repeat": [
+        "六raw+exact custody map，HRI649/HIRR654及state659。",
+        "signed30/846与min-zero9/213范围区分；positive two-axis four-branch72=1+35+35+1。",
+        "local111 kernel/native111非零；closed-filled-disk载体与pair/triple/covering-radius证明。",
+        "28行证据字段补齐；7old anchors/3wholeoldclaims直接支持/27current correction surfaces，不等于28历史声明全恢复。",
+        "LP011十五成员有界未定位证据；6新body+21复用版本+72目录元数据不证明全repo不存在。"
+      ],
+      "later_source_evidence": [
+        {
+          "source_commit": "0e28b7a9bc9024ae2d4402dc36ac77ce3521dac7",
+          "path": "research_notes/X6_PROSPECTIVE_28_ROW_SUPPLEMENT_AND_STATIC_EVIDENCE_20261015_FBF223.json",
+          "bytes": 669789,
+          "sha256": "a73bd01fb20a299b184c5a0fb9ca29aeb3062247977853915e7fee5db475d849",
+          "git_blob_sha1": "4983aefa73625ba70c7a36e15750c8b536fe7e4b",
+          "key_member": {
+            "filename": "PROSPECTIVE_28_ROW_EVIDENCE_SUPPLEMENT.json",
+            "bytes": 492038,
+            "sha256": "f7a27ea9ae59b58f9e902c3209ebfb759038294be09a43bdcdd82dc448565245",
+            "git_blob_sha1": "0f688d70412eb9b47ba56f551b2e89d0b4d22ff9"
+          }
+        },
+        {
+          "source_commit": "9e93704e57af645e31a5f907a8438f350ee74232",
+          "path": "research_notes/X6_LP011_BOUNDED_UNLOCATED_EVIDENCE_20261015_FBF223.json",
+          "bytes": 205967,
+          "sha256": "30569056e195a22bd492060d925bdde60e3b82fb1d0710b377a0c5c7eb1ca26a",
+          "git_blob_sha1": "3f0e1292c71c539cf1da5c7d1eb1ed2c8ed33d29",
+          "key_member": {
+            "filename": "LP011_BOUNDED_SOURCE_AND_CALLER_EVIDENCE.json",
+            "bytes": 46431,
+            "sha256": "5f0edeca6a2f5be4ea97f083ff26957f39cac251a8eb8b7abbdf9f01fadbcbc9",
+            "git_blob_sha1": "25519651cf75e156425766a381bf483140fa2561"
+          }
+        }
+      ],
+      "minimal_handoff": "有限corpus与coverage；每项old claim passage/version/path/lines，actual caller path/blob/入口/输入域/返回类型/未来依赖，逐项keep/retype/revise或限定不采纳。未定位保留BOUNDED_UNLOCATED；不以重复计数替代provenance。"
+    }
+  ],
+  "completed_checkpoint663": {
+    "verified_at": "2026-10-15T03:34:16.545973+00:00",
+    "source": "647ec9e33ab028143904010086cddec2e5825933",
+    "all3_full_Source_readback_sha_blob_pass": true,
+    "report_equals_exact_uploaded662": true,
+    "same_original_owner_run_claim": true,
+    "actual_PROGRESS_comment": 6183747498,
+    "authenticated_readback": true,
+    "release": false,
+    "mathematical_acceptance": false,
+    "artifacts": [
+      {
+        "git_blob_sha1": "d9c305d7dcdff55e560f40eb3422842511fe4c23",
+        "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/fc1b47a052dbcaf95552/ORIGINAL_GOV_X6_REVISION_AND_ACTUAL_CODE_ADMISSION_PROGRESS_20261015.md",
+        "repository": "awdawmip/enterprise-math",
+        "sha256": "05b16c9f95c6949827f8e8e2afabdf637137c21233e09376ed75f2590b15616f",
+        "source_commit": "647ec9e33ab028143904010086cddec2e5825933",
+        "bytes": 5808
+      },
+      {
+        "git_blob_sha1": "b896eeea786eb5a174dd4e0f4416e790f44c5dc4",
+        "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/fc1b47a052dbcaf95552/_checkpoint.json",
+        "repository": "awdawmip/enterprise-math",
+        "sha256": "f9611310ea18244354a5a3c4cba2ef54c9e010582ac7d182d3c6fc6aa931e0fa",
+        "source_commit": "647ec9e33ab028143904010086cddec2e5825933",
+        "bytes": 3759
+      },
+      {
+        "git_blob_sha1": "4068ba7153de4f4b006de070550b51e96a05aae0",
+        "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/latest_checkpoint.json",
+        "repository": "awdawmip/enterprise-math",
+        "sha256": "66b78e87900206afd16c070003a177681949082c4b70062d0247ef6db22c2549",
+        "source_commit": "647ec9e33ab028143904010086cddec2e5825933",
+        "bytes": 670
+      }
+    ]
+  },
+  "minimal_reads_if_future_scientific_dispatch_is_chosen": [
+    {
+      "task_id": "RS-X6-LEGACY-PLANE-RECONCILIATION",
+      "publication_id": "TP2-B4A441B23DA3159232C2",
+      "purpose": "实际续作前由合法角色读取exact Task current一次；659仅01:17:30无claim，不是本报告新授执行权。"
+    },
+    {
+      "task_id": "RS-DRIVER-NCOUPLED-COVERAGE-CLOSURE-ROUTING",
+      "purpose": "仅在选择N-coupled新研究时读其当前continuation，避免重复/在途；不是RR65/RR4B控制闭合的额外先决条件。"
+    }
+  ],
+  "evidence_local_files": [
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT610_RR65_INTAKE_FULL_IMMUTABLE_READBACK_ACTUAL.json",
+      "bytes": 38790,
+      "sha256": "a072f8b69e0a06ff922751b516d1a8bd9d38e695c379be6348c1d743c647366c"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT617_HRI_ACTUAL_FULL_SOURCE_READBACK.json",
+      "bytes": 42709,
+      "sha256": "8396534626c4a32f137e471de2498e36e3024bdd48dc627ec7dc6cc313172ebe"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_SOURCE_627_intake_FULL_ACTUAL_20261014T2310.json",
+      "bytes": 46033,
+      "sha256": "0f227364103c61e657fcefd70977bf7cc155cd7275cf7635df7117243858a9f1"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_SOURCE_649_X6_HRI_ACTUAL_FULL_READBACK.json",
+      "bytes": 57152,
+      "sha256": "0972f071470e45708450687e8de182ef85ecc4fd56874cb27a635da4cb0eb4dd"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT613_RR65_HIRR_FULL_SOURCE_READBACK_ACTUAL.json",
+      "bytes": 4531,
+      "sha256": "56127188dc002166daf1b03917d45dc78d123b7f8b57c72dc2df1c953ca985e5"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT622_HIRR_ACTUAL_FULL_SOURCE_READBACK.json",
+      "bytes": 8046,
+      "sha256": "9be9d8fca61f1986af2bc48666ca70ed4ba85077688191fefdb99c7b0b071efc"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT631_Q24_HIRR_ACTUAL_FULL_SOURCE_READBACK.json",
+      "bytes": 4345,
+      "sha256": "1594d3754d3f61cdb3f65f4fe439d2e8a5de37e1fe4810881688e29ffd0737d7"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_SOURCE_654_X6_HIRR_ACTUAL_FULL_READBACK.json",
+      "bytes": 4927,
+      "sha256": "237115efd1475a1eb00278497328845c3e201c1d925e9fefd70b056fe532edb5"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_RECEIPT_614_RR65_POSTREVIEW_TASK_STATE_ACTUAL_TERMINAL.json",
+      "bytes": 13125,
+      "sha256": "73cc021ae0a5d71ea174a44f954776fcbe6e7c260ba8e54a853786e5c9d148a4"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_RECEIPT_624_RR4B_POSTREVIEW_TASK_STATE_ACTUAL_TERMINAL.json",
+      "bytes": 13594,
+      "sha256": "040a265c55ede5ab5e74227dd2964801b15b2d27e95f802a6ab94ddb0a26210b"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_NATIVE_645_ACTUAL_RECEIPT.json",
+      "bytes": 15540,
+      "sha256": "dbb8a4c937aefafa06f6d26f9c910c8484144a88cf13fd2713addb4815f2ef01"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_NATIVE_648_ACTUAL_RECEIPT.json",
+      "bytes": 1683,
+      "sha256": "226b19c70ae4b197079172f7be949b50e8c23ba16a838d1721d15726faddb8fb"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_NATIVE_659_X6_POST_REVIEW_ACTUAL_TASK_STATE.json",
+      "bytes": 21946,
+      "sha256": "0182cf9d74dbe47d3198b8d7ec128fbe032b544b253e7a4c58e13a6f41d98962"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/publication/X6_28ROW_SUPPLEMENT_ACTUAL_FULL_MEMBER_VERIFICATION.json",
+      "bytes": 2939,
+      "sha256": "8b8ffb65a59ad4152f6ceaf94777d9b1f7b7a4bc14dfc7621168ecfddd543e54"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/publication/CM24_PROJECTION_AND_LP011_ACTUAL_FULL_MEMBER_VERIFICATION.json",
+      "bytes": 6379,
+      "sha256": "91644c1629c7f3136d02e7d67aa9f0d87ef3d1c6db503447ad051ead2a8eead5"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_NATIVE_655_COMPLETE_JOINED_ACTUAL_TASK_RECEIPT.json",
+      "bytes": 40925,
+      "sha256": "543f1f68717ad020d46f603f3778197311dfc9614da108913e09af2dd204ec5c"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_663_COMPLETE_SOURCE_CHECKPOINT_VERIFICATION.json",
+      "bytes": 1763,
+      "sha256": "c3903b491ced91293d17173f519e157b9b2970dfe5ee42f590c1052ca141e3be"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_NATIVE_663_ORIGINAL_GOV_ACTUAL_TERMINAL.json",
+      "bytes": 31498,
+      "sha256": "49c8ba2ab5d416b1ca577077dd24a9f842552a4248bdfc53246bacc36a3ca489"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/publication/X6_28ROW_SUPPLEMENT_ACTUAL_FULL_SOURCE_READBACK.json",
+      "bytes": 728885,
+      "sha256": "73be15b0a575e3c127124852d1f2c644c15287c09802082ed4c22204d4f6da5d"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/publication/CM24_PROJECTION_AND_LP011_1_ACTUAL_FULL_SOURCE_READBACK.json",
+      "bytes": 220704,
+      "sha256": "1e17b438db90a2ef5386da9e07f5e21b811cbed1539526983c27cdcd65253793"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_REQUEST_662_ORIGINAL_GOV_PROGRESS_UPLOAD_FROZEN.json",
+      "bytes": 6316,
+      "sha256": "d5f7551ba96d1feb8fdc5999739191e1d4c0cf09e0aae832bb93af7ecef2be3c"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/control/ROOT_REQUEST_663_ORIGINAL_GOV_PROGRESS_CHECKPOINT_FROZEN.json",
+      "bytes": 3245,
+      "sha256": "dd49a2f2ea759467d70a6d3dbe3883d433fd5c1c86e6301bedd4358e3872282d"
+    }
+  ]
+}
