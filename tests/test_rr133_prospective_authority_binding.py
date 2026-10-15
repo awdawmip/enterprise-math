@@ -451,7 +451,32 @@ class RR133BindingTests(unittest.TestCase):
     def test_current_only_taskbook_quarantine_requires_exact_atomic_history_migration(self):
         name='control_plane/task_integrity_quarantine_addendum_20260902.json'
         current=json.loads((BASE/name).read_text())
-        current['quarantines']=[row for row in current['quarantines'] if row['publication_id']==binding.SOURCE_PUBLICATION]
+        # Model the exact pre-Gen2 hold; Main now retains it historically.
+        # Do not require the old row to remain in the current-only registry.
+        current['quarantines']=[{'task_id': 'RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY',
+         'publication_id': 'TP2-5D9C21A7B40E683F1C52',
+         'record_path': 'research_task_records/RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY/TP2-5D9C21A7B40E683F1C52.json',
+         'record_blob_sha1': 'sha1:1eb4fe4825ff1ff4eeac929ba72fb5a277614c2e',
+         'taskbook_path': 'research_tasks/N_COUPLED_PUBLIC_N_DISTRIBUTIONAL_NONEXTERNALIZABILITY_20260903.md',
+         'taskbook_blob_sha1': 'sha1:7be6bca90aeb7b1e8222090ea6e22797f9e96f8c',
+         'reason': 'The sole active generation is otherwise claimable and has no frozen Result, but its taskbook '
+                   'bypasses the exact combined V2 section headings. Block only this task before claim; an '
+                   'authorized Driver may publish a corrected superseding generation without changing its research '
+                   'frontier.',
+         'allowed_task_record_audit_errors': ['mandatory body section is missing or empty: Frozen inputs and scope',
+                                              'mandatory body section is missing or empty: Hard target and required '
+                                              'outputs',
+                                              'mandatory body section is missing or empty: Research value to '
+                                              'preserve',
+                                              'mandatory body section is missing or empty: Success, kill, and return '
+                                              'criteria'],
+         'working_truth_granted': False,
+         'foundation_authority_granted': False,
+         'canonical_promotion_granted': False,
+         'successor_triggered': False,
+         'state': 'INVALID_CURRENT_TASK_PUBLICATION',
+         'operational_publication_id': None,
+         'isolation_scope': 'CONTROL_PLANE_ONLY'}]
         self.assertEqual(1,len(current['quarantines']))
         record=self.root/f"research_task_records/{binding.SOURCE_TASK}/{self.source['publication_id']}.json"
         new_bytes=record.read_bytes();record.unlink();write_json(self.root/name,current)
@@ -465,6 +490,128 @@ class RR133BindingTests(unittest.TestCase):
         self.assertEqual([],tasks.audit(self.root))
         self.assertEqual([binding.OLD_RESULT],result_isolation.withheld_state(binding.SOURCE_TASK,binding.SOURCE_PUBLICATION,self.root)['withheld_result_ids'])
         for pin in binding.OLD_PINS:self.assertEqual(pin,binding._pin(self.root,pin['path']))
+
+
+class ExactExistingSourceLaunchTests(unittest.TestCase):
+    """Actual immutable launch bytes, never new scientific/Native authority."""
+    def setUp(self):
+        self.row = isolation.quarantine_rows(BASE)[binding.SOURCE_LAUNCH_PACKET]
+        self.task = self.row['derived_task_publications'][0]
+        self.packet = json.loads((BASE / self.row['packet_path']).read_text())
+        self.heads = {binding.SOURCE_LAUNCH_PUBLICATION}
+
+    def validate(self, root=BASE, **changes):
+        values = {'task': self.task, 'row': self.row, 'source_packet': self.packet,
+                  'active_heads': self.heads, 'root': root}
+        values.update(changes)
+        return binding.validate_exact_source_launch_successor(**values)
+
+    @contextmanager
+    def pinned_fixture(self):
+        import tempfile
+        with tempfile.TemporaryDirectory(prefix='rr133-launch-pins-') as name:
+            root = Path(name)
+            for pin in [*binding.OLD_PINS, *binding.SOURCE_LAUNCH_PINS]:
+                path = root / pin['path']; path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes((BASE / pin['path']).read_bytes())
+            yield root
+
+    def test_exact_existing_roadmap_launch_does_not_invent_a_followup(self):
+        self.assertTrue(self.validate())
+        records = isolation._raw_packets(BASE)
+        self.assertFalse(any(item.get('publication_id') == binding.SOURCE_LAUNCH_PUBLICATION
+            for packet in records for item in packet.get('task_publications', [])))
+        self.assertIn(binding.SOURCE_LAUNCH_PACKET, isolation.quarantine_rows(BASE))
+        self.assertIn(binding.OLD_PACKET, isolation.quarantine_rows(BASE))
+        self.assertIsNone(result_isolation.withheld_state(binding.SOURCE_TASK, binding.SOURCE_LAUNCH_PUBLICATION, BASE))
+        self.assertIsNotNone(result_isolation.withheld_state(binding.SOURCE_TASK, binding.SOURCE_PUBLICATION, BASE))
+
+    def test_other_task_or_other_ancestor_retains_generic_successor_route(self):
+        for change in ({'task_id': binding.COVERAGE_TASK}, {'publication_id': binding.OLD_PUBLICATION}):
+            with self.subTest(change=change):
+                self.assertFalse(self.validate(task={**self.task, **change}))
+
+    def test_arbitrary_same_task_gen2_gen3_or_ambiguous_head_is_rejected(self):
+        for heads in ({'TP2-ARBITRARY-GEN2'}, {'TP2-GEN3'}, self.heads | {'TP2-SECOND'}, set()):
+            with self.subTest(heads=heads), self.assertRaisesRegex(followup.DriverFollowupError, 'one exact existing Gen2'):
+                self.validate(active_heads=heads)
+
+    def test_old_row_or_raw_packet_cannot_be_reclassified(self):
+        row = copy.deepcopy(self.row); row['operational'] = True
+        with self.assertRaisesRegex(followup.DriverFollowupError, 'historical isolation row drift'):
+            self.validate(row=row)
+        packet = copy.deepcopy(self.packet); packet['result_id'] = binding.OLD_RESULT
+        with self.assertRaisesRegex(followup.DriverFollowupError, 'source packet differs'):
+            self.validate(source_packet=packet)
+
+    def test_exact_science_launch_parent_and_identity_bytes_are_enforced(self):
+        pins = [*binding.SOURCE_LAUNCH_PINS, binding.OLD_PINS[1]]
+        with self.pinned_fixture() as root:
+            for pin in pins:
+                with self.subTest(path=pin['path']):
+                    path = root / pin['path']; original = path.read_bytes()
+                    path.write_bytes(original + b'\n')
+                    with self.assertRaisesRegex(followup.DriverFollowupError, 'publication pin drift'):
+                        self.validate(root)
+                    path.write_bytes(original)
+
+    def test_actual_root_authority_and_session_are_not_optional(self):
+        active = authority.require_active_driver(binding.SOURCE_LAUNCH_DRIVER, '2026-10-15T01:41:42.436725+00:00', BASE)
+        for changed in (None, {**active, 'authority_record_id': 'DA-OTHER'},
+                        {**active, 'source_body': json.dumps({'session_id': 'MCP-other'})}):
+            with self.subTest(value=changed is None), mock.patch.object(authority, 'require_active_driver', return_value=changed):
+                with self.assertRaises(followup.DriverFollowupError):
+                    self.validate()
+
+    def test_canonical_direct_parent_authority_cannot_be_replaced_by_a_label(self):
+        import research_objective_authority as parent
+        for changed in ({'binding_source': 'LEGACY_UNBOUND'},
+                        {'binding_source': 'TASK_PUBLICATION_DIRECT', 'objective_id': binding.SOURCE_LAUNCH_OBJECTIVE,
+                         'objective_generation_id': binding.SOURCE_LAUNCH_OBJECTIVE_GENERATION, 'objective_authority_verified': False}):
+            with self.subTest(changed=changed), mock.patch.object(parent, 'resolve_authoritative_task_parent_binding', return_value=changed):
+                with self.assertRaisesRegex(followup.DriverFollowupError, 'direct authoritative parent tenure'):
+                    self.validate()
+
+    def test_later_valid_objective_head_keeps_recorded_time_launch_replay_valid(self):
+        import os
+        import tempfile
+        import research_objective_authority as parent
+        with tempfile.TemporaryDirectory(prefix='rr133-later-objective-', dir=BASE.parent) as name:
+            root = Path(name) / 'source'
+            shutil.copytree(BASE, root, copy_function=os.link, ignore=shutil.ignore_patterns('.git', '__pycache__', '*.pyc'))
+            old = json.loads((root / f'research_objective_records/{binding.SOURCE_LAUNCH_OBJECTIVE}/{binding.SOURCE_LAUNCH_OBJECTIVE_GENERATION}.json').read_text())
+            generation, head, receipt = parent.create_and_select(
+                expected_previous_generation_id=binding.SOURCE_LAUNCH_OBJECTIVE_GENERATION,
+                objective_id=binding.SOURCE_LAUNCH_OBJECTIVE, objective_status='OPEN',
+                title=old['title'], scope=old['scope'], success_criteria=old['success_criteria'],
+                closure_criteria=old['closure_criteria'], research_value=old['research_value'],
+                publisher_id=binding.SOURCE_LAUNCH_DRIVER, created_at='2026-10-15T02:30:00+00:00', root=root)
+            self.assertEqual(2, generation['generation'])
+            self.assertNotEqual(binding.SOURCE_LAUNCH_OBJECTIVE_GENERATION, head['objective_generation_id'])
+            self.assertTrue(self.validate(root))
+
+    def test_cold_full_bootstrap_keeps_old_authority_isolated(self):
+        import subprocess
+        script = """
+import research_control_dispatch
+from pathlib import Path
+from tools import research_task_records
+from control_plane import research_result_authority_fault_isolation as held
+from control_plane import research_driver_followup_fault_isolation as isolated
+from control_plane import research_prospective_result_authority_binding as binding
+root=Path.cwd()
+current=research_task_records.current_records(root)
+assert current[binding.SOURCE_TASK]['publication_id']==binding.SOURCE_LAUNCH_PUBLICATION
+assert binding.COVERAGE_TASK not in current
+rows=isolated.validated_quarantines(root)
+assert binding.OLD_PACKET in rows and binding.SOURCE_LAUNCH_PACKET in rows
+assert held.withheld_state(binding.SOURCE_TASK,binding.SOURCE_PUBLICATION,root)['withheld_result_ids']==[binding.OLD_RESULT]
+assert held.withheld_state(binding.SOURCE_TASK,binding.SOURCE_LAUNCH_PUBLICATION,root) is None
+print('full bootstrap source launch; both old DFU rows and old Result hold preserved')
+"""
+        run = subprocess.run([sys.executable, '-B', '-c', script], cwd=BASE, capture_output=True, text=True, timeout=60)
+        self.assertEqual(0, run.returncode, run.stdout + run.stderr)
+        self.assertIn('old Result hold preserved', run.stdout)
 
 
 if __name__=='__main__':unittest.main()

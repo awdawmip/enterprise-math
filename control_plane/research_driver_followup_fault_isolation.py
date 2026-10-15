@@ -294,6 +294,14 @@ def _validate_independent_successor(
             raise DriverFollowupIsolationError(f"{task['task_id']}: {reason}")
 
     require(len(active_heads) == 1, "successor requires one unambiguous active head")
+    # A single pinned Driver roadmap launch precedes its future Result/DFU.
+    # This does not restore the ancestor's authority or relax other successors.
+    from control_plane import research_prospective_result_authority_binding as prospective
+    try:
+        if prospective.validate_exact_source_launch_successor(task, row, source_packet, active_heads, root):
+            return
+    except ValueError as exc:
+        raise DriverFollowupIsolationError(str(exc)) from exc
     records: dict[str, dict[str, Any]] = {}
     for record in research_task_records.iter_records(root):
         pub = record.get("publication_id")

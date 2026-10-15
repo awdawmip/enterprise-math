@@ -72,6 +72,38 @@ OLD_PINS = [{'path': 'driver_reviews/N_COUPLED_PUBLIC_EFFECTIVE_DISTRIBUTIONAL_E
   'git_blob_sha1': 'c3d4230acf4aab5d11d895a614cc498135df88d4'}]
 OLD_QUARANTINE_ROW_SHA256 = ['116a9c957d5dd1f8f9ee65ba365b7836dcd213f209073400eb05cdcf001cb9f6', '9f83e9dcd8a38605105d639a0e14e0cca65d1cc8b068a3e45944d35de586fb3c']
 
+# Exact already-published Source launch. This classification is not a DFU and
+# does not restore its quarantined source Result/review/packet or RR133 authority.
+SOURCE_LAUNCH_PUBLICATION = "TP2-7B35867C594D13793C9F"
+SOURCE_LAUNCH_PACKET = "DFU-83B1D6E4C9027A5F3148"
+SOURCE_LAUNCH_DRIVER = "EM-DVR-FBF223"
+SOURCE_LAUNCH_DA = "DA-A1DB35C00ED2F8C2A9FA"
+SOURCE_LAUNCH_SESSION = "MCP-cd5eefdde49843898b2a70c1af94d8dd"
+SOURCE_LAUNCH_OBJECTIVE = "OBJ-N-COUPLED-ASYMMETRIC-SINGULARIZATION"
+SOURCE_LAUNCH_OBJECTIVE_GENERATION = "OG-7F2B4C1D9A6E83F05211"
+SOURCE_LAUNCH_QUARANTINE_SHA256 = "da429d3ff2c89059503e0fbe4644a29c50b7cd425173b5584c7b3fcffb9b35a4"
+SOURCE_LAUNCH_PINS = [{'path': 'research_driver_followups/DR-4B7576B2FDCA2CCBAB38/DFU-83B1D6E4C9027A5F3148.json',
+  'sha256': '1f28d520a8c04c8ed89a17ae673eea9582a50b5580bb2063c88a5aadef80204d',
+  'git_blob_sha1': 'f25952c92cd19e2935dac5ae6351923467e37e52'},
+ {'path': 'research_task_records/RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY/TP2-7B35867C594D13793C9F.json',
+  'sha256': '999b1078d53bf3e1c652169041c02f6f8f439752cb8cfd86b68f16cb8e7bd51d',
+  'git_blob_sha1': '66892a4aa56c58c0686b546af9ff46523fb01ccc'},
+ {'path': 'research_tasks/N_COUPLED_PUBLIC_N_DISTRIBUTIONAL_NONEXTERNALIZABILITY_GEN2_PROSPECTIVE_20261015.md',
+  'sha256': 'a3869fbedf4ed0c07edfd41932474af20bbc43acbeafa385e20feb90369550ee',
+  'git_blob_sha1': '4a0ecb0753267a86ae2704b0d2f189a7d58ff784'},
+ {'path': 'research_objective_records/OBJ-N-COUPLED-ASYMMETRIC-SINGULARIZATION/OG-7F2B4C1D9A6E83F05211.json',
+  'sha256': '4c26c11a1ca55f26cbd0fa425e4a30963013e1c6e50d1dc40228f4d97a05c709',
+  'git_blob_sha1': '3818a464ea3a3f9cc7401f3a7be4ea5e5e75eb3c'},
+ {'path': 'research_objective_head_events/OBJ-N-COUPLED-ASYMMETRIC-SINGULARIZATION/OG-7F2B4C1D9A6E83F05211.json',
+  'sha256': '1ff79c1d05bd05a60d232606b34408f1beadfe65590d322c10c0ba07b5bfdb18',
+  'git_blob_sha1': '24668f73410c1ff365e15e330e2f9783005febec'},
+ {'path': 'research_driver_authority_records/EM-DVR-FBF223/DA-A1DB35C00ED2F8C2A9FA.json',
+  'sha256': '6ada7e5128bf10187cc48d19af08c6ee7e6107e7b0fc01fbfcc54d63117e5436',
+  'git_blob_sha1': 'ee0efd29554fdcb8cca69266e60d80ee4f731cbd'},
+ {'path': 'research_session_records/MCP-cd5eefdde49843898b2a70c1af94d8dd.json',
+  'sha256': '55f1af52cbd06d3f05edd23afdbda758ad0456031ef76a853b74f73d1fe8e560',
+  'git_blob_sha1': '03e2379359e23c86786dcdd884fb3f4a340bfd4e'}]
+
 
 def _require(condition: bool, reason: str) -> None:
     if not condition:
@@ -233,6 +265,66 @@ def _generation(root: Path, task_id: str, old_id: str, pid: str,
     _require(_parse_time(old["published_at"], "Gen1 publication") <= _parse_time(new["published_at"], "Gen2 publication"),
              "Gen2 publication predates its historical predecessor")
     return new, [_pin(root, relative), _pin(root, new["taskbook_path"]), _pin(root, active["_record_path"])]
+
+
+def validate_exact_source_launch_successor(
+    task: dict[str, Any], row: dict[str, Any], source_packet: dict[str, Any],
+    active_heads: set[str], root: Path,
+) -> bool:
+    """Classify only the pinned prospective Source launch, never a follow-up.
+
+    Its future Result/DR/DFU cannot be a prerequisite to launching the research.
+    Coverage publication still requires the ordinary complete native chain.
+    All other tasks/publications retain the existing independent-successor path.
+    """
+    if task.get("task_id") != SOURCE_TASK or task.get("publication_id") != SOURCE_PUBLICATION:
+        return False
+    _require(active_heads == {SOURCE_LAUNCH_PUBLICATION}, "source launch must have its one exact existing Gen2 head")
+    _require(hashlib.sha256(_canonical(row).encode()).hexdigest() == SOURCE_LAUNCH_QUARANTINE_SHA256
+             and row.get("packet_id") == SOURCE_LAUNCH_PACKET
+             and row.get("derived_task_publications") == [task], "source launch historical isolation row drift")
+    for pin in [*OLD_PINS, *SOURCE_LAUNCH_PINS]:
+        _require(_pin(root, pin["path"]) == pin, "source launch exact original or publication pin drift")
+    _require(source_packet == _object(root, row["packet_path"]), "source launch source packet differs from pinned original")
+    new, _ = _generation(root, SOURCE_TASK, SOURCE_PUBLICATION, SOURCE_LAUNCH_PUBLICATION)
+    _require(new.get("publisher_id") == SOURCE_LAUNCH_DRIVER
+             and new.get("origin_kind") == "DRIVER_ROADMAP"
+             and new.get("parent_objective_id") == SOURCE_LAUNCH_OBJECTIVE
+             and new.get("parent_objective_generation_id") == SOURCE_LAUNCH_OBJECTIVE_GENERATION,
+             "source launch publisher, origin or parent drift")
+    import research_driver_authority as authority
+    import research_objective_authority as parent
+    import research_objective_driver_authority as objective_driver
+    def root_action(at: str) -> None:
+        active = authority.require_active_driver(SOURCE_LAUNCH_DRIVER, at, root)
+        _require(active is not None and active.get("authority_record_id") == SOURCE_LAUNCH_DA
+                 and json.loads(active["source_body"]).get("session_id") == SOURCE_LAUNCH_SESSION,
+                 "source launch requires the exact Root Driver authority and session at action time")
+        _require(not objective_driver._errors_for_action(
+            actor=SOURCE_LAUNCH_DRIVER, at=at, authority_record_id=SOURCE_LAUNCH_DA,
+            authority_source_comment_id=active["source_comment_id"], prefix="exact RR133 source launch", root=root),
+            "source launch Driver action authority failed")
+    root_action(new["published_at"])
+    session = _object(root, f"research_session_records/{SOURCE_LAUNCH_SESSION}.json")
+    _require(session.get("session_id") == SOURCE_LAUNCH_SESSION
+             and session.get("role") == "RESEARCH_DRIVER"
+             and session.get("execution_id") == SOURCE_LAUNCH_DRIVER, "source launch public session binding drift")
+    resolved = parent.resolve_authoritative_task_parent_binding(new, root)
+    _require(resolved.get("binding_source") == "TASK_PUBLICATION_DIRECT"
+             and resolved.get("objective_id") == SOURCE_LAUNCH_OBJECTIVE
+             and resolved.get("objective_generation_id") == SOURCE_LAUNCH_OBJECTIVE_GENERATION
+             and resolved.get("objective_authority_verified") is True, "source launch lacks direct authoritative parent tenure")
+    receipt = resolved["operational_selection"]["receipt"]
+    _require(receipt.get("selected_by") == SOURCE_LAUNCH_DRIVER
+             and receipt.get("objective_status") == "OPEN", "source launch selection actor or status drift")
+    root_action(receipt["selected_at"])
+    objective = _object(root, f"research_objective_records/{SOURCE_LAUNCH_OBJECTIVE}/{SOURCE_LAUNCH_OBJECTIVE_GENERATION}.json")
+    _require(not objective_driver._errors_for_action(
+        actor=objective["publisher_id"], at=objective["created_at"],
+        authority_record_id=objective["driver_authority_record_id"],
+        authority_source_comment_id=objective["driver_authority_source_comment_id"],
+        prefix="retained RR133 source Objective", root=root), "source launch retained Objective authority failed")
+    return True
 
 
 def expected_binding(packet: dict[str, Any], root: Path) -> dict[str, Any]:
