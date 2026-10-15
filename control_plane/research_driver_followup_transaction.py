@@ -56,7 +56,8 @@ def _validate_packet_candidate(
     import research_driver_followup as impl
     from control_plane import research_driver_followup_fault_isolation as isolation
 
-    if packet.get("decision") in {impl.TASK_SCOPE_DECISION, impl.EXISTING_ASSET_DECISION}:
+    if packet.get("decision") in {impl.TASK_SCOPE_DECISION, impl.EXISTING_ASSET_DECISION,
+                                  impl.RESULT_CONTINUATION_DECISION}:
         impl.validate_packet(packet, root, current_publication_required=True)
     else:
         impl.validate_packet(packet, root)
@@ -181,6 +182,8 @@ def materialize(
     task_specs = spec.get("tasks", [])
     if decision not in impl.DECISIONS:
         raise DriverFollowupTransactionError("spec decision is invalid")
+    if decision == impl.RESULT_CONTINUATION_DECISION:
+        impl._result_continuation_spec(spec)
     if not isinstance(task_specs, list):
         raise DriverFollowupTransactionError("spec tasks must be a list")
 
@@ -222,7 +225,8 @@ def materialize(
     if decision == impl.EXISTING_ASSET_DECISION and (
             spec.get("terminal_scope") is not None or spec.get("portfolio_continuation") is not None):
         raise DriverFollowupTransactionError("existing asset binding is not Task or parent closure")
-    if decision in {"PARENT_OBJECTIVE_CLOSURE", impl.TASK_SCOPE_DECISION, impl.EXISTING_ASSET_DECISION}:
+    if decision in {"PARENT_OBJECTIVE_CLOSURE", impl.TASK_SCOPE_DECISION, impl.EXISTING_ASSET_DECISION,
+                    impl.RESULT_CONTINUATION_DECISION}:
         if task_specs:
             raise DriverFollowupTransactionError(
                 "zero-task follow-up spec cannot include tasks"
@@ -243,6 +247,10 @@ def materialize(
         if decision == impl.TASK_SCOPE_DECISION:
             extra = {"terminal_scope": spec.get("terminal_scope"),
                      "portfolio_continuation": spec.get("portfolio_continuation")}
+        if decision == impl.RESULT_CONTINUATION_DECISION:
+            if binding is None:
+                raise DriverFollowupTransactionError("accepted-result continuation requires an authenticated current publisher")
+            extra = {"result_continuation": spec.get("result_continuation")}
         packet = impl.build_packet(
             review_id=review_id,
             decision=decision,
