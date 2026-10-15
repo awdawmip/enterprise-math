@@ -1,0 +1,925 @@
+{
+  "observed_at": "2026-10-15 20:38:01 UTC",
+  "status": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"service\": \"enterprise_math\",\n  \"version\": \"0.6.11\",\n  \"status\": \"CANONICAL_CONTROL_ADAPTER_TRIAL\",\n  \"endpoint\": \"https://em.181131.xyz/gateway/v1/enterprise-math/mcp\",\n  \"operation_contracts\": {\n    \"review_flow_state\": {\n      \"schema\": \"EM_DRIVER_FLOW_CONTRACT_V1\",\n      \"operation\": \"review_flow_state\",\n      \"payload_schema\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"required\": [\n          \"result_request_id\"\n        ],\n        \"properties\": {\n          \"result_request_id\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 128,\n            \"description\": \"Own successful artifact request with the complete verified Result JSON.\"\n          },\n          \"reviewer_contribution_ids\": {\n            \"type\": \"array\",\n            \"maxItems\": 100,\n            \"items\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"default\": [],\n            \"description\": \"Supplement, never clear, server-known prior contributions.\"\n          }\n        }\n      },\n      \"required_role\": \"RESEARCH_DRIVER\",\n      \"independence_obligations\": [\n        \"Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.\",\n        \"Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.\",\n        \"independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.\",\n        \"Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.\",\n        \"Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.\",\n        \"No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes.\"\n      ],\n      \"source_contract_ref\": \"5c37cb9ba03dec2e0ad4854addde51fb81811b31\",\n      \"native_validation_required\": true,\n      \"workflow_prerequisites\": \"Own complete verified Result artifact and active session-bound Driver authority.\"\n    },\n    \"review_reference\": {\n      \"schema\": \"EM_DRIVER_FLOW_CONTRACT_V1\",\n      \"operation\": \"review_reference\",\n      \"payload_schema\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"required\": [\n          \"result_request_id\",\n          \"pass_number\",\n          \"finding\",\n          \"independence_status\"\n        ],\n        \"properties\": {\n          \"result_request_id\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 128,\n            \"description\": \"Own successful artifact request with the complete verified Result JSON.\"\n          },\n          \"reviewer_contribution_ids\": {\n            \"type\": \"array\",\n            \"maxItems\": 100,\n            \"items\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"default\": [],\n            \"description\": \"Supplement, never clear, server-known prior contributions.\"\n          },\n          \"pass_number\": {\n            \"type\": \"integer\",\n            \"enum\": [\n              1,\n              2\n            ],\n            \"description\": \"1: SEMANTIC_EVIDENCE_CROSSCHECK; 2: ADVERSARIAL_CONTROL_CROSSCHECK. Complete in order.\"\n          },\n          \"finding\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 12000,\n            \"description\": \"Nonblank actual analysis of the exact review set, including independence/context disclosure. Not an enum.\"\n          },\n          \"independence_status\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 80,\n            \"enum\": [\n              \"CLEAN_INDEPENDENT_CONTEXT\",\n              \"SHARED_CONTROL_CONTEXT_DISCLOSED\",\n              \"NOT_INDEPENDENT\",\n              \"NOT_APPLICABLE\"\n            ],\n            \"description\": \"Explicit truthful context classification; no default. Put prose explanation in finding.\"\n          }\n        }\n      },\n      \"required_role\": \"RESEARCH_DRIVER\",\n      \"independence_obligations\": [\n        \"Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.\",\n        \"Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.\",\n        \"independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.\",\n        \"Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.\",\n        \"Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.\",\n        \"No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes.\"\n      ],\n      \"source_contract_ref\": \"5c37cb9ba03dec2e0ad4854addde51fb81811b31\",\n      \"native_validation_required\": true,\n      \"workflow_prerequisites\": \"At least two exact-set reviews; pass 1 precedes pass 2. Read existing passes before mutation.\",\n      \"independence_meanings\": {\n        \"CLEAN_INDEPENDENT_CONTEXT\": \"Assert only if the actual context is clean and independent.\",\n        \"SHARED_CONTROL_CONTEXT_DISCLOSED\": \"Shared control context is disclosed; explain its extent in finding.\",\n        \"NOT_INDEPENDENT\": \"Explicitly disclose that the context is not independent; this never bypasses author/contribution checks.\",\n        \"NOT_APPLICABLE\": \"Explicitly explain why a context-independence classification is not applicable; this never bypasses author/contribution checks.\"\n      }\n    },\n    \"review_synthesize\": {\n      \"schema\": \"EM_DRIVER_FLOW_CONTRACT_V1\",\n      \"operation\": \"review_synthesize\",\n      \"payload_schema\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"required\": [\n          \"result_request_id\",\n          \"disposition\",\n          \"rationale\",\n          \"destination_class\"\n        ],\n        \"properties\": {\n          \"result_request_id\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 128,\n            \"description\": \"Own successful artifact request with the complete verified Result JSON.\"\n          },\n          \"reviewer_contribution_ids\": {\n            \"type\": \"array\",\n            \"maxItems\": 100,\n            \"items\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"default\": [],\n            \"description\": \"Supplement, never clear, server-known prior contributions.\"\n          },\n          \"disposition\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 80,\n            \"enum\": [\n              \"ACCEPTED\",\n              \"REJECTED\",\n              \"PARKED\",\n              \"CLOSED\",\n              \"SUPERSEDED\",\n              \"RETURN_TO_OWNER\",\n              \"REQUEST_REPLICATION\",\n              \"REQUEST_REVISION\"\n            ]\n          },\n          \"rationale\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 12000,\n            \"description\": \"Explicit judgment after both exact-set reference passes; no automatic ACCEPTED choice.\"\n          },\n          \"destination_class\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 80,\n            \"enum\": [\n              \"NONE\",\n              \"FOUNDATION\",\n              \"TOOL\",\n              \"L4\",\n              \"REPLICATION\",\n              \"FOLLOWUP_TASK\",\n              \"ARCHIVE\"\n            ]\n          },\n          \"destination_ref_or_none\": {\n            \"type\": \"string\",\n            \"maxLength\": 2000,\n            \"default\": \"\"\n          }\n        }\n      },\n      \"required_role\": \"RESEARCH_DRIVER\",\n      \"independence_obligations\": [\n        \"Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.\",\n        \"Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.\",\n        \"independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.\",\n        \"Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.\",\n        \"Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.\",\n        \"No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes.\"\n      ],\n      \"source_contract_ref\": \"5c37cb9ba03dec2e0ad4854addde51fb81811b31\",\n      \"native_validation_required\": true,\n      \"workflow_prerequisites\": \"Both current exact-set reference passes. Retain every source review; no latest-timestamp selection.\"\n    },\n    \"followup_materialize\": {\n      \"schema\": \"EM_DRIVER_FLOW_CONTRACT_V1\",\n      \"operation\": \"followup_materialize\",\n      \"payload_schema\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"required\": [\n          \"result_request_id\",\n          \"publication_request_id\",\n          \"followup_spec_filename\"\n        ],\n        \"properties\": {\n          \"result_request_id\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 128,\n            \"description\": \"Own successful artifact request with the complete verified Result JSON.\"\n          },\n          \"reviewer_contribution_ids\": {\n            \"type\": \"array\",\n            \"maxItems\": 100,\n            \"items\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"maxLength\": 128\n            },\n            \"default\": [],\n            \"description\": \"Supplement, never clear, server-known prior contributions.\"\n          },\n          \"publication_request_id\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 128,\n            \"description\": \"Own successful driver_publish request from this same active session.\"\n          },\n          \"followup_spec_filename\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 96,\n            \"description\": \"Exact published filename containing a native follow-up spec JSON object.\"\n          }\n        }\n      },\n      \"required_role\": \"RESEARCH_DRIVER\",\n      \"independence_obligations\": [\n        \"Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.\",\n        \"Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.\",\n        \"independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.\",\n        \"Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.\",\n        \"Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.\",\n        \"No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes.\"\n      ],\n      \"source_contract_ref\": \"5c37cb9ba03dec2e0ad4854addde51fb81811b31\",\n      \"native_validation_required\": true,\n      \"workflow_prerequisites\": \"Current operational authority (one review or exact-set synthesis), own same-session driver_publish, explicit native spec and task/closure admission.\",\n      \"followup_spec_contract\": {\n        \"required\": [\n          \"decision\",\n          \"gate_decisions\"\n        ],\n        \"decision_enum\": [\n          \"TASK_SET_PUBLISHED\",\n          \"PARENT_OBJECTIVE_CLOSURE\",\n          \"TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION\",\n          \"EXISTING_CONTROL_ASSET_BOUND\"\n        ],\n        \"tasks_default\": [],\n        \"gate_decisions\": {\n          \"exact_gate_set\": [\n            \"MATHEMATICAL_CONTINUATION\",\n            \"LEAN_FORMALIZATION\",\n            \"EXTERNAL_PRIOR_ART_DUPLICATION\",\n            \"INDEPENDENT_REPLICATION\",\n            \"INTEGRATION_OR_TOOL_HARVEST\",\n            \"ADVERSARIAL_AUDIT\"\n          ],\n          \"decision_enum\": [\n            \"REQUIRED\",\n            \"SATISFIED_BY_REVIEWED_RESULT\",\n            \"SATISFIED_BY_EXISTING_CONTROL_ASSET\",\n            \"NOT_REQUIRED\"\n          ],\n          \"required_row_fields\": [\n            \"gate\",\n            \"decision\",\n            \"reason\"\n          ],\n          \"field_types\": {\n            \"gate\": \"string\",\n            \"decision\": \"string\",\n            \"reason\": \"nonblank string\",\n            \"evidence_refs\": \"array of unique nonblank strings, default []\"\n          },\n          \"evidence_refs\": \"Nonempty evidence refs required for either SATISFIED_BY_* decision.\",\n          \"rules\": [\n            \"Exactly one row per gate.\",\n            \"REQUIRED needs a matching published task role.\",\n            \"ACCEPTED cannot skip external prior art; ACCEPTED L4 cannot skip Lean; tool-bearing results cannot skip tool harvest.\"\n          ]\n        },\n        \"tasks\": {\n          \"required_fields\": [\n            \"task_id\",\n            \"title\",\n            \"task_role\",\n            \"frontier\",\n            \"next_action\",\n            \"research_value\",\n            \"mother_question\",\n            \"frozen_inputs_and_scope\",\n            \"hard_target_and_required_outputs\",\n            \"research_value_to_preserve\",\n            \"success_kill_and_return_criteria\"\n          ],\n          \"task_role_enum\": [\n            \"MATHEMATICAL_CONTINUATION\",\n            \"LEAN_FORMALIZATION\",\n            \"EXTERNAL_PRIOR_ART_DUPLICATION\",\n            \"INDEPENDENT_REPLICATION\",\n            \"INTEGRATION_OR_TOOL_HARVEST\",\n            \"ADVERSARIAL_AUDIT\",\n            \"REVISION\",\n            \"PARALLEL_REFERENCE_OR_SYNTHESIS\",\n            \"OTHER\"\n          ],\n          \"task_lineage_enum\": [\n            \"NEW_DIRECTION\",\n            \"CONTINUATION\",\n            \"REPLAY\",\n            \"INTEGRATION\",\n            \"MAINTENANCE\"\n          ],\n          \"defaults\": {\n            \"task_lineage\": \"CONTINUATION\",\n            \"kind\": \"RESEARCH\",\n            \"owner\": \"taskbook/unassigned\",\n            \"priority\": \"P1\",\n            \"leverage\": \"HIGH\",\n            \"dependencies\": [],\n            \"source_refs\": [],\n            \"claim_lease_minutes\": 120\n          },\n          \"continuation_requires\": [\n            \"parent_task_id\",\n            \"successor_gate\"\n          ],\n          \"native_task_admission\": \"Task schema, successor gate, objective binding and publication preflight remain mandatory.\"\n        },\n        \"decision_conditions\": {\n          \"TASK_SET_PUBLISHED\": \"One or more substantive tasks; preserve Result successor restrictions and parent Objective.\",\n          \"PARENT_OBJECTIVE_CLOSURE\": \"No tasks or REQUIRED gates; parent Objective must already be canonically CLOSED.\",\n          \"TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION\": \"No tasks or REQUIRED gates; accepted PASS/SUCCESS Task with SATISFIED hard target or the native pinned explicit Driver satisfaction assessment. Requires terminal_scope=TASK and portfolio_continuation; grants no parent completion.\",\n          \"EXISTING_CONTROL_ASSET_BOUND\": \"No new tasks or REQUIRED gates. Bind exactly the existing integration publication named by an ACCEPTED/FOLLOWUP_TASK exact-set synthesis. Require the current source Task publication, own active Driver session/DA, and current operational destination; any later destination generation requires explicit current_destination_continuation. Preserve historical authors and grant no Task or parent closure.\"\n        },\n        \"conditional_required_fields\": {\n          \"TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION\": [\n            \"terminal_scope\",\n            \"portfolio_continuation\"\n          ],\n          \"EXISTING_CONTROL_ASSET_BOUND\": [\n            \"existing_task_publications\"\n          ]\n        },\n        \"existing_task_publications\": {\n          \"type\": \"array\",\n          \"minItems\": 1,\n          \"maxItems\": 1,\n          \"items\": {\n            \"type\": \"object\",\n            \"required\": [\n              \"task_id\",\n              \"publication_id\",\n              \"task_role\"\n            ],\n            \"properties\": {\n              \"task_id\": {\n                \"type\": \"string\",\n                \"minLength\": 1,\n                \"description\": \"Exact synthesis destination Task ID.\"\n              },\n              \"publication_id\": {\n                \"type\": \"string\",\n                \"minLength\": 1,\n                \"description\": \"Exact original synthesis destination publication ID; never replace it with a later generation.\"\n              },\n              \"task_role\": {\n                \"type\": \"string\",\n                \"const\": \"INTEGRATION_OR_TOOL_HARVEST\"\n              }\n            }\n          },\n          \"rules\": [\n            \"Only valid for EXISTING_CONTROL_ASSET_BOUND; tasks must be empty.\",\n            \"The original destination must be a Driver-published INTEGRATION Task in the same parent Objective.\",\n            \"INTEGRATION_OR_TOOL_HARVEST must use SATISFIED_BY_EXISTING_CONTROL_ASSET and cite task_id/publication_id.\",\n            \"Other gates cannot use this integration asset as satisfaction evidence; no gate may remain REQUIRED.\",\n            \"The native writer pins raw publication bytes and taskbook blobs and preserves the original publisher; existing references are not newly published tasks.\"\n          ]\n        },\n        \"current_destination_continuation\": {\n          \"type\": \"object\",\n          \"required\": [\n            \"publication_id\",\n            \"rationale\",\n            \"evidence_refs\"\n          ],\n          \"additionalProperties\": false,\n          \"properties\": {\n            \"publication_id\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"description\": \"Explicit current operational publication of the same destination Task, later than the exact synthesis destination.\"\n            },\n            \"rationale\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"pattern\": \"\\\\S\",\n              \"description\": \"Current Driver judgment explaining why this continuation preserves the synthesis routing.\"\n            },\n            \"evidence_refs\": {\n              \"type\": \"array\",\n              \"minItems\": 2,\n              \"uniqueItems\": true,\n              \"items\": {\n                \"type\": \"string\",\n                \"minLength\": 1,\n                \"pattern\": \"\\\\S\"\n              },\n              \"description\": \"Must include both task_id/original_publication_id and task_id/current_publication_id.\"\n            }\n          },\n          \"rules\": [\n            \"Optional only for EXISTING_CONTROL_ASSET_BOUND; no implicit advance to a newer publication.\",\n            \"The entire supersedes chain must reach the exact original destination and preserve Task ID and parent Objective.\",\n            \"Every chain publication must be Driver-published INTEGRATION or MAINTENANCE; the original remains INTEGRATION.\",\n            \"The native writer generates and verifies every raw publication/taskbook pin; callers do not supply chain pins.\",\n            \"No synthesis rewrite, duplicate Task, closure, or change of historical authorship is authorized.\"\n          ]\n        },\n        \"terminal_scope\": {\n          \"type\": \"string\",\n          \"const\": \"TASK\",\n          \"description\": \"Explicitly required for TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION; no inferred closure.\"\n        },\n        \"portfolio_continuation\": {\n          \"required_fields\": [\n            \"source_result_id\",\n            \"parent_objective_id\",\n            \"action\",\n            \"dispatcher\",\n            \"next_action\",\n            \"remaining_parent_scope\",\n            \"evidence_refs\"\n          ],\n          \"additionalProperties\": false,\n          \"properties\": {\n            \"source_result_id\": {\n              \"type\": \"string\",\n              \"description\": \"Exact current Result ID.\"\n            },\n            \"parent_objective_id\": {\n              \"type\": \"string\",\n              \"description\": \"Exact parent Objective ID from current publication.\"\n            },\n            \"action\": {\n              \"type\": \"string\",\n              \"const\": \"REEVALUATE_CANONICAL_PORTFOLIO\"\n            },\n            \"dispatcher\": {\n              \"type\": \"string\",\n              \"const\": \"research_control_dispatch.py\"\n            },\n            \"next_action\": {\n              \"type\": \"string\",\n              \"minLength\": 1,\n              \"pattern\": \"\\\\S\"\n            },\n            \"remaining_parent_scope\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"uniqueItems\": true,\n              \"items\": {\n                \"type\": \"string\",\n                \"minLength\": 1,\n                \"pattern\": \"\\\\S\"\n              }\n            },\n            \"evidence_refs\": {\n              \"type\": \"array\",\n              \"minItems\": 1,\n              \"uniqueItems\": true,\n              \"items\": {\n                \"type\": \"string\",\n                \"minLength\": 1,\n                \"pattern\": \"\\\\S\"\n              }\n            }\n          },\n          \"action\": \"REEVALUATE_CANONICAL_PORTFOLIO\",\n          \"dispatcher\": \"research_control_dispatch.py\"\n        },\n        \"authoritative_contract\": \"research_driver_followup_contract.json\",\n        \"authoritative_writers\": [\n          \"research_driver_followup_guard.py\",\n          \"research_driver_followup.py\"\n        ]\n      }\n    },\n    \"session_preserve_staging\": {\n      \"schema\": \"EM_SESSION_STAGING_DISPOSITION_CONTRACT_V1\",\n      \"operation\": \"session_preserve_staging\",\n      \"payload_schema\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"required\": [\n          \"reason\"\n        ],\n        \"properties\": {\n          \"reason\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 2000,\n            \"pattern\": \"\\\\S\"\n          }\n        }\n      },\n      \"server_bound_fields\": [\n        \"subject\",\n        \"session_id\",\n        \"execution_id\",\n        \"prior_contribution_ids\"\n      ],\n      \"scope\": \"Own currently bound active logical conversation only. No client session/identity selector.\",\n      \"preconditions\": [\n        \"No pending native/admitted mutation for this session or run.\",\n        \"No current Source LEASED own claim. Historical run state is not current authority; an own active Driver DA is preserved until the ordinary close transaction revokes it.\"\n      ],\n      \"preserves\": [\n        \"All unresolved complete and incomplete staged UTF-8 parts and hashes; inventory is not limited to 16 uploads.\",\n        \"Original upload request IDs, predecessor session and immutable payload/receipt hashes.\",\n        \"Existing Source checkpoint/Result/review/task bytes and prior contribution history.\"\n      ],\n      \"effect\": \"Neutral immutable Source manifest plus typed disposition audit. Local original rows remain immutable; no published_uploads spoofing.\",\n      \"authority_granted\": false,\n      \"research_progress_claimed\": false,\n      \"maximum_manifest_bytes\": 4194304,\n      \"success_next_action\": \"Read verified manifest pins, session_close the old session, then session_start a fresh real identity in the same actual logical conversation. Read continuation and preserve its native checkpoint; continuation_prepare uses packet_request_id and reason only when a native frontier exists.\",\n      \"unknown_next_action\": \"Use recovery_status and reconcile the original preservation request; never replace an unknown mutation with a new request ID.\",\n      \"definite_failure_next_action\": \"Read the exact error and current Source ownership; resolve the stated precondition, then submit one corrected new request ID. Do not reuse a rejected identity to prepare succession.\"\n    },\n    \"freeze\": {\n      \"operation\": \"freeze\",\n      \"metadata_schema\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"hard_target_disposition\",\n          \"independence_status\",\n          \"method_harvest\",\n          \"next_control_plane_recommendation\",\n          \"source_exposure_status\",\n          \"terminal_verdict\",\n          \"unresolved_residue\"\n        ],\n        \"additionalProperties\": false,\n        \"properties\": {\n          \"method_harvest\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"CANDIDATE_NOT_TOOL\",\n              \"DOMAIN_FACADE\",\n              \"DOMAIN_OPERATOR\",\n              \"DUPLICATE_ALIAS\",\n              \"GLOBAL_SUBTOOL\",\n              \"GLOBAL_TOOL_FAMILY\",\n              \"NO_TOOL_PAYLOAD\",\n              \"RESULT_ONLY\"\n            ]\n          },\n          \"independence_status\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"CLEAN_INDEPENDENT_CONTEXT\",\n              \"NOT_APPLICABLE\",\n              \"NOT_INDEPENDENT\",\n              \"SHARED_AMBIENT_CONTEXT_DISCLOSED\"\n            ]\n          },\n          \"source_exposure_status\": {\n            \"type\": \"string\",\n            \"enum\": [\n              \"BLIND_RAW_FROZEN\",\n              \"NONBLIND_DISCLOSED\",\n              \"NOT_APPLICABLE\",\n              \"SOURCE_EXPOSED_AFTER_RAW_FREEZE\"\n            ]\n          },\n          \"terminal_verdict\": {\n            \"type\": \"string\",\n            \"pattern\": \"\\\\S\"\n          },\n          \"hard_target_disposition\": {\n            \"type\": \"string\",\n            \"pattern\": \"\\\\S\"\n          },\n          \"unresolved_residue\": {\n            \"type\": \"string\",\n            \"pattern\": \"\\\\S\"\n          },\n          \"next_control_plane_recommendation\": {\n            \"type\": \"string\",\n            \"pattern\": \"\\\\S\"\n          }\n        }\n      },\n      \"native_validation_required\": true,\n      \"source_enum_reference\": {\n        \"repository\": \"awdawmip/enterprise-math\",\n        \"commit\": \"012706a3ac1e42acbd86cab977afac7659264992\",\n        \"path\": \"control_plane/research_result_records_impl.py\"\n      },\n      \"enum_error\": {\n        \"code\": \"INVALID_NATIVE_ENUM_FIELD\",\n        \"fields\": [\n          \"independence_status\",\n          \"method_harvest\",\n          \"source_exposure_status\"\n        ],\n        \"details\": [\n          \"code\",\n          \"field\",\n          \"allowed_values\"\n        ],\n        \"rejected_value_disclosed\": false\n      },\n      \"recovery\": \"Read/reconcile the original request ID. Existing request IDs keep their original receipts and payloads; staged plans retain native_payload. Metadata preflight applies when constructing a new plan.\",\n      \"authority\": \"Own current run, session, winning CLAIM, published return, native intent, ownership epoch and Source CAS gates still apply.\"\n    },\n    \"driver_runtime_observe\": {\n      \"schema\": \"ENTERPRISE_MATH_DRIVER_RUNTIME_OBSERVATION_CONTRACT_V1\",\n      \"operation\": \"driver_runtime_observe\",\n      \"read_only\": true,\n      \"payload_schema\": {\n        \"type\": \"object\",\n        \"additionalProperties\": false,\n        \"required\": [\n          \"task_id\",\n          \"expected_publication_id\",\n          \"objective_id\",\n          \"expected_objective_generation_id\",\n          \"expected_source_head\"\n        ],\n        \"properties\": {\n          \"task_id\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 128,\n            \"pattern\": \"^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$\"\n          },\n          \"expected_publication_id\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 128,\n            \"pattern\": \"^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$\"\n          },\n          \"objective_id\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 128,\n            \"pattern\": \"^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$\"\n          },\n          \"expected_objective_generation_id\": {\n            \"type\": \"string\",\n            \"minLength\": 1,\n            \"maxLength\": 128,\n            \"pattern\": \"^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$\"\n          },\n          \"expected_source_head\": {\n            \"type\": \"string\",\n            \"pattern\": \"^[0-9a-f]{40}$\"\n          }\n        }\n      },\n      \"authority\": \"BACKEND_AS_OF_DIAGNOSTIC_COMPOSITION\",\n      \"replay\": \"Same request returns the original observation; use a new request for a fresh collection.\",\n      \"closure_authorized\": false,\n      \"claim_authorized\": false,\n      \"final_permission_granted\": false,\n      \"all_ingress_fence_proved\": false\n    },\n    \"historical_result_control\": {\n      \"schema\": \"EM_HISTORICAL_RESULT_CONTROL_TRANSPORT_V1\",\n      \"operations\": [\n        \"historical_result_intake\",\n        \"historical_result_review\"\n      ],\n      \"intake_fields\": [\n        \"expected_execution_blob_sha1\",\n        \"expected_execution_sha256\",\n        \"expected_publication_blob_sha1\",\n        \"expected_result_blob_sha1\",\n        \"expected_result_sha256\",\n        \"expected_taskbook_blob_sha1\",\n        \"historical_result_id\",\n        \"publication_id\",\n        \"reason\",\n        \"target_task_id\"\n      ],\n      \"review_fields\": [\n        \"disposition\",\n        \"expected_intake_blob_sha1\",\n        \"expected_intake_sha256\",\n        \"expected_previous_review_set_sha256\",\n        \"intake_id\",\n        \"portfolio_continuation\",\n        \"publication_id\",\n        \"reason\",\n        \"reviewer_contribution_ids\",\n        \"supersedes_review_ids\",\n        \"target_task_id\"\n      ],\n      \"intake_authority\": \"CURRENT_SOURCE_AUTHENTICATED_DRIVER_GOV_RUN\",\n      \"review_authority\": \"CURRENT_SOURCE_AUTHENTICATED_INDEPENDENT_DRIVER\",\n      \"historical_execution_authentication_restored\": false,\n      \"intake_grants_mathematical_acceptance\": false,\n      \"parent_completion_granted\": false,\n      \"unknown_outcome\": \"RECONCILE_ORIGINAL_REQUEST_ONLY\"\n    }\n  },\n  \"ordinary_chat_recovery\": {\n    \"operation\": \"recovery_status\",\n    \"payload\": {},\n    \"scope\": \"Own actual logical conversation only; read-only local pointers, not Source authority.\"\n  },\n  \"authenticated_client\": \"sites-em-6abdec598ad48191aebece9a8232f041-ro\",\n  \"transport\": \"DIRECT_HTTPS_STREAMABLE_HTTP\",\n  \"source_pins\": {\n    \"enterprise-math\": \"b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac\",\n    \"global-knowledge\": \"7b33f8066e9993e7c941959a9d738ed405248eb8\"\n  },\n  \"snapshot_created_at\": \"2026-10-15T20:35:27.604218+00:00\",\n  \"snapshot_id\": \"3a3a978b2456bef9f0c71ab2db6b9a2e53f1d311b4e58240c61d3b4a32c31a2b\",\n  \"source_sync\": {\n    \"enabled\": true,\n    \"running\": true,\n    \"interval_seconds\": 5.0,\n    \"snapshot_id\": \"3a3a978b2456bef9f0c71ab2db6b9a2e53f1d311b4e58240c61d3b4a32c31a2b\",\n    \"source_pins\": {\n      \"enterprise-math\": \"b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac\",\n      \"global-knowledge\": \"7b33f8066e9993e7c941959a9d738ed405248eb8\"\n    },\n    \"repositories\": {\n      \"awdawmip/enterprise-math\": {\n        \"detected_sha\": \"b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac\",\n        \"etag\": \"\\\"210ab83d7f1ba1f2efdd656935155961d706985543b09e0532909b579d5653ac\\\"\",\n        \"checked_at\": 1792096684.2214847,\n        \"success_at\": 1792096684.2236173,\n        \"error\": null,\n        \"head_checks\": 235170,\n        \"unchanged_checks\": 234079,\n        \"bundle_updates\": 1022,\n        \"blob_downloads\": 5\n      }\n    },\n    \"github_rate_limit\": null,\n    \"global_knowledge\": {\n      \"state\": \"STATIC_BUNDLE_SYNC_DISABLED_BY_POLICY\",\n      \"source_pin\": \"7b33f8066e9993e7c941959a9d738ed405248eb8\"\n    },\n    \"control\": {\n      \"source_sha\": null,\n      \"detected_sha\": \"b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac\",\n      \"state\": \"ON_DEMAND_REFRESH_PENDING\",\n      \"error\": null,\n      \"code_checked_sha\": \"b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac\",\n      \"success_at\": 1792096527.6689272,\n      \"reviewed_code_gate_passed\": true,\n      \"full_snapshot_verified\": false\n    },\n    \"research_authority_granted\": false\n  },\n  \"snapshot_policy\": \"AUTOMATIC_VERIFIED_DOCUMENT_SNAPSHOTS_LIVE_CONTROL_REVALIDATES_SOURCE_AND_EVENTS\",\n  \"ordinary_chat_transport\": {\n    \"enabled\": true,\n    \"repository\": \"awdawmip/kimi-query-bridge\",\n    \"label\": \"em:control\",\n    \"protocol\": \"EM_CHAT_CONTROL_V1\",\n    \"client_sha256_required\": false,\n    \"private_session_keys_on_host\": true,\n    \"poll_seconds\": 15\n  },\n  \"enabled\": [\n    \"pinned_source_read\",\n    \"directed_context_manifest\",\n    \"scoped_checkpoint_CAS\",\n    \"ticket_exchange\",\n    \"canonical_dispatch_adapter\",\n    \"canonical_task_adapter\",\n    \"durable_control_requests\",\n    \"canonical_claim_adapter\",\n    \"canonical_authorization_adapter\",\n    \"same_session_run_recovery\",\n    \"canonical_task_inventory\",\n    \"canonical_continuation_packets\",\n    \"canonical_successor_prepare\",\n    \"source_session_registration_adapter\",\n    \"canonical_driver_activation_adapter\",\n    \"manifest_artifact_read\",\n    \"exact_task_prepare\",\n    \"source_checkpoint_CAS\",\n    \"native_result_freeze_adapter\",\n    \"native_driver_review_followup_adapter\",\n    \"own_session_close\"\n  ],\n  \"claim_writes_enabled\": true,\n  \"session_registration_enabled\": true,\n  \"driver_activation_enabled\": true,\n  \"artifact_writes_enabled\": true,\n  \"result_writes_enabled\": true,\n  \"driver_artifact_writes_enabled\": true,\n  \"review_writes_enabled\": true,\n  \"historical_result_writes_enabled\": true,\n  \"executor_binding_configured\": false,\n  \"registered_session_count\": 0,\n  \"session_identity\": \"SERVICE_ISSUED_EXECUTION_SESSION_WITH_PRIVATE_CAPABILITY\",\n  \"legacy_session_enrollment_enabled\": false,\n  \"not_enabled\": [\n    \"agent_launch\",\n    \"blind_execution\",\n    \"platform_session_attestation\",\n    \"automatic_history_scan\",\n    \"arbitrary_git_write\",\n    \"remote_mathematical_compute\"\n  ],\n  \"research_authority_granted\": false\n}"
+        }
+      ],
+      "structuredContent": {
+        "service": "enterprise_math",
+        "version": "0.6.11",
+        "status": "CANONICAL_CONTROL_ADAPTER_TRIAL",
+        "endpoint": "https://em.181131.xyz/gateway/v1/enterprise-math/mcp",
+        "operation_contracts": {
+          "review_flow_state": {
+            "schema": "EM_DRIVER_FLOW_CONTRACT_V1",
+            "operation": "review_flow_state",
+            "payload_schema": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "result_request_id"
+              ],
+              "properties": {
+                "result_request_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "description": "Own successful artifact request with the complete verified Result JSON."
+                },
+                "reviewer_contribution_ids": {
+                  "type": "array",
+                  "maxItems": 100,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  "default": [],
+                  "description": "Supplement, never clear, server-known prior contributions."
+                }
+              }
+            },
+            "required_role": "RESEARCH_DRIVER",
+            "independence_obligations": [
+              "Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.",
+              "Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.",
+              "independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.",
+              "Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.",
+              "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
+              "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
+            ],
+            "source_contract_ref": "5c37cb9ba03dec2e0ad4854addde51fb81811b31",
+            "native_validation_required": true,
+            "workflow_prerequisites": "Own complete verified Result artifact and active session-bound Driver authority."
+          },
+          "review_reference": {
+            "schema": "EM_DRIVER_FLOW_CONTRACT_V1",
+            "operation": "review_reference",
+            "payload_schema": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "result_request_id",
+                "pass_number",
+                "finding",
+                "independence_status"
+              ],
+              "properties": {
+                "result_request_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "description": "Own successful artifact request with the complete verified Result JSON."
+                },
+                "reviewer_contribution_ids": {
+                  "type": "array",
+                  "maxItems": 100,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  "default": [],
+                  "description": "Supplement, never clear, server-known prior contributions."
+                },
+                "pass_number": {
+                  "type": "integer",
+                  "enum": [
+                    1,
+                    2
+                  ],
+                  "description": "1: SEMANTIC_EVIDENCE_CROSSCHECK; 2: ADVERSARIAL_CONTROL_CROSSCHECK. Complete in order."
+                },
+                "finding": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "description": "Nonblank actual analysis of the exact review set, including independence/context disclosure. Not an enum."
+                },
+                "independence_status": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "enum": [
+                    "CLEAN_INDEPENDENT_CONTEXT",
+                    "SHARED_CONTROL_CONTEXT_DISCLOSED",
+                    "NOT_INDEPENDENT",
+                    "NOT_APPLICABLE"
+                  ],
+                  "description": "Explicit truthful context classification; no default. Put prose explanation in finding."
+                }
+              }
+            },
+            "required_role": "RESEARCH_DRIVER",
+            "independence_obligations": [
+              "Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.",
+              "Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.",
+              "independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.",
+              "Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.",
+              "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
+              "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
+            ],
+            "source_contract_ref": "5c37cb9ba03dec2e0ad4854addde51fb81811b31",
+            "native_validation_required": true,
+            "workflow_prerequisites": "At least two exact-set reviews; pass 1 precedes pass 2. Read existing passes before mutation.",
+            "independence_meanings": {
+              "CLEAN_INDEPENDENT_CONTEXT": "Assert only if the actual context is clean and independent.",
+              "SHARED_CONTROL_CONTEXT_DISCLOSED": "Shared control context is disclosed; explain its extent in finding.",
+              "NOT_INDEPENDENT": "Explicitly disclose that the context is not independent; this never bypasses author/contribution checks.",
+              "NOT_APPLICABLE": "Explicitly explain why a context-independence classification is not applicable; this never bypasses author/contribution checks."
+            }
+          },
+          "review_synthesize": {
+            "schema": "EM_DRIVER_FLOW_CONTRACT_V1",
+            "operation": "review_synthesize",
+            "payload_schema": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "result_request_id",
+                "disposition",
+                "rationale",
+                "destination_class"
+              ],
+              "properties": {
+                "result_request_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "description": "Own successful artifact request with the complete verified Result JSON."
+                },
+                "reviewer_contribution_ids": {
+                  "type": "array",
+                  "maxItems": 100,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  "default": [],
+                  "description": "Supplement, never clear, server-known prior contributions."
+                },
+                "disposition": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "enum": [
+                    "ACCEPTED",
+                    "REJECTED",
+                    "PARKED",
+                    "CLOSED",
+                    "SUPERSEDED",
+                    "RETURN_TO_OWNER",
+                    "REQUEST_REPLICATION",
+                    "REQUEST_REVISION"
+                  ]
+                },
+                "rationale": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 12000,
+                  "description": "Explicit judgment after both exact-set reference passes; no automatic ACCEPTED choice."
+                },
+                "destination_class": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 80,
+                  "enum": [
+                    "NONE",
+                    "FOUNDATION",
+                    "TOOL",
+                    "L4",
+                    "REPLICATION",
+                    "FOLLOWUP_TASK",
+                    "ARCHIVE"
+                  ]
+                },
+                "destination_ref_or_none": {
+                  "type": "string",
+                  "maxLength": 2000,
+                  "default": ""
+                }
+              }
+            },
+            "required_role": "RESEARCH_DRIVER",
+            "independence_obligations": [
+              "Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.",
+              "Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.",
+              "independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.",
+              "Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.",
+              "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
+              "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
+            ],
+            "source_contract_ref": "5c37cb9ba03dec2e0ad4854addde51fb81811b31",
+            "native_validation_required": true,
+            "workflow_prerequisites": "Both current exact-set reference passes. Retain every source review; no latest-timestamp selection."
+          },
+          "followup_materialize": {
+            "schema": "EM_DRIVER_FLOW_CONTRACT_V1",
+            "operation": "followup_materialize",
+            "payload_schema": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "result_request_id",
+                "publication_request_id",
+                "followup_spec_filename"
+              ],
+              "properties": {
+                "result_request_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "description": "Own successful artifact request with the complete verified Result JSON."
+                },
+                "reviewer_contribution_ids": {
+                  "type": "array",
+                  "maxItems": 100,
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 128
+                  },
+                  "default": [],
+                  "description": "Supplement, never clear, server-known prior contributions."
+                },
+                "publication_request_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "description": "Own successful driver_publish request from this same active session."
+                },
+                "followup_spec_filename": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "description": "Exact published filename containing a native follow-up spec JSON object."
+                }
+              }
+            },
+            "required_role": "RESEARCH_DRIVER",
+            "independence_obligations": [
+              "Use your own active RESEARCH_DRIVER session and current Source DA; never borrow an earlier author identity.",
+              "Declare all prior contribution IDs. Declarations supplement server-known history; a new session does not establish independence.",
+              "independence_status is an explicit context disclosure, never a default, proof of independence, or exemption from contribution-overlap checks.",
+              "Read the exact Result and complete review set; finding records the actual semantic or adversarial analysis and any context limitations.",
+              "Preserve immutable existing passes/authors. Consume an identical existing pass; read current state when it differs.",
+              "No enum, successful transport, reference pass, or synthesis grants mathematical acceptance, Working Truth, Foundation, or P000 changes."
+            ],
+            "source_contract_ref": "5c37cb9ba03dec2e0ad4854addde51fb81811b31",
+            "native_validation_required": true,
+            "workflow_prerequisites": "Current operational authority (one review or exact-set synthesis), own same-session driver_publish, explicit native spec and task/closure admission.",
+            "followup_spec_contract": {
+              "required": [
+                "decision",
+                "gate_decisions"
+              ],
+              "decision_enum": [
+                "TASK_SET_PUBLISHED",
+                "PARENT_OBJECTIVE_CLOSURE",
+                "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION",
+                "EXISTING_CONTROL_ASSET_BOUND"
+              ],
+              "tasks_default": [],
+              "gate_decisions": {
+                "exact_gate_set": [
+                  "MATHEMATICAL_CONTINUATION",
+                  "LEAN_FORMALIZATION",
+                  "EXTERNAL_PRIOR_ART_DUPLICATION",
+                  "INDEPENDENT_REPLICATION",
+                  "INTEGRATION_OR_TOOL_HARVEST",
+                  "ADVERSARIAL_AUDIT"
+                ],
+                "decision_enum": [
+                  "REQUIRED",
+                  "SATISFIED_BY_REVIEWED_RESULT",
+                  "SATISFIED_BY_EXISTING_CONTROL_ASSET",
+                  "NOT_REQUIRED"
+                ],
+                "required_row_fields": [
+                  "gate",
+                  "decision",
+                  "reason"
+                ],
+                "field_types": {
+                  "gate": "string",
+                  "decision": "string",
+                  "reason": "nonblank string",
+                  "evidence_refs": "array of unique nonblank strings, default []"
+                },
+                "evidence_refs": "Nonempty evidence refs required for either SATISFIED_BY_* decision.",
+                "rules": [
+                  "Exactly one row per gate.",
+                  "REQUIRED needs a matching published task role.",
+                  "ACCEPTED cannot skip external prior art; ACCEPTED L4 cannot skip Lean; tool-bearing results cannot skip tool harvest."
+                ]
+              },
+              "tasks": {
+                "required_fields": [
+                  "task_id",
+                  "title",
+                  "task_role",
+                  "frontier",
+                  "next_action",
+                  "research_value",
+                  "mother_question",
+                  "frozen_inputs_and_scope",
+                  "hard_target_and_required_outputs",
+                  "research_value_to_preserve",
+                  "success_kill_and_return_criteria"
+                ],
+                "task_role_enum": [
+                  "MATHEMATICAL_CONTINUATION",
+                  "LEAN_FORMALIZATION",
+                  "EXTERNAL_PRIOR_ART_DUPLICATION",
+                  "INDEPENDENT_REPLICATION",
+                  "INTEGRATION_OR_TOOL_HARVEST",
+                  "ADVERSARIAL_AUDIT",
+                  "REVISION",
+                  "PARALLEL_REFERENCE_OR_SYNTHESIS",
+                  "OTHER"
+                ],
+                "task_lineage_enum": [
+                  "NEW_DIRECTION",
+                  "CONTINUATION",
+                  "REPLAY",
+                  "INTEGRATION",
+                  "MAINTENANCE"
+                ],
+                "defaults": {
+                  "task_lineage": "CONTINUATION",
+                  "kind": "RESEARCH",
+                  "owner": "taskbook/unassigned",
+                  "priority": "P1",
+                  "leverage": "HIGH",
+                  "dependencies": [],
+                  "source_refs": [],
+                  "claim_lease_minutes": 120
+                },
+                "continuation_requires": [
+                  "parent_task_id",
+                  "successor_gate"
+                ],
+                "native_task_admission": "Task schema, successor gate, objective binding and publication preflight remain mandatory."
+              },
+              "decision_conditions": {
+                "TASK_SET_PUBLISHED": "One or more substantive tasks; preserve Result successor restrictions and parent Objective.",
+                "PARENT_OBJECTIVE_CLOSURE": "No tasks or REQUIRED gates; parent Objective must already be canonically CLOSED.",
+                "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": "No tasks or REQUIRED gates; accepted PASS/SUCCESS Task with SATISFIED hard target or the native pinned explicit Driver satisfaction assessment. Requires terminal_scope=TASK and portfolio_continuation; grants no parent completion.",
+                "EXISTING_CONTROL_ASSET_BOUND": "No new tasks or REQUIRED gates. Bind exactly the existing integration publication named by an ACCEPTED/FOLLOWUP_TASK exact-set synthesis. Require the current source Task publication, own active Driver session/DA, and current operational destination; any later destination generation requires explicit current_destination_continuation. Preserve historical authors and grant no Task or parent closure."
+              },
+              "conditional_required_fields": {
+                "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": [
+                  "terminal_scope",
+                  "portfolio_continuation"
+                ],
+                "EXISTING_CONTROL_ASSET_BOUND": [
+                  "existing_task_publications"
+                ]
+              },
+              "existing_task_publications": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "task_id",
+                    "publication_id",
+                    "task_role"
+                  ],
+                  "properties": {
+                    "task_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "description": "Exact synthesis destination Task ID."
+                    },
+                    "publication_id": {
+                      "type": "string",
+                      "minLength": 1,
+                      "description": "Exact original synthesis destination publication ID; never replace it with a later generation."
+                    },
+                    "task_role": {
+                      "type": "string",
+                      "const": "INTEGRATION_OR_TOOL_HARVEST"
+                    }
+                  }
+                },
+                "rules": [
+                  "Only valid for EXISTING_CONTROL_ASSET_BOUND; tasks must be empty.",
+                  "The original destination must be a Driver-published INTEGRATION Task in the same parent Objective.",
+                  "INTEGRATION_OR_TOOL_HARVEST must use SATISFIED_BY_EXISTING_CONTROL_ASSET and cite task_id/publication_id.",
+                  "Other gates cannot use this integration asset as satisfaction evidence; no gate may remain REQUIRED.",
+                  "The native writer pins raw publication bytes and taskbook blobs and preserves the original publisher; existing references are not newly published tasks."
+                ]
+              },
+              "current_destination_continuation": {
+                "type": "object",
+                "required": [
+                  "publication_id",
+                  "rationale",
+                  "evidence_refs"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "publication_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Explicit current operational publication of the same destination Task, later than the exact synthesis destination."
+                  },
+                  "rationale": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S",
+                    "description": "Current Driver judgment explaining why this continuation preserves the synthesis routing."
+                  },
+                  "evidence_refs": {
+                    "type": "array",
+                    "minItems": 2,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    },
+                    "description": "Must include both task_id/original_publication_id and task_id/current_publication_id."
+                  }
+                },
+                "rules": [
+                  "Optional only for EXISTING_CONTROL_ASSET_BOUND; no implicit advance to a newer publication.",
+                  "The entire supersedes chain must reach the exact original destination and preserve Task ID and parent Objective.",
+                  "Every chain publication must be Driver-published INTEGRATION or MAINTENANCE; the original remains INTEGRATION.",
+                  "The native writer generates and verifies every raw publication/taskbook pin; callers do not supply chain pins.",
+                  "No synthesis rewrite, duplicate Task, closure, or change of historical authorship is authorized."
+                ]
+              },
+              "terminal_scope": {
+                "type": "string",
+                "const": "TASK",
+                "description": "Explicitly required for TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION; no inferred closure."
+              },
+              "portfolio_continuation": {
+                "required_fields": [
+                  "source_result_id",
+                  "parent_objective_id",
+                  "action",
+                  "dispatcher",
+                  "next_action",
+                  "remaining_parent_scope",
+                  "evidence_refs"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "source_result_id": {
+                    "type": "string",
+                    "description": "Exact current Result ID."
+                  },
+                  "parent_objective_id": {
+                    "type": "string",
+                    "description": "Exact parent Objective ID from current publication."
+                  },
+                  "action": {
+                    "type": "string",
+                    "const": "REEVALUATE_CANONICAL_PORTFOLIO"
+                  },
+                  "dispatcher": {
+                    "type": "string",
+                    "const": "research_control_dispatch.py"
+                  },
+                  "next_action": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "\\S"
+                  },
+                  "remaining_parent_scope": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    }
+                  },
+                  "evidence_refs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "\\S"
+                    }
+                  }
+                },
+                "action": "REEVALUATE_CANONICAL_PORTFOLIO",
+                "dispatcher": "research_control_dispatch.py"
+              },
+              "authoritative_contract": "research_driver_followup_contract.json",
+              "authoritative_writers": [
+                "research_driver_followup_guard.py",
+                "research_driver_followup.py"
+              ]
+            }
+          },
+          "session_preserve_staging": {
+            "schema": "EM_SESSION_STAGING_DISPOSITION_CONTRACT_V1",
+            "operation": "session_preserve_staging",
+            "payload_schema": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "reason"
+              ],
+              "properties": {
+                "reason": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 2000,
+                  "pattern": "\\S"
+                }
+              }
+            },
+            "server_bound_fields": [
+              "subject",
+              "session_id",
+              "execution_id",
+              "prior_contribution_ids"
+            ],
+            "scope": "Own currently bound active logical conversation only. No client session/identity selector.",
+            "preconditions": [
+              "No pending native/admitted mutation for this session or run.",
+              "No current Source LEASED own claim. Historical run state is not current authority; an own active Driver DA is preserved until the ordinary close transaction revokes it."
+            ],
+            "preserves": [
+              "All unresolved complete and incomplete staged UTF-8 parts and hashes; inventory is not limited to 16 uploads.",
+              "Original upload request IDs, predecessor session and immutable payload/receipt hashes.",
+              "Existing Source checkpoint/Result/review/task bytes and prior contribution history."
+            ],
+            "effect": "Neutral immutable Source manifest plus typed disposition audit. Local original rows remain immutable; no published_uploads spoofing.",
+            "authority_granted": false,
+            "research_progress_claimed": false,
+            "maximum_manifest_bytes": 4194304,
+            "success_next_action": "Read verified manifest pins, session_close the old session, then session_start a fresh real identity in the same actual logical conversation. Read continuation and preserve its native checkpoint; continuation_prepare uses packet_request_id and reason only when a native frontier exists.",
+            "unknown_next_action": "Use recovery_status and reconcile the original preservation request; never replace an unknown mutation with a new request ID.",
+            "definite_failure_next_action": "Read the exact error and current Source ownership; resolve the stated precondition, then submit one corrected new request ID. Do not reuse a rejected identity to prepare succession."
+          },
+          "freeze": {
+            "operation": "freeze",
+            "metadata_schema": {
+              "type": "object",
+              "required": [
+                "hard_target_disposition",
+                "independence_status",
+                "method_harvest",
+                "next_control_plane_recommendation",
+                "source_exposure_status",
+                "terminal_verdict",
+                "unresolved_residue"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "method_harvest": {
+                  "type": "string",
+                  "enum": [
+                    "CANDIDATE_NOT_TOOL",
+                    "DOMAIN_FACADE",
+                    "DOMAIN_OPERATOR",
+                    "DUPLICATE_ALIAS",
+                    "GLOBAL_SUBTOOL",
+                    "GLOBAL_TOOL_FAMILY",
+                    "NO_TOOL_PAYLOAD",
+                    "RESULT_ONLY"
+                  ]
+                },
+                "independence_status": {
+                  "type": "string",
+                  "enum": [
+                    "CLEAN_INDEPENDENT_CONTEXT",
+                    "NOT_APPLICABLE",
+                    "NOT_INDEPENDENT",
+                    "SHARED_AMBIENT_CONTEXT_DISCLOSED"
+                  ]
+                },
+                "source_exposure_status": {
+                  "type": "string",
+                  "enum": [
+                    "BLIND_RAW_FROZEN",
+                    "NONBLIND_DISCLOSED",
+                    "NOT_APPLICABLE",
+                    "SOURCE_EXPOSED_AFTER_RAW_FREEZE"
+                  ]
+                },
+                "terminal_verdict": {
+                  "type": "string",
+                  "pattern": "\\S"
+                },
+                "hard_target_disposition": {
+                  "type": "string",
+                  "pattern": "\\S"
+                },
+                "unresolved_residue": {
+                  "type": "string",
+                  "pattern": "\\S"
+                },
+                "next_control_plane_recommendation": {
+                  "type": "string",
+                  "pattern": "\\S"
+                }
+              }
+            },
+            "native_validation_required": true,
+            "source_enum_reference": {
+              "repository": "awdawmip/enterprise-math",
+              "commit": "012706a3ac1e42acbd86cab977afac7659264992",
+              "path": "control_plane/research_result_records_impl.py"
+            },
+            "enum_error": {
+              "code": "INVALID_NATIVE_ENUM_FIELD",
+              "fields": [
+                "independence_status",
+                "method_harvest",
+                "source_exposure_status"
+              ],
+              "details": [
+                "code",
+                "field",
+                "allowed_values"
+              ],
+              "rejected_value_disclosed": false
+            },
+            "recovery": "Read/reconcile the original request ID. Existing request IDs keep their original receipts and payloads; staged plans retain native_payload. Metadata preflight applies when constructing a new plan.",
+            "authority": "Own current run, session, winning CLAIM, published return, native intent, ownership epoch and Source CAS gates still apply."
+          },
+          "driver_runtime_observe": {
+            "schema": "ENTERPRISE_MATH_DRIVER_RUNTIME_OBSERVATION_CONTRACT_V1",
+            "operation": "driver_runtime_observe",
+            "read_only": true,
+            "payload_schema": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "task_id",
+                "expected_publication_id",
+                "objective_id",
+                "expected_objective_generation_id",
+                "expected_source_head"
+              ],
+              "properties": {
+                "task_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+                },
+                "expected_publication_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+                },
+                "objective_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+                },
+                "expected_objective_generation_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 128,
+                  "pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$"
+                },
+                "expected_source_head": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{40}$"
+                }
+              }
+            },
+            "authority": "BACKEND_AS_OF_DIAGNOSTIC_COMPOSITION",
+            "replay": "Same request returns the original observation; use a new request for a fresh collection.",
+            "closure_authorized": false,
+            "claim_authorized": false,
+            "final_permission_granted": false,
+            "all_ingress_fence_proved": false
+          },
+          "historical_result_control": {
+            "schema": "EM_HISTORICAL_RESULT_CONTROL_TRANSPORT_V1",
+            "operations": [
+              "historical_result_intake",
+              "historical_result_review"
+            ],
+            "intake_fields": [
+              "expected_execution_blob_sha1",
+              "expected_execution_sha256",
+              "expected_publication_blob_sha1",
+              "expected_result_blob_sha1",
+              "expected_result_sha256",
+              "expected_taskbook_blob_sha1",
+              "historical_result_id",
+              "publication_id",
+              "reason",
+              "target_task_id"
+            ],
+            "review_fields": [
+              "disposition",
+              "expected_intake_blob_sha1",
+              "expected_intake_sha256",
+              "expected_previous_review_set_sha256",
+              "intake_id",
+              "portfolio_continuation",
+              "publication_id",
+              "reason",
+              "reviewer_contribution_ids",
+              "supersedes_review_ids",
+              "target_task_id"
+            ],
+            "intake_authority": "CURRENT_SOURCE_AUTHENTICATED_DRIVER_GOV_RUN",
+            "review_authority": "CURRENT_SOURCE_AUTHENTICATED_INDEPENDENT_DRIVER",
+            "historical_execution_authentication_restored": false,
+            "intake_grants_mathematical_acceptance": false,
+            "parent_completion_granted": false,
+            "unknown_outcome": "RECONCILE_ORIGINAL_REQUEST_ONLY"
+          }
+        },
+        "ordinary_chat_recovery": {
+          "operation": "recovery_status",
+          "payload": {},
+          "scope": "Own actual logical conversation only; read-only local pointers, not Source authority."
+        },
+        "authenticated_client": "sites-em-6abdec598ad48191aebece9a8232f041-ro",
+        "transport": "DIRECT_HTTPS_STREAMABLE_HTTP",
+        "source_pins": {
+          "enterprise-math": "b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac",
+          "global-knowledge": "7b33f8066e9993e7c941959a9d738ed405248eb8"
+        },
+        "snapshot_created_at": "2026-10-15T20:35:27.604218+00:00",
+        "snapshot_id": "3a3a978b2456bef9f0c71ab2db6b9a2e53f1d311b4e58240c61d3b4a32c31a2b",
+        "source_sync": {
+          "enabled": true,
+          "running": true,
+          "interval_seconds": 5,
+          "snapshot_id": "3a3a978b2456bef9f0c71ab2db6b9a2e53f1d311b4e58240c61d3b4a32c31a2b",
+          "source_pins": {
+            "enterprise-math": "b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac",
+            "global-knowledge": "7b33f8066e9993e7c941959a9d738ed405248eb8"
+          },
+          "repositories": {
+            "awdawmip/enterprise-math": {
+              "detected_sha": "b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac",
+              "etag": "\"210ab83d7f1ba1f2efdd656935155961d706985543b09e0532909b579d5653ac\"",
+              "checked_at": 1792096684.2214847,
+              "success_at": 1792096684.2236173,
+              "error": null,
+              "head_checks": 235170,
+              "unchanged_checks": 234079,
+              "bundle_updates": 1022,
+              "blob_downloads": 5
+            }
+          },
+          "github_rate_limit": null,
+          "global_knowledge": {
+            "state": "STATIC_BUNDLE_SYNC_DISABLED_BY_POLICY",
+            "source_pin": "7b33f8066e9993e7c941959a9d738ed405248eb8"
+          },
+          "control": {
+            "source_sha": null,
+            "detected_sha": "b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac",
+            "state": "ON_DEMAND_REFRESH_PENDING",
+            "error": null,
+            "code_checked_sha": "b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac",
+            "success_at": 1792096527.6689272,
+            "reviewed_code_gate_passed": true,
+            "full_snapshot_verified": false
+          },
+          "research_authority_granted": false
+        },
+        "snapshot_policy": "AUTOMATIC_VERIFIED_DOCUMENT_SNAPSHOTS_LIVE_CONTROL_REVALIDATES_SOURCE_AND_EVENTS",
+        "ordinary_chat_transport": {
+          "enabled": true,
+          "repository": "awdawmip/kimi-query-bridge",
+          "label": "em:control",
+          "protocol": "EM_CHAT_CONTROL_V1",
+          "client_sha256_required": false,
+          "private_session_keys_on_host": true,
+          "poll_seconds": 15
+        },
+        "enabled": [
+          "pinned_source_read",
+          "directed_context_manifest",
+          "scoped_checkpoint_CAS",
+          "ticket_exchange",
+          "canonical_dispatch_adapter",
+          "canonical_task_adapter",
+          "durable_control_requests",
+          "canonical_claim_adapter",
+          "canonical_authorization_adapter",
+          "same_session_run_recovery",
+          "canonical_task_inventory",
+          "canonical_continuation_packets",
+          "canonical_successor_prepare",
+          "source_session_registration_adapter",
+          "canonical_driver_activation_adapter",
+          "manifest_artifact_read",
+          "exact_task_prepare",
+          "source_checkpoint_CAS",
+          "native_result_freeze_adapter",
+          "native_driver_review_followup_adapter",
+          "own_session_close"
+        ],
+        "claim_writes_enabled": true,
+        "session_registration_enabled": true,
+        "driver_activation_enabled": true,
+        "artifact_writes_enabled": true,
+        "result_writes_enabled": true,
+        "driver_artifact_writes_enabled": true,
+        "review_writes_enabled": true,
+        "historical_result_writes_enabled": true,
+        "executor_binding_configured": false,
+        "registered_session_count": 0,
+        "session_identity": "SERVICE_ISSUED_EXECUTION_SESSION_WITH_PRIVATE_CAPABILITY",
+        "legacy_session_enrollment_enabled": false,
+        "not_enabled": [
+          "agent_launch",
+          "blind_execution",
+          "platform_session_attestation",
+          "automatic_history_scan",
+          "arbitrary_git_write",
+          "remote_mathematical_compute"
+        ],
+        "research_authority_granted": false
+      },
+      "isError": false
+    }
+  },
+  "public129_original_comments": {
+    "status": "fulfilled",
+    "value": {
+      "content": [
+        {
+          "type": "text",
+          "text": "Action completed."
+        }
+      ],
+      "structuredContent": {
+        "comments": [
+          {
+            "url": "https://github.com/awdawmip/kimi-query-bridge/issues/5897#issuecomment-6201577537",
+            "body": "<!-- em-control:5873380444:7fc93974b6b18425f20076918ecac5dfd660b6968a02837a46e064f62273c510 -->\n```json\n{\"adapter_status\":\"ACCEPTED\",\"bridge_receipt\":{\"conversation_id\":\"codex-owner-01a1401c-20261015\",\"created\":1792095978,\"error\":null,\"formal_task_created\":false,\"next_actions\":[\"Read this same request receipt again; do not submit another mutation.\"],\"operation\":\"task\",\"platform_session_attested\":false,\"receipt_sha256\":\"15add50e7a86438693da00667309f790e9aa5740d350f4656d4f8d1d78a6fb2f\",\"request_id\":\"owner-exact-public129-unserved-task-20261015-c1\",\"request_sha256\":\"f499d97423624b67f3dd881802459af07ea40e33aaafae81cef267e0dceca3d2\",\"status\":\"QUEUED\",\"transport_grants_mathematical_authority\":false,\"updated\":1792095978},\"canonical_acceptance\":\"READ_BRIDGE_RECEIPT\",\"conversation_id\":\"codex-owner-01a1401c-20261015\",\"error\":null,\"first_read_after_seconds\":30,\"issue_number\":5897,\"poll_interval_seconds\":15,\"request_id\":\"owner-exact-public129-unserved-task-20261015-c1\",\"request_sha256\":\"f499d97423624b67f3dd881802459af07ea40e33aaafae81cef267e0dceca3d2\",\"schema\":\"EM_CHAT_CONTROL_RECEIPT_V1\"}\n```\n",
+            "user": {
+              "login": "awdawmip",
+              "name": "awdawmip",
+              "email": null,
+              "avatar_url": "https://avatars.githubusercontent.com/u/30957095?v=4",
+              "id": 30957095
+            },
+            "id": 6201577537,
+            "pull_request_review_id": null,
+            "in_reply_to_id": null,
+            "created_at": null,
+            "updated_at": null,
+            "review": null,
+            "side": null,
+            "line": null,
+            "start_line": null,
+            "path": null,
+            "body_html": "\n<div class=\"highlight highlight-source-json notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"{&quot;adapter_status&quot;:&quot;ACCEPTED&quot;,&quot;bridge_receipt&quot;:{&quot;conversation_id&quot;:&quot;codex-owner-01a1401c-20261015&quot;,&quot;created&quot;:1792095978,&quot;error&quot;:null,&quot;formal_task_created&quot;:false,&quot;next_actions&quot;:[&quot;Read this same request receipt again; do not submit another mutation.&quot;],&quot;operation&quot;:&quot;task&quot;,&quot;platform_session_attested&quot;:false,&quot;receipt_sha256&quot;:&quot;15add50e7a86438693da00667309f790e9aa5740d350f4656d4f8d1d78a6fb2f&quot;,&quot;request_id&quot;:&quot;owner-exact-public129-unserved-task-20261015-c1&quot;,&quot;request_sha256&quot;:&quot;f499d97423624b67f3dd881802459af07ea40e33aaafae81cef267e0dceca3d2&quot;,&quot;status&quot;:&quot;QUEUED&quot;,&quot;transport_grants_mathematical_authority&quot;:false,&quot;updated&quot;:1792095978},&quot;canonical_acceptance&quot;:&quot;READ_BRIDGE_RECEIPT&quot;,&quot;conversation_id&quot;:&quot;codex-owner-01a1401c-20261015&quot;,&quot;error&quot;:null,&quot;first_read_after_seconds&quot;:30,&quot;issue_number&quot;:5897,&quot;poll_interval_seconds&quot;:15,&quot;request_id&quot;:&quot;owner-exact-public129-unserved-task-20261015-c1&quot;,&quot;request_sha256&quot;:&quot;f499d97423624b67f3dd881802459af07ea40e33aaafae81cef267e0dceca3d2&quot;,&quot;schema&quot;:&quot;EM_CHAT_CONTROL_RECEIPT_V1&quot;}\"><pre class=\"notranslate\">{<span class=\"pl-ent\">\"adapter_status\"</span>:<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>ACCEPTED<span class=\"pl-pds\">\"</span></span>,<span class=\"pl-ent\">\"bridge_receipt\"</span>:{<span class=\"pl-ent\">\"conversation_id\"</span>:<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>codex-owner-01a1401c-20261015<span class=\"pl-pds\">\"</span></span>,<span class=\"pl-ent\">\"created\"</span>:<span class=\"pl-c1\">1792095978</span>,<span class=\"pl-ent\">\"error\"</span>:<span class=\"pl-c1\">null</span>,<span class=\"pl-ent\">\"formal_task_created\"</span>:<span class=\"pl-c1\">false</span>,<span class=\"pl-ent\">\"next_actions\"</span>:[<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>Read this same request receipt again; do not submit another mutation.<span class=\"pl-pds\">\"</span></span>],<span class=\"pl-ent\">\"operation\"</span>:<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>task<span class=\"pl-pds\">\"</span></span>,<span class=\"pl-ent\">\"platform_session_attested\"</span>:<span class=\"pl-c1\">false</span>,<span class=\"pl-ent\">\"receipt_sha256\"</span>:<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>15add50e7a86438693da00667309f790e9aa5740d350f4656d4f8d1d78a6fb2f<span class=\"pl-pds\">\"</span></span>,<span class=\"pl-ent\">\"request_id\"</span>:<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>owner-exact-public129-unserved-task-20261015-c1<span class=\"pl-pds\">\"</span></span>,<span class=\"pl-ent\">\"request_sha256\"</span>:<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>f499d97423624b67f3dd881802459af07ea40e33aaafae81cef267e0dceca3d2<span class=\"pl-pds\">\"</span></span>,<span class=\"pl-ent\">\"status\"</span>:<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>QUEUED<span class=\"pl-pds\">\"</span></span>,<span class=\"pl-ent\">\"transport_grants_mathematical_authority\"</span>:<span class=\"pl-c1\">false</span>,<span class=\"pl-ent\">\"updated\"</span>:<span class=\"pl-c1\">1792095978</span>},<span class=\"pl-ent\">\"canonical_acceptance\"</span>:<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>READ_BRIDGE_RECEIPT<span class=\"pl-pds\">\"</span></span>,<span class=\"pl-ent\">\"conversation_id\"</span>:<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>codex-owner-01a1401c-20261015<span class=\"pl-pds\">\"</span></span>,<span class=\"pl-ent\">\"error\"</span>:<span class=\"pl-c1\">null</span>,<span class=\"pl-ent\">\"first_read_after_seconds\"</span>:<span class=\"pl-c1\">30</span>,<span class=\"pl-ent\">\"issue_number\"</span>:<span class=\"pl-c1\">5897</span>,<span class=\"pl-ent\">\"poll_interval_seconds\"</span>:<span class=\"pl-c1\">15</span>,<span class=\"pl-ent\">\"request_id\"</span>:<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>owner-exact-public129-unserved-task-20261015-c1<span class=\"pl-pds\">\"</span></span>,<span class=\"pl-ent\">\"request_sha256\"</span>:<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>f499d97423624b67f3dd881802459af07ea40e33aaafae81cef267e0dceca3d2<span class=\"pl-pds\">\"</span></span>,<span class=\"pl-ent\">\"schema\"</span>:<span class=\"pl-s\"><span class=\"pl-pds\">\"</span>EM_CHAT_CONTROL_RECEIPT_V1<span class=\"pl-pds\">\"</span></span>}</pre></div>"
+          },
+          {
+            "url": "https://github.com/awdawmip/kimi-query-bridge/issues/5897#issuecomment-6201648804",
+            "body": "<!-- em-control:5873380444:1104040ab3df5c5f57445370a2cdf17465b7459350216b79f303430c17fb53a9 -->\n```json\n{\"adapter_status\":\"COMPLETE\",\"bridge_receipt\":{\"conversation_id\":\"codex-owner-01a1401c-20261015\",\"created\":1792095978,\"error\":null,\"formal_task_created\":false,\"next_actions\":[\"Continue from the verified native receipt; SUCCEEDED is transport completion, not mathematical acceptance.\",\"Use receipt with target_request_id and start_char=0 to read omitted fields in bounded pages.\"],\"operation\":\"task\",\"platform_session_attested\":false,\"receipt\":{\"observed_at\":\"2026-10-15T20:30:04.591651+00:00\",\"result\":{\"execution_authorized\":false,\"state\":{\"actor\":null,\"claim_id\":null,\"dispatch_state\":\"NEEDS_DISPATCH\",\"event_authentication\":\"NO_RUNTIME_EVENT\",\"frontier\":\"已定位 family129 的符号局部接线与有限重入核心；四方向端口摘要的闭包组合、独立证书及向 EM 资源模型的类型化迁移尚未验证。\",\"hard_block\":null,\"identity_lane\":\"PUBLICMATH129\",\"identity_source\":null,\"kind\":\"RESEARCH\",\"last_progress_at\":\"2026-10-07T01:49:02+00:00\",\"last_progress_ref\":\"TP2-61D08EEA98B46ED15916\",\"last_researcher_id\":null,\"last_server_author_login\":null,\"last_server_comment_id\":null,\"lease_until\":null,\"leverage\":\"HIGH\",\"next_action\":\"从固定公开源码提取 Network 的机器转移和逐字母 sourceAttach 接线，列出 L→L、L→R、R→L、R→R 端口及 stay/无出口环语义；对照现有关系组合方向并构造首个多次重入精确样例。\",\"owner\":\"taskbook/unassigned\",\"priority\":\"P2\",\"publication_id\":\"TP2-61D08EEA98B46ED15916\",\"registration_source\":\"IMMUTABLE_TASK_RECORD\",\"researcher_id\":null,\"source_refs\":[\"https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/admissible_support.py\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/relation_future_powerset.py\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/relation_observable_composition.py\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/operation_quotient.py\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/material_word_quotient.py\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/enterprise_toolbox_registry.json\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/research_method_inventory.json\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/tool_invocation_policy.json\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json\",\"research_notes/public_math_intake_20261007/LITERATURE_INTAKE.md\",\"research_notes/public_math_intake_20261007/SOURCE_LEDGER.json\"],\"state\":\"READY\",\"task_id\":\"RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007\",\"title\":\"Family129二向重入边界摘要与BRC保真证书\"}},\"server_comments\":1200,\"source_sha\":\"4acb985a5ebf4e9a7812445bf1bcd9f69f2c4d47\"},\"receipt_sha256\":\"53d619a9e048af8e12a315d97feb34cb0f14500890611b01b24902b860a66abb\",\"receipt_truncated\":true,\"request_id\":\"owner-exact-public129-unserved-task-20261015-c1\",\"request_sha256\":\"f499d97423624b67f3dd881802459af07ea40e33aaafae81cef267e0dceca3d2\",\"status\":\"SUCCEEDED\",\"transport_grants_mathematical_authority\":false,\"updated\":1792096204},\"canonical_acceptance\":\"READ_BRIDGE_RECEIPT\",\"conversation_id\":\"codex-owner-01a1401c-20261015\",\"error\":null,\"first_read_after_seconds\":30,\"issue_number\":5897,\"poll_interval_seconds\":15,\"request_id\":\"owner-exact-public129-unserved-task-20261015-c1\",\"request_sha256\":\"f499d97423624b67f3dd881802459af07ea40e33aaafae81cef267e0dceca3d2\",\"schema\":\"EM_CHAT_CONTROL_RECEIPT_V1\"}\n```\n",
+            "user": {
+              "login": "awdawmip",
+              "name": "awdawmip",
+              "email": null,
+              "avatar_url": "https://avatars.githubusercontent.com/u/30957095?v=4",
+              "id": 30957095
+            },
+            "id": 6201648804,
+            "pull_request_review_id": null,
+            "in_reply_to_id": null,
+            "created_at": null,
+            "updated_at": null,
+            "review": null,
+            "side": null,
+            "line": null,
+            "start_line": null,
+            "path": null,
+            "body_html": "\n<div class=\"highlight highlight-source-json notranslate position-relative overflow-auto\" dir=\"auto\" data-snippet-clipboard-copy-content=\"{&quot;adapter_status&quot;:&quot;COMPLETE&quot;,&quot;bridge_receipt&quot;:{&quot;conversation_id&quot;:&quot;codex-owner-01a1401c-20261015&quot;,&quot;created&quot;:1792095978,&quot;error&quot;:null,&quot;formal_task_created&quot;:false,&quot;next_actions&quot;:[&quot;Continue from the verified native receipt; SUCCEEDED is transport completion, not mathematical acceptance.&quot;,&quot;Use receipt with target_request_id and start_char=0 to read omitted fields in bounded pages.&quot;],&quot;operation&quot;:&quot;task&quot;,&quot;platform_session_attested&quot;:false,&quot;receipt&quot;:{&quot;observed_at&quot;:&quot;2026-10-15T20:30:04.591651+00:00&quot;,&quot;result&quot;:{&quot;execution_authorized&quot;:false,&quot;state&quot;:{&quot;actor&quot;:null,&quot;claim_id&quot;:null,&quot;dispatch_state&quot;:&quot;NEEDS_DISPATCH&quot;,&quot;event_authentication&quot;:&quot;NO_RUNTIME_EVENT&quot;,&quot;frontier&quot;:&quot;已定位 family129 的符号局部接线与有限重入核心；四方向端口摘要的闭包组合、独立证书及向 EM 资源模型的类型化迁移尚未验证。&quot;,&quot;hard_block&quot;:null,&quot;identity_lane&quot;:&quot;PUBLICMATH129&quot;,&quot;identity_source&quot;:null,&quot;kind&quot;:&quot;RESEARCH&quot;,&quot;last_progress_at&quot;:&quot;2026-10-07T01:49:02+00:00&quot;,&quot;last_progress_ref&quot;:&quot;TP2-61D08EEA98B46ED15916&quot;,&quot;last_researcher_id&quot;:null,&quot;last_server_author_login&quot;:null,&quot;last_server_comment_id&quot;:null,&quot;lease_until&quot;:null,&quot;leverage&quot;:&quot;HIGH&quot;,&quot;next_action&quot;:&quot;从固定公开源码提取 Network 的机器转移和逐字母 sourceAttach 接线，列出 L→L、L→R、R→L、R→R 端口及 stay/无出口环语义；对照现有关系组合方向并构造首个多次重入精确样例。&quot;,&quot;owner&quot;:&quot;taskbook/unassigned&quot;,&quot;priority&quot;:&quot;P2&quot;,&quot;publication_id&quot;:&quot;TP2-61D08EEA98B46ED15916&quot;,&quot;registration_source&quot;:&quot;IMMUTABLE_TASK_RECORD&quot;,&quot;researcher_id&quot;:null,&quot;source_refs&quot;:[&quot;https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a&quot;,&quot;https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/admissible_support.py&quot;,&quot;https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/relation_future_powerset.py&quot;,&quot;https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/relation_observable_composition.py&quot;,&quot;https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/operation_quotient.py&quot;,&quot;https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/material_word_quotient.py&quot;,&quot;https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/enterprise_toolbox_registry.json&quot;,&quot;https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/research_method_inventory.json&quot;,&quot;https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/tool_invocation_policy.json&quot;,&quot;https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md&quot;,&quot;https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json&quot;,&quot;research_notes/public_math_intake_20261007/LITERATURE_INTAKE.md&quot;,&quot;research_notes/public_math_intake_20261007/SOURCE_LEDGER.json&quot;],&quot;state&quot;:&quot;READY&quot;,&quot;task_id&quot;:&quot;RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007&quot;,&quot;title&quot;:&quot;Family129二向重入边界摘要与BRC保真证书&quot;}},&quot;server_comments&quot;:1200,&quot;source_sha&quot;:&quot;4acb985a5ebf4e9a7812445bf1bcd9f69f2c4d47&quot;},&quot;receipt_sha256&quot;:&quot;53d619a9e048af8e12a315d97feb34cb0f14500890611b01b24902b860a66abb&quot;,&quot;receipt_truncated&quot;:true,&quot;request_id&quot;:&quot;owner-exact-public129-unserved-task-20261015-c1&quot;,&quot;request_sha256&quot;:&quot;f499d97423624b67f3dd881802459af07ea40e33aaafae81cef267e0dceca3d2&quot;,&quot;status&quot;:&quot;SUCCEEDED&quot;,&quot;transport_grants_mathematical_authority&quot;:false,&quot;updated&quot;:1792096204},&quot;canonical_acceptance&quot;:&quot;READ_BRIDGE_RECEIPT&quot;,&quot;conversation_id&quot;:&quot;codex-owner-01a1401c-20261015&quot;,&quot;error&quot;:null,&quot;first_read_after_seconds&quot;:30,&quot;issue_number&quot;:5897,&quot;poll_interval_seconds&quot;:15,&quot;request_id&quot;:&quot;owner-exact-public129-unserved-task-20261015-c1&quot;,&quot;request_sha256&quot;:&quot;f499d97423624b67f3dd881802459af07ea40e33aaafae81cef267e0dceca3d2&quot;,&quot;schema&quot;:&quot;EM_CHAT_CONTROL_RECEIPT_V1&quot;}\"><pre class=\"notranslate\">{\"adapter_status\":\"COMPLETE\",\"bridge_receipt\":{\"conversation_id\":\"codex-owner-01a1401c-20261015\",\"created\":1792095978,\"error\":null,\"formal_task_created\":false,\"next_actions\":[\"Continue from the verified native receipt; SUCCEEDED is transport completion, not mathematical acceptance.\",\"Use receipt with target_request_id and start_char=0 to read omitted fields in bounded pages.\"],\"operation\":\"task\",\"platform_session_attested\":false,\"receipt\":{\"observed_at\":\"2026-10-15T20:30:04.591651+00:00\",\"result\":{\"execution_authorized\":false,\"state\":{\"actor\":null,\"claim_id\":null,\"dispatch_state\":\"NEEDS_DISPATCH\",\"event_authentication\":\"NO_RUNTIME_EVENT\",\"frontier\":\"已定位 family129 的符号局部接线与有限重入核心；四方向端口摘要的闭包组合、独立证书及向 EM 资源模型的类型化迁移尚未验证。\",\"hard_block\":null,\"identity_lane\":\"PUBLICMATH129\",\"identity_source\":null,\"kind\":\"RESEARCH\",\"last_progress_at\":\"2026-10-07T01:49:02+00:00\",\"last_progress_ref\":\"TP2-61D08EEA98B46ED15916\",\"last_researcher_id\":null,\"last_server_author_login\":null,\"last_server_comment_id\":null,\"lease_until\":null,\"leverage\":\"HIGH\",\"next_action\":\"从固定公开源码提取 Network 的机器转移和逐字母 sourceAttach 接线，列出 L→L、L→R、R→L、R→R 端口及 stay/无出口环语义；对照现有关系组合方向并构造首个多次重入精确样例。\",\"owner\":\"taskbook/unassigned\",\"priority\":\"P2\",\"publication_id\":\"TP2-61D08EEA98B46ED15916\",\"registration_source\":\"IMMUTABLE_TASK_RECORD\",\"researcher_id\":null,\"source_refs\":[\"https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/admissible_support.py\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/relation_future_powerset.py\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/relation_observable_composition.py\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/operation_quotient.py\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/src/enterprise_math/material_word_quotient.py\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/enterprise_toolbox_registry.json\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/research_method_inventory.json\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/tool_invocation_policy.json\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md\",\"https://github.com/awdawmip/enterprise-math/blob/9800fa40569c9541ffa8f0c917050cfb067418a3/definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json\",\"research_notes/public_math_intake_20261007/LITERATURE_INTAKE.md\",\"research_notes/public_math_intake_20261007/SOURCE_LEDGER.json\"],\"state\":\"READY\",\"task_id\":\"RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007\",\"title\":\"Family129二向重入边界摘要与BRC保真证书\"}},\"server_comments\":1200,\"source_sha\":\"4acb985a5ebf4e9a7812445bf1bcd9f69f2c4d47\"},\"receipt_sha256\":\"53d619a9e048af8e12a315d97feb34cb0f14500890611b01b24902b860a66abb\",\"receipt_truncated\":true,\"request_id\":\"owner-exact-public129-unserved-task-20261015-c1\",\"request_sha256\":\"f499d97423624b67f3dd881802459af07ea40e33aaafae81cef267e0dceca3d2\",\"status\":\"SUCCEEDED\",\"transport_grants_mathematical_authority\":false,\"updated\":1792096204},\"canonical_acceptance\":\"READ_BRIDGE_RECEIPT\",\"conversation_id\":\"codex-owner-01a1401c-20261015\",\"error\":null,\"first_read_after_seconds\":30,\"issue_number\":5897,\"poll_interval_seconds\":15,\"request_id\":\"owner-exact-public129-unserved-task-20261015-c1\",\"request_sha256\":\"f499d97423624b67f3dd881802459af07ea40e33aaafae81cef267e0dceca3d2\",\"schema\":\"EM_CHAT_CONTROL_RECEIPT_V1\"}</pre></div>"
+          }
+        ],
+        "url": "https://github.com/awdawmip/kimi-query-bridge/issues/5897",
+        "title": "awdawmip/kimi-query-bridge Issue #5897 comments",
+        "display_url": "https://github.com/awdawmip/kimi-query-bridge/issues/5897",
+        "display_title": "awdawmip/kimi-query-bridge Issue #5897 comments"
+      },
+      "isError": false
+    }
+  },
+  "note": "Bounded fresh availability and original-request observation. No re-submission, host inference or full health certification."
+}
