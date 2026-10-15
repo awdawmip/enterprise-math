@@ -7,6 +7,7 @@ No scientific checker or claim endpoint is called.
 """
 import base64
 import copy
+from contextlib import contextmanager
 import hashlib
 import json
 from pathlib import Path
@@ -30,6 +31,7 @@ from control_plane import research_driver_followup_fault_isolation as isolation
 from control_plane import research_driver_followup_transaction as transaction
 from control_plane import research_result_authority_fault_isolation as result_isolation
 from control_plane import research_task_integrity_fault_isolation as task_integrity
+from control_plane import research_task_semantic_integrity_fault_isolation as semantic
 from control_plane import research_task_record_audit_fault_isolation as historical_tasks
 from control_plane import research_control_bootstrap as bootstrap
 from tools import research_task_records as tasks, research_taskbook as books
@@ -52,6 +54,17 @@ class RR133BindingTests(unittest.TestCase):
         self.root = self.fixture.root
         for patch in reversed(self.fixture.patches): patch.stop()
         self.fixture.patches = []
+        # CI may install the real operational selectors before this fixture.
+        # Preserve the nonempty semantic registry and its exact source pins;
+        # do not replace current_records or weaken the production validator.
+        semantic_payload = json.loads((BASE / semantic.QUARANTINE_FILE).read_text())
+        self.assertTrue(semantic_payload['quarantines'])
+        self.assertTrue(all(row['task_id'] not in {binding.SOURCE_TASK, binding.COVERAGE_TASK}
+                            for row in semantic_payload['quarantines']))
+        self.copy(semantic.QUARANTINE_FILE)
+        for row in semantic_payload['quarantines']:
+            for field in ('record_path', 'taskbook_path', 'source_taskbook_path'):
+                self.copy(row[field])
         for folder in ['research_result_records', 'research_result_reviews']:
             shutil.rmtree(self.root / folder)
         for pin in binding.OLD_PINS: self.copy(pin['path'])
@@ -121,6 +134,27 @@ class RR133BindingTests(unittest.TestCase):
         self.old_packet = json.loads((self.root/f'research_driver_followups/{binding.OLD_REVIEW}/{binding.OLD_PACKET}.json').read_text())
         self.task_pin = isolation.quarantine_rows(self.root)[binding.OLD_PACKET]['derived_task_publications'][0]
         self.row = isolation.quarantine_rows(self.root)[binding.OLD_PACKET]
+
+    @contextmanager
+    def installed_semantic_selector(self):
+        # Exercise the real installer and validators, then restore only its
+        # five process-global attributes, including originally absent flags.
+        from control_plane import research_task_records_impl as task_core
+        flag = '_task_semantic_integrity_fault_isolation_installed'
+        absent = object()
+        saved = [(module, name, getattr(module, name, absent)) for module, name in (
+            (task_core, 'current_records'), (tasks, 'current_records'),
+            (dispatch, 'merged_definitions'), (task_core, flag), (dispatch, flag))]
+        try:
+            semantic.install(self.root)
+            yield
+        finally:
+            for module, name, value in reversed(saved):
+                if value is absent:
+                    if hasattr(module, name):
+                        delattr(module, name)
+                else:
+                    setattr(module, name, value)
 
     def copy(self, relative):
         dest=self.root/relative;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(BASE/relative,dest)
@@ -195,6 +229,25 @@ class RR133BindingTests(unittest.TestCase):
         transaction._validate_packet_candidate(self.packet,self.root,persisted=True)
         for pin in binding.OLD_PINS:self.assertEqual(pin,binding._pin(self.root,pin['path']))
         self.assertFalse(self.packet[binding.FIELD]['historical_authority_restored'])
+
+    def test_bootstrapped_semantic_selector_preserves_current_source_and_excludes_bad_head(self):
+        with self.installed_semantic_selector():
+            selected = tasks.current_records(self.root)
+            self.assertEqual(self.source['publication_id'], selected[binding.SOURCE_TASK]['publication_id'])
+            quarantines = semantic.validated_quarantines(self.root)
+            self.assertTrue(quarantines)
+            self.assertTrue(set(quarantines).isdisjoint(selected))
+            self.assertEqual((BASE / semantic.QUARANTINE_FILE).read_bytes(),
+                             (self.root / semantic.QUARANTINE_FILE).read_bytes())
+
+    def test_bootstrapped_semantic_selector_still_rejects_pinned_source_drift(self):
+        with self.installed_semantic_selector():
+            row = next(iter(semantic.validated_quarantines(self.root).values()))
+            path = self.root / row['source_taskbook_path']
+            path.write_bytes(path.read_bytes() + b'\n')
+            with self.assertRaisesRegex(semantic.TaskSemanticIntegrityIsolationError,
+                                        'source taskbook blob drift'):
+                tasks.current_records(self.root)
 
     def test_binding_absent_preserves_old_result_and_source_equality(self):
         self.packet.pop(binding.FIELD);self.save_packet()
