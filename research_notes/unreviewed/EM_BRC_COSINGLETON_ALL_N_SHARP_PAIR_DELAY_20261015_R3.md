@@ -1,0 +1,13 @@
+# BRC co-singleton: all-n sharp pair delay (unreviewed)
+
+Scientific status: SELF_CHECKED / UNREVIEWED / NOT_ADMITTED / NO_NATIVE_CLAIM. 2026-10-15.
+
+For every integer n>=4, consider n positive integer reset sources with seeds 1, public actions G_j=I\\{j}, positive hidden choice of one source per action, feedback b=1{M>=4n-5} after each action, and universal terminal safety M>=n+3. For X=(3,3,4,...,4), Y=(3,3,5,4,...,4), the pair is equivalent for every feedback-adaptive public policy of depth at most 2n-3, but distinguishable at depth 2n-2.
+
+Proof skeleton: Writing R for reset sources, safety-failing R are exactly I, I\\{0}, I\\{1} in BOTH states. Their feedback differs at exactly one R={0,1}: X returns 0, Y returns 1. Any X-unsafe policy branch can be transferred to a same-feedback Y-unsafe branch, ruling out the reverse separation. For a Y-unsafe branch requiring this unique feedback difference, let l be its initial all-high prefix. At least n-2 later choices are required to reset sources 2,...,n-1; if total depth <=2n-3, then l<=n-1. The l co-singleton actions have a common source i. Repeating i in X reproduces the high prefix; replay the low suffix, replacing its first occurrence of i by an allowed source 0 or 1 if i>=2. This reproduces the full public feedback and forces an unsafe X leaf, contradicting X universal safety. Thus no strategy shorter than 2n-2 distinguishes. A strategy of length 2n-2 first applies all G_0,...,G_{n-1} while feedback is high and then G_0 repeated n-2 times while feedback is low, stopping on deviation. X must stop safely during prefix; Y has a positive hidden path resetting 1,0,0,...,0 then 2,...,n-1 and ends unsafe.
+
+Independent exact n=8 crosscheck: q=11, tau=27, Python full-policy dynamic program first separates at depth14 (118582 memo states), independently written C++ BFS finds first separation14; X has 175 terminal paths, none unsafe, Y has 6454441 terminal paths, 46080 unsafe. All R classifications tested for n=4..10. Computational checks supplement the symbolic proof, not replace it.
+
+Sources fixed: global-knowledge@9baef9697e79c6af482b51c75a06abb3e89ea7f7 (P000 blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc), enterprise-math@6efbd13fcb065f9da59b77bd1f9c6ad7b34c2bd9. BRC observer provenance preserved. Auxiliary BRC theorem only; no native P000 transfer. Complete standalone proof, code, logs and SHA256 evidence remain in local package pending formal Source publication.
+
+Next: determine the uniform depth over ALL real integer initial pairs sharing the same thresholds; the present theorem is sharp only for the explicit pair, not a global H_n upper bound.
