@@ -1,0 +1,342 @@
+{
+  "schema": "ENTERPRISE_MATH_MECHANICAL_THEOREM_REUSE_INDEX_V1",
+  "classification": "MECHANICAL_HARVEST_INDEX_OF_EXISTING_REVIEWED_RESULT_ONLY",
+  "prepared_by_original_author": "EM-FREEPRIM3-A15D7C92",
+  "scope": {
+    "new_mathematical_semantics": false,
+    "new_proof": false,
+    "new_direction": false,
+    "new_tests_or_enumeration": false,
+    "new_task_claim_result_or_driver_record": false,
+    "new_registration_or_activity_checkpoint": false,
+    "original_note_phase_a_and_review_bytes_unchanged": true,
+    "publication": "LOCAL_FROZEN_INDEX_PENDING_ROOT_CONTINUITY_PUBLICATION",
+    "native_registry_entry": false,
+    "novelty_claim": false
+  },
+  "reviewed_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "7cff7b7ec220347b4f5d43b573d607cea2d1d403",
+    "path": "research_notes/owner_goal_20261015/FREE_X6_QUADRATIC_PROBES_REVIEWED_BUNDLE.json",
+    "sha256": "1f134b93d523e0f0e84f0e6dcdbebdf5a3e9f44821427ac8e1bee8438689efa6",
+    "git_blob_sha1": "7458f24ab909b82461b5481c8419a2ad5e589bc5",
+    "url": "https://github.com/awdawmip/enterprise-math/blob/7cff7b7ec220347b4f5d43b573d607cea2d1d403/research_notes/owner_goal_20261015/FREE_X6_QUADRATIC_PROBES_REVIEWED_BUNDLE.json",
+    "member_reference_semantics": "The following note/review paths identify UTF-8 members embedded in this JSON bundle, not separately published files at the bundle commit.",
+    "members": {
+      "phase_a": {
+        "path": "research_notes/owner_goal_20261015/round3_primitive/phase_a_freeze.md",
+        "sha256": "872d870e7c7265677372b75b7b1c8a5beaf8e4832988d022ce75b00c8b8e0071",
+        "freeze_observation_utc": "2026-10-15 16:04:25 UTC"
+      },
+      "note": {
+        "path": "research_notes/owner_goal_20261015/round3_primitive/RESEARCH_NOTE.md",
+        "sha256": "795fff6e8c5e6815ce45912c30aba61da0050516ded82f1bfe9190e3bf1c687a"
+      },
+      "review": {
+        "path": "research_notes/owner_goal_20261015/reviews/round3_primitive_nonauthor/REVIEW.md",
+        "sha256": "f3da7894437663b81e8e20f8c49361b660f8c03e47c252301281b2fd3ad1b7a7"
+      },
+      "coverage": {
+        "path": "research_notes/owner_goal_20261015/round3_primitive/coverage_full.json",
+        "sha256": "ddbd7641c654d03ac9205ba5604e185bb6a46f24975c655a6e32d196e129eb70"
+      },
+      "reuse_readback": {
+        "path": "research_notes/owner_goal_20261015/round3_primitive/phase_b_remote_evidence.json",
+        "sha256": "b2301bf55fbc4a08604be17369c68f871c36a8071014967fea932ca7b415110d"
+      }
+    }
+  },
+  "common_hypotheses": {
+    "applies_to": "Every statement below; each entry's local conditions are additional, not replacements.",
+    "native_state_population": "Full Heartbeat native six-axis affine Cell torsor with a chosen Cell anchor and raw signed chart x in Z^6; all six coordinates retained before the stated observer quotient.",
+    "project_typing": "P000 is assumed as project starting substrate, not proved or challenged and not claimed as external scientific consensus. No native plane or distinguished ontic origin is introduced.",
+    "quadratic_readout": "Q(x)=sum_{i=1}^6 x_i^2.",
+    "modulus": "m is any integer >=1 unless an entry explicitly narrows it.",
+    "observer": "q_m(x)=Q(x) mod m with values in Z/mZ.",
+    "operations": "The twelve deterministic total native coordinate translations x -> x +/- e_i, i=1,...,6, where e_i are the six signed-chart basis vectors.",
+    "future_language": "Every finite word in those twelve translations, including the empty word; equivalently every integer offset a in Z^6. The horizon includes all finite word lengths.",
+    "time_typing": "Word length t is a separately typed nonnegative integer order index, not an extra spatial axis or a physical heartbeat-duration law.",
+    "equivalence_definition": "x ~_m y iff q_m(x+a)=q_m(y+a) for every a in Z^6.",
+    "representation_scope": "Raw signed proof coordinates and displacements only, not final public Cell addresses. Quotient equality is equality for the declared readout/future language, not equality of spatial Cells."
+  },
+  "statement_index_id_policy": "Entry labels are local harvest keys only, not Native theorem/registry IDs.",
+  "statements": [
+    {
+      "local_key": "exact_future_quotient",
+      "statement_form": "Strictly equivalent structured statement of existing note sections 3-4.",
+      "additional_hypotheses": [],
+      "definitions": {
+        "H_m": "{d in Z^6 : 2d_i congruent 0 (mod m) for every i, and Q(d) congruent 0 (mod m)}"
+      },
+      "conclusion": [
+        "For every x,y in Z^6, x ~_m y iff y-x belongs to H_m.",
+        "H_m is an additive subgroup of Z^6; every declared translation descends to its cosets.",
+        "The coset map Z^6 -> Z^6/H_m is the coarsest exact future-observer quotient: any exact sufficient state map for every declared future observation may identify only pairs already equivalent under ~_m."
+      ],
+      "original_proof": {
+        "member": "note",
+        "sections": [
+          "2. Frozen question and language",
+          "3. Frozen result",
+          "4. Complete paper derivation"
+        ],
+        "specific_argument": "The expansion Q(x+d+a)-Q(x+a)=2(x+a) dot d+Q(d), comparing a=0 and a=e_i, followed by the subgroup and all-future minimality arguments."
+      },
+      "review_sections": [
+        "OG15-R3-PRIM-01"
+      ],
+      "reuse_refs": [
+        "t6_operation_family_closure",
+        "t6_predictive_partition",
+        "predictive_minimality_scope_guard"
+      ]
+    },
+    {
+      "local_key": "all_modulus_classification",
+      "statement_form": "Strictly equivalent structured statement of existing note sections 3-4.",
+      "additional_hypotheses": [],
+      "conclusion_cases": [
+        {
+          "condition": "m is odd, including m=1",
+          "subgroup": "H_m=m Z^6",
+          "future_observer_state_count": "m^6"
+        },
+        {
+          "condition": "4 divides m",
+          "subgroup": "H_m=(m/2) Z^6",
+          "future_observer_state_count": "(m/2)^6"
+        },
+        {
+          "condition": "m=2q with q odd",
+          "subgroup": "H_m={q k : k in Z^6 and sum_i k_i is even}",
+          "future_observer_state_count": "2q^6"
+        }
+      ],
+      "original_proof": {
+        "member": "note",
+        "sections": [
+          "3. Frozen result",
+          "4. Complete paper derivation"
+        ],
+        "specific_argument": "Odd-modulus inversion of 2; for m=2q use d=qk and q sum_i k_i^2 even, followed by the subgroup-index count."
+      },
+      "review_sections": [
+        "OG15-R3-PRIM-02"
+      ],
+      "reuse_refs": [
+        "t6_operation_family_closure"
+      ]
+    },
+    {
+      "local_key": "seven_fixed_probe_sufficiency",
+      "statement_form": "Strictly equivalent structured statement of existing note sections 3-4; future-value formula is also explicit in the existing review.",
+      "additional_hypotheses": [
+        "All seven observations refer to the same unknown initial x and the known fixed offsets 0,e_1,...,e_6.",
+        "The probe outputs are the scalar values q_m(x+a_j) in Z/mZ."
+      ],
+      "probe_vector": "(q_m(x),q_m(x+e_1),...,q_m(x+e_6))",
+      "conclusion": [
+        "For every m>=1 the fibers of this seven-probe vector are exactly the H_m cosets, hence it is sufficient for every declared future word.",
+        "q_m(x+e_i)-q_m(x)-1=2x_i mod m.",
+        "For every a in Z^6, q_m(x+a)=q_m(x)+sum_i a_i(2x_i)+Q(a) mod m, using the retained q_m(x) and six 2x_i values."
+      ],
+      "original_proof": {
+        "member": "note",
+        "sections": [
+          "3. Frozen result",
+          "4. Complete paper derivation"
+        ],
+        "specific_argument": "Identity (2), equality of probe fibers with H_m, and expansion (1). The explicit reconstruction formula is repeated without stronger semantics in review OG15-R3-PRIM-03."
+      },
+      "review_sections": [
+        "OG15-R3-PRIM-03"
+      ],
+      "reuse_refs": [
+        "t6_operation_family_closure",
+        "t6_predictive_partition"
+      ]
+    },
+    {
+      "local_key": "odd_modulus_seven_probe_optimum",
+      "statement_form": "Strictly equivalent structured statement of existing note sections 3-4.",
+      "additional_hypotheses": [
+        "m>1 is odd; primality is not assumed.",
+        "A scheme uses a fixed nonadaptive list of arbitrary known offsets a_1,...,a_k in Z^6 and only the k scalar outputs q_m(x+a_j), all from the same unknown initial x.",
+        "The scheme must distinguish all H_m cosets for the unrestricted initial-state population Z^6."
+      ],
+      "conclusion": [
+        "No scheme with k<=6 can distinguish all H_m cosets.",
+        "The seven offsets 0,e_1,...,e_6 attain the bound, so seven is minimal in this exact probe class."
+      ],
+      "existing_collision_certificate": {
+        "for_k": "1<=k<=6",
+        "ring": "R=Z/mZ",
+        "kernel_map": "d -> ((a_j-a_1) dot d)_{j=2}^k from R^6 to R^(k-1)",
+        "nonzero_kernel_reason": "m^6 > m^(k-1)",
+        "u": "inverse of 2 in R",
+        "pair": "x=-a_1-u d, y=x+d=-a_1+u d, for a nonzero kernel d",
+        "observed_collision": "Q(y+a_j)-Q(x+a_j)=2(a_j-a_1) dot d=0 in R for every j",
+        "distinct_quotient_states": "d is nonzero in R^6, and for odd m the quotient is R^6",
+        "zero_probe_case": "With zero probes nontrivial states are indistinguishable."
+      },
+      "original_proof": {
+        "member": "note",
+        "sections": [
+          "3. Frozen result",
+          "4. Complete paper derivation"
+        ],
+        "specific_argument": "Finite-module kernel/cardinality argument and the explicit symmetric-pair construction; no field hypothesis."
+      },
+      "review_sections": [
+        "OG15-R3-PRIM-03"
+      ],
+      "reuse_refs": [
+        "t4_collision_fiber_interface",
+        "t6_operation_family_closure"
+      ]
+    }
+  ],
+  "boundary_cases": {
+    "m_1": "Included in the odd classification: H_1=Z^6 and one future-observer state. The seven-probe sufficiency applies; the odd optimality claim explicitly excludes m=1.",
+    "m_2": "The classification retains only total coordinate parity. The original example d=e_1+e_2 is future-invisible, whereas d=e_1 is visible.",
+    "m_4": "The original example d=2e_1 is future-invisible; H_4=2Z^6.",
+    "m_6": "The original example d=3e_1 is visible and d=3(e_1+e_2) is future-invisible.",
+    "odd_composites": "Both odd classification and the seven-probe lower bound include odd composite m>1. The finite-module proof does not replace the full population by primes or require R to be a field.",
+    "even_composites": "The two even classification cases and seven-probe sufficiency cover all even/composite m. No optimal even-modulus probe count is claimed.",
+    "source_sections": [
+      "note sections 3-5",
+      "review OG15-R3-PRIM-02 and OG15-R3-PRIM-03"
+    ]
+  },
+  "hard_limits": {
+    "observer_and_language": "Claims preserve only q_m after the declared signed-axis translation words. They do not identify full spatial Cells or preserve arbitrary other future observers.",
+    "not_preserved_or_asserted": [
+      "Full Cell identity",
+      "Path provenance and word order",
+      "Force incidence or force law",
+      "Signed amplitude cancellation",
+      "Branch counts or positive mass",
+      "Native rotation dynamics",
+      "Physical time calibration"
+    ],
+    "probe_optimum_exclusions": [
+      "Adaptive probes",
+      "Different scalar observers",
+      "Varying modulus per probe",
+      "Randomized guarantees",
+      "Bounded spatial domains",
+      "Restricted future word languages",
+      "Optimal even-modulus probe count",
+      "Paid path-length or runtime optimality"
+    ],
+    "native_basis": "All states live inside full X6. Zero components in examples do not create an independent lower-dimensional native space.",
+    "source_sections": [
+      "note sections 1-2, 3 and 5",
+      "review retained limits and OG15-R3-PRIM-03"
+    ]
+  },
+  "reuse_map": {
+    "t6_operation_family_closure": {
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "method_id": "quotient.operation_family_closure",
+      "resolution": "REUSE_EXECUTED",
+      "source": {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "b81dcb5d931cbb97f1395076e829a68b94092210",
+        "path": "src/enterprise_math/operation_quotient.py",
+        "git_blob_sha1": "758a65de02a434446936cd7e37b2ae604eade863",
+        "sha256": "39e62738077eaddb2a3b19a679d0e6a2e7a3415cee7cffa894fe810bb034927e",
+        "url": "https://github.com/awdawmip/enterprise-math/blob/b81dcb5d931cbb97f1395076e829a68b94092210/src/enterprise_math/operation_quotient.py",
+        "observed_readback_member": "reuse_readback"
+      },
+      "existing_application": "The previously executed, case-specific harness calls family_future_partition_sequence/refines/class_count on complete residue populations with all twelve translations and the specified q_m. No execution is repeated for this index.",
+      "hard_boundary": "The observation/operation language is supplied explicitly. Exact reduction modulo m is scoped to these translations/readout. Generic operation-safe quotient construction is preexisting and consumed as a new-method claim.",
+      "original_source_sections": [
+        "note 7.1 and 7.3",
+        "review OG15-R3-PRIM-04"
+      ]
+    },
+    "t6_predictive_partition": {
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "method_id": "quotient.predictive_partition",
+      "resolution": "REUSE_APPLIED",
+      "existing_interface": "All-future equality and coarsest predictive quotient/minimality.",
+      "source_reference_as_recorded": "src/enterprise_math/predictive_quotient.py, routed by the bundled coverage record; no separate immutable byte pin or execution of this module is claimed.",
+      "hard_boundary": "Observer/future-language minimality does not mean lossless full state identity.",
+      "original_source_sections": [
+        "note 7.1",
+        "review OG15-R3-PRIM-01 and OG15-R3-PRIM-04"
+      ]
+    },
+    "t4_collision_fiber_interface": {
+      "family_id": "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+      "resolution": "REUSE_APPLIED",
+      "existing_interface": "Finite kernel/fiber cardinality ingredient after explicitly defining the map R^6 -> R^(k-1).",
+      "hard_boundary": "Cardinality alone is not the complete probe lower bound; the existing explicit symmetric pair supplies the required probe collision. The tool does not choose the observer.",
+      "original_source_sections": [
+        "note 4 and 7.1",
+        "review OG15-R3-PRIM-04"
+      ]
+    },
+    "predictive_minimality_scope_guard": {
+      "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+      "method_id": "logic.predictive_minimality_not_height_bound",
+      "resolution": "REUSE_APPLIED",
+      "existing_interface": "Minimality alone supplies no uniform state-count or horizon bound; the subgroup count and the particular quadratic first-difference identity supply the present explicit statements.",
+      "original_source_sections": [
+        "note 7.1"
+      ]
+    },
+    "other_lexical_matches": {
+      "resolution": "NOT_APPLICABLE",
+      "as_recorded": "T5/T7/T8/T9/T11/T12 and matched richer BRC/Newton/projective-frame/residue-port/two-positive-stability interfaces are not additional machinery for this deterministic modular translation model.",
+      "original_source_sections": [
+        "note 7.1",
+        "review OG15-R3-PRIM-04"
+      ]
+    }
+  },
+  "review_and_evidence": {
+    "reviewer": "EM-OWNERGOAL2026101-C89DC6",
+    "disposition": "BOUNDED_PASS / DERIVED_NOT_AXIOM / RESULT_ONLY",
+    "must_fix": "None found within the declared language in the existing review.",
+    "review_source_ref": "reviewed_source.members.review",
+    "proof_level": "Complete paper derivation plus existing bounded exact regression against T6; not Lean-checked, not a proof by finite enumeration.",
+    "previous_regression_only": {
+      "moduli": [
+        1,
+        2,
+        3,
+        4,
+        6
+      ],
+      "full_X6_residue_states": 51546,
+      "odd_collision_examples": [
+        3,
+        5,
+        9,
+        15
+      ],
+      "validation_member": "research_notes/owner_goal_20261015/round3_primitive/validation.json",
+      "sha256": "5d79e13374d1847af5883897fefc720db881bbaf0606370a56709e93fea89916",
+      "rerun_for_this_index": false
+    },
+    "support": "Existing narrow support is not an additional Native review vote or a clean-blindness claim.",
+    "native_acceptance": false,
+    "working_truth": false,
+    "foundation_promotion": false
+  },
+  "provenance_and_harvest": {
+    "exposure": "NOT_CLEAN / MANDATORY_SUBSTRATE_EXPOSURE_DISCLOSED",
+    "exposure_source": "Original note section 1 and review OG15-R3-PRIM-04; mandatory P000/torsor/global Weighted-BRC sources exposed downstream commitments and vocabulary. A new ID or hash does not attest clean independence or freeze timing.",
+    "phase_a_before_phase_b": "Recorded provenance retained as such; not upgraded to independent platform attestation.",
+    "harvest_classification": "RESULT_ONLY",
+    "method_novelty": "Generic future-safe quotient machinery is preexisting T6 reuse, not a new tool family or primitive axiom.",
+    "exact_instance_novelty": "Not established. Existing bounded negative project searches and no external literature search do not prove absence or priority.",
+    "duplicate_policy": "If an exact prior instance appears, classify this payload as reuse/consumed without renaming or opening a substitute topic.",
+    "new_tool_or_registry_change_needed": false,
+    "parent_goal": "OPEN",
+    "continuation": "No automatic same-line successor. This mechanical index is handed to Root for continuity publication.",
+    "structuring_gaps": []
+  }
+}
