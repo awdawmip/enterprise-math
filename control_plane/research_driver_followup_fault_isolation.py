@@ -294,6 +294,14 @@ def _validate_independent_successor(
             raise DriverFollowupIsolationError(f"{task['task_id']}: {reason}")
 
     require(len(active_heads) == 1, "successor requires one unambiguous active head")
+    # A single pinned Driver roadmap launch precedes its future Result/DFU.
+    # This does not restore the ancestor's authority or relax other successors.
+    from control_plane import research_prospective_result_authority_binding as prospective
+    try:
+        if prospective.validate_exact_source_launch_successor(task, row, source_packet, active_heads, root):
+            return
+    except ValueError as exc:
+        raise DriverFollowupIsolationError(str(exc)) from exc
     records: dict[str, dict[str, Any]] = {}
     for record in research_task_records.iter_records(root):
         pub = record.get("publication_id")
@@ -368,11 +376,16 @@ def _validate_independent_successor(
         )]
         require(len(candidates) == 1, "successor requires one exact native follow-up packet")
         packet = candidates[0]
+        reviewed_result_id = row["result_id"]
+        source_publication_id = source_packet.get("source_publication_id")
+        if "prospective_result_authority_binding" in packet:
+            from control_plane import research_prospective_result_authority_binding as prospective
+            reviewed_result_id, source_publication_id = prospective.successor_target(packet, task, row, source_packet, root)
         require(packet.get("decision") == "TASK_SET_PUBLISHED"
                 and packet.get("review_id") not in forbidden_reviews
-                and packet.get("result_id") == row["result_id"]
+                and packet.get("result_id") == reviewed_result_id
                 and packet.get("task_id") == source_packet.get("task_id")
-                and packet.get("source_publication_id") == source_packet.get("source_publication_id"),
+                and packet.get("source_publication_id") == source_publication_id,
                 "successor follow-up reused a quarantined review or changed the reviewed target")
         followup.validate_packet(packet, root)
         publisher = packet.get("materialization_publisher")
@@ -396,7 +409,7 @@ def _validate_independent_successor(
                 and published_authority["authority_record_id"] == publisher["authority_record_id"]
                 and json.loads(published_authority["source_body"]).get("session_id") == publisher["session_id"],
                 "successor publication did not use the exact Source Driver authority and session active at publication")
-        result = followup.result_map(root).get(row["result_id"])
+        result = followup.result_map(root).get(reviewed_result_id)
         require(result is not None, "successor reviewed Result is unavailable")
         for pin in publisher["source_review_records"]:
             require(pin["review_id"] not in forbidden_reviews, "successor inherited a quarantined source review")

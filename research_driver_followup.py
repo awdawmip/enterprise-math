@@ -857,6 +857,7 @@ def build_packet(
     publishing_driver_id: str | None = None,
     publisher_session_id: str | None = None,
     current_destination_continuation: dict[str, Any] | None = None,
+    prospective_result_authority_binding: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     reviews = review_map(root)
     results = result_map(root)
@@ -937,6 +938,10 @@ def build_packet(
             parent_status_at_materialization=_parent_status_at_materialization(parent, root),
             parent_completion_granted=False, parent_final_granted=False,
         )
+    if prospective_result_authority_binding is not None:
+        from control_plane import research_prospective_result_authority_binding as prospective
+        prospective.validate_request(prospective_result_authority_binding)
+        value[prospective.FIELD] = prospective.expected_binding(value, root)
     return value
 
 
@@ -947,6 +952,10 @@ def validate_packet(
         raise DriverFollowupError("wrong follow-up packet schema")
     if packet.get("policy") != POLICY:
         raise DriverFollowupError("wrong follow-up policy")
+
+    if "prospective_result_authority_binding" in packet:
+        from control_plane import research_prospective_result_authority_binding as prospective
+        prospective.validate_binding(packet, root)
 
     review_id = _safe(packet.get("review_id"), "review_id")
     reviews = review_map(root)
@@ -1352,7 +1361,8 @@ def materialize(
     publishing_driver_id: str | None = None,
     publisher_session_id: str | None = None,
 ) -> dict[str, Any]:
-    if (spec.get("decision") in {TASK_SCOPE_DECISION, EXISTING_ASSET_DECISION}
+    if ("prospective_result_authority_binding" in spec
+            or spec.get("decision") in {TASK_SCOPE_DECISION, EXISTING_ASSET_DECISION}
             or publishing_driver_id is not None or publisher_session_id is not None):
         # The public and storage entry points share the same candidate-first,
         # exact-byte transaction for this new decision.

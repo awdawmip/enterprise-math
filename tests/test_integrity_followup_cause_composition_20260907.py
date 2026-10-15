@@ -18,11 +18,13 @@ from test_research_task_record_compatibility import _write_semantic_fixture
 
 ROOT = Path(__file__).resolve().parents[1]
 OVERLAPS = {
-    "RS-GEO6-NATIVE-RELATION-SELECTOR-CORE",
-    "RS-GEO6-NATIVE-TRANSLATION-FOLNER-SEMANTICS",
-    "RS-GEO6-PHYSICAL-REFINEMENT-SUPPORT-TRANSPORT-CORE",
-    "RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY",
+    "RS-GEO6-NATIVE-RELATION-SELECTOR-CORE": "TP2-46E1AB6359CBEBAA6B0D",
+    "RS-GEO6-NATIVE-TRANSLATION-FOLNER-SEMANTICS": "TP2-2DACFDB1816BE0DEB532",
+    "RS-GEO6-PHYSICAL-REFINEMENT-SUPPORT-TRANSPORT-CORE": "TP2-596ED944A7D5C5F8065B",
 }
+SOURCE_TASK = "RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY"
+SOURCE_GEN1 = "TP2-5D9C21A7B40E683F1C52"
+SOURCE_GEN2 = "TP2-7B35867C594D13793C9F"
 GEO_PACKET = "DFU-998EB492E2A5C7188EC3"
 PINS = (
     "task_id", "publication_id", "publication_record_path",
@@ -169,14 +171,57 @@ class IntegrityFollowupCauseCompositionTests(unittest.TestCase):
                     self.assertEqual(declared.get("source_review_basis", followup.AUTHORITY_SOURCE),
                                      source["source_review_basis"])
 
-    def test_four_real_intersections_preserve_both_exact_causes(self):
+    def test_three_current_publication_intersections_preserve_both_exact_causes(self):
         from tools import research_task_records
 
-        self.assertEqual(OVERLAPS, set(followup.derived_task_rows(ROOT)) & set(integrity.validated_quarantines(ROOT)))
+        derived = followup.derived_task_rows(ROOT)
+        current_integrity = integrity.validated_quarantines(ROOT)
+        self.assertEqual(set(OVERLAPS), set(derived) & set(current_integrity))
+        for task, publication in OVERLAPS.items():
+            with self.subTest(task=task, publication=publication):
+                self.assertEqual(publication, derived[task]["publication_id"])
+                self.assertEqual(publication, current_integrity[task]["publication_id"])
         self.assert_composed(ROOT, _definitions(ROOT))
-        self.assertFalse(OVERLAPS & set(research_task_records.current_records(ROOT)))
+        self.assertFalse(set(OVERLAPS) & set(research_task_records.current_records(ROOT)))
         self.assertEqual([], integrity.audit_runtime_projection(ROOT))
         self.assertEqual([], followup.audit(ROOT))
+
+    def test_source_gen2_preserves_historical_integrity_and_followup_isolation(self):
+        from control_plane import research_task_record_audit_fault_isolation as historical
+        from control_plane import research_result_authority_fault_isolation as results
+        from tools import research_result_records, research_task_records
+
+        self.assertNotIn(SOURCE_TASK, integrity.validated_quarantines(ROOT))
+        old = [row for row in historical.validated_rows(ROOT)
+               if row["task_id"] == SOURCE_TASK and row["publication_id"] == SOURCE_GEN1]
+        self.assertEqual(1, len(old))
+        self.assertEqual("DIRECTLY_SUPERSEDED_SAME_TASK", old[0]["nonoperational_basis"])
+        self.assertFalse(old[0]["operational"])
+        self.assertTrue(old[0]["history_preserved"])
+        self.assertFalse(old[0]["operational_publication_selected"])
+        packet = followup.validated_quarantines(ROOT)["DFU-83B1D6E4C9027A5F3148"]
+        self.assertFalse(packet["operational"])
+        self.assertTrue(packet["history_preserved"])
+        self.assertEqual(followup.TASK_ISOLATION, packet["isolation_kind"])
+        self.assertTrue(all(packet[flag] is False for flag in followup._AUTHORITY_FLAGS))
+        self.assertEqual(1, len(packet["derived_task_publications"]))
+        publication = packet["derived_task_publications"][0]
+        self.assertEqual(SOURCE_TASK, publication["task_id"])
+        self.assertEqual(SOURCE_GEN1, publication["publication_id"])
+        self.assertEqual(old[0]["record_blob_sha1"], publication["publication_record_blob_sha1"])
+        self.assertEqual(old[0]["taskbook_blob_sha1"], publication["taskbook_blob_sha1"])
+        self.assertEqual(["RR-1337737608BDE3D7E620"],
+                         results.withheld_state(SOURCE_TASK, SOURCE_GEN1, ROOT)["withheld_result_ids"])
+        self.assertFalse({"RR-1337737608BDE3D7E620", packet["result_id"]}
+                         & {r["result_id"] for r in research_result_records.iter_results(ROOT)})
+        head = research_task_records.current_records(ROOT)[SOURCE_TASK]
+        self.assertEqual(SOURCE_GEN2, head["publication_id"])
+        self.assertEqual(2, head["publication_generation"])
+        self.assertEqual(SOURCE_GEN1, head["supersedes_publication_id"])
+        self.assertEqual("DRIVER_ROADMAP", head["origin_kind"])
+        definition = _definitions(ROOT)[SOURCE_TASK]
+        self.assertEqual("READY", definition["base_state"])
+        self.assertEqual(SOURCE_GEN2, definition["publication_id"])
 
     def test_shared_secondary_cause_retains_all_sources_and_real_integrity_errors(self):
         from control_plane import research_task_records_impl as core

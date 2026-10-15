@@ -191,6 +191,16 @@ def materialize(
         review_id, publishing_driver_id, publisher_session_id, timestamp, root,
         require_current=True,
     )
+    prospective_args = {}
+    if "prospective_result_authority_binding" in spec:
+        from control_plane import research_prospective_result_authority_binding as prospective
+        prospective.validate_request(spec[prospective.FIELD])
+        if binding is None or decision != "TASK_SET_PUBLISHED":
+            raise DriverFollowupTransactionError("prospective binding requires native current publisher and taskset")
+        prospective_args[prospective.FIELD] = spec[prospective.FIELD]
+        current_source = research_task_records.current_records(root).get(prospective.SOURCE_TASK)
+        if current_source is None or current_source.get("publication_id") != result.get("publication_id"):
+            raise DriverFollowupTransactionError("prospective binding requires current source Task generation")
     publisher_id = binding["driver_id"] if binding else str(review["driver_id"])
     publisher_args = {} if binding is None else {
         "publishing_driver_id": publishing_driver_id,
@@ -341,6 +351,7 @@ def materialize(
             decision="TASK_SET_PUBLISHED",
             gate_decisions=[normalized_gates[name] for name in impl.GATES],
             task_publications=published_rows,
+            **prospective_args,
             driver_id=str(review["driver_id"]),
             created_at=timestamp,
             root=root,

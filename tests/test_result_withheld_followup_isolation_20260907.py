@@ -29,6 +29,9 @@ FIXTURE_PACKET = "DFU-B6A7EAFE760B531C3495"
 VALID_RESULT = "RR-VALID-SIBLING"
 VALID_REVIEW = "DR-VALID-SIBLING"
 VALID_PACKET = "DFU-VALID-SIBLING"
+SOURCE_TASK = "RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY"
+SOURCE_GEN1 = "TP2-5D9C21A7B40E683F1C52"
+SOURCE_GEN2 = "TP2-7B35867C594D13793C9F"
 
 
 def setUpModule():
@@ -128,6 +131,7 @@ class ResultWithheldFollowupIsolationTests(unittest.TestCase):
         sources = result_isolation.validated_review_rows(ROOT)
         self.assertTrue({r["review_id"] for r in selected.values()} <= set(sources))
         self.assertFalse({r["review_id"] for r in selected.values()} & {r.get("review_id") for r in research_result_records.iter_reviews(ROOT)})
+        self.assertFalse({r["result_id"] for r in selected.values()} & {r.get("result_id") for r in research_result_records.iter_results(ROOT)})
         tasks = {t["task_id"] for row in selected.values() for t in row["derived_task_publications"]}
         self.assertEqual(5, len(tasks))
         current = research_task_records.current_records(ROOT)
@@ -136,11 +140,37 @@ class ResultWithheldFollowupIsolationTests(unittest.TestCase):
             self.assertEqual(followup_isolation.TASK_ISOLATION, row["isolation_kind"])
             self.assertEqual([pid], row["derived_task_publications"][0]["source_packet_ids"])
             self.assertTrue(all(row[flag] is False for flag in followup_isolation._AUTHORITY_FLAGS))
-        for task in tasks:
-            with self.subTest(task=task):
-                self.assertNotIn(task, current)
-                self.assertEqual("BLOCKED", definitions[task]["base_state"])
-                self.assertIsNone(definitions[task]["publication_id"])
+        for publication in (t for row in selected.values() for t in row["derived_task_publications"]):
+            task = publication["task_id"]
+            with self.subTest(task=task, publication=publication["publication_id"]):
+                # Isolation belongs to each frozen old publication, not every
+                # future generation of the same scientific Task.
+                self.assertNotEqual(publication["publication_id"], current.get(task, {}).get("publication_id"))
+                self.assertNotEqual(publication["publication_id"], definitions[task]["publication_id"])
+                if task == SOURCE_TASK:
+                    self.assertEqual(SOURCE_GEN1, publication["publication_id"])
+                    self.assertEqual(SOURCE_GEN2, current[task]["publication_id"])
+                    self.assertEqual(SOURCE_GEN2, definitions[task]["publication_id"])
+                else:
+                    self.assertNotIn(task, current)
+                    self.assertEqual("BLOCKED", definitions[task]["base_state"])
+                    self.assertIsNone(definitions[task]["publication_id"])
+
+    def test_exact_source_gen2_roadmap_head_keeps_gen1_result_withheld(self):
+        from tools import research_dispatch, research_result_records, research_task_records
+
+        head = research_task_records.current_records(ROOT)[SOURCE_TASK]
+        self.assertEqual(SOURCE_GEN2, head["publication_id"])
+        self.assertEqual(2, head["publication_generation"])
+        self.assertEqual(SOURCE_GEN1, head["supersedes_publication_id"])
+        self.assertEqual("DRIVER_ROADMAP", head["origin_kind"])
+        definition = next(r for r in research_dispatch.merged_definitions(ROOT) if r["task_id"] == SOURCE_TASK)
+        self.assertEqual("READY", definition["base_state"])
+        self.assertEqual(SOURCE_GEN2, definition["publication_id"])
+        self.assertEqual(["RR-1337737608BDE3D7E620"],
+                         result_isolation.withheld_state(SOURCE_TASK, SOURCE_GEN1, ROOT)["withheld_result_ids"])
+        self.assertIsNone(result_isolation.withheld_state(SOURCE_TASK, SOURCE_GEN2, ROOT))
+        self.assertNotIn("RR-1337737608BDE3D7E620", {r["result_id"] for r in research_result_records.iter_results(ROOT)})
 
     def test_valid_sibling_result_review_packet_and_unrelated_task_are_preserved(self):
         import research_driver_followup as followup
