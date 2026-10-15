@@ -1,0 +1,85 @@
+{
+  "schema": "H0P_PRIMARY_INPUT_LEDGER_V1",
+  "checked_at": "2026-10-15",
+  "status": "PRIMARY_TEXT_READ_AND_EXACT_HYPOTHESES_MAPPED",
+  "imports": [
+    {
+      "id": "HT2013-C34",
+      "url": "https://arxiv.org/pdf/0805.3527",
+      "authors": "Daniel Huybrechts and Richard Thomas",
+      "version": "arXiv:0805.3527v2, 15 September 2013",
+      "locator": "Introduction main theorem p.2; Corollary3.4 p.14; Theorem2.10 identifies product.",
+      "used_statement": "For a perfect special-fibre object in the stated square-zero embedding into a smooth ambient scheme, a perfect lifting exists exactly when its truncated Atiyah/Kodaira-Spencer product vanishes in Ext^2.",
+      "application": "X=A0 smooth projective, F_D perfect. The polarized first-order A_R is projective and embeds in P^m_R, then P^m_C times A^1_C; ideal is O_X.",
+      "not_used": "No virtual-cycle dimension-three theorem; no simplicity or stability claim; no higher-order sufficiency."
+    },
+    {
+      "id": "STACKS-0AVZ",
+      "url": "https://stacks.math.columbia.edu/tag/0AVZ",
+      "locator": "Lemma47.11.1",
+      "used_statement": "Depth is the first nonzero local-cohomology degree for a finite module in the Noetherian setting.",
+      "application": "Normal bundle locally free over regular dimension-three rings at finite punctures; local groups vanish below degree3."
+    },
+    {
+      "id": "STACKS-0G71",
+      "url": "https://stacks.math.columbia.edu/tag/0G71",
+      "locator": "Lemma20.34.5",
+      "used_statement": "A closed-support localization triangle yields restriction long exact cohomology.",
+      "application": "Support is Supp(D), coefficients N; zero support groups in degrees1,2 make H1 restriction an isomorphism."
+    },
+    {
+      "id": "STACKS-0A6T",
+      "url": "https://stacks.math.columbia.edu/tag/0A6T",
+      "locator": "Lemma51.2.1",
+      "used_statement": "Module local cohomology agrees with sheaf cohomology with support on affine schemes.",
+      "application": "Identifies local depth vanishing with the support sheaves used by localization."
+    }
+  ],
+  "self_contained_arguments": [
+    "Dual-number derived lifting of a sheaf is a flat sheaf, by tensoring0->C->R->C->0.",
+    "Cyclicity away from D recovers a flat embedded support through the annihilator.",
+    "Cech embedded obstruction equals the normal projection of Kodaira-Spencer.",
+    "An affine smooth first-order deformation trivializes noncanonically, so every finite D lifts whenever Z lifts.",
+    "Regular-immersion Koszul and local finite resolutions make the pushed-forward ideal perfect."
+  ],
+  "limits": "External ordinary algebraic geometry; no native torsor/flat-plane identification. No inference of universal Hodge conjecture, non-algebraicity or transport.",
+  "accepted_source_inputs": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "51b980512a901f6aaa377c2805be24b1a0c6ebe1",
+      "path": "research_tasks/HODGE_H0P_NONSPLIT_WEIL_BILATERAL_DEFORMATION_OBJECT_20260919.md",
+      "bytes": 7539,
+      "sha256": "3d60de04bea76b0e59b61d6008c02ca16f8692c512e05ec4c4df5ea1d5eb1f2b",
+      "git_blob_sha1": "ee3ba08a77297bc0a29f41fbba2dca6acc8174ed",
+      "actual_full_readback": "Own exact Task request h0p7936bf-task-20261015-01 / Issue5749; complete taskbook bytes and native taskbook pin matched."
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "51b980512a901f6aaa377c2805be24b1a0c6ebe1",
+      "path": "research_returns/HODGE_H0N_NONSPLIT_WEIL_EXCEPTIONAL_CH3_SEED_OBJECT_RETURN_20260902.md",
+      "bytes": 14045,
+      "sha256": "33e6ac73ce3dc16060f2e83350df67315959d44ff4a4d9460e64b4a51aa80c03",
+      "git_blob_sha1": "b504f4e3aa5401988cb3f51d699115489db3ee1c",
+      "actual_full_readback": "research_notes/owner_goal_20261015/hodge_formal_startup/ACCEPTED_SOURCE_ACTUAL_READBACKS.json"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "51b980512a901f6aaa377c2805be24b1a0c6ebe1",
+      "path": "research_result_records/RS-HODGE-H0N-NONSPLIT-WEIL-EXCEPTIONAL-CH3-SEED-OBJECT/RR-65EB865C14B89B964BB9.json",
+      "bytes": 3526,
+      "sha256": "c98e729aebe706c2448268082b1cd9ebaa2b1d0ce3e94e69db0ef9e251e3cd78",
+      "git_blob_sha1": "79749a890213dec6b33b23690c3f3ee63a27ce01",
+      "actual_full_readback": "research_notes/owner_goal_20261015/hodge_formal_startup/ACCEPTED_SOURCE_ACTUAL_READBACKS.json"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "51b980512a901f6aaa377c2805be24b1a0c6ebe1",
+      "path": "research_result_reviews/RR-65EB865C14B89B964BB9/DR-3989A98DCE909ADD3833.json",
+      "bytes": 1539,
+      "sha256": "05ec9afe290ad9fadcf44a8d518f0b9b88fe97a618e62d7842489309e4483887",
+      "git_blob_sha1": "8785195d0d17d94546cc2d422e2c5510d0627161",
+      "actual_full_readback": "research_notes/owner_goal_20261015/hodge_formal_startup/ACCEPTED_SOURCE_ACTUAL_READBACKS.json"
+    }
+  ],
+  "source_exposure": "H0N accepted return/review, H0O boundary, H0P taskbook and unreviewed September19 note exposed to lead author; matrix helper has accepted H0N input but deliberately did not read the unreviewed graph note or lead finite-support proof."
+}
