@@ -1,0 +1,58 @@
+{
+  "schema": "EM_PUBLIC129_POSTHOC_LIMITED_TOOL_ENV_OBSERVATION_V1",
+  "observed_utc": "2026-10-15T22:49:16.165459+00:00",
+  "observation_temporality": "POST_EXECUTION_CURRENT_STATE_ONLY_NOT_HISTORICAL_ENV_ATTESTATION",
+  "science_rerun": false,
+  "cwd": "/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean",
+  "actual_observation_argv": [
+    "lake",
+    "env",
+    "python3",
+    "-c",
+    "import os,shutil,json,hashlib,pathlib;names=['COMPARATOR_LANDRUN','COMPARATOR_LEAN4EXPORT'];tools=['comparator','landrun','lean4export','lake','lean'];print(json.dumps({'selected_tool_override_variables':{n:{'present':n in os.environ,'value':os.environ.get(n)} for n in names},'tool_resolution':{n:{'which':shutil.which(n),'resolved':str(pathlib.Path(shutil.which(n)).resolve()),'sha256':hashlib.sha256(pathlib.Path(shutil.which(n)).read_bytes()).hexdigest()} for n in tools}},indent=2))"
+  ],
+  "exit_code": 0,
+  "stdout": "{\n  \"selected_tool_override_variables\": {\n    \"COMPARATOR_LANDRUN\": {\n      \"present\": false,\n      \"value\": null\n    },\n    \"COMPARATOR_LEAN4EXPORT\": {\n      \"present\": false,\n      \"value\": null\n    }\n  },\n  \"tool_resolution\": {\n    \"comparator\": {\n      \"which\": \"/workspace/.public129-formal-env-20261015-_aqb0fdd/bin/comparator\",\n      \"resolved\": \"/workspace/.public129-formal-env-20261015-_aqb0fdd/src/comparator/.lake/build/bin/comparator\",\n      \"sha256\": \"afa65e57a1770f5961efe7681626a9a1cd99705262421658abd30b705f66e4a2\"\n    },\n    \"landrun\": {\n      \"which\": \"/workspace/.public129-formal-env-20261015-_aqb0fdd/bin/landrun\",\n      \"resolved\": \"/workspace/.public129-formal-env-20261015-_aqb0fdd/bin/landrun\",\n      \"sha256\": \"069a9da595c10ca2328832acd264a628941ee5466583599e9b1933eff1c3a7ea\"\n    },\n    \"lean4export\": {\n      \"which\": \"/workspace/.public129-formal-env-20261015-_aqb0fdd/bin/lean4export\",\n      \"resolved\": \"/workspace/.public129-formal-env-20261015-_aqb0fdd/src/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export\",\n      \"sha256\": \"8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1\"\n    },\n    \"lake\": {\n      \"which\": \"/workspace/.public129-formal-env-20261015-_aqb0fdd/lean-4.34.1-linux/bin/lake\",\n      \"resolved\": \"/workspace/.public129-formal-env-20261015-_aqb0fdd/lean-4.34.1-linux/bin/lake\",\n      \"sha256\": \"6f53827dab18010d6c690d14c8401cacabc1db958edb3552a877ed4cf1dd995d\"\n    },\n    \"lean\": {\n      \"which\": \"/workspace/.public129-formal-env-20261015-_aqb0fdd/lean-4.34.1-linux/bin/lean\",\n      \"resolved\": \"/workspace/.public129-formal-env-20261015-_aqb0fdd/lean-4.34.1-linux/bin/lean\",\n      \"sha256\": \"e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550\"\n    }\n  }\n}\n",
+  "stderr": "warning: PrimeNumberTheoremAnd: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/PrimeNumberTheoremAnd' has local changes\nwarning: belyi: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/belyi' has local changes\nwarning: formal-schemes: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/formal-schemes' has local changes\nwarning: elliptic-curves: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/elliptic-curves' has local changes\nwarning: tempered-fundamental-groups: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/tempered-fundamental-groups' has local changes\nwarning: oka: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/oka' has local changes\nwarning: orbicurve-cores: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/orbicurve-cores' has local changes\nwarning: pi1: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/pi1' has local changes\nwarning: heights: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/heights' has local changes\nwarning: genl: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/genl' has local changes\nwarning: tate-curves-theta: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/tate-curves-theta' has local changes\nwarning: iut: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/iut' has local changes\nwarning: gromov: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/gromov' has local changes\nwarning: SphereEversion: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/SphereEversion' has local changes\nwarning: schoenflies-lean: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/schoenflies-lean' has local changes\nwarning: ClassFieldTheory: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/ClassFieldTheory' has local changes\nwarning: AINTLIB: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/AINTLIB' has local changes\nwarning: AbsorptionCutoff: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/AbsorptionCutoff' has local changes\nwarning: StrongPNT: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/StrongPNT' has local changes\nwarning: carleson: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/carleson' has local changes\nwarning: rellich-kondrachov: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/rellich-kondrachov' has local changes\nwarning: Zeta3Irrational: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/Zeta3Irrational' has local changes\nwarning: fixed-point-theorems: repository '/workspace/.public129-formal-env-20261015-_aqb0fdd/src/math/lean/.lake/packages/fixed-point-theorems' has local changes\n",
+  "decoded_observation": {
+    "selected_tool_override_variables": {
+      "COMPARATOR_LANDRUN": {
+        "present": false,
+        "value": null
+      },
+      "COMPARATOR_LEAN4EXPORT": {
+        "present": false,
+        "value": null
+      }
+    },
+    "tool_resolution": {
+      "comparator": {
+        "which": "/workspace/.public129-formal-env-20261015-_aqb0fdd/bin/comparator",
+        "resolved": "/workspace/.public129-formal-env-20261015-_aqb0fdd/src/comparator/.lake/build/bin/comparator",
+        "sha256": "afa65e57a1770f5961efe7681626a9a1cd99705262421658abd30b705f66e4a2"
+      },
+      "landrun": {
+        "which": "/workspace/.public129-formal-env-20261015-_aqb0fdd/bin/landrun",
+        "resolved": "/workspace/.public129-formal-env-20261015-_aqb0fdd/bin/landrun",
+        "sha256": "069a9da595c10ca2328832acd264a628941ee5466583599e9b1933eff1c3a7ea"
+      },
+      "lean4export": {
+        "which": "/workspace/.public129-formal-env-20261015-_aqb0fdd/bin/lean4export",
+        "resolved": "/workspace/.public129-formal-env-20261015-_aqb0fdd/src/comparator/.lake/packages/lean4export/.lake/build/bin/lean4export",
+        "sha256": "8c5d64ba68f4d3a68b3bcb7e1c5f188e35ae573b29470b8d4530a62324c9ddd1"
+      },
+      "lake": {
+        "which": "/workspace/.public129-formal-env-20261015-_aqb0fdd/lean-4.34.1-linux/bin/lake",
+        "resolved": "/workspace/.public129-formal-env-20261015-_aqb0fdd/lean-4.34.1-linux/bin/lake",
+        "sha256": "6f53827dab18010d6c690d14c8401cacabc1db958edb3552a877ed4cf1dd995d"
+      },
+      "lean": {
+        "which": "/workspace/.public129-formal-env-20261015-_aqb0fdd/lean-4.34.1-linux/bin/lean",
+        "resolved": "/workspace/.public129-formal-env-20261015-_aqb0fdd/lean-4.34.1-linux/bin/lean",
+        "sha256": "e8baaa71855a616dc351028f3ad2200051b0671f423a1696a100e809302d5550"
+      }
+    }
+  },
+  "historical_record_limit": "The two original launcher invocations contained no explicit COMPARATOR_LANDRUN/COMPARATOR_LEAN4EXPORT assignments. The unchanged measurement wrapper copied its inherited environment, prepended exact tool/Lean PATH and set XDG_CACHE_HOME/TMPDIR; it did not clear or separately snapshot the two override variables or record runtime comparator PATH resolution. Thus their historical absence and actual runtime resolution were not separately retained. No historical environment attestation is inferred from current absence/resolution. Before/after tool binary integrity and full runtime logs remain as originally recorded.",
+  "wrapper_sha256": "a9d84f44ecdc13fb342ee616240e2278388982100695fd32330ec3a3754ae2f4"
+}
