@@ -1,0 +1,76 @@
+{
+  "schema": "CBRC_F7_REVIEWED_THEOREM_INTERFACE_V1",
+  "status": "MATHEMATICAL_PASS_PENDING_FORMAL_NATIVE_REVIEW",
+  "reviewer": "EM-DVR-76BBC1",
+  "result_id": "RR-AA38973D56330E59D315",
+  "publication_id": "TP2-6F3A8C21D4B7095E1F62",
+  "source_commit": "666131570fc37b56424505dbedfb74904fe2ee90",
+  "statement": "There exists no A=[[P,Q],[R,S]] in GL_4(Z) and f:Z^2->R_nonnegative satisfying all listed hypotheses.",
+  "hypotheses": [
+    "f(0,0)=0",
+    "f(-n,m)=f(n,m) for all integers n,m",
+    "f(n,m)>0 whenever n!=0",
+    "f(Px+Qy)+f(Rx+Sy)=f(x)+f(y) for every x,y in the full lattice Z^2",
+    "The old coordinates of Pe and Re are both nonzero, e=(1,0)",
+    "A is integral and unimodular; each block is an integral 2x2 matrix"
+  ],
+  "not_required": [
+    "numerical balance 1/2",
+    "normalization f(1,0)=1",
+    "homogeneity",
+    "convexity",
+    "continuity",
+    "norm or inner product",
+    "fixed torsion labels",
+    "a chosen matrix form or slot-swap covariance"
+  ],
+  "carrier_bridge": {
+    "carrier": "Z e plus Z f plus Z/3",
+    "scalar": "q>=0, q(0)=0, q(e)=1, inherited R/J/S invariance and old-projection positivity",
+    "operation": "additive automorphism of the full ordered pair carrier with global exact sum-q conservation",
+    "reduction": "minimum over complete finite torsion fibers; pair torsion map is a bijection",
+    "boundary": "Necessary-condition readout; not recovery of full torsion state, native spatial ontology or time propagation"
+  },
+  "terminal_branches": [
+    "A0 failure",
+    "nonzero period contradicted by precise F4 signed-free-block theorem",
+    "finite-index quadratic coefficient contradiction",
+    "new-hub old-row singularity",
+    "integral eigenchannel/parity obstruction"
+  ],
+  "f4_import": {
+    "primary_commit": "f0a0edc9ef5d8e0ea1b21727f5a7c92f681e09a5",
+    "path": "research_reports/CBRC_F4_POSITIVE_SEPARATION_RANK_LIFT_RETURN_20260823.md",
+    "git_blob_sha1": "faff2e589583d8693d1c2f25c76b6b30fec80d8e",
+    "sha256": "7e1477ab5a9d26597d746e8687a24da57cf010c05fdb9e1e4bd8d40df4c212b3",
+    "section": "3. arbitrary free-block obstruction",
+    "exact_hypotheses": [
+      "g:Z->R_nonnegative",
+      "g(0)=0",
+      "g even",
+      "g(n)>0 for n!=0",
+      "D in GL_2(Z) exactly conserves g(n)+g(p) on all Z^2"
+    ],
+    "conclusion": "D is a signed permutation",
+    "reuse_resolution": "REUSE_APPLIED; primary proof independently checked",
+    "forbidden_upgrade": "F4 as a whole has rank-one survivor, not universal rank lift; do not assume g(1)=1"
+  },
+  "old_lemma": {
+    "status": "RETRACTED_AS_STANDALONE_THEOREM",
+    "counterexample": "f(n,m)=n^2+abs(m), exchanging the two new coordinates",
+    "boundary": "period-free and non-whole-slot-monomial does not imply finite-index quadraticity; counterexample fails A0"
+  },
+  "method_harvest": "RESULT_ONLY",
+  "new_general_tool": false,
+  "external_novelty_claim": false,
+  "unresolved": [
+    "noninvertible A6 existence not classified",
+    "original clean-process and chronology not recertified",
+    "Native followup gate for raw NO_GO and formal integration remain separate",
+    "no Foundation, L4, automatic F8, Task or parent closure granted"
+  ],
+  "scope": "Frozen F7 working-extension model only",
+  "exposure": "SOURCE_EXPOSED_NONBLIND_SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "native_acceptance": false,
+  "parent_goal_closed": false
+}
