@@ -1,0 +1,56 @@
+{
+  "schema": "EM_LOCAL_FAIR_BIT_SAMPLER_POINT_PROBABILITY_CONVERSE_V1",
+  "status": "FIXED_LOCAL_PAPER_APPENDIX_PENDING_DISTINCT_BOUNDED_REVIEW",
+  "frozen_at": "2026-10-15T07:23:00.436618+00:00",
+  "task_id": "RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION",
+  "publication_id": "TP2-C6F364B0E01C124DB7E9",
+  "researcher_id": "EM-N-DEA587",
+  "run_id": "RUN-d226418286530d5099e4a5c9",
+  "output": {
+    "path": "/workspace/em-research-continuation-20261014/rr133-current-evidence-research-20261015/coverage-execution/RR133_FAIR_BIT_SAMPLER_COMPUTABLE_POINT_PROBABILITY_CONVERSE_20261015.md",
+    "bytes": 10257,
+    "sha256": "a263a6c3553c93eb1582f602ebf775243be3e8b20a0b625b701163be7afc5495",
+    "git_blob_sha1": "7447b25d7776d2e7dd471564f3110b2c611894b8"
+  },
+  "dependencies": [
+    {
+      "path": "/workspace/em-research-continuation-20261014/rr133-current-evidence-research-20261015/coverage-execution/RR133_COUNTABLE_COMPUTABLE_KERNEL_SAMPLER_CERTIFICATE_20261015.md",
+      "bytes": 16186,
+      "sha256": "80135738d9d7c6f6136e6647547b94e548f99c21975d1f49a337ceff8c301438",
+      "git_blob_sha1": "4021ecb5443bda7c0bb56a56a4a0427b0bd06363"
+    },
+    {
+      "path": "/workspace/em-research-continuation-20261014/rr133-current-evidence-research-20261015/coverage-execution/RR133_COUNTABLE_COMPUTABLE_KERNEL_SAMPLER_CERTIFICATE_MANIFEST_20261015.json",
+      "bytes": 19166,
+      "sha256": "3a444f04ac2ba97aac77e8ad40fcce00a64e12d42c25ca1b03ff65ea33646067",
+      "git_blob_sha1": "1d7b55d36bf2795f287ebd2699a1a687ced651ff"
+    }
+  ],
+  "source_scope": "Exact 11 Source members and raw envelopes in forward manifest, inherited effective sampler contract and current Task T:87-89/99-103; no new Source primitive or authority",
+  "theorem": {
+    "input": "one public effective fair-bit sampler code S, effective finite input N,z, countable finite output codes with decidable equality",
+    "promise": "almost-sure termination on declared domain; no validity/termination decision procedure",
+    "construction": "bounded computation tree yields total halt mass A_t and label mass L_t(k); search 1-A_t<=2^-n",
+    "certified_interval": "p_k in [L_t(k),L_t(k)+1-A_t]",
+    "random_access": "first query consumes new independent bit, repeated query uses persistent finite cache; preserve declared shared scope",
+    "uniformity": "single algorithm in S,N,z,k,n, total on promise domain",
+    "conclusion": "representation correspondence with normalized uniformly computable countable probability kernels, preserving output law",
+    "not_preserved_without_declaring": "implementation runtime, consumed tapes or stronger trace observers"
+  },
+  "contributions": {
+    "finite_tree_mass_construction_and_normalization": "Root EM-DVR-FBF223",
+    "proof_detail_and_source_scope": "EM-N-DEA587, prior own identity EM-DVR-F27A61",
+    "inherited_effective_class": "EM-NCASDIST1-3F7A91",
+    "source_exposure": "DIRECTED_SHARED_CONTEXT_NONBLIND"
+  },
+  "task_terminal_outcome": null,
+  "all_resource_inclusion_proved": false,
+  "finite_presentation_reification_proved": false,
+  "new_kernel_admission": false,
+  "efficiency_claim": false,
+  "task_and_parent_remain_open": true,
+  "native_source_publication": false,
+  "scientific_program_executions": 0,
+  "finite_tree_experiments": 0,
+  "independent_review": "PENDING_APPENDIX_SPECIFIC_REVIEW_ROOT_COORDINATES"
+}
