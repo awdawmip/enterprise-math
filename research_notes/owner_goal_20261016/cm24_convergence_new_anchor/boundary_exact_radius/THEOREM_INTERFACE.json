@@ -1,0 +1,55 @@
+{
+  "schema": "CM24_ACTUAL_BOUNDARY_POLE_EXACT_RADIUS_ONE_INTERFACE_V1",
+  "author": "EM-DIRECT-88303D",
+  "activity_id": "RA-1E650208FBE6654C7D59AB55",
+  "status": "AUTHOR_PAPER_PROVED_PENDING_SEPARATE_NONAUTHOR_REVIEW",
+  "paper": {
+    "file": "CM24_ACTUAL_BOUNDARY_POLE_EXACT_RADIUS_ONE.md",
+    "bytes": 9907,
+    "sha256": "423dfb367bf6167270a28efb01e64c411c09dfb6b4a63aef93d5ba338ded147a",
+    "git_blob_sha1": "cf0f1dfa8e0cb05aee6d33694902278083ba760e",
+    "max10000": true
+  },
+  "fixed_hypotheses": [
+    "Same exact original CM24 2+1+1 rational source N(t), t=r-1 and integral polynomial Hb as immutable formal/V2 sources.",
+    "Allowed primes p congruent13 or19 mod24, unramified complete coefficient DVR O,K=O[1/p],v(p)=1.",
+    "Normalized H'=NH-HR0/t,H0=I and U=H^-1; original open-disc all-n theorem at Source d35fb1abc3d459a9363144aabf9ee41b51fcb481 is consumed.",
+    "F=H F0 sigma(U)(t^p) for every fixed old permitted invertible F0, detF0=p^-4; sigma fixes rational constants; theta(t)=t^p.",
+    "Unpunctured K<t> is the ordinary closed-unit-disc Tate algebra; K<t>dagger is series converging on some closed rho>1, not a good-locus ring with a divisor inverted."
+  ],
+  "outputs": [
+    {
+      "id": "CM24-BD-001",
+      "statement": "At a=-1/2, r=1/2,s=-1, actual proper residue Q_a=[[-1/2,1/6],[-3/2,1/2]] has rank1 and square0, and full R_a=diag(Q_a,0,0) is nonzero; lower source row is regular there."
+    },
+    {
+      "id": "CM24-BD-002",
+      "statement": "Both gauge target R0/t and theta target N_theta are regular at a. The latter uses exact a^p=-2^-p not in {0,-2,-1/2,-3/2}, despite the same reduced residue class."
+    },
+    {
+      "id": "CM24-BD-003",
+      "statement": "An invertible analytic gauge M at a must satisfy ResN1 M(a)=M(a)ResN2. The nonzero-source/zero-target pair and constant determinants imply H,U,F,F^-1 are not entrywise K<t> or K<t>dagger, for every permitted F0."
+    },
+    {
+      "id": "CM24-BD-004",
+      "statement": "Together with the consumed open-disc convergence, each of the four centered matrix series has exact matrix radius1 and diverges at every unit-norm point in every complete isometric valued extension. This does not assert every individual entry diverges."
+    }
+  ],
+  "old_truth_unchanged": [
+    "Original 9897B all-n open-disc theorem and its PAPER_PASS",
+    "HesseP3 terminal accepted",
+    "ad_R^4/factorial/shrunk-disc dagger and formal classification"
+  ],
+  "explicit_limits": [
+    "Good-locus dagger ring with excluded divisor",
+    "Other local expressions/analytic continuation",
+    "LC-D/geometric Frobenius/sign/relative realization",
+    "Any selection of mu,c,xi,eta",
+    "Original source-functional/Y/Z/kappa/parent closure",
+    "Any new formal Task, claim, Native scientific Result or vote"
+  ],
+  "method": "COMPOSE_APPLIED fixed rational connection/open-disc theorem/determinants/local residue compatibility; no new tool family or literature novelty",
+  "science_program_runs": 0,
+  "Root_math_contribution": false,
+  "parent": "OPEN"
+}
