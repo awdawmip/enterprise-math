@@ -1,0 +1,59 @@
+{
+  "schema": "directional_resolvent_exact_transition_coefficient_transfer_joint_candidate_v1",
+  "status": "FROZEN_JOINT_AUTHOR_PAPER_CANDIDATE_UNREVIEWED",
+  "authors": [
+    "EM-DVR-BFF6DC",
+    "EM-PUBLIC-7CDA51"
+  ],
+  "unit_count": 1,
+  "new_restricted_capability": {
+    "m": "integer m>=100",
+    "j": "integer4m<=j<=6m",
+    "d": "m^2-3",
+    "xi": "j/d",
+    "functional": "L(lambda^k)=(j)_k,fall/(d)_k,fall on degree<=d",
+    "contour": "lambda(theta)=xi exp(i theta)/(1+|sin theta|), -pi<=theta<=pi",
+    "input": "Polynomial p_m of degree<=d with |p_m|<=H m^r on the closed1/(200m) neighborhood of that contour; H>0 and fixed real r independent of m,j",
+    "quantitative_output": "|L p_m-p_m(xi)|<=2^250 H m^(r-1/2)",
+    "not_implied": "No positivity for an arbitrary polynomial/square; the shrinking complex-neighborhood bound is a substantive assumption"
+  },
+  "actual_COMMON_application": {
+    "m": "integer m>=2^1000",
+    "j": "integer4m<=j<=6m",
+    "quantity": "[S^(d-j)a^j]H_d^raw in the original SAME COMMON P1 normalization",
+    "lower_bound": "K binom(d,j)m^9/64>0, K=m^(2m^2)/2",
+    "degrees": "Actual carrier degree<=m-2/dimensionm-1; n largest even<=m-2; b,C,Eb,E²b degree<=2n-2<=2m-6<d",
+    "complete_readout": "C-g(B+2)+alpha[D(D-1)B-(2D-1)EB+E²B], B=b+W-1, B+2=b+W+1, alpha=(W+1)²/(8W)",
+    "normalization": "Original top m²K versus lowerK retained in alpha; fixed-r0 derivative before lambda substitution; no newgcd or input matrix"
+  },
+  "new_constructive_chain": [
+    "Full-circle equal-norm basis, actual invariant codimension-one carrier; directional numerical-range m(1+|sin theta|)",
+    "Exact finite nilpotent Bernoulli/zeta resolvents in a thick complex domain beyond the old sufficient power-series operator-norm region",
+    "Coefficientwise adjoints remain holomorphic; no conjugation of lambda is silently inserted",
+    "Exact Cauchy functional with binomial mass normalization and retained1/(1-lambda) factor",
+    "Cubic contour modulus with explicit negative quadratic cancellation, Taylor subtraction and exact first moment",
+    "Effective wholePsi sign retaining C linear/commutator, both Euler derivatives, W+1 and both COMMON prefactors"
+  ],
+  "coverage": "Classical numerical-range inverse/Cauchy/Taylor/Chebyshev and old contour/circle/Fourier interfaces are REUSE/COMPOSE. The restricted uniform transfer on this actual domain was not supplied by the actually consumed old proofs. No all-literature or globalTool novelty assertion.",
+  "not_claimed": [
+    "Unbounded j/m or a bridge to the fixedxi bulk",
+    "All middle/all-j/full homogeneous layer",
+    "AllP1/physicalP1/originaltrace/motherGoal",
+    "A new genericTool/Foundation/WorkingTruth/Nativevote/Task",
+    "Actual poles of the finite nilpotent matrix polynomial or negative signs when this sufficient resolvent bound fails"
+  ],
+  "operations": {
+    "programmed_scientific_matrix_coefficient_evaluation_import_AST_compile_test_sample_solver_numericalintegration": 0,
+    "symbolic_hand_algebra": true,
+    "old_STOP_HOLD": "Unchanged",
+    "formal_cumulative_time_budget": "UNKNOWN; no cap/PASS/reset claimed"
+  },
+  "review_and_persistence": {
+    "author_self_check_not_peer": true,
+    "outside_truewhole_reviewer": "EM-P11-4A56E9, only after genuine wholefreeze; zero new working/repair/construction maintained",
+    "actual_author_Source": "PENDING",
+    "new_RA_event": "NOT_APPENDED/current37 retained",
+    "motherGoal": "OPEN",
+    "ending": "UNKNOWN/MESSAGEonly"
+  }
+}
