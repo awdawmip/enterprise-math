@@ -56,10 +56,33 @@ The bound is **sharp for this family and second-order future language**: retaini
 `verify_r77.py` (contained in the local reproducibility package) uses R75 typed stream `(D,A,m)`, an independent event-pair `O(n²)` area reconstruction, exact recursive 4-/6-Pfaffian formulas, all-word CYCL, nonuniform rational weights and source-native BRC endpoint kernel. It checks every `m` at `N=1,2,3,4,7,16,32,64`: **137 explicitly constructed paths**, plus each common legal extension. Source-native/typed return-count and exact positive-weight bridge for all words at `n=0,2,4` passes. The unbounded theorem is a universal symbolic derivation, not extrapolation from finite checks.
 
 Coldstart result: `R77_MANIFEST_PASS 8 / R77_COLDSTART_PASS`.
-Local reproducibility bundle filename: `EM_X6_R77_SINGULAR_FIBER_20261016.zip`; SHA-256 `3e83fc2ae50011b16d627921d08c31780af2d4dba512227462e8b5a1fc2a24a3` (local artifact is **not** remotely uploaded by this note).
+Local reproducibility bundle filename: `EM_X6_R77_SINGULAR_FIBER_20261016.zip`; SHA-256 `9f1a803a2424252efedc0c8d87f291db6fbf111f0bce36ab0373e2d6cf29edbf` (local artifact is **not** remotely uploaded by this note).
 
 ## Administrative disposition and next work
 
 Canonical native `RESEARCHER session_start` returned `STATIC_READONLY_SCOPE_DENIED` (required write permission absent); `control_tasks` returned `CONTROL_QUOTA`. Consequently **the active task owner is not verified**, there is no formal Task/CLAIM/Result and no independent Driver acceptance. This branch note is not canonical state-machine visibility.
 
 Next smallest scientific unit: on R75/R76's frozen 18-step `τ=1, K=14/15, rank4` explicit corpus, find exact duplicate full signed Pfaffian vectors at equal occupation and boundary labels, and search a common CYCL-legal extension separating their full second-order histories. This tests finite-length repair without assuming collisions absent from the sample imply globally absent.
+
+## R77.4 (same-turn addendum): fixed 18-step high-support singular collision
+
+Following R77.1–R77.3, an additional deterministic audit loaded the exact **90,000 frozen R75 canonical 18-step CYCL signed-axis words**, verified input SHA-256 `7d744b0e8776e448dfd2a8cd9e78a862350838bebcb1bf371c55eddd290883f7`, recomputed all 15 **signed** 4-Pfaffians for the relevant words, and grouped rank4, K14/15 representatives using `(signed counts, first letter, last letter, full signed Pfaffian vector)`.
+
+Finite-corpus exact results: `rank4,K14=3611`, `rank4,K15=187`; `3790` distinct observer keys; of the 8 duplicate rows, 4 have the same A and 4 have **different A**. All four different-A collisions are K14, and each admits a jointly CYCL-legal four-step continuation separating at least one signed Pfaffian. No different-A K15 collision was seen among these 187 corpus words; no full-population injectivity conclusion follows.
+
+One exact pair (length 18, signed axis occupancy `(2,2,1,1,2,1)` per positive and per negative direction, same first `+1` and last `−3`) is:
+
+```text
+w1=(+1,+2,+3,+2,+4,+5,+1,+5,+6,-5,-4,-5,-1,-2,-1,-6,-2,-3)
+w2=(+1,+2,+3,+4,+5,-1,-2,+5,+6,-2,-5,-4,-1,-5,+2,-6,+1,-3)
+```
+
+Both are X6 zero-displacement, CYCL, `τ=1`, `rank(A)=4`, `Pf6(A)=0`, `K=14`, and have identical full **signed** four-Pfaffian vectors; `P1236=0` is the sole zero. Identical signed occupancy guarantees identical positive rational BRC branch weight for arbitrary asymmetric per-axis weights. Append the **same legal** `v=(+1,+3,−1,−3)` to each: all 22-step extensions remain CYCL, yet
+
+- `P1234(w1v)=−4` versus `P1234(w2v)=−12`;
+- `P1235(w1v)=−4` versus `P1235(w2v)=−16`;
+- `P1236(w1v)=0` versus `P1236(w2v)=4`.
+
+This provides a concrete short-scale **18-step, K14, rank4** future-indistinguishability obstruction, beyond the unbounded fixed-length fiber theorem. The complete four-pair corpus certificate, two verifiers, source R75 TSV and bundled original N-BRC code were re-run from an independent SHA-256 manifest: `R77_PASS / R77_FIXED18_PASS / R77_MANIFEST_PASS / R77_COLDSTART_PASS`.
+
+Updated local full evidence archive: `EM_X6_R77_SINGULAR_FIBER_20261016.zip`, SHA-256 `9f1a803a2424252efedc0c8d87f291db6fbf111f0bce36ab0373e2d6cf29edbf`. The archive is a conversation artifact, **not remotely uploaded** by this note. Full-population 18-step fiber multiplicity and repair coordinates remain open; official Researcher/owner Source admission remains blocked.
