@@ -1,0 +1,50 @@
+{
+  "schema": "CM24_ORIGINAL_OPEN_UNIT_DISC_LOG_GROWTH_THEOREM_INTERFACE_V1",
+  "author": "EM-DIRECT-88303D",
+  "activity_id": "RA-1E650208FBE6654C7D59AB55",
+  "status": "AUTHOR_PAPER_PROVED_DISTINCT_REVIEW_PENDING",
+  "paper": "CM24_ORIGINAL_OPEN_UNIT_DISC_LOG_COEFFICIENT_BOUND.md",
+  "paper_sha256": "cfa8974bd1b9c077cdf7210428276b6bb2af707d1de853b91d8180a9387ba26b",
+  "native_basis": "HEARTBEAT_WORLD_NATIVE_X6",
+  "arithmetic_type": "SEPARATELY_TYPED_EXTERNAL_ARITHMETIC_MODULE_NO_NATIVE_READOUT_OR_PROPAGATION_CLAIM",
+  "fixed_hypotheses": [
+    "p congruent 13 or 19 mod24; fixed unramified complete DVR O,K=O[1/p],v(p)=1.",
+    "Exact V2 proper A(s), s=S(r)=4r^3-3r, t=r-1, original entire rank-four source carrier.",
+    "Exact original residue Rp=(1/12)[[-1,-1],[1,1]], rho_-1=(-2,0), beta_-1=2; all regular rho_j,beta_j integral including saved integral Hb lift.",
+    "Unique H(0)=I satisfying H'=NH-HR/t; source hatted frame T has T and inverse integral.",
+    "For comparison F only: fixed permitted F0, RF0=pF0R, theta(t)=t^p and isometric coefficient Witt map sigma."
+  ],
+  "outputs": [
+    {
+      "id": "CM24-UD-PROPER-001",
+      "statement": "Actual scalar equation transforms under z=(1-s)/2 to L=z(1-z)D²+(1-2z)D-2/9. Balanced f_n=(1/3)_n(2/3)_n/(n!)² and log companion g_n=f_n sum_j<n[1/(j+1/3)+1/(j+2/3)-2/(j+1)] are matched by exact all-n recurrences."
+    },
+    {
+      "id": "CM24-UD-PROPER-002",
+      "statement": "Exact normalized proper gauge and inverse obey v(G_n),v((G^-1)_n)>=-log_p(3(n+1)) for all n; inverse uses detG=1/adjG, not reciprocal f."
+    },
+    {
+      "id": "CM24-UD-FULL-003",
+      "statement": "Full H_n>=-log_p3-3log_p(n+1); U_n>=-2log_p3-4log_p(n+1) for all n. Common C_p=2log_p3,D_p=4 gives target bound."
+    },
+    {
+      "id": "CM24-UD-ANALYTIC-004",
+      "statement": "H and U converge and are inverse at every |t|<1 in original coordinate. F converges there for each fixed permitted F0; v(F_n)>=v(F0)-4log_p3-8log_p(n+1)."
+    }
+  ],
+  "contribution_disclosure": {
+    "own": "Exact scalar matching; balanced/log companion and valuation proof; formal-log coordinate and proper normalization; checked full transfer and convolution.",
+    "directed_author_side_support": "EM-PERFECT-9821E2 supplied conditional triangular extension transfer equations/bounds; independently checked here as author work; not independent review.",
+    "Root": "Control coordination only; no mathematical derivation."
+  },
+  "not_proved": [
+    "Boundary convergence at |t|=1",
+    "Original-coordinate dagger property or good-locus gluing",
+    "Actual geometric/log Frobenius or LC",
+    "Selection of mu,c,xi,eta or source normalization",
+    "Original source-functional/Y/Z/kappa or parent completion",
+    "New literature novelty/general-purpose tool family"
+  ],
+  "scientific_programs": 0,
+  "new_Task_claim_Native_Result_or_review": false
+}
