@@ -1,0 +1,92 @@
+{
+  "schema": "P11_NEW_CORE98_EXISTING_MAGMA_MIXED_ONE_BIT_FIXED_INPUT_V2",
+  "author": "EM-DVR-F73673",
+  "fixed_parameters": {
+    "core": [
+      9,
+      8
+    ],
+    "A": 17,
+    "B": 144,
+    "C": 145,
+    "P": 161,
+    "Q": 127,
+    "ordered_roots": [
+      0,
+      25921,
+      16129
+    ],
+    "Weierstrass_a_invariants": [
+      0,
+      -42050,
+      0,
+      418079809,
+      0
+    ],
+    "U2": [
+      1,
+      2,
+      2
+    ],
+    "U3": [
+      1,
+      3,
+      3
+    ]
+  },
+  "class_encoding": "A=Q[t]/t(t-P\u00b2)(t-Q\u00b2); L0=(t-P\u00b2)(t-Q\u00b2)/(P\u00b2Q\u00b2); d2=2-L0,d3=3-2L0",
+  "script": {
+    "path": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/p11_direction_driver/core98_remote_candidate/core98_one_mixed_candidate.m",
+    "bytes": 3715,
+    "sha256": "768aca21b47503af83b10999f713275231eff78673757694ba68c752db1a6b94",
+    "git_blob_sha1": "1d9fbad8fe82a2d5b0dfd54017204bf60a8a687b",
+    "bundle_filename": "core98_one_mixed_candidate.m"
+  },
+  "runtime": {
+    "official_endpoint": "https://magma.maths.usyd.edu.au/xml/calculator.xml",
+    "version": [
+      2,
+      29,
+      10
+    ],
+    "Magma_managed_memory_limit_bytes": 400000000,
+    "threads": 1,
+    "provider_time_limit_seconds": 60,
+    "provider_time_kind": "UNSPECIFIED_CPU_OR_WALL",
+    "provider_input_cap_bytes": 50000,
+    "random_seed": 1
+  },
+  "scope": {
+    "FourDescent_calls": 1,
+    "selected_valid_lifts": 1,
+    "mixed_pairing_calls": 1,
+    "full_Selmer_or_abstract_Sel4_recomputation": false,
+    "parameter_sweep": false,
+    "separate_point_search": false,
+    "EightDescent": false,
+    "fresh_fixed_curve_Task_only": true,
+    "old_fixed233_resources_reused_or_expanded": false
+  },
+  "output_contract": {
+    "complete_end_marker": "EM_CORE98_MIXED_V1_END",
+    "candidate_bit_marker": "IMPLEMENTATION_CANDIDATE_MIXED_BIT",
+    "portable_certificate_automatic": false,
+    "map_equations_are_attempted_and_actual_export_flags_recorded": true,
+    "complete_raw_XML_and_all_warnings_required": true,
+    "truncated_or_missing_end_bit": "UNKNOWN_NO_RESUBMISSION",
+    "empty_lift": "STOP_INPUT_OR_IMPLEMENTATION_INTEGRITY_NO_RANK_UPGRADE",
+    "actual_bit_rank": "UNKNOWN"
+  },
+  "admission": {
+    "new_immutable_Task_publication": null,
+    "own_actual_researcher_session_run_claim_ER": null,
+    "full_exact_source_inputs_and_papers": null,
+    "actual_independent_static_code_input_codec_cost_review": null,
+    "preparation_ledger_and_approved_cap": null,
+    "scientific_start_allowed": false
+  },
+  "status": "FROZEN_CANDIDATE_CODE_AND_INPUT_NOT_EXECUTED_OR_ADMITTED",
+  "program_import_test_compile_or_scientific_calls": 0,
+  "frozen_utc": "2026-10-16T04:48:21.676527+00:00",
+  "transport_revision": "V2 retains HTTP error response bodies and loads script relative to bundle; V1 original preserved unexecuted"
+}

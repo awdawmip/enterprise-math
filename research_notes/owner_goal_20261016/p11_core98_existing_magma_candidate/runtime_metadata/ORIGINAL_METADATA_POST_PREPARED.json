@@ -1,0 +1,21 @@
+{
+  "schema": "P11_EXISTING_OFFICIAL_SERVICE_METADATA_ONLY_SINGLE_POST_V1",
+  "purpose": "Only runtime version, memory-limit setting and thread count. No mathematical objects or arithmetic/science invocation.",
+  "caller": "EM-DVR-F73673",
+  "operation_class": "CONTROL_ENVIRONMENT_METADATA",
+  "native_task_or_run_used": null,
+  "endpoint": "https://magma.maths.usyd.edu.au/xml/calculator.xml",
+  "method": "POST",
+  "content_type": "application/x-www-form-urlencoded",
+  "nonce": "EM_PUBLIC_METADATA_20261016_0437_F73673_4c9a",
+  "script": "print \"EM_PUBLIC_METADATA_20261016_0437_F73673_4c9a\";\nGetVersion();\nGetMemoryLimit();\nGetNthreads();\nprint \"EM_METADATA_END\";\n",
+  "body_ascii": "input=print+%22EM_PUBLIC_METADATA_20261016_0437_F73673_4c9a%22%3B%0AGetVersion%28%29%3B%0AGetMemoryLimit%28%29%3B%0AGetNthreads%28%29%3B%0Aprint+%22EM_METADATA_END%22%3B%0A",
+  "body_bytes": 172,
+  "body_sha256": "a184e60b954b542860ea5cc15b3f8bff396fe87695875fca7b908395cdf73dc7",
+  "request_utc": "2026-10-16T04:36:03.965876+00:00",
+  "max_calls": 1,
+  "timeout_seconds": 20,
+  "response_cap_bytes": 1048576,
+  "unknown_replay_policy": "NO_RESUBMISSION_OR_RETRY",
+  "scientific_calls": 0
+}

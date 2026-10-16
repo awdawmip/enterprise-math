@@ -1,0 +1,34 @@
+# Additional fixed codec, total cost and clock definitions
+
+Author F73673. This addendum is part of the independently reviewable code candidate; it refines the earlier at-freeze cost wording explicitly, without modifying that original document or claiming a completed audit.
+
+The original four-file candidate remains byte-for-byte preserved. The final candidate additionally includes the fixed custody codec and this addendum. No candidate consumer, codec, import, test or compile has been executed. The earlier actual metadata-only service probe is separately identified and contained no mathematics.
+
+## Complete custody and exact limits
+
+The codec reads the original attempt marker, full original raw XML if received, and full original parsed assessment including every returned line, warning and timing field. It never evaluates a captured program. It archives these together with all six frozen candidate source/contract files, a complete bounded return and the actual Native-gate summary. Every regular member has exact length/SHA256/Git-blob pins. Its ASCII JSON containing base64 member bytes is deterministically gzip-compressed (mtime0), base64 encoded and split into at most five512000-byte ASCII files. Reassembly requires concatenation, base64 decoding, gzip decoding, JSON parsing, then verifying every member's exact bytes/hash/blob. This is ordinary evidence custody, not a new scientific Tool.
+
+The full raw response cap remains1048577 bytes including the single overflow-detection byte; a complete accepted response must be at most1048576 bytes. Full parsed sidecar cap2500000 bytes, original request marker cap16384, return32768, Native summary16384, each frozen source50000, and the SUM OF ACTUAL decoded members must be at most3800000 bytes. The fixed codec enforces that actual aggregate instead of adding hypothetical field bounds and calling that an actual pass. All original bytes are retained on any failure.
+
+The final carrier must be at most2097152 ASCII bytes. No assumption of a compression ratio is made. Above that bound the codec produces a small resource-boundary index, retains the local original evidence and forbids scientific repetition; it does not claim Source publication or completed delivery. An explicit new CONTROL custody route may preserve those existing bytes later, without another scientific call or mathematical acceptance.
+
+Normal Native carrier publication needs at most five part files plus one index and the separate return: seven files, at most2146304 UTF8 bytes including the maximum index and return. This is below the actual ordinary interface limits16files/4MiB total/1MiB per file. Each512000-byte part needs at most32 ordinary16000-byte upload slices; five such parts plus index/return require at most164 slices. The actual carrier size, file count, input bytes, call count and upload limits must be measured before staging, and they may be much smaller. DB staging is not Source publication. Actual full Source and every decoded member must be independently read back before a Result cites completion.
+
+The original attempt-directory cap4MiB excludes the separately named codec output. Total local durable working evidence, INCLUDING duplicate carrier parts and the parts index, is prospectively capped at8MiB. The codec keeps the full carrier in memory but writes only its parts, not another whole carrier copy. Original attempt at most4MiB plus parts at most2MiB plus index/return/frozenbundle leave positive headroom within8MiB; actual aggregate is still measured. This explicitly refines the earlier ambiguous phrase total evidence. Caller address space512MiB, provider allocator400000000 bytes and serial1 remain separate limits. A local/codec resource failure returns a truthful boundary, never permission to rerun the remote calculation.
+
+## Preparation, scientific call, queue and report clocks
+
+The proposed NEW core98 author preparation budget is1200s, prospective, not an extension of the stopped233 Task. Before the selected actual actor reads new execution-specific mathematics/code/input or designs this execution, make a positive statement of any such work already done. Debit actual classified intervals or a conservative covering window. An unmeasured relevant interval means UNCERTIFIED_REMAINDER/NO_START, not an inferred zero from absent files.
+
+At actual START, record UTC and monotonic readings, certified historical debit and a deadline. All subsequent author mathematical reading/design/editing, implementation, checks, preparation discussions and unclassified intervals count. The clock is one cumulative monotonic ledger, not reset at session registration, prepare, claim or open. A positively evidenced exclusively CONTROL/queue interval may be classified separately; mere waiting, mtime or a generic message is not proof of zero mathematical activity. Overlap is charged conservatively.
+
+The single scientific remote POST has its OWN provider60s setting and caller absolute90s deadline. These do not reset or add preparation time. Freeze the exact code/input/codec and pass real static audit before that call. A service outcome lost or incomplete is UNKNOWN and consumes the allowed call; no same-target retry under a new nonce/attempt directory.
+
+After the call, at most300s of NEW semantic interpretation/report composition is proposed, recorded separately and explicitly in the new Taskbook; it does not permit another scientific test, new proof search, algorithm pivot or unbudgeted code repair. Existing-code byte packaging, Native queues and Source publication/readback are custody CONTROL, still timestamped with actual CPU/wall/storage/upload costs. If interpretation/report300s is exhausted, stop new semantic work and persist the already existing bytes plus an honest resource-boundary handoff. No synthetic COMPLETE claim is needed to preserve evidence. The Owner must approve these explicit prospective cap fields before official task publication; this candidate grants none itself.
+
+## Result strength and independent gate
+
+The scientific hard target proposed for this NEW unit is one actually bound implementation observation and complete evidence, or an exact UNKNOWN/failure/resource boundary. It is not a portable certificate, rank theorem, whole-Sha determination, new general tool or reopening of any accepted/stopped Task. A candidate bit can inform whether a separate certificate pursuit is worthwhile; it is not accepted as mathematical e by this launcher.
+
+A true nonauthor must statically review the exact Magma input/model/cover route, Python transport, complete codec, worst-case and actual serialization bounds, clock definitions and output interpretation. All amendments require a new explicit frozen version retaining the old files. Actual Native Task publication, correct Researcher session/RA and fresh prepare/claim/open authority remain independent requirements; no Driver vote or JSON field grants those powers.
+
