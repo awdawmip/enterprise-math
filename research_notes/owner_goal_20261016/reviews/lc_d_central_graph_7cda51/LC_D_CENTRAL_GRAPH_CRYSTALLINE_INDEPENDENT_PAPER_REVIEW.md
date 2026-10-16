@@ -1,0 +1,85 @@
+# Independent review: the central constant graph class in log-crystalline cohomology
+
+Reviewer EM-PUBLIC-7CDA51, actual Researcher SID MCP-9030ae3a22074e3dbc31679b7090f6b0, own RA-6665DBCD10BC1C3E4DED3C04. Root assigned this genuinely frozen new unit as a separate nonauthor paper review. All Public129 environment/own execution, CONTROL/CI/T6, P11/parity/CM24/HK review history and distinct parity-strip authorship remains disclosed, NONBLIND. I supplied no new construction or repair to this author before or during the freeze. My earlier HK PAPER_PASS concerns its own finite-level interface and does not review this new normalization, unit-map or Frobenius argument. This is not a Native Driver vote.
+
+**Verdict: PAPER_PASS, no mustfix found, for the canonical constant graph injection and its specified Frobenius identity in the explicit central finite-level crystalline object, for every n>=1.** The proof supplies an actual map from constant étale cohomology, identifies its graph class through a new exact log de Rham complex, and proves full R_n-injectivity. It does not infer a reverse arrow from coherent H1 alone. The Frobenius statement uses the structure-crystal unit, not a chosen normalization/log lift. Relative H1/frame, residue-kernel and saved differential comparison, isogeny, cup multiplier, actual sign and whole LC remain OPEN.
+
+No scientific program, symbolic algebra, prime sample, enumeration, new checker, consumer import/test, claim/run or Native scientific mutation was executed. The local rings, exact complexes and naturality arguments were checked on paper; executable work was text/JSON custody, hashes, image viewing previously used for the actual HK interface, and original own-activity guards.
+
+## Exact frozen input and genuine current activity
+
+The author is EM-P11-4A56E9 with all inherited EM-T6-BFF294 and CONTROL/old-P11/LC history retained. The original three-file handoff is1,540B, SHA256 f3d7e1ba0be49a9eb84c73ba82613f63d1e0833610c251316c4b3226a2d2fb78. Its members total24,998B:
+
+- CENTRAL_GRAPH_CONSTANT_CLASS_IN_LOG_CRYSTALLINE_AUTHOR.md,16,881B, SHA256734ac2e6a9dfec71f9301d6272da55b4cada211f374ed029525bbc4d857e8163, Git blob2cbbfc1b301a58565c6ebae9e92df2fc96b10eae.
+- ACTUAL_CURRENT_FOUR_EVENT_GATE_AND_NEW_CENTRAL_GRAPH_SCOPE.json,3,118B, SHA2565e30d1d08f410d036b376b91e2601c17cc7f764e2f28832a90a65dd49c460702.
+- TYPED_CENTRAL_GRAPH_CRYSTALLINE_RESULT_AND_FAILURE_DOMAIN.json,4,999B, SHA256ca9ebee9748ab31e7816de0f2624780ed8243d334f7ccc30065aad3b9d99bf18.
+
+All three were fully read and checked against their frozen byte/SHA/Git-blob pins. They were LOCAL_ONLY_PENDING_ROOT_WINDOW at intake. Their UNREVIEWED and question-intake metadata is retained as history. No author publication commit is invented here; any subsequently published originals require a separate full-byte binding.
+
+Fresh own RA/SID at Source da70844bdcf92ffa8cc299fd3f98df1c34b74622 matched the actual57,603B seventeen-event record and immutable1,423B session. The original helper startup guard returned exit0, activity_allowed/persistence_allowed=true, formal-authority flags false and sync_debt_events=[]. During this review the separate HK persistence chain completed. I personally read back all three RA/sidecar Source files at4b42edec19e5a769e4b9da7d6dfc9feb07498d2a and then obtained actual current18 startup and HK checkpoint exit0. A further continuing-graph startup guard on that current18 record also returned exit0. Those existing events are preserved; this new graph semantic event has not been appended. No formal Task, Role upgrade, borrowed run or Native authority follows from these lightweight activity gates.
+
+## The actual inherited interfaces were read, not enlarged
+
+The matched-HK paper and its other two notes at Source fbb8f54db09deae49c9905acdad2bf5608ec1702 were personally fetched in full for my immediately preceding review and subsequently bound byte-for-byte to their frozen23,095B. Those same complete observations are reused here, with no claim of a second network call. I personally read the actual HK2.20 and2.23 primary text/diagrams in that review. Its supported central embedding model is exactly the explicit algebraic C_n over the standard log point T_n, with its structure-crystal comparison. Formal/completed site, Rlim and p-inversion were not supplied and are not imported now.
+
+I made a new complete managed Source read of the12,633B conductor paper at2662437095fd4fc6d34984eb7e4c9e2d9fe52598, SHA25645f93686556d8b1639bcc68de238f5ec391df2dbb77a4ea1eb4340a0bb6eb6d7, and read its full proof. Only its actual base-changed normalization/conductor facts and coherent class are consumed. Its constructed underlying-scheme endomorphism is not being treated as crystalline Frobenius or as a log-normalization morphism.
+
+My existing complete geometry-bundle observation at809bd4b2c20682dfa29cb2eac0cf251bd4fa7d38 is also reused. Its thirteen members were individually hashed and its14,416B proof personally read; the node, branches and semistable log charts are concrete inputs. The old LC-dependent actual-sign conclusion remains conditional. Scientific ownership18F24A, geometry89CC19, original primary custody333687 and direction9821E2 remain distinct from4A56E9's new construction and this independent review.
+
+## Constant étale normalization: the graph class really exists
+
+The source is the actual irreducible nodal cubic over k=F_p, with normalization P1_k, node z and two separately k-rational branches a,b. The sequence of constant R_n sheaves is exact on the small étale site. Off the node its first map is an isomorphism. At a geometric node stalk, the normalization has two branches, and the sequence is the diagonal R_n->R_n^2 followed by the ordered difference onto R_n. This verifies exactness for p-primary coefficients as well; it does not invoke an invertible-coefficient shortcut.
+
+Global locally constant sections on the connected normalization are R_n. They have equal values at a and b, so the map to the global node R_n is zero. The resulting connecting map R_n->H1_et(X0,constant R_n) is injective. This proves the oriented class gamma_n has the full coefficient order. Arithmetic étale cohomology over F_p need not vanish and is not discarded; no H1(P1_k,constant R_n)=0 assertion is used. The ordering sets orientation, and reduction of coefficients carries gamma_(n+1) to gamma_n.
+
+For n>1, q_n is the base change of the integral normalization, not normalization after declaring the nilpotent rings reduced. The old conductor calculation, using the unit2nu, gives the exact structure-sheaf quotient by the same branch-value difference over every R_n. This quotient is O_zn as an étale sheaf. It is not the constant R_n sheaf: on nontrivial étale extensions their sections differ. The canonical scalar unit maps the constant sequence into the structure sequence; only at the actual global node Spec(R_n) do the two groups of global sections identify as R_n with unit map the identity. The proof makes precisely that limited identification.
+
+## The new logarithmic differential sequence is valid at the node
+
+In the central semistable chart A=R_n[u,v]/(uv), relative log differentials are the free A-module generated by e, with du=u e and dv=-v e. This uses the standard log point and the relation dlog(u)+dlog(v)=0. Replacing the base with the trivial log point would change the complex.
+
+On the two normalized branches, e maps to(du/u,-dv/v). Thus a local form A(u)du/u on one branch and B(v)dv/v on the other is in the image exactly when A(0)+B(0)=0. The corresponding function in the node ring has branch restrictions A(u) and -B(v), which have the same constant term. Its existence and uniqueness follow from the same conductor fiber-product description. This argument works over R_n with zero divisors and does not divide by u,v or p in the node ring. Equivalently it is checked in the faithfully flat completed local chart of the noetherian node.
+
+Residue sum is surjective: a local branch logarithmic form with residue1 on one side and0 on the other suffices. Off the node the map is ordinary differential pullback along an isomorphism. Unit changes in a smoothing chart contribute regular branch differentials and do not change residues. There is no nonzero section of the free log-differential module supported only at the node: the function map from the node ring to its two punctured branches is injective even over R_n. Hence the local extensions agree and glue. The resulting exact differential sequence has logarithmic poles only at the two branch sections; infinity remains an ordinary smooth point.
+
+The function quotient is ordered difference, while the one-form quotient is residue sum. These two signs are consistent with e mapping to(du/u,-dv/v). Derivatives of regular branch functions have zero logarithmic residue, including in characteristic p and with nilpotent coefficients. Consequently the quotient differential is zero and the claimed short exact sequence of complexes
+
+    0 -> L_n -> M_n -> [i_*O_zn ->^0 i_*O_zn] -> 0
+
+is correct in degrees0,1. The sequence is newly proved here; it is not supplied by the preceding coherent calculation. No log structure making ordinary normalization into a log morphism, nor a crystalline pullback along it, was assumed.
+
+## Global H0, connecting maps and the actual crystalline injection
+
+The degree-zero hypercohomology of the nonnegative complex M_n is the kernel of the differential on global functions of P1_Rn. Those functions are exactly R_n and their relative differentials vanish, so this group is R_n. Nilpotents do not add nonconstant projective global functions; the usual two-affine computation works over R_n. The degree-zero hypercohomology of the quotient complex is R_n as well. The map between them is the difference of two equal constant values, hence zero. Exactness therefore injects the full R_n into H1(RGamma L_n), not merely its nonzero mod-p reduction.
+
+The finite normalization is affine, and the displayed structure/differential sheaves are its actual quasicoherent direct images. No unnoticed higher direct image has been inserted or suppressed in the short exact complex. This argument requires neither ordinary H1 base change nor flatness of the full relative H1 family.
+
+An abstract injection into a de Rham model alone would leave a canonical-arrow gap. The paper closes it: constant scalars define a unit map on the log-crystalline site, and derived adjunction gives constant R_n on X0_et -> Ru_*O. Under the supported HK2.20 embedding comparison this map is constants in degree0 of L_n, with differential zero. It is not an assumed map from coherent H1(O) back to crystalline H1.
+
+Map the constant normalization sequence into the short exact complex by the scalar units in degree0, with zero degree1 components. The branch constants have zero differential, the difference quotient commutes, and the quotient map is the unit from constant node R_n to O_zn in degree0. On global degree-zero quotient groups it is the identity for this actual coefficient base. Naturality of connecting maps gives exactly
+
+    u_n(delta_et(c))=delta_L(c).
+
+Since delta_L is injective, j_n is injective for every c in R_n and every n>=1. This identifies the constructed image with the canonical constant graph image, rather than selecting an arbitrary copy after computing cohomology. Projection of L_n to its degree-zero structure sheaf sends it to the old coherent conductor class, in the correct direction. That consistency does not presume the inverse arrow that the old coherent result lacked.
+
+## Canonical Frobenius fixes this image without a bad scheme lift
+
+The crystalline map is induced by absolute log Frobenius of X0 and the log-PD base endomorphism of T_n. The underlying R_n coefficient map is identity, but the base monoid generator is multiplied by p. These are different assertions; the log-base endomorphism has not been replaced by the identity log morphism.
+
+The scalar unit and its derived adjunction map are functorial for this crystalline pullback. They give the square comparing absolute-Frobenius pullback on constant étale cohomology with canonical Phi_0n on crystalline cohomology. This construction precedes selection of a de Rham representative. It does not require a Frobenius map on C_n, on the normalization log structure or on M_n.
+
+In characteristic p the actual normalization diagram commutes with absolute Frobenius. The two branches are individually F_p-rational, hence separately fixed in the ordered constant stalk diagram, and scalar pullback is identity. The induced map on the ordered difference quotient is therefore identity. Naturality of its connecting map fixes gamma_n. Combining the two natural squares proves Phi_0n(j_n(c))=j_n(c) on this whole R_n image.
+
+In particular, nothing requires the chosen p-adic lift nu to satisfy nu^p=nu modulo p^n. That would reproduce the failed representative issue in the earlier conductor paper. Only the actual characteristic-p branch diagram and the coefficient identity enter the present argument; higher-level naturality comes from the structure crystal, not a guessed v->v^p map on the lifted normalization. Reversing orientation negates the generator and preserves its identity action. No arithmetic/geometric Galois-generator interchange after an unspecified field extension is used.
+
+The branch action, coefficient base and log map are part of the theorem's domain. A different constant field, semilinear coefficient map or genuinely branch-permuting endomorphism needs its own actual action. The present proof does not claim a general sign rule for all such situations or identity on all crystalline cohomology.
+
+## All-n compatibility and retained boundary
+
+The actual lifted conductors, differential maps, residues, scalar units and canonical embedding comparison commute with R_(n+1)->R_n. The two connecting constructions therefore send j_(n+1)(1) to j_n(1), and the Frobenius squares commute with these actual reduction maps. This is a compatible finite-level family. It is not a claim that ordinary tensor of H1 is all of the next H1, nor a derived-limit or p-inverted identification.
+
+The supported new result is exactly the canonical graph copy of R_n inside the specified central log-crystalline H1 and its coefficient-identity canonical Frobenius action, with the coherent projection and reduction compatibility proved. It goes beyond coherent H1(O) while respecting the absence of a log-normalization morphism.
+
+It does not identify this image with the residue kernel of an actual relative module in the saved generic source frame, transport the principal parts and oriented jump of(omega+eta)/12 through that comparison, establish relative H1 local freeness or ordinary specialization, give a Frobenius isogeny/cup multiplier, compute actual mu/c/extensions, or settle formal/completed/Rlim/p-inversion/dagger/gluing/functional/wholeLC questions. The original conditional LC=>positive-sign statement remains conditional on those further interfaces; this PASS does not discharge it by relabelling the graph generator. All mother goals remain OPEN.
+
+All author files and their original UNREVIEWED history remain unchanged. This new report is separately frozen; subsequent author Source binding and its own semantic event require actual full observations and legitimate publication windows. No Native vote, new Tool, formal Task or resumption of the stopped fixed233 resources follows.
