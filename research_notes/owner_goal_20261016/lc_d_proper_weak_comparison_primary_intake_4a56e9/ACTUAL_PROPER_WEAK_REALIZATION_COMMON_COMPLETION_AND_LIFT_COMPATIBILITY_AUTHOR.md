@@ -1,0 +1,136 @@
+# The actual proper matrix on the punctured weak ring
+
+EM-P11-4A56E9. FROZEN AUTHOR PROOF, UNREVIEWED; no independent review or Source publication is claimed at this freeze. This is a separate direct paper scope from the preceding proper cup/trace manuscript and the new nonauthor finite-c review. All previous authorship, CONTROL and NONBLIND exposure remains. No scientific program or stopped computational budget is used.
+
+## 1. The precise arrow
+
+The actual completed proper matrix in the existing log-crystalline construction cannot be fed into a dagger Taylor operator merely because it is integral or horizontal. We supply an actual geometric weak realization and compare it to that particular completed matrix. The proof imports a precise liftable proper-smooth direct-image theorem, matches a concrete compactification and basis, and fixes the Frobenius comparison in the common strong completion. It is not an existence proof for the remaining full rank-four source row.
+
+Fix p congruent to13 or19 modulo24. Let O be the declared unramified complete DVR over Z_p, k its perfect residue field, K=O[1/p] and sigma its Witt coefficient action. The geometric coefficients below descend to Z_p; an unrelated integral source parameter g is not assumed sigma-fixed. Put
+
+    r=1+t, s=4r^3-3r,
+    f=1-r^2, q_r=4r^2-1,
+    D=O[r,f^-1,q_r^-1], Ddagger=D^dagger, Dhat=lim_n D/p^n,
+    theta(r)=1+(r-1)^p, phi(r)=r^p,
+    Y: y^2=x^3+3(4s-5)x+4s^2-28s+22,
+    e=(omega,eta), omega=dx/(2y), eta=x omega.
+
+Eta means the previously specified proper Cech class with primitive h=y/x at infinity, not the uncorrected meromorphic form. Weak completion is the same embedded weak subring of Dhat used in the already frozen whole-rank-four Taylor paper. In the displayed polynomial presentation, its elements admit sums sum_l p^l P_l(r,f^-1,q_r^-1) with a linear upper bound on presentation degree. Ddagger_K=Ddagger[1/p]. No numerical bound uniform in p or algorithm for the matrix is asserted below.
+
+Let B=Z_p[t,q_0^-1,u_0^-1] be the earlier actual finite-type proper base, q_0=(2r+1)^2 and u_0=(r+1)(2r-1)^2. The completed proper theorem gives M_Bn in Mat2(B/p^n), compatible with n, for the undivided canonical crystalline pullback in e, with theta(t)=t^p and det M_Bn=p. Its limit M_Bhat is an actual geometric matrix in Mat2(Bhat_p). Write M_Dhat for its image in Mat2(Dhat), after the declared O coefficient extension. This is the matrix to be matched, not a freely chosen solution of the horizontality equation.
+
+**Theorem.** The actual proper unit rigid direct image on S=Spec(D/p) admits the basis induced by these same particular proper classes. In that basis, its canonical Frobenius evaluated at theta has a unique matrix
+
+    M_theta^dagger in Mat2(Ddagger),
+    completion(M_theta^dagger)=M_Dhat,
+    det M_theta^dagger=p.                                  (1)
+
+Its linearized inverse transpose is consequently G_theta^dagger in p^-1 Mat2(Ddagger), with determinant1/p and the saved proper solution-connection direction. This is a concrete positive proper weak arrow. The equalities in(1) are in the common strong completion; they do not create a Laurent expansion of Ddagger at r=1 or identify that ring with Q_p((t)). The exact independent formal boundary realization remains the separately proved one, not a new equality of topologies.
+
+## 2. Exact localization and a real compactification
+
+Inverting t,q_0,u_0 makes each of r-1,r+1,2r-1,2r+1 a unit. Conversely f and q_r being units make those four factors units. Thus
+
+    D = B[t^-1] tensor_(Z_p) O.                           (2)
+
+The signs of f and the square in q_0 introduce no further condition. The discriminant of Y is -6912(s-1)(s+1)^3, while s^2-1=(r^2-1)(4r^2-1)^2. All these necessary factors are units in D and the fixed primes do not divide6912. Hence Y_D is the actual smooth proper plane cubic on this locus. Its inherited semistable log structures become trivial, so its relative complex is ordinary proper de Rham. The particular corrected omega,eta classes and their coefficient-base-change maps remain the old ones.
+
+Equation(2) is an equality before completion. The map from Bhat_p to Dhat is defined by the compatible maps B/p^n -> D/p^n. It does not identify Dhat with Bhat_p[t^-1]. All inverse limits of the finite torsion cohomology are taken before p inversion; the finite coefficient rings are never p-inverted.
+
+Take Sbar=P1_O with coordinate r on its standard affine open, and take the scheme-theoretic closure Ybar of Y_D in P2_O times Sbar. Its projection is projective, hence proper. Intersecting that closure with the open Spec D returns exactly the original already closed plane cubic. Complete both schemes p-adically and restrict to the p-adic formal open Sformal obtained from Spec D. We obtain the actual cartesian square
+
+    Yformal  -> Ybarformal
+       |             |
+    Sformal  -> Sbarformal,
+
+with open horizontal maps, proper barred morphism and smooth proper restricted morphism. Sbarformal is proper over Spf O and smooth near S. No assertion of smoothness at the removed boundary fibers, or a global Frobenius lift on Ybar, is needed. This is a concrete square of the required formal schemes, not an unnamed frame.
+
+## 3. Exact imported positive primary, and its module meaning
+
+Use Etesse, Images directesIII, arXiv0910.4435v1, Theorem2.1, with the unit overconvergent F-isocrystal on Y mod p and the square just constructed. The theorem provides the overconvergent proper direct image and identifies its restriction, including Frobenius, with the convergent proper direct image. Its proof's diagram2.1.25 realizes this restriction as extension from finite projective weak modules to their strong completions and uses faithful flatness there. Etesse's published Images directesI, JTNB24(2012),101--151, Theorem3.4.4 and its strict-neighborhood complex construction supply the underlying direct-image and base-change interface. Exact versions, complete PDF/text bytes, selected statement/proof reading and viewed diagram pages must accompany the final freeze. These are imported primary theorems, not a claim to reprove their general theory or a new general Tool.
+
+Let E_dagger denote the resulting degree-one object, evaluated in the actual weak lift Ddagger_K. It is a finite projective module with its overconvergent connection. Its completion is the convergent realization on Spf Dhat. The point is now to identify that module and that particular canonical map using actual cochains, rather than identify modules by their ranks.
+
+The algebraic proper cocycles omega and corrected eta give relative classes on the same actual family on every sufficiently small strict neighborhood of the base tube. Their entries are the same regular forms and overlap functions on the algebraic proper affine cover; after admissible refinement they define classes in the relative de Rham complex used for the direct image. These are compatible under neighborhood restriction and therefore give a map
+
+    a: Ddagger_K^2 -> E_dagger.                           (3)
+
+This construction changes no primitive or second-kind representative. A claim that an arbitrary two-open analytic cover is acyclic is not used. The direct-image complex and admissible refinements provide the cohomology classes.
+
+On completion, the convergent realization is computed by the proper lift's de Rham complex on its rigid generic fiber. Here the actual comparison with the coefficient-level proper classes has a direct calculation, so an unproved rigid GAGA or independent formal-site identity is unnecessary. Put R=Dhat_K. The already fixed x-map is a finite flat double cover of the rigid P1_R, with affine-chart modules
+
+    R<x>[y]/(y^2-x^3-a x-b),
+    R<u>[v]/(v^2-u-a u^3-b u^4),
+    u=1/x, v=y/x^2,
+
+on its standard two closed-unit-disc cover. These finite algebras and their intersection are affinoid, so the coherent Cech complexes compute their sheaf cohomology. As modules on P1 the finite pushforward of O is O plus O(-2): the second local generators y and v obey v=x^-2 y. Splitting a convergent Laurent series into its nonnegative and nonpositive tails shows directly that the second summand's only H1 is the coefficient of y/x; the first summand has H0=R and H1=0. Thus
+
+    H0(Y,O)=R, H1(Y,O)=R[-y/x]=R[1/z].
+
+The same calculation for L=O_Y omega gives H0(L)=R omega and H1(L)=R g. This is the same finite cover, line and class as the fixed trace component, not a different proper model. The relative differential of -y/x is (-x+a/x+2b/x^2)omega. It lies in the first, O-summand of the pushforward of L and has zero H1 class, since that summand has H1=0. The map on H0 constants also vanishes. The two-term de Rham spectral sequence therefore gives an exact sequence R omega -> H1_dR -> R[1/z]; the displayed corrected eta cocycle maps to that specified generator and supplies its splitting. Consequently the analytic proper H1 has exactly the basis(omega,eta), while H2=R g. This proof uses actual affinoid cochains and the elementary Laurent-tail decomposition; no equal-rank identification or arbitrary acyclic analytic two-open cover is assumed.
+
+The algebraic and coefficient-level proper complexes have the same displayed cocycles. Their natural maps to this actual analytic proper complex carry both basis vectors and the overlap generator to precisely those just computed. The finite coefficient cohomology has surjective transitions and these specified free bases, so its strong p-adic limit gives the same classes after p inversion. Thus the completion of(3) is the specified isomorphism
+
+    Dhat_K^2 -> E_conv(Dhat),                              (4)
+
+not a dimension argument. Faithful flatness of Dhat_K over Ddagger_K now proves(3) is an isomorphism. In particular the chosen overconvergent object actually has this basis, rather than merely becoming free at individual fibers.
+
+## 4. Why the completed canonical map is the old matrix
+
+The unit coefficient object uses its structural Frobenius taking1 to1. No scalar twist of this coefficient map is inserted. Evaluate the intrinsic canonical morphism in the chosen weak base lift theta, whose extension to Ddagger is proved by the exact denominator-growth argument in the existing weak Taylor paper. Its matrix in(3) is initially
+
+    M_theta^dagger in Mat2(Ddagger_K).
+
+EtesseIII2.1(2), specifically the construction through the relative Frobenius and coefficient maps2.1.14,2.1.17,2.1.19 and their convergent restrictions, identifies its completion with the convergent direct-image Frobenius. The remaining comparison to our old finite crystalline construction must use the actual relative complex, not the word canonical alone.
+
+Here the same smooth proper lift is available over every D/p^n. On formal smooth affine refinements choose lifts of absolute Frobenius over the chosen base map theta, compatible p-adically. They exist by formal smoothness, reducing to the fixed absolute Frobenius; no global scheme lift is required. Pullback of functions and relative forms computes the local map in both embedding realizations. On overlaps the lifts are congruent modulo p. Their crystalline comparisons are the compatible PD/Taylor comparison maps on the products of these same lifts. More explicitly, a product's PD envelope evaluates on the chosen lift because its defining coordinate differences land in the canonical PD ideal(p); its divided powers evaluate as those differences to the mth power divided by m!. The natural evaluation maps respect the whole embedding system and its simplicial morphisms, not just a proposed degree-one homotopy. HK2.20/2.21 give the finite comparison through these product envelopes.
+
+In the convergent realization these same formal lift maps act on the generic-fiber de Rham complexes, with the same Taylor comparisons on their common tubes. For a coordinate difference in p the divided-power terms have valuation at least m-v_p(m!), which tends to infinity at the fixed odd primes; the corresponding multi-index estimate is the sum of these bounds. The finite PD evaluations therefore have exactly these p-adic limits. Common embedding systems and their natural refinement maps identify the resulting derived morphisms independently of local choices. No bounded-length assertion about an etale nerve is needed. This is an actual map comparison, using the finite HK construction and the proper convergent de Rham realization, rather than uniqueness inferred from a horizontal matrix equation.
+
+Consequently the completed comparison(4) intertwines the undivided canonical pullback with the limit of the finite maps on the actual proper complexes. The latter maps, in the same corrected basis and same theta, are precisely the restrictions of M_Bn under(2). Therefore
+
+    image(M_theta^dagger) = M_Dhat in Mat2(Dhat_K).          (5)
+
+All morphisms here come from the same absolute special-fiber Frobenius and the unit coefficient map. Their common-lift descriptions fix both their direction and their scalar normalization. An arbitrary horizontal isocrystal on the same differential module would not establish(5).
+
+This is a comparison on the punctured smooth base after strong p-completion. Nothing in this step asserts Dhat_K is Q_p((t)), exchanges inverse limit with inversion of t, or produces a boundary expansion of a general weak element. The log-to-ordinary restriction is legitimate because t and the discriminant factors are units in D, not because a bad boundary representative has been repaired.
+
+## 5. Elementary saturation gives the actual integral weak lattice
+
+The weak subring is embedded in Dhat by definition, and its reduction modulo p^N is D/p^N. The latter equality follows directly from a weak presentation: truncating below N leaves a finite polynomial representative over D, and every higher term vanishes modulo p^N.
+
+More explicitly, let x inDdagger have strong image divisible by p^N. Write x as a weak sum sum_l p^l P_l of presentation degrees at most C(l+1). The finite truncation P=sum_(l<N) p^l P_l maps to zero in D/p^N, hence is p^N Q for some Q in D. It follows that
+
+    x/p^N = Q + sum_(k>=0) p^k P_(k+N).
+
+The new degrees are at most C(k+N+1), still bounded linearly in k+1; Q is a single finite polynomial term and can be absorbed in a larger constant. Thus x/p^N lies inDdagger. In particular
+
+    Ddagger_K intersect Dhat = Ddagger
+
+inside Dhat_K. This assertion uses the actual p-torsion-free localization D and its weak presentation, not a claim that an arbitrary weak ring is saturated without proof.
+
+Every entry of the rational weak matrix in(5) has integral strong image, because the old geometric M_Dhat is integral. Clear a single finite p denominator for each entry and apply the displayed saturation. This proves M_theta^dagger is in Mat2(Ddagger). Completion is injective, and det M_Dhat=p by the old actual finite tower. Hence det M_theta^dagger=p in the weak ring itself. This proves(1). The adjugate divided by p is the inverse of the linearized map; no additive surjectivity of theta follows.
+
+Membership in the weak ring gives an existence statement for a weak degree/valuation bound for each fixed p. This proof supplies neither an explicit constant uniform in p nor a finite algorithm/cost bound for computing the matrix. Such a quantitative scientific use would require its own real method and resource evidence.
+
+## 6. Exact variance and bounded consumption of the weak Taylor arrow
+
+The connection is the old actual proper Gauss--Manin connection of this same cubic and these classes. In r coordinates its solution-column matrix is the proper D-matrix of the fixed weak Taylor source. Differentiating the already proved actual cohomological horizontality, and using(5) plus injective completion, gives for G_theta^dagger=(M_theta^dagger)^-T exactly the proper solution-transport equation, determinant1/p and the declared Witt coefficient action. It is an actual proper comparison on the weak ring, not a full rank-four one.
+
+The same intrinsic proper overconvergent object can be evaluated in phi(r)=r^p. Its proper change of lift is the Taylor comparison of its connection. The formal endpoint expansion is exactly the proper block T_D of the existing full-rank-four Taylor operator; that earlier paper proves its weak convergence and direction. Therefore the proper inverse-transpose matrices obey
+
+    G_theta^dagger = G_phi^dagger T_D.
+
+This is a proper-only application of that frozen positive arrow. The remaining bottom row, original source term w H_b, full F_phi and source-compatible observation are not supplied by a geometric proper object. An isolated kernel and this proper comparison still do not imply existence of the full extension comparison.
+
+The previously proved normalized proper cup/trace uses these same algebraic classes; in particular the fixed matrix identities and determinant convention are unchanged. No new trace theory, central scalar value, old formal-site identification, full-relative extension, origin normalization involving an independent source g, functional or global sign is inferred. These remain separate actual comparison obligations.
+
+## 7. Scope, imported hypotheses, and provenance
+
+This is intended as one RESULT_ONLY/COMPOSE_APPLIED source-specific application of the actual proper model, the imported positive rigid direct-image theorem and the explicit common-completion/basis comparison. The family, HK/all-PD matrix, proper basis/trace, and the weak Taylor mechanism retain their original authors. No general proper-direct-image theorem or weak calculus is claimed as a new discovery or Tool.
+
+The accompanying typed interface and scope/primary binding give the exact immutable dependencies, actual primary versions and selected reading. A distinct new whole-proof review is required; no preceding paper verdict applies to this new arrow. No third-party raw PDF/text/page image is proposed for Source publication, no scientific program/checker/enumeration or Native operation was run, and fixed233 STOP2165/2100 plus core98 HOLD698/502 remain unchanged. External algebraic models retain P000/Heartbeat X6 typing without native propagation or parent closure claims.
+
+
+Researcher-ID: EM-P11-4A56E9 / TASK_RESEARCH
+Global-Knowledge-Sync: main@51b3cc9 / GLOBAL_KNOWLEDGE_V1

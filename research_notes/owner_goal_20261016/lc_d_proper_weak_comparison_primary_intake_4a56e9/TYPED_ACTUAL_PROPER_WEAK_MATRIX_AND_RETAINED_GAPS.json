@@ -1,0 +1,176 @@
+{
+  "schema": "ACTUAL_PROPER_WEAK_GEOMETRIC_MATRIX_TYPED_RESULT_ONLY_V1",
+  "frozen_utc": "2026-10-16T08:33:24.400394+00:00",
+  "status": "FROZEN_UNREVIEWED_AUTHOR_PROOF",
+  "author": "EM-P11-4A56E9",
+  "main": {
+    "path": "research_notes/owner_goal_20261016/lc_d_proper_weak_comparison_primary_intake_4a56e9/ACTUAL_PROPER_WEAK_REALIZATION_COMMON_COMPLETION_AND_LIFT_COMPATIBILITY_AUTHOR.md",
+    "bytes": 18274,
+    "sha256": "661e68765a0aaed6ceadf2fe018329489d1ac420cef1125a53c099fac4eaa61e",
+    "git_blob": "cb330160c25e21156badd4d30e2281b57e9f55e3"
+  },
+  "hard_target": "Construct the actual proper geometric weak matrix and identify it with the specified earlier crystalline matrix in the common strong p-completion, retaining the chosen classes/unitFrob; consume the exact proper part of the fixed weak changeoflift.",
+  "input_types": {
+    "prime": "p=13or19mod24",
+    "coefficients": "unramifiedcompleteDVR O with perfectresidue k;K=O[1/p]; declaredWitt sigma. GeometrydescendsZp,independentgnotassumedsigmafixed.",
+    "parameter": "r=1+t,s=4r^3-3r,f=1-r^2,q_r=4r^2-1",
+    "ring": "D=O[r,f^-1,q_r^-1]=(B[t^-1])tensorO, Ddagger its embeddedweakpcompletion, Dhat=limD/p^n",
+    "actualfamily": "samepropersemistablecubic, smoothonD; actualcorrected(omega,eta), noholomorphicshift",
+    "oldmatrix": "canonicalundivided M_Bn inMat2(B/p^n),detp; compatiblelimitmappedtoDhat byfinitecoefficientmaps",
+    "geometricimport": "actualproperunitrigiddirectimage for the explicitly constructed formal compactification, using EtesseIII2.1 and I3.4.4 as stated",
+    "base_lifts": "theta(r)=1+(r-1)^p andphi(r)=r^p withsameWittcoeffmap; weakendomorphismsbyexistingfixedTaylorproof"
+  },
+  "outputs": [
+    {
+      "name": "actualweakproperobjectandbasis",
+      "formula": "E_dagger is the actual unitproperrigid R1, basisinducedbytheverysamecorrectedomega,eta",
+      "proof": "actualcocyclesonstrictneighborhoods; explicit finite-x/P1Tatecohomology computes the completion basis;faithfulflat descent"
+    },
+    {
+      "name": "specifiedcommoncompletion",
+      "formula": "completion(M_theta_dagger)=M_Dhat inMat2(Dhat_K)",
+      "proof": "primarycanonicalconvergentFrob square+sameformal localFroblifts/products/PDevaluations and naturalembedding comparison; notnamesorhorizontaluniqueness"
+    },
+    {
+      "name": "integralweakmatrix",
+      "formula": "M_theta_dagger inMat2(Ddagger),det=p,uniqueundercompletion",
+      "proof": "explicitweakp-saturation+oldactualintegralDhatmatrix/determinant andinjectivity"
+    },
+    {
+      "name": "linearizedsolutiontransport",
+      "formula": "G_theta_dagger=M_theta_dagger^-T in p^-1Mat2(Ddagger),det=1/p",
+      "proof": "adjugate anddeclaredinverse-transposedirection, notadditiveinverseofsubstitution"
+    },
+    {
+      "name": "actualproperchangeofliftconsumption",
+      "formula": "G_theta_dagger=G_phi_dagger*T_D",
+      "proof": "actualproperisocrystalTaylorstratification equals the old weakTaylorproperblock,withitsverifieddirection/convergence;nofull4F supplied"
+    }
+  ],
+  "new_proof_steps": [
+    "actualpuncturedlocalization/compactification match",
+    "literalproperrigidbasis viafinitequadraticcover andLaurenttails,includingeta primitive",
+    "explicitcommoncompletion/crystallineconvergentmapnormalization usinglocalPDevaluation",
+    "weakp-saturation transfersrationalweakactualmatrix intointegralweaklattice",
+    "boundedproper-onlycanonicalchangeofliftidentification"
+  ],
+  "imports": "exactEtesseprimarytheorems,notreprovedgeneralproperdirectimage/rigidtheory",
+  "actual_source_dependencies": {
+    "actual_all_PD_crystal_and_named_completions": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "57649b981dc7fd908ed0d88ba95f197237ed6433",
+      "path": "research_notes/owner_goal_20261016/lc_d_algebraized_crystal_completion_4a56e9/ALGEBRAIZED_DIRECT_IMAGE_CRYSTAL_AND_EXPLICIT_COMPLETED_REALIZATIONS_AUTHOR.md",
+      "sha256": "5c052f3a9bf31515451de09f6fba9b251f10ff6877af0d367abf44bed147916a",
+      "git_blob": "6d4765892d92c3e08b7c21a393f16f2cec8d63cc"
+    },
+    "all_PD_typed_interface": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "57649b981dc7fd908ed0d88ba95f197237ed6433",
+      "path": "research_notes/owner_goal_20261016/lc_d_algebraized_crystal_completion_4a56e9/TYPED_ALGEBRAIZED_CRYSTAL_AND_COMPLETION_INTERFACE.json",
+      "sha256": "6429cca3632bf0498c4668769a5271d86f995dcf35436ff905e5c202d62e3713",
+      "git_blob": "f60edf3093ca2c531232e6442d270d4173f1c512"
+    },
+    "proper_corrected_basis_and_actual_residue": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "84d3d67a76178d9567027b85552c95bffb137bb3",
+      "path": "research_notes/owner_goal_20261016/lc_d_relative_frame_comparison_intake_4a56e9/PROPER_LOG_DR_BASIS_SPECIALIZATION_AND_GRAPH_RESIDUE_AUTHOR.md",
+      "sha256": "8a64740450baff81466cdb9bdbac14fb26531f11cdc15d875df1caf01ee3f617",
+      "git_blob": "13c248e4235b28be572041cd618d94fc48743fc6"
+    },
+    "actual_PD_horizontality_and_det_p": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "09cf0b047c06b650b146200630cad1b03cdd8df2",
+      "path": "research_notes/owner_goal_20261016/lc_d_crystalline_stratification_horizontality_4a56e9/LOG_PD_FIRST_ORDER_COMPARISON_FROBENIUS_AND_DETERMINANT_AUTHOR.md",
+      "sha256": "32d6cb01b19e6906eb689e0862928f189f25f2f8bc03468d5697b26dac1c9984",
+      "git_blob": "73dd00d11fb8346b15a4c185a0b79a6f113ca45e"
+    },
+    "central_graph_map": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "1a5ebb33e1d2b13203a4f4ad233654642ba21e1b",
+      "path": "research_notes/owner_goal_20261016/lc_d_central_graph_crystalline_4a56e9/CENTRAL_GRAPH_CONSTANT_CLASS_IN_LOG_CRYSTALLINE_AUTHOR.md",
+      "sha256": "734ac2e6a9dfec71f9301d6272da55b4cada211f374ed029525bbc4d857e8163",
+      "git_blob": "2cbbfc1b301a58565c6ebae9e92df2fc96b10eae"
+    },
+    "matched_HK_finite_derived_arrow": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "fbb8f54db09deae49c9905acdad2bf5608ec1702",
+      "path": "research_notes/owner_goal_20261016/lc_d_crystalline_specialization_primary_4a56e9/HK_MATCHED_FINITE_LEVEL_DERIVED_SPECIALIZATION_AUTHOR.md",
+      "sha256": "06341a55e23052a88200c0d394336abd23d640a2ef693fc20bbd879032317d84",
+      "git_blob": "927a8e2d1f28813e3740db245d7742e00c05e961"
+    },
+    "fixed_joint_CONCRETE_PROPER_WITNESS_NORMALIZED_CUP_TRACE_AND_SAVED_FRAME_AUTHOR.md": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "9d04494d2cc45ae23d3106f6593bd3e3931e0cf0",
+      "path": "research_notes/owner_goal_20261016/lc_d_proper_witness_cup_trace_collaboration_4a56e9_c89dc6/CONCRETE_PROPER_WITNESS_NORMALIZED_CUP_TRACE_AND_SAVED_FRAME_AUTHOR.md",
+      "bytes": 34921,
+      "sha256": "8448b48a621f620ec153c96f6f3e5793138c8d2e9adfc2912cf11f330f6e4d5a",
+      "git_blob": "bd79efd7b19d831cd92343a0b95d1d5b6b69faf8"
+    },
+    "fixed_joint_TYPED_CONCRETE_PROPER_WITNESS_CUP_TRACE_INTERFACE.json": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "9d04494d2cc45ae23d3106f6593bd3e3931e0cf0",
+      "path": "research_notes/owner_goal_20261016/lc_d_proper_witness_cup_trace_collaboration_4a56e9_c89dc6/TYPED_CONCRETE_PROPER_WITNESS_CUP_TRACE_INTERFACE.json",
+      "bytes": 12212,
+      "sha256": "eea47493413c624b8ff6c0efcc4da2c9ed2743e63bd3389e2a74de96f08c7eec",
+      "git_blob": "0d2941ab3e5eb766031b848cf11e220b735becfb"
+    },
+    "fixed_weak_CM24_FULL_RANK_FOUR_PUNCTURED_WEAK_TAYLOR_CHANGE_OF_LIFT_AUTHOR.md": {
+      "commit": "1e6df90f4f165e7ee70b8d6d1afbbb9cc99e3173",
+      "path": "research_notes/owner_goal_20261016/cm24_full_rank4_punctured_change_of_lift_7cda51/CM24_FULL_RANK_FOUR_PUNCTURED_WEAK_TAYLOR_CHANGE_OF_LIFT_AUTHOR.md",
+      "bytes": 12992,
+      "sha256": "ab190042e36a718cb4d6822b352f7a19fffb16be07851132d7ed26f2a693be07",
+      "git_blob": "ca7dc34b0eee8b549e9dded6045d1521bf7c1f19",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/1e6df90f4f165e7ee70b8d6d1afbbb9cc99e3173/research_notes/owner_goal_20261016/cm24_full_rank4_punctured_change_of_lift_7cda51/CM24_FULL_RANK_FOUR_PUNCTURED_WEAK_TAYLOR_CHANGE_OF_LIFT_AUTHOR.md"
+    },
+    "fixed_weak_TYPED_FULL_RANK4_WEAK_TAYLOR_RESULT_AND_RETAINED_GAPS.json": {
+      "commit": "1e6df90f4f165e7ee70b8d6d1afbbb9cc99e3173",
+      "path": "research_notes/owner_goal_20261016/cm24_full_rank4_punctured_change_of_lift_7cda51/TYPED_FULL_RANK4_WEAK_TAYLOR_RESULT_AND_RETAINED_GAPS.json",
+      "bytes": 3308,
+      "sha256": "5f8df74a5c97e6567e3b0844ff61870a5c1fe8d93dd292b00e09203c3d451f80",
+      "git_blob": "356ff23412588b97a6f4c5ae33a6f85e6590b1ff",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/1e6df90f4f165e7ee70b8d6d1afbbb9cc99e3173/research_notes/owner_goal_20261016/cm24_full_rank4_punctured_change_of_lift_7cda51/TYPED_FULL_RANK4_WEAK_TAYLOR_RESULT_AND_RETAINED_GAPS.json"
+    },
+    "fixed_weak_AUTHOR_SCOPE_ACTUAL_INPUTS_AND_FULL_HISTORY_PROVENANCE.json": {
+      "commit": "1e6df90f4f165e7ee70b8d6d1afbbb9cc99e3173",
+      "path": "research_notes/owner_goal_20261016/cm24_full_rank4_punctured_change_of_lift_7cda51/AUTHOR_SCOPE_ACTUAL_INPUTS_AND_FULL_HISTORY_PROVENANCE.json",
+      "bytes": 13381,
+      "sha256": "dd672cd242da87d7d99c933179198cd42e32d040a8654e6ca39953133e9daf52",
+      "git_blob": "da435120f60f6ee004cee7656fb99f9b26797af2",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/1e6df90f4f165e7ee70b8d6d1afbbb9cc99e3173/research_notes/owner_goal_20261016/cm24_full_rank4_punctured_change_of_lift_7cda51/AUTHOR_SCOPE_ACTUAL_INPUTS_AND_FULL_HISTORY_PROVENANCE.json"
+    },
+    "fixed_weak_CM24_FULL_RANK4_PUNCTURED_WEAK_TAYLOR_INDEPENDENT_PAPER_REVIEW.md": {
+      "commit": "05cc98535789ad86f93c0f1313c764d3942c465c",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/cm24_rank4_dagger_review/CM24_FULL_RANK4_PUNCTURED_WEAK_TAYLOR_INDEPENDENT_PAPER_REVIEW.md",
+      "bytes": 14879,
+      "sha256": "0d03710ed324598dad8d7866b4e8e411932dcc0571417c44d43884af49f0d487",
+      "git_blob": "4c0d3dddc1a0156278f7b77c681e13394904a33e",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/05cc98535789ad86f93c0f1313c764d3942c465c/research_notes/owner_goal_20261016/p11_independent_native_driver/cm24_rank4_dagger_review/CM24_FULL_RANK4_PUNCTURED_WEAK_TAYLOR_INDEPENDENT_PAPER_REVIEW.md"
+    },
+    "fixed_weak_ACTUAL_AUTHOR_SOURCE_BINDING.json": {
+      "commit": "05cc98535789ad86f93c0f1313c764d3942c465c",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/cm24_rank4_dagger_review/ACTUAL_AUTHOR_SOURCE_BINDING.json",
+      "bytes": 4149,
+      "sha256": "5ec9aeb9fb4e5fd2d98efb8c0b1904bb9ea1f9c9371cd2daa5e9d418154a1415",
+      "git_blob": "13f0b0e61bb1989d9dd7aaf4992481338e078003",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/05cc98535789ad86f93c0f1313c764d3942c465c/research_notes/owner_goal_20261016/p11_independent_native_driver/cm24_rank4_dagger_review/ACTUAL_AUTHOR_SOURCE_BINDING.json"
+    }
+  },
+  "cost_and_effectivity": {
+    "scientific_programs_imports_compiles_AST_tests_consumers_enumeration": 0,
+    "proof": "paper construction plus namedexternaltheorems and frozen source reuse",
+    "weak_growth_bound": "membership/existence for fixedp; no numericalC uniforminp andnoalgorithmiccostbound",
+    "new_general_tool_or_Foundation_or_WorkingTruth": false,
+    "classification": "RESULT_ONLY/COMPOSE_APPLIED"
+  },
+  "excluded_or_failure_domains": [
+    "NoDdagger->K((t)) boundaryexpansion orringidentity",
+    "NoDhat=Bhat_p[t^-1] orRlim/t-inversionexchange",
+    "No p-inversionatfinitep-nilpotentlevel; takeproperstronglimitfirst",
+    "Nofullrank4F/sourceextensionrow/source-actionorobservation",
+    "Nooriginmatrixmatchinganindependentsourceg",
+    "Noindependentformal-siteidentity/TateorHKcentralscalar/fullfunctional/globalsign/wholeLC",
+    "Noeffectivefinitecertificate/consumeradmissionfromexistentialweakmembership",
+    "RawthirdpartyPDF/text/images remainlocalonly"
+  ],
+  "whole_review": "PENDING distinctnonauthor; oldproper orTaylorpeerverdicts do not review this new arrow"
+}
