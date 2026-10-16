@@ -1,0 +1,119 @@
+{
+  "schema": "EM_C110_BRANCH_EVIDENCE_INDEX_V1",
+  "status": "AUTHOR_EXACT_RATIONAL_PORTABLE_NOT_CLAIMED_NOT_DRIVER_ADMITTED",
+  "created_date": "2026-10-17",
+  "global_snapshot": "a6bcf5c1b6ee8ac3ed81f1daebb3b311f672a3e5",
+  "em_snapshot": "e13462192b274e15d7c5b3e17fa3841db8c16be4",
+  "model": "classical positive-weight BRC finite auxiliary, core c2=c24=1, 68 weak factors, 11 exact parameter arcs, no native X6 transfer",
+  "source_c109_sha256": "d0414944f29ff4ed62e3ea17025a5254bf8b9ad7bcf20fbee78fbd5ee6f98386",
+  "portable_c110_sha256": "b5141665b36c3beb9ab1d4f2fa8134ed2b326841f1f94c88a0a464aa5488258d",
+  "portable_files": [
+    "C110_BRC_STAGEWISE_PORT_MASS_68D_UNIQUE_TUBE_THEOREM.md",
+    "c110_exact_stagewise_bernstein_certificate.json",
+    "c110_fiber_specific_exact_tube_proof.py",
+    "verify_c110_clean.py",
+    "SHA256_MANIFEST_C110.json"
+  ],
+  "research_delta": {
+    "radius": "1/4000000",
+    "epsilon": "13/50000000",
+    "epsilon_minus_delta": "1/100000000",
+    "exact_joint_port_mass_identity": "Q0=(A^2+D^2-B^2-C^2)/2=4(ad+bc)",
+    "bernstein_coefficients_Q": 753,
+    "bernstein_coefficients_negative_derivative": 628,
+    "one_per_arc_Q_upper_and_negative_derivative_lower": [
+      {
+        "family": "C104/shared",
+        "stage": "0",
+        "U": "1724619213/781250",
+        "L": "6288/5"
+      },
+      {
+        "family": "(1, 9)",
+        "stage": "I",
+        "U": "29504154864613221/11000000000000",
+        "L": "6288/5"
+      },
+      {
+        "family": "(1, 9)",
+        "stage": "II",
+        "U": "1012342603730627/500000000000",
+        "L": "80774892968593383/50000000000000"
+      },
+      {
+        "family": "(3, 8)",
+        "stage": "I",
+        "U": "10526384914173/4296875000",
+        "L": "6288/5"
+      },
+      {
+        "family": "(3, 8)",
+        "stage": "II",
+        "U": "181707119062313/125000000000",
+        "L": "71839590128021583/50000000000000"
+      },
+      {
+        "family": "(5, 9)",
+        "stage": "I",
+        "U": "86281794458938449/21474836480000",
+        "L": "6288/5"
+      },
+      {
+        "family": "(5, 9)",
+        "stage": "II",
+        "U": "3840303675216281/858993459200",
+        "L": "409605958646817474843/171798691840000000"
+      },
+      {
+        "family": "(6, 8)",
+        "stage": "I",
+        "U": "10724692951921557/4864000000000",
+        "L": "35075960839736438428147131040167/32768000000000000000000000000"
+      },
+      {
+        "family": "(6, 8)",
+        "stage": "II",
+        "U": "1969986077084006202128327217/3276800000000000000000000",
+        "L": "1727544857550309955240311501/3276800000000000000000000"
+      },
+      {
+        "family": "(8, 9)",
+        "stage": "I",
+        "U": "38800216881/17500000",
+        "L": "196423626023819/500000000000"
+      },
+      {
+        "family": "(8, 9)",
+        "stage": "II",
+        "U": "238156711763/800000000",
+        "L": "7042168671201/25000000000"
+      }
+    ],
+    "strict_uniform_bounds": [
+      "F(t,2/5)>98",
+      "F(t,99/100)<-27",
+      "partial_u F<-15",
+      "root displacement <1/600"
+    ],
+    "verified_approximate_margin_examples": {
+      "min_minus_derivative_margin": "15.8193414949",
+      "max_det_error": "1.1552743911",
+      "max_root_shift": "0.00145841735"
+    }
+  },
+  "verification": {
+    "clean_parent_c109_nested_walsh_and_846_bernstein": "PASS",
+    "c110_exact_reconstruction_and_11_arc_rational_assertions": "PASS",
+    "independent_clean_extraction_SHA256": "PASS",
+    "official_source_execution": "NOT_RUN",
+    "driver_acceptance": "NONE"
+  },
+  "persistence": {
+    "branch": "author-drafts/c110-stagewise-port-mass-20261017-research2",
+    "type": "standalone unmerged author draft; not canonical Source Result",
+    "control_tasks": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "formal_claim": false
+  },
+  "next_question": "C111: refine conditional port scores / subdivided Bernstein bounds for delta>=3e-7 or exact multiple-root counterexample; independently prove native X6 joint-relation-preserving bridge."
+}
