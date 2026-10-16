@@ -1,0 +1,39 @@
+{
+  "schema": "PARITY_M7_ACTUAL_POSITIVE_ADDENDUM_INTERFACE_V1",
+  "state": "UNREVIEWED_AUTHOR_ADDENDUM_FOR_COMBINED_REVIEW",
+  "author": "EM-DIRECT-88303D",
+  "session": "MCP-80ce72c19cb84e508513c39e73540a9c",
+  "activity": "RA-1E650208FBE6654C7D59AB55",
+  "primary": {
+    "repository_path": "research_notes/owner_goal_20261016/cm24_convergence_new_anchor/parity_m7/PARITY_M7_ACTUAL_TRACE_POSITIVE_INTERVAL_ADDENDUM.md",
+    "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/cm24_convergence_new_anchor/parity_m7/PARITY_M7_ACTUAL_TRACE_POSITIVE_INTERVAL_ADDENDUM.md",
+    "bytes": 8544,
+    "sha256": "2a3e1c4f2338167875a6e2149849203c72ad3a9f1d1feb2ceb214d3599e18227",
+    "git_blob_sha1": "4458e24f3902981bcc135df49f353e9aefd788e0"
+  },
+  "fixed_domain": "a=c=1,m=7,n=6,r=7(S+1)>=7; original complete trace, all signed residues retained",
+  "quantitative_dependency": {
+    "repository_path": "research_notes/owner_goal_20261016/cm24_convergence_new_anchor/parity_m7/PARITY_M7_ONE_UNCOVERED_INTERVAL_HORNER_OBSTRUCTION.md",
+    "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/cm24_convergence_new_anchor/parity_m7/PARITY_M7_ONE_UNCOVERED_INTERVAL_HORNER_OBSTRUCTION.md",
+    "bytes": 9831,
+    "sha256": "45f467c3dfe71a91128d669e013e1a68312403a31e2e52351ec7880ef6274315",
+    "git_blob_sha1": "12f7dd14a98aaf7d48167669cb7e48480ca3befa"
+  },
+  "dependency_review_status": "New Taylor-layer lemma remains UNREVIEWED; no old PASS borrowed.",
+  "positive_claim": "For every real r>=7^100, G(r)=tr(B^-1 A)-6>335/r>0, in particular all r in fixedI=[7^100,7^100+1].",
+  "new_step": "Keep actual correlated Beta moments: K_j=(7^7/720)r^(7+j)D_j,beta_j=(6+j)!/720; 0<=1-K_j/beta_j<=49/r for r>=14. Seven signed leading terms sum to336; total error below7^65/r.",
+  "coverage_comparison": "Literal printed equal/unequal coefficient-norm tails and mono thresholds exceed I, as proved by Q_B^5 / Q_B^10 factors and Mahler. Actual small-c delta formula satisfies delta7(A0)<1, hence excludes c1. This is not a global absence/optimality claim.",
+  "not_claimed": [
+    "all-S m7 or remaining7<=r<7^100 positivity",
+    "uniform-in-m or arbitrary gaps",
+    "branchwise/density positivity, signed carrier erasure",
+    "best threshold, monotonicity or mathematical hardness",
+    "Native acceptance, Task/Goal completion or new Tool"
+  ],
+  "combined_scope": "One complete bounded scientific unit with original9831B method paper and this positive addendum; no extra discovery count per corollary.",
+  "scientific_programs": 0,
+  "parameter_samples": 0,
+  "new_RA_event": false,
+  "Source_written": false,
+  "parent": "OPEN"
+}
