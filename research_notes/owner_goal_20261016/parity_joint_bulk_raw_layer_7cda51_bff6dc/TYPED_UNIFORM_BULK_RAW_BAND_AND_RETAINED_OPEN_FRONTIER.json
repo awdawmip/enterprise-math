@@ -1,0 +1,73 @@
+{
+  "schema": "parity_sameCOMMON_uniform_bulk_raw_lower_layer_joint_candidate_v1",
+  "status": "FROZEN_JOINT_AUTHOR_PAPER_CANDIDATE_UNREVIEWED",
+  "authors": [
+    "EM-PUBLIC-7CDA51",
+    "EM-DVR-BFF6DC"
+  ],
+  "mathematical_unit_count": 1,
+  "object": "The actual raw degree d=m^2-3 homogeneous component of P1 in the original SAME COMMON normalization; no gcd division or changed trace expression",
+  "normalization": {
+    "W": "m^2",
+    "D": "W-1",
+    "d": "W-3",
+    "K": "m^(2W)/2",
+    "exact_layer": "H_d^raw=K(S+a)^d Psi(a/(S+a))",
+    "prefactor_boundary": "The old top homogeneous layer has m^2 K while this lower layer has K; alpha=(W+1)^2/(8W) already retains the factor m^2",
+    "constant_boundary": "B=b+W-1; the full correction uses B+2=b+W+1"
+  },
+  "prospective_theorem": {
+    "m_domain": "Every integer m>=2^100000",
+    "j_domain": "Every integer ceil(d/4)<=j<=floor(3d/4)",
+    "coefficient": "[S^(d-j)a^j] H_d^raw",
+    "strict_rational_lower_bound": "K binom(d,j) 2^(-512) m^12 >0",
+    "threshold_meaning": "An explicit computable integer paper bound, intentionally enormous and not optimal; no smaller-m computational coverage is asserted"
+  },
+  "actual_finite_cutoff": {
+    "dimension": "m-1",
+    "carrier": "Q[u] of degree <=m-2",
+    "n": "largest EVEN integer <=m-2",
+    "t": "m-n in {2,3}",
+    "ell": "n-1",
+    "q": "2ell is an actual degree upper bound for b; no absent odd-m top derivative is inserted",
+    "HS_sum": "All input degrees k..m-2 are included in the Pearson bound, retaining the actual compressed carrier rather than dropping its rank-one correction"
+  },
+  "new_joint_mechanism": [
+    "Exact Student monic polynomial means and high-order Pearson weighted norm identities, with factorial bounds for all actual input degrees",
+    "Two actual constant-output channels with t and t+2 and an explicit sine/cosine determinant lower bound",
+    "Uniform actual coefficient-degree-deficit bound O(sqrt(m)) times A_n^2 and pointwise b>=2^-130 A_n^2",
+    "Exact finite-product eta transforms the concentrated actual polynomial; integer Lipschitz control gives Lb>=exp(-231) A_n^2",
+    "Complete E/E^2 top correction, compressed C including its linear term, g(B+2), constants and both COMMON prefactors are controlled in the same proof"
+  ],
+  "logical_kill_boundaries": [
+    "No implication from arbitrary pointwise Gram positivity to coefficient positivity; the old negative L(square) example remains valid",
+    "No assertion that eta(s)<=1 on the entire real interval starting at0; only integer values and the real interval [1,q] are used",
+    "No replacement of the old M-adjoint of uJ by a Hermitian adjoint; reflection commutation is checked only for actual Z coefficients",
+    "No finite sample or routine-generated coefficients stand in for a uniform proof",
+    "No old fullF/Psi/kernel identity is counted as a new sign result"
+  ],
+  "not_claimed": [
+    "All raw coefficients j=0..d or all middle coefficients",
+    "The entire lower layer for every m>=7 or any unexamined finite m",
+    "Other homogeneous layers or all of P1",
+    "Physical P1 positivity or the original trace inequality",
+    "A new formal Task, Native result acceptance, mathematical working truth or mother Goal completion"
+  ],
+  "operations": {
+    "programmed_scientific_matrix_or_coefficient_evaluations": 0,
+    "scientific_import_compile_test_consumer_solver_sampling": 0,
+    "numerical_integrations": 0,
+    "symbolic_hand_algebra_performed": true,
+    "old_STOP_HOLD_budgets": "Unchanged; not borrowed, reset, resumed or used as new authority",
+    "formal_cumulative_time_budget": "UNKNOWN; no budget PASS or fresh Task authority inferred"
+  },
+  "review_and_persistence": {
+    "author_self_check_is_independent_review": false,
+    "future_true_nonauthor": "EM-P11-4A56E9, only after genuine wholefreeze; zero new construction/repair/working exposure declared",
+    "old_votes_transfer": false,
+    "actual_author_Source": "PENDING; not yet published",
+    "new_RA_event": "NOT_APPENDED",
+    "mother_goal": "OPEN",
+    "ending_permission": "UNKNOWN; MESSAGE only"
+  }
+}
