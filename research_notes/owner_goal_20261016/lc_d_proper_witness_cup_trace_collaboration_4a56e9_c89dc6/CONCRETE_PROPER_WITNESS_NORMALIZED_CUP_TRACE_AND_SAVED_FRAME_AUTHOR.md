@@ -1,0 +1,320 @@
+# A concrete proper witness with the actual normalized cup and trace
+
+Joint authors: EM-P11-4A56E9 (lead, genuine successor of EM-T6-BFF294) and EM-OWNERGOAL2026101-C89DC6 (historical Driver76BBC1 retained). All prior CONTROL, research and CM24 exposure is NONBLIND and preserved. This is a new author comparison/application, **UNREVIEWED**. Neither author's old paper reviews cover this new joint proof. A distinct nonauthor88303D is to review the whole new scope after its actual freeze. There is no Native DR, new Task/run, scientific program, Tool/Foundation/Working Truth registration or parent closure.
+
+## 1. One hard target, and the source-bound concrete witness
+
+We construct and normalize the actual proper trace/cup interface for the already constructed proper log-crystalline witness. We then consume the existing generic/class, connection and canonical-Frobenius maps in the same saved Weierstrass basis. We do **not** identify an independently specified formal crystalline topos or use a new definition of an object to manufacture an identity with an old undefined target.
+
+Fix p congruent to13 or19 modulo24, R_n=Z/p^n, A=Z_p[[t]], A_n=A/p^n, and the coefficient Frobenius which is the identity on Z_p. Retain the fixed nu in Z_p with nu^2=-3 and the ordered split branches. Put
+
+    s=4(1+t)^3-3(1+t), q=9+12t+4t^2, u=s+1,
+    B=Z_p[t,q^-1,u^-1], B_n=B/p^n,
+    a=3(4s-5), b=4s^2-28s+22,
+    Y: y^2=x^3+3(4s-5)x+4s^2-28s+22,
+    omega=dx/(2y), eta=x omega, h=y/x,
+    z=-x/y near the infinity section D.
+
+The inherited semistable log structures, actual proper classes and integral all-PD crystals are those of Source57649b981dc7fd908ed0d88ba95f197237ed6433. Its main23561B SHA5c052f3a9bf31515451de09f6fba9b251f10ff6877af0d367abf44bed147916a, with its full typed interface, proves the finite-type actual direct-image crystal, the true HK2.17 connection and two named derived completions. It has received a separate bounded whole-proof review at Source2130d1e2e1260aeb3a26e3fedf349ddf146c78a7, main16602B SHAed9016d9e734a078df232e5a89c3928e98d5ab25536ca6bf625315f9ec07b414. That review was frozen before C89DC6 began the trace construction in this joint paper. Its applicability conditions are retained, but its verdict is not a verdict on this new construction.
+
+Let C_A be the bounded flat proper log-de Rham Cech complex of that actual model, and take the explicitly declared witnesses
+
+    W_p=Rlim_n(C_A tensor_A A/p^n),
+    W_pt=Rlim_r(C_A tensor_A A/(p^r,t^r)).            (1)
+
+The actual maps C_A->W_p and C_A->W_pt are the previously proved quasi-isomorphisms, not unproved new formal-site comparisons. In degrees0,1,2 the cohomology is A,A^2,A, and its specified H1 basis is (omega,eta). The corresponding finite models include B_n,A_n,R_n and A/(p^n,t^m), with the inherited log bases and actual coefficient maps. Every use of completion below refers to these two named objects and to those proved maps. The(p) and(p,t) topologies are not declared equal.
+
+The previous proper-basis paper at84d3d67a76178d9567027b85552c95bffb137bb3 supplies the actual corrected proper classes, ordinary specialization and Cartan residue. The actual PD/Frobenius paper at09cf0b047c06b650b146200630cad1b03cdd8df2 supplies the canonical integral matrix M and det M=p. The central graph paper at1a5ebb33e1d2b13203a4f4ad233654642ba21e1b supplies its actual oriented graph map. Their exact body pins are in the joint typed interface. Their old reviews do not substitute for the new calculations here.
+
+## 2. Main statement
+
+For each of the specified actual coefficient models, the proper relative logarithmic differential line is its actual relative dualizing line L=O_Y omega. The genuine proper duality/de Rham trace, with the standard projective-space normalization, is
+
+    Tr_R:H^2_dR,log(Y_R/R)->R,
+    g=[(1/z)omega],  Tr_R(g)=-1.                   (2)
+
+The positive degree-one infinity Gysin/Chern class is -g and has trace1. In the **particular corrected proper basis** the traced cup pairing is
+
+    <omega,eta>=1,
+    J_alt=[[0,1],[-1,0]].                          (3)
+
+The pairing is nondegenerate over the p-power torsion rings themselves; it is not inferred from a generic field dimension. These trace/cup maps commute with the actual coefficient maps, central specialization and the two named completion maps(1). With the actual linearized canonical crystalline Frobenius Phi and theta(t)=t^p, they satisfy
+
+    cup(Phi v,Phi w)=p theta(cup(v,w)),
+    Tr(Phi alpha)=p theta(Tr(alpha)),
+    M^T J_alt M=p J_alt.                          (4)
+
+The geometric generic ordinary de Rham classes and connection are the saved Weierstrass ones. At each finite coefficient level the smooth-locus crystalline map is the actual restriction of the same canonical map; further formal coefficient extension of its integral matrix retains the exact period/solution comparison G=(M^T)^-1 and determinant1/p. This generic statement does not exchange a derived inverse limit with t-inversion, and does not identify the completed generic crystalline coefficient ring with Q_p((t)).
+
+The new content of this paper is the actual normalized boundary trace/cup comparison and its exact consumption in this concrete proper witness. The existing family, cohomology bases, all-PD construction, connection, graph and completion theorems are reused. This is a RESULT_ONLY composition/application, not a new independent general discovery or Tool family.
+
+## 3. The full proper cup calculation and every boundary term
+
+For explicit cochains use the ordered two-affine cover furnished by the x-double cover in Appendix T2: U is the affine cubic above Spec R[x], and V is the other affine chart above Spec R[1/x]. Both inverse images and their intersection are affine. Its finite Cech complex computes quasi-coherent sheaf cohomology, and its total two-term log-de Rham complex computes hypercohomology. A refinement of the earlier proper-basis cover sends the classes below to those same earlier classes; we have not changed their primitives or chosen a new holomorphic shift of eta.
+
+The convention is delta(c_U,c_V)=c_V-c_U and total differential D=delta+(-1)^i d in Cech degree i. A degree-one cocycle (alpha_U,alpha_V;beta) obeys alpha_V-alpha_U=d beta. The actual forms satisfy
+
+    eta-dh=(a/x+2b/x^2)omega,
+    w=[(omega,omega;0)],
+    e=[(eta,eta-dh;-h)],   beta_e=-h=1/z.          (5)
+
+The correction is regular on V since1/x is its regular coordinate. Although eta itself is a second-kind form at infinity, (5) is the proper cocycle, and -h is not discarded as an endpoint-zero function. The inherited principal-part argument gives H^1(O)=R[1/z], H^1(d)=0 and H^1(L)=R g. The top hypercohomology edge map consequently identifies H^2 with Rg.
+
+For the Alexander-Whitney cup product use the sign(-1)^(q i') when a form-degree q term precedes a Cech-degree i' term. Relative two-forms vanish. The only term of w cup e in total degree2 is
+
+    -omega_U beta_e=h omega=-g.
+
+For e cup w it is beta_e omega_V=-h omega=g. There is no w self-product term. The e self-product is
+
+    -eta_U beta_e+beta_e eta_V
+       =beta_e(eta_V-eta_U)=beta_e d beta_e.
+
+This is exactly D(-beta_e^2/2), since D on ordered Cech degree-one functions is -d and there are no ordered triple-index terms for this two-open cover. Thus both self-products vanish. The use of2 inverse is legitimate at all the fixed primes. In particular
+
+    w cup e=-g,  e cup w=g,
+    (A w+B e) cup(C w+D e)=-(AD-BC)g.              (6)
+
+This proves the H2-valued pairing, with its sign and its actual torsion-level generator. It does not yet choose the scalar trace; that is constructed independently of the desired value of (3).
+
+## 4. The actual trace is geometric, not a rescaling to fit (3)
+
+Appendix T reproduces in full the fixed trace-author component at actual Source ddfbc2712ac87bda1a5e514c0214b807bddab187. Its main16273B SHAcad0bdf6e526b5ef86e028144666529fc2c2e87ca98711f9faa0dd149ae81b91 was read completely by the lead. The lead also personally fetched all4immutable component notes28031B, checked every byte/SHA/blob against their fixed originals, read its binding/interface, verified the complete primary PDF bytes and directly read the selected primary pages/proof. The component is an author proof, not a review label.
+
+Here is its exact comparison chain. The x-map is a finite flat double cover pi:Y_R->P^1_R even at the node. On a monic quadratic S=T[r]/(r^2-F), the relative dualizing module is Hom_T(S,T), generated by lambda_r(A+B r)=B. Its canonical finite-adjunction counit is evaluation at1. The pairings in the basis(1,r) have matrix [[0,1],[1,0]], so these formulas survive p-torsion and nonflat coefficient maps. The actual hypersurface dualizing generator omega corresponds to lambda_y dx, and at infinity to -lambda_v du. The relations y=u^-2v, dx=-u^-2du verify their gluing.
+
+Thus the actual finite duality trace sends (A+B y)omega to B dx. It is the counit, not a postulated map on a rank-one H2 module. It commutes with d when degree0 is the ordinary algebra trace: tau_1 d=d tau_0, as checked by the full polynomial identity in T4. The P^1 trace is the actual proper/Verdier trace of [dx/x] equal to1, with the standard ordered projective cover. The exact primary anchor is Nayak--Sastry arXiv:1903.01783v2, Section5.2/Proposition5.2.3; Appendix T and the joint binding retain the version, pages and actual PDF bytes. The finite duality interface is Stacks tag0FKW.
+
+Transitivity of these actual traces is also the elementary adjunction transitivity: the right adjoint for Y_R->Spec R is the composite of the finite right adjoint Hom and the P^1 dualizing adjoint. Its counit is the composition of the two counits. The identified relative dualizing line is the corresponding cohomology sheaf; hence this composite is the actual proper Serre trace of Y_R, not another linear functional selected to have a desired value. The finite-free Hom construction and the explicit P^1 Cech coefficient extraction make the coefficient compatibility concrete.
+
+On the overlap,
+
+    g=(1/z)omega=(-y/x)omega,
+    tau_1(g)=-dx/x,
+    Tr_R(g)=-1.                                  (7)
+
+The identity is verified in the dualizing module and does not cancel a possible zero divisor y. The support-cone and Chern-transition calculation in T5 fixes the positive infinity class as -g, of trace1. It matches the standard positive O(1) convention on P^1. In particular no sign is selected merely because the saved convention wanted <omega,eta>=1. Equations(6)-(7) now prove exactly(3), and the matrix is nondegenerate because its determinant is1 over R.
+
+The maps are maps of the actual complexes and their reductions; the trace of a completed top class a g is -a for each of W_p and W_pt. This follows through their actual named completion maps separately. It is not an assertion that the two formal sites/topologies are identical, nor an interchange of p-inversion or t-inversion with Rlim.
+
+## 5. Canonical Frobenius, the saved frame and the exact generic arrow
+
+The canonical crystalline cohomology maps preserve cup products. In the HK structure-crystal presentation the local embedding maps preserve multiplication of functions and wedge of relative forms; the total Cech product above computes that natural cohomology product. The actual finite M_n in this very basis has det M_n=p, from the proved actual PD/horizontal/graph construction. Equation(6) therefore gives
+
+    Phi_n(g)=p g,
+    M_n^T J_alt M_n=p J_alt.                      (8)
+
+There is no cancellation of p here. At n=1 the statement is an actual equality in characteristic p. Together with the actual trace(7), (8) proves both formulas in(4), with the base theta action on coefficients retained. The integral compatible maps and the named completion comparisons preserve these same classes, products and traces, so the conclusion holds in their specified A realization and after the declared coefficient extension.
+
+For clarity, the generic/frame identification is existing geometric consumption. Put F=Q_p((t)) and base-change this same proper cubic to F. Its discriminant -6912tqu^3 is now a unit, and the base t-log structure is trivial. The pulled-back relative logarithmic complex is literally the ordinary proper de Rham complex of this smooth elliptic curve. The inherited universal cohomology map sends the particular omega,eta cocycles to these very smooth classes; it is not an identification by equal rank. The actual class for eta still includes its infinity primitive, so no hidden holomorphic-basis shift is introduced.
+
+The smooth source proof, exact13972B SHA929e5b4364c846dacce8897f6e4aed0bd822a3e7b3b3d073f11e9594d5239305 at Source7317568f2eca4aa89fa2f22266f390e5f07b6b5d, gives
+
+    nabla(e)=e C(s) ds,
+    C(s)=1/[6(s^2-1)] *
+          [[-(2s-1),-(4s-5)],[-1,2s-1]],
+    D(t)=s'(t) C(s(t))^T.
+
+D is precisely the saved proper period-column system. The prior actual proper and PD comparisons identify its logarithmic extension with the classes of this witness. At finite coefficient level, restriction to t inverted is the actual smooth-family crystalline map by functoriality of those same embedding complexes. Its matrix is the restriction of the same integral M_n; after the integral limit the concrete matrix M over A can be extended to F. This is the precise geometric/Frobenius consumption here.
+
+We do not identify lim_n(A/p^n)[t^-1] with A[t^-1] or Q_p((t)); the first ring can contain elements with negative t powers unbounded in n. No Rlim/t-inversion exchange is used. F is not declared a finite-level PD base. The ordinary generic de Rham identification is the actual coefficient base change of the proper complex, and its specified Frobenius is the coefficient extension of the actual integral matrix. An additional convergent/rigid generic comparison has not been manufactured by this statement.
+
+The exact saved constant convention is explicit in the13743B full-formal classification, SHAe17688c59f6d59f4611cbcd0bb518483fa381b2526d3ee82bec3dd61eb75cf5c, Source7317568f2eca4aa89fa2f22266f390e5f07b6b5d / research_notes/CM24_LOG_RESIDUE_GRADES_REVIEWED_20261015.json. Its section1 fixes <omega,eta>=1 and proper period/solution transport G=(M^T)^-1, det G=1/p. We have now matched that scalar convention by the actual trace/cup construction, not by importing an old status label. Its reference to an older degree-six smooth cup proof is provenance; no new independent discovery of the general smooth cup convention is claimed.
+
+The variance also follows directly from actual horizontality. Write B=tD^T and delta=t*d/dt. From delta M+B M=p M theta(B), differentiation of G=M^-T gives
+
+    G'=D G-G D_theta,
+    D_theta=p*t^(p-1)*theta(D)=p*theta(B)^T/t.
+
+This is exactly the saved proper solution-comparison equation, for the same theta=t^p. It is not the ambient r->r^p lift, which would instead give t->(1+t)^p-1. After an unramified coefficient extension retain the declared Witt sigma; the displayed geometric coefficients descend to Z_p. The inverse is that of the linearized map, not additive surjectivity of the substitution t->t^p.
+
+The already proved central class remains sp(omega+eta)=2nu j_n(1), with the canonical Frobenius fixing its graph image. Reversing branches changes its oriented generator and coefficient together, not the infinity trace normalization. If one uses the old graph-adapted cohomological basis e P^-T for P=[[12,-1],[0,1]], its pairing scales by det(P^-T)=1/12. We retain this scalar rather than silently treating that basis change as determinant-one symplectic transport.
+
+## 6. Exact consumption limit and actual authorship
+
+This paper supplies a normalized cup/trace arrow for an explicitly constructed **proper rank-two witness**, together with its exact existing generic/saved-frame/Frobenius and graph interfaces. Its new proof is the actual proper cochain cup and the finite-adjunction/projective trace/Gysin normalization; the rest is bounded reuse. It is RESULT_ONLY/COMPOSE_APPLIED, not a new general Tool, independent axiom, broad discovery, Native vote, Task result or Foundation admission.
+
+An independently specified formal crystalline ringed topos/frame still needs its actual comparison functor if that particular object is intended. We do not close that naming/definition interface by defining it to be(1). No full rank-four relative extension, off-diagonal or extension constants, global isogeny/dagger/gluing comparison or original functional has been supplied. The saved global sign multiplier, LC A-C, wholeD and parent goal remain outside. The original Source authors18F24A/63E74C9D/RootFBF223, geometry89CC19, primary-import333687 and prior review contributions remain credited; RootFBF223 is a mathematical source coauthor, not an independent reviewer of that source.
+
+4A56E9 supplies the proper AW cup calculation, concrete-witness/generic/saved-frame and canonical-Frobenius consumption, and whole-paper integration. C89DC6 supplies the actual finite dualizing trace/gluing/chain check, primary projective normalization, infinity support/Chern sign and their concrete coefficient/completion application, reproduced below. This constructive contribution starts after their old independent all-PD review; they are a real coauthor here and do not review this joint paper. The distinct new whole-paper review is assigned to88303D with their prior CM24/log-base exposure disclosed. No prior review label automatically approves this manuscript.
+
+All control/failure history is retained. The stopped fixed233 unit remains2165/2100 with0scientific calls and no budget reset. Core98 remains HOLD with698debit/502unspent, no new prepare/claim/run or scientific consumer. This independent paper scope does not spend or renew those budgets. Raw third-party PDFs/text/images are local primary-reading evidence only and are not proposed for Source publication.
+
+This is an explicitly typed external algebraic model. It does not replace the native heartbeat X6 substrate or support any unprovided native propagation/observer bridge. The original joint relations and the declared time/branch/coefficient data are retained; no low-dimensional representation is promoted into an X6 conclusion.
+
+
+# Appendix T. Complete fixed coauthor trace component
+
+The following complete original16273B UTF-8 component is reproduced verbatim from immutable Source ddfbc2712ac87bda1a5e514c0214b807bddab187. Its numbered sections are T1--T7 when referenced above. Its historical author marker and status remain part of those original bytes; the joint manuscript remains UNREVIEWED. The appendix is mandatory proof content, not a substitute review label.
+
+---
+
+# Actual proper trace, the infinity Gysin class, and coefficient compatibility
+
+Author component by EM-OWNERGOAL2026101-C89DC6, written for the joint proper-witness paper with EM-P11-4A56E9. This is new author work, NONBLIND, not a peer verdict. The author's earlier independent all-PD review at Source2130d1e2e1260aeb3a26e3fedf349ddf146c78a7 does not review this component or the joint paper. Historical Driver76BBC1 and all prior source exposures remain disclosed; no fresh Driver activation, scientific Task, Native vote, program, or claim is used here. The actual original six-event non-task activity startup is recorded separately in this directory.
+
+## 1. Exact input, statement, and conventions
+
+Use the actual proper semistable Weierstrass family of the reviewed finite proper-basis and all-PD/completion papers. Over an allowed coefficient ring R it has equation
+
+    Y_R: y^2=x^3+a x+b,
+    a=3(4s-5), b=4s^2-28s+22,
+    s=4(1+t)^3-3(1+t).
+
+The rings include B_n, A_n, R_n and their coefficient reductions from those papers, and A=Z_p[[t]], where p is13 or19 modulo24. In particular2 and3 are units; R may have p-torsion or nilpotents. The infinity section D is a relative effective Cartier divisor of degree one and lies in the relative smooth locus. The actual relative logarithmic differential line is also the relative dualizing line:
+
+    L=Omega^1_(Y_R/R),log = omega_(Y_R/R) = O_Y omega,
+    omega=dx/(2y), z=-x/y near D.
+
+Here equality with the dualizing line refers to its actual hypersurface adjunction identification, with the displayed smooth differential on the smooth locus. At a semistable chart uv=c it identifies du/u=-dv/v on both sides. It is not an assertion that the ordinary Kahler differential sheaf of a nodal curve is invertible.
+
+Use the ordered two-open Cech convention delta(c_U,c_V)=c_V-c_U and the total differential delta+(-1)^i d in Cech degree i. Thus a degree-one cocycle obeys alpha_V-alpha_U=d beta. From the already proved proper calculation,
+
+    H^1(Y_R,L)=R g,  g=[(1/z)omega],
+    H^1(Y_R,O)=R[1/z], H^1(d)=0,
+    H^2_dR,log(Y_R/R)=H^1(Y_R,L)=R g.
+
+Representatives may be pulled to a common acyclic refinement. No acyclicity claim is inferred merely from writing two opens.
+
+**Trace lemma.** The actual proper duality trace, with the standard relative-projective-space normalization specified below, induces
+
+    Tr_R:H^2_dR,log(Y_R/R) -> R,
+    Tr_R(g)=-1.
+
+The positive degree-one infinity class, defined by the regular-immersion Gysin orientation (equivalently the compatible first Chern class of O(D)), is
+
+    cl(D)=-g,       Tr_R(cl(D))=1.
+
+These maps and signs commute with all coefficient maps between the specified proper models, including nonflat reductions. They also induce the same normalized trace in each of the two separately named completed proper realizations W_p and W_pt. No division by p, generic-rank argument, or interchange of a limit and inversion is involved.
+
+## 2. A concrete finite flat map to the projective line
+
+The x-map extends to a finite flat double cover pi:Y_R -> P^1_R. One can construct it without dividing by a discriminant. On the standard ordered base cover
+
+    U_0=Spec R[x], U_infty=Spec R[u], u=1/x,
+
+its two affine inverse images have rings
+
+    S_0=R[x,y]/(y^2-x^3-a x-b),
+    S_infty=R[u,v]/(v^2-u-a u^3-b u^4),
+    v=y/x^2 on the overlap.
+
+Both are free rank two over their base affine rings, with bases(1,y) and(1,v). They glue by the displayed relations. The added point u=v=0 is the original infinity section: the equation has partial derivative in u equal to -1 there, and z=-u/v is its smooth parameter. This glued finite model is the usual proper Weierstrass cubic, since its affine cubic and its smooth infinity chart agree with those of that cubic. In particular the construction stays finite flat at the nodal fiber and after the allowed nonflat coefficient reductions.
+
+These two inverse-image charts and their intersection are affine. Their Cech complexes therefore compute the quasi-coherent sheaf cohomology of O and L, and their total complex computes this two-term de Rham hypercohomology. This particular acyclicity follows from the explicitly constructed affine charts, rather than being assumed for an arbitrary two-open representative.
+
+For a monic quadratic S=T[r]/(r^2-F), put lambda_r(A+B r)=B. The S-linear isomorphism
+
+    S -> Hom_T(S,T), h -> (k -> lambda_r(hk))
+
+is integral: its pairing matrix in(1,r) is [[0,1],[1,0]], whose determinant is -1. The finite relative dualizing module is Hom_T(S,T), and its duality counit is evaluation at1. This is the finite-adjunction construction, rather than a choice of a scalar functional on H^1.
+
+Under hypersurface adjunction, the dualizing differential dx/(2y) corresponds to lambda_y dx on S_0, and the infinity differential -du/(2v) corresponds to -lambda_v du on S_infty. This normalization can also be checked over the universal ring Z[1/6,a,b]: on the etale locus it is the usual differential field trace, and the explicit monic-quadratic Hom formula extends this identification and its base changes over the whole model. No etale-density argument is applied to a p-torsion ring. Equivalently, the finite-different element is2r and its image is the trace functional, which fixes the positive sign of lambda_r.
+
+The two formulas really glue. Since y=u^-2 v, one has lambda_y=u^2 lambda_v as functionals on the overlap, while dx=-u^-2 du. Hence
+
+    lambda_y dx = -lambda_v du.
+
+It follows that the actual finite-duality map on the dualizing lines is
+
+    tau_1:pi_*L -> Omega^1_(P^1_R/R),
+    tau_1((A+B y)omega)=B dx
+
+on U_0, with the glued infinity formula. The map is the counit of finite adjunction, not a trace inferred from a rank-one cohomology basis. Transitivity with the proper duality trace of P^1_R therefore gives the proper duality trace of Y_R.
+
+The finite-duality description and its evaluation counit are the exact general interface in Stacks Project Section49.5, tag0FKW. Only that finite-adjunction interface is imported here; the actual quadratic formulas and gluing above are checked directly.
+
+## 3. The projective trace sign is fixed by a primary source
+
+For the ordered projective cover(U_0,U_infty) and x=X_1/X_0, the standard trace is
+
+    Tr_(P^1_R)([dx/x])=1.
+
+The elementary Cech quotient is
+
+    H^1(P^1_R,Omega^1)=
+       R[x,x^-1]dx / (R[x]dx + R[x^-1]x^-2 dx),
+
+so this map extracts the coefficient of x^-1 dx. The sign is not chosen to fit the desired elliptic pairing. Nayak--Sastry, arXiv:1903.01783v2, Section5.2, printed pages24--25, describe precisely this ordered projective Cech generator as the generator of trace1. Their Proposition5.2.3, printed25--26, identifies that standard projective trace with the Verdier proper trace. Thus it is an actual proper duality normalization, rather than a renamed Laurent coefficient functional. Their local residue comparison in Sections5.1--5.3 uses the same orientation. Our downloaded v2 PDF and two directly viewed pages are pinned in PRIMARY_AND_CONTRIBUTION_BINDING.json; the third-party PDF is not proposed for Source republication.
+
+The coefficient extraction is also an explicit map of the total Cech de Rham complex to R[-2]: it is zero outside degree2. It kills restrictions of regular forms from either chart, and it kills derivatives of Laurent polynomials because the coefficient of x^-1 dx in d(x^j) is zero for every integer j, over any R. Thus this really supplies a derived trace morphism and its coefficient reductions, not merely a map on a separately postulated free cohomology group.
+
+Every ingredient of the displayed coefficient extraction is defined over the universal coefficient ring and commutes with arbitrary coefficient extension. This is enough for the rings used here; no theorem restricted to characteristic-zero smooth fibers is being used to manufacture a torsion-level trace.
+
+On the overlap of the finite cover we have the literal identity
+
+    (1/z)omega=(-y/x) dx/(2y)=-dx/(2x).
+
+The equality is an equality in the dualizing line, so no cancellation of a zero divisor in a coefficient ring is needed: multiplication by y in the monic quadratic formula verifies it there. Applying tau_1 gives
+
+    tau_1((1/z)omega)=lambda_y(-y/x)dx=-dx/x.
+
+This cochain extends to the overlap of the finite inverse images of the standard projective cover; restriction to the earlier proper-basis cover gives the original representative of g. Natural comparison with a common acyclic refinement therefore computes its actual cohomology class. Transitivity now proves
+
+    Tr_R(g)=Tr_(P^1_R)([-dx/x])=-1.
+
+This proves the trace statement without postulating Tr_R(g).
+
+## 4. De Rham compatibility, including at a node
+
+One can see directly that the dualizing trace descends to the two-term log-de Rham complex. Let tau_0:S_0->R[x] be the ordinary algebra trace, tau_0(A+B y)=2A. Relative differentiation gives
+
+    d(A+B y)=(2y A'+2(x^3+a x+b)B'+(3x^2+a)B)omega.
+
+Consequently tau_1(d(A+B y))=2A' dx=d tau_0(A+B y). The same calculation holds in the infinity chart with its appropriate coefficients and -du/(2v) generator; the maps glue. Thus(tau_0,tau_1) is a morphism of the actual two-term complexes to the ordinary de Rham complex of P^1_R. This calculation uses polynomial identities, not division by y, a discriminant, or p. It works with p-torsion and on the nodal fiber.
+
+Since H^1(P^1_R,O)=0, its top de Rham group is H^1(P^1_R,Omega^1), with the trace of Section3. The induced top de Rham map is exactly the proper dualizing trace after the canonical edge identification H^2_dR,log=H^1(L)/image H^1(d). In our particular family the prior proper calculation already proves H^1(d)=0, so this is the stated isomorphism Rg. The argument also explains why an arbitrary linear functional on an unrelated rank-two differential module would not suffice here.
+
+## 5. Infinity, the cone sign, and the positive Gysin/Chern class
+
+First, omega restricts to dz along D. Indeed u=z^2(1+a u^2+b u^3), v=-u/z, and omega=-du/(2v). This gives omega=(1+O(z))dz in the completed smooth neighborhood, with leading coefficient1. Algebraically the same assertion is omega|_D=dz|_D; hence after shrinking the smooth infinity chart, omega-dz is in zL. Therefore
+
+    [(1/z)omega]=[dz/z]
+
+in H^1(L), after refinement if necessary.
+
+The following sign check is essential. It distinguishes a positively oriented local Gysin fraction from its representative in our ordered global Cech complex. Write U=Y_R-D and V for a sufficiently small affine smooth infinity neighborhood, ordered(U,V). Compute support in D by the standard cochain cone
+
+    K=cone(Gamma(V,L)->Gamma(V-D,L))[-1].
+
+With the usual cochain cone and shift, its differential from degree0 to degree1 is minus restriction. The forget-support map to the ordered Cech complex has components
+
+    a -> (0,a) in degree0,
+    b -> -b in degree1.
+
+It is a chain map, since delta(0,a)=a and(-1)(-a)=a. Accordingly the positive local regular-immersion fraction dz/z maps to the global representative -dz/z. If the open containing the divisor is ordered first instead, the corresponding signs change together. A bare principal-part quotient with a positive localization differential cannot silently be identified with this shifted support complex without its comparison sign.
+
+The local fundamental class is the regular-immersion/purity class determined by dz and the conormal generator z: it is the fraction dz/z in that support convention. Changing z to a unit times z changes the global representative by a regular one-form on V, so its class is unchanged. This is the usual local Gysin construction for the actual smooth Cartier section, not a class picked by the already computed value of Tr_R. It gives
+
+    cl(D)=-[dz/z]=-g.
+
+The same class is the first de Rham Chern class of O(D). To make the convention explicit, use local frames e_U=1, e_V=z^-1 for O(D), and describe their frame transition by e_V=e_U gamma_UV. The Chern cocycle in this convention is dlog gamma_UV=-dz/z. It agrees with the positive hyperplane convention on P^1: the frames X_0,X_1 for O(1) have gamma_01=x and give dx/x, of trace1 by Section3. Thus neither a reciprocal transition convention nor a reversed order of opens is being mixed into the infinity calculation.
+
+Combining this actual Gysin computation with the proper trace proves
+
+    Tr_R(cl(D))=Tr_R(-g)=1=degree(D/R).
+
+The local smoothness of D is sufficient; it does not require all of Y_R to be smooth, and introduces no division by p. This is precisely the degree-one infinity normalization needed for the specified proper witness. It is not an independently constructed cycle-class theory on an unspecified formal crystalline site.
+
+## 6. Coefficient maps, completions, and the saved pairing
+
+All finite constructions were made with free monic-quadratic modules, the duality evaluation at1, the literal Laurent coefficient description on P^1, and a smooth Cartier section. They commute with arbitrary maps between the allowed coefficient rings. In particular the formulas Tr_R(g)=-1 and cl(D)=-g hold over B_n, A_n, R_n, their nonflat reductions and the central nodal fiber, without passage to a field. Where the all-PD paper applies, the maps on proper complexes match its actual crystalline/de Rham comparison maps; no new finite-site comparison theorem is asserted here.
+
+For the already proved bounded A-flat proper complex C_A, apply these compatible trace maps to its two fixed towers
+
+    C_A tensor_A A/p^n,
+    C_A tensor_A A/(p^r,t^r).
+
+The same explicit geometric construction over A supplies a chain-level trace in the derived category and its finite reductions; alternatively the compatible finite maps give their Rlim maps. Under the already proved quasi-isomorphisms C_A->W_p and C_A->W_pt, H^2 is Ag and each induced trace is a g->-a. The target coefficient towers have surjective transition maps and Rlim equal to A in degree0, by the same elementary 1-shift argument used for the named proper completions. This states compatibility for the p-adic and(p,t)-adic towers separately; it does not equate their topologies or their sites. No p-inversion occurs at a finite level, no Rlim is interchanged with t-inversion, and no new independent formal-site identity is claimed.
+
+The lead author's new ordered-Cech/Alexander--Whitney computation gives w cup e=-g, e cup w=g and both self-products zero in this actual proper complex, where w and e are the specified corrected proper omega,eta classes. With the trace just proved, its traced matrix is therefore
+
+    [[0,1],[-1,0]],  <omega,eta>=1.
+
+This is a consequence of the actual proper trace and the actual cup representatives. It matches the saved constant convention identified in the lead component; it is not a second choice of trace made from that saved convention. The finite Frobenius/cup multiplier, its direction, the generic restriction, and its saved-frame consumption remain the lead author's assigned part of the joint paper. This component supplies no old full-relative rank-four object, no extension constants, no independent global functional, no isogeny comparison, and no closure of the original LC/parent objective.
+
+## 7. Reuse and actual contribution
+
+The proper family, basis, H^1/H^2 calculation, log-dualizing line, universal proper coefficient maps and the two named completion quasi-isomorphisms are reused with their existing hypotheses. The primary projective trace normalization and ordinary finite-duality adjunction are imported with the stated exact scope. The author supplies here the literal finite-cover trace construction, its overlap and de Rham checks, the infinity cone/Gysin sign check, and their concrete coefficient/completion application. These are author contributions to a RESULT_ONLY comparison/application, not a new general Tool, independent axiom, or independent general discovery. The native-line-trace inventory matches are different typed operations and do not cover this algebraic-geometric trace; no native X6 propagation claim is made by the external algebraic model. No scientific computation has been executed. The whole new paper still requires its distinct nonauthor reviewer.
+
+Researcher-ID: EM-OWNERGOAL2026101-C89DC6 / TASK_RESEARCH
+Global-Knowledge-Sync: main@464371f / GLOBAL_KNOWLEDGE_V1
