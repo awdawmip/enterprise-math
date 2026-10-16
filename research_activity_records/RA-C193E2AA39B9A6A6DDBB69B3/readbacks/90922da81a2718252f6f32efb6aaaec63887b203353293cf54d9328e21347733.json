@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/owner_goal_20261016/lc_d_actual_log_node_obstruction_4a56e9/TYPED_NO_EXTENSION_RESULT_AND_FAILURE_DOMAIN.json",
+    "ref": "018932d4b71ac21c6ab026fd2cbca6a81371f538",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "actual-log-node-three-source-own-full-readback-2-20261016",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"LC_D_LOG_NODE_UNIT_OBSTRUCTION_TYPED_RESULT_ONLY_V1\",\n  \"status\": \"UNREVIEWED_AUTHOR_LEMMAS\",\n  \"main_result\": {\n    \"input\": [\n      \"p=13,n=2\",\n      \"the actual saved family over R_n[[t]], no rescaling of fixed theta(t)=t^p\",\n      \"coefficient Frobenius=id\",\n      \"completed node Rcal_n in paper(4)\",\n      \"the exact prior corrected central lift over whole R_n, not just modp\",\n      \"a representative with F(U)=aU^p,F(V)=bV^p, a,b units, F(t)=t^p\"\n    ],\n    \"output\": \"No such representative extends this specified central lift.\",\n    \"proof_chain\": [\n      \"Exact central branch parameters U=w on plus, V=w^-1 on minus\",\n      \"Actual UV=tK with K0=-1/6\",\n      \"t non-zero-divisor by formal unit-coordinate recursion\",\n      \"Any representative forces a0*b0=K0^(1-p)=6^(p-1)\",\n      \"The fixed central lift forces a0=b0=1\",\n      \"6^12=144 mod169, contradiction\"\n    ],\n    \"all_level_scope\": \"For the same p13 and exact prior compatible central lift, n>=2 extensions reduce to the impossible n2 case. No all-prime failure claim.\"\n  },\n  \"lemmas\": [\n    {\n      \"input\": \"saved family and all split p,n\",\n      \"output\": \"Explicit H(X),U,V give UV=tK with K0=-1/6 and exactly the prior central branch parameters.\"\n    },\n    {\n      \"input\": \"any map with the explicitly stated unit/monoid/base conditions\",\n      \"output\": \"The node leading-unit product must equal K0^(1-p); this condition transforms covariantly under node-coordinate rescalings.\"\n    }\n  ],\n  \"failure_domain\": [\n    \"Dropping exact central specialization over R_n destroys a0=b0=1; no claim against all alternative lifts.\",\n    \"No global log-geometrically strict map is assumed: monoid multiplication p is not an isomorphism.\",\n    \"Intrinsic crystalline Frobenius can use embedding systems/local homotopies; no map(7) is required for every realization.\",\n    \"No derived specialization/normalization arrow is built.\"\n  ],\n  \"still_unknown\": [\n    \"actual relative/log-crystalline comparison map\",\n    \"LC A-C/wholeD\",\n    \"actual geometric sign/c/extensions\",\n    \"source functional/parent closure\"\n  ],\n  \"method\": \"Paper-only formal coordinates and exact ring-unit calculation. No program/test/prime scan/new checker.\",\n  \"review_required\": \"Genuine nonauthor exact new proof/quantifier/unit/base/log-convention review. Prior PAPER_PASS does not propagate.\"\n}\n",
+      "display_title": "TYPED_NO_EXTENSION_RESULT_AND_FAILURE_DOMAIN.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/018932d4b71ac21c6ab026fd2cbca6a81371f538/research_notes/owner_goal_20261016/lc_d_actual_log_node_obstruction_4a56e9/TYPED_NO_EXTENSION_RESULT_AND_FAILURE_DOMAIN.json",
+      "encoding": "utf-8",
+      "sha": "2ea79171a5e9eaf9c5f003bc1c33070eb4489c7b"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
