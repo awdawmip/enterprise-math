@@ -1,0 +1,57 @@
+{
+  "schema": "CM24_FULL_RANK4_WEAK_TAYLOR_TYPED_AUTHOR_RESULT_V1",
+  "frozen_utc": "2026-10-16T07:29:47.273526+00:00",
+  "status": "FROZEN_AUTHOR_PROOF_UNREVIEWED",
+  "primary": {
+    "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/cm24_full_rank4_punctured_change_of_lift_7cda51/CM24_FULL_RANK_FOUR_PUNCTURED_WEAK_TAYLOR_CHANGE_OF_LIFT_AUTHOR.md",
+    "bytes": 12992,
+    "sha256": "ab190042e36a718cb4d6822b352f7a19fffb16be07851132d7ed26f2a693be07",
+    "git_blob_sha1": "ca7dc34b0eee8b549e9dded6045d1521bf7c1f19"
+  },
+  "object": "The entire original solution-column rank-four carrier (y1,y2,z,V), with fixed integral g/H_b and its original quotient/kernel filtration.",
+  "hypotheses": [
+    "p prime congruent to 13 or 19 modulo 24; O the chosen unramified complete p-adic DVR.",
+    "Coefficient Witt ring map sigma has sigma(p)=p and sigma(O) subset O. sigma(g)=g and sigma invertibility are not assumed.",
+    "A=O[r,(1-r^2)^(-1),(4r^2-1)^(-1)]; A-dagger is the existing weak completion in these generators.",
+    "Both lifts use the same coefficient sigma; phi(r)=r^p, theta(r)=1+(r-1)^p.",
+    "Full N, including proper GM and bottom w,-wH_b row, is exactly primary section 1."
+  ],
+  "constructed_arrow": {
+    "source": "theta-pullback solution connection",
+    "target": "phi-pullback solution connection",
+    "Q": "sigma(N), coefficient action once only",
+    "recurrence": "C_0=I; C_(n+1)=dC_n/dr+C_n Q",
+    "matrix": "T=sum_(n>=0) C_n(theta(r)) (phi(r)-theta(r))^n/n!",
+    "equation": "T_prime=N_phi T-T N_theta",
+    "ring": "GL_4(A-dagger)",
+    "determinant": 1,
+    "mod_p": "I",
+    "origin_r0": "I",
+    "filtration": "<V> subset <z,V> subset full carrier; z,V graded maps are identity."
+  },
+  "actual_weak_estimate": {
+    "full_N_presentation_degree_upper_bound": "2p",
+    "C_n_presentation_degree_upper_bound": "2pn",
+    "denominator_indices": "j,k >=0 from the two explicit inverse expansions",
+    "term_integral_valuation_lower_bound": "a=n-v_p(n!)+j+k",
+    "term_presentation_degree_upper_bound": "p(2p+1)n+3p(j+k) <=3p^2 a",
+    "positive_slope": "a >= ((p-2)/(p-1))n+j+k",
+    "purpose": "Locally finite grouping below each valuation yields a weak presentation, not merely unrestricted p-adic convergence."
+  },
+  "conditional_comparison": {
+    "independent_input": "An actual full F_phi over A-dagger[1/p] obeying F_phi_prime=N F_phi-F_phi N_phi.",
+    "output": "F_theta=F_phi T; inverse transport F_phi=F_theta T^(-1).",
+    "preserved": "Original filtration if present, integrality if present, full/proper determinant, origin and kernel graded constants.",
+    "existence_of_either_full_F": "NOT_GIVEN"
+  },
+  "retained_gaps": [
+    "No boundary regularity or Laurent expansion at r=1,-1 or q=0; no identification of A-dagger with K[[t]] or K((t)).",
+    "No actual full Frobenius, geometric realization or source-compatible observation.",
+    "No selection of mu,c,xi,eta,origin k, source action, functional or original Y.",
+    "No generic/cup/frame/formal-completed-site/Rlim bridge; no repair or refutation of saved theta-formal or PD statements.",
+    "The isolated kernel comparison and actual proper PD matrix are not full F_phi inputs."
+  ],
+  "scientific_programs": 0,
+  "Native_vote": false,
+  "parent_goal_complete": false
+}
