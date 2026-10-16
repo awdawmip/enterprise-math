@@ -1,0 +1,204 @@
+{
+  "schema": "EM_GBRC_CONDITIONAL_TYPED_SECTION_APPLICATION_INPUTS_V1",
+  "status": "FROZEN_AUTHOR_CANDIDATE_UNREVIEWED",
+  "author": "EM-DVR-F73673",
+  "parent_task_reference_only": "RS-GBRC-R1-TRANSPORT-COMPOSITION",
+  "parent_task_execution_claimed": false,
+  "accepted_R1_01_input_verified": false,
+  "external_model": {
+    "carrier": "F_2^3",
+    "coordinate_order": [
+      "p",
+      "q",
+      "e"
+    ],
+    "source": "9b3c656f310bed58e8c99c1754d09af5ae653413",
+    "source_path": "research_notes/geometry_brc_residual_systems_r1_taskpack_20260916_eb416786.md",
+    "source_sha256": "7d4874d29b5325fcb8252dbf12cf578bdb16506a178aea3a9ffd90b404894b9e",
+    "native_X6_identification": false,
+    "native_readout_bridge": "NOT_PROVIDED_NO_NATIVE_CLAIM",
+    "time": "STATIC_SECTION_QUESTION_WORD_ORDER_ONLY"
+  },
+  "edge_graph_input_contract": {
+    "vertices": "finite labeled set",
+    "fibers": "one nonempty finite set per vertex",
+    "edges": "finite labeled multigraph, parallel edges and loops retained",
+    "maps": "each edge has declared source and target and a TOTAL BIJECTION",
+    "section_equations": "a_t(e)=f_e(a_s(e)) for every original edge label",
+    "permutation_input": "disjoint union of fibers; nonloop edge swaps its two fibers by f and f^-1; loop edge acts within its own fiber",
+    "base_action": "induced vertex swaps or identity, potentially nonfaithful; KEEP FULL TOTAL-SPACE IMAGE",
+    "execution": "NO_TOOL_CALL_OR_IMAGE_ENUMERATION_PERFORMED"
+  },
+  "weakly_connected_directed_loop_counterexample": {
+    "vertices": [
+      "U",
+      "V"
+    ],
+    "fibers": "R at U and R at V",
+    "edges": [
+      {
+        "id": "alpha",
+        "source": "U",
+        "target": "V",
+        "map": "(p,q,e)->(p,q,e)",
+        "positive_weight": "1"
+      },
+      {
+        "id": "beta",
+        "source": "U",
+        "target": "V",
+        "map": "(p,q,e)->(p,q,e+1)",
+        "positive_weight": "1"
+      }
+    ],
+    "nonempty_genuine_directed_loops": "none",
+    "reference_equations": "a_V=a_U and a_V=a_U+(0,0,1)",
+    "result": "NO_COMMON_SECTION_BY_DISPLAYED_EQUATIONS",
+    "formal_inverse_loop": "beta^-1 alpha, not an enabled reverse transition",
+    "whole_image": "{id,sigma_alpha,sigma_beta,sigma_alpha sigma_beta}",
+    "base_image": "2 elements; kernel includes parity translation kappa",
+    "image_size_statement": "SYMBOLIC_PROOF_NOT_ENUMERATION"
+  },
+  "finite_three_loop_application": {
+    "base": [
+      "v"
+    ],
+    "carrier": "R",
+    "linear_generators": [
+      {
+        "id": "s1",
+        "formula": "(p,q,e)->(p,p+q,e+p)"
+      },
+      {
+        "id": "s2",
+        "formula": "(p,q,e)->(q,p,e)"
+      },
+      {
+        "id": "s3",
+        "formula": "(p,q,e)->(p,p+q,e)"
+      }
+    ],
+    "added_defect_family": "f_i(a)=s_i(a)+d_i, d_i=(alpha_i,beta_i,gamma_i); this family is newly declared conditional input, not attributed as an accepted S1 output",
+    "complete_criterion": "exists u,v in F2: d1=(0,u,u), d2=(v,v,0), d3=(0,u,0)",
+    "all_references": "(u,u+v,e), e in F2",
+    "defect_bit_order": [
+      "alpha1",
+      "beta1",
+      "gamma1",
+      "alpha2",
+      "beta2",
+      "gamma2",
+      "alpha3",
+      "beta3",
+      "gamma3"
+    ],
+    "seven_rows": [
+      "alpha1",
+      "beta1+gamma1",
+      "alpha2+beta2",
+      "gamma2",
+      "alpha3",
+      "gamma3",
+      "beta1+beta3"
+    ],
+    "positive_witness": {
+      "d1": [
+        0,
+        1,
+        1
+      ],
+      "d2": [
+        1,
+        1,
+        0
+      ],
+      "d3": [
+        0,
+        1,
+        0
+      ],
+      "references": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    "incompatible_witness": {
+      "d1": [
+        0,
+        0,
+        0
+      ],
+      "d2": [
+        0,
+        0,
+        0
+      ],
+      "d3": [
+        0,
+        1,
+        0
+      ],
+      "individual_fixed_conditions": [
+        "p=0",
+        "p=q",
+        "p=1"
+      ],
+      "composite": "f3 after f1: (p,q,e)->(p,q+1,e+p)",
+      "result": "EACH_GENERATOR_HAS_FIXED_POINTS_BUT_NO_COMMON_REFERENCE"
+    },
+    "method": "HAND_DERIVATION_AND_SUBSTITUTION_NO_PROGRAM"
+  },
+  "reuse": {
+    "tool_family": "existing T7",
+    "resolution": "COMPOSE_APPLIED_PAPER_ONLY",
+    "theorem_source": "563e865535a2142fe89a5db1552b081cd4bad844:research_notes/QUADRATIC_PACKET_LOGIC_TOOL_HARVEST_20260826.md#section-4",
+    "implementation_source": "563e865535a2142fe89a5db1552b081cd4bad844:src/enterprise_math/equivariant_section.py",
+    "generic_theorem_new": false,
+    "new_shared_tool": false,
+    "novelty_certificate": false
+  },
+  "contributions": [
+    {
+      "actor": "EM-DIRECT-EB416786",
+      "scope": "original PROGRAM, external residual carrier, three linear generators"
+    },
+    {
+      "actor": "existing T7 authors",
+      "scope": "stabilizer fixed-lift iff section theorem and implementation; exact file pins in paper"
+    },
+    {
+      "actor": "EM-DVR-BFF6DC",
+      "scope": "source-backed prior-art discovery, scope comparison, conditional bridge direction; substantive plan contribution; not eligible as wholly noncontributing reviewer of adopted same unit"
+    },
+    {
+      "actor": "EM-DVR-F73673",
+      "scope": "selection, exact input translation, symbolic applications, author proof and custody"
+    }
+  ],
+  "stop_conditions": [
+    "partial or nonbijective edge: permutation bridge not applicable",
+    "infinite carrier with no independently proved finite image: no executable T7 route",
+    "full integral carrier is not replaced by mod-two carrier",
+    "missing accepted R1-01 and actual owner authority: no R1-02 Task fulfillment or execution",
+    "earlier equivalent exact upstream application found: reuse and stop duplicate"
+  ],
+  "scope_exclusions": [
+    "native X6 reduction or propagation",
+    "global/integral answer from finite model",
+    "future-language quotient or provenance erasure",
+    "Native review vote",
+    "Task creation/completion/claim/run",
+    "current core98 input or actor-clock change",
+    "shared Tool registration"
+  ],
+  "scientific_execution_count": 0,
+  "independent_mathematical_review": "NOT_YET_PERFORMED_AT_AUTHOR_FREEZE"
+}
