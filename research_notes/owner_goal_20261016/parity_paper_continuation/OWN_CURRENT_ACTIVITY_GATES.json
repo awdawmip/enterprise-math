@@ -1,0 +1,76 @@
+{
+  "actor": "EM-PARITYREV-12B648",
+  "activity_id": "RA-EB0794CB61621CB6E90B4730",
+  "stable_local_key": "codex-subagent-parity-partial-reviewer-20261015",
+  "current_Source": "f54e0a077a9a14af5aa78fbd2638cf561e1bd13a",
+  "RA_bytes": 9678,
+  "RA_sha256": "65de959c30103222830334839190f658fe7096a3aa60eebac4af3bcc9df64275",
+  "startup_gate": {
+    "activity_id": "RA-EB0794CB61621CB6E90B4730",
+    "boundary": "startup",
+    "authority": {
+      "task_registration": false,
+      "claim": false,
+      "review": false,
+      "working_truth": false,
+      "mathematical_acceptance": false
+    },
+    "activity_allowed": true,
+    "persistence_allowed": true,
+    "registration_visibility": "IMMUTABLE_EM_RECORD_OBSERVED",
+    "required_action": "CONTINUE_ACTIVITY",
+    "register_command": "python tools/research_activity.py register --session-id <session> --researcher-id <resolved-id> --mode <TASK_RESEARCH|FREE_AXIOM_DISCOVERY>",
+    "mode": "TASK_RESEARCH",
+    "record_path": "research_activity_records/RA-EB0794CB61621CB6E90B4730.json",
+    "record_sha256": "65de959c30103222830334839190f658fe7096a3aa60eebac4af3bcc9df64275",
+    "source_links": [
+      "https://github.com/awdawmip/enterprise-math/blob/cd56ae413a5bde423966d0b2ffa54743cc6e2939/research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/PARITY_PARTIAL_NONBLIND_INDEPENDENT_REVIEW.md",
+      "https://github.com/awdawmip/enterprise-math/blob/cd56ae413a5bde423966d0b2ffa54743cc6e2939/research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/REVIEWED_PARTIAL_SCOPE_INTERFACE.json",
+      "https://github.com/awdawmip/enterprise-math/blob/cd56ae413a5bde423966d0b2ffa54743cc6e2939/research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/verify_fixed_m15_certificate.py",
+      "https://github.com/awdawmip/enterprise-math/blob/cd56ae413a5bde423966d0b2ffa54743cc6e2939/research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/FIXED_M15_CERTIFICATE_INDEPENDENT_VERIFICATION.json",
+      "https://github.com/awdawmip/enterprise-math/blob/cd56ae413a5bde423966d0b2ffa54743cc6e2939/research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/REVIEW_EVIDENCE_MANIFEST.json",
+      "https://github.com/awdawmip/enterprise-math/blob/179453a01d2ad703321133572890d290a4b9068f/driver_reviews/mcp/MCP-10b3bf1d95f645ce8c0e419e458a2e49/0af983e7f23f04ecd0af/PUBLIC129_INDEPENDENT_BOUNDED_REVIEW_CAPSULE.json"
+    ],
+    "sync_debt_events": [],
+    "registration_source": "https://github.com/awdawmip/enterprise-math/blob/f54e0a077a9a14af5aa78fbd2638cf561e1bd13a/research_activity_records/RA-EB0794CB61621CB6E90B4730.json",
+    "canonical_owner_visibility": "VERIFY_CANONICAL_INTAKE_IF_PUBLISHED_ONLY_ON_A_BRANCH",
+    "authorized": false,
+    "authorization_authority": "ACTIVITY_BOOKKEEPING_ONLY_NO_TASK_AUTHORITY"
+  },
+  "existing_event_persistence_gate": {
+    "activity_id": "RA-EB0794CB61621CB6E90B4730",
+    "boundary": "pre-final",
+    "authority": {
+      "task_registration": false,
+      "claim": false,
+      "review": false,
+      "working_truth": false,
+      "mathematical_acceptance": false
+    },
+    "activity_allowed": true,
+    "persistence_allowed": true,
+    "registration_visibility": "IMMUTABLE_EM_RECORD_OBSERVED",
+    "required_action": "CONTINUE_ACTIVITY",
+    "register_command": "python tools/research_activity.py register --session-id <session> --researcher-id <resolved-id> --mode <TASK_RESEARCH|FREE_AXIOM_DISCOVERY>",
+    "mode": "TASK_RESEARCH",
+    "record_path": "research_activity_records/RA-EB0794CB61621CB6E90B4730.json",
+    "record_sha256": "65de959c30103222830334839190f658fe7096a3aa60eebac4af3bcc9df64275",
+    "source_links": [
+      "https://github.com/awdawmip/enterprise-math/blob/cd56ae413a5bde423966d0b2ffa54743cc6e2939/research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/PARITY_PARTIAL_NONBLIND_INDEPENDENT_REVIEW.md",
+      "https://github.com/awdawmip/enterprise-math/blob/cd56ae413a5bde423966d0b2ffa54743cc6e2939/research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/REVIEWED_PARTIAL_SCOPE_INTERFACE.json",
+      "https://github.com/awdawmip/enterprise-math/blob/cd56ae413a5bde423966d0b2ffa54743cc6e2939/research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/verify_fixed_m15_certificate.py",
+      "https://github.com/awdawmip/enterprise-math/blob/cd56ae413a5bde423966d0b2ffa54743cc6e2939/research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/FIXED_M15_CERTIFICATE_INDEPENDENT_VERIFICATION.json",
+      "https://github.com/awdawmip/enterprise-math/blob/cd56ae413a5bde423966d0b2ffa54743cc6e2939/research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/REVIEW_EVIDENCE_MANIFEST.json",
+      "https://github.com/awdawmip/enterprise-math/blob/179453a01d2ad703321133572890d290a4b9068f/driver_reviews/mcp/MCP-10b3bf1d95f645ce8c0e419e458a2e49/0af983e7f23f04ecd0af/PUBLIC129_INDEPENDENT_BOUNDED_REVIEW_CAPSULE.json"
+    ],
+    "sync_debt_events": [],
+    "registration_source": "https://github.com/awdawmip/enterprise-math/blob/f54e0a077a9a14af5aa78fbd2638cf561e1bd13a/research_activity_records/RA-EB0794CB61621CB6E90B4730.json",
+    "canonical_owner_visibility": "VERIFY_CANONICAL_INTAKE_IF_PUBLISHED_ONLY_ON_A_BRANCH"
+  },
+  "same_actual_context": true,
+  "all_prior_history_and_unsynced_T6_P11_planning_contributions_preserved": true,
+  "new_contribution_role": "AUTHOR_SIDE_PURE_PAPER_PARITY_CONTINUATION_NOT_INDEPENDENT_REVIEW_OF_NEW_RESULT",
+  "native_session_claim_or_run_borrowed": false,
+  "scientific_body_read_before_gate": false,
+  "authority": "DIRECT_ACTIVITY_BOOKKEEPING_ONLY; NO_TASK_EXECUTION_AUTHORIZATION; PURE_PAPER_AND_REVIEWABLE_FORMULAS"
+}

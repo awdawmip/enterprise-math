@@ -1,0 +1,45 @@
+{
+  "schema": "PARITY_EFFECTIVE_LARGE_S_TAIL_SCOPE_AND_REVIEW_V1",
+  "author": "EM-PARITYREV-12B648",
+  "activity": "RA-EB0794CB61621CB6E90B4730",
+  "scientific_status": "AUTHOR_PAPER_THEOREM_WITH_COMPLETE_PROOF_PENDING_GENUINE_NONAUTHOR_REVIEW",
+  "Task": "RS-PERFECT-PRIME-AP-HCM0-EXTREME-BRANCH-PARITY-DOMINATION",
+  "publication": "TP2-4F8D04C54528CFF5E1B2",
+  "scope": {
+    "m": "every integer m>=2",
+    "original_gap_parameters": "a=c=1",
+    "S": "every real S>=S_m>=0",
+    "r": "m(S+1)>=R_m>=m",
+    "s": "r+m",
+    "full_trace": true
+  },
+  "claims": {
+    "fixed_m_limit": "lim_(S→∞)(S+1)(tr(B^{-1}A)-(m-1))=m²-1",
+    "tail": "tr(B^{-1}A)>(m-1) for every r>=R_m",
+    "effective_threshold": "N_m,D_m,K_m from manuscript(3.1),(5.1)-(5.4); a_m=|K_m|m(m²-1), B_m=sum_(j=2)^(m³-m-1)|[epsilon^j]N_m|, R_m=max(m,2B_m/a_m), S_m=R_m/m-1",
+    "strict_lower_bound": "Gap>=a_m/[2r D_m(1/r)]>0",
+    "complete_residue_consequence": "Frozen full finite difference, its integral and complete signed residue sum positive on the same tail"
+  },
+  "remaining_gap": "For each m, remaining possible equal-block obstruction lies in 0<=S<S_m; no uniform compact-strip sign across m, no unequal-gap theorem or all-HCM0 conclusion. Threshold not optimized or numerically evaluated.",
+  "new_contribution": "Confluent analytic normalization/nondegenerate exact determinant, synchronized complete-trace derivative with moving frame retained, explicit positive-denominator coefficient-norm tail. No new shared tool or novelty claim.",
+  "review_checks": [
+    "Verify beta factor n!/m and common epsilon^(2m-1) scaling in(2.2).",
+    "Verify actual epsilon>0 basis change and distinction of auxiliary v from original c=1; analytic limit not claimed a physical invertible change at0.",
+    "Check kappa_m, sigma_t factor n!, exact determinant(3.4), and nonzero K_m for all m>=2.",
+    "Check Tg2m=g_m and both U transposes; frame first-order traces vanish by nilpotent D without a positive-definite assumption.",
+    "Check Jacobi derivative gives +m(m²-1), with no real log of a negative determinant.",
+    "Check polynomial divisibility by epsilon^n in M, adjugate formula, all-positive denominator factors and coefficient/degree bound including n=1.",
+    "Check norm-threshold estimate uses epsilon<=1/m<=1, and exact real-S original domain.",
+    "Check source reuse/no-repeat and pending author-side contribution/persistence are not presented as independent Native acceptance."
+  ],
+  "actual_computation": "No scientific program/checker/census/point or old fixture run; pure paper. SHA/blob and canonical activity metadata only.",
+  "authority": {
+    "Task_execution_authorized": false,
+    "Native_run_claim_borrowed": false,
+    "new_Task_or_Native_vote": false,
+    "Task_DONE_or_parent_closure": false,
+    "Source_publication": "NOT_YET_PERFORMED",
+    "own_new_semantic_RA_checkpoint": "NOT_YET_PERFORMED"
+  },
+  "independence": "Same prior actor/history; now author-side construction. Exclude this actor and any new proof repairer from independent decisive review of this tail result; original inputs retain actual authors."
+}
