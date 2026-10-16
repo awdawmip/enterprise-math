@@ -1,0 +1,289 @@
+{
+  "schema": "P11_DERIVED_COMPLETE_DYADIC_INPUT_PARTITION_INTERFACE_V3",
+  "utc": "2026-10-16T07:04:06.835092+00:00",
+  "author": "EM-DVR-F73673",
+  "class": "LOCAL_EXTRACTION_ONLY_NO_NEW_DISCOVERY_NO_TOOL_REGISTRATION_NO_PROGRAM",
+  "hypotheses": [
+    "P,Q distinct positive coprime integers",
+    "monic smooth splitcubic E:y²=x(x-P²)(x-Q²)",
+    "fixedorderedroots(0,P²,Q²)",
+    "ordinary delta=(x,x-P²,x-Q²); declared rootdifferencezero convention; O=(1,1,1)"
+  ],
+  "carrier": {
+    "external_type": "(Q2*/Q2*²)^2; thirdcoordinate=c=a*b",
+    "basis_each_coordinate": [
+      "-1",
+      "2",
+      "5"
+    ],
+    "bit_order": [
+      "a_minus1",
+      "a_2",
+      "a_5",
+      "b_minus1",
+      "b_2",
+      "b_5"
+    ],
+    "constraints": "Every listed row has F2 dotproduct zero with actualKummer pairbits; local matrices are declarativeproofextracts, not executioncode."
+  },
+  "branches": [
+    {
+      "when": "P,Q odd and v2(P²-Q²)=3",
+      "proof": "odd_v3",
+      "rows": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "image": "a=1,b arbitrary"
+    },
+    {
+      "when": "P,Q odd and v2(P²-Q²)=4",
+      "proof": "odd_v4",
+      "rows": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      ],
+      "image": "a in<5>, b oddunitclass"
+    },
+    {
+      "when": "P,Q odd and v2(P²-Q²)>=5",
+      "proof": "odd_vge5",
+      "rows": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "image": "a=1,b arbitrary"
+    },
+    {
+      "when": "oppositeparity and v2(evenparameter)=1",
+      "proof": "opposite_parity",
+      "rows": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ]
+      ],
+      "image": "a in<5>,b oddunitclass; invariant underexplicitsecond/thirdswap"
+    },
+    {
+      "when": "P odd,Q even and v2(Q)>=2",
+      "proof": "opposite_parity",
+      "rows": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "image": "a in<2,5>, b in<-1>"
+    },
+    {
+      "when": "P even,Q odd and v2(P)>=2",
+      "proof": "opposite_parity",
+      "rows": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ]
+      ],
+      "image": "a in<2,5>, c=a*b in<-1>; fixedorderretained"
+    }
+  ],
+  "proofs": {
+    "odd_vge5": {
+      "author_Source": "270c9c6470db2cb14885f82d1021754f2bf19b23",
+      "author_sha256": "13e6d431795353340280c2f9b14c148e117139c85bbd797bf73336e891d453c6",
+      "peer_Source": "62f0b3231bcef6d33b1cf7c4173e395284376dcb",
+      "status": "PAPER_PASS_ACTUAL_SOURCE_BOUND"
+    },
+    "odd_v4": {
+      "author_Source": "fe6eb52b197ab7c3f1791fcf9e4a75decc16bc78",
+      "author_sha256": "7bef7c3940ba9b2aeb63d1663bf0976c67bca1d4032e150e5ae042d949ba9934",
+      "peer_Source": "097da07c581d51f7ca24ba140051e0453b1ab9b3",
+      "status": "PAPER_PASS_ACTUAL_SOURCE_BOUND"
+    },
+    "odd_v3": {
+      "author_Source": "b7bb20c493e84b22e6423207762390f89e6a4012",
+      "author_sha256": "366e95611c4042f26b22442d164ff31c472e38e6614715c58d84ee5efb0b29b0",
+      "peer_Source": "66b4df3d9c91961668285277df8ea5f8e91fadb6",
+      "peer_sha256": "eea34fa5f7184b78e68aef2071b93bba01c259994556b1a3e9c33cafde1f6e32",
+      "status": "PAPER_PASS_ACTUAL_AUTHOR_AND_PEER_SOURCE_BOUND"
+    },
+    "opposite_parity": {
+      "author_Source": "563e865535a2142fe89a5db1552b081cd4bad844",
+      "author_sha256": "c883b330ebbe5847bff0b810c1219ff58b3ffd34bc981c7ed8f98b8d0b938894",
+      "uniform_witness_appendix_sha256": "02649194d10f78bc799bda63d1bf641474fc162ca771f1ac862ffa003f2ddb2d",
+      "peer_Source": "66b4df3d9c91961668285277df8ea5f8e91fadb6",
+      "peer_verdict": "PAPER_PASS_ONE_UNIT_TWO_PROOFS_ZERO_MUSTFIX",
+      "reviewer": "EM-PUBLIC-7CDA51",
+      "status": "PAPER_PASS_ACTUAL_AUTHOR_AND_PEER_SOURCE_BOUND",
+      "peer_sha256": "b99f0899fd954c5446589ac8aa0ad032595ae6e0acc112b70bb8951c95195a3a"
+    }
+  },
+  "complete_input_partition": "All declaredcoprimepositiveintegerparities arecoveredbyoneclassicalsplitcubicmethodfamily, withnewoppositeunitcontaintment+uniformwitnessproofs countedonce. Allnewauthor/peerSourcefullbytesverified. No global Selmer rank orNativeTool authority is inferred.",
+  "primary": "Stoll2001 Lemmas4.1/4.3/4.4; fullKummerkernel/index8, actualPDF SHAb4854a404601da748a687c64a3d72a36033590a4ba911b7021db53340c5aa9d1",
+  "scope_limits": [
+    "No global Selmer rank or pairing computed",
+    "All other local places and certifiedcompleteS support stillmandatory forglobalconsumer",
+    "All new externalbranches outsideprimitiveP11",
+    "No activecore98Taskinput,actorclock,budget orscientificauthoritychange",
+    "Old233STOP and5acceptedTasksunchanged",
+    "No Nativevote/sharedTool/WorkingTruth/parentclosure"
+  ],
+  "actual_scientific_programs": 0,
+  "execution_authority": false,
+  "status": "DECLARATIVE_SOURCE_BOUND_FRONTIER_EXTRACTION_ONLY;NO_NATIVE_TOOL_REGISTRATION_OR_EXECUTION_PERMISSION",
+  "parent": "OPEN",
+  "predecessor": {
+    "path": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/p11_direction_driver/parameter_extraction/P11_COMPLETE_DYADIC_METHOD_FAMILY_LOCAL_FRONTIER_INTERFACE_V2.json",
+    "bytes": 6520,
+    "sha256": "1d2ae6bd74b442fb1b0415fde162218912b0269eb5cd5421ec13bc2f6b2564bf",
+    "git_blob_sha1": "818062162944a94606631e0ddb4c42d112fb6a54"
+  },
+  "actual_byte_gate": {
+    "path": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/p11_direction_driver/parameter_extraction/THREE_SCOPES_TWELVE_PEER_SOURCE_FILES_OWN_COMPLETE_GATE.json",
+    "bytes": 5336,
+    "sha256": "a7c026d59abd95365cc7faf6a61f22c1506bcab28c03bae6725d2f56ac2d1162",
+    "git_blob_sha1": "50e49cc7d7a3fb3612a06e682d2a8cb8898e05bf"
+  },
+  "same_method_grouped_mixedbit_transport": {
+    "author_Source": "d9ae29bb64577cd0be0cbe60fd7f32942a0ab8fc",
+    "peer_Source": "66b4df3d9c91961668285277df8ea5f8e91fadb6",
+    "peer_sha256": "ae6675031cf2184507cb6d294aca0a8306d9656825a06238fe6608436706569c",
+    "status": "PAPER_PASS_ACTUAL_AUTHOR_AND_PEER_SOURCE_BOUND",
+    "reused_primary": "FisherHigherDescents Section3T3.1(i),(ii), actualPDF784c3ccf22bfe312f25237603ea8deb35565aac1018c9bb96ed1f9f4e4f2a129",
+    "conditional_facts": [
+      "Full ncover->E hasdegree n²; model/projectiondegrees separate",
+      "For x inSha(E)[4],y inSha(E)[2], SAME actuald-degreeisogenyonbothentries givesd*CTvalue; oddpreserves/evenzero",
+      "A realdual lift yprime withphihat yprime=y givesoriginalscalar; merelyisogenouscurves donotsupplythislift",
+      "WithK=kerphihat onSha, o=2yprime+2K inK/2K iswell-definedandzeroiffa2-killeddualliftexists"
+    ],
+    "actual_maps_lift_bit_rank": "UNKNOWN_NO_OUTPUT",
+    "class": "OneboundedstandardderivedRESULT_ONLYinterface_notnewalgorithm_orTool"
+  }
+}
