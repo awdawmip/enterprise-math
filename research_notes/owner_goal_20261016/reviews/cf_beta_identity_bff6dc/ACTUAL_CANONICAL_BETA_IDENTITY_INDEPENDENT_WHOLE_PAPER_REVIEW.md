@@ -1,0 +1,94 @@
+# Independent whole-paper review of the actual canonical beta identity
+
+Reviewer: EM-DVR-BFF6DC, genuine existing Driver SID MCP-47562f9f432d4978a7bea0dd60ecc4aa and DA-144D0C4639CACEEE75DC. This is an ordinary directed paper review, not a Native review record, Task authorization, or Working Truth/Foundation vote.
+
+**Disposition: PAPER_PASS_DERIVED_RESULT_ONLY_COMPOSE_APPLIED, zero mathematical must-fix items and zero supplied repairs.** The new frozen whole correctly identifies the original canonical good-infinity unit entry with the finite-character-sum trace's unique p-adic unit root, and correctly states its theoretical precision and coefficient extension. The verdict is confined to this actual-object identity bridge. It does not independently re-review my earlier infinity construction.
+
+## 1. Exact reviewed whole and real independence
+
+The author is EM-FREE-CF1677. The primary ACTUAL_CANONICAL_GOOD_BETA_TRACE_UNIT_ROOT_AUTHOR.md is 9634 UTF-8 bytes, SHA256 0a16c4285b183e2aa0845947b49c19de150eead5f2763b096fdecf0bc723d809, Git blob668000039e9ba64a7933e74155eeaf3aaee6a655. Its typed interface is2302 bytes and context13984 bytes: the complete frozen whole is25920 bytes.
+
+I personally read all three complete frozen manuscripts. Subsequently I personally fetched all three complete bodies at actual immutable Source e5d179ec952505e79109354adecb3bc361983ae8 and checked UTF-8 bytes, lengths, SHA256, Git blobs and immutable URLs against my actually read frozen snapshots. My own commit and compare calls also verify exact three additions, one commit and sole parent85637e273302d5b5e61644411cc6242c0cdf44b2. The companion context gives the actual binding, not a copied author observation. Historical RAW/UNREVIEWED/Source-pending labels remain the original frozen text.
+
+My independence is specific, not clean-room. I was a real coauthor of the earlier six-boundary whole and supplied its corrected CM-character/Hodge-column argument yielding the fixed-basis structure M0=diag(p/beta,beta), beta a unit. That established theorem is an exposed input here, not a new theorem certified by this review. I had no construction, derivation or repair contribution to this new trace, pi-quadratic, Zp-linear realization, sigma-extension, character-sum, unique-unit-root or precision bridge, and had not seen its working proof before the author's freeze. I supplied no proof repair during review. All earlier CM24/LC/P11/Parity/CONTROL and author/reviewer exposures remain NONBLIND.
+
+CF's prior genuine review of the old six-boundary whole is historical; it cannot review this new CF-authored bridge. My prior author self-checks or other actors' peer verdicts do not decide the new claim. Root supplies routing and CONTROL, not a mathematical second vote.
+
+Fresh own SID, current DA, its single-record directory, complete unedited OWNER comment and current AGENTS were read at Source fe4bb3b64756869fe16278ff35bb93aec220ebb1. The entire OWNER object equals my original actual record. These identify the same real Driver; they do not grant a Native mathematical-acceptance operation. No new RA, SID, formal Task, claim or execution was created.
+
+## 2. Actual same-object and classical interfaces
+
+The proof's target is the undivided canonical cohomological matrix on H1_crys(E0/Zp), E0:Y²=X³+64, in the retained corrected proper basis. Its second-kind class includes the overlap primitive -Y/X. This is not the period inverse transpose, an arbitrary horizontal solution, a different elliptic twist, or a newly chosen eigenbasis.
+
+I reused my personally verified old full Source contents for joint5530 and six-boundary0464. I reread joint5530 Sections5-7 for the exact new dependency. Section5 identifies M_infinity(0) with the actual crystalline pullback of the special-fibre p-power Frobenius on this literal E0. Section7 expressly supplies naturality for arbitrary special-fibre pointed maps, degree-one product/Kunneth identification, addition pullback and [n]^*=nI for every integer n, including p-divisible n. It does not assume that these maps have global lifts to the chosen smooth model. This is precisely what is needed to transport the endomorphism relation. No crystalline trace comparison theorem on another realization is silently inserted.
+
+I independently checked the locally supplied Milne Elliptic Curves, Second Edition PDF's complete binary length1774378 and SHA256646c0c4f193cdaa35f32c7d60fbd46a75e2f5187db4301810e8613726e3ebbee. I extracted, independently rendered and visually inspected PDF pages75 and155, printed pages70 and150. Printed70 really states CorollaryII6.2: an elliptic endomorphism alpha satisfies alpha²-s alpha+[t]=0, with s,t integers, t=degree(alpha), and characteristic polynomial determined by degree([n]-alpha). Printed150 really identifies degree(pi)=p and degree(1-pi)=#E(Fp), hence s=p+1-#E(Fp). I read the selected proofs, not the whole book. The Hasse inequality on that page is not used. Binary custody is not whole-PDF reading; the local PDF was supplied by the author, not independently downloaded by me. No raw third-party PDF or image is part of the proposed review Source package.
+
+These exact statements give, in End(E0),
+
+    pi²-[a_p] pi+[p]=0, a_p=p+1-#E0(Fp).
+
+The allowable primes exclude2,3, so E0 is a smooth proper elliptic curve and the imported theorem applies. All these are classical reused results, not a claim of a new general CM mechanism.
+
+## 3. Contravariance and the actual Zp-linear polynomial
+
+Over W(Fp)=Zp the coefficient Frobenius is the identity. Thus the actual canonical pi pullback on this descent is Zp-linear, with precisely the matrix M0 from the old actual-good comparison. This descent precedes the arbitrary unramified O extension.
+
+A contravariant functor reverses composition, but (pi composed with itself)^*=(pi^*)². Pointed-map additivity applies also to the subtraction in the endomorphism relation. Integer multiplication acts as a scalar, so reversing its order with pi changes nothing. The zero pointed endomorphism has zero pullback on degree-one cohomology: it factors through the point. Therefore applying the same actual crystalline functor yields
+
+    M0²-a_p M0+pI=0
+
+over Zp. In particular [p]^*=pI is not replaced by zero because the source curve is in characteristic p; the integral crystalline coefficient module has characteristic zero, and the old exact input covers p-divisible integers. No p-cancellation in a torsion quotient, reciprocal arithmetic-Galois convention, or mere formal characteristic polynomial of an unrelated matrix is used.
+
+I checked that this is the actual-object bridge promised in the primary, rather than an omitted conjectural identification. My old fixed-basis structural theorem is then consumed only as M0=diag(p/beta,beta), with beta in Zp*. This new review does not supply another vote on that older proof.
+
+## 4. Character count, trace and identification of the named entry
+
+For each x in Fp the equation y²=x³+64 has exactly1+chi_p(x³+64) solutions, also when its right side is zero. There is one rational point at infinity. Thus
+
+    #E0(Fp)=p+1+sum_x chi_p(x³+64),
+    a_p=tau_p=-sum_x chi_p(x³+64).
+
+The minus sign, the zero-character convention and the single proper point at infinity all match the stated literal curve. This is a finite identity; neither the author nor I enumerated it for any p.
+
+The second diagonal equation of the actual matrix polynomial gives beta²-tau_p beta+p=0. Since beta is already known to be a unit, dividing by beta gives tau_p=beta+p/beta, which equals the actual trace of M0. Reducing modulo p gives tau_p congruent to beta, so tau_p itself is a unit. This logical order is sound: the proof does not assume an unproved trace convention or a point-count ordinarity test in order to obtain its unit.
+
+The polynomial now factors as (T-beta)(T-p/beta). The valuations of these two roots are0 and1. Consequently beta is the unique Zp-unit root, and the old original entry M0_22 is selected, not just an unordered eigenvalue pair. The corresponding period entry is beta^(-1), which the proof correctly keeps separate.
+
+The finite sum specifies an exact integer trace, but this is not a numerical evaluation at a specified prime. No sign of a CM representation, Jacobi sum, embedding choice or twist substitution is needed. Global historical priority or absence of another repository identity is not established by this proof.
+
+## 5. The recurrence and its exact precision
+
+Because tau_p is a unit, D=tau_p+pZp is a complete closed disc of units. The map T(u)=tau_p-p/u preserves it. For u,v in D its difference is
+
+    T(u)-T(v)=p(u-v)/(uv).
+
+The denominator is a unit, so valuations of nonzero differences increase by exactly one. The contraction argument is therefore applicable. Every unit polynomial root is congruent to tau_p and is a fixed point in this disc, so the limit of u0=tau_p is the actual beta already identified above.
+
+The initial error is u0-beta=p/beta and has valuation1. Subtracting the fixed-point identity gives
+
+    u_(n+1)-beta=p(u_n-beta)/(u_n beta).
+
+Both factors in the denominator remain units. Induction yields exactly v_p(beta-u_n)=n+1 for every n>=0; it is not merely a lower precision bound. No finite error becomes zero because its initial value is nonzero and the recursion multiplies it by a nonzero p-adic factor. The statements are theoretical identities and precision specifications, not an executed algorithm, complexity certificate, resource allowance or remote consumer.
+
+## 6. Coefficient extension and row variance
+
+On V0 tensor_Zp O the linear extension pi^* tensor1 satisfies the ordinary polynomial above. The actual absolute crystalline map is instead M0 sigma. Its square has coefficient action sigma², whereas its first power has sigma; these cannot generally be combined into the same ordinary polynomial on arbitrary O coefficients. Section5 of the primary explicitly rejects that incorrect extension. The entries beta and tau_p descend to Zp and are sigma-fixed, which does not make sigma the identity on the whole coefficient module.
+
+The original six-boundary row-oneform map consequently retains
+
+    Q1 -> (p²/beta) sigma(Q1),
+    Q2 -> p beta sigma(Q2).
+
+The extra oneform residue factor p is not lost, moved into beta, or confused with the crystalline eigenvalues. The four finite coordinates, old normal-form completeness and my old infinity structural proof remain previously established inputs, not repeated new results.
+
+## 7. Coverage, limits and disposition
+
+The inspected old inputs explicitly left this trace/unit-root identity outside their result. The author honestly records bounded empty code-search results as unknown global coverage, not a proof of no prior result. I did not run a new catalog-wide search. If an exact same-carrier Source is later located, this specific assembly becomes REUSE closure; nothing here establishes global novelty. Endomorphism theory, quadratic-character counting and unit-root lifting are standard REUSE/COMPOSE ingredients. The bounded contribution is their correct connection to the specified actual matrix, second entry, coefficient type and variance.
+
+The primary, typed interface and context are consistent about this scope. I found no mathematical must-fix item and supplied no repair. The old author three-member freeze remains unchanged. This is a decisive ordinary whole-paper disposition on the new identity bridge, not a formal Native vote or a new general-purpose Tool.
+
+Zero scientific programs, imports, AST/compile checks, numerical point counts, samples, solvers, coefficient computations or tests ran. Only exact text/JSON, Source fetch, hashes, PDF rendering and identity bookkeeping were used. Full binary/storage sizes are raw custody facts, not formal product-cost measurements or budget PASS. No stopped M7/Core98 action, new Task, actor, claim, execution or cost reset occurred.
+
+Numerical beta, point-count execution, Jacobi formulas, full rank-four Frobenius/geometric source, strong completion, arbitrary gauges, weak-primitive uniqueness, original functional/evaluation and the mother Goal remain outside the verdict. The parent remains OPEN. This ordinary review is handed back by MESSAGE only, not FINAL.
+
