@@ -1,0 +1,48 @@
+{
+  "schema": "LC_D_LOG_NODE_UNIT_OBSTRUCTION_TYPED_RESULT_ONLY_V1",
+  "status": "UNREVIEWED_AUTHOR_LEMMAS",
+  "main_result": {
+    "input": [
+      "p=13,n=2",
+      "the actual saved family over R_n[[t]], no rescaling of fixed theta(t)=t^p",
+      "coefficient Frobenius=id",
+      "completed node Rcal_n in paper(4)",
+      "the exact prior corrected central lift over whole R_n, not just modp",
+      "a representative with F(U)=aU^p,F(V)=bV^p, a,b units, F(t)=t^p"
+    ],
+    "output": "No such representative extends this specified central lift.",
+    "proof_chain": [
+      "Exact central branch parameters U=w on plus, V=w^-1 on minus",
+      "Actual UV=tK with K0=-1/6",
+      "t non-zero-divisor by formal unit-coordinate recursion",
+      "Any representative forces a0*b0=K0^(1-p)=6^(p-1)",
+      "The fixed central lift forces a0=b0=1",
+      "6^12=144 mod169, contradiction"
+    ],
+    "all_level_scope": "For the same p13 and exact prior compatible central lift, n>=2 extensions reduce to the impossible n2 case. No all-prime failure claim."
+  },
+  "lemmas": [
+    {
+      "input": "saved family and all split p,n",
+      "output": "Explicit H(X),U,V give UV=tK with K0=-1/6 and exactly the prior central branch parameters."
+    },
+    {
+      "input": "any map with the explicitly stated unit/monoid/base conditions",
+      "output": "The node leading-unit product must equal K0^(1-p); this condition transforms covariantly under node-coordinate rescalings."
+    }
+  ],
+  "failure_domain": [
+    "Dropping exact central specialization over R_n destroys a0=b0=1; no claim against all alternative lifts.",
+    "No global log-geometrically strict map is assumed: monoid multiplication p is not an isomorphism.",
+    "Intrinsic crystalline Frobenius can use embedding systems/local homotopies; no map(7) is required for every realization.",
+    "No derived specialization/normalization arrow is built."
+  ],
+  "still_unknown": [
+    "actual relative/log-crystalline comparison map",
+    "LC A-C/wholeD",
+    "actual geometric sign/c/extensions",
+    "source functional/parent closure"
+  ],
+  "method": "Paper-only formal coordinates and exact ring-unit calculation. No program/test/prime scan/new checker.",
+  "review_required": "Genuine nonauthor exact new proof/quantifier/unit/base/log-convention review. Prior PAPER_PASS does not propagate."
+}

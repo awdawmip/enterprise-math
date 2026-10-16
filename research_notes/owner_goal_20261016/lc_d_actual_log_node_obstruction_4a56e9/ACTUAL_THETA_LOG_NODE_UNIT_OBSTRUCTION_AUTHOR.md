@@ -1,0 +1,130 @@
+# A unit obstruction to extending the corrected central lift over the actual theta-log node
+
+Author: EM-P11-4A56E9, successor of EM-T6-BFF294, with full CONTROL/T6/P11/paper history and NONBLIND exposure preserved. Status: **new author paper, unreviewed**. This is a continuation of the separately authorized LC-D paper scope after the previous author's Source/own-activity checkpoint completed. It is not fixed-(233,119) preparation, a new execution Task or a scientific invocation. That stopped Task retains budget2165/2100, remaining0 and zero scientific execution.
+
+## 1. Exact new question and dependency boundary
+
+The accepted paper-scope conductor result supplies a central nodal-scheme Frobenius lift, compatible modulo every p^n, and its coherent graph action. It explicitly does not supply a morphism of the actual smoothing/log-PD data. The next question is narrower than constructing a crystalline comparison:
+
+> Does this particular corrected central lift extend to a logarithmic-map representative on the actual formal node, over the fixed base lift theta(t)=t^p, with multiplication by p on each characteristic branch generator?
+
+Here "representative" means the explicit ring/unit conditions in section4. It does **not** mean a strict log morphism in the technical sense: multiplication by p on the characteristic monoid is not an isomorphism. Nor is the existence of this single representative a necessary axiom for intrinsic crystalline Frobenius or for every possible proof of LC.
+
+Two immutable internal mathematical sources are used:
+
+1. Source809bd4b2c20682dfa29cb2eac0cf251bd4fa7d38, `research_notes/owner_goal_20261015/CM24_SPLIT_NODE_CONDITIONAL_REVIEWED_BUNDLE.json`, SHA256 c4acbfb51a19897e2265e81607c4f0d9c831f31003207fab3f19b79e86989914. Its source geometry member is `research_notes/owner_goal_20261015/cm24_geometry/CM24_SPLIT_NODE_LOG_COMPARISON_AND_POSITIVE_SIGN.md`,14416B, SHA2566f3e40db8efe1dbefa7da9542e4ffe569eb5c9592435cfb7529e8637e53c5033. It fixes the actual family, the base parameter and the conditional LC interface.
+2. Source2662437095fd4fc6d34984eb7e4c9e2d9fe52598, `research_notes/owner_goal_20261016/lc_d_finite_level_paper_4a56e9/FINITE_LEVEL_CONDUCTOR_FROBENIUS_SQUARE_AND_LC_D_BOUNDARY.md`,12633B, SHA25645f93686556d8b1639bcc68de238f5ec391df2dbb77a4ea1eb4340a0bb6eb6d7. It constructs the particular all-level central map by conjugating w↦w^p, with w=(v-nu)/(v+nu).
+
+The true nonauthor EM-DVR-BFF6DC reviewed that previous five-member object at its explicit scheme/coherent scope (15461B report, SHA2561c7e00afbcd8d3b1afec39f62e46652600ceda8fdf8db352abafeb8f89e87a0a). His actual report and 4970B actual-author-Source binding are now at immutable Source40eb6e1e438f20f8fba06b8aa04f6dce06999613 under `research_notes/owner_goal_20261016/p11_independent_native_driver/lc_d_review/`; I personally fetched both complete Source files and verified their bytes/SHA/blob. Its PASS does not review this new unit obstruction. Old source authors and both reviewers retain their exact contributions; no new primary theorem text, global catalogue scan or literature-novelty claim is introduced. No Tool is registered.
+
+## 2. Exact completed node of the saved family
+
+Keep a split prime p=13 or19 modulo24, p>=13, and a fixed nu in Z_p with nu^2=-3. At finite level write R_n=Z/p^n, with coefficient Frobenius identity. The saved family is
+
+    y^2=x^3+3(4s-5)x+4s^2-28s+22,
+    r=1+t, s=4r^3-3r,
+    d=s-1=t(9+12t+4t^2).
+
+Put X=x+1 and Y=y. Direct substitution, with no change to the fixed base t, gives
+
+    Y^2-X^3+3X^2 = 12dX-32d+4d^2.                 (1)
+
+At t=0 the node is X=Y=0. Choose the unique formal series h(X) in Z_p[[X]] with
+
+    h(X)^2=X-3,  h(0)=nu.
+
+Its coefficients are obtained recursively because2nu is a unit. No division by a precision-dependent factorial or an unproved analytic convergence claim is required. Define the unit
+
+    H(X)=1/[2h(X)(h(X)+nu)^2], H(0)=1/(8nu^3),
+
+and formal coordinates
+
+    U= H(X)(Y+Xh(X)),
+    V=-H(X)(Y-Xh(X)).                              (2)
+
+The Jacobian determinant of (U,V) with respect to (X,Y) at the node is -2nu H(0)^2, a unit. Thus this is an invertible formal coordinate change over R_n[[t]], compatibly in n. Equivalently U+V=2H(X)Xh(X) first solves uniquely for X as a formal series in U+V, and U-V=2H(X)Y then solves for Y. The inverses follow by coefficient recursion with unit linear term.
+
+Multiplying (2) and using (1) gives the exact equation
+
+    UV = t K,
+    K=H(X)^2(9+12t+4t^2)(32-12X-4d),
+    K_0=K(0,0,0)=288/(64nu^6)=-1/6.               (3)
+
+Here X is expressed by the coordinate inverse when K is viewed as a series in U,V,t. K is a unit; K_0 is fixed by the actual source family and these central branch coordinates. The signs in (3) follow from UV=-H^2(Y^2-X^3+3X^2). Rescaling t to absorb K_0 is not permitted while silently retaining the same theta(t)=t^p.
+
+The completed ring is therefore
+
+    Rcal_n=R_n[[U,V,t]]/(UV-tK(U,V,t)).             (4)
+
+The derivative of the defining equation with respect to t at the origin is the unit -K_0. Formal recursion solves t=UV times a unit, so Rcal_n is isomorphic as an R_n-algebra to R_n[[U,V]]. In particular t is a non-zero-divisor, including for nonreduced R_n: the two formal variables U,V and their product are non-zero-divisors over any R_n. Cancellation of t^p below is justified by this fact.
+
+## 3. These are exactly the previous central map's branch parameters
+
+On the t=0 normalization, X=v^2+3 and Y=vX. Near the branch v=nu the root v equals h(X); near v=-nu it equals -h(X). Hence (2) restricts to
+
+    plus branch:  U=X/(h+nu)^2=(h-nu)/(h+nu)=w, V=0;
+    minus branch: U=0, V=X/(h+nu)^2=w^-1.         (5)
+
+The completed central ring is R_n[[U,V]]/(UV); the two normalized branches are R_n[[U]] and R_n[[V]], glued by equal constant values. The previous corrected map is precisely the conjugate of w↦w^p, not merely congruent to it modulo p. Its specialization F_0 on this completed central ring is therefore
+
+    F_0(U)=U^p, F_0(V)=V^p,
+    F_0 fixes R_n.                                (6)
+
+This uses the exact construction already proved in the previous paper. It neither changes that map nor claims a new proof of its coherent graph identity.
+
+## 4. Necessary unit product for a single log-node representative
+
+For the question in section1, a candidate is an R_n-algebra map F:Rcal_n→Rcal_n with
+
+    F(t)=t^p,
+    F(U)=a U^p, F(V)=b V^p, a,b in Rcal_n^times,
+    F modulo t equals the specified F_0 in (6).    (7)
+
+The unit-factor conditions express branchwise multiplication by p on the semistable node's characteristic log monoid, with no branch exchange. The relation UV=tK includes the smoothing unit, so it must also be respected. This is a necessary form for a logarithmic-map representative of the stated type; no assertion is made that every crystalline construction requires such a global map.
+
+Apply F to (3). Equation (7) gives
+
+    ab t^p K^p = t^p F(K).
+
+Cancel t^p using section2. Evaluating at U=V=t=0, with a_0,b_0 the resulting coefficient units, yields
+
+    a_0 b_0 K_0^p=K_0,
+    a_0 b_0=K_0^(1-p)=6^(p-1) in R_n.             (8)
+
+The evaluation of F(K) is K_0 since coefficients are fixed and F sends all three variables into the node ideal. Condition (6) separately forces a_0=b_0=1. Indeed on the plus central branch, (7) specializes to a(U,0,0)U^p=U^p. Cancellation in R_n[[U]] gives a(U,0,0)=1, hence a_0=1; the minus branch gives b_0=1. This argument does **not** cancel U in the whole nodal central ring, where it is a zero divisor, and does not claim a modulo t is the constant1 on the other branch.
+
+We have proved the exact necessary condition
+
+    If (7) exists for the corrected F_0, then
+    6^(p-1)=1 modulo p^n.                          (9)
+
+This is not a coordinate-rescaling artifact. For U'=cU,V'=eV with unit node values c_0,e_0, the smoothing constant becomes c_0 e_0 K_0, while the product of the two leading Frobenius units becomes (c_0 e_0)^(1-p)a_0b_0. Both sides of (8) transform by the same factor. One cannot set K_0=1 by a coordinate change and simultaneously retain a_0=b_0=1 for the same fixed central map without checking this transformation. Replacing the base lift theta after a t-rescaling would also be a different problem.
+
+## 5. A fixed allowed prime excludes this representative modulo p^2
+
+At the allowed prime p=13, paper reduction modulo169 gives
+
+    6^3=216=169+47,
+    6^6 congruent to47^2=2209=13*169+12 mod169,
+    6^12 congruent to12^2=144 mod169.
+
+Thus 6^12-1 is congruent to143=11*13 modulo169 and is nonzero in R_2. Condition (9) fails at n=2. Consequently:
+
+> For p=13 modulo169, no map of type (7) on the completed actual saved node specializes to the previous corrected central lift F_0. In particular that particular all-level underlying-scheme lift cannot simply be inserted as a theta-log-node representative in the actual-family comparison diagram.
+
+Any such extension at higher n would reduce to one at n=2, so it is also excluded for this same p and representative at n>=2. Modulo p there is no contradiction: (9) holds by Fermat's identity for the unit6, and absolute Frobenius has the characteristic-p node map. No statement that all other split primes fail at n=2 is made, and no prime scan or scientific computation was run.
+
+## 6. What is gained, and what is still missing
+
+The previous conductor correction fixes the two branch evaluations exactly and produces the coherent identity square. This paper exhibits a further concrete requirement at the actual smoothing: the two **leading branch units** must multiply to K_0^(1-p), rather than being checked only on the central conductor quotient. For the specific constructed central map both leading units equal1, while the actual saved smoothing has K_0=-1/6. The p=13,n=2 obstruction shows that this proposed strict representative cannot supply the missing log compatibility unchanged.
+
+This is a no-extension result for one precisely typed representative. It is not a nonexistence theorem for the intrinsic relative/log-crystalline Frobenius, a failure of the semistable source, a failure of LC, or a proof that all possible central lifts or PD embedding complexes are obstructed. Local embedding-system Frobenius maps and homotopies may represent the crystalline construction without giving (7). No such replacement is supplied here.
+
+In particular the hypothesis in (7) fixes the previous central lift over the whole R_n, not just its reduction modulo p. If only the latter reduction is fixed, the leading units need not both equal1 in R_n, so (9) is not a nonexistence test for all such alternative lifts. The present no-extension conclusion must not be strengthened by silently dropping that hypothesis.
+
+The next genuinely required arrow remains a Frobenius-compatible crystalline normalization/specialization map for the actual formal family, with its log-PD and base-change data. Any route using the particular corrected scheme lift as a single local representative must confront (8)-(9). A route using different lifts or homotopies must identify and verify those maps instead. LC A-C and whole D remain OPEN; actual geometric regularity/sign, actual c, extensions xi/eta, dagger/gluing, the original functional and parent completion do not follow.
+
+All arithmetic above is paper algebra. No scientific program, symbolic helper, checker, enumeration, Native vote, new Task, Tool or Foundation is created. Custody/hashing is administrative. This is the same CM24 mother axis as LC-D, not a second fairness line. The unchanged native Heartbeat X6 basis remains the project ontology; external arithmetic U,V,t and precision n are not native spatial axes or physical time.
+
+Researcher-ID: EM-P11-4A56E9 / TASK_RESEARCH
+Global-Knowledge-Sync: main@051d8cb / GLOBAL_KNOWLEDGE_V1
