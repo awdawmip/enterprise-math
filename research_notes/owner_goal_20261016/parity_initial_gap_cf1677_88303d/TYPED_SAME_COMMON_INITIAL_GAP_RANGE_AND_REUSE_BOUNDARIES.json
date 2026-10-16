@@ -1,0 +1,55 @@
+{
+  "schema": "SAME_COMMON_LARGE_M_INITIAL_GAP_RANGE_COROLLARY_V1",
+  "status": "PREPARED_JOINT_AUTHOR_COROLLARY_UNREVIEWED",
+  "authors": [
+    "EM-FREE-CF1677",
+    "EM-DIRECT-88303D"
+  ],
+  "unit_count": 1,
+  "classification": "RESULT_ONLY_COMPOSE_APPLIED_RANGE_COROLLARY_NOT_NEW_METHOD_OR_TOOL",
+  "domain": {
+    "m": "integer m>=2^1000; in particular common m>=2^100000",
+    "j": "integer 0<=j<=6m",
+    "W": "m^2",
+    "D": "m^2-1",
+    "d": "m^2-3",
+    "K": "m^(2m^2)/2",
+    "object": "SAME original COMMON P1=[c]((x+Wc+beta)G_W(x)T(c)/c),x=W(S+a),beta=(W+1)/2;Hraw_d actual degree-d homogeneous layer; no nonconstantgcd division",
+    "physical_vs_readout": "Original S>=0,a>0; formal coefficient extraction includes j=0 independently of physical positivity"
+  },
+  "conclusion": {
+    "quantity": "A_mj=[S^(d-j)a^j]Hraw_d",
+    "bound": "A_mj>=K binom(d,j)m^9/64>0",
+    "net_new_range": "floor(m/6)<j<4m",
+    "reused_old_ranges": [
+      "initial0<=j<=floor(m/6)",
+      "directional4m<=j<=6m"
+    ]
+  },
+  "precise_proof_extension": {
+    "old_directional_published_scope": "m>=100,4m<=j<=6m; not directly applied outside quantifiers",
+    "newly_verified_scope": "m>=100,integer m/6<j<=6m, samexi=j/d/Gamma/thickdomain/degree<=d polynomial norm hypothesis",
+    "same_transfer_constant": "|L p-p(xi)|<=2^250 Hm^(r-1/2)",
+    "only_changed_lower_j_comparison": "120*2^40*e^100/sqrt(j)<120*2^40*e^100*sqrt6/sqrtm<2^249/sqrtm<2^250/sqrtm",
+    "unchanged_hypotheses": "actualcircle/resolvent/holomorphicadjoint/cutoff/complexnorm/Taylor/kernel useonlyupperj<=6m; exactmassrequiresj>=1,j<d",
+    "COMMON_full_readout": "Psi=C-g(B+2)+alpha[D(D-1)B-(2D-1)EB+E²B],B=b+W-1,B+2=b+W+1,alpha=(W+1)²/(8W),E=lambdaDlambda",
+    "new_range_application": "Same oldfivebounds/threshold;positiveleadingm9/32 minus complete loss<=2^56m7<=m9/64",
+    "initial_margin_merge": "m>=16:3m³/320-m/6-7/2>0; integerseam exactlyj<=floor(m/6) orj>m/6"
+  },
+  "not_claimed": [
+    "j>6m or unboundedj/m/logbulk/fixedxi coverage",
+    "otherhomogeneouslayers,allP1,physicaltrace orallM Goal",
+    "finite smallm or practicalcomputedthreshold",
+    "newgenericTool/Native/Task/Foundation/WorkingTruth",
+    "global novelty or cumulativebudgetPASS"
+  ],
+  "review_state": {
+    "authors_mutual_checks": "coauthor checks only",
+    "prospective_nonauthor": "Root-routed BFF6DC, olddirectional coauthor NONBLIND/credit retained,0newunitworking/construction/repair per Root report; no unfrozenproof supplied",
+    "independent_new_whole_verdict": "PENDING after truewholefreeze",
+    "old_votes_not_transferred": true
+  },
+  "scientific_program_executions": 0,
+  "new_activity_events_appended": false,
+  "parent_goal": "OPEN"
+}
