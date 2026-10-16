@@ -1,0 +1,61 @@
+{
+  "schema": "ENTERPRISE_MATH_C107_AUTHOR_EVIDENCE_SUMMARY_V1",
+  "classification": "AUTHOR_EXACT_RATIONAL_NOT_ADMITTED",
+  "status": "SOURCE_DRAFT_READBACK_PENDING",
+  "date": "2026-10-16",
+  "model": {
+    "integer_edges": 156,
+    "faces": 142,
+    "core_bits": [
+      2,
+      24
+    ],
+    "weak_couplings": 68,
+    "stages": 11,
+    "base_u_interval": [
+      "2/5",
+      "99/100"
+    ]
+  },
+  "source_pins": {
+    "global_main": "d433f2cbd7e5b458833de3be8db56a8a9b1430d9",
+    "enterprise_math_main": "a6efba6d4d46ce63d61792600bbfea3de6bc29b8",
+    "c106_zip_sha256": "6f8e8dec601ee7052efc49615f2dc91ae5ce909a4fcb0a2f122fe85d0f32dd90",
+    "c105_zip_sha256": "72e4eec172b850cfebe8d4d491fe628e33968105eee83ee529be2ec111e641fa"
+  },
+  "lemma": "F=4(m++m-- - m+-m-+); x+y<=M^2/4; |Fz-F0|<=(2rho+rho^2)M^2",
+  "base_mass_M": "12609529/131072",
+  "rho": "(1+100*(epsilon+delta))^68-1",
+  "case_robust": {
+    "epsilon": "12/100000000",
+    "delta": "10/100000000",
+    "left_F": ">72",
+    "right_F": "<-1",
+    "existence": true
+  },
+  "case_extended": {
+    "epsilon": "12/100000000",
+    "delta": "11/100000000",
+    "left_F": ">71",
+    "right_F": "<-1/50",
+    "existence": true,
+    "degree": -1
+  },
+  "checks": {
+    "inherited_bernstein": 846,
+    "inherited_stages": 11,
+    "independent_walsh_port_sample_checks": 99,
+    "manifest_items": 8,
+    "strict_rational_calculation": true,
+    "independent_driver_review": false
+  },
+  "portable_zip_sha256": "0b4744f3a54e266468a8d3036676f518a31d3da7f98a73816d88c40e020a0069",
+  "author_note_commit": "6c677e376b06bee73ec0bb3e845cc2c531626a0f",
+  "state": {
+    "owner_status": "UNKNOWN_NATIVE_CONTROL_QUOTA",
+    "native_session": "STATIC_READONLY_SCOPE_DENIED",
+    "formal_claim": false,
+    "driver_admission": false
+  },
+  "next_unfinished": "Compute exact GF(2) port-conditional mixed derivative bounds for unique transversality in larger 68D cube; retain X6 slice-transfer obligations."
+}
