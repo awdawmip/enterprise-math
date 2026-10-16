@@ -1,0 +1,63 @@
+{
+  "schema": "PARITY_C1_ONE_UNIFORM_SUM_TAIL_ADDENDUM_TYPED_AUTHOR_RESULT_V2",
+  "status": "NEW_AUTHOR_SCOPE_UNREVIEWED_NO_V1_PEER_EXTENSION",
+  "unit": "One enhanced c1 sign-boundary addendum; V1 historical proof/review retained, not multiple discoveries",
+  "parameters": {
+    "m": "integer>=2",
+    "S": "real>=0",
+    "a": "real>0",
+    "W": "m^2",
+    "s": "S+a",
+    "r": "m*s",
+    "lambda": "a/s in (0,1], closed interval used for uniform limit",
+    "normalization": "COMMON D_c=(mr+Wc+beta)G_W(mr), no arbitrary primitive gcd cancellation"
+  },
+  "main_author_theorem": {
+    "P1_total_degree": "Exactly W-1",
+    "top_homogeneous_form": "H_m(S,a)=m^(2W+2)/2*s^(W-1)*(tr(R_lambda^2)+W-1)",
+    "strict_uniform_top_face_bound": "H_m(S,a)>=B_m*s^(W-1) on S,a>=0,s>0; B_m=m^(2W+2)/2*(W-1)*(m+2)>0",
+    "uniform_tail": "P1(S,a)>=B_m/2*s^(W-1)>0 whenever physical s>=R_m",
+    "threshold": "R_m=1+2*A_m/B_m, A_m=finite absolute monomial coefficient sum of P1-H_m",
+    "threshold_observation": "Specified by finite exact coefficients, NOT evaluated or a practical numeric certificate",
+    "pure_axis_coefficients": "Both a^(W-1) and S^(W-1) coefficients positive",
+    "mixed_coefficients": "NOT resolved"
+  },
+  "new_proof_interface": {
+    "metric": "Q_r on fixed theta monomial basis, A_r analytic in 1/r and independent of lambda",
+    "limiting_M": "M_jk=kappa*binom(-m,m-1-j-k), j,k=0..m-2",
+    "centered_parity": "Even centered degree positive block, odd centered degree negative block",
+    "frame_symmetry": "Gamma_L=J/2+only even powers of J; finite nilpotent identity",
+    "limiting_operator": "R_lambda=Z_lambda+M^-1 Z_lambda^T M, Z_lambda=D_alpha+gamma_lambda(J)",
+    "spectral_scope": "Only R_lambda preserves definite blocks, not finite-r K/Omega",
+    "uniform_error": "r^2 tr(K^2)=tr(R_lambda^2)+O_m(1/r), uniformly lambda in [0,1]",
+    "derivative_scope": "r0 held fixed BEFORE substituting r/lambda; no holding lambda constant during differentiation"
+  },
+  "merged_scalar_boundary": {
+    "m_ge_3": "q_W negative on some physical small-x interval",
+    "all_m_ge_2": "h2>=(W-1)/(x+beta)^2>0 and x^2q_W->W-1>0",
+    "not_concluded": "No small-x curvature compensation or P1 counterexample"
+  },
+  "authors": {
+    "EM-DVR-BFF6DC": "Uniform metric/rescaling/Gamma parity/tail proof; original curvature and V1 highest-a proof; earlier scalar boundary",
+    "EM-DVR-F73673": "Merged scalar refinement m>=3/Jensen only; not uniform-limit proof author"
+  },
+  "reviewer_requirement": "Third true nonauthor must review complete V2/changed scope, cannot transfer original or V1 PASS",
+  "not_proved": [
+    "Mixed or lower coefficientwise positivity",
+    "Full P1 pointwise sign at moderate/small s",
+    "Practical computed threshold",
+    "Arbitrary gcd-normalized numerator",
+    "Full trace T(c), other faces/HCM0/parent Goal",
+    "Runtime or scientific execution authority"
+  ],
+  "permanent_m7": "No restart, new actor/Task, budget reset, or conclusion about r=[7,8] from an unevaluated R_m",
+  "scientific_programs": 0,
+  "Task_RA_Native_Tool_changes": 0,
+  "primary": {
+    "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/p11_independent_native_driver/parity_all_m_c1_uniform_sum_tail_addendum_v2_author/PARITY_ALL_M_C1_POSITIVE_TOP_HOMOGENEOUS_FACE_AND_UNIFORM_SUM_TAIL_AUTHOR_V2.md",
+    "bytes": 16649,
+    "sha256": "7fdb2a56835e9d8f6d7ef078121712769840d1bdc55e6864db26a5d4db97dce8",
+    "git_blob_sha1": "c94088a17f4a09dd2d16171162c09ed13807a8bf"
+  },
+  "parent_goal": "OPEN"
+}

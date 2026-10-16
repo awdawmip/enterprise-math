@@ -1,0 +1,56 @@
+{
+  "schema": "PARITY_C1_ONE_SIGN_BOUNDARY_ADDENDUM_TYPED_AUTHOR_RESULT_V1",
+  "status": "AUTHOR_PROOF_UNREVIEWED_NEW_SCOPE_NO_PRIOR_PEER_EXTENSION",
+  "unit": "One complete sign-boundary addendum to existing c1 curvature family, not multiple discoveries",
+  "parameters": {
+    "m": "integer>=2",
+    "S": "real>=0",
+    "a": "real>0",
+    "W": "m^2",
+    "normalization": "Original fixed COMMON denominator D_c=(x+Wc+beta)G_W(x), no arbitrary gcd cancellation"
+  },
+  "main_author_theorem": {
+    "a_degree_of_P1": "Exactly W-1",
+    "leading_a_coefficient": "C_m independent of S",
+    "exact_formula": "C_m=m^(2W+2)/2*(tr(R^2)+W-1)",
+    "explicit_lower_bound": "C_m>=m^(2W+2)/2*(W-1)*(m+2)>0",
+    "R": "M^-1 D_alpha M+D_alpha with explicitly finite M and alpha_j=j-m-1/2",
+    "eventual_pointwise_consequence": "For each fixed S>=0, P1(S,a)>0 for sufficiently large a; threshold not supplied"
+  },
+  "key_new_proof_obligations": [
+    "Analytic finite-difference rescaling gives full exact M independent of r0",
+    "Laurent-coordinate/Fourier formula proves odd block positive, even block negative and M nondegenerate",
+    "Both variable-congruence derivatives retained in K limit",
+    "R preserves definite parity blocks; real-eigenvalue square bound is applied ONLY to R",
+    "All m/L/x/a factors and polynomial-degree inference correct"
+  ],
+  "merged_scalar_boundary": {
+    "m_ge_3": "q_W(x)<0 on a nonempty physical small-x interval",
+    "all_m_ge_2": "h2(x)>=(W-1)/(x+beta)^2>0 and x^2q_W(x)->W-1>0",
+    "meaning": "Requires actual curvature compensation, not a P1 counterexample or positive certificate"
+  },
+  "authors": {
+    "EM-DVR-BFF6DC": "Highest-a proof and prior m>=4 scalar boundary; original curvature author",
+    "EM-DVR-F73673": "Independent overlapping scalar boundary, improvement to m>=3 and Jensen bound; no highest-a proof contribution"
+  },
+  "reviewer_requirement": "A third genuine nonauthor for entire combined unit; neither listed contributor self-approves",
+  "not_proved": [
+    "Lower a/mixed S coefficients",
+    "Full c1 pointwise or coefficientwise positivity",
+    "Uniform/effective large-a threshold",
+    "Primitive numerator after arbitrary gcd",
+    "All trace/HCM0/parent Goal",
+    "Current Native execution authority"
+  ],
+  "old_review": "Original F736 c1 identity review frozen before later scalar contribution, remains original-scope only",
+  "old_m7_fixed_certificate": "PERMANENT_STOP_NO_RESTART_REPARAMETERIZATION_OR_BUDGET_RESET",
+  "scientific_programs": 0,
+  "Task_RA_Native_Tool_changes": 0,
+  "parent_goal": "OPEN",
+  "primary": {
+    "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/p11_independent_native_driver/parity_all_m_c1_sign_boundary_addendum_author/PARITY_ALL_M_C1_HIGHEST_FIRST_GAP_COEFFICIENT_AND_SCALAR_BOUNDARY_AUTHOR_ADDENDUM.md",
+    "bytes": 13515,
+    "sha256": "a219412d343eae0ecf801fdd07ae7fb0928091fd3d02b295d6666fa0f9cf6a0e",
+    "git_blob_sha1": "626927a6d60e0989cccc342917b5d9823d942ec7"
+  }
+}
