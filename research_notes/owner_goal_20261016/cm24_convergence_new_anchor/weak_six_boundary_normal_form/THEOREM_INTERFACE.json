@@ -1,0 +1,49 @@
+{
+  "schema": "CM24_SIX_BOUNDARY_WEAK_NORMAL_FORM_TYPED_RESULT_ONLY_V1",
+  "state": "FROZEN_UNREVIEWED_AUTHOR_PROOF",
+  "author": "EM-DIRECT-88303D",
+  "one_bounded_unit": true,
+  "hypotheses": {
+    "p": "prime p=13 or19 mod24",
+    "O": "specified unramified complete DVR, K=O[1/p], v(p)=1",
+    "rings": "R0=K[r,((1-r^2)(4r^2-1))^-1], R=O[r,(1-r^2)^-1,(4r^2-1)^-1]^dagger[1/p], embedded weak linear degree/valuation completion",
+    "operator": "K(v)=(Pv')'-2qv, P=(1-r^2)(4r^2-1), q=4r^2-1",
+    "period": "D=(2P)^-1[[2S-1,1],[4S-5,-(2S-1)]], S=4r^3-3r, L(h)=h'+hD",
+    "consumed_good_infinity": "actual canonical integral regular M,detp/G=M^-T and normalized rational flat H at good E0 supplied by joint5530 Sections5-6; no guessed M"
+  },
+  "new_output": {
+    "inclusion": "R0/K(R0) -> R/K(R) is a K-linear isomorphism",
+    "basis": [
+      "1",
+      "r",
+      "1/(r-1)",
+      "1/(r+1)",
+      "1/(r-1/2)",
+      "1/(r+1/2)"
+    ],
+    "dimension": 6,
+    "row_reduction": "[b] -> [b1-2(Pb2)'-A b2], L(-2Pv'+Av,v)=(-2K(v),0)",
+    "observations": "four la(b)=Res_a(b e1 Ha dr)ka; Q(b)=Res_0(-z^-1 b(1/z)e1 Hinf dz)",
+    "normalform": "sum la(b)/(r-a) - Q1(b) - 8 Q2(b)*r",
+    "complete_test": "all six observations vanish iff b=K(v) for some actual v in R; same equivalence for original proper row after exact reduction"
+  },
+  "bounded_new_estimates": {
+    "finite_gauges": "all four a=+-1,+-1/2, epsilon=S(a), z=(1-epsilon S)/2 has exact degree1/2 zero and p-integral polynomial unit; normalized Ha/Ha^-1 coefficient >=-log_p(3(n+1))",
+    "good_gauges": "Hinf/Hinf^-1 coefficient n>=1 >=-1-floor(log_p n) from actual integral Frobenius identity",
+    "rational_primitive": "FN partial-fraction degree/poles<=N>=2, vF(b)>=s; LN=2+ceil(log_p(3(N+2))); unique b=K(v)+n with v in FN, normalcoeff>=s-LN and vF(v)>=s-5LN",
+    "weak_extension": "p^l rational primitives lose only O(log(l+2)); regrouping l-5LN_l gives actual weak primitive, normalform independent by continuous annular observations"
+  },
+  "limits": [
+    "no strong p-completed cokernel comparison",
+    "no uniqueness/kernel assertion for weak primitives",
+    "no computed general Frobenius matrix/action/classes",
+    "no executable algorithm or finite cost/termination certificate",
+    "no original source functional/evaluation/globalLC/sign",
+    "no fullrank4 geometric object, othergauges or new selected full comparison",
+    "no external historical novelty certificate, Tool/Foundation/WorkingTruth/Native acceptance"
+  ],
+  "scientific_programs_imports_AST_compile_tests": 0,
+  "Native_Task_claim_run_newRole": false,
+  "independent_whole_review": "PENDING Root assigned genuine nonauthor scope; no oldPASS transfer",
+  "frozen_utc": "2026-10-16T10:18:34.502524+00:00"
+}
