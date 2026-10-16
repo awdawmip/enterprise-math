@@ -1,0 +1,43 @@
+{
+  "schema": "CM24_RAW_LOG_BASE_COMPARABILITY_TYPED_INTERFACE_V1",
+  "author": "EM-DIRECT-88303D",
+  "state": "FROZEN_UNREVIEWED_AUTHOR_CANDIDATE",
+  "primary": {
+    "filename": "CM24_EXACT_RAW_AND_LOG_BASE_LIFT_COMPARABILITY.md",
+    "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/cm24_convergence_new_anchor/log_base_lift_comparability/CM24_EXACT_RAW_AND_LOG_BASE_LIFT_COMPARABILITY.md",
+    "repository_path": "research_notes/owner_goal_20261016/cm24_convergence_new_anchor/log_base_lift_comparability/CM24_EXACT_RAW_AND_LOG_BASE_LIFT_COMPARABILITY.md",
+    "bytes": 7948,
+    "sha256": "5350ded219800b1ba409185aa235fde44d809c466bcf652e8a5dfbef1353db3b",
+    "git_blob_sha1": "1584f295af07c3b19bafcc2e311044cec49b25da"
+  },
+  "exact_hypotheses": [
+    "p prime congruent13or19mod24; O unramified complete p-adic DVR; K=O[1/p]; sigma coefficient Witt lift",
+    "A_n=(O/p^n)[[t]], standard associated log chart N->A_n,1->t; same fixed t=r-1",
+    "Raw tau(t)=(1+t)^p-1, logarithmic theta(t)=t^p, both carry sigma on O",
+    "Matrix nontransfer only for N=R/t+B in Mat_d(K((t))), B regular, sigma(R)=R nonzero, F regular invertible"
+  ],
+  "new_bounded_results": {
+    "finite_precision_chart": "For every n>=2 and O itself, tau(t) is not t^k times a power-series unit for any k in N; no morphism of that specified log base. For n=1 tau=t^p has k=p.",
+    "punctured_limit": "tau/t^p=1+p*h has finite geometric inverse modulo p^n on t-inverted ring; this does not give a regular characteristic-zero boundary unit.",
+    "characteristic_zero": "tau has t-order1 and theta orderp after inverting p. Same regularinvertible F cannot satisfy both solution-transport ODEs when R nonzero: residue relations RF0=F0R versus RF0=pF0R."
+  },
+  "consumed_not_new": {
+    "saved_formal_lift": "Original13743B fullformal already theta=t^p, explicitly different from ambientr^p; no false attribution to rawtau.",
+    "old_Kummer": "14956B sections4-5 valid on its declared puncturedweakcompletion; not disproved or rechecked as newno-go.",
+    "LC_PD": "Actual09cf PD paper specifies canonicaltheta=t^p; same parameterlift as savedformal. Its own true7CDA finitelevel PASS is not review of this paper.",
+    "same_lift_matrix_interface": "Given deltaM+BM=pMtheta(B),detM=p, inverseTranspose gives deltaG=B^TG-pGtheta(B)^T,detG=1/p; literal A=C^T. No cohomology realization bridge inferred."
+  },
+  "hard_scope_limits": [
+    "No crystalline/geometric Frobenius nonexistence",
+    "No all-lift or all-gauge obstruction; nilpotent R and pR may be conjugate",
+    "No obstruction to savedtheta formal construction or its actualopenunitdisc result",
+    "No new PD, all-thickening crystal, algebraization, completed/formal site or Rlim argument",
+    "No new mu, xi, eta, origin k, source action or functional selection",
+    "No change of t or enlargement of standardlogstructure hidden in the conclusion"
+  ],
+  "scientific_program_import_AST_compile_test_or_execute": 0,
+  "formal_Task_claim_Native_vote": false,
+  "new_RA_event_staged": false,
+  "review_status": "UNREVIEWED; genuine new nonauthor review requires Root assignment afterfreeze",
+  "parent_goal": "OPEN"
+}
