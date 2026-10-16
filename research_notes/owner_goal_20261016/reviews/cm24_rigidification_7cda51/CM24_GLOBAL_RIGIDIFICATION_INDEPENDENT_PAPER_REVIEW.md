@@ -1,0 +1,98 @@
+# Independent CM24 review: conditional global comparison rigidification
+
+Reviewer EM-PUBLIC-7CDA51, actual Researcher session MCP-9030ae3a22074e3dbc31679b7090f6b0 and own RA-6665DBCD10BC1C3E4DED3C04. Root assigned this fifth frozen CM24 unit as a new genuine nonauthor paper review. All Public129 environment/real own comparator, CONTROL/CI/T6, P11/parity and preceding CM24 reviews, and distinct compact-strip authorship history remain disclosed, NONBLIND. I supplied neither this construction nor a proof repair. The separate unpublished norm-method boundary memo was not supplied to the author and is not an input or advance verdict here.
+
+**Verdict: PAPER_PASS, no mustfix found, with the conditional ring, block-shape, automorphic-sigma and observation hypotheses kept explicit.** The exact translation and inverse formula, simultaneous sufficient lattice bounds, finite-precision nonuniqueness, optional constant sigma-gauge classification and sensitive-observation test are supported. No global comparison existence, actual source framing/action, geometric uniqueness failure or original functional value follows. This is not a Native Driver vote, Task claim or extension of the fourth paper's vector no-go.
+
+No scientific program, symbolic matrix computation, sample, checker, consumer or Native mutation was run. The matrix products, valued-field argument and quantifiers below were checked on paper; executable work was text custody, hashing, JSON parsing and original own-activity guard operations.
+
+## Frozen inputs and actual role gate
+
+The author is EM-DIRECT-88303D. I consumed all four frozen files,24,248 bytes. The primary CM24_GLOBAL_COMPARISON_TRANSLATION_LATTICE_RIGIDIFICATION.md is9,872 bytes, SHA25689827028fad83bbcdee459c098fae134281ebe0ea0c87a166e16352c0bb91b69, Git blob0e7e87886dc4d4dd9d78daa6322641c7ed1ebfef. Its3,882-byte interface,7,830-byte SOURCE_AND_REUSE and2,664-byte AUTHOR_FREEZE were checked against the original handoff and retained unchanged. The author metadata's pending-assignment text is a freeze-time snapshot; Root later explicitly assigned this new scope. The package was local at intake. A subsequently supplied immutable publication must receive its own actual full-byte binding.
+
+The exact dependency observations are my own already acquired complete managed Source reads: V2 relative-extension64,794B and log-residue classification62,962B at Source3981c60496c24a3c1567677726c136966522d8bf, and the9,986B theta-kernel primary at Sourceebd3508ae9534d4c0d84b713c14adbb7b0d008cc. All137,742 immutable bytes were checked against the new manifest, with no new network call for a reused observation falsely asserted. The mathematical primary proofs17,493B,13,743B and9,986B were personally read; the fixed matrix shape, full grades, old formal eta freedom and eta-minus-k law are consumed inputs. They are not newly proved by this paper, and their old review labels do not review it. The fourth finite-algebraic-vector theorem is not a logical dependency.
+
+The fourth-review persistence chain was separately finished: actual own RA Source93b08cd7d6cefb3a9eed1e68cb58150396190e5f has fifteen events, with old14 and every other field preserved. The current original-helper startup guard for this fifth intake returned exit0, activity/persistence true and all formal-authority flags false. Its new fifth semantic event remains a separate pending obligation. No formal Task/Goal locator, Run, Role upgrade or Driver identity is invented.
+
+## The conditional class and exact full-matrix translation
+
+The base claim assumes a supplied F in GL4(D), where D is the stated commutative differential K-algebra containing K as differential constants and N,N_theta are actually defined. It retains the original basis(Y1,Y2,z,V), both bottom-row source/baseline terms and the explicitly block-diagonal proper-plus-z quotient:
+
+    F=[[G,0,0],[0,a0,0],[u,u3,lambda]],
+    detG=p^-1, a0=mu/p, lambda=mu/p^2, mu^2=1.
+
+This shape is stronger than an unspecified filtration-preservation slogan. In particular the z row has no proper entries. A comparison with other quotient mixing has not been classified here. The full grades are supplied by the earlier narrow log-regular class; the paper does not prove that an actual geometric comparison meets that hypothesis.
+
+For E=E43, the last column and third row of N vanish. Therefore both NE and EN vanish, and the corresponding facts hold for N_theta. Independently multiplying by the displayed F gives
+
+    FE=lambda E, EF=a0 E, E^2=0.
+
+Since delta in K is a differential constant, adding delta E changes neither derivative nor the comparison right side: N(delta E)-(delta E)N_theta=0. This checks the full comparison equation with its existing rho and beta, without setting either source term to zero. K being contained in D also makes distinct scalar deltas distinct matrices.
+
+The right factor is I+(delta/lambda)E and the left factor is I+(delta/a0)E; their positions and denominators are not interchangeable. Both have determinant1 and inverses obtained by negating the off-diagonal term. Consequently the determinant remains
+
+    detG*a0*lambda=p^-1*(mu^2/p^3)=p^-4.
+
+For the inverse correction, F^-1 E=lambda^-1 E and E F^-1=a0^-1 E. Thus
+
+    (F+delta E)^-1=F^-1-delta/(a0 lambda)E
+                  =F^-1-p^3 delta E.
+
+The sign is negative and the power is p^3, not p^-3; mu^2=1 removes the sign from that coefficient. Neither the proper period nor the remaining bottom-row entries enter this computation.
+
+All constant translations stay inside D. This is a conditional orbit inside the supplied class, not construction of its first member or a classification of every possible global comparison. Extra tensors, polarization/cycle conditions or a specified source action can distinguish orbit members and are expressly not assumed invariant. Endpoint k and eta shift together only when those original-basis endpoint expansions are actually defined. Their difference is invariant, in agreement with the old isolated-kernel affine law; no evaluation on an arbitrary removed divisor is introduced.
+
+## Both lattice bounds and the finite-precision quantifiers
+
+Let B be the specified p-torsion-free differential O-algebra inside D with D=B[1/p]. The bounds p^aF and p^bF^-1 in Mat4(B), for supplied nonnegative a,b, concern one admitted F. They are not asserted estimates for an unknown global comparison.
+
+The respective differences after clearing denominators are p^a delta E and minus p^(b+3)delta E. Since O lies in B, it is sufficient that
+
+    v(delta)>=max(-a,-b-3).
+
+This is sufficient, not claimed necessary: a larger B can contain additional constants. The proof does not pretend that B, or a power-series coefficient ring, is a DVR. Nonzero p-powers give infinitely many permitted constant choices, so these bounds cannot identify an exact matrix along the orbit. In the example a=2,b=0 the threshold is-2 and the inverse difference has valuation at least1; the example is itself conditional on those bounds being supplied.
+
+For observations modulo p^M of the two cleared matrices, the same calculation requires differences in p^M Mat4(B), giving the sufficient threshold
+
+    v(delta)>=max(M-a,M-b-3).
+
+A finite collection of such conditions has a finite maximum, leaving nonzero p-power choices. This does not say finite observations fail to determine their intended residue classes, and it does not identify a nonzero delta preserving an infinite tower of exact precision conditions. No p-adic separation property of an otherwise unspecified B is silently invoked. The conclusion concerns failure to select an exact constant from finitely many listed conditions, not failure of every possible infinite or geometric rigidification.
+
+## Optional sigma-gauge: hypothesis, direction and convergence
+
+This part separately assumes sigma is a valuation-preserving automorphism of the complete field K. The word “Witt endomorphism” alone is not used to infer surjectivity. The preceding translation, inverse and lattice facts did not need sigma^-1.
+
+The constant matrix Uc=I+cE commutes with N and has derivative zero, so it is a horizontal automorphism of the fixed module. The source/target base-change direction is
+
+    Uc F sigma(Uc)^-1
+       =F+(a0 c-lambda sigma(c))E
+       =F+lambda[p c-sigma(c)]E.
+
+I checked both sides of the product: EF=a0E supplies the left correction, FE=lambda E supplies the right one, and the mixed EFE term vanishes. Constants acquire no base chain-rule factor. This direction is not inverse-transposed or replaced by an untwisted conjugation.
+
+For a given z in K the series c=-sum_(j>=0)p^j sigma^(-j-1)(z) converges because its term valuations are v(z)+j. Completeness and the isometry make passage of sigma through the limit legitimate. After applying sigma, shifting the p-multiple series cancels every positive-index term and leaves pc-sigma(c)=z. A nonzero homogeneous solution would have valuations v(c)+1 and v(c) on the two sides pc=sigma(c), impossible. Thus the solution is unique, including c=0 when z=0. If z is nonzero, the first term has the unique minimum valuation, so v(c)=v(z).
+
+Taking z=delta/lambda supplies exactly one Uc in this constant unipotent subgroup for each translation. No uniqueness in the entire automorphism group is claimed. With v(lambda)=-2, v(delta)>=-2 gives v(z)>=0 and c in O, so Uc and its inverse are integral. This is ordinary convergence of constants in K, not an additional convergence theorem for functions or the full comparison.
+
+An exact supplied framing vector with z=1,V=0 has its bottom coordinate shifted by c under Uc. Fixing that vector forces c=0. Where a reduction/framing modulo p is actually defined in the declared integral model, c in pO preserves it. Undefined reduction of a nonintegral frame is not being asserted. An exact frame can break this unipotent gauge equivalence without itself supplying an independent comparison action or specifying a chosen matrix F. The old primitive V(0)=0 is not such an action or a constructed characteristic-zero source lift.
+
+## Sensitive observation: exactly which orbit is distinguished
+
+The point evaluation must really be a K-valued evaluation at a permitted point alpha for the supplied matrices; removed-divisor evaluation is not presumed. The independently given x, row ell and value y must be in the stated conventions. Since E x=x3 e4,
+
+    ell F_delta(alpha)x-ell F(alpha)x
+       =delta*ell(e4)*x3.
+
+Over the full displayed orbit delta in K, a nonzero known coefficient C_obs=ell(e4)x3 gives exactly one delta=(y-ell F(alpha)x)/C_obs for any supplied y in K. If C_obs=0, the equation either holds on the whole orbit or on none of it. This checks both implications of the stated iff; C_obs is not the original target's kappa.
+
+The quantifier is this unrestricted constant orbit, not all comparisons. If one additionally restricts delta by a lattice/precision condition, a sensitive observation gives at most one admissible solution; existence then also requires its computed delta to meet that condition. Nothing in the paper claims arbitrary y must satisfy such extra bounds. Proper-only output or x3=0 is insensitive; ell=e4^T with x3=1 is sensitive. Sensitivity is not an independently supplied original target value.
+
+When x comes from a Frobenius-twisted section, its actual value is sigma(section)(phi(alpha)), not an untwisted column copied into the formula. The paper correctly leaves the original problem's compatible source comparison, section convention, legitimate evaluation and independent exact output value unsupplied. Defining a new observation by fitting y to Y would not close that bridge.
+
+## Remaining frontier and verdict boundary
+
+This establishes the conditional ambiguity and its explicit discrimination test. It does not supply a full global F, its geometric applicability, actual bounds, extra tensors/source action, legitimate original endpoint or an independently known original observation. Mu, k, eta, the full functional and Y/Z/kappa remain unselected. The fourth no-go for algebraic horizontal vectors cannot be promoted to a no-go for horizontal morphisms; it has not been used in this proof.
+
+Old formal eta freedom and the third kernel endpoint difference are genuine consumed inputs, not newly counted mechanisms or automatically inherited PASS votes. The new finite application is supported within its stated ring/lattice/gauge/observation assumptions. All original source and baseline channels and the P000/Heartbeat X6 external-arithmetic typing remain, with no native-axis, physical-time or positive-support inference.
+
+Original author files and this report remain separately frozen. Actual Source publication/binding and the fifth own semantic event require their real subsequent receipts. No Native acceptance, Task closure, source normalization or parent completion is claimed. Parent objective remains OPEN.
