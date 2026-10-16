@@ -1,0 +1,99 @@
+{
+  "schema": "TYPED_ALGEBRAIZED_DIRECT_IMAGE_CRYSTAL_AND_EXPLICIT_COMPLETION_INTERFACE_V1",
+  "status": "RESULT_ONLY_UNREVIEWED_NOT_TOOL_FOUNDATION_WORKING_TRUTH_OR_NATIVE_ACCEPTANCE",
+  "input": {
+    "prime": "p congruent13 or19mod24",
+    "coefficients": "R_n=Z/p^n, A=Zp[[t]], A_n=A/p^n; coefficientFrobenius identity",
+    "branch": "Fixed nu^2=-3 and ordered split branches from actual geometry",
+    "s": "4(1+t)^3-3(1+t)",
+    "q": "9+12t+4t^2",
+    "u": "2+9t+12t^2+4t^3",
+    "B": "Zp[t,q^-1,u^-1], logchartN->t",
+    "Sigma_n": "Spec R_n, triviallog, canonicalPD(p)",
+    "family": "Actual proper cubic y^2=x^3+3(4s-5)x+4s^2-28s+22 with semistable log structure"
+  },
+  "dependencies": [
+    {
+      "Source": "fbb8f54db09deae49c9905acdad2bf5608ec1702",
+      "main": "research_notes/owner_goal_20261016/lc_d_crystalline_specialization_primary_4a56e9/HK_MATCHED_FINITE_LEVEL_DERIVED_SPECIALIZATION_AUTHOR.md",
+      "bytes": 15045,
+      "sha256": "06341a55e23052a88200c0d394336abd23d640a2ef693fc20bbd879032317d84",
+      "git_blob_sha1": "927a8e2d1f28813e3740db245d7742e00c05e961",
+      "use": "Actual HK2.20/2.23 model and canonical maps",
+      "peer_Source": "da70844bdcf92ffa8cc299fd3f98df1c34b74622"
+    },
+    {
+      "Source": "1a5ebb33e1d2b13203a4f4ad233654642ba21e1b",
+      "main": "research_notes/owner_goal_20261016/lc_d_central_graph_crystalline_4a56e9/CENTRAL_GRAPH_CONSTANT_CLASS_IN_LOG_CRYSTALLINE_AUTHOR.md",
+      "bytes": 16881,
+      "sha256": "734ac2e6a9dfec71f9301d6272da55b4cada211f374ed029525bbc4d857e8163",
+      "git_blob_sha1": "2cbbfc1b301a58565c6ebae9e92df2fc96b10eae",
+      "use": "Actual graph injection and canonicalFrob-fixed central class",
+      "peer_Source": "c4d18339e6cc0951238219cfed66883528b75df4"
+    },
+    {
+      "Source": "84d3d67a76178d9567027b85552c95bffb137bb3",
+      "main": "research_notes/owner_goal_20261016/lc_d_relative_frame_comparison_intake_4a56e9/PROPER_LOG_DR_BASIS_SPECIALIZATION_AND_GRAPH_RESIDUE_AUTHOR.md",
+      "bytes": 20026,
+      "sha256": "8a64740450baff81466cdb9bdbac14fb26531f11cdc15d875df1caf01ee3f617",
+      "git_blob_sha1": "13c248e4235b28be572041cd618d94fc48743fc6",
+      "use": "Explicit proper classes and principal-part argument extended to arbitrary basechange; exact Cartan matrix and jump",
+      "peer_Source": "258f60b0c4da6794925d92b18891edcc65cd83b9"
+    },
+    {
+      "Source": "09cf0b047c06b650b146200630cad1b03cdd8df2",
+      "main": "research_notes/owner_goal_20261016/lc_d_crystalline_stratification_horizontality_4a56e9/LOG_PD_FIRST_ORDER_COMPARISON_FROBENIUS_AND_DETERMINANT_AUTHOR.md",
+      "bytes": 19244,
+      "sha256": "32d6cb01b19e6906eb689e0862928f189f25f2f8bc03468d5697b26dac1c9984",
+      "git_blob_sha1": "73dd00d11fb8346b15a4c185a0b79a6f113ca45e",
+      "use": "Actual squarezero PD-Cartan identification, canonicalPhi, detp",
+      "peer_Source": "cb6345356b70efb5511bfd3d6e5d07ca5f41493e",
+      "peer_main": "research_notes/owner_goal_20261016/reviews/lc_d_pd_horizontal_7cda51/LC_D_SQUARE_ZERO_PD_HORIZONTALITY_DETERMINANT_INDEPENDENT_PAPER_REVIEW.md",
+      "peer_bytes": 15736,
+      "peer_sha256": "442964ab27898adc7c1ae3fb227c4cfa93c67f13d1f8cee917f13908a426aa57",
+      "peer_git_blob_sha1": "68bb35b120a30b9bdd49d721ab1078a660f4aa3c",
+      "peer_own_actual_all4_bytes": 34754
+    }
+  ],
+  "primary": {
+    "title": "Hyodo-Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles, Asterisque223(1994)",
+    "official_url": "https://www.numdam.org/item/AST_1994__223__221_0.pdf",
+    "complete_actual_pdf": "/workspace/enterprise-math/research_notes/owner_goal_20261015/cm24_lc_import/sources/hyodo_kato_1994_retry.pdf",
+    "pdf_bytes": 1867725,
+    "pdf_sha256": "220873e91f89094d14f1a82631c6887a40ec362139990928236ca0525b1050cf",
+    "layouttext_sha256": "07202df784b3bf5a35b41e00d3e545a560450d2e041250c98a834fe52da6551a",
+    "selected_scope": "Personally read HK2.8 exactimmersion,2.9 smoothfinitepresentation criterion,2.15 completePDsiteobjects,2.16 envelope,2.17 actualconnectionequivalence/conditioniii and2.17.3,2.20/2.21 actualembeddingcomparison; reused previously personally viewed2.23 actualdiagrams. Printed235 additionally visually read ownrenderHK217_PRIMARY-16.png",
+    "publication": "No rawthirdparty PDF/text/image or copiedsearch/paperbody included"
+  },
+  "theorem": {
+    "algebraization": "B_n log-smooth finitepresentation over Sigma_n; Delta=-6912*t*q*u^3, actualproper log-smooth integral nodalfamily; B_n->A_n injective",
+    "universal_cohomology": "For every B_n- orB-algebra R, relativeproper logDR H^i free rank1,2,1 in degrees0,1,2 with explicit naturalclasses1,(omega,eta),(1/z)omega; all actual coefficient maps induce ordinary andderived basechange",
+    "all_PD_crystal": "Actual R^1 fbar_crys,*O is locallyfree rank2 on every base PDobject. Exactlog section supplieslocal B_n lift; PDideal is nil elementwise, not assumed uniformlynilpotent. Sheafifyaffineetale relativeH1, do notreplacebyglobalH1 onnonaffineT",
+    "connection": "True HK2.17 connection satisfies fullconditioniii from constructedcrystal; squarezeroCartan comparison identifies its matrix with savedB(t). No inference ofquasinilpotence fromcentralN alone",
+    "algebraized_Frobenius": "theta_n:t->t^p preserves localization bymodp congruence andnilpotence, finiteflat rankp; compatiblep-completion endomorphism, actualcanonicalcrystallinePhi anddetp. No uncompletedB theta assertion",
+    "completions": "For one bounded A-flat properCechcomplex C_A, canonicalmaps C_A->Rlim(C_A/p^n) andC_A->Rlim(C_A/(p^r,t^r)) are quasiisomorphisms; actualfiniteHK complexes, termwise andcohomologysurjectivity proved. H1=Aomega+ Aeta, Frobenius/connection/centralgraph compatible",
+    "inverse": "Only linearizedPhi inverse adj(M)/p afterpinversion; noadditivesurjectivity oftheta"
+  },
+  "failure_domain": [
+    "Changeofprime thatkills2/3/smoothingunit orlosesfixedsplitbranches",
+    "SubstitutionofordinaryOmega_Rn[[t]]/Rn forcontinuousspecifiedderivation",
+    "ComputingglobalH1 overnonaffinePDbaseinstead ofrelativecohomologysheaf",
+    "AssumingnewbasechangefromHK2.23withoutitsactualhypotheses",
+    "AssumingJuniformnilpotentfromPDaxioms",
+    "Assertingtheta preservesuncompletedB withoutcheckingunits",
+    "ExchangingRlim withouttermwiseandcohomologysurjectivity",
+    "Replacingnamedcompletedtowersbyindependentlyspecifiedformal/crystalline/convergent/daggerobjectwithoutcomparison",
+    "Transportingproperranktworesulttounspecifiedrankfourrelativeextension orsavedglobalfunctional"
+  ],
+  "output_limits": {
+    "scientific_programs": 0,
+    "Native_votes": 0,
+    "Task_execution": 0,
+    "Tool_registration": false,
+    "whole_LC": false,
+    "global_mu_or_functional": false,
+    "new_scope_peer": "PENDING genuine nonauthor review; no oldPASS propagation"
+  },
+  "cost": "Purepaper proof and bounded existingprimary reads; no computational complexity/algorithm execution claimed. Cech usesfinitepropercover andevery coefficient/propercohomologygenerator is retained. No invocation/enumeration/resourcebudget claim.",
+  "exact_next_consumption": "A reviewer must independently verify PD-object direct-image localization/descent and allmorphism basechange, universal nonflatcohomology, actualHKconnection equivalence, finite theta localization, and bothRlim comparisons. If an independentformal site/frame is intended, require its defined comparison functor rather than assumingit."
+}
