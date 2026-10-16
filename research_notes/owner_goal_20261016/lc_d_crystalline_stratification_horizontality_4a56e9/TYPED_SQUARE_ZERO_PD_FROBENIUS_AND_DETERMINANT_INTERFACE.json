@@ -1,0 +1,131 @@
+{
+  "schema": "LC_D_ACTUAL_SQUARE_ZERO_PD_COMPARISON_RESULT_ONLY_INTERFACE_V1",
+  "status": "NEW_AUTHOR_UNREVIEWED_REQUIRES_DISTINCT_REVIEW",
+  "author": "EM-P11-4A56E9",
+  "NONBLIND_history_retained": true,
+  "input_contract": {
+    "prime_and_coefficients": "p=13 or19 mod24, k=Fp,Rn=Z/p^n,n>=1,An=Rn[[t]], fixed coefficientFrobenius=id and theta(t)=t^p",
+    "family": "literal proper algebraic Weierstrass model y²=x³+3(4s-5)x+4s²-28s+22,s=4(1+t)³-3(1+t), with savedsemistablelogstructure",
+    "central_logbase": "standardN->0 logpoint Tn, not triviallogpoint",
+    "orientation": "choose nu inZp,nu²=-3; ordered centralbranches+nu,-nu; graphquotient firstminussecond",
+    "objects": "Dn=RΓlogcrys(X/Sn,O),D0n=RΓlogcrys(X0/Tn,O), explicit algebraic Sn=SpecAn; structurecrystal andcanonicalPD(p)",
+    "class_conventions": "omega=dx/(2y),eta=x omega as actualproperCech classes with h=y/x, eta=(eta,eta-dh;-h); rowcoh basis e=(omega,eta); chosen logderivationdelta=t*d/dt"
+  },
+  "precise_additional_input": "Canonical square-zero E=An[epsilon]/epsilon^2 with J=(p,epsilon), explicit mixed PD formula and f_lambda(t)=t(1+lambda*epsilon); flat auxiliary Theta(t)=t^p,Theta(epsilon)=epsilon; literal proper classes/current compatible bases, not an arbitrary matrix model.",
+  "existing_exact_dependencies": [
+    {
+      "role": "matched finitelevel derivedspecialization/Frobnaturality",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "fbb8f54db09deae49c9905acdad2bf5608ec1702",
+      "path": "research_notes/owner_goal_20261016/lc_d_crystalline_specialization_primary_4a56e9/HK_MATCHED_FINITE_LEVEL_DERIVED_SPECIALIZATION_AUTHOR.md",
+      "bytes": 15045,
+      "sha256": "06341a55e23052a88200c0d394336abd23d640a2ef693fc20bbd879032317d84",
+      "git_blob_sha1": "927a8e2d1f28813e3740db245d7742e00c05e961"
+    },
+    {
+      "role": "matched finitelevel derivedspecialization/Frobnaturality",
+      "kind": "peer",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "da70844bdcf92ffa8cc299fd3f98df1c34b74622",
+      "path": "research_notes/owner_goal_20261016/reviews/hk_finite_specialization_7cda51/HK_FINITE_LEVEL_SPECIALIZATION_INDEPENDENT_PAPER_REVIEW.md",
+      "bytes": 14822,
+      "sha256": "0a96a5e87a84f64b9aca8e8ab923be4c2cff83df5ec9c5b1e98e28c48c33faf8",
+      "git_blob_sha1": "2ab5a6c287038d66e92d536927946f8aa12d8c5c"
+    },
+    {
+      "role": "canonicalcentralgraphunitmap/injectivity/Frob",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "1a5ebb33e1d2b13203a4f4ad233654642ba21e1b",
+      "path": "research_notes/owner_goal_20261016/lc_d_central_graph_crystalline_4a56e9/CENTRAL_GRAPH_CONSTANT_CLASS_IN_LOG_CRYSTALLINE_AUTHOR.md",
+      "bytes": 16881,
+      "sha256": "734ac2e6a9dfec71f9301d6272da55b4cada211f374ed029525bbc4d857e8163",
+      "git_blob_sha1": "2cbbfc1b301a58565c6ebae9e92df2fc96b10eae"
+    },
+    {
+      "role": "canonicalcentralgraphunitmap/injectivity/Frob",
+      "kind": "peer",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "c4d18339e6cc0951238219cfed66883528b75df4",
+      "path": "research_notes/owner_goal_20261016/reviews/lc_d_central_graph_7cda51/LC_D_CENTRAL_GRAPH_CRYSTALLINE_INDEPENDENT_PAPER_REVIEW.md",
+      "bytes": 15463,
+      "sha256": "cd6cc03721a78e75f422b905db95d82745c0429f711c377e2eb5c35a4fbd60da",
+      "git_blob_sha1": "87bb0bac53022bcd4ceec9b0d52507a5dd1038b7"
+    },
+    {
+      "role": "actualproperbasis/ordinaryspecialization/chosenDerGM/graphresidue",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "84d3d67a76178d9567027b85552c95bffb137bb3",
+      "path": "research_notes/owner_goal_20261016/lc_d_relative_frame_comparison_intake_4a56e9/PROPER_LOG_DR_BASIS_SPECIALIZATION_AND_GRAPH_RESIDUE_AUTHOR.md",
+      "bytes": 20026,
+      "sha256": "8a64740450baff81466cdb9bdbac14fb26531f11cdc15d875df1caf01ee3f617",
+      "git_blob_sha1": "13c248e4235b28be572041cd618d94fc48743fc6"
+    },
+    {
+      "role": "actualproperbasis/ordinaryspecialization/chosenDerGM/graphresidue",
+      "kind": "peer",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "258f60b0c4da6794925d92b18891edcc65cd83b9",
+      "path": "research_notes/owner_goal_20261016/reviews/lc_d_integrated_frame_7cda51/LC_D_INTEGRATED_LOG_BASIS_RESIDUE_INDEPENDENT_PAPER_REVIEW.md",
+      "bytes": 17616,
+      "sha256": "44ab7d4f498b6d684929584ac260481893be01b331e748dd8686fb44bddf8669",
+      "git_blob_sha1": "1b899382983f33ad2d990e2f0605797d6bcf6702"
+    }
+  ],
+  "new_outputs_claimed": {
+    "first_order_comparison": "Actual HK2.20/2.23 base-change T_lambda on H1 equals I+lambda*epsilon*nabla_delta with the exact Cartan Cech correction.",
+    "canonical_Frobenius": "M_n in Mat2(An), alln compatible; actual canonical structure-crystal map, not scheme lift or chosen ODE solution.",
+    "horizontality": "delta M_n+B M_n=p M_n theta(B) from f_lambda^*theta^*=Theta^*f_(p lambda)^* and genuine flat diagrams.",
+    "central": "N M_n(0)=p M_n(0) N; central graph fixes kappa; in (kappa,eta), M_n(0)=[[1,b_n],[0,p]].",
+    "tower": "Literal coefficient/module limit M in Mat2(Zp[[t]]), detM=p; inverse adjM/p in A[1/p], hence regular after extension to Qp[[t]].",
+    "dual": "For the explicit dual convention G=(M^T)^-1 only, detG=1/p on this same realization."
+  },
+  "checks_that_cannot_be_omitted": [
+    "The actual PD ideal is (p,epsilon), not just(p); moduloJ defines the barred base.",
+    "Theta keeps epsilon fixed and must be paired with f_(p lambda), not f_lambda.",
+    "HK comparison and local log-PD embedding naturality must yield exactly the global Cartan homotopy.",
+    "All cohomological pullbacks used to takeH1 are flat here; no nonflat epsilon-scaling Tor gap.",
+    "Specialization of actual canonicalPhi must be the actual centralPhi acting on the proved kappa=2nu*j.",
+    "delta det=0 implies constancy only after passing to torsion-free Zp coefficients, not at a lone Rn."
+  ],
+  "retained_boundaries": [
+    "No independently defined formal/completed crystalline site or Rlim/p-inversion-cohomology exchange.",
+    "No all-PD-thickening higher directimage crystal theorem beyond the displayed square-zero family.",
+    "No arbitrary family/prime/constantfield/frame/branchaction transport assumed.",
+    "No cup-product normalization, offdiagonal extension, savedglobalfunctional/mu, wholeLC or parentclosure."
+  ],
+  "primary": {
+    "title": "Hyodo-Kato1994 Asterisque223 ExposeV",
+    "url": "https://www.numdam.org/item/AST_1994__223__221_0.pdf",
+    "complete_shared_pdf": "/workspace/enterprise-math/research_notes/owner_goal_20261015/cm24_lc_import/sources/hyodo_kato_1994_retry.pdf",
+    "pdf_bytes": 1867725,
+    "pdf_sha256": "220873e91f89094d14f1a82631c6887a40ec362139990928236ca0525b1050cf",
+    "layout_text": "/workspace/enterprise-math/research_notes/owner_goal_20261015/cm24_lc_import/sources/hyodo_kato_1994.txt",
+    "text_sha256": "07202df784b3bf5a35b41e00d3e545a560450d2e041250c98a834fe52da6551a",
+    "selected_imports": "Actual2.20 embedding-complex comparison/naturality and2.23 derivedbasechange; no2.24 or5.1 application",
+    "custody": "Shared complete primary bytes personally read/verified, not a new network retrieval by this author. Raw primary not republished."
+  },
+  "reuse_resolution": "Existing RESULT_ONLY assembly proposal c5f240920d6fee4903bf117482e4f62a02c8b3d79cac03ac12cc12200751e688 and bounded registry/inventory/five-addendum contract resolution in prior directory; no new Tool name/registration. This new mathematical arrow is not already covered by the prior finitelevel interfaces.",
+  "contributions": "18F24A/originalsource owners;89CC19 geometry/oldconditionalLCsign;63E74C9D+RootFBF223 explicitsourceGM/map/basis;333687 primaryaudit/custody;9821E2 direction;4A56E9 newthreeproofs/assembly;7CDA51 three boundednonauthorreviews. No ownership transfer.; present squarezeroPD/horizontality/determinant proof by4A56E9, not pre-reviewed.",
+  "consumption_cost": {
+    "existing_six_bodies_bytes": 99853,
+    "existing_twentyone_Source_packet_bytes": 182236,
+    "old_additional_carriers": "Actual809bd geometrybundle137335B;82ac primaryauditbundle22628B;7317568 sourcegeometrybundle66821B;266243 conductorbody12633B. Complete sharedHKPDF1867725B/text123268B externally referenced, not republished. These are additional inputs, not hidden in the packet subtotal.",
+    "scientific_program_calls": 0,
+    "cost_type": "Paper and custody sizes, not executable admission/runtime savings."
+  },
+  "authority": {
+    "Tool": false,
+    "Foundation": false,
+    "WorkingTruth": false,
+    "Native_vote": false,
+    "Task_acceptance": false,
+    "new_Task": false
+  },
+  "own_current_activity": "current6 immutable0a6cf1b; true startup guard0/debt[]/allformalfalse; no new event yet",
+  "old_fixed233": "STOP2165/2100 remaining0 scientific0 unchanged",
+  "future_core98": "0scientificbody/code/input/preparation; metadata filename CONTROL visibility retained",
+  "Source_state": "LOCAL_ONLY_FROZEN_AUTHOR_CANDIDATE_AFTER_MANIFEST; publication needs owner window and fullreadback; does not imply mathematical acceptance"
+}
