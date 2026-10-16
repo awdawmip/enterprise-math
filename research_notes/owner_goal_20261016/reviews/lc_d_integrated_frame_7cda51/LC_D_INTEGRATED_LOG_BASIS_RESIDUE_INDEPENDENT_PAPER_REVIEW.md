@@ -1,0 +1,109 @@
+# Independent review: the integrated proper log basis, specialization and graph-residue comparison
+
+Reviewer EM-PUBLIC-7CDA51, actual Researcher SID MCP-9030ae3a22074e3dbc31679b7090f6b0, own RA-6665DBCD10BC1C3E4DED3C04. Root assigned this complete frozen successor as one new bounded nonauthor paper review. All Public129 environment/genuine own execution, CONTROL/CI/T6, P11/parity/CM24/HK/central-graph review history and separate parity-strip authorship remain disclosed, NONBLIND. I supplied no construction or proof repair. My earlier HK and graph reports validate their own inputs, not this new basis, ordinary H1 base change, connection or jump argument. This is not a Native Driver vote or a formal Task acceptance.
+
+**Verdict: PAPER_PASS, no mustfix found, for the stated integrated finite algebraic-model theorem.** The specific proper omega,eta classes form the integral log-de Rham basis; the particular ordinary H1 specialization is proved; the chosen-log-derivation Cartan operator agrees with the literal smooth source matrix by an injective localization argument; and its actual central residue kernel is identified with the canonical graph image by an explicit proper Cech cochain, with the stated orientation. The crystalline transport is through the matched finite-level de Rham model. No separately specified crystalline direct-image connection/monodromy comparison, formal/completed realization, inverse limit, p-inversion, isogeny/cup determinant or saved global Frobenius sign is supplied.
+
+No scientific program, symbolic algebra, enumeration, prime sample, checker, consumer import/test, claim/run or Native scientific mutation was executed. The local identities, Cech/Cartan signs, cohomology sequences and matrix comparison below were checked on paper. Executable work was immutable text acquisition, member custody and hashing, and original own-activity guards.
+
+## Exact inputs and current activity
+
+I checked the original1,676B handoff, SHA256374460aba0602e7796f7242fd3bc20838adbf8665e0984c117a9bc01ff0ed586. Its three original members total29,427B:
+
+- PROPER_LOG_DR_BASIS_SPECIALIZATION_AND_GRAPH_RESIDUE_AUTHOR.md,20,026B, SHA2568a64740450baff81466cdb9bdbac14fb26531f11cdc15d875df1caf01ee3f617, Git blob13c248e4235b28be572041cd618d94fc48743fc6.
+- ACTUAL_SMOOTH_BASIS_SCOPE_AND_BOUNDARY_ARROW_GAP.json,3,407B, SHA2566973529e76961c9a38b67bfb213f0654ff66ac9f1835e357a7624e74a549e15e.
+- TYPED_PROPER_LOG_BASIS_SPECIALIZATION_AND_RESIDUE_RESULT.json,5,994B, SHA2560beb4158537d0ddada68e790f826ae5ea890a1357bd0b0febefced26a8ce9c3f.
+
+All three were fully read. The3,407B intake is an earlier observation of the then-open boundary-basis gap; it is not the asserted proof of the new result. Its historical gap text and the other original UNREVIEWED labels were not rewritten. During review the original three files became actual Source84d3d67a76178d9567027b85552c95bffb137bb3. I personally fetched all three complete managed files and checked full bytes/SHA256/Git blobs against the frozen originals. Their subsequent Source status did not substitute for checking the new proof.
+
+Fresh own RA/SID at Source77bd89b51290f86318e91cb92518257e5526fc27 matched the actual69,630B twenty-event record and immutable1,423B session. The original helper startup guard for this new intake returned exit0, activity_allowed/persistence_allowed=true, sync_debt_events=[], with all five formal-authority flags false. This review's new semantic event has not been appended. No formal Task/Goal locator, Role upgrade, inherited scientific run or execution budget is invented.
+
+I personally newly fetched the exact66,821B literal source-geometry carrier at7317568f2eca4aa89fa2f22266f390e5f07b6b5d, SHA256c0a1e8e3035cdba7752db913b2bdd01ca0f128a3e3840c92621c4bddf9eecd7b, Git blob0f46921e1cd708d03a80fbb0c761a5996a3a9f2f. All seven members,59,215B, passed length/SHA/Git-blob custody. I read the entire13,972B mathematical primary, SHA256929e5b4364c846dacce8897f6e4aed0bd822a3e7b3b3d073f11e9594d5239305. Original ownership18F24A, support63E74C9D and RootFBF223's actual map/matrix/GM coauthorship remain explicit; Root is not relabelled as that paper's independent reviewer.
+
+The old basis theorem lives over Z[1/6,s,(1-s^2)^(-1),nu]/(nu^2+3). Both boundary factors are inverted. It cannot itself prove a proper log-H1 basis at t=0. Its literal proper smooth GM identities, with exact rational/Cech terms and unit denominators, are supported inputs only on the corresponding smooth locus. The actual old semistable geometry, matched HK model at fbb8f54db09deae49c9905acdad2bf5608ec1702 and central graph proof at1a5ebb33e1d2b13203a4f4ad233654642ba21e1b were personally read and fully Source-bound in my separate preceding reviews. Their exact complete observations are reused, not falsely counted as new connector calls. No new third-party theorem is imported to fill this proof's proper-cohomology or Cartan steps.
+
+## Proper classes and the exact central jump
+
+The literal identity for h=y/x is correct. Differentiating y^2=x^3+ax+b relatively gives
+
+    d h=(x-a/x-2b/x^2)omega,
+    eta-dh=(a/x+2b/x^2)omega.
+
+No antiderivative or division by p is used. At smooth finite points the invariant differential has its usual equivalent Jacobian expressions. At a semistable node the hypersurface residue generator changes by a unit to du/u=-dv/v; the invertible coordinate Jacobian and unit smoothing parameter give the unit coefficient. At infinity z=-x/y is a relative parameter and omega has unit leading coefficient times dz. Thus omega is a genuine nowhere-vanishing relative log form, including the node and nilpotent coefficient levels. Its rational notation dx/(2y) has not been used to divide by a zero function at the node.
+
+The finite zero divisors of x and x+1 avoid infinity. On the resulting U,V cover, eta is regular on U, h is regular on the overlap and eta-dh is regular on V, including infinity. Eta's double pole is removed by the specified simple-pole h. In the declared convention alpha_V-alpha_U=d beta, the triple(eta,eta-dh;-h) is a genuine total cocycle. Defining a class via this two-open cover does not require falsely calling that particular cover acyclic; the canonical Cech-to-hypercohomology map suffices, and one can refine later.
+
+The sign of the principal part is fixed: z=-x/y implies h=-1/z exactly, so eta's function component is -h=+1/z. This is not a global regular primitive. The infinity term is retained through specialization and all later comparisons.
+
+On the central normalization, omega+eta=dv. The functions f_U=v and f_V=v-h=-v/(v^2+2) are regular on the specified normalized opens: U omits infinity; V omits the finite x and x+1 zeros, and f_V vanishes at infinity. Their Cech difference is -h. Their total differential is therefore exactly the normalized image of the specialized proper kappa cocycle.
+
+The degree-zero conductor quotient is ordered branch difference. Its value on f_U is v(+nu)-v(-nu)=2nu, and V contains no node. Thus this is a lift of the global quotient section2nu in the actual short exact complex from the graph proof. With the declared total-differential and quotient conventions, the connecting class is plus delta_L(2nu). The stated equality sp(kappa)=delta_L(2nu) has the correct sign; it is not an inference that dv is globally exact on the singular curve. It uses proper local cochains, with their node and infinity behavior kept simultaneously.
+
+Consequently kappa/12 maps to(nu/6)j_n(1) under the established central finite HK comparison. Reversing orientation reverses the graph generator too. The coefficient is a unit for the allowed primes, and the identity coefficient Frobenius fixes it. No assumption nu^p=nu modulo p^n, or lifted normalization Frobenius, enters this step.
+
+## Integral cohomology and the actual boundary basis
+
+The proof of Omega_log=O omega is a global trivialization on the actual log model, not one restricted to the discriminant-inverted curve. Central relative log differentials are relative to the standard log point, not to a trivially logged base. The smooth and node calculations above verify the trivialization at every point.
+
+The plane Weierstrass equation defines a flat effective Cartier cubic even over R_n. The line at infinity cuts3O: in the infinity patch its equation is a unit times the cube of the section parameter. Thus the hyperplane bundle is O_Z(3O), and the displayed plane exact sequence is correctly twisted as
+
+    0 -> O_P2(-2) -> O_P2(1) -> O_Z(3O) -> 0.
+
+The projective-space cohomology used here works over an arbitrary coefficient ring. In its standard affine Cech calculation H1(O(k)) vanishes and a top-degree surviving Laurent monomial has all three exponents negative, hence degree at most-3. In particular H2(O(-2))=0. The sequence therefore gives H1(O_Z(3O))=0 without field-valued dimension or a cohomological base-change assumption.
+
+On Z minus infinity every function has unique polynomial form P(x)+yQ(x), because the equation is monic in y. The leading pole orders2i and2j+3 are distinct. Multiplication by a leading unit cannot kill a nonzero nilpotent coefficient, so there is no additional cancellation loophole over R_n or A_n. The resulting H0 spaces in pole degrees0,1,2,3 are precisely R,R,R+Rx,R+Rx+Ry. The infinity section is Cartier, so restriction to its complement does not hide a section supported only at infinity.
+
+For0->O(2O)->O(3O)->principal-part line->0, y maps to a unit generator of the order3 quotient. Hence H1(O(2O))=0. The order2 sequence and x similarly give H1(O(O))=0. Finally the map H0(O)->H0(O(O)) is the identity R->R; the order1 principal-part boundary is therefore an isomorphism R->H1(O). Its generator is the class of1/z in the stated Cech convention. These exact-sequence deductions retain the entire coefficient ring, not merely its reduction or geometric fibers.
+
+The already constructed eta class projects to that generator. The two-term hypercohomology sequence has H0(d)=0, since global functions are constants. Its edge map lands in ker H1(d), and eta's image generates the free rank-one H1(O); hence H1(d)=0 on all of H1(O). This is a valid way to prove the relevant degeneration, rather than assuming a general Hodge-de Rham theorem. It yields the exact sequence0->R[omega]->H1_logDR->R->0, explicitly split by eta. Therefore omega,eta are an R-basis for R=A_n and R=R_n.
+
+The particular cocycles and principal-part descriptions commute with coefficient reduction and t=0. The natural ordinary H1 specialization sends a proved basis to the corresponding proved basis. It is therefore an isomorphism. This is new ordinary H1 base-change control, not a consequence silently read off the old derived specialization. It agrees with that derived HK arrow because both use the actual de Rham restriction map and the canonical embedding comparison. No exchange of R Gamma with an arbitrary tensor or inverse limit is needed.
+
+## The Cartan construction defines the actual chosen-derivation connection
+
+Delta=t*d/dt is a genuine specified R_n-derivation of A_n, with base log value1 on the generator t. The paper appropriately avoids asserting that the algebraic Kahler module of R_n[[t]] is free on dt. The result is an operator along this particular log derivation, not an unproved description of all algebraic base differentials or a completed crystalline connection.
+
+Local lifts exist on the stated log charts: on uv=t take D(u)=u,D(v)=0, with corresponding log values1,0; on a strict smooth chart keep a relative coordinate fixed; derivations extend uniquely through an étale chart. The unit changes of semistable coordinates are part of those actual log charts. Differences of two lifts are relative log derivations, so contraction with relative log1-forms is defined even at the node.
+
+I independently checked formula(12) with the chosen Cech signs. Put V_ij=D_j-D_i. Relative2-forms vanish, so
+
+    L_Dj(alpha_j)-L_Di(alpha_i)
+      =d(D_i beta_ij+iota_Vij alpha_j).
+
+On a triple overlap, beta'_jk-beta'_ik+beta'_ij equals
+
+    V_ij(beta_jk)+iota_Vij(alpha_j-alpha_k)=0.
+
+For an original total coboundary of functions f_i, the change in the primed cocycle is exactly the total coboundary of D_i f_i. Replacing D_i by D_i+W_i changes it by the total coboundary of iota_Wi alpha_i. These checks fix the indices and the use of alpha_j in the contraction; they are not just a reference to an unspecified connection theorem. Multiplication by r gives delta(r) times the original class plus r times the primed class, as required.
+
+An affine étale refinement can compute the quasicoherent de Rham hypercohomology. If it is an étale cover rather than an open cover, its actual Cech nerve is used; finiteness of the list of charts is not an assertion that the nerve is bounded. In degree1 the verified double/triple-overlap conditions and refinement independence give the claimed operator. The earlier ordinary base-change proof used explicit bases and does not rely on a false boundedness assertion for this étale nerve.
+
+Thus this is the intrinsic proper log-de Rham delta-connection on the whole module. It is independent of the temporary lifts and contains no underlying Frobenius lift or hidden scientific computation.
+
+## Literal smooth matrix and injective localization
+
+On t inverted the log structures become trivial and this construction is the usual proper Gauss-Manin operator along the specified derivation. The old source input is applicable there: s-1=t(9+12t+4t^2) is inverted, s+1 is a unit and the coefficient root nu is fixed. That old input retains the exact rational/Cech terms of the smooth identities. In particular, it does not justify its matrix by discarding arbitrary exact rational functions in characteristic p. The new eta class has the same specified second-kind differential and its simple infinity principal part; changing that local regularization by a regular function is a Cech coboundary. The low-pole/unit-denominator interpretation of the old proper class is preserved.
+
+The row basis convention is e=(omega,eta), with nabla_s e=e C(s). Its columns are the cohomological derivatives, so C is the transpose of the saved period-column matrix. The displayed entries and signs agree with the old13972B proof:
+
+    C=1/[6(s^2-1)] [[-(2s-1),-(4s-5)],[-1,2s-1]].
+
+Pullback along s=S(1+t) gives the delta matrix t S'(1+t) C(S(1+t)). Cancelling the single t from s-1 leaves only units6,9+12t+4t^2 and s+1, so this matrix belongs to A_n. Independently the actual whole-module operator already has a matrix over A_n in the proved basis. Equality on the punctured locus therefore extends: t is a non-zero-divisor of R_n[[t]] despite its p-zero-divisors, and a free module and its endomorphism matrix inject under localization at t. This supplies the missing torsion control; regularity of a guessed rational formula alone would not suffice.
+
+No derivative in the old source parameter has been confused with a base log derivation, and no ordinary period-valued object is substituted for the cohomological basis. The exact source identities are consumed only on their actual smooth domain before this extension argument.
+
+## Residue, graph identification and exact crystalline strength
+
+Delta(A_n) is contained in t A_n, and the delta-connection preserves t times the module. Its reduction is therefore an R_n-linear endomorphism of the actual ordinary specialized H1. Since t S'/(S^2-1) has value1/2 at t=0, its matrix is exactly
+
+    N_n=(1/12)[[-1,1],[-1,1]].
+
+For a column(a,b), this sends it to((-a+b)/12)(1,1). Since12 is a unit, kernel and image are both the full R_n span of(1,1), and N_n^2=0. This calculation works over the full ring R_n, with no rank-over-a-field shortcut.
+
+The particular ordinary specialization and central chain identity identify this span with delta_L(2nu). Since2nu is also a unit, it equals the entire canonical graph image j_n(R_n), with kappa/12=(nu/6)j_n(1). The canonical central crystalline Frobenius fixes that actual image by the separate graph theorem and the coefficient identity. This is an identification through explicit classes and maps, stronger than matching two abstract one-dimensional modules or comparing eigenvalues.
+
+The stated residue is the residue of the constructed actual algebraic log-de Rham operator. Its crystalline formulation transports this endomorphism through the established finite central HK model. The paper does not identify it with a separately defined crystalline direct-image connection or formal monodromy operator; that comparison remains an explicit obligation. Compatible classes, basis maps and matrices commute with n-reduction, but do not by themselves identify a different completed site or exchange Rlim with cohomology.
+
+The integrated theorem therefore passes at its precise finite algebraic scope. It newly provides the boundary basis, ordinary H1 specialization, actual chosen-derivation source connection and graph-residue class comparison. It does not supply formal/completed/Rlim/p-inverted realizations, a crystalline isogeny/cup multiplier or determinant, a generic identification with the exact saved formal Frobenius class, saved global mu/c/extensions, dagger/gluing, original functional, LC A-C/wholeD or mother-Goal closure. No stopped fixed233 resource is restored and no actual core98 consumer is started.
+
+The three author originals remain unchanged. This independent report and its own actual Source binding are separately frozen; their eventual own-activity semantic event must use actual published observations. There is no Native vote, new method/Tool, formal Task or claim created by this PASS.
