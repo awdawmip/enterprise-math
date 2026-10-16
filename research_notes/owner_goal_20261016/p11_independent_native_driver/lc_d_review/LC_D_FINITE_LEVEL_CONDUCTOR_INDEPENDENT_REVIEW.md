@@ -1,0 +1,77 @@
+# Independent review of the finite-level conductor square and LC-D boundary
+
+Disposition: PAPER_PASS for the exact strict finite-level descent criterion, the naive-representative counterexample, the compatible corrected underlying-scheme lift and its coherent graph action. No must-fix was found. Whole LC-D, LC A-C and the actual relative/log-crystalline comparison remain OPEN. This is a result-only paper assessment, not an unconditional actual-sign theorem, Native scientific vote, Task Result, Tool registration or parent closure.
+
+Reviewer EM-DVR-BFF6DC, own session MCP-47562f9f432d4978a7bea0dd60ecc4aa and DA-144D0C4639CACEEE75DC. Actual author EM-P11-4A56E9, inheriting EM-T6-BFF294, canonical agent /root/quota_diagnostics_candidate. This is a different actual actor from F736's parameter papers and from the earlier CM24 coefficient author. The frozen primary FINITE_LEVEL_CONDUCTOR_FROBENIUS_SQUARE_AND_LC_D_BOUNDARY.md has 12633 bytes, SHA256 45f93686556d8b1639bcc68de238f5ec391df2dbb77a4ea1eb4340a0bb6eb6d7 and blob ab20cb040f47f9874f1282eeeb46d7383b23dd25. Its 2352-byte frozen handoff SHA256 9670047c678040601ab9cc51ec13654b48221d6cb272a4035d67bea78ab0d39f binds five members totaling 26203 bytes. All five were read and their exact byte/SHA/Git-blob pins verified. They are local frozen author objects at audit time; no new author Source is invented.
+
+This is genuine nonauthor review in directed NONBLIND context. Root supplied this actual frozen unit and its bounded checklist. The author supplied frozen definitions and exact dependency custody only; I supplied no pre-freeze construction, correction, replacement lift or preliminary verdict. Previous CM/P11/Parity paper assessments do not review this new object. The author is also the stopped fixed-certificate candidate author, a fact preserved rather than hidden by IDs. My earlier contact with that actor was identity/control correspondence only. Neither this separate LC-D audit nor any feedback here constructs or repairs its fixed-curve code/input/codec or exhausted budget. No actor's SID, DA or earlier mathematical role is borrowed.
+
+No scientific program, numerical or symbolic checker, enumeration, point/prime search, new literature search or new mathematical helper was run. The p=13 arithmetic and all-level arguments were checked on paper. Managed reads, exact UTF-8 extraction, custody hashes and local report persistence are administrative only. The author packet and all earlier frozen papers remain unchanged. No new Task, claim, RA, Native scientific record, Working Truth or Foundation action occurs.
+
+## 1. Own exact Source consumption and inherited scope
+
+I personally made fresh complete managed GitHub calls for all three declared immutable inputs and verified bytes/SHA/blob, rather than adopting the author's observations:
+
+- Source00b7a0506a86d1d405f990afdfaa1be4ccc8daee, research_notes/owner_goal_20261016/fair_nonparity_frontier_9821e2/NONPARITY_THREE_BOUNDED_FRONTIERS_AND_T6_REPUBLICATION_AUDIT.md, 14416 bytes, SHA256 6ad620c8699daa7bf50a597cca180eaaad580edfcd06f5a69864bdb5a6c652bf, blob efd540b6a95fd3f363a584a00bef7a2ccd94325b.
+- Source809bd4b2c20682dfa29cb2eac0cf251bd4fa7d38, research_notes/owner_goal_20261015/CM24_SPLIT_NODE_CONDITIONAL_REVIEWED_BUNDLE.json, 137335 bytes, SHA256 c4acbfb51a19897e2265e81607c4f0d9c831f31003207fab3f19b79e86989914, blob 35e26b9e9936d659152cf03ebda5d5246d459bb5.
+- Source82ac07759766a129bd5c6f442ccf12e8c7b4ca44, research_notes/owner_goal_20261015/CM24_LC_PRIMARY_IMPORT_REVIEWED_BUNDLE.json, 22628 bytes, SHA256 a76d95e567e9819b002674d6d6bef7fe8a246020a0fd5f0f52ad3a89566b2e26, blob a600aef9f402b439dd846888bdcd480026ae370b.
+
+All eighteen old embedded members, totaling 140877 bytes, were individually decoded and checked against their byte/SHA/blob declarations and the supplied eighteen-member index. Complete responses, exact originals and custody checks are retained in this review directory. I read the full direction, necessary source geometry and its prior review, primary-applicability audit and its prior review, as well as the new scope and typed result interfaces. A truncated display was narrowed and reread, rather than treated as full consumption.
+
+The geometry package proves its elementary split-node and normalization identities with LC conditional. The import package reports that direct Hyodo--Kato 5.1 does not apply to the specified two-parameter base and leaves the relative interfaces uninstantiated. I did not retrieve or read a new Hyodo--Kato raw PDF in this unit and do not claim a new independent primary-theorem applicability validation. Its reported incomplete-boundary status is retained; the new elementary lemmas do not use that theorem as a positive premise. The earlier actual-sign implication remains conditional. My separate CM24 open-disc coefficient review supplies no missing comparison arrow either.
+
+## 2. The finite-level algebra and conductor are exact
+
+For the stated split primes p=13 or 19 modulo 24, p>=13 and the saved branch root nu belongs to Z_p with nu^2=-3. Thus 2nu is a unit, the two sections are distinct, and coefficient Frobenius on this Z_p descent is identity. These are the saved actual central-fibre conventions, not an arbitrary semilinear basis or a fitted sign.
+
+At R_n=Z/p^n the map A_n=R_n[X,Y]/(Y^2-X^2(X-3)) to B_n=R_n[v], X=v^2+3=q,Y=vq, is injective. Reduction by the monic quadratic in Y gives a unique expression a(X)+Yb(X). Its even and odd images cannot cancel. Substitution by the monic v^2+3 is injective even with nilpotent coefficients, and multiplication by the monic q does not introduce a kernel. Thus the proof is valid over nonreduced R_n, not only over its residue field.
+
+The images qv^(2m)=q(q-3)^m and qv^(2m+1)=vq(q-3)^m prove A_n=R_n+qB_n. Chinese remainders apply because the two linear factors v-nu and v+nu are comaximal. In B_n/qB_n=R_n times R_n, A_n is exactly the diagonal subalgebra. Its conductor is qB_n: an element of the diagonal whose product with every pair remains diagonal must have zero common coordinate, as multiplication by (1,0) already shows. This remains true over rings with zero divisors.
+
+Consequently ker delta=A_n and delta is onto, with delta(g)=g(nu)-g(-nu) and delta(v/(2nu))=1. This is an exact sequence of R_n modules, or the corresponding coherent sheaves; delta is a difference map, not a multiplicative ring homomorphism. The strict square is correctly read in that module/sheaf category, with psi_f an algebra endomorphism. A_n and B_n are R_n-flat by the displayed free polynomial-module descriptions, and the quotient R_n is free. B_n is explicitly the base change of the Z_p normalization. No normalization of a reduced finite-level ring is asserted when n>1.
+
+## 3. The strict criterion and its exact limits
+
+Assume f=v^p modulo p and psi_f fixes the coefficient ring. For r=f(nu),s=f(-nu), their residues are nu,-nu, so r-s,2r and r+nu are units. If psi_f(A_n) is contained in A_n, applying the equal-endpoint condition to q gives (r-s)(r+s)=0 and hence s=-r. Applying it to vq then gives 2r(r^2+3)=0. The unit 2r forces r^2=nu^2, and r+nu a unit forces r=nu, therefore s=-nu. These cancellations are legitimate modulo p^n despite nilpotents.
+
+Conversely the two fixed endpoint identities give delta psi_f=delta on every polynomial, and that identity preserves its kernel A_n. This proves all three equivalences with the given quantifiers, for every n>=1. The reduction hypothesis is essential: without it a normalization map could exchange or collapse branches, and this proof does not assert the same criterion. Nor does it claim that every nodal, derived, crystalline or log-PD descent must have such a global strict B_n representative.
+
+For f=v^p the endpoints are nu*a,-nu*a with a=(-3)^((p-1)/2), so descent is equivalent to a=1 modulo p^n. At p=13, a=729 and a-1=728=13*56 with 56 a 13-unit. Also a+1 is a 13-unit. The actual coordinate Y has difference 2nu^p(nu^(2p)+3)=6nu*a*(1-a^2), whose valuation is exactly one. Thus it is nonzero modulo 13^2 and proves the fixed naive-representative failure, without a sampled numerical root or an executed check. It does not obstruct intrinsic crystalline Frobenius or LC in another representation.
+
+Adding qB_n to f leaves both endpoints unchanged, so cannot fix this failure. The obstruction concerns exactly those endpoint values; it is not a general nonexistence theorem for corrected scheme lifts.
+
+## 4. The corrected lift exists at every finite level
+
+For D=(v+nu)^p-(v-nu)^p, its constant d0=2nu^p is a unit, the degree is at most p-1 and all nonconstant coefficients are divisible by p by the prime binomial coefficients. Thus D=d0+pE and its inverse in B_n is the finite sum d0^(-1) sum_(j=0)^(n-1)(-pE/d0)^j. The remainder vanishes because p^n=0. This proves an actual polynomial inverse in B_n; it does not incorrectly treat a unit constant term as sufficient over Z_p[v].
+
+The numerator N has degree p, so N/D has degree at most p+(n-1)(p-1)=n(p-1)+1. The fixed Z_p choice of nu and uniqueness of inverses make reduction from n+1 to n compatible; the additional geometric-series term vanishes after reduction. Modulo p, N=2nu*v^p and D=2nu^p, giving f_n=nu^(1-p)v^p=v^p since nu is an F_p unit after reduction. Direct substitution fixes nu and -nu exactly. The strict criterion therefore gives the claimed descended affine map and identity square at every n.
+
+The Möbius change w=(v-nu)/(v+nu) and its inverse are PGL2 automorphisms over R_n because their determinant is a unit. Conjugating the degree-p power morphism gives precisely the homogeneous pair [N:D]; hence it is a morphism of P1_R_n, without an unproved no-common-zero assumption. No flatness of the descended singular-curve endomorphism is needed or claimed.
+
+The exact numerator identity yields f_n^2-nu^2=4nu^2 q^p/D^2. On the affine normalization D is a unit, and away from the branches q is a unit, so the complement is preserved. On the projective normalization reduction is Frobenius; the only topological preimages of the branch sections are the same sections. This is a topological-support claim, not a claim that their scheme-theoretic preimages have multiplicity one. The smooth complement of the node is identified with that normalization complement. Its projective map agrees on overlap with the descended affine map because both use the same N/D. They therefore glue to the proper nodal C_n map. This checks the infinity/complement part rather than assuming that an affine map alone automatically extends.
+
+Changing nu to -nu negates N and D together, leaves f_n unchanged and reverses delta's orientation consistently. The identity square is unaffected. The correction Delta_n=f_n-v^p lies in pB_n and has endpoint values nu(1-a),-nu(1-a). At p=13,n=2 these are nonzero, so the correction cannot lie in the conductor. This agrees with the earlier obstruction and does not contradict it.
+
+## 5. Precisely the coherent graph action follows
+
+The explicit affine conductor sequence extends to the sheaf sequence on the proper base-changed nodal cubic because normalization is an isomorphism away from the node. It is not a new assertion that finite-level B_n is normal. The cokernel is the node-supported i_*R_n with the oriented difference map.
+
+The standard two-affine Cech calculation gives H0(P1_R_n,O)=R_n and H1(P1_R_n,O)=0 over this arbitrary finite coefficient ring: Laurent polynomials split into nonnegative and nonpositive powers. Normalization is finite, so the corresponding coherent cohomology is computed by its pushforward; this also follows from the same affine-cover calculation. The global difference on constants is zero. The long exact sequence consequently makes the connecting map j_n^coh:R_n to H1(C_n,O_C_n) an isomorphism.
+
+The constructed maps commute with normalization and fix both node sections with coefficient action identity. Their quotient map in the conductor sequence is therefore identity by the strict square. Naturality of the connecting map proves the identity action on H1(O) under j_n^coh, compatibly in n. This is coherent pullback for these constructed underlying-scheme morphisms; it needs no flatness claim for that morphism and makes no identification with a crystalline functor merely from the word Frobenius.
+
+## 6. The LC boundary is retained, not discharged
+
+The diagram just proved has codomain coherent H1(O) for a constant nodal scheme over R_n. It is not yet the desired graph arrow into the actual specialized relative log-crystalline complex over S_n=(Z/p^n)[[t]] with theta(t)=t^p. The paper supplies no Frobenius-compatible derived specialization/base-change map from a correctly built relative K_n, no normalization injection in that crystalline category, and no identification of its graph image with the actual specialized residue-kernel line.
+
+An underlying scheme map preserving the conductor does not verify compatibility with a chosen smoothing chart, log-PD embedding system or its ideals, flat-crystal and cohomology/base-change hypotheses, proper direct images, completion or inverse-limit comparison. A genuine crystalline construction can also require local lifts and homotopies rather than a global strict normalization representative. The strict criterion is not an extra necessary axiom for every possible solution of LC. The previously located Hyodo--Kato interfaces remain interfaces, not discharged premises.
+
+The inherited eta+omega=dv has a primitive v with an infinity pole and oriented branch jump 2nu. The saved e_hat,1=(omega+eta)/12 has jump plus or minus nu/6, with the required units and orientation convention. This preserves normalization information but is not itself an arrow from coherent H1(O) to the actual log-crystalline module. Its proper de Rham/Cech principal parts still need transport through that missing comparison. No unconditional actual mu=+1 or actual c,xi,eta follows from the constructed coherent identity.
+
+Thus the paper passes at its exact declared result-only strength: a strict finite-level criterion and counterexample, a corrected compatible nodal-scheme lift, and a coherent graph identity with the precise relative/crystalline morphism still missing. LC A-C, whole D, actual geometric regularity/sign/normalization, full-carrier dagger/gluing, original functional and mathematical parent completion remain open. This is more than a characteristic-p branch-permutation assertion but less than the actual LC-D specialization theorem.
+
+The exhausted fixed-(233,119) scope remains separate and unaltered. The packet records that Task's resource stop and remaining zero; this audit neither reopens it nor validates or repairs any code/input/codec, prior debit or scientific admission. Previous accepted arithmetic, other conditional geometry and CM24 analytic papers retain their own truth levels. No new execution Task or budget is created by the present PASS.
+
+The method is RESULT_ONLY composition of explicit ring/CRT calculations, P1 morphisms, chart gluing and coherent Cech functoriality at the stated external arithmetic types. No general Tool or literature-novelty claim is accepted. Heartbeat X6 native-space and joint-relation discipline are retained; v,t and the precision index n are not native spatial axes or physical time. All prior authors and direction support remain credited. No further mathematical unit is initiated by this report. All mathematical parents remain OPEN.
+
+Driver-ID: EM-DVR-BFF6DC / CONTROL_PLANE
