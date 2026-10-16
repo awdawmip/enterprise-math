@@ -1,0 +1,52 @@
+{
+  "schema": "PARITY_COMMON_DEGREE_W_MINUS_THREE_GROWING_RAW_COEFFICIENT_BAND_V1",
+  "status": "FROZEN_AUTHOR_INTERFACE_UNREVIEWED",
+  "author": "EM-PUBLIC-7CDA51",
+  "unit_count": 1,
+  "input": {
+    "m": "integer m>=7",
+    "j": "integer 0<=j<=floor(m/6)",
+    "W": "m^2",
+    "D": "W-1",
+    "d": "W-3",
+    "K": "m^(2W)/2",
+    "polynomial": "original SAME COMMON P1=[c]((x+Wc+beta)G_W(x)T(c)/c), x=W(S+a), beta=(W+1)/2",
+    "frame": "Raw S,a polynomial coordinates; centering sigma=S+h with h=(W+1)/(2W) only for the proved layer transport",
+    "residue_carrier": "V=Q[u]degree<=m-2, J^(m-1)=0; exact m-dependent cutoff",
+    "physical_parameters": "Original S>=0,a>0, coefficient extraction separately typed; auxiliary contour and coefficient variables do not alter native spatial/observer contracts"
+  },
+  "output": {
+    "coefficient": "A_(m,j)=[S^(d-j)a^j]H_d^raw",
+    "strict_sign": "A_(m,j)>0",
+    "explicit_margin": "A_(m,j)>=K binom(d,j)m^6(m^3/40-m/6-7/2)>0",
+    "range_growth": "One uniform linearly-growing coefficient band; old j=1 inclusion not counted as new independent discovery"
+  },
+  "proof_inputs": {
+    "already_known": "Original exact P1/COMMON, V2 moving-frame/top layer, existing full F(lambda)/residue trace representation and B0 exact trace",
+    "direct_composition_not_new": "Raw layer Psi=F+alpha[D(D-1)B-2(D-1)lambda Bprime+lambda^2Bdoubleprime], alpha=(W+1)^2/(8W)",
+    "new_author_proof": "Positive contour adjoint identification, self-proved finite weighted energy norm, exact nilpotent exponential-frame coefficient majorant, uniform actual-Psi absolute-coefficient margin",
+    "new_external_primary_import": 0
+  },
+  "key_bounds": [
+    "||J||<=2m; ||Z0||<=2m; ||R0||<=2m; ||A_even||<=4",
+    "xi=j/d; xi||J||<=3/8; N_xi(E)<=m/8",
+    "N_xi(B-B0)<=17m^3/16; B0>=3m^3/2",
+    "N_xi(C)<=7m^6/2; g(N_xi(B)+2)<=m^7/6",
+    "0<=(j)_k/(d)_k<=xi^k on actual deg<=2m-6<d",
+    "No claim that coefficient functional is positive on squares or that B_metric=tau*A as matrices"
+  ],
+  "not_claimed": [
+    "j>floor(m/6) raw coefficients",
+    "Other homogeneous layers or all coefficients of P1",
+    "Physical-domain P1 or whole-trace sign",
+    "A practical tail threshold, numeric coefficient certificate or actual compact coverage",
+    "New m2..6 coverage or changed gcd normalization",
+    "A generic Tool, new Task, Native review vote, Foundation promotion or Goal closure"
+  ],
+  "contribution_boundary": "This new proof is author7CDA work, not covered by its earlier peer review of the old single coefficient. Root control only; old input authors BFF6DC/F73673 not new coauthors; future4A56 true whole reviewer not given working.",
+  "scientific_programs": 0,
+  "Native_votes": 0,
+  "Source_publication": "PENDING",
+  "own_new_activity_event": "PENDING after actual author Source; no local event34 appended",
+  "mother_goal_complete": false
+}
