@@ -1,0 +1,364 @@
+{
+  "schema": "EM_ACCEPTED_RESULT_TYPED_HARVEST_PROPOSAL_V1",
+  "created_utc": "2026-10-16T00:31:03.404593+00:00",
+  "author": "EM-T6-BFF294",
+  "session_id": "MCP-45e25848f80945b899ca8ea285c13f07",
+  "activity_id": "RA-401CE79523D3F9699C79CD5C",
+  "status": "LOCAL_PAPER_PROPOSAL_REQUIRES_REVIEW_NO_REGISTRATION",
+  "scope": "Extract two reusable accepted result interfaces beneath existing tool families; no new Task/Tool/Foundation/WorkingTruth/NativeDR/claim or scientific program execution.",
+  "activity_gate": "OWN_ACTIVITY_PAPER_GATE.json (actual Source readback-backed startup activity_allowed/persistence_allowed, authorized=false)",
+  "accepted_task_scope": {
+    "Public129": {
+      "Task": "RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007",
+      "pub": "TP2-61D08EEA98B46ED15916",
+      "RR": "RR-9FFBBB42790CCECD2FF8",
+      "DR": "DR-9B722991A865BCD49B36",
+      "state": "DONE/COMPLETE",
+      "acceptance_Source": "4d51441614d1ca9f6276ac2f79ee38a1cf1c2448",
+      "parent": "OPEN"
+    },
+    "U2": {
+      "Task": "RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007",
+      "pub": "TP2-E49C20B8D0A6569355F6",
+      "RR": "RR-A2E93EC78BC5FE034176",
+      "DR": "DR-741015188441A39E1BBD",
+      "state": "DONE/COMPLETE",
+      "acceptance_Source": "6ee607a80ad063de59156d916db3c095e1bd152b",
+      "parent": "OPEN"
+    }
+  },
+  "reuse_lookup": {
+    "actual_existing_queries": [
+      "first-exit path-cut flagged mask",
+      "hypergraph regularity weighted BRC"
+    ],
+    "raw_lookup_outputs": [
+      "PUBLIC129_TOOL_COVERAGE_LOOKUP.json",
+      "U2_TOOL_COVERAGE_LOOKUP.json"
+    ],
+    "resolution": "COMPOSE_APPLIED (paper only); existing modules/interfaces are reused/cited, no new Tool name proposed",
+    "semantically_relevant_matches": [
+      "T8 relation observer",
+      "T12 finite idempotent closure interface",
+      "admissible_support.compose_relations",
+      "t0.weighted_brc_cwm",
+      "t0.weighted_brc_finite_recurrent",
+      "t0.brc_control_mass_quotient is adjacent and requires a ControlPacket/effect/matrix-transpose bridge"
+    ],
+    "lexical_only_or_adjacent": [
+      "T3 oriented matroid signed cocircuit is not this directed Boolean successor-closed cut certificate",
+      "BRC neighbor-square mask hits do not cover this automata mask",
+      "T2 block finite obstruction is not assumed to give a uniform local-obstruction bound here"
+    ],
+    "new_global_tool_family_required": false
+  },
+  "units": [
+    {
+      "proposal_local_key": "Public129 accepted finite boundary certificate and counted mask-fold bridge",
+      "classification": "REUSE_COMPOSE_PAPER_RESULT_REFERENCE_ONLY",
+      "existing_families": [
+        "T8_RELATION_OBSERVABLE_SPECTRUM",
+        "T12_IDEMPOTENT_PATH_CLOSURE_BELLMAN"
+      ],
+      "existing_executable_reuse": [
+        "src/enterprise_math/admissible_support.py::compose_relations"
+      ],
+      "existing_artifact_entrypoints": [
+        "public129_certificate_checker.py::expected_raw_edges",
+        "public129_certificate_checker.py::validate_shape",
+        "public129_certificate_checker.py::check_certificate",
+        "public129_certificate_checker.py::expected_macro_edges"
+      ],
+      "not_a_new_Tool_API": "Names above are existing artifacts. This proposal adds no production module, global Tool ID, registry record or replacement implementation. T12 is an accepted interface/checker without a production module; no executable T12 call is claimed.",
+      "formal_types": {
+        "source_machine": "Finite nonempty Q, s=|Q|>=1; finite alphabet Sigma with two separately typed endmarkers; fixed partial deterministic delta:Q×Sigma_marked -> Option(Q×{-1,0,+1}); F subset Q; endmarker restrictions apply for a whole DMachine.",
+        "segment": "Finite symbol sequence w of length n. Empty segment has no Cell; empty ordinary input has TWO marker Cells and n=2.",
+        "step_flag": "b in {0,1} means an actual machine step has occurred along the whole run. Machine steps set1; entry/seam/observation wires preserve b. It is a typed external run-index flag, not a native spatial coordinate or physical time.",
+        "entries": "I:{L,R}×Q×{0,1}, P=4s",
+        "outputs": "X:{L,R}×Q×{0,1} plus A:0,A:1; |O|=4s+2",
+        "summary": "S_w subset Entries×Outputs; ALL four first-exit blocks and BOTH acceptance/step channels. Full storage K=P|O|=16s^2+8s Boolean bits.",
+        "certificate": "For every entry i: advertised output set, an actual finite edge path to each advertised output, and a successor-closed vertex cut C_i containing i and excluding every unadvertised output. Retain declared graph/input carrier."
+      },
+      "preconditions": [
+        "One shared fixed delta,Q,F and acceptance convention for both segments and allowed contexts; acceptance is occurrence at a finite configuration, not necessarily halting.",
+        "Reconstruct the graph from delta and w, including isolated vertices and every edge. A graph supplied by an untrusted caller is not a machine-semantic certificate without this reconstruction/shape check.",
+        "Accepting states may continue; observation edges to A_b are optional alongside the machine transition. A no-exit cycle gives no first exit but may still reach an accepting state.",
+        "Only Boolean existence of finite first-exit/accepting witnesses, with side/state/positive-step flags, is the terminal observer. Unknown future multiplicity/provenance/amplitude/time observers are outside this quotient.",
+        "For the separate Lean Network sourceAttach bridge, each inactive source key gets its own fresh incidence leaf; symbol-local attachment, target-state key and deterministic source-model assumptions remain intact. This is not needed to redefine the raw directed certificate graph, whose carrier is different."
+      ],
+      "mathematical_contract": {
+        "raw_semantics": "Checked S_w(i,o) iff a corresponding finite first outer exit or accepting-configuration witness exists, with the declared b flag; epsilon is only the identity cross-wire with no acceptance.",
+        "certificate_exactness": "Paths prove inclusion. Edge-closed cuts prove every omitted output unreachable. Every finite graph has such a certificate using simple positive paths of length<=V-1.",
+        "composition": "Join(S_u,S_v)=S_uv by finite reachability on the seam macro graph, including arbitrary finite seam reentry, stay steps, no-exit loops, accepting continuation and empty segments.",
+        "left_then_right_exit_formulas": {
+          "F_ab": "F_a ; (L_b ; R_a)* ; F_b",
+          "B_ab": "B_b ; (R_a ; L_b)* ; B_a",
+          "L_ab": "L_a union F_a ; (L_b ; R_a)* ; L_b ; B_a",
+          "R_ab": "R_b union B_b ; R_a ; (L_b ; R_a)* ; F_b"
+        },
+        "acceptance": "Use the explicit seam graph and A_b channels; the four exit formulas alone do not supply acceptance.",
+        "context_substitution": "Equality of COMPLETE summaries is a Boolean terminal congruence under finite left/right segment contexts for the same machine. No coarsest-quotient or richer-observer theorem is asserted.",
+        "counted_compiler": "Mask-only left-to-right Join fold over leftmarker, letters and rightmarker has a same-abstract-alphabet read-only one-head DMachine implementation with <=2^K+1 states, one state per K-bit mask plus accepting acc; exactly the original selected finite-run language.",
+        "compiler_status": "PAPER EXISTENCE CONSTRUCTION ONLY; the exponential table has not been materialized or executed."
+      },
+      "construction_and_check_order": [
+        "Validate finite machine/segment types; build full declared vertices and raw transition/acceptance/wiring edges.",
+        "Use existing validate_shape + expected_raw_edges before check_certificate; a standalone check_certificate invocation only verifies the supplied graph relation, not that the graph came from this machine.",
+        "Check each inclusion path and every successor closure/excluded output. Handle malformed input as validation failure, not as an EMPTY semantic result.",
+        "For Join, use two typed component summaries, explicit seam links and acceptance sinks; raw graph multiplication alone omits the acceptance contract.",
+        "If using an existing fixture verifier, verify(data) is tied to the fixed ten named cases. It is not advertised as an unrestricted production interface.",
+        "Existing artifact checks are Python assertions. Invocation requires assertions ENABLED (__debug__ true); Python -O/-OO is outside their validity domain. No assertion-enabled checker was executed by this harvesting actor."
+      ],
+      "complete_cost_contract": {
+        "model": "Word-RAM/dictionary membership as declared by the accepted resource ledger; labels carry O(log V) bits. Dictionary or bit-complexity overhead is not silently free.",
+        "raw_graph": "V=2ns+8s+2. For n>0: E=4s+E_transition+2n|F| <=4s+4ns, E_transition<=2ns. For n=0: V=8s+2,E=4s.",
+        "construction": "O(ns) graph construction after delta rows/F membership are accessible; all-entry BFS O(P(V+E)). General theorem is paper proof, not inferred from the finite fixture count.",
+        "compact_certificate": "There exists a canonical compact certificate with cuts O(PV log V) bits and simple positive witnesses O(KV log V) bits, plus graph O(E log V). This is an existence/encoding upper bound, NOT an upper bound on arbitrary cyclic or duplicate-heavy input JSON.",
+        "existing_checker_actual_input": "With actual decoded cut/path length L: O(V+E+P E+L) expected dictionary/set word operations, plus shape/reconstruction/output scans; L explicitly includes all encoded row-cut memberships and all path vertices. Under compact simple-path/cut encoding this specializes to O(P(V+E)+KV). Comparison-based edge dictionaries add log E; labels, parsing and output bytes are counted.",
+        "macro_graph": "V_J=24s+6, E_J<=2K+12s+4. P-entry BFS joins O(s^3) word operations. Writing compact macro certificates can cost O(s^3 log s) bits.",
+        "actual_producer_closure_alternative": "Frozen compose_relations on t=2s may generate O(t^3) triples; repeated-squaring star costs O(s^3 log(s+1)) word operations. This is separate from seam-BFS Join and certificate checking.",
+        "compiler_states": "<=2^(16s^2+8s)+1; K bits are NOT K states.",
+        "compiler_time": "For ordinary input length ell, hardwired accepting run uses ell+2 actual machine transitions; table lookup is over one abstract alphabet symbol, not a free binary decoding operation.",
+        "compiler_table": "<= (2^K+1)(|Sigma|+2) entries. Each entry needs definedness, ceil(log2(2^K+1)) next-state bits and a move code; conservative bits <=entry_count*(1+ceil(log2(2^K+1))+2), in addition to alphabet representation.",
+        "compiler_precompute": "O(2^K (|Sigma|+2) s^3) word operations for the full table plus the one-symbol-summary construction costs. No table cell or closure is assumed free runtime.",
+        "alphabet_boundary": "For the relation alphabet on Fin h, |Sigma|=2^(h^2); a relation symbol requires h^2 binary bits plus framing/decoding in a binary interface. A tiny alphabet or fixed word-length sample does not meet the full all-word/all-relation premise.",
+        "measured_evidence_not_reexecuted": "Accepted source supplies original19graphs/216rows/114positivepaths and two actual pinned comparator successes; this actor only reads and hashes those originals, not rerunning them.",
+        "full_input_encoding": "Read/parse/validate the complete machine/word/certificate description and its metadata bytes separately. O(ns) begins only after transition-row and F-membership access is available; a huge alphabet/delta encoding or hostile long labels are not free. Use an explicit certificate input-size cap in a production adapter; none was implemented here."
+      },
+      "failure_and_obstruction_domains": [
+        "Forward-only F summaries are not context congruences: the accepted x/y example has F_x=F_y=empty yet prefix p distinguishes acceptance.",
+        "Erasing accepting continuation, the positive-step bit, seam returns, or inactive-key leaf identity invalidates the corresponding proof premise.",
+        "Offline (machine,word,certificate) verification is not a word-language recognizer; existential certificate quantification or generation/storage must be accounted.",
+        "Forgetting a mutable bit from reachable same-control/same-head configurations can produce different next readouts; no deterministic delta factors through that nominal projection. This does NOT prove a language or EM lower bound.",
+        "Full certificate-to-compiler Lean formalization and efficient/coarsest compression are not supplied. Two comparator roots passing do not formally verify this new certificate unit or remove historical binary-resolution provenance limits.",
+        "No native X6 geometry, native compiler, universal EM complexity consequence, general external-theorem adoption, Foundation/WorkingTruth or parent closure follows."
+      ],
+      "contributions": {
+        "original_proof_and_resource_bridge": "EM-HODGE-7936BF; retained prior EM-CM24LOG-89CC19 history",
+        "author_side_Source_audit": "EM-PARITYSUP-9840AA; upstream EM-DVR-17AB86 intake/planning retained",
+        "formal_environment_and_two_actual_executions": "EM-PUBLIC-7CDA51, own RA-6665DBCD10BC1C3E4DED3C04, with prior CONTROL context",
+        "acceptance_normalization_paper_support": "EM-PARITYREV-12B648, NONBLIND nonauthor support only",
+        "genuine_accepting_Driver": "EM-DVR-F73673 / DR-9B722991A865BCD49B36, disclosed earlier proof audit and validation plan",
+        "this_proposal": "EM-T6-BFF294 only reads accepted originals and extracts typed interfaces/encoding caveats; adds no decisive review vote or original-proof authorship."
+      },
+      "exact_sources": [
+        {
+          "name": "PUBLIC129_FIRST_EXIT_CERTIFICATE_PROOF.md",
+          "origin": {
+            "Source_capsule_commit": "1f4a3b2508e478ceee7edac7a16230d7f1437473",
+            "member_path": "PUBLIC129_FIRST_EXIT_CERTIFICATE_PROOF.md"
+          },
+          "bytes": 14602,
+          "sha256": "216c68e7e47810f813010237afcd7813a02006f24963bd76741fa8ca317b9923",
+          "git_blob_sha1": "ac9bf5145e0122fa0b829c2c4e5449ff85f49536",
+          "local_file": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/public129_line_driver/frozen_candidate_intake/members/PUBLIC129_FIRST_EXIT_CERTIFICATE_PROOF.md"
+        },
+        {
+          "name": "PUBLIC129_RESOURCE_AND_TYPED_TRANSFER.md",
+          "origin": {
+            "Source_capsule_commit": "1f4a3b2508e478ceee7edac7a16230d7f1437473",
+            "member_path": "PUBLIC129_RESOURCE_AND_TYPED_TRANSFER.md"
+          },
+          "bytes": 14053,
+          "sha256": "1324f9159178658848ed440e9be182cb8ea7b98aa19940101b871dc646550dbb",
+          "git_blob_sha1": "a3fb297ae728c46d9322695597f218c7edb4c333",
+          "local_file": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/public129_line_driver/frozen_candidate_intake/members/PUBLIC129_RESOURCE_AND_TYPED_TRANSFER.md"
+        },
+        {
+          "name": "public129_certificate_checker.py",
+          "origin": {
+            "Source_capsule_commit": "1f4a3b2508e478ceee7edac7a16230d7f1437473",
+            "member_path": "public129_certificate_checker.py"
+          },
+          "bytes": 7418,
+          "sha256": "ad521d6210569f46aa2f0382b0b2bc278bfcb7b80e58a970ed7aafe93ffb9595",
+          "git_blob_sha1": "3b95e02222fe7fe841915cdcef6a9f7660ae75fb",
+          "local_file": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/public129_line_driver/frozen_candidate_intake/members/public129_certificate_checker.py"
+        },
+        {
+          "name": "Public129 accepted PUBLIC129_INDEPENDENT_FINAL_TASK_SCOPE_REVIEW.md",
+          "origin": {
+            "repository": "awdawmip/enterprise-math",
+            "Source": "4d51441614d1ca9f6276ac2f79ee38a1cf1c2448",
+            "path": "driver_reviews/mcp/MCP-10b3bf1d95f645ce8c0e419e458a2e49/8f1c3d1eb8edbfcd609f/PUBLIC129_INDEPENDENT_FINAL_TASK_SCOPE_REVIEW.md",
+            "managed_readbacks": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/public129_line_driver/completion_review/ACCEPTED_DR_DFU_RR_REPORT_SPEC_FIVE_ACTUAL_FULL_SOURCE_READBACKS.json"
+          },
+          "bytes": 12514,
+          "sha256": "7ea369544f19f9e951cb66411cc271c4431d96cfd9eedcfae180a1a17e095255",
+          "git_blob_sha1": "ffdf58c9e7c7b63801d5821e647726bd2ef55c2a",
+          "local_file": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/public129_line_driver/completion_review/ACCEPTED_SOURCE_PUBLIC129_INDEPENDENT_FINAL_TASK_SCOPE_REVIEW.md"
+        },
+        {
+          "name": "Public129 accepted DR-9B722991A865BCD49B36.json",
+          "origin": {
+            "repository": "awdawmip/enterprise-math",
+            "Source": "4d51441614d1ca9f6276ac2f79ee38a1cf1c2448",
+            "path": "research_result_reviews/RR-9FFBBB42790CCECD2FF8/DR-9B722991A865BCD49B36.json",
+            "managed_readbacks": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/public129_line_driver/completion_review/ACCEPTED_DR_DFU_RR_REPORT_SPEC_FIVE_ACTUAL_FULL_SOURCE_READBACKS.json"
+          },
+          "bytes": 2176,
+          "sha256": "ff9a90160738f4d99b24ab103c9932b88216377f3766c5f314efb9e38da99606",
+          "git_blob_sha1": "251b299a645de5351c8696631815433d3961db53",
+          "local_file": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/public129_line_driver/completion_review/ACCEPTED_SOURCE_DR-9B722991A865BCD49B36.json"
+        }
+      ]
+    },
+    {
+      "proposal_local_key": "U2 accepted conditional incidence balance and source-labelled two-edge mass bridge",
+      "classification": "EXISTING_T0_RESULT_ONLY_CONDITIONAL_CALLER_CONTRACT",
+      "existing_family": "T0_BRC",
+      "existing_methods": [
+        "t0.weighted_brc_cwm",
+        "t0.weighted_brc_finite_recurrent"
+      ],
+      "existing_executable_reuse": [
+        "src/enterprise_math/brc_weighted.py::cwm_edge",
+        "src/enterprise_math/brc_weighted.py::cwm_propagate",
+        "src/enterprise_math/brc_weighted.py::cwm_recoalesce"
+      ],
+      "not_new_tool_or_law": "Document a caller-side theorem/precondition and preserve the existing RESULT_ONLY status. No new top-level family/name, general hypergraph novelty, native incidence admission, or production custom-incidence field solver is proposed as completed.",
+      "formal_types": {
+        "native_spatial_carrier": "Six native discrete Cell axes; twelve signed ports P={+/-E1,...,+/-E6}. Internal torsor charts are not public final addresses; no native plane. Spatial travel and a separately typed event/time index are distinct.",
+        "H": "One finite coherent set of distinct 3-element hyperedges on P; every port has positive degree. For the Task turning/opposite claims, every hyperedge uses THREE DISTINCT NATIVE AXES.",
+        "choice": "At incoming p, choose h containing p uniformly, then one of its three legs uniformly. A positive response circuit, not a proved realization of primitive indivisible native actions.",
+        "d_and_n": "d(p)=#{h:p in h}; n(p,q)=#{h:p,q in h}, including n(p,p)=d(p). Destination-row/source-column convention.",
+        "retained_joint_input": "Original source/material identity, incoming port, hyperedge/packet membership, parent budget and needed history remain available separately from the unary mass projection."
+      },
+      "mathematical_contract": {
+        "kernel": "K(q,p)=n(p,q)/(3d(p)); columns sum1; K(p,p)=1/3.",
+        "extra_distinct_axis_claims": "Only with the Task distinct-axis condition: K(-p,p)=0 and tagged nonanchor/turning response fraction2/3. This is not an angle/force/motion law.",
+        "stationarity_and_reciprocity": "K(q,p)d(p)=K(p,q)d(q)=n(p,q)/3 and Kd=d. These concern the local port kernel before travel/input reversal, not a stationary material or full field.",
+        "exact_balance_criterion": "Equal1/12 input budgets emit equal1/12 output budgets iff all row sums r(q)=1 iff d is constant ON EACH incidence-connected component. Distinct components may have different constant degrees.",
+        "converse_proof": "For x=1/d, row balance implies x(q) is the positive average of x(p) over3d(q) incident appearances. A component maximum propagates along all positive incidences, forcing constant degree.",
+        "fixed_two_edge_return": "Given equal twelve-channel injection, common rho=12lambda with0<lambda<1/12, conservative anchored equal-three-leg material kernels, fixed layout, no intervening gates/storage delay and travel p_next=-q: R_a^(2)=lambda^2[12+3 sum_{q in occupied-neighbor set B_a} r_a(q)]. A neighboring material may have its own kernel; its anchored diagonal1/3 is sufficient.",
+        "old_formula_for_one_layout": "R_a^(2)=(12+3|B_a|)lambda^2 iff sum_{q in B_a}r_a(q)=|B_a|.",
+        "old_formula_for_every_orientation": "Under a fixed source kernel, every singleton orientation tests each r(q), so individual source-labelled old formulas for all such layouts iff row balance/component regularity.",
+        "weaker_source_blind_test": "For a common kernel, only the sum of two source returns tests r(q)+r(-q)=2. It does not certify either individual source coefficient. With different kernels use r_A(q)+r_B(-q), without silently identifying them.",
+        "fixed_field_only_related_reuse": "For an independently supplied fixed positive column-conservative transition T and0<rho<1, Neumann response is unique with l1 total tail N rho^(L+1)/(1-rho). Row balance is unnecessary. Moving occupancy/storage/boundary feedback is not covered."
+      },
+      "proposed_certificate_payload_not_implemented": {
+        "inputs": "Versioned H with stable source/port/hyperedge IDs, typed uniform-choice rule, distinct-axis flag, exact lambda/rho and a specified source-labelled two-edge neighbor layout.",
+        "outputs": "Exact degrees/co-incidences or an equal-degree-along-incidence certificate; row mass profile r; conditional balance verdict; exact two-edge TOTAL response together with the unchanged original H/labels and explicit observer scope.",
+        "structural_check": "Recount d from H, reject repeated/invalid triples or degree0, check required distinct axes, and check all endpoints of each hyperedge have equal d. This is equivalent to constant degrees per connected component; an unequal-degree incident pair is a finite failure witness.",
+        "positive_BRC_check": "Evaluate only with the existing typed positive CWM edge/serial/recoalescence operations; a counts-to-mass formula is a declared unary readout, not an ordinary-arithmetic substitute propagator.",
+        "existing_fixed_checker": "incidence_check.py is a frozen fixed-H witness, not a parameterized all-H service. It was NOT imported or run here. A general wrapper/checker and its production costs remain a reviewable proposal, not a delivered executable."
+      },
+      "complete_cost_contract": {
+        "parameters": "p=12 ports, m=|H|, B input rational bit length. Task distinct-axis set has m<=8*C(6,3)=160; general distinct3-uniform set on12 ports can have m<=C(12,3)=220. These are combinatorial bounds, not executed enumerations.",
+        "structural_validation": "O(p+3m) port-incidence/degree operations plus exact triple de-duplication (expected O(m) hashing or O(m log m) comparisons). Checking equal degree inside each triple is O(3m); no matrix inversion or spectral computation.",
+        "kernel_input_output": "A dense n and K output costs p^2 entries, at most9m ordered-pair count increments, and O(p^2+m) storage for matrices plus the retained3m incidence carrier. Do not hide full joint carrier retention in the mass-matrix size.",
+        "arithmetic_accounting": "Counts need O(log(m+1)) bits. Exact row sums involve at most p denominators3d(p); a conservative operand-size parameter is L=O(p log(m+1)+B). Let A(L) count the actual exact integer/rational operation including gcd; a direct dense mass-readout bound is O((p^2+m)*A(L)) plus graph/encoding validation. This is this proposal's paper accounting adaptation, not a measured/accepted executable wrapper bound.",
+        "two_edge_query": "After r, one fixed source total needs O(p) exact additions/multiplications at the declared bit sizes; output includes source/layout/observer metadata. It returns no full-path count/dominant CWM or all-depth branch list.",
+        "field_scope": "The scalar tail formula does not bound finite all-depth branch-count/CWM count or all-history output bytes. Full field/trace output needs its own finite L/horizon, evidence/memory budget and retained labels; none is launched here.",
+        "measured_evidence_not_reexecuted": "Accepted Driver records one fixed-H independent BRC implementation and original97-check replay. Their BRC call counts/1122-record trace are historical bounded evidence, not universal m-cost bounds and not repeated here.",
+        "full_input_encoding": "Stable source IDs/provenance and H/lambda/rho layout encoding bytes are also read/written. Fixed port IDs are bounded0..11; unbounded external labels/metadata must be charged by their actual input/output byte lengths."
+      },
+      "failure_and_unknown_domains": [
+        "Incoming-dependent unrelated H_p need not form coherent H; nonuniform edge/leg weights, repeated hyperedges, source/history dependence or zero degrees require another typed statement.",
+        "Coherent row balance alone, without distinct native axes, does not justify opposite-port exclusion or the Task turning interpretation.",
+        "A syntactically valid H is not a native Adm_E/TRIADIC_CLOSURE_E or indivisible-action realization certificate. Three spatial legs need not be three primitive actions; no signed-displacement-sum closure is inserted.",
+        "Two-edge TOTAL response is not a full count/total/dominant CWM nor a source-port or joint-history matrix. Source-blind aggregate equality cannot recover the separate source coefficients.",
+        "Original transport_tables(rho) and field_prefix use the default packet family and accept NO custom H parameter. An H kernel/theorem cannot be presented as having run through that solver.",
+        "G1/G2 native action/lift and third-action source, G3 reaction/storage, G4 time/boundary, G5 occupancy successor remain UNKNOWN. Initial occupied cells and positive budget conservation do not solve any of them.",
+        "Original returned material_ports merges sources and self_return is a total; richer G3/G5 may require retained source/joint packet input.",
+        "The regularity criterion is a specialization/corollary of established hypergraph random-walk degree stationarity, already mapped to Zhou-Huang-Schoelkopf2006 and Chitra-Raphael2019. No new general hypergraph theorem or literature-wide novelty is claimed."
+      ],
+      "contributions": {
+        "original_U2": "EM-DIRECT-CDFEA3",
+        "current_conditional_regularity_and_gap_result": "EM-DIRECT-FA0C27, retained prior direction EM-DIRECT-E1F2B6; temporary shared-context helpers include /root/followup_review for interface certificate. Old REGULARITY_REVIEW is not another decisive vote.",
+        "genuine_nonauthor_accepting_Driver": "EM-DVR-653942 / DR-741015188441A39E1BBD; NONBLIND prior CONTROL context; separate fixed-input BRC implementation and actual97-check replay.",
+        "this_proposal": "EM-T6-BFF294 supplied prior U2 CONTROL policy/lease/wrapping support, now nonblind paper extraction only; no retrospective independent-review claim. Structural/bit-cost wrapper accounting is a proposal adaptation, not new execution or native-law evidence."
+      },
+      "exact_sources": [
+        {
+          "name": "U2 INCIDENCE_REGULARITY.md",
+          "origin": {
+            "Source": "5877887e5a90a5e67d6892889e7dee481dcda6bd",
+            "actual_source_url": "https://github.com/awdawmip/enterprise-math/blob/5877887e5a90a5e67d6892889e7dee481dcda6bd/research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/INCIDENCE_REGULARITY.md",
+            "managed_readback": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/u2_native_occupancy_bridge_independent/scientific_source_readbacks/INCIDENCE_REGULARITY.md.tool.json"
+          },
+          "bytes": 8401,
+          "sha256": "2a6e31b0c3fb4ea4777237d4dbf3a0da2b2e0905104b1edbc72027e109e966f1",
+          "git_blob_sha1": "3925071d5087ffea019e4cef4522190eef38c11c",
+          "local_file": "/tmp/em-u2-scientific-review-5877887e/INCIDENCE_REGULARITY.md"
+        },
+        {
+          "name": "U2 INTERFACE_CERTIFICATE.md",
+          "origin": {
+            "Source": "5877887e5a90a5e67d6892889e7dee481dcda6bd",
+            "actual_source_url": "https://github.com/awdawmip/enterprise-math/blob/5877887e5a90a5e67d6892889e7dee481dcda6bd/research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/INTERFACE_CERTIFICATE.md",
+            "managed_readback": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/u2_native_occupancy_bridge_independent/scientific_source_readbacks/INTERFACE_CERTIFICATE.md.tool.json"
+          },
+          "bytes": 15151,
+          "sha256": "7088f1be996177b8c0029e4f22db48f5ef73cb86a05734197c081c308ab6b544",
+          "git_blob_sha1": "254296463ebd3b54f028ca4ca306116d0725e19c",
+          "local_file": "/tmp/em-u2-scientific-review-5877887e/INTERFACE_CERTIFICATE.md"
+        },
+        {
+          "name": "U2 incidence_check.py",
+          "origin": {
+            "Source": "5877887e5a90a5e67d6892889e7dee481dcda6bd",
+            "actual_source_url": "https://github.com/awdawmip/enterprise-math/blob/5877887e5a90a5e67d6892889e7dee481dcda6bd/research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/incidence_check.py",
+            "managed_readback": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/u2_native_occupancy_bridge_independent/scientific_source_readbacks/incidence_check.py.tool.json"
+          },
+          "bytes": 11227,
+          "sha256": "c58907bff1467b727e6196e6c44a0dc763305f3e4d34fdc6dc5d3d4e653e52c1",
+          "git_blob_sha1": "ebb1083c35b2fe5b94012e25c0298df1989ffec8",
+          "local_file": "/tmp/em-u2-scientific-review-5877887e/incidence_check.py"
+        },
+        {
+          "name": "U2 accepted REPORT",
+          "origin": {
+            "Source": "6ee607a80ad063de59156d916db3c095e1bd152b",
+            "native_review": "DR-741015188441A39E1BBD",
+            "path": null,
+            "managed_connector_readback": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/u2_native_occupancy_bridge_independent/publication_package/FINAL_SOURCE6EE_REPORT_CONNECTOR_READBACK.json"
+          },
+          "bytes": 186022,
+          "sha256": "bbeb8748ac6a310406da5f52fb10a0ae9d3481d5797ca78b6bee0b01911b79d4",
+          "git_blob_sha1": "85ce81f2045a7c2f67acaa5889d8bc0d9bdb398f",
+          "local_file": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/u2_native_occupancy_bridge_independent/publication_package/FINAL_SOURCE6EE_REPORT_BYTES.md"
+        },
+        {
+          "name": "U2 accepted DR",
+          "origin": {
+            "Source": "6ee607a80ad063de59156d916db3c095e1bd152b",
+            "native_review": "DR-741015188441A39E1BBD",
+            "path": "research_result_reviews/RR-A2E93EC78BC5FE034176/DR-741015188441A39E1BBD.json",
+            "managed_connector_readback": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/u2_native_occupancy_bridge_independent/publication_package/FINAL_SOURCE6EE_DR_CONNECTOR_READBACK.json"
+          },
+          "bytes": 1964,
+          "sha256": "9fe658290662b9a83b39cf7813566ab13798f337a1da3deef3a4f3bccac135dc",
+          "git_blob_sha1": "593b780b754acd4d6781a3ac79c388b28078593d",
+          "local_file": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/u2_native_occupancy_bridge_independent/publication_package/FINAL_SOURCE6EE_DR_BYTES.json"
+        }
+      ],
+      "existing_kernel_version_boundary": "Own exact custody verifies the current brc_weighted.py matches the accepted pinned kernel blob3f205696709e847909958a153f8fe10d3f6b70f0. Historical U2 call counts remain those original runs, not new measurements.",
+      "adjacent_existing_interface_requires_bridge": {
+        "method": "t0.brc_control_mass_quotient",
+        "API": "src/enterprise_math/brc_control_mass.py::control_mass_matrix",
+        "type": "Requires actual ControlPacket/state_count and source,target,EffectHistogram blocks; not a generic H or dense kernel function. ControlPacket requires six-axis effect typing.",
+        "matrix_convention": "Existing output W[source][target] is SOURCE-row, unlike U2 K[target][source]; any proved bridge must use W=K^T and preserve the chosen observer.",
+        "no_automatic_state_merge": "Degree regularity/uniform output balance is not a predictive/control partition safety certificate; the existing partition API has additional future-mass conditions.",
+        "reuse_status": "REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE (no new bridge implementation or call here; retained only as a future typed integration route)"
+      }
+    }
+  ],
+  "suggested_reuse_decision": "Keep RESULT_ONLY status. Candidate future documentation references under existing T8/T12 and T0, with no auto registration/promotion or new API implementation. A true executable adapter would need its own frozen input/output/cost contract and authorized independent review.",
+  "preserved_T6_state": {
+    "Task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+    "6077": "FAILED",
+    "open_or_run": false,
+    "scientific_roster_N_affine": 0,
+    "no_science_authority_inferred_from_control_fix": true
+  },
+  "context_and_authorship": "Complete CONTROL/Native quota/CI/U2 wrapping history and directed NONBLIND T6/Public129/U2 source exposure retained. This is an author extraction proposal, not a fresh independent verdict or clean context.",
+  "executed_by_this_task": {
+    "Source_byte_digest_decode_and_catalog_lookup_only": true,
+    "mathematical_programs_or_old_checkers": [],
+    "comparator_Lean": false,
+    "enumeration": false,
+    "Native_or_Source_writes": 0,
+    "Tool_registry_writes": 0
+  }
+}
