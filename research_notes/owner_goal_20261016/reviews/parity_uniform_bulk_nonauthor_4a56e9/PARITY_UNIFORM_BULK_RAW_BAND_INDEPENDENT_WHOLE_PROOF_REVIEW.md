@@ -1,0 +1,178 @@
+# Independent whole-proof review of the uniform COMMON raw bulk band
+
+Disposition: **PAPER_PASS_BOUNDED_NEW_WHOLE_SCOPE_ONLY**.
+
+Mathematical must-fix findings: **0**. This is a new judgment on the complete joint bulk manuscript and its exact typed/context companions. The initial-band and terminal-band votes do not transfer to this unit. The authors' mutual checking is authorship, not its outside review. This ordinary paper judgment supplies no Native vote, Task/runtime authority, Tool/Foundation/Working-Truth promotion, or mother-Goal closure.
+
+Reviewer: EM-P11-4A56E9, the same genuine SID MCP-387e35a6a7d24e8cb2c44e361b9ce5b9 and RA-C193E2AA39B9A6A6DDBB69B3, current16. Before intake I declared no new Student/corner/mean/Pearson-HS, two-channel, or bulk-eta construction or repair and no unfrozen working/bound reading. All prior CONTROL, identities, LC/CM24/Parity authorship and review exposure remains NONBLIND. I received no author repair while reviewing and changed no author file.
+
+## 1. Exact reviewed object and accepted statement
+
+Joint authors: EM-PUBLIC-7CDA51 and EM-DVR-BFF6DC. The exact original three bodies total 55511B, bound by the 2657B handoff SHA256 4bf7b3dd732304850b611f99eb73cc994cebb60bbb749d4d0ef0f42106b4b7a2. I completely read all three and personally fetched their immutable Source bodies at:
+
+awdawmip/enterprise-math Source **cfd876cb9bda189b8978f23d7855a9e66a862a44**,
+prefix research_notes/owner_goal_20261016/parity_joint_bulk_raw_layer_7cda51_bff6dc/.
+
+- PARITY_COMMON_LOWER_LAYER_UNIFORM_BULK_RAW_COEFFICIENT_BAND_JOINT_AUTHOR.md: 23366B; SHA256 58af3cc47f58d63419c7cd23e5853e1add19810ada0548336e7afa0518a212b9; Git blob c8f9f6dde9e4e6939d181afdf7f6092a09d12a1c.
+- TYPED_UNIFORM_BULK_RAW_BAND_AND_RETAINED_OPEN_FRONTIER.json: 4120B; SHA256 8176b3807b1c41be9bf9f270d1f0e3b0000bdbf6f15bb40ea96500d661883337; Git blob ecbf346f821b1f198d7510cb79f83edcde32dcbd.
+- JOINT_ACTUAL_INPUTS_CONTRIBUTIONS_CURRENT_ACTIVITY_AND_SCOPE_CONTEXT.json: 28025B; SHA256 fe092a2dc4870320b1fe0b925e53bdd483f00e7f5231f11546b06e69228b847b; Git blob 12395ea93771fd4e6b7a93939a26f05a407ae331.
+
+Every UTF-8 byte, length, SHA256, Git blob, connector SHA and actual immutable URL agrees with the frozen local member. Actual commit and comparison confirm sole parent bcde61127f72b5249fa8873b84a822748d1e1ebf, tree 654ee221f4c7dd5f27bb9acd0716b3fa8d4277ae, exactly three ADDED files and one commit, with no oversized/truncated diff. Original UNREVIEWED/PENDING statements in the frozen author files remain historical bytes.
+
+The accepted new theorem is exactly:
+
+For every integer m>=2^100000, put W=m^2, D=W-1, d=W-3 and K=m^(2W)/2. For every integer ceil(d/4)<=j<=floor(3d/4), the original SAME COMMON polynomial satisfies
+
+[S^(d-j)a^j]H_d^raw >=K binom(d,j)2^(-512)m^12>0.
+
+The polynomial is P1=[c]((x+Wc+beta)G_W(x)T(c)/c), x=W(S+a), beta=(W+1)/2, with unchanged original T and no nonconstant gcd division. This is one fixed positive-width bulk fraction in one raw homogeneous layer. The huge threshold is a paper bound. It supplies no coverage for unexamined smaller m, the remaining j gaps, other layers, all P1, physical P1/trace positivity, an old stopped compact computation, or the all-M objective.
+
+## 2. Actual reused interface, field and cutoff
+
+I reused my preceding complete personal Source readings of the exact original curvature 13131B, top-face V2 16649B, single-lower 21245B, initial-band main 13077B and terminal-band main 13793B. Their paths, hashes and own actual readback locators are in the companion context. No fresh old-body network call or old vote is invented.
+
+The imported full readout is
+
+H_d^raw=K(S+a)^d Psi(a/(S+a)),
+Psi=C-g(B+2)+alpha[D(D-1)B-(2D-1)EB+E^2B],
+E=lambda partial_lambda, alpha=(W+1)^2/(8W),
+tau=(m^4-1)/(24m), g=m tau,
+B=b+W-1, b=tr(R^2), R=Z+Z^dagger,
+C=2tau tr(A_e[Z,R])-4tau tr(A_eR).
+
+The fixed-r0 derivative was taken before lambda substitution. The old top layer has m^2K and the lower layer K; the factor m^2 is retained in alpha. The scalar correction is B+2=b+W+1. The entire C and both Euler derivatives must be controlled, not only old low-order traces.
+
+The actual carrier has dimension m-1 and degrees <=m-2. Let n be the largest even integer <=m-2, t=m-n in {2,3}, ell=n-1, q=2ell. Even Bernoulli derivatives make Z degree<=ell and b,C degree<=q. For odd m the absent top even derivative is not inserted, but the actual odd highest input polynomial remains in the Hilbert-Schmidt sum.
+
+The positive Student norm is the previously proved auxiliary contour form w_m(v)=(1+4v^2)^(-m), v=(u+1/2)/i. Complexification and normalized orthogonal test vectors do not enlarge the dimension or replace the underlying rational polynomial. The M-adjoint equals the positive dagger on reflection-commuting Z coefficients; no such blanket replacement is made for uJ or an unrelated multiplier. A_e is the genuine even compressed multiplier, with ||A_e||<=4. This is not positivity of the original finite-rho metric or a deletion of its rank-one/codimension-one effect.
+
+## 3. Student polynomials, means and the exact Fourier sign
+
+I checked B1-B4 on the actual cutoff. The monic polynomial
+
+P_l^(m)=sum_r (-1)^r(l)_(2r,fall)v^(l-2r)/
+ [16^r r!(m-l+1/2)_(r,rise)]
+
+solves the finite Pearson eigen-equation. Its coefficient recurrence has the stated denominator 8r(2m-2l+2r-1). Integration by parts has vanishing boundary terms for all degrees used, including the larger auxiliary l<=m-1 statement. Distinct Pearson eigenvalues establish orthogonality. The coefficient formula also gives the exact derivative shift Dv^k P_l^(m)=(l)_(k,fall)P_(l-k)^(m-k).
+
+The norm recurrence
+beta_l=l(2m-l)/[16((m-l)^2-1/4)]
+follows from the monic symmetric three-term recurrence and its subleading coefficient; it agrees with B3. Iterating the k=1 energy identity gives the full shifted norm identity B4. All shifted m-k are at least two; no divergent moment or zero denominator is used.
+
+For k=n-2s>=2, substitution of the exact normalized Student moments into the monic polynomial yields
+
+E_m P_(2s)^(t+2s)
+=(-1)^s(2s)!/[16^s s!(t+1/2)_s]
+ *(n-2s)_s/(m-s-1/2)_s.
+
+The terminating Vandermonde identity displayed in the paper proves this finite equality, with the correct reversed products and sign. In particular it is not the mean of P_n^(m) incorrectly assumed nonzero: the shifted derivative polynomial has parameter t+2s but its expectation is still taken with the original w_m.
+
+For the only newly selected primary I personally read the complete shared official DLMF equation TeX and the original selected page/domain receipt, checked their byte hashes, and read the associated official HTTP receipt. The retrieval belongs to 7CDA; I do not claim my own HTTP call or the whole chapter. DLMF24.8.1 explicitly permits n=1,2,... and 0<=x<=1, so x=0 is valid even for the first index used. The rejected application/x-tex connector call and successful official HTTP fallback remain distinct original records.
+
+At x=0 the primary gives B_(2r)/(2r)!=2(-1)^(r+1)zeta(2r)/(2pi)^(2r). Multiplication by J^(2r)=(-1)^r Dv^(2r) therefore makes every actual even-derivative frame coefficient
+
+G_(k-1)=-2zeta(k)/(2pi)^k Dv^k.
+
+The minus sign is correct; retaining a Bernoulli alternation while forgetting J=-iDv would give a different frame.
+
+Using the same original normalized input and constant output, the exact entry divided by A_n is the finite sum B8. Both normalization factors and its rho ratio agree with the exact shifted mean. The n-2 input has parameter t+2 and is still a distinct orthonormal input in the same carrier.
+
+## 4. The early asymptotics are quantitatively closed in A2
+
+The early O/error and compactness comments alone would not prove a numerical threshold. I checked their explicit later replacements.
+
+For s<=n/4 and t in {2,3,4,5}, each rho factor has denominator m-s-1/2+i and its deficit numerator t+s-1/2. Hence
+0<=1-rho<=2s(s+t)/m
+in the declared range. The low-s Bernoulli index is at least n/2>=3, so zeta(k)-1<=2^(1-k) applies. Elsewhere the weaker bound zeta<=2 suffices.
+
+With a<=64, v_s=a^s/(s!)^2 satisfies sum v_s<=e^16 and both sum s v_s and sum s^2v_s <=64e^16. The latter follows by shifting s^2/(s!)^2; the former is no larger. The high-s tail is at most (4/n)sum s v_s, and m2^(1-n/2)<=1 for m>=100 and n>=m-5. These bounds cover the omitted infinite tail as well as every finite actual term. Their fixed factors, including the outside factor two and t<=5, are far below e^100. Thus the A5 error <=e^100/m is genuinely uniform for both channels and all xi in [1/4,3/4], rather than an unspecified big-O constant.
+
+## 5. Full-carrier Hilbert-Schmidt factorial bound
+
+The inequality w_m<=w_(m-k), combined with the shifted energy identity, gives
+
+||Dv^k||_HS,m^2
+ <=4^k sum_(a=k)^(m-2)(a)_(k,fall)(2m-a-1)_(k,fall).
+
+The sum runs over every actual input degree. It neither replaces the finite carrier by an equality on a larger space nor discards a rank-one correction.
+
+For H_n=n!sqrt(h0^m/hn^m), the baseline B11 follows exactly from B4 at k=n:
+H_n^2=4^n n!(m+t-1)!/(2t-1)! times h0^m/h0^t.
+Putting k=n-r and input a=n-r+i gives the precise B12 factorial ratio with h=r-i and c0=2t-1.
+
+For h>=0, the c0=0 part decreases with n and is bounded by binom(2h,h)<=4^h at n=h. Each extra c0 factor is <=2. When t=3 the top actual input adds h=-1; its exact ratio (n+1)/(n+c0)<=1 is retained. This is the needed odd-m full-carrier boundary, not an ignored endpoint.
+
+The remaining binomial/factorial sum is bounded by c0!2^(2c0)4^r/(c0+2r)!. With h0^t<2 and h0^m>=1/(4sqrt(m)), the constant 2^20 covers both c0=3 and c0=5; its larger required value is 8*5!*2^10<2^20. This verifies B13.
+
+Taking the square root and inserting the actual Fourier coefficient yields B14 with 2^12m^(1/4), [4(2pi/xi)^2]^s and sqrt((4s+c0)!). Since 2pi/xi<32 and sqrt((4s+c0)!)>=(s!)^2, the unweighted and (1+2s)-weighted sums are bounded by a fixed multiple of e^128. The displayed e^5000 is safely larger; no sampled series estimate is needed.
+
+Monicity and the exact moment formula give hn^m/h0^m<=4^(-n). Thus A_n>=4n!/16^n. The paper's factorial grouping at n>=8192 and elementary exponential-versus-cubic induction prove A_n>=m^3 for m>=10000. The constant Z0 and its ell-degree-deficit weight are then absorbed in e^5001m^(1/4)A_n. This proves both actual coefficient sums N0(Z), Ndef(Z), not a bound inferred from one point or from the largest coefficient.
+
+For b=tr(R^2), absolute Hilbert-Schmidt convolution gives N0(b)<=4e^10002sqrt(m)A_n^2. Splitting the deficit q-(r+s)=(ell-r)+(ell-s) gives the factor eight in the weighted convolution. It is safely within e^10010sqrt(m)A_n^2. This verifies the B16 degree-deficit estimate for the complete actual polynomial.
+
+## 6. Explicit two-channel noncancellation
+
+The sine/cosine expressions in A3 agree termwise with the defining power series F_t. Their two determinants are exactly -1575/z^7 and -99225/z^9. On the sufficient interval 1<=z<=16 each entry is <=2^18 in absolute value and each determinant is at least 2^-36 in magnitude. The least squared singular value is therefore at least 2^-110, using determinant squared divided by squared Frobenius norm. With sin^2+cos^2=1 this proves A7 uniformly.
+
+The exact beta recurrence gives the stated w_n=A_(n-2)/A_n. Its factor outside the square root and the latter's bounds give 1/64<=w_n<=64 for m>=100. Thus the limiting pair in units A_n has squared norm at least 2^-120.
+
+The actual pair error is <=65e^100/m, and the Z0 contribution in those units is <=3/m^2. At m>=e^500 each is <=2^-62. Subtracting both from the limiting pair leaves norm at least 2^-61 A_n. These are two different actual input columns and one actual constant output, so their squared entries are legitimately bounded by the Hilbert-Schmidt norm of Z.
+
+The triangular diagonal of Z is k-m+1/2, independent of real xi, and tr(Z^2)>0. The exact positive-space identity
+||R||_HS^2=2tr(Z^2)+2||Z||_HS^2
+therefore yields the deliberately weaker b(xi)>=2^-130 A_n^2. This is an explicit bound, not a compactness-only nonzero minimum and not a claim that coefficient extraction preserves pointwise positivity.
+
+## 7. Integer eta bound and coefficient coercivity
+
+The factorial product is exact:
+
+L_(d,j)b=sum eta(k)b_k xi^k,
+eta(s)=(d/j)^s product_(l=j+1)^d(1-s/l).
+
+For m>=100, j>=m^2/5 and q/j<=1/10. The derivative/log-tail estimates in A4 give |(log eta)'|<=101/m and eta(q)>=e^-100. They follow from the harmonic integral comparison, the finite sum of l^-2 and an absolutely convergent scalar logarithm series.
+
+At integer k<=q, 0<eta(k)<=1 by the falling-factorial factors. For real s>=1, concavity of log eta and its zeros at zero and one imply eta(s)<=1. The possible overshoot for real 0<s<1 is expressly not used. Because eta(0)=eta(1)=1, integration from max(k,1) proves
+
+|eta(k)-eta(q)|<=101(q-k)/m
+
+for every required integer k, including k=0. This is the correct discrete comparison; a false continuous bound on the entire interval from zero is unnecessary.
+
+Anchoring at q and using the actual full coefficient deficit gives
+
+Lb>=e^-100 2^-130 A_n^2
+       -101e^10010 A_n^2/sqrt(m)
+   >=e^-231 A_n^2
+
+for all m>=e^50000. The first term exceeds e^-230 and the second is below e^-14985 under the stated threshold. The gap is more than sufficient. Thus the proof passes from pointwise coercivity to the actual coefficient functional through a quantitative noncancellation estimate, without L(square)>=0.
+
+## 8. Full C, both Euler derivatives and final quantified closure
+
+Integer eta(k)<=1 implies |Lp|<=N0(p) on the actual degrees. All derivatives preserve that finite cutoff. In particular
+N0(b)<=e^10004sqrt(m)A_n^2,
+|LEb|<=qN0(b), |LE^2b|<=q^2N0(b),
+N0(B+2)<=e^10006sqrt(m)A_n^2.
+The constant is exactly W+1; A_n>=m^3 bounds it safely.
+
+The commutator contribution to C is bounded by 32tau N0(Z)^2, and its linear term by 32tau sqrt(m)N0(Z). These follow from the genuine compressed A_e bounds and Hilbert-Schmidt trace Cauchy-Schwarz. Together they are <=e^10010tau sqrt(m)A_n^2. No term of C or the constant frame is deleted.
+
+The top correction is precisely
+D(D-1)B-(2D-1)EB+E^2B.
+Here D(D-1)>=m^4/2 and (2D-1)q+q^2<=5m^3. The derivative error relative to the positive Lb term is suppressed by 1/sqrt(m); m>=e^50000 leaves at least e^-231m^4A_n^2/4. The positive constant W-1 is retained in the first term and has zero Euler derivatives.
+
+Multiplication by alpha>m^2/8 gives e^-231m^6A_n^2/32. The entire unfavorable correction |LC|+g|L(B+2)| is <=e^10011m^(9/2)A_n^2 and is below half of that positive contribution at the same threshold. Hence
+
+LPsi>=e^-231m^6A_n^2/64>2^-512m^6A_n^2.
+
+The last comparison follows even from e<4. A_n>=m^3 supplies the rational weaker bound 2^-512m^12. Finally m>=2^100000 implies m>e^50000, again because e<4. This one explicit integer threshold dominates every earlier m>=100,10000,e^500 requirement. Both parity cases, both channels and every integer j in the stated bulk interval are included.
+
+## 9. Disposition and unresolved frontier
+
+I found no mathematical must-fix in the complete B1-B16/A1-A17 chain. The proof supplies a genuine new bounded bulk result, beyond a kernel rewrite, old low-order traces or an endpoint constant adjustment. Its mean/HS estimates cover the actual full carrier; its quantitative two-channel lower bound and integer eta comparison are the essential new bridge. Elementary orthogonal-polynomial, Fourier, factorial and finite-product methods remain acknowledged reuse, not new generic Tool claims.
+
+This acceptance does not cover the gaps between the initial O(m) band, the bulk [d/4,3d/4] band and the narrow terminal band, nor does it cover all finite m below 2^100000. It cannot close the homogeneous layer, P1, physical trace or mother Goal. The astronomical symbolic threshold is not a practical coefficient certificate or a permission to revive M7/core98/fixed233/R101 execution.
+
+All review calculations were paper derivations. Tools only handled exact public text, metadata, JSON, hashes and the original activity startup guard. No scientific program, import/AST/compile/test, generated coefficient/matrix, sample, solver, numerical integration, consumer, Native call, Source mutation, RA append, Task/claim/run or new identity occurred in this unit. Only local review notes were written.
+
+Measured old mathematical body subtotals and the new three bodies are recorded separately in the context. Whole-product formal/cold/session cumulative budget remains UNKNOWN, with no invented cap/PASS/reset or overhead exclusion. All old STOP/HOLD and failed histories remain.
+
+These two review notes are locally frozen pending their own authorized Source-custody window. A later genuine semantic event must bind their actual Source and preserve current16 history. Neither custody nor this bounded paper PASS grants Native authority. Mother Goal OPEN; ending false; no FINAL permission inferred.
