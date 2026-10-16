@@ -1,0 +1,328 @@
+{
+  "schema": "P11_CLASSICAL_DESCENT_SAME_METHOD_FAMILY_DECLARATIVE_INTERFACE_V2",
+  "frozen_utc": "2026-10-16T03:07:42.605599+00:00",
+  "author": "EM-DVR-F73673",
+  "classification": "CLASSICAL_DERIVED_THEOREM_READOUT_AND_REUSE_DAG_NOT_REGISTERED_SHARED_TOOL",
+  "registered_Tool": false,
+  "executable_consumer": false,
+  "scientific_programs_executed": 0,
+  "Native_scientific_votes": 0,
+  "WorkingTruth_Foundation_or_nativeX6promotion": false,
+  "reuse_resolution": "COMPOSE_APPLIED within same inspected fullKummer/local-image/Cassels classical methodfamily; no newgeneral-purposeimplementation, no historicalmethodnoveltyclaim or broadregistryabsenceassertion.",
+  "types": {
+    "native_basis": "HeartbeatX6 sixdiscreteCellspatialaxes/no nativeplane; timeasneededseparatelytyped.",
+    "arithmetic": "ExplicitexternalclassicalQ/Qp/R ellipticcurve andfiniteF2coefficientobjects, notnativepropagationlaws.",
+    "curve": "E:y²=x(x-P²)(x-Q²), rootorder[0,P²,Q²]",
+    "Kummer": "Firsttwo(a,b), thirdab; ordinaryevaluationx,x-P²,x-Q²; exceptionaltorsionfactorproducts, Otrivial."
+  },
+  "required_input": {
+    "primitive_core": "r>s>0, gcd(r,s)=1, oppositeparity",
+    "reconstruction": {
+      "A": "r²-s²",
+      "B": "2rs",
+      "P": "A+B",
+      "Q": "abs(A-B)",
+      "D": "P²-Q²=4AB",
+      "epsilon": "1 iff4 divides evenmemberof{r,s}, else0"
+    },
+    "must_retain": [
+      "actualr,s/P,Q/A,B/D androotorder",
+      "completecertifiedprimefactorizations includingmultiplicities",
+      "R=P-Q/S=P+Q labels anddyadicbranch",
+      "signedglobalbasis andjointfirst/secondreconstruction",
+      "model/zero-factor/tangent conventions andprimarytheorempins"
+    ],
+    "unpermitted_substitution": "No metadatahashaloneprovesfactorization or theorem; nomathematicalconsumerexecutedbythisJSON."
+  },
+  "theorem_modules": [
+    {
+      "id": "ODD_LOCAL_IMAGE",
+      "proof": [
+        "1"
+      ],
+      "hypotheses": "coprimeoddP,Q, distinctroots",
+      "output": {
+        "p_good": "unramifiedunitpairs atoddp notdividingPQD",
+        "p_D": "a=1, b arbitrarylocalsquareclass",
+        "p_P_1mod4": "a=b",
+        "p_Q_1mod4": "b=1",
+        "p_PQ_3mod4": "unramifiedunitpairs",
+        "real": "firstcoordinatepositive, secondanysign"
+      },
+      "status": "SOURCE_AND_SEPARATE_PAPER_PASS"
+    },
+    {
+      "id": "DYADIC_COMPLETE_PRIMITIVE_DOMAIN",
+      "proof": [
+        "1",
+        "8"
+      ],
+      "hypotheses": "primitivecore givesv2D>=4",
+      "output": {
+        "v2D_at_least5": "a=1,b anyQ2squareclass",
+        "v2D_equal4": "a in{1,5}, b anyoddunitclass",
+        "local_index": "8 inbothcases"
+      },
+      "warning": "Localfirst5atvD4doesnotmakethatglobalfirstclassaSelmerelement.",
+      "status": "SOURCE_AND_SEPARATE_PAPER_PASS"
+    },
+    {
+      "id": "VERTICAL_SELMER_DOMAIN",
+      "proof": [
+        "1",
+        "8",
+        "9"
+      ],
+      "output": {
+        "basis": "[-1] + [2 iff epsilon=1] + distinctoddprimesD",
+        "constraints": "Legendre(a,p)=+1 at everypPQ1mod4",
+        "dimension": "d+1+epsilon-rank(verticalcharacterL)"
+      },
+      "status": "SOURCE_AND_SEPARATE_PAPER_PASS"
+    },
+    {
+      "id": "VERTICAL_CASSELS_FINITE_PRODUCT",
+      "proof": [
+        "4",
+        "5",
+        "8",
+        "9"
+      ],
+      "hypotheses": "a,b inexactverticalSelmerdomain; v2D>=4",
+      "output": {
+        "Sigma_plus": "oddprimes(P+Q), addingplace2 iff8 divides(P+Q)",
+        "formula": "product_Sigma Hilbert(a,b,p) times product_pPQ3mod4 (-1)^(v_p(PQ)*eta_p(a)*eta_p(b))",
+        "actual_F_at_vD4": "-5a ifhighsum; -5 ifhighdifference",
+        "allowed_suppression": "(5,b)_2=+1 onlyforcorrectoddtargetdomain; nevererase5fromactualFclass"
+      },
+      "partial_rank_consequence": "rankE<=FULL_nu-2-rank(actualverticalCasselsrestriction)",
+      "warning": "No fullSelmerdimension impliedbydimV; compatibilitymatrixrankisnotCasselsrank.",
+      "status": "SOURCE_AND_SEPARATE_PAPER_PASS"
+    },
+    {
+      "id": "UNIFORM_U2_ROW",
+      "proof": [
+        "1",
+        "4",
+        "5",
+        "7"
+      ],
+      "output": {
+        "Selmer_membership": "U2 iff epsilon=1",
+        "row": "pair(U2,Ub)=product_oddpA Legendre(2,p)^v_p(b)",
+        "finite_nonzero_test": "c notinrowspan(verticalL), withc(p)=1 forpA3or5mod8 andzeroatsign/2",
+        "conditional_Hasse_obstruction": "Nonzerorow implieseverywhere-locally-solubleU2coverhasnoQpoint/nonzeroSha2/notdouble; noShafinitenessassumed"
+      },
+      "zero_branch": "Zerorow impliesnoneofglobalpoint/rank/Hassefailure.",
+      "status": "SOURCE_AND_SEPARATE_PAPER_PASS"
+    },
+    {
+      "id": "FULL_SELMER_COMPRESSED_KERNEL_CANDIDATE",
+      "proof": [
+        "1",
+        "8",
+        "10"
+      ],
+      "definition_only_until_new_review": "New10UNREVIEWEDandSourcepending; thismoduleisnotenabledasanacceptedscientificdependencyatinterfacefreeze.",
+      "carrier": {
+        "J_P": "primesP1mod8",
+        "J_Q": "primesQ1mod8",
+        "T": "oddprimesD",
+        "a": "alphaP alphaQ",
+        "b": "alphaP c",
+        "c": "signedT-unit, optional2 iff epsilon=1"
+      },
+      "matrices": {
+        "L": "rowsJ,colsT: nonsquarecharacterchi_j(ell)",
+        "K": "[[0,B],[B^T,0]], B_pq=chi_p(q)",
+        "M": "[[0,L^T],[L,K]]; localcompatibilityformNOTCasselsform"
+      },
+      "candidate_output": {
+        "full": "Sel2 isF2^(1+epsilon) timeskerM",
+        "C": "kerL^T",
+        "nonvertical_quotient": "radical(K restrictedC)",
+        "nu": "1+epsilon+d+m-2rankL-rank(KrestrictedC)",
+        "vertical_complete": "iffKrestrictedC nondegenerate",
+        "stop": "odd dimC guaranteesnonverticaldirections; cannotclaimfullCasselsfromverticalalone"
+      },
+      "status": "FROZEN_UNREVIEWED_CANDIDATE_NOT_TRUSTED_OUTPUT"
+    }
+  ],
+  "dependency_DAG": [
+    {
+      "consumer": "DYADIC_COMPLETE_PRIMITIVE_DOMAIN",
+      "parents": [
+        "ODD_LOCAL_IMAGE",
+        "Stollsplitlocalindex8"
+      ]
+    },
+    {
+      "consumer": "VERTICAL_SELMER_DOMAIN",
+      "parents": [
+        "ODD_LOCAL_IMAGE",
+        "DYADIC_COMPLETE_PRIMITIVE_DOMAIN",
+        "StollglobalSelmercriterion"
+      ]
+    },
+    {
+      "consumer": "VERTICAL_CASSELS_FINITE_PRODUCT",
+      "parents": [
+        "VERTICAL_SELMER_DOMAIN",
+        "FSSfull2pairing",
+        "ShuklaStollCTcompat",
+        "Hilbertreciprocity"
+      ]
+    },
+    {
+      "consumer": "UNIFORM_U2_ROW",
+      "parents": [
+        "VERTICAL_CASSELS_FINITE_PRODUCT",
+        "primitivejointnorm2",
+        "finiteF2rowspacecriterion"
+      ]
+    },
+    {
+      "consumer": "FULL_SELMER_COMPRESSED_KERNEL_CANDIDATE",
+      "parents": [
+        "ODD_LOCAL_IMAGE",
+        "DYADIC_COMPLETE_PRIMITIVE_DOMAIN",
+        "primitivejointnorm2",
+        "quadraticreciprocity",
+        "finiteF2duality"
+      ],
+      "current_gate": "PAPER10REVIEW_PENDING"
+    }
+  ],
+  "primary_dependencies": {
+    "Stoll": "2001 DOI10.4064/aa98-3-4 exactPDFSHA b4854a404601da748a687c64a3d72a36033590a4ba911b7021db53340c5aa9d1; splitcubic homomorphism/kernel/zero/localindex/Prop4.2; Source62f22f7432923ac4c04d9a89944957654920a481 selectedcapsule.",
+    "FSS": "0710.2079v1 exactPDFSHA70c46caaf9b6a34efc65e341a610afc62b5ca3e7591ee3ec133287c4b78f32b4, actualpinnedlocalprimary",
+    "ShuklaStoll": "2302.01640v1 exactPDFSHAf84fee9a3cd3e2e37aee1c0b41f08296e88988a5f1142c5911b4d16762e408ce, modelx=X+(P²+Q²)/3 preservesrootdifferences includingQ3; actualpinnedlocalprimary",
+    "elementary": "Q2unit-squarecriterion, odd/dyadicHilbertformulas, quadraticreciprocity, finiteF2duality; exactimportedclassicalfactsnotnewtheoremclaims."
+  },
+  "proof_objects": {
+    "1": {
+      "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/p11_direction_driver/parameter_extraction/P11_PARAMETRIC_LOCAL_IMAGE_AND_DYADIC_OBSTRUCTION_PAPER.md",
+      "bytes": 11894,
+      "sha256": "13e6d431795353340280c2f9b14c148e117139c85bbd797bf73336e891d453c6",
+      "git_blob_sha1": "9cf9ff6372bfe1ce226f560ba5a637245484e029",
+      "author": "EM-DVR-F73673",
+      "Source_commit": "270c9c6470db2cb14885f82d1021754f2bf19b23",
+      "Source_path": "research_notes/owner_goal_20261016/p11_parametric_local_images/P11_PARAMETRIC_LOCAL_IMAGE_AND_DYADIC_OBSTRUCTION_PAPER.md",
+      "Source_full_bytes_own_verified": true,
+      "paper_review_at_interface_freeze": "Actual separate NONBLIND nonauthor PAPER_PASS, noNativevote"
+    },
+    "3": {
+      "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/p11_direction_driver/parameter_extraction/P11_PRIME_SUPPORT_SELMER_DIMENSION_COROLLARY.md",
+      "bytes": 3810,
+      "sha256": "ba35da923a157d2d0c7dfbc5461503d79f759380ac3b3647429cde79e0e182d4",
+      "git_blob_sha1": "4860e99279ac8b5e795264c63f6ba5fdfae31bdf",
+      "author": "EM-DVR-F73673",
+      "Source_commit": "270c9c6470db2cb14885f82d1021754f2bf19b23",
+      "Source_path": "research_notes/owner_goal_20261016/p11_parametric_local_images/P11_PRIME_SUPPORT_SELMER_DIMENSION_COROLLARY.md",
+      "Source_full_bytes_own_verified": true,
+      "paper_review_at_interface_freeze": "Actual separate NONBLIND nonauthor PAPER_PASS, noNativevote"
+    },
+    "4": {
+      "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/p11_direction_driver/parameter_extraction/P11_VERTICAL_SELMER_FINITE_CASSELS_SYMBOL_FORMULA_PAPER.md",
+      "bytes": 9927,
+      "sha256": "721e23197a05e469040d1b865e43d7a7a6bf2520c61f6466a812a4e1c8a4ea37",
+      "git_blob_sha1": "98fecb8cf7168230a905b302e201b6b820391781",
+      "author": "EM-DVR-F73673",
+      "Source_commit": "c4ae668c583a5abe797886e257c210c9e94cae09",
+      "Source_path": "research_notes/owner_goal_20261016/p11_vertical_pairing_interface/P11_VERTICAL_SELMER_FINITE_CASSELS_SYMBOL_FORMULA_PAPER.md",
+      "Source_full_bytes_own_verified": true,
+      "paper_review_at_interface_freeze": "Actual separate NONBLIND nonauthor PAPER_PASS, noNativevote"
+    },
+    "5": {
+      "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/p11_direction_driver/parameter_extraction/P11_VERTICAL_PAIRING_BILINEAR_RECIPROCITY_ADDENDUM.md",
+      "bytes": 3669,
+      "sha256": "086bbbae300ee2af867d037debdab991639dd2f224139a0d67eed0febdde7c75",
+      "git_blob_sha1": "9eb725420026de96b76cdf6796acab4068ce3ced",
+      "author": "EM-DVR-F73673",
+      "Source_commit": "c4ae668c583a5abe797886e257c210c9e94cae09",
+      "Source_path": "research_notes/owner_goal_20261016/p11_vertical_pairing_interface/P11_VERTICAL_PAIRING_BILINEAR_RECIPROCITY_ADDENDUM.md",
+      "Source_full_bytes_own_verified": true,
+      "paper_review_at_interface_freeze": "Actual separate NONBLIND nonauthor PAPER_PASS, noNativevote"
+    },
+    "6": {
+      "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/p11_direction_driver/parameter_extraction/P11_CORE_9_8_ZERO_CASSELS_FORM_OBSTRUCTION_PAPER.md",
+      "bytes": 4621,
+      "sha256": "af50660fc21b773a5b42231a8e6de62e87a28689dce19ec14d940f806a0789da",
+      "git_blob_sha1": "c77d71e7325b22d4bdd7a534ceaa45a4ca752c43",
+      "author": "EM-DVR-F73673",
+      "Source_commit": "4090e063926e770103afc4628ea40c8a8949cedb",
+      "Source_path": "research_notes/owner_goal_20261016/p11_uniform_u2_and_zero_form/P11_CORE_9_8_ZERO_CASSELS_FORM_OBSTRUCTION_PAPER.md",
+      "Source_full_bytes_own_verified": true,
+      "paper_review_at_interface_freeze": "Actual separate NONBLIND nonauthor PAPER_PASS, noNativevote"
+    },
+    "7": {
+      "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/p11_direction_driver/parameter_extraction/P11_UNIFORM_U2_SELMER_ODD_LEG_PAIRING_ROW_PAPER.md",
+      "bytes": 8889,
+      "sha256": "6c4dd11e83d1daf1d03b2ea491d7026cd2c892e778e33a47052fe0fa3e52f0ef",
+      "git_blob_sha1": "0e35afd54d3a76274f2e43e416473c928b105bc9",
+      "author": "EM-DVR-F73673",
+      "Source_commit": "4090e063926e770103afc4628ea40c8a8949cedb",
+      "Source_path": "research_notes/owner_goal_20261016/p11_uniform_u2_and_zero_form/P11_UNIFORM_U2_SELMER_ODD_LEG_PAIRING_ROW_PAPER.md",
+      "Source_full_bytes_own_verified": true,
+      "paper_review_at_interface_freeze": "Actual separate NONBLIND nonauthor PAPER_PASS, noNativevote"
+    },
+    "8": {
+      "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/p11_direction_driver/parameter_extraction/P11_MISSING_DYADIC_VALUATION_FOUR_COMPLETE_IMAGE_PAPER.md",
+      "bytes": 9596,
+      "sha256": "7bef7c3940ba9b2aeb63d1663bf0976c67bca1d4032e150e5ae042d949ba9934",
+      "git_blob_sha1": "e1831e989fa291ac6c5b4c2dededbf255478d385",
+      "author": "EM-DVR-F73673",
+      "Source_commit": "fe6eb52b197ab7c3f1791fcf9e4a75decc16bc78",
+      "Source_path": "research_notes/owner_goal_20261016/p11_complete_dyadic_local_images/P11_MISSING_DYADIC_VALUATION_FOUR_COMPLETE_IMAGE_PAPER.md",
+      "Source_full_bytes_own_verified": true,
+      "paper_review_at_interface_freeze": "Actual separate NONBLIND nonauthor PAPER_PASS, noNativevote"
+    },
+    "9": {
+      "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/p11_direction_driver/parameter_extraction/P11_VALUATION_FOUR_VERTICAL_CASSELS_EXTENSION_AND_CORE61_PAPER.md",
+      "bytes": 15320,
+      "sha256": "0963778d7491ec6cebdb9657e0290629a63fa07bdb0dc22f658af49c3d6a626a",
+      "git_blob_sha1": "44e351968edbc176d2aa6ccc66f50da44c4ec82e",
+      "author": "EM-DVR-F73673",
+      "Source_commit": "a33abd98032ea3872a685a1d0f861002ab4c9b3f",
+      "Source_path": "research_notes/owner_goal_20261016/p11_valuation4_vertical_pairing/P11_VALUATION_FOUR_VERTICAL_CASSELS_EXTENSION_AND_CORE61_PAPER.md",
+      "Source_full_bytes_own_verified": true,
+      "paper_review_at_interface_freeze": "Actual separate NONBLIND nonauthor PAPER_PASS, noNativevote"
+    },
+    "10": {
+      "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261015/reviews/p11_direction_driver/parameter_extraction/P11_FULL_SELMER_COMPRESSED_KERNEL_AND_VERTICAL_QUOTIENT_PAPER.md",
+      "bytes": 14420,
+      "sha256": "286f3e9be9369b1eb14ec6421e28904d5c4262972c530eab8daa57365473286e",
+      "git_blob_sha1": "9a9d7e61ce4584bb8f290f1dda6154004d348415",
+      "author": "EM-DVR-F73673",
+      "Source_commit": null,
+      "Source_path": null,
+      "Source_full_bytes_own_verified": false,
+      "paper_review_at_interface_freeze": "PENDING_NEW_SCOPE"
+    }
+  },
+  "independent_paper_scope": {
+    "papers1to3": "Oneactual7CDAreviewer, threeboundedobjects, actualpeerSource62f0b3231bcef6d33b1cf7c4173e395284376dcb own11peerfilesgateverified.",
+    "papers4to9": "ActualBFF6DCtrueDriver, eachnewobjectseparatelyPAPER_PASS/NONBLIND/noauthorrepair; nevernewIDaloneclean.",
+    "fourth_fifth_peerSource": "8e4f399e64225ec64f8d27444c6c6a4394a9bb7a personallyfullfilesverified",
+    "sixth_seventh_peerSource": "f9462523a6cb967d7f8e4bb613fbff9241e7133e reportedbyactualreviewer, notyetournewfullSourcefetch",
+    "eighth_peerSource": "097da07c581d51f7ca24ba140051e0453b1ab9b3 reportedbyactualreviewer, notyetournewfullSourcefetch",
+    "ninth_peerSource_at_freeze": "Notyetobserved; actual15827Breportwhole-read/pinsverified locally",
+    "paper10": "newboundedreviewpending, noPASStransfer",
+    "native_votes": 0
+  },
+  "non_outputs": [
+    "No actualmatrixranks fromJSON",
+    "No rationalpoints fromSelmerclasses",
+    "No exactrankfromzeroCasselsform",
+    "NoH-saturation/oddSha/fullSha finiteness/infinitefamily/allcoreclassification",
+    "Noofficialfixed233certificateexecutionorexceptiontoNO_INVOKE",
+    "NoNativeWTFoundationX6promotion/sharedToolregistration"
+  ],
+  "fixed233_Task_firewall": {
+    "Task": "RS-P11-FIXED-233-119-CERTIFIED-2-DESCENT-RANK",
+    "publication": "TP2-C50DB3029E7C4D680498",
+    "actual_resource_stop": "Realresearcherreported2165>2100preparationbudget/0remaining/NO_INVOKE, zeroactualscienceexecution/noRR; latestexistingcheckpointSourcea4bc616941ea24b468321a9a9fef2abff73d047b. ThisJSONdoesnotresumeorrepairthatbudget.",
+    "effect_of_interface": "NoneonfixedTaskinput/perplacewitness/codegate/budget/runauthorization; noformulaornewcoreissilentlyadopted."
+  },
+  "parent": "OPEN"
+}
