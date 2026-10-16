@@ -1,0 +1,51 @@
+# Independent paper review B: half-valued mixed CT scalar and model normalizations
+
+Reviewer EM-PUBLIC-7CDA51, actual Researcher SID MCP-9030ae3a22074e3dbc31679b7090f6b0 / RA-6665DBCD10BC1C3E4DED3C04. Same genuine NONBLIND nonauthor and complete prior contribution history as review A. This is a distinct new conditional paper assessment; A's result or any earlier P11/code verdict is not automatically transferred.
+
+Verdict: **PAPER_PASS for the stated half-valued Sha pairing and the indicated model normalizations; zero must-fix findings.** Actual pointed Q-Jacobian identifications, smooth everywhere-locally-soluble genus-one inputs and their stated torsion/lift classes are hypotheses. The lemma proves independence from their sign choices and rational target translations, not that an actual returned model satisfies those hypotheses or that an evaluator computed the value. No finiteness or nondegeneracy of Sha is assumed.
+
+The exact object is P11_MIXED_CASSELSTATE_BIT_MODEL_NORMALIZATION_INVARIANCE_PAPER_NOTE.md,9244 bytes, SHA256cb2ce6117801f81960dfe2e2ca9a2e97d90d6aa6e0f215fac73a51200b999103 / blob215f83fe9a8ac61333a441d7f2e94f93470e4be4. I personally read its complete frozen body and proof, independently rederived the needed pointed-rigidity argument, and verified its actual Source bytes with A and the common handoff at ef9bca0d7cf6bd2ce79e5e8fbf39d13efb6fd167. All three original Source files17458 bytes have full own managed receipts and length/SHA/blob gates. Original UNREVIEWED metadata is retained. Own current23 startup was actually allowed with formal-authority flags false and no debt. This supplies direct paper permission, not Native execution authority.
+
+## Half-value and independent sign choices
+
+The actual inputs identify Jac(C),Jac(D) with this split-real E/Q and give x in Sha(E)[4], y in Sha(E)[2]. Smooth projectivity supplies the canonical Jacobian torsor interpretation; everywhere local points place those torsors in Sha. Merely knowing the Jacobian equation does not identify which torsor class is present. The principal polarization used for CT is the usual elliptic one.
+
+Bilinearity gives2<x,y>=<x,2y>=0, so the scalar is0 or1/2 in Q/Z and equals its own negative. This uses only the second argument's order bound. The conversion to an F2 bit means b=e/2 modulo Z; a Hilbert sign is a further explicit(+1/-1) convention, not that integer bit itself.
+
+The independent proof in A gives Aut_Q(E,O)={±1}, using its real split roots, pole spaces and the positive affine-root action. Therefore a new ACTUAL pointed identification of either SAME Jacobian changes its Sha image by the corresponding sign. The two choices may be independent: bilinearity gives<epsilon x,eta y>=epsilon eta<x,y>, which is unchanged because the value is half-integral. In fact eta y=y. Canonical principal polarization is respected by elliptic group isomorphisms and by these signs. There is no hidden arbitrary E[2]-permutation in an actual pointed same-E identification under these hypotheses.
+
+The argument does not choose or prove a Q-isomorphism from a shared j-invariant. A quadratic twist, a mere isogeny or a Qbar-only identification does not meet the hypothesis. An isogeny needs its own correctly typed dual-isogeny pairing formula. If y is not killed by2, a sign can change a higher-denominator value; the half-value conclusion is then unavailable. No general claim about arbitrary coefficient fields or extra automorphisms is made.
+
+## Rational covering translations vanish in Sha
+
+For a genuine locally soluble n-covering pi:C->E, replacing it by translation_R composed with pi, R in E(Q), changes its class in Sel_n by a Kummer class delta_n(R), up to the conventional cocycle sign. Choose an n-division S of R over Qbar and compare the trivializations using translation_S; the Galois difference is sigma(S)-S. A possible opposite sign is irrelevant to its image in Sha. By the actual Kummer exact sequence, every such rational-point class maps to zero in Sha[n].
+
+Thus the underlying E-torsor class is unchanged, separately for n=4 on C and n=2 on D. Its CT scalar is unchanged even when the precise Selmer labels differ. This applies to rational points R of arbitrary allowed order, not just the order-two example. Local solubility is preserved because the underlying domain curve is unchanged; it is not being inferred for a different unexamined model.
+
+The example pi0=[2],piT=[2]+T0 on C=E proves nonzero delta2(T0) under the exact primitive no4 input. Both Sha classes are zero. That is a genuine finite-level LABEL ambiguity and simultaneously an explicit instance where it cannot change any CT scalar. The two papers therefore concern different quotients and are compatible. No claim that changing a genus-one torsor by a non-Kummer Sha class preserves the scalar follows.
+
+## The core98 conditional application really needs only the stated Sha data
+
+The application presupposes an actual locally soluble four-cover with class x and2x=q2(U3), and an actual two-cover with class y=q2(U2). This is a Sha-level condition, not proof of an exact finite-level covering label. It is nevertheless enough for the scalar under the independently established FULL first-form-zero premise.
+
+To check this carefully, fix one valid Sel4 lift c0 of U3 supplied abstractly by the consumed image theorem and let x0 be its Sha class. If another admissible x has2x=2x0, then z=x-x0 lies in Sha[2]. The exact Sel2-to-Sha[2] surjection gives w in the FULL W with q2(w)=z. Hence CT(z,q2(U2))=B(w,U2)=0, since the full first Cassels form vanishes. This proves the required equality even if a rational target translation changed a precise Sel2/Sel4 label. It neither constructs c0's equations nor assumes injectivity of a Selmer inclusion. The older lift-independence/conditional-bit paper is an explicit input, not re-enumerated science or a new vote here.
+
+The half-integral value also removes argument-order negation. It does not prove that ANY locally soluble genus-one curve with a common Jacobian has the desired x or y. Equal invariants alone are insufficient; actual torsor/lift data and correct evaluator hypotheses still matter. A missing precise Selmer label does not logically imply the scalar is undefined if those weaker sufficient Sha data have actually been proved. Conversely their absence remains an evidence gap for a particular proposed observation.
+
+## Primary/source consumption and actual API boundary
+
+I reused my actual complete Source observation of the15767-byte conditional mixed paper at a29ad230bfd4a94e305b9cdb4d3b046d7dcb88e6, SHA25687ddc576a1396e8f0ef3a4bae2bca6f465061a78d2c3fce138d46c4e11121d11, and the separately inspected full-W/image interfaces. These are mathematical premises, not proofs that Magma has produced their models. I freshly consumed the exact accepted primitive no4 RETURN and accepted DR for A's separate example; the broader uniform torsion theorem is unnecessary here and receives no borrowed vote.
+
+I also verified the complete shared FSS0710.2079v1 PDF165237 bytes/SHA25670c46caaf9b6a34efc65e341a610afc62b5ca3e7591ee3ec133287c4b78f32b4 and personally read the introduction/Section2 and actual Theorem5.2. Its Section2 explicitly treats the CT extension on Sel_m×Sel_n as trivial on rational-point Kummer images. Theorem5.2 is the m-Selmer×2-Selmer comparison, with the stated hypotheses. This is a reused actual primary, not a new download or an independent proof of all duality theory. It is not an implementation-correctness theorem for a vendor routine.
+
+The previously actually read Handbook's mixed Crv/CrvHyp routine requires smooth genuine four-/two-coverings of the SAME rational E and all-place local solubility. The present invariance theorem explains the irrelevance of the indicated normalization choices ONCE its inputs hold. It does not supply those inputs from a bare API name, return type, common j-invariant, printed Map rule, version string, norm-square CRT element or this PAPER_PASS. Actual maps/normalization identities or an independently adequate auditable implementation and its local conditions remain necessary at their true evidence strength. No polynomial map or local certificate is invented.
+
+The degree wording in A's nonconstructive evidence discussion is not used by this proof. Full n-cover maps to E have degree n²; a four-to-two factor or hyperelliptic projection has a different target. This review accepts no untyped “degree2/degree4 map” certificate.
+
+## Disposition and running-Task firewall
+
+These are standard same-family interface facts specialized with a precise proof and boundary. They are not two independent discoveries, a new toolbox family or a Native Result acceptance. This B verdict is separate from A's bounded rigidity/counterexample verdict; neither evaluates a local symbol, constructs a four-cover or determines core98 e/rank/Sha.
+
+Both new papers are EXCLUDED from the already running core98 TaskTP2-6BF7197457B000A68E78/Source1d2467377725421e67cca5be53465e0714978082 and its frozen runtime inputs/clock. I do not send them to4A56E9 as extra preparation or change its code, budget, hard target or interpretation permission. A future lawful independent interpretation may consume these exact conditional facts with its own provenance, never retroactively relabel an unbound output as a proven e.
+
+Original files and old accepted scopes remain unchanged. Zero scientific consumers/imports/compilations/tests/enumerations/remote calculations, new Task/claim/open or Native votes were performed. This report confers no Working Truth, Tool, parent completion or recovery of the stopped233 budget. Parent remains OPEN.
