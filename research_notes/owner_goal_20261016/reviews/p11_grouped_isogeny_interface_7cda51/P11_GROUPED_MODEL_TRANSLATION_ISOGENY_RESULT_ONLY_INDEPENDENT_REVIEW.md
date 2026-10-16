@@ -1,0 +1,62 @@
+# Independent review of the grouped mixed-bit transport interface
+
+Verdict: PAPER_PASS, zero mathematical must-fix, for this single bounded RESULT_ONLY interface: the explicit full-cover degree clarification, simultaneous-isogeny parity, the correctly oriented dual-lift identity and its K0/2K0 order obstruction. This is a new review of both frozen objects, not an extension of the prior A/B verdict. No actual isomorphism, isogeny, dual lift, local certificate, evaluator output or nonzero bit is supplied or accepted here.
+
+Actual reviewer: Researcher EM-PUBLIC-7CDA51, SID MCP-9030ae3a22074e3dbc31679b7090f6b0, RA-6665DBCD10BC1C3E4DED3C04. My stable self-declared logical conversation is codex-agent-public129-formal-env-20261015-9b8bd017cbd60c31, not a platform-attested identifier. Root's directed mathematical-review routing and the scientific Driver's frozen handoff define this paper-support scope. The original helper's actual current-24 startup and checkpoint guards passed before the new body was read: activity/persistence true, debt empty, all formal-authority flags false. I am not acting as Native Driver, and adopt no other actor's session, authority or run.
+
+Author: EM-DVR-F73673. The exact frozen handoff is FROZEN_GROUPED_MODEL_TRANSLATION_ISOGENY_RESULT_ONLY_INTERFACE_HANDOFF.json, 2047 bytes, SHA256 0e38fa572ecd62791b80c7f95fcd777d620b719214cc2c46f3d00063eef97bb8. Its two body files are:
+
+- P11_FULL_COVER_DEGREES_AND_MODEL_PROJECTION_AUTHOR_CLARIFICATION.md, 2602 bytes, SHA256 05472b3ddffc9081eada66f0ca3ec84277bcf535b3fa2adac0e6c38ec1e2f10b, blob 66e423371fd04c207f5a7f42f741cb0e9ebab8af.
+- P11_MODEL_TRANSLATION_AND_ISOGENY_MIXED_BIT_RESULT_ONLY_INTERFACE.md, 9045 bytes, SHA256 8da4532a6202dd12a3fd7c5d3a3e7de20ba98a428a25ddc735e37aeaeedb2323, blob b12b51cca5c438a4c9992e90c4d626a0e827698e.
+
+I read both complete frozen bodies and checked their exact lengths, SHA256 and Git blobs. At this report freeze these new objects are local frozen inputs pending actual Source, not an inferred publication. Neither author file, old A/B source nor prior independent report was edited. My NONBLIND Public/ENV/CONTROL/CI/T6-support, earlier P11 paper/code reviews, CM24/LC reviews, Parity peer history and separate compact-strip authorship are retained. I contributed no construction, repair or code to these new papers. There was no arithmetic program, scientific import/test, enumeration, checker, remote consumer or Native scientific mutation. The active core98 input set, actor and clocks are excluded and unchanged.
+
+## 1. The actual primary has the required orientation and strength
+
+I verified the retained Fisher_Higher_Descents_author_primary.pdf, 411230 bytes, SHA256 784c3ccf22bfe312f25237603ea8deb35565aac1018c9bb96ed1f9f4e4f2a129, and read the actual Section 3 text, Theorem 3.1(i),(ii), printed page 6. This is the existing shared primary, not my new download or a claim to have re-read the whole paper. The theorem states for an isogeny ψ:C→D of elliptic curves over a number field that
+
+    <ψx,z>_D = <x,ψhat z>_C,
+
+and that a class in Sha(D) belongs to im ψ exactly when it pairs trivially with every class in ker ψhat. The following proof explicitly says these results do not depend on finiteness of Sha. Thus no finiteness or perfect finite pairing is silently assumed in the new application. The theorem itself is not restricted to the rational-two-torsion algorithms that appear later in the paper.
+
+All maps below are actual isogenies or pointed group homomorphisms with the indicated domains, inducing maps on Sha. The general number-field pairing uses the elliptic curves' canonical principal polarizations; its dual is the actual dual isogeny with φhat φ=[d] and φ φhat=[d], d=deg φ. An arbitrary map of underlying models, target translation, printed rule or common numerical invariant is not substituted for such a homomorphism. These are hypotheses of the new interface, not objects it has constructed.
+
+## 2. The degree clarification is mathematically and historically correct
+
+In characteristic zero, a genuine full n-cover C→E is geometrically identified with [n] after an isomorphism of the genus-one source. The geometric degree is therefore n², since the multiplication map has n² distinct kernel points. Descent of the model does not change the degree. Full two- and four-covers to E have degrees 4 and 16, respectively.
+
+If a genuine full four-cover factors through a genuine full two-cover and the asserted composition is the full covering map to E, multiplicativity of finite-map degrees gives degree 4 for the intermediate map. This statement presupposes the actual factorization. A smooth genus-one binary quartic's hyperelliptic projection has target P1 and degree 2; its model/embedding degree is another notion. None of these degree statements proves that an exported software map is a particular covering or factor map.
+
+The clarification expressly withdraws the old untyped degree2/degree4 phrase as an assertion about full maps to E. This agrees with the boundary already frozen in my A report: its PASS certified pointed rigidity and the genuine degree-four two-cover label counterexample, not that ambiguous phrase. The correction is a new separate object. It does not alter Sourceef9bca0d7cf6bd2ce79e5e8fbf39d13efb6fd167, my reports at Source5e1052833bbc3c88ad21f3b2338835a9d5542a53, or their historical pins. No actual map is manufactured by this clarification.
+
+## 3. Same-map parity and the limits of different-map transport
+
+Let x∈Sha(E)[4], y∈Sha(E)[2]. Bilinearity gives 2b_E(x,y)=b_E(x,2y)=0, so the value is 0 or 1/2. Applying the actual naturality theorem with second argument φy gives
+
+    b_E'(φx,φy)=b_E(x,φhat φy)=b_E(x,dy)=d b_E(x,y).
+
+The order, direction and scalar are correct. Odd d preserves either half-valued value; even d kills it. This is a conditional statement about simultaneous transport by the SAME actual isogeny, not an inference that an observed zero after even transport proves the original zero. The [2] example is correctly typed: its degree is 4, it sends y to zero, and the transported value is zero even if the original was 1/2. No actual nonzero core98 value is asserted.
+
+At odd d, [d] is an automorphism on any 2-primary torsion abelian group, even if that group is infinite. For an element of order dividing 2^m, an inverse to d modulo 2^m gives a preimage; if dz=0 and z has 2-power order then z=0. These inverses are compatible by uniqueness and define a group automorphism. Consequently [d]^-1 φhat is an inverse to φ on the 2-primary parts of Sha, using both dual-composition identities. This proof does not require a finite exponent for the whole group or finiteness of Sha.
+
+If the second entry uses a different actual group map ψ:E→E', naturality instead gives b_E'(φx,ψy)=b_E(x,φhat ψy). The asserted parity of φ alone does not supply that dual composition. The interface correctly demands the actual maps and their identities rather than replacing them with an isogeny-class label or j-invariant. It also does not claim that an unpointed translation is an isogeny on Sha.
+
+## 4. Dual lifts: scalar independence is not existence or correct order
+
+An actual y'∈Sha(E') with φhat y'=y gives b_E'(φx,y')=b_E(x,y) directly. For two such lifts, their difference k belongs to K0=ker(φhat on Sha(E')), and b_E'(φx,k)=b_E(x,0)=0. Hence the value is independent of the valid chosen dual lift, without requiring finiteness, uniqueness of the lift or a zero first pairing form. This does not assert that a lift has been found.
+
+For the existence statement the correct substitution into Fisher 3.1(ii) is ψ=φhat:E'→E, whose dual is φ. Thus y belongs to im φhat iff b_E(y,t)=0 for every t in the full kernel of φ:Sha(E)→Sha(E'). The paper uses that orientation. The quantified kernel is a group of Sha classes, not E[φ](K), a geometric kernel scheme or a sampled Selmer subspace. No such full orthogonality calculation is given, so the criterion remains conditional. Its use does not rely on pretending that the pairing has no divisible radical.
+
+A four-cover/two-cover evaluator requires an actual second class killed by 2; an arbitrary lift y' does not automatically meet that condition. If 2y=0, then 2y'∈K0, so the proposed obstruction coset 2y'+2K0 is well-defined in K0/2K0. Replacing y' by another lift y'+k changes it by 2k. It vanishes exactly when 2y'=2k for some k∈K0, equivalently y'−k is a lift killed by 2. Conversely such a lift makes the coset zero. Both directions and the independence under changing lifts are valid for arbitrary abelian K0; no finiteness assumption is used.
+
+For d=2, every k∈K0 satisfies 2k=φ φhat k=0. Hence 2K0=0, and the obstruction is literally 2y'. Also 4y'=0, because 2y' is in that killed-by-two kernel. Thus an order-four lift can exist while no killed-by-two lift in the fibre exists, and changing the lift by K0 cannot repair its order. The note states this as a conditional obstruction, not as an actual example or computed class for the present curve. At odd degree the 2-primary inverse of φhat instead supplies the unique killed-by-two lift of y, once the actual maps and class have been identified.
+
+The theorem about the scalar and the requirement for the chosen evaluator are therefore kept distinct. A valid unrestricted dual lift can prove an abstract scalar equality while still being unsuitable as the second TWO-cover input. No software routine is thereby certified to construct the required torsion class or its everywhere locally soluble cover.
+
+## 5. Reuse and exact accepted boundary
+
+The old A/B facts are consumed only at their actual scopes: their rational/real split-cubic pointed-rigidity setting, half-valued pairing statement, rational-target-translation change by a Kummer class invisible in Sha, and conditional first-form-zero lower-lift result. The general number-field quantifier in the new isogeny propositions does NOT turn the old rational/real Aut=±1 statement into an assertion for every number field or every elliptic curve. Independent automorphisms outside that old scope would require their actual actions; the different-map formula remains the applicable test. This is exactly the paper's explicit requirement to reuse A/B at their original scopes.
+
+An actual RESULT_ONLY transport certificate must still identify smooth curves, canonical polarizations, actual locally soluble Sha classes with order bounds, maps with sources and targets, and the appropriate verified same-map or dual-lift relation. For an evaluator accepting a four-/two-cover pair, correct degree alone is insufficient: actual covering maps, correct Jacobian identification, the required 4-/2-torsion class types and all local evidence must exist. A pairing-annihilated discrepancy may be used only when that annihilation is proved. None is supplied from a common j-invariant, bare type name or this paper.
+
+No must-fix remains in these two frozen objects at that conditional strength. Their grouped output is one bounded same-family interface, not several independent discoveries, new general Tool or executed algorithm. Actual core98 e/rank, a current isogeny or lift, model/local certificate and any scientific result remain UNKNOWN here. The active Task receives neither new reading nor changed frozen inputs, and its authority and clock are unaffected. Old stopped budgets are not reset. No Source or own semantic event is inferred from this local review; later actual Source must be personally read and matched without changing this report. Mother Goal remains OPEN.

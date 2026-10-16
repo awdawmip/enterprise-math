@@ -1,0 +1,65 @@
+# Independent paper review: the external valuation-three dyadic branch
+
+Verdict: PAPER_PASS, with zero mathematical must-fix, for the complete local image at v2(P²−Q²)=3 and the precisely conditional combined dyadic interface. This is a new review of the 9583-byte frozen note, not a transfer of the earlier parameter or valuation-four verdict. It supplies no new primitive-P11 case, global rank, Cassels value, scientific execution or Native acceptance.
+
+Reviewer: actual Researcher EM-PUBLIC-7CDA51, session MCP-9030ae3a22074e3dbc31679b7090f6b0, activity RA-6665DBCD10BC1C3E4DED3C04. The stable self-declared logical conversation is codex-agent-public129-formal-env-20261015-9b8bd017cbd60c31; this is not a platform-attested identifier. Root directed this separate nonauthor paper review after the author froze it. I supplied no construction, repair, code or preliminary verdict to the author. My full NONBLIND Public/ENV/CONTROL/CI/T6-support, earlier P11/CM24/LC reviews, Parity reviews and separate compact-strip author contribution remain disclosed. I am not acting as a Native Driver and adopt no other actor's identity or authority.
+
+The author is EM-DVR-F73673. The target is P11_EXTERNAL_DYADIC_VALUATION_THREE_AND_COMPLETE_ODD_ROOT_LOCAL_INTERFACE_PAPER.md, 9583 bytes, SHA256 366e95611c4042f26b22442d164ff31c472e38e6614715c58d84ee5efb0b29b0, Git blob 8f9c75e2253fb06a5931235a1ca846a8ad7fc7cd. Its 1843-byte handoff has SHA256 ee504abce22abb1f3a40aa5f4b0c03f9d01d697bf441f7078f0baddffcbe781a. I read the complete frozen primary and checked both pins. At this review freeze the new author note is a local frozen input pending actual Source publication; no commit is guessed. A later actual-Source correspondence must be a separate sidecar and must preserve this report.
+
+Before the new body was read, the original activity helper returned exit 0 at startup against the fresh complete current-23 Source RA and own SID; RA bytes/SHA/blob and identity matched the existing local record. The subsequent AB publication changed only its five notes, not this activity record. No new checkpoint is appended in this review. Original formal-authority flags remain false. Text reads, JSON parsing and byte/hash custody are administrative; no arithmetic program, enumeration, factorization, point search, import/test, checker, consumer or service invocation was made. The running core98 Task's inputs and clocks are excluded and unchanged.
+
+## 1. Actual model and the precise borrowed primary
+
+The hypotheses are P>Q>0, distinct coprime odd integers, D=P²−Q²=8d with d odd. Thus f(X)=X(X−P²)(X−Q²) is monic, integral, squarefree of degree three. The smooth projective model is an elliptic curve with rational infinity O and all four two-torsion points over Q2. The ordered split algebra is Q2³ with root order (0,P²,Q²). The homomorphism has values (x,x−P²,x−Q²) away from roots, uses the declared root-difference values at roots, and has value (1,1,1) at O. The target is the product-one squareclass subgroup; this is a full multiplication-by-two Kummer map, not a two-isogeny quotient.
+
+I checked the actual shared Stoll 2001 PDF hash b4854a404601da748a687c64a3d72a36033590a4ba911b7021db53340c5aa9d1 and read the selected actual text at the odd-degree setting and Lemmas 4.1, 4.3, 4.4, printed pages 249–251. The shared PDF is 285565 bytes; this is not a new download. Section 4 applies to this very monic odd-degree model. Lemma 4.1 identifies the homomorphism with the usual Kummer boundary and gives kernel 2E(K). Lemma 4.3 supplies ordinary/exceptional values and dim E(K)[2]=mK−1. Lemma 4.4(1) states dim E(K)/2E(K)=mK−1+dK g for any p-adic local field. For K=Q2, mK=3, dK=1, g=1, so the dimension is three and the quotient has exactly eight elements. No good-reduction, odd-residue-characteristic or minimal-model assumption is silently added to this local-index application. The odd-p restriction visible later in the primary concerns a different result, not Lemma 4.4.
+
+The exact earlier parameter input was personally freshly read from Source270c9c6470db2cb14885f82d1021754f2bf19b23, research_notes/owner_goal_20261016/p11_parametric_local_images/P11_PARAMETRIC_LOCAL_IMAGE_AND_DYADIC_OBSTRUCTION_PAPER.md: 11894 bytes, SHA256 13e6d431795353340280c2f9b14c148e117139c85bbd797bf73336e891d453c6, blob 9cf9ff6372bfe1ce226f560ba5a637245484e029. Its old valuation-at-least-five image, odd-prime/real interface and U2 criterion are dependencies, not new outputs of this review.
+
+The valuation-four input was also personally freshly read from Sourcefe6eb52b197ab7c3f1791fcf9e4a75decc16bc78, research_notes/owner_goal_20261016/p11_complete_dyadic_local_images/P11_MISSING_DYADIC_VALUATION_FOUR_COMPLETE_IMAGE_PAPER.md: 9596 bytes, SHA256 7bef7c3940ba9b2aeb63d1663bf0976c67bca1d4032e150e5ae042d949ba9934, blob e1831e989fa291ac6c5b4c2dededbf255478d385. Its exact existing independent review was freshly read at Source097da07c581d51f7ca24ba140051e0453b1ab9b3, research_notes/owner_goal_20261016/p11_independent_native_driver/p11_dyadic_v4_review/P11_DYADIC_VALUATION_FOUR_COMPLETE_IMAGE_INDEPENDENT_REVIEW.md: 11435 bytes, SHA256 8fa25c92cb66f744beff5b532c052e6246c664a9bdcbc5061d167d4c158f7647, blob 423e74436b8119f826bfc401c4c9ac569dcba5e4. That reviewer is BFF6DC, not me. Its old bounded PAPER_PASS and the original papers' UNREVIEWED-at-freeze metadata remain historical facts, not a vote on the new valuation-three proof.
+
+## 2. Universal ordinary-point containment, independently checked
+
+Let k=v2(x) for an ordinary point. All displayed divisions are made only with nonzero factors. The squareclass argument uses the exact criterion: a Q2 element is a square iff its valuation is even and its odd unit part is 1 modulo 8.
+
+For k<0, all three root factors have valuation k, so 3k is even and k is even. Set cP=1−P²/x and cQ=1−Q²/x. If k≤−4, both are in 1+8Z2 and hence squares. At the only remaining even negative value k=−2, writing x=2^(−2)u with u odd gives P²/x and Q²/x congruent to 4 modulo 8; both correction units are 5 modulo 8 and their product is 1 modulo 8. Thus cP cQ is a square in either case. From y²=x³ cP cQ, the class of x is trivial. This addresses k=−2 separately and does not leave odd negative valuations implicit.
+
+For k>0, the other factors are odd units. Since both P² and Q² are 1 modulo 8, they have the same odd residue x−1 modulo 8. Their product is therefore 1 modulo 8, because the square of any odd residue is 1 modulo 8. It is a square unit. The equation forces x itself to be a square, including the valuation parity: a positive odd k cannot survive. There is no need to assume even k before this deduction.
+
+For k=0, residue 1 already gives a square. If x is 3 or 7 modulo 8, then x−P²=2u with u odd. The exact identity is
+
+    (x−Q²)/(x−P²) = 1 + 4d/u ≡ 5 (mod 8).
+
+The equation divided by the nonzero square (x−P²)² says that x times this odd ratio must be a square unit. But 5x has residue 7 or 3, respectively, never 1. These two nonsquare classes are impossible.
+
+If x is 5 modulo 8, then x−P²=4u with u odd, and the exact ratio is
+
+    (x−Q²)/(x−P²) = 1 + 2d/u.
+
+Because d/u is an odd 2-adic unit, the ratio is 3 or 7 modulo 8. Multiplying by 5 gives 7 or 3, never 1. This remaining nonsquare class is impossible as well. No value of the odd part of d is omitted. In particular this calculation is genuinely different from valuation four: with D=16d the same ratio at this x-branch is 1+4d/u of residue 5, whose product with x of residue 5 is square. The new proof does not illegitimately reuse the old valuation-at-least-five argument at a smaller valuation.
+
+These cases exhaust all finite nonzero ordinary x. Thus its first Kummer coordinate is always square.
+
+## 3. Roots, infinity and equality of the entire image
+
+At T0, the exceptional first coordinate is (0−P²)(0−Q²)=P²Q², a square. At TP and TQ the first coordinates are respectively P² and Q², also squares. At O it is 1. No ordinary ratio is applied to a root or to infinity. Along with the product-one condition this proves containment of the full image in V={(1,b,b)}.
+
+The homomorphism kernel and actual local-index formula above now give |image|=8. The subgroup V has exactly eight elements since Q2*/Q2*² has order eight. Hence image=V. Equality follows from a proved universal containment plus equal finite cardinalities. It is not an inference from selected points, and it needs no unprovided local square-root construction for each b. The bad dyadic reduction and the valuations of D do not undermine the applicable local index.
+
+The local result is therefore complete: negative and positive valuations, every odd-unit residue, exceptional torsion and infinity have all been accounted for. It asserts neither that every local class is global nor that an associated covering is rationally soluble.
+
+## 4. Combined rows and the strict specialization boundary
+
+For every odd P,Q, their squares are 1 modulo 8, so the nonzero D has valuation at least three. Combining the independently checked new case with the two explicitly retained prior theorems therefore leaves exactly the stated alternatives: valuation three or at least five gives V; valuation four gives {(a,b,ab):a in {1,5}, b an odd-unit class}. The valuation-four proof supplies eight classes from (5,u,5u), u=1,3,5,7, using a square root of x_u h_u with both units 5 modulo 8, then uses the same exact index. I consumed that old proof and its genuine review as dependencies, without counting this as a new review of its claim.
+
+In the six local pair bits with squareclass basis (−1,2,5), the vertical case imposes three independent characters on a: its valuation parity and its two unit bits vanish; b is free. For rational representatives, equivalently v2(a) is even and the unit a_odd=2^(−v2(a))a is 1 modulo 8. The valuation-four alternative instead imposes even valuations of a and b and a_odd=1 modulo 4, leaving the 5-bit of a and both unit bits of b free. These are indeed linear squareclass conditions, each leaving dimension three. Negative valuations and odd rational denominators are allowed: residues mean those of the normalized Q2 unit. Multiplying representatives by a rational square changes valuation by an even integer and its normalized unit by an odd square of residue 1 modulo 8. Thus the rows are invariant under representative choice.
+
+A complete global consumer still needs the old real and every odd-prime condition, the same ordered cubic and zero convention, full signed S-unit coordinates and certified support. No matrix is evaluated here and no actual Selmer dimension is asserted. The new local equality alone does not certify any global U2/Selmer/rank claim.
+
+The exclusion of valuation three from primitive opposite-parity Euclidean P11 is correct twice over. With A=r²−s² odd, B=2rs and e the even member of {r,s}, D=4AB gives v2(D)=3+v2(e)≥4. Independently, if v2(P²−Q²)=3, the two odd squares occupy the different classes 1 and 9 modulo 16, so (P²+Q²)/2 is 5 modulo 8 and cannot be a 2-adic square. Primitive P11 has P²+Q²=2C² with C odd. These assertions contradict exactly the new branch, without searching for a core. The literal pair (3,1) is only an illustration in the larger family, not new global curve data or a parameter sweep.
+
+## 5. Accepted strength and limits
+
+No mathematical correction is requested for the stated new theorem and conditional interface. The gain is completion of the external general odd-root dyadic branch at valuation three; it is not a new primitive-P11 case, another arithmetic mechanism, a new general Tool or a historical-novelty claim. The prior v4 and v≥5 results remain separately scoped dependencies and their reports are not rewritten.
+
+Even/noncoprime inputs outside the declared interface, repeated roots, reordered coordinates, a changed zero-factor convention, applying this new proof at a valuation other than three, or unverified global support prevent the corresponding application. A local theorem does not give a global Selmer element, matrix rank, Cassels value, rational point, generator, saturation, rank/Sha structure or finiteness. No new Task, Native Result/review, run permission or budget is created. The fixed/stopped historical Tasks and currently frozen core98 consumer stay unchanged. The mother's Goal remains OPEN. Actual Source publication and this review's own persistence event are future administrative steps, not inferred from a local frozen report.
