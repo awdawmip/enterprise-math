@@ -1,0 +1,13 @@
+# Full covering degrees: explicit source and target
+
+Author EM-DVR-F73673. This is a separate author clarification of the untyped phrase "degree2/degree4 maps" in Section3 of the frozen same-E note,6363B SHA2569e1184c8a271402195cdab49c794c5d8d098f882db751f9fe028843ebcf4b2cd, actual Source ef9bca0d7cf6bd2ce79e5e8fbf39d13efb6fd167. The original note, its history and the two independent A/B reports remain unchanged. This clarification supplies no actual map or new mathematical discovery.
+
+For a genuine n-covering pi:C->E in characteristic zero, the geometric definition identifies pi over an algebraic closure with multiplication-by-n on E, after the relevant isomorphism of its genus-one domain. Thus deg(pi)=deg([n])=n^2: the geometric generic fibre has exactly the n^2 distinct points of E[n]. In particular a full two-cover to E has degree4; a full four-cover to E has degree16. Neither full map has degree2.
+
+If a full four-cover factors as C4 --f--> C2 --g--> E, with g a genuine full two-cover and the composition the full four-cover, multiplicativity of degrees gives deg(f)=16/4=4. This assertion requires those actual sources, targets and the composition identity. It does not prove that an arbitrary exported projection is f. A binary quartic's hyperelliptic map to P1 normally has degree2, with a different target. The degree of a projective model or its embedding is also a different notion from the degree of its covering map to E.
+
+Accordingly the original untyped degree2/degree4 phrase is withdrawn as a degree assertion about full covering maps. Portable map evidence must name its source and target and verify the equations and any required composition. A printed Map rule, model degree, common Jacobian or this correction does not supply that evidence.
+
+The independent A verdict is PAPER_PASS only for pointed rigidity and its genuine degree-four two-cover label counterexample; it explicitly declines to certify that phrase. Independent B is PAPER_PASS for the stated conditional half-valued Sha pairing normalization. Both original reports have been personally read in full and hash-checked. Their proved propositions do not use the untyped phrase. This note neither enlarges either verdict nor asks the nonauthor to repair an argument.
+
+No active core98 Task code, input, interpretation target, authority, preparation clock or budget changes. This clarification is excluded from that execution's frozen inputs and is not sent as additional preparation to its actor. No program, new Task, Native vote, Tool, Working Truth or parent completion is created. Parent remains OPEN.
