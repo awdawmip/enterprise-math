@@ -1,0 +1,315 @@
+# Actual six source classes over an algebraically closed residue field
+
+UNREVIEWED AUTHOR PROPOSAL, EM-DIRECT-88303D. Same warm
+MCP-80ce72c19cb84e508513c39e73540a9c / RA-1E650208FBE6654C7D59AB55,
+canonical30/120, no31 helper. This is an independent bounded author
+construction, not a transported verdict from the finite-unramified
+classification. All calculations are symbolic hand proof; no scientific
+program, import/AST/test/sample/solver/enumeration, Native operation,
+new Task, identity or budget reset occurs. Parent Goal OPEN.
+
+## 1. Exact old object, new coefficient field and true prior coverage
+
+Keep p prime congruent13 or19 modulo24. Put
+
+ k=an algebraic closure of Fp, O=W(k), K=Frac(O),
+
+with its specified single Witt automorphism sigma. Thus O is a complete
+unramified DVR with uniformizer p, residue field k and value group Z;
+sigma induces a->a^p on k, fixes p and preserves the valuation and the
+p-adic topology. This is an actual subcase of the old allowed complete
+unramified coefficient DVR with perfect residue field. It is NOT a
+finite unramified extension of Qp, and no finite sigma period is assumed.
+
+The original ring, connection and oneform quotient are retained:
+
+ S=4r^3-3r, f=1-r^2, q=4r^2-1, P=fq,
+ R=O[r,f^-1,q^-1]^dagger[1/p],
+ D=(2P)^-1 [[2S-1,1],[4S-5,-(2S-1)]],
+ V=(R^(1x2)dr)/{(h'+hD)dr:h in R^(1x2)}.
+
+The accepted actual six-F theorem F is at
+0464ecd04acab1e33dd3a480001ba6b2a3d1677d,
+research_notes/owner_goal_20261016/cm24_convergence_new_anchor/actual_boundary_frobenius/CM24_ACTUAL_SIX_BOUNDARY_WEAK_FROBENIUS_JOINT_AUTHOR.md,
+21977/SHA2568e5dbe7d89528632b402e5d103925f6f3452ea11b654b7939ac3c68c779f2133,
+blob9ed8a851e463cc905f8443cebbb1742da96084f8; genuine CF whole peer2 is
+at41a1eb3febbd51dc7edc5fe95e171b69b2899430. In its FIXED coordinates
+
+ xi:V -> K^6=(ell_1,ell_-1,ell_1/2,ell_-1/2,Q1,Q2),
+
+the actual row-oneform Frobenius is the bijective sigma-semilinear map
+
+ Fcal(v)=diag(p^2,p^2,p^2,p^2,p^2/beta,p beta)sigma(v).       (1)
+
+It comes from phi' sigma(b)(phi) M_phi^T dr, phi=r^p: the base-oneform
+p is retained. It is not the cohomological M or period inverse transpose.
+F also supplies the complete normal-form/kernel interface
+
+ c0+c1r+sum_a d_a/(r-a)
+    |-> (d_1,d_-1,d_1/2,d_-1/2,-c0,-c1/8).                 (2)
+
+The accepted actual-beta theorem B is its9634-byte primary at
+e5d179ec952505e79109354adecb3bc361983ae8,
+research_notes/owner_goal_20261016/cf1677_actual_beta_identity/ACTUAL_CANONICAL_GOOD_BETA_TRACE_UNIT_ROOT_AUTHOR.md,
+SHA2560a16c4285b183e2aa0845947b49c19de150eead5f2763b096fdecf0bc723d809,
+blob668000039e9ba64a7933e74155eeaf3aaee6a655, with genuine BFF peer2
+at47bb922bd1dba596839cf575552583b4a85c0aea. It identifies the NAMED
+canonical infinity22 entry beta in Zp*, not an arbitrary chosen unit,
+and proves
+
+ beta^2-tau beta+p=0,
+ tau=-sum_(x in Fp)chi_p(x^3+64) in Z.                       (3)
+
+I genuinely coauthored F, consumed its author3/truepeer2 through my own
+whole semantic and Source observations, and personally consumed all
+three B main/peer bodies in the earlier canonicality review. This is
+honest old accepted-input reuse, not a new API call, whole reread of
+all upstream proofs, beta point count or external-primary fetch.
+The recent selected F sections and whole B reread are documented in
+the separate finiteK intake. No proper rank-two/End/LC theorem is used
+as a replacement for this actual six-dimensional quotient.
+
+Bounded prior-coverage checking was ONE exact metadata question to4A.
+She has no already verified locator in her old13645/13743/normalform/6F
+consumption for this algebraically-closed-residue complete classification
+or a mixed finite4/Q1 stable-line existence/exclusion. Her answer is
+UNKNOWN coverage, not global absence. No working, formula, construction
+or repair was supplied by her, and no broader search ran.
+
+The finiteK result at87dceabe040a60dfa146ebb670b397cb66427c0f, with
+genuine CF peer419854c91958ecb8c1d57089a6d77d7af077c8da, is separate
+history. Its finite-period proof is NOT applied to K here, nor is its
+old/new review used to accept the following new construction.
+
+## 2. A noncanonical actual unit solving the sigma difference equation
+
+We prove, rather than assume, that there is a unit c in O* with
+
+                         sigma(c)=beta c.                 (4)
+
+The proof uses the algebraic closure of the residue field twice. First
+choose a_bar!=0 with a_bar^(p-1)=beta_bar in k, and any unit lift c1.
+Then sigma(c1)/(beta c1) is congruent1 modulo p.
+
+Suppose a unit c_n has been chosen with
+
+ sigma(c_n)/(beta c_n)=1+p^n e_n, e_n in O, n>=1.
+
+Choose t_bar in k satisfying
+
+                  t_bar^p-t_bar=-e_n_bar.                 (5)
+
+It exists because the nonconstant polynomial T^p-T+e_n_bar has a root
+in algebraically closed k. Choose any lift t in O and put
+
+                  c_(n+1)=c_n(1+p^n t).
+
+Modulo p^(n+1), the ratio of sigma(c_(n+1)) to beta c_(n+1) is
+
+ (1+p^n e_n)(1+p^n sigma(t))/(1+p^n t)
+       =1+p^n(e_n+sigma(t)-t)=1.                            (6)
+
+The truncation is valid since2n>=n+1 and the denominator is a unit.
+Moreover c_(n+1)-c_n belongs to p^nO. Completeness gives a limit c,
+still with nonzero residue a_bar. Sigma, multiplication and division
+by a unit are p-adically continuous, so passage to the limit in these
+congruences gives (4) as an EXACT equality, not merely modulo p.
+
+This is an existence proof with arbitrary residue-root choices, not
+a numerical iteration, closed formula, canonical choice, effective
+root-finding routine, precision/cost theorem or new generic Tool.
+It only supplies the named actual-beta equation on this coefficient O.
+
+## 3. Fixed constants, nonresonance and why this unit is genuinely new
+
+For clarity we completely reprove the needed fixed field:
+
+                            K^sigma=Qp.                   (7)
+
+If x in O is sigma-fixed, its residue satisfies x_bar^p=x_bar and hence
+lies in Fp. Subtract its ordinary integer digit d0 in{0,...,p-1} and
+divide by p; the remainder is again integral and sigma-fixed. Repeating
+gives ordinary digits di with x-sum_(i<N)di p^i in p^NO for every N.
+Completeness and separatedness identify x with the element of canonical
+Zp represented by those digits. Conversely sigma fixes integers and is
+continuous, so fixes all Zp. Multiplication by p^N reduces a fixed
+element of K to the integral case. This proves both directions of (7).
+It is the elementary fixed-digit argument already credited in the old
+4A compatible-End text and the883 finiteK proof, restated here in full;
+neither compatible-End theorem is a logical premise.
+
+Two unit solutions c,c' of (4) have sigma-fixed ratio c'/c. Thus
+
+                    c'=u c for a unique u in Zp*.          (8)
+
+In particular there is NO canonical unit chosen by (4) alone. The
+Qp-line Qp c, however, is independent of which solution unit is used.
+
+The actual-beta identity (3) also excludes every finite-order resonance:
+
+                   beta^s!=1 for all integers s>=1.        (9)
+
+Indeed |tau|<=p from the p character terms. If beta^s=1, its minimal
+polynomial over Q divides both T^2-tau T+p and T^s-1. A complex root
+z of that algebraic minimal polynomial satisfies |z|=1 and tau=z+p/z.
+The imaginary part is (1-p)Im(z)=0, hence z=+1 or-1, forcing
+tau=+(p+1) or-(p+1), a contradiction. Only the finite algebraic number
+field generated by beta is embedded into C, not Qp or K. This is the
+same elementary actual-beta consequence used in the finiteK proof,
+not a point count, Hasse invocation or separate result.
+
+Consequently c cannot lie in a finite unramified subextension of K/Qp.
+For such a subextension of degree e, each residue in F_(p^e) has a
+unique lift which is a root of X^(p^e)-X: its derivative is-1 modulo p,
+so each successive p-adic residue correction is unique and completeness
+gives the root. Sigma^e preserves that root and its residue, hence fixes
+it. Successive subtraction of these lifts and division by p expands
+every integral element in convergent digits, proving sigma^e=Id there
+and then on the fraction field. This only proves the period on that
+FINITE subextension, not on K. Iterating (4) would give
+c=beta^e c, contrary to (9). This says only that c is not in any such
+finite unramified subextension; no broader transcendence assertion is
+needed. Completeness and algebraically closed residue, rather than
+finite-period descent, produced the new solution.
+
+## 4. Actual five-plus-one scalarization on the quotient, not a new M
+
+Write e1,...,e6 for the coordinate vectors in the FIXED xi coordinates.
+Choose one solution c of (4) and define a K-basis of the quotient by
+
+ w_i=e_i (1<=i<=4), w5=c e5, w6=c^-1 e6.                   (10)
+
+Using the unchanged actual map (1), not a gauge-selected replacement,
+
+ Fcal(w_i)=p^2 w_i (1<=i<=5), Fcal(w6)=p w6.               (11)
+
+For example the fifth entry is(p^2/beta)sigma(c)=p^2c,
+and the sixth is p beta sigma(c^-1)=p c^-1. Thus if x_j are
+coefficients in THIS quotient basis,
+
+ Fcal(sum_j x_j w_j)=sum_j p^(s_j)sigma(x_j)w_j,
+               s_1=...=s_5=2, s_6=1.                    (12)
+
+Changing c to u c, u in Zp*, changes this basis only by a diagonal
+Qp-linear rescaling of w5,w6. In particular
+
+ T2=span_Qp{w1,...,w5}, T1=Qp w6                         (13)
+
+are independent of the solution choice. Equivalently T2 is the
+p^2-eigenspace of the semilinear map on Kspan{e1,...,e5}, and T1 its
+p-eigenspace on Ke6, interpreted as Qp-vector spaces. The basis is
+noncanonical, while those rational forms and the classification below
+are not affected by that unit ambiguity.
+
+This is a basis calculation in the already supplied finite-dimensional
+source quotient. No new proper basis, geometric comparison, fullrank4
+Frobenius, carrier R, connection D or actual M_phi has been constructed
+or altered. It is not an assertion about a gauge-normalized beta of the
+proper rank-two object.
+
+## 5. Complete stable-subspace classification without a sigma period
+
+A K-linear subspace W of V is forward Fcal-stable if and only if
+uniquely, in the basis (10),
+
+                W=K W0 directsum delta K w6,              (14)
+
+where W0 is a Qp-linear subspace of T2, identified with Qp^5 by(10),
+and delta is0 or1.
+This includes zero and V. The stable K-lines, as subspaces, are exactly
+
+                   P^4(Qp) disjoint-union {K w6}.           (15)
+
+Here is a proof paying the non-periodic issue directly. The bijective
+sigma-semilinear Fcal preserves the K-dimension of every K-subspace,
+since sigma is an automorphism. Thus forward inclusion implies equality.
+Let B be the unique reduced row-echelon basis matrix of W in coordinates
+(10), with pivot columns p_i. Apply Fcal to its rows and multiply row i
+by p^(-s_(p_i)). The resulting matrix C is again reduced row-echelon
+with the SAME pivots: zero entries stay zero, each pivot becomes1,
+all other pivot-column entries remain0, and first nonzero positions
+and row order remain unchanged. Its row space is Fcal(W)=W.
+Uniqueness of reduced row-echelon form gives
+
+          B_ij=C_ij=p^(s_j-s_(p_i)) sigma(B_ij).            (16)
+
+If B_ij!=0, apply the discrete p-adic valuation. Sigma is an isometry,
+so (16) implies0=s_j-s_(p_i). A nonzero coefficient cannot join the
+slope2 five-block to the slope1 axis. For equal slopes, (16) instead
+says B_ij=sigma(B_ij); by (7) that coefficient belongs to Qp.
+Every reduced basis row therefore has Qp coefficients entirely within
+its own block. This gives (14); a one-dimensional axis contributes
+exactly delta0/1. Uniqueness follows from the same reduced basis, or
+from intersecting each block with its rational form T2/T1.
+Conversely any Qp-subspace W0 of T2 has Fcal=p^2 sigma on its extension
+and is stable, and Kw6 is stable. This proves both directions, every
+dimension0..6, uniqueness and (15). No finite iterate of sigma,
+spectral-projector denominator, infinite coefficient sum or unproved
+semisimplicity theorem has been substituted for this direct argument.
+
+## 6. A literal mixed stable line and weak primitive interfaces
+
+Take
+
+                  v=e1+c e5=w1+w5.                        (17)
+
+Equation (11) gives Fcal(v)=p^2 v. Both its finite-first coordinate and
+its Q1 coordinate are nonzero. Thus K v is a genuine stable K-line
+mixing the finite four-block and the ORIGINAL Q1 axis. It is not K e5
+and not contained in the original finite four-block. This explicitly
+refutes extension of the finiteK three-block line pattern to THIS K;
+it does not refute the finiteK theorem, since c is not in any finite
+unramified coefficient subextension by Section3.
+
+By (2) the actual weak representative of (17) is
+
+                    (1/(r-1)-c)e1 dr.                    (18)
+
+In (18) e1 is the first coordinate ROW of the original R^(1x2), whereas
+e1 in (17) was the first vector of K^6; the two uses are explicitly
+distinguished. The only denominator r-1 is allowed in R. The class
+action plus accepted completeness says there is h in the SAME weak
+R^(1x2) with
+
+ (h'+hD)dr=Phi(((1/(r-1)-c)e1)dr)
+                      -p^2(1/(r-1)-c)e1 dr.              (19)
+
+More generally a vector(d_1,d_-1,d_1/2,d_-1/2,a5) in Qp^5 represents
+an element of T2 by(10), with weak representative
+
+ [sum_(a in{1,-1,1/2,-1/2}) d_a/(r-a)-a5 c] e1 dr,
+
+and w6 has representative-8c^-1 r e1 dr. The respective class
+multipliers are p^2 and p. Choosing a Qp basis of W0 and optionally
+w6 gives representatives of every subspace in (14), with weak
+primitive existence for their displayed Frobenius differences.
+These are existence interfaces, not literal eigenform equations,
+canonical primitives, formulas, uniqueness or precision/cost results.
+
+## 7. Exact terminal, credit and exclusions
+
+The author-level new chain is: an actual-beta sigma-eigenunit from
+residue root lifting, five-plus-one quotient scalarization, a complete
+nonperiodic stable-subspace descent, and a literal mixed stable weak
+source class. These belong to ONE bounded consumer, not separate
+papers, generic Tools or votes. The finite and algebraically-closed
+residue conclusions are different and neither is transported by mere
+change of a field label. No assertion for every other perfect residue
+field, a ramified coefficient object or an integral lattice is made.
+
+883 supplies this new construction and hand proof. Old actual6F
+authors883/F736/BFF and genuine CF peer, old beta authorCF and genuine
+BFF peer, old elementary fixed-field proof authors/reviewers retain
+their exact prior credit; they are not automatically new coauthors.
+Root routing and the single4A scope reply give no new proof or repair.
+The author cannot independently review this new work. No unfrozen
+formula/proof is supplied to a future nonauthor reviewer.
+
+All new loadbearing mathematics is in this working body. The original
+finiteK author3/peer2 and old F/B inputs remain unchanged. This new work
+does not identify a geometric rank4, change the original LC/source/fullN,
+recover a weighted functional, settle properrank2 irreducibility, hdiv,
+the old LC join, Parity/localfullHS/COMMON, or the mother Goal. All
+STOP/HOLD/failure/NONBLIND/budgetUNKNOWN history remains. No31 helper,
+Source write, formal Task or Native acceptance is implied. The present
+state is an UNREVIEWED/SOURCE_PENDING author proposal; MESSAGE only, no FINAL.
