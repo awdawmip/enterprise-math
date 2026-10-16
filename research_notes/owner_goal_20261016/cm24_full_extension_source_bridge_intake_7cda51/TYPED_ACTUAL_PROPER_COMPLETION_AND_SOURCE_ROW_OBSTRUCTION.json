@@ -1,0 +1,68 @@
+{
+  "schema": "CM24_ACTUAL_PROPER_COMPLETION_AND_FULL_SOURCE_ROW_TYPED_AUTHOR_RESULT_V1",
+  "frozen_utc": "2026-10-16T08:10:48.658596+00:00",
+  "status": "FROZEN_UNREVIEWED_AUTHOR_PROOF",
+  "primary": {
+    "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/cm24_full_extension_source_bridge_intake_7cda51/CM24_ACTUAL_PROPER_COMPLETION_AND_FULL_SOURCE_ROW_LIFTING_AUTHOR.md",
+    "bytes": 14389,
+    "sha256": "493fef21ea54b0ab68f490909b4fc0e2f526d47bb7309e7dae6fd5e68ff25148",
+    "git_blob_sha1": "53fc092f6cb8390b70f6aa319cffb09d8be8926b"
+  },
+  "hard_target": "One whole actual proper-coefficient arrow and exact full-source lifting interface for the original rank4 carrier.",
+  "rings": {
+    "A": "O[r,(1-r^2)^(-1),(4r^2-1)^(-1)]",
+    "Ahat": "lim A/p^n",
+    "Rhat": "Ahat[1/p]",
+    "Rweak": "A-dagger[1/p] subset Rhat",
+    "K": "O[1/p]",
+    "proper_B": "Zp[t,q_s^(-1),u_s^(-1)]"
+  },
+  "actual_positive_proper_arrow": {
+    "finite_input": "Existing actual compatible M_Bn inMat2(B_n), detp, canonical proper cohomological basis.",
+    "coefficient_map": "t=r-1; q_s=(2r+1)^2; u_s=(r+1)(2r-1)^2; B_n to A/p^n at each finite level.",
+    "ordinary_ring_identity": "O[t,q_s^(-1),u_s^(-1),t^(-1)]=A",
+    "completed_matrix": "Entrywise limit Mhat inMat2(Ahat), detp; Gtheta=Mhat^(-T) inGL2(Rhat).",
+    "equation": "Gtheta_prime=D Gtheta-Gtheta Dtheta; detGtheta=1/p.",
+    "not_used": "No localization/inverse-limit exchange; no guessed map from Zp[[t]] into Ahat.",
+    "proper_weak_membership": "UNKNOWN"
+  },
+  "elementary_completion_lemma": {
+    "basis": "1,r,r^2,... and(r-a)^(-j),a=+/-1,+/-1/2,j>=1; integral unique partial fractions because pairwise differences are p-units.",
+    "completion": "Restricted p-adic coefficient families in that basis.",
+    "constants": "ker derivative onRhat andRweak isK.",
+    "residue": "Coefficient of(r-1)^(-1), bounded and derivative-annihilating.",
+    "origin": "r=0 evaluation is bounded; no boundary Laurent-ring identification."
+  },
+  "full_source_kernel_component": {
+    "input": "Exact integral Q(0)=0 with d=2f_prime/f+Q_prime from the old kernel proof.",
+    "formula": "b_psi=pQ-sigma(Q)(psi)-2log(f(psi)/f^p) inA-dagger; b_psi_prime=p d-d_psi; b_psi(0)=0.",
+    "all_scalar_row_solutions": "k_prime=a d-lambda dpsi iff a=p lambda; then k=lambda bpsi+c with c inK.",
+    "sigma": "One coefficient action; sigma(g)=g is not assumed.",
+    "g_and_Hb_retained": true
+  },
+  "remaining_two_entry_obstruction": {
+    "class": "Original selected block class F=[[G,0,0],[0,a,0],[h1,h2,k,lambda]], a,lambda inK^x.",
+    "operator": "L_psi(h)=h_prime+h Dpsi",
+    "cokernel": "H_psi(R)=R^(1x2)/L_psi(R^(1x2)), as an ordinaryK-linear quotient.",
+    "classes": "U=[w e1 G], V=[wpsi e1].",
+    "exact_iff": "Full F in this block class exists iff U=lambda V for some lambda inK^x.",
+    "determinant": "lambda^2",
+    "source_primitive": "An actual h proving the quotient equality must be supplied; defining U,V does not establish it.",
+    "zero_cases": "V=U=0 allows any nonzero lambda; V=0,U!=0 none; V!=0 allows at most one nonzero scalar ratio, and U=0 none.",
+    "actual_equality_or_vanishing": "UNKNOWN",
+    "finite_dimension_algorithm_or_computed_class_claimed": false
+  },
+  "lift_compatibility": {
+    "input": "Previously proved full T fromtheta pullback tophi pullback; no reproof.",
+    "cokernel_map": "[b] inH_phi goes to[b T_D] inH_theta; L_theta(hT_D)=L_phi(h)T_D.",
+    "source_classes": "The map sends Uphi toUtheta andVphi toVtheta using the full bottom proper row ofT.",
+    "same_scalar_and_origin": "Same lambda andc; tau3=btheta-bphi.",
+    "weak_version": "Requires the actual proper G to be weak; no completed-to-weak primitive transfer is assumed."
+  },
+  "unproved": [
+    "The actual source class equality, any firstfullF, weakmembership ofthepropermatrix/sourceprimitive, fullrank4 geometric/sourceaction realization, originalfunctional/Y."
+  ],
+  "scientific_programs": 0,
+  "Native_vote": false,
+  "parent_complete": false
+}
