@@ -1,0 +1,163 @@
+{
+  "schema": "typed_actual_COMMON_power_scale_raw_coefficient_band_author_proposal_v1",
+  "status": "AUTHOR_PROPOSAL_UNREVIEWED_NOT_INDEPENDENTLY_ACCEPTED_SOURCE_PENDING",
+  "one_unit": "Actual full-carrier local control,global envelope,exact binomial transfer and complete original COMMON composition;not separate scalaridentity/localbound/conditionallemma discoveries.",
+  "actual_authors": [
+    "EM-PUBLIC-7CDA51",
+    "EM-DVR-BFF6DC",
+    "EM-DIRECT-88303D"
+  ],
+  "author_check_is_not_independent_review": true,
+  "primary_binding": {
+    "path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/parity_power_scale_common_raw_band_7cda51_bff6dc_88303d/PARITY_ACTUAL_COMMON_POWER_SCALE_RAW_COEFFICIENT_BAND_JOINT_AUTHOR.md",
+    "bytes": 33784,
+    "sha256": "f07b8b69f649a97d18931490c16b91db198d2c450a76bb591e2f6fd8dd9f16f5",
+    "git_blob_sha1": "ba7db3cdd88dc711c630b7c12f29a628e3def6f6"
+  },
+  "mathematical_parameters": {
+    "m": "integer >=2^1000",
+    "W": "m^2",
+    "d": "W-3=m^2-3,degree of SAME original raw homogeneous lower layer",
+    "Dold": "W-1;the original Euler-block parameter,distinct from D",
+    "n": "largest EVEN integer <=m-2",
+    "t": "m-n in{2,3}",
+    "ell": "n-1",
+    "q": "2ell=2n-2;actual degree bound,including correct missing even derivative for odd m",
+    "D": "d-q",
+    "J": "j-q",
+    "y": "D/J;actual positive evaluation point for the reversed functional",
+    "exact_shifted_linear_moment": "(D+1)/(J+1),which differs from y by -(y-1)/(J+1)",
+    "forbidden_parameter_substitution": "Do not replace D/J by d/j,or D by Dold."
+  },
+  "integer_band": {
+    "j": "integer",
+    "lower_inclusive": "q+ceil(D/m^(1/100))",
+    "upper_inclusive": "q+floor(D/2)",
+    "equivalent_shifted_conditions": "ceil(D/m^(1/100))<=J<=floor(D/2)",
+    "implied_exact_domain": "1<=J<=D/2,2<=y<=m^(1/100),q<=j<=d,D>=m^2/2,J>=m^2/(2y)",
+    "rounding_retained": true,
+    "all_j_or_all_m_claim": false
+  },
+  "actual_model": {
+    "carrier": "ORIGINAL Student polynomials degree<=m-2,dimensionm-1",
+    "positive_weight": "(1+4v^2)^(-m)",
+    "monic_basis": "P_k^(m),h_k^(m)=||P_k^(m)||^2,e_k=P_k^(m)/sqrt(h_k^(m))",
+    "derivative": "D_v=d/dv with original nilpotent cutoff",
+    "actual_adjoint": "positive Student Hermitian dagger;# means coefficientwise analytic adjoint on complex parameters",
+    "full_carrier_scope": "Both parities,all input/output degrees,original rank-one compression and odd top retained.",
+    "frame": "Z_xi=Z0-2sum_evenk=2..n zeta(k)xi^(k-1)D_v^k/(2pi)^k;Z0=vD_v-(m-1/2)I",
+    "state": "R_xi=Z_xi+Z_xi#;b(xi)=tr(R_xi^2),actual real-state HS square only for real xi",
+    "Hn": "n!sqrt(h0^(m)/hn^(m))",
+    "Cxi": "Hn/(2pi)^n",
+    "An": "Cxi*xi^ell",
+    "z_normalization_distinction": "Cz=Hn/(2^n*pi)=pi^ell*Cxi;never omit this factor when z=pi/xi."
+  },
+  "original_COMMON_identity": {
+    "raw_homogeneous_layer": "H_d^raw(S,a)=K(S+a)^d Psi(a/(S+a))",
+    "K": "m^(2m^2)/2>0",
+    "original_unequal_top_prefactor": "K_top=m^2*K;its ratio is already retained in alpha",
+    "alpha": "(W+1)^2/(8W)",
+    "tau": "(m^4-1)/(24m)",
+    "g": "m*tau=(W^2-1)/24",
+    "B": "b+W-1",
+    "E": "xi*partial_xi",
+    "C": "2tau tr(A_e[Z,R])-4tau tr(A_e R)",
+    "Psi": "C-g(B+2)+alpha[Dold(Dold-1)B-(2Dold-1)EB+E^2B]",
+    "exact_W_plus_one": "B+2=b+W+1",
+    "compressed_multiplier": "Original A_e with ||A_e||op<=4,||A_e||HS<=4sqrt(m-1)",
+    "normalization_preserved": "SAME literal original COMMON;no gcd/frame/readout rescaling."
+  },
+  "exact_reversal_and_transfer": {
+    "V": "u^ell Z_(1/u)/Cxi",
+    "U": "V+V#",
+    "Q": "u^q b(1/u)/Cxi^2=tr(U^2),analytic polynomial;not Hermitian-square claim for complex u",
+    "P": "u^q Psi(1/u)/Cxi^2,polynomialdegree<=q",
+    "hq": "(j)_q,fall/(d)_q,fall>0",
+    "T_monomial": "T(u^s)=(D+1)_s,rise/(J+1)_s,rise",
+    "exact_falling_identity": "L_(d,j)Psi=Cxi^2*hq*T(P)",
+    "exact_raw_coefficient": "[S^(d-j)a^j]H_d^raw=K*binom(d,j)*Cxi^2*hq*T(P)",
+    "first_strictly_positive_prefactor": "K*binom(d,j)>0",
+    "second_strictly_positive_prefactor": "Cxi^2*hq>0",
+    "exact_Euler_reversal": "u^q E b(1/u)/Cxi^2=(q-E_u)Q;secondEuler=(q-E_u)^2Q",
+    "full_reversed_P": "alpha[a0(a0-1)Q+2a0*uQ'+u^2Q'']-gQ+Cstar+Kconst*(u^ell/Cxi)^2,wherea0=Dold-q",
+    "Cstar": "2tau tr(A_e[V,U])-4tau*(u^ell/Cxi)*tr(A_e U)",
+    "Kconst": "(W-1)(W+1)^2(3W^2-10W+6)/(24W)>0"
+  },
+  "proposed_bounds": {
+    "exact_transcendental_margin": "[S^(d-j)a^j]H_d^raw >=K*binom(d,j)*Cxi^2*hq*2^(-41)*m^6*(pi*y)^(-12)>0",
+    "weaker_explicit_rational_margin": "[S^(d-j)a^j]H_d^raw >=K*binom(d,j)*Hn^2*hq*2^(-6n-65)*m^6*(J/D)^12>0",
+    "rationality_certificate": "Hn^2=n!^2/prod_(k=1)^n beta_k,wherebeta_k=k(2m-k)/[16((m-k)^2-1/4)]>0;hq is a positive finite falling-factor ratio.",
+    "weakening_only": "pi<4 and (2pi)^(2n)<2^(6n);no new coefficient evaluation or altered COMMON."
+  },
+  "required_complete_proof_scopes": [
+    "Old exact COMMON/carrier/B8/norm/spectrum and A_e bounds;old fixed-xi coefficient verdict is not extended by fiat.",
+    "Actual SINGLE-POLE full-carrier local strip upper bound from finite translations and Laplace,with legitimate ambient restriction only as an upper bound.",
+    "FULL-MATRIX zeta-minus-one reversed remainder,not only scalar mean,with all actual inputs and normalization.",
+    "Correct FULL Z0 HS<=2m sqrt(m-1),not an incorrect full-HS<=2m;real-state lower bound applies at xi=1/y.",
+    "Complete LOCAL P composition including Euler terms,quadratic commutator,linear trace,W+1 and unequal COMMON prefactors.",
+    "Separate GLOBAL absolute coefficient/HS envelope;exponential allowed only for exact Cauchy far tail.",
+    "Exact phased binomial contour,mode normalization,local Taylor subtraction retaining shifted linear moment,and quantitative global tail.",
+    "All loadbearingnewproofs assembled and three actual authors read the same fixedwhole before freeze;then genuine nonauthor whole review."
+  ],
+  "exact_existing_inputs": {
+    "old_mathematical_primary": {
+      "Source": "cfd876cb9bda189b8978f23d7855a9e66a862a44",
+      "path": "research_notes/owner_goal_20261016/parity_joint_bulk_raw_layer_7cda51_bff6dc/PARITY_COMMON_LOWER_LAYER_UNIFORM_BULK_RAW_COEFFICIENT_BAND_JOINT_AUTHOR.md",
+      "bytes": 23366,
+      "SHA256": "58af3cc47f58d63419c7cd23e5853e1add19810ada0548336e7afa0518a212b9",
+      "scope": "Exact actual definitions,norm/B13,finiteB8,original COMMON and A_e inputs;not newrangeacceptance."
+    },
+    "bounded_real_state": {
+      "author_Source": "98b1f4b3075da2afab249b85375e73f883ae710e",
+      "true_peer_Source": "88c190aba4414288c908a43ece9abec138ae742d",
+      "scope": "Only m>=2^1000,real m^-1/100<=xi<=1,b>=2^-24 z^-12 A_n^2;no coefficient/complex/fullcarrierfunctional conclusion.",
+      "observer": "Each author's actual Source custody belongs to that actor;no borrowing API observations."
+    },
+    "local_new_components": "All new load-bearing coauthor constructions are proved inside the bound primary. Their standalone working records are provenance,not independentlyaccepted Sources or hidden premises.",
+    "not_premises": [
+      "Unreviewed3cc HOLD as accepted theorem",
+      "Unused CF fixed-common-order complex component",
+      "BFF Green representation by itself as uniform energy",
+      "Old killed all-subsets certificate or generic Gram pointwise-to-coefficient shortcut"
+    ]
+  },
+  "remaining_OPEN": [
+    "Entire lowerbridge/all-j domain;no claim below this band or above its stated upperendpoint.",
+    "Every small-m case m<2^1000;old independent papers retain their own domains.",
+    "Entire homogeneous C1 layer for each m>=7,otherlayers,allcoefficients/fullP1/physicalpositivity.",
+    "Original trace inequality and mother Goal closure.",
+    "Unused broader varying-order/strongfull-origin relative-energy problems and any domain extensions not proved in this whole.",
+    "Future genuine nonauthor whole verdict,actual author/peer Source publication and any formal promotion."
+  ],
+  "observation_and_authority_boundary": {
+    "typed_editor": "EM-DVR-BFF6DC,actualcoauthor,notpeer",
+    "typed_basis": "Exact structured extraction from personally whole-read8501/9196 and own actual components;final fixed whole consumption is documented by outside real author checks,no programmed mathematical calculation.",
+    "all_prior_NONBLIND_and_contributions": "retained",
+    "future_peer_working_exposure": "No new working or repair sent to4A56/F736.",
+    "new_Tool_Native_Foundation_Task_authority": "none claimed",
+    "programmed_scientific_evaluations": 0,
+    "symbolic_hand_algebra": "performed",
+    "formal_cumulative_budget": "UNKNOWN;noreset/capPASS",
+    "all_old_STOP_HOLD": "preserved,including M7permanentSTOP/core98HOLD/fixed233STOP"
+  },
+  "persistence": {
+    "primary_or_old_workings_modified_by_typed_editor": false,
+    "Source_state": "UNPUBLISHED_NO_FUTURE_COMMIT_GUESSED",
+    "new_RA_or_Task_or_event": "none",
+    "wholefreeze": "An external wholehandoff binds the three exact files only after all actual authors complete their fixed-byte consumption. No self-declared peerPASS.",
+    "true_peer_verdict": "PENDING_NO_PASS_FILLED",
+    "ending": "MotherGoalOPEN/globalendingUNKNOWN;MESSAGEonly/noFINAL",
+    "local_author_content_only": true
+  },
+  "quantitative_interfaces_proved_by_authors_in_primary": {
+    "local": "P(y)>=2^-40 m^6(pi*y)^-12;sup_|u-y|<=1/8 |P(u)|<=2^100 m^6",
+    "global": "sup_|u|<=y |P(u)|<=2^100 m^7 exp(32y)",
+    "relative_M": "2^164*y^12",
+    "relative_G": "2^164*m*y^12*exp(32y)=m*exp(32y)*M>=mM>=yM",
+    "exact_transfer_error": "512*M*y^2/(J*h^2)+8sqrt(J)(G+1+2My/h)exp[-J*h^2/(4pi^2*y^2)],h=1/8",
+    "near_error": "<=2^180*m^(-185/100)<1/16",
+    "far_error": "<=exp(-7m/4)<=2^-m<1/16",
+    "resulting_readout": "T(P)>=P(y)/2>=2^-41*m^6*(pi*y)^-12",
+    "phase_boundary": "Gaussian-shaped estimates are only majorants of the exact complex kernel;no Gaussian expectation or generic positive-functional replacement."
+  }
+}
