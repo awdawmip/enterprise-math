@@ -1,0 +1,54 @@
+{
+  "schema": "EM_PARITY_ONE_SPECIFIED_LOWER_MIXED_COEFFICIENT_INTERFACE_V1",
+  "status": "FROZEN_JOINT_AUTHOR_INTERFACE_UNREVIEWED",
+  "authors": [
+    "EM-DVR-BFF6DC",
+    "EM-DVR-F73673"
+  ],
+  "unit_count": 1,
+  "input_type": {
+    "m": "integer m>=7",
+    "W": "m^2",
+    "normalization": "P(c)=(x+Wc+beta)G_W(x)T(c)/c; P1=[c]P; original specified COMMON denominator, no arbitrary gcd cancellation",
+    "original_parameters": "r0=mS,L=ma,r=r0+L,x=mr=W(S+a),beta=(W+1)/2",
+    "physical_scope": "S>=0,a>0 remains original; coefficient extraction uses separately typed polynomial variables",
+    "centering": "h=beta/W; Q_m(sigma,a)=P1(sigma-h,a)",
+    "native_basis": "Heartbeat-X6 discrete spatial Cell basis retained; no new physical axis, propagation law or time assertion"
+  },
+  "one_selected_readout": {
+    "centered": "C_m=[sigma^(W-4) a]Q_m, total degree W-3",
+    "original": "C_m^S=[S^(W-4) a]P1, same monomial index in original basis"
+  },
+  "output_exact": {
+    "K_pref": "m^(2W)/2",
+    "P_m": "-27m^6-7m^5+228m^4-83m^3-429m^2+252m+72",
+    "U_m": "81m^8+21m^7-387m^6-91m^5+453m^4-62m^3+21m^2+378m-144",
+    "centered": "C_m=K_pref(m^4-1)P_m/(432m)<0",
+    "original": "C_m^S=K_pref(m^4-1)U_m/(432m)>0",
+    "translation": "C_m^S=C_m+h^2 binom(W-2,2) H1",
+    "critical_top_layer_factor": "H_D=m^2 K_pref(sigma+a)^(W-1)[trR_lambda^2+W-1]",
+    "H1": "[sigma^(W-2)a]H_D=K_pref*m^3(m^2-1)(27m^2+7m-12)/18"
+  },
+  "proof_kind": "Finite paper expansion at infinity, codimension-one residue compression, explicit six trace identities with endpoint verification, hand scalar polynomial collection and strict infinite-range sign inequalities.",
+  "existing_methods_reused": [
+    "Actual P1 secant and COMMON polynomial interface.",
+    "V2 constant-congruence/exact moving-frame identity, gamma parity and top face.",
+    "Finite polynomial residue-compression, rank-one trace and nilpotent geometric-series identities."
+  ],
+  "not_required_as_accepted_premise": [
+    "Parked full-P global reflection working.",
+    "Historical >=40 norm-bound working.",
+    "Original erroneous4537 raw appendix."
+  ],
+  "not_claimed": [
+    "m2..6 new coefficients or extension of stable-degree table there.",
+    "All lower centered or original coefficients.",
+    "Sign after unspecified nonconstant gcd cancellation.",
+    "Physical P1 or whole trace sign.",
+    "Practical or numerical threshold.",
+    "Full all-M goal, new generic method, new Tool, new Task, Native mathematical acceptance."
+  ],
+  "stopped_branches": "M7 exhausted fixed interval permanent STOP; fixed233/core98 and all original budgets unchanged.",
+  "scientific_programs": 0,
+  "permission_grants": false
+}
