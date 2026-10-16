@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_tasks/RS-GBRC-R1-TYPED-CARRIER_20260917.md",
+    "ref": "031d516fcbb1679ec804ec34b3c3cf5b8df8a923",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "own-local-provenance-HOLD_GBRC_OLD_INPUT_LOCATORS_NOT_RESULT-5",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "<!-- ENTERPRISE_MATH_TASK_V1\n{\n  \"task_id\": \"RS-GBRC-R1-TYPED-CARRIER\",\n  \"title\": \"残差类型系统与四面体可回放基准\",\n  \"kind\": \"RESEARCH\",\n  \"owner\": \"taskbook/unassigned\",\n  \"base_state\": \"READY\",\n  \"priority\": \"P2\",\n  \"leverage\": \"MEDIUM\",\n  \"frontier\": \"原提案已有条件性公式；缺少统一实例 schema、明确整数/模二类型边界和可供后续任务消费的冻结数据。\",\n  \"next_action\": \"逐字段建立实例 schema；由 PROGRAM 第5节的 V0/E0/delta/m/e/N 和三生成元生成最小测试输入。\",\n  \"dependencies\": [],\n  \"source_refs\": [\n    \"awdawmip/enterprise-math@9b3c656f310bed58e8c99c1754d09af5ae653413:research_notes/geometry_brc_residual_systems_r1_taskpack_20260916_eb416786.md\",\n    \"awdawmip/enterprise-math@577bf1f0599bb91f8337b4de7e464562d4f254b9:research_activity_records/RA-geometry-brc-residual-20260916-eb416786.json\",\n    \"research_notes/GBRC_RESIDUAL_SYSTEMS_20260917/DRIVER_DOSSIER.md\"\n  ],\n  \"evidence_status\": \"SOURCE_BACKED_TASK_PUBLICATION_NOT_EXECUTED\",\n  \"hard_block\": null,\n  \"created_by_role\": \"RESEARCH_DRIVER\",\n  \"task_authority\": \"PUBLISHED_REGISTERED\",\n  \"publication_contract\": \"RESEARCH_TASK_PUBLICATION_V1\",\n  \"publication_template\": \"RESEARCH_TASK_PUBLICATION_TEMPLATE_V1\",\n  \"registry_key\": \"RS-GBRC-R1-TYPED-CARRIER\",\n  \"parent_objective_id\": \"OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS\",\n  \"parent_objective_generation_id\": \"OG-7AE66316D7566C519AE0\",\n  \"identity_policy\": \"AUTO_RESOLVE_OR_ALLOCATE\",\n  \"final_response_identity_policy\": \"INHERIT_GLOBAL\",\n  \"identity_lane\": \"GBRC-R1\",\n  \"origin_kind\": \"DIRECT_USER_DIRECTION\",\n  \"task_lineage\": \"NEW_DIRECTION\",\n  \"parent_task_id\": null,\n  \"successor_gate\": null,\n  \"policy_review\": {\n    \"policy_set\": \"research_taskbook_policy.json\",\n    \"policy_digest\": \"sha256:dd425305887871866cb2f0894885ff38359639e2de7750fa45e8c584e19feae4\",\n    \"review_state\": \"PASS\",\n    \"temporary_overrides\": []\n  }\n}\n-->\n\n# R1-01｜残差类型系统与四面体可回放基准\n\n## Mother question\n\n如何把细状态、粗观察、残差纤维、部分操作和正权分支分成可检验的接口，并使旧四面体结果成为可回放而不误标创新的首个实例？\n\n## Frozen inputs and scope\n\n冻结顶点/边顺序、左作用约定、整数残差与 F2^3 的不同载体。来源为本包 PROGRAM 第2、5节和 SOURCES 中 proposal、p023、tetrahedron_manuscript。图格基准不是原生 Cell 的同义词。\n\n依赖：无上游研究任务；使用本包已冻结定义和可核查出处。\n\n## Hard target and required outputs\n\n1. instance_schema.json：X/G/q/A/F/O/W/R/encode/H、每个函数的源靶、合法性、残差类型和证据级别。\n\n2. tetrahedron_fixture.json：八状态、三个生成元、matching/e/all-star 观察和整数提升边界；给出整数格基准的符号定义。\n\n3. carrier_bridge.md：一般集合接口 -> 阿贝尔仿射接口 -> 正权包络接口的假设清单；指出哪些映射不存在或未构造。\n\n4. exact_tests.py 与执行结果：类型错误、非法模二/整数替代、缺失操作合法性必须被拒绝。\n\n首个动作：逐字段建立实例 schema；由 PROGRAM 第5节的 V0/E0/delta/m/e/N 和三生成元生成最小测试输入。\n\n## Research value to preserve\n\n防止同名“残差”在整数格、torsion、路径和实数上界之间无说明切换；为其余任务提供同一输入，而不是各自发明模型。\n\n## Success, kill, and return criteria\n\n成功：字段完整且两个执行者按文件可重构同一有限实例；所有有意非法输入被拒绝；已知结论与新目标分栏。\n\n停止/否定：若某强制字段没有数学意义，缩小该接口而不是补造结构；若旧基准重现失败，冻结最小冲突输入并暂停依赖它的任务。\n\n返回：保存精确输入、已证与未证范围、最小未解问题及可执行下一步。当前任务只是首轮计划的一个工作包；未获结论不能被其他任务当作成立的前提。\n",
+      "display_title": "RS-GBRC-R1-TYPED-CARRIER_20260917.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/031d516fcbb1679ec804ec34b3c3cf5b8df8a923/research_tasks/RS-GBRC-R1-TYPED-CARRIER_20260917.md",
+      "encoding": "utf-8",
+      "sha": "30963209bf280b413ba92918436a0d217c19c827"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/GBRC_RESIDUAL_SYSTEMS_20260917/DRIVER_DOSSIER.md",
+    "ref": "031d516fcbb1679ec804ec34b3c3cf5b8df8a923",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "own-local-provenance-HOLD_GBRC_OLD_INPUT_LOCATORS_NOT_RESULT-6",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# Geometry–BRC Residual Accumulation Systems — Driver dossier\n\nStatus: PUBLICATION CANDIDATE / NO MATHEMATICAL ACCEPTANCE\n\nParent objective: `OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS`\nObjective generation candidate: `OG-7AE66316D7566C519AE0`\nDriver: `EM-DVR-GBRC01`\n\n## Durable source frontier\n\n- Program proposal: `awdawmip/enterprise-math@9b3c656f310bed58e8c99c1754d09af5ae653413:research_notes/geometry_brc_residual_systems_r1_taskpack_20260916_eb416786.md`\n- Research activity checkpoint: `awdawmip/enterprise-math@577bf1f0599bb91f8337b4de7e464562d4f254b9:research_activity_records/RA-geometry-brc-residual-20260916-eb416786.json`\n- First-round taskset: six R1 research tasks.\n- Follow-up control set: `GV-GBRC-LINE-DRIVER-20260917`, `GV-GBRC-R1-REVIEW-GATE-20260917`, `GV-GBRC-SUCCESSOR-SYNTHESIS-20260917`.\n\n## Dependency order\n\n`R1-01 -> {R1-02, R1-03, R1-05} -> R1-04 -> R1-06`, with R1-06 consuming all prior R1 outputs.\n`GV-GBRC-LINE-DRIVER-20260917` is the line-continuity entrypoint.\n`GV-GBRC-R1-REVIEW-GATE-20260917` waits for all six frozen R1 returns.\n`GV-GBRC-SUCCESSOR-SYNTHESIS-20260917` waits for R1 integration plus the exact-set review gate.\n\n## Handoff invariant\n\nDo not infer a mathematical theorem from publication. Consume exact frozen results, preserve negative outcomes, and materialize same-route successors only from concrete post-review information gaps.\n\n## Driver assignment\n\nAuthenticated control event `5709235871` assigns `EM-DVR-GBRC01` to `GV-GBRC-LINE-DRIVER-20260917` publication `TP2-82249061C7765A4DDD9B` under this parent. The assignment carries control-plane routing authority only.\n",
+      "display_title": "DRIVER_DOSSIER.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/031d516fcbb1679ec804ec34b3c3cf5b8df8a923/research_notes/GBRC_RESIDUAL_SYSTEMS_20260917/DRIVER_DOSSIER.md",
+      "encoding": "utf-8",
+      "sha": "3e356dbc10f300ad11ce704a84d453165722e5d3"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
