@@ -1,0 +1,44 @@
+{
+  "schema": "CM24_GLOBAL_COMPARISON_TRANSLATION_LATTICE_RIGIDIFICATION_INTERFACE_V1",
+  "author": "EM-DIRECT-88303D",
+  "primary": {
+    "filename": "CM24_GLOBAL_COMPARISON_TRANSLATION_LATTICE_RIGIDIFICATION.md",
+    "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/cm24_convergence_new_anchor/global_comparison_rigidification/CM24_GLOBAL_COMPARISON_TRANSLATION_LATTICE_RIGIDIFICATION.md",
+    "repository_path": "research_notes/owner_goal_20261016/cm24_convergence_new_anchor/global_comparison_rigidification/CM24_GLOBAL_COMPARISON_TRANSLATION_LATTICE_RIGIDIFICATION.md",
+    "bytes": 9872,
+    "sha256": "89827028fad83bbcdee459c098fae134281ebe0ea0c87a166e16352c0bb91b69",
+    "git_blob_sha1": "0e7e87886dc4d4dd9d78daa6322641c7ed1ebfef"
+  },
+  "base_hypotheses": [
+    "Specified commutative differential K-algebra D containing K as differential constants, with actual N,N_theta defined",
+    "CONDITIONAL: a full filtered F in GL4(D) is supplied, shape[[G,0,0],[0,a0,0],[u,u3,lambda]], detG=p^-1,a0=mu/p,lambda=mu/p^2,mu^2=1",
+    "Fixed original N has lastcolumn0/thirdrow0; full rho,beta baseline retained. No globalF existence or actual geometric applicability asserted."
+  ],
+  "new_global_application": {
+    "translation": "For every delta in K, Fdelta=F+delta E43 remains in the same comparison class with same properblock/grades/det=p^-4.",
+    "inverse": "Fdelta_inverse=F_inverse-p^3 delta E43, exact in D.",
+    "endpoint_invariance": "If stated endpoint expansions exist, eta and k both shift bydelta, difference unchanged; other comparison freedoms not classified.",
+    "lattice": "If B p-torsion-free differential O-algebra, D=B[1/p], p^aF andp^bFinv integral(a,b nonnegative), everydelta withv(delta)>=max(-a,-b-3) preservesboth; infinite nonzerochoices.",
+    "finiteprecision": "To preserve p^M observations of bothcleared matrices sufficientv(delta)>=max(M-a,M-b-3). Anyfinitecollection leavesnonzerochoices; no claimforinfiniteallprecisiondata."
+  },
+  "extra_hypothesis_optional_sigma_section": "Only section4 additionally assumes sigma is a valuation-preserving AUTOMORPHISM of completeK. Surjectivity is not inferred from the original Witt-endomorphism label.",
+  "optional_sigma_result": "Uc=I+cE43 horizontal; Uc F sigma(Uc)^-1=F+lambda(pc-sigma(c))E43. Forany z inK, unique c=-sum_j>=0 p^j sigma^(-j-1)(z) solvespc-sigma(c)=z, convergesp-adically andv(c)=v(z) ifnonzero. Alltranslations thus related bythisUNFRAMED gaugeunderextraassumption.",
+  "source_framing_limits": [
+    "Exactdeclared originvector z1,V0 ischanged byUc inV byc; fixingexactframeforcesc0. Onlymodpframeallowsc in pO.",
+    "An exact frame itself still does not chooseF fromthefamily without an independentcomparison action. Old primitivezero doesnot supplyit."
+  ],
+  "new_sensitive_observation_certificate": {
+    "hypotheses": "Actually defined K-valuedevaluation at allowedpointalpha, independently supplied inputx in K4/outputrowell overK andexactvaluey inK. Frobenius-twistedsource convention must be actual.",
+    "law": "ellFdelta(alpha)x-ellF(alpha)x=delta*ell(e4)*x3.",
+    "discrimination": "Nonzerocoefficient iff thisoneexactobservation selectsunique deltaalongthisorbit; coefficient0 impliesallornone. Otherfullcomparison freedoms remain.",
+    "missing_original_problem_input": "Actualsourcecomparison/sectionconvention, legitimateevaluation, independentlyknown exactvalue; no identification of Y or ell(T) withtheobservation is supplied."
+  },
+  "not_claimed": [
+    "ActualglobalFexistence/geometricFrobenius or allgeometrictensorinvariance",
+    "Unique fullcomparison or sourcefunctional/target choice",
+    "Oldformaleta freedom rediscoveredasnewmechanism",
+    "Newgeneraltool,scientificprogram,formalTask/Nativevote/parentclosure"
+  ],
+  "peer_status": "PENDING_TRUE_NEW_NONAUTHOR_ASSIGNMENT_AND_REVIEW",
+  "parent_Goal": "OPEN"
+}
