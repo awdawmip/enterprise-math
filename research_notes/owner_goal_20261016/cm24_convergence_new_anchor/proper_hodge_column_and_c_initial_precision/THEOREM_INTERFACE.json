@@ -1,0 +1,47 @@
+{
+  "schema": "CM24_ACTUAL_HODGE_COLUMN_AND_CENTRAL_C_INITIAL_DATUM_INTERFACE_V1",
+  "status": "FROZEN_UNREVIEWED_AUTHOR_CANDIDATE",
+  "author": "EM-DIRECT-88303D",
+  "proof": {
+    "path": "research_notes/owner_goal_20261016/cm24_convergence_new_anchor/proper_hodge_column_and_c_initial_precision/CM24_ACTUAL_HODGE_COLUMN_AND_CENTRAL_C_INITIAL_DATUM.md",
+    "bytes": 9064,
+    "sha256": "991bb402c5c14f8f3779d9fcf88563ad1f6919a15b77b256623f51be61bc7e5c",
+    "git_blob_sha1": "67729fa22859a66bdc65aafaeaa3827765807d3e"
+  },
+  "inputs": {
+    "primes": "p=13or19mod24",
+    "coefficientring": "A=Zp[[t]], theta(t)=t^p; coefficientFrobidentity",
+    "actualmap": "canonicalcompatibleactualproperstructure-crystalPhi_n, literalMlim integralwithdetp",
+    "basis": "fixedproperomega and correctedeta; noholomorphicshift",
+    "centralgraph": "kappa=omega+eta fixed under actualPhi",
+    "frame": "P=[[12,-1],[0,1]], ehat=eP^-T=(kappa/12,eta)",
+    "comparison": "Ghat=Mhat^-T ofthisconcreteproperwitness"
+  },
+  "claims": {
+    "globalcolumn": "M firstcolumnin pA²",
+    "integralfactorization": "M=Vdiag(p,1), VinSL2(A); p cancellationonlyintorsionfreeA",
+    "centraloriginalmodp": "M(0) modp=[[0,1],[0,1]]",
+    "centralf": "in(kappa,eta), M_f(0)=[[1,b],[0,p]], b inZp andb=1modp",
+    "fixedframe": "Mhat(0)=[[1,12b],[0,p]], c_w=-12b/p",
+    "actualfinitec": "pc_w=-12modp; c_w in -12/p+Zp; v_p(c_w)=-1"
+  },
+  "decisive_new_step": "Atn1 actualabsolute logFrob onidentityembeddinglogdR hasfunction p-thpower andzeroformdegree1; actualglobalomega cocyclehaszeroCechfunctioncomponent andiskilled.",
+  "reused_not_new": [
+    "actualHKcanonicalmap/basecomparison",
+    "properbasis andactualgraphfixedclass",
+    "PDhorizontality/detp andexactcentraltriangularshape",
+    "oldfixedP andinverse-transposeformalclassification/conditionalmuargument"
+  ],
+  "limits": [
+    "fullb/c_w notcomputed",
+    "originalindependentformalobjectcomparisonunknown",
+    "fullrankfourproperquotientmustactuallyidentifybeforetransportingc_w",
+    "noextensionxi eta/functional/globalsign/LCclosure",
+    "notframelatticeindependent; exacteta andP essential",
+    "noTate/logformula or higherprecisionclaimed"
+  ],
+  "classification": "RESULT_ONLY/COMPOSE_APPLIED_not_generalHodgeTool",
+  "scientific_programs_imports_AST_compiles_checker": 0,
+  "Native_Task_Result_or_acceptance": false,
+  "distinct_nonauthor_review": "REQUIRED_NOT_REQUESTED_BEFORE_FREEZE"
+}
