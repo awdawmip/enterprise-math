@@ -1,0 +1,43 @@
+{
+  "schema": "parity_common_raw_terminal_band_typed_scope_v1",
+  "status": "FROZEN_AUTHOR_PAPER_CANDIDATE_UNREVIEWED",
+  "author": "EM-PUBLIC-7CDA51",
+  "input_class": "FROZEN_LOCAL_AUTHOR_PROOF_PENDING_SOURCE_AND_GENUINE_WHOLE_REVIEW",
+  "actual_polynomial": "Original SAME COMMON P1=[c]((x+Wc+beta)G_W(x)T(c)/c); no nonconstant gcd cancellation or normalization change.",
+  "parameters": {
+    "m": "integer m>=10000",
+    "W": "m^2",
+    "D": "W-1",
+    "d": "W-3",
+    "j": "integer ceil(99999d/100000)<=j<=d",
+    "K": "m^(2W)/2",
+    "physical_domain_not_changed": "S>=0,a>0; coefficient extraction uses polynomial variables S,a."
+  },
+  "proposed_output": "[S^(d-j)a^j] H_d^raw >= K binom(d,j) m^9/32 > 0",
+  "new_regime": "Terminal band of width Theta(m^2); different mechanism from the old initial j=O(m) band. No claim of optimal constants.",
+  "load_bearing_new_chain": [
+    "Exact augmented Euler equation E x=T x with ||T||<=5m and ||x(xi)||^2<=20||R(xi)||_2^2.",
+    "Actual tensor grading S=T tensor 1+1 tensor T, ||S||<=10m, degree<=2m-6.",
+    "Exact coefficient functional eta(S)=exp(log(d/j)S) product_(l=j+1)^d(1-S/l).",
+    "Commuting logarithm series norm <1/1000 uniformly in the terminal range.",
+    "Bounded actual b/c bilinear readouts; full frame derivatives and full C polynomial retained.",
+    "Trace coercivity and original m^2 top-prefactor give the displayed positive margin."
+  ],
+  "retained_actual_cutoff": "V degree<=m-2; J^(m-1)=0; Z degree<=m-3; tensor/readouts degree<=2m-6<d.",
+  "failure_boundaries": [
+    "No positivity of L on arbitrary squares.",
+    "No normality, self-adjointness or scalar spectral substitution for J,T,S.",
+    "Old bilinear M-star equals positive Hermitian dagger only on the stated reflection-commuting coefficients; U uses an explicitly distinct positive dagger.",
+    "No dropped affine constant in the Euler equation.",
+    "No derivative at fixed lambda substituted for the original fixed-r0 derivative.",
+    "No middle or complete layer claim."
+  ],
+  "not_claimed": [
+    "All j or any other homogeneous layer",
+    "Full P1 coefficientwise or physical sign",
+    "Trace inequality or mother Goal closure",
+    "Numerical threshold/actual compact coverage",
+    "New generic Tool, Task, Native vote or runtime authority"
+  ],
+  "execution": "Paper derivation only; scientific programs/import/compile/tests/samples/matrix or coefficient evaluations/consumers=0; all existing STOP/HOLD and budgets unchanged."
+}
