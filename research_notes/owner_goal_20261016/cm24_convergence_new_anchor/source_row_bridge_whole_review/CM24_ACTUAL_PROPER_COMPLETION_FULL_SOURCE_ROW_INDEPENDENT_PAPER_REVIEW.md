@@ -1,0 +1,66 @@
+# Independent whole-proof review of the completed proper arrow and full source-row lifting interface
+
+Verdict: **PAPER_PASS, zero must-fix**, for the three frozen author members totalling34737 UTF-8 bytes, primary14389B SHA493fef21ea54b0ab68f490909b4fc0e2f526d47bb7309e7dae6fd5e68ff25148. This verdict covers the actual completed-ring proper comparison, the precise selected-block source-row obstruction and its change-of-lift compatibility. It does not assert that the remaining class equality holds, or produce a full comparison, weak realization or functional.
+
+## Identity, exposure and actual review gate
+
+Reviewer EM-DIRECT-88303D, SID MCP-80ce72c19cb84e508513c39e73540a9c, activity RA-1E650208FBE6654C7D59AB55. My canonical nine-event record was fully observed at0eb4cce0a7665265e998841145e713342a84dabf and again at9ade71cc44e5dfd79f7b3e4e1ca8e8c96901da3e, with66591B SHA b686e1d03e6f84626445a12e894c25190387ba955498c50bea77003d84c730cc. The original activity helper returned startup exit0 for this new scope, activity_allowed and persistence_allowed true, debt[]. No event10 or11 was staged during this review; their separate Source window was expressly released before the mathematical intake. All formal authority flags remain false.
+
+This review is NONBLIND. I authored earlier CM24 open-disc/kernel/other finite papers and the separate actual Hodge-column/finite-c candidate, and reviewed the actual proper trace component and whole witness. Those roles, the stopped m7 preparation and all prior exposure remain. I did not construct, repair or provide the new completed-ring coefficient arrow, partial-fraction argument, source-row criterion or class transport. Author7CDA51 froze this complete manuscript before supplying it. Neither my old verdicts nor the author's previous reviews approve this new scope. No scientific program, new Task/run, Native vote or budget reset is involved.
+
+## Exact consumption and dependencies
+
+I completely read all three new frozen members: the14389B primary,4042B typed interface and16306B context. Every UTF-8 byte count, SHA256 and Git blob was checked against the original2893B handoff. At review freeze these are local frozen author inputs; an immutable publication for this new unit has not been observed by me and is not implied.
+
+For this scope I personally made four new immutable managed Source reads: both original bundles at3981c60496c24a3c1567677726c136966522d8bf, actual all-PD primary at57649b981dc7fd908ed0d88ba95f197237ed6433, and the full Taylor primary at1e6df90f4f165e7ee70b8d6d1afbbb9cc99e3173. Their complete body counts are62962,58579,23561 and12992B, total158094B. All four SHA256/Git blobs match, and all thirteen inner members of the two bundles were independently decoded and pinned. Those observations are my own, not the author's readbacks.
+
+The old13743B full-carrier primary was already completely read in my preceding genuine scopes; here its fixed equation and filtered comparison passages were reread. The14956B Kummer primary was read again completely, including integral Q and its coefficient-sigma formula. The12992B Taylor primary was read completely for this review, including weak substitution, orientation and the full bottom row. The23561B all-PD proof had previously been completely consumed; its actual finite-type tower, injectivity and horizontality sections were reread. The joint proper witness at9d04494d2cc45ae23d3106f6593bd3e3931e0cf0 was previously personally observed and fully reviewed; that actual input is honestly reused, not called another API action. No new third-party theorem beyond these specified inputs is needed.
+
+## SP-01: actual finite-type coefficient path and variance — PASS
+
+The literal identities q_s=(2r+1)^2 and u_s=(r+1)(2r-1)^2 are correct. Over O, inverting q_s,u_s,t=r-1 makes each factor r-1,r+1,2r-1,2r+1 a unit, and conversely f and q invert their displayed factors. Thus the ordinary localization identity(1) is exact. The Z_p-defined input maps first into the O coefficient ring at each finite level. No evaluation of an arbitrary Z_p[[t]] series at a unit t is used.
+
+The prior actual matrices M_Bn, reductions and determinant p are present in the consumed all-PD section6. The coefficient maps B_n to A/p^n are compatible with reductions and the respective theta substitutions. Taking their compatible coefficient limits produces Mhat with determinant p in Ahat. The connection identity is legitimately descended from B_n to its power-series evaluation because B_n to Z_p[[t]]/p^n is injective: localization denominators are units and a polynomial retains its literal coefficients even over Z/p^n. Its finite pullbacks therefore carry the identity, and p-continuous differentiation preserves it on the limit.
+
+The p-torsion-free argument uses flatness of the ordinary O-localization and compatible levels; it does not cancel p in O/p^n. In Rhat the determinant is invertible, so Mhat inverse is adj(Mhat)/p. Differentiating its inverse transpose gives Gtheta'=D Gtheta-Gtheta Dtheta and determinant1/p, in the correct solution-column direction. This is an actual proper matrix over the same completed coefficient ring as the full carrier. It supplies no weak growth bound. Localization of a limit and inverse limits of localizations are nowhere identified.
+
+## SP-02: constants and bounded residues in the actual completion — PASS
+
+Distinct points1,-1,1/2,-1/2 have pairwise p-unit differences at every allowed prime. Their monic power ideals are pairwise comaximal over O. Polynomial division and partial fractions consequently give the displayed integral direct-sum basis. Uniqueness can be checked in K(r). Its p-completion is the restricted coefficient family on that very basis: modulo each p^n only finitely many coefficients survive.
+
+Differentiation maps a polynomial basis term to its uniquely indexed polynomial term and a negative-power term to the next negative power at the same point, with integral integer multipliers. It is p-adically bounded. Thus the coefficient description also proves that its kernel after p inversion is exactly K: every nonconstant coefficient is multiplied by a nonzero integer in characteristic zero. There is no cancellation between distinct basis positions. The residue coefficient at r=1 is bounded and kills every derivative. These arguments do not impose a simultaneous Laurent annulus or identify Rhat with a boundary Laurent field.
+
+Evaluation at r=0 is bounded because all inverted linear factors take unit values there; restricted sums therefore converge. Constants and residue restrict to the embedded weak subring, which contains K. The operations invoked later are consequently defined on the actual rings in the theorem.
+
+## SP-03: complete Kummer/baseline component — PASS
+
+The reused exact identity d=2f'/f+Q', Q in O[r], Q(0)=0 is present in the old14956B input. Its integral primitive argument uses the odd exponents and excludes p from the even denominators below2p; it retains the exact g and H_b. This review consumes that proof rather than treating d as only its logarithmic residue.
+
+For either lift, f(psi)/f^p is1 modulo p, with epsilon_psi in the ordinary localization. A presentation of degree at most3p follows from the degree2p numerator and f^-p. The nth logarithm summand has valuation at least n-v_p(n), growing linearly while degree is at most3pn. This proves weak membership, not just unrestricted p-adic convergence. Both lifts send0 to0. Hence the stated bpsi lies in the weak ring, vanishes at0 and differentiates exactly to p d-dpsi. Coefficient sigma acts on Q before substitution; assuming sigma(g)=g would be unjustified, and is correctly avoided.
+
+Taking the bounded residue gives Res d=2 and Res dpsi=2p. Since2 is a unit in K, an actual scalar-row primitive forces a=p lambda. Conversely bpsi supplies a primitive when that equality holds; the constants calculation proves that every solution is lambda bpsi+c. The same argument works separately in both rings. This classifies this scalar component and leaves c as actual external data, rather than selecting it from an unknown source observation.
+
+## SP-04: full block multiplication and exact lifting iff — PASS
+
+Multiplying the entire original block matrices gives exactly h'+h Dpsi=w e1 G-lambda wpsi e1 and k'=a d-lambda dpsi. The z row and proper quotient impose only the stated constant and proper equations. The full baseline and proper-source entries survive; no source is replaced by zero.
+
+For the fixed proper G, L_psi is K-linear and the displayed ordinary quotient is well-defined. Equality U=lambda V in this quotient means precisely the existence of an actual row h with the needed derivative equation. It neither asserts finite-dimensionality nor presumes a primitive. Combining that equality with the classified scalar component gives the stated necessity and sufficiency. The determinant is (1/p)(p lambda)lambda=lambda^2, nonzero for the stipulated lambda in K^x; the inverse exists by the block formula or adjugate.
+
+The zero cases and scalar quantifiers are correct. If both classes vanish every nonzero lambda passes; if V=0,U nonzero none passes; if V is nonzero there is at most one scalar ratio, and U=0 cannot produce a nonzero one. This is a genuine selected-block obstruction criterion, not a claim about all possible gauges or a computation of the unknown classes. A weak version additionally requires that very proper matrix to be weak and the equality to hold in the weak cokernel.
+
+## SP-05: actual Taylor bottom row and class transport — PASS
+
+The consumed full Taylor input has T'=Nphi T-T Ntheta, identity scalar graded factors, determinant1 and origin I. Its proper block therefore gives L_theta(h T_D)=L_phi(h)T_D. Right multiplication by T_D has inverse right multiplication by T_D^-1 and induces an actual isomorphism of the stated cokernels, in both allowed rings.
+
+With Gphi=Gtheta T_D^-1, Uphi maps literally to Utheta. The bottom proper row of the full T equation is L_theta(tau)=wphi e1 T_D-wtheta e1; consequently Vphi maps to Vtheta as a class, rather than as an unsupported equality of their representatives. The same nonzero lambda therefore solves the obstruction on both sides.
+
+Full matrix multiplication gives htheta=hphi T_D+lambda tau, with that sign and direction. The scalar bottom entry satisfies tau3'=dphi-dtheta. The difference btheta-bphi has the same derivative and the same zero value at0, so the constants lemma proves tau3=btheta-bphi. Thus c=k(0) is preserved as claimed. This consumes the existing full Taylor theorem; it does not reconstruct it or infer that either lifting obstruction vanishes.
+
+## Supported scope and remaining boundary
+
+This is one whole source-specific RESULT_ONLY/COMPOSE_APPLIED interface. The positive completed proper arrow and its exact source obstruction have been checked together. No must-fix or mathematical repair was supplied to the author.
+
+The actual class proportionality remains UNPROVED. The verdict establishes no first full F, primitive h, weak membership of the proper matrix, weak/completed cokernel comparison, rank-four geometric realization, source action, original functional or Y. The independent old formal object is not retrospectively defined. A future proper weak comparison must supply its own actual arrow, and a future full source result must establish the stated class equality in the required ring. The m7 hard STOP, published computational Task and all prior histories are unchanged; this paper review grants no execution authority.
+
+Researcher-ID: EM-DIRECT-88303D / TASK_RESEARCH
+
