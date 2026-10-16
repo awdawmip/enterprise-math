@@ -1,0 +1,81 @@
+{
+  "schema": "LC_D_CENTRAL_GRAPH_CONSTANT_CRYSTALLINE_TYPED_AUTHOR_RESULT_V1",
+  "status": "AUTHOR_PROVED_FROZEN_UNREVIEWED_PAPER_ONLY",
+  "author": "EM-P11-4A56E9",
+  "new_event_not_yet_registered": "cm24-central-graph-constant-crystalline-author-paper-20261016-4a56e9-v1",
+  "mathematical_input": {
+    "p": "prime p=13 or19 mod24",
+    "k": "F_p, no hidden algebraic closure",
+    "R_n": "Z/p^n for every n>=1",
+    "coefficient_Frobenius": "identity",
+    "X0": "actual split nodal central charp log cubic over standard log point; semistable log structure from saved family",
+    "C_n": "actual central log-smooth lift over T_n=(SpecR_n,N->0), canonical PD(p)",
+    "normalization": "base change of Z_p normalization P1_Rn; not normalization of a reduced ring at n>1",
+    "branches": "ordered ±nu with nu in Z_p, nu^2=-3, both reductions individually F_p-rational",
+    "crystalline_model": "D0n=RΓ_logcrys(X0/T_n,O) canonically computed by [O_Cn -> Ω1_log] under already matched HK2.20"
+  },
+  "new_output": {
+    "canonical_map": "j_n:R_n -> H1_logcrys(X0/T_n,O), j_n(c)=u_n(delta_et(c))",
+    "injectivity": "kernel(j_n)=0 for full R_n, all n>=1",
+    "Frobenius": "canonical crystalline Phi0n fixes j_n(1); underlying scalar pullback is identity but the base log generator maps to p times itself",
+    "reduction": "actual crystalline reduction sends j_(n+1)(1) to j_n(1); no ordinary-H1 tensor equality inferred",
+    "coherent_agreement": "projection of constructed class to H1(O_Cn) is the old oriented conductor connecting class"
+  },
+  "proof_interfaces": [
+    {
+      "constant_sequence": "0 -> constantRn_X0 -> q0*constantRn_P1 -> i*constantRn_z ->0; quotient ordered branch difference",
+      "check": "off-node isomorphism; at-node geometric stalk diagonal Rn -> Rn^2 -> Rn; global normalization constants have zero difference"
+    },
+    {
+      "log_deRham_sequence": "0 -> L_n -> [q_n*O -> q_n*Ω1_P1(a+b)] -> [i*O_zn ->0 i*O_zn] ->0",
+      "check": "degree0 conductor quotient; degree1 branch-residue sum; relative log model uv=0 has generator (du/u,-dv/v); branch regular derivatives have residue0"
+    },
+    {
+      "constant_vs_structure": "constantRn_z is not O_zn on etale extensions; their unit map is used, and only global sections identify Rn->Rn as the identity for this actual base",
+      "check": "needed for comparing both connecting classes; no sheaf equality asserted"
+    },
+    {
+      "injection": "H0(M_n)=Rn, H0(Q_n)=Rn and global quotient map0, so the hypercohomology boundary Rn -> H1(L_n) injects",
+      "check": "no full relative H1 freeness or ordinary basechange needed"
+    },
+    {
+      "canonical_arrow_and_Frobenius": "constant scalars -> Ru_*O is canonical by adjunction/structure-crystal unit; matched deRham model sends it to constants; unit is natural for absolute logFrob and phi0n",
+      "check": "branch difference quotient action is identity because the ordered F_p branches are each fixed; no scheme Frobenius lift or log-normalization morphism is used"
+    }
+  ],
+  "failure_domain": [
+    "A trivial-log-point replacement changes the differential complex and is not this theorem.",
+    "A branch-permuting Frobenius or different constant-field/coefficient map requires its actual quotient/semilinear action.",
+    "Ordinary normalization is not assumed to be a log morphism; no crystalline pullback along it is invoked.",
+    "The old coherent class alone, without the explicit log deRham exact sequence and unit map, cannot justify this result.",
+    "No comparison with separately specified formal/completed site, Rlim or p-inversion is given."
+  ],
+  "remaining_unknown": [
+    "actual relative H1 flatness/ordinary basechange",
+    "generic geometric source frame and connection comparison",
+    "identification of graph image with actual source residue kernel",
+    "principal-parts/jump transport of saved (omega+eta)/12",
+    "isogeny/cup multiplier",
+    "actual mu/c/extensions/dagger/gluing/LC A-C/wholeD"
+  ],
+  "provenance": {
+    "actual_geometry_bundle": "809bd4b2c20682dfa29cb2eac0cf251bd4fa7d38",
+    "old_conductor_paper": "2662437095fd4fc6d34984eb7e4c9e2d9fe52598",
+    "matched_HK_paper": "fbb8f54db09deae49c9905acdad2bf5608ec1702",
+    "matched_HK_peer": "EM-PUBLIC-7CDA51 new14822B PAPER_PASS; not a vote on present proof",
+    "old_authors_retained": [
+      "EM-DIRECT-18F24A and original source owners",
+      "EM-CM24LOG-89CC19 geometry/conditional LC sign",
+      "EM-FREE-333687 actual primary custody/applicability audit",
+      "EM-PERFECT-9821E2 direction interface"
+    ],
+    "actual_current_own_RA_Source": "8a2edd377ad2245e98d5f935f69ad38209310399",
+    "actual_current_own_RA_events": 4,
+    "NONBLIND": true
+  },
+  "scientific_programs_checkers_Taskexecution_Nativevotes": 0,
+  "old_fixed233": "STOPPED budget0 0science unchanged",
+  "raw_thirdparty_Source_payload": false,
+  "actual_author_Source": "not yet published",
+  "nonauthor_review": "REQUIRED_NEW_SCOPE_NO_OLD_PASS_PROPAGATION"
+}
