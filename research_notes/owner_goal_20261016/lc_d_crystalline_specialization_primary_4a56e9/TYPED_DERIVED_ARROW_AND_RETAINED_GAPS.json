@@ -1,0 +1,63 @@
+{
+  "schema": "HK_FINITE_LEVEL_DERIVED_SPECIALIZATION_TYPED_CLAIMS_V1",
+  "status": "FROZEN_AUTHOR_UNREVIEWED",
+  "input": {
+    "p": "Fixed prime13or19mod24",
+    "algebraic_model": "Actual projective Weierstrass familyY overA=Z_p[[t]], with semistable t-divisorlog structure",
+    "Sn": "SpecA_n=A/p^n, logN1->t, PD(p)",
+    "Tn": "SpecR_n=Z/p^n, logN1->0, PD(p)",
+    "X": "Ymodp overFp[[t]]",
+    "X0": "X specializedt0 with pulled-back semistablelog structure",
+    "crystal": "Structure O_log-crys, flat as crystal"
+  },
+  "claims": [
+    {
+      "label": "MATCHED_SHEAF_BASE_CHANGE",
+      "target": "O_Tn|X0 tensor^L_(O_Sn|X0) (Ru_X/Sn,*O)|X0 isomorphic Ru_X0/Tn,*O",
+      "dependencies": [
+        "HK2.23 actual diagram",
+        "smooth integral logcurve",
+        "strict exact p immersions defined by PDsubideal(p)",
+        "strict t0 basechange cartesian",
+        "barT->barS radicial closed immersion",
+        "flat structure crystal"
+      ]
+    },
+    {
+      "label": "GLOBAL_DERIVED_FINITE_LEVEL_SPECIALIZATION",
+      "target": "R_n tensor^L_(A_n) RGamma_logcrys(X/Sn,O) isomorphic RGamma_logcrys(X0/Tn,O)",
+      "dependencies": [
+        "HK2.20 using actual log-smooth liftY_n and PD-envelopeY_n",
+        "actualY/Aflat, relative logOmega locally free rank1",
+        "finiteaffine separatedcover, bounded termwiseflat Cech model",
+        "affineQCacyclicity and exactlogdifferentialbasechange",
+        "derivedtensor associativity"
+      ],
+      "reduction_tower": "Compatible for alln through common C_A; no Rlim assertion."
+    },
+    {
+      "label": "FROBENIUS_FUNCTORIALITY_SQUARE",
+      "target": "Canonical crystalline pullbacks for absolute logFrob and theta(t)=t^p commute with specialization under the canonical derived basechange maps",
+      "dependencies": [
+        "theta is logPDbase map, coefficientidentity/logmonoidp",
+        "centralphi0 is coefficientidentity but logmonoidp, not identitylogbase",
+        "i*phi0=theta*i",
+        "absolute logFrob commutes with central specialization",
+        "canonical contravariance/naturality of crystalline pullback/basechange"
+      ],
+      "not_claimed": "No schemeFrob onY_n, no matrix/calculatedeigenvalue, no isogeny or cupmultiplier."
+    }
+  ],
+  "nonclaims": [
+    "No identification with a differently completed/formal site",
+    "No Rlim_n/p-inversion/Qp[[t]]passage",
+    "No ordinarytensor onH1 or cohomologicalflatness",
+    "No generic horizontal/sourceframe comparison",
+    "No normalizationgraph injection/actualresiduekernel identification",
+    "No LC A-C/wholeD/sign/c/extensions/dagger/functional/parentclosure"
+  ],
+  "primary_boundary": "Exactly two selected positive matched propositions2.20+2.23. Classical affine/quasicoherent/formalcoordinate algebra used explicitly; no direct5.1 or2.24isogeny.",
+  "review_needed": "True fresh nonauthor primary-hypothesis/PD/log-category/Cechflatness/derivedtensor/Frobeniusnaturality audit; previous two LC-D PASSES do not cover this paper.",
+  "fairness": "CM24same motheraxis. Separate88303D holds Paritym7; no duplicatework.",
+  "science_programs": 0
+}
