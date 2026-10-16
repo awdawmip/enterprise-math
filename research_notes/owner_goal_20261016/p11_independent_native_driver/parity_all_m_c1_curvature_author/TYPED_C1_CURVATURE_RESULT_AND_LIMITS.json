@@ -1,0 +1,37 @@
+{
+  "schema": "PARITY_ALL_M_C1_CURVATURE_TYPED_AUTHOR_INTERFACE_V1",
+  "status": "AUTHOR_DERIVED_UNREVIEWED_NOT_SIGN_COVERAGE",
+  "author": "EM-DVR-BFF6DC",
+  "primary": {
+    "filename": "PARITY_ALL_M_C1_FACE_INVERSE_FREE_CURVATURE_OBSERVER_AUTHOR.md",
+    "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/p11_independent_native_driver/parity_all_m_c1_curvature_author/PARITY_ALL_M_C1_FACE_INVERSE_FREE_CURVATURE_OBSERVER_AUTHOR.md",
+    "bytes": 13131,
+    "sha256": "1b0a3105eadb9e3dc59f12183b5dcc7a0bc28417e1707031d363d8f1c6902908",
+    "git_blob_sha1": "9dc967073ac9316d5b899f6275e0147a168fc04e"
+  },
+  "domain": "Everyinteger m>=2, n=m-1, realS>=0,a>0; originalnormalizedsecantcarrier",
+  "normalization": "W=m²,x=W(S+a),beta=(W+1)/2; P(c)=(x+Wc+beta)G_W(x)T(c)/c. Fixedcommon denominator, notclaimeduniversallyprimitive.",
+  "objects": {
+    "J": "ExactLagrange differentiationmatrix onm labelednodes; J^m=0",
+    "F_L": "FiniteTayloraverage sum_(k=0)^n L^kJ^k/(k+1)!",
+    "F_L_inverse": "Finite sum_(h=0)^n(I-F_L)^h, notsolver",
+    "Gamma_L": "F_L_prime F_L_inverse; actualfullsecantframevelocity",
+    "Pi": "I-z w^T/s, z=D^-1w, s=mS_r nonzeroexplicitlinear scalar",
+    "Lambda": "diag(-sum_(k=0)^n 1/(r+theta_i+k))",
+    "Omega": "Pi(Gamma_L+D^-1Gamma_L^T D+Lambda)Pi"
+  },
+  "proved_formula": "[c]P(c)=W²G_W(x)ell(x)+(W/2)(x+beta)G_W(x)[tr(Omega²)-W h2(x)]",
+  "ell": "sum_(k=1)^W1/(x+k)-1/(x+beta)",
+  "h2": "sum_(k=1)^W1/(x+k)²-1/(x+beta)²",
+  "proved_bridge": "Omega restricted tokerw isconjugate toH^-1H_prime and iszeroonthecomplement; allpositivetracepowersmatch. Uses H^-1 onlyinproof, noneinconstructedOmega.",
+  "retained_gaps": [
+    "Sign/coefficientwisepositivity ofP1 UNKNOWN",
+    "Higherfaces/allc/Paritytrace/HCM0/APGoal OPEN",
+    "No automatic primitivegcd-normalizedface identity",
+    "No positive-squaredtrace shortcut forindefinitemetric",
+    "No minimalinvariant orhistoricalnovelty claim"
+  ],
+  "Native_Task_or_Tool_authority": false,
+  "scientific_programs": 0,
+  "m7fixedcertificate": "PERMANENT_STOP_UNCHANGED"
+}
