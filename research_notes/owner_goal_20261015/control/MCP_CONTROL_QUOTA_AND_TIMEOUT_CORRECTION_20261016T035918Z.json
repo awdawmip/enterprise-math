@@ -1,0 +1,121 @@
+{
+  "schema": "ROOT_READONLY_MCP_CONTROL_QUOTA_AND_STALE_STATE_CORRECTION_V1",
+  "recorded_at_utc": "2026-10-16T03:59:18.061230+00:00",
+  "Root": {
+    "driver_id": "EM-DVR-18C67B",
+    "session_id": "MCP-bd41a1407ac34afc99cc52d66433269c",
+    "authority_record_id": "DA-28F44F26AE8437BE4DA2",
+    "role": "CONTROL_PLANE"
+  },
+  "parent_goal": "OPEN",
+  "gate": {
+    "schema": "ROOT_READ_ONLY_CONTROL_TRANSPORT_QUOTA_SCOPE_CORRECTION_V1",
+    "observed_at_utc": "2026-10-16T03:58:21.655612+00:00",
+    "new_request_id": "owner-fair-frontier-dispatch-20261016-0354-r1",
+    "new_request_result": "Immediate CONTROL_QUOTA rejection/INVALID_ARGUMENT wrapper; no dispatcher result or task admission evidenced",
+    "original_request_outcomes": [
+      {
+        "request_id": "owner-dispatch-20261015-1516-a1",
+        "actual_status": "FAILED",
+        "error": "TimeoutExpired"
+      },
+      {
+        "request_id": "owner-tasks-20261015-1516-a1",
+        "actual_status": "FAILED",
+        "error": "TimeoutExpired"
+      }
+    ],
+    "scope": "Same configured direct read-only client; does not establish whole service outage or mathematical absence",
+    "no_new_request_retry": true,
+    "no_new_identity_or_credential": true,
+    "canonical_dispatch_freshness": "UNKNOWN; no success view manufactured",
+    "source_and_math": "Source snapshots/real same-session activity guards/publications and mathematical review continue independently"
+  },
+  "actual_original_tool_envelopes": {
+    "new_dispatch": {
+      "request_id": "owner-fair-frontier-dispatch-20261016-0354-r1",
+      "args": {
+        "kind": "ANY",
+        "priority": null,
+        "request_id": "owner-fair-frontier-dispatch-20261016-0354-r1"
+      },
+      "actual": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Error executing tool em_control_dispatch: CONTROL_QUOTA"
+          }
+        ],
+        "structuredContent": {
+          "error_code": "INVALID_ARGUMENT"
+        },
+        "isError": true
+      },
+      "actual_tool": "mcp__codex_apps__enterprise_math_mcp_gateway_em_control_dispatch"
+    },
+    "original_receipts": [
+      {
+        "status": "fulfilled",
+        "value": {
+          "request_id": "owner-dispatch-20261015-1516-a1",
+          "args": {
+            "request_id": "owner-dispatch-20261015-1516-a1"
+          },
+          "tool": "mcp__codex_apps__enterprise_math_mcp_gateway_em_control_result",
+          "actual": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"request_id\": \"owner-dispatch-20261015-1516-a1\",\n  \"operation\": \"dispatch\",\n  \"status\": \"FAILED\",\n  \"error\": \"TimeoutExpired\",\n  \"created\": 1792077134,\n  \"updated\": 1792078003,\n  \"formal_task_created\": false\n}"
+              }
+            ],
+            "structuredContent": {
+              "request_id": "owner-dispatch-20261015-1516-a1",
+              "operation": "dispatch",
+              "status": "FAILED",
+              "error": "TimeoutExpired",
+              "created": 1792077134,
+              "updated": 1792078003,
+              "formal_task_created": false
+            },
+            "isError": false
+          }
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "request_id": "owner-tasks-20261015-1516-a1",
+          "args": {
+            "request_id": "owner-tasks-20261015-1516-a1"
+          },
+          "tool": "mcp__codex_apps__enterprise_math_mcp_gateway_em_control_result",
+          "actual": {
+            "content": [
+              {
+                "type": "text",
+                "text": "{\n  \"request_id\": \"owner-tasks-20261015-1516-a1\",\n  \"operation\": \"tasks\",\n  \"status\": \"FAILED\",\n  \"error\": \"TimeoutExpired\",\n  \"created\": 1792077132,\n  \"updated\": 1792077679,\n  \"formal_task_created\": false\n}"
+              }
+            ],
+            "structuredContent": {
+              "request_id": "owner-tasks-20261015-1516-a1",
+              "operation": "tasks",
+              "status": "FAILED",
+              "error": "TimeoutExpired",
+              "created": 1792077132,
+              "updated": 1792077679,
+              "formal_task_created": false
+            },
+            "isError": false
+          }
+        }
+      }
+    ]
+  },
+  "correction": "Previous local snapshots labelled original15:16dispatch RUNNING; current exact original result says definite FAILED TimeoutExpired. Preserve history, do not reconcile or retry as UNKNOWN.",
+  "no_live_dispatch_result_manufactured": true,
+  "no_math_Task_RA_code_changes": true,
+  "continuation": "Three authors/two real reviewers continue mathematics and existing Source custody; new fair current canonical dispatch remains UNKNOWN due immediate quota rejection; no alternate credentials/admission retry.",
+  "last_verified_math_frontier_Source": "57589d684d48a8a8455eaef55e2e3d8a2861631a",
+  "last_verified_KB": "beef6d8cfb96b66684a5101ec052b98e433d34d9"
+}
