@@ -1,0 +1,102 @@
+{
+  "schema": "TYPED_ACTUAL_FULL_CARRIER_NORMALIZED_COMPLEX_LOCAL_RELATIVE_ENERGY_AUTHOR_WORKING",
+  "status": "FIXED_JOINT_AUTHOR_PROPOSAL_UNREVIEWED",
+  "primary_binding": {
+    "path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/parity_actual_full_carrier_relative_energy_7cda51_bff6dc/PARITY_ACTUAL_FULL_CARRIER_NORMALIZED_COMPLEX_RELATIVE_ENERGY_JOINT_AUTHOR.md",
+    "repository_path": "research_notes/owner_goal_20261016/parity_actual_full_carrier_relative_energy_7cda51_bff6dc/PARITY_ACTUAL_FULL_CARRIER_NORMALIZED_COMPLEX_RELATIVE_ENERGY_JOINT_AUTHOR.md",
+    "bytes": 50322,
+    "sha256": "73ead6ec78a595ed6ca2ce8cd7a851ce625f16c553e4bcbb0dedb9eb285e1299",
+    "git_blob_sha1": "834ad755ca831d24b628df1774d247bc507ec159"
+  },
+  "primary_binding_creation_cut": "The unchanged original working version correctly had null while primary was assembled. This fixed copy binds the actual prepared primary; final exact-three author consumption remains an external gate.",
+  "authors": [
+    "EM-PUBLIC-7CDA51",
+    "EM-DVR-BFF6DC"
+  ],
+  "classification": {
+    "kind": "RESULT_ONLY_COMPOSE_FIXED_MODEL_QUANTITATIVE_LEMMA",
+    "independent_paper_count": 0,
+    "Tool_registration": false,
+    "new_Task": false,
+    "inventory_absence": "UNKNOWN; no Tool absence inference",
+    "future_acceptance": "Requires genuinely independent full-whole review; component author checks are not peer votes"
+  },
+  "literal_model": {
+    "m": "integer >=2^1000",
+    "V": "polynomials of degree <=m-2 over C with original positive Student inner product integral_R conjugate(f(v))g(v)(1+4v^2)^(-m)dv",
+    "dimension": "m-1",
+    "basis": "Original degree-ordered real orthonormal Student basis e_0,...,e_(m-2)",
+    "D": "d/dv on V, actual nilpotent finite carrier",
+    "dagger": "Genuine adjoint in this fixed positive inner product; no moving parameter, alternate carrier or ambient equality",
+    "HS": "Actual full Hilbert-Schmidt norm with every input/output and both parity blocks, including odd top",
+    "n": "largest EVEN integer <=m-2",
+    "t": "m-n in {2,3}",
+    "ell": "n-1",
+    "h_k": "Actual original Student monic squared norm",
+    "H_n": "n! sqrt(h_0/h_n)>0",
+    "Chat": "H_n/(2^n pi)>0",
+    "U1_xi": "xi D^2[(2pi)^2 I-xi^2 D^2]^-1; exact finite inverse",
+    "F_w": "w^ell U1(pi/w)/Chat, continued as its exact even matrix polynomial",
+    "finite_F_identity": "F(w)=sum_(j even,0<=j<=n-2)(2w)^j D^(n-j)/H_n",
+    "B_k_binomial": "binom(2m-1,k); original 2m-1 kept even when order changes with output",
+    "B_M_phase": "pi(w/2)^M J_M(w)/Gamma(M); distinct from binomial B_k",
+    "native_boundary": "Classical Student variable v and external z,w,xi are not native Heartbeat X6/time coordinates or native states"
+  },
+  "domain": {
+    "z": "real sqrt(m)/256 <= z <= m/256, endpoints included",
+    "w": "complex |w-z|<=1/4, full closed disk",
+    "same_branch": "Exact complex row expressions use one common Bessel branch on Re w>0; final F is an entire even polynomial",
+    "real_reference": "F(z) is the actual normalized single-pole matrix at that same m and same carrier"
+  },
+  "conclusions": {
+    "reference_lower_squared": "||F(z)||_HS^2 >=2^-24 z^-4 >0",
+    "complex_local_relative_squared": "||F(w)||_HS^2 <=2^48 ||F(z)||_HS^2",
+    "normalized_Cauchy_derivatives": {
+      "k": "k=1,2",
+      "claim": "||partial_z^k F(z)||_HS <=2^(24+2k) k! ||F(z)||_HS",
+      "reason": "Entire matrix polynomial, actual fixed HS norm, radius1/4 Cauchy estimate using the squared relative norm bound",
+      "not_unnormalized": "These derivatives are of F, not U1, and not constant bounds for Euler derivatives"
+    },
+    "equivalent_u_readout": {
+      "u0": "z/pi, real sqrt(m)/(256pi)<=u0<=m/(256pi)",
+      "u": "complex |u-u0|<=1/(4pi)",
+      "Cxi": "H_n/(2pi)^n, with Chat=pi^ell Cxi",
+      "V_single_u": "u^ell U1(1/u)/Cxi = F(pi u)",
+      "relative": "||V_single(u)||_HS^2 <=2^48 ||V_single(u0)||_HS^2",
+      "derivatives": "||partial_u^k V_single(u0)||_HS <=2^(24+2k)pi^k k!||V_single(u0)||_HS, k=1,2"
+    },
+    "literal_unnormalized_translation": "||U1(pi/w)||_HS^2 <=2^48(z/|w|)^(2ell)||U1(pi/z)||_HS^2; the displayed power MUST remain"
+  },
+  "proof_interfaces": {
+    "phase": "Actual positive-head radial comparison at varying integer mu>=256 with max(z,|w|)<=mu/128; not blind extension of an old fixed-M epsilon verdict",
+    "J": "Original Student-weighted selected-parity spherical J norm, H1 band observability, explicit auxiliary0/opposite parity payments, finite weighted tridiagonal transport with boundary",
+    "Y": "Actual all-column weighted finite B_mu Y_nu norm <=2^-m for output r<=floor(m/4), proved by exact Gamma endpoint cancellation",
+    "support": "For R=ceil16z, true derivative output support plus old full-carrier B13 gives ||Pi_(r>R)F(w)||<=2^-2z on |w|<=z+1/4",
+    "central": "Exact finite Green entry including all original norm factors, strict degree/parity mask, C_r(w)=K_r w^(r+1/2-t), true row truncation, then coherent row norm comparison before summing",
+    "scope_of_general_Green": "Original BFF12798 author derivation is UNREVIEWED; its loadbearing finite proof must be incorporated in the new primary, not cited as independently accepted",
+    "scalar_to_matrix_warning": "The matrix result is the full exact consumer, not obtained by summing an unweighted Parseval or an unmasked rank-two kernel"
+  },
+  "not_concluded": [
+    "Original full zeta-pole coherent frame Z or baseline Z0 relative theorem",
+    "Full analytic coefficient-sharp state or moving-dagger replacement",
+    "Full Psi/COMMON derivative/readout or a new raw coefficient interval/rho",
+    "Full P1, physical trace, Goal completion or Native authority",
+    "Optimal constants, necessary barrier, generic Tool capability/absence",
+    "Independent acceptance of any archived partial/HOLD member"
+  ],
+  "source_and_review": {
+    "author_Source": null,
+    "true_peer": null,
+    "actual_fixed_three_author_consumption": "PENDING until integrated primary and final typed/context fixed; no creation-cut assumption",
+    "no_old_vote_transfer": true,
+    "old_frozen_bodies_unchanged": true,
+    "old_STOP_errors_warm_history_budget_UNKNOWN": "Preserved",
+    "next_scope": "One complete bounded normalized actual-matrix lemma whole; no per-component publication or vote"
+  },
+  "original_working_pin": {
+    "path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/parity_actual_full_carrier_relative_energy_7cda51_bff6dc/TYPED_ACTUAL_FULL_CARRIER_NORMALIZED_RELATIVE_ENERGY_WORKING.json",
+    "bytes": 5672,
+    "sha256": "9f8d500c91f182a214a347dfc0aab89e103b215ae4fee33c065ef8a19e1b5ad5",
+    "git_blob_sha1": "f24126c1fb60ff937e9982b0e4719bb1ec9471de"
+  }
+}
