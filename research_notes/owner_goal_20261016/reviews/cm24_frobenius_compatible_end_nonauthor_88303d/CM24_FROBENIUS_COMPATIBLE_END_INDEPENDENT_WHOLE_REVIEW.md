@@ -1,0 +1,100 @@
+# Independent whole review of specified Frobenius-compatible weak End
+
+Reviewer EM-DIRECT-88303D, same SID MCP-80ce72c19cb84e508513c39e73540a9c and RA-1E650208FBE6654C7D59AB55, actual current29/117. Ordinary directed nonauthor whole review, not a Native record, formal Task, Working Truth/Foundation vote or new actor.
+
+**Disposition: PAPER_PASS_DERIVED_RESULT_ONLY_COMPOSE_APPLIED. Mathematical must-fix items: 0. New construction or repairs supplied: 0.**
+
+The sole13743-byte author corollary correctly identifies the R-linear endomorphisms commuting with both the specified row connection and its fixed Frobenius row map as Qp I, and its automorphisms as Qp* I. The row-order calculation, scalar-End application and complete Witt fixed-constant proof are all supplied in the primary. This is a RESULT_ONLY/COMPOSE interface on one fixed object, not weak irreducibility or another Frobenius existence/classification theorem.
+
+## 1. Exact whole, own boundary and Source
+
+Author EM-P11-4A56E9's CM24_SPECIFIED_WEAK_FROBENIUS_COMPATIBLE_ENDOMORPHISMS_AUTHOR_COROLLARY.md is13743 UTF-8 bytes, SHA2564df1452ba67df6a146ba7aa79190b29cbb7a3efc556cda2622374b407c1c9715, Git blob7d072b186dcbd3b21df52f1cfe71728d618553e2. Its repository path is research_notes/owner_goal_20261016/cm24_accepted_canonicality_bounded_intake_4a56e9/CM24_SPECIFIED_WEAK_FROBENIUS_COMPATIBLE_ENDOMORPHISMS_AUTHOR_COROLLARY.md.
+
+I refreshed my own full SID/actualRA29 and117-directory identities against previously complete body pins before reading this new body. The original actual29 Source-specific startup returned exit0, activity/persistence true, debt[] and five formal authority flags false. Existing ordinary research/review assignment is retained; no formal Native authority is inferred.
+
+Root explicitly authorized DRAFT local whole review while the new author Source was pending. After that boundary I personally completely read the exact frozen13743 primary and8070 handoff in untruncated3436/2018-token outputs. I checked their complete local byte/hash/blob identity.
+
+I later received actual author Source3a293102ee6cef084209b010d1426da722cdb24e; this records my observation order, not an independently measured publication time. I personally fetched the entire immutable primary through the managed GitHub connector. Its UTF-8 length/SHA256/Git blob/immutable URL and every byte equal my completely read frozen local original. My own commit and compare calls verify sole parent29de2ad9a3e6b527c54d8a4de38dfa7e9f668eb5, treeb459b0f5b7e1c5a6ec91ce00c87b50f1530420c9, exact1ADDED, onecommit, ahead1/behind0 and no other paths.
+
+The chronology is local full review first, own actual Source binding second, final review freeze after both. I borrow no author or Root API observation. Original UNREVIEWED, Sourcepending and activity labels in the frozen author/handoff retain their preparation-time meanings.
+
+## 2. Independence and precise accepted-input reuse
+
+I had zero construction or repair contribution to this new Frobenius-compatible End/Aut proof and had not seen its working body before the author's freeze. Before this intake I received only Root's scope metadata. I supplied no new commutation proof, fixed-field argument, formula or preliminary verdict to this author.
+
+This is not a cold or blind actor. I really coauthored old6F0464 and5530 weak source-class work, recently independently reviewed BFF's different canonicality consumer, and completely consumed the accepted scalar-End and beta inputs. All earlier CM24/LC/Parity/CONTROL author and reviewer exposures, failures, STOP/HOLD and cumulative budget UNKNOWN remain. None is reset or transferred as a vote.
+
+The load-bearing accepted linear-End input is the13645 author primary at21047d56910b24aac7c99db4ea47a7c53d6c702b, with its genuine7CDA whole report9977/context13056 atf25d7f853f533041af2344cd0bf508588ce1df79. During my immediately preceding review I personally fetched and checked all three complete immutable files, and completely read each without truncation. I honestly reuse those exact prior observations here; I do not invent new file calls or independently re-review all its upstream proofs.
+
+That accepted theorem states, for every T in Mat2(R), T'=DT-TD implies a unique c in K with T=cI. It includes zero and noninvertible T. Its exact ring, coefficient field and literal D match the present primary. It provides no Frobenius commutation or fixed-field conclusion by itself.
+
+Actual M and its weak substitution/exact transpose horizontality were already established in old6F0464, of which I am an exposed real coauthor. I personally whole-read/bound its author3 and genuineCF peer2 earlier. I reused those actual observations and, in the immediately preceding review, reread its object/horizontality/good-frame passages. This is not a new independent vote on my old proof.
+
+BFF's accepted19836 canonicality primary at575756 and my peer2 at2e9e were all completely read and personally Source-bound by me in that completed review. Their exact conventions and actual-object descriptions are available here. The new +/-M comparison, Hasse residue, beta identity and normalization moduli are not logical premises of the present algebra: old scalar End plus existence/invertibility of the fixed actual M suffice. Thus my earlier peer report is historical provenance, not a circular mathematical certification of this successor.
+
+I did not read any A/BFF new normalized full-carrier working to review this component and supplied no repair to that other scope. I am not a coauthor of BFF's old12798 general Green working; my actual reading and later16187 profile contribution retain their separate true attribution.
+
+## 3. Literal row object and typing
+
+The primes are the old p congruent13 or19 modulo24. O is the specified complete unramified DVR with maximal ideal pO and perfect residue field k; K=O[1/p]. Sigma is its given Witt automorphism, fixing p and reducing to p-power on k. These hypotheses are explicit, not inferred for a different coefficient ring.
+
+The exact embedded weak ring and literal matrix are
+R=O[r,f^-1,q^-1]^dagger[1/p],
+S=4r^3-3r, f=1-r^2, q=4r^2-1, P=fq,
+D=(2P)^-1 [[2S-1,1],[4S-5,-(2S-1)]].
+Rows have nabla(h)=h'+hD. The actual sigma_phi substitutes r->r^p and applies sigma to coefficients. On constants c inK it gives sigma(c).
+
+The retained actual cohomological M has detM=p and
+(M^T)'+M^T D=phi' sigma_phi(D)M^T.
+The declared row map is Phi_0(h)=sigma_phi(h)M^T, without phi'. Differentiation gives
+nabla(Phi_0 h)=phi' sigma_phi(nabla h)M^T.
+This checks the chosen row map against the actual connection. The derivative factor belongs to the induced oneform map, not to the degree-zero row definition. No period inverse transpose is substituted for M^T.
+
+Only R-linear endomorphisms E_T(h)=hT are classified. The proof does not enlarge this class to coefficient-semilinear changes or unspecified gauges.
+
+## 4. Horizontal and Frobenius-compatible matrix equations
+
+Direct expansion gives
+nabla(hT)=h'T+hT'+hTD,
+E_T(nabla h)=h'T+hDT.
+Thus the horizontal condition is exactly T'=DT-TD, in the sign/order of accepted scalar End. There is no hypothesis that T is invertible.
+
+For Frobenius commutation the actual two compositions are
+E_T Phi_0(h)=sigma_phi(h)M^T T
+and
+Phi_0 E_T(h)=sigma_phi(h)sigma_phi(T)M^T.
+Equality for every h is equivalent to
+M^T T=sigma_phi(T)M^T.
+Necessity follows by the two constant basis rows, which sigma_phi fixes. Sufficiency is immediate multiplication for all rows. This argument does not require surjectivity of the weak substitution r->r^p or invertibility of Phi_0 as a set map.
+
+Accepted scalar End first gives T=cI with c inK. Substitution in the second equation yields cM^T=sigma(c)M^T. Since detM=p and p is a unit in R, the adjugate inverse of M cancels it, giving precisely c=sigma(c). No inverse of T, determinant condition on E_T, integral inverse of M or cancellation in a torsion quotient is used.
+
+Conversely any sigma-fixed c inK gives a constant horizontal matrix cI and commutes with Phi_0. This proves both directions, including c=0, of End^(nabla,Phi_0)=K^sigma I. It does not add a sigma condition to the different old problem of comparing two same-lift Frobenius matrices.
+
+## 5. Fixed field for the actual coefficient data
+
+The new primary fully proves O^sigma=Zp and K^sigma=Qp. No external primary or finite-residue-field assumption is concealed.
+
+For fixed a inO, its residue satisfies bar(a)^p=bar(a). The roots of X^p-X in any field of characteristic p are precisely the p prime-field elements: those are p roots and the polynomial has degree p. Hence its residue has a unique integer digit d0 in0,...,p-1.
+
+Because a unital automorphism fixes integers and sigma(p)=p, (a-d0)/p is again inO and fixed. Iteration produces digits di with a-sum_(i<n)di p^i in p^nO. Completeness and separatedness identify a with the limit of these integer partial sums, an element of the canonical Zp embedded inO. Conversely sigma preserves p^nO, hence is p-adically continuous, and therefore fixes Zp as the limit of integer sums.
+
+For c inK fixed by sigma, some p^N c lies inO because p is the uniformizer of this DVR. The integral fixed-field argument places it inZp, so c lies inQp. Conversely all Qp elements are fixed. This handles infinite perfect residue fields and arbitrary valuations of c.
+
+Unramifiedness/maximal ideal pO, completeness, the canonical characteristic-zero base and the specified single Witt automorphism are the declared assumptions. The result is not silently extended to ramification, an unmatched coefficient lift or sigma^a. The explicit fixed-digit proof closes this constant-field step within the reviewed member.
+
+## 6. End ring, units and exact scope
+
+Combining the two proven reductions gives End_R^(nabla,Phi_0)=Qp I. Under addition and composition the displayed scalar endomorphisms form precisely that ring. A nonzero scalar is invertible inQp and hence inR, so its endomorphism and inverse preserve both structures. Zero is not an automorphism. Thus Aut=Qp* I follows without a second argument about irreducibility or an extra determinant constraint.
+
+Actual identity supplies examples. Frobenius existence is an input through old M; it is not proved from End. Nothing here asserts weak/absolute irreducibility, a rank-four intrinsic flag or full comparison, integral-lattice classification, arbitrary strong-completion/gauge rigidity, alternate parameter/coefficient Frobenius, an hdiv value/nonzero, weighted LC join, original functional/evaluation or Goal closure.
+
+The selected prior statements distinguish K-linear horizontal scalars from the present sigma-compatible ones. The old scalar-End theorem and BFF's matrix-candidate comparison do not state this new additional equation or its Qp fixed-constant result. That is a bounded scope check, not global novelty or literature absence. Exact earlier same-carrier coverage, if later supplied, makes this REUSE closure. The present classification is RESULT_ONLY/COMPOSE_APPLIED, not a separately counted discovery or new general Tool.
+
+## 7. Disposition, execution and persistence
+
+I found no mathematical must-fix and supplied no repair. Every new row, sigma, fixed-field, zero/noninvertible and converse step is in the single reviewed13743-byte primary. Input custody gates are not hidden proof members. This whole review is distinct from the author's old scalar-End self-check and from my earlier canonicality review; neither earlier vote decides this successor.
+
+All mathematics was symbolic hand reasoning. Scientific imports/AST/compile checks, matrix/coefficient generation, tests/samples/solvers/point counts and numerical evaluations are zero. Administration consists of managed Source reads/commit/compare, original guard, exact text/JSON/hash work and review writing. No Native action, formal Task, new actor, budget reset, old STOP revival or product-cost PASS follows.
+
+At this local review freeze the two reviewer notes remain SourcePENDING until an explicit Root window and their own immutable readback. The author13743, handoff8070 and all old frozen inputs remain unchanged. Canonical activity is29/117; helper30 is not staged. Root provides routing/CONTROL and zero mathematical votes. Mother Goal OPEN. MESSAGE only, no FINAL.
