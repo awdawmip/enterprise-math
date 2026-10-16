@@ -1,0 +1,67 @@
+{
+  "schema": "CM24_FINITE_UNRAMIFIED_ACTUAL_SIX_SOURCE_COMPLETE_STABLE_SUBSPACE_AUTHOR_INTERFACE_V1",
+  "status": "UNREVIEWED_AUTHOR_PROPOSAL_SOURCE_PENDING; actual whole freeze is recorded only in an external handoff",
+  "primary": {
+    "path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/cm24_finite_unramified_six_class_intake_88303d/CM24_FINITE_UNRAMIFIED_SIX_SOURCE_FROBENIUS_STABLE_SUBSPACE_CLASSIFICATION_AUTHOR.md",
+    "bytes": 16456,
+    "sha256": "ad1ac58877663a22ce4239b7afed95f4a55a46bd13e66b72886020442e804c79",
+    "git_blob_sha1": "93836438b9e187e73d3df8de2dd2aadf6d65e306"
+  },
+  "coefficient_quantifiers": {
+    "prime": "p prime, p congruent 13 or 19 modulo 24",
+    "base": "K/Qp finite unramified of integer degree e>=1; O its integer ring",
+    "automorphism": "specified single Witt sigma, sigma^e=Id and K^sigma=Qp",
+    "carrier": "Original R=O[r,(1-r^2)^-1,(4r^2-1)^-1]^dagger[1/p] and specified D; no carrier changed"
+  },
+  "literal_object": "V=coker(h -> (h prime+hD)dr) on original weak R-rows, with fixed complete six-coordinate isomorphism xi",
+  "ordered_coordinates": [
+    "ell_1",
+    "ell_-1",
+    "ell_1/2",
+    "ell_-1/2",
+    "Q1",
+    "Q2"
+  ],
+  "actual_sigma_semilinear_action": [
+    "p^2 sigma(v1)",
+    "p^2 sigma(v2)",
+    "p^2 sigma(v3)",
+    "p^2 sigma(v4)",
+    "(p^2/beta) sigma(v5)",
+    "p beta sigma(v6)"
+  ],
+  "beta": "ACTUAL beta in Zp* from specified infinity22 entry; beta^2-tau beta+p=0, tau=-sum over Fp chi_p(x^3+64) in Z; not an arbitrary unit",
+  "complete_classification": {
+    "formula": "xi(W)=K W0 directsum delta1 K e5 directsum delta2 K e6",
+    "parameters": "unique Qp-linear W0<=Qp^4, delta1,delta2 in {0,1}",
+    "stability": "Forward Fcal(W) subset W iff displayed formula; it automatically gives equality",
+    "dimension": "dim_Qp(W0)+delta1+delta2",
+    "stable_lines": "P^3(Qp) disjoint-union {K e5,K e6}"
+  },
+  "proof_chain_in_primary": {
+    "section3": "Actual beta has beta^s!=1 for all positive integers s, using only integral finite trace and complex algebraic roots",
+    "section4": "Direct simple-root lifting/digits prove sigma^e=Id; ordinary fixed digits prove K^sigma=Qp",
+    "section5": "Fcal^e is K-linear with distinct eigenvalues p^(2e),p^(2e)beta^-e,p^e beta^e; polynomial projectors split every invariant subspace",
+    "section6": "Unique reduced row-echelon basis of sigma-stable four-block is sigma-fixed, hence rational over Qp; converse and uniqueness included",
+    "section7": "Literal specified weak representatives and primitive-existence interface are directly composed from old complete coker/action"
+  },
+  "representatives": {
+    "W0_vector": "sum_a v_a/(r-a) e1 dr, v in Qp^4, a ordered 1,-1,1/2,-1/2",
+    "Q1": "-e1 dr",
+    "Q2": "-8r e1 dr"
+  },
+  "primitive_interface": "For these basis representatives Phi(bdr)-lambda bdr is an actual L_D image on the SAME weak R. Existence only; no formula, algorithm, canonical primitive, uniqueness, finite precision or cost claimed.",
+  "not_asserted": [
+    "Infinite perfect residue field classification",
+    "Ramified or integral-lattice classification",
+    "Any arbitrary beta/gauge/Frobenius lift variant beyond exact old coordinate theorem",
+    "Proper rank-two irreducibility or invariant-line classification",
+    "New fullrank4 comparison, replacement source/fullN/LC permission",
+    "Weighted original functional/LC join/hdiv closure",
+    "Geometric existence from class representatives",
+    "Native acceptance, new Task, general Tool or Goal closure"
+  ],
+  "dedup": "One exact frozen-scope query to 4A returned no already verified complete-classification locator; coverage UNKNOWN, not global absence. Classical consumer/RESULT_ONLY COMPOSE, no novelty claim.",
+  "authorship": "883 is the genuine new author. Old input authors/peers retain their exact prior credit, not automatically new coauthors. Author self-check is not an independent review.",
+  "operational_boundary": "Same warm canonical30/120; no31 helper, scientific program, Native operation, new identity, Task or budget reset. Parent Goal OPEN."
+}
