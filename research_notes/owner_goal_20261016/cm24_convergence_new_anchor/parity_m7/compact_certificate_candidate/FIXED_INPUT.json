@@ -1,0 +1,142 @@
+{
+  "schema": "PARITY_M7_FIXED_INTERVAL_BERNSTEIN_INPUT_V1",
+  "candidate_status": "NOT_ADMITTED",
+  "math": {
+    "m": 7,
+    "n": 6,
+    "a": [
+      1,
+      1
+    ],
+    "c": [
+      1,
+      1
+    ],
+    "r_interval": [
+      [
+        7,
+        1
+      ],
+      [
+        8,
+        1
+      ]
+    ],
+    "degree_bound": 56,
+    "dyadic_depth": 4
+  },
+  "source_binding": {
+    "repository": "awdawmip/enterprise-math",
+    "original_complete_signed_scalar": "G(r)=tr(B^{-1}A)-6",
+    "capsule": {
+      "Source": "b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac",
+      "path": "research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-EXTREME-BRANCH-PARITY-DOMINATION/MCP-e3eda4529333438d8ae1ae7e6983e5e5/8c93a8558258cb5e68f5/PARITY_WHOLE_UNIT_PARTIAL_CAPSULE.json",
+      "bytes": 42419,
+      "sha256": "bb3889dce04f54e03274c23d07f640964ee2d69cf75fcbac17153a4286b18b05",
+      "git_blob_sha1": "d95fa5b827f0248355f9bd462a37fbc7edacc662",
+      "custody": "Previously personally fetched and all seven inner members verified; worker rehashes only the two exact consumed inner bodies."
+    },
+    "pinned_local_members": [
+      {
+        "name": "original_beta_kernel",
+        "workspace_repository_relative_path": "research_notes/owner_goal_20261016/cm24_convergence_new_anchor/parity_m7/source/whole_partial_members/author_support/BETA_ADAPTED_TRACE_KERNEL.md",
+        "Source": "b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac",
+        "source_path_or_capsule_member": "author_support/BETA_ADAPTED_TRACE_KERNEL.md",
+        "kind": "CAPSULE_INNER_MEMBER",
+        "bytes": 9372,
+        "sha256": "a78fdcf757a33e7b8fe293449188a750b998547204d255bca407a84002f01abd",
+        "git_blob_sha1": "15c1edce39e83326555d8c96066d08bb12595fae"
+      },
+      {
+        "name": "original_residue_self_audit",
+        "workspace_repository_relative_path": "research_notes/owner_goal_20261016/cm24_convergence_new_anchor/parity_m7/source/whole_partial_members/author_support/BETA_KERNEL_SELF_AUDIT_ADDENDUM.md",
+        "Source": "b46c77b64f5f42ed98a14f94dda29d4e2dc2cfac",
+        "source_path_or_capsule_member": "author_support/BETA_KERNEL_SELF_AUDIT_ADDENDUM.md",
+        "kind": "CAPSULE_INNER_MEMBER",
+        "bytes": 6416,
+        "sha256": "d3654fd9db793f813cbe97966e228511d88304da4bd6dda83b72193e079678e0",
+        "git_blob_sha1": "d85f9d5668ffbeffcb8073f5adc0f2f24913ba48"
+      },
+      {
+        "name": "reviewed_Xi_equation_7",
+        "workspace_repository_relative_path": "research_notes/owner_goal_20261016/cm24_convergence_new_anchor/parity_m7/PARITY_M7_ONE_UNCOVERED_INTERVAL_HORNER_OBSTRUCTION.md",
+        "Source": "22338e996c7908348438efb449dcf5d8f700a0f7",
+        "source_path_or_capsule_member": "research_notes/owner_goal_20261016/cm24_convergence_new_anchor/parity_m7/PARITY_M7_ONE_UNCOVERED_INTERVAL_HORNER_OBSTRUCTION.md",
+        "kind": "DIRECT_SOURCE_FILE",
+        "bytes": 9831,
+        "sha256": "45f467c3dfe71a91128d669e013e1a68312403a31e2e52351ec7880ef6274315",
+        "git_blob_sha1": "12f7dd14a98aaf7d48167669cb7e48480ca3befa"
+      },
+      {
+        "name": "true_independent_combined_review",
+        "workspace_repository_relative_path": "research_notes/owner_goal_20261016/p11_independent_native_driver/parity_m7_review/PARITY_M7_COMBINED_INTERVAL_AND_ACTUAL_TRACE_INDEPENDENT_REVIEW.md",
+        "Source": "18bbd58031fefb48a85ff6d95b600610bc404bc4",
+        "source_path_or_capsule_member": "research_notes/owner_goal_20261016/p11_independent_native_driver/parity_m7_review/PARITY_M7_COMBINED_INTERVAL_AND_ACTUAL_TRACE_INDEPENDENT_REVIEW.md",
+        "kind": "DIRECT_SOURCE_FILE",
+        "bytes": 19654,
+        "sha256": "719ced956b0406de44358be2c178a50893917b351244a9249e7588def28d25e3",
+        "git_blob_sha1": "1525515ffee3c9fde6a92857a9e2c0f3a7d8e07f"
+      },
+      {
+        "name": "actual_author_Source_binding",
+        "workspace_repository_relative_path": "research_notes/owner_goal_20261016/p11_independent_native_driver/parity_m7_review/PARITY_M7_COMBINED_REVIEW_ACTUAL_AUTHOR_SOURCE_BINDING.json",
+        "Source": "18bbd58031fefb48a85ff6d95b600610bc404bc4",
+        "source_path_or_capsule_member": "research_notes/owner_goal_20261016/p11_independent_native_driver/parity_m7_review/PARITY_M7_COMBINED_REVIEW_ACTUAL_AUTHOR_SOURCE_BINDING.json",
+        "kind": "DIRECT_SOURCE_FILE",
+        "bytes": 6134,
+        "sha256": "afc07b2f9fcfeee8bbe5958d6d229c2d47fbb97c331a63a4610e734aaf9676ba",
+        "git_blob_sha1": "091b6c08bd4dce786d66b189613dc95b70bd2bf3"
+      }
+    ],
+    "review_limit": "Old true PAPER_PASS validates the cited kernel/Xi premises only; it does not audit this new code or prove compact [7,8]."
+  },
+  "resources": {
+    "primitive_exact_operations": 20000000,
+    "whole_job_wall_seconds": 300,
+    "address_space_bytes": 536870912,
+    "combined_output_bytes": 8388608,
+    "integer_bits": 16384
+  },
+  "execution_contract": {
+    "candidate_author": "EM-DIRECT-88303D",
+    "own_session": "MCP-80ce72c19cb84e508513c39e73540a9c",
+    "own_activity": "RA-1E650208FBE6654C7D59AB55",
+    "last_verified_current_activity_Source": "990fedac28fe16199145cc3b7002d3315323fe37",
+    "events_at_that_snapshot": 7,
+    "formal_Task_authorized_at_preparation": false,
+    "legal_launcher_supplied": false,
+    "current_new_Task_claim_admission": null,
+    "requirement": "A genuinely authorized Driver must provide fresh code/input/manifest-bound admission and real canonical Task/claim/runtime evidence before any invocation. No frozen-input boolean authorizes execution. The NOT_ADMITTED stamp is preparation history; any future genuine permit is a separate immutable record."
+  },
+  "implementation_binding": {
+    "authority": "EXACT_FROZEN_BYTES_NOT_EXECUTION_PERMISSION",
+    "minimum_python": "3.10",
+    "runtime_platform": "Linux, dedicated single-main-thread worker with stdlib only",
+    "modules": [
+      {
+        "filename": "resource_budget.py",
+        "bytes": 6123,
+        "sha256": "686fc6c25d07228e6aba0c92fdc9ef8f9992e0f6b71c8336c7465a430beead38",
+        "git_blob_sha1": "9ae50fdb8cf7d2d94fd09a96a11fc3d02799984d"
+      },
+      {
+        "filename": "producer.py",
+        "bytes": 7035,
+        "sha256": "db583e33fb1ded767f48a65fd5f654924c4cf9aea20d34497e2c73408310f439",
+        "git_blob_sha1": "44e59641425faeb13cb52678278d6d60a1b8028d"
+      },
+      {
+        "filename": "checker.py",
+        "bytes": 10486,
+        "sha256": "8b65698f6ff2680e6ea1533afdb87d459b01b5097674cbc5b15f09df50d7e239",
+        "git_blob_sha1": "ba118ea38ae99622e5266487e7fc36e1f9cd2061"
+      },
+      {
+        "filename": "workload.py",
+        "bytes": 6239,
+        "sha256": "9ee260566efd348f329c62ead443ae57b6656b715773890e99c142b07e7d9388",
+        "git_blob_sha1": "cf863aac446c01c47e7ca822b435b727df145968"
+      }
+    ]
+  }
+}

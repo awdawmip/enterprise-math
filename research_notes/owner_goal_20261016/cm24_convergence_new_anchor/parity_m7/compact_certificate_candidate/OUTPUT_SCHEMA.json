@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:enterprise-math:parity-m7-fixed-interval-worker-result:v1",
+  "title": "Structural result format only; exact semantic verification is mandatory",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "input_sha256", "certificate_sha256", "certificate", "algorithmically_independent_same_author_check", "resource_snapshot_before_final_serialization", "execution_authority", "Native_acceptance_or_Task_completion"],
+  "properties": {
+    "schema": {"const": "PARITY_M7_FIXED_INTERVAL_WORKER_RESULT_V1"},
+    "input_sha256": {"$ref": "#/$defs/sha256"},
+    "certificate_sha256": {"$ref": "#/$defs/sha256"},
+    "certificate": {"$ref": "#/$defs/certificate"},
+    "algorithmically_independent_same_author_check": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema", "polynomial_identity_verified", "bernstein_coefficients_verified", "complete_interval", "all_strictly_positive", "mathematical_conclusion", "Native_acceptance_or_Task_completion"],
+      "properties": {
+        "schema": {"const": "PARITY_M7_FIXED_INTERVAL_COLD_CHECK_V1"},
+        "polynomial_identity_verified": {"const": true},
+        "bernstein_coefficients_verified": {"const": 912},
+        "complete_interval": {"const": [[7,1],[8,1]]},
+        "all_strictly_positive": {"type": "boolean"},
+        "mathematical_conclusion": {"enum": ["ORIGINAL_TRACE_GT_6_ON_ENTIRE_INTERVAL", "NO_TRACE_SIGN_CONCLUSION_FROM_THIS_FIXED_PLAN"]},
+        "Native_acceptance_or_Task_completion": {"const": false}
+      }
+    },
+    "resource_snapshot_before_final_serialization": {
+      "type": "object", "additionalProperties": false,
+      "required": ["primitive_exact_operations", "elapsed_seconds", "limits", "effective_address_space_ceiling_bytes", "output_bytes_already_emitted"],
+      "properties": {
+        "primitive_exact_operations": {"type": "integer", "minimum": 0, "maximum": 20000000},
+        "elapsed_seconds": {"type": "number", "minimum": 0, "maximum": 300},
+        "limits": {"const": {"operations": 20000000, "seconds": 300, "memory_bytes": 536870912, "output_bytes": 8388608, "integer_bits": 16384}},
+        "effective_address_space_ceiling_bytes": {"type": "integer", "minimum": 1, "maximum": 536870912},
+        "output_bytes_already_emitted": {"const": 0}
+      }
+    },
+    "execution_authority": {"const": "EXTERNAL_GENUINE_ADMITTED_DRIVER_REQUIRED"},
+    "Native_acceptance_or_Task_completion": {"const": false}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "integerHex": {"type": "string", "maxLength": 4100, "pattern": "^(0x0|0x[1-9a-f][0-9a-f]*|-0x[1-9a-f][0-9a-f]*)$"},
+    "positiveHex": {"type": "string", "maxLength": 4100, "pattern": "^0x[1-9a-f][0-9a-f]*$"},
+    "reducedRational": {
+      "type": "array", "minItems": 2, "maxItems": 2,
+      "prefixItems": [{"$ref": "#/$defs/integerHex"}, {"$ref": "#/$defs/positiveHex"}]
+    },
+    "certificate": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema", "math", "source_binding", "status", "polynomial", "positive_trace_denominator", "bernstein", "producer_operations_so_far"],
+      "properties": {
+        "schema": {"const": "PARITY_M7_FIXED_INTERVAL_BERNSTEIN_CERTIFICATE_V1"},
+        "math": {"const": {"m":7,"n":6,"a":[1,1],"c":[1,1],"r_interval":[[7,1],[8,1]],"degree_bound":56,"dyadic_depth":4}},
+        "source_binding": {"type": "object", "description": "Must equal the complete exact FIXED_INPUT.json source_binding byte-semantic object; checker enforces equality and worker rehashes pinned source bodies."},
+        "status": {"enum": ["POSITIVE_CANDIDATE", "CANNOT_CERTIFY_THIS_FIXED_PLAN"]},
+        "producer_operations_so_far": {"type": "integer", "minimum": 0, "maximum": 20000000},
+        "polynomial": {
+          "type": "object", "additionalProperties": false,
+          "required": ["positive_denominator_hex", "power_coeff_integer_hex"],
+          "properties": {
+            "positive_denominator_hex": {"$ref": "#/$defs/positiveHex"},
+            "power_coeff_integer_hex": {"type": "array", "minItems": 57, "maxItems": 57, "items": {"$ref": "#/$defs/integerHex"}}
+          }
+        },
+        "positive_trace_denominator": {
+          "type": "object", "additionalProperties": false,
+          "required": ["L", "q_factors"],
+          "properties": {
+            "L": {"const": [[7,25],[7,74]]},
+            "q_factors": {
+              "type": "array", "minItems": 49, "maxItems": 49,
+              "description": "Exactly [[k,a,7] for k=0..6 in outer order and a=1..7 in inner order]; checker requires literal equality.",
+              "items": {"type": "array", "minItems": 3, "maxItems": 3, "prefixItems": [{"type":"integer","minimum":0,"maximum":6},{"type":"integer","minimum":1,"maximum":7},{"const":7}]}
+            }
+          }
+        },
+        "bernstein": {
+          "type": "array", "minItems": 16, "maxItems": 16,
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["i", "left", "right", "coefficients"],
+            "properties": {
+              "i": {"type":"integer","minimum":0,"maximum":15},
+              "left": {"type":"array","minItems":2,"maxItems":2,"prefixItems":[{"type":"integer","minimum":112,"maximum":127},{"const":16}]},
+              "right": {"type":"array","minItems":2,"maxItems":2,"prefixItems":[{"type":"integer","minimum":113,"maximum":128},{"const":16}]},
+              "coefficients": {"type":"array","minItems":57,"maxItems":57,"items":{"$ref":"#/$defs/reducedRational"}}
+            }
+          }
+        }
+      }
+    }
+  },
+  "$comment": "Schema alone proves neither reduction/positive sign nor the polynomial identity, input/code admission, exact hex bit limit, row order/endpoints, complete source equality or status consistency. The fixed independent algorithmic checker plus genuine external admission and full resource receipt are mandatory. There is currently no generated result instance."
+}

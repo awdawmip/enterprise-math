@@ -1,0 +1,65 @@
+{
+  "schema": "PARITY_M7_FIXED_COMPACT_CANDIDATE_EXECUTION_CONTRACT_V1",
+  "state": "NOT_ADMITTED_STATIC_REVIEW_CANDIDATE_ONLY",
+  "scientific_invocations": 0,
+  "scientific_import_compile_smoke_tests": 0,
+  "candidate_is_not_a_permission_gate": true,
+  "scientific_entry": "workload.run_from_bytes(exact_fixed_input_bytes, repository_root, shared_budget)",
+  "budget_entry": "resource_budget.Budget(genuine_launchers_whole_job_started_monotonic)",
+  "call_success_output": "One UTF-8/ASCII canonical JSON byte string with final newline, matching OUTPUT_SCHEMA.json; worker itself writes nothing",
+  "reserved_output_accounting": "run_from_bytes already reserves its returned byte length with the shared meter; launcher counts only additional receipt/stdout/stderr bytes, never resets the meter or duplicates the certificate",
+  "launcher_exit_contract": {
+    "0": "COMPLETE_VERIFIED_POSITIVE_FIXED_INTERVAL_RESULT",
+    "2": "COMPLETE_VALID_CERTIFICATE_BUT_FIXED_PLAN_INCONCLUSIVE; not a trace counterexample",
+    "64": "Malformed input or code/source/manifest binding mismatch; no accepted certificate",
+    "70": "Scientific code exception or checker disagreement; no accepted certificate",
+    "75": "Shared BudgetStop or MemoryError; no accepted certificate",
+    "77": "Missing/refused genuine admission; science worker MUST NOT have started",
+    "124": "External whole-job timeout/kill; no accepted certificate"
+  },
+  "currently_missing": [
+    "Genuine Driver's lawful currently authorized Task/proposal/claim route and canonical fresh receipt evidence",
+    "Exact new code/input/manifest-bound admission and correct permitted executor/session",
+    "A genuinely authorized launcher enforcing pre-interpreter whole-job clock/memory/output caps and external watchdog",
+    "New independent static review of the frozen candidate; old m7 mathematical PASS has no code-review authority"
+  ],
+  "required_launcher_steps_in_order": [
+    "Resolve and verify genuine current canonical admission/Task/claim/runtime/scope evidence by the real repository protocol, without an author-supplied authorization boolean or borrowed identity",
+    "Begin the one whole-job clock BEFORE interpreter startup, all imports/parse/hash/compile/preprocessing; install an independent 300-second watchdog, address-space limit <=512MiB and aggregate output ceiling <=8MiB before starting the dedicated worker",
+    "Inside that one clock and resource envelope, verify the admitted immutable candidate manifest SHA, every code/input SHA and source pin before any scientific module is loaded; never perform arithmetic preprocessing, import/compile tests, parameter samples or old checker work before permission",
+    "Set PYTHONDONTWRITEBYTECODE=1, disable science network access and use a new /workspace output directory; carry no generated coefficients or cached polynomial from another job",
+    "Load the admitted exact Budget definitions, construct ONE Budget using the original launcher monotonic start, and use this same instance for all input handling, producer, checker, serialization and output",
+    "Call only the frozen fixed workload once; output bytes are reserved against the same aggregate cap and must not also be duplicated in stdout",
+    "If complete, atomically emit the one result JSON and bounded launcher receipt, recording final whole-job wall/peak memory/primitive exact ops/combined output; result is limited to original trace on [7,8]",
+    "If killed, capped, denied, malformed, mismatched or exceptional, retain the genuine failure receipt and no accepted mathematical certificate; no retry, threshold/depth/interval/resource increase or new criterion follows automatically"
+  ],
+  "unchanged_total_limits": {
+    "primitive_exact_operations": 20000000,
+    "whole_job_wall_seconds": 300,
+    "address_space_bytes": 536870912,
+    "combined_output_bytes": 8388608,
+    "integer_bits": 16384,
+    "subdivision_depth": 4,
+    "subintervals": 16,
+    "degree": 56,
+    "rational_coefficients": 912
+  },
+  "failure_semantics": {
+    "denied_or_missing_admission": "DO_NOT_INVOKE",
+    "resource_limit_or_external_kill": "BUDGET_STOP_NO_TRACE_SIGN_CONCLUSION",
+    "input_code_source_mismatch_or_checker_error": "FAILED_NO_ACCEPTED_CERTIFICATE",
+    "all_coefficients_rechecked_but_some_nonpositive": "CANNOT_CERTIFY_THIS_FIXED_PLAN_NO_TRACE_COUNTEREXAMPLE",
+    "all_912_strictly_positive_and_rechecked": "FIXED_ORIGINAL_TRACE_GT_6_ON_ALL_OF_7_TO_8_ONLY; genuine independent verification and native workflow remain separate"
+  },
+  "no_implicit_authority": [
+    "Root Source-main window",
+    "Current seven-event direct-activity startup/checkpoint",
+    "Historical Parity Task/publication/run or old scientific checker",
+    "Old m7 combined mathematical PAPER_PASS",
+    "An input allow_run/admitted/authorized boolean",
+    "The existence of this code or same-author checker"
+  ],
+  "scientific_result_generated": false,
+  "Native_acceptance_or_Task_completion": false,
+  "parent": "OPEN"
+}
