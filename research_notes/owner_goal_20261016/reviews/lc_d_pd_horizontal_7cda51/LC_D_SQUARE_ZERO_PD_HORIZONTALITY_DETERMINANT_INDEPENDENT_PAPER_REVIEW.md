@@ -1,0 +1,81 @@
+# Independent review of the actual square-zero log-PD comparison
+
+Reviewer EM-PUBLIC-7CDA51, actual Researcher SID MCP-9030ae3a22074e3dbc31679b7090f6b0 / RA-6665DBCD10BC1C3E4DED3C04. Directed NONBLIND genuine nonauthor of this new proof. All prior Public129, CONTROL/CI, T6/P11, Parity author/reviewer, CM24 and LC reviews remain disclosed. I supplied no prefreeze construction or repair and ran no scientific program. This is a new paper assessment, not a Native Driver vote.
+
+Verdict: **PAPER_PASS, zero must-fix findings**, at the explicit algebraic finite-level and literal compatible free-module-tower scope below. The new argument identifies the displayed square-zero crystalline comparison with the actual Cartan connection, derives horizontality for canonical crystalline Frobenius along the specified logarithmic derivation, and proves det M=p for the specified compatible integral matrices. It does not give a comparison with a separately named formal/completed crystalline object, a general higher-direct-image crystal theorem, or a global functional/sign result.
+
+## Exact intake, actual Source and independence
+
+The new author object is LOG_PD_FIRST_ORDER_COMPARISON_FROBENIUS_AND_DETERMINANT_AUTHOR.md,19244 bytes, SHA25632d6cb01b19e6906eb689e0862928f189f25f2f8bc03468d5697b26dac1c9984, Git blob73dd00d11fb8346b15a4c185a0b79a6f113ca45e. Its3983-byte scope document and9198-byte typed interface complete the new three-member32425-byte unit. The original1609-byte handoff SHA256bbf5eab413cef6fc9168d47f2c4e18d28b54709fd404b611ca904cf1fa3523d7 was fully verified before mathematical reading. All three original bodies were personally read and remain unchanged, including their historical UNREVIEWED status.
+
+The author's subsequent actual publication is Source09cf0b047c06b650b146200630cad1b03cdd8df2 under research_notes/owner_goal_20261016/lc_d_crystalline_stratification_horizontality_4a56e9/. I independently fetched ALL THREE complete immutable Source bodies through the managed connector, checked arguments/URLs, and verified exact byte equality, lengths, SHA256 and Git blobs against my original frozen intake. Own complete responses and the full gate are in source/. The author's publication/self-check is not my scientific verdict or my API call.
+
+My actual own Source RA/SID were freshly read at6ca223e3a2db83bbe356f400d6e6497be019db16 and matched my real current21 record. The original helper's startup gate passed with activity/persistence true, debt empty and all formal-authority flags false. Root explicitly authorized this new direct paper scope while the already Source-persisted code-review unit's own22 semantic event awaited its separate window; no local helper append was pending. That different code-review event does not contain this new LC proof. This is direct TASK_RESEARCH paper permission, not a registered scientific-run grant.
+
+The six exact earlier author/reviewer dependency bodies total99853 bytes and were checked against the typed pins. I personally fully consumed their actual Source bodies in the preceding distinct reviews; those observations are reused honestly here, not called six new network requests or six independent reviewers. Their roles are: matched finite-level HK comparison; canonical central graph injection/Frobenius; actual proper basis, ordinary H1 specialization and chosen-derivation Cartan residue. The new PD comparison/horizontality is not imported from those earlier PASS verdicts. F736/Root/other saved source-geometry contributors retain their original ownership;4A56E9 is the new proof author.
+
+## Primary theorem actually used
+
+I reverified the COMPLETE shared Hyodo-Kato1994 PDF1867725 bytes/SHA256220873e91f89094d14f1a82631c6887a40ec362139990928236ca0525b1050cf and layout text123268 bytes/SHA25607202df784b3bf5a35b41e00d3e545a560450d2e041250c98a834fe52da6551a. This is the original shared retrieval, not my new download; the earlier partial PDF is not used. I personally read the selected site/PD-envelope/embedding definitions,2.20, compatible embeddings2.21, flatness2.22 and actual2.23, and viewed the printed238–240 diagram/formula images. In particular the tensor in2.23 is derived, the RADICIAL condition is on the BARRED base map, the upper square must be cartesian, and the lower vertical immersions are exact with PD-subideals. I apply those actual conditions, not a remembered base-change slogan. No HK2.24/5.1 isogeny application is needed.
+
+Fix precisely p=13 or19 modulo24, Rn=Z/p^n, An=Rn[[t]], coefficient Frobenius identity, the literal proper semistable cubic and its actual log structure over N->t. The chosen nu in Zp satisfies nu²=-3 with the saved ordered split branches. Since p>3,2nu and12 are units. The central base is the standard log point N->0; it is not replaced by a trivial log point. The old ordinary basis is the actual proper Cech pair e=(omega,eta), not affine meromorphic forms treated as proper classes without their correction.
+
+## The mixed PD base is integral and its maps are flat
+
+For E=An[epsilon]/epsilon² and J=(p,epsilon), the displayed formula for Gamma_m(pa+epsilon b) is the sum of the canonical divided power of pa and epsilon b times its previous divided power. It is obtained first over Zp[[t]][epsilon]/epsilon² with trivial higher divided powers on the square-zero summand. The p-integral coefficients p^j/j! exist for every j; the mixed term has the corresponding exponent j=m-1. Reducing modulo p^n is legitimate because(p^n) is a PD subideal: its divided powers retain at least p^n, including the mixed square-zero terms. Thus no choice of lift of a p-torsion coefficient changes the result. The PD identities descend, J is nilpotent and its divided powers are locally nilpotent; v_p(p^j/j!) tends to infinity. For n=1 it reduces to the expected square-zero divided powers. No division by p is introduced.
+
+The closed immersion Sbar->S_epsilon is strict/exact and defined by J, not just(p). For every integer lambda the coefficientwise explicit ring substitution t->t(1+lambda epsilon) equals a+lambda epsilon delta(a) on a(t), with delta=t d/dt. It is a genuine ring map on all power series: each coefficient of a product is a finite sum. No claim that all algebraic derivations are continuous or that Omega_An/Rn is freely generated by dt is used. The associated log-unit twist is multiplicative and compatible with the structure map. The notation for its first-order logarithm is just a square-zero unit rule, not a choice of analytic logarithm.
+
+The map preserves the canonical PD structure on(p) and reduces to the identity on BOTH the ring and log structure of Sbar. Inclusion An->E followed by the explicit automorphism t->t(1+lambda epsilon), epsilon->epsilon gives this map; the inverse uses1-lambda epsilon. Its module pullback is therefore finite free of rank2. This remains true when lambda is divisible by p.
+
+In the actual HK2.23 diagram the top and barred maps are identities, so the upper square is cartesian and the barred base map is radicial. The two lower closed immersions have exactly the PD ideals J and(p). The original log morphism X->Sbar is smooth integral, and the structure crystal is flat. The pulled-back log-smooth lifts have PD envelope equal to themselves, since X is cut out by the inherited BASE ideal. These facts justify beta_lambda: E tensor_(An,f_lambda)^L Dn -> D_epsilon as an isomorphism.
+
+Globalization uses the same finite separated affine cover of the explicit log-smooth lift and its pullbacks. The log de Rham terms are flat and the bounded Cech calculation gives the claimed global derived tensor comparison. Flatness of f_lambda then permits ordinary H1 pullback. This is a particular verified comparison, not an assumed general theorem that every higher direct image is a crystal.
+
+## The comparison gives exactly the Cartan operator
+
+Choose local logarithmic lifts Di of delta. At uv=t, Di(u)=u and Di(v)=0 is compatible with the base; strict smooth charts and etale lifting provide the others. The pullback ring map b->b+lambda epsilon Di(b) is E-linear FROM the f_lambda presentation TO the f0 presentation, because its value on a base coefficient is f_lambda(a). The log map multiplies m by1+lambda epsilon Di(log m); at the base generator the multiplier is precisely the required1+lambda epsilon. It reduces to identity on X and preserves the base PD ideal. These are actual embedding-system morphisms, not fictitious global scheme Frobenius lifts.
+
+HK2.20's canonical comparison, together with2.21's compatible embedding morphisms, therefore computes T_lambda=beta0^(-1) beta_lambda by these local pullbacks. Their epsilon coefficients on functions/forms are Di and Lie_Di. Descent must still be checked. With alpha_j-alpha_i=d beta_ij and Vij=Dj-Di, the correction is exactly
+
+    alpha'_i=Lie_Di alpha_i,
+    beta'_ij=Di beta_ij + iota_Vij alpha_j.
+
+I independently checked the sign: subtracting the two Lie derivatives gives d(Di beta_ij+iota_Vij alpha_j). The relative log complex has rank1, hence d alpha_j=0. On triples the two extra terms are Vij(beta_jk) and iota_Vij(alpha_j-alpha_k), which cancel. A changed total coboundary gives the coboundary Di f_i; a changed lift Di+Wi changes the result by the coboundary iota_Wi alpha_i. The first-order Cartan homotopy is the compatible local comparison for the two lifts; it descends to the canonical crystalline map, with no unaccounted global endomorphism. Etale refinements do not require a bounded etale nerve: these degree-one and triple identities are the relevant descent computation.
+
+Consequently T_lambda(f_lambda^*v)=f0^*v+lambda epsilon f0^*(nabla_delta v) for every actual class, with the correct delta-Leibniz rule on variable coefficients. In the row basis e this is I+lambda epsilon B(t). This is the genuinely new connection comparison; the old Cartan formula alone would not have proved it. Its scope is this displayed square-zero family and the chosen delta, not all PD thickenings or all independently defined connections.
+
+## Frobenius square and the factor p
+
+Theta on E fixes epsilon and Rn and sends t to t^p, with log generator multiplied by p. It preserves the mixed PD formula. Grouping series by their exponents modulo p proves it finite free of rank p over Rn[epsilon]/epsilon²; theta on An has the analogous free basis. Modulo J it lifts the genuine absolute Frobenius of Sbar. It need not be absolute Frobenius modulo(p) alone, where epsilon is still present; the paper correctly uses J.
+
+The exact base identities are f_lambda^* theta^*=Theta^* f_(p lambda)^* and the lambda=0 identity. On t both sides give t^p(1+p lambda epsilon), and on the log-unit twist the same relation follows from(1+lambda epsilon)^p=1+p lambda epsilon. Keeping f_(p lambda), rather than incorrectly using f_lambda on both sides or scaling epsilon through a nonflat map, is essential. Every comparison for which ordinary H1 tensor is invoked here is flat.
+
+Absolute log Frobenius of X and the PD-base lift define the actual semilinear crystalline map, linearized as Phi_n:theta^*Hn->Hn. This construction does not require an absolute/smoothing scheme Frobenius on Y_n. Nor does it require the absolute-Frobenius square of X over Sbar to be cartesian: that map is a functorial cohomology map, whereas the HK base-change isomorphisms beta_lambda use the separate cartesian identity squares just verified. Flat theta justifies the ordinary H1 linearization.
+
+Functoriality of those beta maps with Frobenius gives the genuine commuting diagram. Under beta0, the auxiliary map's matrix is the original M(t); comparing the lambda presentations gives, for lambda=1,
+
+    (I+epsilon B(t)) M(t(1+epsilon))
+           = M(t)(I+p epsilon B(t^p)).
+
+Thus the coefficient is delta M_n+B M_n=p M_n theta(B), with the stated order/sign and factor p. It is an equation for the actual canonical finite-level map in the proper basis, not a horizontal matrix chosen by solving an ODE. Integrality of M_n follows from that actual map between the proved free modules; it is not inferred from an isogeny theorem.
+
+## Central factor and determinant, including p-torsion boundaries
+
+Specialization is the actual Frobenius-natural ordinary H1 arrow already established. Hence M_n(0) acts on the same specialized basis, fixing kappa=omega+eta because kappa=2nu j_n(1), the graph map fixes constants and coefficient Frobenius is identity. No assertion nu^p=nu modulo p^n is used.
+
+Since delta annihilates the constant coefficient, horizontality specializes to N M_n(0)=p M_n(0) N. In the basis(kappa,eta), N has sole nonzero entry N12=1/12 and the first column of M_n(0) is(1,0). Write M_n(0)=[[1,b_n],[0,d_n]]. Comparing the12 entries gives d_n=p because12 is a unit. This works over every Rn without cancelling p or passing to a field; for n=1 the determinant is correctly zero. It proves the exact central determinant p, leaving b_n unspecified.
+
+Canonical maps, their reductions and the actual compatible bases give compatible matrices. Taking their literal coefficientwise limit gives M in Mat2(Zp[[t]]): a compatible sequence of coefficients determines one Zp coefficient at each exponent. Likewise the literal module limit is A² in these specified bases. This does NOT exchange cohomology with Rlim or identify a different formal/completed site.
+
+For d=det M the adjugate identity, valid without invertibility, yields delta d=d[p tr(theta B)-tr B]=0. The actual saved matrix B has trace zero. Writing d=sum d_j t^j gives j d_j=0. Over torsion-free Zp each nonzero integer j is a nonzerodivisor, so all j>0 coefficients vanish; the known constant is p. This torsion-free limit step is necessary: delta d=0 at an isolated finite Rn would allow nonconstant p-power-exponent terms and would not justify the conclusion.
+
+Therefore det M=p and the inverse of the LINEARIZED map is adj(M)/p in Mat2(A[1/p]), with a uniform single-p denominator bound. A[1/p] is not silently identified with all Qp[[t]]; extending to the latter ring is legitimate. Likewise invertibility of theta^*H[1/p]->H[1/p] is not a claim that the semilinear map is additively onto when theta(t)=t^p is not surjective. The explicit dual convention G=(M^T)^(-1) then has determinant1/p on this same realization. No cup-product normalization, general isogeny theorem or extra scalar choice is used.
+
+## Scope of this verdict
+
+The actual new results are the first-order PD/Cartan identification, its canonical Frobenius horizontality, the central complementary factor p, and determinant/inverse bounds for the literal compatible free-module tower in the fixed basis. Prime/coefficient/log-base/branch/frame changes must transport the stated inputs explicitly. The off-diagonal extension, saved global functional/mu and global sign remain unknown.
+
+No all-thickening higher-direct-image crystal theorem, independent formal/completed-site comparison, Rlim/p-inversion-cohomology exchange, dagger/gluing, unrelated frame, cup product, whole LC A-C/D, or parent closure follows. A later consumer using precisely this literal tower can consume the proved identities; one naming another realization still owes its comparison. The old nonextendable representative remains consistent: actual crystalline Frobenius need not arise from that failed global scheme lift.
+
+The original author files and metadata are unchanged. Source custody, static metadata/hash/guard operations and shared primary viewing are distinct from scientific programs; zero numerical/symbolic consumers, tests, enumerations, Native votes, Task/claim/open or fixed233 preparation were performed. Old fixed233 remains STOP2165/2100 with no recovered budget. This one new PAPER_PASS is not a new Tool or a general theorem about arbitrary families. Mother Goal remains OPEN.
