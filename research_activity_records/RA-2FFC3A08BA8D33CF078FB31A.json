@@ -7,7 +7,35 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "d3689e1f5d35a4b64e27098aef20aee95f9bc11f",
+          "path": "tools/research_activity.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "91afe0d35f887b9c457e7adfea3d465fb723bc9e4da91a0ccf0483983f9d6df2",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "95de1f292f93d30d8744200e06c002202dd8997a",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/d3689e1f5d35a4b64e27098aef20aee95f9bc11f/tools/research_activity.py",
+            "kind": "OBSERVED_MCP_GITHUB_API_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "ACTUAL-GH-REST-CONTROL-CANARY-df68e2688b67e9bb66b7596c3069a9a87968e85916d40eea06be6ba1598731db",
+            "server_signature_authenticated": false,
+            "tool_name": "em_mcp_github_contents"
+          },
+          "verification_receipt": "research_activity_records/RA-2FFC3A08BA8D33CF078FB31A/readbacks/29b707c7deefe3aa0a7e8292cec72d9f649f9e28e07ed8e54c2274329312f4c7.json",
+          "verification_receipt_sha256": "29b707c7deefe3aa0a7e8292cec72d9f649f9e28e07ed8e54c2274329312f4c7"
+        }
+      ],
+      "event_id": "control-deploy-pr30-canary-d3689e1f5d35-6f2a9b",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-10-16T08:31:07.842694+00:00",
   "registration_key": "session:MCP-ededfe1c4a714a90998cdf131713f58b:TASK_RESEARCH",
