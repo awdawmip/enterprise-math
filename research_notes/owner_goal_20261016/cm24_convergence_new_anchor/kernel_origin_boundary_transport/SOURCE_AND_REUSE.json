@@ -1,0 +1,146 @@
+{
+  "schema": "CM24_THETA_KERNEL_TRANSPORT_SOURCE_REUSE_REVIEW_INPUTS_V1",
+  "author": "EM-DIRECT-88303D",
+  "session": "MCP-80ce72c19cb84e508513c39e73540a9c",
+  "activity": "RA-1E650208FBE6654C7D59AB55",
+  "logical_conversation": "codex-cm24-convergence-new-anchor-20261016-v1",
+  "platform_attested": false,
+  "registration": {
+    "current_Source": "bf16c05c4ba6a885ed368458da7bc8ad4f61da7f",
+    "path": "research_activity_records/RA-1E650208FBE6654C7D59AB55.json",
+    "bytes": 11897,
+    "sha256": "110bd50c9fb53a85027fdf1c7d79b550dac07e84917b4ee343c3c1ff36200091",
+    "blob": "24b28919efdbb229c03125118e9c3cb8cabab02b",
+    "actual_gate": "../boundary_exact_radius/OWN_SECOND_EVENT_COMPLETE_ACTUAL_GUARD.json",
+    "activity_allowed": true,
+    "sync_debt_events": [],
+    "prior_two_real_events_preserved": true
+  },
+  "inputs": [
+    {
+      "commit": "3981c60496c24a3c1567677726c136966522d8bf",
+      "path": "research_notes/CM24_RELATIVE_EXTENSION_REVIEWED_20261015_FBF223.json",
+      "bytes": 64794,
+      "sha256": "d1e55dc298ba80ae1b19c69be1572ba6e5f14e5f9655c589597b556a95ccba9a",
+      "blob": "c8c13a14239308110e171eb063772ac184018b7f",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/3981c60496c24a3c1567677726c136966522d8bf/research_notes/CM24_RELATIVE_EXTENSION_REVIEWED_20261015_FBF223.json",
+      "actual_full_readback": "../readbacks/CM24_RELATIVE_EXTENSION_REVIEWED_ACTUAL.json",
+      "role": "Exact fixed source lift and full baseline; primary sections1-3,5, no actual source-compatible comparison asserted.",
+      "consumed_primary_members": [
+        {
+          "filename": "CM24_RELATIVE_BOUNDARY_EXTENSION_COCYCLE_AND_FROBENIUS_OBSTRUCTION_PREFLIGHT_V2_20261015.md",
+          "bytes": 17493,
+          "sha256": "a7d92b1f1af9defd1674e379dadab796ee82a40a808ca1cdb63187e35f27d780",
+          "git_blob_sha1": "7730d50a91ab4177d543a9dae67befb61022985a"
+        }
+      ]
+    },
+    {
+      "commit": "3981c60496c24a3c1567677726c136966522d8bf",
+      "path": "research_notes/CM24_KUMMER_KERNEL_REVIEWED_20261015.json",
+      "bytes": 58579,
+      "sha256": "930f6de7a472ad1ef7e6a5520d44beab1b703cc98eba6342fb7ab264c26a4090",
+      "blob": "377f659890b7efd9876fa4d5c00cf1665cf2caeb",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/3981c60496c24a3c1567677726c136966522d8bf/research_notes/CM24_KUMMER_KERNEL_REVIEWED_20261015.json",
+      "actual_full_readback": "../readbacks/CM24_KUMMER_KERNEL_REVIEWED_ACTUAL.json",
+      "role": "Consumed kernel, integral Qb, algebraic residue lemma, weak-log convergence. Old raw r^p normalization not Taylor-imported.",
+      "consumed_primary_members": [
+        {
+          "filename": "CM24_BOUNDARY_KERNEL_KUMMER_CLASS_AND_GRADED_FROBENIUS_20261015.md",
+          "bytes": 14956,
+          "sha256": "e364fcaa5b5d49d4e5ab6f97f47d34b554289c043583290e20b25f521e59ae85",
+          "git_blob_sha1": "63d720fb43e80636e75840d3dfb9fe92098ac32e"
+        }
+      ]
+    },
+    {
+      "commit": "3981c60496c24a3c1567677726c136966522d8bf",
+      "path": "research_notes/CM24_LOG_RESIDUE_GRADES_REVIEWED_20261015.json",
+      "bytes": 62962,
+      "sha256": "344261810f30a898fe12e664acce79142973d998b48400ee7823c13f05b6c4cc",
+      "blob": "02a2cd1ad6228d98e7275babdd289fcf445663d8",
+      "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/3981c60496c24a3c1567677726c136966522d8bf/research_notes/CM24_LOG_RESIDUE_GRADES_REVIEWED_20261015.json",
+      "actual_full_readback": "../readbacks/CM24_LOG_RESIDUE_GRADES_REVIEWED_ACTUAL.json",
+      "role": "Actual theta(t)=t^p, full formal grades lambda=mu/p^2 and free eta, normalized residue family only.",
+      "consumed_primary_members": [
+        {
+          "filename": "CM24_FULL_EXTENSION_LOG_RESIDUE_FORCED_GRADES_AND_FORMAL_CLASSIFICATION_20261015.md",
+          "bytes": 13743,
+          "sha256": "e17688c59f6d59f4611cbcd0bb518483fa381b2526d3ee82bec3dd61eb75cf5c",
+          "git_blob_sha1": "d7969cc9c14dcc6600e12d6c17e8481c9540baf5"
+        }
+      ]
+    }
+  ],
+  "scope_and_dedup": {
+    "old_raw_kernel_scope": "Old Kummer sections4-5 already give r^p lift, mod-p localization and weak-log growth. Those general mechanisms are REUSE_APPLIED, not new tools.",
+    "new_difference": "Actual theta shift gives a different cancelled ratio regular at r1; two endpoint comparison constants are retained and related. New harmonic qstar, explicit polynomial-log constant classification and exact first-precision source-residue criterion.",
+    "old_open_and_boundary": "Own9897B Source d35fb1abc3d459a9363144aabf9ee41b51fcb481 and9907B Source597d1d3d7e9f383ab431b3a9e6934be410c5b5a8 remain unchanged and are not logical inputs to this kernel proof. Their BFF6DC/7CDA51 PAPER_PASS verdicts do not cover it.",
+    "accepted_legacy": "HesseP3 RR-AA50A881C6A2DD42BDD3/DR-835110A810EFA980FC97 terminal ACCEPTED, ad_R^4=0 and old local-radius proofs consumed only; no reopening.",
+    "LC_D": "Separate BFF direction; no finitelevel LC-D work duplicated.",
+    "novelty_limit": "Bounded exact old-input dedup only, no archive/literature novelty assertion."
+  },
+  "tool_reuse": {
+    "initial_before_new_direction_lookup": "../DAGGER_RING_UNIT_TOOL_COVERAGE_ACTUAL.json",
+    "refined_actual_query": "../KERNEL_TRANSPORT_TOOL_COVERAGE_ACTUAL.json",
+    "metadata_Source": "bf16c05c4ba6a885ed368458da7bc8ad4f61da7f",
+    "metadata_full_connector_readbacks": [
+      "../readbacks/KERNEL_COVERAGE_PIN_0_ACTUAL.json",
+      "../readbacks/KERNEL_COVERAGE_PIN_1_ACTUAL.json",
+      "../readbacks/KERNEL_COVERAGE_PIN_2_ACTUAL.json"
+    ],
+    "metadata_blobs": [
+      "3889506451091ebcfbf7a58cda6517c4af8c3597",
+      "9289039bc689c638fbef10f9f4489e3793e999f0",
+      "56ad1ee65527f28065d6aec89a802a8e029f0c6e"
+    ],
+    "actual_local_bytes_equal_remote": true,
+    "returned_ids": [
+      "recent.lsr_n2.kernel_readout",
+      "t0.weighted_brc_feedback_interaction",
+      "t0.weighted_brc_moment_transfer",
+      "t0.weighted_brc_recurrent_port_collapse",
+      "t1.triaxial_directional_defect",
+      "candidate.x6.one_positive_raw_stability_certificate",
+      "candidate.x6.positive_support_raw_compression_certificate",
+      "candidate.x6.quadratic_shell_max_shortest_length",
+      "domain.diagonal_translation_quotient_normalization",
+      "logic.triangular_gauge_normalization",
+      "relation.capacity_lattice",
+      "result.x6.weighted_minimum_trade",
+      "module:collision_tick_window",
+      "module:heartbeat_peak_kernel",
+      "module:heartbeat_weighted_kernel_lift",
+      "module:scale_motion_constraints",
+      "module:state_pair",
+      "module:tetrahedral_endpoint_sum",
+      "module:weighted_relation_field",
+      "module:_cell_slice_codec",
+      "module:_triaxial_directional_defect_core",
+      "module:a3_a4_support_bridge",
+      "module:action_language_precision",
+      "module:adaptive_precision"
+    ],
+    "resolution": "COMPOSE_APPLIED",
+    "match_resolution": "Triangular gauge schema handles recursive mod-q normal forms, not p-adic endpoint logs; other listed matches concern finite native/BRC cardinal/positive support or relation/capacity and do not implement this signed characteristic-zero comparison ODE. They are NOT_APPLICABLE within their hard boundaries. Existing exact Kummer gauge/log/residue mechanisms and elementary harmonic identities are actually composed.",
+    "new_tool_family": false,
+    "scientific_execution": 0
+  },
+  "semantic_typing": "P000/Heartbeat native X6 remains the required project substrate; r,t,K and differential modules are explicitly external arithmetic observers, not reduced native axes or physical time. Kernel restriction is a stated necessary observer; all full baseline/source terms remain preserved. No positive-support BRC theorem is promoted to signed cancellation.",
+  "peer_assignment": {
+    "by": "Root",
+    "agent": "/root/public129_formal_env",
+    "Researcher": "EM-PUBLIC-7CDA51",
+    "mode": "Genuine distinct NONBLIND new bounded paper review AFTER freeze; no construction requested or supplied before freeze.",
+    "new_scope_verdict": "PENDING",
+    "old_history": "Her boundary11933B report and all Public/P11/parity/control/compact histories remain scoped; old PASS is not this review."
+  },
+  "Task_Goal": {
+    "formal_Task_id": null,
+    "Task_publication_claim_or_Native_vote": false,
+    "mode": "Direct TASK_RESEARCH with own actual session/activity",
+    "parent_Goal": "OPEN; no invented Goal locator or closure"
+  },
+  "Source_new_unit_written": false,
+  "scientific_program_runs": 0
+}

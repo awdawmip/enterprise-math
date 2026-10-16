@@ -1,0 +1,41 @@
+{
+  "schema": "CM24_THETA_KERNEL_AFFINE_TRANSPORT_INTERFACE_V1",
+  "author": "EM-DIRECT-88303D",
+  "primary": {
+    "filename": "CM24_THETA_KERNEL_ORIGIN_BOUNDARY_AFFINE_TRANSPORT.md",
+    "local_path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/cm24_convergence_new_anchor/kernel_origin_boundary_transport/CM24_THETA_KERNEL_ORIGIN_BOUNDARY_AFFINE_TRANSPORT.md",
+    "repository_path": "research_notes/owner_goal_20261016/cm24_convergence_new_anchor/kernel_origin_boundary_transport/CM24_THETA_KERNEL_ORIGIN_BOUNDARY_AFFINE_TRANSPORT.md",
+    "bytes": 9986,
+    "sha256": "d97bd31e52026973e1b27548362b1708e5212b82a587edc6c5bc17264095ea3b",
+    "git_blob_sha1": "b15d7042e546ed2b6b0c90121d783296724a7ea0"
+  },
+  "hypotheses": [
+    "Original prime p congruent13or19mod24; N=(p-1)/2; O unramified complete DVR with Witt sigma, K=O[1/p]",
+    "The exact fixed lift g in O, s0=1-2g, Hb=g(1+x^N)+(s0/5)(4x+x^(N-1)); no replacement baseline",
+    "Kernel zprime=0,Vprime=d z with d=-(8r^p-4r)Hb(r^2)/(1-r^2)",
+    "Actual lift phi(r)=1+(r-1)^p; coefficient sigma and solution-transport direction fixed"
+  ],
+  "new_results": {
+    "explicit_comparison": "For every lambda in K^x,k in K: Phi=[[p lambda,0],[lambda(pQb-sigmaQb(phi)-2L)+k,lambda]], L=principal log((2+t^p)/(2+t)^p), t=r-1. determinant p lambda^2.",
+    "two_germs": "Same explicit principal-log series gives L(0)=0 and regular boundary L(1)=log(2^(1-p)); endpoint evaluation is only for specified cancelled expressions.",
+    "classification": "Constants of faithful polynomial-log differential algebra K(r)[L] are K, by residue -p at r=-1. Every regular local boundary solution of the fixed scalar comparison ODE has exactly one representative here.",
+    "affine_law": "eta=k+lambda[p qstar-sigma(qstar)-2log(2^(1-p))], qstar=Qb(1).",
+    "finite_formula": "qstar=2[g A_p+(1-2g)B_p], A_p=H_N+2H_(p-1), B_p=(8H_(N+1)+2H_(p-2)-4-H_(N-1))/5.",
+    "first_precision": "For full formal grades lambda=mu/p^2, mu=+/-1, Delta=eta-k: v(Delta)>=-2; v(Delta)>=-1 iff (9h+24)gbar=7h+12 with h=H_N modp. Failure implies exact valuation -2. If9h+24=0, no gbar passes; otherwise only gcrit=(7h+12)/(9h+24) in Fp passes."
+  },
+  "normalization_quantifiers": [
+    "k is a comparison-matrix constant, not the source primitive value V(0).",
+    "If an independent full/source-compatible ordinary-origin comparison supplies k=0, then eta is explicitly determined.",
+    "If both k=0 and eta=0 are imposed, the exact condition pqstar-sigma(qstar)=2log(2^(1-p)) is necessary and sufficient within the declared kernel family; its modp test alone is only necessary.",
+    "Free k allows every eta; no actual source-functional or geometric constant is selected."
+  ],
+  "not_claimed": [
+    "Full proper/global/geometric Frobenius comparison or source realization",
+    "Identification of full comparison ordinary-origin value with this k without compatible restriction/endpoint maps",
+    "Choice of mu,c,xi,eta or Y/target values from source primitive V(0)=0",
+    "Full unpunctured/punctured good-locus dagger theorem, Native acceptance, new Task or Goal completion"
+  ],
+  "scientific_programs": 0,
+  "peer_status": "PENDING_DISTINCT_NEW_REVIEW_NOT_OLD_PASS",
+  "parent_Goal": "OPEN"
+}
