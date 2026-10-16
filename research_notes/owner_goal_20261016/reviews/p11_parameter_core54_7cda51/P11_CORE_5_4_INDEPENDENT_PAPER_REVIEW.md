@@ -1,0 +1,51 @@
+# Independent paper review: the new P11 core (5,4)
+
+Reviewer EM-PUBLIC-7CDA51, actual Researcher SID MCP-9030ae3a22074e3dbc31679b7090f6b0 and RA-6665DBCD10BC1C3E4DED3C04. This is a separate genuine nonauthor paper audit under Root's explicit delegation. All prior histories and NONBLIND shared context remain disclosed. I supplied no mathematical construction or repair for this manuscript. This is not a Native Driver vote, a scientific run, a claim on the official fixed-(233,119) certificate Task, or a transfer of the old (11,8) three PASS reports.
+
+The complete reviewed author input is P11_CORE_5_4_RANK_ZERO_CASSELS_PAPER.md, 10886 bytes, SHA256 4a27760e1061b6bf5ad3dafc182726d1a5c61eed4dc8d20e118570229078298e, Git blob 0c900110951445dbb5a53dcaf772166f3d0d8ca0, authored by EM-DVR-F73673. Input class is frozen local author paper pending new Source publication. Full Source binding must be added after actual publication, without changing this review's original bytes.
+
+Assessment: PAPER PASS for this exact new core's complete Selmer space, rank zero and two-primary Sha conclusion, conditional on the explicitly identified standard full-descent and Cassels–Tate source theorems whose applicability is checked below. The new local-image lemma was separately audited from its whole frozen input in P11_PARAMETRIC_LOCAL_IMAGE_INDEPENDENT_PAPER_REVIEW.md. No arithmetic program, enumeration, factorization search, matrix checker or scientific invocation was used.
+
+## Exact model and full Selmer intersection
+
+The handwritten identities give A=9,B=40,P=49,Q=31 and D=2401-961=1440=2^5*3²*5. The prime support is exactly {2,3,5,7,31}; the factor P=7² is retained rather than treated as a squarefree parameter. The curve is nonsingular, with root order (0,2401,961).
+
+The independently checked parameter lemma gives vertical full images at 2,3,5 and full unramified-unit-pair images at 7,31, since these last primes are 3 modulo 4. The real first coordinate is positive. In signed support coordinates for the first class, infinity removes -1, the dyadic image removes 2, the images at 3 and 5 remove their own valuation bits, and unramified images remove 7 and 31. Every bit is zero, so the first global class is exactly 1. For the second class only the 7 and 31 valuation bits are removed. Conversely every signed product of 2,3,5 has the required local images everywhere: at the vertical places its first class is already 1, at 7 and 31 it is a unit class, and at every other odd prime both classes are unramified. Thus this is an equality with the full 2-Selmer group, not only a dimension bound:
+
+W={(1,b,b): b in span(-1,2,3,5)}, dim W=4.
+
+The distinct signed rational prime classes are independent. The exceptional full Kummer convention gives the rational torsion classes (1,-1,-1) and (1,10,10), since D=12²*10. They are independent. With K their span, U=(1,2,2) and V=(1,3,3) are independent modulo K: in the basis (-1,2,3,5), the torsion vectors are the sign bit and the sum of the 2 and 5 bits, while U and V add the 2 and 3 bits. Therefore K,U,V span all of W. This independence was checked for the new input, not inferred from the previous core.
+
+## Source formula, covering coordinates and tangent scaling
+
+I reused the actual versioned primary sources already fully consumed in the prior history and reread their relevant model/formula statements for this new input: Fisher–Schaefer–Stoll arXiv0710.2079v1, PDF SHA256 70c46caaf9b6a34efc65e341a610afc62b5ca3e7591ee3ec133287c4b78f32b4, and Shukla–Stoll arXiv2302.01640v1, PDF SHA256 f84fee9a3cd3e2e37aee1c0b41f08296e88988a5f1142c5911b4d16762e408ce. The former allows the cubic with an x² coefficient. For the latter, x=X+(P²+Q²)/3 is an isomorphism over Q and every completion, including Q3; the fact that its coefficient has denominator 3 does not obstruct a Q3 isomorphism. Root differences and the split cover equations are unchanged.
+
+In the root order (0,P²,Q²), the cover for U is z0²-2zP²=P²t² and z0²-2zQ²=Q²t². The conic omitting z0 is 2(zQ²-zP²)=Dt² and has the stated rational point (719/2,721/2,1): the difference of the squares is 720 and twice it is D. The conic omitting zP has point (z0,zQ,t)=(Q,0,1), giving tangent proportional to Qt-z0; the conic omitting zQ has point (P,0,1), giving tangent proportional to z0-Pt. These are the second and third root factors and pair against V's second and third entries 3. The unused first tangent pairs against 1.
+
+Shukla–Stoll equations 3.9–3.10 give the product of these tangent evaluations against the corresponding second Selmer coordinates. Thus the relevant factor is (F(qv),3)v, F=(Qt-z0)(z0-Pt). Constants used to rescale a rational tangent are global rational constants; their global Hilbert product is one. Homogeneous rescaling of a local point also contributes a square to F. Therefore these convenient tangents do not silently change the global pairing. A local point on the unused tangent can be moved off its finite divisor on the smooth local cover without changing the nonzero F squareclass. No Hilbert symbol is evaluated at zero.
+
+FSS Theorem 5.2 and Shukla–Stoll Theorem 5.6 identify this full-descent pairing with Cassels–Tate on the Selmer image. In this elliptic setting it is alternating and bilinear and kills the rational Kummer image. This is the theorem being applied, rather than an unsupported inference from one Hilbert product or an isogeny pairing.
+
+## Independent local-factor checks
+
+At 3, -1/2 is the square unit 1 modulo 3. The simple residue root 1 has unit derivative 2, so an actual r with r²=-1/2 exists. The proposed point (0,49r,31r,1) satisfies both equations exactly. F=-49*31=-1519 is a unit with nonsquare residue 2. With second Hilbert argument the uniformizer 3, the symbol is -1.
+
+At 5, the manuscript deliberately avoids both unavailable shortcuts: 2 and -2 are nonsquares in the residue field. Taking z0=2,t=1 gives the two actual radicands -2397/2 and -957/2, both 4 modulo 5. Their residue root 2 has derivative 4, a unit, so each lifts independently. The common z0,t ensures that these two lifted roots solve the same cover point. F=(31-2)(2-49)=29*(-47)=-1363 is nonzero and a 5-adic unit. Both Hilbert arguments are units at this odd prime, hence the symbol is +1. This verifies the new point rather than importing the old core's chart.
+
+At 7, 3²=2 modulo 7, and at 31, 8²=2 modulo 31. Both residue roots are simple. Thus qv=(sqrt(2),1,1,0) is an actual point at both places, with F=-2. Both Hilbert arguments are units, giving +1. The same projective point over R has F=-2 and second argument 3 positive, hence real factor +1. The use of t=0 here is legitimate for these covering fields where 2 is square; it was not legitimate in the dyadic obstruction argument, where 2 is nonsquare.
+
+At 2, zP=88,zQ=92,t=1 gives w²=2401+2*88²=17889, a unit 1 modulo 8; the second equation follows from 17889-2*92²=961. Choose the root w congruent to 49 modulo 4. Then v2(w+49)=1, while (w-49)(w+49)=15488=2^7*121. Thus w-49=64k with k odd, not the opposite sign branch. Substitution gives 49k+32k²=121, so k=1 modulo 8. Hence w-49 is a square, and 31-w=-2(9+32k) has squareclass -2. The resulting F has class -2. The exact norm N(1+sqrt(3))=-2 proves (-2,3)2=+1. This resolves the sign at the actual new dyadic point; neither the old number 5017 nor the old dyadic radicand is used.
+
+For every other prime p, all of 2,P,Q,D,3 are units. The complete local image supplies a point on U's cover. Move off zero tangents and scale it to primitive integral coordinates. If p divides z0-Pt, then t is a unit: otherwise the cover equations would force z0,zP,zQ,t all divisible by p. Consequently z0+Pt is a unit, and (z0-Pt)(z0+Pt)=2zP² makes the valuation of z0-Pt even. The Q identity proves the same for the other tangent if it is a nonunit. Every nonzero tangent factor has nonnegative integral valuation after this scaling. Therefore v_p(F) is even, and (F,3)p=+1. This handles all remaining primes without a cutoff, including possible prime divisors of tangent values. It is not merely a claim that primes outside the curve discriminant automatically contribute one.
+
+All factors except the place 3 are +1, so the resulting pairing of U and V is -1.
+
+## Full radical, rank and two-primary conclusion
+
+Use the basis (T0,TP,U,V) of W represented by the two torsion classes above and the two complement classes. The rational torsion classes lie in the radical, and the U,V block has off-diagonal entry 1 over F2 and diagonal zero. Thus the pairing matrix has exactly that nondegenerate two-dimensional block, with radical K of dimension two. Equivalently, rank is at least two, radical dimension at most two, and the already known independent rational subspace K forces equality.
+
+The whole rational Kummer image lies in that radical, contains K, and therefore equals K. Mordell–Weil and full rational two-torsion give dim E(Q)/2E(Q)=rank+2, so rank is zero. This does not require finding a positive-rank point, proving a height saturation or assuming injectivity of torsion Kummer classes for a general parameter; the actual two torsion classes were checked independent for this core.
+
+The exact Kummer sequence then gives dim Sha[2]=4-2=2. Since radical equals rational Kummer image, the induced pairing on Sha[2] is nondegenerate. If a class c of order four existed in Sha, its nonzero double would pair trivially with every t in Sha[2], because <2c,t>=<c,2t>=0 in the Cassels–Tate target. That contradicts this nondegeneracy. Every element of larger finite 2-power order has a multiple of order four. Thus Sha[2-infinity]=Sha[2] is (Z/2)^2; no finiteness of the whole Sha group is assumed. Odd-primary Sha and full Sha finiteness remain outside the conclusion.
+
+The accepted diagonal interface may use rank zero to deduce finite rational points and hence finite primitive outputs for this core, but this report neither lists those outputs nor excludes odd torsion or isolated strict outputs. It does not assert a result for another core, every Euclidean parameter, the native spatial model, or the parent objective. The mathematical paper assessment is separate from later Source custody, ownRA persistence and any genuine Native acceptance process.
