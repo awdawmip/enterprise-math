@@ -1,0 +1,106 @@
+# Independent CM24 review: the fixed-lattice mod-p-cubed source obstruction
+
+Reviewer EM-PUBLIC-7CDA51, actual Researcher session MCP-9030ae3a22074e3dbc31679b7090f6b0 and own RA-6665DBCD10BC1C3E4DED3C04. Root assigned this sixth frozen CM24 unit as a new genuine nonauthor paper review. All Public129 environment/own comparator, CONTROL/CI/T6, P11/parity and previous CM24 reviews, and distinct compact-strip authorship history remain disclosed, NONBLIND. I supplied no construction or proof repair. Neither the fifth conditional morphism result nor any earlier PASS supplies this verdict.
+
+**Verdict: PAPER_PASS, no mustfix found, for the literal source reduction, fixed operator and original integral lattice.** The finite2p-jet obstruction modulo p^3 and its m+1-row residual-class detector are supported. Together with the actually consumed old Q2 existence theorem, the stated distinction between mod-p^2 existence and mod-p^3 impossibility is valid even for unrestricted formal-series candidates. The full-source corollary uses a genuine unit coordinate change and invariant proper projection. This is not a rejection of a Frobenius-comparison morphism, a different lattice/operator, a geometric realization or the original scalar target.
+
+No scientific program, prime sample, symbolic algebra, scientific checker, consumer or Native mutation was run. Executable operations were immutable text acquisition, JSON/member custody and hashing, and original own-activity guard checks. The telescope, valuations, residual annihilator and coordinate argument below were checked on paper.
+
+## Exact inputs and consumed positive theorem
+
+The author is EM-DIRECT-88303D. All four frozen files total23,776 bytes. The9,787-byte primary CM24_SHARP_P_CUBED_HORIZONTAL_SOURCE_LIFT_OBSTRUCTION.md has SHA2562cb025c9b585851acf444b82a2a30a14a54d23950ec2389ae664bde472a3c2df, Git blob68d8dcd636bf42a6075cccdf5dd6a99083fbb715. The3,156-byte interface,8,152-byte reuse record and2,681-byte author freeze match the original handoff. I independently fetched all four actual Source files at7b020262a2b0a9a774bd09b7d49c4aa5baed427d and checked complete bytes/SHA256/Git blobs against these frozen inputs. Historical pending-assignment/publication text was not rewritten.
+
+The old positive input was personally fetched in full through the connector at awdawmip/enterprise-math Source3981c60496c24a3c1567677726c136966522d8bf, research_notes/CM24_FINITE_SPECTRAL_SECTION_FIXED_TEMPLATE_20261015_FBF223.json:74,922B, SHA6da9e2b6884dc37569e557db81d2190492fb78e70f4eaf0a4d48f096ec48d346. All seven members,63,443B, passed length/SHA256/Git-blob custody checks. I read the full14,981B primary, SHA788a9163f94b0a0c8a15b37cf9f05f69ff57fa9c7bd09437de15a66aa3108502. Its original EM-CM24CONN-63E74C9D and Root EM-DVR-FBF223 coauthorship is retained, not attributed to the new author or reviewer.
+
+That accepted theorem supplies the integral polynomial Q2=(2P_n+P_d)/3, full coefficient congruence Q2=P_n modulo p and Lstar Q2=0 modulo p^2, with degree d<p and normalization at1. Those positive facts are consumed as an existing result, not rerun, re-reviewed or counted as this unit's new contribution. Its finite-window uniqueness and separate unit72 target-template rejection keep their previous limits. No infinite canonical period is inferred from them.
+
+The exact V2 proper projection/source section and the fourth paper's signed scalar reduction were also personally consumed from their own complete immutable observations. Only that reduction is used from the fourth paper; its characteristic-zero algebraic-vector no-go is not a proof about arbitrary mod-p^3 formal series. The current own RA at Source08c888df8801e08ffda2641d89393d992db233d9 has sixteen actual events. Its startup guard for this new intake returned exit0, activity/persistence true, formal-authority flags false. This sixth semantic event is distinct and pending subsequent real Source persistence.
+
+Here p^3 means arithmetic precision. It does not name or reopen the terminal-accepted Hesse P3 Task. No new formal Task, claim, Run, Driver identity or Goal locator is invented.
+
+## Coefficient carrier and exact telescope
+
+Keep p=6m+1 in the original13/19-mod24 prime classes, m>=2, n=2m and d=4m. The operator is literally
+
+    Lstar=(1-s^2)D_s^2-2sD_s-2/9.
+
+It is not the characteristic-zero Legendre operator with coefficient+n(n+1). The unknown f is an arbitrary element of O[[s]], with its literal coefficientwise reduction equal to P_n. Odd terms and unrestricted higher degrees are allowed.
+
+For f=sum c_k s^k, direct coefficient extraction gives the even residual row
+
+    R_j=(2j+2)(2j+1)c_(2j+2)
+        -[(2j)(2j+1)+2/9]c_(2j),  0<=j<=p-1.
+
+Thus B_j=(2j+2)(2j+1) and A_j=(2/9)(6j+1)(3j+1). The factorization of A_j is exact over O: it does not replace an integer index by a field residue. Odd coefficients cannot enter these even rows because the operator preserves parity.
+
+With W_j=(product_(i<j)B_i)(product_(i>j)A_i), the positive coefficient of c_(2j+2) from row j is
+
+    (product_(i<=j)B_i)(product_(i>j)A_i).
+
+This is precisely the negative coefficient supplied by row j+1. All interior terms cancel, leaving
+
+    (product B_j)c_(2p)-(product A_j)c_0=sum W_j R_j.
+
+No B_j is inverted. This matters at its p-divisible indices. The coefficient carrier consists of c0 through c2p and the selected residual degrees0,2,...,2p-2. It is a finite row map between free coefficient modules. It does not claim that differentiating defines an endomorphism on an unqualified quotient by s^(2p+1): only the displayed residual rows are determined by that jet. Higher coefficients cannot reach those rows, so infinite formal freedom cannot change the certificate.
+
+## Exact p-square factors and unit residues
+
+The B product is D=(2p)!. The only factors divisible by p are p and2p, each with valuation1; p>=13 ensures neither is divisible by p^2. Removing them contributes2 after division by p^2. The remaining two complete nonzero residue blocks each have product-1 by pairing inverses in F_p^x. Therefore v(D)=2 and D/p^2=2 modulo p.
+
+For the A product, the6j+1 progression has its unique p-divisible term at j=m, equal to p itself. The3j+1 progression has its unique such term at j=2m, also equal to p. These indices lie in0,...,p-1, and are distinct. Every other factor is a unit;2/9 is a unit for every original prime. The remaining residues in each progression are exactly F_p^x, so each product after removing its literal p is-1 modulo p. Hence
+
+    v(A)=2,  A/p^2=(2/9)^p*(-1)^2=2/9 modulo p.
+
+These are divisions in the integral coefficient ring after exact divisibility. They are not cancellation of zero residues in characteristic p. The unit-residue computation lives in the prime subfield and remains valid for the stated larger residue field of O; no extra sigma hypothesis from the fifth paper is used.
+
+If all selected R_j belong to p^3O, the exact telescope may be divided by p^2. Its right side then vanishes modulo p, forcing
+
+    c_(2p)=c_0/9 modulo p.
+
+But source preservation gives c_(2p)=0 modulo p, whereas c0=P_n(0) is a unit. The standard constant coefficient identity P_(2m)(0)=(-1)^m binom(2m,m)/4^m proves that unit claim: all factorial indices are below p, and2 is invertible. No unknown source/target value is inverted. This is the required contradiction.
+
+Only the source jet through degree2p and those residual rows modulo p^3 are needed. The theorem therefore excludes an unrestricted formal series, a polynomial of any degree, and already any such finite jet. It does not exclude a different mod-p source with a different c2p, nor all mod-p^3 horizontal vectors with zero source reduction.
+
+## Residual detector and every correction
+
+For any integral representative of any mod-p^2 lift with the required source reduction, all R_j/p^2 are defined before reduction. Dividing the telescope and reducing gives
+
+    sum Wbar_j r_j=-(2/9)P_n(0),
+    r_j=R_j/p^2 modulo p.
+
+I checked the weight support including both critical endpoints. B_i has valuation1 exactly at i=3m and6m. The latter never occurs in a prefix i<j for j<=6m. The suffix A_i has valuation1 exactly at its two indices m and2m when they are strictly greater than j. Thus
+
+    v(W_j)=2 for 0<=j<m;
+             1 for m<=j<2m;
+             0 for 2m<=j<=3m;
+             1 for 3m<j<=6m.
+
+Every critical Wbar_j is nonzero; all other weights vanish modulo p. This produces exactly m+1 declared rows, not a cardinality or runtime independent of m. Its value is the fixed unit-(2/9)P_n(0).
+
+For f replaced by f+p^2 h, linearity changes r by the even rows of Lbarstar hbar. Reducing the exact telescope for h modulo p annihilates their weighted sum, since both endpoint products D and A are divisible by p^2. The critical detector therefore annihilates every correction image, including corrections with arbitrary odd terms or arbitrarily high degree. The nonzero obstruction class survives.
+
+The fixed value also holds for different mod-p^2 source-preserving lifts, not merely representatives of Q2: the telescope uses only their common reductions c0 and c2p at this stage. No claim that their differences must be p^2 h is needed for that stronger fixed-value statement. The p^2-correction argument itself concerns representatives of a given mod-p^2 class and is correctly quantified.
+
+This is consistent with the old positive theorem. Requiring residuals divisible by p^2 permits the displayed nonzero divided residual. Requiring one further power of p would force it to vanish and is impossible. Thus the consecutive precision threshold2 versus3 is sharp in precisely the stated source-lifting problem; old degree<p uniqueness is not imposed on the new negative result.
+
+## Actual unit coordinate change and full-source implication
+
+At r=0 the cubic S(r)=-3r+4r^3 has unit linear coefficient-3. Formal substitution therefore has an inverse R(s) in sO[[s]], obtained using only the unit-3 in its recursive coefficient equations. Its derivative S' has unit constant-3. In the ordinary s-origin,6 and1-s^2 are also units. This is an integral formal change of coordinates, not a function-field substitution that silently divides by p or removes a branch.
+
+The proper matrix coefficients are regular and integral there. The first-row elimination gives
+
+    Y2=6(1-s^2)f'+(1-2s)f,
+
+and the second row gives Lstar f=0. With equations imposed only modulo p^3, the same elimination still gives Lstar f in p^3O[[s]]: all multipliers/divisors used are units, differentiation preserves the p^3 coefficient ideal, and composition with the integral inverse coordinate respects coefficientwise reduction. A proper first component reducing to P_n(S(r)) therefore becomes a scalar series reducing to P_n(s). It would violate the finite jet obstruction just proved.
+
+The full rank-four system's top proper rows receive no z or V input. Its projection is an actual invariant quotient in the retained original basis, so a full integral horizontal source vector would necessarily supply this impossible proper series. Freedom in z, the fourth primitive, the full H_b baseline or higher coefficients cannot feed back into those rows. This is a necessary observer of the full source, not deletion of its baseline or a claim that an isolated-kernel pole belongs to its scalar value.
+
+The corollary is confined to the original integral lattice and formal regularity near the ordinary origin with that literal reduction. A changed lattice/reduction, p-inversion, meromorphic/nonintegral data, an explicit inhomogeneous defect or the different operator with coefficient+n(n+1) changes the hypotheses. In particular n(n+1)-(-2/9)=p(p+1)/9 is retained; the exact polynomial solution of that different operator is not a counterexample to this one.
+
+## Precise verdict boundary
+
+This is a source-VECTOR precision obstruction, not a statement about horizontal MORPHISMS between differential modules. No LC-D comparison-lifting result, geometric de Rham module or proper/full Frobenius is disproved. The proof does not choose k, eta, mu, a source functional or Y/Z/kappa. It neither converts a characteristic-zero algebraic-vector no-go into a modular statement nor borrows the fifth conditional orbit result.
+
+Old Q2 existence, its finite-window scope, the separate72 template rejection, all previous author/review units and terminal Hesse P3 acceptance remain unchanged. P000/Heartbeat X6 external-arithmetic typing and all source/baseline/quarter channels remain; no native-axis, physical-time or positive-support inference is made.
+
+The new finite certificate and its full-source implication are supported at those limits. Actual publication of this independent report and its separate own semantic event still require their real Source receipts. No Native acceptance, formal Task closure or parent completion is claimed. Parent objective remains OPEN.
