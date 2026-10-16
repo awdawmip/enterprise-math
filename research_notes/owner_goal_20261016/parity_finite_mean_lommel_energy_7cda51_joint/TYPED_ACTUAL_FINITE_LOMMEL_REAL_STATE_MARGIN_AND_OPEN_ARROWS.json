@@ -1,0 +1,73 @@
+{
+  "schema": "typed_actual_finite_Lommel_power_scale_real_state_margin_v1",
+  "status": "AUTHOR_WORKING_UNREVIEWED_PENDING_GENUINE_WHOLE_REVIEW",
+  "one_bounded_unit": "Exact finite classicalparameter bridge, realphaseenergy certificate, actualweightedfinitezeta pair and baseline-restored realstate margin;not separate identity papers.",
+  "actual_authors": [
+    "EM-PUBLIC-7CDA51",
+    "EM-DVR-BFF6DC",
+    "EM-DIRECT-88303D"
+  ],
+  "parameters": {
+    "m": "integer >=2^1000",
+    "xi": "real m^(-1/100)<=xi<=1",
+    "z": "pi/xi,so pi<=z<=pi*m^(1/100)",
+    "n": "largest even integer<=m-2",
+    "t": "m-n in{2,3}",
+    "paired_channel": "n-2,t+2;distinct amplitude prefactor,commonM=m-1/2"
+  },
+  "actual_carrier": {
+    "space": "polynomials in v of degree<=m-2",
+    "dimension": "m-1",
+    "positive_weight": "(1+4v^2)^(-m)",
+    "basis": "e_k=P_k^(m)/sqrt(h_k^(m)),monicorthogonalStudent",
+    "derivative": "D_v=d/dv",
+    "dagger": "actualpositiveHermitianadjoint",
+    "original_compressed_rank_one_and_odd_top": "retained,not an enlargedcarrier"
+  },
+  "exact_frame": {
+    "Z0": "vD_v-(m-1/2)I",
+    "Z_xi": "Z0-2sum_evenk=2..n zeta(k)xi^(k-1)D_v^k/(2pi)^k",
+    "R_xi": "Z_xi+Z_xi^dagger",
+    "b": "tr(R_xi^2)=||R_xi||HS^2 for realxi",
+    "H_n": "n!sqrt(h0^(m)/hn^(m))",
+    "A_n": "H_n xi^(n-1)/(2pi)^n"
+  },
+  "claim": {
+    "quantity": "actual realstate b(xi),not a coefficient",
+    "lower_bound": "2^(-24) z^(-12) A_n(xi)^2",
+    "strict_positive": true,
+    "certificate_location": "PARITY_ACTUAL_FINITE_LOMMEL_REAL_STATE_MARGIN_JOINT_AUTHOR.md",
+    "coefficient_functional": "No new L_(d,j)b or COMMONPsi result"
+  },
+  "proof_chain": [
+    "Exact oldfinite B8 input with fullactual cutoff and zeta multiplier.",
+    "FiniteLommel recurrence coefficient certificate;Besselcrossproduct sign/normalization and distinctchannelprefactors.",
+    "Commonhalf-integer realphaseenergy finitepositivepolynomial >=1,notcomplexpositivity.",
+    "Actual amplitudew;its SQUARE weights pairenergy;quantitative twochannel singularvalue estimate.",
+    "Uniformfinitecutoff scalarzeta error and explicit large-m domain/absorption.",
+    "New-domain A_n>=m^3;restore actualbaseline CORNER bound,not false fullHS<=2m.",
+    "Realtriangular spectrum =>trZ^2>0;actualdagger expansion gives realstate bound."
+  ],
+  "not_used_as_premises": [
+    "UNREVIEWEDHOLD3cc conclusions are not acceptedtheorems;all needed newscalar proofs reappear in primary.",
+    "CF1677 commoncomplexdisk working11242 and derivative bounds.",
+    "BFF varying-output/order triangularGreen/HS interface.",
+    "Any genericpositive-functional-on-squares,Gaussian/Beta replacement,sampling or numerical evidence."
+  ],
+  "remaining_open": [
+    "fullcarrier varying-order relative/complexHS estimates",
+    "exact rising/falling coefficientfunctional and shiftedpoint",
+    "original C/E/E^2/W+1/COMMON prefactor control",
+    "lowerbridge/middle/allj/fullP1/trace/Goal conclusions"
+  ],
+  "resource_boundary": {
+    "programmed_scientific_evaluations": 0,
+    "symbolic_hand_derivation": "performed",
+    "formal_cumulative_budget": "UNKNOWN",
+    "all_old_STOP_HOLD": "preserved",
+    "Native_Task_claim_or_budget_reset": false
+  },
+  "authority_boundary": "Ordinaryauthorproof proposal only;noNativevote/Toolregistration/theorempromotion or Sourceauthority.",
+  "paper_Source_state": "LOCAL_UNPUBLISHED;no future commit guessed",
+  "ending": "MotherGoalOPEN/globalendingUNKNOWN;MESSAGEonly"
+}
