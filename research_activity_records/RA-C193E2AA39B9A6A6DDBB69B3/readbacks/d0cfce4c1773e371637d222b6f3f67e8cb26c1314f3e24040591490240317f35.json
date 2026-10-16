@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "encoding": "utf-8",
+    "path": "research_notes/owner_goal_20261016/lc_d_crystalline_specialization_primary_4a56e9/TYPED_DERIVED_ARROW_AND_RETAINED_GAPS.json",
+    "ref": "fbb8f54db09deae49c9905acdad2bf5608ec1702",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "hk-positive-own-full-source-3-20261016-fbb8f54",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"HK_FINITE_LEVEL_DERIVED_SPECIALIZATION_TYPED_CLAIMS_V1\",\n  \"status\": \"FROZEN_AUTHOR_UNREVIEWED\",\n  \"input\": {\n    \"p\": \"Fixed prime13or19mod24\",\n    \"algebraic_model\": \"Actual projective Weierstrass familyY overA=Z_p[[t]], with semistable t-divisorlog structure\",\n    \"Sn\": \"SpecA_n=A/p^n, logN1->t, PD(p)\",\n    \"Tn\": \"SpecR_n=Z/p^n, logN1->0, PD(p)\",\n    \"X\": \"Ymodp overFp[[t]]\",\n    \"X0\": \"X specializedt0 with pulled-back semistablelog structure\",\n    \"crystal\": \"Structure O_log-crys, flat as crystal\"\n  },\n  \"claims\": [\n    {\n      \"label\": \"MATCHED_SHEAF_BASE_CHANGE\",\n      \"target\": \"O_Tn|X0 tensor^L_(O_Sn|X0) (Ru_X/Sn,*O)|X0 isomorphic Ru_X0/Tn,*O\",\n      \"dependencies\": [\n        \"HK2.23 actual diagram\",\n        \"smooth integral logcurve\",\n        \"strict exact p immersions defined by PDsubideal(p)\",\n        \"strict t0 basechange cartesian\",\n        \"barT->barS radicial closed immersion\",\n        \"flat structure crystal\"\n      ]\n    },\n    {\n      \"label\": \"GLOBAL_DERIVED_FINITE_LEVEL_SPECIALIZATION\",\n      \"target\": \"R_n tensor^L_(A_n) RGamma_logcrys(X/Sn,O) isomorphic RGamma_logcrys(X0/Tn,O)\",\n      \"dependencies\": [\n        \"HK2.20 using actual log-smooth liftY_n and PD-envelopeY_n\",\n        \"actualY/Aflat, relative logOmega locally free rank1\",\n        \"finiteaffine separatedcover, bounded termwiseflat Cech model\",\n        \"affineQCacyclicity and exactlogdifferentialbasechange\",\n        \"derivedtensor associativity\"\n      ],\n      \"reduction_tower\": \"Compatible for alln through common C_A; no Rlim assertion.\"\n    },\n    {\n      \"label\": \"FROBENIUS_FUNCTORIALITY_SQUARE\",\n      \"target\": \"Canonical crystalline pullbacks for absolute logFrob and theta(t)=t^p commute with specialization under the canonical derived basechange maps\",\n      \"dependencies\": [\n        \"theta is logPDbase map, coefficientidentity/logmonoidp\",\n        \"centralphi0 is coefficientidentity but logmonoidp, not identitylogbase\",\n        \"i*phi0=theta*i\",\n        \"absolute logFrob commutes with central specialization\",\n        \"canonical contravariance/naturality of crystalline pullback/basechange\"\n      ],\n      \"not_claimed\": \"No schemeFrob onY_n, no matrix/calculatedeigenvalue, no isogeny or cupmultiplier.\"\n    }\n  ],\n  \"nonclaims\": [\n    \"No identification with a differently completed/formal site\",\n    \"No Rlim_n/p-inversion/Qp[[t]]passage\",\n    \"No ordinarytensor onH1 or cohomologicalflatness\",\n    \"No generic horizontal/sourceframe comparison\",\n    \"No normalizationgraph injection/actualresiduekernel identification\",\n    \"No LC A-C/wholeD/sign/c/extensions/dagger/functional/parentclosure\"\n  ],\n  \"primary_boundary\": \"Exactly two selected positive matched propositions2.20+2.23. Classical affine/quasicoherent/formalcoordinate algebra used explicitly; no direct5.1 or2.24isogeny.\",\n  \"review_needed\": \"True fresh nonauthor primary-hypothesis/PD/log-category/Cechflatness/derivedtensor/Frobeniusnaturality audit; previous two LC-D PASSES do not cover this paper.\",\n  \"fairness\": \"CM24same motheraxis. Separate88303D holds Paritym7; no duplicatework.\",\n  \"science_programs\": 0\n}\n",
+      "display_title": "TYPED_DERIVED_ARROW_AND_RETAINED_GAPS.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/fbb8f54db09deae49c9905acdad2bf5608ec1702/research_notes/owner_goal_20261016/lc_d_crystalline_specialization_primary_4a56e9/TYPED_DERIVED_ARROW_AND_RETAINED_GAPS.json",
+      "encoding": "utf-8",
+      "sha": "c427346fa7dbf1465394b09c9a110d7077536bd5"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
