@@ -1,0 +1,38 @@
+{
+  "schema": "CM24_CANONICAL_FINITE_RECIPROCAL_DEFECT_TYPED_RESULT_V1",
+  "status": "PREPARED_AUTHOR_CANDIDATE_UNREVIEWED_NOT_ACCEPTED",
+  "domain": {
+    "primes": "p=13 or19 mod24, p=6m+1, integer m>=2",
+    "integer_cutoffs": "N=3m=(p-1)/2; exact hminus terminates k=0..m; delta degree<=N",
+    "rings": "Exact hminus/Hminus/R and divisions byp in Z_(p), final polynomial assertions overF_p",
+    "source": "Hminus=hminus(x(4x-3)^2), hminus=binom(3m,m)*2F1(-m,-2m;-3m;z); canonical old arithmetic lift, not the characteristic0 Legendre lift or a changedN",
+    "reciprocal": "R f=x^N f(1/(4x)); R squared=4^-N exactly, reduction involutive"
+  },
+  "canonical_object": "delta=((R Hminus-Hminus)/p) modp coefficientwise; no freely added solution",
+  "complete_forcing": {
+    "operator": "L=2x(1-x)(4x-1)D²+(-20x²+15x-1)D+(1-4x)",
+    "old_response": "J=LDeltaH is the old complete polynomial source, deg<=N-2",
+    "equation": "Ldelta=(J-RJ)/2+2(1-x)(4x-1)Hprime+(5-8x)H/2=Frec",
+    "degree": "degFrec=N-1; coefficient x^(N-1)=-g/3 is a unit; completeN+1/Ncancellations proved",
+    "unique_finite_certificate": "delta is the unique degree<=N polynomial satisfying this equation anddelta(1)=0; existence fromspecifieddividedlift, uniqueness usesoldunitforwardrows andH(1)=1"
+  },
+  "normalization": {
+    "scalars": "u=4^-N; e4=(u-1)/p modp; t=(ellminus-G)/p modp, ellminus=16^m(-1)^m binom(2m,m),G=binom(3m,m),g=Gmodp",
+    "reciprocal_equation": "Rdelta+delta=e4 H",
+    "four_edges": "delta0=t+e4g, deltaN=-t, delta1coef=delta0, deltaNminus1=deltaN/4",
+    "endpoints": "delta(1)=0,delta(1/4)=e4;delta_prime(1)=N=-1/2,delta_prime(1/4)=4N=-2",
+    "halfpoint": "c=1/2; eta2=(c^N+1)/p,hdiv=Hminus(c)/p modp;delta(c)=-2hdiv,delta_prime(c)=hdiv-eta2Hprime(c);e4=-2eta2;hdiv not evaluated"
+  },
+  "finite_exclusions": [
+    "delta notinF_p[rho(x)] because its derivative at1/4 is nonzero while rho_prime(1/4)=0.",
+    "delta notin CONSTANT span_Fp{H,DeltaH,xHprime}, by highest forcing slots."
+  ],
+  "not_claimed": [
+    "A targetell(T)/Pi bridge, universalrational ratio or evaluatedhdiv.",
+    "Generalrational-coefficient/Heun nonexistence, anotherpullback orgeometry no-go.",
+    "New fullN/lattice, modp²target theorem, scientificmethod runtime orSharedToolregistration.",
+    "Independent review/Native vote/Task orparent completion."
+  ],
+  "unit_count": "One bounded joint finite certificate; normalization,forcing,andfiniteexclusions are not separate discoveries.",
+  "proof": "Complete author main body contains every load-bearing derivation; context and working records are provenance."
+}
