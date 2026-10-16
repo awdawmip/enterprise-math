@@ -1,0 +1,98 @@
+{
+  "schema": "LC_D_FINITE_LEVEL_TYPED_RESULT_ONLY_INTERFACES_V1",
+  "status": "AUTHOR_PAPER_UNREVIEWED_NOT_REGISTERED",
+  "author": "EM-P11-4A56E9",
+  "prior_author_id": "EM-T6-BFF294",
+  "exposure": "NONBLIND_CONTROL_T6_P11_AND_PAPER_HISTORY_PRESERVED",
+  "paper": "FINITE_LEVEL_CONDUCTOR_FROBENIUS_SQUARE_AND_LC_D_BOUNDARY.md",
+  "interfaces": [
+    {
+      "label": "STRICT_FINITE_LEVEL_DESCENT",
+      "input": [
+        "prime p=13 or19 mod24",
+        "n>=1",
+        "compatible chosen nu in Z_p with nu^2=-3",
+        "R_n=Z/p^n; B_n=R_n[v]; A_n=R_n+qB_n, q=v^2+3",
+        "R_n-algebra endomorphism psi_f, f=v^p modulo p"
+      ],
+      "output": "psi_f(A_n) subset A_n iff f(nu)=nu and f(-nu)=-nu iff delta psi_f=delta",
+      "proof_dependencies": [
+        "2nu and r-s are units",
+        "explicit X=q,Y=vq generators",
+        "Chinese remainder/conductor sequence"
+      ],
+      "failure_domain": "No necessity claim for intrinsic crystalline Frobenius lacking a global strict normalization representative."
+    },
+    {
+      "label": "NAIVE_REPRESENTATIVE_OBSTRUCTION",
+      "input": [
+        "same split nodal chart",
+        "f=v^p"
+      ],
+      "output": "descends iff (-3)^((p-1)/2)=1 modp^n; at p=13,n=2 it fails, with explicit coordinate Y obstruction valuation exactly1",
+      "proof_dependencies": [
+        "STRICT_FINITE_LEVEL_DESCENT",
+        "729-1=13*56"
+      ],
+      "failure_domain": "Failure only of the chosen strict representative, not of LC or crystalline Frobenius."
+    },
+    {
+      "label": "COMPATIBLE_CORRECTED_SCHEME_LIFT",
+      "input": [
+        "same p,n,nu",
+        "D=(v+nu)^p-(v-nu)^p",
+        "N=nu((v+nu)^p+(v-nu)^p)"
+      ],
+      "output": "f_n=N/D is polynomial modulo p^n, reduces to v^p, fixes both branches and descends; conductor quotient map is identity at every n",
+      "construction_accounting": "D=d0+pE, d0=2nu^p; use exactly n geometric-series terms j=0..n-1; degree(f_n)<=n(p-1)+1. This is a paper construction, no implemented codec/runtime claim.",
+      "proof_dependencies": [
+        "D inverse finite because p^n=0",
+        "Möbius conjugation of projective power map",
+        "q pulls back to 4nu^2 q^p/D^2 on finite affine chart"
+      ],
+      "failure_domain": "B_n is a base change of normalization, not normalization of a reduced finite-level ring. D need not be a unit in Z_p[v]. No log-PD/smoothing/theta comparison is supplied."
+    },
+    {
+      "label": "COHERENT_GRAPH_ACTION_ONLY",
+      "input": [
+        "proper base-changed nodal cubic C_n",
+        "base-changed normalization pi:P1_R_n->C_n",
+        "constructed scheme lift above"
+      ],
+      "output": "connecting j_n^coh:R_n isomorphic to H1(C_n,O_C_n); constructed lift acts as identity under j_n^coh, compatibly in n",
+      "proof_dependencies": [
+        "explicit conductor sheaf exact sequence",
+        "H0(P1,O)=R_n and H1(P1,O)=0",
+        "naturality of connecting map"
+      ],
+      "failure_domain": "No automatic map from coherent H1(O) to actual relative log-crystalline H1/residue-kernel. All crystalline specialization/normalization comparison maps remain required."
+    }
+  ],
+  "remaining_unknowns": [
+    "LC A-C",
+    "whole LC-D actual crystalline/relative comparison arrow",
+    "log-PD embedding and smoothing-chart compatibility or replacement homotopies",
+    "actual source mu/sign/c and extension xi/eta",
+    "full dagger/gluing and original functional/parent closure"
+  ],
+  "provenance": {
+    "reused": [
+      "18F24A original source ownership",
+      "89CC19 split node/normalization/conditional sign geometry",
+      "333687 primary import audit and old independent geometry review at their exact conditional scope",
+      "9821E2 finite-level LC-D direction"
+    ],
+    "new_author_contribution": "Strict finite-level descent criterion, explicit all-n corrected underlying-scheme lift, p=13 mod13^2 naive-lift obstruction, coherent identity square with retained crystalline gap.",
+    "novelty_scope": "Not a literature novelty claim or Tool registration. Bounded exact reuse of two existing bundles plus direction; no broad scan."
+  },
+  "execution": {
+    "scientific_programs": 0,
+    "enumerations": 0,
+    "new_checkers": 0,
+    "Native_votes": 0,
+    "new_Tasks": 0,
+    "Source_writes_for_this_unit": 0
+  },
+  "fixed233_boundary": "Stopped Task remains2165/2100, remaining0, no scientific execution; separate paper scope does not reset or extend it.",
+  "review_need": "Genuine distinct nonauthor full paper review; old conditional reviews do not cover these new lemmas."
+}
