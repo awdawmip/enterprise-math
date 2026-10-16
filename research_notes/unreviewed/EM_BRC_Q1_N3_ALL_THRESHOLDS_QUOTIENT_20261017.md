@@ -1,0 +1,11 @@
+# Auxiliary BRC: three-source adaptive observation quotient
+
+Status: UNREVIEWED / NOT_ADMITTED. This result concerns three **labeled nonnegative mass sources** with hidden single-source resets, not P000's native spatial dimensions.
+
+For Q=1, three sources, an integer T >= 2, and post-reset threshold feedback, write S_i=0 when x_i=0, L when 0<x_i<T, and H when x_i>=T. Define P_ij=[x_i+x_j>=T]. For arbitrary finite adaptive policies, two states have the same universal terminal-safety predicate **if and only if** their three S_i and three P_ij coincide. Coordinate supports and high bits can be detected by protecting a chosen label; pair bits can be distinguished as follows for 0<x_i,x_j<T. Protect i and observe a bit. If low, stop; if high, protect the third label twice, then stop. This policy is safe exactly when x_i+x_j<T. Conversely, equality of the signature couples all post-reset feedback paths, because a first reset leaves at most two original source labels. Coordinate clipping at T preserves all operations and extends the theorem to unbounded integer masses.
+
+An exact count gives A_3(1,T)=8 for T=1, 27 for T=2, 37 for T=3, and **40 for every T>=4**. For T>=4 all eight pair-threshold graphs are realizable among three positive masses below T: empty (1,1,1); one edge (ceil(T/2),ceil(T/2),1); a two-edge star (T-1,1,1); all three edges (T-1,T-1,T-1), with labels permuted. T=3 was already treated by earlier project research, not claimed as novel.
+
+Local checks: 6072 support, 6048 high-coordinate, and 3192 pair-detector tests (all passed), plus independent complete belief-state computations for T=3,4,5 matching 37,40,40. Detailed local artifact evidence ZIP SHA256: 2a871672f8197040e9b5ce95e6e31ca99243b751a2589ab98e330c762ecde97c. The full ZIP remains conversation-local and is not contained in this GitHub branch.
+
+GLOBAL_KNOWLEDGE_V1 pinned at 3a211bb92629151338a811ca4981ea4eb3ffe8da; Enterprise Math scientific read 87dceabe040a60dfa146ebb670b397cb66427c0f. Live native Researcher permission unavailable; no CLAIM, Result or Driver review. Next: for four sources T>=4, find whether the complete proper-subset threshold observer is minimal under future feedback, or give a counterexample.
