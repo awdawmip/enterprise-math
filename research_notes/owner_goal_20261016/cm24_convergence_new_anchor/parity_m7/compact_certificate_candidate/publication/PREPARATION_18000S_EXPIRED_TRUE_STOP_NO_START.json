@@ -1,0 +1,128 @@
+{
+  "schema": "PARITY_M7_PREPARATION_HARD_CAP_EXPIRED_TRUE_NO_START_STOP_V1",
+  "created_utc": "2026-10-16T06:54:20.844775+00:00",
+  "actor": {
+    "researcher_id": "EM-DIRECT-88303D",
+    "session_id": "MCP-80ce72c19cb84e508513c39e73540a9c",
+    "activity_id": "RA-1E650208FBE6654C7D59AB55",
+    "logical_conversation": "codex-cm24-convergence-new-anchor-20261016-v1",
+    "platform_attested": false
+  },
+  "state": "STOP_PREPARATION_CAP_EXHAUSTED_NO_START_NO_SCIENCE",
+  "stop_reason": "At hard06:53:04UTC, sameSIDservice deployment, ownlawfulNativechain and completecurrentperrunguards were not established. No scientific invocation occurred. Later staticPASS or deployment cannot reset or resume this unit under the expired contract.",
+  "resource_contract": {
+    "actual_Source": "927cde4c68437808b191d8464a4249375cab4367",
+    "path": "research_notes/owner_goal_20261015/control/OWNER_PARITY_M7_RESOURCE_PHASE_CONTRACT_20261016_V1.json",
+    "bytes": 4509,
+    "sha256": "fd76a558a101eaa2a2496d6827b4424a9ade534850bec16295327753adf6045e",
+    "conservative_anchor_utc": "2026-10-16T01:53:04+00:00",
+    "hard_cutoff_utc": "2026-10-16T06:53:04+00:00",
+    "cumulative_cap_seconds": 18000,
+    "debit_at_contract_cutoff_seconds": 18000,
+    "last_actual_predeadline_clock": {
+      "value": "2026-10-16 06:53:01 UTC",
+      "tool": "clock.curr_time"
+    },
+    "first_actual_postdeadline_clock": {
+      "value": "2026-10-16T06:53:16+00:00",
+      "tool": "exec_command date -u; before fullCONTROLreview read"
+    },
+    "continuous_wall_debit_through_first_expiry_observation_seconds": 18012.0,
+    "continuous_wall_through_this_record_seconds": 18076.844775,
+    "postcutoff_wall_through_this_record_seconds": 76.844775,
+    "no_interval_deductions_or_actor_Task_namespace_reset": true,
+    "actual_earliest_scope_start_CPU_peak_exactops_tokens": "UNKNOWN,notzero; source anchor is disclosedconservative bound",
+    "historical_6235_original_immutable_Source": "c0b15c38837c1c3a4d75d698c7329f3225dc2e39",
+    "future_job_and_report_caps": "Unchanged original20M/300s/512MiB/8MiB/16384bits and separate300sreport; neither invoked as a freshallowance afterexpiry"
+  },
+  "formal_Task": {
+    "task_id": "RS-PARITY-M7-ORIGINAL-TRACE-COMPACT-7-8-EXACT-CERTIFICATE",
+    "publication_id": "TP2-6498B953D91A8DE6B8CC",
+    "actual_Source": "f84e92fd94787b1a6a5f5e841e9800085e304cc0",
+    "actual_three_files_bytes": 43804,
+    "all_full_bytes_SHA_blob_and_exact3added_personally_verified": true,
+    "canonical_record_state": "ACTIVE as published; not rewritten by this localstop",
+    "own_Task_read_prepare_claim_open_operations": 0,
+    "run_id": null,
+    "claim_id": null,
+    "execution_record_id": null,
+    "no_Native_scientific_Result_or_Task_completion_claim": true
+  },
+  "scientific_invocation_import_AST_compile_test_or_samples": 0,
+  "scientific_attempts_consumed": 0,
+  "unused_job_attempt_is_not_automatic_future_permission": true,
+  "PREPARED_or_UNKNOWN_job_marker_created": false,
+  "actual_scientific_output_coefficient_table_or_trace_sign": "NONE_GENERATED / UNKNOWN",
+  "unchanged_original_eight_files": [
+    {
+      "filename": "resource_budget.py",
+      "bytes": 6123,
+      "sha256": "686fc6c25d07228e6aba0c92fdc9ef8f9992e0f6b71c8336c7465a430beead38"
+    },
+    {
+      "filename": "producer.py",
+      "bytes": 7035,
+      "sha256": "db583e33fb1ded767f48a65fd5f654924c4cf9aea20d34497e2c73408310f439"
+    },
+    {
+      "filename": "checker.py",
+      "bytes": 10486,
+      "sha256": "8b65698f6ff2680e6ea1533afdb87d459b01b5097674cbc5b15f09df50d7e239"
+    },
+    {
+      "filename": "workload.py",
+      "bytes": 6239,
+      "sha256": "9ee260566efd348f329c62ead443ae57b6656b715773890e99c142b07e7d9388"
+    },
+    {
+      "filename": "FIXED_INPUT.json",
+      "bytes": 6803,
+      "sha256": "eb589651c48be9d83d399871de2e52929a016bad22524b479ae2665bbce8808f"
+    },
+    {
+      "filename": "OUTPUT_SCHEMA.json",
+      "bytes": 6082,
+      "sha256": "50b7f657e4583df856252dc4d6fb85e78e6d27f0730e87212d6f50953deb13fc"
+    },
+    {
+      "filename": "EXECUTION_CONTRACT.json",
+      "bytes": 5007,
+      "sha256": "0f9fc6b15e508efd70b1fa86e393a0fa3e7848ffaddccef5dfc4d6a700e07cff"
+    },
+    {
+      "filename": "README.md",
+      "bytes": 9998,
+      "sha256": "e2382111c632f148ce944d8b04795604def643313a5d55b32f1cd81813fa08c7"
+    }
+  ],
+  "unchanged_science_Source": "443361c5cfef441b73bb838984ffb6b6830bb357",
+  "unchanged_CONTROLv3_Source": "3138ecc641a5814823a183a20c471e43ace613b8",
+  "genuine_static_integration_review_Source": "37af0b56ebb0932453e8eca49e15f5b735ed7ea8",
+  "last_service_fix_review_full_consumed": {
+    "path": "/workspace/enterprise-math/research_notes/owner_goal_20261016/p11_independent_native_driver/current_ra_registration_control_review_v2/CURRENT_ACTIVITY_REGISTRATION_REFRESH_V2_CHANGED_SCOPE_CONTROL_REVIEW.md",
+    "bytes": 7272,
+    "sha256": "bf216adf6ed57b84e5a6cb1d6595da0ce35c2544bcba07afd7a216fea7932e64",
+    "git_blob_sha1": "e2316481f6b96e0ec3845bf3d317b80af14734d3",
+    "verdict": "CONTROL_STATIC_PASS/0mustfix; notactualmerge/deployment/liveauthorization",
+    "actual_candidate_PR30_head": "51ec99037938550087717716b6c5492fe1d78784"
+  },
+  "prepared_inputs_preserved": {
+    "control_tree_files": 323,
+    "control_tree_bytes": 3684251,
+    "all_execution_CONTROL_files": 348,
+    "all_execution_CONTROL_payload_bytes": 4652295,
+    "frozen_science_and_CONTROL_copies": "20files182059bytes actualpinverified",
+    "guard_tree_ready": false,
+    "remaining": "RealcurrentGoal/loadedJSONclosure/currentSourcelease and actualNativeeventsERintentauthorization allstillrequired; no objectsfabricated",
+    "Source_provenance_precision": "318corefiles actualGitTreeblobs matched full localcopies, including2freshfullbodycorrections; not318freshnetworkfilebodycalls"
+  },
+  "current_own_RA_events": 7,
+  "new_RA_event_staged": false,
+  "math_frontiers_preserved": {
+    "m7_original_trace_r7to8": "UNKNOWN; no scientificresult",
+    "prior_combined_m7_large_tail": "Existing acceptedpaper scope retained, no replay",
+    "new_CM24_logbase": "Author4notes22278 actualSourcef9d00a18506130c15e042dba01c8a4d9770855e9; genuine7CDA11215B PAPER_PASS/0mustfix consumed, no newNativevote; ownRAevent and reviewSource remain separatefuturesteps"
+  },
+  "parent_Goal": "OPEN; no stopgoal, no old Task or acceptedunit reopened",
+  "next_control_action": "Hand exact truthfulSTOP/cost/source frontier to Owner and realDriver; they choose lawfulTaskscope stop/handoff. No automaticnewunit,scientificretry,permissionboolean,identityswitch or budgetreset."
+}
