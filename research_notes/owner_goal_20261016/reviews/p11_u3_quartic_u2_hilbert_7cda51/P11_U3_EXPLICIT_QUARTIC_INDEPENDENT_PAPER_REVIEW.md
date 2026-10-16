@@ -1,0 +1,60 @@
+# Independent review: the fixed U3 binary-quartic input
+
+Reviewer EM-PUBLIC-7CDA51, actual Researcher SID MCP-9030ae3a22074e3dbc31679b7090f6b0, own RA-6665DBCD10BC1C3E4DED3C04. Root separately assigned this genuinely frozen new object and its distinct U2 addendum. This is directed NONBLIND nonauthor paper review, with all Public129, CONTROL/CI/T6, P11/parity/CM24 reviews and separate parity-strip authorship retained. I supplied neither the model nor a proof repair. No preceding P11 PASS reviews this algebra. The second object's verdict is in its own report.
+
+**Verdict: PAPER_PASS, no mustfix found, for the explicit two-cover model, global isomorphism to the retained U3 covering and complete degree-four map to the exact E.** This does not construct a four-Selmer lift, pushout function, mixed bit, rank decision or executable input admission. The note is a same-method explicit input change, not a new independent descent discovery.
+
+No scientific program, symbolic algebra, enumeration, sample, consumer import/test, Native vote, Task, claim or run was executed. The algebra and global curve arguments below were checked on paper. Executable operations were immutable text custody, hashing and original own-activity guards.
+
+## Exact intake and inherited inputs
+
+The author is EM-DVR-F73673. I checked the 6,482B original P11_CORE98_U3_EXPLICIT_BINARY_QUARTIC_INPUT_NOTE.md, SHA256 f6390a82aeff85a011683a4e4803a93cff0fa62a3cb5175d996f1de70e2d245f, Git blob fd8ffb113d4adc87de6c26398f6a262da8a6970f, against the unchanged 1,310B two-object handoff SHA256 8bcaf8535f2ac52c106658ae25d22c865fef9eaefeb33928b5db7307b9e90b4c. The two target notes total10,650B and were frozen local inputs at intake, not yet author Source observations. Their UNREVIEWED history is retained.
+
+I personally made complete managed Source reads of the inherited full-U3/zero-first-form paper at4090e063926e770103afc4628ea40c8a8949cedb,4,621B, SHA256 af50660fc21b773a5b42231a8e6de62e87a28689dce19ec14d940f806a0789da, and the mixed paper at a29ad230bfd4a94e305b9cdb4d3b046d7dcb88e6,15,767B, SHA256 87ddc576a1396e8f0ef3a4bae2bca6f465061a78d2c3fce138d46c4e11121d11. The complete originals were read, including the exact ordered-root covering map in the latter's section5. Their full Selmer/local-solubility statements are consumed at their previously reviewed scope; this review does not re-prove or re-vote those older theorems.
+
+My fresh actual RA/SID read at current Source fbb8f54db09deae49c9905acdad2bf5608ec1702 matched own RA57,603B with seventeen persisted events and immutable SID1,423B. The original helper startup guard returned exit0, activity_allowed/persistence_allowed=true, no sync debt and all formal-authority flags false. The separate completed HK paper's Source/semantic persistence remains a distinct queued chain, not a predecessor verdict for this input. There is no Role upgrade or borrowed frozen Public run.
+
+## Exact quartic coefficients and global domain
+
+Here P=161, Q=127, S=P^2+Q^2=42050 and D=P^2-Q^2=9792. On paper, D^2/3=31961088 and 1156+3*27648=84100, with 1156*27648=31961088. Thus both displayed integral quartic expressions agree exactly:
+
+    R^2=3Z^4+84100 Z^2 W^2+31961088 W^4
+       =(Z^2+27648W^2)(3Z^2+1156W^2).
+
+The weights on [Z:W:R] are(1,1,2). The curve avoids the singular vertex [0:0:1] of the ambient weighted plane because its equation would force R=0 there. Each quadratic factor has nonzero, distinct characteristic-zero roots. They have no common root since82944!=1156. Therefore the binary quartic is separable, and its weighted-projective double cover of P1 is a smooth projective genus-one curve. At Z=0 and W=0 the coordinate R is nonzero; neither end is deleted by the affine charts.
+
+The symbolic identities only require rational nonzero P,Q and D!=0. The corresponding quadratic in Z^2 has discriminant16P^2Q^2 and nonzero constant D^2/3, so the fixed characteristic-zero nondegeneracy is consistent with that wider symbolic statement. No assertion about smooth reduction at every prime follows from it.
+
+## The map to C is globally defined and the inverse charts are correct
+
+All entries of
+
+    G=[3R : 3Z^2-DW^2 : -3Z^2-DW^2 : 6ZW]
+
+have weighted degree2. Simultaneous vanishing of the middle two gives Z=W=0 because2,3,D are nonzero; the quartic then forces R=0, which is not a projective point. Hence there is no base point, including at either endpoint. A homogeneous formula with no common zero defines a genuine morphism on this smooth projective curve, not merely a rational chart.
+
+Substitution gives respectively36P^2 Z^2W^2 and36Q^2 Z^2W^2 for s1^2-3s2^2 and s1^2-3s3^2. These are exactly P^2t^2 and Q^2t^2 for t=6ZW. Thus its target is the retained ordered-root C, not a quadratic twist chosen only by a squareclass name.
+
+The converse formulas use v=s2-s3 and q=s2+s3 with vq=-(D/3)t^2. They are valid on the stated nonempty open chart. Substituting [Z:W:R]=[v:t:2s1v] into G gives6v times[s1:s2:s3:t]. Conversely the displayed inverse after G gives[6Z^2:6ZW:36RZ^2], which is weighted scaling by6Z on its open. These are correct inverse maps there. The inverse formula is allowed to have exceptional points outside that chart; the paper does not assert it is globally basepoint-free.
+
+The retained complete intersection C is smooth genus one for P,Q,D nonzero. Its two diagonal quadrics cannot have dependent gradients at a projective point: the cases of a zero multiplier force all coordinates zero; if the multipliers sum to zero, nonzero D likewise forces t=0 and then all coordinates zero. This is also consistent with its inherited status as a two-cover. Consequently the birational morphism G between smooth projective curves is an isomorphism. This conclusion extends the inverse across the missing finite set and transports local points at every completion. It does not discard points requiring a square root or points at infinity.
+
+## Complete map to E and its covering class
+
+The old exact C-to-E map is
+
+    [s1^2t : 3s1s2s3 : t^3].
+
+Substituting G produces54R^2ZW,9R(D^2W^4-9Z^4),216Z^3W^3. Cancelling the single nonzero rational constant9 yields precisely the new formula
+
+    [6R^2ZW : R(D^2W^4-9Z^4) : 24Z^3W^3].
+
+It has common weighted degree6 and satisfies the actual projective Weierstrass equation by composition. At Z=0 the middle coordinate is R D^2W^4!=0; at W=0 it is -9RZ^4!=0; otherwise the final coordinate is nonzero. Thus no omitted base locus is hidden in cancelling a variable or denominator. At R=0, with ZW!=0, it gives the legitimate point(0,0), not an undefined expression. Both ends reach O.
+
+The map has degree4 because it is the old degree-four multiplication-by-two covering composed with a proved isomorphism. The weight6 of its polynomials is not used as a map-degree argument. More importantly, G commutes with that exact target map. It is an isomorphism of coverings, which retains the H1(Q,E[2]) class U3 in the existing ordered-root convention, rather than just an abstract isomorphism of genus-one curves. Its everywhere local solubility therefore transfers from the actual inherited U3 membership. This transfer is a mathematical statement, not a newly produced file of local witness coordinates on Q3.
+
+## Retained boundary
+
+Q3 is still a two-cover: the map to E has degree4, not16. No four-cover above it, compatible degree-four map from such a cover, four-Kummer class, labelled T0 pushout, all-place four-cover witnesses, function support or mixed value has been supplied. No consumer/API, actual code/input/codec/cost plan or execution admission follows from the paper algebra. Rank, the mixed bit and higher concrete lifts at core(9,8) remain UNKNOWN; the stopped fixed233 budget is unchanged.
+
+The paper's new explicit input and exact model maps pass at this finite scope. The separate U2 Hilbert readout has its own conditional verdict. Neither is a Native vote, a new Tool or a closure of the P11 family or mother Goal. Later author Source must be independently bound to these frozen bytes before my own report/semantic Source chain is completed.
