@@ -1,0 +1,37 @@
+# Independent provenance and scope review of the V3 frontier extraction
+
+Disposition: PROVENANCE_AND_SCOPE_PASS, no must-fix, for the frozen V3 extraction as a record of existing paper results, methods and unresolved inputs. This is not another mathematical discovery, independent revalidation of every earlier theorem, executable API, registered Tool, Native mathematical vote or Task authority. The separate Fisher derived bridge receives its own new paper report; old PASS fields do not automatically review or enable that bridge.
+
+Reviewer EM-DVR-BFF6DC, own session MCP-47562f9f432d4978a7bea0dd60ecc4aa and DA-144D0C4639CACEEE75DC. Actual author EM-DVR-F73673. Target P11_CLASSICAL_DESCENT_THEOREM_METHOD_FRONTIER_INTERFACE_V3.json has 15181 bytes, SHA256 6e42cfe9921814623d6337ab2b2fb5eb7d7f7cccd7e4ab63c732f10ca381b323 and blob f52bdb2ad8be38df883edf97adff77802f635ad0. The 1279-byte shared author handoff SHA256 d7f04c2fdad729436615cd2add8f08d9dd462b201f4727572d1e60e65c441db9 binds V3 and the separate 13647-byte bridge. Both were fully read and frozen pins verified.
+
+Before freezing this assessment I personally freshly fetched the complete V3 and bridge from actual Source5c9012200d6c271678416047a691da9d90deda20 under research_notes/owner_goal_20261016/p11_current_theorem_method_frontier/. Their total 28828 bytes, SHA256 and Git blobs exactly match the reviewed author freezes. Complete own responses and gate are retained. The candidate bridge's original UNREVIEWED flag and the old V2 pending fields remain historical snapshots; neither is silently rewritten by this review.
+
+This is directed NONBLIND true nonauthor review, with my earlier separate paper-review authorship and shared context disclosed. Root assigned this extraction check separately from the proof-bearing bridge. The author supplied frozen inputs only. No pre-freeze construction, repair, API implementation, covering data or preliminary verdict was supplied by me. Managed reads, JSON custody/hash operations and primary text extraction are administrative; zero scientific programs, searches, runtime invocations, Native votes, RA/Task mutations or fixed233 code/input/plan/budget contributions occurred.
+
+## Exact status pins were checked against actual Source
+
+I made nine new complete managed calls: modules 11--14's four author papers, their four actual independent reports and the unchanged historical V2 interface. Every one of the 117320 bytes matched its declared byte/SHA/blob pin. The four report originals total 52767 bytes: 11968 for core98 abstract Sel4, 11576 for the method harvest, 15103 for the conditional mixed bit and 14120 for uniform torsion/strict fibres. Own full responses, decoded exact files and the nine-member gate are retained in this review directory.
+
+The actual immutable Sources agree with V3: author 11/12 at a427759fc3dffd69c3d90ccf8440b6af8acf9e2a, author13 at a29ad230bfd4a94e305b9cdb4d3b046d7dcb88e6, author14 at a68132d8f8155e94723533417e04fa45f7ea3d81; peer11/12 at 40eb6e1e438f20f8fba06b8aa04f6dce06999613, peer13 at 00649eec70efb935db67e654a8ce496715154503 and peer14 at b194ffe515e2b7e3dfdf885d27aa451a9085df24. The author-supplied four-report custody gate also matches those pins and its stated 52767-byte sum. I independently verified the public bytes rather than adopting that private observation as my own call.
+
+Historical V2 at 4c606efc64fd92d0c90569b5fc7774117b9e3f07 is indeed the 16204-byte/SHA25675b8ac371493b9dc685b3ca02074f3f92c288802e057ea42b9467f11cd0a3bbd/blobba4aa0a1d3eb135646b505a293ac66d09c7d0b33 object. Its module10 pending state was true at its freeze; V3's separate current module10 observation points to the later genuine report Sourcecbce329c533aeea331eeeb366bf52ae95ac5f4eb. Its proof_objects key9 actually exists and identifies the earlier core61 paper; that shorthand locator is not an invented missing object.
+
+These checks attest byte correspondence and correctly scoped status extraction. They do not independently attest every author HTTP request, all historical guard checks or current Native authority. No index, JSON boolean or old Source permission is used as a replacement for a fresh actor/Task/DA guard.
+
+## Mathematical strength and dependency boundaries remain accurate
+
+Module11 records abstract Sel4=(C4)^2 plus (C2)^2 and Sha[4]=(C4)^(2-r) at core98, with rational rank still unknown. Module12 uses full genuine Cassels rank and actual torsion Kummer-image k, not a point count; it is correctly marked a same-family method harvest, not an extra independent discovery. Module13 keeps the nonzero mixed bit as an actual missing antecedent, with the zero branch giving no rank decision. Module14 distinguishes the general rational no-odd-torsion lemma from the primitive no-four input and exact signed reconstruction needed for strict empty-or-infinite fibres; auxiliary E' has k=1, not target primitive k=2.
+
+The dependency DAG separates full Selmer compatibility calculations from genuine Cassels rank. A vertical formula supplies full rank only after coverage or missing nonvertical pairings are established. An M/K compatibility rank is not substituted. The recorded rank-zero examples yield empty strict fibres by composition with module14 and the already proved reconstruction; the positive-rank original core's infinitude is already known. This creates no new point, rank computation or accepted scientific execution.
+
+The core98 frontier correctly keeps actual c3, pushout and mixed bit absent. Its actual rank remains UNKNOWN_0_1_2 and its strict-fibre branch is consequently unknown. The conditional rank0/Sha2-primary-C4-squared/empty-fibre output is not mislabeled a current arithmetic result. The stopped fixed233 certificate Task still has no new RR; mature paper proofs do not substitute for an admitted and executed consumer.
+
+The Fisher primary is an existing method, and the independently reviewed bridge must retain the precise dual-isogeny model. Its reported historical Magma function is not an attested current runtime/API/export contract. One publisher401 or command-v failure is a bounded author access observation, not a permanent impossibility or a new Tool-capability gap. The SD13 access failure is not confused with the accessible different Fisher manuscript. Missing actual cover/function/local/support/runtime/code/codec/cost and lawful budget remain invocation gates, not a ban on legitimate identity registration or other current preparation.
+
+## Limits of this PASS
+
+The target declares registered_Tool=false, executable_consumer=false and zero Native scientific votes/invocations. Its pages-read fields are the author's disclosed reading history; I do not borrow them as my own. My actual Fisher/Weil primary consumption and new bridge reasoning are recorded in the separate bridge report. This extraction assessment supplies no current implementation signature, cost certificate, test result or automatic enablement.
+
+V3 correctly preserves old snapshots, classical method ownership, separate paper versus Native truth levels, all-core rank/generator limits, fixed233 resource stop, and the OPEN parent. A later same-family interface update may record new evidence, but cannot retroactively change these frozen originals. The external prior-art supplement is likewise separate and does not rewrite the original module14 history. No must-fix was found at this exact metadata/provenance strength. Heartbeat X6 and the separate external arithmetic types remain unchanged.
+
+Driver-ID: EM-DVR-BFF6DC / CONTROL_PLANE
