@@ -1,0 +1,144 @@
+# Reciprocal CM density: complete independent technical review of the finite partial reduction
+
+Disposition: NONBLIND_INDEPENDENT_TECHNICAL_WHOLE_PASS_BOUNDED_PARTIAL / RESULT_ONLY_COMPOSE_APPLIED. I reviewed the complete new 20431-byte author artifact, all seven sections, equations R1–R22, and its entire source/qualification/stop context. I found 0 mathematical must-fix issues and supplied 0 actual author construction or repair. This is one whole review of the author's stated partial result. It does not assert the unresolved scalar comparison, an unconditional CM0 theorem, or a new accepted status for any old local working note.
+
+The established statement is an exact, reversible finite reduction: with the explicit constructors in the author artifact and any independently specified scalar κ in F_p, R1 holds if and only if R2 holds. The independent original definition of κ is still missing. Therefore the original instantiated target remains HOLD_MISSING_INDEPENDENT_SCALAR_CONTRACT. Passing this complete partial artifact does not close that target.
+
+Reviewer: EM-P11-4A56E9, same warm SID MCP-387e35a6a7d24e8cb2c44e361b9ce5b9 and activity RA-C193E2AA39B9A6A6DDBB69B3. The new recovery/composition belongs to A, EM-PUBLIC-7CDA51. Root routed the work and controlled custody; Root supplied no proof or mathematical vote. This report was created after my own immutable author-file and exact-diff checks. This review's own publication is PENDING at creation; no future Source, author ordinary acceptance, or activity checkpoint is filled in here.
+
+## 1. Exact object, complete reading, and independence
+
+The sole new author file actually consumed is:
+
+- Repository: awdawmip/enterprise-math.
+- Source: 17a98a752ae6b01a28db1315db3d26dacf8c1330.
+- Path: research_notes/owner_goal_20261017/cm24_reciprocal_density_orphan_intake_7cda51/CM_RECIPROCAL_DENSITY_TERMINAL_CANCELLATION_PARTIAL_COMPOSE_WORKING_AND_CONTEXT.md.
+- Exact UTF-8 bytes: 20431.
+- SHA256: 2a3e634bb1d0cbdeba5b872a22bbe920bb19b4ac55e781aa228843c9f2a11bc1.
+- Git blob OID: f50e90f3a8cc26cd9a918cedfe18856036afdb7e.
+- Immutable URL: https://github.com/awdawmip/enterprise-math/blob/17a98a752ae6b01a28db1315db3d26dacf8c1330/research_notes/owner_goal_20261017/cm24_reciprocal_density_orphan_intake_7cda51/CM_RECIPROCAL_DENSITY_TERMINAL_CANCELLATION_PARTIAL_COMPOSE_WORKING_AND_CONTEXT.md.
+
+I personally made the managed full-file observation, retained its original arguments and entire returned wrapper, and read the full mathematical content and context in one untruncated response. The returned UTF-8 string was checked against the stated byte count, SHA256, and Git blob calculation. My own GitData read verified tree a2e9af6481e7dd872071b2668430e5b3bdafbbea and sole parent 9910ffd5d6bdd8a3d6120c7cb0aa31b6ce2a1ef6. My own commit comparison verified exactly this one ADD, one commit, ahead 1 / behind 0. These are my observations, not A's or Root's API receipts.
+
+I am not globally blind. My earlier genuine LC partial-capsule whole review, including the 29992-byte combined review, and my CM24 connection/E/F/G/rank-three/finite-operator author and peer history remain warm background. None is a new independent vote on this recovery. Before the present route I had not seen this new 20431-byte body or its formulas and had not participated in its actual construction or repair. Receipt of the topic produced general private associations, recorded NONZERO rather than erased. My verification of the frozen proof is technical review, not an undisclosed contribution to A's construction. I received no other peer's new findings and sent no unfinished proof or repair to A.
+
+The current bookkeeping snapshot is personally closed Source38/214 at 954fcf73418f6ce6bb4794bfbf29da488133ec61. Its original startup and same-event guards actually returned 0, debt [], all five authority flags false. This earlier closure is reused honestly; no new guard run or checkpoint39 is claimed for this report. Formal budgets remain UNKNOWN and all prior STOP/HOLD boundaries remain.
+
+## 2. Finite model, Gauss normalization, and legal domains: R3–R7
+
+I checked the statement in its exact carrier: p=6m+1 prime with p congruent to 13 or 19 modulo 24, m at least 2, N=3m, and all coefficients in F_p. Integer truncation ranges remain integer ranges. Substituting N=-1/2 in a field calculation does not extend a sum.
+
+For A(z)=Σ from i=0 to m of a_i z^i, the parameters 1/6, 1/3, 1/2 reduce to -m, -2m, -3m. The denominators in a_i are nonzero on this actual range. The binomial g=(3m choose m) is a unit because all factorial indices are below p.
+
+The terminating Vandermonde calculation gives A(1)=m!(2m)!/(3m)!=1/g. I checked the full connection, not just this endpoint. After taking j derivatives and applying the finite identity to the remaining m-j terms, the coefficient of w^j in gA(1-w) has the remaining factor
+
+    g(-1)^j (1/6)_(m-j)/(1/2)_m = 1/j!.
+
+Indeed (1/6)_m/(1/6)_(m-j)=(-1)^j j!. This gives the stated V(w)=gA(1-w), so y(1)=1 for y=gA(ρ), ρ=x(4x-3)^2, and V'(1/2)=-gA'(1/2). No analytic continuation is needed.
+
+I also checked the homogeneous carrier assertion. The a_i recurrence gives D_A A=0, including the terminating top coefficient. With ρ'=3(4x-1)(4x-3) and ρ''=48(2x-1), the B'' coefficient in H[B(ρ)] is -18(4x-1)ρ(1-ρ); its B' coefficient is -9(4x-1)(1-3ρ); its B coefficient is (4x-1). These are exactly -18(4x-1) times the three coefficients of D_A. Thus the asserted chain-rule identity has the stated normalization and sign.
+
+The six coefficient moments in R5 are defined only on degree at most N-1. The largest I denominator is N; the largest J denominator is 2N-1=p-2. Every denominator is a unit. At the first excluded coefficient index l=N, 2l+1=p; nothing in the proof uses that undefined term. J_c uses c^(l+1), exactly as written, rather than c^(2l+1). I did not turn these algebraic functionals into unprovided path integrals.
+
+For S_k and P, direct coefficient subtraction yields
+
+    (1-z)P(z)=A(z)-A(1)z^m=A(z)-z^m/g.
+
+Combining this with 1-ρ=(1-x)(1-4x)^2 gives R7 without division by 1-4x at any evaluation point. Both the polynomial D0=g(1-4x)^2P(ρ) and (y-ρ^m)/(1-x) have degree at most N-1. The later quotient (y-1)/(1-x) is also polynomial on this domain because y(1)=1.
+
+These checks do not prove A(1/2)=V(1/2)=0. The author's CM0 premises remain explicitly conditional, and the new exact reduction is not promoted to an unconditional Heun/CM normalization theorem.
+
+## 3. Reciprocal reflection, every fixed-C row, and the boundary: R8–R14
+
+I checked the literal finite ranges of t_r, D_r, η_r and e_j. The first zero of (1/2)_r occurs at r=N+1, beyond the allowed r≤N; the first zero of (3/2)_j occurs at j=N, beyond the allowed j≤N-1. The denominator products (2/3)_r and (5/6)_r first vanish beyond N. The products and factorials used here are therefore legal units. In particular η_1=1/40; η_0 and e_N are not introduced.
+
+The identity η_r=rD_rt_r and its legal ratio in R10 follow directly from the products. Reversing that ratio at r=N-j uses N=-1/2 only in the coefficients and gives η_(N-j)=η_N e_j. The induction stops at η_1.
+
+The reflected operator in R9 is correct: under C(w)=Cbar(1-w), D_G* becomes D_A* with derivative coefficient 3/2-5z/2. At coefficient index j its equation is exactly
+
+    (j+1)(j+3/2)cbar_(j+1)
+      -(j+2/3)(j+5/6)cbar_j=1/9.
+
+All descending diagonal factors are units, giving the independently specified reverse solution. For j<N-1 the proposed R11 formula satisfies the row because
+
+    η_(j+1)(j+2/3)(j+5/6)e_j = 1/72,
+
+so its row difference is 8/72=1/9. This calculation uses only defined e_j and e_(j+1).
+
+I checked the exceptional top row separately. At j=N-1 the forward coefficient vanishes, the diagonal product is 5/9, and the required coefficient is cbar_(N-1)=-1/5=-8η_1. No division by the vanishing forward coefficient or fictitious e_N occurs.
+
+For the Wilson anchor, the finite products give the author's factorial expression. Wilson complements give 1/(4m)!=-(2m)! and 1/(5m)!=(-1)^(m+1)m!. The combined sign is positive. Using g=N!/[m!(2m)!] and (N!)²=(-1)^(N+1), the result is 1/(36Ng²)=-1/(18g²). This checks R12 on the full stated range, including its sign. The earlier Wilson-origin credit is preserved; this review does not reassign it to A or me.
+
+Finally, interchanging the finite triangle in R11 at z=1/2 gives exactly R14. Both the r≤m and the r>m portions survive. The boundary τ=-C_*V'_*/4 is an independently defined product; no inverse of C_*, V'_*, A(1/2), or a CM value is taken. Thus the formal boundary algebra remains valid even if a boundary factor vanishes.
+
+## 4. Full cutoff, summation by parts, and exact normalization: R15–R19
+
+I checked the entire triangular definitions, including r=1 and r=m. Finite summation by parts gives
+
+    Σ_(i=1)^m S_(i-1)(W_i-W_(i-1))
+      =S_(m-1)W_m-Σ_(i=1)^(m-1)a_iW_i
+      =W_m/g-OLD-R/2,
+
+where S_(m-1)=1/g-a_m and W_0=0. Interchanging the W triangles gives the same expression as Σ_(r=1)^m D_r q_r. At the high endpoint q_m=t_m(1/g-a_m); no low endpoint is discarded.
+
+Substituting D_r=η_r/(r t_r) and the reciprocal identity gives R16 on exactly r=1,...,m. Every r t_r divided by is a unit. I then checked the stated F_CM constructor on both of its pieces. Its low q_r contribution is M_R after multiplication by η_N. Its full V'_* contribution, including the r>m tail, is
+
+    -6V'_* η_N Σ_(r=1)^N e_(N-r)E_(r-1)^adj(1/2)
+      =(3/4)C_*V'_*
+      =-3τ.
+
+Consequently η_N F_CM=M_R-3τ, and η_N=-1/(18g²) yields F_CM/(9g²)=-2M_R+6τ. The sign of τ and the factor 6 are fixed by these calculations. Omitting the high-r tail would not give this identity.
+
+This check treats R15 and R17 as their explicit independently specified finite constructors. It does not infer the truth of the old target equation from the name F_CM, from old directed checks, or from a local PROVED label.
+
+## 5. Terminal cancellation and the precise κ discriminator: R20–R22 and R1–R2
+
+For f_k=(1-4x)^2ρ^k, the degree is 3k+2≤N-1, so all six moments remain legal. The actual increment U_k+V_k^odd is exactly Φ(f_k) with the original six coefficients and the original J convention. Since T_0=0, finite telescoping gives
+
+    T_m=Φ(Σ_(k=0)^(m-1)f_k)
+       =Φ((1-ρ^m)/(1-x)).
+
+The second equality follows in F_p[x] by multiplication by 1-x and the polynomial geometric-sum identity. It does not require a new value assigned to a missing T sequence, an extra odd moment, or evaluation at an apparent singular point.
+
+Now the left side of R1 becomes
+
+    Φ(D0)+2W_m/g-OLD-R-6τ.
+
+Cancelling precisely the same 2W_m/g from its two sides leaves Φ(D0)-T_m-OLD-R-6τ=κ. R7 and the just-verified T_m formula give
+
+    Φ(D0)-T_m=Φ((y-1)/(1-x)).
+
+Every argument of Φ has degree at most N-1. These equalities are reversible. Therefore for each independently specified κ in the stated field, R1 and R2 have identical truth values.
+
+No step computes κ. Defining κ to equal the new discrepancy would be circular and would not close the recovered original problem. The manuscript correctly does not identify the unrelated coefficient family κ_s, its κ_0, the boundary τ, or an endpoint with the missing scalar. The claimed next discriminator is one actual original scalar definition with matching carrier, dependence and normalization. If it merely restates the discrepancy, it contributes no independent input.
+
+This is the complete finite result I pass. It is not a proof that the left side of R2 vanishes, a counterexample to the original comparison, a no-closed-form theorem, or a revival of the old characteristic-zero universal two-carrier obstruction.
+
+## 6. Input qualification, honest old-reading boundaries, and attribution
+
+The new proof is self-contained in its displayed finite constructors and derivations. I paid the finite identities again by hand as recorded above; I did not treat the old local working notes as accepted mathematical premises. No additional old managed intake was necessary for that stated finite theorem.
+
+In particular, I did not newly whole-read the original 10599-byte local target, the 13933-byte reciprocal working copy, the 13004-byte density working copy, the 15944-byte embedded prefix member, the 9417-byte connected-tail member, or the 16666-byte coefficient-boundary member in this review. My complete reading of A's ledger is not a claim to have repeated A's individual old-source observations. Their exact old-byte/custody and textual-coverage assertions remain attributed to the author's stated recovery history, rather than converted into personal old-source GETs or a blanket archive audit. The original comparison is therefore reviewed as the explicitly stated target with the displayed constructors and the manuscript's missing-κ qualification; no broader identification of an unspecified old carrier is certified.
+
+The 13933-byte local note retains Source_ref=null and Source_custody_asserted=false. The three local working copies acquire neither an immutable accepted author Source nor a peer vote through this review. Cataloged member paths are not direct Git paths. Consuming a named decoded member is not a mathematical whole-read of its container, and no old numerical/checker campaign or 45-dependency bundle is inferred to be verified.
+
+The author's qualifications are consistent with the actual bounded result: old directed/local material and old Wilson, Gauss, reciprocal and summation-by-parts mechanisms are credited; the explicit terminal composition is A's recovery contribution. BFF/CF occupancy UNKNOWN replies, a child's location-only comparison, and Root control are not mathematical contributions or independent technical votes. I did not contact or reactivate a stopped original author, repair an old registration, or substitute a new identity or budget.
+
+My own technical review gives a new independent judgment only on this complete new partial artifact. Prior LC/CM24 author or peer roles are disclosed warm background and supply no second vote here. No computation of primes, external mathematical program, Native operation, new Task, or WorkingTruth update was performed. The only code used around this review handled actual Source custody and file metadata; the mathematical proof checking was manual.
+
+## 7. Final bounded result, persistence, and raw custody context
+
+Final technical disposition: complete new whole PASS_BOUNDED_PARTIAL / RESULT_ONLY_COMPOSE_APPLIED, 0 identified mathematical must-fix issues, 0 actual author construction/repair supplied by this reviewer. All seven sections and the full creation/source/stop context were included. The proof is an exact conditional comparison equivalence, not a final proof of the missing scalar target. CM0, κ/Eq16, LIFT, weighted p³, raw-period normalization, full Native propagation, the separate Student coefficient caller, and the parent Goal remain open in the stated senses.
+
+My own original full-file, GitData and comparison wrappers are preserved beside this report:
+
+- intake/OWN_AUTHOR_SOURCE_authorFull_ORIGINAL_ARGUMENTS_AND_ENTIRE_RESULT.json.
+- intake/OWN_AUTHOR_SOURCE_GitData_ORIGINAL_ARGUMENTS_AND_ENTIRE_RESULT.json.
+- intake/OWN_AUTHOR_SOURCE_exactCompare_ORIGINAL_ARGUMENTS_AND_ENTIRE_RESULT.json.
+
+Each is an actual original caller record, not reconstructed server metadata. The full-file call has repository_full_name, exact path, immutable ref and encoding utf-8; its entire returned wrapper is retained. The wrapper's kind names the actual method family used. Absent independent server call_id/namespace fields are not invented. The local saved filenames do not authenticate a server signature.
+
+This single merged review/context is the artifact to receive one complete reviewer self-read and one freeze after creation. The separate Source38/214 administrative receipt remains evidence of that already closed bookkeeping event; this new review is not backfilled into its old16-member cut. This report's Source is still PENDING at creation. A's eventual ordinary acceptance must be an actual later observation, not a forecast in this file. Source publication alone will not change the missing scalar contract or promote the old local papers.
+
+No main write window, helper39, new scientific authority, budget, Native operation or parent finalization follows from this review. Same actor, all original histories and limits retained; Goal OPEN.
+
