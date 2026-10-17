@@ -1,0 +1,87 @@
+# Fixed mass with a chosen common background: bounded-range move obstruction
+
+Status: UNREVIEWED_AUTHOR_WORKING; RESULT_ONLY / COMPOSE merge candidate for the same specified seven-observer record. This is one bounded paper argument, not a new generic Tool or a separate paper. No Source publication, independent acceptance or activity25 is claimed.
+
+Author: same warm EM-FREE-CF1677, actual24/88. Historical LOCAL/composite FREE identity and current ordinary directed research semantics are unchanged. Existing STOP/HOLD/UNKNOWN and false ending remain. There was NONZERO internal rough reasoning about sparse supports and a singleton-negative-part obstruction before the question file was written. The question file fixes the formal quantifiers before this complete written proof; it does not precede every construction thought. No blind or construction-zero qualification is claimed.
+
+## 1. Fixed question and exact new scope
+
+The local scope/kill record is `FIXED_BACKGROUND_RANGE_QUESTION_AND_KILL.json`, 3224 UTF8 bytes, SHA256 `7d67cca8a4844057c2514724f6a45a65c5f847d09bb28cf5aeba149a1dfb72d0`. It fixed the following question before the present complete argument.
+
+Fix the original raw chart X = c + Z^6 of the restricted Cell occupancy model. States are functions f:X -> N0 with finite support. All sites retain their six coordinates. Time is separately typed and unused. For i = 1,...,6, M_i sums over a coordinate-i fiber, retaining the other five coordinates jointly. Put v = (1,1,1,1,1,1); N_v sums over cosets of Z v. Write O = (M_1,...,M_6,N_v). These are the same seven linear readouts as in the accepted original observer unit.
+
+For a finite integer array h, let h_+(x) = max(h(x),0) and h_-(x) = max(-h(x),0). Its support consists of the sites with nonzero coefficients. On chart indices define
+
+    diam_infinity(S) = max over x,y in S of max_i |x_i - y_i|.
+
+This is a proof-coordinate range, not a physical metric, propagation rule, new native adjacency or new axis.
+
+Fix an integer M >= 63. A palette P is any family of nonzero, finite-support integer arrays h with O h = 0. P may depend on M and may be infinite. Assume there is one finite real B >= 0 with diam_infinity(support h) <= B for every h in P. An edge replaces f by f + epsilon * T_a h, where h is in P, a is an integer translation and epsilon is +1 or -1, only when the destination is in N0. Every vertex is a finite-support state of mass M in the same observer fiber. The graph itself need not have finitely many vertices. A path uses such legal individual edges; temporary negative entries, an excursion outside the fiber, or a batch treated as a new allowed move are not permitted.
+
+Claim: for every such M, P and B, there are distinct mass-M states f,g with O f = O g, both isolated in this palette graph. The witness can depend on M and B. The palette need not be fixed uniformly over M. The shared background below is a chosen background giving these witnesses; there is no claim that every preassigned background leaves every collision isolated.
+
+## 2. Actual existing inputs and bounded coverage
+
+The following are existing, personally whole-consumed mathematical records with the author's own earlier Source custody. Their bytes and old observations are honestly reused here; no new remote call or new whole review is asserted.
+
+* Own original observer author, Source `9ccc3130b2fad8f918ffd67c7fa1a5a6bfef1e1a`, repository path `research_notes/owner_goal_20261016/native_x6_seventh_diagonal_observer_cf1677/SEVENTH_DIAGONAL_OBSERVER_BOUNDED_STRUCTURAL_FEASIBILITY_WORKING.md`, 15262B, SHA256 `3a63411cf44522d178f7edaabc2d9000d26742de7c6e239e9b15b08eb47b8d46`, Git blob `b3a80c6c0f0858ba05d7006606b8874ef4555c1d`. Sections 2-4 specify O and the polynomial G, and count its two mass63 sign parts. Its genuine BFF review was separately consumed at Source `292e384e1bb56ac155cbe3e32c5c1091299f6e22`; no new vote is borrowed from it.
+* Accepted A critical-palette consumer, Source `aeb8eecf69f80ea123a9b7bbc450dc9e84a69fbd`, path `research_notes/owner_goal_20261016/reviews/native_x6_mass63_equality_nonauthor_7cda51/LOCAL_SUCCESSOR_CRITICAL_MASS_TRANSLATION_MOVE_PALETTE_CONSUMER_INTAKE.json`, 5617B, SHA256 `f3e3a3c2f7e200f594116e5a7dfa64b1ff93c24b1579e02f9f3c93bd6ad433e9`, Git blob `c039009252e68d7d212894329a67007133c5cdbc`. Its five steps and literal bounded_outcome concern mass63: legality and the sharp minimum force the starting state to be the entire negative part. The complete scale-orbit iff is confined to that critical mass. CF's genuine review is Source `aad8d0a6f27a9b2b2199b83af3a66dec53111f42`; the present new author argument does not retroactively enlarge that frozen vote.
+
+Own accepted sharp12219 and the later accepted BFF20300 equality classification with A18930 review are known warm background, but are not logical premises for this proof. In particular the proof below uses neither the sharp lower bound on arbitrary kernel mass, the full principal-ideal description, nor the classification of equality cases. No higher-mass classification or higher-mass sufficiency of the full-scale palette is imported.
+
+The preceding exact objects do not state the quantifiers in Section1 at M > 63. The old critical proof's mass-saturation inference f = h_- fails there. That identifies the bounded consumer gap addressed here; it is not a repository-wide or literature absence/novelty assertion. The sparse-support mechanism is elementary standard composition. If an exact prior source already supplies this quantified specified-model consequence, classify this record as REUSE rather than another discovery.
+
+## 3. A nonzero kernel move cannot consume only one site
+
+Lemma. If h is a nonzero finite integer array with M_1 h = M_2 h = 0, then each of h_+ and h_- is supported at at least two distinct sites.
+
+Proof. Summing the entries of M_1 h gives sum h = 0; all sums are finite. Thus nonzero h has both a nonempty positive and a nonempty negative part. Suppose support(h_-) = {c+x}, so h_- = a delta_(c+x) for an integer a > 0. Let pi_i delete coordinate i. For every y with h_+(c+y) > 0, nonnegativity and
+
+    M_i h_+ = M_i h_- = a delta_(pi_i x)
+
+force pi_i y = pi_i x, for i = 1,2. Indeed a positive contribution to any other bin cannot be canceled within the nonnegative sum defining M_i h_+. The i=1 relation fixes coordinates 2,...,6; the i=2 relation fixes coordinates 1,3,...,6. Hence y = x. But h_+(c+x) = 0 wherever h_-(c+x) > 0, by the coefficientwise definition of the sign parts. This contradicts nonemptiness of h_+. Thus the negative support is not a singleton. Apply the same argument to -h for the positive support. This proves the lemma.
+
+This lemma applies to every palette move and to either signed translate. It uses only two of the six coordinate readouts, and requires no uniform bound on coefficient magnitudes or on the move's mass. It is not a claim that two sites suffice for an actual seven-readout move.
+
+## 4. A dilated collision and the selected common background
+
+Choose a positive integer d > B. With independent Laurent variables X_1,...,X_6 put D = X_1 X_2 X_3 X_4 X_5 X_6 and
+
+    A_d = product_(i=1)^6 (1 - X_i^d),
+    G_d = (D^d - 1) A_d.
+
+Let h_d be its finite integer coefficient array in the fixed chart. This is the dilation of the old displayed collision, but the needed finite statements can be checked directly. Setting X_i=1 makes G_d zero, which says M_i h_d = 0. For N_v, multiplication by D^d translates by d v and hence does not change the coset bin. Therefore N_v(D^d A_d - A_d) = 0 by equality of the two finite coset sums. Thus O h_d = 0.
+
+The support of A_d is the vertex set {0,d}^6; all its coefficients are +1 or -1. Its translate D^d A_d has vertex set {d,2d}^6. These two sets meet only at d v. The coefficients of A_d at both 0 and d v are +1, because six is even. Consequently the +1 from the translated array and the -1 from minus A_d cancel at d v, with no other overlap. The remaining 63 vertices of each cube give exactly 126 nonzero coefficients, each of absolute value 1. Their total sum is G_d(1,...,1)=0, so each of (h_d)_+ and (h_d)_- has mass63. Both supports lie in d Z^6. No enumeration or mathematical program is involved in this count.
+
+Let
+
+    b = (M - 63) delta_c,
+    f = (h_d)_+ + b,
+    g = (h_d)_- + b.
+
+Both are finite N0 states of mass M, including M=63 when b=0. They are distinct because f-g=h_d is nonzero. Linearity gives O f - O g = O h_d = 0. The common background is added to each state once, not to the signed comparison; overlap with a sign part does not affect either identity. Since the chosen site c has chart index 0, both supports remain subsets of d Z^6. Any two distinct occupied sites in either state therefore have chart infinity-distance at least d. Arbitrarily large multiplicity at c creates no second occupied site.
+
+The use of c chooses one chart site for a constructed witness; translation gives the same argument at any chosen translated chart site. No ontically distinguished origin is asserted.
+
+## 5. No first legal move
+
+Suppose a palette edge were legal from f. Write its nonzero signed translated move as k = epsilon T_a h. Its support diameter equals that of h and is at most B. Also O k = 0, since the readouts respect translation and sign. By Section3, k_- has at least two distinct occupied sites, say c+x and c+y. Both belong to support k, so
+
+    0 < max_i |x_i-y_i| <= B < d.
+
+Legality f+k >= 0 implies f >= k_- coefficientwise: at every site with k < 0 the initial occupancy must pay that entire negative coefficient. In particular c+x and c+y are both occupied sites of f. Section4 instead forces their distance to be at least d, a contradiction. The same reasoning applies to g. It already covers both signs and every translation of each palette element.
+
+Hence f and g each have no incident edge. Reversing any legal edge is also legal with the opposite sign from its given destination, so the same conclusion excludes incoming as well as outgoing edges. They are distinct isolated vertices of the same mass-M observer fiber; no finite sequence of the permitted legal moves connects them. This proves the Section1 claim.
+
+The argument does not use finiteness of P. It uses its uniform range bound and the two-site necessity for the consumed sign part. In particular every finite palette of fixed finite-support kernel moves has a finite maximum support diameter and fails for every fixed M >= 63. This does not prevent a palette whose ranges are unbounded, or a box-dependent palette, from behaving differently.
+
+## 6. What changed, and the stopping boundary
+
+The critical-mass consumer obtained an isolated collision by an omitted scale and the equality f=h_- forced at totalmass63. This record adds a different elementary implication: for each larger fixed mass, a chosen shared single-site background can retain isolation against every uniformly bounded-range library. The proof pays the loss of mass saturation by showing that no nonzero legal comparison can be consumed from only one occupied site, then separating all occupied sites beyond the library range. Large coefficient multiplicity at the shared background site cannot remove that obstruction.
+
+At M=63 the finite-palette failure overlaps the accepted old result and is REUSE. The contribution for this record is the nonsaturation/background argument and the explicitly quantified uniformly bounded-range extension, including possibly infinite palettes. These are one specified-model corollary, not separately counted results. The full-scale connectivity iff for M=63 is unchanged. No assertion of an iff or of connecting all mass-M fibers at M>63 has been proved.
+
+Other limitations remain literal: there is no classification of higher-mass fibers or paths; no statement that every preassigned background fails to help; no obstruction to a library with unbounded ranges; no finite-box, approximate, real-valued-occupancy, temporary-negative or composite-batch variant. Principal-ideal generation of signed comparisons does not imply nonnegative connectivity and is not used as such. The model supplies no physical dynamics, signal speed, Native task/authorization, global old32 conclusion, rank4/LC consequence or ParityAe estimate.
+
+This completes the predeclared one-round paper feasibility test with an unreviewed author proof. The singleton-negative-support, shared-readout, and edge-legality kill checks are explicitly paid in Sections3-5. No numerical experiment, enumeration, scientific program, external search or new input Source was used. A future genuinely nonauthor whole review would be necessary for acceptance; the author's old observer/sharp work and old palette-review vote are not a vote on this new corollary. No helper25, new budget/identity, remote mutation or new generic Tool is requested by this record.
