@@ -1,0 +1,205 @@
+# Actual finite CM carrier integration: complete independent technical whole review
+
+Disposition: NONBLIND_INDEPENDENT_TECHNICAL_WHOLE_PASS_BOUNDED_INTEGRATION_ONLY / RESULT_ONLY_STANDARD_COMPOSE. Identified mathematical must-fix: 0. Identified fact, credit, type or scope must-fix: 0. Actual participation in the author's new construction or repair: 0.
+
+I reviewed the complete new 19247-byte integration ledger, all seven sections, its tables, L1–L5, its Source/credit catalog and its full chronology/context. I personally whole-read and hand-checked the two necessary newly consumed author inputs, then matched them to the previously whole-consumed P20431. The new author's actual Source is personally bound before this report's freeze. This is a whole technical judgment on the new integration, not three repeated votes on its old inputs or a principal-paper/Tool registration.
+
+The resulting reusable interface is exact same-carrier CM0, the unit derivative V'(1/2), the correctly normalized derivative of A and y, the legal zero-equivalence from P's own tau PRODUCT, and P's unchanged terminal equivalence. The original B_CM producer/source identity and independent scalar κ remain unpaid. No original Eq16 scalar evaluation, Native, analytic period or parent-goal closure follows.
+
+Reviewer: EM-P11-4A56E9, same warm SID MCP-387e35a6a7d24e8cb2c44e361b9ce5b9 and RA-C193E2AA39B9A6A6DDBB69B3, current personally closed Source38/214. Author of the new ledger: EM-PUBLIC-7CDA51. Root routed the exact whole and necessary inputs with zero mathematical construction or vote. This report's own Source and A's future ordinary acceptance are PENDING at creation.
+
+## 1. New complete artifact, actual reading order and Source custody
+
+The sole new integration artifact is in awdawmip/enterprise-math:
+
+    research_notes/owner_goal_20261017/cm24_literal_CM_reusable_interfaces_7cda51/
+    CM_ACTUAL_CARRIER_CM0_SIMPLE_ZERO_AND_TERMINAL_EQUIVALENCE_INTEGRATION_WORKING_LEDGER.md
+
+Exact UTF-8 bytes: 19247.
+SHA256: 77fa89130fc25921ebd9d59d941912abd64610e53f8bebca787a46cb4cba1bf8.
+Git blob: ac47336633a4d44d0dd59313f45ba24155ed9174.
+Actual author Source: 578add29669c334471ec852ac3b3303289c1c276.
+Sole parent: 7c331d91a20a72b6c9ba941019a40fe2eb5345f7.
+Tree: 8b3a12841fc10fe132a5776c320f13502efeae4d.
+Immutable URL: https://github.com/awdawmip/enterprise-math/blob/578add29669c334471ec852ac3b3303289c1c276/research_notes/owner_goal_20261017/cm24_literal_CM_reusable_interfaces_7cda51/CM_ACTUAL_CARRIER_CM0_SIMPLE_ZERO_AND_TERMINAL_EQUIVALENCE_INTEGRATION_WORKING_LEDGER.md.
+
+The true order matters. I first personally fetched and completely consumed the two necessary old author inputs listed in Section 6. I then read the entire fixed LOCAL integration file in one untruncated 4872-token output, chunk a4dd1a, checked its fixed byte/SHA/blob pins and hand-checked the integration. Its author Source had not yet been supplied to me at that reading. After the actual Source was reported, I personally fetched the complete immutable file once. Its returned bytes were exactly equal to that already whole-read local body and had the same length, SHA256 and returned/computed blob. I reused that actual semantic reading rather than inventing a second whole reading.
+
+My own GitData and comparison then verified the Source, tree and one parent above, exactly this one added ledger file, one commit, ahead 1 / behind 0. A's and Root's custody statements did not substitute for my calls. No author postgate was borrowed.
+
+The mathematical input labels below are publication labels: P is the reciprocal terminal-equivalence partial, C is the finite CM0 theorem, and D is the Gauss simple-zero theorem. The letter C for that theorem is not an identification with P's fixed polynomial C(w) or its value C_*.
+
+## 2. Necessary upstream hand-check: CM0 and finite simple zero
+
+I genuinely first-whole consumed D9578 and C15834 in this phase, including all their proof and qualification contexts. They were routed as already accepted author inputs; this new consumption checks the premises required by the integration and adds no separate old-input peer votes.
+
+For D, I checked the actual finite V(w)=Σ_(i=0)^m [(1/6)_i(1/3)_i/(i!)²]w^i. For p=6m+1 in the stipulated prime classes, its products are units on 0≤i≤m and its degree is exactly m<p. The recurrence
+
+    (j+1)²v_(j+1)=(j+1/6)(j+1/3)v_j
+
+pays every lower coefficient of D_G V=0, where
+
+    D_G=w(1-w)d_w²+(1-3w/2)d_w-1/18.
+
+At the top m, the term vanishes because m+1/6=0 in F_p; no missing infinite tail is assumed. At a=1/2, the leading ODE coefficient is 1/4. A root of multiplicity d with 2≤d≤m<p would produce the nonzero coefficient d(d-1)U(a)/4 at order d-2, which neither the first- nor zeroth-order term can cancel. Hence the finite implication V(1/2)=0 ⇒ V'(1/2)≠0 is valid. The degree bound and the literal ordinary point are essential.
+
+For C, I checked its independent finite discharge of CM0. The parameters reduce to -m,-2m,-3m, so the original A recurrence and terminating top coefficient pay D_A A=0. Finite Vandermonde pays A(1)=1/g and the full coefficient identity V(w)=gA(1-w), not just an endpoint equality. Its separate leading-coefficient calculation gives a_m=4^m, hence the actual pullback y=gA(ρ) has h_0=h_N=g because 64^m=2^(p-1)=1.
+
+The actual cubic pullback pays Hy=0 with the exact three coefficient polynomials in the author inputs. Its finite Heun rows are
+
+    (n+1)(2n+1)h_(n+1)
+      -(10n²+5n+1)h_n+4n(2n-1)h_(n-1)=0.
+
+I checked the top row, the potential degree N+1 output coefficient and both outside-zero conventions. The forward coefficients are units for 0≤n<N, so a finite solution vector is determined by h_0. The reversed vector k_n=4^n h_(N-n) satisfies the exact reflected rows, including n=0 coming from the original top row and n=N coming from the original bottom row. Its k_0 equals h_0, giving h_n=4^n h_(N-n).
+
+At x=1/2 this gives y(1/2)=2^N y(1/2). I checked the finite Gauss sign count ν=N-floor(p/4). For p≡13 or 19 mod24, p≡5 or 3 mod8, so ν is odd and 2^N=-1. Since p is odd, y(1/2)=0. Then ρ(1/2)=1/2 and g is a unit, giving A(1/2)=0; the paid reflection gives V(1/2)=0. No simple-zero result is used to prove CM0, so composing C and D is not circular. No zero or nonzero assertion for the other prime classes is imported.
+
+These are the exact finite arguments needed here. No 16666-byte old dictionary, old peer body, checker run or κ raw file was newly fetched or used to fill a hidden premise.
+
+## 3. Literal field, coefficient, reflection and moment matching
+
+I checked all rows of the new ledger's type table against the actual author bodies.
+
+All three mathematical inputs use F_p, p=6m+1 prime with p≡13 or 19 mod24, m≥2. P and C use N=3m=(p-1)/2. D uses the same degree-m V and is not silently assigned a degree-N coefficient space. The original integer truncation ranges remain integers.
+
+The A coefficients are exactly
+
+    a_i=(1/6)_i(1/3)_i/[(1/2)_i i!], 0≤i≤m,
+
+and V has the same numerator with denominator (i!)². The scalar g is the unit binomial (3m choose m), not the unrelated divisible p-adic scalar of the same name. P and C pay V(w)=gA(1-w), so D's expressly conditional connection has its actual producer available in this packet.
+
+The reflected ODE types match with their correct derivative sign. Substituting z=1-w and V=gA into D's homogeneous D_G gives D_A with derivative coefficient 1/2-3z/2. This is not an assertion that D_G and D_A have identical written coefficients. Neither is confused with P's different fixed-C adjoint operator D_G*. The latter retains its own reverse construction inside P.
+
+P and C use the same ρ=x(4x-3)², y=gA(ρ), and Heun H. The midpoint is fixed by reflection and satisfies ρ(1/2)=1/2. Thus C supplies exactly the original CM0 hypothesis of D and P, rather than a shifted/scaled zero of another carrier.
+
+Only P defines the six-moment functional. I checked the exact coefficients and powers:
+
+    I_c(f)=Σ_l f_l c^(l+1)/(l+1),
+    J_c(f)=Σ_l f_l c^(l+1)/(2l+1),
+    Φ(f)=2I_(1/2)(f)+8J_(1/2)(f)-I_1(f)/3+8J_1(f)/3
+          -7I_(1/4)(f)/3+20J_(1/4)(f)/3.
+
+Its domain is degree at most N-1. The largest I divisor is N<p; the largest J divisor is 2N-1=p-2. At the first excluded index l=N the odd divisor would be p, and it is not used. The power in J_c remains c^(l+1), not c^(2l+1). V's degree-m domain is not substituted for this x-polynomial moment domain.
+
+The ledger correctly licenses a future letter L as Φ only if that future caller supplies this exact definition, field and domain. It does not identify an unspecified Green functional, period, analytic integral, Student coefficient caller or Native time by a shared letter. There is no other branch or coordinate normalization left implicit in the matches actually used here.
+
+## 4. The new paid consequences and the original odd-observer boundary
+
+Set u=V'(1/2). C proves V(1/2)=0, and D then proves u∈F_p*. The paid reflection gives exactly
+
+    A'(1/2)=-u/g ∈F_p*.
+
+I checked its minus sign and unit scalar. Since ρ'(1/2)=-3, the same literal y has
+
+    y'(1/2)=gA'(1/2)ρ'(1/2)=3u ∈F_p*.
+
+No new derivative theorem or coordinate-branch assumption is needed for that chain-rule normalization.
+
+P's own boundary is a DEFINITION of its product,
+
+    τ=-C_*u/4.
+
+Dividing by the now-proved unit u is therefore legal and gives
+
+    C_*=-4τ/u,  and C_*=0 iff τ=0.
+
+No inverse of C_* or τ is taken. Neither value is evaluated or proved nonzero. This is a complete consequence for P's literal fixed-C constructor and its own product τ, without authenticating an old independent observer.
+
+The ledger makes the crucial distinction correctly. The original independently prescribed B_CM is not defined here. D retained its old source identity
+
+    B_CM=(2/3)A'(1/2)
+
+as a CONDITIONAL input because it did not repay the full original L_O/V_k/s_O producer. P and C likewise do not supply that producer. The fact that A'(1/2) is a unit does not prove that the original observer equals it.
+
+If that exact source identity is later paid and the C_*,g,τ constructors really match P, then B_CM=-2u/(3g). Multiplication by C_* gives
+
+    C_*B_CM=8τ/(3g).
+
+That implication is valid and follows from P's product definition. It is not an unconditional certification of an old bilinear identification or a substitute for the missing original producer/source identity. The integration does not promote the old local dictionary or its directed checks to an accepted theorem.
+
+Thus the unit assertion for the ACTUAL original B_CM remains conditional. The product consequence for P's C_* and τ is already paid. Those are different interfaces and the new manuscript does not collapse them.
+
+## 5. Terminal equivalence, dependency separation and remaining κ gap
+
+P's original finite identities are genuinely reused from my earlier whole reading and Source-bound review. In particular
+
+    D0=g(1-4x)²P_prefix(ρ)=(y-ρ^m)/(1-x),
+
+and A(1)=1/g gives y(1)=1. Therefore D0 and (y-1)/(1-x) are polynomials of degree at most N-1. Each prescribed f_k=(1-4x)²ρ^k for 0≤k<m is on the same legal domain.
+
+The actual T increments give
+
+    T_m=Φ((1-ρ^m)/(1-x)),
+    Φ(D0)-T_m=Φ((y-1)/(1-x)).
+
+The reciprocal/fixed-C rows, full low/high F_CM cutoff, Wilson normalization and finite Abel identity in P supply
+
+    η_N=-1/(18g²),
+    η_N F_CM=M_R-3τ,
+    M_R=W_m/g-OLD-R/2.
+
+I checked the integration's algebra against those paid P identities: F_CM/(9g²)=-2M_R+6τ, so cancelling the same 2W_m/g and subtracting the actual T_m gives the exact equivalence
+
+    Φ(D0)-F_CM/(9g²)=κ+T_m+2W_m/g
+      iff Φ((y-1)/(1-x))-OLD-R-6τ=κ.
+
+Every step is reversible for every independently specified κ∈F_p. It divides by none of u,C_*,τ. The terminal algebra itself does not need midpoint vanishing once P's explicit finite constructors are fixed; it is therefore wrong to describe the new CM0 proof as a scalar evaluation of the terminal remainder. The ledger avoids that mistake.
+
+C now pays P's same-carrier CM0 model/boundary premise in this new composition. That is new usable information and may retire that CURRENT missing hypothesis for the composed interface. It does not rewrite P's original conditional creation history, my old partial review, or D's old conditional proof.
+
+The original scalar κ still lacks its independent constructor/normalization. It is not defined by the new left side, identified with a coefficient κ_0, τ or an endpoint, or obtained from a fitted residual. Hence the instantiated original Eq16 target remains open. LIFT, weighted p³, period normalization, the missing Student coefficient/contour caller, Native propagation and the parent Goal are not closed.
+
+## 6. Exact personal input custody, catalog role and truthful scope history
+
+The two newly necessary upstream author files were personally whole-read and personally bound as follows, all in awdawmip/enterprise-math:
+
+D9578:
+Source e126e291ceac1e3eacaa9734d85a25dfec2c919f.
+Path research_notes/owner_goal_20261017/cm24_finite_gauss_simple_zero_cf1677/FINITE_GAUSS_CM0_SIMPLE_ZERO_AND_CONDITIONAL_ODD_SOURCE_UNIT_APPLIED_CONSUMER_V1.md.
+9578 bytes; SHA256 7c7e6949e69a15f1a81415d08fbc946689307d7e683c5b39addecf59c57c5532.
+Git blob 47ea0712a09e8678895f1c6b60b786e0a9d7b114.
+My own GitData/compare: sole parent 3aac62eaf614e2fa00ac6c21890a94cef8072260, tree 400156f6c313152ac1c784f90cb806388116dc2a, exactly one ADD/one commit/ahead1/behind0.
+
+C15834:
+Source 1689ce708127993e6892803d3179afd4d232765f.
+Path research_notes/owner_goal_20261017/cm24_finite_heun_CM0_7cda51/ACTUAL_FINITE_HEUN_RECIPROCITY_AND_CM0_APPLIED_CONSUMER_WORKING_AND_CONTEXT.md.
+15834 bytes; SHA256 ce9384557b631c4cad9d7aa54f0a43400704726077f93f4d5dd219dcac2d2fbc.
+Git blob dbe6b0c0ab2fc357f54e0fe7fd7e957b6fccb73e.
+My own GitData/compare: sole parent e126e291ceac1e3eacaa9734d85a25dfec2c919f, tree 7aba1b8140edf3537374982fd3aa16fa73cefb41, exactly one ADD/one commit/ahead1/behind0.
+
+I checked both complete returned UTF-8 strings' lengths, SHA256, returned/computed blob and full immutable commit/path URL. D and C's immediate Source parent relationship is actual transport history; it is not a logical premise arrow.
+
+P20431 was already genuinely whole-read, hand-checked and personally Source-bound by me at 17a98a752ae6b01a28db1315db3d26dacf8c1330, path research_notes/owner_goal_20261017/cm24_reciprocal_density_orphan_intake_7cda51/CM_RECIPROCAL_DENSITY_TERMINAL_CANCELLATION_PARTIAL_COMPOSE_WORKING_AND_CONTEXT.md, SHA256 2a3e634bb1d0cbdeba5b872a22bbe920bb19b4ac55e781aa228843c9f2a11bc1, blob f50e90f3a8cc26cd9a918cedfe18856036afdb7e. That actual semantic and custody work is reused without a new old-file GET. Its 16463-byte peer at 964146ae0760764f639d3b1ca04205d97c4cb146 was authored by me; I do not count it as a fresh independent premise vote on this integration.
+
+I did NOT fetch or whole-read the old C-peer18780, D-peer16218, the old 16666 member, any container or κ raw for this new review. The ledger's references to their original ordinary receipts, Source batches and qualification histories remain correctly attributed catalog/context information, not new personal API observations or additional mathematical premises. In particular its statement that D-peer's Source batch had two ADDs is not restated as my own new compare. The recorded C-peer author-ID transcription clarification is preserved as an administrative clarification in the author's declared ordinary history; it is not erased into a blanket zero-correction claim or adopted as a new identity.
+
+The new managed mathematical file observations here are exactly D9578+C15834+new ledger19247 =3/44659 UTF-8 bytes. P20431 is truthful prior reuse. The six GitData/compare calls are metadata custody, not six extra mathematical objects. Original complete caller wrappers are saved in this report's intake directory:
+
+- OWN_NECESSARY_gauss9578Full_ORIGINAL_ARGUMENTS_ENTIRE_RESULT.json.
+- OWN_NECESSARY_CM015834Full_ORIGINAL_ARGUMENTS_ENTIRE_RESULT.json.
+- OWN_NECESSARY_gauss9578GitData_ORIGINAL_ARGUMENTS_ENTIRE_RESULT.json.
+- OWN_NECESSARY_CM015834GitData_ORIGINAL_ARGUMENTS_ENTIRE_RESULT.json.
+- OWN_NECESSARY_gauss9578Full_EXACT_COMPARE_ORIGINAL_ARGUMENTS_ENTIRE_RESULT.json.
+- OWN_NECESSARY_CM015834Full_EXACT_COMPARE_ORIGINAL_ARGUMENTS_ENTIRE_RESULT.json.
+- OWN_new19247Full_ORIGINAL_ARGUMENTS_ENTIRE_RESULT.json.
+- OWN_new19247GitData_ORIGINAL_ARGUMENTS_ENTIRE_RESULT.json.
+- OWN_new19247Compare_ORIGINAL_ARGUMENTS_ENTIRE_RESULT.json.
+
+These retain actual original arguments and entire results, stored before assertions. The full-file calls used exact immutable refs and encoding utf-8. Missing independent server call_id/namespace fields are not invented; local kind labels identify the method family and do not authenticate server signatures.
+
+## 7. Independence, attribution, complete decision and creation boundaries
+
+I am NONBLIND. My CM24/LC and P partial-review history is warm. Before this route I had briefly considered the CM0 question after receiving its metadata, recorded private associations NONZERO, then stopped on A's explicit occupancy/frozen-proof metadata without seeing the proof or contributing to it. This phase is my actual first whole consumption of C15834 and D9578. I do not convert that earlier stop into earlier reading or a cold/private-zero claim.
+
+I participated in none of A's or CF's actual new construction/repair. The CM0 proof belongs to A; the finite simple-zero proof belongs to CF; the terminal recovery and integration belong to A; old Gauss, reciprocal, Wilson and finite summation credits remain as stated in the source objects. My reasoning here checks the frozen full arguments and type matches. No unfinished findings or repairs were sent to either author. Root received only actual progress/control and the eventual technical result, with zero mathematical contribution.
+
+While the integration Source was pending I separately completed ordinary author acceptance of the CF25520 peer on my own rank-three21507 consumer. That unrelated pair's mathematical scope, G intake, reading, APIs and ordinary closure are not inputs, votes or credentials on this finite CM integration. Its ordinary acceptance did not become a second independent review vote. The two duties remain separate.
+
+Final whole technical decision: PASS_BOUNDED_INTEGRATION_ONLY / RESULT_ONLY_STANDARD_COMPOSE, 0 identified mathematical must-fix, 0 identified fact/credit/type/scope must-fix, 0 actual author construction/repair supplied. All seven sections, tables, formulas, catalog, chronology, qualifications and exact stop were included. The original independently specified B_CM identity and independent κ remain genuine future-input obligations; legal consequences for P's product τ do not discharge them.
+
+This one merged review/context is to receive an actual complete reviewer self-read and once-freeze after creation. Its own Source is still PENDING here. No future author ordinary reading, Source compare, checkpoint or accepted-field status is prefilled. Source publication alone will not evaluate the unresolved scalar or certify an old local dictionary.
+
+Current personal bookkeeping remains the genuine Source38/214 at 954fcf73418f6ce6bb4794bfbf29da488133ec61, original startup/same-event guards 0, debt [], all five authority flags false. That accepted boundary is reused, not rerun or presented as a new formal mathematical authorization. Its original transaction1 UNKNOWN and separately authorized successful transaction2 remain their own permanent history. This new review is after the fixed Source38 cut and is not backfilled into it.
+
+No helper39, new identity, budget reset, scientific program, Native operation, formal Task/WorkingTruth update or parent finalization occurred. Formal budgets and all original STOP/HOLD limits remain. Goal OPEN.
+
