@@ -158,7 +158,8 @@ def canonicalize_registration(
         if purpose in {"execution", "adopt"} and scope is None:
             if (
                 result_state is not None
-                and result_state.get("state") in {"AWAITING_DRIVER_REVIEW", "TERMINAL"}
+                and result_state.get("state") in {"AWAITING_DRIVER_REVIEW", "TERMINAL",
+                                                   "ACCEPTED_RESULT_TASK_INCOMPLETE"}
             ):
                 raise RuntimeAuthorizationError(
                     f"task execution is closed by result state {result_state.get('state')}"

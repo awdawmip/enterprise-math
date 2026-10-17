@@ -267,7 +267,8 @@
         "TASK_SET_PUBLISHED",
         "PARENT_OBJECTIVE_CLOSURE",
         "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION",
-        "EXISTING_CONTROL_ASSET_BOUND"
+        "EXISTING_CONTROL_ASSET_BOUND",
+        "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION"
       ],
       "tasks_default": [],
       "gate_decisions": {
@@ -352,12 +353,14 @@
         "native_task_admission": "Task schema, successor gate, objective binding and publication preflight remain mandatory."
       },
       "decision_conditions": {
+        "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION": "Accepted scientific result with an incomplete Task. Requires ACCEPTED/NONE, unchanged raw/view NO_GO and RESULT_ONLY or CANDIDATE_NOT_TOOL, current Task publication and current own publishing session/DA. Pins selected immutable scientific report and complete interface content in the current verified Source snapshot; historical Source commit is a provenance locator, not runtime-reverified tree membership. Preserves process UNKNOWN with exact obligations, no tasks or REQUIRED gates; grants no Task/parent completion, claim, execution or dependency release. A current authorized successor publisher may consume the original scientific scope without replacing its author.",
         "TASK_SET_PUBLISHED": "One or more substantive tasks; preserve Result successor restrictions and parent Objective.",
         "PARENT_OBJECTIVE_CLOSURE": "No tasks or REQUIRED gates; parent Objective must already be canonically CLOSED.",
         "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": "No tasks or REQUIRED gates; accepted PASS/SUCCESS Task with SATISFIED hard target or the native pinned explicit Driver satisfaction assessment, or accepted AUDIT_COMPLETE with literal SATISFIED hard target only. An assessment cannot retype an AUDIT_COMPLETE target. Requires terminal_scope=TASK and portfolio_continuation; preserves raw Result bytes and grants no parent completion.",
         "EXISTING_CONTROL_ASSET_BOUND": "No new tasks or REQUIRED gates. Bind exactly the existing integration publication named by an ACCEPTED/FOLLOWUP_TASK exact-set synthesis. Require the current source Task publication, own active Driver session/DA, and current operational destination; any later destination generation requires explicit current_destination_continuation. Preserve historical authors and grant no Task or parent closure."
       },
       "conditional_required_fields": {
+        "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION": ["tasks", "result_continuation"],
         "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION": [
           "terminal_scope",
           "portfolio_continuation"
@@ -440,6 +443,63 @@
           "Every chain publication must be Driver-published INTEGRATION or MAINTENANCE; the original remains INTEGRATION.",
           "The native writer generates and verifies every raw publication/taskbook pin; callers do not supply chain pins.",
           "No synthesis rewrite, duplicate Task, closure, or change of historical authorship is authorized."
+        ]
+      },
+      "result_continuation": {
+        "type": "object",
+        "additionalProperties": false,
+        "required_fields": [
+          "source_result_id",
+          "parent_objective_id",
+          "original_terminal_verdict",
+          "accepted_result_scope",
+          "scope_evidence",
+          "original_process_status",
+          "unresolved_obligations",
+          "action",
+          "dispatcher",
+          "next_action",
+          "remaining_parent_scope",
+          "evidence_refs",
+          "task_completion_granted",
+          "parent_completion_granted",
+          "parent_final_granted"
+        ],
+        "scope_evidence_fields": [
+          "scientific_review_id",
+          "historical_source_commit",
+          "report_artifact",
+          "interface_artifact",
+          "selected_scope_pointer",
+          "consumption"
+        ],
+        "artifact_pin_fields": [
+          "repository",
+          "path",
+          "git_blob_sha1",
+          "sha256"
+        ],
+        "process_obligation_fields": [
+          "kind",
+          "status",
+          "description",
+          "evidence_refs"
+        ],
+        "original_process_status": "UNKNOWN",
+        "scope_pointer": "/scope",
+        "interface_consumption": "FULL_DOCUMENT",
+        "completion_flags": {
+          "task_completion_granted": false,
+          "parent_completion_granted": false,
+          "parent_final_granted": false
+        },
+        "rules": [
+          "Only valid for RESULT_ACCEPTED_TASK_OPEN_CONTINUATION; spec has exactly decision, gate_decisions, tasks and result_continuation.",
+          "Pin one selected accepted immutable scientific review ID from the current canonical exact review set. Its DR-pinned complete report must contain one exact ENTERPRISE_MATH_ACCEPTED_RESULT_SCOPE_BINDING_V1 declaration binding the full interface content pin and exact unique scope quotation SHA256; current control publisher may be an authorized successor.",
+          "Report and complete interface content pins match real current Source manifest membership and current bytes; writer records its actual Source snapshot separately, while historical commit is provenance only. Interface consumes scope, statement, every hypothesis and unresolved boundaries together.",
+          "Preserve original process UNKNOWN and exact evidence-backed unresolved obligations. No automatic Task completion or execution reopen follows future evidence.",
+          "All six existing gates, author contributions, current DA/session, exact Result/review authority, atomic materialization and Source CAS remain mandatory.",
+          "Repository support requires separate deployed native-adapter validation and advertisement before clients send this decision."
         ]
       },
       "terminal_scope": {

@@ -602,7 +602,10 @@ from control_plane import research_prospective_result_authority_binding as bindi
 root=Path.cwd()
 current=research_task_records.current_records(root)
 assert current[binding.SOURCE_TASK]['publication_id']==binding.SOURCE_LAUNCH_PUBLICATION
-assert binding.COVERAGE_TASK not in current
+coverage=current[binding.COVERAGE_TASK]
+assert coverage['publication_id']=='TP2-C6F364B0E01C124DB7E9'
+assert coverage['publication_generation']==2
+assert coverage['supersedes_publication_id']==binding.OLD_PUBLICATION
 rows=isolated.validated_quarantines(root)
 assert binding.OLD_PACKET in rows and binding.SOURCE_LAUNCH_PACKET in rows
 assert held.withheld_state(binding.SOURCE_TASK,binding.SOURCE_PUBLICATION,root)['withheld_result_ids']==[binding.OLD_RESULT]
