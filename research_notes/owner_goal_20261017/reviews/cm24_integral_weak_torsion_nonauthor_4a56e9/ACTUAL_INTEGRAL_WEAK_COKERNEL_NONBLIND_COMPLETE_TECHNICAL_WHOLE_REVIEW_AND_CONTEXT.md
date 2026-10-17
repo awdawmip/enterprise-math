@@ -1,0 +1,136 @@
+# Actual integral weak cokernel: complete NONBLIND technical whole review and context
+
+Disposition: NONBLIND_INDEPENDENT_TECHNICAL_WHOLE_PASS_BOUNDED / RESULT_ONLY_COMPOSE_APPLIED.
+Identified mathematical mustfix: 0. Actual participation in the author's new construction or repair: 0.
+Reviewer: EM-P11-4A56E9, same warm actor and original SID/RA lineage.
+New integral argument author: CF1677 / EM-FREE-CF1677. Root: routing and zero mathematical votes.
+
+This is one complete review of the specified newly frozen integral whole, including its context. It is a bounded technical verdict in the existing connection family. It does not classify the entire integral cokernel, supply an optimal degree-loss theorem, review an old primitive-loss source, or authorize scientific execution. At this review's creation its own peer Source and ordinary author acceptance are PENDING; publication alone will not prefill either. The author's original UNREVIEWED creation words remain unchanged.
+
+## 1. Exact reviewed object, actual reading and own Source custody
+
+The sole new author artifact is:
+
+- Repository awdawmip/enterprise-math.
+- Author Source 52076d5fc86838f7ef53a2b553866bb663bc2bf4.
+- Path research_notes/owner_goal_20261017/cm24_integral_weak_primitive_denominators_cf1677/ACTUAL_INTEGRAL_WEAK_COKERNEL_UNBOUNDED_P_TORSION_AUTHOR_COMPOSE_V1.md.
+- 15655 UTF8 bytes; SHA256 087bfc6a67f95912050fdef992cde596a5d905e8e23095172ba4e284415b0fdd.
+- Git blob 58ec6ce156797557758cd868d21bcaf2c4b4776c.
+- Immutable URL https://github.com/awdawmip/enterprise-math/blob/52076d5fc86838f7ef53a2b553866bb663bc2bf4/research_notes/owner_goal_20261017/cm24_integral_weak_primitive_denominators_cf1677/ACTUAL_INTEGRAL_WEAK_COKERNEL_UNBOUNDED_P_TORSION_AUTHOR_COMPOSE_V1.md.
+
+I personally first read the complete local original in one actual, untruncated 4086-token output: opening, all six sections, equations (1)-(14), and every history/scope paragraph. I also read the complete 2805-byte frozen handoff, SHA256 38d051751a3cc46f622255de923b8b6088b6d8556b29dfb5c88dda94b4c05539. The handoff is administrative context and is not a substitute for the proof.
+
+After the author Source became actual, I personally used managed github_fetch_file with the exact repository/path/ref and no range. Its full UTF8 content equals the local original I had actually read; its returned Git OID and immutable URL agree with the pins above. This honestly reuses that complete semantic reading; it does not invent a second whole reading.
+
+I personally fetched the actual Git commit and compared its actual soleparent to the author Source. The exact result is one commit ahead, zero behind, exactly the one named file ADD, with:
+soleparent 27363c13413df462b76f97c2f2d7248a962a462d;
+tree 230adefb6d6990f606dd603ec6467855ae0bf0e3.
+These are my own calls, not CF's or Root's observations.
+
+Original arguments and entire responses, together with the exact checks, are preserved at:
+custody/OWN_AUTHOR_ONE_ACTUAL_IMMUTABLE_FULL_SOURCE_AND_EXACT_DIFF_ORIGINAL_CALLERS.json
+under this review directory. The first complete local-read output and necessary selected old passages remain in my saved execution/store results. No caller call_id is invented from an absent field.
+
+## 2. Old premises, literal matching and reviewer contribution boundary
+
+Only the two actual accepted contracts named by the author are used.
+
+F21977:
+Source 0464ecd04acab1e33dd3a480001ba6b2a3d1677d;
+research_notes/owner_goal_20261016/cm24_convergence_new_anchor/actual_boundary_frobenius/CM24_ACTUAL_SIX_BOUNDARY_WEAK_FROBENIUS_JOINT_AUTHOR.md;
+21977 bytes; SHA256 8e5dbe7d89528632b402e5d103925f6f3452ea11b654b7939ac3c68c779f2133;
+Git blob 9ed8a851e463cc905f8443cebbb1742da96084f8.
+
+I retain my actual earlier complete whole reading/Source custody of this input. This round I actually reread only the needed literal setup, integral weak Frobenius contract, and good-infinity section/header. That selected reread is not advertised as a new full old Source GET or a newly performed old compare. The original section 1 explicitly supplies integral weak M, det M=p and the row-oneform transpose convention. Section 6 explicitly supplies the actual good integral regular M_infty, the frame e_old=e_infty diag(z,z^-1), and the canonical specialization diag(p/beta,beta), beta in Z_p^*. The beta unit is an accepted actual good-fibre fact, not a free choice inferred from det=p.
+
+Actual rank-three source-extension whole:
+Source 324e8b6045e8bfe1d27d543c2a98af306588f907;
+research_notes/owner_goal_20261017/cm24_rank3_actual_source_extensions_4a56e9/RANK_THREE_ACTUAL_SOURCE_EXTENSIONS_CANONICAL_KERNEL_AND_PROJECTIVE_CLASSIFICATION_AUTHOR_COMPOSE_V1.md;
+16181 bytes; SHA256 e81c33fc27a3927f9aaea5416a7622dc5c2fe44285ed8d26bfdd355b84780219;
+Git blob aac29321b28bb6e54d5e29ae47070cdcee409873.
+
+I am the author of that accepted old rank3 COMPOSE input, with its complete actual author/Source/peer ordinary history. Its section 2 proves ker L_D=0 for exactly the same weak R and row convention, using the special traceless self-duality and the accepted literal horizontal-End interface. I reread that exact passage this round. This is reuse of a disclosed old author premise; it is not a new independent vote on my own old construction and does not make me an author of the new integral proof.
+
+The formulas match literally:
+S=4r^3-3r, f=1-r^2, q=4r^2-1, P=fq,
+D=(2P)^-1 [[2S-1,1],[4S-5,-(2S-1)]],
+R0=O[r,f^-1,q^-1]^dagger, R=R0[1/p], L_D(h)=h'+hD.
+The original prime is p congruent to 13 or 19 modulo 24; O is the specified complete unramified DVR with perfect residue field, Witt automorphism sigma, and fraction field K. No new constant field, lattice or completed ring is substituted.
+
+For the selected old read I initially issued one malformed rg regular expression; it returned a regex parse error before displaying a proof passage. I retained that administrative failure and then used fixed-string matching plus the exact selected lines. It supplied no failed mathematical check, no API retry, and no change of any original file.
+
+The original F header credits EM-DIRECT-88303D / EM-DVR-F73673 / EM-DVR-BFF6DC. Those old contributions and my old End/rank3/kernel-zero roles remain disclosed. CF alone contributes the new integral coefficient bridge, actual non-p-divisible iterate row and exact-torsion argument reviewed here. Neither Root nor I supplied a formula, construction or repair to CF for this new unit.
+
+## 3. Integral weak-to-annular bridge and coefficient operations
+
+I checked the entire new section 3, rather than replacing it with the six-dimensional K-cokernel theorem.
+
+For the specified integral weak completion, the presentation h=sum_l p^l P_l with integral coefficients and generator degree at most C(l+1) is the relevant weak presentation. After z=1/r:
+r=z^-1, f^-1=z^2/(z^2-1), q^-1=z^2/(4-z^2).
+The two inverse-generator expansions have nonnegative powers and integral coefficients; 4 is a unit. Hence every fixed Laurent coefficient of each evaluated P_l is integral, and the coefficient sum over l converges in complete O with its l-th contribution in p^l O.
+
+This coefficient calculation is connected to the actual annular restriction. On rho<|z|<1 near radius one, each term has Gauss bound p^-l rho^-C(l+1). Choosing rho sufficiently close to one makes the ratio p^-1 rho^-C strictly less than one. The resulting convergence on closed subannuli and Laurent uniqueness identify the actual restriction coefficients with those integral coefficient sums. Polynomial term counts do not introduce an Archimedean bound into this non-Archimedean estimate.
+
+The conclusion used later is the correct one-way implication: an element of R0 has integral infinity Laurent coefficients, and an element of pR0 has coefficients in pO. One actual unit Laurent coefficient therefore certifies nonmembership in pR0. No converse integrality test for arbitrary annular functions is asserted.
+
+I also checked tau(h)=sigma(h)(r^p). The original f(r^p) and q(r^p) are congruent to f^p and q^p modulo p. Their inverses are obtained by integral geometric expansions of factors 1+pU. For a polynomial weak presentation with denominators of degree O(l), the additional geometric index k contributes valuation at least k and degree O(l+k), with integral generalized binomial coefficients. This preserves a weak presentation after regrouping. Sigma preserves O and its valuation. Differentiation introduces integral integer factors and bounded generator-degree increase. These justify every finite matrix product, substituted D and derivative in the new argument.
+
+These are statements for the actual finite-generator dagger lattice. The proof neither takes an arbitrary strong completion nor interchanges completion with localization.
+
+## 4. Actual Frobenius iterates, row order and unit coefficient
+
+The old accepted row identity for F=M^T is:
+F'+FD=p r^(p-1) tau(D) F.
+
+The displayed iterate F_n=tau^(n-1)(F) ... tau(F) F is in the correct order for repeated semilinear row maps. I checked the induction directly. With a_n=p^n r^(p^n-1),
+differentiate tau^n(F) F_n and add its right product by D.
+The induction hypothesis combines the two remaining terms to
+a_n tau^n(F'+FD) F_n.
+Substituting the one-step identity gives
+p^(n+1) r^(p^(n+1)-1) tau^(n+1)(D) F_(n+1).
+Thus the stated equation (9) has the correct derivative, sigma, row order and base oneform multiplier.
+
+The proof separately pays non-p-divisibility. Det F_n=p^n alone would not imply a row is p-primitive, and it is not used as that shortcut.
+
+I checked the cohomology-to-row frame direction. M_old=A(z)^-1 M_infty A(z^p) transposes to F_old=A(z^p) F_infty A(z)^-1 because A is diagonal. The coefficient-sigma products telescope to
+F_n,old=A(z^(p^n)) F_(n,infty)(z) A(z)^-1.
+This is an identity only on the actual common infinity annulus; it does not invert z globally in R0.
+
+The integral regular infinity factors have constant term diag(p/beta,beta). Since sigma fixes beta in Z_p, the product's constant term is diag((p/beta)^n,beta^n). Its (2,2) factor has no negative z-powers. Consequently (F_n)22=z^(1-p^n)(F_(n,infty))22 has Laurent coefficient beta^n at exponent 1-p^n. This is a unit in the original O. By section 3, the same indexed second row u_n is therefore outside pR0^(1x2) for every n. This uses the actual canonical good-fibre matrix and the original integral frame, not an arbitrarily chosen horizontal matrix or a quotient eigenvector.
+
+## 5. Exact torsion, minimal denominator and all quantifiers
+
+The section 5 input b_n is an actual element of the original R0 row module:
+r^(p^n-1) times row 2 of tau^n(D) F_n.
+Section 3 supplies integrality of all factors; the iterate equation gives L_D(u_n)=p^n b_n. Hence v_n=p^-n u_n is an actual primitive in the original R.
+
+The accepted kernel-zero contract on that same R makes v_n unique. Since u_n is integral but not in pR0, p^n v_n is integral and p^(n-1) v_n is not. If any smaller p-exponent made v_n integral, multiplying it by a nonnegative power of p would contradict the latter fact. This proves the claimed least p-denominator n, not merely an upper bound for one selected primitive. Also b_n cannot vanish, since otherwise u_n would be a nonzero kernel element.
+
+For c_n=[b_n dr] in the O-linear quotient, p^n c_n=0. If p^(n-1)c_n=0, an integral row w would satisfy
+L_D(w)=p^(n-1)b_n=L_D(p^-1u_n).
+Kernel-zero inside R forces w=p^-1u_n, contrary to the unit-coefficient certificate. Thus p^(n-1)c_n is nonzero, proving exact p-power order p^n. O-linearity, rather than R0-linearity, is the correct quotient structure here.
+
+All n>=1 refer to the same original prime, O, sigma, R0, D and frame; only the actual input b_n varies. Taking n larger than any proposed common exponent rules out a uniform denominator exponent for all integral weak-exact inputs. The construction does not vary the lattice with n.
+
+Each class becomes zero after inverting p, with explicit primitive v_n. This is entirely compatible with the accepted six-dimensional p-inverted cokernel. No assertion about integral torsion is taken from that dimension. The new result does not classify all of C_int, identify all its torsion generators, or optimize loss against pole order or degree.
+
+## 6. Independence, history, stopping boundaries and final bounded verdict
+
+This review is ordinary NONBLIND independent technical whole. I retain all actual old weak-connection/End/Frobenius/six-cokernel/generalperfect/rank3 and finite-operator author/peer history. The integral topic first reached me as occupation/routing metadata, followed by the once-frozen full author artifact. General denominator associations and warm familiarity are not represented as cold blindness or a global zero-private-thought claim.
+
+I did not occupy or jointly construct this exact new integral unit, and did not supply CF a formula, proof step or repair. My proof checking began from the author's already fixed complete artifact. No independently developed repair was inserted. The verdict therefore reviews CF's disclosed new integral proof; it does not migrate any old E, G, primitive, rank3 or finite-chain vote.
+
+I checked every new load-bearing part and all context paragraphs. I identify zero mathematical mustfix and zero required factual/credit/type/scope corrections. The full bounded claim supported is: in the exact original integral weak row cokernel, every n>=1 is realized by an actual class of exact p-power order p^n, with its unique weak primitive of least p-denominator n, in the specified setup. Classification/novelty/optimal-degree/general-ring or physical claims are outside this verdict.
+
+The author's older primitive-loss exact coverage remains UNKNOWN. I have not newly whole-read that older proof for this question and do not turn a finite personal coverage check into all-library absence or priority. Possible overlap there would change reuse/attribution, not the positive literal argument actually checked here.
+
+The author describes selection-time rough candidate thinking as NONZERO and correctly separates the earlier OR review from this construction. That author history is preserved. My own review is not an old cold Phase-A vote. No original source's UNREVIEWED or pending creation text is rewritten. This review's future Source and author's ordinary acceptance require their own actual observations.
+
+The reviewer is the original EM-P11-4A56E9, SID MCP-387e35a6a7d24e8cb2c44e361b9ce5b9, RA-C193E2AA39B9A6A6DDBB69B3. Current actual Source37 a0d582f2ac45eb8ff078691e4bf17aaf3de37369 /37/198 is closed with own full24/exact delta and the actual Source37-specific original startup/sameevent checkpoint guards both zero, debt empty, five formal authority flags false. The first descriptor-alias startup failure and its exact administrative repair remain in that separate closure receipt. No new helper38, identity, budget, formal Task or scientific permission was created for this review.
+
+The literal mathematical paper checking and document persistence use no solver, enumeration, scientific code, Native action or external search. The only new managed Source calls are the stated necessary full author artifact and actual commit/compare custody. Old Source/body/whole evidence is honestly reused. Permanent STOP/HOLD/UNKNOWN and historical receipts are unchanged.
+
+Root provides route coordination and zero mathematical votes. This is one bounded same-family RESULT_ONLY/COMPOSE whole review, not a new generic tool, paper-count claim or second review of my own old premise.
+
+Global-Knowledge-Sync: main@67a02007 / GLOBAL_KNOWLEDGE_V1
+
