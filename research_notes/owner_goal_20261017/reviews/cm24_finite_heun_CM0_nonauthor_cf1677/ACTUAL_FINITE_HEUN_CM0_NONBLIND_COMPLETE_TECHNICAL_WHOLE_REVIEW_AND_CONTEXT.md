@@ -1,0 +1,225 @@
+# Actual finite Heun reciprocity and CM0: complete independent technical whole review
+
+NONBLIND_INDEPENDENT_TECHNICAL_WHOLE_PASS_BOUNDED.
+Same-family RESULT_ONLY / STANDARD_COMPOSE applied consumer.
+Reviewer: CF / EM-FREE-CF1677. Sole new proof author of the reviewed work: A / EM-DVR-7CDA51.
+Identified mathematical must-fix: 0. Identified fact, credit, type or scope must-fix: 0.
+Actual participation by CF in A's new construction or author repair: 0.
+This is one whole technical review of the new author artifact and its complete context. It is not a cold-blind review, a second vote on an old input, a new Tool, or a principal-paper registration.
+
+At creation of this report the author artifact has a real immutable Source and the reviewer's own full-content and exact-diff binding is complete. This review artifact has not yet been published to Source and ordinary author acceptance has not been prefilled. Those later observations must be recorded outside these frozen creation bytes.
+
+## 1. Exact object, result and independent reading boundary
+
+I reviewed A's complete original artifact:
+
+- Repository: awdawmip/enterprise-math.
+- Path: research_notes/owner_goal_20261017/cm24_finite_heun_CM0_7cda51/ACTUAL_FINITE_HEUN_RECIPROCITY_AND_CM0_APPLIED_CONSUMER_WORKING_AND_CONTEXT.md.
+- Actual UTF8 length: 15834 bytes, including its terminal LF.
+- SHA256: ce9384557b631c4cad9d7aa54f0a43400704726077f93f4d5dd219dcac2d2fbc.
+- Git blob: dbe6b0c0ab2fc357f54e0fe7fd7e957b6fccb73e.
+- Author Source: 1689ce708127993e6892803d3179afd4d232765f.
+- Sole parent: e126e291ceac1e3eacaa9734d85a25dfec2c919f.
+- Tree: 7aba1b8140edf3537374982fd3aa16fa73cefb41.
+
+The literal domain is a prime p=6m+1 in the original classes p congruent to 13 or 19 modulo 24. All coefficients and identities below are in F_p. Set N=3m=(p-1)/2. The actual finite coefficient constructors are
+
+    a_i=(1/6)_i(1/3)_i / ((1/2)_i i!),
+    v_i=(1/6)_i(1/3)_i / (i!)^2,
+    A(z)=sum_(i=0)^m a_i z^i,
+    V(w)=sum_(i=0)^m v_i w^i,
+    g=binom(3m,m),
+    rho(x)=x(4x-3)^2,
+    y(x)=g A(rho(x)).
+
+The new author proof establishes the actual finite Heun reciprocity of y, then the CM0 vanishings y(1/2)=A(1/2)=V(1/2)=0 in these stipulated prime classes. It is not merely an abstract symmetry of an unspecified solution or a numerical prime sample. The new proof uses a finite coefficient recurrence, its actual endpoint data, and an elementary finite sign-product argument.
+
+My first actual local reading consumed the opening, all seven sections, all formulas (1)-(13), and the entire author history/context in one untruncated 4091-token read. The complete local handcheck reached its real stop at 2026-10-17T12:00:18.367Z. At that time I reported only a complete local technical check with no identified must-fix, explicitly pending my own actual author Source binding and final report. The later immutable fetch is byte-for-byte equal to that genuinely read local body. I reused those actual semantic observations; I do not claim a second complete semantic reading merely because an equal immutable body was fetched.
+
+## 2. Actual coefficients, finite identities and unit payments
+
+For 0<=i<=m, every factorial denominator is a unit: i<=m<p, and the largest numerator of a denominator factor 1/2+j is 2m-1<p. In F_p the parameters satisfy 1/6=-m, 1/3=-2m, 1/2=-3m. The nonzero finite coefficients and their terminating endpoints are therefore legitimate actual field elements, rather than symbolic rational expressions with an unchecked reduction.
+
+I checked the coefficient relation
+
+    (j+1)(j+1/2) a_(j+1)
+      =(j+1/6)(j+1/3) a_j.
+
+For
+
+    D_A=z(1-z) partial_z^2+(1/2-3z/2) partial_z-1/18,
+
+this gives D_A A=0 coefficient by coefficient. At the highest row the missing a_(m+1) is consistent because m+1/6=0 in F_p. This top-row payment is necessary; simply stopping an infinite series at m would not by itself establish the polynomial equation.
+
+The terminating Vandermonde endpoint used by A is a finite identity, with its denominators all within the already checked unit range. It yields
+
+    A(1)=(1/6)_m/(1/2)_m
+        =m!(2m)!/(3m)!=1/g.
+
+Here g is a unit because 3m<p. The leading-coefficient computation a_m=4^m follows from the actual finite products and the displayed duplication identities; I checked it in the same coefficient field. Since rho has leading coefficient 16, the degree-N coefficient of y is
+
+    h_N=g a_m 16^m=g64^m=g,
+
+where 64^m=2^(6m)=2^(p-1)=1. Its constant coefficient is h_0=g. These two actual endpoint values, not a guessed normalization, are what make the subsequent reversal have the same initial value.
+
+I also checked the complete connected-polynomial identity V(w)=g A(1-w). Differentiated terminating Vandermonde, or its finite coefficient version in the manuscript, gives the coefficient of w^j in g A(1-w). The cancellation is justified by
+
+    (1/6)_m/(1/6)_(m-j)=(-1)^j j!
+
+in F_p, together with g(1/6)_m/(1/2)_m=1. Thus the resulting coefficient is exactly v_j, for every 0<=j<=m. No unread infinite hypergeometric continuation, singular specialization, or previously accepted verdict on a working identity is needed for this finite calculation.
+
+The manuscript supplies these finite payments itself. CF's old literal read of the 16666-byte boundary dictionary remains a working-source reading, not a new acceptance of every formula there. A's 20431-byte partial note is motivation and downstream history here; I have not whole-read that note and have not used it as a hidden premise. The new proof does not require an extra whole intake of it.
+
+## 3. Literal pullback and the finite Heun coefficient problem
+
+I checked the actual pullback, rather than inferring it from a named differential-equation family. The needed finite polynomial identities are
+
+    rho'=3(4x-3)(4x-1),
+    rho''=96x-48,
+    1-rho=(1-x)(1-4x)^2.
+
+For the operator
+
+    H=2x(x-1)(4x-1) partial_x^2
+        +(20x^2-15x+1) partial_x+(4x-1),
+
+substitution and the chain rule give, for any polynomial B,
+
+    H[B(rho)]=-18(4x-1) (D_A B)(rho).
+
+I checked all three coefficients of B'', B' and B in this equality. There is no division by x, x-1, 4x-1, rho', or 1-rho. Consequently the identity is polynomial and valid also at the displayed special points. Since D_A A=0, it proves Hy=0 for the literal y.
+
+Writing y=sum_(n=0)^N h_n x^n, the actual coefficient equations are
+
+    F_n(h)=(n+1)(2n+1)h_(n+1)
+           -(10n^2+5n+1)h_n
+           +4n(2n-1)h_(n-1)=0,
+
+with h_(-1)=h_(N+1)=0 and 0<=n<=N. I checked the rows n=0 and n=N as well as the interior rows. The potential coefficient of x^(N+1) is 4(N+1)(2N+1)h_N and vanishes because 2N+1=p. Thus there is no unexamined extra top equation.
+
+The uniqueness being used is finite and elementary. For n<N, both n+1 and 2n+1 are nonzero modulo p. The recurrence therefore determines h_(n+1) from h_n,h_(n-1), starting with h_(-1)=0 and a specified h_0. This determines the entire coefficient vector through degree N. It does not assert unrestricted uniqueness for characteristic-p differential equations, arbitrary formal power series, or larger degrees where a leading recurrence factor could vanish.
+
+## 4. Actual reversal, both boundary rows and midpoint CM0
+
+For the actual coefficient vector define
+
+    k_n=4^n h_(N-n), 0<=n<=N,
+
+with the corresponding zero outside endpoints. I checked the reversal of the recurrence using N=-1/2 in F_p. If a_n=(n+1)(2n+1), b_n=-(10n^2+5n+1), c_n=4n(2n-1), then
+
+    a_(N-n)=n(2n-1),
+    b_(N-n)=b_n,
+    c_(N-n)=4(n+1)(2n+1).
+
+Substituting the powers of 4 gives
+
+    F_n(k)=4^n F_(N-n)(h).
+
+This includes n=0 and n=N. No missing endpoint is supplied by an appeal to a generic ODE symmetry. Moreover k_0=h_N=g=h_0. The finite uniqueness from Section 3 therefore proves
+
+    h_n=4^n h_(N-n) for all 0<=n<=N.
+
+The involution is consistent because 4^N=2^(p-1)=1. Equivalently, for nonzero x,
+
+    y(x)=x^N y(1/(4x)).
+
+This formula is only used where its reciprocal argument is defined. The coefficient identity itself is polynomial and no value at a singular reciprocal point is inferred. At x=1/2 it gives
+
+    y(1/2)=2^N y(1/2).
+
+The manuscript separately pays the sign 2^N=-1 in the required prime classes. I checked the finite Gauss-product argument: the least absolute residues of 2r for 1<=r<=N permute 1,...,N up to sign. The number of negative representatives is
+
+    nu=N-floor(p/4).
+
+Their product, after cancellation of the unit N!, gives 2^N=(-1)^nu. For p=8t+3 this count is 2t+1; for p=8t+5 it is also 2t+1. The stipulated classes p=13 or 19 modulo 24 lie in those two cases. Thus 2^N=-1, and p is odd, so y(1/2)=0.
+
+Finally rho(1/2)=1/2 and g is a unit. The literal definition y=g A(rho) gives A(1/2)=0; the separately checked finite identity V(w)=g A(1-w) gives V(1/2)=0. This establishes the three actual CM0 vanishings in the stated domain. It is distinct from CF's separate conditional simple-zero argument, which assumes CM0 and then uses the ordinary finite Gauss equation to establish a derivative unit.
+
+For the other prime classes 1 and 7 modulo 24 the midpoint calculation with 2^N=1 is a tautology. This proof does not classify their midpoint value as zero or nonzero. I identified no attempt in the original artifact to claim that larger classification.
+
+## 5. Scope, contribution and whole-review disposition
+
+The new work pays a different obligation from the old conditional derivative consumer: it proves the actual CM0 input through finite Heun coefficient reversal and the original normalized endpoints. I found no missing unit, boundary row, normalization, branch, or source-contract payment in that argument. All load-bearing finite formulas have been checked on the stipulated actual polynomial carrier.
+
+Disposition on the original complete new artifact is NONBLIND_INDEPENDENT_TECHNICAL_WHOLE_PASS_BOUNDED, with zero identified mathematical must-fix and zero identified factual, credit, type or scope must-fix. CF supplied zero actual author construction or repair. Independent reviewer calculations used to test the original proof are review work, not an undisclosed patch supplied to A.
+
+This is a classical finite-mathematics COMPOSE consumer in the existing CM family. It does not establish an independent definition of the old scalar kappa, Eq16 terminal cancellation, any missing old bilinear identity, or nonvanishing of tau or C*. It does not turn Source custody into upstream mathematical acceptance. It does not close a CM24 lift, a Native law, a Student signed-kernel obligation, or a global owner Goal. No additional prime classification, optimality, computational complexity, or full general Heun-solution theorem is included.
+
+The source-bound PASS here is limited to this new artifact's literal CM0 proof and its stated application boundary. It does not rewrite the creation history of either A's author file or CF's earlier 9578-byte conditional author file. A remains the new Heun/CM0 proof author; CF remains a reviewer of that proof and author of the separate previously frozen conditional simple-zero application. Root supplied routing and custody coordination, with zero mathematical vote and no proof or repair supplied to this author or reviewer.
+
+## 6. Own actual Source binding and evidence attribution
+
+After the complete local semantic handcheck, CF personally made one managed immutable full UTF8 request of the author file at Source1689ce708127993e6892803d3179afd4d232765f. CF also personally fetched that Source's GitData commit and compared its exact parent e126e291ceac1e3eacaa9734d85a25dfec2c919f to the Source. The three independent read-only requests were collected with Promise.allSettled, and every outcome was inspected. All original arguments and entire results were preserved before assertions at
+
+    own_author_source/ACTUAL_AUTHOR_FULL_GITDATA_EXACT_COMPARE_ORIGINAL_RAW.json
+
+under this review directory. The exact original caller store is cfFiniteHeunCM0OwnAuthorActualSourceRaw. The file request used the actual full method mcp__codex_apps__github_fetch_file, repository awdawmip/enterprise-math, the full immutable40SHA and the exact path in Section 1, encoding utf-8. No server call_id was present in that observed wrapper; none is invented.
+
+The immutable result has the stated Git blob and the literal URL
+
+    https://github.com/awdawmip/enterprise-math/blob/1689ce708127993e6892803d3179afd4d232765f/research_notes/owner_goal_20261017/cm24_finite_heun_CM0_7cda51/ACTUAL_FINITE_HEUN_RECIPROCITY_AND_CM0_APPLIED_CONSUMER_WORKING_AND_CONTEXT.md
+
+Its complete content equals the actual local body read in Section 1, including terminal LF. Administrative byte I/O on the new returned content verified 15834 bytes, its SHA256 and its Git blob. This is a byte-custody computation, not coefficient generation, a prime test, or a scientific program.
+
+The actual GitData result gives exactly the Source, sole parent and tree in Section 1. The compare gives one commit, ahead1/behind0, exactly one added path equal to the author file, and no other file. CF did not borrow A's or Root's posterior API as this evidence. Their messages supplied a locator and author-side custody status only. The fact that the parent happens to be CF's separately published9578 author commit does not merge the two results or make the new author proof a revision to that conditional file.
+
+This completed author intake is one actual new mathematical Source object/15834 bytes. Commit and compare responses provide custody metadata; they are not additional mathematical Source objects or independent votes. Publication of this review and A's own later full ordinary author acceptance remain separate pending observations at this report's creation.
+
+## 7. Full qualification, chronology and unchanged execution boundary
+
+This review is expressly NONBLIND. Before A's new body arrived, CF had genuinely performed the complete literal read of the old16666 boundary dictionary, had authored and frozen the9578 conditional finite Gauss simple-zero consumer, and had general CM0 associations/private candidate history NONZERO. CF had also privately checked a small degree/prime example by hand. That informal check was not used as proof in CF's9578 manuscript, was not a numerical program or prime campaign, and is not hidden here behind a claim of zero thought.
+
+Before the formal new-body route CF had not seen A's new Heun proof body or formulas and had supplied no actual construction or repair to A. Root routed the complete once-frozen15834 file and gave scope/custody information, not formulas or a repair. A's first full author selfread/oncefreeze at 11:55:19.812191 preceded CF's complete new-body reading and local handcheck. Normal independent review reasoning after that body arrived is recorded as review reasoning; it does not retroactively erase the old warm/private history.
+
+A was simultaneously independently reviewing CF's original9578 conditional note. CF sent the unfinal local CM0 finding only to Root. CF did not send A any unfinal finding, formula, or proposed repair before the independent reports' freezes. The eventual author Source locator supplied by A and repeated by Root is custody information, not a mathematical recommendation. The two proof scopes, authors and review obligations remain distinct.
+
+The only necessary mathematical body newly whole-read for this review is A's15834. Old16666 was already literally read in full in the bounded kappa recovery and keeps its working status. A's20431 partial artifact has not been whole-read by CF and remains motivation/history rather than a load-bearing input here. No old Source/compare call is fabricated. No whole status is inferred merely from authorship, a directory name, a title, or another agent's API.
+
+CF retains the same original actor, SID, bareLOCAL/composite FREE key, RA and warm execution. At creation of this report canonical activity is still25/108. The fixed41-source CP26 prospective cut does not include this new CM0 author file or this report; no successful current checkpoint recording is prefilled. There is no helper26, new identity, budget reset, formal Task, Native execution, scientific code, numerical enumeration, external search or new Tool involved in this proof audit. Prose/JSON persistence and new-byte metadata are administrative only. Existing STOP, UNKNOWN, quota and bookkeeping-only/five-false boundaries remain.
+
+The complete review text and all scope/history material above must receive one actual full selfread before first oncefreeze. Its Source publication, future ordinary acceptance and any later activity integration require their own real observations. They are not asserted by a pending label or supplied by Root's zero mathematical vote.
+
+### Typed complete-review context
+
+```json
+{
+  "review_type": "NONBLIND_INDEPENDENT_TECHNICAL_WHOLE",
+  "verdict": "PASS_BOUNDED_NEW_WHOLE_SCOPE_ONLY",
+  "family": "CM24 finite Gauss/Heun CM0 applied consumer",
+  "registration": "RESULT_ONLY_STANDARD_COMPOSE_NO_NEW_TOOL_OR_PRINCIPAL_PAPER",
+  "new_author": "A / EM-DVR-7CDA51",
+  "reviewer": "CF / EM-FREE-CF1677",
+  "new_author_actual_constructrepair_by_reviewer": 0,
+  "identified_math_mustfix": 0,
+  "identified_fact_credit_type_scope_mustfix": 0,
+  "prebody_general_CM0_privatecandidate": "NONZERO",
+  "prebody_A_new_Heun_proof_body_or_formula_exposure": 0,
+  "old16666": "PERSONALLY_COMPLETE_LITERAL_READ_WORKING_STATUS_NOT_UPGRADED",
+  "own9578": "EARLIER_CONDITIONAL_SIMPLEZERO_AUTHOR_WARM_NOT_NEW_CM0_PREMISE",
+  "A20431": "UNWHOLE_BY_CF_MOTIVATION_HISTORY_ONLY_NOT_HIDDEN_PREMISE",
+  "actual_new_author_bytes": 15834,
+  "author_source": "1689ce708127993e6892803d3179afd4d232765f",
+  "author_soleparent": "e126e291ceac1e3eacaa9734d85a25dfec2c919f",
+  "author_tree": "7aba1b8140edf3537374982fd3aa16fa73cefb41",
+  "author_sha256": "ce9384557b631c4cad9d7aa54f0a43400704726077f93f4d5dd219dcac2d2fbc",
+  "author_git_blob": "dbe6b0c0ab2fc357f54e0fe7fd7e957b6fccb73e",
+  "own_immutable_full": "ACTUAL_ONCE_EQUALS_PREVIOUSLY_GENUINELY_WHOLE_LOCAL_BODY",
+  "own_compare": "EXACT_1ADD_1COMMIT_1PARENT_AHEAD1_BEHIND0",
+  "loadbearing_proof": "ALL_NEW_BODY_SECTIONS2_TO5_MANUALLY_CHECKED_INCLUDING_ENDPOINTS",
+  "review_source_at_creation": "PENDING_NO_MAIN_WINDOW",
+  "ordinary_author_acceptance_at_creation": "PENDING_NOT_PREFILLED",
+  "canonical_activity": "25/108_UNCHANGED",
+  "CP26_cut": "FIXED_41_EXCLUDES_THIS_NEW_AUTHOR_AND_REVIEW",
+  "helper26_at_creation": 0,
+  "root_math_vote": 0,
+  "scope_exclusions": [
+    "No kappa definition or Eq16 terminal cancellation",
+    "No old bilinear identity proof or tau/Cstar nonvanishing",
+    "No other prime-class zero/nonzero classification",
+    "No Native or physical law",
+    "No rewrite of either author's frozen creation history",
+    "No full owner Goal or CM24 lift closure"
+  ]
+}
+```
+
