@@ -1,0 +1,153 @@
+# Equality rigidity at common mass63 for the specified seven observers
+
+Author: BFF / same EM-DVR-BFF6DC, MCP-47562f9f432d4978a7bea0dd60ecc4aa, DA-144D0C4639CACEEE75DC, no Researcher RA. **UNREVIEWED AUTHOR WORKING; same-family RESULT_ONLY / COMPOSE_APPLIED.** This is a single bounded paper investigation, not a new observer, generic Tool, physical law, formal Task, Native execution, Source permission, activity event or budget reset. Root supplies no mathematical vote. All old STOP/HOLD/errors/NONBLIND and cumulative UNKNOWN remain. Goal OPEN.
+
+## 1. New question, exact reused input and finite outcome
+
+The preceding sharp whole proves the common mass minimum63 and, for any equality comparison,126 nonzero unit coefficients. It expressly does not classify those comparisons. The new question here is that equality classification, not another proof of the minimum or a changed seventh observer.
+
+Only two already personally whole-read mathematical objects are used:
+
+1. The specified-observer kernel whole, author15262, SHA256 `3a63411cf44522d178f7edaabc2d9000d26742de7c6e239e9b15b08eb47b8d46`, blob `b3a80c6c0f0858ba05d7006606b8874ef4555c1d`, Source `9ccc3130b2fad8f918ffd67c7fa1a5a6bfef1e1a`, repository path `research_notes/owner_goal_20261016/native_x6_seventh_diagonal_observer_cf1677/SEVENTH_DIAGONAL_OBSERVER_BOUNDED_STRUCTURAL_FEASIBILITY_WORKING.md`. Its genuine BFF review15253, SHA256 `f6cc4a85631e8d78076f6126e0252d17a6b0931ea6101245d0c4f2543f75bad2`, blob `c2da80edcea7c5eb9aaeb2457becd23333db63d6`, Source `292e384e1bb56ac155cbe3e32c5c1091299f6e22`, is at `research_notes/owner_goal_20261016/reviews/native_x6_seventh_observer_nonauthor_bff6dc/SEVENTH_DIAGONAL_OBSERVER_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md`.
+2. The sharp all-multipliers whole, author12219, SHA256 `5449252ba6ec2c580ddb836478336392901cc5d9d4516bb9b556a1c4520befca`, blob `c0b5bdee7382a781fc7c4156b29558bcb91ba1d7`, Source `e5b992b7c6cb91561a2f1948abe0c6c807fcc6dc`, repository path `research_notes/owner_goal_20261016/native_x6_seventh_diagonal_sharp_mass_cf1677/SHARP_SEVENTH_DIAGONAL_OBSERVER_MASS_63_AUTHOR_WORKING.md`. Its genuine BFF review15420, SHA256 `2537b1f784c94aa344279f37148053717ec62b3be0759c490c50855968e349c3`, blob `d0024e2d61bb2d2e18705207e1b7112501c84110`, Source `9d2a7775cb87e1b2be17d89188deb2734c19edd4`, is at `research_notes/owner_goal_20261016/reviews/native_x6_seventh_sharp_mass_nonauthor_bff6dc/SHARP_SEVENTH_DIAGONAL_OBSERVER_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md`.
+
+My previous independent-review roles and own immutable-source/exact1 intake for these units are warm background. They are not a review of this new proof, whose mathematical construction is mine. The current round reread selected author12219 sections1–5 to fix the literal model and its explicit unclassified-equality boundary; it did not pretend that selected reread was a second new whole intake. CF was asked only for coverage/occupancy metadata and reported no later personally verified classification locator or current classification construction; that is not a global absence claim. No new formula, construction or repair was exchanged with CF, A or 4A.
+
+The bounded kill condition was a failure to justify either chamber rigidity, edge-length propagation or the original fiber constraints. All three are proved below by finite arguments. No fan theorem, zonotope-deformation theorem, external search, mathematical program, enumeration, solver or numerical sample is invoked. The only newly defined move graph in Section8 is an auxiliary finite-occupancy algebraic graph, not native dynamics.
+
+## 2. Literal model and conclusion
+
+Fix the same restricted Cell chart `c+Z^6` and finite nonnegative integer occupancies f,g on it. Time is separately typed and unused. The six M_i sum over coordinate-i fibers. The seventh N_v sums over cosets of Z v, where v=(1,1,1,1,1,1). For h=f−g, write its finite Laurent coefficient polynomial P in
+
+    A = Z[X_1^(±1),...,X_6^(±1)],   D=X_1...X_6,
+    G = (D−1) product_(i=1)^6 (X_i−1).
+
+The reused exact kernel and sharp statements are
+
+    all seven readouts of h vanish  iff  P=GQ, Q in A;       (1)
+    Q nonzero  implies  |support(GQ)| >=126.                 (2)
+
+For a positive integer d, put
+
+    G_d = (D^d−1) product_(i=1)^6 (X_i^d−1).
+
+The new equality theorem is:
+
+**If f and g are distinct, have all seven readouts equal, and each has total mass63, then there exist a unique p in Z^6, a unique positive integer d, and a sign sigma in {−1,1}, such that**
+
+    P = sigma X^p G_d,   f=(sigma X^p G_d)_+,
+                         g=(sigma X^p G_d)_−.               (3)
+
+Here plus/minus denote coefficientwise positive/negative parts; sigma is unique once f−g is ordered. Conversely every pair in(3) has exactly these readouts and mass63. Translation means exponent translation inside the given chart. The integer d is a spacing of sites inside that chart, not a new native coordinate or law.
+
+The new issue is rigidity of all equality cases under arbitrary finite signed Q. Positivity of Q is never assumed in its proof.
+
+## 3. Equality leaves exactly one exposed support point per chamber
+
+At common mass63, sum|f−g|<=126. By(1)–(2), the nonzero P has at least126 support points. Every nonzero integer coefficient contributes at least1. Thus P has exactly126 support points, every coefficient has absolute value1, sum|P|=126, and sum min(f,g)=0. In particular f=P_+ and g=P_−. This reduction alone is reused sharpness, not the new classification.
+
+Use real proof weights u in R^6 and the seven hyperplanes
+
+    H_i={u_i=0}, i=1,...,6;   H_7={sum_i u_i=0}.
+
+A chamber means a connected component of their complement. It is an open convex cone specified by the six coordinate signs and the sign of their sum. The all-positive orthant has only positive sum, the all-negative only negative sum. Each of the other62 orthants is split into two nonempty cones. Hence there are exactly126 chambers. For each chamber C let S(C)={i:u_i>0} and delta(C)=1 if sum u_i>0, otherwise0. Its unique maximizing G exponent is
+
+    z_C = chi_(S(C)) + delta(C) v.                         (4)
+
+The feasible sign pairs are every (S,delta) except (all six,0) and (empty,1). As in the accepted proof, their126 exponents are distinct: the cubes {0,1}^6 and v+{0,1}^6 meet only at v, precisely the two excluded choices. The chamber is exactly an open exposing cone for its z_C.
+
+For u in C avoiding the finitely many equal-score hyperplanes for support(Q), Q has a unique maximizing q. The product has a uniquely maximizing surviving support exponent z_C+q. Such u exist: a small perturbation u0+(epsilon,epsilon^2,...,epsilon^6) avoids the finitely many nonzero score-difference polynomials while remaining in the open C.
+
+Moreover any surviving exponent obtained this way from one chamber is different from any obtained from another. If z_C+q=z_B+q' with C!=B, score at the chosen u in C. The strict G inequality u.z_C>u.z_B and the Q inequality u.q>=u.q' contradict equality. This is the precise injection argument of the sharp whole, applied to every possible generic maximizing direction, not only one initial choice.
+
+There are126 chambers, each gives a nonempty set of exposed support points of P, and those sets are disjoint. There are only126 support points in all. Consequently each chamber gives exactly one point, call it p_C, and these points exhaust support(P). Every support point is therefore an exposed vertex of its convex hull; there are no extra points on edges or in higher-dimensional faces.
+
+For **every** u in C, including a direction on a Q score-tie hyperplane, p_C is still the unique maximizer of P. To see this, approximation by generic directions gives u.p_C>=u.p_B for every B. If equality held for B!=C at an interior u0, perturb u0 slightly toward p_B−p_C while staying in C and preserving that inequality. Its value becomes negative, a contradiction. Distinct exposed points cannot have zero difference. Thus the strict inequality holds throughout C.
+
+## 4. Elementary chamber geometry forces seven globally constant edge lengths
+
+Write n_i=e_i for i<=6 and n_7=v. Every pair of these seven normals is independent, and every triple is independent: v is not in the span of two coordinate vectors, since six coordinates are present. This elementary fact is why codimension-two crossings below have exactly four local chambers.
+
+Take two chambers separated across a piece of H_a containing no other H_b, oriented from negative to positive u.n_a. Their maximizing vertices p_- and p_+ are distinct. At any point of that relatively open wall, continuity of the two maximum inequalities gives u.(p_+−p_-)=0. The wall piece spans H_a, so
+
+    p_+−p_- = L_a n_a,   L_a a positive integer.            (5)
+
+The sign is positive because the positive chamber strictly favors p_+. Integrality follows because p_+−p_- is integral and n_a is primitive integral: for an axis read its nonzero coordinate, and for v read any coordinate. This is a statement about actual support points, not an assumed Minkowski edge formula.
+
+First compare two wall pieces in H_a separated by H_b. At a point of H_a intersect H_b avoiding all other hyperplanes, a sufficiently small transverse two-dimensional disk meets four chambers. Traversing their four vertices gives, with appropriate orientation,
+
+    L_a^(1) n_a + L_b^(1) n_b
+       −L_a^(2) n_a −L_b^(2) n_b = 0.
+
+Independence of n_a,n_b implies L_a^(1)=L_a^(2) and L_b^(1)=L_b^(2). Thus the a-edge length is unchanged when its wall piece crosses any single other wall. It remains to justify that this local conclusion reaches all wall pieces.
+
+Here is the needed finite connectivity argument. Inside H_a (dimension5), the other six hyperplanes restrict to proper hyperplanes. Their pairwise intersections have codimension2, because the three original normals are independent. Given points x,y in two complementary regions of H_a, choose an intermediate point b such that each segment [x,b] and [b,y] misses these finitely many codimension-two intersections and b lies on no restricted hyperplane. A forbidden b for a particular intersection L lies in the affine span of x and L, or of y and L; each span is a proper affine subspace of H_a. A finite union of proper affine subspaces cannot fill H_a: choose coordinates and a polynomial curve with distinct sufficiently separated powers, for which each defining nonzero affine linear equation becomes a nonzero polynomial, then avoid its finitely many roots. So such b exists. Each segment now crosses one restricted hyperplane at a time, finitely many times, and connects the two regions by adjacent wall pieces. The four-chamber argument at each crossing proves that every length L_a in(5) has the same value globally.
+
+Denote these positive integers by a_1,...,a_6 and b for a=7. The full chamber adjacency graph in R^6 is also connected by the same two-segment argument, now avoiding the finitely many H_a intersect H_b of codimension2. Start at the all-negative chamber, whose vertex is p. Along a chamber path, each crossing of H_i contributes +a_i e_i when its sign changes negative to positive, and the negative of this for the reverse change. Each crossing of H_7 similarly contributes +/- b v. These increments telescope, irrespective of the chosen path. Therefore
+
+    p_C = p + sum_(i in S(C)) a_i e_i + delta(C) b v.      (6)
+
+This proves the required geometry directly. No assumption that an arbitrary multiplier Q is a product of binomials, or that an abstract zonotope fan automatically has the desired realization, has been inserted.
+
+## 5. Original fiber zero sums fix every coefficient sign
+
+For adjacent vertices across H_a, the line parallel to n_a through them contains no third support point. Indeed let their difference be L_a n_a. If p_B=p_-+t n_a were another support point on that line, the strict maximum inequalities from the two neighboring chambers force 0<=t<=L_a. An interior point is a strict convex combination of p_-,p_+ and cannot be an exposed vertex, whereas Section3 proved that every support point is exposed. The two endpoints are already accounted for. This rules out all third points, including points beyond the segment; it does not rely on a picture or positivity.
+
+For a<=6 this line is exactly a coordinate fiber of M_a, on integer sites. For a=7 it is exactly a coset of Z v, since v is primitive and the endpoints differ by the integer b v. Thus the original zero-readout condition says that the two endpoint coefficients sum to zero. Along every chamber adjacency the coefficients are opposite. All have absolute value1 from Section3.
+
+Let epsilon in {−1,1} be the coefficient at p in the all-negative chamber. Since every wall crossing changes exactly one of the seven signs, adjacency connectivity now gives
+
+    coefficient at p_C = epsilon (-1)^( |S(C)|+delta(C) ). (7)
+
+Path independence is also explicit in this expression: any closed chamber path changes each sign an even number of times. This is an integer fiber argument, not an absolute-value inequality or a probability distribution.
+
+## 6. Coordinate fibers force one common integer spacing
+
+Define a=(a_1,...,a_6) and the actual finite binomial polynomial
+
+    H = (D^b−1) product_i (X_i^(a_i)−1).
+
+Its128 formal factor choices have coefficient (-1)^(7−|S|−delta). The two choices missing from the feasible chambers are (all six,0) and (empty,1). They have exponents a and b v, with coefficients −1 and +1 respectively. All other choices are the126 distinct support points in(6). If any two choices from the two translated rectangular cubes coincide, coordinatewise equality requires every a_i=b, and the coincident pair is exactly those two excluded choices. Within each cube no choices coincide. Consequently (6)–(7) give, in all cases,
+
+    P = epsilon X^p [ −H −X^a +X^(b v) ].                 (8)
+
+This identity remains correct when a=b v: the two correction monomials cancel, just as the two missing binomial choices do. It has not assumed their equality in advance.
+
+Now use a coordinate readout once more, in polynomial form. Vanishing of M_i is precisely substitution X_i=1 in P being the zero Laurent polynomial. The H term vanishes under that substitution; epsilon X^p remains an invertible monomial. Equation(8) therefore forces
+
+    product_(j!=i) X_j^(a_j) = product_(j!=i) X_j^b.
+
+Distinct Laurent monomials are linearly independent over Z, so a_j=b for every j!=i. For any given j choose an i!=j. Thus all a_j=b. Write their common positive integer value as d. Equation(8) becomes P=−epsilon X^p G_d, which proves the asserted form(3), including the sign sigma=−epsilon.
+
+Conversely
+
+    G_d = G [ sum_(h=0)^(d−1) D^h ]
+              product_i [ sum_(h=0)^(d−1) X_i^h ]         (9)
+
+is an actual integer Laurent multiple of G. Its two d-spaced six-cubes meet only at d v, where their opposite coefficients cancel. Hence it has exactly126 unit coefficients, total coefficient sum0 and positive/negative masses63. It supplies the required readouts by(1). This verifies every d, not only the old d=1 witness.
+
+Finally the coordinatewise minimum of support(X^p G_d) is p, and its maximum is p+2d v: the constant and X^(2d v) vertices both occur. Thus p is recovered from the support and d is half of any coordinate width. Both are unique; the sign is then recovered from the ordered coefficient array. No unproved equivalence under a change of chart is used.
+
+## 7. What the equality theorem says about actual occupancies
+
+Every critical-mass ambiguity has no common background. Its two configurations are exactly the two complementary sign sets of a translated d-spaced pair of cubes with their one common site cancelled. There is no arbitrary coefficient multiplier, mixed edge spacing or hidden nonvertex site at mass63. This is strictly stronger than knowing a sharp mass minimum or126 surviving vertices.
+
+The result only classifies comparisons at mass63. It does not classify larger-mass fibers, all multipliers of G, perturbed readouts, real/rational occupancies, noisy data or alternative observers. It supplies no physical dynamics or sensing law and does not change any earlier native/formal/STOP status. Old sharp theorem and old reviews retain their exact historical scopes; the new equality conclusion is not retroactively attributed to them.
+
+## 8. Direct finite consumer: the unit-generator moves do not connect all critical fibers
+
+Define an auxiliary graph on the finite-support N0 occupancies of total mass63. An edge means adding or subtracting the coefficient array of one translated unit G, provided the resulting occupancy is still nonnegative. These are algebraic integer kernel moves, not an asserted native motion law. All seven readouts are preserved along such an edge by(1).
+
+The negative and positive parts of a translated +/-G each have mass63. Thus if one of these moves is legal from a mass63 configuration f, then f dominates its negative part coefficientwise and has the same total mass; necessarily f equals that negative part exactly. In particular every endpoint admitting a legal unit-generator move must be a translate of one of the two d=1 sign configurations. This conclusion uses nonnegativity, not just ideal generation.
+
+For every d>=2, the two configurations (G_d)_+ and (G_d)_− are distinct mass63 occupancies with the same seven readouts. Each has coordinate width2d in every coordinate. To verify that assertion separately for each sign: the empty-subset vertex has one sign, and the singleton upper vertices v+e_i have that same sign; these give a coordinate0 and a coordinate2 after unit scaling. The opposite sign occurs at the full upper vertex2v and at every lower singleton e_j; for each coordinate choose j different from it to obtain coordinate0. Thus both sign supports have the claimed width after multiplication by d. A translate of a d=1 sign configuration has width2. Therefore neither d>=2 configuration is a translate of a d=1 sign configuration, and neither admits any legal unit-G move.
+
+So these two different configurations lie in one observer fiber but are isolated in the auxiliary unit-generator move graph. In particular the principal Laurent-kernel identity does **not** by itself make the translated unit G moves a nonnegative-fiber connecting set, even at the sharp minimum mass. This is an explicit obstruction, not a claim that no enlarged move set can connect fibers. It neither solves all higher-mass connectivity nor assumes a coordinate box. The equality theorem provides the complete shapes at critical mass; this direct readout records why that classification has a concrete consumer beyond renaming the mass bound.
+
+## 9. Reading, contribution, dedup and remaining boundary
+
+New mathematical contribution: BFF constructed the equality argument, its chamber-count saturation, elementary global edge-length propagation, coefficient-sign recovery, common-spacing constraint and the stated finite graph readout. CF's two preceding author wholes and BFF's genuine old reviews are exact reused upstream inputs, not new coauthorship or an independent vote for this new successor. CF supplied only a finite coverage/occupancy response, no proof or repair. Root approved one bounded scope and supplied no mathematical step. A/4A/CF have not been given this working proof or asked to repair it before any prospective whole review.
+
+The new theorem is a same-model classical RESULT_ONLY/COMPOSE claim and remains UNREVIEWED. The two prior accepted objects are the entire known-object dedup boundary of this round, not evidence of global novelty. A later exact existing classification locator would require REUSE/merge. No Source window, helper, activity ordinal, Tool, principal paper, Native record, new identity, RA or budget authority is created by writing this local proof.
+
+The next necessary step for mathematical acceptance is a genuine nonauthor whole review of this fixed complete proof, with all warm background and statement exposure disclosed. No such result is prefilled. A metric proof remains unread. The old Ae signed bulk/column/fullPsi quantitative HOLD, LC weighted-response/h_div join HOLD, PV REUSE closure, and all old program/query STOPs are untouched. Parent Goal remains OPEN; MESSAGE only.
