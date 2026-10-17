@@ -32,6 +32,9 @@ VALID_PACKET = "DFU-VALID-SIBLING"
 SOURCE_TASK = "RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY"
 SOURCE_GEN1 = "TP2-5D9C21A7B40E683F1C52"
 SOURCE_GEN2 = "TP2-7B35867C594D13793C9F"
+COVERAGE_TASK = "RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION"
+COVERAGE_GEN1 = "TP2-3F7A91C4E82D105B6A38"
+COVERAGE_GEN2 = "TP2-C6F364B0E01C124DB7E9"
 
 
 def setUpModule():
@@ -151,6 +154,13 @@ class ResultWithheldFollowupIsolationTests(unittest.TestCase):
                     self.assertEqual(SOURCE_GEN1, publication["publication_id"])
                     self.assertEqual(SOURCE_GEN2, current[task]["publication_id"])
                     self.assertEqual(SOURCE_GEN2, definitions[task]["publication_id"])
+                elif task == COVERAGE_TASK:
+                    self.assertEqual(COVERAGE_GEN1, publication["publication_id"])
+                    self.assertEqual(COVERAGE_GEN2, current[task]["publication_id"])
+                    self.assertEqual(2, current[task]["publication_generation"])
+                    self.assertEqual(COVERAGE_GEN1, current[task]["supersedes_publication_id"])
+                    self.assertEqual(COVERAGE_GEN2, definitions[task]["publication_id"])
+                    self.assertEqual("READY", definitions[task]["base_state"])
                 else:
                     self.assertNotIn(task, current)
                     self.assertEqual("BLOCKED", definitions[task]["base_state"])

@@ -208,6 +208,8 @@ def canonical_live_claim_binding(
     result_state = research_result_records.task_result_state(task_id, root, task.get("publication_id"))
     if result_state is not None and result_state.get("state") == "RESULT_CONTROL_AUTHORITY_WITHHELD":
         raise RuntimeAuthorizationError("RESULT_CONTROL_AUTHORITY_WITHHELD: historical CLAIM cannot authorize execution")
+    from control_plane.research_handoff_scope_runtime import definition_for_result
+    task = definition_for_result(task, result_state)
     authenticated, _ = research_dispatch._event_authentication_filter(task, events)
     filtered, _ = research_dispatch._filter_registered_events(task, authenticated, root)
     lease = int(task.get("claim_lease_minutes") or 120)
