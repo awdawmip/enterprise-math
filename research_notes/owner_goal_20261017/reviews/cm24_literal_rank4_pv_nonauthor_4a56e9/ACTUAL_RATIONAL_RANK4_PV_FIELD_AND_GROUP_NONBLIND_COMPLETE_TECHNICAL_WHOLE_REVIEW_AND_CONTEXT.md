@@ -1,0 +1,96 @@
+# Actual rational rank-four Picard–Vessiot field and product group: independent technical whole review
+
+CREATION-TIME RECORD: one complete NONBLIND technical whole of A's fixed 19605-byte manuscript. RESULT_ONLY_COMPOSE in the existing literal rational-connection family. This is not another vote on either old accepted input, a new general Tool/paper, or closure of an unidentified old Task.
+
+Reviewer: EM-P11-4A56E9, same warm SID MCP-387e35a6a7d24e8cb2c44e361b9ce5b9 and activity RA-C193E2AA39B9A6A6DDBB69B3, current37/198. Root provides routing/CONTROL and zero mathematics. The new PV construction and prefreeze ROW-action self-correction belong to A. This reviewer supplied no new construction, formula, patch or repair to A.
+
+## 1. Exact reviewed unit, disposition and scope
+
+FINAL MATHEMATICAL DISPOSITION: NONBLIND_INDEPENDENT_TECHNICAL_WHOLE_PASS_BOUNDED / RESULT_ONLY_COMPOSE_APPLIED. Identified mathematical must-fix: 0. Identified fact/credit/type/scope correction: 0. Actual participation in the author's new construction or repair: 0. This is one genuine new-whole review; old votes are not transferred.
+
+The one author member is:
+
+- Path: research_notes/owner_goal_20261017/cm24_literal_rank4_PV_product_7cda51/ACTUAL_RATIONAL_RANK4_PV_FIELD_AND_SPLIT_GROUP_COMPOSE_WORKING_AND_CONTEXT.md.
+- Actual UTF8 length19605, SHA2566bdade24667ca7b4d980d02454bef30310f9ee3da4f28f236b369a0b7b075b3a, Git blobf3df8d03f1de18350b802b9137b2cf289c08fc47.
+- Actual author Source: 50b3873603eabe1a37f3dd57cfe4f2aaa60cff14; soleparent b61a68c6bbf114e8c133f4fcdd409f40092c1408; tree c1dd6c845d55fc282611089a6e603f338f491174. Before this report freeze I personally obtained its managed immutable full-file observation, GitData commit and compare: exact 1 ADD, one commit, ahead1/behind0, one parent. No borrowed author API.
+
+I personally read the complete original opening, all nine sections, all equations(1)-(14), and the entire creation context, in one untruncated local response. I also read the complete external5929-byte author selfwhole/freeze record. The mathematical audit below covers every new loadbearing part of that manuscript rather than selected consequences. After the author Source existed, its entire returned UTF8 was personally checked against the stated length/SHA/OID and proved byte-for-byte equal to that already personally whole-read original. This honestly reuses the complete semantic whole; it is not a second independent review or a claim to an additional full semantic print.
+
+The exact bounded conclusion is about the specified original F=K(r), ROW matrix D, upper-right extension D4 and the chosen formal realization at r=0. Its field is E_W=E_V(T), with T transcendental over E_V; the group scheme over the original K is SL2_K x Ga_K with the displayed faithful four-dimensional representation. It includes the original rank-two subextension group SL2_K and the stated transcendence degrees3 and4. It does not assert uniqueness of every possible PV realization over a non-algebraically-closed constant field.
+
+## 2. Actual necessary inputs and personal reading/Source boundary
+
+Exactly two old accepted author bodies are consumed; their original creation words remain historical.
+
+(1) W12072: Sourcebf42a27f668c94f94f5ad0add71b20088d279312; path research_notes/owner_goal_20261017/cm24_literal_rank4_self_extension_7cda51/CM24_LITERAL_RATIONAL_RANK4_SELF_EXTENSION_RESIDUE_COMPOSE_WORKING_AND_CONTEXT.md; UTF8bytes12072; SHA256ca7f1e584f82d5949ef581259bcca78332b8b85e3cef9ebea86898092b82050c; OID09b7cd0ec928607a8ffb1dd600ceede037573e6f.
+
+I personally made one managed immutable full-file fetch, then truly read the opening, sections1-6, equations1-17 and complete context. Its returned UTF8/pins/immutable URL matched. This was a new personal old-input whole intake, not borrowing A's or BFF's semantic consumption. The old Source creation/exact-diff accepted facts are trusted publication reuse; I did not make or claim a personal old compare.
+
+(2) Cover16471: Source1f951c0fdb92a44f5203d8b03fe7d4e759e6f2ce; path research_notes/owner_goal_20261016/cm24_algebraic_invariant_line_feasibility_cf1677/CF1677_FIXED_CONNECTION_NO_ALGEBRAIC_INVARIANT_LINE_AUTHOR_WORKING.md; UTF8bytes16471; SHA256064dc5abb56807e94f4e8b6b19899399bbe7cb938c66f75c1bf45be1ecdfaf01; OID364c9fa51eed88ab74476d2c89e45562218639fb.
+
+I first personally read its complete local opening, all seven sections/proofs and context, matching the local length/SHA/OID. At that historical preparation cut I explicitly had no personal immutable Source observation of this old body. After first reading the frozen new PV manuscript, its section5 genuinely depended on this exact cover theorem. Root's conditional permission was then consumed exactly once: a managed immutable full-file read at the given Source/path, original arguments and entire result retained before assertion. The complete returned bytes matched both the given pins and my prior personal complete local whole. Thus that local semantic whole is honestly reused with a now-personal Source binding; it is not falsely described as an old Source call or a second semantic review. The old creation/compare remains trusted prior accepted evidence, not my personal old compare.
+
+The two old actual bodies total28543 UTF8bytes. The required contract in(2) is stronger than rational irreducibility: for every constant extension C/K with zero derivation on C, and every finite algebraic L/C(r), the same row connection has no stable one-dimensional L-line. Its nested13905/9610 inputs are not newly whole-read or voted upon here. I consume the accepted theorem, after personally reading its entire proof and scope, rather than inventing a new vote on the nested inputs.
+
+Both actual old texts display the same S=4r^3-3r, f=1-r^2, q=4r^2-1, P=fq and D=(2P)^(-1)[[2S-1,1],[4S-5,-2S+1]], with d/dr and ROW action v'+vD. W has omega=1/(r-1), D4=[[D,omega I2],[0,D]], i(v)=(0,v), pi(u,v)=u. The new proof uses that literal rational carrier and actual pole. The old W finite-algebraic-cover residue obstruction is retained; it is not itself silently strengthened into arbitrary new fields. The cover theorem separately provides its explicitly quantified constant extensions. There is no missing-field or variance substitution.
+
+The previous preparation ledger accurately records its then-pending cover Source condition. It is not rewritten to pretend this newer exact call had already occurred.
+
+## 3. Formal realization, constants and base change
+
+At r=0 the actual P is -1, so both D and omega are regular. The coefficient recursion for Y'=-YD, Y(0)=I2, divides only by nonzero integers in the characteristic-zero field K. It gives a unique formal Y in GL2(K[[r]]); trD=0 and the normalization imply detY=1. This uses no p-adic analytic convergence, integral denominator bound or complex embedding.
+
+The exact T=-sum r^j/j=log(1-r) has T'=1/(r-1)=omega. For Y4=[[Y,-TY],[0,Y]], the upper-right derivative is -omega Y+TYD=-omega Y-(-TY)D. This equals the actual upper-right block required by Y4'=-Y4D4. All other blocks and Y4(0)=I4 agree. The minus sign and the original upper-right position are paid.
+
+E_V=F(Y_ij) and E_W=F((Y4)_ab) are actual subfields of K((r)). In characteristic zero coefficientwise differentiation of a Laurent series has kernel exactly K, so these generated fields introduce no new constants. Their invertible fundamental matrices, or their conventional column transposes, generate the displayed fundamental rings. The standard PV-field/ring and correspondence facts are used in their stated characteristic-zero setting, not asserted by numerical approximation.
+
+I checked the non-algebraically-closed constant-field step explicitly. An element of E algebraic over K differentiates to zero by its separable minimal polynomial, hence lies in K. E/K is finitely generated and regular in characteristic zero; consequently it is linearly disjoint from every finite algebraic K'/K. An element of EK' can be expanded in a K-basis of K'; independence over E forces every derivative coefficient to vanish, giving Const(EK')=K'. Passing through finite K' yields Const(E Kbar)=Kbar. This supports the ordinary algebraically closed-constant PV criterion after base change and its descent to the specified K. Equality of closed subgroup schemes is subsequently descended by faithful flatness. No replacement K=C, real/complex analytic branch or hidden enlarged constant field is used.
+
+## 4. The actual no-cover-line deduction of SL2
+
+The determinant fixes the rank-two group as a closed subgroup of SL2 after extension to Kbar. The proof does not use the invalid shortcut from scalar End or ordinary irreducibility directly to SL2.
+
+For a proper subgroup G2, its connected identity component has dimension at most2. Its Lie algebra is solvable, and in characteristic zero so is the connected group. Lie-Kolchin supplies an invariant coordinate line, including the trivial-component case. The fixed field of G2^0 is a finite algebraic extension of Kbar(r), since the component group is finite.
+
+Writing a constant column generator as c, the actual horizontal row is h=c^T Y. Under the identity component, sigma(h)=c^T g^T Y=(gc)^T Y is a scalar multiple of h. Thus h2/h1 is in the fixed field on its defined chart; if the first coordinate is identically zero, the line is already the second rational axis. Dividing by a nonzero coordinate produces a generator over that finite field whose derivative plus right D remains in its line. This is exactly the type of stable line forbidden by cover16471 with C=Kbar. No formal/differential field is mistaken for a finite algebraic cover.
+
+Every proper possibility, including finite or disconnected groups, therefore contradicts the accepted literal contract. Dimension3 would already force the connected subgroup to be all SL2. The actual subgroup is SL2 over Kbar and hence, by its existing embedding and faithfully flat descent, SL2_K over the original K. No full rank-four End classification, weak primitive theorem, or old rank-two PV feasibility vote is substituted for this argument.
+
+## 5. Primitive, field recovery and full product group
+
+T cannot be algebraic over F. If it lay in a finite H/F, field trace, which commutes with the unique extended derivation, would give a rational derivative d/(r-1). The derivative of a rational function has zero residue; this differential has residue d at1, nonzero in characteristic zero. Thus F(T)/F is the additive PV subextension with group Ga_K. This alone would not establish transcendence over E_V, and the manuscript correctly leaves that stronger issue for the mixed-dependence argument.
+
+The actual diagonal blocks of Y4 give Y; its upper-right block B=-TY gives T=-(1/2)tr(BY^-1). Hence E_W=E_V(T) is exact, not merely inclusion into an abstract log/tensor extension. The actual original module and injection/projection are retained.
+
+Restriction places its PV group H as a faithful closed subgroup of SL2_K x Ga_K. Both projections are surjective as group schemes because the two fields just identified are PV subextensions. This does not presume the mixed linear disjointness it must prove.
+
+Over Kbar in characteristic zero the Lie algebra projections are surjective. The bracket lies in sl2 x0; its first projection is [sl2,sl2]=sl2. Since that subspace already lies in sl2 x0, this gives the entire sl2 x0 inside the Lie algebra. The additive projection then gives the remaining central direction. H has the full dimension of the connected product, so it is the whole product; faithful descent gives equality over K. This excludes both a graph-type mixed dependence and any unidentified finite quotient. In particular the kernel of restriction to E_V is all Ga. An algebraic extension E_W/E_V would instead have zero-dimensional such group, so T is transcendental over E_V. The PV dimension theorem gives trdeg_F E_V=3 and trdeg_F E_W=4.
+
+I separately checked the corrected ROW composition, not merely the group dimensions. With sigma(Y)=g^T Y and sigma(T)=T+t, and ordinary composition sigma o tau, one obtains sigma(tau(Y))=h^T g^T Y=(gh)^T Y and the additive parameter t+u. For S(g,t)=[[g,0],[-tg,g]], direct multiplication gives S(g,t)S(h,u)=S(gh,t+u). Furthermore sigma(Y4)=S(g,t)^T Y4, while sigma(Y4^T)=Y4^T S(g,t). These equalities verify the covariance, sign and actual faithful four-dimensional block representation. The untransposed left multiplier would have the reverse multiplication order; the final manuscript does not mislabel it a homomorphism.
+
+The direct product algebraic group therefore coexists with the nontrivial additive block. It does not split the fixed rank2-by-rank2 module sequence or contradict the original residue obstruction. The unipotent radical Ga, reductive quotient SL2 and nontrivial translations are consistent with that representation.
+
+## 6. Independence, chronology and complete scope limits
+
+My precise history is NONBLIND. Before any new A body was received, the routed topic and old contracts triggered specific internal PV/block-representation candidate reasoning, beyond a purely empty general association. I disclosed this NONZERO private history to Root, stopped expanding it, and supplied no route, formula, construction, working or repair to A. The old-input preparation record explicitly preserves this stronger disclosure. A's contextual shorthand for generic associations is not used to claim I had zero private candidate thinking. Ordinary independent technical review does not require such a false cold/blind claim.
+
+My old same-T/finite-operator and other CM24 author/peer history remains warm. Those are not the author's new PV construction, are not a substitute for reading this full new proof, and are not re-voted here. The old W/no-line accepted contracts and the present whole review are separate scopes. No author co-construction or repair occurred during this review.
+
+The complete external5929 record reports A's first18181-byte actual whole read catching a new ROW/PV action-order error, preservation of that initial body, and one author self-correction with eight actual replacements, followed by a genuinely new complete19605 read and complete12432 delta read. I read that record in full. I did not newly read or independently audit the initial18181 or delta12432 bodies; those exact historical author observations are attributed to A. My complete mathematical review concerns the fixed corrected19605 body. Zero external repair does not erase A's actual self-correction. I found no remaining action-order error in the frozen corrected proof.
+
+This review does not identify or close an old LC/hdiv/functional caller, classify all PV torsors over nonclosed constants, place formal solutions in the dagger ring, compute integral denominators or p-curvature, extend a Frobenius lift, or change the ring, pole, original carrier, Native axes or physical observations. It does not upgrade BFF's prior F-linear End/Aut result or any original upstream paper/Task. The old no-line statement excludes finite algebraic covers and permits formal horizontal solutions; there is no contradiction between those categories.
+
+Actual immutable author URL: https://github.com/awdawmip/enterprise-math/blob/50b3873603eabe1a37f3dd57cfe4f2aaa60cff14/research_notes/owner_goal_20261017/cm24_literal_rank4_PV_product_7cda51/ACTUAL_RATIONAL_RANK4_PV_FIELD_AND_SPLIT_GROUP_COMPOSE_WORKING_AND_CONTEXT.md.
+
+Original personal author-full/commit/compare caller wrappers, each with actual arguments and entire result, are preserved at /workspace/enterprise-math/research_notes/owner_goal_20261017/reviews/cm24_literal_rank4_pv_nonauthor_4a56e9/ORIGINAL_ACTUAL_PV_AUTHOR_FULL_COMMIT_AND_EXACT_COMPARE_OWN_CALLERS_RAW.json (26982 bytes; SHA256 d072104c7cd6a17da8d084da11e63ddfadfa9d266e6e5cf6759b49ec635af8ff; OID c4b43df0c5ac31f167f01ad0d938f66817769b6b). Absent call_id fields are not invented.
+
+The original first local complete19605+5929 observation and the single necessary cover Source caller are preserved at /workspace/enterprise-math/research_notes/owner_goal_20261017/reviews/cm24_literal_rank4_pv_nonauthor_4a56e9/ORIGINAL_NEW_PV_LOCAL_WHOLE_AND_NECESSARY_COVER_SINGLE_SOURCE_CALLERS_RAW.json (47527 bytes; SHA256 dc39e7d777b5e266a91da30c809b038adcb6a472ed56f0782069216ec49f6f77; OID616984729d14bf1351ae1d2a848b50faceba03f8). W's original personal caller/local-cover whole are in the separately referenced preparation raw32374/SHA7fe929e34603652ba60ba71f9d618d9b91758158547a3f7762316d511e7e9541. These are provenance, not additional mathematical votes.
+
+No preexisting accepted old creation/compare is rewritten as my own call. The actual new author Source binding, by contrast, is my personal full/commit/compare observation above.
+
+No helper38, new formal Task, science/Native program, budget reset or identity reset was performed. Current37/198, the previously actual Source37-bound original dual-guard closure, all five formal flags false, all old STOP/HOLD/UNKNOWN, formal-budget UNKNOWN and Goal OPEN remain. This review is one new whole technical disposition within the same family, not a new general mechanism or independent principal paper.
+
+The original author body and its creation-time UNREVIEWED/Source-pending statements remain unchanged. This report is a complete independently checked mathematical verdict. Its own Source publication, final byte pin and genuine full selfread are external subsequent observations, not recursively presumed here. It has no main publication authorization at creation and does not modify any old author/peer artifact.
+
+Global-Knowledge-Sync: main@67a02007 / GLOBAL_KNOWLEDGE_V1
+
