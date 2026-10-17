@@ -1,0 +1,245 @@
+# Reciprocal CM density: an exact terminal cancellation and the remaining scalar contract
+
+Status: LOCAL PARTIAL / RESULT_ONLY COMPOSE / NOT INDEPENDENTLY REVIEWED / NOT SOURCE PUBLISHED. This is one faithful recovery appendix, not a new paper, Tool, numerical experiment, Native result, or proof that the old scalar comparison vanishes. The independent original scalar kappa is still not defined by the recovered input contracts. It is never defined here from a target discrepancy.
+
+Author of this recovery and its explicit composition: EM-PUBLIC-7CDA51, the same warm actor, SID MCP-9030ae3a22074e3dbc31679b7090f6b0. The preceding activity publication is genuinely closed at Source 6b23363bd6e6486d58be5da158e3411550b381ff, checkpoint 54 / 225 readbacks. This descriptive fact supplies no mathematical authority. Goal OPEN; all original STOP, UNKNOWN, budget and qualification boundaries remain. Root supplied routing and custody control, not mathematical construction or a vote.
+
+## 1. The recovered question and the precise result
+
+The 10599-byte local directed-collaboration note `COMMON_DENSITY_FIXED_C_GREEN_AND_LITERAL_RESIDUAL.md` ends with the unproved comparison
+
+    Phi(D0) - F_CM/(9 g^2) = kappa + T_m + 2 W_m/g.       (R1)
+
+It is not the missing Student coefficient/contour caller. Its own local status, rather than its title or old check counts, governs its qualification.
+
+All quantities on the left of (R1), and T_m and W_m on its right, now have the explicit finite constructors below. Their recovered definitions and elementary identities give the equivalent comparison
+
+    Phi((y-1)/(1-x)) - OLD-R - 6 tau = kappa.             (R2)
+
+The quotient in (R2) is a polynomial of degree at most 3m-1. This is an exact equivalence, including every original reciprocal range and boundary factor. It is not an evaluation of either side, a proof of (R1), or a new constructor for kappa. For any independently specified scalar kappa in F_p the two equations have the same truth value. To turn this into an instantiated comparison with the original target, the original independent definition and normalization of that scalar are still needed.
+
+The new useful preservation here is the explicit cancellation of the unweighted T_m terminal polynomial against the rho^m terminal in D0. The underlying Gauss connection, reciprocal reflection, fixed-C dictionary, Wilson normalization and finite summation by parts are old mechanisms, rederived below for this consumer and credited as such. The two specifically inspected old target/prefix notes do not literally display (R2); this bounded textual observation is not a claim of general novelty or absence elsewhere.
+
+## 2. Literal finite carrier and legal moment domain
+
+Let p=6m+1 be prime, p congruent to 13 or 19 modulo 24, and N=3m. Work in F_p throughout; m>=2. Every integer range below remains an integer range. Reducing a coefficient such as N=-1/2 in F_p never extends a terminating sum.
+
+Set
+
+    g = binom(3m,m),
+    a_i = (1/6)_i (1/3)_i / ((1/2)_i i!),  0<=i<=m,
+    A(z) = sum_(i=0)^m a_i z^i,
+    rho(x) = x(4x-3)^2,
+    y(x) = g A(rho(x)).                                  (R3)
+
+All factors divided by in these a_i are units. The recovered original normalization calls g the unit h_0=h_N, with total coefficient sum 1. Here the actual scalar g and the actual polynomial used by the comparison are the explicit ones in (R3); the proof does not replace them with a scalar fitted to a residual. Nor does it use an additional assertion about an unspecified Heun polynomial. The old p-adic memo's divisible scalar also called g is a different object and is not used.
+
+The original CM0 conditions A(1/2)=V(1/2)=0 are retained as conditional model premises. They are not proved unconditionally here. Define the original connected Gauss polynomial
+
+    V(w) = sum_(i=0)^m (1/6)_i (1/3)_i w^i/(i!)^2.
+
+The finite identities needed here are
+
+    A(1)=1/g,  V(w)=g A(1-w),
+    y(1)=1,  V'(1/2)=-g A'(1/2).                        (R4)
+
+For completeness, in F_p the three parameters 1/6, 1/3, 1/2 equal -m, -2m, -3m. The terminating Vandermonde identity gives
+
+    A(1)=(1/6)_m/(1/2)_m=m!(2m)!/(3m)!=1/g.
+
+The same finite identity applied after j derivatives at 1 gives the coefficient of w^j in g A(1-w). Its remaining factor is
+
+    g (-1)^j (1/6)_(m-j)/(1/2)_m = 1/j!,  0<=j<=m,
+
+because (1/6)_m/(1/6)_(m-j)=(-1)^j j!. This proves the connection in (R4), not merely its endpoint value. These are finite polynomial identities, with no continuation or infinite-series hypothesis. In particular y(1)=1 and both quotients below are genuine polynomials.
+
+One can also identify the differential carrier directly: A is annihilated by
+
+    D_A=z(1-z) d_z^2+(1/2-3z/2) d_z-1/18.
+
+Its coefficient recurrence follows from the ratio of a_(i+1) to a_i; its top factor m+1/6 is zero in F_p. The chain rule gives, for every polynomial B,
+
+    H[B(rho(x))] = -18(4x-1) (D_A B)(rho(x)),
+    H=2x(x-1)(4x-1)d_x^2+(20x^2-15x+1)d_x+(4x-1).
+
+Thus the explicit y in (R3) solves the original homogeneous polynomial carrier. This verification does not establish CM0 or any scalar comparison.
+
+For f(x)=sum f_l x^l of degree at most N-1 define the actual six moment functionals
+
+    I_c(f)=sum_l f_l c^(l+1)/(l+1),
+    J_c(f)=sum_l f_l c^(l+1)/(2l+1),
+    Phi(f)=2 I_(1/2)(f)+8 J_(1/2)(f)
+            -I_1(f)/3+8 J_1(f)/3
+            -7 I_(1/4)(f)/3+20 J_(1/4)(f)/3.            (R5)
+
+In particular J_c uses c^(l+1), not c^(2l+1). The largest I divisor is N<p and the largest J divisor is 2N-1=p-2; all are units. We never assign the undefined next odd moment at degree p. These coefficient functionals are algebraic finite sums, not path integrals with an unstated branch.
+
+Let S_k=sum_(i=0)^k a_i for 0<=k<m and P(z)=sum_(k=0)^(m-1) S_k z^k. Define
+
+    D0=g(1-4x)^2 P(rho(x)).                              (R6)
+
+The prefix identity
+
+    (1-z)P(z)=A(z)-z^m/g
+
+and 1-rho=(1-x)(1-4x)^2 prove
+
+    D0=(y-rho^m)/(1-x),  deg D0<=N-1.                  (R7)
+
+No cancellation requires inverting 1-4x at an evaluation point: both sides of (R7) are polynomial expressions and the equality follows after multiplication by 1-x in the integral domain F_p[x].
+
+## 3. Independent reciprocal and fixed-C constructors
+
+For 1<=r<=N and 0<=j<=N-1 set
+
+    t_r=2^(-r)(1/2)_r/r!,
+    D_r=2^(r-1)(r-1)!^2/[18(5/6)_r(2/3)_r],
+    eta_r=r D_r t_r=(1/2)_r(r-1)!/[36(2/3)_r(5/6)_r],
+    e_j=(2/3)_j(5/6)_j/[(3/2)_j j!].                   (R8)
+
+These are units on exactly the stated ranges. The first zero in (1/2)_r occurs at r=N+1, outside the range. The first zero in (3/2)_j occurs at j=N; e_N is not defined or used. The zeros in the other two denominator products occur later than N.
+
+The fixed reverse carrier is equivalently specified by the descending rows
+
+    cbar_N=0,
+    (j+1)(j+3/2)cbar_(j+1)
+      -(j+2/3)(j+5/6)cbar_j=1/9,  0<=j<N,
+    Cbar(z)=sum_(j=0)^(N-1)cbar_j z^j,
+    C(w)=Cbar(1-w).                                     (R9)
+
+Every descending diagonal factor is a unit. This is the reflected form of the old independent C constructor; it is independent of OLD-R, the residual, or tau. Equivalently C solves
+
+    D_G* C=-[(1-w)^N-1]/(9w),
+    D_G*=w(1-w)d_w^2+(1-5w/2)d_w-5/9,
+
+since reflection gives D_A* Cbar=(1+z+...+z^(N-1))/9 with
+D_A*=z(1-z)d_z^2+(3/2-5z/2)d_z-5/9. The apparent division by w is polynomial division.
+
+Direct legal ratios give
+
+    eta_(r+1)/eta_r=r(r+1/2)/[(r+2/3)(r+5/6)],
+    eta_(N-j)=eta_N e_j, 0<=j<N.                        (R10)
+
+For the second identity reverse r=N-j and use N=-1/2 only in the ratio; the induction ends at eta_1 and never introduces eta_0. The actual lower endpoint is eta_1=1/40. Solving (R9) gives
+
+    cbar_j=-8 e_j sum_(r=j+1)^N eta_r
+           =-8 eta_N e_j sum_(s=0)^(N-j-1)e_s.           (R11)
+
+Indeed for j<N-1 the row difference equals
+8 eta_(j+1)(j+2/3)(j+5/6)e_j=1/9, since the product without 8 is 1/72. At the actual top j=N-1 the forward coefficient is zero, the diagonal is 5/9 and cbar_(N-1)=-8 eta_1=-1/5. This proves the last row separately, with no fictitious e_N or division by a forward zero.
+
+The required normalization, credited to the old Wilson anchor rather than claimed as a new observation, is
+
+    eta_N=-1/(18g^2).                                   (R12)
+
+Here is a hand proof on the exact finite range. Reduction of the rising products gives
+
+    eta_N=(-1)^N N!(N-1)! m!(2m)!/[36(4m)!(5m)!].
+
+Wilson complements yield 1/(4m)!=-(2m)! and
+1/(5m)!=(-1)^(m+1)m!. The total sign is (-1)^(4m+2)=1. Therefore eta_N=N!(N-1)![m!(2m)!]^2/36. Since g=N!/[m!(2m)!] and (N!)^2=(-1)^(N+1), this is 1/(36Ng^2)=-1/(18g^2). All factorial arguments remain less than p.
+
+Put C_*=C(1/2)=Cbar(1/2), V'_*=V'(1/2), and keep the literal boundary
+
+    tau=-C_* V'_*/4.                                    (R13)
+
+It is not chosen from a discrepancy and neither C_* nor V'_* is inverted. Define E_(r-1)^adj(c)=sum_(j=0)^(r-1)e_j c^j. Interchanging the finite triangle in (R11) gives the complete fixed boundary
+
+    C_*=-8 eta_N sum_(r=1)^N
+                         e_(N-r) E_(r-1)^adj(1/2).       (R14)
+
+Both the r<=m tail and r>m prefix in this formula remain. CM0 explains its original concomitant interpretation, but the identity (R14) and the algebraic use of (R13) need no division by a CM value.
+
+## 4. The full OLD-R cutoff and F_CM identity
+
+Define independently, for 1<=i<=m,
+
+    Htri_i=sum_(r=1)^i [1+6(i-r)]D_r,
+    W_i=t_i Htri_i,  W_0=0,
+    OLD-R=2 sum_(i=1)^m a_i W_i,
+    M_R=sum_(i=1)^m S_(i-1)(W_i-W_(i-1)),
+    q_r=(t_m/g)[1+6(m-r)]
+           -sum_(i=r)^m a_i t_i[1+6(i-r)],  1<=r<=m.     (R15)
+
+Finite summation by parts, using S_(m-1)=1/g-a_m and W_0=0, proves
+
+    M_R=W_m/g-OLD-R/2=sum_(r=1)^m D_r q_r.
+
+The second equality is the finite interchange of the defining W triangles. At r=m the source is q_m=t_m(1/g-a_m); at r=1 its entire low-index contribution is retained. Thus (R10) also gives
+
+    M_R=eta_N sum_(r=1)^m e_(N-r)q_r/(r t_r).            (R16)
+
+Use the actual independently prescribed low/high source, not a target-defined replacement:
+
+    F_CM=sum_(r=1)^m e_(N-r)
+             [q_r/(r t_r)-6 V'_* E_(r-1)^adj(1/2)]
+         -6 V'_* sum_(r=m+1)^N
+                          e_(N-r) E_(r-1)^adj(1/2).      (R17)
+
+All r t_r divisors in (R17) are units. Applying (R14) and (R16), with their unchanged ranges, gives
+
+    eta_N F_CM=M_R+(3/4)C_*V'_*=M_R-3 tau.               (R18)
+
+This is the recovered old reciprocal source identity. The last sum in (R17) cannot be dropped merely because OLD-R itself ends at m. Equations (R12) and (R18) give the actual normalization
+
+    F_CM/(9g^2)=-2 M_R+6 tau.                           (R19)
+
+## 5. Terminal cancellation and the exact remaining obligation
+
+The recovered prescribed T triangle is
+
+    f_k(x)=(1-4x)^2 rho(x)^k,  0<=k<m,
+    U_k=2 I_(1/2)(f_k)-I_1(f_k)/3-7 I_(1/4)(f_k)/3,
+    V_k^odd=8 J_(1/2)(f_k)+8 J_1(f_k)/3+20 J_(1/4)(f_k)/3,
+    T_0=0,  T_(k+1)-T_k=U_k+V_k^odd.                   (R20)
+
+The superscript on V_k^odd distinguishes this old moment sequence from the polynomial V(w); no constructor is changed. Each f_k has degree 3k+2<=N-1. Thus exactly the same Phi in (R5), on its already legal domain, gives
+
+    T_m=Phi(sum_(k=0)^(m-1) f_k)
+       =Phi((1-rho^m)/(1-x)).                           (R21)
+
+The second equality is a polynomial geometric-sum identity: multiply by 1-x and use 1-rho=(1-x)(1-4x)^2. It assumes no value for a missing T_m constructor, no extrapolated odd moment, and no scalar comparison.
+
+Now substitute (R19) and M_R=W_m/g-OLD-R/2 into (R1). Its left side becomes
+
+    Phi(D0)+2W_m/g-OLD-R-6tau.
+
+Cancel exactly the same 2W_m/g on the two sides, and then subtract the actual T_m in (R21). By (R7) and linearity on polynomials of degree at most N-1,
+
+    Phi(D0)-T_m=Phi((y-1)/(1-x)).                        (R22)
+
+This proves (R1) if and only if (R2). Every step is reversible. It is a finite COMPOSE reduction, not an attempt to evaluate the older affine-weight forcing or to revive a previously obstructed universal rational two-carrier ansatz.
+
+The still absent literal signature is an independent specification of the original scalar kappa: its original formula/normalization, its dependence on p and m, and the exact source defining it before the comparison. For example, supplying kappa as the left side of (R2) would only make a tautology and is explicitly forbidden here.
+
+The recovered 16666-byte coefficient-boundary note fixes a distinct family kappa_s as the coefficients of a concomitant J(z), with kappa_0 fixed by J(1)=0. Its standalone kappa occurs only in the OPEN successor comparisons (23),(24). That note does not identify scalar kappa with kappa_0, tau, an endpoint, or a fitted residual. No such identification is made here. This is a gap in the exact recovered target contract, not a mathematical nonexistence theorem and not a new formal Task HOLD.
+
+## 6. Source, read and qualification ledger
+
+All original files remain unchanged. The following are exact old objects, not an inference of mathematical acceptance from Source custody. No old checker, prime campaign, provider query, mathematical program or Native execution was run for this recovery.
+
+1. Original local target, personally complete-read 2650 tokens in this phase: `/workspace/enterprise-math/driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/4bd5acffba9548db8f34/COMMON_DENSITY_FIXED_C_GREEN_AND_LITERAL_RESIDUAL.md`, 10599 bytes. Earlier focused opening/tail consumption was followed by the actual full note. No immutable accepted primary locator was recovered from its body. Equation (16) is (R1). Directed-collaboration/local status and original scalar OPEN remain.
+
+2. Exact local working copy, personally complete-read 3484 tokens: same directory, `FINITE_RECIPROCAL_D_REFLECTION_AND_CM_CUTOFF_SOURCE.md`, 13933 bytes, SHA256 95345d0917f00c7fd5be9b9433deefe9f578d6122ff760f0ce5cbec0a114232a, GitOID 6183c99189c9d4d633141b745a755ecb8c9cc426. The recovered manifest explicitly says Source_ref=null and Source_custody_asserted=false. It supplies the literal reciprocal cutoff/reflection and F_CM dictionary. Its algebra is reproduced in Sections 3-4; its status is not upgraded.
+
+3. Exact local working copy, personally complete-read 3251 tokens: same directory, `ACTUAL_HO_DENSITY_FIXED_C_GREEN_AND_MIDDLE_TAIL.md`, 13004 bytes, SHA256 0d65c03a3fc98e118054436304119316b258824a891cad6a81124ebe709a7ec9, GitOID 7908f62febf456c227b43e877aa9a50ff850327a. It supplies the density/finite Green context and conditional carrier; not an accepted premise merely because a local status says proved.
+
+4. Actual target member personally decoded from the existing local source container, exact pins checked, then complete-read 4166 tokens: `cm24-gauss-weighted-terminal-comparison-20261012/GAUSS_WEIGHTED_TELESCOPERS_AND_EXACT_PREFIX_RESIDUAL.md`, 15944 bytes, SHA256 a36dd3154d6a599d2a92703c3420d08e834c9e868bc4134ec4fbf6907a0f2eac, GitOID 407e45c376ba715fd0dd6b4e3d46879dc045a490. Catalog Source 1558a5de9af0f6336d2091e7f30627754f3763a5, repository awdawmip/enterprise-math, container path `driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/a397b754917bb34480b0/CM24_NEW_FLUX_AND_WEIGHTED_UNITS_COMPLETE_FROZEN_SOURCE_BUNDLE.json`, container 120248 bytes / SHA256 cf253c72a54b7bd21a1520f8038c088ef673d8e3a39638f1601434f9a672fc41 / GitOID 9486a9337e5ef9a085c914937264b6beaabd0698. Only the named member was consumed as mathematical text; no new managed request or whole-container mathematical read. Its original (2) is the independent T constructor (R20). The exact materialized member is `ORIGINAL_TARGET_GAUSS_WEIGHTED_TELESCOPERS_AND_EXACT_PREFIX_RESIDUAL.md` beside this appendix.
+
+5. Actual target member personally decoded from the existing local container, exact pins checked, then complete-read 2490 tokens: `cm24-bilinear-cm-boundary-dictionary-20261012/independent-check/CONNECTED_TAU_TAIL_AND_GENUINE_ODD_SOURCE.md`, 9417 bytes, SHA256 f0519484a8775c3b290a8028c0f59f0943bb594d9e7b376cb81465ceca0576c7, GitOID 01d3c5f8437c34d8da71ad8cb4cc77a1d6f1c552. Catalog Source e899e041a8c303626a0baf684c5788932a2e95d3, container path `driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/cbfd584a49eaf28cab04/CM24_FIXED_C_UNIT_COMPLETE_FROZEN_SOURCE_BUNDLE.json`, container 61712 bytes / SHA256 64f0b4984bfa46640b36b9a64a08e931765f21b9d68bfd778488536cd9521b95 / GitOID b0fbf6adf43d648263744b82d121c1ba872d47d5. Its full tau-prefix and cubic/Frobenius corrections remain old context; no global consequence was borrowed. The exact materialized member is `ORIGINAL_TARGET_CONNECTED_TAU_TAIL_AND_GENUINE_ODD_SOURCE.md` beside this appendix.
+
+6. One further exact old member, after Source54 debt was genuinely closed, personally new complete-read 4175 tokens, all eight sections and context: `cm24-bilinear-cm-boundary-dictionary-20261012/FIXED_C_COEFFICIENT_BOUNDARY_AND_GENUINE_ODD_SOURCE.md`, same e899e041... container, 16666 bytes, SHA256 22da57abfeb18af76dcd0002a0c07c1f169e1d73720fe7e589701a385d084388, GitOID c092e6abb38127fbc52aa0971bc319178be8df3b. Exact decoded local file `/workspace/enterprise-math/research_notes/owner_goal_20261017/control_recovery/cm_kappa_literal_contract_cf1677/EXACT_OLD_MEMBER_FIXED_C_COEFFICIENT_BOUNDARY_AND_GENUINE_ODD_SOURCE.md`. This extra intake checks the possible kappa contract, not an assumed new theorem. Its (9) defines kappa_s; its OPEN (23),(24) still do not define the independent scalar kappa. Source custody and old directed checks are not blind or independent mathematical acceptance.
+
+The five catalog groups were not fetched as a batch. Container/member references above must not be misreported as direct Git paths for member files. Local publication-input status READY is not Source publication, a native accepted result, or accepted mathematical proof. The three local working copies have not thereby acquired an immutable author Source or a peer vote.
+
+Control helpers recovered filename/Source/pin metadata only; they supplied no mathematical proof or construction. BFF and CF gave bounded existing-coverage UNKNOWN/unoccupied replies, not mathematical absence claims or new formulas. A child performed a two-file literal-coverage location check only: the target (16) and the prefix note (23),(24) were found, but not the two complete displayed terminal-cancellation equations (R21),(R2). That textual check is not an independent technical review.
+
+This author's manual verification covered the finite connection, legal ratios and endpoints, Wilson anchor, every fixed-C reverse row, all low/high F_CM ranges, finite Abel identity, moment domains and exact cancellation. Old Wilson credit includes EM-DVR-FBF223 in the recovered history; rechecking it does not transfer its origin to this author. The present explicit recovery/composition and preservation are A's contribution, not a new proof of the old unresolved scalar value. No external repair was received. This file's actual complete self-read and any later independent technical review must be recorded by real later observations, not filled into this creation cut.
+
+## 7. Exact stop and future discriminator
+
+Current result: the actual T_m constructor and both terminal mechanisms have been restored, and (R1) has been reduced exactly to (R2). Current missing contract: the independent original scalar kappa. It is not the already restored T_m, not kappa_0, and not an unproved claim that the remaining finite sum has no closed form.
+
+A legitimate next input is one exact original definition of scalar kappa, with its source and normalization. After that intake the remaining obligation is an explicit finite equality with the independently constructed left side of (R2), or a genuine counterexample in the original stated model. If the recovered definition only repeats the target discrepancy, it supplies no new discriminator. If it belongs to a different carrier or normalization, retain the type gap rather than silently identify the symbols.
+
+No new iteration of the old characteristic-zero universal rational two-carrier obstruction is authorized by this reduction; that obstruction does not imply a finite-F_p scalar no-go. CM0, LIFT, weighted p^3, raw period normalization, full Native propagation, the separate Student coefficient caller, and the global parent goal are not closed. No Source window, helper55, new Task, identity, budget reset, or scientific program follows from saving this appendix.
