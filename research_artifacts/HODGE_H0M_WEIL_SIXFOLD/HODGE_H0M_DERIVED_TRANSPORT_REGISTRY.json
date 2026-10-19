@@ -1,0 +1,44 @@
+{
+  "schema": "HODGE_H0M_DERIVED_TRANSPORT_REGISTRY_V1",
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "source_component": "split sixfold Weil type, discriminant [-1]",
+  "target_component": "Q(i)-Weil sixfold family, discriminant [-3]",
+  "core_invariant": {
+    "statement": "For a six-dimensional K-Hermitian space, a K-linear similitude h' = c*g^* h*g with c in Q^* changes det(h) by c^6*Nm(det g). Both factors are norms in Q^*/Nm(K^*): c^6=Nm(c^3), and Nm(det g) is a norm by definition. Therefore the discriminant class is invariant under K-linear similitude.",
+    "consequence": "No K-linear polarized isogeny/similitude can send the split class [-1] to target class [-3]."
+  },
+  "operations": [
+    {
+      "operation": "deformation inside polarized Weil-type moduli",
+      "status": "NO_GO",
+      "reason": "Discriminant is a discrete connected-component invariant, so an ordinary deformation path cannot cross from [-1] to [-3]."
+    },
+    {
+      "operation": "K-linear isogeny with compatible polarization up to rational similitude",
+      "status": "NO_GO",
+      "reason": "The induced rational H^1 map is a K-linear Hermitian similitude and preserves the discriminant class by the determinant formula above."
+    },
+    {
+      "operation": "unitary Hecke correspondence preserving the K-polarized Weil datum",
+      "status": "NO_GO",
+      "reason": "Hecke moves are implemented by rational/adelic unitary similitudes of the fixed Hermitian space and remain in the same discriminant class."
+    },
+    {
+      "operation": "duality",
+      "status": "NO_BRIDGE_FROM_SPLIT",
+      "reason": "At determinant level duality can invert the discriminant class. The split class [-1] is self-inverse, so duality does not produce [-3]."
+    },
+    {
+      "operation": "Fourier-Mukai / Orlov equivalence",
+      "status": "TYPED_DICHOTOMY",
+      "reason": "If the equivalence is required to identify the target K-action, polarization/similitude structure and Weil carrier, its H^1 realization falls under K-compatible similitude data and cannot change [-1] to [-3]. If it is not K-compatible, it does not supply the required identification of the target W_K carrier and therefore fails the H0M transport typing gate."
+    },
+    {
+      "operation": "arbitrary new algebraic correspondence not induced by the above K-linear transport mechanisms",
+      "status": "OPEN",
+      "reason": "The discriminant argument does not rule out a genuinely new correspondence acting directly on codimension-3 classes. Such a correspondence must be explicitly constructed and proved to map a known algebraic class to the target W_K; none is currently available."
+    }
+  ],
+  "classification": "DISCRIMINANT_TRANSPORT_NO_GO_FOR_STANDARD_K_COMPATIBLE_SOURCE_OPERATIONS",
+  "scope_warning": "This is not a theorem that no algebraic correspondence can ever connect the components. It rules out the standard deformation/isogeny/unitary-Hecke/K-compatible-derived transport route that would otherwise recycle the split source object."
+}

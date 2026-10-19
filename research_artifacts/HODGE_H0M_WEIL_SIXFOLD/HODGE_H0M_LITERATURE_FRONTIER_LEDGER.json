@@ -1,0 +1,56 @@
+{
+  "schema": "HODGE_H0M_LITERATURE_FRONTIER_LEDGER_V1",
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "publication_id": "TP2-4D8C1A7E2B609F35C614",
+  "researcher_id": "EM-DIRECT-7B2F9A",
+  "as_of": "2026-08-31",
+  "classification": "CURRENTLY_OPEN_FRONTIER_AT_DECLARED_SCOPE",
+  "declared_target": {
+    "dimension_complex": 6,
+    "field": "Q(i)",
+    "weil_signature": [3, 3],
+    "discriminant_class_representative": -3,
+    "genericity": "very general point of the fixed-discriminant unitary Weil-type component"
+  },
+  "primary_sources": [
+    {
+      "id": "arXiv:2502.03415",
+      "author": "Eyal Markman",
+      "title": "Cycles on abelian 2n-folds of Weil type from secant sheaves on abelian n-folds",
+      "routing_fact": "Proves algebraicity of Weil classes for all polarized abelian sixfolds of Weil type of discriminant -1, for every imaginary quadratic field; does not state all-discriminant sixfold algebraicity."
+    },
+    {
+      "id": "arXiv:2509.23403",
+      "author": "Eyal Markman",
+      "title": "Secant sheaves and Weil classes on abelian varieties",
+      "routing_fact": "Formulates the split-Weil-type deformation mechanism and surveys the sixfold split result; split type is the known source geometry used by the secant-sheaf construction."
+    },
+    {
+      "id": "arXiv:2603.20268",
+      "author": "Amir Mostaed",
+      "title": "McMullen's Curve, the Weil Locus, and the Hodge Conjecture for Abelian Sixfolds",
+      "routing_fact": "At the studied sixfold Weil-locus intersection points, the Hodge-Weil classes are absolute Hodge but are described as inaccessible to existing algebraicity theorems because of CM isolation, absence of K-secant structure, and uncontrolled discriminant; remaining open steps are isolated."
+    },
+    {
+      "id": "arXiv:2607.18341",
+      "routing_fact": "July 2026 result concerns abelian fourfolds of Weil type, not a general all-discriminant sixfold theorem."
+    }
+  ],
+  "freshness_search": {
+    "window": "through 2026-08-31",
+    "queries": [
+      "arXiv 2608 abelian sixfold Weil Hodge",
+      "arXiv 2607 abelian sixfold Weil Hodge",
+      "Weil type sixfold algebraic Hodge 2026",
+      "abelian sixfolds of Weil type discriminant algebraic"
+    ],
+    "result": "No later primary arXiv result was found that closes all discriminant classes for polarized abelian sixfolds of Weil type."
+  },
+  "scope_statement": "This is a routing classification, not a proof that the selected Weil classes are non-algebraic. It states only that the declared discriminant -3 very-general sixfold family is not covered by the checked sixfold algebraicity theorems and remains a legitimate open-frontier benchmark at the stated literature freeze.",
+  "reselect_model_if": [
+    "a primary theorem proves sixfold Weil-class algebraicity for discriminant class -3 over Q(i)",
+    "a theorem proves all-discriminant sixfold Weil-class algebraicity",
+    "the chosen family is shown to be isomorphic/deformation-equivalent as a polarized Weil-type family to the split discriminant -1 component"
+  ],
+  "status": "PASS"
+}

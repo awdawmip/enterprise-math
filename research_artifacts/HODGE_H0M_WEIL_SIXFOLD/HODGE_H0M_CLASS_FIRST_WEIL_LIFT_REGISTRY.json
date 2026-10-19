@@ -1,0 +1,35 @@
+{
+  "schema": "HODGE_H0M_CLASS_FIRST_WEIL_LIFT_REGISTRY_V1",
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "target": "arbitrary w in W_K(A_gen), where dim_Q W_K=2 and W_K is disjoint from the generic divisor-generated degree-six line",
+  "candidate_families": [
+    {
+      "source": "products of divisor classes",
+      "status": "REJECTED",
+      "reason": "For the very-general target NS_Q=Q[E], the codimension-3 divisor algebra is Q[E^3], lying in the K-isotypic (3,3 exterior-count) summand, while W_K lies in the (6,0)+(0,6) K-isotypic summands. The intersection is zero."
+    },
+    {
+      "source": "known split/discriminant-minus-one secant-sheaf characteristic classes",
+      "status": "REJECTED_AS_FRONTIER_GENERATOR",
+      "reason": "They live on the split [-1] component and standard K-compatible transport to [-3] is blocked by discriminant invariance. Importing the known cycle by name would violate target leakage."
+    },
+    {
+      "source": "new target-side sheaf/complex Chern character",
+      "status": "OPEN_BUT_NOT_CONSTRUCTED",
+      "required_equality": "Exceptional projection of ch_3(E) must be a nonzero class in W_K(A_gen); to solve arbitrary input, a source-generated algebraic family must span W_K or use the algebraic K-action to generate the K-line from one nonzero Weil class."
+    },
+    {
+      "source": "new algebraic correspondence",
+      "status": "OPEN_BUT_NOT_CONSTRUCTED",
+      "required_equality": "The correspondence must be defined algebraically on the target component and send an explicitly algebraic source class to the declared w (or a spanning family) in W_K."
+    }
+  ],
+  "constructed_cycle": null,
+  "algebraicity_claim": false,
+  "hard_block": {
+    "missing_object": "one nonzero target-side algebraic codimension-3 class in W_K(A_gen), or an algebraic family/correspondence that produces one",
+    "unblock_condition": "Construct such a class with exact cohomological equality. Once one nonzero Weil class is algebraic, the algebraic K-action can be tested as a route to the full two-dimensional rational Weil space, but that implication must be proved in the returned source geometry rather than assumed."
+  },
+  "forbidden_inference": "Absolute-Hodge, Mumford-Tate, or Hodge-type status alone is not treated as algebraicity.",
+  "classification": "NO_FRONTIER_CYCLE_CONSTRUCTED__EXACT_CLASS_FIRST_HARD_BLOCK"
+}
