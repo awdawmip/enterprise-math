@@ -1,0 +1,49 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-BDF69EEDA87C8D22F3BC",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE",
+  "publication_id": "TP2-A19C97A703AF47D1CBEC",
+  "execution_record_id": "ER-10EA1135ACC94A53A96E",
+  "claim_id": "chatgpt-ebp6jt-20260908-0035-sol9f3c2a-r1",
+  "taskbook_path": "research_tasks/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE_20260828.md",
+  "taskbook_blob_sha1": "sha1:425c65757974783e4268f37b8ee903fd46642dd4",
+  "execution_branch": "research/enterprise-brc-half-coupling-inert-plus-terminating-jacobi-jet-certificate-em-ebp6jt-9f3c2a-20260908",
+  "execution_branch_base": "cf00017a24bf0fb8d8eecc4965d499529ce87e56",
+  "return_path": "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/independent_terminal_audit_20260908.json",
+  "return_blob_sha1": "sha1:29efaee7f0758d128af61f24b39af1ce61d22012",
+  "return_sha256": "sha256:19be81f937bc6ad4355fc72ccec7f1476dadacf706980f3d07722ba14d21af58",
+  "owner_head": "8f8c1ced10394cb44dc5f1dc7ea1cd25b834c051",
+  "researcher_id": "EM-EBP6JT-9F3C2A",
+  "frozen_at": "2026-09-07T16:41:54+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "ACHIEVED_BY_STRICT_REDUCTION_INDEPENDENTLY_REVALIDATED / CM0_AND_SIMPLE_PROVED / JT0_REDUCED_TO_UR / JT2_REDUCED_TO_UR_PLUS_LIFT",
+  "unresolved_residue": "Successor frontier only: UR (discriminant -24 supersingular unit reciprocity) remains unproved; after UR, LIFT remains unproved. This Result is not a proof of JT0, JT2, or Sun A14(ii).",
+  "audited_prior_result": {
+    "result_id": "RR-82F6383FB6634F72B457",
+    "pr": 1375,
+    "head": "f7bb43058da3b251c2a8ce6ddb8fd2250cbfc1b2"
+  },
+  "output_manifest": [
+    {
+      "path": "research_artifacts/ENTERPRISE_BRC_HALF_COUPLING_INERT_PLUS_TERMINATING_JACOBI_JET_CERTIFICATE/independent_terminal_audit_20260908.json",
+      "git_blob_sha1": "sha1:29efaee7f0758d128af61f24b39af1ce61d22012",
+      "sha256": "sha256:19be81f937bc6ad4355fc72ccec7f1476dadacf706980f3d07722ba14d21af58"
+    },
+    {
+      "path": "research_execution_records/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-TERMINATING-JACOBI-JET-CERTIFICATE/ER-10EA1135ACC94A53A96E.json",
+      "git_blob_sha1": "sha1:dcaf472df4a22abf52969f98723a86312f6ca79c",
+      "sha256": "sha256:0b45409682931fc96418ea40d91f5e4b7c6d52401a5c831cc81682ebcd66a201"
+    }
+  ],
+  "verification": {
+    "proof_audit": "PASS",
+    "independent_finite_regression": "77 target primes below 2000 / 40 class-13 / 37 class-19 / zero CM0,SIMPLE,UR,JT2-LIFT failures",
+    "finite_evidence_role": "FALSIFICATION_AND_REGRESSION_ONLY",
+    "strictness_scope_guard": "PASS_ONLY_AS_TASKBOOK_AUTHORIZED_STRICT_REDUCTION"
+  },
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "INDEPENDENT_REDERIVATION_AND_RECOMPUTATION_WITH_PRIOR_FRONTIER_DISCLOSED",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "DRIVER_REVIEW PR #1375 together with this independent audit Result. If accepted, close the current task at strict-reduction scope. Any attempt to prove UR or LIFT must use a new narrow successor publication; do not redispatch this task as though JT2 were still unreduced.",
+  "driver_review_required": true
+}
