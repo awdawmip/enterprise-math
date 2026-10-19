@@ -1,0 +1,260 @@
+{
+  "schema": "P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_V21_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-FBDBDBE1C5BDF65F97A0",
+  "researcher_id": "EM-P000FCC21R-61A4CE",
+  "terminal_class": "NONTRIVIAL_PF10_AND_NONFLAT_CONNECTION_MODULI_COMMON_MODEL_CLASSIFIED",
+  "scope": {
+    "carrier_cells": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "channel_labels": [
+      "E1=AB",
+      "E2=AC",
+      "E3=AD",
+      "E4=BC",
+      "E5=BD",
+      "E6=CD"
+    ],
+    "carrier_group": "S4",
+    "connection_value_group": "Sym({E1,...,E6}) ~= S6",
+    "gauge_group": "product over Cells of local S6 presentation relabelings",
+    "hidden_kernel_policy": "NO_KERNEL_QUOTIENT; classification is on the frozen faithful visible K4/tetra S4 structural model, and the common witness takes G0=S4 rather than quotienting a larger G0"
+  },
+  "pf10": {
+    "full_local_vector_orbits": 1,
+    "full_local_ordered_pair_orbits": 3,
+    "base_cell": "A",
+    "base_stabilizer": "Stab_S4(A) ~= S3",
+    "base_vector_orbits": [
+      [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      [
+        "E4",
+        "E5",
+        "E6"
+      ]
+    ],
+    "base_ordered_pair_orbits": [
+      "star->star equal",
+      "star->star distinct",
+      "face->face equal",
+      "face->face distinct",
+      "star->face adjacent",
+      "star->face opposite",
+      "face->star adjacent",
+      "face->star opposite"
+    ],
+    "I_parameter_slots": 2,
+    "O_parameter_slots": 2,
+    "M_parameter_slots": 8,
+    "total_raw_parameter_slots": 12,
+    "global_reconstruction": "P_x = rho(g) P_A for any g with g(A)=x; Stab(A)-fixity makes this well-defined, and evaluation at A is the inverse map",
+    "nonconstant_witness": {
+      "I_x": "incidence vector of the three tetrahedral channels incident to Cell x",
+      "O_x": "complement of I_x",
+      "M_x": "identity 6x6 passage matrix"
+    }
+  },
+  "connection": {
+    "representative_oriented_edge": "A->B",
+    "oriented_edge_stabilizer_generator": "(CD)",
+    "kappa": "(E2 E3)(E4 E5)",
+    "reverse_edge_carrier_swap": "(AB)",
+    "lambda": "(E2 E4)(E3 E5)",
+    "seed_equations": [
+      "[t,kappa]=1",
+      "lambda t lambda = t^-1"
+    ],
+    "twisted_involution_equivalence": "s=lambda*t gives a bijection between legal seeds and involutions s in C_S6(kappa)",
+    "centralizer_order": 16,
+    "centralizer_involution_count": 12,
+    "raw_solution_count": 12,
+    "raw_identity_count": 1,
+    "raw_nonidentity_count": 11,
+    "raw_flat_count": 2,
+    "raw_nonflat_count": 10,
+    "raw_seed_cycle_forms": [
+      "id",
+      "(E2 E3)(E4 E5)",
+      "(E2 E4)(E3 E5)",
+      "(E2 E4 E3 E5)",
+      "(E2 E5 E3 E4)",
+      "(E2 E5)(E3 E4)",
+      "(E1 E6)",
+      "(E1 E6)(E2 E3)(E4 E5)",
+      "(E1 E6)(E2 E4)(E3 E5)",
+      "(E1 E6)(E2 E4 E3 E5)",
+      "(E1 E6)(E2 E5 E3 E4)",
+      "(E1 E6)(E2 E5)(E3 E4)"
+    ],
+    "gauge_quotient": {
+      "spanning_tree": [
+        "AB",
+        "AC",
+        "AD"
+      ],
+      "criterion": "after tree-gauging, two connections are gauge-equivalent iff their three non-tree transports are simultaneously S6-conjugate at root A",
+      "gauge_class_count": 8,
+      "flat_gauge_class_count": 1,
+      "nonflat_gauge_class_count": 7,
+      "raw_index_partition": [
+        [
+          0,
+          5
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          6,
+          11
+        ],
+        [
+          7
+        ],
+        [
+          8
+        ],
+        [
+          9,
+          10
+        ]
+      ],
+      "class_representatives": [
+        {
+          "seed": "id",
+          "triangle_cycle_type": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "holonomy_subgroup_order": 1,
+          "flat": true
+        },
+        {
+          "seed": "(E2 E3)(E4 E5)",
+          "triangle_cycle_type": [
+            4,
+            2
+          ],
+          "holonomy_subgroup_order": 24,
+          "flat": false
+        },
+        {
+          "seed": "(E2 E4)(E3 E5)",
+          "triangle_cycle_type": [
+            2,
+            2,
+            1,
+            1
+          ],
+          "holonomy_subgroup_order": 6,
+          "flat": false
+        },
+        {
+          "seed": "(E2 E4 E3 E5)",
+          "triangle_cycle_type": [
+            2,
+            1,
+            1,
+            1,
+            1
+          ],
+          "holonomy_subgroup_order": 6,
+          "flat": false
+        },
+        {
+          "seed": "(E1 E6)",
+          "triangle_cycle_type": [
+            2,
+            2,
+            2
+          ],
+          "holonomy_subgroup_order": 2,
+          "flat": false
+        },
+        {
+          "seed": "(E1 E6)(E2 E3)(E4 E5)",
+          "triangle_cycle_type": [
+            2,
+            2,
+            2
+          ],
+          "holonomy_subgroup_order": 6,
+          "flat": false
+        },
+        {
+          "seed": "(E1 E6)(E2 E4)(E3 E5)",
+          "triangle_cycle_type": [
+            4,
+            1,
+            1
+          ],
+          "holonomy_subgroup_order": 24,
+          "flat": false
+        },
+        {
+          "seed": "(E1 E6)(E2 E4 E3 E5)",
+          "triangle_cycle_type": [
+            5,
+            1
+          ],
+          "holonomy_subgroup_order": 60,
+          "flat": false
+        }
+      ]
+    },
+    "holonomy": {
+      "cycle_basis": [
+        "A-B-C-A",
+        "A-B-D-A",
+        "A-C-D-A"
+      ],
+      "gauge_law": "Hol'_A = g_A Hol_A g_A^-1",
+      "carrier_law": "Hol_{u(A)}(u gamma) = rho(u) Hol_A(gamma) rho(u)^-1",
+      "flatness_is_not_forced": true
+    }
+  },
+  "common_model": {
+    "pf10": "nonconstant incidence/complement witness above",
+    "connection_seed_on_AB": "(E1 E6)",
+    "connection_global_rule": "on each Cell edge e, swap channel e with its unique opposite tetrahedral channel",
+    "nonidentity": true,
+    "nonflat": true,
+    "gen18_regression_exactly_recovered": true,
+    "relations": [
+      "R_a^3=id",
+      "R_b^2=id",
+      "(R_a R_b)^4=id"
+    ],
+    "same_enriched_model": true
+  },
+  "guards": {
+    "P000_ROOT_ONTOLOGY_MUTATED": false,
+    "G15_GRAMMAR_MUTATED": false,
+    "GEN17_GATE_COUNT_OR_COST_MUTATED": false,
+    "GEN18_FULL_LIFT_FIBER_CRITERION_MUTATED": false,
+    "NO_KERNEL_QUOTIENT": true,
+    "TIME_FIXED": true,
+    "CARRIER_S4_EQUALS_COMPLETE_NATIVE_P000_ROTATION_GROUP": false,
+    "LOCAL_S6_GAUGE_PROMOTED_TO_NATIVE_AXIS_OR_ROTATION": false
+  },
+  "checker": "research_checks/P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_V21_CHECK_20260901.py"
+}
