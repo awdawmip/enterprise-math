@@ -1,0 +1,155 @@
+{
+  "schema": "BRC_MULTIPLIER_TRAP_CERTIFICATE_V1",
+  "canonical_sha": "e26a169a2fec4af96be6c7860bab1e47fbb5f082",
+  "project_parent": "52b8b2345048f602e4b7f6f75af8867d2c1276f9",
+  "activity_id": "RA-EM-HME-0CE4FD-SEMIPRIME-20260909",
+  "source_blobs": {
+    "brc_multiplier_basin.py": "4d03ded19b38f5aa13d3e873e911205d35be5c5f",
+    "brc_square_gap_prefilter.py": "42d4e9a397b56d9d371f034780ffc736d43e6d96",
+    "core.py": "2b7ab070868ef4a2b6d8b33f5e3bc69dbac62c07"
+  },
+  "prime_table_sha256": "121b51c4b82f62d6bdddc9a25412ed45d7c7275f92b0008605beca4445d6857e",
+  "scope": {
+    "prescribed_examples": 4,
+    "unique_original_moduli": 2,
+    "multiplier_search": false,
+    "external_inputs": 0,
+    "public_RSA_inputs": 0,
+    "timing_claim": false,
+    "population_probability_claim": false,
+    "multiplier_selection": "literal illustrative choices; no guarantee derived from bit lengths"
+  },
+  "rows": [
+    {
+      "id": "baseline",
+      "N": 43423,
+      "multiplier": 1,
+      "known_prime_pair": [
+        173,
+        251
+      ],
+      "factor_bits": [
+        8,
+        8
+      ],
+      "N_bits": 16,
+      "state": {
+        "n": 43423,
+        "multiplier": 1,
+        "target_value": 43423,
+        "target_root": 208,
+        "subtraction_cost": 159,
+        "addition_cost": 258
+      },
+      "direction": "D",
+      "immediate_square_closure": false,
+      "witness": null,
+      "parts_of_multiplier_product": [],
+      "original_modulus_gcds": [],
+      "original_factor_split": false
+    },
+    {
+      "id": "useful_prescribed_multiplier",
+      "N": 43423,
+      "multiplier": 35,
+      "known_prime_pair": [
+        173,
+        251
+      ],
+      "factor_bits": [
+        8,
+        8
+      ],
+      "N_bits": 16,
+      "state": {
+        "n": 43423,
+        "multiplier": 35,
+        "target_value": 1519805,
+        "target_root": 1232,
+        "subtraction_cost": 1981,
+        "addition_cost": 484
+      },
+      "direction": "U",
+      "immediate_square_closure": true,
+      "witness": [
+        1233,
+        22
+      ],
+      "parts_of_multiplier_product": [
+        1211,
+        1255
+      ],
+      "original_modulus_gcds": [
+        173,
+        251
+      ],
+      "original_factor_split": true
+    },
+    {
+      "id": "same_lengths_same_multiplier_miss",
+      "N": 32881,
+      "multiplier": 35,
+      "known_prime_pair": [
+        131,
+        251
+      ],
+      "factor_bits": [
+        8,
+        8
+      ],
+      "N_bits": 16,
+      "state": {
+        "n": 32881,
+        "multiplier": 35,
+        "target_value": 1150835,
+        "target_root": 1072,
+        "subtraction_cost": 1651,
+        "addition_cost": 494
+      },
+      "direction": "U",
+      "immediate_square_closure": false,
+      "witness": null,
+      "parts_of_multiplier_product": [],
+      "original_modulus_gcds": [],
+      "original_factor_split": false
+    },
+    {
+      "id": "forced_closure_without_original_split",
+      "N": 43423,
+      "multiplier": 43425,
+      "known_prime_pair": [
+        173,
+        251
+      ],
+      "factor_bits": [
+        8,
+        8
+      ],
+      "N_bits": 16,
+      "state": {
+        "n": 43423,
+        "multiplier": 43425,
+        "target_value": 1885643775,
+        "target_root": 43423,
+        "subtraction_cost": 86846,
+        "addition_cost": 1
+      },
+      "direction": "U",
+      "immediate_square_closure": true,
+      "witness": [
+        43424,
+        1
+      ],
+      "parts_of_multiplier_product": [
+        43423,
+        43425
+      ],
+      "original_modulus_gcds": [
+        43423,
+        1
+      ],
+      "original_factor_split": false
+    }
+  ],
+  "all_assertions_pass": true
+}

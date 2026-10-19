@@ -19,6 +19,24 @@ class CoreTests(unittest.TestCase):
         self.assertEqual(integer_nth_root(200, 2), 14)
         self.assertEqual(integer_nth_root(20000, 2), 141)
 
+    def test_square_root_large_basin_boundaries(self):
+        for k in (3, (1 << 63) + 17, (1 << 511) + 17,
+                  (1 << 1023) + 17, (1 << 4096) - 17):
+            for n, expected in ((k*k-1, k-1), (k*k, k),
+                                (k*k+2*k, k), ((k+1)**2, k+1)):
+                with self.subTest(root_bits=k.bit_length(), n=n):
+                    self.assertEqual(integer_nth_root(n, 2), expected)
+
+    def test_square_root_retains_integer_validation(self):
+        for invalid_n in (True, False, -1, 1.0, "9", None):
+            with self.subTest(n=invalid_n):
+                with self.assertRaises(ValueError):
+                    integer_nth_root(invalid_n, 2)
+        for invalid_p in (True, False, 0, -1, 2.0, "2", None):
+            with self.subTest(p=invalid_p):
+                with self.assertRaises(ValueError):
+                    integer_nth_root(9, invalid_p)
+
     def test_characterization(self):
         for p in range(1, 6):
             for n in range(0, 500):

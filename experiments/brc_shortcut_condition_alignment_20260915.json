@@ -1,0 +1,109 @@
+{
+  "schema": "BRC_SHORTCUT_CONDITION_ALIGNMENT_V1",
+  "canonical_sha": "73282863250128a33c0473202f90b2b801e93fc1",
+  "project_parent": "43a4eb5d8ad897de96c67a767bd1501ff5940aaa",
+  "activity_id": "RA-EM-HME-0CE4FD-SEMIPRIME-20260909",
+  "source_blobs": {
+    "residual_packet": "e8ea67310094c517b5a882d5e2e1709be975c675",
+    "core": "2b7ab070868ef4a2b6d8b33f5e3bc69dbac62c07"
+  },
+  "scope": {
+    "target_integer": 143,
+    "public_challenge_queries": 0,
+    "new_large_prime_generation": false,
+    "role_of_condition_clarification": "pending: auxiliary M or product MN"
+  },
+  "rows": [
+    {
+      "id": "D_self",
+      "T": 1241,
+      "state": "D",
+      "J": 35,
+      "R": 16,
+      "A": 55,
+      "factor": 17,
+      "cofactor": 73,
+      "actual_factor_bits": [
+        5,
+        7
+      ],
+      "original_N": null,
+      "gcd_with_original": null
+    },
+    {
+      "id": "U_self",
+      "T": 767,
+      "state": "U",
+      "J": 27,
+      "R": 38,
+      "A": 17,
+      "factor": 13,
+      "cofactor": 59,
+      "actual_factor_bits": [
+        4,
+        6
+      ],
+      "original_N": null,
+      "gcd_with_original": null
+    },
+    {
+      "id": "D_after_multiply",
+      "T": 177463,
+      "state": "D",
+      "J": 421,
+      "R": 222,
+      "A": 621,
+      "factor": 1,
+      "cofactor": 177463,
+      "actual_factor_bits": null,
+      "original_N": 143,
+      "gcd_with_original": 1
+    },
+    {
+      "id": "U_after_multiply",
+      "T": 109681,
+      "state": "D",
+      "J": 331,
+      "R": 120,
+      "A": 543,
+      "factor": 1,
+      "cofactor": 109681,
+      "actual_factor_bits": null,
+      "original_N": 143,
+      "gcd_with_original": 1
+    },
+    {
+      "id": "D_forced_whole_product",
+      "T": 82511,
+      "state": "D",
+      "J": 287,
+      "R": 142,
+      "A": 433,
+      "factor": 143,
+      "cofactor": 577,
+      "actual_factor_bits": [
+        8,
+        10
+      ],
+      "original_N": 143,
+      "gcd_with_original": 143
+    },
+    {
+      "id": "U_forced_whole_product",
+      "T": 82797,
+      "state": "U",
+      "J": 287,
+      "R": 428,
+      "A": 147,
+      "factor": 143,
+      "cofactor": 579,
+      "actual_factor_bits": [
+        8,
+        10
+      ],
+      "original_N": 143,
+      "gcd_with_original": 143
+    }
+  ],
+  "public_challenge_queries": 0
+}
