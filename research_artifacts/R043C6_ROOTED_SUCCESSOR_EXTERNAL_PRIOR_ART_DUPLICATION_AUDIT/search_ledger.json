@@ -1,0 +1,156 @@
+{
+  "schema": "ENTERPRISE_MATH_R043C6_EXTERNAL_PRIOR_ART_AUDIT_LEDGER_V1",
+  "task_id": "RS-R043C6-ROOTED-SUCCESSOR-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-F92C19B4A40963360BA6",
+  "researcher_id": "EM-R043C6PA-E712E0",
+  "access_date": "2026-08-29",
+  "hard_target": "R043C6_EXTERNAL_PRIOR_ART_DUPLICATION_STATUS_EXACTLY_CLASSIFIED",
+  "exact_target_signature": {
+    "observable": "one rooted weighted frontier graph isomorphism class [G,x]",
+    "hidden_completion": "J_x = induced edges on newly exposed Z_x plus Z_x-to-surviving-frontier incidences",
+    "native_worlds": [
+      "frozen FCC 12-contact",
+      "frozen HCP 12-contact"
+    ],
+    "realizability": "J_x candidates must arise from globally realizable occupied/unoccupied native states compatible with the same [G,x]",
+    "quotient": "rooted-current automorphisms and successor weighted-graph isomorphism",
+    "decision_gate": "all realizable J_x completions over fixed [G,x] successor-equivalent, or exhibit a harmful pair"
+  },
+  "queries": [
+    {"query":"Brendan McKay Isomorph-Free Exhaustive Generation canonical construction path PDF Theorem 1","date":"2026-08-29","venue":"web search / primary-source landing pages and author PDFs"},
+    {"query":"\"A refinement of Kelly's lemma for graph reconstruction for counting rooted subgraphs\"","date":"2026-08-29","venue":"web search / primary-source landing pages and author PDFs"},
+    {"query":"\"Endomorphisms and automorphisms of the shift dynamical system\" Hedlund 1969","date":"2026-08-29","venue":"web search / primary-source landing pages and author PDFs"},
+    {"query":"\"A new characterization of three-dimensional simple points\" Bertrand Malandain 1994","date":"2026-08-29","venue":"web search / primary-source landing pages and author PDFs"},
+    {"query":"\"Simple points, topological numbers and geodesic neighborhoods in cubic grids\" Bertrand 1994","date":"2026-08-29","venue":"web search / primary-source landing pages and author PDFs"},
+    {"query":"\"Sufficient Conditions for Topology-Preserving Parallel Reductions on the Face-Centered Cubic Grid\"","date":"2026-08-29","venue":"web search / primary-source landing pages and author PDFs"},
+    {"query":"\"A topological 4-coordinate system for the face centered cubic grid\"","date":"2026-08-29","venue":"web search / primary-source landing pages and author PDFs"},
+    {"query":"\"hexagonal close-packed\" \"digital topology\" HCP grid","date":"2026-08-29","venue":"web search / primary-source landing pages and author PDFs"},
+    {"query":"\"From polyhedra to crystals: a graph-theoretic framework for crystal structure generation\" HCP FCC 2026","date":"2026-08-29","venue":"web search / primary-source landing pages and author PDFs"}
+  ],
+  "sources": [
+    {
+      "source_id": "MCKAY1998",
+      "citation": "Brendan D. McKay, Isomorph-Free Exhaustive Generation, Journal of Algorithms 26 (1998), 306–324.",
+      "doi": "10.1006/jagm.1997.0898",
+      "primary_source": "https://users.cecs.anu.edu.au/~bdm/papers/orderly.pdf",
+      "exact_result_paraphrase": "Theorem 1 proves that, under the canonical-construction-path axioms, scan(X0,n) outputs exactly one labelled representative of each unlabelled descendant isomorphism class up to the order bound. The procedure iterates over Aut(X)-orbits of admissible upper objects. In the graph specialization, an upper object <X,W> appends one new vertex joined to W.",
+      "classification": "PARTIAL_ANALOGUE_METHOD_DUPLICATION",
+      "c6_overlap": ["augmentation from a fixed base graph","quotienting augmentations by automorphism orbits","isomorph-free representative generation"],
+      "missing_from_c6_target": ["no FCC/HCP native realizability constraint","no rooted weighted frontier observable [G,x]","no theorem that all realizable J_x over one compressed observable form one successor-equivalence orbit"],
+      "closes_c7": false,
+      "import_value": "Use canonical construction path/orbit representatives as the enumeration skeleton for a future exact C7 native two-shell slot-assignment classifier."
+    },
+    {
+      "source_id": "GONCALVES_THATTE2023",
+      "citation": "Deisiane Lopes Gonçalves and Bhalchandra D. Thatte, A refinement of Kelly's lemma for graph reconstruction for counting rooted subgraphs, arXiv:2312.17022 (2023).",
+      "primary_source": "https://arxiv.org/abs/2312.17022",
+      "exact_result_paraphrase": "Kelly's lemma counts copies of a smaller graph from the vertex-deleted deck. The authors show that the desired refinement for rooted subgraphs with the root at the deleted vertex fails in general, while a multiset of rooted subgraphs of fixed height k can be counted when the graph radius exceeds k; an analogous edge-reconstruction statement is also proved.",
+      "classification": "PARTIAL_ANALOGUE_RECONSTRUCTION_CONTEXT",
+      "c6_overlap": ["rooted graph information","recoverability from a compressed collection of graph observations"],
+      "missing_from_c6_target": ["input is a deletion deck, not one rooted weighted frontier graph","conclusion is subgraph counting, not exact successor reconstruction","no native FCC/HCP completion realizability"],
+      "closes_c7": false,
+      "import_value": "Negative caution: rooted information is not automatically reconstructible from coarser graph data; it gives no implication for the specific G0->J_x map."
+    },
+    {
+      "source_id": "HEDLUND1969_CHL",
+      "citation": "Gustav A. Hedlund, Endomorphisms and automorphisms of the shift dynamical system, Mathematical Systems Theory 3 (1969), 320–375.",
+      "doi": "10.1007/BF01691062",
+      "primary_source": "https://doi.org/10.1007/BF01691062",
+      "exact_result_paraphrase": "The Curtis–Hedlund–Lyndon characterization identifies cellular automata with continuous shift-commuting maps; equivalently their global update is induced uniformly by a finite local rule on the full configuration.",
+      "classification": "PARTIAL_ANALOGUE_LOCALITY",
+      "c6_overlap": ["finite-local determination of an update"],
+      "missing_from_c6_target": ["uses the full local configuration rather than a lossy rooted weighted graph quotient","requires translation-equivariant global dynamics","does not reconstruct hidden completion data from a compressed observable","no FCC/HCP realizability orbit theorem"],
+      "closes_c7": false,
+      "import_value": "Confirms that locality from full configuration is standard; C7 is instead an injectivity/equivalence question after information loss."
+    },
+    {
+      "source_id": "BERTRAND_MALANDAIN1994",
+      "citation": "Gilles Bertrand and Grégoire Malandain, A new characterization of three-dimensional simple points, Pattern Recognition Letters 15 (1994), 169–175.",
+      "doi": "10.1016/0167-8655(94)90046-9",
+      "primary_source": "https://www.sciencedirect.com/science/article/pii/0167865594900469",
+      "exact_result_paraphrase": "A three-dimensional simple point is characterized using only two connected-component counts computed in the point's neighborhood, avoiding explicit genus/hole calculations; the paper proves the validity of the local characterization.",
+      "classification": "PARTIAL_ANALOGUE_DIGITAL_TOPOLOGY",
+      "c6_overlap": ["a bounded local neighborhood can decide a global-topology-preservation predicate"],
+      "missing_from_c6_target": ["cubic digital grid rather than FCC/HCP","predicate is simple-point/topology preservation, not exact weighted-frontier successor","uses neighborhood occupancy data, not [G,x] alone"],
+      "closes_c7": false,
+      "import_value": "Shows that local sufficiency for topological predicates is mature prior art and cannot by itself support a novelty claim."
+    },
+    {
+      "source_id": "BERTRAND1994",
+      "citation": "Gilles Bertrand, Simple points, topological numbers and geodesic neighborhoods in cubic grids, Pattern Recognition Letters 15 (1994), 1003–1011.",
+      "doi": "10.1016/0167-8655(94)90032-9",
+      "primary_source": "https://www.sciencedirect.com/science/article/pii/0167865594900329",
+      "exact_result_paraphrase": "For the {6,26} and {6,18} connectivity pairs in the 3D cubic grid, topological numbers defined from geodesic neighborhoods characterize simple points by two local conditions.",
+      "classification": "PARTIAL_ANALOGUE_DIGITAL_TOPOLOGY",
+      "c6_overlap": ["local-neighborhood characterization"],
+      "missing_from_c6_target": ["different grid/connectivity","only topology-preservation predicate","no weighted frontier successor or completion-orbit uniqueness"],
+      "closes_c7": false,
+      "import_value": "Additional classic boundary for local digital-topology claims."
+    },
+    {
+      "source_id": "KARAI_KARDOS_PALAGYI2024",
+      "citation": "Gábor Karai, Péter Kardos and Kálmán Palágyi, Sufficient Conditions for Topology-Preserving Parallel Reductions on the Face-Centered Cubic Grid, Journal of Mathematical Imaging and Vision 66 (2024), 271–292.",
+      "doi": "10.1007/s10851-024-01177-y",
+      "primary_source": "https://doi.org/10.1007/s10851-024-01177-y",
+      "exact_result_paraphrase": "For three types of binary pictures on the 3D FCC grid, the paper gives sufficient conditions for topology-preserving parallel reductions; some conditions verify a proposed reduction and others yield deletion rules. It also gives local characterizations of P-simple points whose simultaneous deletion preserves topology.",
+      "classification": "STRONG_PARTIAL_ANALOGUE_SAME_GRID_LOCAL_PREDICATE",
+      "c6_overlap": ["FCC native setting","local point configurations","one-step modification of a digital object"],
+      "missing_from_c6_target": ["deletion/topology preservation rather than addition/frontier exposure","binary neighborhood information is richer than abstract rooted weighted G0","no HCP result","no J_x realization orbit or exact weighted-successor classification"],
+      "closes_c7": false,
+      "import_value": "Prevents novelty inflation from merely having an FCC-local point-update criterion."
+    },
+    {
+      "source_id": "COMIC_NAGY2016",
+      "citation": "Lidija Čomić and Benedek Nagy, A topological 4-coordinate system for the face centered cubic grid, Pattern Recognition Letters 83 (2016), 67–74.",
+      "doi": "10.1016/j.patrec.2016.03.012",
+      "primary_source": "https://www.sciencedirect.com/science/article/abs/pii/S0167865516000817",
+      "exact_result_paraphrase": "The proposed symmetric FCC 4-coordinate system is proved unambiguous and consistent, and incidence/boundary/co-boundary/adjacency relations among grid cells are expressible by simple integer operations on coordinates.",
+      "classification": "PARTIAL_ANALOGUE_RICH_CARRIER_INCIDENCE",
+      "c6_overlap": ["exact FCC local incidence reconstruction"],
+      "missing_from_c6_target": ["coordinates supply a richer native embedding than [G,x]","does not infer hidden slot identities from a compressed frontier graph","no HCP and no successor-equivalence orbit theorem"],
+      "closes_c7": false,
+      "import_value": "Useful implementation carrier after a native slot assignment is chosen, but not an injectivity theorem for G0."
+    },
+    {
+      "source_id": "YOKOYAMA_ICHIKAWA_NAITO2026",
+      "citation": "Tomoyasu Yokoyama, Kazuhide Ichikawa and Hisashi Naito, From polyhedra to crystals: a graph-theoretic framework for crystal structure generation, CrystEngComm 28 (2026), 2293–2304.",
+      "doi": "10.1039/D5CE01176K",
+      "primary_source": "https://pubs.rsc.org/en/content/articlehtml/2026/ce/d5ce01176k",
+      "exact_result_paraphrase": "The framework encodes space-filling polyhedra by a dual periodic graph and obtains crystal structures by standard realization; it demonstrates reconstruction of FCC, HCP and BCC structures from those richer periodic-graph inputs.",
+      "classification": "CONTEXTUAL_NONMATCH_RICH_GLOBAL_GRAPH_REALIZATION",
+      "c6_overlap": ["graph representations of FCC/HCP geometry","reconstruction language"],
+      "missing_from_c6_target": ["global dual periodic graph is much richer than local rooted weighted frontier G0","standard realization is not hidden-completion recovery","no local one-step frontier successor or same-G0 J_x uniqueness theorem"],
+      "closes_c7": false,
+      "import_value": "Documents a recent FCC/HCP graph-reconstruction direction but not the C6/C7 theorem family."
+    }
+  ],
+  "classification_summary": {
+    "direct_duplication_found": false,
+    "imported_theorem_closing_c7": false,
+    "mature_prior_art_components": [
+      "canonical augmentation / automorphism-orbit isomorph-free generation",
+      "finite-local-rule determination from full cellular configurations",
+      "local digital-topology predicates, including FCC-specific topology-preserving reductions",
+      "FCC coordinate carriers that exactly encode native incidence"
+    ],
+    "search_bounded_unmatched_core": [
+      "injectivity or successor-equivalence of globally native-realizable J_x completions over one compressed rooted weighted G0",
+      "the same gate separately in both frozen FCC and HCP",
+      "a theorem converting C7's finite two-shell native slot-assignment space into one successor orbit"
+    ],
+    "overall": "NO_DIRECT_MATCH_FOUND_IN_AUDITED_SET / GENERIC_EXTENSION_ORBIT_AND_LOCALITY_SKELETONS_ARE_PRIOR_ART / C7_GATE_REMAINS_OPEN"
+  },
+  "novelty_guard": [
+    "Do not claim novelty merely because the update is local.",
+    "Do not claim novelty merely because explicit missing incidence data plus a base graph determines the augmented graph.",
+    "Do not claim novelty for quotienting augmentations by Aut(G,x) or for canonical isomorph-free enumeration.",
+    "Do not claim novelty merely from using an FCC neighborhood or a local topology-preservation criterion.",
+    "Any stronger theorem-facing claim must isolate a lattice-specific statement about recoverability/equivalence of native-realizable hidden completions from the compressed observable, or exhibit a harmful collision."
+  ],
+  "limitations": [
+    "This is a documented high-recall web/primary-source audit, not an exhaustive MathSciNet/zbMATH/Scopus theorem-index search.",
+    "Some publisher pages exposed abstracts rather than full theorem bodies; such sources are used only for the precisely stated paper-level result visible there.",
+    "No absence result is global: 'no direct match' means no direct theorem was found in the audited source set and query families.",
+    "No literature similarity is treated as a proof of or against the C7 mathematical gate."
+  ]
+}
