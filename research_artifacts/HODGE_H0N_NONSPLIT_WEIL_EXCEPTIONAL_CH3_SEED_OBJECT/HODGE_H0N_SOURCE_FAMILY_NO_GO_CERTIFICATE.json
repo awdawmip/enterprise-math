@@ -1,0 +1,86 @@
+{
+  "schema": "HODGE_H0N_SOURCE_FAMILY_NO_GO_CERTIFICATE_V2",
+  "task_id": "RS-HODGE-H0N-NONSPLIT-WEIL-EXCEPTIONAL-CH3-SEED-OBJECT",
+  "publication_id": "TP2-9A71D4C6E2B5083F16CD",
+  "claim_id": "chatgpt-hodgeh0n-20260831-1344",
+  "researcher_id": "EM-HODGEH0N-40AF21",
+  "target": {
+    "K": "Q(i)",
+    "dimension": 6,
+    "signature": [3, 3],
+    "discriminant": "[-3]",
+    "split_control": "[-1]",
+    "exceptional_complex_blocks": ["B_6", "B_0"],
+    "divisor_cube_block": "B_3",
+    "conclusion": "W_K(A) intersect Q*theta^3 = {0}"
+  },
+  "premise_audit": {
+    "status": "REVERIFIED_AT_USED_STRENGTH_NO_WORKING_TRUTH_PROMOTION",
+    "checks": [
+      "3 is not a rational Gaussian norm by the modulo-3 infinite-descent gate",
+      "dim_Q W_K = 2 because wedge_K^6 H^1 is one-dimensional over K",
+      "Weil signature (3,3) makes both determinant lines Hodge type (3,3)",
+      "NS(A)_Q=Q*theta gives theta^3 in B_3, disjoint from B_0+B_6"
+    ]
+  },
+  "families": [
+    {
+      "id": "F1",
+      "name": "semihomogeneous vector-bundle extension/shift envelope",
+      "reason": "For simple semihomogeneous positive-rank bundles ch(E)=r exp(c1/r), so ch_3=c1^3/(6r^2); NS_Q=Q*theta; K_0 additivity preserves Q*theta^3.",
+      "exceptional_projection": "ZERO"
+    },
+    {
+      "id": "F2_ENDPOINTS",
+      "name": "verified endpoints of the target-side Fourier-Mukai orbit of line/semihomogeneous sources",
+      "reason": "Full-support positive-rank semihomogeneous outputs reduce to F1; point-supported outputs on a sixfold have no codimension-three Chern-character term. Intermediate-dimensional supported Fourier-Mukai images are deliberately NOT classified by this Result.",
+      "exceptional_projection": "ZERO_ON_DECLARED_ENDPOINTS_ONLY"
+    },
+    {
+      "id": "F3",
+      "name": "polarization plus target K-endomorphism tautological algebra",
+      "reason": "f^*theta=lambda theta and f_*f^*=deg(f); tensor/dual/additive operations preserve Q[theta]",
+      "exceptional_projection": "ZERO"
+    },
+    {
+      "id": "F4",
+      "name": "tautological degeneracy/determinantal cycles",
+      "reason": "codimension-three Chern monomials are c1^3,c1*c2,c3; tautological inputs place all of them in Q*theta^3",
+      "exceptional_projection": "ZERO"
+    },
+    {
+      "id": "F5",
+      "name": "K-tautological correspondence operators",
+      "reason": "graph pull/push and divisor cup generators preserve Q[theta], hence degree six stays in Q*theta^3",
+      "exceptional_projection": "ZERO"
+    }
+  ],
+  "counterexample_boundaries": [
+    "Markman discriminant -1 sixfold positive control forbids universalization",
+    "Koike Gaussian Prym positive control keeps non-tautological geometry open",
+    "intermediate-dimensional supported Fourier-Mukai images are not eliminated by F2 and require a separate support/Chern-character analysis",
+    "an input with primitive exceptional c3 is the desired seed and lies outside F4",
+    "a genuinely non-tautological algebraic correspondence remains open"
+  ],
+  "checker": {
+    "path": "research_checks/HODGE_H0N_NONSPLIT_WEIL_EXCEPTIONAL_CH3_SEED_OBJECT_CHECK_20260831.py",
+    "checks": 110,
+    "failures": 0,
+    "status": "PASS",
+    "scope": "finite/symbolic reductions only; unbounded source theorems are not replaced"
+  },
+  "tool_reuse": {
+    "registry": "enterprise_toolbox_registry.json",
+    "resolution": "NO_NEW_GENERAL_PURPOSE_TOOL; TASK_LOCAL_SYMBOLIC_CHECKER_ONLY"
+  },
+  "terminal": {
+    "terminal_verdict": "NEGATIVE_BOUNDARY",
+    "hard_target_disposition": "SATISFIED_AT_NEGATIVE_FAMILY_NO_GO_STRENGTH_WITH_F2_ENDPOINT_SCOPE",
+    "surviving_frontier": [
+      "target-side non-semihomogeneous E with proj_W(ch_3(E)) != 0",
+      "intermediate-support target-side Fourier-Mukai image with a directly computed nonzero exceptional degree-six component",
+      "genuinely non-tautological algebraic correspondence with nonzero W_K image"
+    ],
+    "forbidden_inference": "No non-algebraicity or Hodge-conjecture conclusion follows."
+  }
+}
