@@ -1,0 +1,36 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-04",
+  "status": "FREE_RESEARCH / PROJECT_SUBTOOL / NOT_TOP_LEVEL_FAMILY",
+  "methods": [
+    {
+      "method_id": "t9.euler_twisted_endpoint_cohomology",
+      "name": "Uniformly twisted K4 cohomology and endpoint-residual bridge",
+      "family": "T9_COCYCLE_COHOMOLOGY",
+      "secondary_families": [
+        "T6_QUOTIENT_CONGRUENCE",
+        "T7_SYMMETRY_REPRESENTATION",
+        "T0_EXACT_INTEGER_LINEAR_ALGEBRA"
+      ],
+      "module": "src/enterprise_math/euler_twisted_endpoint_cohomology.py",
+      "test": "tests/test_euler_twisted_endpoint_cohomology.py",
+      "formal_module": "EnterpriseMath/Precision/EulerTwistedEndpointCohomology.lean",
+      "capabilities": [
+        "ordinary and uniformly twisted K4 incidence matrices",
+        "exact determinantal divisors and Smith invariant factors",
+        "characteristic-two incidence comparison",
+        "zero-total neutralization under the total-mod-three charge",
+        "flat versus uniformly twisted symmetric-phase classification",
+        "unique nonzero S4-equivariant root-kernel image",
+        "integral endpoint-residual interpretation as twisted graph cohomology"
+      ],
+      "exactness": "integer and bit arithmetic only; exact minors, no floating point or numerical pi",
+      "boundaries": [
+        "native transport does not yet select the flat or uniformly twisted phase",
+        "the total-mod-three quotient is not identified with the native C3 axis family",
+        "the root-cover kernel and endpoint torsion are linked conditionally by S4-equivariance, not declared identical operations",
+        "no Pell-shell or backtracking-C2 identification"
+      ]
+    }
+  ]
+}

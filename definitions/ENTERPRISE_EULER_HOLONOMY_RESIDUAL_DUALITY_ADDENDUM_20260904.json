@@ -1,0 +1,70 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_THEOREM_LEDGER_ADDENDUM_V1",
+  "status": "FREE_RESEARCH / EXACT FINITE REPRESENTATION BRIDGE / NOT_FOUNDATION",
+  "date": "2026-09-04",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "author_program": "YUAN X / Enterprise Math",
+  "parent_ledgers": [
+    "definitions/ENTERPRISE_EULER_C12_ROOT_TORSOR_FLATNESS_THEOREM_LEDGER_20260904.json",
+    "definitions/ENTERPRISE_TETRAHEDRAL_RESIDUAL_THEOREM_LEDGER_20260903.json"
+  ],
+  "source_note": "research_notes/EULER_HOLONOMY_ENDPOINT_RESIDUAL_DUALITY_20260904.md",
+  "formal_module": "EnterpriseMath/Precision/EulerHolonomyResidualDuality.lean",
+  "checker": "src/enterprise_math/euler_holonomy_residual_duality.py",
+  "tests": "tests/test_euler_holonomy_residual_duality.py",
+  "theorems": [
+    {
+      "id": "EMEHR-T01",
+      "name": "Opposite-face even-value model",
+      "statement": "The four triangular holonomies of a K4 overlap-sign cochain, assigned to their opposite vertices, form an even-parity F2-valued function on the four vertices; the kernel is exactly the vertex-coboundary space.",
+      "status": "LEAN_TARGET + EXHAUSTIVE_CHECKER"
+    },
+    {
+      "id": "EMEHR-T02",
+      "name": "Holonomy-to-endpoint-residual isomorphism",
+      "statement": "The chirality graph cohomology H1(K4;F2) and the mod-two endpoint residual module are explicitly isomorphic by e=h_BCD, p=h_BCD+h_ACD, q=h_BCD+h_ABD, with the displayed inverse formulas.",
+      "status": "LEAN_TARGET + EXHAUSTIVE_CHECKER",
+      "formal_theorems": [
+        "holonomy_residual_left_inverse",
+        "holonomy_residual_right_inverse",
+        "holonomy_values_agree",
+        "endpoint_residual_classifies_gauge_orbits"
+      ]
+    },
+    {
+      "id": "EMEHR-T03",
+      "name": "S4-equivariant representation bridge",
+      "statement": "Under the canonical opposite-face bijection, the holonomy module and endpoint residual module are the same even-parity permutation module on four vertices; the bridge commutes with all 24 vertex permutations.",
+      "status": "EXHAUSTIVE_24_PERMUTATION_CHECKER + MANUSCRIPT_PROOF",
+      "checker_function": "verify_holonomy_residual_duality",
+      "boundary": "The current Lean file packages the coordinate inverses and S4-invariant line; a general Equiv.Perm naturality wrapper is not claimed."
+    },
+    {
+      "id": "EMEHR-T04",
+      "name": "Invariant holonomy class equals torsion line mod two",
+      "statement": "The all-four-face holonomy-one class maps to affine coordinates (p,q,e)=(0,0,1), the constant-one state and mod-two shadow of the primitive endpoint-sum two-torsion class.",
+      "status": "LEAN_TARGET + EXHAUSTIVE_CHECKER",
+      "formal_theorems": [
+        "all_face_flip_maps_to_torsion",
+        "s4_fixed_states_are_torsion_line"
+      ]
+    },
+    {
+      "id": "EMEHR-T05",
+      "name": "Six edge-state orbit",
+      "statement": "The six remaining nonzero non-torsion states have two-vertex support and reconstruct the six K4 edges; adding the torsion state complements support and exchanges opposite edges.",
+      "status": "LEAN_TARGET + EXHAUSTIVE_CHECKER",
+      "formal_theorems": [
+        "nonconstant_residual_has_two_point_support",
+        "torsion_complements_support_values"
+      ]
+    }
+  ],
+  "resolved_boundary": "A canonical S4-equivariant identification now exists between the global mod-two chirality-holonomy module and the mod-two endpoint residual module; their unique invariant lines agree.",
+  "remaining_boundaries": [
+    "THE_LOCAL_C12_KERNEL_ELEMENT_IS_NOT_IDENTIFIED_WITH_THE_INTEGRAL_ENDPOINT_TORSION_GENERATOR_AS_A_NATIVE_OPERATION",
+    "THE_MOD_TWO_BRIDGE_IS_NOT_YET_LIFTED_TO_AN_OPERATION_PRESERVING_INTEGRAL_ISOMORPHISM",
+    "NATIVE_TRANSPORT_DOES_NOT_YET_SELECT_WHICH_HOLONOMY_ORBIT_IS_REALIZED",
+    "NO_IDENTITY_WITH_THE_PELL_SHELL_SIGN_OR_BACKTRACKING_CHIRALITY_CLASS_IS_CLAIMED"
+  ]
+}

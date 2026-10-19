@@ -1,0 +1,93 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_THEOREM_LEDGER_ADDENDUM_V1",
+  "status": "FREE_RESEARCH / EXACT INTEGRAL BRIDGE / NOT_FOUNDATION",
+  "date": "2026-09-04",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "author_program": "YUAN X / Enterprise Math",
+  "parent_ledgers": [
+    "definitions/ENTERPRISE_EULER_C12_ROOT_TORSOR_FLATNESS_THEOREM_LEDGER_20260904.json",
+    "definitions/ENTERPRISE_EULER_HOLONOMY_RESIDUAL_DUALITY_ADDENDUM_20260904.json",
+    "definitions/ENTERPRISE_TETRAHEDRAL_RESIDUAL_THEOREM_LEDGER_20260903.json"
+  ],
+  "source_note": "research_notes/EULER_UNIFORM_TWISTED_COHOMOLOGY_AND_ENDPOINT_RESIDUAL_20260904.md",
+  "formal_module": "EnterpriseMath/Precision/EulerTwistedEndpointCohomology.lean",
+  "checker": "src/enterprise_math/euler_twisted_endpoint_cohomology.py",
+  "tests": "tests/test_euler_twisted_endpoint_cohomology.py",
+  "theorems": [
+    {
+      "id": "EMETC-T01",
+      "name": "Endpoint sum is a twisted coboundary",
+      "statement": "For the K4 sign local system transporting integer coefficients by -1 on every edge, the twisted coboundary is d(v)_ij=v_j-(-1)v_i=v_i+v_j, exactly the endpoint-sum map.",
+      "status": "LEAN_CHECKED_TARGET + MANUSCRIPT IDENTITY",
+      "formal_theorem": "edgeTotal_twistedCoboundary"
+    },
+    {
+      "id": "EMETC-T02",
+      "name": "Uniformly twisted cohomology type",
+      "statement": "The ordinary K4 incidence matrix has Smith factors (1,1,1), while the uniform sign-twisted incidence matrix has factors (1,1,1,2); hence the respective one-cochain quotients are Z^3 and Z^2 plus Z/2.",
+      "status": "EXACT DETERMINANTAL-DIVISOR CHECKER + EXISTING ENDPOINT RESIDUAL PROOF",
+      "checker_function": "verify_twisted_endpoint_cohomology",
+      "boundary": "The new Lean module proves the structural identities and kernel contrast; Smith normal form is certified by exact minors in the executable checker and by the pre-existing endpoint residual ledger."
+    },
+    {
+      "id": "EMETC-T03",
+      "name": "Odd-cycle removal of parallel sections",
+      "statement": "The flat incidence kernel consists of constant vertex sections, whereas the uniformly reversing sign system has no nonzero integral parallel section because a triangular odd cycle forces v=-v.",
+      "status": "LEAN_CHECKED_TARGET",
+      "formal_theorems": [
+        "ordinary_kernel_is_constant",
+        "uniform_twist_kernel_is_zero"
+      ]
+    },
+    {
+      "id": "EMETC-T04",
+      "name": "Characteristic-two coincidence",
+      "statement": "The ordinary oriented and uniformly twisted incidence maps become equal modulo two; this is the integral origin of the mod-two holonomy-residual duality.",
+      "status": "LEAN_CHECKED_TARGET + EXACT MATRIX CHECKER",
+      "formal_theorem": "ordinary_eq_twisted_mod_two"
+    },
+    {
+      "id": "EMETC-T05",
+      "name": "Zero-total neutral-sector exact sequence",
+      "statement": "The precision endpoint residual Q0=E0/d(V0) injects as the kernel of total edge mass modulo three in the full twisted one-cochain quotient, giving 0 -> Q0 -> coker(d) -> Z/3 -> 0.",
+      "status": "MANUSCRIPT CONSTRUCTIVE PROOF + LEAN CORE IDENTITIES + EXACT CHECKER",
+      "formal_theorems": [
+        "edgeTotal_twistedCoboundary",
+        "zero_total_twisted_preimage",
+        "neutralize_total_mod_three"
+      ]
+    },
+    {
+      "id": "EMETC-T06",
+      "name": "Two fully symmetric chirality phases",
+      "statement": "The only S4-fixed graph-gauge classes are the flat zero class and the uniformly twisted all-face-flip class; tetrahedral symmetry alone therefore does not force face-flatness.",
+      "status": "LEAN_CHECKED_TARGET + EXHAUSTIVE CHECKER",
+      "formal_theorems": [
+        "only_symmetric_residuals",
+        "uniform_twist_has_all_face_holonomies",
+        "uniform_twist_maps_to_endpoint_torsion"
+      ]
+    },
+    {
+      "id": "EMETC-T07",
+      "name": "Unique nonzero symmetric root-kernel bridge",
+      "statement": "A fully S4-equivariant homomorphism from the trivial C2 root-cover kernel to the mod-two endpoint residual is either zero or the unique nonzero map whose generator lands in endpoint torsion.",
+      "status": "LEAN_CHECKED_TARGET + EXHAUSTIVE CHECKER",
+      "formal_theorem": "unique_nonzero_symmetric_kernel_image"
+    },
+    {
+      "id": "EMETC-T08",
+      "name": "Projective Euler twisted phase",
+      "statement": "In the uniformly twisted phase a global signed J does not exist over the filled faces, but chirality-even observables such as the half-period endpoint, norm, cosine channel, polygonal bounds, and scalar precision-pi readouts descend.",
+      "status": "DERIVED FROM EMECR-T08 AND THE UNIFORM TWIST IDENTIFICATION"
+    }
+  ],
+  "resolved_boundary": "The endpoint-sum residual now has an integral interpretation as the graph one-cochain quotient for the unique fully S4-symmetric uniformly reversing sign local system; the mod-two Euler/endpoint bridge is its characteristic-two shadow.",
+  "remaining_boundaries": [
+    "P000_FCC_INCIDENCE_DOES_NOT_SELECT_FLAT_VERSUS_UNIFORMLY_TWISTED_SYMMETRIC_PHASE",
+    "THE_ZERO_TOTAL_Z3_QUOTIENT_CHARGE_IS_NOT_IDENTIFIED_WITH_THE_C3_AXIS_FAMILY",
+    "THE_LOCAL_C12_KERNEL_OPERATION_IS_ONLY_CONDITIONALLY_IDENTIFIED_WITH_ENDPOINT_TORSION_VIA_S4_EQUIVARIANCE",
+    "NO_IDENTITY_WITH_PELL_SHELL_SIGN_OR_BACKTRACKING_CHIRALITY_IS_CLAIMED",
+    "J_IS_NOT_A_PRIMITIVE_NATIVE_SPATIAL_AXIS"
+  ]
+}
