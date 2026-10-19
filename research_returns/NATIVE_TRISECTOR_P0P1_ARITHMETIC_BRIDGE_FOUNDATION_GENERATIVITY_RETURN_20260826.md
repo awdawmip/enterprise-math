@@ -1,515 +1,181 @@
-# Native Tri-sector P0/P1 → Arithmetic Bridge — Phase-A Return
+# Native Tri-sector P0/P1 → Arithmetic Bridge — Terminal Return
 
-Status: `PHASE_A_FROZEN / WEAKER_FOUNDATION_BRIDGE / PHASE_B_NOT_OPENED / FOUNDATION_UNCHANGED`
+Status: `TASK_TERMINAL / WEAKER_FOUNDATION_BRIDGE / FOUNDATION_UNCHANGED`
 
-Date: `2026-08-26`
-
-Researcher-ID: `EM-NTP1B-7C4A2F`
-
+Researcher-ID: `EM-NTP1B-911AF5`
 Task: `RS-NATIVE-TRISECTOR-P0P1-ARITHMETIC-BRIDGE`
-
 Publication: `TP2-BD39D919E5642BECBE87`
+Claim: `chatgpt-ntp1b-20260828-1507`
+Execution: `ER-3C960F5C2BFBACE2B90B`
 
-Owner branch: `research/native-trisector-p0p1-arithmetic-bridge`
+Primary verdict:
 
-Owner base: `c5e6f8f97a545974638b0024a3fabb56c6dc64d8`
+`WEAKER_FOUNDATION_BRIDGE`
 
-Frozen Phase-A authority snapshot for task dependencies: `f781c458b1dc4f3ec1c5cab9cdfc244ce11220f7`
+Hard target:
 
-## 1. Phase-A primary verdict
+`NATIVE_P0_P1_TO_TRISECTOR_ARITHMETIC_BRIDGE_DERIVED_OR_EXACT_OBSTRUCTION_FROZEN = ACHIEVED`
 
-Freeze:
+Foundation mutation: `NONE`.
 
-`PHASE_A_PRIMARY_VERDICT = WEAKER_FOUNDATION_BRIDGE`.
+## 1. Phase-A provenance
 
-`PHASE_A_NATIVE_TRACE_GRADE_BRIDGE = DERIVED`.
+This continuation preserves the stronger Phase-A freeze that already existed on `main` at this path, former blob `87d5d961e5f87f882bee86337e366f4c89979658` (Researcher-ID `EM-NTP1B-7C4A2F`).
 
-`DISTINGUISHED_SINGLE_GLOBAL_CENTRAL_LANE = EXACT_DEFINABILITY_OBSTRUCTION`.
+That raw freeze was completed before theorem-side comparison and independently derived from P0/P1 native line-trace semantics:
 
-`ORDERED_MEMBER_OF_ODD_BALANCE_PAIR = EXACT_DEFINABILITY_OBSTRUCTION`.
+- trace grade `g(T^(ij)_{a,b})=a+b`;
+- local shells `Sigma_r^(ij)`;
+- glued global shell cardinality `|Sigma_r^E|=3r` for `r>=1`;
+- active-axis swap `tau_ij(T_{a,b})=T_{b,a}`;
+- even shell `r=2m`: unique fixed trace `T_{m,m}`;
+- odd shell `r=2m+1`: unordered central pair `{T_{m,m+1},T_{m+1,m}}`;
+- realization multiplicity `binom(r,a)` and parity defect `beta_r=r mod2`;
+- exact obstruction to one globally named balance lane and to an ordered member of the odd central pair.
 
-`THEOREM_SIDE_COMPARISON = NOT_OPENED`.
+Detailed Phase-B comparison:
 
-`FOUNDATION_MUTATION = NONE`.
+`research_artifacts/NATIVE_TRISECTOR_P0P1_ARITHMETIC_BRIDGE_FOUNDATION_GENERATIVITY/PHASE_B_THEOREM_COMPARISON.md`.
 
-The current P0/P1 substrate does define a nontrivial, choice-free arithmetic bridge. It does **not** define a unique named global central lane or an orientation of the odd-shell central pair. The strongest Phase-A object is therefore an invariant/equivariant shell-and-balance structure, not a theorem-side singleton selector.
+## 2. Exact theorem-facing recovery
 
-The surviving native bridge is generated entirely from:
+After Phase-A freeze, the admitted tri-sector theorem package was compared at native specialization `s=3`.
 
-1. nonnegative integer component counts;
-2. P1 native component traces and their additive composition;
-3. P0/P1 transition/event count;
-4. the exact shuffle realization fiber of a trace;
-5. the three-sector gluing already present in the native plane.
+### Shell skeleton
 
-No theorem-side shell allocator, central-lane definition, breaker definition, breaker-capacity formula, hyperbola, Joukowski map, extremal-saturation formula or controlled-comparator formula is used.
+The theorem uses three cyclic half-open blocks of length `r`, so its shell has `3r` positions. This is exactly the independently derived native trace-shell count:
 
-## 2. Exact typed Phase-A input inventory
+`THEOREM_SHELL_CARDINALITY(s=3,r) = |Sigma_r^E| = 3r`.
 
-### P0 input actually used
+The native three sector trace chains therefore recover the theorem's unpointed three-block shell skeleton.
 
-- `N_0` and ordinary integer addition/equality/order/counting;
-- finite cardinality;
-- discrete transition/event count;
-- finite quotient/equivalence reasoning already authorized by the component-trace definition.
+### Quadratic shell growth
 
-### P1 input actually used
+The cumulative native shell count before shell `r` is
 
-For every native sector `S_ij`:
+`sum_{u=1}^{r-1} 3u = 3r(r-1)/2`.
 
-- native line identity
+This is exactly the nonconstant term in the theorem-side base
 
-  `T^(ij)_{a,b} = [X_i^a X_j^b]`,
+`B_r = 1 + 3r(r-1)/2`.
 
-  with `X_i X_j ~ X_j X_i`;
+Thus the coefficient `3` and quadratic shell-growth skeleton are native P0/P1 consequences. The leading `+1`, absolute rank, and consecutive integer serialization remain theorem/readout semantics.
 
-- trace composition
+### Parity
 
-  `T^(ij)_{a,b} * T^(ij)_{c,d} = T^(ij)_{a+c,b+d}`;
+The native defect
 
-- exact realization fiber
+`beta_r = r mod 2`
 
-  `Realize_E(T^(ij)_{a,b})` = all single-cell shuffle trajectories having `a` occurrences of `X_i` and `b` occurrences of `X_j`;
+recovers the theorem scalar
 
-- exact fiber cardinality
+`eps(r) = r mod 2`
 
-  `|Realize_E(T^(ij)_{a,b})| = binom(a+b,a)`;
+at scalar strength.
 
-- cyclic transport across the three sectors;
-- shared physical axes are deduplicated when the sector charts are glued.
+### Even-shell central carrier
 
-### Native plane input actually used
+For `r=2m`, native P0/P1 gives the unique balance fixed trace `T_{m,m}`. The theorem independently identifies its `h=0` central coordinate as
 
-- exactly three positive native axes/rays;
-- the induced three-sector atlas and its cyclic covariance;
-- no distinguished positive axis or sector is added by this task.
+`t=ceil(r/2)=m`,
 
-### Explicitly **not** used as Phase-A premise
+the equal-coordinate midpoint of a sector side.
 
-- `L_E`, radius/equidistance shells or any P2 rebuilt metric/length selector;
-- Euclidean carrier length/angle/vector identities;
-- arbitrary-point directed gauge formulas;
-- theorem-side shell/lane/breaker/capacity definitions;
-- theorem-side hyperbola/Joukowski/conic/finite-field formulas;
-- the specialization `s=B=3`.
+Hence:
 
-This last exclusion is load-bearing. The bridge below is a transition-trace bridge, not a metric-shell bridge.
+`P0P1_EVEN_BALANCE_FIXED_TRACE = THEOREM_EVEN_h0_EQUAL_COORDINATE_CARRIER`
 
-## 3. Native transition grading
+after applying the theorem's explicit shell readout.
 
-For each sector define the P0/P1 trace grade
+This also supplies the exact native carrier locus underlying the even-shell C3 bouquet; the polynomial labels and finite-field arithmetic remain readout/model mathematics.
 
-`g(T^(ij)_{a,b}) := a+b`.
+## 3. Exact current-strength obstructions
 
-This is the number of component-transition letters in every representative of the trace. It is **not** asserted to be geometric/native line length.
+### Odd-shell orientation
 
-By trace composition,
+For `r=2m+1`, native P0/P1 supplies only the unordered pair
 
-`g(T*T') = g(T)+g(T')`.
+`{T_{m,m+1},T_{m+1,m}}`.
 
-Hence `g` is an additive homomorphism from the P1 trace monoid to `(N_0,+)`.
+The active-axis swap exchanges these two while preserving the frozen native structure and multiplicities. The theorem chooses the one-sided coordinate
 
-For `n in N_0`, define the local transition shell
-
-`Sigma_n^(ij) := { T^(ij)_{a,n-a} : 0 <= a <= n }`.
-
-Then exactly
-
-`|Sigma_n^(ij)| = n+1`.
-
-This is a P0/P1 shell in the sense of **equal transition grade**. It is not an equidistance/radius shell and therefore does not import a P2 metric.
-
-## 4. Exact global shell count from native three-sector gluing
-
-For `n >= 1`, glue the three sector-local shells and deduplicate the physical positive-axis traces already identified by the native line definition.
-
-Before gluing there are
-
-`3(n+1)`
-
-sector-local trace incidences.
-
-Each of the three physical positive axes contributes one grade-`n` axis trace, and each such trace occurs in the two adjacent sector charts. Thus the sector-local count contains exactly three duplicate copies beyond the three physical axis traces.
-
-Therefore the global grade-`n` trace shell has
-
-`|Sigma_n^E| = 3(n+1)-3 = 3n`, for every `n >= 1`.
-
-Freeze:
-
-`GLOBAL_P0P1_TRANSITION_SHELL_CARDINALITY(n) = 3n FOR n>=1`.
-
-The coefficient `3` here is **not** a derivation of native three-ness. It is the arithmetic consequence of the already-given three-sector input plus exact axis gluing.
-
-No claim is made here for a special `n=0` global count, because the sector-local type-changing start incidences are distinct typed objects and are unnecessary for this bridge.
-
-## 5. Axis-swap involution and the native balance object
-
-Inside a fixed sector `S_ij`, relabel the two active component generators:
-
-`tau_ij(T^(ij)_{a,b}) := T^(ij)_{b,a}`.
-
-Because the defining commutation relation and trace composition are symmetric in the two active generators, `tau_ij` is an exact involutive automorphism of the local trace algebra and preserves grade and realization-fiber cardinality.
-
-Its fixed set is
-
-`Delta_ij := Fix(tau_ij) = { T^(ij)_{m,m} : m in N_0 }`.
-
-This is not assumed as a geometric bisector or imported central lane. It is derived as the fixed locus of a native component-relabeling involution.
-
-On a fixed shell:
-
-- if `n=2m`, `Sigma_n^(ij)` contains exactly one fixed trace, `T^(ij)_{m,m}`;
-- if `n=2m+1`, `Sigma_n^(ij)` contains no fixed trace.
-
-Thus parity is detected internally by fixed-point existence:
-
-`Fix(tau_ij | Sigma_n^(ij)) != empty  <=>  n is even`.
-
-This gives a native **balance/fixed-point** notion without importing a theorem-side central-lane formula.
-
-## 6. Realization multiplicity and the choice-free central set
-
-Define the P0/P1 realization multiplicity
-
-`kappa_n(a) := |Realize_E(T^(ij)_{a,n-a})| = binom(n,a)`.
-
-This is a path-fiber cardinality. It is **not** identified with any theorem-side breaker capacity in Phase A.
-
-For `0 <= a < n`,
-
-`kappa_n(a+1)/kappa_n(a) = (n-a)/(a+1)`.
+`t=ceil(r/2)=m+1`.
 
 Therefore:
 
-- `kappa_n` is strictly increasing while `a < (n-1)/2`;
-- it is strictly decreasing after the center;
-- for `n=2m`, the unique maximum occurs at `a=m`;
-- for `n=2m+1`, the exactly two maxima occur at `a=m` and `a=m+1`.
+`ODD_SHELL_ORIENTED_CENTRAL_FILAMENT_SECTION = EXACT_DEFINABILITY_OBSTRUCTION_AT_CURRENT_P0P1_STRENGTH`.
 
-Define the choice-free central set
+The parity bit `beta_r=1` does not select one member of the pair.
 
-`C_n^(ij) := Argmax_{T in Sigma_n^(ij)} |Realize_E(T)|`.
+### Global block pointing
 
-Then
+The three native sectors form an unpointed cyclic family. A named theorem block such as `sigma_*=1` requires a section/pointing not supplied by current P0/P1.
 
-`C_(2m)^(ij) = {T^(ij)_{m,m}}`,
+### Serialization
 
-and
+Current P0/P1 does not canonically supply the theorem's shell-by-shell/block-by-block consecutive integer ranking or absolute first label.
 
-`C_(2m+1)^(ij) = {T^(ij)_{m,m+1}, T^(ij)_{m+1,m}}`.
+### Breaker and capacity
 
-For even grade, the fixed trace and unique maximum coincide.
+The theorem's universal breaker `q_b` and breaker-coprime capacity `k_*=2q_b-1` are statements about the serialized one-dimensional filament. They do not descend to current P0/P1 at the same semantic strength.
 
-For odd grade, there is no fixed trace and the two maximizers form one unordered `tau_ij`-orbit.
+In particular:
 
-The associated scalar envelope is
+`|Sigma_3^E|=9`
 
-`K_n := max_a kappa_n(a) = binom(n, floor(n/2))`.
+is an exact native shell-cardinality fact but is **not** the theorem's breaker-capacity object `9`.
 
-Again, `K_n` is only a native trace-fiber multiplicity readout at Phase A. No theorem-side semantic identification is made.
+## 4. Anti-circularity
 
-## 7. A native parity-defect readout
+The native scalar `3` is used only as the already-declared number of positive axes/sectors and through exact trace-shell consequences such as `3r`.
 
-The previous section yields a choice-free binary defect:
+The admitted theorem consumes `s=B=3`; it is not used to prove Foundation three-ness.
 
-`beta_n := 0` if `C_n^(ij)` is a singleton,
+Dependency direction remains:
 
-`beta_n := 1` if `C_n^(ij)` is a two-element orbit.
+`CURRENT_P0P1 -> NATIVE_WEAK_SHELL_BALANCE_BRIDGE -> CONDITIONAL_THEOREM_READOUTS`.
 
-Equivalently,
+No theorem output is copied back into native premises.
 
-`beta_n = n mod 2`.
+## 5. Verdict map
 
-This object can be read entirely from the fixed-point/maximizer structure of the P0/P1 trace shell. It is a derived balance obstruction, not a theorem-side breaker imported by name or formula.
+- `DERIVED_NATIVE_BRIDGE`: too strong; pointed/serialized filament and breaker capacity are not native-derived.
+- `WEAKER_FOUNDATION_BRIDGE`: selected; shell cardinality/growth, parity, balance structure, and even-shell central carrier map nontrivially and exactly into the admitted theorem carrier.
+- `MODEL_SPECIFIC_ONLY`: too weak; it would erase the independently derived P0/P1 bridge.
+- `EXACT_DEFINABILITY_OBSTRUCTION`: true for stronger selectors, but not the best task-level verdict because the weaker invariant bridge survives.
+- `CIRCULAR_OR_TARGET_LEAK`: not found.
 
-Freeze the surviving weak bridge as
+## 6. Minimal additional structure
 
-`B_P0P1(n) := (Sigma_n^E, {C_n^(ij)}_sectors, K_n, beta_n)`
+A full bridge would require, at minimum, separately justified structure for:
 
-with all sector objects taken equivariantly under axis relabeling rather than with a distinguished sector name.
+1. a section/pointing of the three-block torsor if a named global block is required;
+2. a coherent odd-center orientation if exact `ceil(r/2)` longitudinal semantics is required;
+3. a consecutive integer serialization/readout with normalization;
+4. an independently native breaker/capacity relation if `q_b` and `k_*` are to be promoted beyond conditional research-model semantics.
 
-## 8. Axis relabeling / presentation / gauge audit
+## 7. Final freeze
 
-### 8.1 Cyclic relabeling of the three native axes
+Primary task verdict:
 
-Let
+`WEAKER_FOUNDATION_BRIDGE`.
 
-`rho: E_1 -> E_2 -> E_3 -> E_1`.
+Surviving native bridge:
 
-The exact native line definition already transports cyclically
+`P0P1_TRACE_GRADE_SHELL + THREE_SECTOR_GLUE + BALANCE_INVOLUTION + EVEN_FIXED_POINT + ODD_UNORDERED_PAIR + PARITY_DEFECT`.
 
-`S_12 -> S_23 -> S_31 -> S_12`.
+Exact theorem-facing recovery:
 
-Under `rho`:
+`3r_SHELL_SKELETON + QUADRATIC_SHELL_GROWTH_COEFFICIENT_3 + eps(r)_SCALAR + EVEN_h0_EQUAL_COORDINATE_CARRIER`.
 
-- grade is preserved;
-- each `Sigma_n^(ij)` is sent to the corresponding sector shell;
-- realization fibers are sent bijectively to realization fibers;
-- `kappa_n`, `K_n` and `beta_n` are unchanged;
-- `Delta_12 -> Delta_23 -> Delta_31 -> Delta_12`;
-- the unordered family `{Delta_12,Delta_23,Delta_31}` is preserved.
+Exact current-strength residue:
 
-Thus the **orbit/family** of three balance lanes is native-equivariant, while a named singleton lane is not invariant.
+`NAMED_GLOBAL_BLOCK + ORDERED_ODD_CENTER + ABSOLUTE_SERIALIZATION + BREAKER_CAPACITY_NATIVE_SEMANTICS`.
 
-### 8.2 Active-axis swap within a sector presentation
+The admitted research theorem chain `3 -> (5,7) -> 9 -> 35 -> 105 -> 53` remains accepted exactly at its existing research/model-specific strength.
 
-Under the component-label swap `tau_ij`:
+## 8. Driver recommendation
 
-- `a+b` is invariant;
-- the trace algebra is preserved;
-- the realization fiber is carried bijectively to the swapped fiber;
-- binomial cardinality is invariant;
-- the even central singleton is fixed;
-- the two odd central maximizers are exchanged.
+Driver-review this result as task-terminal `WEAKER_FOUNDATION_BRIDGE`.
 
-Thus the odd central object is canonically an **unordered pair/orbit**, not an ordered side.
-
-### 8.3 Word serialization gauge
-
-The native line identity is already the quotient of words by adjacent component-preserving commutations. Therefore no bridge object above depends on one particular shuffle/serialization.
-
-`kappa_n(a)` counts the whole realization fiber rather than selecting a representative word.
-
-### 8.4 Carrier presentation
-
-No Euclidean carrier vector relation, Euclidean angle, Euclidean distance, radius shell, hyperbola or conic structure enters the construction.
-
-### 8.5 Sector-chart gluing
-
-The only global identification used is the already-frozen deduplication of one physical positive-axis trace across its two adjacent sector charts. No new cross-sector metric or vector subtraction is introduced.
-
-## 9. Exact paired-presentation definability obstructions
-
-The obstruction is the standard automorphism test: a parameter-free object definable from the frozen native structure must be invariant, or canonically equivariant at its declared semantic type, under every admissible relabeling automorphism of that structure.
-
-### Obstruction A — no distinguished singleton global balance lane
-
-Take one native presentation `M` and the Foundation-equivalent cyclicly relabeled presentation `M^rho`.
-
-They agree, up to the canonical relabeling isomorphism, on every P0/P1 observable used in this Phase A:
-
-- integer and event-count structure;
-- three-sector incidence structure;
-- trace composition;
-- grade;
-- realization fibers and their cardinalities;
-- axis gluing;
-- all unlabeled orbit data.
-
-But a proposed readout that selects the named lane `Delta_12` in `M` selects `Delta_23` after `rho`.
-
-Since `rho` acts transitively on
-
-`{Delta_12,Delta_23,Delta_31}`,
-
-no member of this three-element orbit can be parameter-free selected from the frozen symmetric native data.
-
-Freeze:
-
-`SINGLE_GLOBAL_CENTRAL_LANE_SELECTOR_FROM_CURRENT_P0P1 = EXACT_DEFINABILITY_OBSTRUCTION`.
-
-The strongest choice-free substitute is the three-element orbit/torsor of sector balance lanes.
-
-### Obstruction B — no ordered side of the odd central pair
-
-For `n=2m+1`, compare one sector presentation with its active-component-swapped presentation under `tau_ij`.
-
-All frozen P0/P1 trace observables and realization multiplicities agree, but
-
-`T^(ij)_{m,m+1} <-> T^(ij)_{m+1,m}`.
-
-Hence no current-strength parameter-free native rule can select one member as a distinguished left/right side while remaining invariant under component relabeling.
-
-Freeze:
-
-`ORDERED_ODD_CENTRAL_SIDE_FROM_CURRENT_P0P1 = EXACT_DEFINABILITY_OBSTRUCTION`.
-
-The unordered pair is definable and survives.
-
-### Scope of the obstruction
-
-These paired-presentation certificates **do not** kill the weaker bridge. They kill only stronger readouts that demand a singleton sector choice or an orientation of the odd pair.
-
-The weak object
-
-`(global transition shell, balance-lane orbit, unordered odd central pair, realization-multiplicity envelope, parity defect)`
-
-is invariant/equivariant at exactly the semantic strength claimed.
-
-No paired-model obstruction was found against this weaker object because its definitions are preserved by the audited relabelings by construction and exact algebra.
-
-## 10. Complete audit of every `3`
-
-### `3` as frozen Foundation input
-
-- exactly three positive native axes;
-- exactly three native sectors generated by those axes.
-
-This is the only load-bearing source of native three-ness in Phase A.
-
-### `3` as presentation/index notation
-
-- axis labels `1,2,3`;
-- the cyclic relabeling orbit has three named sector presentations.
-
-The labels are not an arithmetic derivation.
-
-### `3` as derived arithmetic consequence
-
-For `n>=1`:
-
-`|Sigma_n^E|=3n`.
-
-Also the global balance-lane orbit has cardinality `3`.
-
-Both are consequences of the primitive three-sector input. Neither explains or re-derives why the native Foundation has three axes.
-
-### `3` explicitly not used
-
-- no premise `s=3`;
-- no premise `B=3`;
-- no premise `s=B=3`;
-- no theorem-side uniqueness/selectivity result involving `3`;
-- no use of `R_CELL=1/sqrt(3)` in the bridge;
-- no theorem-side arithmetic chain.
-
-Freeze dependency direction:
-
-`NATIVE_THREE_SECTOR_INPUT -> P0P1_TRACE_BRIDGE -> DERIVED 3n / THREE-LANE-ORBIT`.
-
-Not:
-
-`THEOREM_SIDE_3 -> NATIVE_THREE_SECTOR_FOUNDATION`.
-
-## 11. Anti-circularity and target-leakage audit
-
-`TARGET_LEAKAGE = NONE_FOUND_IN_PHASE_A`.
-
-The bridge was obtained before opening the theorem-side research package.
-
-No target-side formula was copied into a native premise.
-
-The words shell / central / capacity are used here only after independent P0/P1 definitions have been given:
-
-- shell = equal transition-grade class;
-- central set = fixed-point/maximizer structure of the trace involution and realization multiplicity;
-- capacity-like scalar = exact cardinality of a native realization fiber.
-
-No semantic identity to theorem-side objects is asserted in Phase A.
-
-## 12. Minimality / weakest additional structure for stronger selectors
-
-### To obtain one distinguished global balance lane
-
-The weakest evident addition is one marked element of the three-lane orbit, equivalently a marked native sector/axis-pair or another parameter that breaks the cyclic `C3` transitivity.
-
-Ontology cost: one three-way torsor choice.
-
-This additional mark is not present in current Foundation and is not added by this task.
-
-### To orient an odd central pair
-
-The weakest evident addition is an orientation/order of the two active component directions, equivalently one binary choice that breaks `tau_ij`.
-
-Ontology cost: one `C2` orientation choice for the relevant sector, or a coherent global orientation law if the choice must glue across sectors.
-
-This additional orientation is not present in current Foundation and is not added by this task.
-
-### No additional law needed for the weak bridge
-
-No extra law is required for:
-
-- additive transition grading;
-- local/global grade shells;
-- the balance-lane orbit;
-- the unordered odd central pair;
-- realization multiplicity `binom(n,a)`;
-- the maximal multiplicity envelope `K_n`;
-- parity defect `beta_n`.
-
-## 13. Why this is `WEAKER_FOUNDATION_BRIDGE`, not the full task verdict yet
-
-Phase A proves a genuinely native P0/P1 arithmetic bridge at a weaker, invariant semantic type than a named theorem-side lane/breaker architecture.
-
-Whether this weaker bridge is sufficient to recover any exact theorem-side shell/lane/breaker/capacity role is deliberately **not** decided here, because the task requires the native freeze to precede theorem-side comparison.
-
-Therefore Phase A freezes:
-
-`PHASE_A_NATIVE_BRIDGE_THEOREM = PROVED_AT_P0P1_DERIVED_STRENGTH`.
-
-`PHASE_A_STRONG_SINGLETON_SELECTOR = EXACTLY_OBSTRUCTED`.
-
-`PHASE_A_THEOREM_SUFFICIENCY = UNTESTED_BY_DESIGN`.
-
-`HARD_TARGET_FULL_TASK_STATUS = PENDING_PHASE_B_COMPARISON`.
-
-## 14. Finite-certificate/checker status
-
-`FINITE_CHECKER_REQUIRED = false`.
-
-The Phase-A conclusions are symbolic consequences of the exact trace definitions and explicit automorphism actions. No bounded search is used as evidence for a global definability claim.
-
-## 15. Evidence boundary
-
-Permitted/frozen authorities actually used:
-
-- `PROJECT_DEFINITION.md@f781c458b1dc4f3ec1c5cab9cdfc244ce11220f7`;
-- `FOUNDATIONAL_LOGIC.md@f781c458b1dc4f3ec1c5cab9cdfc244ce11220f7`;
-- `definitions/00_CURRENT_NATIVE_FOUNDATION.md@f781c458b1dc4f3ec1c5cab9cdfc244ce11220f7`;
-- `definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md@f781c458b1dc4f3ec1c5cab9cdfc244ce11220f7`;
-- `definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md@f781c458b1dc4f3ec1c5cab9cdfc244ce11220f7`;
-- `native_semantics_admissibility.json@f781c458b1dc4f3ec1c5cab9cdfc244ce11220f7`;
-- the Foundation-review gap statement in `driver_reviews/NATIVE_TRISECTOR_COUPLED_CLOSURE_FOUNDATION_CANONICALIZATION_DRIVER_DISPOSITION_20260826.md@f781c458b1dc4f3ec1c5cab9cdfc244ce11220f7`.
-
-The admitted theorem node and theorem-side supporting package were **not opened for Phase A**.
-
-## 16. Exact Phase-A freeze
-
-Freeze the following together:
-
-`PHASE_A_PRIMARY_VERDICT = WEAKER_FOUNDATION_BRIDGE`.
-
-`P0P1_TRACE_GRADE = a+b`.
-
-`LOCAL_TRACE_SHELL_CARDINALITY = n+1`.
-
-`GLOBAL_TRACE_SHELL_CARDINALITY = 3n FOR n>=1`.
-
-`EVEN_SHELL_BALANCE_FIXED_SET = SINGLETON`.
-
-`ODD_SHELL_BALANCE_FIXED_SET = EMPTY`.
-
-`EVEN_REALIZATION_MAXIMIZER_SET = SINGLETON`.
-
-`ODD_REALIZATION_MAXIMIZER_SET = UNORDERED_TWO_ORBIT`.
-
-`TRACE_FIBER_MULTIPLICITY = binom(n,a)`.
-
-`TRACE_FIBER_MAX_ENVELOPE = binom(n,floor(n/2))`.
-
-`BALANCE_PARITY_DEFECT = n mod 2`.
-
-`GLOBAL_BALANCE_LANE_ORBIT = THREE_ELEMENT_EQUIVARIANT_ORBIT`.
-
-`DISTINGUISHED_SINGLE_GLOBAL_BALANCE_LANE = EXACT_DEFINABILITY_OBSTRUCTION`.
-
-`DISTINGUISHED_ORDERED_ODD_SIDE = EXACT_DEFINABILITY_OBSTRUCTION`.
-
-`S_EQUALS_B_EQUALS_3_NOT_USED = true`.
-
-`THEOREM_SIDE_PACKAGE_OPENED = false`.
-
-`FOUNDATION_MUTATION = NONE`.
-
-## 17. Next permitted action
-
-Only after this Phase-A freeze may Phase B open the admitted theorem-side node/supporting package and compare, object by object, whether:
-
-- the transition-grade shell maps to the theorem shell role;
-- the three-lane orbit or local fixed/maximizer set is sufficient in place of a named central lane;
-- the odd parity-defect / unordered pair maps to any breaker role;
-- the trace-fiber multiplicity or its maximum maps to any capacity role;
-- stronger target-side objects require precisely the `C3` selector and/or `C2` orientation additions isolated above.
-
-No such comparison is part of this Phase-A return.
+If accepted, close the task without Foundation mutation. Open a successor only if materially new native evidence supplies a canonical odd-center orientation/quotient, a canonical serialization theorem, or an independently native breaker/capacity relation.
