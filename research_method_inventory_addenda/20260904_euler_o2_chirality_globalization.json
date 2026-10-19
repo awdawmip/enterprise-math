@@ -1,0 +1,36 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-04",
+  "status": "FREE_RESEARCH / PROJECT_SUBTOOL / NOT_TOP_LEVEL_FAMILY",
+  "methods": [
+    {
+      "method_id": "t7.euler_o2_chirality_globalization",
+      "name": "Four-slice chirality gauge and O(2) Euler descent checker",
+      "family": "T7_SYMMETRY_REPRESENTATION",
+      "secondary_families": [
+        "T6_QUOTIENT_CONGRUENCE",
+        "T9_COCYCLE_COHOMOLOGY",
+        "T0_EXACT_FINITE_ENUMERATION"
+      ],
+      "module": "src/enterprise_math/euler_o2_chirality_globalization.py",
+      "test": "tests/test_euler_o2_chirality_globalization.py",
+      "capabilities": [
+        "complete F2 edge-cochain enumeration on K4",
+        "vertex-gauge orbit and triangle-holonomy classification",
+        "global signed-chirality trivialization test",
+        "two-element orientation torsor certificate",
+        "tetrahedral permutation parity audit",
+        "finite C_N semidirect C2 multiplication and inversion",
+        "inversion-fixed phase classification",
+        "central half-turn certificate"
+      ],
+      "exactness": "Bool/integer exhaustive arithmetic only; no floating point, trigonometry, or numerical pi",
+      "boundaries": [
+        "carrier and derived-character level",
+        "does not derive a physical P000 handoff cochain",
+        "does not identify J with a native spatial axis",
+        "does not equate this H1 class with other project C2 classes"
+      ]
+    }
+  ]
+}
