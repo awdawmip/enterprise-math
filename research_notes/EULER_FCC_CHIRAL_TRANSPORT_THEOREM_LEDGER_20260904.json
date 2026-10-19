@@ -1,0 +1,126 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+  "date": "2026-09-04",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "author_program": "YUAN X / Enterprise Math",
+  "candidate": "AC-EM-FREE-F6D046-EULER-FCC-CHIRAL-TRANSPORT-OBSTRUCTION-V1",
+  "parent_results": [
+    "AC-EM-FREE-F6D046-EULER-GEOMETRIC-COMPLETION-SYNTHESIS-V1",
+    "AC-EM-FREE-F6D046-EULER-CHARACTER-COMPLETION-UNIQUENESS-V1"
+  ],
+  "theorems": [
+    {
+      "id": "EMFCT-T01",
+      "name": "Tetrahedral face-parity identity",
+      "statement": "The four face holonomies of any six-edge F2 chirality connection have even parity.",
+      "status": "LEAN_FINITE_CHECKED_TARGET_PENDING_CI",
+      "formal_theorem": "curvature_even"
+    },
+    {
+      "id": "EMFCT-T02",
+      "name": "Gauge invariance",
+      "statement": "Independent local slice-frame flips change edge signs by a coboundary and leave all four face holonomies fixed.",
+      "status": "LEAN_FINITE_CHECKED_TARGET_PENDING_CI",
+      "formal_theorem": "holonomy_gauge_invariant"
+    },
+    {
+      "id": "EMFCT-T03",
+      "name": "Exact chirality obstruction sequence",
+      "statement": "The curvature map is onto the eight even face patterns, every fiber has eight raw connections, and flatness is exactly a vertex coboundary.",
+      "status": "LEAN_FINITE_CHECKED_TARGET_PENDING_CI",
+      "formal_theorems": [
+        "curvature_surjective_onto_even_patterns",
+        "curvature_fiber_cardinality",
+        "flat_iff_exact"
+      ]
+    },
+    {
+      "id": "EMFCT-T04",
+      "name": "Three-bit complete gauge invariant",
+      "statement": "The rooted defects (h012,h013,h023) completely classify the eight gauge orbits of edge connections.",
+      "status": "LEAN_FINITE_CHECKED_TARGET_PENDING_CI",
+      "formal_theorem": "root_defect_complete"
+    },
+    {
+      "id": "EMFCT-T05",
+      "name": "Global J criterion",
+      "statement": "A global signed chiral generator exists iff all triangle holonomies vanish; the trivializing vertex potential is unique up to the simultaneous global flip.",
+      "status": "LEAN_FINITE_CHECKED_TARGET_PENDING_CI",
+      "formal_theorems": [
+        "flat_potential_unique_up_to_global_flip",
+        "flat_reconstructed_from_root_tree"
+      ]
+    },
+    {
+      "id": "EMFCT-T06",
+      "name": "Rooted normal form",
+      "statement": "Every connection has the canonical representative (0,0,0,h012,h013,h023) after subtracting the rooted tree flat extension.",
+      "status": "LEAN_FINITE_CHECKED_TARGET_PENDING_CI",
+      "formal_theorem": "root_normal_form_formula"
+    },
+    {
+      "id": "EMFCT-T07",
+      "name": "Two-face repair theorem",
+      "statement": "Every two-frustrated-face pattern has a unique one-edge repair.",
+      "status": "LEAN_FINITE_CHECKED_TARGET_PENDING_CI",
+      "formal_theorem": "two_face_defect_unique_one_edge_repair"
+    },
+    {
+      "id": "EMFCT-T08",
+      "name": "Fully frustrated repair theorem",
+      "statement": "The all-four-frustrated class requires two edge flips and has exactly three minimum repairs, the three opposite-edge pairs.",
+      "status": "LEAN_FINITE_CHECKED_TARGET_PENDING_CI",
+      "formal_theorems": [
+        "fully_frustrated_requires_two_edge_flips",
+        "fully_frustrated_has_three_two_edge_repairs"
+      ]
+    },
+    {
+      "id": "EMFCT-T09",
+      "name": "Euler half-turn blindness",
+      "statement": "The half-turn endpoint (-1,0) is fixed by every chirality transport and therefore cannot detect the obstruction.",
+      "status": "LEAN_FINITE_CHECKED_TARGET_PENDING_CI",
+      "formal_theorem": "half_turn_endpoint_always_globalizes"
+    },
+    {
+      "id": "EMFCT-T10",
+      "name": "Quarter-turn and winding detection",
+      "statement": "A signed quarter-turn and nonzero signed winding globalize exactly when the chirality connection is flat.",
+      "status": "LEAN_FINITE_CHECKED_TARGET_PENDING_CI",
+      "formal_theorems": [
+        "quarter_turn_globalizes_iff_flat",
+        "signed_winding_globalizes_iff_flat"
+      ]
+    },
+    {
+      "id": "EMFCT-T11",
+      "name": "O(2) Euler local system",
+      "statement": "Sign-preserving overlaps act identically and sign-reversing overlaps act by conjugation; the even Euler channel always descends while the odd channel descends iff the obstruction vanishes.",
+      "status": "MANUSCRIPT_INTERPRETATION_FROM_EMFCT_T02_T09_T10"
+    },
+    {
+      "id": "EMFCT-T12",
+      "name": "Incidence-only no-go",
+      "statement": "Bare K4 incidence determines the coboundary and curvature operators but supplies no overlap intertwiner; the effective gauge group acts freely and transitively on flat connections, so no gauge-natural flat connection can be selected from incidence alone.",
+      "status": "LEAN_FINITE_WITNESS_PLUS_MANUSCRIPT_NATURALITY_ARGUMENT",
+      "formal_theorem": "no_flat_connection_is_gauge_canonical"
+    }
+  ],
+  "exhaustive_checker": "src/enterprise_math/euler_fcc_chiral_transport.py",
+  "tests": "tests/test_euler_fcc_chiral_transport.py",
+  "source_note": "research_notes/EULER_FCC_CHIRAL_TRANSPORT_OBSTRUCTION_20260904.md",
+  "closed_boundaries": [
+    "SIX_RAW_EDGE_SIGNS_REDUCE_TO_THREE_GAUGE_INVARIANT_DEFECT_BITS",
+    "FLATNESS_IS_EQUIVALENT_TO_GLOBAL_SIGNED_J",
+    "SIGNED_WINDING_AND_ODD_EULER_CHANNEL_HAVE_THE_SAME_OBSTRUCTION",
+    "HALF_TURN_ENDPOINT_IS_CHIRALITY_OBSTRUCTION_BLIND",
+    "MINIMUM_REPAIR_DISTANCE_CLASSIFIED"
+  ],
+  "negative_boundaries": [
+    "NATIVE_P000_OVERLAP_INTERTWINERS_ARE_NOT_CONSTRUCTED",
+    "FCC_INCIDENCE_ALONE_DOES_NOT_SELECT_ACTUAL_EDGE_TRANSPORT",
+    "NO_IDENTITY_WITH_TETRAHEDRAL_BACKTRACK_OR_PELL_C2_IS_CLAIMED",
+    "NO_GLOBAL_SIX_DIMENSIONAL_TRAJECTORY_FACTORIZATION_IS_CLAIMED"
+  ]
+}

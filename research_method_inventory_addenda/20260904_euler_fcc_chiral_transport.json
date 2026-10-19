@@ -1,0 +1,37 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-04",
+  "status": "FREE_RESEARCH / PROJECT_SUBTOOL / NOT_TOP_LEVEL_FAMILY",
+  "methods": [
+    {
+      "method_id": "t9.euler_fcc_chiral_transport",
+      "name": "FCC chirality exact-sequence and repair calculus",
+      "family": "T9_COCYCLE_COHOMOLOGY",
+      "secondary_families": [
+        "T7_SYMMETRY_REPRESENTATION",
+        "T6_QUOTIENT_CONGRUENCE",
+        "T0_EXACT_FINITE_ENUMERATION"
+      ],
+      "module": "src/enterprise_math/euler_fcc_chiral_transport.py",
+      "formal_module": "EnterpriseMath/EulerRotation/FccChiralTransportObstruction.lean",
+      "test": "tests/test_euler_fcc_chiral_transport.py",
+      "capabilities": [
+        "six-edge F2 chirality connection",
+        "four-face even-parity curvature",
+        "local-frame gauge transformations",
+        "three-bit complete obstruction vector",
+        "rooted spanning-tree flat normal form",
+        "minimum overlap-sign repair classification",
+        "Euler even/odd conjugation monodromy",
+        "quarter-turn and signed-winding obstruction tests",
+        "incidence-only canonical-selection no-go witness"
+      ],
+      "exactness": "complete enumeration of all 64 edge connections and 16 vertex gauges; Lean native_decide finite proofs",
+      "boundaries": [
+        "does not construct native P000 overlap intertwiners",
+        "does not identify the obstruction with other C2 classes",
+        "does not prove global six-dimensional trajectory factorization"
+      ]
+    }
+  ]
+}
