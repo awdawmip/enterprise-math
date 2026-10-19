@@ -1,0 +1,59 @@
+{
+  "schema": "EM_FREE_F6D046_P46_P7_HONDA_TATE_EVIDENCE_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": [
+    "EM-FREE-F6D046-R37-P7-HONDA-TATE-DECOMPOSITION",
+    "EM-FREE-F6D046-R38-P7-ABSOLUTELY-SIMPLE-SURFACE",
+    "EM-FREE-F6D046-R39-P7-GEOMETRIC-ENDOMORPHISM-ALGEBRA"
+  ],
+  "date": "2026-09-04",
+  "theorems": {
+    "R37": "P46,7 over F7 is simple, and after base change to F49 is isogenous to B^2",
+    "R38": "B/F49 is an absolutely simple abelian surface",
+    "R39": "End^0 over Fbar7 of P46,7 is M2(F), with F=Q(alpha), h(alpha)=0"
+  },
+  "key_exact_data": {
+    "f7": "X^8+5X^6+245X^2+2401",
+    "h49": "Y^4+5Y^3+245Y+2401",
+    "field_discriminant": 4173336,
+    "field_discriminant_factorization": "2^3*3^3*139^2",
+    "real_subfield": "F^+=Q(sqrt(417))",
+    "newton_prime_data": [
+      {"e": 1, "f": 1, "v_alpha": 2},
+      {"e": 1, "f": 2, "v_alpha": 1},
+      {"e": 1, "f": 1, "v_alpha": 0}
+    ],
+    "surface_slopes": [1, 0.5, 0.5, 0],
+    "honda_tate": {
+      "field": "F=Q(alpha), alpha root of h49",
+      "local_invariants_mod_1": ["1*2/2=0", "2*1/2=0", "1*0/2=0"],
+      "division_algebra": "F (Schur index 1)",
+      "simple_surface": "B/F49 with charpoly h49",
+      "decomposition": "P46,7 tensor F49 isogenous to B^2",
+      "End0_F7": "Q(pi), degree 8",
+      "End0_geometric": "M_2(F)"
+    },
+    "root_ratio_orders_checked": 31
+  },
+  "verification": {
+    "file": "EM_FREE_F6D046_P46_P7_HONDA_TATE_VERIFICATION_20260904.json",
+    "sha256": "230d6df56892c738486545d4827b7e1002ca1a2e362ff682eba4084189e272d2",
+    "all_passed": true,
+    "check_count": 22
+  },
+  "correction": {
+    "prior_failed_route": "p=7 irreducible Frobenius polynomial alone as absolute-simplicity certificate",
+    "first_failure": "m=2 because f7(X)=f7(-X)",
+    "closed_by": "full Honda-Tate local invariants and B root-ratio certificate"
+  },
+  "classification": [
+    "DERIVED_HONDA_TATE_DECOMPOSITION",
+    "P7_F49_IS_B_SQUARED",
+    "B_ABSOLUTELY_SIMPLE_SURFACE",
+    "GEOMETRIC_ENDOMORPHISM_ALGEBRA_M2_CM4",
+    "CORRECTION_CLOSED",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

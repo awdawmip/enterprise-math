@@ -1,0 +1,25 @@
+{
+  "schema": "EM_FREE_F6D046_SIGNATURE6_COMPANION_INVERSE_PI_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_unit": "EM-FREE-F6D046-R9-SIGNATURE6-COMPANION-INVERSE-PI",
+  "all_passed": true,
+  "check_count": 10,
+  "verified": {
+    "signature_3_source_root": true,
+    "signature_3_to_6_inverse_pi_residual_below_1e_minus_100": true,
+    "signature_3_target_coordinate_noncritical": true,
+    "signature_4_source_root": true,
+    "signature_4_to_6_inverse_pi_residual_below_1e_minus_100": true,
+    "signature_4_target_coordinate_noncritical": true,
+    "basepoints_distinct": true,
+    "signature_6_arguments_distinct": true,
+    "canonical_v_branches_negative_near_t_zero": true,
+    "both_target_series_absolutely_convergent": true
+  },
+  "exact_transport": {
+    "b6": "(Rs/R6) bs (kappas/kappa6)",
+    "a6": "(Rs/R6) [as + bs kappas (deltas-delta6)]"
+  },
+  "numerical_values": "emitted reproducibly by the verifier at 120-digit Decimal precision",
+  "reproduce": "python scripts/verify_em_free_f6d046_signature6_companion_inverse_pi.py"
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "EM_FREE_F6D046_HODGE_CHARACTER_PRYM_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_unit": "EM-FREE-F6D046-R11-HODGE-CHARACTER-PRYM-SPLITTING",
+  "all_passed": true,
+  "check_count": 53,
+  "derived": {
+    "holomorphic_basis_size": 9,
+    "character_block_h10_dimensions": {
+      "(-i,-1)": 1,
+      "(-1,+1)": 1,
+      "(-1,-1)": 2,
+      "(i,+1)": 2,
+      "(i,-1)": 3
+    },
+    "factor_dimensions": [1, 2, 2, 4],
+    "P6_complex_isomorphism": "E_i^2 as an unpolarized complex abelian variety",
+    "P4_isogeny": "Jacobian of h^2=A(t)D(t)/3456",
+    "P46_Qi_Hodge_signature": [3, 1],
+    "remaining_frontier": "geometric simplicity or further decomposition of P46"
+  },
+  "boundaries": {
+    "P6_product_polarization_claimed": false,
+    "P46_split_claimed": false,
+    "P000_factorization_claimed": false
+  },
+  "reproduce": "python scripts/verify_em_free_f6d046_hodge_character_prym.py"
+}

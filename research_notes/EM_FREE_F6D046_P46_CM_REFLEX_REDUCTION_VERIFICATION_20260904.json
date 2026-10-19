@@ -1,0 +1,55 @@
+{
+  "schema": "EM_FREE_F6D046_P46_CM_REFLEX_REDUCTION_VERIFICATION_V1",
+  "researcher_id": "EM-FREE-F6D046",
+  "research_units": ["R40", "R41", "R42", "R43", "R44"],
+  "all_passed": true,
+  "check_count": 22,
+  "quartic_CM": {
+    "weil_polynomial": "T^4+5*T^3+245*T+2401",
+    "real_subfield": "Q(sqrt(417))",
+    "presentation": "Q(sqrt(417),sqrt((-171-5*sqrt(417))/2))",
+    "normal_closure": "F(sqrt(6))",
+    "galois_group": "D4",
+    "field_discriminant": "2^3*3^3*139^2"
+  },
+  "reflex": {
+    "trace_generator_polynomial": "S^4+10*S^3+123*S^2+490*S+1225",
+    "real_subfield": "Q(sqrt(6))",
+    "type_norm_polynomial": "S^4+98*S^3+6027*S^2+235298*S+5764801",
+    "same_normal_closure": true
+  },
+  "explicit_genus2_certificate": {
+    "base_field": "F49=F7(w), w^2=-1",
+    "N1": 55,
+    "N2": 2377,
+    "jacobian_weil_polynomial": "T^4+5*T^3+245*T+2401",
+    "conclusion": "P46_F7 isogenous to Res_F49/F7 Jac(C7)"
+  },
+  "polarization_boundary": {
+    "weil_restriction_principal_polarization_degree": 1,
+    "prym_polarization_type": [1,1,1,2],
+    "prym_polarization_degree": 4,
+    "polarized_isomorphism_inferred": false
+  },
+  "p7_newton": {
+    "B_slopes": ["0","1/2","1/2","1"],
+    "B_p_rank": 1,
+    "B_a_number": 1,
+    "P46_slopes": ["0","0","1/2","1/2","1/2","1/2","1","1"],
+    "P46_p_rank": 2
+  },
+  "reduction_strata": {
+    "split_mod4_1": "P_p=g_p*conjugate(g_p)",
+    "inert_mod4_3": "P_p(X)=H_p(X^2), and over F_p2 the characteristic polynomial is H_p(T)^2",
+    "p7": "simple over F7; over F49 isogenous to an absolutely simple surface squared"
+  },
+  "classification": [
+    "DERIVED_EXPLICIT_FINITE_FIELD_MODEL",
+    "DERIVED_CM_REFLEX_THEOREM",
+    "DERIVED_REDUCTION_STRATIFICATION",
+    "EXACT_POLARIZATION_BOUNDARY",
+    "NOT_NEW_AXIOM",
+    "NOT_FOUNDATION",
+    "P000_UNCHANGED"
+  ]
+}

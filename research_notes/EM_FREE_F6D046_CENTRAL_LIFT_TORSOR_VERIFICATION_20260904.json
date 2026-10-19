@@ -1,0 +1,22 @@
+{
+  "schema":"EM_FREE_F6D046_CENTRAL_LIFT_TORSOR_VERIFICATION_V1",
+  "researcher_id":"EM-FREE-F6D046",
+  "research_unit":"EM-FREE-F6D046-R6-CENTRAL-LIFT-TORSOR-EVEN-READOUT-NOGO",
+  "all_passed":true,
+  "check_count":165,
+  "verified_blocks":{
+    "F2_character_torsors_ranks_1_to_6":138,
+    "central_degree_parity_0_to_12":13,
+    "R4_R5_kernel_degree_and_Riemann_Hurwitz":6,
+    "functor_visibility_and_cohomological_boundaries":8
+  },
+  "derived":{
+    "existence_obstruction":"H2(mu2)",
+    "lift_choice_torsor":"H1(mu2)",
+    "quadratic_visibility":"homogeneous degree parity",
+    "R4_even_readout_fiber_lower_bound":4,
+    "R5_even_readout_fiber_lower_bound":8,
+    "minimal_cover_degree":"order of joint character image"
+  },
+  "reproduce":"python scripts/verify_em_free_f6d046_central_lift_torsor.py"
+}
