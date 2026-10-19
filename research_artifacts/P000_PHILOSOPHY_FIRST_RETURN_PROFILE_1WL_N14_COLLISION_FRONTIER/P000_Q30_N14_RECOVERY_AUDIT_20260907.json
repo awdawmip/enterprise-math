@@ -1,0 +1,74 @@
+{
+  "schema": "P000_Q30_N14_RECOVERY_AUDIT_V1",
+  "task_id": "RS-P000-PHILOSOPHY-FIRST-RETURN-PROFILE-1WL-N14-COLLISION-FRONTIER",
+  "publication_id": "TP2-8969646E7FF5FB8A9F5D",
+  "claim_id": "CLAIM-P000Q30-20260907T0800Z-CHATGPT-02",
+  "researcher_id": "EM-P000Q30-D67DE2",
+  "execution_record_id": "ER-9EF9871C713F5C79FA92",
+  "n": 14,
+  "observable": "FROZEN_Q22_Q25_Q27_Q28_Q29_PRIMITIVE_RETURN_PROFILE_INITIALIZED_ORDINARY_1WL_UNCHANGED",
+  "terminal_state": "RETURN_PROFILE_1WL_COLLISION_FREE_LOWER_BOUND_EXTENDED_THROUGH_N14",
+  "recovery_scope": "Durable recovery and independent arithmetic/provenance audit of the already-computed exact n=14 certificate. This audit does not claim a new graph-level enumeration.",
+  "source_pin": {
+    "commit": "b90378c332e0dbf80aad0c09d363047abb2ee2f3",
+    "tree": "18fd6aadd9dd3fcb19596ebb97fdb709017d19e5",
+    "certificate_path": "research_artifacts/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N14_COLLISION_FRONTIER/P000_Q30_RETURN_PROFILE_1WL_N14_EXACT_KERNEL_ORBIT_CERTIFICATE_V2.json",
+    "certificate_git_blob_sha1": "9ed536a327dda4d9d6e3a21d31bb90383bf7ddc9",
+    "source_execution_record_id": "ER-DB89BAA8E483449E2E00",
+    "source_researcher_id": "EM-P000Q30N14-536310"
+  },
+  "method_contract": {
+    "kernel_reduction": "Suppress maximal degree-2 paths to a connected cubic multigraph kernel, retaining loops and parallel edges.",
+    "expansion": "Enumerate weak compositions of 14-r subdivision vertices across kernel edge instances and reject exactly nonsimple expansions.",
+    "observable": "Recompute primitive simple-cycle multiplicity return profiles at each root, then unchanged ordinary 1-WL to the exact anonymous stabilized packet.",
+    "identity_policy": "Exact packet equality is the mathematical comparison key; hashes are integrity pins only.",
+    "completeness": "Per sector, automorphism-weighted orbit sum r!(14-r)!/|Aut(G)| agrees with the independent connected degree-state count."
+  },
+  "sectors": {
+    "2": {"expected_normalized_connected": 12414124800, "expected_representatives": 43, "expected_stable_packets": 43, "expected_aut_hist": {"2": 12, "4": 25, "8": 5, "12": 1}, "kernel_type_count": 2},
+    "4": {"expected_normalized_connected": 38690265600, "expected_representatives": 931, "expected_stable_packets": 931, "expected_aut_hist": {"1": 186, "2": 347, "4": 291, "8": 85, "16": 22}, "kernel_type_count": 5},
+    "6": {"expected_normalized_connected": 120607023600, "expected_representatives": 6879, "expected_stable_packets": 6879, "expected_aut_hist": {"1": 2478, "2": 2572, "4": 1340, "8": 405, "16": 73, "32": 10, "128": 1}, "kernel_type_count": 17},
+    "8": {"expected_normalized_connected": 393165964800, "expected_representatives": 19587, "expected_stable_packets": 19587, "expected_aut_hist": {"1": 9564, "2": 6429, "3": 1, "4": 2617, "6": 6, "8": 785, "12": 7, "16": 159, "32": 15, "64": 2, "96": 2}, "kernel_type_count": 59},
+    "10": {"expected_normalized_connected": 1358543793600, "expected_representatives": 21434, "expected_stable_packets": 21434, "expected_aut_hist": {"1": 11785, "2": 6179, "4": 2442, "8": 811, "16": 191, "32": 24, "64": 2}, "kernel_type_count": 197},
+    "12": {"expected_normalized_connected": 4991840330400, "expected_representatives": 7589, "expected_stable_packets": 7589, "expected_aut_hist": {"1": 3777, "2": 2242, "4": 1015, "8": 402, "16": 126, "32": 24, "64": 3}, "kernel_type_count": 478},
+    "14": {"expected_normalized_connected": 19491385914000, "expected_representatives": 509, "expected_stable_packets": 509, "expected_aut_hist": {"1": 103, "2": 159, "4": 117, "6": 4, "8": 62, "12": 7, "14": 1, "16": 35, "24": 2, "28": 2, "32": 11, "48": 1, "64": 2, "96": 1, "128": 1, "336": 1}, "kernel_type_count": 509}
+  },
+  "totals": {"kernel_types": 1267, "representatives": 56972, "normalized_connected": 26406647416800, "stable_packets": 56972, "collision_fibers": 0},
+  "direct_replay_crosscheck": {"status": "PASS", "combined_packet_image_sha256": "01734f5d33b007ddaad788565985bdbcc1ce13f102b59ca5726216e7b76a2f2f", "meaning": "Secondary cross-check only; digest is not used as an equality substitute."},
+  "r14_reference_repair": {
+    "legacy_reference": "P000_Q30_N14_KERNELS_R14_V1.json",
+    "legacy_status": "SUPERSEDED",
+    "reason": "The monolithic filename named in certificate V2 is absent at the pinned final source tree. Later deterministic r=14 reconstruction evidence supersedes that persistence pointer.",
+    "replacement_supplement": {
+      "path": "research_artifacts/P000_PHILOSOPHY_FIRST_RETURN_PROFILE_1WL_N14_COLLISION_FRONTIER/P000_Q30_N14_R14_RECONSTRUCTION_REPLAY_SUPPLEMENT_V1.json",
+      "git_blob_sha1": "78c162e4e8d4103ac6fa2bd983153c640de1ced7",
+      "representatives": 509,
+      "stable_packets": 509,
+      "collision_fibers": 0,
+      "orbit_sum": 19491385914000,
+      "independent_connected_labeled_cubic_count": 19491385914000,
+      "packet_image_sha256": "3f51237fff86d43bd33ede65c412a4aa92ecbdb008bc770180cbc1aca3c82b80"
+    },
+    "replacement_shards": [
+      {"file": "P000_Q30_N14_KERNELS_R14_RECON_P1_V1.json", "git_blob_sha1": "6928bd4c43e0af75a69b24c1126e937d5c75dce9", "count": 105, "file_sha256": "bf2fec6fc272300dfbc9c5eb8f43bc4a69bfcfa05382fb190335ef6890657c06"},
+      {"file": "P000_Q30_N14_KERNELS_R14_RECON_P2_V1.json", "git_blob_sha1": "28eddb17f34145204d2b8743c526f505ead7b49e", "count": 105, "file_sha256": "70804fc1527cf5fadb6b59d180dd719ed5b1e90b1f6e0fc418096b3e5998f6ac"},
+      {"file": "P000_Q30_N14_KERNELS_R14_RECON_P3_V1.json", "git_blob_sha1": "6f8e9500f09eb4195fc5612ae07ba601061e266e", "count": 105, "file_sha256": "5c871358798ee8c3bd3b03eefe8be0fefbd2eefe25020ebe8906c17fd29d9e5c"},
+      {"file": "P000_Q30_N14_KERNELS_R14_RECON_P4_V1.json", "git_blob_sha1": "1a9f498acb84e78284b8b512a115aae3061f7d55", "count": 105, "file_sha256": "37a4126e3cde9a15817c927469b35d186261e0fc0bd86d2b25342257fbc305b9"},
+      {"file": "P000_Q30_N14_KERNELS_R14_RECON_P5_V1.json", "git_blob_sha1": "2ff13b6bc9fb0ebc6128b22db3347c03c204d985", "count": 89, "file_sha256": "d319bb4ab05351d7c81534d1cc5594ee8d29592ae520e2d55a95df98cc4179f5"}
+    ],
+    "direct_replay_checker": "research_checks/P000_Q30_N14_R14_RECONSTRUCTION_REPLAY_CHECK_20260905.py"
+  },
+  "audit_assertions": {
+    "sector_histogram_counts_equal_representatives": "PASS",
+    "sector_representatives_equal_stable_packets": "PASS",
+    "sector_orbit_sums_equal_independent_counts": "PASS",
+    "total_representatives": "PASS",
+    "total_stable_packets": "PASS",
+    "total_normalized_connected": "PASS",
+    "collision_fibers_zero": "PASS",
+    "r14_replacement_shard_count_509": "PASS",
+    "legacy_r14_pointer_classified": "PASS"
+  },
+  "audit_status": "PASS",
+  "boundary": "Exact bounded result only for the accepted U_BR prefix through n=14 under the frozen return-profile initialized ordinary 1-WL observer. No statement for n>=15 and no strengthening to 2-WL, spectra, zeta, full cycle incidence, or canonical labels."
+}
