@@ -1,0 +1,28 @@
+{
+  "schema": "ENTERPRISE_MATH_CONJECTURE_REGISTRY_MANIFEST_V1",
+  "status": "ACTIVE_CANONICAL_REGISTRY_VIEW",
+  "effective": "2026-09-07",
+  "governing_policy": "docs/CONJECTURE_ASSET_GOVERNANCE.md",
+  "base_snapshot": {
+    "path": "conjecture_registry.json",
+    "generation": "BACKFILL-20260906-G2"
+  },
+  "ordered_generation_shards": [
+    {
+      "path": "conjecture_registry_generations/BACKFILL-20260907-G3.json",
+      "generation": "BACKFILL-20260907-G3"
+    }
+  ],
+  "logical_view_rule": "The canonical conjecture registry is the ordered union of base_snapshot plus ordered_generation_shards. Asset IDs are immutable and unique. Later shards may add assets or explicit state-transition records but may not silently rewrite earlier history.",
+  "conflict_rule": "For an existing asset, a later explicit state-transition record may supersede current status fields only when it cites the prior asset ID/version and transition evidence. Mere duplicate asset definitions are invalid.",
+  "compaction_rule": "Periodic compaction may fold shards into a new consolidated base snapshot, but only after equivalence/audit checks preserve every asset, exclusion classification, transition and provenance reference.",
+  "current_generation": "BACKFILL-20260907-G3",
+  "current_totals": {
+    "conjectural_theorems": 6,
+    "conjectural_tools": 1,
+    "total_conjecture_assets": 7,
+    "deliberate_nonconjecture_classifications": 16
+  },
+  "scanner_policy": "conjecture_scanner_policy.json",
+  "scan_and_propagation_doc": "docs/CONJECTURE_SCAN_AND_PROPAGATION.md"
+}
