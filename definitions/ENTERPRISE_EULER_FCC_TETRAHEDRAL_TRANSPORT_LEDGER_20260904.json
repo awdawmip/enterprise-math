@@ -1,0 +1,93 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_THEOREM_LEDGER_V1",
+  "status": "FREE_RESEARCH / EXACT_CARRIER_THEOREM / NOT_FOUNDATION",
+  "date": "2026-09-04",
+  "researcher": "EM-FREE-F6D046 / FREE_AXIOM_DISCOVERY",
+  "author_program": "YUAN X / Enterprise Math",
+  "source_note": "research_notes/EULER_FCC_TETRAHEDRAL_TRANSPORT_HOLONOMY_20260904.md",
+  "checker": "src/enterprise_math/euler_fcc_tetrahedral_transport.py",
+  "tests": "tests/test_euler_fcc_tetrahedral_transport.py",
+  "theorems": [
+    {
+      "id": "EMEFTH-T01",
+      "name": "Tetrahedral normal realization of the four FCC slices",
+      "statement": "The four vectors n_i have squared norm 3, pairwise dot product -1, zero sum, and their six pairwise cross-product lines are the six FCC <110> line families.",
+      "status": "EXACT_INTEGER_GEOMETRY / CHECKER_COVERED"
+    },
+    {
+      "id": "EMEFTH-T02",
+      "name": "Orthogonal overlap-transport dichotomy",
+      "statement": "For two distinct slice normals, exactly two orthogonal maps fix the shared line pointwise and send n_i to n_j: the proper short rotation A_ij and the improper bisector reflection H_ij.",
+      "status": "MANUSCRIPT_LINEAR_ALGEBRA_PROOF + EXACT_MATRIX_CHECKER",
+      "boundary": "The bare K4 incidence graph does not choose between the two maps."
+    },
+    {
+      "id": "EMEFTH-T03",
+      "name": "Determinant controls chirality transport",
+      "statement": "For an orthogonal bridge T with T n_i=n_j, one has T J_i T^{-1}=det(T) J_j. Proper bridges preserve J and mirror bridges reverse J.",
+      "status": "EXACT_CROSS_PRODUCT_COVARIANCE / CHECKER_COVERED"
+    },
+    {
+      "id": "EMEFTH-T04",
+      "name": "Canonical proper bridge from the oriented normal sphere",
+      "statement": "Ambient orientation plus the shortest great-circle rule selects A_ij uniquely among the two overlap bridges.",
+      "status": "STANDARD_ORIENTED_SPHERICAL_GEOMETRY",
+      "boundary": "This is canonical at the embedded carrier level, not yet derived from native P000 Cell transition semantics."
+    },
+    {
+      "id": "EMEFTH-T05",
+      "name": "Tetrahedral face half-turn holonomy",
+      "statement": "For every ordered triple of distinct slices, A_ki A_jk A_ij=(2/3)n_i n_i^T-I. It fixes n_i and negates the starting slice plane P_i.",
+      "status": "EXACT_RATIONAL_MATRIX_THEOREM / ALL_24_ORIENTED_FACES_CHECKED / LEAN_BASE_FACE_TARGET"
+    },
+    {
+      "id": "EMEFTH-T06",
+      "name": "Face holonomy is the square of the local chiral operator",
+      "statement": "On P_i, Hol_ijk=-I=J_i^2. Thus J_i is a chirality-selected square root of the tetrahedral face holonomy.",
+      "status": "EXACT_OPERATOR_THEOREM / CHECKER_COVERED"
+    },
+    {
+      "id": "EMEFTH-T07",
+      "name": "Normal-face spherical area",
+      "statement": "The normal-tetrahedron face has side cosine -1/3, vertex-angle cosine -1/2, vertex angle 2*pi/3, and spherical excess pi.",
+      "status": "EXACT_RATIONAL_COSINE_CERTIFICATE + STANDARD_SPHERICAL_COSINE_LAW"
+    },
+    {
+      "id": "EMEFTH-T08",
+      "name": "Carrier Euler holonomy",
+      "statement": "Geodesic parallel transport around one normal-tetrahedron face satisfies Hol|P_i=exp(pi J_i)=-I; after pi_rot=pi this is exp(pi_rot J_i)=-I.",
+      "status": "DERIVED_FROM_EMEFTH-T05 + STANDARD_SPHERICAL_HOLONOMY + PRIOR_PI_ROT_IDENTIFICATION"
+    },
+    {
+      "id": "EMEFTH-T09",
+      "name": "Geometric realization of the half-turn lift ambiguity",
+      "statement": "The two orientations of a face boundary have lifted phases +pi and -pi but the same endpoint -I, realizing the two shortest lifts of the finite half-turn residue.",
+      "status": "EXACT_ENDPOINT_THEOREM + STANDARD_SIGNED_HOLONOMY_INTERPRETATION"
+    },
+    {
+      "id": "EMEFTH-T10",
+      "name": "Chirality flatness differs from phase flatness",
+      "statement": "All proper edge bridges have trivial determinant cocycle and coherently preserve J, yet every proper triangular loop has the nontrivial central phase -I.",
+      "status": "EXACT_SEPARATION_THEOREM / CHECKER_COVERED"
+    },
+    {
+      "id": "EMEFTH-T11",
+      "name": "Mirror loop is not complex-linear phase transport",
+      "statement": "A triangular product of mirror bridges has determinant -1, fixes the starting normal, acts as a tangent reflection, and conjugates J_i to -J_i.",
+      "status": "EXACT_RATIONAL_MATRIX_THEOREM / ALL_24_ORIENTED_FACES_CHECKED"
+    }
+  ],
+  "new_freeze_statements": [
+    "FCC_INCIDENCE_ALONE_DOES_NOT_DETERMINE_CHIRALITY_TRANSPORT",
+    "ORIENTED_SHORTEST_SO3_TRANSPORT_SELECTS_THE_COMPLEX_LINEAR_BRIDGE",
+    "TETRAHEDRAL_NORMAL_FACE_HOLONOMY_IS_EULER_HALF_TURN",
+    "FLAT_CHIRALITY_SIGN_DOES_NOT_IMPLY_FLAT_ROTATION_CONNECTION"
+  ],
+  "negative_boundaries": [
+    "NO_NATIVE_P000_DERIVATION_OF_THE_SO3_SHORT_TRANSPORT_IS_CLAIMED",
+    "NO_IDENTIFICATION_OF_CROSS_PRODUCT_J_WITH_A_PRIMITIVE_NATIVE_AXIS",
+    "NO_IDENTITY_WITH_ENDPOINT_SUM_TORSION_C2_IS_CLAIMED",
+    "NO_IDENTITY_WITH_PAIRED_PELL_SHELL_SIGN_IS_CLAIMED",
+    "STANDARD_SPHERICAL_HOLONOMY_AND_GAUSS_BONNET_PRIOR_ART_ARE_NOT_CLAIMED_AS_NEW"
+  ]
+}
