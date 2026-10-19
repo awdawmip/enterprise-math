@@ -1,0 +1,38 @@
+{
+  "schema": "ENTERPRISE_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "date": "2026-09-04",
+  "status": "FREE_RESEARCH / PROJECT_SUBTOOL / NOT_TOP_LEVEL_FAMILY",
+  "methods": [
+    {
+      "method_id": "t7.euler_tetrahedral_orientation_local_system",
+      "name": "Tetrahedral orientation-local-system checker",
+      "family": "T7_SYMMETRY_REPRESENTATION",
+      "secondary_families": [
+        "T9_COCYCLE_COHOMOLOGY",
+        "T6_QUOTIENT_CONGRUENCE",
+        "T0_EXACT_FINITE_ENUMERATION"
+      ],
+      "module": "src/enterprise_math/euler_tetrahedral_orientation.py",
+      "test": "tests/test_euler_tetrahedral_orientation.py",
+      "formalization": "EnterpriseMath/EulerRotation/TetrahedralOrientationLocalSystem.lean",
+      "capabilities": [
+        "enumerate the 24 signed-permutation symmetries of the regular tetrahedral normal family",
+        "verify determinant equals induced S4 permutation sign",
+        "compute the six FCC [110]-type shared line families",
+        "verify the cross-operator square identity on every slice",
+        "verify twisted covariance Q D_n Q^-1 = det(Q) D_(Qn)",
+        "count A4 and odd transports between each ordered slice pair",
+        "enumerate triangle-loop frame holonomy and prove C2 chirality flatness",
+        "separate incidence-ray reversal from complex-structure reversal",
+        "compare the ambient orientation class with the eight abstract H1(K4,F2) sign classes"
+      ],
+      "exactness": "integer matrices and finite exhaustive enumeration; no floating point, angle, trigonometry, or numerical pi",
+      "boundaries": [
+        "FCC/tetrahedral carrier level only",
+        "does not prove global P000 six-dimensional trajectory factorization",
+        "does not identify J with a primitive native spatial axis",
+        "does not identify this orientation character with tetrahedral residual torsion or Pell shell sign"
+      ]
+    }
+  ]
+}
