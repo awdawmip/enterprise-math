@@ -1,0 +1,55 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_INVENTORY_ADDENDUM_V1",
+  "status": "EXTRACTED_VERIFIED_CANDIDATE_NOT_DRIVER_PROMOTED",
+  "date": "2026-09-03",
+  "source_issue": 1159,
+  "researcher_id": "EM-FREE-W59A",
+  "methods": [
+    {
+      "method_id": "precision.spectral_decimation_completion",
+      "name": "Finite spectral decimation / parity-curvature completion calculus",
+      "classification": "GLOBAL_SUBTOOL",
+      "family_id": "T5_PRECISION_REFINEMENT",
+      "status": "USER_REQUESTED_VERIFIED_EXTRACTION_CANDIDATE",
+      "source_refs": [
+        "research_notes/WALLIS_SINE_DISCRETE_ROTATION_SPECTRAL_PRECISION_THEOREMS_20260903.md",
+        "src/enterprise_math/spectral_precision.py",
+        "tests/test_spectral_precision.py",
+        "issue:1159#issuecomment-5525992157",
+        "issue:1159#issuecomment-5526329654",
+        "issue:1159#issuecomment-5526379609"
+      ],
+      "triggers": [
+        "finite spectral refinement",
+        "spectral decimation",
+        "Dirichlet mode refinement",
+        "parity curvature",
+        "Wallis parity modes",
+        "dyadic spectral precision",
+        "completion bracket"
+      ],
+      "capabilities": [
+        "exact rational normalized Dirichlet determinant coefficients",
+        "independent continuant-recurrence coefficient verification",
+        "exact target-free Wallis partial products and decreasing upper companions",
+        "scale-free odd/even multiplicative parity-curvature observer",
+        "exact even-site spectral decimation R(u)=u(4-u)",
+        "dyadic inverse-decimation nested-radical first-mode state",
+        "finite fourth-order completion interval endpoint construction with exact width 2/(15 q^4)",
+        "exact rational sign certificate used by the analytic theorem to prove tau<4"
+      ],
+      "reuse_resolution": {
+        "coverage_verdict": "EXTEND_EXISTING_TOOL",
+        "matched_tool_or_method_ids": [
+          "T5_PRECISION_REFINEMENT",
+          "T7_FINITE_SYMMETRY_EQUIVARIANCE"
+        ],
+        "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+        "how_applied_or_why_not": "T5 supplies the finite coarse/fine refinement typing and T7 supplies finite involution/parity typing. Neither current interface provides algebraic matrix-spectrum decimation, parity-curvature readout, or target-free spectral completion intervals. The extracted method therefore extends T5 narrowly rather than creating a new top-level family.",
+        "hard_boundary_checked": true
+      },
+      "hard_boundary": "Finite exact spectral carriers and endpoint construction do not prove primitive G0 Cell-rotation semantics. Matrix eigenmode spectrum is not T8 relation-observable spectrum and a Laplacian-shaped matrix is not automatically a T10 toppling system. Analytic completion, first-zero existence, Euler product, and classical pi identification remain separate theorem layers. Full hypercube multiplicities may not be silently erased to the Hamming-shell quotient.",
+      "cross_family_note": "Current #1158 independently constructs the same dyadic radical state from a G1 finite rotation-refinement carrier and proves Pi_rot=tau=2 W_infinity. This #1159 subtool contributes the Dirichlet spectral origin, parity-curvature collapse, and fourth-order two-scale certificate; it does not identify the finite carriers."
+    }
+  ]
+}
