@@ -1,0 +1,64 @@
+{
+  "schema": "P000_FCC_NATIVE_COORDINATE_BRIDGE_ROTATION_ATLAS_REPLICATION_CERTIFICATE_V1",
+  "task_id": "RS-P000-FCC-NATIVE-COORDINATE-BRIDGE-ROTATION-ATLAS",
+  "publication_id": "TP2-0B7E6C14F3A95D208E61",
+  "researcher_id": "EM-P000FCC-A0E80C",
+  "claim_id": "CLAIM-P000FCC-20260905T0641Z-CHATGPT-01",
+  "execution_base_main": "195456b82d6006a78661fdc81dab77a1a3e58110",
+  "replicated_result": "RR-BF4BC89ACAC51D2E16C5",
+  "replicated_pr": 856,
+  "terminal_class": "STRICT_PARTIAL_OR_GROUPOID_ATLAS_PROVED",
+  "native_model": {
+    "address_group": "Z^6",
+    "adjacency": "q~q+/-e_i, i=1..6",
+    "native_degree": 12,
+    "carrier_frame": ["L1","L3","L6","L4","L5","L2"]
+  },
+  "readout": {
+    "matrix_rows": [[1,1,0,1,0,1],[1,0,1,0,1,-1],[0,1,-1,-1,1,0]],
+    "rank": 3,
+    "nonzero_3x3_minor_absolute_values": [2],
+    "gcd_3x3_minors": 2,
+    "image": "D3={(x,y,z) in Z^3: x+y+z even}",
+    "kernel_rank": 3,
+    "kernel_basis": [[1,-1,-1,0,0,0],[1,0,0,-1,-1,0],[0,-1,0,0,1,1]],
+    "global_injective": false,
+    "surjective_onto_D3": true,
+    "local_12_ray_map_bijective": true,
+    "regular_graph_covering": true,
+    "deck_group": "ker(A) ~= Z^3",
+    "native_identity_quotiented": false
+  },
+  "charts": {
+    "all_four_oriented_triples_sum_zero": true,
+    "all_squared_norms": 2,
+    "all_pairwise_dot_products": -1,
+    "incidence_graph": "K4",
+    "frame_counts": {"unconstrained":720,"JA_to_SA":36,"JA_and_JB":4}
+  },
+  "rotation": {
+    "orientation_preserving_integral_signed_permutation_group_order": 24,
+    "distinct_line_permutations": 24,
+    "distinct_slice_permutations": 24,
+    "line_stabilizer_order": 4,
+    "slice_stabilizer_order": 6,
+    "tau_counts": {"+1":48,"-1":48},
+    "intertwining_A_L_eq_R_A": true,
+    "lift_composition_checks": 576,
+    "chart_cocycle_checks": 2304
+  },
+  "hcp_regression": {
+    "shell_size": 12,
+    "missing_antipode_count": 6,
+    "example_missing_antipode": [[1,1,1],[-1,-1,-1]],
+    "centrally_symmetric": false
+  },
+  "classification": {
+    "full_unframed_atlas": false,
+    "frame_conditioned_exact_atlas": true,
+    "unframed_object": "S6 frame torsor/groupoid",
+    "missing_native_datum": "canonical AXIS_CHANNEL_FRAME / axis-handle incidence",
+    "mathematical_replication": "PASS",
+    "foundation_or_working_truth_promotion": false
+  }
+}
