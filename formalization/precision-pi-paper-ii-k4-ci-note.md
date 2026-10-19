@@ -1,0 +1,1 @@
+This branch is intended to be checked by the repository's pinned Lean workflow. The mathematical acceptance gate is the Lean job; unrelated control-plane reference-integrity failures are recorded separately and do not alter theorem status.

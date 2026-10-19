@@ -18,3 +18,6 @@ import EnterpriseMath.Relation.BranchRecoalescence
 import EnterpriseMath.Scale.Compatibility
 import EnterpriseMath.State.CriticalGrid
 import EnterpriseMath.PrimeFusion
+import EnterpriseMath.PrecisionPi.PellCertificates
+import EnterpriseMath.PrecisionPi.EqualOccupancy
+import EnterpriseMath.PrecisionPi.PaperII
