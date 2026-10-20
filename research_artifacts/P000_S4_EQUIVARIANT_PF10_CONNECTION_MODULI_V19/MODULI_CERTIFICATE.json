@@ -1,0 +1,180 @@
+{
+  "schema": "P000_S4_EQUIVARIANT_PF10_CONNECTION_MODULI_V19_CERTIFICATE_V1",
+  "task_id": "RS-P000-L1-NATIVE-CARRIER-CONTACT-BRIDGE",
+  "publication_id": "TP2-E5B7C19A3D604F821583",
+  "researcher_id": "EM-P000FCC19-A4C91E",
+  "terminal_class": "NONTRIVIAL_PF10_AND_NONFLAT_CONNECTION_MODULI_COMMON_MODEL_CLASSIFIED",
+  "guards": {
+    "P000_MUTATED": false,
+    "G15_MUTATED": false,
+    "GEN17_GATE_COSTS_CHANGED": false,
+    "NO_KERNEL_QUOTIENT": true,
+    "TIME_FIXED": true,
+    "CARRIER_S4_COMPLETE_NATIVE_ROTATION_GROUP_ASSERTED": false,
+    "CHOSEN_AB_LIFTS_PROMOTED_TO_FULL_TRANSPARENCY": false
+  },
+  "transport_universe": {
+    "local_channel_set_size": 6,
+    "edge_transport_group": "Sym(6)=S6",
+    "continuous_SO6_assumed": false,
+    "gauge_law": "T_xy' = g_y T_xy g_x^-1, g_x in S6",
+    "holonomy_gauge_law": "Hol_x' = g_x Hol_x g_x^-1"
+  },
+  "pf10_moduli": {
+    "base_cell": "A",
+    "base_stabilizer": "Stab_S4(A) ~= S3",
+    "channel_orbits": [
+      {
+        "name": "STAR_A",
+        "channels": ["E1=AB", "E2=AC", "E3=AD"],
+        "size": 3
+      },
+      {
+        "name": "FACE_A",
+        "channels": ["E4=BC", "E5=BD", "E6=CD"],
+        "size": 3
+      }
+    ],
+    "ordered_pair_orbits": [
+      "STAR->STAR diagonal",
+      "STAR->STAR distinct",
+      "STAR->FACE adjacent/share non-A vertex",
+      "STAR->FACE opposite/disjoint",
+      "FACE->STAR adjacent/share non-A vertex",
+      "FACE->STAR opposite/disjoint",
+      "FACE->FACE diagonal",
+      "FACE->FACE distinct"
+    ],
+    "ordered_pair_orbit_sizes": [3, 6, 6, 3, 6, 3, 3, 6],
+    "I_parameters": 2,
+    "O_parameters": 2,
+    "M_parameters": 8,
+    "total_raw_base_parameters": 12,
+    "global_reconstruction": "P_{gA}=rho(g)P_A; well-defined iff P_A is Stab(A)-fixed",
+    "complete_and_nonredundant_in_fixed_presentation": true,
+    "nonconstant_global_family_exists": true,
+    "regressions": {
+      "full_S4_vector_orbits": 1,
+      "full_S4_ordered_pair_orbits": 3,
+      "base_stabilizer_vector_orbits": 2,
+      "base_stabilizer_ordered_pair_orbits": 8
+    }
+  },
+  "connection_moduli": {
+    "representative_oriented_edge": "A->B",
+    "oriented_edge_stabilizer": "<(CD)> ~= C2",
+    "stabilizer_channel_action": "(E2 E3)(E4 E5)",
+    "orientation_reverser": "(AB)",
+    "orientation_reverser_channel_action": "(E2 E4)(E3 E5)",
+    "raw_constraint": [
+      "T_AB commutes with rho((CD))",
+      "rho((AB)) T_AB rho((AB))^-1 = T_AB^-1"
+    ],
+    "raw_solution_count": 12,
+    "raw_identity_count": 1,
+    "raw_nonidentity_count": 11,
+    "raw_solutions": [
+      "(E1 E6)",
+      "(E1 E6)(E2 E3)(E4 E5)",
+      "(E1 E6)(E2 E4 E3 E5)",
+      "(E1 E6)(E2 E4)(E3 E5)",
+      "(E1 E6)(E2 E5 E3 E4)",
+      "(E1 E6)(E2 E5)(E3 E4)",
+      "(E2 E3)(E4 E5)",
+      "(E2 E4 E3 E5)",
+      "(E2 E4)(E3 E5)",
+      "(E2 E5 E3 E4)",
+      "(E2 E5)(E3 E4)",
+      "id"
+    ],
+    "gauge_class_count": 8,
+    "flat_gauge_class_count": 1,
+    "nonflat_gauge_class_count": 7,
+    "gauge_classification_method": "K4 connected spanning-tree gauge; classify rooted basis holonomy triple (ABC, ABD, ACD) up to simultaneous S6 conjugation",
+    "gauge_classes": [
+      {
+        "representative_T_AB": "id",
+        "raw_members": ["(E2 E5)(E3 E4)", "id"],
+        "triangle_basis_holonomies": ["id", "id", "id"],
+        "triangle_conjugacy_cycle_type": [1,1,1,1,1,1],
+        "hamiltonian_4cycle_conjugacy_cycle_type": [1,1,1,1,1,1],
+        "flat": true
+      },
+      {
+        "representative_T_AB": "(E1 E6)",
+        "raw_members": ["(E1 E6)", "(E1 E6)(E2 E5)(E3 E4)"],
+        "triangle_basis_holonomies": ["(E1 E6)(E2 E5)(E3 E4)", "(E1 E6)(E2 E5)(E3 E4)", "(E1 E6)(E2 E5)(E3 E4)"],
+        "triangle_conjugacy_cycle_type": [2,2,2],
+        "hamiltonian_4cycle_conjugacy_cycle_type": [1,1,1,1,1,1],
+        "flat": false
+      },
+      {
+        "representative_T_AB": "(E1 E6)(E2 E3)(E4 E5)",
+        "raw_members": ["(E1 E6)(E2 E3)(E4 E5)"],
+        "triangle_basis_holonomies": ["(E1 E5)(E2 E6)(E3 E4)", "(E1 E4)(E2 E5)(E3 E6)", "(E1 E6)(E2 E4)(E3 E5)"],
+        "triangle_conjugacy_cycle_type": [2,2,2],
+        "hamiltonian_4cycle_conjugacy_cycle_type": [3,3],
+        "flat": false
+      },
+      {
+        "representative_T_AB": "(E1 E6)(E2 E4 E3 E5)",
+        "raw_members": ["(E1 E6)(E2 E4 E3 E5)", "(E1 E6)(E2 E5 E3 E4)"],
+        "triangle_basis_holonomies": ["(E1 E6 E5 E2 E4)", "(E1 E6 E4 E3 E5)", "(E2 E5 E4 E3 E6)"],
+        "triangle_conjugacy_cycle_type": [5,1],
+        "hamiltonian_4cycle_conjugacy_cycle_type": [5,1],
+        "flat": false
+      },
+      {
+        "representative_T_AB": "(E1 E6)(E2 E4)(E3 E5)",
+        "raw_members": ["(E1 E6)(E2 E4)(E3 E5)"],
+        "triangle_basis_holonomies": ["(E1 E2 E6 E5)", "(E1 E3 E6 E4)", "(E2 E3 E5 E4)"],
+        "triangle_conjugacy_cycle_type": [4,1,1],
+        "hamiltonian_4cycle_conjugacy_cycle_type": [3,3],
+        "flat": false
+      },
+      {
+        "representative_T_AB": "(E2 E3)(E4 E5)",
+        "raw_members": ["(E2 E3)(E4 E5)"],
+        "triangle_basis_holonomies": ["(E1 E5 E6 E2)(E3 E4)", "(E1 E4 E6 E3)(E2 E5)", "(E1 E6)(E2 E4 E5 E3)"],
+        "triangle_conjugacy_cycle_type": [4,2],
+        "hamiltonian_4cycle_conjugacy_cycle_type": [3,3],
+        "flat": false
+      },
+      {
+        "representative_T_AB": "(E2 E4 E3 E5)",
+        "raw_members": ["(E2 E4 E3 E5)", "(E2 E5 E3 E4)"],
+        "triangle_basis_holonomies": ["(E1 E2)", "(E1 E3)", "(E2 E3)"],
+        "triangle_conjugacy_cycle_type": [2,1,1,1,1],
+        "hamiltonian_4cycle_conjugacy_cycle_type": [3,1,1,1],
+        "flat": false
+      },
+      {
+        "representative_T_AB": "(E2 E4)(E3 E5)",
+        "raw_members": ["(E2 E4)(E3 E5)"],
+        "triangle_basis_holonomies": ["(E1 E2)(E5 E6)", "(E1 E3)(E4 E6)", "(E2 E3)(E4 E5)"],
+        "triangle_conjugacy_cycle_type": [2,2,1,1],
+        "hamiltonian_4cycle_conjugacy_cycle_type": [3,3],
+        "flat": false
+      }
+    ]
+  },
+  "common_model": {
+    "pf10": "12 visibly separated base orbit parameters transported from A; four Cell profiles pairwise distinct",
+    "connection": "Gen18 witness T_AB=(E1 E6), globally transported by S4",
+    "triangle_holonomy": "(E1 E6)(E2 E5)(E3 E4)",
+    "nonconstant_pf10": true,
+    "nonidentity_connection": true,
+    "nonflat_connection": true,
+    "PF10_STRUCTURAL_AUT_EQ": true,
+    "CONNECTION_STRUCTURAL_AUT_EQ": true,
+    "enriched_Ra3": true,
+    "enriched_Rb2": true,
+    "enriched_Rab4": true
+  },
+  "hidden_kernel_regression": {
+    "model": "C2 x S4",
+    "chosen_ab_generated_order": 24,
+    "full_ab_lift_fibers_generated_order": 48,
+    "policy": "carrier-level moduli do not quotient hidden kernel; any hidden-kernel model must separately pass Gen18 full-lift-fiber transparency"
+  }
+}
