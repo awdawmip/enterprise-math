@@ -18,5 +18,38 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "checkpoint-20261020-o13-m5plus-orbit-theorem",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "70749f35801abbc61d60a77069f7063bf5176e88",
+          "path": "research_notes/BRC_O13_OrderedTrajectoryFreeAction_M5Plus_20261020.md",
+          "sha256": "c76f9a71150660f5eb59a0385f465c3f3495d5a6627e2c45ec96e36dd1e16621",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "obs-20261020-m5plus-readback-01",
+            "call_id": null,
+            "git_blob_sha1": "0f69ed3dec43b5c061ae4c3580051ad9dfb5dcf6",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/70749f35801abbc61d60a77069f7063bf5176e88/research_notes/BRC_O13_OrderedTrajectoryFreeAction_M5Plus_20261020.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-C136DC4098B78DB73EEACE8D/readbacks/56eb46087f5cd5b6762ca335fa8fe84a969dd73c36f0980173d93fc0960a088b.json",
+          "verification_receipt_sha256": "56eb46087f5cd5b6762ca335fa8fe84a969dd73c36f0980173d93fc0960a088b"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@main:00_BOOTSTRAP.md",
+        "awdawmip/chatgpt-global-knowledge@main:OPERATING_MANUAL.md",
+        "knowledge/procedures/EM_RESEARCH_ACTIVITY_REGISTRATION_20260908.md",
+        "knowledge/procedures/BRC_RESEARCH_PRIORITY_AND_USAGE_20260905.md"
+      ],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null
+    }
+  ]
 }
