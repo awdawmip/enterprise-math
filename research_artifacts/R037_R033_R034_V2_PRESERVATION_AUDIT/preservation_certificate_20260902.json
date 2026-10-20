@@ -1,0 +1,128 @@
+{
+  "schema": "R037_V2_PRESERVATION_CERTIFICATE_V1",
+  "task_id": "RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT",
+  "publication_id": "TP2-FEE5990D460CCB106345",
+  "claim_id": "chatgpt-r037-v2pres-20260902-1310-785730",
+  "researcher_id": "EM-R037-785730",
+  "execution_branch": "research/r037-v2-preservation-audit-em-r037-785730",
+  "execution_branch_base": "ba50319daed74a660409b932c2cc0b464b2dbf82",
+  "theorem_owner": "program/p022-geometry-v2",
+  "audit_scope": "CONTROL_PLANE_V2_PRESERVATION_ONLY; NO_R033_R034_MATHEMATICAL_REPLAY",
+  "canonical_cutover_source": {
+    "archive_branch": "archive/legacy-control-plane-pre-v2-20260902",
+    "source_commit": "ce629e24e5af59128e25af87075c6622413684e0",
+    "source_definition": "research_scheduler.json",
+    "source_blob_sha1": "sha1:1dd988829f35245dcc8a91cfc2c69658eed9c004",
+    "task_snapshot": {
+      "task_id": "RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT",
+      "owner": "program/p022-geometry-v2",
+      "base_state": "READY",
+      "priority": "P0",
+      "leverage": "HIGH",
+      "identity_lane": "R037",
+      "frontier": "Independently reproduce the theorem-critical R033/R034 algorithms, exact data, formulas, certificates and evidence grades without using the frozen executables as the derivation engine, and identify any mismatch before deeper ontology is trusted.",
+      "next_action": "Using only definitions plus R033/R034 returns/evidence (not frozen executable derivations), independently rebuild the FCC/HCP/Barlow finite generators, verify exact counts/moments/spectra, and emit a mismatch certificate before the next foundational research hop.",
+      "dependencies": [
+        "RS-R033-DISCRETE-3D-CONVEX-BALL-GOMPERTZ-SCALING",
+        "RS-R034-CLASSICAL-CONSTANTS-DISCRETE-APPROXIMATION"
+      ],
+      "evidence_status": "REPLICATION_AUDIT_P0",
+      "last_progress_ref": "Taskbook created from current master frontier; no execution claim issued.",
+      "last_progress_at": "2026-08-12T19:33:00Z",
+      "hard_block": "NONE"
+    }
+  },
+  "authenticated_runtime_overlay": {
+    "source": "GitHub Issue #240 server comment",
+    "comment_id": 5454674516,
+    "server_created_at": "2026-08-28T15:52:42Z",
+    "event": "HANDOFF",
+    "researcher_id": "EM-R037-204389",
+    "claim_id": "chatgpt-r037-20260828-2324",
+    "progress_ref": "PR #812 / research/r037-independent-replication-em-r037-204389@87d617a90d81b6197d521699512e1894db4346d8 / research_returns/R037_R033_R034_INDEPENDENT_ALGORITHM_DATA_REPLICATION_AUDIT_RETURN_20260828.md",
+    "terminal_scope": "AWAITING_DRIVER_REVIEW",
+    "next_action": "Driver review PR #812. Review mathematical evidence and provenance separately: if mathematical replication is the gate, accept the evidence grades and consider promoting the scoped Barlow gauge theorem; if a strict provenance-clean blind R034 label is required, reissue only R034 to a fresh clean executor because this run had an accidental partial frozen-script patch exposure during owner-head metadata lookup.",
+    "summary": "DONE / RETURNED_WITH_PROVENANCE_CAVEAT; zero theorem-critical mathematical mismatches; exact finite R033/R034 replication returned with explicitly separated provenance caveat."
+  },
+  "migration_manifest": {
+    "path": "control_plane/legacy_control_migration_manifest.json",
+    "schema": "ENTERPRISE_MATH_LEGACY_CONTROL_MIGRATION_MANIFEST_V1",
+    "status": "COMPLETE",
+    "source_commit": "ce629e24e5af59128e25af87075c6622413684e0",
+    "archive_branch": "archive/legacy-control-plane-pre-v2-20260902",
+    "authority_execution_claim_created": false,
+    "authority_no_synthetic_owner_events_emitted": true,
+    "row": {
+      "task_id": "RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT",
+      "disposition": "ACTIVE_FRONTIER",
+      "publication_id": "TP2-FEE5990D460CCB106345",
+      "record_path": "research_task_records/RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT/TP2-FEE5990D460CCB106345.json",
+      "taskbook_path": "research_tasks/LEGACY_CONTROL_MIGRATION_RS_R037_R033_R034_INDEPENDENT_ALGORITHM_DATA_REPLICATION_AUDIT_20260902.md",
+      "record_state": "ACTIVE",
+      "claimable": true,
+      "legacy_runtime_state": "HANDOFF_READY"
+    }
+  },
+  "current_v2": {
+    "publication_path": "research_task_records/RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT/TP2-FEE5990D460CCB106345.json",
+    "publication_blob_sha1": "sha1:6ddcd731814ddf7eb7928247b412f1dae64a70ee",
+    "taskbook_path": "research_tasks/LEGACY_CONTROL_MIGRATION_RS_R037_R033_R034_INDEPENDENT_ALGORITHM_DATA_REPLICATION_AUDIT_20260902.md",
+    "taskbook_blob_sha1": "sha1:16f7343d8087e0eb43b4af697de9785139539cc8",
+    "record_state": "ACTIVE",
+    "claimable": true,
+    "owner": "program/p022-geometry-v2",
+    "effective_priority": "P0",
+    "effective_leverage": "HIGH",
+    "frontier": "Independently reproduce the theorem-critical R033/R034 algorithms, exact data, formulas, certificates and evidence grades without using the frozen executables as the derivation engine, and identify any mismatch before deeper ontology is trusted.",
+    "runtime_state": "HANDOFF_READY",
+    "last_progress_ref": "PR #812 / research/r037-independent-replication-em-r037-204389@87d617a90d81b6197d521699512e1894db4346d8 / research_returns/R037_R033_R034_INDEPENDENT_ALGORITHM_DATA_REPLICATION_AUDIT_RETURN_20260828.md",
+    "last_progress_at": "2026-08-28T15:52:42+00:00",
+    "next_action": "Driver review PR #812. Review mathematical evidence and provenance separately: if mathematical replication is the gate, accept the evidence grades and consider promoting the scoped Barlow gauge theorem; if a strict provenance-clean blind R034 label is required, reissue only R034 to a fresh clean executor because this run had an accidental partial frozen-script patch exposure during owner-head metadata lookup.",
+    "no_execution_claim_created_at_cutover": true
+  },
+  "historical_taskbook": {
+    "path": "research_tasks/R037_R033_R034_INDEPENDENT_ALGORITHM_DATA_REPLICATION_AUDIT_20260812.md",
+    "blob_sha1": "sha1:23c4f0c3dc034ee0f1d48d72d47009376685a56d",
+    "classification": "HISTORICAL_SEED_NOT_CUTOVER_RUNTIME_AUTHORITY",
+    "preserved_dependency_targets": [
+      "R033 owner head c2aa1758c6cf8f194d8b4493b90c903a2dfcd048",
+      "R034 owner head 674fb8717d753cd36fd83b061c869d79e8875b31"
+    ],
+    "normalizations": [
+      {
+        "field": "dependencies[*].action",
+        "historical": [
+          "TEST_FROZEN_INTRINSIC_GRAPH_SPHERE_RESULTS",
+          "TEST_FROZEN_PROPAGATION_SPHERE_RESULTS"
+        ],
+        "v2": [
+          "TEST",
+          "TEST"
+        ],
+        "classification": "NONBLOCKING_HISTORICAL_METADATA_NORMALIZATION",
+        "reason": "Both dependencies are already satisfied and current durable next action is Driver review; exact historical action labels remain recoverable from the pinned historical taskbook."
+      },
+      {
+        "field": "claim_lease_minutes",
+        "historical": 1440,
+        "v2": 120,
+        "classification": "NONBLOCKING_RUNTIME_POLICY_NORMALIZATION",
+        "reason": "Lease is an execution-control parameter, not mathematical scope; current registered CLAIM uses the V2 lease."
+      }
+    ]
+  },
+  "assertions": [
+    {"id": "A1_TASK_IDENTITY", "status": "PASS", "statement": "task_id and registry identity are unchanged across cutover."},
+    {"id": "A2_OWNER_BOUNDARY", "status": "PASS", "statement": "theorem owner program/p022-geometry-v2 is preserved."},
+    {"id": "A3_PRIORITY_CLASS", "status": "PASS", "statement": "cutover scheduler P0/HIGH is preserved as V2 effective P0/HIGH."},
+    {"id": "A4_FRONTIER", "status": "PASS", "statement": "canonical cutover scheduler frontier is reproduced exactly in V2 publication/taskbook."},
+    {"id": "A5_RUNTIME_PROGRESS", "status": "PASS", "statement": "authenticated HANDOFF progress is preserved by exact progress_ref/timestamp and HANDOFF_READY state."},
+    {"id": "A6_NEXT_ACTION", "status": "PASS", "statement": "current next action is the authenticated HANDOFF Driver-review action, not stale pre-execution work."},
+    {"id": "A7_NO_SYNTHETIC_OWNER", "status": "PASS", "statement": "cutover created no execution claim and emitted no synthetic owner event."},
+    {"id": "A8_BLOB_BINDING", "status": "PASS", "statement": "V2 publication pins the exact V2 taskbook blob sha1."},
+    {"id": "A9_HISTORICAL_TRACEABILITY", "status": "PASS_WITH_CAVEAT", "statement": "historical taskbook remains pinned and recoverable; normalized satisfied-dependency action labels and lease are explicitly recorded here rather than misreported as byte-identical preservation."},
+    {"id": "A10_NO_MATH_REPLAY", "status": "PASS", "statement": "this audit did not re-execute or re-grade R033/R034 mathematical claims."}
+  ],
+  "verdict": "V2_PRESERVATION_CONFIRMED_AT_CUTOVER_SEMANTICS_WITH_NONBLOCKING_HISTORICAL_NORMALIZATION_CAVEAT",
+  "unresolved_residue": "Driver still must review PR #812 mathematical evidence and provenance separately. This preservation audit neither accepts nor rejects that earlier mathematical result."
+}
