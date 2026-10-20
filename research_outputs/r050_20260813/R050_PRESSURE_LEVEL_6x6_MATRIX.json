@@ -1,0 +1,1315 @@
+{
+  "candidate_count": 6,
+  "cell_count": 36,
+  "cells": [
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M1",
+      "candidate_name": "PAIRWISE_EQUALIZATION_REWRITE",
+      "cell_id": "G2-M1::GEOMETRIC_MEASURE_COHERENCE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A1-GMC-M48-STEP-GAGE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "pressure_prediction": "Only qualitative local equalization is available; no exact or quantitative statement about CMM pairwise separation coherence is predicted.",
+      "row_evidence_levels": {
+        "A1-GMC-M48-STEP-GAGE": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M1 PAIRWISE_EQUALIZATION_REWRITE @ a12bcaa3c6b22366865670513a065b1cf6b9fd95f3941b1e6d13b38becf44f52",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "stable predicate |x(u)-x(v)|≤1 and P=Σx(v)^2",
+        "physical_protocols": [
+          "NIST M48 CMM tactile measurement of long one-dimensional step gauges"
+        ],
+        "physical_to_native_encoding": "A post-target codebook would be needed to turn contact-derived separations into integer occupancies; no such codebook is frozen or fitted.",
+        "predicted_measured_output_statement": "Only qualitative local equalization is available; no exact or quantitative statement about CMM pairwise separation coherence is predicted."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B4_ILLEGAL_LEAKAGE"
+      ],
+      "candidate_id": "G2-M1",
+      "candidate_name": "PAIRWISE_EQUALIZATION_REWRITE",
+      "cell_id": "G2-M1::CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A2-CCRP-PMU-PHASE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E0_UNMAPPED",
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "pressure_prediction": "REJECTED: no legal prediction of periodic relative-phase consistency.",
+      "row_evidence_levels": {
+        "A2-CCRP-PMU-PHASE": "E0_UNMAPPED"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M1 PAIRWISE_EQUALIZATION_REWRITE @ a12bcaa3c6b22366865670513a065b1cf6b9fd95f3941b1e6d13b38becf44f52",
+        "metrology_bridge": [
+          "B4_ILLEGAL_LEAKAGE"
+        ],
+        "native_readout_or_quotient": "No legal recurrent/relative-phase readout exists in the frozen candidate.",
+        "physical_protocols": [
+          "NIST PMU/synchrophasor calibration using traceable low-frequency phase-angle generation"
+        ],
+        "physical_to_native_encoding": "Mapping PMU phase to this terminal rewrite would require importing cycle/phase structure absent from the candidate.",
+        "predicted_measured_output_statement": "REJECTED: no legal prediction of periodic relative-phase consistency."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B1_UNIFORM_READOUT"
+      ],
+      "candidate_id": "G2-M1",
+      "candidate_name": "PAIRWISE_EQUALIZATION_REWRITE",
+      "cell_id": "G2-M1::DIFFUSIVE_RELAXATION",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A3-DR-FDTR-PUMP-PROBE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "pressure_prediction": "Predicts finite relaxation toward a stable local quotient only; it does not predict the measured FDTR phase-lag-versus-frequency curve.",
+      "row_evidence_levels": {
+        "A3-DR-FDTR-PUMP-PROBE": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M1 PAIRWISE_EQUALIZATION_REWRITE @ a12bcaa3c6b22366865670513a065b1cf6b9fd95f3941b1e6d13b38becf44f52",
+        "metrology_bridge": [
+          "B1_UNIFORM_READOUT"
+        ],
+        "native_readout_or_quotient": "P=Σx(v)^2 together with strict decrease on every legal nontrivial update",
+        "physical_protocols": [
+          "NIST frequency-domain thermoreflectance (FDTR) modulated optical pump-probe measurement"
+        ],
+        "physical_to_native_encoding": "Represent controlled local state redistribution by legal graph-token updates without identifying modulation frequency with any native coordinate.",
+        "predicted_measured_output_statement": "Predicts finite relaxation toward a stable local quotient only; it does not predict the measured FDTR phase-lag-versus-frequency curve."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B4_ILLEGAL_LEAKAGE"
+      ],
+      "candidate_id": "G2-M1",
+      "candidate_name": "PAIRWISE_EQUALIZATION_REWRITE",
+      "cell_id": "G2-M1::BOUNDED_MODE_SPECTRUM",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A4-BMS-CAVITY-VNA"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E0_UNMAPPED",
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "pressure_prediction": "REJECTED: no legal prediction of bounded response peaks or their retuning.",
+      "row_evidence_levels": {
+        "A4-BMS-CAVITY-VNA": "E0_UNMAPPED"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M1 PAIRWISE_EQUALIZATION_REWRITE @ a12bcaa3c6b22366865670513a065b1cf6b9fd95f3941b1e6d13b38becf44f52",
+        "metrology_bridge": [
+          "B4_ILLEGAL_LEAKAGE"
+        ],
+        "native_readout_or_quotient": "No native resonance/response-peak readout.",
+        "physical_protocols": [
+          "NIST 60 mm cylindrical microwave cavity resonance measurement with automatic network analyzer"
+        ],
+        "physical_to_native_encoding": "Any mapping from terminal states to microwave modes/peaks would require a target response adapter or classical eigenmode formula.",
+        "predicted_measured_output_statement": "REJECTED: no legal prediction of bounded response peaks or their retuning."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "common-support minimum across both independent realizations; no averaging; E4 would additionally require cross-realization transfer",
+      "bridge_classes": [
+        "B1_UNIFORM_READOUT"
+      ],
+      "candidate_id": "G2-M1",
+      "candidate_name": "PAIRWISE_EQUALIZATION_REWRITE",
+      "cell_id": "G2-M1::TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "B1A-TIBC-LIQUID-GRAVIMETRIC",
+        "B1B-TIBC-GAS-PVTT"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "pressure_prediction": "For every finite trajectory, ΔI_R = N_in−N_out exactly; internal updates telescope to zero. This is structural E2 only because no numerical metrology split is present.",
+      "row_evidence_levels": {
+        "B1A-TIBC-LIQUID-GRAVIMETRIC": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+        "B1B-TIBC-GAS-PVTT": "E2_EXACT_STRUCTURAL_CONSTRAINT"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M1 PAIRWISE_EQUALIZATION_REWRITE @ a12bcaa3c6b22366865670513a065b1cf6b9fd95f3941b1e6d13b38becf44f52",
+        "metrology_bridge": [
+          "B1_UNIFORM_READOUT"
+        ],
+        "native_readout_or_quotient": "Receiver block sum I_R(x)=Σ_{v∈R}x(v) and signed count of legal updates crossing the supplied interface I",
+        "physical_protocols": [
+          "NIST 15 kg/s fully dynamic gravimetric liquid-flow standard",
+          "NIST PVTt primary gas-flow standard"
+        ],
+        "physical_to_native_encoding": "Use an I0 source/receiver partition of the physical carrier graph and the explicitly supplied interface I; encode one resolved transfer quantum as one legal token move. Inventory and transfer are read independently from receiver state and cross-interface event count.",
+        "predicted_measured_output_statement": "For every finite trajectory, ΔI_R = N_in−N_out exactly; internal updates telescope to zero. This is structural E2 only because no numerical metrology split is present."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "common-support minimum across both independent realizations; no averaging; E4 would additionally require cross-realization transfer",
+      "bridge_classes": [
+        "B1_UNIFORM_READOUT"
+      ],
+      "candidate_id": "G2-M1",
+      "candidate_name": "PAIRWISE_EQUALIZATION_REWRITE",
+      "cell_id": "G2-M1::SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "B2A-SRIR-MIC-RECIP",
+        "B2B-SRIR-ANTENNA-3PAIR"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "pressure_prediction": "Predicts symmetry of the native update law under endpoint relabeling, not equality/compatibility of measured transfer signals.",
+      "row_evidence_levels": {
+        "B2A-SRIR-MIC-RECIP": "E1_QUALITATIVE_MECHANISM",
+        "B2B-SRIR-ANTENNA-3PAIR": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M1 PAIRWISE_EQUALIZATION_REWRITE @ a12bcaa3c6b22366865670513a065b1cf6b9fd95f3941b1e6d13b38becf44f52",
+        "metrology_bridge": [
+          "B1_UNIFORM_READOUT"
+        ],
+        "native_readout_or_quotient": "endpoint-symmetric legal-update predicate and C/P invariants",
+        "physical_protocols": [
+          "NIST primary pressure-reciprocity calibration of a three-microphone triad",
+          "NIST three-antenna extrapolation gain calibration"
+        ],
+        "physical_to_native_encoding": "Represent source/receiver roles only as I0 endpoint labels on an unordered edge; do not import acoustic or electromagnetic reciprocity equations.",
+        "predicted_measured_output_statement": "Predicts symmetry of the native update law under endpoint relabeling, not equality/compatibility of measured transfer signals."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M2",
+      "candidate_name": "SIGNED_CANCELLATION_LEDGER",
+      "cell_id": "G2-M2::GEOMETRIC_MEASURE_COHERENCE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A1-GMC-M48-STEP-GAGE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "pressure_prediction": "Only a discrepancy ledger is available; repeated separation coherence is not entailed.",
+      "row_evidence_levels": {
+        "A1-GMC-M48-STEP-GAGE": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M2 SIGNED_CANCELLATION_LEDGER @ 4b4da01eee68c59d683463fbd33b5a36fd36c8ed00456197f96ba3b22e0f1dac",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "q_a=p(a)-n(a), normal form NF(q)",
+        "physical_protocols": [
+          "NIST M48 CMM tactile measurement of long one-dimensional step gauges"
+        ],
+        "physical_to_native_encoding": "A protocol-specific signed coding of separation discrepancies would be required; coding q=0 from observed coherence is forbidden.",
+        "predicted_measured_output_statement": "Only a discrepancy ledger is available; repeated separation coherence is not entailed."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B4_ILLEGAL_LEAKAGE"
+      ],
+      "candidate_id": "G2-M2",
+      "candidate_name": "SIGNED_CANCELLATION_LEDGER",
+      "cell_id": "G2-M2::CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A2-CCRP-PMU-PHASE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E0_UNMAPPED",
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "pressure_prediction": "REJECTED: no legal periodic relative-phase prediction.",
+      "row_evidence_levels": {
+        "A2-CCRP-PMU-PHASE": "E0_UNMAPPED"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M2 SIGNED_CANCELLATION_LEDGER @ 4b4da01eee68c59d683463fbd33b5a36fd36c8ed00456197f96ba3b22e0f1dac",
+        "metrology_bridge": [
+          "B4_ILLEGAL_LEAKAGE"
+        ],
+        "native_readout_or_quotient": "No recurrent return/relative-phase readout.",
+        "physical_protocols": [
+          "NIST PMU/synchrophasor calibration using traceable low-frequency phase-angle generation"
+        ],
+        "physical_to_native_encoding": "Introducing phase cycles would add a law absent from the frozen candidate.",
+        "predicted_measured_output_statement": "REJECTED: no legal periodic relative-phase prediction."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B1_UNIFORM_READOUT"
+      ],
+      "candidate_id": "G2-M2",
+      "candidate_name": "SIGNED_CANCELLATION_LEDGER",
+      "cell_id": "G2-M2::DIFFUSIVE_RELAXATION",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A3-DR-FDTR-PUMP-PROBE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "pressure_prediction": "Predicts monotone cancellation to NF(q), not the measured material-dependent FDTR response curve.",
+      "row_evidence_levels": {
+        "A3-DR-FDTR-PUMP-PROBE": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M2 SIGNED_CANCELLATION_LEDGER @ 4b4da01eee68c59d683463fbd33b5a36fd36c8ed00456197f96ba3b22e0f1dac",
+        "metrology_bridge": [
+          "B1_UNIFORM_READOUT"
+        ],
+        "native_readout_or_quotient": "N=Σ_a(p(a)+n(a)) and conserved q",
+        "physical_protocols": [
+          "NIST frequency-domain thermoreflectance (FDTR) modulated optical pump-probe measurement"
+        ],
+        "physical_to_native_encoding": "Encode only qualitative opposite-signed local excess/deficit carriers; do not identify frequency or phase with native quantities.",
+        "predicted_measured_output_statement": "Predicts monotone cancellation to NF(q), not the measured material-dependent FDTR response curve."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B4_ILLEGAL_LEAKAGE"
+      ],
+      "candidate_id": "G2-M2",
+      "candidate_name": "SIGNED_CANCELLATION_LEDGER",
+      "cell_id": "G2-M2::BOUNDED_MODE_SPECTRUM",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A4-BMS-CAVITY-VNA"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E0_UNMAPPED",
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "pressure_prediction": "REJECTED: no legal prediction of resonance peaks.",
+      "row_evidence_levels": {
+        "A4-BMS-CAVITY-VNA": "E0_UNMAPPED"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M2 SIGNED_CANCELLATION_LEDGER @ 4b4da01eee68c59d683463fbd33b5a36fd36c8ed00456197f96ba3b22e0f1dac",
+        "metrology_bridge": [
+          "B4_ILLEGAL_LEAKAGE"
+        ],
+        "native_readout_or_quotient": "No legal bounded-mode readout.",
+        "physical_protocols": [
+          "NIST 60 mm cylindrical microwave cavity resonance measurement with automatic network analyzer"
+        ],
+        "physical_to_native_encoding": "A resonance/eigenmode mapping would require forbidden effective mathematics before native readout.",
+        "predicted_measured_output_statement": "REJECTED: no legal prediction of resonance peaks."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "common-support minimum across both independent realizations; no averaging; E4 would additionally require cross-realization transfer",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M2",
+      "candidate_name": "SIGNED_CANCELLATION_LEDGER",
+      "cell_id": "G2-M2::TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "B1A-TIBC-LIQUID-GRAVIMETRIC",
+        "B1B-TIBC-GAS-PVTT"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "pressure_prediction": "Can represent a measured balance residual after the fact; does not predict zero/small residual.",
+      "row_evidence_levels": {
+        "B1A-TIBC-LIQUID-GRAVIMETRIC": "E1_QUALITATIVE_MECHANISM",
+        "B1B-TIBC-GAS-PVTT": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M2 SIGNED_CANCELLATION_LEDGER @ 4b4da01eee68c59d683463fbd33b5a36fd36c8ed00456197f96ba3b22e0f1dac",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "componentwise q and multiset composition",
+        "physical_protocols": [
+          "NIST 15 kg/s fully dynamic gravimetric liquid-flow standard",
+          "NIST PVTt primary gas-flow standard"
+        ],
+        "physical_to_native_encoding": "A post-target signed ledger could record transfer and inventory channels, but the candidate has no physical transfer operation linking them.",
+        "predicted_measured_output_statement": "Can represent a measured balance residual after the fact; does not predict zero/small residual."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "common-support minimum across both independent realizations; no averaging; E4 would additionally require cross-realization transfer",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M2",
+      "candidate_name": "SIGNED_CANCELLATION_LEDGER",
+      "cell_id": "G2-M2::SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "B2A-SRIR-MIC-RECIP",
+        "B2B-SRIR-ANTENNA-3PAIR"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "pressure_prediction": "Only a signed discrepancy representation is predicted; reciprocity of measured signals is not.",
+      "row_evidence_levels": {
+        "B2A-SRIR-MIC-RECIP": "E1_QUALITATIVE_MECHANISM",
+        "B2B-SRIR-ANTENNA-3PAIR": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M2 SIGNED_CANCELLATION_LEDGER @ 4b4da01eee68c59d683463fbd33b5a36fd36c8ed00456197f96ba3b22e0f1dac",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "q and type-relabeling action",
+        "physical_protocols": [
+          "NIST primary pressure-reciprocity calibration of a three-microphone triad",
+          "NIST three-antenna extrapolation gain calibration"
+        ],
+        "physical_to_native_encoding": "A protocol-specific mapping of directed pair measurements to signed token types would be required.",
+        "predicted_measured_output_statement": "Only a signed discrepancy representation is predicted; reciprocity of measured signals is not."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B4_ILLEGAL_LEAKAGE"
+      ],
+      "candidate_id": "G2-M3",
+      "candidate_name": "BINARY_CARRY_RELAY",
+      "cell_id": "G2-M3::GEOMETRIC_MEASURE_COHERENCE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A1-GMC-M48-STEP-GAGE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E0_UNMAPPED",
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "pressure_prediction": "REJECTED: no legal geometric-measure coherence prediction.",
+      "row_evidence_levels": {
+        "A1-GMC-M48-STEP-GAGE": "E0_UNMAPPED"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M3 BINARY_CARRY_RELAY @ ad4ac85dc5dc4463edf0f584e317f23e40aee47d509062803a19309d81ffb6fa",
+        "metrology_bridge": [
+          "B4_ILLEGAL_LEAKAGE"
+        ],
+        "native_readout_or_quotient": "return periods and carry counts only",
+        "physical_protocols": [
+          "NIST M48 CMM tactile measurement of long one-dimensional step gauges"
+        ],
+        "physical_to_native_encoding": "Turning chain positions or periods into physical separations would import distance/measure semantics.",
+        "predicted_measured_output_statement": "REJECTED: no legal geometric-measure coherence prediction."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B1_UNIFORM_READOUT"
+      ],
+      "candidate_id": "G2-M3",
+      "candidate_name": "BINARY_CARRY_RELAY",
+      "cell_id": "G2-M3::CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A2-CCRP-PMU-PHASE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "pressure_prediction": "Predicts exact finite periodic return structure, but not PMU relative-phase tracking across independent channels.",
+      "row_evidence_levels": {
+        "A2-CCRP-PMU-PHASE": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M3 BINARY_CARRY_RELAY @ ad4ac85dc5dc4463edf0f584e317f23e40aee47d509062803a19309d81ffb6fa",
+        "metrology_bridge": [
+          "B1_UNIFORM_READOUT"
+        ],
+        "native_readout_or_quotient": "full return period 2^L; prefix return periods 2^k; carry fractions 1/2^k",
+        "physical_protocols": [
+          "NIST PMU/synchrophasor calibration using traceable low-frequency phase-angle generation"
+        ],
+        "physical_to_native_encoding": "Map repeated report/update steps to the finite action only; do not introduce angle, radian, 2π, clock, or cycle-origin primitives.",
+        "predicted_measured_output_statement": "Predicts exact finite periodic return structure, but not PMU relative-phase tracking across independent channels."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B4_ILLEGAL_LEAKAGE"
+      ],
+      "candidate_id": "G2-M3",
+      "candidate_name": "BINARY_CARRY_RELAY",
+      "cell_id": "G2-M3::DIFFUSIVE_RELAXATION",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A3-DR-FDTR-PUMP-PROBE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E0_UNMAPPED",
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "pressure_prediction": "REJECTED: no legal diffusive-relaxation prediction.",
+      "row_evidence_levels": {
+        "A3-DR-FDTR-PUMP-PROBE": "E0_UNMAPPED"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M3 BINARY_CARRY_RELAY @ ad4ac85dc5dc4463edf0f584e317f23e40aee47d509062803a19309d81ffb6fa",
+        "metrology_bridge": [
+          "B4_ILLEGAL_LEAKAGE"
+        ],
+        "native_readout_or_quotient": "No strict well-founded monotone exists under A.",
+        "physical_protocols": [
+          "NIST frequency-domain thermoreflectance (FDTR) modulated optical pump-probe measurement"
+        ],
+        "physical_to_native_encoding": "A diffusive/decaying response would require adding noninvertible dynamics or a continuum model.",
+        "predicted_measured_output_statement": "REJECTED: no legal diffusive-relaxation prediction."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M3",
+      "candidate_name": "BINARY_CARRY_RELAY",
+      "cell_id": "G2-M3::BOUNDED_MODE_SPECTRUM",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A4-BMS-CAVITY-VNA"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "pressure_prediction": "Predicts a discrete return hierarchy only; it does not predict cavity resonance-curve structure.",
+      "row_evidence_levels": {
+        "A4-BMS-CAVITY-VNA": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M3 BINARY_CARRY_RELAY @ ad4ac85dc5dc4463edf0f584e317f23e40aee47d509062803a19309d81ffb6fa",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "2^k return-period hierarchy and divisibility order",
+        "physical_protocols": [
+          "NIST 60 mm cylindrical microwave cavity resonance measurement with automatic network analyzer"
+        ],
+        "physical_to_native_encoding": "A target-specific adapter would be needed to turn return periods into frequency-indexed resonant response peaks.",
+        "predicted_measured_output_statement": "Predicts a discrete return hierarchy only; it does not predict cavity resonance-curve structure."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "common-support minimum across both independent realizations; no averaging; E4 would additionally require cross-realization transfer",
+      "bridge_classes": [
+        "B4_ILLEGAL_LEAKAGE"
+      ],
+      "candidate_id": "G2-M3",
+      "candidate_name": "BINARY_CARRY_RELAY",
+      "cell_id": "G2-M3::TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "B1A-TIBC-LIQUID-GRAVIMETRIC",
+        "B1B-TIBC-GAS-PVTT"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E0_UNMAPPED",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "pressure_prediction": "REJECTED: no legal inventory-transfer closure prediction.",
+      "row_evidence_levels": {
+        "B1A-TIBC-LIQUID-GRAVIMETRIC": "E0_UNMAPPED",
+        "B1B-TIBC-GAS-PVTT": "E0_UNMAPPED"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M3 BINARY_CARRY_RELAY @ ad4ac85dc5dc4463edf0f584e317f23e40aee47d509062803a19309d81ffb6fa",
+        "metrology_bridge": [
+          "B4_ILLEGAL_LEAKAGE"
+        ],
+        "native_readout_or_quotient": "No conserved extensive transfer/inventory readout.",
+        "physical_protocols": [
+          "NIST 15 kg/s fully dynamic gravimetric liquid-flow standard",
+          "NIST PVTt primary gas-flow standard"
+        ],
+        "physical_to_native_encoding": "A control-volume balance law would have to be imported.",
+        "predicted_measured_output_statement": "REJECTED: no legal inventory-transfer closure prediction."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "common-support minimum across both independent realizations; no averaging; E4 would additionally require cross-realization transfer",
+      "bridge_classes": [
+        "B4_ILLEGAL_LEAKAGE"
+      ],
+      "candidate_id": "G2-M3",
+      "candidate_name": "BINARY_CARRY_RELAY",
+      "cell_id": "G2-M3::SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "B2A-SRIR-MIC-RECIP",
+        "B2B-SRIR-ANTENNA-3PAIR"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E0_UNMAPPED",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "pressure_prediction": "REJECTED: no legal source/receiver interchange prediction.",
+      "row_evidence_levels": {
+        "B2A-SRIR-MIC-RECIP": "E0_UNMAPPED",
+        "B2B-SRIR-ANTENNA-3PAIR": "E0_UNMAPPED"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M3 BINARY_CARRY_RELAY @ ad4ac85dc5dc4463edf0f584e317f23e40aee47d509062803a19309d81ffb6fa",
+        "metrology_bridge": [
+          "B4_ILLEGAL_LEAKAGE"
+        ],
+        "native_readout_or_quotient": "oriented carry action and return periods",
+        "physical_protocols": [
+          "NIST primary pressure-reciprocity calibration of a three-microphone triad",
+          "NIST three-antenna extrapolation gain calibration"
+        ],
+        "physical_to_native_encoding": "Acoustic/electromagnetic reciprocity would have to be added externally as a native law.",
+        "predicted_measured_output_statement": "REJECTED: no legal source/receiver interchange prediction."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B4_ILLEGAL_LEAKAGE"
+      ],
+      "candidate_id": "G2-M4",
+      "candidate_name": "FINITE_UNION_PROPAGATION",
+      "cell_id": "G2-M4::GEOMETRIC_MEASURE_COHERENCE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A1-GMC-M48-STEP-GAGE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E0_UNMAPPED",
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "pressure_prediction": "REJECTED: no legal geometric-measure coherence prediction.",
+      "row_evidence_levels": {
+        "A1-GMC-M48-STEP-GAGE": "E0_UNMAPPED"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M4 FINITE_UNION_PROPAGATION @ 3830eab3a05532a3df5427a7c24ce15e50f62ae10130b149a432a47094cec85c",
+        "metrology_bridge": [
+          "B4_ILLEGAL_LEAKAGE"
+        ],
+        "native_readout_or_quotient": "U, P and subset order only",
+        "physical_protocols": [
+          "NIST M48 CMM tactile measurement of long one-dimensional step gauges"
+        ],
+        "physical_to_native_encoding": "Mapping atom-set relations to physical separations would require an output-equivalent geometry codebook.",
+        "predicted_measured_output_statement": "REJECTED: no legal geometric-measure coherence prediction."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B4_ILLEGAL_LEAKAGE"
+      ],
+      "candidate_id": "G2-M4",
+      "candidate_name": "FINITE_UNION_PROPAGATION",
+      "cell_id": "G2-M4::CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A2-CCRP-PMU-PHASE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E0_UNMAPPED",
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "pressure_prediction": "REJECTED: no legal periodic relative-phase prediction.",
+      "row_evidence_levels": {
+        "A2-CCRP-PMU-PHASE": "E0_UNMAPPED"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M4 FINITE_UNION_PROPAGATION @ 3830eab3a05532a3df5427a7c24ce15e50f62ae10130b149a432a47094cec85c",
+        "metrology_bridge": [
+          "B4_ILLEGAL_LEAKAGE"
+        ],
+        "native_readout_or_quotient": "No nontrivial recurrent readout.",
+        "physical_protocols": [
+          "NIST PMU/synchrophasor calibration using traceable low-frequency phase-angle generation"
+        ],
+        "physical_to_native_encoding": "Relative phase/cycle structure is absent.",
+        "predicted_measured_output_statement": "REJECTED: no legal periodic relative-phase prediction."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B1_UNIFORM_READOUT"
+      ],
+      "candidate_id": "G2-M4",
+      "candidate_name": "FINITE_UNION_PROPAGATION",
+      "cell_id": "G2-M4::DIFFUSIVE_RELAXATION",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A3-DR-FDTR-PUMP-PROBE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "pressure_prediction": "Predicts finite propagation to componentwise uniform union, not the FDTR delayed-response curve.",
+      "row_evidence_levels": {
+        "A3-DR-FDTR-PUMP-PROBE": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M4 FINITE_UNION_PROPAGATION @ 3830eab3a05532a3df5427a7c24ce15e50f62ae10130b149a432a47094cec85c",
+        "metrology_bridge": [
+          "B1_UNIFORM_READOUT"
+        ],
+        "native_readout_or_quotient": "U conserved; P=Σ_v(|U|-|S_v|) strictly decreases on nontrivial joins",
+        "physical_protocols": [
+          "NIST frequency-domain thermoreflectance (FDTR) modulated optical pump-probe measurement"
+        ],
+        "physical_to_native_encoding": "Encode qualitative spreading of locally present finite carriers under adjacency joins without metric or diffusion kernel.",
+        "predicted_measured_output_statement": "Predicts finite propagation to componentwise uniform union, not the FDTR delayed-response curve."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B4_ILLEGAL_LEAKAGE"
+      ],
+      "candidate_id": "G2-M4",
+      "candidate_name": "FINITE_UNION_PROPAGATION",
+      "cell_id": "G2-M4::BOUNDED_MODE_SPECTRUM",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A4-BMS-CAVITY-VNA"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E0_UNMAPPED",
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "pressure_prediction": "REJECTED: no legal bounded-mode spectrum prediction.",
+      "row_evidence_levels": {
+        "A4-BMS-CAVITY-VNA": "E0_UNMAPPED"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M4 FINITE_UNION_PROPAGATION @ 3830eab3a05532a3df5427a7c24ce15e50f62ae10130b149a432a47094cec85c",
+        "metrology_bridge": [
+          "B4_ILLEGAL_LEAKAGE"
+        ],
+        "native_readout_or_quotient": "No resonance-peak readout.",
+        "physical_protocols": [
+          "NIST 60 mm cylindrical microwave cavity resonance measurement with automatic network analyzer"
+        ],
+        "physical_to_native_encoding": "Classical eigenmode/response formulas would be required for a stronger mapping.",
+        "predicted_measured_output_statement": "REJECTED: no legal bounded-mode spectrum prediction."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "common-support minimum across both independent realizations; no averaging; E4 would additionally require cross-realization transfer",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M4",
+      "candidate_name": "FINITE_UNION_PROPAGATION",
+      "cell_id": "G2-M4::TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "B1A-TIBC-LIQUID-GRAVIMETRIC",
+        "B1B-TIBC-GAS-PVTT"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "pressure_prediction": "Predicts conserved information presence, not receiving-inventory change equal to transferred amount.",
+      "row_evidence_levels": {
+        "B1A-TIBC-LIQUID-GRAVIMETRIC": "E1_QUALITATIVE_MECHANISM",
+        "B1B-TIBC-GAS-PVTT": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M4 FINITE_UNION_PROPAGATION @ 3830eab3a05532a3df5427a7c24ce15e50f62ae10130b149a432a47094cec85c",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "global union U and deficit P",
+        "physical_protocols": [
+          "NIST 15 kg/s fully dynamic gravimetric liquid-flow standard",
+          "NIST PVTt primary gas-flow standard"
+        ],
+        "physical_to_native_encoding": "A target-specific atom codebook could mimic transferred material, but |U| is not additive when atom types overlap.",
+        "predicted_measured_output_statement": "Predicts conserved information presence, not receiving-inventory change equal to transferred amount."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "common-support minimum across both independent realizations; no averaging; E4 would additionally require cross-realization transfer",
+      "bridge_classes": [
+        "B1_UNIFORM_READOUT"
+      ],
+      "candidate_id": "G2-M4",
+      "candidate_name": "FINITE_UNION_PROPAGATION",
+      "cell_id": "G2-M4::SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "B2A-SRIR-MIC-RECIP",
+        "B2B-SRIR-ANTENNA-3PAIR"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "pressure_prediction": "Predicts symmetry of the join operation, not reciprocity of acoustic/RF transfer measurements.",
+      "row_evidence_levels": {
+        "B2A-SRIR-MIC-RECIP": "E1_QUALITATIVE_MECHANISM",
+        "B2B-SRIR-ANTENNA-3PAIR": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M4 FINITE_UNION_PROPAGATION @ 3830eab3a05532a3df5427a7c24ce15e50f62ae10130b149a432a47094cec85c",
+        "metrology_bridge": [
+          "B1_UNIFORM_READOUT"
+        ],
+        "native_readout_or_quotient": "J_e(S_u,S_v)=(S_u∪S_v,S_u∪S_v)",
+        "physical_protocols": [
+          "NIST primary pressure-reciprocity calibration of a three-microphone triad",
+          "NIST three-antenna extrapolation gain calibration"
+        ],
+        "physical_to_native_encoding": "Encode only endpoint role exchange on an unordered native edge; measured amplitudes remain outside the native premise.",
+        "predicted_measured_output_statement": "Predicts symmetry of the join operation, not reciprocity of acoustic/RF transfer measurements."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M5",
+      "candidate_name": "FINITE_REWRITE_ACTION_QUOTIENT",
+      "cell_id": "G2-M5::GEOMETRIC_MEASURE_COHERENCE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A1-GMC-M48-STEP-GAGE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "pressure_prediction": "Generic reachability can organize re-probing states but does not entail pairwise separation coherence.",
+      "row_evidence_levels": {
+        "A1-GMC-M48-STEP-GAGE": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M5 FINITE_REWRITE_ACTION_QUOTIENT @ be5c048b093423b07a1515f7f4b08baf99ef18d3fafceee0979c9fb5e17dee48",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "q(x), reachability preorder, orbit-size r(x)",
+        "physical_protocols": [
+          "NIST M48 CMM tactile measurement of long one-dimensional step gauges"
+        ],
+        "physical_to_native_encoding": "Instantiate a finite protocol state family and uniform generator schema from physical interventions only. Because this concrete generator semantics is not frozen in R048, the instantiation is logged as B3 and not used for quantitative success.",
+        "predicted_measured_output_statement": "Generic reachability can organize re-probing states but does not entail pairwise separation coherence."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M5",
+      "candidate_name": "FINITE_REWRITE_ACTION_QUOTIENT",
+      "cell_id": "G2-M5::CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A2-CCRP-PMU-PHASE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "pressure_prediction": "Recurrent classes can represent cycles but no canonical relative phase relation is predicted.",
+      "row_evidence_levels": {
+        "A2-CCRP-PMU-PHASE": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M5 FINITE_REWRITE_ACTION_QUOTIENT @ be5c048b093423b07a1515f7f4b08baf99ef18d3fafceee0979c9fb5e17dee48",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "recurrent mutual-reachability classes",
+        "physical_protocols": [
+          "NIST PMU/synchrophasor calibration using traceable low-frequency phase-angle generation"
+        ],
+        "physical_to_native_encoding": "Instantiate a finite protocol state family and uniform generator schema from physical interventions only. Because this concrete generator semantics is not frozen in R048, the instantiation is logged as B3 and not used for quantitative success.",
+        "predicted_measured_output_statement": "Recurrent classes can represent cycles but no canonical relative phase relation is predicted."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M5",
+      "candidate_name": "FINITE_REWRITE_ACTION_QUOTIENT",
+      "cell_id": "G2-M5::DIFFUSIVE_RELAXATION",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A3-DR-FDTR-PUMP-PROBE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "pressure_prediction": "Quotient descent supplies qualitative relaxation but no driven measured response curve.",
+      "row_evidence_levels": {
+        "A3-DR-FDTR-PUMP-PROBE": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M5 FINITE_REWRITE_ACTION_QUOTIENT @ be5c048b093423b07a1515f7f4b08baf99ef18d3fafceee0979c9fb5e17dee48",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "orbit-size monotone r(x) and quotient descent",
+        "physical_protocols": [
+          "NIST frequency-domain thermoreflectance (FDTR) modulated optical pump-probe measurement"
+        ],
+        "physical_to_native_encoding": "Instantiate a finite protocol state family and uniform generator schema from physical interventions only. Because this concrete generator semantics is not frozen in R048, the instantiation is logged as B3 and not used for quantitative success.",
+        "predicted_measured_output_statement": "Quotient descent supplies qualitative relaxation but no driven measured response curve."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M5",
+      "candidate_name": "FINITE_REWRITE_ACTION_QUOTIENT",
+      "cell_id": "G2-M5::BOUNDED_MODE_SPECTRUM",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A4-BMS-CAVITY-VNA"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "pressure_prediction": "Finite recurrent classes can be labeled like modes only through a target-specific response adapter.",
+      "row_evidence_levels": {
+        "A4-BMS-CAVITY-VNA": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M5 FINITE_REWRITE_ACTION_QUOTIENT @ be5c048b093423b07a1515f7f4b08baf99ef18d3fafceee0979c9fb5e17dee48",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "recurrent classes and orbit-size ratios",
+        "physical_protocols": [
+          "NIST 60 mm cylindrical microwave cavity resonance measurement with automatic network analyzer"
+        ],
+        "physical_to_native_encoding": "Instantiate a finite protocol state family and uniform generator schema from physical interventions only. Because this concrete generator semantics is not frozen in R048, the instantiation is logged as B3 and not used for quantitative success.",
+        "predicted_measured_output_statement": "Finite recurrent classes can be labeled like modes only through a target-specific response adapter."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "common-support minimum across both independent realizations; no averaging; E4 would additionally require cross-realization transfer",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M5",
+      "candidate_name": "FINITE_REWRITE_ACTION_QUOTIENT",
+      "cell_id": "G2-M5::TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "B1A-TIBC-LIQUID-GRAVIMETRIC",
+        "B1B-TIBC-GAS-PVTT"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "pressure_prediction": "A transfer-like generator can be chosen, but the frozen core has no general conserved extensive carrier linking meter and inventory.",
+      "row_evidence_levels": {
+        "B1A-TIBC-LIQUID-GRAVIMETRIC": "E1_QUALITATIVE_MECHANISM",
+        "B1B-TIBC-GAS-PVTT": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M5 FINITE_REWRITE_ACTION_QUOTIENT @ be5c048b093423b07a1515f7f4b08baf99ef18d3fafceee0979c9fb5e17dee48",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "generic generator action and reachability quotient",
+        "physical_protocols": [
+          "NIST 15 kg/s fully dynamic gravimetric liquid-flow standard",
+          "NIST PVTt primary gas-flow standard"
+        ],
+        "physical_to_native_encoding": "Instantiate a finite protocol state family and uniform generator schema from physical interventions only. Because this concrete generator semantics is not frozen in R048, the instantiation is logged as B3 and not used for quantitative success.",
+        "predicted_measured_output_statement": "A transfer-like generator can be chosen, but the frozen core has no general conserved extensive carrier linking meter and inventory."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "common-support minimum across both independent realizations; no averaging; E4 would additionally require cross-realization transfer",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M5",
+      "candidate_name": "FINITE_REWRITE_ACTION_QUOTIENT",
+      "cell_id": "G2-M5::SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "B2A-SRIR-MIC-RECIP",
+        "B2B-SRIR-ANTENNA-3PAIR"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "pressure_prediction": "Role-permutation generators can be chosen, but measured signal compatibility is not a frozen invariant.",
+      "row_evidence_levels": {
+        "B2A-SRIR-MIC-RECIP": "E1_QUALITATIVE_MECHANISM",
+        "B2B-SRIR-ANTENNA-3PAIR": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M5 FINITE_REWRITE_ACTION_QUOTIENT @ be5c048b093423b07a1515f7f4b08baf99ef18d3fafceee0979c9fb5e17dee48",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "generator-induced mutual reachability under chosen role permutations",
+        "physical_protocols": [
+          "NIST primary pressure-reciprocity calibration of a three-microphone triad",
+          "NIST three-antenna extrapolation gain calibration"
+        ],
+        "physical_to_native_encoding": "Instantiate a finite protocol state family and uniform generator schema from physical interventions only. Because this concrete generator semantics is not frozen in R048, the instantiation is logged as B3 and not used for quantitative success.",
+        "predicted_measured_output_statement": "Role-permutation generators can be chosen, but measured signal compatibility is not a frozen invariant."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B1_UNIFORM_READOUT"
+      ],
+      "candidate_id": "G2-M6",
+      "candidate_name": "CONSERVATIVE_SWAP_GROUP",
+      "cell_id": "G2-M6::GEOMETRIC_MEASURE_COHERENCE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A1-GMC-M48-STEP-GAGE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "pressure_prediction": "Predicts invariance to native permutation, not coherence of measured separations.",
+      "row_evidence_levels": {
+        "A1-GMC-M48-STEP-GAGE": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M6 CONSERVATIVE_SWAP_GROUP @ 90dfc14872299e611c1949d5784f32ac6f071ca58752609f72b5150d5d9e30ca",
+        "metrology_bridge": [
+          "B1_UNIFORM_READOUT"
+        ],
+        "native_readout_or_quotient": "componentwise label multiplicity vector and orbit under Γ",
+        "physical_protocols": [
+          "NIST M48 CMM tactile measurement of long one-dimensional step gauges"
+        ],
+        "physical_to_native_encoding": "Represent repeated probe/order permutations only as label-position permutations; do not map label positions to metric distance.",
+        "predicted_measured_output_statement": "Predicts invariance to native permutation, not coherence of measured separations."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B1_UNIFORM_READOUT"
+      ],
+      "candidate_id": "G2-M6",
+      "candidate_name": "CONSERVATIVE_SWAP_GROUP",
+      "cell_id": "G2-M6::CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A2-CCRP-PMU-PHASE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "pressure_prediction": "Predicts finite recurrence of label configurations, not PMU relative-phase tracking.",
+      "row_evidence_levels": {
+        "A2-CCRP-PMU-PHASE": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M6 CONSERVATIVE_SWAP_GROUP @ 90dfc14872299e611c1949d5784f32ac6f071ca58752609f72b5150d5d9e30ca",
+        "metrology_bridge": [
+          "B1_UNIFORM_READOUT"
+        ],
+        "native_readout_or_quotient": "finite Γ-orbit and orbit cardinality",
+        "physical_protocols": [
+          "NIST PMU/synchrophasor calibration using traceable low-frequency phase-angle generation"
+        ],
+        "physical_to_native_encoding": "Encode only finite role/state permutations; no clock, angle, cycle-origin, or 2π convention enters N0/N1.",
+        "predicted_measured_output_statement": "Predicts finite recurrence of label configurations, not PMU relative-phase tracking."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B4_ILLEGAL_LEAKAGE"
+      ],
+      "candidate_id": "G2-M6",
+      "candidate_name": "CONSERVATIVE_SWAP_GROUP",
+      "cell_id": "G2-M6::DIFFUSIVE_RELAXATION",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A3-DR-FDTR-PUMP-PROBE"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E0_UNMAPPED",
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "pressure_prediction": "REJECTED: diffusive relaxation is structurally unavailable.",
+      "row_evidence_levels": {
+        "A3-DR-FDTR-PUMP-PROBE": "E0_UNMAPPED"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M6 CONSERVATIVE_SWAP_GROUP @ 90dfc14872299e611c1949d5784f32ac6f071ca58752609f72b5150d5d9e30ca",
+        "metrology_bridge": [
+          "B4_ILLEGAL_LEAKAGE"
+        ],
+        "native_readout_or_quotient": "No legal strict relaxation readout under frozen swaps.",
+        "physical_protocols": [
+          "NIST frequency-domain thermoreflectance (FDTR) modulated optical pump-probe measurement"
+        ],
+        "physical_to_native_encoding": "Adding dissipative/diffusive dynamics would modify the core.",
+        "predicted_measured_output_statement": "REJECTED: diffusive relaxation is structurally unavailable."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "sole-row evidence",
+      "bridge_classes": [
+        "B3_TARGET_SPECIFIC_ADAPTER"
+      ],
+      "candidate_id": "G2-M6",
+      "candidate_name": "CONSERVATIVE_SWAP_GROUP",
+      "cell_id": "G2-M6::BOUNDED_MODE_SPECTRUM",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "A4-BMS-CAVITY-VNA"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "pressure_prediction": "Predicts finite recurrent orbit structure only; no cavity resonance curve.",
+      "row_evidence_levels": {
+        "A4-BMS-CAVITY-VNA": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M6 CONSERVATIVE_SWAP_GROUP @ 90dfc14872299e611c1949d5784f32ac6f071ca58752609f72b5150d5d9e30ca",
+        "metrology_bridge": [
+          "B3_TARGET_SPECIFIC_ADAPTER"
+        ],
+        "native_readout_or_quotient": "orbit and orbit cardinality n!/∏m_a!",
+        "physical_protocols": [
+          "NIST 60 mm cylindrical microwave cavity resonance measurement with automatic network analyzer"
+        ],
+        "physical_to_native_encoding": "A post-target response adapter would be required to associate group orbits with measured cavity peaks.",
+        "predicted_measured_output_statement": "Predicts finite recurrent orbit structure only; no cavity resonance curve."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "common-support minimum across both independent realizations; no averaging; E4 would additionally require cross-realization transfer",
+      "bridge_classes": [
+        "B1_UNIFORM_READOUT"
+      ],
+      "candidate_id": "G2-M6",
+      "candidate_name": "CONSERVATIVE_SWAP_GROUP",
+      "cell_id": "G2-M6::TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "B1A-TIBC-LIQUID-GRAVIMETRIC",
+        "B1B-TIBC-GAS-PVTT"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "pressure_prediction": "For every finite swap trajectory, ΔI_R(a)=N_in(a)−N_out(a) exactly; internal swaps contribute zero. Structural E2 only; no liquid/gas numerical metrology test is available.",
+      "row_evidence_levels": {
+        "B1A-TIBC-LIQUID-GRAVIMETRIC": "E2_EXACT_STRUCTURAL_CONSTRAINT",
+        "B1B-TIBC-GAS-PVTT": "E2_EXACT_STRUCTURAL_CONSTRAINT"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M6 CONSERVATIVE_SWAP_GROUP @ 90dfc14872299e611c1949d5784f32ac6f071ca58752609f72b5150d5d9e30ca",
+        "metrology_bridge": [
+          "B1_UNIFORM_READOUT"
+        ],
+        "native_readout_or_quotient": "receiver count I_R(a)=#{v∈R:λ(v)=a} and signed count of a-label crossings across the supplied interface",
+        "physical_protocols": [
+          "NIST 15 kg/s fully dynamic gravimetric liquid-flow standard",
+          "NIST PVTt primary gas-flow standard"
+        ],
+        "physical_to_native_encoding": "Use graph vertices as finite carrier slots and an I0 transported-label class a. A swap across the supplied source/receiver interface records a native crossing; receiver inventory is read independently as label count in R.",
+        "predicted_measured_output_statement": "For every finite swap trajectory, ΔI_R(a)=N_in(a)−N_out(a) exactly; internal swaps contribute zero. Structural E2 only; no liquid/gas numerical metrology test is available."
+      }
+    },
+    {
+      "E4_eligible": false,
+      "E4_status": "NOT_ELIGIBLE_FOR_E4",
+      "E5_status": "NOT_ELIGIBLE_WITHOUT_E4",
+      "aggregation_rule": "common-support minimum across both independent realizations; no averaging; E4 would additionally require cross-realization transfer",
+      "bridge_classes": [
+        "B1_UNIFORM_READOUT"
+      ],
+      "candidate_id": "G2-M6",
+      "candidate_name": "CONSERVATIVE_SWAP_GROUP",
+      "cell_id": "G2-M6::SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "core_edit_count": 0,
+      "empirical_rows": [
+        "B2A-SRIR-MIC-RECIP",
+        "B2B-SRIR-ANTENNA-3PAIR"
+      ],
+      "fitted_parameter_count": 0,
+      "pressure_evidence_level": "E1_QUALITATIVE_MECHANISM",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "pressure_prediction": "Predicts reversibility of the native role/state action, not compatibility of measured acoustic/RF directed transfer signals.",
+      "row_evidence_levels": {
+        "B2A-SRIR-MIC-RECIP": "E1_QUALITATIVE_MECHANISM",
+        "B2B-SRIR-ANTENNA-3PAIR": "E1_QUALITATIVE_MECHANISM"
+      },
+      "typed_chain_summary": {
+        "frozen_candidate": "G2-M6 CONSERVATIVE_SWAP_GROUP @ 90dfc14872299e611c1949d5784f32ac6f071ca58752609f72b5150d5d9e30ca",
+        "metrology_bridge": [
+          "B1_UNIFORM_READOUT"
+        ],
+        "native_readout_or_quotient": "swap_e=swap_e^{-1}, Γ-orbit, componentwise label multiplicity",
+        "physical_protocols": [
+          "NIST primary pressure-reciprocity calibration of a three-microphone triad",
+          "NIST three-antenna extrapolation gain calibration"
+        ],
+        "physical_to_native_encoding": "Represent source/receiver role permutations as finite label-position swaps without importing a reciprocity theorem.",
+        "predicted_measured_output_statement": "Predicts reversibility of the native role/state action, not compatibility of measured acoustic/RF directed transfer signals."
+      }
+    }
+  ],
+  "pressure_count": 6,
+  "pressures": [
+    "GEOMETRIC_MEASURE_COHERENCE",
+    "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+    "DIFFUSIVE_RELAXATION",
+    "BOUNDED_MODE_SPECTRUM",
+    "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+    "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY"
+  ],
+  "researcher_id": "EM-R050-93B6E2",
+  "schema": "ENTERPRISE_MATH_R050_PRESSURE_LEVEL_6X6_MATRIX_V1",
+  "scoring_protocol_sha256": "322f2e4ba66b4fbc8e47a513867399f9464a62a629af01f23cad6929d7c1d66b",
+  "task_id": "RS-R050-G2-OUT-OF-SAMPLE-ENGINEERING-CALIBRATION"
+}

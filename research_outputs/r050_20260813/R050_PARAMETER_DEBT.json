@@ -1,0 +1,113 @@
+{
+  "candidates": {
+    "G2-M1": {
+      "candidate_name": "PAIRWISE_EQUALIZATION_REWRITE",
+      "core_edit_count": 0,
+      "fitted_parameter_count": 0,
+      "fitted_parameter_names": [],
+      "frozen_core_free_arbitrary_parameters": [
+        "finite graph G",
+        "initial finite token multiset/state"
+      ],
+      "parameter_explosion_audit_inherited": "LOW: one finite relation and one finite state; no target-indexed coefficients.",
+      "target_specific_adapter_pressure_families": [
+        "GEOMETRIC_MEASURE_COHERENCE"
+      ],
+      "target_specific_adapter_schema_count": 1
+    },
+    "G2-M2": {
+      "candidate_name": "SIGNED_CANCELLATION_LEDGER",
+      "core_edit_count": 0,
+      "fitted_parameter_count": 0,
+      "fitted_parameter_names": [],
+      "frozen_core_free_arbitrary_parameters": [
+        "finite type set A",
+        "initial signed multiplicities"
+      ],
+      "parameter_explosion_audit_inherited": "LOW: no transition table or target-indexed parameter.",
+      "target_specific_adapter_pressure_families": [
+        "GEOMETRIC_MEASURE_COHERENCE",
+        "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+        "TRANSFER_INVENTORY_BALANCE_CLOSURE"
+      ],
+      "target_specific_adapter_schema_count": 3
+    },
+    "G2-M3": {
+      "candidate_name": "BINARY_CARRY_RELAY",
+      "core_edit_count": 0,
+      "fitted_parameter_count": 0,
+      "fitted_parameter_names": [],
+      "frozen_core_free_arbitrary_parameters": [
+        "chain length L",
+        "one N1 endpoint/orientation choice"
+      ],
+      "parameter_explosion_audit_inherited": "VERY_LOW: one integer L and one N1 binary orientation choice.",
+      "target_specific_adapter_pressure_families": [
+        "BOUNDED_MODE_SPECTRUM"
+      ],
+      "target_specific_adapter_schema_count": 1
+    },
+    "G2-M4": {
+      "candidate_name": "FINITE_UNION_PROPAGATION",
+      "core_edit_count": 0,
+      "fitted_parameter_count": 0,
+      "fitted_parameter_names": [],
+      "frozen_core_free_arbitrary_parameters": [
+        "finite graph G",
+        "finite atom set A",
+        "initial atom-presence state"
+      ],
+      "parameter_explosion_audit_inherited": "LOW: finite atom vocabulary and relation; no target-indexed coefficients.",
+      "target_specific_adapter_pressure_families": [
+        "TRANSFER_INVENTORY_BALANCE_CLOSURE"
+      ],
+      "target_specific_adapter_schema_count": 1
+    },
+    "G2-M5": {
+      "candidate_name": "FINITE_REWRITE_ACTION_QUOTIENT",
+      "core_edit_count": 0,
+      "fitted_parameter_count": 0,
+      "fitted_parameter_names": [],
+      "frozen_core_free_arbitrary_parameters": [
+        "finite state family S",
+        "small generator family F described by uniform local rules"
+      ],
+      "parameter_explosion_audit_inherited": "MEDIUM/HIGH unless F has a proved low-description uniform schema; arbitrary endofunction tables are disallowed as a serious frozen core.",
+      "target_specific_adapter_pressure_families": [
+        "BOUNDED_MODE_SPECTRUM",
+        "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+        "DIFFUSIVE_RELAXATION",
+        "GEOMETRIC_MEASURE_COHERENCE",
+        "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+        "TRANSFER_INVENTORY_BALANCE_CLOSURE"
+      ],
+      "target_specific_adapter_schema_count": 6
+    },
+    "G2-M6": {
+      "candidate_name": "CONSERVATIVE_SWAP_GROUP",
+      "core_edit_count": 0,
+      "fitted_parameter_count": 0,
+      "fitted_parameter_names": [],
+      "frozen_core_free_arbitrary_parameters": [
+        "finite graph G",
+        "finite label alphabet A",
+        "initial label assignment"
+      ],
+      "parameter_explosion_audit_inherited": "LOW: local law fixed; graph/alphabet are substrate data.",
+      "target_specific_adapter_pressure_families": [
+        "BOUNDED_MODE_SPECTRUM"
+      ],
+      "target_specific_adapter_schema_count": 1
+    }
+  },
+  "global": {
+    "candidate_core_parameters_retuned": 0,
+    "fitted_parameter_count": 0,
+    "holdout_parameters_fitted": 0,
+    "parameter_estimation_runs": 0,
+    "reason": "Frozen R049 artifacts contain no condition-separated numeric measured-output arrays, so no E3/E4 quantitative fit is legal."
+  },
+  "researcher_id": "EM-R050-93B6E2",
+  "schema": "ENTERPRISE_MATH_R050_PARAMETER_DEBT_V1",
+  "task_id": "RS-R050-G2-OUT-OF-SAMPLE-ENGINEERING-CALIBRATION"
+}
