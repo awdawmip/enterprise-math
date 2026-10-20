@@ -1,0 +1,87 @@
+{
+  "schema": "ENTERPRISE_MATH_R045_THEOREM_COUNTEREXAMPLE_OPEN_LEDGER_V1",
+  "status": "SEMANTIC_CHECKPOINT / NOT_CANONICAL",
+  "researcher_id": "EM-R045-812A",
+  "proved": [
+    {
+      "id": "R045-TC05-1",
+      "claim": "BARE_N0_NO_SCALAR_TERM",
+      "strength": "LANGUAGE_TYPING_METATHEOREM",
+      "result": "PROVED",
+      "dependency": "bare declared relational N0 signature only"
+    },
+    {
+      "id": "R045-TC05-2",
+      "claim": "CONSERVATIVE_SCALAR_EXPANSION_UNDERDETERMINATION",
+      "strength": "MODEL_THEORETIC_METATHEOREM",
+      "result": "PROVED",
+      "dependency": "same N0 reduct; no scalar bridge axiom"
+    },
+    {
+      "id": "R045-TC06-1",
+      "claim": "NATIVE_PI_CANDIDATE_CLASS_REQUIRES_DECLARED_OUTPUT_AND_ROLE_LANGUAGE",
+      "strength": "LANGUAGE_TYPING_METATHEOREM",
+      "result": "PROVED",
+      "dependency": "Gate V2 same-strength typing + bare N0 signature"
+    }
+  ],
+  "preserved_conditional_theorems": [
+    {
+      "id": "R038-C04",
+      "claim": "FCC/HCP rooted graph-zeta exact formulas and even-s transcendence",
+      "result": "PRESERVED_NO_RECOMPUTE",
+      "typing": "N1 root/shortest-path + N2 zeta/radial aggregate"
+    },
+    {
+      "id": "R038-READOUT-NONUNIQUENESS",
+      "claim": "listed R038 pi_eff readout channels are nonunique",
+      "result": "PRESERVED_NO_RECOMPUTE",
+      "typing": "N2/N3 readout family only"
+    }
+  ],
+  "counterexamples_to_unsafe_inference": [
+    {
+      "id": "R045-CE-SEMANTIC-STRENGTH",
+      "claim": "A rooted-automorphism-invariant graph-zeta scalar is invariant, yet its certificate is only about that scalar; it does not certify root/distance as N0 objects.",
+      "purpose": "kills scalar-invariance => object/primitive promotion"
+    },
+    {
+      "id": "R045-CE-READOUT-LOGIC",
+      "claim": "Several incompatible N2/N3 pi_eff values can coexist while the bare N0 candidate class remains undefined.",
+      "purpose": "kills multiple-readouts => N0 nonexistence"
+    }
+  ],
+  "open": [
+    {
+      "id": "R045-O1",
+      "question": "After explicitly declaring an N0-compatible scalar/object observable interface, which parameter-free choice-free isomorphism-invariant scalar functors/completions are definable from the relational substrate, and what arithmetic types can they force?",
+      "why_open": "The current task base contains no such observable class, so quantification over all candidates is not well-typed."
+    },
+    {
+      "id": "R045-O2",
+      "question": "Under a separately declared pi-role language, does any N0-definable candidate exist and, if so, is it unique?",
+      "why_open": "Existence/uniqueness depends on the future declared candidate/role class; historical readout multiplicity does not settle it."
+    }
+  ],
+  "mandatory_controls": [
+    {"id": "NC1", "unsafe_inference": "shortest-path is graph-definable, therefore it is automatically a declared N0 primitive", "verdict": "REJECT", "gate": ["NSA-05", "NSA-15"]},
+    {"id": "NC2", "unsafe_inference": "an automorphism-invariant scalar promotes the full object/primitive", "verdict": "REJECT", "gate": ["NSA-02", "NSA-13"]},
+    {"id": "NC3", "unsafe_inference": "multiple readout values differ, therefore no N0-definable scalar exists", "verdict": "REJECT", "gate": ["NSA-13", "NSA-14"]},
+    {"id": "NC4", "unsafe_inference": "no N0 scalar was found, therefore nonexistence is proved", "verdict": "REJECT", "gate": ["NSA-01", "NSA-14"]},
+    {"id": "NC5", "unsafe_inference": "a classical definition is standard, therefore it may be imported directly into N0", "verdict": "REJECT", "gate": ["NSA-10"]},
+    {"id": "NC6", "unsafe_inference": "an infinite discrete construction is automatically N0 regardless of hidden root/order/measure/metric", "verdict": "REJECT", "gate": ["NSA-09", "NSA-14"]},
+    {"id": "NC7", "unsafe_inference": "replication PASS automatically equals ontology PASS", "verdict": "REJECT", "gate": ["NSA-04", "NSA-13"]},
+    {"id": "NC8", "unsafe_inference": "retyping a conditional theorem revokes the theorem", "verdict": "REJECT", "gate": ["NSA-04"]},
+    {"id": "PC1", "safe_control": "if metric structure is explicitly declared in the task's N0 base, metric vocabulary can be N0 for that task", "verdict": "ACCEPT", "gate": ["NSA-12"]},
+    {"id": "PC2", "safe_control": "if continuum structure is explicitly declared in the task's N0 base, continuum mathematics can be native to that enlarged task-relative base", "verdict": "ACCEPT", "gate": ["NSA-12"]}
+  ],
+  "third_historical_theorem_repair_target": "NONE_FOUND",
+  "minimal_next_mother_question_spec": {
+    "status": "PROPOSED_FOLLOWUP_NOT_ASSIGNED_NOT_A_TASKBOOK",
+    "title": "Metric-Free N0 Scalar Observable Language Classification",
+    "mother_question": "Given the same declared metric-free N0 relational substrate, explicitly declare a scalar/object observable interface first; then classify which parameter-free, choice-free, relabeling/isomorphism-invariant finitary or infinite constructions are N0-definable at SCALAR strength and whether any have forced arithmetic type or a defensible pi-role.",
+    "must_not_import": ["root", "shortest-path/distance/equidistance", "radius/norm", "embedding measurement", "propagation", "optimization", "Fourier/Bloch", "continuum"],
+    "first_gate": "Define the candidate codomain, formation rules, infinite-completion operators if any, invariance/equivariance notion, and pi-role before asking existence/uniqueness/transcendence.",
+    "relation_to_R043": "SEPARATE; does not execute, merge, or modify the R043 stationary frontier/Markov-carrier task."
+  }
+}

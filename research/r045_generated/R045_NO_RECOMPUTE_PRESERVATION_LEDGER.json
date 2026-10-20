@@ -1,0 +1,69 @@
+{
+  "schema": "ENTERPRISE_MATH_R045_NO_RECOMPUTE_PRESERVATION_LEDGER_V1",
+  "status": "FROZEN / CONDITIONAL_MATH_CONSERVED / NOT_CANONICAL",
+  "researcher_id": "EM-R045-812A",
+  "task_id": "RS-R045-HISTORICAL-NATIVE-SEMANTICS-RETYPE-R038-N0-REPAIR",
+  "task_source_commit": "d164ffea25203ff61d6901cf91be5583c93bcb9e",
+  "gate": "ENTERPRISE_MATH_NATIVE_SEMANTICS_ADMISSIBILITY_V2@a70c56e5c43772903a74d258ab237825c6045a8c",
+  "preserved_claim_count": 42,
+  "excluded_theorem_repair_targets": ["R038-C05", "R038-C06"],
+  "preservation_certificate": "Retyping under Gate V2 changes only semantic stratum/native interpretation unless theorem-critical inference depended on invalid promotion. Every row below preserves the historical mathematics without rerunning its formula/numerics. R043-TB03 is retyped only; R043 remains a separate task.",
+  "explicit_no_rerun": [
+    "R033 shortest-path/word-metric exact shell, bulk, stable-norm and limit-shape mathematics",
+    "R034 propagation moments, path-counts, spectral expansions and conditional limits",
+    "R037 independent numerical/formula replication matrix",
+    "R039 contact-cut update laws, collapse witnesses and fixed-future results",
+    "R041 future signatures, R2bar/B2/B3 separations and M_h carrier results"
+  ],
+  "claims": [
+    {"claim_id":"R033-C01","typing":"N0 + I0 implementation carrier","verdict":"NATIVE_ADMISSIBLE","impact":"KEEP_NATIVE","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R033@c2aa1758"},
+    {"claim_id":"R033-C02","typing":"N1 root/seed choice","verdict":"SEMANTIC_MISMATCH","impact":"RETRACT_NATIVE_INTERPRETATION","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R033@c2aa1758"},
+    {"claim_id":"R033-C03","typing":"N1 shortest-path/word metric","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R033@c2aa1758"},
+    {"claim_id":"R033-C04","typing":"N1 metric + N2 shell/ball scalarization","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R033@c2aa1758"},
+    {"claim_id":"R033-C05","typing":"N1 metric + N2 asymptotic norm/convex readout","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R033@c2aa1758"},
+    {"claim_id":"R033-C06","typing":"I0 embedding carrier + N2 Voronoi/exposed-face readout","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R033@c2aa1758"},
+    {"claim_id":"R033-C07","typing":"N1 graph-radius semantics + N2 shell/bulk scalar readout","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R033@c2aa1758"},
+    {"claim_id":"R033-C08","typing":"N1 root/metric + N2 radial partition","verdict":"SEMANTIC_MISMATCH","impact":"RETRACT_NATIVE_INTERPRETATION","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R033@c2aa1758"},
+
+    {"claim_id":"R034-C01","typing":"N1 stochastic propagation kernel","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R034@674fb871"},
+    {"claim_id":"R034-C02","typing":"N1 NN kernel + N2 physical-coordinate covariance","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R034@674fb871"},
+    {"claim_id":"R034-C03","typing":"N1 NN kernel + N2 moment/radial readouts","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R034@674fb871"},
+    {"claim_id":"R034-C04","typing":"N1 propagation + N2 support/path-count aggregates where scalarized","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R034@674fb871"},
+    {"claim_id":"R034-C05","typing":"N1 propagation + N2 Fourier/Bloch/spectral readout","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R034@674fb871"},
+    {"claim_id":"R034-C06","typing":"N1 propagation + N2 covariance + N3 Brownian/continuum limit","verdict":"CONTINUUM_ONLY","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R034@674fb871"},
+    {"claim_id":"R034-C07","typing":"N1 rooted propagation + N2 return/spectral readout","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R034@674fb871"},
+    {"claim_id":"R034-C08","typing":"N1 propagation + N2 quadratic/radial readout","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R034@674fb871"},
+
+    {"claim_id":"R037-C01","typing":"inherits R033 N1 metricization + N2 readout dependencies","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R037@744fcf73"},
+    {"claim_id":"R037-C02","typing":"N1 radius semantics + N2 Voronoi/topology readout","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R037@744fcf73"},
+    {"claim_id":"R037-C03","typing":"N1 propagation/root + N2 Fourier/spectral observable","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R037@744fcf73"},
+    {"claim_id":"R037-C04","typing":"evidence-layer semantic typing, not ontology promotion","verdict":"UNRESOLVED_ORIGINAL_EVIDENCE_GRADE / R045_REPAIRED_EVIDENCE_BOUNDARY","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R037@744fcf73 + R045 semantic delta"},
+
+    {"claim_id":"R038-C01","typing":"N2/N3 comparison to imported continuous symmetry structure","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R038@d45cb42d"},
+    {"claim_id":"R038-C02","typing":"N1 root/graph metric + N2 radial calibration","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R038@d45cb42d"},
+    {"claim_id":"R038-C03","typing":"N2 geometric/scalar readouts + N3 classical calibration where used","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R038@d45cb42d"},
+    {"claim_id":"R038-C04","typing":"N1 root/shortest-path metric + N2 zeta/radial aggregate","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R038@d45cb42d"},
+    {"claim_id":"R038-C07","typing":"N2 characteristic/covariance readout + N3 Gaussian/Lebesgue/Fourier normalization","verdict":"CONTINUUM_ONLY","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R038@d45cb42d"},
+    {"claim_id":"R038-C08","typing":"N2 aggregate entropy + N3 classical analytic-constant readout","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R038@d45cb42d"},
+    {"claim_id":"R038-C09","typing":"N1 propagation/metric semantics + N2 asymptotic readouts","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R038@d45cb42d"},
+
+    {"claim_id":"R039-C01","typing":"N0 contact + occupancy -> N0-definable contact cut","verdict":"NATIVE_ADMISSIBLE","impact":"KEEP_NATIVE","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R039@c484fb85"},
+    {"claim_id":"R039-C02","typing":"N0 contact cut + N2 cardinality/scalarization","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R039@c484fb85"},
+    {"claim_id":"R039-C03","typing":"N2 mask/type/histogram/readout summaries","verdict":"READOUT_ONLY","impact":"KEEP_AS_READOUT_ONLY","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R039@c484fb85"},
+    {"claim_id":"R039-C04","typing":"N1 addition/future language + N2 candidate summaries","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R039@c484fb85"},
+    {"claim_id":"R039-C05","typing":"N1 operation horizon/future language + N2 summary components","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R039@c484fb85"},
+    {"claim_id":"R039-C06","typing":"N1 optimization/greedy rule + N2 surface scalar objective","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R039@c484fb85"},
+    {"claim_id":"R039-C07","typing":"N1 minimization semantics + N2/N3 Wulff/convex/asymptotic readout","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R039@c484fb85"},
+    {"claim_id":"R039-C08","typing":"N0 contact+occupancy incidence memory","verdict":"NATIVE_ADMISSIBLE","impact":"KEEP_NATIVE","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R039@c484fb85"},
+    {"claim_id":"R039-C09","typing":"N1 fixed-volume optimization + N2 scalar S","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R039@c484fb85"},
+
+    {"claim_id":"R041-C01","typing":"N1 declared future language + N2 terminal/surface observations","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R041@688661e7"},
+    {"claim_id":"R041-C02","typing":"N1 addition future + N2 R2bar summary","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R041@688661e7"},
+    {"claim_id":"R041-C03","typing":"N0 contact underneath + N1 horizon/update + N2 S/weights/readout components","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R041@688661e7"},
+    {"claim_id":"R041-C04","typing":"N2 weighted-frontier summary + N1 B3 future oracle","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R041@688661e7"},
+    {"claim_id":"R041-C05","typing":"N1 future language + N2 quotient carrier","verdict":"SEMANTIC_MISMATCH","impact":"RETRACT_NATIVE_INTERPRETATION","status":"PRESERVED_NO_RECOMPUTE","evidence":"R044 matrix + R041@688661e7"},
+
+    {"claim_id":"R043-TB03","typing":"N0 contact + N1 chosen action/future language + N2 weights/S/frontier quotient","verdict":"CONDITIONAL_DERIVED","impact":"KEEP_BUT_RETYPE_CONDITIONAL","status":"PRESERVED_NO_RECOMPUTE_R043_SEPARATE","evidence":"R044 generation spec + R043@41afbdf3"}
+  ],
+  "row_details_authority": "R045_HISTORICAL_TYPED_CLAIM_LEDGER.json"
+}
