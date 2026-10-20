@@ -1,0 +1,24 @@
+{
+  "ambient_exact_hit_equation": "y^2-r z^2=-(r-1)c^2 with y,z == -c (mod 2a)",
+  "ambient_strip": "1<=N<B interior defects; N=B exact-hit boundary",
+  "checked_recurrence_scan_ref": "R042_BRANCH_HIT_RECURRENCE_ATLAS.json",
+  "finite_residue_component": "For each fixed (s,r), the Pell-unit matrix has finite order modulo 2a; powers congruent to identity preserve the affine lattice residue and generate residue-compatible ambient Pell orbits.",
+  "no_pure_residue_automaton_claim": {
+    "scope": "This excludes a congruence-only finite automaton for full branch reachability; it does not exclude richer symbolic/continued-fraction state machines.",
+    "statement": "No eventual rule depending only on k modulo a fixed M can reproduce the full nonsquare mechanical child phase: floor(sqrt(r)(k+M)+beta)-floor(sqrt(r)k+beta) takes both adjacent values because M sqrt(r) is irrational; Pell-strip defects are O(log K) and cannot remove the two positive-density mechanical phase classes.",
+    "status": "PROVED_NEGATIVE_FOR_EVENTUAL_FIXED_MODULUS_DECISION"
+  },
+  "reachability_component": "Residue/Pell-orbit membership is necessary but not sufficient for endpoint-branch reachability. Exact reachability is certified by repeated predecessor() checks against the integer child oracle.",
+  "representative_periods": [
+    {"fundamental_unit": [9,4], "matrix_period_mod_2a": 1, "modulus_2a": 2, "r": 5, "s": 3},
+    {"fundamental_unit": [19,6], "matrix_period_mod_2a": 1, "modulus_2a": 2, "r": 10, "s": 3},
+    {"fundamental_unit": [19,6], "matrix_period_mod_2a": 1, "modulus_2a": 6, "r": 10, "s": 5},
+    {"fundamental_unit": [10,3], "matrix_period_mod_2a": 4, "modulus_2a": 8, "r": 11, "s": 6},
+    {"fundamental_unit": [4,1], "matrix_period_mod_2a": 4, "modulus_2a": 8, "r": 15, "s": 6},
+    {"fundamental_unit": [8,3], "matrix_period_mod_2a": 6, "modulus_2a": 10, "r": 7, "s": 7},
+    {"fundamental_unit": [15,4], "matrix_period_mod_2a": 4, "modulus_2a": 12, "r": 14, "s": 8},
+    {"fundamental_unit": [19,6], "matrix_period_mod_2a": 8, "modulus_2a": 14, "r": 10, "s": 9}
+  ],
+  "status": "PROVED_FILTERS_PLUS_EXECUTABLE_CHECKED_REACHABILITY / NOT_CANONICAL",
+  "task_id": "RS-R042-POLYGONAL-NONSQUARE-BRANCH-LIMIT-PELL-RECURRENCE"
+}

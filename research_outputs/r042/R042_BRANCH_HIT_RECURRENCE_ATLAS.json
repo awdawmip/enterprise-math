@@ -1,0 +1,37 @@
+{
+  "bounded_exhaustive_scan": {
+    "cells_with_at_least_one_ambient_hit": 79,
+    "classification": "BOUNDED_EXHAUSTIVE",
+    "k_max": 200000,
+    "max_hits_on_one_checked_ancestry": 2,
+    "r": "5..20 nonsquare",
+    "s": "3..10 excluding 4"
+  },
+  "certified_nonconsecutive_revisit_witnesses": [
+    {"s":6,"r":11,"path":[2,6,20,65],"hit_times":[0,3]},
+    {"s":6,"r":15,"path":[1,3,10],"hit_times":[0,2]},
+    {"s":7,"r":7,"path":[1,2,5,13,33,86,228,603,1595,4220,11165,29540],"hit_times":[0,11]},
+    {"s":8,"r":14,"path":[4,14,51,190],"hit_times":[0,3]}
+  ],
+  "infinite_recurrence_disposition": "OPEN",
+  "proved_global_constraints": [
+    "For fixed (s,r), hit parents at level t are O(t), consuming R040 ambient Pell O(log X) and support scale O((sqrt r)^t).",
+    "The limit points of branches with infinitely many exact-hit times form a Hausdorff-dimension-zero subset.",
+    "Under the positive-survival Bernoulli measure used in the dimension proof, infinitely recurrent hit branches have measure zero by Borel-Cantelli.",
+    "Finite nonconsecutive hit revisits exist, so branchwise recurrence cannot be replaced by a no-revisit claim.",
+    "Infinite legal hit recurrence is equivalent to an infinite ray in the exact hit-ancestry forest; nonconsecutive recurrence requires infinitely many forest edges of length at least two."
+  ],
+  "representative_pressure_cells": [
+    {"s":3,"r":5,"ambient_hit_count_to_200000":8,"max_hits_on_one_checked_ancestry":1,"pell_unit":[9,4],"pell_matrix_period_mod_2a":1},
+    {"s":3,"r":10,"ambient_hit_count_to_200000":10,"max_hits_on_one_checked_ancestry":1,"pell_unit":[19,6],"pell_matrix_period_mod_2a":1},
+    {"s":5,"r":10,"ambient_hit_count_to_200000":0,"max_hits_on_one_checked_ancestry":0,"pell_unit":[19,6],"pell_matrix_period_mod_2a":1},
+    {"s":6,"r":11,"ambient_hit_count_to_200000":2,"max_hits_on_one_checked_ancestry":2,"nonconsecutive_revisit_witness_count":1,"pell_unit":[10,3],"pell_matrix_period_mod_2a":4},
+    {"s":6,"r":15,"ambient_hit_count_to_200000":4,"max_hits_on_one_checked_ancestry":2,"nonconsecutive_revisit_witness_count":1,"pell_unit":[4,1],"pell_matrix_period_mod_2a":4},
+    {"s":7,"r":7,"ambient_hit_count_to_200000":4,"max_hits_on_one_checked_ancestry":2,"nonconsecutive_revisit_witness_count":1,"pell_unit":[8,3],"pell_matrix_period_mod_2a":6},
+    {"s":8,"r":14,"ambient_hit_count_to_200000":2,"max_hits_on_one_checked_ancestry":2,"nonconsecutive_revisit_witness_count":1,"pell_unit":[15,4],"pell_matrix_period_mod_2a":4},
+    {"s":9,"r":10,"ambient_hit_count_to_200000":1,"max_hits_on_one_checked_ancestry":1,"pell_unit":[19,6],"pell_matrix_period_mod_2a":8}
+  ],
+  "reproducibility": "Full ambient hit lists and every reverse ancestry are reproducible exactly with tools/r042_polygonal_branch_limit.py; the focused tests freeze the four nonconsecutive revisit witnesses.",
+  "status": "PROVED_ZERO_DIMENSION_EXCEPTIONAL_SET + EXECUTABLE_CHECKED + BOUNDED_EXHAUSTIVE / NOT_CANONICAL",
+  "task_id": "RS-R042-POLYGONAL-NONSQUARE-BRANCH-LIMIT-PELL-RECURRENCE"
+}

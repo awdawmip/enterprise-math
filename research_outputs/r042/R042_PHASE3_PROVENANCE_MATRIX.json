@@ -1,0 +1,53 @@
+{
+  "task_id": "RS-R042-POLYGONAL-NONSQUARE-BRANCH-LIMIT-PELL-RECURRENCE",
+  "researcher_id": "EM-R042-963283",
+  "accepted_stage2_head": "b3ca1369c147e50d1a841d3f86c081f2cb152f68",
+  "consumed_concurrent_owner_head": "e65eaad4ce240213745797dc75ecb8f1be5b5999",
+  "relationship": "semantic extension of reverse-shadow/local-gate checkpoint; preserves its stronger superlacunarity theorem and compresses proposed-edge input state to shell chords",
+  "claims": [
+    {
+      "id": "R042-P3-C1",
+      "claim": "fixed aggregate return block (d,P) has at most two integral norm-shell sources and explicit Lorentz reconstruction formulas",
+      "status": "PROVED",
+      "provenance": "R042_NEW",
+      "evidence": ["docs/R042_SHELL_RETURN_LORENTZ_CONTINUATION.md#3-a-return-block-reconstructs-at-most-two-shell-sources", "tools/r042_shell_return_lorentz.py", "tests/test_r042_shell_return_lorentz.py"]
+    },
+    {
+      "id": "R042-P3-C2",
+      "claim": "in r>=5, (d,P) plus shell-sign candidate is a complete proposed-edge certificate because unique reverse ancestry deterministically reconstructs or rejects the entire correction/local-gate trace",
+      "status": "PROVED_CONSUMING_FROZEN_UNIQUE_PREDECESSOR",
+      "provenance": "R042_NEW_COMPRESSION",
+      "evidence": ["docs/R042_SHELL_RETURN_LORENTZ_CONTINUATION.md#correction-word-elimination-by-unique-reverse-ancestry", "tools/r042_shell_return_lorentz.py", "tests/test_r042_shell_return_lorentz.py"]
+    },
+    {
+      "id": "R042-P3-C3",
+      "claim": "every shell-to-shell aggregate block satisfies r^ceil(d/2) divides N(P)+B",
+      "status": "PROVED",
+      "provenance": "R042_NEW",
+      "evidence": ["docs/R042_SHELL_RETURN_LORENTZ_CONTINUATION.md#4-growing-norm-divisibility", "tools/r042_shell_return_lorentz.py", "tests/test_r042_shell_return_lorentz.py"]
+    },
+    {
+      "id": "R042-P3-C4",
+      "claim": "the exceptional aggregate shell norm N(P)=-B is confined to finitely many gap lengths and hence bounded source height for dynamically reachable edges",
+      "status": "PROVED",
+      "provenance": "R042_NEW",
+      "evidence": ["docs/R042_SHELL_RETURN_LORENTZ_CONTINUATION.md#5-the-exceptional-case-np-b-has-only-finitely-many-possible-gap-lengths"]
+    },
+    {
+      "id": "R042-P3-C5",
+      "claim": "growing norm divisibility gives the elementary tail corollary target Pell rank n>2m-C**, quantitatively subsumed by the consumed e65eaad4 superlacunarity theorem",
+      "status": "PROVED_SUBSUMED_QUANTITATIVELY",
+      "provenance": "R042_NEW_ELEMENTARY_COROLLARY",
+      "evidence": ["docs/R042_SHELL_RETURN_LORENTZ_CONTINUATION.md#6-independent-elementary-rank-doubling-corollary"]
+    },
+    {
+      "id": "R042-P3-C6",
+      "claim": "global Lorentz shell compatibility is strictly weaker than dynamic accessibility",
+      "status": "EXECUTABLE_CHECKED",
+      "provenance": "R042_NEW_NEGATIVE_WITNESS",
+      "evidence": ["(s,r,d)=(7,7,4), P=(-206,-106), source hit 1->2, target hit 24->63, failed edge 4->9 with E=1960 outside (-1640,1840)", "tests/test_r042_shell_return_lorentz.py"]
+    }
+  ],
+  "return": "HIT_ANCESTRY_ONTOLOGY_REPLACED / SMALLER_EXACT_RECURRENCE_OBJECT_FOUND / NOT_CANONICAL",
+  "frontier": "infinite composable sequence of shell chords surviving deterministic unique reverse gates remains open"
+}
