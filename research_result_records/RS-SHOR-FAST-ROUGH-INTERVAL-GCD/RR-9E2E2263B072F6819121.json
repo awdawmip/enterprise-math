@@ -1,0 +1,41 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "record_state": "FROZEN",
+  "research_result_id": "RR-9E2E2263B072F6819121",
+  "task_id": "RS-SHOR-FAST-ROUGH-INTERVAL-GCD",
+  "task_publication_id": "TP2-C193F8CB279ADF29D4ED",
+  "publication_state": "FROZEN",
+  "taskbook_path": "research_tasks/SHOR_FAST_ROUGH_INTERVAL_GCD_20260828.md",
+  "taskbook_blob_sha1": "sha1:9e7e4aaa14f96cfb67f4729c1018e5db122b0f0c",
+  "claim_id": "chatgpt-shor-20260828-1434-47f805",
+  "claim_ref": "issue:#240/comment:5449273923",
+  "researcher_id": "EM-SHOR-47F805",
+  "theorem_owner": "research/shor-fast-rough-interval-gcd",
+  "execution_record_id": "ER-B55AFFE878F086432061",
+  "execution_branch": "research/shor-fast-rough-interval-gcd-em-shor-47f805",
+  "execution_branch_base": "a5aebf8537ab59585f2e370482ed729109727e84",
+  "owner_head_at_freeze": "edf3b750d7af87be0d8f4459d53972cd80c02317",
+  "output_manifest": [
+    {
+      "path": "research_returns/SHOR_FAST_ROUGH_INTERVAL_GCD_RETURN_20260828.md",
+      "git_blob_sha1": "sha1:afd51660abd2c9e1cc1553ce5eec37853754fb72"
+    },
+    {
+      "path": "scripts/check_shor_fast_rough_interval_gcd.py",
+      "git_blob_sha1": "sha1:e767f439884a7eb0a7639df8ee0addbc6d95d1d2"
+    }
+  ],
+  "conclusion": "UNRESOLVED_EXACT_FRONTIER. For every B^2-rough d<=B^6, Omega(d)<=2. After deterministic primality and perfect-square handling, the only hard case is a distinct rough semiprime d=pq. On squarefree legal d, gcd(d,z!) is exactly the product of prime divisors of d not exceeding z, so arbitrary FAST intervals are exact quotients of two factorial-prefix factors. FAST and factoring of the legal rough-semiprime class are exponent-equivalent up to polylogarithmic overhead. Harvey's deterministic n^(1/5+o(1)) theorem already settles d<=B^5 at B^(1+o(1)); the remaining hard regime is B^5<d<=B^6. The smallest surviving sufficient primitive isolated here is ROUGH_SEMIPRIME_B2_COARSE_LOCATOR: localize the least factor to additive width B^(2+o(1)); deterministic interval-divisor refinement then closes FAST at B^(1+o(1)).",
+  "limitation": "No B^(1+o(1)) coarse locator is constructed, and no unconditional lower bound is proved. The explicit +r cost in Harvey Proposition 4.2 blocks that frozen realization for worst legal p just above B^2 even after the 2026 large-order improvement, but this is not a barrier for arbitrary algorithms and does not classify both original taskbook candidate models.",
+  "exact_replay": {
+    "primary_command": "python scripts/check_shor_fast_rough_interval_gcd.py",
+    "primary_assertion": "Exit code 0 and stdout exactly: PASS generated_legal_cases=21477 rational_projector_checks=1280 square_multiplicity_guard=B3_p11_z22"
+  },
+  "terminal_verdict": "UNRESOLVED_EXACT_FRONTIER",
+  "hard_target_disposition": "NOT_ACHIEVED / EXACT_SEMIPRIME_EQUIVALENCE_AND_B2_COARSE_LOCATOR_FRONTIER_FROZEN",
+  "unresolved_residue": "ROUGH_SEMIPRIME_B2_COARSE_LOCATOR",
+  "method_harvest": "NO_TOOL_PAYLOAD / RESULT_ONLY",
+  "prior_art_disposition": "TASK_LOCAL_EXACT_REDUCTION_PLUS_PUBLISHED_DETERMINISTIC_FACTORING_AND_INTERVAL_DIVISOR_THEOREMS / NO_NOVELTY_CLAIM_FOR_PRIOR_ART",
+  "driver_review_required": true,
+  "next_control_plane_recommendation": "Driver-review the exact Omega(d)<=2 reduction, squarefree factorial-prefix identity, FAST<=>rough-semiprime-factoring equivalence, d<=B^5 one-fifth closure, and the width-B^(2+o(1)) coarse-locator sufficiency theorem. If accepted, close this task at UNRESOLVED_EXACT_FRONTIER and publish a successor only for ROUGH_SEMIPRIME_B2_COARSE_LOCATOR; do not reopen Mobius-weight sparsification or independent factorial blocks."
+}
