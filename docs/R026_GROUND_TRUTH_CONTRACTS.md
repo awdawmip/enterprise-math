@@ -1,0 +1,264 @@
+# R026 Ground-Truth Contracts
+
+Status: `EXECUTABLE_CHECKED / RESEARCH ARTIFACT / NOT CANONICAL`
+
+Researcher-ID: `EM-R026-D19F1B`  
+Task: `RS-R026-COLLAPSE-EXTERNAL-BENCHMARK-VALIDATION`  
+Taskbook source: `752689001cd8ac541841a498486093385eeebdde`
+
+This file freezes the reference solver and observable contract for every benchmark. Collapse adapters are scored against these contracts, not against Enterprise-internal aesthetics. State carried as residual, anchor, branch support, precision metadata, or reconstruction data is explicitly charged in the runner.
+
+## A — Euclidean GCD / remainder descent
+
+- **Reference solver:** Python exact integer math.gcd plus exact extended-GCD recurrence
+- **Ground truth observable:** gcd(a,b), Bezout identity a*x+b*y=gcd, finite termination
+- **Hostile control:** consecutive Fibonacci inputs for quotient-one Euclidean worst-case depth
+
+```json
+{
+  "cases": {
+    "fibonacci_worst": [
+      121393,
+      75025
+    ],
+    "large_coprime": [
+      2147483647,
+      65537
+    ],
+    "textbook": [
+      1071,
+      462
+    ]
+  },
+  "ground_truth_observable": "gcd(a,b), Bezout identity a*x+b*y=gcd, finite termination",
+  "hostile_control": "consecutive Fibonacci inputs for quotient-one Euclidean worst-case depth",
+  "reference_solver": "Python exact integer math.gcd plus exact extended-GCD recurrence"
+}
+```
+
+## B — Quantization / ADC / fixed point
+
+- **Reference solver:** unquantized signal
+- **Ground truth observable:** sample value, bias, RMSE, cumulative-sum drift; Monte Carlo expectation for stochastic policies
+- **Hostile control:** values clustered around half-step thresholds
+
+```json
+{
+  "base_grid_step": 0.0625,
+  "ground_truth_observable": "sample value, bias, RMSE, cumulative-sum drift; Monte Carlo expectation for stochastic policies",
+  "hostile_control": "values clustered around half-step thresholds",
+  "precision_sweep_fractional_bits": [
+    3,
+    4,
+    5,
+    6
+  ],
+  "reference_solver": "unquantized signal",
+  "signals": {
+    "constant_offset": {
+      "hostile": false,
+      "n": 256
+    },
+    "sinusoid": {
+      "hostile": false,
+      "n": 256
+    },
+    "slow_signal": {
+      "hostile": false,
+      "n": 256
+    },
+    "threshold_cluster": {
+      "hostile": true,
+      "n": 256
+    },
+    "uniform_ramp": {
+      "hostile": false,
+      "n": 256
+    }
+  }
+}
+```
+
+## C — Numerical summation / compensation
+
+- **Reference solver:** math.fsum plus analytically structured totals; Kahan reported as rooted comparison
+- **Ground truth observable:** final scalar sum and cumulative drift
+- **Hostile control:** cancellation and dynamic-range sequences
+
+```json
+{
+  "cases": {
+    "cancellation": {
+      "hostile": true,
+      "n": 768,
+      "truth": 0.256
+    },
+    "dynamic_range": {
+      "hostile": true,
+      "n": 1002,
+      "truth": 3.0
+    },
+    "monotone_small": {
+      "hostile": false,
+      "n": 1000,
+      "truth": 10.0
+    }
+  },
+  "grid_step": 0.015625,
+  "ground_truth_observable": "final scalar sum and cumulative drift",
+  "hostile_control": "cancellation and dynamic-range sequences",
+  "reference_solver": "math.fsum plus analytically structured totals; Kahan reported as rooted comparison"
+}
+```
+
+## D — Linear systems / iterative refinement
+
+- **Reference solver:** exact rational 2x2 direct solve
+- **Ground truth observable:** solution forward error and residual norm
+- **Hostile control:** same ill-conditioned system with residual itself quantized on the coarse grid
+
+```json
+{
+  "coarse_step": "1/256",
+  "ground_truth_observable": "solution forward error and residual norm",
+  "hostile_control": "same ill-conditioned system with residual itself quantized on the coarse grid",
+  "ill_conditioned_A": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      "10001/10000"
+    ]
+  ],
+  "ill_conditioned_cond1": 40004.0001,
+  "ill_conditioned_truth": [
+    "1/3",
+    "2/7"
+  ],
+  "reference_solver": "exact rational 2x2 direct solve",
+  "well_conditioned_A": [
+    [
+      4,
+      1
+    ],
+    [
+      1,
+      3
+    ]
+  ]
+}
+```
+
+## E — Multigrid residual correction
+
+- **Reference solver:** exact discrete sine vector u_i=sin(pi*i*h) with RHS chosen as A*u
+- **Ground truth observable:** relative L2 solution error and discrete residual norm
+- **Hostile control:** restrict/overwrite coarse state without forming the residual equation
+
+```json
+{
+  "cycles": 5,
+  "ground_truth_observable": "relative L2 solution error and discrete residual norm",
+  "hostile_control": "restrict/overwrite coarse state without forming the residual equation",
+  "n_fine": 63,
+  "reference_solver": "exact discrete sine vector u_i=sin(pi*i*h) with RHS chosen as A*u"
+}
+```
+
+## F — Convex projection / feasibility
+
+- **Reference solver:** analytic orthogonal metric projection onto S={(x,1-x):0<=x<=1}
+- **Ground truth observable:** squared-distance optimum and feasibility
+- **Hostile control:** choose the far endpoint: feasible but non-optimal for metric projection
+
+```json
+{
+  "ground_truth_observable": "squared-distance optimum and feasibility",
+  "hostile_control": "choose the far endpoint: feasible but non-optimal for metric projection",
+  "reference_solver": "analytic orthogonal metric projection onto S={(x,1-x):0<=x<=1}",
+  "start": [
+    0.2,
+    -0.4
+  ]
+}
+```
+
+## G — Harmonic oscillator finite-precision dynamics
+
+- **Reference solver:** analytic x=cos(t), v=-sin(t); identical velocity-Verlet integrator before state quantization
+- **Ground truth observable:** phase error, amplitude error, mechanical-energy drift
+- **Hostile control:** long-horizon invariant drift under directed/far state quantization
+
+```json
+{
+  "base_quantum": "1/128",
+  "base_steps": 4000,
+  "dt": 0.03,
+  "ground_truth_observable": "phase error, amplitude error, mechanical-energy drift",
+  "hostile_control": "long-horizon invariant drift under directed/far state quantization",
+  "initial_state": {
+    "v": 0.0,
+    "x": 1.0
+  },
+  "precision_sweep_fractional_bits": [
+    6,
+    7,
+    8
+  ],
+  "reference_solver": "analytic x=cos(t), v=-sin(t); identical velocity-Verlet integrator before state quantization"
+}
+```
+
+## H — One-dimensional elastic collision
+
+- **Reference solver:** exact rational 1D elastic-collision formula
+- **Ground truth observable:** post-collision velocities plus exact total momentum and kinetic energy
+- **Hostile control:** coordinate-wise collapse tested against coupled conservation laws; residual-only removes anchor/mass context
+
+```json
+{
+  "ground_truth_observable": "post-collision velocities plus exact total momentum and kinetic energy",
+  "hostile_control": "coordinate-wise collapse tested against coupled conservation laws; residual-only removes anchor/mass context",
+  "parameters": {
+    "m1": 2,
+    "m2": 5,
+    "quantum": "1/16",
+    "u1": "7/5",
+    "u2": "-2/5"
+  },
+  "reference_solver": "exact rational 1D elastic-collision formula"
+}
+```
+
+## I — Integer rasterization / accumulated geometric error
+
+- **Reference solver:** exact rational nearest-pixel criterion y=round_half_up(p*x/q)
+- **Ground truth observable:** entire integer pixel sequence
+- **Hostile control:** half-pixel tie and nontrivial rational slopes
+
+```json
+{
+  "cases": [
+    {
+      "n": 200,
+      "p": 2,
+      "q": 7
+    },
+    {
+      "n": 500,
+      "p": 13,
+      "q": 29
+    },
+    {
+      "n": 40,
+      "p": 1,
+      "q": 2
+    }
+  ],
+  "ground_truth_observable": "entire integer pixel sequence",
+  "hostile_control": "half-pixel tie and nontrivial rational slopes",
+  "reference_solver": "exact rational nearest-pixel criterion y=round_half_up(p*x/q)"
+}
+```
