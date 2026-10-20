@@ -1,0 +1,26 @@
+{
+  "core": {"partitions": {"1": 1, "2": 2, "3": 5, "4": 15, "5": 52}, "ordered_EF": 2959, "refinement_checks": 19583, "target_coarsening_checks": 19583, "pair_release_monotonicity_checks": 19583, "single_feature_checks": 144117, "pair_credit_shrink_checks": 981845, "triple_family_checks_n_le_4": 762533, "failures": [], "status": "PASS"},
+  "pair_coverage": {"status": "PASS", "two_feature_checks_n_le_4": 51267, "failures": [], "proof": "marginal coverage is |Cover_b minus already-covered|, which can only shrink as the prior union grows"},
+  "nested_feature_regime": {"status": "PASS", "checks_n_le_4": 48234, "failures": [], "proof": "for a chain of feature kernels, intersection of selected kernels is the finest selected kernel; monotone gain is max of singleton chain gains, a submodular max-on-chain function"},
+  "support_bridge": {"status": "PASS", "relation_generators": 786, "signature_evaluations": 82052, "support_pair_equivalences": 1147400, "language": "powers [0,1,2]; all binary relations for n<=3 plus every deterministic one-generator relation for n=4", "boundary": {"n": 3, "map": "identity", "obs": "{01,2}", "x": 0, "y": 1, "A": "{0,2}", "H": "{1}", "point_signature_x_eq_y": true, "support_signature_A_eq_H": false}, "exact_bridge": "On carrier P(X), F_U^supp = ker(supportSignature_U); then zero support distinction iff SuffixSafe by canonical R023 theorem."},
+  "laws": {
+    "H1": {"status": "PROVED", "claim": "M refinement-monotone"},
+    "H2": {"status": "PROVED", "claim": "B refinement-monotone"},
+    "H3": {"status": "PROVED", "claim": "M=1 / B=0 iff E refines F"},
+    "H4": {"status": "PROVED", "claim": "completion iff required-pair cover"},
+    "H5": {"status": "PROVED", "claim": "M/B marginal nonnegative"},
+    "H6": {"status": "PROVED", "claim": "ordered marginal telescopes"},
+    "H7": {"status": "KILLED", "M": {"n": 3, "E": "{012}", "F": "{01,2}", "A": "{01,2}", "B": "{0,1,2}", "marginal_at_empty": 1, "marginal_after_other": 0, "distinct_feature_kernels": true}, "B": {"n": 3, "E": "{012}", "F": "{01,2}", "A": "{01,2}", "B": "{0,1,2}", "marginal_at_empty": 1, "marginal_after_other": 0, "distinct_feature_kernels": true}},
+    "H8": {"status": "KILLED", "M": {"n": 3, "E": "{012}", "F": "{01,2}", "A": "{02,1}", "B": "{0,12}", "marginal_at_empty": 0, "marginal_after_other": 1, "distinct_feature_kernels": true}, "B": {"n": 3, "E": "{012}", "F": "{01,2}", "A": "{02,1}", "B": "{0,12}", "marginal_at_empty": 0, "marginal_after_other": 1, "distinct_feature_kernels": true}, "special_regimes": {"binary_target": "FAILS at n=3", "single_current_fibre": "FAILS at n=3", "product_universe": "FAILS at n=4", "nested_chain_feature_kernels": "HOLDS (H17)", "uniform_initial_fibre_profile": "insufficient; the single-fibre n=3 witness is already uniform in the trivial profile sense"}, "product_witness": {"n": 4, "interpretation": "X={0,1}x{0,1}; target is first coordinate; A=parity; B=second coordinate", "E": "{0123}", "F": "{01,23}", "A": "{03,12}", "B": "{02,13}", "B_marginal_at_empty": 0, "B_marginal_after_A": 1, "M_marginal_at_empty": 0, "M_marginal_after_A": 1}},
+    "H9": {"status": "KILLED", "M": {"n": 3, "E": "{012}", "F": "{01,2}", "A": "{01,2}", "B": "{0,1,2}", "marginal_at_empty": 1, "marginal_after_other": 0, "distinct_feature_kernels": true}, "B": {"n": 3, "E": "{012}", "F": "{01,2}", "A": "{01,2}", "B": "{0,1,2}", "marginal_at_empty": 1, "marginal_after_other": 0, "distinct_feature_kernels": true}},
+    "H10": {"status": "PROVED/PRIOR_ART", "evidence": "PASS"},
+    "H11": {"status": "PROVED", "claim": "realized target is coarser, so M/B no larger than declared-language target"},
+    "H12": {"status": "KILLED", "witness": {"n": 2, "E": "{01}", "F_declared": "{0,1}", "F_realized": "{01}", "M_declared": 2, "M_realized": 1, "B_declared": 1, "B_realized": 0, "feature": "{0,1}", "realized_pair_credit": 0, "declared_pair_credit": 1}},
+    "H13": {"status": "PROVED", "claim": "U shrink => K(U) coarsens => total M/B debt nonincreasing"},
+    "H14": {"status": "KILLED", "M": {"n": 4, "E": "{01,23}", "F_before": "{02,1,3}", "F_after": "{012,3}", "phi": "{012,3}", "credit_before": 0, "credit_after": 1}, "B": {"n": 4, "E": "{0123}", "F_before": "{0,1,2,3}", "F_after": "{012,3}", "phi": "{012,3}", "credit_before": 0, "credit_after": 1}},
+    "H15": {"status": "PROVED_AT_MATCHING_SUPPORT_CARRIER", "evidence": "PASS"},
+    "H16": {"status": "PROVED", "claim": "side metadata/rewind/reread can refine; current encoding alone cannot resurrect erased target distinctions"},
+    "H17": {"status": "PROVED_CONDITIONAL", "claim": "nested feature kernels restore submodularity for M/B gain", "evidence": "PASS"},
+    "H18": {"status": "PROVED", "claim": "pair marginal cannot increase under future-target coarsening, unlike M/B marginal"}
+  }
+}
