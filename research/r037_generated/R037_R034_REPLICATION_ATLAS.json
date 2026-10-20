@@ -1,0 +1,41 @@
+{
+  "schema":"R037_R034_REPLICATION_ATLAS_V1",
+  "researcher_id":"EM-R037-A7C2D1",
+  "frozen_head":"674fb8717d753cd36fd83b061c869d79e8875b31",
+  "local_propagation":{
+    "nn_length":1,
+    "fcc":{"mean":[0,0,0],"covariance":[["1/3",0,0],[0,"1/3",0],[0,0,"1/3"]],"cubic_contraction":"0"},
+    "hcp_A":{"mean":[0,0,0],"covariance":[["1/3",0,0],[0,"1/3",0],[0,0,"1/3"]],"cubic_contraction":"sqrt(3)*y*(3*x^2-y^2)/72"},
+    "hcp_B":{"mean":[0,0,0],"covariance":[["1/3",0,0],[0,"1/3",0],[0,0,"1/3"]],"cubic_contraction":"-sqrt(3)*y*(3*x^2-y^2)/72"},
+    "fourth_contraction_hcp_minus_fcc":"(3*x^4-6*x^2*y^2-12*x^2*z^2+3*y^4-12*y^2*z^2+4*z^4)/72",
+    "generic_barlow_certificate":"six basal vectors contribute diag(3,3,0); each interlayer triangle contributes planar (1/2)I_2 and z-square total 2; above+below contributes diag(1,1,4); total over 12 directions is 4I_3, with zero drift, hence local covariance I/3 for every legal stacking"
+  },
+  "n_step":{
+    "second_moment":"E[X_n X_n^T]=n I/3 exactly by martingale increment recursion",
+    "Er2":"n",
+    "Er4":"(5*n^2-2*n)/3",
+    "Er6_fcc":"n*(35*n^2-42*n+16)/9",
+    "Er6_hcp":"(210*n^3-252*n^2+95*n+1)/54 for n>=1",
+    "Er6_hcp_minus_fcc":"-(n-1)/54",
+    "sixth_proof_auxiliary":"for f_s(x,y)=s*sqrt(3)*y*(3*x^2-y^2)/72 with s=+ on A,- on B, the exact HCP transition sends f_s to constant -1/432; the |X|^6 recursion therefore gains 8*(-1/432)=-1/54 per step after n=1",
+    "path_count_reference":{
+      "n2":{"fcc_support":55,"hcp_support":57,"fcc_histogram":{"1":12,"2":24,"4":18,"12":1},"hcp_histogram":{"1":18,"2":18,"3":2,"4":18,"12":1}},
+      "return_counts_n0_to_n12":[1,0,12,48,540,4320,42240,403200,4038300,40958400,423550512,4434978240,46982827584],
+      "returns_identical_fcc_hcp_through_n12":true,
+      "first_same_radius_nonuniformity":{"hcp":{"n":4,"r2":"35/3","counts":[6,8]},"fcc":{"n":5,"r2":"9","counts":[370,405]}}
+    }
+  },
+  "memory_order":{
+    "rooted_local_physical_tensor":3,
+    "A_B_averaged_or_principal_band":4,
+    "scalar_radial_even_moment":6,
+    "return_probability":"none under the exact Barlow gauge theorem proved in the spectral certificate"
+  },
+  "evidence_grade":{
+    "local_mean_covariance":"REPRODUCED_EXACT",
+    "generic_barlow_local_tensor":"REPRODUCED_EXACT",
+    "n_step_second_and_radial_moments":"REPRODUCED_EXACT",
+    "finite_path_distributions":"REPRODUCED_FINITE_CERTIFICATE",
+    "memory_order_classification":"REPRODUCED_EXACT for listed witnesses"
+  }
+}
