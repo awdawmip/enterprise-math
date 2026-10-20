@@ -1,0 +1,36 @@
+{
+  "candidate_blind": true,
+  "eligibility_rule": "Each row is scored later only against the frozen measured-output definition and source-stated envelope recorded in the raw atlas; calculated outputs cannot create extra evidence.",
+  "families": [
+    {
+      "eligible_row_id": "A1-GMC-M48-STEP-GAGE",
+      "family": "GEOMETRIC_MEASURE_COHERENCE"
+    },
+    {
+      "eligible_row_id": "A2-CCRP-PMU-PHASE",
+      "family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE"
+    },
+    {
+      "eligible_row_id": "A3-DR-FDTR-PUMP-PROBE",
+      "family": "DIFFUSIVE_RELAXATION"
+    },
+    {
+      "eligible_row_id": "A4-BMS-CAVITY-VNA",
+      "family": "BOUNDED_MODE_SPECTRUM"
+    }
+  ],
+  "freeze_timestamp_utc": "2026-08-13T02:40:42Z",
+  "immutable_after_freeze": [
+    "eligible_row_id",
+    "protocol",
+    "controlled_input_or_intervention",
+    "measured_output",
+    "scale_regime",
+    "uncertainty_tolerance_error_envelope",
+    "definition_stripped_operational_constraint",
+    "source_provenance"
+  ],
+  "researcher_id": "EM-R049-6D82B4",
+  "schema": "ENTERPRISE_MATH_R049_BLOCK_A_HOLDOUT_TARGET_V1",
+  "task_id": "RS-R049-CANDIDATE-BLIND-INDEPENDENT-ENGINEERING-HOLDOUT-CONSTRUCTION"
+}

@@ -1,0 +1,68 @@
+{
+  "constraints": [
+    {
+      "constraint": "Across repeated physical contacts with multiple artefact faces, the pairwise separation relations remain mutually coherent under re-probing/fixturing/process-control changes within the source-stated CMM uncertainty envelope; coordinate names and length-unit scaling are not counted as evidence.",
+      "constraint_id": "C-A1",
+      "family": "GEOMETRIC_MEASURE_COHERENCE",
+      "row_ids": [
+        "A1-GMC-M48-STEP-GAGE"
+      ]
+    },
+    {
+      "constraint": "Independently reported periodic channels track imposed relative timing/phase relations and remain mutually consistent as nominal frequency/reporting conditions are varied, within the source-calibrated phase-setting envelope; angular unit and cycle-origin conventions are quotiented out.",
+      "constraint_id": "C-A2",
+      "family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "row_ids": [
+        "A2-CCRP-PMU-PHASE"
+      ]
+    },
+    {
+      "constraint": "After quotienting angular-unit and reference-path conventions, localized periodic heating produces a stable, material-dependent delayed-response curve across a wide modulation-frequency sweep; the measured response curve, not fitted thermal parameters, is the holdout evidence.",
+      "constraint_id": "C-A3",
+      "family": "DIFFUSIVE_RELAXATION",
+      "row_ids": [
+        "A3-DR-FDTR-PUMP-PROBE"
+      ]
+    },
+    {
+      "constraint": "A bounded physical resonator under frequency sweep exhibits reproducible isolated response peaks whose locations/widths change coherently under controlled sample insertion and boundary retuning; raw response-curve structure is evidence, while mode names and fitted dielectric parameters are not.",
+      "constraint_id": "C-A4",
+      "family": "BOUNDED_MODE_SPECTRUM",
+      "row_ids": [
+        "A4-BMS-CAVITY-VNA"
+      ]
+    },
+    {
+      "candidate": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "constraint": "Across two physically different transfer standards, independently observed receiving-system inventory change tracks through-boundary transfer over a controlled interval within source-stated uncertainty after unit/calibration conventions are removed.",
+      "constraint_id": "C-B1",
+      "row_ids": [
+        "B1A-TIBC-LIQUID-GRAVIMETRIC",
+        "B1B-TIBC-GAS-PVTT"
+      ]
+    },
+    {
+      "candidate": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "constraint": "Across acoustic and electromagnetic three-transducer realizations, directed pair measurements remain mutually compatible under source/receiver interchange and pair permutation after logarithmic/unit/geometry conventions are quotiented out.",
+      "constraint_id": "C-B2",
+      "row_ids": [
+        "B2A-SRIR-MIC-RECIP",
+        "B2B-SRIR-ANTENNA-3PAIR"
+      ]
+    }
+  ],
+  "effective_definitions_withheld_from_native_premises": [
+    "Euclidean coordinate/distance primitives",
+    "angle/radian/degree and cycle-origin definitions",
+    "continuum diffusion PDE and fitted thermal-property parameters",
+    "bounded eigenmode/eigenfunction definitions and mode labels",
+    "mass/flow control-volume equations as native axioms",
+    "reciprocity equations, gain/sensitivity definitions and logarithmic dB normalization"
+  ],
+  "freeze_timestamp_utc": "2026-08-13T02:40:42Z",
+  "native_semantics_verdict": "READOUT_ONLY_ENGINEERING_EVIDENCE",
+  "researcher_id": "EM-R049-6D82B4",
+  "schema": "ENTERPRISE_MATH_R049_DEFINITION_STRIPPED_CONSTRAINTS_V1",
+  "task_id": "RS-R049-CANDIDATE-BLIND-INDEPENDENT-ENGINEERING-HOLDOUT-CONSTRUCTION",
+  "weakest_ontology_statement": "No N0/native object is asserted by R049. The frozen constraints are effective-side operational evidence only."
+}

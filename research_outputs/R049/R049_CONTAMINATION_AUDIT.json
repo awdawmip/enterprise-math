@@ -1,0 +1,27 @@
+{
+  "candidate_blind": true,
+  "candidate_calibration_run": false,
+  "classical_pi_numeric_target_signal_used": false,
+  "events": [
+    {
+      "candidate_access_intentional": false,
+      "description": "During mandatory account-level knowledge synchronization, commit metadata incidentally exposed prohibited prior-generation-specific text not requested for R049.",
+      "event_id": "CA-001",
+      "influence_on_frozen_target": "NONE_BY_DESIGN",
+      "mitigation": "The incidental text was quarantined and not used to choose, name, source, tolerance-set, quotient, rank or evaluate any R049 holdout row or Block-B pressure.",
+      "type": "CONTEXT_CONTAMINATION_RISK"
+    }
+  ],
+  "forbidden_material_intentionally_read_before_freeze": false,
+  "freeze_timestamp_utc": "2026-08-13T02:40:42Z",
+  "prior_exact_protocol_or_tolerance_rows_read_before_freeze": false,
+  "researcher_id": "EM-R049-6D82B4",
+  "schema": "ENTERPRISE_MATH_R049_CONTAMINATION_AUDIT_V1",
+  "task_id": "RS-R049-CANDIDATE-BLIND-INDEPENDENT-ENGINEERING-HOLDOUT-CONSTRUCTION",
+  "training_source_overlap_pre_freeze_audit": {
+    "attack_performed": "A blindness-preserving source-token/repository lookup route was attempted, but the available GitHub code-search backend reported incomplete results. Absence of a hit was therefore not treated as proof of non-reuse.",
+    "frozen_postcondition": "If a later post-freeze provenance-only audit establishes that an eligible R049 source/protocol was used in the earlier construction surface, this frozen generation is marked ineligible and a NEW holdout generation must be built. The frozen protocol/tolerance/quotient/eligibility fields are never mutated in response.",
+    "status": "PASS_WITH_TOOLING_LIMITATION",
+    "why_no_deeper_pre_freeze_scan": "Reading prior exact protocol/tolerance rows to prove non-reuse would itself violate the candidate-blind construction rule."
+  }
+}

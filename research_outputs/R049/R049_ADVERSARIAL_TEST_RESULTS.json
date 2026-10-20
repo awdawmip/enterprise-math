@@ -1,0 +1,53 @@
+{
+  "freeze_timestamp_utc": "2026-08-13T02:40:42Z",
+  "researcher_id": "EM-R049-6D82B4",
+  "schema": "ENTERPRISE_MATH_R049_ADVERSARIAL_TEST_RESULTS_V1",
+  "task_id": "RS-R049-CANDIDATE-BLIND-INDEPENDENT-ENGINEERING-HOLDOUT-CONSTRUCTION",
+  "tests": [
+    {
+      "attack": "SAME_PROTOCOL_NEW_SOURCE",
+      "evidence": "Each eligible protocol has one protocol fingerprint; support publications are registry support only and do not create additional holdout rows.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "SAME_DEFINITION_DOUBLE_COUNT",
+      "evidence": "Every row lists definition/unit/model dependencies; derived copies are not counted as independent evidence.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "UNIT_CONVERSION_AS_NEW_EVIDENCE",
+      "evidence": "Unit conversions are explicitly quotiented and listed under calculated_outputs_not_counted.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "CALCULATED_OUTPUT_AS_MEASURED_OUTPUT",
+      "evidence": "FDTR fitted thermal properties and cavity f0/Q/permittivity/loss-tangent estimators are explicitly downstream; raw response curves remain the measured outputs.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "TARGET_CHOSEN_FOR_UNKNOWN_CANDIDATE",
+      "evidence": "Target frozen while candidate details are withheld; no calibration run and no candidate-performance signal consumed.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "CLASSICAL_PI_NUMERIC_SELECTION",
+      "evidence": "No numerical classical-pi target is present or used in any target-bearing artifact; angular unit conventions are quotiented.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "BLOCK_B_RENAMED_OLD_PRESSURE",
+      "evidence": "B1 survives removal of geometric calibration via independent liquid gravimetric realization; B2 survives removal of phase-loop requirements via amplitude/received-signal source-receiver interchange.",
+      "verdict": "PASS"
+    },
+    {
+      "attack": "TRAINING_SOURCE_REUSED_AS_HOLDOUT",
+      "evidence": "No prior exact protocol/tolerance rows were opened. Repository code-search negative results were explicitly rejected as proof because backend completeness was not guaranteed. A later proven collision invalidates this generation without mutation.",
+      "verdict": "PASS_WITH_TOOLING_LIMITATION"
+    },
+    {
+      "attack": "TOLERANCE_INVENTED_WITHOUT_SOURCE",
+      "evidence": "All scalar/numeric envelopes cite source registry entries; A4 intentionally uses the source-defined WLS covariance/one-sigma rule rather than inventing a scalar tolerance.",
+      "verdict": "PASS"
+    }
+  ]
+}
