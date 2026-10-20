@@ -1,0 +1,99 @@
+{
+  "schema": "P000_S4_LIFT_EXTENSION_PRIOR_ART_AUDIT_V8_FINITE_CERTIFICATE_V1",
+  "task_id": "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-2F8C6A1D9E7043B5C812",
+  "researcher_id": "EM-P0006DPA8-71C4E2",
+  "s4_natural_action": {
+    "point_labels": ["A", "B", "C", "D"],
+    "a_BCD_zero_based": [0, 2, 3, 1],
+    "b_AB_zero_based": [1, 0, 2, 3],
+    "generated_order": 24,
+    "relations": {
+      "a^3=id": true,
+      "b^2=id": true,
+      "(ab)^4=id": true
+    },
+    "two_subset_labels": ["AB", "AC", "AD", "BC", "BD", "CD"],
+    "induced_two_subset_image_order": 24,
+    "minimum_faithful_permutation_degree": 4,
+    "symmetric_group_orders_below_degree_4": {"S1": 1, "S2": 2, "S3": 6},
+    "degree_4_realized_by_natural_action": true
+  },
+  "split_extension_C2_times_S4": {
+    "order": 48,
+    "kernel_order": 2,
+    "quotient_order": 24,
+    "untwisted_homomorphic_section_exists": true,
+    "sign_homomorphic_section_exists": true,
+    "two_sections_are_distinct": true,
+    "kernel_is_central": true,
+    "kernel_conjugation_cannot_identify_sections": true,
+    "extension_automorphism_over_identity_quotient_swaps_sections": true,
+    "twisted_generator_lift": {
+      "Atilde": "(z,a)",
+      "Btilde": "(1,b)",
+      "relator_residues_in_C2": {
+        "Atilde^3": 1,
+        "Btilde^2": 0,
+        "(Atilde Btilde)^4": 0
+      }
+    },
+    "consequence": "A nontrivial lifted relation residue can occur for a chosen lift even in a split extension; split does not imply a unique/canonical section."
+  },
+  "GL2_F3_central_extension": {
+    "group_order": 48,
+    "center_kernel": ["I", "-I"],
+    "center_kernel_order": 2,
+    "projective_line_points": ["[1:0]", "[0:1]", "[1:1]", "[1:2]"],
+    "projective_permutation_image_order": 24,
+    "projective_kernel_order": 2,
+    "target_a_lift_count": 2,
+    "target_b_lift_count": 2,
+    "target_generator_lift_pair_count": 4,
+    "lift_pair_relation_table": [
+      {
+        "A": [1, 1, 0, 1],
+        "B": [0, 1, 1, 0],
+        "A3": [1, 0, 0, 1],
+        "B2": [1, 0, 0, 1],
+        "AB4": [2, 0, 0, 2],
+        "section_relations_all_identity": false
+      },
+      {
+        "A": [1, 1, 0, 1],
+        "B": [0, 2, 2, 0],
+        "A3": [1, 0, 0, 1],
+        "B2": [1, 0, 0, 1],
+        "AB4": [2, 0, 0, 2],
+        "section_relations_all_identity": false
+      },
+      {
+        "A": [2, 2, 0, 2],
+        "B": [0, 1, 1, 0],
+        "A3": [2, 0, 0, 2],
+        "B2": [1, 0, 0, 1],
+        "AB4": [2, 0, 0, 2],
+        "section_relations_all_identity": false
+      },
+      {
+        "A": [2, 2, 0, 2],
+        "B": [0, 2, 2, 0],
+        "A3": [2, 0, 0, 2],
+        "B2": [1, 0, 0, 1],
+        "AB4": [2, 0, 0, 2],
+        "section_relations_all_identity": false
+      }
+    ],
+    "all_lift_pairs_fail_homomorphic_section": true,
+    "decisive_common_residue": "(Atilde Btilde)^4=-I for all four lift pairs",
+    "nonsplit": true,
+    "consequence": "The same quotient S4 admits both split and nonsplit C2-kernel extensions; one-model existence cannot imply universal splitting."
+  },
+  "logic_guards": {
+    "relation_residue_implies_nonsplit": false,
+    "split_implies_canonical_section": false,
+    "one_positive_model_implies_universal_existence": false,
+    "ordinary_H2_of_nonabelian_kernel_is_general_classifier": false,
+    "no_material_match_implies_novelty": false
+  }
+}
