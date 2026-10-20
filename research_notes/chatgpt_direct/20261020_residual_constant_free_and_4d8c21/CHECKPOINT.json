@@ -1,0 +1,33 @@
+{
+  "schema": "EM_SCIENTIFIC_CHECKPOINT_V1",
+  "event_id": "EM-20261020-RESIDUAL-CONSTANT-FREE-AND-4D8C21",
+  "parent_event_id": "EM-20261020-RESIDUAL-COLLECTOR-FRONTIER-C8E4B2",
+  "status": "UNREVIEWED_CONDITIONAL_PROOFS_AND_TYPED_BRC",
+  "report_commit": "e0a415132b4ab7596f9bdb3d1c33a05e10f0e351",
+  "report_path": "research_notes/chatgpt_direct/20261020_residual_constant_free_and_4d8c21/RESULT.md",
+  "report_blob": "efc6eaa92dde2f3b58d0433b13bda4732bfc1e08",
+  "detailed_report_sha256": "1db5bc845baf2c7f35fbda456034d3120cfed0fc07b9856faf84215cc52e84ba",
+  "checker_sha256": "e0fba6c4e44c0ebe5b88af6832966583519f5288e56bd4c89c57c7ff2c39fec1",
+  "summary_sha256": "1873a537de09275a4576a77b649ec1f8a383da918847f547dfcdc6bab9a13c91",
+  "checks": 6892,
+  "uncached_kernel_calls": 38092,
+  "transition_uses": 65155,
+  "completed": [
+    "13-call constant-free direct AND with exact input restoration; 9-call signed-tail variant and 15-call overwrite",
+    "21-call constant-free buffered AND keeps original-input vacancy peak at 3 rather than 6",
+    "Six-route producer/collector closed loop: direct 170 calls and 156 members; buffered 210 calls and 163 members",
+    "All 248 direct fold input vectors; sixteen complete disjoint-gate shuffle families and two producer/collector shuffle families",
+    "Twenty fixed-order omission families, including six-route 510 calls under two global omissions"
+  ],
+  "limits": [
+    "No global optimality claim",
+    "No arbitrary shared-real-input concurrency safety",
+    "Protected concurrency and buffered-system omissions not exhaustively enumerated",
+    "No native Cell/material/field mapping, independent review, or formal acceptance"
+  ],
+  "native_mapping": false,
+  "independent_review": false,
+  "activity_binding": "NOT_OBTAINED; current Sites configuration has write_relay_enabled=false and research_authority_granted=false; no denied operation rerouted",
+  "bundle": "residual_constant_free_reduction.zip",
+  "repository_report_installs_execution_dependencies": false
+}
