@@ -1,0 +1,48 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-7F1C2D8A9E4B6053C271",
+  "task_id": "RS-P000-SIX-AXIS-P11-COLLISION-LOCUS-CONDITIONAL-SELECTOR",
+  "publication_id": "TP2-E899F20BC1B62973D07C",
+  "execution_record_id": "ER-8D4F27C2A19B604E7531",
+  "claim_id": "chatgpt-p000p11c2-20260831-1341-8d4f27",
+  "taskbook_path": "research_tasks/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_PAIRABILITY_REVISION_V2_20260831.md",
+  "taskbook_blob_sha1": "sha1:15f8b2a063f900bcd0ff317d0c216e5d0d97bf7f",
+  "execution_branch": "research/p000-p11-pairability-revision-v2-em-p000p11c2-8d4f27",
+  "execution_branch_base": "4ef0c7a9a8134e2ce65b12e56870624c12b9b64d",
+  "return_path": "research_returns/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_PAIRABILITY_REVISION_V2_RETURN_20260831.md",
+  "return_blob_sha1": "sha1:b5c08d5ecf94f0070849758ef6e55a032740c54f",
+  "return_sha256": "sha256:bdafce55c9429793ed24a0e468d9d27a3fda6781a49659cde2816971e17d620f",
+  "owner_head": "25ca23d1dee9c6e44afb64b83a01ccff4053b5f0",
+  "researcher_id": "EM-P000P11C2-8D4F27",
+  "frozen_at": "2026-08-31T05:59:00+00:00",
+  "terminal_verdict": "SUCCESS",
+  "hard_target_disposition": "EXACT_PAIRABILITY_FILTERED_COLLISION_LOCUS_WITH_ONE_BIT_ONLY_ON_ADMISSIBLE_DOUBLETONS",
+  "unresolved_residue": "C1: AC=BD and C2: AD=BC remain exact algebraic equal-P11 candidate loci, but each doubled level must be filtered packet-by-packet through the frozen discriminant-square/parity gate. Exact side-information cost is log2|F_adm(H,T,P11)|: 0 for an admissible singleton and 1 exactly for a genuine admissible doubleton. Simultaneous C1+C2 levels may have different admissible cardinalities, so selector cost is per observed P11 level. P21/P12 resolvent roots remain algebraic candidates and nonpairable ghost roots are discarded. No native orientation or Pfaffian selection is inferred.",
+  "output_manifest": [
+    {
+      "path": "research_returns/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_PAIRABILITY_REVISION_V2_RETURN_20260831.md",
+      "git_blob_sha1": "sha1:b5c08d5ecf94f0070849758ef6e55a032740c54f",
+      "sha256": "sha256:bdafce55c9429793ed24a0e468d9d27a3fda6781a49659cde2816971e17d620f"
+    },
+    {
+      "path": "research_checks/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_PAIRABILITY_REVISION_V2_CHECK_20260831.py",
+      "git_blob_sha1": "sha1:e112c5a98d35d7e37e5dcaa788c26db7098b9b9e",
+      "sha256": "sha256:1de0a2b3e4395e6eaf88143bf601a3a23422ea8596fcc4d159c9e883a1c926f0"
+    },
+    {
+      "path": "research_artifacts/P000_SIX_AXIS_P11_COLLISION_LOCUS_CONDITIONAL_SELECTOR_PAIRABILITY_REVISION_V2/certificate_20260831.json",
+      "git_blob_sha1": "sha1:0adb809f95adf403429c63bc668fb96d6da02607",
+      "sha256": "sha256:fcedcf8734146fe56ddf01ce07408d639c9fdd91690968aa699bcbbb3f04f120"
+    },
+    {
+      "path": "research_execution_records/RS-P000-SIX-AXIS-P11-COLLISION-LOCUS-CONDITIONAL-SELECTOR/ER-8D4F27C2A19B604E7531.json",
+      "git_blob_sha1": "sha1:34b1e3fbd5a1b1189c5eb389fd63b65d55e60d81",
+      "sha256": "sha256:80316075d981205b158897e3e2fd68ae605b5699d52b14b6d084c646a8c7ec83"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_INDEPENDENT",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "Driver review RR-7F1C2D8A9E4B6053C271 and freeze only the exact pairability-filtered P11/P21/P12 arithmetic theorem. Preserve C1/C2 as algebraic candidate loci, consume a selector bit only on filtered doubletons, and keep all native-orientation/Pfaffian/Full-Cell firewalls. Any strengthening or downstream task decision belongs to the Driver lane.",
+  "driver_review_required": true
+}
