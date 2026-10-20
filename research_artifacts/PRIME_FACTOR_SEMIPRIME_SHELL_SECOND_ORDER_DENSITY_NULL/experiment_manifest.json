@@ -1,0 +1,69 @@
+{
+  "schema": "PFSS2_SECOND_ORDER_NULL_EXPERIMENT_MANIFEST_V1",
+  "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL",
+  "publication_id": "TP2-D44C166C4C87CEC167E7",
+  "researcher_id": "EM-PFSS2-A927C4",
+  "claim_id": "chatgpt-pfss2-20260828-1305-a927c4",
+  "claim_comment_id": 5448660620,
+  "frozen_before_new_holdout_access": true,
+  "parent_result_status": "UNREVIEWED_MOTIVATION_ONLY",
+  "discovery_scales": [1000000, 3000000, 10000000, 30000000, 100000000],
+  "new_holdout_scales": [300000000, 1000000000],
+  "new_holdout_accessed_at_freeze": false,
+  "shell_widths": [0.01, 0.003, 0.001],
+  "factor_trim": "p > X^(1/4) and p <= sqrt((1+eta)X), with p<=q",
+  "square_locus_primary": "EXCLUDED_AND_REPORTED_SEPARATELY",
+  "coordinate": {
+    "u": "log(p)/log(X)",
+    "xi": "1 + log(u/(1-u))/log(3)",
+    "domain": "0 < xi <= 1 under the registered factor trim",
+    "bins": 32,
+    "bin_edges": "j/32 for j=0..32; left-closed/right-open except final bin includes xi=1"
+  },
+  "prime_generation": "deterministic Eratosthenes/segmented Eratosthenes exact integer sieve; no probabilistic primality in reference counts",
+  "null_a": {
+    "name": "CONDITIONAL_MICROCELL_WHEEL_SHUFFLE",
+    "seed_label": "PFSS2_NULL_A_V1",
+    "seed_uint64": 1251874746125827120,
+    "replicates": 4096,
+    "wheel_modulus": 210,
+    "microcell_definition": "For q>=2, k=floor(log2(q)), j=floor(1024*(q-2^k)/2^k). Cell=(k,j). Within each Cell and each q mod 210 residue, preserve the exact observed prime count and sample without replacement from integer positions in the same Cell and residue. Prime 2,3,5,7 may be fixed as exceptional wheel primes when they fall in the global q-universe.",
+    "cross_scale_coupling": "one surrogate q-set per replicate is shared by all discovery scales and shell widths",
+    "interval_rule": "for each p count surrogate q in (X/p,(1+eta)X/p] with q>=p"
+  },
+  "null_b": {
+    "name": "WHEEL_PRESERVING_CYCLIC_GAP_SURROGATE",
+    "seed_label": "PFSS2_NULL_B_V1",
+    "seed_uint64": 10723725512002858063,
+    "replicates": 4096,
+    "wheel_modulus": 210,
+    "band_definition": "Let t=floor(q/210). For t>=1, k=floor(log2(t)), j=floor(64*(t-2^k)/2^k). A band is the union of complete 210-blocks sharing (k,j). q<210 is fixed. For each band choose one uniform cyclic translation by an integer number of 210-blocks and wrap within that band's complete block range.",
+    "invariants": [
+      "exact prime count in every band",
+      "every translated point preserves q mod 210",
+      "within-band circular gap multiset is preserved",
+      "one translated q-set per replicate is shared by all discovery scales and shell widths"
+    ],
+    "interval_rule": "for each p count surrogate q in (X/p,(1+eta)X/p] with q>=p"
+  },
+  "statistics": {
+    "cell_observation": "O[X,eta,b]=number of semiprime factor pairs (p,q) in xi-bin b after trim and square exclusion",
+    "standardization": "z=(O-mu_null)/sigma_null for each X,eta,b and each null family separately",
+    "cross_scale": "C[eta,b]=(1/sqrt(5))*sum over discovery X of z[X,eta,b]",
+    "familywise": "T=max over eta,b of abs(C[eta,b]); threshold=empirical 0.99 quantile of replicate T",
+    "candidate_freeze": "choose only a cell clearing the 99% family-wise threshold under BOTH null families; tie-break by minimum of the two standardized margins, then smaller eta, then lower bin index",
+    "sign_rule": "candidate sign is sign of the observed cross-scale C and must match at least 4 of 5 discovery scales"
+  },
+  "holdout_gate": {
+    "freeze_before_access": ["eta", "bin", "sign", "null definitions", "band definitions", "seeds", "threshold rule"],
+    "success": "same frozen sign on BOTH 3e8 and 1e9; each holdout exceeds the predeclared one-sided 0.99 null threshold under BOTH null families",
+    "failure": "failure of either holdout or either null returns SECOND_ORDER_DENSITY_ARTIFACT unless NULL_MODEL_MISSPECIFICATION is independently established"
+  },
+  "spotcheck_seed_label": "PFSS2_SPOTCHECK_V1",
+  "spotcheck_seed_uint64": 13651922593109265076,
+  "forbidden_before_candidate_freeze": [
+    "enumerating semiprime shell counts at X=300000000",
+    "enumerating semiprime shell counts at X=1000000000",
+    "using either new holdout to choose a statistic, bin, sign, cell size, band size, or null family"
+  ]
+}

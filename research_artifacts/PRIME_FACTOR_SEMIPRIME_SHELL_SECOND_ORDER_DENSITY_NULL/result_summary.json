@@ -1,0 +1,52 @@
+{
+  "candidate_status": "NO_CANDIDATE_MAY_BE_FROZEN",
+  "checker": "scripts/check_prime_factor_semiprime_shell_second_order_density_null.py",
+  "checker_default": "PASS structural proof and exact Null-B contrast witness",
+  "checker_full": "PASS 4096-replicate deterministic hashes when run with --full (requires numpy+numba)",
+  "claim_id": "chatgpt-pfss2-20260828-1305-a927c4",
+  "classification": "NULL_MODEL_MISSPECIFICATION",
+  "exact_null_b_contrast_witness": {
+    "X": 1000000,
+    "band_t_half_open": [128, 130],
+    "consequence": "Null B is non-degenerate on a registered cell at the first discovery scale while Null A is structurally degenerate there.",
+    "cyclic_shift_0_contribution": 25,
+    "cyclic_shift_1_contribution": 31,
+    "eta": "1/100",
+    "q_range_inclusive": [26880, 27299],
+    "xi_bin_zero_based": 1
+  },
+  "full_4096_replay": {
+    "deterministic_second_replay_bit_identical": true,
+    "null_a_array_sha256": "adffaf6ee4e3098caf53d0ee2c3c63bcfb8dd1c218d654341a57c4794b5175a9",
+    "null_a_eta_bin_cells_with_nonzero_variance_on_all_five_scales": 0,
+    "null_a_nonzero_variance_features_by_scale": [0, 0, 0, 12, 33],
+    "null_b_array_sha256": "a2d3ef1315397c97c3dcc0ba3ef4aabec532dc307aecd6909d173cd312f86577",
+    "null_b_eta_bin_cells_with_nonzero_variance_on_all_five_scales": 3,
+    "null_b_nonzero_variance_features_by_scale": [3, 29, 50, 65, 78]
+  },
+  "hard_target_disposition": "NULL_MODEL_MISSPECIFICATION / registered second-order screen cannot be evaluated because Null A overconditions the first three discovery scales to sigma=0; choosing an epsilon, dropping scales/cells, or coarsening microcells now would be post-hoc and forbidden.",
+  "holdout_status": "PRESERVED_UNTOUCHED",
+  "new_holdouts": [300000000, 1000000000],
+  "new_holdouts_accessed": false,
+  "observed_pair_totals_by_scale_and_width": [
+    {"X": 1000000, "eta_totals": {"1/100": 683, "1/1000": 69, "3/1000": 203}},
+    {"X": 3000000, "eta_totals": {"1/100": 2125, "1/1000": 209, "3/1000": 628}},
+    {"X": 10000000, "eta_totals": {"1/100": 6519, "1/1000": 659, "3/1000": 1948}},
+    {"X": 30000000, "eta_totals": {"1/100": 18133, "1/1000": 1804, "3/1000": 5409}},
+    {"X": 100000000, "eta_totals": {"1/100": 58530, "1/1000": 5818, "3/1000": 17462}}
+  ],
+  "publication_id": "TP2-D44C166C4C87CEC167E7",
+  "registered_statistic_status": "UNDEFINED_UNDER_NULL_A",
+  "researcher_id": "EM-PFSS2-A927C4",
+  "schema": "PFSS2_SECOND_ORDER_NULL_RESULT_SUMMARY_V1",
+  "smallest_followup_frontier": "A corrected generation must choose nuisance strata with a predeclared minimum conditional support/variance rule before any data evaluation; e.g. coarser q microcells or adaptive support floors may be tested only in a new task/publication with fresh holdouts.",
+  "structural_obstruction": {
+    "consequence": "At X=1e6,3e6,1e7 every relevant q is below 2^18, so every registered occupancy cell has exact Null-A variance zero. The registered z=(O-mu)/sigma and therefore C and T are undefined at three of five discovery scales.",
+    "discovery_qmax_by_scale": {"1000000": 27297, "10000000": 171186, "100000000": 1000000, "3000000": 70465, "30000000": 383544},
+    "null": "A / CONDITIONAL_MICROCELL_WHEEL_SHUFFLE",
+    "proof": "For q<2^18, k=floor(log2 q)<=17. A registered microcell has q-diameter <2^(k-10)<=128<210. Two distinct integers in the same microcell and the same residue mod 210 would differ by a nonzero multiple of 210, impossible. Hence every conditioned microcell/residue stratum has capacity at most one and Null A is the identity on that range.",
+    "singleton_cutoff_exclusive": 262144
+  },
+  "task_id": "RS-PRIME-FACTOR-SEMIPRIME-SHELL-SECOND-ORDER-DENSITY-NULL",
+  "terminal_at_discovery": true
+}
