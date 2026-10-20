@@ -1,0 +1,48 @@
+{
+  "bidirectional_interface": {
+    "backward_frontier": 1024,
+    "bidirectional_frontier_total": 2048,
+    "classification": "ordinary MITM; BRC contribution is exact interface typing",
+    "enumeration_work_ratio_full_to_bidirectional": 512.0,
+    "forward_frontier": 1024,
+    "full_end_check_assignments": 1048576,
+    "interface_bits": 17,
+    "matching_interfaces": 9
+  },
+  "branch_budget": {
+    "best_balanced_split": {
+      "backward_width": 1024,
+      "charged_interface_token_bits": 34816,
+      "critical_depth_parallel": 11,
+      "enumeration_work": 2048,
+      "forward_width": 1024,
+      "max_width": 1024,
+      "split": 10
+    },
+    "selected_rows": [
+      {"backward_width": 1048576,"charged_interface_token_bits": 17825809,"critical_depth_parallel": 21,"enumeration_work": 1048577,"forward_width": 1,"max_width": 1048576,"split": 0},
+      {"backward_width": 32768,"charged_interface_token_bits": 557600,"critical_depth_parallel": 16,"enumeration_work": 32800,"forward_width": 32,"max_width": 32768,"split": 5},
+      {"backward_width": 1024,"charged_interface_token_bits": 34816,"critical_depth_parallel": 11,"enumeration_work": 2048,"forward_width": 1024,"max_width": 1024,"split": 10},
+      {"backward_width": 32,"charged_interface_token_bits": 557600,"critical_depth_parallel": 16,"enumeration_work": 32800,"forward_width": 32768,"max_width": 32768,"split": 15},
+      {"backward_width": 1,"charged_interface_token_bits": 17825809,"critical_depth_parallel": 21,"enumeration_work": 1048577,"forward_width": 1048576,"max_width": 1048576,"split": 20}
+    ]
+  },
+  "branch_signature_router": {
+    "assignments": 512,"compiled_route_labels": 5,"every_raw_bit_has_deletion_witness": true,
+    "fixed_width_compiled_route_token_bits": 3,"minimal_raw_coordinate_subset_size": 9,
+    "payload_warning": "route token is control metadata; full continuation payload is separate",
+    "route_counts": {"S00": 2,"S01": 2,"S10": 2,"S11": 2,"WANG": 504}
+  },
+  "causal_rewind_kill": {"causal_refinement_depth": 2,"deeper_rewind_recovers": true,"minimal_recoverable_stage": 1,"one_step_recovers": false,"scope": "requires inexact/budgeted loss; exact RCC merge needs no semantic rewind"},
+  "endpoint_provenance_kill": {"endpoint_only_safe_for_endpoint_existence": true,"endpoint_only_safe_for_provenance_exactness": false},
+  "generic_primitives": {
+    "minimal_coordinate_feature_subsets": [[1]],"minimum_solver_covers": [["A","B"]],"ncc_positive": true,
+    "pareto_names": ["A","B","C"],"partial_move_positive": true,"rcc_mutation_rejected": true,"rcc_positive": true
+  },
+  "neutral_move_composition_kill": {"composition_defined": false,"m_safe_partial": true,"n_safe_partial": true},
+  "nfa_dfa_pareto": {"classification": "real Pareto; standard NFA/DFA succinctness","dfa_transition_cells": 128,"language": "6th-symbol-from-end-is-1","minimal_dfa_states": 64,"nfa_max_live_branch_width": 7,"nfa_states": 7,"nfa_transition_cells_nonempty": 12},
+  "recoalescence_potential_kill": {"future_defect_after": 2,"future_defect_before": 0,"metric_after": 1,"metric_before": 2},
+  "residual_recoalescence": {"deterministic_future_complete_states": 5,"max_full_histories": 4096,"max_live_residual_tokens": 5,"negative_result": "safe merge equals optimal deterministic quotient in this model","safe_recoalescence": true},
+  "router_nonunique_minimum_kill": {"minimal_partitions": [[ ["a","b"],["c"] ],[ ["a","c"],["b"] ]],"minimal_router_blocks": 2,"semantic_future_classes_if_all_outputs_equal": 1},
+  "unsafe_coarse_merge_kill": {"spurious_results": ["spurious"]}
+}

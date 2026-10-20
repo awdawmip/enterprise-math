@@ -1,0 +1,48 @@
+{
+  "deletion_horizon_token": {
+    "formula": "tau_h(n)=min(n,h+1)",
+    "rows": [
+      {"coarsest_verified": true, "expected_classes": 2, "future_classes": 2, "horizon": 0},
+      {"coarsest_verified": true, "expected_classes": 3, "future_classes": 3, "horizon": 1},
+      {"coarsest_verified": true, "expected_classes": 4, "future_classes": 4, "horizon": 2},
+      {"coarsest_verified": true, "expected_classes": 5, "future_classes": 5, "horizon": 3},
+      {"coarsest_verified": true, "expected_classes": 6, "future_classes": 6, "horizon": 4},
+      {"coarsest_verified": true, "expected_classes": 7, "future_classes": 7, "horizon": 5},
+      {"coarsest_verified": true, "expected_classes": 8, "future_classes": 8, "horizon": 6},
+      {"coarsest_verified": true, "expected_classes": 9, "future_classes": 9, "horizon": 7},
+      {"coarsest_verified": true, "expected_classes": 10, "future_classes": 10, "horizon": 8}
+    ]
+  },
+  "horizon_extension": {
+    "expected_refinement": [3, 4, 5, 6],
+    "matches_expected": true,
+    "nonsaturated_classes_unchanged": true,
+    "old_saturated_class_refines_to": [3, 4, 5, 6]
+  },
+  "no_resurrection_extension": {
+    "a": 3,
+    "b": 4,
+    "lesson": "without retained count/checkpoint, extending the future language cannot reconstruct the split",
+    "new_horizon": 3,
+    "new_signatures_equal": false,
+    "new_token_equal": false,
+    "old_horizon": 2,
+    "old_signatures_equal": true,
+    "old_token_equal": true
+  },
+  "scope": {
+    "future_operation": "anonymous delete-one",
+    "named_retraction_warning": "named/provenance-sensitive deletion generally requires stronger metadata",
+    "observable": "Boolean support"
+  },
+  "stage_aware_transition": {
+    "rule": "tau_r(n) --delete--> max(tau_r(n)-1,0) at residual horizon r-1",
+    "verified": true
+  },
+  "support_quotient_operations": {
+    "add_one_counterexample": null,
+    "add_one_descends": true,
+    "delete_one_counterexample": [1, 2, 1, [0, 1]],
+    "delete_one_descends": false
+  }
+}

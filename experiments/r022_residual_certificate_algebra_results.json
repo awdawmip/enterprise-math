@@ -1,0 +1,46 @@
+{
+  "antichain_greedy_trap": {
+    "bad_greedy_removal_sequence": ["S4", "S5"],
+    "bad_greedy_terminal_basis": ["S0", "S1", "S2", "S3"],
+    "good_removal_sequence": ["S1", "S3", "S4"],
+    "good_terminal_basis": ["S0", "S2", "S5"],
+    "irredundant_basis_sizes": [3, 4],
+    "larger_irredundant_examples": [["S0", "S1", "S2", "S3"], ["S0", "S1", "S4", "S5"]],
+    "minimum_bases": [["S0", "S2", "S5"], ["S0", "S3", "S4"]],
+    "pairwise_incomparable": true
+  },
+  "collective_dominance": {
+    "collectively_removable": {"A": true, "B": true, "C": true},
+    "minimum_bases": [["A", "B"], ["A", "C"], ["B", "C"]],
+    "pairwise_dominated": {"A": false, "B": false, "C": false},
+    "target_atoms": [["u", 1], ["u", 2], ["u", 3]]
+  },
+  "free_union_token_width_kill": {
+    "existing_token_min_width": 2,
+    "free_synthesized_union_token_width": 1,
+    "union_token_explicit_atom_count": 3,
+    "warning": "width=1 is vacuous if arbitrary exact union tokens/denotations are synthesized without charging their representation"
+  },
+  "language_extension_kill": {
+    "exact_after_language_extension": false,
+    "exact_on_short_language": true
+  },
+  "multiplicity_kill": {
+    "multiplicity_after": {"ok": 1},
+    "multiplicity_before": {"ok": 2},
+    "multiplicity_preserved": false,
+    "support_merge_exact": true
+  },
+  "rjc_special_cases": {
+    "congruence_under_configuration_union": true,
+    "ncc_as_bottom_elimination": true,
+    "rcc_as_idempotence": true,
+    "wrong_nonempty_prune_rejected": true
+  },
+  "set_cover_reduction_witness": {
+    "minimum_cover_size": 2,
+    "minimum_exact_branch_bases": [["S0", "S3"]],
+    "reduction": "singleton residual language; final outcomes are Set-Cover universe elements; branch signatures are the input subsets",
+    "universe": [1, 2, 3, 4, 5]
+  }
+}

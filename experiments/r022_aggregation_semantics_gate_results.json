@@ -1,0 +1,34 @@
+{
+  "algebraic_gate": {
+    "coefficient_group_equal_duplicates": "valid in commutative monoids with retained natural-number multiplicity action",
+    "forget_equal_duplicates": "requires idempotence s⊕s=s on reachable semantic values",
+    "frontier_set_cover": "requires the distributive/join-prime support regime from pass 7",
+    "identity_prune": "valid in any commutative monoid when branch value is the identity",
+    "pairwise_collective_absorption": "requires idempotent order/semilattice structure; not monoid-generic"
+  },
+  "coefficient_merge": {
+    "coefficient": 4,
+    "exact": true,
+    "explicit_sum": 12,
+    "grouped_coefficient_value": 12,
+    "lesson": "non-idempotent semantics can group equal residual values only if multiplicity/coefficient is retained"
+  },
+  "duplicate_forgetting": {
+    "boolean_support_duplicate_forget_exact": true,
+    "lesson": "forgetful duplicate recoalescence is exact exactly on reachable idempotent aggregate values",
+    "min_score_duplicate_forget_exact": true,
+    "natural_multiplicity_duplicate_forget_exact": false
+  },
+  "provenance_kill": {
+    "lesson": "two branches equal under support semantics need not be semantically equal after provenance is promoted to the observable",
+    "provenance_forget_exact": false,
+    "provenance_union_token_exact": true,
+    "support_merge_exact": true
+  },
+  "zero_prune": {
+    "boolean_bottom_prune_exact": true,
+    "lesson": "identity/bottom pruning is monoid-generic, unlike duplicate forgetting",
+    "min_infinity_prune_exact": true,
+    "natural_zero_prune_exact": true
+  }
+}
