@@ -1,0 +1,92 @@
+{
+  "schema": "R047P_NATIVE_DERIVATION_LEDGER_V1",
+  "task_id": "RS-R047P-NATIVE-MECHANISM-BLIND-FOUNDATION-PROJECT-ARM",
+  "researcher_id": "EM-R047P-4A73D2",
+  "candidate_set_sha256": "bf309a1b6d0bebf10a58345af768bac0b63747934eccb63538d0e0fe6cf0d494",
+  "calibration": "NOT_OPENED",
+  "canonicality": "NOT_CANONICAL",
+  "declared_base": {
+    "stratum": "N0_NATIVE_RELATIONAL",
+    "carrier": "finite cells / finite states",
+    "primitives": [
+      "finite carrier V",
+      "finite declared simple undirected contact/incidence E",
+      "occupancy/membership A when used",
+      "equality",
+      "finitary logical formation",
+      "exact finite/integer bookkeeping on declared finite relations"
+    ],
+    "withheld": [
+      "center",
+      "metric/distance/equidistance/radius",
+      "Euclidean embedding geometry",
+      "continuum/smooth/measure structure",
+      "spectral/normalization structure",
+      "any sealed calibration definition or target"
+    ]
+  },
+  "claims": [
+    {
+      "claim_id": "M1-CUT-HOM",
+      "candidate": "R047P-M1-CUT-XOR",
+      "critical_symbols": ["V", "E", "A", "cut", "Δ"],
+      "typed_dependency_graph": ["V,E,A:N0", "cut:N0_DEFINABLE", "toggle-cell:N1", "|cut|:N2"],
+      "theorem": "cut(A Δ C)=cut(A) Δ cut(C); local star toggle preserves B=cut(A).",
+      "certificate": "edgewise XOR parity truth table; relabeling carries cut/star equivariantly",
+      "verdict": "NATIVE_ADMISSIBLE for cut; CONDITIONAL_DERIVED for event dynamics"
+    },
+    {
+      "claim_id": "M2-REFINE",
+      "candidate": "R047P-M2-RELATIONAL-REFINEMENT",
+      "critical_symbols": ["P_t", "neighbor-class multiset", "refine"],
+      "typed_dependency_graph": ["V,E,A:N0", "P0:N0_DEFINABLE", "round/refine/Pt:N1", "hist:N2"],
+      "theorem": "P(t+1) refines Pt, stabilizes after at most |V|-1 strict refinements, and is automorphism-equivariant.",
+      "certificate": "new equivalence includes old-class equality; each strict refinement increases class count; signatures are relation-defined",
+      "verdict": "CONDITIONAL_DERIVED"
+    },
+    {
+      "claim_id": "M3-F2-LINEAR",
+      "candidate": "R047P-M3-CONTACT-PARITY-PROPAGATOR",
+      "critical_symbols": ["F2^V", "T_E"],
+      "typed_dependency_graph": ["V,E:N0", "x,T,iteration:N1", "orbit statistics:N2"],
+      "theorem": "T_E is F2-linear, powers compose, relabeling-equivariant, and every finite trajectory is eventually periodic with preperiod+period <=2^|V|.",
+      "certificate": "coordinatewise mod-2 linearity and finite-state pigeonhole principle",
+      "verdict": "CONDITIONAL_DERIVED"
+    },
+    {
+      "claim_id": "M4-BRANCH",
+      "candidate": "R047P-M4-BRANCH-RECOALESCE",
+      "critical_symbols": ["A0", "expand", "m_k", "S_k"],
+      "typed_dependency_graph": ["V,E:N0", "A0/branch/multiplicity:N1", "support quotient:N2"],
+      "theorem": "Every support state at level k has |A|=|A0|+k; exact multiplicity recurrence; disconnected products acquire binomial interleaving multiplicity.",
+      "certificate": "one-cell addition induction and bijection between interleavings of component histories",
+      "verdict": "CONDITIONAL_DERIVED"
+    },
+    {
+      "claim_id": "M5-ORBIT-QUOTIENT",
+      "candidate": "R047P-M5-AUTOMORPHISM-ORBIT-COLLAPSE",
+      "critical_symbols": ["Aut(V,E,A)", "orbits", "weighted quotient"],
+      "typed_dependency_graph": ["V,E,A:N0", "Aut:N0_DEFINABLE", "orbits/weights: N2"],
+      "theorem": "full automorphism group is choice-free N0-definable; weighted orbit quotient is relabeling invariant but nonfaithful.",
+      "certificate": "conjugation under relabeling; exact C6 versus 2K3 counterexample has same one-orbit size/contact-weight quotient",
+      "verdict": "READOUT_ONLY; Aut definability itself NATIVE_ADMISSIBLE"
+    },
+    {
+      "claim_id": "M6-BALANCE",
+      "candidate": "R047P-M6-INCIDENCE-BALANCE-FLOW",
+      "critical_symbols": ["deg", "q", "fire"],
+      "typed_dependency_graph": ["V,E:N0", "deg:N0_DEFINABLE", "q/fire/event order:N1", "cycle summary:N2"],
+      "theorem": "total integer charge is conserved; firing translations commute algebraically; equal legal firing-count vectors give equal outputs; termination is false in general.",
+      "certificate": "sum of one firing changes by -deg(v)+deg(v)=0; translations add; 2-vertex one-edge q=(1,0) is an exact 2-cycle",
+      "verdict": "CONDITIONAL_DERIVED"
+    }
+  ],
+  "global_semantic_audit": {
+    "n0_hidden_primitive": "NONE_USED",
+    "target_definition_import": "NONE_USED",
+    "metric_or_embedding_promotion": "NONE",
+    "root_as_center": "NONE",
+    "foundation_calibration_separation": "PASS",
+    "transitive_dependency_closure": "RECORDED_PER_CANDIDATE"
+  }
+}
