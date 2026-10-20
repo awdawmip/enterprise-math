@@ -1,0 +1,69 @@
+{
+  "classical_numeric_value_used": false,
+  "comparison_model_opened_only_now": "Classical oriented Euclidean plane over the standard real scalar field, used strictly as a comparison model rather than a source of starting primitives.",
+  "identification_summary": {
+    "conditional_geometric_realization": [
+      "R1_CELL_HALF_CYCLE"
+    ],
+    "direct_half_turn_identifications": [
+      "R2_DIRECTION_DECK",
+      "R3_GROUP_INVOLUTION_ACTION"
+    ],
+    "full_turn_relation": {
+      "R5_TURN_KERNEL_GENERATOR_CLASS": "generator class -> {+2π,-2π}"
+    },
+    "result_class": "CLASSICAL_IDENTIFICATION_PROVED_AFTER_FREEZE",
+    "scalar_relation": {
+      "R4_RAW_ISOPERIMETRIC_CUT": "J=4π; J/4=π in the comparison model"
+    }
+  },
+  "identifications": [
+    {
+      "backpropagation": "NONE",
+      "comparison_interpretation": "Identify oriented directions with the standard angular quotient R/(2π Z) and unoriented directions by additionally identifying θ with θ+π.",
+      "role_id": "R2_DIRECTION_DECK",
+      "status": "PROVED_IN_COMPARISON_MODEL",
+      "symbolic_identification": "delta_q([θ])=[θ+π]. Thus the frozen deck role is the standard half-turn class π mod 2π."
+    },
+    {
+      "backpropagation": "NONE",
+      "comparison_interpretation": "Interpret the S4 realization of the unique group involution as vector negation on oriented directions.",
+      "role_id": "R3_GROUP_INVOLUTION_ACTION",
+      "status": "PROVED_IN_COMPARISON_MODEL_AFTER_FORMAL_COHERENCE",
+      "symbolic_identification": "By frozen A* coherence, R3=R2, hence its standard angular class is also π mod 2π."
+    },
+    {
+      "backpropagation": "NONE; the regular realization is not added to S1.",
+      "comparison_interpretation": "Under an explicitly extra comparison-only equivariant realization of an even cyclic boundary as a regular Euclidean polygon, successor advances by 2π/m.",
+      "role_id": "R1_CELL_HALF_CYCLE",
+      "status": "CONDITIONAL_ON_REGULAR_EQUIVARIANT_REALIZATION; NOT_NATIVE_TO_S1",
+      "symbolic_identification": "The frozen half-cycle s^(m/2) advances by (m/2)(2π/m)=π."
+    },
+    {
+      "backpropagation": "NONE; neither the normalization nor Euclidean area is inserted into S5.",
+      "comparison_interpretation": "Interpret N as standard Euclidean length and mu as standard Euclidean area, but only in this Stage-F comparison.",
+      "role_id": "R4_RAW_ISOPERIMETRIC_CUT",
+      "status": "PROVED_USING_CLASSICAL_ISOPERIMETRIC_THEOREM_AND_POLYGONAL_APPROXIMATION",
+      "symbolic_identification": "The classical isoperimetric inequality gives Per(C)^2 >= 4π Area(C); regular polygon refinement approaches the sharp bound, so the frozen raw polygonal infimum J equals 4π. The comparison readout J/4 therefore identifies with π."
+    },
+    {
+      "backpropagation": "NONE; S6 retains no scalar angle map or chosen generator.",
+      "comparison_interpretation": "In the standard additive angular cover, restrict to the preimage of the subgroup {identity, half-turn}. This lift is π Z with kernel 2π Z over identity.",
+      "role_id": "R5_TURN_KERNEL_GENERATOR_CLASS",
+      "status": "PROVED_AS_GROUP_COVER_COMPARISON",
+      "symbolic_identification": "The inversion-quotient generator class of the kernel maps to the orientation-free full-turn class {+2π,-2π}."
+    }
+  ],
+  "post_comparison_mutation_policy": "Any change to frozen signatures, roles, or pre-F theorem statements is NEW_GENERATION_FOR_LATER_TASK.",
+  "preconditions": {
+    "all_preconditions_reverified_immediately_before_comparison": true,
+    "role_registry_sha256": "33cabef583b3847eedae152181de002806b800bd8cdb01c07b595d5a695dfe66",
+    "signature_family_sha256": "946eb08652b7c505adb9b2e8c1263a7260147962b1b7056d5a890d623fbcd0e2",
+    "theorem_counterexample_ledger_sha256": "4a854ca114ab46e7b828f3eb991be745ac2342c034809566218442926b48ebac"
+  },
+  "researcher_id": "EM-R052-7C4A19",
+  "schema": "ENTERPRISE_MATH_R052_CLASSICAL_IDENTIFICATION_SEAL_V1",
+  "status": "STAGE_F_SYMBOLIC_IDENTIFICATION_AFTER_FREEZE",
+  "symbolic_only": true,
+  "task_id": "RS-R052-FORMAL-PLANE-PI-TYPABILITY-MULTIPLICITY-COHERENCE"
+}

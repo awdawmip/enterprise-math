@@ -1,0 +1,91 @@
+{
+  "researcher_id": "EM-R052-7C4A19",
+  "role_registry_sha256": "33cabef583b3847eedae152181de002806b800bd8cdb01c07b595d5a695dfe66",
+  "schema": "ENTERPRISE_MATH_R052_ADVERSARIAL_TEST_RESULTS_V1",
+  "signature_family_sha256": "946eb08652b7c505adb9b2e8c1263a7260147962b1b7056d5a890d623fbcd0e2",
+  "status": "COMPLETE",
+  "summary": {
+    "fail": 0,
+    "pass": 14,
+    "pass_with_quarantined_context_risk": 1
+  },
+  "task_id": "RS-R052-FORMAL-PLANE-PI-TYPABILITY-MULTIPLICITY-COHERENCE",
+  "tests": [
+    {
+      "attack": "CIRCLE_DEFINITION_SMUGGLED_INTO_STARTING_SIGNATURE",
+      "evidence": "No signature has circle as a primitive. S5 can derive a metric from N but R4 is defined on convex polygons and never requires a primitive circle.",
+      "result": "PASS"
+    },
+    {
+      "attack": "CENTER_OR_RADIUS_SMUGGLED_AS_NATIVE",
+      "evidence": "Affine Point sorts are torsors with no distinguished origin; center/radius are explicitly absent from all starting signatures.",
+      "result": "PASS"
+    },
+    {
+      "attack": "EQUIDISTANCE_SMUGGLED_AS_NATIVE",
+      "evidence": "No equidistance primitive occurs. S5's metric is derived from the declared norm and remains downstream structure.",
+      "result": "PASS"
+    },
+    {
+      "attack": "RADIAN_OR_2PI_PER_TURN_SMUGGLED_AS_NATIVE",
+      "evidence": "S6 deliberately declares only an unnormalized algebraic cover with no scalar angular map, period length, or angular unit. Scalar angular notation first appears in Stage F comparison.",
+      "result": "PASS"
+    },
+    {
+      "attack": "CLASSICAL_PI_NUMERIC_SELECTION",
+      "evidence": "No classical decimal target was read or used. Pre-F artifact scan contains no classical decimal prefix and no symbolic π character.",
+      "result": "PASS"
+    },
+    {
+      "attack": "EUCLIDEAN_MODEL_USED_BEFORE_ROLE_FREEZE",
+      "evidence": "The Stage-F gate records signature, role, and theorem-ledger hashes before the comparison model is opened.",
+      "result": "PASS"
+    },
+    {
+      "attack": "ROLE_DEFINED_BY_OUTPUT_COPYING",
+      "evidence": "R1 uses cyclic parity, R2 a two-sheet deck map, R3 an internal group involution, R4 an unnormalized optimization invariant, and R5 a kernel-generator quotient. None copies a target scalar.",
+      "result": "PASS"
+    },
+    {
+      "attack": "UNMARKED_CHOICE_PROMOTED_TO_INVARIANT",
+      "evidence": "R5 explicitly rejects a raw kernel generator as canonical and quotients the inverse pair.",
+      "result": "PASS"
+    },
+    {
+      "attack": "SCALAR_CODOMAIN_ASSUMED_WITHOUT_TYPING",
+      "evidence": "S0/S1 scalar roles are rejected as ill-typed; R4 explicitly declares Cut(K) as its scalar readout codomain.",
+      "result": "PASS"
+    },
+    {
+      "attack": "MULTIPLE_ROLES_ASSUMED_EQUAL",
+      "evidence": "M1 separates R2 and R3 in S3. Equality is claimed only after A* and proved pointwise.",
+      "result": "PASS"
+    },
+    {
+      "attack": "COUNTERMODEL_REPAIRED_AWAY",
+      "evidence": "M0-M6 are preserved as frozen countermodels/deletion witnesses; none modifies the frozen role/signature that it attacks.",
+      "result": "PASS"
+    },
+    {
+      "attack": "FINITE_NUMERIC_CONVERGENCE_PRESENTED_AS_THEOREM",
+      "evidence": "Stage E proves exact naturality and an algebraic direct-limit involution; no numerical convergence claim is made.",
+      "result": "PASS"
+    },
+    {
+      "attack": "REFINEMENT_CHOSEN_AFTER_SEEING_CLASSICAL_MATCH",
+      "evidence": "The uniform-subdivision directed system and its hash were frozen before Stage F; unrestricted refinement failure is preserved.",
+      "result": "PASS"
+    },
+    {
+      "attack": "CLASSICAL_IDENTIFICATION_BACKPROPAGATED_INTO_FOUNDATION",
+      "evidence": "Signature, role, and theorem-ledger SHA-256 values are identical before and after Stage F.",
+      "result": "PASS"
+    },
+    {
+      "attack": "ENGINEERING_TARGET_LEAKAGE",
+      "evidence": "Host context exposed prior-route references, recorded as CONTEXT_CONTAMINATION_RISK, but no forbidden R046-R051 artifact was fetched or used.",
+      "result": "PASS_WITH_CONTEXT_RISK_QUARANTINE"
+    }
+  ],
+  "theorem_ledger_sha256": "4a854ca114ab46e7b828f3eb991be745ac2342c034809566218442926b48ebac"
+}
