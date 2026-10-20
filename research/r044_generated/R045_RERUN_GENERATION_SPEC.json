@@ -1,0 +1,19 @@
+{
+  "schema": "ENTERPRISE_MATH_R045_RERUN_GENERATION_SPEC_V1",
+  "status": "FROZEN_INPUT_SPEC_NOT_A_TASKBOOK",
+  "generated_by": "EM-R044-8C2F61",
+  "source_r044_commit": "PENDING_OWNER_CHECKPOINT",
+  "required_policy_digest_at_generation": "CURRENT_MAIN_AT_R045_TASKBOOK_REVIEW",
+  "mother_scope": "Historical semantic retype/repair of the R033-R041 geometry/readout lineage after the native-semantics gate, with theorem-level recomputation restricted to claims that actually depended on invalid N0 promotion.",
+  "consume_without_recomputation": ["R033-C02", "R033-C03", "R033-C04", "R033-C05", "R033-C06", "R033-C07", "R033-C08", "R034-C01", "R034-C02", "R034-C03", "R034-C04", "R034-C05", "R034-C06", "R034-C07", "R034-C08", "R037-C01", "R037-C02", "R037-C03", "R037-C04", "R038-C01", "R038-C02", "R038-C03", "R038-C04", "R038-C07", "R038-C08", "R038-C09", "R039-C02", "R039-C03", "R039-C04", "R039-C05", "R039-C06", "R039-C07", "R039-C09", "R041-C01", "R041-C02", "R041-C03", "R041-C04", "R041-C05", "R043-TB03"],
+  "theorem_level_recompute_or_resolve": ["R038-C05", "R038-C06"],
+  "frozen_priority_order": ["R038-C05", "R038-C06", "R037-C04"],
+  "selective_recompute_criteria": ["Recompute only if impact is RECOMPUTE_UNDER_N0 or UNRESOLVED_NEEDS_NEW_TASK and the claim is a theorem claim rather than a metadata/taskbook item.", "Do not recompute R033 shortest-path formulas, R034 propagation moments/spectra, R037 replication numerics, R039 collapse witnesses, or R041 horizon-carrier mathematics solely because they are N1/N2/N3; retype them.", "Preserve exact conditional/readout theorems even when the stronger native interpretation is retracted.", "For R038, separate the valid rooted graph-zeta theorem from the invalid metric-free H7 kill; rebuild any native pi/nonexistence claim using only declared N0 relations or return it OPEN."],
+  "r043_handling": {
+    "execute_inside_r045": false,
+    "required_before_r043_continuation": "Driver re-review/restamp against the current policy digest.",
+    "taskbook_delta": ["Type contact+occupancy and unweighted relational frontier as N0/N0-definable.", "Type S/weights/graph summaries as N2 readout components.", "Type chosen addition/action/B_h/all-horizon Markov language as N1 operational semantics.", "Do not convert a positive G0/M_h future-carrier theorem into an N0 state-ontology claim."]
+  },
+  "required_outputs": ["historical claim ledger with the R044 fields", "repaired R038 native-H7 disposition", "downstream dependency audit for any Foundation-facing claim that consumed R038-C05/C06", "explicit no-recompute ledger for preserved conditional mathematics"],
+  "stop_condition": "R045 returns when every listed claim is either correctly retyped, recomputed under N0, or explicitly OPEN with no stronger native claim remaining unsupported."
+}
