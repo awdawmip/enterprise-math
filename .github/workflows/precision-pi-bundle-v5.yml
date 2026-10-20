@@ -1,0 +1,50 @@
+name: precision-pi-bundle-v5
+
+on:
+  push:
+    branches:
+      - formalization/precision-pi-paper-ii
+    paths:
+      - 'EnterpriseMath/PrecisionPi/**.lean'
+      - '.github/workflows/precision-pi-bundle-v5.yml'
+      - 'lakefile.toml'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'EnterpriseMath/PrecisionPi/**.lean'
+      - '.github/workflows/precision-pi-bundle-v5.yml'
+      - 'lakefile.toml'
+      - 'lake-manifest.json'
+      - 'lean-toolchain'
+  workflow_dispatch:
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up Lean
+        uses: leanprover/lean-action@v1
+        with:
+          auto-config: false
+          build: false
+          test: false
+          lint: false
+          use-github-cache: false
+          use-mathlib-cache: false
+      - name: Resolve pinned dependencies
+        run: lake update
+      - name: Fetch mathlib cache
+        run: lake exe cache get
+      - name: Compile precision-pi formalization bundle V5
+        run: lake env lean -DwarningAsError=true EnterpriseMath/PrecisionPi/FormalizationBundleV5.lean
