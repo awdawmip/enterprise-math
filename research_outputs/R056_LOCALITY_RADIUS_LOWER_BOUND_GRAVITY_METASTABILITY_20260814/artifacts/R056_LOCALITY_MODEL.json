@@ -1,0 +1,134 @@
+{
+  "centered_shell_family": {
+    "cardinality": "N_r=1+3*r*(r+1)",
+    "centering": "S(H_r)=0",
+    "definition": "H_r={(a,b) in Z^2: max(|a|,|b|,|a+b|)<=r}",
+    "parameter_domain": "integer r>=1",
+    "role": "fixed initial family for the R056 locality-barrier question; not a teacher target"
+  },
+  "energy": {
+    "acceptance": "strict G(C_prime) < G(C) only",
+    "centroid": "g(C)=S(C)/N",
+    "gravity_energy": "G(C)=N*sum_{x in C} Q(x)-Q(S(C))",
+    "integer_exact": true,
+    "pairwise_equivalent_definition": "G(C)=sum_{unordered x<y in C} Q(x-y)",
+    "plateau_moves": false,
+    "post_acceptance_checker": "After every accepted move recompute S, centroid g, and full exact G from the complete N-cell state; incremental formulas may only be scoring/checking accelerators.",
+    "sum_vector": "S(C)=sum_{x in C} x",
+    "uphill_moves": false
+  },
+  "forbidden_inputs_and_relabelings": {
+    "R055_D2_relabelled_local": false,
+    "circumference_target_in_move_or_locality_selection": false,
+    "classical_circle_in_move_or_locality_selection": false,
+    "classical_pi_in_move_or_locality_selection": false,
+    "posthoc_m_or_rho_change_after_holdout": false,
+    "tangent_target_in_move_or_locality_selection": false,
+    "teacher_center_in_move_or_locality_selection": false
+  },
+  "frozen_at": "2026-08-14T02:32:00+08:00",
+  "generation": "R056-G0-STAGE0",
+  "lattice": {
+    "axial_coordinate_domain": "Z^2",
+    "basis_symbolic": [
+      "e1=(1,0)",
+      "e2=(1/2,sqrt(3)/2)"
+    ],
+    "cell_mass": 1,
+    "graph_distance": "d_L((a,b),(c,d))=max(|a-c|,|b-d|,|(a+b)-(c+d)|)",
+    "neighbor_directions": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        -1
+      ]
+    ],
+    "polar_bilinear_form": "L((a,b),(c,d))=2*a*c+a*d+b*c+2*b*d, so Q(x+y)=Q(x)+Q(y)+L(x,y)",
+    "quadratic_form": "Q(a,b)=a^2+a*b+b^2",
+    "type": "normalized_triangular_lattice"
+  },
+  "move_class": {
+    "D_1_1_relation": "D(1,1) contains the original R055 D1 nearest-neighbor single-cell slide subject to the same final topology conditions.",
+    "R055_D2_relation": "R055 D2 can use relocation span growing with the shell and is not any one fixed D(m,rho) family as r->infinity.",
+    "added_set": "V subset Lambda\\C",
+    "admissibility_order": [
+      "U and V are finite sets with U subset C and V subset Lambda\\C",
+      "1<=|U|=|V|<=m",
+      "C_prime has exactly N occupied lattice sites",
+      "C_prime is nearest-neighbor connected",
+      "C_prime is hole-free under the frozen R055 topology convention",
+      "diam_L(U union V)<=rho",
+      "recompute exact full centroid and G",
+      "G(C_prime)<G(C) strictly"
+    ],
+    "candidate_state": "C_prime=(C\\U) union V",
+    "changed_support": "supp(U,V)=U union V",
+    "cooperative_interpretation": "For m>1 this is a cooperative bounded-support rearrangement reference; it is not automatically a physically realizable slide law.",
+    "fixed_locality_quantifier": "When claiming fixed bounded locality, m and rho are fixed independently of shell radius r.",
+    "name": "D(m,rho)",
+    "parameter_domain": "integers m>=1 and rho>=1",
+    "removed_set": "U subset C",
+    "replacement_cardinality": "1<=|U|=|V|<=m",
+    "support_constraint": "diam_L(U union V)<=rho",
+    "support_diameter": "diam_L(U union V)=max_{x,y in U union V} d_L(x,y)",
+    "support_semantics": "Diameter is computed on all changed sites pairwise; it is not a path length, bounding-box surrogate, source-destination-only span, or Euclidean diameter."
+  },
+  "packet_source": "67ec92f83bc8cb401e0a86170081daa137ea24a5",
+  "r055_read_only_evidence": {
+    "d2_interpretation": "R055 D2 is a nonlocal relocation reference. It is not relabeled as local and is not identified with any fixed D(m,rho) family as r grows.",
+    "frozen_anchors": {
+      "R055_ARTIFACT_MANIFEST_SHA256": "84d41e0d7c392576cfef8717eaa8fcdd6a5e780c02915b125e60043938dffdc7",
+      "R055_INITIAL_STATE_REGISTRY_SHA256": "5de0e7ae6ff89cf81342f6c18125eb1eebd78c4725c0324acee2893552acd7f2",
+      "R055_MOVE_ENERGY_REGISTRY_SHA256": "83d546105a3fa721ba5cadea9a1bbf217a1661fdf0d1560fcdccc6d4c9d29ceb",
+      "R055_RELAXATION_PROTOCOL_SHA256": "aa69f2bc31cb9b5ec574a85de2879b9f8f765cfdfdb6dd0cbfc625cf8feed683",
+      "R055_THEOREM_COUNTEREXAMPLE_LEDGER_SHA256": "159ba8ed8e664522fec5fa9771b8efc7630d0b0c78ca5a2f67e7c33c724ac660"
+    },
+    "immutability": "READ_ONLY; no R055 byte may be modified, consumed as writable state, or re-frozen under R056",
+    "source_head": "ea0781f564b8c4016d592521a50c02888e2f371d"
+  },
+  "researcher_id": "EM-R056-BEC623",
+  "schema": "R056_LOCALITY_MODEL_V1",
+  "semantic_typing": {
+    "bounded_support_cooperative_move": "N1_DERIVED_OPERATIONAL_SEMANTICS",
+    "centroid_and_quadratic_gravity_energy": "N2_READOUT_COLLAPSE within this task",
+    "circle_pi_circumference_tangent_teacher_center": "N3/teacher-side objects forbidden from move selection and locality selection",
+    "lattice_coordinates": "I0_IMPLEMENTATION_CARRIER + task-declared triangular-lattice operational geometry",
+    "native_claim_policy": "R056 makes no claim that the axial carrier, Q, graph distance, centroid, or quadratic gravity energy is N0-native.",
+    "nearest_neighbor_adjacency_and_fixed_N_occupancy": "task-declared state substrate for R056"
+  },
+  "state_space": {
+    "accepted_move_requires_full_recheck": [
+      "|C|=N",
+      "lattice legality",
+      "connected",
+      "hole-free"
+    ],
+    "connected": "all occupied sites form one component under the six nearest-neighbor directions",
+    "finite": true,
+    "fixed_cardinality": "|C|=N",
+    "hole_free": "Use the frozen R055 topology convention: within the axial bounding box of C padded by 1 in each coordinate, flood-fill empty sites from every empty site on the padded-box boundary using the same six-neighbor adjacency. C is hole-free iff every empty site in the unpadded bounding box is exterior-reachable.",
+    "unique_lattice_sites": true
+  },
+  "status": "FROZEN_BEFORE_ANY_COOPERATIVE_ENUMERATION",
+  "task_id": "RS-R056-LOCALITY-RADIUS-LOWER-BOUND-GRAVITY-METASTABILITY",
+  "taskbook_source": "df9001dc69d79b753cf0975efd7875dccaade979"
+}

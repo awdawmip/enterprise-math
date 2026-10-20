@@ -1,0 +1,102 @@
+{
+  "candidate_generation_and_validation": {
+    "energy_check": "Recompute S(C_prime), g(C_prime), and full exact G(C_prime) from all N cells for accepted candidates.",
+    "minimum_support_search": "When computing rho_m(r), examine support diameter in nondecreasing integer rho and stop only after a strict descent at the first fully exhausted rho layer; if earlier rho layers are not exhaustive, report only a bound.",
+    "set_semantics": "U and V are unordered sets; no duplicate sites; |U|=|V|.",
+    "support_check": "Compute exact maximum pairwise triangular-lattice graph distance over U union V.",
+    "symmetry_use": "D6 stabilizer canonicalization may quotient duplicate move classes for counting/search acceleration but may not change admissibility, support diameter, or energy.",
+    "topology_check": "Construct C_prime exactly, then verify connected and hole-free before accepting."
+  },
+  "delta_q_zero_policy": {
+    "checker_rule": "Evaluate DeltaS and recomputed full exact G. The centroid correction term is retained exactly.",
+    "must_be_audited": true,
+    "post_identity_expected_consequence": "Once the centered-shell identity is proved, DeltaQsum=0 gives DeltaG=-Q(DeltaS), so strict descent occurs exactly when DeltaS is nonzero; equality DeltaS=0 is a plateau and is inadmissible.",
+    "pruning_rule": "Never discard a candidate merely because DeltaQsum=0."
+  },
+  "exact_move_statistics": {
+    "delta_Q_sum": "DeltaQsum=sum_{v in V} Q(v)-sum_{u in U} Q(u)",
+    "delta_S": "DeltaS=sum_{v in V} v-sum_{u in U} u",
+    "expected_centered_shell_reduction": "For S(H_r)=0: DeltaG=N_r*DeltaQsum-Q(DeltaS)",
+    "expected_general_identity": "DeltaG=N*DeltaQsum-L(S(C),DeltaS)-Q(DeltaS)",
+    "full_G_checker_authority": "Until Stage A verification, candidate acceptance is determined by recomputed full exact G; after verification the identity remains cross-checked against full G.",
+    "identity_status_at_stage0": "FROZEN_FORMULA_TO_PROVE_AND_CROSS_CHECK_IN_STAGE_A_BEFORE_USING_AS_A_THEOREM_PRUNER"
+  },
+  "forbidden_failure_modes": [
+    "R055_FROZEN_BYTES_MUTATED",
+    "R055_D2_RELABELED_LOCAL",
+    "CIRCLE_OR_PI_USED_IN_LOCALITY_SELECTION",
+    "MOVE_SUPPORT_DIAMETER_MISCOMPUTED",
+    "CELL_COUNT_CHANGED",
+    "CONNECTIVITY_OR_HOLE_FREE_VIOLATION",
+    "CENTROID_NOT_RECOMPUTED_AFTER_ACCEPTED_MOVE",
+    "MULTI_REPLACEMENT_DELTA_G_FORMULA_WRONG",
+    "DELTA_Q_ZERO_CASE_IGNORED",
+    "FINITE_SEARCH_CALLED_INFINITY",
+    "FINITE_RADII_REGRESSION_CALLED_THEOREM",
+    "M_OR_RHO_EXPANDED_POSTHOC",
+    "HOLDOUT_USED_TO_REPAIR_LOCALITY_MODEL",
+    "COOPERATIVE_REFERENCE_CALLED_PHYSICAL_SLIDE",
+    "BOUND_DEPENDS_ON_R_WHILE_CALLED_FIXED_LOCALITY",
+    "ONE_FIXED_M_RESULT_GENERALIZED_TO_ALL_FIXED_M"
+  ],
+  "frozen_at": "2026-08-14T02:32:00+08:00",
+  "generation": "R056-G0-STAGE0",
+  "holdout_discipline": {
+    "no_repair_after_open": [
+      "move semantics",
+      "support diameter definition",
+      "m caps",
+      "rho/search conventions",
+      "theorem statement",
+      "equality-case handling"
+    ],
+    "preconditions_to_open": [
+      "R056_LOCALITY_MODEL_SHA256 frozen",
+      "R056_SHELL_ESCAPE_PROTOCOL_SHA256 frozen",
+      "R056_COMPUTATION_REGISTRY_SHA256 frozen",
+      "R056_THEOREM_COUNTEREXAMPLE_LEDGER_SHA256 frozen from construction/proof work"
+    ],
+    "strict_holdout_locked": true
+  },
+  "initial_state": "Always H_r for the shell-escape quantities; H_r is reconstructed exactly from its axial inequality.",
+  "locality_model_dependency": "R056_LOCALITY_MODEL.json; hash frozen in the same Stage 0 checkpoint",
+  "packet_source": "67ec92f83bc8cb401e0a86170081daa137ea24a5",
+  "proof_first_route": {
+    "allowed_ingredients": [
+      "six supporting coordinates of H_r",
+      "convexity/positive-definiteness of Q",
+      "exact graph-distance support bound",
+      "integrality of DeltaQsum",
+      "bounds on Q(DeltaS) in terms of fixed (m,rho)",
+      "connectedness and hole-free geometry"
+    ],
+    "finite_search_role": "counterexample discovery, exact small cases, theorem stress testing, and validation only; finite-radius regression is never a theorem.",
+    "priority": "THEOREM_BEFORE_LARGE_ENUMERATION",
+    "suggested_pruning_goal_not_assumption": "Show that a fixed-width boundary patch has DeltaQsum>=1 for all non-equality legal replacements when r is large, then compare N_r*DeltaQsum against the bounded centroid correction; audit DeltaQsum=0 separately."
+  },
+  "researcher_id": "EM-R056-BEC623",
+  "schema": "R056_SHELL_ESCAPE_PROTOCOL_V1",
+  "status": "FROZEN_BEFORE_ANY_COOPERATIVE_ENUMERATION",
+  "structural_quantities": {
+    "m_rho": {
+      "definition": "m_rho(r)=min |U| over all admissible strictly G-decreasing replacements from H_r with diam_L(U union V)<=rho",
+      "infinity_evidence_rule": "Same proof-or-complete-search rule as rho_m(r).",
+      "no_escape_value": "infinity"
+    },
+    "rho_m": {
+      "definition": "rho_m(r)=min diam_L(U union V) over all admissible strictly G-decreasing replacements from H_r with 1<=|U|=|V|<=m",
+      "infinity_evidence_rule": "May be recorded only after a mathematical proof excludes all moves or after an explicitly complete finite search of the entire admissible move space; a bounded failed search yields only a lower bound.",
+      "no_escape_value": "infinity"
+    }
+  },
+  "task_id": "RS-R056-LOCALITY-RADIUS-LOWER-BOUND-GRAVITY-METASTABILITY",
+  "taskbook_source": "df9001dc69d79b753cf0975efd7875dccaade979",
+  "theorem_target": {
+    "generalization_guard": "A result for one fixed m is not silently generalized to all fixed m.",
+    "id": "BOUNDED_SUPPORT_STRICT_DESCENT_OBSTRUCTION",
+    "preferred_equivalent_goal": "For every fixed m, rho_m(r)->infinity as r->infinity.",
+    "preferred_strengthening": "For each fixed m, prove rho_m(r)>=c_m*r-O_m(1) with explicit c_m>0.",
+    "quantifier_guard": "m and rho must be fixed before the all-large-r statement; a bound depending on r is not fixed locality.",
+    "statement": "For every fixed finite pair (m,rho), there exists r0(m,rho) such that every integer r>=r0 has no admissible D(m,rho) strict descent from H_r."
+  }
+}
