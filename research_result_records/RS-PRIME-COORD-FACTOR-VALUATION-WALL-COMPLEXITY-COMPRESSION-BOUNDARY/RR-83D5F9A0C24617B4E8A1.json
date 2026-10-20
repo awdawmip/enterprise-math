@@ -1,0 +1,43 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "record_state": "FROZEN",
+  "research_result_id": "RR-83D5F9A0C24617B4E8A1",
+  "task_id": "RS-PRIME-COORD-FACTOR-VALUATION-WALL-COMPLEXITY-COMPRESSION-BOUNDARY",
+  "task_publication_id": "TP2-25876E1168D68965C9E4",
+  "publication_state": "FROZEN",
+  "taskbook_path": "research_tasks/PRIME_COORD_FACTOR_VALUATION_WALL_COMPLEXITY_COMPRESSION_BOUNDARY_20260827.md",
+  "taskbook_blob_sha1": "sha1:fbd62d5c22692a3150fb188e5938d42b4f5cb8b9",
+  "claim_id": "chatgpt-pcf5-20260827-2316-8a41d7",
+  "claim_ref": "issue:#240/comment:5441266414",
+  "researcher_id": "EM-PCF5-8A41D7",
+  "theorem_owner": "taskbook/unassigned",
+  "execution_record_id": "ER-6C8B3D4F9A21E705D1C2",
+  "execution_branch": "research/prime-coord-factor-valuation-wall-complexity-compression-em-pcf5-8a41d7",
+  "execution_branch_base": "c8ab687c36cf4b6b32e42bc554708786653c1fae",
+  "owner_head_at_freeze": "0d710ad1db82a67c3436b5c5c0bd00d203278c5d",
+  "output_manifest": [
+    {
+      "path": "research_returns/PRIME_COORD_FACTOR_VALUATION_WALL_COMPLEXITY_COMPRESSION_BOUNDARY_RETURN_20260827.md",
+      "git_blob_sha1": "sha1:4649337adac057b9ac7a0bbbbac1942d077e3f65",
+      "sha256": "sha256:4cb0e1d46a6a8f455c19bbf8e39eefc21a4226b8eb42fe120d009879627e48a8"
+    },
+    {
+      "path": "scripts/check_prime_coord_factor_valuation_wall_complexity_compression_boundary.py",
+      "git_blob_sha1": "sha1:70bb32893c809d8ea77e497f060c60d55d4638d8",
+      "sha256": "sha256:a625266af3a5321832e04075cda21abcb61e1bea54db68d771ac71346a16a157"
+    }
+  ],
+  "conclusion": "CLASSICAL_FACTORIAL_METHOD_EQUIVALENCE_FROZEN: the accepted valuation-wall splitter admits exact factor-blind random-index evaluation and full public splitting in soft-O(sqrt(p)) ring operations, i.e. O(p^(1/2) poly(log N)) at the stated bit-accounting level; for balanced semiprimes this is the classical N^(1/4+o(1)) Pollard-Strassen/Strassen factorial layer, not a new deterministic factoring exponent.",
+  "limitation": "The result proves a genuine asymptotic compression only relative to the accepted Theta(p) sequential recurrence frontier. It does not prove polynomial-time factoring, does not beat the modern N^(1/5+o(1)) deterministic general-factorization exponent, and makes no novelty claim for the block-factorial/multipoint mechanism.",
+  "exact_replay": {
+    "command": "python scripts/check_prime_coord_factor_valuation_wall_complexity_compression_boundary.py",
+    "assertion": "Exit code 0 and stdout exactly reports PASS factorial_checks=1452 A_checks=582 wall_checks=4222 splitter_checks=946 evaluator_calls=5236 denominator_nonunit_events=0 with modes DYADIC=714, FALLBACK_T1=24, FALLBACK_T=208 (dictionary display order may follow insertion order as in the durable checker)."
+  },
+  "terminal_verdict": "PASS",
+  "hard_target_disposition": "ACHIEVED / CLASSICAL_FACTORIAL_METHOD_EQUIVALENCE_FROZEN / RELATIVE_COMPLEXITY_COMPRESSION_PROVED",
+  "unresolved_residue": "NONE_WITHIN_TASK_HARD_TARGET",
+  "method_harvest": "NO_TOOL_PAYLOAD / RESULT_ONLY",
+  "prior_art_disposition": "REUSE_CLASSICAL_PRIOR_ART / NO_NEW_TOOL_FAMILY",
+  "driver_review_required": true,
+  "next_control_plane_recommendation": "Driver review the exact sqrt(p) composition and the classical-equivalence classification together. If accepted, preserve the scoped Omega(p) sequential-access barrier, the O(p^(1/2) poly(log N)) random-index/full-splitter upper bound, and the explicit NO_NOVEL_FACTORING_EXPONENT limitation as one inseparable result package."
+}
