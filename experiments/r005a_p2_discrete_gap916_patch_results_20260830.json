@@ -1,0 +1,112 @@
+{
+  "status": "R005-A P2 DISCRETE GAP-916 ONE-UNIT SEAM EXACT AUDIT / NOT CANONICAL",
+  "date": "2026-08-30",
+  "researcher_id": "R005A-7C2",
+  "task": "RS-R005-PRIME-ALGORITHM-LAB",
+  "external_max_gap_resource": {
+    "gap": 916,
+    "valid_below": 1686994940955803,
+    "reason": "confirmed next larger maximal gap 924 starts at this point; scale is below the exhaustive 1e20 frontier"
+  },
+  "global_e1_resource": {
+    "gap": 1724,
+    "valid_below": 101412319996363309069,
+    "reason": "declared confirmed maximal-gap-start frontier; next larger confirmed maximal gap 1854 starts here"
+  },
+  "rows": [
+    {
+      "q": 78487,
+      "k_global_fail": 2821267225833,
+      "k_q2_width": 2821375799402,
+      "j_max": 1913607,
+      "events_D915": 1914991,
+      "prime_floor_starts": 55009,
+      "endpoint_pairs_916": 2076,
+      "gap916_failures": 0
+    },
+    {
+      "q": 78497,
+      "k_global_fail": 2821446948422,
+      "k_q2_width": 2822094786122,
+      "j_max": 68112420,
+      "events_D915": 68120674,
+      "prime_floor_starts": 1957209,
+      "endpoint_pairs_916": 74569,
+      "gap916_failures": 0
+    },
+    {
+      "q": 78509,
+      "k_global_fail": 2821662600418,
+      "k_q2_width": 2822957691098,
+      "j_max": 272120628,
+      "events_D915": 272137125,
+      "prime_floor_starts": 7819774,
+      "endpoint_pairs_916": 298223,
+      "gap916_failures": 0
+    },
+    {
+      "q": 78511,
+      "k_global_fail": 2821698540815,
+      "k_q2_width": 2823101521418,
+      "j_max": 319331907,
+      "events_D915": 319349777,
+      "prime_floor_starts": 9176507,
+      "endpoint_pairs_916": 349387,
+      "gap916_failures": 0
+    },
+    {
+      "q": 78517,
+      "k_global_fail": 2821806359259,
+      "k_q2_width": 2823533034362,
+      "j_max": 483608425,
+      "events_D915": 483630417,
+      "prime_floor_starts": 13903828,
+      "endpoint_pairs_916": 529489,
+      "gap916_failures": 0
+    },
+    {
+      "q": 78539,
+      "k_global_fail": 2822201658315,
+      "k_q2_width": 2825115530618,
+      "j_max": 1376481238,
+      "events_D915": 1376518339,
+      "prime_floor_starts": 39567233,
+      "endpoint_pairs_916": 1507352,
+      "gap916_failures": 0,
+      "execution_chunks_inclusive_j": [
+        [0, 350000000],
+        [350000001, 700000000],
+        [700000001, 1050000000],
+        [1050000001, 1376481238]
+      ]
+    },
+    {
+      "q": 78541,
+      "k_global_fail": 2822237591848,
+      "k_q2_width": 2825259415898,
+      "j_max": 1480285529,
+      "events_D915": 1480324004,
+      "prime_floor_starts": 42555458,
+      "endpoint_pairs_916": 1619549,
+      "gap916_failures": 0,
+      "execution_chunks_inclusive_j": [
+        [0, 350000000],
+        [350000001, 700000000],
+        [700000001, 1050000000],
+        [1050000001, 1400000000],
+        [1400000001, 1480285529]
+      ]
+    }
+  ],
+  "totals": {
+    "q_count": 7,
+    "events_D915": 4001995327,
+    "prime_floor_starts": 115035018,
+    "endpoint_pairs_916": 4380645,
+    "gap916_failures": 0
+  },
+  "next_unprocessed_prime_q": 78553,
+  "next_unprocessed_global_e1_fail_k": 2822453183434,
+  "new_certified_k_endpoint": 2822453183433,
+  "interpretation": "All prime-only one-unit seams through q=78541 are exactly patched. The next possible unhandled witness is q=78553, whose seam begins at k=2822453183434 and enters the deeper 914/915 floor-width phase."
+}

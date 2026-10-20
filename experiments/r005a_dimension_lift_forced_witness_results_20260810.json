@@ -1,0 +1,25 @@
+{
+  "status": "EXACT_BOUNDED_DIMENSION_LIFT_CHECK / GENERIC_THEOREM_IS_ELEMENTARY",
+  "max_upper_endpoint": 4004000,
+  "nontrivial_transport_rows": [
+    {"m":2,"r":2,"p":4,"checked_high_basins":42,"lifted_prime_instances":293,"first_example":{"k":2,"lower_primes":[5,7],"lifted_collisions":[[5,25],[7,49]]}},
+    {"m":3,"r":2,"p":6,"checked_high_basins":10,"lifted_prime_instances":265,"first_example":{"k":2,"lower_primes":[11,13,17,19,23],"lifted_collisions":[[11,121],[13,169],[17,289],[19,361],[23,529]]}},
+    {"m":2,"r":3,"p":6,"checked_high_basins":10,"lifted_prime_instances":32,"first_example":{"k":2,"lower_primes":[5,7],"lifted_collisions":[[5,125],[7,343]]}},
+    {"m":4,"r":2,"p":8,"checked_high_basins":4,"lifted_prime_instances":204},
+    {"m":2,"r":4,"p":8,"checked_high_basins":4,"lifted_prime_instances":9,"first_example":{"k":2,"lower_primes":[5,7],"lifted_collisions":[[5,625],[7,2401]]}}
+  ],
+  "forcing_saturation_scan": {
+    "2": {"checked_basins":1999,"all_candidate_witnesses_forced":false,"first_nonfull":{"k":6,"missing_witnesses":[5]}},
+    "3": {"checked_basins":156,"all_candidate_witnesses_forced":false,"first_nonfull":{"k":23,"missing_witnesses":[109]}},
+    "4": {"checked_basins":42,"all_candidate_witnesses_forced":true,"first_nonfull":null},
+    "5": {"checked_basins":18,"all_candidate_witnesses_forced":true,"first_nonfull":null},
+    "6": {"checked_basins":10,"all_candidate_witnesses_forced":true,"first_nonfull":null},
+    "7": {"checked_basins":6,"all_candidate_witnesses_forced":true,"first_nonfull":null},
+    "8": {"checked_basins":4,"all_candidate_witnesses_forced":true,"first_nonfull":null}
+  },
+  "interpretation": {
+    "dimension_lift": "Prime_m(k) injects into ForcedCore_(m*r,k) via q -> q^r",
+    "cardinality_bound": "|ForcedCore_(m*r,k)| >= P_m(k)",
+    "bounded_full_forcing_note": "p=4..8 were fully forced inside this finite scan; only p>=5 receives the separate asymptotic BHP saturation theorem in the accompanying note"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "status": "R005-A FOREST + PARTIAL-STEINER REPAIR DECOMPOSITION EXACT CHECK",
+  "verified_basins": 49,
+  "ambient_repeated_edges": 148,
+  "ambient_squarefree_triangles": 2349,
+  "residual_repeated_edges": 45,
+  "residual_squarefree_triangles": 5,
+  "all_ambient_repeated_graphs_are_forests": true,
+  "all_residual_repeated_graphs_are_forests": true,
+  "branch_repair_equals_bruteforce_tau": true,
+  "total_triangle_choice_branches_current_family": 59,
+  "theorems": {
+    "normal_form": "H_k = repeated forest G_k union squarefree partial Steiner triple system T_k",
+    "residual_shadow": "R_k = H_k[NF_k]",
+    "repair_algorithm": "enumerate one selected vertex per residual 3-edge; after unioning selections, solve minimum vertex cover on remaining repeated forest",
+    "parameterized_complexity": "O(3^s * poly(v)) where s is the number of residual squarefree 3-edges",
+    "repeated_only": "if s=0, repair is forest vertex cover and equals maximum matching by classical Konig on forests"
+  }
+}
