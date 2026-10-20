@@ -1,0 +1,279 @@
+{
+  "branch_exact": {
+    "cumulative_branch_creations": 0,
+    "final_fine_support": [
+      "b"
+    ],
+    "final_observable_support": [
+      "B"
+    ],
+    "max_live_width": 1,
+    "peak_token_bits": 3,
+    "trace": [
+      {
+        "generator": "f",
+        "post_width": 1,
+        "split_width": 1,
+        "step": 1,
+        "support": [
+          "b"
+        ],
+        "token_bits": 3
+      },
+      {
+        "generator": "f",
+        "post_width": 1,
+        "split_width": 1,
+        "step": 2,
+        "support": [
+          "b"
+        ],
+        "token_bits": 3
+      }
+    ],
+    "work_state_visits": 2
+  },
+  "composition_exhaustive": {
+    "by_n": [
+      {
+        "composition_failures": 0,
+        "n": 1,
+        "q_f_systems": 1,
+        "start_fibre_trials": 1,
+        "surjective_coarse_maps": 1
+      },
+      {
+        "composition_failures": 0,
+        "n": 2,
+        "q_f_systems": 12,
+        "start_fibre_trials": 20,
+        "surjective_coarse_maps": 3
+      },
+      {
+        "composition_failures": 84,
+        "n": 3,
+        "q_f_systems": 351,
+        "start_fibre_trials": 837,
+        "surjective_coarse_maps": 13
+      }
+    ],
+    "first_failure": {
+      "coarse": {
+        "0": 0,
+        "1": 0,
+        "2": 1
+      },
+      "exact_two_step": [
+        0
+      ],
+      "function": {
+        "0": 0,
+        "1": 2,
+        "2": 0
+      },
+      "k": 2,
+      "n": 3,
+      "naive_two_step": [
+        0,
+        1
+      ],
+      "start_label": 0
+    },
+    "max_states": 3,
+    "minimal_failure_states": 3,
+    "total_failures": 84,
+    "total_trials": 858
+  },
+  "dictionary_frontier": [
+    {
+      "K": 3,
+      "W": 2,
+      "atoms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "dictionary_bits": 9
+    },
+    {
+      "K": 6,
+      "W": 1,
+      "atoms": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "dictionary_bits": 18
+    }
+  ],
+  "floor_r10_c1": [
+    {
+      "class_count": 2,
+      "eventual_classes": 10,
+      "horizon": 1
+    },
+    {
+      "class_count": 3,
+      "eventual_classes": 10,
+      "horizon": 2
+    },
+    {
+      "class_count": 6,
+      "eventual_classes": 10,
+      "horizon": 5
+    },
+    {
+      "class_count": 10,
+      "eventual_classes": 10,
+      "horizon": 9
+    },
+    {
+      "class_count": 10,
+      "eventual_classes": 10,
+      "horizon": 10
+    }
+  ],
+  "floor_support_r10_c1": {
+    "max_coarse_branch_width": 2,
+    "phase_cycle": 10,
+    "phase_token_bits": 4,
+    "support_shape": "single integer interval of length r"
+  },
+  "incidence": {
+    "R": [
+      [
+        "a",
+        "b1"
+      ]
+    ],
+    "S": [
+      [
+        "b2",
+        "c"
+      ]
+    ],
+    "coarse_marginal_predicts_path": true,
+    "exact_composition": [],
+    "minimum_identity_bits_for_two_middle_states": 1,
+    "required_correlation": "middle witness identity/intersection"
+  },
+  "minimal_counterexample": {
+    "coarse": {
+      "0": 0,
+      "1": 0,
+      "2": 1
+    },
+    "exact_two_step": [
+      0
+    ],
+    "function": {
+      "0": 0,
+      "1": 2,
+      "2": 0
+    },
+    "k": 2,
+    "n": 3,
+    "naive_two_step": [
+      0,
+      1
+    ],
+    "one_step": [
+      0,
+      1
+    ],
+    "start_label": 0
+  },
+  "powerset_n8": {
+    "branch_atoms": 8,
+    "branch_nonzero_edges": 8,
+    "branch_transition_cells": 64,
+    "branch_work_per_symbol_worst": 8,
+    "critical_path_per_symbol": 1,
+    "deterministic_future_states": 256,
+    "deterministic_live_label_bits": 8,
+    "deterministic_transition_entries": 2048,
+    "deterministic_work_per_symbol": 1,
+    "max_live_width": 8,
+    "n": 8,
+    "runtime_branch_config_bits": 8
+  },
+  "pth_cube": {
+    "cell": [
+      28,
+      63
+    ],
+    "cell_size": 36,
+    "max_bracket_support_width": 3,
+    "pointwise_signature_classes": 15,
+    "positive_translation_width_bound": 3,
+    "support_token": "translated interval [lo+t*c, hi+t*c] (two endpoints)"
+  },
+  "researcher": "EM-R021-9832F2",
+  "schema": "ENTERPRISE_MATH_R021_RESULTS_V1",
+  "task": "RS-R021-BRANCHING-COLLAPSE-TOOL-CALCULUS",
+  "taskbook_commit": "15e9dcb67ce1f78b320099f2078c733bcba39ebb",
+  "tests": {
+    "count": 16,
+    "status": "PASS"
+  },
+  "witness": {
+    "groups": [
+      {
+        "high_groups": {
+          "(2, 11)": [
+            22
+          ],
+          "(2, 13)": [
+            26
+          ],
+          "(2, 3, 6)": [
+            6
+          ],
+          "(2, 5, 10)": [
+            10
+          ],
+          "(2, 7)": [
+            14
+          ]
+        },
+        "high_signature_count": 5,
+        "low_signature": [
+          2
+        ],
+        "members": [
+          6,
+          10,
+          14,
+          22,
+          26
+        ]
+      }
+    ],
+    "high": 13,
+    "low": 2
+  }
+}
