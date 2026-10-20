@@ -1,0 +1,100 @@
+{
+  "schema": "ENTERPRISE_MATH_TASK_LOCAL_FCC_ATLAS_AUDIT_CERTIFICATE_V1",
+  "task_id": "RS-P000-FCC-NATIVE-COORDINATE-BRIDGE-ROTATION-ATLAS",
+  "publication_id": "TP2-0B7E6C14F3A95D208E61",
+  "researcher_id": "EM-P000FCC-7C4F1A",
+  "claim_id": "chatgpt-p000fcc-atlas-review-synthesis-v3-20260906-1454-7c4f1a",
+  "execution_branch_base": "ea48ab5442ec8dc3eab3408b81f2271577db0b29",
+  "prior_frozen_result": "RR-BF4BC89ACAC51D2E16C5",
+  "prior_primary_pr": 856,
+  "prior_replication_pr": 1254,
+  "terminal_class": "STRICT_PARTIAL_OR_GROUPOID_ATLAS_PROVED",
+  "audit_verdict": "PASS_WITH_RESIDUE_SHARPENING",
+  "readout": {
+    "matrix_rank": 3,
+    "nonzero_3x3_minors": 16,
+    "nonzero_3x3_minor_abs_value": 2,
+    "image": "D3_even_coordinate_sum",
+    "kernel_rank": 3,
+    "kernel_basis_saturated": true,
+    "kernel_parametrization": "(-a-b+c,a-c,a,b-c,b,c)",
+    "local_directed_rays": 12,
+    "regular_covering": true,
+    "native_identity_firewall": "A(q)=A(q') iff q-q' in ker(A) is carrier-readout equality only; native equality remains q=q'."
+  },
+  "charts": {
+    "count": 4,
+    "incidence": "K4_edges",
+    "exact_120_degree": true,
+    "pairwise_overlap_lines": 1
+  },
+  "frame_anchor_hierarchy": {
+    "zero_named_slice_correspondences": 720,
+    "one_named_slice_correspondence_each": {
+      "A": 36,
+      "B": 36,
+      "C": 36,
+      "D": 36
+    },
+    "two_named_slice_correspondences_each": {
+      "AB": 4,
+      "AC": 4,
+      "AD": 4,
+      "BC": 4,
+      "BD": 4,
+      "CD": 4
+    },
+    "three_named_slice_correspondences_each": {
+      "ABC": 1,
+      "ABD": 1,
+      "ACD": 1,
+      "BCD": 1
+    },
+    "four_named_slice_correspondences": 1,
+    "unordered_k4_family_isomorphisms": 24,
+    "minimal_named_slice_count_for_unique_frame": 3,
+    "new_exact_residue_theorem": "THREE_NAMED_SLICE_INCIDENCE_CORRESPONDENCES_SUFFICE / TWO_DO_NOT"
+  },
+  "rotation": {
+    "group_order": 24,
+    "distinct_line_actions": 24,
+    "distinct_slice_actions": 24,
+    "line_stabilizer_order": 4,
+    "slice_stabilizer_order": 6,
+    "lift_composition_checks": 576,
+    "chart_transport_checks": 96,
+    "chart_cocycle_checks": 2304,
+    "tau_positive": 48,
+    "tau_negative": 48
+  },
+  "hcp_regression": {
+    "centrally_symmetric": false,
+    "missing_antipodes": 6,
+    "witness_present": [1, 1, 1],
+    "witness_missing_antipode": [-1, -1, -1]
+  },
+  "unresolved_residue": {
+    "sufficient_datum_class": "THREE_NAMED_SLICE_INCIDENCE_FRAME",
+    "meaning": "Three distinct named native 120-degree slice supports matched to three distinct named FCC slice charts uniquely determine the six-axis frame and force the fourth chart within the frozen K4 atlas.",
+    "not_currently_derived": true,
+    "why_not_full_atlas": "Current frozen P000 does not independently provide the required named native-to-carrier slice correspondences; witness J_A..J_D are frame-conditioned and cannot serve as canonical anchors."
+  },
+  "tool_reuse": {
+    "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+    "matches": [
+      "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "symmetry.finite_group_action",
+      "T9_HOLONOMY_COCOYCLE_GLUING",
+      "T6_OPERATION_SAFE_QUOTIENT"
+    ],
+    "reuse_resolution_state": "COMPOSE_APPLIED",
+    "hard_boundaries_checked": [
+      "no canonical choice without invariant native datum",
+      "cocycle does not imply a unique global trivialization",
+      "carrier quotient/readout equality is not native P000 equality"
+    ]
+  },
+  "method_harvest_classification": "NO_TOOL_PAYLOAD",
+  "checker": "research_checks/P000_FCC_NATIVE_COORDINATE_BRIDGE_ROTATION_ATLAS_REVIEW_SYNTHESIS_V3_CHECK_20260906.py",
+  "return": "research_returns/P000_FCC_NATIVE_COORDINATE_BRIDGE_ROTATION_ATLAS_REVIEW_SYNTHESIS_V3_RETURN_20260906.md"
+}
