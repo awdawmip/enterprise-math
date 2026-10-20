@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/BRC_O13_OrderedTrajectoryFreeAction_M5Plus_verify.py",
+    "ref": "46a85290d83446d31964af7af83542a5cc430a8f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "obs-20261020-m5plus-script-readback-01",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact verifier for the O13 ordered-port orbit theorem, horizons 5..20.\n\nPure Python integer arithmetic; no external dependencies.\n\"\"\"\nfrom itertools import product\nfrom math import comb, prod\nimport json\n\nF5 = range(5)\nF5_STAR = (1, 2, 3, 4)\nV = tuple((a, s) for a in F5_STAR for s in F5)\nINDEX = {p: i for i, p in enumerate(V)}\nG = tuple(product(F5_STAR, F5_STAR, F5))\nassert len(V) == 20 and len(G) == 80\n\ndef permutation(u, v, t):\n    return tuple(INDEX[((u * a) % 5, (v * s + t) % 5)] for a, s in V)\n\ndef cycle_count(perm):\n    seen = set()\n    cycles = 0\n    for i in range(len(perm)):\n        if i in seen:\n            continue\n        cycles += 1\n        j = i\n        while j not in seen:\n            seen.add(j)\n            j = perm[j]\n    return cycles\n\ngroup_rows = []\nfor u, v, t in G:\n    perm = permutation(u, v, t)\n    fixed = sum(perm[i] == i for i in range(20))\n    cycles = cycle_count(perm)\n    identity = (u, v, t) == (1, 1, 0)\n    assert fixed == 20 if identity else fixed <= 4\n    group_rows.append({\"u\": u, \"v\": v, \"t\": t, \"fixed_points\": fixed,\n                       \"cycles\": cycles, \"identity\": identity})\n\nhorizons = []\nfor m in range(5, 21):\n    falling = prod(range(20 - m + 1, 21))\n    assert falling % 80 == 0\n    factor = falling // 80\n    by_initial_size = [factor * comb(20 - m, k) for k in range(21 - m)]\n    total = sum(by_initial_size)\n    assert total == factor * (2 ** (20 - m))\n    horizons.append({\"m\": m, \"falling_factorial\": falling,\n                     \"orbit_factor\": factor, \"by_initial_support_size\": by_initial_size,\n                     \"total_orbits\": total})\n\nassert horizons[0][\"orbit_factor\"] == 23256\nassert horizons[0][\"total_orbits\"] == 762052608\nassert horizons[0][\"by_initial_support_size\"] == [\n    23256, 348840, 2441880, 10581480, 31744440, 69837768,\n    116396280, 149652360, 149652360, 116396280, 69837768,\n    31744440, 10581480, 2441880, 348840, 23256\n]\n\nprint(json.dumps({\n    \"model\": \"O13 finite Boolean-support BRC auxiliary model\",\n    \"ports\": 20,\n    \"group_order\": 80,\n    \"nonidentity_max_fixed_points\": max(r[\"fixed_points\"] for r in group_rows if not r[\"identity\"]),\n    \"group_elements_checked\": len(group_rows),\n    \"horizons\": horizons,\n    \"theorem\": \"For m>=5 distinct ordered ports, the diagonal G-action on (S,p1,...,pm), S disjoint from the tuple, is free; orbit count by |S|=k is (20)_m/80 * binom(20-m,k).\"\n}, indent=2))\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/46a85290d83446d31964af7af83542a5cc430a8f/research_notes/BRC_O13_OrderedTrajectoryFreeAction_M5Plus_verify.py",
+      "encoding": "utf-8",
+      "sha": "7de517a67b3f944cd0713101ca1927da8bde2819"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
