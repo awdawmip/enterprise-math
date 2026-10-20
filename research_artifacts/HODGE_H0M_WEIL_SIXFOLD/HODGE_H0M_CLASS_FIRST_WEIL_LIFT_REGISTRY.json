@@ -1,0 +1,198 @@
+{
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "publication_id": "TP2-4D8C1A7E2B609F35C614",
+  "researcher_id": "EM-PFSS2R-B96E46",
+  "activity_id": "RA-20260917-c49ede787913",
+  "source_sha": "8349d0c93096ffb5f586c7cc692c5c3033e51160",
+  "as_of": "2026-09-17",
+  "mathematical_acceptance": false,
+  "model_sha256": "544d79988fac0fb25b0b588050b5db4bd3186cdf548a5fde35c5655734d1a164",
+  "baseline": "B_std^Weil6; standard exact exterior algebra, Hermitian arithmetic and derived deformation theory",
+  "Enterprise_strict_leverage_established": false,
+  "source_exposure": "NONBLIND_DISCLOSED",
+  "schema": "HODGE_H0M_CLASS_FIRST_WEIL_LIFT_V1",
+  "candidate": "M4",
+  "classification": "EXACT_CONDITIONAL_SINGLE_SEED_COMPILER_WITH_MISSING_ALGEBRAIC_SEED",
+  "source_generated_cycle_found": false,
+  "missing_object": {
+    "missing_object": "An actual Z0 in CH^3(A_J)_Q on the frozen very-general [-3] family with P_Weil([1+2i]^*) cl(Z0) != 0.",
+    "owner": "H0M source-object / algebraic-correspondence construction route",
+    "necessity": "An algebraic projector preserves algebraicity but cannot produce a nonzero seed from zero or divisor-only classes.",
+    "unblock_condition": "Give an independently constructed cycle, sheaf characteristic class, or algebraic correspondence and verify its nonzero Weil projection on the SAME fixed frontier model."
+  },
+  "input": "arbitrary w=a r+b s with a,b rational, including zero, signs, denominators",
+  "algebraic_projector": {
+    "T": "[1+2i]^* on H^6 and on CH^3_Q",
+    "Weil_factor": "x**2 - 234*x + 15625",
+    "other_factor": "x**5 + 95*x**4 + 14250*x**3 - 1781250*x**2 - 185546875*x - 30517578125",
+    "construction": "P(x)=g(x) times inverse(g mod q), where q is the Weil factor and g the product of the other factors. P=1 mod q, P=0 mod g.",
+    "coefficients_descending": [
+      "-9881/57000000000000000",
+      "-164833/28500000000000000",
+      "-873121/600000000000000",
+      "922077/2000000000000",
+      "2521451/192000000000",
+      "9653287/2918400000",
+      "-609029/1867776"
+    ],
+    "idempotent_on_full_H6": true,
+    "reason_algebraic": "Each T^j is pullback by an actual finite algebraic endomorphism [ (1+2i)^j ]; rational linear combinations act on rational algebraic cycles. No unproved algebraic Hodge projector is assumed."
+  },
+  "conditional_lift": {
+    "precondition": "An actual cycle Z0 whose projected class v=P(T)cl(Z0)=a r+b s is nonzero and whose rational a,b are verified",
+    "step1": "Z1=P(T)Z0 is an actual rational cycle, conditional on Z0.",
+    "step2": "Use Z1 and T Z1. Their class matrix is [[a,117a+44b],[b,-44a+117b]].",
+    "determinant": "-44(a^2+b^2), nonzero over Q for (a,b)!=(0,0)",
+    "step3": "Solve the exact rational 2x2 system for the requested w; apply the same coefficients to Z1,T Z1.",
+    "negative_denominator_tests": 9,
+    "tests_are": "Purely conditional rational linear algebra, not observed cycle examples."
+  },
+  "divisor_negative_control": "At the very-general fiber NS_Q=Q theta; theta^3 has T-eigenvalue 125 and P(125)=0. Divisor-only generators cannot satisfy the nonzero seed precondition.",
+  "exact_check": {
+    "schema": "HODGE_H0M_EXACT_CHECK_V1",
+    "status": "PASS",
+    "sympy_version": "1.14.0",
+    "model_sha256": "544d79988fac0fb25b0b588050b5db4bd3186cdf548a5fde35c5655734d1a164",
+    "ambient_H6_dimension": 924,
+    "D2_plus_36_rank": 922,
+    "Weil_Q_dimension": 2,
+    "Weil_Hodge_type": [
+      3,
+      3
+    ],
+    "block_counts": {
+      "0": 20,
+      "2": 90,
+      "4": 30,
+      "6": 1
+    },
+    "block_ranks": {
+      "0": 1,
+      "2": 4,
+      "4": 16,
+      "6": 62
+    },
+    "signature": [
+      3,
+      3
+    ],
+    "hermitian_determinant": -3,
+    "polarization_type": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      3
+    ],
+    "eigenvalues_T_as_Gaussian_pairs": [
+      [
+        117,
+        -44
+      ],
+      [
+        -35,
+        120
+      ],
+      [
+        -75,
+        -100
+      ],
+      [
+        125,
+        0
+      ],
+      [
+        -75,
+        100
+      ],
+      [
+        -35,
+        -120
+      ],
+      [
+        117,
+        44
+      ]
+    ],
+    "weight_multiplicities": [
+      1,
+      36,
+      225,
+      400,
+      225,
+      36,
+      1
+    ],
+    "Weil_minimal_polynomial": "x**2 - 234*x + 15625",
+    "other_minimal_factor": "x**5 + 95*x**4 + 14250*x**3 - 1781250*x**2 - 185546875*x - 30517578125",
+    "full_Weil_projector": "-9881*x**6/57000000000000000 - 164833*x**5/28500000000000000 - 873121*x**4/600000000000000 + 922077*x**3/2000000000000 + 2521451*x**2/192000000000 + 9653287*x/2918400000 - 609029/1867776",
+    "projector_coefficients_descending": [
+      "-9881/57000000000000000",
+      "-164833/28500000000000000",
+      "-873121/600000000000000",
+      "922077/2000000000000",
+      "2521451/192000000000",
+      "9653287/2918400000",
+      "-609029/1867776"
+    ],
+    "projector_full_H6_idempotent": true,
+    "conditional_rational_lift_tests": 9,
+    "norm_residue_certificates": {
+      "3": [
+        [
+          0,
+          0
+        ]
+      ],
+      "7": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    "independent_3_7_parity_classes": {
+      "1": [
+        0,
+        0
+      ],
+      "3": [
+        1,
+        0
+      ],
+      "7": [
+        0,
+        1
+      ],
+      "21": [
+        1,
+        1
+      ]
+    },
+    "determinant_transport_exact_instances": 9,
+    "null_control": {
+      "object": "O_A^2",
+      "Ext2_dimension": 60,
+      "semiregularity_rank": 15,
+      "kernel_dimension": 45,
+      "quadratic_obstruction_matrix": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          -1
+        ]
+      ],
+      "interpretation": "u wedge v tensor [X,Y] is nonzero for independent invariant (0,1)-forms u,v; its semiregularity image is zero."
+    },
+    "degree_of_A_to_A_mod_A3": 531441,
+    "actual_frontier_cycle_found": false,
+    "algebraicity_asserted": false,
+    "global_derived_transport_no_go_asserted": false,
+    "finite_check_limit": "Finite matrices and polynomial identities only. The infinite norm-parity proof, period-domain existence, and generic divisor input are stated/proven or attributed separately. No checker assertion certifies an open cycle-existence statement."
+  },
+  "attribution": "Standard algebraic endomorphism projector and exact linear algebra. It compresses the missing object to one nonzero exceptional algebraic seed but earns no Enterprise-specific novelty credit."
+}
