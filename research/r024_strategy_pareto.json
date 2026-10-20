@@ -1,0 +1,19 @@
+{
+  "schema": "R024_STRATEGY_PARETO_V1",
+  "researcher_id": "EM-R024-7C20D0",
+  "return_class": "COLLAPSE_ATLAS_ACCELERATOR_FOUND / HYBRID_PARETO_FROZEN / EXACT_RUNTIME_CHECKED / SHARED_TOOL_CANDIDATE / NOT_CANONICAL",
+  "policy": {
+    "p2": "EXACT_ISQRT",
+    "p3": "ADAPTIVE_FULL_ATLAS_OR_VERIFIED_HOT_CACHE_OR_EXACT_ROOT",
+    "p_ge4": "PACKED_BOUNDARY_ATLAS_PLUS_EXACT_FALLBACK",
+    "local": "BASIN_CURSOR_WITH_LARGE_JUMP_FALLBACK",
+    "support": "EXACT_SYMBOLIC_INTERVAL_WHEN_CONTIGUOUS",
+    "hazard": "EXACT_STRUCTURAL_VERSIONED_CACHE_ONLY_IF_REUSE_AMORTIZES_BUILD",
+    "dense": "TINY_DOMAIN_HIGH_REUSE_ONLY",
+    "finite_difference": "EXACT_NATIVE_STREAM_CANDIDATE_NOT_PYTHON_SPEED_WIN",
+    "fallback": "EXACT_INTEGER_NTH_ROOT_VERIFIED"
+  },
+  "selection_inputs": ["bit_width","P_max","N_hot","locality","query_reuse","future_language_stability","support_shape","memory_budget","latency_target"],
+  "hard_negative_results": ["full_p2_boundary_table","universal_dense_table","linear_scan_LRU","sparse_stride64_p3_uniform_random","naive_large_jump_cursor","hash_only_future_identity","one_step_hazard_as_suffix_safe","python_fd_speed_claim"],
+  "shared_api": ["locate_basin(p,n)->BasinDescriptor","basin_descriptor(p,k)->BasinDescriptor","advance_cursor(cursor,delta)->BasinCursor","support_interval_step(interval,op)->ExactSupportInterval","hazard_signature(support,future)->HazardSignature","exact_fallback(p,n)->BasinDescriptor"]
+}
