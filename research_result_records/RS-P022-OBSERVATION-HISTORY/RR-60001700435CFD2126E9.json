@@ -1,0 +1,43 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-60001700435CFD2126E9",
+  "task_id": "RS-P022-OBSERVATION-HISTORY",
+  "publication_id": "TP2-2346F5D3E731ED56DB0A",
+  "execution_record_id": "ER-6A63C0F7D2E9B18451A0",
+  "claim_id": "chatgpt-p022obs-20260828-2241-recover",
+  "taskbook_path": "research_tasks/P022_OBSERVATION_HISTORY_COMPOSITE_FRANEL_ESCAPE_REPLAY_20260827.md",
+  "taskbook_blob_sha1": "sha1:55ab98b3377820daca63825513bbda0b415f4912",
+  "execution_branch": "research/p022-observation-history-recovery-em-p022obs-919781",
+  "execution_branch_base": "3524ea4f3c9fb67295c3ade09029c57b180df59f",
+  "return_path": "research_returns/P022_OBSERVATION_HISTORY_COMPOSITE_FRANEL_ESCAPE_RETURN_20260827.md",
+  "return_blob_sha1": "sha1:a8e645ba2f9ef91d30eb5c478b55274f26a928b5",
+  "return_sha256": "sha256:8e4e885c31cfcc24271be376e3ecb470aaa599c481041a427bf997a75296d25c",
+  "owner_head": "126bb0f3f1a8e5a6bc4870af0ac6a0583f3348b9",
+  "researcher_id": "EM-P022OBS-919781",
+  "frozen_at": "2026-08-28T15:01:00+00:00",
+  "terminal_verdict": "PASS",
+  "hard_target_disposition": "P022_COMPOSITE_FRANEL_ESCAPE_CLOSED_OR_MINIMAL_EXACT_EXCEPTION_FROZEN / MINIMAL_EXACT_EXCEPTION_FROZEN / MET",
+  "unresolved_residue": "PROVE OR REFUTE e1^T T_(3m) (10,9)^T != 0 MOD (18m-1) FOR EVERY ADMISSIBLE PRIME TRIPLE 18m-1,12m-1,12m+1; THE MOVING HAHN PARAMETERS HAVE BEEN ELIMINATED AND THE FIXED CENTERED TRANSFER IS INVERTIBLE",
+  "output_manifest": [
+    {
+      "path": "src/enterprise_math/p022_barlow_hahn_centered_transfer.py",
+      "git_blob_sha1": "sha1:0e13254e46198d28ab673d24bb2c6465a818441f",
+      "sha256": "sha256:6a2d88a2923bc6d46dad895337bf00ef36ffc54436c3bc8aefc7dc4673edde19"
+    },
+    {
+      "path": "tests/test_p022_barlow_hahn_centered_transfer.py",
+      "git_blob_sha1": "sha1:8288f1f8d948d0cb49c3f71405030a06fe6dc992",
+      "sha256": "sha256:a6cad5aab90176269dcaee96e8ee56d497a6b1cee958c64b622095ed5bc31989"
+    },
+    {
+      "path": "research_returns/P022_OBSERVATION_HISTORY_COMPOSITE_FRANEL_ESCAPE_RETURN_20260827.md",
+      "git_blob_sha1": "sha1:a8e645ba2f9ef91d30eb5c478b55274f26a928b5",
+      "sha256": "sha256:8e4e885c31cfcc24271be376e3ecb470aaa599c481041a427bf997a75296d25c"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_APPLICABLE",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "DRIVER REVIEW RR-60001700435CFD2126E9. IF ACCEPTED, CONTINUE ONLY WITH THE FULL THREE-STEP CENTERED TRANSFER/FROBENIUS MATRIX OR AN EQUIVALENT CARTIER OFF-DIAGONAL BLOCK; DO NOT REOPEN THE SCALAR DUAL-HASSE CASORATIAN AND DO NOT SUBSTITUTE A LARGER FINITE CENSUS FOR PROOF.",
+  "driver_review_required": true
+}
