@@ -1,0 +1,61 @@
+{
+  "algorithms": [
+    "prime_fusion_public_polynomial_gcd_probe",
+    "prime_fusion_public_sixth_power_gcd_probe",
+    "trial_division",
+    "fermat",
+    "pollard_rho",
+    "pollard_p_minus_1"
+  ],
+  "candidate_request": {
+    "exact_top_level_fields": [
+      "schema",
+      "candidate_id",
+      "n",
+      "seed",
+      "public_parameters"
+    ],
+    "factor_fields_forbidden": true,
+    "candidate_input_semantics": "Run(N, independent_seed, precommitted_public_parameters)",
+    "schema": "PCF2_CANDIDATE_REQUEST_V1"
+  },
+  "candidate_response": {
+    "fields": [
+      "schema",
+      "candidate_id",
+      "n",
+      "seed",
+      "gcd_outputs",
+      "ops",
+      "gcd_calls",
+      "memory_bits"
+    ],
+    "schema": "PCF2_CANDIDATE_RESPONSE_V1"
+  },
+  "cost_warning": "ops are precisely defined algorithm-local machine-cost proxies and are not claimed to be interchangeable wall-clock units across algorithms",
+  "finite_benchmark_boundary": "finite corpus may falsify/regress implementations; it does not prove an infinite factorization theorem",
+  "private_verifier_fields": [
+    "factors"
+  ],
+  "private_verifier_serialization_to_candidate": false,
+  "public_case_fields": [
+    "case_id",
+    "n",
+    "family",
+    "bit_length",
+    "band"
+  ],
+  "required_families": [
+    "balanced_semiprime",
+    "unbalanced_semiprime",
+    "near_twin_semiprime",
+    "prime_power",
+    "multi_prime",
+    "carmichael",
+    "strong_pseudoprime_base2",
+    "coordinate_collision"
+  ],
+  "schema": "PCF2_REPLAY_SCHEMA_V1",
+  "success_predicate": "d is an integer with 1 < d < N and N % d == 0",
+  "task_id": "RS-PRIME-COORD-FACTOR-BLIND-BENCHMARK-SUITE"
+}

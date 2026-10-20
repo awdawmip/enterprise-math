@@ -1,0 +1,54 @@
+{
+  "baseline_parameters": {
+    "fermat": {
+      "max_steps": 4096
+    },
+    "pollard_p_minus_1": {
+      "B1": 256,
+      "bases": [
+        2,
+        3,
+        5,
+        7
+      ]
+    },
+    "pollard_rho": {
+      "max_steps_per_seed": 4096,
+      "seeds": [
+        2,
+        3,
+        5,
+        7,
+        11
+      ]
+    },
+    "trial_division": {
+      "odd_step": 2
+    }
+  },
+  "candidate_parameters": {
+    "prime_fusion_public_polynomial_gcd_probe": {
+      "polynomials": [
+        "x^2+1",
+        "x^2+x+1"
+      ]
+    },
+    "prime_fusion_public_sixth_power_gcd_probe": {
+      "polynomials": [
+        "x^6-1",
+        "x^6+1"
+      ]
+    }
+  },
+  "cost_model": {
+    "baseline": "algorithm-specific exact loop counters plus gcd/modexp counts; no wall-clock claims",
+    "candidate": "count modular multiplications/exponentiation calls/gcd calls; memory_bits=live_integer_slots*bit_length(N)"
+  },
+  "public_seeds": [
+    0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,
+    16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,
+    32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,
+    48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63
+  ],
+  "schema": "PCF2_PARAMETERS_V1"
+}
