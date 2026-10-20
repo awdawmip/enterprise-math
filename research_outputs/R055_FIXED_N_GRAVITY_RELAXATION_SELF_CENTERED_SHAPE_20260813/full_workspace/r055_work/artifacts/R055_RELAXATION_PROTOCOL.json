@@ -1,0 +1,163 @@
+{
+  "N_regimes": {
+    "construction": [
+      19,
+      31,
+      37,
+      53,
+      61,
+      79,
+      91,
+      113,
+      127,
+      151,
+      169,
+      199,
+      217
+    ],
+    "small_exhaustive": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "strict_holdout": [
+      43,
+      67,
+      103,
+      139,
+      181,
+      241,
+      301
+    ]
+  },
+  "boundary_definitions": {
+    "exterior_frontier": "{v not in C: at least one of v-d_k is in C}",
+    "occupied_boundary": "{u in C: at least one of u+d_k is not in C}",
+    "post_removal_frontier": "frontier(C\\{u}) evaluated before v is added"
+  },
+  "centroid": {
+    "definition": "g(C)=(1/N) sum_{x in C} x in the declared affine lattice realization",
+    "machine_representation": "sum_axial=(S_a,S_b); centroid_axial=(S_a/N,S_b/N) as exact rationals",
+    "no_privileged_initial_center": true,
+    "recompute_after_each_accepted_move": true
+  },
+  "dynamics": {
+    "D1_LOCAL_BOUNDARY_SLIDE": {
+      "classification": "local boundary slide",
+      "destination": "empty nearest-neighbor v=u+d_k that belongs to frontier(C\\{u})",
+      "final_checks": [
+        "fixed N",
+        "lattice site",
+        "connected",
+        "hole-free"
+      ],
+      "source": "occupied boundary u of current C"
+    },
+    "D2_GLOBAL_BOUNDARY_RELOCATION_REFERENCE": {
+      "classification": "nonlocal relocation reference; never relabel as local slide",
+      "destination": "any v in frontier(C\\{u}) with v not in original C and v != u",
+      "final_checks": [
+        "fixed N",
+        "lattice site",
+        "connected",
+        "hole-free"
+      ],
+      "source": "occupied boundary u of current C"
+    }
+  },
+  "frozen_at": "2026-08-13T19:28:00+08:00",
+  "generation": "R055-G0",
+  "lattice": {
+    "axial_coordinate_domain": "Z^2",
+    "basis_symbolic": [
+      "e1=(1,0)",
+      "e2=(1/2,sqrt(3)/2)"
+    ],
+    "cell_mass": 1,
+    "cell_scale": "ell_0 symbolic",
+    "neighbor_directions": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        -1,
+        1
+      ],
+      [
+        -1,
+        0
+      ],
+      [
+        0,
+        -1
+      ],
+      [
+        1,
+        -1
+      ]
+    ],
+    "quadratic_form": "Q(a,b)=a^2+a*b+b^2",
+    "type": "normalized_triangular_lattice"
+  },
+  "packet_source": "73e48ac77f403dc468cdea3458e14d10130386e0",
+  "researcher_id": "EM-R055-4C2A71",
+  "schema": "R055_RELAXATION_PROTOCOL_V1",
+  "semantic_typing": {
+    "boundary_move_rule": "N1_DERIVED_OPERATIONAL_SEMANTICS",
+    "centroid_gravity_moment_diagnostics": "N2_READOUT_COLLAPSE",
+    "external_disk_hexagon_models": "N3_CONTINUUM_CLASSICAL; forbidden until post-ledger/post-holdout comparison stage",
+    "lattice_coordinates": "I0_IMPLEMENTATION_CARRIER + task-declared operational affine geometry",
+    "native_claim_policy": "No centroid, Euclidean metric, quadratic gravity, disk, or hexagon is promoted to N0-native by this task.",
+    "occupancy_and_nearest_neighbor_adjacency": "task-declared base relational substrate for R055"
+  },
+  "state_predicate": {
+    "connected": "all occupied sites form one component under the six nearest-neighbor directions",
+    "equivalence_for_shape_classes": "translation + D6",
+    "fixed_cardinality": "|C|=N",
+    "hole_free": "Within the axial bounding box of C padded by 1 in each coordinate, flood-fill empty sites from every empty site on the padded-box boundary using the same six-neighbor adjacency. C is hole-free iff every empty site in the unpadded bounding box is exterior-reachable. This finite test is translation-invariant and exactly detects finite empty components for finite C.",
+    "orientation_metadata": "retained for orientation-sensitive alternative tie-break diagnostics"
+  },
+  "status": "FROZEN_BEFORE_CONSTRUCTION_TRAJECTORIES",
+  "step_semantics": {
+    "acceptance": "strict G(C_prime) < G(C) only",
+    "accepted_move_postconditions_order": [
+      "|C|=N",
+      "lattice legality",
+      "connected",
+      "hole-free",
+      "recompute centroid from all N cells",
+      "recompute legal move set",
+      "verify strict G descent"
+    ],
+    "candidate_recomputation": "recompute legal move set from scratch after every accepted move",
+    "plateau_moves": false,
+    "selection": "steepest strict descent: first minimize G(C_prime), then apply frozen tie-break",
+    "stopping_condition": "no legal strict-descending move exists under the selected dynamics"
+  },
+  "target_leakage_guards": {
+    "circumference_target_in_move_selection": false,
+    "classical_circle_in_move_selection": false,
+    "classical_pi_in_move_selection": false,
+    "external_shape_models_open_before_ledger_and_holdout_freeze": false,
+    "posthoc_weighted_objective": false,
+    "radius_in_move_selection": false,
+    "tangent_target_in_move_selection": false,
+    "teacher_center_in_move_selection": false
+  },
+  "task_id": "RS-R055-FIXED-N-GRAVITY-RELAXATION-SELF-CENTERED-SHAPE",
+  "taskbook_source": "18072ad7a3ca50728b23e0fc21478b98ed027631"
+}

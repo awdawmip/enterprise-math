@@ -1,0 +1,143 @@
+{
+  "CI_status": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "engine_equivalence_cross_checks": [
+    {
+      "name": "N19_PRIMARY_ALL8",
+      "rows_left": 8,
+      "rows_reference": 8,
+      "semantic_json_equality": true,
+      "status": "PASS"
+    },
+    {
+      "name": "N43_PRIMARY_ALL8",
+      "rows_left": 8,
+      "rows_reference": 8,
+      "semantic_json_equality": true,
+      "status": "PASS"
+    },
+    {
+      "name": "N31_L_ALL_THREE_TIES",
+      "rows_left": 3,
+      "rows_reference": 3,
+      "semantic_json_equality": true,
+      "status": "PASS"
+    }
+  ],
+  "frozen_hash_reproduction": {
+    "R055_INITIAL_STATE_REGISTRY_SHA256": "5de0e7ae6ff89cf81342f6c18125eb1eebd78c4725c0324acee2893552acd7f2",
+    "R055_MOVE_ENERGY_REGISTRY_SHA256": "83d546105a3fa721ba5cadea9a1bbf217a1661fdf0d1560fcdccc6d4c9d29ceb",
+    "R055_RELAXATION_PROTOCOL_SHA256": "aa69f2bc31cb9b5ec574a85de2879b9f8f765cfdfdb6dd0cbfc625cf8feed683",
+    "R055_THEOREM_COUNTEREXAMPLE_LEDGER_SHA256": "159ba8ed8e664522fec5fa9771b8efc7630d0b0c78ca5a2f67e7c33c724ac660"
+  },
+  "full_trajectory_arithmetic_replay": {
+    "D1_nearest_neighbor_Q_equals_1_checked_every_D1_move": true,
+    "accepted_moves_checked": 433531,
+    "fixed_N_and_site_replacement_checked_every_move": true,
+    "full_centroid_sum_recomputed_from_all_N_cells_every_move": 433531,
+    "full_exact_G_recomputed_from_all_N_cells_every_move": 433531,
+    "initial_and_terminal_full_flood_topology_checks": 1056,
+    "status": "PASS",
+    "strict_G_descent_checked_every_move": 433531,
+    "trajectory_rows": 528
+  },
+  "holdout_gate": {
+    "classical_pi_during_holdout": false,
+    "external_comparison_during_holdout": false,
+    "holdout_results_sha256": "c72b4988e9b00d022b8524b919768319876c8d11ec313933b9398efa002301f8",
+    "ledger_sha256_embedded": "159ba8ed8e664522fec5fa9771b8efc7630d0b0c78ca5a2f67e7c33c724ac660",
+    "status": "PASS"
+  },
+  "initial_state_validation": {
+    "N_values": [
+      19,
+      31,
+      37,
+      53,
+      61,
+      79,
+      91,
+      113,
+      127,
+      151,
+      169,
+      199,
+      217,
+      43,
+      67,
+      103,
+      139,
+      181,
+      241,
+      301
+    ],
+    "checks": [
+      "exact cardinality",
+      "integer lattice sites",
+      "connected",
+      "hole-free"
+    ],
+    "families_per_N": 8,
+    "status": "PASS",
+    "total_initial_instances_checked": 160
+  },
+  "postfreeze_external_gate": {
+    "external_shape_comparison_sha256": "10a043e10ca7ce27d3b72187c236b9b481de29e483db3a621417dd1e9ad8acc5",
+    "postfreeze_theorem_addendum_sha256": "53d357043abf57fbb75694b9d6e7e314a25fd7ecb873cf383b0135b7984f5c0a",
+    "status": "PASS"
+  },
+  "researcher_id": "EM-R055-4C2A71",
+  "schema": "R055_EXACT_CHECK_RESULTS_V1",
+  "small_N_exhaustive": {
+    "N12_D1_local_minima": 9,
+    "N12_D1_local_not_D2_minima": 8,
+    "N12_T2_basin_status": "Each free-class initial state uses its canonical representative orientation; after each accepted T2 move only translation normalization is applied, never D6 reorientation.",
+    "N6_D1_local_minima": 3,
+    "N6_D1_local_not_D2_minima": 2,
+    "N_range": [
+      1,
+      12
+    ],
+    "connected_class_counts": [
+      1,
+      1,
+      3,
+      7,
+      22,
+      82,
+      333,
+      1448,
+      6572,
+      30490,
+      143552,
+      683101
+    ],
+    "hole_free_class_counts": [
+      1,
+      1,
+      3,
+      7,
+      22,
+      81,
+      331,
+      1435,
+      6505,
+      30086,
+      141229,
+      669584
+    ],
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "topology_legality": {
+    "candidate_relocations_N2_through_N8": 259136,
+    "general_certificate": "For a hole-free connected current C, after deleting u let R have k occupied components. If insertion v reconnects all k components, then C prime is hole-free iff the cyclic occupied-neighbor run count around v in R equals k. Connectivity is answered by one-state Tarjan/low-link articulation data in the final engine.",
+    "independent_exhaustive_regression_file": "R055_LOCAL_HOLE_CRITERION_EXHAUSTIVE_CHECK.json",
+    "mismatches": 0,
+    "status": "PASS"
+  },
+  "unit_tests": {
+    "command": "PYTHONPATH=tools python -m unittest discover -s tests -v",
+    "status": "PASS",
+    "test_count": 10
+  }
+}

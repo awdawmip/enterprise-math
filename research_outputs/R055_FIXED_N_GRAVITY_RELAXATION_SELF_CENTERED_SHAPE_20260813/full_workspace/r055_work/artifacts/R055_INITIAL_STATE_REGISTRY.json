@@ -1,0 +1,99 @@
+{
+  "N_regimes": {
+    "construction": [
+      19,
+      31,
+      37,
+      53,
+      61,
+      79,
+      91,
+      113,
+      127,
+      151,
+      169,
+      199,
+      217
+    ],
+    "strict_holdout": [
+      43,
+      67,
+      103,
+      139,
+      181,
+      241,
+      301
+    ]
+  },
+  "common_requirements": [
+    "exactly N occupied lattice sites",
+    "connected",
+    "hole-free",
+    "no external circle/disk cut",
+    "no teacher center"
+  ],
+  "expected_instance_count_per_N": 8,
+  "families": [
+    {
+      "algorithm": "Start at (0,0). For r=1,2,... add the graph-distance shell d=max(|a|,|b|,|a+b|)=r in a fixed ring order: start at (r,0), then walk r steps in each direction [(-1,1),(-1,0),(0,-1),(1,-1),(1,0),(0,1)], omitting the duplicated final return to (r,0). Truncate after exactly N sites.",
+      "id": "HEX_SHELL_GROWTH",
+      "instances": [
+        "default"
+      ]
+    },
+    {
+      "algorithm": "{(a,0): a=0,...,N-1}.",
+      "id": "ELONGATED_STRIP",
+      "instances": [
+        "default"
+      ]
+    },
+    {
+      "algorithm": "Start at origin; cyclically extend the six rays in neighbor-direction order [(1,0),(0,1),(-1,1),(-1,0),(0,-1),(1,-1)], one new site per ray per cycle until N sites.",
+      "id": "SIX_ARM_STAR",
+      "instances": [
+        "default"
+      ]
+    },
+    {
+      "algorithm": "Let h=ceil((N+1)/2). Occupy (a,0) for a=0..h-1, then occupy (0,b) for b=1..N-h. This gives exactly N sites and a one-cell-thick L/wedge.",
+      "id": "L_SHAPE_OR_WEDGE",
+      "instances": [
+        "default"
+      ]
+    },
+    {
+      "algorithm": "Start at origin. At each step form the lexicographically sorted exterior frontier. Draw the next SplitMix64 output and use output mod frontier_size as a cyclic starting index. Scan the frontier cyclically from that index and add the first candidate for which the enlarged cluster is connected and hole-free. Repeat to exactly N. The PRNG advances once per growth step, not once per rejected candidate.",
+      "base_seeds": [
+        550001,
+        550021,
+        550057
+      ],
+      "id": "EDEN_SEEDED",
+      "instances": [
+        "seed_550001",
+        "seed_550021",
+        "seed_550057"
+      ],
+      "prng": "SplitMix64, unsigned 64-bit arithmetic",
+      "seed_rule": "state0=(base_seed XOR (N*0x9E3779B97F4A7C15)) mod 2^64"
+    },
+    {
+      "algorithm": "Start at origin. Repeatedly add the frontier site maximizing its number of occupied nearest neighbors; ties choose smallest tuple (graph_distance_from_origin,b,a), using graph distance max(|a|,|b|,|a+b|).",
+      "id": "COMPACT_BFS_ALT_TIE",
+      "instances": [
+        "default"
+      ]
+    }
+  ],
+  "generation": "R055-G0A-PRETRAJECTORY-CORRECTION",
+  "holdout_rule": "same frozen generators and seeds are applied without modification after theorem/counterexample ledger freeze",
+  "orientation": "generators use their declared axial orientation; shape-class comparisons canonicalize by translation+D6 only after generation",
+  "pretrajectory_correction": {
+    "reason": "The first frozen text gave a shell-walk direction order inconsistent with d=max(|a|,|b|,|a+b|), and the EDEN text did not explicitly enforce the already-frozen hole-free initial-state requirement. No construction or holdout trajectory had been run; correction occurred before any trajectory or move scoring consumed the registry.",
+    "supersedes_sha256": "f1ce65671f28fa661e2588cb2eef42e62e510553f11b8911eda21fd20d2f6250",
+    "trajectory_count_before_correction": 0
+  },
+  "schema": "R055_INITIAL_STATE_REGISTRY_V1",
+  "status": "FROZEN_BEFORE_CONSTRUCTION_TRAJECTORIES"
+}
