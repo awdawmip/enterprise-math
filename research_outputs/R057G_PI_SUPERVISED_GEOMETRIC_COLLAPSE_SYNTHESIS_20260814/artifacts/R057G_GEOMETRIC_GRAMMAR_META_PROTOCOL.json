@@ -1,0 +1,180 @@
+{
+  "anti_degeneracy": {
+    "STRUCTURAL_GEOMETRIC_RULE": "Deployment is computed from declared packet/teacher geometric primitives plus fitted parameters without directly reading/emitting the target label.",
+    "TARGET_LITERAL_DEGENERATE": "Direct hard-coded pi/teacher-target programs may be retained as baselines but cannot count as structural geometric discovery.",
+    "fitted_coefficients_using_pi": "ALLOWED_WITH_PROVENANCE_AND_NOT_AUTOMATICALLY_DEGENERATE"
+  },
+  "coefficient_domains_G0": [
+    "no_free_coefficient",
+    "rational",
+    "real_floating",
+    "algebraic_declared_expression"
+  ],
+  "complexity_vector": [
+    "AST_node_count",
+    "surrogate_family_count",
+    "conditional_branch_count",
+    "packet_type_count",
+    "free_coefficient_count",
+    "coefficient_description_complexity",
+    "K",
+    "context_radius",
+    "segmentation_policy_complexity",
+    "recursion_depth"
+  ],
+  "evolution_dimensions": {
+    "K": "VERSIONED_EXPANDABLE",
+    "coefficient_domain": "VERSIONED_EXPANDABLE",
+    "geometric_surrogate_family": "VERSIONED_EXPANDABLE",
+    "neighbor_context": "VERSIONED_EXPANDABLE",
+    "packet_feature_set": "VERSIONED_EXPANDABLE",
+    "recursive_multiscale_grouping": "VERSIONED_EXPANDABLE",
+    "scoring_or_complexity_definition": "VERSIONED_CHANGE_REQUIRES_GENEALOGY",
+    "segmentation_policy_family": "VERSIONED_EXPANDABLE",
+    "teacher_corpus": "VERSIONED_EXPANDABLE"
+  },
+  "first_round_R057_A_firewall": {
+    "active": true,
+    "forbidden_inputs": [
+      "R057-A best operator mapping",
+      "R057-A selected collapse counts",
+      "R057-A fitted coefficients",
+      "R057-A compressed generators or recurrences"
+    ],
+    "release_condition": "R057G first serious independent grammar checkpoint is frozen and Driver authorizes later comparison."
+  },
+  "fit_theorem_status_separation": {
+    "fit_status_field_required": true,
+    "no_implicit_upgrade": true,
+    "theorem_status_field_required": true
+  },
+  "freeze_semantics": "This file freezes grammar evolution rules and the initial supported grammar families. It does not freeze a permanently small K, a permanently closed surrogate library, or a permanently fixed teacher corpus.",
+  "genealogy_record_schema": {
+    "comparison_rule": "When teacher data changed, evaluate parent and child on the same declared comparison teacher set in addition to preserving each version's historical score, so grammar improvement is not conflated with dataset change.",
+    "required_context_fields": [
+      "version",
+      "teacher_registry_version",
+      "comparison_teacher_data",
+      "target_guided",
+      "target_literal_degenerate",
+      "fit_status",
+      "theorem_status"
+    ],
+    "required_fields": [
+      "parent",
+      "motivating_error_or_pattern",
+      "modification",
+      "score_before",
+      "score_after",
+      "complexity_before",
+      "complexity_after",
+      "teacher_data_visible_at_decision_time"
+    ]
+  },
+  "grammar_version": "G0",
+  "hashing_contract": {
+    "digest": "SHA-256 over exact file bytes",
+    "serialization": "UTF-8 JSON, ensure_ascii=false, sort_keys=true, indent=2, LF newlines, exactly one terminal LF"
+  },
+  "initial_geometric_grammar": [
+    {
+      "definition": "Keep all original packet edges; readout is the raw polyline Euclidean length.",
+      "id": "G0-RAW",
+      "name": "RAW_POLYLINE"
+    },
+    {
+      "definition": "Replace packet B=(x0,...,xk) by the single Euclidean chord x0-xk.",
+      "id": "G0-CHORD",
+      "name": "WHOLE_ENDPOINT_CHORD"
+    },
+    {
+      "definition": "For every k<=K in the active grammar version, support every composition of k into positive contiguous block sizes; replace each block by its endpoint chord and sum the chord contributions.",
+      "id": "G0-PARTITION",
+      "name": "ALL_CONTIGUOUS_CHORD_PARTITIONS"
+    },
+    {
+      "definition": "Select one or more internal packet breakpoints and join successive selected vertices by chords.",
+      "id": "G0-MULTI_CHORD",
+      "name": "MULTI_CHORD"
+    },
+    {
+      "definition": "Use endpoint chord plus a selected/effective apex; candidate readouts may use triangle sides, altitude, area, perimeter, or fitted combinations of declared triangle invariants.",
+      "id": "G0-TRIANGLE",
+      "name": "TRIANGLE_SURROGATE"
+    },
+    {
+      "definition": "Use teacher-side or packet-estimated endpoint tangents, tangent intersection, tangent lengths, and tangent/chord hybrid readouts. Teacher-side use must be marked as supervised.",
+      "id": "G0-TANGENT",
+      "name": "TANGENT_SURROGATE"
+    },
+    {
+      "definition": "Use a declared local circular-arc or osculating-circle-style surrogate. Teacher center/radius may be used in the supervised lane and must be recorded in candidate supervision metadata.",
+      "id": "G0-ARC",
+      "name": "LOCAL_ARC_SURROGATE"
+    },
+    {
+      "definition": "Use local signed area, triangle area, sector-minus-triangle, or area-preserving constructions with an explicitly declared normalization.",
+      "id": "G0-AREA",
+      "name": "AREA_SECTOR_SURROGATE"
+    },
+    {
+      "definition": "Support effective laws c(k,turn_word,context) -> collapse count and/or contiguous partition pattern; no example mapping is assumed correct a priori.",
+      "id": "G0-COLLAPSE-COUNT",
+      "name": "COLLAPSE_COUNT_LAW"
+    }
+  ],
+  "initial_search_cap": {
+    "K_initial": 6,
+    "expandable": true,
+    "expansion_rule": "Increase K only by creating a new grammar version and genealogy record motivated by observed error/pattern or compression need.",
+    "meaning": "Initial maximum packet edge-count considered by G0 after Driver approval."
+  },
+  "meaningful_change_definition": "A meaningful change is any alteration to the admissible hypothesis language, K cap, surrogate family, feature/context set, segmentation policy, coefficient domain, teacher registry, scoring/complexity definition, independence boundary, or a selected/frontier candidate rule/parameterization.",
+  "packet_features_G0": [
+    "k",
+    "endpoint_displacement_axial",
+    "endpoint_chord_length",
+    "ordered_direction_word",
+    "ordered_turn_word",
+    "net_turn",
+    "local_convex_flat_concave_pattern",
+    "teacher_center_relative_radial_data",
+    "teacher_endpoint_tangent_data",
+    "chord_to_radius_ratio",
+    "local_signed_area",
+    "triangle_polygon_invariants",
+    "neighboring_packet_context_radius_0_or_1"
+  ],
+  "provenance": {
+    "arm_relation": "SIBLING_TO_R057_A_NOT_CONTINUATION",
+    "epistemic_class": "EXPLICIT_PI_SUPERVISED_GEOMETRIC_DISCOVERY_NOT_FOUNDATIONAL",
+    "frozen_packet_source_commit": "5b9d21c0c4b30c5e128756e098718132db19e4f1",
+    "generation": "R057G",
+    "r056_read_only_checkpoint": "a41a47f3a5bb96fd5cc5cdc10c497afbd288eae7",
+    "researcher_id": "EM-R057G-93D4A8",
+    "stage": "STAGE_0",
+    "task_id": "RS-R057G-PI-SUPERVISED-GEOMETRIC-COLLAPSE-SYNTHESIS",
+    "taskbook_source_commit": "fb48226afb3f6c2ffb0910985ec336b2b089e1d3"
+  },
+  "schema": "R057G_GEOMETRIC_GRAMMAR_META_PROTOCOL_V1",
+  "search_and_selection_policy": {
+    "hidden_post_selection": "FORBIDDEN",
+    "large_search_in_stage0": "FORBIDDEN",
+    "overfitting": "ALLOWED",
+    "post_selection": "ALLOWED",
+    "program_synthesis": "ALLOWED",
+    "symbolic_regression": "ALLOWED",
+    "target_guided_expansion": "ALLOWED"
+  },
+  "segmentation_policy_space_G0": {
+    "expandable": true,
+    "initial_policy_families": [
+      "UNIT_EDGES",
+      "FIXED_K_WITH_CANONICAL_CYCLIC_REMAINDER",
+      "TURN_WORD_CONDITIONAL_PARTITION",
+      "COLLAPSE_COUNT_DRIVEN_PARTITION"
+    ],
+    "requirement": "Every deployable candidate declares a deterministic cyclic partition of a teacher boundary into disjoint contiguous packets. The grammar may search partition policies; overlapping catalog windows are analysis objects only."
+  },
+  "status": "FROZEN_STAGE_0_EVOLUTION_RULES"
+}
