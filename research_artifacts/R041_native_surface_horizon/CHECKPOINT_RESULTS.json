@@ -1,0 +1,46 @@
+{
+  "fcc_quotient_class_counts": {
+    "1": {"B1": 1, "B2": 1, "B3": 1, "H": 1, "R2bar": 1, "S": 1, "T1": 1, "T2": 1, "T3": 1, "cumT1": 1, "cumT2": 1, "cumT3": 1, "states": 1},
+    "2": {"B1": 1, "B2": 1, "B3": 1, "H": 1, "R2bar": 1, "S": 1, "T1": 1, "T2": 1, "T3": 1, "cumT1": 1, "cumT2": 1, "cumT3": 1, "states": 1},
+    "3": {"B1": 3, "B2": 4, "B3": 4, "H": 4, "R2bar": 4, "S": 2, "T1": 3, "T2": 3, "T3": 4, "cumT1": 3, "cumT2": 3, "cumT3": 4, "states": 4},
+    "4": {"B1": 9, "B2": 17, "B3": 20, "H": 17, "R2bar": 20, "S": 4, "T1": 9, "T2": 10, "T3": 9, "cumT1": 9, "cumT2": 12, "cumT3": 14, "states": 20},
+    "5": {"B1": 19, "B2": 69, "H": 67, "R2bar": 131, "S": 5, "T1": 19, "T2": 18, "cumT1": 19, "cumT2": 29, "states": 131}
+  },
+  "hcp_quotient_class_counts": {
+    "1": {"B1": 1, "B2": 1, "H": 1, "R2bar": 1, "S": 1, "T1": 1, "T2": 1, "cumT1": 1, "cumT2": 1, "states": 1},
+    "2": {"B1": 1, "B2": 2, "H": 1, "R2bar": 2, "S": 1, "T1": 1, "T2": 1, "cumT1": 1, "cumT2": 1, "states": 2},
+    "3": {"B1": 4, "B2": 7, "H": 7, "R2bar": 9, "S": 2, "T1": 4, "T2": 5, "cumT1": 4, "cumT2": 5, "states": 9},
+    "4": {"B1": 10, "B2": 33, "H": 29, "R2bar": 57, "S": 4, "T1": 10, "T2": 10, "cumT1": 10, "cumT2": 14, "states": 57}
+  },
+  "researcher_id": "EM-R041-7C3A91",
+  "schema": "ENTERPRISE_MATH_R041_HORIZON_QUOTIENT_CHECKPOINT_V1",
+  "semantics": {
+    "B_h": "Boolean branch-aware operational signature with action label k (equivalently Delta S)",
+    "R2bar": "R039 reduced second-order frontier bag regression summary",
+    "T_h": "Boolean support of absolute terminal S after exactly h additions",
+    "cumT_h": "tuple (T_0,...,T_h)"
+  },
+  "singleton_cone_stats": {
+    "fcc": {
+      "1": {"edge_layer_counts": {"0-0": 24}, "j_edges": 24, "k_edges": 0, "layer_sizes": [12], "pruned_last_layer_edges": 24, "vertices": 12},
+      "2": {"edge_layer_counts": {"0-0": 24, "0-1": 84, "1-1": 96}, "j_edges": 204, "k_edges": 108, "layer_sizes": [12, 42], "pruned_last_layer_edges": 96, "vertices": 54},
+      "3": {"edge_layer_counts": {"0-0": 24, "0-1": 84, "1-1": 96, "1-2": 228, "2-2": 216}, "j_edges": 648, "k_edges": 432, "layer_sizes": [12, 42, 92], "pruned_last_layer_edges": 216, "vertices": 146},
+      "4": {"edge_layer_counts": {"0-0": 24, "0-1": 84, "1-1": 96, "1-2": 228, "2-2": 216, "2-3": 444, "3-3": 384}, "j_edges": 1476, "k_edges": 1092, "layer_sizes": [12, 42, 92, 162], "pruned_last_layer_edges": 384, "vertices": 308}
+    },
+    "hcp": {
+      "1": {"edge_layer_counts": {"0-0": 24}, "j_edges": 24, "k_edges": 0, "layer_sizes": [12], "pruned_last_layer_edges": 24, "vertices": 12},
+      "2": {"edge_layer_counts": {"0-0": 24, "0-1": 84, "1-1": 108}, "j_edges": 216, "k_edges": 108, "layer_sizes": [12, 44], "pruned_last_layer_edges": 108, "vertices": 56},
+      "3": {"edge_layer_counts": {"0-0": 24, "0-1": 84, "1-1": 108, "1-2": 228, "2-2": 240}, "j_edges": 684, "k_edges": 444, "layer_sizes": [12, 44, 96], "pruned_last_layer_edges": 240, "vertices": 152},
+      "4": {"edge_layer_counts": {"0-0": 24, "0-1": 84, "1-1": 108, "1-2": 228, "2-2": 240, "2-3": 444, "3-3": 432}, "j_edges": 1560, "k_edges": 1128, "layer_sizes": [12, 44, 96, 170], "pruned_last_layer_edges": 432, "vertices": 322}
+    }
+  },
+  "status": "SEMANTIC_CHECKPOINT / NOT_CANONICAL",
+  "task_id": "RS-R041-NATIVE-SURFACE-HORIZON-QUOTIENT-CALCULUS",
+  "validation": {"ci": "CI_NOT_REQUIRED_FOR_RESEARCH", "focused_tests": 7, "focused_tests_status": "PASS"},
+  "witnesses": {
+    "fcc_exact_h_nonmonotone_N4": {"A": [[0,0,0],[0,1,-3],[1,0,-1],[1,1,-2]], "B": [[0,0,0],[0,1,-1],[1,-1,0],[2,-1,1]], "S": 42, "T2_A": [52,54,56,58,60,62], "T2_B": [54,56,58,60,62], "T3_common": [58,60,62,64,66,68,70,72]},
+    "fcc_terminal_vs_operational_N3_h2": {"A": [[0,0,0],[0,1,-1],[1,-1,0]], "B": [[0,0,0],[0,0,2],[0,1,1]], "B2_equal": false, "S": 32, "T1_common": [38,40,42], "T2_common": [44,46,48,50,52], "bounded_minimality": "first FCC witness in exhaustive N<=3 search"},
+    "hcp_exact_h_nonmonotone_N4": {"A": [[0,0,0],[0,0,1],[0,1,0],[1,1,0]], "B": [[0,0,0],[0,0,1],[0,0,2],[0,1,0]], "S": 40, "T1_A": [44,46,48,50], "T1_B": [46,48,50], "T2_common": [50,52,54,56,58,60]},
+    "hcp_terminal_vs_operational_N2_h2": {"A": [[0,0,0],[0,1,0]], "B": [[0,0,0],[0,0,1]], "B2_equal": false, "H_common": [[1,14],[2,4]], "S": 22, "T1_common": [30,32], "T2_common": [36,38,40,42], "bounded_minimality": "N=2 is globally first nontrivial HCP cluster size under frozen symmetry"}
+  }
+}
