@@ -1,0 +1,43 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-BDCB4CD3A6306328B884",
+  "task_id": "RS-R037-R033-R034-INDEPENDENT-ALGORITHM-DATA-REPLICATION-AUDIT",
+  "publication_id": "TP2-FEE5990D460CCB106345",
+  "execution_record_id": "ER-3E6196B52896BDE61BF4",
+  "claim_id": "chatgpt-r037-v2pres-20260902-1034-a71c2e",
+  "taskbook_path": "research_tasks/LEGACY_CONTROL_MIGRATION_RS_R037_R033_R034_INDEPENDENT_ALGORITHM_DATA_REPLICATION_AUDIT_20260902.md",
+  "taskbook_blob_sha1": "sha1:16f7343d8087e0eb43b4af697de9785139539cc8",
+  "execution_branch": "research/r037-v2-preservation-audit-em-r037-da5b4d",
+  "execution_branch_base": "ac709e6d472c39b1b623905d85eb753d965a6567",
+  "return_path": "research_returns/R037_R033_R034_V2_PRESERVATION_AUDIT_RETURN_20260902.md",
+  "return_blob_sha1": "sha1:024ef2ef69e650add312e2ef2095105704cbe137",
+  "return_sha256": "sha256:47f0222857c46328ca1e4852d34715989664db202c7f814546332a3793d8ca62",
+  "owner_head": "13b541c105f37f2724fe3d6e8cd134f6600cb006",
+  "researcher_id": "EM-R037-DA5B4D",
+  "frozen_at": "2026-09-02T02:44:58+00:00",
+  "terminal_verdict": "AUDIT_COMPLETE",
+  "hard_target_disposition": "V2_MATHEMATICAL_PRESERVATION_PASS__LEGACY_REVIEW_PENDING_RESULT_RUNTIME_OVERLAY_MISSING__RESEARCHER_REDISPATCH_REPRODUCED",
+  "unresolved_residue": "Driver must materialize or otherwise authoritatively represent the historical frozen R037 return/review-pending state on the V2 result lifecycle, then review PR #812; no R033/R034 mathematical replay is authorized by this audit.",
+  "output_manifest": [
+    {
+      "path": "research_artifacts/R037_R033_R034_V2_PRESERVATION_AUDIT/AUDIT_MATRIX.json",
+      "git_blob_sha1": "sha1:1c0653bffad2fc41bd743b9520f4ea77ed146595",
+      "sha256": "sha256:1782564c39a263c761116d73838dc3412e64cdd5925309d723734be14b885832"
+    },
+    {
+      "path": "research_checks/R037_R033_R034_V2_PRESERVATION_AUDIT_CHECK_20260902.py",
+      "git_blob_sha1": "sha1:0cf929d2bc902f319235d274f8d7afbc34a85770",
+      "sha256": "sha256:766fb96fb1707aa1c5b0f16e464c23221e254fd3d60666228543e16cb7b91737"
+    },
+    {
+      "path": "research_returns/R037_R033_R034_V2_PRESERVATION_AUDIT_RETURN_20260902.md",
+      "git_blob_sha1": "sha1:024ef2ef69e650add312e2ef2095105704cbe137",
+      "sha256": "sha256:47f0222857c46328ca1e4852d34715989664db202c7f814546332a3793d8ca62"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "NOT_APPLICABLE",
+  "source_exposure_status": "NONBLIND_DISCLOSED",
+  "next_control_plane_recommendation": "BLOCK RESEARCHER REDISPATCH; DRIVER REVIEW PR #812 AND MATERIALIZE/RECONCILE LEGACY RETURN INTO V2 RESULT LIFECYCLE; IF STRICT PROVENANCE-CLEAN R034 IS REQUIRED, PUBLISH A NEW R034-ONLY TASK.",
+  "driver_review_required": true
+}
