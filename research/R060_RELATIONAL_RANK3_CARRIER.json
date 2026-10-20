@@ -1,0 +1,33 @@
+{
+  "configuration_admissibility": [
+    "finite",
+    "nonempty in primary Stage 0",
+    "fixed |C|=N",
+    "connected under declared adjacency"
+  ],
+  "generation": "R060",
+  "i0_implementation_carrier": {
+    "adjacency_test": "difference is one of ±(1,0,0), ±(0,1,0), ±(0,0,1)",
+    "encoding": "integer triples (i,j,k)",
+    "ontology_status": "encoding only; not a physical vector or Euclidean point",
+    "type": "I0_IMPLEMENTATION_CARRIER"
+  },
+  "mandatory_statement": "RELATIONAL_RANK3_CANDIDATE != PROVED_WORLD_DIMENSION_3",
+  "n0_native_relational": {
+    "abstract_cayley_presentation": "G=<A,B,C | AB=BA, AC=CA, BC=CB>; x ADJ y iff y=x+s for s in {+A,-A,+B,-B,+C,-C}",
+    "adjacency_degree": 6,
+    "candidate_relational_rank": 3,
+    "channel_presentation": "three independent paired channel families A,B,C; presentation labels are globally relabelable",
+    "occupancy": "finite state predicate C subset carrier",
+    "packets": "abstract carrier elements"
+  },
+  "name": "C3_RELATIONAL_RANK3_CHANNEL_CARRIER",
+  "native_geometry_fields": [],
+  "researcher_id": "EM-R060-00CD9F",
+  "schema": "R060_RELATIONAL_RANK3_CARRIER_V1",
+  "stage": "0",
+  "status": "FROZEN_STAGE0",
+  "task_id": "RS-R060-STAGE-0-RELATIONAL-3D-STABLE-COLLAPSE-FOUNDATION",
+  "taskbook_source_commit": "1d4b7dd5b2dd326019e1d91dbcbe050b0cd13f89",
+  "unit_packet_axiom": "UNIT_PACKET(x)=1"
+}

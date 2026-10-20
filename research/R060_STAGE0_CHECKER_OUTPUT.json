@@ -1,0 +1,218 @@
+{
+  "checker_id": "R060_STAGE0_CHECKER_V1",
+  "generation": "R060",
+  "hard_negative_results": [
+    {
+      "actual": "REJECT",
+      "expected": "REJECT",
+      "fixture": "PACKET_HAS_NATIVE_VOLUME_1",
+      "rejection_hits": [
+        "PACKET_HAS_NATIVE_VOLUME_1"
+      ],
+      "status": "PASS"
+    },
+    {
+      "actual": "REJECT",
+      "expected": "REJECT",
+      "fixture": "INTEGER_TRIPLE_IS_PHYSICAL_VECTOR",
+      "rejection_hits": [
+        "INTEGER_TRIPLE_IS_PHYSICAL_VECTOR"
+      ],
+      "status": "PASS"
+    },
+    {
+      "actual": "REJECT",
+      "expected": "REJECT",
+      "fixture": "CONTACT_CUT_EQUALS_GEOMETRIC_SURFACE_AREA",
+      "rejection_hits": [
+        "CONTACT_CUT_EQUALS_GEOMETRIC_SURFACE_AREA"
+      ],
+      "status": "PASS"
+    },
+    {
+      "actual": "REJECT",
+      "expected": "REJECT",
+      "fixture": "CENTROID_USED_FOR_MOVE_SELECTION",
+      "rejection_hits": [
+        "CENTROID_USED_FOR_MOVE_SELECTION"
+      ],
+      "status": "PASS"
+    },
+    {
+      "actual": "REJECT",
+      "expected": "REJECT",
+      "fixture": "EUCLIDEAN_NORM_USED_FOR_MOVE_SELECTION",
+      "rejection_hits": [
+        "EUCLIDEAN_NORM_USED_FOR_MOVE_SELECTION"
+      ],
+      "status": "PASS"
+    },
+    {
+      "actual": "REJECT",
+      "expected": "REJECT",
+      "fixture": "GRAPH_DISTANCE_USED_AS_COLLAPSE_ENERGY",
+      "rejection_hits": [
+        "GRAPH_DISTANCE_USED_AS_COLLAPSE_ENERGY"
+      ],
+      "status": "PASS"
+    },
+    {
+      "actual": "REJECT",
+      "expected": "REJECT",
+      "fixture": "TERMINATION_IMPLIES_STABILITY",
+      "rejection_hits": [
+        "TERMINATION_IMPLIES_STABILITY"
+      ],
+      "status": "PASS"
+    },
+    {
+      "actual": "REJECT",
+      "expected": "REJECT",
+      "fixture": "ONE_3D_SUCCESS_IMPLIES_WORLD_IS_3D",
+      "rejection_hits": [
+        "ONE_3D_SUCCESS_IMPLIES_WORLD_IS_3D"
+      ],
+      "status": "PASS"
+    },
+    {
+      "actual": "REJECT",
+      "expected": "REJECT",
+      "fixture": "ONE_3D_FAILURE_IMPLIES_3D_IMPOSSIBLE",
+      "rejection_hits": [
+        "ONE_3D_FAILURE_IMPLIES_3D_IMPOSSIBLE"
+      ],
+      "status": "PASS"
+    },
+    {
+      "actual": "REJECT",
+      "expected": "REJECT",
+      "fixture": "R059L_MODIFIED_OR_USED_AS_REQUIRED_PARENT",
+      "rejection_hits": [
+        "R059L_MODIFIED_OR_USED_AS_REQUIRED_PARENT"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "input_artifact_sha256": {
+    "R060_CONTACT_CUT_PROTOCOL.json": "b8abfad4c93973584b4348e35d6056266477d1f79db04c9e7fbf0f2ab8e18835",
+    "R060_D3_L1_LOCAL_COLLAPSE_PROTOCOL.json": "7aaf5798ae6edc96648b78906547981c75d2c1c74ad639e2ecd930f6b9f2e2b0",
+    "R060_DIMENSION_AS_OUTPUT_INFERENCE_GUARD.json": "3337011451c36114a103ffc768ccde93bdf68d6dfc6d62941ef4b1fb0f5008a2",
+    "R060_RANK3_AUTOMORPHISM_PROTOCOL.json": "b1056d76516a65a178efd37ccc64c2f400547c785717978a825e86f5ce4bf6d1",
+    "R060_RELATIONAL_RANK3_CARRIER.json": "ebb36e3eb37057bf1cbbad13a32bf1ddcc3d3b448e2c055859da8a74bd498ee8",
+    "R060_STABLE_COLLAPSE_HIERARCHY.json": "3c781fe71fcb9673c8e19e5f052e4392216077445e5454b9d42c60740b03065c",
+    "R060_STAGE0_SEMANTIC_CLAIM_LEDGER.json": "543c1249b2de9024db823004661e45f05c7b9bef389a3f2af905a137afa06f08",
+    "R060_STAGE0_TINY_REGRESSION_RESULTS.json": "77490d370983955c79b6d576d0fc8c2cc4bccd579881361bba73479aa2778813"
+  },
+  "positive_checks": [
+    {
+      "check_id": "UNIT_PACKET_1",
+      "evidence": "UNIT_PACKET(x)=1",
+      "status": "PASS"
+    },
+    {
+      "check_id": "I0_COORDINATES_ONLY",
+      "evidence": "encoding only; not a physical vector or Euclidean point",
+      "status": "PASS"
+    },
+    {
+      "check_id": "RANK3_NOT_WORLD3",
+      "evidence": "RELATIONAL_RANK3_CANDIDATE != PROVED_WORLD_DIMENSION_3",
+      "status": "PASS"
+    },
+    {
+      "check_id": "AUTOMORPHISM_STABILIZER_48",
+      "evidence": "48",
+      "status": "PASS"
+    },
+    {
+      "check_id": "AUTOMORPHISM_REGRESSION",
+      "evidence": "{\"B_pair\": [22, 22], \"accepted_move_count_pair\": [2, 2], \"one_step_target_orbit_sets_equal\": true, \"original_C\": [[0, 0, 0], [0, 0, 1], [0, 1, 0], [1, 0, 1], [1, 1, 0]], \"same_canonical_orbit\": true, \"transform\": {\"channel_permutation\": [2, 0, 1], \"channel_reversals\": [-1, 1, -1], \"translation\": [7, -3, 4]}, \"transformed_C\": [[6, -3, 4], [6, -2, 4], [7, -3, 3], [7, -3, 4], [7, -2, 3]]}",
+      "status": "PASS"
+    },
+    {
+      "check_id": "CONTACT_IDENTITY",
+      "evidence": "B=22,N=5,E=4",
+      "status": "PASS"
+    },
+    {
+      "check_id": "STRICT_DESCENT_WITNESS",
+      "evidence": "B 22->20, connected=True",
+      "status": "PASS"
+    },
+    {
+      "check_id": "LOCAL_DELTA_FORMULA",
+      "evidence": "delta_B=-2,2(d-k)=-2",
+      "status": "PASS"
+    },
+    {
+      "check_id": "TERMINAL_WITNESS",
+      "evidence": "moves=0",
+      "status": "PASS"
+    },
+    {
+      "check_id": "EXHAUSTIVE_ORBIT_COUNTS",
+      "evidence": "[1, 1, 2, 7, 23, 112]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FIRST_STRICT_DESCENT_N5",
+      "evidence": "[0, 0, 0, 0, 2, 17]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "ALL_ENUMERATED_ACCEPTED_MOVES_STRICT",
+      "evidence": "count=34,deltas=[-2]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "SEMANTIC_LEDGER_COMPLETE",
+      "evidence": "claims=7,fields=21",
+      "status": "PASS"
+    },
+    {
+      "check_id": "NO_N3_USED",
+      "evidence": "all N3 dependency lists empty",
+      "status": "PASS"
+    },
+    {
+      "check_id": "GEOMETRY_RUNTIME_FIREWALL",
+      "evidence": "{\"centroid_calls\": 0, \"euclidean_norm_calls\": 0, \"graph_distance_score_calls\": 0, \"metric_fields_consulted\": []}",
+      "status": "PASS"
+    },
+    {
+      "check_id": "BASE_FORBIDDEN_ASSERTIONS_CLEAR",
+      "evidence": "[]",
+      "status": "PASS"
+    },
+    {
+      "check_id": "TERMINATION_NOT_STABILITY",
+      "evidence": "NONE",
+      "status": "PASS"
+    },
+    {
+      "check_id": "R059L_NOT_PARENT",
+      "evidence": "no required_parent field; taskbook source is R060",
+      "status": "PASS"
+    }
+  ],
+  "replay_spec": {
+    "arithmetic": "integer only",
+    "hard_negative_rule": "reject if any structured forbidden assertion is true",
+    "move_enumerator": "all occupied packets × six adjacency incidences; empty target; connectivity; strict B comparison",
+    "orbit_enumerator": "adjacent connected growth; all 48 signed channel permutations; componentwise-min translation normalization; lexical canonical minimum",
+    "randomness": "none"
+  },
+  "researcher_id": "EM-R060-00CD9F",
+  "schema": "R060_STAGE0_DETERMINISTIC_CHECKER_OUTPUT_V1",
+  "stage": "0",
+  "status": "FROZEN_STAGE0",
+  "summary": {
+    "checker_status": "PASS",
+    "hard_negative_passed": 10,
+    "hard_negative_total": 10,
+    "positive_passed": 18,
+    "positive_total": 18
+  },
+  "task_id": "RS-R060-STAGE-0-RELATIONAL-3D-STABLE-COLLAPSE-FOUNDATION",
+  "taskbook_source_commit": "1d4b7dd5b2dd326019e1d91dbcbe050b0cd13f89"
+}
