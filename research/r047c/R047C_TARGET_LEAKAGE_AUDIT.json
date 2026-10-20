@@ -1,0 +1,70 @@
+{
+  "schema": "R047C_TARGET_LEAKAGE_AUDIT_V1",
+  "researcher_id": "EM-R047C-7E31A4",
+  "task_id": "RS-R047C-FROZEN-NATIVE-MECHANISM-CALIBRATION-ENGINEERING-SUCCESS",
+  "target_git_blob": "bc24a121897a912f026b0c85af914268f00997e5",
+  "live_bridge_imports": {
+    "illegal_effective_definition_import_count": 0,
+    "candidate_core_edits": 0
+  },
+  "rejected_B4_attacks": [
+    {
+      "attack": "geometry-definition bridge",
+      "imports": [
+        "center",
+        "distance/equidistance",
+        "radius",
+        "circle/sphere primitive",
+        "Euclidean area/volume formula"
+      ],
+      "verdict": "B4_ILLEGAL_LEAKAGE_REJECTED"
+    },
+    {
+      "attack": "cycle-definition bridge",
+      "imports": [
+        "radian/angle primitive",
+        "2π-per-cycle premise",
+        "angular-frequency definition"
+      ],
+      "verdict": "B4_ILLEGAL_LEAKAGE_REJECTED"
+    },
+    {
+      "attack": "diffusion-definition bridge",
+      "imports": [
+        "continuum PDE",
+        "Gaussian density/normalization",
+        "heat-kernel π normalization",
+        "continuum integral measure"
+      ],
+      "verdict": "B4_ILLEGAL_LEAKAGE_REJECTED"
+    },
+    {
+      "attack": "mode-definition bridge",
+      "imports": [
+        "continuum wave equation",
+        "Euclidean cavity geometry",
+        "Fourier mode normalization",
+        "k=nπ/L premise",
+        "wavenumber/angular-frequency primitive"
+      ],
+      "verdict": "B4_ILLEGAL_LEAKAGE_REJECTED"
+    }
+  ],
+  "kill_tests": {
+    "ONE_NUMBER_FIT": "PASS_REJECTED",
+    "METAPHOR_AS_EXPLANATION": "PASS_REJECTED",
+    "TARGET_DEFINITION_BRIDGE": "PASS_REJECTED",
+    "PER_KENG_PATCHWORK": "PASS_NO_UNIFIED_CLAIM_FROM_B3",
+    "PARAMETER_EXPLOSION": "PASS_ZERO_FITTED_PARAMETERS",
+    "TRAINING_AS_HOLDOUT": "PASS_INDEPENDENT_CHANNEL_SPLITS",
+    "ARM_PROVENANCE_BIAS": "PASS_RANKING_AFTER_ALL_48_CELLS",
+    "FOUNDATION_REWRITE": "PASS_ZERO_CORE_EDITS"
+  },
+  "classical_pi_numeric_selection_audit": {
+    "selection_loss_kind": "NONE",
+    "classical_pi_numeric_value_used_as_selection_loss": false,
+    "classical_pi_decimal_or_approximation_compared_to_candidate_output": false,
+    "machine_auditable_answer": "YES_NOT_USED"
+  },
+  "verdict": "PASS_NO_TARGET_LEAKAGE_IN_ACCEPTED_LIVE_BRIDGES"
+}

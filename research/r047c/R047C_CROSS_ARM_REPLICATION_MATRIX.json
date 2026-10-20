@@ -1,0 +1,42 @@
+{
+  "schema": "R047C_CROSS_ARM_REPLICATION_MATRIX_V1",
+  "researcher_id": "EM-R047C-7E31A4",
+  "task_id": "RS-R047C-FROZEN-NATIVE-MECHANISM-CALIBRATION-ENGINEERING-SUCCESS",
+  "analysis_started_after_all_48_cells": true,
+  "pairs": [
+    {
+      "project": "R047P-M2-RELATIONAL-REFINEMENT",
+      "isolated": "R047I-C01",
+      "relation": "INDEPENDENT_REDISCOVERY",
+      "family": "relation/refinement",
+      "calibration": "CALIBRATION_CONVERGENCE_AT_E1_ONLY / COMMON_ATTRACTOR_BUT_CALIBRATION_FAILURE",
+      "detail": "Both preserve relabeling-equivariant refinement and reach only KENG-01 E1; neither reaches quantitative engineering protocols."
+    },
+    {
+      "project": "R047P-M4-BRANCH-RECOALESCE",
+      "isolated": "R047I-C02",
+      "relation": "INDEPENDENT_REDISCOVERY_NEAR_FAMILY",
+      "family": "branching/recoalescence or multiplicity propagation",
+      "calibration": "CALIBRATION_CONVERGENCE_AT_E1_ONLY / COMMON_ATTRACTOR_BUT_CALIBRATION_FAILURE",
+      "detail": "Different carriers/laws, but both expose branching/multiplicity propagation and only low-level KENG-03 structure."
+    },
+    {
+      "project": "R047P-M3-CONTACT-PARITY-PROPAGATOR",
+      "isolated": "R047I-C03,R047I-C04",
+      "relation": "INDEPENDENT_REDISCOVERY_FAMILY",
+      "family": "finite-field/parity propagation",
+      "calibration": "PARTIAL_DIVERGENCE",
+      "detail": "The reversible-memory isolated mechanism RPE reaches KENG-02 E2, while project parity propagation and PTCQ remain E1 there. This is a structural advantage, not engineering success (no E3/E4)."
+    }
+  ],
+  "unpaired_or_distinct": [
+    "R047P-M1-CUT-XOR",
+    "R047P-M5-AUTOMORPHISM-ORBIT-COLLAPSE",
+    "R047P-M6-INCIDENCE-BALANCE-FLOW",
+    "R047I-C05",
+    "R047I-C06"
+  ],
+  "blind_independent_rediscovery_present": true,
+  "calibration_convergence_present": "YES_ONLY_AT_LOW_E1_COMMON_FAILURE_LEVEL",
+  "engineering_calibration_convergence_E3_or_E4": false
+}

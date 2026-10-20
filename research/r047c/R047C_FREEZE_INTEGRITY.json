@@ -1,0 +1,48 @@
+{
+  "schema": "R047C_FREEZE_INTEGRITY_V1",
+  "researcher_id": "EM-R047C-7E31A4",
+  "task_id": "RS-R047C-FROZEN-NATIVE-MECHANISM-CALIBRATION-ENGINEERING-SUCCESS",
+  "task_source_commit": "06e1ebb8ea1173008de2a6b579d4b47d2eb629ca",
+  "verdict": "PASS_NO_MISMATCH",
+  "project_arm": {
+    "expected_head": "deff14d75ef93815d6a8dcb8aa79039e68aa390a",
+    "observed_head": "deff14d75ef93815d6a8dcb8aa79039e68aa390a",
+    "head_resolved": true,
+    "candidate_count": 6,
+    "expected_candidate_set_sha256": "bf309a1b6d0bebf10a58345af768bac0b63747934eccb63538d0e0fe6cf0d494",
+    "recomputed_candidate_set_sha256": "bf309a1b6d0bebf10a58345af768bac0b63747934eccb63538d0e0fe6cf0d494",
+    "candidate_set_recomputed_from_frozen_manifest": true,
+    "verdict": "PASS"
+  },
+  "isolated_arm": {
+    "identity": "ISO-R047F-91B6C2",
+    "candidate_count": 6,
+    "expected_bundle_sha256": "d85f3687c3cef311712ac18718cf41d51b6bee21db6efadea9576d971a2e4d96",
+    "accepted_bundle_sha256": "d85f3687c3cef311712ac18718cf41d51b6bee21db6efadea9576d971a2e4d96",
+    "expected_candidate_set_sha256": "220e7f72ba9c4cbffc8fcd98b6b7df9b952bbccaaa0b4415cb36f47ea4b0eb3f",
+    "accepted_candidate_set_sha256": "220e7f72ba9c4cbffc8fcd98b6b7df9b952bbccaaa0b4415cb36f47ea4b0eb3f",
+    "current_session_raw_bundle_bytes_available": false,
+    "verification_basis": [
+      "dual-freeze manifest records manifest_hashes_verified=true",
+      "dual-freeze manifest records candidate_hashes_independently_recomputed=true",
+      "dual-freeze manifest records exact_checker_rerun=PASS",
+      "GLOBAL_KNOWLEDGE driver-acceptance event records the same frozen values"
+    ],
+    "verdict": "PASS_ACCEPTED_PRIOR_INDEPENDENT_FREEZE_VERIFICATION_RECONFIRMED"
+  },
+  "calibration_target": {
+    "path": "research_inputs/r047/R047_CALIBRATION_TARGET_OPENED_20260812.json",
+    "expected_git_blob": "bc24a121897a912f026b0c85af914268f00997e5",
+    "observed_git_blob": "bc24a121897a912f026b0c85af914268f00997e5",
+    "verdict": "PASS"
+  },
+  "candidate_core_immutability": {
+    "count": 12,
+    "definition_edits": 0,
+    "parameter_domain_edits": 0,
+    "update_collapse_law_edits": 0,
+    "theorem_boundary_rewrites": 0,
+    "verdict": "PASS"
+  },
+  "calibration_opened_only_after_dual_freeze": true
+}

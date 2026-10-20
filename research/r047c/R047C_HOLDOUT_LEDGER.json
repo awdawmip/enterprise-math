@@ -1,0 +1,34 @@
+{
+  "schema": "R047C_HOLDOUT_LEDGER_V1",
+  "researcher_id": "EM-R047C-7E31A4",
+  "task_id": "RS-R047C-FROZEN-NATIVE-MECHANISM-CALIBRATION-ENGINEERING-SUCCESS",
+  "protocol_splits": {
+    "K1": {"construction":"C02 profile reindexing + C03 wrap traversal","holdout":"C04 boundary-sampled enclosed measure + C05 swept-transfer flow + C06 gravimetric capacity","independence_rule":"No circumference/area/volume formula conversion; channels remain independent measurement chains."},
+    "K2": {"construction":"C01 mechanical full-cycle indexing/closure","holdout":"C07 electronic time/fraction-of-cycle displacement and drift","independence_rule":"Mechanical and electronic measurement chains are distinct; no radian/2π bridge."},
+    "K3": {"construction":"One declared C09 laser-flash specimen/material/time slice","holdout":"Independent specimen/material/scale or disjoint time-response window","independence_rule":"A Gaussian/continuum refit is downstream only and cannot define the native bridge."},
+    "K4": {"construction":"C10 acoustic bounded-mode ordering/state tracking","holdout":"C10 microwave cross-channel apparatus-state tracking","independence_rule":"No continuum wave/Fourier/k=nπ/L premise; mode ordering and state shifts must share one prediction system."}
+  },
+  "result_template": {
+    "eligibility":"NOT_ELIGIBLE_FOR_QUANTITATIVE_HOLDOUT",
+    "result":"NO_E4",
+    "reason":"No frozen candidate/bridge produces a target-scale quantitative prediction in traceable engineering units before holdout. Therefore holdout is audited as an independent planned channel but cannot be scored as quantitative success."
+  },
+  "candidate_results": {
+    "R047P-M1-CUT-XOR":["K1","K2","K3","K4"],
+    "R047P-M2-RELATIONAL-REFINEMENT":["K1","K2","K3","K4"],
+    "R047P-M3-CONTACT-PARITY-PROPAGATOR":["K1","K2","K3","K4"],
+    "R047P-M4-BRANCH-RECOALESCE":["K1","K2","K3","K4"],
+    "R047P-M5-AUTOMORPHISM-ORBIT-COLLAPSE":["K1","K2","K3","K4"],
+    "R047P-M6-INCIDENCE-BALANCE-FLOW":["K1","K2","K3","K4"],
+    "R047I-C01":["K1","K2","K3","K4"],
+    "R047I-C02":["K1","K2","K3","K4"],
+    "R047I-C03":["K1","K2","K3","K4"],
+    "R047I-C04":["K1","K2","K3","K4"],
+    "R047I-C05":["K1","K2","K3","K4"],
+    "R047I-C06":["K1","K2","K3","K4"]
+  },
+  "candidate_constraint_holdout_cells": 48,
+  "e4_pass_count": 0,
+  "training_as_holdout_kill_test":"PASS: no construction channel is re-labelled as an independent holdout.",
+  "verdict":"INDEPENDENT_HOLDOUT_DESIGN_COMPLETE / ZERO_QUANTITATIVE_HOLDOUT_ELIGIBILITY"
+}

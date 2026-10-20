@@ -1,0 +1,55 @@
+{
+  "schema": "R047C_NATIVE_SEMANTICS_CLAIM_LEDGER_V1",
+  "researcher_id": "EM-R047C-7E31A4",
+  "task_id": "RS-R047C-FROZEN-NATIVE-MECHANISM-CALIBRATION-ENGINEERING-SUCCESS",
+  "claims": [
+    {
+      "claim_id": "R047C-CLAIM-01",
+      "declared_base_carrier": "frozen candidate-specific finite carrier/contact/incidence/occupancy substrate only",
+      "n0_primitives_used": [
+        "frozen candidate declared carrier/relation/state predicates"
+      ],
+      "implementation_carriers_used": [
+        "candidate IDs and finite serializations only"
+      ],
+      "introduced_choices": [
+        "only choices already frozen in each candidate; calibration readouts are typed separately"
+      ],
+      "n1_operations_used": [
+        "frozen candidate updates/refinements/rewrites only"
+      ],
+      "n2_readouts_used": [
+        "typed calibration readouts listed in bridge ledger"
+      ],
+      "n3_continuum_objects_used": [],
+      "critical_symbols": [
+        "candidate state",
+        "frozen update law",
+        "typed readout",
+        "KENG protocol mapping"
+      ],
+      "typed_dependency_graph": "frozen core -> typed calibration readout/adapter -> target protocol; never target definition -> native core",
+      "promotion_target_strength": "none; calibration does not promote effective definitions into N0",
+      "certificate_semantic_strength": "not applicable; no ontology promotion asserted",
+      "transitive_dependency_closure_checked": true,
+      "native_basis_status": "FROZEN_DECLARED_OR_N0_DEFINABLE_ONLY",
+      "definability_or_invariance_certificate": "candidate-specific frozen invariants only; no new native object promoted",
+      "effective_definitions_withheld_from_native_premises": [
+        "center/distance/equidistance/radius/circle",
+        "radian/angle",
+        "continuum PDE/Fourier/Gaussian/integral normalization",
+        "classical pi numeric value"
+      ],
+      "engineering_success_constraints_consumed": [
+        "KENG-01_GEOMETRIC_MEASURE_COHERENCE",
+        "KENG-02_CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+        "KENG-03_DIFFUSIVE_RELAXATION",
+        "KENG-04_BOUNDED_MODE_SPECTRUM"
+      ],
+      "target_leakage_audit": "PASS_NO_TARGET_LEAKAGE_IN_ACCEPTED_LIVE_BRIDGES",
+      "future_language_if_any": "candidate-specific finite operation horizon only, never silently retyped as physical metric/time",
+      "admissibility_verdict": "CONDITIONAL_DERIVED",
+      "weakest_valid_restatement": "R047C establishes only calibration-layer structural compatibility/failure grades for immutable frozen candidates; no new native ontology is claimed."
+    }
+  ]
+}

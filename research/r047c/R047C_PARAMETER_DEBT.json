@@ -1,0 +1,155 @@
+{
+  "schema": "R047C_PARAMETER_DEBT_V1",
+  "researcher_id": "EM-R047C-7E31A4",
+  "task_id": "RS-R047C-FROZEN-NATIVE-MECHANISM-CALIBRATION-ENGINEERING-SUCCESS",
+  "candidate_parameter_ledgers": {
+    "R047P-M1-CUT-XOR": {
+      "structural": [],
+      "protocol_controlled": [
+        "toggle horizon t when a protocol chooses a finite observation word"
+      ],
+      "arbitrary": [
+        "event order"
+      ],
+      "fitted": [],
+      "target_patches": []
+    },
+    "R047P-M2-RELATIONAL-REFINEMENT": {
+      "structural": [],
+      "protocol_controlled": [
+        "refinement round t, terminating at fixed point"
+      ],
+      "arbitrary": [],
+      "fitted": [],
+      "target_patches": []
+    },
+    "R047P-M3-CONTACT-PARITY-PROPAGATOR": {
+      "structural": [
+        "frozen GF(2) update law"
+      ],
+      "protocol_controlled": [
+        "iteration horizon t only as native operation count"
+      ],
+      "arbitrary": [],
+      "fitted": [],
+      "target_patches": []
+    },
+    "R047P-M4-BRANCH-RECOALESCE": {
+      "structural": [],
+      "protocol_controlled": [
+        "declared initial A0",
+        "addition horizon k within frozen domain"
+      ],
+      "arbitrary": [],
+      "fitted": [],
+      "target_patches": []
+    },
+    "R047P-M5-AUTOMORPHISM-ORBIT-COLLAPSE": {
+      "structural": [],
+      "protocol_controlled": [
+        "external edit state before recomputation"
+      ],
+      "arbitrary": [],
+      "fitted": [],
+      "target_patches": []
+    },
+    "R047P-M6-INCIDENCE-BALANCE-FLOW": {
+      "structural": [
+        "contact degree pattern"
+      ],
+      "protocol_controlled": [
+        "initial finite charge field q"
+      ],
+      "arbitrary": [
+        "next legal firing choice"
+      ],
+      "fitted": [],
+      "target_patches": []
+    },
+    "R047I-C01": {
+      "structural": [
+        "declared direction/symmetry of R",
+        "initial finite label partition"
+      ],
+      "protocol_controlled": [
+        "refinement until fixed point"
+      ],
+      "arbitrary": [
+        "class-ID serialization only, quotient-irrelevant"
+      ],
+      "fitted": [],
+      "target_patches": []
+    },
+    "R047I-C02": {
+      "structural": [
+        "declared direction/outdegree pattern of R"
+      ],
+      "protocol_controlled": [
+        "read/stop iteration t as operation horizon only"
+      ],
+      "arbitrary": [
+        "choice of read horizon t"
+      ],
+      "fitted": [],
+      "target_patches": []
+    },
+    "R047I-C03": {
+      "structural": [
+        "symmetry of R when invoking preserved bilinear form"
+      ],
+      "protocol_controlled": [
+        "initial occupancy seed x0"
+      ],
+      "arbitrary": [
+        "GF(2) extension and older-slice zero initialization are frozen mechanism choices"
+      ],
+      "fitted": [],
+      "target_patches": []
+    },
+    "R047I-C04": {
+      "structural": [
+        "connected-component structure of E"
+      ],
+      "protocol_controlled": [
+        "finite edge schedule if supplied by protocol"
+      ],
+      "arbitrary": [
+        "edge schedule",
+        "GF(2) parity extension is frozen mechanism choice"
+      ],
+      "fitted": [],
+      "target_patches": []
+    },
+    "R047I-C05": {
+      "structural": [
+        "undirected simple contact relation",
+        "arity-two witness is frozen mechanism choice"
+      ],
+      "protocol_controlled": [
+        "initial support S0"
+      ],
+      "arbitrary": [],
+      "fitted": [],
+      "target_patches": []
+    },
+    "R047I-C06": {
+      "structural": [
+        "directed contact pattern",
+        "|R|"
+      ],
+      "protocol_controlled": [
+        "positive integer refinement index s within frozen domain only"
+      ],
+      "arbitrary": [
+        "choice of s as combinatorial refinement/delay resolution"
+      ],
+      "fitted": [],
+      "target_patches": [],
+      "hard_rule": "s MUST NOT be renamed/fitted as radius, physical time, phase, or distance"
+    }
+  },
+  "fitted_parameter_count_total": 0,
+  "new_core_parameter_count": 0,
+  "target_specific_core_patch_count": 0,
+  "verdict": "NO_CALIBRATION_FITS_PERFORMED"
+}
