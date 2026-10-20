@@ -1,0 +1,132 @@
+{
+  "researcher_id": "EM-R020-3C6821",
+  "task_id": "RS-R020-P021-WITNESS-CARDINALITY-DYNAMIC-COMPLETENESS-REAUDIT",
+  "base_snapshot": "05fc9b2b6056bed55446de88c73bca437690f502",
+  "status": "NOT_CANONICAL",
+  "equal_cardinality_different_composed_support": {
+    "minimum_states": 2,
+    "system_a": {
+      "R": [[0, 0]],
+      "S": [[0, 0]],
+      "counts": [1, 1],
+      "coarse_boolean_one_step": [true, true],
+      "composed_support": [[0, 0]]
+    },
+    "system_b": {
+      "R": [[0, 0]],
+      "S": [[1, 0]],
+      "counts": [1, 1],
+      "coarse_boolean_one_step": [true, true],
+      "composed_support": []
+    },
+    "one_state_failure_absent": true,
+    "lost_information": "exact shared-middle witness identity/intersection"
+  },
+  "same_counts_same_fine_support_different_paths": {
+    "minimum_states": 3,
+    "counts": [2, 2],
+    "identical_fine_composed_support": [[0, 0]],
+    "system_a": {
+      "R": [[0, 0], [0, 1]],
+      "S": [[0, 0], [1, 0]],
+      "path_count": 2
+    },
+    "system_b": {
+      "R": [[0, 0], [0, 1]],
+      "S": [[0, 0], [2, 0]],
+      "path_count": 1
+    },
+    "n_le_2_failure_absent": true,
+    "lost_information": "path multiplicity after Booleanization"
+  },
+  "uniform_one_step_support_loses_uniformity": {
+    "minimum_states": 3,
+    "R": [[0, 0], [0, 2], [1, 0], [1, 1], [2, 0], [2, 1]],
+    "R_outsupport_sizes": [2, 2, 2],
+    "S": [[0, 0], [1, 1], [2, 0]],
+    "S_outsupport_sizes": [1, 1, 1],
+    "composite": [[0, 0], [1, 0], [1, 1], [2, 0], [2, 1]],
+    "composite_outsupport_sizes": [1, 2, 2],
+    "n_le_2_failure_absent": true,
+    "scope_note": "weak row-support-cardinality uniformity only; not equitability/lumpability"
+  },
+  "future_language_horizon_separation": {
+    "minimum_states": 4,
+    "q": [0, 0, 1, 2],
+    "f": [0, 2, 3, 0],
+    "observable": [0, 0, 0, 1],
+    "exact_for_horizon": 1,
+    "fails_at_horizon": 2,
+    "n_le_3_failure_absent": true,
+    "meaning": "a compression sufficient for one declared future language/horizon can fail for a larger one"
+  },
+  "quotient_saturation_composition": {
+    "by_n": [
+      {"n": 1, "trials": 1, "failures": 0},
+      {"n": 2, "trials": 20, "failures": 0},
+      {"n": 3, "trials": 837, "failures": 84}
+    ],
+    "total_trials": 858,
+    "total_failures": 84,
+    "first_failure": {
+      "n": 3,
+      "q": [0, 0, 1],
+      "f": [0, 2, 0],
+      "start_label": 0,
+      "one_step": [0, 1],
+      "exact_two_step": [0],
+      "naive_two_step": [0, 1]
+    },
+    "scope_note": "minimum for repeated full-fibre quotient saturation in this deterministic one-generator search class; distinct from pointwise deterministic-descent minimality"
+  },
+  "coupling_defect_profiles": {
+    "entry_range": [0, 3],
+    "max_middle_size": 4,
+    "total_profile_pairs": 69904,
+    "delta_identity_failures": 0,
+    "uniform_side_cases": 2656,
+    "uniform_side_delta_nonzero": 0,
+    "both_nonuniform_delta_zero": 5712,
+    "by_middle_size": [
+      {"m": 1, "profile_pairs": 16, "both_nonuniform_delta_zero": 0},
+      {"m": 2, "profile_pairs": 256, "both_nonuniform_delta_zero": 0},
+      {"m": 3, "profile_pairs": 4096, "both_nonuniform_delta_zero": 288},
+      {"m": 4, "profile_pairs": 65536, "both_nonuniform_delta_zero": 5424}
+    ],
+    "first_both_nonuniform_delta_zero": {
+      "l": [0, 0, 1],
+      "r": [0, 2, 1],
+      "m": 3,
+      "L": 1,
+      "R": 3,
+      "N": 1,
+      "Delta": 0
+    },
+    "meaning": "one-sided uniformity is sufficient but not necessary for the local normalized identity m*N=L*R"
+  },
+  "equitable_count_quotient": {
+    "fine_matrix_shape": "3x3",
+    "entry_set": [0, 1],
+    "partition": [[0, 1], [2]],
+    "equitable_matrices": 96,
+    "ordered_matrix_pairs": 9216,
+    "product_equitability_or_quotient_product_failures": 0,
+    "meaning": "generatorwise equitability is a positive composition-safe N-count regime"
+  },
+  "positive_support_semiring_shadow": {
+    "fine_matrix_shape": "2x2",
+    "entry_range": [0, 2],
+    "ordered_matrix_pairs": 6561,
+    "failures": 0,
+    "identity": "supp(A*B)=supp(A) boolean-compose supp(B)",
+    "scope_note": "applies to valid nonnegative path-count matrices, not automatically to P021 aggregate cardinality shadows"
+  },
+  "verdict": {
+    "canonical_p021_statement_broken": false,
+    "tool_assumption_mismatch_found": false,
+    "dynamic_carrier_scope_narrowed": true,
+    "p010_p011_new_mother_task_required": false,
+    "primary_return": "P021_THEOREMS_STABLE / DYNAMIC_CARRIER_SCOPE_NARROWED / TOOL_AUDIT_COMPLETE / NOT_CANONICAL",
+    "completion_return": "P021_REAUDIT_COMPLETE / DYNAMIC_COMPRESSION_MATRIX_FROZEN / STATIC_ROWS_PRESERVED / COMPOSITION_ROWS_CLASSIFIED / NOT_CANONICAL"
+  }
+}
