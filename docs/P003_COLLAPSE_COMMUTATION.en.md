@@ -1,6 +1,6 @@
 # P003 — Commutation of perfect-power collapse operators
 
-Status: `PROVED`  
+Status: `PROVED / LEAN-CHECKED T01–T03`  
 Open problem: `P003`  
 Scope: ordinary mathematics
 
@@ -82,6 +82,8 @@ Thus both compositions equal \(C_q\). ∎
 
 The symmetric statement holds when \(q\mid p\): both compositions equal \(C_p\).
 
+Formalization: the two absorption directions are Lean-checked as `EnterpriseMath.CollapseCommutation.collapse_left_absorbs_of_dvd` and `collapse_right_absorbs_of_dvd`; commutation for one divisibility orientation is `collapse_commute_of_dvd`, and the symmetric comparable-exponent form is `collapse_commute_of_dvd_or_dvd`.
+
 ## 3. Incomparable exponents cannot commute globally
 
 ### P003-T02 — Universal witness for noncommutation
@@ -148,6 +150,8 @@ C_p(C_q(n))=C_p(n)>1.
 
 Thus the two compositions differ. ∎
 
+Formalization: the prime-power obstruction is Lean-checked as `EnterpriseMath.CollapseCommutation.not_exists_pow_eq_two_pow_of_not_dvd`, directly consuming mathlib's established theorem `Nat.exponent_dvd_of_prime_pow_eq_pow`. The complete witness argument is checked as `collapse_noncommute_two_pow_witness`.
+
 ## 4. Complete classification
 
 ### P003-T03 — Global commutation theorem
@@ -166,6 +170,8 @@ Equivalently, two perfect-power collapse operators commute globally **if and onl
 If \(p\mid q\) or \(q\mid p\), P003-T01 gives commutation.
 
 Conversely, suppose neither exponent divides the other. By totality of the usual order on \(\mathbb N\), either \(p<q\) or \(q<p\). In the first case P003-T02 gives the witness \(2^q\); in the second case its symmetric version gives the witness \(2^p\). Therefore global commutation is impossible. ∎
+
+Formalization: Lean-checked as `EnterpriseMath.CollapseCommutation.collapse_commute_iff_dvd_or_dvd`.
 
 ## 5. Exact composition in the commuting case
 
@@ -199,6 +205,8 @@ C_3(C_2(8))=1.
 
 The case \(p=1\) is included automatically because \(C_1\) is the identity and \(1\) divides every positive exponent.
 
+The general absorption statements in this section are already covered by the P003-T01 Lean theorems above; the displayed numerical examples remain explanatory examples rather than separate theorem units.
+
 ## 6. Structural interpretation
 
 The family \(\{C_p:p\ge1\}\) therefore remembers the divisibility order of the exponent set:
@@ -209,15 +217,15 @@ The family \(\{C_p:p\ge1\}\) therefore remembers the divisibility order of the e
 
 The commutation graph of the collapse family is therefore exactly the comparability graph of positive integers ordered by divisibility.
 
-This gives P003 a complete answer without requiring any additional algebraic structure beyond the P008 order-projection framework and elementary unique factorization.
+This gives P003 a complete answer without requiring any additional algebraic structure beyond the P008 order-projection framework and established prime-power factorization theory.
 
 ## 7. Prior-art discipline
 
-The general facts about Galois connections, interior operators, monotonicity, idempotence, and nested projections are established mathematics already credited by P008. A targeted search during this P003 pass did not identify an exact prior statement of the perfect-power-collapse classification above, but absence from that search is **not** a historical-priority result.
+The general facts about Galois connections, interior operators, monotonicity, idempotence, nested projections, and prime-power exponent divisibility are established mathematics. In particular, the Lean proof of P003-T02 explicitly reuses mathlib's prime-power theorem rather than reproducing unique factorization as a project-owned result. A targeted search during the P003 mathematical pass did not identify an exact prior statement of the perfect-power-collapse classification above, but absence from that search is **not** a historical-priority result.
 
 Accordingly:
 
-- the mathematical theorem is `PROVED` from the stated definitions;
+- P003-T01 through P003-T03 are `PROVED / LEAN-CHECKED` from the stated definitions;
 - the historical novelty of this exact formulation remains `NOVELTY_UNVERIFIED`;
 - no “first” or “unprecedented” claim is permitted without a dedicated prior-art review.
 
