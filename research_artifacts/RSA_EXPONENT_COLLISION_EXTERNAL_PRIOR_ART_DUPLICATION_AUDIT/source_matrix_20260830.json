@@ -1,0 +1,234 @@
+{
+  "schema": "RSA_EXPONENT_COLLISION_EXTERNAL_PRIOR_ART_DUPLICATION_AUDIT_LEDGER_V1",
+  "audit_date": "2026-08-30",
+  "researcher_id": "EM-RSAPA-CE6343",
+  "task_id": "RS-RSA-EXPONENT-COLLISION-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-DCBF9A9ACA18BF64FFCF",
+  "parent_result_id": "RR-2D43CCB30B906AFB6E20",
+  "hard_target": "RSA_EXPONENT_COLLISION_PRIOR_ART_DUPLICATION_CLASSIFIED",
+  "scope_statement": "External provenance/duplication classification only. The accepted parent mathematics is not reopened. No collision-generation, improved factoring-complexity, or novelty claim is made.",
+  "labels": [
+    "EXACT_DUPLICATE",
+    "PARTIAL_ANTECEDENT",
+    "ADJACENT_METHOD",
+    "NO_MATERIAL_MATCH_IN_AUDITED_SET"
+  ],
+  "search_surfaces": [
+    "ScienceDirect / JCSS (Miller 1976)",
+    "ACM / original RSA bibliographic record (Rivest-Shamir-Adleman 1978)",
+    "RFC Editor / PKCS #1 historical standard",
+    "Handbook of Applied Cryptography official Waterloo chapter PDF",
+    "Stanford / Boneh RSA survey",
+    "UCL Crypto Group technical report mirror at LIRMM (Ciet-Koeune-Laguillaumie-Quisquater 2002)",
+    "ScienceDirect / Theoretical Computer Science (Monier 1980)",
+    "ScienceDirect / Journal of Number Theory (Rabin 1980)",
+    "Princeton theoretical CS lecture/chapter material on order-finding/factoring",
+    "Mathlib Goursat formalization documentation",
+    "Broad web/literature search for local 2-adic-order iff, exact probability formula, multi-base/lcm aggregation, and RSA diagonal-graph barriers"
+  ],
+  "search_queries": [
+    "\"Fact 8.6\" RSA known multiple phi factoring",
+    "\"Twenty Years of Attacks on the RSA Cryptosystem\" private exponent factorization",
+    "\"multiple of lambda(n)\" factoring RSA",
+    "\"v_2\" \"ord_p\" Miller Rabin factorization RSA order",
+    "\"2-adic\" order \"nontrivial square root\" RSA factoring",
+    "\"4^m+2\" \"2^{A+B}\" factoring",
+    "\"failure probability\" \"v2(p-1)\" \"v2(q-1)\" RSA",
+    "\"Monier\" strong liar exact formula prime factor 2-adic valuation",
+    "\"Short private exponent attacks on fast variants of RSA\"",
+    "\"RSA\" \"lcm\" \"orders\" multiple bases factoring",
+    "\"RSA\" subgroup exponent factorization nontrivial square root multiple bases",
+    "\"Miller\" factoring \"generated subgroup\" exponent RSA",
+    "\"Goursat\" RSA factoring subgroup",
+    "\"diagonal\" subgroup \"nontrivial square root\" RSA",
+    "\"Goursat's lemma\" subgroup direct product graph isomorphism injective projections"
+  ],
+  "sources": [
+    {
+      "id": "MILLER1976",
+      "type": "PRIMARY_PEER_REVIEWED",
+      "citation": "Gary L. Miller, Riemann's hypothesis and tests for primality, Journal of Computer and System Sciences 13(3) (1976), 300-317.",
+      "doi": "10.1016/S0022-0000(76)80043-8",
+      "url": "https://doi.org/10.1016/S0022-0000(76)80043-8",
+      "findings": [
+        "Establishes computational equivalence results including Euler's phi function and factoring.",
+        "Supplies the classical repeated-squaring/nontrivial-square-root route underlying RSA private-exponent-to-factor reductions."
+      ]
+    },
+    {
+      "id": "RSA1978",
+      "type": "PRIMARY_PEER_REVIEWED",
+      "citation": "Ronald L. Rivest, Adi Shamir, Leonard Adleman, A Method for Obtaining Digital Signatures and Public-Key Cryptosystems, Communications of the ACM 21(2) (1978), 120-126.",
+      "doi": "10.1145/359340.359342",
+      "url": "https://doi.org/10.1145/359340.359342",
+      "findings": [
+        "The original RSA security discussion explicitly points from knowledge of d to a nonzero multiple of phi(n) and cites Miller for factor recovery."
+      ]
+    },
+    {
+      "id": "HAC1996",
+      "type": "AUTHORITATIVE_TEXTBOOK",
+      "citation": "A. Menezes, P. van Oorschot, S. Vanstone, Handbook of Applied Cryptography, Chapter 8, Fact 8.6.",
+      "url": "https://cacr.uwaterloo.ca/hac/about/chap8.pdf",
+      "findings": [
+        "Note 8.5 identifies lambda(n)=lcm(p-1,q-1) as the universal exponent usable in RSA.",
+        "Fact 8.6 proves computing RSA decryption exponent d and factoring n are computationally equivalent.",
+        "The proof writes ed-1=2^s t with t odd, repeatedly squares random bases, and states expected trials 2, i.e. the classical at-least-one-half success guarantee."
+      ]
+    },
+    {
+      "id": "RFC2313",
+      "type": "AUTHORITATIVE_STANDARD",
+      "citation": "B. Kaliski, PKCS #1: RSA Encryption Version 1.5, RFC 2313 (1998).",
+      "url": "https://www.rfc-editor.org/rfc/rfc2313",
+      "findings": [
+        "Records that alternative RSA private-key representations can be converted readily when the public key is known, citing Miller; this is standards-level evidence that private exponent leakage implies factor leakage."
+      ]
+    },
+    {
+      "id": "CIET_ET_AL_2002",
+      "type": "PRIMARY_TECHNICAL_REPORT",
+      "citation": "Mathieu Ciet, Francois Koeune, Fabien Laguillaumie, Jean-Jacques Quisquater, Short Private Exponent Attacks on Fast Variants of RSA, UCL Crypto Group Technical Report CG-2003/4 (September 2002).",
+      "url": "https://www.lirmm.fr/~laguillaum/CG2002_4.pdf",
+      "findings": [
+        "Lemma 2 states that knowledge of a multiple of phi(N) gives a probabilistic polynomial-time factorization algorithm.",
+        "For N=prod p_i and alpha*phi(N)=2^k r with r odd, the report exactly counts the bad bases B(N) by CRT.",
+        "Specializing its count to N=pq with A=v2(p-1), B=v2(q-1), m=min(A,B), the bad-base fraction becomes exactly (4^m+2)/(3*2^(A+B)).",
+        "This is an exact antecedent for the parent result's closed random-unit failure law, not merely the coarser >=1/2 bound."
+      ]
+    },
+    {
+      "id": "MONIER1980",
+      "type": "PRIMARY_PEER_REVIEWED",
+      "citation": "Louis Monier, Evaluation and comparison of two efficient probabilistic primality testing algorithms, Theoretical Computer Science 12(1) (1980), 97-108.",
+      "doi": "10.1016/0304-3975(80)90007-9",
+      "url": "https://doi.org/10.1016/0304-3975(80)90007-9",
+      "findings": [
+        "Gives exact formulas for strong-liar counts in the Miller-Rabin setting.",
+        "Provides a close exact-counting antecedent for 2-adic CRT behavior, but its exponent is the primality-test exponent n-1 rather than an arbitrary supplied collision period."
+      ]
+    },
+    {
+      "id": "RABIN1980",
+      "type": "PRIMARY_PEER_REVIEWED",
+      "citation": "Michael O. Rabin, Probabilistic algorithm for testing primality, Journal of Number Theory 12(1) (1980), 128-138.",
+      "doi": "10.1016/0022-314X(80)90084-0",
+      "url": "https://doi.org/10.1016/0022-314X(80)90084-0",
+      "findings": [
+        "Classical randomized strong probable-prime framework using the same repeated-squaring/nontrivial-square-root mechanism.",
+        "Relevant mechanism-level antecedent, not an exact statement of the arbitrary local-collision transcript theorem."
+      ]
+    },
+    {
+      "id": "PRINCETON_ORDER_FINDING",
+      "type": "HIGH_QUALITY_SECONDARY",
+      "citation": "Princeton theoretical computer science chapter/lecture material on factoring from order finding.",
+      "url": "https://theory.cs.princeton.edu/complexity/ab_quantumchap.pdf",
+      "findings": [
+        "Analyzes CRT-local orders and explicitly notes factor extraction when the two local orders have different powers of two.",
+        "This is close to the v2(local order) criterion, but does not present the parent theorem's arbitrary supplied-local-period iff in the same exposure model."
+      ]
+    },
+    {
+      "id": "GOURSAT_MATHLIB",
+      "type": "AUTHORITATIVE_FORMALIZATION_OF_CLASSICAL_THEOREM",
+      "citation": "Mathlib.GroupTheory.Goursat, formal statement of Goursat's lemma for subgroups of direct products.",
+      "url": "https://math.iisc.ac.in/~gadgil/PfsProgs25doc/Mathlib/GroupTheory/Goursat.html",
+      "findings": [
+        "For a subgroup of a direct product, after quotienting projection kernels, the image is the graph of an isomorphism.",
+        "If both projection kernels are trivial, the subgroup itself is a graph of an isomorphism between its two projections.",
+        "This exactly antecedents the abstract graph-of-isomorphism structure, but not the RSA-specific equivalence between that structure and universal failure of the 2-adic collision extractor."
+      ]
+    }
+  ],
+  "derived_equivalence_check": {
+    "source": "CIET_ET_AL_2002",
+    "specialization": [
+      "Set N=pq, p-1=2^A*u_p, q-1=2^B*u_q with u_p,u_q odd and m=min(A,B).",
+      "For a known multiple alpha*phi(N)=2^k*r, its odd part r is divisible by u_p and u_q.",
+      "Ciet et al. count bad bases as |B(N)| = u_p*u_q * (1 + sum_{j=0}^{m-1} 4^j).",
+      "1 + sum_{j=0}^{m-1}4^j = (4^m+2)/3.",
+      "Dividing by phi(N)=2^(A+B)*u_p*u_q gives F=(4^m+2)/(3*2^(A+B)), exactly the parent formula."
+    ],
+    "conclusion": "EXACT_FORMULA_MATCH"
+  },
+  "claim_classification": [
+    {
+      "claim_id": "C1_GLOBAL_ANNIHILATING_EXPONENT_TO_FACTOR",
+      "parent_claim": "A nonzero global exponent-map collision exposes a multiple of lambda(n), after which random-base 2-adic descent factors n with constant probability.",
+      "label": "EXACT_DUPLICATE",
+      "basis": [
+        "MILLER1976",
+        "RSA1978",
+        "HAC1996",
+        "RFC2313",
+        "CIET_ET_AL_2002"
+      ],
+      "boundary": "The global known-annihilating-exponent/order-to-factor reduction is classical. Replacing phi(n) by lambda(n), the group exponent, is standard algebra and standards-compatible RSA semantics."
+    },
+    {
+      "claim_id": "C2_SINGLE_LOCAL_COLLISION_IFF_DEPTH_MISMATCH",
+      "parent_claim": "For one valid x-specific collision period Delta, the repeated-squaring extractor splits iff v2(ord_p(x)) != v2(ord_q(x)).",
+      "label": "PARTIAL_ANTECEDENT",
+      "basis": [
+        "MILLER1976",
+        "HAC1996",
+        "CIET_ET_AL_2002",
+        "RABIN1980",
+        "PRINCETON_ORDER_FINDING"
+      ],
+      "boundary": "Classical proofs contain the same CRT transition-depth mechanism, and Ciet et al. exactly count its bad set under a global phi-multiple. In the bounded corpus, no primary source was located that states the full arbitrary x-specific supplied-period iff in this exact exposure model."
+    },
+    {
+      "claim_id": "C3_EXACT_RANDOM_UNIT_FAILURE_LAW",
+      "parent_claim": "F1=(4^m+2)/(3*2^(A+B)) for A=v2(p-1), B=v2(q-1), m=min(A,B).",
+      "label": "EXACT_DUPLICATE",
+      "basis": [
+        "CIET_ET_AL_2002"
+      ],
+      "boundary": "Ciet et al.'s exact bad-base count specializes algebraically to this identical closed form for two-prime RSA. Monier provides an additional adjacent exact-counting tradition, but is not needed for the exact-match classification."
+    },
+    {
+      "claim_id": "C4_LCM_MULTI_CERTIFICATE_SUBGROUP_ANNIHILATION",
+      "parent_claim": "L=lcm(Delta_i) annihilates each supplied generator and hence the subgroup H they generate; combinations can be tested with L.",
+      "label": "PARTIAL_ANTECEDENT",
+      "basis": [
+        "MILLER1976",
+        "CIET_ET_AL_2002"
+      ],
+      "boundary": "The algebra that a common multiple of generator orders annihilates the generated abelian subgroup is elementary/standard, and known-exponent factoring is classical. The bounded cryptographic search did not locate the same multi-collision transcript packaging or its strict-amplification statement."
+    },
+    {
+      "claim_id": "C5_DIAGONAL_GRAPH_BARRIER",
+      "parent_claim": "Universal failure over the generated 2-primary subgroup H_2 occurs iff H_2 is the graph of an isomorphism between its two cyclic local projections.",
+      "label": "PARTIAL_ANTECEDENT",
+      "basis": [
+        "GOURSAT_MATHLIB"
+      ],
+      "boundary": "The graph-of-isomorphism structure is a classical Goursat specialization once projection kernels vanish. No material source in the bounded search was found that identifies this Goursat condition as the exact RSA 2-adic collision-extraction failure barrier."
+    },
+    {
+      "claim_id": "C6_AGGREGATE_BARRIER_PROBABILITY",
+      "parent_claim": "The exact k-certificate aggregate failure probability is the graph-counting formula over cyclic 2-subgroups.",
+      "label": "NO_MATERIAL_MATCH_IN_AUDITED_SET",
+      "basis": [
+        "GOURSAT_MATHLIB",
+        "MONIER1980",
+        "CIET_ET_AL_2002"
+      ],
+      "boundary": "Goursat supplies the structural graph theorem and Monier/Ciet supply adjacent exact counting methods, but no source was located that states this k-certificate graph-enumeration probability. This bounded no-match is not evidence of novelty."
+    },
+    {
+      "claim_id": "C7_MILLER_RABIN_STRONG_LIAR_FORMULAS",
+      "parent_claim": "Use strong probable-prime liar formulas as direct provenance for the parent collision theorem.",
+      "label": "ADJACENT_METHOD",
+      "basis": [
+        "MONIER1980",
+        "RABIN1980"
+      ],
+      "boundary": "The 2-adic CRT machinery is closely related, but the exponent/exposure model differs. Monier's formula should not be cited as though it were literally the parent local-collision theorem."
+    }
+  ],
+  "bounded_no_match_statement": "Negative searches are frozen only as NO_MATERIAL_MATCH_IN_AUDITED_SET. They do not establish novelty, priority, patentability, or absence from unindexed literature.",
+  "terminal_conclusion": "The global annihilating-exponent route and the exact one-base random-unit failure law are prior art at the audited claim strength. The arbitrary local-certificate iff formulation and the RSA-specific multi-certificate diagonal barrier are best classified as partial antecedents, while the exact aggregate graph-counting probability had no material match in the bounded corpus."
+}

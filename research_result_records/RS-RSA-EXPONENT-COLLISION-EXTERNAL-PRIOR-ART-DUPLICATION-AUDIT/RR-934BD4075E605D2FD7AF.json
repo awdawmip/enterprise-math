@@ -1,0 +1,44 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-934BD4075E605D2FD7AF",
+  "task_id": "RS-RSA-EXPONENT-COLLISION-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT",
+  "publication_id": "TP2-DCBF9A9ACA18BF64FFCF",
+  "execution_record_id": "ER-DC1A33B9E61002C26FD7",
+  "claim_id": "chatgpt-rsapa-20260830-1915-ce6343",
+  "taskbook_path": "research_tasks/RSA_EXPONENT_COLLISION_EXTERNAL_PRIOR_ART_DUPLICATION_AUDIT_20260828.md",
+  "taskbook_blob_sha1": "sha1:f88b338f4136ce1ee7825c8f55a73d39c2651521",
+  "execution_branch": "research/rsa-exponent-collision-external-prior-art-duplication-audit-em-rsapa-ce6343",
+  "execution_branch_base": "6b3c4f96b09e79f9f0c14ac8190640717d13ee58",
+  "return_path": "research_returns/RSA_EXPONENT_COLLISION_EXTERNAL_PRIOR_ART_DUPLICATION_AUDIT_RETURN_20260830.md",
+  "return_blob_sha1": "sha1:ca13c5086eb3453e11fa24dad9abe0a704879db8",
+  "return_sha256": "sha256:49831b7b0b9fe9ee60be404c18d195d4dc2b7849ca803859b624a2014bfb1bb8",
+  "owner_head": "87f1caf210f36ee51ed4e7fde25676c3aaee5251",
+  "researcher_id": "EM-RSAPA-CE6343",
+  "frozen_at": "2026-08-30T11:30:00+00:00",
+  "terminal_verdict": "RSA_EXPONENT_COLLISION_PRIOR_ART_DUPLICATION_CLASSIFIED",
+  "hard_target_disposition": "PASS / global known-annihilator factoring and exact single-base F1 formula classified EXACT_DUPLICATE; arbitrary local-certificate iff, lcm aggregation, and RSA-specific diagonal-graph barrier classified PARTIAL_ANTECEDENT; exact aggregate k-certificate graph-counting law classified NO_MATERIAL_MATCH_IN_AUDITED_SET.",
+  "unresolved_residue": "No mathematical residue in the parent theorem. Provenance remains bounded: the arbitrary local supplied-period iff and RSA-specific multi-certificate barrier are not exact duplicates in the audited corpus, while the aggregate k-certificate probability is only a bounded no-match and must not be promoted to novelty.",
+  "output_manifest": [
+    {
+      "path": "research_returns/RSA_EXPONENT_COLLISION_EXTERNAL_PRIOR_ART_DUPLICATION_AUDIT_RETURN_20260830.md",
+      "git_blob_sha1": "sha1:ca13c5086eb3453e11fa24dad9abe0a704879db8",
+      "sha256": "sha256:49831b7b0b9fe9ee60be404c18d195d4dc2b7849ca803859b624a2014bfb1bb8"
+    },
+    {
+      "path": "research_artifacts/RSA_EXPONENT_COLLISION_EXTERNAL_PRIOR_ART_DUPLICATION_AUDIT/source_matrix_20260830.json",
+      "git_blob_sha1": "sha1:568ba3ea540f6a6df2dfdded271802b9ee0bd994",
+      "sha256": "sha256:c80ec6a6bf06ab0c718c675ace50738dd5b09de09ccd76a7cea477dd11eb0c98"
+    },
+    {
+      "path": "research_execution_records/RS-RSA-EXPONENT-COLLISION-EXTERNAL-PRIOR-ART-DUPLICATION-AUDIT/ER-DC1A33B9E61002C26FD7.json",
+      "git_blob_sha1": "sha1:40b6de73ae6024ad3930041060decc7f5a72b70f",
+      "sha256": "sha256:6cde5ee438068d284e6dd03bd10a35a20bbd4b5f7df9a0018d99aaf0d304d6a9"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "EXTERNAL_PRIOR_ART_AUDIT_OF_ACCEPTED_PARENT_RESULT",
+  "source_exposure_status": "NONBLIND_PRIMARY_AND_AUTHORITATIVE_SOURCE_SEARCH",
+  "checker_status": "PASS / source_matrix claims=7 sources=9 / Ciet-et-al two-prime specialization algebraically checked to exact F1",
+  "next_control_plane_recommendation": "Driver-review and accept the provenance boundary. Cite Ciet et al. 2002 for the exact one-base failure law; retain the arbitrary local-certificate and multi-certificate statements only at PARTIAL_ANTECEDENT / bounded-no-match status. Do not open collision-generation or factoring-complexity successors from this audit.",
+  "driver_review_required": true
+}
