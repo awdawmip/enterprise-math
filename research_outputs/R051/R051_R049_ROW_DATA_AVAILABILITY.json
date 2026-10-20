@@ -1,0 +1,157 @@
+{
+  "schema": "ENTERPRISE_MATH_R051_R049_ROW_DATA_AVAILABILITY_V1",
+  "task_id": "RS-R051-CANDIDATE-BLIND-QUANTITATIVE-HOLDOUT-DATA-ACQUISITION",
+  "researcher_id": "EM-R051-8B4D70",
+  "freeze_timestamp_utc": "2026-08-13T06:23:00Z",
+  "r049_exact_head": "220aa5647389386d6c953e6aa04f32769f90f490",
+  "r049_target_sha256_verified": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c",
+  "preserve_first": true,
+  "rows": [
+    {
+      "row_id": "A1-GMC-M48-STEP-GAGE",
+      "pressure_family": "GEOMETRIC_MEASURE_COHERENCE",
+      "protocol": "NIST M48 CMM tactile measurement of long one-dimensional step gauges",
+      "preserve_first_result": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "numeric_upgrade_marker": "NOT_R049_ROW_NUMERICALLY_UPGRADED",
+      "final_row_status": "PLOT_ONLY_NOT_E4_ELIGIBLE",
+      "frozen_measured_output": "contact-derived coordinate observations and reported step-to-step separations",
+      "official_numeric_search_result": "Primary M48 publication exposes repeatability/control/reproducibility numerics and plots, but no source-supplied condition-indexed table of the frozen step-to-step measured-output carrier was located. Relevant repeated step-gauge results are graphical; manual digitization is forbidden.",
+      "exact_source_locations_checked": [
+        "SRC-A1-NIST-M48-2010: repeated/control step-gauge figures and uncertainty discussion",
+        "SRC-A1-NIST-STEP-GAGE-SERVICE: service uncertainty envelope"
+      ],
+      "official_machine_readable_or_tabulated_measured_values_acquired": false,
+      "manual_plot_digitization_used": false,
+      "replacement_search_allowed_after_this_failure": true,
+      "replacement_search_ref": "R051-RC-GMC-BIPM-STEP-GAUGE"
+    },
+    {
+      "row_id": "A2-CCRP-PMU-PHASE",
+      "pressure_family": "CYCLE_CLOSURE_AND_RELATIVE_PHASE",
+      "protocol": "NIST PMU/synchrophasor calibration using traceable low-frequency phase-angle generation",
+      "preserve_first_result": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "numeric_upgrade_marker": "NOT_R049_ROW_NUMERICALLY_UPGRADED",
+      "final_row_status": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "frozen_measured_output": "time-stamped PMU voltage/current reports and direct phase-error observations relative to the traceable source",
+      "official_numeric_search_result": "Primary PMU publication/service describes the calibration system, hundreds of tests and phase-setting uncertainty, but no source-supplied condition-indexed PMU phase-error table/array for the frozen measured output was located.",
+      "exact_source_locations_checked": [
+        "SRC-A2-NIST-PMU-2007: calibration-system characterization figures",
+        "SRC-A2-NIST-PMU-SERVICE and SRC-A2-NIST-PHASE-SERVICE: protocol/envelope"
+      ],
+      "official_machine_readable_or_tabulated_measured_values_acquired": false,
+      "manual_plot_digitization_used": false,
+      "replacement_search_allowed_after_this_failure": true,
+      "replacement_search_ref": "R051-RC-CCRP-NIST-LSNA-PHASE"
+    },
+    {
+      "row_id": "A3-DR-FDTR-PUMP-PROBE",
+      "pressure_family": "DIFFUSIVE_RELAXATION",
+      "protocol": "NIST frequency-domain thermoreflectance (FDTR) modulated optical pump-probe measurement",
+      "preserve_first_result": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "numeric_upgrade_marker": "NOT_R049_ROW_NUMERICALLY_UPGRADED",
+      "final_row_status": "PLOT_ONLY_NOT_E4_ELIGIBLE",
+      "frozen_measured_output": "reference-corrected reflected-probe phase-lag samples as a function of modulation frequency",
+      "official_numeric_search_result": "Primary FDTR publication states the 100 Hz–20 MHz, 40-point sweep and phase standard deviation, while the publicly located evidence presents response curves rather than an official numerical phase-lag array. No machine-readable supplement was located.",
+      "exact_source_locations_checked": [
+        "SRC-A3-NIST-FDTR-2024: phase-response curves and stated ±0.1 degree phase standard deviation"
+      ],
+      "official_machine_readable_or_tabulated_measured_values_acquired": false,
+      "manual_plot_digitization_used": false,
+      "replacement_search_allowed_after_this_failure": true,
+      "replacement_search_ref": "R051-RC-DR-NIST-THERMOGRAPHY"
+    },
+    {
+      "row_id": "A4-BMS-CAVITY-VNA",
+      "pressure_family": "BOUNDED_MODE_SPECTRUM",
+      "protocol": "NIST 60 mm cylindrical microwave cavity resonance measurement with automatic network analyzer",
+      "preserve_first_result": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "numeric_upgrade_marker": "NOT_R049_ROW_NUMERICALLY_UPGRADED",
+      "final_row_status": "PLOT_ONLY_NOT_E4_ELIGIBLE",
+      "frozen_measured_output": "frequency-indexed complex scattering-parameter observations / squared-magnitude resonance curve",
+      "official_numeric_search_result": "Primary cavity/Q sources describe 201-point resonance curves, repeated curves and WLS uncertainty/covariance, but no official source table/file containing the raw 201-point cavity S-parameter arrays was located; published curves/tables are graphical or downstream estimators.",
+      "exact_source_locations_checked": [
+        "SRC-A4-NIST-SP260-159: cavity protocol and plotted resonance behavior",
+        "SRC-A4-NIST-Q-ESTIMATION-2003: curve sampling/WLS uncertainty"
+      ],
+      "official_machine_readable_or_tabulated_measured_values_acquired": false,
+      "manual_plot_digitization_used": false,
+      "replacement_search_allowed_after_this_failure": true,
+      "replacement_search_ref": "R051-RC-BMS-NIST-S2P"
+    },
+    {
+      "row_id": "B1A-TIBC-LIQUID-GRAVIMETRIC",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "protocol": "NIST 15 kg/s fully dynamic gravimetric liquid-flow standard",
+      "preserve_first_result": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "numeric_upgrade_marker": "NOT_R049_ROW_NUMERICALLY_UPGRADED",
+      "final_row_status": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "frozen_measured_output": "time-dependent buoyancy-corrected accumulated water mass and meter-under-test output",
+      "official_numeric_search_result": "SP 250-98 specifies time-stamped weighing/environment data, about five weigh samples per second and a 5-setpoint × 10-measurement normal calibration design, but the public sample report tabulates downstream calibration factors rather than the condition-indexed accumulated-mass/time observations required by the frozen row.",
+      "exact_source_locations_checked": [
+        "SRC-B1-NIST-SP250-98-2021: data acquisition and sample calibration report/appendix"
+      ],
+      "official_machine_readable_or_tabulated_measured_values_acquired": false,
+      "manual_plot_digitization_used": false,
+      "replacement_search_allowed_after_this_failure": true,
+      "replacement_search_ref": "R051-RC-TIBC-NONE"
+    },
+    {
+      "row_id": "B1B-TIBC-GAS-PVTT",
+      "pressure_family": "TRANSFER_INVENTORY_BALANCE_CLOSURE",
+      "protocol": "NIST PVTt primary gas-flow standard",
+      "preserve_first_result": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "numeric_upgrade_marker": "NOT_R049_ROW_NUMERICALLY_UPGRADED",
+      "final_row_status": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "frozen_measured_output": "collection interval plus tank pressure/temperature state observations used to determine inventory change",
+      "official_numeric_search_result": "Primary PVTt source gives the apparatus, flow range, tank realizations and expanded uncertainty; publicly located comparison results are summarized/graphical and no condition-indexed P/T/time state-observation table was located.",
+      "exact_source_locations_checked": [
+        "SRC-B1-NIST-PVTT-2003: PVTt protocol, uncertainty and tank-comparison figure"
+      ],
+      "official_machine_readable_or_tabulated_measured_values_acquired": false,
+      "manual_plot_digitization_used": false,
+      "replacement_search_allowed_after_this_failure": true,
+      "replacement_search_ref": "R051-RC-TIBC-NONE"
+    },
+    {
+      "row_id": "B2A-SRIR-MIC-RECIP",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "protocol": "NIST primary pressure-reciprocity calibration of a three-microphone triad",
+      "preserve_first_result": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "numeric_upgrade_marker": "NOT_R049_ROW_NUMERICALLY_UPGRADED",
+      "final_row_status": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "frozen_measured_output": "receiver-to-capacitor voltage ratios for each transmitter/receiver pair, with pressure/temperature/humidity observations",
+      "official_numeric_search_result": "Primary microphone source tabulates frequency-dependent expanded uncertainties and describes three-microphone pair permutations, but no public table/array of the frozen directed pair voltage-ratio observations was located.",
+      "exact_source_locations_checked": [
+        "SRC-B2-NIST-MIC-RECIP-2011: uncertainty table and triad protocol"
+      ],
+      "official_machine_readable_or_tabulated_measured_values_acquired": false,
+      "manual_plot_digitization_used": false,
+      "replacement_search_allowed_after_this_failure": true,
+      "replacement_search_ref": "R051-RC-SRIR-NONE"
+    },
+    {
+      "row_id": "B2B-SRIR-ANTENNA-3PAIR",
+      "pressure_family": "SOURCE_RECEIVER_INTERCHANGE_RECIPROCITY",
+      "protocol": "NIST three-antenna extrapolation gain calibration",
+      "preserve_first_result": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "numeric_upgrade_marker": "NOT_R049_ROW_NUMERICALLY_UPGRADED",
+      "final_row_status": "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT",
+      "frozen_measured_output": "received signal for each antenna pair as a function of separation",
+      "official_numeric_search_result": "Primary NIST antenna sources describe the three-antenna extrapolation method, acquisition procedure and measurement results, but no source-supplied directed-pair received-signal-by-separation table/array was located in the accessible primary surface.",
+      "exact_source_locations_checked": [
+        "SRC-B2-NIST-ANTENNA-2006 and SRC-B2-NIST-CTL-ANTENNA: three-antenna protocol/service envelope"
+      ],
+      "official_machine_readable_or_tabulated_measured_values_acquired": false,
+      "manual_plot_digitization_used": false,
+      "replacement_search_allowed_after_this_failure": true,
+      "replacement_search_ref": "R051-RC-SRIR-NONE"
+    }
+  ],
+  "counts": {
+    "R049_ROW_NUMERICALLY_UPGRADED": 0,
+    "E4_ELIGIBLE_TARGET": 0,
+    "PLOT_ONLY_NOT_E4_ELIGIBLE": 3,
+    "SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT": 5
+  },
+  "note": "Every original row first received a same-protocol primary/authoritative numeric search. Replacement search began only after the row was marked SOURCE_INSUFFICIENT_FOR_QUANTITATIVE_HOLDOUT at the preserve-first stage."
+}

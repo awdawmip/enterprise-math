@@ -1,0 +1,32 @@
+{
+  "schema": "ENTERPRISE_MATH_R051_TARGET_LEAKAGE_AUDIT_V1",
+  "task_id": "RS-R051-CANDIDATE-BLIND-QUANTITATIVE-HOLDOUT-DATA-ACQUISITION",
+  "researcher_id": "EM-R051-8B4D70",
+  "freeze_timestamp_utc": "2026-08-13T06:23:00Z",
+  "candidate_blind": true,
+  "calibration_run": false,
+  "g2_content_intentionally_opened": false,
+  "r050_candidate_specific_files_opened": false,
+  "candidate_score_or_ranking_used": false,
+  "classical_pi_numeric_selection_used": false,
+  "stage0": {
+    "r049_target_sha256_recomputed": "e41cc96ecc40bf1c992ad75bc552b2e68b36a5620e4343f10e15b71d9cf64f0c",
+    "verified": true,
+    "data_acquisition_protocol_sha256": "sha256:029d33ce71064dbcc584f10a757d237868dc921f5345646970b7357f1804e22f",
+    "protocol_frozen_before_external_numerical_data_search": true,
+    "stage0_protocol_commit": "b1e2022fea9ab990daaea806615e78bfdfc56875"
+  },
+  "contamination_events": [
+    {
+      "event_id": "R051-CA-001",
+      "type": "CONTEXT_CONTAMINATION_RISK",
+      "description": "Mandatory account-level GLOBAL_KNOWLEDGE synchronization incidentally exposed a short prior R050 candidate-specific summary in context before R051 target freeze.",
+      "candidate_access_intentional": false,
+      "mitigation": "Quarantined. It was not used for source, row, split, tolerance, residual, replacement, eligibility, bridge, scoring or ranking decisions.",
+      "influence_on_frozen_target": "NONE_BY_DESIGN"
+    }
+  ],
+  "external_source_search_started_only_after_protocol_hash_frozen": true,
+  "target_mutation_after_freeze": false,
+  "training_source_collision_audit_status": "PASS_WITH_SEARCH_LIMITATION"
+}
