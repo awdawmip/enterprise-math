@@ -1,0 +1,78 @@
+{
+  "schema": "R038_READOUT_ATLAS_V1",
+  "researcher_id": "EM-R038-6A7D21",
+  "status": "SEMANTIC_CHECKPOINT_NOT_CANONICAL",
+  "source": {
+    "task_main": "092c8ced3b3a5808d8669946a830db73b129a126",
+    "r033": "c2aa1758c6cf8f194d8b4493b90c903a2dfcd048",
+    "r034": "674fb8717d753cd36fd83b061c869d79e8875b31"
+  },
+  "graph_count": {
+    "fcc": {
+      "shell": "10*r^2+2",
+      "bulk": "(10*r^3+15*r^2+11*r+3)/3",
+      "pi_A": "5/2 + 1/(2*r^2)",
+      "pi_V": "5/2 + 15/(4*r) + 11/(4*r^2) + 3/(4*r^3)",
+      "limit_pi_A": "5/2",
+      "limit_pi_V": "5/2"
+    },
+    "hcp": {
+      "shell_even": "(21*r^2+4)/2",
+      "shell_odd": "(21*r^2+3)/2",
+      "bulk_even": "(14*r^3+21*r^2+14*r+4)/4",
+      "bulk_odd": "(14*r^3+21*r^2+14*r+3)/4",
+      "pi_A_even": "21/8 + 1/(2*r^2)",
+      "pi_A_odd": "21/8 + 3/(8*r^2)",
+      "pi_V_common": "21/8 + 63/(16*r) + 21/(8*r^2) + parity_term/r^3",
+      "pi_V_even_parity_term": "3/4",
+      "pi_V_odd_parity_term": "9/16",
+      "limit_pi_A": "21/8",
+      "limit_pi_V": "21/8"
+    }
+  },
+  "boundary_bond": {
+    "both": "E_out=12*(3*r^2+3*r+1)",
+    "unit_weight_pi_A": "9 + 9/r + 3/r^2",
+    "unit_weight_limit": "9",
+    "fcc_voronoi_facet_weight": "sqrt(2)/4",
+    "fcc_weighted_limit": "9*sqrt(2)/4"
+  },
+  "physical_volume": {
+    "site_volume_both": "1/sqrt(2)",
+    "center_circumradius_both": "r",
+    "fcc_limit": "5*sqrt(2)/4",
+    "hcp_limit": "21*sqrt(2)/16"
+  },
+  "fcc_exact_convex_hull": {
+    "shape": "cuboctahedron",
+    "edge_length": "r",
+    "circumradius": "r",
+    "inradius": "r/sqrt(2)",
+    "surface_area": "(6+2*sqrt(3))*r^2",
+    "volume": "5*sqrt(2)*r^3/3",
+    "pi_A_circum": "(3+sqrt(3))/2",
+    "pi_V_circum": "5*sqrt(2)/4"
+  },
+  "inradius_asymptotic": {
+    "fcc_ratio": "1/sqrt(2)",
+    "hcp_ratio": "sqrt(24/41)",
+    "fcc_shell_count_limit": "5",
+    "fcc_bulk_count_limit": "5*sqrt(2)",
+    "hcp_shell_count_limit": "287/64"
+  },
+  "second_moment": {
+    "definition": "R2^2=M2/V",
+    "fcc_M2": "r*(r+1)*(2*r+1)*(7*r^2+7*r+6)/10",
+    "hcp_M2": "721*r^5/480 + 721*r^4/192 + 581*r^3/144 + 147*r^2/64 + 1619*r/2880 + 3/128 + (-1)^r*(38*r^2+38*r-9)/384",
+    "fcc_R2_over_r_limit": "sqrt(42)/10",
+    "hcp_R2_over_r_limit": "sqrt(1545)/60",
+    "fcc_physical_volume_pi_limit": "625*sqrt(21)/441",
+    "hcp_physical_volume_pi_limit": "1260*sqrt(3090)/10609"
+  },
+  "equal_volume_euclidean": {
+    "radius": "(3*V_phys/(4*pi))^(1/3)",
+    "pi_V": "pi identically",
+    "classification": "L3_READOUT_IMPORTS_PI_CIRCULARLY"
+  },
+  "verdict": "NO_UNIQUE_NATIVE_PI_WITHOUT_READOUT_SEMANTICS"
+}

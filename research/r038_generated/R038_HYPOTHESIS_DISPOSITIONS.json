@@ -1,0 +1,46 @@
+{
+  "schema": "R038_HYPOTHESIS_DISPOSITIONS_V1",
+  "researcher_id": "EM-R038-6A7D21",
+  "status": "SEMANTIC_CHECKPOINT_NOT_CANONICAL",
+  "H1": {
+    "state": "CONFIRMED_WITH_OPERATOR_SCOPE",
+    "note": "finite algebraic expression trees stay algebraic; analytic primitives can introduce transcendentals at finite stage"
+  },
+  "H2": {
+    "state": "CONFIRMED_FINITE_NATIVE_SCALE",
+    "note": "locally finite continuous-rotation orbit no-go"
+  },
+  "H3": {
+    "state": "CONFIRMED_EXACT",
+    "note": "FCC 5/2, HCP 21/8 with exact finite-r remainders"
+  },
+  "H4": {
+    "state": "CONFIRMED_STRONGLY",
+    "note": "count, bond, physical hull/volume, inradius, RMS, equal-volume channels disagree"
+  },
+  "H5": {
+    "state": "CONFIRMED",
+    "note": "finite path counts/probabilities/moments require no pi"
+  },
+  "H6": {
+    "state": "CONFIRMED_WITH_REPRESENTATION_SCOPE",
+    "note": "pi enters Gaussian density/Fourier/Lebesgue readout; characteristic function need not display pi"
+  },
+  "H7": {
+    "state": "KILLED_STRONGLY",
+    "counterexample": "Rooted radial graph zeta Z_G(s)=sum_{x!=o} d_G(o,x)^(-s). Exact FCC: 10*zeta(s-2)+2*zeta(s). Exact HCP: (21/2)*zeta(s-2)+(3/2+2^(-s-1))*zeta(s). For every even integer s>=4 both values are transcendental.",
+    "classification": "FCC_HCP_ROOT_AUTOMORPHISM_INVARIANT_L2_TRANSCENDENCE_FAMILY"
+  },
+  "H8": {
+    "state": "CONFIRMED_STRONGLY",
+    "note": "infinite discrete completion is a separate transcendence gateway already in full radial FCC/HCP graph-distance observables; every finite cutoff is rational"
+  },
+  "H9": {
+    "state": "CONFIRMED",
+    "note": "ballistic unequal; quadratic diffusion equal; quartic refinement unequal"
+  },
+  "H10": {
+    "state": "CONFIRMED",
+    "note": "pi_eff requires observable, radius, geometry and readout semantics"
+  }
+}
