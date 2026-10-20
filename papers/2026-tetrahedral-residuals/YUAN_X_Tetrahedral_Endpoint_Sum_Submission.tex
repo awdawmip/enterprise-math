@@ -1,0 +1,432 @@
+\documentclass[11pt]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array,enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,capitalise,noabbrev]{cleveref}
+\usepackage[a4paper,margin=32mm]{geometry}
+\hypersetup{pdftitle={Tetrahedral Endpoint-Sum Residuals and a Non-split Affine 2-Torsion Extension},pdfauthor={YUAN X},pdfsubject={Integral endpoint-sum cokernels and modular tetrahedral symmetry},pdfkeywords={signless incidence matrix, integral cokernel, modular representation, affine plane, Lean 4}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\F}{\mathbb F}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\Aff}{\operatorname{Aff}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\im}{\operatorname{im}}
+
+\title[Tetrahedral endpoint-sum residuals]{Tetrahedral Endpoint-Sum Residuals and a Non-split Affine $2$-Torsion Extension}
+\author{YUAN X}
+\address{Enterprise Math, independent research program}
+\email{awdawmip@gmail.com}
+\date{September 3, 2026}
+\subjclass[2020]{05C50, 15B36, 20C20, 68V20}
+\keywords{signless incidence matrix, integral cokernel, Smith normal form, modular representation, affine plane, Lean 4}
+
+\begin{document}
+
+\begin{abstract}
+Let $V_0\subset \Z^4$ and $E_0\subset \Z^6$ be the zero-sum vertex and edge lattices of the tetrahedron $K_4$, and let
+\[
+  \delta(v)_{ij}=v_i+v_j
+\]
+be the endpoint-sum, or signless incidence, map. We give a constructive description of the residual group $E_0/\delta(V_0)$. The three sums over opposite edge pairs produce an $A_2(\Z)$ coordinate, while one star parity produces the remaining torsion coordinate. This yields an explicit normal form and an isomorphism
+\[
+  E_0/\delta(V_0)\simeq A_2(\Z)\oplus \Z/2\Z.
+\]
+After inverting $2$, the torsion vanishes and only the two-dimensional $A_2$ residual remains. We then compute the tetrahedral $S_4$ action on the normal coordinates. Modulo $2$ it gives a three-dimensional module with an invariant constant line but no $S_4$-equivariant retraction onto that line. Equivalently, the short exact sequence formed by the constant line and the two-dimensional quotient is non-split. Finally, evaluation on the four points of $\F_2^2$ identifies this module with $\Aff(\F_2^2,\F_2)$: the six nonconstant affine functions encode the six edges, and addition of the nonzero constant exchanges opposite edges. The finite classification and the non-splitting argument have also been checked in Lean 4.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+For a finite graph, the $0$--$1$ vertex-edge incidence matrix is often called the \emph{signless incidence matrix}. Its associated signless Laplacian and its spectral properties have been studied extensively; see, for example, \cite{CvetkovicRowlinsonSimic}. Over the integers, even very small signless incidence maps retain parity information that disappears over fields in which $2$ is invertible. The tetrahedron $K_4$ is the first complete graph in which three opposite-edge pairs coexist, and it gives a particularly transparent model of this phenomenon.
+
+Let the vertices be $A,B,C,D$ and order the edges as
+\[
+(AB,AC,AD,BC,BD,CD).
+\]
+We restrict the endpoint-sum map from the full vertex and edge lattices to their zero-total sublattices. The resulting quotient has free rank two and one element of order two. This much can be read from a Smith form computation. The purpose of this note is to make the quotient and its symmetry completely explicit:
+\begin{itemize}[leftmargin=2em]
+\item we give a direct lifting criterion and a unique normal form;
+\item we compute the induced $S_4$ action on the free and torsion coordinates;
+\item we show that the invariant torsion line has no $S_4$-equivariant complement;
+\item we identify the mod-$2$ module with affine functions on $\F_2^2$, so that its six nonconstant elements recover the six edges of $K_4$.
+\end{itemize}
+
+The mod-$2$ module is isomorphic to the three-dimensional augmentation submodule of the permutation module $\F_2^4$. That representation-theoretic object is classical; see \cite{Benson,JamesKerber}. The contribution here is the direct route from the integral endpoint-sum cokernel to a simultaneous normal-form, cocycle, and affine-plane description, together with a machine-checked certificate. The example is intentionally elementary and self-contained. It can be used as a reproducible test case for integral graph modules, parity obstructions, and formalized finite algebra.
+
+\begin{theorem}[Main theorem]\label{thm:main}
+Let
+\[
+V_0=\{v\in\Z^4:v_A+v_B+v_C+v_D=0\},\qquad
+E_0=\{x\in\Z^6:\textstyle\sum_e x_e=0\},
+\]
+and let $\delta:V_0\to E_0$ be the endpoint-sum map.
+\begin{enumerate}[label=(\roman*),leftmargin=2em]
+\item There is a constructive isomorphism
+\[
+E_0/\delta(V_0)\simeq A_2(\Z)\oplus\Z/2\Z
+\simeq\Z^2\oplus\Z/2\Z.
+\]
+\item Over any field $K$ with $\operatorname{char}K\ne2$,
+\[
+E_0(K)/\delta(V_0(K))\simeq A_2(K)\simeq K^2.
+\]
+\item If $W=(E_0/\delta(V_0))\otimes\F_2$, then $W$ contains an invariant one-dimensional torsion line, but that line has no $S_4$-equivariant complement.
+\item As an $S_4$-set and as an $\F_2$-vector space,
+\[
+W\simeq\Aff(\F_2^2,\F_2).
+\]
+Under a suitable labelling of the four vertices by the four points of $\F_2^2$, the six nonconstant affine functions correspond to the six edges of $K_4$, and addition of the nonzero constant exchanges opposite edges.
+\end{enumerate}
+\end{theorem}
+
+The proof is given constructively below. The final section records the corresponding Lean 4 checkpoints.
+
+\section{The integral endpoint-sum quotient}
+
+Write an edge state as
+\[
+x=(x_{AB},x_{AC},x_{AD},x_{BC},x_{BD},x_{CD})\in E_0.
+\]
+Define the three opposite-edge sums
+\begin{equation}\label{eq:matching}
+\begin{aligned}
+m_0(x)&=x_{AB}+x_{CD},\\
+m_1(x)&=x_{AC}+x_{BD},\\
+m_2(x)&=x_{AD}+x_{BC}.
+\end{aligned}
+\end{equation}
+Since $x\in E_0$,
+\begin{equation}\label{eq:a2sum}
+m_0(x)+m_1(x)+m_2(x)=0.
+\end{equation}
+Thus the matching coordinate belongs to
+\[
+A_2(\Z)=\{(p,q,r)\in\Z^3:p+q+r=0\}.
+\]
+
+For $v=(v_A,v_B,v_C,v_D)\in V_0$ one has
+\[
+\delta(v)=(v_A+v_B,v_A+v_C,v_A+v_D,v_B+v_C,v_B+v_D,v_C+v_D).
+\]
+A direct computation gives
+\begin{equation}\label{eq:deltaMatching}
+m_0(\delta v)=m_1(\delta v)=m_2(\delta v)=v_A+v_B+v_C+v_D=0.
+\end{equation}
+Consequently the matching coordinate descends to the quotient.
+
+The remaining information is parity. Define the $A$-star sum
+\[
+s_A(x)=x_{AB}+x_{AC}+x_{AD}.
+\]
+
+\begin{lemma}[Kernel normal form]\label{lem:kernel-normal}
+If $m_0(x)=m_1(x)=m_2(x)=0$, then there exist unique $a,b,c\in\Z$ such that
+\[
+x=(a,b,c,-c,-b,-a).
+\]
+\end{lemma}
+
+\begin{proof}
+The equations $m_i(x)=0$ give
+\[
+x_{CD}=-x_{AB},\qquad x_{BD}=-x_{AC},\qquad x_{BC}=-x_{AD}.
+\]
+Set $a=x_{AB}$, $b=x_{AC}$, $c=x_{AD}$.
+\end{proof}
+
+\begin{proposition}[Parity lifting criterion]\label{prop:parity}
+For
+\[
+k(a,b,c)=(a,b,c,-c,-b,-a),
+\]
+there exists $v\in V_0$ with $\delta(v)=k(a,b,c)$ if and only if $a+b+c$ is even.
+\end{proposition}
+
+\begin{proof}
+Suppose first that $\delta(v)=k(a,b,c)$. Then
+\[
+a=v_A+v_B,\qquad b=v_A+v_C,\qquad c=v_A+v_D.
+\]
+Hence
+\[
+a+b+c=3v_A+v_B+v_C+v_D=2v_A,
+\]
+using $v_A+v_B+v_C+v_D=0$.
+
+Conversely, if $a+b+c=2t$, set
+\[
+v=(t,a-t,b-t,c-t).
+\]
+Then $v\in V_0$ and a direct substitution gives $\delta(v)=k(a,b,c)$.
+\end{proof}
+
+A primitive nonliftable class is therefore
+\[
+\tau=(1,0,0,0,0,-1).
+\]
+It is not in $\delta(V_0)$, while $2\tau\in\delta(V_0)$. Thus it has exact order two in the quotient.
+
+\begin{proposition}[Canonical normal form]\label{prop:normalform}
+For every $x\in E_0$ there are unique $p,q\in\Z$ and $\varepsilon\in\{0,1\}$ such that the class of $x$ contains
+\begin{equation}\label{eq:normalform}
+N(p,q,\varepsilon)
+=(p,q,\varepsilon-p-q,-\varepsilon,0,0).
+\end{equation}
+The parameters are
+\[
+p=m_0(x),\qquad q=m_1(x),\qquad
+\varepsilon\equiv s_A(x)\pmod2.
+\]
+\end{proposition}
+
+\begin{proof}
+The state $N(p,q,\varepsilon)$ has total sum zero and matching coordinate
+\[
+(p,q,-p-q).
+\]
+It also has star sum $\varepsilon$. Given $x$, choose $p=m_0(x)$, $q=m_1(x)$ and $\varepsilon\in\{0,1\}$ with $\varepsilon\equiv s_A(x)\pmod2$. Then $x-N(p,q,\varepsilon)$ has zero matching coordinate. By \cref{lem:kernel-normal} it is $k(a,b,c)$ for some $a,b,c$, and its star sum is even. By \cref{prop:parity} it is in the image of $\delta$.
+
+If two such normal forms are equivalent, their matching coordinates are equal, so $p,q$ agree. Their difference is then a multiple of $\tau$ with coefficient $\varepsilon-\varepsilon'$. The parity criterion forces that coefficient to be even. Since both coefficients lie in $\{0,1\}$, they are equal.
+\end{proof}
+
+\begin{corollary}\label{cor:quotient}
+There is a constructive group isomorphism
+\[
+E_0/\delta(V_0)\simeq \Z^2\oplus\Z/2\Z.
+\]
+Equivalently, the free component is $A_2(\Z)$ and the torsion component is generated by $[\tau]$.
+\end{corollary}
+
+For comparison with standard integral linear algebra, a basis calculation gives the Smith invariant factors $(1,1,2)$. In the Lean development this is certified by a unit matrix entry, a unit $2\times2$ minor, the evenness of every maximal minor, and one maximal minor equal to $2$.
+
+\section{What changes after inverting two}
+
+The parity obstruction in \cref{prop:parity} is precisely the failure to divide by two in the integer lattice.
+
+Let $K$ be a field with $2\ne0$. For a kernel state
+\[
+k(a,b,c)=(a,b,c,-c,-b,-a),
+\]
+set
+\[
+t=\frac{a+b+c}{2},\qquad
+v=(t,a-t,b-t,c-t).
+\]
+Then $v_A+v_B+v_C+v_D=0$ and $\delta(v)=k(a,b,c)$.
+
+\begin{proposition}\label{prop:charneq2}
+If $K$ is a field of characteristic different from $2$, then
+\[
+E_0(K)/\delta(V_0(K))\simeq A_2(K)\simeq K^2.
+\]
+In particular, the integral torsion class $[\tau]$ becomes trivial after extension of scalars to $K$.
+\end{proposition}
+
+Thus the real or rational completion remembers the two free opposite-pair coordinates but forgets the discrete parity bit. In this precise sense the finite integral residual contains one piece of information that a $2$-divisible continuum cannot detect.
+
+\section{Tetrahedral symmetry and the residual cocycle}
+
+The symmetric group $S_4$ acts on the vertices and hence on the six edges. The endpoint-sum map is equivariant, so this action descends to the residual quotient.
+
+Modulo two, write a normal coordinate as
+\[
+(p,q,e)\in\F_2^3,
+\]
+where $p,q$ are the reductions of the two free coordinates and $e$ is the torsion coordinate. Put $r=p+q$; then the third matching coordinate reduces to $r$ because $-p-q=p+q$ in characteristic two.
+
+Let $s_1=(AB)$, $s_2=(BC)$ and $s_3=(CD)$ be adjacent transpositions. Direct substitution in the edge coordinates gives
+\begin{equation}\label{eq:generators}
+\begin{aligned}
+s_1(p,q,e)&=(p,p+q,e+p),\\
+s_2(p,q,e)&=(q,p,e),\\
+s_3(p,q,e)&=(p,p+q,e).
+\end{aligned}
+\end{equation}
+These maps satisfy
+\[
+s_i^2=1,\qquad
+s_1s_2s_1=s_2s_1s_2,\qquad
+s_2s_3s_2=s_3s_2s_3,\qquad
+s_1s_3=s_3s_1,
+\]
+so they define the expected $S_4$ action.
+
+The line
+\[
+T=\{(0,0,e):e\in\F_2\}
+\]
+is invariant and is pointwise fixed. The quotient $W/T$ is the natural two-dimensional $S_3\simeq GL(2,2)$ module coming from the three opposite-edge pairings. The subtle point is that the extension does not split $S_4$-equivariantly.
+
+\begin{proposition}[Hidden Klein-four action]\label{prop:v4}
+Let
+\[
+\kappa_0=(AB)(CD),\qquad
+\kappa_1=(AC)(BD),\qquad
+\kappa_2=(AD)(BC).
+\]
+Then each $\kappa_i$ fixes the free matching coordinates, while the torsion coordinate changes by one of the three nonzero linear characters:
+\[
+e\mapsto e+p,\qquad e\mapsto e+q,\qquad e\mapsto e+p+q.
+\]
+\end{proposition}
+
+\begin{proof}
+For $\kappa_0=s_1s_3$, \cref{eq:generators} gives
+\[
+(p,q,e)\stackrel{s_3}{\longmapsto}(p,p+q,e)
+\stackrel{s_1}{\longmapsto}(p,q,e+p).
+\]
+The remaining two formulas follow by conjugation, or by the same direct edge calculation.
+\end{proof}
+
+Thus the hidden kernel $V_4\triangleleft S_4$ of the permutation action on the three opposite-edge pairings is invisible on the free quotient but remains visible through a parity phase on the fibre.
+
+\begin{theorem}[Non-splitting]\label{thm:nonsplit}
+The invariant torsion line $T$ has no $S_4$-equivariant complement in $W$. Equivalently, there is no $S_4$-equivariant linear retraction $r:W\to T$ whose restriction to $T$ is the identity.
+\end{theorem}
+
+\begin{proof}
+Identify $T$ with $\F_2$ and suppose such a retraction exists. Since $r(0,0,1)=1$, linearity gives
+\[
+r(p,q,e)=ap+bq+e
+\]
+for some $a,b\in\F_2$.
+Invariance under $s_2$ gives $a=b$. Invariance under $s_3$ then gives
+\[
+a p+a(p+q)+e=ap+aq+e,
+\]
+which is automatic. But invariance under $s_1$ gives
+\[
+a p+a(p+q)+e+p=ap+aq+e,
+\]
+forcing $p=0$ for every $p\in\F_2$, a contradiction.
+\end{proof}
+
+This argument isolates the non-splitting in a single parity cocycle. The Lean development verifies the same obstruction without invoking group cohomology.
+
+\section{Affine functions on the four-point plane}
+
+The preceding coordinates admit a coordinate-free finite interpretation. Label the four vertices by
+\[
+A=(0,0),\qquad B=(1,0),\qquad C=(0,1),\qquad D=(1,1)
+\]
+in the affine plane $\F_2^2$. To $(p,q,e)\in\F_2^3$ associate
+\begin{equation}\label{eq:affinefunction}
+f_{p,q,e}(x,y)=e+px+qy.
+\end{equation}
+This identifies $W$ with the $8$-element vector space $\Aff(\F_2^2,\F_2)$.
+
+There are exactly two constant functions and six nonconstant ones. Every nonconstant affine function has support of cardinality two, so its support is an edge of the tetrahedron on the four affine points. Conversely, every two-point subset is the support of a unique nonconstant affine function. Thus
+\[
+\{\text{nonconstant affine functions}\}
+\longleftrightarrow
+\{\text{six edges of }K_4\}.
+\]
+Adding the nonzero constant sends $f$ to $f+1$ and complements its support. On a four-point set, the complement of an edge is precisely its opposite edge.
+
+This interpretation packages the two components of the residual economically:
+\begin{itemize}[leftmargin=2em]
+\item the nonzero linear part $(p,q)$ chooses one of the three opposite-edge pairings;
+\item the constant bit $e$ chooses one of the two edges in that pair.
+\end{itemize}
+Hence the familiar count $6=3\cdot2$ is structural rather than accidental.
+
+The hidden subgroup $V_4\simeq\F_2^2$ acts by translations of the affine plane. If $t=(a,b)$, then
+\[
+f_{p,q,e}(z+t)=f_{p,q,e+pa+qb}(z).
+\]
+The phase $pa+qb$ is exactly the pairing between a translation and a nonzero linear character. This recovers the three fibre translations in \cref{prop:v4}.
+
+\section{Relation to signless incidence and modular permutation modules}
+
+For a graph $G$, the endpoint-sum map is represented by the signless vertex-edge incidence matrix. Over fields of characteristic different from two, its behavior is closely related to bipartiteness and to the signless Laplacian $Q=D+A$; see \cite{CvetkovicRowlinsonSimic}. The present calculation is an integral zero-sum refinement for $K_4$: restricting both domain and codomain to augmentation lattices exposes a rank-two free quotient together with one parity obstruction.
+
+Modulo two, signs disappear and the normal coordinate module is a three-dimensional submodule of the four-point permutation module. In representation-theoretic language it is an augmentation module for the natural $S_4$ permutation action in characteristic two, and the constant vector lies inside the augmentation module because $4=0$ in $\F_2$. This is standard modular representation theory; see \cite{Benson,JamesKerber}. The point of \cref{thm:nonsplit} is not to claim a new indecomposable module, but to exhibit the non-splitting directly from the integral endpoint-sum quotient and its parity normal form.
+
+The affine-plane description is also standard once one remembers the exceptional isomorphism
+\[
+S_4\simeq \operatorname{AGL}(2,2),
+\]
+since every permutation of the four points of $\F_2^2$ is affine. Here the value of the affine model is that it simultaneously explains the six edges, the three opposite-edge pairings, the $V_4$ translation kernel, and the torsion phase.
+
+\section{Lean 4 verification}
+
+The finite lattice and symmetry statements were independently encoded in Lean 4 against a pinned mathlib environment. The formalization is not used as a replacement for the proofs above; it is a check against hidden sign, indexing, and parity errors.
+
+The checked layers include:
+\begin{itemize}[leftmargin=2em]
+\item the four-slice/six-line incidence and the equivalence with the six unordered pairs of four slice labels;
+\item the integral endpoint-sum map and its zero-sum behavior;
+\item the parity lifting criterion and the primitive order-two obstruction;
+\item canonical residual normal forms and the quotient-level equivalence with $\Z^2\times\{0,1\}$;
+\item the real completion in which the parity obstruction disappears;
+\item the induced $K_4$ rotation action and the exact covariance of the endpoint-sum map;
+\item the adjacent-transposition action on mod-$2$ normal coordinates, the Coxeter relations, and the non-splitting obstruction.
+\end{itemize}
+
+The strict accepted checkpoints are recorded in the public source branch cited below. The workflow rejects \texttt{sorry}, \texttt{admit}, and custom axioms from the paper modules and compiles the admitted layers with warnings fatal.
+
+\section*{Data, code, and artificial-intelligence disclosure}
+
+The Lean sources are contained in the public repository \emph{Enterprise Math} on the branch
+\texttt{formalization/precision-pi-paper-ii-kernel-v1}; the strict accepted theorem checkpoint and module paths are listed in the public publication package.
+
+OpenAI's ChatGPT assisted with translation, language editing, organization of the exposition, literature discovery, and parts of the Lean proof-development workflow. It is not an author. The named author assumes full responsibility for the mathematical content, citations, and submission.
+
+\begin{thebibliography}{99}
+
+\bibitem{Benson}
+D.~J. Benson,
+\emph{Representations and Cohomology I: Basic Representation Theory of Finite Groups and Associative Algebras},
+Cambridge Studies in Advanced Mathematics, vol.~30, Cambridge University Press, Cambridge, 1991.
+
+\bibitem{CvetkovicRowlinsonSimic}
+D. Cvetkovi\'{c}, P. Rowlinson, and S. Simi\'{c},
+Signless Laplacians of finite graphs,
+\emph{Linear Algebra Appl.} \textbf{423} (2007), 155--171.
+
+\bibitem{Lean}
+L. de Moura, S. Kong, J. Avigad, F. van Doorn, and J. von Raumer,
+The Lean theorem prover (system description),
+in \emph{Automated Deduction -- CADE-25}, Lecture Notes in Computer Science, vol.~9195, Springer, 2015, pp.~378--388.
+
+\bibitem{JamesKerber}
+G. James and A. Kerber,
+\emph{The Representation Theory of the Symmetric Group},
+Encyclopedia of Mathematics and its Applications, vol.~16, Addison-Wesley, Reading, MA, 1981.
+
+\bibitem{Mathlib}
+The mathlib Community,
+The Lean mathematical library,
+in \emph{Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs}, ACM, 2020, pp.~367--381.
+
+\bibitem{Newman}
+M. Newman,
+\emph{Integral Matrices},
+Pure and Applied Mathematics, vol.~45, Academic Press, New York, 1972.
+
+\bibitem{Smith}
+H.~J.~S. Smith,
+On systems of linear indeterminate equations and congruences,
+\emph{Philos. Trans. Roy. Soc. London} \textbf{151} (1861), 293--326.
+
+\end{thebibliography}
+
+\end{document}
