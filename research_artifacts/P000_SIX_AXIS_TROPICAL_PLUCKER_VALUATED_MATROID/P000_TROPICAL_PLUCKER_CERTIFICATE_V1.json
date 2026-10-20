@@ -1,0 +1,282 @@
+{
+  "schema": "P000_TROPICAL_PLUCKER_CERTIFICATE_V1",
+  "task_id": "RS-P000-SIX-AXIS-TROPICAL-PLUCKER-VALUATED-MATROID",
+  "publication_id": "TP2-FEC91ABA20FAAFF4D480",
+  "researcher_id": "EM-P000TP1-8F2C41",
+  "labels": [
+    "AB",
+    "AC",
+    "AD",
+    "BC",
+    "BD",
+    "CD"
+  ],
+  "complementary_pairs": [
+    [
+      "AB",
+      "CD"
+    ],
+    [
+      "AC",
+      "BD"
+    ],
+    [
+      "AD",
+      "BC"
+    ]
+  ],
+  "weight_registry": [
+    {
+      "id": "W_COORD",
+      "definition": "w_ij = x_ij on the pre-existing six-axis scalar coordinate field",
+      "domain": "Z^6 (or any ordered additive coefficient domain where the declared x_ij live)",
+      "admissibility": "PRE_OUTCOME / IDENTITY_ON_DECLARED_SCALAR_FIELD",
+      "factor_blind": true,
+      "route_blind": true,
+      "extra_orientation": false,
+      "extra_frame": false,
+      "interpretation_boundary": "admissible scalar-field tropicalization; not by itself a collapse cost or native geometry"
+    },
+    {
+      "id": "W_ABS",
+      "definition": "w_ij = |x_ij|",
+      "domain": "Z^6 -> N^6",
+      "admissibility": "PRE_OUTCOME / INDEPENDENT_GENERIC_COORDINATE_MAGNITUDE",
+      "factor_blind": true,
+      "route_blind": true,
+      "extra_orientation": false,
+      "extra_frame": false,
+      "interpretation_boundary": "generic magnitude weight; no project-specific collapse identity is assumed"
+    },
+    {
+      "id": "W_VP",
+      "definition": "w_ij = v_p(x_ij) for a prime p declared before outcomes; finite-domain checker excludes zero",
+      "domain": "(Z\\{0})^6 -> N^6; extended valuation may set v_p(0)=+infinity",
+      "admissibility": "PRE_OUTCOME / T1_SCALE_ENUMERATION_VALUATION_REUSE",
+      "factor_blind": false,
+      "route_blind": true,
+      "extra_orientation": false,
+      "extra_frame": false,
+      "interpretation_boundary": "classical nonarchimedean valuation layer; not a factor-blind native P000 weight"
+    }
+  ],
+  "defect": {
+    "pair_sums": [
+      "s1=w_AB+w_CD",
+      "s2=w_AC+w_BD",
+      "s3=w_AD+w_BC"
+    ],
+    "formula": "delta_T = second_min(s1,s2,s3)-min(s1,s2,s3) = s1+s2+s3-max(s1,s2,s3)-2*min(s1,s2,s3)",
+    "criterion": "delta_T=0 iff the minimum of the three complementary pair sums is attained at least twice",
+    "rank2_ground4_typing": "for finite six basis weights on {A,B,C,D}, delta_T=0 is exactly the sole tropical Plucker / rank-2 valuated-matroid relation",
+    "carrier_S4_law": "invariant; carrier S4 induces full S3 on the three complementary pair blocks with V4 kernel",
+    "complement_law": "invariant; complement swaps within each complementary pair and fixes every s_i",
+    "pair_sum_pattern_stabilizers_in_S4": {
+      "all_distinct": {
+        "orbit_size": 6,
+        "stabilizer_order": 4
+      },
+      "exactly_two_equal": {
+        "orbit_size": 3,
+        "stabilizer_order": 8
+      },
+      "triple_tie": {
+        "orbit_size": 1,
+        "stabilizer_order": 24
+      }
+    }
+  },
+  "raw_box_theorem": {
+    "box": "x_ij in {-B,...,B}; q=2B+1",
+    "pair_sum_multiplicity": "m(a)=q-|a| for |a|<=q-1",
+    "triple_tie_count": "T(q)=q^2(q^2+1)/2",
+    "exactly_two_minima_count": "M(q)=q^2(q-1)(4q^2+q+3)/4",
+    "survivor_count": "N_T(q)=q^2(4q^3-q^2+2q-1)/4",
+    "all_distinct_count": "q^6-T(q)-2M(q)",
+    "finite_checks": {
+      "B=1": {
+        "total": 729,
+        "survivor": 234,
+        "nonsurvivor": 495,
+        "triple_tie": 45,
+        "exactly_two_minima": 189
+      },
+      "B=2": {
+        "total": 15625,
+        "survivor": 3025,
+        "nonsurvivor": 12600,
+        "triple_tie": 325,
+        "exactly_two_minima": 2700
+      }
+    }
+  },
+  "other_finite_census": {
+    "W_ABS": {
+      "B=1": {
+        "total": 729,
+        "survivor": 345,
+        "nonsurvivor": 384
+      },
+      "B=2": {
+        "total": 15625,
+        "survivor": 5257,
+        "nonsurvivor": 10368
+      }
+    },
+    "W_VP": {
+      "p=2,domain={-2,-1,1,2}": {
+        "total": 4096,
+        "survivor": 1984,
+        "nonsurvivor": 2112
+      },
+      "p=3,domain={+-1,+-2,+-3,+-4}": {
+        "total": 262144,
+        "survivor": 176320,
+        "nonsurvivor": 85824
+      }
+    }
+  },
+  "matched_controls": {
+    "delta_adds_information": {
+      "x": [
+        "-2",
+        "-2",
+        "0",
+        "2",
+        "1",
+        "1"
+      ],
+      "y": [
+        "-2",
+        "-1",
+        "-1",
+        "2",
+        "2",
+        "0"
+      ],
+      "same": {
+        "sum_x": 0,
+        "2_norm_P0_sq": 22,
+        "6_norm_Pm2_sq": 18,
+        "Q_orb": [
+          -4,
+          0,
+          0
+        ],
+        "rho_carrier_orbit": [
+          [
+            0,
+            1,
+            1
+          ],
+          0
+        ]
+      },
+      "different": {
+        "delta_T_raw_x": 0,
+        "delta_T_raw_y": 3
+      }
+    },
+    "delta_does_not_replace_arithmetic": {
+      "zero_state_delta": 0,
+      "e1_state_delta": 0,
+      "rho_differs": true,
+      "all_ones_delta": 0,
+      "Q_orb_zero_state": [
+        0,
+        0,
+        0
+      ],
+      "Q_orb_all_ones": [
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "pfaffian_valuation_bridge": {
+    "Q": "Q=x_AB*x_CD-x_AC*x_BD+x_AD*x_BC",
+    "alpha": [
+      "v_p(x_AB*x_CD)",
+      "v_p(x_AC*x_BD)",
+      "v_p(x_AD*x_BC)"
+    ],
+    "theorems": [
+      "If delta_T>0 (unique minimum alpha_i), then v_p(Q)=min(alpha_i), hence Q!=0.",
+      "If Q=0, then delta_T=0.",
+      "If delta_T=0, valuations alone do not determine Q or v_p(Q); residue cancellation remains hidden."
+    ],
+    "same_valuation_counterexample_p3": {
+      "valuation_vector": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "states": [
+        {
+          "x": [
+            1,
+            1,
+            1,
+            3,
+            4,
+            1
+          ],
+          "Q": 0,
+          "v3_Q": "infinity",
+          "delta_T": 0
+        },
+        {
+          "x": [
+            1,
+            1,
+            1,
+            3,
+            1,
+            1
+          ],
+          "Q": 3,
+          "v3_Q": 1,
+          "delta_T": 0
+        },
+        {
+          "x": [
+            1,
+            1,
+            1,
+            3,
+            2,
+            1
+          ],
+          "Q": 2,
+          "v3_Q": 0,
+          "delta_T": 0
+        }
+      ]
+    },
+    "classification": "TAUTOLOGICAL_CLASSICAL_SHADOW_WITH_EXACT_CANCELLATION_BOUNDARY"
+  },
+  "tool_reuse": {
+    "T1_SCALE_ENUMERATION_VALUATION": "REUSE_APPLIED",
+    "T3_TYPED_INCIDENCE_CIRCUIT": "REUSE_APPLIED_FOR_VALUATED_MATROID_TYPING_ONLY",
+    "T7_FINITE_SYMMETRY_EQUIVARIANCE": "REUSE_APPLIED",
+    "new_general_tool_family": "NONE"
+  },
+  "external_prior_art": [
+    {
+      "source": "Battistella et al., Buildings, valuated matroids, and tropical linear spaces, JLMS",
+      "url": "https://londmathsoc.onlinelibrary.wiley.com/doi/10.1112/jlms.12850",
+      "use": "valuated-matroid tropical minimum-attained-at-least-twice criterion"
+    }
+  ],
+  "terminal": {
+    "verdict": "NONTRIVIAL_SURVIVOR",
+    "hard_target_disposition": "P000_TROPICAL_PLUCKER_SURVIVOR_GEOMETRY_NONTRIVIAL_OR_TAUTOLOGICAL_BOUNDARY_EXACTLY_CLASSIFIED",
+    "collapse_interpretation_gate": "FAIL_NOT_PROVED",
+    "safe_claim": "delta_T is a new derived six-weight piecewise-linear classifier relative to the tested Johnson/Q_orb/rho coarse observables",
+    "forbidden_promotion": "do not call delta_T a native P000 collapse law, factorization mechanism, Foundation object, or full six-dimensional geometry"
+  }
+}
