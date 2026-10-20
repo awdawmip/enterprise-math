@@ -1,0 +1,80 @@
+{
+  "adaptive": {
+    "calibration_run": "R96-00/closed_band/threshold=256/repeat=0",
+    "formula": "open iff a>=32 and width*p >= 0.75 + 2*factor_base_size*0.125",
+    "full_relations": 3,
+    "laplace_posterior_relation_per_candidate": 0.00010817827780181739,
+    "observed_candidates": 36974,
+    "schema": "valley-adaptive-calibration-v1",
+    "training_split_only": true
+  },
+  "multiplier": {
+    "candidate_static_scores": {
+      "1": 1.4719951790869297,
+      "3": 1.5254013203099597,
+      "5": 1.8983149405505235,
+      "7": 1.5407703932398749,
+      "11": 1.5974129546276992,
+      "13": 1.99498972571389,
+      "15": 1.8061098687101216,
+      "17": 1.8199026422933997,
+      "19": 1.7166812961090816,
+      "21": 1.6879958813897062,
+      "23": 1.7600289879426576,
+      "29": 1.5295693680230122,
+      "31": 1.4487922963461655
+    },
+    "decision_inputs": "N, frozen candidates, static characters, and training pilot metrics only; no known factors",
+    "pilots": {
+      "5": {
+        "average_static_score": 1.8983149405505235,
+        "candidates": 12000,
+        "full_relations": 8,
+        "rank": 8,
+        "wall_seconds": 0.5909442000556737
+      },
+      "13": {
+        "average_static_score": 1.99498972571389,
+        "candidates": 12000,
+        "full_relations": 13,
+        "rank": 13,
+        "wall_seconds": 0.6097445997875184
+      },
+      "15": {
+        "average_static_score": 1.8061098687101216,
+        "candidates": 12000,
+        "full_relations": 5,
+        "rank": 5,
+        "wall_seconds": 0.5846465001814067
+      },
+      "17": {
+        "average_static_score": 1.8199026422933997,
+        "candidates": 12000,
+        "full_relations": 6,
+        "rank": 6,
+        "wall_seconds": 0.5903319001663476
+      },
+      "23": {
+        "average_static_score": 1.7600289879426576,
+        "candidates": 12000,
+        "full_relations": 1,
+        "rank": 1,
+        "wall_seconds": 0.5750281999353319
+      }
+    },
+    "schema": "valley-multiplier-training-v1",
+    "selected_multiplier": 13,
+    "static_top_k": [
+      13,
+      5,
+      17,
+      15,
+      23
+    ],
+    "training_ids": [
+      "R96-00",
+      "R96-01",
+      "R96-02"
+    ]
+  }
+}

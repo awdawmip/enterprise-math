@@ -1,0 +1,107 @@
+{
+  "schema": "valley-band-benchmark-environment-v1",
+  "generated_utc": "2026-08-23T11:44:00.2416564Z",
+  "researcher_id": "EM-VBBMK-A550CC",
+  "task_id": "RS-VALLEY-BAND-FACTORING-REPRODUCIBLE-BENCHMARK-ABLATION",
+  "owner_branch": "research/valley-band-factor-benchmark",
+  "hard_target": "VALLEY_BAND_FACTORING_RELATION_YIELD_AND_COST_MODEL_REPRODUCIBLY_CLASSIFIED",
+  "source_commit": "12725505c636449df7dd913ac06e581bf418b89c",
+  "locked_input": "research_inputs/VALLEY_BAND_PURE_STATE_AND_BENCHMARK_PACKET_20260823.md@f341b1347939e004e6d55c96e119c53337c0c9a0",
+  "global_knowledge_sync": "main@506eb72c7d409dafda4763403a0bba7c5cc28287",
+  "working_directory": "D:\\em\\lanes\\EM-VBBMK-A550CC",
+  "node_reuse_disclosure": {
+    "execution_node_reused": true,
+    "prior_work": "unrelated Lane1 completion",
+    "prior_lane_valley_prototype_source_or_performance_context": false,
+    "prior_lane_math_code_or_output_reused": false
+  },
+  "source_firewall": {
+    "source_prototype_read": false,
+    "source_conversation_read": false,
+    "source_diff_read": false,
+    "inputs_used": [
+      "GLOBAL_KNOWLEDGE canonical entry files",
+      "Enterprise Math TASK router",
+      "repository AGENTS.md",
+      "exact taskbook",
+      "single locked benchmark packet"
+    ]
+  },
+  "known_factor_firewall": {
+    "factor_fields_present_only_in_corpus_and_validation_lookup": true,
+    "passed_to_collector_or_run_spec": false,
+    "used_in_multiplier_relation_dependency_or_stopping_decisions": false,
+    "used_after_run_for_factor_correctness": true
+  },
+  "hardware": {
+    "cpu": "Intel(R) Core(TM) i5-4690K CPU @ 3.50GHz",
+    "physical_cores": 4,
+    "logical_processors": 4,
+    "max_clock_mhz": 3501,
+    "physical_memory_bytes": 17125679104
+  },
+  "software": {
+    "os": "Microsoft Windows 10 Enterprise",
+    "os_version": "10.0.19044",
+    "architecture": "64-bit",
+    "powershell": "7.6.5",
+    "python": "3.14.6 CPython MSC v.1944 64 bit",
+    "python_executable": "C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+    "git": "2.53.0.windows.1",
+    "external_native_qs_available": false,
+    "third_party_python_dependencies": []
+  },
+  "matrix_execution": {
+    "command": "python experiments\\valley_band_benchmark\\runner.py --matrix frozen",
+    "budget_seconds": 300.0,
+    "elapsed_seconds": 303.5011005999986,
+    "planned_rows": 80,
+    "completed_rows": 31,
+    "max_steps_rows": 22,
+    "timeout_rows": 9,
+    "error_rows": 0,
+    "not_run_budget_rows": 49,
+    "factor_rows": 0,
+    "executed_runner_sha256": "cf4807fc28ed2236d66cdd4f01d41e3ef647ecc12bde096de142992db9c3dbac",
+    "postfreeze_runner_change": "output-path-only patch to canonical evidence location; no matrix rerun",
+    "process_affinity_explicitly_pinned": false,
+    "timeout_granularity": "checked between orbit states; a single in-flight band can overrun"
+  },
+  "qs_context": {
+    "implementation": "python_spqs_context",
+    "role": "context only",
+    "language_difference": "NONE_CPYTHON_TO_CPYTHON",
+    "implementation_sha256": "0a7aff7e3093bc011bff93dae74940c618160a2567758cc03f5747d78d68877e",
+    "planned_rows": 4,
+    "executed_rows": 0,
+    "status": "NOT_RUN_BUDGET",
+    "native_qs_claim": false
+  },
+  "frozen_hashes_sha256": {
+    "frozen_config.json": "6970dce467be91d889413c026ff13bdfb79901c40a4a7d18ef75caea5c6edf24",
+    "corpus.py": "80f2bf621f54957794db1fd10eceee2ebf16df1a79422d0b113df1ed76cb6678",
+    "core.py": "580ecf77f5e8028beaae3570c4fea85818fea181276dfc515eae373eff0eec63",
+    "runner.py_at_execution": "cf4807fc28ed2236d66cdd4f01d41e3ef647ecc12bde096de142992db9c3dbac",
+    "runner.py_current_canonical_evidence_path": "8eca6bccbf34ddf16c80663fb85f4c59230a0b8ea7787b9161a63dad329d1924",
+    "verify.py": "c57a5e7f29147f606eb5c79988e90e9bafd9dd1beabc4ea668ab2f97799c6f1a",
+    "qs_context.py": "0a7aff7e3093bc011bff93dae74940c618160a2567758cc03f5747d78d68877e",
+    "aggregate.py": "b88d614c0aaf424d8b2131897bd95d1aac669a4251098cbc71bb5e5c7359930e",
+    "corpus_csv": "f8a9e71eca6bb81c93afeffbf8f0bf35c39c60144b7e997d252c9f24f1f1029c",
+    "runs_csv": "3988fb9fc13beab74037c2baaeec8e24f077cd742b3c3f4f1d71fe46c70c34eb",
+    "aggregates_csv": "964e423b9d4a250649e0bf5ee371a7a2c3b72b4c02d108410047d931ffb87ea7",
+    "canonical_evidence_jsonl": "2e9e141c267f4f616db5054a235d022fcfabdf8ad1d50cbfd420365b19465bf7",
+    "verification_json": "8ae201d659ff6f25882dc24c13fe0d761e0f209bb595604f419d4cd7eaef9f4b",
+    "verification_semantic_digest": "b6e20e176b721388ab004be26798bd38dec1d8a169bf7162a2a170bde01efc10",
+    "calibration_json": "f9b9f7fc2578e026bbb9438c26f85fcf9c649d05ea7ac1041b10572c6a6aeff2",
+    "main_report": "bd0d6c214c8342b14530dab9e4c03a19a84fb1b17fd499a405e50315f8a7160f",
+    "reducer_report": "7018d66ef8c2f0eb01d4fd1442683ce327c1e4d45d5c82fdf49e5d2ada0ca4a6",
+    "opening_cost_model": "a649dffa3016c1a8c03d8b7a415a536b5156fc7856c26aff367cca99856e57ab",
+    "validate_artifacts.py": "d0c3164a568bd961a21a5930d39140470faf9788c36bd4ad0e3ba175a059f87d"
+  },
+  "repository_state": {
+    "git_worktree_present_at_lane_root": false,
+    "commit_created": false,
+    "remote_publication_attempted": false,
+    "draft_pr_created": false
+  }
+}
