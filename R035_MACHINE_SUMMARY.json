@@ -1,0 +1,133 @@
+{
+  "schema": "R035_MACHINE_SUMMARY_V1",
+  "arm_id": "PROJECT",
+  "task_id": "RS-R035-POLYGONAL-REFINEMENT-ENDPOINT-DYNAMICS",
+  "researcher_id": "EM-R035-6F2A91",
+  "taskbook_source_commit": "58346f6a473f681730f3ffc2f70ff2d5de899a14",
+  "status": "DRAFT_RESEARCH_CHECKPOINT_NOT_CANONICAL",
+  "initial_checkpoint_preceded_deliberate_search": true,
+  "initial_checkpoint_path": "INITIAL_EXPLORATION_CHECKPOINT.md",
+  "first_deliberate_search_event": {
+    "at": "2026-08-12T13:24+08:00",
+    "kind": "GLOBAL_KNOWLEDGE_BOOTSTRAP",
+    "snapshot": "awdawmip/chatgpt-global-knowledge main@efd0c162b651055d484138465f37bd7e483a5066",
+    "effect": "process-level evidence and liveness discipline; no R035 theorem decomposition supplied"
+  },
+  "representations_explored": [
+    {"id": "LOWER_MAP_PLUS_HIT_BIT", "definition": "F(k)=L_s(rP_s(k)) with exact-hit bit h(k)", "status": "SURVIVED_PRIMARY"},
+    {"id": "DISCRIMINANT_Z_COORDINATE", "definition": "z_k=2(s-2)k-(s-4)", "status": "SURVIVED_PELL_EXACT_HIT_COORDINATE"},
+    {"id": "POSITIVE_INTERVAL_ENDPOINT_CARRIER", "definition": "(ell,u) representing S=[ell,u]", "domain": "r=2,3 positive default-root invariant family; r=4 has stronger closed forms", "status": "EXACT_FUTURE_SUFFICIENT_ON_DECLARED_DOMAIN"},
+    {"id": "SEPARATED_PARENT_FOREST", "definition": "ordered unary/binary child blocks with globally unique parent per child", "domain": "r>=4", "status": "EXACT"},
+    {"id": "BEATTY_ASYMPTOTIC_JUMP_LANGUAGE", "definition": "eventual lower jumps in {floor(sqrt(r)), floor(sqrt(r))+1}", "status": "EXACT_TWO_LETTER_ALPHABET; GENERAL_STURMIAN_IDENTIFICATION_NOT_CLAIMED"}
+  ],
+  "major_conjectures": [
+    {"claim": "supports stay adjacent/interval for all r", "outcome": "KILLED_AND_REPLACED_BY_IFF_R_LE_4"},
+    {"claim": "branching roughly doubles support", "outcome": "KILLED_BY_RECOALESCENCE; REPLACED_BY_EXACT_CARDINALITY_LAW"},
+    {"claim": "lower-map increment controls support geometry", "outcome": "SURVIVED_AND_BECAME_MAIN_COORDINATE"},
+    {"claim": "r=4 may be a structural boundary suggested by sqrt(r)=2", "outcome": "SURVIVED_AND_STRENGTHENED_TO_TWO_SHARP_CLASSIFICATIONS"}
+  ],
+  "killed_or_narrowed_claims": [
+    "persistent binary doubling",
+    "global all-r singleton interval support",
+    "origin-inclusive r=2,3 interval-to-interval theorem",
+    "task-novelty of generalized-Pell fixed-multiple arithmetic"
+  ],
+  "surviving_exact_laws": [
+    "P_s(k+1)-P_s(k)=(s-2)k+1",
+    "D_s(P_s(k))=(2(s-2)k-(s-4))^2",
+    "1 <= F(k+1)-F(k) <= r for all k>=0",
+    "for k>=1, F(k+1)-F(k) >= floor(sqrt(r))",
+    "only adjacent parents can share a child; overlap iff the left parent is non-hit and its lower jump is 1",
+    "|D(S)|=2|S|-H-C for finite S",
+    "universal no-recoalescence across distinct parents iff r=1 or r>=4",
+    "positive integer intervals map to integer intervals for r=2 and r=3",
+    "r=4: s=3 children {2k,2k+1}; s=4 child {2k}; s>=5 children {2k-1,2k}",
+    "universal singleton-root interval support for every s,k0,t iff r<=4",
+    "for every r>=5, s=r+1,k0=1 gives a two-step interval-failure witness",
+    "s=4: square r gives unary scaling; nonsquare r has no positive exact hits",
+    "exact hits satisfy z_m^2-r z_k^2=(1-r)(s-4)^2 with congruence z_m,z_k=-(s-4) mod 2(s-2)",
+    "for square r>1 and s!=4 there are finitely many positive exact-hit states",
+    "for nonsquare r and s!=4, a compatible positive exact hit implies infinitely many; the hit set is empty or infinite",
+    "for r>1 positive lower self-loops occur exactly at k=1,r<s or k=2,r=2,s>=4",
+    "for r>1 any finite support with positive maximum has strictly increasing maximum; no nontrivial finite positive cycle exists",
+    "with q=floor(sqrt(r)), lower jumps are eventually in {q,q+1}"
+  ],
+  "new_objects_or_coordinates": [
+    "lower map F_{s,r}",
+    "exact-hit indicator h(k)",
+    "ordered child block B(k)",
+    "discriminant lattice coordinate z_k",
+    "duplicate-edge excess C",
+    "positive interval endpoint carrier (ell,u)",
+    "separated parent forest",
+    "integer sufficient transient bound eventual_two_jump_start(s,r)"
+  ],
+  "result_classes": [
+    {"class": "R1_FROZEN", "condition": "r=1", "summary": "identity support dynamics"},
+    {"class": "R2_R3_INTERVAL_WITH_POSSIBLE_RECOALESCENCE", "condition": "r in {2,3}", "summary": "default positive singleton supports are exact intervals; parent collisions can occur"},
+    {"class": "R4_CRITICAL_DYADIC", "condition": "r=4", "summary": "complete closed forms; universal singleton intervals and universal parent separation both hold"},
+    {"class": "R_GE_5_SEPARATED_FOREST_WITH_GAPS_POSSIBLE", "condition": "r>=5", "summary": "no recoalescence; universal interval guarantee fails; cardinality driven only by exact-hit unary nodes"}
+  ],
+  "prior_art": [
+    {"source": "Chahal, Griffin, Priddis, arXiv:1806.07981", "classification": "ROOTED_COMPONENT", "overlap": "fixed-multiple polygonal equalities; generalized Pell and congruence mechanism"},
+    {"source": "Rozikov, Sattarov, Usmonov, arXiv:1503.07129", "classification": "RELATED_CONTROL_PRIOR_ART", "overlap": "deterministic floor(lambda x) dynamics"},
+    {"source": "Allouche, Dekking, arXiv:1809.03424", "classification": "RELATED_REPRESENTATION_PRIOR_ART", "overlap": "Beatty/generalized-Beatty sequences and two-letter first-difference language"},
+    {"source": "EnterpriseMath/Relation/BranchRecoalescence.lean", "classification": "PROJECT_ROOTED_GENERIC_SEMANTICS", "overlap": "exact relational direct image and support-preserving exact union/recoalescence"}
+  ],
+  "evidence_grades": {
+    "principal_structural_laws": "EXACT_PROOF_PLUS_EXECUTABLE_ATTACKS",
+    "oracle": "EXACT_INTEGER_PRIMARY_PLUS_INDEPENDENT_INTEGER_BINARY_SEARCH_HOLDOUT",
+    "bounded_atlas": "BOUNDED_EXHAUSTIVE_OR_ENUMERATED_OBSERVATION_ONLY",
+    "random_stress": "SEEDED_RANDOM_EXACT_INTEGER",
+    "prior_art": "ROOTED_BY_PUBLIC_ARXIV_AND_EXISTING_PROJECT_MODULE",
+    "general_beatty_identification_s_ne_4": "NOT_CLAIMED"
+  },
+  "exact_check_counts": {
+    "focused_unittest_cases": 25,
+    "independent_holdout_counted_checks": 321118,
+    "taskbook_one_step_sanity_triples_crosschecked_inside_holdout": 80400,
+    "depth10_sample_trajectories": 8400,
+    "depth10_sample_levels": 92400,
+    "package_manifest_sha256_entries_verified": 5
+  },
+  "parameter_ranges": {
+    "taskbook_one_step_sanity": {"s": [3, 12], "r": [1, 40], "k": [0, 200]},
+    "holdout_lower_index": {"s": [13, 90], "n_max": 100000000000000000000},
+    "holdout_parent_children": {"s": [13, 90], "r": [41, 160], "k_max": 10000000},
+    "holdout_jump_random": {"s": [13, 120], "r": [1, 200], "k_max": 10000000},
+    "holdout_r4": {"s_max": 150, "k_max": 100000000},
+    "holdout_r2_r3_default_orbits": {"s": [13, 44], "k0": [201, 280], "depth": 11}
+  },
+  "holdout_description": {
+    "status": "PASS",
+    "seed": 35035035,
+    "independence": "lower index recomputed by monotone integer binary search rather than discriminant/isqrt inversion",
+    "result_file": "holdout_results.json"
+  },
+  "bounded_atlas": {
+    "one_step_adjacent_overlap_counts": {"r=2": 1161, "r=3": 523, "r=1_or_r>=4": 0},
+    "depth10_sample": {
+      "trajectories": 8400,
+      "all_interval_through_depth10": 1280,
+      "fragmented_by_depth10": 7120,
+      "first_gap_depth_counts": {"2": 6618, "3": 457, "4": 45},
+      "max_support_cardinality": 1024
+    }
+  },
+  "new_questions": [
+    "reachable exact-hit/Pell-node statistics along a fixed root tree",
+    "general cardinality exponent for nonsquare r>=5",
+    "exact symbolic classification of the eventual two-letter jump word for s!=4",
+    "minimal future-sufficient run/gap carrier for separated r>=5 supports",
+    "sharp minimal transient K(s,r) for the two-letter jump alphabet",
+    "classification of long successive unary exact-hit chains",
+    "formal Lean replay of the principal arithmetic theorems"
+  ],
+  "sources_that_changed_direction": [
+    {"source": "EnterpriseMath/Relation/BranchRecoalescence.lean", "effect": "rooted generic set-union/relation semantics and clarified that the arithmetic no-recoalescence theorem is a reverse-functionality strengthening"},
+    {"source": "Chahal-Griffin-Priddis arXiv:1806.07981", "effect": "downgraded novelty claim of Pell exact-hit arithmetic to ROOTED COMPONENT while preserving support-dynamical residue"}
+  ],
+  "ci": "CI_NOT_REQUIRED_FOR_RESEARCH",
+  "hard_block": null,
+  "final_classification": "POLYGONAL_ENDPOINT_DYNAMICS_STRUCTURE_FOUND / SHARP_FACTOR_BOUNDARIES_AND_EXACT_CARRIERS_FROZEN / PELL_COMPONENT_PRIOR_ART_ROOTED / NOT_CANONICAL"
+}

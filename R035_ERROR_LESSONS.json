@@ -1,0 +1,41 @@
+{
+  "schema": "R035_ERROR_LESSONS_V1",
+  "task_id": "RS-R035-POLYGONAL-REFINEMENT-ENDPOINT-DYNAMICS",
+  "researcher_id": "EM-R035-6F2A91",
+  "productive_failures": [
+    {
+      "id": "R035-ERR-001",
+      "initial_claim": "Endpoint branching should approximately produce persistent binary doubling of support size.",
+      "status": "KILLED",
+      "minimal_or_early_witness": {
+        "s": 3,
+        "r": 2,
+        "parents": [3, 4],
+        "parent_children": {"3": [4, 5], "4": [5, 6]},
+        "shared_child": 5
+      },
+      "lesson": "Branch count and set-support count are different observables. The surviving exact law is |D(S)|=2|S|-H-C, where H counts exact-hit unary parents and C counts duplicate-edge excess from recoalescence."
+    },
+    {
+      "id": "R035-ERR-002",
+      "initial_claim": "Singleton-root endpoint supports may remain adjacent/interval for all refinement factors.",
+      "status": "KILLED_THEN_SHARPENED",
+      "first_witness_found": {"s": 3, "r": 5, "k0": 1, "S1": [2, 3], "S2": [5, 7, 8]},
+      "surviving_structure": "The universal property has a sharp exact classification: it holds for every s,k0,t iff r<=4. For every r>=5 a uniform witness is s=r+1,k0=1, whose S2 misses index 3."
+    },
+    {
+      "id": "R035-ERR-003",
+      "initial_claim": "The r=2,3 interval-to-interval statement should extend without qualification to intervals containing zero.",
+      "status": "NARROWED",
+      "witness": {"s": 3, "r": 3, "source_support": [0, 1], "target_support": [0, 2]},
+      "lesson": "The exact theorem is for positive parent intervals. The default singleton dynamics still has the universal interval property because k0=0 is separately fixed and positive roots never reach zero."
+    },
+    {
+      "id": "R035-ERR-004",
+      "initial_claim": "The generalized-Pell exact-hit reduction might constitute a task-new theorem family.",
+      "status": "PRIOR_ART_ABSORBED",
+      "root": "Chahal-Griffin-Priddis, arXiv:1806.07981",
+      "lesson": "Independent discovery should be retained in the exploration trace, but novelty status must be corrected after rooting. The task-specific residue is the endpoint-support dynamics built around the rooted arithmetic hit surface."
+    }
+  ]
+}
