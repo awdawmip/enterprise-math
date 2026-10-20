@@ -1,0 +1,106 @@
+{
+  "schema": "PRIME_FUSION_PHASE_EXTENSION_TARGETED_VERIFICATION_MANIFEST_V1",
+  "created_at": "2026-08-23T19:24:11.3662850+08:00",
+  "researcher_id": "EM-PFVEXT-B47C27",
+  "task_id": "RS-PRIME-FUSION-PHASE-EXTENSION-TARGETED-INDEPENDENT-VERIFICATION",
+  "hard_target": "PRIME_FUSION_PHASE_EXTENSION_T3_T6_T10_T11_INDEPENDENTLY_VERIFIED_OR_NARROWED_OR_REFUTED",
+  "workspace": "D:\\em\\lanes\\EM-PFVEXT-B47C27",
+  "owner_branch": "research/prime-fusion-phase-extension-targeted-verification",
+  "frozen_base_commit": "94f6222675abb38acf8ccfe15c9bc6df83b1f9da",
+  "node_reuse_disclosure": {
+    "node_reused_after_unrelated_highdim_completion": true,
+    "prior_lane_had_prime_fusion_source_proof": false,
+    "prior_lane_had_prime_fusion_checker": false,
+    "prior_lane_had_prime_fusion_narrative": false,
+    "prior_lane_artifacts_referenced_or_copied": false,
+    "statement": "The execution node was reused only after an unrelated high-dimensional task completed. No prior-lane mathematics, code, output, Prime Fusion source proof, checker, or narrative was used in this task."
+  },
+  "global_knowledge_sync": {
+    "status": "PASS",
+    "mode": "LEASE_REUSED",
+    "ref": "origin/main",
+    "sha": "506eb72c7d409dafda4763403a0bba7c5cc28287",
+    "dirty_checkout_preserved": true
+  },
+  "files_read": [
+    {
+      "path": "00_BOOTSTRAP.md",
+      "ref": "506eb72c7d409dafda4763403a0bba7c5cc28287",
+      "blob": "d145a40f1c939884d11a7553fcede0ea86561105",
+      "use": "account execution protocol only"
+    },
+    {
+      "path": "OPERATING_MANUAL.md",
+      "ref": "506eb72c7d409dafda4763403a0bba7c5cc28287",
+      "blob": "59fdb39f3a7ed044dadf49cca5c44ab1bfdea8e9",
+      "use": "account execution protocol only"
+    },
+    {
+      "path": "CODEX_SYNC_PROTOCOL.md",
+      "ref": "506eb72c7d409dafda4763403a0bba7c5cc28287",
+      "blob": "93692b53719ac476fa0132a6f01d49eaf7aa626f",
+      "use": "account synchronization protocol only"
+    },
+    {
+      "path": "projects/enterprise-math/00_EM_TASK_RESEARCHER_BOOTSTRAP.md",
+      "ref": "506eb72c7d409dafda4763403a0bba7c5cc28287",
+      "blob": "5daf49d2aeca07bd4b0dd82d90e1eea467a1c26a",
+      "use": "project task router only"
+    },
+    {
+      "path": "AGENTS.md",
+      "ref": "94f6222675abb38acf8ccfe15c9bc6df83b1f9da",
+      "blob": "bb0c06d83f0527762e3d30175661aa84c2430e47",
+      "use": "project execution router only"
+    },
+    {
+      "path": "research_tasks/PRIME_FUSION_PHASE_EXTENSION_TARGETED_INDEPENDENT_VERIFICATION_20260823.md",
+      "ref": "94f6222675abb38acf8ccfe15c9bc6df83b1f9da",
+      "blob": "bdbf8a56a783f92b378259b91f3fc82c53e155b0",
+      "use": "controlling taskbook"
+    },
+    {
+      "path": "research_inputs/PRIME_FUSION_PHASE_EXTENSION_TARGETED_VERIFICATION_PACKET_20260823.md",
+      "ref": "1054ebbf56ae0f9e3cce1e60d743875946d25e18",
+      "blob": "7386138e6df6af0d424a9d6933ad35d8c2f35ecc",
+      "use": "sole mathematical statement packet"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\.codex\\memories\\MEMORY.md",
+      "use": "operational lookup for the already mandated global-knowledge synchronization path; no Prime Fusion mathematical content used"
+    }
+  ],
+  "allowed_but_not_read": [
+    "definitions/ENTERPRISE_THREE_POSITIVE_AXIS_OVERLAPPING_CIRCLE_CELL_PLANE_20260820.md@be07e5d9af0ca428ae74c2807fdde586d0d665a3"
+  ],
+  "withheld_and_not_read": [
+    "Prime Fusion source proofs",
+    "Prime Fusion source checker",
+    "Prime Fusion source research narrative",
+    "later Prime Fusion package comparison or reconciliation notes"
+  ],
+  "independent_artifacts": [
+    {
+      "path": "experiments/prime_fusion_phase_extension_targeted_verification_checker.py",
+      "sha256": "f1dc858eaf76f1ee215562e242172b1d6a88095238c08c8182395bceb45a9d70"
+    },
+    {
+      "path": "research_output/evidence/PRIME_FUSION_PHASE_EXTENSION_TARGETED_VERIFICATION_CHECK_20260823.json",
+      "sha256": "38174f0de641c6337bb544a78132ab3f47b6bd6756319b086088555ecefe9c84"
+    }
+  ],
+  "checker_result": {
+    "status": "PASS",
+    "cell_bound": 80,
+    "root_modulus_cap": 5000,
+    "universal_modulus": 400,
+    "primitive_cells_checked_ordered": 3931,
+    "dual_prime_cells_checked_ordered": 318,
+    "composite_order_12_cells_checked_ordered": 3610,
+    "all_F_roots_small_moduli_checked": 621,
+    "full_root_unordered_cells_checked": 21
+  },
+  "firewall_status": "INTACT_BEFORE_RETURN_FREEZE",
+  "remote_publication_performed": false,
+  "source_reconciliation_performed": false
+}
