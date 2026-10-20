@@ -1,0 +1,46 @@
+{
+  "schema": "R030_META_TOOL_DELTA_V1",
+  "status": "RESEARCH_FEEDBACK_NOT_AUTO_PROMOTION",
+  "observed_compiler_failures_and_repairs": [
+    {
+      "id": "MTD-001",
+      "failure": "substring keyword trigger treated the tail of 'Boolean' as the token 'Lean'",
+      "repair": "token-boundary evidence parsing",
+      "registry_feedback": "trigger_signals that imply evidence grade must use typed lexical/structural parsers, not substring containment"
+    },
+    {
+      "id": "MTD-002",
+      "failure": "negated carrier declaration 'no Boolean result-support' was initially interpreted as a positive Boolean carrier declaration",
+      "repair": "negation-aware semantic extraction",
+      "registry_feedback": "carrier triggers need polarity/negation fixtures"
+    },
+    {
+      "id": "MTD-003",
+      "failure": "generic capabilities could satisfy minimum cover while omitting a historically critical specific guard",
+      "repair": "typed non-substitutable capabilities such as actual_module_coverage, declared_realized_split, finite_evidence_boundary and regime_partitioning",
+      "registry_feedback": "R029 composition/coverage schema should distinguish broad relatedness from exact obligation coverage"
+    },
+    {
+      "id": "MTD-004",
+      "failure": "a generic counterexample tool could substitute for full regime partitioning",
+      "repair": "REGIME_EXHAUSTION owns a regime_partitioning capability and kill-test axes include threshold equality, alignment islands, and degenerate/zero states",
+      "registry_feedback": "counterexample generation and regime exhaustion are composable but not interchangeable"
+    }
+  ],
+  "feedback_contract": {
+    "compiler_may_emit": [
+      "unknown_signature_fields",
+      "uncovered_required_capabilities",
+      "omitted_exact_candidate_ids",
+      "diagnostic_candidate_ids",
+      "mutation failures",
+      "keyword false-positive/false-negative fixtures"
+    ],
+    "compiler_must_not": [
+      "auto-promote a reasoning tool",
+      "change R029 trust class",
+      "retain a tool killed by R029 for metric preservation",
+      "convert an interpretive lens into exact evidence"
+    ]
+  }
+}
