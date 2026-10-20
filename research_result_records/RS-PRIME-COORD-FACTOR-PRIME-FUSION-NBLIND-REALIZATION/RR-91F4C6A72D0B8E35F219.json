@@ -1,0 +1,51 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "record_state": "FROZEN",
+  "research_result_id": "RR-91F4C6A72D0B8E35F219",
+  "task_id": "RS-PRIME-COORD-FACTOR-PRIME-FUSION-NBLIND-REALIZATION",
+  "task_publication_id": "TP2-064103C123D4486521E7",
+  "publication_state": "FROZEN",
+  "taskbook_path": "research_tasks/PRIME_COORD_FACTOR_PRIME_FUSION_NBLIND_REALIZATION_READY_AFTER_PCF1_20260827.md",
+  "taskbook_blob_sha1": "sha1:03f453db8c9c9e435e279c8901cc7bd9a9815ada",
+  "claim_id": "chatgpt-pcf6-20260828-1420-79ec8f",
+  "claim_ref": "issue:#240/comment:5449167187",
+  "researcher_id": "EM-PCF6-79EC8F",
+  "theorem_owner": "research/prime-coord-factor-prime-fusion-nblind-realization",
+  "execution_record_id": "ER-4E7A1D93B6C2058F4A11",
+  "execution_branch": "research/prime-coord-factor-prime-fusion-nblind-realization-em-pcf6-79ec8f",
+  "execution_branch_base": "84a62537dd5355db7a4b0e0d75072c5fc7a295bf",
+  "owner_head_at_freeze": "9cdd7ebc3604fbdde0f945ab54f6ce2f6e290094",
+  "output_manifest": [
+    {
+      "path": "research_returns/PRIME_COORD_FACTOR_PRIME_FUSION_NBLIND_REALIZATION_RETURN_20260827.md",
+      "git_blob_sha1": "sha1:f4d0bf4208f66d96af0938a515a11683fde435d0"
+    },
+    {
+      "path": "research_artifacts/PRIME_COORD_FACTOR_PRIME_FUSION_NBLIND_REALIZATION/EVIDENCE_REPORT.md",
+      "git_blob_sha1": "sha1:ffe15449b5f49318c1f50bcd58241d9230e5d5d2"
+    },
+    {
+      "path": "scripts/check_prime_coord_factor_prime_fusion_nblind_realization.py",
+      "git_blob_sha1": "sha1:b088707bee61276917d40aff10d31e6145f27cef"
+    },
+    {
+      "path": "scripts/check_prime_coord_factor_prime_fusion_nblind_realization_independent.py",
+      "git_blob_sha1": "sha1:cbc34a9c36238762480ec6e25fb983c31108a5a0"
+    }
+  ],
+  "conclusion": "FUNCTORIAL_REALIZATION_OBSTRUCTED at corrected rank-2 mixed-carrier scope. The universal quartic algebra A_H=(Z/HZ)[X]/((X^2+1)(X^2+X+1)) and multiplication-by-X operator are canonical and N-blind, but any exact free-rank-2 operator whose p-component has characteristic polynomial X^2+1 and q-component has X^2+X+1 exposes the nontrivial CRT selector c=-tr(T), with gcd(c,H)=p. Conversely that selector constructs the exact mixed carrier X^2+cX+1. Thus corrected oriented mixed realization is equivalent at this layer to producing a nontrivial idempotent/factor split.",
+  "limitation": "No factorization speedup or lower bound is claimed. The obstruction does not exclude genuinely H-dependent algorithms that construct a new asymmetry from H itself. Ambient fixed polynomial determinant probes are shown synchronized/fixed-resultant only; the root-count-4 coincidence family is a set-level degeneracy, not a general channel-labelled descent.",
+  "exact_replay": {
+    "primary_command": "python scripts/check_prime_coord_factor_prime_fusion_nblind_realization.py",
+    "primary_assertion": "Exit code 0 and stdout exactly: PCF6_CHECK_PASS source_pairs=412 public_profiles=412 selectors=412 root_classes=4:144,8:224,16:44 pressure=PASS trace_split=PASS ambient_sync=PASS",
+    "independent_command": "python scripts/check_prime_coord_factor_prime_fusion_nblind_realization_independent.py",
+    "independent_assertion": "Exit code 0 and stdout exactly: PCF6_INDEPENDENT_PASS algebraic_pairs=432 root_classes=4:144,8:216,16:72 selector_equivalence=PASS fixed_cyclotomic_sync=PASS pressure=PASS"
+  },
+  "terminal_verdict": "FUNCTORIAL_REALIZATION_OBSTRUCTED",
+  "hard_target_disposition": "ACHIEVED / PRIME_FUSION_NBLIND_REALIZATION_PROVED_OR_NO_GO / EXACT_TRACE_IDEMPOTENT_OBSTRUCTION",
+  "unresolved_residue": "N_ONLY_NONTRIVIAL_IDEMPOTENT_OR_EQUIVALENT_SELECTOR_GENERATOR; broader genuinely H-dependent observable classes remain open",
+  "method_harvest": "NO_TOOL_PAYLOAD / RESULT_ONLY",
+  "prior_art_disposition": "TASK_LOCAL_ALGEBRAIC_DERIVATION / NO_NOVELTY_CLAIM",
+  "driver_review_required": true,
+  "next_control_plane_recommendation": "Driver review the ambient N-blind CRT descent and the basis-independent trace-selector equivalence together. If accepted, close PCF6 at task scope and permit successors only for an admissible H-dependent N-only asymmetry generator or a materially broader H-dependent obstruction; do not reopen finite root census or treat M_pq, a pointed root, or a nontrivial idempotent as constructor input."
+}
