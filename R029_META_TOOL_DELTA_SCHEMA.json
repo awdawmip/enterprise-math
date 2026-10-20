@@ -1,0 +1,74 @@
+{
+  "schema_version": "R029_META_TOOL_DELTA_V1",
+  "principle": "A task may legitimately return no meta-tool delta. Empty arrays are signal, not failure.",
+  "fields": {
+    "new_tool": {
+      "type": "array",
+      "item_fields": [
+        "id",
+        "trust_class",
+        "typed_contract",
+        "evidence",
+        "source_task"
+      ]
+    },
+    "strengthened_tool": {
+      "type": "array",
+      "item_fields": [
+        "id",
+        "old_scope",
+        "new_scope",
+        "new_evidence"
+      ]
+    },
+    "narrowed_tool": {
+      "type": "array",
+      "item_fields": [
+        "id",
+        "old_scope",
+        "new_scope",
+        "counterexample_or_boundary"
+      ]
+    },
+    "killed_tool": {
+      "type": "array",
+      "item_fields": [
+        "id",
+        "kill_test",
+        "replacement_if_any"
+      ]
+    },
+    "new_trigger": {
+      "type": "array",
+      "item_fields": [
+        "tool_id",
+        "signal",
+        "false_positive_fixture",
+        "false_negative_fixture"
+      ]
+    },
+    "new_counterexample": {
+      "type": "array",
+      "item_fields": [
+        "tool_id",
+        "claim_killed_or_narrowed",
+        "witness",
+        "search_class"
+      ]
+    },
+    "composition_rule": {
+      "type": "array",
+      "item_fields": [
+        "left",
+        "right",
+        "class",
+        "conditions",
+        "counterexample_if_invalid"
+      ]
+    }
+  },
+  "evidence_boundary": {
+    "allowed_to_upgrade_registry": "Only after independent evidence matching the target tool trust class.",
+    "forbidden": "A diagnostic/lens output may not self-certify its own promotion."
+  }
+}
