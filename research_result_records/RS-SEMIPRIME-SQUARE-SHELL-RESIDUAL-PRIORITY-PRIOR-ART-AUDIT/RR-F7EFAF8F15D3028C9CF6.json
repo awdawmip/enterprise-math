@@ -1,0 +1,49 @@
+{
+  "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+  "result_id": "RR-F7EFAF8F15D3028C9CF6",
+  "task_id": "RS-SEMIPRIME-SQUARE-SHELL-RESIDUAL-PRIORITY-PRIOR-ART-AUDIT",
+  "publication_id": "TP2-6F3C9418A72D0E5B31C4",
+  "execution_record_id": "ER-6F509DF47B28ED025884",
+  "claim_id": "chatgpt-ssmfpa-20260829-1744-b7c914",
+  "taskbook_path": "research_tasks/SEMIPRIME_SQUARE_SHELL_RESIDUAL_PRIORITY_PRIOR_ART_AUDIT_20260829.md",
+  "taskbook_blob_sha1": "sha1:0380cb05d4b551b7773bb126fe8eb2e0b5bf0b9d",
+  "execution_branch": "research/semiprime-square-shell-residual-priority-prior-art-audit-em-ssmfpa-b7c914",
+  "execution_branch_base": "4493dc003933faea4c32d8c48ddf30340bb40f7e",
+  "return_path": "research_returns/SEMIPRIME_SQUARE_SHELL_RESIDUAL_PRIORITY_PRIOR_ART_AUDIT_RETURN_20260829.md",
+  "return_blob_sha1": "sha1:8ffd66bfa3041e926d09b89fd74b4005abe37aaf",
+  "return_sha256": "sha256:7ee3fc77b36e5d1f9c0c5b0b286f7c4b8cd2c9705cd5968ab6753f61148cec14",
+  "owner_head": "1848175a461e73d8cf4b9d529786be67bec10b31",
+  "researcher_id": "EM-SSMFPA-B7C914",
+  "frozen_at": "2026-08-29T09:58:00+00:00",
+  "terminal_verdict": "EXTERNAL_DUPLICATION_BOUNDARY_CLASSIFIED",
+  "hard_target_disposition": "Classical shell/Fermat, QR filtering, and multiplier near-square residuals are exact prior-art duplicates at the audited claim strength; the exact finite-window normalized score e_k/(2*x_k-1) was not located as a multiplier-priority rule in the frozen audited set, explicitly without novelty inference.",
+  "unresolved_residue": "C5_NORMALIZED_RESIDUAL_PRIORITY remains only NO_MATERIAL_MATCH_IN_AUDITED_SET and the parent's empirical FINITE_WINDOW_RESIDUAL_PRIORITY_HEURISTIC / NOT_A_FACTORIZATION_RESULT; total-cost value belongs to the separate Hart streaming-cost audit.",
+  "output_manifest": [
+    {
+      "path": "research_returns/SEMIPRIME_SQUARE_SHELL_RESIDUAL_PRIORITY_PRIOR_ART_AUDIT_RETURN_20260829.md",
+      "git_blob_sha1": "sha1:8ffd66bfa3041e926d09b89fd74b4005abe37aaf",
+      "sha256": "sha256:7ee3fc77b36e5d1f9c0c5b0b286f7c4b8cd2c9705cd5968ab6753f61148cec14"
+    },
+    {
+      "path": "research_artifacts/SEMIPRIME_SQUARE_SHELL_RESIDUAL_PRIORITY_PRIOR_ART_AUDIT/prior_art_ledger_20260829.json",
+      "git_blob_sha1": "sha1:8532dd275bd2b2508f1d8aca7fba66e5862452c3",
+      "sha256": "sha256:aaecb2098e9f9dec060e14c6dce8901ae70be25dd1e2a1bca5455929d3faea62"
+    },
+    {
+      "path": "research_checks/SEMIPRIME_SQUARE_SHELL_RESIDUAL_PRIORITY_PRIOR_ART_AUDIT_CHECK_20260829.py",
+      "git_blob_sha1": "sha1:565efc9513181977751c80d0d58586e10714ee96",
+      "sha256": "sha256:9ec67aa3f37b740e115dfcb4266d23b93ddf871f96318baf7d55c5f30bb01035"
+    },
+    {
+      "path": "research_execution_records/RS-SEMIPRIME-SQUARE-SHELL-RESIDUAL-PRIORITY-PRIOR-ART-AUDIT/ER-6F509DF47B28ED025884.json",
+      "git_blob_sha1": "sha1:afdd475f8057e8d28192858f0b32852193d68d37",
+      "sha256": "sha256:23e883d6317d00b3a73efbe43cf7648bf768bf571a7a52bd181a5a862e977263"
+    }
+  ],
+  "method_harvest": "RESULT_ONLY",
+  "independence_status": "EXTERNAL_PRIOR_ART_AUDIT_OF_ACCEPTED_PARENT_RESULT",
+  "source_exposure_status": "NONBLIND_PRIMARY_AND_AUTHORITATIVE_SOURCE_SEARCH",
+  "checker_status": "PASS claims=7 sources=7 phase_cases=15750",
+  "next_control_plane_recommendation": "Driver-review and accept the external duplication boundary. Freeze Fermat/QR/multiplier residual as prior art; retain the exact normalized residual-priority score only as NO_MATERIAL_MATCH_IN_AUDITED_SET and never as novelty. Do not reopen this audit by notation changes; route total-cost evaluation only through the separate Hart streaming-cost task.",
+  "driver_review_required": true
+}
