@@ -1,0 +1,58 @@
+{
+  "schema":"R032_EXPLORATION_MUSE_REGISTRY_V1",
+  "researcher_id":"EM-R032-MUSE71",
+  "task_id":"RS-R032-EXPLORATION-MUSE-ERROR-INHERITANCE",
+  "status":"RESEARCH_NOT_CANONICAL",
+  "default_state":"TOOLS_DORMANT",
+  "trigger_contract":{
+    "allowed":["STUCK","NEED_NEW_IDEAS","SEARCH_TOOL_LIBRARY","EXPLICIT_ANALOGY_REQUEST","EXPLICIT_DIFFERENT_DIRECTIONS_REQUEST"],
+    "forbidden":["TASKBOOK_PRESELECTION","SEMANTIC_SIGNATURE_PRESELECTION","HISTORICAL_GOLD_PRESELECTION","AUTOMATIC_CLAIM_CHALLENGE","UNREQUESTED_CORRECTION"]
+  },
+  "selection_policy":{
+    "startup":"FORBIDDEN_IN_THEORY_EXPLOSION",
+    "runtime":"PULL_ONLY_AFTER_EXPLICIT_RESEARCHER_REQUEST",
+    "objective":"EXPLORATION_BRANCH_DIVERSITY_NOT_CORRECTNESS_RANKING",
+    "nearest_neighbor_only":false,
+    "shelves":["Tool Shelf","Analogy Shelf","Mutation Shelf","Strange Tool / serendipity"]
+  },
+  "tool_shelf":[
+    {"id":"STATE_CARRIER_REPRESENTATION_RESOURCE_SPLIT","layer":"ONTOLOGY","question":"What object actually evolves, and which fields are semantics versus representation/resource?","may_generate":["typed carrier","representation boundary","resource profile"],"historical_failures":["R020","R022"],"near_neighbors":["BOOLEAN_COUNT_PROVENANCE_CARRIER_SPLIT","STATIC_CORRECT_NOT_DYNAMIC_STATE"],"far_neighbors":["ANALOGY_GAUGE_COORDINATE","STRANGE_MODEL_THEORY_COMPACTNESS"]},
+    {"id":"BOOLEAN_COUNT_PROVENANCE_CARRIER_SPLIT","layer":"ONTOLOGY","question":"Are existence, multiplicity and identity being conflated?","may_generate":["support carrier","count carrier","provenance carrier"],"historical_failures":["R020","R022"],"near_neighbors":["STATE_CARRIER_REPRESENTATION_RESOURCE_SPLIT","ONE_STEP_EXACT_NOT_COMPOSITION_SAFE"],"far_neighbors":["ANALOGY_ERROR_CORRECTING_SYNDROME","STRANGE_NONCOMMUTATIVE_ORDER"]},
+    {"id":"STATIC_CORRECT_NOT_DYNAMIC_STATE","layer":"DYNAMIC","question":"Does this exact current statistic close under the declared future?","may_generate":["dynamic closure condition","future signature"],"historical_failures":["R020"],"near_neighbors":["ONE_STEP_EXACT_NOT_COMPOSITION_SAFE","FUTURE_LANGUAGE_RELATIVITY"],"far_neighbors":["ANALOGY_AUTOMATA_MINIMIZATION","ANALOGY_SHEAF_LOCAL_GLOBAL"]},
+    {"id":"ONE_STEP_EXACT_NOT_COMPOSITION_SAFE","layer":"DYNAMIC","question":"What information is needed only after the second composition?","may_generate":["composition witness","middle-incidence object"],"historical_failures":["R020","R027"],"near_neighbors":["STATIC_CORRECT_NOT_DYNAMIC_STATE","FUTURE_LANGUAGE_RELATIVITY"],"far_neighbors":["ANALOGY_SHEAF_LOCAL_GLOBAL","STRANGE_SPECTRAL_SEQUENCE"]},
+    {"id":"FUTURE_LANGUAGE_RELATIVITY","layer":"MODAL","question":"Relative to which remaining operations or observations is equality safe?","may_generate":["declared future language","suffix signature","horizon split"],"historical_failures":["R020","R022","R028"],"near_neighbors":["FACTOR_THROUGH_COMPLETE_ENCODING","NO_RESURRECTION_CHECK"],"far_neighbors":["ANALOGY_AUTOMATA_MINIMIZATION","STRANGE_MODEL_THEORY_COMPACTNESS"]},
+    {"id":"FACTOR_THROUGH_COMPLETE_ENCODING","layer":"MODAL","question":"Can every required future output factor through this encoding?","may_generate":["kernel inclusion","factorization certificate"],"historical_failures":["R020","R022"],"near_neighbors":["FUTURE_LANGUAGE_RELATIVITY","NO_RESURRECTION_CHECK"],"far_neighbors":["ANALOGY_CONTROL_OBSERVABILITY","ANALOGY_ERROR_CORRECTING_SYNDROME"]},
+    {"id":"NO_RESURRECTION_CHECK","layer":"DYNAMIC","question":"Can a distinction forgotten here become required later?","may_generate":["irreversibility boundary","rewind requirement"],"historical_failures":["R022","R028"],"near_neighbors":["FUTURE_LANGUAGE_RELATIVITY","FACTOR_THROUGH_COMPLETE_ENCODING"],"far_neighbors":["STRANGE_SPECTRAL_SEQUENCE","ANALOGY_CONTROL_OBSERVABILITY"]},
+    {"id":"ROOT_COVERAGE_EVIDENCE_CHECK","layer":"EPISTEMIC","question":"Did the cited validation actually execute the claimed object?","may_generate":["coverage certificate","validation provenance"],"historical_failures":["R023I"],"near_neighbors":["CLAIM_EVIDENCE_GRADE_CHECK"],"far_neighbors":["ANALOGY_ERROR_CORRECTING_SYNDROME","STRANGE_MODEL_THEORY_COMPACTNESS"]},
+    {"id":"CLAIM_EVIDENCE_GRADE_CHECK","layer":"EPISTEMIC","question":"What evidence grade is actually justified?","may_generate":["claim/evidence split"],"historical_failures":["R025","R027"],"near_neighbors":["ROOT_COVERAGE_EVIDENCE_CHECK","QUANTIFIER_SCOPE_CHECK"],"far_neighbors":["ANALOGY_PHASE_TRANSITION","STRANGE_GENERATING_FUNCTION"]},
+    {"id":"PRIOR_ART_REDUCTION","layer":"REDUCTION","question":"Which part roots to prior art and which residue remains project-specific?","may_generate":["rooted component","project residue"],"historical_failures":["R022"],"near_neighbors":["CLAIM_EVIDENCE_GRADE_CHECK","NECESSARY_SUFFICIENT_SPLIT"],"far_neighbors":["ANALOGY_GAUGE_COORDINATE","STRANGE_MORSE_THEORY"]},
+    {"id":"COUNTEREXAMPLE_MINIMIZATION","layer":"GENERATOR","question":"Can the failure be reduced to a smaller witness without changing its mechanism?","may_generate":["minimal witness","failure mechanism"],"historical_failures":["R020","R025","R028"],"near_neighbors":["REGIME_EXHAUSTION","QUANTIFIER_SCOPE_CHECK"],"far_neighbors":["STRANGE_MODEL_THEORY_COMPACTNESS","ANALOGY_MATROID_BASIS"]},
+    {"id":"REGIME_EXHAUSTION","layer":"GENERATOR","question":"Which exact regimes survive after the universal claim fails?","may_generate":["phase split","boundary atlas"],"historical_failures":["R025","R027"],"near_neighbors":["COUNTEREXAMPLE_MINIMIZATION","QUANTIFIER_SCOPE_CHECK"],"far_neighbors":["ANALOGY_PHASE_TRANSITION","STRANGE_GENERATING_FUNCTION"]},
+    {"id":"QUANTIFIER_SCOPE_CHECK","layer":"QUANTIFIER","question":"Which quantifier or domain extension created the overclaim?","may_generate":["scope boundary","weaker theorem"],"historical_failures":["R025","R027"],"near_neighbors":["NECESSARY_SUFFICIENT_SPLIT","CLAIM_EVIDENCE_GRADE_CHECK"],"far_neighbors":["STRANGE_MODEL_THEORY_COMPACTNESS","ANALOGY_PHASE_TRANSITION"]},
+    {"id":"NECESSARY_SUFFICIENT_SPLIT","layer":"QUANTIFIER","question":"Is the condition necessary, sufficient, or exact?","may_generate":["necessity witness","sufficiency witness"],"historical_failures":["R020","R028"],"near_neighbors":["QUANTIFIER_SCOPE_CHECK","PRIOR_ART_REDUCTION"],"far_neighbors":["ANALOGY_MATROID_BASIS","STRANGE_NONCOMMUTATIVE_ORDER"]},
+    {"id":"CAUSAL_PREDICTIVE_RETROSPECTIVE_RELEVANCE_SPLIT","layer":"CAUSAL","question":"Is this attribution causal, predictive, retrospective, or descriptive?","may_generate":["credit type","counterfactual target"],"historical_failures":["R028"],"near_neighbors":["CLAIM_EVIDENCE_GRADE_CHECK","FUTURE_LANGUAGE_RELATIVITY"],"far_neighbors":["ANALOGY_CONTROL_OBSERVABILITY","STRANGE_NONCOMMUTATIVE_ORDER"]}
+  ],
+  "tool_metadata_defaults":{"inspiration_examples":"derive question shapes, never prescribe answers","phase_suitability":{"THEORY_EXPLOSION":"MUSE_ONLY","THEORY_CONSOLIDATION":"PULL_OR_TARGETED_DIAGNOSTIC","CANONICALIZATION":"VALIDATION_IF_APPLICABLE"}},
+  "analogy_shelf":[
+    {"id":"ANALOGY_PHASE_TRANSITION","domain":"statistical_physics","prompt":"Treat an exception as a possible phase boundary; search for an order parameter or microphase coordinate."},
+    {"id":"ANALOGY_SHEAF_LOCAL_GLOBAL","domain":"geometry_topology","prompt":"Ask whether locally valid summaries fail to glue globally; the obstruction may be the new object."},
+    {"id":"ANALOGY_AUTOMATA_MINIMIZATION","domain":"theoretical_cs","prompt":"View future-safe equality as indistinguishability by continuation language rather than current-output equality."},
+    {"id":"ANALOGY_GAUGE_COORDINATE","domain":"mathematical_physics","prompt":"Separate coordinate choice from invariant content; a failed scalar may be coordinate-dependent."},
+    {"id":"ANALOGY_MATROID_BASIS","domain":"combinatorics","prompt":"Ask whether the residue is a family of interchangeable bases rather than a unique feature set."},
+    {"id":"ANALOGY_CONTROL_OBSERVABILITY","domain":"control_theory","prompt":"Treat missing future distinctions as an observability problem."},
+    {"id":"ANALOGY_TROPICALIZATION","domain":"algebraic_geometry","prompt":"Replace magnitudes by valuation/order structure and ask what combinatorial skeleton survives."},
+    {"id":"ANALOGY_ERROR_CORRECTING_SYNDROME","domain":"information_theory","prompt":"Treat a compact signature as a syndrome that routes continuation without reconstructing full state."}
+  ],
+  "mutation_shelf":[
+    {"id":"MUTATE_CARRIER","axis":"carrier"},{"id":"MUTATE_OBSERVABLE","axis":"observable"},{"id":"MUTATE_HORIZON","axis":"horizon"},{"id":"MUTATE_DIRECTION","axis":"direction"},{"id":"MUTATE_ASSUMPTION","axis":"assumption"},{"id":"MUTATE_SEMANTICS","axis":"semantics"},{"id":"MUTATE_SCALE","axis":"scale"},{"id":"MUTATE_COORDINATE","axis":"coordinate"}
+  ],
+  "strange_tools":[
+    {"id":"STRANGE_SPECTRAL_SEQUENCE","domain":"homological_algebra"},{"id":"STRANGE_MORSE_THEORY","domain":"differential_topology"},{"id":"STRANGE_GENERATING_FUNCTION","domain":"analytic_combinatorics"},{"id":"STRANGE_MODEL_THEORY_COMPACTNESS","domain":"model_theory"},{"id":"STRANGE_NONCOMMUTATIVE_ORDER","domain":"operator_algebra"}
+  ],
+  "phase_policy":{
+    "THEORY_EXPLOSION":{"startup_tools":"DORMANT","muse":"PULL_ONLY","claim_adversary":"OFF_BY_DEFAULT","post_error_compiler":"ON_AFTER_RESEARCHER_ACCEPTED_FAILURE","shoulder_search":"ON_AFTER_FAILURE_STRUCTURE_EXISTS","objective":"branching_and_productive_failure"},
+    "THEORY_CONSOLIDATION":{"startup_tools":"LIMITED_TO_EXPLICIT_VALIDATION_CONTRACT","muse":"PULL_ONLY","claim_adversary":"TARGETED","post_error_compiler":"ON","shoulder_search":"ON","objective":"structure_comparison_and_boundary_stability"},
+    "CANONICALIZATION":{"startup_tools":"VALIDATION_AND_STATUS_GATES_ALLOWED","muse":"NONBLOCKING_OPTIONAL","claim_adversary":"STRONG","post_error_compiler":"SECONDARY","shoulder_search":"SECONDARY","objective":"proof_evidence_prior_art_status_integrity"}
+  },
+  "disclaimer":"ANALOGY_IS_GENERATOR_NOT_EVIDENCE. Shelf order is not a correctness ranking."
+}
