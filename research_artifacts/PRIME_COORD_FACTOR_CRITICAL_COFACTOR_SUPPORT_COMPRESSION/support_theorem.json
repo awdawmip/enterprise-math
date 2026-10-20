@@ -1,0 +1,67 @@
+{
+  "schema": "PCF5_CRITICAL_COFACTOR_SUPPORT_COMPRESSION_CERTIFICATE_V1",
+  "task_id": "RS-PRIME-COORD-FACTOR-CRITICAL-COFACTOR-SUPPORT-COMPRESSION",
+  "publication_id": "TP2-DBFC9A296E6085FF8B38",
+  "researcher_id": "EM-PCF5-3432B6",
+  "claim_id": "chatgpt-pcf5-20260829-0036-3432b6",
+  "primary_verdict": "RESTRICTED_SUPPORT_COMPRESSION_PROVED",
+  "layer": {
+    "m_rule": "m_kappa(N)=max(2,min{m>=1:m^6>=kappa*N})",
+    "L_m": "m+2",
+    "U_m": "m^3+m+1",
+    "cell": "C_ij={1+i+m*j+k*m^2:0<=k<m}, 1<=i,j<=m",
+    "support": "F_N^(kappa)={(i,j):1<=i,j<=m}",
+    "partition_theorem": "[L_m,U_m]∩Z is the disjoint union of all C_ij",
+    "visibility_theorem": "prime p is visible in layer m iff p<=U_m"
+  },
+  "coverage": {
+    "condition": "P_plus(N)^2 <= kappa*N",
+    "semiprime_specialization": "N=pq, p<=q, q/p<=kappa",
+    "prime_powers": "all p^e with e>=2 for kappa>=1",
+    "multifactor": "all composites with P_plus(N)<=sqrt(kappa*N)"
+  },
+  "bounds": {
+    "support_exact": "m^2",
+    "support_upper": "kappa^(1/3)N^(1/3)+2kappa^(1/6)N^(1/6)+1",
+    "bitlength_form": "O_kappa(2^(n/3)), n=ceil(log2 N)",
+    "construction": "~O(m^2) ring ops using product tree plus monic multipoint evaluation",
+    "bit_complexity": "~O(m^2*M(n)) where M(n) is n-bit multiplication complexity"
+  },
+  "batch_interface": {
+    "polynomial": "P_m(X)=prod_{k=0}^{m-1}(X+1+k*m^2) mod N",
+    "evaluation_points": "{i+m*j:1<=i,j<=m}={m+1,...,m^2+m}",
+    "cell_residue": "A_ij mod N = P_m(i+m*j) mod N",
+    "factor_test": "gcd(P_m(i+m*j),N)",
+    "gcd_equals_N_repair": "binary product/gcd descent within that one m-point cell"
+  },
+  "failure_boundary": {
+    "theorem": "p>U_m implies p divides no cell product in layer m",
+    "counterexample": {
+      "N": 2018,
+      "factorization": [
+        2,
+        1009
+      ],
+      "kappa": 4,
+      "m": 5,
+      "L_m": 7,
+      "U_m": 131,
+      "visible_factor_coordinate": {
+        "p": 2,
+        "i": 2,
+        "j": 1,
+        "witness_multiple": 8
+      },
+      "invisible_factor": 1009
+    },
+    "uniform_full_layer_no_go": "For N=2q with q~N/2, all-prime visibility forces m=Omega(N^(1/3)) and m^2=Omega(N^(2/3))."
+  },
+  "regression": {
+    "command": "./scripts/check_prime_coord_factor_critical_cofactor_support_compression.py",
+    "stdout": "PCF5_SUPPORT_CHECK_PASS partition_cases=8 visibility_cases=354 polynomial_cases=450 sufficient_family_cases=5224 visible_family_extract_cases=6600 counterexample=N2018_kappa4_q1009_outside_U131",
+    "scope": "finite regression only; analytic theorems are proved in the return"
+  },
+  "parent_all_m_status": "UNRESOLVED_EXACT_FRONTIER; not used as a premise for this support theorem",
+  "pcf1_firewall": "constructor uses only N and precommitted public kappa; hidden factors appear only proof-side",
+  "driver_recommendation": "Accept restricted-family support theorem; benchmark it; preserve p>U_m as the exact no-overclaim regression guard."
+}
