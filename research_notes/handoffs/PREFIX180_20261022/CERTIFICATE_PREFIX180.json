@@ -1,0 +1,100 @@
+{
+  "BRC": "Boolean support only; no multiplicity, weight, path or phase preservation",
+  "Q0": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    51,
+    64,
+    71,
+    74
+  ],
+  "Q_size": 9,
+  "R_size": 45,
+  "authority": "Owner/CLAIM unknown; actual gateway em_control_tasks CONTROL_QUOTA; Gateway status research_authority_granted=false; remote Source admission not asserted.",
+  "date": "2026-10-22",
+  "deletion": [
+    1,
+    2,
+    64
+  ],
+  "enterprise_math_main": "dd31d08d4aeed7c69db45fad7438dcc55a311318",
+  "global_knowledge_main": "4a635ff6dd2f430d2fe18ab45d78e321b28b42c6",
+  "input_bytes": 1823175,
+  "input_rows": 67525,
+  "input_sha256": "7f302feb732c704e383d2aaf1df690ef62508364e75f6262612a4bd1222517ef",
+  "model": "BOOLEAN_BRC_AUXILIARY_FOUR_INTEGER_COORDINATES_NOT_P000_NATIVE_X6",
+  "primary": {
+    "NO": 67525,
+    "UNKNOWN": 0,
+    "YES": 0,
+    "base_uncovered_range": [
+      181,
+      217
+    ],
+    "exit_code": 0,
+    "log_sha256": "59bf9e609a8ee1ab05a02e9a2d8e3a41056b68fa252229fdac14ab13343645db",
+    "max_nodes": 1003,
+    "min_nodes": 1,
+    "nodes_total": 146189
+  },
+  "question": "Does a size <= 11 X4 completion exist for D={1,2,64} replaced by any outside 3-subset?",
+  "required_W_lower_bound": 12,
+  "schema": "EM_PREFIX180_AUTHOR_CHECKED_FINITE_CENSUS_V1",
+  "scope": "AUTHOR_CHECKED_COMPUTER_ASSISTED_FINITE_PROOF; global beta_4(8) lower bound NOT proved; per-Q exact 66 NOT proved; P000 native six-axis/slice lift NOT proved",
+  "second": {
+    "NO": 67525,
+    "YES": 0,
+    "exit_code": 0,
+    "log_sha256": "b7d6be707233ad4f3d655160c480df7424b3e911a54d54b76c58877bce1f5fd2",
+    "max_nodes": 1003,
+    "nodes_total": 146189
+  },
+  "symmetry": {
+    "group_order": 4,
+    "new_configurations": 270092,
+    "new_union": 2331754,
+    "old_union": 2061662,
+    "orbit_size": 270100,
+    "overlap": 8,
+    "pairwise_intersections": {
+      "0-1": 0,
+      "0-2": 0,
+      "0-3": 0,
+      "1-2": 0,
+      "1-3": 0,
+      "2-3": 0
+    }
+  },
+  "witness": {
+    "Q0": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      51,
+      64,
+      71,
+      74
+    ],
+    "S_size": 66,
+    "W0": [
+      0,
+      4,
+      8,
+      10,
+      11,
+      14,
+      19,
+      22,
+      25,
+      26,
+      29,
+      34
+    ],
+    "targets": 969
+  }
+}
