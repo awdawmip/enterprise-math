@@ -1,0 +1,27 @@
+{
+  "schema": "EM_PREFIX187_AUTHOR_ANALYTIC_HANDoFF_V1",
+  "date": "2026-10-22",
+  "status": "AUTHOR_ANALYTIC_NOT_DRIVER_REVIEWED",
+  "n_min": 8,
+  "deleted_size": "n-4",
+  "model": "AUXILIARY_BOOLEAN_BRC_FOUR_INTEGER_COORDINATES",
+  "theorem_one": "single_X3_repair_suffices_all_n_ge_8; sharp_n_7_exception",
+  "theorem_two": "m=n-5; I=2(m+2)(m+1)(5m+24); N3=24; N2=42m+108; N1=I-84m-288; N0=binom(6(m+4),m+1)-I+42m+156",
+  "verification": {
+    "n_range": "n=8..20 and n=24 complete candidate scan; direct brute n=7,8",
+    "n8": {
+      "N0": 110652,
+      "N1": 1020,
+      "N2": 234,
+      "N3": 24,
+      "one_point_fail": 0
+    },
+    "n7": {
+      "one_point_fail": 4
+    }
+  },
+  "native_session": "STATIC_READONLY_SCOPE_DENIED; operation_sent=false",
+  "owner_claim": "UNVERIFIED",
+  "global_pin": "ec44261d822dea70b6ad6dc6c99b15ed5479d9d1",
+  "enterprise_math_pin": "63f87045b456cf573a9eaa7bbc8d4a4673a3e6ea"
+}

@@ -1,0 +1,6 @@
+# PREFIX-187 research handoff / 进取数论
+Date 2026-10-22; snapshot GK ec44261d, EM 63f87045. Storage is an archival GitHub branch, **not** native Researcher registration, task CLAIM, official Result, independent Driver review, canonical main theorem admission or six-axis P000 transfer.
+This branch contains complete bilingual analytic arguments, finite computational evidence and next problem. The user's local archive em_research6_prefix187_20261022_local_handoff.zip additionally contains runnable Python constructive verifier, independent C++17 source, original full logs, per-file SHA-256 and machine certificate. Those local files are not represented as remote-uploaded unless present here.
+Claim A: for every n≥8 and all |E|=n−4, minimum X3 repair resources are exactly 0 if no missing target, else 1. Sharp failure n=7 (needs 2).
+Claim B: m=n−5, I=2(m+2)(m+1)(5m+24). N3=24,N2=42m+108,N1=I−84m−288,N0=C(6(m+4),m+1)−I+42m+156.
+Author-side analytic proof and finite exact checks, not externally admitted. Native gateway attempted session start and replied STATIC_READONLY_SCOPE_DENIED; control dispatch CONTROL_QUOTA; no ownership asserted. No Drive fallback used to bypass access denial. No secrets or sharing permission changes.

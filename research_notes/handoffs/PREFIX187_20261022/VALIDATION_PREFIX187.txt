@@ -1,0 +1,20 @@
+# PREFIX-187 exact computational cross-check
+Existing independent C++17 direct sumset solver from PREFIX-186 was rebuilt and executed in the current research turn.
+N=7 TWO=36 FULL_TARGETS=286 DELETIONS=7140 MISSING_HIST=0:6560,1:372,2:180,3:28 MIN_EXTRA_HIST=0:6560,1:576,2:4,3:0 UNREPAIRABLE_BY_ONE=4
+N=8 TWO=42 FULL_TARGETS=455 DELETIONS=111930 MISSING_HIST=0:110652,1:1020,2:234,3:24 MIN_EXTRA_HIST=0:110652,1:1278,2:0,3:0 UNREPAIRABLE_BY_ONE=0
+Constructive exact-integer candidate scan:
+n=8 relevant=1278 N1=1020 N2=234 N3=24 repair_failed=0
+n=9 relevant=2316 N1=2016 N2=276 N3=24 repair_failed=0
+n=10 relevant=3750 N1=3408 N2=318 N3=24 repair_failed=0
+n=11 relevant=5640 N1=5256 N2=360 N3=24 repair_failed=0
+n=12 relevant=8046 N1=7620 N2=402 N3=24 repair_failed=0
+n=13 relevant=11028 N1=10560 N2=444 N3=24 repair_failed=0
+n=14 relevant=14646 N1=14136 N2=486 N3=24 repair_failed=0
+n=15 relevant=18960 N1=18408 N2=528 N3=24 repair_failed=0
+n=16 relevant=24030 N1=23436 N2=570 N3=24 repair_failed=0
+n=17 relevant=29916 N1=29280 N2=612 N3=24 repair_failed=0
+n=18 relevant=36678 N1=36000 N2=654 N3=24 repair_failed=0
+n=19 relevant=44376 N1=43656 N2=696 N3=24 repair_failed=0
+n=20 relevant=53070 N1=52308 N2=738 N3=24 repair_failed=0
+n=24 relevant=99006 N1=98076 N2=906 N3=24 repair_failed=0
+All calculations exact integer. Complete n>=8 guarantee comes from analytic proof, not from these finite tests.
