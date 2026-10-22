@@ -1,0 +1,23 @@
+{
+  "status": "COMPLETED_WITH_RESEARCH_INTERNAL_AUDIT",
+  "evidence_level": "Declared synthetic models; finite deterministic evaluations plus model-specific derivations. No empirical physical law or formal Driver acceptance.",
+  "prior_source_commit": "46bd4dbe07fa0a7b5b92f612b16b68b70d48e45c",
+  "counts": {
+    "weighted_parameter_paths": 18,
+    "weighted_rows": 2359296,
+    "markov_parameter_paths": 30,
+    "markov_rows": 1966080,
+    "total_parameter_paths": 48,
+    "total_deterministic_time_rows": 4325376,
+    "markov_undefined_gamma_rows": 32768
+  },
+  "counting_note": "Rows within and across paths are dependent deterministic model evaluations, not independent experiments. Reused controls are included. Two mechanism families receive parameter/horizon extensions; no expansion of the prior 11-family count is claimed.",
+  "audit_file": "audit_results.json",
+  "audit_status": "PASS",
+  "source_files": [
+    "weighted_results.json",
+    "markov_results.json",
+    "INDEPENDENT_REVIEW.md"
+  ],
+  "full_data": "Per-parameter CSV gzip shards listed in module results and manifest.json; all integer times retained."
+}
