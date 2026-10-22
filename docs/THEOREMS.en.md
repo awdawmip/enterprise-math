@@ -2,6 +2,8 @@
 
 Status labels in this file refer to ordinary mathematical proofs from the v0.1 definitions. A proposition is Lean-checked only when explicitly stated below.
 
+Later research results, formulas, and source review statuses are indexed in the [Research Results Library](RESEARCH_LIBRARY.md). That index preserves source scopes and statuses without changing the propositions or formalization statuses below.
+
 Canonical scope conventions follow `FOUNDATIONS`: \(\mathbb N=\mathbb N_0=\{0,1,2,\ldots\}\), while \(\mathbb N_{>0}\) denotes the positive integers. The physically nontrivial primitive root/collapse family starts at \(p\ge2\), while this theorem catalogue uses the exact positive-exponent algebra \(p\ge1\) whenever the stated law remains valid; its identity member is \(R_1=C_1=\operatorname{id}\).
 
 ## T001 — Root characterization

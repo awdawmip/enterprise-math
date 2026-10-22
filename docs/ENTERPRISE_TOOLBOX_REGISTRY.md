@@ -8,6 +8,8 @@ Executable router: `tools/enterprise_toolbox.py`
 Base method inventory: `research_method_inventory.json`
 Method addenda: `research_method_inventory_addenda/*.json`
 
+Results, formulas and source review status: [Research Results Library](RESEARCH_LIBRARY.md). The [22 October 2026 method addendum](../research_method_inventory_addenda/20261022_research_results_curation.json) supplies four bibliographic search entries; it grants no new tool-family or theorem status.
+
 ## Routing rule
 
 `UNDERSTAND TASK -> TOOL COVERAGE LOOKUP -> REUSE / COMPOSE / EXTEND -> NEW FAMILY ONLY AFTER A CONFIRMED CAPABILITY GAP`.
