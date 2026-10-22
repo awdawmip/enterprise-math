@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "description": "Conversation execution mirrors selected Python gates; no GitHub check/status publication. Review and regenerate when exact source workflow bytes change.",
+  "workflows": {
+    ".github/workflows/bilingual-sync.yml": {
+      "sha256": "2ca41a0d2696d8b96819044f2359c58f31d66fe0f70124f195a9be4fa391cd33",
+      "run_commands": [
+        "if [[ \"${{ github.event_name }}\" == \"pull_request\" ]]; then\n  echo \"BASE_SHA=${{ github.event.pull_request.base.sha }}\" >> \"$GITHUB_ENV\"\nelif [[ \"${{ github.event_name }}\" == \"push\" ]]; then\n  echo \"BASE_SHA=${{ github.event.before }}\" >> \"$GITHUB_ENV\"\nelse\n  echo \"BASE_SHA=\" >> \"$GITHUB_ENV\"\nfi",
+        "python tools/check_bilingual_pairs.py --base \"$BASE_SHA\""
+      ]
+    },
+    ".github/workflows/quality.yml": {
+      "sha256": "a5f590d7c28440d11cc2355afe7b8c279f85c8734f2bc76d9ea48f8ceff8b52a",
+      "run_commands": [
+        "set -euo pipefail\n\nunit_mode=full\nheavy_required=true\nreason=main-or-manual-full-regression\n\nif [[ \"$EVENT_NAME\" == \"pull_request\" ]]; then\n  unit_mode=skip\n  heavy_required=false\n  reason=non-python-pr-reference-integrity-only\n\n  mapfile -d '' changed < <(git diff --name-only -z \"$BASE_SHA\" \"$HEAD_SHA\")\n  if (( ${#changed[@]} == 0 )); then\n    unit_mode=full\n    heavy_required=true\n    reason=empty-diff-fail-closed\n  else\n    for path in \"${changed[@]}\"; do\n      case \"$path\" in\n        *.py|*.pyi|src/*|tests/*|scripts/*|tools/*|control_plane/*|pyproject.toml|setup.py|setup.cfg|tox.ini|requirements*.txt|requirements*.lock|Pipfile|Pipfile.lock|.github/workflows/quality.yml)\n          unit_mode=full\n          reason=executable-or-control-surface-changed\n          ;;\n      esac\n\n      if [[ \"$path\" != */* && \"$path\" == *.json ]]; then\n        unit_mode=full\n        reason=root-control-contract-changed\n      fi\n\n      case \"$path\" in\n        tests/test_p017_mirror_cross.py|src/enterprise_math/p017_mirror_cross.py|src/enterprise_math/p017_mirror_incidence.py|src/enterprise_math/cutoff_pairing.py|src/enterprise_math/legendre.py)\n          heavy_required=true\n          ;;\n      esac\n    done\n  fi\nfi\n\n{\n  echo \"unit_mode=$unit_mode\"\n  echo \"heavy_required=$heavy_required\"\n  echo \"reason=$reason\"\n} >> \"$GITHUB_OUTPUT\"\n\n{\n  echo \"### Quality scope\"\n  echo \"- unit mode: \\`$unit_mode\\`\"\n  echo \"- isolated P017 regression: \\`$heavy_required\\`\"\n  echo \"- reason: \\`$reason\\`\"\n} >> \"$GITHUB_STEP_SUMMARY\"",
+        "rm -f tests/test_p017_mirror_cross.py",
+        "python scripts/run_unittest_shard.py --index ${{ matrix.shard }} --count 8",
+        "python tests/test_p017_mirror_cross.py",
+        "set -euo pipefail\ntest \"$CLASSIFY_RESULT\" = \"success\"\n\nif [[ \"$UNIT_MODE\" == \"full\" ]]; then\n  test \"$UNIT_RESULT\" = \"success\"\nelse\n  test \"$UNIT_MODE\" = \"skip\"\n  test \"$UNIT_RESULT\" = \"skipped\"\nfi\n\nif [[ \"$HEAVY_REQUIRED\" == \"true\" ]]; then\n  test \"$HEAVY_RESULT\" = \"success\"\nelse\n  test \"$HEAVY_REQUIRED\" = \"false\"\n  test \"$HEAVY_RESULT\" = \"skipped\"\nfi"
+      ]
+    },
+    ".github/workflows/reference-integrity.yml": {
+      "sha256": "40db1865f198680ffbca817a5229e126872c8cc4ad8a1135c086fe1c0f839458",
+      "run_commands": [
+        "python control_plane/check_github_flow_liveness.py",
+        "python control_plane/check_context_budget.py",
+        "python tools/check_references.py",
+        "python control_plane/check_post_cutover_publication_envelope.py",
+        "python control_plane/check_current_control_authority.py",
+        "python control_plane/check_remote_manual_publication_preflight.py",
+        "python control_plane/check_review_write_authority.py",
+        "python control_plane/check_semantic_migration_authority.py",
+        "python control_plane/check_control_semantic_migration_registry.py",
+        "python control_plane/check_architecture_publication_cutover_evidence.py",
+        "python control_plane/check_control_semantic_verification_requests.py",
+        "python control_plane/check_control_pointer_python_consumers.py",
+        "python control_plane/check_runtime_control_migration_equivalence.py",
+        "python control_plane/apply_registered_json_migration.py --migration-id CSM-RUNTIME-CANONICAL-DISPATCH-004 --migration-id CSM-RUNTIME-OWNER-SCOPE-LIVENESS-006",
+        "python scripts/check_research_source_firewall.py",
+        "python -c \"from control_plane import research_control_bootstrap as b; b.install(); from tools import check_research_common_surface as c; c.check(); print('research common surface: PASS')\"",
+        "python control_plane/check_historical_pr_migration_ledger.py",
+        "python control_plane/check_legacy_coordinate_quarantine.py",
+        "python control_plane/check_taskbook_publication_provenance.py",
+        "python control_plane/research_task_record_audit_fault_isolation.py",
+        "python control_plane/check_publication_fault_isolation.py",
+        "python control_plane/research_execution_record_audit_fault_isolation.py",
+        "python control_plane/check_legacy_control_isolation.py",
+        "python control_plane/check_result_review_binding_fault_isolated.py",
+        "python control_plane/check_driver_review_authority_fault_isolated.py",
+        "python -c \"from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_objective_records.py','audit']; import research_objective_records as m; raise SystemExit(m.main())\"",
+        "python control_plane/research_parent_objective_dispatch_gate.py",
+        "python -c \"from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_result_control_replacements.py','audit']; import research_result_control_replacements as m; raise SystemExit(m.main())\"",
+        "python control_plane/check_review_evidence_fault_isolated.py",
+        "python control_plane/check_driver_followup_nonoperational_review_fault_isolated.py",
+        "python control_plane/research_driver_followup_transaction.py",
+        "python -c \"from control_plane import research_control_bootstrap as b; b.install(); from tools import research_result_records as _result_view; import sys; sys.argv=['research_parallel_evidence.py','audit']; import research_parallel_evidence as _parallel; raise SystemExit(_parallel.main())\"",
+        "python -c \"from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_execution_cohorts.py','audit']; import research_execution_cohorts as m; raise SystemExit(m.main())\"",
+        "python -c \"from control_plane import research_control_bootstrap as b; b.install(); import sys; sys.argv=['research_cohort_runtime.py','audit']; from tools import research_cohort_runtime as m; raise SystemExit(m.main())\""
+      ]
+    }
+  },
+  "base_source_ref": "be31c9c1928a40cebfb390ad97f37868c8b1b5a5"
+}
