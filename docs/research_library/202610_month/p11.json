@@ -1,0 +1,2792 @@
+{
+  "schema": "ENTERPRISE_MATH_DOCUMENTARY_EXTRACTION_V1",
+  "period": {
+    "from": "2026-10-01",
+    "through": "2026-10-22",
+    "timezone": "Asia/Shanghai"
+  },
+  "snapshot": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+  "scope": "All P11 plus assigned PERFECT-PRIME-AP/HCM0 monthly research packages from root exact changed-source inventories; existing accepted derived results, paper sources, reviewed partials and execution gaps separated.",
+  "native_semantics": "Heartbeat World fixed affine Z6 Cell torsor; no native plane; time separately typed as needed. All listed arithmetic carriers remain explicitly external classical types.",
+  "curation_math_votes": 0,
+  "scientific_programs_executed": 0,
+  "source_status_rule": "Original UNREVIEWED/candidate-at-freeze bytes retain their historical meaning; later actually published separate review reports are listed separately. No review or truth promotion is created by this extraction.",
+  "existing_interface_reuse": [
+    "p11-i0",
+    "p11-i1",
+    "p11-i2"
+  ],
+  "common_definitions": [
+    "E:y²=x(x−P²)(x−Q²), fixedrootorder(0,P²,Q²).",
+    "δ ordinary=(x,x−P²,x−Q²); thirdsquareclass=ab; zero coordinate replaced by product of the other rootdifferences;δ(O)=1.",
+    "U_b=(1,b,b); all parameters, rootlabels, signedclass, certifiedsupport/multiplicities and P11 reconstruction provenance retained.",
+    "PERFECT/AP-HCM0 signed beta/secant matrices are a DIFFERENT carrier from P11 elliptic arithmetic and Student/Bessel Psi; their shared parity word supplies no cross-carrier proof."
+  ],
+  "entries": [
+    {
+      "id": "P11-FIXED-233-LOCAL",
+      "title": "固定(233,119)：完整局部Kummer像与五维全二Selmer空间",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "固定primitive core(r,s)=(11,8)，P=233,Q=119,D=40128=2^6·3·11·19；E:y²=x(x−P²)(x−Q²)，根序(0,P²,Q²)。",
+        "使用完整split Kummer同态、零因子替代约定、完整有限支持与所有局部场；已知非挠点H=(194089,69872040)复用原接受结果。"
+      ],
+      "formulas": [
+        "δ(O)=(1,1,1); δ(T0)=(1,−1,−1), δ(TP)=(1,D,D), δ(TQ)=(1,−D,−D).",
+        "|E(Q_p)/2E(Q_p)|=4 (p odd), 8 (p=2); real image order=2.",
+        "W={((17·233)^t,(−1)^u2^v3^w11^(w+t)19^z233^t):t,u,v,w,z∈F2}; dim W=5.",
+        "Basis W=(δ(T0),δ(TP),δ(H),U2,U19); 1≤rank E(Q)≤3."
+      ],
+      "conclusion": "完整局部像加符号消元给出全二Selmer空间；局部像的样本生成必须结合独立局部指数定理才证明穷尽。",
+      "limits": [
+        "本单元本身不证明rank1、H饱和、生成元或实际certificate执行。",
+        "十六squareclass bits是外部算术载体，不能解释为原生空间轴。"
+      ],
+      "sources": [
+        "p11-a01",
+        "p11-a02",
+        "p11-r14",
+        "p11-x00"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-FIXED-233-PAIRING",
+      "title": "固定(233,119)：残余Cassels负配对、rank1与二primary Sha",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "P11-FIXED-233-LOCAL的完整W；K0=<δ(T0),δ(TP),δ(H)>维3。",
+        "使用作者所列完整two-cover、正确索引切线、实际局部点、全部支持外素数证明及FSS/Shukla–Stoll长短模型桥。"
+      ],
+      "formulas": [
+        "U=(1,2,2),V=(1,19,19); <U,V>_Cas=−1.",
+        "rank E(Q)=1; Sha(E/Q)[2^∞]=Sha[2]≅(Z/2)^2.",
+        "F(q_v)=(QT−z1)(z1−PT); <U,V>=∏_v(F(q_v),19)_v."
+      ],
+      "conclusion": "五维W上的非零残余2×2块与已知三维有理像给出恰rank1；非退化Sha[2]限制排除4阶及更高2幂阶元素。",
+      "limits": [
+        "不假设全Sha有限；不说明odd-primary Sha、H饱和、其它core或全族。",
+        "既有paper-review不是后来被资源停止的执行Task已完成。"
+      ],
+      "sources": [
+        "p11-a00",
+        "p11-a03",
+        "p11-r13",
+        "p11-r12",
+        "p11-x00"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-FIXED-233-TANGENT",
+      "title": "固定局部点的第三切线显式非零补充",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-T6-BFF294"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "与固定(233,119)原配对纸面证明相同局部点和根分支；A=20063,B=20065。"
+      ],
+      "formulas": [
+        "L1=A z2−B z3+D T.",
+        "p=3,11,19: L1=C r+D, C=2286944, r²=−1/2; C²+2D²≠0.",
+        "p=7,17,233,∞: L1=A−B=−2; p=2: L1=80254−40130t, t²=5017; 80254²−5017·40130²≠0."
+      ],
+      "conclusion": "这些特定已选局部点可不用扰动就保持所有三条切线字面求值非零；原Hilbert分支和支持外证明继续必需。",
+      "limits": [
+        "不是一般cover搜索、实际checker或代码审核；原第三切线的第一目标坐标为1，本补充不改变原数值配对。"
+      ],
+      "sources": [
+        "p11-a04",
+        "p11-r00"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-PARAMETRIC-LOCAL",
+      "title": "互素奇参数的完整奇素数像与U2的sharp dyadic obstruction",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "P,Q是不同互素正奇整数，D=P²−Q²≠0；固定有序split cubic及完整Kummer零因子约定。"
+      ],
+      "formulas": [
+        "odd p∤PQD: I_p=unramified unit pairs; odd p|D: I_p={(1,b)}.",
+        "p|P,p≡1(mod4): I_p={(a,a)}; p|Q,p≡1(mod4): I_p={(a,1)}; p|PQ,p≡3(mod4): unramified unit pairs.",
+        "I_∞={(+,+),(+,−)}; v2(D)≥5 ⇒ I_2={(1,b,b)}.",
+        "U2=(1,2,2)∈I_2 ⇔ v2(D)≠4.",
+        "Primitive r>s coprime opposite parity: A=r²−s²,B=2rs,P=A+B,Q=|A−B|,D=4AB; v2(D)=3+v2(e), e=the even core member."
+      ],
+      "conclusion": "完整局部像及全支持有限S-unit矩阵提供参数化全Sel2输入；U2在valuation4的失败是实际局部阻碍，不是Hasse反例。",
+      "limits": [
+        "参数纸面稿本身的全dyadic像在v2D=4缺口由后续独立条目支付，不能回写旧稿。",
+        "不对任意参数给常数Selmer维数、秩、饱和或原生传播。"
+      ],
+      "sources": [
+        "p11-a22",
+        "p11-r06"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-DYADIC-V4",
+      "title": "v2(P²−Q²)=4的完整八类局部像",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "P>Q>0是互素奇整数；v2(D)=4；根序固定(0,P²,Q²)。"
+      ],
+      "formulas": [
+        "I_2={(a,b,ab):a∈<5>, b∈<−1,5>} (eight classes).",
+        "Equivalent pair rows: v2(a)≡0, a_odd≡1(mod4), v2(b)≡0."
+      ],
+      "conclusion": "完整像包含非vertical第一类5；不能从旧vertical像仅删U2。可替换全Selmer矩阵的准确三个dyadic行。",
+      "limits": [
+        "局部第一坐标类1/5不等于全局第一坐标只能为1/5；全局所有其它place仍必须核对。",
+        "U5只在2处可容许不意味着Selmer或Q点。"
+      ],
+      "sources": [
+        "p11-a10",
+        "p11-r24"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-DYADIC-V3",
+      "title": "一般奇参数valuation3：完整vertical局部像",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "P>Q>0互素奇整数，D=8d,d odd；完整Q2 split Kummer。"
+      ],
+      "formulas": [
+        "v2(D)=3 ⇒ I_2={(1,b,b):b∈Q2*/Q2*²}."
+      ],
+      "conclusion": "与valuation≥5同一完整vertical像；valuation4是不同子群。补齐一般奇参数输入，不新增primitive-P11分支。",
+      "limits": [
+        "primitive Euclidean core恒v2D≥4；不得把外部v3当成新primitive core或推出全局秩。"
+      ],
+      "sources": [
+        "p11-a12",
+        "p11-r10"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-DYADIC-OPPOSITE",
+      "title": "相反奇偶外部参数：完整dyadic像与统一符号见证",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "P,Q为不同互素正整数且恰一个偶；先令P odd,Q=2^m v even，m≥1；原根序若反向须明确swap第二/第三坐标。"
+      ],
+      "formulas": [
+        "m=1: I_2={(a,b,ab):a∈<5>,b∈<−1,5>}.",
+        "m≥2,P odd: I_2={(a,b,ab):a∈<2,5>,b∈<−1>}.",
+        "m≥2,P even in original order: I_2={(a,b,c):abc=1,a∈<2,5>,c∈<−1>}.",
+        "x1=5P²/4, y1=P³ sqrt(5(5−4Q²/P²))/8, δ=(5,1,5).",
+        "m≥2: x2=Q²/2,y2=PQ² sqrt(1−Q²/(2P²))/2,δ=(2,−1,−2)."
+      ],
+      "conclusion": "普遍包含性与独立八类指数证明完整像；依赖附录提供同一单元的统一三生成元证明，不另计发现。",
+      "limits": [
+        "相反奇偶P/Q是声明外部输入域，primitive P11的P/Q均奇；本条不提供新global Selmer/pairing/rank。",
+        "符号平方根是Q2手证存在性，不是程序算得局部展开。"
+      ],
+      "sources": [
+        "p11-a11",
+        "p11-a09",
+        "p11-r08"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-PRIME-SUPPORT",
+      "title": "可核查prime-support条件下的闭式Selmer维数",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "P,Q不同互素正奇整数，32|D；每个odd p|PQ均p≡3(mod4)；T=odd prime support D,d=|T|。"
+      ],
+      "formulas": [
+        "Sel²(E/Q)={U_b:b∈<−1,2,p:p∈T>}; ν=d+2.",
+        "rank E(Q)+dim Sha[2]=d; full genuine Cassels rank 2t ⇒ rank E(Q)≤d−2t."
+      ],
+      "conclusion": "这是有精确额外prime-support假设的参数推论；符号全局维数由局部像支付。",
+      "limits": [
+        "P/Q有1mod4素因子必须保留coupled character矩阵；v2D=4不可原样沿用此d+2。",
+        "不说明该factorization条件有无穷多core。"
+      ],
+      "sources": [
+        "p11-a21",
+        "p11-r05"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-CORE-54",
+      "title": "core(5,4)：rank0及二primary Sha",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "A=9,B=40,P=49=7²,Q=31,D=1440=2^5·3²·5；完整全place输入与full Cassels模型。"
+      ],
+      "formulas": [
+        "dim Sel²=4; <U2,U3>=−1; rank E_(49,31)(Q)=0.",
+        "Sha(E_(49,31)/Q)[2^∞]≅(Z/2)^2."
+      ],
+      "conclusion": "非退化残余二阶配对给rank0和准确二primary组；与后来uniform torsion/strict reconstruction组合得该core strict fiber为空。",
+      "limits": [
+        "原稿旧“odd torsion未定”历史由后续uniform torsion补足，原稿不改。",
+        "不说明odd-primary Sha或所有Sha有限。"
+      ],
+      "sources": [
+        "p11-a23",
+        "p11-r07"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-VERTICAL-CASSELS",
+      "title": "完整vertical子空间上的有限Cassels符号积与valuation4扩展",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "P>Q互素正奇整数，v2D≥4；T=odd support D；ε=1 iff v2D≥5。",
+        "V=<−1,(2 iff ε=1),p:p∈T> subject to (a/q)=1 at every q|PQ,q≡1(mod4); a,b∈V。",
+        "R=P−Q,S=P+Q，保留m_p=v_p(PQ)与η_p(a)=nonsquare-unit bit。"
+      ],
+      "formulas": [
+        "dim V=|T|+1+ε−rank L.",
+        "Σ_+={odd p|S} plus {2 iff 8|S}.",
+        "<U_a,U_b>=∏_(p∈Σ_+)(a,b)_p ·∏_(p|PQ,p≡3 mod4)(−1)^(m_p η_p(a)η_p(b)).",
+        "At v2D≥5 old threshold16|S is equivalent here to8|S; v2D=4 actual F class is −5a(high sum) or−5(high difference).",
+        "(5,b)_2=1 for permitted odd-unit target b at v2D=4; this removes a pairing sign, not the actual5 squareclass.",
+        "rank E(Q)≤ν−2−rank(genuine Cassels restriction to V), provided full ν independently known."
+      ],
+      "conclusion": "按全部place手证有限积；reciprocity重写及valuation4扩展分别具有独立paper-scope报告。",
+      "limits": [
+        "V未必是full Selmer；compatibility矩阵rank不能替代genuine Cassels rank。",
+        "不可删除PQ multiplicities或val4切线实际5因子；不适用even target U2于val4。"
+      ],
+      "sources": [
+        "p11-a15",
+        "p11-a16",
+        "p11-a17",
+        "p11-r15",
+        "p11-r26",
+        "p11-r16"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-CORE-61",
+      "title": "core(6,1)：valuation4下rank0与二primary Sha",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "A=35,B=12,P=47,Q=23,D=1680=2^4·3·5·7；用完整val4局部像和扩展vertical pairing。"
+      ],
+      "formulas": [
+        "W=<U_−1,U3,U5,U7>,dim W=4; rational torsion Kummer image=<U_−1,U105>.",
+        "<U3,U5>=−1; rank E_(47,23)(Q)=0; Sha[2^∞]≅(Z/2)^2."
+      ],
+      "conclusion": "这是valuation4分支的具体完整应用；后来uniform torsion给该core strict fiber为空。",
+      "limits": [
+        "与valuation4扩展共享同一bounded review单元，不新增第二票。",
+        "不向未审core或core98外推秩。"
+      ],
+      "sources": [
+        "p11-a17",
+        "p11-r16"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-UNIFORM-U2",
+      "title": "primitive core的U2 Selmer判据与odd-leg配对行",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "r>s>0互素且相反奇偶；A=r²−s²,B=2rs,P=A+B,Q=|A−B|；e为even core member。",
+        "配对行/row-space结论另要求4|e与完整vertical V=ker L。"
+      ],
+      "formulas": [
+        "U2∈Sel²(E/Q) ⇔4|e.",
+        "<U2,U_b>=∏_(odd p|A)(2/p)^(v_p(b)).",
+        "c(−1)=c(2)=0; c(p)=1 iff p|A and p≡3 or5(mod8).",
+        "∃b∈ker L with <U2,U_b>=−1 ⇔ c∉rowspan L."
+      ],
+      "conclusion": "非零行给明确条件Hasse obstruction：U2 cover处处局部可解而无Q点，非零Sha[2]且不是Sha中的double。",
+      "limits": [
+        "行全零不证明global point、rank、Hasse failure或其它directions。",
+        "完整ν独立可得时，非零行给rank≤ν−4；不假设Sha整体有限。"
+      ],
+      "sources": [
+        "p11-a18",
+        "p11-r17"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-CORE-98-FIRST",
+      "title": "core(9,8)：完整四维Sel2与零first Cassels form",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "A=17,B=144,P=161=7·23,Q=127,D=9792=24²·17；完整全place和既有有限符号公式。"
+      ],
+      "formulas": [
+        "W=<U_−1,U2,U3,U17>, dim W=4; K0=<U_−1,U17>.",
+        "<U2,U3>=+1 multiplicatively; full first Cassels form=0.",
+        "rank E(Q)+dim Sha[2]=2; actual rank remains UNKNOWN in{0,1,2}."
+      ],
+      "conclusion": "这是明确的辨识停止边界：零第一配对不决定秩；U2/U3是局部Selmer类，未证明是Q点。",
+      "limits": [
+        "不可把未找到负因子当成零证明；本原稿提供实际all-place符号证明。",
+        "不推rank2、rank0、global points、进一步higher lifting或Sha整体有限。"
+      ],
+      "sources": [
+        "p11-a19",
+        "p11-r25"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-FULL-SELMER-KERNEL",
+      "title": "primitive族full Selmer compatibility kernel与vertical quotient",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "保持primitive r/s、P/Q、全部认证prime support、root labels与factor multiplicities。",
+        "T=odd support D,d=|T|；J_P={p|P:p≡1mod8},J_Q={q|Q:q≡1mod8},m=|J_P|+|J_Q|；ε=1 iff4|even core member。"
+      ],
+      "formulas": [
+        "L_(j,ell)=χ_j(ell),B_(p,q)=χ_p(q),K=[[0,B],[B^T,0]], M=[[0,L^T],[L,K]].",
+        "Sel²(E/Q)≅F2^(1+ε)×ker M; a=α_P α_Q,b=α_P c.",
+        "C=ker L^T,A0=rad(K|C); 0→V→Sel²→A0→0.",
+        "ν=1+ε+d+m−2 rank L−rank(K|C); V=Sel² iff K|C nondegenerate.",
+        "rank M=2 rank L+rank(K|C); odd dim C forces nonvertical directions."
+      ],
+      "conclusion": "完整且可恢复的共同Kummer坐标缩减，明确何时vertical表覆盖full Selmer。旧V2的module10 pending仅是历史；V3已有该稿的真正独立paper-review。",
+      "limits": [
+        "M/K是compatibility forms，不是Cassels pairing；索引不计算任何实际matrix rank或curve rank。",
+        "distinct-prime bits不足以重构D/PQ multiplicities，故必须保留原参数。"
+      ],
+      "sources": [
+        "p11-a30",
+        "p11-r21"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-CORE-98-SEL4",
+      "title": "core98：abstract Sel4结构与条件Sha[4]",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "P11-CORE-98-FIRST的完整W与零genuine first form，K0维2；使用真实CT radical/image定理与all-place kernel证明。"
+      ],
+      "formulas": [
+        "π:Sel⁴→Sel² surjective; Sel⁴≅(Z/4)^2⊕(Z/2)^2.",
+        "Sha[4]≅(Z/4)^(2−r), r=rank E(Q) still UNKNOWN0..2."
+      ],
+      "conclusion": "每个two-Selmer类抽象有four-Selmer lift，且Sel4抽象order64；不提供实际cover方程。",
+      "limits": [
+        "不决定r，不给four-cover representatives/local witnesses、order8 lifting或完整二primary Sha。"
+      ],
+      "sources": [
+        "p11-a13",
+        "p11-r27"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-GENERIC-SEL4",
+      "title": "完整genuine二Selmer配对输入下的抽象四Selmer公式",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "E/Q full rational2-torsion；W完整Sel²，ν=dim W，ρ=rank full genuine pulledback Cassels–Tate form，k=dim δ2(E[2](Q))。",
+        "ρ是full genuine rank而非compatibility或未覆盖vertical restriction；k不是自动等于2。"
+      ],
+      "formulas": [
+        "Sel⁴≅(Z/4)^(ν−ρ−k)⊕(Z/2)^(ρ+k).",
+        "|Sel⁴|=2^(2ν−ρ−k), |2Sel⁴|=2^(ν−ρ−k)."
+      ],
+      "conclusion": "同一descent方法族的抽象group结构推论，供精确输入接口复用。",
+      "limits": [
+        "无explicit lifts、Q点、rank、saturation或全Sha结论；既有method-harvest本身不是第二独立发现或新Tool。"
+      ],
+      "sources": [
+        "p11-a14",
+        "p11-r28"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-MIXED-BIT",
+      "title": "first radical上的higher mixed pairing与core98的一bit条件定理",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "E/Q full rational2-torsion；W=Sel2,R=rad(b0)，π:Sel4→W的image=R；B为真实全Cassels–Tate alternating pairing。",
+        "x,y∈R，π(c_y)=y；q_n为Kummer quotient，j:{0,1/2}→F2。"
+      ],
+      "formulas": [
+        "β(x,y)=j(B(q2(x),q4(c_y))) is lift-independent,bilinear,alternating.",
+        "K=δ2(E(Q)/2E(Q))⊂rad β; r≤dim R−rank β−2.",
+        "core98 e=β(U2,U3); e=1 ⇒ r=0 and Sha[2^∞]≅(Z/4)^2.",
+        "e=0 ⇒ same mixed form exhausted; no rank decision."
+      ],
+      "conclusion": "一个真实有效mixed half-value足以支付core98的rank0与准确二primary组；当前实际bit及cover仍UNKNOWN。",
+      "limits": [
+        "不能在Q/Z中把half-value乘2当bit；j必须显式定型。",
+        "换lift或quotient basis不会改变同一bit；零不证明Q点或rank2。",
+        "本条只证明条件与停止边界，没有运行或产出bit。"
+      ],
+      "sources": [
+        "p11-a28",
+        "p11-r19"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-UNIFORM-TORSION-FIBER",
+      "title": "统一无odd torsion与primitive strict fiber空或无穷",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "无odd torsion lemma：任意rational P>Q>0；exact torsion另需primitive Euclidean core与旧accepted no4。",
+        "strict fiber结论另依accepted signed reconstruction、分母/比例/奇偶/true outer-root gcd与有限readout fibers。"
+      ],
+      "formulas": [
+        "E:y²=x(x−P²)(x−Q²) has no nonzero odd-order Q-torsion.",
+        "E′:Y²=X(X+(P+Q)²)(X+(P−Q)²); R=(D,2PD),2R=(0,0),ord R=4.",
+        "Primitive E(Q)_tors=E[2](Q)≅C2×C2; auxiliary E′ has actual torsion Kummer dimension k′=1.",
+        "F_strict empty ⇔rank E(Q)=0; F_strict nonempty ⇔infinite ⇔rank E(Q)>0."
+      ],
+      "conclusion": "合并已接受no4与辅助degree2 isogeny/Mazur后排除旧isolated odd-torsion caveat；不再有有限非空strict fiber。",
+      "limits": [
+        "一般rational P/Q的lemma仅去odd torsion，不能单独声称所有该曲线无4torsion。",
+        "不决定未知core的rank分支；core98仍未知；不输出free generators或saturation。"
+      ],
+      "sources": [
+        "p11-a20",
+        "p11-r18"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-FISHER-ONE-PUSHOUT",
+      "title": "既有Fisher方法：vertical isogeny输入匹配与单pushout公式",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "core98相同E、root order、U2/U3；φ:E→E′ kernel<T0>、dual φhat φ=[2]。",
+        "使用实际四cover c3∈Sel4，π(c3)=U3；真实pushout f_T0，div f=2b_T0且其Pic0标签为T0；真实local points避开零极点及完整support。"
+      ],
+      "formulas": [
+        "φ(x,y)=(x+a+b/x,y(1−b/x²)), a=−(P²+Q²),b=P²Q².",
+        "0→E[φ]→E[2]→E′[φhat]→0; c∈Sel(φ) iff U_c∈full Sel2 in this proved torsion-surjective model.",
+        "B(q4(c3),q2(U2))=Σ_v inv_v((f_T0(P_v),2)_v)∈{0,1/2}."
+      ],
+      "conclusion": "现有higher-descent方法可将此特定mixed读出缩为一个T0 pushout；该数学输入匹配已有独立paper-review。",
+      "limits": [
+        "一函数仅适用此fixed isogeny subgroup，不恢复完整S4×S2 table。",
+        "实际c3/f/local/support/currentruntime/API/export/cost仍未提供；旧稿曾写candidate/pending历史不反写。",
+        "历史可用方法/一次access失败不构成新通用Tool capability gap。"
+      ],
+      "sources": [
+        "p11-a08",
+        "p11-r23"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-U3-QUARTIC",
+      "title": "core98的U3显式binary-quartic与完整degree4 two-cover map",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "P=161,Q=127,D=9792,S=P²+Q²=42050；weighted projective weights(Z,W,R)=(1,1,2)。"
+      ],
+      "formulas": [
+        "Q3:R²=3Z⁴+84100Z²W²+31961088W⁴=(Z²+27648W²)(3Z²+1156W²).",
+        "[s1:s2:s3:t]=[3R:3Z²−DW²:−3Z²−DW²:6ZW].",
+        "[X:Y:Z_E]=[6R²ZW:R(D²W⁴−9Z⁴):24Z³W³]."
+      ],
+      "conclusion": "到保留U3双quadric cover的global isomorphism及同一E上的完整two-cover map；actual Sel2 label=U3，map degree4。",
+      "limits": [
+        "weighted formula degree6、quartic model degree4都不能当成covering level；本对象不是缺失的four-Selmer lift。",
+        "没有实际higher-cover local certificate/mixedbit/rank；局部可解性是由已证U3和isomorphism转移，不是新算出的局部点。"
+      ],
+      "sources": [
+        "p11-a07",
+        "p11-r01"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-U2-HILBERT-READOUT",
+      "title": "固定U2 mixed读出的Hilbert支持压缩",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "P11-FISHER-ONE-PUSHOUT的actual bridge与全部cover/function/local/support假设成立；实际f(P_v)非零有限。"
+      ],
+      "formulas": [
+        "odd p≡1,7(mod8): (a,2)_p=1; p≡3,5(mod8): (a,2)_p=(−1)^(v_p(a)).",
+        "At2 a=2^m u: (a,2)_2=+1 for u≡1,7(mod8),−1 for u≡3,5(mod8).",
+        "e=ε2(u2)+Σ_(p∈S, p odd≡3 or5 mod8) v_p(f(P_p)) mod2."
+      ],
+      "conclusion": "将特定观察压成dyadic unit与non-split odd valuations；原曲线支持中仅3可贡献odd项，但辅助support不得默认消失。",
+      "limits": [
+        "符号项trivial的place仍有cover局部可解义务。",
+        "S来自实际model/functions和outside proof，不能只用旧curve discriminant；no additional places当前UNKNOWN。",
+        "不提供任何实际e求值。"
+      ],
+      "sources": [
+        "p11-a06",
+        "p11-r02"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-POINTED-AND-LABEL",
+      "title": "split-real same-E pointed刚性与cover label反例",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "E/Q smooth y²=∏(x−e_i)，三不同real rational roots，origin O；cover反例另需primitive no-rational4torsion。"
+      ],
+      "formulas": [
+        "Aut_R(E,O)=Aut_Q(E,O)={±1}.",
+        "π0=[2], πT=[2]+T0 are degree4 two-covers on same C=E; labels differ byδ2(T0)≠0."
+      ],
+      "conclusion": "真实pointed同一E标识仅差sign，但裸同一Jacobian/curve不固定Selmer cover label；反例两者Sha类均为0。",
+      "limits": [
+        "标签反例不证明mixed scalar含糊或software bit错误。",
+        "旧稿“degree2/degree4 maps”无类型短语被author独立clarification撤回：full2/4 cover TO E的degrees为4/16。"
+      ],
+      "sources": [
+        "p11-a24",
+        "p11-a27",
+        "p11-r03",
+        "p11-r09"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-HALF-SCALAR-INVARIANCE",
+      "title": "half-valued Sha mixed scalar的model/sign/translation不变性",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "实际smooth处处局部可解genus-one C,D，其Jacobians已有actual pointed Q-isomorphisms到same split-real E。",
+        "x∈Sha(E)[4], y∈Sha(E)[2]是实际torsor classes。"
+      ],
+      "formulas": [
+        "b=CT(x,y)∈{0,1/2}; CT(εx,ηy)=b for ε,η∈{±1}.",
+        "Rational target translation changes Sel_n label byδ_n(R) but leaves its Sha class and CT scalar unchanged."
+      ],
+      "conclusion": "消除已成立inputs下这几种normalization选择对half-value的影响；不需要选择其sign。",
+      "limits": [
+        "不由same j-invariant、Qbar-isomorphism或isogeny推出same actual Q-Jacobian。",
+        "不建立actualcover/lift/local hypotheses或scalar值；更大denominator时单边sign可改变值。"
+      ],
+      "sources": [
+        "p11-a26",
+        "p11-r04"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-ISOGENY-AND-DEGREES",
+      "title": "covering degrees、simultaneous isogeny parity与dual-lift order障碍",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "实际polarized isogeny φ:E→E′ of degree d，dual φhat；x∈Sha(E)[4],y∈Sha(E)[2]及实际对应类/maps。"
+      ],
+      "formulas": [
+        "Full n-cover π:C→E hasdeg n²; 2/4-cover TO E degrees4/16; compatible4-to2 factor degree4.",
+        "CT_E′(φx,φy)=d CT_E(x,y); odd d preserves half-bit, even d gives0.",
+        "φhat y′=y ⇒CT_E′(φx,y′)=CT_E(x,y); validdual-lift choice is immaterial.",
+        "K=ker φhat on full Sha; o_φ(y)=2y′+2K∈K/2K is well-defined; o=0 iff a2-killed dual lift exists."
+      ],
+      "conclusion": "一个有界RESULT_ONLY transport接口；明确same isogeny同送两参数与dual lift是不同条件，完整覆盖map degree与model/projection degree分开。",
+      "limits": [
+        "仅isogenous或相同j不供应actualmaps/lifts；different maps需φhat ψ identity。",
+        "偶degree同送得到0不意味着原bit=0；general order4 dual lift不满足two-cover输入要求。",
+        "K是full Sha kernel，不是曲线几何kernel；未计算actualorderobstruction。"
+      ],
+      "sources": [
+        "p11-a25",
+        "p11-a27",
+        "p11-r09"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-MAGMA-CRT-BRIDGE",
+      "title": "既有Magma输入的root-labelled étale CRT桥与准确执行缺口",
+      "status": "SOURCE_REPORTED_BOUNDED_PAPER_REVIEW_PASS",
+      "status_note": "作者稿创建时的UNREVIEWED文字保留；另有实际已发布非作者限定范围paper-review。这里只摘录该来源状态，不新增数学审核、正式Task验收、Native投票、Lean或Foundation地位。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "P>Q>0 rational，A=Q[t]/(t(t−P²)(t−Q²))，固定根序(0,P²,Q²)；b∈Q*。",
+        "软件路径的数学解释依完整W、zero first form与真实Sel4 image theorem；当前未运行该路径。"
+      ],
+      "formulas": [
+        "L0(t)=(t−P²)(t−Q²)/(P²Q²); d_b=b+(1−b)L0 hasorderedvalues(1,b,b), Norm_A/Q(d_b)=b².",
+        "core98 d2=2−L0,d3=3−2L0 encode precisely U2,U3.",
+        "Any one VALID lift c3 withπc3=U3 yields same e; empty returnedlift set conflicts with assumedimage theorem and is an integrity/input diagnostic, notrank0."
+      ],
+      "conclusion": "这是已审的同方法input bridge；确切ordered class由CRT定型，norm square本身仍不证明全place Selmer membership。",
+      "limits": [
+        "官方文档读过不等于currentinstalledbinary/API成本/portableexports已认证。",
+        "Q3 quartic polynomial无realroot不等于genus-one curve无realpoints。",
+        "实际C4/maps/function/localdata/e/rank与newinvocation均未由此提供。"
+      ],
+      "sources": [
+        "p11-a29",
+        "p11-r20"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-EXECUTION-BOUNDARY",
+      "title": "固定curve与core98 prospective执行：保留NO_INVOKE和未产生算术输出",
+      "status": "SOURCE_GAP_EXECUTION_EVIDENCE_NOT_MATHEMATICAL_REVOCATION",
+      "status_note": "已有来源是执行前设计与独立非作者 static NO_INVOKE gate 报告：固定233候选未准入运行，没有算术执行输出。该静态报告不是数学 paper PASS，也不撤销另条已有 paper 数学结论；core98 prospective 文件同样不构成实际执行证据。本次不新增审核、验收或投票。",
+      "authors": [
+        "EM-DVR-F73673"
+      ],
+      "model": "EXPLICIT_EXTERNAL_CLASSICAL_ELLIPTIC_ARITHMETIC_OVER_Q_AND_COMPLETIONS; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "原固定(233,119)证书Task与core98既有candidate保持其冻结inputs、真实actor、clock、budget和scope；不在本次整理运行。"
+      ],
+      "formulas": [],
+      "conclusion": "固定233的独立static报告给NO_INVOKE：准备资源超界、candidate admission不完整；该报告不撤销既有paper数学判断。core98方法与candidate文件存在不表示实际高阶cover、mixedbit或rank已产出。",
+      "limits": [
+        "本条是方法/执行证据缺口记录，不是定理。",
+        "不把代码文件、budget receipts、API元数据或Source归档算成科学运行、Result或Task完成。",
+        "本次仅整理来源，不修预算、重开Task、运行Magma/consumer或发起新研究。"
+      ],
+      "sources": [
+        "p11-a05",
+        "p11-r11"
+      ],
+      "method_harvest": {
+        "classification": "PENDING_METHOD_OR_EXECUTION_EVIDENCE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE",
+        "note": "既有classical split Kummer/local-image/Cassels–Tate/higher-descent同一方法族；索引与具体结果不构成新工具族、执行成功或历史新颖性主张。"
+      }
+    },
+    {
+      "id": "P11-FORMAL-COLLISION-ALIGNMENT",
+      "title": "已整合算术：admissible packet、真实selector成本与最小moment修复",
+      "status": "SOURCE_FORMAL_RESULT_AND_ACCEPTED_DRIVER_REVIEW_AT_DERIVED_ARITHMETIC_SCOPE",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "EM-P000-04A05D",
+        "upstream accepted collision/carrier authors"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "六个标号project coordinates按(AB,AC,AD,BC,BD,CD)，三complementary pair保留sum h和product t；Γ=C2 wr S3。",
+        "H,T为排序整数marginals；必须保留每个完整packet的整数Pair predicate，而非只看combinatorial collision。"
+      ],
+      "formulas": [
+        "Pair(h,t) ⇔ h²−4t=δ²≥0,δ∈Z,δ≡h(mod2); roots=(h±δ)/2.",
+        "F_adm(H,T,p)={multiset{(h_i,t_σ(i))}:σ∈S3,Σ_i h_i t_σ(i)=p, every Pair}; deduplicate identical packets.",
+        "Valid observations have |F_adm|∈{1,2}; actual conditional selector cost=log2|F_adm|.",
+        "Distinct gaps A=h1−h0,B=h2−h1,C=t1−t0,D=t2−t1: candidate C1 iff AC=BD, C2 iff AD=BC, each still whole-packet-filtered.",
+        "Distinct H: t_i=[P21−(h_j+h_k)P11+h_jh_kΣT]/[(h_i−h_j)(h_i−h_k)].",
+        "In frozen three-moment grammar (P11,P21) or(P11,P12) is exactly minimal sufficient; P11 alone need not suffice.",
+        "Carrier integral splitting index24,Smith(1,1,1,2,2,6); exact product packet does not by itself recover alignment."
+      ],
+      "conclusion": "给整个integer域上的必要充分admissible-packet分类；K等价于声明Γ轨道而非native identity。正式整合及独立兼容审计已经来源Driver接受。",
+      "limits": [
+        "数值eliminant有两根或AC=BD不保证真正一bit；invalid/ghost packets必须过滤。",
+        "Oriented Q=t1−t2+t3与无序product/orbit观察分开；旧tie/gap数据的冗余仅在声明观察域成立。",
+        "本批不为旧基础carrier定理增加新证明票。"
+      ],
+      "sources": [
+        "p11-f13",
+        "p11-f20",
+        "p11-f01",
+        "p11-f09",
+        "p11-d03",
+        "p11-f02",
+        "p11-f07",
+        "p11-d01"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。"
+      }
+    },
+    {
+      "id": "P11-FORMAL-SIMULTANEOUS",
+      "title": "同时genuine C1/C2的AP—等面积两三角必要充分正规形",
+      "status": "SOURCE_FORMAL_RESULT_AND_ACCEPTED_DRIVER_REVIEW_AT_DERIVED_ARITHMETIC_SCOPE",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "upstream accepted simultaneous-P11 authors",
+        "EM-P000-04A05D"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "H=(h−d,h,h+d),T=(t−e,t,t+e),d,e>0；八个outer cells都Pair，center不在断言范围。",
+        "有标号有序直角三角(x,y,b),(X,Y,g)，x>y>0,X>Y>0；保留两factor身份及实际root parity。"
+      ],
+      "formulas": [
+        "x²+y²=b²,X²+Y²=g²,xy=XY=2e; a=x+y,c=x−y,f=X+Y,k=X−Y.",
+        "K=g²−b²=4hd; d²+μ²=(a²+f²)/2, d²+ν²=(c²+k²)/2.",
+        "a≡b≡c≡h−d, μ≡ν≡h, f≡g≡k≡h+d(mod2); t=((h−d)²−b²)/4.",
+        "Root grid=((h−d±a)/2,(h−d±b)/2,(h−d±c)/2; (h±μ)/2, center omitted,(h±ν)/2; (h+d±f)/2,(h+d±g)/2,(h+d±k)/2).",
+        "For rational roots r, minimal common denominator L and G=gcd|Lr| yield primitive roots (L/G)r."
+      ],
+      "conclusion": "等面积、coupling、two cuts、parity与十六root gcd一起等价于同时genuine碰撞；h=0当且仅当两有序三角相同。",
+      "limits": [
+        "十六root联合grid不是十六native axes；12-root gcd不能替代16-root gcd。",
+        "h↦−h的factor swap是声明involution，不得未授权商掉不同ordered输出。"
+      ],
+      "sources": [
+        "p11-f13",
+        "p11-f20",
+        "p11-f01",
+        "p11-f09",
+        "p11-d03",
+        "p11-f02",
+        "p11-f07",
+        "p11-d01"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。"
+      }
+    },
+    {
+      "id": "P11-FORMAL-DIAGONAL-BIRATIONAL",
+      "title": "accepted diagonal族的精确elliptic双有理图与primitive no4边界",
+      "status": "SOURCE_FORMAL_RESULT_AND_ACCEPTED_DRIVER_REVIEW_AT_DERIVED_ARITHMETIC_SCOPE",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "EM-DIRECT-49ADE6",
+        "EM-DIRECT-C4D02C"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "Primitive Euclidean core r>s>0,coprime,opposite parity；A=r²−s²,B=2rs,P=A+B,Q=|A−B|。",
+        "Signed cut U²+D_cut²=P²,V²+D_cut²=Q²；保留core、scale、分母、raw signs与root reconstruction。"
+      ],
+      "formulas": [
+        "α=P+Q,β=P−Q,R=PQ,T=U+V,Y=2TD_cut; Y²=(α²−T²)(T²−β²).",
+        "ξ=R(α+T)/(α−T), η=αRY/(α−T)²; E:η²=ξ(ξ−P²)(ξ−Q²).",
+        "T=α(ξ−R)/(ξ+R),Y=4αRη/(ξ+R)²; D_cut=Y/(2T),U=(T+(P²−Q²)/T)/2,V=(T−(P²−Q²)/T)/2.",
+        "E(Q)\\E[2](Q) ↔ signed strict cuts 0<|D_cut|<Q; no rational ξ=±R exception.",
+        "No rational order4 on primitive family. Historical exact3-torsion criterion: ψ3(z)=3z⁴−4(P²+Q²)z³+6P²Q²z²−P⁴Q⁴=0 plus nonzero cubic-square test for integer z|P⁴Q⁴."
+      ],
+      "conclusion": "精确双向图和全部rational异常由accepted原Return证明；old torsion有限判据保留，后来P11-UNIFORM-TORSION-FIBER纸面结果再统一去掉odd torsion。",
+      "limits": [
+        "单个squareclass或裸curve不能代替signed point重构；full-Selmer/rank不由该早期有限support接口自动得出。",
+        "不把后续paper层统一torsion反写成早期正式Return已经证明。"
+      ],
+      "sources": [
+        "p11-f15",
+        "p11-f21",
+        "p11-f03",
+        "p11-f11",
+        "p11-d05",
+        "p11-f02",
+        "p11-f07",
+        "p11-d01"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。"
+      }
+    },
+    {
+      "id": "P11-FORMAL-DIAGONAL-INFINITE",
+      "title": "accepted core(11,8)的all-n无穷primitive严格族",
+      "status": "SOURCE_FORMAL_RESULT_AND_ACCEPTED_DRIVER_REVIEW_AT_DERIVED_ARITHMETIC_SCOPE",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "EM-DIRECT-49ADE6",
+        "EM-DIRECT-C4D02C"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "Core(11,8)，(A,B,C)=(57,176,185),(P,Q)=(233,119)；accepted双有理图与exact outer-root primitive quotient。"
+      ],
+      "formulas": [
+        "H_E=(194089,69872040)∈E(Q) is non-torsion; prime5 Nagell–Lutz certificate.",
+        "For every n≥1 take nH_E, invert to signed(D_n,U_n,V_n), use positive display(|D_n|,|U_n|,|V_n|) while retaining raw signs.",
+        "Let L_n=lcm denominators, k_n=2L_n; F_n=(176k_n,57k_n,185k_n;k_n|D_n|,k_n|U_n|,k_n|V_n|).",
+        "Divide by gcd of all16 recovered integer outer roots; first N multiples give at leastceil(N/8) distinctprimitive outputs."
+      ],
+      "conclusion": "严格primitive diagonal无穷性是all-n定理，不是finite census/scaling同一seed；原non-torsion证明复用，当前不重跑。",
+      "limits": [
+        "n-indexsequence可有最多8次finite display合并，未断言每n注入。",
+        "无饱和/完整Mordell–Weil生成元/跨core分类；后来rank1/Sha纸面稿是独立后续范围。"
+      ],
+      "sources": [
+        "p11-f15",
+        "p11-f21",
+        "p11-f03",
+        "p11-f11",
+        "p11-d05"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。"
+      }
+    },
+    {
+      "id": "P11-FORMAL-OFFDIAG-COVER",
+      "title": "accepted off-diagonal两square-cut的genus-one cover与正确sign fibers",
+      "status": "SOURCE_FORMAL_RESULT_AND_ACCEPTED_DRIVER_REVIEW_AT_DERIVED_ARITHMETIC_SCOPE",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "EM-P000-298FC9"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "两有标号有序等面积三角P=(x,y,b),Q=(X,Y,g)，K=g²−b²≠0，A_cut=((x+y)²+(X+Y)²)/2,C_cut=((x−y)²+(X−Y)²)/2。"
+      ],
+      "formulas": [
+        "d²+μ²=A_cut,d²+ν²=C_cut,d>0; h=K/(4d),t=((h−d)²−b²)/4.",
+        "E_AC:v²=u(u−A_cut)(u−C_cut); (u,v)=(d²,dμν).",
+        "Away from v=0 image exactly([u],[u−A_cut],[u−C_cut])=(1,−1,−1).",
+        "Full signed algebraic cover generically4 lifts; fixed d>0 and fixedsigned(u,v) gives2(μ,ν)choices; allpositive display uses|v| and gives1."
+      ],
+      "conclusion": "精确有理cuts与ordered-core重构；Return已绑定修正初稿的full-signed-versus-positive-slice误差。",
+      "limits": [
+        "这是cover不是diagonal birational图；v=0异常不得搬用diagonal inverse。",
+        "Genus one不证明存在Q点；仅E上一点也不保证所需squarecuts。"
+      ],
+      "sources": [
+        "p11-f16",
+        "p11-f23",
+        "p11-f04",
+        "p11-f08",
+        "p11-d02",
+        "p11-f02",
+        "p11-f07",
+        "p11-d01"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。"
+      }
+    },
+    {
+      "id": "P11-FORMAL-OFFDIAG-INFINITE",
+      "title": "accepted固定等面积双core的odd-n注入primitive族与zero-column分层",
+      "status": "SOURCE_FORMAL_RESULT_AND_ACCEPTED_DRIVER_REVIEW_AT_DERIVED_ARITHMETIC_SCOPE",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "EM-P000-298FC9"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "固定top(21,20,29),bottom(35,12,37)，e=210,K=528,A_cut=1945,C_cut=265。",
+        "P0=(9,2112)在v²=u(u−1945)(u−265)非挠；保留双平方cut类及minimalrootdenominator。"
+      ],
+      "formulas": [
+        "For every positive odd n, nP0=(u_n,v_n) retains(1,−1,−1); d_n=√u_n>0,μ_n=√(1945−u_n),ν_n=√(265−u_n) are rational.",
+        "h_n=132/d_n,t_n=((h_n−d_n)²−841)/4; H_n=L_n(h_n−d_n,h_n,h_n+d_n),T_n=L_n²(t_n−210,t_n,t_n+210).",
+        "The16 root gcd is1 after minimal denominator L_n; positive odd n gives distinctprimitive ordered outputs.",
+        "For this exactcore only d=3 has a zero-product column; all positive odd n≥3 have none; n=3 givesproductsigns(−,−,+)."
+      ],
+      "conclusion": "全局存在无穷primitive offdiagonal族且odd-n注入，不是共同缩放；factor swap产生h<0伙伴。",
+      "limits": [
+        "未分类所有equal-area cores、所有fiber points、global zero-column strata或rank/generators。",
+        "固定core的sign/zero结论不外推全族；历史有限regression不冒称当前复算。"
+      ],
+      "sources": [
+        "p11-f16",
+        "p11-f23",
+        "p11-f04",
+        "p11-f08",
+        "p11-d02"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。"
+      }
+    },
+    {
+      "id": "P11-FORMAL-OFFDIAG-DENOM",
+      "title": "固定off-diagonal core的精确minimal16-root denominator",
+      "status": "SOURCE_FORMAL_RESULT_AND_ACCEPTED_DRIVER_REVIEW_AT_DERIVED_ARITHMETIC_SCOPE",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "EM-P000-298FC9"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "上一条固定core；validcut d=p/q>0 lowestterms，r=qμ,s=qν；q odd,v2(p)≠1。",
+        "N为source列出的全部16 integer rootnumerators，common denominator2pq。"
+      ],
+      "formulas": [
+        "N=(132q²−p²±41pq,132q²−p²±29pq,132q²−p²±pq;132q²±rp,132q²±sp;132q²+p²±47pq,132q²+p²±37pq,132q²+p²±23pq).",
+        "o=gcd(p,33); g=gcd|N|=2o(p odd),8o(v2p=2),4o(v2p≥3).",
+        "L=2pq/g=pq/gcd(p,132) if p odd orv2p=2; L=2pq/gcd(p,132) ifv2p≥3.",
+        "Any integer scale clears allroots iff L divides scale; unique primitive scale=L."
+      ],
+      "conclusion": "精确root-level gcd/denominator端口，保留v2p≥3多出的factor2；无须生成新elliptic points。",
+      "limits": [
+        "人工gcd/parity stress inputs并不自动在cutcurve上；不能把triangle-only gcd当16-rootgcd。"
+      ],
+      "sources": [
+        "p11-f22",
+        "p11-f16",
+        "p11-f04",
+        "p11-f08",
+        "p11-d02"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。"
+      }
+    },
+    {
+      "id": "HCM0-FINITE-SECANT-KERNEL",
+      "title": "actual moving secant的finite Bernoulli generator与signed inverse-Gram pair ledger",
+      "status": "SOURCE_ARCHIVED_COMPONENT_PROOF_AND_SEPARATE_LIMITED_REVIEW",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "EM-PERFECT-82C88E"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "m≥2,n=m−1,S≥0,a>0,M=m²,x=M(S+a),β=(M+1)/2,b=x+β；actualsource polynomials degree≤m−2。",
+        "H(c)=F_(a+c)^T D_(a+c)F_(a+c)；d_q=κw_q/p_q,κ=n!m^(m−1),w_q=(−1)^q binom(n,q),p_q=∏_(t=0)^(m−1)(x+q+1+mt)。"
+      ],
+      "formulas": [
+        "g_a(z)=[φ(z+ma)−φ(z)]/(ma)=A(maD_z)φ′(z), A(w)=(exp w−1)/w finite after nilpotent substitution.",
+        "∂_a g_a=L_a(D_z)g_a; L_a=mD_z/2+Σ_(2k≤m−2) B_(2k)m^(2k)a^(2k−1)D_z^(2k)/(2k)!.",
+        "D_z^4 branch=−m^4 a^3D_z^4/720, nonzero onactualdomain fromm=6.",
+        "u=D^−1w,h=w^TD^−1w,P=D^−1−uu^T/h; P=F H^−1F^T,PDP=P,(PD)^2=PD; generallyP²≠P.",
+        "C=L_aP,Q=L_aPL_a^T,d′_q=−Mℓ_qd_q: tr(K²)=Σ d′_qd′_rP_qr²+4Σ d′_qd_rP_qrC_rq+2Σ d_qd_r(C_qrC_rq+P_qrQ_qr),K=H^−1H′."
+      ],
+      "conclusion": "完整signed row-pair和metric/frame种类都保留；finite nilpotent calculus给真实secant generator，修正“projector”术语而不改变公式。",
+      "limits": [
+        "signed branch不是full trace或actualfirstface负值；H不定不允许Euclidean正定不等式代替。",
+        "原rawpair ledger不能正质量折叠；本次未重跑14fixtures/7tables。"
+      ],
+      "sources": [
+        "p11-p03m29",
+        "p11-p03m30",
+        "p11-p03m31",
+        "p11-f17"
+      ],
+      "method_harvest": {
+        "classification": "EXTEND_EXISTING_TASK_LOCAL_SIGNED_BRC_COMPLEMENT_CARRIER",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。"
+      }
+    },
+    {
+      "id": "HCM0-METRIC-COMPLEMENT",
+      "title": "arithmetic-to-contiguous complement transpose与pure-metric路线阻碍",
+      "status": "SOURCE_ARCHIVED_COMPONENT_PROOF_AND_SEPARATE_LIMITED_REVIEW",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "EM-PERFECT-82C88E"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "上一条fixednormalization；G=∏_(k=1)^M(x+k),I_q={q+1+mt},J_t=∏_(j=mt+1)^(mt+m)(x+j)。",
+        "N1_metric是明确冻结sourceframe仅metric变动的component，不是完整actualmovingframe。"
+      ],
+      "formulas": [
+        "N1_metric/M²=bΣ_qΣ_(k<ell∈I_q)G/((x+k)(x+ell))+G′−m^(m−2)Σ_(t=0)^(m−1)(−1)^(m−1+t)t!(m−1−t)!G/J_t.",
+        "Q_metric=2m!N1_metric/m^4; at m5 constant=−34179462704151857420697600000.",
+        "For every oddm≥7, constant coefficient N1_metric<0."
+      ],
+      "conclusion": "partial-fraction与nth forward difference把带符号arithmetic blocks转为contiguous complements；m5是该component coefficient路线首次失败，odd≥7有uniform证明。",
+      "limits": [
+        "metric负constant不反驳actualtrace/fullfirstface；m5实际frame补偿为positive。",
+        "旧smallm表/程序是历史证据，本次仅引用完整已归档proof和独立component审查。"
+      ],
+      "sources": [
+        "p11-p03m29",
+        "p11-p03m31"
+      ],
+      "method_harvest": {
+        "classification": "EXTEND_EXISTING_TASK_LOCAL_SIGNED_BRC_COMPLEMENT_CARRIER",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。"
+      }
+    },
+    {
+      "id": "HCM0-ACTUAL-M7-OBSTRUCTION",
+      "title": "正式接受的actual unshifted c1 coefficient障碍与joint frame补偿",
+      "status": "SOURCE_FORMAL_ACCEPTED_EXACT_COEFFICIENT_OBSTRUCTION_ONLY",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "EM-PERFECT-82C88E",
+        "hcm0_actual_cross_complement_scout (UNKNOWN native identity)"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "m≥2, n=m−1,M=m²,x=M(S+a),β=(M+1)/2；sourceactual movingform H(c)，K=H(0)^−1H′(0),G=∏_(k=1)^M(x+k)。",
+        "N(c)=(x+Mc+β)G·(tr(H(c)^−1H(0))−n)/c,N1=[c]N；只能清正有理content，不能另取消S/a因子。"
+      ],
+      "formulas": [
+        "N1/G=(x+β)tr(K²)/2+M²Σ_qℓ_q−M²/(2(x+β))−M²(x+β)Σ_qj_q/2.",
+        "FullframeΔ=N1−N1_metric=A+B+C+D, with four joint signed complement populations retained in originalcapsule.",
+        "At a=0 rank-onecross populations cancel exactly3/4 of dangerousmetricpopulation, notall.",
+        "[S^0a^0]N1 at m5=263175646684504186730668032000>0.",
+        "[S^0a^0]N1 at m7=−763970490023258915804927398345985075352924631629097368708710400000000<0."
+      ],
+      "conclusion": "固定unshifted第一face不可能all-m coefficientwise positive；sourceformal Result及DR-053D71583987C94FEE06已ACCEPTED于exactcoefficient-obstruction替代目标。",
+      "limits": [
+        "a=0是removable polynomial extension且H0可逆，不是a>0或integergap a≥1的trace反例。",
+        "不反驳HCM0，不证明shifted-positive基、higherfaces或parent完成；未断言m7最早negativeactualdimension。",
+        "历史author/helper与独立Fraction计算保留贡献，不在此重算或新增Native票。"
+      ],
+      "sources": [
+        "p11-f17",
+        "p11-p03m37",
+        "p11-p03m41",
+        "p11-f05",
+        "p11-f10",
+        "p11-d04"
+      ],
+      "method_harvest": {
+        "classification": "EXTEND_EXISTING_TASK_LOCAL_SIGNED_BRC_COMPLEMENT_CARRIER",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。"
+      }
+    },
+    {
+      "id": "PERFECT-EQUALBLOCK-ENTRYWISE",
+      "title": "equal-block固定基底的entrywise充分策略反例",
+      "status": "SOURCE_REPORTED_FIXED_PARTIAL_REVIEW_PASS_TASK_OPEN",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "EM-HODGE-7936BF"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "m=3, everyrealS≥0,a=c=1；n=m−1,r0=mS,r=m(S+1),s=r+m。",
+        "使用来源first-n-coordinate hyperplane基底与实际endpointframes A=G_m^TD_rG_m,B=G_(2m)^TD_sG_(2m)。"
+      ],
+      "formulas": [
+        "V=L_mL_(2m)^−1,Δ=V^TR_rV−R_s; tr(B^−1A)−n=tr(R_s^−1Δ).",
+        "Late inverse(−1)^mR_s^−1 entrywisepositive, but at m3 Δ00>0 forallS≥0."
+      ],
+      "conclusion": "所指定的充分条件(−1)^mΔ entrywise nonnegative在整条m3子族失败；仅这条comparison路线被关闭。",
+      "limits": [
+        "不是trace counterexample、all-m no-go或其它joint signed比较不可行。",
+        "独立review只给三个精确partialunits的PASS，formal Task仍OPEN。"
+      ],
+      "sources": [
+        "p11-p02m00",
+        "p11-p00",
+        "p11-p01"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_STANDARD_APPLIED_COMPOSE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。"
+      }
+    },
+    {
+      "id": "PERFECT-EQUALBLOCK-BETA-KERNEL",
+      "title": "equal-block full trace的beta-adapted kernel、finite difference与完整signed residues",
+      "status": "SOURCE_REPORTED_FIXED_PARTIAL_REVIEW_PASS_TASK_OPEN",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "EM-HODGE-7936BF",
+        "EM-PARITYSUP-9840AA"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "integerm≥2,realS≥0,a=c=1,n=m−1,r=m(S+1),s=r+m；原full i,p,q/parity/endpoint/magnitude carrier保留。",
+        "θ_j=(j+1)/m,w_j=(−1)^j binom(n,j),η_(t,j)=B(t+θ_j,m),D_t=diag(w_jη_(t,j)/m)。"
+      ],
+      "formulas": [
+        "On degree≤m−2 polynomials E_mf(x)=f(x+m),T=2(I+E_m)^−1; T G_(2m)=G_m.",
+        "V0(x)=∏_(j=0)^n(x−θ_j),P_t(x)=(t+x)_m,R_t=P_t−V0,L_t=mt+(m²+1)/2.",
+        "Bcal_t(x,y)=[V0(x)R_t(y)−R_t(x)V0(y)]/(x−y)−R_t(x)R_t(y)/L_t, deg_x,deg_y≤m−2.",
+        "c_m=(−1)^n m^n/n!; inversekernel K_t=(m c_m/n!)Bcal_t.",
+        "Z_s(x)=[T_xT_y Bcal_s(x,y)−Bcal_r(x,y)]_(y=x),f_s=Z_s/P_r.",
+        "tr(B^−1A)−n=(m^n/n!)Δ_(1/m)^n f_s(1/m)=(1/n!)∫_[0,1]^n f_s^(n)((1+Σt_j)/m)dt.",
+        "b_k=(−1)^kZ_s(−r−k)/(k!(n−k)!); tr(B^−1A)−n=(−1)^nΣ_(k=0)^n b_k/∏_(j=0)^n(r+k+θ_j)."
+      ],
+      "conclusion": "完整moving-frame trace有无隐藏matrixinverse的精确有限residue描述；kernel高次项真正取消，常数和transfer方向已在独立partialreview核对。",
+      "limits": [
+        "uniformsignedsum正性仍OPEN；无termwise residue或derivativeintegrand正性结论。",
+        "新kernel/residues不能分别恢复原W+/W−人口，旧eq6.2保留以支持原branch操作。",
+        "finiteEuleroperator是既有经典方法接口，不是新通用Tool或无限series收敛前提。"
+      ],
+      "sources": [
+        "p11-p02m00",
+        "p11-p02m03",
+        "p11-p02m04",
+        "p11-p00",
+        "p11-p01"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_TASK_LOCAL_SIGNED_OBSERVER_REDUCTION",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。",
+        "existing_tool_reuse": [
+          {
+            "family_id": "T0_BRC",
+            "resolution": "REUSE_APPLIED",
+            "scope": "Exact signed provenance carrier only; no positive-mass collapse or trace-sign proof from the tool."
+          }
+        ]
+      }
+    },
+    {
+      "id": "PERFECT-EQUALBLOCK-M15",
+      "title": "既有固定m15,S0 full trace正性证书的独立复核",
+      "status": "SOURCE_REPORTED_FIXED_PARTIAL_REVIEW_PASS_TASK_OPEN",
+      "status_note": "本条只记录固定Source中原有的Result/Driver或限定partial-review状态；原报告冻结时pending文字保留，不新增接受、投票、复算或晋升。",
+      "authors": [
+        "EM-HODGE-7936BF"
+      ],
+      "model": "EXPLICIT_TYPED_CLASSICAL_OR_PROJECT_DERIVED_ARITHMETIC_OBSERVER; NO_NATIVE_X6_PROPAGATION_OR_PHYSICS",
+      "assumptions": [
+        "唯一预承诺point(m,S,a,c)=(15,0,1,1)；full actualendpointforms与originalinteger-nodeQ共同normalization。"
+      ],
+      "formulas": [
+        "tr(B^−1A)>14 at the exactfixedinput; same-point full signedresidueidentity agrees."
+      ],
+      "conclusion": "来源独立review重新以精确Fraction核对完整矩阵、两侧inverse、pivots/determinant及complete residue和；这是一点正性证书，不是uniform定理。",
+      "limits": [
+        "本次不重跑证书；原authorhistoricalsinglefixture与review独立复核分开。",
+        "不证明allm/allS、最早失败或Task完成；未找到actualtracecounterexample。"
+      ],
+      "sources": [
+        "p11-p02m00",
+        "p11-p00",
+        "p11-p01"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY_FIXED_FINITE_CERTIFICATE",
+        "api": [],
+        "registered_tool": false,
+        "resolution": "COMPOSE_APPLIED",
+        "note": "保存原有可复用数学输入/输出和证明范围；没有自动新Tool-family或执行授权。"
+      }
+    },
+    {
+      "id": "P11-CAUCHY-OUTER-COVARIANCE-BOUNDARY",
+      "title": "完整Cauchy层的outer signed covariance约化与inner定号机制负边界",
+      "status": "SOURCE_REPORTED_CURRENT_TASK_ONLY_ACCEPTED_NEGATIVE_BOUNDARY",
+      "status_note": "原Sep1RR/RETURN为NEGATIVE_BOUNDARY；本月真实V1 DR-6FAD20D6377588C9CBB2及V2 DR-A8E01D1D6349A6D97DA2均ACCEPTED，V2保存完整原hard-target并加Taskbook负返回条款，数学不变。仅Task允许的机制失败终局；outer determinant与母目标仍OPEN。本采收不新投票。",
+      "authors": [
+        "EM-PPTAPBCP1-646AAA"
+      ],
+      "reviewers": [
+        "EM-DVR-FBF223 / NONBLIND_DISCLOSED; contribution aliases preserved in exact DR records"
+      ],
+      "auxiliary_attribution": "Existing review embeds /root/backend_route_audit derivation as UNKNOWN / DIRECTED_NONBLIND auxiliary; it supplies no independent native authority and is not a new result author or curation review.",
+      "model": "EXPLICIT_CLASSICAL_REAL_CAUCHY_MOMENT_AND_SIGNED_BILINEAR_MODEL; NO_NATIVE_X6_PROPAGATION_OR_PHYSICAL_BRIDGE",
+      "assumptions": [
+        "m≥2 integer,n=m−1,b=m²,i,j,s=0,...,n;x_i=i+1,y_j=mj,u_i=−x_i,w_i=(−1)^i binom(n,i).",
+        "g,f,h,k are polynomials of degree≤n; for positive-mass Dcal_j use 0≤t≤1, for nondegenerate inner inertia/determinant use 0<t≤1.",
+        "L_t is exactly the frozen 2m×2m signed bipartite Laplacian from H_t, not a positive probability covariance; right variables retain original q_j=f(y_j) values."
+      ],
+      "formulas": [
+        "H_t(i,j)=∫₀¹v^(i+mj)(1−t v^b)^n dv=Σ_s(−1)^s binom(n,s)t^s/(x_i+y_j+bs). With W=diag(w),e=H_tw,d=H_t^Tw: L_t=[[Wdiag(e),−WH_tW],[−WH_t^TW,Wdiag(d)]], τ_m=det L_t[hat(2m),hat(2m)].",
+        "c(z)=n!/∏_(r=1)^m(z+r), z_(j,s)=y_j+bs. R_P(z)=Σ_i w_iP(u_i)/(z−u_i). For degP≤n,R_P=cP; for gh of degree≤2n,R_gh=cgh+E_gh with deg E_gh≤n−1, and Σ_jw_jE_gh(mj+bs)=0. Both cancellations are necessary.",
+        "B_s=Σ_jw_jc(z_(j,s))[g(z_(j,s))−f(y_j)][h(z_(j,s))−k(y_j)]. λ_(j,s)=(−1)^s binom(n,s)t^s c(z_(j,s)); Dcal_j=Σ_sλ_(j,s)=∫₀¹v^(mj)(1−v)^n(1−t v^b)^n dv>0 for0≤t≤1.",
+        "μ_j(g)=Σ_sλ_(j,s)g(z_(j,s))/Dcal_j; Ccal_j(g,h)=Σ_sλ_(j,s)g(z_(j,s))h(z_(j,s))−Dcal_jμ_j(g)μ_j(h). B_t=Σ_jw_jDcal_j[f(y_j)−μ_j(g)][k(y_j)−μ_j(h)]+Σ_jw_jCcal_j(g,h).",
+        "On monomial quotient basis X,...,X^n, C_j[r,q]=Σ_sλz^(r+q)−(Σ_sλz^r)(Σ_sλz^q)/Dcal_j, S_m=Σ_jw_jC_j. |det V_x|=∏_(k=1)^n k!, hence τ_m(t)=[∏_(j=0)^n w_jDcal_j(t)]det S_m(t)/[∏_(k=1)^n k!]^2; τ_m≠0 iff detS_m≠0 on0<t≤1. No V_y factor.",
+        "For0<t≤1: A_j=diag(λ_j)−λ_jλ_j^T/Dcal_j, det A_j[hat(k),hat(k)]=∏_sλ_(j,s)/Dcal_j. Δ_j=∏_(r<s)(z_(j,s)−z_(j,r)); det C_j=Δ_j²∏_sλ_(j,s)/Dcal_j; sign det C_j=(−1)^(n(n+1)/2).",
+        "In(C_j)=(floor(n/2),ceil(n/2),0): m2 inner negative definite, everym≥3 inner indefinite. Witnessm3,j0,t1: C0=(1/16120)[[−2673,−12231],[−12231,102303]], detC0=−6561/4030.",
+        "At t0, everyC_j(0)=0; S_m(t)=tS_m^(1)+O(t²). Reusing the previously accepted nondegenerate crossing theorem gives ord_(t=0)τ_m=m−1; the positive-t inertia does not continue to t0.",
+        "Archived return also gives degτ_m=2n², τ_m=t^n q_m, degq_m=n(2m−3); for0≤t<1 (x≥0), x=t/(1−t), Bhat_m(x)=(1+x)^(n(2m−3))q_m(x/(1+x)); det Ltilde_x[hat(2m),hat(2m)]=x^n(1+x)^n Bhat_m(x). All-coefficient positivity only reported finite2≤m≤10, not allm."
+      ],
+      "conclusion": "完整多层cofactor精确约化为一个(m−1)阶outer signed covariance determinant；每个inner块m≥3不定，精确阻断逐inner正/负定的条件variance/termwise-positive Andreief机制。未证明或反驳outer非消失。",
+      "limits": [
+        "λ有交替符号，不能用概率variance非负或Euclidean正定不等式替换。",
+        "Inner不定≠outer奇异；m≤10系数正性仅历史有限证据、且正系数是充分路线而非非消失必要条件。",
+        "既有outer successor TP2-C4B48A416649C9324011仍承接detS_m(t)≠0所有m≥2、0<t≤1；不另开任务、不恢复科学执行。",
+        "adjacent-layer crossing/endpoint非退化作为原接受输入，不因本文重新命名为新发现。",
+        "无Working Truth/Foundation/L4/novelty/母Goal完成。",
+        "Möbius变量x=t/(1−t)只在0≤t<1、x≥0使用；t=1由独立endpoint陈述/极限处理，不将该有限x替换直接套入t=1。"
+      ],
+      "sources": [
+        "p11-late-cauchy-0",
+        "p11-late-cauchy-2",
+        "p11-late-cauchy-3",
+        "p11-late-cauchy-4",
+        "p11-late-cauchy-5",
+        "p11-late-cauchy-6"
+      ],
+      "method_harvest": {
+        "classification": "RESULT_ONLY",
+        "api": [
+          "Input: exact frozen m,t and complete signed Cauchy layers/right-node values. Output: Dcal_j,full signed C_j,S_m,exact cofactor identity,inner determinant/inertia obstruction.",
+          "Reuse the all-m symbolic reduction; historical Fraction checker/census is not rerun."
+        ],
+        "registered_tool": false,
+        "resolution": "EXISTING_SOURCE_RESULT_REUSE",
+        "note": "This is a reusable theorem interface in existing accepted Task-only result; no new Tool-family, positive-mass fold or all-m nonvanishing claim."
+      },
+      "formal_result_id": "RR-A4EBF925BE07691C8C16",
+      "formal_current_review_ids": [
+        "DR-6FAD20D6377588C9CBB2",
+        "DR-A8E01D1D6349A6D97DA2"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "p11-a00",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_fixed_curve_paper/P11_RESIDUAL_CASSELS_PAIRING_RANK_ONE_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_fixed_curve_paper/P11_RESIDUAL_CASSELS_PAIRING_RANK_ONE_PAPER.md",
+      "blob_oid": "3ea3aa411753af9c2d540f112662170ba216602d",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a01",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_fixed_curve_paper/P11_PRIMARY_THEOREM_APPLICABILITY_AND_EXACT_SCOPE.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_fixed_curve_paper/P11_PRIMARY_THEOREM_APPLICABILITY_AND_EXACT_SCOPE.md",
+      "blob_oid": "dc9d060fe4048d15788063dfc2782876584115f6",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a02",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_fixed_curve_paper/P11_LOCAL_KUMMER_IMAGE_PAPER_LEMMA.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_fixed_curve_paper/P11_LOCAL_KUMMER_IMAGE_PAPER_LEMMA.md",
+      "blob_oid": "dc92e40b59d3a4683688dc38431980e089d34eac",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a03",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_fixed_curve_paper/P11_CONDITIONAL_SHA_TWO_PRIMARY_COROLLARY.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_fixed_curve_paper/P11_CONDITIONAL_SHA_TWO_PRIMARY_COROLLARY.md",
+      "blob_oid": "23000e52fbd479d50cc85207165d42bff482c1b2",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a04",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_fixed_curve_certificate/P11_EXPLICIT_UNUSED_TANGENT_NONVANISHING_PAPER_ADDENDUM.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_fixed_curve_certificate/P11_EXPLICIT_UNUSED_TANGENT_NONVANISHING_PAPER_ADDENDUM.md",
+      "blob_oid": "609c57dea93e7575b5ec6daaad0057133f35445f",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a05",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_fixed_curve_certificate/P11_CERTIFICATE_PAPER_DESIGN_BEFORE_OWN_RUN.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_fixed_curve_certificate/P11_CERTIFICATE_PAPER_DESIGN_BEFORE_OWN_RUN.md",
+      "blob_oid": "15da28b94087f012db5b6f79cc83940d6378ded3",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a06",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_explicit_u3_and_u2_readout/P11_FIXED_U2_MIXED_BIT_HILBERT_SUPPORT_REDUCTION_ADDENDUM.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_explicit_u3_and_u2_readout/P11_FIXED_U2_MIXED_BIT_HILBERT_SUPPORT_REDUCTION_ADDENDUM.md",
+      "blob_oid": "89bafce6712c6598cf3b1ffa4ed68dac09d75e75",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a07",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_explicit_u3_and_u2_readout/P11_CORE98_U3_EXPLICIT_BINARY_QUARTIC_INPUT_NOTE.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_explicit_u3_and_u2_readout/P11_CORE98_U3_EXPLICIT_BINARY_QUARTIC_INPUT_NOTE.md",
+      "blob_oid": "fd8ffb113d4adc87de6c26398f6a262da8a6970f",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a08",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_current_theorem_method_frontier/P11_FISHER_EXISTING_HIGHER_DESCENT_REUSE_ROUTE_AND_CERTIFICATE_PLAN.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_current_theorem_method_frontier/P11_FISHER_EXISTING_HIGHER_DESCENT_REUSE_ROUTE_AND_CERTIFICATE_PLAN.md",
+      "blob_oid": "ab3cdf001cf6b1eda6a6fb7e05d8f62664f85b4c",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a09",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_complete_dyadic_local_images/P11_OPPOSITE_PARITY_UNIFORM_EIGHT_CLASS_WITNESS_APPENDIX.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_complete_dyadic_local_images/P11_OPPOSITE_PARITY_UNIFORM_EIGHT_CLASS_WITNESS_APPENDIX.md",
+      "blob_oid": "3e3999ea875adde762f9fe8bc510568fad350055",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a10",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_complete_dyadic_local_images/P11_MISSING_DYADIC_VALUATION_FOUR_COMPLETE_IMAGE_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_complete_dyadic_local_images/P11_MISSING_DYADIC_VALUATION_FOUR_COMPLETE_IMAGE_PAPER.md",
+      "blob_oid": "e1831e989fa291ac6c5b4c2dededbf255478d385",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a11",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_complete_dyadic_local_images/P11_EXTERNAL_OPPOSITE_PARITY_COMPLETE_DYADIC_KUMMER_IMAGES_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_complete_dyadic_local_images/P11_EXTERNAL_OPPOSITE_PARITY_COMPLETE_DYADIC_KUMMER_IMAGES_PAPER.md",
+      "blob_oid": "31553796af1a68a902e0899bc29f81894d828fed",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a12",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_complete_dyadic_local_images/P11_EXTERNAL_DYADIC_VALUATION_THREE_AND_COMPLETE_ODD_ROOT_LOCAL_INTERFACE_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_complete_dyadic_local_images/P11_EXTERNAL_DYADIC_VALUATION_THREE_AND_COMPLETE_ODD_ROOT_LOCAL_INTERFACE_PAPER.md",
+      "blob_oid": "8f9c75e2253fb06a5931235a1ca846a8ad7fc7cd",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a13",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_abstract_four_selmer/P11_CORE98_ABSTRACT_FOUR_SELMER_LIFT_STRUCTURE_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_abstract_four_selmer/P11_CORE98_ABSTRACT_FOUR_SELMER_LIFT_STRUCTURE_PAPER.md",
+      "blob_oid": "e6cfe106f1c7e7b1a158bda752e51cc8a8f66dc2",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a14",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_abstract_four_selmer/P11_ABSTRACT_FOUR_SELMER_STRUCTURE_METHOD_HARVEST.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_abstract_four_selmer/P11_ABSTRACT_FOUR_SELMER_STRUCTURE_METHOD_HARVEST.md",
+      "blob_oid": "12342a18550424dec7cb0b5743812cc1ca71275f",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a15",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_vertical_pairing_interface/P11_VERTICAL_SELMER_FINITE_CASSELS_SYMBOL_FORMULA_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_vertical_pairing_interface/P11_VERTICAL_SELMER_FINITE_CASSELS_SYMBOL_FORMULA_PAPER.md",
+      "blob_oid": "98fecb8cf7168230a905b302e201b6b820391781",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a16",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_vertical_pairing_interface/P11_VERTICAL_PAIRING_BILINEAR_RECIPROCITY_ADDENDUM.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_vertical_pairing_interface/P11_VERTICAL_PAIRING_BILINEAR_RECIPROCITY_ADDENDUM.md",
+      "blob_oid": "9eb725420026de96b76cdf6796acab4068ce3ced",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a17",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_valuation4_vertical_pairing/P11_VALUATION_FOUR_VERTICAL_CASSELS_EXTENSION_AND_CORE61_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_valuation4_vertical_pairing/P11_VALUATION_FOUR_VERTICAL_CASSELS_EXTENSION_AND_CORE61_PAPER.md",
+      "blob_oid": "44e351968edbc176d2aa6ccc66f50da44c4ec82e",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a18",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_uniform_u2_and_zero_form/P11_UNIFORM_U2_SELMER_ODD_LEG_PAIRING_ROW_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_uniform_u2_and_zero_form/P11_UNIFORM_U2_SELMER_ODD_LEG_PAIRING_ROW_PAPER.md",
+      "blob_oid": "0e35afd54d3a76274f2e43e416473c928b105bc9",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a19",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_uniform_u2_and_zero_form/P11_CORE_9_8_ZERO_CASSELS_FORM_OBSTRUCTION_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_uniform_u2_and_zero_form/P11_CORE_9_8_ZERO_CASSELS_FORM_OBSTRUCTION_PAPER.md",
+      "blob_oid": "c77d71e7325b22d4bdd7a534ceaa45a4ca752c43",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a20",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_uniform_torsion/P11_UNIFORM_TORSION_AND_EMPTY_OR_INFINITE_STRICT_FIBER_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_uniform_torsion/P11_UNIFORM_TORSION_AND_EMPTY_OR_INFINITE_STRICT_FIBER_PAPER.md",
+      "blob_oid": "78b181e265a52be5dbc2cce6f27e5792c1638ba0",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a21",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_parametric_local_images/P11_PRIME_SUPPORT_SELMER_DIMENSION_COROLLARY.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_parametric_local_images/P11_PRIME_SUPPORT_SELMER_DIMENSION_COROLLARY.md",
+      "blob_oid": "4860e99279ac8b5e795264c63f6ba5fdfae31bdf",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a22",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_parametric_local_images/P11_PARAMETRIC_LOCAL_IMAGE_AND_DYADIC_OBSTRUCTION_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_parametric_local_images/P11_PARAMETRIC_LOCAL_IMAGE_AND_DYADIC_OBSTRUCTION_PAPER.md",
+      "blob_oid": "9cf9ff6372bfe1ce226f560ba5a637245484e029",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a23",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_parametric_local_images/P11_CORE_5_4_RANK_ZERO_CASSELS_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_parametric_local_images/P11_CORE_5_4_RANK_ZERO_CASSELS_PAPER.md",
+      "blob_oid": "0c900110951445dbb5a53dcaf772166f3d0d8ca0",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a24",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_model_normalization_interface/P11_SAME_E_ISOMORPHISM_AND_COVER_TRANSLATION_BOUNDARY_PAPER_NOTE.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_model_normalization_interface/P11_SAME_E_ISOMORPHISM_AND_COVER_TRANSLATION_BOUNDARY_PAPER_NOTE.md",
+      "blob_oid": "8bca2362759554948c6b54b4f7b8768dbde4fbc0",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a25",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_model_normalization_interface/P11_MODEL_TRANSLATION_AND_ISOGENY_MIXED_BIT_RESULT_ONLY_INTERFACE.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_model_normalization_interface/P11_MODEL_TRANSLATION_AND_ISOGENY_MIXED_BIT_RESULT_ONLY_INTERFACE.md",
+      "blob_oid": "b12b51cca5c438a4c9992e90c4d626a0e827698e",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a26",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_model_normalization_interface/P11_MIXED_CASSELSTATE_BIT_MODEL_NORMALIZATION_INVARIANCE_PAPER_NOTE.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_model_normalization_interface/P11_MIXED_CASSELSTATE_BIT_MODEL_NORMALIZATION_INVARIANCE_PAPER_NOTE.md",
+      "blob_oid": "215f83fe9a8ac61333a441d7f2e94f93470e4be4",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a27",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_model_normalization_interface/P11_FULL_COVER_DEGREES_AND_MODEL_PROJECTION_AUTHOR_CLARIFICATION.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_model_normalization_interface/P11_FULL_COVER_DEGREES_AND_MODEL_PROJECTION_AUTHOR_CLARIFICATION.md",
+      "blob_oid": "66e423371fd04c207f5a7f42f741cb0e9ebab8af",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a28",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_mixed_higher_pairing/P11_CORE98_MIXED_HIGHER_PAIRING_ONE_BIT_CERTIFICATE_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_mixed_higher_pairing/P11_CORE98_MIXED_HIGHER_PAIRING_ONE_BIT_CERTIFICATE_PAPER.md",
+      "blob_oid": "dc70bbfa3c70d38b7c832c73e4bf205d9c7dff35",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a29",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_magma_exact_input_bridge/P11_EXISTING_MAGMA_MIXED_PAIRING_EXACT_INPUT_BRIDGE_AND_GAPS.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_magma_exact_input_bridge/P11_EXISTING_MAGMA_MIXED_PAIRING_EXACT_INPUT_BRIDGE_AND_GAPS.md",
+      "blob_oid": "640c0a3c467fe996641e08608065407d4138136c",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-a30",
+      "kind": "author",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_full_selmer_interface/P11_FULL_SELMER_COMPRESSED_KERNEL_AND_VERTICAL_QUOTIENT_PAPER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_full_selmer_interface/P11_FULL_SELMER_COMPRESSED_KERNEL_AND_VERTICAL_QUOTIENT_PAPER.md",
+      "blob_oid": "9a9d7e61ce4584bb8f290f1dda6154004d348415",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r00",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/reviews/p11_unused_tangent_7cda51/P11_EXPLICIT_UNUSED_TANGENT_INDEPENDENT_PAPER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/p11_unused_tangent_7cda51/P11_EXPLICIT_UNUSED_TANGENT_INDEPENDENT_PAPER_REVIEW.md",
+      "blob_oid": "810dc8d83ed09e6e9d34989eba54b7558322a675",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r01",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/reviews/p11_u3_quartic_u2_hilbert_7cda51/P11_U3_EXPLICIT_QUARTIC_INDEPENDENT_PAPER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/p11_u3_quartic_u2_hilbert_7cda51/P11_U3_EXPLICIT_QUARTIC_INDEPENDENT_PAPER_REVIEW.md",
+      "blob_oid": "23a5e8f70bfcf9938f45f39f49fc9ea0c26260a7",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r02",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/reviews/p11_u3_quartic_u2_hilbert_7cda51/P11_U2_HILBERT_READOUT_INDEPENDENT_PAPER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/p11_u3_quartic_u2_hilbert_7cda51/P11_U2_HILBERT_READOUT_INDEPENDENT_PAPER_REVIEW.md",
+      "blob_oid": "414009b2641efd713c42d0dcf4b7437ad40f7c59",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r03",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/reviews/p11_sameE_CT_normalization_7cda51/P11_SAME_E_RIGIDITY_AND_LABEL_COUNTEREXAMPLE_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/p11_sameE_CT_normalization_7cda51/P11_SAME_E_RIGIDITY_AND_LABEL_COUNTEREXAMPLE_INDEPENDENT_REVIEW.md",
+      "blob_oid": "4d0a54ffcb0d4a5c8ee36c9c1b55e33da43da19d",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r04",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/reviews/p11_sameE_CT_normalization_7cda51/P11_HALF_VALUED_CT_NORMALIZATION_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/p11_sameE_CT_normalization_7cda51/P11_HALF_VALUED_CT_NORMALIZATION_INDEPENDENT_REVIEW.md",
+      "blob_oid": "d4229d7e654353c32aecfe46cef6613711737a93",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r05",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/reviews/p11_parameter_core54_7cda51/P11_PRIME_SUPPORT_COROLLARY_INDEPENDENT_PAPER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/p11_parameter_core54_7cda51/P11_PRIME_SUPPORT_COROLLARY_INDEPENDENT_PAPER_REVIEW.md",
+      "blob_oid": "6c0ed3fac32a8b6e90a135819db540eb07507dc5",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r06",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/reviews/p11_parameter_core54_7cda51/P11_PARAMETRIC_LOCAL_IMAGE_INDEPENDENT_PAPER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/p11_parameter_core54_7cda51/P11_PARAMETRIC_LOCAL_IMAGE_INDEPENDENT_PAPER_REVIEW.md",
+      "blob_oid": "f4a54bbb05e3c84fd4002a93741b8903a2f8d767",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r07",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/reviews/p11_parameter_core54_7cda51/P11_CORE_5_4_INDEPENDENT_PAPER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/p11_parameter_core54_7cda51/P11_CORE_5_4_INDEPENDENT_PAPER_REVIEW.md",
+      "blob_oid": "ce36e0ff23f310e2c0485c4ac7911ddb605dc2c2",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r08",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/reviews/p11_opposite_parity_7cda51/P11_OPPOSITE_PARITY_COMPLETE_DYADIC_IMAGE_AND_WITNESSES_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/p11_opposite_parity_7cda51/P11_OPPOSITE_PARITY_COMPLETE_DYADIC_IMAGE_AND_WITNESSES_INDEPENDENT_REVIEW.md",
+      "blob_oid": "475840209153b5420372a0d566ec1329e61005a8",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r09",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/reviews/p11_grouped_isogeny_interface_7cda51/P11_GROUPED_MODEL_TRANSLATION_ISOGENY_RESULT_ONLY_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/p11_grouped_isogeny_interface_7cda51/P11_GROUPED_MODEL_TRANSLATION_ISOGENY_RESULT_ONLY_INDEPENDENT_REVIEW.md",
+      "blob_oid": "149e5b1f423ca9e949a192ac65b49e5fca2c0021",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r10",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/reviews/p11_external_vD3_7cda51/P11_EXTERNAL_VALUATION_THREE_COMPLETE_DYADIC_IMAGE_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/p11_external_vD3_7cda51/P11_EXTERNAL_VALUATION_THREE_COMPLETE_DYADIC_IMAGE_INDEPENDENT_REVIEW.md",
+      "blob_oid": "b509bd226b2402444bab3daaf1e7e8f2bc569a36",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r11",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/reviews/p11_actual_static_gate_7cda51/P11_STOPPED_CANDIDATE_INDEPENDENT_NO_INVOKE_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/p11_actual_static_gate_7cda51/P11_STOPPED_CANDIDATE_INDEPENDENT_NO_INVOKE_REVIEW.md",
+      "blob_oid": "8caa64e725eaf2c54d6bbed9f2578cb768b45acf",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW",
+      "review_scope": "NONAUTHOR_STATIC_NO_INVOKE_GATE_REPORT_NOT_MATHEMATICAL_PAPER_PASS"
+    },
+    {
+      "id": "p11-r12",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261015/reviews/p11_independent_7cda51/residual_pairing/P11_SHA_TWO_PRIMARY_INDEPENDENT_PAPER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261015/reviews/p11_independent_7cda51/residual_pairing/P11_SHA_TWO_PRIMARY_INDEPENDENT_PAPER_REVIEW.md",
+      "blob_oid": "f3b7098b632994e506b284f8a9a1796f7ab46184",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r13",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261015/reviews/p11_independent_7cda51/residual_pairing/P11_PAIRING_RANK1_INDEPENDENT_PAPER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261015/reviews/p11_independent_7cda51/residual_pairing/P11_PAIRING_RANK1_INDEPENDENT_PAPER_REVIEW.md",
+      "blob_oid": "94a58ed79c6a97d8a936c33d2299e2201f53e59b",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r14",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261015/reviews/p11_independent_7cda51/P11_UPPER3_INDEPENDENT_PAPER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261015/reviews/p11_independent_7cda51/P11_UPPER3_INDEPENDENT_PAPER_REVIEW.md",
+      "blob_oid": "cae61e4da49b08e1d63fe8dc6561d4aa4de32a24",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r15",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_vertical_pairing_review/P11_VERTICAL_FINITE_SYMBOL_FORMULA_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_vertical_pairing_review/P11_VERTICAL_FINITE_SYMBOL_FORMULA_INDEPENDENT_REVIEW.md",
+      "blob_oid": "dba27f31e5c744e7e59424f8fdfaa0f46dd6a958",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r16",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_v4_pairing_core61_review/P11_V4_VERTICAL_PAIRING_CORE61_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_v4_pairing_core61_review/P11_V4_VERTICAL_PAIRING_CORE61_INDEPENDENT_REVIEW.md",
+      "blob_oid": "6de19aa750933a5f040be1bd81c14b8754da077a",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r17",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_uniform_u2_review/P11_UNIFORM_U2_ODD_LEG_ROW_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_uniform_u2_review/P11_UNIFORM_U2_ODD_LEG_ROW_INDEPENDENT_REVIEW.md",
+      "blob_oid": "ecf63ba9964bbf45dc40030e4aa128efe222f377",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r18",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_uniform_torsion_review/P11_UNIFORM_TORSION_STRICT_FIBER_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_uniform_torsion_review/P11_UNIFORM_TORSION_STRICT_FIBER_INDEPENDENT_REVIEW.md",
+      "blob_oid": "0538dc7d3b770ef5f7e2c97d084a22fd59352aff",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r19",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_mixed_higher_pairing_review/P11_CORE98_MIXED_HIGHER_PAIRING_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_mixed_higher_pairing_review/P11_CORE98_MIXED_HIGHER_PAIRING_INDEPENDENT_REVIEW.md",
+      "blob_oid": "fdd0b83049d7bc5cc4429313f0f4ec8b60cd574d",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r20",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_magma_input_bridge_review/P11_EXISTING_MAGMA_EXACT_INPUT_BRIDGE_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_magma_input_bridge_review/P11_EXISTING_MAGMA_EXACT_INPUT_BRIDGE_INDEPENDENT_REVIEW.md",
+      "blob_oid": "47847d4030b67f0fb73fd67d3ad916eb5c0bc62d",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r21",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_full_selmer_quotient_review/P11_FULL_SELMER_COMPRESSED_KERNEL_QUOTIENT_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_full_selmer_quotient_review/P11_FULL_SELMER_COMPRESSED_KERNEL_QUOTIENT_INDEPENDENT_REVIEW.md",
+      "blob_oid": "f7fc51949c2fd4d027fb8cccef6c6e335c916563",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r22",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_fisher_bridge_v3_review/P11_V3_FRONTIER_EXTRACTION_INDEPENDENT_SCOPE_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_fisher_bridge_v3_review/P11_V3_FRONTIER_EXTRACTION_INDEPENDENT_SCOPE_REVIEW.md",
+      "blob_oid": "d331a926d415cb5249b520803e95339b33c249ad",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r23",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_fisher_bridge_v3_review/P11_FISHER_DERIVED_BRIDGE_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_fisher_bridge_v3_review/P11_FISHER_DERIVED_BRIDGE_INDEPENDENT_REVIEW.md",
+      "blob_oid": "c0e84b2bf7bbec04ee7f2d4b41457915c5a9fa7b",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r24",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_dyadic_v4_review/P11_DYADIC_VALUATION_FOUR_COMPLETE_IMAGE_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_dyadic_v4_review/P11_DYADIC_VALUATION_FOUR_COMPLETE_IMAGE_INDEPENDENT_REVIEW.md",
+      "blob_oid": "423e74436b8119f826bfc401c4c9ac569dcba5e4",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r25",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_core98_review/P11_CORE_9_8_ZERO_FORM_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_core98_review/P11_CORE_9_8_ZERO_FORM_INDEPENDENT_REVIEW.md",
+      "blob_oid": "62c5f5a1414d2325c0a816b0612b450c943e2bc6",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r26",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_bilinear_review/P11_BILINEAR_RECIPROCITY_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_bilinear_review/P11_BILINEAR_RECIPROCITY_INDEPENDENT_REVIEW.md",
+      "blob_oid": "02bdb5393b5d10913299d5e89dbf1529a9de02ea",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r27",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_abstract_sel4_review/P11_CORE98_ABSTRACT_SEL4_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_abstract_sel4_review/P11_CORE98_ABSTRACT_SEL4_INDEPENDENT_REVIEW.md",
+      "blob_oid": "dbaebb4fe4232570b5960fb8bc811717bb9b9a6e",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-r28",
+      "kind": "existing_nonauthor_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/p11_abstract_sel4_review/P11_ABSTRACT_SEL4_METHOD_HARVEST_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/p11_abstract_sel4_review/P11_ABSTRACT_SEL4_METHOD_HARVEST_INDEPENDENT_REVIEW.md",
+      "blob_oid": "a11b0b5ff29c85a54e3a4195bb471883f54f2901",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; STATEMENT_FORMULA_AND_SCOPE_SECTIONS_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_TECHNICAL_WHOLE_REVIEW"
+    },
+    {
+      "id": "p11-i0",
+      "kind": "existing_source_bound_method_frontier",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_current_theorem_method_frontier/P11_CLASSICAL_DESCENT_THEOREM_METHOD_FRONTIER_INTERFACE_V3.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_current_theorem_method_frontier/P11_CLASSICAL_DESCENT_THEOREM_METHOD_FRONTIER_INTERFACE_V3.json",
+      "blob_oid": "f52bdb2ad8be38df883edf97adff77802f635ad0",
+      "read_scope": "FULL_JSON_INTERFACE_FOR_EXISTING_RESULT_REUSE_AND_CURRENT_VS_HISTORICAL_SCOPE; NO_NEW_MATH_REVIEW"
+    },
+    {
+      "id": "p11-i1",
+      "kind": "existing_source_bound_method_frontier",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_complete_dyadic_local_images/P11_COMPLETE_DYADIC_METHOD_FAMILY_LOCAL_FRONTIER_INTERFACE_V3.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_complete_dyadic_local_images/P11_COMPLETE_DYADIC_METHOD_FAMILY_LOCAL_FRONTIER_INTERFACE_V3.json",
+      "blob_oid": "00a4226b7d823f62776089816c216456f06ae35b",
+      "read_scope": "FULL_JSON_INTERFACE_FOR_EXISTING_RESULT_REUSE_AND_CURRENT_VS_HISTORICAL_SCOPE; NO_NEW_MATH_REVIEW"
+    },
+    {
+      "id": "p11-i2",
+      "kind": "existing_source_bound_method_frontier",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261016/p11_full_selmer_interface/P11_CLASSICAL_DESCENT_METHOD_FAMILY_THEOREM_INTERFACE_V2.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_full_selmer_interface/P11_CLASSICAL_DESCENT_METHOD_FAMILY_THEOREM_INTERFACE_V2.json",
+      "blob_oid": "ba4aa0a1d3eb135646b505a293ac66d09c7d0b33",
+      "read_scope": "FULL_JSON_INTERFACE_FOR_EXISTING_RESULT_REUSE_AND_CURRENT_VS_HISTORICAL_SCOPE; NO_NEW_MATH_REVIEW"
+    },
+    {
+      "id": "p11-f00",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_records/GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER/RR-185DA66389421D1D74C8.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_records/GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER/RR-185DA66389421D1D74C8.json",
+      "blob_oid": "ba8d0576ee745a75e98dc4e8fff0f83232359232",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f01",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_records/RS-P000-P11-ARITHMETIC-COLLISION-FINAL-INTEGRATION/RR-3ADF18BAC1353532654C.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_records/RS-P000-P11-ARITHMETIC-COLLISION-FINAL-INTEGRATION/RR-3ADF18BAC1353532654C.json",
+      "blob_oid": "cd9eb25a12105d3e7c20adb3916ba2505df6891c",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f02",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_records/RS-P000-P11-ARITHMETIC-LINE-INDEPENDENT-AUDIT/RR-29AA6AA5CC2CEBB893CA.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_records/RS-P000-P11-ARITHMETIC-LINE-INDEPENDENT-AUDIT/RR-29AA6AA5CC2CEBB893CA.json",
+      "blob_oid": "d7840cc213344c783717515da2e2ca5fd58dcd5b",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f03",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_records/RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC/RR-C1F5BD75CF29E3970097.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_records/RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC/RR-C1F5BD75CF29E3970097.json",
+      "blob_oid": "0a681b61b006dd77e215bba736e308f48d836643",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f04",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_records/RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT/RR-2DAA0B408E99259119BE.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_records/RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT/RR-2DAA0B408E99259119BE.json",
+      "blob_oid": "36825ee766b2b0673871502f3614681e36b71467",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f05",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_records/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/RR-491F76577FF4D8946FCA.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_records/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/RR-491F76577FF4D8946FCA.json",
+      "blob_oid": "dab0e5acb2da51c96225343708c4f7f60b3b5f2b",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f06",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_reviews/RR-185DA66389421D1D74C8/DR-E5B8559151F0384D3A48.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_reviews/RR-185DA66389421D1D74C8/DR-E5B8559151F0384D3A48.json",
+      "blob_oid": "0f451a9c8638a5df1bb51830d48be6673ac4736e",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f07",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_reviews/RR-29AA6AA5CC2CEBB893CA/DR-77A9E67415F6F5BCD9C3.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_reviews/RR-29AA6AA5CC2CEBB893CA/DR-77A9E67415F6F5BCD9C3.json",
+      "blob_oid": "29a0857b6fdb0088c64577c353a92a1db9b6f6d4",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f08",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_reviews/RR-2DAA0B408E99259119BE/DR-87CC4E7C0CAC3757C377.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_reviews/RR-2DAA0B408E99259119BE/DR-87CC4E7C0CAC3757C377.json",
+      "blob_oid": "7f7d525e8f0c2d65ea0ab3c0767bd7a8025361c9",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f09",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_reviews/RR-3ADF18BAC1353532654C/DR-EBE8296B778BFF481135.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_reviews/RR-3ADF18BAC1353532654C/DR-EBE8296B778BFF481135.json",
+      "blob_oid": "a7fd55ddaf3d01ffa571242958c42b58afc76656",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f10",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_reviews/RR-491F76577FF4D8946FCA/DR-053D71583987C94FEE06.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_reviews/RR-491F76577FF4D8946FCA/DR-053D71583987C94FEE06.json",
+      "blob_oid": "80b701a982e52a91f9dd6d2512e546ed8669084d",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f11",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_reviews/RR-C1F5BD75CF29E3970097/DR-2F805343ED6728A5CD35.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_reviews/RR-C1F5BD75CF29E3970097/DR-2F805343ED6728A5CD35.json",
+      "blob_oid": "3ec2fdc2ad88696d8c2eac26d219cec65cfa0cd8",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f12",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER/MCP-e10e9b09793a43aeadbe763836a35c04/aad36eb4d8a78c17019e/RETURN.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER/MCP-e10e9b09793a43aeadbe763836a35c04/aad36eb4d8a78c17019e/RETURN.md",
+      "blob_oid": "b8ad39739e0bdc37108f8a06e3564ddd3d1cd87c",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f13",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-P000-P11-ARITHMETIC-COLLISION-FINAL-INTEGRATION/MCP-02e12545e3c24f7f92260f52e42a25ab/b1e0f5cfb37098b42f18/RETURN.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-P000-P11-ARITHMETIC-COLLISION-FINAL-INTEGRATION/MCP-02e12545e3c24f7f92260f52e42a25ab/b1e0f5cfb37098b42f18/RETURN.md",
+      "blob_oid": "c48370b354d9a5a3fc22a6a3d18660dff59624fe",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f14",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-P000-P11-ARITHMETIC-LINE-INDEPENDENT-AUDIT/MCP-195e2b6e160143c9941fbbd8bdefdfdb/94e220b937c6eb5a38ac/RETURN.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-P000-P11-ARITHMETIC-LINE-INDEPENDENT-AUDIT/MCP-195e2b6e160143c9941fbbd8bdefdfdb/94e220b937c6eb5a38ac/RETURN.md",
+      "blob_oid": "ca32ebba0c240004ba689d4000661b44363cba76",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f15",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC/MCP-b4bf84ccfffc4affacc0f551cb1fa0ad/e486dcbc06d80c035317/RETURN.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC/MCP-b4bf84ccfffc4affacc0f551cb1fa0ad/e486dcbc06d80c035317/RETURN.md",
+      "blob_oid": "342ac673f570976d4f0ea86b5d5e069b474f0450",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f16",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT/MCP-b0a6f2120b6f48d5ad3096180d42e0e1/27a37132ca41526fc3f6/RETURN.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT/MCP-b0a6f2120b6f48d5ad3096180d42e0e1/27a37132ca41526fc3f6/RETURN.md",
+      "blob_oid": "6e8b49fc78dc08d0d7d8ffbc967ff67a7e88db6d",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f17",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_ACTUAL_M7_SCOPED_COEFFICIENT_OBSTRUCTION_RETURN_20261012.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_ACTUAL_M7_SCOPED_COEFFICIENT_OBSTRUCTION_RETURN_20261012.md",
+      "blob_oid": "e63d0dfedfb2d0ae04546742547243a7e73756a5",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f18",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER/MCP-e10e9b09793a43aeadbe763836a35c04/aad36eb4d8a78c17019e/P11_LINE_DOSSIER.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER/MCP-e10e9b09793a43aeadbe763836a35c04/aad36eb4d8a78c17019e/P11_LINE_DOSSIER.json",
+      "blob_oid": "d40bd4878ec980ea69ce41d8d34a4212217ae18e",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f19",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER/MCP-e10e9b09793a43aeadbe763836a35c04/aad36eb4d8a78c17019e/P11_REVIEW_LEDGER.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/GV-P000-P11-ARITHMETIC-PERSISTENT-LINE-DRIVER/MCP-e10e9b09793a43aeadbe763836a35c04/aad36eb4d8a78c17019e/P11_REVIEW_LEDGER.json",
+      "blob_oid": "62d23d9af2d701648c6417082ea230dabaf67c37",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f20",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-P000-P11-ARITHMETIC-LINE-INDEPENDENT-AUDIT/MCP-195e2b6e160143c9941fbbd8bdefdfdb/94e220b937c6eb5a38ac/AUDIT_PROOF.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-P000-P11-ARITHMETIC-LINE-INDEPENDENT-AUDIT/MCP-195e2b6e160143c9941fbbd8bdefdfdb/94e220b937c6eb5a38ac/AUDIT_PROOF.md",
+      "blob_oid": "015376755c359168343e2b881a4e1ee6fc60a196",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f21",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC/MCP-b4bf84ccfffc4affacc0f551cb1fa0ad/e486dcbc06d80c035317/FAMILY.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-P000-P11-DIAGONAL-ELLIPTIC-FIBER-PRIMITIVE-ARITHMETIC/MCP-b4bf84ccfffc4affacc0f551cb1fa0ad/e486dcbc06d80c035317/FAMILY.md",
+      "blob_oid": "836af6d8aec4b896becbe3595a2433e1c51ddcd1",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f22",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT/MCP-b0a6f2120b6f48d5ad3096180d42e0e1/27a37132ca41526fc3f6/DENOMINATOR_REFINEMENT.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT/MCP-b0a6f2120b6f48d5ad3096180d42e0e1/27a37132ca41526fc3f6/DENOMINATOR_REFINEMENT.md",
+      "blob_oid": "5e42f49ab1dd39c01c8b16f922308848da0ed957",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-f23",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT/MCP-b0a6f2120b6f48d5ad3096180d42e0e1/27a37132ca41526fc3f6/OFFDIAG_INCREMENT_1.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-P000-P11-OFF-DIAGONAL-EQUAL-AREA-FIBER-PRODUCT/MCP-b0a6f2120b6f48d5ad3096180d42e0e1/27a37132ca41526fc3f6/OFFDIAG_INCREMENT_1.md",
+      "blob_oid": "c6f9bef43b6a71487f8483864433ac3d835ded8f",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-d00",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-9eca0c29f7a943cfbaa8a5b5cf923744/e220d253fef4ef989892/ROOT_GV_CONTROL_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-9eca0c29f7a943cfbaa8a5b5cf923744/e220d253fef4ef989892/ROOT_GV_CONTROL_REVIEW.md",
+      "blob_oid": "5ab64ba82c0ef0bc192ef39703e9cb0ae380fac9",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-d01",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-e10e9b09793a43aeadbe763836a35c04/fe3e445a6aaa92e0bd3d/P11_AUDIT_DRIVER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-e10e9b09793a43aeadbe763836a35c04/fe3e445a6aaa92e0bd3d/P11_AUDIT_DRIVER_REVIEW.md",
+      "blob_oid": "6c4402b8f1ab2d4f7d074b41bc134d8bc40994e7",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-d02",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-e10e9b09793a43aeadbe763836a35c04/35fde310d1eae0dd3b88/P11_OFFDIAG_DRIVER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-e10e9b09793a43aeadbe763836a35c04/35fde310d1eae0dd3b88/P11_OFFDIAG_DRIVER_REVIEW.md",
+      "blob_oid": "b13480ae8b08797691b1b6f4d49f41b7711e654f",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-d03",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-e10e9b09793a43aeadbe763836a35c04/cc4ce5f526bff0029365/P11_INTEGRATION_DRIVER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-e10e9b09793a43aeadbe763836a35c04/cc4ce5f526bff0029365/P11_INTEGRATION_DRIVER_REVIEW.md",
+      "blob_oid": "b7e57451612ad777db8e76b69281554fdeb5d2bc",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-d04",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-f0a10badcb554eeda7dc189aef9e4a8f/5005afaa534b7eb92014/HCM0_M7_GENUINE_INDEPENDENT_EXACT_OBSTRUCTION_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-f0a10badcb554eeda7dc189aef9e4a8f/5005afaa534b7eb92014/HCM0_M7_GENUINE_INDEPENDENT_EXACT_OBSTRUCTION_REVIEW.md",
+      "blob_oid": "0fba99db378d4a51672b0b71df21486294bc5c82",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-d05",
+      "kind": "formal_result_or_review_or_proof",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-1e926295d6f7404d94ea3a90dda4fbfa/80b8a97d25d6342c8a3e/P11_DRIVER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-1e926295d6f7404d94ea3a90dda4fbfa/80b8a97d25d6342c8a3e/P11_DRIVER_REVIEW.md",
+      "blob_oid": "701156fe86d4300007abe5591d474ddc890208e0",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-p00",
+      "kind": "perfect_hcm0_source_or_existing_partial_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/PARITY_PARTIAL_NONBLIND_INDEPENDENT_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/PARITY_PARTIAL_NONBLIND_INDEPENDENT_REVIEW.md",
+      "blob_oid": "87744175d9f4aea1c35afc3f830cb1394c1e3d22",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-p01",
+      "kind": "perfect_hcm0_source_or_existing_partial_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/REVIEWED_PARTIAL_SCOPE_INTERFACE.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261015/reviews/perfect_parity_partial_independent/REVIEWED_PARTIAL_SCOPE_INTERFACE.json",
+      "blob_oid": "b42cf97b93421a7beb4a01fd9720fded6365c0d8",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-p02",
+      "kind": "perfect_hcm0_source_or_existing_partial_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-EXTREME-BRANCH-PARITY-DOMINATION/MCP-e3eda4529333438d8ae1ae7e6983e5e5/8c93a8558258cb5e68f5/PARITY_WHOLE_UNIT_PARTIAL_CAPSULE.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-EXTREME-BRANCH-PARITY-DOMINATION/MCP-e3eda4529333438d8ae1ae7e6983e5e5/8c93a8558258cb5e68f5/PARITY_WHOLE_UNIT_PARTIAL_CAPSULE.json",
+      "blob_oid": "d95fa5b827f0248355f9bd462a37fbc7edacc662",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-p03",
+      "kind": "perfect_hcm0_source_or_existing_partial_review",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_SIGNED_JET_COMPLETE_ORIGINALS_CAPSULE.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_SIGNED_JET_COMPLETE_ORIGINALS_CAPSULE.json",
+      "blob_oid": "e469136ba7387b7c31190de5b38cc66454ed006a",
+      "read_scope": "FULL_CONNECTOR_TRANSPORT; MATHEMATICAL_STATEMENT_FORMULA_AND_SCOPE_READ_FOR_DOCUMENTARY_EXTRACTION; NO_NEW_MATH_VOTE"
+    },
+    {
+      "id": "p11-p02m00",
+      "kind": "exact_archived_capsule_member",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-EXTREME-BRANCH-PARITY-DOMINATION/MCP-e3eda4529333438d8ae1ae7e6983e5e5/8c93a8558258cb5e68f5/PARITY_WHOLE_UNIT_PARTIAL_CAPSULE.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-EXTREME-BRANCH-PARITY-DOMINATION/MCP-e3eda4529333438d8ae1ae7e6983e5e5/8c93a8558258cb5e68f5/PARITY_WHOLE_UNIT_PARTIAL_CAPSULE.json",
+      "blob_oid": "d95fa5b827f0248355f9bd462a37fbc7edacc662",
+      "read_scope": "GZIP/BASE64/JSON TEXT RESTORATION ONLY; SELECTED MATHEMATICAL AUTHOR/REVIEW PROSE READ; NO EMBEDDED CODE EXECUTION",
+      "member_path": "PARITY_WHOLE_UNIT_PARTIAL_RETURN.md",
+      "member_blob_oid": "ca6f2eb23a983fd3c51dca3ff1014915cc6d46c7",
+      "member_sha256": "6a439db5cac59ee126e39e498a3e107a4712c026c11dcd43d1f7a1e8f3f8a9b2"
+    },
+    {
+      "id": "p11-p02m03",
+      "kind": "exact_archived_capsule_member",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-EXTREME-BRANCH-PARITY-DOMINATION/MCP-e3eda4529333438d8ae1ae7e6983e5e5/8c93a8558258cb5e68f5/PARITY_WHOLE_UNIT_PARTIAL_CAPSULE.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-EXTREME-BRANCH-PARITY-DOMINATION/MCP-e3eda4529333438d8ae1ae7e6983e5e5/8c93a8558258cb5e68f5/PARITY_WHOLE_UNIT_PARTIAL_CAPSULE.json",
+      "blob_oid": "d95fa5b827f0248355f9bd462a37fbc7edacc662",
+      "read_scope": "GZIP/BASE64/JSON TEXT RESTORATION ONLY; SELECTED MATHEMATICAL AUTHOR/REVIEW PROSE READ; NO EMBEDDED CODE EXECUTION",
+      "member_path": "author_support/BETA_ADAPTED_TRACE_KERNEL.md",
+      "member_blob_oid": "15c1edce39e83326555d8c96066d08bb12595fae",
+      "member_sha256": "a78fdcf757a33e7b8fe293449188a750b998547204d255bca407a84002f01abd"
+    },
+    {
+      "id": "p11-p02m04",
+      "kind": "exact_archived_capsule_member",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-EXTREME-BRANCH-PARITY-DOMINATION/MCP-e3eda4529333438d8ae1ae7e6983e5e5/8c93a8558258cb5e68f5/PARITY_WHOLE_UNIT_PARTIAL_CAPSULE.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-EXTREME-BRANCH-PARITY-DOMINATION/MCP-e3eda4529333438d8ae1ae7e6983e5e5/8c93a8558258cb5e68f5/PARITY_WHOLE_UNIT_PARTIAL_CAPSULE.json",
+      "blob_oid": "d95fa5b827f0248355f9bd462a37fbc7edacc662",
+      "read_scope": "GZIP/BASE64/JSON TEXT RESTORATION ONLY; SELECTED MATHEMATICAL AUTHOR/REVIEW PROSE READ; NO EMBEDDED CODE EXECUTION",
+      "member_path": "author_support/BETA_KERNEL_SELF_AUDIT_ADDENDUM.md",
+      "member_blob_oid": "d85f9d5668ffbeffcb8073f5adc0f2f24913ba48",
+      "member_sha256": "d3654fd9db793f813cbe97966e228511d88304da4bd6dda83b72193e079678e0"
+    },
+    {
+      "id": "p11-p03m29",
+      "kind": "exact_archived_capsule_member",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_SIGNED_JET_COMPLETE_ORIGINALS_CAPSULE.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_SIGNED_JET_COMPLETE_ORIGINALS_CAPSULE.json",
+      "blob_oid": "e469136ba7387b7c31190de5b38cc66454ed006a",
+      "read_scope": "GZIP/BASE64/JSON TEXT RESTORATION ONLY; SELECTED MATHEMATICAL AUTHOR/REVIEW PROSE READ; NO EMBEDDED CODE EXECUTION",
+      "member_path": "HCM0_ACTUAL_FRAME_COMPLEMENT_TRANSPOSE_AND_METRIC_OBSTRUCTION_20261012.md",
+      "member_blob_oid": "c12a648906ca59afc602b9ebf65bca39f895e375",
+      "member_sha256": "f1b82eacbbdbec2eef179e004c18f8c9e2cc82650c04dee325b9abd1a4dc0498"
+    },
+    {
+      "id": "p11-p03m30",
+      "kind": "exact_archived_capsule_member",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_SIGNED_JET_COMPLETE_ORIGINALS_CAPSULE.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_SIGNED_JET_COMPLETE_ORIGINALS_CAPSULE.json",
+      "blob_oid": "e469136ba7387b7c31190de5b38cc66454ed006a",
+      "read_scope": "GZIP/BASE64/JSON TEXT RESTORATION ONLY; SELECTED MATHEMATICAL AUTHOR/REVIEW PROSE READ; NO EMBEDDED CODE EXECUTION",
+      "member_path": "HCM0_SIGNED_KERNEL_TERMINOLOGY_ADDENDUM_20261012.md",
+      "member_blob_oid": "7c8138698a4494d4a66bcd6f8a20d58df568b558",
+      "member_sha256": "af8b5c093548f92e90c59094f1710a731dd5ddd2937e190b8cc42e09cddf78b6"
+    },
+    {
+      "id": "p11-p03m31",
+      "kind": "exact_archived_capsule_member",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_SIGNED_JET_COMPLETE_ORIGINALS_CAPSULE.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_SIGNED_JET_COMPLETE_ORIGINALS_CAPSULE.json",
+      "blob_oid": "e469136ba7387b7c31190de5b38cc66454ed006a",
+      "read_scope": "GZIP/BASE64/JSON TEXT RESTORATION ONLY; SELECTED MATHEMATICAL AUTHOR/REVIEW PROSE READ; NO EMBEDDED CODE EXECUTION",
+      "member_path": "own-new-math-independent-review/ACTUAL_FRAME_METRIC_THEOREM_REVIEW.md",
+      "member_blob_oid": "fb75a00d34bbf40d703de018433b25a4eba32338",
+      "member_sha256": "96b4be5ab366b9a67f6906112f6fc85d01e35b9c4490272d85e22834c7c33fef"
+    },
+    {
+      "id": "p11-p03m37",
+      "kind": "exact_archived_capsule_member",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_SIGNED_JET_COMPLETE_ORIGINALS_CAPSULE.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_SIGNED_JET_COMPLETE_ORIGINALS_CAPSULE.json",
+      "blob_oid": "e469136ba7387b7c31190de5b38cc66454ed006a",
+      "read_scope": "GZIP/BASE64/JSON TEXT RESTORATION ONLY; SELECTED MATHEMATICAL AUTHOR/REVIEW PROSE READ; NO EMBEDDED CODE EXECUTION",
+      "member_path": "actual-cross-complement-scout/HCM0_JOINT_CROSS_COMPLEMENTS_AND_ACTUAL_M7_CONSTANT_OBSTRUCTION_20261012.md",
+      "member_blob_oid": "4242b4b55331e33222d6ecf100089004e4d3c194",
+      "member_sha256": "b0e257658010cce29f7b53e2cf5daa004afaa049fd5f540fa929bbe7ab47bdc7"
+    },
+    {
+      "id": "p11-p03m41",
+      "kind": "exact_archived_capsule_member",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_SIGNED_JET_COMPLETE_ORIGINALS_CAPSULE.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-PERFECT-PRIME-AP-HCM0-TANGENT-FACE-INDUCTION/MCP-a34b1c33f4d344ecb0c2d91ab0ea05bf/d3be68d483f38daac69a/HCM0_SIGNED_JET_COMPLETE_ORIGINALS_CAPSULE.json",
+      "blob_oid": "e469136ba7387b7c31190de5b38cc66454ed006a",
+      "read_scope": "GZIP/BASE64/JSON TEXT RESTORATION ONLY; SELECTED MATHEMATICAL AUTHOR/REVIEW PROSE READ; NO EMBEDDED CODE EXECUTION",
+      "member_path": "actual-cross-complement-independent-review/INDEPENDENT_ACTUAL_M7_COEFFICIENT_REVIEW.md",
+      "member_blob_oid": "66e4a43b87dec8bdc14d77d9fff7204bb6c7a37c",
+      "member_sha256": "6969f123089a45610527f5345f6ee443ed7e48191090c834aac6f5beeaa65e93"
+    },
+    {
+      "id": "p11-x00",
+      "kind": "existing_driver_source_wrapper_or_owner_routing",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-10b3bf1d95f645ce8c0e419e458a2e49/61b5825adcaa9d491788/P11_IMMUTABLE_SOURCE_PAPER_DRIVER_WRAPPER_V2.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-10b3bf1d95f645ce8c0e419e458a2e49/61b5825adcaa9d491788/P11_IMMUTABLE_SOURCE_PAPER_DRIVER_WRAPPER_V2.json",
+      "blob_oid": "37f323cb55792f24a67e728aabe9eea4fb78c7f1",
+      "read_scope": "SOURCE_SCOPE_AND_P11_FRONTIER_DOCUMENTARY_READ; CROSS_LINE_NON_P11_CONTENT_NOT_REVALIDATED"
+    },
+    {
+      "id": "p11-x01",
+      "kind": "existing_driver_source_wrapper_or_owner_routing",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-9eca0c29f7a943cfbaa8a5b5cf923744/4492353e437bf6dcf583/OWNER_P11_ACCEPTED_PORTFOLIO_INTEGRATION.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-9eca0c29f7a943cfbaa8a5b5cf923744/4492353e437bf6dcf583/OWNER_P11_ACCEPTED_PORTFOLIO_INTEGRATION.md",
+      "blob_oid": "f5f4cdcf23f36715a5ee6059c7b53e569fadec37",
+      "read_scope": "SOURCE_SCOPE_AND_P11_FRONTIER_DOCUMENTARY_READ; CROSS_LINE_NON_P11_CONTENT_NOT_REVALIDATED"
+    },
+    {
+      "id": "p11-x02",
+      "kind": "existing_driver_source_wrapper_or_owner_routing",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-9eca0c29f7a943cfbaa8a5b5cf923744/95b1346d4cd22017f43b/OWNER_D25_P11_FRONTIER_INTEGRATION.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-9eca0c29f7a943cfbaa8a5b5cf923744/95b1346d4cd22017f43b/OWNER_D25_P11_FRONTIER_INTEGRATION.md",
+      "blob_oid": "41938ff25a1ef21f77fbe1eeeb8433810694ecd2",
+      "read_scope": "SOURCE_SCOPE_AND_P11_FRONTIER_DOCUMENTARY_READ; CROSS_LINE_NON_P11_CONTENT_NOT_REVALIDATED"
+    },
+    {
+      "id": "p11-x03",
+      "kind": "existing_driver_source_wrapper_or_owner_routing",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-9eca0c29f7a943cfbaa8a5b5cf923744/c49a702a13590ef08dfd/OWNER_D25_CM_P11_AUDIT_FRONTIER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-9eca0c29f7a943cfbaa8a5b5cf923744/c49a702a13590ef08dfd/OWNER_D25_CM_P11_AUDIT_FRONTIER.md",
+      "blob_oid": "8c73e96ad2bc3d0da3a263919659501093811ebb",
+      "read_scope": "SOURCE_SCOPE_AND_P11_FRONTIER_DOCUMENTARY_READ; CROSS_LINE_NON_P11_CONTENT_NOT_REVALIDATED"
+    },
+    {
+      "id": "p11-x04",
+      "kind": "existing_driver_source_wrapper_or_owner_routing",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-e10e9b09793a43aeadbe763836a35c04/35fde310d1eae0dd3b88/P11_LINE_DOSSIER.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-e10e9b09793a43aeadbe763836a35c04/35fde310d1eae0dd3b88/P11_LINE_DOSSIER.md",
+      "blob_oid": "ada7f9ffffdee62e53821d967f53956f35ad2cd5",
+      "read_scope": "SOURCE_SCOPE_AND_P11_FRONTIER_DOCUMENTARY_READ; CROSS_LINE_NON_P11_CONTENT_NOT_REVALIDATED"
+    },
+    {
+      "id": "p11-late-cauchy-0",
+      "kind": "FIXED_CONNECTOR_FULL_DRIVER_REVIEW_AND_FROZEN_RESULT_OR_RETURN",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/5a1c3c0dbceedb0c39a4/ROOT_CAUCHY_NEGATIVE_BOUNDARY_GENUINE_DRIVER_REVIEW_V2.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/5a1c3c0dbceedb0c39a4/ROOT_CAUCHY_NEGATIVE_BOUNDARY_GENUINE_DRIVER_REVIEW_V2.md",
+      "blob_oid": "bce940cf58c6cd17d46192c448c14750925d6986",
+      "bytes": 15231,
+      "sha256": "73463c6b0d8e6897d5ab199253c4266d7d06ef002dd1d2555901c52efc4414a1",
+      "local_capture": "/workspace/agent_artifacts/curation_all_recent_20261022/misc_sources/late_driver_science_00.txt",
+      "read_scope": "Full exact actual connector original captured and source-bound; entire mathematical return/review and scope read for documentary extraction only."
+    },
+    {
+      "id": "p11-late-cauchy-2",
+      "kind": "FIXED_CONNECTOR_FULL_DRIVER_REVIEW_AND_FROZEN_RESULT_OR_RETURN",
+      "repository": "awdawmip/enterprise-math",
+      "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/f312bbda48ae4ff7348c/ROOT_CAUCHY_NEGATIVE_BOUNDARY_GENUINE_DRIVER_REVIEW.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/f312bbda48ae4ff7348c/ROOT_CAUCHY_NEGATIVE_BOUNDARY_GENUINE_DRIVER_REVIEW.md",
+      "blob_oid": "4de51a0811e55e105c4df97d2d2447cccafdacc0",
+      "bytes": 14204,
+      "sha256": "c36434bb285658e45d69212ed33fc4deb6bcff33b56f0613108ea8c0c5384af4",
+      "local_capture": "/workspace/agent_artifacts/curation_all_recent_20261022/misc_sources/late_driver_science_02.txt",
+      "read_scope": "Full exact actual connector original captured and source-bound; entire mathematical return/review and scope read for documentary extraction only."
+    },
+    {
+      "id": "p11-late-cauchy-3",
+      "kind": "FIXED_CONNECTOR_FULL_DRIVER_REVIEW_AND_FROZEN_RESULT_OR_RETURN",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_records/RS-PERFECT-PRIME-AP-BINOMIAL-CAUCHY-LAYER-COFACTOR-POSITIVITY/RR-A4EBF925BE07691C8C16.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_records/RS-PERFECT-PRIME-AP-BINOMIAL-CAUCHY-LAYER-COFACTOR-POSITIVITY/RR-A4EBF925BE07691C8C16.json",
+      "blob_oid": "a47bef2117025ab825b1d420debcaf9ec1292e94",
+      "bytes": 3516,
+      "sha256": "dd0c8f552c510d930b1ccf798db8582813fcea3ed19c81f3a4ca69a9ac7aa58b",
+      "local_capture": "/workspace/agent_artifacts/curation_all_recent_20261022/misc_sources/late_driver_science_03.txt",
+      "read_scope": "Full exact actual connector original captured and source-bound; entire mathematical return/review and scope read for documentary extraction only."
+    },
+    {
+      "id": "p11-late-cauchy-4",
+      "kind": "FIXED_CONNECTOR_FULL_DRIVER_REVIEW_AND_FROZEN_RESULT_OR_RETURN",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_reviews/RR-A4EBF925BE07691C8C16/DR-6FAD20D6377588C9CBB2.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_reviews/RR-A4EBF925BE07691C8C16/DR-6FAD20D6377588C9CBB2.json",
+      "blob_oid": "373c1993ea5283c96de3460755d0aef721c114c3",
+      "bytes": 2170,
+      "sha256": "7449359817b7c153968dd37b4c742fc86e1270ad01e872cf4978a50a0135038d",
+      "local_capture": "/workspace/agent_artifacts/curation_all_recent_20261022/misc_sources/late_driver_science_04.txt",
+      "read_scope": "Full exact actual connector original captured and source-bound; entire mathematical return/review and scope read for documentary extraction only."
+    },
+    {
+      "id": "p11-late-cauchy-5",
+      "kind": "FIXED_CONNECTOR_FULL_DRIVER_REVIEW_AND_FROZEN_RESULT_OR_RETURN",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_result_reviews/RR-A4EBF925BE07691C8C16/DR-A8E01D1D6349A6D97DA2.json",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_reviews/RR-A4EBF925BE07691C8C16/DR-A8E01D1D6349A6D97DA2.json",
+      "blob_oid": "b532831292ddf9b025465574266f32ea9f76d1b7",
+      "bytes": 2173,
+      "sha256": "60bb298d377ff80509a9f46238a9f6b0749109941c9d3451a6e3ee7c7c7682ba",
+      "local_capture": "/workspace/agent_artifacts/curation_all_recent_20261022/misc_sources/late_driver_science_05.txt",
+      "read_scope": "Full exact actual connector original captured and source-bound; entire mathematical return/review and scope read for documentary extraction only."
+    },
+    {
+      "id": "p11-late-cauchy-6",
+      "kind": "FIXED_CONNECTOR_FULL_DRIVER_REVIEW_AND_FROZEN_RESULT_OR_RETURN",
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_returns/PERFECT_PRIME_AP_BINOMIAL_CAUCHY_LAYER_COFACTOR_POSITIVITY_RETURN_20260901.md",
+      "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_returns/PERFECT_PRIME_AP_BINOMIAL_CAUCHY_LAYER_COFACTOR_POSITIVITY_RETURN_20260901.md",
+      "blob_oid": "340a17c17156e633f0c107023507ceb5498a3763",
+      "bytes": 9606,
+      "sha256": "8d189093d0381743c734698e0dd47b4977d799ade23f268047f067f74eb504ee",
+      "local_capture": "/workspace/agent_artifacts/curation_all_recent_20261022/misc_sources/late_driver_science_06.txt",
+      "read_scope": "Full exact actual connector original captured and source-bound; entire mathematical return/review and scope read for documentary extraction only."
+    }
+  ],
+  "method_family": "Classical fullKummer/localimages/Cassels–Tate/higherdescent; standard derived SAME_FAMILY compose and existing-method reuse; no new sharedTool/executable API.",
+  "remaining_frontier": {
+    "core98_rank": "UNKNOWN_0_1_2",
+    "core98_mixed_bit": "UNKNOWN",
+    "actual_core98_four_cover_pushout_local_certificate": "NOT_SUPPLIED_BY_THESE_PAPERS",
+    "fixed233_executed_certificate": "RESOURCE_STOP_NO_INVOKE_NO_RESULT",
+    "saturation_odd_Sha_full_Sha_finiteness_all_core_classification": "NOT_ESTABLISHED",
+    "Cauchy_outer_determinant": "OPEN: detS_m(t)≠0 allm≥2,0<t≤1; inner mechanism negative boundary accepted onlyTask"
+  },
+  "formal_binding_documentary_checks": [
+    {
+      "result": "RR-185DA66389421D1D74C8",
+      "result_record_binding_matches": true,
+      "disposition": "ACCEPTED"
+    },
+    {
+      "result": "RR-29AA6AA5CC2CEBB893CA",
+      "result_record_binding_matches": true,
+      "disposition": "ACCEPTED"
+    },
+    {
+      "result": "RR-2DAA0B408E99259119BE",
+      "result_record_binding_matches": true,
+      "disposition": "ACCEPTED"
+    },
+    {
+      "result": "RR-3ADF18BAC1353532654C",
+      "result_record_binding_matches": true,
+      "disposition": "ACCEPTED"
+    },
+    {
+      "result": "RR-491F76577FF4D8946FCA",
+      "result_record_binding_matches": true,
+      "disposition": "ACCEPTED"
+    },
+    {
+      "result": "RR-C1F5BD75CF29E3970097",
+      "result_record_binding_matches": true,
+      "disposition": "ACCEPTED"
+    },
+    {
+      "result_id": "RR-A4EBF925BE07691C8C16",
+      "review_id": "DR-6FAD20D6377588C9CBB2",
+      "disposition": "ACCEPTED",
+      "result_digest_matches_review": true,
+      "review_prose_blob_matches": true,
+      "review_prose_sha256_matches": true,
+      "read_scope": "Existing Source documentary digest verification only, not new mathematical review."
+    },
+    {
+      "result_id": "RR-A4EBF925BE07691C8C16",
+      "review_id": "DR-A8E01D1D6349A6D97DA2",
+      "disposition": "ACCEPTED",
+      "result_digest_matches_review": true,
+      "review_prose_blob_matches": true,
+      "review_prose_sha256_matches": true,
+      "read_scope": "Existing Source documentary digest verification only, not new mathematical review."
+    }
+  ]
+}

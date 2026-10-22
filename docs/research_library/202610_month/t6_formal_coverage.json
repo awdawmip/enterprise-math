@@ -1,0 +1,2866 @@
+{
+  "schema": "RESEARCH_PACKAGE_COVERAGE_V1",
+  "snapshot": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+  "phase": "t6_formal",
+  "inventory_sources": [
+    "misc_formal_candidate_paths.json (all193 paths accounted, out-of-scope P11 explicitly delegated)",
+    "month_changed_other_science_exact.json",
+    "month_changed_extra_science_exact.json",
+    "extra_native_paths.json",
+    "month_changed_notes_exact.json (exact relevant paths only)",
+    "Source-driven original proof/RR/DR dependencies"
+  ],
+  "packages": [
+    {
+      "package_id": "T6-Q14-PAPER-PREFLIGHT",
+      "disposition": "CONTROL_ONLY",
+      "entry_ids": [],
+      "reason": "Paper direction/preflight only; no actual roster/N/affine result.",
+      "files": [
+        {
+          "path": "driver_reviews/mcp/MCP-10b3bf1d95f645ce8c0e419e458a2e49/3a113cad9007f35a7c79/T6_CURRENT_FRONTIER_AND_SINGLE_Q14_DIRECTION.md",
+          "git_blob_sha1": "6907085dea1e31459790398dc1f51b080bb74527",
+          "size": 8654,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S001",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-10b3bf1d95f645ce8c0e419e458a2e49/3a113cad9007f35a7c79/T6_Q14_DIRECTION_AND_PAPER_BOUNDARIES_CAPSULE.json",
+          "git_blob_sha1": "d7ff901960b862031c247bbc093d2cde3bede839",
+          "size": 127689,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S002",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "T6-Q2-FINITE-PACKAGE",
+      "disposition": "EXTRACTED",
+      "entry_ids": [
+        "T6-P17-ORDERS1-4"
+      ],
+      "reason": "Primary final mathematical proof and substantive actual whole-review read; preparation/carriers/scripts recorded as supporting files, not independently run or separate results.",
+      "files": [
+        {
+          "path": "driver_reviews/mcp/MCP-1449d85a8d3f47e68d770736b3d2a497/1ad39b9fcabdac0600c5/T6_ORDER2_DRIVER_FULL_REVIEW_EVIDENCE_PACKED.json",
+          "git_blob_sha1": "cb7ce44c29155617cb23925fe774d69e2649070b",
+          "size": 354706,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S003",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-1449d85a8d3f47e68d770736b3d2a497/1ad39b9fcabdac0600c5/T6_P17_ORDER2_FULL272_NONAUTHOR_DRIVER_REVIEW_20261012.md",
+          "git_blob_sha1": "ced3875b903e28879d560eb7455ea52430e46620",
+          "size": 13979,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S004",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-1449d85a8d3f47e68d770736b3d2a497/1ad39b9fcabdac0600c5/T6_P17_ORDER2_TASK_SCOPE_CLOSURE_SPEC_20261012.json",
+          "git_blob_sha1": "8cf0d6ba1d5b90ae976fb06d7765f40c4a340a1c",
+          "size": 6837,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S005",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-1449d85a8d3f47e68d770736b3d2a497/1ad39b9fcabdac0600c5/unpack_t6_order2_driver_review_evidence.py",
+          "git_blob_sha1": "de8578555200eaf63786ef7f02ebc68ab87516ac",
+          "size": 3994,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/c00a2e10ac40d9d32159/ADOPTED_SCIENTIFIC_AND_CONTROL_EVIDENCE_PACKED.json",
+          "git_blob_sha1": "62b6c55da67c15267acf458ca9e64dfaf31b8db7",
+          "size": 340461,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/c00a2e10ac40d9d32159/BATCH_COMPACT_CERTIFICATE.json",
+          "git_blob_sha1": "73b2bbd3d2a47c685bc508594b224a2b1ede7c9a",
+          "size": 432666,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/c00a2e10ac40d9d32159/CONTRIBUTION_AND_EXPOSURE_DISCLOSURE.md",
+          "git_blob_sha1": "542e05a593a6e7a99aaabc5eedc7a0ad7cec96df",
+          "size": 2803,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S048",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/c00a2e10ac40d9d32159/FAMILY_PROOF_AND_RETURN.md",
+          "git_blob_sha1": "a79e79e93a950ee7c5a0b1f00d60f88ad756d93c",
+          "size": 9328,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S049",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/c00a2e10ac40d9d32159/SOURCE_ADOPTION_MANIFEST.json",
+          "git_blob_sha1": "7a6384d296ba1144d541d29b7c680ebb6cd72341",
+          "size": 19137,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/c00a2e10ac40d9d32159/UNPACK_ADOPTED_EVIDENCE.py",
+          "git_blob_sha1": "43f159dd9be4586739f13681a1021fb3f2ca447d",
+          "size": 1960,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/c00a2e10ac40d9d32159/_checkpoint.json",
+          "git_blob_sha1": "7a3766b602fce733cfc13bbb8b96f3809d188a97",
+          "size": 6859,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/c00a2e10ac40d9d32159/order2_exact_batch_executor.py",
+          "git_blob_sha1": "84afb21aea3b8b3e806bd3e0f8ab5335265bce34",
+          "size": 46142,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/c00a2e10ac40d9d32159/verify_remaining271_portable_source_certificate.py",
+          "git_blob_sha1": "ef586690c4810898f593f0ac3ad073094131c358",
+          "size": 46935,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/latest_checkpoint.json",
+          "git_blob_sha1": "cd55095b4408cfdc6c9a8217f592273182f66911",
+          "size": 683,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_records/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/RR-AD107A4A930BFF07FAB9.json",
+          "git_blob_sha1": "e3b1063a3c98509407b9b5d3cf22d6bf01102af2",
+          "size": 49348,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S069",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_reviews/RR-AD107A4A930BFF07FAB9/DR-B02CEB5F5E99A5D947AE.json",
+          "git_blob_sha1": "e273eab9263607cb787e08fd3af8fc24e7620784",
+          "size": 2029,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S080",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_tasks/T6_P17_ORDER2_PORTABLE_CERTIFICATE_20260923.md",
+          "git_blob_sha1": "f9eb9c4b93fbfd5b83fc11b4f6abf4e2fc00e8da",
+          "size": 8708,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S088",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "T6-Q1-FINITE-PACKAGE",
+      "disposition": "EXTRACTED",
+      "entry_ids": [
+        "T6-P17-ORDERS1-4"
+      ],
+      "reason": "Primary final mathematical proof and substantive actual whole-review read; preparation/carriers/scripts recorded as supporting files, not independently run or separate results.",
+      "files": [
+        {
+          "path": "driver_reviews/mcp/MCP-1449d85a8d3f47e68d770736b3d2a497/c57ca7288967c7abb4ca/T6_P17_ORDER1_EXTERNAL_PRIOR_ART_20261012.md",
+          "git_blob_sha1": "1344ce68d53f28dc44a39380a4a1c241a77d2155",
+          "size": 3161,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S006",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-1449d85a8d3f47e68d770736b3d2a497/c57ca7288967c7abb4ca/T6_P17_ORDER1_NONAUTHOR_DRIVER_REVIEW_20261012.md",
+          "git_blob_sha1": "b0aa188adf5cf2b8e863f8c6a04f1e9bb9b3a513",
+          "size": 11448,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S007",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-1449d85a8d3f47e68d770736b3d2a497/c57ca7288967c7abb4ca/T6_P17_ORDER1_TASK_SCOPE_CLOSURE_SPEC_20261012.json",
+          "git_blob_sha1": "7ca8960dd53ebbfc1d36b4db74485237a4d07cea",
+          "size": 5784,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S008",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_ORDER1_SUPPORT_20260923/PROOF.md",
+          "git_blob_sha1": "7317ceeaa3c5a885f532589af3d2c1fff55a3827",
+          "size": 7182,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S029",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/COMPLETE_ENUMERATION_ARGUMENT.md",
+          "git_blob_sha1": "85341717d1b7161d826cc96a025d5cf1403bf3bf",
+          "size": 3109,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S055",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/CONTRIBUTION_AND_EXPOSURE_DISCLOSURE.md",
+          "git_blob_sha1": "6170588198bdb4dcbdcc72c548484edd9477eda0",
+          "size": 2995,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S056",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/CONTROL_EVIDENCE_PACKED.json",
+          "git_blob_sha1": "2bc7aaa1ecca5a3ea00bef1e3734298e8e698473",
+          "size": 10919,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/EXECUTION_CONTEXT_AND_PINS.json",
+          "git_blob_sha1": "2cd98ca4f1fdcbe05f867083081f0630e298fbcc",
+          "size": 8309,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/INDEPENDENT_VERIFICATION_EVIDENCE.json",
+          "git_blob_sha1": "9c2b703100f5dee81a0d3410c1df5988cfc74c4d",
+          "size": 23547,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/P17_ORDER1_BRANCH_BOUND_RESULTS.json",
+          "git_blob_sha1": "e20a37b2124d7e128c6514dbf7a0c0fa1b7b8163",
+          "size": 25522,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/P17_ORDER1_COMPLETE_CLASSIFICATION_PACKED.json",
+          "git_blob_sha1": "114059862cb804be135b332fc6e6f038fc5051ee",
+          "size": 85033,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/RETURN.md",
+          "git_blob_sha1": "d8e4be6a2fc660b9829d8f07f2c74e415aa0458e",
+          "size": 6403,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S057",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/_checkpoint.json",
+          "git_blob_sha1": "fefc427549e33a66f8899504f206281b7c6517ac",
+          "size": 6095,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/independent_ledger_check.py",
+          "git_blob_sha1": "28624d1d20a43e1e561e5e8857abd8899031a7cd",
+          "size": 24219,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/p17_order1_executor.py",
+          "git_blob_sha1": "94c30a5db8f2ef46bb911315c51ae620b092fd23",
+          "size": 21184,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/p17_q0_certificate.json",
+          "git_blob_sha1": "d9ac014355a6a1058cc8a0cf2141a01082628881",
+          "size": 9099,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/MCP-2b2adc7725e84b0c90908ba5db66a17f/77ef0d5a73bd1f71566c/unpack_exact_ledger.py",
+          "git_blob_sha1": "90982689649fe00edfb16b0db9e44b9604ead08f",
+          "size": 5282,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/latest_checkpoint.json",
+          "git_blob_sha1": "0b9f4a8d00c2a93e379ce9af86e7380d1506f8ee",
+          "size": 681,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_records/RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET/RR-81586AD70E1CEA1B7140.json",
+          "git_blob_sha1": "480accec3a57c91de95c8ead7ea43c1d3b8823af",
+          "size": 30825,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S072",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_reviews/RR-81586AD70E1CEA1B7140/DR-A550BA4AE2C2C51AA899.json",
+          "git_blob_sha1": "56cd3cb5caf3712cb75f978736b9b88a142c8783",
+          "size": 2019,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S077",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_tasks/T6_P17_ORDER1_EXACT_AFFINE_SIGNED_BUDGET_CLASSIFICATION_20261012.md",
+          "git_blob_sha1": "fef0014a78a553c3e93a66896c9e710f3970592c",
+          "size": 10713,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S087",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "U2-NATIVE-OCCUPANCY-BRIDGE",
+      "disposition": "EXTRACTED",
+      "entry_ids": [
+        "U2-INCIDENCE-BRIDGE"
+      ],
+      "reason": "Read complete incidence proofs/returns and substantive independent review; companion trace/code supports old evidence, no run.",
+      "files": [
+        {
+          "path": "driver_reviews/mcp/MCP-4587dc092002428286890bab49eb90b0/c301e4082369698734da/U2_INDEPENDENT_DRIVER_REVIEW.md",
+          "git_blob_sha1": "85ce81f2045a7c2f67acaa5889d8bc0d9bdb398f",
+          "size": 186022,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S009",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/FETCH_MANIFEST.json",
+          "git_blob_sha1": "1aa60a459178109df3bb9efc0ae78f2a0c400567",
+          "size": 2467,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/INCIDENCE_REGULARITY.md",
+          "git_blob_sha1": "3925071d5087ffea019e4cef4522190eef38c11c",
+          "size": 8401,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S058",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/INCIDENCE_TRANSFER.md",
+          "git_blob_sha1": "39b6461383e08cef312b69546e40da32d05cab06",
+          "size": 12106,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S059",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/INTERFACE_CERTIFICATE.md",
+          "git_blob_sha1": "254296463ebd3b54f028ca4ca306116d0725e19c",
+          "size": 15151,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S060",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/MANIFEST.json",
+          "git_blob_sha1": "274bc0f74e48efc89e82da6a6feecb928d0a8139",
+          "size": 3539,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/REGULARITY_REVIEW.md",
+          "git_blob_sha1": "f10a4f2da9cea29bb2b83a66782e73661e4c7e53",
+          "size": 9815,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S061",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/REPRODUCE.md",
+          "git_blob_sha1": "cacdb9e7bdfe86d31f7894c04c9dcd29162ef927",
+          "size": 3918,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S062",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/REPRODUCTION_CHECK.json",
+          "git_blob_sha1": "5ea982acd5598e9164e115986c1e5ad256d89821",
+          "size": 495,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/RETURN.md",
+          "git_blob_sha1": "956f32718ef814179d7ccadb9c174de480421efa",
+          "size": 6312,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S063",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/SCIENCE_CHECKPOINT.json",
+          "git_blob_sha1": "cb058cec127338da2da4e3bcdcb3885a47be72ba",
+          "size": 3135,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/SOURCE_AUDIT.md",
+          "git_blob_sha1": "fbd13cddf4e560ef84555dee2837a37fcd310011",
+          "size": 14744,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S064",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/TOOL_REUSE.json",
+          "git_blob_sha1": "24701a7a8bac0a97e63ffc13f851111192cb2ffa",
+          "size": 4213,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S065",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/_checkpoint.json",
+          "git_blob_sha1": "d0ddc2e473c16acc6f106fc5e5760cf0bc58caef",
+          "size": 7233,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/incidence_check.json",
+          "git_blob_sha1": "a168ab452d70f8ebe5f898218707fe944eb48044",
+          "size": 12346,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/incidence_check.py",
+          "git_blob_sha1": "ebb1083c35b2fe5b94012e25c0298df1989ffec8",
+          "size": 11227,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/incidence_trace.json.gz.b64",
+          "git_blob_sha1": "f1ff8713e175233f52573505d604e00226e6b88b",
+          "size": 19737,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/MCP-1a6e3bae74c6436bae9f2b466e7042ba/94bd4acc4df02dacf568/replay_actual.json",
+          "git_blob_sha1": "9d7fa80eea8ed80b2bae156d983ef7f019986310",
+          "size": 2539,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/latest_checkpoint.json",
+          "git_blob_sha1": "180d15dca2216fa02cb80177c8664f0612c6b8a8",
+          "size": 671,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_records/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007/RR-A2E93EC78BC5FE034176.json",
+          "git_blob_sha1": "4493035b19a9f6b6d4f5725ec46845758b3fd218",
+          "size": 37118,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S074",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_reviews/RR-A2E93EC78BC5FE034176/DR-741015188441A39E1BBD.json",
+          "git_blob_sha1": "593b780b754acd4d6781a3ac79c388b28078593d",
+          "size": 1964,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S079",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_tasks/RS-U2-NATIVE-OCCUPANCY-BRIDGE-20261007.md",
+          "git_blob_sha1": "d867333233848785e98d0a74bc7350622bc1ed63",
+          "size": 15191,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S086",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "T6-STATIC-BUDGET-COST-CAPSULES",
+      "disposition": "EXTRACTED",
+      "entry_ids": [
+        "T6-P17-VERTICAL-BUDGET"
+      ],
+      "reason": "Administrative lossless decode; actual order9+/3/16/14 paper proofs and local static reviews read. Programs and fixed arithmetic reports not executed.",
+      "files": [
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/54e7334adc9c13723860/ROOT_T6_ORDER16_ORDER14_COMPLETE_STATIC_SUPPLEMENT.json",
+          "git_blob_sha1": "020a9cbe2642b8bcda49045826ec2b48c36ce710",
+          "size": 27552,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S010",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/54e7334adc9c13723860/T6_STATIC_COST_COMPLETE_ORIGINALS_GZIP_BASE64.json",
+          "git_blob_sha1": "826f0444dec78055e7b58f0f677059a2f8dea286",
+          "size": 43440,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S011",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/54e7334adc9c13723860/T6_STATIC_COST_SOURCE_CUSTODY_MANIFEST.json",
+          "git_blob_sha1": "ce32423c0dcd5fcd807165c830622b3ac3bdc460",
+          "size": 24760,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S012",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/54e7334adc9c13723860/UNPACK_T6_STATIC_COST_ORIGINALS.py",
+          "git_blob_sha1": "ddc75b0b61632be0d09d1fd65f8bd205e33767c9",
+          "size": 1599,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "T6-PARTIAL-PAPER-AND-SMALL-BRANCH",
+      "disposition": "EXTRACTED",
+      "entry_ids": [
+        "T6-PARTIAL-P19-Q0",
+        "T6-P17-BRANCH-COMPLETION"
+      ],
+      "reason": "Read paper/static-review narrative, deterministic branch theorem, completion interface and second passes; scripts support only.",
+      "files": [
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_CURRENT_OWNER_PARTIAL_PROGRESS_AND_P17_REVIEW_20261012.md",
+          "git_blob_sha1": "064d8e0969b97038a85bf37e4538a7462b7d16d9",
+          "size": 7176,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S013",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_INDEPENDENT_PAPER_REVIEW.md",
+          "git_blob_sha1": "e8074e1a5078f58937519855f6aa697947a8b36d",
+          "size": 13697,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S014",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_INDEPENDENT_STATIC_CERTIFICATE_RESULTS.json",
+          "git_blob_sha1": "ace94e8ec4a99ca27625c6c498f65948a193459c",
+          "size": 7018,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S015",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_P17_ORDER1_BRANCH_BOUND_RESULTS.json",
+          "git_blob_sha1": "e20a37b2124d7e128c6514dbf7a0c0fa1b7b8163",
+          "size": 25522,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S016",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_P17_ORDER1_SMALL_BRANCH_THEOREM.md",
+          "git_blob_sha1": "4f0b8eb495b4725009d3f06d845859bda1c85cbb",
+          "size": 9610,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S017",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_PAPER_SCOPE_SECOND_PASS.md",
+          "git_blob_sha1": "a2cceff1cded193166fc3218b8a9daa5056bc3f5",
+          "size": 7178,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S018",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_SMALL_BRANCH_BOUND_SECOND_PASS.md",
+          "git_blob_sha1": "9544b9964f89d47c94a9d4315b7d4e6f5ba174b9",
+          "size": 6457,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S019",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_independent_static_certificate_check.py",
+          "git_blob_sha1": "cbf0c58ffbd41788e2c348c11b7e83c0b8c94c91",
+          "size": 10406,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_p17_order1_branch_bound.py",
+          "git_blob_sha1": "38ab1b9e1cf0cb74e634176af3106889b667742c",
+          "size": 5935,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "JOUKOWSKI-Q2S-MINUS3",
+      "disposition": "EXTRACTED",
+      "entry_ids": [
+        "JOUKOWSKI-Q2S-MINUS3"
+      ],
+      "reason": "Complete original universal proof and review restored/read, later actual admission and DR separately preserved.",
+      "files": [
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/a1fe1386f89e55f14bec/JOUKOWSKI_COMPLETE_ORIGINALS_CAPSULE.json",
+          "git_blob_sha1": "202ba658c31065a4a49eb570f7f154a4b0f459aa",
+          "size": 32543,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S020",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-da1a569335fc4f3b8c01a5f878ca66fc/c40d666e3871c6767ccc/JOUKOWSKI_Q2S_MINUS3_GENUINE_NONAUTHOR_DRIVER_REVIEW.md",
+          "git_blob_sha1": "602e379fef8dbae944575df350849356ad7db650",
+          "size": 15472,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S026",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-da1a569335fc4f3b8c01a5f878ca66fc/c40d666e3871c6767ccc/JOUKOWSKI_Q2S_MINUS3_TASK_SCOPE_FOLLOWUP.json",
+          "git_blob_sha1": "b1a160f1ab0b86bcfd22902b05b871ee14b2490c",
+          "size": 6610,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-JOUKOWSKI-Q2S-MINUS3-SATURATION-THEOREM-EVIDENCE-ADMISSION/MCP-7f87db3146ed407195408f3c7316a467/48f6933208ba9bcf4559/JOUKOWSKI_DECLARED_INPUTS_AND_POSTOPEN_ADMISSION_PINS.json",
+          "git_blob_sha1": "cfbf1a21b44d05c2e24be9258b86b2c306625e06",
+          "size": 11662,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S041",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-JOUKOWSKI-Q2S-MINUS3-SATURATION-THEOREM-EVIDENCE-ADMISSION/MCP-7f87db3146ed407195408f3c7316a467/48f6933208ba9bcf4559/JOUKOWSKI_Q2S_MINUS3_EVIDENCE_ADMISSION_RETURN.md",
+          "git_blob_sha1": "9a42d58265e6f19fe51b117004828bf105a52180",
+          "size": 15318,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S042",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-JOUKOWSKI-Q2S-MINUS3-SATURATION-THEOREM-EVIDENCE-ADMISSION/MCP-7f87db3146ed407195408f3c7316a467/48f6933208ba9bcf4559/_checkpoint.json",
+          "git_blob_sha1": "7bf692850db4072ca54525e53e001e50672268e4",
+          "size": 2989,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-JOUKOWSKI-Q2S-MINUS3-SATURATION-THEOREM-EVIDENCE-ADMISSION/latest_checkpoint.json",
+          "git_blob_sha1": "1c1e351d91a8651f2f7034e2c3c63adb872d5f58",
+          "size": 720,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_records/RS-JOUKOWSKI-Q2S-MINUS3-SATURATION-THEOREM-EVIDENCE-ADMISSION/RR-3C324C54A36F6639C8F6.json",
+          "git_blob_sha1": "b4016df246a6d80d4799671f9969647ece962d0c",
+          "size": 25064,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S066",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_reviews/RR-3C324C54A36F6639C8F6/DR-0253D8CB193437644D31.json",
+          "git_blob_sha1": "1f0662e7ea4e1da8f773c79b11b60a13c531547d",
+          "size": 2034,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S076",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_tasks/JOUKOWSKI_Q2S_MINUS3_SATURATION_THEOREM_EVIDENCE_ADMISSION_20261013.md",
+          "git_blob_sha1": "7b779789bb9ad2542ee71aa06b800c7e274fc9be",
+          "size": 9583,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S084",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "T6-NEXT-DIRECTION-AND-CODEC-CAPSULE",
+      "disposition": "EXTRACTED",
+      "entry_ids": [
+        "T6-P17-VERTICAL-BUDGET",
+        "T6-PORTABLE-DFS"
+      ],
+      "reason": "Complete q4 population/radius/count and canonical codec proof/design reviews read; historical prospective status retained.",
+      "files": [
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/a64dd3e4b36022983c31/T6_NEXT_DIRECTION_COMPLETE_ORIGINALS_CAPSULE.json",
+          "git_blob_sha1": "fbe38507d4f734b283f4c882cbc059b84a95b88a",
+          "size": 84275,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S021",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/a64dd3e4b36022983c31/T6_NEXT_DIRECTION_SOURCE_CUSTODY_MANIFEST.json",
+          "git_blob_sha1": "412c09075d60a96e1298e3cfbc46d4ec336ea480",
+          "size": 24869,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S022",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/a64dd3e4b36022983c31/UNPACK_T6_NEXT_DIRECTION_ORIGINALS.py",
+          "git_blob_sha1": "960c1188b1a6f2ecb007c5142a365a06389ac18d",
+          "size": 6536,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "T6-GLOBAL-PARTIAL-REUSE-REVIEW",
+      "disposition": "EXISTING_LIBRARY_REUSE",
+      "entry_ids": [
+        "T6-PARTIAL-P19-Q0"
+      ],
+      "reason": "Existing global partial result read with actual nonterminal RETURN_TO_OWNER; q0 proof/static support retained, no global satisfaction.",
+      "files": [
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/a7e76c9fdfba92481712/T6_CURRENT_OWNER_NONTERMINAL_P17_FOLLOWUP_SPEC_20261012.json",
+          "git_blob_sha1": "463767a1ee5dc75fdf9255620b7c7dda9667d924",
+          "size": 15828,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S023",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/a7e76c9fdfba92481712/T6_CURRENT_OWNER_PARTIAL_PROGRESS_AND_P17_REVIEW_20261012.md",
+          "git_blob_sha1": "064d8e0969b97038a85bf37e4538a7462b7d16d9",
+          "size": 7176,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S024",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/PROOF.md",
+          "git_blob_sha1": "2928642008b2ea563954429ff7e5c8131aa4ce65",
+          "size": 15633,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S032",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/RR-C428294CF760BD8D99AA.json",
+          "git_blob_sha1": "62e50de0541fcb25492cffd9354afa8d3a3cda52",
+          "size": 10037,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S073",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_reviews/RR-C428294CF760BD8D99AA/DR-0D8591E64A4073A61E6A.json",
+          "git_blob_sha1": "7fcaede9f4afb515826746045bc5c0656b321979",
+          "size": 2186,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S081",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "HJ-SIXROW-EXTERNAL-AUDIT",
+      "disposition": "EXTRACTED",
+      "entry_ids": [
+        "HJ-SIXROW-PRIORART-REUSE"
+      ],
+      "reason": "Read finite six-row source-to-target comparison and actual scoped Driver review; inherited J1 stage remains incorporated, not a new theorem.",
+      "files": [
+        {
+          "path": "driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/3e265e3d3683e5b708e6/OWNER_SIX_ROW_FORMAL_REVIEW_20261011.md",
+          "git_blob_sha1": "6b78b9a14d9c8bb2c3bc846573c0de279ca27979",
+          "size": 10074,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S025",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-32afd25714bd46df90008c60ad1681e1/360ef5ed3b852a0010c7/EVIDENCE_MANIFEST_20261011.json",
+          "git_blob_sha1": "757da2b414587a0ab6b8a63554c39776f4789db6",
+          "size": 33460,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-32afd25714bd46df90008c60ad1681e1/360ef5ed3b852a0010c7/FULL_PRIOR_ART_RETURN_20261011.md",
+          "git_blob_sha1": "7a9c898d90ee6f41e2206c4fc8d75863ff0e277a",
+          "size": 20865,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S043",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-32afd25714bd46df90008c60ad1681e1/360ef5ed3b852a0010c7/_checkpoint.json",
+          "git_blob_sha1": "80bba6e59f9998c0607feeed637cc89d712fe109",
+          "size": 3364,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-f0c0c2f0adbb42e0879a2f6c73d4c15d/a944c17c6c0f7ddc5d9b/J1_SATURATION_EVIDENCE_MANIFEST_20261011.json",
+          "git_blob_sha1": "1a3ef4be58a0d8ae7feb3a3c34147d857fe522a0",
+          "size": 9419,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-f0c0c2f0adbb42e0879a2f6c73d4c15d/a944c17c6c0f7ddc5d9b/J1_SATURATION_PRIOR_ART_BOUNDARY_20261011.md",
+          "git_blob_sha1": "e330eb764f4b52b1c981079d480f25786775c340",
+          "size": 12773,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S044",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-f0c0c2f0adbb42e0879a2f6c73d4c15d/a944c17c6c0f7ddc5d9b/KQB_PROVIDER_SUBRESULTS_20261011.json",
+          "git_blob_sha1": "7be86cb4d6f68c8bc02941889ba3436494d45192",
+          "size": 14892,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/MCP-f0c0c2f0adbb42e0879a2f6c73d4c15d/a944c17c6c0f7ddc5d9b/_checkpoint.json",
+          "git_blob_sha1": "d26428adcb677f2f24ad68772cf4454ddce186d2",
+          "size": 4553,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/latest_checkpoint.json",
+          "git_blob_sha1": "2c73995657eafe368089141ce2693fa3d493b1a2",
+          "size": 741,
+          "change": "MODIFIED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_records/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-EXTERNAL-PRIOR-ART-AUDIT/RR-2280B8F2EFAAD8463C92.json",
+          "git_blob_sha1": "2c31b03cf89c7c51437ccf51775faab8564f1d62",
+          "size": 64499,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S067",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_reviews/RR-2280B8F2EFAAD8463C92/DR-7EAFB91608E439734348.json",
+          "git_blob_sha1": "f72f247dcbb5cec371b8812f9a90dc76a35f35ab",
+          "size": 2140,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S075",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_tasks/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_EXTERNAL_PRIOR_ART_AUDIT_AUTHORITY_MIGRATION_20261011.md",
+          "git_blob_sha1": "bed9b1a0976f00ab8a545acca1a5007cf5538642",
+          "size": 21460,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S085",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "T6-Q3-FINITE-PACKAGE",
+      "disposition": "EXTRACTED",
+      "entry_ids": [
+        "T6-P17-ORDERS1-4"
+      ],
+      "reason": "Primary final mathematical proof and substantive actual whole-review read; preparation/carriers/scripts recorded as supporting files, not independently run or separate results.",
+      "files": [
+        {
+          "path": "driver_reviews/mcp/MCP-f0a10badcb554eeda7dc189aef9e4a8f/37ba7eb00dcf644cdeb0/Q3_FULL3264_GENUINE_INDEPENDENT_FINAL_SOURCE_REVIEW.md",
+          "git_blob_sha1": "2a444af4aebca766c25f3522157274f7976f9df7",
+          "size": 89593,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S027",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER3_LITERAL_20261012/EXACT_PRIOR_Q0_PROGRESS_AND_Q1_Q2_ACCEPTANCE_PROVENANCE_CORRECTION_20261012.md",
+          "git_blob_sha1": "fd362ab58060a583c1afabdc04d5dc167d4ee0bc",
+          "size": 1850,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S030",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER3_LITERAL_20261012/ORDER3_INPUT_CHALLENGE_REPORT.md",
+          "git_blob_sha1": "14fa70f39d1078d53f81a5e060e2e3c2b79593b0",
+          "size": 7506,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S031",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER3_LITERAL_20261012/ORDER3_PUBLICATION_PREFLIGHT.json",
+          "git_blob_sha1": "9083f9a3de1c38324139f9e9ed14025e845b4ff1",
+          "size": 3368,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER3_LITERAL_20261012/ORDER3_PUBLICATION_PREFLIGHT_AND_CUSTODY_EVIDENCE_PACKED.json",
+          "git_blob_sha1": "9b617c4130b54634e28b09c72b1c38a776acb388",
+          "size": 142529,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER3_LITERAL_20261012/T6_P17_ORDER3_FIXED_INPUT_LOSSLESS_PACKAGE.json",
+          "git_blob_sha1": "dfacc8ceab36b13295bf6cb220b438032fdbb0b9",
+          "size": 257883,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER3_LITERAL_20261012/unpack_order3_fixed_input.py",
+          "git_blob_sha1": "e4151bff73bd36440d7e7de749b6a564ef11437c",
+          "size": 1387,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER3_LITERAL_20261012/unpack_order3_publication_custody.py",
+          "git_blob_sha1": "68fa9321bfe51cc30ce824c20844df7ad54717ec",
+          "size": 1326,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/8034b7118a2064ce7588/ADOPTED_SCIENTIFIC_CODE_REVIEW_AND_SUMMARY_CAPSULE_01.json",
+          "git_blob_sha1": "821f07c23a7936c8ff89d9a23c884afbd807db2c",
+          "size": 826627,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/8034b7118a2064ce7588/BYTE_CUSTODY_PACKAGING_EVIDENCE_PACKED.json",
+          "git_blob_sha1": "a23dde3ff0e9cad0b8e752e19d585d0ff428ba00",
+          "size": 44864,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/8034b7118a2064ce7588/CONTRIBUTION_AND_EXPOSURE_DISCLOSURE.md",
+          "git_blob_sha1": "c862a31fbd8d646a25cb5963f06a4b86267f2c11",
+          "size": 4009,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S050",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/8034b7118a2064ce7588/FAMILY_PROOF_AND_RETURN.md",
+          "git_blob_sha1": "83e547b4ea4884125b6e923fbc6015a88a89d94b",
+          "size": 5681,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S051",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/8034b7118a2064ce7588/ORDER3_COMPACT_CERTIFICATE_LOSSLESS_CAPSULE.json",
+          "git_blob_sha1": "e8051f54f785db3db4c23ad3f46e709d165234de",
+          "size": 908015,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/8034b7118a2064ce7588/OWN_NATIVE_EXECUTION_CONTROL_EVIDENCE_PACKED.json",
+          "git_blob_sha1": "f4f87fba1756a12d7e9df083ecc43eb97083d4f3",
+          "size": 81789,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/8034b7118a2064ce7588/RETURN_AND_SOURCE_DELIVERY_FRONTIER.md",
+          "git_blob_sha1": "d553e55cf33ac624d5f97b38b4eb642fbdda891c",
+          "size": 2197,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S052",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/8034b7118a2064ce7588/SOURCE_CUSTODY_AND_GLOBAL_BOUNDARY_MANIFEST.json",
+          "git_blob_sha1": "7f279612519f9296299aba696bfe2f9818c76cff",
+          "size": 39629,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/8034b7118a2064ce7588/_checkpoint.json",
+          "git_blob_sha1": "95cc65128972c438f421b9e9894375b745a543bd",
+          "size": 7371,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/8034b7118a2064ce7588/unpack_lossless_source_capsule.py",
+          "git_blob_sha1": "e7f4016c8b5d6f3eb02a44b2832f3d69fb30ad1f",
+          "size": 8467,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/8034b7118a2064ce7588/verify_order3_portable_saved_certificate.py",
+          "git_blob_sha1": "0f02743f054a9260695e2541f147a5ef09b863d7",
+          "size": 38186,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/latest_checkpoint.json",
+          "git_blob_sha1": "e85cc080c19cfe9fb9684ff8b72314c31d2c7d96",
+          "size": 687,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_records/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/RR-9E4EA0B85D8DB82A3607.json",
+          "git_blob_sha1": "e2e42790953583a53c4396b450dbc3f0f0855382",
+          "size": 39548,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S070",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_reviews/RR-9E4EA0B85D8DB82A3607/DR-9766FCC689761D44EF3F.json",
+          "git_blob_sha1": "e933fae6609ecb1195450e3ad72d783aa060821d",
+          "size": 2030,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S078",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_tasks/T6_P17_TOTAL_ORDER3_LITERAL_PORTABLE_20261012.md",
+          "git_blob_sha1": "9595655488247bcc510fc3d10a29de8575717396",
+          "size": 12803,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S089",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_tasks/T6_P17_TOTAL_ORDER3_LITERAL_PORTABLE_GEN2_20261012.md",
+          "git_blob_sha1": "95f3a2a9743e2f7d9ed62e1d3e8f6f9200904859",
+          "size": 13104,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S090",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "T6-Q4-FINITE-PACKAGE",
+      "disposition": "EXTRACTED",
+      "entry_ids": [
+        "T6-P17-ORDERS1-4",
+        "T6-PORTABLE-DFS"
+      ],
+      "reason": "Primary final mathematical proof and substantive actual whole-review read; preparation/carriers/scripts recorded as supporting files, not independently run or separate results.",
+      "files": [
+        {
+          "path": "driver_reviews/mcp/MCP-f0a10badcb554eeda7dc189aef9e4a8f/50f9b558e29985c6189f/Q4_FULL30992_GENUINE_FINAL_SOURCE_RR_REVIEW.md",
+          "git_blob_sha1": "5fe8308e53fabaae113c86ec6b20d62538836e2d",
+          "size": 13801,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S028",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/PACKAGE_ROUNDTRIP_AND_CARRIER_LIMITS_RECEIPT.json",
+          "git_blob_sha1": "7b3d202d4aba0dd843a44bfee1f3e10d5dc86cb4",
+          "size": 5408,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/Q4_FROZEN_COMPLETE_DFS_SCHEMA_SPECIFICATION.json",
+          "git_blob_sha1": "7bc860815bb725266b6bd9c2616f99c2f96018de",
+          "size": 6573,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/Q4_INDEPENDENT_FROZEN_INPUT_AND_DESIGN_REVIEW_LOSSLESS_CAPSULE.json",
+          "git_blob_sha1": "025bdfae7a7131074bb8dc92731a7bb52d9341a6",
+          "size": 118326,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/SOURCE_INPUT_DELIVERY_INDEX.json",
+          "git_blob_sha1": "4a4cda541c80879a1963e06845fe5d5620b5e808",
+          "size": 2429,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/T6_P17_ORDER4_FIXED_INPUT_LOSSLESS_PACKAGE.json",
+          "git_blob_sha1": "f76e5bef910232480c48cc84fd54f044cd0f82b9",
+          "size": 4514,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/T6_P17_ORDER4_FIXED_INPUT_LOSSLESS_PART_01_OF_02.json",
+          "git_blob_sha1": "2106a7047c090a1cbedba1061a954a284d2c4d7c",
+          "size": 900321,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/T6_P17_ORDER4_FIXED_INPUT_LOSSLESS_PART_02_OF_02.json",
+          "git_blob_sha1": "0be1d5e7c8a1d7764abda652ce722b5cf582cf64",
+          "size": 782845,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/pre_science_code_v2/LOCAL_IMPLEMENTATION_COMPLETE_PREPARATION_V2_LOSSLESS_CONTAINER.json",
+          "git_blob_sha1": "3019cc9be98705e639e45fc383f7e642a7b2957f",
+          "size": 182559,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/pre_science_code_v2/MEASURED_V2_COMPLETE_SUPPORT_AND_CONDITIONAL_PUBLICATION_BUDGET.json",
+          "git_blob_sha1": "0ae73fb7a02898e152fef11bbff246af0ae82168",
+          "size": 1181,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/pre_science_code_v2/Q4_COMPLETE_GENUINE_PRE_SCIENCE_REVIEW_LOSSLESS_CAPSULE.json",
+          "git_blob_sha1": "59a578967e9063fc8a906bc4eacaad91edb299a3",
+          "size": 373268,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/pre_science_code_v2/Q4_V2_GENUINE_PRE_SCIENCE_STATIC_IMPLEMENTATION_REVIEW.json",
+          "git_blob_sha1": "a1107125559eec5bb2467da2978f08a117be89c7",
+          "size": 14470,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/pre_science_code_v2/order4_exact_batch_executor.py",
+          "git_blob_sha1": "a9c711e66adf6759b4f43c267fb91bd1acf9b916",
+          "size": 9847,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/pre_science_code_v2/order4_exact_math_and_input.py",
+          "git_blob_sha1": "814a81ccdec52a4626503af6d15658ef90976eb2",
+          "size": 12509,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/pre_science_code_v2/pack_q4_binary_proof_source.py",
+          "git_blob_sha1": "74ae4f42d237b7db121b1bd0f47d1a8b4c00e355",
+          "size": 3240,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/pre_science_code_v2/q4_dfs_wire.py",
+          "git_blob_sha1": "3b87e5f849fc05f4cd0029e0e6570163d132b07f",
+          "size": 1773,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/pre_science_code_v2/q4_native_admission_guard.py",
+          "git_blob_sha1": "be72e601fa62b9456cb2ea1d259f485fd65b9c4b",
+          "size": 24558,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/pre_science_code_v2/unpack_q4_complete_genuine_pre_science_review.py",
+          "git_blob_sha1": "9652f741774938b2a28f876efba6d6fdc646b6a5",
+          "size": 3588,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/pre_science_code_v2/unpack_q4_preparation_source_container.py",
+          "git_blob_sha1": "5799e57ced11f6371f9384f5ff04c5834852a9d8",
+          "size": 3491,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/pre_science_code_v2/verify_order4_source_only_dfs_certificate.py",
+          "git_blob_sha1": "36925adb9b3544a14345da7a57b9088be171a6bb",
+          "size": 48050,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/unpack_order4_fixed_input.py",
+          "git_blob_sha1": "e0ce10503c4fe6b0419e66c0e16e6c2ed5dca868",
+          "size": 7152,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/unpack_q4_independent_input_design_review.py",
+          "git_blob_sha1": "57ef4e23a9d1d1880d53426594e5d09e327c4c8f",
+          "size": 3581,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/CLOSED_SCIENTIFIC_AND_NATIVE_CONTROL_ORIGINAL_BYTE_SNAPSHOT.json",
+          "git_blob_sha1": "4e6ba76f7d48e72b8bebf57809e5c33c603242b8",
+          "size": 8679,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/COMPLETE_SCIENTIFIC_AND_CONSUMER_SUMMARY.json",
+          "git_blob_sha1": "87d0dcee5edc5b69a04d2a73c453d38ae77e7df1",
+          "size": 2085,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/FAMILY_PROOF_AND_RETURN.md",
+          "git_blob_sha1": "c3c0963fdf211818365d77c5f02604c9a44681f1",
+          "size": 8759,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S054",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/Q4_CLOSED_SCIENTIFIC_NATIVE_CONTROL_FROZEN_PUBLICATION_REFERENCES.json",
+          "git_blob_sha1": "3fd6fec359db93b9c080c2804a1cd0bd2b519a71",
+          "size": 4196,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/Q4_EXACT_DFS_BINARY_SOURCE_MANIFEST.json",
+          "git_blob_sha1": "de51f01b2dc50a61dba8d46e2e3be44f15052e99",
+          "size": 917,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/Q4_EXACT_DFS_BINARY_SOURCE_PART_01_OF_01.json",
+          "git_blob_sha1": "ad169be998dd750e534ce4f5653c3319b5ce9479",
+          "size": 139094,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/Q4_FRESH_EXCLUSIVE_SCIENTIFIC_NATIVE_CONTROL_BYTE_RESTORATION_RECEIPT.json",
+          "git_blob_sha1": "d09c35a50b35b6b08554fa6c283b2a01db44df57",
+          "size": 12235,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/Q4_SCIENTIFIC_AND_NATIVE_CONTROL_CAPSULE_BUILD_RECEIPT.json",
+          "git_blob_sha1": "e61111bff6aa0b36989e492984fc4719352717db",
+          "size": 3243,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/Q4_SCIENTIFIC_AND_NATIVE_CONTROL_LOSSLESS_CAPSULE_01.json",
+          "git_blob_sha1": "9f698de12cc04a482f6d6fe22b99851c84f5b99c",
+          "size": 693785,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/Q4_SCIENTIFIC_NATIVE_CONTROL_PACKAGE_FINAL_BYTE_PINS.json",
+          "git_blob_sha1": "8a7372fe82270aa451c8fe8ee5bed410a1cc1b90",
+          "size": 3219,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/SOURCE_CUSTODY_AND_GLOBAL_BOUNDARY_MANIFEST.json",
+          "git_blob_sha1": "1e944a0b45e62780b175b159c199f06534d08c96",
+          "size": 31303,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/_checkpoint.json",
+          "git_blob_sha1": "28fa8eba1522ecda611292c0997c1f406b774589",
+          "size": 11302,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/build_scientific_and_native_control_lossless_capsules.py",
+          "git_blob_sha1": "f3b53b0f2825e1a059e2ab99509c10bcd1b1a683",
+          "size": 10874,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/unpack_lossless_source_capsule.py",
+          "git_blob_sha1": "e7f4016c8b5d6f3eb02a44b2832f3d69fb30ad1f",
+          "size": 8467,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/911c77bf93a7df03c3d1/verify_fresh_scientific_control_capsule_restoration.py",
+          "git_blob_sha1": "8380fb407e997b17ff6412bb20feeaa678ec71d3",
+          "size": 9308,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/latest_checkpoint.json",
+          "git_blob_sha1": "e80582e16cdb2dbfb92c67ff93468049192abf0d",
+          "size": 687,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_records/RS-T6-P17-TOTAL-ORDER4-LITERAL-PORTABLE-20261012/RR-FC5B70D043CE518DAD0B.json",
+          "git_blob_sha1": "9b6e3252354ed35d336a3a667486f2a66062fa26",
+          "size": 43236,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S071",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_reviews/RR-FC5B70D043CE518DAD0B/DR-8C4DDD770323FD58FC52.json",
+          "git_blob_sha1": "0998fafd01db4826fa9db3fc842d38bb3746af38",
+          "size": 2022,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S082",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_tasks/T6_P17_TOTAL_ORDER4_LITERAL_PORTABLE_20261012.md",
+          "git_blob_sha1": "0d5596d04193c33c242c1b5a4f84e66070c24f73",
+          "size": 16552,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S091",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "T6-PERSISTENT-LINE-INTEGRATION",
+      "disposition": "CONTROL_ONLY",
+      "entry_ids": [
+        "T6-P17-ORDERS1-4"
+      ],
+      "reason": "Governance checkpoints reconcile already extracted mathematical RR/DR frontiers; no additional theorem from status.",
+      "files": [
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/453dec6c5ad1c6d29d5d/T6_LINE_DRIVER_ACTUAL_Q4_TASK_INPUT_CODE_REVIEW_AND_GENUINE_DISPATCH_20261012.md",
+          "git_blob_sha1": "0e049b002ae7575d5c62d5df318509e17675b314",
+          "size": 9413,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S033",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/453dec6c5ad1c6d29d5d/_checkpoint.json",
+          "git_blob_sha1": "c73f4f084fce87828310b83b416bdad22d277408",
+          "size": 4276,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/7bacc1371e84adbcf633/T6_LINE_DRIVER_REAL_Q2_CLOSURE_AND_ORDER3_GEN2_DISPATCH_20261012.md",
+          "git_blob_sha1": "6d1c4dcffeb888bb3c5a86f36759b91fd366b03f",
+          "size": 9037,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S034",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/7bacc1371e84adbcf633/_checkpoint.json",
+          "git_blob_sha1": "a3c8365c4fbe9bf2dd39c5102f1b38d18d4c2d7a",
+          "size": 4170,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/856b13e589d9e8519ed4/T6_Q2_1_DRIVER_REVIEW_AND_271_DIRECTION_EVIDENCE_PACKED.json",
+          "git_blob_sha1": "cdf744152eb4cc50e6a3a259681fc31eb3cc927b",
+          "size": 70754,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/856b13e589d9e8519ed4/T6_Q2_1_INDEPENDENT_UNIT_REVIEW_AND_REMAINING271_DIRECTION_20261012.md",
+          "git_blob_sha1": "8b861df040243fe2da71217f7f003dae901b5f85",
+          "size": 13777,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S035",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/856b13e589d9e8519ed4/_checkpoint.json",
+          "git_blob_sha1": "3290d087ae60d6bb3fca87012a4a89554054d0c2",
+          "size": 5303,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/856b13e589d9e8519ed4/unpack_t6_driver_review_evidence.py",
+          "git_blob_sha1": "b4fd1098cd2e3ffc279c96a68b75f54158ce5876",
+          "size": 3337,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/92e020b321ea75f95af6/T6_LINE_DRIVER_ORDER3_SINGLE_EXECUTION_AND_GENUINE_SEPARATE_REVIEW_HANDOFF_20261012.md",
+          "git_blob_sha1": "9e93c6b60c83978239ae6440b8e7703d3e9d690b",
+          "size": 7895,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S036",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/92e020b321ea75f95af6/_checkpoint.json",
+          "git_blob_sha1": "f5f29c35ed47921b63e899dfe5752f442f27cf2e",
+          "size": 3717,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/95ce0c7869ac9790fda6/T6_CURRENT_PERSISTENT_LINE_DOSSIER_20261012.md",
+          "git_blob_sha1": "0d03888667077a68114e981dbcacd68a3771581f",
+          "size": 11735,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S037",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/95ce0c7869ac9790fda6/T6_EXISTING_ORDER2_PACKET_PROVENANCE_RECONCILIATION_20261012.json",
+          "git_blob_sha1": "88ea55784649017dae620c7227e4ccd28b9b6541",
+          "size": 4158,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/95ce0c7869ac9790fda6/_checkpoint.json",
+          "git_blob_sha1": "7180c133bf8af8de37410f011d18edb75b204fe8",
+          "size": 3330,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/a9cd527df6b420f4f2e3/T6_LINE_DRIVER_ACTUAL_Q4_GENUINE_ACCEPTED_TASK_INTEGRATION_20261012.md",
+          "git_blob_sha1": "ca5fa2a1686a40493b0de47084ef31982b2cd1d6",
+          "size": 10505,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S038",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/a9cd527df6b420f4f2e3/_checkpoint.json",
+          "git_blob_sha1": "44eadab00c456d3f1d57169121af870b68e51874",
+          "size": 4721,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/c8243c627be4745618fe/T6_LINE_DRIVER_ACCEPTED_FULL272_AND_AUTHORIZED_ORDER3_FRONTIER_20261012.md",
+          "git_blob_sha1": "2515fb946eea72250a2430a9ca4afd5c56d1c1f0",
+          "size": 8724,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S039",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/c8243c627be4745618fe/_checkpoint.json",
+          "git_blob_sha1": "76aa8c55240d2d5ea89c0e4d4d1b54f3566ef4b6",
+          "size": 3778,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/d8183029edada485638a/T6_LINE_DRIVER_ACTUAL_ORDER3_ACCEPTED_TASK_CLOSURE_AND_ONE_ORDER4_CONTINUATION_20261012.md",
+          "git_blob_sha1": "240e76d1035b1c88b67a93deb06030076020a20d",
+          "size": 10312,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S040",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/MCP-1449d85a8d3f47e68d770736b3d2a497/d8183029edada485638a/_checkpoint.json",
+          "git_blob_sha1": "a6712d67079701c1d07919372139befb57062291",
+          "size": 3898,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/GOV-T6-SHAPE-MOMENT-PERSISTENT-LINE-DRIVER/latest_checkpoint.json",
+          "git_blob_sha1": "ebcabd8bbee72a54ec0a59e374d3b470329796a5",
+          "size": 676,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "DELEGATED-P11-MISC-FORMAL",
+      "disposition": "OUT_OF_RANGE",
+      "entry_ids": [],
+      "reason": "N-coupled/PUBLIC129/RR133/RR65 or other P11 formal candidate remains /root/curate_p11_month ownership; not treated as extraction by this phase.",
+      "files": [
+        {
+          "path": "research_artifacts/mcp/RS-GOV-FOUNDATION-BACKFLOW/MCP-9b47757c06ed4919ae3396b0255a1037/ee03e7a7752a96e9a126/FQ007_PROPAGATION_CHECKPOINT_20261002.json",
+          "git_blob_sha1": "6f1dcb5df1b37f6621cf9a335c04ac331a6c507e",
+          "size": 4944,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-FOUNDATION-BACKFLOW/MCP-9b47757c06ed4919ae3396b0255a1037/ee03e7a7752a96e9a126/_checkpoint.json",
+          "git_blob_sha1": "19b2ff6e61bc88e610c539c40cea0130dd98a4be",
+          "size": 2902,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-FOUNDATION-BACKFLOW/MCP-d8c9545d77ae481da6d9c0b9e5311356/1a4f2a53116a5ab08bdb/BACKFLOW_DOCUMENTATION_TECHNICAL_REVIEW_20261008.json",
+          "git_blob_sha1": "599a26ce5cc0a61a750e462dac621229f422e79e",
+          "size": 8438,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-FOUNDATION-BACKFLOW/MCP-d8c9545d77ae481da6d9c0b9e5311356/1a4f2a53116a5ab08bdb/BACKFLOW_PACKET_DISPOSITION_20261008.json",
+          "git_blob_sha1": "21a90ae502e750b2f953c462eec1d3a34582ed99",
+          "size": 10297,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-FOUNDATION-BACKFLOW/MCP-d8c9545d77ae481da6d9c0b9e5311356/1a4f2a53116a5ab08bdb/_checkpoint.json",
+          "git_blob_sha1": "4244bd0a9160439acaa30a873ce8fbae17ea6917",
+          "size": 4752,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-FOUNDATION-BACKFLOW/latest_checkpoint.json",
+          "git_blob_sha1": "b53f2f6c8958175c414d54d37243370a193d09e1",
+          "size": 644,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/0a3d900836cd10e1c43a/ORPHAN_GOV_CURRENT_RR4B_ACCEPTANCE_Q24_ADMISSION_X6_SCOPE_CHECKPOINT_20261014.md",
+          "git_blob_sha1": "e4ac67672cd155d7526012a703ebe338853e518b",
+          "size": 7863,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/0a3d900836cd10e1c43a/_checkpoint.json",
+          "git_blob_sha1": "ae16bb3e8adbbe1a99a6fbf1076fa3f5728f4bbe",
+          "size": 4261,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/1d94630c6b7afbd37f78/ORPHAN_GOV_RR65_CURRENT_ACCEPTANCE_AND_RR4B_NEXT_CHECKPOINT_20261014.md",
+          "git_blob_sha1": "a1644d50d20748ce4c3a036ed6f33170afcff3c9",
+          "size": 7709,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/1d94630c6b7afbd37f78/_checkpoint.json",
+          "git_blob_sha1": "716ee262b6297270ba8249b6ac0f0c03ad3c0efb",
+          "size": 3359,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/d2682d3f3f7ee6903900/ORPHAN_GOV_Q24_ACTUAL_DONE_X6_ADMITTED_CM24_GREEN_CHECKPOINT_20261015.md",
+          "git_blob_sha1": "c1639e4380e94b5d4799b81d565a22ee298b244d",
+          "size": 6753,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/d2682d3f3f7ee6903900/_checkpoint.json",
+          "git_blob_sha1": "67d3dbf96da4e11aef9f1c102a103a70f8ea5d20",
+          "size": 3722,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/d88deb0bbf387e40cd25/GOV_FOUR_OBJECT_NEXT_UNFINISHED_DELTA_20261015.json",
+          "git_blob_sha1": "3efa6343eeeb5c3ec7cca3119a9638475d6b0960",
+          "size": 39319,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/d88deb0bbf387e40cd25/GOV_FOUR_OBJECT_NEXT_UNFINISHED_DELTA_20261015.md",
+          "git_blob_sha1": "d7d74c94cc3b27c888e161ea8d8865b7cc925475",
+          "size": 9030,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/d88deb0bbf387e40cd25/ORPHAN_GOV_FOUR_OBJECT_CONTROL_RECOVERY_FINAL_RETURN_20261015.md",
+          "git_blob_sha1": "25e2c8f60941efc97eb4fb5dbf1adee9ab66ac6e",
+          "size": 5106,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/d88deb0bbf387e40cd25/_checkpoint.json",
+          "git_blob_sha1": "a2851746e9bf4899e3ddfaec7e7e14d915750ba6",
+          "size": 4043,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/fc1b47a052dbcaf95552/ORIGINAL_GOV_X6_REVISION_AND_ACTUAL_CODE_ADMISSION_PROGRESS_20261015.md",
+          "git_blob_sha1": "d9c305d7dcdff55e560f40eb3422842511fe4c23",
+          "size": 5808,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/MCP-cd5eefdde49843898b2a70c1af94d8dd/fc1b47a052dbcaf95552/_checkpoint.json",
+          "git_blob_sha1": "b896eeea786eb5a174dd4e0f4416e790f44c5dc4",
+          "size": 3759,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/latest_checkpoint.json",
+          "git_blob_sha1": "9e24087d528cba32f82c82172b129bea7c73c039",
+          "size": 670,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/293bfaa34fe7cf09cecd/RR133_PROPER_HIDDEN_CRT_SUPPORT_OBSERVER_AND_EXISTENTIAL_READOUT_20261015.md",
+          "git_blob_sha1": "47f07b71ab459099e9b616eb0b1f080ecc1487e9",
+          "size": 14618,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/293bfaa34fe7cf09cecd/RR133_PROPER_HIDDEN_CRT_SUPPORT_OBSERVER_MANIFEST_20261015.json",
+          "git_blob_sha1": "7fb3c21d1f6e60dd32ffae53c587c460a5d800b7",
+          "size": 20720,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/293bfaa34fe7cf09cecd/_checkpoint.json",
+          "git_blob_sha1": "6ec8a71030552e037cd92732562a1e022b2f5a68",
+          "size": 5520,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/cf1c44297c26491cd492/RR133_COUNTABLE_COMPUTABLE_KERNEL_SAMPLER_CERTIFICATE_20261015.md",
+          "git_blob_sha1": "4021ecb5443bda7c0bb56a56a4a0427b0bd06363",
+          "size": 16186,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/cf1c44297c26491cd492/RR133_COUNTABLE_COMPUTABLE_KERNEL_SAMPLER_CERTIFICATE_MANIFEST_20261015.json",
+          "git_blob_sha1": "1d7b55d36bf2795f287ebd2699a1a687ced651ff",
+          "size": 19166,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/cf1c44297c26491cd492/RR133_FAIR_BIT_SAMPLER_COMPUTABLE_POINT_PROBABILITY_CONVERSE_20261015.md",
+          "git_blob_sha1": "7447b25d7776d2e7dd471564f3110b2c611894b8",
+          "size": 10257,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/cf1c44297c26491cd492/RR133_FAIR_BIT_SAMPLER_COMPUTABLE_POINT_PROBABILITY_CONVERSE_MANIFEST_20261015.json",
+          "git_blob_sha1": "bda4223d545af0e069c692a3b5b1e2ed6a6d9d8f",
+          "size": 3390,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/cf1c44297c26491cd492/_checkpoint.json",
+          "git_blob_sha1": "6a2d20f877c77f10cccc7b289ad051d97eefd49d",
+          "size": 6082,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/ea465e82686eb96c5708/RR133_CE_QUOTIENT_INDEX_REIFICATION_PRESSURE_TEST_20261015.md",
+          "git_blob_sha1": "98b582887d6340b3a7a33b123727a55a235e873e",
+          "size": 11092,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/ea465e82686eb96c5708/RR133_CE_QUOTIENT_INDEX_REIFICATION_PRESSURE_TEST_MANIFEST_20261015.json",
+          "git_blob_sha1": "d368bae0214581c01874dc78747ce09336a05b77",
+          "size": 4230,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/ea465e82686eb96c5708/RR133_COVERAGE_FINITE_PRESENTATION_READOUT_APPLICATION_20261015_V2.md",
+          "git_blob_sha1": "b0c8a947b824c44b039d262ddebeaeb5d85fc7d6",
+          "size": 9599,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/ea465e82686eb96c5708/RR133_COVERAGE_FINITE_PRESENTATION_READOUT_APPLICATION_MANIFEST_20261015_V2.json",
+          "git_blob_sha1": "8a7c5c7d9ce6dce7eef642cae02181d11af778da",
+          "size": 6550,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/ea465e82686eb96c5708/RR133_COVERAGE_TYPED_TERMINAL_BRIDGE_EVIDENCE_MANIFEST_20261015_V2.json",
+          "git_blob_sha1": "018b7071b79705be7903dd495a152772b5c4a7cf",
+          "size": 15040,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/ea465e82686eb96c5708/RR133_COVERAGE_TYPED_TERMINAL_BRIDGE_LEMMA_20261015_V2.md",
+          "git_blob_sha1": "b6d9cf07936132192645211082e07a2da7dee2c6",
+          "size": 25672,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/MCP-0401b4f388f04306bea7a0601449678c/ea465e82686eb96c5708/_checkpoint.json",
+          "git_blob_sha1": "564901c7da76d74d5d5fa6e9bca8e8976bf1668c",
+          "size": 6062,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-EFFECTIVE-RESOURCE-COVERAGE-OR-ESCAPE-CLASSIFICATION/latest_checkpoint.json",
+          "git_blob_sha1": "33e86e6b75fe31236ae66776c07371879b686d2d",
+          "size": 734,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY/MCP-0401b4f388f04306bea7a0601449678c/dce0f6faa22ee0be57ec/RR133_CURRENT_GEN2_APPLICABILITY_RESEARCH_RETURN.md",
+          "git_blob_sha1": "500f96684fe9b8f62d38b6753baf9ba005d48800",
+          "size": 19104,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY/MCP-0401b4f388f04306bea7a0601449678c/dce0f6faa22ee0be57ec/RR133_PROSPECTIVE_EVIDENCE_MANIFEST.json",
+          "git_blob_sha1": "da412fbcf4e46af94164f55c631cb6cf13819873",
+          "size": 4154,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY/MCP-0401b4f388f04306bea7a0601449678c/dce0f6faa22ee0be57ec/_checkpoint.json",
+          "git_blob_sha1": "a2d3e8af77a77a5a5647cff2fa51d8b5ecf2198c",
+          "size": 3073,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY/latest_checkpoint.json",
+          "git_blob_sha1": "a7058b579e904b747b11d081be7f32b7fac5468a",
+          "size": 704,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007/MCP-9030ae3a22074e3dbc31679b7090f6b0/b8a43e60b6f10dc21c74/PUBLIC129_FIXED_COMPARATOR_EXECUTION_CAPSULE.json",
+          "git_blob_sha1": "65cae9c417b58e5639492ce39e2f68230cca4547",
+          "size": 137604,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007/MCP-9030ae3a22074e3dbc31679b7090f6b0/b8a43e60b6f10dc21c74/PUBLIC129_FIXED_COMPARATOR_EXECUTION_RETURN.md",
+          "git_blob_sha1": "8c7e16332591cb70d616cd00e27576b2af3e2de3",
+          "size": 6488,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007/MCP-9030ae3a22074e3dbc31679b7090f6b0/b8a43e60b6f10dc21c74/TOOL_OVERRIDE_PROVENANCE_SUPPLEMENT.json",
+          "git_blob_sha1": "67a361571d8b93f37cca8618566d8a66022ff607",
+          "size": 8833,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007/MCP-9030ae3a22074e3dbc31679b7090f6b0/b8a43e60b6f10dc21c74/_checkpoint.json",
+          "git_blob_sha1": "f3eb96296ef6b0439027d7a9d25d2ead021acb6f",
+          "size": 8249,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007/MCP-e3eda4529333438d8ae1ae7e6983e5e5/931ce149473c5bd22267/PUBLIC129_WHOLE_UNIT_PARTIAL_CAPSULE.json",
+          "git_blob_sha1": "35bcdfa59c5e230e4d96469397e91cbf38e639f7",
+          "size": 114088,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007/MCP-e3eda4529333438d8ae1ae7e6983e5e5/931ce149473c5bd22267/_checkpoint.json",
+          "git_blob_sha1": "35349ee338eaa7c47a3877fb2673f724de6328fd",
+          "size": 6438,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007/latest_checkpoint.json",
+          "git_blob_sha1": "1d4ad589992a3a5611bbb66991e816a80067fa6c",
+          "size": 681,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_notes/Q24_CURRENT_NONAUTHOR_SCOPE_REVIEW_20261014_FBF223.json",
+          "git_blob_sha1": "a632524ecadb408daae516366d047782221d91c5",
+          "size": 39045,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_notes/ROOT_CONTROL_INCREMENTAL_SAFE_BOUNDARY_20261013_2219_FBF223.json",
+          "git_blob_sha1": "75e58891541650f5705bfb2d287f1844e509ce15",
+          "size": 2523,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_notes/RR133_PROPER_CONDITIONAL_LAW_REVIEWED_20261015.json",
+          "git_blob_sha1": "9088d06aaeec6843cae6ee2cecb4b932af139c7e",
+          "size": 56347,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_notes/RR133_UNIFORM_SCALAR_BINDING_REVIEWED_20261015.json",
+          "git_blob_sha1": "974c5114127347eef46571f6ca12052d8cb22ce0",
+          "size": 70479,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_notes/RR4B_CURRENT_NONAUTHOR_MATH_REVIEW_20261014_FBF223.json",
+          "git_blob_sha1": "dc0ab3885a55ec2893cac783be133bb5613554b5",
+          "size": 33744,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_notes/owner_goal_20261015/RR133_STATEFUL_INTERFACE_REVIEWED_BUNDLE.json",
+          "git_blob_sha1": "49d59dbf0162d9dba6be2f19d6505e044eca96a5",
+          "size": 139685,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_records/RS-GOV-ORPHAN-CONTROL-RECOVERY-20261003/RR-20ED23E02CD87385E4C8.json",
+          "git_blob_sha1": "d93af8264bb7a35e2becbe1292b4ef44179b1803",
+          "size": 61787,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_records/RS-N-COUPLED-PUBLIC-N-DISTRIBUTIONAL-NONEXTERNALIZABILITY/RR-BF7B0D7C7E354EE2F982.json",
+          "git_blob_sha1": "a809c92bf83935cb64241f1049608aa55bb03458",
+          "size": 46419,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_result_records/RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007/RR-9FFBBB42790CCECD2FF8.json",
+          "git_blob_sha1": "e426996be9c5d91cb344389f3d41771fbba58142",
+          "size": 56968,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_tasks/N_COUPLED_PUBLIC_N_DISTRIBUTIONAL_NONEXTERNALIZABILITY_GEN2_PROSPECTIVE_20261015.md",
+          "git_blob_sha1": "4a0ecb0753267a86ae2704b0d2f189a7d58ff784",
+          "size": 11614,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_tasks/RS-PUBLIC-MATH-129-REENTRY-SUMMARY-20261007.md",
+          "git_blob_sha1": "d520ebd913ea5594de55d16f43c2a4728f17eece",
+          "size": 15158,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "T6-Q2-1-EXISTING-UNIT",
+      "disposition": "EXISTING_LIBRARY_REUSE",
+      "entry_ids": [
+        "T6-P17-ORDERS1-4"
+      ],
+      "reason": "Old single q2-1 proof read and joined once to full272; no replay or duplicate theorem.",
+      "files": [
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/312c962b9deda3d96d48/CONTRIBUTION_AND_EXPOSURE_DISCLOSURE.md",
+          "git_blob_sha1": "e7942c08c67c2ce639c1bf34b785078963251d2e",
+          "size": 2708,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S045",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/312c962b9deda3d96d48/INDEPENDENT_REVIEW_EVIDENCE_PACKED.json",
+          "git_blob_sha1": "43418a5351789512e24b1eed939e34695491ed4a",
+          "size": 20010,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/312c962b9deda3d96d48/OWN_NATIVE_CONTROL_EVIDENCE_PACKED.json",
+          "git_blob_sha1": "33c90764487708600f6e34a32b474d7169ac935c",
+          "size": 28169,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/312c962b9deda3d96d48/Q2_1_COMPLETE_COVERAGE_ARGUMENT.md",
+          "git_blob_sha1": "f195f257b890e499e2942b91929e20c9e86f0615",
+          "size": 5176,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S046",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/312c962b9deda3d96d48/Q2_1_COMPLETE_NEW_LEDGER.json",
+          "git_blob_sha1": "758102d8c9fed37d9014555105891ec3d927bb18",
+          "size": 20441,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/312c962b9deda3d96d48/Q2_1_EXACT_AFFINE_INPUT.json",
+          "git_blob_sha1": "3cb703610e211f49cc2bc797ee416bb990fa2d78",
+          "size": 5385,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/312c962b9deda3d96d48/RETURN.md",
+          "git_blob_sha1": "921c2719d08e452e6c340d9466434c5e7575d141",
+          "size": 3557,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S047",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/312c962b9deda3d96d48/_checkpoint.json",
+          "git_blob_sha1": "a76707384f288751bd2e09d5c06a70eba536d3ed",
+          "size": 5975,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/312c962b9deda3d96d48/q2_1_exact_executor.py",
+          "git_blob_sha1": "388ea199ffd89c15dfceb35c2149009dd4b1b2da",
+          "size": 15786,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-ORDER2-PORTABLE-CERTIFICATE-20260923/MCP-2b2adc7725e84b0c90908ba5db66a17f/312c962b9deda3d96d48/verify_q2_1_saved_ledger.py",
+          "git_blob_sha1": "50732f6272c614766c304a302a361ccc26d3e146",
+          "size": 14885,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "T6-Q3-DUPLICATE-RETURN",
+      "disposition": "DUPLICATE",
+      "entry_ids": [
+        "T6-P17-ORDERS1-4"
+      ],
+      "reason": "Byte-identical alternative q3 author return; current frozen RR points to8034; no second theorem.",
+      "files": [
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/a69db9a7afd58f232028/FAMILY_PROOF_AND_RETURN.md",
+          "git_blob_sha1": "83e547b4ea4884125b6e923fbc6015a88a89d94b",
+          "size": 5681,
+          "change": "ADDED",
+          "complete_source_retrieved": true,
+          "source_key": "T6S053",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_artifacts/mcp/RS-T6-P17-TOTAL-ORDER3-LITERAL-PORTABLE-20261012/MCP-2b2adc7725e84b0c90908ba5db66a17f/a69db9a7afd58f232028/_checkpoint.json",
+          "git_blob_sha1": "75b83218b71b96ff63a142377c4cad5d6fbb2c99",
+          "size": 3401,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "T6-RECENT-CONTROL-NOTES",
+      "disposition": "CONTROL_ONLY",
+      "entry_ids": [],
+      "reason": "Control/static context metadata, no separate mathematical claim.",
+      "files": [
+        {
+          "path": "research_notes/owner_goal_20261015/control/OWNER_PUBLIC_DONE_T6_CONTROL_FAILURE_CI_GREEN_20261016T0003Z.json",
+          "git_blob_sha1": "5a2e0254d9838a13703eee70959cac16034b4c90",
+          "size": 91522,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_notes/owner_goal_20261015/reviews/t6_static_support_7cda51/T6_STATIC_SUPPORT_CONTEXT_AND_SCOPE.json",
+          "git_blob_sha1": "235931db6b30b5a1e533e1e7b89fdd2feb22419c",
+          "size": 70567,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "OTHER-NONPARITY-ROUTING",
+      "disposition": "OUT_OF_RANGE",
+      "entry_ids": [],
+      "reason": "P11/native earlier bounded frontier is covered by its owning curator; T6 mention is republication/control audit.",
+      "files": [
+        {
+          "path": "research_notes/owner_goal_20261016/fair_nonparity_frontier_9821e2/NONPARITY_THREE_BOUNDED_FRONTIERS_AND_T6_REPUBLICATION_AUDIT.md",
+          "git_blob_sha1": "efd540b6a95fd3f363a584a00bef7a2ccd94325b",
+          "size": 14416,
+          "change": "ADDED",
+          "complete_source_retrieved": false,
+          "source_key": null,
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    },
+    {
+      "package_id": "HJ-OLDER-SIXROW-DEPENDENCY",
+      "disposition": "EXISTING_LIBRARY_REUSE",
+      "entry_ids": [
+        "HJ-SIXROW-PRIORART-REUSE"
+      ],
+      "reason": "Older narrowed six-row result is reused as dependency of current audit, zero new October theorem count.",
+      "files": [
+        {
+          "path": "research_result_records/RS-NATIVE-FILAMENT-POSTAUDIT-HYPERBOLA-JOUKOWSKI-INDEPENDENT-REPLICATION/RR-680C6257EEF10F6F1C16.json",
+          "git_blob_sha1": "88ef0c4ada16a9889c90fabaf0724598e4f1676e",
+          "size": 2555,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S068",
+          "role": "supporting_code_or_lossless_carrier_or_control_record",
+          "scientific_execution_this_phase": false
+        },
+        {
+          "path": "research_returns/NATIVE_FILAMENT_POSTAUDIT_HYPERBOLA_JOUKOWSKI_INDEPENDENT_REPLICATION_RETURN_20260829.md",
+          "git_blob_sha1": "0a4596c8cb8bcfb64863becb1009ff13f3980a09",
+          "size": 16330,
+          "change": "SOURCE_DRIVEN_DEPENDENCY_OR_REVIEW",
+          "complete_source_retrieved": true,
+          "source_key": "T6S083",
+          "role": "primary_or_review_text",
+          "scientific_execution_this_phase": false
+        }
+      ]
+    }
+  ],
+  "entry_count": 8,
+  "retrieved_source_records": 91,
+  "decoded_member_records": 91,
+  "path_count": 264,
+  "disposition_counts": {
+    "CONTROL_ONLY": 3,
+    "EXTRACTED": 10,
+    "EXISTING_LIBRARY_REUSE": 3,
+    "OUT_OF_RANGE": 2,
+    "DUPLICATE": 1
+  },
+  "source_gaps": [],
+  "preexisting_provenance_gaps": [
+    {
+      "item": "Original p19(3,6) builder archive",
+      "status": "MISSING_OLD_BUILDER_PROVENANCE_RETAINED",
+      "entry": "T6-PARTIAL-P19-Q0",
+      "boundary": "A later separately sourced bounded audit exists at author-campaign strength; it does not recover the old builder and does not make this curation an independent census."
+    }
+  ],
+  "limits": [
+    "Complete scientific custody of each old classifier is inherited from its exact genuine full-proof review; this curation does not reconsume binary proofs or run checkers.",
+    "Raw support/carrier accounting is not a claim that every companion program is newly mathematically audited. Each EXTRACTED package points to read primary proof(s).",
+    "q14 preflight roster/cardinality/results are absent by design, not hidden as solved output.",
+    "Old missing p19(3,6) builder archive remains an explicit pre-existing dependency provenance gap; exact later replacement audit does not recover it."
+  ]
+}

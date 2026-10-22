@@ -1,0 +1,422 @@
+{
+  "schema": "GLOBAL_MONTH_COVERAGE_SUMMARY_V1",
+  "snapshot": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+  "baseline": "ff1e5a5862eba2eb7cd0c6d9159a7191aa2f8fec",
+  "period": [
+    "2026-10-01",
+    "2026-10-22"
+  ],
+  "physical_denominator": {
+    "count": 2474,
+    "meaning": "Baseline/current comparison: current added/modified files under16 selected scientific Source roots; not all repository files and not every historical/intermediate branch version.",
+    "roots": [
+      "definitions",
+      "driver_reviews",
+      "research_artifacts",
+      "research_checks",
+      "research_historical_result_intakes",
+      "research_historical_result_reviews",
+      "research_inputs",
+      "research_notes",
+      "research_parallel_syntheses",
+      "research_plans",
+      "research_result_records",
+      "research_result_reviews",
+      "research_returns",
+      "research_review_syntheses",
+      "research_tasks",
+      "reviews"
+    ],
+    "notes": 1418,
+    "other_science": 690,
+    "extra_science": 365,
+    "support_checks": 1
+  },
+  "PHYSICAL_ACCOUNTING_COMPLETE": true,
+  "unassigned_physical_paths": 0,
+  "other_owner_without_active_account": 0,
+  "CURATION_OF_ALL_KNOWN_REACHABLE_SOURCE_BODIES_COMPLETE": true,
+  "SEMANTIC_CURATION_STATUS": "COMPLETE_WITH_EXPLICIT_SOURCE_GAPS",
+  "SOURCE_EVIDENCE_COMPLETE": false,
+  "ALL_MATHEMATICAL_OBJECTIVES_SOLVED": false,
+  "disposition_counts": {
+    "EXISTING_LIBRARY_REUSE": 145,
+    "EXTRACTED": 852,
+    "DUPLICATE": 802,
+    "CONTROL_ONLY": 545,
+    "RAW_SUPPORT_NOT_EXECUTED": 36,
+    "DUPLICATE_CUSTODY": 64,
+    "PREREQUISITE_REUSE": 2,
+    "SOURCE_GAP": 28
+  },
+  "catalogues": [
+    {
+      "catalogue": "p11.json",
+      "coverage": "p11_coverage.json",
+      "curation_units": 40
+    },
+    {
+      "catalogue": "student_parity.json",
+      "coverage": "student_parity_coverage.json",
+      "curation_units": 46
+    },
+    {
+      "catalogue": "native_brc.json",
+      "coverage": "native_brc_coverage.json",
+      "curation_units": 14
+    },
+    {
+      "catalogue": "cm_algebra.json",
+      "coverage": "cm_algebra_coverage.json",
+      "curation_units": 48
+    },
+    {
+      "catalogue": "cm_analytic.json",
+      "coverage": "cm_analytic_coverage.json",
+      "curation_units": 61
+    },
+    {
+      "catalogue": "number_theory.json",
+      "coverage": "number_theory_coverage.json",
+      "curation_units": 57
+    },
+    {
+      "catalogue": "brc_residual.json",
+      "coverage": "brc_residual_coverage.json",
+      "curation_units": 69
+    },
+    {
+      "catalogue": "t6_formal.json",
+      "coverage": "t6_formal_coverage.json",
+      "curation_units": 8
+    },
+    {
+      "catalogue": "misc_formal.json",
+      "coverage": "misc_formal_coverage.json",
+      "curation_units": 23
+    },
+    {
+      "catalogue": "cell_euler.json",
+      "coverage": "cell_euler_coverage.json",
+      "curation_units": 30
+    },
+    {
+      "catalogue": "euler_measurement.json",
+      "coverage": "euler_measurement_coverage.json",
+      "curation_units": 25
+    },
+    {
+      "catalogue": "supplement_number_theory.json",
+      "coverage": "supplement_number_theory_coverage.json",
+      "curation_units": 14
+    }
+  ],
+  "shards": [
+    {
+      "file": "coverage_notes_1.json",
+      "rows": 709,
+      "bytes": 435484
+    },
+    {
+      "file": "coverage_notes_2.json",
+      "rows": 709,
+      "bytes": 508172
+    },
+    {
+      "file": "coverage_other_1.json",
+      "rows": 528,
+      "bytes": 382103
+    },
+    {
+      "file": "coverage_other_2.json",
+      "rows": 528,
+      "bytes": 373083
+    }
+  ],
+  "rows_disjoint_and_exact_union": true,
+  "selection_policy": [
+    "Same physical path appears once. Within a volume, direct file classifications supersede package-only summaries.",
+    "Across volumes, EXTRACTED/EXISTING_LIBRARY_REUSE/DUPLICATE dominate OTHER_OWNER/OUT_OF_RANGE; all positive catalogue/entry links are retained, including mixed CM/CRT wrappers.",
+    "An EXTRACTED package containing code does not imply this phase ran code, an independent replication, a general Tool registration or mathematical acceptance. Static-code role is explicit.",
+    "SOURCE_GAP can mean a stopped/prospective scientific Result has not been produced while its file exists. NF peer404/Cell predecessor bundles/declared certificate gaps remain separate real evidence gaps.",
+    "Author creation-time UNREVIEWED/PENDING is never backfilled; actual later formal acceptance remains limited to its original Task/carrier."
+  ],
+  "known_reachable_sources_pending_extraction": [],
+  "declared_source_and_provenance_gaps": [
+    {
+      "catalogue": "cm_algebra.json",
+      "field": "shared_known_gaps",
+      "declared": [
+        "Eq16所需独立无索引κ仍缺；不能以κ_0或κ_s替代或用目标差值反定义。",
+        "CHARP-CONNECTION-02仅author-proved待peer Source；本月固定ref56f5938精确peer路径再次返回NOT_FOUND/404。"
+      ]
+    },
+    {
+      "catalogue": "cm_algebra.json",
+      "field": "existing_library_reuse.preserved_gaps_and_nf_peer_recheck",
+      "library": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/docs/research_library/20261022/cm_charp.json",
+      "entry_ids": [
+        "CM-FINITE-01",
+        "CM-FINITE-02",
+        "CM-FINITE-03",
+        "CM-FINITE-04",
+        "CHARP-CONNECTION-01",
+        "CHARP-CONNECTION-02"
+      ],
+      "declared": {
+        "preserved_gaps": [
+          "Eq16所需独立无索引κ仍缺；不能以κ_0或κ_s替代或用目标差值反定义。",
+          "CHARP-CONNECTION-02仅author-proved待peer Source；本月固定ref56f5938精确peer路径再次返回NOT_FOUND/404。"
+        ],
+        "nf_peer_recheck": {
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "path": "research_notes/owner_goal_20261017/reviews/cm24_modp_rational_normal_form_nonauthor_7cda51/ACTUAL_MODP_RATIONAL_NORMAL_FORM_NONBLIND_COMPLETE_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+          "error_code": "NOT_FOUND",
+          "http_status": 404
+        }
+      }
+    },
+    {
+      "catalogue": "t6_formal.json",
+      "field": "preexisting_provenance_gaps",
+      "declared": [
+        {
+          "item": "Original p19(3,6) builder archive",
+          "status": "MISSING_OLD_BUILDER_PROVENANCE_RETAINED",
+          "entry": "T6-PARTIAL-P19-Q0",
+          "boundary": "A later separately sourced bounded audit exists at author-campaign strength; it does not recover the old builder and does not make this curation an independent census."
+        }
+      ]
+    },
+    {
+      "catalogue": "misc_formal.json",
+      "field": "source_gaps",
+      "declared": [
+        {
+          "entry_id": "MISC-RR133-TYPED-BRIDGE",
+          "disposition": "SOURCE_GAP",
+          "gap_type": "DEDICATED_ORIGINAL_REVIEW_ARTIFACT_NOT_LOCATED",
+          "effect": "Exact published proof formulas extracted, with author-time status and any later dependency checking preserved; not automatically promoted to independent final acceptance."
+        },
+        {
+          "entry_id": "MISC-RR133-FITTING-READOUT",
+          "disposition": "SOURCE_GAP",
+          "gap_type": "DEDICATED_ORIGINAL_REVIEW_ARTIFACT_NOT_LOCATED",
+          "effect": "Exact published proof formulas extracted, with author-time status and any later dependency checking preserved; not automatically promoted to independent final acceptance."
+        },
+        {
+          "entry_id": "MISC-RR133-CE-REIFICATION-BOUNDARY",
+          "disposition": "SOURCE_GAP",
+          "gap_type": "DEDICATED_ORIGINAL_REVIEW_ARTIFACT_NOT_LOCATED",
+          "effect": "Exact published proof formulas extracted, with author-time status and any later dependency checking preserved; not automatically promoted to independent final acceptance."
+        },
+        {
+          "entry_id": "MISC-RR133-COUNTABLE-KERNEL-EQUIVALENCE",
+          "disposition": "SOURCE_GAP",
+          "gap_type": "DEDICATED_ORIGINAL_REVIEW_ARTIFACT_NOT_LOCATED",
+          "effect": "Exact published proof formulas extracted, with author-time status and any later dependency checking preserved; not automatically promoted to independent final acceptance."
+        },
+        {
+          "entry_id": "MISC-RR133-PROPER-SUPPORT-OBSERVER",
+          "disposition": "SOURCE_GAP",
+          "gap_type": "DEDICATED_ORIGINAL_REVIEW_ARTIFACT_NOT_LOCATED",
+          "effect": "Exact published proof formulas extracted, with author-time status and any later dependency checking preserved; not automatically promoted to independent final acceptance."
+        },
+        {
+          "entry_id": "MISC-J1-FINITE-STAR-ANTECEDENT-REUSE",
+          "disposition": "SOURCE_GAP",
+          "gap_type": "EXTERNAL_PRIMARY_FULLTEXT_AND_CHRONOLOGY_NOT_VERIFIED_IN_HISTORICAL_INCREMENT",
+          "effect": "Retain prior-art candidate and exact boundary-removal inference, without claiming verbatim finite-star external quotation, a new theorem, or full audit acceptance."
+        },
+        {
+          "entry_id": "MISC-EM4-K2048-AFFINE-CUBE",
+          "disposition": "SOURCE_GAP",
+          "gap_type": "LOCAL_FINITE_CERTIFICATE_NOT_FULLY_SOURCE_PUBLISHED_AND_NO_ACTUAL_NONAUTHOR_REVIEW",
+          "effect": "Preserve exact author statements and formulas as candidates; no mathematical acceptance or certificate replication claimed."
+        },
+        {
+          "entry_id": "MISC-EM4-K2048-SINGLETON-CUBIC",
+          "disposition": "SOURCE_GAP",
+          "gap_type": "LOCAL_FINITE_CERTIFICATE_NOT_FULLY_SOURCE_PUBLISHED_AND_NO_ACTUAL_NONAUTHOR_REVIEW",
+          "effect": "Preserve exact author statements and formulas as candidates; no mathematical acceptance or certificate replication claimed."
+        },
+        {
+          "entry_id": "MISC-EM4-K2048-GLOBAL-SINGLETON-MIN",
+          "disposition": "SOURCE_GAP",
+          "gap_type": "LOCAL_FINITE_CERTIFICATE_NOT_FULLY_SOURCE_PUBLISHED_AND_NO_ACTUAL_NONAUTHOR_REVIEW",
+          "effect": "Preserve exact author statements and formulas as candidates; no mathematical acceptance or certificate replication claimed."
+        }
+      ]
+    },
+    {
+      "catalogue": "cell_euler.json",
+      "field": "source_gaps",
+      "declared": [
+        {
+          "id": "CELL-U17-ORIGINAL-PACKAGE-GAP",
+          "referenced_by": "CELL-U17-COMPETITION-SUMMARY",
+          "kind": "SOURCE_GAP",
+          "original_descriptor": "U17 COMPETITIVE_RESPONSE_72B9C4 complete NOTE/code/trace ZIP",
+          "known_pins": {
+            "zip_bytes": 114695,
+            "zip_sha256": "edbcbee71fe2b3614688829a154c7edfa47c359e3c12bf287bf5481162cb5fd7",
+            "note_local_git_blob": "7a4e77f1cf6442612114719956664e4a62164b5a"
+          },
+          "boundary": "Published recovery summary explicitly says complete Source-only suite unfinished; local blob IDs do not create remotely accessible source objects. Summary formulas extracted at summary strength."
+        },
+        {
+          "id": "CELL-U18-SOURCE-RETRACTION-GAP",
+          "referenced_by": "CELL-U19-JOINT-RETRACTION",
+          "kind": "SOURCE_GAP",
+          "original_descriptor": "Separate uploaded U18 SOURCE_RETRACTION_51D8C7",
+          "known_pins": {
+            "note_local_git_blob": "eb436370d7f4479bf71a47ad3a53012f6631f347"
+          },
+          "boundary": "Distinct from published U18 RESTORATION_AND_RETURN_A6D3E2. No complete original recovered; U19 self-contained new proof is extracted without inventing that predecessor."
+        },
+        {
+          "id": "CELL-U22-OPERATIVE-RESIDUAL-GAP",
+          "referenced_by": "CELL-U23-REPAIR-RESERVE",
+          "kind": "SOURCE_GAP",
+          "original_descriptor": "Uploaded U22 OPERATIVE_RESIDUAL_6E91F4 / residual_contact.py local blob6160eb24cda9ef576d2972ef45df8e16e9fe67a4",
+          "boundary": "U23/U24/U25 report this predecessor and prior rejected report; the 131 fixed-tree inventory has no original scientific body. No U22 theorem recreated from downstream references and no blocked report resubmitted."
+        }
+      ]
+    },
+    {
+      "catalogue": "euler_measurement.json",
+      "field": "source_gap_boundary",
+      "declared": "No missing text in handed-off37; original scientific ZIP/dependency/log custody not attested by this note-only scope."
+    },
+    {
+      "catalogue": "supplement_number_theory.json",
+      "field": "source_gaps",
+      "declared": [
+        {
+          "entry_id": "NT-SUP-GAUSSIAN-WEDGE160",
+          "gap": "full Newton certificate与reproducer仅原文所称分开发送conversation package，未获当前Source证据；不声称完整机器证书已读/重验。"
+        },
+        {
+          "entry_id": "NT-SUP-J1-R61-64",
+          "gap": "r61–64 full machine certificate SHA f4d79e…及portable ZIP8d2a94…仅原文引用conversation artifacts；本次未取得完整payload。"
+        },
+        {
+          "entry_id": "NT-SUP-ADAPTIVE-THIRD",
+          "gap": "仅1161B portable checkpoint；完整假设与proof source在此包未恢复，本文只提取reported statements及精确remaining carrier。"
+        }
+      ]
+    }
+  ],
+  "historical_scope": {
+    "endpoint_deleted_or_rename_candidates": [],
+    "endpoint_missing_tree_comparisons": [],
+    "checked_changed_trees": 23,
+    "endpoint_audit_scope": [
+      "definitions",
+      "driver_reviews",
+      "research_artifacts",
+      "research_checks",
+      "research_historical_result_intakes",
+      "research_historical_result_reviews",
+      "research_inputs",
+      "research_notes",
+      "research_parallel_syntheses",
+      "research_plans",
+      "research_result_records",
+      "research_result_reviews",
+      "research_returns",
+      "research_review_syntheses",
+      "research_tasks",
+      "reviews"
+    ],
+    "limitation": "Endpoint Merkle audit found no deletion/rename candidates in those16 roots. It cannot detect a file created then removed entirely between endpoints. Historical experiments/openPR1525/1526 are separately typed and excluded from2474; no claim of exhaustive unreachable snapshots.",
+    "root_deleted": []
+  },
+  "historical_source_readback_updates": {
+    "schema": "GLOBAL_SEMANTIC_SOURCE_READBACKS_V1",
+    "scope": "Documentary/control readback of final curator extraction; no new scientific review or execution.",
+    "resolved_taskbooks": [
+      "research_tasks/BRC_BASELINE_RESIDUAL_HIDDEN_RESIDUAL_20261003.md"
+    ],
+    "readbacks": [
+      {
+        "taskbook": "research_tasks/BRC_BASELINE_RESIDUAL_HIDDEN_RESIDUAL_20261003.md",
+        "catalogue": "brc_residual.json",
+        "entry_id": "BRC-R-200",
+        "extraction_status": "HISTORICAL_SOURCE_OUTSIDE_CURRENT_MAIN_DIRECT_RESEARCH_CROSS_AUTHOR_REVIEW_ONLY",
+        "body_extraction_confirmed": true,
+        "historical_source_count": 7,
+        "outside_current_physical_denominator": true,
+        "historical_ref": "b61af8438886a3c1eb8ff53297447837bd2ee507",
+        "fixed_sources": [
+          {
+            "path": "experiments/brc_hidden_residual_20261003_fca717/REPORT.md",
+            "ref": "b61af8438886a3c1eb8ff53297447837bd2ee507",
+            "git_blob": "0174db552e300d1bb3af26f7c8654250b608092e",
+            "url": "https://github.com/awdawmip/enterprise-math/blob/b61af8438886a3c1eb8ff53297447837bd2ee507/experiments/brc_hidden_residual_20261003_fca717/REPORT.md",
+            "source_body_read": true
+          },
+          {
+            "path": "experiments/brc_hidden_residual_20261003_fca717/summary.json",
+            "ref": "b61af8438886a3c1eb8ff53297447837bd2ee507",
+            "git_blob": "adf57477a9653afa88113dbd5d0974a91b9438f0",
+            "url": "https://github.com/awdawmip/enterprise-math/blob/b61af8438886a3c1eb8ff53297447837bd2ee507/experiments/brc_hidden_residual_20261003_fca717/summary.json",
+            "source_body_read": true
+          },
+          {
+            "path": "experiments/brc_hidden_residual_20261003_fca717/HIDDEN_CORRELATED.md",
+            "ref": "b61af8438886a3c1eb8ff53297447837bd2ee507",
+            "git_blob": "e2a48f9d3bc1e335360f24c8932cfbeda329789a",
+            "url": "https://github.com/awdawmip/enterprise-math/blob/b61af8438886a3c1eb8ff53297447837bd2ee507/experiments/brc_hidden_residual_20261003_fca717/HIDDEN_CORRELATED.md",
+            "source_body_read": true
+          },
+          {
+            "path": "experiments/brc_hidden_residual_20261003_fca717/HIDDEN_DYNAMICS.md",
+            "ref": "b61af8438886a3c1eb8ff53297447837bd2ee507",
+            "git_blob": "f4de72a0cba68ff891e0ef97d1c0ed5b737ea7dd",
+            "url": "https://github.com/awdawmip/enterprise-math/blob/b61af8438886a3c1eb8ff53297447837bd2ee507/experiments/brc_hidden_residual_20261003_fca717/HIDDEN_DYNAMICS.md",
+            "source_body_read": true
+          },
+          {
+            "path": "experiments/brc_hidden_residual_20261003_fca717/HIDDEN_PLANE.md",
+            "ref": "b61af8438886a3c1eb8ff53297447837bd2ee507",
+            "git_blob": "91e86da50e9b998fae2e0f57f02f5b4ba32dc4bb",
+            "url": "https://github.com/awdawmip/enterprise-math/blob/b61af8438886a3c1eb8ff53297447837bd2ee507/experiments/brc_hidden_residual_20261003_fca717/HIDDEN_PLANE.md",
+            "source_body_read": true
+          },
+          {
+            "path": "experiments/brc_hidden_residual_20261003_fca717/ROOT_REVIEW.md",
+            "ref": "b61af8438886a3c1eb8ff53297447837bd2ee507",
+            "git_blob": "be15998a33f589dcc356026e7434e25425bcabd5",
+            "url": "https://github.com/awdawmip/enterprise-math/blob/b61af8438886a3c1eb8ff53297447837bd2ee507/experiments/brc_hidden_residual_20261003_fca717/ROOT_REVIEW.md",
+            "source_body_read": true
+          },
+          {
+            "path": "experiments/brc_hidden_residual_20261003_fca717/CROSS_REVIEW.md",
+            "ref": "b61af8438886a3c1eb8ff53297447837bd2ee507",
+            "git_blob": "20882f61bbc525539e71a39a2b38d7896396906f",
+            "url": "https://github.com/awdawmip/enterprise-math/blob/b61af8438886a3c1eb8ff53297447837bd2ee507/experiments/brc_hidden_residual_20261003_fca717/CROSS_REVIEW.md",
+            "source_body_read": true
+          }
+        ],
+        "scope_note": "Taskbook摘要不替代primary；现实际REPORT/summary/三篇推导/两篇任务内交叉review已采收。历史研究内cross-author review不等于Driver接受；不重跑、不新增数学投票。",
+        "review_version_boundary": {
+          "CROSS_REVIEW_reported_hidden_plane_py_sha256": "07ae847ea90529378cb6cc05766dddcdc629ac837e8d70324f5e2bb437883c3b",
+          "summary_final_hidden_plane_py_sha256": "3474b32f3d8d366f8248f177c9be9d901b1de3ea9d59645ee953812c31d5670c",
+          "identical_code_version_proved": false,
+          "interpretation": "两个源hash不同；保留任务内数学/额外第四步复核报告，不宣称该CROSS_REVIEW逐字审查summary最终代码版本。未补跑/修复该历史差异。"
+        },
+        "root_control_confirmation": "Root确认BRC69 FINAL、known historical reachable primary bodies no longer unread；narrow documentary QA另载原卷回执。",
+        "documentary_qa": {
+          "status": "PASS",
+          "record": "QA_brc.md",
+          "confirmation": "Root confirmed final narrow documentary QA PASS and publication science fields agree with working Source; no new mathematics vote."
+        }
+      }
+    ],
+    "remaining_declared_source_gaps_preserved": true
+  },
+  "new_mathematical_review": false,
+  "scientific_programs_run": false,
+  "remote_writes_by_this_auditor": false
+}

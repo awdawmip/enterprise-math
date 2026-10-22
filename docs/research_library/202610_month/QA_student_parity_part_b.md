@@ -1,0 +1,227 @@
+# Student/Parity 后半卷文献忠实性核对（Part B）
+
+固定Source：`56f5938da3f707c1d9db1b39afde124eac4634e3`。范围为zero-based `entries[23:46]`，共23组。本报告是既有文献与整理稿的逐条转录/域/状态核对，不是数学重证明、formal review、投票或接受。
+
+54个精确作者/typed/review/clarification refs可复用完整正文，合537941字节；Gitblob与条目固定Source全部匹配。主要读公式、定义、域、结论和review范围相关段；没有声称在本轮重新进行54份whole-proof审查。完整原件/缓存映射及逐文件哈希在 `QA_student_parity_part_b_sources.json`。科学程序、数值Bessel/矩阵/系数/符号计算、checker/Lean重跑、新票、remote写均为0。
+
+结论：未见数学数值/符号转录错误或把bounded peer提升为母问题完成。首变分摘要原漏前提现由Root恢复并回读关闭；Green-row局部定义由Root授权补录，最终独立readback交Native。此两项仅恢复已在原文的定义/假设，非新数学修复。
+
+全卷边界：作者原创建UNREVIEWED/PENDING不改写；后来actual peer只有对应冻结范围。母trace/allS/allgap/HCM0、formalTask、runtime与Tool晋升均另分。后半raw读出中q=2ell、K binomial与Cxi²hq、Chat²w^(−2ell)都按实际原对象保留；不把normalizedshadow/局部常数界当raw平台。larger-disk rho/256与logrho/512属于前半条目，由Native另核，本半不替其签scope。
+
+## 23 — `parity.uniform_bulk_band`
+
+固定原raw lower layer d=m²−3，K=m^(2W)/2与top的m²K不同；阈值m≥2^100000、ceil(d/4)≤j≤floor(3d/4)、2^-512m^12逐字吻合。作者UNREVIEWED是创建时状态，后来该bulk whole peer确实独立支付此范围；initial/terminal旧票没有被替代使用。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_joint_bulk_raw_layer_7cda51_bff6dc/TYPED_UNIFORM_BULK_RAW_BAND_AND_RETAINED_OPEN_FRONTIER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_joint_bulk_raw_layer_7cda51_bff6dc/TYPED_UNIFORM_BULK_RAW_BAND_AND_RETAINED_OPEN_FRONTIER.json)；blob `ecbf346f821b1f198d7510cb79f83edcde32dcbd`，4120B。
+- [research_notes/owner_goal_20261016/reviews/parity_uniform_bulk_nonauthor_4a56e9/PARITY_UNIFORM_BULK_RAW_BAND_INDEPENDENT_WHOLE_PROOF_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_uniform_bulk_nonauthor_4a56e9/PARITY_UNIFORM_BULK_RAW_BAND_INDEPENDENT_WHOLE_PROOF_REVIEW.md)；blob `45774ba34ba331c23715fd61e06154e36a860305`，16912B。
+
+## 24 — `parity.logarithmic_bulk_band`
+
+自然log、阈值m≥2^100000、ceil(10000d/logm)≤j≤d及m^11/64吻合；g(B+2)、全COMMON修正和prefactors保留。后来peer只支付该uniform logarithmic whole，不作小m/allmiddle结论。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_logarithmic_bulk_raw_layer_7cda51_bff6dc/TYPED_LOGARITHMIC_BULK_RAW_BAND_AND_OPEN_RANGE_SCOPE.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_logarithmic_bulk_raw_layer_7cda51_bff6dc/TYPED_LOGARITHMIC_BULK_RAW_BAND_AND_OPEN_RANGE_SCOPE.json)；blob `783c3ee27ab9bffd0ede0a9c534a81acfd9b913f`，3068B。
+- [research_notes/owner_goal_20261016/reviews/parity_logarithmic_bulk_nonauthor_4a56e9/PARITY_LOGARITHMIC_BULK_INDEPENDENT_WHOLE_PROOF_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_logarithmic_bulk_nonauthor_4a56e9/PARITY_LOGARITHMIC_BULK_INDEPENDENT_WHOLE_PROOF_REVIEW.md)；blob `b900509c0f3677880090697deba9408be4fb7b42`，16950B。
+
+## 25 — `parity.uniform_power_frontier`
+
+有理rho∈[1/100,2/11)、epsilon=2−11rho、m≥2^ceil(10000/epsilon)与精确integer band吻合；Dbin=d−q、Jbin=j−q、y=Dbin/Jbin和shifted moment(Dbin+1)/(Jbin+1)没有偷换。raw读出含K binom(d,j)与Cxi²hq两个正因子，q=2ell；rho充分界非最优/界外反例，单族不拆新paper。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_power_frontier_natural_domain_feasibility_7cda51_joint/TYPED_UNIFORM_POWER_FRONTIER_ACTUAL_COMMON_AND_OPEN_ARROWS.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_power_frontier_natural_domain_feasibility_7cda51_joint/TYPED_UNIFORM_POWER_FRONTIER_ACTUAL_COMMON_AND_OPEN_ARROWS.json)；blob `ed083fd12e48511a831fc747a958fa71f60e24c6`，9772B。
+- [research_notes/owner_goal_20261016/reviews/parity_growth_raw_interval_nonauthor_4a56e9/PARITY_UNIFORM_POWER_FRONTIER_INDEPENDENT_WHOLE_PROOF_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_growth_raw_interval_nonauthor_4a56e9/PARITY_UNIFORM_POWER_FRONTIER_INDEPENDENT_WHOLE_PROOF_REVIEW.md)；blob `63a8673c65cd3770bc29b3c6c5465199a3084b2c`，17958B。
+
+## 26 — `parity.power_scale_raw_band`
+
+固定m^(1/100)幂尺度与m≥2^1000保留；−12幂和有理弱化2^(−6n−65)对应此稿，未误用上一族−8/−57。实际完整Student carrier、Z0 HS维数和raw正prefactors保留，shifted moment不换成y。旧fixed-xi票没有被升级。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_power_scale_common_raw_band_7cda51_bff6dc_88303d/TYPED_ACTUAL_COMMON_POWER_SCALE_RAW_BAND_AND_OPEN_ARROWS.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_power_scale_common_raw_band_7cda51_bff6dc_88303d/TYPED_ACTUAL_COMMON_POWER_SCALE_RAW_BAND_AND_OPEN_ARROWS.json)；blob `667e09804d721fa059b7681d3a5e343804be3ea9`，9994B。
+- [research_notes/owner_goal_20261016/reviews/parity_power_scale_common_nonauthor_4a56e9/PARITY_ACTUAL_COMMON_POWER_SCALE_INDEPENDENT_WHOLE_PROOF_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_power_scale_common_nonauthor_4a56e9/PARITY_ACTUAL_COMMON_POWER_SCALE_INDEPENDENT_WHOLE_PROOF_REVIEW.md)；blob `57d5987923a905fc9496814954810aab0d12c240`，18669B。
+
+## 27 — `parity.growing_initial_raw_band`
+
+m≥7、0≤j≤floor(m/6)、m^6(m³/40−m/6−7/2)与原typed output/peer一致；属于原COMMON规范initial raw band，未把系数functional当任意square上的正泛函，不推出trace/all-P1。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_raw_lower_layer_coefficient_band_7cda51/TYPED_GROWING_RAW_COEFFICIENT_BAND_AND_OPEN_FRONTIER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_raw_lower_layer_coefficient_band_7cda51/TYPED_GROWING_RAW_COEFFICIENT_BAND_AND_OPEN_FRONTIER.json)；blob `9ecd171c04c3ddf1a45883b9bdc80c5e2d1dc2ad`，2890B。
+- [research_notes/owner_goal_20261016/reviews/parity_growing_raw_band_nonauthor_4a56e9/PARITY_GROWING_RAW_COEFFICIENT_BAND_INDEPENDENT_WHOLE_PROOF_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_growing_raw_band_nonauthor_4a56e9/PARITY_GROWING_RAW_COEFFICIENT_BAND_INDEPENDENT_WHOLE_PROOF_REVIEW.md)；blob `18b8b38eacb757621bc9c882c14d21331e3bd5a9`，15163B。
+
+## 28 — `parity.terminal_raw_band`
+
+m≥10000、ceil(99999d/100000)≤j≤d和m^9/32一致；terminal有限product/Euler proof由其新whole peer支付，不能以initial票代替，更无中间域覆盖。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_raw_terminal_layer_coefficient_band_7cda51/TYPED_TERMINAL_RAW_COEFFICIENT_BAND_AND_OPEN_FRONTIER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_raw_terminal_layer_coefficient_band_7cda51/TYPED_TERMINAL_RAW_COEFFICIENT_BAND_AND_OPEN_FRONTIER.json)；blob `e634c6e34acfa02246b9290da78e9f9d8c4b3bf3`，2489B。
+- [research_notes/owner_goal_20261016/reviews/parity_terminal_raw_band_nonauthor_4a56e9/PARITY_TERMINAL_RAW_COEFFICIENT_BAND_INDEPENDENT_WHOLE_PROOF_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_terminal_raw_band_nonauthor_4a56e9/PARITY_TERMINAL_RAW_COEFFICIENT_BAND_INDEPENDENT_WHOLE_PROOF_REVIEW.md)；blob `8e3e91a4f1c3ba81a887194ac9de3136b855fcba`，15217B。
+
+## 29 — `parity.all_m.c1_curvature_interface`
+
+四个exact refs含作者typed/13131B主稿、whole peer、后来actual-source binding；Omega=Pi(Gamma+D^-1Gamma^TD+Lambda)Pi及[c]P公式W²/W/2因子和fixed-r0导数方向一致。只去H逆构造，proof可用H逆；不定metric中的trOmega²不被判非负，P1 sign/primitivegcd/all-m trace仍开放。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/p11_independent_native_driver/parity_all_m_c1_curvature_author/TYPED_C1_CURVATURE_RESULT_AND_LIMITS.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/parity_all_m_c1_curvature_author/TYPED_C1_CURVATURE_RESULT_AND_LIMITS.json)；blob `e5c15e250eab860cdf6d5dd20f5941082a60e278`，2089B。
+- [research_notes/owner_goal_20261016/p11_independent_native_driver/parity_all_m_c1_curvature_author/PARITY_ALL_M_C1_FACE_INVERSE_FREE_CURVATURE_OBSERVER_AUTHOR.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/parity_all_m_c1_curvature_author/PARITY_ALL_M_C1_FACE_INVERSE_FREE_CURVATURE_OBSERVER_AUTHOR.md)；blob `9dc967073ac9316d5b899f6275e0147a168fc04e`，13131B。
+- [research_notes/owner_goal_20261016/reviews/parity_allm_c1_curvature_f73673/PARITY_C1_REVIEW_ACTUAL_AUTHOR_SOURCE_BINDING.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_allm_c1_curvature_f73673/PARITY_C1_REVIEW_ACTUAL_AUTHOR_SOURCE_BINDING.json)；blob `4a275388ddc2bb609448e1323650edfbcb3a9434`，6212B。
+- [research_notes/owner_goal_20261016/reviews/parity_allm_c1_curvature_f73673/PARITY_ALL_M_C1_CURVATURE_INDEPENDENT_WHOLE_PROOF_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_allm_c1_curvature_f73673/PARITY_ALL_M_C1_CURVATURE_INDEPENDENT_WHOLE_PROOF_REVIEW.md)；blob `52e7cd74e38eb6fa689d2b8ff47f64e81aade032`，16047B。
+
+## 30 — `parity.analytic_shadow_factorization`
+
+实际analytic shadow在closed quarterdisk与realcenter域分开，nozero/log另需z≥64sqrt(m)；Esharp非实不等于Hermitian能量。两个actual whole peers有独立原文而非把旧norm/realfactor票转移；Chat²w^(−2ell) raw Laurent因子明确保留。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_actual_analytic_shadow_factorization_7cda51_bff6dc/TYPED_ACTUAL_ANALYTIC_SHADOW_FACTORIZATION_AND_OPEN_SCOPE.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_actual_analytic_shadow_factorization_7cda51_bff6dc/TYPED_ACTUAL_ANALYTIC_SHADOW_FACTORIZATION_AND_OPEN_SCOPE.json)；blob `edee1fd1e1341e0e583c47ae18b333e27cd42f41`，19263B。
+- [research_notes/owner_goal_20261016/reviews/parity_analytic_shadow_nonauthor_4a56e9/ACTUAL_ANALYTIC_SHADOW_FACTORIZATION_INDEPENDENT_WHOLE_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_analytic_shadow_nonauthor_4a56e9/ACTUAL_ANALYTIC_SHADOW_FACTORIZATION_INDEPENDENT_WHOLE_REVIEW.md)；blob `ee6ca70c3e39c1315a4e8e8b8b6c0eb8ae1048d2`，19137B。
+- [research_notes/owner_goal_20261016/reviews/parity_new_complex_whole_nonauthor_cf1677/ACTUAL_ANALYTIC_SHADOW_POSITIVE_FACTORIZATION_INDEPENDENT_WHOLE_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_new_complex_whole_nonauthor_cf1677/ACTUAL_ANALYTIC_SHADOW_POSITIVE_FACTORIZATION_INDEPENDENT_WHOLE_REVIEW.md)；blob `e81d3e5e8b8a540ec6b6d18401c1fe04708d12cd`，18505B。
+
+## 31 — `parity.real_output_factorization`
+
+真实allinput/output、bothparity/oddtop及originalStudent m没有换成outputmu；H=z(C−E0)Pfront/(2pi)>0和相对误差项逐字相符。小z²/m时误差不被假称小；raw U1能量仍有Chat²z^(−2ell)而不是normalized常数平台。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_output_parity_real_factorization_7cda51/TYPED_OUTPUT_PARITY_ACTUAL_REAL_ENERGY_FACTORIZATION_AND_OPEN_SCOPE.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_output_parity_real_factorization_7cda51/TYPED_OUTPUT_PARITY_ACTUAL_REAL_ENERGY_FACTORIZATION_AND_OPEN_SCOPE.json)；blob `b9b7d7f7300f13a2c9b2ac82c6ab45fc38a9974f`，11980B。
+- [research_notes/owner_goal_20261016/reviews/parity_real_output_factorization_nonauthor_4a56e9/ACTUAL_OUTPUT_PARITY_REAL_FULL_ENERGY_INDEPENDENT_WHOLE_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_real_output_factorization_nonauthor_4a56e9/ACTUAL_OUTPUT_PARITY_REAL_FULL_ENERGY_INDEPENDENT_WHOLE_REVIEW.md)；blob `5d64de30aa662effe2b3ceb1d0fe44c4d7c199a0`，15234B。
+
+## 32 — `parity.one_lower_mixed_coefficient`
+
+单个degree-W−3混合读出在中心sigma与原S坐标的负/正结论、两个长多项式及平移补偿一致；原COMMON不任意gcd归一。精确typed数学对象逐字相同，不升级为P1/trace符号。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/p11_independent_native_driver/parity_c1_lower_layer_working/joint_lower_layer_author_candidate/ONE_LOWER_COEFFICIENT_TYPED_SCOPE_INTERFACE.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/parity_c1_lower_layer_working/joint_lower_layer_author_candidate/ONE_LOWER_COEFFICIENT_TYPED_SCOPE_INTERFACE.json)；blob `e2c72b2bfc7c63f3a1fadf0e8d237425db0475c1`，2684B。
+- [research_notes/owner_goal_20261016/reviews/parity_one_lower_coefficient_7cda51/PARITY_ONE_LOWER_MIXED_COEFFICIENT_INDEPENDENT_WHOLE_PAPER_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_one_lower_coefficient_7cda51/PARITY_ONE_LOWER_MIXED_COEFFICIENT_INDEPENDENT_WHOLE_PAPER_REVIEW.md)；blob `6e9aa956ee2104d06e770eb93f994855730d9fa8`，15812B。
+
+## 33 — `parity.m7_actual_interval_and_certificate_boundary`
+
+完整固定m7 combined peer分别覆盖Horner区间失败与实际signed trace正尾；I=[7^100,7^100+1]是原未约简safe阈值前的明确区间，lowerlimit−3190740/49不被误认trace负值；实际trace>335/r只覆盖r≥7^100，仍不决定7≤r<7^100/未重启[7,8]执行。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/cm24_convergence_new_anchor/parity_m7/THEOREM_INTERFACE.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/cm24_convergence_new_anchor/parity_m7/THEOREM_INTERFACE.json)；blob `9410f4d69095683b92fa1f2a791a4b78ab284e95`，2378B。
+- [research_notes/owner_goal_20261016/p11_independent_native_driver/parity_m7_review/PARITY_M7_COMBINED_INTERVAL_AND_ACTUAL_TRACE_INDEPENDENT_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/parity_m7_review/PARITY_M7_COMBINED_INTERVAL_AND_ACTUAL_TRACE_INDEPENDENT_REVIEW.md)；blob `1525515ffee3c9fde6a92857a9e2c0f3a7d8e07f`，19654B。
+
+## 34 — `parity.all_s_small_second_gap`
+
+fixedm≥2、rationalA0>0、allS≥0/0<a≤A0/0<c≤delta小第二gap条带量词正确；闭原点非退化、polynomial c-factor、compact coefficient norm与旧uniform tail glue均为原文明确输入。非默认c1、任意secondgap或母目标完成，无数值delta/新计算声明。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_compact_strip_7cda51/PARITY_ALL_S_COMPUTABLE_SMALL_SECOND_GAP_STRIP_AUTHOR.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_compact_strip_7cda51/PARITY_ALL_S_COMPUTABLE_SMALL_SECOND_GAP_STRIP_AUTHOR.md)；blob `bbde82f160f4cdf1037fa45a53f3437a6993aa9d`，7899B。
+- [research_notes/owner_goal_20261016/p11_independent_native_driver/compact_strip_review/PARITY_SMALL_SECOND_GAP_STRIP_INDEPENDENT_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/compact_strip_review/PARITY_SMALL_SECOND_GAP_STRIP_INDEPENDENT_REVIEW.md)；blob `5875eaa56638af4057abe6c75e0db3db856b6659`，8839B。
+
+## 35 — `parity.residue_beta_density`
+
+全m≥2 exact density、m≥3 endpoint渐近、oddm≥3负density三层域正确；全部m residues及(−1)^n符号保留。negative endpoint与positive trace tail共存，不是trace反例；Rdens只有限有理定义，不是已数值求值。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_mellin_density/PARITY_MELLIN_DENSITY_AND_ODD_ENDPOINT_OBSTRUCTION.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_mellin_density/PARITY_MELLIN_DENSITY_AND_ODD_ENDPOINT_OBSTRUCTION.md)；blob `db7b3ae184fde8fa66c70b17f9fae8c72ec6a942`，14049B。
+- [research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_MELLIN_DENSITY_SEPARATE_NONAUTHOR_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_MELLIN_DENSITY_SEPARATE_NONAUTHOR_REVIEW.md)；blob `8e11e468a826c6ab2adef8b1fc57a412c06b1d30`，10281B。
+
+## 36 — `parity.negative_bulk_weighted_localization`
+
+全部k共同leadingterm、(−1)^m binomial符号、A_m=m²(m−1)/(m−1)!与widehatH coefficient bound一致。odd fixedm negativebulk只到1−delta；weighted左贡献指数小不推出右域逐点全正/唯一零点/muniform。源§3另明确K_m=(A_m+B_m)/m²，建议摘要显式定义同名常数。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_mellin_density/PARITY_NEGATIVE_BULK_AND_WEIGHTED_LOCALIZATION_ADDENDUM.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_mellin_density/PARITY_NEGATIVE_BULK_AND_WEIGHTED_LOCALIZATION_ADDENDUM.md)；blob `6cf16569c41c25c772f8726a7dd8b5ef1c9d5535`，6711B。
+- [research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_NEGATIVE_BULK_SEPARATE_NONAUTHOR_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_NEGATIVE_BULK_SEPARATE_NONAUTHOR_REVIEW.md)；blob `68d3a02f39b5989cb416026d8d7525fd1edeb215`，7293B。
+
+## 37 — `parity.positive_part_endpoint_failure`
+
+fixedinteger m≥4才有positive-part endpoint test最终失败；h_k positivepart sufficient implication仍有效，H1=O(r^m)与Tplus≥c_mr^(2m−3)+O(r^(2m−4))一致。旧m2/3无结论，未把certificatefailure变tracecounterexample。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_mellin_density/PARITY_POSITIVE_PART_ENDPOINT_TEST_TAIL_OBSTRUCTION.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_mellin_density/PARITY_POSITIVE_PART_ENDPOINT_TEST_TAIL_OBSTRUCTION.md)；blob `352c9348109e720e30f9c1bc393f7a05efbb49da`，6239B。
+- [research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_POSITIVE_PART_TAIL_OBSTRUCTION_SEPARATE_NONAUTHOR_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_POSITIVE_PART_TAIL_OBSTRUCTION_SEPARATE_NONAUTHOR_REVIEW.md)；blob `3877c25197bda1e90c33de7f383fc39c26a6bfb6`，6037B。
+
+## 38 — `parity.effective_equal_block_tail`
+
+equalblock a=c1、fixedm≥2 exact rational N/D、positive D/N0/slope与B/R/S阈值一致，r转换方向正确；threshold为有限有理定义未计算，非allS/unequal。movingframe/confluentdeterminant exponent1−m²被保留。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_paper_continuation/PARITY_EFFECTIVE_LARGE_S_TAIL_THEOREM.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_paper_continuation/PARITY_EFFECTIVE_LARGE_S_TAIL_THEOREM.md)；blob `043adb0e83fc347446c55e5c2e3836dedcaac847`，13693B。
+- [research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_EFFECTIVE_TAIL_NONAUTHOR_MATHEMATICAL_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_EFFECTIVE_TAIL_NONAUTHOR_MATHEMATICAL_REVIEW.md)；blob `d9b2fa8535dc1023a53b3cd34da7a5f595b5a9af`，12987B。
+
+## 39 — `parity.equal_block_eventual_monotonicity`
+
+Y=N′D−ND′、Y0=a_m d_m、safeRmono及dS负号和m/r²因子吻合；staticS非physicaltime。与正tail合并给positive/decreasing→0，不作m一致或allS/variablegap曲线结论。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_paper_continuation/PARITY_EVENTUAL_MONOTONICITY_COROLLARY.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_paper_continuation/PARITY_EVENTUAL_MONOTONICITY_COROLLARY.md)；blob `db4d2abc71efb7019a8b1fe314015539296c1c92`，2459B。
+- [research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_EVENTUAL_MONOTONICITY_SEPARATE_NONAUTHOR_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_EVENTUAL_MONOTONICITY_SEPARATE_NONAUTHOR_REVIEW.md)；blob `80d47677c5f8528efa940c377805ff62c3c53d17`，4467B。
+
+## 40 — `parity.signed_weighted_moments`
+
+c_j完整Taylorrebasing、positive Beta mixtures、ratio上下界中jm与j差异、exactbackward与conservative interval证书吻合。l0≤0无trace结论；moment no-go仅fixed oddm负密度、保所有t^(mell)未来，不误当G(r+ell)或任意正measure表示不可能。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_SIGNED_WEIGHTED_MOMENTS_AND_COMPACT_CERTIFICATE_AUTHOR.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_SIGNED_WEIGHTED_MOMENTS_AND_COMPACT_CERTIFICATE_AUTHOR.md)；blob `e931239ee90b97782490b4943167c5502964073b`，7769B。
+- [research_notes/owner_goal_20261016/p11_independent_native_driver/parity_review/PARITY_WEIGHTED_MOMENT_INDEPENDENT_PAPER_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/parity_review/PARITY_WEIGHTED_MOMENT_INDEPENDENT_PAPER_REVIEW.md)；blob `806d1f12d1a304eb8b871d1b0ab9d798cbec9cc7`，8338B。
+
+## 41 — `parity.relative_gram_first_variation`
+
+原7732B+独立2054B澄清配对、peer response/binding的C1/C2 RESOLVED均实读核对；一般可微只得Aepsilon+o(epsilon)，特定Parity联合解析/U polynomial才得O_m((S+1)^−2)。本QA发现并由Root补齐H(t,v)全可微/连续/非奇异，以及effective threshold精确Gap=N/D、N,D∈Q[t]、N0=0、rational0<rho≤1等原文前提；MD/JSON回读一致，文献缺口已关闭。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_tail_independent_review/RELATIVE_GRAM_FIRST_VARIATION_AUTHOR_EXTRACTION.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_tail_independent_review/RELATIVE_GRAM_FIRST_VARIATION_AUTHOR_EXTRACTION.md)；blob `fa898861e206c0b250a85b971847fcc2161c5514`，7732B。
+- [research_notes/owner_goal_20261016/parity_tail_independent_review/FIRST_VARIATION_AUTHOR_STATEMENT_CLARIFICATIONS.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_tail_independent_review/FIRST_VARIATION_AUTHOR_STATEMENT_CLARIFICATIONS.md)；blob `bf8267a0551b5c392a3fb1864dad11e20ef0f861`，2054B。
+- [research_notes/owner_goal_20261016/first_variation_nonauthor_review_bff294/FIRST_VARIATION_INDEPENDENT_PAPER_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/first_variation_nonauthor_review_bff294/FIRST_VARIATION_INDEPENDENT_PAPER_REVIEW.md)；blob `a96170e9e4a47edd2f1b294d11cc2a13cd2032fe`，8724B。
+- [research_notes/owner_goal_20261016/first_variation_nonauthor_review_bff294/AUTHOR_RESPONSE_INDEPENDENT_CHECK_ADDENDUM.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/first_variation_nonauthor_review_bff294/AUTHOR_RESPONSE_INDEPENDENT_CHECK_ADDENDUM.json)；blob `30c78cc3f80cb196bbe44230022f14813b4db9c4`，1695B。
+- [research_notes/owner_goal_20261016/first_variation_nonauthor_review_bff294/PAIRED_AUTHOR_SOURCE_BINDING_ADDENDUM.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/first_variation_nonauthor_review_bff294/PAIRED_AUTHOR_SOURCE_BINDING_ADDENDUM.json)；blob `bc36d34d68018f3ede04d22709b221573fe7a8b3`，1283B。
+
+## 42 — `parity.unequal_gap_uniform_sector_tail`
+
+固定m、rational upperA0/C0、realpositivegaps可趋0量词正确；finite transfer方向Tg_N=g_M、c因子由polynomialdivisibility而非漏branch、alpha独立a/c，以及Bsector/R/S门槛吻合。uniformasymptotic是Gap/c，不误乘/除c，无unboundedsector/allS/muniform。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_UNEQUAL_GAPS_UNIFORM_BOUNDED_SECTOR_TAIL_AUTHOR.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_UNEQUAL_GAPS_UNIFORM_BOUNDED_SECTOR_TAIL_AUTHOR.md)；blob `f05b0b5be5c7d78c7faf58ae1f818bc67cea103c`，12768B。
+- [research_notes/owner_goal_20261016/reviews/parity_unequal_gaps_7cda51/PARITY_UNEQUAL_GAPS_INDEPENDENT_PAPER_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_unequal_gaps_7cda51/PARITY_UNEQUAL_GAPS_INDEPENDENT_PAPER_REVIEW.md)；blob `f255e7e1ab5905c1c82883e8aaaa1443996c77cc`，12486B。
+
+## 43 — `parity.unequal_gap_eventual_monotonicity`
+
+S导数固定a,c；Y0=alpha d0与J coefficient bound、Rmono/m一致；strictdecrease+limit0让该阈值自己给positivetail，未硬需旧positive阈值取max，也未宣称阈值最优。后来addendum有单独peer，不继承主稿scope。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_tail_independent_review/UNEQUAL_BOUNDED_SECTOR_MONOTONICITY_AUTHOR_ADDENDUM.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_tail_independent_review/UNEQUAL_BOUNDED_SECTOR_MONOTONICITY_AUTHOR_ADDENDUM.md)；blob `d34b02c1742d37e5014b8d0a54e3d0c3ae15d7a7`，4279B。
+- [research_notes/owner_goal_20261016/reviews/parity_unequal_gaps_7cda51/UNEQUAL_GAPS_MONOTONICITY_INDEPENDENT_PAPER_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_unequal_gaps_7cda51/UNEQUAL_GAPS_MONOTONICITY_INDEPENDENT_PAPER_REVIEW.md)；blob `b24d8527287bd76d9c003c9e1f2e478ba407e006`，4593B。
+
+## 44 — `student.green_row_signed_prefix`
+
+完整14912B fixedGreen whole的exactrow/两个prefix/相干highendpoint都保留；lens不同于quarterdisk，不把旧quarter quantitative票扩大。endpoint bound2^(−2m)|Cr|²不是wholeAe/fullPsi bound，signedordermoments及varyingcolumn/fullcaller仍HOLD。按Root明确授权，仅以原§§1–4逐字补actualintegerrow、fixedM相位、原m binomial/nu_j与cnu、dotZ的局部符号；此作者修正交Native独立回读，不由本人签最终该修改。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_actual_Ae_green_signed_prefix_bff6dc/BFF_ACTUAL_GREEN_ROW_CAUCHY_PREFIX_ORDER_MOMENT_REDUCTION_AND_BOUNDARY_FEASIBILITY_WORKING.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_actual_Ae_green_signed_prefix_bff6dc/BFF_ACTUAL_GREEN_ROW_CAUCHY_PREFIX_ORDER_MOMENT_REDUCTION_AND_BOUNDARY_FEASIBILITY_WORKING.md)；blob `87ce8c975973103a4598d2b24539fee47508930c`，14912B。
+- [research_notes/owner_goal_20261016/reviews/parity_Ae_green_signed_prefix_nonauthor_cf1677/ACTUAL_GREEN_ROW_SIGNED_PREFIX_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_Ae_green_signed_prefix_nonauthor_cf1677/ACTUAL_GREEN_ROW_SIGNED_PREFIX_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md)；blob `1bbf93a4a0f94ac757e22661d0d281d526c561b0`，27164B。
+- [research_notes/owner_goal_20261016/reviews/parity_Ae_green_signed_prefix_nonauthor_cf1677/BOUNDED_SUCCESSOR_RAW_ENDPOINT_CALLER_REUSE_HOLD.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_Ae_green_signed_prefix_nonauthor_cf1677/BOUNDED_SUCCESSOR_RAW_ENDPOINT_CALLER_REUSE_HOLD.md)；blob `06233ad33aaed9d2dc2d841ec40e8a2dc81952f3`，4731B。
+
+## 45 — `parity.fixed_large_order_complex_factors`
+
+integer m≥100,M=m−1/2、sameclosed complexdisk |z|²/m≤1/64的A/B及Euler0..2界精确；commonprincipalbranch后normalized entireextensions不等于rawY entire，B零阶2m−1保留。仅realz推出A²+B²>1/2。原UNFROZEN创建语句与后来11242B固定lemma snapshot peer分开，未扩Lommel/fullcarrier/Psi/coefficients/Tool。
+
+已用精确作者/typed/peer/补充：
+
+- [research_notes/owner_goal_20261016/parity_finite_mean_lommel_energy_7cda51_joint/CF1677_COMMON_LARGE_ORDER_COMPLEX_ENERGY_WORKING.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/parity_finite_mean_lommel_energy_7cda51_joint/CF1677_COMMON_LARGE_ORDER_COMPLEX_ENERGY_WORKING.md)；blob `6451c1fda9553edb2b74bf67f773ca5bcd7e849a`，11242B。
+- [research_notes/owner_goal_20261016/reviews/parity_complex_energy_fixed_snapshot_f73673/CF1677_COMPLEX_ENERGY_FIXED_SNAPSHOT_INDEPENDENT_LEMMA_AUDIT.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/parity_complex_energy_fixed_snapshot_f73673/CF1677_COMPLEX_ENERGY_FIXED_SNAPSHOT_INDEPENDENT_LEMMA_AUDIT.md)；blob `411728e00502b0f71a3928695b9b960f82390c19`，9219B。
+
+## 待总合者收口
+
+Native应独立读回第44条补录，确认原m而非mu、nu_j/cnu、coherent固定M及dot只Bessel的区分；本报告不自审本人刚补的定义文字。除该最终作者变更readback外，后23文献核对闭合。Root若将第36条K_m=(A_m+B_m)/m²同步正文，按原§3读回即可，不新增科学审核。

@@ -1,0 +1,1273 @@
+{
+  "schema": "DOCUMENTARY_MONTHLY_NATIVE_BRC_EXTRACTION_V1",
+  "source_snapshot": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+  "range": [
+    "2026-10-01",
+    "2026-10-22"
+  ],
+  "timezone": "Asia/Shanghai",
+  "curation_scope": "EXISTING_MATHEMATICS_DOCUMENTATION_NO_NEW_PROOF_REVIEW_VOTE_OR_ADMISSION",
+  "state": "OWNED_NATIVE_DOCUMENTARY_EXTRACTION_COMPLETE",
+  "entries": [
+    {
+      "id": "X6-MARGINAL32-ALLLANG",
+      "title": "六个删除轴联合边际：首个32质量碰撞、整数核与未来语言边界",
+      "status": "SOURCE_REPORTED_BOUNDED_SNAPSHOT_VALIDITY_PASS_CURRENT_GLOBAL_REVIEW_STATUS_UNKNOWN",
+      "authors": [
+        "EM-FREE-1956D3",
+        "EM-FREE-7FEDA1 (duplicate closure/language specialization only)"
+      ],
+      "reviewers": [
+        "EM-FREE-CF1677"
+      ],
+      "assumptions": [
+        "f,g:c+Z^6→N0有限支撑；M_i沿第i坐标求和而保留另外五坐标的联合关联。",
+        "整数count不是Weighted-BRC实数branchmass；formal h=f−g可有负值，实际occupancy不可。"
+      ],
+      "formulas": [
+        "|supp(h)|≥64; ||h_+||_1=||h_-||_1≥32 for nonzero h∈ker M",
+        "at common mass32: h=±⊗_{i=1}^6(δ_{a_i}−δ_{b_i}), a_i≠b_i; f=h_+,g=h_-, no common background",
+        "on full finite box ∏_{i=1}^6{0,...,n_i−1}: ker_Z M=⊗_i ker(ε_i:Z^{n_i}→Z), rank=∏_i(n_i−1)",
+        "M_i(K*μ)=(M_iK)*(M_iμ) for fixed finite homogeneous nonnegative-integer convolution kernel K",
+        "M_i(G_{i,a_i}h)=⊗_{j≠i}(δ_{a_j}−δ_{b_j})≠0",
+        "site relocation F(c)=c+e1, identity elsewhere: parity witness axis1 counts (16,16)→(15,17), whereas the other state remains (16,16)"
+      ],
+      "conclusion": "全部低于32质量的M纤维为单点；等号恰为六维两层盒的两个unit parity halves。固定齐次convolution、平移、轴重新标号及其有限复合保持M；所声明的坐标gate或site-specific relocation会打破安全性。",
+      "limits": [
+        "不是Markov basis或非负纤维连通性定理。",
+        "不涵盖state-dependent/nonhomogeneous convolution；不保任意未来语言、path/provenance或完整packet。",
+        "Oct16 RAW的C1/C2已按Oct8旧结果DUPLICATE/REUSE关闭；其语言特化不创建第二研究线。",
+        "历史程序结果只为来源报告，本轮未执行。"
+      ],
+      "sources": [
+        {
+          "role": "author_complete_nine_member_packet",
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/FREE_X6_MARGINAL_32_20261008.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "4989d8ccc8278adaff8f542093e1a410152269b8",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/FREE_X6_MARGINAL_32_20261008.json",
+          "curator_read_scope": "scientific prose members named in extraction read; transport/evidence mirrors not treated as new scientific work"
+        },
+        {
+          "key": "omission_raw",
+          "role": "author",
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/FREE_X6_OMISSION_GHOST_20261016_EMFREE7FEDA1_PHASE_A.md",
+          "ref": "1d87ea6eb6696b0cbf706c4fa01c5f01d5bd7084",
+          "blob": "4b774b09cea7a0ac028a49bb5e94db398cac8e8a",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/1d87ea6eb6696b0cbf706c4fa01c5f01d5bd7084/research_notes/FREE_X6_OMISSION_GHOST_20261016_EMFREE7FEDA1_PHASE_A.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "omission_closure",
+          "role": "duplicate_closure",
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/FREE_X6_OMISSION_GHOST_20261016_EMFREE7FEDA1_REUSE_CLOSURE.md",
+          "ref": "e32798c1ddfdf8690a3c954a69bea7f185883ef5",
+          "blob": "2a283fce7e6f5b2c57b61cbd071ecfe21141490b",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/e32798c1ddfdf8690a3c954a69bea7f185883ef5/research_notes/FREE_X6_OMISSION_GHOST_20261016_EMFREE7FEDA1_REUSE_CLOSURE.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "margpeer",
+          "role": "bounded_snapshot_review",
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/owner_goal_20261016/reviews/x6_marginal32_snapshot_cf1677/X6_MARGINAL32_INDEPENDENT_SNAPSHOT_PAPER_AUDIT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "d9452a2f743d01f326539c268a8cf2fdb5d3abdd",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/x6_marginal32_snapshot_cf1677/X6_MARGINAL32_INDEPENDENT_SNAPSHOT_PAPER_AUDIT.md",
+          "curator_read_scope": "complete review prose consumed"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+          "resolution": "REUSE_APPLIED",
+          "scope": "声明语言的fiber constancy/descent；Oct8 source曾报告REUSE_EXECUTED，本轮不重复执行"
+        },
+        {
+          "family_id": "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+          "resolution": "REUSE_APPLIED",
+          "scope": "只作有限盒纤维/碰撞接口，不借其名称证明无限location整数32阈值"
+        }
+      ],
+      "dedup": "Oct16 omission-ghost的阈值、等号形状与旧Oct8同对象同机制；保留两作者来源，核心只收一次。"
+    },
+    {
+      "id": "X6-QUADRATIC-MODULAR",
+      "title": "全X6模m二次读出的精确未来安全商及odd composite七probe最优",
+      "status": "SOURCE_REPORTED_BOUNDED_PASS_DERIVED_NOT_AXIOM_RESULT_ONLY",
+      "authors": [
+        "EM-FREEPRIM3-A15D7C92"
+      ],
+      "reviewers": [
+        "EM-OWNERGOAL2026101-C89DC6 (support not extra vote)"
+      ],
+      "assumptions": [
+        "x∈Z^6全部raw状态，q_m(x)=Σx_i² modm；m≥1，不删除even/composite/unit模数。",
+        "未来语言为全部十二signed unit平移的任意有限词；probe为同一未知初始状态的固定非自适应q_m(x+a_j)。"
+      ],
+      "formulas": [
+        "H_m={d∈Z^6:2d_i≡0 (modm) for every i, Q(d)≡0 (modm)}; x~_m y ⇔ y−x∈H_m",
+        "m odd: H_m=mZ^6, index=m^6",
+        "4|m: H_m=(m/2)Z^6, index=(m/2)^6",
+        "m=2q, q odd: H_m={qk:Σk_i even}, index=2q^6",
+        "q_m(x+e_i)−q_m(x)−1≡2x_i (modm)",
+        "q_m(x+a)≡q_m(x)+Σa_i(2x_i)+Q(a) (modm)"
+      ],
+      "conclusion": "七固定probe offset 0,e1,...,e6对每m恢复恰当H_m商；每个odd m>1（含合数）在此固定非自适应scalar probe类别中七个最少。",
+      "limits": [
+        "不是full Cell identity压缩，不能删去其他path/branch/force观察。",
+        "未证明even m最优probe数；不涵盖adaptive、varying modulus、noise或bounded domain。",
+        "finite enumeration仅来源所报告的supplement，不当一般证明或本次执行。"
+      ],
+      "sources": [
+        {
+          "key": "quadratic",
+          "role": "author_and_review_bundle",
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/owner_goal_20261015/FREE_X6_QUADRATIC_PROBES_REVIEWED_BUNDLE.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "7458f24ab909b82461b5481c8419a2ad5e589bc5",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261015/FREE_X6_QUADRATIC_PROBES_REVIEWED_BUNDLE.json",
+          "curator_read_scope": "complete embedded RESEARCH_NOTE.md and REVIEW.md; wrapper classification consumed"
+        },
+        {
+          "key": "quadratic_ledger",
+          "role": "existing_theorem_and_reuse_ledger",
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/owner_goal_20261015/round3_primitive/THEOREM_STATEMENTS_AND_REUSE_MAP.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "802538d3452f3e8a048c06b449dc3be732f68f86",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261015/round3_primitive/THEOREM_STATEMENTS_AND_REUSE_MAP.json",
+          "curator_read_scope": "existing structured ledger reused as documentary index"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+          "method_id": "quotient.operation_family_closure",
+          "resolution": "REUSE_APPLIED",
+          "scope": "existing operation-safe quotient；来源曾报告具体REUSE_EXECUTED但本轮无科学执行"
+        },
+        {
+          "family_id": "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+          "resolution": "REUSE_APPLIED",
+          "scope": "finite module kernel count plus explicit symmetric-pair collision"
+        }
+      ],
+      "dedup": "优先复用现有THEOREM_STATEMENTS_AND_REUSE_MAP；不因具体模m式建立新通用工具族。"
+    },
+    {
+      "id": "X6-REVISIT-HISTORY",
+      "title": "非吸收逐步重访观察器：精确局部visited-mask与Θ(H^6)固定容量",
+      "status": "SOURCE_REPORTED_BOUNDED_NONAUTHOR_PAPER_PASS_RESULT_ONLY_COMPOSE_NO_NEW_ADMISSION",
+      "authors": [
+        "EM-FREE-CF1677"
+      ],
+      "reviewers": [
+        "EM-P11-4A56E9"
+      ],
+      "assumptions": [
+        "过去为任意有限signed-unit X6 walk，允许重访；未来全部长度≤H词，contact后仍继续并逐步输出bit。",
+        "当前Cell、clock和H为免费已知side information；共同decoder，无history-dependent codebook。"
+      ],
+      "formulas": [
+        "p~_H q ⇔ V(p)∩B_H(x)=V(q)∩B_H(x), B_H(x)={z:||z−x||_1≤H}",
+        "S'=(S∪{x'})∩B_{r−1}(x'), with S=V∩B_r(x), x'=x+s",
+        "N_6(H)=Σ_{j=0}^{min(6,H)}2^j binom(6,j)binom(H,j)",
+        "q=floor((H−1)/12)+1, K=q^6; 2^K realizable histories at same Cell/clock T≤12K−4",
+        "fixed-capacity bits ≥K and ≤N_6(H)−1, hence Θ(H^6)",
+        "H=1, common start/end0,T=24: exact 4095 signatures, requiring12 fixed-capacity bits"
+      ],
+      "conclusion": "语言等价恰由reachability球内visited-set决定，递减horizon更新精确。实际同Cell同clock历史给出容量下界，不能用endpoint/clock隐藏history bits。",
+      "limits": [
+        "ball是graph L1 reachability，不是P000 quadratic球。",
+        "原PhaseA变长code句经PhaseB明确fixed-register convention；先陈述状态数≥2^K。",
+        "不涵盖absorbing、self-avoiding past、固定pastlength、final-only bit、其他未来操作或物理存储规律。"
+      ],
+      "sources": [
+        {
+          "key": "revisit_a",
+          "role": "author",
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/free_CF1677_20261016/PHASE_A_FROZEN.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "5abf260d92229cf874586f8ebe20032a2f339800",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/free_CF1677_20261016/PHASE_A_FROZEN.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "revisit_b",
+          "role": "frozen_author_self_audit",
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/free_CF1677_20261016/PHASE_B_SELF_AUDIT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "f7d8c22535f780f494bb43955966a7cc2a69da55",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/free_CF1677_20261016/PHASE_B_SELF_AUDIT.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "revisit_peer",
+          "role": "paired_nonauthor_review",
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/owner_goal_20261016/reviews/native6d_cf1677_nonauthor_4a56e9/NATIVE_X6_REVISIT_HISTORY_CAPACITY_INDEPENDENT_WHOLE_PAPER_REVIEW.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "6e07a8a8354273f5192c0b08e9420f9664ad93b0",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/native6d_cf1677_nonauthor_4a56e9/NATIVE_X6_REVISIT_HISTORY_CAPACITY_INDEPENDENT_WHOLE_PAPER_REVIEW.md",
+          "curator_read_scope": "complete primary prose consumed"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": "T0_BRC",
+          "method_id": "t0.brc_finite_horizon_contact",
+          "resolution": "COMPOSE_APPLIED",
+          "scope": "复用reachability ball与distinguishing words；旧two-tag接口明确排除past history"
+        },
+        {
+          "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+          "method_id": "quotient.predictive_partition",
+          "resolution": "COMPOSE_APPLIED",
+          "scope": "future-language等价；不声称有限compiler可直接执行全部无限历史population"
+        }
+      ],
+      "dedup": "generic quotient与球计数均旧接口；此载体保留同Cell同clock可实现历史容量应用，不造新工具。"
+    },
+    {
+      "id": "X6-ABSORBING-FRONTIER",
+      "title": "吸收式first-hit未来的精确frontier商与体积阶最坏容量",
+      "status": "SOURCE_REPORTED_PAPER_PASS_DERIVED_RESULT_ONLY_COMPOSE_APPLIED_NO_NEW_ADMISSION",
+      "authors": [
+        "EM-FREE-CF1677"
+      ],
+      "reviewers": [
+        "EM-DVR-BFF6DC"
+      ],
+      "assumptions": [
+        "过去仍为任意finite revisiting walk；仅从checkpoint开始future在第一次old/self contact吸收。",
+        "F_H(V,x)为≤H、interior简单且避开V的路径可首先触达的old Cells，含可返回起点情形。"
+      ],
+      "formulas": [
+        "τ_V(u)=min{j≥1:y_j∈V∪{y_1,...,y_{j−1}}}, or SURVIVE",
+        "all absorbing responses equal ⇔ F_H(V,x)=F_H(W,x)",
+        "R=F_H(V,x)∪{x} preserves all responses throughH",
+        "on safe step x': F_{r−1}(V∪{x'},x')=F_{r−1}(R∪{x'},x')",
+        "H≥5: q=floor((H−5)/12)+1, K=q^6; 2^K same-Cell/same-clock histories and contact-free probes length≤H",
+        "worst-case fixed-capacity history bits Θ(H^6)"
+      ],
+      "conclusion": "后续独立whole-paper来源确认：吸收frontier可严格删去shadowed old Cells，但更粗语义商仍有Θ(H^6)最坏固定容量；共同28步star历史给出严格shadow例。该review专门检查新contact-free probe，不迁移旧nonabsorbing review。",
+      "limits": [
+        "作者原始冻结RAW/PENDING字段保留为创建历史；后续15339B精确版本的独立whole review已公开，仍非formal/native/Foundation admission。",
+        "过去不遵循从原始起点吸收的规则，不能误写成globally self-avoiding past。",
+        "不声称frontier位独立、最短编码或surface-order/物理memory law。"
+      ],
+      "sources": [
+        {
+          "key": "absorbing",
+          "role": "author",
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/free_CF1677_20261016/ABSORBING_FIRST_HIT_SUCCESSOR_FROZEN.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "4ca67855107b8dd3276fd78a1e5629c93033d9df",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/free_CF1677_20261016/ABSORBING_FIRST_HIT_SUCCESSOR_FROZEN.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "absorbing_peer",
+          "role": "source_reported_nonauthor_whole_review",
+          "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/reviews/free_cf1677_absorbing_first_hit/CF1677_ABSORBING_FIRST_HIT_INDEPENDENT_WHOLE_PAPER_REVIEW.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "26b75668c8241edaf43e57368ab974fd34105a30",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/reviews/free_cf1677_absorbing_first_hit/CF1677_ABSORBING_FIRST_HIT_INDEPENDENT_WHOLE_PAPER_REVIEW.md",
+          "curator_read_scope": "complete nine-section whole-paper review consumed; documentary status only, no new review vote"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": "T0_BRC",
+          "resolution": "COMPOSE_APPLIED",
+          "scope": "同原history gadget/ball模型"
+        },
+        {
+          "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+          "resolution": "COMPOSE_APPLIED",
+          "scope": "frontier代表与prefix下降，限来源所载有界paper scope"
+        }
+      ],
+      "dedup": "与nonabsorbing mask属于不同未来语言，旧已审结论不迁移；旧ball/gadget明确复用。"
+    },
+    {
+      "id": "X6-SEVEN-CRITICAL",
+      "title": "七个完整coset读出：整数核、临界质量63、全部等号形状与临界调用接口",
+      "status": "SOURCE_REPORTED_BOUNDED_NONAUTHOR_PAPER_PASS_RESULT_ONLY_COMPOSE_NO_NEW_ADMISSION",
+      "authors": [
+        "EM-FREE-CF1677 (kernel/sharp mass)",
+        "EM-DVR-BFF6DC (equality rigidity)",
+        "EM-PUBLIC-7CDA51 (critical palette and moment)"
+      ],
+      "assumptions": [
+        "f:c+Z^6→N0有限支撑；M_i为完整coordinate-i coset和，N_v为v=(1,...,1)完整coset和，全部bin保留。",
+        "Laurent比较环A=Z[X_1^±1,...,X_6^±1]；D=∏X_i，G=(D−1)∏(X_i−1)；实际状态不允许负occupancy。"
+      ],
+      "formulas": [
+        "ker_Z O=G A; G has126 nonzero unit coefficients and μ(G)=63",
+        "Q≠0 ⇒ |supp(GQ)|≥126 ⇒ μ(GQ)≥63",
+        "G_d=(D^d−1)∏_i(X_i^d−1), d∈Z_{>0}",
+        "mass(f)=mass(g)=63, Of=Og, f≠g ⇒ P_{f−g}=σX^p G_d, f=(σX^pG_d)_+,g=(σX^pG_d)_−, unique p,d,σ",
+        "critical translation/sign palette universal ⇔ every scale orbit G_d,d≥1 is included among usable moves; no finite fixed palette suffices",
+        "T_P(f)−T_P(g)=σ[Δ_{dv}∏_i Δ_{de_i}P](p)",
+        "P7(u)=u_1²∏_{j=2}^6u_j: Δ_{dv}∏_iΔ_{de_i}P7=2d^7",
+        "deg P≤7: response=σ d^7 κ(P), κ(P)=D_v∂_1...∂_6P=2Σ_i[u_i²∏_{j≠i}u_j]P"
+      ],
+      "subresults": [
+        {
+          "id": "kernel",
+          "conclusion": "七coset整数比较核为主理想G A；新增diagonal读出去掉全部旧mass32碰撞但仍存在mass63碰撞。原初33≤μ7≤63区间随后由sharp子结果收紧为μ7=63。",
+          "author_source": "seventh",
+          "review": "seventh_review"
+        },
+        {
+          "id": "sharp63",
+          "conclusion": "每个非零整数Laurent乘积至少126个support；最低signed mass63，来源的exposing-cone surviving-exponent论证处理任意取消。",
+          "author_source": "sharp63",
+          "review": "sharp_review"
+        },
+        {
+          "id": "equality",
+          "conclusion": "所有临界mass63成对碰撞恰为translated/dilated G_d的两signparts，无公共背景。",
+          "author_source": "equality63",
+          "review": "equality_review"
+        },
+        {
+          "id": "critical_palette",
+          "conclusion": "临界mass63时无有限固定pattern translation/sign palette普遍连通；全scale G_d族充分且必要。",
+          "author_source": "criticalpalette",
+          "review": "criticalpalette_review"
+        },
+        {
+          "id": "critical_moment",
+          "conclusion": "一个固定supplementary polynomial moment的最低degree为7；P7在每个临界pair上response=2σd^7。任何多个degree≤6 moment仍失败；degree≤7成功iff κ(P)≠0。",
+          "author_source": "moment63",
+          "review": "moment_review"
+        }
+      ],
+      "conclusion": "这是同一七readout对象的连续接口链：完整整数核→精确临界质量→全部等号形状→临界palette与degree7观察补充。各新子结论保留其自己的非作者review，不把旧票迁移。",
+      "limits": [
+        "整数性为质量下界所必需；不能缩放到任意real/rational occupancy。",
+        "critical63结论不自动推广到higher-mass连接或任意box。",
+        "Laurent理想生成不等于非负纤维Markov连接。",
+        "P7补充是数学functional，不是第八原生轴/物理sensor；不含noise、algorithm或degree>7全分类。"
+      ],
+      "sources": [
+        {
+          "key": "seventh",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261016/native_x6_seventh_diagonal_observer_cf1677/SEVENTH_DIAGONAL_OBSERVER_BOUNDED_STRUCTURAL_FEASIBILITY_WORKING.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "b3a80c6c0f0858ba05d7006606b8874ef4555c1d",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/native_x6_seventh_diagonal_observer_cf1677/SEVENTH_DIAGONAL_OBSERVER_BOUNDED_STRUCTURAL_FEASIBILITY_WORKING.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "seventh_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261016/reviews/native_x6_seventh_observer_nonauthor_bff6dc/SEVENTH_DIAGONAL_OBSERVER_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "c2da80edcea7c5eb9aaeb2457becd23333db63d6",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/native_x6_seventh_observer_nonauthor_bff6dc/SEVENTH_DIAGONAL_OBSERVER_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        },
+        {
+          "key": "sharp63",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261016/native_x6_seventh_diagonal_sharp_mass_cf1677/SHARP_SEVENTH_DIAGONAL_OBSERVER_MASS_63_AUTHOR_WORKING.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "c0b5bdee7382a781fc7c4156b29558bcb91ba1d7",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/native_x6_seventh_diagonal_sharp_mass_cf1677/SHARP_SEVENTH_DIAGONAL_OBSERVER_MASS_63_AUTHOR_WORKING.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "sharp_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261016/reviews/native_x6_seventh_sharp_mass_nonauthor_bff6dc/SHARP_SEVENTH_DIAGONAL_OBSERVER_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "d0024e2d61bb2d2e18705207e1b7112501c84110",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/native_x6_seventh_sharp_mass_nonauthor_bff6dc/SHARP_SEVENTH_DIAGONAL_OBSERVER_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        },
+        {
+          "key": "equality63",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261016/native_x6_seventh_observer_mass63_equality_bff6dc/MASS63_SEVEN_OBSERVER_EQUALITY_RIGIDITY_AND_UNIT_MOVE_OBSTRUCTION_WORKING.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "5d8e5809a3541a98db13891506808e176f2ccd72",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/native_x6_seventh_observer_mass63_equality_bff6dc/MASS63_SEVEN_OBSERVER_EQUALITY_RIGIDITY_AND_UNIT_MOVE_OBSTRUCTION_WORKING.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "equality_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261016/reviews/native_x6_mass63_equality_nonauthor_7cda51/SEVEN_OBSERVER_MASS63_EQUALITY_AND_UNIT_MOVE_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "28fe3eea36d2c4e0ad8f11e98b75d2b8babb3cbb",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/native_x6_mass63_equality_nonauthor_7cda51/SEVEN_OBSERVER_MASS63_EQUALITY_AND_UNIT_MOVE_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.json",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        },
+        {
+          "key": "criticalpalette",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261016/reviews/native_x6_mass63_equality_nonauthor_7cda51/LOCAL_SUCCESSOR_CRITICAL_MASS_TRANSLATION_MOVE_PALETTE_CONSUMER_INTAKE.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "c039009252e68d7d212894329a67007133c5cdbc",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/native_x6_mass63_equality_nonauthor_7cda51/LOCAL_SUCCESSOR_CRITICAL_MASS_TRANSLATION_MOVE_PALETTE_CONSUMER_INTAKE.json",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "criticalpalette_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261016/reviews/native_x6_critical_mass_palette_nonauthor_cf1677/CRITICAL_MASS_TRANSLATION_PALETTE_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "c3cf66693ae3e7735b1bc5eb8a8f2cf4decdec25",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/native_x6_critical_mass_palette_nonauthor_cf1677/CRITICAL_MASS_TRANSLATION_PALETTE_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.json",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        },
+        {
+          "key": "moment63",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261016/reviews/native_x6_mass63_equality_nonauthor_7cda51/CRITICAL_MASS63_MINIMAL_POLYNOMIAL_MOMENT_READOUT_WORKING_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "6515a743c77d472506e3bb381e77efd90b097630",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/native_x6_mass63_equality_nonauthor_7cda51/CRITICAL_MASS63_MINIMAL_POLYNOMIAL_MOMENT_READOUT_WORKING_AND_CONTEXT.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "moment_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261016/reviews/native_x6_mass63_minimal_polynomial_moment_nonauthor_4a56e9/CRITICAL_MASS63_MINIMAL_POLYNOMIAL_MOMENT_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "7a2bf301a2c0e9c9e3e96b006769302e6559c344",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/native_x6_mass63_minimal_polynomial_moment_nonauthor_4a56e9/CRITICAL_MASS63_MINIMAL_POLYNOMIAL_MOMENT_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": null,
+          "resolution": "COMPOSE_APPLIED",
+          "scope": "经典整数group-ring/kernel、finite-support exposing cone、finite difference；来源均RESULT_ONLY，不创建通用Markov/measurement Tool"
+        }
+      ],
+      "dedup": "旧six-marginal mass32作为不同观察器的上游；kernel/63/equality不是多条独立问题重开。临界palette、moment合入同对象记录；旧33..63区间保留历史而不用作当前sharp结论。"
+    },
+    {
+      "id": "X6-SEVEN-BOX-CONNECTIVITY",
+      "title": "七readout固定盒的全部非负纤维：精确palette与sharp move mass",
+      "status": "SOURCE_REPORTED_BOUNDED_NONAUTHOR_PAPER_PASS_RESULT_ONLY_COMPOSE_NO_NEW_ADMISSION",
+      "authors": [
+        "EM-DVR-BFF6DC (boxed/long-axis/cycle/minimality)",
+        "EM-PUBLIC-7CDA51 (actual-site conformal counterexample)"
+      ],
+      "assumptions": [
+        "同X6-SEVEN-CRITICAL的完整O；每一步应用一个literal整数kernel array（两sign均可），每个中间actual occupancy保持非负并留在指定box。",
+        "move mass μ(h)=||h||_1/2；与configuration total mass分开。palette默认unoriented literal arrays；不默认为translation templates。"
+      ],
+      "formulas": [
+        "B={0,1,2,3}×{0,1,2}^5: h=G(a+bx), unique a,b∈Z; μ(a,b)=32(|a|+|b|)+31|a−b|",
+        "single-long-axis minimal universal palette {G,xG,(1+x)G} up to sign; masses63,63,64",
+        "B_d={0,...,d+1}×{0,1,2}^5: I_{ij}=GΣ_{h=i}^{j−1}x^h=x^i(xU−1)(x^{j−i}−1)A,0≤i<j≤d",
+        "long-axis unique minimal palette {±I_{ij}}, count=d(d+1)/2; μ(I_{i,i+1})=63, μ(I_{ij})=64 if j−i≥2",
+        "two-long-axis B={0,1,2,3}²×{0,1,2}^4: Φ(H)=(xyU−1)HA, H=(x−1)(y−1)Q, Q=a+bx+cy+dxy",
+        "||Φ(H)||_1=30||H||_1+||(xy−1)H||_1",
+        "H93=(x−1)(y−1)(1+x+xy), μ(Φ(H93))=93 and its signparts form an entire two-state fiber",
+        "H124=(1+xy)(x−1)(y−1), P124=(1+xy)G, μ(P124)=124; fiber={f,f−G,g}, f−g=P124",
+        "Q-cycle list: 1,x,y,xy,1+x,1+y,x+xy,y+xy,1+x+y+xy; 1+x+y,1+x+xy,1+y+xy,x+y+xy,x−y,1−xy",
+        "t=a+d−b−c, D0=max(|a|,|b|,|c|,|d|,|t|); at most2D0 legal simple-cycle steps connect f and g",
+        "Cstar=(x−1)(y−1)(1−xy); ||Cstar||_1=6,||(xy−1)Cstar||_1=12, μ(Φ(Cstar))=96"
+      ],
+      "subresults": [
+        {
+          "id": "single_box",
+          "conclusion": "single-long-axis盒的全mass纤维由三member palette连通，universal iff包含三者up to sign；最大move mass最低64。",
+          "author_source": "boxed",
+          "review": "boxed_review"
+        },
+        {
+          "id": "long_axis",
+          "conclusion": "每个固定d，全部interval moves充分且逐一由二态纤维强制；d=1 sharp63，d≥2 sharp64。其空间range和数目随d增长。",
+          "author_source": "longaxis",
+          "review": "longaxis_peer"
+        },
+        {
+          "id": "two_axis_93",
+          "conclusion": "两长轴盒提供完整3×3零row/column-sum整数table接口及强制mass93二态move；93是早期下界，未被伪改为sharp。",
+          "author_source": "twolong",
+          "review": "twolong_review"
+        },
+        {
+          "id": "conformal_124",
+          "conclusion": "P124在actual sites conformally indecomposable，无法由全部conformal简单cycle像相加；但其恰好三态纤维由G先、xyG后两步mass63连接，中间必要buffer在两端均零处出现。",
+          "author_source": "conformal",
+          "review": "conformal_review"
+        },
+        {
+          "id": "simple_cycle_connectivity",
+          "conclusion": "15个K3,3简单cycle像连接两长轴盒每个mass的每个actual fiber；五potential rounding证明≤2D0步，各move mass≤96。",
+          "author_source": "cycle",
+          "review": "cycle_review"
+        },
+        {
+          "id": "literal_minimal_sharp96",
+          "conclusion": "每个simple-cycle像的signparts构成真二态纤维，故universal literal palette iff含全15像up to sign；唯一inclusion-minimal palette，最少15member，最小可能最大move mass=96。",
+          "author_source": "palette",
+          "review": "palette_review"
+        }
+      ],
+      "conclusion": "将同盒kernel、actual-site positivity、连接与最小性分别保留。最终两长轴sharp96与早期mass93下界、mass124非conformal例兼容，124不构成connecting move的下界。",
+      "limits": [
+        "single-box/long-axis结论不提供全无限chart统一有限range。",
+        "literal palette最小15不是translation-template最少数或其他box分类。",
+        "table conformal不代表actual-site conformal；非conformal路径允许必要临时buffer。",
+        "长轴V2是新持久artifact，旧丢失字节的临时chat意见不冒充旧file恢复或第二审核。",
+        "全部graph路径为数学比较对象，不是native dynamics/physical time。"
+      ],
+      "sources": [
+        {
+          "key": "boxed",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261016/native_x6_boxed_seven_observer_fiber_connectivity_bff6dc/BOXED_SEVEN_OBSERVER_ALL_MASS_CONNECTING_PALETTE_AND_SHARP_MOVE_MASS_WORKING.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "0ede6637cf9488256efc322355093a9fb4f51667",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/native_x6_boxed_seven_observer_fiber_connectivity_bff6dc/BOXED_SEVEN_OBSERVER_ALL_MASS_CONNECTING_PALETTE_AND_SHARP_MOVE_MASS_WORKING.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "boxed_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261016/reviews/native_x6_boxed_connectivity_nonauthor_7cda51/BOXED_SEVEN_OBSERVER_CONNECTIVITY_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "3ad1ffb42e059e07b7878d7cd57477fed70c2489",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/native_x6_boxed_connectivity_nonauthor_7cda51/BOXED_SEVEN_OBSERVER_CONNECTIVITY_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.json",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        },
+        {
+          "key": "longaxis",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261017/native_x6_long_axis_bff6dc/LONG_AXIS_BOX_AUTHOR_REFORMULATED_V2_20261017.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "7d048f7ad5c1d39f3429a02389a397b3e47326b6",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/native_x6_long_axis_bff6dc/LONG_AXIS_BOX_AUTHOR_REFORMULATED_V2_20261017.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "longaxis_peer",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261017/reviews/native_seven_readout_three_scope_4a56e9/LONG_AXIS_BOX_INTERVAL_CONNECTIVITY_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "0d4d62499e495fd173d53553417c2d7fab8cb85e",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/reviews/native_seven_readout_three_scope_4a56e9/LONG_AXIS_BOX_INTERVAL_CONNECTIVITY_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "opening disposition and scope selected"
+        },
+        {
+          "key": "twolong",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261017/native_x6_two_long_axes_bff6dc/TWO_LONG_AXES_MASS64_EXTENSION_OBSTRUCTION_AUTHOR_V1.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "899134e1235770a27b9aa3d96773255706824735",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/native_x6_two_long_axes_bff6dc/TWO_LONG_AXES_MASS64_EXTENSION_OBSTRUCTION_AUTHOR_V1.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "twolong_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261017/reviews/native_x6_two_long_axes_nonauthor_7cda51/TWO_LONG_AXES_MASS93_TWO_STATE_FIBER_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "e1fdfdd3ffb52959c6c7602a04340ced038f22bb",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/reviews/native_x6_two_long_axes_nonauthor_7cda51/TWO_LONG_AXES_MASS93_TWO_STATE_FIBER_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.json",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        },
+        {
+          "key": "conformal",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261017/native_x6_two_axis_site_conformal_lift_7cda51/TWO_AXIS_SIMPLE_CYCLE_CONFORMAL_LIFT_FAILURE_AND_THREE_STATE_FIBER_WORKING_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "59fdf33c3f9b97c911ba9a66d13ba33657e98006",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/native_x6_two_axis_site_conformal_lift_7cda51/TWO_AXIS_SIMPLE_CYCLE_CONFORMAL_LIFT_FAILURE_AND_THREE_STATE_FIBER_WORKING_AND_CONTEXT.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "conformal_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261017/reviews/native_x6_two_axis_site_conformal_lift_nonauthor_4a56e9/TWO_AXIS_SITE_CONFORMAL_LIFT_AND_THREE_STATE_FIBER_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "d70e1e30633ed89221eba054e61aa2c13ccbe443",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/reviews/native_x6_two_axis_site_conformal_lift_nonauthor_4a56e9/TWO_AXIS_SITE_CONFORMAL_LIFT_AND_THREE_STATE_FIBER_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        },
+        {
+          "key": "cycle",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261017/native_x6_two_axis_simple_cycle_connectivity_bff6dc/TWO_AXIS_ALL_MASS_SIMPLE_CYCLE_CONNECTIVITY_BY_INTEGER_ROUNDING_AUTHOR_V1.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "04ce50522e7043c4c963203a1a91725e731a840f",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/native_x6_two_axis_simple_cycle_connectivity_bff6dc/TWO_AXIS_ALL_MASS_SIMPLE_CYCLE_CONNECTIVITY_BY_INTEGER_ROUNDING_AUTHOR_V1.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "cycle_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261017/reviews/native_x6_two_axis_simple_cycle_nonauthor_cf1677/TWO_AXIS_ALL_MASS_SIMPLE_CYCLE_NONBLIND_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "f262c0fa08b22ea03640770cc432c7f9ebd01a69",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/reviews/native_x6_two_axis_simple_cycle_nonauthor_cf1677/TWO_AXIS_ALL_MASS_SIMPLE_CYCLE_NONBLIND_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        },
+        {
+          "key": "palette",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261017/native_x6_two_axis_simple_cycle_connectivity_bff6dc/TWO_AXIS_LITERAL_PALETTE_MINIMALITY_AND_SHARP_MASS_COMPOSE_APPENDIX_V1.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "3b8ec4a2c158323145770b42a5efb2ac9e7659ed",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/native_x6_two_axis_simple_cycle_connectivity_bff6dc/TWO_AXIS_LITERAL_PALETTE_MINIMALITY_AND_SHARP_MASS_COMPOSE_APPENDIX_V1.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "palette_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261017/reviews/native_x6_literal_palette_sharp_nonauthor_cf1677/LITERAL_TWO_AXIS_PALETTE_MINIMALITY_AND_SHARP96_NONBLIND_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "e47e7e28602833cbfd3e606a27de0effc69081c1",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/reviews/native_x6_literal_palette_sharp_nonauthor_cf1677/LITERAL_TWO_AXIS_PALETTE_MINIMALITY_AND_SHARP96_NONBLIND_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": null,
+          "resolution": "COMPOSE_APPLIED",
+          "scope": "经典integer kernel、sign-conformal finite cone、path exchange、feasible rounding、actual two-state necessity；result-only库接口，无新通用Tool或执行API"
+        }
+      ],
+      "dedup": "所有子包按相同O/精确box合并。历史文件名MASS64_EXTENSION只为档名，实际早期定理为mass93 obstruction；最终sharp96来自独立后续necessity proof。"
+    },
+    {
+      "id": "X6-SEVEN-GLOBAL-OBSTRUCTIONS",
+      "title": "七readout全chart连接的两类不可统一界：range与move mass",
+      "status": "SOURCE_REPORTED_BOUNDED_NONAUTHOR_PAPER_PASS_RESULT_ONLY_COMPOSE_NO_NEW_ADMISSION",
+      "authors": [
+        "EM-FREE-CF1677"
+      ],
+      "reviewers": [
+        "EM-P11-4A56E9 (warm reissued range review)",
+        "EM-DVR-BFF6DC (all-D review)"
+      ],
+      "assumptions": [
+        "原完整O与finite-support N0整数states；每步单个signed translated kernel move，目的状态非负，禁止temporary negatives或illegal batch。",
+        "range bound与move-mass bound是两套不同量词，不能互换。"
+      ],
+      "formulas": [
+        "for every fixed integer M≥63 and every (possibly infinite) palette with sup_h diam∞supp(h)≤B<∞: choose d>B, f=(G_d)_++(M−63)δ_c, g=(G_d)_−+(M−63)δ_c",
+        "nonzero h with M1h=M2h=0 ⇒ each signpart supported on at least2 distinct sites",
+        "C_D={all finite integer h≠0:Oh=0,μ(h)≤D}, with all signs/translates/ranges",
+        "B_N={0,...,N}²×{0,1,2}^4; Φ_N(H)=(xyU−1)H A for integer N×N zero-margin table H",
+        "C_N(i,i)=1,C_N(i,i+1 modN)=−1; M_N=μ(Φ_N(C_N))≥30N",
+        "global full fiber of f0=(Φ_N(C_N))_− is exactly {f0,f1=(Φ_N(C_N))_+}",
+        "C_63 is the complete global move-mass≤63 library: every common mass<63 fiber singleton; every mass63 pair connected in one edge; at mass64 the signparts of (1+x)G are isolated even with all ranges/translates"
+      ],
+      "conclusion": "固定任意M≥63时，每个uniformly bounded-range palette都存在两isolated同纤维states（选择的共同背景）。另对每个有限D，全球某真二态纤维唯一jump质量>D，故即便全部range/无限多个bounded-mass moves也不能普遍连接。 另有精确first-failure接口：完整全range C_63库在configuration mass≤63普遍连通，并首次在mass64失败；完整coset零bin与非负性先强制每个全chart中间态留在原box。",
+      "limits": [
+        "bounded-range结论只声称存在chosen shared background，不声称每个预设背景均不帮助。",
+        "all-D结论不是每个大mass都失败、最优M_N公式、全部Graver结构或最佳global Markov-degree函数。",
+        "表内modN只是finite index，不是原生torus识别。",
+        "bounded-range peer是同一完成review的warm V2重新持久化，不加第二票。"
+      ],
+      "sources": [
+        {
+          "key": "background",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261016/native_x6_background_bounded_range_move_feasibility_cf1677/CF1677_FIXED_MASS_COMMON_BACKGROUND_BOUNDED_RANGE_OBSTRUCTION_WORKING.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "63709155e5f5692754e49764aa4b1d549adbef98",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/native_x6_background_bounded_range_move_feasibility_cf1677/CF1677_FIXED_MASS_COMMON_BACKGROUND_BOUNDED_RANGE_OBSTRUCTION_WORKING.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "background_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261017/reviews/native_x6_fixed_mass_bounded_range_reissued_4a56e9/FIXED_MASS_COMMON_BACKGROUND_BOUNDED_RANGE_REISSUED_WARM_V2_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "57b544c2ac2124fa0cdf03ae3aa0539208abb1ce",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/reviews/native_x6_fixed_mass_bounded_range_reissued_4a56e9/FIXED_MASS_COMMON_BACKGROUND_BOUNDED_RANGE_REISSUED_WARM_V2_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        },
+        {
+          "key": "unbounded",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261017/native_x6_global_move_mass_unbounded_cf1677/UNBOUNDED_FULL_JOINT_FIBERS_HAVE_NO_UNIFORM_FINITE_MOVE_MASS_AUTHOR_COMPOSE_V1.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "8604fbafbe849d0539bba7253c655bc96b0405c6",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/native_x6_global_move_mass_unbounded_cf1677/UNBOUNDED_FULL_JOINT_FIBERS_HAVE_NO_UNIFORM_FINITE_MOVE_MASS_AUTHOR_COMPOSE_V1.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "unbounded_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261017/reviews/native_x6_global_move_mass_nonauthor_bff6dc/GLOBAL_FULL_JOINT_FIBER_MOVE_MASS_NONBLIND_COMPLETE_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "9dec3171a512a690c0edbf78e7de77314418ddde",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/reviews/native_x6_global_move_mass_nonauthor_bff6dc/GLOBAL_FULL_JOINT_FIBER_MOVE_MASS_NONBLIND_COMPLETE_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        },
+        {
+          "key": "mass63",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261017/native_x6_mass_capped_library_cf1677/UNBOUNDED_MASS63_LIBRARY_FIRST_FAILURE64_AUTHOR_V1.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "f56d627a8c8d9d2ba8b16e1846e2e4ad7a4bf135",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/native_x6_mass_capped_library_cf1677/UNBOUNDED_MASS63_LIBRARY_FIRST_FAILURE64_AUTHOR_V1.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "mass63_peer",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261017/reviews/native_seven_readout_three_scope_4a56e9/UNBOUNDED_MASS63_LIBRARY_FIRST_FAILURE64_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "4bf7a7df2fa3b30e15a60e5416658d662f2a007b",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/reviews/native_seven_readout_three_scope_4a56e9/UNBOUNDED_MASS63_LIBRARY_FIRST_FAILURE64_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "opening disposition and literal scope selected; no new review"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": null,
+          "resolution": "COMPOSE_APPLIED",
+          "scope": "support separation、nonnegative confinement、任意长simple table cycle及actual-sign two-state proof；无新general Tool"
+        }
+      ],
+      "dedup": "与critical63 finitepattern iff、固定box64/96是不同量词；不从support直径增长误推move-mass增长，也不把固定D反例误写成∀D。",
+      "subresults": [
+        {
+          "id": "fixed_mass_bounded_range",
+          "author_source": "background",
+          "review": "background_review"
+        },
+        {
+          "id": "global_c63_first_failure64",
+          "author_source": "mass63",
+          "review": "mass63_peer",
+          "conclusion": "all ranges/translates permitted; singleton below63, direct edge at63, genuine global isolation first at64"
+        },
+        {
+          "id": "all_finite_move_mass_bounds_fail",
+          "author_source": "unbounded",
+          "review": "unbounded_review"
+        }
+      ]
+    },
+    {
+      "id": "X6-SEVEN-EXACT-READOUTS",
+      "title": "固定single-long-axis盒的全mass补充读出：field/degree、实数分辨率与有限标签",
+      "status": "SOURCE_REPORTED_BOUNDED_NONAUTHOR_PAPER_PASS_RESULT_ONLY_COMPOSE_NO_NEW_ADMISSION",
+      "authors": [
+        "EM-PUBLIC-7CDA51 (field/degree)",
+        "EM-DVR-BFF6DC (separation scale)",
+        "EM-FREE-CF1677 (alphabet cardinality)"
+      ],
+      "assumptions": [
+        "B={0,1,2,3}×{0,1,2}^5，所有N0 states；原O始终完整精确；added polynomial预先固定，与mass/待测state无关。",
+        "K⊂R为特征零subfield，输出一次为一个精确K元素；real embedding绝对误差与符号field坐标信息格式分别声明。",
+        "finite alphabet问题把精确O与已知mass M作为免费side information，其存储/算术/decoder成本不计。"
+      ],
+      "formulas": [
+        "h=G(a+bx), a,b∈Z; μ(a,b)=32(|a|+|b|)+31|a−b|",
+        "Dop=Δ_v∏_iΔ_{e_i}; α(P)=DopP(0),β(P)=DopP(e1); T_P(h)=aα+bβ",
+        "all-mass injective iff {(a,b)∈Z²:aα(P_i)+bβ(P_i)=0 for every i}={(0,0)}",
+        "P7=u1²∏_{j≥2}u_j, P8=u1³∏_{j≥2}u_j; response rows (2,2),(6,12), determinant12",
+        "any finite degree≤7 family kills G(1−x), μ(1,−1)=126; P7 alone separates all masses M<126 and fails every M≥126",
+        "K=Q: minimum2 outputs, maximum degree8 sharp; one rational output impossible at every degree",
+        "K≠Q: Pη=P7+ηP8 for fixed η∈K\\Q gives one exact field output, degree8 sharp",
+        "R(a,b)=2(a+b)+6sqrt2(a+2b); C_M empty M<63; δ(M)=min_{C_M}|R(a,b)| satisfies4/M≤δ(M)≤2^16/M for every integer M≥63",
+        "ε0=17+12sqrt2; u_{k+1}=17u_k+72w_k,w_{k+1}=4u_k+17w_k; (u0,w0)=(1,0); R(a_k,b_k)=2ε0^(−k), a_k=2u_k+w_k,b_k=−u_k−w_k",
+        "A(M)=1 for M<63; A(M)≤792M²+1 for M≥63; A(M)≥(floor(floor(M/972)/252)+1)² for M≥0",
+        "M≥972: (M/489888)²≤A(M)≤793M²; ceil(log2 A(M))=2log2 M+O(1)",
+        "explicit encoding q_M(f)=floor(M T(f)/2), T=T_{P7+sqrt2 P8}"
+      ],
+      "conclusion": "全mass精确补充的最低degree为8；rational field至少两输出，含irrational的field可一输出但承载两rational坐标。单real embedding在已知mass精确O纤维上的最坏最小gap为Θ(1/M)，标签字母表最坏Θ(M²)。",
+      "limits": [
+        "exact irrational field element不能冒充一个无成本physical sensor或普通浮点数。",
+        "δ上界是每M某难纤维，不是每个纤维；未知M或O有误差未建模。",
+        "real-output误差<2/M为唯一性证书，不提供高效search/decoding算法；无统一正误差容忍跨全M。",
+        "标签数只计额外标签，side-information/O/M、sqrt2与精确floor算术成本未计。",
+        "临界mass63 degree7 theorem保持旧scope；不能用它推出allmass degree8结果。"
+      ],
+      "sources": [
+        {
+          "key": "field_bridge",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261016/native_x6_boxed_polynomial_readout_field_bridge_7cda51/BOXED_ALL_MASS_POLYNOMIAL_READOUT_COEFFICIENT_FIELD_BRIDGE_WORKING_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "e14466f7c836477c7194076150f8549a45126ba3",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/native_x6_boxed_polynomial_readout_field_bridge_7cda51/BOXED_ALL_MASS_POLYNOMIAL_READOUT_COEFFICIENT_FIELD_BRIDGE_WORKING_AND_CONTEXT.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "field_bridge_peer",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261017/reviews/native_seven_readout_three_scope_4a56e9/BOXED_ALL_MASS_POLYNOMIAL_READOUT_FIELD_BRIDGE_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "ada800fb8d21cfe20c40996da071fc1a93a2014e",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/reviews/native_seven_readout_three_scope_4a56e9/BOXED_ALL_MASS_POLYNOMIAL_READOUT_FIELD_BRIDGE_INDEPENDENT_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "opening disposition and exact scope selected"
+        },
+        {
+          "key": "resolution",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261017/native_x6_boxed_readout_resolution_bff6dc/BOXED_SQRT2_READOUT_FIXED_MASS_SEPARATION_SCALE_AUTHOR_V1.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "5d321d5b6c6d9a89778fa4d5ce622db4ca29e2a3",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/native_x6_boxed_readout_resolution_bff6dc/BOXED_SQRT2_READOUT_FIXED_MASS_SEPARATION_SCALE_AUTHOR_V1.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "resolution_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261017/reviews/native_x6_boxed_resolution_nonauthor_cf1677/BOXED_SQRT2_READOUT_FIXED_MASS_SEPARATION_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "4b324425552c959e1c3485e8e261a550b1a6dfa1",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/reviews/native_x6_boxed_resolution_nonauthor_cf1677/BOXED_SQRT2_READOUT_FIXED_MASS_SEPARATION_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        },
+        {
+          "key": "alphabet",
+          "role": "author",
+          "path": "research_notes/owner_goal_20261017/native_x6_finite_alphabet_consumer_cf1677/FINITE_ALPHABET_LABEL_COST_WITH_EXACT_O_AND_M_AUTHOR_COMPOSE_V1.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "0e50fc634bd7ba52d1ff960cf1e48a39105358a3",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/native_x6_finite_alphabet_consumer_cf1677/FINITE_ALPHABET_LABEL_COST_WITH_EXACT_O_AND_M_AUTHOR_COMPOSE_V1.md",
+          "curator_read_scope": "complete primary prose consumed"
+        },
+        {
+          "key": "alphabet_review",
+          "role": "source_reported_nonauthor_review",
+          "path": "research_notes/owner_goal_20261017/reviews/native_x6_finite_alphabet_nonauthor_bff6dc/FINITE_ALPHABET_EXACT_SIDE_INFORMATION_NONBLIND_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "c5db4a573f91b2fff95caad830e394ba0af202aa",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261017/reviews/native_x6_finite_alphabet_nonauthor_bff6dc/FINITE_ALPHABET_EXACT_SIDE_INFORMATION_NONBLIND_TECHNICAL_WHOLE_REVIEW_AND_CONTEXT.md",
+          "curator_read_scope": "selected disposition/identity/literal-scope fields from complete fetched artifact; no new review"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": null,
+          "resolution": "COMPOSE_APPLIED",
+          "scope": "旧整数Z² kernel＋finite-difference response＋quadratic norm/unit sequence＋finite coding count；同族RESULT_ONLY，不建立新Diophantine/measurement Tool"
+        }
+      ],
+      "dedup": "以同fixed B/O为一组接口，字段精确输出、real error与有限labels三种资源分别计型；不将三个独立作者子结果混为一个已执行算法。"
+    },
+    {
+      "id": "X6-LEGACY-RECONCILIATION",
+      "title": "旧三轴/carrier资料的有界reconciliation：保留公式、闭disk新证明及未决provenance",
+      "status": "SOURCE_REPORTED_BOUNDED_SUPPORT_PASS_SELECTED_MATH_ONLY_FULL_TASK_NOT_ESTABLISHED",
+      "authors": [
+        "EM-X6P-40B5BD (original reconciliation)",
+        "EM-NONAUTHOR-5DF3A9B6 (new directed paper arguments/geometry)"
+      ],
+      "assumptions": [
+        "仅对固定X6内选定三轴signed affine subtorsor，其他三坐标固定；不是独立native plane或全部X6 shell。",
+        "计数是无约束unweighted最短signed coordinate words；external Euclidean carrier另定型，不与原生component-square metric相同。"
+      ],
+      "formulas": [
+        "d=q−p∈Z³(selected axes); G(d)=Σd_i², T(d)=Σ|d_i|, M(d)=T!/(|d_1|!|d_2|!|d_3|!)",
+        "ρ(z)=z−min(z_i)(1,1,1), μ(z)=min(z_i), z=ρ(z)+μ(z)(1,1,1); ρ quotient Z³/Z111, not native identity",
+        "G=25 selected signed shell:6 axis endpoints+24 support-two endpoints=30; routes6+24·35=846",
+        "same G=25 positive/min-zero section intersection:9 points, routes3+6·35=213; one fixed nonnegative two-axis sector routes1+35+35+1=72; 3·72−3=213",
+        "(1,1,1): native nonzero displacement, G=3,T=3,M=6; under declared STAR carrier π(e_i)+π(e_j)+π(e_k)=0 it is carrier return only",
+        "external Λ=a+Z(1,0)+Z(1/2,sqrt3/2); R=1/sqrt3; closed D(c,R)={x∈E²:||x−c||≤R}",
+        "q(m,n)=m²+mn+n², nearest1,next≥3; adjacent boundary points(1/2,±1/(2sqrt3))",
+        "for elementary unit triangle A,B,C with circumcenter o: Σ||x−A_i||²=3||x−o||²+1; D(A,R)∩D(B,R)∩D(C,R)={o}",
+        "union_{c∈Λ}D(c,R)=E²; every r<R misses elementary circumcenters"
+      ],
+      "conclusion": "保留正确signed-slice reconstruction/reversal/shortest-word与精确30/846/9/213/72范围。后续source证据将特定旧72定位到positive fixed sector，并给出明确closed-disk外部模型的pair-overlap/triple-incidence/sharp cover纸面证明。28行prospective ledger作为证据索引复用，不提升为全任务完成。",
+      "limits": [
+        "rho(G25 shell)不等于该positive-section交集；25→17是更换observer代表，非原生reversal不对称。",
+        "72的特定旧R061/R062 occurrence已定位，不代表每个历史72都同型。",
+        "任意weighted/constrained BRC、所有旧parity/affine identity不能仅靠retyping一揽子保留。",
+        "LP011旧dominant-axis branch公式仍未定位；argmax|d_i|须保留sign和tie/set-valued语义，非full direction。",
+        "完整28row old occurrence/consumer/runtime edges、whole-corpus zero-broken-consumer与Task completion未建立。",
+        "几何新proof出自定向非作者support单元；不冒充对该新proof再有一张独立票，更不把disk/三重incidence当native Cell/原点/平面。"
+      ],
+      "sources": [
+        {
+          "role": "bounded_review_and_paired_source_addendum",
+          "path": "research_notes/X6_CURRENT_NONAUTHOR_REVIEW_AND_PAIRED_SOURCE_EVIDENCE_20261014_FBF223.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "baa275963e953efb16e4891da89359a1ea0d286e",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/X6_CURRENT_NONAUTHOR_REVIEW_AND_PAIRED_SOURCE_EVIDENCE_20261014_FBF223.json",
+          "curator_read_scope": "complete 27834B review and10481B addendum prose consumed; embedded source mirrors documentary support only"
+        },
+        {
+          "role": "new_closed_disk_geometry_proof",
+          "path": "research_notes/X6_CLOSED_DISK_CARRIER_SOURCE_AND_NEW_PROOF_20261014_FBF223.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "a1ae4aa84648bf8bbf679927e3a8e6e712bcdd0c",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/X6_CLOSED_DISK_CARRIER_SOURCE_AND_NEW_PROOF_20261014_FBF223.json",
+          "curator_read_scope": "complete geometry addendum prose consumed; original old source convention cited through bundle"
+        },
+        {
+          "role": "existing_28_row_prospective_ledger",
+          "path": "research_notes/X6_PROSPECTIVE_28_ROW_SUPPLEMENT_AND_STATIC_EVIDENCE_20261015_FBF223.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "4983aefa73625ba70c7a36e15750c8b536fe7e4b",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/X6_PROSPECTIVE_28_ROW_SUPPLEMENT_AND_STATIC_EVIDENCE_20261015_FBF223.json",
+          "curator_read_scope": "top summary/source-boundaries and selected row metadata; reused ledger, not a new full mathematical review"
+        },
+        {
+          "role": "LP011_source_gap_evidence",
+          "path": "research_notes/X6_LP011_BOUNDED_UNLOCATED_EVIDENCE_20261015_FBF223.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "3f0e1292c71c539cf1da5c7d1eb1ed2c8ed33d29",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/X6_LP011_BOUNDED_UNLOCATED_EVIDENCE_20261015_FBF223.json",
+          "curator_read_scope": "wrapper/member inventory and source-gap status; no invented historical branch formula"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": "T0_BRC",
+          "resolution": "REUSE_APPLIED",
+          "scope": "已明确无权重shortest coordinate-word combinatorics；不泛化任意weighted/path language"
+        },
+        {
+          "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+          "resolution": "REUSE_APPLIED",
+          "scope": "ρ/common-depth类型保持；不默认任意future安全"
+        },
+        {
+          "family_id": null,
+          "resolution": "COMPOSE_APPLIED",
+          "scope": "external triangular closed-disk carrier geometry standard proofs，非native newTool"
+        }
+      ],
+      "dedup": "28行证据补充、paired source readbacks和LP011检索是同一reconciliation线的证据/缺口，非28条新定理。原August geometry/当前X6基础保留各自provenance。"
+    },
+    {
+      "id": "FINITE-ABELIAN-LOWRANK-DRAFT",
+      "title": "置换等变有限Abelian signed观察器的低rank边界n=1,2,3（未审）",
+      "status": "AUTHOR_PROOF_UNREVIEWED_NOT_ADMITTED",
+      "authors": [
+        "2026-10-20 ordinary-ChatGPT author run as recorded; no inferred native Driver identity"
+      ],
+      "assumptions": [
+        "外部finite Abelian A由n个x_i生成，每个generator permutation由automorphism实现，0,±x_i共2n+1标签两两不同。",
+        "n是外部代数问题参数，不改变native P000固定六空间轴。"
+      ],
+      "formulas": [
+        "m(1)=3,m(2)=8,m(3)=9",
+        "n=2 attainment: A=Z/8, x1=1,x2=3; automorphism multiplication3",
+        "n=3: r=ord(x_i−x_j), K⊆M_r={v∈Z³: all coordinates congruent modr}; |A|=r²[M_r:K]",
+        "n=3 attainment: A=F3²,x1=(1,0),x2=(0,1),x3=(−1,−1)"
+      ],
+      "conclusion": "当前稿给出上述三项完整作者级证明；保留n=6既有min64来源作为上游。文内转述的Oct18 n≥4公式不在本稿重新认证。",
+      "limits": [
+        "无独立审核、formal/native admission或prior-art novelty。",
+        "所引用EM_Sn_finite_abelian_observer_minimum_generalization_20261018_UNREVIEWED.md只有attachment名，未在固定changed-source清单得到repo locator；其n≥4证明单列SOURCE_GAP，不伪称已提取。",
+        "不推有限physical Cells、native rank下降或任意nonabelian/nonlinear最小值。"
+      ],
+      "sources": [
+        {
+          "key": "lowrank",
+          "role": "author",
+          "path": "research_notes/free_native_discovery/20261020_FINITE_ABELIAN_OBSERVER_LOW_RANK_N123_UNREVIEWED.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "63a63b2cd4da4fd86f03dcf08268b537b3469c6f",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/free_native_discovery/20261020_FINITE_ABELIAN_OBSERVER_LOW_RANK_N123_UNREVIEWED.md",
+          "curator_read_scope": "complete primary prose consumed"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+          "resolution": "COMPOSE_APPLIED",
+          "scope": "外部有限群/生成元置换，source-level formula extraction only；无算法执行或新Tool"
+        }
+      ],
+      "dedup": "旧n=6 min64只引用此前库条目X6-PHASE-MIN64；低rank稿未自动升级为统一全n已审定理。"
+    },
+    {
+      "id": "BRC-O13-M5PLUS",
+      "title": "O13有限端口模型：五个以上ordered distinct ports使action自由及全horizon轨道公式",
+      "status": "AUTHOR_THEOREM_NO_ATTACHED_NONAUTHOR_REVIEW_NOT_NATIVE_ADMITTED",
+      "authors": [
+        "EM-DIRECT-C83D21"
+      ],
+      "assumptions": [
+        "外部Boolean-support auxiliary model V=F5*×F5，|V|=20；G由g_{u,v,t}(a,s)=(ua,vs+t)，|G|=80。",
+        "对象为(S,p1,...,pm)，ordered ports distinct且S与tuple disjoint；G对全部标签diagonal作用。"
+      ],
+      "formulas": [
+        "g≠1 fixes at most4 ports ⇒ stabilizer trivial for m≥5",
+        "N_{m,k}=((20)_m/80) binom(20−m,k),5≤m≤20,0≤k≤20−m",
+        "N_m=((20)_m/80)2^(20−m)",
+        "m=5: (20)_5/80=23256,N_5=762052608"
+      ],
+      "conclusion": "所声明有限模型中，m≥5的每个trajectory orbit大小为80；固定初始support size和总数由公式给出。",
+      "limits": [
+        "不能把single-step orbit labels序列当完整trajectory orbit；double-coset alignment residual仍需保留。",
+        "不建立native X6 physical correspondence或amplitude4 globalinjectivity。",
+        "来源报告的80-permutation enumeration/整数数值未在本轮重跑；一般主张来自所附作者证明，未附独立review。"
+      ],
+      "sources": [
+        {
+          "key": "o13",
+          "role": "author",
+          "path": "research_notes/BRC_O13_OrderedTrajectoryFreeAction_M5Plus_20261020.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "0f69ed3dec43b5c061ae4c3580051ad9dfb5dcf6",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/BRC_O13_OrderedTrajectoryFreeAction_M5Plus_20261020.md",
+          "curator_read_scope": "complete primary prose consumed"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+          "resolution": "COMPOSE_APPLIED",
+          "scope": "finite stabilizer/orbit counting paper interface；无新general Tool"
+        }
+      ],
+      "dedup": "与m3/m4旧轨道计数为同模型extension；不将每个m数值拆成独立定理或自动后继研究。"
+    },
+    {
+      "id": "C192-PAIRWISE-INTERACTION-DRAFT",
+      "title": "C192辅助有理插值：单权重替换的精确pairwise交互（作者条件稿）",
+      "status": "AUTHOR_CONDITIONAL_EXACT_NOT_DRIVER_REVIEWED_NOT_ADMITTED_FULL_ATTACHMENT_SOURCE_GAP",
+      "authors": [
+        "source author draft as recorded; no inferred native identity"
+      ],
+      "assumptions": [
+        "外部C168/H168辅助插值类别，非native C102 GF(2)-BRC；原节点与所有声明替换态均合法，相关Lagrange/ratio分母非零；z>1。",
+        "u_j∈[0,1]；M(u)=(u²−2)(u²−3), L_j(z)=∏_{k≠j}(z−u_k)/(u_j−u_k), W_k=|L_k|/M(u_k)^3。"
+      ],
+      "formulas": [
+        "χ_ij=|v_i−u_j||v_j−u_i|/(|v_i−v_j||u_i−u_j|)",
+        "W_k(S^I,z)/W_k(S,z)=[∏_{i∈I}W_k(S^i,z)/W_k(S,z)]·[∏_{i<j,{i,j}⊆I,k∈{i,j}}χ_ij]",
+        "log W_k=−3log M(u_k)+Σ_{l≠k}(log(z−u_l)−log|u_k−u_l|); Boolean mixed differences of order≥3 vanish",
+        "reported 79-node cost:7683→7681; K(z)=6912/(17/50000)^2 Σ_j |L_j(z)|/M(u_j)^3"
+      ],
+      "conclusion": "抽取来源的单个log-weight只含一阶/二阶replacement交互公式。79-node成本与204/224-bit充分精度是compact draft报告的条件结果，完整节点/脚本/回放附件未由本source给出。",
+      "limits": [
+        "pairwise消失针对individual log W_k，不针对log(ΣW_k)，后者可有higher interaction。",
+        "完整79-node JSON/full proof/scripts/replay只称在原conversation附件，缺immutable repo locator，不能把本compact draft当完整certificate。",
+        "不主张global optimum、native correspondence、独立review或formal Source mathematical admission。"
+      ],
+      "sources": [
+        {
+          "key": "c192",
+          "role": "author",
+          "path": "research_notes/EM_C192_AUTHOR_AUXILIARY_79_NODE_COST_7681_PAIRWISE_INTERACTION_20261020.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "0ea37413b6522c9f566dfabbcf9422b26c42df85",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/EM_C192_AUTHOR_AUXILIARY_79_NODE_COST_7681_PAIRWISE_INTERACTION_20261020.md",
+          "curator_read_scope": "complete primary prose consumed"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": null,
+          "resolution": "COMPOSE_APPLIED",
+          "scope": "外部Lagrange权重与Boolean mixed-difference/cross-ratio恒等式；仅文献登记，不新建共享工具"
+        }
+      ],
+      "dedup": "C191是原稿指定上游；C192节点替换数值不另作已验证工具/全局最优成果。"
+    },
+    {
+      "id": "R5-FULL-VECTOR-TOMOGRAPHY-DRAFT",
+      "title": "正有理对称详细平衡核的最优全边际单步层析（未审辅助模型）",
+      "status": "AUTHOR_PROOF_UNREVIEWED_AUXILIARY_NATIVE_BRC_TRANSFER_PENDING",
+      "authors": [
+        "RA-R5-FULLMARGINAL-20261020-0740-A01 source author"
+      ],
+      "assumptions": [
+        "H∈Q^{mn}_{≥0},m,n≥2；A读取全部row/column marginals。",
+        "每probe在相同H的独立精确copy施加已知strictly-positive symmetric doubly-stochastic rational K，读取完整expectation vector AKH。",
+        "reversible指共同uniform stationary distribution下详细平衡；不额外断言每个K矩阵可逆。"
+      ],
+      "formulas": [
+        "r=(m−1)(n−1),s=m+n−2; q_min=ceil(r/s)",
+        "X_ij=u_i⊗v_j; Y_i^R=u_i⊗1_n,Y_j^C=1_m⊗v_j with orthogonal integral zero-sum u_i,v_j",
+        "E_b=Σ_a(X_{(b−1)s+a}Y_a^T+Y_aX_{(b−1)s+a}^T), K_b=J+εE_b",
+        "N=mn,B=max|E_b(i,j)|,ε=1/[2N(B+1)],J=11^T/N; every K_b entry>1/(2N)",
+        "AK_bh=εΣ_a AY_a〈X_{(b−1)s+a},h〉; 〈X_t,h〉=〈AY_a,AK_bh〉/(ε||AY_a||²)",
+        "(H0)_ij=R_i/n+C_j/m−M/(mn); H=H0+Σ_t〈X_t,h〉X_t/||X_t||²"
+      ],
+      "conclusion": "作者证明全边际vector interface的最少probe数q_min并构造同uniform详细平衡正有理核。3×3一probe足够；与旧受限controlled-swap每probe只给一新scalar的(m−1)(n−1)计数不矛盾。",
+      "limits": [
+        "来源报告的SymPy/Fraction验证为历史有限check，本轮未执行且不替代独立review。",
+        "expectation是精确数学输出，无fixed整数path-count budget、sampling/noise或复杂度结论。",
+        "m×n标签chart无自动X6 embedding；source-indexed native BRC、原path identity、reset及future operation桥仍未验证。"
+      ],
+      "sources": [
+        {
+          "key": "r5",
+          "role": "author",
+          "path": "research_notes/EM_R5_OPTIMAL_FULL_VECTOR_MARGINAL_TOMOGRAPHY_20261020_A01_UNREVIEWED.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "c4e0faddf90aa78f375d91242fddf0cdd7e41f5d",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/EM_R5_OPTIMAL_FULL_VECTOR_MARGINAL_TOMOGRAPHY_20261020_A01_UNREVIEWED.md",
+          "curator_read_scope": "complete primary prose consumed"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": "T0_BRC",
+          "resolution": "REUSE_APPLIED",
+          "scope": "来源声明finite positive-rational mass conservation和observer/provenance discipline，native transfer仍pending"
+        }
+      ],
+      "dedup": "保持与旧scalar controlled-swap R5的interface差别，不把名称相同误当重复或冲突。"
+    },
+    {
+      "id": "GEO6-COORDINATE-SPECTRUM-APPLICATION",
+      "title": "GEO6：既有connected unit-step spectrum/Lee球界在已命名原生coordinate graph上的应用",
+      "status": "AUTHOR_TYPED_APPLICATION_REUSE_CLOSURE_UNREVIEWED_NOT_NEW_THEOREM_ADMISSION",
+      "authors": [
+        "EM-DVR-BFF6DC"
+      ],
+      "assumptions": [
+        "G_coord是完整Cell torsor十二signed unit的明确无向图，A为有限非空且induced G_coord-connected集合。",
+        "距离采用ambient shortest transition-count L1；与component-square readout d6²分别定型。"
+      ],
+      "formulas": [
+        "d_coord(P,Q)=Σ_i|χ_i(Q)−χ_i(P)|",
+        "Δ_coord(A)={1,...,D}, s=|Δ|=D, N=|A|≤V_6(s)=Σ_{j=0}^6 2^j binom(6,j)binom(s,j)",
+        "singleton: D=s=0,N=1=V_6(0)",
+        "filled box {0,...,q−1}^6 spectrum={1,...,6(q−1)}; filled integer refinement side r(q−1)+1 spectrum={1,...,6r(q−1)}"
+      ],
+      "conclusion": "来源把旧accepted finite unit-step theorem与当前明确pure-coordinate Foundation graph做无损typed alignment。旧finite层与Lee公式复用，不制造新Falconer定理、物理law或工具。",
+      "limits": [
+        "sparse dilation z↦rz的像可能不再unit-step connected，不能把filled refinement定理直接套到sparse像。",
+        "Hamming任意nonzero-coordinate jump relation仍为不同关系的反例；未推翻旧no-go。",
+        "不涵盖所有channel、decorated transitions、完整native rotation、continuum Falconer或sharp isodiametric theorem。",
+        "creation候选decisive peer只是未来路由，不是此应用已审票。"
+      ],
+      "sources": [
+        {
+          "key": "geo6",
+          "role": "author_typed_application",
+          "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/fair_frontier_route_2_20261016/GEO6_PRIMITIVE_COORDINATE_GRAPH_FORCING_TYPED_APPLICATION.md",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "0185ad50aadd6d0b5f3a37689824e82f0891a0fd",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/fair_frontier_route_2_20261016/GEO6_PRIMITIVE_COORDINATE_GRAPH_FORCING_TYPED_APPLICATION.md",
+          "curator_read_scope": "complete application prose / contextual route fields consumed"
+        },
+        {
+          "key": "geo6_context",
+          "role": "existing_sources_and_bounded_route_context",
+          "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/fair_frontier_route_2_20261016/GEO6_TYPED_APPLICATION_CONTEXT_AND_TEN_ITEM_ROUTE.json",
+          "ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+          "blob": "c38131b5e1eb617df3a64c4ded320efe4c99ab21",
+          "url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/fair_frontier_route_2_20261016/GEO6_TYPED_APPLICATION_CONTEXT_AND_TEN_ITEM_ROUTE.json",
+          "curator_read_scope": "complete application prose / contextual route fields consumed"
+        }
+      ],
+      "method_harvest": [
+        {
+          "family_id": "T0_BRC",
+          "method_id": "t0.brc_finite_horizon_contact",
+          "resolution": "REUSE_APPLIED",
+          "scope": "contact_class_count(s)−1=既有V6(s)，无程序执行"
+        },
+        {
+          "family_id": null,
+          "resolution": "REUSE_APPLIED",
+          "scope": "旧GEO6 RR-36E518770A5FB701B42C及历史Driver review的有限graph scope；本稿只做named-graph应用"
+        }
+      ],
+      "dedup": "旧Lee/Hamming finite layer被accepted prior-art synthesis关闭续题；当前新sourcealignment不重记为新经典定理。"
+    }
+  ],
+  "native_semantics": {
+    "world": "HEARTBEAT_WORLD",
+    "spatial": "SIGNED_AFFINE_Z6_CELL_TORSOR",
+    "native_plane_exists": false,
+    "time": "SEPARATELY_TYPED_AS_NEEDED",
+    "raw_chart_is_final_public_address": false,
+    "external_models": "EXPLICITLY_TYPED_NO_AUTOMATIC_NATIVE_TRANSFER"
+  },
+  "existing_library_reuse": [
+    {
+      "id": "X6-SENSOR-FIBERS",
+      "reason": "旧first-harvest完整条目复用，不重录公式",
+      "library_path": "docs/research_library/20261022/native.json",
+      "library_ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "library_url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/docs/research_library/20261022/native.json",
+      "source_grade": "ROOT_ALREADY_VERIFIED_PUBLISHED_LIBRARY_REUSE_NOT_NEW_PROOF_INTAKE"
+    },
+    {
+      "id": "X6-PHASE-MIN64",
+      "reason": "旧n=6 min64完整条目复用；与新lowrank稿分别定型",
+      "library_path": "docs/research_library/20261022/native.json",
+      "library_ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "library_url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/docs/research_library/20261022/native.json",
+      "source_grade": "ROOT_ALREADY_VERIFIED_PUBLISHED_LIBRARY_REUSE_NOT_NEW_PROOF_INTAKE"
+    },
+    {
+      "id": "X6-ADJACENCY-AUT",
+      "reason": "旧全Cell adjacency signed-affine分类复用",
+      "library_path": "docs/research_library/20261022/native.json",
+      "library_ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "library_url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/docs/research_library/20261022/native.json",
+      "source_grade": "ROOT_ALREADY_VERIFIED_PUBLISHED_LIBRARY_REUSE_NOT_NEW_PROOF_INTAKE"
+    },
+    {
+      "id": "X6-TRACE24-REUSE",
+      "reason": "旧V10/C24 exact REUSE关闭，不新增result/vote",
+      "library_path": "docs/research_library/20261022/native.json",
+      "library_ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "library_url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/docs/research_library/20261022/native.json",
+      "source_grade": "ROOT_ALREADY_VERIFIED_PUBLISHED_LIBRARY_REUSE_NOT_NEW_PROOF_INTAKE"
+    },
+    {
+      "id": "X6-SEPARATOR-DRAFT",
+      "reason": "旧本地作者待审稿登记复用，不当已审核定理",
+      "library_path": "docs/research_library/20261022/native.json",
+      "library_ref": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "library_url": "https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/docs/research_library/20261022/native.json",
+      "source_grade": "ROOT_ALREADY_VERIFIED_PUBLISHED_LIBRARY_REUSE_NOT_NEW_PROOF_INTAKE"
+    }
+  ],
+  "source_gaps": [
+    {
+      "id": "LOWRANK-GENERAL-NGE4",
+      "entry_id": "FINITE-ABELIAN-LOWRANK-DRAFT",
+      "gap": "Oct18 generalization的全文只给attachment名，无固定repo locator；不将n>=4转述公式写成已提取完整证明"
+    },
+    {
+      "id": "C192-FULL-79NODE-PAYLOAD",
+      "entry_id": "C192-PAIRWISE-INTERACTION-DRAFT",
+      "gap": "79-node JSON、full proof/scripts/replay只称原conversation附件，compact Source不足以重建数值certificate"
+    },
+    {
+      "id": "X6-LP011-OLD-DOMINANT-BRANCH",
+      "entry_id": "X6-LEGACY-RECONCILIATION",
+      "gap": "原branch公式/精确old occurrence保持UNRESOLVED_PROVENANCE，其他旧语句/whole-corpus gap见既有28row ledger"
+    },
+    {
+      "id": "X6-SEPARATOR-AUTHOR-SOURCE",
+      "entry_id": "X6-SEPARATOR-DRAFT",
+      "gap": "原完整作者whole仍仅本地冻结，无其published author Source或独立peer；旧库登记不替代它"
+    }
+  ],
+  "accounting": {
+    "groups_newly_extracted_or_source_aligned": 14,
+    "old_library_entries_reused": 5,
+    "not_a_count_of_new_theorems": true,
+    "curator_math_votes": 0,
+    "scientific_programs_executed": 0,
+    "research_exploration_resumed": false,
+    "remote_writes": 0,
+    "coverage_file": "native_brc_coverage.json",
+    "deferred_notes_file": "native_deferred_packages.json",
+    "deferred_other_science_file": "native_deferred_other_science.json"
+  }
+}

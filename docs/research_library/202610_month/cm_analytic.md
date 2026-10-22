@@ -1,0 +1,1667 @@
+# 本月CM有限源、端点公式与解析成果摘录
+
+固定快照：56f5938da3f707c1d9db1b39afde124eac4634e3。月baseline：ff1e5a5862eba2eb7cd0c6d9159a7191aa2f8fec。本库为文献摘录，无新数学审核或晋升。有限域通常p=6m+1、p≡13/19mod24、m≥2、N=3m；较广域和p-adic另列。unit binomial g与p-divisible截断g、q/ρ、κ0/targetκ均依来源分别定型。
+
+共 61 个摘录/接口单元。旧库6项另保留REUSE，不重复立题；接受状态逐条保持。
+
+## CM-AN-SOURCE-IMAGE — 立方严格源像、完整核与预设右逆
+
+Γ为完整障碍坐标；预设高系数minor可逆，固定零低块右逆在合法源像上成立。冷预处理O(d³)域运算、O(d²)存储；之后投影/右逆O(d²)。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `q=x(x−3)²/4; (MF)_n=−[x^(N+n)]q′F(q), 1≤n<N, deg F<N; d=2m.`
+- `Γ_s(y)=Σ_(k=0)^(2s) binom(2s,k)(−3)^(2s−k)y_(N−s−k), 1≤s<m.`
+- `rank M=2m; ker M=F_p[z]_(deg<m); im M=∩_(s=1)^(m−1)ker Γ_s.`
+- `ŷ_n=y_n (n≤d); ŷ_(N−s)=−9^(−s)Σ_(k=1)^(2s)binom(2s,k)(−3)^(2s−k)ŷ_(N−s−k), s=m−1,…,1.`
+- `ker T=F_p[z]_(deg<m), T(B)=Π_(0..N)[x^(−N)(x−3)B(q)/24]; B(1)由(T(B),Σ_(j<m)B_j)决定。`
+- `独立forcing低块：L_m(B)=E_(m−1)(1)B_m/e_m−(1/9)Σ_(k=0)^(m−1)2^kE_k(1)/(D_ke_k)；完整2m<r≤N尾在此保留。`
+
+边界：
+
+- 投影ŷ不删除残差y−ŷ；端点单标量修复不恢复全部低块、其他端点或导数。固定forcing单例与环境多项式族的非唯一性分开。
+- 不证明实际半源兼容、C/τ/F_CM目标或新工具族。
+
+作者：EM-DIRECT-18F24A。来源状态：原稿为有界纯纸面单位；对应directed reviews见ROOT_CM24_IMAGE_COMPLETENESS_FULL_SOURCE_CAPSULE与后续custody。
+
+来源：
+
+- [research_notes/CM24_CUBIC_STRICT_SOURCE_IMAGE_COMPLETENESS_AND_PRESET_RIGHT_INVERSE_20261013_FBF223.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_CUBIC_STRICT_SOURCE_IMAGE_COMPLETENESS_AND_PRESET_RIGHT_INVERSE_20261013_FBF223.md)
+- [research_notes/CM24_CUBIC_SOURCE_DESCENT_AND_LOWER_BLOCK_ENDPOINT_TRANSPORT_20261013_FBF223.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_CUBIC_SOURCE_DESCENT_AND_LOWER_BLOCK_ENDPOINT_TRANSPORT_20261013_FBF223.md)
+
+## CM-AN-HALF-NOGO — 全素数族半源多项式lift禁阻
+
+排除同一立方pullback和中央cut、deg F<N的全部Gauss多项式修复。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `β_n^h=Σ_(r=1)^n(2/r+8/(2r−1))2^(−r), v=−β^h−t, t∈im M.`
+- `m≥3: Λ=Γ_2−4Γ_1，末6行权重(1,−12,54,−112,105,−36).`
+- `Λ(β^h)=−19816/3465; Λ(v)=Λ(−β^h)=19816/3465≠0.`
+- `p=13(m=2)沿用原有Γ_1非零证书；故所有原素数的−β^h与v均不在im M。`
+
+边界：
+
+- 2477为素数且≡5mod6保证19816不会被原族素数消掉；小边界不非法使用Γ2。
+- 不排除扩展次数、log/非多项式、不同cut或其他源通道；不推出原标量目标为假。
+
+作者：EM-DIRECT-18F24A。来源状态：来源载纯纸面定理及directed NONBLIND复核；非正式接受。
+
+来源：
+
+- [research_notes/CM24_UNIVERSAL_HALF_SOURCE_POLYNOMIAL_LIFT_OBSTRUCTION_20261013_FBF223.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_UNIVERSAL_HALF_SOURCE_POLYNOMIAL_LIFT_OBSTRUCTION_20261013_FBF223.md)
+
+## CM-AN-ENLARGED — 扩展formal次数、共振修复与B_N=0满射
+
+以高单项式补足旧源像，再用固定ker M方向支付Gauss top compatibility并保留B_N=0。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `对任意有限formal F：Γ_s(MF)=−9·4^(s−1) f_(p−s−1).`
+- `H_s=z^(p−s−1): Γ_t(MH_s)=−9·4^(t−1)δ_(t,s).`
+- `F=R_old(y−Σ_s a_s MH_s)+Σ_s a_sH_s，a_s=−Γ_s(y)/(9·4^(s−1)).`
+- `M∘D*: {B:deg B≤p−2,B_N=0}→F_p^(N−1)满射；D*=z(1−z)D²+(3/2−5z/2)D−5/9.`
+- `m≥3的实际半源需要deg F≥p−3；这不是次数p−3的充分性。`
+
+边界：
+
+- formal次数不模z^p−z归约；两共振行4m、5m不当成独立双障碍。
+- 满射不支付原固定forcing及其目标端点比较。
+
+作者：EM-DVR-FBF223（来源方向/公式贡献）；directed helper原身份UNKNOWN。来源状态：来源为辅助线性代数方向及directed纸面复核，非新身份或正式工具。
+
+来源：
+
+- [research_notes/CM24_EXTENDED_CARRIER_BN0_SOURCE_SURJECTIVITY_DIRECTION_20261013_FBF223.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_EXTENDED_CARRIER_BN0_SOURCE_SURJECTIVITY_DIRECTION_20261013_FBF223.md)
+
+## CM-AN-ENDPOINT-LEDGER — 泛型零seed、完整terminal与外块端点账本
+
+严格源唯一决定terminal c；中央P之外一个实际外块标量足以支付B(1)未来语言。δB=1证明中央读出本身不够。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `W=x^(−N)(x−3)B(q)/24; P=Π_(0..N)W; JP=S, raw S_N=0.`
+- `A=P_0; c=4P_1−P_0; Z=P−Aφ−(c/4)ψ; JZ=(0,y_1,…,y_(N−1),c).`
+- `c=−g^(−1)Σ_(n=1)^(N−1)h_n y_n; Z_N=E−A−cη/4; Z_(N−1)=Z_N+c.`
+- `Ω_B=W_−(1)+W_+(1); B(1)=−12(P(1)+Ω_B).`
+- `ΠJ=JΠ由a_(−1)=d_0=a_N=d_(N+1)=0的四个crossing系数保证。`
+
+边界：
+
+- c与Ω是不同信息；旧t0不能复制到新B，class19 top保留。
+- endpoint-only observer不用于其他端点/jets；未给源→Ω机制。后来的transport条目支付指定全forcing机制。
+
+作者：来源UNKNOWN local directed helper；Root保留原归属。来源状态：来源generic ledger另受directed crosscheck；工具proposal只复用此结果，未注册工具。
+
+来源：
+
+- [research_notes/CM24_GENERIC_ZERO_SEED_TERMINAL_AND_FULL_ENDPOINT_LEDGER_20261013_FBF223.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_GENERIC_ZERO_SEED_TERMINAL_AND_FULL_ENDPOINT_LEDGER_20261013_FBF223.md)
+
+## CM-AN-FORCING-TRANSPORT — 全forcing到唯一carrier及完整端点的显式传输
+
+全兼容forcing唯一支付上下块与Ω；预设源→forcing选择可组合为线性端点传输。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `A_j=(j+1)(j+3/2), D_j=(j+2/3)(j+5/6); f_j=A_jB_(j+1)−D_jB_j.`
+- `j<N: B_j=−e_jΣ_(k=j)^(N−1) f_k/(D_ke_k); e_j=(2/3)_j(5/6)_j/((3/2)_j j!).`
+- `j≥N: B_N=0, B_(j+1)=f_j/A_j+(D_j/A_j)B_j=:U_(j+1)(F′).`
+- `ℓ(F′)=U_(p−1)(F′)=0 ⇔ 存在唯一deg B≤p−2,B_N=0的解；im(D*|B_N=0)=kerℓ.`
+- `B(1)=−Σ_(k<N)f_kE_k(1)/(D_ke_k)+Σ_(j=N+1)^(p−2)U_j(F′).`
+- `α_j=(4^(−j)/24)Σ_(r=max(0,N−j))^min(2j+1,2N−j)binom(2j+1,r)(−3)^(2j+1−r); Ω_B=−B(1)/12−Σ_jα_jB_j.`
+
+边界：
+
+- 输入forcing独立预定；不兼容时不暗改它。e_N不存在，末行单独处理。
+- 内层在已给全forcing后O(N)域state；全管线保留R_old矩阵仍O(N²)，α冷构造O(N²)运算，不能宣称总O(N)。
+- 不替代原固定forcing，不证明C/τ/F_CM目标。
+
+作者：来源UNKNOWN local directed helper；Root贡献/作者归属按完整capsule。来源状态：来源新纯纸面transport及distinct directed review PASS，必须连同cost addendum读。
+
+来源：
+
+- [research_notes/CM24_COMPLETE_FORCING_ENDPOINT_TRANSPORT_WITH_PAID_COST_SCOPE_20261014_FBF223.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_COMPLETE_FORCING_ENDPOINT_TRANSPORT_WITH_PAID_COST_SCOPE_20261014_FBF223.md)
+
+## CM-AN-HARMONIC — 指定两lift的完整有限调和系数证书
+
+给出每个字面k（含0与m）的系数、归一化及top/origin；除p发生于Z_(p)再降模。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `q_k=(−1)^k binom(m,k)binom(3m−k,m); D_k=H_(2m−k)−H_(3m−k), 0≤k≤m.`
+- `Q_k^+/Q_k^−=∏_(r=2m−k+1)^(3m−k)(1−p/r)（exact p-local ratio）.`
+- `Δ=((h_+−h_−)/p) modp=Σ_(k=0)^m q_kD_k z^k.`
+- `χ=H_(2m)−H_(3m); δ_g=gχ; δ_ℓ=g(H_m−H_(2m)); Δ(1)=0.`
+
+边界：
+
+- 所有调和分母<p；零调和权重不反演，degΔ≤m而非保证等于m。
+- 不是通用rank2 rational gauge、κ或Y闭值。
+
+作者：EM-CM24CONN-63E74C9D。来源状态：来源载 directed NONBLIND bounded paper PASS；非Native/正式准入
+
+来源：
+
+- [research_notes/CM24_FULL_FINITE_HARMONIC_LIFT_CERTIFICATE_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_FULL_FINITE_HARMONIC_LIFT_CERTIFICATE_20261014_FBF223.json)
+
+## CM-AN-GREEN — 带权adjoint共轭、共振配对及x^p核修复
+
+完整0/1边界固定唯一允许的非constant derivative kernel，保留所有forcing和共振项。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `L=A D²+B D+C, A=2x(1−x)(4x−1), B=−20x²+15x−1, C=1−4x; w=x^N(1−x).`
+- `L*(wV)=x^N MV; G_(f,V)=2x^(N+1)(1−x)(4x−1)[(1−x)(fV′−f′V)−fV].`
+- `G′=x^N fMV−wVLf; G(0)=G(1)=0.`
+- `J=LΔH; deg J≤N−2; [x^N](1−x)VJ=−g² ⇔ [x^N]HJ=0.`
+- `P_R=Σ_(0≤j≤3N,j≠p−1)R_j x^(j+1)/(j+1); G=P_R−x^pP_R(1).`
+- `G(c)=P_R(c)−cP_R(1); G_(ΔH,V)(c)=[ΔH(c)(H′(c)−g)+(1−2g)ΔH′(c)]/2.`
+
+边界：
+
+- 这不是普通定积分；不能删−cP_R(1)。
+- V=ET的Green row不自动成为T的5T+3T′目标，未评价Y/κ。
+
+作者：EM-CM24CONN-63E74C9D。来源状态：来源载 directed NONBLIND bounded paper PASS；非Native/正式准入
+
+来源：
+
+- [research_notes/CM24_SOURCE_GREEN_CONJUGATION_AND_RESONANT_PAIRINGS_20261015_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_SOURCE_GREEN_CONJUGATION_AND_RESONANT_PAIRINGS_20261015_FBF223.json)
+
+## CM-AN-PI — 指定lift端点泛函的显式调和投影
+
+保留origin/top和全k范围，明确Π尚需的moment row为−20M0+72M1。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `U=(δ_g−(δ_g+δ_ℓ)x+δ_ℓx^N−ΔH)/(x(1−x)); b0=(12+β_N^h)/5.`
+- `ℓ(f)=5f(c)+3f′(c)−b0f(0); Π=ℓ(U).`
+- `Π=(2b0−2)δ_g+(b0−30)δ_ℓ+b0g+Σ_(k=0)^m(72k−20)q_kD_k2^(−k).`
+- `M0=Σq_kD_k2^(−k), M1=Σkq_kD_k2^(−k); Q_Δ=(H′(c)−g)M0/2−3(1−2g)M1.`
+
+边界：
+
+- Q_Δ为另一未评价配对，不能当新增已知标量联立消元。
+- 不证明ℓ(T)=κΠ或选取universal κ，Π可以为0不反演。
+
+作者：EM-CM24CONN-63E74C9D。来源状态：来源载 directed NONBLIND bounded paper PASS；非Native/正式准入
+
+来源：
+
+- [research_notes/CM24_EXPLICIT_LIFT_ENDPOINT_HARMONIC_PROJECTION_20261015_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_EXPLICIT_LIFT_ENDPOINT_HARMONIC_PROJECTION_20261015_FBF223.json)
+
+## CM-AN-QUADRATIC — 参数正确的有限二次response及不可删quarter核
+
+响应必须含lower-parameter counterterm及Jacobi normalizer导数；even descent给出F_p first-jet，quarter remainder不可自动抵消。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `h_ε(z)=Σ_(j=0)^m(−m)_j(m+1/2+ε)_j(1−z)^j/(j!)²; h_±=h_(±p/2).`
+- `K_ε(s)=₂F₁(−2m,2m+1+2ε;1+ε;(1−s)/2)=₂F₁(−m,m+1/2+ε;1+ε;1−s²).`
+- `W=∂_εK_ε|0; C_m(t)=−Σ_(j=0)^m a_jH_jt^j; Δ(s²)=W(s)−C_m(1−s²).`
+- `M_Π=[(18/ζ)D_s−20]W(ζ)+36C_m′(c)+20C_m(c), ζ²=c in F_p².`
+- `S=4r³−3r; S′/(1−S²)=1/(1−r²)+4/(4r²−1).`
+- `I_r[F(S)/(1−r²)]=(I_s[F/(1−s²)])(S)−I_r[4F(S)/(4r²−1)]，在来源指定低次数窗口；B=Δ(s²)的quarter项非零多项式。`
+
+边界：
+
+- 已知quadratic/reflection identity不宣称新发现。
+- 原目标是weighted zeroth-source/full-baseline泛函，并非此response primitive；quarter非零多项式不推出半点值非零或全局no-go。
+
+作者：EM-CM24CONN-63E74C9D。来源状态：来源载 directed NONBLIND bounded paper PASS；非Native/正式准入
+
+来源：
+
+- [research_notes/CM24_PARAMETER_CORRECT_QUADRATIC_RESPONSE_AND_RELATIVE_KERNEL_GAP_20261015_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_PARAMETER_CORRECT_QUADRATIC_RESPONSE_AND_RELATIVE_KERNEL_GAP_20261015_FBF223.json)
+
+## CM-AN-RAW-JET — raw-power点商合法、指定first jet不可除p
+
+给出每原素数的divided point value和指定jet的确切integrality失败；raw power与etale value automorphism分型。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `R=Z_(p)[α]/(2α²−1), ζ=−α; q_p(2)=(2^(p−1)−1)/p.`
+- `α^p−S(α)=pαq_p(2)/2 modp²; 2(α^p)²−1=−p q_p(2) modp².`
+- `Γ(r)=K_(p/2)(S(r))−K_(−p/2)(r^p); Γ(α)/p modp=Δ(c)+C_m(c)−q_p(2)H′(c)/6.`
+- `在R[t]/(t²), r=α+t: Γ modp=3P′(ζ)t≠0，因此Γ(α+t)∉pA.`
+- `genuine etale Frobenius σ(α)=−α exact，其点商为W(ζ)，没有raw q_p修正。`
+
+边界：
+
+- q_p(2)=0时modp² relation defect可消失，jet失败仍在；不得抄旧过强文字。
+- 不排除其他normalized comparison；修复jet需要独立p² transverse normalization，不选择任意counterjet拟合目标。
+
+作者：EM-CM24CONN-63E74C9D。来源状态：来源载 directed NONBLIND bounded paper PASS；非Native/正式准入
+
+来源：
+
+- [research_notes/CM24_FIXED_RAW_POWER_ENDPOINT_VALUE_AND_FIRST_JET_PREFLIGHT_20261015_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_FIXED_RAW_POWER_ENDPOINT_VALUE_AND_FIRST_JET_PREFLIGHT_20261015_FBF223.json)
+
+## CM-AN-SPECTRAL — 有限互补谱section及固定target模板的72证书
+
+正面给唯一有限normalized modp² section；负面只排除该origin/top修正与top scale的整个多项式目标模板。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `n=2m,d=4m=p−1−n; P_d≡P_n modp; R=(P_d−P_n)/(3p) modp.`
+- `L_nR=P_n/9, R(1)=0, deg R=d; ker(L_n on deg<p)=F_pP_n，故R唯一。`
+- `Q_*=(2P_n+P_d)/3 modp²; L_*Q_*=0 modp², Q_*(1)=1，在deg<p窗口唯一。`
+- `U(x)=R(S(r)), x=r², u=[x^(p−1)]U≠0; a=(13g−4)/5; Z_R=(a/u)[U−U(0)−ux^(p−1)].`
+- `E=(1−x)Z_R′−(4x^N−2)(H−H_b): E_(p−3)=(4−53g)/80, E_(p−4)=(20−247g)/560.`
+- `53·560E_(p−4)−247·80E_(p−3)=72≠0.`
+
+边界：
+
+- deg<p窗口不可删；外窗可有p(s^(2p)−1)P_n kernel。
+- 整个primitive模板不等于目标，不推出任一半点/jet必不等或所有未来修正失败。
+
+作者：EM-CM24CONN-63E74C9D。来源状态：来源载 directed NONBLIND bounded paper PASS；非Native/正式准入
+
+来源：
+
+- [research_notes/CM24_FINITE_SPECTRAL_SECTION_FIXED_TEMPLATE_20261015_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_FINITE_SPECTRAL_SECTION_FIXED_TEMPLATE_20261015_FBF223.json)
+
+## CM-AN-HALF-PAIRING — 互反半系数字典与quintic配对精确降阶
+
+以全互反carrier的lossless paired basis替换T与逐级Euler逆系数；剩余为明确rationally weighted Heun半prefix moment。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `H(x)=x^NH(1/(4x)); h_(N−n)=4^(−n)h_n.`
+- `s=1−2g; H_b=g(1+x^N)+(4s/5)x+(s/5)x^(N−1); h=floor((N−3)/2).`
+- `H=H_b+Σ_(r=1)^h α_r(x−1)(4x−1)x^r[1+4^(−r−1)x^(N−2−2r)], α_r=Σ_(n=1)^rh_n(4^(r−n+1)−1)/3−(4s/15)(4^r−1).`
+- `R_5=−5679x+81990x²−328608x³+490032x⁴−242880x⁵; W(z)=Σ_(j=1)^5(R_5)_j2^(−j−1)/(z+j+1).`
+- `Ψ(r)=[2W(r+1)+W(−r−5/2)]/e_(r+1)−[W(r)+2W(−r−3/2)]/e_r; e_r=(r+1)(2r+1).`
+- `I_c(R_5T)=s[−2219177/8400−β_N^h/5]+Σ_(r=1)^h α_r2^(−r)Ψ(r).`
+
+边界：
+
+- 缩减只针对该互反carrier；部分sparse forcing+有限prefix校验不认证fullsource。
+- Z仍未评价；无runtime/bit gain或目标完成。
+
+作者：EM-CM24CONN-63E74C9D。来源状态：来源载 directed NONBLIND bounded paper PASS；非Native/正式准入
+
+来源：
+
+- [research_notes/CM24_RECIPROCAL_HALF_COEFFICIENT_PAIRING_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_RECIPROCAL_HALF_COEFFICIENT_PAIRING_20261014_FBF223.json)
+
+## CM-AN-PREFIX-NORMAL — twisted shift残差与唯一Ω修正
+
+短pole prefix ansatz在每原素数失败；全field shift逆虽存在，但有实际窗口poles。Ω保留为唯一正常形剩余。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `对Δ_qf=qf(r+1)−f(r)，finite simple-pole chain必要Σq^jc_j=0。`
+- `实际Ψ的twisted residue: q=1/2时(integer,half)=(-3/64,-3)；q=2时(-192,-3).`
+- `F_p(r)中E_sh^p=I，q≠1: (E_sh−q)^−1=(1−q)^−1Σ_(i=0)^(p−1)q^(p−1−i)E_sh^i.`
+- `Ω(r)=1/(r+1)+1/(r+3/2); Φ=Ψ+3Ω，是实际窗口regular的唯一此单参数修正。`
+- `Z=L_(h+1)−L_1−3Y−J; Y=Σ_(r=1)^h2^(−r)Ω(r)α_r; J=Σ_(r=1)^h2^(−r)G(r)h_(r+1).`
+
+边界：
+
+- Q上的任意rational no-go不能直接外推characteristic p；F_p必须用实际循环逆与window poles。
+- wrapper另含RR65独立研究，交其他路线采收；本条只CM成员。
+
+作者：EM-CM24CONN-63E74C9D。来源状态：来源载 directed NONBLIND bounded paper PASS；非Native/正式准入
+
+来源：
+
+- [research_notes/CM24_TWISTED_POLE_NORMAL_FORM_AND_RR65_MATH_REVIEW_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_TWISTED_POLE_NORMAL_FORM_AND_RR65_MATH_REVIEW_20261014_FBF223.json)
+
+## CM-AN-J-FLUX — 八simple-pole Heun flux支付J
+
+指定26参数有界类中给出显式8pole solution，端点在所有原素数合法；两residual缩成一个未评价Ωmoment。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `u(r)=(1/12)[−23/(r+4)+87/(r+3)−105/(r+2)+41/(r+1)+41/(r−1/2)−105/(r−3/2)+87/(r−5/2)−23/(r−7/2)].`
+- `A_ru(r)−B_(r+1)u(r+1)/2+C_(r+2)u(r+2)/4=−G(r).`
+- `b(r)=−C_ru(r), a(r)=B_ru(r)−C_(r+1)u(r+1)/2; F_r=2^(−r)[a(r)h_r+b(r)h_(r−1)].`
+- `F_(r+1)−F_r=2^(−r)G(r)h_(r+1); J=F_(h+1)−F_1, F_1=2931g/10.`
+- `Z=(L−F)_(h+1)−(L−F)_1−3Y.`
+
+边界：
+
+- 不声称所有rational flux的完备分类；原执行代码为历史源证据，本轮没有重跑。
+- 支付J不评价Y/Z或原C/τ/F_CM。
+
+作者：EM-CM24CONN-63E74C9D。来源状态：来源载 directed NONBLIND bounded paper PASS；非Native/正式准入
+
+来源：
+
+- [research_notes/CM24_J_ENDPOINT_FLUX_AND_SINGLE_OMEGA_RESIDUAL_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_J_ENDPOINT_FLUX_AND_SINGLE_OMEGA_RESIDUAL_20261014_FBF223.json)
+
+## CM-AN-FOUR-COLUMN — 指定lift四column对全原素数族不可能
+
+所有p-local源lift/endpoint/divisibility preflight合法；失败来自同一固定四column class的源+origin完整兼容性。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+公式：
+
+- `ΔH=((H_+−H_−)/p)modp; U=(δ_g−(δ_g+δ_ℓ)x+δ_ℓx^N−ΔH)/(x(1−x)), degU≤N−3.`
+- `固定class A=λ0+λ1U+λ2θU+λ3xU，要求A(0)=1−2g及P A=(1−g)(1−4x)−g(1−x)x^(N−1), P=M∘E.`
+- `来源用generic整数Bezout与field-unit证书排除N≥9，以及独立p13纸面矛盾，故该class对所有p≡13,19mod24均失败。`
+
+边界：
+
+- 不是任意log/geometry/parameter response no-go；不得扩类后声称此稿已排除。
+
+作者：EM-CM24CONN-63E74C9D。来源状态：来源载 directed NONBLIND bounded paper PASS；非Native/正式准入
+
+来源：
+
+- [research_notes/CM24_Y_CANONICAL_LIFT_FOUR_COLUMN_ALL_PRIMES_NO_GO_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_Y_CANONICAL_LIFT_FOUR_COLUMN_ALL_PRIMES_NO_GO_20261014_FBF223.json)
+
+## CM-AN-KUMMER — 固定边界核的integral Kummer gauge与有限cover禁阻
+
+排除该lift、该proper quotient兼容的ordinary relative H1三reduced-etale-boundary实现；另给isolatedkernel不同grades正例。
+
+覆盖：EXTRACTED。域／前提：原p族；unramified complete O、指定g lift/H_b、A的weak completion；特征零代数cover与modp integral对比各自分型。
+
+公式：
+
+- `K=O[1/p], A=O[r,(1−r²)^−1,(4r²−1)^−1], H_b(1)=1; d=−(8r^p−4r)H_b(r²)/(1−r²).`
+- `ℓ=−4r/(1−r²), Q_b′=d−ℓ∈O[r], Q_b(0)=0; v=V−Q_bz ⇒ z′=0, v′=2dlog(1−r²)z.`
+- `Res_(r=±1)ℓdr=2; finite cover ramificatione后为2e≠0，故核在任何有限代数cover不trivial。`
+- `F=[[a0,0],[u,λ]], u′=a0ℓ−λφ′ℓ(φ); 若a0为O单位且λ integral，modp residue已禁阻。`
+- `(a0,λ)=(p,1)时可用−2log((1−r^(2p))/(1−r²)^p)给integral dagger核comparison（并保留Q_b gauge）。`
+
+边界：
+
+- 不排除dual variance、其他projection、nonreduced/modulus boundary或更大logring；isolatedkernel comparison不是fullrank4实现。
+
+作者：EM-CM24CONN-63E74C9D。来源状态：来源6-member capsule载distinct5DF directed bounded PASS；无mustfix/正式Native准入。
+
+来源：
+
+- [research_notes/CM24_KUMMER_KERNEL_REVIEWED_20261015.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_KUMMER_KERNEL_REVIEWED_20261015.json)
+
+## CM-AN-LOG-GRADES — 全extension residue强制grades及形式comparison
+
+在明确regular logarithmic frame/filtration/category内完全分类residue initial matrices，并给形式充分性；isolated(p,1)不能扩为该full comparison。
+
+覆盖：EXTRACTED。域／前提：p-adic O,K；指定V2 exact lift、t-logarithmic frame、coefficientWittσ与θ=t^p；proper determinant p^−1。
+
+公式：
+
+- `固定2+1+1 rank4 carrier，在t=r−1, θ(t)=t^p，R̂=[[0,0,0,0],[1,0,0,0],[0,0,0,0],[−24,2,2,0]], typeJ3+J1.`
+- `F′=NF−FN_θ; R̂F0=pF0R̂; detG=p^−1。`
+- `g12=0, g11=p g22, g22=pλ, a0=pλ; detG=p³λ² ⇒ λ=μ/p²,a0=μ/p, μ=±1.`
+- `R-adjoint在指定preserved matrix algebra nilpotent，regular recurrence nI−ad_R可逆，故每允许F0有唯一K[[t]]形式comparison。`
+
+边界：
+
+- 不选μ/c/ξ/η，不证明integral/dagger/globalgeometry；其他mixing/irregularframe不被排除。
+
+作者：EM-CM24CONN-63E74C9D。来源状态：来源full-grade capsule载distinct reviewer精确formal category PASS。
+
+来源：
+
+- [research_notes/CM24_LOG_RESIDUE_GRADES_REVIEWED_20261015.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_LOG_RESIDUE_GRADES_REVIEWED_20261015.json)
+
+## CM-AN-LOCAL-DAGGER — 固定F0的局部解析半径、缩disc dagger与精确分母
+
+缩disc两侧gauge integral dagger且≡I modp，分母指数由F0精确决定；必须同时读review applicability addendum。
+
+覆盖：EXTRACTED。域／前提：unramified complete DVR O,K，v(p)=1,v(K*)=Z；specified exact CM24 rank4/residue/algebra。
+
+公式：
+
+- `ad_R^4=0 on preserved unital integral matrix algebra S; ad_R³(E12)=−6E41≠0.`
+- `v(H_n),v((H^−1)_n)≥−4v_p(n!); v(F_n)≥v(F0)−4v_p(n!).`
+- `H,U,F在|t|<p^(−4/(p−1))收敛；F(ps)=H(ps)F0σ(U)(p^ps^p).`
+- `最小scalar clearing M=max{2,1−v(c),−v(ξ),−v(η)}；p²F(ps) integral dagger iff c∈p^−1O, ξ,η∈p^−2O.`
+- `一般重用须保留R∈S、所有B_j∈S、ad_R全S稳定/幂零、σ等距且固定R、RF0=pF0R；t=p^a s,a>m_ad/(p−1)。`
+
+边界：
+
+- 缩disc induced map s↦p^(p−1)s^p modp为0，不是标准s^p Frobenius lift。
+- 不证明原t单位disc、几何Frob或源functional常数；缩disc scalar清分母不保证integral automorphism。
+
+作者：EM-DIRECT-2871C6。来源状态：distinct EM-OWNERGOAL2026101-C89DC6 BOUNDED_PASS_WITH_REQUIRED_EXTRACTION_HYPOTHESES_ADDENDUM。
+
+来源：
+
+- [research_notes/owner_goal_20261015/CM24_LOCAL_ANALYTIC_REVIEWED_BUNDLE.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261015/CM24_LOCAL_ANALYTIC_REVIEWED_BUNDLE.json)
+
+## CM-AN-OPEN-DISC — 原坐标单位开disc的全n对数系数界
+
+实际balanced/log companion与原proper connection精确对齐，扩到fulltriangularcarrier，改进缩disc到原openunitdisc。
+
+覆盖：EXTRACTED。域／前提：原p族；unramified O,K；exact original rank4 N(t)、Hb lift、H0=I；σ等距、θ=t^p及permittedF0。
+
+公式：
+
+- `f_n=(1/3)_n(2/3)_n/(n!)²; g_n=f_nΣ_(j<n)[1/(j+1/3)+1/(j+2/3)−2/(j+1)].`
+- `v(G_n),v((G^−1)_n)≥−log_p(3(n+1)).`
+- `v(H_n)≥−log_p3−3log_p(n+1); v(U_n)≥−2log_p3−4log_p(n+1).`
+- `v(F_n)≥v(F0)−4log_p3−8log_p(n+1); H,U,F在原t的所有|t|<1收敛。`
+
+边界：
+
+- all-n界不包含|t|=1；不选F0常数、几何comparison或目标Y。
+
+作者：EM-DIRECT-88303D。来源状态：独立review位于p11_independent_native_driver/cm24_review/CM24_ORIGINAL_OPEN_UNIT_DISC_INDEPENDENT_REVIEW.md，来源PAPER_PASS。
+
+来源：
+
+- [research_notes/owner_goal_20261016/cm24_convergence_new_anchor/CM24_ORIGINAL_OPEN_UNIT_DISC_LOG_COEFFICIENT_BOUND.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/cm24_convergence_new_anchor/CM24_ORIGINAL_OPEN_UNIT_DISC_LOG_COEFFICIENT_BOUND.md)
+- [research_notes/owner_goal_20261016/p11_independent_native_driver/cm24_review/CM24_ORIGINAL_OPEN_UNIT_DISC_INDEPENDENT_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/p11_independent_native_driver/cm24_review/CM24_ORIGINAL_OPEN_UNIT_DISC_INDEPENDENT_REVIEW.md)
+
+## CM-AN-BOUNDARY-RADIUS — 实际边界pole迫使四矩阵精确半径1
+
+所有permitted fixedF0同结论；已定位实际非零residue，非仅形式猜测。
+
+覆盖：EXTRACTED。域／前提：同OPEN-DISC exactsource和O/K/F0；整个未puncture单位disc。
+
+公式：
+
+- `a=−1/2; Q_a=[[-1/2,1/6],[-3/2,1/2]], rankQ_a=1,Q_a²=0; fullRes=diag(Q_a,0,0)≠0.`
+- `目标R0/t与θ-pullback在a regular；invertible analytic gauge必须ResN1·M(a)=M(a)·ResN2.`
+- `H,U,F,F^−1均不entrywise属于unpunctured K⟨t⟩或K⟨t⟩†。`
+- `结合open-disc定理：四centered matrix series均有exact radius1，任意complete isometric extension的所有|t|=1点均不作为完整矩阵series收敛。`
+
+边界：
+
+- 不声称每个individual entry都发散；不排除analytic continuation、其他局部表达或排除divisor的good-locus ring。
+
+作者：EM-DIRECT-88303D。来源状态：EM-PUBLIC-7CDA51 genuine nonauthor PAPER_PASS，无mustfix。
+
+来源：
+
+- [research_notes/owner_goal_20261016/cm24_convergence_new_anchor/boundary_exact_radius/CM24_ACTUAL_BOUNDARY_POLE_EXACT_RADIUS_ONE.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/cm24_convergence_new_anchor/boundary_exact_radius/CM24_ACTUAL_BOUNDARY_POLE_EXACT_RADIUS_ONE.md)
+- [research_notes/owner_goal_20261016/reviews/cm24_boundary_exact_radius_7cda51/CM24_BOUNDARY_POLE_EXACT_RADIUS_INDEPENDENT_PAPER_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/cm24_boundary_exact_radius_7cda51/CM24_BOUNDARY_POLE_EXACT_RADIUS_INDEPENDENT_PAPER_REVIEW.md)
+
+## CM-AN-P3-OBSTRUCTION — 固定源水平lift在p³的sharp有限jet禁阻
+
+没有任何formalseries/2p-jet modp³水平lift保留此modp源；旧Q_* modp²正例使precision2→3门槛sharp。
+
+覆盖：EXTRACTED。域／前提：p=6m+1原族；fixed characteristiczero operator、originallattice，unknownf不预设次数/奇偶。
+
+公式：
+
+- `L*=(1−s²)D²−2sD−2/9，保留literal modp源P_(2m)，P_(2m)(0)为单位。`
+- `R_j=B_jc_(2j+2)−A_jc_(2j), B_j=(2j+2)(2j+1), A_j=(2/9)(6j+1)(3j+1).`
+- `Dc_(2p)−Ac0=Σ_(j=0)^(p−1)W_jR_j; D=(2p)!, A=∏A_j, v(D)=v(A)=2.`
+- `D/p²=2 modp, A/p²=2/9 modp；水平modp³必要c_(2p)=c0/9 modp，与原source c_(2p)=0冲突。`
+- `对modp² lift residual r_j=R_j/p² modp: Σ_(j=2m)^(3m)W̄_jr_j=−(2/9)P_n(0)≠0，并湮灭所有p²修正。`
+
+边界：
+
+- 是SOURCE VECTOR/原integrallattice，不是comparison morphism、LC-D或几何Frob全局no-go；不重开历史terminal HesseP3 Task。
+
+作者：EM-DIRECT-88303D。来源状态：EM-PUBLIC-7CDA51 genuine new-scope PAPER_PASS。
+
+来源：
+
+- [research_notes/owner_goal_20261016/cm24_convergence_new_anchor/formal_source_p3_obstruction/CM24_SHARP_P_CUBED_HORIZONTAL_SOURCE_LIFT_OBSTRUCTION.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/cm24_convergence_new_anchor/formal_source_p3_obstruction/CM24_SHARP_P_CUBED_HORIZONTAL_SOURCE_LIFT_OBSTRUCTION.md)
+- [research_notes/owner_goal_20261016/reviews/cm24_modp3_source_7cda51/CM24_MOD_P_CUBED_SOURCE_INDEPENDENT_PAPER_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/cm24_modp3_source_7cda51/CM24_MOD_P_CUBED_SOURCE_INDEPENDENT_PAPER_REVIEW.md)
+
+## CM-AN-KERNEL-TRANSPORT — theta核origin至boundary的显式affine传输
+
+指定faithful polynomial-log algebra constants=K；每regularlocalboundary核comparison唯一有该表达，给精确affine normalization law和首precision判据。
+
+覆盖：EXTRACTED。域／前提：原p族O/K，固定g/H_b/Q_b、solution-transport方向与φ；λ∈K*,k∈K。
+
+公式：
+
+- `φ(r)=1+(r−1)^p, t=r−1; L=log((2+t^p)/(2+t)^p).`
+- `Φ=[[pλ,0],[λ(pQ_b−σQ_b(φ)−2L)+k,λ]], detΦ=pλ².`
+- `q*=Q_b(1)=2[gA_p+(1−2g)B_p], A_p=H_N+2H_(p−1), B_p=(8H_(N+1)+2H_(p−2)−4−H_(N−1))/5.`
+- `η=k+λ[pq*−σ(q*)−2log(2^(1−p))].`
+- `λ=μ/p²时v(η−k)≥−2；v≥−1 iff (9h+24)ḡ=7h+12, h=H_N modp.`
+
+边界：
+
+- comparison constant k不是源primitive V(0)；free k允许任意η，并不选真实source/geometric归一化。
+- modp判据只为更高valuation必要首层，不等于exact endpoint equality；不证明fullrank4gluing。
+
+作者：EM-DIRECT-88303D。来源状态：EM-PUBLIC-7CDA51 exactkernel category PAPER_PASS。
+
+来源：
+
+- [research_notes/owner_goal_20261016/cm24_convergence_new_anchor/kernel_origin_boundary_transport/CM24_THETA_KERNEL_ORIGIN_BOUNDARY_AFFINE_TRANSPORT.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/cm24_convergence_new_anchor/kernel_origin_boundary_transport/CM24_THETA_KERNEL_ORIGIN_BOUNDARY_AFFINE_TRANSPORT.md)
+- [research_notes/owner_goal_20261016/reviews/cm24_kernel_transport_7cda51/CM24_THETA_KERNEL_TRANSPORT_INDEPENDENT_PAPER_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/cm24_kernel_transport_7cda51/CM24_THETA_KERNEL_TRANSPORT_INDEPENDENT_PAPER_REVIEW.md)
+
+## CM-AN-RECIPROCAL-DEFECT — 规范有限互反缺陷的完整forcing与归一化
+
+完整canonicaldividedlift给源端点/forcing与有限表示排除，未改lift或用目标残差定义δ。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+前提：
+
+- p≡13或19 mod24，p=6m+1，literal m≥2，N=3m，c=1/2；在Z_(p)先取完整有限lift再做p除。
+- G=binom(3m,m)，h_-(z)=GΣ_(k=0)^m (-m)_k(-2m)_k z^k/[(-3m)_k k!]；ρ=x(4x−3)²，H_-=h_-(ρ)，H=H_- modp，g=G modp。有限范围内分母均为p-unit。
+- 本H_-为指定terminating arithmetic lift，不以具有相同modp H的char0 Legendre pullback替代；R f=x^N f(1/(4x))，δ=((R H_-−H_-)/p)modp。
+
+公式：
+
+- `R f=x^Nf(1/(4x)); δ=((R H_−−H_−)/p)modp，保留原p-integral H_−。`
+- `Lδ=F_rec=(J−RJ)/2+2(1−x)(4x−1)H′+(5−8x)H/2.`
+- `degF_rec=N−1, [x^(N−1)]F_rec=−g/3≠0；δ是deg≤N且δ(1)=0的唯一解。`
+- `Rδ+δ=e4H; δ(1/4)=e4, δ′(1)=−1/2, δ′(1/4)=−2.`
+- `c=1/2: δ(c)=−2h_div; δ′(c)=h_div−η2H′(c), η2=(c^N+1)/p.`
+- `δ∉F_p[ρ(x)]，且δ∉constant span{H,ΔH,xH′}。`
+
+边界：
+
+- h_div未评价；不能换成characteristiczero Legendre lift或另一N。
+- 不排除generalrationalcoefficient/另pullback/geometry，不支付Π/Y bridge。
+
+作者：EM-DVR-F73673 + EM-DIRECT-88303D。来源状态：author3 Source d569b9ffaf853a1b451ae758e5f3e6ef8f82bf50 / independent CF1677 peer2 Source2045b085d9d27a84415de37edda19dabdd5e592e：PAPER_PASS_DERIVED_RESULT_ONLY_COMPOSE_APPLIED；保留原author稿UNREVIEWED创建历史，非现peer状态。
+
+来源：
+
+- [research_notes/owner_goal_20261016/cm24_canonical_reciprocal_defect_joint_f736_883/CM24_CANONICAL_RECIPROCAL_DEFECT_FORCING_NORMALIZATION_AND_PULLBACK_BOUNDARY_AUTHOR.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/cm24_canonical_reciprocal_defect_joint_f736_883/CM24_CANONICAL_RECIPROCAL_DEFECT_FORCING_NORMALIZATION_AND_PULLBACK_BOUNDARY_AUTHOR.md)
+- [research_notes/owner_goal_20261016/reviews/canonical_reciprocal_defect_cf1677/CANONICAL_RECIPROCAL_DEFECT_INDEPENDENT_WHOLE_PAPER_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/canonical_reciprocal_defect_cf1677/CANONICAL_RECIPROCAL_DEFECT_INDEPENDENT_WHOLE_PAPER_REVIEW.md)
+
+## CM-AN-HDIV-MOMENT — 实际canonical h_div的centered quadratic source moment
+
+把未评价p-divided halfvalue变成仅含完整H与F_rec的modp源moment；唯一resonantindex先证明系数零才省略。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE unless the stated p-adic domain replaces it
+
+前提：
+
+- 精确继承CM-AN-RECIPROCAL-DEFECT定义的p、m、N、c、G、h_-、ρ、H_-、H、g与F_rec；不是任意Heun解或char0 Legendre lift。
+- h_div=(H_-(1/2)/p)modp；H_-(1/2)∈pZ_(p)，先在Z_(p)做p除再降到F_p。H′(1/2)为已固定unit。
+
+公式：
+
+- `a_r=[x^r](H F_rec), 0≤r≤p−2；a_N=0，H′(c)≠0.`
+- `h_div H′(c)=Σ_(0≤r≤p−2,r≠N)a_r(1+2^(−r))/(2r+1).`
+
+边界：
+
+- 不是h_div闭值或Π/Y连接；旧Green centeredprimitive机制REUSE，实际canonicalmoment为此稿新source-specific statement。
+- 原稿未审文字与后续独立review分存，不把自检或文献索引当审稿。
+
+作者：EM-FREE-CF1677。来源状态：EM-P11-4A56E9 independent whole review：PAPER_PASS_BOUNDED_NEW_WHOLE_SCOPE_ONLY，mustfix0/repair0；只实际canonical hdiv二次moment箭头，不求hdiv值。
+
+来源：
+
+- [research_notes/owner_goal_20261016/cm24_actual_hdiv_quadratic_moment_cf1677/ACTUAL_CANONICAL_HDIV_CENTERED_QUADRATIC_MOMENT_WORKING.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/cm24_actual_hdiv_quadratic_moment_cf1677/ACTUAL_CANONICAL_HDIV_CENTERED_QUADRATIC_MOMENT_WORKING.md)
+- [research_notes/owner_goal_20261016/reviews/cf_actual_hdiv_quadratic_moment_nonauthor_4a56e9/ACTUAL_CANONICAL_HDIV_QUADRATIC_MOMENT_INDEPENDENT_WHOLE_REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/cf_actual_hdiv_quadratic_moment_nonauthor_4a56e9/ACTUAL_CANONICAL_HDIV_QUADRATIC_MOMENT_INDEPENDENT_WHOLE_REVIEW.md)
+
+## CM-AN-ADJOINT-KERNEL — 有限Gauss adjoint、τ强制积分及共享互反核
+
+原reverseGauss与OLD-R的互反rising-product kernel相同，但observer不同；τ有独立、全部unit分母的构造。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `D_G=w(1−w)D²+(1−3w/2)D−1/18, D_C=D_G*=w(1−w)D²+(1−5w/2)D−5/9.`
+- `D_CC=−((1−w)^N−1)/(9w), degC≤N−1；K=w(1−w)(CV′−VC′)+(w/2)VC.`
+- `K′=C D_GV−V D_CC, K(0)=0, degK≤4m<p; K(c)=C(c)V′(c)/4=−τ.`
+- `τ=−(1/9)Σ_(k=0)^mΣ_(r=1)^N v_k(−1)^rbinom(N,r)2^(−k−r)/(k+r).`
+- `C(w)=Σ_(r=1)^N(−1)^rbinom(N,r)2^(2−r)D_r K_(r−1)(w), K_l=Σ_(j=0)^l(2/3)_j(5/6)_j w^j/(j!)².`
+- `OLD-R=2CT[B_m(z^−1)D_m(z)(1+5z)/(1−z)²].`
+
+边界：
+
+- 两个旧字母g有不同对象：此线binomialunit与UR线p-divisible半点值不可混同。
+- 没有τ→OLD-R或U第二digit标量等式；finite integral度界保留。
+
+作者：EM-ENTERPRISE-CB50ED；Green c0/kernel贡献EM-ENTERPRISE-3F2857。来源状态：来源outside frozenRR的纸面preparation与独立adjoint/bridge review；保留原RR不改。
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-next-p3-20261011/FINITE_ADJOINT_GAUSS_CONCOMITANT_PREPARATION.md`
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-next-p3-20261011/SHARED_GAUSS_GREEN_KERNEL_NEXT_UNIT_PREPARATION.md`
+
+## CM-AN-OLD-R-BOUNDARY — OLD-R有限residue边界及两种rational-antidifference禁阻
+
+finite residue/三角分区给同一完整边界；指定单变量rational Gosper class被排除。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `B_i=2^(−i)(1/6)_i(1/3)_i/(i!)², D_r=2^(r−1)(r−1)!²/(18(5/6)_r(2/3)_r).`
+- `T_m=Σ_(r=1)^m D_rΣ_(i=0)^(r−1)(6(r−i)−1)B_i.`
+- `R_p/2=A_m(1)D_m(1)−6(A_mD_m)′(1)+T_m, A_m=Σ_iB_i z^−i.`
+- `CM0下R_p=6V′(c)D_m(1)+2T_m。`
+- `(i+1/6)(i+1/3)Q(i+1)−2(i+1)²Q(i)=2(i+1)²[1+6(i−r)]没有Q∈Q(r)(i)。`
+
+边界：
+
+- characteristiczero rational无解不是F_p上growing-degree/two-variable/higherorder证书禁阻。
+- T_m不能由目标残差赋值；边界并未评价OLD-R。
+
+作者：来源local作者/辅助身份UNKNOWN，不借用现有身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-lift-cm-value-identity-20261011/old-r-helper/OLD_R_RECIPROCAL_KERNEL_BOUNDARY_AND_RATIONAL_NO_GO.md`
+
+## CM-AN-OLD-R-RECURRENCE — 三角权重的二差与OLD-R四阶有限telescoper
+
+给独立OLD-R三角double-sum的显式scalar递推（展开为四阶R递推），完整保留diagonal bands与R_-1=R0=0。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `H_n=Σ_(r=1)^n(1+6(n−r))D_r; R_n=2Σ_(i=1)^n B_iH_i.`
+- `E_n=H_n−2H_(n−1)+H_(n−2)=D_n+5D_(n−1), n≥2.`
+- `A_n=(n−1/6)(n−1/3), P_n=126n²−117n+41; A_(n+1)P_n E_(n+1)−2(n−1)²P_(n+1)E_n=0.`
+- `J_n=R_n−R_(n−1); X_n=(n−5/6)(n−2/3), Y_n=(n−11/6)(n−5/3); e_n=J_n−X_nJ_(n−1)/n²+X_nY_nJ_(n−2)/(4n²(n−1)²).`
+- `(n+1)²A_(n+1)P_ne_(n+1)−(n−1)²(n+1/6)(n+1/3)P_(n+1)e_n=0.`
+
+边界：
+
+- Q上的有限恒等式、非minimal-order声明；模p使用应保留完整cleared coefficients，不倒置可能为0的P_n。
+- 不是OLD-R闭值或CM target证书。
+
+作者：来源bounded algebra helper作者未解析为Native身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-lift-two-index-certificate-20261012/adjoint-helper/OLD_R_FOURTH_ORDER_FINITE_TELESCOPER.md`
+
+## CM-AN-TWO-INDEX — 有限two-index Heun证书与三canonical积分的归一化变换
+
+有限summand telescoper的top flux由a_(m+1)=0(modp)合法终止；三积分含pole repair和零origin全归一化，另给完整CM observer的明确two-index finite-log kernel。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `Ṽ(1−u)=Σ_(k=0)^m(−1)^kbinom(m,k)binom(3m−k,m)u^k；g=binom(3m,m)为单位。`
+- `实际H的有限recurrence：(n+1)(2n+1)h_(n+1)−(10n²+5n+1)h_n+4n(2n−1)h_(n−1)=0，h_N=4h_(N−1).`
+- `t=(z−1)/(z+1), s=t^p; 对F=W,T,E: I_F(z(t))=[N_F(t)−N_F(1)]/(1−t^p)−[N_F(−1)−N_F(1)]/2.`
+- `N_W=Σ_(r=1)^N t^(2r)/r−2Σ_(n=0)^Nh_n L_(2n)(t).`
+- `N_T=−L_(p−1)(−2t)/6−L_(p−1)(t)/3+(1/2)Σh_n4^(−n)L_(2n)(−2t).`
+- `N_E=−L_(p−1)(t)/3−2L_(p−1)(−2t)/3+L_(p−1)(−t).`
+
+边界：
+
+- N_F(1) Frobenius repair与末normalization不能删；终端forward系数0不能反演。
+- 保留输入4conditionalpremises；并不证明Λ+2q3+OLD-R+6τ=0。
+
+作者：来源local作者/辅助身份UNKNOWN，不借用现有身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-lift-two-index-certificate-20261012/TWO_INDEX_HEUN_CERTIFICATE_AND_NORMALIZED_CM_KERNEL.md`
+
+## CM-AN-SELFADJOINT — self-adjoint Heun、六basefield moments及log²禁阻
+
+整fixed CM observer在literal g归一化下落入六basefield finite harmonic/oddprefix；同一selfadjointsource连接原τ边界。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `P(t)=(t²−1)(4t²−1); S=D_t(PD_t)+(8t²−2); SY=0, Y(t)=V((1−t²)(1−4t²)²).`
+- `E(t)=t(4t²−3)C(w(t))/6; P(EY′−YE′)=K_G(C,V)(w(t)); 在t²=1/2值为−τ。`
+- `h_(N−n)=4^(−n)h_n；F(x)=Σh_n L_(2n)(x): Σh_n4^(−n)L_(2n)(x)=L_(p−1)(x)+x^pF(1/x).`
+- `β_n=2H_n(1/2)+8O_n(1/2)−H_n(1)/3+8O_n(1)/3−7H_n(1/4)/3+20O_n(1/4)/3.`
+- `Λ+2q3=κ0+Σh_nβ_n, κ0=2q2−3q3−8O_N(1/2).`
+- `特征零Sφ=α/(t−1)+β/(t+1/2),(α,β)≠(0,0)无rational φ；相应local强制γ log(t−b)²/(2P′(b))。`
+
+边界：
+
+- 此κ0是已定义finite-log常数，不能代替后期缺失的unindexed target κ。
+- 特征零rational no-go的modp版本需明确pole-order界；不能排除Frobenius modes或higherflux。
+
+作者：来源local作者/辅助身份UNKNOWN，不借用现有身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-heun-zero-sum-next-proof-20261012/SELF_ADJOINT_HEUN_AND_BASE_FIELD_OBSERVER_REDUCTION.md`
+
+## CM-AN-THREE-PHASE — 有限terminal cokernel与三phase源Green接口
+
+常forcing adjoint完整求解有g^−1终端缺陷；精确有符号3phase源与旧observer等价，并保留首末indicator。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `canonical Q0=0，按前N行L*Q=1递推：L*Q=1−g^−1ε_N, Q_(N−1)−Q_N=1−g^−1.`
+- `d_n=β_n−β_(n−1)=[6n+1+6(6n−1)2^(−n)+(6n+7)4^(−n)]/[3n(2n−1)],1≤n≤N.`
+- `c∈{1,1/2,1/4}, φ_c(n)分别为6n+1,36n−6,6n+7.`
+- `s_c(n)=c^n[1_(n≥1)φ_c(n)Q_(n−1)−1_(n<N)4cφ_c(n+1)Q_(n+1)]/3.`
+- `Σ_(n=0)^Nh_nβ_n=β_N+Σ_cΣ_(n=0)^Nh_ns_c(n).`
+
+边界：
+
+- d_(N+1)未定义，不能以0乘undefined恢复末项；完整L*Q=1不可能，因为Σh=1。
+- 是source pairing接口不是剩余scalarcomparison的证明。
+
+作者：来源local作者/辅助身份UNKNOWN，不借用现有身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-three-phase-green-recovery-20261012/FINITE_TERMINAL_AND_THREE_PHASE_GREEN_INTERFACE.md`
+
+## CM-AN-MULTIPLE-FLUX — 固定triangle的H/O多flux与degree-p odd末项
+
+明确polynomialflux给仅1和half phase的inhomogeneous moments；末odd degree-p primitive有真实Frobenius边界。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `T_k=Σ_(j=0)^(2k)binom(2k,j)4^j(−3)^(2k−j)β_(k+j); Σh_nβ_n=gΣ_(k=0)^ma_kT_k.`
+- `f_k=(1−4x)²ρ^k; T_(k+1)−T_k=U_k+V_k，0≤k<m.`
+- `U_k=2I_(1/2)(f_k)−I_1(f_k)/3−7I_(1/4)(f_k)/3; V_k=8J_(1/2)(f_k)+8J_1(f_k)/3+20J_(1/4)(f_k)/3.`
+- `D_H=6(k+2)(3k+4)(3k+5), B_H=27(k+2)(k+1)(2k+1); D_O=3(2k+3)(6k+7)(6k+11), B_O=54(2k+3)(k+1)(2k+1).`
+- `D_HU_(k+1)−B_HU_k=2^(−k)(9k²+30k+26)−9k−86/3.`
+- `D_OV_(k+1)−B_OV_k=2^(1−k)(36k²+96k+67)+144k+656/3，合法共同window k≤m−2；V_(m−1)=(16^m−19)/3−2^(1−m).`
+
+边界：
+
+- V_m/J at nextcut未定义；不能把0×V_m赋0。
+- 6moment转移不消除OLD-R剩余源。
+
+作者：来源local作者/辅助身份UNKNOWN，不借用现有身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-inhomogeneous-multiple-flux-20261012/FIXED_TRIANGLE_MULTIPLE_FLUX_AND_FROBENIUS_TERMINAL.md`
+
+## CM-AN-WEIGHTED-FLUX — Gauss affine-weight telescoper与nonzero odd边界
+
+固定source的affine Gauss权重有实际finite telescoper；精确topFrobenius贡献必须加入，而非形式terminal factor0。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `a_k=(1/6)_k(1/3)_k/((1/2)_k k!), q_H(k)=(k+1/3)(k+2/3), q_O(k)=(k+1/6)(k+5/6).`
+- `G_(X,k)=−2a_k q_X(k)X_k; G_(X,k+1)−G_(X,k)=a_k(k+θ_X)X_k−a_(k+1)s_X(k)/d_X(k).`
+- `θ_H=1/3,θ_O=1/6,d_H=27(k+2),d_O=54(2k+3).`
+- `L_H=Σ_(k<m)a_k(k+1/3)U_k=−23/81−a_mU_m/6+Σ_(k<m)a_(k+1)s_H(k)/(27(k+2)).`
+- `odd effective top boundary B_(O,top)=−2a_m16^m/27≠0.`
+
+边界：
+
+- H-only U_m合法不代表V_m/J合法；unit-weight remainder仍在。
+- 简单two-carrier rational ansatz失败只在来源特征零限定类。
+
+作者：来源local作者/辅助身份UNKNOWN，不借用现有身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-gauss-weighted-terminal-comparison-20261012/GAUSS_WEIGHTED_TELESCOPERS_AND_EXACT_PREFIX_RESIDUAL.md`
+
+## CM-AN-C-BOUNDARY-DICTIONARY — 固定C的connected adjoint及bilinear CM字典
+
+原fixedC、τ与connected a_i coefficients在同一合法finiteconvolution中连接，独立归一化与所有cutoffs保留。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `V(w)=gA(1−w); C̄(z)=C(1−z), D_A*C̄=G_N(z)/9, G_N=Σ_(j=0)^(N−1)z^j.`
+- `J(z)=z(1−z)(C̄A′−AC̄′)+(z−1)AC̄/2; J′=−A G_N/9; J(1)=0, J(c)=τ/g.`
+- `[z^s]J=−Σ_(i=max(0,s−N))^min(m,s−1)a_i/(9s),1≤s≤4m；J0=−Σ_(s≥1)J_s.`
+- `τ/g=(1/9)Σ_(i=0)^ma_iΣ_(r=i+1)^(i+N)(1−2^(−r))/r.`
+
+边界：
+
+- 不以C或CM导数相除；cubic pullback跨p次数时仍须保留Frobenius尾。
+- 不评价全部target残差。
+
+作者：来源local作者/辅助身份UNKNOWN，不借用现有身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-bilinear-cm-boundary-dictionary-20261012/FIXED_C_COEFFICIENT_BOUNDARY_AND_GENUINE_ODD_SOURCE.md`
+
+## CM-AN-RECIPROCAL-D — 实际weighted reciprocal D反射及双prefix C核
+
+真实reciprocal/connectedadjoint kernel在实际字面有限index反射；完整C具有doubleprefix字典。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `η_r=rD_rt_r=(1/2)_r(r−1)!/(36(2/3)_r(5/6)_r), t_r=2^(−r)(1/2)_r/r!.`
+- `e_j=(2/3)_j(5/6)_j/((3/2)_j j!); η_(N−j)=η_Ne_j, 0≤j<N; η_Ne_(N−1)=1/40.`
+- `C̄_j=−8η_Ne_jΣ_(s=0)^(N−j−1)e_s.`
+- `C(c)=−8η_NΣ_(r=1)^N e_(N−r)E_(r−1)(c).`
+- `r≤m旧OLD-R窗对应e-index2m..N−1；C的另m<r≤N段不能丢。`
+
+边界：
+
+- 不引入e_N/η0，不改OLD-R cutoff；高r尾未被消掉。
+
+作者：来源local作者/辅助身份UNKNOWN，不借用现有身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-reciprocal-D-prefix-CM-comparison-20261012/FINITE_RECIPROCAL_D_REFLECTION_AND_CM_CUTOFF_SOURCE.md`
+
+## CM-AN-ACTUAL-DENSITY — 六H/O moments的完整terminal-subtracted density与Green边界
+
+指定六moment真实密度与固定C有直接inhomogeneous Green关系；terminalρ^m、middleFrobenius kernel与m/N cutoffs均保留。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `η_N=−1/(18g²), e_(N−1)=−9g²/20（Wilson固定归一化）。`
+- `P(z)=Σ_(k=0)^(m−1)(Σ_(i=0)^ka_i)z^k; (1−z)P=A−z^m/g.`
+- `D0=g(1−4x)²P(ρ)=(y−ρ^m)/(1−x), degD0≤N−1; g(B_H+B_O)=ℒ(D0).`
+- `𝒯=H_operator∘(1−x): 𝒯D0=2(4x−1)ρ^(m−1).`
+- `𝒦_𝒯(E,D0)(c)=−τ−2^(−m)[C(c)/3−C′(c)/4], E=(4x−3)C(1−ρ)/6.`
+
+边界：
+
+- ℒ(D0)不是此Green边界本身；未证明独立scalar target。
+- ρ leading16，不得误写leading4；C′为原w导数。
+
+作者：来源local作者/辅助身份UNKNOWN，不借用现有身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-common-kernel-density-comparison-20261012/ACTUAL_HO_DENSITY_FIXED_C_GREEN_AND_MIDDLE_TAIL.md`
+
+## CM-AN-FINITE-TRANSPOSE — 全六moment的canonical有限transpose与唯一未闭末行
+
+给wholefunctional的actuallegal recurrence与末rowresidual，不以“存在逆”或targetfitted seed替代缺失比较。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `𝒯:P_(N−1)→P_N injective, rankN, im𝒯=imH, ker𝒯^T=span(4^(−n)h_n).`
+- `(𝒯^Tf)_n=n(2n−1)f_(n−1)−2(6n²+4n+1)f_n+(18n²+37n+20)f_(n+1)−4(n+2)(2n+3)f_(n+2).`
+- `末行(𝒯^Tf)_(N−1)=6f_(N−2)−17f_(N−1)+5f_N.`
+- `λ_n=ℒ(x^n); R0=R1=0按前N−1行递推，δ=26/3−(6R_(N−2)−17R_(N−1)+5R_N).`
+- `𝒯^T R=λ−δε_(N−1); 𝒯^TQ=g^−1ε_(N−1); F=R+gδQ给𝒯^TF=λ.`
+- `gδ=Σh_nβ_n; ℒ(D0)=T_m−gδ.`
+
+边界：
+
+- 固定C候选firstN−1行已证，最后terminal identity仍未证；δ配对是同一未知observer，不是新独立评价。
+
+作者：来源local作者/辅助身份UNKNOWN，不借用现有身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-finite-transpose-functional-gap-20261012/CANONICAL_FINITE_TRANSPOSE_AND_FIXED_C_TERMINAL_ROW.md`
+
+## CM-AN-C-GREEN-MATCH — fixedC中央projection与canonical有限Green源匹配
+
+独立fixedC经过actualpullback+resonantcut，等于已预设小源的Green响应，noncircular地匹配一个真实源component。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `J=2x(x−1)(x−4)D²+(5x²−15x+4)D+(x−1); J_flat*(x^NF)=x^NJF.`
+- `φ_n=4^(−n)h_n/g, ψ0=0,ψ1=1；Wronskian W_j=4^(−j)/((j+1)(2j+1))，Jψ=4ε0−4εN.`
+- `G(n,j)=4^(j−1)(φ_jψ_n−ψ_jφ_n); zero-seed Z_n=Σ_(j<n)G(n,j)f_j.`
+- `Ψ=Π_(0..N)[x^(−N)(x−3)C̄(q)/24], q=x(x−3)²/4: JΨ=f^C, f_n^C=(1−4^(−n))/9.`
+- `Ψ_n−Ψ0φ_n=Σ_(j<n)G(n,j)(1−4^(−j))/9.`
+
+边界：
+
+- coefficient transpose与flatadjoint不同；只对固定cut通勤；source−β还多一明确额外通道。
+- 所有内部h_n可为0，未倒置；topterminal不任意设0。
+
+作者：来源local作者/辅助身份UNKNOWN，不借用现有身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/CM24_HALF_SOURCE_ALL_175_FROZEN_ORIGINALS_CONTAINER.json)；原始内嵌成员：`cm24-terminal-green-source-comparison-20261012/FIXED_C_CENTRAL_PROJECTION_AND_FINITE_GREEN_KERNEL_MATCH.md`
+
+## CM-AN-HALF-PREFIX — 半prefix独立adjoint、quadraticblock及class19终端
+
+同一K_half被独立forcing支付；中央source除了half-geometric还有真实quadraticblock，class19 terminal=−1/3不能删。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE；沿用来源的finite transport/full forcing/marked CM value/CM0条件前提
+
+公式：
+
+- `D_A*B=G_N(2z)/9, B_N=0；B_j=−2e_j E_(N−j−1)(1/2)/(9g²), B_(N−1)=1/10.`
+- `B(1)=−2K_half/(9g²), K_half=Σ_(r=1)^N e_(N−r)E_(r−1)(1/2).`
+- `a_-1=0,a0=1,a_(k+1)=4a_k−a_(k−1); t_n=−2^(−n)/18+(a_(n+N−1)−2a_(n+N))/9−(a_(n−1)+a_n)/6.`
+- `χ3=(3/p); t0=(χ3−1)/6, t_N=0,t1=(6χ3−7)/12.`
+- `Z^B=P_B−(P_B)0φ−(t0/4)ψ；JZ^B=t−t0ε0+t0εN.`
+
+边界：
+
+- 不是实际harmonic−β^h；来源有具体firstrow mismatch，剩余v=−β^h−t仍需要源机制。
+- 原C与新B不是同一constructor；τ/F_CM关系仍为独立constructor比较，不定义自目标。
+
+作者：来源local作者/辅助身份UNKNOWN，不借用现有身份。来源状态：来源directed NONBLIND条件纸面单位与同包review；未正式晋升
+
+来源：
+
+- [research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/HALF_PREFIX_ADJOINT_AND_BRANCH_CORRECT_GREEN_SOURCE.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/CM24_HALF_SOURCE_CUSTODY_20261013_FBF223/HALF_PREFIX_ADJOINT_AND_BRANCH_CORRECT_GREEN_SOURCE.md)
+
+## CM-AN-UR-ACCEPTED — CM(−24) supersingular单位互反：正式结果与归一化prior-art应用
+
+审核Chisholm–Deines–Long–Nebe–Swisher weighted定理在d=3,λ=1/2,α=6的全部假设和supersingular双sign后，闭合UR；另保留finitecertificate作为同结论替代证明路线，不计第二定理。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE（本条若另写p≡1mod6，按更广域）
+
+公式：
+
+- `g_divisible=Σ_(k=0)^(p−1)(1/6)_k(1/3)_k2^(−k)/(k!)²∈pZ_(p), h=Σ(12k+1)B_k.`
+- `UR: (g_divisible/p)(−6Q_m′(1/2))≡1 modp.`
+- `W_p=Σ_(k<p)(6k+1)(1/2)_k(1/3)_k(2/3)_k2^(−k)/(k!)³≡p modp².`
+- `finiteClausen: g_divisible h≡W_p modp²；valuationblocks使i+j≥p尾仅保证p²，不自动p³。`
+- `另一finiteWronksian proof route：R(s)/p=−s^p(s^p−3)(3s^p−1)/(3(s^p−1)²(s^p+1)²)，CM值−1/12对应同一UR第一digit。`
+
+边界：
+
+- 此g是p-divisible截断半点值，不是其它条目binomialunit g。
+- 引用已发表supercongruence与固定接口，非首次数学发现；LIFT/JT2第二digit仍开。
+- wrapper内历史RETURN的DRpending不覆盖后来真实ACCEPTED record。
+
+作者：EM-DIRECT-49ADE6；原有Jacobi/Clausen作者署名保留；finitecertificate路线为Root-directed局部纸面支持。来源状态：实际RR-E0E9...及DR-8D594... disposition ACCEPTED；sharedambient/NONBLIND；本轮只保留原状态。
+
+来源：
+
+- [research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-SUPERSINGULAR-UNIT-RECIPROCITY/MCP-b4bf84ccfffc4affacc0f551cb1fa0ad/bf1275141ba581afbb25/RETURN.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-SUPERSINGULAR-UNIT-RECIPROCITY/MCP-b4bf84ccfffc4affacc0f551cb1fa0ad/bf1275141ba581afbb25/RETURN.md)
+- [research_result_records/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-SUPERSINGULAR-UNIT-RECIPROCITY/RR-E0E9D0026B3BBAAD1F9A.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_records/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-SUPERSINGULAR-UNIT-RECIPROCITY/RR-E0E9D0026B3BBAAD1F9A.json)
+- [research_result_reviews/RR-E0E9D0026B3BBAAD1F9A/DR-8D5946CCB0DC16621369.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_reviews/RR-E0E9D0026B3BBAAD1F9A/DR-8D5946CCB0DC16621369.json)
+- [driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/fad2102a6ac39f4c9ec1/SIGNATURE3_DEGREE2_FROBENIUS_WRONSKIAN_CERTIFICATE.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/fad2102a6ac39f4c9ec1/SIGNATURE3_DEGREE2_FROBENIUS_WRONSKIAN_CERTIFICATE.md)
+- [driver_reviews/mcp/MCP-8e7ab9b9339b434a962fced50e53e5c3/5118c31d04c900f2031a/REVIEW.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-8e7ab9b9339b434a962fced50e53e5c3/5118c31d04c900f2031a/REVIEW.md)
+
+## CM-AN-Q2-TRANSPORT — 有限Gauss–Hesse quadratic全系数modp²传输
+
+用finitecutoffvaluation和characteristiczeroformalidentity合法传输到wholepolynomial；半点第一divideddigit与markedJacobian明确。
+
+覆盖：EXTRACTED。域／前提：全p≡1mod6,p≥7；half CM结论才限p≡13/19mod24。
+
+公式：
+
+- `a_n=(1/6)_n(1/3)_n/(n!)², b_n=(1/3)_n(2/3)_n/(n!)²; f_p=Σ_(n<p)a_nw^n, L_p=Σ_(n<p)b_nx^n.`
+- `p=6m+1≥7: v_p(a_n)=1_(n>m)+1_(n>2m), v_p(b_n)=1_(n>2m)+1_(n>4m).`
+- `f_p(4x(1−x))≡L_p(x) modp²，entire coefficientwise polynomial congruence。`
+- `x_±=(2±√2)/4 exact: L_p(x_±)/p≡f_p(1/2)/p modp；q′(x_±)=∓2√2，L_p′(x_±)≡q′f_p′(1/2) modp².`
+- `lift shift x_±+pε使dividedfirstdigit改变εL_p′(x_±) modp。`
+
+边界：
+
+- Q2只支付firstdivideddigit，第二digit要p³；CM点lift及branchorientation不能删。
+- 不是UR值等于1或rawperiodsource normalization。
+
+作者：CM24 audit任务MCP-437d44...该研究者；原稿native显示身份按原文件保留。来源状态：来源AUTHOR_PROOF/exact regression及LOCAL_DECISIVE_P2_REVIEW，未据索引升级formal接受。
+
+来源：
+
+- [research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-UR-EXTERNAL-PRIOR-ART-AUDIT/MCP-437d44dcd4e241aaaf32867dfe6d6368/b1e66412a436e4c99749/CM24_QUADRATIC_MOD_P2_TASK_LIFT_PROOF.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-UR-EXTERNAL-PRIOR-ART-AUDIT/MCP-437d44dcd4e241aaaf32867dfe6d6368/b1e66412a436e4c99749/CM24_QUADRATIC_MOD_P2_TASK_LIFT_PROOF.md)
+
+## CM-AN-HESSE-P3-ACCEPTED — 有限inhomogeneous Hesse p³ carrier与第二divideddigit
+
+独立finiteforcing与全部unit recurrence、independentboundary支付task-local p³ transport；seconddivideddigit获合法修正。
+
+覆盖：EXTRACTED。域／前提：全p≡1mod6,p≥7；markedCM second digit限原13/19mod24族。
+
+公式：
+
+- `I(0)=0; (j+1)²i_(j+1)=(j+1/3)(j+2/3)i_j−2/9；D_H I=−(2/9)Σ_(j=0)^(p−2)x^j.`
+- `J=I+B H，B独立harmonicboundary，H=L_p modp；f_p(4x(1−x))=L_p+p²x^pJ modp³.`
+- `CM x_±: H(x_±)=0 ⇒ g_divisible/p=L_p(x_±)/p+pσ(x_±)I(x_±) modp².`
+- `T_*=x(1−x)(I′H−IH′), I(x_±)H′(x_±)=−8T_*(x_±)；同点second digit可改写为−8pσ(x_±)T_*/H′。`
+- `全derivative/ordinaryperiod state仍用J，不能把B H删掉。`
+
+边界：
+
+- CM0只使某pointvalue去掉homogeneousboundary，firstjet仍有影响；LIFT/UR上层source-mark/period normalization不被自动闭合。
+- 历史sixprimechecker数据只作当时证据，本轮未执行或重跑。
+
+作者：EM-ENTERPRISE-CB50ED；shared parameter-jet贡献者native身份UNKNOWN；distinct reviewer EM-ENTERPRISE-3F2857。来源状态：实际RR-AA50...和DR-8351... ACCEPTED；原proof历史pending字样原样保留；Task范围的真实terminal接受不升级父目标。
+
+来源：
+
+- [research_artifacts/mcp/RS-ENTERPRISE-CM24-HESSE-INHOMOGENEOUS-P3-TRANSPORT/MCP-2888969f687249df8f9ee8722d9368b1/03bed066d1392ba1a2ab/CM24_HESSE_P3_TRANSPORT_RETURN.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-ENTERPRISE-CM24-HESSE-INHOMOGENEOUS-P3-TRANSPORT/MCP-2888969f687249df8f9ee8722d9368b1/03bed066d1392ba1a2ab/CM24_HESSE_P3_TRANSPORT_RETURN.md)
+- [research_result_records/RS-ENTERPRISE-CM24-HESSE-INHOMOGENEOUS-P3-TRANSPORT/RR-AA50A881C6A2DD42BDD3.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_records/RS-ENTERPRISE-CM24-HESSE-INHOMOGENEOUS-P3-TRANSPORT/RR-AA50A881C6A2DD42BDD3.json)
+- [research_result_reviews/RR-AA50A881C6A2DD42BDD3/DR-835110A810EFA980FC97.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_result_reviews/RR-AA50A881C6A2DD42BDD3/DR-835110A810EFA980FC97.json)
+
+## CM-AN-HESSE-REFLECTION — 全carrier反射确定boundary及单basefield第二digit标量
+
+反射从wholefinitepolynomial固定原homogeneousboundary；CMvalue correction恰有一个F_p自由标量，而全state保留signedbranches。
+
+覆盖：EXTRACTED。域／前提：p≡1mod6≥7；CMscalar范围原13/19族。
+
+公式：
+
+- `I(x)+I(1−x)=I(1)H(x); J(x)=I(x)−I(1)H(x)/2，J(1−x)=−J(x).`
+- `因此旧B=−I(1)/2，整个correction可只在F_p独立recurrences构造，而不是拟合differencequotient。`
+- `CM标记√2=s: I(x_+)=βs,H′(x_+)=αs, T_*(x_+)=τ∈F_p；β=−4τ/α.`
+- `g_divisible/p=Tr(L_p(x_+)/p)/2+2pτ/α modp².`
+
+边界：
+
+- 这是同一已证carrier的结构后果，不重复记为另一个p³transport。
+- L_p/p仍需exactalgebraiclift至p³；不识别α为rawmodularperiod。
+
+作者：EM-ENTERPRISE-CB50ED。来源状态：来源outside frozen16fileRR的纸面supplement，OWNER_REVIEW_PENDING/READONLY_PAPER_CONSEQUENCE；不借正式RR审核覆盖新增范围。
+
+来源：
+
+- [driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/2a8ebb4c8c682d5d99dd/GLOBAL_REFLECTION_FIXES_CARRIER_BOUNDARY_PREPARATION.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/2a8ebb4c8c682d5d99dd/GLOBAL_REFLECTION_FIXES_CARRIER_BOUNDARY_PREPARATION.md)
+- [driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/2a8ebb4c8c682d5d99dd/CM_REFLECTION_AND_SCALAR_SECOND_DIGIT_PREPARATION.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/2a8ebb4c8c682d5d99dd/CM_REFLECTION_AND_SCALAR_SECOND_DIGIT_PREPARATION.md)
+
+## CM-AN-XI-FORCING — 二次digit rational pullback的完整forcing、四boundary与Ξ构造
+
+actualfinitecutoff产生nonzeroinhomogeneousforcing；三个有限值+一个infinity系数完整固定Frobeniuskernel，提供constructiveΞ而非可调constant。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE（本条若另写p≡1mod6，按更广域）
+
+公式：
+
+- `F=Σ_(n<p)b_nx^n: D_HF=−Λ_p x^(p−1), Λ_p=(p−2/3)(p−1/3)b_(p−1), Λ_p/p²=(2/9)(1−3pq3) modp².`
+- `A=(3z−1)/(z−1)³, B=(3z−1)²/(z+1)³, L=(z+1)/(2(1−z)); K=B(1−B)/B′.`
+- `R=K[F(B)(LF(A))′−LF(A)(F(B))′], J0(t)=t(t−3)(3t−1)/(t²−1)².`
+- `Ξ=[R+(p/3)J0(z^p)]/p² modp; Ξ′=−(2/9)[H(B)A′A^(p−1)/(2L)−LH(A)B′B^(p−1)]+z^(p−1)J0′(z^p)/3.`
+- `Ξ(0)=0, Ξ(3)=Ξ(1/3)=3q3/8, [z^−p]Ξ=q3；poles仅±1、order≤3p−1。`
+- `标记ζ=3−2√2: (U_p−1)/p=−12Ξ(ζ)；LIFT iff Ξ(ζ)=−(OLD-R+6τ)/12.`
+
+边界：
+
+- 不能把R/p在p³当derivativezero；必须保留reference导数与cyclotomiclift pole修复。
+- Ξ构造不证明最后LIFT-XI等式；旧κ0/新unindexedκ不得混同。
+
+作者：Root-directed cm24_ur_adjoint_frontier及algebra helper；native身份UNKNOWN。来源状态：来源directed bounded paper及P3_FORCING_INDEPENDENT_PEER_REVIEW，非新正式Task/接受。
+
+来源：
+
+- [driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/c3d6233e1572bf4a2bbf/P3_FINITE_PULLBACK_FORCING_AND_FIXED_BOUNDARIES.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/c3d6233e1572bf4a2bbf/P3_FINITE_PULLBACK_FORCING_AND_FIXED_BOUNDARIES.md)
+
+## CM-AN-HESSE-HASSE — corrected全Hesse Hasse/Fricke pullback与错误27因子边界
+
+由ternarymultinomialHasse系数与finiteGaussquadraticODE证明完整polynomial身份；标准ellipticHasse criterion另作supersingularity依赖。
+
+覆盖：EXTRACTED。域／前提：p≡1mod6,p≥7；smooth Hesse h³≠1，经典外部genus1模型。
+
+公式：
+
+- `K(z)=Σ_(k=0)^mbinom(m,k)binom(2m,k)z^k, S(X)=X^mK(108/X).`
+- `A_p(h)=Σ_(a=0)^(2m)(3a)! h^(6m−3a)/(27^a(a!)³).`
+- `A_p(h)=27^(−m)(h³−1)^m S(27h^6/(h³−1)).`
+- `h=(H+3)/3, A=(H+3)^6, B=(H+3)^3−27: P_H(H)=27^(−2m)B^mS(A/B)=Σ s_k A^(m−k)B^k.`
+- `全族P_H有p−1不同finite roots；不能额外在每项乘27^(−k)。`
+
+边界：
+
+- fixedS与namedS_p^(3A)识别为继承前提，不假装重新证明Sakai命名定理。
+- p19/37历史exactchecks显示extra27^-k在标记lifts失败，但不扩大finitechecks为来源proof；未识别specificperiod/differential normalization。
+
+作者：来源directed reviewer/finite algebra helper身份依原文，非新Native票。来源状态：DIRECTED/SHARED/NONBLIND/NONOFFICIAL DR；数学formula按来源固定scope。
+
+来源：
+
+- [research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-UR-EXTERNAL-PRIOR-ART-AUDIT/MCP-819cb5e7608f40c192302fc038efc0cb/4a6ad4169374cc24c101/CM24_GLOBAL_HESSE_HASSE_REVIEW_20261011.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-UR-EXTERNAL-PRIOR-ART-AUDIT/MCP-819cb5e7608f40c192302fc038efc0cb/4a6ad4169374cc24c101/CM24_GLOBAL_HESSE_HASSE_REVIEW_20261011.md)
+
+## CM-AN-D25-FIXED-X — D25 fixed-x/xi representative bridge对divided digit零影响
+
+exactcurve chainrule+all-good-prime residueproof排除用fixed-x/xi差异产生missingD25digit的路线，并定位真正需要的DP-coefficient。
+
+覆盖：EXTRACTED。域／前提：p>3、goodreduction、unramified p-adic A含√2；原target族自动good。
+
+公式：
+
+- `E:y²+xy+(t/27)y=x³, D=2y+x+t/27, ξ=−x/y, t=(2−√2)/4.`
+- `G_x=∂_λω|_x=−√2(x+t/27)dx/(108D³).`
+- `G_ξ=G_x+d_rel Q_λ, Q_λ=√2 x/[108D(y+x+2t/27)].`
+- `J_x=J_ξ−p q_p, q_p=[ξ^p]Q_λ∈pA，故J_x≡J_ξ modp²。`
+- `在固定c_p和ordinaryclass下，实际DP lift差异F所需observer为κ_p=[ξ^p]F modp；此coordinatebridge给κ_p=0。`
+
+边界：
+
+- ordinaryexactprimitive不自动保留DPclass/CM/Frobenius全部前提；c_p modp²和actualcompanion未识别。
+- κ_p是该D25observer，不是其他CM缺口的unindexedκ。
+
+作者：EM-ENTERPRISE-1C7646。来源状态：来源LOCAL_ALGEBRAIC_INCREMENT/AUTHOR_PROOF，后续bounded引用不当作formalTask接受。
+
+来源：
+
+- [research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-078376aa00ee4999935d36d5b9766cd6/455dda816873d7acb044/D25_FIXED_X_BRIDGE_DRAFT.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-078376aa00ee4999935d36d5b9766cd6/455dda816873d7acb044/D25_FIXED_X_BRIDGE_DRAFT.md)
+- [driver_reviews/mcp/MCP-9eca0c29f7a943cfbaa8a5b5cf923744/1bae770cf9b0efce0baa/OWNER_D25_INTEGRATION.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-9eca0c29f7a943cfbaa8a5b5cf923744/1bae770cf9b0efce0baa/OWNER_D25_INTEGRATION.md)
+
+## CM-AN-D25-EIGENLIFT — literal DP eigenlift的低阶valuation禁阻
+
+specifiedunramifiedquotient/literalsubstitution/valuation1eigenvalue与unitcompanion coefficient不能同时满足；actualcorrectiondata是额外源输入。
+
+覆盖：EXTRACTED。域／前提：oddp，unramified completeDVR A，coefficient automorphismθ；特定M/pI quotient及Φ低jet∈pA。
+
+公式：
+
+- `M={B∈ξK[[ξ]]:B′∈A[[ξ]]}, I=ξA[[ξ]], N=M/pI.`
+- `Φ(ξ)≡ξ^(p²)modp，T(B)=B^θ(Φ), λ=pu,u∈A*；若T([B])=λ[B] inN，则b_(p−1)∈pA。`
+- `原因[ξ^p]T(B)∈pA，而[ξ^p]λB=u b_(p−1).`
+- `B→B+F,F∈I不改变此obstruction；若两个lift满足同一literalrelation，则F∈pI。`
+- `纠正为defect S后，F̄^θ̄(ξ^(p²))=S̄−D̄_B；κ=θ̄^−1([ξ^(p³)](S̄−D̄_B))，仅为给定defect的条件提取。`
+
+边界：
+
+- 不反驳所有Proposition16解释/ramified maximalideal版本或已接受UR；不是所有geometryFrob no-go。
+- 没有actualS/κ/LIFT值；modp³源vector条目是另一个对象，不能混用。
+
+作者：EM-ENTERPRISE-B078A6。来源状态：AUTHOR_PROOF_V2/LOCAL_SOURCE_INTERPRETATION_AUDIT；来源有独立Driver bounded audit，非Taskhardtarget接受。
+
+来源：
+
+- [research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-bb6f343045854a798ca781ee73de2e39/4aadeecdcffc19567a11/D25_LITERAL_DP_EIGENLIFT_OBSTRUCTION.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-bb6f343045854a798ca781ee73de2e39/4aadeecdcffc19567a11/D25_LITERAL_DP_EIGENLIFT_OBSTRUCTION.md)
+
+## CM-AN-D25-KATZ — Katz natural map与(1/p)F比较的精确分型及representative digit
+
+明确两个比较箭头、primitive/cocycle附加条件与fullformal模型的差别，给有条件的下一digit所需数据。
+
+覆盖：EXTRACTED。域／前提：perfectk的WittDVR，oddp；实际CM应用额外需要formalgroup primitive class、actualK识别与sameclassbridge。
+
+公式：
+
+- `A=W(k), L=FracA; M={U∈XL[[X]]:U′integral}, I=XA[[X]], N=M/pI,O=M/I.`
+- `K:N→O,[U]↦[U^σ(X^p)/p]是σ-semilinearisomorphism；natural q([U])=[U]不是K。`
+- `q([X])=0而K([X])=[X^p/p]≠0。`
+- `固定primitiveDPclass u及ordinaryclass v，若actualcomparison已识别为K且有same-classB−B0=F∈I，则U_η=U+pηX保持class但B_η=B+η^σX^p.`
+- `κ_η=κ+η^σ modp；[X^p](B−B0)=u0^σ/p+h_p−[X^p]B0，需u0 modp²。`
+- `若独立前提exact固定DPleading normalization，此ηfamily被排除；不能由classlevel不足推出所有normalizedmodel模糊。`
+
+边界：
+
+- K在fullformalquotient为iso不自动识别2013source actualcompanion比较，primitive restriction另需证明。
+- V1/V2同一单元版本合并保留V2scope，无第二定理；不是actualκ值或ordinaryscalarc_p含糊结论。
+
+作者：EM-ENTERPRISE-B078A6。来源状态：AUTHOR_PROOF_V2/CONDITIONAL_MODEL，未formalaccepted；原Katz原文sourceconditions为引用依赖。
+
+来源：
+
+- [research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-bb6f343045854a798ca781ee73de2e39/13f97bdc12e49d101d97/D25_KATZ_COMPARISON_REPRESENTATIVE_BOUNDARY.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-bb6f343045854a798ca781ee73de2e39/13f97bdc12e49d101d97/D25_KATZ_COMPARISON_REPRESENTATIVE_BOUNDARY.md)
+- [research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-bb6f343045854a798ca781ee73de2e39/dd90c565be5dab99d942/D25_KATZ_COMPARISON_REPRESENTATIVE_BOUNDARY.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-bb6f343045854a798ca781ee73de2e39/dd90c565be5dab99d942/D25_KATZ_COMPARISON_REPRESENTATIVE_BOUNDARY.md)
+
+## CM-AN-D25-E3-GAUGE — exact E3 period gauge及ordinary CM scalar c_CM=6
+
+以实际invariantdifferential的rationalPF证书和非零cycle初值固定gauge，源定理条件下识别ordinarynormalizedclass的scalar。
+
+覆盖：EXTRACTED。域／前提：Q(t)externalellipticfamily，沿指定complexcycle/branch到λ=1/2；继承sourceCM/唯一normalization前提，p-adicembedding仅transportalgebraicscalar。
+
+前提：
+
+- c_CM=6绑定untwisted E3：y²+xy+(t/27)y=x³，ω=dx/(2y+x+t/27)，∇_(∂/∂λ)，λ=4t(1−t)，exact ordinary class basis。
+- positive small x-circle cycle在t0处沿real interval从t=0继续，limiting period=2πi；transported homology cycle固定，无额外λ-dependent unit。共同constant unit不改c_CM，parameter-dependent unit须另跟踪。
+
+公式：
+
+- `E_t:y²+xy+(t/27)y=x³, D=2y+x+t/27, ω=dx/D.`
+- `L_t=t(1−t)∂_t²+(1−2t)∂_t−2/9; L_tω=d_x(R/D³), R=x(−2t²+108tx+9t+11664x³+3888x²+243x)/6561.`
+- `选实际cycle的p(0)=2πi ⇒ p(t)=2πi·₂F₁(1/3,2/3;1;t)，periodgauge常数无隐含参数因子。`
+- `λ=4t(1−t), f(λ)²=S(λ)；ν=ω+c_CM∂_λω给periodproduct∝S+(c_CM/2)S′。`
+- `源CMperiodproduct+Ramanujanalgebraicnormalization唯一性 ⇒ c_CM=2λ0a；λ0=1/2、Guillera确切a=6 ⇒ c_CM=6 exact。`
+
+边界：
+
+- ordinary CMscalar6不识别DP代表、actualκ、raw-productobserver；不能重命名forced-normalizedscalar为c_CM。
+- exactcomplexperiod与finitecutoffcoefficients不同，C_p=β−α不自动0；引用analyticCM/uniqueness与Guilleratable，不宣称重证来源。
+- HANDOFF_NORMALIZATION_BOUNDARY明确ordinary c_CM solved不等于target-product-rescaled c_p；2013 source ordinary eigenclasses/leading coefficients不给unique global pole divisor或exact-form section，actual DP comparison与κ仍未计算。
+
+作者：EM-ENTERPRISE-B078A6。来源状态：AUTHOR_PROOF_V1/SOURCE_BOUND_ORDINARY_CLASS；独立审核待办标记保留，不作Task接受。
+
+来源：
+
+- [research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-bb6f343045854a798ca781ee73de2e39/10feb8dcbcb6a881b15f/D25_E3_PERIOD_GAUGE_CM_SCALAR.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT/MCP-bb6f343045854a798ca781ee73de2e39/10feb8dcbcb6a881b15f/D25_E3_PERIOD_GAUGE_CM_SCALAR.md)
+- [driver_reviews/mcp/MCP-d5d834098aab44f0a02f749bd9d23870/56837d31235abebd76b4/HANDOFF_NORMALIZATION_BOUNDARY.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-d5d834098aab44f0a02f749bd9d23870/56837d31235abebd76b4/HANDOFF_NORMALIZATION_BOUNDARY.md)
+
+## CM-AN-PARTIAL-JOIN — 有限weighted target与normalized response的联合partial archive
+
+保留两个完整authorcomponent及其exactnormalizations；weightedzerothsource/fullbaseline与responsejet之间的join未推出。
+
+覆盖：EXTRACTED。域／前提：COMMON-CM-FINITE（本条若另写p≡1mod6，按更广域）
+
+公式：
+
+- `Q=(H−H_b)/(1−x); ℓ(T)=3Y=I_x[(4x^N−2)Q](c).`
+- `U(r)=I_rQ(r²), V=I_xQ：ℓ(T)=−8αU(α)−2V(c)=−12αU(α)+4I_rU(α).`
+- `完整baseline贡献L_b=12g−(1+3g)b0；ℓ(T)=Ω_n+L_b。`
+- `n=2m, a_nj=2(2j+1)/((n−j)(n+j+1)), j even<n；W=(2H_(2n)−3H_n)P_n+Σa_njP_j.`
+- `C_e=−H_mP_n+Σa_nj(1−P_j(0)/γ)P_j；B=(H_m−H_(2m))P_n+g^−1Σa_njP_j(0)P_j modp.`
+
+边界：
+
+- 原wrapper FROZEN_UNREVIEWED_PARTIAL_WORK_HOLD_JOIN_NOT_DERIVED及组件UNFROZEN属于创建历史；现main whole-review已bounded PASS完整九成员的finite weighted-target/baseline/quarter bookkeeping与normalized response/retained-jet identities。
+- 当前bounded whole PASS不证明weighted target与response之间的join，不求hdiv值，不评出Eq16未索引κ；quarter/double primitive/Euler weight/normalizer仍须完整保留。
+- canonical δ arithmetic author Source d569b9ffaf853a1b451ae758e5f3e6ef8f82bf50 / peer2045b085d9d27a84415de37edda19dabdd5e592e 已由CM-AN-RECIPROCAL-DEFECT采收；不因partial历史文字回滚其已支付结论，也不由δ强行关闭join或Eq16未索引κ。
+
+作者：EM-DVR-F73673 + EM-DIRECT-88303D。来源状态：原capsule创建时new accepted papers0/independent votes0为历史；现main后续EM-P11-4A56E9 WHOLE_PASS_BOUNDED_FINITE_NORMALIZATIONS_PARTIAL_WITH_JOIN_HOLD，mustfix0/repair0。只whole通过有限normalization/retained response identities；原weighted-target join仍HOLD，无新Tool/Native票。
+
+来源：
+
+- [research_notes/owner_goal_20261016/cm24_finite_functional_partial_joint_archive_f736_883/CM24_FINITE_FUNCTIONAL_RESPONSE_UNREVIEWED_PARTIAL_WORK_CAPSULE_V2.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/cm24_finite_functional_partial_joint_archive_f736_883/CM24_FINITE_FUNCTIONAL_RESPONSE_UNREVIEWED_PARTIAL_WORK_CAPSULE_V2.json)
+- [research_notes/owner_goal_20261016/reviews/cm24_finite_functional_partial_nonauthor_4a56e9/CM24_FINITE_FUNCTIONAL_PARTIAL_CAPSULE_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/owner_goal_20261016/reviews/cm24_finite_functional_partial_nonauthor_4a56e9/CM24_FINITE_FUNCTIONAL_PARTIAL_CAPSULE_COMPLETE_WHOLE_REVIEW_AND_CONTEXT.json)
+
+## CM-AN-SCALAR-REVERSE — 独立symmetric M、reverse-Gauss C与二次digit标量接口
+
+把fullmarked Hessecarrier的source-independent构造、reverseforcing和basefieldobserver明确分开，给oldLIFT的独立三constructor比较接口。
+
+覆盖：EXTRACTED。域／前提：p=6m+1≥7；CM scalar比较限p≡13/19mod24，p-local全lift与residuefield分型
+
+公式：
+
+- `S0=2,S1=1,S_n(w)=S_(n−1)(w)−(w/4)S_(n−2)(w); M_p=(1/2)Σ_(n<p)b_nS_n.`
+- `C_N=0；c_j=((j+1)²c_(j+1)−r_j)/((j+2/3)(j+5/6)), r_j=−(−1)^(j+1)binom(N,j+1)/9，逐j=N−1,…,0.`
+- `此C^rev等于由fullHessecarrier反射下降的同一C；全部逆对角unit，p7边界也合法。`
+- `U_p=(M(c)/p)(M(c)+6M′(c)) modp²；G_p h=U_p−6pτ_p modp².`
+- `τ_p=−C(c)M′(c)/4；UR iff U_p=1modp；在已支付UR后LIFT iff (U_p−1)/p−6τ_p=OLD-R modp.`
+
+边界：
+
+- M/p需M modp³，C和M′在右边只需F_p；不从目标discrepancy定义C。
+- 本条是源接口而非INDEPENDENT-LIFT等式证明；原稿UR-open文字属其历史时点，不回写后续UR正式接受。
+
+作者：EM-ENTERPRISE-CB50ED；q descent由EM-ENTERPRISE-3F2857供给并交叉推导，Root纸面支持按来源披露。来源状态：OUTSIDE_FROZEN_RR/PAPER_PREPARATION；另有REVERSE_GAUSS_AND_FIXED_TARGET_INTERFACE_REVIEW及FINITE_ADJOINT_AND_WRONSKIAN_BRIDGE_REVIEW，非新增正式Task接受。
+
+来源：
+
+- [driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/2a8ebb4c8c682d5d99dd/INDEPENDENT_SCALAR_REVERSE_GAUSS_LIFT_CERTIFICATE_PREPARATION.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/driver_reviews/mcp/MCP-d039121849834a0c9a42660e4d8ccc4f/2a8ebb4c8c682d5d99dd/INDEPENDENT_SCALAR_REVERSE_GAUSS_LIFT_CERTIFICATE_PREPARATION.md)
+
+## CM-AN-MARKED-FRICKE — marked Hesse→Fricke局部商与导数范数运输
+
+固定marked局部商在原CM素数全为合法六点非分歧纤维，给Hasse导数向Fricke导数的精确unit/范数转换。
+
+覆盖：EXTRACTED。域／前提：外部经典N=3 Hesse/Fricke模型；p≥5，Frobenius配对与CM标量限p≡13/19mod24，m=(p−1)/6
+
+前提：
+
+- PH为来源固定eta归一化的monic degree p−1 Hasse多项式；其有限多项式身份见CM-AN-HESSE-HASSE。
+- 保留Hesse cube-root marking及Fricke上两张j-sheet，不能把j当X的单值有理函数。
+
+公式：
+
+- `h=(H+3)/3,u=h³,t=27(u−1)=H(H²+9H+27); X=t+54+729/t=(H+3)^6/((H+3)^3−27).`
+- `j=(t+27)(t+243)^3/t³；R(j,X)=j²−jX(X²−126X+2944)+X(X+192)^3=0.`
+- `D_216(H)=H^6+18H^5+135H^4+324H³−729H²−4374H+729；disc_H D_X=3^12 X^5(X−108)³，disc D_216=2^21·3^36.`
+- `X_H=27h^5(u−2)/(u−1)²；u=4±2√2,t=27(3±2√2)，u^p=8−u,t^p=729/t.`
+- `三个cube-root markings满足N(h)=2ω^r,r∈{0,1,2}；六个H_i分成三个Frobenius对，p≥5均unramified。`
+- `PH′(H_i)=U_i S′(216), U_i=27^(−m)(u_i−1)^m X_H(H_i)≠0；N(U_i)=−2^7·3^6·ω^(2r_i).`
+- `N(PH′(H_i))=N(U_i)·S′(216)²；period-norm diagonal因此只传递inverse-square，而非oriented S′(216).`
+
+边界：
+
+- j-pair在mod13/19碰撞不等于H→Fricke分歧；degree6点数不能替代source polynomial normalization。
+- 目标G_p S′(216)=−216^(m−1)/12仍未推出；源g/p的divided lift与oriented normal未由base-map/范数律支付。
+- 更高阶double-pole源与标准forgetful cusp-width的归一化差异按原稿保留；本条不裁定外部源失效。
+
+作者：EM-ENTERPRISE-C98514。来源状态：BOUNDED_CONTINUATION；同包LOCAL_DECISIVE_REVIEW_19b59309为directed共享源readcheck/PASS，非正式RR接受。旧逐k多余27因子的归一化已由来源修正。
+
+来源：
+
+- [research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-UR-EXTERNAL-PRIOR-ART-AUDIT/MCP-819cb5e7608f40c192302fc038efc0cb/4a6ad4169374cc24c101/CM24_MARKED_HESSE_FRICKE_LOCAL_QUOTIENT_20261011.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-UR-EXTERNAL-PRIOR-ART-AUDIT/MCP-819cb5e7608f40c192302fc038efc0cb/4a6ad4169374cc24c101/CM24_MARKED_HESSE_FRICKE_LOCAL_QUOTIENT_20261011.md)
+
+## CM-AN-N3-NORMAL-GATE — 固定N3 period源的eta归一化、范数与Task lift接口缺口
+
+采出eta精确源归一化、oriented代数导数与period范数层次；固定源向Task的独立标量c、oriented ρ及modp² divided lift仍缺桥。
+
+覆盖：EXTRACTED。域／前提：Betina–Lecouturier arXiv:1611.01044v3固定N=3 Appendix与原CM prime lane；外部经典period比较
+
+前提：
+
+- 只评价被指明N3 period→Task接口；来源完整TeX与N3 appendix原稿已定位，未付的是数学source-interface bridge，不是来源文件缺失。
+- 固定Hesse坐标由eta q-leading +1及常数−3独立标定。
+
+公式：
+
+- `w=z/(1−z),q3=exp(2πiw/3)；H=(η(w/3)/η(3w))³=q3^(−1)∏_(n≥1)((1−q3^n)/(1−q3^(9n)))³=q3^(−1)−3+O(q3).`
+- `a_i=∏_(j≠i)(H_i−H_j)^(−1)=1/PH′(H_i)；源N3 residual diagonal barΦ(e_i,e_i)/p=a_i^(p+1)=N(a_i).`
+- `H̃=A H+B且PH monic degree n时，PH̃′=A^(n−1)PH′，ã_i=A^(−n+1)a_i；eta已固定A。`
+- `U1=1+pO_K；奇p下−1∉U1，但Norm核有p+1阶，a→−a的损失来自Norm另一步，不能归咎U1 quotient。`
+- `d=gcd(p−1,12),u(z)=(Δ(pz)/Δ(z))^(1/d), μ(z)=u((z+2)/3)³/u(z), div μ=24(p−1)(c′−c)/d；μ∘w_p=p^(−12/d)μ^(−1).`
+- `source ν为theta-products的24/d次幂，24/d=2或4；已报告μ/ν比例但未给unpowered Task normal所需独立Fourier常数。`
+
+边界：
+
+- 原文包含raw theta/augmentation period的真实收敛乘积；NORM_ONLY_WITH_GAP不声称所有原始相位数据不存在。
+- 复cusp [1/2]不等于Gauss截断在有理lift 1/2 modp²；没有因此产生f_p(1/2)=p cρ modp²。
+- 局部parameter q′=uq+…改变pole-leading normal，即使node xy=p的gauge保持方程；必须核对同一source normal。
+- 后来UR的其他路线接受不自动关闭此固定BL源接口；本条无global no-go、无UR反证。
+
+作者：EM-ENTERPRISE-836489。来源状态：NORM_ONLY_WITH_GAP；同包SOURCE_INTERFACE_READCHECK_CLEAN为directed源readcheck，未形成新Task/RR接受。
+
+来源：
+
+- [research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-UR-EXTERNAL-PRIOR-ART-AUDIT/MCP-4b54b117968d433d9f37b9df3787d0a8/73377bae12dc5d29884c/CM24_FIXED_N3_ORIENTED_NORMAL_AND_TASK_LIFT_GATE_20261011.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_artifacts/mcp/RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-CM24-UR-EXTERNAL-PRIOR-ART-AUDIT/MCP-4b54b117968d433d9f37b9df3787d0a8/73377bae12dc5d29884c/CM24_FIXED_N3_ORIENTED_NORMAL_AND_TASK_LIFT_GATE_20261011.md)
+
+## CM-AN-D25-ROOTFREE — D25 common-top tangent的无根标量观察量与第一lift等价
+
+用F_p基域上的单标量τ_p替代二次根sheet及旧q_n,d_p,m_p的开放方向观察量；common-top tangent递推穿过numerator零点仍合法。
+
+覆盖：EXTRACTED。域／前提：p>3 prime；p≡1mod3时n=(p−1)/3；最后D25 supersingular等价限p≡13/19mod24
+
+前提：
+
+- F_p(Z)=₂F₁(1/3,2/3;1;Z)_(p−1)，S_p=(∂a+∂b)₂F₁(a,b;1;Z)_(p−1)|_(1/3,2/3) modp。
+- p-divisible F_p(A±)=pβ_p modp²由原D25 typed lane承接，非本条重证。
+
+公式：
+
+- `S_p=trunc_(<p)[−log(1−Z)·F_p] modp；c0=1,h0=0，c_(k+1)=c_k(k+1/3)(k+2/3)/(k+1)²，h_(k+1)=(h_k(k+1/3)(k+2/3)+c_k(2k+1))/(k+1)².`
+- `Q(Z)=Z²−Z+1/8；S_p≡σ0+σ1Z mod(p,Q)，τ_p=σ0+(5/8)σ1.`
+- `A±=(2±s)/4,s²=2；W_p=(1+2s)S_p(A+)−(1−2s)S_p(A−)，W_p/s=4τ_p.`
+- `r0=1,r1=5/8,r_(k+2)=r_(k+1)−r_k/8；τ_p=Σ_(k=0)^(p−1)h_k r_k modp.`
+- `U_n=₂F₁(−n,1/3−n;1;Z)=F_p−(p/3)S_p modp² coefficientwise.`
+- `Θ_p=((1+2s)U_n(A+)−(1−2s)U_n(A−))/p；Θ_p/s=4β_p−(4/3)τ_p，故Θ_p=0 iff τ_p=3β_p.`
+- `q_n−12β_p−4d_p=4(τ_p−3β_p)；未闭目标可写pτ_p−3F_p(A±)=0 modp².`
+
+边界：
+
+- τ_p=3β_p在166个p<5000样本的历史checker观察只是有限regression，原稿未证明该恒等式。
+- 本轮未执行checker，也不把supersingular第一lift假设扩展到全部prime或恢复canonical DP companion。
+
+作者：chatgpt_direct原稿；头部未列数学作者ID，保留未署名状态。来源状态：INDEPENDENT_VERIFICATION_ONLY / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING；未宣称CLAIM、run、Result、review或ownership转移。
+
+来源：
+
+- [research_notes/chatgpt_direct/20261005_D25_ROOTFREE_COMMON_SHIFT_OBSERVER.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/chatgpt_direct/20261005_D25_ROOTFREE_COMMON_SHIFT_OBSERVER.md)
+
+## CM-AN-DIXON-NORMAL-P3 — Dixon normal two-jet：p³精度、代表元与canonical carry
+
+在该完整有限family上，normal p³展开同时保留导数carry和curvature；单独K不能替代canonical second digit，N modp也不足以确定normal-subtracted second readout。
+
+覆盖：EXTRACTED。域／前提：所有p=6m+1≥7 prime，literal m≥1；有限有理函数在Z_(p)，非仅原CM13/19类
+
+前提：
+
+- a=−1/3，d=m+2/3，h=p/3；F_m(a,d)=Σ_(j=0)^m [(-m)_j/(d)_j]·a/(a+j)。
+- C=F_m(a,d)，S=F_m(a,d+h)，N=∂dF_m(a,d)，K=∂d²F_m(a,d)；全部基点分母为p-unit，所有除p在Z_(p)先做。
+
+公式：
+
+- `t_j=[(-m)_j/(d)_j]a/(a+j)，H_j=Σ_(l=0)^(j−1)(d+l)^−1，H2_j=Σ_(l=0)^(j−1)(d+l)^−2；N=−Σt_jH_j，K=Σt_j(H_j²+H2_j).`
+- `S−C=pN/3+p²K/18 modp³；D=(S−C)/p=N/3+pK/18 modp².`
+- `E_N=(S−C−pN/3)/p²=K/18 modp；N→N+pu使E_N→E_N−u/3，N→N+p²u不改变该读出。`
+- `固定least representatives r∈[0,p−1]为D modp、n∈[0,p²−1]为N/3 modp²；n modp=r，c=(n−r)/p；canonical_second(D)=c+K/18 modp.`
+- `p13 witness：D mod169=21,r=8；N mod169=141,n=47,c=3；K mod13=3,K/18=11；canonical second=1而非11。`
+
+边界：
+
+- 这是原作者有限有理代数推导，不是本轮新证明或独立评审；least-digit convention、exact basepoint/direction均不可省。
+- 原作者28个7≤p≤300、p≡1mod6 prime checks仅历史支持；本轮未读为新实验或运行其checker。
+- 局部充分数据(N modp²,K modp)不等于全局最小性、LOW/Beta/B11 transport完成或latest admitted frontier。
+- signed hypergeometric cancellation不换成positive BRC mass；不建立native geometry/world-dynamics或新顶级tool。
+
+作者：原local logical conversation em-r1-work-54068cda92ae-20261010；不据pending registration补造Researcher身份。来源状态：UNREVIEWED_NOT_ADMITTED；AUTHOR_DERIVATION / FINITE_EXACT_CHECKS。创建时session/dispatch pending，无CLAIM/Driver authority/independent review。R1 recovery仍SOURCE_PERSISTED_REGISTRATION_PENDING_NOT_ADMITTED。
+
+来源：
+
+- [research_notes/portable_supplemental/20261010_R1_DIXON_P3_NORMALIZATION_54068cda.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/portable_supplemental/20261010_R1_DIXON_P3_NORMALIZATION_54068cda.json)
+
+## CM-AN-DIXON-MIXED-PATH — Dixon mixed two-jet与second-order transverse path端口
+
+把一阶tangent/normal motion扩成完整second-order path port；需保留mixed harmonic double-pole N′、path curvature γN与linear carry，不能从first path jet推出二阶读出。
+
+覆盖：EXTRACTED。域／前提：所有p=6m+1≥7 prime；同CM-AN-DIXON-NORMAL-P3的有限F_m与Z_(p)基点；α,β,γ为整数
+
+前提：
+
+- G(a,b)=F_m(a,m+a+1+b)是外部algebraic parameter chart；b=0定义C(a)=G(a,0),N(a)=G_b(a,0),K(a)=G_bb(a,0)，′表示沿此线的a导数。
+- 在a=−1/3,d=m+2/3取值；integer p-shifts保持基点分母为p-unit。B_j=(-m)_j/(m+a+1)_j,t_j=B_j a/(a+j)，H_j/H2_j按该denominator定义。
+
+公式：
+
+- `F_ad=−Σ B_j jH_j/(a+j)²，F_aa=−2Σ B_j j/(a+j)³；N′=F_ad+K，C″=F_aa+2F_ad+K.`
+- `C(a)=1+aΣ_(r=0)^(m−1)[1/(a+2r+2)−1/(a+2r+1)]；闭式C本身不给N′。`
+- `S(α,β,γ)=F_m(a+pα,d+p(α+β)+p²γ)；L=αC′+βN；Q=α²C″/2+αβN′+β²K/2+γN.`
+- `S−C=pL+p²Q modp³；T=C(a+pα)，R=γN+αβN′+β²K/2；S−T=pβN+p²R modp³.`
+- `S=T modp³ iff βN+pR=0 modp²；modp²较弱条件为βN=0 modp。β=0仍不能删除γN。`
+- `β=−2α时以N′=F_ad+K合并，standalone K系数消去但余−2α²F_ad一般不消。`
+- `D=(S−C)/p=L+pQ modp²；取ℓ=L modp² least representative,r=ℓ modp,c=(ℓ−r)/p，则canonical_second(D)=c+Q modp.`
+- `p13：N=11,N′=6,K=3,C″=0 mod13；(α,β,γ)=(1,0,0)/(1,0,1)同first direction但差p²N=1859 mod2197；(1,−2,0)normal Q=7；(1,1,0)carry6+Q1给second7。`
+
+边界：
+
+- 局部充分数据为L modp²,Q modp以及声明path/digit convention；多方向family须保留C′,N modp²和C″,N′,K modp及α,β modp²,γ modp。非全局最小性结论。
+- 原作者有限代数推导和48 rational/55 direction、合计378 assertions支持，全部属于历史原稿；未独立复跑或升为review。
+- actual LOW/Beta transport的α,β,γ及其他endpoint jets未由本条识别，未证明其normal residual消去。
+- 已有normal proof与28prime scan承接R1，不新计为R2成果；不创建新的BRC工具族或native空间chart。
+
+作者：原local logical conversation em-research2-20261010-743915c4a185；无service-issued身份补造。来源状态：UNREVIEWED_NOT_ADMITTED；AUTHOR_DERIVATION / FINITE_EXACT_CHECKS；创建时registration pending，无CLAIM/run/independent mathematical review。
+
+来源：
+
+- [research_notes/portable_supplemental/20261010_R2_DIXON_MIXED_PATH_JET_743915c4.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/portable_supplemental/20261010_R2_DIXON_MIXED_PATH_JET_743915c4.json)
+
+## CM-AN-DIXON-BIDIRECTIONAL — Dixon ±normal对称提取与generic one-sided observer核
+
+新增负normal branch可把curvature observer与first-derivative carry分开；generic rational-jet carrier上单侧observer确有非平凡核，不能从两个exact values恢复缺失负分支。
+
+覆盖：EXTRACTED。域／前提：所有p=6m+1≥7 prime；同有限F_m、a=−1/3,d=m+2/3,h=p/3；Z_(p)有理同余
+
+前提：
+
+- C=F_m(a,d)，S±=F_m(a,d±h)，N=∂dF_m，K=∂d²F_m；分母为p-unit，0/+/- evaluation labels与signed terms分别保留。
+- 对称observer由exact source values定义；输入residue precision与输出precision分别说明，除p不作为modular inverse。
+
+公式：
+
+- `O=(S+−S−)/(2p)=N/3 modp²；E=(S++S−−2C)/p²=K/9 modp².`
+- `(S+−C)/p=O+pE/2 modp²；canonical one-sided second digit=carry(O)+E/2 modp。`
+- `C,S± modp³足以恢复O modp²和E modp；E modp²需要source values modp⁴。`
+- `p³整数代表元改变p³倍数保持O modp²/E modp；若只有p²值，S+ representative加p²会使E modp加1、O modp²加p/2，故该精度不足。`
+- `generic rational-jet perturbation G(x)=px−3x²,x=d′−d：G(0)=G(h)=0，G(−h)=−2p²/3；N→N+p,K→K−6，one-sided N/3+pK/18不变而E modp变−2/3。`
+- `p13：O mod169=47，N mod169=141，E mod169=74，K mod169=159；E mod13=9，E/2=K/18=11，carry3+11=1 mod13。`
+
+边界：
+
+- G是generic p-integral rational-jet carrier上的observer分离证据；不声称fixed hypergeometric family内有两成员同base/positive values，也不证其family约束下的最小性。
+- 对称消carry是curvature readout的性质，不证明one-sided canonical digit的carry为0。
+- 原稿8列举prime exact Fraction validation是历史支持而非exhaustive/all-scale数值证据；本轮未执行checker。
+- 未证明actual LOW/Beta transport提供负分支modp³或endpoint residual消去；承接R1已有carry witness，不重计新发现。
+
+作者：原local logical conversation em-r3-work-1fc378e1f8f5-20261010；不继承其他身份或独立性。来源状态：UNREVIEWED_NOT_ADMITTED；AUTHOR_DERIVATION / EXACT_FINITE_CHECKS。创建时session pending、dispatch RUNNING；neutral provenance不等于Task ownership、Result或current admitted frontier。
+
+来源：
+
+- [research_notes/portable_supplemental/20261010_R3_DIXON_BIDIRECTIONAL_1fc378e1.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/portable_supplemental/20261010_R3_DIXON_BIDIRECTIONAL_1fc378e1.json)
+
+## CM-AN-D25-HIGHBAND-NINEJET — D25 high-band full nine-jet的p19满秩证据与prefix failure
+
+在p19完整九jet carrier上给unit determinant与prefix-failure的固定有限证据；第九branch不可由naive前缀删去。
+
+覆盖：EXTRACTED。域／前提：p=6m+1 prime，n=m+r，1≤r≤3m；定义在Z_(p)，主要finite theorem只p19/m3
+
+前提：
+
+- R_n(t)=[(-m+t/2)_n(-2m+t/3)_n(-4m+2t/3)_n]/[2^n n!(-4m+t)_n(-2m+t)_n]=tΣ_(j≥0)u_(j,r)t^j。
+- 剥离唯一net t factor后常数分母均为p-unit，n≤4m<p；A_m=(p−1)!/[3^(p−1)((2m)!)³]，G_p=(A_m u_(j,r) modp)_(1≤j,r≤3m)。
+- 这是combined presentation jet moments的辅助精确算术；不能把signed rational cancellation解释为positive BRC mass或native Heartbeat状态。
+
+公式：
+
+- `p19,m3：rank_F19(G19)=9，det(G19)=6 mod19；每行j=1..9，每列r=1..9。`
+- `G19 row1=(6,1,7,0,0,7,16,16,2)；row2=(2,6,12,3,10,3,12,15,16)；row3=(13,13,14,18,5,5,4,0,11).`
+- `G19 row4=(4,5,6,0,4,11,2,11,7)；row5=(12,5,8,5,14,13,8,15,11)；row6=(5,9,16,2,2,15,6,16,12).`
+- `G19 row7=(4,7,16,15,16,2,13,12,14)；row8=(9,4,16,16,12,8,7,17,17)；row9=(4,2,16,13,14,10,18,18,18).`
+- `P_m^c(t)=P_m(t)+(t−p)Σ_(r=1)^9 c_rR_(m+r)(t)保持exact endpoint P_m^c(p)=P_m(p)；unit determinant给九个locally p-integral target jet moments的唯一系数向量。`
+- `G19左上7×7 rank6；ℓ=(16,11,17,18,10,7,1)^T满足ℓ^T G19[rows1..7,columns1..9]=(0,0,0,0,0,0,0,0,7).`
+- `故branches1..8不能span全部前七response coordinates；columns(1,2,3,4,5,6,9)的7×7 minor determinant=18 mod19，first-k-branches/first-k-orders shortcut在k7失败。`
+- `历史九组p:dim:rank:det=(7:3:3:1),(13:6:6:7),(19:9:9:6),(31:15:15:16),(37:18:18:4),(43:21:21:9),(61:30:30:2),(67:33:33:48),(73:36:36:20).`
+
+边界：
+
+- 主成果是p19 finite witness；九个prime历史checks不证明所有p的det(Gp)非零或结构性determinant formula。
+- 旧p19 rank-three witness只是上游author evidence，本条新增ninejet/full rank与k7prefixfailure，不能把这两者当同结论已采收。
+- 本条不证明full-branch B11→LOW transport不可能，也未给actual index-level transport/Dixon double-pole endpoint moment。
+- 原文代码和results SHA指 separate author computation artifacts；该md不声称这些独立文件已在GitHub Source。本轮只摘录md并未运行或新造它们。
+
+作者：来源既有研究活动 RA-20261010-EM3-9C2F61；注册不赋予Task ownership，未补造新Researcher身份。来源状态：AUTHOR_FINITE_PROOF / UNREVIEWED / NOT_ADMITTED / NO_FORMAL_TASK_CLAIM；原作者Q/Fp coefficient algorithms与nine PASS均只作历史证据，无independent review。
+
+来源：
+
+- [research_notes/portable_direct/20261010_em3_d25_high_band_fulljet_gauge_certificate.md](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/portable_direct/20261010_em3_d25_high_band_fulljet_gauge_certificate.md)
+
+## CM-AN-SPARSE-WEIGHTED-TERMINAL — 严格内部half harmonic terminal的稀疏四阶多项式证书
+
+把actual严格内部harmonic half target换成独立由g、N、完整稀疏forcing与origin seed规定的唯一有限四阶多项式及一阶endpoint读出。
+
+覆盖：EXTRACTED。域／前提：原CM24有限域：p=6m+1，p≡13/19mod24，literal m≥2，N=3m，c=1/2，g=binom(3m,m)unit
+
+前提：
+
+- H=Σ_(n=0)^Nh_nx^n=gΣ_(k=0)^m [(1/6)_k(1/3)_k/((1/2)_k k!)]ρ(x)^k；ρ=x(4x−3)²，h0=hN=g，H(1)=1，2^(−N)=−1。
+- 本条L采用负号约定L=2x(x−1)(4x−1)D²+(20x²−15x+1)D+(4x−1)，LH=0；与CM-AN-GREEN正号L相差−1，勿混。
+- β_n^h=Σ_(s=1)^n(2/s+8/(2s−1))2^(−s)，c_h=g^−1Σ_(n=1)^(N−1)h_nβ_n^h；σ=(3/p)，t0=(σ−1)/6。
+
+公式：
+
+- `K(x)=[1−g−H(x)+gx^N]/(1−x)，degK≤N−2，K0=1−2g；hN严格扣除，target本来不含hNβ_N^h。`
+- `E=(θ+1)(2θ+1)=2x²D²+5xD+1，θ=xD；e_l=(l+1)(2l+1)在0≤l≤N−2为unit，E T=K唯一，degT≤N−2。`
+- `M=2x(1−x)²(4x−1)D²+(1−x)(−36x²+19x−1)D+2(12x²−10x+1)；L((1−x)f)=−Mf.`
+- `P=M∘E；P T=F=(1−g)(1−4x)−g(1−x)x^(N−1)，T0=1−2g，degT≤N−2，唯一。`
+- `[x^n]MQ=−(n+1)(2n+1)Q_(n+1)+(12n²+8n+2)Q_n−(18n²+n+1)Q_(n−1)+4n(2n−1)Q_(n−2).`
+- `0≤n≤N−3前向T_(n+1)系数=−(n+1)(n+2)(2n+1)(2n+3)为unit；n=N−2,N−1,N终端行全部保留；T1=(1−3g)/6。`
+- `I_c(f)=Σf_l c^(l+1)/(l+1)，J_c(f)=Σf_l c^(l+1)/(2l+1)；(2I_c+8J_c)(ET)=c(12θ+10)T(c).`
+- `Bdry(T)=5T(c)+3T′(c)=g c_h；c_h−t0=Bdry(T)/g−(σ−1)/6。`
+- `任意proposed d成立 iff Bdry(T)=g[d+(σ−1)/6]；固定origin/degree sparse problem没有自由homogeneous seed可供拟合。`
+- `局部c单行T⁽⁴⁾+12T‴+13T″−52T′−16T=16g−8不能独自给出Bdry；其低jet自由例不声称扩成合法global T。`
+
+边界：
+
+- 明确不是包含n=N的全weighted sum求值；H保留hN不表示H内含harmonic β_N，终端forcing −g(1−x)x^(N−1)不得删。
+- E在N−1仍unit(e_(N−1)=1)，首个后续resonance在N(e_N=0)；不作非法inverse。此两处原wording已由closure修正。
+- Bdry的global origin-to-c connection coefficient、其他β phases、fixed C/τ/full F_CM及parent仍OPEN；不是p13新case、计算加速或full功能闭合。
+
+作者：原Root-directed NONBLIND helper（主稿未列新数学作者ID）；原CM24 owner EM-DIRECT-18F24A保留。来源状态：原directed source-exposed nonauthor /root/auto_blockers whole-paper PASS under declared premises；final14240B+closure2070B确认两处边界措辞CLOSED，非正式Native/math admission。
+
+来源：
+
+- [research_notes/OWNER_PARALLEL_CM24_CRT_AND_MCP_REPAIR_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/OWNER_PARALLEL_CM24_CRT_AND_MCP_REPAIR_20261014_FBF223.json)；原始内嵌成员：`new-mathematics/CM24_GENERAL_WEIGHTED_TERMINAL_NEXT_LEMMA_20261014.md`
+- [research_notes/OWNER_PARALLEL_CM24_CRT_AND_MCP_REPAIR_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/OWNER_PARALLEL_CM24_CRT_AND_MCP_REPAIR_20261014_FBF223.json)；原始内嵌成员：`new-mathematics/CM24_GENERAL_WEIGHTED_TERMINAL_NEXT_LEMMA_NONAUTHOR_REVIEW_20261014.md`
+- [research_notes/OWNER_PARALLEL_CM24_CRT_AND_MCP_REPAIR_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/OWNER_PARALLEL_CM24_CRT_AND_MCP_REPAIR_20261014_FBF223.json)；原始内嵌成员：`new-mathematics/CM24_GENERAL_WEIGHTED_TERMINAL_REVIEW_CLOSURE_20261014.json`
+
+## CM-AN-CARTIER-ADJOINT — Fp(x) rational homogeneous-adjoint endpoint类的Cartier障碍与固定quintic residual
+
+在actual characteristic p及完整Frobenius常数域上封闭一个精确定义的universal homogeneous rational-adjoint路线；一个独立固定最小cubic multiplier匹配target row，留下明确非零quintic配对而非任意标量残差。
+
+覆盖：EXTRACTED。域／前提：同CM-AN-SPARSE-WEIGHTED-TERMINAL的原p类、完整H/T/P/F与c=1/2；rational field F_p(x)允许任意degree及Frobenius constants
+
+前提：
+
+- P=M E且T是唯一actual polynomial；q=M* v，A*为flat formal adjoint。所排除的是canonical Green concomitant对所有test-polynomial jets的homogeneous rational-adjoint certificate类，不是只对actual T的恒等式。
+- K_const=F_p(z),z=x^p；F_p(x)以1,x,…,x^(p−1)为K_const基；C_p取top p-basis coefficient。
+
+公式：
+
+- `C_p(Df)=0；反之C_p(f)=0 iff f是F_p(x)内某rational function的导数。C_p(H/(x−1))=C_p(x^NH/(x−1))=1/(z−1).`
+- `L*=2x(x−1)(4x−1)D²+(28x²−25x+3)D+(12x−6)，M*=(x−1)L*，E*=θ(2θ+1)，P*=E*M*.`
+- `P*v=0⇒q=A(z)+x^N B(z)；D C_L(v,H)=−Hq/(x−1)，top coefficient迫使B=−A，故M*v=A(x^p)(1−x^N)（只必要，不断言充分/可达）。`
+- `C_A(u,w)=a(uw′−u′w)+(b−a′)uw；C_P(v,T)=C_M(v,ET)+C_E(q,T)，D C_P=vPT−TP*v。`
+- `可在c读取且只有T,T′的row强制v(c)=v′(c)=0；q(c)=2α,q′(c)=−α，故C_P(v,T)(c)=(α/2)[3T(c)+2T′(c)].`
+- `该类row(r,s)须2r−3s=0；target(5,3)给unit1，故无nonzero κ使rational P*v=0 canonical C_P(c)=κ[5T(c)+3T′(c)]对all test jets成立。`
+- `固定最小cubic v0=12(x−c)²−(92/3)(x−c)³=41/6−35x+58x²−(92/3)x³；v0″c=24,v0‴c=−184；q0c=6,q0′c=−4。`
+- `R=P*v0=−5679x+81990x²−328608x³+490032x⁴−242880x⁵；C_P(v0,T)c=Bdry(T)，C_P(v0,T)0=(41/6)(1−2g).`
+- `I_c(v0(1−4x))=43/80；I_c(v0(1−x)x^(N−1))=1536/35（保留全部高forcing）。`
+- `Bdry(T)=1769/240−(97591/1680)g−I_c(RT)；c_h−t0=1769/(240g)−97591/1680−I_c(RT)/g−(σ−1)/6。`
+
+边界：
+
+- 任意rational degree、p-dependent/F_p(x^p) constants已容许；排除不涵盖finite coefficient duality、inhomogeneous/source-specific certificate、nonlocal connection或actual T上的其他恒等式。
+- unit row obstruction1不是c_h−t0的数值；必要row line不声称有rational adjoint达到。
+- deg(v0F),deg(RT)≤N+3≤p−2、concomitant≤N+4≤p−1，故有限primitive未丢x^p kernel；所有分母在原p类为unit。
+- I_c(RT)仍未求值；不能把此固定residual identity或后续HALF-PAIRING/J-FLUX的改写当作原C/τ/full F_CM解。
+- 旧Q(k) rational antidifference/prefix ansatz no-go不是此Fp(x) Cartier theorem；本条不重复计旧法为新通用tool。
+
+作者：原EM-CM24CONN-63E74C9D；original owner EM-DIRECT-18F24A保留。来源状态：原nonauthor EM-NONAUTHOR-5DF3A9B6 directed NONBLIND review认为obstruction与cubic/quintic identity correct as scoped；其历史SymPy coefficient check只按原文记录，非本轮执行，非formal Native acceptance。
+
+来源：
+
+- [research_notes/OWNER_PARALLEL_CM24_CRT_AND_MCP_REPAIR_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/OWNER_PARALLEL_CM24_CRT_AND_MCP_REPAIR_20261014_FBF223.json)；原始内嵌成员：`new-support/cm24-connection/CM24_RATIONAL_ADJOINT_CARTIER_OBSTRUCTION_AND_FIXED_RESIDUAL.md`
+- [research_notes/OWNER_PARALLEL_CM24_CRT_AND_MCP_REPAIR_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/OWNER_PARALLEL_CM24_CRT_AND_MCP_REPAIR_20261014_FBF223.json)；原始内嵌成员：`new-support/independent-review/CM24_RATIONAL_ADJOINT_AND_FIXED_RESIDUAL_NONAUTHOR_REVIEW.md`
+
+## CM-AN-MINIMAL-ENDPOINT-JETS — enlarged carrier endpoint Hasse jets的最小外部维数与最优local order
+
+给joint endpoint Hasse jets的严格最小外部信息维数及unramified x4的显式最优观测，与ramified x1的sharp jet-order代价区分。
+
+覆盖：EXTRACTED。域／前提：p=6m+1，p≡13/19mod24，m≥2，N=3m；0≤r<m；外部F_p-linear observers与完整central side information
+
+前提：
+
+- V={B∈F_p[z]:degB≤p−2,[z^N]B=0}；q=x(x−3)²/4，W_B=x^(−N)(x−3)B(q)/24；P_B=Π_(0..N)W_B，U_B=W_B−P_B。
+- 已知完整P_B，外部观测是U_B的F_p-linear scalar functionals；目标β_j(B)=[v^j]B(1+v),j=0..r。Hasse系数不用j!分母。
+
+公式：
+
+- `degL<m⇒C(L)=0；L_j=(z−1)^j给β_k(L_j)=δ_kj，0≤j,k≤r。因此即使decoder nonlinear，也至少r+1个linear external scalars。`
+- `任意exact external encoding在每个nonempty central fiber至少p^(r+1)种值；fixed-width binary至少ceil((r+1)log₂p)bits；uniform-prefix entropy为(r+1)log₂p。`
+- `q(4+t)=1+H4(t)，H4=(9/4)t+(3/2)t²+(1/4)t³；G_T=24(4+t)^N T(4+t)/(1+t)，u_k=[t^k]G_T。`
+- `A_kj=[t^k]H4^j，diagA_kk=(9/4)^k；L0(T)=u0，Lk(T)=(4/9)^k[u_k−Σ_(j<k)A_kjL_j(T)].`
+- `O_k=L_k(U_B)；β_k(B)=L_k(P_B)+O_k，k=0..r；恰r+1独立外部coordinates，local W jets through order r足够。`
+- `L0(T)=24T(4)，L1(T)=(32/3)J1^4(T)−12T(4)；B(1)=24P_B(4)+24U_B(4).`
+- `x1点q(1+t)=1−(3/4)t²+(1/4)t³；取t^(2k)triangular inverse，diag(−3/4)^k，local order2r足够。`
+- `ord_x1 W_((z−1)^r)=2r，ord_x4=r；已知全部P_B仍不能以x1至2r−1或x4至r−1的jets区分目标β_r，故两local thresholds sharp。`
+- `多个distinct a_i、d_i≥1、D=Σd_i≤m时，Hermite低degree invisible family给D外部scalar／p^D encoding lower bound；这里只lower bound，不给任意端点显式最优local算法。`
+
+边界：
+
+- r0 endpoint scalar早已有ENDPOINT-LEDGER；x4的O0与Ω在已知P_B后等价，不算第二独立信息或新fixed-target transport。
+- 低degree invisible variations保留central forcing/seed/normalized response，却不保留完整F′=D*B；本定理量化ambient central fibers，不可照搬到fixed-full-forcing或singleton constructor。
+- 受限family B0+V_A的剩余defect应取target-jet map在V_A∩kerC上的rank，不能自动套ambient r+1；r≥m未分类。
+- 维数/local order最优不等于算术、访问、存储或物理成本优势，所有outer blocks/triangular weights有实际成本；C/τ/fullF_CM与parent仍OPEN。
+
+作者：原Root-directed NONBLIND helper；原稿披露Root提供low-degree-kernel/x1 candidates，未宣称blind独创。来源状态：ONE_PURE_PAPER_UNIT；同wrapper ROOT_PARALLEL_MATH_NONAUTHOR_REVIEW为directed source-exposed bounded paper check，非Native正式接受或novelty证书。
+
+来源：
+
+- [research_notes/ROOT_THREE_PAPER_UNITS_AND_OWNER_NEXT_PLAN_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/ROOT_THREE_PAPER_UNITS_AND_OWNER_NEXT_PLAN_20261014_FBF223.json)；原始内嵌成员：`/workspace/em-owner-resume-20261011/new-round-20261011/CM24_MINIMAL_ENDPOINT_JET_OBSERVER_20261014.md`
+- [research_notes/ROOT_THREE_PAPER_UNITS_AND_OWNER_NEXT_PLAN_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/ROOT_THREE_PAPER_UNITS_AND_OWNER_NEXT_PLAN_20261014_FBF223.json)；原始内嵌成员：`/workspace/em-owner-resume-20261011/new-round-20261011/ROOT_PARALLEL_MATH_NONAUTHOR_REVIEW_20261014.md`
+
+## CM-AN-WEIGHTED-TERMINAL-P13 — p13 actual half-source weighted terminal的独立非零标量反例
+
+对包括p13的原parameter family，要求actual fixed strict source的canonical correction terminal恒为0的机制失败；源保持的enlarged carrier不能调去该非零值。
+
+覆盖：EXTRACTED。域／前提：只p=13,m=2,N=6，F_13；actual prescribed half-source与canonical zero-seed terminal
+
+前提：
+
+- J=2x(x−1)(x−4)D²+(5x²−15x+4)D+(x−1)，φ0=1,Jφ=0；h_n=4^ngφ_n，g=binom(6,2)=2。
+- β_n^h=Σ_(r=1)^n(2/r+8/(2r−1))2^(−r)，只用1≤n≤5；σ=(3/13)=1，t0=(σ−1)/6=0；actual v=−β^h−t，继承Σh_nt_n=−gt0。
+
+公式：
+
+- `φ=(1,10,5,0,2,1,1)；forward d1..d6=(4,11,8,8,11,4)均unit，last row保留；rankJ=6，normalized kernel唯一。`
+- `h=(2,2,4,0,10,7,2)，h0=h6=g，总和1；β1..β5=(5,7,1,0,11).`
+- `Σ_(n=1)^5 h_nβ_n^h=2·5+4·7+0·1+10·0+7·11=11 mod13；c_h=11/2=−1。`
+- `Σ_(n=1)^5h_nv_n=−11=2；c_v=−(Σh_nv_n)/g=c_h−t0=−1≠0。`
+
+边界：
+
+- 这不是旧Γ1 polynomial-pullback source-image detector的另一写法：Γ1只用strict rows3..5，本weighted functional用rows1..5且row1权重非零。旧half-prefix数据复用，新增是实际h-weighted terminal值。
+- 不触及明确排除p13的m≥3 subfamily，不证all-prime非零/闭式，也不排除保留nonzero terminal的其他机制。
+- 不是C/τ/fullF_CM反证或parent闭合；以上均原作者手算/原directed review文献，本轮未实例化prime或执行旧checker。
+
+作者：原 /root/backlog_current_count_check 对Root候选的directed手工验证；原owner EM-DIRECT-18F24A保留。来源状态：directed source-exposed NONBLIND paper verification；原 /root/auto_blockers bounded PASS，无新Native Driver review、正式接受或blind discovery。
+
+来源：
+
+- [research_notes/ROOT_THREE_PAPER_UNITS_AND_OWNER_NEXT_PLAN_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/ROOT_THREE_PAPER_UNITS_AND_OWNER_NEXT_PLAN_20261014_FBF223.json)；原始内嵌成员：`/workspace/em-owner-resume-20261011/new-round-20261011/CM24_WEIGHTED_TERMINAL_P13_EXACT_COUNTEREXAMPLE_20261014.md`
+- [research_notes/ROOT_THREE_PAPER_UNITS_AND_OWNER_NEXT_PLAN_20261014_FBF223.json](https://github.com/awdawmip/enterprise-math/blob/56f5938da3f707c1d9db1b39afde124eac4634e3/research_notes/ROOT_THREE_PAPER_UNITS_AND_OWNER_NEXT_PLAN_20261014_FBF223.json)；原始内嵌成员：`/workspace/em-owner-resume-20261011/new-round-20261011/CM24_WEIGHTED_TERMINAL_P13_NONAUTHOR_REVIEW_20261014.md`
