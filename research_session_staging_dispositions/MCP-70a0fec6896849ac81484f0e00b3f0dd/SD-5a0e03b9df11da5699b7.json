@@ -1,0 +1,133 @@
+{
+  "authority_granted": false,
+  "classification": "NEUTRAL_STAGING_PRESERVATION_NOT_RESEARCH_PROGRESS",
+  "disposition": "PRESERVED_FOR_SESSION_SUCCESSION",
+  "disposition_id": "SD-5a0e03b9df11da5699b7",
+  "execution_authorized": false,
+  "execution_id": "EM-DIRECT-E267A2",
+  "inventory_sha256": "21ed57ee887c767a8772e9c10793ba5931465f9f8485c08f8d1c6f620518011a",
+  "mathematical_acceptance_granted": false,
+  "preservation_semantics": "EXACT_OLD_SESSION_STAGING_PROVENANCE_ONLY",
+  "prior_contribution_ids": [
+    "EM-DIRECT-A71FA7",
+    "EM-DIRECT-B9BCE8",
+    "EM-DIRECT-C4D02C"
+  ],
+  "reason": "Preserve the four recovered complete unpublished uploads and their original hashes/request provenance without promoting staging to research progress; canonical continuation requires lawful new Researcher identity before claiming any publication.",
+  "research_progress_claimed": false,
+  "role": "RESEARCHER",
+  "schema": "ENTERPRISE_MATH_MCP_STAGING_DISPOSITION_V1",
+  "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd",
+  "total_staged_bytes": 15626,
+  "upload_count": 4,
+  "uploads": [
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "c956c7b2a1f3a3bf539dca6ea6af80b7cc09ba184db06b9cff7179e3a6ea92a7",
+          "native_payload_sha256": "ab00e53488315e46eca94a3c90fdcce08316ab76e051082c1458ac678fcf4223",
+          "part_index": 0,
+          "request_id": "emr-r11-upload-d25-adjoint-obstruction-checker-20260924-2039",
+          "request_sha256": "4f27d9d09accc2125c8b46e3a112089f4d0b843fd81e9318df16e54bd5f057cf",
+          "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd"
+        }
+      ],
+      "complete": true,
+      "filename": "verify_d25_rational_adjoint_obstruction_period_residual_20260924.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 1891,
+          "content_utf8": "#!/usr/bin/env python3\n\"\"\"Deterministic symbolic regression for the D25 rational-adjoint obstruction.\n\nThis checker is not the proof.  The all-m theorem is the pole-orbit and degree\nargument in d25_rational_adjoint_obstruction_period_residual_20260924.md.\n\"\"\"\nimport sympy as sp\n\nk, m, h, C = sp.symbols('k m h C')\nA = (k-m)*(k-2*m)\nB = 2*(k+1)**2\nr0 = sp.cancel(A/B)\n\n# Coefficient-root shift orbits are generically disjoint over Q(m).\n# B(k+h) has its only root k=-h-1; substituting into A gives a nonzero\n# polynomial in the indeterminate m.  The symbolic gcd over Q(m,h)[k]\n# therefore must be 1.\nK = sp.QQ.frac_field(m, h)\ng = sp.gcd(sp.Poly(A, k, domain=K), sp.Poly(2*(k+h+1)**2, k, domain=K))\nassert g.as_expr() == 1\nassert sp.expand(A.subs(k, -h-1)) == (h + m + 1)*(h + 2*m + 1)\n\n# Degree-at-infinity obstruction: r0 -> 1/2, so a polynomial of positive\n# degree d leaves leading coefficient -c/2.  Constants cannot work either.\nassert sp.limit(r0, k, sp.oo) == sp.Rational(1, 2)\nc = sp.symbols('c', nonzero=True)\nassert sp.simplify(c*(r0-1)-1) != 0\nfor d in range(1, 9):\n    # Regression for a generic monomial leading term.\n    expr = sp.expand(sp.together(r0*(k+1)**d - k**d))\n    lc = sp.limit(expr / k**d, k, sp.oo)\n    assert lc == sp.Rational(-1, 2)\n\n# Exact variation-of-constants identity for the typed residual period.\nH, U = sp.symbols('H U', nonzero=True)\nHn = r0*H\nUn = U + C*H\nz = U/H\nzn = Un/Hn\nassert sp.simplify(r0*zn-z-C) == 0\n\n# q2 coordinate of the transpose adjoint really decouples.\nr1 = (3*k-4*m)/(2*(k+1)**2)\nr2 = 1/(k+1)**2\nM = sp.Matrix([[r0,0,0],[r1/6,r0,0],[r2/36,r1/6,r0]])\nxn, yn, zn0, x, y, z0 = sp.symbols('xn yn zn x y z')\nlam_n = sp.Matrix([xn,yn,zn0])\nlam = sp.Matrix([x,y,z0])\nadj = M.T*lam_n-lam\nassert sp.simplify(adj[2] - (r0*zn0-z0)) == 0\n\nprint('PASS: generic shift-gcd, degree obstruction, q2 decoupling, and exact period residual verified')\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "f4c367678507df99dafe73ac9eb2a730b7a3c4b43cc73abb3fecd834fe2585d0"
+        }
+      ],
+      "sha256": "f4c367678507df99dafe73ac9eb2a730b7a3c4b43cc73abb3fecd834fe2585d0",
+      "total_bytes": 1891,
+      "upload_id": "d25-adjoint-obstruction-checker-r11"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "1cb9b8baf974d29f17b5904c6f6f49436c44db908e5d886b2249cefd3003b250",
+          "native_payload_sha256": "8c24336ca512d966f1f1c9dd2ec0919bc82762e7fe4e048c6c49aaaba06de1cf",
+          "part_index": 0,
+          "request_id": "emr-hourly-r11-upload-strata-normalform-checker-20260924-2016",
+          "request_sha256": "c5ef1514caf66094042237267a8d24d234627e2e21d40421bf5f73e16d506fb6",
+          "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd"
+        }
+      ],
+      "complete": true,
+      "filename": "verify_d25_gauss_zero_multiplicity_strata_20260924.py",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 2369,
+          "content_utf8": "#!/usr/bin/env python3\nfrom fractions import Fraction\nfrom math import factorial, comb\n\ndef H(n,r=1):\n    return sum((Fraction(1,k**r) for k in range(1,n+1)),Fraction(0))\n\ndef mul(p,q):\n    out=[Fraction(0)]*(len(p)+len(q)-1)\n    for i,a in enumerate(p):\n        for j,b in enumerate(q): out[i+j]+=a*b\n    return out\n\ndef direct_coeffs(m,k):\n    # coefficients of c_k(a) through a^2; return derivatives of order 0,1,2\n    p=[Fraction(1)]\n    for j in range(k):\n        p=mul(p,[Fraction(j-m),Fraction(1)])\n        p=mul(p,[Fraction(j-2*m),Fraction(2)])\n    p=[x/Fraction(factorial(k)**2) for x in p]\n    p += [Fraction(0)]*(3-len(p))\n    return p[0],p[1],2*p[2]\n\ndef closed(m,k):\n    if k<=m:\n        C=Fraction(comb(m,k)*comb(2*m,k))\n        A=H(m)-H(m-k)\n        B=H(2*m)-H(2*m-k)\n        A2=H(m,2)-H(m-k,2)\n        B2=H(2*m,2)-H(2*m-k,2)\n        return C,-C*(A+2*B),C*((A+2*B)**2-(A2+4*B2))\n    if k<=2*m:\n        r=k-m\n        D=Fraction(((-1)**r)*factorial(m)*factorial(2*m)*factorial(r-1),\n                   factorial(m-r)*factorial(m+r)**2)\n        E=H(r-1)-H(m)-2*(H(2*m)-H(m-r))\n        return Fraction(0),D,2*D*E\n    s=k-2*m\n    J=Fraction(4*((-1)**m)*factorial(m)*factorial(2*m)*\n               factorial(m+s-1)*factorial(s-1),\n               factorial(2*m+s)**2)\n    return Fraction(0),Fraction(0),J\n\ndef check(m):\n    p=6*m+1\n    for k in range(p):\n        d=direct_coeffs(m,k); c=closed(m,k)\n        assert d==c,(m,k,d,c)\n        if k<=m:\n            assert c[0]!=0\n        elif k<=2*m:\n            assert c[0]==0 and c[1]!=0\n        else:\n            assert c[0]==0 and c[1]==0 and c[2]!=0\n\n    # Aggregate cutoff sums reconstructed in the two independent representations.\n    F0=F2T=H1T=Psi=Fraction(0)\n    for k in range(p):\n        c0,c1,c2=direct_coeffs(m,k); z=Fraction(1,2**k)\n        if k<=m:\n            F0+=c0*z; Psi+=(12*k+1)*c0*z; H1T+=(12*k+1)*c1*z\n        if k<=2*m: F2T+=c2*z\n\n    F0c=F2Tc=H1Tc=Psic=Fraction(0)\n    for k in range(m+1):\n        c0,c1,c2=closed(m,k); z=Fraction(1,2**k)\n        F0c+=c0*z; F2Tc+=c2*z\n        Psic+=(12*k+1)*c0*z; H1Tc+=(12*k+1)*c1*z\n    for r in range(1,m+1):\n        k=m+r; _,_,c2=closed(m,k); F2Tc+=c2*Fraction(1,2**k)\n    assert F0==F0c and Psi==Psic and H1T==H1Tc and F2T==F2Tc\n\ndef main():\n    for m in range(1,18): check(m)\n    print({\"m_range\":[1,17],\"failures\":[]})\n\nif __name__==\"__main__\": main()\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "d65251e516c713845a519043e5fbb89ca6933a2fbbef3b3608dbe3e034047293"
+        }
+      ],
+      "sha256": "d65251e516c713845a519043e5fbb89ca6933a2fbbef3b3608dbe3e034047293",
+      "total_bytes": 2369,
+      "upload_id": "d25-gauss-zero-multiplicity-strata-checker-20260924"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "a6d65a388a54fae9aed4d478fe50a276e74ac7a99aa784df3556014249ca7fe1",
+          "native_payload_sha256": "7cb029f785d6aae90407fd188cb11ddb8ac2da9e32f72af8393ff90d94e29183",
+          "part_index": 0,
+          "request_id": "emr-hourly-r11-upload-strata-normalform-note-20260924-2014",
+          "request_sha256": "d1cf87fc628091852c7a760efc2c2d869ea5d8c6650ec3947ef17545514b8b88",
+          "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd"
+        }
+      ],
+      "complete": true,
+      "filename": "d25_gauss_zero_multiplicity_strata_normal_form_20260924.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 6614,
+          "content_utf8": "# D25 LIFT — source valuation bands equal zero-multiplicity strata of the terminating Gauss deformation\n\nStatus: PROVED_STRICT_REPRESENTATION_REDUCTION / LIFT_NOT_YET_CLOSED / NOT_A_RESULT / UNREVIEWED\nTask: RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\nPublication: TP2-B6F4FC938FF94941C1B7\nDate: 2026-09-24\n\n## 0. Consumed frontier\n\nConsume the durable cutoff-jet bridge\n\n    Z_T = [a_parent Psi-1]/p\n          + a_parent H_1^{<=m}/6\n          + Psi F_2^{<=2m}/72              (mod p),\n\nwith\n\n    c_k(a)=(-m+a)_k(-2m+2a)_k/(k!)^2,\n    F_r^{<=t}=sum_{k<=t} c_k^{(r)}(0) 2^{-k},\n    H_1^{<=m}=sum_{k<=m}(12k+1)c_k'(0)2^{-k},\n\nand p=6m+1. The previous unit proved that the source valuation decomposition is the support decomposition of this jet. The present unit removes the remaining abstract derivative arrays and gives an explicit terminating binomial-harmonic normal form. This is a representation reduction for the next WZ/contiguous step; it is not LIFT closure.\n\n## 1. Zero multiplicity exactly reproduces the three p-adic valuation bands\n\nAt a=0 the two numerator factors have zero positions j=m and j=2m. Therefore, for 0<=k<p=6m+1:\n\n- 0<=k<=m: c_k(0) is nonzero;\n- m<k<=2m: exactly the first Pochhammer has crossed one zero, hence c_k(0)=0 but c_k'(0) is nonzero;\n- 2m<k<p: both Pochhammers have crossed a zero, hence c_k(0)=c_k'(0)=0 while c_k''(0) is nonzero.\n\nAt the source point a=p/6, c_k(p/6)2^{-k}=B_k. Thus the source valuation filtration v_p(B_k)=0,1,2 is not merely parallel to the parameter jet: it is exactly the zero-multiplicity filtration of the terminating family. The p^j visibility of each source band is therefore encoded by the first nonzero a-derivative order.\n\n## 2. Low stratum: explicit binomial-harmonic jets\n\nFor 0<=k<=m put\n\n    C_k = binom(m,k) binom(2m,k),\n    A_k = H_m-H_{m-k},\n    B_k^h = H_{2m}-H_{2m-k},\n    A_k^(2)=H_m^(2)-H_{m-k}^(2),\n    B_k^(2)=H_{2m}^(2)-H_{2m-k}^(2).\n\n(Logarithmic differentiation is legitimate because no zero has yet been crossed.) Then exactly over Q,\n\n    BOXED: c_k(0)=C_k,\n\n    BOXED: c_k'(0)=-C_k(A_k+2B_k^h),\n\n    BOXED:\n    c_k''(0)=C_k[(A_k+2B_k^h)^2-(A_k^(2)+4B_k^(2))].\n\nHence\n\n    Psi = sum_{k=0}^m (12k+1) C_k 2^{-k},\n\n    H_1^{<=m}\n      = -sum_{k=0}^m (12k+1) C_k(A_k+2B_k^h)2^{-k}.\n\nNo parameter derivative symbol remains in the weighted cutoff jet.\n\n## 3. Middle one-zero stratum: explicit first and second jets\n\nWrite k=m+r, 1<=r<=m, and define\n\n    D_r := (-1)^r m!(2m)!(r-1)! / [(m-r)!(m+r)!^2].\n\nFactoring the unique zero a from (-m+a)_{m+r} gives exactly\n\n    BOXED: c_{m+r}'(0)=D_r.\n\nThe logarithmic derivative of the remaining nonzero factors is\n\n    E_r := H_{r-1}-H_m-2(H_{2m}-H_{m-r}),\n\nso\n\n    BOXED: c_{m+r}''(0)=2D_r E_r.\n\nConsequently\n\n    F_2^{<=2m}\n      = sum_{k=0}^m C_k[(A_k+2B_k^h)^2-(A_k^(2)+4B_k^(2))]2^{-k}\n        + 2 sum_{r=1}^m D_r E_r 2^{-(m+r)}.\n\nTogether with\n\n    F_0=sum_{k=0}^m C_k2^{-k},\n\n    F_1=-sum_{k=0}^m C_k(A_k+2B_k^h)2^{-k}\n        +sum_{r=1}^m D_r2^{-(m+r)},\n\nthis also makes\n\n    a_parent=F_0/p+F_1/6\n\ncompletely explicit in terminating binomial-harmonic data.\n\n## 4. High two-zero stratum and the exact source of Y\n\nFor k=2m+s with 1<=s<=4m, both numerator Pochhammers have crossed one simple zero. The second derivative can only come from differentiating both zero factors once. Therefore\n\n    BOXED:\n    c_{2m+s}''(0)\n      = 4(-1)^m m!(2m)!(m+s-1)!(s-1)!/(2m+s)!^2.\n\nIn particular, c_k''(0) is nonzero throughout this stratum. The already-proved support identity\n\n    Y=(F_2-F_2^{<=2m})/72                 (mod p)\n\ntherefore becomes the explicit finite sum\n\n    BOXED:\n    Y = (1/18)(-1)^m m!(2m)!\n        * sum_{s=1}^{4m}\n          [(m+s-1)!(s-1)!/(2m+s)!^2] 2^{-(2m+s)}\n        (mod p).\n\nThus the high valuation-two mass is exactly the two-zero cross-derivative stratum; no hidden first-derivative or low-support term contributes.\n\n## 5. Derivative-free cutoff-jet certificate\n\nSubstituting Sections 2-3 into the durable cutoff bridge gives a derivative-free terminating carrier. Define\n\n    L_m := -sum_{k=0}^m (12k+1) C_k(A_k+2B_k^h)2^{-k},\n\n    Q_m := sum_{k=0}^m C_k[(A_k+2B_k^h)^2-(A_k^(2)+4B_k^(2))]2^{-k}\n           +2 sum_{r=1}^m D_r E_r2^{-(m+r)}.\n\nThen exactly at the JT2 observer,\n\n    BOXED:\n    Z_T = [a_parent Psi-1]/p + a_parent L_m/6 + Psi Q_m/72  (mod p),\n\nwhere a_parent itself is the explicit terminating expression in Section 3. Hence the remaining zero-mode problem contains no opaque derivative vector and no fitted coordinate: it is a finite binomial-harmonic certificate plus the retained divided product digit.\n\nThis is the WZ-ready form requested by the current Source frontier. It does not prove that the displayed carrier equals R_p-a_parent A-Psi Y; that equality remains LIFT.\n\n## 6. BRC information audit\n\nPopulation: exact source ports k=0,...,p-1 with index, zero multiplicity in c_k(a), p-adic valuation at a=p/6, and derivative order.\n\nObserver: the divided second digit modulo p.\n\nSafe compression proved here: replace the low and middle derivative arrays by the explicit finite data (C_k,A_k,B_k^h,A_k^(2),B_k^(2),D_r,E_r), and replace the high second-jet array by the explicit two-zero factorial ports. This is invertible at the observer because the formulas are exact coefficient identities.\n\nPreserved: low/middle/high source labels, the m and 2m cutoffs, derivative/zero order, all signs, and the divided product coordinate [a_parent Psi-1]/p.\n\nForbidden compression: merge the three strata before their first visible derivative order; delete the high two-zero ports; reduce a_parent or Psi only modulo p before forming the divided product digit; or treat the explicit finite sums as a proof of the still-open endpoint identity.\n\nBRC_REUSE_RESOLUTION=COMPOSE_APPLIED.\n\n## 7. Verification and next action\n\nA deterministic exact-rational checker expands the defining finite products directly and compares coefficients of a^0,a^1,a^2 with the formulas above for a range of integer m, including every zero-multiplicity transition. It also checks the three support regions and the high two-zero formula. These checks are falsification only; the proof is the product factorization and logarithmic differentiation in Sections 1-4.\n\nNext use this derivative-free terminating carrier for creative telescoping/WZ or a source-level Frobenius comparison. A valid next identity must act on the explicit low/middle sums and retain the divided product coordinate. Do not return to the already-closed evaluation-adjoint differentiation loop, and do not identify the Frobenius repair scalar with this carrier without a proved equality.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "390672ea3c06d6eacf6d88095619bef1d502e51bd5ef83eb71bb28b72bdbfea7"
+        }
+      ],
+      "sha256": "390672ea3c06d6eacf6d88095619bef1d502e51bd5ef83eb71bb28b72bdbfea7",
+      "total_bytes": 6614,
+      "upload_id": "d25-gauss-zero-multiplicity-strata-note-20260924"
+    },
+    {
+      "artifact_upload_requests": [
+        {
+          "local_receipt_sha256": "6c72f7cfdf93cf1b5bc019d32a967c553fe26e14c57f053c26128e8f2ddd33a4",
+          "native_payload_sha256": "b092af3ddc396fffdb1b42a89a6e6e219cc5e97999e72e4ed1eed1edfd5161ab",
+          "part_index": 0,
+          "request_id": "emr11-upload-d25-i1-note-20260924-1208",
+          "request_sha256": "73c60410b9b92f5993b8a5d359971a395cb82670d2e32e3f16aac43549a0bd65",
+          "session_id": "MCP-70a0fec6896849ac81484f0e00b3f0dd"
+        }
+      ],
+      "complete": true,
+      "filename": "d25_lift_i1_first_order_transport_20260924.md",
+      "next_part": 1,
+      "parts": [
+        {
+          "byte_count": 4752,
+          "content_utf8": "# D24 second-digit LIFT: first-order p-shift transport of the I1 shell\n\nStatus: PROVED_DERIVATION_UNIT / LIFT_NOT_YET_CLOSED\nDate: 2026-09-24\nTask: RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\nPublication: TP2-B6F4FC938FF94941C1B7\n\n## 0. Input from the preceding shell unit\n\nLet p=6m+1, p≡13 or 19 (mod 24), and\n\nt_k=(6k+1) binom(2k,k)^2 binom(3k,k)/216^k.\n\nThe p^3 observer has exact shells I0=[0,2m], I1=[2m+1,3m],\nI2=[3m+1,4m], I3=[4m+1,6m].  I3 is pointwise zero mod p^3 and\nI2 has already been transported to a fixed-parameter truncated 5F4.\nThe only purpose of this note is to resolve the p-dependent shape of I1\none p-adic order deeper.\n\n## 1. Normalize the I1 shell\n\nFor 1<=r<=m set\n\nb_r = t_{2m+r}/p  (mod p^2).\n\nBecause every I1 term has exactly one structural p from\nbinom(3k,k), this is a legal integral observer.\n\nThe exact term ratio is\n\nt_{k+1}/t_k\n =\n (6k+7)/(6k+1)\n *\n (2k+1)(3k+1)(3k+2)/(36(k+1)^3).\n\nPut k=2m+r=(p-1)/3+r.  Then the exact ratio between consecutive\nnormalized I1 ports is\n\nR_r(p)\n =\n 1/4 *\n (2p+6r+5)(2p+6r+1)(p+3r)(p+3r+1)\n -------------------------------------------------\n (2p+6r-1)(p+3r+2)^3.                              (1)\n\nFor 1<=r<m every denominator is a p-adic unit.\n\n## 2. First-order p-shift is explicit\n\nDefine\n\nR_r^(0)\n =\n (6r+5)(6r+1)(3r)(3r+1)\n --------------------------------\n 4(6r-1)(3r+2)^3,                                  (2)\n\nand\n\nD_r\n =\n 2/(6r+5) + 2/(6r+1)\n +1/(3r) +1/(3r+1)\n -2/(6r-1) -3/(3r+2).                              (3)\n\nExpanding each affine factor in (1) to first order gives the exact\nmod-p^2 transport law\n\nboxed:\nb_{r+1}\n ≡ b_r R_r^(0) (1+p D_r)\n (mod p^2).                                         (4)\n\nNo analytic logarithm is used here: (3) is only the rational\nfirst-order coefficient obtained by multiplying unit factors modulo\np^2.\n\n## 3. Fixed-parameter hypergeometric carrier plus one derivative port\n\nSet q_0=1, H_0=0 and for s>=1\n\nq_s = product_{r=1}^s R_r^(0),\nH_s = sum_{r=1}^s D_r.\n\nThen iteration of (4) gives\n\nboxed:\nb_{s+1} ≡ b_1 q_s (1+p H_s) (mod p^2).             (5)\n\nThe q_s sequence is fixed-parameter hypergeometric:\n\nq_s =\n (1)_s^2 (7/6)_s (11/6)_s (4/3)_s\n ------------------------------------ * (1/2)^s / s!.\n (5/6)_s (5/3)_s^3\n\nIndeed q_{s+1}/q_s is exactly R_{s+1}^(0).\n\nTherefore, with\n\nQ_m = sum_{s=0}^{m-1} q_s,\nJ_m = sum_{s=0}^{m-1} q_s H_s,\n\nthe entire I1 shell satisfies\n\nboxed:\nS_1/p\n ≡ b_1 (Q_m + p J_m)\n (mod p^2),                                         (6)\n\nwhere S_1=sum_{k=2m+1}^{3m} t_k and the single seed is\n\nb_1 = t_{(p+2)/3}/p (mod p^2).\n\nThus all p-dependence of the I1 transition geometry has been reduced to\none exact seed b_1; the remaining carrier is a fixed-parameter 5F4\nsequence plus its explicit first-order derivative/harmonic port H_s.\n\nFor reference, the seed has the elementary mod-p reduction\n\nb_1\n ≡ -10 (2n)! / (n!^5 216^n)\n (mod p),                                           (7)\n\nwhere n=(p+2)/3.  The mod-p^2 correction of b_1 is intentionally kept\nas a live scalar port rather than silently erased.\n\n## 4. BRC information audit\n\nPopulation:\nthe individual I1 ports indexed by r, each carrying exactly one\nstructural p.\n\nCompression:\nthe p-dependent high-index recurrence is replaced by\n(b_1, q_s, H_s).  This is lossless for S_1/p modulo p^2 because (4)\nis an exact first-order p-adic transport identity.\n\nPreserved residual:\nH_s is retained.  Dropping H_s would preserve S_1 only modulo p^2\nbefore division, but would destroy precisely the second-digit\ninformation needed by E_p.\n\nNot claimed:\nthis does not evaluate b_1, Q_m or J_m in closed form and does not yet\nprove E_p=0.  It isolates the derivative/Frobenius-sensitive content\nrather than declaring it cancelled.\n\n## 5. Deterministic regression\n\nA pure-Python exact checker independently reconstructs t_k modulo p^3,\nforms b_r, verifies (4) for every transition, verifies the summed form\n(6), and checks the initial seed formula (7).\n\nAll 166 target primes p<5000 pass, with 83 primes in each residue class.\n\nChecker SHA-256:\n48f230859678af892c255e2647e7ed3d9f47a09c1b6b25e8e25b1e336a02d7ca\n\nFinite regression is falsification only.  The proof of (4)-(7) is the\nexact term-ratio expansion and factorial calculation above.\n\n## 6. Next exact unit\n\nThe unresolved object is now concentrated in I0 together with the\nsingle I1 seed b_1 and the explicit pair (Q_m,J_m).\n\nNext derive a reflection or terminating p-shift identity for I0 modulo\np^3, taking special care of k=m where 6k+1=p.  The goal is to expose\nwhether the I0 correction naturally supplies the negative of the I1\nderivative port plus the already-known I2 5F4 boundary term.  Do not\ncollapse the k=m source or the H_s derivative coordinate before this\ncomparison.\n",
+          "final": true,
+          "part_index": 0,
+          "sha256": "a886aa35400416113f135e99f6211cbc5eda7a9f5e2478a4936a403e71ac595f"
+        }
+      ],
+      "sha256": "a886aa35400416113f135e99f6211cbc5eda7a9f5e2478a4936a403e71ac595f",
+      "total_bytes": 4752,
+      "upload_id": "d25-i1-note-20260924"
+    }
+  ]
+}
