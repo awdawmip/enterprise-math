@@ -1,0 +1,143 @@
+{
+  "schema": "EM_BRC_NONNEGATIVE_FIBER_SHARP_THRESHOLD_EXACT_V1",
+  "meaning": "external finite-field integer-incidence auxiliary model only",
+  "completed_checks": [
+    "p5: every multiset state for mass N=0..5, exact full-port residue census",
+    "p5: all mass-5 collision fibers: one size 24 atomic fiber and six size 4 parallel-line fibers, exhaustive",
+    "p5,p7: full incidence identity YB=pI and nonnegative reachability obstruction for explicit witnesses"
+  ],
+  "p5_nonnegative_graph_classification": {
+    "mass": 5,
+    "move_negative_mass_by_type": {
+      "same": [
+        5
+      ],
+      "cross": [
+        8
+      ]
+    },
+    "nontrivial_residue_fibers": 7,
+    "fiber_cardinalities": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      24
+    ],
+    "nonnegative_components": 98262,
+    "isolated_single_point_condensates": 24,
+    "excess_components_over_residue_fibers": 23
+  },
+  "p5_exhaustive_mass_layers": [
+    {
+      "mass": 0,
+      "states_exhaustively_checked": 1,
+      "distinct_residues": 1,
+      "duplicate_residue_state_count": 0,
+      "zero_residue_states": 1
+    },
+    {
+      "mass": 1,
+      "states_exhaustively_checked": 24,
+      "distinct_residues": 24,
+      "duplicate_residue_state_count": 0,
+      "zero_residue_states": 0
+    },
+    {
+      "mass": 2,
+      "states_exhaustively_checked": 300,
+      "distinct_residues": 300,
+      "duplicate_residue_state_count": 0,
+      "zero_residue_states": 0
+    },
+    {
+      "mass": 3,
+      "states_exhaustively_checked": 2600,
+      "distinct_residues": 2600,
+      "duplicate_residue_state_count": 0,
+      "zero_residue_states": 0
+    },
+    {
+      "mass": 4,
+      "states_exhaustively_checked": 17550,
+      "distinct_residues": 17550,
+      "duplicate_residue_state_count": 0,
+      "zero_residue_states": 0
+    },
+    {
+      "mass": 5,
+      "states_exhaustively_checked": 98280,
+      "distinct_residues": 98239,
+      "duplicate_residue_state_count": 41,
+      "zero_residue_states": 24
+    }
+  ],
+  "witness_checks": [
+    {
+      "p": 5,
+      "mass": 5,
+      "z": [
+        1,
+        0
+      ],
+      "w": [
+        0,
+        1
+      ],
+      "formal_shortest_length": 4,
+      "nonnegative_outdegree_from_F": 0,
+      "nonnegative_path_exists": false,
+      "residue_equal": true
+    },
+    {
+      "p": 5,
+      "mass": 16,
+      "z": [
+        1,
+        0
+      ],
+      "w": [
+        0,
+        1
+      ],
+      "formal_shortest_length": 4,
+      "nonnegative_outdegree_from_F": 0,
+      "nonnegative_path_exists": false,
+      "residue_equal": true
+    },
+    {
+      "p": 7,
+      "mass": 7,
+      "z": [
+        1,
+        0
+      ],
+      "w": [
+        0,
+        1
+      ],
+      "formal_shortest_length": 6,
+      "nonnegative_outdegree_from_F": 0,
+      "nonnegative_path_exists": false,
+      "residue_equal": true
+    },
+    {
+      "p": 7,
+      "mass": 24,
+      "z": [
+        1,
+        0
+      ],
+      "w": [
+        0,
+        1
+      ],
+      "formal_shortest_length": 6,
+      "nonnegative_outdegree_from_F": 0,
+      "nonnegative_path_exists": false,
+      "residue_equal": true
+    }
+  ]
+}
