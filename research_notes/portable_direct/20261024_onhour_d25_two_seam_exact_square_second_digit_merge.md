@@ -154,7 +154,7 @@ Both displayed divisions are p-integral by the cited existing laws; they are not
 
 ## 5. Reproducible author exact computations
 
-Two representations were actually executed: an exact rational Fraction recurrence at m=1,...,10 checks the seam values and SQ, and an independent valuation/p-unit recurrence modulo p³ checks TR, T2, COEFF, MERGE and the original U+MERGE versus G for all **80 primes p<=1000, p=1 mod6**, 45 of which lie in target residue classes 13 or 19 (mod24). These last endpoint checks are finite author observations only. Reusable local Python3 standard-library checker: d25_seam_merge_check.py, SHA256 9a3f793fceb09b33fe1072d9e94213f614c625e6ed55005b8947111b49ff4275. Arbitrary-n formula F is separately proved by the displayed ratio, not by finite testing.
+Two representations were actually executed: an exact rational Fraction recurrence at m=1,...,10 checks the seam values and SQ, and an independent valuation/p-unit recurrence modulo p³ checks TR, T2, COEFF, MERGE and the original U+MERGE versus G for all **80 primes p<=1000, p=1 mod6**, 45 of which lie in target residue classes 13 or 19 (mod24). These last endpoint checks are finite author observations only. Reproducible Python3 stdlib checker, now committed as [two-seam exact checker](20261024_onhour_d25_two_seam_exact_square_second_digit_merge_check.py), SHA256 9a3f793fceb09b33fe1072d9e94213f614c625e6ed55005b8947111b49ff4275 (Git blob dba3f6c0561a9ec0de5a9bd78672d8552c037321). Arbitrary-n formula F is separately proved by the displayed ratio, not by finite testing.
 
 Selected actual residues (each modulus p²):
 
