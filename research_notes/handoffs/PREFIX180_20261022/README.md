@@ -30,3 +30,9 @@ Original complete archive: 2,817,475 bytes; SHA-256 `c7d5006e191db3189d6ce8024ed
 尚未上传的六个原始文件已在上文逐项列明：两个可再生二进制输入、一个可再生原始行号表、两份逐配置完整搜索日志，以及前驱归档。原始清单仍包含它们的校验值。因而，不能把当前目录声称为可直接执行全部历史联合家族重放的完整归档；完整复现仍需这些依赖。
 
 完整原始研究包仍由当前对话附件保存。本次只变更保存位置与交接说明，不进行新的研究计算，不宣称新增数学成果。
+
+## 2026-10-23 定理与工具重建更新
+
+五项可生成缺件已重生成，并匹配本目录SHA256SUMS_PREFIX180.txt中的全部历史散列：distance3_remove1264_180.bin、eligible_no_support_obstruction_180.bin、eligible_original_row_numbers_180.txt、primary_180.log、eligible_k12_results_180.log。它们是相同字节的重建，不伪称新取回历史原件。REFERENCE_PREFIX179.zip仍未恢复。
+
+[本轮自足证明与新完整最优分类](../../reconstruction_20261023/THEOREMS.md)将直接67,525个Q中646个可解配置的最小补点数精确分为12/13/14三类，数量1/215/430；独立于缺失的PREFIX179参考包。[直接重放工具](../../reconstruction_20261023/replay_prefix180.py)可单独完成这一范围。旧REPRODUCE_PREFIX180.sh仍要求PREFIX179以复核更大联合家族，不能据直接范围已恢复声称整条历史链已经完整。

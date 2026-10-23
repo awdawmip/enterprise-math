@@ -11,3 +11,7 @@
 三份仍未找回的原包：EM_C71_REMOTE_EIGHT_FACE_BRC_PLATEAU_PORTABLE.zip、EM_D25_P19_B11_POLE_SUPPORT_OBSTRUCTION_20261011_EVIDENCE.zip、EnterpriseMath_R1_BRC_L5_ThreeInformationDrops_20261011.zip。
 
 PREFIX180仍缺六项：distance3_remove1264_180.bin、eligible_no_support_obstruction_180.bin、eligible_original_row_numbers_180.txt、primary_180.log、eligible_k12_results_180.log、REFERENCE_PREFIX179.zip。既有39文件交接保留，不能称完整可复现。既有三份补包不重复收录；取消包不在此范围。
+
+## 2026-10-23 后续数学重建
+
+[定理与工具重建结果](../../reconstruction_20261023/README.md)已补齐PREFIX180五个可生成缺件，历史SHA256全匹配；现在仅REFERENCE_PREFIX179.zip仍缺。原文六项缺失说明记录重建前时点。新增直接家族完整最优分布、闭式硬约束证明及T6适用条件说明，科学审查状态另列，不由归档核验自动晋升。
