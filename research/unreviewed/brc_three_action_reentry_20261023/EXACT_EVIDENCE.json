@@ -1,0 +1,190 @@
+{
+  "schema": "EM_BRC_THREE_ACTION_REENTRY_EVIDENCE_V1",
+  "scientific_status": "AUTHOR_EXACT_UNREVIEWED_NOT_ADMITTED",
+  "provenance": {
+    "global_main": "674c44f8c3c194a82c63f0bba6da995d1d307ad3",
+    "enterprise_math_main": "1fbbbb3b9541952974f67e1c4c803047c79199f3",
+    "prior_two_action_theorem": "3f9f112e83838e65c599b844bf26095e0f949ddd",
+    "model": "Four hidden labels, G={{0,1},{1,2},{1,3},{2,3}}; independent draws; three public actions; positive rational mass"
+  },
+  "actions_at_z_1": {
+    "0": [
+      0,
+      2,
+      0,
+      1
+    ],
+    "2": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "3": [
+      0,
+      0,
+      0,
+      3
+    ],
+    "denominator": 3
+  },
+  "witness": "032020",
+  "polynomial_delta_numerators_over_3_power_t_low_to_high": [
+    [
+      0
+    ],
+    [
+      6
+    ],
+    [
+      12,
+      3
+    ],
+    [
+      30,
+      12,
+      9
+    ],
+    [
+      54,
+      36,
+      15
+    ],
+    [
+      114,
+      108,
+      90,
+      9
+    ]
+  ],
+  "rational_witness_rows": [
+    {
+      "t": 1,
+      "a": 0,
+      "d": "0",
+      "D": "0",
+      "M": "0",
+      "R": "0",
+      "gain": "0"
+    },
+    {
+      "t": 2,
+      "a": 3,
+      "d": "2/3",
+      "D": "2/3",
+      "M": "2/3",
+      "R": "0",
+      "gain": "0"
+    },
+    {
+      "t": 3,
+      "a": 2,
+      "d": "5/9",
+      "D": "-1/9",
+      "M": "2/3",
+      "R": "0",
+      "gain": "0"
+    },
+    {
+      "t": 4,
+      "a": 0,
+      "d": "17/27",
+      "D": "2/27",
+      "M": "2/3",
+      "R": "2/27",
+      "gain": "2/27"
+    },
+    {
+      "t": 5,
+      "a": 2,
+      "d": "35/81",
+      "D": "-16/81",
+      "M": "2/3",
+      "R": "2/27",
+      "gain": "0"
+    },
+    {
+      "t": 6,
+      "a": 0,
+      "d": "107/243",
+      "D": "2/243",
+      "M": "2/3",
+      "R": "20/243",
+      "gain": "2/243"
+    }
+  ],
+  "second_episode_counts_by_new_deterministic_label_0_through_3": {
+    "0": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "1": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "2": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "3": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      6
+    ]
+  },
+  "length_6_witnesses_q3_e3": [
+    "032020",
+    "032030",
+    "223020",
+    "223030",
+    "302020",
+    "302030"
+  ],
+  "coverage": {
+    "enumeration": "4 deterministic added-action types x all words of lengths 1..6 in {0,2,3}",
+    "total_words": 4368,
+    "no_second_episode_words_lengths_at_most_5": 1452,
+    "words_length_6": 2916,
+    "crosscheck": "independent inclusion-exclusion occupancy compared with 16-mask integer dynamic programming for all 4368 words",
+    "polynomial_check": "formal integer polynomial coefficient identity for 6 prefixes; 7 exact rational points x 6 prefixes = 42 additional arithmetic checks"
+  },
+  "analytic_z_range": {
+    "polynomial": "3*z^3+15*z^2-16",
+    "increasing_on": "[0,1]",
+    "unique_positive_root_rational_bracket": [
+      "947/1000",
+      "948/1000"
+    ],
+    "claim": "For every real z in (rho,1] the strict residual growth times of 032020 are exactly {4,6}",
+    "proof_reference": "AUTHOR_THEOREM.en.md"
+  },
+  "command": "python3 verify_three_action_reentry.py",
+  "source_execution": {
+    "actual_local_independent_full_verifier": "PASS; 4368 integer mask / inclusion-exclusion crosschecks, 42 rational checks; witness gains [4,6]",
+    "repository_verifier_uploaded_but_not_remote_executed": true
+  },
+  "native_control": {
+    "tasks": "CONTROL_QUOTA",
+    "dispatch": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "owner_authority_verified": false,
+    "formal_claim": false
+  },
+  "open_problem": "Classify action families by no separated residual-growth episodes; establish a native X6 state/readout/future-operation preservation bridge before native transfer"
+}
