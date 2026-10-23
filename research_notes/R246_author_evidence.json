@@ -1,0 +1,56 @@
+{
+  "schema": "EM_R246_AUTHOR_EVIDENCE_V1",
+  "frozen_source_commit": "49b2545cb2cdcde3b7ac32d7821c57fdb6f2f412",
+  "frozen_global_commit": "c7595dc39a2a68074c2c732a0a8b5c16d3a4e60a",
+  "scope": "16 nonspatial deterministic positive unit-weight control states, two gates, full six-axis rational affine effects; no native heartbeat claim",
+  "exact_types": "I, rank-5 singular projection N, translation C, reflection R",
+  "algebraic_facts": [
+    "R composed after N equals N",
+    "R composed after C after N differs from C after N"
+  ],
+  "delayed_variant": {
+    "first_witness_word": "G3,G2,G3",
+    "minimum_length": 3,
+    "first_axis_outputs": [
+      1,
+      -1
+    ],
+    "trace_classes_in_finite_check": 10,
+    "strong_partition_classes": 10
+  },
+  "masked_variant": {
+    "source_pair": [
+      2,
+      4
+    ],
+    "all_future_effect_trace_equivalent": "proved by H0 invariant",
+    "trace_equivalence_classes": 9,
+    "strong_partition_classes": 10
+  },
+  "finite_checks": {
+    "python": "PASS, all 16 sources and all words of length <=7 in each of two variants",
+    "cpp17": "PASS, independent first-axis exact specialization; length <=8",
+    "compile": "-std=c++17 -O2 -Wall -Wextra -Werror"
+  },
+  "local_bundle": {
+    "file_name": "EM_X6_R246_SINGULAR_EFFECT_TRACE_OBSTRUCTION_20261024.zip",
+    "sha256": "e5f5c399ffddda990c5ffe4fc0c02784aa17e03a41c655398fdc18e16b5ce2e3",
+    "cold_start": "PASS; zip 9 files sha check + Python exact output identical + C++17 exact output identical"
+  },
+  "formal_status": {
+    "activity_registration": "UNVERIFIED",
+    "researcher_claim": "NOT_OBTAINED",
+    "research_driver_review": "NOT_OBTAINED",
+    "source_canonical_main_result": "NOT_PUBLISHED",
+    "remote_branch": "research-draft/r246-singular-affine-20261024",
+    "remote_scope": "noncanonical author-side research handoff"
+  },
+  "gateway": {
+    "native_research_session": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "control_tasks": "CONTROL_QUOTA",
+    "github_control_issue": 6238,
+    "github_control_inner_receipt_at_check": "ACCEPTED/QUEUED"
+  },
+  "next": "Execute original enterprise_math module on pinned source, decide native X6 effect admissibility, preserve R193 provenance, resolve owner/CLAIM without conflating branch draft with official result"
+}
