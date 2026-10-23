@@ -1,0 +1,126 @@
+{
+  "schema": "EM_N14_AUX_IID_AUTHOR_CERT_V1",
+  "date": "2026-10-24",
+  "status": "AUTHOR_EXACT_FINITE_MODEL_PROOF_DRIVER_UNREVIEWED",
+  "source_63": "awdawmip/enterprise-math@05ed5dcc5c8b5ae1403e7a16a3b73468d0f475cb/research_notes/n14_aux_iid_affine_63_20261024",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "scope": "arbitrary randomized ordered-history-dependent binary sequential tests"
+  },
+  "constants": {
+    "alpha63": "5171859005503598567/14900301753911083008",
+    "V63": "12336363560670376789/931268859619442688",
+    "s63": "26146535894657099/41779200000000000",
+    "K64": "2103023591496/315065929",
+    "lambdaP": "1892039050440/315065929",
+    "lambdaQ": "2103023591496/315065929",
+    "Gamma64": "3995062641936/315065929",
+    "A64": [
+      6,
+      5,
+      0
+    ],
+    "B": [
+      12,
+      0,
+      1
+    ],
+    "pA": "5/32768",
+    "qA": "5/248832",
+    "liveA": 6,
+    "nominalA": 6,
+    "pB": "48828125/725594112",
+    "qB": "48828125/362797056",
+    "liveB": 12,
+    "nominalB": 12,
+    "RA": [
+      "4270381/6115295232",
+      "213669785/214990848",
+      "923168579/764411904",
+      "26184445/17915904"
+    ],
+    "RB": [
+      "63/64",
+      "1/144",
+      "9/8",
+      "13/12"
+    ],
+    "X": "21351905/200385994162176",
+    "Y": "6605315/53496602689536",
+    "E": "48828125/46438023168",
+    "H": "48828125/52242776064",
+    "h64": "20161471343/174080000000000",
+    "eta64": "1575329645/103474317735493632",
+    "s64": "26151374647779419/41779200000000000",
+    "alpha64": "5171859232351067447/14900301753911083008",
+    "V64": "12336183782851489669/931268859619442688",
+    "root": "19047875907885376670263883141/4314868947128974955249664",
+    "minPositiveSlack": "734765377967/13066414207488",
+    "margin0": "640187516716220513/1241691812825923584",
+    "margin1": "640005246393385873/1241691812825923584",
+    "nextCandidate": {
+      "K": "832984560/130907",
+      "state": [
+        9,
+        6,
+        1
+      ],
+      "competing": "CONTINUE/IMMEDIATE_P",
+      "status": "UNPROVED"
+    }
+  },
+  "exactCoverage": {
+    "bellman_states": 680,
+    "nonchosen_comparisons": 1240,
+    "positive_gaps": 1238,
+    "negative_gaps": 0,
+    "zero_gap_states": [
+      [
+        6,
+        5,
+        0
+      ],
+      [
+        12,
+        0,
+        1
+      ]
+    ],
+    "explicit_length6_words": 729,
+    "explicit_length12_words": 531441,
+    "checks": [
+      "main_exact_fraction_PASS",
+      "second_author_crosscheck_PASS",
+      "four_corner_zero_mixed_PASS",
+      "seven_rational_samples_PASS"
+    ],
+    "descendant_P_7_6_0": {
+      "firsthit": 6,
+      "viaA": 6
+    },
+    "descendant_P_7_5_0": {
+      "firsthit": 21,
+      "viaA": 6
+    }
+  },
+  "script_git_blob_sha1": {
+    "main": "fbda27936a8406a84339a8e70d44d3a0a8374af1",
+    "cross": "d3557f1d175b05199fb0c123da7760a209547403"
+  },
+  "limitations": [
+    "shared inherited stopping sets",
+    "independent Driver not reviewed",
+    "no native BRC/X6 fidelity map",
+    "no native CLAIM"
+  ]
+}
