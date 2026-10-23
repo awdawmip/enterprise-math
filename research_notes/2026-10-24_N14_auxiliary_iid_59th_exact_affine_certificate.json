@@ -1,0 +1,143 @@
+{
+  "schema": "EM_N14_AUXILIARY_IID_59TH_AUTHOR_CERTIFICATE_V1",
+  "date": "2026-10-24",
+  "status": "AUTHOR_EXACT_RATIONAL_CHECKED_DRIVER_UNREVIEWED",
+  "sources": {
+    "global_main": "bdc4c6b8927afbdf4d031565b3bec53d95936bbc",
+    "enterprise_math_initial_main": "5dbd2586d75f45b06459f1e40ea2f3fbe9072b55",
+    "p000_original_blob_sha1": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "inherited_58th_note": "research_notes/2026-10-24_N14_auxiliary_iid_58th_exact_affine_AUTHOR_UNREVIEWED.md"
+  },
+  "model": {
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "N": 14
+  },
+  "inherited": {
+    "alpha58": "1292959797687948215/3725075438477770752",
+    "V58": "24710844325515742757/1862537719238885376",
+    "s58": "6490285267896539/10444800000000000"
+  },
+  "dual": {
+    "K59": "57829359672/5658763",
+    "lambdaP": "51811306200/5658763",
+    "lambdaQ": "57829359672/5658763",
+    "Gamma59": "109640665872/5658763",
+    "root": "4177665846687324271885749343/619979972454905454526464",
+    "states": 680,
+    "compared_nonselected_actions": 1240,
+    "strict_slacks": 1238,
+    "negative_slacks": 0,
+    "min_positive_slack": "54043381/724321664",
+    "ties": [
+      [
+        [
+          12,
+          0,
+          1
+        ],
+        "C",
+        "Q"
+      ],
+      [
+        [
+          6,
+          1,
+          3
+        ],
+        "C",
+        "Q"
+      ]
+    ]
+  },
+  "first_arrival": {
+    "A59": {
+      "state": [
+        6,
+        1,
+        3
+      ],
+      "nominal_ordered_words": 60,
+      "live_words": 45,
+      "earlier_Q_stops": {
+        "3,0,3": 3,
+        "4,0,3": 6,
+        "5,0,3": 6
+      },
+      "P_mass": "125/442368",
+      "Q_mass": "125/82944",
+      "suffix_continuation_risks": [
+        "452686309/452984832",
+        "36175/429981696",
+        "82013675/56623104",
+        "45301615/35831808"
+      ]
+    },
+    "B": {
+      "state": [
+        12,
+        0,
+        1
+      ],
+      "live_words": 12,
+      "P_mass": "48828125/725594112",
+      "Q_mass": "48828125/362797056",
+      "suffix_continuation_risks": [
+        "63/64",
+        "1/144",
+        "9/8",
+        "13/12"
+      ]
+    },
+    "old_A51_under_58": {
+      "live_firsthits": 1530,
+      "through_A59": 45
+    }
+  },
+  "balance": {
+    "X": "37315375/200385994162176",
+    "Y": "4521875/35664401793024",
+    "E": "48828125/46438023168",
+    "H": "48828125/52242776064",
+    "h59": "1097388201/6963200000000",
+    "eta59": "707345375/34491439245164544",
+    "s59": "6488639185595039/10444800000000000",
+    "alpha59": "1292959874081248715/3725075438477770752",
+    "V59": "24710104251021106757/1862537719238885376",
+    "margin_u0": "327588224513205281/620845906412961792",
+    "margin_u1": "328510182739260281/620845906412961792"
+  },
+  "validation": {
+    "main": "PASS",
+    "author_crosscheck": "AUTHOR_CROSSCHECK_PASS",
+    "exact_arithmetic": true,
+    "randomized_rational_samples_each": 7,
+    "four_corner_mixed_terms_zero": true
+  },
+  "next_dual_candidate_only": {
+    "K60": "1259712/139",
+    "state": [
+      11,
+      6,
+      5
+    ],
+    "action_tie": [
+      "C",
+      "Q"
+    ],
+    "full_interval_proved": false
+  },
+  "mathematical_scope": "finite auxiliary iid only",
+  "native_brc_transfer": false,
+  "formal_claim": false,
+  "independent_driver_review": false,
+  "native_owner_query": "CONTROL_QUOTA"
+}
