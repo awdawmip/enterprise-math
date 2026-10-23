@@ -1,0 +1,62 @@
+{
+  "schema": "EM_R247_AUTHOR_EXACT_VERIFICATION_V1",
+  "fixed_sources": {
+    "global_main": "dae2d3974fa237fbf09aea29233e8a9b21a9d42d",
+    "em_main": "4e126797f473f213c9dd63058d265c8c8fc56b94",
+    "p000_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "theorem": {
+    "finite_deterministic_unit_positive_BRC": true,
+    "affine_maps": "Q^d -> Q^d including singular",
+    "observer": "final control label and full composite affine effect",
+    "bound": "r*(2*d*(d+1)+1)-1",
+    "r246_pairs": [
+      [
+        2,
+        4
+      ],
+      [
+        10,
+        12
+      ]
+    ],
+    "full_d6_bound": 169,
+    "first_axis_lift_bound": 9
+  },
+  "verified_author_side": {
+    "python_exact_fraction": "PASS",
+    "cpp17_independent_boost_exact": "PASS",
+    "archive_cold_start": "PASS",
+    "delayed_shortest_witness": [
+      "G3",
+      "G2",
+      "G3"
+    ],
+    "delayed_prior_basis_rank": 4,
+    "masked_future_trace_equivalent": true,
+    "masked_invariant_span_rank": 3,
+    "word_brute_search_scope": {
+      "delayed_length_up_to": 5,
+      "masked_length_up_to": 10
+    }
+  },
+  "local_full_evidence_zip": {
+    "filename": "EM_R247_PREFIX_IMAGE_LINEAR_OBSERVABILITY_20261024.zip",
+    "sha256": "fab5f61cf2cd842ffdb1e25a5b83a03a938fd7c7c05728bea44c371d1fcc047c",
+    "files": 6
+  },
+  "native_source_import": "NOT_EXECUTED; ModuleNotFoundError: No module named 'enterprise_math'",
+  "publication": {
+    "kind": "AUTHOR_BRANCH_DRAFT",
+    "review": "NONE",
+    "result_record": "NONE",
+    "claim": "UNVERIFIED",
+    "checkpoint": "PENDING"
+  },
+  "paths": [
+    "research_notes/R247_AFFINE_TRACE_LINEAR_SPAN_20261024.md",
+    "research_notes/R247_verify_span.py",
+    "research_notes/R247_verify_independent.cpp"
+  ],
+  "next": "Native Source ControlPacket/Affine integration; determine Heartbeat legality of singular affine map; extend or disprove bound for genuine positive multi-branch EffectHistogram; R193 provenance embedding."
+}
