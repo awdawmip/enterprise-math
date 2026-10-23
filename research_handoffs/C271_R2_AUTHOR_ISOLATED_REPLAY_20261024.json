@@ -1,0 +1,54 @@
+{
+  "schema": "EM_C271_R2_AUTHOR_ISOLATED_REPLAY_V1",
+  "scope": "Author-only exact auxiliary; evidence report of actual local isolated execution, not remote execution or independent Driver admission",
+  "global_knowledge_snapshot": "7c1187e2493cbf4a087a013bf4cfd4580e7027b6",
+  "source_snapshot": "ee3f360b93c18bb4d4681de656dc0428290d8876",
+  "portable_zip": {
+    "filename": "EM_C271_R2_232_COLLISION_SEAM_RESIDUE_EXACT_PORTABLE.zip",
+    "bytes": 6231409,
+    "sha256": "93e3f255426f5a99123c420d65de4f58e7a1c8e8a4383634fed0c5685928bd82",
+    "file_count": 22,
+    "tested_integrity": "ZIP.testzip PASS, all 21 manifest entries verified by sha256 and byte length after isolated extraction"
+  },
+  "executions": [
+    {
+      "command": "python C271_STANDALONE_EXACT_REPLAY.py",
+      "result": "PASS",
+      "observed": "C271_AUXILIARY_SEAM_STANDALONE_EXACT_PASS safe 363 boundary_touch 124 interior_overlap 108 R_RANGE:(Q/4096,Q/2048) positive_quadratic 232"
+    },
+    {
+      "command": "python C268_R2_STANDALONE_REPLAY.py",
+      "result": "PASS",
+      "observed": "194+99=293 strict rational leaves, 193+98=291 splits; minimum floor(LB)-Q 1981285108006481877815627943490911; only preexisting C270 pairs, no new classification"
+    },
+    {
+      "command": "python C271_COLLISION_SEAM_CERT.py",
+      "result": "PASS",
+      "observed": "595 exact pair hulls, 363 safe, 124 boundary touch, 108 interior overlap, C254 #3/#11 anomalies, 232 positive residue/quadratic signs"
+    },
+    {
+      "command": "python C268_EXACT_BUILD.py",
+      "result": "PASS",
+      "observed": "2 exact four-free roots, 293 leaves, 291 midpoint splits; author crosscheck only"
+    }
+  ],
+  "bytewise_recomputed": [
+    "C271_EXACT_SEAM_CERTIFICATE.json",
+    "C268_R2_EXACT_CERTIFICATE.json"
+  ],
+  "source_evidence_commit_at_upload": "4b45adb33641e245cccd9e5837833a0d4fa67c30",
+  "native_control": {
+    "dispatch_issue": "https://github.com/awdawmip/kimi-query-bridge/issues/6237",
+    "result": "FAILED TimeoutExpired",
+    "actual_owner_verified": false,
+    "native_claim": false
+  },
+  "restrictions": {
+    "no_credential_uploaded": true,
+    "no_share_change": true,
+    "google_drive_fallback_used": false,
+    "remote_zip_uploaded": false,
+    "remote_core_proof_and_replayer_readback": true
+  },
+  "next": "Partition interior-crossing 108 outer hulls on the admissible v55<v56 component and independently audit C254 base #3 and #11 proofs."
+}
