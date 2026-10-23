@@ -1,0 +1,89 @@
+{
+  "schema": "EM_AUX_IID_N14_53RD_AUTHOR_CERT_V1",
+  "status": "AUTHOR_EXACT_NOT_DRIVER_REVIEWED",
+  "global_pin": "674c44f8c3c194a82c63f0bba6da995d1d307ad3",
+  "source_inherited": "fbe4038159c6601026c312a7b2f9d5fc3e0be7af",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ]
+  },
+  "endpoint_before": {
+    "alpha": "1292956446600961517/3725075438477770752",
+    "V": "24752812520708302205/1862537719238885376"
+  },
+  "K53": "297764424/19019",
+  "gamma53": "563813280/19019",
+  "eta53": "19019/183954342640877568",
+  "alpha53": "5171825786405386607/14900301753911083008",
+  "V53": "24752812514999692745/1862537719238885376",
+  "tie_states": {
+    "A53": [
+      10,
+      8,
+      2
+    ],
+    "B": [
+      12,
+      0,
+      1
+    ]
+  },
+  "first_hit": {
+    "A53_nominal": 45,
+    "A53_live": 27,
+    "A53_stopped": 18,
+    "A53_P": "3/1073741824",
+    "A53_Q": "1/2293235712",
+    "B_live": 12,
+    "B_P": "48828125/725594112",
+    "B_Q": "48828125/362797056"
+  },
+  "conditional_suffix": {
+    "A53": [
+      "61/331776",
+      "20705/20736",
+      "14945/13824",
+      "75/64"
+    ],
+    "B": [
+      "63/64",
+      "1/144",
+      "9/8",
+      "13/12"
+    ]
+  },
+  "h53": "13077/22282240000000",
+  "s53": "1059693964501931/1671168000000000",
+  "dual_root": "21468457721702813719200575/2083741463659080056832",
+  "bellman": {
+    "states": 680,
+    "action_comparisons": 1240,
+    "strict_positive": 1238,
+    "zero_ties": 2,
+    "negative": 0
+  },
+  "validation": {
+    "primary": "Local exact Fraction checker PASS",
+    "crosscheck": "Author-side full 59049 length-10 word enumeration, independent 680-state minimization, four corners, five exact policies PASS",
+    "scope": "finite model only; no independent Driver",
+    "local_verifier": "/mnt/data/EM_N14_RUN53_20261023/verify_n14_fiftythird.py"
+  },
+  "next_dual_candidate": {
+    "K54": "19909275768/1359829",
+    "state": [
+      7,
+      3,
+      4
+    ],
+    "tie": "continue/Q"
+  }
+}
