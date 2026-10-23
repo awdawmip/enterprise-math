@@ -1,0 +1,133 @@
+{
+  "schema": "ENTERPRISE_MATH_AUXILIARY_N14_46TH_AFFINE_AUTHOR_CERT_V1",
+  "status": "AUTHOR_EXACT_FINITE_PROOF_UNREVIEWED",
+  "scope": "three-symbol iid sequential test P=(3,1,20)/24 Q=(2,2,20)/24 N=14",
+  "inherited_source": {
+    "repo": "awdawmip/enterprise-math",
+    "commit": "666fe2a4db4d675820f268c0368a862d05988321",
+    "path": "research_notes/2026-10-23_N14_auxiliary_iid_45th_exact_affine_portable.py",
+    "blob": "66bb88e0432f845706493a0d3809b43b32d032e7"
+  },
+  "dual": {
+    "K": "15422430942/577175",
+    "lambda_P": "13750384104/577175",
+    "lambda_Q": "15422430942/577175",
+    "gamma": "29172815046/577175",
+    "root": "4440910098067979291250392543/252943578376871451033600",
+    "count_states": 680,
+    "comparison_count": 1240,
+    "positive_slack": 1238,
+    "ties": [
+      {
+        "state": [
+          8,
+          7,
+          1
+        ],
+        "actions": [
+          "continue",
+          "decide_P"
+        ]
+      },
+      {
+        "state": [
+          12,
+          0,
+          1
+        ],
+        "actions": [
+          "continue",
+          "decide_Q"
+        ]
+      }
+    ]
+  },
+  "new_tie": {
+    "state": [
+      8,
+      7,
+      1
+    ],
+    "nominal_histories": 8,
+    "live_histories": 6,
+    "dead_first_stop": {
+      "(6,6,0)": 2
+    },
+    "P_reach": "1/8388608",
+    "Q_reach": "1/71663616",
+    "conditional_continue": [
+      "21299/47775744",
+      "743687/746496",
+      "2286725/1990656",
+      "13717/10368"
+    ]
+  },
+  "balance_state": {
+    "state": [
+      12,
+      0,
+      1
+    ],
+    "live_histories": 12,
+    "P_reach": "48828125/725594112",
+    "Q_reach": "48828125/362797056",
+    "conditional_continue": [
+      "63/64",
+      "1/144",
+      "9/8",
+      "13/12"
+    ]
+  },
+  "compensation": {
+    "D": "21299/400771988324352",
+    "W": "2809/53496602689536",
+    "E": "48828125/46438023168",
+    "H": "48828125/52242776064",
+    "h46": "92603569/1740800000000000",
+    "eta46": "577175/206948635470987264",
+    "s45": "26392513263428113/41779200000000000",
+    "s46": "26392515485913769/41779200000000000"
+  },
+  "interval": {
+    "alpha45": "5171815392886725797/14900301753911083008",
+    "V45": "193780295680165309/14551075931553792",
+    "alpha46": "5171815392928282397/14900301753911083008",
+    "V46": "12401938792252912069/931268859619442688",
+    "slope": "-29172815046/577175",
+    "T_P_minus_T_Q_at_alpha46": "1805488412918399401/3725075438477770752"
+  },
+  "validation": {
+    "main_exact_rational_script": "LOCAL_RUN_PASS",
+    "backward_absorption_crosscheck": "LOCAL_RUN_PASS",
+    "published_portable_checker": "LOCAL_RUN_PASS",
+    "sample_u": [
+      "0",
+      "1/4",
+      "1/2",
+      "3/4",
+      "1"
+    ],
+    "exact_Bellman_checks": true,
+    "independent_Driver_review": false,
+    "native_BRC_X6_Heartbeat_transfer": false,
+    "formal_Task_CLAIM_verified": false
+  },
+  "next_dual_candidate": {
+    "K47": "419904/17",
+    "state": [
+      10,
+      2,
+      3
+    ],
+    "tie_actions": [
+      "continue",
+      "decide_Q"
+    ],
+    "scientific_status": "DUAL_CANDIDATE_ONLY"
+  },
+  "project_publication": {
+    "proof": "research_notes/2026-10-23_N14_auxiliary_iid_46th_exact_affine_AUTHOR_UNREVIEWED.md",
+    "portable": "research_notes/2026-10-23_N14_auxiliary_iid_46th_exact_affine_portable.py",
+    "portable_local_sha256": "c58ea6bc9c4e37ccc29b164bd4be97d139ba9ae3d4f80271d1febe41b673b18c"
+  }
+}
