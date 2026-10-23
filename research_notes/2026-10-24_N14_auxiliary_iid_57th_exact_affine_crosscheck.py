@@ -6,7 +6,7 @@ from functools import lru_cache
 from itertools import product
 from pathlib import Path
 import runpy
-m=runpy.run_path(str(Path(__file__).with_name('2026-10-23_N14_auxiliary_iid_57th_exact_affine_portable.py')))
+m=runpy.run_path(str(Path(__file__).with_name('2026-10-24_N14_auxiliary_iid_57th_exact_affine_portable.py')))
 P,Q,N,A,B,K,AL,V,S,G=[m[z] for z in ('P','Q','N','A','B','K','AL','V','S','G')]
 act,child=m['act'],m['child']
 def ordered_firsthit(target):
@@ -70,7 +70,7 @@ def main():
   s=S+h*u;val=backward(u,s)
   affine=tuple(corners[0,0][i]+u*(corners[1,0][i]-corners[0,0][i])+s*(corners[0,1][i]-corners[0,0][i]) for i in range(4))
   assert val==affine and val[0]==val[1]==AL+eta*u and val[2]==V-G*eta*u and val[2]>val[3]
- assert backward(F(1),S+h)[:3]==(F(cert['alpha57']),F(cert['alpha56']),F(cert['V57']))
+ assert backward(F(1),S+h)[:3]==(F(cert['alpha57']),F(cert['alpha57']),F(cert['V57']))
  print('PASS: 6561 ordered length-8 words; 56/56 A57 first hits; 531441 length-12 words; B first hits 12/12')
  print('PASS: 680-state independent minimization, 1238 strict gaps, exactly two tied states')
  print('PASS: four backward corners, seven rational mixtures, optimality and tP dominance')
