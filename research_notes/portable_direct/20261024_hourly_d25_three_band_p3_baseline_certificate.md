@@ -145,4 +145,38 @@ These are exact finite **self-checks**, not an independent proof for infinitely 
 
 **Typed BRC use:** `COMPOSE_APPLIED / REUSE_APPLIED`. Carrier = branch-labeled original `n`, rational signed weight `R_n`, explicit p-adic valuation and unit, exact special jump labels `m`/`2m`; observer = mod `p^3` of the entire original weighted scalar, and permissible operation = summation up to the exact `4m` endpoint. Equations (F), (J1), (J2) preserve the omitted fine information for a future observer; (BAND-3) is *not* an unrestricted branch-level equality at higher precision, and not a positive-mass conservation theorem.
 
+
+## Corollary — closed factorial/harmonic second digit for every high p-unit
+
+There is a more explicit all-target-prime output than the three-band formula involving `a_n`. For every integer `m>=1` and `m<n<=4m`, define the **exact rational** quantities
+\[
+C_{m,n}=\frac{(-1)^m m!(n-m-1)!}{6\,2^n n!},
+\quad \delta_{m,n}=E_n^*+\frac{H_{n-m-1}-H_m}{6},
+\quad H_r=\sum_{i=1}^r\frac1i,\ H_0=0.
+\]
+Then, for each prime `p=6m+1`, in `\mathbb Z_{(p)}/p^2`,
+\[
+\boxed{\frac{R_n}{p}\equiv
+\begin{cases}
+3C_{m,n}\left[1+p\left(\delta_{m,n}-\frac{14}{3}\right)\right],&m<n\le2m,\\[1mm]
+C_{m,n}\left[1+p\left(\delta_{m,n}-\frac{23}{3}\right)\right],&2m<n\le4m.
+\end{cases}}
+\tag{HIGH-UNIT-2}
+\]
+
+**Proof from an exact product (not a matched pattern).** Reindex the numerator of `a_n` with `r=j-m`; since `p=6m+1`, its unique p-bearing numerator factor is at `r=0`. Dividing **exactly in rational numbers** by that factor yields, for every positive integer m and n>m,
+\[
+\boxed{\frac{a_n}{p}
+=C_{m,n}\prod_{\substack{-m\le r\le n-m-1\\r\ne0}}
+\left(1+\frac{p}{6r}\right).}\tag{A-FAC}
+\]
+The signed factorial coefficient is from
+`\prod_{r=-m,r\ne0}^{n-m-1}r=(-1)^m m!(n-m-1)!`; no modular inverse of p occurs. Every nonzero integer r in this range has `|r|<p`, hence each factor is a p-unit and the product equals
+`1+p(H_{n-m-1}-H_m)/6\pmod{p^2}`.
+Combine this with the **two separate exceptional jumps already proved** in (BAND-3) and obtain (HIGH-UNIT-2) throughout both high sectors.
+
+This gives the **second digit modulo p² of each normalized high R_n/p**, rather than merely the first digit `mod p`. It does not increase the precision demanded of the original endpoint beyond its p³ observer. For the fixed previous Research-lane high-sector formula, reducing (HIGH-UNIT-2) modulo p recovers the prior single-digit values, without repeating that proof or claiming another lane's work.
+
+**Additional author verification:** an independent exact `fractions.Fraction` calculation recursed the **original** R_n from `R_0=1`, reconstructed each `E_n^*` and `H_r`, and checked `R_n/p - RHS(HIGH-UNIT-2)\equiv0\pmod{p^2}` at **every** `m<n\le4m` for all 18 listed target primes through 163. All checks passed; this is an author-side finite arithmetic cross-check, **not** a native run or independent admission. The universal claim rests on (A-FAC), (BAND-3), and their fully displayed product algebra.
+
 **Smallest next scientific unit:** use the already derived binomial LOW-JET/HIGH decomposition to prove or refute the exact finite obstruction `\mathcal D_m^{\mathrm{finite}}\equiv0\pmod p` uniformly in the selected prime classes, potentially via terminating contiguous/WZ integration by parts. The new BAND-3 representation is an independent p³-precision consistency/alternative route, not a reason to replay the first-digit or finite prime scans. No Source pin, active owner, claim, result, scheduler or notification setting is changed.
