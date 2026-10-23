@@ -1,0 +1,42 @@
+{
+  "schema": "C266_AUTHOR_REMOTE_READBACK_V1",
+  "source_global_snapshot": "61cfa2a580230863c0d02b5f818381adbb3cb11b",
+  "source_enterprise_snapshot": "1a3790a15ab9366feccffc0105bdb24e5c4500d5",
+  "research_branch": "research/c266-author-fourfree-21-pairs-20261023",
+  "verifier": {
+    "path": "research_handoffs/C266_STANDALONE_REPLAY.py",
+    "write_commit": "688d0ce92885b28ade4fc6af3929a91f65f4373a",
+    "readback_git_blob_sha1": "7ecdc7573758d01bb8ae04785bffb3b786373452",
+    "content_readback_exact": true,
+    "source_expected_output": "C266_STANDALONE_EXACT_PASS 3088 leaves 3087 splits 21 new_pairs 124257021339851230269272891404511 integer_margin {'B': 0, 'A': 0, 'C': 2241, 'D': 847, 'E': 0}",
+    "note": "Source complete with all 79 rational nodes, exact proof tree and 21 hull endpoints; local code of equivalent core passed. The remote file was read back byte-for-byte, but was not executed by the connector."
+  },
+  "proof": {
+    "path": "research_handoffs/C266_AUTHOR_PROOF_20261023.md",
+    "write_commit": "9e459ac13d959babb74bb4dabefc680e7de66f10",
+    "readback_git_blob_sha1": "412a89ad4b67857dfca346d5d4e395f848306ae6",
+    "content_readback_exact": true
+  },
+  "result": {
+    "evidence_class": "AUTHOR_EXACT_AUXILIARY",
+    "positive_before": 103,
+    "positive_after": 124,
+    "negative": 213,
+    "unresolved_before": 47,
+    "unresolved_after": 26,
+    "strict_leaves": 3088,
+    "exact_midpoint_splits": 3087,
+    "integer_margin": "124257021339851230269272891404511",
+    "proof_tree_sha256": "8693d9b0b2c0d64d88ecb664d5f7b0d5dac908607b10fd5475742dae52c36d9c",
+    "pair_hulls_sha256": "185982c8cf724acc5af2ecf7876d7c5f56f5682540362232ffd728a434a625ae"
+  },
+  "native_control": {
+    "error": "BACKEND_IDENTITY_CHECK_UNAVAILABLE",
+    "operation_sent": false,
+    "live_owner": "UNKNOWN",
+    "claim": "NOT_ACQUIRED",
+    "native_result": "NOT_PUBLISHED",
+    "driver_review": "NOT_ADMITTED"
+  },
+  "scope": "Author-level GitHub branch, not canonical main; no credentials and no change in sharing."
+}
