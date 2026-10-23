@@ -1,0 +1,47 @@
+{
+  "schema": "EM_C272_AUTHOR_REMOTE_AUDIT_V1",
+  "status": "AUTHOR_EXACT_SOURCE_BRANCH_READBACK",
+  "as_of": "2026-10-24",
+  "researcher_id": "EM-R002-C272B7",
+  "research_activity_id": "RA-R002-C272B7-20261024",
+  "source_repository": "awdawmip/enterprise-math",
+  "source_commit": "4a31ae565eaf931b0da3af27038bdc0607c930fb",
+  "source_files": [
+    {
+      "path": "research_handoffs/C272_R2_GLOBAL_CONVEX_SEAM_THEOREM_20261024.md",
+      "git_blob_sha1": "b1b4cf33ac0ac32145027fbeca7c382fcc2f4484",
+      "remote_full_readback": true
+    },
+    {
+      "path": "research_handoffs/C272_GLOBAL_SEAM_BARRIER_CHECK.py",
+      "git_blob_sha1": "538192e845e68fd627aeb23f824c7c2ffc76c8e3",
+      "sha256": "14bf51ace6be1b31abb4de8c98d466649f7f09a46af1dd55cd8efba585d0f774",
+      "remote_full_readback": true,
+      "local_git_blob_sha1_match": true
+    }
+  ],
+  "original_data": "research_handoffs/C271_R2_STANDALONE_EXACT_REPLAY.py (inherited from C271 commit 32328b635c625d3929588210a11374864c95dbe1)",
+  "local_exact_run": {
+    "command": "python C272_GLOBAL_SEAM_BARRIER_REMOTE.py",
+    "result": "C272_EXACT_PASS",
+    "hulls": 595,
+    "collision": 232,
+    "touch": 124,
+    "cross": 108,
+    "certified_epsilon": "1/3014",
+    "worst_anchor": [
+      11,
+      24
+    ],
+    "worst_R_over_Q_decimal_display": "0.000331892127186",
+    "geometric_min_cap": "73/25662",
+    "convexity_delta": "45119318036881235093/78750000000000000000"
+  },
+  "claim_scope": "only 232 one-dimensional rational anchor seam bands in the auxiliary model; not 232 full 4D boxes",
+  "project_main_integrated": false,
+  "formal_claim": false,
+  "independent_driver_review": false,
+  "native_dispatch_error": "CONTROL_QUOTA",
+  "drive_fallback": "NOT_USED: GitHub author source persisted and read back",
+  "next_question": "bound R uniformly in a,b,t neighborhoods to widen the positive band into open 4D subsets"
+}
