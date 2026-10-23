@@ -1,0 +1,74 @@
+{
+  "schema": "EM_C271_R2_AUTHOR_PERSISTENCE_RECEIPT_V1",
+  "classification": "AUTHOR_EXACT_AUXILIARY_NOT_NATIVE_ADMITTED",
+  "project": "Enterprise Math",
+  "model": "C195_H168_POSITIVE_RATIONAL_79_NODE_AUXILIARY",
+  "global_knowledge_main": "7c1187e2493cbf4a087a013bf4cfd4580e7027b6",
+  "em_control_main_read": "ee3f360b93c18bb4d4681de656dc0428290d8876",
+  "remote_source_repository": "awdawmip/enterprise-math",
+  "remote_source_branch": "research/c271-r2-collision-seam-residue-20261024",
+  "observed_pinned_commit": "5def70544cd07b365da7100ba20f9663c7836879",
+  "observed_readbacks": [
+    {
+      "path": "research_handoffs/C271_R2_COLLISION_SEAM_AUTHOR_THEOREM_20261024.md",
+      "blob_sha1": "fdf45c75b7f94bff41ccf96cb120a0e82d7280a4",
+      "size": 8518,
+      "ref": "5def70544cd07b365da7100ba20f9663c7836879",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/5def70544cd07b365da7100ba20f9663c7836879/research_handoffs/C271_R2_COLLISION_SEAM_AUTHOR_THEOREM_20261024.md"
+    },
+    {
+      "path": "research_handoffs/C271_R2_STANDALONE_EXACT_REPLAY.py",
+      "blob_sha1": "118716c5425fdabc4d2421ddac6816e7478a22e3",
+      "size": 4963,
+      "ref": "5def70544cd07b365da7100ba20f9663c7836879",
+      "url": "https://github.com/awdawmip/enterprise-math/blob/5def70544cd07b365da7100ba20f9663c7836879/research_handoffs/C271_R2_STANDALONE_EXACT_REPLAY.py"
+    }
+  ],
+  "local_audit_assets": [
+    {
+      "name": "C271_EXACT_SEAM_CERTIFICATE.json",
+      "sha256": "ea33424830cf50c27f0779a54322acb244afa7048198b2fd63f20b7dca4dc418"
+    },
+    {
+      "name": "C271_STANDALONE_EXACT_REPLAY.py",
+      "sha256": "5946356c8146438c636a7732013ca27723b416cc87f0ac9734e434126c4b3cae"
+    },
+    {
+      "name": "C195_BASE_RATIONAL_NODES.json",
+      "sha256": "173f6071a27c255f17178ff345e61002406f9a4958f852c9642cf7996f814529"
+    },
+    {
+      "name": "C254_35_REGION_COVERAGE.json",
+      "sha256": "b2763dc1f71899bd3ec49f3193b4e0cf1adf991f6a3c2509b61569193e000b5f"
+    }
+  ],
+  "science": {
+    "basic_boxes": 35,
+    "unordered_pair_hulls": 595,
+    "polefree_whole_outer_hulls": 363,
+    "boundary_touch_hulls": 124,
+    "interior_cross_hulls": 108,
+    "strictly_positive_rational_residue_anchors": 232,
+    "residue_anchor_bound": "2^128/4096 < R < 2^128/2048",
+    "second_order_colliding_pair_correction": "strictly positive for every admissible seam t, by completed square",
+    "primitive_basic_box_crosses_pole": [
+      3
+    ],
+    "primitive_basic_box_touches_pole": [
+      11
+    ]
+  },
+  "native_control": {
+    "initial_status_issue": "https://github.com/awdawmip/kimi-query-bridge/issues/6236",
+    "initial_status_receipt": "SUCCEEDED; enabled.session_registration_enabled=true, enabled.claim_enabled=true",
+    "dispatch_issue": "https://github.com/awdawmip/kimi-query-bridge/issues/6237",
+    "dispatch_result": "FAILED TimeoutExpired",
+    "active_owner_verified": false,
+    "native_claim_obtained": false,
+    "formal_source_result_accepted": false,
+    "independent_driver_review": false
+  },
+  "github_scope": "Author branch content only, not canonical main task admission; remote script was read back but not executed by the GitHub connector.",
+  "google_drive": "NOT_USED_BECAUSE_GITHUB_WRITES_AND_READBACKS_SUCCEEDED",
+  "open_question": "Partition gamma>0 punctured hulls into valid rational subboxes, classify F>Q or exact F<Q witnesses; adversarial audit C254 source proof under seam #3/#11."
+}
