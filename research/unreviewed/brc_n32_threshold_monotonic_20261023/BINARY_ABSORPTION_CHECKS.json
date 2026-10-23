@@ -1,0 +1,35 @@
+{
+  "schema": "EM_BRC_N32_BINARY_ABSORPTION_AUTHOR_CHECKS_V1",
+  "date": "2026-10-23",
+  "numeric_semantics": "Python-stdlib fractions.Fraction exact rational arithmetic",
+  "coverage": {
+    "z": [
+      "0",
+      "1/7",
+      "1/3",
+      "1/2",
+      "7/10",
+      "9/10",
+      "999/1000",
+      "1"
+    ],
+    "s": "1..8",
+    "r": "1..6"
+  },
+  "executed_checks": {
+    "full_16_state_agreement": 384,
+    "strict_action0_margins": 320,
+    "strict_action2_margins": 320,
+    "order_invariance": 726
+  },
+  "finite_witnesses": "All exact assertions passed on the author's run; verify_binary_absorption.py regenerates its own machine output.",
+  "theorem_claim": "all integers s>=1,r>=2,all z in [0,1]; all-round proof is in BINARY_ABSORPTION_THEOREM.md",
+  "limits": [
+    "not a universal proof by enumeration",
+    "not formally reviewed",
+    "not native P000 X6",
+    "not all actions {0,1,2,3}"
+  ],
+  "global_knowledge_snapshot": "7a56e3a5a31c6af97f47a09befb54ae4443c9b41",
+  "enterprise_math_source_pin": "f768a9f34aa7b0a9521325c52e0638dc7fba0a27"
+}
