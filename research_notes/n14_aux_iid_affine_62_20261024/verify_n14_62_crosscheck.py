@@ -125,5 +125,5 @@ def main():
   checks.append(str(tp-tq))
  assert AL+eta==F(5171858457511598567,14900301753911083008)
  assert V-G*eta==F(12336844228881016789,931268859619442688)
- return {'verdict':'AUTHOR_CROSSCHECK_PASS','nominal_A':na,'firsthit_A':la,'nominal_B':nb,'firsthit_B':lb,'first_stop_A61':str(stops),'P_descendant_11_5_0_firsthit':late,'P_descendant_paths_through_A62':thru,'Bellman_ties':str(ties),'Bellman_strict':strict,'min_root':str(root),'balance_h':str(h),'eta':str(eta),'mixed_prob_end':str(S+h),'alpha62':str(AL+eta),'V62':str(V-G*eta),'endpoint_margins':[checks[0],checks[-1]],'zero_mixed_term_in_four_risks':True,'randomized_samples_checked':len(checks)}
+ return {'verdict':'AUTHOR_CROSSCHECK_PASS','nominal_A':na,'firsthit_A':la,'nominal_B':nb,'firsthit_B':lb,'first_stop_A62':str(stops),'P_descendant_11_5_0_firsthit':late,'P_descendant_paths_through_A62':thru,'Bellman_ties':str(ties),'Bellman_strict':strict,'min_root':str(root),'balance_h':str(h),'eta':str(eta),'mixed_prob_end':str(S+h),'alpha62':str(AL+eta),'V62':str(V-G*eta),'endpoint_margins':[checks[0],checks[-1]],'zero_mixed_term_in_four_risks':True,'randomized_samples_checked':len(checks)}
 if __name__=='__main__':print(json.dumps(main(),ensure_ascii=False,indent=2))
