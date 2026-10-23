@@ -131,7 +131,7 @@ def rise(x,n):
 for m in range(1,33):
     p=6*m+1
     if any(p%d==0 for d in range(2,int(p**.5)+1)):continue
-    T=Q(0)
+    T=Q(0); DX=Q(0); DZ=Q(0)
     for n in range(m+1):
         A=H(m)-H(m-n); A2=H(m,2)-H(m-n,2)
         U=H(2*m)-H(2*m-n); U2=H(2*m,2)-H(2*m-n,2)
@@ -143,7 +143,10 @@ for m in range(1,33):
         Ms=(A*A-A2)/8+(2*U-V)*(2*U-V-3*A)/18+Q(4,9)*U2-V2/18
         assert red(C+V+p*V2,p*p)==0
         assert red(p*(L-Ls)+p*p*(M-Ms),p**3)==0
-        T+=Q((-1)**n*comb(m,n),2**n)*(6*n-1)*V2
+        b=Q((-1)**n*comb(m,n),2**n); w=6*n-1
+        T+=b*w*V2
+        DX+=b*w*(L-Ls)
+        DZ+=b*(2*(L-Ls)+w*(M-Ms))
         if n<m:
             r=m-n
             Jh=(H(r-1)-H(m))/2+Q(2,3)*(H(2*m)-H(m-r))+(H(4*m)-H(3*m-r))/3
@@ -154,11 +157,12 @@ for m in range(1,33):
                 *rise(-2*m+Q(p,3),n)/rise(-2*m+p,n)
                 *rise(-4*m+Q(2*p,3),n)/rise(-4*m+p,n))
             assert red(native-(1+p*Ls+p*p*Ms),p**3)==0
-    assert red(T/3,p)==sum((Q((-1)**n*comb(m,n),2**n)*(6*n-1)*(H(2*m+n,2)-H(2*m,2))/3 for n in range(m+1)),Q(0)).numerator*pow(sum((Q((-1)**n*comb(m,n),2**n)*(6*n-1)*(H(2*m+n,2)-H(2*m,2))/3 for n in range(m+1)),Q(0)).denominator,-1,p)%p
+    assert red(DX/p+DZ,p)==0  # paired LOW divided-digit preservation
+
 print("20 primes, all low n, mirror + J head + selected original-ratio crosscheck: PASS")
 ~~~
 
-注意：最后一个重复构造 T/3 的断言只作 Fraction arithmetic 的内部一致性检查，非第三方独立审阅。普遍性来自第 2、3、4 节的代数证明，不来自 20 素数覆盖。
+注意：最后一个断言直接核验整个 LOW 的 divided-first-digit 与 second-digit 成对抵消，而不是分别舍弃局部非零项；仍然属于作者自检，非第三方独立审阅。普遍性来自第 2、3、4 节的代数证明，不来自 20 素数覆盖。
 
 ## 6. BRC 信息、未完成证据与下一精确动作
 
