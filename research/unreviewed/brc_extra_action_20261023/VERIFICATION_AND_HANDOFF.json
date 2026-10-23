@@ -122,10 +122,12 @@
     "last_increment_exact_formula": "[2-(2-z)^5]/3^6"
   },
   "local_artifact_sha256": {
-    "full_note": "109a91238102cc2476b43992cc843b17462b49fb18cc586876a4ba56d318213c",
+    "full_note": "76994726e5a9dcd6097962265bfca032b9ee377ad00a0bc8e408e9af4f9d6c03",
     "local_verifier": "7bc252ad691a29378ca7322b5876a932a4bf15c7bcd32f5d70b547cfd3fe4c01",
     "local_verification_json": "1998e05032e0f714de3bdb0d8be0ea123387f0bd06d4a5a0fcf43ea37028cb89",
-    "local_evidence_zip": "eac6237b776ef2de32e22cb5642ffb376ed80a42f3a0729d79f8e15e8c8c98dc"
+    "local_evidence_zip": "6b896d1a363cc7552cf3b9c8fef06aca87f0000c4f64d3bc920659d8a9ce208b",
+    "parameter_verifier": "908b591bba92092b73fec9ab9378dd0bae1566ff90bbf76cd49e794ed2781f9e",
+    "parameter_verification_json": "5c1c9aca21220d96d09380abd73f13b31bcab6fc1f75774921f2d508c3bb9bf3"
   },
   "authority": {
     "control_tasks": "CONTROL_QUOTA",
@@ -134,5 +136,10 @@
     "owner_verified": false,
     "claim": false
   },
-  "next_open_unit": "Characterize exact parameter region of q_X and z allowing split growth; determine minimum hidden-carrier size; typed native X6 future-operation bridge."
+  "next_open_unit": "Characterize exact parameter region of q_X and z allowing split growth; determine minimum hidden-carrier size; typed native X6 future-operation bridge.",
+  "parameter_window": {
+    "full_classification": "split iff theta5<z<=theta6",
+    "symbolic_evidence_path": "research/unreviewed/brc_extra_action_20261023/parameter_verification.json",
+    "verifier_path": "research/unreviewed/brc_extra_action_20261023/verify_parameter_window.py"
+  }
 }
