@@ -1,0 +1,11 @@
+PREFIX180 LOCAL REPLAY COMPARISON
+Recompiled from archived source and reran the frozen input in a separate local session.
+MATCH replay_primary_180.log vs primary_180.log
+MATCH replay_second_180.log vs second_180.log
+MATCH replay_classify_output_180.txt vs classify_output_180.txt
+MATCH replay_k12_180.log vs eligible_k12_results_180.log
+MATCH replay_second_k12_180.log vs independent_k12_180.log
+Recomputed audit_prefix180.py => PREFIX180_FULL_AUTHOR_FINITE_AUDIT_PASS
+Recomputed audit_k12_180.py => PREFIX180_K12_UNIQUENESS_AND_NEW_WITNESS_PASS
+Recomputed verify_witness_180.py => PREFIX180_WITNESS_INDEPENDENT_PASS cardinality=66 targets=969
+A single monolithic replay call timed out after all five search-log replay files had been produced; it did not yield a terminal whole-script pass. Component comparisons and both separate audits ran successfully afterwards. Do not conflate these receipts.

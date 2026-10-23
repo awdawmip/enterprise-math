@@ -1,0 +1,7 @@
+# PREFIX-181 — remaining 645 support-unobstructed configurations
+
+Latest author-side frontier: PREFIX-180 has a complete classification of D={1,2,64} distance-three nine-source family: 66,879 are impossible for any W⊆X4 by a proved support obstruction; of the remaining 646, exactly one nine-source Q permits W of size12, with independently verified 66-state witness. Remaining 645 are all solvable using W=X4 and require |W|≥13. Exact enumeration and symmetry closure extend the prior 2,061,662 restricted family to 2,331,754.
+
+**Precise next question**: for each of those 645 Q (frozen as all eligible 646 except zero-based row439), determine min |W| in {13,...,35}. Prioritize finding / verifying |W|=13 witnesses and tight subfamilies, and report any UNKNOWN budgets honestly. Use existing exact two C++17 solvers and Python witness checker; avoid spending time on the other 66,879 irreparable Q. Then test how the twelve fixed support-three obstruction targets can become a fast, mathematically justified prefilter in a wider, not necessarily nine-source, search. Preserve Boolean-only proof scope, current Owner/CLAIM admission, native P000 X6 mapping and reviewer boundaries.
+
+Research value: a new necessary-and-sufficient **any-size** completion theorem, 66,879 certified empty-producer cases, a uniquely 66-optimal nine-source configuration in this direct family, and an explicit new witness. All current data are author-side local, not Source-admitted.
