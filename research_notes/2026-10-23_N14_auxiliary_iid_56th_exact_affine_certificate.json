@@ -1,0 +1,116 @@
+{
+  "schema": "EM_N14_AUX_IID_AFFINE_AUTHOR_CERT_V1",
+  "status": "AUTHOR_EXACT_RATIONAL_CHECKED_DRIVER_UNREVIEWED",
+  "source_inherited": "research_notes/2026-10-23_N14_auxiliary_iid_55th_exact_affine_AUTHOR_UNREVIEWED.md",
+  "P": [
+    "1/8",
+    "1/24",
+    "5/6"
+  ],
+  "Q": [
+    "1/12",
+    "1/12",
+    "5/6"
+  ],
+  "N": 14,
+  "A56": [
+    9,
+    0,
+    2
+  ],
+  "B": [
+    12,
+    0,
+    1
+  ],
+  "nominal_A56": 36,
+  "firsthit_A56": 36,
+  "p_A": "78125/4478976",
+  "q_A": "78125/1119744",
+  "nominal_B": 12,
+  "firsthit_B": 12,
+  "p_B": "48828125/725594112",
+  "q_B": "48828125/362797056",
+  "conditional_continue_A": [
+    "98221/98304",
+    "41/248832",
+    "15703/12288",
+    "24331/20736"
+  ],
+  "conditional_continue_B": [
+    "63/64",
+    "1/144",
+    "9/8",
+    "13/12"
+  ],
+  "X": "6484375/440301256704",
+  "Y": "3203125/278628139008",
+  "E": "48828125/46438023168",
+  "H": "48828125/52242776064",
+  "k56": "1211436/91",
+  "lambda_Q": "1211436/91",
+  "gamma56": "2294820/91",
+  "h56": "35913/2720000",
+  "eta56": "7109375/8420761534464",
+  "alpha55": "1292956447084044215/3725075438477770752",
+  "alpha56": "1292959592044044215/3725075438477770752",
+  "V55": "24752806046065630757/1862537719238885376",
+  "V56": "24713151556465630757/1862537719238885376",
+  "s55": "6623137289528539/10444800000000000",
+  "s56": "6485231369528539/10444800000000000",
+  "root": "87400215429346773243061/9970054850043445248",
+  "ties": [
+    {
+      "state": [
+        9,
+        0,
+        2
+      ],
+      "actions": [
+        "C",
+        "Q"
+      ]
+    },
+    {
+      "state": [
+        12,
+        0,
+        1
+      ],
+      "actions": [
+        "C",
+        "Q"
+      ]
+    }
+  ],
+  "bellman_states": 680,
+  "action_comparisons": 1240,
+  "strictly_positive": 1238,
+  "negative": 0,
+  "tP_minus_tQ_u0": "875356767487775843/1862537719238885376",
+  "tP_minus_tQ_u1": "984596181247775843/1862537719238885376",
+  "next_candidate": {
+    "k57": "6854544972/576215",
+    "state": [
+      8,
+      5,
+      0
+    ],
+    "actions": [
+      "C",
+      "P"
+    ],
+    "status": "CANDIDATE_ONLY"
+  },
+  "verification": {
+    "portable": "PASS on local equivalent source with exact Fraction",
+    "crosscheck": "PASS on local equivalent source with ordered-history enumeration and backward DP",
+    "remote_runtime": "NOT_EXECUTED",
+    "independent_driver": "NOT_REVIEWED"
+  },
+  "provenance": {
+    "global_main": "9b91a061c101e778d9b4d0bc99bde7aa5083934a",
+    "enterprise_main_at_start": "6829874ccdd80f8dfc2bcb77dae2612fe346786b",
+    "native_owner_state": "UNKNOWN_CONTROL_QUOTA"
+  }
+}
