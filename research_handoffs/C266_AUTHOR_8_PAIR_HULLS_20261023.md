@@ -46,4 +46,4 @@ This round inherited the previous 213 negative and 103 positive classifications,
 
 Authenticated GitHub identity: `awdawmip`. Native `em_control_tasks` returned `CONTROL_QUOTA`, and `em_session_start` returned `STATIC_READONLY_SCOPE_DENIED` with `operation_sent=false`. There is no formal session, active-owner confirmation, CLAIM, Source Result or independent admission. This is an author-only unmerged research branch, not main. Google Drive was not used to evade access denial.
 
-Full local author packet contains C266_THEOREM_AND_PROOF.zh-CN.md, 1530-leaf JSON certificate, C266_STANDALONE_REPLAY.py, author dual audit, logs, and unchanged C265 parent ZIP; ZIP SHA256 `16e52481eb12a627d6875f2dc289d04fc00b13bfbdd9b0051d94afed77c0a131`. The full ZIP itself is NOT asserted to be remotely stored.
+Full local author packet contains C266_THEOREM_AND_PROOF.zh-CN.md, 1530-leaf JSON certificate, C266_STANDALONE_REPLAY.py, author dual audit, logs, and unchanged C265 parent ZIP; ZIP SHA256 `02b8e7e6bf30fa6c1fc68718cb797e2eaf8fc6fa732cb69866122b7cc3623755`. The full ZIP itself is NOT asserted to be remotely stored.
