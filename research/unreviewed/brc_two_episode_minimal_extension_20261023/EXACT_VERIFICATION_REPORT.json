@@ -1,0 +1,127 @@
+{
+  "schema": "BRC_AUXILIARY_EXACT_TWO_EPISODE_AUTHOR_EVIDENCE_V1",
+  "date": "2026-10-23",
+  "source_snapshots": {
+    "global_knowledge_main_read": "674c44f8c3c194a82c63f0bba6da995d1d307ad3",
+    "enterprise_math_main_read": "4fe67f915d52a563825757c8d6e9e199f2eb4b64",
+    "prior_author_one_episode": "3f9f112e83838e65c599b844bf26095e0f949ddd"
+  },
+  "model": "four hidden labels; good exact occupancy masks [3,6,10,12]; original q0,q2; add exactly one new qN",
+  "exact_arithmetic": "Python stdlib fractions.Fraction",
+  "methods": [
+    "independent exact pair inclusion/exclusion",
+    "16-mask occupancy dynamic programming"
+  ],
+  "checks": {
+    "word_lengths_tested": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "words_per_model": 1092,
+    "total_exact_word_crosschecks": 2184,
+    "exhaustive_count_proof_for_universal_minimum": false,
+    "analytic_minimum_argument": "delta0=delta1=0 implies R2=R3=0; separated episodes require length >=6"
+  },
+  "models": {
+    "sparse_interior": {
+      "z": "3/4",
+      "qN": [
+        "0",
+        "1/4",
+        "0",
+        "3/4"
+      ],
+      "word": "0N20NN",
+      "deltas": [
+        "0",
+        "29/48",
+        "5/9",
+        "481/864",
+        "239/432",
+        "7657/13824"
+      ],
+      "residual_gains": [
+        "0",
+        "0",
+        "0",
+        "1/864",
+        "0",
+        "1/1536"
+      ],
+      "growth_times": [
+        4,
+        6
+      ],
+      "separated_words_by_length": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 4
+      },
+      "length6_witness_words": [
+        "0N20NN",
+        "0N2N0N",
+        "N020NN",
+        "N02N0N"
+      ]
+    },
+    "full_support_new_action": {
+      "z": "19/20",
+      "qN": [
+        "1/1000",
+        "1/1000",
+        "1/1000",
+        "997/1000"
+      ],
+      "word": "0N2020",
+      "deltas": [
+        "0",
+        "13333/20000",
+        "32987/60000",
+        "1319063/2160000",
+        "541979/1296000",
+        "813588041/1944000000"
+      ],
+      "residual_gains": [
+        "0",
+        "0",
+        "0",
+        "131531/2160000",
+        "0",
+        "619541/1944000000"
+      ],
+      "growth_times": [
+        4,
+        6
+      ],
+      "separated_words_by_length": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 22
+      }
+    }
+  },
+  "local_evidence_bundle": {
+    "filename": "EM_BRC_MINIMAL_TWO_EPISODE_EXTENSION_AUTHOR_EVIDENCE_20261023.zip",
+    "sha256": "68f6639f006efac5f8dfda3701925648247e8667968c04e7503f6e0bc807af9d",
+    "local_only": "full local ZIP is attached to original ChatGPT research run; GitHub files are separately stored and are not asserted byte-identical"
+  },
+  "native_control": {
+    "control_tasks": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "owner_verified": false,
+    "claim_obtained": false
+  },
+  "status": "AUTHOR_EXACT_COMPUTATION_AND_PROOF_UNREVIEWED_NOT_ADMITTED",
+  "next_question": "Characterize qN and z for which the one-episode theorem survives alphabet expansion; first classify exact length-six semialgebraic witness region. Native X6 correspondence remains unproved."
+}
