@@ -1,0 +1,130 @@
+{
+  "schema": "EM_N14_IID_AUTHOR_EXACT_CERTIFICATE_62_V1",
+  "date": "2026-10-24",
+  "evidence_level": "AUTHOR_EXACT_RATIONAL_REPLAY_NOT_INDEPENDENTLY_REVIEWED",
+  "model": {
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "N": 14,
+    "policies": "any ordered-history dependent randomized stop and P/Q decision"
+  },
+  "inherited_source": {
+    "repo": "awdawmip/enterprise-math",
+    "commit": "95b2b045f744bdbccc9f9dab8384f6a77cad21f0",
+    "path": "research_notes/n14_aux_iid_affine_61_20261024/PROOF.en.md"
+  },
+  "control": {
+    "global_main": "073d745fd5e0ec63b1b62a0c4ac7767c6c1cdc13",
+    "P000_projection_original_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "native_task_query": "CONTROL_QUOTA",
+    "native_session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "session_start_operation_sent": false,
+    "owner_verified": false,
+    "formal_claim": false
+  },
+  "dual": {
+    "K62": "1850688/229",
+    "lambdaP": "1661544/229",
+    "lambdaQ": "1850688/229",
+    "Gamma62": "3512232/229",
+    "Droot": "133896830670569830174165/25089478688570867712",
+    "state_count": 680,
+    "nonselected_action_checks": 1240,
+    "strict_positive_gaps": 1238,
+    "negative_gaps": 0,
+    "zero_slack": [
+      "A62=(10,4,0):CONTINUE,P",
+      "B=(12,0,1):CONTINUE,Q"
+    ],
+    "min_positive_gap": "423795089/5470322688"
+  },
+  "arrivals": {
+    "A62": {
+      "nominal": 210,
+      "first_reached": 210,
+      "p": "546875/31850496",
+      "q": "546875/161243136",
+      "continue_risks": [
+        "35/165888",
+        "10351/10368",
+        "7511/6912",
+        "1019/864"
+      ]
+    },
+    "B": {
+      "nominal": 12,
+      "first_reached": 12,
+      "p": "48828125/725594112",
+      "q": "48828125/362797056",
+      "continue_risks": [
+        "63/64",
+        "1/144",
+        "9/8",
+        "13/12"
+      ]
+    }
+  },
+  "compensation": {
+    "X": "19140625/5283615080448",
+    "Y": "9296875/1671768834048",
+    "E": "48828125/46438023168",
+    "H": "48828125/52242776064",
+    "h62": "50309/10880000",
+    "s61": "25966041820097099/41779200000000000",
+    "s62": "26159228380097099/41779200000000000",
+    "eta62": "125234375/101049138413568",
+    "no_A_B_interaction": true
+  },
+  "theorem": {
+    "alpha61": "5171839990951598567/14900301753911083008",
+    "V61": "12354545878161016789/931268859619442688",
+    "alpha62": "5171858457511598567/14900301753911083008",
+    "V62": "12336844228881016789/931268859619442688",
+    "interval": "for every real 0<=delta<=eta62",
+    "formula": "V14(alpha61+delta)=V61-(3512232/229)*delta",
+    "right_edge_sharp": true
+  },
+  "sample_tests": {
+    "exact_samples": 7,
+    "passes": 7,
+    "four_corner_risks_affine": true,
+    "margin_tP_tQ_start": "218832025422100171/413897270941974528",
+    "margin_tP_tQ_end": "638697869546300513/1241691812825923584"
+  },
+  "ordered_history_crosscheck": {
+    "enumerated_to_A": 59049,
+    "successor_11_4_0": {
+      "nominal": 330,
+      "first_reached": 330,
+      "through_A62": 210
+    },
+    "successor_11_5_0": {
+      "nominal": 462,
+      "first_reached": 210,
+      "through_A62": 210
+    }
+  },
+  "reproduction": {
+    "primary_file": "verify_n14_62.py",
+    "primary_blob": "bbf102f8459fd5e69ea86aa668b60e2205146910",
+    "secondary_file": "verify_n14_62_crosscheck.py",
+    "secondary_blob": "a9bc39f60efde063f0bcba92d905d58b123d1468",
+    "local_primary": "EXECUTED_PASS",
+    "local_secondary": "EXECUTED_PASS",
+    "independence": "two author-side reorganizations share frozen stop states; not Driver"
+  },
+  "next_unproved": {
+    "K63": "10902924/1475",
+    "state": "(9,2,3)",
+    "tie": "CONTINUE vs IMMEDIATE Q",
+    "not_claimed": "no interval/endpoint proof yet"
+  }
+}
