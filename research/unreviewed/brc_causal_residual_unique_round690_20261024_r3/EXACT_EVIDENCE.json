@@ -1,0 +1,116 @@
+{
+  "schema": "EM_BRC_TERMINAL_UNIQUENESS_AND_CAUSAL_OBSERVER_AUTHOR_EVIDENCE_V1",
+  "date": "2026-10-24",
+  "pins": {
+    "global": "bdc4c6b8927afbdf4d031565b3bec53d95936bbc",
+    "enterprise_math_main": "b65a3079a03595540090bb159b1a4576e89400d5",
+    "predecessor_unreviewed": "367843aa3a143bdc28fabd9d2a524bd0098aff90"
+  },
+  "model": {
+    "D": 1000,
+    "Q": {
+      "0": [
+        1,
+        665,
+        1,
+        333
+      ],
+      "2": [
+        333,
+        333,
+        1,
+        333
+      ],
+      "3": [
+        1,
+        1,
+        1,
+        997
+      ]
+    },
+    "good_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  "finite_classification": {
+    "prefix_length": 689,
+    "count_vectors": 238395,
+    "exact_signs": 715185,
+    "by_next_action": {
+      "0": {
+        "positive": 1,
+        "zero": 0,
+        "negative": 238394
+      },
+      "2": {
+        "positive": 0,
+        "zero": 0,
+        "negative": 238395
+      },
+      "3": {
+        "positive": 0,
+        "zero": 0,
+        "negative": 238395
+      }
+    },
+    "sole_positive": {
+      "prefix_count_vector": [
+        0,
+        0,
+        689
+      ],
+      "next_action": "0",
+      "word": "3^6890"
+    }
+  },
+  "witnesses": {
+    "current_R_nonfactorization": {
+      "0203": "0",
+      "0230": "193723/125000000"
+    },
+    "future_R_nonfactorization": {
+      "prefixes": [
+        "032",
+        "023"
+      ],
+      "common_count_vector": [
+        1,
+        1,
+        1
+      ],
+      "common_R": "0",
+      "peaks": [
+        "333/500",
+        "8684/15625"
+      ],
+      "suffix": "0",
+      "future_R": [
+        "8973220797/125000000000",
+        "193723/125000000"
+      ]
+    }
+  },
+  "expanded_local_verification": {
+    "short_ordered_words_checked": 3280,
+    "short_increment_checks": 9837,
+    "causal_observer_words_checked": 3280
+  },
+  "mathematical_status": "AUTHOR_FINITE_EXACT_CHECK / UNREVIEWED / NOT_ADMITTED",
+  "control": "STATIC_READONLY_SCOPE_DENIED, CONTROL_QUOTA, OWNER_UNVERIFIED",
+  "scope_note": "Auxiliary four-label model; no native X6 transfer"
+}
