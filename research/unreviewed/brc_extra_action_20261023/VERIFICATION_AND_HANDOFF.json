@@ -1,0 +1,138 @@
+{
+  "schema": "EM_BRC_EXTRA_ACTION_AUTHOR_CHECK_V1",
+  "date": "2026-10-23",
+  "status": "UNREVIEWED_AUTHOR_SIDE_EXACT_COUNTEREXAMPLE",
+  "scope": {
+    "model": "four-label positive-mass occupancy observer",
+    "z": "31/32",
+    "alphabet": [
+      "0",
+      "2",
+      "X"
+    ],
+    "new_action_distribution": [
+      "0",
+      "1",
+      "0",
+      "0"
+    ],
+    "native_x6": false
+  },
+  "pinned_sources": {
+    "global_knowledge_main": "bf441dbd96e3aff7f1df531c6569d56fa048a10b",
+    "enterprise_math_main": "4fe67f915d52a563825757c8d6e9e199f2eb4b64",
+    "prior_author_proof": "3f9f112e83838e65c599b844bf26095e0f949ddd"
+  },
+  "method": {
+    "arithmetic": "exact fractions",
+    "oracles": [
+      "16-state occupied-mask recurrence",
+      "4 good-pair inclusion-exclusion recurrence"
+    ],
+    "crosscheck": "all 3279 words length 1..7, all prefix probabilities",
+    "admission": "finite-complete for fixed rational z and three-action alphabet; not proof of any all-z minimal bound"
+  },
+  "counts": [
+    {
+      "n": 1,
+      "total": 3,
+      "split": 0
+    },
+    {
+      "n": 2,
+      "total": 9,
+      "split": 0
+    },
+    {
+      "n": 3,
+      "total": 27,
+      "split": 0
+    },
+    {
+      "n": 4,
+      "total": 81,
+      "split": 0
+    },
+    {
+      "n": 5,
+      "total": 243,
+      "split": 0
+    },
+    {
+      "n": 6,
+      "total": 729,
+      "split": 0
+    },
+    {
+      "n": 7,
+      "total": 2187,
+      "split": 2
+    }
+  ],
+  "minimal_length_at_fixed_z": 7,
+  "witnesses": [
+    {
+      "word": "000200X",
+      "strict_growth_rounds": [
+        5,
+        7
+      ]
+    },
+    {
+      "word": "000202X",
+      "strict_growth_rounds": [
+        5,
+        7
+      ]
+    }
+  ],
+  "first_witness": {
+    "delta": [
+      "0",
+      "0",
+      "2111/4608",
+      "2/3",
+      "53039/82944",
+      "81507137/127401984",
+      "485279705/764411904",
+      "15556924031/24461180928"
+    ],
+    "residual": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "39233/127401984",
+      "39233/127401984",
+      "35506207/24461180928"
+    ],
+    "delta_increments_4_to_7": [
+      "-2257/82944",
+      "39233/127401984",
+      "-3763117/764411904",
+      "27973471/24461180928"
+    ],
+    "residual_increments_4_to_7": [
+      "0",
+      "39233/127401984",
+      "0",
+      "27973471/24461180928"
+    ],
+    "last_increment_exact_formula": "[2-(2-z)^5]/3^6"
+  },
+  "local_artifact_sha256": {
+    "full_note": "109a91238102cc2476b43992cc843b17462b49fb18cc586876a4ba56d318213c",
+    "local_verifier": "7bc252ad691a29378ca7322b5876a932a4bf15c7bcd32f5d70b547cfd3fe4c01",
+    "local_verification_json": "1998e05032e0f714de3bdb0d8be0ea123387f0bd06d4a5a0fcf43ea37028cb89",
+    "local_evidence_zip": "eac6237b776ef2de32e22cb5642ffb376ed80a42f3a0729d79f8e15e8c8c98dc"
+  },
+  "authority": {
+    "control_tasks": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "session_operation_sent": false,
+    "owner_verified": false,
+    "claim": false
+  },
+  "next_open_unit": "Characterize exact parameter region of q_X and z allowing split growth; determine minimum hidden-carrier size; typed native X6 future-operation bridge."
+}
