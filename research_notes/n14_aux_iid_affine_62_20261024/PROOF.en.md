@@ -1,0 +1,110 @@
+# N=14 auxiliary iid sequential testing — 62nd exact optimal affine segment
+
+**2026-10-24. Status: author-level exact finite-model proof; DRIVER_UNREVIEWED.** This is an auxiliary three-symbol iid decision problem, not an established theorem about native BRC/X6/Heartbeat dynamics or a formally claimed Enterprise Math Result. Inherited starting frontier is the 61st author-level segment at immutable Enterprise Math commit 95b2b045f744bdbccc9f9dab8384f6a77cad21f0, in research_notes/n14_aux_iid_affine_61_20261024/PROOF.en.md. GLOBAL_KNOWLEDGE_V1 snapshot: 073d745fd5e0ec63b1b62a0c4ac7767c6c1cdc13; P000 projection and original blob matched (770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc).
+
+## Model, exact theorem and endpoint
+
+Observations are iid with P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6); stopping time tau<=14. Permit arbitrary *ordered-history-dependent randomized* stopping and terminal P/Q decision. With eP=P(decide Q), eQ=Q(decide P), tP=E_P(tau), tQ=E_Q(tau), define
+
+$$V_{14}(\alpha)=\inf_{\pi:e_P,e_Q\le\alpha}\max(t_P,t_Q).$$
+
+The inherited 61st endpoint is
+
+- alpha61 = 5171839990951598567/14900301753911083008;
+- V61 = 12354545878161016789/931268859619442688;
+- B=(12,0,1) immediate-Q probability s61=25966041820097099/41779200000000000.
+
+Define K62=1850688/229, lambdaQ=K62, lambdaP=72+(8/9)K62=1661544/229 and Gamma62=lambdaP+lambdaQ=3512232/229. The new tie state A62=(10,4,0) has actions CONTINUE / IMMEDIATE P, while B has CONTINUE / IMMEDIATE Q. Set eta62=125234375/101049138413568.
+
+**Theorem.** For every *real* 0<=delta<=eta62,
+
+$$\boxed{V_{14}(\alpha_{61}+\delta)=V_{61}-\frac{3512232}{229}\delta.}$$
+
+Its sharp right endpoint is
+
+$$\boxed{\alpha_{62}=\frac{5171858457511598567}{14900301753911083008},\quad V_{14}(\alpha_{62})=\frac{12336844228881016789}{931268859619442688}.}$$
+
+The displayed Bellman-supporting line is strictly below the optimal value beyond this endpoint; this does **not** mean the full value function ends there.
+
+## I. Universal dual lower bound on the full history-policy class
+
+Let state (n,a,b) count occurrences of symbols 0 and 1 among n observations. Every particular ordered history with these counts has likelihood ratio Q(h)/P(h)=L(n,a,b)=2^(a+b)/3^a. Define the P-normalized backward Bellman function for a Lagrangian objective,
+
+$$D(n,a,b)=\min\{\lambda_Q L(n,a,b),\;\lambda_P,\;1+\sum_{i=0}^2 P_iD(\operatorname{child}_i(n,a,b))\},$$
+
+omitting CONTINUE at n=14. The deterministic 61st stopping tree is reproduced *exactly* as its explicit SP/SQ stop-state sets and two integer terminal tests in verify_n14_62.py, with A61=(7,5,0) now fixed to immediate P.
+
+Exhaustive Fraction minimization runs through all sum_{n=0}^{14}(n+1)(n+2)/2 = **680** count states and checks the **1,240 nonselected action comparisons**. Results: **1,238 strict positive gaps; zero negative gaps; exactly two zero gaps**, A62 (C/P) and B (C/Q). The minimum strictly positive gap is 423795089/5470322688. The exact Bellman root is
+
+$$D(0,0,0)=\frac{133896830670569830174165}{25089478688570867712}=V_{61}+\Gamma_{62}\alpha_{61}.$$
+
+This recursion minimizes after every observed prefix. Count sufficiency here follows from the iid conditional future law and likelihood ratio, not from discarding which previously stopped histories survive. Full-history policies can emulate a state policy, but cannot improve a historywise conditional minimum. Hence every permitted policy satisfies
+
+$$D(0,0,0)\le t_P+\lambda_Pe_P+\lambda_Qe_Q\le\max(t_P,t_Q)+\Gamma_{62}\alpha.$$
+
+Consequently V14(alpha)>=D(root)-Gamma62*alpha for all feasible alpha.
+
+## II. Attainment by exact first-arrival randomization
+
+An explicit ordered-word enumeration of all 3^10=59049 length-10 histories confirms **210 out of the 210 nominal words** first reach A62 before any previous stop. Their exact first-arrival masses are
+
+$$p_A=\frac{546875}{31850496},\qquad q_A=\frac{546875}{161243136}.$$
+
+B has **12 out of 12** nominal histories surviving, with
+
+$$p_B=\frac{48828125}{725594112},\qquad q_B=\frac{48828125}{362797056}.$$
+
+The exact conditional errors and mean future sample counts under the deterministic *continue* decision at each state are
+
+$$R_A=(e_P,e_Q,t_P,t_Q)=\left(\frac{35}{165888},\frac{10351}{10368},\frac{7511}{6912},\frac{1019}{864}\right),$$
+
+$$R_B=\left(\frac{63}{64},\frac1{144},\frac98,\frac{13}{12}\right).$$
+
+Let u be the probability of **immediate P** at A instead of continuing, and s the probability of **immediate Q** at B. Relative to u=0, s=s61, define the exact coefficients
+
+$$X=p_Ae_P(R_A)=\frac{19140625}{5283615080448},\quad
+Y=q_A(1-e_Q(R_A))=\frac{9296875}{1671768834048},$$
+
+$$E=p_B(1-e_P(R_B))=\frac{48828125}{46438023168},\quad
+H=q_Be_Q(R_B)=\frac{48828125}{52242776064}.$$
+
+Then
+
+$$\Delta e_P=-Xu+E(s-s_{61}),\qquad
+\Delta e_Q=Yu-H(s-s_{61}).$$
+
+There is no u*s mixed term: A is at time 10 with four 0-symbols and B is at time 12 with zero 0-symbols; neither can be an ancestor of the other. Four-corner Fraction risk recursion verifies zero mixed difference in all four coordinates. This also justifies aggregation of the history-level probabilities at each tied state, because all surviving prefixes at that count have identical conditional future laws and identical P/Q likelihood ratio.
+
+Choose
+
+$$h_{62}=\frac{X+Y}{E+H}=\boxed{\frac{50309}{10880000}},\qquad s=s_{61}+h_{62}u.$$
+
+For all 0<=u<=1, 0<s61<=s<=s62<1, where
+
+$$s_{62}=\frac{26159228380097099}{41779200000000000}.$$
+
+Both error rates then bind and are identical:
+
+$$e_P=e_Q=\alpha_{61}+\eta_{62}u,\qquad
+\eta_{62}=Eh_{62}-X=Y-Hh_{62}=\frac{125234375}{101049138413568}>0.$$
+
+Exact forward recursion and an independently organized backward recursion show tP(u)=V61-Gamma62*eta62*u; tP dominates tQ at *both* endpoints, with positive margins
+
+$$[t_P-t_Q]_{u=0}=\frac{218832025422100171}{413897270941974528},\quad
+[t_P-t_Q]_{u=1}=\frac{638697869546300513}{1241691812825923584}.$$
+
+By absence of interaction every risk component is affine in u. Hence tP>=tQ and equality in the dual lower bound hold throughout the real interval u∈[0,1]. Put delta=eta62*u to conclude the theorem.
+
+**Survival/provenance audit.** Among ordered words nominally reaching successor immediate-P state (11,4,0), 330/330 actually survive, and 210 pass through A62. Of the 462 nominal words reaching (11,5,0), 210 survive and all 210 pass through A62. Therefore one must truncate downstream mass when u>0; simply adding nominal terminal-state masses would double-count. Both verifiers condition on the *first* stopping action rather than making this mistake.
+
+## III. Exact sharpness of this particular supporting line
+
+Because every other state has strict Bellman slack, a strategy attaining equality at the old supporting line can randomize only at A and B. Within a count state, all actual surviving ordered histories have identical likelihood ratio and future laws, so even history-dependent randomization reduces to aggregate u and s. Positivity of lambdaP and lambdaQ forces *both* error constraints to bind if the supporting line were attained at a larger alpha. Error-rate equality then requires s=s61+h62*u; therefore alpha=alpha61+eta62*u<=alpha62 since u<=1. Contradiction for alpha>alpha62. This proves line sharpness, not global exhaustion of V14.
+
+## Scope, reproducibility and next dependency
+
+The full-state exact verifier and separately structured ordered-word/backward-risk cross-check are respectively verify_n14_62.py and verify_n14_62_crosscheck.py in this directory; both ran locally with exact Fraction arithmetic, including seven interior/endpoint rational randomizations. Two author-side programs share the inherited deterministic stopping sets; neither constitutes an independent Research Driver review, Lean proof, or native BRC/X6/Heartbeat correspondence. The positive branch masses and ordered stopping provenance are retained, following the usable BRC observer discipline without asserting that the auxiliary iid model is a native BRC dynamics implementation.
+
+The **unproved next dual candidate** after fixing A62 to P is K63=10902924/1475 at A63=(9,2,3), CONTINUE versus IMMEDIATE Q. Its real first-arrival/successor truncations, compensating balance, attainable interval and sharp right endpoint are *not* established by this note.
+
+**Control/authority:** the native active-task query returned CONTROL_QUOTA and native session_start was rejected with STATIC_READONLY_SCOPE_DENIED (operation_sent=false). No owner, winning CLAIM, formal Result freeze or Driver review was obtained; GitHub Source persistence of this author note is distinct from such authorization.
