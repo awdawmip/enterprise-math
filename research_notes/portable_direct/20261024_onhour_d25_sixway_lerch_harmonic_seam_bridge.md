@@ -131,3 +131,19 @@ BRC: `REUSE_APPLIED / COMPOSE_APPLIED`. Carrier = signed original hypergeometric
 **Immediate open proof obligation:** In (HF), prove that the divided first digit, low first jet, BOTH high-sector sums, and explicit harmonic seam correction cancel for *all* target primes, by a terminating contiguous-WZ finite certificate with boundary terms; or produce a strict obstruction. Because (HF) no longer depends on `6^{p-1}`, attempt a coefficientwise harmonic/binomial matching of the two high-sector heads against the low jet, retaining `m+1,2m,2m+1,4m` seams. A new list of finite zero residues would not discharge this obligation.
 
 No new canonical Source role, CLAIM, open/run, native checkpoint, Result, Driver review, or native benchmark was created. Research Site currently reports v0.6.11 and `research_authority_granted=false`. Readback of existing Research-lane bridge requests: #6186 recovery status is local ACTIVE without Source authority; #6187 exact continuation rejected `PREREQUISITE_NOT_SUCCEEDED`; #6188 canonical dispatch finally `FAILED/TimeoutExpired`. Do not reuse their Issue numbers as native request IDs. [Support #1539](https://github.com/awdawmip/enterprise-math/issues/1539) is the existing responsible restoration path. Old staged UR records remain separately sourced. No scheduler or notification configuration was touched.
+
+
+## Additional same-turn exact falsifier: the harmonic compression has a sharp precision boundary
+
+For `m=2,\ p=13` the rational harmonic values are `H_2=3/2`, `H_4=25/12`, `H_6=49/20`. Therefore
+
+\[
+H_m-H_{2m}-H_{3m}
+=\frac32-\frac{25}{12}-\frac{49}{20}
+=-\frac{91}{30}
+\equiv 104 = 8p \pmod{p^2}\quad (p=13).
+\]
+
+Because `30` is a 13-adic unit and `8p\not\equiv0\pmod{p^2}`, this is a **strict exact counterexample** to the tempting but invalid unrestricted upgrade `(LH) mod p^2`. The same phenomenon occurs already at `p=7`: `H_1-H_2-H_3=-7/3\equiv14\pmod{49}`.
+
+This counterexample is about **precision of the new compression**, not a counterexample to EP/LIFT. (FIN-H) uses the coefficient only modulo `p`, and therefore remains fully valid at its original second-digit observer. A future third-digit/termwise calculation must restore the original `q_p(6)` or carry its explicit higher-digit defect; using the compressed harmonic port without repair would lose scientifically relevant p-adic residual information. The falsifier was evaluated using exact `Fraction` arithmetic and modular inverses, not a floating approximation.
