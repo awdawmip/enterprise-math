@@ -1,0 +1,116 @@
+{
+  "schema": "EM_C266_AUTHOR_REMOTE_RECEIPT_V1",
+  "record_date": "2026-10-24",
+  "source_snapshots": {
+    "global_knowledge_main": "0d1a36da02cbd766d83a625e62c9a47076edd4e5",
+    "enterprise_math_main": "6c6e3f37d66d64b793ed58c4dbbf4f5d166c9744"
+  },
+  "identity": {
+    "github_login_verified": "awdawmip",
+    "native_task_claimed": false,
+    "native_control_errors": [
+      "em_control_dispatch: CONTROL_QUOTA",
+      "em_control_tasks: CONTROL_QUOTA"
+    ],
+    "active_owner_verified": false
+  },
+  "mathematics": {
+    "scope": "C195/H168 exact positive-rational auxiliary interpolation; not native GF(2)-BRC, no 6D/phase/ports transfer",
+    "positive_inequality": "F(v) >= 2^128+5158902987695659637439900477932651 > 2^128 on each of three full rational continuous boxes",
+    "newly_positive_pair_ids": [
+      [
+        4,
+        16
+      ],
+      [
+        4,
+        26
+      ],
+      [
+        4,
+        30
+      ],
+      [
+        12,
+        29
+      ],
+      [
+        23,
+        29
+      ]
+    ],
+    "cumulative_status": {
+      "strict_negative_pairs": 213,
+      "strict_positive_pairs": 108,
+      "unclassified_pairs": 42,
+      "legal_total": 363
+    },
+    "root_certificates": [
+      {
+        "pair": [
+          4,
+          16
+        ],
+        "leaves": 581,
+        "splits": 580,
+        "minimum_floor_margin": "5158902987695659637439900477932651"
+      },
+      {
+        "pair": [
+          12,
+          29
+        ],
+        "leaves": 88,
+        "splits": 87,
+        "minimum_floor_margin": "46890424184761894156170614618712718"
+      },
+      {
+        "pair": [
+          23,
+          29
+        ],
+        "leaves": 66,
+        "splits": 65,
+        "minimum_floor_margin": "25754627181721861699725646546279580"
+      }
+    ],
+    "validation": {
+      "root_leaves": 735,
+      "bisections": 732,
+      "arithmetic": "exact Fraction",
+      "standalone_replay": "PASS in isolated local extracted ZIP, byte-identical to GitHub blob",
+      "independent_by_implementation_author_audit": "PASS in isolated local extracted ZIP",
+      "independent_research_driver": "NOT_DONE"
+    }
+  },
+  "remote_git": {
+    "branch": "research/c266-author-5-four-free-positive-pairs-20261024",
+    "proof": {
+      "path": "research_handoffs/C266_AUTHOR_PROOF_20261024.md",
+      "commit": "e692fd1a481f898944b29cb4e3dcebb56da30c87",
+      "readback_blob_sha1": "6ab3e45560d6de35f7ed1c891a53f5e7a0a381f7"
+    },
+    "standalone": {
+      "path": "research_handoffs/C266_STANDALONE_REPLAY.py",
+      "commit": "d3d957e694e83ceccb7a1ab3a00ace51a270feaf",
+      "readback_blob_sha1": "5633649d1b2060aff5c00b7cc7bb81c0988e5ee5"
+    }
+  },
+  "local_full_package": {
+    "name": "EM_C266_5_NEW_POSITIVE_4FREE_HULLS_735_LEAF_AUTHOR_EXACT_PORTABLE.zip",
+    "bytes": 5667440,
+    "sha256": "445859db243e58dbf3f99e9ef043434c57329051a0c01b61c91d675feea6cd6d",
+    "stored_remotely": false,
+    "zip_member_count": 33,
+    "manifest_and_all_member_hashes": "PASS",
+    "isolated_replays": [
+      "GitHub-identical standalone: PASS",
+      "local standalone: PASS",
+      "second author-level audit: PASS"
+    ],
+    "local_expanded_certificate_sha256": "534316aa5ed7b4eccf68a3f440247dc44a3136c34437f9b34f4f15b774955d7e",
+    "local_author_audit_json_sha256": "8ff0f9a0e2268ac5e883c7c3e63efe160c7890e769196f10b7eb65361e02c097"
+  },
+  "published_scope": "GitHub branch author-level proof, executable full exact 735-leaf witness, receipt; full zip and expanded certificate local only. No main merge, formal Source Result, independent Driver approval, or shared permissions change.",
+  "next_scientific_unit": "42 unclassified full four-coordinate pair hulls; attempt dual-shared-variable exact convex/Hessian enclosure on (0,16), or exhibit strict rational F<Q witness; separately establish phase/ports/labels/future operation preservation to native GF(2)-BRC."
+}
