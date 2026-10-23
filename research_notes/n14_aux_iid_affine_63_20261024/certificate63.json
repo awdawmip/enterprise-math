@@ -1,0 +1,143 @@
+{
+  "schema": "EM_N14_AUX_IID_AUTHOR_CERTIFICATE_63_V1",
+  "date": "2026-10-24",
+  "status": "AUTHOR_EXACT_RATIONAL_CHECKED_DRIVER_UNREVIEWED",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ]
+  },
+  "inherited": {
+    "alpha62": "5171858457511598567/14900301753911083008",
+    "V62": "12336844228881016789/931268859619442688",
+    "s62": "26159228380097099/41779200000000000",
+    "proof_commit": "ee3f360b93c18bb4d4681de656dc0428290d8876"
+  },
+  "proof": {
+    "K63": "10902924/1475",
+    "lambdaP": "9797688/1475",
+    "lambdaQ": "10902924/1475",
+    "Gamma63": "20700612/1475",
+    "root": "1578702717230407050462403/323205074809100697600",
+    "min_positive_slack": "239707/2548800",
+    "states": 680,
+    "nonchosen_action_comparisons": 1240,
+    "strict_gaps": 1238,
+    "negative_gaps": 0,
+    "zero_gap_states": [
+      {
+        "state": [
+          9,
+          2,
+          3
+        ],
+        "actions": [
+          "C",
+          "Q"
+        ]
+      },
+      {
+        "state": [
+          12,
+          0,
+          1
+        ],
+        "actions": [
+          "C",
+          "Q"
+        ]
+      }
+    ]
+  },
+  "reachability": {
+    "A": [
+      9,
+      2,
+      3
+    ],
+    "A_nominal": 1260,
+    "A_live": 774,
+    "A_truncated": 486,
+    "pA": "26875/63700992",
+    "qA": "26875/17915904",
+    "B": [
+      12,
+      0,
+      1
+    ],
+    "B_live": 12,
+    "pB": "48828125/725594112",
+    "qB": "48828125/362797056",
+    "conditional_A": [
+      "98221/98304",
+      "41/248832",
+      "15703/12288",
+      "24331/20736"
+    ],
+    "conditional_B": [
+      "63/64",
+      "1/144",
+      "9/8",
+      "13/12"
+    ],
+    "descendant": [
+      10,
+      2,
+      3
+    ],
+    "descendant_live": 1530,
+    "descendant_through_A": 774
+  },
+  "balance": {
+    "X": "2230625/6262062317568",
+    "Y": "1101875/4458050224128",
+    "E": "48828125/46438023168",
+    "H": "48828125/52242776064",
+    "h63": "13221339/43520000000",
+    "s63": "26146535894657099/41779200000000000",
+    "eta63": "39640625/1077857476411392",
+    "alpha63": "5171859005503598567/14900301753911083008",
+    "V63": "12336363560670376789/931268859619442688",
+    "time_margin0": "638697869546300513/1241691812825923584",
+    "time_margin1": "640187516716220513/1241691812825923584",
+    "zero_four_corner_mixed_term": true
+  },
+  "next_candidate_unproved": {
+    "K64": "2103023591496/315065929",
+    "A64": [
+      6,
+      5,
+      0
+    ],
+    "actions": [
+      "C",
+      "P"
+    ]
+  },
+  "validation": {
+    "arithmetic": "Python fractions.Fraction EXACT",
+    "main_script_sha256": "2eb4c28ea9f11760044b48842cb7a6bbb7aaa57de46402a8be455885baa1c5e4",
+    "crosscheck_script_sha256": "8172c4a550c3a2c1919633bddc6c9bbfa0cf908f58d4393345149208d4d67b3f",
+    "author_main_local_pass": true,
+    "author_crosscheck_local_pass": true,
+    "independent_research_driver": false,
+    "lean_formalized": false,
+    "native_brc_mapping_proved": false
+  },
+  "authority": {
+    "github_authenticated_login": "awdawmip",
+    "native_tasks_error": "CONTROL_QUOTA",
+    "native_session_error": "STATIC_READONLY_SCOPE_DENIED",
+    "native_operation_sent": false,
+    "formal_claim": false,
+    "registered_native_session": false
+  }
+}
