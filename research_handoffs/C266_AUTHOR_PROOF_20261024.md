@@ -68,7 +68,7 @@ F(v) >= 2^128 + 5158902987695659637439900477932651 > 2^128.
 ## 可执行证据与交叉复核
 
 - `research_handoffs/C266_STANDALONE_REPLAY.py` 包含原79个精确有理节点、75个严格正整数权重的独立重建、三棵完整前序证书树及仅使用Python标准库 `Fraction` 的严格检验器。实际本地作者级运行结果：`C266_STANDALONE_EXACT_PASS 735 732 5158902987695659637439900477932651`。
-- 本轮还生成 `C266_EXACT_CERTIFICATE.json`（735叶、732分支的显式有理端点）、`C266_BUILD.py` 与 `C266_INDEPENDENT_AUDIT.py`（另一实现逐叶复核、原47组有理包含关系及根盒中点全函数精确代入）。作者级审核结果：`C266_INDEPENDENT_AUTHOR_EXACT_AUDIT_PASS 735 leaves 5 new pairs 42 remain`。完整展开JSON及另一审核程序的本地ZIP不因本GitHub核心证明提交而声称已全部远程上传。
+- 本轮还生成 `C266_EXACT_CERTIFICATE.json`（735叶、732分支的显式有理端点）、`C266_BUILD.py` 与 `C266_INDEPENDENT_AUDIT.py`（复用 standalone 下界核，但独立遍历735叶展开证书、核对732次区域覆盖、原47组有理包含关系，并以单独编写的全函数有理数求值核验根盒中点；并非独立的下界计算核）。作者级审核结果：`C266_INDEPENDENT_AUTHOR_EXACT_AUDIT_PASS 735 leaves 5 new pairs 42 remain`。完整展开JSON及另一审核程序的本地ZIP不因本GitHub核心证明提交而声称已全部远程上传。
 - 浮点计算仅用于寻找树结构，不参与任何定理认证。多个代码实现是在同一作者上下文中的交叉核对，**不等于独立Driver审查**。
 
 ## 研究状态与下一问题
