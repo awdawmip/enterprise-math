@@ -1,0 +1,86 @@
+{
+  "schema": "EM_BRC_HALL_PREDECESSOR_EXACT_EVIDENCE_V1",
+  "model": {
+    "weights": [
+      1,
+      1,
+      4
+    ],
+    "denominator": 6,
+    "good_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "one_action": true
+  },
+  "delta": {
+    "2": "1/2",
+    "3": "7/12",
+    "4": "125/216"
+  },
+  "delta_3_to_4": "-1/216",
+  "hall_3": {
+    "denominator": 1296,
+    "demands": [
+      10,
+      10,
+      256
+    ],
+    "capacities": [
+      32,
+      125,
+      125
+    ],
+    "margins_mask_1_to_7": [
+      147,
+      147,
+      262,
+      -6,
+      16,
+      16,
+      6
+    ]
+  },
+  "hall_4": {
+    "denominator": 7776,
+    "demands": [
+      10,
+      10,
+      1024
+    ],
+    "capacities": [
+      64,
+      625,
+      625
+    ],
+    "margins_mask_1_to_7": [
+      679,
+      679,
+      1294,
+      226,
+      280,
+      280,
+      270
+    ]
+  },
+  "independent_mask_crosscheck_n": [
+    0,
+    10
+  ],
+  "exponential_identity_exact_check_n": [
+    3,
+    80
+  ],
+  "arithmetic": "exact integer and Fraction",
+  "review": "AUTHOR_SIDE_ONLY_NOT_ADMITTED"
+}
