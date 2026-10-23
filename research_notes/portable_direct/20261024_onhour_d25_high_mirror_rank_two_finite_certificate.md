@@ -74,3 +74,39 @@ The companion `20261024_onhour_d25_high_seam_single_beta_cauchy_bridge_check.py`
 **Next smallest proof unit:** substitute (MR) in the full frozen `D_finite`; first test a terminating low-index discrete-antiderivative against `J_lo` and `(A-G+B)/p`, including both closed moment coefficients, seam/terminal and `q_p(6)`. Either prove all-target-prime zero or exhibit an exact obstruction; a rank reduction alone cannot discharge LIFT/JT2.
 
 Source session/claim/run are still unavailable to this authenticated Sites identity; fresh Source exact read in this turn returned `CONTROL_QUOTA`. Research-lane old requests remain `recovery-status-20261023-1704-onhour-01` (unverified provisional ACTIVE), `continuation-d25-20261023-1709-onhour-01` (prerequisite rejected), and `dispatch-research-20261023-1710-onhour-01` (TimeoutExpired). Existing support Issue #1539 retains the required repair and acceptance test. Neither GitHub research preservation nor a research note establishes source-registered Researcher activity, native checkpoint, frozen Result or admission; old neutral staging remains isolated.
+
+
+## 7. Further same-turn proof unit: an exact **four-boundary recurrence** in the LOW index
+
+The rank-two reduction above still contains `F_m(n)`; here it acquires a **first-order finite difference with only the four original boundaries**:
+$$
+\boxed{
+F_m(n)-\tfrac12F_m(n+1)=
+\frac1{2(n+1)}-\frac{2^{-m}}{n+m}
++\frac{2^{-(m+1)}}{3(n+m+1)}
+-\frac{2^{-3m}}{3(n+3m)}.
+}\tag{BOUNDARY}
+$$
+This holds **exactly** over rational numbers for every `m>=1` and `n>=0`, including `m=1` when the coincident first two boundary terms cancel. It has no missing arbitrary remainder or asymptotic limit.
+
+**Proof.** From the existing `W_m(x)` (the precise two-block, seam-excluding polynomial) we have
+$$
+F_m(n)=\int_0^1 t^{n-1}W_m(t/2)\,dt.
+$$
+Then the left-hand side of (BOUNDARY) equals
+$$
+\int_0^1 t^{n-1}(1-t/2)W_m(t/2)\,dt.
+$$
+But the exact **finite polynomial boundary identity** is
+$$
+(1-x)W_m(x)=x-x^m+\tfrac13x^{m+1}-\tfrac13x^{3m}.
+$$
+Integrating its four monomials proves (BOUNDARY). This preserves the onset, the excluded `r=m` special point, its `1/3` restart, and the excluded `r=3m` original terminal. In particular, for `p=6m+1` prime and `0<=n<=m`, every denominator `n+1,n+m,n+m+1,n+3m` is a p-unit except the special case `m=1`, where the coincident first two cancel exactly and the others remain units; no modular inversion at a pole is required. (Indeed their positive values are all at most `4m<p`.)
+
+The resulting explicit recursion
+$$
+F_m(n+1)=2\{F_m(n)-Q_m(n)\}
+$$
+with `Q_m(n)` equal to the right side of (BOUNDARY), and exact initial value `F_m(0)=sum_(r in I_m)w_r/(2^r r)`, gives a *boundary-driven LOW-index certificate* for the reflected component of (MR). It is not a standalone proof of FIN: the remaining task is a **joint summation by parts** matching the full LOW first jet, first-digit normalization and Fermat quotient with the two closed moments and these four boundary forcing terms.
+
+**Extra exact author verification:** the augmented companion checker verifies (BOUNDARY) for every `m=1..20` and `n=0..2m+6` with `Fraction`, all PASS. The proof is the polynomial identity above, not finite extrapolation.

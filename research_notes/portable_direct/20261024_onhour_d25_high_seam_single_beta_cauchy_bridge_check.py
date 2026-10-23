@@ -101,9 +101,21 @@ def verify_mirror_split():
         assert raw==out,(m,raw,out)
 
 
+
+def verify_boundary_recurrence():
+    for m in range(1,21):
+        pairs=[(r,Fraction(1) if r<m else Fraction(1,3))
+               for r in range(1,3*m) if r!=m]
+        F=lambda n:sum((w*Fraction(1,2**r*(r+n)) for r,w in pairs),Fraction(0))
+        Q=lambda n: Fraction(1,2*(n+1)) - Fraction(1,2**m*(n+m)) + \
+                    Fraction(1,3*2**(m+1)*(n+m+1)) - Fraction(1,3*2**(3*m)*(n+3*m))
+        for n in range(0,2*m+7):
+            assert F(n)-F(n+1)/2 == Q(n),(m,n)
+
 def main():
     verify_cauchy_bridge()
     verify_mirror_split()
+    verify_boundary_recurrence()
     for m in range(1,13):
         lam = -Fraction(2*m+1,12*m)
         assert lam-Fraction(1,3)==-Fraction(6*m+1,12*m)
@@ -115,7 +127,7 @@ def main():
         uni, scalar=modular_unified_high(p)
         assert org==uni,(p,org,uni)
         pts.append((p,org,scalar))
-    print('Cauchy exact m=1..14: PASS; mirror exact m=1..13: PASS; seam exact m=1..12: PASS')
+    print('Cauchy m<=14; mirror m<=13; seam m<=12; boundary m<=20: exact PASS')
     print('original high versus unified: ',len(pts),'primes <=1000 PASS',
           'target classes:',sum(p%24 in (13,19) for p,_,_ in pts))
     print('examples:',[x for x in pts if x[0] in (13,19,31,37,61)])
