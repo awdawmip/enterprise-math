@@ -1,0 +1,99 @@
+{
+  "schema": "EM_BRC_SPLIT_EPISODE_PARAM_WINDOW_V1",
+  "source": "Exact 4-pair inclusion-exclusion coefficient calculation in rational polynomial ring",
+  "fixed_word": "000200X",
+  "alphabet": "{0,2,X}",
+  "carrier": "four labeled positive-mass occupancy",
+  "delta_numerators": {
+    "delta2_over9": [
+      6,
+      0,
+      -2
+    ],
+    "delta3_over3": [
+      2
+    ],
+    "delta4_over81": [
+      29,
+      9,
+      15
+    ],
+    "delta5_over243": [
+      61,
+      28,
+      66,
+      4,
+      2
+    ],
+    "delta6_over729": [
+      125,
+      75,
+      230,
+      30,
+      25
+    ],
+    "delta7_over729": [
+      95,
+      155,
+      150,
+      70,
+      15,
+      1
+    ]
+  },
+  "increment_polynomials": {
+    "A5_over243": [
+      -26,
+      1,
+      21,
+      4,
+      2
+    ],
+    "A6_over729": [
+      -58,
+      -9,
+      32,
+      18,
+      19
+    ],
+    "delta7_minus_delta6_over729": [
+      -30,
+      80,
+      -80,
+      40,
+      -10,
+      1
+    ]
+  },
+  "thresholds": {
+    "eta": "2 - 2^(1/5)",
+    "theta5_def": "unique root in (0,1) of 2z^4+4z^3+21z^2+z-26",
+    "theta6_def": "unique positive root of 19z^4+18z^3+32z^2-9z-58",
+    "theta5_rational_bracket": [
+      "156986871874988358530358932179145/162259276829213363391578010288128",
+      "1255894974999906868242871457433161/1298074214633706907132624082305024"
+    ],
+    "theta6_rational_bracket": [
+      "1283873901274160342247576243690535/1298074214633706907132624082305024",
+      "160484237659270042780947030461317/162259276829213363391578010288128"
+    ]
+  },
+  "complete_growth_sets": {
+    "0<=z<=eta": [],
+    "eta<z<=theta5": [
+      7
+    ],
+    "theta5<z<=theta6": [
+      5,
+      7
+    ],
+    "theta6<z<=1": [
+      5,
+      6,
+      7
+    ]
+  },
+  "proof": "A5 positive derivative and endpoint signs. A6 has exactly one positive root by Descartes one sign change and endpoints. Delta4<0, delta2<=delta3=2/3; delta4..delta7 coefficients nonnegative and delta4(1),delta5(1),delta6(1)<2/3, delta7(1)=2/3, so M3..M7=2/3. Growth signs equal increment signs.",
+  "local_exact_verifier_sha256": "908b591bba92092b73fec9ab9378dd0bae1566ff90bbf76cd49e794ed2781f9e",
+  "admission": "UNREVIEWED_AUTHOR_SIDE; analytic proof + exact arithmetic evidence, no native X6 bridge"
+}
