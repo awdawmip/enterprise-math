@@ -187,3 +187,49 @@ References:
 - prior author JOINT-P2: research_notes/portable_direct/20261024_onhour_d25_joint_morley_p2_normalization_certificate.md @ bea1356f2d058231db5fa5a2cda6dd6a0f6aa393
 - original endpoint streaming/611 finite checks: research_notes/portable_direct/20261023_onhour_d25_endpoint_padic_stream_611.md @ 4fe67f915d52a563825757c8d6e9e199f2eb4b64
 - original endpoint/band proof sources remain frozen at c47e13e4aba0e006366f989d6334d443f6333ae3.
+
+
+## 6. Further exact unit: obstruction to a one-term **exact rational** Gosper primitive
+
+After durable publication of (TG)/(2S), a second symbolic proof isolates what remains impossible for the **original** full weighted hypergeometric term, without replacing the original finite question. Fix ANY integer m>=1 and let
+
+$$t_n=(6n+12m+1)R_n.$$
+
+Define three exact rational polynomials
+
+$$
+A(n)=\frac{(3n+1)(3n+2)(4m+2n+1)}{36},\quad
+B(n)=(n+1)(n+2m+1)(n+4m+1),\quad
+C(n)=n+2m+\frac16.
+$$
+
+The full original term ratio factors as
+
+$$
+\frac{t_{n+1}}{t_n}
+=\frac{A(n)}{B(n)}\frac{C(n+1)}{C(n)}.
+$$
+
+**Negative theorem (all fixed positive integer m):** There is **no rational function** f(n) in C(n) with
+
+$$
+t_n=t_{n+1}f(n+1)-t_nf(n)
+$$
+
+as an identity in n. Thus the original weighted summand does NOT possess a universal **one-term exact rational same-kernel Gosper primitive**. This theorem does NOT forbid a modulo-p^2 finite-interval antidifference, a higher-order WZ pair, a multi-term creative telescope, or a finite polynomial of degree growing with the terminal; it does not disprove EP.
+
+**Elementary proof (no black-box failure-as-proof):** If rational f existed, put
+\(X(n)=C(n)f(n)/B(n-1)\). The ratio identity rearranges into
+
+$$
+\boxed{A(n)X(n+1)-B(n-1)X(n)=C(n),}
+\qquad B(n-1)=n(n+2m)(n+4m).
+\tag{G}
+$$
+
+Suppose X has a pole and choose one pole \(\alpha\) of maximal real part. Since X(n+1) has no pole at n=alpha (a pole there would require X at alpha+1), (G) forces \(B(\alpha-1)=0\); hence alpha is one of the **integers** \(0,-2m,-4m\). But A(n) has roots only \(-1/3,-2/3,-2m-1/2\), NONE an integer. At n=alpha-1 the term \(A(n)X(n+1)\) therefore has a pole, so cancellation in (G) forces X to have a pole also at alpha-1. Iterate: X must have poles at alpha-k for every positive integer k, contradicting rationality. Therefore X is a polynomial.
+
+If X has degree d>=0 with leading coefficient x_d, the leading term of the left side of (G) is
+\((1/2-1)x_dn^{d+3}=-x_dn^{d+3}/2\), because A has leading coefficient 1/2 while B(n-1) has leading coefficient 1. This cannot equal C(n), of degree 1. X=0 also fails. Contradiction; theorem proved for every m>=1.
+
+**Interpretation:** The exact one-term potential \(G_n^{\rm Gos}=-12nR_n\) from (TG) correctly leaves a nonzero \(pK_{p,n}R_n\) forcing. There is no other rational multiple of the same full weighted term that removes this forcing **exactly at all n**. A valid next proof must exploit the arithmetic modulus and the two nonzero seams (or a genuinely different multi-term/parameter WZ identity), not repeatedly search for a universally exact one-term rational antidifference. This is a mathematically proved choice-of-method obstruction, not a claim that no p-adic supercongruence proof exists. No additional Source/task ownership or native experiment is claimed.
