@@ -1,7 +1,7 @@
 # D25 / LIFT：模 p³ 观察器的精度隔离与 p⁴ 锐性反例
 
 - **状态**：AUTHOR_EXACT_PROJECTION_PROOF / TWO_EXACT_TARGET_CLASS_WITNESSES / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING / NO_FORMAL_CLAIM / NOT_NATIVE_BENCHMARK。
-- **来源**：真实 TASK_RESEARCH 作者材料，Research 逻辑 lane \`chatgpt-research-onhour-enterprise-math-20260923\`（仅供溯源，非 Source 所有权凭据）；本轮已暴露 D25、LOW、B11 历史，不能作独立审阅。
+- **来源**：真实 TASK_RESEARCH 作者材料，Research 逻辑 lane `chatgpt-research-onhour-enterprise-math-20260923`（仅供溯源，非 Source 所有权凭据）；本轮已暴露 D25、LOW、B11 历史，不能作独立审阅。
 - **母任务**：RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT；已发布 Task TP2-B6F4FC938FF94941C1B7；原 Taskbook blob 53a3ef039325534e3715add837f0eee332289984，当前 Source 读 head 于本轮写前为 3102dc08dcc1fe649de542367409bfb98bd77025。历史 D25 frozen Source pin 与当前控制 main 不混同，不能因此更新任何冻结输入。
 - **已有且不重证的科学前沿**：来自 research_notes/directed_recovery/20260926_13C1B7/sources/hourly_new/fb9aba8a-6fb9-411b-920b-9bb376d16cd5.md 与 f48dfe9d-4144-4e56-9948-00a764fb3035.md 的 WZ/B11 first digit、two-band LOW、Beta adjoint、单一 LOW observer；研究笔记 research_notes/portable_direct/20261023_onhour_d25_B11_normal_second_jet_p3.md 中的 N/T 二阶法向公式仍是各自声明范围内的作者代数，不是终局 LIFT。
 - **GLOBAL_KNOWLEDGE_V1**：本轮验证 canonical main@90248aab307c325e45690bb2bc147e483a18734b；P000 ACTIVE_LOCKED，世界观 ACTIVE。所用有理数/p-adic 算术是外部辅助证明，不是 X6 运动学或原生 benchmark。
