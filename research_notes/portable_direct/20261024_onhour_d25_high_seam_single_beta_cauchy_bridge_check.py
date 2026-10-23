@@ -77,8 +77,33 @@ def verify_cauchy_bridge():
             assert cauchy == rational_a(m,r), (m,r)
 
 
+
+def rising(x, count):
+    value = Fraction(1)
+    for j in range(count):
+        value *= x+j
+    return value
+
+
+def verify_mirror_split():
+    # Exact rank-two divided-difference identity on the same seam carrier.
+    k = lambda x: Fraction(-2) + Fraction(4,6*x+1) + Fraction(2,2*x+1)
+    for m in range(1,14):
+        pairs = [(r,Fraction(1) if r<m else Fraction(1,3))
+                 for r in range(1,3*m) if r!=m]
+        F = lambda n: sum((w*Fraction(1,2**r*(r+n)) for r,w in pairs),Fraction(0))
+        F6 = sum((w*Fraction(1,2**r*(6*r+1)) for r,w in pairs),Fraction(0))
+        F2 = sum((w*Fraction(1,2**r*(2*r+1)) for r,w in pairs),Fraction(0))
+        raw = sum((w*rational_a(m,r)*k(r) for r,w in pairs),Fraction(0))
+        refl = sum(((-1)**n*comb(m,n)*k(-n)*F(n) for n in range(m+1)),Fraction(0))
+        moments = 4*factorial(m)*F6/rising(Fraction(-1,6),m+1) + 2*factorial(m)*F2/rising(Fraction(-1,2),m+1)
+        out = m*comb(2*m,m)*2**m*(refl+moments)
+        assert raw==out,(m,raw,out)
+
+
 def main():
     verify_cauchy_bridge()
+    verify_mirror_split()
     for m in range(1,13):
         lam = -Fraction(2*m+1,12*m)
         assert lam-Fraction(1,3)==-Fraction(6*m+1,12*m)
@@ -90,7 +115,7 @@ def main():
         uni, scalar=modular_unified_high(p)
         assert org==uni,(p,org,uni)
         pts.append((p,org,scalar))
-    print('Cauchy exact m=1..14: PASS; seam exact m=1..12: PASS')
+    print('Cauchy exact m=1..14: PASS; mirror exact m=1..13: PASS; seam exact m=1..12: PASS')
     print('original high versus unified: ',len(pts),'primes <=1000 PASS',
           'target classes:',sum(p%24 in (13,19) for p,_,_ in pts))
     print('examples:',[x for x in pts if x[0] in (13,19,31,37,61)])
