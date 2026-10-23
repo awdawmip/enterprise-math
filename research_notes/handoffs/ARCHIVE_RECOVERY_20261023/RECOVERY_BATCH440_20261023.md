@@ -1,0 +1,13 @@
+# 440个历史数学原包归档核验（2026-10-23）
+
+本次是归档恢复与文件完整性核验。440个原包已逐个匹配原清单的大小与SHA256，全部ZIP CRC通过，共60,410,466字节、7,294个内部文件条目。公开逐包核验见同目录RECOVERY_BATCH440_CATALOG.json。
+
+原始卷一31,489,879字节，SHA256 1f98e17f2acacd3c918807460e8e20ff52949150a3c1c346b2c20b5c5ac94472；卷二29,718,872字节，SHA256 9393f270f5899c9474af727da48d6ef58770238b3a8038319206dbcd98b4bbeb。含私人对话来源的原始ZIP及完整来源清单保存在所有者私有chatgpt-global-knowledge仓库archives/recovery/20261023；这里发布核验目录供项目定位。
+
+历史内部清单存在16项已解释异常：10处旧清单不匹配仍原样保留，另有5处C62探针引用及1处Prefix17外部包引用。当前恢复不改写原件，字节完整性不等于内部清单完全一致或数学证明通过。当前针对这16项的复核结果另随私有归档保存。
+
+本次未重跑全部研究程序，不改变AUTHOR_CHECKED / SELF_CHECKED / UNREVIEWED / NOT_ADMITTED等原有科学状态，不产生新的Result/Driver审查、CLAIM、Working Truth或Foundation晋升。
+
+三份仍未找回的原包：EM_C71_REMOTE_EIGHT_FACE_BRC_PLATEAU_PORTABLE.zip、EM_D25_P19_B11_POLE_SUPPORT_OBSTRUCTION_20261011_EVIDENCE.zip、EnterpriseMath_R1_BRC_L5_ThreeInformationDrops_20261011.zip。
+
+PREFIX180仍缺六项：distance3_remove1264_180.bin、eligible_no_support_obstruction_180.bin、eligible_original_row_numbers_180.txt、primary_180.log、eligible_k12_results_180.log、REFERENCE_PREFIX179.zip。既有39文件交接保留，不能称完整可复现。既有三份补包不重复收录；取消包不在此范围。
