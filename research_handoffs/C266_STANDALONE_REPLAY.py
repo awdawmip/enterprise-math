@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """C266 compact, standalone exact 3-root / 735-leaf proof replay.
 
-No third-party imports. The five preorder trees are fixed certificate data, not
+No third-party imports. The three preorder trees are fixed certificate data, not
 proof authorities: every leaf's rational inequality is recomputed from 79 nodes.
 AUTHOR_EXACT, non-native and not independently Driver-admitted.
 """
