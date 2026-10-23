@@ -1,0 +1,139 @@
+{
+  "model": {
+    "labels": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "good_edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "alphabet": [
+      "0",
+      "2",
+      "3"
+    ],
+    "action_weights_per_1000": [
+      [
+        1,
+        665,
+        1,
+        333
+      ],
+      [
+        333,
+        333,
+        1,
+        333
+      ],
+      [
+        1,
+        1,
+        1,
+        997
+      ]
+    ]
+  },
+  "arithmetic": "exact integers/Fraction; full-source local verifier reproduced; finite checks do not prove universal theorem",
+  "independent_mask_occupancy_checks_words_length_0_to_8": 9841,
+  "hall_candidate_count_vectors_length_2_to_6": 80,
+  "hall_rows_length_2_to_6": 3600,
+  "hall_certified_states_length_2_to_6": [
+    [
+      5,
+      1,
+      0
+    ]
+  ],
+  "c_star": [
+    5,
+    1,
+    0
+  ],
+  "hall_min_slack_c_star_denominator": "1000000000000000000000",
+  "hall_min_slack_c_star_by_action": [
+    {
+      "action": "0",
+      "mask": 8,
+      "numerator": "424379378457307386"
+    },
+    {
+      "action": "2",
+      "mask": 1,
+      "numerator": "29146864489438065633"
+    },
+    {
+      "action": "3",
+      "mask": 8,
+      "numerator": "1313328551379700394"
+    }
+  ],
+  "other_witness_c": [
+    0,
+    10,
+    0
+  ],
+  "hall_min_slack_other_denominator": "1000000000000000000000000000000000",
+  "hall_min_slack_other_by_action": [
+    {
+      "action": "0",
+      "mask": 4,
+      "numerator": "17276854195127393442251774002"
+    },
+    {
+      "action": "2",
+      "mask": 4,
+      "numerator": "23012769787909688065079363634"
+    },
+    {
+      "action": "3",
+      "mask": 4,
+      "numerator": "17276854195127393442251774002"
+    }
+  ],
+  "successor_count_vectors_depth_0_to_4": 35,
+  "cross_count_witnesses": [
+    {
+      "word": "000002",
+      "count": [
+        5,
+        1,
+        0
+      ],
+      "residual": "0",
+      "delta": "41196163577218241/62500000000000000",
+      "peak": "21447980969247/25000000000000"
+    },
+    {
+      "word": "2222222222",
+      "count": [
+        0,
+        10,
+        0
+      ],
+      "residual": "0",
+      "delta": "4283967567856868870526585801/125000000000000000000000000000",
+      "peak": "55611/125000"
+    }
+  ],
+  "suffix_pairs_length_0_to_5": 364,
+  "author_status": "UNREVIEWED_NOT_ADMITTED",
+  "native_X6_bridge": "OPEN",
+  "control_status": "CONTROL_QUOTA / STATIC_READONLY_SCOPE_DENIED"
+}
