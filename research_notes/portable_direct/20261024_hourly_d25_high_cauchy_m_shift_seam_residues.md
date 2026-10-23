@@ -114,6 +114,44 @@ All inverses in (RES) are of p-units; `p` was subtracted **in Q before any reduc
 
 **Consequence for the actual research plan.** A naive m-induction on either high rank-one Cauchy moment creates a genuine valuation -1 obstruction at the old source prime; this is a **proved failure of that unregularized method**, not a failure of the LIFT conjecture. Any inductive/contiguous combination with the original LOW jet must retain both the `r=m` and `r=3m` principal parts and use `V` (or an exactly equivalent seam-sensitive coordinate). Conversely, for integer `0<=n<=m`, (M) and (FLAT) have p-unit denominators; thus the low-index finite-difference route is algebraically regular and may safely use the new five-boundary law *at its own stated observer*. No cross-prime induction or native equality follows.
 
+## Theorem 3: unique p-local cancellation direction of the two seam poles
+
+Theorem 2 can be sharpened to an exact obstruction to, and a repair for, arbitrary scalar compression. Fix `p=6m+1` prime and write `\Delta_m M^{(a)}=M^{(a)}_{m+1}-M^{(a)}_m`. For **every p-integral rational coefficient c** (which may depend on m), the following equivalence holds:
+\[
+\boxed{
+\Delta_m M^{(6)}-c\,\Delta_m M^{(2)}\in\mathbb Z_{(p)}
+\quad\Longleftrightarrow\quad
+c\equiv3\cdot 2^{2m}\pmod p.
+}\tag{UNIQUE}
+\]
+Indeed Theorem 2 gives the exact principal part
+\[
+\Delta_m M^{(6)}-c\,\Delta_m M^{(2)}
+=\frac{2^{-m}-c\,2^{-3m}/3}{p}
++V_m^{(6)}-cV_m^{(2)}.
+\]
+The last two terms are p-integral; the principal part is integral **if and only if** its numerator is divisible by p. Since `3\cdot 2^{3m}` is a p-unit, this is precisely the stated congruence. This proves necessity as well as sufficiency: the incoming two-pole vector has rank one over the residue field, and its annihilator is exactly one line. This is a p-adic/branch-carrier statement, *not* an assertion that the two moments are individually equal or may be deleted.
+
+Choosing the exact distinguished coefficient `c_m=3\cdot2^{2m}` gives a globally rational, p-integral pair-difference:
+\[
+\boxed{
+\mathcal J_m=
+\left(M^{(6)}_{m+1}-M^{(6)}_m\right)
+-3\cdot2^{2m}\left(M^{(2)}_{m+1}-M^{(2)}_m\right)
+=V_m^{(6)}-3\cdot2^{2m}V_m^{(2)}.
+}\tag{PAIR}
+\]
+Its second-digit-relevant first residue is the explicit finite expression
+\[
+\boxed{\mathcal J_m\equiv
+-\frac{49}{144}2^{-m}
+-\frac7{60}2^{-3m}
+-\frac{69}{16}2^m\pmod p.}\tag{PAIR-RES}
+\]
+Proof: substitute both previously proved `(RES)` expressions into (PAIR), combine the two `2^{-m}` fractions `-1/36-5/16=-49/144`, and retain the untouched `2^m` and `2^{-3m}` sectors. This formula keeps the original seam labels and is a certified **repair coordinate for the m-step**. It cannot by itself evaluate the full `D_m^{finite}` or show that its LOW/high and Fermat-quotient pieces vanish.
+
+Additional exact author self-check: direct rational `V^{(6)}-3\cdot2^{2m}V^{(2)}` versus the two original finite moment differences agrees for `m=1..17`. For target primes in that range, the mod-p residues from the two independently calculated sides and (PAIR-RES) agree; witnesses `p: J mod p` are `7:1, 13:12, 19:16, 31:1, 37:34`. The proof is the two-term valuation argument above, not this finite verification.
+
 ## Checked mathematical evidence and admission boundaries
 
 Independent author `fractions.Fraction` calculations reconstructed `F_m(z)` from the original finite, seam-labeled sums rather than from (M), and checked:
