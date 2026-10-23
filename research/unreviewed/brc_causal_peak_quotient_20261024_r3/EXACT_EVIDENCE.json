@@ -1,0 +1,97 @@
+{
+  "schema": "BRC_CAUSAL_PEAK_QUOTIENT_AUTHOR_EVIDENCE_V1",
+  "status": "UNREVIEWED_AUTHOR_SIDE_EXACT_FINITE_CHECKS",
+  "generated_date": "2026-10-24",
+  "model": {
+    "actions": [
+      "0",
+      "2",
+      "3"
+    ],
+    "denominator": 1000,
+    "Q": [
+      [
+        1,
+        665,
+        1,
+        333
+      ],
+      [
+        333,
+        333,
+        1,
+        333
+      ],
+      [
+        1,
+        1,
+        1,
+        997
+      ]
+    ],
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ]
+  },
+  "source_pins": {
+    "global_main": "779a23bbf80a705993a4be5ca3cabfa9bdb3a2fe",
+    "math_main": "e7dd4d6ed0ec737aa7bbe31b837fe05ec3708edc",
+    "predecessor_author_note": "e6bccc31d7431f075b463a4de5a91373f1e8c86b"
+  },
+  "exact_checks": {
+    "all_prefix_words_length_le_6": 1093,
+    "suffix_predictions_horizon_le_3": 43720,
+    "ideal_capped_update_steps_horizon_le_3": 111486,
+    "same_count_and_residual_pairs": 5404,
+    "future_equivalent_pairs_horizon_le_3": 4661,
+    "future_distinguishable_pairs_horizon_le_3": 743,
+    "mask_dp_vs_count_formula_words_length_le_8": 9841,
+    "cheap_pair_bound_capped_update_steps": 73812,
+    "four_round_witness_suffixes_length_le_6": 1093,
+    "local_author_result": "PASS"
+  },
+  "witness": {
+    "prefix1": "0223",
+    "prefix2": "2203",
+    "counts": [
+      1,
+      2,
+      1
+    ],
+    "residual_both": "0",
+    "M1": "8684/15625",
+    "M2": "69305833/125000000",
+    "delta4": "6341504559/15625000000",
+    "pair_containment_bound": "29981759/62500000",
+    "lower_peak_margin": "1868463/25000000",
+    "universally_valid_condition": "for every suffix v, max_prefix_delta(c+v)<=pair_containment_bound<min(M1,M2); R(prefix1+v)=R(prefix2+v)"
+  },
+  "mathematical_proof_level": "ANALYTIC_AUTHOR_DERIVATION_NOT_FORMAL_OR_INDEPENDENT",
+  "finite_check_scope": "All declared bounded words/pairs only; arbitrary future claim comes from the event-containment proof",
+  "transport_note": "The exact-check totals originate from a separately executed extended local Fraction script. The compact repository verifier covers the same model and principal finite assertions; do not treat file fingerprints as mathematical acceptance.",
+  "control": {
+    "owner_authoritatively_verified": false,
+    "formal_claim": false,
+    "research_driver_review": false,
+    "result_admitted": false,
+    "failed_native_tools": {
+      "em_control_tasks": "CONTROL_QUOTA",
+      "em_session_start": "STATIC_READONLY_SCOPE_DENIED / operation_sent=false"
+    }
+  }
+}
