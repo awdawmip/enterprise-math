@@ -1,0 +1,98 @@
+{
+  "schema": "EM_C264_AUTHOR_PORTABLE_RECEIPT_V1",
+  "research_id": "C264",
+  "date": "2026-10-23",
+  "authority": "AUTHOR_EVIDENCE_ONLY_NO_NATIVE_CLAIM_NO_DRIVER_ACCEPTANCE",
+  "scope": "C195/H168 external 79-node positive-rational auxiliary F (not native GF(2)-BRC)",
+  "source_pins": {
+    "global_knowledge_main": "abed76a9c866347d9c3b3ba2844853229a4e8c22",
+    "enterprise_math_main_read": "3102dc08dcc1fe649de542367409bfb98bd77025"
+  },
+  "parent": {
+    "research_id": "C263",
+    "archive_sha256": "aa3977915e5de9dba0fff75c092423a7fbd8380534ee7309203e1ffd72879db4"
+  },
+  "proof": {
+    "pair": [
+      10,
+      24
+    ],
+    "bounding_box": {
+      "5": [
+        "1/135",
+        "3/205"
+      ],
+      "50": [
+        "34/49",
+        "12/17"
+      ],
+      "55": [
+        "4/5",
+        "4/5"
+      ],
+      "56": [
+        "57/71",
+        "22/27"
+      ]
+    },
+    "Q": "2^128",
+    "minimum_exact_floor_margin": "95008155998302734852413916540688525",
+    "strict_leaves": 53,
+    "binary_splits": 52,
+    "proof_tree_symbols": 105,
+    "methods": {
+      "SHARED_5": 1,
+      "SHARED_50": 26,
+      "SHARED_56": 26
+    },
+    "classification_before": {
+      "negative": 213,
+      "positive": 89,
+      "unknown": 61
+    },
+    "classification_after": {
+      "negative": 213,
+      "positive": 90,
+      "unknown": 60
+    },
+    "eligible_total": 363,
+    "all_remaining_unknown_hulls_have_free_coordinates": 4
+  },
+  "github": {
+    "report": {
+      "path": "research_handoffs/C264_AUTHOR_FINAL_3FREE_20261023.md",
+      "blob_sha1": "19db92d0caede0772f6e01a2a5c57485d834c139",
+      "commit": "e4c3993b237e0e4b5e38deaf565a3aa75613cc5b"
+    },
+    "standalone_exact_fraction_proof": {
+      "path": "research_handoffs/C264_MINIMAL_REPLAY.py",
+      "blob_sha1": "ea584d35dadd73c5933ac2b5c2cbd37c45e4b72c",
+      "commit": "545ddc5503f772640a6346509421c2b30cc9a04c"
+    }
+  },
+  "full_archive_local_only": {
+    "file_name": "EM_C264_FINAL_3FREE_HULL_53_LEAVES_AUTHOR_PORTABLE.zip",
+    "size_bytes": 5433974,
+    "entries": 29,
+    "sha256": "2d2cdd57421c310827f2e727689ede5cc8dc524c3ee56c8d2e8e260d94c3de50"
+  },
+  "checks": [
+    "primary Fraction 53/53",
+    "same-author second Fraction algorithm 53/53",
+    "standalone certificate/inputs 53/53",
+    "105-symbol embedded minimal proof 53/53",
+    "isolated ZIP replay PASS",
+    "ZIP internal manifest 28/28"
+  ],
+  "limits": [
+    "Historical 15,685 candidates inherited, not reenumerated",
+    "Original 35 basic proof leaves unchanged",
+    "No native phase/port/label/future-operation correspondence theorem",
+    "Owner unresolved: CONTROL_QUOTA",
+    "Session registration forbidden: STATIC_READONLY_SCOPE_DENIED operation_sent=false",
+    "No formally admitted native task Result",
+    "No independent Driver review",
+    "Google Drive not used to bypass access denial"
+  ],
+  "next": "Seek two-variable rational Hessian/convex lower bound or exact F<Q witness on four-free-coordinate (0,16) hull."
+}
