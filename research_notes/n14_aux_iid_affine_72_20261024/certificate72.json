@@ -1,0 +1,110 @@
+{
+  "schema": "EM_N14_AUX_IID_AUTHOR_CERTIFICATE_72_V1",
+  "status": "AUTHOR_EXACT_FRACTION_VERIFIED_DRIVER_UNREVIEWED",
+  "date": "2026-10-24",
+  "source_base": "awdawmip/enterprise-math@e769033889819c85d90b0944afde978c0ee52d80",
+  "model": "N=14 iid P=(1/8,1/24,5/6),Q=(1/12,1/12,5/6); randomized full ordered-history policies",
+  "A72": [
+    9,
+    4,
+    0
+  ],
+  "B": [
+    12,
+    0,
+    1
+  ],
+  "K72": "10374480/2227",
+  "lambdaP": "9382104/2227",
+  "lambdaQ": "10374480/2227",
+  "Gamma72": "1162152/131",
+  "alpha71": "2585958427839642247/7450150876955541504",
+  "V71": "24596496152727045149/1862537719238885376",
+  "s71": "11804104280776811/20889600000000000",
+  "h72": "805329/128000000",
+  "eta72": "2865625/1761205026816",
+  "s72": "11935533973576811/20889600000000000",
+  "alpha72": "2585970549846042247/7450150876955541504",
+  "V72": "24569611393219845149/1862537719238885376",
+  "root": "754541330703681222073405/243992441220293984256",
+  "states": 680,
+  "comparisons": 1240,
+  "positive_slacks": 1238,
+  "negative_slacks": 0,
+  "ties": [
+    [
+      [
+        9,
+        4,
+        0
+      ],
+      "C",
+      "P"
+    ],
+    [
+      [
+        12,
+        0,
+        1
+      ],
+      "C",
+      "Q"
+    ]
+  ],
+  "A_live": 126,
+  "A_nominal": 126,
+  "pA": "21875/1769472",
+  "qA": "21875/8957952",
+  "pB": "48828125/725594112",
+  "qB": "48828125/362797056",
+  "suffixA": [
+    "119/294912",
+    "27563/27648",
+    "124867/110592",
+    "973/768"
+  ],
+  "suffixB": [
+    "63/64",
+    "1/144",
+    "9/8",
+    "13/12"
+  ],
+  "min_positive_slack": "963802307/13299572736",
+  "next_K_candidate": "2306549196/525227",
+  "next_tie_state": [
+    8,
+    6,
+    1
+  ],
+  "local_verification": {
+    "main": "PASS",
+    "crosscheck": "PASS",
+    "separate_ordered_word_risk_checker": "PASS",
+    "sampled_rational_u": [
+      "0",
+      "1/7",
+      "1/4",
+      "1/2",
+      "3/4",
+      "6/7",
+      "1"
+    ],
+    "mixed_terms": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  "repro": {
+    "main_expected_sha256": "4e144093e29347d5e96ef1e2fd93a5dd6380b77538d7bd645c016c76ebba40a1",
+    "cross_expected_sha256": "f51707e3c591d40c9345f8e7ef278ab01cc07c6922491bed18a13d709bba97a3",
+    "base70_external_dependency": "research_notes/n14_aux_iid_affine_70_20261024/verify_n14_70.py"
+  },
+  "limits": [
+    "Author-controlled inherited stop model",
+    "Not independently reviewed",
+    "No native BRC/X6/Heartbeat bridge",
+    "No native owner/CLAIM established"
+  ]
+}
