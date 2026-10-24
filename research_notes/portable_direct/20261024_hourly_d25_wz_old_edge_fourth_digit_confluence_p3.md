@@ -2,7 +2,7 @@
 
 2026-10-24 | TASK_RESEARCH | portable author-level exact rational proof and 13-prime independent arithmetic reconstruction. **UNREVIEWED / NOT_ADMITTED / NO_NEW_SOURCE_CHECKPOINT**. This is not a native Task CLAIM/run, CM benchmark, Result, or independent review.
 
-**Lineage.** Parent Task \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`; publication \`TP2-B6F4FC938FF94941C1B7\`. Frozen *scientific* Source pin \`c47e13e4aba0e006366f989d6334d443f6333ae3\` is not changed. Research logical label \`chatgpt-research-hourly-enterprise-math-20260923\` is distinct from maintenance \`chatgpt-hourly-enterprise-math-20260921\`; these labels by themselves grant no authenticated research authority.
+**Lineage.** Parent Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication `TP2-B6F4FC938FF94941C1B7`. Frozen *scientific* Source pin `c47e13e4aba0e006366f989d6334d443f6333ae3` is not changed. Research logical label `chatgpt-research-hourly-enterprise-math-20260923` is distinct from maintenance `chatgpt-hourly-enterprise-math-20260921`; these labels by themselves grant no authenticated research authority.
 
 **Inputs consumed without renewed authorship credit.** Exact five-tail original WZ identity and factorial summand (c7fb90fd / a7f79955); exact original old-edge product and two-digit expansion (d1d7d345 / the preceding 20261024_hourly_d25_original_wz_confluence_third_digit.md); original HIGH-A/HIGH-B cutoff with pole \(-82/p\) (21c62ae4); exact source-versus-auxiliary Cauchy correction and \(\Xi_m\bmod p^3\) (28e35a1f); port-preserving \(\mathfrak R_m\bmod p^2\) from 20261024_hourly_d25_original_wz_confluence_third_digit.md; independent onhour LOW/Gosper work. The new unit is one additional genuine WZ old-edge digit and the resulting one-additional-digit **full confluence** transport, not a reproof of those sources.
 
@@ -114,7 +114,7 @@ For complete explicitness, use the previously proved cubic divided successor, wi
 \Xi_m\equiv\Xi_m^{[3]}\pmod{p^3}.
 \tag{10}
 \]
-The source-defined \(t_0,t_1,t_2\) are exactly those from Theorem B, equations (9)–(11) of \`20261024_hourly_d25_third_digit_odd_product_source_transfer.md\`; no new approximation of \(G_m\) or \(\mathcal E_m\) is made.
+The source-defined \(t_0,t_1,t_2\) are exactly those from Theorem B, equations (9)–(11) of `20261024_hourly_d25_third_digit_odd_product_source_transfer.md`; no new approximation of \(G_m\) or \(\mathcal E_m\) is made.
 
 **Theorem C (new full-confluence third digit).** For every prime \(p=6m+1\ge13\),
 \[
@@ -139,7 +139,7 @@ Apply (8), subtract the exact \(D_m\) in (9), and replace \(\Xi_m\) only by its 
 
 ## 4. Author reconstruction with exact arithmetic
 
-A focused standard-library \`Fraction\` computation separately reconstructed (i) the original factorial WZ summand
+A focused standard-library `Fraction` computation separately reconstructed (i) the original factorial WZ summand
 \[
 W_{r,n}=
 \frac{(6r)!(4r+2n)!(3n)!(6n+12r+1)}
@@ -161,7 +161,7 @@ W_{r,n}=
 
 The new third digits do not imply \(\mathfrak R_m=0\). At \(p=31\), the first-digit coincidence remains only an accidental comparison: \(\mathfrak R_m\equiv589=19\cdot31\not\equiv0\pmod{31^2}\). At actual H13/H19 primes \(13,19,43,211\), a nonzero residual rules out only the **uncorrected cross-observer substitution**, not the original LIFT statement.
 
-**BRC/Enterprise coordinates:** \`COMPOSE_APPLIED\`. The typed carrier retains signed rational factors, p-valuation, the original old WZ terminal and four distinct new tails, HIGH-A/HIGH-B sector labels, Cauchy correction and separate future operators; (11) computes a coarse observer only *after* each provenance channel's p-adic jet is preserved. Positive branch mass cannot replace signed cancellation. No native X6 physical claim, P000 modification, CM experiment or Foundation admission follows.
+**BRC/Enterprise coordinates:** `COMPOSE_APPLIED`. The typed carrier retains signed rational factors, p-valuation, the original old WZ terminal and four distinct new tails, HIGH-A/HIGH-B sector labels, Cauchy correction and separate future operators; (11) computes a coarse observer only *after* each provenance channel's p-adic jet is preserved. Positive branch mass cannot replace signed cancellation. No native X6 physical claim, P000 modification, CM experiment or Foundation admission follows.
 
 ## 5. Exact next unit and acceptance boundary
 
@@ -169,4 +169,4 @@ The new third digits do not imply \(\mathfrak R_m=0\). At \(p=31\), the first-di
 
 **Smallest remaining mathematical question:** determine whether a *source-native, same-prime, same-primitive-class* CM/divided-power representative and an explicitly directed, semilinear comparison map send the original ordinary \(\omega+6\nabla_\lambda\omega\) observer to a candidate whose correction retains the full \(\mathfrak R_m\) in (11). A valid positive solution needs the actual primitive class, normalization, map direction, its first p-adic jet and the same-class \(\kappa\) bridge; the existing Source continuation says the concrete \([X]U\bmod p^2\) and fixed \(H_0/B_0\) data sufficient for the K-model \(\kappa\) observer have **not** been source-identified. Thus a true CM comparison or original native benchmark cannot be inferred from this finite transport identity. Use \(p=13,19,211\) first; no repeat of the completed 13-prime author regressions merely for control synchronization.
 
-**Native control boundary:** this portable material does not create an authenticated CLAIM/open, publish a Source task checkpoint, freeze a Result, perform independent review, or change the frozen scientific source. Prior exact Source continuation \`rsch20-continuation-r13-20261024-1530-d25\` (#6262) reported \`execution_authorized=false\`, route \`REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION\`, and a genuine CM representative/normalization dependency; the latest same-lane recovery must be checked before any role-bound mutation. Existing support issue #1558 is the responsible path. D25/LIFT mother objective remains OPEN.
+**Native control boundary:** this portable material does not create an authenticated CLAIM/open, publish a Source task checkpoint, freeze a Result, perform independent review, or change the frozen scientific source. Prior exact Source continuation `rsch20-continuation-r13-20261024-1530-d25` (#6262) reported `execution_authorized=false`, route `REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION`, and a genuine CM representative/normalization dependency; the latest same-lane recovery must be checked before any role-bound mutation. Existing support issue #1558 is the responsible path. D25/LIFT mother objective remains OPEN.
