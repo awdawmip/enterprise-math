@@ -1,0 +1,41 @@
+{
+  "schema": "EM_AUTHOR_AUXILIARY_PROOF_V1",
+  "research_unit": "R4-EC8",
+  "date": "2026-10-25",
+  "classification": "AUTHOR_SIDE_PROVED_BY_ELEMENTARY_FORMAL_POWER_SERIES_AND_SYMBOLIC_EXACT_CHECK",
+  "model": "R4-EC6/R4-EC7 declared positive ordered affine BRC; not native X6",
+  "theorem": "Four clean q=2 graded count series have common denominator D=(1+x^2)(1-x(z+z^-1)+2x^4-x^6); each satisfies exact homogeneous Laurent recurrence of order 8 for n>=7; Y_plus=x^5(z-x)/D has minimal scalar recurrence order exactly 8 over Q(z).",
+  "proof": "Four formal incoming edge identities eliminate eight clean states to a 2x2 system; Cramer rule and coprime numerator-denominator argument.",
+  "local_execution": {
+    "python_sympy_exact_generating_functions": "PASS",
+    "python_seven_state_histogram_depth": 128,
+    "python_scalar_laurent_recurrence_depth": 128,
+    "python_raw_word_exhaustive_max_depth": 12,
+    "python_raw_words_total": 8191,
+    "independent_cpp17_big_integer_depth": 100,
+    "example_n20_eplus_k0": {
+      "r0": 361,
+      "r1": 102,
+      "theta": "102/463"
+    },
+    "example_n20_eplus_k14": {
+      "r0": 1,
+      "r1": 13,
+      "theta": "13/14"
+    },
+    "example_n20_eminus_k14": {
+      "r0": 1,
+      "r1": 14,
+      "theta": "14/15"
+    }
+  },
+  "source_execution_scope": "Local full R4_EC8_verify.py and R4_EC8_independent.cpp in author evidence bundle executed. GitHub scripts implement same algorithms but GitHub bytes were not separately executed in this run.",
+  "academic_gate": {
+    "formal_task_claim": false,
+    "independent_driver_review": false,
+    "formal_result": false,
+    "native_x6_executed": false
+  },
+  "owner_status": "Native dispatch outcome pending at time of artifact composition; no owner/CLAIM inferred.",
+  "next_question": "Dirty r=2 rational bivariate generating functions and all-six-output minimal recurrence; independent exact effect-blind-transition six-state realizability."
+}
