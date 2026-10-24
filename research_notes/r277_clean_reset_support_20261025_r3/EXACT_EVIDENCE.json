@@ -1,0 +1,40 @@
+{
+  "analytic_claim": "For n>=9, clean q0 support is BOTH eps signs for every k=-n+2,-n+4,...,n-8 (k=eps*t); exactly 2(n-4) full effects.",
+  "derived_tag": "t=epsilon*k",
+  "driver_review": "NOT_PERFORMED",
+  "finite_independent_checks": {
+    "compared_positive_atomic_coefficients": 5113,
+    "exact_boundary_coefficients_checked": 1340,
+    "independent_atomic_DP_depth_0_to": 75,
+    "independent_constructed_witnesses_n_9_to_120": 13552,
+    "original_DFA_DP_depth_0_to": 200,
+    "raw_words_n_0_to_15": 65535,
+    "verified_support_effects_n_9_to_200": 38592
+  },
+  "infinite_scope_requires_proof_not_finite_extrapolation": true,
+  "model": "R276 original positive-weight ordered-word BRC, full affine effect g=(epsilon,k)",
+  "native_P000_X6_dynamics_claimed": false,
+  "original_enterprise_math_package_executed": false,
+  "samples": {
+    "12": {"peak_count": "10", "peak_effects": [[1,-6]], "reset_total": "65", "support_size": 16},
+    "120": {"peak_count": "50619832248140702252095", "peak_effects": [[1,-4]], "reset_total": "2396331108404986135046401", "support_size": 232},
+    "20": {"peak_count": "176", "peak_effects": [[1,-6]], "reset_total": "3026", "support_size": 32},
+    "200": {"peak_count": "2040409420213758846817031246433127276934", "peak_effects": [[1,-4]], "reset_total": "125475243067621153271396401396356512255626", "support_size": 392},
+    "40": {"peak_count": "1728978", "peak_effects": [[-1,-4]], "reset_total": "45765226", "support_size": 72},
+    "75": {"peak_count": "25450681472532", "peak_effects": [[-1,-3]], "reset_total": "944284833567073", "support_size": 142},
+    "9": {"peak_count": "4", "peak_effects": [[1,-5]], "reset_total": "15", "support_size": 10}
+  },
+  "schema": "R277_CLEAN_RESET_SUPPORT_EXACT_V1",
+  "small_n_complete_supports": {
+    "0": {"-1": [], "1": [0]},
+    "1": {"-1": [], "1": []},
+    "2": {"-1": [], "1": []},
+    "3": {"-1": [], "1": [-1]},
+    "4": {"-1": [2], "1": [-2]},
+    "5": {"-1": [3], "1": [-3]},
+    "6": {"-1": [4], "1": [-4,-2]},
+    "7": {"-1": [1,3,5], "1": [-5,-3]},
+    "8": {"-1": [0,2,4,6], "1": [-6,-4,0]}
+  },
+  "status": "PASS"
+}
