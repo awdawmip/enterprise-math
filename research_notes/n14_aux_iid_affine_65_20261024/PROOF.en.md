@@ -1,0 +1,101 @@
+# N14 auxiliary iid sequential test: 65th exact affine interval
+
+**2026-10-24. AUTHOR-LEVEL EXACT FINITE-MODEL PROOF; INDEPENDENT DRIVER UNREVIEWED.** This is not a native X6, Heartbeat, physical BRC, or formal Task Result theorem.
+
+## Statement
+
+With iid P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), and N=14, permit randomized decisions and stopping depending on *all ordered observations*. Define eP=P(decide Q), eQ=Q(decide P), tP=E_P(tau), tQ=E_Q(tau), V14(alpha)=min{max(tP,tQ):eP,eQ<=alpha}. Inherit author-proved interval 64 from [immutable proof](https://github.com/awdawmip/enterprise-math/blob/2900f98c48f63fda0c1d8d8b92651f0fe0880e26/research_notes/n14_aux_iid_affine_64_20261024/PROOF.en.md), namely
+
+    alpha64=5171859232351067447/14900301753911083008;
+    V64=12336183782851489669/931268859619442688;
+    s64=26151374647779419/41779200000000000.
+
+The s-parameter is immediate-Q probability at balancing state B=(12,0,1); all earlier deterministic stopping decisions stay fixed, including A64=(6,5,0) immediate P and A63=(9,2,3) immediate Q.
+
+Let K65=832984560/130907, lambdaQ=K65, lambdaP=72+(8/9)K65=749856024/130907, Gamma65=1582840584/130907, eta65=199633175/103474317735493632 >0.
+
+**THEOREM, for every real delta in [0,eta65] including irrationals:**
+
+    V14(alpha64+delta) = V64 - Gamma65*delta.
+
+The support line has sharp right endpoint
+
+    alpha65=5171859261098244647/14900301753911083008,
+    V14(alpha65)=12336162058364474269/931268859619442688.
+
+## Universal Bellman certificate
+
+At z=(n,a,b), a and b count the first two symbol types, and L=Q(prefix)/P(prefix)=2^(a+b)/3^a. Define the P-normalized Bellman minimum with costs
+
+    immediate P: lambdaQ*L;
+    immediate Q: lambdaP;
+    continue: 1+sum_i P_i D(z+e_i), only n<14.
+
+The iid count quotient is valid for conditional Bellman optimization among arbitrary history-dependent policies; count reduction does not justify erasing first-stop provenance in risk evaluation. Complete exact Fraction recursion covers 680 states and 1,240 alternative-action slacks, of which 1,238 are strictly positive, none negative, and exactly two zero: at A65=(9,6,1), CONTINUE/immediate P, and B=(12,0,1), CONTINUE/immediate Q. Smallest positive slack is 115693/3141768. Exact root:
+
+    D(0,0,0)=60382845387262817133547541/14342307365435574583296
+           =V64+Gamma65*alpha64.
+
+For any policy satisfying both error bounds,
+
+    D(root) <= tP+lambdaP*eP+lambdaQ*eQ
+            <= max(tP,tQ)+Gamma65*alpha.
+
+Hence V14(alpha)>=D(root)-Gamma65*alpha globally.
+
+## Exact first arrivals and attaining policy
+
+In the inherited stop tree, A65 has 252 nominal ordered time-nine histories, but only 183 truly first-reach it: of the other 69, 3 stop at (6,6,0), 36 at (6,5,0), 30 at (7,5,0). Its exact first-hit masses are
+
+    pA=1525/75497472, qA=1525/429981696.
+
+All 12 nominal B histories truly first-reach B, with
+
+    pB=48828125/725594112, qB=48828125/362797056.
+
+Conditional on continuation at A or B, followed by inherited downstream stops, the suffix tuples (eP,eQ,tP,tQ) are
+
+    RA=(1031/2654208,248087/248832,13763/12288,26011/20736),
+    RB=(63/64,1/144,9/8,13/12).
+
+Let u be probability of immediate P at A, and s be probability of immediate Q at B. Set
+
+    X=pA*RA.eP=1572275/200385994162176,
+    Y=qA*(1-RA.eQ)=1136125/106993205379072,
+    E=pB*(1-RB.eP)=48828125/46438023168,
+    H=qB*RB.eQ=48828125/52242776064.
+
+Since a cannot decrease, a history with a=6 at A cannot later reach B with a=0. All four mixed u*s risk coefficients are zero, as additionally checked by a four-corner exact backward recurrence. Hence relative to the anchor (u,s)=(0,s64),
+
+    Delta eP=-X*u+E*(s-s64),
+    Delta eQ= Y*u-H*(s-s64).
+
+Take h65=(X+Y)/(E+H)=323685337/34816000000000 and s=s64+h65*u. Then s65=s64+h65=26151763070183819/41779200000000000 and 0<s64<=s<=s65<1 for u in [0,1]. Both errors identically equal
+
+    eP=eQ=alpha64+eta65*u,
+    eta65=E*h65-X=Y-H*h65.
+
+Full forward exact rational recurrence gives
+
+    tP=V64-Gamma65*eta65*u.
+
+The affine tP-tQ gap is strictly positive at both endpoints:
+
+    u=0: 640005246393385873/1241691812825923584,
+    u=1: 213327829242734891/413897270941974528.
+
+Therefore tP=max(tP,tQ) for all u in [0,1], attaining the global Bellman lower bound for every real delta=eta65*u. First-stop dependence is essential: among 604 true first arrivals at old immediate-P state (10,6,1), 183 pass through A; at old (10,7,1), all 183 true first arrivals pass A, so early stopping at A truncates their mass.
+
+## Sharp right end
+
+The finite ordered-history randomized policy polytope is compact, so an optimum exists. If the same line attained V14(alpha) for alpha>alpha65, equality in the universal bound would force all positively reached actions to be Bellman minimizing and both eP=eQ=alpha (both multipliers strictly positive). Every alternative besides the two states A and B has positive gap. History-specific randomization at each tied count class can be averaged into effective u,s in [0,1] because the iid conditional future law and likelihood agree there. The exact affine error equations then imply s=s64+h65*u and alpha=alpha64+eta65*u<=alpha65, contradiction. The supporting line is thus sharply terminated at alpha65.
+
+## Verification scope, BRC and next question
+
+Source files verify_n14_65.py and verify_n14_65_crosscheck.py were actually executed locally using fractions.Fraction, each PASS. They respectively provide full exact Bellman+forward DP and a separately organized minimum DP, complete 3^9=19683 time-nine and 3^12=531441 time-twelve word enumeration, independent four-corner backward risk checks and seven exact randomized parameter tests. Their inherited stopping rules are shared: this is **not** independent Research Driver verification, Lean formalization or an original native BRC runtime computation. Exact certificate is certificate65.json.
+
+The scoped BRC-compatible carrier is each ordered prefix with (P(prefix),Q(prefix)) **nonnegative rational** mass; disjoint alternatives add both weights, serial symbol concatenation multiplies the respective weights. Count classes preserve the conditional iid Bellman observer; the first-stop observer requires retained history masks. No native X6/Heartbeat correspondence follows.
+
+Next *unproved* dual candidate is K66=1627128/263, state A66=(11,7,2), CONTINUE/immediate P. The task is to prove its first-hit and successor dependence, balanced admissible randomization, full affine interval and sharpness.
+
+Provenance: frozen global rules GLOBAL_KNOWLEDGE_V1 main@34d72e10c6dff577f9b351b4345ed81ffe6d4f5c, EM intake main@d77798c0a5acbea4dd2dc446f50244eb9048ceec. GitHub user awdawmip verified; native tasks returned CONTROL_QUOTA and session_start returned STATIC_READONLY_SCOPE_DENIED with operation_sent=false. Owner and formal CLAIM remain unverified, and author files never substitute for authorized Result/Driver review.

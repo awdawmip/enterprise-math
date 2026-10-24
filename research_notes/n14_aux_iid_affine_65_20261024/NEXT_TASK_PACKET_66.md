@@ -1,0 +1,5 @@
+# Portable continuation — N14 auxiliary iid interval 66 (unproved)
+
+Frozen probabilities P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), N=14, randomized ordered-history policies. Author-level interval 65 anchor alpha65=5171859261098244647/14900301753911083008, V65=12336162058364474269/931268859619442688, balancing B=(12,0,1), s65=26151763070183819/41779200000000000. All preceding deterministic stops retained, including new A65=(9,6,1) immediate P.
+
+Candidate K66=1627128/263 at A66=(11,7,2), CONTINUE vs immediate P, is not proven. Rebuild exact Bellman at this K and stop tree; enumerate true first hits not nominal multinomial paths; audit downstream truncation, conditional suffix risks, B compensation h66, eta66>0, s within [0,1], and tP>=tQ at endpoints. Prove the full real interval, sharp supporting-line right endpoint and reproduce via a second exact code path. Preserve finite auxiliary iid scope; never infer native BRC/X6/Heartbeat equivalence. Source proof and exact runnable programs under research_notes/n14_aux_iid_affine_65_20261024. Native owner/claim unverified, independent review pending.
