@@ -169,9 +169,9 @@ Using Python exact math.factorial, fractions.Fraction and modular inverses only 
 | 19 | 2 | 6 | 45 |
 | 31 | 1 | 25 | 166 |
 | 109 | 56 | 0 | 255 |
-| 211 | 141 | 25 |  [see checker if generated] |
+| 211 | 141 | 25 | 41427 |
 
-The p=211 last entry must be read from the executed exact check record (do not infer a placeholder result). Source integers and exact Fraction denominators were validated for divisibility before reduction; no floating-point evidence or surrogate Source experiment is involved.
+The last column is a directly executed exact-Fraction/modular-inverse result for each displayed prime, including p=211; it is not an inferred value. Source integers and exact Fraction denominators were validated for divisibility before reduction; no floating-point evidence or surrogate Source experiment is involved.
 
 ## BRC, Enterprise-coordinate and audit boundaries
 
