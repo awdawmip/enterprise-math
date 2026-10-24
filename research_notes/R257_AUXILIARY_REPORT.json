@@ -1,0 +1,64 @@
+{
+  "schema": "EM_R257_AUTHOR_AUXILIARY_EXACT_V1",
+  "result": "PASS",
+  "claim_scope": "formal positive rational labelled-edge BRC with finite DFA state; no native module executed",
+  "source_pin": "awdawmip/enterprise-math@9a1659352c5c5959e82c87924c4c2939c77c0b1b",
+  "native_interface_readback_blobs": {
+    "brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+    "brc_control_port.py": "44def6b8ac787e798d3cc2c6be16f873f91b9db8"
+  },
+  "native_implemented_package_executed": false,
+  "actual_R193_token_grammar_verified": false,
+  "nonfactorization_witness_depth2": {
+    "A_query_yes": 1,
+    "B_query_yes": 4,
+    "both_unlabelled_path_count": 4
+  },
+  "finite_cross_check_r256": {
+    "all_words_checked_through_depth": 10,
+    "word_cases_checked": 2047,
+    "selected": [
+      [
+        0,
+        1,
+        1,
+        0
+      ],
+      [
+        2,
+        4,
+        4,
+        1
+      ],
+      [
+        3,
+        7,
+        6,
+        3
+      ],
+      [
+        7,
+        49,
+        32,
+        94
+      ],
+      [
+        12,
+        122,
+        62,
+        3719
+      ],
+      [
+        24,
+        290,
+        134,
+        16655823
+      ]
+    ]
+  },
+  "random_seed": 2572401,
+  "random_weighted_branch_models": 24,
+  "random_depth": 10,
+  "random_model_depth_observations": 264,
+  "scope_of_infinite_claim": "inductive proof in accompanying note, NOT extrapolation of tests"
+}
