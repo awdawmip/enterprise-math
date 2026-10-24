@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "model": "R253/R254 positive unit-weight three-control two-selector formal X6 affine carrier",
+  "exhaustive_direct_rank_word_cases": 24573,
+  "exhaustive_python_depths": "0..12, 3 initial controls",
+  "independent_cpp_exhaustive_rank_word_cases": 6141,
+  "independent_cpp_depths": "0..10, 3 initial controls",
+  "first_collision": {
+    "word_a": "000",
+    "word_b": "101",
+    "observation": [
+      0,
+      1,
+      -1
+    ],
+    "ranks": [
+      0,
+      1
+    ]
+  },
+  "selected": {
+    "3": {
+      "paths": "8",
+      "max_fiber": "2",
+      "bits": 1
+    },
+    "12": {
+      "paths": "4096",
+      "max_fiber": "250",
+      "bits": 8
+    },
+    "24": {
+      "paths": "16777216",
+      "max_fiber": "705854",
+      "bits": 20
+    },
+    "40": {
+      "paths": "1099511627776",
+      "max_fiber": "35345337418",
+      "bits": 36
+    },
+    "48": {
+      "paths": "281474976710656",
+      "max_fiber": "8233429852978",
+      "bits": 43
+    },
+    "64": {
+      "paths": "18446744073709551616",
+      "max_fiber": "465428353188420746",
+      "bits": 59
+    },
+    "96": {
+      "paths": "79228162514264337593543950336",
+      "max_fiber": "1625701140345181560104470766",
+      "bits": 91
+    }
+  },
+  "exact_cross_language_agreement": "PASS; every selected fiber count agrees; Python and C++ rank/unrank round trips",
+  "verification_basis": "Exact integer DP at all displayed depths; exhaustive word-level enumeration only to declared depths. All-depth theorem follows mathematical induction, not empirical extrapolation.",
+  "repo_source_read": "c6ba00a05c04ef0bbf1fae4a2ec4a4df4aa06ca0",
+  "canonical_knowledge_read": "e209497cea450b0ef02e3844215db1497479c53f",
+  "github_authenticated_principal": "awdawmip",
+  "native_module_import_executed": false,
+  "r193_observer_identified": false,
+  "native_task_claim_verified": false,
+  "native_inventory_error": "CONTROL_QUOTA",
+  "native_session_registration_error": "STATIC_READONLY_SCOPE_DENIED; operation_sent=false",
+  "mathematical_status": "AUTHOR_SIDE_PROVED_AND_FINITE_CROSSCHECKED_NOT_FORMALLY_REVIEWED_OR_ADMITTED"
+}
