@@ -1,0 +1,89 @@
+{
+  "schema": "N14_AUX_IID_AFFINE_71_AUTHOR_CERT_V1",
+  "date": "2026-10-24",
+  "model": "N14 external auxiliary iid all ordered-history randomized policies",
+  "source_pins": {
+    "global": "5b5304151d63b63c0c3e9133f05fd7a0fbe33ffd",
+    "em_control": "d1d7d3453258acd50becb821d92386d3e18f9f24",
+    "inherited_stop_source": "eb98673aa12c1f7db38928e73b8504b779391346"
+  },
+  "exact": {
+    "K71": "5184",
+    "lambdaP": "4680",
+    "lambdaQ": "5184",
+    "Gamma71": "9864",
+    "A71": [
+      11,
+      1,
+      2
+    ],
+    "B": [
+      12,
+      0,
+      1
+    ],
+    "nominal_A": 495,
+    "live_A": 386,
+    "nominal_B": 12,
+    "live_B": 12,
+    "pA": "75390625/3869835264",
+    "qA": "75390625/1451188224",
+    "suffix_A": [
+      "511/512",
+      "1/1728",
+      "73/64",
+      "157/144"
+    ],
+    "h71": "5597/163200",
+    "eta71": "75390625/37893426905088",
+    "s71": "11804104280776811/20889600000000000",
+    "alpha71": "2585958427839642247/7450150876955541504",
+    "V71": "24596496152727045149/1862537719238885376",
+    "dual_root": "376562939953252048603/109561042308169728",
+    "states": 680,
+    "nonchosen_comparisons": 1240,
+    "strict_positive": 1238,
+    "negative": 0,
+    "zero_tie_states": [
+      [
+        11,
+        1,
+        2
+      ],
+      [
+        12,
+        0,
+        1
+      ]
+    ],
+    "zero_mixed_coefficients": 4,
+    "right_support_sharp": true
+  },
+  "checks": {
+    "inherited_main": "PASS",
+    "author_crosscheck": "PASS",
+    "portable_main": "PASS",
+    "portable_crosscheck": "PASS",
+    "arithmetic": "Python Fraction exact",
+    "source_codes": "see sibling files",
+    "scope": "AUTHOR_ONLY_NO_INDEPENDENT_DRIVER"
+  },
+  "next_only": {
+    "K72": "10374480/2227",
+    "state": [
+      9,
+      4,
+      0
+    ],
+    "tie": [
+      "C",
+      "P"
+    ],
+    "status": "UNPROVED"
+  },
+  "control": {
+    "live_owner": "UNVERIFIED",
+    "native_claim": "UNVERIFIED",
+    "dispatch": "CONTROL_QUOTA"
+  }
+}
