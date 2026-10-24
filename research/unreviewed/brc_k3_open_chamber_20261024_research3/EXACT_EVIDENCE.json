@@ -1,0 +1,65 @@
+{
+  "schema": "EM_BRC_K3_OPEN_CHAMBER_V1",
+  "base": {
+    "alpha": "(1,22,2,3)/28",
+    "beta": "(1,22,2,4)/29"
+  },
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "epsilon": "1/10000000",
+  "counts": {
+    "negative_increments": 24,
+    "positive_cuts": 14,
+    "positive_flow_slacks": 48,
+    "forbidden_spectrum_gaps": 6,
+    "independent_words": 126
+  },
+  "exact_minima": {
+    "abs_increment": {
+      "value": "93/307328",
+      "n": 3,
+      "x": 3,
+      "action": 0
+    },
+    "high_cut": {
+      "value": "6331/19803868",
+      "n": 4,
+      "x": 0
+    },
+    "n5_flow_slack": {
+      "value": "2165/287156086",
+      "x": 0,
+      "action": 0,
+      "edge": 1
+    },
+    "nonincident_gap": {
+      "value": "16/29",
+      "action": 1,
+      "edge": 3
+    }
+  },
+  "bounds": {
+    "increment": "144e-7",
+    "high_cut": "15e-7",
+    "flow": "42e-7",
+    "spectral_gap": "3e-7"
+  },
+  "conclusion": "Within the open probability simplex neighborhood K0=n>=5,K1=n>=4,K2=n>=3,K3=S=n>=2; no K4 minus K3 state.",
+  "status": "AUTHOR_CHECKED_UNREVIEWED"
+}
