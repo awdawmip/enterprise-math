@@ -1,0 +1,98 @@
+{
+  "schema": "EM_C276_AUTHOR_RESEARCH_AUDIT_V1",
+  "date": "2026-10-24",
+  "project": "awdawmip/enterprise-math",
+  "source_pins": {
+    "GLOBAL_KNOWLEDGE_V1": "c3ff9b86ff313a861897fce8459ba2c57c201e85",
+    "enterprise_math_main": "6fceb814b36be8245eb0038e6cb0ac38de46e42f",
+    "parent": "C275_AUTHOR_EXACT_MIXED_COLLISION_HULLS"
+  },
+  "author_branch": "research/c276-four-parent-hulls-23-positive-20261024-r2",
+  "theorem": {
+    "domain": "C195/H168 positive rational auxiliary interpolation, legal continuous four-coordinate domains",
+    "threshold": "2^128",
+    "certified_bound": "F(v) > (1+1/1000000)*2^128",
+    "roots": [
+      {
+        "pair": [
+          0,
+          3
+        ],
+        "leaves": 5504,
+        "positive": 5490,
+        "empty": 14,
+        "splits": 5503,
+        "strict_margin": "1/1000000"
+      },
+      {
+        "pair": [
+          1,
+          3
+        ],
+        "leaves": 626,
+        "positive": 622,
+        "empty": 4,
+        "splits": 625,
+        "strict_margin": "1/100000"
+      },
+      {
+        "pair": [
+          3,
+          18
+        ],
+        "leaves": 656,
+        "positive": 646,
+        "empty": 10,
+        "splits": 655,
+        "strict_margin": "1/200000"
+      },
+      {
+        "pair": [
+          2,
+          29
+        ],
+        "leaves": 1988,
+        "positive": 1984,
+        "empty": 4,
+        "splits": 1987,
+        "strict_margin": "1/250000"
+      }
+    ],
+    "total_leaves": 8774,
+    "strict_positive_leaves": 8742,
+    "empty_leaves": 32,
+    "binary_splits": 8770,
+    "new_positive_pairs": 23,
+    "prior_mixed": 187,
+    "remaining_unresolved": 22
+  },
+  "verification": {
+    "arithmetic": "Python fractions.Fraction and exact rational inequalities",
+    "partition": "full binary covering trees, every leaf either strictly certified or geometrically empty",
+    "isolated_replay": "PASS (inventory and pair 1,3)",
+    "other_roots": "chunk-wise exact leaf replay",
+    "driver_independent_review": "NOT_DONE"
+  },
+  "files_in_conversation_zip": {
+    "name": "EM_C276_23_NEW_POSITIVE_COLLISION_HULLS_8774_LEAF_EXACT_AUTHOR_PORTABLE.zip",
+    "sha256": "824585af8c5ac0462911de4a6735d8330fe636d94737c9ec22d2d15d7b6ab54b",
+    "files": 38,
+    "zip_integrity": "PASS",
+    "not_remotely_uploaded": true
+  },
+  "github_evidence": {
+    "theorem_path": "research_handoffs/C276_AUTHOR_THEOREM_AND_PROOF_20261024.md",
+    "theorem_commit": "5bfc95f25c1fd5ee803bb03fc25a70c2aa19c6f5",
+    "theorem_git_blob_sha1": "5f3425d780c2b7eece8a67605ed1e4798e6d53bb",
+    "theorem_remote_readback": "PASS",
+    "note": "Only concise theorem and this audit are in GitHub; full 8774-leaf trees and self-contained replay are in conversation ZIP."
+  },
+  "source_control": {
+    "native_task_list": "CONTROL_QUOTA",
+    "current_owner": "NOT_VERIFIED",
+    "native_claim": "NOT_CLAIMED",
+    "source_result": "NOT_PUBLISHED",
+    "driver_acceptance": "NOT_ADMITTED"
+  },
+  "next_action": "C277: resolve 22 remaining collision hulls; first try exact covering hull H(9,23), or derive F<Q rational witnesses. Preserve P000 native X6 BRC phase/label/port bridge as unproved."
+}
