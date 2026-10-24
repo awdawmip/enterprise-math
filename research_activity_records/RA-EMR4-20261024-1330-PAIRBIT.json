@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR4-20261024-1330-PAIRBIT",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "b595842f59c9dcb9c16cae16a55d3070001c4069",
+          "path": "research_notes/R253_HOLONOMY_ONE_BIT_REPAIR_PROVENANCE_GROWTH_20261024.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "32628aea9161b3f2327398ce553e1d9483b55cf9846d47eddd4d225ded01d526",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "244c69f10bb87d026bf148e0bc216c52b1a8f62e",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/b595842f59c9dcb9c16cae16a55d3070001c4069/research_notes/R253_HOLONOMY_ONE_BIT_REPAIR_PROVENANCE_GROWTH_20261024.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r253-author-r4-20261024-immutable-full-proof-readback-1",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261024-1330-PAIRBIT/readbacks/8188395c6afc2ff51358b201e36308ea144f7db48884d8a2712080776bdf1973.json",
+          "verification_receipt_sha256": "8188395c6afc2ff51358b201e36308ea144f7db48884d8a2712080776bdf1973"
+        }
+      ],
+      "event_id": "R253-HOLONOMY-PROVENANCE-20261024-1330",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-24T13:36:08+08:00",
   "registration_key": "session:scheduled-research4-20261024-1330:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-DIRECT-R253K4",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "scheduled-research4-20261024-1330",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-24T13:36:08+08:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
