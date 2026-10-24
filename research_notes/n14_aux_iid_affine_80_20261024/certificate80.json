@@ -1,0 +1,107 @@
+{
+  "schema": "EM_N14_AUX_IID_AUTHOR_CERTIFICATE_80",
+  "date": "2026-10-24",
+  "level": "AUTHOR_EXACT_FINITE_AUXILIARY_UNREVIEWED",
+  "predecessor_source": "238626c2bb75a51b843c3cb3e1af56c60a30e530",
+  "model": {
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "N": 14
+  },
+  "K80": "8690664/2767",
+  "lambdaP": "23772776/8301",
+  "lambdaQ": "8690664/2767",
+  "Gamma80": "49844768/8301",
+  "bellman": {
+    "states": 680,
+    "nonchosen": 1240,
+    "positive": 1238,
+    "negative": 0,
+    "ties": [
+      [
+        [
+          12,
+          0,
+          1
+        ],
+        "C",
+        "Q"
+      ],
+      [
+        [
+          7,
+          0,
+          2
+        ],
+        "C",
+        "Q"
+      ]
+    ],
+    "min_positive_gap": "3364539239/148719919104",
+    "root": "476885545810844786863579/227366553050029228032"
+  },
+  "A": {
+    "state": [
+      7,
+      0,
+      2
+    ],
+    "live_histories": 21,
+    "p_mass": "21875/1492992",
+    "q_mass": "21875/373248",
+    "suffix": [
+      "56451961/56623104",
+      "2285/3981312",
+      "3410317/2359296",
+      "1257859/995328"
+    ],
+    "suffix_words": 119,
+    "terminal_states": 26,
+    "truncated_paths": 2499
+  },
+  "B": {
+    "state": [
+      12,
+      0,
+      1
+    ],
+    "live_histories": 12,
+    "p_mass": "48828125/725594112",
+    "q_mass": "48828125/362797056",
+    "suffix_words": 5,
+    "terminal_states": 5,
+    "truncated_paths": 60
+  },
+  "primal": {
+    "h80": "-170743041/4352000000",
+    "eta80": "60528125/19960323637248",
+    "s80": "1330357474145633/2457600000000000",
+    "alpha80": "304236203316287029/876488338465357824",
+    "V80": "180239004423178679/13695130288521216",
+    "positive_time_gap_start": "2186055790582274861/3725075438477770752",
+    "positive_time_gap_end": "139577535183427933/219122084616339456"
+  },
+  "next_candidate": {
+    "K81": "46656/17",
+    "A81": [
+      11,
+      3,
+      3
+    ],
+    "tie": "C/Q",
+    "proved": false
+  },
+  "limitations": [
+    "Inherited stop table from stage79; author-side checks, not independent Driver",
+    "Auxiliary iid ordered histories, not native BRC/X6/Heartbeat model",
+    "Native Owner/CLAIM and formal Result unverified"
+  ]
+}
