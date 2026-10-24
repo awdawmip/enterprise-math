@@ -1,0 +1,50 @@
+{
+  "schema": "EM_C286_AUTHOR_EXACT_AUDIT_V1",
+  "date": "2026-10-25",
+  "project": "Enterprise Math",
+  "model": "C195_H168_79_NODE_POSITIVE_RATIONAL_AUXILIARY",
+  "global_knowledge_snapshot": "cdd1fb2a7a01cfe43d6c1b7ed26b322dd78cab9a",
+  "source_protocol_snapshot": "ef897f9627a71365ba7abcb4733b88a44e9b6d47",
+  "github_branch_base": "b347e6454442154a80f599cdaebe8d174f33ccdd",
+  "upstream_c284_records_sha256": "fcdad45cb2ed5df659b1a153762d358e2b7fa4df3e14c1be3eb505d4209ef576",
+  "upstream_c284_immutable_commit": "c30911099bed3ebc8c7f4c0999a4647e44ac1af1",
+  "upstream_c285_immutable_commit": "743158c626c8b082e37eebe26aa97bc65c034c96",
+  "theorem": "Each of 125 distinct endpoint-defined paths is strictly increasing on the entire real interval [0,1], with exact dF/dt > 2^128/262144; each has exactly one simple threshold root using C284 opposite-sign endpoint facts.",
+  "counts": {
+    "source_labeled_hulls": 187,
+    "distinct_paths": 125,
+    "dyadic_continuous_leaves": 1073,
+    "max_endpoint_denominator": 128,
+    "paths_with_8_leaves": 55,
+    "paths_with_9_leaves": 68,
+    "paths_with_10_leaves": 1,
+    "paths_with_11_leaves": 1
+  },
+  "proof_arithmetic": "Python standard-library Fraction; exact positive derivative lower bound on every whole subinterval",
+  "local_primary_result": "C286_FULL_PATH_EXACT_PASS",
+  "local_expanded_replay_result": "C286_EXACT_GLOBAL_125_PATHS_PASS / 187_LABELS / 1073_LEAVES / DEPTH_7 / FPRIME_GT_Q_OVER_262144",
+  "exact_expanded_certificate_sha256": "4e75c0d1f81654dacd8c2359a84cf9d621b585667f8c75f78019ebfe12867e6d",
+  "compressed_certificate_format": "base64(zlib.compress(raw_utf8_json,9))",
+  "compressed_certificate_ascii_sha256": "3743fb96177613ed460a839ee9399aa810760f0df8658cafa513761856fbb462",
+  "compressed_certificate_readback_sha256_match": true,
+  "primary_script": "research_handoffs/C286_EXACT_FULL_PATH_MONOTONICITY.py",
+  "certificate": "research_handoffs/C286_125_GLOBAL_MONOTONE_CERTIFICATES.json.zlib.b64",
+  "source_dependencies": [
+    "C275_STANDALONE_EXACT_REPLAY.py",
+    "C284_187_EXACT_DYADIC_BRACKETS.json",
+    "C285_EXACT_UNIFORM_DERIVATIVE.py"
+  ],
+  "exact_replication": "Place source dependencies beside the C286 script; run python C286_EXACT_FULL_PATH_MONOTONICITY.py",
+  "compressed_certificate_decode": "base64 decode then zlib decompress the .json.zlib.b64 text; verify SHA256 of resulting JSON against exact_expanded_certificate_sha256",
+  "native_control": {
+    "tasks": "CONTROL_QUOTA",
+    "dispatch": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "session_start_operation_sent": false
+  },
+  "formal_claim": false,
+  "driver_review": false,
+  "source_main_integration": false,
+  "brc_resolution": "REUSE_APPLIED: positive rational branch mass with identity preserved; not signed/phase BRC and not a native X6 theorem",
+  "next_question": "C287: classify exact coincidence or separation of threshold roots across distinct endpoint-defined paths; develop native BRC correspondence separately."
+}
