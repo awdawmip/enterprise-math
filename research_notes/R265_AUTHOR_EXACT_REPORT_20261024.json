@@ -1,0 +1,62 @@
+{
+  "schema": "EM_R265_EFFECT_AWARE_CONTROL_LOWER_BOUND_V1",
+  "model": "R260-R263 formal positive two-choice affine BRC with source DFA; six formal coordinate slots; NONNATIVE",
+  "principal_theorem": "Minimum number of time-homogeneous positive-rational affine-labelled BRC control states with fixed (q,h) terminal labels and full actual effect histogram is 7",
+  "proof": "Any d-control candidate has a 2d-dimensional rational lift via rho(eps,k)=diag(2^k,2^-k)*J^((1-eps)/2); scalar s_m=sum_k H_m(0,1,+,k)2^k; rank of 13-by-13 Hankel K nonzero, hence 2d>=13. Reachable 7-state product realizes the exact histogram for all m.",
+  "exact_hankel_determinant": "163341851565859597265625/1099511627776",
+  "prime": 1000003,
+  "determinant_mod_prime": 206678,
+  "samples_mod_prime": [
+    0,
+    0,
+    0,
+    500002,
+    1,
+    2,
+    750011,
+    250021,
+    375045,
+    187622,
+    31556,
+    141363,
+    884688,
+    477375,
+    123037,
+    381876,
+    31089,
+    900831,
+    779196,
+    8808,
+    405961,
+    20109,
+    820188,
+    72119,
+    302159
+  ],
+  "depth_verified_in_Python_and_Cpp": [
+    0,
+    24
+  ],
+  "exact_path_count_at_depth24": "16777216",
+  "independent_runtimes": [
+    "CPython exact rational and modular",
+    "C++17 modular",
+    "SymPy rational determinant, supplemental"
+  ],
+  "native_source_runtime_executed": false,
+  "owner_verified": false,
+  "native_claim": false,
+  "formal_result": false,
+  "independent_driver_review": false,
+  "control_diagnostics": [
+    "em_control_tasks: CONTROL_QUOTA",
+    "em_session_start(RESEARCHER): STATIC_READONLY_SCOPE_DENIED; operation_sent=false"
+  ],
+  "research_snapshot": {
+    "global_main": "94cc7009b96256b6a59a2cf950081112c411365a",
+    "em_main": "b1e773f528ecec65959c46881e698c27331190ab",
+    "p000_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "status": "AUTHOR_SIDE_EXACT_PROOF_LOCAL_VERIFICATION_PASS_REMOTE_RESEARCH_DRAFT_ONLY",
+  "open_question": "Can effect-conditioned nonlinear/variable terminal decoding under a precisely declared interface use fewer than 7 counted control states without hidden side channels? Need native R193 and module correspondence."
+}
