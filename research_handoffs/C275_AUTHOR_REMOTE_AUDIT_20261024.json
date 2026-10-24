@@ -1,0 +1,67 @@
+{
+  "schema": "EM_C275_AUTHOR_EXACT_REMOTE_AUDIT_V1",
+  "date": "2026-10-24",
+  "identity": {
+    "authenticated_github_login": "awdawmip",
+    "native_researcher_session": "DENIED_STATIC_READONLY_SCOPE",
+    "active_owner": "UNKNOWN_CONTROL_QUOTA",
+    "winning_claim": false
+  },
+  "snapshots": {
+    "global_main": "fbfc10c022a87b8361e0b389e283ef06389a1e8e",
+    "enterprise_math_main": "a5f94534d28caa54f6ceef9318f1b58fea347cd4",
+    "parent_author": "2d0fc435f75b859eb2e1571b273aa0c87d3899cb"
+  },
+  "evidence": {
+    "class": "AUTHOR_EXACT_AUXILIARY",
+    "original_rational_input": "C271_C274_79_NODES_35_BOXES",
+    "total_hulls": 595,
+    "safe": 363,
+    "collision_touch": 124,
+    "collision_cross": 108,
+    "strong_positive_witness_hulls": 232,
+    "mixed_exact_threshold_hulls": 187,
+    "mixed_touch": 111,
+    "mixed_cross": 76,
+    "remaining_collision_hulls": 45,
+    "remaining_touch": 13,
+    "remaining_cross": 32,
+    "negative_witnesses": [
+      "(1/93,12/17,27/34,101/125)",
+      "(1/100,703/1000,27/34,101/125)"
+    ],
+    "negative_bound": "F(w) < (999/1000)*2^128",
+    "positive_bound": "M55(p_ij)+M56(p_ij) > 3*2^128",
+    "continuity_consequence": "exists admissible v in each of 187 hulls with F(v)=2^128"
+  },
+  "local_author_evidence": {
+    "python_source_sha256": "af3f084d48de4f2e929ab52e47248fd1958443a388e1ff1e1a3e001b331d9b82",
+    "full_paper_sha256": "7f968cea779b2348ed31b25625fc3f8763d5745b6006517ab3094944e7899818",
+    "expanded_23kb_certificate_sha256": "b179d9c442f409574c687d77643630c1f8b832360c2fceccfcc09b590259c8b8",
+    "portable_zip_sha256": "68ceeff101d57289029bc0d5d2feb0c9e117e0ceb2c23af10b987c26aca417c6",
+    "exact_local_python_fraction_replay": "PASS",
+    "py_compile": "PASS",
+    "isolated_zip_replay": "PASS",
+    "self_contained_git_code_execution": "NOT_EXECUTED_IN_GITHUB_RUNTIME",
+    "package_files_are_remote_identical": false
+  },
+  "github_remote_evidence": {
+    "branch": "research/c275-r2-187-mixed-seam-hulls-20261024",
+    "files": [
+      {
+        "path": "research_handoffs/C275_STANDALONE_EXACT_REPLAY.py",
+        "blob_sha1": "430cd98bbf0c2d9d6c9c3158685b12d807254921",
+        "readback": "SUCCESS_NONEMPTY_UTF8"
+      },
+      {
+        "path": "research_handoffs/C275_THEOREM_AND_PROOF_20261024.md",
+        "blob_sha1": "5790b50f8de98fe686e4ccf752a15bceadf2e176",
+        "readback": "SUCCESS_NONEMPTY_UTF8"
+      }
+    ]
+  },
+  "formal_source_admission": false,
+  "independent_driver_review": false,
+  "native_x6_brc_transfer": false,
+  "next_question": "For each of the remaining 45 colliding hulls, find exact rational F<Q witness or complete strict positive coverage, preserving all 187 mixed hull IDs."
+}
