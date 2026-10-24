@@ -1,0 +1,35 @@
+{
+  "schema": "EM_C287_AUTHOR_AUDIT_V1",
+  "date": "2026-10-25",
+  "model": "C195_H168_79_NODE_POSITIVE_RATIONAL_AUXILIARY",
+  "global_main": "6103c42d1653a4b32569b529f7a8da3c5fd9b304",
+  "enterprise_math_main": "911783f7a0ed27d97fe5cbfc735b423f4ac4fc2c",
+  "upstream_c284": "c30911099bed3ebc8c7f4c0999a4647e44ac1af1",
+  "upstream_c286": "1a63414b3a0f71a37bc5fc854e4f117e3028d72b",
+  "conclusion": "187 labels encode 125 paths (122+3). All 7750 distinct path pairs have disjoint open interiors: 7384 same-anchor direction rank-2 pairs, 366 cross-anchor affine rank-3 pairs. Reusing C284/C286 unique interior roots yields at least 125 geometrically distinct 4-variable threshold solutions.",
+  "exact_checks": {
+    "primary": "C287_AFFINE_ROOT_SEPARATION_PASS",
+    "independent": "C287_INDEPENDENT_EXACT_RREF_PASS",
+    "pairs": 7750,
+    "same": 7384,
+    "cross": 366,
+    "nonzero_minor_01": 7369,
+    "nonzero_minor_02": 15,
+    "nonzero_minor_012": 366,
+    "minor_sequence_sha256": "ce3fa845594fbc3afcfe750ef179918d61d5569b869f7e05a26fe313a9180742"
+  },
+  "compressed_certificate_format": "base64(zlib(utf8 JSON))",
+  "certificate_plain_sha256": "a54a869ae98cb8302498d93bf7fc5d610584599751194130e7fb925c087a3b8f",
+  "record_sha256": "fcdad45cb2ed5df659b1a153762d358e2b7fa4df3e14c1be3eb505d4209ef576",
+  "native_control": {
+    "tasks": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "owner": "UNVERIFIED",
+    "claim": false,
+    "formal_source_result": false,
+    "driver_review": false
+  },
+  "semantic_scope": "AUTHOR_VERIFIED_AUXILIARY_RATIONAL_GEOMETRY_NOT_NATIVE_X6; upstream C284/C286 are author-level and not newly independently checked",
+  "next_unit": "C288: exact local regularity and perturbation sensitivity bounds at 125 distinct threshold crossings."
+}
