@@ -18,5 +18,35 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "r272-reset-moment-sqrt-20261025-research3",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "39c4801a51850d58f75ef71c9d4721e9ed8c6316",
+          "path": "research_notes/r272_reset_moment_sqrt_fibre_20261025/R272_RESET_MOMENT_SQRT_COMMON_FIBRE_AUTHOR_PROOF.zh-CN.md",
+          "sha256": "31c8240ead6b2614a84890a53911848b28da03613f42687f60eaea500e1b07db",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "r272-proof-readback-local-20261025-0403",
+            "call_id": null,
+            "server_signature_authenticated": false,
+            "network_request_by_this_tool": false,
+            "git_blob_sha1": "767563d8ed54906d2d3669d609ee321955f2d8aa",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/39c4801a51850d58f75ef71c9d4721e9ed8c6316/research_notes/r272_reset_moment_sqrt_fibre_20261025/R272_RESET_MOMENT_SQRT_COMMON_FIBRE_AUTHOR_PROOF.zh-CN.md"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261025-0343-R272RESETMOMENT/readbacks/53b109b3a6764e599f8d282c52c609699162bfc147a2a0f7a81ae20da49489d8.json",
+          "verification_receipt_sha256": "53b109b3a6764e599f8d282c52c609699162bfc147a2a0f7a81ae20da49489d8"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@a9796e0aa6d7c730aa912f6ff8aa5c1f5c830f3c:journal/enterprise-math/2026-10-25/20261025T040221+0800-r272-reset-moment-sqrt-r3.md"
+      ]
+    }
+  ]
 }
