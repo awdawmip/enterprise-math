@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/r276_extreme_dirty_obstruction_20261025_r3/R276_verify_extreme_obstruction.py",
+    "ref": "ab39a2962c39f99c69fee8a04d555fd93f5697d7",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "obs-r276-authored-code-20261025-0635",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"R276 exact six-channel BRC check: Python standard library, no floats.\"\"\"\nimport json\nfrom itertools import product\nfrom collections import defaultdict\n\nE = (((2, -1, -1), (2, 1, -1)),\n     ((0, -1, -1), (0, 1, -1)),\n     ((1, 1, 1), (2, 1, -1)))\nCH = tuple((d, q) for d in (False, True) for q in range(3))\n\n\ndef advance(state, bit):\n    dirty, q, last, eps, k = state\n    nq, eta, b = E[q][bit]\n    return dirty or last == bit == 0, nq, bit, eta * eps, eta * k + b\n\n\ndef histogram(states):\n    h = {c: defaultdict(int) for c in CH}\n    for (dirty, q, last, eps, k), count in states.items():\n        h[dirty, q][eps, k] += count\n    return h\n\n\ndef raw_histogram(n):\n    h = {c: defaultdict(int) for c in CH}\n    for word in product((0, 1), repeat=n):\n        state = (False, 0, None, 1, 0)\n        for bit in word:\n            state = advance(state, bit)\n        dirty, q, last, eps, k = state\n        h[dirty, q][eps, k] += 1\n    return h\n\n\ndef run():\n    states = {(False, 0, None, 1, 0): 1}\n    samples = {}\n    for n in range(401):\n        h = histogram(states)\n        assert sum(sum(x.values()) for x in h.values()) == 2**n\n        if n <= 15:\n            raw = raw_histogram(n)\n            assert all(h[c] == raw[c] for c in CH), n\n        if n >= 4:\n            for eps in (1, -1):\n                g = (eps, -(n - 2))\n                expected = ((1, 1, n-3, 0, 0, 1) if eps == 1\n                            else (1, 1, n-4, 0, 0, 2))\n                assert tuple(h[c].get(g, 0) for c in CH) == expected, (n, g)\n        if n >= 12:\n            peak = max(h[False, 0].values())\n            maximizers = [g for g, v in h[False, 0].items() if v == peak]\n            assert any(all(h[c].get(g, 0) >= peak for c in CH)\n                       for g in maximizers), n\n        if n in (4, 12, 30, 100, 200, 400):\n            p = max(h[False, 0].values())\n            samples[str(n)] = {'Lambda': str(p), 'effects': [list(g) for g, v in\n                                 h[False, 0].items() if v == p]}\n        if n < 400:\n            nxt = defaultdict(int)\n            for state, mass in states.items():\n                for bit in (0, 1):\n                    nxt[advance(state, bit)] += mass\n            states = nxt\n    return {\n        'schema': 'R276_EXACT_CHECK_V1', 'status': 'PASS',\n        'model': 'R275 exact positive-weight ordered-word BRC',\n        'channel_order': ['C0', 'C1', 'C2', 'D0', 'D1', 'D2'],\n        'raw_words': {'depths': [0, 15], 'count': 65535},\n        'integer_DP': {'depths': [0, 400], 'full_affine_effects': True},\n        'edge_profile': {'depths': [4, 400], 'cases': 4764},\n        'finite_B_equals_Lambda': {'depths': [12, 400], 'cases': 389},\n        'samples': samples,\n        'limits': 'Finite checks only; no original enterprise_math package or Driver review.'}\n\n\nif __name__ == '__main__':\n    print(json.dumps(run(), ensure_ascii=False, indent=2, sort_keys=True))\n",
+      "display_title": "R276_verify_extreme_obstruction.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/ab39a2962c39f99c69fee8a04d555fd93f5697d7/research_notes/r276_extreme_dirty_obstruction_20261025_r3/R276_verify_extreme_obstruction.py",
+      "encoding": "utf-8",
+      "sha": "55efa63b5f98b7745d313fcbe480581c3f48407c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
