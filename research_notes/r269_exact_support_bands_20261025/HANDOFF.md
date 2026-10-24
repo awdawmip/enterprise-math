@@ -1,0 +1,17 @@
+# R269 portable handoff (author-side, no native admission)
+
+Date: 2026-10-25. Research activity RA-EMR4-20261025-0137-R269SUPPORT is recorded in EM main by local declared identity EM-CHAT-R4-20261025-LOCAL at commit 77546e8d14e5e745109e210304acf556c6b53468. This is NOT a service-issued session, owner CLAIM, native Result or Driver admission.
+
+Frozen global knowledge (GLOBAL_KNOWLEDGE_V1) main@a4331e69229a9558cc5d43300abb842a2d65e744; P000 ACTIVE_LOCKED blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc. Frozen EM control/source prepublication main@7c783f61dce5b4442b1b45cbe70e4ab399a653ce. R268 frozen predecessor proof and transition source are in immutable commit aac6b9ae60761cceab87c8dbe5d20432b3406d07, research_notes/r268_six_output_support_20261025.
+
+Research target is the six-vs-seven positive aggregate affine BRC state gap when the terminal decoder is an arbitrary single-valued function D(control,depth,full affine effect). R268 proved 6<=d_min<=7; the case is still OPEN.
+
+**New R269 proved contribution:** For every n>=10, the full translations k at each of the seven (q,r) states, separately for either epsilon, are exactly gap-free parity bands I_n(a,b)=[-n+a,n+b] intersect {k congruent n mod 2}. Offsets:
+(0,0):(2,-8);(0,2):(4,-4);(1,1):(2,-6);(1,2):(4,-4);(2,0):(0,-6);(2,1):(8,-4);(2,2):(2,-6).
+All reachable full effects: 2n-2. Fully saturated seven-internal-state effects: 2n-14. Fully saturated six-terminal-channel effects: 2n-10. Full six not full seven: exactly four. Universal proof: exhaustive 1024-word base n=10, complete symbolic 14-edge interval-image table, gap-free union induction from n11 forward. This does NOT assert equal path multiplicities. For any hypothetical six-control aggregate representation, all six controls at each of the 2n-10 six-saturated effects must have positive mass and a bijection onto the six terminal labels; this is NECESSARY only, not a six-state impossibility.
+
+Reproducible author-side evidence: R269_EXACT_SUPPORT_BANDS_AUTHOR_PROOF.md (complete proof), R269_verify_support_bands.py (reuses unmodified R268 code on canonical main), R269_independent.cpp (self-contained C++17), R269_AUTHOR_EXACT_REPORT.json (exact interval/image and depth snapshots). Python executed PASS through n80 and matched exhaustive 1024 words; C++17 executed PASS through n30, including independent edge/image checks. Portable cold-start bundle (with pinned R268 predecessor) SHA256 a608177a459e15f1474e3ad2a91fd4830394fdf032c2b103d98d6ede54822978, cold-start PASS. Mathematical infinity from proof, not finite computation extrapolation.
+
+Native em_status=0.6.11; em_control_tasks -> CONTROL_QUOTA, em_session_start -> STATIC_READONLY_SCOPE_DENIED with operation_sent=false. Active owner, real native identity/CLAIM, native package execution, formal Result and independent Driver review NOT VERIFIED; R193 original provenance/time port and P000 native-X6 bridge also not established. Current material is a noncanonical research draft, not Foundation or Working Truth.
+
+Smallest next unit R270: derive a true effect- and time-decoder-compatible *nonhomomorphic* six-state impossibility certificate from cross-depth conservation and the (2n-10)-saturated effect fibers, or construct a genuine six-state positive affine aggregate machine reproducing all exact terminal joint histograms at every depth. Separately test R193 actual query/time-port and Enterprise Math native ControlPacket.from_edges/then/EffectHistogram before any native-transfer claim.
