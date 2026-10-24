@@ -1,0 +1,3 @@
+# N=14 auxiliary iid stage88
+
+Author-side exact finite-model result. `PROOF.en.md` gives the complete proof; `PROOF.zh-CN.md` the Chinese summary. `derive88.py` is an exact Fraction Bellman/policy evaluator and `crosscheck88_compatible.py` enumerates ordered branches and validates exact endpoint risks. Locally executed enhanced `crosscheck88.py` also recomputes unconstrained Bellman minima and is included in the downloadable research package. `certificate88.json` records all rational invariants and scope; `NEXT_TASK_PACKET_89.md` preserves the next unproved candidate. No native BRC transfer, Source-frozen Result, official CLAIM or independent Driver acceptance is asserted.
