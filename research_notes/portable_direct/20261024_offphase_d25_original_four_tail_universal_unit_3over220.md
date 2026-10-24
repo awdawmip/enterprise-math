@@ -163,6 +163,8 @@ This is a universal rational Fermat-quotient formula for the unchanged *rank-cha
 
 Using Python exact math.factorial, fractions.Fraction and modular inverses only when gcd(denominator,p)=1, the author independently reconstructed V_{r,n} from the **unexpanded factorial source** for every p=6m+1 prime with 13<=p<300 (**27 primes**). For each: sigma from the exact Fraction agreed with (1); all four individually labeled tails agreed with (5); their sum agreed with (6). Separately, the original exact U_m product and original rational WZ C(p) were combined with **the direct factorial four tails** to check (7) modulo p^2. Results: 27/27 primes, zero mismatches on each tested observer. The source statements above are proved for all stated primes by exact algebra; this bounded arithmetic is a falsification check, not native execution or independent review.
 
+**Executable exact checker:** research_notes/portable_direct/20261024_offphase_d25_original_four_tail_universal_unit_check.py, committed at 7fc23e2572271aecdf0c2e672760fc01cf058286, independent GitHub readback blob SHA-1 de3acd599b683bb913ef892aff74a73c863f0f02. The actual local stdlib checker output was {primes:27, failures:[]}; its local 3,082-byte Python file had SHA-256 83f2930422044812499c2ad013df63d22aea85fa09313e4863c9276ec17f6ddd. The GitHub path/blob is source provenance, not a native Source checkpoint or an attested third-party review.
+
 | p | exact sigma mod p | sum four tails/p² mod p | exact (S_{m+1}-S_m)/p mod p² |
 |---:|---:|---:|---:|
 | 13 | 10 | 0 | 148 |
