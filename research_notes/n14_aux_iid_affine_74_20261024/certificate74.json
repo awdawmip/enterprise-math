@@ -1,0 +1,160 @@
+{
+  "schema": "EM_AUX_IID_N14_AUTHOR_EXACT_CERTIFICATE_V1",
+  "date": "2026-10-24",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "error_definition": "eP=P(dec Q),eQ=Q(dec P)",
+    "objective": "min max(EP[T],EQ[T]) subject to eP,eQ<=alpha"
+  },
+  "provenance": {
+    "source73_commit": "44b91386326e39d851697927ca33db98baf86f4e",
+    "global_control_snapshot": "77f64e2b31d4dba0f7ec88cbd0b8b3787a105134",
+    "author_identity": "GitHub awdawmip; local R5; no native session or CLAIM"
+  },
+  "dual": {
+    "K74": "20412/5",
+    "lambda_P": "18504/5",
+    "lambda_Q": "20412/5",
+    "Gamma": "38916/5",
+    "root": "185895261266750005303/68475651442606080",
+    "states": 680,
+    "comparisons": 1240,
+    "strict": 1238,
+    "negative": 0,
+    "zero_ties": [
+      [
+        "12,0,1",
+        "C",
+        "Q"
+      ],
+      [
+        "12,5,1",
+        "C",
+        "P"
+      ]
+    ],
+    "least_positive_gap": "417599/4976640"
+  },
+  "primal": {
+    "A74": [
+      12,
+      5,
+      1
+    ],
+    "B": [
+      12,
+      0,
+      1
+    ],
+    "nominal_A": 5544,
+    "first_hit_A": 4158,
+    "blocked_before_A": 1386,
+    "first_hit_B": 12,
+    "p_A": "1203125/679477248",
+    "q_A": "1203125/2579890176",
+    "p_B": "48828125/725594112",
+    "q_B": "48828125/362797056",
+    "suffix_A": [
+      "1/576",
+      "143/144",
+      "25/24",
+      "13/12"
+    ],
+    "suffix_B": [
+      "63/64",
+      "1/144",
+      "9/8",
+      "13/12"
+    ],
+    "truncated_terminal_histories": 20790,
+    "truncated_n13": 8316,
+    "truncated_n14": 12474,
+    "X": "1203125/391378894848",
+    "Y": "1203125/371504185344",
+    "E": "48828125/46438023168",
+    "H": "48828125/52242776064",
+    "h74": "345807/108800000",
+    "eta74": "6015625/22455364091904",
+    "s73": "11935611272766011/20889600000000000",
+    "s74": "12002006216766011/20889600000000000",
+    "alpha73": "2585970555518493847/7450150876955541504",
+    "alpha74": "2585972551358493847/7450150876955541504",
+    "V73": "24569599527714816749/1862537719238885376",
+    "V74": "24565716022242816749/1862537719238885376",
+    "max_time_margin_u0": "276634099139617787/465634429809721344",
+    "max_time_margin_u1": "276114249347617787/465634429809721344"
+  },
+  "crosscheck": {
+    "method": "independent backward risk recursion plus ordered-prefix DFS, shared inherited stop table",
+    "mixed_coefficients": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "local_stop_suffixes": [
+      {
+        "terminal": "13,5,1:P",
+        "P": "5/6",
+        "Q": "5/6"
+      },
+      {
+        "terminal": "13,6,1:P",
+        "P": "1/8",
+        "Q": "1/12"
+      },
+      {
+        "terminal": "14,5,2:P",
+        "P": "5/144",
+        "Q": "5/72"
+      },
+      {
+        "terminal": "14,5,3:Q",
+        "P": "1/576",
+        "Q": "1/144"
+      },
+      {
+        "terminal": "14,6,2:P",
+        "P": "1/192",
+        "Q": "1/144"
+      }
+    ],
+    "author_run_status": "BOTH_PASS; EXACT_FRACTIONS; 7_SAMPLE_VALUES_PLUS_ANALYTIC_ALL_REAL_INTERVAL"
+  },
+  "file_evidence": {
+    "main_code_git_blob": "d3915d086a124cded859d2bc0baefe0d2417433f",
+    "crosscheck_code_git_blob": "07df6fbf025013be48f5fe2d42bbe97ea6dfc8f2",
+    "local_zip_sha256": "c2e6f47c5181417b0ac84200f5ee0a902614d25a44fa218e62469e56cf2f6e38"
+  },
+  "next_candidate": {
+    "K75": "35653474730376/9239954171",
+    "A75": [
+      4,
+      1,
+      3
+    ],
+    "actions": [
+      "C",
+      "Q"
+    ],
+    "proved": false
+  },
+  "limits": [
+    "AUTHOR_SIDE_ONLY",
+    "SHARED_INHERITED_STOP_RULE",
+    "DRIVER_UNREVIEWED",
+    "NATIVE_CLAIM_NOT_GRANTED",
+    "NO_NATIVE_BRC_X6_HEARTBEAT_TRANSFER",
+    "NO_P000_CHANGE"
+  ]
+}
