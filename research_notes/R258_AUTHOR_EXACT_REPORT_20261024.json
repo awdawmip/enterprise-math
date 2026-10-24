@@ -1,0 +1,75 @@
+{
+  "schema": "ENTERPRISE_MATH_R258_AUTHOR_REPORT_V1",
+  "date": "2026-10-24",
+  "classification": "UNREVIEWED_AUTHOR_SIDE_NOT_FORMAL_RESULT",
+  "pinned_sources": {
+    "global_main": "0ce0500a8d43b2326380b322f7306c6471812512",
+    "em_source": "adefa6817a5ff39e85e7efd2c7d75470c10d0adc",
+    "p000_original_blob_sha1": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "theorem_A": {
+    "claim": "Reachability-safe seven-state lift preserves complete joint positive BRC effects for all finite compatible futures from (q,r)=(0,0).",
+    "nine_controls": 9,
+    "reachable_controls": 7,
+    "unreachable": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "proof": "explicit closure plus history bijection induction"
+  },
+  "theorem_B": {
+    "claim": "Minimum of seven states for reachable deterministic Moore machine with prefix observer (original q, contains00).",
+    "pairwise_future_distinguished": 21,
+    "longest_needed_distinguishing_suffix_length": 1,
+    "proof": "right congruence, explicit witness for every same-q pair"
+  },
+  "exact_author_validation": {
+    "python_script_name": "R258_verify.py (in downloadable full local evidence package)",
+    "python_depth_range": "0..96",
+    "seven_vs_nine_histogram_checks": 110,
+    "raw_selector_histories_enumerated_python": 8191,
+    "positive_rational_weight_variants": 5,
+    "positive_rational_variant_checks_per_case": 18,
+    "independent_cpp_paths": 16383,
+    "independent_cpp_max_depth": 13,
+    "independent_cpp_status": "PASS",
+    "local_zip_cold_start_status": "PASS",
+    "local_zip_sha256": "fe6bbca3bd846e29da51bf5280d69921b1a0703e0588f54410d5a401c6bda3a4"
+  },
+  "witness": {
+    "words": [
+      "1110101",
+      "1011010",
+      "0000000"
+    ],
+    "depth": 7,
+    "terminal_q": 2,
+    "first_axis_sign": -1,
+    "first_axis_offset": 1,
+    "query_states": [
+      0,
+      1,
+      2
+    ]
+  },
+  "source_scope": {
+    "original_em_module_execution": "PENDING_NOT_EXECUTED",
+    "genuine_R193_query_time_contract": "NOT_VERIFIED",
+    "heartbeat_native_legal_update": "NOT_VERIFIED",
+    "active_owner_or_claim": "NOT_VERIFIED",
+    "formal_result": "NOT_ADMITTED",
+    "independent_driver_review": "NOT_PERFORMED"
+  },
+  "transport": {
+    "native_session_start": "STATIC_READONLY_SCOPE_DENIED; operation_sent=false",
+    "native_task_inventory": "CONTROL_QUOTA",
+    "fallback_drive": "NOT_USED_GITHUB_BRANCH_WRITE_SUCCEEDED"
+  },
+  "next_research_unit": "Verify R193 raw edge/query/time contract; execute original Source ControlPacket 7-vs-9-port comparison; investigate effect-aware future-safe quotient."
+}
