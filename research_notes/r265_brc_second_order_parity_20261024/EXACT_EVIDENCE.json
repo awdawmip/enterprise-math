@@ -1,0 +1,263 @@
+{
+  "schema": "EM_R265_BRC_SECOND_ORDER_AUTHOR_EVIDENCE_V1",
+  "scope": "fixed R260-R264 formal positive BRC observer, not P000-native",
+  "source_global_snapshot": "94cc7009b96256b6a59a2cf950081112c411365a",
+  "source_em_main_snapshot": "b1e773f528ecec65959c46881e698c27331190ab",
+  "symbolic": {
+    "characteristic_8": "(L**2 + 1)*(L**6 - L**5*(z + 1/z) + 2*L**2 - 1)",
+    "GF_B_plus": "x**5*(x - z)/((x**2 + 1)*(x**6 - 2*x**4 + x*(z + 1/z) - 1))",
+    "GF_B_minus": "-x*(x - z)*(x**3*z + x*z - 1)/((x**2 + 1)*(x**6 - 2*x**4 + x*(z + 1/z) - 1))",
+    "lambda_expansion_coefficient_u2": "11*sqrt(5)/20 + 5/4",
+    "lambda_expansion_coefficient_u4": "-101/24 - 1129*sqrt(5)/600",
+    "variance": "3/2 + 7*sqrt(5)/10",
+    "fourth_cumulant": "-1711*sqrt(5)/50 - 153/2",
+    "C_and_derivatives": {
+      "+": {
+        "c0": "-1/20 + sqrt(5)/20",
+        "a1": "sqrt(5)/2 + 3/2",
+        "a2": "-9*sqrt(5)/2 - 99/10"
+      },
+      "-": {
+        "c0": "-1/20 + sqrt(5)/20",
+        "a1": "-sqrt(5) - 1",
+        "a2": "-4*sqrt(5) - 37/5"
+      }
+    },
+    "even_optimal": {
+      "epsilon": 1,
+      "t": 2,
+      "correction": "23/2 - 33*sqrt(5)/8",
+      "approx": "2.276219592813367"
+    },
+    "odd_optimal": {
+      "epsilon": -1,
+      "t": -3,
+      "correction": "281/4 - 243*sqrt(5)/8",
+      "approx": "2.329435183443888"
+    },
+    "even_competitor": "213/2 - 373*sqrt(5)/8",
+    "odd_competitor": "111/4 - 91*sqrt(5)/8",
+    "GF_char_cumulant_residue_identity": "PASS"
+  },
+  "integer": {
+    "raw_words_checked": 16383,
+    "raw_dp_atoms_checked": 737,
+    "dp_up_to_length": 240,
+    "samples": {
+      "31": {
+        "M_m": "16506",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": 1,
+          "t": 3
+        },
+        "r1_peak": {
+          "epsilon": 1,
+          "t": 3
+        },
+        "M_eq_r1_peak": true
+      },
+      "32": {
+        "M_m": "26183",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": -1,
+          "t": -4
+        },
+        "r1_peak": {
+          "epsilon": -1,
+          "t": -4
+        },
+        "M_eq_r1_peak": true
+      },
+      "63": {
+        "M_m": "54054560421",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": 1,
+          "t": 3
+        },
+        "r1_peak": {
+          "epsilon": 1,
+          "t": 3
+        },
+        "M_eq_r1_peak": true
+      },
+      "64": {
+        "M_m": "86651819601",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": -1,
+          "t": -4
+        },
+        "r1_peak": {
+          "epsilon": -1,
+          "t": -4
+        },
+        "M_eq_r1_peak": true
+      },
+      "95": {
+        "M_m": "211611785102211993",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": -1,
+          "t": -3
+        },
+        "r1_peak": {
+          "epsilon": -1,
+          "t": -3
+        },
+        "M_eq_r1_peak": true
+      },
+      "96": {
+        "M_m": "340325372582384001",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": 1,
+          "t": 2
+        },
+        "r1_peak": {
+          "epsilon": 1,
+          "t": 2
+        },
+        "M_eq_r1_peak": true
+      },
+      "127": {
+        "M_m": "885789703276001739245399",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": -1,
+          "t": -3
+        },
+        "r1_peak": {
+          "epsilon": -1,
+          "t": -3
+        },
+        "M_eq_r1_peak": true
+      },
+      "128": {
+        "M_m": "1426814983819745518311507",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": 1,
+          "t": 2
+        },
+        "r1_peak": {
+          "epsilon": 1,
+          "t": 2
+        },
+        "M_eq_r1_peak": true
+      },
+      "139": {
+        "M_m": "272188608927601111296842489",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": -1,
+          "t": -3
+        },
+        "r1_peak": {
+          "epsilon": -1,
+          "t": -3
+        },
+        "M_eq_r1_peak": true
+      },
+      "140": {
+        "M_m": "438611399828372525268845634",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": 1,
+          "t": 2
+        },
+        "r1_peak": {
+          "epsilon": 1,
+          "t": 2
+        },
+        "M_eq_r1_peak": true
+      },
+      "159": {
+        "M_m": "3841432835103829649858780155515",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": -1,
+          "t": -3
+        },
+        "r1_peak": {
+          "epsilon": -1,
+          "t": -3
+        },
+        "M_eq_r1_peak": true
+      },
+      "160": {
+        "M_m": "6193442832335367846025933996092",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": 1,
+          "t": 2
+        },
+        "r1_peak": {
+          "epsilon": 1,
+          "t": 2
+        },
+        "M_eq_r1_peak": true
+      },
+      "199": {
+        "M_m": "783366610601316509564908757527583567876",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": -1,
+          "t": -3
+        },
+        "r1_peak": {
+          "epsilon": -1,
+          "t": -3
+        },
+        "M_eq_r1_peak": true
+      },
+      "200": {
+        "M_m": "1263924779564116173737130828762162554832",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": 1,
+          "t": 2
+        },
+        "r1_peak": {
+          "epsilon": 1,
+          "t": 2
+        },
+        "M_eq_r1_peak": true
+      },
+      "239": {
+        "M_m": "163242338010190459445608990509441047148581819654",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": -1,
+          "t": -3
+        },
+        "r1_peak": {
+          "epsilon": -1,
+          "t": -3
+        },
+        "M_eq_r1_peak": true
+      },
+      "240": {
+        "M_m": "263510796143711210750650160524192163023027602312",
+        "max_fibre": {
+          "q": 2,
+          "epsilon": 1,
+          "t": 2
+        },
+        "r1_peak": {
+          "epsilon": 1,
+          "t": 2
+        },
+        "M_eq_r1_peak": true
+      }
+    },
+    "positive_integer_checks": "PASS",
+    "parity_lattice_checks": "PASS"
+  },
+  "asymptotic_claim": "analytic transfer-operator Fourier/saddle argument; not inferred from finite DP",
+  "native_enterprise_math_executed": false,
+  "independent_review": false,
+  "tool_reuse": "T0_BRC affine-effect composition law REUSE_APPLIED; local independent implementation not native runtime"
+}
