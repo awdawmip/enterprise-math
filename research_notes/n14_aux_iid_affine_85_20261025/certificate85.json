@@ -1,0 +1,83 @@
+{
+  "schema": "EM_AUX_N14_AUTHOR_STAGE85_CERTIFICATE_V1",
+  "date": "2026-10-25",
+  "predecessor_commit": "dd8d3a05d2fde3d318d16591eff949fc2dd58ee9",
+  "mode": "AUTHOR_EXACT_LOCAL_VERIFICATION",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ]
+  },
+  "numbers": {
+    "K85": "180792/79",
+    "lambdaP": "166392/79",
+    "lambdaQ": "180792/79",
+    "s84": "22822170061354427/41779200000000000",
+    "alpha84": "5172036451545515543/14900301753911083008",
+    "V84": "24500207606836313729/1862537719238885376",
+    "A85": [
+      11,
+      5,
+      1
+    ],
+    "A_nominal_words": 2772,
+    "A_first_hit_words": 1939,
+    "A_first_hit_P": "6059375/6115295232",
+    "A_first_hit_Q": "6059375/23219011584",
+    "A_suffix_words": 9,
+    "A_terminal_classes": 8,
+    "cut_words": 17451,
+    "A_continuation": [
+      "41/13824",
+      "569/576",
+      "69/64",
+      "167/144"
+    ],
+    "B": [
+      12,
+      0,
+      1
+    ],
+    "B_hit_P": "48828125/725594112",
+    "B_hit_Q": "48828125/362797056",
+    "h85": "2677759/870400000",
+    "eta85": "478690625/1616786214617088",
+    "s85": "22950702493354427/41779200000000000",
+    "alpha85": "5172040863158315543/14900301753911083008",
+    "V85": "24497784123642713729/1862537719238885376",
+    "Gamma": "347184/79",
+    "root": "13317150254418373665865/8655322342345408512",
+    "states": 680,
+    "nonselected_gaps": 1240,
+    "positive_gaps": 1238,
+    "negative_gaps": 0,
+    "equality_gaps": 2,
+    "min_positive_gap": "5/474",
+    "time_gap_start": "2358671366823186305/3725075438477770752",
+    "time_gap_end": "2356622709392786305/3725075438477770752",
+    "next_candidate_K86": "2268",
+    "next_candidate_A86": [
+      12,
+      3,
+      0
+    ]
+  },
+  "checks": [
+    "Python Fraction full-state Bellman PASS",
+    "Ordered-word DFS first-hit/suffix PASS",
+    "Exact endpoint, interior interpolation at seven u values PASS"
+  ],
+  "scope": {
+    "native_claim_verified": false,
+    "driver_reviewed": false,
+    "shared_inherited_action_table": true
+  }
+}
