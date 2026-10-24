@@ -74,7 +74,7 @@ satisfies `(T-I)X=Y'-Y` exactly, establishing (1). This argument works even when
 
 ## Theorem 2 — canonical spectral residual when the square is semisimple
 
-Suppose additionally that `S0_bar` is diagonalizable **over k** with distinct eigenvalues `lambda` and multiplicities `m_lambda`. Let
+For this spectral corollary require **`(2/p)=-1`**, so `k=F_(p^2)`, and suppose additionally that `S0_bar` is diagonalizable **over k** with distinct eigenvalues `lambda` and multiplicities `m_lambda`. Let
 ```
 E_lambda = product_(mu != lambda) (S0_bar-mu I)/(lambda-mu),
 Pi_S(B) = sum_lambda E_lambda B E_lambda.
@@ -135,7 +135,7 @@ Exact integer-pair arithmetic `(a,b)*(c,d)=(ac+2bd,ad+bc) mod p^2` confirms:
 | 19 | 361 | 341 | 18 | `O=2I` |
 | 373 | 139129 | 138755 | 372 | `O=2I` |
 
-The author executed the two independent square computations `C' sigma(C')` and `P^(-1) S0 P` and checked equality for all three primes; the `D=I` calculation was checked separately. These are **finite consistency checks**, not the proof of the universally quantified theorems.
+The author executed exact ring-pair computations of `C' sigma(C')`, checked its agreement with the closed formula `S0-q E12` for all three primes, and separately checked the `D=I` formula. The conjugation identity was also proved algebraically above. These are **finite consistency checks**, not the proof of the universally quantified theorems.
 
 **Why the extra semisimplicity condition in Theorem 2 matters.** For `C0=[[1,1],[0,1]]` (entries fixed by `sigma`), `S0=[[1,2],[0,1]]` is nonsemisimple. Here `[S0,E22]=2 E12 != 0` while `[S0,E12]=0`. Thus `im(ad_S0) intersect ker(ad_S0)` contains `E12`, and the proposed spectral diagonal/off-block projection cannot exist in the stated form. Theorem 1 remains valid with the **full square near-identity similarity orbit**.
 
