@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "scope": "author-side formal positive BRC, no native P000 dynamics",
+  "python": {
+    "exact_depth": "0..90",
+    "seven_vs_six_projection": "all observed fibers exactly equal",
+    "bruteforce_word_depth": "0..11",
+    "mixed_site_check": "n=10..90"
+  },
+  "cpp17": {
+    "exact_depth": "0..40",
+    "bruteforce_word_depth": "0..12",
+    "mixed_site_check": "n=10..40"
+  },
+  "infinite_proofs": [
+    "six-state conditioned kernel by induction",
+    "d>=6 same-fiber support",
+    "2(n-6) mixed sites from R274 support intervals",
+    "literal six-output-state effect-blind obstruction n=1->2"
+  ],
+  "n7_effect_plus1_minus3_channels": {
+    "0,0": 2,
+    "0,1": 2,
+    "1,0": 3,
+    "1,1": 1,
+    "2,0": 1,
+    "2,1": 9
+  },
+  "n7_q2_mixed_effect_minus1_plus1_theta": "1/2",
+  "research_admission": "NOT_ADMITTED",
+  "native_control": "STATIC_READONLY_SCOPE_DENIED",
+  "next": "effect-blind-transition six-vs-seven general model remains open"
+}
