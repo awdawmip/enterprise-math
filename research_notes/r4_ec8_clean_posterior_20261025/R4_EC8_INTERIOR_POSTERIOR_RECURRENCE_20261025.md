@@ -1,6 +1,6 @@
 # R4-EC8 — Exact interior BRC posterior via an eighth-order Laurent recurrence
 
-Date: 2026-10-25. Classification: **author-side auxiliary-model theorem**, not a native Enterprise Math Result. Parent: R4-EC7/R4-EC6. Research activity: RA-EMR4-20261025-0733-EC8ORDER8. Author identity: EM-LOCAL-RESEARCH4-EC8-20261025 (locally assigned, not service issued).
+Date: 2026-10-25. Classification: **author-side auxiliary-model theorem**, not a native Enterprise Math Result. Parent: R4-EC7/R4-EC6. Research activity: RA-EMR4-20261025-0733-EC8ORDER8. Author identity: EM-LOCAL-EC8A (locally assigned, not service issued).
 
 ## Exact model and question
 
