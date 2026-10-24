@@ -1,0 +1,103 @@
+# R262 — Exact seven-dimensional aggregate Hankel rank for a source-query BRC model
+
+2026-10-24 | **AUTHOR-SIDE EXACT MATHEMATICAL DRAFT; UNREVIEWED; NOT ADMITTED.**
+
+## Sources, frozen inputs and precise boundaries
+
+GLOBAL_KNOWLEDGE_V1 canonical main: \`5fc764e2f6058c9bed8eb1ad02a31a2a7157174b\`. Locked P000 original blob: \`770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc\`, matching current startup projection; ACTIVE worldview and math/BRC/code policy checked. Enterprise Math canonical Source pin: \`b528f52c31c2b5c77f357ac045aee9a29869f241\`. Native Source files inspected, not executed: \`src/enterprise_math/brc_transport.py\` blob \`be1debe367263931bd5e93fd750be3ed54624fe1\`; \`src/enterprise_math/brc_control_port.py\` blob \`44def6b8ac787e798d3cc2c6be16f873f91b9db8\`. Current \`docs/PORTABLE_RESEARCH_PROTOCOL.md\` consulted. Direct predecessor R260 at \`2f45730d1bf1064b9072ad4e57ade3f0e285d112\`; separate author-side R261 Laurent–Hankel draft at branch \`research-draft/r261-laurent-hankel-20261024-r4-2134\` (no formal mathematical admission asserted).
+
+The underlying **toy/formal** six-slot affine BRC system has nonspatial control q in {0,1,2}, positive weight and multiplicity one, and a raw selector a in {0,1} with transitions (target, eta, b):
+
+| q | a=0 | a=1 |
+|---|---|---|
+| 0 | (2,-1,-1) | (2,+1,-1) |
+| 1 | (0,-1,-1) | (0,+1,-1) |
+| 2 | (1,+1,+1) | (2,+1,-1) |
+
+Affine effects (inherited from R260) are \`F_(eps,k)(z)=(eps*z1+k, eps*z2,z3,z4,z5,z6)\` and chronological THEN is \`(eps,k) then (eta,b)=(eta*eps,eta*k+b)\`. These six formal coordinate slots are not certified P000-native force updates, primitive rotations, or final Cell addresses. The selector-history DFA state r=0 means "00 not yet seen, previous selector not 0", r=1 means "00 not yet seen, previous selector is 0", r=2 means "00 seen". Its transitions are delta(r,0)=(1,2,2) and delta(r,1)=(0,0,2), with r=2 absorbing. Initially (q,r)=(0,0).
+
+The **only allowed future operation** in this theorem is repeating the **same nondiscriminating positive two-branch packet**. The observer may see total counts indexed by terminal q and Boolean h=1 iff "00" has occurred, but cannot ask for a chosen selector's branch or the accumulated affine sign/translation. Time m is an integer number of compositions, not calibrated heartbeat physical time. R193's actual source vocabulary, observer and time-port contract remain unverified.
+
+## Exact problem and theorem
+
+For each m≥0 let \`y_m(q,h)\` be the **integer count** of the \`2^m\` distinct ordered selector histories of length m with terminal control q and Boolean query answer h, with output order:
+
+\`(0,0), (0,1), (1,0), (1,1), (2,0), (2,1)\`.
+
+All affine effects are explicitly summed away **after** forming the underlying positive path population. We compare **homogeneous linear realizations over Q** (equivalently a characteristic-zero field into which the integer sequence embeds):
+
+\`y_m = alpha * A^m * B\`
+
+for a time-independent \`d×d\` transition A, row alpha and d×6 readout B, for **all** m≥0. This class includes finite positive-weighted control automata with fixed linear outputs **independent of the accumulated affine effect**, and even general signed linear representations. It does not include time-varying models, hidden nonlinear decoders or observation rules that are given an uncounted effect-valued memory.
+
+**Theorem (R262).** The least possible state dimension in this representation class is **exactly 7**. In particular no positive rational weighted, fixed-output, aggregate BRC realization with fewer than seven control states reproduces the sequence for every finite future.
+
+## Upper bound: explicit positive integer 7-state realization
+
+The reachable joint nonspatial states, in order, are:
+
+\`S = ((0,0),(0,2),(1,1),(1,2),(2,0),(2,1),(2,2))\`.
+
+The exact positive integer transition matrix T (rows source, columns target, entries number of selector edges) is
+
+~~~
+T =
+ [0 0 0 0 1 1 0]
+ [0 0 0 0 0 0 2]
+ [1 1 0 0 0 0 0]
+ [0 2 0 0 0 0 0]
+ [0 0 1 0 1 0 0]
+ [0 0 0 1 1 0 0]
+ [0 0 0 1 0 0 1].
+~~~
+
+Let \`alpha=(1,0,0,0,0,0,0)\`. The 7×6 output matrix B is the indicator map from \`(q,r)\` to the one column \`(q,1_[r=2])\`. Every raw word has one unique path through S, so by integer path counting, for **every** m,
+
+\`y_m = alpha*T^m*B\`.
+
+This proves dimension ≤7 and preserves all nonnegative path counts. Exact characteristic polynomial:
+
+\`chi_T(z)=(z-2)(z^2+1)(z^2-z-1)(z^2+z+2)\`
+
+\`=z^7-2z^6+z^5-5z^4+4z^3+z^2+4z+4\`.
+
+Cayley–Hamilton supplies a valid seven-step recurrence for each output channel, but this is not needed for the lower-bound proof.
+
+## Matching lower bound: finite exact nonzero Hankel minor
+
+Make one numerical Hankel submatrix using seven **prefix** lengths i=0,...,6, and seven **future readout** columns: all six Boolean/control outputs with zero lookahead, followed by the output \`(q=1,h=0)\` with one-step lookahead. It is
+
+~~~
+H =
+ [1  0  0  0  0  0  0]
+ [0  0  0  0  2  0  1]
+ [0  0  1  1  2  0  2]
+ [1  3  2  0  2  0  2]
+ [2  2  2  0  4  6  3]
+ [2  2  3  7  8 10  6]
+ [3 17  6 12 12 14 10].
+~~~
+
+Every entry is an integer count from some depth ≤7, checked by raw-word enumeration independently of the dynamic-programming transition matrix. Fraction-free exact Bareiss elimination gives
+
+\`det(H) = -880 ≠ 0\`.
+
+For any other dimension-d realization \`y_m=alpha' A'^m B'\`, factor this identical H as \`H=UV\`, where row i of U is \`alpha' A'^i\`, and the seven columns of V are the six columns of B' and the selected column of A'B'. Consequently rank(H)≤d. Since det(H)≠0, rank(H)=7 and necessarily \`d≥7\`. The positive T,B,alpha realization attains 7. **QED.**
+
+This proves a statement about **all finite horizons** without inducting from finite tests: the finite nonzero Hankel minor obstructs every lower-dimensional homogeneous linear realization irrespective of future horizon, while the explicit T representation works at every length.
+
+## Relationship to prior results and literature
+
+R260 proved 7 necessary only for a **per-history deterministic** q-preserving source-query monitor, even when an effect-conditioned decoder was allowed. R262 instead proves the separate **aggregate linear-rank obstruction**, allowing arbitrary signed matrices but fixing the effect-independent linear readout and repeated nondiscriminating packet. That class difference is substantive; neither theorem subsumes all representations considered by the other.
+
+The author-side R261 draft reports dimensions 13 over Q(x) for full joint Laurent affine effects and 11 after forgetting translation but retaining sign, whereas this further-coarsened (q,h) integer observer has dimension 7 over Q. **These are different observation languages and coefficient fields.** This comparison does not claim R261 is formally accepted or that 13/11/7 are counts of physical axes.
+
+Classical weighted-automaton/Hankel minimal-realization theory is prior art, not claimed original: Fliess theorem as discussed by Nathanaël Fijalkow (2018) at \`https://games-automata-play.github.io/blog/fliess_theorem/\`; Balle, Panangaden, Precup (2015), \`https://arxiv.org/abs/1501.06841\`. Here the model-specific 7×7 exact certificate is the mathematical increment.
+
+## Evidence, status and next exact question
+
+Standalone \`R261_verify_hankel.py\` (local filename retained from first construction before discovering concurrent R261 work) builds exact T and B, checks all 255 raw words of lengths 0..7, computes \`det H=-880\` by exact integer Bareiss elimination and checks full formal affine-effect positive-path propagation projected to (q,h) through length 20. Standalone independently written C++17 \`R261_independent.cpp\` separately enumerates 255 raw words through depth7 and verifies the same exact H determinant. **Both passed local execution**. Structured \`R261_AUTHOR_REPORT.json\` contains the exact matrix/counts and scope. No original \`enterprise_math\` Python modules were actually imported; inspected source interface is not executed native correspondence.
+
+Native direct control dispatch returned **CONTROL_QUOTA** and research session creation **STATIC_READONLY_SCOPE_DENIED** with operation_sent=false. Winning live owner/CLAIM cannot be verified. This draft is not formal Result, Driver-reviewed theorem, or verified R193/native P000-heartbeat model. Any GitHub research-branch write is durable evidence only, not mathematical promotion.
+
+**R263 next:** Allow legitimate affine-effect-dependent readout and composition: can a finite *positive* weighted effect BRC represent the **full** (q,g,eps,k) joint histogram with fewer than seven nonspatial controls? Specify precisely what the effect observer may decode, then exhibit a model or an effect-valued/Hankel obstruction. Independently obtain actual R193 source label/time-port contract and execute the pinned original ControlPacket.from_edges/then and EffectHistogram modules in an authorized matching Source environment.
