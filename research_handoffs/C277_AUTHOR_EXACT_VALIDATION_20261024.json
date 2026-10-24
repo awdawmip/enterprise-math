@@ -1,0 +1,273 @@
+{
+  "schema": "EM_C277_AUTHOR_EXACT_VALIDATION_V1",
+  "date": "2026-10-24",
+  "global_snapshot": "18eb17f0f1cd4aa61ca2956f1e80f71ca326be1b",
+  "source_snapshot": "7724e73f2d15c92ce98520e6a55b8231d737fa03",
+  "model": "C195/H168 79-node positive rational auxiliary; I=(5,50,55,56), Q=2^128",
+  "scientific_claim": "For six listed full parent hulls, F(v)>(1+1/1000000)*2^128 for all legal real v; 17 newly classified collision-pair hulls",
+  "scientific_method": "Exact rational dyadic interval certificate: C276 factorwise lower bounds and C267 two-shared-coordinate bilinear/tangent lower bounds",
+  "coverage": {
+    "collision_total": 232,
+    "mixed_existing_C275": 187,
+    "positive_existing_C276": 23,
+    "positive_new_C277": 17,
+    "positive_after_C277": 40,
+    "unresolved_after_C277": 5,
+    "new_pairs": [
+      [
+        6,
+        18
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        8,
+        11
+      ],
+      [
+        8,
+        24
+      ],
+      [
+        8,
+        29
+      ],
+      [
+        9,
+        11
+      ],
+      [
+        9,
+        13
+      ],
+      [
+        9,
+        23
+      ],
+      [
+        11,
+        13
+      ],
+      [
+        11,
+        23
+      ],
+      [
+        11,
+        24
+      ],
+      [
+        11,
+        28
+      ],
+      [
+        13,
+        24
+      ],
+      [
+        18,
+        19
+      ],
+      [
+        23,
+        24
+      ],
+      [
+        25,
+        29
+      ],
+      [
+        29,
+        34
+      ]
+    ],
+    "remaining": [
+      [
+        8,
+        18
+      ],
+      [
+        13,
+        18
+      ],
+      [
+        13,
+        29
+      ],
+      [
+        18,
+        25
+      ],
+      [
+        18,
+        34
+      ]
+    ]
+  },
+  "parents": [
+    {
+      "pair": [
+        9,
+        23
+      ],
+      "method": "bilinear_2_3",
+      "leaves": 288,
+      "positive_leaves": 288,
+      "empty": 0,
+      "internal": 287,
+      "raw_tree_sha256": "7bfa5f2de606345dfc0b08de0778aea0ea720a0eba717fb44ec85521be710580",
+      "chunks": [
+        [
+          0,
+          288
+        ]
+      ]
+    },
+    {
+      "pair": [
+        18,
+        19
+      ],
+      "method": "factor",
+      "leaves": 389,
+      "positive_leaves": 388,
+      "empty": 1,
+      "internal": 388,
+      "raw_tree_sha256": "125046124ecc54ca7c46b12893dabc3e904a606627f0a97b8532dfe297af46be",
+      "chunks": [
+        [
+          0,
+          389
+        ]
+      ]
+    },
+    {
+      "pair": [
+        8,
+        29
+      ],
+      "method": "factor",
+      "leaves": 4574,
+      "positive_leaves": 4574,
+      "empty": 0,
+      "internal": 4573,
+      "raw_tree_sha256": "666652031cb890f4958124ed2471e1eca5359c6e9167bca6b806789befcdbd90",
+      "chunks": [
+        [
+          0,
+          1500
+        ],
+        [
+          1500,
+          3000
+        ],
+        [
+          3000,
+          4574
+        ]
+      ]
+    },
+    {
+      "pair": [
+        25,
+        29
+      ],
+      "method": "factor",
+      "leaves": 2803,
+      "positive_leaves": 2799,
+      "empty": 4,
+      "internal": 2802,
+      "raw_tree_sha256": "56d8f4ce264004db729dc2ad4a3977fd583696cc9a71103f801104557343b95a",
+      "chunks": [
+        [
+          0,
+          1400
+        ],
+        [
+          1400,
+          2803
+        ]
+      ]
+    },
+    {
+      "pair": [
+        11,
+        28
+      ],
+      "method": "bilinear_2_3",
+      "leaves": 268,
+      "positive_leaves": 268,
+      "empty": 0,
+      "internal": 267,
+      "raw_tree_sha256": "7664622520f02cba7460a2c68a34626c5a7c6410d825cb94c3c91438add03fad",
+      "chunks": [
+        [
+          0,
+          268
+        ]
+      ]
+    },
+    {
+      "pair": [
+        6,
+        18
+      ],
+      "method": "bilinear_2_3",
+      "leaves": 1908,
+      "positive_leaves": 1908,
+      "empty": 0,
+      "internal": 1907,
+      "raw_tree_sha256": "3fe2a23405fef44985a26c4497a561359444f827aa0d8c5e595518d97343a799",
+      "chunks": [
+        [
+          0,
+          800
+        ],
+        [
+          800,
+          1908
+        ]
+      ]
+    }
+  ],
+  "totals": {
+    "leaf_count": 10230,
+    "positive_leaves": 10225,
+    "empty_leaves": 5,
+    "internal_nodes": 10224,
+    "author_exact_fraction_chunks": 10,
+    "author_verdict": "EXACT_PASS",
+    "certified_strict_margin": "1/1000000"
+  },
+  "portable_replay_file": "C277_STANDALONE_EXACT_REPLAY.py",
+  "portable_replay_sha256": "63f2745b2af840eb788ec94dfe658906dd57dd62bde5b64238b0111538b7c58e",
+  "research_package": {
+    "filename": "EM_C277_17_NEW_COMPLETE_POSITIVE_COLLISION_HULLS_10230_LEAF_EXACT_AUTHOR_PORTABLE.zip",
+    "sha256": "56966756a4a8ae0eacb57cfb8af9f94fbee98849e142ae3320cf1a76a5ad789a",
+    "size_bytes": 123436,
+    "location": "ChatGPT current conversation attachment, NOT uploaded to GitHub"
+  },
+  "local_isolated_readback": {
+    "archive_entries_verified_by_sha256": true,
+    "runs": [
+      "--inventory",
+      "--pair 9 23",
+      "--pair 18 19"
+    ],
+    "result": "PASS"
+  },
+  "native_control": {
+    "em_control_tasks": "CONTROL_QUOTA",
+    "em_control_dispatch": "CONTROL_QUOTA",
+    "em_session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "owner_verified": false,
+    "claim": false,
+    "source_result": false,
+    "driver_accepted": false
+  },
+  "github_artifact_scope": "This GitHub branch holds manuscript, verified results index, ZIP replay runner. Full 10230-leaf source program and binary bundle are delivered as separate conversation ZIP; no assertion of complete ZIP upload.",
+  "scientific_boundary": "Positive branch-mass auxiliary only; no native GF(2) signed-phase/port/residual fidelity bridge; not a 6D/3D-slice physics theorem."
+}
