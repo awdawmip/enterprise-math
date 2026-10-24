@@ -1,0 +1,229 @@
+{
+  "schema": "EM_R262_AUTHOR_HANKEL_CERTIFICATE_V1",
+  "claim": "The minimal Q-linear dimension of the sequence y_m(q,contains00) under one fixed nondiscriminating two-branch positive BRC packet is exactly seven.",
+  "model": "R260 three-control two-selector BRC; 00-monitor DFA; full six-slot affine effect marginalized",
+  "global_knowledge_main": "5fc764e2f6058c9bed8eb1ad02a31a2a7157174b",
+  "enterprise_math_main": "b528f52c31c2b5c77f357ac045aee9a29869f241",
+  "upstream_R260": "2f45730d1bf1064b9072ad4e57ade3f0e285d112",
+  "determinant": -880,
+  "minor_rows": "prefix depths 0..6",
+  "minor_columns": [
+    "future=0 q0 false",
+    "future=0 q0 true",
+    "future=0 q1 false",
+    "future=0 q1 true",
+    "future=0 q2 false",
+    "future=0 q2 true",
+    "future=1 q1 false"
+  ],
+  "depth_counts_0_to_7": [
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      2,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      2,
+      0
+    ],
+    [
+      1,
+      3,
+      2,
+      0,
+      2,
+      0
+    ],
+    [
+      2,
+      2,
+      2,
+      0,
+      4,
+      6
+    ],
+    [
+      2,
+      2,
+      3,
+      7,
+      8,
+      10
+    ],
+    [
+      3,
+      17,
+      6,
+      12,
+      12,
+      14
+    ],
+    [
+      6,
+      30,
+      10,
+      16,
+      18,
+      48
+    ]
+  ],
+  "H": [
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      2,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      2,
+      0,
+      2
+    ],
+    [
+      1,
+      3,
+      2,
+      0,
+      2,
+      0,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      0,
+      4,
+      6,
+      3
+    ],
+    [
+      2,
+      2,
+      3,
+      7,
+      8,
+      10,
+      6
+    ],
+    [
+      3,
+      17,
+      6,
+      12,
+      12,
+      14,
+      10
+    ]
+  ],
+  "adjacency_T": [
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2
+    ],
+    [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1
+    ]
+  ],
+  "arithmetic": "exact integer",
+  "verification": {
+    "python": "PASS: exhaustive 255 words at depths 0..7, six-slot formal affine positive effect histogram to depth 20, exact Bareiss determinant",
+    "cpp17": "PASS: independent exhaustive 255 words and exact Bareiss determinant"
+  },
+  "mathematics": "Exact upper bound via positive seven-state T and lower bound via nonzero seven-by-seven Hankel minor; all finite horizons.",
+  "limits": [
+    "author-side research draft only",
+    "no native Enterprise Math Python module execution",
+    "R193 source-label and time-port observer unverified",
+    "not P000 native six-axis heartbeat dynamics",
+    "no native owner or CLAIM, no formal Result or Driver review",
+    "Hankel lower bound requires fixed affine-effect-independent linear terminal readout"
+  ]
+}
