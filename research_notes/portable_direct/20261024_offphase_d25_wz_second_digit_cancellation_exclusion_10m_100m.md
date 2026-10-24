@@ -10,7 +10,7 @@ $$
  F_p=(S_{m+1}-S_m)/p\equiv2/3\pmod{p^2}
  \quad\Longleftrightarrow\quad p^2\mid M_p,
 $$
-$
+$$
  D=3942400,\quad M_p=D(27^{p-1}-16^{p-1})-699519p\,16^{p-1}.
 $$
 
