@@ -83,6 +83,7 @@ if __name__=='__main__':
 
 
 
+from itertools import combinations
 # ----- C273: appended high-dimensional seam neighborhood exact certificate -----
 # Original C271 data and its validation remain intact above this line.
 # C273 adds 230 full 4-dimensional positive regions and 2 relative 3D regions.
