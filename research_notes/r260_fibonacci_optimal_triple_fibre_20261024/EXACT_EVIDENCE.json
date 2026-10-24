@@ -1,0 +1,152 @@
+{
+  "analytic_claim": "lim_{m->infty} log(M_m)/m = log(phi), phi=(1+sqrt(5))/2",
+  "claim_scope": "formal finite positive branch source-affine observer only",
+  "data": {
+    "all_equal_reset_block_effect": "(+1,-6)",
+    "explicit_6_reset_blocks_length_12": [
+      "101101111101",
+      "101110111101",
+      "101111011101",
+      "110110111101",
+      "110111011101",
+      "111011011101"
+    ],
+    "first_3_mode_common_fibre_depth": 7,
+    "max_per_mode_fibre_selected_depths": {
+      "7": "1",
+      "8": "1",
+      "9": "1",
+      "10": "1",
+      "12": "6",
+      "15": "12",
+      "24": "660",
+      "36": "167666",
+      "60": "13090483837",
+      "96": "340325372582384001",
+      "128": "1426814983819745518311507"
+    },
+    "regular_word_fibre_counts": {
+      "8": {
+        "F_L_plus_1": "34",
+        "distinct_effect_atoms": 12,
+        "max_effect_fibre": "6",
+        "one_max_effect": [
+          1,
+          -4
+        ],
+        "pigeonhole_lower": 2,
+        "reset_block_length": 12
+      },
+      "11": {
+        "F_L_plus_1": "144",
+        "distinct_effect_atoms": 18,
+        "max_effect_fibre": "21",
+        "one_max_effect": [
+          1,
+          -7
+        ],
+        "pigeonhole_lower": 6,
+        "reset_block_length": 15
+      },
+      "14": {
+        "F_L_plus_1": "610",
+        "distinct_effect_atoms": 24,
+        "max_effect_fibre": "57",
+        "one_max_effect": [
+          1,
+          -8
+        ],
+        "pigeonhole_lower": 21,
+        "reset_block_length": 18
+      },
+      "17": {
+        "F_L_plus_1": "2584",
+        "distinct_effect_atoms": 30,
+        "max_effect_fibre": "166",
+        "one_max_effect": [
+          1,
+          -11
+        ],
+        "pigeonhole_lower": 72,
+        "reset_block_length": 21
+      },
+      "20": {
+        "F_L_plus_1": "10946",
+        "distinct_effect_atoms": 36,
+        "max_effect_fibre": "600",
+        "one_max_effect": [
+          1,
+          -6
+        ],
+        "pigeonhole_lower": 261,
+        "reset_block_length": 24
+      },
+      "23": {
+        "F_L_plus_1": "46368",
+        "distinct_effect_atoms": 42,
+        "max_effect_fibre": "2308",
+        "one_max_effect": [
+          1,
+          -5
+        ],
+        "pigeonhole_lower": 966,
+        "reset_block_length": 27
+      },
+      "29": {
+        "F_L_plus_1": "832040",
+        "distinct_effect_atoms": 54,
+        "max_effect_fibre": "36569",
+        "one_max_effect": [
+          1,
+          -5
+        ],
+        "pigeonhole_lower": 13868,
+        "reset_block_length": 33
+      },
+      "32": {
+        "F_L_plus_1": "3524578",
+        "distinct_effect_atoms": 60,
+        "max_effect_fibre": "147098",
+        "one_max_effect": [
+          -1,
+          -4
+        ],
+        "pigeonhole_lower": 53403,
+        "reset_block_length": 36
+      },
+      "50": {
+        "F_L_plus_1": "20365011074",
+        "distinct_effect_atoms": 96,
+        "max_effect_fibre": "671125852",
+        "one_max_effect": [
+          -1,
+          -4
+        ],
+        "pigeonhole_lower": 199656972,
+        "reset_block_length": 54
+      }
+    },
+    "sync_for_every_initial_control": "q=0,r=0,effect=(+1,-2)",
+    "sync_word": "1101"
+  },
+  "native_module_import_performed": false,
+  "next": "actual R193 labelled edge/query/time semantics; native package import with original ControlPacket/EffectHistogram and P000-faithfulness bridge",
+  "positive_weight": "one exact unit weight per source edge; integer multiplicity",
+  "schema": "EM_R260_BRC_FIBONACCI_FIBRE_ENTROPY_AUTHOR_CHECK_V1",
+  "selector_DFA": "substring 00 3-mode monitor; control Q={0,1,2}",
+  "six_axis_carrier": "diag(eta,eta,1,1,1,1); displacement (k,0,0,0,0,0)",
+  "source_laws": [
+    "src/enterprise_math/brc_transport.py Affine.then and EffectHistogram.then",
+    "src/enterprise_math/brc_control_port.py labelled edges and ControlPacket.then"
+  ],
+  "source_pin": "awdawmip/enterprise-math@a4880ba6486d150077c3c8acbf99c7ded0fd6ebd",
+  "status": "AUTHOR_SIDE_EXACT_TYPED_BRC_SUBCARRIER_VERIFIED_NOT_SOURCE_ACCEPTED",
+  "time": "formal edge depth, NOT physical heartbeat time",
+  "verification": {
+    "exhaustive_raw_word_crosscheck_depths": "0..10 (2047 words total)",
+    "explicit_prefix_checks": 82,
+    "finite_uniform_lower_checks": 976,
+    "full_positive_BRC_histogram_depths": 129,
+    "upper_Fibonacci_bound_depths": 128
+  }
+}
