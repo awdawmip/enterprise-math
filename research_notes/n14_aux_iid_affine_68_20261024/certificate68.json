@@ -1,0 +1,167 @@
+{
+  "schema": "N14_AUX_IID_AUTHOR_EXACT_AFFINE_CERTIFICATE_68_V1",
+  "scope": "EXTERNAL_AUXILIARY_IID_AUTHOR_PROOF_NOT_NATIVE_OR_DRIVER_ACCEPTED",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ]
+  },
+  "source_pins": {
+    "global_knowledge": "74d175abc7397b4bd73c07b113ceb000b8e16492",
+    "enterprise_math": "bf48e0514f0e7eb54b8d5b36dd142786b6a8bc43",
+    "predecessor": "d0b60bcd906cddf60ce7a2f513afaed4b93354bf"
+  },
+  "anchor": {
+    "alpha67": "5171859472066685747/14900301753911083008",
+    "V67": "6168006010039251047/465634429809721344",
+    "s67": "26147520029410919/41779200000000000"
+  },
+  "dual": {
+    "K68": "30451140/5149",
+    "lambda_p": "27438408/5149",
+    "lambda_q": "30451140/5149",
+    "gamma68": "57889548/5149",
+    "root": "4417836723113547221593889/1128259613689531858944",
+    "states": 680,
+    "comparisons": 1240,
+    "strict_positive": 1238,
+    "negative": 0,
+    "zero_ties": [
+      {
+        "state": [
+          8,
+          0,
+          2
+        ],
+        "actions": [
+          "C",
+          "Q"
+        ]
+      },
+      {
+        "state": [
+          12,
+          0,
+          1
+        ],
+        "actions": [
+          "C",
+          "Q"
+        ]
+      }
+    ],
+    "minimum_positive_margin": "131483062037/7871913787392"
+  },
+  "first_hit": {
+    "A68": [
+      8,
+      0,
+      2
+    ],
+    "nominal_A": 28,
+    "real_A": 28,
+    "p_A": "109375/6718464",
+    "q_A": "109375/1679616",
+    "B": [
+      12,
+      0,
+      1
+    ],
+    "nominal_B": 12,
+    "real_B": 12,
+    "p_B": "48828125/725594112",
+    "q_B": "48828125/362797056",
+    "descendants": [
+      {
+        "state": [
+          9,
+          0,
+          2
+        ],
+        "first_hits": 36,
+        "via_A68": 28
+      },
+      {
+        "state": [
+          10,
+          0,
+          2
+        ],
+        "first_hits": 9,
+        "via_A68": 0
+      }
+    ]
+  },
+  "suffix": {
+    "A68": [
+      "2354987/2359296",
+      "1051/2985984",
+      "414721/294912",
+      "310613/248832"
+    ],
+    "B": [
+      "63/64",
+      "1/144",
+      "9/8",
+      "13/12"
+    ]
+  },
+  "error_sensitivities": {
+    "X": "471296875/15850845241344",
+    "Y": "114953125/5015306502144",
+    "E": "48828125/46438023168",
+    "H": "48828125/52242776064",
+    "h68": "865319/32640000",
+    "eta68": "563171875/303147415240704",
+    "s68": "25039911709410919/41779200000000000"
+  },
+  "conclusion": {
+    "alpha68": "5171887153090685747/14900301753911083008",
+    "V68": "6158280565975251047/465634429809721344",
+    "tP_gt_tQ_margins": [
+      "640722304971736273/1241691812825923584",
+      "2132764916067208819/3725075438477770752"
+    ],
+    "zero_mixed_terms_for_four_risks": true,
+    "real_parameter_interval_proved": true,
+    "supporting_line_right_sharp": true
+  },
+  "next_candidate": {
+    "K69": "103267977646032/19155062389",
+    "state": [
+      5,
+      5,
+      0
+    ],
+    "tie": [
+      "C",
+      "P"
+    ],
+    "status": "UNPROVED"
+  },
+  "verification": {
+    "main": "LOCAL_EXACT_FRACTION_PASS",
+    "cross": "LOCAL_INDEPENDENT_AUTHOR_SIDE_FRACTION_PASS",
+    "randomized_samples": 7,
+    "main_git_blob": "f1d3d205c240ad301978bd738f16c2551f05a643",
+    "cross_git_blob": "b3756d848b207d59e12187b5beffcde6c6d7c888",
+    "driver": "UNREVIEWED",
+    "native_X6_BRC_bridge": "NOT_PROVED"
+  },
+  "control": {
+    "authenticated_github": "awdawmip",
+    "native_tasks": "CONTROL_QUOTA",
+    "native_session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "formal_claim": "NOT_VERIFIED",
+    "source_delivery": "AUTHOR_ARTIFACT_ONLY"
+  }
+}
