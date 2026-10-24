@@ -1,0 +1,92 @@
+{
+  "schema": "EM_R253_AUTHOR_REPORT_V1",
+  "run": "2026-10-24",
+  "classification": "AUTHOR_SIDE_EXACT_THEOREMS_PLUS_FINITE_VERIFIERS",
+  "status": "PASS",
+  "source_global": "420ddde0f088d90160ac4fdd5cf12ec873d82fc1",
+  "source_em": "5404753a7a923c4ca9a3654256c057db878a7f35",
+  "researcher_id": "EM-DIRECT-R253K4",
+  "research_activity_id": "RA-EMR4-20261024-1330-PAIRBIT",
+  "math_theorems": {
+    "one_bit_effect_repair": "F(z)=L(z-p)+o, p=F^{-1}(o); R252 restricted holonomy L in {I6,S} requires one bit for full affine-effect histogram; ordered paths not recovered.",
+    "provenance_growth": "O_m(w)=(terminal control,full affine effect); im O_m <= 6(m+1); max fiber M_m>=ceil(2^m/[6(m+1)]); exact minimal worst-fiber extra bits b_m=ceil(log2 M_m)=m-O(log m)",
+    "first_anchor_plus_holonomy_start01_contrast_depth": 3,
+    "first_complete_effect_path_word_collision_start0": {
+      "depth": 3,
+      "pairs": [
+        "000 / 101 → (q=0,I6,k=-1)",
+        "001 / 100 → (q=0,S,k=-1)"
+      ]
+    }
+  },
+  "positive_arithmetic": true,
+  "scopes": {
+    "control_state_count": 3,
+    "physical_spatial_axes": 6,
+    "each_edge_positive_unit_weight": true,
+    "horizon_theorem": "ALL_FINITE_HORIZONS",
+    "native_heartbeat_correspondence": "NOT_PROVED"
+  },
+  "validation": {
+    "python_exact_dp_depths": "0..48",
+    "python_exhaustive_branch_words": "0..13",
+    "cpp17_independent_dp_depths": "0..48",
+    "cpp17_exhaustive_branch_words": "0..3",
+    "python": "PASS",
+    "cpp17": "PASS",
+    "remote_GitHub_reexecution": "NOT_RUN",
+    "native_Enterprise_Math_package_import": "NOT_RUN",
+    "native_integration_template_syntax": "PASS"
+  },
+  "selected_depths": [
+    {
+      "m": 3,
+      "paths": "8",
+      "terminal_full_effect_support": 6,
+      "max_fiber": "2",
+      "min_tag_bits": 1
+    },
+    {
+      "m": 12,
+      "paths": "4096",
+      "terminal_full_effect_support": 62,
+      "max_fiber": "250",
+      "min_tag_bits": 8
+    },
+    {
+      "m": 24,
+      "paths": "16777216",
+      "terminal_full_effect_support": 134,
+      "max_fiber": "705854",
+      "min_tag_bits": 20
+    },
+    {
+      "m": 40,
+      "paths": "1099511627776",
+      "terminal_full_effect_support": 230,
+      "max_fiber": "35345337418",
+      "min_tag_bits": 36
+    },
+    {
+      "m": 48,
+      "paths": "281474976710656",
+      "terminal_full_effect_support": 278,
+      "max_fiber": "8233429852978",
+      "min_tag_bits": 43
+    }
+  ],
+  "local_evidence_sha256": {
+    "PROOF_R253_md": "c732907c36dc969cbe7fba236166f6cb673698484162eda628cdd98a5ef08c74",
+    "R253_verify_py": "03097668b691527223fc0debcbf21afe17bb184eecada8a9d64a4eedb6e5c857",
+    "R253_verify_independent_cpp": "9149246ae33c01b2946662644a81ed791308248a83130ca20f243683e3355dde",
+    "R253_AUTHOR_EXACT_REPORT_json": "a7009649a1c2759dd6eeb3672bd69f1a9003d7964a1bd945f84aaa22c4e5a2cf"
+  },
+  "known_gaps": [
+    "Live canonical owner/CLAIM unavailable because CONTROL_QUOTA",
+    "Native source import and 6D ControlPacket execution pending",
+    "Permitted P000 native heartbeat effects not established",
+    "R193 path provenance bridge not established",
+    "Independent Driver review/formal Result not obtained"
+  ],
+  "next": "R254: execute exact native package integration, map R193 source observer, develop ordered-path DAG if full path identity required."
+}
