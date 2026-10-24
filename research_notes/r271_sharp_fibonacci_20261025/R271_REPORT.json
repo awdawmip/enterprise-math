@@ -1,0 +1,150 @@
+{
+  "schema": "EM_R271_EXACT_AUTHOR_VERIFICATION_V1",
+  "status": "PASS",
+  "scope": "FORMAL_AFFINE_POSITIVE_BRC_NOT_NATIVE_P000_X6",
+  "proof_status": "HAND_PROVED_NOT_FORMALIZED_NOT_DRIVER_REVIEWED",
+  "brute_enumeration_depths": "0..11",
+  "brute_enumerated_words": "4095",
+  "full_brc_dp_depths": "0..38",
+  "n00_reset_dp_depths": "0..160",
+  "common_effect_base_vectors": {
+    "7": {
+      "effect": [
+        1,
+        -3
+      ],
+      "vector": [
+        2,
+        2,
+        3,
+        1,
+        1,
+        9
+      ]
+    },
+    "8": {
+      "effect": [
+        1,
+        0
+      ],
+      "vector": [
+        1,
+        6,
+        1,
+        9,
+        2,
+        16
+      ]
+    },
+    "9": {
+      "effect": [
+        -1,
+        -1
+      ],
+      "vector": [
+        1,
+        19,
+        2,
+        20,
+        4,
+        28
+      ]
+    }
+  },
+  "common_min_mass_depth_0_to_15": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    2,
+    2,
+    5,
+    10,
+    15,
+    21,
+    28
+  ],
+  "r270_reference_coefficient": "P_30(0,0,+1,-4)=16482",
+  "reset_maxima": {
+    "20": {
+      "max_reset_mass": "176",
+      "effect": [
+        1,
+        -6
+      ],
+      "reset_total": "3026",
+      "root_approx": 1.295017489
+    },
+    "30": {
+      "max_reset_mass": "16506",
+      "effect": [
+        -1,
+        -4
+      ],
+      "reset_total": "372099",
+      "root_approx": 1.382254656
+    },
+    "40": {
+      "max_reset_mass": "1728978",
+      "effect": [
+        -1,
+        -4
+      ],
+      "reset_total": "45765226",
+      "root_approx": 1.432005667
+    },
+    "60": {
+      "max_reset_mass": "21010024205",
+      "effect": [
+        -1,
+        -4
+      ],
+      "reset_total": "692290561601",
+      "root_approx": 1.486074023
+    },
+    "80": {
+      "max_reset_mass": "273055000503388",
+      "effect": [
+        -1,
+        -4
+      ],
+      "reset_total": "10472279279564026",
+      "root_approx": 1.515141266
+    },
+    "100": {
+      "max_reset_mass": "3677143958216068211",
+      "effect": [
+        1,
+        -4
+      ],
+      "reset_total": "158414167969674450626",
+      "root_approx": 1.533398755
+    },
+    "120": {
+      "max_reset_mass": "50619832248140702252095",
+      "effect": [
+        1,
+        -4
+      ],
+      "reset_total": "2396331108404986135046401",
+      "root_approx": 1.545975733
+    },
+    "160": {
+      "max_reset_mass": "9992479752177812645565616065526",
+      "effect": [
+        1,
+        -4
+      ],
+      "reset_total": "548343166545930114299087489259226",
+      "root_approx": 1.562240736
+    }
+  },
+  "thirty_step_amplification_verified_depths": "7..38 (32 depths)",
+  "theorem": "lim_N M_N^(1/N)=phi; lim_n B_n^(1/n)=phi",
+  "remaining": "D(6) existence/no-go; actual R193 provenance ports and source-native modules; independent reviewer/admission"
+}
