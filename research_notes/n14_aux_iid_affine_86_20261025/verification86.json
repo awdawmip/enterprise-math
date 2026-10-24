@@ -1,0 +1,41 @@
+{
+  "schema": "EM_AUX_N14_STAGE86_LOCAL_EXECUTION_OBSERVATION_V1",
+  "date": "2026-10-25",
+  "executor": "local Python standard library",
+  "commands": [
+    "python -m py_compile derive86.py crosscheck86.py",
+    "python derive86.py > derived86.json",
+    "python crosscheck86.py > crosscheck86.json"
+  ],
+  "status": "PASS_LOCAL_AUTHOR_CHECKS",
+  "tested_source_git_blob_sha1": {
+    "derive86": "e2fce9d63fb507d561feda2ca1540ba5123edcae",
+    "crosscheck86": "deaf5f6235bb2d12d5955291823a52a93e4e4b0d"
+  },
+  "observations": {
+    "Bellman_states": 680,
+    "gaps_total": 1240,
+    "gaps_positive": 1238,
+    "gaps_negative": 0,
+    "gaps_zero": 2,
+    "min_positive_gap": "5/432",
+    "A86_prefixes": 220,
+    "A86_suffix_words": 5,
+    "A86_truncated_words": 1100,
+    "h86": "649/4080",
+    "eta86": "107421875/4736678363136",
+    "alpha86": "5172378783158315543/14900301753911083008",
+    "V86": "24313786683642713729/1862537719238885376",
+    "next_candidate_K87": "26244/13",
+    "next_candidate_A87": [
+      13,
+      7,
+      3
+    ]
+  },
+  "test_limitations": [
+    "predecessor selected stop map shared",
+    "not independent Driver review",
+    "GitHub only stores source, does not attest remote execution"
+  ]
+}

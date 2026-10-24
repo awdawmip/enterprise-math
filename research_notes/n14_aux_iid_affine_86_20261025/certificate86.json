@@ -1,0 +1,100 @@
+{
+  "schema": "EM_AUX_N14_AUTHOR_STAGE86_CERTIFICATE_V1",
+  "date": "2026-10-25",
+  "mode": "AUTHOR_EXACT_LOCAL_VERIFICATION",
+  "predecessor": {
+    "commit": "eba28ea1f5bec36383b8b2058a1fc3e20237a668",
+    "path": "research_notes/n14_aux_iid_affine_85_20261025/derive85.py",
+    "source_blob_sha1": "1ffa81ccbca4f657e1dce7c032267e2ed5fee9d6"
+  },
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ]
+  },
+  "numbers": {
+    "alpha85": "5172040863158315543/14900301753911083008",
+    "V85": "24497784123642713729/1862537719238885376",
+    "K86": "2268",
+    "lambdaP": "2088",
+    "lambdaQ": "2268",
+    "Gamma": "4356",
+    "root": "334196945189805356105/219122084616339456",
+    "A86": [
+      12,
+      3,
+      0
+    ],
+    "nominal_A_prefix_words": 220,
+    "true_A_firsthit_words": 220,
+    "pA": "107421875/1289945088",
+    "qA": "107421875/4353564672",
+    "A_continuation": [
+      "1/576",
+      "143/144",
+      "25/24",
+      "13/12"
+    ],
+    "A_terminal_suffix_words": 5,
+    "A_truncated_words": 1100,
+    "B": [
+      12,
+      0,
+      1
+    ],
+    "B_true_firsthit_words": 12,
+    "pB": "48828125/725594112",
+    "qB": "48828125/362797056",
+    "B_continuation": [
+      "63/64",
+      "1/144",
+      "9/8",
+      "13/12"
+    ],
+    "S85": "22950702493354427/41779200000000000",
+    "h86": "649/4080",
+    "S86": "9865487497784809/13926400000000000",
+    "eta86": "107421875/4736678363136",
+    "alpha86": "5172378783158315543/14900301753911083008",
+    "V86": "24313786683642713729/1862537719238885376",
+    "Bellman_states": 680,
+    "nonchosen_gaps": 1240,
+    "strict_positive_gaps": 1238,
+    "negative_gaps": 0,
+    "ties": [
+      "(12,0,1) C/Q",
+      "(12,3,0) C/P"
+    ],
+    "minimum_positive_gap": "5/432",
+    "tP_minus_tQ_start": "2356622709392786305/3725075438477770752",
+    "tP_minus_tQ_end": "724865489797595435/1241691812825923584",
+    "next_candidate_K87": "26244/13",
+    "next_candidate_A87": [
+      13,
+      7,
+      3
+    ]
+  },
+  "local_checks": [
+    "python derive86.py PASS",
+    "python crosscheck86.py PASS",
+    "Python Fraction exact Bellman and ordered DFS consistency PASS",
+    "eight rational interpolation points PASS"
+  ],
+  "scope": {
+    "author_proof": true,
+    "shared_predecessor_stopping_map": true,
+    "driver_reviewed": false,
+    "native_claim_verified": false,
+    "native_BRC_attribution": false
+  },
+  "global_knowledge_read_sha": "70f6a475782287ea2e2cbfa90088febb820fbfb7"
+}
