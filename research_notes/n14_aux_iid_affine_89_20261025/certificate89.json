@@ -1,0 +1,129 @@
+{
+  "schema": "EM_N14_AUX_IID_AUTHOR_EXACT_STAGE89_V1",
+  "dated": "2026-10-25",
+  "status": "AUTHOR_VERIFIED_LOCAL_EXACT_NOT_NATIVE_ACCEPTED",
+  "global_pin": "3281f16647ce1fd82b58cad5939d6a0c165aa771",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ]
+  },
+  "predecessor": {
+    "source_commit": "a08b0e41d583dabefe00b8116c89d97b4d0bdf65",
+    "alpha88": "5172392070782909543/14900301753911083008",
+    "V88": "24307502422996613729/1862537719238885376",
+    "S88": "29743974300660427/41779200000000000"
+  },
+  "dual": {
+    "lambdaP": "388872/217",
+    "lambdaQ": "419904/217",
+    "Gamma": "808776/217",
+    "bellman_root": "3883735655924485817999/2971843272609103872",
+    "state_count": 680,
+    "unselected_comp": 1240,
+    "positive": 1238,
+    "negative": 0,
+    "zero_tie_count": 2,
+    "only_ties": [
+      [
+        "11,5,4",
+        "continue",
+        "Q"
+      ],
+      [
+        "12,0,1",
+        "continue",
+        "Q"
+      ]
+    ],
+    "min_positive_gap": "819780607/41469345792"
+  },
+  "paths": {
+    "A": {
+      "state": [
+        11,
+        5,
+        4
+      ],
+      "nominal_prefixes": 6930,
+      "true_first_hit_prefixes": 2760,
+      "P_mass": "2875/16307453952",
+      "Q_mass": "2875/7739670528",
+      "suffix_terminal_words": 7,
+      "truncated_complete_histories": 19320,
+      "R": [
+        "511/512",
+        "1/1728",
+        "73/64",
+        "157/144"
+      ]
+    },
+    "B": {
+      "state": [
+        12,
+        0,
+        1
+      ],
+      "true_first_hit_prefixes": 12,
+      "P_mass": "48828125/725594112",
+      "Q_mass": "48828125/362797056",
+      "suffix_terminal_words": 5,
+      "truncated_complete_histories": 60,
+      "R": [
+        "63/64",
+        "1/144",
+        "9/8",
+        "13/12"
+      ]
+    }
+  },
+  "continuum": {
+    "A_immediate_decision": "Q",
+    "B_immediate_decision": "Q",
+    "A_B_decision_cones_disjoint": true,
+    "h89": "-245111/870400000000",
+    "eta89": "623875/12934289716936704",
+    "S89": "29743962535332427/41779200000000000",
+    "alpha89": "5172392071501613543/14900301753911083008",
+    "V89": "24307502088163349729/1862537719238885376",
+    "tP_minus_tQ_left": "2166716868242604305/3725075438477770752",
+    "tP_minus_tQ_right": "2166717554273724305/3725075438477770752",
+    "scope": "ALL_REAL_DELTA_IN_CLOSED_SEGMENT"
+  },
+  "checks": {
+    "local_derive_script_executed": "PASS",
+    "local_DFS_Bellman_crosscheck_executed": "PASS",
+    "zip_reextract_execution": "PASS",
+    "shared_predecessor_action_table": true,
+    "published_derive_git_blob": "7bf9ea6232ec15330593cfa9ef424a3f43b8ffe1",
+    "published_crosscheck_git_blob": "15f179646539bd026f36e08e5dbf06cb2f3fa6a4"
+  },
+  "next": {
+    "K90": "3166224876/1665893",
+    "A90": [
+      7,
+      2,
+      3
+    ],
+    "tie": "continue_vs_Q",
+    "full_segment_proved": false
+  },
+  "native_control": {
+    "active_owner": "UNVERIFIED",
+    "task_control_error": "CONTROL_QUOTA",
+    "session_error": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "formal_claim": false,
+    "formal_result": false,
+    "driver_review": false
+  },
+  "local_zip_sha256": "f069340502216ed233cf9845ffd8edac3bb24345071163730be0b67e9902a3c2"
+}
