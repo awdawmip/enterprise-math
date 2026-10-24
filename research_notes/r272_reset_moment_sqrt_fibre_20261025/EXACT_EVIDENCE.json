@@ -1,0 +1,48 @@
+{
+  "schema": "EM_R272_RESET_MOMENT_EVIDENCE_V1",
+  "status": "PASS",
+  "source_model": "R268-R271 positive BRC auxiliary; t=epsilon*k",
+  "checker": "R272_verify_reset_moments.py",
+  "symbolic_GF_identities": 3,
+  "symbolic_pole_limits": 2,
+  "exact_DP_depths": "0..150",
+  "moment_values_checked": 453,
+  "raw_words_checked": 8191,
+  "sqrt_bound_tested_depths": "10..150",
+  "sqrt_bound_tested_count": 141,
+  "B_equals_Lambda_observed_depths": "12..150",
+  "B_equals_Lambda_observed_count": 139,
+  "B_not_equals_Lambda_observed": [
+    [
+      7,
+      1,
+      2
+    ],
+    [
+      8,
+      2,
+      3
+    ],
+    [
+      9,
+      2,
+      4
+    ],
+    [
+      10,
+      2,
+      5
+    ],
+    [
+      11,
+      5,
+      6
+    ]
+  ],
+  "B_37": "425625",
+  "B_67": "574891639795",
+  "analytical_result": "Lambda_(n-7)<=B_n<=Lambda_n; new moment GF and independent sqrt lower; Theta upper reuses unreviewed R262",
+  "native_package_executed": false,
+  "driver_reviewed": false,
+  "project_admitted": false
+}
