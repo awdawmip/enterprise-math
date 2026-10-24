@@ -1,0 +1,145 @@
+{
+  "schema": "EM_R257_BALANCE_QUERY_AUTHOR_EXACT_V1",
+  "date": "2026-10-24",
+  "source_pin": "198677c40e0f8e7795ccc9229a872fc591e9272f",
+  "global_pin": "a59ee98ae1ce03ed11bfeeb73dc026a35adf04d2",
+  "mode": "AUTHOR_SIDE_FORMAL_BRC_NOT_NATIVE_HEARTBEAT",
+  "validation": "PASS",
+  "python": {
+    "exact_integer_layers": "0..48",
+    "direct_word_enumerations_through_depth": 12,
+    "checked_words": 8191,
+    "mass_formula": "2^m",
+    "fiber_suffix_depths": [
+      3,
+      6,
+      12,
+      24,
+      48
+    ]
+  },
+  "cpp17": {
+    "compiler": "g++ -std=c++17 -O2 -Wall -Wextra -pedantic",
+    "numeric_type": "boost::multiprecision::cpp_int",
+    "exact_integer_layers": "0..48",
+    "checked_words": 8191,
+    "validation": "PASS"
+  },
+  "layers": {
+    "3": {
+      "total_paths": "8",
+      "joint_atoms": 7,
+      "complete_effect": [
+        0,
+        1,
+        -1
+      ],
+      "indistinguishable_prefixes": 2,
+      "lower_bits": 1,
+      "upper_bits": 2,
+      "D_values": [
+        -1,
+        3
+      ]
+    },
+    "6": {
+      "total_paths": "64",
+      "joint_atoms": 34,
+      "complete_effect": [
+        0,
+        1,
+        -2
+      ],
+      "indistinguishable_prefixes": 3,
+      "lower_bits": 2,
+      "upper_bits": 3,
+      "D_values": [
+        -2,
+        2,
+        6
+      ]
+    },
+    "12": {
+      "total_paths": "4096",
+      "joint_atoms": 265,
+      "complete_effect": [
+        0,
+        1,
+        -4
+      ],
+      "indistinguishable_prefixes": 5,
+      "lower_bits": 3,
+      "upper_bits": 4,
+      "D_values": [
+        -4,
+        0,
+        4,
+        8,
+        12
+      ]
+    },
+    "24": {
+      "total_paths": "16777216",
+      "joint_atoms": 1585,
+      "complete_effect": [
+        0,
+        1,
+        -8
+      ],
+      "indistinguishable_prefixes": 9,
+      "lower_bits": 4,
+      "upper_bits": 5,
+      "D_values": [
+        -8,
+        -4,
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24
+      ]
+    },
+    "48": {
+      "total_paths": "281474976710656",
+      "joint_atoms": 7681,
+      "complete_effect": [
+        0,
+        1,
+        -16
+      ],
+      "indistinguishable_prefixes": 17,
+      "lower_bits": 5,
+      "upper_bits": 6,
+      "D_values": [
+        -16,
+        -12,
+        -8,
+        -4,
+        0,
+        4,
+        8,
+        12,
+        16,
+        20,
+        24,
+        28,
+        32,
+        36,
+        40,
+        44,
+        48
+      ]
+    }
+  },
+  "theorem": "ceil(log2(floor(m/3)+1)) <= b_m <= ceil(log2(m+1)) for every m>=3",
+  "infinite_horizon_support": "explicit same-effect fiber and suffix distinguishing proof; not extrapolated from tests",
+  "scope_exclusions": [
+    "no native ControlPacket execution",
+    "no actual R193 query correspondence",
+    "no heartbeat physical legality",
+    "no formal task CLAIM/Result",
+    "no independent Driver review"
+  ]
+}
