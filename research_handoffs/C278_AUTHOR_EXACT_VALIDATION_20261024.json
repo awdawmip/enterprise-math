@@ -1,0 +1,113 @@
+{
+  "schema": "EM_C278_AUTHOR_VALIDATION_V1",
+  "state": "AUTHOR_EXACT_UNREVIEWED_NOT_ADMITTED",
+  "date": "2026-10-24",
+  "source_pins": {
+    "global_knowledge_main": "57dc4a5a7686307052cb71da5a226cd86cd3f13d",
+    "p000_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "enterprise_math_main": "89963639c6616698dc596672fdcc1264f38da030",
+    "c275_exact_data_commit": "f166deb1ca690757ee837885b50d619aaaee84f3"
+  },
+  "authorship": "session-scoped author evidence; service researcher id unavailable; no claim",
+  "mathematical_scope": "C195/H168 79-node positive rational auxiliary; entire legal continuous hull H(13,29)",
+  "theorem": "F(v)>(1+1/1000000)*2^128 throughout legal H(13,29)",
+  "geometry": {
+    "pair": [
+      13,
+      29
+    ],
+    "lower": [
+      "1/123",
+      "34/49",
+      "18/23",
+      "19/24"
+    ],
+    "upper": [
+      "6/409",
+      "27/38",
+      "59/74",
+      "4/5"
+    ],
+    "strict_order": "v55<v56",
+    "binary_internal": 266,
+    "leaves": 267,
+    "full_coverage": true,
+    "strict_bilinear": 260,
+    "strict_seam_two_masses": 7,
+    "empty_leaves": 0
+  },
+  "certificate": {
+    "path_tree_raw_sha256": "f1c4a4578b1dd1cf24f6c98cfef9478a47c66195297991e3231d4b237ceed00a",
+    "exact_arithmetic": "Python fractions.Fraction; rational strict comparison to 1+1/1000000",
+    "local_original_source_sha256": "b7e1aa87e8ef8f8b87a9a6cefb4de9c07adf05afb029ab38a63f2818dca001f8",
+    "local_original_isolated_replay": "PASS",
+    "local_original_split_replays": [
+      {
+        "range": [
+          0,
+          133
+        ],
+        "bilinear": 129,
+        "seam": 4,
+        "status": "PASS"
+      },
+      {
+        "range": [
+          133,
+          267
+        ],
+        "bilinear": 131,
+        "seam": 3,
+        "status": "PASS"
+      }
+    ],
+    "github_replayer_blob": "2911aed2c04668e8453d7a619d0252b4731559d5",
+    "github_replayer_source": "reassembled from immutable C275 rational input and logically equivalent C278 exact replay; not byte-identical to local original",
+    "github_replayer_execution": "NOT_EXECUTED",
+    "earliest_remote_readback_commit": "09e98c96111975a1c14238249b28f96c0dbb6a90",
+    "github_theorem_blob": "14eb535744cbd69a1716ef4fa9fbe69bc4d442ee",
+    "github_source_readback": "PASS_FILE_BYTES_AND_BLOB"
+  },
+  "classification": {
+    "previous": {
+      "mixed": 187,
+      "all_positive": 40,
+      "unresolved": 5
+    },
+    "current_author": {
+      "mixed": 187,
+      "all_positive": 41,
+      "unresolved": 4
+    },
+    "remaining": [
+      [
+        8,
+        18
+      ],
+      [
+        13,
+        18
+      ],
+      [
+        18,
+        25
+      ],
+      [
+        18,
+        34
+      ]
+    ]
+  },
+  "control": {
+    "github_authenticated_login": "awdawmip",
+    "native_service_version": "0.6.11",
+    "native_list_error": "CONTROL_QUOTA",
+    "current_owner_verified": false,
+    "formal_claim": false,
+    "source_result": false,
+    "independent_driver_admission": false,
+    "canonical_main_publication": false
+  },
+  "next": "Exact self-contained certification or rational counterexample for (8,18), possibly shared parent hull with other remaining pairs.",
+  "no_promotion": "No claimed native GF2-BRC, sign/phase/port, residual, six-dimensional Cell or physical equivalence"
+}
