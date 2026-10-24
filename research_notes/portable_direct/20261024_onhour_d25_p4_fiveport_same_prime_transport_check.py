@@ -7,7 +7,17 @@ p^3 transfer from 7724e73f, with one additional p-adic jet digit.
 """
 from __future__ import annotations
 import argparse
-from d25_p4_precision_boundary_scan import target_primes, original_endpoint_mod_p4
+from pathlib import Path
+from runpy import run_path
+
+# Same-directory published artifact is timestamp-prefixed and intentionally
+# not a Python import identifier. run_path preserves its exact versioned name.
+_scan_path = Path(__file__).with_name('20261024_onhour_d25_p4_precision_boundary_scan.py')
+if not _scan_path.exists():
+    _scan_path = Path(__file__).with_name('d25_p4_precision_boundary_scan.py')
+_scan = run_path(str(_scan_path))
+target_primes = _scan['target_primes']
+original_endpoint_mod_p4 = _scan['original_endpoint_mod_p4']
 
 
 class PrimeUnitContext:
