@@ -1,0 +1,1 @@
+Stage83 author-level exact finite iid proof, source certificate and stage84 unproved successor. Author validation on separately executed local Python Fraction and ordered DFS scripts; portable GitHub checkers are planned as repository adaptations and not remotely executed. No native CLAIM/Result or independent Driver acceptance.
