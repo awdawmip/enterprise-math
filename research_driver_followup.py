@@ -10,7 +10,9 @@ immutable follow-up packet.  The packet either:
 * closes a satisfied Task and records a concrete return to the portfolio queue,
   without closing its parent Objective; or
 * binds an exact synthesized integration route to an existing published task,
-  with explicit current-Driver continuation when that publication is superseded.
+  with explicit current-Driver continuation when that publication is superseded; or
+* accepts a pinned negative scientific result while preserving an incomplete
+  Task, unknown original process obligations and an unclosed parent.
 
 The packet explicitly evaluates formalization, external prior-art/duplication,
 independent replication, integration/tool harvest, adversarial audit, and
@@ -22,10 +24,12 @@ Historical reviews before the cutover remain immutable compatibility evidence.
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import os
 import re
+import subprocess
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
@@ -45,9 +49,13 @@ CUTOVER_REVIEWED_AT = "2026-08-27T09:19:00+00:00"
 
 TASK_SCOPE_DECISION = "TASK_SCOPE_CLOSURE_PORTFOLIO_CONTINUATION"
 EXISTING_ASSET_DECISION = "EXISTING_CONTROL_ASSET_BOUND"
+RESULT_CONTINUATION_DECISION = "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION"
+RESULT_CONTINUATION_STATE = "ACCEPTED_RESULT_TASK_INCOMPLETE"
+RESULT_SCOPE_BINDING_SCHEMA = "ENTERPRISE_MATH_ACCEPTED_RESULT_SCOPE_BINDING_V1"
 TASK_COMPLETION_ASSESSMENT_SCHEMA = "ENTERPRISE_MATH_DRIVER_TASK_COMPLETION_ASSESSMENT_V1"
 NEGATIVE_TASK_ALTERNATIVE_SCHEMA = "ENTERPRISE_MATH_DECLARED_NEGATIVE_TASK_ALTERNATIVE_V1"
-DECISIONS = {"TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE", TASK_SCOPE_DECISION, EXISTING_ASSET_DECISION}
+DECISIONS = {"TASK_SET_PUBLISHED", "PARENT_OBJECTIVE_CLOSURE", TASK_SCOPE_DECISION, EXISTING_ASSET_DECISION,
+             RESULT_CONTINUATION_DECISION}
 GATE_DECISIONS = {"REQUIRED", "SATISFIED_BY_REVIEWED_RESULT", "SATISFIED_BY_EXISTING_CONTROL_ASSET", "NOT_REQUIRED"}
 GATES = (
     "MATHEMATICAL_CONTINUATION",
@@ -203,6 +211,218 @@ def _source_parent_objective(
 
 def _objective_head(parent_objective_id: str, root: Path) -> dict[str, Any] | None:
     return research_objective_records.current_head(parent_objective_id, root)
+
+
+def _result_continuation_spec(spec: dict[str, Any]) -> None:
+    if set(spec) != {"decision", "gate_decisions", "tasks", "result_continuation"}:
+        raise DriverFollowupError("accepted-result continuation requires exact spec fields")
+
+
+def _result_acceptance_continuation(
+    review: dict[str, Any], result: dict[str, Any], *, continuation: Any,
+    tasks: list[Any], gates: dict[str, dict[str, Any]], root: Path,
+    current_publication_required: bool = False,
+) -> dict[str, Any]:
+    """Accept the pinned negative result without certifying Task/process completion."""
+    if review.get("disposition") != "ACCEPTED" or review.get("destination_class") != "NONE":
+        raise DriverFollowupError("accepted-result continuation requires ACCEPTED/NONE authority")
+    if result.get("terminal_verdict") != "NO_GO":
+        raise DriverFollowupError("accepted-result continuation requires unchanged raw NO_GO")
+    if result.get("method_harvest") not in {"RESULT_ONLY", "CANDIDATE_NOT_TOOL"}:
+        raise DriverFollowupError("accepted-result continuation cannot grant tool-bearing harvest")
+    if tasks or any(row["decision"] == "REQUIRED" for row in gates.values()):
+        raise DriverFollowupError("accepted-result continuation cannot publish tasks or leave REQUIRED gates")
+    if current_publication_required:
+        current = research_task_records.current_records(root).get(str(result.get("task_id")))
+        if current is None or current.get("publication_id") != result.get("publication_id"):
+            raise DriverFollowupError("accepted-result continuation requires the current operational Task publication")
+    fields = {"source_result_id", "parent_objective_id", "original_terminal_verdict",
+              "accepted_result_scope", "scope_evidence", "original_process_status", "unresolved_obligations",
+              "action", "dispatcher", "next_action", "remaining_parent_scope", "evidence_refs",
+              "task_completion_granted", "parent_completion_granted", "parent_final_granted"}
+    if not isinstance(continuation, dict) or set(continuation) != fields:
+        raise DriverFollowupError("accepted-result continuation requires exact typed fields")
+    if (continuation["source_result_id"] != result.get("result_id")
+            or continuation["original_terminal_verdict"] != "NO_GO"):
+        raise DriverFollowupError("accepted-result continuation Result/verdict mismatch")
+    if continuation["parent_objective_id"] != _source_parent_objective(review, result, root):
+        raise DriverFollowupError("accepted-result continuation parent Objective mismatch")
+    if (continuation["action"] != "REEVALUATE_CANONICAL_PORTFOLIO"
+            or continuation["dispatcher"] != "research_control_dispatch.py"):
+        raise DriverFollowupError("accepted-result continuation must reevaluate the canonical portfolio")
+    if not isinstance(continuation["next_action"], str) or not continuation["next_action"].strip():
+        raise DriverFollowupError("accepted-result continuation requires a concrete next_action")
+    for field in ("remaining_parent_scope", "evidence_refs"):
+        values = continuation[field]
+        if (not isinstance(values, list) or not values
+                or any(not isinstance(v, str) or not v.strip() for v in values)
+                or len(values) != len(set(values))):
+            raise DriverFollowupError(f"accepted-result continuation {field} requires nonempty unique strings")
+    for flag in ("task_completion_granted", "parent_completion_granted", "parent_final_granted"):
+        if continuation[flag] is not False:
+            raise DriverFollowupError("accepted-result continuation grants no Task or parent completion/final")
+    if continuation["original_process_status"] != "UNKNOWN":
+        raise DriverFollowupError("accepted-result continuation must preserve original process UNKNOWN")
+    obligations = continuation["unresolved_obligations"]
+    if not isinstance(obligations, list) or not obligations:
+        raise DriverFollowupError("accepted-result continuation requires unresolved process obligations")
+    for obligation in obligations:
+        if not isinstance(obligation, dict) or set(obligation) != {"kind", "status", "description", "evidence_refs"}:
+            raise DriverFollowupError("accepted-result process obligation requires exact typed fields")
+        refs = obligation["evidence_refs"]
+        if (obligation["kind"] != "ORIGINAL_PROCESS_PROVENANCE" or obligation["status"] != "UNKNOWN"
+                or not isinstance(obligation["description"], str) or not obligation["description"].strip()
+                or not isinstance(refs, list) or not refs
+                or any(not isinstance(v, str) or not v.strip() for v in refs)
+                or len(refs) != len(set(refs))):
+            raise DriverFollowupError("accepted-result process obligation must retain UNKNOWN with evidence")
+
+    # The actual Driver supplies a scope quote. We verify its provenance, never
+    # infer mathematical satisfaction or original chronology from its wording.
+    relative, _ = _result_record_pin(review, result, root)
+    raw = _load(root / relative)
+    for field in ("result_id", "task_id", "publication_id", "terminal_verdict", "hard_target_disposition"):
+        if raw.get(field) != result.get(field):
+            raise DriverFollowupError(f"accepted-result continuation differs from raw Result: {field}")
+    if raw.get("method_harvest") not in {"RESULT_ONLY", "CANDIDATE_NOT_TOOL"}:
+        raise DriverFollowupError("accepted-result continuation cannot hide raw tool harvest")
+    sources = [review]
+    if review.get("review_authority_kind") == "REVIEW_SYNTHESIS":
+        sources = _task_scope_synthesis_sources(review, result, root)
+    reports = []
+    for source in sources:
+        _, _, report = _driver_task_assessment_report(source, result, root)
+        if source.get("disposition") == "ACCEPTED":
+            reports.append((source, report))
+    scope = continuation["accepted_result_scope"]
+    evidence = continuation["scope_evidence"]
+    source_id = evidence.get("scientific_review_id") if isinstance(evidence, dict) else None
+    reports = [(source, report) for source, report in reports if source.get("review_id") == source_id]
+    if (not isinstance(scope, str) or not scope.strip() or len(reports) != 1
+            or reports[0][1].count(scope) != 1):
+        raise DriverFollowupError("accepted-result scope must uniquely quote the actual Driver's pinned report")
+    source = next(source for source, report in reports if scope in report)
+    _result_scope_evidence(continuation, source, result, root)
+    _parse_result_scope_binding(reports[0][1], source, result, continuation)
+    return copy.deepcopy(continuation)
+
+
+def _parse_result_scope_binding(report, review, result, continuation) -> dict[str, Any]:
+    """Only the DR-pinned report can attest the full scientific interface."""
+    markers = re.findall(
+        r"(?m)^<!--[ \t]+(ENTERPRISE_MATH_ACCEPTED_RESULT_SCOPE_BINDING_[^\s]+)[ \t]*\r?$", report)
+    pattern = rf"(?ms)^<!-- {RESULT_SCOPE_BINDING_SCHEMA}[ \t]*\r?\n(.*?)\r?\n-->[ \t]*\r?$"
+    blocks = re.findall(pattern, report)
+    if markers != [RESULT_SCOPE_BINDING_SCHEMA] or len(blocks) != 1:
+        raise DriverFollowupError("accepted-result continuation requires one unique scientific scope binding in the immutable Driver report; unbound old reports are unsupported")
+
+    def unique_fields(pairs):
+        value = {}
+        for key, item in pairs:
+            if key in value:
+                raise DriverFollowupError("duplicate scientific scope binding field")
+            value[key] = item
+        return value
+
+    try:
+        binding = json.loads(blocks[0], object_pairs_hook=unique_fields)
+    except (ValueError, TypeError) as exc:
+        raise DriverFollowupError(f"invalid scientific scope binding: {exc}") from exc
+    expected = {
+        "schema": RESULT_SCOPE_BINDING_SCHEMA,
+        "scientific_driver_id": review.get("driver_id"),
+        "result_id": result.get("result_id"), "publication_id": result.get("publication_id"),
+        "historical_source_commit": continuation["scope_evidence"]["historical_source_commit"],
+        "interface_artifact": continuation["scope_evidence"]["interface_artifact"],
+        "scope_quote_sha256": hashlib.sha256(continuation["accepted_result_scope"].encode("utf-8")).hexdigest(),
+        "consumption": "FULL_DOCUMENT",
+        "covered_fields": ["scope", "statement", "hypotheses", "unresolved"],
+    }
+    if not isinstance(binding, dict) or set(binding) != set(expected):
+        raise DriverFollowupError("scientific scope binding requires the exact nine typed fields")
+    for field, value in expected.items():
+        if binding[field] != value:
+            raise DriverFollowupError(f"immutable scientific scope binding mismatch: {field}")
+    return binding
+
+
+def _result_scope_evidence(continuation, review, result, root: Path) -> None:
+    """Consume the Driver's complete immutable interface, without judging it."""
+    evidence = continuation["scope_evidence"]
+    fields = {"scientific_review_id", "historical_source_commit", "report_artifact", "interface_artifact", "selected_scope_pointer", "consumption"}
+    if (not isinstance(evidence, dict) or set(evidence) != fields
+            or evidence["selected_scope_pointer"] != "/scope"
+            or evidence["consumption"] != "FULL_DOCUMENT"):
+        raise DriverFollowupError("accepted-result scope requires exact full-document evidence and /scope reference")
+    if not isinstance(evidence["historical_source_commit"], str) or not re.fullmatch(r"[0-9a-f]{40}", evidence["historical_source_commit"]):
+        raise DriverFollowupError("accepted-result scope requires an explicit historical provenance locator")
+    pin_fields = {"repository", "path", "git_blob_sha1", "sha256"}
+    for name in ("report_artifact", "interface_artifact"):
+        pin = evidence[name]
+        if not isinstance(pin, dict) or set(pin) != pin_fields:
+            raise DriverFollowupError("accepted-result scope requires complete immutable artifact pins")
+        path = (root / pin["path"]).resolve()
+        if (not path.is_relative_to(root.resolve()) or not path.is_file()
+                or hashlib.sha256(path.read_bytes()).hexdigest() != pin["sha256"]):
+            raise DriverFollowupError("accepted-result scope immutable/current artifact bytes drifted")
+        if pin["path"] not in continuation["evidence_refs"]:
+            raise DriverFollowupError("accepted-result scope artifacts must be explicit evidence_refs")
+    report = evidence["report_artifact"]
+    interface = evidence["interface_artifact"]
+    if (report["path"] != review.get("review_path")
+            or not result_impl._same_git_blob_identity(report["git_blob_sha1"], review.get("review_blob_sha1"))
+            or "sha256:" + report["sha256"] != review.get("review_sha256")):
+        raise DriverFollowupError("accepted-result scope report differs from the actual Driver review")
+    document = _load(root / interface["path"])
+    if (document.get("reviewer") != review.get("driver_id")
+            or any(document.get(key) != result.get(key) for key in ("result_id", "publication_id"))):
+        raise DriverFollowupError("accepted-result interface differs from the actual Driver/Result publication")
+    for name in ("scope", "statement"):
+        if not isinstance(document.get(name), str) or not document[name].strip():
+            raise DriverFollowupError(f"accepted-result full interface requires {name}")
+    for name in ("hypotheses", "unresolved"):
+        values = document.get(name)
+        if not isinstance(values, list) or not values or any(not isinstance(v, str) or not v.strip() for v in values):
+            raise DriverFollowupError(f"accepted-result full interface requires nonempty {name}")
+    _result_scope_snapshot(continuation, root)
+
+
+def _result_scope_snapshot(continuation, root: Path, stored=None, *, require_current=False):
+    """Verify current snapshot membership; historical publication is a locator."""
+    from control_plane.research_continuation import artifact_pin, verify_source_snapshot, ContinuationError
+
+    try:
+        if (root / "EM_SOURCE_BLOBS.json").exists():
+            source = _load(root / "EM_SOURCE_BLOBS.json").get("source_commit")
+        else:
+            source = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD"],
+                capture_output=True, text=True, check=True, timeout=10,
+                env={**os.environ, "GIT_NO_LAZY_FETCH": "1"}).stdout.strip()
+        verify_source_snapshot(root, source)
+        snapshot = {"source_commit": source, "verification_basis": "CURRENT_SOURCE_MEMBERSHIP",
+                    "historical_membership_reverified": False}
+        for name in ("report_artifact", "interface_artifact"):
+            content = continuation["scope_evidence"][name]
+            actual = artifact_pin(root, content["path"], source)
+            if {key: value for key, value in actual.items() if key != "source_commit"} != content:
+                raise DriverFollowupError("accepted-result scope differs from current verified Source membership")
+            snapshot[name] = actual
+        if stored is not None:
+            if (not isinstance(stored, dict) or set(stored) != set(snapshot)
+                    or not isinstance(stored["source_commit"], str)
+                    or not re.fullmatch(r"[0-9a-f]{40}", stored["source_commit"])
+                    or stored["verification_basis"] != "CURRENT_SOURCE_MEMBERSHIP"
+                    or stored["historical_membership_reverified"] is not False):
+                raise DriverFollowupError("accepted-result scope requires the writer's actual Source snapshot pins")
+            for name in ("report_artifact", "interface_artifact"):
+                expected = {**continuation["scope_evidence"][name], "source_commit": stored["source_commit"]}
+                if stored[name] != expected:
+                    raise DriverFollowupError("accepted-result stored Source snapshot content pins drifted")
+            if require_current and stored != snapshot:
+                raise DriverFollowupError("accepted-result Source snapshot changed before write")
+        return snapshot
+    except (ContinuationError, OSError, ValueError, subprocess.SubprocessError) as exc:
+        raise DriverFollowupError(f"accepted-result scope current Source evidence: {exc}") from exc
 
 
 def _task_scope_continuation(
@@ -858,6 +1078,7 @@ def build_packet(
     publisher_session_id: str | None = None,
     current_destination_continuation: dict[str, Any] | None = None,
     prospective_result_authority_binding: dict[str, Any] | None = None,
+    result_continuation: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     reviews = review_map(root)
     results = result_map(root)
@@ -909,6 +1130,25 @@ def build_packet(
     )
     if publisher is not None:
         value["materialization_publisher"] = publisher
+    if result_continuation is not None and decision != RESULT_CONTINUATION_DECISION:
+        raise DriverFollowupError("result_continuation requires the accepted-result decision")
+    if decision == RESULT_CONTINUATION_DECISION:
+        if publisher is None:
+            raise DriverFollowupError("accepted-result continuation requires an authenticated current publisher")
+        if terminal_scope is not None or portfolio_continuation is not None:
+            raise DriverFollowupError("accepted-result continuation is not Task or parent closure")
+        continuation = _result_acceptance_continuation(
+            review, result, continuation=result_continuation, tasks=rows, gates=gates,
+            root=root, current_publication_required=True,
+        )
+        path, digest = _result_record_pin(review, result, root)
+        value.update(
+            result_continuation=continuation,
+            scope_source_snapshot=_result_scope_snapshot(continuation, root),
+            source_result_record_path=path, source_result_record_sha256=digest,
+            parent_status_at_materialization=_parent_status_at_materialization(parent, root),
+            task_completion_granted=False, parent_completion_granted=False, parent_final_granted=False,
+        )
     if decision == EXISTING_ASSET_DECISION:
         if publisher is None:
             raise DriverFollowupError("existing asset binding requires an authenticated current publisher")
@@ -1010,6 +1250,8 @@ def validate_packet(
     decision = packet.get("decision")
     if decision not in DECISIONS:
         raise DriverFollowupError("invalid follow-up decision")
+    if decision != RESULT_CONTINUATION_DECISION and packet.get("result_continuation") is not None:
+        raise DriverFollowupError("result_continuation requires the accepted-result decision")
     if decision == EXISTING_ASSET_DECISION:
         if rows:
             raise DriverFollowupError("existing asset binding cannot publish new tasks")
@@ -1037,6 +1279,27 @@ def validate_packet(
             raise DriverFollowupError(
                 f"required follow-up gates have no matching published task role: {missing}"
             )
+    elif decision == RESULT_CONTINUATION_DECISION:
+        if publisher is None:
+            raise DriverFollowupError("accepted-result continuation requires an authenticated current publisher")
+        if packet.get("terminal_scope") is not None or packet.get("portfolio_continuation") is not None:
+            raise DriverFollowupError("accepted-result continuation is not Task or parent closure")
+        continuation = _result_acceptance_continuation(
+            review, result, continuation=packet.get("result_continuation"), tasks=rows,
+            gates=gates, root=root, current_publication_required=current_publication_required,
+        )
+        if packet.get("scope_source_snapshot") is None:
+            raise DriverFollowupError("accepted-result continuation requires actual Source snapshot evidence")
+        _result_scope_snapshot(continuation, root, packet["scope_source_snapshot"],
+                               require_current=current_publication_required)
+        path, digest = _result_record_pin(review, result, root)
+        if packet.get("source_result_record_path") != path or packet.get("source_result_record_sha256") != digest:
+            raise DriverFollowupError("accepted-result current Result record digest/path drift")
+        if packet.get("parent_status_at_materialization") not in {"OPEN", "PARKED", "ABSENT_NOT_CLOSED"}:
+            raise DriverFollowupError("accepted-result continuation must record an unclosed parent observation")
+        for flag in ("task_completion_granted", "parent_completion_granted", "parent_final_granted"):
+            if packet.get(flag) is not False:
+                raise DriverFollowupError("accepted-result continuation grants no Task or parent completion/final")
     elif decision == EXISTING_ASSET_DECISION:
         if publisher is None:
             raise DriverFollowupError("existing asset binding requires an authenticated current publisher")
@@ -1233,6 +1496,7 @@ def state_for_review(review_id: str, root: Path = ROOT) -> dict[str, Any]:
             "PARENT_OBJECTIVE_CLOSURE": "PARENT_OBJECTIVE_CLOSED",
             TASK_SCOPE_DECISION: "TASK_SCOPE_CLOSED_PORTFOLIO_CONTINUATION",
             EXISTING_ASSET_DECISION: "EXISTING_CONTROL_ASSET_READY",
+            RESULT_CONTINUATION_DECISION: RESULT_CONTINUATION_STATE,
         }[packet["decision"]],
         "packet": packet,
     }
@@ -1362,7 +1626,7 @@ def materialize(
     publisher_session_id: str | None = None,
 ) -> dict[str, Any]:
     if ("prospective_result_authority_binding" in spec
-            or spec.get("decision") in {TASK_SCOPE_DECISION, EXISTING_ASSET_DECISION}
+            or spec.get("decision") in {TASK_SCOPE_DECISION, EXISTING_ASSET_DECISION, RESULT_CONTINUATION_DECISION}
             or publishing_driver_id is not None or publisher_session_id is not None):
         # The public and storage entry points share the same candidate-first,
         # exact-byte transaction for this new decision.
