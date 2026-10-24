@@ -1,0 +1,89 @@
+{
+  "schema": "EM_R249_AUTHOR_SIDE_EVIDENCE_V1",
+  "date": "2026-10-24",
+  "title": "Exact finite-word equivalence for positive BRC full weight/effect histograms with infinite translation key support",
+  "scope": {
+    "controls": "finite n",
+    "packet_alphabet": "finite",
+    "path_weights": "positive rational",
+    "effects": "six-axis integer translations only",
+    "branch_multiplicity": "positive integer",
+    "observer": "(terminal control label, exact positive path weight, full accumulated translation) histogram",
+    "full_branch_provenance_retained": false
+  },
+  "theorem": {
+    "status": "AUTHOR_SIDE_PROVED",
+    "witness_bound": "n-1 packet words",
+    "key_field": "Frac(Q[Y_p^±1 (finite rational prime set),X_1^±1,...,X_6^±1])",
+    "proof": "Coefficient embedding into Laurent group ring; K-linear controllability span stabilizes by depth n-1."
+  },
+  "validation": {
+    "local_exact_rerun": "PASS",
+    "independent_crosschecks": 1620,
+    "seed": 249241,
+    "model_count": 36,
+    "word_lengths": "0..3",
+    "sharp_example": {
+      "n": 3,
+      "min_witness": 2,
+      "ranks": [
+        1,
+        2,
+        3
+      ],
+      "trace_differences": [
+        "0",
+        "0",
+        "x-1",
+        "x*(x-1)"
+      ]
+    },
+    "infinite_support_loop": {
+      "repeats": "0..12",
+      "support_at_12": 13,
+      "multiplicity_total_at_12": 4096
+    },
+    "weight_collision": {
+      "counts": [
+        2,
+        2
+      ],
+      "weighted_masses": [
+        4,
+        4
+      ],
+      "full_joint_histograms_equal": false
+    },
+    "original_enterprise_math_package_executed": false
+  },
+  "source_pins": {
+    "global_main": "dfafd755b5cb9241523471b98b264f366e14d09b",
+    "enterprise_math_main": "f96092408f9747e8cdc499bd7b2a950901506bd5",
+    "global_p000_original_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "brc_transport_blob": "be1debe367263931bd5e93fd750be3ed54624fe1",
+    "brc_control_blob": "44def6b8ac787e798d3cc2c6be16f873f91b9db8"
+  },
+  "method_reuse": "T0_BRC_AFFINE_EFFECT_TRANSPORT / brc.affine_effect_transport: REUSE_APPLIED",
+  "sources": [
+    "https://arxiv.org/abs/2009.01217",
+    "https://games-automata-play.github.io/blog/equivalence_weighted_automata/"
+  ],
+  "project_state": {
+    "role": "author-side unclaimed research",
+    "native_tasks": "CONTROL_QUOTA",
+    "native_session": "STATIC_READONLY_SCOPE_DENIED",
+    "native_operation_sent": false,
+    "owner_verified": false,
+    "claim_verified": false,
+    "formal_result": false,
+    "driver_review": false,
+    "google_drive_fallback": false
+  },
+  "unresolved": [
+    "Native current task ownership and Claim",
+    "direct original Source ControlPacket/EffectHistogram import",
+    "affine nontranslation effect extension",
+    "R193 raw path provenance embedding and native legal heartbeat dynamics",
+    "independent Driver review"
+  ]
+}
