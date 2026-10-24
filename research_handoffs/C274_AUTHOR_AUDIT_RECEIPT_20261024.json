@@ -1,0 +1,61 @@
+{
+  "schema": "ENTERPRISE_MATH_C274_AUTHOR_AUDIT_RECEIPT_V1",
+  "date": "2026-10-24",
+  "project": "Enterprise Math",
+  "author_connected_github_login": "awdawmip",
+  "authority": "AUTHOR_RESEARCH_ONLY_NO_TASK_CLAIM",
+  "canonical_global_snapshot": "dfafd755b5cb9241523471b98b264f366e14d09b",
+  "canonical_enterprise_math_snapshot": "39dc3653908e05dc689a579206803bf02e5baf00",
+  "parent_input_git_blob": "118716c5425fdabc4d2421ddac6816e7478a22e3",
+  "theorem": "For a>=4/543,b>=43/62,a,b<u55 and u55<v55<v56<u56, if eps=v56-v55<=1/3077, the C195/H168 79-node positive rational auxiliary F>2^128.",
+  "local_exact_checks": {
+    "primary_method": "128 exact equal subintervals, analytic strict log convexity, monotone endpoint gradient and exact rational bounds",
+    "primary_count": "128/128 PASS",
+    "primary_worst_cell_index": 63,
+    "primary_lower_ratio_display_only": 0.00032500551020699244,
+    "primary_exact_margin": "3077*B_k>1 for every k, exact Fraction",
+    "secondary_method": "768 segment independent positive-factor rational interval bounds",
+    "secondary_count": "768/768 PASS",
+    "secondary_threshold": "1/3100",
+    "geometry": "595/595 classified, 232/232 collision hulls contain exact rational witness",
+    "hull_classification": {
+      "safe": 363,
+      "touch": 124,
+      "cross": 108
+    },
+    "degenerate_b_hulls": [
+      [
+        6,
+        10
+      ],
+      [
+        8,
+        9
+      ]
+    ]
+  },
+  "remote_evidence": {
+    "branch": "research/c274-global-seam-collar-20261024-r2",
+    "research_handoffs/C274_STANDALONE_EXACT_REPLAY.py": {
+      "blob_sha1": "1365ee08da8960d76c3eaa5fb7e7401cdfbf8acb",
+      "readback_verified": true,
+      "created_commit": "5ece50ff96df7224b932beee709131c901334cb0"
+    },
+    "research_handoffs/C274_GLOBAL_COLLAR_AUTHOR_PROOF_20261024.md": {
+      "blob_sha1": "3ae2dc040e5522fcbeaba27e1bf88a4005a0ab0e",
+      "readback_verified": true,
+      "created_commit": "7dec2e05122be6f0c674195cfb562c5f973bbdf1"
+    }
+  },
+  "validation_boundary": "Local exact Fraction proof and its isolated rerun; remote script and manuscript bytes were read back but remote script was not independently executed in the GitHub environment.",
+  "not_claimed": [
+    "No full classification of 232 hulls for arbitrary epsilon",
+    "No canonical Source Task Result",
+    "No Driver acceptance",
+    "No signed/phase BRC or native X6 transfer",
+    "No protected main modification"
+  ],
+  "native_control_read_error": "CONTROL_QUOTA from em_control_tasks; live owner not verified",
+  "drive_fallback": "NOT_USED_GITHUB_READBACK_SUCCEEDED",
+  "next_question": "C275: exact positive/negative classification for eps>1/3077 in 108 crossing hulls and audit C254 base boxes 3/11"
+}
