@@ -1,0 +1,64 @@
+# N=14 auxiliary iid sequential discrimination: exact 77th affine segment
+
+**2026-10-24 — author-level exact finite-model proof and two author-side rational checks; no Research Driver acceptance, native CLAIM, or physical correspondence.**
+
+## Theorem
+For iid laws P=(1/8,1/24,5/6) and Q=(1/12,1/12,5/6), arbitrary ordered-history randomized decision/stopping rules with maximum sample count N=14, let eP=P(decide Q), eQ=Q(decide P), tP,tQ be the corresponding mean sample counts, and V14(alpha)=inf max(tP,tQ) subject to both error probabilities <=alpha. The inherited author-verified 76th endpoint is
+
+alpha76 = **5171945186297490833/14900301753911083008**,
+V76 = **24565639130995559249/1862537719238885376**.
+
+For **every real** 0<=delta<=eta77 with
+
+eta77 = **69976375/1616786214617088**,
+Gamma77 = **523427436/79973**,
+
+**V14(alpha76+delta) = V76 - Gamma77*delta**.
+
+In particular alpha77 = **5171945831199762833/14900301753911083008** and V77 = **24565111516140071249/1862537719238885376**. This dual line cannot continue to attain the global optimum beyond alpha77.
+
+## Bellman dual certificate
+At state x=(n,a,b), where a and b count letters 0 and 1, Q(w)/P(w)=2^(a+b)/3^a. For the P-reference Lagrangian tP+lambdaP*eP+lambdaQ*eQ, take lambdaQ=K=274060260/79973 and lambdaP=72+(8/9)K=249367176/79973. Immediate P has cost lambdaQ*Q(w)/P(w), immediate Q costs lambdaP, and continue (n<14) costs 1+sum_i P_i D(child_i(x)). Continue is disallowed at n=14. The exact Fraction backward recursion visits all **680** states and **1240** nonchosen comparisons; **1238** comparisons have strictly positive slack, **0** have negative slack. The only ties are A77=(8,2,3), C/Q, and B=(12,0,1), C/Q. Minimum positive gap is 20064950039/636794929152. The root value is
+
+D0 = **40041981042088570923959653/17523850473022515314688 = V76+Gamma77*alpha76**.
+
+Statewise backward minimization also bounds policies that depend arbitrarily on the full ordered history:
+D0 <= tP+lambdaP*eP+lambdaQ*eQ <= max(tP,tQ)+Gamma77*alpha
+for eP,eQ<=alpha. Thus V14(alpha)>=D0-Gamma77*alpha.
+
+## Exact positive-weight ordered paths and suffixes
+Keep the inherited deterministic stopping table, including A76=(10,7,2) fixed to P. At A77, 560 nominal ordered words have the required counts; **336** are truly first reachable without an earlier stop, with first-hit masses
+
+pA=875/3981312, qA=875/1119744.
+
+At B, 12/12 nominal histories survive; pB=48828125/725594112 and qB=48828125/362797056. Continuation suffix vectors (eP,eQ,extra tP,extra tQ) are
+
+RA=(2354987/2359296, 1051/2985984, 414721/294912, 310613/248832),
+RB=(63/64,1/144,9/8,13/12).
+
+A separate ordered-word DFS crosscheck (not a separate stopping rule) verifies these exact quantities, counts **53** completed continuation suffix words in **20** distinct terminal states at A, hence **17,808** old completed ordered paths are truncated by early stop there. Counts are not probability mass.
+
+## Affine primal certificate, coin feasibility, sharpness
+At A stop immediately and decide Q with probability u in [0,1]; independently B stops immediately and decides Q with probability s. No history visits both states (A has b=3, B b=1, and b never decreases). Consequently all four mean-error/mean-time functions are affine with zero u*s mixed terms. Define
+
+X=pA(1-RA.eP)=3770375/9393093476352;
+Y=qA RA.eQ=919625/3343537668096;
+E=pB(1-RB.eP)=48828125/46438023168;
+H=qB RB.eQ=48828125/52242776064.
+
+Relative to (u=0,s=s76), Delta eP = Xu+E(s-s76), Delta eQ=-Yu-H(s-s76). Equalizing gives
+s = s76 + h77*u, with
+s76=24002380908994381/41779200000000000,
+h77=-(X+Y)/(E+H)=**-37055963/108800000000**,
+s77=23988151419202381/41779200000000000.
+
+Both endpoint coins belong to (0,1). The common error increment is eta77*u because X+E*h77=-Y-H*h77=69976375/1616786214617088 >0. At u=0 and u=1 the exact tP-tQ gaps are, respectively,
+2209467633113056651/3725075438477770752 and
+2211861025576672651/3725075438477770752, both positive, so tP>tQ throughout. Chosen actions are Bellman-minimizing and the Lagrangian equals D0. Therefore tP=V76-Gamma77*eta77*u, and u=delta/eta77 attains the global bound for every real delta.
+
+Sharpness: equality on the dual line with positive lambdaP,lambdaQ requires **eP=eQ=alpha** and no action with positive Bellman slack. Arbitrary per-history mixing at a tied state collapses to one effective weighted coin, because Q(w)/P(w) is constant for all its first-hit histories. Only A and B may mix, their path cones are disjoint, and equalization uniquely fixes s=s76+h77*u; since u<=1, alpha<=alpha77. The line is nonattaining for alpha>alpha77.
+
+## Exact reproduction, next frontier and limits
+Run `python verify_n14_77.py` and `python crosscheck_n14_77.py` (Python standard library only, exact Fraction arithmetic). They are **author-side checks sharing one inherited stop table**; not an independent Research Driver audit. The second program exhaustively traverses ordered first-hit and suffix words, whereas the first computes dynamic Bellman/forward/suffix recursions. The original 76th code and source proof are pinned at Git commit 9cb94b54a89b34e9665d38b77850991549503733, path research_notes/n14_aux_iid_affine_76_20261024/. Global snapshot is 3c2c0e673b75da00e683abd1c43300b346b9d62e, GLOBAL_KNOWLEDGE_V1; P000 and ACTIVE worldview unchanged.
+
+After freezing A77 to Q, the exact **unproved next dual candidate** is K78=42971052258/12859537, tie A78=(7,6,1) C/P. Native task/owner CLAIM is **unverified** (the direct authenticated gateway returned CONTROL_QUOTA); this publication asserts no formal Result, Driver review, Lean proof or native BRC/X6/Heartbeat equivalence.
