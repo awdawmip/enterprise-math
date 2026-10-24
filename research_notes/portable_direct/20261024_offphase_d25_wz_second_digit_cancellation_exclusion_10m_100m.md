@@ -6,13 +6,13 @@
 
 Mother task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication `TP2-B6F4FC938FF94941C1B7`. The prior [exact WZ cancellation-fibre theorem](https://github.com/awdawmip/enterprise-math/blob/d1ba02f53b411242a534646df00e625cc52fe723/research_notes/portable_direct/20261024_hourly_d25_cubic_filter_harmonic_lift_full_wz_cancellation_fibre.md) supplies the **already proved** equivalence, for primes $p=6m+1\ge13$,
 
-$
+$$
  F_p=(S_{m+1}-S_m)/p\equiv2/3\pmod{p^2}
  \quad\Longleftrightarrow\quad p^2\mid M_p,
-$
+$$
 $
  D=3942400,\quad M_p=D(27^{p-1}-16^{p-1})-699519p\,16^{p-1}.
-$
+$$
 
 Neither the WZ formula nor its equivalence is re-proved/re-credited here. The historical author certificate searched primes up to $10^7$ and found (1423,5827); the present **new** complete search is strictly $10^7<p\le10^8$, never re-running that earlier range.
 
@@ -21,20 +21,20 @@ Neither the WZ formula nor its equivalence is re-proved/re-credited here. The hi
 ## Two exact integer observers and verification
 
 Observer I computes
-$
+$$
  R_p=[D(27^{p-1}-16^{p-1})-699519p\,16^{p-1}]\bmod p^2
-$
+$$
 using modular exponentiation, without constructing enormous powers. Observer II computes the actual Fermat quotients modulo $p$,
-$
+$$
  a_p=(2^{p-1}-1)/p,\qquad b_p=(3^{p-1}-1)/p,
-$
+$$
 and the independent reduced test
-$
+$$
  T_p=[3D b_p-4D a_p-699519]\bmod p.
-$
+$$
 Because $27=3^3$, $16=2^4$ and $2^{p-1}\equiv3^{p-1}\equiv1\pmod p$, the binomial identity modulo $p^2$ gives $R_p\equiv pT_p\pmod{p^2}$. Thus both exact observers have zero simultaneously, and all candidates were independently evaluated through both modular bases. The equality is a mathematical identity; agreement of programs alone is not its proof.
 
-A deterministic Eratosthenes sieve covers every integer through $10^8$: every composite has a prime divisor not exceeding $\sqrt{10^8}=10^4$. It found (pi$10^8$=5,761,455), and exactly 2,548,323 of the qualifying primes in the newly searched interval. Both congruence tests returned zero hits. For reproducible integrity of the **enumerated candidate population** only, SHA-256 of the little-endian unsigned 32-bit concatenation of all inspected prime values in ascending order is:
+A deterministic Eratosthenes sieve covers every integer through $10^8$: every composite has a prime divisor not exceeding $\sqrt{10^8}=10^4$. It found $\pi(10^8)=5{,}761{,}455$, and exactly 2,548,323 of the qualifying primes in the newly searched interval. Both congruence tests returned zero hits. For reproducible integrity of the **enumerated candidate population** only, SHA-256 of the little-endian unsigned 32-bit concatenation of all inspected prime values in ascending order is:
 
 `5a11d7a6c84c50f1e1b39c95f7260e3a823b1536c15dc860b469f6a8d0cb1dda`.
 
