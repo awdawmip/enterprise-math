@@ -1,0 +1,94 @@
+{
+  "schema": "ENTERPRISE_MATH_R254_AUTHOR_EXACT_REPORT_V1",
+  "status": "AUTHOR_EXACT_PROOF_AND_BILINGUAL_EXECUTED_CHECKS; NOT_NATIVE_REVIEWED",
+  "date": "2026-10-24",
+  "global_knowledge_snapshot": "a52fe6f1ea886d219c9f4898c9a7cda48ef6134e",
+  "source_snapshot": "6f14c39fb618bf960c80c93345a7a7e2876a5256",
+  "p000": {
+    "state": "ACTIVE_LOCKED",
+    "original_git_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "identity": {
+    "github_login": "awdawmip",
+    "researcher_id": "EM-LOCAL-R254-R4",
+    "identity_kind": "local_ChatGPT_research_label_not_native_server_identity",
+    "activity_id": "RA-EMR4-20261024-1426-FIBERDAG",
+    "formal_claim": false
+  },
+  "question": "Sharp necessary per-history bit width conditioned on complete terminal-plus-affine BRC effect observer, and exact serial provenance DAG representation",
+  "model": {
+    "spatial_dimensions": 6,
+    "temporal_port": "separate",
+    "nonspatial_controls": 3,
+    "branches_per_control": 2,
+    "edge_weight": "1/1",
+    "multiplicity": 1,
+    "affine": "F_(eps,k): diag(eps,eps,1,1,1,1)z+k e1",
+    "observer": "(terminal_control, full_composite_affine)",
+    "input_scope": "formal finite BRC auxiliary model; no R193 or native heartbeat transfer established"
+  },
+  "mathematical_claims": {
+    "sharp_fiber_bound": "ceil(binomial(m,floor(m/2))/6) <= M_m <= binomial(m,floor(m/2)), for all integer m>=0",
+    "exact_bits": "b_m = ceil(log2 M_m)",
+    "sharpened_asymptotics": "b_m = m - 0.5 log2(m) + O(1)",
+    "anchor_histogram": "A_m(p)=binomial(m,(m+p)/2) for |p|<=m and p==m (mod 2)",
+    "source_semiring": "N[(positive rational weights) x (6D affine effect monoid) x (free ordered edge-word monoid)]",
+    "serial_composition": "D_(j+1)(target)=sum_(physical edge source->target) D_j(source)*[weight,effect,edge_id] preserving time/ports",
+    "shared_dag_size": "O(m*(number_of_edges+number_of_control_states)) syntax nodes for fixed start; expansion exponential",
+    "first_collision": "selector words 000 and 101 from state 0 at depth 3 have same (terminal=0, eps=+1,translation=-1)"
+  },
+  "verification": {
+    "python_integer_dp": "PASS depths 0 through 96, both starts",
+    "cpp17_boost_multiprecision": "PASS depths 0 through 96, both starts",
+    "ordered_paths_bruteforce": "PASS m<=12",
+    "symbolic_dag_expansion": "PASS m<=11",
+    "dag_node_check": "PASS m<=64",
+    "selected_max_fiber": {
+      "3": "2",
+      "12": "250",
+      "24": "705854",
+      "48": "8233429852978",
+      "64": "465428353188420746",
+      "96": "1625701140345181560104470766"
+    },
+    "selected_tag_bits": {
+      "3": 1,
+      "12": 8,
+      "24": 20,
+      "48": 43,
+      "64": 59,
+      "96": 91
+    },
+    "dag_nodes_start0_depth64": 564,
+    "actual_native_enterprise_math_module_run": false,
+    "full_2pow96_word_expansion": false,
+    "infinite_scope_supported_by": "mathematical combinatorial proof, not finite tests"
+  },
+  "remote_proof": {
+    "commit": "76eba4115d1809178705575f40ac00333e24c14e",
+    "path": "research_notes/R254_SHARP_PATH_TAG_AND_SHARED_DAG_20261024.md",
+    "git_blob_sha1": "04a5bf76fa6745e802c9ca0ef1fff93acde23193",
+    "immutable_readback": "MATCH"
+  },
+  "remote_python": {
+    "commit": "4d326a6d1021ab316a0f9b267ff0995fc6c2a8ad",
+    "path": "research_notes/R254_compact_reproducer.py",
+    "git_blob_sha1": "80f08c7968a7fc8855c8015940add118cbd379eb",
+    "immutable_readback": "MATCH"
+  },
+  "remote_cpp": {
+    "commit": "2d8196d7710238eb0de2205ea54d86964069b6a9",
+    "path": "research_notes/R254_verify_independent.cpp",
+    "git_blob_sha1": "d99623c36ff44d285518bc8bbaa9a0430556ef49",
+    "immutable_readback": "MATCH"
+  },
+  "native_gate": {
+    "task_query": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED; operation_sent=false",
+    "active_owner": "UNKNOWN",
+    "claim": "NONE",
+    "formal_result": "NONE",
+    "independent_review": "NONE"
+  },
+  "next_question": "R255: read exact R193 source-path observer and port contract; prove or reject word-preserving map to real BRC edge alphabet; run existing native integration test in pin-matched installed source; determine minimal sufficient provenance DAG for the actual observer."
+}
