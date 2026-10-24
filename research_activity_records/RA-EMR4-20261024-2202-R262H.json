@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR4-20261024-2202-R262H",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "c446659ec353ad6e8d65591f6d882521ff674ac2",
+          "path": "research_notes/R262_COARSE_QUERY_HANKEL_RANK_SEVEN_20261024.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "31e9c76be224a8a543f03c335e9d2951c0540058de385f437e297609b6965f87",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "32ee9462a5feb63e218e9cbecc3338dc74a291dd",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/c446659ec353ad6e8d65591f6d882521ff674ac2/research_notes/R262_COARSE_QUERY_HANKEL_RANK_SEVEN_20261024.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r262-proof-readback-local-20261024-2202",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261024-2202-R262H/readbacks/a080ea06a9f015a768716a6f42ca56e38a45c3373b77cd1ca6873aba34177d6b.json",
+          "verification_receipt_sha256": "a080ea06a9f015a768716a6f42ca56e38a45c3373b77cd1ca6873aba34177d6b"
+        }
+      ],
+      "event_id": "r262-seven-rank-hankel-determinant-20261024-2202",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@7ed68d9c321685e609fe1ac2800af7c3592de4e1:journal/enterprise-math/2026-10-24/20261024T220207+0800-r262-coarse-hankel-r4.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-24T14:19:41.785Z",
   "registration_key": "session:local-automation-r4-20261024-2202:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-DIRECT-R262H4",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-automation-r4-20261024-2202",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-24T14:19:41.785Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
