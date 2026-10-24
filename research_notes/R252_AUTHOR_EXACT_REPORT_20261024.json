@@ -1,0 +1,20 @@
+{
+  "schema": "EM_R252_AUTHOR_EXACT_VALIDATION_V1",
+  "source_global_main": "03b776e67e1d3419328d5d217e49e667cb3cde72",
+  "source_em_main": "28e35a1fd123e2cb3bdb29165928844c6792fd59",
+  "classification": "AUTHOR_SIDE_EXACT_UNIT_POSITIVE_BRC_RESTRICTED_X6_AFFINE",
+  "results": {
+    "theorem": "mu_q identical and stabilized by prefix holonomy implies inverse_anchor_H_m=mu^{*m} for every finite m (complete inductive proof in R252 paper)",
+    "base_packet": "three hidden controls, unit positive branching, six-axis formal affine effects",
+    "all_horizon_formula": "sum_j binomial(m,j) delta_{(m-2j)e1} for all m>=0",
+    "full_effect_depth_3_unequal": true,
+    "inverse_anchor_depth_3_equal": true,
+    "mutated_control_kernel_depth_2_unequal": true,
+    "python_validation": "PASS, depth 0..40 inclusive (41 levels), 2^40 positive paths per start at final level",
+    "cpp17_validation": "PASS, depth 0..30 inclusive (31 levels)",
+    "native_enterprise_math_module_run": false,
+    "owner_claim_verified": false,
+    "independent_driver_review": false
+  },
+  "external_reviewer_guidance": "The mathematical induction proves infinite scope; executable DP checks witness and code semantics. Native admissibility and task Result remain pending."
+}
