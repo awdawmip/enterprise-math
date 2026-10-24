@@ -1,0 +1,5 @@
+# N14 auxiliary iid 67th affine interval: unproved continuation
+
+Frozen model: P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), N=14; randomized ordered-history policies, **external auxiliary iid model only**. Exact interval-66 anchor alpha66=5171859262245766247/14900301753911083008, V66=12336161215066994269/931268859619442688, balancing B=(12,0,1), s66=26151848241302219/41779200000000000. Inherit all deterministic prior stops, including A66=(11,7,2) -> immediate P.
+
+Candidate K67=1395301593924/233134355 at A67=(5,1,3), CONTINUE vs immediate Q, is **not** an optimal interval proof. Rebuild exact Bellman and certify the first genuine new tie. Count true ordered-history first arrivals versus nominal multinomial words, quantify truncation of downstream stops, compute conditional suffix risks and B compensation, prove eta67>0, s in [0,1], tP>=tQ on both ends, complete dual equality for every real parameter, and sharpness; use independent exact rational crosscheck. Preserve previous source pins, P000/native-semantic distinction and Research Driver review/CLAIM gates.
