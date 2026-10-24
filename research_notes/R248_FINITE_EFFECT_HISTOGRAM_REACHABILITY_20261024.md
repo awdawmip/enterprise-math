@@ -1,0 +1,39 @@
+# R248 — Finite effect-key reachability and unbounded BRC effect histograms
+
+**Scope:** Author-side exact BRC-algebra proof; typed six-axis affine effect values on finite **nonspatial** control states. Not native Heartbeat-X6 physical admissibility, not an accepted Result/Working Truth/Foundation theorem, and not a direct original-package import. Serial packet word length is not a heartbeat time.
+
+**Frozen sources:** GLOBAL_KNOWLEDGE_V1 main@5efd1f193d4f264aaada1ec7a6a5ffd1daf382e9; P000 ACTIVE_LOCKED original blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc. Enterprise Math Source main@8155c5cfce84ace670582ca6a21146b3af1fd66d. Exact BRC semantics: src/enterprise_math/brc_transport.py blob be1debe367263931bd5e93fd750be3ed54624fe1 and src/enterprise_math/brc_control_port.py blob 44def6b8ac787e798d3cc2c6be16f873f91b9db8. R247 predecessor is the finite deterministic rational-affine trace test; this note concerns **positive branched full-effect histograms**.
+
+## Typed carrier
+
+An edge from control state s to t is (s,t,w,E,c), where w is a positive rational path weight, E is a six-axis rational affine function, and c is positive integer multiplicity. Source EffectHistogram.alternatives adds multiplicities for matching (w,E), and .then multiplies weights, composes effects in temporal order (first E then F gives F∘E), and multiplies multiplicities. For finite control set S, finite alphabet Σ of packets, and current control observer π:S→C, compare the exact output multiplicity separately at each (π(final state),w,full affine effect E). This preserves full effect histogram, although the underlying EffectHistogram itself does not preserve every individually labeled path provenance. Signed subtraction occurs only to compare two positive histograms, never as positive BRC path cancellation.
+
+Write keys h=(w,E), h·k=(wv,F∘E) for k=(v,F). Let H be a finite key set containing (1,I6) and closed under every enabled right edge multiplication from every state. A sufficient case is unit weights and effects generating a finite semigroup; the more precise requirement is finite reachable closed state-key support. Neither invertibility nor a spatial law is assumed.
+
+## Theorem R248.1 — finite-key all-future histogram test
+
+Let n=|S|, m=|H|, D=nm. For any initial states s,t, if their **full exact effect-histogram observations** differ after some finite packet word, a distinguishing word exists of length ≤ D−1. Equivalence for every finite word is decidable by an exact rational span of dimension ≤D and checks of at most |Σ|D successor images, apart from ordinary arithmetic complexity.
+
+**Proof.** Let V=Q^(S×H), basis e_(s,h). For each packet letter a define the linear map
+  T_a(e_(s,h)) = sum_{edges (s→u,k,c) in a} c e_(u,h·k).
+Positive alternative composition adds these counts; serial composition multiplies keys and counts. Thus induction proves that T_word e_(s,identity) is exactly the control-resolved histogram after the word. The linear observer L(e_(u,h))=e_(π(u),h) groups by current observed control label, preserving (w,E) exactly. The two start states have identical observed histograms after word q iff L T_q v=0 for v=e_(s,identity)−e_(t,identity).
+
+Put W_j=span{T_q v:|q|≤j}. Then W_(j+1)=W_j + sum_a T_a W_j. W_0 has dimension≤1, each strict increase adds at least one rational dimension, and dim V=D. Therefore W_(D−1) is invariant under every T_a (or stabilized earlier). If L vanishes on W_(D−1), it vanishes for every future word; if not, a witness is already in its length≤D−1 generators. QED.
+
+**Example.** Let I6 identity, R1(z1,...,z6)=(-z1,z2,...,z6). H={I6,R1} is closed because R1²=I6. With 3 control states and constant π, packet a has 0→2/I6, 1→0/I6, 2→2/R1; b fixes every state with effect I6. Every edge has weight1,count1. The empty word and all length-one words give identical histograms starting at 0 and1, but aa yields respectively R1 and I6. Exact shortest witness length=2, within D−1=5. A second example sends each state to control state0 with identity effect under every gate, giving a certified all-future equivalent pair.
+
+## Theorem R248.2 — one-state, two-branch infinite-span obstruction
+
+Full-effect histogram reachability need not have finite vector-space span even with one control state and only two positive branches. Consider the single control state's loop packet P with alternatives I6 and T1, T1(z1,z2,...,z6)=(z1+1,z2,...,z6), each of weight1,count1. Write the effect T_k as the formal basis symbol X^k (bookkeeping, not a classical propagator). For m serial repeats:
+  H_m(X)=(1+X)^m = Σ_{k=0}^m binom(m,k) X^k.
+The exact support size equals m+1 and positive total path count equals 2^m. The family H_0,H_1,... is rational-linearly independent: in any nonzero finite linear combination, the largest-index member contributes a unique leading monomial with nonzero coefficient. Thus no fixed finite-dimensional linear state with a linear full-histogram output map represents all H_m. R248.1's finite H hypothesis is essential to that *particular finite span construction*. The binomial family nevertheless has a concise nonlinear closed form; no general undecidability is implied. QED.
+
+## Corollary R248.3 — exact degree≤2 moment closure is strictly coarser
+
+At zero first-axis raw-chart input the unnormalized positive-path moments after m repeats are M0=2^m, M1=m·2^(m−1) for m≥1, and M2=m(m+1)·2^(m−2) for m≥2; set M1(0)=M2(0)=0, M2(1)=1. These follow from formal finite polynomial identities, consistent with the scope of Source EffectHistogram.moment_action (degree≤2 affine observer). Full histograms can differ despite equal moments: multiplicities (4,4,4,4) and (5,1,7,3) at translations offsets 0,1,2,3 both give (M0,M1,M2)=(16,24,56), but have respective cubic moments 144 and138. Hence a degree≤2 affine moment quotient is not a full-effect-histogram safe quotient.
+
+## Evidence and boundaries
+
+Author-side exact Python: all m=0..18 translation histogram and moment identities passed, with m18 support19,total262144,M1=2359296,M2=22413312. The finite reflection example gives shortest word aa of length2. 150 deterministic-seed small finite-control cases matched exhaustive words to D−1; a distinct all-future-equivalent example was checked. The infinite results are **symbolic proofs**, not extrapolation from m≤18/random finite tests. Source methods and their exact typed laws were read/reused (REUSE_APPLIED). The original enterprise_math module was not imported/executed here. Strong congruence certificate in certify_control_partition is different from this trace-equivalence theorem. Native X6 legal update status, R193 provenance embedding/enumeration and independent Driver admission remain open. No claim of novelty for the classical weighted-automaton span method itself.
+
+**Next R249:** test original Source .from_edges/.then and .moment_action in a matched package; then isolate a weaker-than-finite-H exact histogram-equivalence certificate for restricted translation effects while keeping the full-histogram versus moment observer boundary explicit.
