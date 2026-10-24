@@ -1,0 +1,109 @@
+{
+  "schema": "EM_R256_AUTHOR_EXACT_VERIFICATION_V1",
+  "observed_at": "2026-10-24",
+  "source_pins": {
+    "global_knowledge_main": "7b33f8066e9993e7c941959a9d738ed405248eb8",
+    "enterprise_math_main": "77f350a94f60c42f6c3d70befc7b494ba9c603b6",
+    "brc_transport_blob": "be1debe367263931bd5e93fd750be3ed54624fe1",
+    "brc_control_port_blob": "44def6b8ac787e798d3cc2c6be16f873f91b9db8"
+  },
+  "model": "Formal 3-nonspatial-control, positive unit-multiplicity BRC, 6-axis sign-flip/translation effects, source selector query DFA contains substring 00",
+  "executed_checks": {
+    "python_exact": "PASS",
+    "cxx17_boost_cpp_int_independent": "PASS",
+    "depths": "0..96",
+    "each_language_exhaustive_word_checks": "8191 words (sum 2^m, 0<=m<=12)",
+    "mass_invariant": "2^m",
+    "query_avoiding_00": "Fibonacci F_(m+2)",
+    "witness_depth3": {
+      "words": [
+        "000",
+        "101"
+      ],
+      "same_O": [
+        0,
+        1,
+        -1
+      ],
+      "DFA_states": [
+        2,
+        0
+      ],
+      "fixed_horizon_answer_bits": 1
+    },
+    "witness_depth7": {
+      "words": [
+        "1110101",
+        "1011010",
+        "0000000"
+      ],
+      "same_O": [
+        2,
+        -1,
+        1
+      ],
+      "DFA_states": [
+        0,
+        1,
+        2
+      ],
+      "future_suffix_witness": "append selector 0 separates state 0 from 1",
+      "online_worst_fiber_bits": 2
+    },
+    "selected": {
+      "3": {
+        "total": "8",
+        "no00": "5",
+        "yes00": "3",
+        "joint_atoms": 7
+      },
+      "7": {
+        "total": "128",
+        "no00": "34",
+        "yes00": "94",
+        "joint_atoms": 49
+      },
+      "12": {
+        "total": "4096",
+        "no00": "377",
+        "yes00": "3719",
+        "joint_atoms": 122
+      },
+      "24": {
+        "total": "16777216",
+        "no00": "121393",
+        "yes00": "16655823",
+        "joint_atoms": 290
+      },
+      "48": {
+        "total": "281474976710656",
+        "no00": "12586269025",
+        "yes00": "281462390441631",
+        "joint_atoms": 626
+      },
+      "96": {
+        "total": "79228162514264337593543950336",
+        "no00": "135301852344706746049",
+        "yes00": "79228162378962485248837204287",
+        "joint_atoms": 1298,
+        "coarse_effect_atoms": 566
+      }
+    }
+  },
+  "local_verified_code_sha256": {
+    "python": "bdf1b4abe1ffe052fbd00b725601749ee1d1faf26fd3c3302a3f41eb51e74d1a",
+    "cxx17": "c9ff8bb479478ff6a0f9d96fbcb0631aca00ea0d776b6fd6fd1260266ce94290"
+  },
+  "governance": {
+    "native_session_start": "STATIC_READONLY_SCOPE_DENIED; operation_sent=false",
+    "task_inventory": "CONTROL_QUOTA",
+    "active_owner_verified": false,
+    "claim": false,
+    "native_R193_observer_verified": false,
+    "native_heartbeat_mapping_verified": false,
+    "native_package_executed": false,
+    "formal_result": false,
+    "driver_review": false
+  },
+  "scope": "Theorems apply to the explicitly given formal positive BRC carrier and source regular-language query. Universal proofs by induction and finite DFA right congruence, not extrapolation from 96 finite steps."
+}
