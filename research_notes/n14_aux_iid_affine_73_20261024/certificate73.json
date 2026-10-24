@@ -1,0 +1,125 @@
+{
+  "schema": "EM_N14_AUTHOR_EXACT_AFFINE_73_V1",
+  "date": "2026-10-24",
+  "status": "AUTHOR_PROVED_EXACT_FRACTION_DRIVER_UNREVIEWED",
+  "model": {
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "N": 14,
+    "history": "arbitrary ordered randomized",
+    "native_transfer": false
+  },
+  "predecessor": {
+    "source_commit": "df2fd1ba3a24728e6bb5fc959f602a8b87202623",
+    "alpha72": "2585970549846042247/7450150876955541504",
+    "V72": "24569611393219845149/1862537719238885376"
+  },
+  "dual": {
+    "K73": "2306549196/525227",
+    "lambdaP": "2088082296/525227",
+    "lambdaQ": "2306549196/525227",
+    "Gamma73": "4394631492/525227",
+    "Bellman_root": "83941221388756468593095131/28772208784196530864128",
+    "states": 680,
+    "comparisons": 1240,
+    "positive_slacks": 1238,
+    "negative_slacks": 0,
+    "zero_ties": [
+      [
+        "12,0,1",
+        "C",
+        "Q"
+      ],
+      [
+        "8,6,1",
+        "C",
+        "P"
+      ]
+    ],
+    "minimum_strict_slack": "963802307/14521476096"
+  },
+  "construction": {
+    "A73": [
+      8,
+      6,
+      1
+    ],
+    "B": [
+      12,
+      0,
+      1
+    ],
+    "nominal_A": 56,
+    "live_A": 40,
+    "pA": "25/4718592",
+    "qA": "25/26873856",
+    "live_B": 12,
+    "pB": "48828125/725594112",
+    "qB": "48828125/362797056",
+    "X": "2821925/901736973729792",
+    "Y": "37625/8916100448256",
+    "E": "48828125/46438023168",
+    "H": "48828125/52242776064",
+    "h73": "64415991/17408000000000",
+    "eta73": "13130675/17245719622582272",
+    "s73": "11935611272766011/20889600000000000",
+    "alpha73": "2585970555518493847/7450150876955541504",
+    "V73": "24569599527714816749/1862537719238885376"
+  },
+  "truncation": {
+    "sample": [
+      [
+        9,
+        6,
+        1,
+        252,
+        180,
+        40
+      ],
+      [
+        9,
+        7,
+        1,
+        72,
+        40,
+        40
+      ],
+      [
+        11,
+        7,
+        2,
+        1980,
+        1195,
+        80
+      ]
+    ],
+    "descendant_stop_states": 22,
+    "terminal_words_through_A": 4280
+  },
+  "validation": {
+    "local_exact_Fraction_primary": "PASS",
+    "local_exact_Fraction_crosscheck": "PASS",
+    "local_integer_descendant_routing": "PASS",
+    "cross_terms_all_four_zero": true,
+    "driver_review": "NOT_PERFORMED",
+    "native_claim": "UNVERIFIED"
+  },
+  "next_candidate": {
+    "K74": "20412/5",
+    "A74": [
+      12,
+      5,
+      1
+    ],
+    "action_tie": "continue versus P",
+    "proved_interval": false
+  }
+}
