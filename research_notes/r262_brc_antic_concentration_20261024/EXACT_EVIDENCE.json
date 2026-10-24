@@ -1,0 +1,53 @@
+{
+  "schema": "EM_R262_BRC_FOURIER_ANTICONCENTRATION_EXACT_V1",
+  "date": "2026-10-24",
+  "mode": "AUTHOR_SIDE_EXACT_INTEGER_SYMBOLIC_VERIFIED_DRIVER_UNREVIEWED",
+  "source_main": "awdawmip/enterprise-math@db1621f2d71ebbcc59c03966c9c3e66b1c03a5a0",
+  "global_main": "awdawmip/chatgpt-global-knowledge@f93bbbdb62668c802b80406b2ee324a3aafffabf",
+  "fixed_BRC_transition": "(eps,k) then (eta,b) = (eta*eps, eta*k+b)",
+  "invertible_recovery": "t=eps*k, k=eps*t when eps is fixed",
+  "transfer_determinant": "(lambda^2+1)*(lambda^6-(z+z^-1)*lambda^5+2lambda^2-1)",
+  "max_unit_circle_spectral_points": [
+    "z=+1",
+    "z=-1"
+  ],
+  "positive_curvature_sigma2": "3/2+7sqrt(5)/10",
+  "exact_raw_words_0_to_13": 16383,
+  "exact_restricted_full_atom_comparisons_0_to_140": 75082,
+  "samples": {
+    "8": {
+      "max_r1": "4",
+      "M": "1"
+    },
+    "13": {
+      "max_r1": "21",
+      "M": "7"
+    },
+    "20": {
+      "max_r1": "268",
+      "M": "114"
+    },
+    "30": {
+      "max_r1": "26183",
+      "M": "10386"
+    },
+    "50": {
+      "max_r1": "301230098",
+      "M": "117565026"
+    },
+    "80": {
+      "max_r1": "438660292107331",
+      "M": "169758003083661"
+    },
+    "100": {
+      "max_r1": "5915985961157205016",
+      "M": "2283247178489394153"
+    },
+    "140": {
+      "max_r1": "1139916304565548657777749390",
+      "M": "438611399828372525268845634"
+    }
+  },
+  "theorem": "M_m=Theta(phi^m/sqrt(m)) based on analytic Perron spectral gap and Laurent coefficient bound, combined with R261 Omega",
+  "limitations": "Author proof only; no original enterprise_math import, R193 native transfer, owner claim, or independent Driver acceptance"
+}
