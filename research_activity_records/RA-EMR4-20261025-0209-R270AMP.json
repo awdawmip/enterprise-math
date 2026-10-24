@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR4-20261025-0209-R270AMP",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "ae394b2d4846e14763af593a49c1129fa1f9a25e",
+          "path": "research_notes/r270_six_channel_mass_20261025/R270_BLOCK_AMPLIFICATION_LOWER_BOUND_20261025.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "6cdca974f19e624dbb92e8a2911092d15e562559ebff1fc88fea4dbd42ffd3fa",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "0701f04eec22050da58346ac30bed53262887809",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/ae394b2d4846e14763af593a49c1129fa1f9a25e/research_notes/r270_six_channel_mass_20261025/R270_BLOCK_AMPLIFICATION_LOWER_BOUND_20261025.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r270-proof-readback-local-20261025-0213",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261025-0209-R270AMP/readbacks/d28aef925d8479da205a15b0e3710e5b5b3115fcb79a6510947b69f6c01dbee4.json",
+          "verification_receipt_sha256": "d28aef925d8479da205a15b0e3710e5b5b3115fcb79a6510947b69f6c01dbee4"
+        }
+      ],
+      "event_id": "r270-16482-block-amplification-20261025-0213",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@c9c3e48d3aeb4e53b6bc8c66e299c7e6b7060036:journal/enterprise-math/2026-10-25/20261025T021100+0800-r270-six-channel-reset-amplification-r4.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-25T02:09:50+08:00",
   "registration_key": "session:scheduled-em-research4-20261025-0155:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-CHAT-R4-20261025-LOCAL",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "scheduled-em-research4-20261025-0155",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-25T02:09:50+08:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
