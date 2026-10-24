@@ -12,16 +12,16 @@ Earlier author-side exact checks cover all 575 target primes p<=20000, and even/
 
 The new methodological question is precise: does **the same unchanged rational finite sum** satisfy the congruence if the hypothesis `p is prime` is erased while `q=6m+1` and `q mod 24 in {13,19}` remain? An affirmative algebraic identity over every integer m in those two classes could then eliminate the prime-specific work. We exhibit exact counterexamples in **both prescribed residue classes**.
 
-For arbitrary integer m>=1, define, exactly as for the original source,
-[
-A_m=rac{(6m)!}{3^{6m}((2m)!)^3},quad R_{m,0}=1,quad
-rac{R_{m,n+1}}{R_{m,n}}=
-rac{(4m+2n+1)(3n+1)(3n+2)}
+For arbitrary integer \(m\ge1\), define, exactly as for the original source,
+\[
+A_m=\frac{(6m)!}{3^{6m}((2m)!)^3},\qquad R_{m,0}=1,\qquad
+\frac{R_{m,n+1}}{R_{m,n}}=
+\frac{(4m+2n+1)(3n+1)(3n+2)}
 {36(n+1)(2m+n+1)(4m+n+1)},
-]
-[
-S_m=A_msum_{n=0}^{4m}(6n+12m+1)R_{m,n}.
-]
+\]
+\[
+S_m=A_m\sum_{n=0}^{4m}(6n+12m+1)R_{m,n}.
+\]
 This rational expression exists without a primality hypothesis. Put `q=6m+1`, `D_m=S_m-q(4/3)^{q-1}`; interpret `D_m mod q^3` only when its reduced denominator is coprime to q. All instances below satisfy this condition; no nonunit modular inverse is used.
 
 ## 2. Counterexample theorem — actual original endpoint, same residue classes
@@ -29,11 +29,11 @@ This rational expression exists without a primality hypothesis. Put `q=6m+1`, `D
 **Theorem (exact finite, unconditional):** It is false that the original source sum satisfies `S_m ≡ q(4/3)^(q-1) (mod q²)` for every positive integer m with composite `q=6m+1≡13` or `19 (mod24)`. In particular, the stronger extension modulo q³ is also false.
 
 The following table is computed directly as exact rational numbers, then reduced modulo q³. Every row was independently reconstructed via (i) the **unmodified source recurrence**, and (ii) its independently evaluated **factorial summand**
-[
-R_{m,n}=rac{(4m+2n)!((2m)!)^2(3n)!}
+\[
+R_{m,n}=\frac{(4m+2n)!((2m)!)^2(3n)!}
 {216^n((2m+n)!)^2(4m+n)!(n!)^2},
-]
-whose identity follows from matching the n=0 term and consecutive rational ratios. The two full rational sums agree exactly, not just modulo q³.
+\]
+whose identity follows from matching the \(n=0\) term and consecutive rational ratios. The two full rational sums agree exactly, not just modulo \(q^3\).
 
 | m | q (prime factors) | q mod 24 | S_m mod q³ | q(4/3)^(q−1) mod q³ | D_m mod q³ | D_m mod q² |
 |---:|---|---:|---:|---:|---:|---:|
