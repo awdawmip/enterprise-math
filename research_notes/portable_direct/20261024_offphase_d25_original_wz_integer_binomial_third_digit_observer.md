@@ -49,7 +49,7 @@ which, together with the product formula, proves
 \boxed{J_p\equiv-2h+\frac94b^2-H_2,\qquad L_p\equiv H_2\pmod p.}\tag{2}
 \]
 
-The pair \((J_p,L_p)\) is thus the **minimal two-coordinate repair** for the two p-adic quantities formerly written using \(h,H_2\). A single total residue cannot reconstruct both labels without an additional relation.
+The pair \((J_p,L_p)\) is an **explicit, integral two-coordinate repair** for the two p-adic quantities formerly written using \(h,H_2\). Their scalar combination used below does not itself retain the two separately labeled inputs.
 
 ## 2. Harmonic-free complete moving-rank WZ third digit
 
