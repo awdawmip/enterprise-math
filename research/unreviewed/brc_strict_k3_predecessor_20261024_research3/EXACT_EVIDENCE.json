@@ -1,0 +1,569 @@
+{
+  "schema": "EM_BRC_STRICT_K3_EXACT_EVIDENCE_V1",
+  "model": {
+    "actions": {
+      "alpha": [
+        "1/28",
+        "22/28",
+        "2/28",
+        "3/28"
+      ],
+      "beta": [
+        "1/29",
+        "22/29",
+        "2/29",
+        "4/29"
+      ]
+    },
+    "good_edges": [
+      "01",
+      "02",
+      "03",
+      "23"
+    ],
+    "degree": [
+      3,
+      1,
+      2,
+      2
+    ],
+    "start_count": [
+      2,
+      0
+    ]
+  },
+  "proof_target": "K0={n>=5}, K1={n>=4}, K2={n>=3}, K3=S={n>=2}, strict negative increments for all n>=2",
+  "p_start_fraction": "33/392",
+  "all_count_state_increment_signs_n1_through_n4": [
+    {
+      "c": [
+        0,
+        1
+      ],
+      "U_alpha": "69",
+      "U_beta": "72",
+      "strict_sign": "POSITIVE"
+    },
+    {
+      "c": [
+        1,
+        0
+      ],
+      "U_alpha": "66",
+      "U_beta": "69",
+      "strict_sign": "POSITIVE"
+    },
+    {
+      "c": [
+        0,
+        2
+      ],
+      "U_alpha": "-305",
+      "U_beta": "-348",
+      "strict_sign": "NEGATIVE"
+    },
+    {
+      "c": [
+        1,
+        1
+      ],
+      "U_alpha": "-247",
+      "U_beta": "-290",
+      "strict_sign": "NEGATIVE"
+    },
+    {
+      "c": [
+        2,
+        0
+      ],
+      "U_alpha": "-186",
+      "U_beta": "-229",
+      "strict_sign": "NEGATIVE"
+    },
+    {
+      "c": [
+        0,
+        3
+      ],
+      "U_alpha": "-1893",
+      "U_beta": "-3420",
+      "strict_sign": "NEGATIVE"
+    },
+    {
+      "c": [
+        1,
+        2
+      ],
+      "U_alpha": "-1265",
+      "U_beta": "-2792",
+      "strict_sign": "NEGATIVE"
+    },
+    {
+      "c": [
+        2,
+        1
+      ],
+      "U_alpha": "-695",
+      "U_beta": "-2222",
+      "strict_sign": "NEGATIVE"
+    },
+    {
+      "c": [
+        3,
+        0
+      ],
+      "U_alpha": "-186",
+      "U_beta": "-1713",
+      "strict_sign": "NEGATIVE"
+    },
+    {
+      "c": [
+        0,
+        4
+      ],
+      "U_alpha": "-26789",
+      "U_beta": "-72420",
+      "strict_sign": "NEGATIVE"
+    },
+    {
+      "c": [
+        1,
+        3
+      ],
+      "U_alpha": "-22021",
+      "U_beta": "-67652",
+      "strict_sign": "NEGATIVE"
+    },
+    {
+      "c": [
+        2,
+        2
+      ],
+      "U_alpha": "-17881",
+      "U_beta": "-63512",
+      "strict_sign": "NEGATIVE"
+    },
+    {
+      "c": [
+        3,
+        1
+      ],
+      "U_alpha": "-14311",
+      "U_beta": "-59942",
+      "strict_sign": "NEGATIVE"
+    },
+    {
+      "c": [
+        4,
+        0
+      ],
+      "U_alpha": "-11250",
+      "U_beta": "-56881",
+      "strict_sign": "NEGATIVE"
+    }
+  ],
+  "alpha_big_label_strict_K0_cuts_n1_through_n4": [
+    {
+      "total_count": 1,
+      "alpha_big_vertex_deficit": "17",
+      "number_of_count_states": 2
+    },
+    {
+      "total_count": 2,
+      "alpha_big_vertex_deficit": "259",
+      "number_of_count_states": 3
+    },
+    {
+      "total_count": 3,
+      "alpha_big_vertex_deficit": "3053",
+      "number_of_count_states": 4
+    },
+    {
+      "total_count": 4,
+      "alpha_big_vertex_deficit": "6331",
+      "number_of_count_states": 5
+    }
+  ],
+  "positive_K0_flows_for_all_count_states_at_n5": [
+    {
+      "c": [
+        0,
+        5
+      ],
+      "next_action": "alpha",
+      "vertex_demand": [
+        "81",
+        "30921792",
+        "1664",
+        "51200"
+      ],
+      "edge_capacity": [
+        "32181715",
+        "6075",
+        "75000",
+        "178848"
+      ],
+      "edge_used": [
+        "30921792",
+        "1745",
+        "0",
+        "51200"
+      ],
+      "edge_margin": [
+        "1259923",
+        "4330",
+        "75000",
+        "127648"
+      ]
+    },
+    {
+      "c": [
+        0,
+        5
+      ],
+      "next_action": "beta",
+      "vertex_demand": [
+        "84",
+        "36075424",
+        "1728",
+        "51200"
+      ],
+      "edge_capacity": [
+        "38618058",
+        "6318",
+        "75000",
+        "178848"
+      ],
+      "edge_used": [
+        "36075424",
+        "1812",
+        "0",
+        "51200"
+      ],
+      "edge_margin": [
+        "2542634",
+        "4506",
+        "75000",
+        "127648"
+      ]
+    },
+    {
+      "c": [
+        1,
+        4
+      ],
+      "next_action": "alpha",
+      "vertex_demand": [
+        "81",
+        "30921792",
+        "1664",
+        "38400"
+      ],
+      "edge_capacity": [
+        "32181715",
+        "6075",
+        "60000",
+        "149040"
+      ],
+      "edge_used": [
+        "30921792",
+        "1745",
+        "0",
+        "38400"
+      ],
+      "edge_margin": [
+        "1259923",
+        "4330",
+        "60000",
+        "110640"
+      ]
+    },
+    {
+      "c": [
+        1,
+        4
+      ],
+      "next_action": "beta",
+      "vertex_demand": [
+        "84",
+        "36075424",
+        "1728",
+        "38400"
+      ],
+      "edge_capacity": [
+        "38618058",
+        "6318",
+        "60000",
+        "149040"
+      ],
+      "edge_used": [
+        "36075424",
+        "1812",
+        "0",
+        "38400"
+      ],
+      "edge_margin": [
+        "2542634",
+        "4506",
+        "60000",
+        "110640"
+      ]
+    },
+    {
+      "c": [
+        2,
+        3
+      ],
+      "next_action": "alpha",
+      "vertex_demand": [
+        "81",
+        "30921792",
+        "1664",
+        "28800"
+      ],
+      "edge_capacity": [
+        "32181715",
+        "6075",
+        "48000",
+        "124200"
+      ],
+      "edge_used": [
+        "30921792",
+        "1745",
+        "0",
+        "28800"
+      ],
+      "edge_margin": [
+        "1259923",
+        "4330",
+        "48000",
+        "95400"
+      ]
+    },
+    {
+      "c": [
+        2,
+        3
+      ],
+      "next_action": "beta",
+      "vertex_demand": [
+        "84",
+        "36075424",
+        "1728",
+        "28800"
+      ],
+      "edge_capacity": [
+        "38618058",
+        "6318",
+        "48000",
+        "124200"
+      ],
+      "edge_used": [
+        "36075424",
+        "1812",
+        "0",
+        "28800"
+      ],
+      "edge_margin": [
+        "2542634",
+        "4506",
+        "48000",
+        "95400"
+      ]
+    },
+    {
+      "c": [
+        3,
+        2
+      ],
+      "next_action": "alpha",
+      "vertex_demand": [
+        "81",
+        "30921792",
+        "1664",
+        "21600"
+      ],
+      "edge_capacity": [
+        "32181715",
+        "6075",
+        "38400",
+        "103500"
+      ],
+      "edge_used": [
+        "30921792",
+        "1745",
+        "0",
+        "21600"
+      ],
+      "edge_margin": [
+        "1259923",
+        "4330",
+        "38400",
+        "81900"
+      ]
+    },
+    {
+      "c": [
+        3,
+        2
+      ],
+      "next_action": "beta",
+      "vertex_demand": [
+        "84",
+        "36075424",
+        "1728",
+        "21600"
+      ],
+      "edge_capacity": [
+        "38618058",
+        "6318",
+        "38400",
+        "103500"
+      ],
+      "edge_used": [
+        "36075424",
+        "1812",
+        "0",
+        "21600"
+      ],
+      "edge_margin": [
+        "2542634",
+        "4506",
+        "38400",
+        "81900"
+      ]
+    },
+    {
+      "c": [
+        4,
+        1
+      ],
+      "next_action": "alpha",
+      "vertex_demand": [
+        "81",
+        "30921792",
+        "1664",
+        "16200"
+      ],
+      "edge_capacity": [
+        "32181715",
+        "6075",
+        "30720",
+        "86250"
+      ],
+      "edge_used": [
+        "30921792",
+        "1745",
+        "0",
+        "16200"
+      ],
+      "edge_margin": [
+        "1259923",
+        "4330",
+        "30720",
+        "70050"
+      ]
+    },
+    {
+      "c": [
+        4,
+        1
+      ],
+      "next_action": "beta",
+      "vertex_demand": [
+        "84",
+        "36075424",
+        "1728",
+        "16200"
+      ],
+      "edge_capacity": [
+        "38618058",
+        "6318",
+        "30720",
+        "86250"
+      ],
+      "edge_used": [
+        "36075424",
+        "1812",
+        "0",
+        "16200"
+      ],
+      "edge_margin": [
+        "2542634",
+        "4506",
+        "30720",
+        "70050"
+      ]
+    },
+    {
+      "c": [
+        5,
+        0
+      ],
+      "next_action": "alpha",
+      "vertex_demand": [
+        "81",
+        "30921792",
+        "1664",
+        "12150"
+      ],
+      "edge_capacity": [
+        "32181715",
+        "6075",
+        "24576",
+        "71875"
+      ],
+      "edge_used": [
+        "30921792",
+        "1745",
+        "0",
+        "12150"
+      ],
+      "edge_margin": [
+        "1259923",
+        "4330",
+        "24576",
+        "59725"
+      ]
+    },
+    {
+      "c": [
+        5,
+        0
+      ],
+      "next_action": "beta",
+      "vertex_demand": [
+        "84",
+        "36075424",
+        "1728",
+        "12150"
+      ],
+      "edge_capacity": [
+        "38618058",
+        "6318",
+        "24576",
+        "71875"
+      ],
+      "edge_used": [
+        "36075424",
+        "1812",
+        "0",
+        "12150"
+      ],
+      "edge_margin": [
+        "2542634",
+        "4506",
+        "24576",
+        "59725"
+      ]
+    }
+  ],
+  "min_positive_scaled_flow_margin": "4330",
+  "independent_support_mask_dp": {
+    "all_action_words_length_1_through_8": 510,
+    "independent_increment_comparisons_base_words_length_1_through_4": 60
+  },
+  "algebra": "P(x,y)=23^(x+y)+3^(x+y)+4^x 5^y+5^x 6^y-22^(x+y)-2^(x+y+1)-2 3^x 4^y-3; delta=P/(28^x 29^y); U_a=P(c+e_a)-d_a P(c)",
+  "boundary": "empty history excluded from nonempty inclusion-exclusion; arbitrary-future result is proven by hereditary K0 and predecessor induction, not finite experiment",
+  "mathematical_status": "AUTHOR_SIDE_EXACT_VERIFIED_UNREVIEWED_NOT_ADMITTED"
+}
