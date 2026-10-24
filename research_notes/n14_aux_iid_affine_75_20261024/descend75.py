@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Integer ordered-prefix descendant stop counts at new 73rd site."""
+"""Integer ordered-prefix descendant stop counts at new 75th site."""
 from collections import defaultdict
 import verify_n14_75 as m
 
@@ -25,10 +25,10 @@ def routed_stop():
 
 if __name__=='__main__':
     stops,hit=routed_stop()
-    assert hit==40
-    via={str(st):{'decision':z,'others':v[0],'through_A73':v[1]}
+    assert hit==3
+    via={str(st):{'decision':z,'others':v[0],'through_A75':v[1]}
          for (st,z),v in sorted(stops.items()) if v[1]}
-    assert len(via)==22
-    assert sum(r['through_A73'] for r in via.values())==4280
-    print('PASS first-hit=40, descendant states=22, terminal words through A73=4280')
+    assert len(via)==49
+    assert sum(r['through_A75'] for r in via.values())==4035
+    print('PASS first-hit=3, descendant states=49, terminal words through A75=4035')
     for k,v in via.items():print(k,v)
