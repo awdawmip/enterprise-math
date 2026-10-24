@@ -1,0 +1,103 @@
+{
+  "schema": "N14_AUX_IID_AFFINE_70_AUTHOR_CERT_V1",
+  "date": "2026-10-24",
+  "model": "P=(1/8,1/24,5/6); Q=(1/12,1/12,5/6); N=14; all ordered-history randomized policies",
+  "global_pin": "73394886355700111e48ae3ed0da83221b14ad4e",
+  "em_control_pin": "a320c02c11ceedc9fa1a526137bc57abcb738b05",
+  "predecessor_source_pin": "4c2560adafcc1d3b1105bfa9c8310c536c5481d8",
+  "math_scope": "AUTHOR_EXACT_FINITE_AUXILIARY_IID",
+  "derivation": {
+    "K70": "98126316/18523",
+    "lambdaP": "88557048/18523",
+    "lambdaQ": "98126316/18523",
+    "Gamma70": "186683364/18523",
+    "eta70": "8983655/413897270941974528",
+    "h70": "17080439/139264000000000",
+    "alpha70": "2585943605439642247/7450150876955541504",
+    "V70": "24633048191127045149/1862537719238885376",
+    "root": "3563071788120133078350431/1014699593337113935872",
+    "duality_states": 680,
+    "comparisons": 1240,
+    "positive_slacks": 1238,
+    "negative_slacks": 0,
+    "zero_ties": [
+      {
+        "state": [
+          9,
+          4,
+          4
+        ],
+        "actions": [
+          "C",
+          "Q"
+        ]
+      },
+      {
+        "state": [
+          12,
+          0,
+          1
+        ],
+        "actions": [
+          "C",
+          "Q"
+        ]
+      }
+    ],
+    "A_nominal": 630,
+    "A_live": 291,
+    "B_live": 12,
+    "firsthit_p": "485/2717908992",
+    "firsthit_q": "485/859963392",
+    "descendant_witnesses": [
+      {
+        "state": [
+          10,
+          4,
+          5
+        ],
+        "firsthit": 291,
+        "through_A": 291
+      },
+      {
+        "state": [
+          10,
+          4,
+          4
+        ],
+        "firsthit": 1425,
+        "through_A": 291
+      }
+    ],
+    "zero_mixed_terms": 4,
+    "next_unproved": {
+      "K71": "5184",
+      "state": [
+        11,
+        1,
+        2
+      ],
+      "tie": [
+        "C",
+        "Q"
+      ]
+    }
+  },
+  "author_local_checks": {
+    "main": "PASS",
+    "second_published_style_checker": "PASS",
+    "fraction_exact": true,
+    "checker_count": 2
+  },
+  "local_verified_git_blob_sha1": {
+    "main": "c256aeead974d15dec806eaa1e8b3fa7f70dc9b4",
+    "second": "3d6420c8dfb428a01a282db1cdb21d40a86fabdc"
+  },
+  "local_verified_sha256": {
+    "main": "d69c0529c7011b65431535ca1b17a89fecc634a44bd25e1212b7a3f97b03ed6d"
+  },
+  "review": "INDEPENDENT_DRIVER_UNREVIEWED",
+  "native_bridge": "UNPROVED",
+  "native_owner": "CONTROL_QUOTA",
+  "native_session": "STATIC_READONLY_SCOPE_DENIED_OPERATION_NOT_SENT"
+}
