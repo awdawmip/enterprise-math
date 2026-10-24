@@ -1,0 +1,112 @@
+{
+  "schema": "EM_AUX_N14_AUTHOR_STAGE87_CERTIFICATE_V1",
+  "date": "2026-10-25",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ]
+  },
+  "source": {
+    "predecessor_commit": "0463187e6425367d643415366869423e35013e7e",
+    "predecessor_derive86_blob": "e2fce9d63fb507d561feda2ca1540ba5123edcae",
+    "global_knowledge_pin": "d74ed8d1e0bef99deaeb1ca9cd8733fa94cd9aa6",
+    "project_source_read_pin": "a1105620739118fffdc40d4bc73c128736b706d1"
+  },
+  "alpha86": "5172378783158315543/14900301753911083008",
+  "V86": "24313786683642713729/1862537719238885376",
+  "K87": "26244/13",
+  "lambdaP": "24264/13",
+  "lambdaQ": "26244/13",
+  "Gamma": "50508/13",
+  "D0": "3879046196983221230495/2848587100012412928",
+  "A87": [
+    13,
+    7,
+    3
+  ],
+  "B": [
+    12,
+    0,
+    1
+  ],
+  "nominal_first_hit_A": 34320,
+  "actual_first_hit_A": 19795,
+  "pA": "2474375/6262062317568",
+  "qA": "2474375/13374150672384",
+  "A_continuation": [
+    "1/24",
+    "11/12",
+    "1",
+    "1"
+  ],
+  "A_terminal_suffix_words": 3,
+  "A_truncated_full_words": 59385,
+  "actual_first_hit_B": 12,
+  "pB": "48828125/725594112",
+  "qB": "48828125/362797056",
+  "B_continuation": [
+    "63/64",
+    "1/144",
+    "9/8",
+    "13/12"
+  ],
+  "h87": "3353273/208896000000",
+  "eta87": "32166875/77605738301620224",
+  "S86": "9865487497784809/13926400000000000",
+  "S87": "29597133147954427/41779200000000000",
+  "alpha87": "5172378789334355543/14900301753911083008",
+  "V87": "24313783684225133729/1862537719238885376",
+  "tPminusTQ_start": "724865489797595435/1241691812825923584",
+  "tPminusTQ_end": "2174599878250146305/3725075438477770752",
+  "bellman": {
+    "states": 680,
+    "nonselected_comparisons": 1240,
+    "strict_positive": 1238,
+    "negative": 0,
+    "ties": [
+      [
+        "13,7,3",
+        "continue",
+        "P"
+      ],
+      [
+        "12,0,1",
+        "continue",
+        "Q"
+      ]
+    ],
+    "least_positive_gap": "177199183/4968677376"
+  },
+  "next_candidate": {
+    "K88": "483272799336/245952751",
+    "A88": [
+      6,
+      4,
+      0
+    ],
+    "competing_actions": [
+      "continue",
+      "P"
+    ]
+  },
+  "local_validation": [
+    "python derive87.py: PASS",
+    "python crosscheck87_compatible.py: PASS",
+    "python crosscheck87_independent_min.py: PASS"
+  ],
+  "scope": {
+    "author_finite_model": true,
+    "shared_predecessor_action_table": true,
+    "driver_independent": false,
+    "live_native_claim_verified": false,
+    "native_BRC_transfer_verified": false
+  }
+}
