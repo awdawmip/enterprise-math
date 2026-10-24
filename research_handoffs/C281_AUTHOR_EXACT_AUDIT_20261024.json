@@ -1,0 +1,64 @@
+{
+  "schema": "EM_C281_ONE_TANGENT_AUTHOR_AUDIT_V1",
+  "date": "2026-10-24",
+  "status": "AUTHOR_EXACT_NOT_ADMITTED",
+  "input_model": "C195_H168_79_NODE_POSITIVE_RATIONAL_AUXILIARY",
+  "verified_global_main": "8edfec2fa963580701d0c8912648b6a9965493ec",
+  "verified_em_main": "4f7169291a872467496de179666f456e67869749",
+  "parent_pairs": [
+    [
+      8,
+      18
+    ],
+    [
+      13,
+      18
+    ],
+    [
+      18,
+      25
+    ],
+    [
+      18,
+      34
+    ]
+  ],
+  "parent_lower": [
+    "1/135",
+    "34/49",
+    "60/77",
+    "19/24"
+  ],
+  "parent_upper": [
+    "6/409",
+    "28/39",
+    "87/109",
+    "41/51"
+  ],
+  "anchor": [
+    "1253/125000",
+    "70489/100000",
+    "79171/100000",
+    "41/51"
+  ],
+  "method": "Convex-log-kernel tangent plus explicit bounded log(Z-v) concavity; exp(u)>=1+u",
+  "exact_result": "4000*L>4001*2^128",
+  "gradient_signs": [
+    "positive",
+    "positive",
+    "positive",
+    "negative"
+  ],
+  "branch_count": 79,
+  "tangent_count": 1,
+  "lower_over_Q_display_only": 1.0002864690091942,
+  "local_exact_ratio_sha256": "336ad9d9386e72b63ab21dd5f6005825a61b2421a8a7ebb18eab75ccd1f251c0",
+  "local_checker_sha256": "6a3d311dde8a17f595e92851fd410d80bb38f426c33f17ae6972c7022f8e6560",
+  "local_isolated_replay": "PASS",
+  "local_package_sha256": "43ffa615b57606e60bf0d1f4f316686e2c288d1e8a2b2e2112b54e30df23d68a",
+  "remote_checker_note": "GitHub checker created from same frozen C275 79-node and 35-box exact inputs; remote readback required; no remote execution asserted.",
+  "native_control": "em_control_tasks CONTROL_QUOTA; em_session_start STATIC_READONLY_SCOPE_DENIED operation_sent=false",
+  "source_claim": false,
+  "driver_review": false,
+  "native_brc_transfer": false
+}
