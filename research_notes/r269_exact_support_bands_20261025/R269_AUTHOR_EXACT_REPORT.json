@@ -1,0 +1,282 @@
+{
+  "schema": "EM_R269_EXACT_AFFINE_SUPPORT_BANDS_V1",
+  "status": "PASS",
+  "predecessor_path": "research_notes/r268_six_output_support_20261025/R268_six_output_support.py @ aac6b9ae60761cceab87c8dbe5d20432b3406d07",
+  "model": "R268 formal positive BRC, same 7 (q,r), six terminal (q,h), authentic (epsilon,k)",
+  "base_n": 10,
+  "base_words_enumerated": 1024,
+  "base_counts_equal_R268_forward": true,
+  "seven_states": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "offsets_minus_n_plus_a_to_n_plus_b": {
+    "0,0": [
+      2,
+      -8
+    ],
+    "0,2": [
+      4,
+      -4
+    ],
+    "1,1": [
+      2,
+      -6
+    ],
+    "1,2": [
+      4,
+      -4
+    ],
+    "2,0": [
+      0,
+      -6
+    ],
+    "2,1": [
+      8,
+      -4
+    ],
+    "2,2": [
+      2,
+      -6
+    ]
+  },
+  "symbolic_induction_image_offsets": {
+    "2,1": [
+      {
+        "source": [
+          0,
+          0
+        ],
+        "choice": 0,
+        "a": 8,
+        "b": -4
+      }
+    ],
+    "2,0": [
+      {
+        "source": [
+          0,
+          0
+        ],
+        "choice": 1,
+        "a": 2,
+        "b": -10
+      },
+      {
+        "source": [
+          2,
+          0
+        ],
+        "choice": 1,
+        "a": 0,
+        "b": -8
+      },
+      {
+        "source": [
+          2,
+          1
+        ],
+        "choice": 1,
+        "a": 8,
+        "b": -6
+      }
+    ],
+    "2,2": [
+      {
+        "source": [
+          0,
+          2
+        ],
+        "choice": 0,
+        "a": 4,
+        "b": -6
+      },
+      {
+        "source": [
+          0,
+          2
+        ],
+        "choice": 1,
+        "a": 4,
+        "b": -6
+      },
+      {
+        "source": [
+          2,
+          2
+        ],
+        "choice": 1,
+        "a": 2,
+        "b": -8
+      }
+    ],
+    "0,2": [
+      {
+        "source": [
+          1,
+          1
+        ],
+        "choice": 0,
+        "a": 6,
+        "b": -4
+      },
+      {
+        "source": [
+          1,
+          2
+        ],
+        "choice": 0,
+        "a": 4,
+        "b": -6
+      },
+      {
+        "source": [
+          1,
+          2
+        ],
+        "choice": 1,
+        "a": 4,
+        "b": -6
+      }
+    ],
+    "0,0": [
+      {
+        "source": [
+          1,
+          1
+        ],
+        "choice": 1,
+        "a": 2,
+        "b": -8
+      }
+    ],
+    "1,1": [
+      {
+        "source": [
+          2,
+          0
+        ],
+        "choice": 0,
+        "a": 2,
+        "b": -6
+      }
+    ],
+    "1,2": [
+      {
+        "source": [
+          2,
+          1
+        ],
+        "choice": 0,
+        "a": 10,
+        "b": -4
+      },
+      {
+        "source": [
+          2,
+          2
+        ],
+        "choice": 0,
+        "a": 4,
+        "b": -6
+      }
+    ]
+  },
+  "replay_verified_through_n": 80,
+  "snapshots": {
+    "10": {
+      "effect_support": 18,
+      "all_seven_internal_effects": 6,
+      "all_six_terminal_effects": 10,
+      "six_without_seven": 4
+    },
+    "11": {
+      "effect_support": 20,
+      "all_seven_internal_effects": 8,
+      "all_six_terminal_effects": 12,
+      "six_without_seven": 4
+    },
+    "12": {
+      "effect_support": 22,
+      "all_seven_internal_effects": 10,
+      "all_six_terminal_effects": 14,
+      "six_without_seven": 4
+    },
+    "18": {
+      "effect_support": 34,
+      "all_seven_internal_effects": 22,
+      "all_six_terminal_effects": 26,
+      "six_without_seven": 4
+    },
+    "32": {
+      "effect_support": 62,
+      "all_seven_internal_effects": 50,
+      "all_six_terminal_effects": 54,
+      "six_without_seven": 4
+    },
+    "64": {
+      "effect_support": 126,
+      "all_seven_internal_effects": 114,
+      "all_six_terminal_effects": 118,
+      "six_without_seven": 4
+    },
+    "80": {
+      "effect_support": 158,
+      "all_seven_internal_effects": 146,
+      "all_six_terminal_effects": 150,
+      "six_without_seven": 4
+    }
+  },
+  "theorem_formulas_n_ge_10": {
+    "all_effect_support": "2*n-2",
+    "seven_internal_saturated": "2*n-14",
+    "six_terminal_saturated": "2*n-10",
+    "six_output_not_seven_internal": "4",
+    "seven_effect_intersection_both_signs": "8-n<=k<=n-8, k=n mod 2",
+    "six_effect_intersection_both_signs": "4-n<=k<=n-8, k=n mod 2"
+  },
+  "logic": "exact base plus symbolic interval-union induction; finite replay independent check only",
+  "not_proven": [
+    "six-state aggregate affine BRC exists or is impossible",
+    "original Enterprise Math native BRC executes this formal update",
+    "R193 provenance/time-port correspondence",
+    "formal claim or independent Driver acceptance"
+  ],
+  "independent_cpp17": {
+    "status": "PASS",
+    "base_words": 1024,
+    "symbolic_image_unions": 7,
+    "exact_replay_through_n": 30
+  },
+  "cold_start_bundle": {
+    "sha256": "a608177a459e15f1474e3ad2a91fd4830394fdf032c2b103d98d6ede54822978",
+    "status": "PASS"
+  },
+  "verification_role": "author-side, not independent Driver admission"
+}
