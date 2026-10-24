@@ -1,0 +1,139 @@
+{
+  "schema": "ENTERPRISE_MATH_N14_AUX_IID_AFFINE_AUTHOR_CERTIFICATE_V1",
+  "date": "2026-10-24",
+  "segment": 66,
+  "authority": "AUTHOR_EXACT_RATIONAL_DRIVER_UNREVIEWED",
+  "model": {
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "N": 14,
+    "ordered_histories": true
+  },
+  "previous": {
+    "source_commit": "9cb91fb9aa846c2eae4ade29a25f12f5abe71c7e",
+    "alpha": "5171859261098244647/14900301753911083008",
+    "V": "12336162058364474269/931268859619442688",
+    "s": "26151763070183819/41779200000000000"
+  },
+  "dual": {
+    "K": "1627128/263",
+    "lambdaP": "1465272/263",
+    "lambdaQ": "1627128/263",
+    "Gamma": "3092400/263",
+    "states": 680,
+    "nonchosen_action_checks": 1240,
+    "strict_positive": 1238,
+    "negative": 0,
+    "ties": [
+      [
+        "11,7,2",
+        "C",
+        "P"
+      ],
+      [
+        "12,0,1",
+        "C",
+        "Q"
+      ]
+    ],
+    "smallest_positive_slack": "115693/3635712",
+    "root": "7373790509633184491777/1800909632940539904"
+  },
+  "firsthit_A": {
+    "state": [
+      11,
+      7,
+      2
+    ],
+    "nominal": 1980,
+    "live": 1212,
+    "P_mass": "2525/3623878656",
+    "Q_mass": "2525/15479341056",
+    "stopped_before": {
+      "6,5,0": 180,
+      "6,6,0": 30,
+      "7,5,0": 90,
+      "8,7,1": 18,
+      "9,6,1": 366,
+      "9,7,1": 84
+    }
+  },
+  "firsthit_B": {
+    "state": [
+      12,
+      0,
+      1
+    ],
+    "nominal": 12,
+    "live": 12,
+    "P_mass": "48828125/725594112",
+    "Q_mass": "48828125/362797056"
+  },
+  "descendant": {
+    "state": [
+      12,
+      7,
+      2
+    ],
+    "nominal": 7920,
+    "live": 4570,
+    "paths_via_A": 1212
+  },
+  "conditional_suffixes": {
+    "A": [
+      "41/13824",
+      "569/576",
+      "69/64",
+      "167/144"
+    ],
+    "B": [
+      "63/64",
+      "1/144",
+      "9/8",
+      "13/12"
+    ]
+  },
+  "compensation": {
+    "X": "103525/50096498540544",
+    "Y": "17675/8916100448256",
+    "E": "48828125/46438023168",
+    "H": "48828125/52242776064",
+    "h": "17743983/8704000000000",
+    "eta": "664075/8622859811291136",
+    "s66": "26151848241302219/41779200000000000"
+  },
+  "endpoint": {
+    "alpha66": "5171859262245766247/14900301753911083008",
+    "V66": "12336161215066994269/931268859619442688",
+    "tP_minus_tQ_0": "213327829242734891/413897270941974528",
+    "tP_minus_tQ_1": "639982967302999873/1241691812825923584",
+    "four_corner_mixed_terms": "exactly_zero"
+  },
+  "next_candidate": {
+    "K67": "1395301593924/233134355",
+    "A67": [
+      5,
+      1,
+      3
+    ],
+    "action_tie": [
+      "C",
+      "Q"
+    ],
+    "status": "UNPROVED_CANDIDATE"
+  },
+  "limitations": [
+    "two author checks share the inherited stop policy",
+    "no native X6/Heartbeat bridge",
+    "no independent Research Driver review",
+    "no formal native owner CLAIM"
+  ]
+}
