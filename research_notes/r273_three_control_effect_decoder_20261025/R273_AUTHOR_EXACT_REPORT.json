@@ -1,0 +1,51 @@
+{
+  "schema": "EM_R273_EFFECT_CONDITIONED_THREE_CONTROL_OPTIMAL_DECODER_GITHUB_EVIDENCE_V1",
+  "dated": "2026-10-25",
+  "mathematical_status": "AUTHOR_DERIVATION_EXACT_INTEGER_VERIFICATION_UNREVIEWED_NOT_ADMITTED",
+  "source_pins": {
+    "global_main": "8d181121b901304f11f99b84614ac726b0e2a263",
+    "global_P000_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "enterprise_math_main": "f3bbaf6384adeb47bf2296bf7f16afcd4b65027f",
+    "R270_provenance": "ae394b2d4846e14763af593a49c1129fa1f9a25e"
+  },
+  "model": "formal positive unit-weight two-selector BRC; no native P000 X6 experiment",
+  "core_identity": "M_n=sum_(q,g)min(A_n(q,g),B_n(q,g)); optimal TV_n=M_n/2^n for unchanged 3-state mass carrier plus deterministic effect-time-dependent binary decoder",
+  "all_depth_exact_results": [
+    "U_n(q,g)=A_n(q,g)+B_n(q,g)",
+    "M_0=M_1=M_2=0, M_n>0 for n>=3",
+    "D_time=0 for n<=3 and 1 for n>=4 yields TV=min(F_(n+2),2^n-F_(n+2))/2^n",
+    "TV_n of D_time tends to 0 exponentially at rate golden_ratio/2",
+    "for n>=7, L_j*16482^K <= M_n <= F_(n+2), L7=L8=4 and L9=7"
+  ],
+  "actually_executed_local_evidence": {
+    "python_exact_integer_depths": "0..128",
+    "brute_words_depths": "0..12 inclusive",
+    "brute_words_total": 8191,
+    "independent_cpp17_boost_depths": "0..96",
+    "independent_reset_coefficient": 16482,
+    "cold_start": "PASS",
+    "full_local_evidence_zip": "EM_R273_THREE_CONTROL_EFFECT_DECODER_20261025.zip",
+    "zip_sha256": "83f4f221b2a8ee7df5dd848525a7f0f43b6e16cb9e8dbd3f54e772f6ea63314a"
+  },
+  "samples_M": {
+    "0": "0",
+    "1": "0",
+    "2": "0",
+    "3": "1",
+    "7": "20",
+    "8": "36",
+    "9": "64",
+    "20": "17416",
+    "30": "2176446",
+    "60": "4052739183615",
+    "80": "61305790715800460",
+    "96": "135301852344650393633",
+    "128": "659034621587630038583323266"
+  },
+  "code_provenance_note": "GitHub-side compact verifier files correspond semantically to locally executed full standalone scripts, but their byte-identical execution is not claimed. Full exact locally executed sources and cold-start checks accompany the evidence ZIP.",
+  "native_execution": "NOT_EXECUTED",
+  "native_task_owner": "NOT_VERIFIED",
+  "native_claim": "NOT_OBTAINED",
+  "native_result_or_driver_review": "NOT_PERFORMED",
+  "next_question": "Construct a legal 6-control exactly reproducing H_n for all n under the defined effect-conditioned decoder contract, or prove impossible; investigate online memory of MAP readout, native R193 observer and time-port bridge."
+}
