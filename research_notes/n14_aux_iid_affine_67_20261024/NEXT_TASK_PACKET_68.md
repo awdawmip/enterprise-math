@@ -1,0 +1,5 @@
+# N=14 auxiliary iid exact 68th affine interval: unproved continuation
+
+Frozen auxiliary iid model P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), N=14; full ordered-history randomized policies. Inherit 67th author result: alpha67=5171859472066685747/14900301753911083008; V67=6168006010039251047/465634429809721344; balancing B=(12,0,1); s67=26147520029410919/41779200000000000. Preserve ALL old deterministic stops plus A67=(5,1,3)->Q.
+
+Candidate only: K68=30451140/5149, A68=(8,0,2), CONTINUE vs immediate Q. Recheck 680-state Bellman exact rational minimization at K68; enumerate real first hits and descendants under the full inherited stopping tree, not nominal multinomial paths. Compute suffix P/Q risks and balancing s, positive eta68, 0<=s<=1 at both ends and tP>=tQ. Show exact dual saturation for all real parameters and right-end sharpness. Obtain independent author-side crosscheck; preserve predecessor, P000, BRC/native semantic boundary and native claim/Driver gates. The candidate has not been proved.
