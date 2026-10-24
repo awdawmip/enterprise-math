@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-R5N14-20261024-RESEARCH5-T11-80-RETRO",
+  "registration_key": "source:EM-N14-80-20261024-R5-T11-42AB5A45",
+  "registration_origin": {
+    "kind": "RETROSPECTIVE_SOURCE",
+    "source_tracking_key": "EM-N14-80-20261024-R5-T11-42AB5A45"
+  },
+  "mode": "UNKNOWN_RESEARCH",
+  "researcher_id": null,
+  "session_id": null,
+  "session_state": "UNKNOWN",
+  "recorded_at": "2026-10-24T15:00:17.839Z",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "N14_80_AUTHOR_PROOF_20261024_R5_T11",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "42ab5a458cb799fe4d1b0eddf2b4e2743481f7c5",
+          "path": "research_notes/n14_aux_iid_affine_80_20261024/PROOF.en.md",
+          "sha256": "2490f692c1cc2448d7e44513f366039746a05967e04be128e5231e7cc2d25638",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "r5-t11-20261024-80-immutable-readback01",
+            "git_blob_sha1": "84510724005e9de9771b261cc93248fa4c940948",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/42ab5a458cb799fe4d1b0eddf2b4e2743481f7c5/research_notes/n14_aux_iid_affine_80_20261024/PROOF.en.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false,
+            "call_id": null
+          },
+          "verification_receipt": "research_activity_records/RA-R5N14-20261024-RESEARCH5-T11-80-RETRO/readbacks/a62a272bea3f4545b7ba3b5085bcc77329d15aa6eb705db79b00a1cd08df6009.json",
+          "verification_receipt_sha256": "a62a272bea3f4545b7ba3b5085bcc77329d15aa6eb705db79b00a1cd08df6009"
+        }
+      ],
+      "kb_sources": []
+    }
+  ]
+}
