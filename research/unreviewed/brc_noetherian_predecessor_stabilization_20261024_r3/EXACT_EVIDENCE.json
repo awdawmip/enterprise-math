@@ -1,0 +1,252 @@
+{
+  "scope": "four-label two-action positive BRC auxiliary occupancy, not native P000",
+  "q_alpha": "(1,1,1,7)/10",
+  "q_beta": "(1,1,1,8)/11",
+  "good_edges": [
+    "01",
+    "02",
+    "03",
+    "12"
+  ],
+  "universal_claims_proved_analytically": [
+    "cross-action transport K0 is upward closed",
+    "each Kr is upward closed and sound",
+    "finite-action predecessor chain stabilizes at some finite r for every fixed positive BRC model",
+    "in this model K0={|c|>=4}, K1={|c|>=3}, K2=K3=...={|c|>=2}=S"
+  ],
+  "finite_exact_checks": {
+    "heavy_cut_failures_count": 9,
+    "negative_next_action_states_count": 7,
+    "all_positive_strict_flow_certificates": 10,
+    "history_words_length_1_to_6": 126,
+    "independent_support_mask_increment_checks": 252,
+    "recurrence_membership_checks": 81
+  },
+  "increment_numerators_by_counts_length_1_to_3": [
+    {
+      "x": 0,
+      "y": 1,
+      "alpha": "21",
+      "beta": "22"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "alpha": "20",
+      "beta": "21"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "alpha": "-3",
+      "beta": "-8"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "alpha": "-9",
+      "beta": "-14"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "alpha": "-14",
+      "beta": "-19"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "alpha": "-51",
+      "beta": "-68"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "alpha": "-81",
+      "beta": "-98"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "alpha": "-105",
+      "beta": "-122"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "alpha": "-124",
+      "beta": "-141"
+    }
+  ],
+  "short_length_heavy_cut_strict_shortages": [
+    {
+      "x": 0,
+      "y": 1,
+      "strict_shortage": "6"
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "strict_shortage": "5"
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "strict_shortage": "30"
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "strict_shortage": "24"
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "strict_shortage": "19"
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "strict_shortage": "78"
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "strict_shortage": "48"
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "strict_shortage": "24"
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "strict_shortage": "5"
+    }
+  ],
+  "length_4_positive_flow_slacks": [
+    {
+      "x": 0,
+      "y": 4,
+      "edge_order": [
+        "01",
+        "02",
+        "03",
+        "12"
+      ],
+      "strict_slack": {
+        "alpha": [
+          "101",
+          "110",
+          "834",
+          "110"
+        ],
+        "beta": [
+          "114",
+          "124",
+          "834",
+          "124"
+        ]
+      }
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "edge_order": [
+        "01",
+        "02",
+        "03",
+        "12"
+      ],
+      "strict_slack": {
+        "alpha": [
+          "101",
+          "110",
+          "912",
+          "110"
+        ],
+        "beta": [
+          "114",
+          "124",
+          "912",
+          "124"
+        ]
+      }
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "edge_order": [
+        "01",
+        "02",
+        "03",
+        "12"
+      ],
+      "strict_slack": {
+        "alpha": [
+          "101",
+          "110",
+          "960",
+          "110"
+        ],
+        "beta": [
+          "114",
+          "124",
+          "960",
+          "124"
+        ]
+      }
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "edge_order": [
+        "01",
+        "02",
+        "03",
+        "12"
+      ],
+      "strict_slack": {
+        "alpha": [
+          "101",
+          "110",
+          "984",
+          "110"
+        ],
+        "beta": [
+          "114",
+          "124",
+          "984",
+          "124"
+        ]
+      }
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "edge_order": [
+        "01",
+        "02",
+        "03",
+        "12"
+      ],
+      "strict_slack": {
+        "alpha": [
+          "101",
+          "110",
+          "989",
+          "110"
+        ],
+        "beta": [
+          "114",
+          "124",
+          "989",
+          "124"
+        ]
+      }
+    }
+  ],
+  "assumptions": "empty history has delta=0; N closed form used only for |c|>=1",
+  "status": "AUTHOR_EXACT_VERIFIED_UNREVIEWED_NOT_ADMITTED"
+}
