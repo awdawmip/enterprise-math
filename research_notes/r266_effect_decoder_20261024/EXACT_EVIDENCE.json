@@ -1,0 +1,144 @@
+{
+  "schema": "EM_R266_AUTHOR_EFFECT_DECODER_EXACT_EVIDENCE_V1",
+  "date": "2026-10-24",
+  "model": "positive finite BRC formal affine group, NOT P000 native Cell transfer",
+  "source_pins": {
+    "global_main": "9ba278d5d26a7ed761a946289e416d728bccd138",
+    "em_main": "dadc43f8206cde74c09a760e2990193fce25d673",
+    "r265_author": "b6d858eacbd5482b6a4bb7bcf847bdee2a9932fa",
+    "r263_evidence": "ecce6d55b4c2b1f58769dc40d306f594f7d29b9a"
+  },
+  "one_control_case": {
+    "weight_one_effect_edges": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        -1
+      ]
+    ],
+    "predicate": "h=1 iff k=0",
+    "s_m": "C(m,m/2) if m even; otherwise 0",
+    "all_n_theorem": "det Hankel_N = 2^(N-1) for all N>=1",
+    "determinants_n1_to_n17": [
+      "1",
+      "2",
+      "4",
+      "8",
+      "16",
+      "32",
+      "64",
+      "128",
+      "256",
+      "512",
+      "1024",
+      "2048",
+      "4096",
+      "8192",
+      "16384",
+      "32768",
+      "65536"
+    ],
+    "det13": "4096",
+    "proof": "Laurent constant-term Gram orthogonality of monic P0=1 and Pn=x^n+x^-n; norms 1,2,2,..."
+  },
+  "r260_exact_collision": {
+    "length": 3,
+    "same_q_eps_k": [
+      0,
+      1,
+      -1
+    ],
+    "words": {
+      "101": [
+        0,
+        0,
+        1,
+        -1
+      ],
+      "000": [
+        0,
+        2,
+        1,
+        -1
+      ]
+    }
+  },
+  "r260_full_fiber": {
+    "first_full_depth": 8,
+    "effect": [
+      1,
+      0
+    ],
+    "witnesses": {
+      "0,0": "01010101",
+      "0,2": "00001100",
+      "1,1": "01010110",
+      "1,2": "00000100",
+      "2,0": "01101011",
+      "2,1": "10101010",
+      "2,2": "00001010"
+    },
+    "packet_r0": [
+      [
+        1,
+        0,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        0,
+        1,
+        -1,
+        1
+      ]
+    ],
+    "packet_r1": [
+      [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        0,
+        1,
+        -1,
+        1
+      ]
+    ]
+  },
+  "validation": {
+    "checker": "R266_short_checker.py",
+    "python_exact_bareiss_N": "1..17",
+    "independent_raw_plus_minus_lengths": "0..13",
+    "r260_exact_three_word_collision": true,
+    "r260_seven_witnesses": true,
+    "packet_counterexample": true,
+    "extended_checker_local": "R266_verify_effect_decoder.py also ran and wrote full local EXACT_EVIDENCE.json",
+    "native_enterprise_math_module_executed": false
+  },
+  "authority": {
+    "owner_verified": false,
+    "canonical_session": false,
+    "claim": false,
+    "result": false,
+    "driver_review": false,
+    "native_errors": [
+      "em_control_tasks CONTROL_QUOTA",
+      "em_session_start STATIC_READONLY_SCOPE_DENIED operation_sent=false"
+    ]
+  },
+  "scope_limits": [
+    "Arbitrary effect-conditioned output invalidates rank<=2d as universal inference",
+    "Seven-control necessity for effect/time-aware deterministic homomorphic quotients only",
+    "Arbitrary positive six-state aggregated effect-conditioned model still open",
+    "P000 6D Cell native transfer not asserted"
+  ]
+}
