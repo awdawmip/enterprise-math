@@ -1,0 +1,106 @@
+{
+  "schema": "EM_R263_AUTHOR_EXACT_EVIDENCE_V1",
+  "date": "2026-10-24",
+  "claim": "lim_{m→∞} sqrt(m)*M_m/phi^m = 1/(5*phi*sqrt(2*pi*(3/2+7*sqrt(5)/10)))",
+  "proof_status": "AUTHOR_PROOF_NOT_INDEPENDENTLY_ADMITTED",
+  "control_scope": "R260-R262 exact fixed six-axis affine BRC auxiliary source semantics, not P000 native",
+  "source_snapshot": {
+    "global_main": "7ed68d9c321685e609fe1ac2800af7c3592de4e1",
+    "p000_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "em_main": "f5bd28377a13a8c6732e7f058db11bebcc2af525",
+    "prior_r262_commit": "be6b89f3b2b9a477f747d68919625dcd0d025a95"
+  },
+  "exact_algebra": {
+    "T_characteristic": "(L^2+1)*(L^6-(z+z^-1)*L^5+2*L^2-1)",
+    "U_characteristic": "L^2*(L-(z+z^-1))*(L^3+L-(z+z^-1))",
+    "restricted_Perron_right": [
+      "1",
+      "1",
+      "1/phi",
+      "1/phi",
+      "phi^2",
+      "phi^2",
+      "phi",
+      "phi"
+    ],
+    "restricted_Perron_left": [
+      "1",
+      "1",
+      "1/phi",
+      "1/phi",
+      "1",
+      "1",
+      "1/phi",
+      "1/phi"
+    ],
+    "inner_product": "10",
+    "restricted_variance": "phi^4/sqrt(5)=3/2+7sqrt(5)/10",
+    "unrestricted_variance": "1",
+    "B_projector": "1/(10phi)",
+    "C_projector": "phi^2/10",
+    "unrestricted_stationary": [
+      "1/8",
+      "1/8",
+      "1/8",
+      "1/8",
+      "1/4",
+      "1/4"
+    ]
+  },
+  "checks": {
+    "original_word_enumeration_m0_through_m13": 16383,
+    "independent_dual_histogram_atom_checks_m0_through_m120": 97125,
+    "full_integer_histogram_depth": 256,
+    "symbolic_characteristic_and_Perron": "PASS",
+    "all_word_t_binomial_identity": "PASS at sampled lengths 16,32,64,96,128,192,256"
+  },
+  "leading_constant_decimal": 0.02816564115328465,
+  "samples": [
+    {
+      "m": 16,
+      "M": "21",
+      "normalized": 0.03806072371792504
+    },
+    {
+      "m": 32,
+      "M": "26183",
+      "normalized": 0.03040814355582614
+    },
+    {
+      "m": 64,
+      "M": "86651819601",
+      "normalized": 0.02921855256023612
+    },
+    {
+      "m": 96,
+      "M": "340325372582384001",
+      "normalized": 0.02885469454039009
+    },
+    {
+      "m": 128,
+      "M": "1426814983819745518311507",
+      "normalized": 0.028678385234744478,
+      "central_r_counts": [
+        "5839128452152689758294395",
+        "1414847540770200963897023",
+        "5940638585195380751581527050688474720"
+      ]
+    },
+    {
+      "m": 192,
+      "M": "27472256998871756310734449529293814949",
+      "normalized": 0.02850480188820676
+    },
+    {
+      "m": 256,
+      "M": "562762314279260017463537184283247705187577454670558",
+      "normalized": 0.028419019210968555,
+      "central_r_counts": [
+        "2343365828550497348322341860829915370695888867250067",
+        "560421727601261996600575846429772256470597493569687",
+        "1436509157996174911641954040229130975181730874517417561625202099690003537852"
+      ]
+    }
+  ],
+  "limits": "Finite exact checks are not an infinity proof. Original enterprise_math package and native R193 source/query/time bridge not executed. The separate full local evidence program ran 97125 crosschecks; GitHub compact script reruns characteristic/raw-word/binomial/256-level checks."
+}
