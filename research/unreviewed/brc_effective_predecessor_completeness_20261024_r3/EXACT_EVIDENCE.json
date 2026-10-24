@@ -1,0 +1,97 @@
+{
+  "theorem": "Effective K0 cofinality and finite-horizon predecessor completeness",
+  "scope": "nonempty good-pair graph, >=3 finite labels, finite actions, all q_b(i)>0",
+  "exact_arithmetic": "BigInt rational cross multiplication, no floating point",
+  "examples": [
+    {
+      "name": "three_label_two_action",
+      "weights": [
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          1
+        ]
+      ],
+      "good_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "assigned_edge_index": [
+        0,
+        0,
+        1
+      ],
+      "rho": "2/3",
+      "L": "2",
+      "eta": "1/4",
+      "M": 6,
+      "N": 11,
+      "boundary_states": 12,
+      "assigned_flow_checks": 48,
+      "strictly_positive_slacks": 48,
+      "increment_identities": 88
+    },
+    {
+      "name": "prior_four_label_two_action",
+      "weights": [
+        [
+          1,
+          1,
+          1,
+          7
+        ],
+        [
+          1,
+          1,
+          1,
+          8
+        ]
+      ],
+      "good_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "assigned_edge_index": [
+        0,
+        3,
+        1,
+        2
+      ],
+      "rho": "8/9",
+      "L": "30/11",
+      "eta": "2/11",
+      "M": 23,
+      "N": 45,
+      "boundary_states": 46,
+      "assigned_flow_checks": 368,
+      "strictly_positive_slacks": 368,
+      "increment_identities": 88
+    }
+  ],
+  "statement_status": "AUTHOR_ANALYTIC_PROOF_WITH_FINITE_REFERENCE_CHECKS__UNREVIEWED_NOT_ADMITTED"
+}
