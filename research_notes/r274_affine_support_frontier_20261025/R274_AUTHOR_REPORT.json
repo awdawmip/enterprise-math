@@ -1,0 +1,33 @@
+{
+  "research_id": "R274",
+  "status": "AUTHOR_SIDE_VERIFIED_NOT_CANONICAL_ADMITTED",
+  "mathematical_scope": "formal unit-positive six-slot affine BRC with explicit q,r,eps,k observer, not native X6 evolution",
+  "local_full_verifier_sha256": "ed48a0b62391481726c9054d3bfe2b38021ed38a21eb3aec813375b32bc52971",
+  "local_full_report_sha256": "fcc9e0cfc367d236559487b60a37a017423be0084c9e3371f179c56d1720903c",
+  "executed": "Python exact integer propagation to n=128; 8191 exhaustive ordered words depths 0..12; interval-image induction and boundary checks",
+  "result": "PASS",
+  "theorem1": "At all n>=10 seven reachable (q,r) carriers each have both effects signs with explicit step-2 interval supports",
+  "theorem2": "At all n>=5 exactly eight (q,eps,k) nohit-only fibers, each count 1",
+  "corollary": "For all n>=5, optimum deterministic q/time/effect decoder has M_n<=F_(n+2)-8",
+  "native_execution": "NOT_RUN",
+  "research_task_claim": "NOT_VERIFIED",
+  "driver_review": "NOT_DONE",
+  "examples": {
+    "n5": {
+      "pure_fibers": 8,
+      "path_total": "32"
+    },
+    "n10": {
+      "pure_fibers": 8,
+      "path_total": "1024"
+    },
+    "n80": {
+      "pure_fibers": 8,
+      "path_total": "1208925819614629174706176"
+    },
+    "n128": {
+      "pure_fibers": 8,
+      "path_total": "340282366920938463463374607431768211456"
+    }
+  }
+}
