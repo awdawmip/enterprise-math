@@ -1,0 +1,97 @@
+# N=14 auxiliary iid sequential discrimination: exact 69th optimal affine interval
+
+**2026-10-24. Author-level finite-model theorem; inherited author stopping tree; independent Driver review and native BRC/X6 bridge absent.**
+
+## Model, prior endpoint and statement
+Three iid outcomes under P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), horizon N=14. Over arbitrary full ordered-history randomized stopping/decision rules, let e_P=P(decide Q), e_Q=Q(decide P), t_P=E_P[tau], t_Q=E_Q[tau], and V14(alpha)=inf_{e_P,e_Q<=alpha} max(t_P,t_Q). The inherited stopping tree is exactly encoded by the accompanying 69th verifier, based on the immutable 68th predecessor commit 13ea90fe642fca125515be8f6a0c0028087f99dd. The former endpoint is
+
+alpha68 = 5171887153090685747 / 14900301753911083008;
+V68 = 6158280565975251047 / 465634429809721344;
+s68 = 25039911709410919 / 41779200000000000,
+
+where s is the early-Q randomization probability at B=(12,0,1).
+
+Set K69=103267977646032/19155062389, lambda_Q=K69,
+lambda_P=72+(8/9)K69=93172922399592/19155062389,
+Gamma69=lambda_P+lambda_Q=196440900045624/19155062389,
+eta69=19155062389/4966767251303694336.
+
+**Theorem.** For EVERY REAL delta in [0,eta69], including irrational values,
+
+V14(alpha68+delta) = V68 - Gamma69*delta.
+
+Thus the new exact endpoint is
+
+alpha69 = 2585943605277936457/7450150876955541504,
+V14(alpha69) = 24633048598563487079/1862537719238885376.
+
+The supporting line is right-sharp: it cannot attain V14(alpha) for any alpha>alpha69.
+
+## Complete Bellman lower bound for all ordered-history policies
+At count state (n,a,b), with a/b the numbers of the first/second symbol, Q(prefix)/P(prefix) = 2^(a+b)/3^a. For the P-normalized Lagrangian t_P+lambda_P*e_P+lambda_Q*e_Q, choosing P costs lambda_Q*L, choosing Q costs lambda_P, and continuation costs 1+sum_i P_i D(child_i) for n<14. D is the minimum of the available actions. Suffix laws are count-sufficient for this Lagrangian even when a policy randomizes differently between ordered histories sharing counts.
+
+An exhaustive exact-Fraction evaluation covers 680 count states and 1240 nonchosen-action comparisons. It finds 1238 strictly positive slacks, none negative and exactly TWO zero ties:
+A69=(5,5,0): continue versus immediate P;
+B=(12,0,1): continue versus immediate Q.
+The minimum strictly positive slack is 11391304854157/529599164931072. The root dual value is
+
+D(0,0,0)=7498124700278980724208741682369/2098648600816859704241160192
+         =V68+Gamma69*alpha68.
+
+For any feasible policy D(root)<=t_P+lambda_P e_P+lambda_Q e_Q<=max(t_P,t_Q)+Gamma69*alpha, hence the asserted affine line is a global lower bound.
+
+## Provenance-preserving first hits and exact balance
+A69=(5,5,0) has one nominal ordered history, and that history is a true first hit:
+p_A=1/32768, q_A=1/248832.
+B=(12,0,1) has 12 nominal and 12 true first hits:
+p_B=48828125/725594112, q_B=48828125/362797056.
+The unique true first hit at inherited P-stop (6,6,0) passes through A69; adding early stopping at A69 truncates this later stop. Ordered histories must be filtered before the positive-weight BRC mass sum; counts alone cannot be added as disjoint stopped populations.
+
+Under continuation, the conditional suffix risks (e_P,e_Q,t_P,t_Q) are
+
+R_A=(2136679249/2641807540224,5122258183/5159780352,
+     135246996061/110075314176,652852091/429981696),
+R_B=(63/64,1/144,9/8,13/12).
+
+Let u in [0,1] be the probability of immediate P at A69 and s the probability of immediate Q at B. The states are mutually exclusive on a path: A already has a=5 whereas B has a=0, and a never decreases. Thus all four full-root risks have exactly zero u*s mixed term. This is also verified directly by backward evaluation at the four corners.
+
+Define
+X=p_A R_A.e_P=2136679249/86566749478060032,
+Y=q_A(1-R_A.e_Q)=37522169/1283918464548864,
+E=p_B(1-R_B.e_P)=48828125/46438023168,
+H=q_B R_B.e_Q=48828125/52242776064.
+
+Relative to (u,s)=(0,s68),
+Delta e_P=-X*u+E*(s-s68),
+Delta e_Q=Y*u-H*(s-s68).
+Both errors remain balanced exactly if
+
+s=s68+h69*u,
+h69=(X+Y)/(E+H)=1133976274403/41779200000000000.
+
+This yields s69=s68+h69=4173507614280887/6963200000000000, with 0<s68<s69<1. The common error increment equals
+
+eta69*u=(E*h69-X)*u=(Y-H*h69)*u,
+eta69=19155062389/4966767251303694336>0.
+
+The two endpoints of the resulting affine t_P-t_Q have exact positive margins
+2132764916067208819/3725075438477770752 and
+133290941048883881/232817214904860672.
+Therefore t_P>=t_Q over the entire REAL u interval, not just seven checked samples. Because the policy uses only Bellman-minimizing actions and mixed terms vanish,
+
+t_P(u)=V68-Gamma69*eta69*u,
+e_P(u)=e_Q(u)=alpha68+eta69*u.
+
+Taking u=delta/eta69 constructs an admissible policy meeting the global lower bound for every real delta in [0,eta69].
+
+## Proof of right sharpness
+For alpha>alpha69, equality with the same Bellman line would force both error constraints tight (both multipliers are positive), and only Bellman-minimizing actions with positive occupancy. Apart from A69 and B, every alternative has strictly positive Bellman slack. At any tied count state, histories have identical Q/P likelihood ratios and conditional iid futures, so arbitrary history-dependent tie probabilities reduce to single incoming-mass weighted effective rates u and s under both measures. A and B cannot lie on the same path. Error equality then forces s=s68+h69*u and alpha=alpha68+eta69*u. As u<=1 this gives alpha<=alpha69, contradiction. The finite randomized stopping policy simplex is compact; no limiting policy evades the conclusion.
+
+## Scope, evidence and next unit
+Exact local checker 1: verify_n14_69.py, recomputed the 680-state dual, first arrivals, finite-horizon suffix risks, exact forward risks and seven rational interpolations. Checker 2: verify_n14_69_crosscheck.py, separately enumerated ordered histories, minimized Bellman action costs and backward-computed the four risks and zero mixed corner terms; seven separate rational interpolations passed. Both share the inherited author's stopping tree, so they are author-side crosschecks, NOT independent Research Driver acceptance. No native BRC engine was run. Weighted positive-rational BRC first-hit branch identity is applied only as an existing typed sum rule (REUSE_APPLIED), not as evidence for the native Heartbeat/X6 dynamics.
+
+The exact next **dual candidate only** is K70=98126316/18523 at A70=(9,4,4), continue versus immediate Q. Its complete optimal segment, first arrivals, truncations, balancing and sharp endpoint have NOT been proved.
+
+Global knowledge snapshot main@754589aae7dd226fbd0354ae31bf8e621a469cf6; EM control snapshot main@28e35a1fd123e2cb3bdb29165928844c6792fd59. Native dispatch returned CONTROL_QUOTA, no verified active Owner or CLAIM. The underlying 68th stopping tree and all native bridges remain author-dependent.
+
+Status: N14_69_AUTHOR_PROVED / TWO_AUTHOR_EXACT_FRACTION_CHECKS_PASS / DRIVER_UNREVIEWED / NATIVE_CLAIM_UNVERIFIED / NO_NATIVE_DYNAMICS_BRIDGE.

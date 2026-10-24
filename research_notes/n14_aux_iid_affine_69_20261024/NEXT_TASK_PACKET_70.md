@@ -1,0 +1,7 @@
+# N=14 auxiliary iid 70th affine interval — UNPROVED successor
+
+Model and hard target: P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), N=14, all full ordered-history randomized stopping policies; objective V14(alpha)=min_{eP,eQ<=alpha} max(EP[tau],EQ[tau]).
+
+Source: 69th author proof and its exact verifiers in this research_notes/n14_aux_iid_affine_69_20261024 directory. Frozen predecessor 68th Source: 13ea90fe642fca125515be8f6a0c0028087f99dd. At 69th endpoint alpha69=2585943605277936457/7450150876955541504 and V69=24633048598563487079/1862537719238885376. Fixed A69=(5,5,0) stops P, B=(12,0,1) early-Q probability s69=4173507614280887/6963200000000000. All other stop history must be inherited exactly from the supplied 69th verifier; document any changes.
+
+DUAL CANDIDATE ONLY (not theorem): K70=98126316/18523, new A70=(9,4,4), continue vs immediate Q. Recompute lambdaP=72+8K70/9, lambdaQ=K70, all 680 Bellman states and 1240 nonchosen comparisons. Enumerate real first-hit words under inherited stops; identify downstream truncations; compute suffix, exact balancing with B, positive eta and [0,1] randomized realization, both expected times and every-real-parameter optimality; prove right-sharpness at the resulting exact endpoint. Run a second separately implemented Fraction checker. Scope remains auxiliary iid; no native bridge, Claim, independent review or theorem acceptance follows from this packet.

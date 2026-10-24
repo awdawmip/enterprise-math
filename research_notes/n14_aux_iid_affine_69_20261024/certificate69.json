@@ -1,0 +1,97 @@
+{
+  "schema": "N14_AUX_IID_AFFINE_69_AUTHOR_CERT_V1",
+  "date": "2026-10-24",
+  "predecessor_commit": "13ea90fe642fca125515be8f6a0c0028087f99dd",
+  "global_read_snapshot": "754589aae7dd226fbd0354ae31bf8e621a469cf6",
+  "em_control_snapshot": "28e35a1fd123e2cb3bdb29165928844c6792fd59",
+  "model": "P=(1/8,1/24,5/6);Q=(1/12,1/12,5/6);N=14",
+  "author_exact_dual": {
+    "K": "103267977646032/19155062389",
+    "lambda_P": "93172922399592/19155062389",
+    "lambda_Q": "103267977646032/19155062389",
+    "Gamma": "196440900045624/19155062389",
+    "root": "7498124700278980724208741682369/2098648600816859704241160192",
+    "states": 680,
+    "action_comparisons": 1240,
+    "positive_slacks": 1238,
+    "negative_slacks": 0,
+    "ties": [
+      {
+        "state": [
+          5,
+          5,
+          0
+        ],
+        "actions": [
+          "C",
+          "P"
+        ]
+      },
+      {
+        "state": [
+          12,
+          0,
+          1
+        ],
+        "actions": [
+          "C",
+          "Q"
+        ]
+      }
+    ],
+    "min_strict_margin": "11391304854157/529599164931072"
+  },
+  "provenance": {
+    "A69_nominal": 1,
+    "A69_live": 1,
+    "P_mass": "1/32768",
+    "Q_mass": "1/248832",
+    "B_nominal": 12,
+    "B_live": 12,
+    "descendant_stop": [
+      6,
+      6,
+      0
+    ],
+    "descendant_live": 1,
+    "descendant_via_A69": 1,
+    "zero_mixed_terms": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  "construction": {
+    "h": "1133976274403/41779200000000000",
+    "eta": "19155062389/4966767251303694336",
+    "s69": "4173507614280887/6963200000000000",
+    "alpha69": "2585943605277936457/7450150876955541504",
+    "V69": "24633048598563487079/1862537719238885376",
+    "tp_minus_tq_endpoints": [
+      "2132764916067208819/3725075438477770752",
+      "133290941048883881/232817214904860672"
+    ],
+    "rational_samples_each_verifier": 7
+  },
+  "next_unproved": {
+    "K70": "98126316/18523",
+    "A70": [
+      9,
+      4,
+      4
+    ],
+    "tie_actions": [
+      "C",
+      "Q"
+    ]
+  },
+  "execution": {
+    "local_main": "PASS",
+    "local_author_crosscheck": "PASS",
+    "independent_driver": "UNREVIEWED",
+    "native_brc_bridge": "NOT_ESTABLISHED",
+    "native_control": "CONTROL_QUOTA"
+  },
+  "note": "Executed locally; source publication/readback is not remote execution. Verifiers share inherited stopping sets."
+}
