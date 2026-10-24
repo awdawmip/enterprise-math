@@ -1,0 +1,112 @@
+{
+  "schema": "EM_R261_BRC_FIBONACCI_MOMENT_WIDTH_EXACT_V1",
+  "date": "2026-10-24",
+  "mode": "AUTHOR_SIDE_EXACT_INTEGER_AND_SYMBOLIC_VERIFIED_NOT_NATIVE_ADMITTED",
+  "model_origin": "R260 immutable six-axis affine positive-source BRC subcarrier",
+  "source_ref": "awdawmip/enterprise-math@4f7169291a872467496de179666f456e67869749",
+  "source_pins": {
+    "brc_transport_blob": "be1debe367263931bd5e93fd750be3ed54624fe1",
+    "brc_control_port_blob": "44def6b8ac787e798d3cc2c6be16f873f91b9db8",
+    "r260_author_proof_commit": "43dc61f43a73cf6b0ec535c01efedd5067400fc2"
+  },
+  "moment_gf": {
+    "N": "1/(1-z-z^2)",
+    "U": "z(z^2-2z-1)/((1-z)(1-z^3)(1-z-z^2))",
+    "V": "z(1+6z+2z^2-z^3)/((1-z^3)(1-z-z^2)^2)"
+  },
+  "limiting_mean": "-(9+3sqrt(5))/4",
+  "limiting_variance_per_length": "3/2+7sqrt(5)/10",
+  "exact_construction": "M_(L+11)>=ceil(F_(L+1)/(4*(ceil(sqrt(2V_L/F_(L+1)))+1))) for L>=1",
+  "asymptotic": "M_m = Omega(phi^m / sqrt(m)); M_m <= F_m; matching upper polynomial order not established",
+  "verification": {
+    "symbolic_gf_identities": 3,
+    "signed_matrix_charpolys": 2,
+    "nilpotent_Jordan_block_check": 1,
+    "integer_moment_vs_histogram_lengths": 257,
+    "full_source_words_independent_lengths": "0..10 (2047 words)",
+    "full_positive_3mode_histogram_vs_lower_lengths": 117,
+    "global_empirical_V_le_4L_N_lengths": "1..256 (not proof of all-length bound)"
+  },
+  "samples": {
+    "8": {
+      "N": "34",
+      "sum_k": "-126",
+      "sum_k2": "708",
+      "R": 7,
+      "effect_atom_count": 12,
+      "max_fibre": "6",
+      "moment_pigeonhole_lower": "2"
+    },
+    "20": {
+      "N": "10946",
+      "sum_k": "-42970",
+      "sum_k2": "629476",
+      "R": 11,
+      "effect_atom_count": 36,
+      "max_fibre": "600",
+      "moment_pigeonhole_lower": "229"
+    },
+    "50": {
+      "N": "20365011074",
+      "sum_k": "-79974436724",
+      "sum_k2": "3043846357256",
+      "R": 18,
+      "effect_atom_count": 96,
+      "max_fibre": "671125852",
+      "moment_pigeonhole_lower": "267960673"
+    },
+    "117": {
+      "N": "2046711111473984623691759",
+      "sum_k": "-8037538882486449961307679",
+      "sum_k2": "726246980396071359106091039",
+      "R": 27,
+      "effect_atom_count": 230,
+      "max_fibre": "43507132084135994788202",
+      "moment_pigeonhole_lower": "18274206352446291282963"
+    },
+    "128": {
+      "N": "407305795904080553832073954",
+      "sum_k": "-1599510626237565893721858166",
+      "sum_k2": "158260222665385496925971977188",
+      "R": 28,
+      "effect_atom_count": 252,
+      "max_fibre": "8274747413475700204240273",
+      "moment_pigeonhole_lower": "3511256861242073739931673"
+    },
+    "256": {
+      "N": "229265413057075367692743352179590077832064383222590237",
+      "sum_k": "-900336965742310872930295005351888112982754842105070338",
+      "sum_k2": "179034624352620494330848358408505423614479787016512958500",
+      "R": 40,
+      "effect_atom_count": 508,
+      "max_fibre": "3279251470881947282631398285164530437665416749566333",
+      "moment_pigeonhole_lower": "1397959835713874193248435074265793157512587702576770"
+    }
+  },
+  "M_samples": {
+    "12": {
+      "M_m": "6",
+      "single_block_lower": "1"
+    },
+    "19": {
+      "M_m": "71",
+      "single_block_lower": "2"
+    },
+    "31": {
+      "M_m": "16506",
+      "single_block_lower": "229"
+    },
+    "61": {
+      "M_m": "21010024205",
+      "single_block_lower": "267960673"
+    },
+    "128": {
+      "M_m": "1426814983819745518311507",
+      "single_block_lower": "18274206352446291282963"
+    }
+  },
+  "native_original_package_imported": false,
+  "formal_task_owner_verified": false,
+  "not_p000_or_r193_native_proof": true,
+  "open_next": "Prove a uniform local-limit upper bound O(phi^m/sqrt(m)) or R193 lossless source/query/time bridge; no physical heartbeat-time inference."
+}
