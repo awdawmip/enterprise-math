@@ -1,0 +1,37 @@
+{
+  "schema": "EM_R250_AUTHOR_SIDE_EVIDENCE_V1",
+  "date": "2026-10-24",
+  "source_pin": "c7fb90fd7ec451a954b553b963dd85d4ec99fc96",
+  "global_pin": "8c3a10ae0032906c833ede6630404e39d334e253",
+  "theorem": "finite H <= GL_6(Z), 3-state or general n BRC; exact full joint hist equality all words iff words <= n*|H|-1",
+  "witness": {
+    "states": 3,
+    "symmetry_order": 2,
+    "one_letter": true,
+    "branches_per_state": 2,
+    "unit_positive_weight": true,
+    "first_difference_word_length": 3,
+    "translation_only_bound": 2,
+    "valid_general_bound": 5,
+    "observed_control_classes": 1,
+    "positive_paths_at_depth_3": 8
+  },
+  "verification": {
+    "python_exact": "PASS",
+    "cpp17_independent": "PASS",
+    "group_composition_laurent_pairs": 100,
+    "depths_tested": "0..8",
+    "native_enterprise_math_import": false
+  },
+  "native_control": {
+    "tasks": "CONTROL_QUOTA",
+    "session": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "owner_verified": false,
+    "claim": false,
+    "formal_result": false,
+    "driver_review": false
+  },
+  "claim_scope": "author-side BRC finite-control model theorem, not physical heartbeat admission",
+  "next": "native ControlPacket.from_edges/then import + pinned Source and R193 provenance bridge"
+}
