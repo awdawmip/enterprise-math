@@ -1,0 +1,6 @@
+# R270 portable handoff
+2026-10-25; author-side mathematical proof and exact two-language checks, not a formal Result.
+Pin: global d507a0acee01afd268b5b26d296f34a745df210c, P000 blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc, Source da155518fd74ffd1107228ce60b7aa4f3592e40b. Predecessor R268 aac6b9ae60761cceab87c8dbe5d20432b3406d07, R269 support-band author branch 26db7f7082b7bc244e2cbda2e043e577697ed620.
+New: exact P30(q0,r0,+1,-4)=16482 reset paths. With K=floor((n-7)/30), a single authentic full-affine effect for every n>=7 carries at least 16482^K*b_j(c) distinct original paths in each of six output channels. Any d<6 positive aggregate BRC with arbitrary single-valued D(control,depth,effect) incurs one-effect unnormalized L1 >=16482^K*s_(j,6-d), doubled if exact unmarked effect marginal preserved.
+Math: exact finite coefficient by recurrence; infinite continuation by concatenation; computer checks Python n0..160 / 8191 raw words, independent C++17 n0..80. Six versus seven remains unresolved, as does R193/native-X6 transfer; no live CLAIM/Result/Driver admission inferred from this draft.
+Next: distinguish genuine D(6) positive affine time/effect-conditioned model from impossible one by cross-depth transition constraints; leverage R269 saturation bands. Run native source modules only in authorized compatible environment.

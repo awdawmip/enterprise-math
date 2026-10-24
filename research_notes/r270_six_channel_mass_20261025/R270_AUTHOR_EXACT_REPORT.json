@@ -1,0 +1,23 @@
+{
+  "schema": "EM_R270_AUTHOR_REPORT_V1",
+  "status": "AUTHOR_SIDE_VERIFIED",
+  "global_snapshot": "d507a0acee01afd268b5b26d296f34a745df210c",
+  "enterprise_source": "da155518fd74ffd1107228ce60b7aa4f3592e40b",
+  "original_P000_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+  "length30_return_qr00_effect": "+1,-4",
+  "reset_coefficient": 16482,
+  "python": {
+    "status": "PASS",
+    "dp_depths": "0..160",
+    "brute_original_words": 8191
+  },
+  "cpp17": {
+    "status": "PASS",
+    "dp_depths": "0..80",
+    "compiler": "g++ -std=c++17 -O2; boost/multiprecision"
+  },
+  "theorem": "All n>=7 have six-channel common effect masses >=16482^floor((n-7)/30) times R268 base vector; deterministic d<6 one-effect L1 >=M^K*s, doubled if effect marginal preserved",
+  "open": "six-control arbitrary time/effect-dependent decoder existence or impossibility",
+  "mathematical_admission": "NOT_REVIEWED_OR_ADMITTED",
+  "native_execution": "NOT_RUN"
+}
