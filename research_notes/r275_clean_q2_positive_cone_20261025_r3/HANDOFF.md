@@ -8,7 +8,7 @@
 
 证据：同目录 R275_CLEAN_Q2_POSITIVE_CONE_AUTHOR_PROOF.zh-CN.md、R275_minimal_reproducer.py、EXACT_EVIDENCE.json。此前已执行本地扩展检查至90层，补充本地证据不代替不可变 GitHub 读回。
 
-冻结输入：GLOBAL_KNOWLEDGE_V1 main@468aa9ad；P000 blob 770e1b15；EM main@7d391ec9；R274@ba4064ef。研究活动 RA-EMR3-20261025-0516-R275POSITIVE，本地 researcher-id EMR3-20261025-0516-LOCAL，非原生会话。
+冻结输入：GLOBAL_KNOWLEDGE_V1 main@468aa9ad；P000 blob 770e1b15；EM main@7d391ec9；R274@ba4064ef。研究活动 RA-EMR3-20261025-0516-R275POSITIVE，本地 researcher-id EM-DIRECT-0516，非原生会话。
 
 权限：原生 em_control_tasks CONTROL_QUOTA；em_session_start STATIC_READONLY_SCOPE_DENIED，operation_sent=false。未确认活跃 Owner，没有原生 CLAIM/Result/Driver Review，未经数学接纳。未进行原版 enterprise_math 或 R193/P000 原生实验。
 
