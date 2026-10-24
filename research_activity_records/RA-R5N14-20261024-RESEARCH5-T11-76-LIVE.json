@@ -1,0 +1,51 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-R5N14-20261024-RESEARCH5-T11-76-LIVE",
+  "registration_key": "session:research5-run11-20261024T1837:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-R5-T11-20261024",
+  "session_id": "research5-run11-20261024T1837",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-24T18:52:09.278+08:00",
+  "identity_note": "Locally assigned logical researcher and session IDs for this scheduled Chat turn; NOT native EM service identities. Native session start returned STATIC_READONLY_SCOPE_DENIED.",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "N14_76_AUTHOR_PROOF_20261024_R5_T11",
+      "state": "EM_REPRESENTED",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "9cb94b54a89b34e9665d38b77850991549503733",
+          "path": "research_notes/n14_aux_iid_affine_76_20261024/PROOF.en.md",
+          "sha256": "0cdde3cf11e9b8308f875e32865020adc74e81576dbd4c5cb428bff4a7c878e8",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "r5t11-n14-76-immutable-source-readback",
+            "call_id": null,
+            "git_blob_sha1": "9e533ed2595fb5df8e200790f35fd555dfe636b6",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9cb94b54a89b34e9665d38b77850991549503733/research_notes/n14_aux_iid_affine_76_20261024/PROOF.en.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-R5N14-20261024-RESEARCH5-T11-76-LIVE/readbacks/7b9ba81f7b0317e68fb9e53d9a88ee153337a9388c92227eb45af71f10d1e4bf.json",
+          "verification_receipt_sha256": "7b9ba81f7b0317e68fb9e53d9a88ee153337a9388c92227eb45af71f10d1e4bf"
+        }
+      ],
+      "kb_sources": [],
+      "repairs_event_id": null
+    }
+  ]
+}
