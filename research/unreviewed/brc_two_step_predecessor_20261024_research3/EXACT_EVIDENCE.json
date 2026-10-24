@@ -1,0 +1,204 @@
+{
+  "scope": "STRICTLY_POSITIVE_AUXILIARY_BRC_NOT_P000_NATIVE",
+  "q_alpha": "(1,1,1,7)/10",
+  "q_beta": "(1,1,1,8)/11",
+  "good_edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "base_history": "alpha alpha",
+  "base_occupancy": "1/5",
+  "base_increment_numerators": {
+    "alpha": "-14",
+    "beta": "-19"
+  },
+  "level3_increment_numerators": {
+    "3,0": {
+      "alpha": "-124",
+      "beta": "-141"
+    },
+    "2,1": {
+      "alpha": "-105",
+      "beta": "-122"
+    }
+  },
+  "strict_K0_cut_failures_at_level3": {
+    "3,0": {
+      "alpha": {
+        "heavy_demand": "1029",
+        "only_reachable_capacity": "1024",
+        "gap": "5"
+      },
+      "beta": {
+        "heavy_demand": "1029",
+        "only_reachable_capacity": "1024",
+        "gap": "5"
+      }
+    },
+    "2,1": {
+      "alpha": {
+        "heavy_demand": "1176",
+        "only_reachable_capacity": "1152",
+        "gap": "24"
+      },
+      "beta": {
+        "heavy_demand": "1176",
+        "only_reachable_capacity": "1152",
+        "gap": "24"
+      }
+    }
+  },
+  "strict_K0_flows_at_level4": {
+    "4,0": {
+      "alpha": {
+        "D": [
+          "27",
+          "18",
+          "18",
+          "7203"
+        ],
+        "C": [
+          "128",
+          "128",
+          "8192",
+          "128"
+        ],
+        "L": [
+          "101",
+          "110",
+          "989",
+          "110"
+        ],
+        "common_denominator": "100000"
+      },
+      "beta": {
+        "D": [
+          "30",
+          "20",
+          "20",
+          "7203"
+        ],
+        "C": [
+          "144",
+          "144",
+          "8192",
+          "144"
+        ],
+        "L": [
+          "114",
+          "124",
+          "989",
+          "124"
+        ],
+        "common_denominator": "110000"
+      }
+    },
+    "3,1": {
+      "alpha": {
+        "D": [
+          "27",
+          "18",
+          "18",
+          "8232"
+        ],
+        "C": [
+          "128",
+          "128",
+          "9216",
+          "128"
+        ],
+        "L": [
+          "101",
+          "110",
+          "984",
+          "110"
+        ],
+        "common_denominator": "110000"
+      },
+      "beta": {
+        "D": [
+          "30",
+          "20",
+          "20",
+          "8232"
+        ],
+        "C": [
+          "144",
+          "144",
+          "9216",
+          "144"
+        ],
+        "L": [
+          "114",
+          "124",
+          "984",
+          "124"
+        ],
+        "common_denominator": "121000"
+      }
+    },
+    "2,2": {
+      "alpha": {
+        "D": [
+          "27",
+          "18",
+          "18",
+          "9408"
+        ],
+        "C": [
+          "128",
+          "128",
+          "10368",
+          "128"
+        ],
+        "L": [
+          "101",
+          "110",
+          "960",
+          "110"
+        ],
+        "common_denominator": "121000"
+      },
+      "beta": {
+        "D": [
+          "30",
+          "20",
+          "20",
+          "9408"
+        ],
+        "C": [
+          "144",
+          "144",
+          "10368",
+          "144"
+        ],
+        "L": [
+          "114",
+          "124",
+          "960",
+          "124"
+        ],
+        "common_denominator": "133100"
+      }
+    }
+  },
+  "all_suffix_words_length_0_through_10": 2047,
+  "independent_support_mask_next_actions": 4094,
+  "exact_count_grid_sign_checks": 840,
+  "proof": "K2\\K1 witness and all-future strict decrease use analytic induction and strict flows",
+  "status": "AUTHOR_VERIFIED_UNREVIEWED_NOT_ADMITTED"
+}
