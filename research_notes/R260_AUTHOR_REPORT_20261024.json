@@ -1,0 +1,73 @@
+{
+  "schema": "EM_R260_AUTHOR_VERIFICATION_REPORT_V1",
+  "date": "2026-10-24",
+  "status": "AUTHOR_EXACT_PASS_UNREVIEWED",
+  "global_main": "7b7bd052c42ed6aaa5641eea28b30435ed63c024",
+  "enterprise_math_main_read": "4f7169291a872467496de179666f456e67869749",
+  "original_P000_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+  "modeled_system": "R259 three-control two-positive-edge formal six-slot affine family with substring-00 DFA",
+  "theorem": "For each m>=7 and each q in {0,1,2}, a single exact (m,q,full affine effect) fiber realizes all R_q modes, cardinalities 2,2,3. First simultaneous m=7.",
+  "exact_base_depths": {
+    "q0": [
+      6,
+      7,
+      8
+    ],
+    "q1": [
+      5,
+      6,
+      7
+    ],
+    "q2": [
+      7,
+      8,
+      9
+    ]
+  },
+  "reset_p": "101",
+  "reset_same_effect_u_v": [
+    "1011101",
+    "1101101"
+  ],
+  "symbolic_proof": "m=j+3h with chosen base j; prefix p^h. Exponential version: h=7K+s, prefix 3K choices from {u,v} followed by p^s. M_(m,q)>=|R_q|2^(3K).",
+  "author_python": {
+    "status": "PASS",
+    "exact_dp_depths": "0..160",
+    "raw_word_enumeration_depths": "0..13",
+    "raw_word_total": 16383,
+    "constructed_words_checked": 3535,
+    "construction_depths": "7..511"
+  },
+  "author_cpp17": {
+    "status": "PASS",
+    "exact_dp_depths": "0..128",
+    "constructed_words_checked": 3535,
+    "construction_depths": "7..511",
+    "depth28_distinct_colliding_paths": 24
+  },
+  "local_cold_start": {
+    "status": "PASS",
+    "python_rerun": true,
+    "cpp17_compile_and_rerun": true
+  },
+  "scope_of_seven": "only deterministic per-history q-retaining effect-aware provenance tags, not general aggregate weighted representations",
+  "native_source_inspected": true,
+  "native_modules_executed": false,
+  "R193_original_observer_verified": false,
+  "P000_native_dynamics_verified": false,
+  "native_control": {
+    "task_inventory": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "active_claim_verified": false
+  },
+  "research_activity": {
+    "id": "RA-EMR4-20261024-2037-R260ALLQ",
+    "git_commit": "85c4350fc0858695fef1b8ed6b460e0df4b852a6",
+    "role": "bookkeeping-only",
+    "session": "local id, not native issued"
+  },
+  "official_result_frozen": false,
+  "driver_reviewed": false,
+  "next": "Read original R193 immutable observer/time ports; execute original ControlPacket and EffectHistogram in authorized pinned environment; research aggregate quotient separately."
+}
