@@ -70,13 +70,13 @@ for p in range(start, HIGH + 1, 6):
     r16 = pow(16, p-1, pp)
     R = (D * (r27-r16) - 699519*p*r16) % pp
     if R == 0:
-        hits_i.append$p$
+        hits_i.append(p)
 
     q2 = (pow(2, p-1, pp)-1)//p
     q3 = (pow(3, p-1, pp)-1)//p
     T = (3*D*q3 - 4*D*q2 - 699519) % p
     if T == 0:
-        hits_ii.append$p$
+        hits_ii.append(p)
 
     # A per-prime exact cross-check, not only an exception-list comparison:
     assert R == (p*T) % pp
@@ -99,3 +99,47 @@ BRC **COMPOSE_APPLIED only to this declared scalar observation**: the inspected 
 The canonical continuation remains unavailable to this author-side execution (read-only gateway returns `CONTROL_QUOTA`; Sites status `static_machine_readonly`, `write_relay_enabled=false`, `research_authority_granted=false`). Original four-file UR V2 bytes (historical 94,687 bytes, SHA-256 `4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76`) were **not** recovered or republished; an old upload pointer is not persistent evidence. No claim/open/checkpoint/handoff was asserted.
 
 **Next exact action:** recover the original UR bundle from a genuinely authorized source and verify full bytes and the target SHA-256; reconcile exact current D25 continuation and the original pending session/write receipts when authorized. For the scientific parent, establish the Source-valid **same-prime, same-primitive-class** CM/divided-power representative and direction/normalization map before a true comparison against the frozen WZ observer. Do not repeat earlier $p\le10^7$ prime searches or this interval merely to make another checkpoint. The research remains OPEN.
+
+
+## Reproducer transcription repair and source-separated cross-implementation check (2026-10-24)
+
+This author-side maintenance corrects two **Python transcription syntax errors** in the published reproducibility block: `hits_i.append$p$` and `hits_ii.append$p$` were invalid Python; the intended calls are now `hits_i.append(p)` and `hits_ii.append(p)`. The scientific finite-range statement, prime class, arithmetic predicate, immutable input pins, and source/admission status are unchanged. The fixed Python program was syntax-checked locally; **its complete long Python replay was not completed in this repair pass**. Do not treat the earlier invalid text as executable evidence.
+
+For a fast complete-range cross-implementation check, the following author-side **GNU C++17** program independently computes the exact quotient observer `T_p` on all admissible primes without floats, using 128-bit modular intermediate products. This run returned exactly `all-primes=5761455 range-primes=2548323 hits=0`; the generated little-endian prime population stream had SHA-256 `5a11d7a6c84c50f1e1b39c95f7260e3a823b1536c15dc860b469f6a8d0cb1dda`. The calculation is a second implementation, **not** an independent author/Driver review, new discovered prime range, native BRC experiment or mathematical admission. The congruence equivalence of observers remains the algebraic identity already proved above.
+
+~~~cpp
+#include <bits/stdc++.h>
+using namespace std;
+using u64=uint64_t; using u128=__uint128_t;
+static inline u64 mm(u64 a,u64 b,u64 mod){return (u128)a*b%mod;}
+static inline u64 power(u64 a,u64 n,u64 mod){
+    u64 r=1;
+    while(n){if(n&1)r=mm(r,a,mod);n>>=1;if(n)a=mm(a,a,mod);}
+    return r;
+}
+int main(){
+    const int LO=10000000, HI=100000000; const u64 D=3942400;
+    vector<uint8_t> prime(HI+1,1); prime[0]=prime[1]=0;
+    for(int k=2;k*k<=HI;k++)if(prime[k])
+        for(int n=k*k;n<=HI;n+=k)prime[n]=0;
+    uint64_t count=0, hits=0; vector<uint32_t> vec;
+    vec.reserve(2600000);
+    for(int p=10000003;p<=HI;p+=6){if(!prime[p])continue;
+        count++;vec.push_back((uint32_t)p);u64 pp=(u64)p*p;
+        u64 a=(power(2,p-1,pp)-1)/p;
+        u64 b=(power(3,p-1,pp)-1)/p;
+        u64 T=((3*D*b)%p+(u64)p-(4*D*a)%p+
+               (u64)p-699519%p)%p;
+        if(T==0){hits++;cerr<<"HIT "<<p<<"\n";}
+    }
+    uint64_t nprime=0;for(auto x:prime)nprime+=x;
+    cerr<<"all-primes="<<nprime<<" range-primes="<<count
+        <<" hits="<<hits<<"\n";
+    ofstream out("d25_wz_prime_candidates_le32.bin",ios::binary);
+    for(auto p:vec)for(int j=0;j<4;j++)out.put(char(p>>(8*j)));
+    out.close();
+    return (count==2548323&&hits==0&&nprime==5761455)?0:1;
+}
+~~~
+
+Reproduce on a GNU C++17 toolchain with `g++ -O3 -std=c++17 verify.cpp -o verify && ./verify && sha256sum d25_wz_prime_candidates_le32.bin`; store the code block as `verify.cpp`. The expected digest is the population digest above. Distinguish this complete fast-source scan from the corrected Python program's uncompleted full replay.
