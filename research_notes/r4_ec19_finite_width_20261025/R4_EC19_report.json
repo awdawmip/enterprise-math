@@ -1,0 +1,31 @@
+{
+  "schema": "EM_R4_EC19_EXACT_FINITE_WIDTH_CERTIFICATE_V1",
+  "model": "auxiliary ordered positive binary affine BRC palindromic grade kernel",
+  "generating_function": "(1-u*x^2)/(1-(1+u)*x+2*u^2*x^4-u^3*x^6)",
+  "certified_theorem": "E[n,j]>=E[n,j-1] for all integers n>=10, 1<=j<=min(floor(n/2),512), with equality only at (n,j)=(10,3),(12,4)",
+  "derived_corollary": "D[n,k]>=0 for all n>=max(13,2*k+1), 2<=k<=513, with equality only at (13,4),(15,5)",
+  "j_max": 512,
+  "recurrence_n_max": 1542,
+  "recurrence_integer_cells": 1191196,
+  "independent_rational_evaluations": 1538,
+  "positive_integer_newton_coefficients": 131840,
+  "minimum_newton_coefficient": 1,
+  "newton_coefficient_sha256": "1aaa71e6eefef75b9ed84d5f8751c839ba65f58d4e1b1f4f5316604b46e377bc",
+  "low_strip_integer_checks": 3054,
+  "low_strip_sha256": "3e32fd01309388b5e87064a421c3c7b9ccb30272e868da96869ac023b0707516",
+  "exact_equalities": [
+    [
+      10,
+      3
+    ],
+    [
+      12,
+      4
+    ]
+  ],
+  "arithmetic": "Python arbitrary precision exact integers and math.comb",
+  "proof_logic": "degree <=j from A_j/(1-x)^(j+1); for n>=2j the fixed-grade coefficient is polynomial; strictly positive Newton coefficients at base 2j+6 extend to every n beyond; six finite n-cases per j close the strip",
+  "coverage": "infinite n but finite grades j<=512; does not settle j>512 or formal native X6 dynamics",
+  "mathematical_admission": "AUTHOR_SIDE_UNREVIEWED",
+  "native_X6_experiment": "NOT_RUN"
+}
