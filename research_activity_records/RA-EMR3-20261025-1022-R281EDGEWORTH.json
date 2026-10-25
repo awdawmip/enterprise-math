@@ -18,5 +18,35 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "R281-EDGEWORTH-20261025-SEMANTIC-1",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "51a181caa45129508ee5b1da8307516002c56a91",
+          "path": "research_notes/r281_edgeworth_signed_peaks_20261025_t3/EXACT_EVIDENCE.json",
+          "sha256": "aa6caae71683da629812cd9af6d007ce0f6ccc45b0c40500b21fcd3b137f7173",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "r281-evidence-readback-20261025-1035-local",
+            "call_id": null,
+            "git_blob_sha1": "f1167c096ec968391e1cdc3bee2b40a73b9b0c7e",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/51a181caa45129508ee5b1da8307516002c56a91/research_notes/r281_edgeworth_signed_peaks_20261025_t3/EXACT_EVIDENCE.json",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261025-1022-R281EDGEWORTH/readbacks/8226a05dfe8bbe795ee6c2ed27131dbec1e0123fd2bcc21f77249c59fe549f73.json",
+          "verification_receipt_sha256": "8226a05dfe8bbe795ee6c2ed27131dbec1e0123fd2bcc21f77249c59fe549f73"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@50e22254dac1b15435eed58a6ad87a3e9b8627f0:journal/enterprise-math/2026-10-25/20261025T103422+0800-r281-signed-edgeworth-t3.md"
+      ],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null
+    }
+  ]
 }
