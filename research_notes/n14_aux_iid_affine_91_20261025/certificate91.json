@@ -1,0 +1,105 @@
+{
+  "schema": "EM_AUX_N14_STAGE91_AUTHOR_EXACT_CERT_V1",
+  "date": "2026-10-25",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ]
+  },
+  "status": {
+    "author_side_exact": true,
+    "independent_driver_review": false,
+    "native_claim_verified": false,
+    "physical_correspondence_proved": false
+  },
+  "input": {
+    "global_main": "c05ac6c5ad57a109c2d5bd71d7822b5be2abbd87",
+    "project_read_main": "90494b2b08a18150d701db1ca0e04182ad83facc",
+    "parent_stage90_commit": "c7d817f58665248c3269c5cbe78e4d3acd1e17f8",
+    "derive90_git_blob": "b4ce38a74fac162647d01279215c0c26d622a5a3"
+  },
+  "theorem": {
+    "alpha90": "5172392575267656743/14900301753911083008",
+    "V90": "24307271485812814529/1862537719238885376",
+    "eta91": "7004684375/1616786214617088",
+    "s90": "29733408254700427/41779200000000000",
+    "s91": "27568725422700427/41779200000000000",
+    "alpha91": "5172457130438856743/14900301753911083008",
+    "V91": "24277747395672814529/1862537719238885376",
+    "K91": "4256337294/2241499",
+    "lambdaP": "3944798856/2241499",
+    "Gamma91": "8201136150/2241499",
+    "h91": "-45097559/870400000"
+  },
+  "bellman": {
+    "states": 680,
+    "alternative_checks": 1240,
+    "positive": 1238,
+    "negative": 0,
+    "ties": [
+      [
+        "6,0,2",
+        "C",
+        "Q"
+      ],
+      [
+        "12,0,1",
+        "C",
+        "Q"
+      ]
+    ],
+    "minimum_positive_gap": "40045614911/35696427466752",
+    "root": "1260452162613076445424707977/982323867090880548569088"
+  },
+  "branch_A91": {
+    "nominal_prefixes": 15,
+    "real_first_hits": 15,
+    "P_first_hit_mass": "3125/248832",
+    "Q_first_hit_mass": "3125/62208",
+    "terminal_suffix_words": 281,
+    "terminal_state_action_classes": 34,
+    "truncated_complete_histories": 4215,
+    "continue_Perror": "338147645/339738624",
+    "continue_Qerror": "47177/53747712"
+  },
+  "branch_B": {
+    "real_first_hits": 12,
+    "P_first_hit_mass": "48828125/725594112",
+    "Q_first_hit_mass": "48828125/362797056",
+    "terminal_suffix_words": 5
+  },
+  "tPminus_tQ": {
+    "u0": "2167774451913429905/3725075438477770752",
+    "u1": "2330264683137429905/3725075438477770752"
+  },
+  "next_candidate_only": {
+    "K92": "551124/295",
+    "A92": [
+      12,
+      8,
+      3
+    ],
+    "new_tie": "C=P"
+  },
+  "checks": [
+    "local Fraction dynamic programming PASS",
+    "ordered DFS first-hit and suffix PASS",
+    "independent recursive min Bellman PASS",
+    "archive reextract rerun PASS"
+  ],
+  "native_control": {
+    "owner_verified": false,
+    "session_issued": false,
+    "control_error": "CONTROL_QUOTA",
+    "session_error": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false
+  }
+}
