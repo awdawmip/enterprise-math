@@ -15,6 +15,16 @@ import C305_MODULAR_NEWTON_CONTENT as c305
 
 BASE=Path(__file__).resolve().parent
 EXCEPTIONAL=[3,6,7,8,11,12,17,26,27,29,30,33,34,38,56,75,76,97,108]
+PRIME_THREE={3,8,38,56}
+
+def term_content_lower(s,prepared):
+    """Direct 79-term gcd bound, with no historical complete-Newton oracle."""
+    g=s
+    for co,nums,_ in prepared:
+        v=abs(co)
+        for n in nums:v*=reduce(gcd,n,0)
+        g=gcd(g,v)
+    return g
 
 def pmul(a,b,p):
     if len(a)==0 or len(b)==0:return np.array([],dtype=np.int64)
@@ -99,20 +109,16 @@ def pairwise_certificate(groups,prepared,lower,p):
                 distinct_monic_factors=len(fa))
 
 def main(indices):
-    records=json.loads((BASE/'C309_BRANCH_CONTENT_PROBE_125.json').read_text())['rows']
     frozen=json.loads((c305.ROOT/'C293_125_REFINED_BRACKETS.json').read_text())
     paths,_=c305.c288.build_paths()
     W,_=c305.src.floor_fixed_masses()
     result=[]
     for i in indices:
         t0=time.monotonic()
-        record=records[i]
-        assert record['index']==i
         s,groups,prepared,cancels,d=c305.prepare(i,paths[i],int(frozen['records'][i][1]),W)
-        lower=int(record['lower_dec'])
-        oracle=int(record['oracle_dec'])
-        assert oracle%lower==0 and oracle//lower in (2,3)
-        p=oracle//lower
+        lower=term_content_lower(s,prepared)
+        assert i in EXCEPTIONAL
+        p=3 if i in PRIME_THREE else 2
         assert s%lower==0 and s%p==0
         pair=pairwise_certificate(groups,prepared,lower,p)
         out,nz,zero,maxd=poly_branch_mod(p,groups,prepared,lower)
@@ -130,7 +136,8 @@ def main(indices):
                  residual_coefficients_mod_p2_nonzero=p2count,
                  first_nonzero_coefficient_mod_p2=witness[0],
                  coefficient_residue_at_witness_mod_p2=witness[1],
-                 oracle_ratio=p,
+                 proposed_prime=p,lower_content_decimal=str(lower),
+                 lower_content_bits=lower.bit_length(),
                  degree_mod_p2=len(outp2)-1,
                  seconds=round(time.monotonic()-t0,3))
         result.append(obj)
@@ -140,7 +147,7 @@ def main(indices):
          'model':'C195/H168 auxiliary 79-branch positive rational scalar, C293 frozen paths',
          'source_C293_sha256':frozen['records_sha256'],
          'source_c309':'research/c309-structural-content-prefix-20261026-research2@3b1d56d2b8256c0372f382abe0ad0125d5173c6c',
-         'scope':'Author exact mod-p and mod-p^2 polynomial coefficients; C300 factorized identity assumed; not native BRC/X6',
+         'scope':'Prime candidate from C309 frontier; term gcd recomputed directly without C306 G oracle. Author exact mod p and p^2 coefficients; C300 factorization assumed; not native BRC/X6',
          'rows':result}
     (BASE/'C310_JOINT_BRANCH_PRIME_CERT.json').write_text(json.dumps(doc,indent=2)+'\n')
     print('C310_ALL',len(result),'PASS')
