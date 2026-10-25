@@ -18,5 +18,35 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "em-r5-n14-stage89-exact-real-affine-20261025",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "96e04e09dce8716acaecf3a69fb2dc8b0e845a80",
+          "path": "research_notes/n14_aux_iid_affine_89_20261025/PROOF.en.md",
+          "sha256": "4e4db33c4e74daa96186172073d61cd98923f77e8d07e3f19885caf375fdb5bc",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "tool_name": "github_fetch_file",
+            "observation_id": "local-observation-emr5-n14-stage89-20261025-0759",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false,
+            "call_id": null,
+            "git_blob_sha1": "173051d70136305983183ed93bce0bb62a3ba6dd",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/96e04e09dce8716acaecf3a69fb2dc8b0e845a80/research_notes/n14_aux_iid_affine_89_20261025/PROOF.en.md"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR5-20261025-0747-N14-STAGE89/readbacks/108e0b59ba6b448b4129981b864e57d984a1ec5dacd0077abd59bb070cf388f3.json",
+          "verification_receipt_sha256": "108e0b59ba6b448b4129981b864e57d984a1ec5dacd0077abd59bb070cf388f3"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@6a246ed94efb5ed584cefd4b0720171067bd94c2:journal/enterprise-math/2026-10-25/20261025T075817+0800-n14-stage89-r5-96e04e09.md"
+      ]
+    }
+  ]
 }
