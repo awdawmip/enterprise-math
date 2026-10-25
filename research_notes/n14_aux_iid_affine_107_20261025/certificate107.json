@@ -1,0 +1,118 @@
+{
+  "scope": "AUTHOR_EXACT_EXTERNAL_IID_N14_STAGE107",
+  "source": {
+    "global_knowledge": "04aa116d3c89bc5fee453d6467cd87eed27221fe",
+    "enterprise_predecessor": "cbece42d9ec43fe8dfd9f16b2261d18b59ce1b7e",
+    "p000_canonical_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "stage106": "research_notes/n14_aux_iid_affine_106_20261025/PROOF_STAGE106.md"
+  },
+  "dual": {
+    "K": "778896/767",
+    "L": "747576/767",
+    "Gamma": "1526472/767",
+    "D_root": "14787165590378589778037/21008329862591545344",
+    "states": 680,
+    "nonselected_gaps": 1240,
+    "strict_positive": 1238,
+    "negative": 0,
+    "ties": {
+      "(10,3,0)": [
+        "P",
+        "C"
+      ],
+      "(12,0,1)": [
+        "Q",
+        "C"
+      ]
+    },
+    "min_positive_gap": "12607/331344",
+    "pinned_policy_nonnegative_at_K106_and_K107": true
+  },
+  "first_hits": {
+    "A": {
+      "state": [
+        10,
+        3,
+        0
+      ],
+      "ordered_prefixes": 120,
+      "p": "390625/5971968",
+      "q": "390625/20155392",
+      "continued_suffix": [
+        "635/165888",
+        "10201/10368",
+        "7711/6912",
+        "1069/864",
+        "21"
+      ]
+    },
+    "B": {
+      "state": [
+        12,
+        0,
+        1
+      ],
+      "ordered_prefixes": 12,
+      "p": "48828125/725594112",
+      "q": "48828125/362797056",
+      "continued_suffix": [
+        "63/64",
+        "1/144",
+        "9/8",
+        "13/12",
+        "5"
+      ]
+    }
+  },
+  "primal": {
+    "alpha106": "646648605512624167/1862537719238885376",
+    "V106": "6009214469256084569/465634429809721344",
+    "s0": "4106591957559179/5222400000000000",
+    "dxP_du": "-248046875/990677827584",
+    "dxQ_du": "65234375/208971104256",
+    "deP_ds": "48828125/46438023168",
+    "deQ_ds": "-48828125/52242776064",
+    "ds_du": "38521/136000",
+    "dalpha_du": "299609375/6315571150848",
+    "u_max": "1115808042440821/1479206400000000",
+    "s_max": "1",
+    "delta_max": "855824768552109707/23915605160933701189632",
+    "alpha107": "91588670614917102449/263775056922062880768",
+    "V107": "13541383133505475882195/1055100227688251523072",
+    "moments_at_start": [
+      "646648605512624167/1862537719238885376",
+      "646648605512624167/1862537719238885376",
+      "6009214469256084569/465634429809721344",
+      "5708989891929406961/465634429809721344"
+    ],
+    "moments_at_end": [
+      "91588670614917102449/263775056922062880768",
+      "91588670614917102449/263775056922062880768",
+      "13541383133505475882195/1055100227688251523072",
+      "805267616960628807535/65943764230515720192"
+    ],
+    "tP_gt_tQ_endpoints": true,
+    "support_line_sharpness": "S_B_SATURATES_BEFORE_U_REACHES_ONE"
+  },
+  "validation": {
+    "primary_author_checker": "PASS exact Fraction; all Bellman states/gaps, true first-hit masses, suffixes, full moments at endpoints and midpoint",
+    "second_author_checker": "PASS distinct top-down Bellman and literal ordered DFS",
+    "ordered_nodes": [
+      1022896,
+      1022896,
+      1022824
+    ],
+    "independent_driver_admission": false,
+    "formal_claim": false,
+    "native_P000_bridge": false
+  },
+  "authority": {
+    "github_actor": "awdawmip",
+    "github_push": true,
+    "native_control_tasks": "CONTROL_QUOTA",
+    "native_session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "native_operation_sent": false,
+    "active_owner_verified": false
+  },
+  "next": "Two-parameter dual face at B=s=1, beyond alpha107; exact Bellman cone and primal error/time analysis"
+}
