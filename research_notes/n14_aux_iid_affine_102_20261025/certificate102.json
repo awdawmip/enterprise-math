@@ -1,0 +1,111 @@
+{
+  "schema": "EM_N14_STAGE102_AUTHOR_EXACT_CERTIFICATE_V1",
+  "source_model": "external_finite_iid_3_symbol_N14",
+  "P": [
+    "1/8",
+    "1/24",
+    "5/6"
+  ],
+  "Q": [
+    "1/12",
+    "1/12",
+    "5/6"
+  ],
+  "native_result_admitted": false,
+  "independent_driver_review": false,
+  "duality": {
+    "K": "96424629120/78169393",
+    "lambdaP": "91338977736/78169393",
+    "Gamma": "187763606856/78169393",
+    "root": "3626353483971594146819209007/4282160086838473289367552",
+    "states": 680,
+    "nonselected_action_comparisons": 1240,
+    "positive": 1238,
+    "equal": 2,
+    "negative": 0,
+    "tied_states": [
+      [
+        5,
+        0,
+        2
+      ],
+      [
+        12,
+        0,
+        1
+      ]
+    ]
+  },
+  "first_hits": {
+    "A": {
+      "ordered_words": 10,
+      "P": "625/62208",
+      "Q": "625/15552"
+    },
+    "B": {
+      "ordered_words": 12,
+      "P": "48828125/725594112",
+      "Q": "48828125/362797056"
+    },
+    "cones_disjoint_reason": "monotone count b: A.b=2>B.b=1 while A.n=5<B.n=12"
+  },
+  "continue_suffix": {
+    "A": [
+      "8102662423/8153726976",
+      "1489889/1289945088",
+      "1650008497/1019215872",
+      "685"
+    ],
+    "B": [
+      "63/64",
+      "1/144",
+      "9/8",
+      "13/12",
+      "5"
+    ]
+  },
+  "primal": {
+    "alpha101": "152150366213667431/438244169232678912",
+    "V101": "44227501292577155/3423782572130304",
+    "s101": "1033425075169483/1228800000000000",
+    "h": "1437504293/26112000000",
+    "s102": "16418222843481211/20889600000000000",
+    "eta": "48855870625/9700717287702528",
+    "alpha102": "2586593746940986327/7450150876955541504",
+    "V102": "751163408448101635/58204303726215168",
+    "tP_minus_tQ_at_start": "66892673788070575/109561042308169728",
+    "tP_minus_tQ_at_end": "400265986153999925/620845906412961792"
+  },
+  "independent_full_ordered_DFS": {
+    "start_nodes": 1039336,
+    "start_terminal_paths": 692903,
+    "end_nodes": 1029076,
+    "end_terminal_paths": 686063,
+    "start": [
+      "152150366213667431/438244169232678912",
+      "152150366213667431/438244169232678912",
+      "44227501292577155/3423782572130304",
+      "449462455858132795/36520347436056576"
+    ],
+    "end": [
+      "2586593746940986327/7450150876955541504",
+      "2586593746940986327/7450150876955541504",
+      "751163408448101635/58204303726215168",
+      "22836431111877252545/1862537719238885376"
+    ]
+  },
+  "next_dual_only": {
+    "K103": "152847928260/128768917",
+    "critical_state": [
+      6,
+      2,
+      3
+    ],
+    "action_tie": [
+      "C",
+      "Q"
+    ],
+    "stage103_primal_proved": false
+  },
+  "execution_evidence": "Two local Python3 Fraction checkers actually executed and PASS; portable GitHub copies require separate execution; see local full ZIP, do not treat source readback as new execution."
+}
