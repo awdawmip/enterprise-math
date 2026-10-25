@@ -1,39 +1,39 @@
 # D25/LIFT — exact p=6m+5 rank theorem, signed third-digit falsifier and finite-class certificate
 
-**2026-10-25 · TASK_RESEARCH · AUTHOR_SIDE_EXACT_PROOF / FINITE_CHECKS_PASSED / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING / SYNC_DEBT.** This is a portable author contribution, **not** a Source-native checkpoint, CLAiM, run, Result, independently reviewed theorem, or native benchmark. Original frozen task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`, publication `TP2-B6F4FC938FF94941C1B7`, unchanged scientific source pin `c47e13e4aba0e006366f989d6334d443f6333ae3`. Research identity requested for this lane `chatgpt-research-onhour-enterprise-math-20260923`; maintenance `chatgpt-hourly-enterprise-math-20260921` is separate.
+**2026-10-25 · TASK_RESEARCH · AUTHOR_SIDE_EXACT_PROOF / FINITE_CHECKS_PASSED / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING / SYNC_DEBT.** This is a portable author contribution, **not** a Source-native checkpoint, CLAIM, run, Result, independently reviewed theorem, or native benchmark. Original frozen task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`, publication `TP2-B6F4FC938FF94941C1B7`, unchanged scientific source pin `c47e13e4aba0e006366f989d6334d443f6333ae3`. Research identity requested for this lane `chatgpt-research-onhour-enterprise-math-20260923`; maintenance `chatgpt-hourly-enterprise-math-20260921` is separate.
 
 ## Whole-prime exact valuation theorem (new p=5 mod6 case)
 
 For any prime p>=5 and every original rank 0<=n<p, set
-[
-a_n=(6n+1)rac{(1/2)_n(1/3)_n(2/3)_n}{2^n(n!)^3}.
-]
+\[
+a_n=(6n+1)\frac{(1/2)_n(1/3)_n(2/3)_n}{2^n(n!)^3}.
+\]
 Elementary factorial algebra gives the **exact rational identity**
-[
-oxed{a_n=(6n+1)inom{2n}{n}^2inom{3n}{n}216^{-n}
-=(6n+1)rac{(2n)!(3n)!}{216^n(n!)^5}.}
-]
+\[
+\boxed{a_n=(6n+1)\binom{2n}{n}^{2}\binom{3n}{n}216^{-n}
+=(6n+1)\frac{(2n)!(3n)!}{216^n(n!)^5}.}
+\]
 Since p>3, n<p, the denominator is a p-unit and 3n<3p<p². Thus Legendre's factorial formula gives the **exact valuation including the weight**
-[
-oxed{v_p(a_n)=lfloor 2n/pfloor+lfloor3n/pfloor+v_p(6n+1).}
-]
+\[
+\boxed{v_p(a_n)=\left\lfloor\frac{2n}{p}\right\rfloor+
+\left\lfloor\frac{3n}{p}\right\rfloor+v_p(6n+1).}
+\]
 
 In particular, for any p=6m+5, m>=0, the unweighted valuation is 0 for n<=2m+1; 1 for 2m+2<=n<=3m+2; 2 for 3m+3<=n<=4m+3; and >=3 for n>=4m+4. The sole weighted rank divisible by p is n=(5p-1)/6=5m+4, with 6n+1=5p (valuation 2 rather than 1 when p=5). This already lies above n=4m+3, so **without assuming any cancellation**:
-[
-oxed{W_p:=sum_{n=0}^{p-1}a_nequivsum_{n=0}^{4m+3}a_npmod{p^3}quad (p=6m+5).}
-]
+\[
+\boxed{W_p:=\sum_{n=0}^{p-1}a_n\equiv\sum_{n=0}^{4m+3}a_n\pmod{p^3}\quad (p=6m+5).}
+\]
 For p=6m+1 the same valuation identity specializes to the *already-proved* previous four-band result, including the weighted n=m crossing; we do not count it as newly discovered.
 
 ## Exact falsifier, conditional class prediction
 
 The blanket extension W_p≡p (modp³) for *every* p>3 is false. The original five weighted ranks modulo 125 at p=5 are exactly (1,49,45,25,0), giving
-[
-oxed{W_5equiv120equiv-5
-otequiv5pmod{125}.}
-]
+\[
+\boxed{W_5\equiv120\equiv-5\not\equiv5\pmod{125}.}
+\]
 This is a rigorous counterexample to an **over-generalized auxiliary claim** only; p=5 is not a target-class D25 counterexample.
 
-**CONJECTURE, NOT PROVED:** (displaystyle W_pstackrel{?}{equiv}pleft(rac{-3}{p}ight)pmod{p^3}) for all p>3. Quadratic reciprocity makes the symbol +1 for p=1 mod3 and -1 for p=2 mod3. The frozen D25 primes p=13,19 mod24 are only a subclass of the positive branch, so this conjecture does not change the frozen original benchmark or expand its official quantifiers.
+**CONJECTURE, NOT PROVED:** $W_p\stackrel{?}{\equiv}p\left(\frac{-3}{p}\right)\pmod{p^3}$ for all p>3. Quadratic reciprocity makes the symbol +1 for p=1 mod3 and -1 for p=2 mod3. The frozen D25 primes p=13,19 mod24 are only a subclass of the positive branch, so this conjecture does not change the frozen original benchmark or expand its official quantifiers.
 
 ## Reproducible, exact original-sum verification
 
@@ -49,9 +49,10 @@ Exact independent samples: W_5=120 mod125; W_19=19 mod19³; W_211=211 mod211³; 
 ## Dependency and observer boundaries; exact next step
 
 Use the already-author-side-proved CM/Hasse inert zero classification in `research_notes/portable_direct/20261025_onhour_d25_cm_hasse_inert_zero_classification.md` at EM main commit `502294bc379ecb2f5e6666c2e60bb6c7334e031e`, together with the signed Clausen joint obstruction of `20261025_onhour_d25_clausen_three_band_local_jet_joint.md` at `9713f10774d8c0a64c64fb2bd9888bec5679f40d`. **Do not repeat** the prior low/mid/high jets, reflected corner, or Legendre zero proof. The remaining **original all-prime target** is still to prove/deny
-[
-mathcal E_p=(12U_0D_0-1)/p+U_0^2+12U_0D_1+12D_0(L_2^{low}+L_2^{mid}+V_{4m})-T_pequiv0pmod p
-]
+\[
+\mathcal E_p=\frac{12U_0D_0-1}{p}+U_0^2+12U_0D_1+
+12D_0(L_2^{low}+L_2^{mid}+V_{4m})-T_p\equiv0\pmod p.
+\]
 for p=13,19 mod24, conditional on the separately accepted first-digit statement allowing division by p. A direct finite-field formal-adjoint/telescoping certificate retaining the signed cutoff is the next mathematical unit. The stronger signed-character conjecture is only an additional *pressure test*, not a substitute.
 
 The frozen original native CM/Hasse same-class `[X]U` modulo p², primitive-class comparison/semilinearity and exact leading normalization, Frobenius direction, κ and native benchmark remain **unexecuted/unverified**. A scalar finite p³ test is NOT that experiment. The BRC/residual observer retains full rank provenance, prime valuations, signed mod p³ residues and separate scalar/Hasse/native ports. Positive BRC mass is inapplicable to signed residue cancellation; the classical finite-field auxiliary model makes no claim about native X6 spatial dynamics.
