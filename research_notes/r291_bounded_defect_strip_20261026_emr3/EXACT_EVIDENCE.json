@@ -1,0 +1,60 @@
+{
+  "schema": "EM_R291_BOUNDED_DEFECT_STRIP_V1",
+  "status": "PASS",
+  "base_coefficients_checked_through_j": 50000,
+  "model": "positive ordered 6-edge BRC clean-reset, exact full-affine fiber differences",
+  "algebra": "w=(1+y)(1+h), h=y^4+(y+2y^2+y^3+y^4)h+y(1+y)^2 h^2; w=(A-(1-y^3)g)/(2y)",
+  "method": "linear-order recurrence for rational-square-root g and exact polynomial filters; pairwise G_{m+1}=w G_m",
+  "proof_scope": "for all m>=11 minus and m>=13 plus, 0<=j<=J; no conclusion for j>J",
+  "negative_coefficients_found": 0,
+  "bases": {
+    "minus11": {
+      "m": 11,
+      "first12": [
+        "1",
+        "8",
+        "26",
+        "39",
+        "16",
+        "5",
+        "191",
+        "718",
+        "1583",
+        "3237",
+        "7652",
+        "19240"
+      ],
+      "strict_positive_coefficients": 50001,
+      "min_coefficient": "1",
+      "last_coefficient_decimal_digits": 20894,
+      "last_coefficient_prefix": "238424718508509393866471413545137902803269106844",
+      "last_coefficient_suffix": "020801972950293592483683412488261918436779574699"
+    },
+    "plus13": {
+      "m": 13,
+      "first12": [
+        "1",
+        "11",
+        "52",
+        "130",
+        "157",
+        "24",
+        "51",
+        "1270",
+        "4569",
+        "9992",
+        "20021",
+        "47139"
+      ],
+      "strict_positive_coefficients": 50001,
+      "min_coefficient": "1",
+      "last_coefficient_decimal_digits": 20894,
+      "last_coefficient_prefix": "727065188910980998704004109470789318013832101530",
+      "last_coefficient_suffix": "701086405736838806442481768004956085673830254466"
+    }
+  },
+  "native_owner_verified": false,
+  "driver_review": "NOT_DONE",
+  "independent_six_edge_dp_end": 160,
+  "independent_six_edge_dp_matches": 147
+}
