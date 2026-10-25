@@ -18,5 +18,35 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "r4-ec12-positive-laurent-minimal-v1",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@54c714b4e467018554b3c8542c88b0da2e2ac109:journal/enterprise-math/2026-10-25/20261025T113240+0800-r4-ec12-positive-laurent-minimal.md"
+      ],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "fed35782b51e671bd2045c004c67d9ce55a8ae10",
+          "path": "research_notes/r4_ec12_positive_laurent_20261025/R4_EC12_POSITIVE_LAURENT_MINIMAL_REALIZATION.md",
+          "sha256": "85770e199eae0ccccb5037dce05a7480eba6cdeca272462a639bbb52efb2ce0e",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "emr4-ec12-proof-readback-20261025-1132",
+            "call_id": null,
+            "git_blob_sha1": "740f046e4dbd1aab5d8010809437a2f5cb19f75a",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/fed35782b51e671bd2045c004c67d9ce55a8ae10/research_notes/r4_ec12_positive_laurent_20261025/R4_EC12_POSITIVE_LAURENT_MINIMAL_REALIZATION.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261025-1132-EC12POS/readbacks/14898cc76cae14ed093b945b903a698ce1dc32371a891033aa0031d1eab3e77b.json",
+          "verification_receipt_sha256": "14898cc76cae14ed093b945b903a698ce1dc32371a891033aa0031d1eab3e77b"
+        }
+      ]
+    }
+  ]
 }
