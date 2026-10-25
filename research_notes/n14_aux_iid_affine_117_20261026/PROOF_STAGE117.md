@@ -1,119 +1,218 @@
-# Stage117 — exact affine optimum after terminal T saturates
+# Stage117: exact optimal affine segment for the N=14 auxiliary iid test
 
-Status: **AUTHOR_EXACT_FINITE_PROOF / DRIVER_UNREVIEWED / NO_NATIVE_CLAIM**. This is an external auxiliary iid sequential-testing experiment, **not** a P000, X6, Heartbeat, or native BRC physical theorem. Researcher-ID `EM-DIRECT-5A72C1` is locally allocated provenance, not a service-issued Owner/CLAIM.
+Status: AUTHOR_EXACT_FINITE_PROOF. This is NOT a P000, X6, Heartbeat, or native physical theorem. Independent Driver review and native Owner/CLAIM/Result remain unverified. Local Researcher-ID: EM-DIRECT-5A72C1 (not service-issued).
 
-## Frozen model and theorem
+## Statement and finite model
 
-On every full ordered history of at most 14 iid ternary draws, use
-[
- P=(1/8,1/24,5/6),qquad Q=(1/12,1/12,5/6).
-]
-Write `eP=P(decide Q)`, `eQ=Q(decide P)`, `tP=E_P(tau)`, `tQ=E_Q(tau)`. Define
-[
- V_{14}(alpha)=inf_{	ext{all ordered-history randomized stopping/decisions}:eP,eQleqalpha}max(tP,tQ).
-]
-Use the Stage116 author-level endpoint
-[
- alpha_{116}=rac{900390062503198401793}{2592933255351443128320},quad
- V_{116}=rac{132635679890866772493569}{10371733021405772513280}.
-]
-Set
-[
- K=rac{7703713039590}{8727240137},quad
- L=rac{7249159245096}{8727240137},quad
- S=K+L=rac{2136124612098}{1246748591},quad
- eta=rac{8727240137}{228653726221467648}.
-]
-**Theorem.** For EVERY REAL (0leqdeltaleqeta),
-[
- oxed{V_{14}(alpha_{116}+delta)=V_{116}-Sdelta.}
-]
-In particular
-[
- oxed{alpha_{117}=rac{900390161470101555373}{2592933255351443128320}},quad
- oxed{V_{117}=rac{132635001628579939136609}{10371733021405772513280}}.
-]
-The same Bellman support line is **strictly unattainable** at every (alpha>alpha_{117}).
+For all randomized stopping/deciding rules on full ordered histories of at most 14 iid ternary draws, use
 
-## Dual certificate over all ordered histories
+\[
+P=(1/8,1/24,5/6),\qquad Q=(1/12,1/12,5/6).
+\]
 
-At count state (s=(n,a,b)), with (nleq14), the likelihood ratio is (R(s)=Q(s)/P(s)=2^{a+b}/3^a). In conditional P units define
-[
- H(s)=minleft{K R(s), L, 1+	frac18H(n+1,a+1,b)+	frac1{24}H(n+1,a,b+1)+	frac56H(n+1,a,b)ight}
-]
-with the continuation term omitted at (n=14). All operations are rational. The exact recurrence exhausts (sum_{n=0}^{14}inom{n+2}{2}=680) states. Of all nonminimizing actions, exactly 1238 have strictly positive gaps, zero have negative gaps, and the minimum strict gap is
-[
- rac{273655643173420723}{6671206249789390848}>0.
-]
-There are exactly TWO ties:
-[
- X=(7,5,1): 	ext{decide P / continue},qquad
- D=(9,1,2): 	ext{decide Q / continue}.
-]
-The previously tied terminal state (T=(14,7,4)) now uniquely decides P. Direct computation gives
-[
- H(0,0,0)=rac{145276732397197889380399249433}{239041381470853493302493184}
- =V_{116}+Salpha_{116}.
-]
-Induction on the *uncompressed, ordered prefix tree* gives, for any history-dependent randomized policy,
-[
- H(0,0,0)leq t_P+L e_P+K e_Q.
-]
-The count recursion is valid because the conditional iid suffix and four declared observers agree on count fibers, NOT because different ordered histories are identical native states. Since (K,L>0) and (t_Pleqmax(t_P,t_Q)), the universal lower bound is (V_{14}(alpha)geq H(0,0,0)-Salpha).
+Define error probabilities \(e_P=P(\mathrm{decide}\ Q)\), \(e_Q=Q(\mathrm{decide}\ P)\), and expected sample sizes \(t_P=E_P(\tau)\), \(t_Q=E_Q(\tau)\). Let
 
-### First dual wall after Stage116
+\[
+V_{14}(\alpha)=\inf_{\text{all admissible ordered-history randomized policies};\,e_P,e_Q\leq\alpha}\max\{t_P,t_Q\}.
+\]
 
-At Stage116 take (K_0=37550061/41440, L_0=3296576/3885). Use the nonmixing selector Q at D and P at T and all otherwise unique minimizers. Keeping D exactly tied determines
-[
- K(x)=K_0-x,quad L(x)=L_0-rac{164096}{214569}x.
-]
-Every nonselected action gap is affine on this fixed-policy ray. The old terminal tie T moves strictly to P (the Q-minus-P gap increases), and D remains tied. Exhaustively comparing all formerly positive gaps gives the UNIQUE smallest positive zero
-[
- x_*=rac{172786349905893}{7380751658720}
-]
-at (X=(7,5,1)), alternative action **P**. Independently recomputing the exact 680-state Bellman recurrence at ((K(x_*),L(x_*))) yields precisely the two ties and 1238 positive gaps above. The ray sweep only locates a candidate; this independent endpoint Bellman minimization is the global dual certificate.
+The prior author-level Stage116 endpoint is
 
-## Positive-rational labeled path carriers
+\[
+\alpha_{116}=\frac{900390062503198401793}{2592933255351443128320},\qquad
+V_{116}=\frac{132635679890866772493569}{10371733021405772513280}.
+\]
 
-Keep the actual first-hit ordered histories. Choosing continuation at the two tie states to obtain first-hit masses:
-[
- egin{array}{c|c|c|c}
- 	ext{state}&	ext{number of ordered prefixes}&P	ext{-mass}&Q	ext{-mass}\
- X&(28)&35/1179648&35/4478976\
- D&(172)&671875/53747712&671875/20155392
- end{array}
-]
-The two cones are disjoint: X has 5 zeros already at depth 7, while D has only 1 zero at depth 9, so X cannot precede D; D cannot precede X by depth. A branch is represented by its ordered prefix and two positive rational masses; this is a typed finite BRC-style carrier with the four moment observers. It contains no signed amplitudes or phase cancellation. Source interface reused: `definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`, explicit positive rational branch population (REUSE_APPLIED); this finite use is not a general identification with native dynamics.
+Define the exact rational dual parameters and interval size by
 
-At D decide Q with probability (w) and otherwise continue; at X decide P with probability (y) and otherwise continue. The other states use their unique Bellman minimizers; in particular T always decides P. As the two cones do not meet, the root moment vector (M=(e_P,e_Q,t_P,t_Q)) is exactly affine (M(w,y)=M(0,0)+w,d_w M+y,d_y M), without a (wy) term. Exact derivatives (two independent computation schemes) are
-[
- d_wM=left(rac{593265625}{5283615080448},-rac{430671875}{5015306502144},-rac{34607609375}{1981355655168},-rac{17355203125}{417942208512}ight),
-]
-[
- d_yM=left(-rac{816010405}{5410421842378752},rac{3257975}{17832200896512},-rac{8114835365}{225434243432448},-rac{151243295}{13374150672384}ight).
-]
-The Stage116 endpoint is (y=0) and (w_0=374319733261181/1042086080000000). Solving (e_P=e_Q) gives the legal **continuous** family
-[
- oxed{w(y)=w_0+rac{12528414549}{7443472000000},y,quad 0leq yleq1.}
-]
-Here (0<w_0<w(1)=376073711298041/1042086080000000<1). Direct exact evaluation at both endpoints proves
-[
- e_P=e_Q=alpha_{116}+eta y,quad
- t_P=V_{116}-Seta y,quad
- t_P>t_Q.
-]
-The last strict inequality holds at both endpoints and thus on the full interval by affinity. All policies use only Bellman minimizers and attain the dual lower bound, proving the theorem for **every real** point, not merely a numerical grid.
+\[
+K=\frac{7703713039590}{8727240137},\quad
+L=\frac{7249159245096}{8727240137},\quad
+S=K+L=\frac{2136124612098}{1246748591},\quad
+\eta=\frac{8727240137}{228653726221467648}.
+\]
 
-## Sharp right endpoint
+**Theorem.** For **every real** \(0\leq\delta\leq\eta\),
 
-This is a finite-horizon compact randomized policy space, so each optimum is attained. Equality in the Bellman support lower bound for (alpha>alpha_{117}) would force (e_P=e_Q=alpha), (t_P=V_{14}(alpha)), and only minimizing actions on every positive-mass prefix. The only possible mixtures are at X and D. Since on every first-hit fiber the likelihood ratio and conditional suffix response for these four observers depend only on counts, arbitrary history-specific mixtures average to some (w,yin[0,1]). Cone disjointness makes the four moments affine in these averages. Error equality forces the displayed (w(y)), hence (alpha=alpha_{116}+eta yleqalpha_{117}); contradiction. Therefore the support is **strictly** below the optimum to the right.
+\[
+\boxed{V_{14}(\alpha_{116}+\delta)=V_{116}-S\delta.}
+\]
 
-## Actual validation and limits
+The exact right endpoint and value are
 
-Author-side local `em_stage117_compute.py` executed the rational fixed-action ray, all 680 Bellman minima and gaps, first-hit rational masses, complete moment family and the sharpness algebra. A separately implemented ordered-prefix INTEGER-numerator DFS (`em_stage117_independent.py`) recomputed every corner ((w,y)in{0,1}^2), visiting 862459, 852463, 854719 and 844723 prefixes, and matched both derivative vectors, first-hit masses and all endpoint assertions. Both returned PASS; no floating arithmetic used. A transport/persistence receipt is not a scientific independent review.
+\[
+\boxed{\alpha_{117}=\frac{900390161470101555373}{2592933255351443128320}},\qquad
+\boxed{V_{117}=\frac{132635001628579939136609}{10371733021405772513280}}.
+\]
 
-Original frozen inputs: GLOBAL_KNOWLEDGE_V1 main `1fe18ba120c1f8f901246acb659589849b7e9147`; Enterprise Math main `c7fa172ab920563207bd5d782a78ec1cd79515df`. Native `em_control_tasks` returned CONTROL_QUOTA; session creation returned STATIC_READONLY_SCOPE_DENIED and `operation_sent=false`. Hence Owner/CLAIM/Result and independent Driver authority remain unverified. This result neither changes P000 nor establishes infinite-horizon, native X6, or physical correspondence.
+For every \(\alpha>\alpha_{117}\) the same affine Bellman support is **strictly** below the optimum.
 
-## Next: Stage118
+## 1. Finite Bellman global lower bound
 
-Starting from (y=1) (X now uniquely P) while D still mixes, the next fixed-policy dual wall candidate is (K_{118}=254421/296, L_{118}=90232/111) at ((13,6,4)), where Q-stop and continue tie. Recompute its first-hit labeled histories, interacting cones, active error constraints, and sharp endpoint. Candidate only, not a Stage118 interval theorem.
+At count state \(s=(n,a,b)\), where \(a\) is the number of symbol-0 observations and \(b\) the number of symbol-1 observations, the likelihood ratio is
+
+\[
+R(s)=\frac{Q(s)}{P(s)}=\frac{2^{a+b}}{3^a}.
+\]
+
+In conditional P units define
+
+\[
+H(s)=\min\Big\{K R(s),\,L,\,
+1+\tfrac18H(n+1,a+1,b)+\tfrac1{24}H(n+1,a,b+1)+\tfrac56H(n+1,a,b)\Big\};
+\]
+
+at depth 14 omit continuation. Direct exact Fraction backward recursion covers
+
+\[
+\sum_{n=0}^{14}\binom{n+2}{2}=680
+\]
+
+different count states. Among all nonselected actions, exactly 1238 action gaps are strictly positive and none negative. The smallest positive action gap is
+
+\[
+\frac{273655643173420723}{6671206249789390848}.
+\]
+
+Exactly TWO states have ties:
+
+\[
+X=(7,5,1):\quad \mathrm{decide\ P}\sim\mathrm{continue},
+\qquad
+D=(9,1,2):\quad \mathrm{decide\ Q}\sim\mathrm{continue}.
+\]
+
+In particular terminal \(T=(14,7,4)\) now uniquely decides P. The root value is
+
+\[
+H(0,0,0)=\frac{145276732397197889380399249433}{239041381470853493302493184}
+=V_{116}+(K+L)\alpha_{116}.
+\]
+
+For an arbitrary full ordered-history randomized policy, at every prefix the conditional iid suffix distribution and the declared four future observers factor through counts. Bellman induction on the *actual ordered prefix tree* (not an identification of histories as native states) proves
+
+\[
+H(0,0,0)\leq t_P+L e_P+K e_Q.
+\]
+
+Since \(K,L>0\), \(e_P,e_Q\leq\alpha\) and \(t_P\leq\max(t_P,t_Q)\), this implies the globally valid dual inequality
+
+\[
+V_{14}(\alpha)\geq H(0,0,0)-(K+L)\alpha.
+\]
+
+## 2. First dual wall after Stage116
+
+Use the Stage116 dual point \(K_0=37550061/41440\), \(L_0=3296576/3885\). At that point the ties are \(D=(9,1,2)\) Q-stop versus continuation, and \(T=(14,7,4)\) P-stop versus Q-stop. Choose at D the Q-stop representative, at T the P-stop representative, and elsewhere the unique minimizer. Each chosen policy's continuation value is affine in \(K,L\).
+
+Keeping D tied and moving toward smaller \(K+L\) produces the exact ray
+
+\[
+K(x)=K_0-x,\qquad L(x)=L_0-\frac{164096}{214569}x.
+\]
+
+Every nonselected action gap is an explicit affine rational form along this ray. D remains tied and the old alternative Q-stop at T has strictly *increasing* gap. The UNIQUE first positive zero among previously positive gaps is
+
+\[
+x_*=\frac{172786349905893}{7380751658720},
+\]
+
+attained at \(X=(7,5,1)\) for alternative P-stop. Evaluating \(K(x_*),L(x_*)\) gives the displayed K,L. Recomputing the entire 680-state Bellman recurrence there (rather than relying only on the candidate ray sweep) establishes all the minimizer and gap claims of section 1.
+
+## 3. Labeled positive-rational histories and primal attainment
+
+Using first-hit *ordered* histories (not merely sorted count paths), the two tied states have the following exact arrivals under the unique-policy skeleton with each tied state continued when counting first arrivals:
+
+\[
+\begin{array}{c|r|c|c}
+\text{State}&\text{Ordered prefixes}&P\text{-mass}&Q\text{-mass}\\ \hline
+X=(7,5,1)&28&35/1179648&35/4478976\\
+D=(9,1,2)&172&671875/53747712&671875/20155392
+\end{array}
+\]
+
+Their history cones are disjoint: after reaching X at depth 7 with five zeros, a path cannot reach D at depth 9 with only one zero; D cannot precede X by depth. This is the explicit positive-rational labeled-history BRC-style carrier retaining branch identity and the four error/time observers. It is NOT signed phase/amplitude cancellation or a transfer to native X6.
+
+Let \(w\) denote probability of immediately deciding Q at D, and \(y\) probability of immediately deciding P at X. Elsewhere use the unique minimizing action. For \(M=(e_P,e_Q,t_P,t_Q)\), cone disjointness yields EXACT affinity
+
+\[
+M(w,y)=M(0,0)+w\,d_wM+y\,d_yM,
+\]
+
+with no cross term. Direct rational recursion and an independently written literal ordered-history integer DFS give
+
+\[
+d_wM=
+\left(
+\frac{593265625}{5283615080448},
+-\frac{430671875}{5015306502144},
+-\frac{34607609375}{1981355655168},
+-\frac{17355203125}{417942208512}
+\right),
+\]
+
+\[
+d_yM=
+\left(
+-\frac{816010405}{5410421842378752},
+\frac{3257975}{17832200896512},
+-\frac{8114835365}{225434243432448},
+-\frac{151243295}{13374150672384}
+\right).
+\]
+
+Stage116's endpoint uses \(y=0\) and
+
+\[
+w_0=\frac{374319733261181}{1042086080000000}.
+\]
+
+Solving \(e_P=e_Q\) as an exact rational linear equation gives
+
+\[
+\boxed{w(y)=w_0+\frac{12528414549}{7443472000000}\,y,\qquad 0\leq y\leq1.}
+\]
+
+The whole interval is feasible:
+
+\[
+0<w_0<w(1)=\frac{376073711298041}{1042086080000000}<1.
+\]
+
+Exact arithmetic at the two endpoints, together with affinity, proves for ALL real \(y\in[0,1]\),
+
+\[
+e_P=e_Q=\alpha_{116}+\eta y,\qquad
+t_P=V_{116}-(K+L)\eta y,\qquad
+t_P>t_Q.
+\]
+
+The last strict inequality holds at both endpoints, hence everywhere between. These policies use only Bellman minimizers, satisfy both error constraints and attain the global dual inequality. This establishes the theorem for the full continuous real interval, not a grid.
+
+## 4. Sharpness at the right endpoint
+
+The set of finite-horizon randomized stopping/decision policies on the finite ternary history tree is compact, so the optimum is attained. Suppose \(\alpha>\alpha_{117}\) attained the same support line. Because \(K,L>0\), equality would force \(e_P=e_Q=\alpha\), \(t_P=\max(t_P,t_Q)=V_{14}(\alpha)\), and all positive-mass action choices to be Bellman minimizers.
+
+The only tie states are X and D. On their first-hit fibers, the likelihood ratio and the conditional iid suffix response for these four observers are constant within each count state; any history-specific mixing may therefore be P-mass-averaged into effective parameters \(w,y\in[0,1]\) while preserving all four moments. Disjoint cones ensure there is no interaction term. Error equality forces precisely the family \(w(y)\) above; therefore
+
+\[
+\alpha=\alpha_{116}+\eta y\leq\alpha_{117},
+\]
+
+contradiction. Thus the support line is strictly below the true optimum for every larger alpha.
+
+## 5. Executed evidence, provenance and scientific limits
+
+The actually executed author-side primary program em_stage117_compute.py used standard-library exact fractions for the ray sweep, the full 680-state Bellman recurrence, first-hit rational mass, two mixture derivatives and the Stage118 candidate. An *independently implemented* direct ordered-history DFS accumulated integer mass numerators before rational reconstruction; all four deterministic corners passed with respective prefix visits 862459, 852463, 854719, 844723. Both local programs ran, and the raw outputs and their SHA-256 hashes are specified in EXECUTION_EVIDENCE_STAGE117.md. Portable GitHub Python source is separately preserved and was NOT executed remotely merely because it was uploaded. No independent Research Driver review has occurred.
+
+Frozen account input: GLOBAL_KNOWLEDGE_V1 main 1fe18ba120c1f8f901246acb659589849b7e9147. Frozen Enterprise Math input: main c7fa172ab920563207bd5d782a78ec1cd79515df. BRC interface reused: definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json, exact positive-rational branch observer only (REUSE_APPLIED). Native task list returned CONTROL_QUOTA, native own-session creation returned STATIC_READONLY_SCOPE_DENIED with operation_sent=false. The registered local research activity is provenance only, not native Owner/CLAIM/Result authority.
+
+## 6. Next exact candidate, not yet a theorem
+
+After saturation \(y=1\), X uniquely decides P and D still mixes. Moving further on the D-tie ray yields the next candidate wall
+
+\[
+K_{118}=\frac{254421}{296},\quad L_{118}=\frac{90232}{111},
+\]
+
+at \(G=(13,6,4)\), Q-stop versus continuation. Its full optimal affine segment is OPEN; see NEXT_TASK_PACKET_118.md.
