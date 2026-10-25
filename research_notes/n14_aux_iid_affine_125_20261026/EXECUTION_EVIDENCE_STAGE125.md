@@ -1,0 +1,3 @@
+# Stage125 verification evidence
+
+Executed in local Python using exact stdlib Fraction arithmetic (no floats). Primary bottom-up 680-state Bellman/four-corner verifier: PASS. Independent top-down Bellman and literal full ordered-history integer-weight DFS: PASS. Corner DFS prefix visits 00/01/10/11: 815542, 814690, 810502, 809650. Both check A=84 and U=142 first-hit ordered words, separate positive P/Q masses, zero mixed corner term, equal error endpoints, strict tP>tQ margins and Stage124-to-125 exact values. Independent scanner: Stage126 dual-only candidate K=387210888/527153 and L=359623016/527153. GitHub source readback is evidence of storage, not remote run. Author proof, independent Research Driver review pending.
