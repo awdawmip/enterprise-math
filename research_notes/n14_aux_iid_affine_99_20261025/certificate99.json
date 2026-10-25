@@ -1,0 +1,87 @@
+{
+  "schema": "EM_N14_AUX_IID_STAGE99_AUTHOR_EXACT_V1",
+  "model": {
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "horizon": 14
+  },
+  "scientific_status": "AUTHOR_EXACT_FINITE_MODEL;DRIVER_UNREVIEWED;NATIVE_CLAIM_UNVERIFIED",
+  "input_pins": {
+    "global_knowledge": "d2c4b5e66fcabee0cebf65b18bb46ac17dfa5d70",
+    "enterprise_math_head_at_start": "d34d39e9e13b28ea5a509ad180a012cbf17102b8",
+    "prior": "research_notes/n14_aux_iid_affine_98_20261025/PROOF.en.md"
+  },
+  "predecessor": {
+    "alpha98": "2586269937332842327/7450150876955541504",
+    "V98": "757686022002985135/58204303726215168",
+    "s98": "12366057190345211/20889600000000000"
+  },
+  "exact_dual": {
+    "K99": "6696/5",
+    "lambdaP": "6312/5",
+    "lambdaQ": "6696/5",
+    "Gamma": "13008/5",
+    "root": "125467347054807071603/136951302885212160",
+    "states": 680,
+    "comparisons": 1240,
+    "positive_gaps": 1238,
+    "negative_gaps": 0,
+    "ties": [
+      "A99 (11,3,0) C/P",
+      "B (12,0,1) C/Q"
+    ],
+    "min_positive_gap": "12889/699840"
+  },
+  "branch": {
+    "A99_firsthit_count": 165,
+    "A99_P_mass": "21484375/286654464",
+    "A99_Q_mass": "21484375/967458816",
+    "A99_suffix_count": 9,
+    "A99_suffix": [
+      "41/13824",
+      "569/576",
+      "69/64",
+      "167/144"
+    ],
+    "B_firsthit_count": 12,
+    "B_suffix_count": 5,
+    "B_suffix": [
+      "63/64",
+      "1/144",
+      "9/8",
+      "13/12"
+    ],
+    "truncated_full_histories": 1485
+  },
+  "compensation": {
+    "h99": "26961/108800",
+    "eta99": "107421875/2806920511488",
+    "s99": "17542569190345211/20889600000000000"
+  },
+  "endpoint": {
+    "alpha99": "2586555057332842327/7450150876955541504",
+    "V99": "751890958002985135/58204303726215168"
+  },
+  "next_dual_only": {
+    "K100": "177963480/134551",
+    "A100": "(9,5,1)"
+  },
+  "checks": [
+    "derive99.py local exact rational PASS",
+    "crosscheck99.py independent exact Bellman/DFS PASS",
+    "ZIP extracted rerun PASS"
+  ],
+  "limitations": [
+    "not independent Driver review",
+    "no native owner CLAIM Result",
+    "no native BRC/X6/Heartbeat transfer"
+  ]
+}
