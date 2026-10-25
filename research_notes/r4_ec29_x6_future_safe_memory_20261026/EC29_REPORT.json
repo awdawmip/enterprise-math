@@ -1,0 +1,136 @@
+{
+  "schema": "EM_R4_EC29_EXACT_BRC_VERIFICATION_V1",
+  "status": "PASS",
+  "arithmetic": "BigInt integer-only",
+  "model": "Declared source-labelled native X6 primitive-step restricted test automaton, not native heartbeat dynamics",
+  "max_dynamic_depth": 25,
+  "max_explicit_source_enumeration_depth": 8,
+  "checks": {
+    "dynamic_states": 6176,
+    "endpoint_closed_form": 3276,
+    "grade_recurrence": 351,
+    "explicit_histogram": 165,
+    "unique_labelled_paths": 18602
+  },
+  "samples": {
+    "0": {
+      "grade": [
+        "1"
+      ],
+      "source_total": "1"
+    },
+    "1": {
+      "grade": [
+        "2",
+        "1"
+      ],
+      "source_total": "3"
+    },
+    "2": {
+      "grade": [
+        "5",
+        "4",
+        "1"
+      ],
+      "source_total": "10"
+    },
+    "3": {
+      "grade": [
+        "12",
+        "14",
+        "6",
+        "1"
+      ],
+      "source_total": "33"
+    },
+    "10": {
+      "grade": [
+        "5741",
+        "20892",
+        "35223",
+        "36248",
+        "25235",
+        "12432",
+        "4396",
+        "1104",
+        "189",
+        "20",
+        "1"
+      ],
+      "source_total": "141481"
+    },
+    "25": {
+      "grade": [
+        "3166815962",
+        "28318897549",
+        "122980461816",
+        "345222706596",
+        "703423066190",
+        "1107503284923",
+        "1400429394784",
+        "1459330704656",
+        "1275914693196",
+        "948023601910",
+        "604090514720",
+        "332208611952",
+        "158307460248",
+        "65505212668",
+        "23542048800",
+        "7337118128",
+        "1976012578",
+        "457224417",
+        "90122472",
+        "14948780",
+        "2050818",
+        "226941",
+        "19504",
+        "1224",
+        "50",
+        "1"
+      ],
+      "source_total": "8587845200883"
+    }
+  },
+  "same_state_witness": {
+    "words": [
+      "AB",
+      "BA"
+    ],
+    "same_raw_x6_endpoint": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "same_step_n": 2,
+    "same_grade": 1,
+    "same_current_individual_source_count": 1,
+    "q_after_AB": 0,
+    "q_after_BA": 1,
+    "next_C_branches_from_AB": [
+      "C0"
+    ],
+    "next_C_branches_from_BA": [
+      "C0",
+      "C1"
+    ],
+    "next_raw_x6_endpoint": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      0
+    ]
+  },
+  "identity": "1/(1-t*(x+u*y+z)-t*t*x*z)",
+  "coefficient_formula": "sum_(r=0..min(a,c)) (a+b+c-r)!/(r!(a-r)!b!(c-r)!)",
+  "scope_exclusions": [
+    "No actual native heartbeat update",
+    "No formal CLAIM/Result",
+    "No independent Driver review",
+    "No EC27-to-X6 map"
+  ]
+}
