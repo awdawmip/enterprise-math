@@ -1,0 +1,87 @@
+{
+  "schema": "C309_AUTHOR_EXACT_REMOTE_AUDIT_V1",
+  "date": "2026-10-26",
+  "classification": "AUTHOR_PROOF_EXACT_LOCAL_EVIDENCE_NOT_SOURCE_ADMITTED",
+  "global_knowledge_main": "c6d252e7e402c453dd0eb291d80b0a8a7e8f6821",
+  "enterprise_math_main": "cda832ba5e9f3c0856c26a607dbe3c9989c042b7",
+  "predecessor_C308": "b87b93cfa78d36029bae3c9d30a4e6f325a577e5",
+  "frozen_C293_sha256": "03083a77480e6be5615797c2f4ffc503eee6603e9e60cbad1f11fb3ea83b3c89",
+  "model": "C195/H168 79 positive rational auxiliary branches; 125 frozen paths",
+  "lower_bound": {
+    "full_path_count": 125,
+    "divisibility_L_divides_prior_G": 125,
+    "equality_with_prior_C306_G": 106,
+    "exceptions": [
+      3,
+      6,
+      7,
+      8,
+      11,
+      12,
+      17,
+      26,
+      27,
+      29,
+      30,
+      33,
+      34,
+      38,
+      56,
+      75,
+      76,
+      97,
+      108
+    ],
+    "one_point_success": 0,
+    "leading_coefficient_success": 0,
+    "degree_352": 124,
+    "degree_265": 1,
+    "gcd_lower_bit_range": [
+      273,
+      418
+    ]
+  },
+  "prefix_direct": {
+    "replayed_paths": [
+      0,
+      1,
+      2
+    ],
+    "certificate_horizon": [
+      256,
+      256,
+      256
+    ],
+    "modular_residue_calls": 1563,
+    "full_degree_one_pass_calls_each": 353,
+    "unexecuted_other_paths": 122,
+    "claim": "3/3 exact conditional author prefix certificates; no measured speedup"
+  },
+  "synthetic": {
+    "exact_polynomials": 2200,
+    "exact_prefix_comparisons": 14284,
+    "indistinguishability_pairs": 2016,
+    "result": "PASS"
+  },
+  "dependency_limits": [
+    "C300 cancellation identity author level",
+    "C306 complete G oracle author level",
+    "scalar observer only"
+  ],
+  "native_control": {
+    "status_read": "v0.6.11",
+    "control_tasks": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "active_owner_verified": false,
+    "claim": false,
+    "source_result": false,
+    "independent_driver": false
+  },
+  "local_full_evidence": [
+    "C309_BRANCH_CONTENT_PROBE_125.json",
+    "C309_PREFIX_CERTIFICATE_PROBE_3.json",
+    "C309_AUTHOR_THEOREM_AND_PROOF_20261026.md",
+    "C309_STRUCTURAL_CONTENT_AND_PREFIX_THEOREM.py"
+  ]
+}
