@@ -1,0 +1,117 @@
+{
+  "schema": "EM_AUX_N14_AUTHOR_STAGE90_CERTIFICATE_V1",
+  "date": "2026-10-25",
+  "source": {
+    "stage89_immutable_commit": "96e04e09dce8716acaecf3a69fb2dc8b0e845a80",
+    "global_knowledge_read_pin": "ad56c417a400a4e5b5a17db222841aff9aa3a50a",
+    "em_initial_read_pin": "94c7902036b0161661b442b03cddcbe1bb8576ab"
+  },
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "ordered_history_randomized": true
+  },
+  "alpha89": "5172392071501613543/14900301753911083008",
+  "V89": "24307502088163349729/1862537719238885376",
+  "S89": "29743962535332427/41779200000000000",
+  "A90": [
+    7,
+    2,
+    3
+  ],
+  "B": [
+    12,
+    0,
+    1
+  ],
+  "K90": "3166224876/1665893",
+  "lambdaP": "2934366408/1665893",
+  "lambdaQ": "3166224876/1665893",
+  "Gamma": "6100591284/1665893",
+  "Bellman": {
+    "states": 680,
+    "comparisons": 1240,
+    "strict_positive": 1238,
+    "negative": 0,
+    "ties": [
+      "(7,2,3) continue/Q",
+      "(12,0,1) continue/Q"
+    ],
+    "minimum_positive_gap": "40045614911/35373012221952",
+    "min_root": "468802934844745618084160341/365033946907767585374208"
+  },
+  "A90_audit": {
+    "nominal_prefixes": 210,
+    "first_hit_prefixes": 126,
+    "p_mass": "175/1769472",
+    "q_mass": "175/497664",
+    "terminal_suffix_words": 103,
+    "terminal_action_classes": 26,
+    "truncated_complete_histories": 12978,
+    "continuation_vector": [
+      "28225835/28311552",
+      "10307/17915904",
+      "1704899/1179648",
+      "628895/497664"
+    ]
+  },
+  "B_audit": {
+    "first_hit_prefixes": 12,
+    "p_mass": "48828125/725594112",
+    "q_mass": "48828125/362797056",
+    "terminal_suffix_words": 5,
+    "continuation_vector": [
+      "63/64",
+      "1/144",
+      "9/8",
+      "13/12"
+    ]
+  },
+  "X": "15000475/50096498540544",
+  "Y": "1803725/8916100448256",
+  "E": "48828125/46438023168",
+  "H": "48828125/52242776064",
+  "h90": "-439761693/1740800000000",
+  "eta90": "291531275/8622859811291136",
+  "S90": "29733408254700427/41779200000000000",
+  "alpha90": "5172392575267656743/14900301753911083008",
+  "V90": "24307271485812814529/1862537719238885376",
+  "tP_minus_tQ_start": "2166717554273724305/3725075438477770752",
+  "tP_minus_tQ_end": "2167774451913429905/3725075438477770752",
+  "next_candidate": {
+    "K91": "4256337294/2241499",
+    "A91": [
+      6,
+      0,
+      2
+    ],
+    "status": "UNPROVED"
+  },
+  "executed_local_checks": [
+    "python derive90.py PASS",
+    "python crosscheck90.py PASS",
+    "same-output local rerun PASS"
+  ],
+  "control": {
+    "em_control_tasks": "CONTROL_QUOTA",
+    "em_session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "owner_verified": false,
+    "formal_claim": false
+  },
+  "scope": {
+    "author_side_exact_finite_model": true,
+    "shared_predecessor_stopping_table": true,
+    "independent_Driver": false,
+    "native_transfer": false
+  }
+}
