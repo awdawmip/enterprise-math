@@ -1,0 +1,48 @@
+{
+  "schema": "EM_R291_UNIFORM_MOVING_TAIL_CONES_V1",
+  "status": "PASS",
+  "input": {
+    "algebraic_source": "R288 author-side exact G_m forms; R286 h fixed point",
+    "h_equation": "h=y^4+(y+2y^2+y^3+y^4)h+y(1+y)^2*h^2",
+    "source_model": "ordered six-edge positive BRC clean-reset, full affine source effects"
+  },
+  "proved_uniform_region": {
+    "plus": "forall j>=0,m>=max(1,3*j-1): [y^j]G^+_m>=0",
+    "minus": "forall j>=0,m>=max(2,3*j): [y^j]G^-_m>=0"
+  },
+  "arithmetic": "JavaScript BigInt exact integer",
+  "algebraic_degree_end": 48,
+  "max_m": 149,
+  "uniform_nonnegative_coefficient_checks": 7689,
+  "strict_positive_coefficient_checks": 7197,
+  "independent_source_dp_length_end": 92,
+  "independent_source_dp_effect_terms": 7833,
+  "independent_source_gap_checks": 8835,
+  "below_boundary_negative_counterexamples": [
+    {
+      "j": 1,
+      "plus_below_m": 1,
+      "plus_coefficient": "-1",
+      "minus_below_m": 2,
+      "minus_coefficient": "-1"
+    },
+    {
+      "j": 2,
+      "plus_below_m": 4,
+      "plus_coefficient": "-2",
+      "minus_below_m": 5,
+      "minus_coefficient": "-1"
+    },
+    {
+      "j": 3,
+      "plus_below_m": 7,
+      "plus_coefficient": "-7",
+      "minus_below_m": 8,
+      "minus_coefficient": "-1"
+    }
+  ],
+  "universal_proof": "coefficientwise binomial-h decomposition, positivity from ord_y h=4; see proof markdown",
+  "proof_dependencies_admitted": false,
+  "native_owner_verified": false,
+  "driver_review": "NOT_DONE"
+}
