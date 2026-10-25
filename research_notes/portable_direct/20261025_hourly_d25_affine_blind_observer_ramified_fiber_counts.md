@@ -119,3 +119,32 @@ Carrier: the marked rank-2 quadratic coefficient ring with BOTH a and b preserve
 Unfinished mother D25/LIFT/JT2 requirement: authenticated same-prime/same-original-CM-class divided-power H0/B0 basis, actual [X]U mod p^2, genuine Frobenius rank/direction/normalization, and a proven original kappa / Delta_p-R_p observer. Native CM experiment remains NOT_RUN. Do NOT substitute this lift for native results. No current winning native CLAIM/open/run has been read during this portable research unit; no new native checkpoint is asserted.
 
 Next discriminating action: once the ACTUAL source-defined kappa observation is obtained, derive its exact expression in the real marked frame; test whether it is transverse or tangent-blind. If genuinely a linear tangent-blind quadratic-ring scalar, use the above discriminant/fiber formula to compute loss at the exact prime/precision, and add a proved transverse marked port before any irreversible quotient. Otherwise this theorem does not apply. Formal admission remains with independent review and current Source authority; controller support for repeated CONTROL_QUOTA signature remains Issue #1558, not a duplicate ticket.
+
+
+## Consecutive second unit: exact number of observable outputs (not just individual fibers)
+
+A distinct finite-resolution question remains after the fiber theorem: how many DIFFERENT second-and-higher observer values can be seen at all? Here this count is independent of ell and of which source point alpha with F unit was used.
+
+For m=r-2, the discriminant map on A_m,
+
+  D(y)=ell^2+16Fy+8p^2y^2,
+
+is an exact bijection. Indeed,
+
+  D(y)-D(z)=(y-z)[16F+8p^2(y+z)],
+
+and the bracket is a unit because p is odd and F is a unit. Thus D is injective on the finite local ring, hence bijective. By the first theorem, an output y is attained if and only if D(y) is a square in A_m, so the exact number of attained values equals the number S(p,m) of DISTINCT square residues modulo p^m:
+
+  S(p,0)=1,
+  S(p,m)=1 + (p-1)/2 * SUM_{e=0}^{floor((m-1)/2)} p^(m-2e-1)  (m>=1).
+
+Equivalently,
+
+  S(p,m)=1 + (p^(m+1)-1)/(2(p+1))   for odd m,
+  S(p,m)=1 + p*(p^m-1)/(2(p+1))     for even m>=2.
+
+Proof of the count: one square is zero. Every nonzero square has an EVEN valuation 2e<m; writing it p^(2e) times a unit square, it has exactly phi(p^(m-2e))/2 = (p-1)p^(m-2e-1)/2 distinct possibilities. Sum over all e.
+
+At fixed first residue and norm there are p^(r-1) possible marked elements, but only S(p,r-2) scalar outputs of the tangent-blind affine observer. This is an exact finite-domain upper bound on the distinguishable source states, not a probability model or a loss measured in floating-point bits. The executed exhaustive observations from the previous section give, for p=13,r=4: S=79; p=19,r=4: S=172; p=373,r=3: S=187, agreeing with the formula. No independent review or original CM data is thereby supplied.
+
+For next work on a REAL native coefficient readout, this offers a sharp observer-selection test: identify the actual coefficient ring and f from authenticated source first; only then compute the discriminant and image size or use a transverse independent marked observation. It does not supersede P000, native BRC constraints, the frozen D25 pin or the unresolved original H0/B0 experiment.
