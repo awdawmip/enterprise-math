@@ -28,12 +28,20 @@ if __name__ == "__main__":
     assert check(3) == Q(-4273,729907200)
     for m in range(1,31):
         check(m)
-    # Optional independent Taylor-jet witness from the previous portable code.
-    try:
-        import d25_critical_point_residue_check as preceding
-    except ImportError:
-        print("PASS 30 exact rational sign/bound tests; optional preceding jet script absent.")
+    # Load the published sibling by its actual date-prefixed filename, so
+    # a full repository checkout executes the separate Taylor-jet witness.
+    import importlib.util
+    from pathlib import Path
+    possible = ("20261026_hourly_d25_critical_point_residue_check.py",
+                "d25_critical_point_residue_check.py")
+    prior_path = next((Path(__file__).with_name(n) for n in possible
+                       if Path(__file__).with_name(n).exists()), None)
+    if prior_path is None:
+        print("PASS 30 rational sign/bounds; optional independent jet checker absent.")
     else:
+        spec = importlib.util.spec_from_file_location("d25_critical_point_residue_check", prior_path)
+        prior = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(prior)
         for m in range(1,13):
-            assert check(m) == preceding.finite_part_via_jets(m)
-        print("PASS 30 exact rational tests + 12 independent Taylor-jet comparisons.")
+            assert check(m) == prior.finite_part_via_jets(m)
+        print("PASS 30 rational sign/bounds + 12 independent prior Taylor jets")
