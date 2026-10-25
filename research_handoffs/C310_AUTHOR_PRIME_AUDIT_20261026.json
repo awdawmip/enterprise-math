@@ -1,0 +1,431 @@
+{
+  "schema": "C310_JOINT_BRANCH_PRIME_AUDIT_V1",
+  "date": "2026-10-26",
+  "status": "AUTHOR_EXACT_LOCAL_NOT_NATIVE_ADMITTED",
+  "project_model": "C195/H168 auxiliary 79-positive-rational-branch scalar, C293 125 frozen parameter paths",
+  "global_snapshot": "28719731af88def01da147f49d19fb0a91474b5d",
+  "enterprise_source_snapshot": "6974c5530449705a1105bbadf5349c90ee65f574",
+  "source_C293_sha256": "03083a77480e6be5615797c2f4ffc503eee6603e9e60cbad1f11fb3ea83b3c89",
+  "predecessor_C309": "3b1d56d2b8256c0372f382abe0ad0125d5173c6c",
+  "verification": {
+    "exceptional_paths": 19,
+    "mod_2": 15,
+    "mod_3": 4,
+    "termwise_survivors_each": 2,
+    "mod_p_polynomial_zero_checks": 19,
+    "mod_p2_nonzero_coefficients": 19,
+    "independent_stdlib_witness_checks": 19,
+    "exact_integer_arithmetic": true
+  },
+  "theorem_scope": "General content quotient and factor-bag lemmas for Z[t]. 19 frozen model applications conditional on C300 factorization; additional p-power exactly one; other prime factors NOT independently excluded.",
+  "claim_status": "NO_NATIVE_CLAIM; NOT_DRIVER_REVIEWED; NOT_FOUNDATION_ADMITTED",
+  "native_control": {
+    "em_status": "0.6.11",
+    "em_control_tasks": "CONTROL_QUOTA",
+    "em_session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "active_owner_verified": false
+  },
+  "source_difference": "Earlier C306 complete gcd oracle used as prior candidate selection only; C310 lower bound and mod-p/mod-p2 results are recomputed from frozen 79 terms without relying on the G oracle.",
+  "rows": [
+    {
+      "index": 3,
+      "prime": 3,
+      "lower_content_decimal": "1090628580382399863568354454267486108426907781900124055963656502002700497734317360854654326171875",
+      "lower_content_bits": 320,
+      "survivors": [
+        76,
+        77
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        2
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 113,
+      "distinct_monic_factors": 4,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 15,
+      "coefficient_residue_at_witness_mod_p2": 3,
+      "residual_coefficients_mod_p2_nonzero": 76
+    },
+    {
+      "index": 6,
+      "prime": 2,
+      "lower_content_decimal": "89563486222491055093398617921058876200405329254104385776805103234863024305677842470559580078125",
+      "lower_content_bits": 316,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 219,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 243,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    },
+    {
+      "index": 7,
+      "prime": 2,
+      "lower_content_decimal": "261611862476797782476341737550735174847965589923243230538391887371608175833402480277834697265625",
+      "lower_content_bits": 317,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 224,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 252,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    },
+    {
+      "index": 8,
+      "prime": 3,
+      "lower_content_decimal": "797249492259534300268467106069532345260069588568990684909432902963974063843785990784752312431640625",
+      "lower_content_bits": 329,
+      "survivors": [
+        76,
+        77
+      ],
+      "normalized_scalars_mod_p": [
+        2,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 113,
+      "distinct_monic_factors": 4,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 15,
+      "coefficient_residue_at_witness_mod_p2": 6,
+      "residual_coefficients_mod_p2_nonzero": 76
+    },
+    {
+      "index": 11,
+      "prime": 2,
+      "lower_content_decimal": "22164324234303040821112098214475538957887828519712130419411990047712742596337795257568359375",
+      "lower_content_bits": 304,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 224,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 252,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    },
+    {
+      "index": 12,
+      "prime": 2,
+      "lower_content_decimal": "17668638401830832435478943981523254153152587034427705448359061369197723627029699483017900390625",
+      "lower_content_bits": 314,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 224,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 252,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    },
+    {
+      "index": 17,
+      "prime": 2,
+      "lower_content_decimal": "272355216191115765609825462859475422714525636850222658593734533706294181023798828125",
+      "lower_content_bits": 278,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 224,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 252,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    },
+    {
+      "index": 26,
+      "prime": 2,
+      "lower_content_decimal": "57813707967895444907927701055188335018138737167072968167759921895129966425859084702936123046875",
+      "lower_content_bits": 315,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 219,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 243,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 2
+    },
+    {
+      "index": 27,
+      "prime": 2,
+      "lower_content_decimal": "7540918430595058031468830572415869784974617891357343674055641986321299968590315396035146484375",
+      "lower_content_bits": 312,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 219,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 243,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    },
+    {
+      "index": 29,
+      "prime": 2,
+      "lower_content_decimal": "2992696458399900501469446671995791535089521425478560942954275184741341543905377407769361396484375",
+      "lower_content_bits": 321,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 219,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 243,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 2
+    },
+    {
+      "index": 30,
+      "prime": 2,
+      "lower_content_decimal": "8356152855524253494330325769433801653620522528260840287467062741599278343573052195606513671875",
+      "lower_content_bits": 313,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 219,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 243,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    },
+    {
+      "index": 33,
+      "prime": 2,
+      "lower_content_decimal": "192191515677057830369597492696977438033272018149999326611742443056783401902180200498949814453125",
+      "lower_content_bits": 317,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 219,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 243,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    },
+    {
+      "index": 34,
+      "prime": 2,
+      "lower_content_decimal": "272355216191115765609825462859475422714525636850222658593734533706294181023798828125",
+      "lower_content_bits": 278,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 219,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 243,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    },
+    {
+      "index": 38,
+      "prime": 3,
+      "lower_content_decimal": "272550337562935668851659162117316436514082618073343992790868203219898413150478542170984580078125",
+      "lower_content_bits": 318,
+      "survivors": [
+        76,
+        77
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        2
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 119,
+      "distinct_monic_factors": 4,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 100,
+      "coefficient_residue_at_witness_mod_p2": 6,
+      "residual_coefficients_mod_p2_nonzero": 33
+    },
+    {
+      "index": 56,
+      "prime": 3,
+      "lower_content_decimal": "192191515677057830369597492696977438033272018149999326611742443056783401902180200498949814453125",
+      "lower_content_bits": 317,
+      "survivors": [
+        76,
+        77
+      ],
+      "normalized_scalars_mod_p": [
+        2,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 118,
+      "distinct_monic_factors": 4,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 95,
+      "coefficient_residue_at_witness_mod_p2": 6,
+      "residual_coefficients_mod_p2_nonzero": 39
+    },
+    {
+      "index": 75,
+      "prime": 2,
+      "lower_content_decimal": "23675233271104708108532486312518789582630446687228035812211124098194355423284510283203125",
+      "lower_content_bits": 294,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 219,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 243,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    },
+    {
+      "index": 76,
+      "prime": 2,
+      "lower_content_decimal": "27516811353241366756829762758745508845372380685562947066629037608086423585386060880132249521484375",
+      "lower_content_bits": 324,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 219,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 243,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    },
+    {
+      "index": 97,
+      "prime": 2,
+      "lower_content_decimal": "39555605415174968746779473315542306290103203782948477845470535480748499577045440673828125",
+      "lower_content_bits": 295,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 224,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 252,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    },
+    {
+      "index": 108,
+      "prime": 2,
+      "lower_content_decimal": "128209109382658553603892218051979153842733680572396303632053360487024483319248046875",
+      "lower_content_bits": 277,
+      "survivors": [
+        75,
+        76
+      ],
+      "normalized_scalars_mod_p": [
+        1,
+        1
+      ],
+      "equal_monic_factor_multiset": true,
+      "total_monic_factor_occurrences": 219,
+      "distinct_monic_factors": 3,
+      "residual_coefficients_mod_p_nonzero": 0,
+      "first_nonzero_coefficient_mod_p2": 243,
+      "coefficient_residue_at_witness_mod_p2": 2,
+      "residual_coefficients_mod_p2_nonzero": 4
+    }
+  ]
+}
