@@ -88,5 +88,5 @@ report={
     },
     'limits':['finite checks not proof of universal bound','no proven native X6 dynamics/three-dimensional slice correspondence','not an independent Driver review']
 }
-Path('/mnt/data/EM_R4_EC28_20261026/EC28_report.json').write_text(json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+'\n',encoding='utf-8')
+Path(__file__).resolve().with_name('EC28_report.json').write_text(json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+'\n',encoding='utf-8')
 print(json.dumps(report,sort_keys=True))
