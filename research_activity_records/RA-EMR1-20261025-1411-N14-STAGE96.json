@@ -18,5 +18,33 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "R1-N14-STAGE96-AFFINE-C274FC38",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "kb_sources": [],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "c274fc3842a4c94ed86deed8f6a4d2dbb15387a3",
+          "path": "research_notes/n14_aux_iid_affine_96_20261025/PROOF_AND_PORTABLE_CHECKER.md",
+          "sha256": "8f00203638e2ce7d66f4c833871a1ccae3caf54d878a74b21384fb4839939dc6",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "tool_name": "github_fetch_file",
+            "observation_id": "em-r1-n14-stage96-gh-observed-source-20261025",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "git_blob_sha1": "3add80f12ace3d36ca6db2f0c1123454e7d3b556",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/c274fc3842a4c94ed86deed8f6a4d2dbb15387a3/research_notes/n14_aux_iid_affine_96_20261025/PROOF_AND_PORTABLE_CHECKER.md",
+            "call_id": null,
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR1-20261025-1411-N14-STAGE96/readbacks/0e7c24ba93378598977b1c6051e35be46faa564952666cc9732abde912e81ed7.json",
+          "verification_receipt_sha256": "0e7c24ba93378598977b1c6051e35be46faa564952666cc9732abde912e81ed7"
+        }
+      ]
+    }
+  ]
 }
