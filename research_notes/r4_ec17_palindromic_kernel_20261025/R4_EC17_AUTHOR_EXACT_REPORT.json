@@ -1,0 +1,72 @@
+{
+  "schema": "EM_R4_EC17_AUTHOR_EXACT_V1",
+  "model": "auxiliary positive ordered binary affine BRC, clean-source grade observer",
+  "global_pin": "7120aa3053ac490626bfc808810021701308a0c3",
+  "em_source_pin": "865b82764a5f85d946cd674a0c2ca8f9d9f1d51e",
+  "prior": "EC16 exact generating function and source model",
+  "theorems": [
+    "E=(1-u*x^2)/Delta is palindromic by (x,u)->(u*x,1/u)",
+    "D[n,k]=E[n-3,k-1]-E[n-3,k-2]",
+    "for each k>=1 D[n,k] equals explicitly computable degree-(k-1) polynomial in n whenever n>=2*k+1",
+    "exact k=4 and k=5 formulas and signs"
+  ],
+  "raw_binary_words_checked": 8191,
+  "dynamic_clean_dp_depth": 256,
+  "recurrence_E_depth": 256,
+  "P_polynomials_verified_k": 12,
+  "noncentral_half_shell_negatives_through_depth": [
+    [
+      7,
+      3,
+      -1
+    ],
+    [
+      8,
+      3,
+      -1
+    ],
+    [
+      10,
+      4,
+      -1
+    ],
+    [
+      11,
+      4,
+      -2
+    ],
+    [
+      12,
+      4,
+      -2
+    ]
+  ],
+  "noncentral_half_shell_zeros_through_depth": [
+    [
+      5,
+      2
+    ],
+    [
+      9,
+      3
+    ],
+    [
+      9,
+      4
+    ],
+    [
+      13,
+      4
+    ],
+    [
+      15,
+      5
+    ]
+  ],
+  "finite_no_further_exceptions_claimed": false,
+  "unimodality_n_ge_10_through_depth": true,
+  "native_x6": "NOT_RUN",
+  "native_claim": "NOT_AUTHORIZED",
+  "driver_review": "NOT_PERFORMED",
+  "result": "PASS"
+}
