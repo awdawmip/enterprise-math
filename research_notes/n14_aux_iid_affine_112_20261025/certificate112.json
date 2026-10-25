@@ -1,0 +1,76 @@
+{
+  "schema": "EM_N14_STAGE112_EXACT_RATIONAL_AUTHOR_CERT_V1",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ]
+  },
+  "fixed_sources": {
+    "global_main": "3eb70ebb18d1593932f92ad3cbb5c88db052c82f",
+    "em_main": "774e1d02b3c22f2054a16f8a48ab5c15fc7b6cf9",
+    "p000_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "dual": {
+    "K": "50591871/53872",
+    "L": "2961024/3367",
+    "K_plus_L": "13995465/7696",
+    "H_root": "33952339699463001562465/52698861350229639168",
+    "states": 680,
+    "nonchosen_compared": 1240,
+    "positive_gaps": 1238,
+    "zero_gaps": 2,
+    "negative_gaps": 0,
+    "min_positive_gap": "323/40404",
+    "ties": {
+      "10,3,0": [
+        "P",
+        "C"
+      ],
+      "14,7,4": [
+        "P",
+        "Q"
+      ]
+    }
+  },
+  "primal": {
+    "alpha111": "13084629088533672707/37682150988866125824",
+    "V111": "1930486964443856499985/150728603955464503296",
+    "delta": "152537125/130840802044674048",
+    "alpha112": "13084629132464364707/37682150988866125824",
+    "V112": "1930486644885404154985/150728603955464503296",
+    "u0": "199112072506703/211315200000000",
+    "du_dw": "306977/10565760000",
+    "u1": "66372737348901/70438400000000",
+    "mass_T_P": "317125/37572373905408",
+    "mass_T_Q": "317125/40122452017152",
+    "literal_first_hit_T": 10148,
+    "tP_endpoint": "1930486644885404154985/150728603955464503296",
+    "tQ_endpoint": "114606233191003287805/9420537747216531456",
+    "t_gap": "32262304609783850035/50242867985154834432"
+  },
+  "next_dual_only": {
+    "K113": "814106972531223/875100809116",
+    "L113": "189992854025880/218775202279",
+    "new_tie": "5,2,3"
+  },
+  "executed": {
+    "primary": "PASS",
+    "independent": "PASS_STAGE112_INDEPENDENT_BACKWARD_AND_LITERAL_DFS",
+    "literal_prefixes_visited": 886309,
+    "roundoff": "none: Python Fraction exact arithmetic"
+  },
+  "authority": {
+    "researcher": "author_local",
+    "native_claim": false,
+    "native_result": false,
+    "driver_review": false
+  }
+}
