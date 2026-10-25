@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/r4_ec26_gamma_observer_20261025/EC26_repro.py",
+    "ref": "3d199096e78f81889fb5abd940879c4515102e91",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "ec26-r4-20261025-code-readback",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Short exact reproducer for R4-EC26. Standard library; Python 3.10+.\"\"\"\nfrom fractions import Fraction\nfrom math import comb, factorial\n\nN = 64\nK = 24\n\n\ndef add(a, b, sign=1):\n    out = [0] * max(len(a), len(b))\n    for i, v in enumerate(a): out[i] += v\n    for i, v in enumerate(b): out[i] += sign*v\n    return out\n\n\ndef term(a, d, c): return [0]*d + [c*x for x in a]\n\n\ndef binomial_poly(n, m):\n    out = 1\n    for i in range(m): out *= n-i\n    return out//factorial(m)\n\n\ndef gamma_formula(n, k, formal=False):\n    bc = binomial_poly if formal else lambda x, m: comb(x,m) if x >= m else 0\n    acc = 0\n    for a in range(k//2 + 1):\n        for b in range(k//3 + 1):\n            h = 2*a+3*b\n            c = (-2)**a*comb(a+b,a)\n            if h == k: acc += c*bc(n-3*a-5*b,a+b)\n            if h == k-1: acc -= c*bc(n-2-3*a-5*b,a+b)\n    return acc\n\n\nE, G = [], []\nfor n in range(N+1):\n    ep = add(E[n-1]+[0], [0]+E[n-1]) if n else [1]\n    if n >= 4: ep = add(ep,term(E[n-4],2,-2))\n    if n >= 6: ep = add(ep,term(E[n-6],3,1))\n    if n == 2: ep = add(ep,[0,-1])\n    E.append(ep)\n    gp = G[n-1][:] if n else [1]\n    if n >= 4: gp = add(gp,term(G[n-4],2,-2))\n    if n >= 6: gp = add(gp,term(G[n-6],3,1))\n    if n == 2: gp = add(gp,[0,-1])\n    G.append(gp)\n    reconstructed = [0]*(n+1)\n    for k in range(n//2+1):\n        assert gp[k] == gamma_formula(n,k), (n,k)\n        for j in range(n-2*k+1):\n            reconstructed[k+j] += gp[k]*comb(n-2*k,j)\n    assert reconstructed == ep[:n+1], n\n\nfor k in range(2,K+1):\n    for ell in range(1,(k+1)//3+1):\n        assert gamma_formula(2*k-ell,k,True) == 0\n    degree = k//2\n    if k%2 == 0:\n        expected = Fraction((-2)**degree,factorial(degree))\n    else:\n        expected = Fraction((degree+2)*(-2)**(degree-1),factorial(degree))\n    vals = [gamma_formula(2*k+i,k) for i in range(degree+2)]\n    for d in range(degree+2):\n        if d == degree: assert vals[0] == expected*factorial(degree)\n        if d == degree+1: assert vals[0] == 0\n        vals = [b-a for a,b in zip(vals,vals[1:])]\n\nprint(\"PASS: gamma expansion, binomial formula, divisibility roots and leading terms\",N,K)\n",
+      "display_title": "EC26_repro.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3d199096e78f81889fb5abd940879c4515102e91/research_notes/r4_ec26_gamma_observer_20261025/EC26_repro.py",
+      "encoding": "utf-8",
+      "sha": "19301eb2fffd8ae541876debeefcd0caba2297d0"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
