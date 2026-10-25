@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """R4-EC12: exact symbolically certified positive Laurent realization. Python3+SymPy."""
 from collections import deque
-from sympy import Matrix, Symbol, zeros, cancel
+from sympy import Matrix, Symbol, zeros, cancel, Rational
 z=Symbol("z",nonzero=True)
 edge={0:((2,-1,-1),(2,+1,-1)),1:((0,-1,-1),(0,+1,-1)),2:((1,+1,+1),(2,+1,-1))}
 def move(s,a):
@@ -58,8 +58,8 @@ full=Matrix(13,13,lambda i,j:
   seq[j+(0 if i<=10 else 1)][i if i<=10 else i-7])
 tailrows=[0,1,2,4,5,6,7,8,9,10,16,17]
 tail=Matrix(12,12,lambda i,j:seq[(tailrows[i]//12)+j+1][tailrows[i]%12])
-assert full.det()==-1212467180625/2048
-assert tail.det()==1212467180625/2048
+assert full.det()==-Rational(1212467180625,2048)
+assert tail.det()==Rational(1212467180625,2048)
 print("PASS rank(T)=12: minor at z=2 is 4")
 print("PASS full Hankel determinant:",full.det())
 print("PASS tail Hankel determinant:",tail.det())
