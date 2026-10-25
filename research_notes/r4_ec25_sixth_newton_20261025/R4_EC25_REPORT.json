@@ -1,0 +1,119 @@
+{
+  "schema": "EM_R4_EC25_SIXTH_NEWTON_EXACT_CERTIFICATE_V1",
+  "date": "2026-10-25",
+  "frozen_sources": {
+    "global_knowledge_main": "76b5a9dadb9d5bed132f8c101d9d3232dffb0171",
+    "enterprise_math_main": "0a807eb162573e056297ef91313f4534ef895d10",
+    "predecessor_ec24": "90e8c0ca377ef9f3b5b537109410035fb8845366"
+  },
+  "scope": "Positive ordered binary affine auxiliary BRC only, no P000 native X6 bridge",
+  "claim": "For every c>=5, r=0,1,2, [w^(c-5)]q_(3c+r)(3c+r+w) strictly positive",
+  "certificates": [
+    {
+      "r": 0,
+      "min_c": 5,
+      "degree": 15,
+      "denominator": "163459296000",
+      "numerator_coefficients_desc": [
+        "4096",
+        "614400",
+        "40983040",
+        "1608821760",
+        "41540017792",
+        "748564776960",
+        "9768785174720",
+        "94648173185280",
+        "691769604053528",
+        "3839317562960880",
+        "16110560542896365",
+        "50233196898876810",
+        "112384359608725359",
+        "169151736435756210",
+        "150986983410597600",
+        "58477399684704000"
+      ]
+    },
+    {
+      "r": 1,
+      "min_c": 5,
+      "degree": 16,
+      "denominator": "81729648000",
+      "numerator_coefficients_desc": [
+        "256",
+        "43008",
+        "3243520",
+        "145474560",
+        "4340644672",
+        "91479862656",
+        "1413349171520",
+        "16413401484480",
+        "145689730224038",
+        "997452396204264",
+        "5271772389099125",
+        "21325026708768510",
+        "64697421158022384",
+        "141854758681900572",
+        "210441929514326685",
+        "186020687214724950",
+        "71630724044880000"
+      ]
+    },
+    {
+      "r": 2,
+      "min_c": 5,
+      "degree": 17,
+      "denominator": "1389404016000",
+      "numerator_coefficients_desc": [
+        "512",
+        "95744",
+        "8103424",
+        "411568640",
+        "14042030464",
+        "341861356928",
+        "6165359214768",
+        "84469183942000",
+        "894435854948636",
+        "7398168454288612",
+        "47992729160074517",
+        "243407047380672175",
+        "954091741091389363",
+        "2826283293223047516",
+        "6087272383737303066",
+        "8914472552159596485",
+        "7810640648831213550",
+        "2991859243813440000"
+      ]
+    }
+  ],
+  "proof_type": "Exact finite Laurent extraction, Newton elementary symmetric sums, positive rational polynomial coefficients in v=c-5",
+  "verification": {
+    "symbolic_proof": "AUTHOR_SIDE_EXACT",
+    "coefficients_checked": 51,
+    "all_coefficients_positive": true,
+    "integer_c_range": [
+      5,
+      22
+    ],
+    "integer_pair_checks": 54,
+    "independent_z_first_integer_checks": 783,
+    "c5_exact_coefficients": [
+      "357749",
+      "876435",
+      "2153340"
+    ],
+    "actual_run_source": "R4_EC25_verify.py in full author-side evidence ZIP; GitHub R4_EC25_repro.py is separately executed 54-case symbolic reproducer"
+  },
+  "native": {
+    "owner_query": "CONTROL_QUOTA",
+    "session": "NOT_ISSUED",
+    "active_claim": "UNVERIFIED",
+    "independent_driver": "NOT_PERFORMED",
+    "admission": "NOT_ACCEPTED"
+  },
+  "open": [
+    "all low Newton monomial coefficients",
+    "near-center f_j(2j+s)>=0, s=0..5",
+    "uniform all-order sign mechanism or exact counterexample",
+    "P000 native six-dimensional and separately typed time transfer"
+  ]
+}
