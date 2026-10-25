@@ -1,0 +1,108 @@
+{
+  "schema": "EM_AUTHOR_SIDE_EXACT_AFFINE_N14_STAGE94_V1",
+  "evidence": "author-level exact Q finite-model derivation; not native control result",
+  "date": "2026-10-25",
+  "source_pins": {
+    "global_knowledge": "c8191daa0c167af40c86972ac9fe45dc3569e06c",
+    "enterprise_math": "dc5ac35bec5b016609edeba64f298fcab1db9270",
+    "derive93_blob": "c27cb008fe5c1a9b3b821a6496f8704f4a2d7064"
+  },
+  "model": {
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "N": 14,
+    "policy_domain": "all randomized ordered-history-dependent stopping"
+  },
+  "exact": {
+    "alpha93": "5172463688734421243/14900301753911083008",
+    "V93": "24275119932147668699/1862537719238885376",
+    "K94": "7010064/4231",
+    "lambda_P": "6535800/4231",
+    "lambda_Q": "7010064/4231",
+    "Gamma94": "13545864/4231",
+    "A94": [
+      10,
+      5,
+      1
+    ],
+    "B": [
+      12,
+      0,
+      1
+    ],
+    "A_nominal": 1260,
+    "A_actual": 845,
+    "A_P": "528125/1019215872",
+    "A_Q": "528125/3869835264",
+    "A_suffixes": 21,
+    "A_truncated": 17745,
+    "A_continuation": [
+      "635/165888",
+      "10201/10368",
+      "7711/6912",
+      "1069/864"
+    ],
+    "B_P": "48828125/725594112",
+    "B_Q": "48828125/362797056",
+    "B_continuation": [
+      "63/64",
+      "1/144",
+      "9/8",
+      "13/12"
+    ],
+    "X": "335359375/169075682574336",
+    "Y": "88196875/40122452017152",
+    "E": "48828125/46438023168",
+    "H": "48828125/52242776064",
+    "h94": "54977897/26112000000",
+    "eta94": "2234496875/9700717287702528",
+    "s93": "27641630644888847/41779200000000000",
+    "s94": "27729595280088847/41779200000000000",
+    "alpha94": "5172467120921621243/14900301753911083008",
+    "V94": "24273746381538068699/1862537719238885376",
+    "root": "65153634128674757873633/57944096250733264896",
+    "Bellman_states": 680,
+    "action_comparisons": 1240,
+    "strict_gaps": 1238,
+    "negative_gaps": 0,
+    "ties": [
+      "A94:C/P",
+      "B:C/Q"
+    ],
+    "minimum_positive_gap": "175345197055/116432163569664",
+    "A_actual_suffix_classes": 12,
+    "tp_tq_difference_start": "775708071240140755/1241691812825923584",
+    "tp_tq_difference_end": "775383214032140755/1241691812825923584",
+    "next_K95": "112428/71",
+    "next_A95": [
+      10,
+      1,
+      2
+    ],
+    "next_tie": "C/Q"
+  },
+  "local_execution": {
+    "derive94": "PASS",
+    "crosscheck94": "PASS",
+    "unpacked_archive_ancestor_chain": "PASS",
+    "shared_policy_table": "stages88-93",
+    "independent_driver": false
+  },
+  "control": {
+    "native_inventory": "CONTROL_QUOTA",
+    "native_session": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "owner_verified": false,
+    "CLAIM": false,
+    "Result": false
+  },
+  "future": "Stage95 K95 and A95 dual candidate only; primal theorem unproved."
+}
