@@ -1,0 +1,11 @@
+# Stage114 exact continuation — dual candidate only
+
+**Model:** arbitrary literal ordered-history randomized testing to horizon 14; P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), both errors <=alpha, minimize max(E_P tau,E_Q tau). External auxiliary iid, not native P000/X6 dynamics.
+
+**Author-verified Stage113 endpoint:** alpha113=183184813761431567431/527550113844125761536; V113=27026770528279165031729/2110200455376503046144. Complete real affine segment from alpha112=13084629132464364707/37682150988866125824 with eta113=218775202279/19538893105337991168, slope -1574078388634743/875100809116. Current A=(10,3,0) P-stop probability u113=929342188946273/986137600000000; C=(5,2,3) Q-stops with probability 1. Two author-side rational implementations pass; source proof and checker files in this directory.
+
+**Stage114 dual-only candidate:** on L(K)=-185064/635+(21376/17145)K, the next descending breakpoint is K114=1903247523/2052316, L114=443700120/513079. D=(9,1,2) ties continuation and Q-stop; A remains P-stop/continue. There are 357 downward positive-gap intersections along the fixed policy; the first is D. Fresh candidate-point Bellman calculation has 680 states, 1238 positive gaps, exactly 2 ties (A and D), no negative gaps. None of this proves a Stage114 primal optimum.
+
+**Immediate research question:** enumerate reachable literal ordered first-hit histories at D under the Stage113 right endpoint; retain separate positive P/Q masses, count order and provenance. Determine whether D is ancestral to A (its depth is 9 vs A depth 10, while D has b=2 and A b=0: monotone b already rules out D->A). Determine the reverse direction by depth; this suggests nonoverlap, but independently confirm actual reachability, exact suffix moments and whether D has nonzero action effect. Solve eP=eQ with both randomization bounds, check tP>=tQ throughout, establish an exact full-real primal interval and right sharpness or give a certified obstruction. Reuse Stage113 checks and P000 scope; do not reprove them.
+
+**Authority:** GitHub author note is not native CLAIM/Result; native control returned CONTROL_QUOTA and STATIC_READONLY_SCOPE_DENIED. Independent Driver assessment remains pending. Frozen read inputs: global@28a36bed4c273c46df19f5e267650a7429b06cb1, EM@3815d50ef89ab52b99f046252d90afe21ca926b3.
