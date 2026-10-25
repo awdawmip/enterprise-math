@@ -179,5 +179,4 @@ def verify():
         'independent_integer_crosschecks':cases,'sample_first_three':sample[:3],
         'all_pass':True},ensure_ascii=False))
 
-
 if __name__=='__main__': verify()
