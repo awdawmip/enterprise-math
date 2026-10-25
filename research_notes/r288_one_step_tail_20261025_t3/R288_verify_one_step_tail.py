@@ -113,7 +113,6 @@ for n in range(MAX_N+1):
             positive_base_layers[name]+=1
             old=min_base_gap[name]
             min_base_gap[name]=gap if old is None else min(gap,old)
-
     if n in (23,24,19,20):
         witness={23:(1,11),24:(1,12),19:(-1,9),20:(-1,10)}[n]
         eps,m=witness
