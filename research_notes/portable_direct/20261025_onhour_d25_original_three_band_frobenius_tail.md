@@ -79,3 +79,45 @@ This finite regression is not an all-prime proof, not a native benchmark, and no
 Prove/refute joint cancellation A0+A1+A2=p (mod p^3) for all primes p=13,19 (mod 24), first attempting a parameterized finite-field transformation of the explicit 5F4 high-tail combined with the lower two genuine bands. Equivalently use the inherited, still author-only scalar bridge Delta_p-R_p=(W_p-p)/p^2 (mod p) when its hypotheses/readback have been authenticated. Preserve signed ranks, integer valuations and the frozen native benchmark as separate experimental debt. Do not re-open accepted D24/UR.
 
 Gateway 0.6.11: own continuation CONTROL_QUOTA; site client research_authority_granted=false, write_relay_enabled=false. Historical dispatch-research-20261023-1710-onhour-01 receipt CONTROL_REQUEST_NOT_FOUND, own checkpoint read ACCESS_DENIED. No valid current session/claim/run recovered; no mutation replayed, no canonical checkpoint or Result fabricated. Support path enterprise-math#1539 is pending a real permission/route validation. This neutral author-side evidence file is not Source-native task progress, review, or mathematical acceptance.
+
+
+## Theorem 4: finite Jacobi–triple Beta coefficient moment (new, same run)
+
+The normalized high-rank kernel from Theorem 3 has a closed coefficient representation on its EXACT valid cutoff 0<=k<m. Write
+
+beta_k = (k!)^2/(2k+1)! = integral_0^1 x^k (1-x)^k dx
+
+and let
+
+J_m(t)=sum_{k=0}^{m-1} (-1)^k binom(m-1,k)binom(m+k,k)t^k
+      = P_{m-1}^{(0,1)}(1-2t).
+
+These are finite rational-polynomial identities. For the normalized coefficients h_k specified above, finite-field algebra gives
+
+(5/3)_k/(2/3)_k=1+(3/2)k,
+(7/6)_k = (1-m)_k (mod p),
+(5/6)_k = (m+1)_k (mod p),
+(3/2)_k=(2k+1)!/(4^k k!),
+
+and therefore
+
+h_k = (-1)^k (1+3k/2) binom(m-1,k)binom(m+k,k) 32^k beta_k^3 (mod p).
+
+The denominators are p-units for 0<=k<m: in particular 2k+1 <= 2m-1 < p. Defining the rational-polynomial variable
+t=32 x(1-x)y(1-y)z(1-z),
+coefficientwise integration of a FINITE polynomial proves the independent target-aligned identity
+
+A2/p^2 = d_{3m+1} * integral_{[0,1]^3}
+ [J_m(t)+(3/2)t J_m'(t)] dx dy dz  (mod p).
+
+The integral is merely rational coefficient bookkeeping (three repeated beta moments), NOT an independently native 3D geometry or a replacement for the X6 Heartbeat World primitive space, and not an analytic approximation. Since all denominators are p-units, its value has a well-defined image in F_p.
+
+For p=13, m=2, J_2(t)=1-3t and the moment equals
+1-(15/2)*32*(1/6)^3=1-10/9=-1/9=10 (mod 13).
+Since d_{3m+1}=1 (mod 13), A2/p^2=10 as previously independently observed.
+
+Independent coefficientwise finite-field checks and exact Fraction checks were executed for every prime p=6m+1 <=600 (50 primes) and p=19963 (one more prime). Checks cover Jacobi binomial coefficients, original Pochhammer high tail, the hypergeometric ratio, and triple beta moments; all 51 matched. Executed author-side local program: d25_tail_jacobi_moment_check_20261025.py, output: d25_tail_jacobi_moment_output_20261025.txt.
+
+New mathematical payoff: the authentic third p-adic digit's terminal band is a FINITE Jacobi–Jet functional, now directly combinable with the accepted frozen Jacobi/derivative ports without assuming the disputed LIFT congruence. The remaining proof obligation is to derive a legitimate inter-band identity with the lower bands A0,A1 showing A0+A1+A2=p (mod p^3) for all p=13,19 (mod 24), or an independently checked exact counterexample. Any reuse of the frozen scalar bridge must retain its exact hypotheses and source provenance.
+
+Scope remains author derivation; neither this moment identity nor the finite checks execute the native benchmark or grant Source checkpoint, Claim, Result, Driver independent review or formal admission. Evidence kept on an allowed neutral author-side GitHub surface only.
