@@ -1,0 +1,9 @@
+# Stage117 — continuation from Stage116 T saturation
+
+**Mother problem:** exact next real interval of V14(alpha) for external iid P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), N=14, arbitrary randomized full ordered-history tests, not P000 X6.
+
+**Verified author-only frontier:** Stage116 alpha116=900390062503198401793/2592933255351443128320, V116=132635679890866772493569/10371733021405772513280, eta116=22731875/28581715777683456. Dual K116=37550061/41440, L116=3296576/3885. Exactly two Bellman ties D=(9,1,2) Qstop/continue and T=(14,7,4) Pstop/Qstop; 680 states, 1238 positive gaps, no negative gap. T stop-P probability saturates at z=1, D Qstop probability w116=374319733261181/1042086080000000 lies strictly inside (0,1). The Stage116 theorem is proved only as an exact finite author result, pending independent Driver/native admission.
+
+**Precise first unresolved question:** Continue along the D-tie dual line dK=-1,dL=-164096/214569 while T must strictly declare P. Exact affine gap sweep gives earliest candidate at (7,5,1), Pstop against the selected action, deltaK=172786349905893/7380751658720, and candidate K117=7703713039590/8727240137, L117=7249159245096/8727240137. This is NOT an established Stage117 optimal primal interval.
+
+Compute all exact Bellman gaps at this candidate, prove appropriate ordered first-hit cone relation to D, derive actual P/Q masses and conditional suffix moments, solve balanced randomization under both errors and time dominance. Establish full real interval and right sharpness or a rigorous obstruction. Preserve BRC positive-rational ordered-path labels. Keep author, independent review and native Source CLAIM distinct. Starting source: sibling Stage116 proof, two exact checkers, certificate, and Stage115 inherited source.

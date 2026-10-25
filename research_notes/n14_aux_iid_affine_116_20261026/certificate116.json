@@ -1,0 +1,83 @@
+{
+  "schema": "EM_R1_N14_STAGE116_AUTHOR_EXACT_AFFINE_V1",
+  "status": "AUTHOR_EXACT_FINITE_PROOF; NOT_NATIVE_RESULT; NOT_INDEPENDENTLY_REVIEWED",
+  "global_snapshot": "3f5265ba9cb837a6d9b3ba272de8106f751e8d34",
+  "em_source_base": "f67a9840c8e8b0d9420366d8049e689f8f1abf1b",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "policy": "all randomized full ordered-history finite stopping tests"
+  },
+  "dual": {
+    "K": "37550061/41440",
+    "L": "3296576/3885",
+    "S": "6232589/3552",
+    "root": "529581447731753074942871/851289298734478786560"
+  },
+  "bellman": {
+    "states": 680,
+    "strict_positive_gaps": 1238,
+    "negative_gaps": 0,
+    "min_positive_gap": "200314681163/7919307325440",
+    "ties": {
+      "(9,1,2)": [
+        "Q",
+        "C"
+      ],
+      "(14,7,4)": [
+        "P",
+        "Q"
+      ]
+    }
+  },
+  "interval": {
+    "alpha115": "900390060440962701793/2592933255351443128320",
+    "V115": "132635694365041929281069/10371733021405772513280",
+    "eta": "22731875/28581715777683456",
+    "alpha116": "900390062503198401793/2592933255351443128320",
+    "V116": "132635679890866772493569/10371733021405772513280",
+    "full_real": true,
+    "right_support_sharp": true
+  },
+  "randomization": {
+    "D_w_left": "374236473161181/1042086080000000",
+    "D_w_gain_per_z": "118943/1488694400",
+    "D_w_right": "374319733261181/1042086080000000",
+    "T_z_range": "[0,1]",
+    "mixed_term": "0"
+  },
+  "firsthit": {
+    "D": {
+      "count": 172,
+      "P": "671875/53747712",
+      "Q": "671875/20155392"
+    },
+    "T": {
+      "count": 9830,
+      "P": "614375/75144747810816",
+      "Q": "614375/80244904034304"
+    }
+  },
+  "verification": {
+    "local_primary": "PASS_STAGE116_BELLMAN_AND_FULL_REAL_AFFINE",
+    "local_independent": "PASS_STAGE116_LITERAL_WORD_INTEGER_CHECK",
+    "remote_execution": false,
+    "arithmetic": "Python fractions.Fraction plus independently enumerated integer DFS"
+  },
+  "native": {
+    "tasks_error": "CONTROL_QUOTA",
+    "session_error": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "claim": false,
+    "owner_verified": false
+  }
+}
