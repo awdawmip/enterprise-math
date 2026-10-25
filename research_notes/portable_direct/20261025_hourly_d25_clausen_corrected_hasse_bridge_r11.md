@@ -1,6 +1,6 @@
 # D25/LIFT — Clausen-compatible Hasse cutoff ports and all-middle denominator drift
 
-Date: 2026-10-25. Author: TASK_RESEARCH portable derivation (Research logical lane \`chatgpt-research-hourly-enterprise-math-20260923\`). Task \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`, publication \`TP2-B6F4FC938FF94941C1B7\`. Frozen scientific Source pin \`c47e13e4aba0e006366f989d6334d443f6333ae3\` is unchanged.
+Date: 2026-10-25. Author: TASK_RESEARCH portable derivation (Research logical lane `chatgpt-research-hourly-enterprise-math-20260923`). Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`, publication `TP2-B6F4FC938FF94941C1B7`. Frozen scientific Source pin `c47e13e4aba0e006366f989d6334d443f6333ae3` is unchanged.
 
 **Scope and admission:** AUTHOR-DERIVED / AUTHOR-EXACT-CHECKED / UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY. External finite hypergeometric algebra, not a CM experiment, an all-target-prime supercongruence, or a theorem transferred to native X6. No current Source CLAIM, authorized run, new native checkpoint, or independent reviewer is asserted.
 
@@ -146,7 +146,7 @@ At \(p=7\), the old and corrected values are \(J_4=42,\widetilde J_4=14\bmod49\)
 
 ## Independent arithmetic routes and reproducibility
 
-The adjacent \`20261025_hourly_d25_clausen_corrected_hasse_bridge_check.py\` reconstructs the signed cutoff numerators from their exact integer linear factors, computes the denominator-drift unit-product coefficients by modular series inversion, and independently evaluates the harmonic right-hand sides in \(\mathbb Z/p^2\mathbb Z\).
+The adjacent `20261025_hourly_d25_clausen_corrected_hasse_bridge_check.py` reconstructs the signed cutoff numerators from their exact integer linear factors, computes the denominator-drift unit-product coefficients by modular series inversion, and independently evaluates the harmonic right-hand sides in \(\mathbb Z/p^2\mathbb Z\).
 
 Author run: **310** full-range prime/order checks, for \(p=7,13,19,31,37,43,73,103\) and every \(1\le n\le p-2\), passed; complete finite-field support over degrees \(0,\ldots,2p\) checked for \(p=7,13,19,31,37,43\), **6** cases passed. These calculations are exact finite-ring author checks, not independent review or a substitute for the general derivation.
 
@@ -154,11 +154,11 @@ Author run: **310** full-range prime/order checks, for \(p=7,13,19,31,37,43,73,1
 
 Consumed immutable prior source notes, without re-crediting their theorems:
 
-- \`research_notes/portable_direct/20261025_hourly_d25_all_middle_hasse_p2_forcing.md\` at commit \`f271911b9eab9b101c6a48dbb195925589d75f03\`.
-- \`research_notes/portable_direct/20261025_hourly_d25_clausen_denominator_drift_source_port.md\` at commit \`5897ddc49f22fe2480961cd0fb5c5fdd47ff54de\`.
+- `research_notes/portable_direct/20261025_hourly_d25_all_middle_hasse_p2_forcing.md` at commit `f271911b9eab9b101c6a48dbb195925589d75f03`.
+- `research_notes/portable_direct/20261025_hourly_d25_clausen_denominator_drift_source_port.md` at commit `5897ddc49f22fe2480961cd0fb5c5fdd47ff54de`.
 
 BRC observer: keep **which** parameter family and denominator were used, signed cutoff, Hasse order, \(p\)-adic valuation, \(z^p\) operator forcing, and all permitted downstream differentiations. A two-port mod-\(p\) observation does not license deletion of mod-\(p^2\) middle leakage, and a fixed-denominator proof is not automatically a Clausen-family proof. No native X6 state/readout bridge is asserted.
 
 Parent target D25/LIFT/JT2 remains OPEN, hard global congruence unproved. Next minimum mathematical action: insert the corrected *operator* jets (including the derivatives of \(c(x)\) in the operator, not solely its coefficient boundary term) and the separately signed Clausen reflected convolution tail into one rankwise exact certificate; investigate whether the \(2\)-port forcing cancels with the tail at \(z=1/2\). Authentic same-original-class CM \(H_0/B_0\), \([X]U\bmod p^2\), Frobenius direction/normalization and \(\kappa\) mapping remain absent; native CM experiment NOT_RUN.
 
-Control as read this round: \`em_control_continuation\` returned \`INVALID_ARGUMENT / CONTROL_QUOTA\`; no fresh winning CLAIM, OPEN or Source checkpoint has been verified. Existing predecessor mismatch and support Issue #1558 remain unresolved until actual maintenance-side repair and Research-side Source verification. Preserve the old native immutable frontier and contribution history; nothing in this portable note revises them.
+Control as read this round: `em_control_continuation` returned `INVALID_ARGUMENT / CONTROL_QUOTA`; no fresh winning CLAIM, OPEN or Source checkpoint has been verified. Existing predecessor mismatch and support Issue #1558 remain unresolved until actual maintenance-side repair and Research-side Source verification. Preserve the old native immutable frontier and contribution history; nothing in this portable note revises them.
