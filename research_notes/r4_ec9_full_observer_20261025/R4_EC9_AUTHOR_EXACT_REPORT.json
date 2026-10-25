@@ -1,0 +1,125 @@
+{
+  "schema": "ENTERPRISE_MATH_AUTHOR_AUXILIARY_RESEARCH_REPORT_V1",
+  "research_id": "R4-EC9",
+  "date": "2026-10-25",
+  "status": "AUTHOR_SIDE_EXACT_PROOF_AND_TWO_LOCAL_CHECKS_NOT_NATIVE_ACCEPTED",
+  "author_id": "EM-LOCAL-EC9A",
+  "model": "ordered binary, unit-positive affine BRC auxiliary, 3 controls, 00 monitor, full affine sign/effect",
+  "question": "minimum common scalar Laurent recurrence order for all 12 oriented six-coarse-output channels",
+  "result": {
+    "minimal_common_order": 12,
+    "homogeneous_for_every_n_at_least": 13,
+    "clean_order_denominator_degree": 8,
+    "dirty_order_denominator_degree": 4,
+    "denominator": "(1+x^2)*(1-x*(z+z^-1)+2*x^4-x^6)*(1-x*(z+z^-1))*(1+x^2-x^3*(z+z^-1))",
+    "minimality": "dirty q=2, epsilon=+1 specialized at z=2; modular Euclidean gcd=1 modulo prime 101",
+    "certificate": {
+      "z": 2,
+      "prime": 101,
+      "degree_denominator": 12,
+      "degree_numerator": 10,
+      "remainder_degrees": [
+        9,
+        8,
+        7,
+        6,
+        5,
+        4,
+        3,
+        2,
+        1,
+        0
+      ],
+      "specialized_denominator_eightfold_desc": [
+        -50,
+        40,
+        42,
+        -20,
+        100,
+        -225,
+        174,
+        -225,
+        224,
+        -100,
+        66,
+        -40,
+        8
+      ],
+      "specialized_numerator_eightfold_desc": [
+        8,
+        -104,
+        122,
+        -52,
+        82,
+        -73,
+        18,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "author_verification": {
+    "python_sympy_exact": true,
+    "python_dp_depths": "0..80",
+    "python_exact_comparisons": 36251,
+    "cpp17_independent_boost_bigints": true,
+    "cpp17_dp_depths": "0..70",
+    "cpp17_exact_comparisons": 26912,
+    "cpp17_raw_words_0_12": 8191,
+    "extracted_zip_cold_start": "PASS",
+    "checkpoints": [
+      {
+        "n": 10,
+        "control": 2,
+        "effect": [
+          1,
+          0
+        ],
+        "clean": 5,
+        "dirty": 49
+      },
+      {
+        "n": 20,
+        "control": 2,
+        "effect": [
+          1,
+          0
+        ],
+        "clean": 463,
+        "dirty": 43307
+      },
+      {
+        "n": 30,
+        "control": 2,
+        "effect": [
+          1,
+          0
+        ],
+        "clean": 47685,
+        "dirty": 37396297
+      }
+    ]
+  },
+  "evidence": {
+    "immutable_project_git_blob_python": "a5b07bf08ee54c800442308c8878549050c3006c",
+    "immutable_project_git_blob_cpp17": "526b905cef848ba5a56a3714440854706d106601",
+    "local_complete_evidence_zip_sha256": "51e1e1442c8c8a69be44a317dc41ff7f88e02a9afdcf1b5feef8101463ba3b19",
+    "canonical_account_input": "awdawmip/chatgpt-global-knowledge@6a246ed94efb5ed584cefd4b0720171067bd94c2",
+    "canonical_em_source_input": "awdawmip/enterprise-math@1ee17308b6c80f1481fa571676d3c383d4003f39",
+    "p000_verified_original_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "prior_research_immutable_commit": "97b2738524622d3b4bdafabfa50928746fdf06da"
+  },
+  "native": {
+    "dispatch": "CONTROL_QUOTA",
+    "verified_authenticated_git_identity": "awdawmip",
+    "active_owner_claim": "UNVERIFIED",
+    "service_session": "NOT_OBTAINED",
+    "result": "NOT_PUBLISHED",
+    "independent_driver": "NOT_DONE",
+    "native_x6": "NOT_EXECUTED"
+  },
+  "mathematical_scope": "Scalar Laurent recurrence over Q(z), exact all finite depths. Not internal BRC state lower bound nor original fixed-effect-blind 6 vs 7 state conjecture.",
+  "next": "R4-EC10 typed transfer realization minimal vector rank; test arbitrary-encoded six-state effect-blind transition with effect-conditioned terminal decoder."
+}
