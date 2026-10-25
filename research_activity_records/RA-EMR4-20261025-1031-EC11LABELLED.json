@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR4-20261025-1031-EC11LABELLED",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "4df40f235cb2eef46609f229c3ea571a27c85cb5",
+          "path": "research_notes/r4_ec11_word_resolved_rank14_20261025/R4_EC11_WORD_RESOLVED_MINIMALITY.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "a9ee8e8549b4bd2fc0748c197d13aaf2ad5504495519fb69f6fe367f41dd1bb2",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "17e35eb19464cd17a5abe8781ae925bf9e218f27",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/4df40f235cb2eef46609f229c3ea571a27c85cb5/research_notes/r4_ec11_word_resolved_rank14_20261025/R4_EC11_WORD_RESOLVED_MINIMALITY.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r4-ec11-labelled-proof-readback-20261025-1031",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261025-1031-EC11LABELLED/readbacks/e0a51ecd685afcdd94f84aa46e0f0a9f4ff74ed52d1a786bfbfba64098a934cf.json",
+          "verification_receipt_sha256": "e0a51ecd685afcdd94f84aa46e0f0a9f4ff74ed52d1a786bfbfba64098a934cf"
+        }
+      ],
+      "event_id": "r4-ec11-word-rank14-proof-v1",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-25T10:31:30+08:00",
   "registration_key": "session:emr4-20261025-1031-local-run11:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EMR4-20261025-1031-LOCAL",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "emr4-20261025-1031-local-run11",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-25T10:31:30+08:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
