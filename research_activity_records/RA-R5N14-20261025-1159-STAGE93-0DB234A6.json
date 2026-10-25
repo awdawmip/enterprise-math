@@ -1,0 +1,81 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-R5N14-20261025-1159-STAGE93-0DB234A6",
+  "registration_key": "source:em-stage93-exact-affine-20261025-0db234a69a701fd42afe15f8f9aac508311f87dc",
+  "registration_origin": {
+    "kind": "RETROSPECTIVE_SOURCE",
+    "source_tracking_key": "em-stage93-exact-affine-20261025-0db234a69a701fd42afe15f8f9aac508311f87dc"
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": null,
+  "session_id": null,
+  "session_state": "UNKNOWN",
+  "recorded_at": "2026-10-25T11:59:22+08:00",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "R5-N14-STAGE93-20261025-EXACT",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "0db234a69a701fd42afe15f8f9aac508311f87dc",
+          "path": "research_notes/n14_aux_iid_affine_93_20261025/derive93.py",
+          "sha256": "d1d6e072c91489febbe49d54814a398302ea6316aa49d0fc60cd079554b21cf5",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "readback": {
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "local-r5n14-20261025-stage93-derive93-py",
+            "arguments": {
+              "repository_full_name": "awdawmip/enterprise-math",
+              "ref": "0db234a69a701fd42afe15f8f9aac508311f87dc",
+              "path": "research_notes/n14_aux_iid_affine_93_20261025/derive93.py"
+            },
+            "result": {
+              "isError": false,
+              "structuredContent": {
+                "content": "#!/usr/bin/env python3\n\"\"\"Stage93 exact rational Bellman and ordered-prefix audit; external finite iid N=14.\nParent action table derives from stages 88--92; author-side, no independent review.\n\"\"\"\nfrom collections import defaultdict\nfrom fractions import Fraction as F\nfrom functools import lru_cache\nimport json\nimport derive92 as old\n\nN=old.N; P=old.P; Q=old.Q\nA=(5,4,0); B=old.B\nalpha0=F(5172457130453937143,14900301753911083008)\nV0=F(24277747388885024249,1862537719238885376)\nS=F(27568725674091547,41779200000000000)\nK=F(36260219477628,21860934947); LP=F(72)+F(8,9)*K; LQ=K; G=LP+LQ\n\ndef child(st,i): return old.child(st,i)\ndef act(st):\n    if st==old.A:return 'P'  # stage92 endpoint\n    return old.act(st)\n\ndef dual(k=K,policy=act):\n    lq=k;lp=F(72)+F(8,9)*k\n    D={};ties=[];bad=[];pos=total=0;minpos=None\n    for n in range(N,-1,-1):\n        for a in range(n+1):\n            for b in range(n-a+1):\n                st=(n,a,b);z=policy(st)\n                opts={'P':lq*F(2**(a+b),3**a),'Q':lp}\n                if n<N:opts['C']=F(1)+sum((P[i]*D[child(st,i)] for i in range(3)),F())\n                v=opts[z]\n                for zz,w in opts.items():\n                    if zz==z:continue\n                    total+=1;d=w-v\n                    if d<0:bad.append((st,z,zz,str(d)))\n                    elif d==0:ties.append((st,z,zz))\n                    else:\n                        pos+=1;minpos=d if minpos is None or d<minpos else minpos\n                D[st]=v\n    return D[(0,0,0)],ties,bad,pos,total,minpos\n\ndef firsthit(st):\n    cur={(0,0):(F(1),F(1),1)}\n    for n in range(st[0]):\n        nxt=defaultdict(lambda:(F(),F(),0))\n        for (a,b),(p,q,k) in cur.items():\n            if act((n,a,b))!='C':continue\n            for i in range(3):\n                idx=(a+(i==0),b+(i==1));x,y,l=nxt[idx]\n                nxt[idx]=(x+p*P[i],y+q*Q[i],l+k)\n        cur=dict(nxt)\n    return cur.get(st[1:],(F(),F(),0))\n\n@lru_cache(None)\ndef suffix(st):\n    z=act(st)\n    if z=='P':return F(),F(1),F(),F()\n    if z=='Q':return F(1),F(),F(),F()\n    kids=[suffix(child(st,i)) for i in range(3)]\n    return (sum((P[i]*kids[i][0] for i in range(3)),F()),\n            sum((Q[i]*kids[i][1] for i in range(3)),F()),\n            F(1)+sum((P[i]*kids[i][2] for i in range(3)),F()),\n            F(1)+sum((Q[i]*kids[i][3] for i in range(3)),F()))\n\ndef forward(u,s):\n    cur={(0,0):(F(1),F(1))};ep=eq=tp=tq=F()\n    for n in range(N+1):\n        nxt=defaultdict(lambda:(F(),F()))\n        for (a,b),(p,q) in cur.items():\n            st=(n,a,b)\n            if st==A:\n                eq+=q*u;p*=1-u;q*=1-u\n            elif st==B:\n                ep+=p*s;p*=1-s;q*=1-s\n            else:\n                z=act(st)\n                if z=='P':eq+=q;continue\n                if z=='Q':ep+=p;continue\n            assert n<N,st\n            tp+=p;tq+=q\n            for i in range(3):\n                idx=(a+(i==0),b+(i==1));x,y=nxt[idx]\n                nxt[idx]=(x+p*P[i],y+q*Q[i])\n        cur=dict(nxt)\n    assert not cur\n    return ep,eq,tp,tq\n\ndef next_dual(k=K):\n    coeff={};cross=[];err=[]\n    for n in range(N,-1,-1):\n        for a in range(n+1):\n            for b in range(n-a+1):\n                st=(n,a,b);z='P' if st==A else act(st)\n                opts={'P':(F(),F(2**(a+b),3**a)),'Q':(F(72),F(8,9))}\n                if n<N:opts['C']=(F(1)+sum((P[i]*coeff[child(st,i)][0] for i in range(3)),F()),sum((P[i]*coeff[child(st,i)][1] for i in range(3)),F()))\n                coeff[st]=opts[z]\n                for zz,w in opts.items():\n                    if zz==z or st in (A,B):continue\n                    c0=w[0]-opts[z][0];c1=w[1]-opts[z][1]\n                    if c0+c1*k<0:err.append((st,z,zz,str(c0+c1*k)))\n                    if c1>0:\n                        k2=-c0/c1\n                        if k2<k:cross.append((k2,st,z,zz))\n    return max(cross) if cross else None,err\n\ndef main():\n    pa,qa,ha=firsthit(A);pb,qb,hb=firsthit(B)\n    ra,rb=suffix(A),suffix(B)\n    X=pa*ra[0];Y=qa*(1-ra[1]);E=pb*(1-rb[0]);H=qb*rb[1]\n    h=(X+Y)/(E+H);eta=-X+E*h\n    root,ties,bad,pos,count,gap=dual()\n    f0=forward(F(),S);f1=forward(F(1),S+h)\n    nxt,errs=next_dual()\n    return dict(pa=pa,qa=qa,ha=ha,pb=pb,qb=qb,hb=hb,ra=ra,rb=rb,X=X,Y=Y,E=E,H=H,h=h,eta=eta,s93=S+h,root=root,ties=ties,bad=bad,pos=pos,count=count,gap=gap,f0=f0,f1=f1,nxt=nxt,errs=errs,alpha93=alpha0+eta,V93=V0-G*eta,K=K,LP=LP,G=G)\n\nif __name__=='__main__':\n    r=main();print(json.dumps({k:str(v) for k,v in r.items()},indent=2))\n",
+                "encoding": "utf-8",
+                "sha": "c27cb008fe5c1a9b3b821a6496f8704f4a2d7064",
+                "display_url": "https://github.com/awdawmip/enterprise-math/blob/0db234a69a701fd42afe15f8f9aac508311f87dc/research_notes/n14_aux_iid_affine_93_20261025/derive93.py"
+              }
+            }
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "0db234a69a701fd42afe15f8f9aac508311f87dc",
+          "path": "research_notes/n14_aux_iid_affine_93_20261025/crosscheck93.py",
+          "sha256": "c0d31fd1dacb78a3049c3e9306a31f47ba66b4fe0257fcaf89c44981f314d277",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "readback": {
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "local-r5n14-20261025-stage93-crosscheck93-py",
+            "arguments": {
+              "repository_full_name": "awdawmip/enterprise-math",
+              "ref": "0db234a69a701fd42afe15f8f9aac508311f87dc",
+              "path": "research_notes/n14_aux_iid_affine_93_20261025/crosscheck93.py"
+            },
+            "result": {
+              "isError": false,
+              "structuredContent": {
+                "content": "#!/usr/bin/env python3\n\"\"\"Independent ordered-word DFS and minimizing Bellman recurrence for auxiliary iid stage93.\nShares inherited deterministic actions with derive93; no independent Driver status.\n\"\"\"\nfrom collections import Counter\nfrom fractions import Fraction as F\nfrom functools import lru_cache\nfrom math import factorial\nimport json\nimport derive93 as m\n\ndef ordered_first_hits(target):\n    n,a,b=target;hits=[]\n    def walk(word,p,q,a0,b0):\n        k=len(word)\n        if (k,a0,b0)==target:\n            hits.append((word,p,q));return\n        if k==n or m.act((k,a0,b0))!='C':return\n        for i in range(3):\n            walk(word+(i,),p*m.P[i],q*m.Q[i],a0+(i==0),b0+(i==1))\n    walk(tuple(),F(1),F(1),0,0)\n    return hits\n\ndef ordered_suffix_tree(target):\n    leaves=Counter();T=[F(),F(),F(),F()]\n    def walk(st,p,q,t):\n        z=m.act(st)\n        if z!='C':\n            leaves[(st,z)]+=1\n            if z=='Q':T[0]+=p\n            elif z=='P':T[1]+=q\n            else:raise ValueError(z)\n            T[2]+=p*t;T[3]+=q*t\n            return\n        for i in range(3):walk(m.child(st,i),p*m.P[i],q*m.Q[i],t+1)\n    walk(target,F(1),F(1),0)\n    return leaves,tuple(T)\n\ndef independent_min_bellman():\n    @lru_cache(None)\n    def val(st):\n        n,a,b=st\n        opts=[m.K*F(2**(a+b),3**a),m.LP]\n        if n<m.N:opts.append(F(1)+sum((m.P[i]*val(m.child(st,i)) for i in range(3)),F()))\n        return min(opts)\n    root=val((0,0,0));return root,val.cache_info().currsize\n\ndef main():\n    d=m.main();stats={}\n    for key,st in [('A93',m.A),('B',m.B)]:\n        hits=ordered_first_hits(st)\n        leaves,cont=ordered_suffix_tree(st)\n        p=sum((item[1] for item in hits),F())\n        q=sum((item[2] for item in hits),F())\n        assert (p,q,len(hits))==m.firsthit(st)\n        assert cont==m.suffix(st)\n        assert p>0 and q>0\n        n,a,b=st\n        nominal=factorial(n)//(factorial(a)*factorial(b)*factorial(n-a-b))\n        stats[key]=dict(state=st,nominal_prefix_words=nominal,actual_first_hit_words=len(hits),\n            p_mass=str(p),q_mass=str(q),terminal_suffix_words=sum(leaves.values()),\n            terminal_action_state_classes=len(leaves),full_truncated_words=len(hits)*sum(leaves.values()),\n            continuation_qp_errors_and_extra_times=list(map(str,cont)))\n    assert m.A[1]>0 and m.B[1]==0 # no path containing symbol0 can reach B\n    root,nstates=independent_min_bellman()\n    assert root==d['root']==m.V0+m.G*m.alpha0\n    assert nstates==680\n    assert d['count']==1240 and d['pos']==1238 and d['bad']==[]\n    assert set(d['ties'])=={(m.A,'C','P'),(m.B,'C','Q')}\n    assert m.act(m.A)=='C' and m.act(m.B)=='C'\n    assert d['h']==(d['X']+d['Y'])/(d['E']+d['H'])\n    assert d['eta']==-d['X']+d['E']*d['h']==d['Y']-d['H']*d['h']>0\n    assert 0<m.S<d['s93']<1\n    assert d['alpha93']==m.alpha0+d['eta']\n    assert d['V93']==m.V0-m.G*d['eta']\n    f0=d['f0'];f1=d['f1']\n    assert f0[0]==f0[1]==m.alpha0 and f1[0]==f1[1]==d['alpha93']\n    assert f0[2]==m.V0 and f1[2]==d['V93']\n    assert f0[2]>f0[3] and f1[2]>f1[3]\n    for u in [F(),F(1,127),F(1,11),F(1,3),F(1,2),F(9,13),F(127,128),F(1)]:\n        s=m.S+d['h']*u\n        ep,eq,tp,tq=m.forward(u,s)\n        assert ep==eq==m.alpha0+d['eta']*u\n        assert tp==m.V0-m.G*d['eta']*u and tp>tq\n        assert tp+m.LP*ep+m.LQ*eq==root\n    assert d['nxt']==(F(7010064,4231),(10,5,1),'C','P')\n    assert d['errs']==[]\n    # The just-frozen A93 action table is Bellman-optimal throughout the\n    # closed dual interval [K94,K93], since every action gap is affine in K.\n    # At the new lower endpoint only B and the indicated A94 remain tied.\n    def freeze93(st): return 'P' if st==m.A else m.act(st)\n    kr=d['nxt'][0]\n    _,right_ties,right_bad,right_pos,right_total,_=m.dual(m.K,freeze93)\n    _,next_ties,next_bad,next_pos,next_total,_=m.dual(kr,freeze93)\n    assert right_total==next_total==1240\n    assert right_bad==next_bad==[] and right_pos==next_pos==1238\n    assert set(right_ties)=={(m.B,'C','Q'),(m.A,'P','C')}\n    assert set(next_ties)=={(m.B,'C','Q'),((10,5,1),'C','P')}\n    _,_,below_bad,_,_,_=m.dual(kr-F(1,10000),freeze93)\n    assert any(x[0]==(10,5,1) for x in below_bad)\n    return dict(status='PASS_EXACT_ORDERED_DFS_MIN_BELLMAN_CONTINUUM_ENDS',\n        first_hits_and_suffixes=stats,Bellman_min_root=str(root),Bellman_states=nstates,\n        nonselected_comparisons=d['count'],strict_positive_gaps=d['pos'],\n        negative_gaps=len(d['bad']),zero_ties=str(d['ties']),minimum_positive_gap=str(d['gap']),\n        tP_minus_tQ_start=str(f0[2]-f0[3]),tP_minus_tQ_end=str(f1[2]-f1[3]),\n        h93=str(d['h']),eta93=str(d['eta']),s93=str(d['s93']),alpha93=str(d['alpha93']),\n        V93=str(d['V93']),K93=str(m.K),Gamma93=str(m.G),next_candidate=str(d['nxt']))\n\nif __name__=='__main__':print(json.dumps(main(),indent=2))\n",
+                "encoding": "utf-8",
+                "sha": "6ee37e0c546f515afbe83acd976bdf2dfe96969c",
+                "display_url": "https://github.com/awdawmip/enterprise-math/blob/0db234a69a701fd42afe15f8f9aac508311f87dc/research_notes/n14_aux_iid_affine_93_20261025/crosscheck93.py"
+              }
+            }
+          }
+        }
+      ],
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "VERIFY_EM_PUBLICATION"
+    }
+  ]
+}
