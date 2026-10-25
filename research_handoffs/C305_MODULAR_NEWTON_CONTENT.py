@@ -45,6 +45,7 @@ def prepare(idx,path,k24,W):
     return s,groups,prepared,cancels,degree
 
 def window_start(groups,degree):
+    # Ensure safe integral factor division at each point; this is just an algorithmic choice.
     T=0
     while True:
         bad=False
@@ -81,6 +82,7 @@ def numerator_residues(s,groups,terms,cancels,degree,T):
     return M,xs
 
 def gcd_from_newton_residues(s,degree,M,values):
+    # At step k the kth forward difference is congruent to k!B_k modulo M.
     curr=list(values);facts=1;g=s
     for k in range(degree+1):
         if k:facts*=k
