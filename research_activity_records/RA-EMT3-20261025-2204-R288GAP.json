@@ -18,5 +18,42 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "EM-R288-T3-20261025-2204",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "c706ef91301840e53a35ef025dcf7ce57966c1ab",
+          "path": "research_notes/r288_adjacent_gap_asymptotic_20261025_t3/R288_verify_delta_asymptotics.py",
+          "sha256": "070cf38d698c3f6af0152049465ff004c68f2a46c8581709a0e959672a687829",
+          "git_blob_sha1": "93228450199da77da03ae595740d7e2e47c5ffc3",
+          "readback": {
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "local-observation-r288-code-20261025-2204",
+            "arguments": {
+              "repository_full_name": "awdawmip/enterprise-math",
+              "path": "research_notes/r288_adjacent_gap_asymptotic_20261025_t3/R288_verify_delta_asymptotics.py",
+              "ref": "c706ef91301840e53a35ef025dcf7ce57966c1ab"
+            },
+            "result": {
+              "isError": false,
+              "structuredContent": {
+                "content": "\"\"\"Exact finite crosschecks for R288 fixed-offset BRC adjacent-fiber gaps.\n\nMathematical asymptotic positivity comes from the accompanying analytic proof,\nnot from extrapolating these finite integer calculations.\n\"\"\"\nfrom collections import defaultdict\nimport json\n\nN = 320\nJ = N // 2 + 8\nM = 20\nTRANSITIONS = (\n    ((2, -1, -1), (2, 1, -1)),\n    ((0, -1, -1), (0, 1, -1)),\n    ((1, 1, 1), (2, 1, -1)),\n)\n\ndef mul(a, b, n=J):\n    out = [0] * (n+1)\n    for i, ai in enumerate(a[:n+1]):\n        if not ai:\n            continue\n        for j, bj in enumerate(b[:n+1-i]):\n            if bj:\n                out[i+j] += ai*bj\n    return out\n\n# w=u/x, where y*w^2-(1+2*y^2-y^3)*w+1=0, w(0)=1.\nw = [0]*(J+1)\nw[0] = 1\nfor n in range(1,J+1):\n    w[n] = sum(w[i]*w[n-1-i] for i in range(n)) \\\n           - (2*w[n-2] if n>=2 else 0) \\\n           + (w[n-3] if n>=3 else 0)\nassert w[:5] == [1,1,0,0,1], w[:5]\nassert all(v >= 0 for v in w)\n\npowers = [[1] + [0]*J]\nfor m in range(M+3):\n    powers.append(mul(powers[-1], w))\n\ndef delta_by_algebra(eps, m):\n    if eps == 1:\n        base = powers[m+1]\n        subtract = mul(base, w)\n        # w^(m+1) * (1-y+y^2-y*w)\n        A = [base[j] - (base[j-1] if j>=1 else 0)\n             + (base[j-2] if j>=2 else 0)\n             - (subtract[j-1] if j>=1 else 0) for j in range(J+1)]\n    else:\n        base = powers[m-1]\n        subtract = mul(base,w)\n        A = [base[j] - (subtract[j-1] if j>=1 else 0) for j in range(J+1)]\n    # Division by 1+y as a formal series.\n    d = []\n    prev = 0\n    for aj in A:\n        cur = aj - prev\n        d.append(cur)\n        prev = cur\n    return d\n\nalgebra = {(eps,m): delta_by_algebra(eps,m) for eps in (1,-1)\n           for m in range(1 if eps==1 else 2,M+1)}\n\nstates = {(0,1,0,False):1}\ncompared = 0\nobserved_last_negative = {}\nfor n in range(N+1):\n    P = defaultdict(int)\n    for (q,eps,k,z),count in states.items():\n        if q == 0:\n            P[(eps,k)] += count\n    for (eps,m), coeff in algebra.items():\n        if n>=m+2 and (n-m)%2 == 0:\n            j=(n-m-2)//2\n            gap = P[(eps,-m)]-P[(eps,-m-2)]\n            assert gap == coeff[j], (n,eps,m,j,gap,coeff[j])\n            compared += 1\n            if gap < 0:\n                observed_last_negative[f'{eps}:{m}'] = n\n    next_states=defaultdict(int)\n    for (q,eps,k,z),count in states.items():\n        for b,(nq,eta,c) in enumerate(TRANSITIONS[q]):\n            if z and b==0:\n                continue\n            next_states[(nq,eta*eps,eta*k+c,b==0)]+=count\n    states=next_states\n\n# Additional independent radical identity: D=a^2-4*y, v=(a-sqrt D)/2,\n# (1-u^2)/sqrt D = u/x. Tested in Q(y)[w]/(y*w^2-a*w+1)\n# via exact symbolic polynomial reduction at a sample of finite degrees:\n# s=a-2*y*w; (1-y*w^2) = s*w by the polynomial relation.\na_coeff = [0]*(J+1)\na_coeff[0] = 1\na_coeff[2] = 2\na_coeff[3] = -1\ns_coeff = [a_coeff[j] - (2*w[j-1] if j>=1 else 0)\n           for j in range(J+1)]\nww = mul(w,w)\nsw = mul(s_coeff,w)\nfor j in range(J+1):\n    expected = int(j==0) - (ww[j-1] if j>=1 else 0)\n    assert sw[j] == expected, (j,sw[j],expected)\nidentity_checks = J+1\n\nres={\n  'schema':'EM_R288_ALGEBRAIC_ADJACENT_GAP_V1',\n  'source_model':'ordered positive BRC raw words with no adjacent zero and final q=0',\n  'arithmetic':'unbounded Python integers',\n  'checked_lengths_inclusive':[0,N],\n  'offsets_plus_inclusive':[1,M],\n  'offsets_minus_inclusive':[2,M],\n  'exact_gap_coefficient_checks':compared,\n  'quadratic_radical_cancellation_degree_checks':identity_checks,\n  'formal_w_first_12':w[:12],\n  'observed_last_negative_by_offset':observed_last_negative,\n  'theorem_scope':'Fixed-m eventual sign classification proven analytically; full-length positivity for m=13,14,+ and m=11,12,- remains open',\n  'status':'PASS'\n}\nprint(json.dumps(res,indent=2,ensure_ascii=False,sort_keys=True))\n",
+                "encoding": "utf-8",
+                "sha": "93228450199da77da03ae595740d7e2e47c5ffc3",
+                "display_url": "https://github.com/awdawmip/enterprise-math/blob/c706ef91301840e53a35ef025dcf7ce57966c1ab/research_notes/r288_adjacent_gap_asymptotic_20261025_t3/R288_verify_delta_asymptotics.py"
+              }
+            }
+          },
+          "publication_state": "VERIFY_EM_PUBLICATION"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@8a791c0601d7179d8b73b2e501cf28b58a60b6f1:journal/enterprise-math/2026-10-25/20261025T220400+0800-R288-adjacent-gap-asymptotic.md"
+      ],
+      "state": "VERIFY_EM_PUBLICATION",
+      "repairs_event_id": null
+    }
+  ]
 }
