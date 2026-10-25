@@ -1,0 +1,61 @@
+{
+  "schema": "EM_C301_AUTHOR_AUDIT_SUMMARY_V1",
+  "date": "2026-10-25",
+  "research_unit": "C301",
+  "model": "C195_H168_79_BRANCH_POSITIVE_RATIONAL_AUXILIARY",
+  "classification": "AUTHOR_EXACT_SOURCE_EXPOSED_NOT_ADMITTED",
+  "canonical_global_snapshot": "d2c4b5e66fcabee0cebf65b18bb46ac17dfa5d70",
+  "enterprise_math_main_snapshot": "d34d39e9e13b28ea5a509ad180a012cbf17102b8",
+  "upstream_author_commit": "5f03468054ef8cfa14b19eea69ca044d0f5a53dc",
+  "upstream_logical_dependencies": [
+    "C298 integer shared denominator",
+    "C299/C300 exact two primitive linear cancellations and reduced denominator degree",
+    "C297 full-strip outward evaluator width <2^(134-P) for conditional precision"
+  ],
+  "paths": 125,
+  "degree_histogram": {
+    "265": 1,
+    "352": 124
+  },
+  "primitive_denominator_coefficient_content": "1 for all 125 (content of D_red equals s_i)",
+  "denominator_scalar_content_bit_length_range": [
+    4758,
+    5623
+  ],
+  "max_exact_coeff_l1_bits": 13704,
+  "max_strip_adaptive_height_bits": 13702,
+  "max_witness_path_index": 63,
+  "old_product_l1_majorant_bits": 13713,
+  "uniform_height_gain_bits": 11,
+  "per_path_strip_height_gain_vs_C300_bits": [
+    10,
+    17
+  ],
+  "precision_formula": "P >= d_i*b + H_i_strip + 134 for nonroot dyadic t within its frozen C293 strip (conditional on C297 interval-width proof)",
+  "uniform_precision_formula": "P=352*b+13702+134",
+  "b512_old_uniform_P": 194071,
+  "b512_new_uniform_P": 194060,
+  "b512_special_path_28_P": 146581,
+  "local_tests": [
+    "C301_PRIMITIVE_COEFFICIENT_EXACT_PASS (125 full polynomial coefficient convolutions and gcd)",
+    "C301_STRIP_ADAPTIVE_HEIGHT_EXACT_PASS (125 exact rational factor endpoints)",
+    "C301_INDEPENDENT_SYMPY_COEFFS_9_OF_125_PASS (nine selected complete coefficient vectors)"
+  ],
+  "github_reference_script": "C301_AUTHOR_EXACT_REFERENCE_REPLAY.py",
+  "github_reference_script_execution": "NOT_EXECUTED_IN_REMOTE_GITHUB_ENVIRONMENT",
+  "portable_archive": "EM_C301_PRIMITIVE_AND_STRIP_HEIGHTS_EXACT_PORTABLE.zip",
+  "portable_sha256": "6b73d69cf5da7f1f00141e12f104c6c98007f447afa310c3410ad0392028a7fd",
+  "portable_files_sha256_verified": 26,
+  "native_control": {
+    "inventory": "CONTROL_QUOTA",
+    "session": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "owner_verified": false,
+    "claim": false,
+    "source_result": false,
+    "independent_driver_review": false
+  },
+  "native_X6_transfer": false,
+  "native_GF2_BRC_transfer": false,
+  "next_problem": "C302 determine scalar gcd(content(A_i_red),s_i) and a primitive integer rational pair without losing observer-relevant branch provenance"
+}
