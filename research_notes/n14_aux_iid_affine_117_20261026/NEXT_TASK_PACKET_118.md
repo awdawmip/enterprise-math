@@ -1,37 +1,62 @@
-# Stage118 portable research task after Stage117 X saturation
+# Stage118 — portable exact-continuation task after Stage117 X saturation
 
-## Mother question
-Find the exact next affine piece (or a certified obstruction) for `V14(alpha)=inf max(E_P tau,E_Q tau)` over all full ordered-history randomized stopping and decisions up to N=14, subject to `P(decide Q),Q(decide P)<=alpha`, under external auxiliary iid laws `P=(1/8,1/24,5/6)`, `Q=(1/12,1/12,5/6)`. No native P000/X6/Heartbeat transfer is assumed.
+Status: RESEARCH OPEN. The Stage117 author theorem does not imply a Stage118 theorem or native mathematical admission.
 
-## Frozen source/frontier
-Stage117 author-checked finite proof (not independently Driver reviewed) is in `research_notes/n14_aux_iid_affine_117_20261026/`. Endpoint:
-[
- alpha_{117}=900390161470101555373/2592933255351443128320,qquad
- V_{117}=132635001628579939136609/10371733021405772513280.
-]
-At this endpoint `X=(7,5,1)` now chooses P with probability 1, `D=(9,1,2)` still decides Q with probability `376073711298041/1042086080000000`, and terminal T chooses P uniquely. Stage117 was dual-`K=7703713039590/8727240137`, `L=7249159245096/8727240137` with exactly two ties (X and D).
+## Mother question and frozen model
 
-## First concrete next question
-Keep D tied, make X uniquely stop P, and continue the decreasing `K+L` dual ray. An exact affine-action sweep located a candidate next wall at
-[
- K_{118}=rac{254421}{296},quad L_{118}=rac{90232}{111},quad
- G=(13,6,4).
-]
-At G the **Q-stop / continue** actions tie. The ray step after Stage117 is
-[
- x=rac{59905896822963}{2583263080552},quad
- K_{118}=K_{117}-x,quad
- L_{118}=L_{117}-rac{164096}{214569}x.
-]
-An author-side independent 680-state Bellman recurrence found only D and G tied at the candidate dual and a minimum positive gap `837575281/15909322752`. These numbers are a **candidate dual boundary, not a Stage118 affine interval proof**.
+Determine the next optimal real affine interval (or a certified obstruction) for the external auxiliary iid N=14 ternary sequence test, with
 
-## Required mathematics and evidence
-Compute ordered FIRST arrival counts and exact positive rational P/Q mass at G under the unique policies (except the D tie). Analyze its path cones against D and saturated X; check whether G can follow the D mixture and whether the new error/time observer is bilinear. Construct the complete feasible randomization family `eP=eQ`, verify `tP` versus `tQ` and any saturation before claiming a continuous real alpha segment. Produce a global Bellman dual lower bound, primal equality for every real parameter, and sharp right endpoint or an explicit obstruction.
+\[
+P=(1/8,1/24,5/6),\qquad Q=(1/12,1/12,5/6)
+\]
 
-For every new claimed interval provide a completely enumerated horizon-14 rational Bellman certificate, full ordered-history integer-DFS cross-check (not only sorted counts), a proof of averaging history-dependent policies for the declared four observers, and actual executed source output. If any supporting lemma remains unresolved, label the result conditional or exploratory.
+and full ordered-history randomized stopping/decisions. The objective is
 
-## BRC and source limits
-Use the exact positive-rational ordered-history carrier and BRC weighted substrate as in Stage117; retain branch provenance, first-hit path multiplicity, and the four error/time moments. Count compression is valid only for the declared iid conditional observers and horizon; it does not establish a general native branch quotient. The protected P000 worldview and its six-axis/three-dimensional-slice constraints remain untouched.
+\[
+V_{14}(\alpha)=\inf_{P(\mathrm{decide}\ Q),Q(\mathrm{decide}\ P)\leq\alpha}\max(E_P\tau,E_Q\tau).
+\]
 
-## Governance and actual authority
-The previous research is author-side provenance, not a native formal task or result. Current native task-list request returned `CONTROL_QUOTA`; own native session creation was refused with `STATIC_READONLY_SCOPE_DENIED, operation_sent=false`. Re-read current canonical dispatch/owner before any formal claim or overwrite. Persist any completed independent Stage118 science under a new `research_notes/` artifact and verify an immutable GitHub readback. Keep formal Result and Driver acceptance separate.
+This is not a theorem about native P000, X6, Heartbeat or an unbounded horizon.
+
+## Last author-verified research frontier (do not repeat)
+
+The Stage117 author-level result, its full proof, two portable checkers, exact certificate and executed local evidence are in research_notes/n14_aux_iid_affine_117_20261026.
+
+\[
+\alpha_{117}=\frac{900390161470101555373}{2592933255351443128320},\qquad
+V_{117}=\frac{132635001628579939136609}{10371733021405772513280}.
+\]
+
+At this endpoint X=(7,5,1) chooses P with probability 1; D=(9,1,2) chooses Q with probability 376073711298041/1042086080000000; terminal T=(14,7,4) uniquely chooses P. Stage117 dual was K=7703713039590/8727240137 and L=7249159245096/8727240137; exactly X and D tied.
+
+## First concrete next mathematical question
+
+Continue the dual ray preserving the tie at D, with X now uniquely P-stop. Exact author-side affine gap sweep gives the Stage118 **candidate**:
+
+\[
+K_{118}=\frac{254421}{296},\quad
+L_{118}=\frac{90232}{111},\quad
+G=(13,6,4).
+\]
+
+At G, Q-stop and continuation tie. The ray displacement from Stage117 is
+
+\[
+x=\frac{59905896822963}{2583263080552},\quad
+K_{118}=K_{117}-x,\quad
+L_{118}=L_{117}-\frac{164096}{214569}x.
+\]
+
+A separate author-side 680-state exact Bellman recomputation at this candidate has only D and G tied and minimum strict gap 837575281/15909322752. This is a **dual-candidate certificate only**; no Stage118 primal affine interval is proved.
+
+## Required work and complete evidence standard
+
+Compute first arrival on *literal ordered histories* at G, with exact P and Q masses, conditional suffixes and real path cones against D and the already saturated X. Check whether G can descend from D under actual policy, not just nominal count reachability. Identify any cross term and whether the existing error-equality compensation remains legal.
+
+Solve the actual active error constraints and compare tP/tQ. Prove a global Bellman lower bound, a primal family attaining it for every REAL point of the proposed interval, and right-end sharpness; or record a scoped negative obstruction. Verify all 680 Bellman states by exact rational recurrence, all distinct action inequalities, positive first-hit path masses, and use independent integer ordered-history DFS cross-check. Retain numeric scripts, exact output, proof and evidence scope.
+
+Use the positive-rational BRC labeled-history carrier; preserve actual ordered multiplicity and the four error/time observers. Count compression is valid for these iid suffix statistics and horizon only, not as a general native branch quotient. Do not alter P000 or claim a six-axis physical transfer without a separate mapping/observer/update proof.
+
+## Governance and source
+
+Original Stage117 inputs: GLOBAL_KNOWLEDGE_V1 main 1fe18ba120c1f8f901246acb659589849b7e9147 and Enterprise Math main c7fa172ab920563207bd5d782a78ec1cd79515df. Its author artifacts are durable, but native owner/claim/Result and independent Driver acceptance are unverified. A live native tasks query returned CONTROL_QUOTA; native new session registration returned STATIC_READONLY_SCOPE_DENIED and operation_sent=false. Refresh authorized canonical owner state before any formal claim. Save any new completed Stage118 science as a new source research artifact with immutable GitHub readback, not as an unreviewed Foundation promotion.
