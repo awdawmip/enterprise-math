@@ -1,6 +1,6 @@
 # R4-EC9 — Twelve-order Laurent closure for all positive affine BRC source channels
 
-Date: 2026-10-25. Status: **author-side exact auxiliary-model theorem; NOT formally accepted by Enterprise Math**. Parent: R4-EC8 (immutable commit 97b2738524622d3b4bdafabfa50928746fdf06da). Scope: positive ordered binary BRC only. Local author provenance: EM-LOCAL-R4-EC9A, not a service-issued research identity. Current native dispatch yielded CONTROL_QUOTA; no active Owner/CLAIM authorization was obtained.
+Date: 2026-10-25. Status: **author-side exact auxiliary-model theorem; NOT formally accepted by Enterprise Math**. Parent: R4-EC8 (immutable commit 97b2738524622d3b4bdafabfa50928746fdf06da). Scope: positive ordered binary BRC only. Local author provenance: EM-LOCAL-EC9A, not a service-issued research identity. Current native dispatch yielded CONTROL_QUOTA; no active Owner/CLAIM authorization was obtained.
 
 ## Exact question and state model
 
