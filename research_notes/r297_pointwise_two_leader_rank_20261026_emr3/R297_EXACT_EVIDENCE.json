@@ -1,0 +1,92 @@
+{
+  "schema": "EM_R297_FIXED_EFFECT_RANK_INJECTIVITY_V1",
+  "status": "PASS",
+  "mathematics": "conditional on R294 source-to-algebraic-kernel correspondence and square-root transfer",
+  "model": "positive weighted BRC, ordered six edges, forbidden 00, full affine effect, terminal q0",
+  "verification": "independent Python arbitrary-precision integers and exact Q(sqrt(5)) comparator",
+  "rank_search_m_up_to": 400,
+  "rank_items_per_parity": [
+    402,
+    400
+  ],
+  "dp_max_n": 600,
+  "global_unique_first_second_checked_n": [
+    81,
+    600
+  ],
+  "checked_n_layers": 520,
+  "terminal_effect_comparisons": 349960,
+  "sample_gaps": {
+    "81": {
+      "first_effect": [
+        -1,
+        -3
+      ],
+      "second_effect": [
+        1,
+        -5
+      ],
+      "first_count": "438660292107331",
+      "second_count": "438646962176306",
+      "gap": "13329931025",
+      "terminal_fibers": 154
+    },
+    "82": {
+      "first_effect": [
+        1,
+        -4
+      ],
+      "second_effect": [
+        -1,
+        -4
+      ],
+      "first_count": "705689298600741",
+      "second_count": "705687312911562",
+      "gap": "1985689179",
+      "terminal_fibers": 156
+    },
+    "180": {
+      "first_effect": [
+        1,
+        -4
+      ],
+      "second_effect": [
+        -1,
+        -4
+      ],
+      "first_count": "142327976374958169966056398805438839",
+      "second_count": "142320984507532435401048749741054761",
+      "gap": "6991867425734565007649064384078",
+      "terminal_fibers": 352
+    },
+    "400": {
+      "first_effect": [
+        1,
+        -4
+      ],
+      "second_effect": [
+        -1,
+        -4
+      ],
+      "first_count": "901002236823778700360329067399515119908453804139015642975169095731380963473764507",
+      "second_count": "900974748933609635943200937179381738334298426919008874089499738550421274386847398",
+      "gap": "27487890169064417128130220133381574155377220006768885669357180959689086917109",
+      "terminal_fibers": 792
+    },
+    "600": {
+      "first_effect": [
+        1,
+        -4
+      ],
+      "second_effect": [
+        -1,
+        -4
+      ],
+      "first_count": "460832143890920171176278925216344362265922689315789082143292800219917230024379388799986064698128367177466962798518984714444",
+      "second_count": "460822111829720926004319911742140344184055222560084190421770849307413704228465218185998660392624246332743278983557285609020",
+      "gap": "10032061199245171959013474204018081867466755704891721521950912503525795914170613987404305504120844723683814961699105424",
+      "terminal_fibers": 1192
+    }
+  },
+  "limitations": "finite scans are independent checks, not proof of global rank injectivity or a uniform n threshold; source generator and singularity expansion remain author-side dependencies"
+}
