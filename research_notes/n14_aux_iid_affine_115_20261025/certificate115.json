@@ -1,0 +1,111 @@
+{
+  "schema": "EM_N14_STAGE115_AUTHOR_EXACT_CERT_V1",
+  "status": "AUTHOR_EXACT_FINITE_PROOF_NO_NATIVE_REVIEW",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "policy": "randomized full ordered history"
+  },
+  "source_reads": {
+    "global_main": "900a0332bcdcec62b3ba32fa4f3c26ecba3e3e0d",
+    "em_main": "bb10c4dbe1badc4adad436d075f2fd93f732e89c"
+  },
+  "dual": {
+    "K": "2533113/2734",
+    "L": "1181272/1367",
+    "S": "4895657/2734",
+    "root": "23760619012724853347605/37442486208817004544"
+  },
+  "bellman": {
+    "states": 680,
+    "strict_positive": 1238,
+    "min_gap": "11023/7086528",
+    "negative": 0,
+    "ties": [
+      {
+        "s": [
+          9,
+          1,
+          2
+        ],
+        "acts": [
+          "Q",
+          "C"
+        ]
+      },
+      {
+        "s": [
+          12,
+          4,
+          1
+        ],
+        "acts": [
+          "P",
+          "C"
+        ]
+      }
+    ]
+  },
+  "first_hits": {
+    "D": {
+      "count": 172,
+      "P": "671875/53747712",
+      "Q": "671875/20155392"
+    },
+    "E": {
+      "count": 3048,
+      "P": "9921875/1146617856",
+      "Q": "9921875/2902376448"
+    }
+  },
+  "moments": {
+    "dw": [
+      "593265625/5283615080448",
+      "-430671875/5015306502144",
+      "-34607609375/1981355655168",
+      "-17355203125/417942208512"
+    ],
+    "dv": [
+      "-9921875/660451885056",
+      "9921875/417942208512",
+      "-248046875/27518828544",
+      "-128984375/34828517376"
+    ],
+    "mixed": "0"
+  },
+  "interval": {
+    "alpha114": "900372060659842701793/2592933255351443128320",
+    "V114": "132764620121352969281069/10371733021405772513280",
+    "eta": "2712640625/390765645398016",
+    "alpha115": "900390060440962701793/2592933255351443128320",
+    "V115": "132635694365041929281069/10371733021405772513280",
+    "w114": "170386233161181/1042086080000000",
+    "gamma": "637032/3256519",
+    "w115": "374236473161181/1042086080000000",
+    "v115": "1"
+  },
+  "validation": {
+    "primary": "PASS_STAGE115_EXACT_BELLMAN_680_1238_2_TIES_FULL_REAL_SHARP",
+    "independent": "PASS_STAGE115_INDEPENDENT_INTEGER_LITERAL_DFS",
+    "local_execution": true,
+    "remote_execution": false
+  },
+  "control": {
+    "github_login": "awdawmip",
+    "native_control": "CONTROL_QUOTA",
+    "native_session": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "native_claim": false,
+    "independent_driver_review": false
+  },
+  "next": "Stage116 adjacent dual after E saturation"
+}

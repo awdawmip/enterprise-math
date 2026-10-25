@@ -1,0 +1,9 @@
+# Stage116: exact continuation after E saturation
+
+**Mother question:** Optimize max(E_P tau,E_Q tau) under two error probabilities <= alpha for all randomized ordered-history policies, N<=14, P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6). This is external auxiliary iid research, not native P000/X6.
+
+**Stage115 author-verified frontier:** Dual K=2533113/2734, L=1181272/1367, S=4895657/2734. Ties D=(9,1,2) Qstop/continue and E=(12,4,1) Pstop/continue, 680 states, 1238 strict positive gaps. Exact adjacent real interval ends at alpha115=900390060440962701793/2592933255351443128320, V115=132635694365041929281069/10371733021405772513280, eta115=2712640625/390765645398016. The endpoint has v_E=1 (Pstop saturated) and w_D=374236473161181/1042086080000000 strictly interior. Two author-side exact checks passed; no native session/CLAIM/Result or independent Driver review was obtained.
+
+**Immediate research unit:** Keep D's Qstop/continue Bellman tie while moving (K,L) away from this point with E forced Pstop. Sweep exact 680-state affine action gaps until the first additional tie and identify rational dual coordinates. Build a full ordered-history positive probability carrier for that new tie and D; check cone overlap and errors/time derivatives. Prove a full-real primal interval and right sharpness, or report an exact obstruction. Verify with independent ordered-history or exact LP implementation. Check whether eP/eQ and tP/tQ constraints really bind before assuming them.
+
+**Evidence:** Reuse PROOF_STAGE115.md, CHECKER_STAGE115.py, INDEPENDENT_ORDERED_STAGE115.py and certificate115.json at immutable source commit, preserving Stage114 predecessor source and the observer-safe finite iid scope. BRC positive rational labeled-history carriers are relevant; no global native X6 transfer. Native Owner/CLAIM authority remains separately gated.
