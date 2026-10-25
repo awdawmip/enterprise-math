@@ -1,0 +1,153 @@
+{
+  "schema": "EM_R4_EC20_TOP15_NEWTON_CERTIFICATE_V1",
+  "theorem": "For every integer j>=1 and 0<=d<=min(14,j), Delta^(j-d) f_j(2j+6)>0",
+  "model": "E(x,u)=(1-u*x^2)/(1-(1+u)*x+2*u^2*x^4-u^3*x^6), f_j(n)=E[n,j]-E[n,j-1]",
+  "proof": "Exact formal rational transform; for each d<=14, q_d(d+w) has strictly positive monomial coefficients for w>=0; no numerical extrapolation",
+  "gf_in_grade_and_shift": "sum_j H_j(t) z^j=(1+t)^6*(1-t*z)*(1-t*(1+t)^2*z)/[1-(1+t)^2*z+2*t*(1+t)*z^2-t^2*(1+t)*z^3]",
+  "d_max": 14,
+  "direct_depth_recurrence_checked_j": 48,
+  "direct_newton_checks": 629,
+  "independent_truncated_grade_checked_j": 1024,
+  "high_grade_checks": 15269,
+  "arithmetic": "SymPy exact rationals; CPython exact integers",
+  "mathematics_status": "AUTHOR_DERIVATION_WITH_SYMBOLIC_CERTIFICATE_UNREVIEWED",
+  "native_X6": "NOT_RUN",
+  "full_grade_unimodality": "OPEN",
+  "diagonals": [
+    {
+      "d": 0,
+      "closed_polynomial_in_j": "1",
+      "positive_monomial_coefficients_ascending": [
+        "1"
+      ]
+    },
+    {
+      "d": 1,
+      "closed_polynomial_in_j": "6",
+      "positive_monomial_coefficients_ascending": [
+        "6"
+      ]
+    },
+    {
+      "d": 2,
+      "closed_polynomial_in_j": "14",
+      "positive_monomial_coefficients_ascending": [
+        "14"
+      ]
+    },
+    {
+      "d": 3,
+      "closed_polynomial_in_j": "j + 11",
+      "positive_monomial_coefficients_ascending": [
+        "14",
+        "1"
+      ]
+    },
+    {
+      "d": 4,
+      "closed_polynomial_in_j": "8*j - 25",
+      "positive_monomial_coefficients_ascending": [
+        "7",
+        "8"
+      ]
+    },
+    {
+      "d": 5,
+      "closed_polynomial_in_j": "5*(6*j - 23)",
+      "positive_monomial_coefficients_ascending": [
+        "35",
+        "30"
+      ]
+    },
+    {
+      "d": 6,
+      "closed_polynomial_in_j": "(j - 4)*(j + 141)/2",
+      "positive_monomial_coefficients_ascending": [
+        "147",
+        "149/2",
+        "1/2"
+      ]
+    },
+    {
+      "d": 7,
+      "closed_polynomial_in_j": "5*j**2 + 90*j - 517",
+      "positive_monomial_coefficients_ascending": [
+        "358",
+        "160",
+        "5"
+      ]
+    },
+    {
+      "d": 8,
+      "closed_polynomial_in_j": "25*j**2 - 29*j - 606",
+      "positive_monomial_coefficients_ascending": [
+        "762",
+        "371",
+        "25"
+      ]
+    },
+    {
+      "d": 9,
+      "closed_polynomial_in_j": "(j**3 + 498*j**2 - 3589*j + 1776)/6",
+      "positive_monomial_coefficients_ascending": [
+        "1757",
+        "2809/3",
+        "175/2",
+        "1/6"
+      ]
+    },
+    {
+      "d": 10,
+      "closed_polynomial_in_j": "(4*j**3 + 395*j**2 - 4377*j + 8796)/2",
+      "positive_monomial_coefficients_ascending": [
+        "4263",
+        "4723/2",
+        "515/2",
+        "2"
+      ]
+    },
+    {
+      "d": 11,
+      "closed_polynomial_in_j": "(74*j**3 + 1839*j**2 - 32219*j + 95220)/6",
+      "positive_monomial_coefficients_ascending": [
+        "10304",
+        "35101/6",
+        "1427/2",
+        "37/3"
+      ]
+    },
+    {
+      "d": 12,
+      "closed_polynomial_in_j": "(j**4 + 1246*j**3 + 959*j**2 - 221134*j + 937752)/24",
+      "positive_monomial_coefficients_ascending": [
+        "24836",
+        "173533/12",
+        "46679/24",
+        "647/12",
+        "1/24"
+      ]
+    },
+    {
+      "d": 13,
+      "closed_polynomial_in_j": "(7*j**4 + 1972*j**3 - 21163*j**2 - 80608*j + 814104)/12",
+      "positive_monomial_coefficients_ascending": [
+        "60172",
+        "215237/6",
+        "62843/12",
+        "584/3",
+        "7/12"
+      ]
+    },
+    {
+      "d": 14,
+      "closed_polynomial_in_j": "(17*j**4 + 1582*j**3 - 30753*j**2 + 100858*j + 207396)/4",
+      "positive_monomial_coefficients_ascending": [
+        "146475",
+        "178291/2",
+        "55683/4",
+        "1267/2",
+        "17/4"
+      ]
+    }
+  ]
+}
