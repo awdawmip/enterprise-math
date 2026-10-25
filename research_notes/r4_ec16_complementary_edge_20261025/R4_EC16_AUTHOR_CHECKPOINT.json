@@ -1,0 +1,71 @@
+{
+  "schema": "ENTERPRISE_MATH_AUTHOR_PROOF_CHECKPOINT_V1",
+  "unit": "R4-EC16",
+  "observed_at_local": "2026-10-25T15:10:22+08:00",
+  "authority": {
+    "global_main": "dca4319404d29afc12774cd488926733e49782c4",
+    "em_main": "74e2c8f184d60242747a4756a84703e2ceeb967f",
+    "p000_status": "ACTIVE_LOCKED",
+    "p000_git_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "native_control_tasks": "CONTROL_QUOTA",
+    "native_session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "owner_verified": false,
+    "claim_verified": false,
+    "formal_result": false
+  },
+  "origin": {
+    "parent_proof_commit": "62e4af202d3d515dcaf423c71c425352205a783c",
+    "researcher_id": "EMR4-LOCAL-20261025-EC16",
+    "activity": "RA-EMR4-20261025-1510-EC16DUAL"
+  },
+  "theorem_scope": "auxiliary unit-positive ordered binary affine BRC; grade/source observer only",
+  "mathematical_results": [
+    "For all finite n,k, sum_(n,k)(C[n,n-k]-C[n,k])x^n u^k = u(1-u)x^3(1-u*x^2)/Delta(x,u).",
+    "Exact fixed edges: D[n,1]=1 (n>=3); D[n,2]=n-5 (n>=5); D[n,3]=(n-9)(n-6)/2 (n>=6).",
+    "For any fixed k>=1, D[n,k]=n^(k-1)/(k-1)!+O_k(n^(k-2)); ratio high/low=1+k/n+O_k(n^-2).",
+    "For common absolute alpha0,J0,K and J0<=k<n, alpha=k/n<=alpha0: abs(log(C[n,n-k]/C[n,k])-(alpha+1.5alpha^2-(2/3)alpha^3)) <= K(alpha^4+1/k).",
+    "Therefore log(C[n,n-k]/C[n,k]) ~ k/n>0 for sqrt(n)<<k<<n."
+  ],
+  "negative_witness": "n=7,k=3: C[7,4]-C[7,3]=-1; no global finite high-side dominance",
+  "verification": {
+    "symbolic": "PASS",
+    "brute_words_total": 8191,
+    "raw_max_length": 12,
+    "eight_state_DP_max_n": 180,
+    "independent_grade_compared_k_max": 160,
+    "left_right_integer_recurrence_max_n": 2000,
+    "fixed_edge_tests_max_n": 2000,
+    "local_cold_start": "PASS",
+    "executed_verifier_git_blob": "b50cc9a93a050486595f14a9cc864ce524300621",
+    "local_full_json_sha256": "1956002a39dad6243c7511f271768c98c646eef72d40f1fa52b02797cedd9d27",
+    "local_zip_sha256": "76058d15a3075ce2fd035566f390c85bea936507b85cf818a555445039c40ce9",
+    "native_X6": "NOT_RUN",
+    "independent_driver": "NOT_REVIEWED"
+  },
+  "illustrative_log_high_low": [
+    {
+      "n": 500,
+      "k": 40,
+      "log_ratio": 0.0875441811076314
+    },
+    {
+      "n": 1000,
+      "k": 70,
+      "log_ratio": 0.07615409318813704
+    },
+    {
+      "n": 1500,
+      "k": 100,
+      "log_ratio": 0.07234604869751138
+    },
+    {
+      "n": 2000,
+      "k": 150,
+      "log_ratio": 0.08175699875022246
+    }
+  ],
+  "reproducibility": "Run python R4_EC16_verify.py with SymPy. It reconstructs all exact counts and writes the full report to /mnt/data/R4_EC16_AUTHOR_REPORT.json; Git blob of this file matches the actually executed local source.",
+  "next_problem": "R4-EC17 uniform positivity threshold for finite D[n,k] below the k>>sqrt(n) window or exact counterexample; make analytic constants effective.",
+  "status": "AUTHOR_PROVED_EXACT_CHECKED_PROJECT_BRANCH_ONLY_NOT_NATIVE_ADMITTED"
+}
