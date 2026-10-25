@@ -1,0 +1,9 @@
+# Stage134 exact research continuation — DUAL_CANDIDATE_ONLY
+
+External auxiliary finite N14 iid mother model P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6). Full literal ordered-history randomized stopping, errors eP/eQ, minimize max expected time. There is **no established P000/Heartbeat X6 transfer**.
+
+Consume the author-proved Stage133 full-real theorem in sibling PROOF_STAGE133.md; do not count re-verification as a new theorem. Endpoint alpha133=36703010861169506695/105616844785075617792 and V133=656403116242184147227/52808422392537808896; the F=(8,1,2) coin is now z=1 (declare Q), while B=(11,0,1) declares Q with probability w=29148450914061437/81438720000000000.
+
+Exact dual ray: starting K=717127668/1179001 and L=675046888/1179001, set dK=-1, dL=-112/129 to keep B Q/continue tied, with F=Q. The first of 843 positive-gap closing candidates is t=1807797191364/96037884457 at G=(9,3,3) (Q versus continue). Candidate K134=48012912/81457, L134=45307624/81457, H(root)=2442656918158809916870213/5949675882197721022464. Bellman has exactly two tied states B Q/C and G Q/C, 1238 other strictly positive gaps, minimum 129758627/4504246272. **This is only a dual certificate candidate**, not a primal interval proof.
+
+Next exact independent unit: enumerate the *true Bellman-reachable literal first-hit prefixes* and positive P/Q masses at B and G. Check cones (G has a=3 at n9, B a=0 at n11, hence no shared history), compute all four observer corners and their mixed term using a differently structured integer-weight word DFS. Solve eP=eQ, check both coin ranges and tP>=tQ over the full real interval, prove equality to the universal Bellman lower bound and right-sharpness, or report an exact infeasibility obstruction. Stage133 checkers, proof, certificate133.json and scan134.json provide the starting exact inputs. No native CLAIM/Result authority was established.
