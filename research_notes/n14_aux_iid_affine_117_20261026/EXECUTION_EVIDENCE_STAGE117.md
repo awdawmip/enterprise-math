@@ -1,0 +1,16 @@
+# Stage117 actual execution evidence and scope
+
+- Scientific status: AUTHOR_EXACT_FINITE_PROOF; NOT independently reviewed, NOT native Result/CLAIM.
+- Original global input snapshot: `awdawmip/chatgpt-global-knowledge@1fe18ba120c1f8f901246acb659589849b7e9147` (read of both canonical entrypoints, P000 startup projection with matching canonical blob, ACTIVE worldview).
+- Original Enterprise Math source snapshot: `awdawmip/enterprise-math@c7fa172ab920563207bd5d782a78ec1cd79515df` (Stage116 full proof, exact source and portable research protocol).
+- BRC use: weighted positive rational branch masses with labeled ordered prefixes and four-moment observation; no cancellation or native propagation claim.
+- Author-side **actually executed** program: `em_stage117_compute.py` (Python standard-library `fractions.Fraction`, exact state enumeration and affine policy response), SHA-256 `1090a0ef48746bef9753a8d37cf8b9ec1b2fecd52c13466cf9ec120f02f53013`.
+- Actually executed independent program: `em_stage117_independent.py` (separately coded direct ordered-history integer-numerator DFS), SHA-256 `33c69d64ff5231878f3120b7638b39e367d19039a140148d620e1ace61ac26ad`.
+- Author-side raw primary output SHA-256: `5ee995ed1d1efb0588ae0b638929c803dc3bb5bc13f67db5febc802517737374`.
+- Independent output SHA-256: `40950ec2bc48b3e8d313cbbdee5986bfbbe51f56d60cff0859a2fe58cf5296ad`.
+- The two programs ran successfully, including a second complete run after the Stage117 evidence was assembled. Independent DFS printed `PASS_STAGE117_INDEPENDENT_ORDERED_INTEGER_DFS`. Four ordered-prefix visit totals are `862459, 852463, 854719, 844723`. Main program's exact rational assertions all passed and located the Stage118 candidate.
+- The GitHub files `CHECKER_STAGE117.py` and `INDEPENDENT_ORDERED_STAGE117.py` are concise, portable SOURCE versions. The **full locally executed scripts and their raw outputs** are retained in the companion research reproduction ZIP. Published GitHub code was read back as nonempty immutable Git blobs, but was **not executed by GitHub**, and byte equality with the full executed scripts is NOT asserted.
+- Mathematical check scope: 680 horizon-14 count states covering conditional iid suffixes, 1238 strictly positive nonwinning action gaps, 2 ties, strict minimum gap `273655643173420723/6671206249789390848`, 28 and 172 first-hit ordered prefixes, two deterministic tie-policy bits, 4 exact moments, affine error compensation, strict `tP>tQ` at both ends and compactness-based support sharpness. Correctness within the declared finite model is author-level.
+- Control read: `em_control_tasks` returned `CONTROL_QUOTA`; attempted `em_session_start` returned `STATIC_READONLY_SCOPE_DENIED`, allowed scopes `em:access,source:read,control:read`, `operation_sent=false`. This denies the native write attempt but does not invalidate the independent local mathematics or ordinary GitHub documentation publication.
+- Authenticated GitHub account: `awdawmip`; local activity registration `RA-EMR5-20261026T0040-STAGE117-LOCAL`. This activity is explicitly not an authenticated native Owner, CLAIM, Result, or independent Driver pass.
+- No private credentials are embedded in these research artifacts. No Google Drive fallback is used because GitHub write/readback succeeded.
