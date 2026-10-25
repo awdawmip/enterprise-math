@@ -1,0 +1,119 @@
+{
+  "schema": "EM_R4_EC21_ALL_DIAGONALS_POLE_CERTIFICATE_V1",
+  "scientific_status": "AUTHOR_DERIVATION_UNREVIEWED",
+  "model": "E(x,u)=(1-ux^2)/(1-(1+u)x+2u^2x^4-u^3x^6)",
+  "theorem": "Every q_d(d+w) is polynomial in w of exact degree floor(d/3), with explicit positive highest and second-highest coefficients",
+  "uniform_formula": "A_(3c+r)=[1,2c+6,2c^2+14c+14][r]; second numerator F_r(c), c>=1, in research note",
+  "proof_mechanism": "Exact rational recurrence for [t^d]H(z,t), and singular expansion at z=1; arbitrary d formulas are symbolic, not a numerical extrapolation",
+  "polynomial_numerators_checked_d": 120,
+  "direct_E_row_crosschecks": 210,
+  "direct_grades_through": 34,
+  "direct_shifts_through": 5,
+  "all_grade_unimodality": "OPEN",
+  "native_X6": "NOT_EXECUTED",
+  "independent_driver": "NOT_REVIEWED",
+  "samples": [
+    {
+      "d": 0,
+      "pole_order": 1,
+      "leading_pole_A": 1,
+      "subleading_pole_B": 0
+    },
+    {
+      "d": 1,
+      "pole_order": 1,
+      "leading_pole_A": 6,
+      "subleading_pole_B": 0
+    },
+    {
+      "d": 2,
+      "pole_order": 1,
+      "leading_pole_A": 14,
+      "subleading_pole_B": 1
+    },
+    {
+      "d": 3,
+      "pole_order": 2,
+      "leading_pole_A": 1,
+      "subleading_pole_B": 10
+    },
+    {
+      "d": 4,
+      "pole_order": 2,
+      "leading_pole_A": 8,
+      "subleading_pole_B": -33
+    },
+    {
+      "d": 5,
+      "pole_order": 2,
+      "leading_pole_A": 30,
+      "subleading_pole_B": -145
+    },
+    {
+      "d": 6,
+      "pole_order": 3,
+      "leading_pole_A": 1,
+      "subleading_pole_B": 67
+    },
+    {
+      "d": 7,
+      "pole_order": 3,
+      "leading_pole_A": 10,
+      "subleading_pole_B": 75
+    },
+    {
+      "d": 8,
+      "pole_order": 3,
+      "leading_pole_A": 50,
+      "subleading_pole_B": -104
+    },
+    {
+      "d": 14,
+      "pole_order": 5,
+      "leading_pole_A": 102,
+      "subleading_pole_B": 2118
+    },
+    {
+      "d": 15,
+      "pole_order": 6,
+      "leading_pole_A": 1,
+      "subleading_pole_B": 510
+    },
+    {
+      "d": 16,
+      "pole_order": 6,
+      "leading_pole_A": 16,
+      "subleading_pole_B": 1927
+    },
+    {
+      "d": 20,
+      "pole_order": 7,
+      "leading_pole_A": 170,
+      "subleading_pole_B": 12052
+    },
+    {
+      "d": 35,
+      "pole_order": 12,
+      "leading_pole_A": 410,
+      "subleading_pole_B": 145849
+    },
+    {
+      "d": 60,
+      "pole_order": 21,
+      "leading_pole_A": 1,
+      "subleading_pole_B": 15685
+    },
+    {
+      "d": 90,
+      "pole_order": 31,
+      "leading_pole_A": 1,
+      "subleading_pole_B": 47135
+    },
+    {
+      "d": 120,
+      "pole_order": 41,
+      "leading_pole_A": 1,
+      "subleading_pole_B": 104985
+    }
+  ]
+}
