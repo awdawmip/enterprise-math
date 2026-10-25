@@ -1,0 +1,50 @@
+{
+  "schema": "EM_C304_NEWTON_DIFFERENCE_AUTHOR_AUDIT_V1",
+  "date": "2026-10-25",
+  "classification": "AUTHOR_EXACT_NOT_ADMITTED",
+  "global_snapshot": "f54ad6814f1be98ffb6f7bc35a6ce332f6b61127",
+  "enterprise_snapshot": "5897ddc49f22fe2480961cd0fb5c5fdd47ff54de",
+  "input_C293_records_sha256": "03083a77480e6be5615797c2f4ffc503eee6603e9e60cbad1f11fb3ea83b3c89",
+  "coverage": {
+    "paths": 125,
+    "degree_352_paths": 124,
+    "degree_265_paths": 1,
+    "integer_finite_difference_evaluations": 44038,
+    "extra_integer_identity_checks": 9,
+    "original_F_exact_spot_checks": 9
+  },
+  "results": {
+    "gcd_bit_range": [
+      273,
+      418
+    ],
+    "strip_precision_gain_bits_range": [
+      272,
+      418
+    ],
+    "max_old_height": 13702,
+    "max_primitive_height": 13400,
+    "extremal_path": 63,
+    "exceptional_path28_height": 10349,
+    "at_b512_uniform_before": 194060,
+    "at_b512_uniform_after": 193758,
+    "conditional_precision_formula": "P>=352*b+13400+134"
+  },
+  "control": {
+    "github_user": "awdawmip",
+    "github_push_verified": true,
+    "native_inventory": "CONTROL_QUOTA",
+    "native_session": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "claim": false,
+    "formal_Source_Result": false,
+    "independent_Driver_admission": false
+  },
+  "inherited": [
+    "C300 no additional polynomial cancellations",
+    "C301 positive endpoint strip majorant",
+    "C297 normalized outward width < 2^(134-P)"
+  ],
+  "next": "Bounded-complexity modular/CRT extraction of Newton coefficients without full rational values, plus typed BRC/X6 observer-and-future-operation bridge",
+  "complete_local_portable_artifact": "EM_C304_POLE_FREE_NEWTON_CONTENT_125_EXACT_PORTABLE.zip"
+}
