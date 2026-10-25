@@ -110,5 +110,5 @@ out={
     'scope':'Finite checks confirm coefficients; universal theorem follows algebraic identity + formal nonnegative kernel induction.',
     'unproved':'R287 four all-length base Δ positivity; global peak and six-channel equality; Driver admission.'
 }
-with Path(__file__).resolve().with_name('EXACT_EVIDENCE.json').open('w','w',encoding='utf8') as f:json.dump(out,f,ensure_ascii=False,sort_keys=True,indent=2);f.write('\n')
+with Path(__file__).resolve().with_name('EXACT_EVIDENCE.json').open('w',encoding='utf8') as f:json.dump(out,f,ensure_ascii=False,sort_keys=True,indent=2);f.write('\n')
 print(json.dumps(out,ensure_ascii=False,indent=2))
