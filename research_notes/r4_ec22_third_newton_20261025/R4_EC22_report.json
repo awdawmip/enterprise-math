@@ -1,0 +1,116 @@
+{
+  "schema": "EM_R4_EC22_THIRD_NEWTON_EXACT_CERTIFICATE_V1",
+  "scientific_status": "AUTHOR_SIDE_SYMBOLIC_PROOF_AND_EXACT_CHECK_NOT_INDEPENDENTLY_REVIEWED",
+  "scope": "positive ordered binary affine auxiliary BRC; NOT P000 native X6",
+  "claim": "For every c>=2 and r=0,1,2, the third-highest coefficient of q_(3c+r)(3c+r+w) is G_r(c)/(c-2)!>0",
+  "source_model": "E(x,u)=(1-u*x^2)/(1-(1+u)*x+2*u^2*x^4-u^3*x^6)",
+  "positive_certificate": [
+    {
+      "r": 0,
+      "denominator": 360,
+      "positive_numerator_coefficients_desc": [
+        32,
+        1056,
+        12080,
+        57840,
+        114653,
+        98499,
+        52920
+      ]
+    },
+    {
+      "r": 1,
+      "denominator": 1260,
+      "positive_numerator_coefficients_desc": [
+        32,
+        1344,
+        20804,
+        148680,
+        515543,
+        905436,
+        932571,
+        451080
+      ]
+    },
+    {
+      "r": 2,
+      "denominator": 1260,
+      "positive_numerator_coefficients_desc": [
+        8,
+        416,
+        8344,
+        82544,
+        434707,
+        1276814,
+        2251556,
+        2356701,
+        960120
+      ]
+    }
+  ],
+  "independent_integer_crosschecks": 39,
+  "sample_coefficients": [
+    {
+      "c": 2,
+      "r": 0,
+      "d": 6,
+      "third_coefficient": "147"
+    },
+    {
+      "c": 2,
+      "r": 1,
+      "d": 7,
+      "third_coefficient": "358"
+    },
+    {
+      "c": 2,
+      "r": 2,
+      "d": 8,
+      "third_coefficient": "762"
+    },
+    {
+      "c": 3,
+      "r": 0,
+      "d": 9,
+      "third_coefficient": "2809/3"
+    },
+    {
+      "c": 3,
+      "r": 1,
+      "d": 10,
+      "third_coefficient": "4723/2"
+    },
+    {
+      "c": 3,
+      "r": 2,
+      "d": 11,
+      "third_coefficient": "35101/6"
+    },
+    {
+      "c": 14,
+      "r": 0,
+      "d": 42,
+      "third_coefficient": "1345373/319334400"
+    },
+    {
+      "c": 14,
+      "r": 1,
+      "d": 43,
+      "third_coefficient": "11470153/479001600"
+    },
+    {
+      "c": 14,
+      "r": 2,
+      "d": 44,
+      "third_coefficient": "5438269/43545600"
+    }
+  ],
+  "native_X6": "NOT_EXECUTED",
+  "owner_CLAIM": "UNVERIFIED",
+  "driver_review": "NOT_PERFORMED",
+  "unresolved": [
+    "uniform positivity for all Newton coefficient indices",
+    "near-center f_j(2j+s) for s=0..5",
+    "native X6 bridge"
+  ]
+}
