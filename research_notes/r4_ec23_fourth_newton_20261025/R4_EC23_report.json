@@ -1,0 +1,139 @@
+{
+  "schema": "EM_R4_EC23_FOURTH_NEWTON_EXACT_CERTIFICATE_V1",
+  "scientific_status": "AUTHOR_SIDE_SYMBOLIC_PROOF_AND_EXACT_INTEGER_CROSSCHECK_NOT_INDEPENDENTLY_REVIEWED",
+  "scope": "positive ordered binary affine auxiliary BRC; not native P000 X6",
+  "claim": "For every c>=3 and r in {0,1,2}, [w^(c-3)]q_(3c+r)(3c+r+w) is strictly positive",
+  "source_kernel": "E(x,u)=(1-u*x^2)/(1-(1+u)*x+2*u^2*x^4-u^3*x^6)",
+  "formal_identity": "H(z,t)=(1+t)^6(1-t*z)(1-t*(1+t)^2*z)/(1-(1+t)^2*z+2*t*(1+t)*z^2-t^2*(1+t)*z^3)",
+  "positive_polynomial_certificates": [
+    {
+      "r": 0,
+      "polynomial_degree": 9,
+      "denominator": 45360,
+      "positive_numerator_coefficients_desc": [
+        64,
+        4032,
+        101472,
+        1320480,
+        9724008,
+        42601608,
+        116706113,
+        204088185,
+        201711258,
+        79697520
+      ]
+    },
+    {
+      "r": 1,
+      "polynomial_degree": 10,
+      "denominator": 113400,
+      "positive_numerator_coefficients_desc": [
+        32,
+        2400,
+        73920,
+        1219680,
+        11892426,
+        72237690,
+        284870155,
+        747921945,
+        1262838717,
+        1203498135,
+        483424200
+      ]
+    },
+    {
+      "r": 2,
+      "polynomial_degree": 11,
+      "denominator": 1247400,
+      "positive_numerator_coefficients_desc": [
+        64,
+        5632,
+        208120,
+        4234560,
+        52587612,
+        421079736,
+        2258391575,
+        8321229290,
+        20967696299,
+        34213646907,
+        32107807305,
+        12853209600
+      ]
+    }
+  ],
+  "independent_exact_integer_crosschecks": 36,
+  "independent_exact_integer_samples": [
+    {
+      "c": 3,
+      "r": 0,
+      "d": 9,
+      "fourth_coefficient": "1757",
+      "q_at_w0": "1757"
+    },
+    {
+      "c": 3,
+      "r": 1,
+      "d": 10,
+      "fourth_coefficient": "4263",
+      "q_at_w0": "4263"
+    },
+    {
+      "c": 3,
+      "r": 2,
+      "d": 11,
+      "fourth_coefficient": "10304",
+      "q_at_w0": "10304"
+    },
+    {
+      "c": 4,
+      "r": 0,
+      "d": 12,
+      "fourth_coefficient": "173533/12",
+      "q_at_w0": "24836"
+    },
+    {
+      "c": 4,
+      "r": 1,
+      "d": 13,
+      "fourth_coefficient": "215237/6",
+      "q_at_w0": "60172"
+    },
+    {
+      "c": 4,
+      "r": 2,
+      "d": 14,
+      "fourth_coefficient": "178291/2",
+      "q_at_w0": "146475"
+    },
+    {
+      "c": 14,
+      "r": 0,
+      "d": 42,
+      "fourth_coefficient": "1358736707/319334400",
+      "q_at_w0": "20924141075958425"
+    },
+    {
+      "c": 14,
+      "r": 1,
+      "d": 43,
+      "fourth_coefficient": "2225859709/119750400",
+      "q_at_w0": "53155303365428715"
+    },
+    {
+      "c": 14,
+      "r": 2,
+      "d": 44,
+      "fourth_coefficient": "5293073041/68428800",
+      "q_at_w0": "135115036906542525"
+    }
+  ],
+  "native_x6": "NOT_EXECUTED",
+  "owner_claim": "UNVERIFIED",
+  "driver_review": "NOT_PERFORMED",
+  "unresolved": [
+    "fifth and lower Newton coefficients all-grade positivity",
+    "full near-center f_j(2j+s)>=0, s=0..5",
+    "native X6 correspondence",
+    "independent formal review"
+  ]
+}
