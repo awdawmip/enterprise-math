@@ -158,3 +158,40 @@ Author executed integer modular arithmetic independent of the source derivations
 
 **Control:** observed service 0.6.11 with Site read-only/no Researcher execution authority; one exact continuation read in this turn returned CONTROL_QUOTA. GitHub issue #1558 preserves historic successful read recovery and the unresolved predecessor CAS mismatch; no current own winning claim/open/run or Source checkpoint was established here. User-prescribed `chatgpt-research-onhour-enterprise-math-20260923` and #1558's `chatgpt-research-hourly-enterprise-math-20260923` are **distinct strings and not silently coalesced**; the maintenance lane is also separate. Registration/Source-native checkpoint remain pending. No scheduler/configuration changes.
 
+
+
+## Same-turn advance — exact signed Green flux and one-diagonal obstruction
+
+For a finite Laurent polynomial H(z)=Σ_n c_n z^n define the **oriented** signed scalar Φ(H)=Σ_{n≤0}(1-6n)c_n, the oriented mass U(H)=Σ_{n≤0}c_n and the exposed positive-edge coefficient e₁(H)=c₁. Source rank-shifting does **not** commute with the cutoff:
+
+\[
+\boxed{\Phi(z^{-1}H)=\Phi(H)+6U(H)+e_1(H).}\tag{D1}
+\]
+
+Proof: after multiplying by z⁻¹ the permitted ranks are n≤1; the newly admitted n=1 diagonal has coefficient 1. All original n≤0 coefficients gain 6 in their signed weight.
+
+For the full labelled-rank carriers in (C3), let
+\[
+K_{ab}=\mathcal H_{ab}^{(2)}-3m\mathcal H_{ab}^{(1)}+2m^2\mathcal H_{ab}^{(0)},\quad
+L_{a-1,b}=3\mathcal H_{a-1,b}^{(1)}-4m\mathcal H_{a-1,b}^{(0)}.
+\]
+
+Then applying Φ to the **actual source operator** (C3), for a=0,1 and b=2,3, gives the exact finite signed Green identity
+
+\[
+\boxed{\begin{aligned}
+&\tfrac12\Phi(\mathcal H_{ab}^{(2)})+\tfrac{3m-p}{2}\Phi(\mathcal H_{ab}^{(1)})
+-m^2\Phi(\mathcal H_{ab}^{(0)})-3U(K_{ab})-\tfrac12 e_1(K_{ab})\\
+&-3\Phi(\mathcal H_{a-1,b}^{(1)})
++\tfrac12\{\Phi(L_{a-1,b})+6U(L_{a-1,b})+e_1(L_{a-1,b})\}
+=c_a g_{b,1},\qquad c_0=m^2,\ c_1=2m.
+\end{aligned}}\tag{D2}
+\]
+
+**Proof:** apply the exact source identity (C3) termwise to Φ and use (D1) for each z⁻¹-shifted moment. The right side is c_aΦ(z⁻¹G_b)=c_a g_{b,1}, since G_b starts at rank ell=1. This retains the positive-edge flux; it is not a cancellation assumption.
+
+**Exact obstruction witness:** at p=13, m=2, channel (a,b)=(0,2), the newly exposed diagonal is e₁(K₀₂)=2 mod169, and the true right side is c₀g₂,₁=125 mod169. Dropping e₁(K) alone changes left-minus-right by +1 mod169. This disproves the *endpoint-free projection method*, **not** the original LIFT conjecture.
+
+**Validation increment:** the same independent author checker evaluated (D1)–(D2) for all four channels across the 80 primes 7≤p≤997, p≡1 (mod 6), all PASS, in addition to the harmonic p⁴ original Q and full rank recurrence checks reported above. Checks are exact modular arithmetic; no native CM or independent review.
+
+**Updated next science action:** seek a genuine coupled source adjoint cancelling **all** j=0, ell=1, ell=2m+1 and exposed n=+1 fluxes against the original frozen CM observables. (D2) is a stronger source-constrained relation but not a universal vanishing theorem; its p=13 right-hand side is nonzero. D25/LIFT/JT2 and all native benchmark obligations remain OPEN.
