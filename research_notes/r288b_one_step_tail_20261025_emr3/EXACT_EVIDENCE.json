@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "model": "ordered positive BRC auxiliary clean reset, six edges",
+  "strictly_finite_verification": true,
+  "math_infinite_identity": "Delta_(m+1)=u Delta_m from R283 exact Green expressions",
+  "u": "x*(1+y)*(1+h(y)); h=y^4+(y+2y^2+y^3+y^4)h+y(1+y)^2h^2",
+  "candidate_bases": {
+    "plus_m": 13,
+    "minus_m": 11
+  },
+  "necessary_lower_failures": {
+    "Delta_plus_12_at_n24": -56,
+    "Delta_minus_10_at_n20": -5
+  },
+  "normalized_positive_prefixes": {
+    "plus_m13": [
+      1,
+      11,
+      52,
+      130,
+      157,
+      24,
+      51,
+      1270,
+      4569,
+      9992,
+      20021,
+      47139,
+      121461,
+      305589,
+      749714
+    ],
+    "minus_m11": [
+      1,
+      8,
+      26,
+      39,
+      16,
+      5,
+      191,
+      718,
+      1583,
+      3237,
+      7652,
+      19240,
+      47378,
+      115264,
+      281916
+    ]
+  },
+  "checked_j_range": [
+    0,
+    8000
+  ],
+  "checked_path_length_range": [
+    0,
+    160
+  ],
+  "path_vs_algebra_comparisons": 294,
+  "one_step_coefficient_crosscheck": {
+    "pairs": 2,
+    "j_range": [
+      0,
+      69
+    ],
+    "passed": true
+  },
+  "f_recurrence_truncation": 8050,
+  "hash_of_normalized_coefficients": {
+    "plus_m13": "0eab48602d861568d84fe63635635b7795f167ad6c7fdcd7453d9f2843ab0686",
+    "minus_m11": "952f0977be03b4ccbc023e979f035f9fe6e9fa988be8e316f3c7390da8207465"
+  },
+  "unproved": "The two base series have nonnegative coefficients for every j>N; finite prefix does not establish that claim."
+}
