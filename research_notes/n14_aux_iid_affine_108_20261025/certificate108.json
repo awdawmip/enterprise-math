@@ -1,84 +1,52 @@
 {
-  "schema": "AUTHOR_EXACT_FINITE_IID_STAGE108_V1",
-  "scope": "external full ordered-history ternary iid, N14, arbitrary randomized policies",
-  "global_read_snapshot": "0fa426dd718b6912246848bdbbbe8977f757b8d1",
-  "em_predecessor": "9713f10774d8c0a64c64fb2bd9888bec5679f40d",
-  "dual": {
-    "K108": "208946709/206588",
-    "L108": "50075544/51647",
-    "gamma": "409248885/206588",
-    "face": "L=-185064/635+(21376/17145)*K",
-    "state_count": 680,
-    "comparisons": 1240,
-    "positive_gaps": 1238,
-    "negative_gaps": 0,
-    "min_positive_gap": "37821/1652704",
-    "ties": {
-      "(10,3,0)": [
-        "P",
-        "C"
-      ],
-      "(11,5,4)": [
-        "Q",
-        "C"
-      ]
-    }
-  },
-  "first_hits": {
-    "A": {
-      "count": 120,
-      "P": "390625/5971968",
-      "Q": "390625/20155392",
-      "forced_C_suffix": [
-        "635/165888",
-        "10201/10368",
-        "7711/6912",
-        "1069/864",
-        "21"
-      ]
-    },
-    "C": {
-      "count": 2258,
-      "P": "28225/195689447424",
-      "Q": "28225/92876046336",
-      "forced_C_suffix": [
-        "1493/1536",
-        "7/576",
-        "239/192",
-        "167/144",
-        "9"
-      ]
-    }
-  },
-  "primal": {
-    "alpha107": "91588670614917102449/263775056922062880768",
-    "V107": "13541383133505475882195/1055100227688251523072",
-    "eta108": "1457736575/2442361638167248896",
-    "alpha108": "13084095824621807507/37682150988866125824",
-    "V108": "1934483126570299962385/150728603955464503296",
-    "u0": "1115808042440821/1479206400000000",
-    "du_per_w": "67761451/4930688000000",
-    "u_end": "159404052982303/211315200000000",
-    "tQ_end": "38346074856588751535/3140179249072177152"
-  },
-  "scope_of_proof": "ALL REAL alpha in [alpha107,alpha108]; sharp right support; not native X6 theorem",
-  "validation": [
-    "author bottom-up exact 680 states and 1240 comparisons PASS",
-    "author top-down independent ordered DFS three endpoints/midpoint PASS"
+  "stage": 108,
+  "model": "iid ternary P=(1/8,1/24,5/6); Q=(1/12,1/12,5/6); horizon<=14",
+  "fixed_global_ref": "9f35cf43236aaf491ac0693f2bd3a35c22175e0e",
+  "fixed_enterprise_ref": "9713f10774d8c0a64c64fb2bd9888bec5679f40d",
+  "K": "208946709/206588",
+  "L": "50075544/51647",
+  "Gamma": "409248885/206588",
+  "first_crossing_h": "42349837824/39613249",
+  "first_crossing_state": [
+    11,
+    5,
+    4
   ],
-  "native": {
-    "task_lookup": "CONTROL_QUOTA",
-    "session_start": "STATIC_READONLY_SCOPE_DENIED",
-    "operation_sent": false,
-    "verified_owner": false
-  },
-  "next_dual_candidate_only": {
-    "K109": "491857029/506348",
-    "state": [
+  "positive_candidate_crossings": 853,
+  "all_count_states": 680,
+  "nonselected_action_comparisons": 1240,
+  "strict_positive_gaps": 1238,
+  "negative_gaps": 0,
+  "min_strict_positive_gap": "37821/1652704",
+  "tied_states": [
+    [
       10,
       3,
-      3
+      0
     ],
-    "competing_action": "Q"
-  }
+    [
+      11,
+      5,
+      4
+    ]
+  ],
+  "dual_root": "495598934898928452760465/707312394011255242752",
+  "A_hits": 120,
+  "C_hits": 2258,
+  "A_firstP": "390625/5971968",
+  "A_firstQ": "390625/20155392",
+  "C_firstP": "28225/195689447424",
+  "C_firstQ": "28225/92876046336",
+  "compensation": "4930688000000/67761451",
+  "mix_u_start": "1115808042440821/1479206400000000",
+  "mix_u_end": "159404052982303/211315200000000",
+  "mix_w_end": "1",
+  "alpha_start": "91588670614917102449/263775056922062880768",
+  "alpha_end": "13084095824621807507/37682150988866125824",
+  "V_start": "13541383133505475882195/1055100227688251523072",
+  "V_end": "1934483126570299962385/150728603955464503296",
+  "alpha_delta": "1457736575/2442361638167248896",
+  "literal_DFS_visits_start": 1022824,
+  "literal_DFS_visits_end": 995728,
+  "evidence_status": "author exact rational double check; independently reviewed=false; native accepted=false"
 }

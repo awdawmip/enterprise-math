@@ -1,105 +1,106 @@
-# Stage108 — first two-multiplier Bellman face after B saturation (external iid, N=14)
+# Stage108 — exact next Bellman support after Stage107 B saturation
 
-**Scientific status: AUTHOR exact finite-model theorem, computationally verified by two separately implemented exact rational checks; not a native CLAIM/Result, Research Driver acceptance, P000 theorem, X6 or Heartbeat bridge.** Source snapshot: GLOBAL_KNOWLEDGE_V1 main@0fa426dd718b6912246848bdbbbe8977f757b8d1 (P000 projected canonical blob checked: 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc); predecessor Enterprise Math main@9713f10774d8c0a64c64fb2bd9888bec5679f40d, Stage107 proof and certificate.
+**Status:** author computation-assisted exact-rational proof for an external ternary iid finite sequential test. No P000/X6-native transfer, native CLAIM, independent Driver review, or formal admission is asserted.
 
-## Theorem: entire real interval and sharp right support
+## Model and frozen frontier
 
-Let full ordered histories of ternary iid observations have P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), and stopping time tau<=14. Arbitrary history-dependent randomized stop-and-decision policies are permitted. Let eP=P(decide Q), eQ=Q(decide P), tP=E_P(tau), tQ=E_Q(tau), and V14(alpha)=min max(tP,tQ) subject to eP,eQ<=alpha. At the Stage107 author-proved endpoint,
+P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), full ordered-history randomization, stop by n=14. Define eP=P(decide Q), eQ=Q(decide P), tP=E_P(tau), tQ=E_Q(tau), and V14(alpha)=min_{eP,eQ<=alpha}max(tP,tQ). Fixed source snapshots: GLOBAL_KNOWLEDGE_V1 main 9f35cf43236aaf491ac0693f2bd3a35c22175e0e; enterprise-math main 9713f10774d8c0a64c64fb2bd9888bec5679f40d; Stage107 immutable author work a8d8ebd0fdb0b5a0d18d1302e6c53ca67a55be8d. P000 projection agrees with original Git blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc.
 
-    alpha107=91588670614917102449/263775056922062880768
-    V107=13541383133505475882195/1055100227688251523072
+Stage107 endpoint:
+alpha107=91588670614917102449/263775056922062880768,
+V107=13541383133505475882195/1055100227688251523072.
 
-For **every real** 0<=delta<=eta108,
+## Exact theorem
 
-    V14(alpha107+delta)=V107-(409248885/206588)*delta,
-    eta108=1457736575/2442361638167248896,
-    alpha108=13084095824621807507/37682150988866125824,
-    V108=1934483126570299962385/150728603955464503296.
+For **every real** 0<=delta<=1457736575/2442361638167248896,
 
-The displayed Bellman support line is strictly unattainable for alpha>alpha108 (its right endpoint is sharp).
+  V14(alpha107+delta) = V107 - (409248885/206588)*delta.
 
-## Dual: genuinely two adjustable multipliers, not the previous pencil
+New endpoint:
+alpha108=13084095824621807507/37682150988866125824,
+V108=1934483126570299962385/150728603955464503296.
 
-Stage107 has K107=778896/767, L107=747576/767 and tied states A=(10,3,0) P/continue and B=(12,0,1) Q/continue. The Stage107 primal B Q-stop mixing probability has reached 1, while A P-stop mixing remains u0=1115808042440821/1479206400000000<1. Extending the old dual pencil L=72+8K/9 cannot extend a balanced primal family.
+This exact supporting line is sharp: equality is impossible at any alpha>alpha108. Another supporting line may still continue the value function.
 
-Choose the common Bellman policy that continues at A, stops Q at B, and chooses the unique other optimal action elsewhere. Its fixed-action costs are affine in (K,L). Enforcing the A P/continue tie while varying both multipliers gives the exact face
+## Bellman proof and exact neighboring-face search
 
-    L=-185064/635+(21376/17145)*K.
+Let z=(n,a,b), rho(z)=2^(a+b)/3^a. For n<=14, with continuation omitted at n=14, set
 
-Decrease K from K107 along this face. The first additional Bellman gap to vanish occurs at
+  D(z)=min{K*rho(z) [decide P], L [decide Q],
+           1+sum_{i=0}^2 P_i D(z+e_i) [continue]}.
 
-    K108=208946709/206588,
-    L108=50075544/51647,
-    Gamma108=K108+L108=409248885/206588,
-    C=(11,5,4) with Q/continue tie.
+For every ordered-history randomized policy, D(root)<=tP+L eP+K eQ<=max(tP,tQ)+(K+L)alpha.
 
-B now strictly prefers immediate Q. Exhaustive rational enumeration finds 680 count states, 1240 nonselected-action comparisons, 1238 strictly positive gaps, no negative gaps, exactly the two action ties A P/C and C Q/C, and minimum strict positive gap 37821/1652704. A single fixed policy is dual feasible at the Stage107 and Stage108 vertices. Its action gaps are affine on the displayed face, hence nonnegative all along the connecting segment. The Stage108 endpoint dual root is
+At the former dual (K0,L0)=(778896/767,747576/767) the exact Bellman ties were A=(10,3,0) P/continue and B=(12,0,1) Q/continue. Freeze continuing at A and deciding Q at B and the unique minimizers elsewhere. A's P-versus-continue gap is
 
-    D(root)=V107+Gamma108*alpha107.
+  G_A(K,L)=-7711/6912+(167/34992)K-(635/165888)L.
 
-For every ordered prefix with counts (n,a,b), the exact P-likelihood-normalized Bellman recurrence is
+The ray (K,L)=(K0,L0)+h*(-635/165888,-167/34992) keeps A tied and decreases K+L. The continue-minus-Q gap at B changes at rate +767/35831808, so B becomes strictly Q-optimal. Exact affine policy-gap enumeration at every one of the 680 count states yields 853 candidate positive crossings and the **unique first** at
 
-    R(n,a,b)=2^(a+b)/3^a = Q(prefix)/P(prefix),
-    D(n,a,b)=min{ K*R(n,a,b), L, 1+sum_j P_j D(child_j) },
+  h=42349837824/39613249; C=(11,5,4) with Q/continue.
 
-with continuation omitted for n=14. Backward induction remains valid for **all full ordered-history policies** even though the conditional optimal value depends only on the counts. It gives the universal bound
+The resulting dual is
+K108=208946709/206588 >0,
+L108=50075544/51647 >0,
+Gamma=K108+L108=409248885/206588.
 
-    D(root) <= tP + L*eP + K*eQ
-            <= max(tP,tQ)+(K+L)*alpha.
+Direct exact backward Bellman enumeration at this dual finds exactly 1238 positive nonselected action gaps, zero negative, and only two tied alternative pairs: A P/continue and C Q/continue. Minimum strictly positive gap is 37821/1652704. Root dual value:
 
-## Ordered first-hit probabilities and conditional suffixes
+  D(root)=495598934898928452760465/707312394011255242752.
 
-Follow the strict Bellman decisions until first encountering A or C, maintaining every ordered prefix and its P/Q mass. The true first-hit totals are:
+These finite exact counts are reproducible with the companion certificate and local primary author checker. The finite Bellman state quotient is sound for iid conditional continuation, but different ordered histories are retained for prefix mass and sharpness analysis.
 
-    A=(10,3,0): 120 ordered prefixes;
-      P mass=390625/5971968, Q mass=390625/20155392.
-    C=(11,5,4): 2258 ordered prefixes;
-      P mass=28225/195689447424, Q mass=28225/92876046336.
+## Ordered first-hit branch carrier and all-real primal
 
-Forced continuation at each tie and strict downstream decisions gives conditional tuples (P-error, Q-error, extra P-time, extra Q-time, terminal ordered suffix count):
+At the two ties, choose P at A with probability u, otherwise continue; choose Q at C with probability w, otherwise continue. All other actions are the unique strict Bellman minimizers. Ordered first-hit support:
 
-    A: (635/165888,10201/10368,7711/6912,1069/864,21)
-    C: (1493/1536,7/576,239/192,167/144,9)
+  A: 120 distinct actual first-hit prefixes,
+     P mass 390625/5971968, Q mass 390625/20155392;
+  C: 2258 distinct actual first-hit prefixes,
+     P mass 28225/195689447424, Q mass 28225/92876046336.
 
-Their ordered-history cones are disjoint: A at depth 10 has a=3,b=0, but C at depth 11 has a=5,b=4 and thus cannot be reached in one child step. C cannot precede A. Therefore there is no product mixing term; the four root moments are affine in the mixing variables.
+Exact continuation suffix moments (P-error,Q-error,P-time,Q-time) are
 
-Let u be the probability of deciding P rather than continuing at A. Let w be the probability of deciding Q rather than continuing at C. B deterministically decides Q. At (u,w)=(u0,0) the Stage107 endpoint is recovered. Exact branch-mass differences yield
+  R_A=(635/165888,10201/10368,7711/6912,1069/864);
+  R_C=(1493/1536,7/576,239/192,167/144).
 
-    eP=alpha107+x*(u-u0)+zP*w,
-    eQ=alpha107+y*(u-u0)+zQ*w,
-    x=-248046875/990677827584,
-    y=65234375/208971104256,
-    zP=1213675/300578991243264,
-    zQ=-197575/53496602689536.
+The two full ordered first-hit cones are disjoint. A is at depth 10 with counts (3,0) and C at depth 11 with counts (5,4): reaching C from A needs six added 0/1 observations in one step, which is impossible; C cannot precede A in time. Thus the root moments are affine in u,w with no u*w term.
 
-Solving eP=eQ gives
+At Stage107's endpoint (u*,0), u*=1115808042440821/1479206400000000. Moving to arbitrary u,w from this reference,
 
-    u(w)=u0+(67761451/4930688000000)*w,
-    alpha(w)=alpha107+(1457736575/2442361638167248896)*w,
-    0<=w<=1.
+  Delta eP=xA*(u-u*)+xC*w,
+  Delta eQ=yA*(u-u*)+yC*w,
 
-At w=1, u=159404052982303/211315200000000<1: C's Q-stop mixing saturates before A's P-stop mixing. All real w in [0,1] give valid randomized policies with eP=eQ=alpha(w). Their exact root moments at the two endpoints are:
+where
+  xA=-248046875/990677827584, yA=65234375/208971104256,
+  xC=1213675/300578991243264, yC=-197575/53496602689536.
 
-    w=0:
-    tP=13541383133505475882195/1055100227688251523072
-    tQ=805267616960628807535/65943764230515720192
+Equating errors gives the **exact and only** compensation relation
 
-    w=1:
-    tP=1934483126570299962385/150728603955464503296
-    tQ=38346074856588751535/3140179249072177152
+  w=(4930688000000/67761451)*(u-u*).
 
-Both endpoints satisfy tP>tQ. By affinity this holds throughout the real interval. Every chosen action minimizes the Stage108 Bellman dual, so tP+L*eP+K*eQ=D(root). Consequently tP=D(root)-Gamma108*alpha(w) attains the universal lower bound everywhere in the entire real interval.
+Along it,
+  eP=eQ=alpha107+(20174609375/464527285420032)*(u-u*).
 
-## Right-support sharpness, including arbitrary ordered-history randomization
+The whole nonnegative, legal-mixing segment runs from (u*,0) to
 
-Suppose the same support line could be attained at alpha>alpha108. Strict positivity of K,L forces eP=eQ=alpha and action optimality at every reached positive-mass history. Since the Bellman table has ties only A,C, arbitrary history-specific random decisions average to two numbers u,w∈[0,1] weighted by their P-first-hit mass: all histories at each count share likelihood ratio and forced suffix moments, and the two cones are disjoint. Therefore the same exact affine error identities hold. Balance enforces u(w) above and hence alpha=alpha107+eta108*w≤alpha108. Contradiction. The finite policy polytope is compact, so the optimum exists; this proves sharpness.
+  (u_end,w_end)=(159404052982303/211315200000000, 1),
 
-## Executed verification and limits
+with u_end<1 and resulting error delta=1457736575/2442361638167248896. Its right-end exact root moments are
 
-Author checker 1, bottom-up exact Python Fraction Bellman recurrence, verified both dual vertices, A-tie face, full 680 states and 1240 comparisons, true first-hit masses, forced suffixes, endpoint and midpoint four-moment equality, and next candidate. Author checker 2 used a separately written memoized top-down Bellman with literal full ordered-word DFS; it visited 1,022,824 / 1,022,824 / 995,728 nodes at w=0,1/2,1 and independently matched exact four moments in all three cases. Both local programs passed. Neither is an independent Research Driver review. Auxiliary iid evidence cannot be identified with native P000/X6/Heartbeat dynamics without an explicit verified bridge.
+  (eP,eQ,tP,tQ)=(
+   alpha108, alpha108,
+   1934483126570299962385/150728603955464503296,
+   38346074856588751535/3140179249072177152).
 
-## Next mathematical question and authority
+At both endpoints, tP>tQ; because the root moments are affine along the compensation segment, tP>tQ everywhere. Every chosen action minimizes Bellman cost at (K108,L108), and eP=eQ=alpha, hence the dual lower bound is attained for all real alpha in the stated interval.
 
-The next **dual-only** candidate is K109=491857029/506348 at D=(10,3,3), competing immediate Q, after C is fixed Q and A stays P/C on the A-tie line. Stage109 primal matching interval is NOT proved. Compute first-hit probabilities, disjointness/interaction, balanced mixing and next sharp endpoint.
+## Sharpness
 
-GitHub actor awdawmip had repository push rights. Native em_control_tasks failed CONTROL_QUOTA; native em_session_start returned STATIC_READONLY_SCOPE_DENIED and operation_sent=false. No current native Owner, CLAIM, Result or independent Driver acceptance was verified. GitHub author publication does not imply those statuses; do not use Drive to bypass an authorization refusal.
+Were the *same* dual support equality attained beyond alpha108, positivity of K108,L108 would force both errors equal alpha, every action used on a positive-mass history to be Bellman-minimizing, and max(tP,tQ)=tP. The exhaustive Bellman check leaves only A and C as choices. Even arbitrary history-dependent randomization is captured by probability-weighted u,w averages, since exact first-hit Q/P ratios and suffix moments are common within each count state, and the two cones do not intersect. Therefore equality of errors still forces w=(4930688000000/67761451)*(u-u*). The bound w<=1 gives u<=u_end and alpha<=alpha108, contradiction. Finite-horizon randomized-policy compactness guarantees optimum attainment. Thus the support line is strictly below the optimum beyond the endpoint. Here **C, not A, saturates**.
+
+## Verification, limits, follow-up
+
+Two separately implemented exact rational author programs passed: the first runs bottom-up Bellman, affine-gap sweep and first-hit/suffix calculus; the second uses independently memoized top-down Bellman and **literal ordered-history DFS**, visiting 1,022,824 and 995,728 ordered nodes at the two endpoints. This is author-side cross-checking, not independent review. Local full evidence bundle also includes both programs, JSON certificate and exact byte manifests. No floating-point evidence supports the theorem.
+
+NEXT: Stage109 must traverse the neighboring A-tie dual ray after C's Q probability saturates, certify the first new global Bellman tie (or prove an obstruction) and reconstruct a positive balancing interval. Do not promote this external iid result to the native X6 Cell world. Native control returned CONTROL_QUOTA and registration returned STATIC_READONLY_SCOPE_DENIED (operation_sent=false); native owner and CLAIM could not be verified. This path holds ordinary **author evidence only**, not a canonical research Result.
