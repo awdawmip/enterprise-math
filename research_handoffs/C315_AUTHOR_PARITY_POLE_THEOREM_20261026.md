@@ -46,7 +46,7 @@ For any fixed label j and moving label I_k, (B) implies that the pole coefficien
 
 For a moving pair `I_k<I_m`, both weights a are exactly one. Hence its simple pole cancels iff `I_m-I_k-1` is odd. The canceled pairs are precisely `(5,55)` and `(50,56)`; the four other pairs survive. Cancellation refers to analytic scalar continuation, not cancellation of two positive masses or native BRC branches.
 
-The exact audit of C284/C293 paths individually normalizes every rational-affine collision gap to a primitive integer linear polynomial. All 38,175 active collisions have **pairwise distinct rational roots** and no other denominator zero at that root. Every moving numerator factor `Z-x_l(t0)` is nonzero. Path 28 has one stationary moving coordinate, giving 75 constant fixed/moving gaps. Counts:
+The exact audit of C284/C293 paths individually normalizes every rational-affine collision gap to a primitive integer linear polynomial. Within each of the 125 paths, active collision denominators have **pairwise distinct rational roots** (38,175 occurrences over all paths) and no other denominator zero at that root. Every moving numerator factor `Z-x_l(t0)` is nonzero. Path 28 has one stationary moving coordinate, giving 75 constant fixed/moving gaps. Counts:
 
 | Quantity | Exact |
 |---|---:|
