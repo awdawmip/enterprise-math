@@ -1,22 +1,69 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR4-20261026-EC27FULL",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "da477200d78b9f32243cfd0024b1607659c50ced",
+          "path": "research_notes/r4_ec27_full_unimodality_20261026/R4_EC27_FULL_GRADE_UNIMODALITY.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "554df5be521ad3c8803450465ab541c4d7dc28dd206eed8e1c1b90ed88ee2c5b",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "6e1a69a778a079a5a2506f68ca0075555939b31a",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/da477200d78b9f32243cfd0024b1607659c50ced/research_notes/r4_ec27_full_unimodality_20261026/R4_EC27_FULL_GRADE_UNIMODALITY.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "ec27-r4-20261026-proof-readback",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261026-EC27FULL/readbacks/e3b11a92461823f4baf59f0908b0069e33dc77fd81bcd8be03ee73db7b9e86a3.json",
+          "verification_receipt_sha256": "e3b11a92461823f4baf59f0908b0069e33dc77fd81bcd8be03ee73db7b9e86a3"
+        },
+        {
+          "commit": "da477200d78b9f32243cfd0024b1607659c50ced",
+          "path": "research_notes/r4_ec27_full_unimodality_20261026/EC27_GITHUB_VERIFY.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "327ace3fbe009f1026176a412dfdc7f8c8035b2eaa7aa19edc03e3d2f0f98fd8",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "aba1bad036377ed9e1fd9da1e0dbb4a6cb018875",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/da477200d78b9f32243cfd0024b1607659c50ced/research_notes/r4_ec27_full_unimodality_20261026/EC27_GITHUB_VERIFY.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "ec27-r4-20261026-code-readback",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261026-EC27FULL/readbacks/8d0a77da86c2642b17ddbb5ff8a6c996a5ac88f539be716b00702ff6706b2547.json",
+          "verification_receipt_sha256": "8d0a77da86c2642b17ddbb5ff8a6c996a5ac88f539be716b00702ff6706b2547"
+        }
+      ],
+      "event_id": "EC27-FULL-GRADE-UNIMODALITY-20261026",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-25T16:48:29.762Z",
   "registration_key": "session:emr4-local-20261026-ec27-full:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R4-EC27R4",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "emr4-local-20261026-ec27-full",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-25T16:48:29.762Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }

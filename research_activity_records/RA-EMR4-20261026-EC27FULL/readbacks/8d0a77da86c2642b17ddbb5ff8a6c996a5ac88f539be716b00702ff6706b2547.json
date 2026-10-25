@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/r4_ec27_full_unimodality_20261026/EC27_GITHUB_VERIFY.py",
+    "ref": "da477200d78b9f32243cfd0024b1607659c50ced",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "ec27-r4-20261026-code-readback",
+  "result": {
+    "structuredContent": {
+      "content": "\"\"\"Exact EC27 diagonal/BRC kernel regression (stdlib only).\"\"\"\nimport json\nN=120\nJ=N//2\nY=[0]*(J+1)\nfor i in range(4,J+1):\n    Y[i]=(i==4)+2*Y[i-1]+Y[i-3]+sum(Y[a]*Y[i-1-a] for a in range(i))\nR=Y[:]\nR[0]=R[1]=1\nH=[Y[i]-(Y[i-1] if i else 0) for i in range(J+1)]\nassert H[:4]==[0]*4 and all(h>0 for h in H[4:])\ndef conv(a,b):\n    c=[0]*(J+1)\n    for i,x in enumerate(a):\n        if x:\n            for k,y in enumerate(b[:J+1-i]):\n                c[i+k]+=x*y\n    return c\nr2=conv(R,R)\nfor i in range(J+1):\n    assert R[i]+(2*R[i-2] if i>=2 else 0)-(R[i-3] if i>=3 else 0)-(r2[i-1] if i else 0)==(i==0)\nB=[[0]*(J+1)]\npower=[1]+[0]*J\nfor p in range(1,N+2):\n    power=conv(power,R)\n    B.append([power[j]-(power[j-1] if j else 0) for j in range(J+1)])\nE=[]\nfor n in range(N+1):\n    row=[0]*(n+1)\n    if n==0: row[0]=1\n    if n==2: row[1]-=1\n    for lag,shift,weight in ((1,0,1),(1,1,1),(4,2,-2),(6,3,1)):\n        if n>=lag:\n            for j,x in enumerate(E[n-lag]): row[j+shift]+=weight*x\n    E.append(row)\nchecks=positives=0\nzeros=[]\nfor n,row in enumerate(E):\n    assert row==row[::-1] and min(row)>=0\n    for j in range(n//2+1):\n        f=row[j]-(row[j-1] if j else 0)\n        assert f==B[n-2*j+1][j]\n        checks+=1\n        if n>=10 and j>=1:\n            assert f>=0\n            positives+=1\n            if f==0: zeros.append((n,j))\nassert zeros==[(10,3),(12,4)]\nassert B[6][:8]==[1,5,9,5,1,27,97,209]\nprint(json.dumps({'status':'PASS','exact_diagonal_pairs':checks,\n    'unimodality_pairs':positives,'all_n_le':N,\n    'equality_cases':zeros,'B6_first8':B[6][:8],\n    'method':'integers only; finite regression, not unbounded proof'},sort_keys=True))\n",
+      "display_title": "EC27_GITHUB_VERIFY.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/da477200d78b9f32243cfd0024b1607659c50ced/research_notes/r4_ec27_full_unimodality_20261026/EC27_GITHUB_VERIFY.py",
+      "encoding": "utf-8",
+      "sha": "aba1bad036377ed9e1fd9da1e0dbb4a6cb018875"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
