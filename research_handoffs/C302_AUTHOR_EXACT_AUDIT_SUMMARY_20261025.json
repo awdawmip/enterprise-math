@@ -1,0 +1,85 @@
+{
+  "schema": "EM_C302_PRIMITIVE_INTEGER_PAIR_AUTHOR_AUDIT_V1",
+  "date": "2026-10-25",
+  "identity": {
+    "researcher_id": "EM-DIRECT-25C302",
+    "activity_id": "RA-R2C30220261025T201217CST",
+    "session_kind": "LOCALLY_ASSIGNED_STABLE_KEY_NOT_PLATFORM_ATTESTED"
+  },
+  "sources": {
+    "global_main": "d69588fe0c92d1ec230ac60df6fc805e96fbf762",
+    "enterprise_main_before_registration": "f651ea40d12cee192ecab1bc741f98f1a9e01892",
+    "source_activity_record": "eea9b43411984e23a345c95824f3b6340481ec80",
+    "C301_author_commit": "a616a2443d9d4083c0024f3f6841e782b2e62ca8",
+    "C300_author_commit": "5f03468054ef8cfa14b19eea69ca044d0f5a53dc",
+    "model": "C195_H168_79_NODE_POSITIVE_RATIONAL_AUXILIARY"
+  },
+  "coverage": {
+    "paths": 125,
+    "degree_histogram": {
+      "265": 1,
+      "352": 124
+    },
+    "numeric_arithmetic": "Python arbitrary precision Z and Fraction; exact Z[t] division",
+    "complete_coefficient_gcds": "125/125 PASS",
+    "full_numerator_content_equals_scalar_gcd": "125/125 PASS",
+    "primitive_integer_numerators": "125/125 PASS",
+    "algebraic_integer_point_identity_checks": 250,
+    "independent_SymPy_Poly_ZZ_full_coefficient_cases": [
+      0,
+      28
+    ],
+    "independent_original_F_midpoint_cases": [
+      0,
+      8,
+      24,
+      28,
+      40,
+      63,
+      64,
+      96,
+      124
+    ]
+  },
+  "scalar": {
+    "gcd_decimal_values": "Included in full C302 portable evidence package; recomputable from C302_INTEGER_PRIMITIVE_REPLAY.py",
+    "min_gcd_bit_length": 273,
+    "max_gcd_bit_length": 418,
+    "all_125_coefficient_hashes": "Included in full C302 portable evidence package",
+    "local_full_certificate_schema": "EM_C302_SCALAR_PRIMITIVITY_125_AND_UNIFORM_HEIGHT_V1",
+    "local_compact_certificate_canonical_raw_sha256": "528f242134e100606deeca1f97169e21577c50f86c1efe9fc739c873a0a95d52"
+  },
+  "new_bound": {
+    "continuous_strip_scope": "125 frozen C293 2^-24 rational path strips only",
+    "uniform_old_exponent": 13702,
+    "uniform_new_exponent": 13400,
+    "extremal_path_index": 63,
+    "nonextremal_max_conservative_exponent": 13317,
+    "extremal_exact_U_over_g_exponent": 13400,
+    "nonroot_grid_precision_sufficient_formula": "P >= 352*b+13400+134",
+    "at_b_512_old": 194060,
+    "at_b_512_new": 193758,
+    "bit_improvement": 302,
+    "special_path_28": {
+      "degree": 265,
+      "old_exponent": 10767,
+      "new_exponent": 10349,
+      "P_at_b_512": 146163
+    }
+  },
+  "original_provenance_preservation": "The two canceled scalar factors are not a typed native BRC branch erasure; branch identity/multiplicity/phase/ports and future-operation residuals remain outside the certified scalar readout.",
+  "inherited_unreviewed_dependencies": [
+    "C300 reduced-denominator/no-further-polynomial-cancellation author certificate",
+    "C301 positive strip endpoint majorants",
+    "C297 outward interval width < 2^(134-P) author certificate"
+  ],
+  "control": {
+    "task_owner_verified": false,
+    "claim": false,
+    "formal_result": false,
+    "independent_driver_admitted": false,
+    "global_worldview_modified": false,
+    "reason": "em_control_tasks CONTROL_QUOTA; em_session_start STATIC_READONLY_SCOPE_DENIED operation_sent=false"
+  },
+  "next": "C303: certify scalar content prime-adically without 352-degree full integer numerator expansion, prove valuation/bit complexity, and retain exact observer/future-operation BRC-X6 transfer obligations."
+}
