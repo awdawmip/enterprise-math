@@ -1,0 +1,70 @@
+{
+  "schema": "C308_AUTHOR_EXACT_REMOTE_AUDIT_SUMMARY_V1",
+  "date": "2026-10-26",
+  "classification": "AUTHOR_PROOF_AND_AUTHOR_EXACT_VERIFICATION_NOT_NATIVE_SOURCE_ADMITTED",
+  "global_knowledge_sha": "52fb90fc028769a7be5127028e954a0182947d89",
+  "initial_em_main_sha": "0e8eda0b046aafd500c082fab9f1e22e3d8e6451",
+  "project_main_at_branch_creation": "95d8a80baed9146e4ce12b9cbc022b66af25c1d6",
+  "predecessor_c307": "7ad6c714c8ec554c2395513d59b1a68422ba275a",
+  "C293_frozen_sha256": "03083a77480e6be5615797c2f4ffc503eee6603e9e60cbad1f11fb3ea83b3c89",
+  "theorem": {
+    "statement": "C307 node-optimal sample moduli N_j=s*h_j*h_(d-j) permit one-pass recovery of gcd(s,content(P)) via A_k modulo R_k=s*h_k without retaining sample vector",
+    "h_k": "s-supported part of k!",
+    "raw_difference_sharpness": "R_k is minimal for observer consisting solely of kth raw finite difference residue; not a global memory lower bound",
+    "proof_status": "AUTHOR_HAND_PROOF",
+    "native_or_brc_transfer": false
+  },
+  "synthetic": {
+    "cases": 3900,
+    "coefficients_rechecked": 27300,
+    "observation_lift_equivalence_cases": 558,
+    "zero_polynomial_cases": 222,
+    "seed": 30820261026,
+    "missing_prime_power_witnesses": 1452,
+    "result": "PASS"
+  },
+  "auxiliary_125_schedule": {
+    "paths": 125,
+    "slots": 44038,
+    "full_numerator_circuit_evaluations_this_run": 972,
+    "model_circuit_paths_checked": [
+      0,
+      28,
+      63
+    ],
+    "model_circuit_check_status": "3/3 PASS",
+    "other_122_paths_circuit_rerun": false,
+    "saved_sample_vector_bits": 307673050,
+    "stream_accumulator_bits": 270117377,
+    "uniform_vector_baseline_bits": 310152234,
+    "logical_bit_saving": 37555673,
+    "per_path_min_saved_bits": 188054,
+    "per_path_median_saved_bits": 302146,
+    "per_path_max_saved_bits": 309086,
+    "result": "125/125 EXACT_SCHEDULE_PASS",
+    "note": "bit-length sums are theoretical payload budgets, NOT measured RSS, elapsed time or runtime saving"
+  },
+  "dependencies": [
+    "C300 author cancellation identity not independently Source-audited",
+    "C305/C306 exact author-level gcd oracle",
+    "C307 pointwise modular observation theorem"
+  ],
+  "files_in_local_portable_package": [
+    "C308_AUTHOR_THEOREM_AND_PROOF_20261026.md",
+    "C308_STREAMING_LAYERED_NEWTON.py",
+    "C308_EXACT_AUDIT_20261026.json",
+    "frozen predecessor replay inputs"
+  ],
+  "native_control": {
+    "em_status": "0.6.11 readable",
+    "em_control_tasks": "CONTROL_QUOTA",
+    "em_session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "live_owner_verified": false,
+    "native_claim": false,
+    "independent_review": false,
+    "source_result": false
+  },
+  "next_problem": "C309: efficient block/factored exact binomial streaming updates, measure actual runtime/peak RSS against C307, and independently audit C300-C306 prerequisites.",
+  "storage": "Research branch only, not canonical main; GitHub code file is a compact standalone independent arithmetic kernel while full frozen model/audit executor stays in local portable package."
+}
