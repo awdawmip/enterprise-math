@@ -1,0 +1,152 @@
+{
+  "H_range": "1..8",
+  "aggregate_source_counts_checked": 76,
+  "examples": [
+    {
+      "H": 1,
+      "dimensions_U_V": [
+        1,
+        2
+      ],
+      "equal_total_source_count_at_every_depth": "2^n (proven by row sums)",
+      "first_label_witness": "RB",
+      "label_total_variation_for_n_gt_H": "1 - 2^(H-n) (proven exactly)",
+      "last_checked_depth": 5,
+      "last_checked_tv_fraction": "15/16",
+      "sharp_refined_alphabet_cutoff": 2,
+      "witness_counts_U_V": [
+        1,
+        0
+      ]
+    },
+    {
+      "H": 2,
+      "dimensions_U_V": [
+        1,
+        3
+      ],
+      "equal_total_source_count_at_every_depth": "2^n (proven by row sums)",
+      "first_label_witness": "RRB",
+      "label_total_variation_for_n_gt_H": "1 - 2^(H-n) (proven exactly)",
+      "last_checked_depth": 6,
+      "last_checked_tv_fraction": "15/16",
+      "sharp_refined_alphabet_cutoff": 3,
+      "witness_counts_U_V": [
+        1,
+        0
+      ]
+    },
+    {
+      "H": 3,
+      "dimensions_U_V": [
+        1,
+        4
+      ],
+      "equal_total_source_count_at_every_depth": "2^n (proven by row sums)",
+      "first_label_witness": "RRRB",
+      "label_total_variation_for_n_gt_H": "1 - 2^(H-n) (proven exactly)",
+      "last_checked_depth": 7,
+      "last_checked_tv_fraction": "15/16",
+      "sharp_refined_alphabet_cutoff": 4,
+      "witness_counts_U_V": [
+        1,
+        0
+      ]
+    },
+    {
+      "H": 4,
+      "dimensions_U_V": [
+        1,
+        5
+      ],
+      "equal_total_source_count_at_every_depth": "2^n (proven by row sums)",
+      "first_label_witness": "RRRRB",
+      "label_total_variation_for_n_gt_H": "1 - 2^(H-n) (proven exactly)",
+      "last_checked_depth": 8,
+      "last_checked_tv_fraction": "15/16",
+      "sharp_refined_alphabet_cutoff": 5,
+      "witness_counts_U_V": [
+        1,
+        0
+      ]
+    },
+    {
+      "H": 5,
+      "dimensions_U_V": [
+        1,
+        6
+      ],
+      "equal_total_source_count_at_every_depth": "2^n (proven by row sums)",
+      "first_label_witness": "RRRRRB",
+      "label_total_variation_for_n_gt_H": "1 - 2^(H-n) (proven exactly)",
+      "last_checked_depth": 9,
+      "last_checked_tv_fraction": "15/16",
+      "sharp_refined_alphabet_cutoff": 6,
+      "witness_counts_U_V": [
+        1,
+        0
+      ]
+    },
+    {
+      "H": 6,
+      "dimensions_U_V": [
+        1,
+        7
+      ],
+      "equal_total_source_count_at_every_depth": "2^n (proven by row sums)",
+      "first_label_witness": "RRRRRRB",
+      "label_total_variation_for_n_gt_H": "1 - 2^(H-n) (proven exactly)",
+      "last_checked_depth": 10,
+      "last_checked_tv_fraction": "15/16",
+      "sharp_refined_alphabet_cutoff": 7,
+      "witness_counts_U_V": [
+        1,
+        0
+      ]
+    },
+    {
+      "H": 7,
+      "dimensions_U_V": [
+        1,
+        8
+      ],
+      "equal_total_source_count_at_every_depth": "2^n (proven by row sums)",
+      "first_label_witness": "RRRRRRRB",
+      "label_total_variation_for_n_gt_H": "1 - 2^(H-n) (proven exactly)",
+      "last_checked_depth": 11,
+      "last_checked_tv_fraction": "15/16",
+      "sharp_refined_alphabet_cutoff": 8,
+      "witness_counts_U_V": [
+        1,
+        0
+      ]
+    },
+    {
+      "H": 8,
+      "dimensions_U_V": [
+        1,
+        9
+      ],
+      "equal_total_source_count_at_every_depth": "2^n (proven by row sums)",
+      "first_label_witness": "RRRRRRRRB",
+      "label_total_variation_for_n_gt_H": "1 - 2^(H-n) (proven exactly)",
+      "last_checked_depth": 12,
+      "last_checked_tv_fraction": "15/16",
+      "sharp_refined_alphabet_cutoff": 9,
+      "witness_counts_U_V": [
+        1,
+        0
+      ]
+    }
+  ],
+  "independent_unlabelled_DP_checks": 152,
+  "input_semantics": "positive ordered branch BRC, one operation A, observed source labels R/B, distinguishable microscopic red alternatives represented as multiplicity 2",
+  "label_words_checked": 16312,
+  "native_heartbeat_executed": false,
+  "next_question": "Native X6 source-labelled transition and ports: do labels form a globally coherent finite refined alphabet, and can a source-fibre-preserving simulation or finite labelled Hankel certificate be established?",
+  "nonzero_exact_TV_checks": 32,
+  "schema": "EM_R4_EC33_LABEL_FIBRE_VERIFICATION_V1",
+  "source": "EC32 R4 exact finite-state rational reachable-span theorem; this verification enumerates refined labels and independently sums state transitions",
+  "status": "PASS",
+  "universal_proofs_in_note": true
+}
