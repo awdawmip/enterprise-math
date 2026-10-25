@@ -82,7 +82,7 @@ Two different finite-ring arithmetic routes were implemented locally: (A) direct
 | 37 | 25,675,737,376 | 1 |
 | 109 | 65,922,606,470,257 | 12 |
 
-The full nonblind checker was executed as local `EM_D25_P7_FROBENIUS_SEAM_NONBLIND_20261025.py` (206/206 PASS). This note supplies the exact statement, factor-source routes and observed checks; absence of a remote copy of the local script must not be presented as a Source checker publication. The checks do **not** reconstruct the uncollapsed W(r,t) sum, prove new CM/DP-class identifications, establish Driver independence or admit the claim.
+The nonblind checker was executed as local `EM_D25_P7_FROBENIUS_SEAM_NONBLIND_20261025.py` (206/206 PASS), and then its **exact UTF-8 source** was separately published and read back as [`20261025_driver_context_d25_p7_nonlinear_frobenius_seam_check.py`](https://github.com/awdawmip/enterprise-math/blob/b527a7348d6d1a5a01b6589a47ca861ac8d06f5c/research_notes/portable_direct/20261025_driver_context_d25_p7_nonlinear_frobenius_seam_check.py) (Git blob `a8249a3cf73c817360e609f6e6a964342df6529d`). The checks do **not** reconstruct the uncollapsed W(r,t) sum, prove new CM/DP-class identifications, establish Driver independence or admit the claim.
 
 ## Handoff
 
