@@ -1,0 +1,62 @@
+{
+  "status": "PASS_EXACT_ORDERED_DFS_MIN_BELLMAN_CONTINUUM_ENDS",
+  "first_hits_and_suffixes": {
+    "A95": {
+      "state": [
+        10,
+        1,
+        2
+      ],
+      "nominal_prefix_words": 360,
+      "actual_first_hit_words": 260,
+      "p_mass": "5078125/322486272",
+      "q_mass": "5078125/120932352",
+      "terminal_suffix_words": 15,
+      "terminal_action_state_classes": 11,
+      "full_truncated_words": 3900,
+      "continuation_qp_errors_and_extra_times": [
+        "4075/4096",
+        "31/20736",
+        "1955/1536",
+        "75/64"
+      ]
+    },
+    "B": {
+      "state": [
+        12,
+        0,
+        1
+      ],
+      "nominal_prefix_words": 12,
+      "actual_first_hit_words": 12,
+      "p_mass": "48828125/725594112",
+      "q_mass": "48828125/362797056",
+      "terminal_suffix_words": 5,
+      "terminal_action_state_classes": 5,
+      "full_truncated_words": 60,
+      "continuation_qp_errors_and_extra_times": [
+        "63/64",
+        "1/144",
+        "9/8",
+        "13/12"
+      ]
+    }
+  },
+  "Bellman_min_root": "16745219816680354771525/15557668007760101376",
+  "Bellman_states": 680,
+  "nonselected_comparisons": 1240,
+  "strict_positive_gaps": 1238,
+  "negative_gaps": 0,
+  "zero_ties": "[((12, 0, 1), 'C', 'Q'), ((10, 1, 2), 'C', 'Q')]",
+  "minimum_positive_gap": "44476991291/732688809984",
+  "tP_minus_tQ_start": "775383214032140755/1241691812825923584",
+  "tP_minus_tQ_end": "2415929098096422265/3725075438477770752",
+  "h95": "-117923/1632000",
+  "eta95": "360546875/75786853810176",
+  "s95": "24710766480088847/41779200000000000",
+  "alpha95": "5172538007321621243/14900301753911083008",
+  "V95": "24246605376738068699/1862537719238885376",
+  "K95": "112428/71",
+  "Gamma95": "217476/71",
+  "next_candidate": "(Fraction(19683, 13), (14, 7, 4), 'Q', 'P')"
+}

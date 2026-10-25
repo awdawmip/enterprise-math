@@ -1,0 +1,64 @@
+{
+  "schema": "EM_AUTHOR_SIDE_EXACT_IID_AFFINE_STAGE95_V1",
+  "date": "2026-10-25",
+  "statement_status": "AUTHOR_PROVED_FINITE_AUXILIARY_MODEL",
+  "source_pins": {
+    "GLOBAL_KNOWLEDGE_V1": "dccc6b5567fb4a8472081a38323f1beb74ce8eeb",
+    "enterprise_math_read": "aeafef651dc2bfead4753b7eefbb1677bf10f3e1",
+    "parent_stage94_commit": "e94f1ef4d98109777f293e7080bc8ac97b3d956c",
+    "derive95_tested_git_blob": "6d1b96751a7a04544d54083715e6cbbecdd81e40",
+    "crosscheck95_tested_git_blob": "9d2ae7e756f97ba99d77c24fa368b3ee7c2ac761"
+  },
+  "model": {
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "N": 14
+  },
+  "exact_results": {
+    "alpha94": "5172467120921621243/14900301753911083008",
+    "V94": "24273746381538068699/1862537719238885376",
+    "delta": "360546875/75786853810176",
+    "slope": "217476/71",
+    "alpha95": "5172538007321621243/14900301753911083008",
+    "V95": "24246605376738068699/1862537719238885376",
+    "s95": "24710766480088847/41779200000000000",
+    "h": "-117923/1632000",
+    "K95": "112428/71",
+    "K96_candidate": "19683/13",
+    "A96_candidate": [
+      14,
+      7,
+      4
+    ]
+  },
+  "validation": {
+    "derive95": "PASS_EXACT_RATIONAL",
+    "crosscheck95": "PASS_EXACT_ORDERED_DFS_MIN_BELLMAN",
+    "finite_states": 680,
+    "alternative_comparisons": 1240,
+    "positive": 1238,
+    "negative": 0,
+    "ties": 2,
+    "minimum_positive_gap": "44476991291/732688809984",
+    "firsthit_A95": 260,
+    "truncated_words_A95": 3900
+  },
+  "limitations": [
+    "inherited action table shared by both programs",
+    "no independent Research Driver review",
+    "native owner/CLAIM/Result not verified",
+    "no P000, six-axis/native dynamics or Heartbeat transfer"
+  ],
+  "native_read": [
+    "CONTROL_QUOTA",
+    "STATIC_READONLY_SCOPE_DENIED; operation_sent=false"
+  ]
+}
