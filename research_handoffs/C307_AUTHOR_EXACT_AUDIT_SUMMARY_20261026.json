@@ -1,0 +1,59 @@
+{
+  "schema": "C307_HETEROGENEOUS_NEWTON_AUTHOR_EXACT_AUDIT_V1",
+  "date": "2026-10-26",
+  "scope": "universal integer-polynomial content plus C195/H168 positive-rational auxiliary 125-path application",
+  "theorem": "pointwise-minimal universal fixed observation modulus N_j=M/gcd(M,C(d,j)) where M=s*(d!)_support(s)",
+  "proof_status": "AUTHOR_HAND_PROOF_FULL_GENERALITY_NOT_LEAN_FORMALIZED",
+  "frozen_inputs": {
+    "global_knowledge_main": "3f5265ba9cb837a6d9b3ba272de8106f751e8d34",
+    "enterprise_math_main": "f67a9840c8e8b0d9420366d8049e689f8f1abf1b",
+    "prior_C306_author_commit": "d204fa8d28b88722c92ba54a36f8b76aa4fc7aad",
+    "C293_records_sha256": "03083a77480e6be5615797c2f4ffc503eee6603e9e60cbad1f11fb3ea83b3c89"
+  },
+  "certified_synthetic": {
+    "exact_polynomial_cases": 3630,
+    "constructive_missing_prime_power_witnesses": 11660,
+    "test_degree_min": 0,
+    "test_degree_max": 9,
+    "target_s_min": 1,
+    "target_s_max": 121,
+    "seed": 30720261026,
+    "result": "PASS"
+  },
+  "frozen_auxiliary_schedule": {
+    "path_count": 125,
+    "node_count": 44038,
+    "strict_smaller_node_moduli": 43788,
+    "unchanged_endpoint_nodes": 250,
+    "median_node_modulus_bit_reduction": 57,
+    "maximum_node_modulus_bit_reduction": 121,
+    "sum_individual_node_bit_reductions": 2479184,
+    "formula_and_reference_C306_metadata": "125/125 PASS",
+    "reduction_rerun": "No. Full 44038 reduced-numerator modular evaluations were not rerun; exact schedules were recomputed and matched C306 frozen author-level metadata."
+  },
+  "independent_end_to_end_circuit": {
+    "completed_exact_path_indices": [
+      0,
+      28,
+      63
+    ],
+    "num_completed": 3,
+    "comparison": "C305 exact gcd witness on each selected path",
+    "result": "PASS",
+    "note": "Additional interrupted batches printed complete per-path PASS rows but did not finish an all-125 numerical audit; do not count as full coverage."
+  },
+  "technical_assumptions": "C300 numerator-cancellation identity and previous C305/C306 author-level gcd witnesses. No independent Source validation of those prerequisites.",
+  "native_control": {
+    "em_control_tasks": "CONTROL_QUOTA",
+    "em_control_dispatch": "CONTROL_QUOTA",
+    "em_session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "native_owner_verified": false,
+    "native_claim": false,
+    "formal_result": false,
+    "independent_driver_admission": false
+  },
+  "native_BRC_X6_transfer": false,
+  "next_question": "Prove an end-to-end streaming mixed-precision finite-difference schedule with actual bit-complexity savings and independently verify C300/C306 upstream identities.",
+  "storage": "Author research branch; not merged into canonical main"
+}
