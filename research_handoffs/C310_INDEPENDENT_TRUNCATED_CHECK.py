@@ -44,7 +44,6 @@ def coefficient(term,groups,lower,mod,k):
 
 def main():
     rows=json.loads((BASE/'C310_JOINT_BRANCH_PRIME_CERT.json').read_text())['rows']
-    Lrows=json.loads((BASE/'C309_BRANCH_CONTENT_PROBE_125.json').read_text())['rows']
     source=json.loads((c305.ROOT/'C293_125_REFINED_BRACKETS.json').read_text())
     paths,_=c305.c288.build_paths()
     W,_=c305.src.floor_fixed_masses()
@@ -52,8 +51,13 @@ def main():
     for row in rows:
         i=row['index'];p=row['prime'];k=row['first_nonzero_coefficient_mod_p2']
         mod=p*p
-        _,groups,terms,_,_=c305.prepare(i,paths[i],int(source['records'][i][1]),W)
-        lower=int(Lrows[i]['lower_dec'])
+        s,groups,terms,_,_=c305.prepare(i,paths[i],int(source['records'][i][1]),W)
+        lower=s
+        for co,nums,_ in terms:
+            v=abs(co)
+            for n in nums:v*=reduce(gcd,n,0)
+            lower=gcd(lower,v)
+        assert str(lower)==row['lower_content_decimal']
         residue=sum(coefficient(term,groups,lower,mod,k) for term in terms)%mod
         assert residue==row['coefficient_residue_at_witness_mod_p2'],(i,residue)
         assert residue!=0
