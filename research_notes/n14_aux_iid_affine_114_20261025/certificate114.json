@@ -1,0 +1,131 @@
+{
+  "schema": "EM_N14_STAGE114_AUTHOR_EXACT_CERT_V1",
+  "evidence_status": "AUTHOR_EXACT_FINITE_NOT_NATIVE_DRIVER_REVIEWED",
+  "source_read_pin": {
+    "global": "85640815cacedf31031681f61024edb9e04a13df",
+    "enterprise_math": "fdbfdfc1b2d6121cccfd91cad8d8a33b07803ce9"
+  },
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "policy_domain": "randomized full ordered history"
+  },
+  "dual": {
+    "K": "1903247523/2052316",
+    "L": "443700120/513079",
+    "S": "525435429/293188",
+    "Hroot": "4462691822843638799135951/7026683753304176984064"
+  },
+  "bellman": {
+    "state_count": 680,
+    "positive_nonchosen_gaps": 1238,
+    "min_positive_gap": "11023/9235422",
+    "negative_gaps": 0,
+    "tie_states": [
+      {
+        "s": [
+          10,
+          3,
+          0
+        ],
+        "acts": [
+          "PSTOP",
+          "CONTINUE"
+        ]
+      },
+      {
+        "s": [
+          9,
+          1,
+          2
+        ],
+        "acts": [
+          "QSTOP",
+          "CONTINUE"
+        ]
+      }
+    ]
+  },
+  "predecessor": {
+    "alpha": "183184813761431567431/527550113844125761536",
+    "V": "27026770528279165031729/2110200455376503046144",
+    "u": "929342188946273/986137600000000",
+    "w": "0"
+  },
+  "D_first_hit": {
+    "state": [
+      9,
+      1,
+      2
+    ],
+    "literal_count": 172,
+    "Pmass": "671875/53747712",
+    "Qmass": "671875/20155392",
+    "conditional_continue_moments": [
+      "97421/98304",
+      "641/248832",
+      "51509/36864",
+      "25831/20736"
+    ],
+    "conditional_terminal_suffixes": 31,
+    "replaced_literal_terminating_words": 5332
+  },
+  "derivatives": {
+    "M_order": [
+      "eP",
+      "eQ",
+      "tP",
+      "tQ"
+    ],
+    "du": [
+      "-248046875/990677827584",
+      "65234375/208971104256",
+      "-3012109375/41278242816",
+      "-417578125/17414258688"
+    ],
+    "dw": [
+      "593265625/5283615080448",
+      "-430671875/5015306502144",
+      "-34607609375/1981355655168",
+      "-17355203125/417942208512"
+    ],
+    "mixed": "0"
+  },
+  "output": {
+    "balance": "u(w)=u113+(465217/1320720)*w",
+    "wstar": "170386233161181/1042086080000000",
+    "ustar": "1",
+    "eta114": "594704749143575417/150993774647608376033280",
+    "alpha114": "900372060659842701793/2592933255351443128320",
+    "V114": "132764620121352969281069/10371733021405772513280",
+    "tP_tQ_gap_left": "451683124663758426763/703400151792167682048",
+    "tP_tQ_gap_right": "444777657503394885715/691448868093718167552"
+  },
+  "local_execution": {
+    "primary": "PASS_STAGE114_EXACT_680_1238_2_TIES_172_FIRST_HIT_SHARP_ENDPOINT",
+    "ordered_dfs": "PASS_STAGE114_INDEPENDENT_LITERAL_ORDERED_DFS",
+    "ordered_nodes_by_corner": [
+      884347,
+      880747,
+      876607,
+      873007
+    ]
+  },
+  "control": {
+    "native_owner": "UNVERIFIED_CONTROL_QUOTA",
+    "native_session": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "native_CLAIM": false,
+    "native_Result": false,
+    "independent_Driver_review": false
+  }
+}
