@@ -1,0 +1,55 @@
+{
+  "schema": "C314_AUTHOR_SOURCE_RECONSTRUCTION_AUDIT_V1",
+  "dated": "2026-10-26",
+  "status": "AUTHOR_EXACT_SOURCE_EXPOSED_NO_NATIVE_CLAIM_NOT_ADMITTED",
+  "global_snapshot": "f5baac141aa65cc4c755d83b19b1008b4e5599c6",
+  "enterprise_source_snapshot": "28000bfcd28be1b4d3f1b8ae94e662e78a2c437d",
+  "model": "C275/C195-H168 auxiliary scalar positive 79 labelled branches, frozen C284/C293 125 paths",
+  "C293_records_sha256": "03083a77480e6be5615797c2f4ffc503eee6603e9e60cbad1f11fb3ea83b3c89",
+  "path_count": 125,
+  "label_count_per_path": 79,
+  "source_scalar_alignments": 9875,
+  "rational_polynomial_factor_identities": 77000,
+  "source_original_F_exact_midpoint_checks": 125,
+  "exact_zero_residue_pairs": 250,
+  "distinct_pole_factor_path_checks": 125,
+  "cancelled_pairs": [
+    [
+      "5",
+      "55"
+    ],
+    [
+      "50",
+      "56"
+    ]
+  ],
+  "cancel_support_labels": [
+    [
+      75,
+      77
+    ],
+    [
+      76,
+      78
+    ]
+  ],
+  "source_crosscheck": "C275 definitions -> independently constructed rational factor circuit -> compare each of 616 factors/path to C298; C305.prepare not invoked",
+  "machine_method": "Python Fraction exact arithmetic / coefficient convolution / exact rational residue",
+  "full_deterministic_audit_sha256": "dab2b9348acf85fdf1f9582642c5386447a862706ecd903bb930311846429591",
+  "full_deterministic_audit_byte_count": 129841,
+  "replay_program_git_blob_sha1": "fe223f3eacfcdb78965381a6d9832e2ec7a38a16",
+  "replay_program_sha256": "3f75b797ec9828879a5d3c47eb17d52ecbe0630709005418a730c2830f7ea1b0",
+  "portable_zip_sha256": "b16d83fa3a02af2b4041d187fcc47fb7ead47a4bb3417a5b7a168c61d659fe24",
+  "portable_zip_file_count": 15,
+  "native_read_result": "em_control_tasks: CONTROL_QUOTA",
+  "native_mutation_result": "em_session_start: STATIC_READONLY_SCOPE_DENIED; operation_sent=false",
+  "owner_status": "NOT_VERIFIED",
+  "source_result": "NOT_OBTAINED",
+  "driver_acceptance": "NOT_OBTAINED",
+  "scope_notes": [
+    "Relative to C275 source, not independent of original C195/H168 textual source",
+    "Additional noncancellation beyond two source-derived poles inherited from C300, not rechecked",
+    "No native BRC phase/port/provenance or P000 promotion"
+  ],
+  "next_problem": "Rebuild earliest original C195/H168 textual 79-branch definition independently of C275, and validate its constants/floor/indexing; separately reproduce remaining 37925 noncancellations from an independent algorithm."
+}
