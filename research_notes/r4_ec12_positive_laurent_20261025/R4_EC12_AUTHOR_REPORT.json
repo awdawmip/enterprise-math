@@ -1,0 +1,88 @@
+{
+  "schema": "EM_R4_EC12_AUTHOR_COMPUTATION_V1",
+  "status": "AUTHOR_SIDE_VERIFIED_NOT_INDEPENDENTLY_ACCEPTED",
+  "model": "positive ordered binary affine BRC auxiliary model",
+  "source_pins": {
+    "global_knowledge_main": "5d4a413d41c38d27c75489baac52761e889af581",
+    "enterprise_math_main_at_start": "f1f7d85354df2f03c2eba1ecdab165374dab3c6b",
+    "parent_R4_EC11": "4df40f235cb2eef46609f229c3ea571a27c85cb5"
+  },
+  "exact_certificate": {
+    "transfer_dimension": 14,
+    "transfer_rank": 12,
+    "identical_columns_zero_based": [
+      [
+        2,
+        3
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    "rank_12_minor": {
+      "at_z": 2,
+      "rows": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "determinant": "4"
+    },
+    "full_13_hankel_minor": {
+      "at_z": 2,
+      "determinant": "-1212467180625/2048"
+    },
+    "shifted_12_hankel_minor": {
+      "at_z": 2,
+      "determinant": "+1212467180625/2048"
+    },
+    "symbolic_derivation": "T=UV with U columns 0,1,2,4,5,6,8,9,10,11,12,13 and V aliasing 3->2 and 7->6; W=VU; y_(m+1)=CU W^m Vv. Full series adds a positive transient."
+  },
+  "local_checks": [
+    {
+      "test": "SymPy exact Laurent and rank verification",
+      "checked_depths": "0..8",
+      "result": "PASS",
+      "artifact": "R4_EC12_LAURENT_TRANSFER_VERIFY.py (local bundle); GitHub ref implementation same mathematical algorithm, byte identity not asserted"
+    },
+    {
+      "test": "Independent Python integer histogram propagation",
+      "checked_depths": "1..128",
+      "result": "PASS",
+      "artifact": "R4_EC12_INDEPENDENT_INTEGER_CHECK.py"
+    }
+  ],
+  "runtime_boundaries": {
+    "native_X6": "NOT_EXECUTED",
+    "active_owner": "UNVERIFIED_CONTROL_QUOTA",
+    "native_session": "DENIED_STATIC_READONLY_SCOPE_OPERATION_SENT_FALSE",
+    "formal_result": "NOT_PUBLISHED",
+    "driver_review": "NOT_PERFORMED"
+  },
+  "open_problem": "Fixed effect-blind six-control-state positive aggregate BRC with nonlinear (n,e,k)-aware terminal decoder: construct or rule out; cannot infer from Laurent-linear Hankel rank.",
+  "activity_id": "RA-EMR4-20261025-1132-EC12POS"
+}
