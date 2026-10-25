@@ -98,7 +98,6 @@ for n in range(MAX_N+1):
                 if q==0: brute[(eps,k)]+=1
         assert dict(brute)==dict(P),(n,'raw mismatch')
         raw_words_checked+=1<<n
-
     for eps,m in families:
         families[(eps,m)].append(P[(eps,-m)])
     for eps,m,name,coeffs in ((1,13,'+13',base_plus),(-1,11,'-11',base_minus),
@@ -113,6 +112,7 @@ for n in range(MAX_N+1):
             positive_base_layers[name]+=1
             old=min_base_gap[name]
             min_base_gap[name]=gap if old is None else min(gap,old)
+
     if n in (23,24,19,20):
         witness={23:(1,11),24:(1,12),19:(-1,9),20:(-1,10)}[n]
         eps,m=witness
