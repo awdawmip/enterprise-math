@@ -1,0 +1,52 @@
+{
+  "schema": "C311_AUTHOR_AUDIT_V1",
+  "date": "2026-10-26",
+  "status": "AUTHOR_EXACT_VERIFIED_NOT_SOURCE_ADMITTED",
+  "global_snapshot": "8c38dfefccb02323723a85f214d31bcf844bbdec",
+  "enterprise_source_snapshot": "7f1913a4940bb97898f1c9c4e4cf542db3221eee",
+  "predecessor_C310": "0ea93a4cbd23994bc1f4323202922f54c8ab4785",
+  "input_C293_sha256": "03083a77480e6be5615797c2f4ffc503eee6603e9e60cbad1f11fb3ea83b3c89",
+  "paths": 19,
+  "p2_paths": 15,
+  "p3_paths": 4,
+  "exact_evaluations": 57,
+  "coefficient_witnesses": 40,
+  "D_bit_min": 42,
+  "D_bit_max": 86,
+  "m_bit_min": 4699,
+  "m_bit_max": 5043,
+  "independent_batches": [
+    {
+      "checked": 11,
+      "samples": 33,
+      "coefficients": 24
+    },
+    {
+      "checked": 8,
+      "samples": 24,
+      "coefficients": 16
+    }
+  ],
+  "generic_tests": {
+    "integer_polynomials": 4200,
+    "modular_poly_multiply": 3600
+  },
+  "native_control": {
+    "em_control_tasks": "CONTROL_QUOTA",
+    "em_session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "owner_verified": false,
+    "claim": false,
+    "source_result": false,
+    "driver_accepted": false
+  },
+  "limitations": "C305 factorized auxiliary scalar polynomial inherited; C300 identity not independently reviewed. Native BRC/X6 observer transfer not claimed.",
+  "artifacts_sha256": {
+    "C311_COMPOSITE_COEFF.py": "38452feb8fd400d6935786050c7e4514675413613602c165e7c65d6b2f169e2b",
+    "C311_EVAL_PROBE.py": "13fead2202b44229525203ab484b2ef838bbbacc28dd22a6cca9526bfeced7af",
+    "C311_INDEPENDENT_WITNESS_CHECK.py": "5d464a0e84fda55939c22722bbe50e0d55f6f27a027672c94345b39b7f8eee21",
+    "C311_GENERIC_EXACT_TEST.py": "eae66f1d20cad7a879523e5f94fc54e9d2caf8e5ba61452be0210c631104dfea",
+    "C311_COMPOSITE_SIEVE_CERT.json": "535f6bfebe09a7bd609f711ca08fc4942ca57ee27950ec53355fda280cdfd936",
+    "C311_AUTHOR_THEOREM_AND_PROOF_20261026.md": "f69812c0552e2a7763c5f033824498c9280785cb2fa1de69beebe5b6d4876e2c"
+  }
+}
