@@ -58,6 +58,28 @@ K_m=2\frac{(-1)^m}{2^m}\ell_m+
 \boxed{A_m\bar U_2=-K_m/((2m)!)^3\pmod p.}
 \]
 
+## 终端调和端口的实际求值（同轮第二数学单元）
+
+上式的终端 \(2c_m\ell_m\) 尚依赖 \(\ell_m\)。本轮随后证明更强的**全素数端口归约**：
+
+\[
+\boxed{\ell_m\equiv-H_{3m}+\frac{H_{2m}-H_m}{3}\pmod p},
+\qquad H_r=\sum_{j=1}^r1/j .
+\]
+
+证明：\((6j+1)^{-1}\equiv-[6(m-j)]^{-1}\)，故 \(2\sum_{j<m}(6j+1)^{-1}\equiv-H_m/3\)。将 \(H_{3m}\) 按分母 \(3j+1,3j+2,3j+3\) 分组，则原 \(\ell_m\equiv-H_{3m}-\sum_{j<m}(3j+1)^{-1}\)。又 \(3j+1=p-3(2m-j)\)，故后一项 \(\sum_{j<m}(3j+1)^{-1}\equiv-(H_{2m}-H_m)/3\)。逐项分母均为 \(p\)-单位。证毕。
+
+与已取得的 \(q_p(4/3)\equiv-H_{3m}+(2/3)H_{2m}\) 结合，严格得到
+\[
+\boxed{\ell_m\equiv q_p(4/3)-\frac{H_m+H_{2m}}3\pmod p}.
+\]
+再调用**已有经典** Lehmer 调和定理 \(H_m\equiv-2q_p(2)-(3/2)q_p(3)\)、\(H_{2m}\equiv-(3/2)q_p(3)\)、\(H_{3m}\equiv-2q_p(2)\)（参 Emma Lehmer, *Annals of Mathematics* 39 (1938), 350–360；https://oeis.org/A238201），得
+\[
+\boxed{\ell_m\equiv\tfrac83 q_p(2)\pmod p}.
+\]
+后一式是调用 Lehmer 的推论，**不宣称 Lehmer 原定理的原创性**；上面第一条反射证明不需要文献前提。本轮用独立整数模实现核验 \(p\le3200,\ p\equiv1\bmod6\) 的全部220个素数以及 \(p=19963\)（共221），无反例。原终端可化为 \(2(-1/2)^m(8/3)q_p(2)\)，但内部 \(\ell_n\)、原始 \(U_1\) 双交叉和 \(C_p\) 仍保留，JT2/LIFT 仍 OPEN。
+
+
 ## 原始目标的更小等价证书（桥接前提明确保留）
 
 前任作者侧原始端点保持
