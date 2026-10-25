@@ -27,6 +27,11 @@ Consequently,
 For any other admissible prime failing this binomial congruence, `v_p(E_p)=4`.
 The binomial condition is the usual Wolstenholme-prime congruence; the lemma does not classify the primes satisfying it.
 
+**Independent elementary product-to-harmonic bridge:** Set `h_r=Σ_{j=1}^{p-1}j^{-r}` in `Z_(p)`. For `1<=r<p-1`, finite-field power sums imply `h_r≡0 (mod p)`; in particular `h_2,h_4∈pZ_(p)`.
+Pairing `j` and `p-j` gives `2h_3 ≡ -3p h_4 (mod p²)`, hence `h_3∈p²Z_(p)`; it also gives `2h_1 ≡ -p h_2-p²h_3-p³h_4 (mod p⁴)`.
+Expanding the logarithm of the finite product yields `log T=ph_1-(p²/2)h_2+(p³/3)h_3-(p⁴/4)h_4 ≡ -p²h_2 (mod p⁵)`.
+Since `v_p(p²h_2)>=3`, exponentiation gives `T≡1-p²h_2=1-p³Θ_p (mod p⁵)`. This proof is elementary but the subsequent L-tail normalization is inherited from the original source.
+
 **Proof:** Factor the *exact rational* normalization as
 `ℓ₁=(3²·13·59·109)/(2¹¹·5²·7·11)`.
 For admissible p, denominator primes are excluded and 59 is not 1 modulo 6, leaving exactly 13 and 109 as numerator factors. At every other admissible p, ℓ₁ is a p-adic unit, so the first displayed congruence vanishes iff `Θ_p ≡ 0 (mod p)`. Since `T_p(p) ≡ 1-p³Θ_p (mod p⁵)`, this is equivalent to `binom(2p-1,p-1) ≡ 1 (mod p⁴)`. Otherwise the coefficient of p⁴ is nonzero, establishing exact valuation 4. QED.
@@ -35,7 +40,7 @@ For admissible p, denominator primes are excluded and 59 is not 1 modulo 6, leav
 
 ## Arithmetic check / provenance
 
-A separately implemented, nonblind Python integer-modular check at this turn evaluated the full stated rational A-transfer and T/R factors against the compressed p⁵ prediction on **206/206** primes `13 <= p < 3000, p ≡ 1 (mod 6)`. It found a nonzero p⁴ tail coefficient on 204 and zero at exactly p=13 and p=109 within that finite range; it separately checked `Σj^-2 ≡ 0 (mod 16843²)` for p=16843. The original 79-prime regression, equations and WZ bridge belong to the prior author; this new check is **nonblind** and cannot satisfy contributor-independent Driver review. The 206-prime observation does not prove all later non-numerator primes nonexceptional.
+A separately implemented, nonblind Python integer-modular check at this turn evaluated the rational A-transfer to sufficient p³ precision and the T/R factors against the compressed p⁵ prediction on **206/206** primes `13 <= p < 3000, p ≡ 1 (mod 6)`. It found a nonzero p⁴ tail coefficient on 204 and zero at exactly p=13 and p=109 within that finite range; it separately checked `Σj^-2 ≡ 0 (mod 16843²)` for p=16843. The original 79-prime regression, equations and WZ bridge belong to the prior author; this new check is **nonblind** and cannot satisfy contributor-independent Driver review. The 206-prime observation does not prove all later non-numerator primes nonexceptional.
 
 ## Next legal action
 
