@@ -1,0 +1,18 @@
+{
+  "schema": "EM_R4_EC24_COLD_START_VERIFICATION_V1",
+  "status": "PASS",
+  "command": "python R4_EC24_verify.py",
+  "python_version": "3.13.5",
+  "sympy_version": "1.14.0",
+  "observed_output": "{\"pass\": true, \"degrees\": [12, 13, 14], \"lcm\": [59875200, 389188800, 2724321600], \"integer_check_cases\": 63, \"at_c4\": [{\"c\": 4, \"r\": 0, \"exact_value\": \"24836\"}, {\"c\": 4, \"r\": 1, \"exact_value\": \"60172\"}, {\"c\": 4, \"r\": 2, \"exact_value\": \"146475\"}]}",
+  "report_byte_equal": true,
+  "report_sha256": "ecc987a8e3e04a516f530e9429f3bdf21ccb125a35af71aa758f6566faab8582",
+  "script_sha256": "43d796d5dc945453543698d8f837400427eedf4205bab183dc1f98d05fe12a4e",
+  "proof_sha256": "bed7336330fa48901d5234b7a3be07755430f65a38af05e1eb7ac4b18350fe6a",
+  "independent_integer_crosschecks": 63,
+  "limitations": [
+    "Author-side exact verification, not independent research review",
+    "No native X6 execution",
+    "No native CLAIM"
+  ]
+}
