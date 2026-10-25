@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Stage114 independent literal ordered-prefix DFS with integer probability carrier."""
+"""Independent exact integer-carrier, literal ordered-prefix validation for N14 Stage114.
+No imports from primary. P path numerators over 24^14; Q over 12^14.
+"""
 from fractions import Fraction as F
 from functools import lru_cache
 A=(10,3,0); D=(9,1,2); N=14
@@ -34,6 +36,7 @@ for n in range(15):
    act[s]=choices[0]
 
 def run(u_stop_A,w_stop_D):
+ # first hit values of D invariant to parameters because A deeper and disjoint
  E_P=E_Q=T_P=T_Q=0
  touched_D=0; Dp=0;Dq=0
  leaves=0; nodes=0
@@ -48,6 +51,7 @@ def run(u_stop_A,w_stop_D):
   action=('P' if u_stop_A else 'C') if state==A else ('Q' if w_stop_D else 'C') if state==D else act[state]
   if action != 'C':
    leaves+=1
+   # scale rational prefix weights into fixed denominators
    px=pnum*24**(N-n)
    qx=qnum*12**(N-n)
    if action=='P':E_Q+=qx
