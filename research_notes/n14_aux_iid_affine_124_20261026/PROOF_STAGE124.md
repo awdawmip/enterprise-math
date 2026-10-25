@@ -1,111 +1,157 @@
-# R1 / N14 — Stage124: exact full-real affine optimum and sharpness
+# Enterprise Math / R1-N14 auxiliary Stage124 — exact all-real affine interval
 
-**Claim class:** AUTHOR_EXACT_FINITE_COMPUTATION_ASSISTED_PROOF, no native CLAIM/Result or independent Research Driver mathematical acceptance. External finite ternary iid model **only**, not the P000 native X6 Cell-space model.
+**Evidence tier:** author-proved finite-model theorem, independently *implemented* author cross-check; **not** independently reviewed, natively CLAIMed, frozen or promoted. All claims concern an **external** finite iid model, not P000, native X6 or Heartbeat dynamics.
 
-## 1. Exact theorem
+## 1. Mother problem and immutable inputs
 
-For P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), and at most N=14 iid observations, consider all randomized stopping/decision rules depending on *literal full ordered histories*. Put eP=P(declare Q), eQ=Q(declare P), tP=E_P(tau), tQ=E_Q(tau); minimize V14(alpha)=min max(tP,tQ) subject to eP,eQ<=alpha.
+A sequential randomized decision between two ternary iid laws, horizon N=14:
 
-From author-proved Stage123:
-alpha123=2573845365525582162925/7411551152237344456704,
+- P=(1/8, 1/24, 5/6), Q=(1/12, 1/12, 5/6).
+- eP=P(declare Q), eQ=Q(declare P), tP=E_P(tau), tQ=E_Q(tau).
+- V14(alpha)=min max(tP,tQ) over **all** randomized policies on literal ordered histories with 0<=tau<=14 and eP,eQ<=alpha.
+
+Highest inherited author theorem: Stage123, file `research_notes/n14_aux_iid_affine_123_20261026/PROOF_STAGE123.md`, version at EM main@520517d398d10a46c55d6f106cee1db5a0e82a69.
+
+alpha123=2573845365525582162925/7411551152237344456704;
 V123=377878052586265662571445/29646204608949377826816.
 
-Let K124=1245231873/1658336, L124=36440256/51823, S124=2411320065/1658336, and eta124=8596140125/8578184203978407936.
+Global rules read as one immutable `GLOBAL_KNOWLEDGE_V1` main@e8d65b2492cf35be071c32b0c9852487f100be07. Project P000 projection blob c6d4d2d79b09537bdae55253baef9c28583e44dc agrees with canonical P000 original blob `770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc` (metadata checked). EM `docs/PORTABLE_RESEARCH_PROTOCOL.md` blob ca5de2d680d2439ff4b67c2c55fbd4159813cd5c and native project protocol apply to provenance, not as mathematical axioms.
 
-**Theorem:** For *every real* 0<=delta<=eta124,
-V14(alpha123+delta) = V123 - S124*delta.
-The exact new endpoint is
-alpha124=2573845372952647230925/7411551152237344456704,
-V124=377878009388672358128945/29646204608949377826816.
+## 2. Theorem (all real parameters)
 
-This **same supporting affine line is right-sharp**: equality to it cannot hold at any alpha>alpha124. We do not assert that larger alpha is infeasible or that the next support is known.
+Define
 
-## 2. Universal Bellman support for arbitrary ordered strategies
+    eta124=8596140125/8578184203978407936,
+    K124=1245231873/1658336,
+    L124=36440256/51823,
+    S124=K124+L124=2411320065/1658336.
 
-At count state s=(n,a,b), where a,b count symbol 0,1, the prefix likelihood ratio is Q(word)/P(word)=2^(a+b)/3^a. Let H(s) minimize the costs:
-* declare P: K124*2^(a+b)/3^a;
-* declare Q: L124;
-* continue if n<14: 1+(1/8)H(n+1,a+1,b)+(1/24)H(n+1,a,b+1)+(5/6)H(n+1,a,b).
+Then **for every real** delta in [0, eta124]:
 
-Exact rational backwards enumeration covers all 680 count states, 1,238 *strictly positive* alternatives, no negative gaps, and only two ties: A=(9,3,0) P/continue and T=(14,7,4) terminal P/Q. The least positive gap is 294166217221/39614118100992. At the root,
+    V14(alpha123+delta) = V123 - S124*delta.
 
-H(0)=5878829162353591081475135/11355563791072559628288
-    =V123+S124*alpha123.
+In particular, the exact right endpoint and value are
 
-For each **literal ordered prefix**, its likelihood ratio and conditional iid suffix depend only on that count state. Backward Bellman induction is therefore valid without restricting full-history strategies to count-measurable policies:
+    alpha124=2573845372952647230925/7411551152237344456704,
+    V124=377878009388672358128945/29646204608949377826816.
 
-H(0)<=tP+L124*eP+K124*eQ<=max(tP,tQ)+S124*alpha.
+The affine supporting line is **right-sharp**: for every alpha in (alpha124,1],
 
-Consequently V14(alpha)>=H(0)-S124*alpha for all admissible policies.
+    V14(alpha) > H124(0,0,0) - S124*alpha.
 
-## 3. Literal BRC positive-mass first hits and exact affine moments
+This is a statement about the support line, not infeasibility of the test beyond the endpoint.
 
-Retain each actual ordered word, its multiplicity, first-hit depth and separate positive P and Q integer-numerator weights (P symbols have numerators (3,1,20)/24, Q symbols (1,1,10)/12). Exact full-tree enumeration under unique Bellman minimizers elsewhere yields
+## 3. Full-history Bellman lower bound
 
-| Tie state | Ordered first-hit words | P mass | Q mass |
-|---|---:|---:|---:|
+For s=(n,a,b), the count state of any ordered prefix (a counts symbol 0 and b counts symbol 1), the likelihood ratio is
+
+    Q(prefix)/P(prefix) = 2^(a+b)/3^a.
+
+Set H14(s)=min(K124*Q(prefix)/P(prefix), L124). Backward for n<14,
+
+    H(s)=min { K124*2^(a+b)/3^a [declare P],
+               L124               [declare Q],
+               1+sum_j P_j H(s+e_j) [continue] }.
+
+**Exact rational exhaustive result:** 680 count states, 1238 strictly positive nonchosen action gaps, no negative gaps, minimum strict gap `294166217221/39614118100992`. There are precisely two action ties:
+
+- A=(9,3,0), declare P / continue.
+- T=(14,7,4), declare P / declare Q.
+
+Root:
+
+    H0=5878829162353591081475135/11355563791072559628288
+      =V123+S124*alpha123.
+
+Bellman induction applies to arbitrary word-dependent randomized policies: within a given count state the prefix likelihood ratio and future iid suffix law are identical. Writing eP,eQ,tP for the four declared observables gives
+
+    H0 <= tP + L124*eP + K124*eQ
+       <= max(tP,tQ) + S124*alpha,
+
+hence V14(alpha)>=H0-S124*alpha for all feasible alpha.
+
+## 4. Literal branch provenance and the exact two-parameter strategy
+
+At A, stop/declare P with probability y, else continue; at terminal T, declare P with probability z and Q with probability 1-z; at all other states take the unique Bellman-optimal action, in particular J=(10,5,4) now uniquely declares Q. All other actions remain deterministic.
+
+Under the deterministic non-stopping-at-A skeleton, literal **first-hit ordered** histories give:
+
+| State | first-hit words | P mass | Q mass |
+| --- | ---: | ---: | ---: |
 | A=(9,3,0) | 84 | 109375/1990656 | 109375/6718464 |
 | T=(14,7,4) | 7962 | 165875/25048249270272 | 165875/26748301344768 |
 
-A cannot be an ancestor of T because going from depth9 counts (3,0) to depth14 (7,4) needs eight symbol-0/1 increases in only five draws. T cannot precede A by depth. These literal positive-mass path cones are disjoint, so there is **no mixed probability term**.
+A cannot be an ancestor of T: A to T would require (7-3)+(4-0)=8 counted draws within only 14-9=5 remaining observations. T is too deep to precede A. Thus the two ordered-prefix path cones are disjoint, including under probabilistic stopping, and no yz interaction survives in the four specified moments. BRC is actually reused here as finite explicit **positive rational weighted ordered paths** with separate P and Q weights, multiplicities and retained branch identity. The count quotient is admissible only for this iid four-observer, fixed-future horizon; no quotient to native P000 dynamics is asserted.
 
-Let y be the probability of immediately declaring P at A (otherwise continue); z the probability of declaring Q at terminal T (otherwise P). All other states use the unique minimizing action. Then with M=(eP,eQ,tP,tQ),
+Define the moment vector M=(eP,eQ,tP,tQ). Let M00=M(0,0), dA=M(1,0)-M00, dT=M(0,1)-M00. Two independently written exact algorithms obtained
 
-M(y,z)=M00+y*dA+z*dT,
+    M00=(
+       608919703452600011/1752976676930715648,
+       55715889515225/160489808068608,
+       2798007941169380921/219122084616339456,
+       161747615623729/13374150672384),
+    dA=(
+      -1921609375/7925422620672,
+       259765625/835884417024,
+      -20758609375/330225942528,
+      -1476453125/69657034752),
+    dT=(
+      -165875/25048249270272,
+       165875/26748301344768,
+       0, 0).
 
-where the exact four-vectors are
+All four corners have exact identity `M(1,1)=M00+dA+dT`, and by the disjoint-cone argument this holds for all **real** y,z in [0,1]: `M(y,z)=M00+y*dA+z*dT`.
 
-M00=(608919691844004011/1752976676930715648,
-55715890510475/160489808068608,
-2798007941169380921/219122084616339456,
-161747615623729/13374150672384);
+Both error constraints bind if and only if
 
-dA=(-1921609375/7925422620672,
-259765625/835884417024,
--20758609375/330225942528,
--1476453125/69657034752);
+    y(z)=151548960415319/415627392000000
+         -(160567/6927123200)*z.
 
-dT=(165875/25048249270272,
--165875/26748301344768,
-0,0).
+Throughout the full real interval 0<=z<=1, this is a legal probability (0<y<1). The common error equals
 
-The T switch is between two decisions **at the same terminal depth**, so it contributes no time change. Exact four-corner recurrence and separately written integer literal-word DFS agree on all four observers, including the identity M11=M00+dA+dT.
+    alpha(z)=alpha123+eta124*(1-z).
 
-The only compressed quotient used is justified by the iid likelihood ratio and suffix moment equality *for these four observers*. No arbitrary future observer or native X6 state correspondence is inferred.
+At z=1: y=151539326395319/415627392000000, M has error alpha123 and tP=V123, hence exactly agrees with the inherited Stage123 endpoint. At z=0: y=151548960415319/415627392000000, common error alpha124 and tP=V124.
 
-## 4. Exact primal family, every real point
+The time differences at z=1 and z=0 are respectively
 
-The equation eP=eQ is exactly equivalent to
+    19564551641189828171621/29646204608949377826816 >0,
+    19564523009155753489121/29646204608949377826816 >0.
 
-y(z)=151539326395319/415627392000000
-     +(160567/6927123200)*z.
+The difference tP-tQ is affine in z and strictly positive throughout [0,1]. Therefore max(tP,tQ)=tP. Every selected action Bellman-minimizes, so exact equality to the universal lower bound holds for each member of the continuum of strategies. Since z=1-delta/eta124 gives any real delta in [0,eta124], the theorem follows.
 
-For all real z in [0,1],
+## 5. Right-sharpness
 
-0<y(0)<y(1)=151548960415319/415627392000000<1,
+The finite-horizon tree contains finitely many histories, and its product of finite randomized action simplices is compact. An optimal feasible policy exists for each feasible alpha. Were a policy for alpha>alpha124 to attain the *same* supporting line H0-S124*alpha, all nonnegative gaps in the Bellman induction would have to vanish; positive K124,L124 would force eP=eQ=alpha, and tP=max(tP,tQ).
 
-so both randomizations are legal. Exactly,
+Only the two listed action ties are available. For arbitrary history-specific randomization within a count fiber, its occupancy-weighted effective stopping/terminal-decision probability can be averaged: Q-weight at each such prefix is a fixed positive likelihood ratio times P-weight, while future suffix laws coincide. Both error and time observers are preserved by this aggregation. Because A and T have disjoint path cones, the reduced observers must have the above `M(y,z)` form for some y,z in [0,1]. Tight error balance then forces y=y(z), and `alpha(z)=alpha123+eta124*(1-z)<=alpha124`, contradiction. Therefore the support line is sharply terminated at alpha124.
 
-eP=eQ=alpha123+eta124*z,
-tP=V123-S124*eta124*z.
+## 6. Actual author-side computation and limits
 
-The endpoint margins tP-tQ are respectively
+`VERIFY_STAGE124.py`: exact Python `Fraction` bottom-up Bellman over all 680 states; 1238 positive gaps; all tie identities; all four affine observer moments; inherited and new endpoints; strict P-time dominance; lower-bound equality; exact dual sweep. **Executed locally: PASS.**
 
-19564551641189828171621/29646204608949377826816 > 0,
-19564523009155753489121/29646204608949377826816 > 0.
+`INDEPENDENT_ORDERED_STAGE124.py`: separately written integer-weight, literal ordered-prefix DFS using P=(3,1,20)/24 and Q=(1,1,10)/12, with exact terminal masses. All four deterministic (y,z) corners agree with the main checker; visits respectively 815542, 815542, 810502, 810502, and first hits A=84, T=7962 in every corner. **Executed locally: PASS.**
 
-The time difference is affine, hence tP>tQ on the entire real interval. Every action used minimizes its Bellman cost; therefore H(0)=tP+L124*eP+K124*eQ. Since the errors equal the allowed alpha and max(tP,tQ)=tP, the constructed policies attain the universal Bellman bound throughout the interval.
+Author-side distinct implementations are *not* independent Research Driver reviews. No Lean formalization, native P000/X6 bridge or claim of actual physical-world law. No source-native Result freeze.
 
-## 5. Right-sharpness of this support
+## 7. A non-promoted Stage125 candidate and explicit next unit
 
-The finite randomized full-history policy space is compact. If the same affine support were attained at alpha>alpha124, positivity of K124,L124 would force both errors to equal alpha and all positively reached actions to minimize Bellman costs. Only A/T have tied actions; all others have strictly positive gaps. Prefix-specific randomizations within an iid count fiber can be weighted-averaged for the declared four observables because its likelihood ratio and suffix observer laws coincide. The two ordered first-hit cones are disjoint. Thus any equality-attaining policy has the *same four observables* as some legal (y,z) in [0,1]^2 satisfying the unique balance equation above. Its balanced alpha=alpha123+eta124*z strictly increases with z; z<=1 implies alpha<=alpha124, contradiction. This proves the support cannot extend rightward.
+At Stage124's right edge z=0 (T uniquely declares Q), keep the A P/continue tie along the dual direction
 
-## 6. Execution, authority, exact provenance and next question
+    dK/dt=-1, dL/dt=-608000/474363.
 
-Two **author implementations** executed locally with exact stdlib Fraction arithmetic, no floating point: a bottom-up all-680-state Bellman/four-corner checker and a separate top-down memoized Bellman plus literal ordered-prefix integer DFS. The independent implementation visited 815542 / 815542 / 810502 / 810502 nodes at corners (y,z)=(0,0)/(0,1)/(1,0)/(1,1), recovered first-hit counts/PQ masses, all four root moments, zero mixed finite difference and exact endpoint equalities. Source, machine-readable certificate, run evidence and bounded next unit accompany this proof. GitHub source readback is storage validation, **not remote execution**.
+For every strictly positive frozen-policy Bellman gap with negative derivative, compare its first zero `-gap/(d gap/dt)`. The first collision occurs exactly at
 
-BRC reuse status REUSE_APPLIED to positive rational ordered path identity, multiplicity, provenance, separate P/Q masses and an expressly restricted four-observer quotient; adapted existing N14 exact-checker family. No P000 six-axis observer/update-preserving mapping or physical applicability has been proved. Independent Research Driver review pending.
+    t=13731333106707/1006541960224,
+    U=(12,7,5), competing declare Q / continue.
 
-Fixed GLOBAL_KNOWLEDGE_V1 research read main@e8d65b2492cf35be071c32b0c9852487f100be07, P000 original Git blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc. Initial EM research source main@520517d398d10a46c55d6f106cee1db5a0e82a69, subsequently consumed immutable concurrent Stage123 author source at 0300f93ab4f4e4a0daa2fd214704f80ad14a6ae6. GitHub account awdawmip. Native inventory returned CONTROL_QUOTA and session_start STATIC_READONLY_SCOPE_DENIED (operation_sent=false); no verified active Owner, native CLAIM/Result or review. This is ordinary versioned **author** evidence only.
+The resulting **dual candidate only** is
 
-Stage125 currently DUAL_CANDIDATE_ONLY at K125=3579845625/4855672, L125=416181048/606959, with new tie U=(12,7,5) Q/continue. Stage125 primal optimum is unproved; see NEXT_TASK_PACKET_125.md.
+    K125=3579845625/4855672,
+    L125=416181048/606959.
+
+Fresh 680-state exact Bellman at (K125,L125) finds ties A=(9,3,0) P/continue and U=(12,7,5) Q/continue, 1238 strictly positive gaps, no negative gaps, and minimum strict gap `578968738307/115991671209984`. A *primal* optimal interval is **not** yet established. Next calculate U's ordered first-hit mass, disjointness or intersection with A (A->U would require 9 counted draws in 3 steps, so ancestry is already excluded), exact four-moment increments, legal balancing interval and right-sharpness; then author and separate Driver checks as required.
+
+## 8. Identity, authority and persistence boundary
+
+Authenticated connected GitHub identity: `awdawmip`, with repository push/admin privilege; this proves the GitHub writer, *not* native Researcher/Owner. Source-native task inventory returned `CONTROL_QUOTA`; native session start returned `STATIC_READONLY_SCOPE_DENIED`, `operation_sent=false`. Thus live owner, native CLAIM, native Result and independent Driver acceptance are **unverified**. This author research checkpoint must not be represented as an accepted formal task result; no access-control restriction was bypassed or attempted via Drive.

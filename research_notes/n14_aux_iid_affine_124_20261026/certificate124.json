@@ -1,6 +1,5 @@
 {
-  "schema": "EM_R1_N14_STAGE124_AUTHOR_EXACT_CERT_V1",
-  "status": "AUTHOR_EXACT_FINITE_COMPUTATION_ASSISTED_PROOF",
+  "schema": "EM_N14_STAGE124_AUTHOR_CERT_V1",
   "model": {
     "N": 14,
     "P": [
@@ -12,103 +11,65 @@
       "1/12",
       "1/12",
       "5/6"
-    ],
-    "full_ordered_history": true,
-    "native_X6_bridge": false
+    ]
   },
-  "source": {
-    "global_snapshot": "e8d65b2492cf35be071c32b0c9852487f100be07",
-    "P000_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
-    "EM_original": "520517d398d10a46c55d6f106cee1db5a0e82a69",
-    "stage123_read_ref": "0300f93ab4f4e4a0daa2fd214704f80ad14a6ae6"
+  "previous": {
+    "alpha": "2573845365525582162925/7411551152237344456704",
+    "V": "377878052586265662571445/29646204608949377826816"
   },
   "dual": {
     "K": "1245231873/1658336",
     "L": "36440256/51823",
-    "S": "2411320065/1658336",
-    "H0": "5878829162353591081475135/11355563791072559628288",
-    "states": 680,
-    "positive_gaps": 1238,
+    "root": "5878829162353591081475135/11355563791072559628288"
+  },
+  "theorem": {
+    "all_real_delta_min": "0",
+    "all_real_delta_max": "8596140125/8578184203978407936",
+    "slope": "2411320065/1658336",
+    "alpha_end": "2573845372952647230925/7411551152237344456704",
+    "V_end": "377878009388672358128945/29646204608949377826816",
+    "sharp_right": true
+  },
+  "bellman": {
+    "count_states": 680,
+    "strict_positive_gaps": 1238,
     "negative_gaps": 0,
-    "min_positive": "294166217221/39614118100992",
     "ties": {
       "(9,3,0)": [
-        "P",
-        "C"
+        0,
+        2
       ],
       "(14,7,4)": [
-        "P",
-        "Q"
+        0,
+        1
       ]
-    }
+    },
+    "min_positive_gap": "294166217221/39614118100992"
   },
-  "BRC_firsthits": {
-    "(9,3,0)": {
-      "words": 84,
+  "ordered": {
+    "A": {
+      "count": 84,
       "P": "109375/1990656",
       "Q": "109375/6718464"
     },
-    "(14,7,4)": {
-      "words": 7962,
+    "T": {
+      "count": 7962,
       "P": "165875/25048249270272",
       "Q": "165875/26748301344768"
-    }
-  },
-  "moments": {
-    "M00": [
-      "608919691844004011/1752976676930715648",
-      "55715890510475/160489808068608",
-      "2798007941169380921/219122084616339456",
-      "161747615623729/13374150672384"
-    ],
-    "dA": [
-      "-1921609375/7925422620672",
-      "259765625/835884417024",
-      "-20758609375/330225942528",
-      "-1476453125/69657034752"
-    ],
-    "dT": [
-      "165875/25048249270272",
-      "-165875/26748301344768",
-      "0",
-      "0"
-    ],
-    "cross_term": "0"
-  },
-  "balance": {
-    "y0": "151539326395319/415627392000000",
-    "slope": "160567/6927123200",
-    "end": "151548960415319/415627392000000",
-    "z_domain": "[0,1]"
-  },
-  "interval": {
-    "alpha123": "2573845365525582162925/7411551152237344456704",
-    "V123": "377878052586265662571445/29646204608949377826816",
-    "eta": "8596140125/8578184203978407936",
-    "alpha124": "2573845372952647230925/7411551152237344456704",
-    "V124": "377878009388672358128945/29646204608949377826816",
-    "time_margin_start": "19564551641189828171621/29646204608949377826816",
-    "time_margin_end": "19564523009155753489121/29646204608949377826816",
-    "full_real_interval": true,
-    "right_support_sharp": true
-  },
-  "validation": {
-    "local_exact_fraction_Bellman": "PASS",
-    "local_independently_written_literal_integer_DFS": "PASS",
-    "literal_prefix_visits": {
-      "10": 810502,
-      "11": 810502,
-      "00": 815542,
-      "01": 815542
     },
-    "gitHub_remote_execution": false,
-    "independent_Research_Driver_review": false
+    "visits_four_corners": [
+      815542,
+      815542,
+      810502,
+      810502
+    ]
   },
-  "authority": {
-    "GitHub_actor": "awdawmip",
-    "native_task_inventory": "CONTROL_QUOTA",
-    "native_session": "STATIC_READONLY_SCOPE_DENIED",
-    "operation_sent": false,
-    "native_claim": false
-  }
+  "stage125_candidate_only": {
+    "K": "3579845625/4855672",
+    "L": "416181048/606959",
+    "new_tie": "(12,7,5)"
+  },
+  "verification": "TWO_AUTHOR_EXACT_LOCAL_PROGRAMS_PASS",
+  "native_owner": "UNVERIFIED",
+  "driver_review": "NOT_PERFORMED"
 }

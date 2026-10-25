@@ -1,74 +1,93 @@
-"""Stage124 independently written top-down DP + literal-word integer DFS, author evidence."""
+"""Independently constructed N14 Stage124 literal ordered-prefix verifier.
+Integer-weight P and Q measures on every reached ordered word; Fraction only for
+Bellman choices and the reported exact moment fractions.
+"""
 from fractions import Fraction as F
-from functools import cache
 from collections import defaultdict
-import json
-N=14;pn=(3,1,20);qn=(1,1,10);p=tuple(F(i,24) for i in pn)
-K=F(1245231873,1658336);L=F(36440256,51823)
-A=(9,3,0);T=(14,7,4)
-@cache
-def best(n,a,b):
- costs={'P':K*F(2**(a+b),3**a),'Q':L}
- if n<N:costs['C']=1+sum(p[j]*best(n+1,a+(j==0),b+(j==1))[0] for j in range(3))
- z=min(costs.values())
- return z,tuple(k for k,v in costs.items() if v==z)
-corners={};visited={};firsthits={}
-for x in (0,1):
- for z in (0,1):
-  acc=[0,0,0,0,0];hit=defaultdict(lambda:[0,0,0])
-  def walk(n,a,b,pw,qw):
-   acc[4]+=1;s=(n,a,b)
-   if s in (A,T):
-    hit[s][0]+=1
-    hit[s][1]+=pw*24**(N-n)
-    hit[s][2]+=qw*12**(N-n)
-   options=best(n,a,b)[1]
-   if s==A:action='P' if x else 'C'
-   elif s==T:action='Q' if z else 'P'
-   else:action=options[0]
-   assert action in options,(s,action,options)
-   if action=='C':
-    for j in range(3):
-     walk(n+1,a+(j==0),b+(j==1),pw*pn[j],qw*qn[j])
-   else:
-    wp=pw*24**(N-n);wq=qw*12**(N-n)
-    if action=='Q':acc[0]+=wp
-    else:acc[1]+=wq
-    acc[2]+=n*wp;acc[3]+=n*wq
-  walk(0,0,0,1,1)
-  vector=tuple(F(acc[i],(24 if i in (0,2) else 12)**N) for i in range(4))
-  corners[f'{x}{z}']=list(map(str,vector));visited[f'{x}{z}']=acc[4]
-  if x==z==0:
-   firsthits={str(s):{'ordered_words':t[0],'P_mass':str(F(t[1],24**N)),
-     'Q_mass':str(F(t[2],12**N))} for s,t in hit.items()}
-assert best.cache_info().currsize==680
-assert firsthits[str(A)]=={'ordered_words':84,'P_mass':'109375/1990656','Q_mass':'109375/6718464'}
-assert firsthits[str(T)]=={'ordered_words':7962,'P_mass':'165875/25048249270272','Q_mass':'165875/26748301344768'}
-get=lambda tag:tuple(map(F,corners[tag]))
-sub=lambda a,b:tuple(x-y for x,y in zip(a,b))
-add=lambda a,b:tuple(x+y for x,y in zip(a,b))
-mul=lambda a,t:tuple(x*t for x in a)
-M=get('00');dA=sub(get('10'),M);dT=sub(get('01'),M)
-assert get('11')==add(add(M,dA),dT)
-assert dT[2:]==(0,0)
-D=lambda v:v[0]-v[1]
-y0=-D(M)/D(dA);slope=-D(dT)/D(dA)
-assert y0==F(151539326395319,415627392000000)
-assert slope==F(160567,6927123200)
-left=add(M,mul(dA,y0))
-right=add(add(M,mul(dA,y0+slope)),dT)
-assert 0<y0<y0+slope<1
-assert left[0]==left[1] and right[0]==right[1]
-assert left[2]>left[3] and right[2]>right[3]
-assert left[0]==F(2573845365525582162925,7411551152237344456704)
-assert left[2]==F(377878052586265662571445,29646204608949377826816)
-assert right[0]==F(2573845372952647230925,7411551152237344456704)
-assert right[2]==F(377878009388672358128945,29646204608949377826816)
-eta=right[0]-left[0]
-assert eta==F(8596140125,8578184203978407936)
-assert right[2]==left[2]-(K+L)*eta
-print(json.dumps({'status':'PASS','states':680,'corners':corners,'prefix_visits':visited,
- 'first_hits':firsthits,'M00':list(map(str,M)),
- 'dA':list(map(str,dA)),'dT':list(map(str,dT)),
- 'balance_intercept':str(y0),'balance_slope':str(slope),
- 'eta124':str(eta),'alpha124':str(right[0]),'V124':str(right[2])},indent=2))
+
+N=14
+K=F(1245231873,1658336)
+L=F(36440256,51823)
+A=(9,3,0)
+T=(14,7,4)
+P_INT=(3,1,20)
+Q_INT=(1,1,10)
+P24=(F(3,24),F(1,24),F(20,24))
+H={}
+POL={}
+def child(s,j):
+    n,a,b=s
+    return (n+1,a+(j==0),b+(j==1))
+for n in range(N,-1,-1):
+    for a in range(n+1):
+        for b in range(n+1-a):
+            s=(n,a,b)
+            opts=[K*F(2**(a+b),3**a),L]
+            if n<N:
+                opts.append(F(1)+sum(P24[j]*H[child(s,j)] for j in range(3)))
+            H[s]=min(opts)
+            POL[s]=opts.index(H[s])
+assert H[(0,0,0)]==F(5878829162353591081475135,11355563791072559628288)
+DEN_P=24**N
+DEN_Q=12**N
+
+def enumerate_word(y,z):
+    hits=defaultdict(lambda:[0,0,0])
+    total=[0,0,0,0]
+    visited=0
+    stop_hist=0
+    def visit(state,pw,qw):
+        nonlocal visited,stop_hist
+        visited+=1
+        n=state[0]
+        if state in (A,T):
+            hh=hits[state]
+            hh[0]+=1
+            hh[1]+=pw*24**(N-n)
+            hh[2]+=qw*12**(N-n)
+        if state==A:
+            act=0 if y else 2
+        elif state==T:
+            act=0 if z else 1
+        else:
+            act=POL[state]
+        if act!=2:
+            stop_hist+=1
+            mp=pw*24**(N-n)
+            mq=qw*12**(N-n)
+            if act==1:total[0]+=mp # P -> Q
+            else:total[1]+=mq # Q -> P
+            total[2]+=n*mp
+            total[3]+=n*mq
+            return
+        for j in range(3):
+            visit(child(state,j),pw*P_INT[j],qw*Q_INT[j])
+    visit((0,0,0),1,1)
+    obs=(F(total[0],DEN_P),F(total[1],DEN_Q),F(total[2],DEN_P),F(total[3],DEN_Q))
+    return obs,hits,visited,stop_hist
+
+expected={
+    "00":(F(608919703452600011,1752976676930715648),F(55715889515225,160489808068608),F(2798007941169380921,219122084616339456),F(161747615623729,13374150672384)),
+}
+for y,z in ((0,0),(0,1),(1,0),(1,1)):
+    obs,hits,visited,stops=enumerate_word(y,z)
+    # Exact integer-weight ordered words, no count-state moment recursion.
+    print('corner',y,z,'visited',visited,'stopped',stops,'obs',obs)
+    print('hitsA',hits[A][0],F(hits[A][1],DEN_P),F(hits[A][2],DEN_Q))
+    print('hitsT',hits[T][0],F(hits[T][1],DEN_P),F(hits[T][2],DEN_Q))
+    assert hits[A][0]==84
+    assert F(hits[A][1],DEN_P)==F(109375,1990656)
+    assert F(hits[A][2],DEN_Q)==F(109375,6718464)
+    base=expected['00']
+    da=(F(-1921609375,7925422620672),F(259765625,835884417024),
+        F(-20758609375,330225942528),F(-1476453125,69657034752))
+    dt=(F(-165875,25048249270272),F(165875,26748301344768),F(0),F(0))
+    assert obs==tuple(base[i]+y*da[i]+z*dt[i] for i in range(4))
+    assert hits[T][0]==7962
+    assert F(hits[T][1],DEN_P)==F(165875,25048249270272)
+    assert F(hits[T][2],DEN_Q)==F(165875,26748301344768)
+    assert visited==(815542 if y==0 else 810502)
+    assert stops==(543695 if y==0 else 540335)
+    assert sum((obs[0],F(1)-obs[0]),F(0))==1
+    assert sum((obs[1],F(1)-obs[1]),F(0))==1
+print('PASS literal-ordered exact integer DFS Stage124')

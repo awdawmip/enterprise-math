@@ -1,21 +1,16 @@
-# Stage125 — exact next dual candidate, not a primal theorem
+# R1-N14 Stage125 portable mathematical continuation — DUAL ONLY
 
-Mother question: continue exact V14(alpha) for the full-ordered-history randomized ternary iid N=14 test with P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6). This is an external auxiliary model, NOT a P000 native-X6 theorem.
+Mother problem: external ternary iid sequential test with P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), horizon 14, all randomized literal ordered-history stopping and decisions. Find V14(alpha)=minimum maximum of P/Q expected stopping time subject to each directional error <= alpha. Not a P000/native-X6 theorem.
 
-Inherited author-proved Stage124 frontier:
-alpha124=2573845372952647230925/7411551152237344456704
-V124=377878009388672358128945/29646204608949377826816.
-T=(14,7,4) is saturated terminal Q at z=1; A=(9,3,0) remains mixed P-stop with y=151548960415319/415627392000000. Reuse sibling Stage124 proof and checker; no repetition of proved stages.
+Latest author-proved Stage124 endpoint (not independently Driver-accepted):
 
-Keep A P/continue exactly tied and T strictly Q. Along exact ray dK=-1 and dL=-608000/474363, the T nonchosen P-minus-Q gap has strictly positive slope 13266688/38423403. The next smallest positive candidate action-gap closure is at
-t=13731333106707/1006541960224,
-giving
-K125=3579845625/4855672,
-L125=416181048/606959,
-H0=16854019707653693377319545/33249530339162194968576.
+    alpha124=2573845372952647230925/7411551152237344456704
+    V124=377878009388672358128945/29646204608949377826816
 
-New tie U=(12,7,5) Q-stop/continue; old A=(9,3,0) P-stop/continue remains tied. An exact *fresh* 680-state Bellman scan has 1,238 positive alternatives, zero negative gaps and minimum positive gap 578968738307/115991671209984. This is DUAL_CANDIDATE_ONLY, not proof of a new primal optimal interval.
+Stage124's optimal right-edge randomized state is A=(9,3,0), stop declare P with y=151548960415319/415627392000000; T=(14,7,4) has saturated to declare Q, z=0 (P probability). Relevant immutable proof and verifiers: research_notes/n14_aux_iid_affine_124_20261026/.
 
-Next discriminating unit: Enumerate actual literal ordered first-hit words and separate positive P/Q masses at A and U under Stage124 right-edge skeleton with T forced Q. A cannot be an ancestor of U, since from depth9 counts (3,0) to depth12 counts (7,5) requires nine counted increments in only three draws; reverse depth impossible. Derive exact four-observer affine derivatives, balanced error line, admissible randomization interval, tP>tQ, endpoint and support right-sharpness, or an exact obstruction. Cross-check by independent integer-weight literal DFS; BRC typed carrier retains words, weights and provenance until four-observer iid-preserving quotient.
+Exact new dual candidate (NOT primal theorem): retain A P/continue tie, hold T Q as unique action, move (K,L) by t*(-1,-608000/474363). The first strictly positive gap collision occurs at t=13731333106707/1006541960224, state U=(12,7,5), declare Q / continue. New K=3579845625/4855672, L=416181048/606959. Fresh 680-state Bellman yields exactly A P/continue and U Q/continue ties, 1238 strict gaps and no negative gaps; min strict gap 578968738307/115991671209984.
 
-Frozen GLOBAL_KNOWLEDGE_V1 main@e8d65b2492cf35be071c32b0c9852487f100be07; EM initial research snapshot main@520517d398d10a46c55d6f106cee1db5a0e82a69 and Stage123 source read@0300f93ab4f4e4a0daa2fd214704f80ad14a6ae6. P000 original blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc. Native owner/CLAIM unverified (CONTROL_QUOTA / STATIC_READONLY_SCOPE_DENIED). No independent Driver acceptance.
+First unresolved unit: determine all real y,w in [0,1] for A P-stop and U Q-stop using the exact ordered-history first-hit masses P and Q. Confirm A and U cones disjoint: from depth9 A to depth12 U requires (7-3)+(5-0)=9 counted draws in 3 steps, impossible; reverse depth is impossible. Compute M00,dA,dU and the equality relation eP=eQ. Determine which randomization saturates first, whether tP>tQ throughout, the full alpha interval, exact new endpoint and support right-sharpness. Cross-check independent literal integer DFS at all four corners; distinguish count quotient from full ordered policies in the proof. If the presumed P-dominant support fails, state a precise counterexample, not an invented theorem.
+
+Method / constraints: finite positive-rational BRC branch provenance; count state is sufficient only for this iid future four-observer lease. Preserve P000 and active worldview unchanged, fixed GLOBAL_KNOWLEDGE_V1 snapshot main@e8d65b2492cf35be071c32b0c9852487f100be07. This proof is author-level; native owner/CLAIM, Result freeze and independent review remain unavailable/unverified due to CONTROL_QUOTA and STATIC_READONLY_SCOPE_DENIED. Do not overwrite live task owners. Preserve model specificity and transport evidence.
