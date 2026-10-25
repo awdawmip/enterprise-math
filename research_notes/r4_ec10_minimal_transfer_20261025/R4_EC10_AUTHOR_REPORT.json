@@ -1,0 +1,48 @@
+{
+  "schema": "EM_R4_EC10_AUTHOR_EXACT_REPORT_V1",
+  "date": "2026-10-25",
+  "status": "AUTHOR_SIDE_EXACT_VERIFIED_NOT_FORMALLY_ACCEPTED",
+  "scope": "positive ordered binary affine BRC auxiliary path model; not native-X6 dynamics",
+  "proof": {
+    "field": "Q(z)",
+    "fine_oriented_states": 14,
+    "observed_oriented_channels": 12,
+    "minimum_joint_linear_dimension_from_n0": 13,
+    "minimum_joint_linear_dimension_from_n1": 12,
+    "identity": "R(T)v=0, R(lambda)=lambda^13 P(1/lambda,z)",
+    "P": "(1+x^2)*(1-x*(z+z^-1)+2*x^4-x^6)*(1-x*(z+z^-1))*(1+x^2-x^3*(z+z^-1))",
+    "depth12_initial_defect": {
+      "dirty_q0_e_plus": "-(z^2+1)",
+      "dirty_q0_e_minus": "z^2+1",
+      "all_other_channels": "0"
+    }
+  },
+  "verification": {
+    "Python_sympy_symbolic": "PASS, local executed script in ZIP",
+    "Cpp17_independent": "PASS, local executed source in ZIP",
+    "JS_finite_field": "PASS, same source actually executed in connected JS runtime and saved to GitHub",
+    "finite_field_prime": 1000003,
+    "z_specialization": 2,
+    "initial_minor_det_mod_prime": 739682,
+    "shifted_minor_det_mod_prime": 684922,
+    "exhaustive_raw_words_through_length12": 8191,
+    "ZIP_sha256": "d9ba01b8adf3d9d9b1cb935267008c16052107c86325b8f7c0d62bdb016a4e3c",
+    "note": "GitHub Python reference reproduction and locally cold-run Python/C++ sources implement the same mathematics but are not asserted bytewise identical."
+  },
+  "source_pins": {
+    "global_canonical_read": "5522a17ad8f68be638faa495483292dbc3ffac62",
+    "enterprise_math_read": "32bf5b35b77a0b5b2328d5b813d20d87f3ba06a5",
+    "parent_research": "999fd51c2bcd3ad3646fecbff2bbc3700c7a773b"
+  },
+  "native": {
+    "em_control_tasks": "CONTROL_QUOTA",
+    "em_session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "active_owner": "UNVERIFIED",
+    "claim": "NOT_OBTAINED",
+    "native_result": "NOT_PUBLISHED",
+    "driver_review": "NOT_PERFORMED",
+    "research_activity": "NOT_REGISTERED_UNDER_SOURCE_SESSION"
+  },
+  "next": "R4-EC11: cone-positive bit-respecting quotient obstruction versus the 14->13 Krylov quotient; keep effect-blind six-vs-seven and R193 native port/time bridge open."
+}
