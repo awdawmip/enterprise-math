@@ -1,0 +1,80 @@
+{
+  "schema": "AUTHOR_EXACT_FINITE_IID_STAGE109_V1",
+  "model": "full ordered ternary iid P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), N=14",
+  "global_snapshot": "babff194f059aaaa452e7827f815845aefcb647a",
+  "enterprise_source_snapshot": "f651ea40d12cee192ecab1bc741f98f1a9e01892",
+  "dual": {
+    "K109": "491857029/506348",
+    "L109": "116416632/126587",
+    "Gamma109": "957523557/506348",
+    "root": "1160567907474457192913899/1733625457833035169792",
+    "states": 680,
+    "action_comparisons": 1240,
+    "positive": 1238,
+    "negative": 0,
+    "strict_min_gap": "20261/759522",
+    "ties": [
+      "(10,3,0) P/C",
+      "(10,3,3) Q/C"
+    ]
+  },
+  "first_hits": {
+    "A": {
+      "ordered_count": 120,
+      "P": "390625/5971968",
+      "Q": "390625/20155392",
+      "forced_suffix": [
+        "635/165888",
+        "10201/10368",
+        "7711/6912",
+        "1069/864",
+        "21"
+      ],
+      "replaced": 2520
+    },
+    "D": {
+      "ordered_count": 2051,
+      "P": "1281875/9172942848",
+      "Q": "1281875/3869835264",
+      "forced_suffix": [
+        "4075/4096",
+        "31/20736",
+        "1955/1536",
+        "75/64",
+        "15"
+      ],
+      "replaced": 30765
+    }
+  },
+  "primal": {
+    "alpha108": "13084095824621807507/37682150988866125824",
+    "V108": "1934483126570299962385/150728603955464503296",
+    "u108": "159404052982303/211315200000000",
+    "du_per_w": "22757603/10565760000",
+    "eta": "23181244375/130840802044674048",
+    "alpha109": "13084102500820187507/37682150988866125824",
+    "V109": "1934432626777903782385/150728603955464503296",
+    "u109": "159859205042303/211315200000000",
+    "w109": "1",
+    "tQ109": "115034081136642114605/9420537747216531456"
+  },
+  "validation": [
+    "exact bottom-up 680 states/1240 comparisons PASS",
+    "first-hit and suffix exact DP PASS",
+    "top-down independent Bellman and literal DFS w=0,1/2,1 PASS",
+    "endpoints and affine all-real argument PASS"
+  ],
+  "boundary": [
+    "author-level finite model only",
+    "native owner/claim/result unverified (CONTROL_QUOTA, STATIC_READONLY_SCOPE_DENIED operation_sent=false)",
+    "independent Driver not reviewed",
+    "no proven native P000/X6/Heartbeat transfer"
+  ],
+  "next_dual_only": {
+    "K110": "6497577/6734",
+    "L110": "3069240/3367",
+    "Gamma110": "1805151/962",
+    "state": "(13,6,4)",
+    "action": "Q"
+  }
+}
