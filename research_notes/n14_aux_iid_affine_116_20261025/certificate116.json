@@ -1,0 +1,64 @@
+{
+  "schema": "EM_N14_STAGE116_AUTHOR_CERT_V1",
+  "model": "auxiliary_iid_N14_full_ordered_history",
+  "source_gk": "e87bad4c9c4f6b4e8748019209f29a67768a36db",
+  "source_em": "1fbdc599d7504f5ee78279aa139768787d943a9d",
+  "control": {
+    "authenticated_github": "awdawmip",
+    "native_tasks": "CONTROL_QUOTA",
+    "native_session": "STATIC_READONLY_SCOPE_DENIED",
+    "native_operation_sent": false,
+    "native_claim": "UNVERIFIED",
+    "driver_review": "NOT_DONE"
+  },
+  "dual": {
+    "K": "37550061/41440",
+    "L": "3296576/3885",
+    "S": "6232589/3552",
+    "Bellman_root": "529581447731753074942871/851289298734478786560",
+    "states": 680,
+    "strict_action_gaps": 1238,
+    "min_positive_gap": "200314681163/7919307325440",
+    "ties": {
+      "(9,1,2)": [
+        "Q",
+        "C"
+      ],
+      "(14,7,4)": [
+        "P",
+        "Q"
+      ]
+    }
+  },
+  "frontier": {
+    "alpha115": "900390060440962701793/2592933255351443128320",
+    "alpha116": "900390062503198401793/2592933255351443128320",
+    "V115": "132635694365041929281069/10371733021405772513280",
+    "V116": "132635679890866772493569/10371733021405772513280",
+    "delta": "22731875/28581715777683456",
+    "w_end": "374319733261181/1042086080000000",
+    "T_stopP_end": "1"
+  },
+  "carrier": {
+    "D": {
+      "paths": 172,
+      "P": "671875/53747712",
+      "Q": "671875/20155392"
+    },
+    "T": {
+      "paths": 9830,
+      "P": "614375/75144747810816",
+      "Q": "614375/80244904034304"
+    }
+  },
+  "author_validation": {
+    "full_fraction_checker": "PASS_STAGE116_EXACT_DUAL_680_1238_2_TIES_PRIMAL_FULL_REAL_SHARP",
+    "independent_integer_dfs": "PASS_STAGE116_INDEPENDENT_INTEGER_ORDERED_DFS_FOUR_CORNERS_ZERO_MIXED_TERM",
+    "dfs_prefixes": [
+      862459,
+      854719,
+      862459,
+      854719
+    ]
+  }
+}
