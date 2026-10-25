@@ -1,0 +1,47 @@
+{
+  "schema": "EM_N14_AUX_STAGE100_AUTHOR_CERT_V1",
+  "scope": "EXTERNAL_FINITE_IID_ONLY",
+  "author_status": "TWO_LOCAL_EXACT_CHECKS_PASS_DRIVER_UNREVIEWED",
+  "global_pin": "294dccb155e0724f83f41ea113ea6f89cb8f6c5e",
+  "em_parent": "b1bc74126d9f4e844ada89be8fcc4daaa489566b",
+  "K": "177963480/134551",
+  "lambdaP": "167877432/134551",
+  "Gamma": "345840912/134551",
+  "alpha99": "2586555057332842327/7450150876955541504",
+  "V99": "751890958002985135/58204303726215168",
+  "eta100": "117732125/808393107308544",
+  "alpha100": "2586556142352106327/7450150876955541504",
+  "V100": "751869170025529135/58204303726215168",
+  "A100": "(9,5,1)",
+  "B": "(12,0,1)",
+  "first_hits_A": 336,
+  "first_hits_B": 12,
+  "nominal_A": 504,
+  "suffix_count_A": 49,
+  "truncated": 16464,
+  "pA": "875/3538944",
+  "qA": "875/13436928",
+  "h100": "64118999/54400000000",
+  "s100": "17567190885961211/20889600000000000",
+  "states": 680,
+  "nonselected": 1240,
+  "positive_gaps": 1238,
+  "ties": 2,
+  "min_positive_gap": "12889/807306",
+  "proof_scope": "entire real closed interval by Bellman dual+affine/primal construction+right sharpness",
+  "local_verifiers": [
+    "derive100.py: ran PASS (recursive Fraction Bellman+ordered DFS)",
+    "crosscheck100.py: ran PASS (independent bottom-up Fraction+first-hit forward DP)",
+    "CHECKER.py: ran PASS_EXACT_BELLMAN_ORDERED_DFS"
+  ],
+  "native_control": {
+    "tasks": "CONTROL_QUOTA",
+    "session": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false
+  },
+  "next_candidate": {
+    "K101": "61236/47",
+    "A101": "(12,6,2)",
+    "status": "DUAL_ONLY"
+  }
+}
