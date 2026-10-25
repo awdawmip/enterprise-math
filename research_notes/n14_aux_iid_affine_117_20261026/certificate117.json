@@ -1,0 +1,117 @@
+{
+  "schema": "EM_N14_AUX_IID_STAGE117_AUTHOR_CERT_V1",
+  "scientific_status": "AUTHOR_EXACT_FINITE_PROOF",
+  "review": "DRIVER_UNREVIEWED",
+  "model": "iid ordered histories of horizon <=14, P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6)",
+  "global_source_sha": "1fe18ba120c1f8f901246acb659589849b7e9147",
+  "enterprise_source_sha": "c7fa172ab920563207bd5d782a78ec1cd79515df",
+  "provenance": {
+    "researcher_id": "EM-DIRECT-5A72C1",
+    "identity_kind": "LOCAL_ALLOCATED",
+    "activity_id": "RA-EMR5-20261026T0040-STAGE117-LOCAL",
+    "native_claim": false
+  },
+  "stage116": {
+    "alpha": "900390062503198401793/2592933255351443128320",
+    "V": "132635679890866772493569/10371733021405772513280"
+  },
+  "dual": {
+    "K": "7703713039590/8727240137",
+    "L": "7249159245096/8727240137",
+    "K_plus_L": "2136124612098/1246748591",
+    "dual_at_root": "145276732397197889380399249433/239041381470853493302493184",
+    "dual_wall_distance": "172786349905893/7380751658720",
+    "dual_ray_slope": "164096/214569"
+  },
+  "ties": [
+    {
+      "state": [
+        7,
+        5,
+        1
+      ],
+      "actions": [
+        "P",
+        "C"
+      ],
+      "history_count": 28,
+      "p_mass": "35/1179648",
+      "q_mass": "35/4478976"
+    },
+    {
+      "state": [
+        9,
+        1,
+        2
+      ],
+      "actions": [
+        "Q",
+        "C"
+      ],
+      "history_count": 172,
+      "p_mass": "671875/53747712",
+      "q_mass": "671875/20155392"
+    }
+  ],
+  "bellman": {
+    "states": 680,
+    "strict_gaps": 1238,
+    "negative_gaps": 0,
+    "minimum_strict_gap": "273655643173420723/6671206249789390848",
+    "ties": 2
+  },
+  "moments": {
+    "dw": [
+      "593265625/5283615080448",
+      "-430671875/5015306502144",
+      "-34607609375/1981355655168",
+      "-17355203125/417942208512"
+    ],
+    "dy": [
+      "-816010405/5410421842378752",
+      "3257975/17832200896512",
+      "-8114835365/225434243432448",
+      "-151243295/13374150672384"
+    ],
+    "w0": "374319733261181/1042086080000000",
+    "w_increase_per_y": "12528414549/7443472000000",
+    "w1": "376073711298041/1042086080000000"
+  },
+  "affine_segment": {
+    "eta": "8727240137/228653726221467648",
+    "alpha117": "900390161470101555373/2592933255351443128320",
+    "V117": "132635001628579939136609/10371733021405772513280",
+    "parameter_interval": "0<=y<=1, REAL",
+    "right_sharp": true
+  },
+  "checks": {
+    "local_exact_fraction": "PASS",
+    "local_independent_integer_ordered_DFS": "PASS",
+    "ordered_prefix_visits": [
+      862459,
+      852463,
+      854719,
+      844723
+    ],
+    "github_published_checkers_execution": "NOT_EXECUTED_REMOTELY"
+  },
+  "stage118_candidate": {
+    "K": "254421/296",
+    "L": "90232/111",
+    "state": [
+      13,
+      6,
+      4
+    ],
+    "actions": [
+      "Q",
+      "C"
+    ],
+    "complete_interval": "OPEN"
+  },
+  "limits": [
+    "No independent research Driver review",
+    "No native Owner/CLAIM/Result",
+    "Not P000/X6/Heartbeat physics correspondence"
+  ]
+}
