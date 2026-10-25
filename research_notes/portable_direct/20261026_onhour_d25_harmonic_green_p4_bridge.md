@@ -1,14 +1,14 @@
 # D25 — corrected Clausen p^4 harmonic channel reduction and endpoint-faithful rank transport
 
-2026-10-26. Author-side portable TASK_RESEARCH; Task \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`; publication \`TP2-B6F4FC938FF94941C1B7\`. **Frozen scientific Source pin unchanged:** \`c47e13e4aba0e006366f989d6334d443f6333ae3\`.
+2026-10-26. Author-side portable TASK_RESEARCH; Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication `TP2-B6F4FC938FF94941C1B7`. **Frozen scientific Source pin unchanged:** `c47e13e4aba0e006366f989d6334d443f6333ae3`.
 
 **Status:** AUTHOR_DERIVED / AUTHOR_EXACT_CHECKED / UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY. This is neither native CM evidence nor Source-native checkpoint, Result, independent review or a JT2 proof.
 
 ## Consumed immutable inputs, not re-credited
 
-- \`research_notes/portable_direct/20261025_hourly_d25_clausen_operator_rank_boundary.md\`: corrected rank/Hasse recurrence.
-- \`research_notes/portable_direct/20261026_hourly_d25_corrected_clausen_jet_reflection_p4_bridge.md\`: original ordered signed Q corner mod p^4.
-- \`research_notes/portable_direct/20261026_hourly_d25_three_channel_clausen_p4_residue_polar_r11.md\` at EM commit \`a4483dc0fb56e7b29f8f85b131e28f08a65ba589\`: the distinct Hasse (0,2),(1,2),(0,3) residue channels and unimodular full rank-moment polar inverse.
+- `research_notes/portable_direct/20261025_hourly_d25_clausen_operator_rank_boundary.md`: corrected rank/Hasse recurrence.
+- `research_notes/portable_direct/20261026_hourly_d25_corrected_clausen_jet_reflection_p4_bridge.md`: original ordered signed Q corner mod p^4.
+- `research_notes/portable_direct/20261026_hourly_d25_three_channel_clausen_p4_residue_polar_r11.md` at EM commit `a4483dc0fb56e7b29f8f85b131e28f08a65ba589`: the distinct Hasse (0,2),(1,2),(0,3) residue channels and unimodular full rank-moment polar inverse.
 
 The new smallest mathematical unit is to eliminate *independent* evaluation of the third high Hasse channel in the p^4 corner and transport the full shifted corrected rank operator through the existing quadratic moment carrier, including both endpoint fluxes.
 
@@ -156,5 +156,5 @@ Author executed integer modular arithmetic independent of the source derivations
 
 **Next exact mathematical action:** combine (C3) with the existing signed n≤0 residue operator and the two high endpoint terms in (C2), and test for a genuine non-tautological source-adjoint telescoping identity. Preserve the upper infinity ports and middle defect. **Unfulfilled native obligations:** original-class CM H0/B0, [X]U mod p², Frobenius direction/η, κ mapping, original Δ_p-R_p observable, native benchmark and independent review. D25/LIFT/JT2 remains OPEN.
 
-**Control:** observed service 0.6.11 with Site read-only/no Researcher execution authority; one exact continuation read in this turn returned CONTROL_QUOTA. GitHub issue #1558 preserves historic successful read recovery and the unresolved predecessor CAS mismatch; no current own winning claim/open/run or Source checkpoint was established here. User-prescribed \`chatgpt-research-onhour-enterprise-math-20260923\` and #1558's \`chatgpt-research-hourly-enterprise-math-20260923\` are **distinct strings and not silently coalesced**; the maintenance lane is also separate. Registration/Source-native checkpoint remain pending. No scheduler/configuration changes.
+**Control:** observed service 0.6.11 with Site read-only/no Researcher execution authority; one exact continuation read in this turn returned CONTROL_QUOTA. GitHub issue #1558 preserves historic successful read recovery and the unresolved predecessor CAS mismatch; no current own winning claim/open/run or Source checkpoint was established here. User-prescribed `chatgpt-research-onhour-enterprise-math-20260923` and #1558's `chatgpt-research-hourly-enterprise-math-20260923` are **distinct strings and not silently coalesced**; the maintenance lane is also separate. Registration/Source-native checkpoint remain pending. No scheduler/configuration changes.
 
