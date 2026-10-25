@@ -1,0 +1,63 @@
+{
+  "schema": "EM_R4_EC11_AUTHOR_EXACT_REPORT_V1",
+  "status": "AUTHOR_SIDE_EXACT_DRAFT_NOT_NATIVE_RESULT",
+  "research_unit": "R4-EC11",
+  "evidence_date": "2026-10-25",
+  "model": "ordered unit-positive binary affine BRC; word-resolved full-effect output",
+  "claims": [
+    {
+      "name": "labelled_minimal_K_dimension",
+      "result": 14,
+      "proof": "14x14 explicit suffix-prefix Hankel determinant is z^3"
+    },
+    {
+      "name": "aggregate_Krylov_bit_zero_noninvariance",
+      "result": "T0 v not in span(v,Tv,...,T^12v)",
+      "finite_field_certificate": {
+        "z_specialization": 2,
+        "prime": 1000003,
+        "det_mod_prime": 520642
+      }
+    }
+  ],
+  "exact_checks": {
+    "fine_state_word_reachability": 14,
+    "det_observability": "1",
+    "det_reachability": "z^3",
+    "det_labelled_hankel": "z^3",
+    "matching_H_equals_OR": "PASS",
+    "aggregate_modular_split_certificate": "PASS",
+    "executed_local_full_Python": "PASS",
+    "remote_reference_code_same_algorithm_not_byte_identical_run": "NOT_CLAIMED"
+  },
+  "local_executed_files": {
+    "R4_EC11_WORD_RESOLVED_MINIMALITY.md": {
+      "sha256": "b42a09014b235bdb9e41336da10806fbafcf1150a7bb6a9566eaaf4a7d47343e"
+    },
+    "R4_EC11_verify.py": {
+      "sha256": "03c10736da2f694df661ee8a28e04e583904d1255f68029ea16467d2f4e4aa3f"
+    },
+    "R4_EC11_stdout.txt": {
+      "sha256": "1e63cc5bcf8f5b0385fe442476e4ede99b477e14f711ffc6981d46333e533aee"
+    }
+  },
+  "source": {
+    "global_knowledge_main": "51635e308eef1fb67e834c580595fa880f4fd45d",
+    "p000_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "enterprise_math_main": "5ee544fdddd7817716721c67f3faec42ebff4151",
+    "predecessor": "26e041da71e577bbfa476c76f9701b67397b48e7"
+  },
+  "authority": {
+    "github_identity": "awdawmip",
+    "research_identity": "EMR4-20261025-1031-LOCAL (self-labelled, not service-issued)",
+    "activity_id": "RA-EMR4-20261025-1031-EC11LABELLED",
+    "native_dispatch": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED / operation_sent=false",
+    "active_owner": "UNVERIFIED",
+    "formal_claim": "UNVERIFIED",
+    "formal_result": "NOT_PUBLISHED",
+    "driver_review": "NOT_PERFORMED",
+    "mathematical_admission": "NOT_ASSERTED"
+  },
+  "open_problem": "fixed-effect-blind positive time-homogeneous 6 vs 7 control states for aggregate effect-conditional terminal outputs; R193/X6 native bridge distinct"
+}
