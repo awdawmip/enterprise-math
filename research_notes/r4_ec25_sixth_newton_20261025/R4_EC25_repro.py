@@ -142,7 +142,7 @@ def main():
          'math_status':'AUTHOR_SIDE_EXACT_PROOF_NOT_INDEPENDENTLY_REVIEWED',
          'scope':'auxiliary positive ordered binary affine BRC only; no native X6 transfer',
          'global_claim':'For every c>=5 and r in {0,1,2}, [w^(c-5)] q_(3c+r)(3c+r+w)>0',
-         'proof_certificate':'positive rational shifted polynomial in v=c-4, derived by Laurent formula and Newton identities',
+         'proof_certificate':'positive rational shifted polynomial in v=c-5, derived by Laurent formula and Newton identities',
          'certificates':cert,'independent_integer_regression_c_range':[5,limit],
          'independent_integer_regression_cases':3*(limit-4),
          'sample_exact_values':checks,
