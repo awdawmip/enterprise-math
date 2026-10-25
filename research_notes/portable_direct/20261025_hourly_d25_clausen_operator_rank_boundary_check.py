@@ -29,11 +29,33 @@ def coefficients(p, degree, modulus):
     return rows
 
 
+def direct_cutoff(p, degree, modulus):
+    """Compute exact omitted-rank forcing from numerator and denominator products."""
+    m = (p - 1) // 6
+    half_p = p * pow(2, -1, modulus) % modulus
+    numerator = [1] + [0] * degree
+    for h in range(-m, p - m):
+        numerator = product(numerator, [h % modulus, (-1) % modulus], degree, modulus)
+    for h in range(-2 * m, p - 2 * m):
+        numerator = product(numerator, [h % modulus, (-2) % modulus], degree, modulus)
+    denominator_inverse = [1] + [0] * degree
+    factorial = 1
+    for j in range(1, p):
+        denominator_inverse = product(
+            denominator_inverse, inverse_linear(j - half_p, -3, degree, modulus),
+            degree, modulus)
+        factorial = factorial * j % modulus
+    output = product(numerator, denominator_inverse, degree, modulus)
+    inv_factorial = pow(factorial, -1, modulus)
+    return [(-v * inv_factorial) % modulus for v in output]
+
+
 def main():
     verified = 0
     for p in [7, 13, 19, 31, 37, 43, 73, 103]:
         mod, m, degree = p * p, (p - 1) // 6, 6
         rows = coefficients(p, degree, mod)
+        direct_forcing = direct_cutoff(p, degree, mod)
 
         def a(k, r):
             return rows[r][k] if 0 <= k <= degree and 0 <= r < p else 0
@@ -51,6 +73,7 @@ def main():
             boundary = (-(p - 1 - m) * (p - 1 - 2 * m) * a(k, p - 1)
                         + (3 * (p - 1) - 4 * m) * a(k - 1, p - 1)
                         - 2 * a(k - 2, p - 1)) % mod
+            assert boundary == direct_forcing[k], (p, k, boundary, direct_forcing[k])
             if k == 2:
                 assert boundary % p == p - 2
                 assert a(2, p - 1) % p == 18 * pow(5, -1, p) % p
