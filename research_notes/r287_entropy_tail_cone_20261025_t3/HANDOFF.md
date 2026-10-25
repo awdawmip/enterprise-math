@@ -1,0 +1,7 @@
+# R287 research handoff — effective entropy tail cone
+
+Author-side proof for ordered positive six-edge BRC: for all n>=900 and effects with 3*abs(k)>=2*n, P_n(epsilon,k)<Lambda_n. This result is independent of R277–R286 analytical theorems; injection to +/-1 walks, exact first-return atom language, and rational n900 base plus monotonic induction prove it. Full proof: R287_ENTROPY_CONE_AUTHOR_PROOF.zh-CN.md. Actual executed checker: R287_verify_tail_cone.py; machine evidence EXACT_EVIDENCE.json PASS, 65,535 words enumerated, effect-count DP n<=260.
+
+GLOBAL_KNOWLEDGE_V1 read pin: main@d60a6c802044851d1f2bd28e388ac1697e299a8b; EM Source read pin main@2c1ee0430d9addc6e6c34122311f3ef7b81ea050; P000 original blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc; ACTIVE worldview unchanged. Native control_tasks CONTROL_QUOTA and session_start STATIC_READONLY_SCOPE_DENIED with operation_sent=false; active owner not verified, no native CLAIM/Driver review. Local researcher identifier EM-R3-7C25A9 is not native session.
+
+With R286 author-side positive-reflection theorem, all max effects for n>=900 must additionally satisfy -2*n/3<k<=0, but this is a separate unreviewed dependency. Next: prove effective coefficientwise positivity of negative-neighbor gaps beyond one constant M and propagate to all m using R283/R286 positive u-kernel, reducing linear to fixed candidate width. Keep R285 and R274/R275/R282 dependent review obligations. No P000 native X6/heartbeat theorem follows.
