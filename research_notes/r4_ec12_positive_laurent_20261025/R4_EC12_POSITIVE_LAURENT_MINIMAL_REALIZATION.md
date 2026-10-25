@@ -1,0 +1,94 @@
+# R4-EC12 — Positive Laurent transfer reduction: 13 full states, 12 after one step
+
+**2026-10-25 · Author-side mathematical theorem and exact tests · NOT independently reviewed or admitted**
+
+Parent: R4-EC11, immutable source \`4df40f235cb2eef46609f229c3ea571a27c85cb5\`.
+Source pins: GLOBAL_KNOWLEDGE_V1 \`main@5d4a413d41c38d27c75489baac52761e889af581\`, Enterprise Math \`main@f1f7d85354df2f03c2eba1ecdab165374dab3c6b\`. P000 remains \`ACTIVE_LOCKED\`. This is the *auxiliary* unit-positive-mass binary affine BRC, **not** native X6 dynamics.
+
+## Model and observer
+
+The fine state is \`(q,r,e,t)\`, where \`q∈{0,1,2}\`, \`r=0\` means no 00 and no trailing 0, \`r=1\` means no 00 and trailing 0, and \`r=2\` means 00 has occurred; \`e∈{±1}\` is affine orientation, and \`t=e*k\` for displacement \`k\`. The initial fine state is \`(0,0,+1,0)\`.
+
+At each bit \`a\`, the edge \`(q',eta,b)\` is chosen from:
+
+| q | bit 0 | bit 1 |
+|---|---|---|
+| 0 | (2,-1,-1) | (2,+1,-1) |
+| 1 | (0,-1,-1) | (0,+1,-1) |
+| 2 | (1,+1,+1) | (2,+1,-1) |
+
+Set \`e'=eta*e\`, \`t'=t+e'*b\`; update \`r\` from the last bit and the occurrence of 00. Enumerate 14 reachable \`(q,r,e)\` fine states lexicographically, with minus orientation first. Index order:
+\`(0,0,-),(0,0,+),(0,2,-),(0,2,+),(1,1,-),(1,1,+),(1,2,-),(1,2,+),(2,0,-),(2,0,+),(2,1,-),(2,1,+),(2,2,-),(2,2,+)\`.
+
+Let \`T(z)∈Mat_14(N[z,z^-1])\` contain, in column \`s\`, the two outgoing monomial transitions \`z^(e'b)\`, **summed over both bit choices**. Let \`v\` be the initial basis column. Let \`C\` be the 12-by-14 readout that sums r=0,1 into \`dirty=0\` and leaves r=2 as \`dirty=1\`, retaining q and e. Thus \`y_n=C T^n v\` is an exact Laurent histogram of all length-n words by \`(q,dirty,e,t)\`, equivalently by \`(q,dirty,e,k=e*t)\`.
+
+**Declared future-operation scope**: total over every chosen bit at each step, at all finite lengths. Neither individually selected words nor original one-step terminal event timing may be silently substituted. We never interpret positive path counts as signed physical amplitudes.
+
+## Theorem A — Exactly two independent aggregation relations, rank(T)=12
+
+The two pairs of Laurent columns are literally identical:
+\`T[:,2]=T[:,3]\` and \`T[:,6]=T[:,7]\`.
+They correspond to dirty q=0 or dirty q=1 predecessors with opposite orientations. Under **aggregate** next-bit choice the two destinations and grades form the same multiset; with the bit label retained they are different, as R4-EC11 already warns.
+
+Explicit left annihilators, in the declared state order, are:
+
+\`ell0=(-z^-2,1,-z^-2,1,0,0,0,0,0,0,0,0,0,0)\`;
+
+\`ell1=(0,0,0,0,1,-z^-2,1,-z^-2,-z^-2,1,-z^-2,1,-z^-2,1)\`.
+
+**Both \`ell0*T=0\` and \`ell1*T=0\` hold exactly in Q(z)**. These are *shifted equalities of positive path-mass generating functions*: each qualifying predecessor's 0/1 extensions pair two disjoint terminal groups with a grade difference exactly 2. No signed cancellation in the original counting semiring is asserted.
+
+This proves \`rank T≤12\`. At \`z=2\`, the 12-by-12 submatrix with zero-based row indices
+\`[0,1,2,4,5,6,7,8,9,10,11,12]\` and column indices
+\`[0,1,2,4,5,6,8,9,10,11,12,13]\`
+has exact determinant **4**, so rank is at least 12. Consequently
+**\`rank_Q(z)(T)=12\`**. The two annihilators precisely describe its image.
+
+## Theorem B — A constructive *positive* 12-state tail and 13-state full realization
+
+Let \`K=[0,1,2,4,5,6,8,9,10,11,12,13]\`, obtained by dropping duplicate columns 3 and 7. Define:
+\`U=T[:,K]\` (14×12), \`V\` (12×14) the zero-one alias matrix mapping 3→2, 7→6 and every other index to itself in K coordinates, \`W=VU\`, \`a=Vv\`, and \`D=CU\`.
+
+Since the two omitted columns equal the retained representatives, **\`T=UV\`**, hence
+\`T^n=U(VU)^(n-1)V\` for each n≥1. Therefore
+
+**\`y_(m+1)=D W^m a\` for every m≥0.**
+
+Every coefficient of U,V,W,D,a belongs to \`N[z,z^-1]\`. This is a *positive time-homogeneous Laurent-weighted linear realization* of the whole shifted aggregate output; the output D includes the aggregate final step, so it is not a bit-labelled BRC compilation.
+
+For the sequence **including n=0**, add one initial transient state:
+\`A=[[0,0],[a,W]]\`, \`b=(1,0,...,0)^T\`, and \`B=[Cv,D]\`.
+Then \`B A^0 b=Cv\`, and for every n≥1,
+\`B A^n b=D W^(n-1)a=C T^n v\`.
+Thus the full sequence has an explicit **13-dimensional positive** Laurent-linear realization. Moreover \`ell0*v=1\`, so the transient initial column is outside the 12-dimensional post-transition image.
+
+## Strict minimality certificates
+
+These upper bounds are optimal even against arbitrary signed Q(z)-linear realizations, as a nonzero observed Hankel minor at \`z=2\` proves. Enumerate outputs \`(q,dirty,e)\` in q,dirty,e order.
+
+For the full series, \`H[(k,c),j]=(C T^(k+j) v)_c\`, columns j=0..12, and choose rows
+\`(0,0),(0,1),(0,2),(0,3),(0,4),(0,5),(0,6),(0,7),(0,8),(0,9),(0,10),(1,4),(1,5)\`.
+The exact 13-by-13 determinant is
+**\`-1212467180625/2048≠0\`**.
+
+For the shifted series \`y_(j+1)\`, choose j=0..11 and rows
+\`(0,0),(0,1),(0,2),(0,4),(0,5),(0,6),(0,7),(0,8),(0,9),(0,10),(1,4),(1,5)\`.
+Its 12-by-12 determinant is
+**\`+1212467180625/2048≠0\`**.
+
+A nonzero specialization is a valid nonzero Laurent-rational determinant certificate. Every dimension-d linear representation factors its observed Hankel matrices through a d-dimensional state. Combined with the explicit nonnegative upper constructions, these show:
+
+**\`d_min(full positive Laurent-linear aggregate)=13\`** and
+**\`d_min(shifted positive Laurent-linear aggregate)=12\`.**
+
+This is stronger than merely obtaining an unstructured signed Krylov reduction: the minimal dimensions admit constructive **nonnegative** realization. It is *not* the same question as the number of original control states, or a decoder allowed to inspect n and the cumulative effect and apply an arbitrary nonlinear map. In particular the strict fixed-effect-blind six-control-state versus seven-control-state question remains unresolved.
+
+## Actual author verification
+
+Two implementations: (1) exact symbolic SymPy branch matrices, the two left identities, duplicated columns, \`T=UV\`, positive matrix entries, 12-rank minor, both observed Hankel minors, and exact Laurent matching through n=8; (2) independent pure-Python dictionary propagation of the original fine model and aliased positive delayed-output model, with integer-only **all-depth checks for n=1..128** and total mass \`2^n\`. Both passed in the present author workspace. The all-n theorem rests on algebraic factorization and nonzero Hankel minors, not finite experimental extrapolation. Source code and observed outputs accompany this manuscript; native P000 X6 evolution has **not** been run.
+
+## Source authority and continuation
+
+GitHub account identity verified as \`awdawmip\`. Native dispatch/list returned \`CONTROL_QUOTA\`; native session-start returned \`STATIC_READONLY_SCOPE_DENIED\`, with \`operation_sent=false\`. Thus no active Owner/winning CLAIM, native session, official Result, or independent Driver review was established. Research activity \`RA-EMR4-20261025-1132-EC12POS\` is **local-session bookkeeping**, not service authorization. BRC use: \`COMPOSE_APPLIED\` to the fixed ordered positive branch carrier of R4-EC11.
+
+**Next smallest open unit:** classify whether the 13-state *positive Laurent-linear* realization can be implemented without the graded final-output filter and without shifted emission by a truly fixed, effect-blind **six-control-state** BRC, using an effect-aware terminal decoder. Either supply all-depth legal construction or a lower-bound invariant applying to arbitrary internal recodings; do not substitute word-preserving rank14. Preserve R193 source-port/time correspondence and P000 X6 native transfer as separate unresolved work.
