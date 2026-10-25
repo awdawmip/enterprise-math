@@ -1,0 +1,61 @@
+{
+  "schema": "C296_AUTHOR_EXACT_256_OUTWARD_FINITE_AUDIT_V1",
+  "date": "2026-10-25",
+  "global_knowledge_sha": "45aa95910fe2809e438d5b3cb8d2e37e8e5a1a1f",
+  "em_canonical_control_sha": "5ea0d75fdb6f1b110a3fb6f3c67a2589d6e81c42",
+  "frozen_math_parent": "014e5b8444ee1b4ace1175566075cd12951e168e",
+  "root_paths": 125,
+  "model": "C195/H168 79-node positive-rational AUXILIARY",
+  "new_precision_bits": 256,
+  "source_parent_k128_sha256": "f254bd0a36235f453ae87dabd6ed84da8a4af551c7115354ec4aacbdc1bb0f2e",
+  "source_suffix128_sha256": "8bea5f1a78c224b56a9297d09766b09af9dcb3196b17a6f360bc6862355263be",
+  "combined_k256_sha256": "9a6ce046642ff404e8929333dab5c11dcd5e8616e218d09a1370453850649f6e",
+  "checks": [
+    {
+      "target_bits": 128,
+      "interval_precision_bits": 320,
+      "endpoints_passed": 250,
+      "margin_lower_bound": "2^-142",
+      "max_state_bits": 335,
+      "max_factor_bits": 1886,
+      "max_temporary_product_bits": 2071,
+      "mul_count": 153000,
+      "start_count": 19750
+    },
+    {
+      "target_bits": 256,
+      "interval_precision_bits": 448,
+      "endpoints_passed": 250,
+      "margin_lower_bound": "2^-268",
+      "max_state_bits": 463,
+      "max_factor_bits": 3422,
+      "max_temporary_product_bits": 3735,
+      "mul_count": 153000,
+      "start_count": 19750
+    }
+  ],
+  "independent_fraction_256": {
+    "endpoints_passed": 250,
+    "all_contained_in_integer_bounds": true,
+    "exact_normalized_fraction_max_bits": 100989,
+    "own_implementation_not_driver_review": true
+  },
+  "benchmark_one_machine": {
+    "b128_outward_seconds": 0.633,
+    "b128_full_fraction_seconds": 7.842,
+    "b256_outward_seconds": 0.793,
+    "b256_full_fraction_seconds": 17.867,
+    "extrapolation_to_other_inputs": false
+  },
+  "code_status": "AUTHOR_EXECUTED_LOCALLY",
+  "github_run_environment": "NOT_EXECUTED",
+  "native_control_task_query": "CONTROL_QUOTA",
+  "native_session_write": "STATIC_READONLY_SCOPE_DENIED; operation_sent=false",
+  "live_owner_verified": false,
+  "claim": false,
+  "native_checkpoint": false,
+  "driver_admitted": false,
+  "native_GF2_BRC_X6_bridge": false,
+  "next": "C297 arbitrary-precision certified interval width bound and bit complexity",
+  "status": "AUTHOR_EXACT_FINITE_CERTIFICATE_UNREVIEWED"
+}
