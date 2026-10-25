@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from fractions import Fraction as F
 from functools import lru_cache
+from pathlib import Path
 import json
 P=(F(1,8),F(1,24),F(5,6))
 Q=(F(1,12),F(1,12),F(5,6))
@@ -125,5 +126,5 @@ print('other top candidates',sorted(cand,reverse=True)[:5])
 # One verified portable structured certificate.
 def s(x):return str(x)
 cert={'scope':'AUTHOR_EXACT_EXTERNAL_IID_N14','stage':105,'dual':{'K105':s(K),'lambdaP':s(L),'gamma':s(K+L),'root':s(D[0,0,0]),'states':len(D),'comparisons':sum(len(g)-1 for g in gap.values()),'strict_positive':sum(v>0 for g in gap.values() for v in g.values()),'negative':sum(v<0 for g in gap.values() for v in g.values()),'ties':{str(z):list(acts) for z,acts in O.items() if len(acts)>1},'min_strict_positive_gap':s(min(v for g in gap.values() for v in g.values() if v>0))},'first_hits':{str(z):{'state':list(z),'count':nh[z],'P':s(mp[z]),'Q':s(mq[z]),'continuation_suffix':[s(x) for x in suffix(z)]} for z in (A,B)},'responses':{'x':s(x),'y':s(y),'e':s(e),'f':s(f)},'primal':{'alpha104':s(a104),'alpha105':s(a105),'eta105':s(eta),'V104':s(v104),'V105':s(v105),'s104':s(s104),'s105':s(s104+c),'compensation_per_u':s(c),'endpoints':[[s(v) for v in o] for o in (o0,o1)],'tP_gt_tQ_endpoints':True},'next_dual_only':{'K106':s(max(cand)[0]),'state':list(max(cand)[1]),'new_tie_action':max(cand)[2]},'verified':{'Bellman':True,'primal':True,'pencil_gap_at_K104_K105':True,'full_real_interval_via_cone_disjointness':True,'sharp_right_support_via_exact_two_ties':True},'scientific_scope':'author exact proof external iid only; native claim and Driver review unverified'}
-with open('/mnt/data/EM_N14_STAGE105_WORK/certificate105.json','w') as f:json.dump(cert,f,ensure_ascii=False,indent=2)
+with Path(__file__).resolve().with_name('certificate105.json').open('w') as f:json.dump(cert,f,ensure_ascii=False,indent=2)
 print('STAGE105 PASS')
