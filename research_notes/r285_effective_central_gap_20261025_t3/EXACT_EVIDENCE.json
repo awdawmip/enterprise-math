@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "schema": "EM_R285_EFFECTIVE_CENTRAL_GAP_JS_BIGINT_V1",
+  "scope": "positive ordered six-edge clean reset BRC auxiliary, not P000 native physics",
+  "prior_kernel": "R284@ce4ad0aab996c6310bccb112796325149f75884b",
+  "global_snapshot": "124e158e394e597af0212115d43a38edc164e6bb",
+  "ratio_cone": {
+    "a": {
+      "numerator": "523",
+      "denominator": "200"
+    },
+    "b": {
+      "numerator": "131",
+      "denominator": "50"
+    },
+    "base_start": 2600,
+    "base_indices": [
+      2598,
+      2599,
+      2600
+    ],
+    "lower_at_base": {
+      "numerator": "16698749661665776",
+      "denominator": "6385398561907587"
+    },
+    "lower_margin": {
+      "numerator": "186484455487199",
+      "denominator": "1277079712381517400"
+    },
+    "upper_limit": {
+      "numerator": "1610642639878",
+      "denominator": "614918083139"
+    },
+    "upper_limit_margin": {
+      "numerator": "22136897309",
+      "denominator": "30745904156950"
+    }
+  },
+  "signed_filter": {
+    "P": [
+      "1",
+      "-2",
+      "1",
+      "-8",
+      "6",
+      "-3",
+      "7",
+      "-5",
+      "1"
+    ],
+    "pP": [
+      "1",
+      "-3",
+      "3",
+      "-11",
+      "19",
+      "-13",
+      "27",
+      "-32",
+      "18",
+      "-18",
+      "17",
+      "-7",
+      "1"
+    ],
+    "P_lower": {
+      "numerator": "48638344276190645193552197570604127",
+      "denominator": "928286826452900550208435344955736227"
+    },
+    "P_upper": {
+      "numerator": "216860783827950615805879024601094791",
+      "denominator": "3706061146831045708084058667266030891"
+    },
+    "P_margin": {
+      "numerator": "7622245135229844855033108604741092729983",
+      "denominator": "97098802046973397551802337082370009344200"
+    },
+    "pP_lower": {
+      "numerator": "464075049413256034318325273645059132977661713992924447",
+      "denominator": "20453805668812634363653907568116386888015176498959885347"
+    },
+    "pP_upper": {
+      "numerator": "2927000374715487214177614225116858158874566806565562701",
+      "denominator": "81659086754114563146496134794846338491846849686687175851"
+    },
+    "pP_margin": {
+      "numerator": "50250574373412744799603701076797695821733180634752888297263",
+      "denominator": "2139468072957801554438198731624974068486387461791204007296200"
+    }
+  },
+  "strict_two_step_from": 2612,
+  "finite_coefficient_check_end": 2611,
+  "last_nonpositive_K_index": 36,
+  "last_nonpositive_pK_index": 34,
+  "all_even_strict_from_length": 82,
+  "all_odd_strict_from_length": 75,
+  "boundary": {
+    "E80": "-727277462",
+    "E82": "1985689179",
+    "O73": "-120708721",
+    "O75": "3814120"
+  },
+  "independent_original_path_DP_end": 160,
+  "crosschecked_even": 77,
+  "crosschecked_odd": 78,
+  "arithmetic": "exact BigInt, reduced rational cross-products",
+  "mathematically_admitted": false,
+  "native_owner_verified": false,
+  "driver_review": "NOT_DONE"
+}
