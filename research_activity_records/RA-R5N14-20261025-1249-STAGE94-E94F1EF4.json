@@ -1,0 +1,57 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-R5N14-20261025-1249-STAGE94-E94F1EF4",
+  "registration_key": "source:em-stage94-exact-affine-20261025-e94f1ef4d98109777f293e7080bc8ac97b3d956c",
+  "registration_origin": {
+    "kind": "RETROSPECTIVE_SOURCE",
+    "source_tracking_key": "em-stage94-exact-affine-20261025-e94f1ef4d98109777f293e7080bc8ac97b3d956c"
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": null,
+  "session_id": null,
+  "session_state": "UNKNOWN",
+  "recorded_at": "2026-10-25T12:49:27+08:00",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "R5-N14-STAGE94-20261025-EXACT",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "e94f1ef4d98109777f293e7080bc8ac97b3d956c",
+          "path": "research_notes/n14_aux_iid_affine_94_20261025/derive94.py",
+          "sha256": "a4db9d4534d5f65a41ebfce3b151e9cd84a3c084e1b414f9a9f7c6d14c0b0731",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "readback": {
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "local-r5-stage94-derive94-readback",
+            "arguments": {
+              "repository_full_name": "awdawmip/enterprise-math",
+              "ref": "e94f1ef4d98109777f293e7080bc8ac97b3d956c",
+              "path": "research_notes/n14_aux_iid_affine_94_20261025/derive94.py"
+            },
+            "result": {
+              "isError": false,
+              "structuredContent": {
+                "content": "#!/usr/bin/env python3\n\"\"\"Stage94 exact rational Bellman and ordered-prefix audit; external finite iid N=14.\nParent action table derives from stages 88--93; author-side, no independent review.\n\"\"\"\nfrom collections import defaultdict\nfrom fractions import Fraction as F\nfrom functools import lru_cache\nimport json\nimport derive93 as old\n\nN=old.N; P=old.P; Q=old.Q\nA=(10,5,1); B=old.B\nalpha0=F(5172463688734421243,14900301753911083008)\nV0=F(24275119932147668699,1862537719238885376)\nS=F(27641630644888847,41779200000000000)\nK=F(7010064,4231); LP=F(72)+F(8,9)*K; LQ=K; G=LP+LQ\n\ndef child(st,i): return old.child(st,i)\ndef act(st):\n    if st==old.A:return 'P'  # stage93 endpoint\n    return old.act(st)\n\ndef dual(k=K,policy=act):\n    lq=k;lp=F(72)+F(8,9)*k\n    D={};ties=[];bad=[];pos=total=0;minpos=None\n    for n in range(N,-1,-1):\n        for a in range(n+1):\n            for b in range(n-a+1):\n                st=(n,a,b);z=policy(st)\n                opts={'P':lq*F(2**(a+b),3**a),'Q':lp}\n                if n<N:opts['C']=F(1)+sum((P[i]*D[child(st,i)] for i in range(3)),F())\n                v=opts[z]\n                for zz,w in opts.items():\n                    if zz==z:continue\n                    total+=1;d=w-v\n                    if d<0:bad.append((st,z,zz,str(d)))\n                    elif d==0:ties.append((st,z,zz))\n                    else:\n                        pos+=1;minpos=d if minpos is None or d<minpos else minpos\n                D[st]=v\n    return D[(0,0,0)],ties,bad,pos,total,minpos\n\ndef firsthit(st):\n    cur={(0,0):(F(1),F(1),1)}\n    for n in range(st[0]):\n        nxt=defaultdict(lambda:(F(),F(),0))\n        for (a,b),(p,q,k) in cur.items():\n            if act((n,a,b))!='C':continue\n            for i in range(3):\n                idx=(a+(i==0),b+(i==1));x,y,l=nxt[idx]\n                nxt[idx]=(x+p*P[i],y+q*Q[i],l+k)\n        cur=dict(nxt)\n    return cur.get(st[1:],(F(),F(),0))\n\n@lru_cache(None)\ndef suffix(st):\n    z=act(st)\n    if z=='P':return F(),F(1),F(),F()\n    if z=='Q':return F(1),F(),F(),F()\n    kids=[suffix(child(st,i)) for i in range(3)]\n    return (sum((P[i]*kids[i][0] for i in range(3)),F()),\n            sum((Q[i]*kids[i][1] for i in range(3)),F()),\n            F(1)+sum((P[i]*kids[i][2] for i in range(3)),F()),\n            F(1)+sum((Q[i]*kids[i][3] for i in range(3)),F()))\n\ndef forward(u,s):\n    cur={(0,0):(F(1),F(1))};ep=eq=tp=tq=F()\n    for n in range(N+1):\n        nxt=defaultdict(lambda:(F(),F()))\n        for (a,b),(p,q) in cur.items():\n            st=(n,a,b)\n            if st==A:\n                eq+=q*u;p*=1-u;q*=1-u\n            elif st==B:\n                ep+=p*s;p*=1-s;q*=1-s\n            else:\n                z=act(st)\n                if z=='P':eq+=q;continue\n                if z=='Q':ep+=p;continue\n            assert n<N,st\n            tp+=p;tq+=q\n            for i in range(3):\n                idx=(a+(i==0),b+(i==1));x,y=nxt[idx]\n                nxt[idx]=(x+p*P[i],y+q*Q[i])\n        cur=dict(nxt)\n    assert not cur\n    return ep,eq,tp,tq\n\ndef next_dual(k=K):\n    coeff={};cross=[];err=[]\n    for n in range(N,-1,-1):\n        for a in range(n+1):\n            for b in range(n-a+1):\n                st=(n,a,b);z='P' if st==A else act(st)\n                opts={'P':(F(),F(2**(a+b),3**a)),'Q':(F(72),F(8,9))}\n                if n<N:opts['C']=(F(1)+sum((P[i]*coeff[child(st,i)][0] for i in range(3)),F()),sum((P[i]*coeff[child(st,i)][1] for i in range(3)),F()))\n                coeff[st]=opts[z]\n                for zz,w in opts.items():\n                    if zz==z or st in (A,B):continue\n                    c0=w[0]-opts[z][0];c1=w[1]-opts[z][1]\n                    if c0+c1*k<0:err.append((st,z,zz,str(c0+c1*k)))\n                    if c1>0:\n                        k2=-c0/c1\n                        if k2<k:cross.append((k2,st,z,zz))\n    return max(cross) if cross else None,err\n\ndef main():\n    pa,qa,ha=firsthit(A);pb,qb,hb=firsthit(B)\n    ra,rb=suffix(A),suffix(B)\n    X=pa*ra[0];Y=qa*(1-ra[1]);E=pb*(1-rb[0]);H=qb*rb[1]\n    h=(X+Y)/(E+H);eta=-X+E*h\n    root,ties,bad,pos,count,gap=dual()\n    f0=forward(F(),S);f1=forward(F(1),S+h)\n    nxt,errs=next_dual()\n    return dict(pa=pa,qa=qa,ha=ha,pb=pb,qb=qb,hb=hb,ra=ra,rb=rb,X=X,Y=Y,E=E,H=H,h=h,eta=eta,s94=S+h,root=root,ties=ties,bad=bad,pos=pos,count=count,gap=gap,f0=f0,f1=f1,nxt=nxt,errs=errs,alpha94=alpha0+eta,V94=V0-G*eta,K=K,LP=LP,G=G)\n\nif __name__=='__main__':\n    r=main();print(json.dumps({k:str(v) for k,v in r.items()},indent=2))\n",
+                "encoding": "utf-8",
+                "sha": "b6a7688b7bb2f5b868d71b0b84dd86cad0912436",
+                "display_url": "https://github.com/awdawmip/enterprise-math/blob/e94f1ef4d98109777f293e7080bc8ac97b3d956c/research_notes/n14_aux_iid_affine_94_20261025/derive94.py",
+                "display_title": "derive94.py"
+              }
+            }
+          }
+        }
+      ],
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "VERIFY_EM_PUBLICATION"
+    }
+  ]
+}
