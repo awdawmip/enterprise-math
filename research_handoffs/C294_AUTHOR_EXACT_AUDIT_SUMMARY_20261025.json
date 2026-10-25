@@ -1,0 +1,51 @@
+{
+  "schema": "EM_C294_AUTHOR_PARAMETRIC_NEWTON_SUMMARY_V1",
+  "recorded_at": "2026-10-25",
+  "source_snapshot": {
+    "global_knowledge_main": "496bf491114433250b753d57d1294de0ecda0382",
+    "enterprise_math_main": "32bf5b35b77a0b5b2328d5b813d20d87f3ba06a5",
+    "frozen_c293_commit": "19effbf47c59596ea03b276a96c2bf307ec1efad",
+    "frozen_c292_commit": "f4dca0846f3549af6ac2eaf44ab47f1ba8cb24f4"
+  },
+  "research_type": "C195_H168_79_POSITIVE_RATIONAL_AUXILIARY",
+  "new_finite_exact_checks": {
+    "count": 125,
+    "distinct_signed_four_parameter_corners": 16,
+    "rational_initial_point_valid": 125,
+    "strict_normalized_initial_residual_below_six_fifths_times_2_to_minus_28": 125,
+    "normal_slope_strictly_between_6_5_and_21_10": 125,
+    "independent_dual_vs_log_gradient_fraction_identity": 125,
+    "first_rational_newton_correction_within_2_to_minus_28": 125,
+    "initial_residual_signs": {
+      "negative": 65,
+      "positive": 60,
+      "zero": 0
+    },
+    "verifier_stdout": "C294_AUTHOR_PARAMETRIC_NEWTON_EXACT_PASS 125 patterns 16 max_initial_residual<2^-28*m: True slopes in 1.2309268682600478 2.096740603180118"
+  },
+  "theorem_conditional_on_frozen_author_certificates": {
+    "perturbation_bound_each_normalized_parameter": "2^-32",
+    "root_shift_from_baseline": "<2^-29",
+    "start_root_distance": "<2^-28",
+    "newton_error": "<2^-28*(2^-19)^(2^n-1)",
+    "newton_first_step_overshoot": "C292 strict normal convexity dependent; F(newton_point) not recomputed",
+    "second_order_linear_response_error": "<2^-45",
+    "continuous_C290_C292_full_box_replayed_this_run": false
+  },
+  "complete_local_runnable_portable_evidence": {
+    "file": "EM_C294_PARAMETRIC_NEWTON_125_EXACT_PORTABLE.zip",
+    "complete_json_inside": "C294_AUTHOR_EXACT_AUDIT_20261025.json",
+    "complete_json_sha256": "eb24a4453fc3fe702c9b8f9e7752fce47715827b241b071a82b07fb5a3d1fc37",
+    "complete_json_record_sequence_sha256": "ca63b5b77b5aec36dc376b8fd0c9c1ac7e2c8e7bb7978947a81c1116c7a5880e",
+    "reproducible_by": "C294_PARAMETRIC_NEWTON_EXACT.py with pinned upstream frozen inputs"
+  },
+  "publication_status": {
+    "github_author_branch": true,
+    "canonical_main_merged": false,
+    "source_claim": false,
+    "formal_result": false,
+    "driver_independent_review": false,
+    "drive_fallback_used": false
+  },
+  "next_question": "C295 exact interval Newton with finite-resource bit-complexity and 128-bit isolating output, preserving BRC branch identities"
+}
