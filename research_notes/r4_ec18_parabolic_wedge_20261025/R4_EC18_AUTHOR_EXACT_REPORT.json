@@ -1,0 +1,41 @@
+{
+  "schema": "EM_R4_EC18_PARABOLIC_WEDGE_AUTHOR_EXACT_V1",
+  "scope": "auxiliary ordered positive affine binary BRC; clean grade / symmetric E observer",
+  "theorem": "for all n>=4*j*j, j>=1: E[n,j]-E[n,j-1] > (13/99)*binom(n,j-1)",
+  "corollary": "for k>=2 and n>=4*(k-1)^2+3: D[n,k]>0",
+  "inherited_inputs": [
+    "R4-EC13 exact clean-vs-separated-sign discrepancy via event B",
+    "R4-EC17 F=(1-u*x^3)E and palindromic E"
+  ],
+  "raw_words_checked": 8191,
+  "clean_detailed_dp_depth": 200,
+  "palindromic_E_depth": 650,
+  "exact_uniform_wedge_cells_checked": 5212,
+  "exact_margin_cells_checked": 5212,
+  "exact_reflection_cells_checked": 25599,
+  "boundary_sample": [
+    [4, 1, 2],
+    [16, 2, 65],
+    [36, 3, 4030],
+    [64, 4, 365807],
+    [100, 5, 43840069],
+    [144, 6, 6536343387],
+    [196, 7, 1166362287030],
+    [256, 8, 242425602733881]
+  ],
+  "non_logconcavity_counterexample": {
+    "n": 10,
+    "j": 3,
+    "left": 529,
+    "right": 575
+  },
+  "minimum_finite_margin_excess": {
+    "numerator": 185,
+    "denominator": 99
+  },
+  "all_depth_proof": "paper, not the finite test",
+  "native_X6": "NOT_RUN",
+  "formal_task_claim": "NONE_FOR_THIS_INDEPENDENT_AUTHOR_UNIT",
+  "driver_review": "NOT_PERFORMED",
+  "status": "PASS"
+}
