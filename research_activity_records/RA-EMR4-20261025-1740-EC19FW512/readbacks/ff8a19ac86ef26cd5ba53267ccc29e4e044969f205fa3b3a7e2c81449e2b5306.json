@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/r4_ec19_finite_width_20261025/R4_EC19_report.json",
+    "ref": "dd6ecde56a6746cb2ee48fc8d88e7aa34a467eb4",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "ec19-20261025-report-observed-20261025-1743",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_R4_EC19_EXACT_FINITE_WIDTH_CERTIFICATE_V1\",\n  \"model\": \"auxiliary ordered positive binary affine BRC palindromic grade kernel\",\n  \"generating_function\": \"(1-u*x^2)/(1-(1+u)*x+2*u^2*x^4-u^3*x^6)\",\n  \"certified_theorem\": \"E[n,j]>=E[n,j-1] for all integers n>=10, 1<=j<=min(floor(n/2),512), with equality only at (n,j)=(10,3),(12,4)\",\n  \"derived_corollary\": \"D[n,k]>=0 for all n>=max(13,2*k+1), 2<=k<=513, with equality only at (13,4),(15,5)\",\n  \"j_max\": 512,\n  \"recurrence_n_max\": 1542,\n  \"recurrence_integer_cells\": 1191196,\n  \"independent_rational_evaluations\": 1538,\n  \"positive_integer_newton_coefficients\": 131840,\n  \"minimum_newton_coefficient\": 1,\n  \"newton_coefficient_sha256\": \"1aaa71e6eefef75b9ed84d5f8751c839ba65f58d4e1b1f4f5316604b46e377bc\",\n  \"low_strip_integer_checks\": 3054,\n  \"low_strip_sha256\": \"3e32fd01309388b5e87064a421c3c7b9ccb30272e868da96869ac023b0707516\",\n  \"exact_equalities\": [\n    [\n      10,\n      3\n    ],\n    [\n      12,\n      4\n    ]\n  ],\n  \"arithmetic\": \"Python arbitrary precision exact integers and math.comb\",\n  \"proof_logic\": \"degree <=j from A_j/(1-x)^(j+1); for n>=2j the fixed-grade coefficient is polynomial; strictly positive Newton coefficients at base 2j+6 extend to every n beyond; six finite n-cases per j close the strip\",\n  \"coverage\": \"infinite n but finite grades j<=512; does not settle j>512 or formal native X6 dynamics\",\n  \"mathematical_admission\": \"AUTHOR_SIDE_UNREVIEWED\",\n  \"native_X6_experiment\": \"NOT_RUN\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/dd6ecde56a6746cb2ee48fc8d88e7aa34a467eb4/research_notes/r4_ec19_finite_width_20261025/R4_EC19_report.json",
+      "encoding": "utf-8",
+      "sha": "234baefa328f4352b4988967744c69dbdd7ab05a"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
