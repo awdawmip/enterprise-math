@@ -1,0 +1,47 @@
+{
+  "schema": "EM_C295_AUTHOR_128BIT_CERTIFICATE_SUMMARY_V1",
+  "date": "2026-10-25",
+  "model": "C195_H168_79_NODE_POSITIVE_RATIONAL_AUXILIARY",
+  "status": "AUTHOR_EXACT_FINITE_CERTIFICATE_NOT_FORMALLY_ADMITTED",
+  "basis_global_knowledge_main": "7b33f8066e9993e7c941959a9d738ed405248eb8",
+  "basis_enterprise_math_main": "57300e08dc58e176ca292f8c42cfe13e156c1d86",
+  "frozen_parent_commit": "d6d438d070921241605326784dececd6de7c47a0",
+  "inputs": [
+    "C275_STANDALONE_EXACT_REPLAY.py",
+    "C284_187_EXACT_DYADIC_BRACKETS.json",
+    "C288_ISOLATING_BOXES_EXACT.py",
+    "C293_125_REFINED_BRACKETS.json",
+    "C293_AUTHOR_VERIFY_EXACT.py"
+  ],
+  "roots": 125,
+  "binary_denominator_exponent": 128,
+  "old_exponent": 24,
+  "all_250_original_F_exact_signs": "PASS",
+  "all_250_independently_expanded_exact_signs": "PASS",
+  "all_path_boxes_and_C293_nesting": "PASS",
+  "minimum_normalized_endpoint_slack_gt": "2^-142",
+  "maximum_final_reduced_F_over_Q_numerator_bits": 55773,
+  "maximum_final_reduced_F_over_Q_denominator_bits": 55773,
+  "certificate_raw_2000_byte_sha256": "f254bd0a36235f453ae87dabd6ed84da8a4af551c7115354ec4aacbdc1bb0f2e",
+  "certificate_reconstructed_records_sha256": "a17907ffe877796d857c090270112a958c16d16c1e35119136e1fdad83d6416f",
+  "source_C284_records_sha256": "fcdad45cb2ed5df659b1a153762d358e2b7fa4df3e14c1be3eb505d4209ef576",
+  "certificate_storage": "C295_125_K128_CERTIFICATE.b64",
+  "verification_code": "C295_VERIFY_128_INDEPENDENT.py",
+  "author_local_exact_test": "PASS; both implementations, frozen portable package",
+  "remote_execution": "NOT_EXECUTED; GitHub content only read back",
+  "native_control": {
+    "task_query": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "owner_verified": false,
+    "claim": false,
+    "formal_result": false,
+    "driver_review": false
+  },
+  "mathematical_dependency_boundaries": [
+    "Finite signs imply existence; uniqueness requires upstream C285",
+    "125 geometric distinctions use upstream C288",
+    "No GF(2) signed/phase/port or native X6 bridge asserted"
+  ],
+  "next_problem": "C296 bounded-integer directed-rounding certificate and 128/256-bit full branch performance optimization"
+}
