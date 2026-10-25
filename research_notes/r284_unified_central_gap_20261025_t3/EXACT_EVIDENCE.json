@@ -1,0 +1,107 @@
+{
+  "analytic_asymptotics_proved_in_companion_note_not_by_DP": true,
+  "author_side_only": true,
+  "crosschecked_even_lengths": 157,
+  "crosschecked_odd_lengths": 158,
+  "driver_review": "NOT_DONE",
+  "exact_algebraic_law": "x^3 O(x)=(1-x^2-2*x^6+x^8)*E(x)",
+  "exact_generated_max_even_length": 3208,
+  "exact_generated_max_odd_length": 3205,
+  "finite_evidence_not_universal_positive_threshold": true,
+  "independent_DP_levels_checked": 321,
+  "independent_original_DP_max_length": 320,
+  "kernel_ode": "(1-2y-y^2-2y^3+y^4)g'=2(y^2-1)g; g=sqrt((1-3y+y^2)/(1+y+y^2))",
+  "last_nonpositive_even_gap_through_3208": 80,
+  "last_nonpositive_odd_gap_through_3205": 73,
+  "model": "ordered positive six-edge clean reset BRC auxiliary; not P000 native X6 or heartbeat time",
+  "samples": {
+    "100": {
+      "minus_minus3": "0",
+      "minus_minus4": "3677022823940661685",
+      "plus_minus4": "3677143958216068211",
+      "plus_minus5": "0"
+    },
+    "101": {
+      "minus_minus3": "5915985961157205016",
+      "minus_minus4": "0",
+      "plus_minus4": "0",
+      "plus_minus5": "5915485851394945181"
+    },
+    "150": {
+      "minus_minus3": "0",
+      "minus_minus4": "83970272726643280373370676701",
+      "plus_minus4": "83974489567793917503271905285",
+      "plus_minus5": "0"
+    },
+    "151": {
+      "minus_minus3": "135363677361970044047507065743",
+      "minus_minus4": "0",
+      "plus_minus4": "0",
+      "plus_minus5": "135348727576363744393503907863"
+    },
+    "319": {
+      "minus_minus3": "11920558650277614768552954757237425662415637911712386320548135866",
+      "minus_minus4": "0",
+      "plus_minus4": "0",
+      "plus_minus5": "11919614438519892760655221965611475203963887436779356870582497011"
+    },
+    "320": {
+      "minus_minus3": "0",
+      "minus_minus4": "19259899255261437248745726975785848570718716435184809873435879729",
+      "plus_minus4": "19260594053775909387319726025728299987766171432781593545729917207",
+      "plus_minus5": "0"
+    },
+    "40": {
+      "minus_minus3": "0",
+      "minus_minus4": "1728978",
+      "plus_minus4": "1727983",
+      "plus_minus5": "0"
+    },
+    "73": {
+      "minus_minus3": "9860163812176",
+      "minus_minus4": "0",
+      "plus_minus4": "0",
+      "plus_minus5": "9860284520897"
+    },
+    "74": {
+      "minus_minus3": "0",
+      "minus_minus4": "15852229630767",
+      "plus_minus4": "15851860767047",
+      "plus_minus5": "0"
+    },
+    "79": {
+      "minus_minus3": "169758003083661",
+      "minus_minus4": "0",
+      "plus_minus4": "0",
+      "plus_minus5": "169754381103478"
+    },
+    "8": {
+      "minus_minus3": "0",
+      "minus_minus4": "2",
+      "plus_minus4": "3",
+      "plus_minus5": "0"
+    },
+    "80": {
+      "minus_minus3": "0",
+      "minus_minus4": "273055000503388",
+      "plus_minus4": "273054273225926",
+      "plus_minus5": "0"
+    },
+    "81": {
+      "minus_minus3": "438660292107331",
+      "minus_minus4": "0",
+      "plus_minus4": "0",
+      "plus_minus5": "438646962176306"
+    },
+    "82": {
+      "minus_minus3": "0",
+      "minus_minus4": "705687312911562",
+      "plus_minus4": "705689298600741",
+      "plus_minus5": "0"
+    }
+  },
+  "schema": "ENTERPRISE_MATH_R284_GAP_SYZYGY_EXACT_EVIDENCE_V1",
+  "script_sha256": "bbfc03813a6d3d560f8ef8374bac3a8bb3fc468e7b10bc410f80eae1049a1182",
+  "single_kernel": "E(x)=x^8 K(x^2); O(x)=x^5 p(x^2)K(x^2)",
+  "status": "PASS"
+}
