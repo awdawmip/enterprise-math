@@ -1,0 +1,73 @@
+{
+  "schema": "R4_EC14_AUTHOR_EVIDENCE_V1",
+  "status": "AUTHOR_SIDE_PROVED_EXACT_CHECKED; NATIVE_RESULT_AND_INDEPENDENT_DRIVER_PENDING",
+  "research_unit": "R4-EC14",
+  "source_snapshots": {
+    "global_knowledge_main": "ee7806e5717ca691678361ef779ed98115813649",
+    "enterprise_math_source_main": "b2049e0f8fc7c595260b4aedae50b16629523af3",
+    "p000": "ACTIVE_LOCKED",
+    "p000_canonical_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "parent_research_commit": "387c93150bcf0c98f543d991471fbb27501dfd05"
+  },
+  "researcher_id": "EMR4-LOCAL-20261025-EC14",
+  "research_activity_id": "RA-EMR4-20261025-1329-EC14LD",
+  "git_principal": "awdawmip",
+  "model": "auxiliary positive unit-weight binary affine BRC, exactly eight clean fine states, 12 clean input-labelled edges; grade j=(n-t)/2",
+  "native_x6_executed": false,
+  "new_theorems": [
+    "For all n>=1 and 1<=j<=n-1, clean_ratio <= (n+1)*(1-(min(j,n-j)/n)^2)^floor(n/2)",
+    "For all n>=1, clean_ratio(j=0)=clean_ratio(j=n)=1",
+    "For every fixed interior alpha and j_n/n->alpha, exact positive rate I(alpha)=H(alpha)-log(lambda(u_alpha))+alpha*log(u_alpha) with alpha=u_alpha*lambda'(u_alpha)/lambda(u_alpha)",
+    "Rate symmetry I(alpha)=I(1-alpha), midpoint I(1/2)=log(2/phi), small-alpha I(alpha)=2alpha^2+O(alpha^3)"
+  ],
+  "validation": {
+    "raw_binary_paths_exhaustive": 8191,
+    "raw_length_max": 12,
+    "exact_integer_dp_nmax": 200,
+    "independent_recurrence_checked_coefficients": 20301,
+    "all_finite_bounds_integer_cross_multiplied_through_n": 200,
+    "exact_symbolic_certificate": "PASS",
+    "numerical_spectral_PF_check": "PASS illustrative only",
+    "original_evidence_archive_sha256": "c672c81bd919250a8eb5878e840f6824d7480919dd40bfddd35bf9a1f965ed73",
+    "archive_bytes": 16034,
+    "cold_start": "PASS all files SHA256, fresh unzip, all 3 scripts exit0, report roundtrip"
+  },
+  "numerical_rate_illustrations": [
+    {
+      "alpha": 0.1,
+      "I": 0.0232733844
+    },
+    {
+      "alpha": 0.25,
+      "I": 0.1277607637
+    },
+    {
+      "alpha": 0.5,
+      "I": 0.2119353555
+    },
+    {
+      "alpha": 0.75,
+      "I": 0.1277607637
+    },
+    {
+      "alpha": 0.9,
+      "I": 0.0232733844
+    }
+  ],
+  "actual_executed_code_git_blobs": {
+    "R4_EC14_verify.py": "f1838e4c8f206b73887fb401814f4075769844ea",
+    "R4_EC14_independent_recurrence.py": "c0940342fe0ca2d3a590e746eb7e98c5cbf7c395",
+    "R4_EC14_symbolic.py": "8bd819a7debf995cbe838622ba8f246fac051d26"
+  },
+  "complete_local_paper_sha256": "e26d9e1d72deb97e48517b2b5f6a04ef16a04a4e8155153a55e82c1605cedf6c",
+  "remote_paper_note": "GitHub mathematical note is complete in claim/proof scope but more concise than the separately locally executed 13,648-byte paper; do not claim byte identity",
+  "native": {
+    "task_inventory": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "native_session_request_sent": false,
+    "owner_verified": false,
+    "claim_acquired": false,
+    "result_accepted": false
+  },
+  "next_question": "Prove or disprove uniform sharp log clean_ratio=-(2+o(1))j^2/n for j->infinity, j=o(n), j/sqrt(n)->infinity, with quantified moving saddle errors; six-vs-seven fixed-transfer and R193/native-X6 mapping remain open."
+}
