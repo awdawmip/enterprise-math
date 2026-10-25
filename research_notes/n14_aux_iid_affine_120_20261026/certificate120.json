@@ -1,0 +1,125 @@
+{
+  "schema": "EM_N14_AUX_IID_STAGE120_AUTHOR_CERT_V1",
+  "status": "AUTHOR_EXACT_COMPUTATION_ASSISTED_PROOF",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "scope": "full ordered-history randomized; external finite iid; no P000 transfer"
+  },
+  "source_pins": {
+    "global_main": "c6d252e7e402c453dd0eb291d80b0a8a7e8f6821",
+    "em_main": "a0f54b76491aedcde1405c39ad0df86a3ccda6ab"
+  },
+  "dual": {
+    "K": "1527132609/1903099",
+    "L": "1463947128/1903099",
+    "slope": "2991079737/1903099",
+    "root": "29115372702587876388649105/52126377513908875296768",
+    "state_count": 680,
+    "positive_gaps": 1238,
+    "negative_gaps": 0,
+    "min_positive_gap": "76168651372577/4909786414055424",
+    "ties": {
+      "D": [
+        9,
+        1,
+        2
+      ],
+      "A": [
+        9,
+        3,
+        0
+      ]
+    }
+  },
+  "first_hit": {
+    "D": {
+      "count": 172,
+      "P_mass": "671875/53747712",
+      "Q_mass": "671875/20155392"
+    },
+    "A": {
+      "count": 84,
+      "P_mass": "109375/1990656",
+      "Q_mass": "109375/6718464"
+    }
+  },
+  "four_moments": {
+    "M00": [
+      "608646052236273911/1752976676930715648",
+      "13933675187525/40122452017152",
+      "2803540112797487261/219122084616339456",
+      "40658886091241/3343537668096"
+    ],
+    "dD": [
+      "593265625/5283615080448",
+      "-430671875/5015306502144",
+      "-34607609375/1981355655168",
+      "-17355203125/417942208512"
+    ],
+    "dA": [
+      "-1921609375/7925422620672",
+      "259765625/835884417024",
+      "-20758609375/330225942528",
+      "-1476453125/69657034752"
+    ],
+    "zero_cross_term": true
+  },
+  "mixing": {
+    "w0": "376517470455067/1042086080000000",
+    "w_slope": "6494178/2326085",
+    "y_end": "665568609544933/2909391744000000",
+    "w_end": "1",
+    "eta": "1266642955256352447367/77958194918387612186050560",
+    "alpha_start": "900390183707375071351/2592933255351443128320",
+    "alpha_end": "2573764724900518487425/7411551152237344456704",
+    "value_start": "132634859722005927805223/10371733021405772513280",
+    "value_end": "378361860665073597077285/29646204608949377826816",
+    "tP_minus_tQ_start": "1333129085804580517835/2074346604281154502656",
+    "tP_minus_tQ_end": "19225817524111600585621/29646204608949377826816"
+  },
+  "execution": {
+    "Fraction_Bellman": "PASS_LOCAL",
+    "independent_integer_literal_DFS": "PASS_LOCAL",
+    "corners_integer_DFS_visits": {
+      "10": 885985,
+      "11": 880945,
+      "00": 893725,
+      "01": 888685
+    },
+    "executed_primary_source_sha256": "84f1c5b2925b0a1f0a724c53b11491f416aa4aae9bf58979d65b736c74bda76d",
+    "executed_independent_source_sha256": "98e92b5634b74cb9eb00926faed553029a34f1db0985fff55b701c9a13e75671",
+    "source_publication_is_execution": false
+  },
+  "candidate121": {
+    "K": "320913819/414584",
+    "L": "37979256/51823",
+    "A": [
+      9,
+      3,
+      0
+    ],
+    "G": [
+      13,
+      6,
+      4
+    ],
+    "min_positive_gap": "110828719979/9903529525248",
+    "state": "DUAL_ONLY"
+  },
+  "authority": {
+    "native_owner": "UNVERIFIED_CONTROL_QUOTA",
+    "native_session": "STATIC_READONLY_SCOPE_DENIED",
+    "native_claim": false,
+    "independent_review": "PENDING"
+  }
+}
