@@ -71,7 +71,7 @@ Verified execution results:
 | Exact pairs of nonzero opposite residues | 250 / 250 |
 | Distinct primitive pole factors | 125 / 125 |
 
-The independently built full checker additionally emits C314_125_INDEPENDENT_SOURCE_AUDIT.json with all 125 indexed factor pairs, branch labels and exact residue numerator/denominator bitlengths. Its observed SHA256 is **b95921c8f0d0c9c2231fb97a0144673cc7af33ea7ffb1b06d1744b6a28f48fe8** (129,878 bytes). The exact compact executable Git blob is fe223f3eacfcdb78965381a6d9832e2ec7a38a16; its SHA256 is 3f75b797ec9828879a5d3c47eb17d52ecbe0630709005418a730c2830f7ea1b0. The full author proof and frozen inputs reside in the user-facing portable ZIP of this run. The compact script regenerates the decisive test independently from those frozen inputs.
+The independently built full checker additionally emits C314_125_INDEPENDENT_SOURCE_AUDIT.json with all 125 indexed factor pairs, branch labels and exact residue numerator/denominator bitlengths. Its observed SHA256 is **dab2b9348acf85fdf1f9582642c5386447a862706ecd903bb930311846429591** (129,841 bytes). The exact compact executable Git blob is fe223f3eacfcdb78965381a6d9832e2ec7a38a16; its SHA256 is 3f75b797ec9828879a5d3c47eb17d52ecbe0630709005418a730c2830f7ea1b0. The full author proof and frozen inputs reside in the user-facing portable ZIP of this run. The compact script regenerates the decisive test independently from those frozen inputs.
 
 ## Observer/BRC scope and unresolved science
 
