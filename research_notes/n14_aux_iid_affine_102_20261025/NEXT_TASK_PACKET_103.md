@@ -1,0 +1,11 @@
+# Stage103 portable handoff — external iid N=14
+
+**Mother question:** Determine the next exact minimax segment for iid P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), randomized tests using complete ordered histories and stopping by 14, with eP,eQ<=alpha.
+
+**Frozen Stage102 AUTHOR frontier (not Source-native admitted):** Stage102 author proof at PROOF_STAGE102.md with exact portable checkers and certificate102.json. Stage102 interval: alpha101=152150366213667431/438244169232678912 to alpha102=2586593746940986327/7450150876955541504, with V102=751163408448101635/58204303726215168 and slope Gamma102=187763606856/78169393. Sharp right end is proven for the existing support line. A102=(5,0,2) and B=(12,0,1) have disjoint cones; first-hit and suffix data in certificate102.json. No native P000 transfer.
+
+**Next dual-only candidate:** On the pencil lambdaP=72+(8/9)K and with the Stage102 post-kink choice, the fixed-policy affine action-gap checker finds K103=152847928260/128768917. New tie: C103=(6,2,3), continue vs decide Q. Every one of 1240 fixed-policy gaps is nonnegative at K103 and K102; by affinity all are nonnegative in between. Stage103 primal interval has NOT been proven.
+
+**First executable research unit:** Count genuine ordered first-hit prefixes under the post-kink Bellman strict policy to C103 and B, compute their exact P/Q masses and conditional suffix error/duration quadruples, and prove ancestry/disjointness (since C103 has a=2,b=3 whereas B has a=0,b=1, C103 cannot precede B). Then solve two-tie error balancing and characterize the feasible full real interval, with tP>=tQ and a positive right-sharpness bound. Or exhibit a rigorous obstruction.
+
+**Required evidence:** Exact Bellman action-gap certificate, exact ordered DFS using an independently written implementation, complete symbolic formulas for errors/times, full real interval proof and sharpness (or explicit obstruction). Keep P000 locked, source pins, actual native owner/permission check, and author/reviewer distinction.
