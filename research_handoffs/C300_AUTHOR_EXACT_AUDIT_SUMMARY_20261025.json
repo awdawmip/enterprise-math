@@ -1,0 +1,80 @@
+{
+  "schema": "EM_C300_AUTHOR_EXACT_AUDIT_SUMMARY_V1",
+  "created_on": "2026-10-25",
+  "source_global_main": "124e158e394e597af0212115d43a38edc164e6bb",
+  "source_enterprise_main": "2540a16d415477e0006b18411e08a82c521103db",
+  "previous_C299_author_commit": "8d975dcda623ada2315c3f46b6eccd192a37af25",
+  "prior_C298_author_commit": "82db02673f4ef6eac9aca5bd7780bc71254d256b",
+  "model": "C195_H168_79_BRANCH_POSITIVE_RATIONAL_AUXILIARY",
+  "proofs": {
+    "path_count": 125,
+    "exact_reduced_denominator_degree_distribution": {
+      "265": 1,
+      "352": 124
+    },
+    "exceptional_path_index": 28,
+    "initial_unreduced_degree_distribution": {
+      "267": 1,
+      "354": 124
+    },
+    "total_primitive_linear_factors": 38175,
+    "retained_primitive_linear_poles": 37925,
+    "exactly_cancelled_distinct_linear_factors": 250,
+    "cancelled_primitive_factor_pairs_per_path": [
+      [
+        75,
+        77
+      ],
+      [
+        76,
+        78
+      ]
+    ],
+    "prime": "2305843009213693951",
+    "prime_certificate": "Lucas-Lehmer M_61: 59 recurrence iterations from seed 4 to residue 0 modulo 2^61-1; 61 prime by trial division through 7",
+    "complete_prime_field_nonzero_residues": 37925,
+    "exact_rational_zero_residue_checks": 250,
+    "distinct_nonremovable_base_quadratic_families": 998,
+    "base_quadratic_multiplicity": 3,
+    "rational_to_modular_nonzero_residue_spots": 14,
+    "original_F_fraction_spots": 8,
+    "max_integral_denominator_1_norm_majorant_bit_length": 13713
+  },
+  "inherited_conditional_claims": {
+    "outward_eval_full_strip_error": "<2^(134-P) from C297 author proof (not independently replayed this run)",
+    "nonroot_dyadic_sufficient_sign_precision": "P=352*b+13713+134",
+    "b512": 194071
+  },
+  "verification": {
+    "local_all_paths_exact_script": "PASS",
+    "isolated_full_portable_zip_13_file_sha256_manifest": "PASS",
+    "isolated_full_portable_zip_replayed_full_script": "PASS",
+    "isolated_source_replay_author_only": true,
+    "github_execution": "NOT_RUN",
+    "independent_research_driver_review": false,
+    "native_source_claim": false,
+    "formal_result_freeze": false,
+    "accepted_or_foundation_promotion": false,
+    "original_source_p000_modified": false
+  },
+  "fully_detailed_witnesses": {
+    "artifact": "EM_C300_ALL125_REDUCED_DENOMINATOR_EXACT_PORTABLE.zip",
+    "sha256": "6d48aa16ed6012b716d769ca011476ad4f7f75e6b6640d839c8f3d75b5034219",
+    "encoded_certificate_name": "C300_125_LINEAR_POLE_CERTIFICATE.gz.b64",
+    "compact_uncompressed_json_sha256": "4caa3732526c5278ebb69da1f91c0389857e8fb90e11932e87c4ff5d01ef3700",
+    "compressed_gzip_sha256": "d13fce8f916612735e31ededa13aa67baa2956c30d3bcebc13d254f1bc04c5b7",
+    "base64_length_bytes": 703420,
+    "availability": "Full 125-path certificate stored in user-visible portable ZIP attachment; not uploaded to GitHub owing to large size. GitHub contains proof, executable generator, kernel, audit and replay instructions.",
+    "archive_size_bytes": 567620
+  },
+  "native_controller": {
+    "tasks": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "session_start_operation_sent": false,
+    "live_owner_verified": false,
+    "source_activity_registration": "UNVERIFIED_NATIVE_RESEARCHER_ID_UNAVAILABLE",
+    "authorization": "GITHUB_AUTHOR_BRANCH_ONLY",
+    "google_drive_fallback": "NOT_USED_GITHUB_WRITES_WORK_AND_NATIVE_SCOPE_DENIED"
+  },
+  "next_problem": "C301: reduce actual primitive integral denominator content and coefficient-height bound; separately establish observer-preserving typed native signed/phase BRC bridge"
+}
