@@ -30,7 +30,7 @@ Files:
 
 GitHub remote code blob 6f94299709f50119a6ee91a262200c6693162062 and evidence blob f1167c096ec968391e1cdc3bee2b40a73b9b0c7e match the original locally executed bytes. The proof was additionally read from remote and is nonempty. Branch storage is not canonical mathematical admission.
 
-Research-Activity-ID RA-EMR3-20261025-1022-R281EDGEWORTH (on EM main). Actual local author identity EMR3-20261025-1022-LOCAL; no platform-issued Researcher identity. Native em_control_tasks failed CONTROL_QUOTA, native em_session_start denied STATIC_READONLY_SCOPE_DENIED(operation_sent=false). Current active Owner and formal CLAIM remain unverified; no native Source Result or independent Driver review. These restrictions were not circumvented using another storage provider.
+Research-Activity-ID RA-EMR3-20261025-1022-R281EDGEWORTH (on EM main). Canonical-format locally allocated Researcher-ID EM-DIRECT-851BF0 (activity record corrected at EM main@0c20646ad4d9fa5345dcdbc28c35fdf52a2bc5d7); session label emr3-20261025-1022-local; no platform-issued Researcher identity. Native em_control_tasks failed CONTROL_QUOTA, native em_session_start denied STATIC_READONLY_SCOPE_DENIED(operation_sent=false). Current active Owner and formal CLAIM remain unverified; no native Source Result or independent Driver review. These restrictions were not circumvented using another storage provider.
 
 ## Next smallest unresolved unit
 
