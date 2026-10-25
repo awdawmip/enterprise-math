@@ -1,0 +1,115 @@
+{
+  "schema": "EM_N14_STAGE113_AUTHOR_EXACT_CERT_V1",
+  "date": "2026-10-25",
+  "immutable_inputs": {
+    "global": "28a36bed4c273c46df19f5e267650a7429b06cb1",
+    "enterprise_math": "3815d50ef89ab52b99f046252d90afe21ca926b3",
+    "p000_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "precedent": "research_notes/n14_aux_iid_affine_112_20261025/PROOF_STAGE112.md"
+  },
+  "scope": "External ternary iid horizon 14 with arbitrary literal ordered-history randomized policies",
+  "law": {
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ]
+  },
+  "dual": {
+    "K": "814106972531223/875100809116",
+    "L": "189992854025880/218775202279",
+    "slope": "1574078388634743/875100809116",
+    "root": "954868914544086623189532573343/1498077449554244331091525632",
+    "states": 680,
+    "nonchosen_comparisons": 1240,
+    "strictly_positive": 1238,
+    "zeros": 2,
+    "negative": 0,
+    "minimum_positive": "3797211181/1312651213674",
+    "ties": {
+      "10,3,0": [
+        "P",
+        "C"
+      ],
+      "5,2,3": [
+        "Q",
+        "C"
+      ]
+    }
+  },
+  "primal": {
+    "alpha112": "13084629132464364707/37682150988866125824",
+    "V112": "1930486644885404154985/150728603955464503296",
+    "u112": "66372737348901/70438400000000",
+    "du_dw": "123866061659/986137600000000",
+    "u113": "929342188946273/986137600000000",
+    "eta113": "218775202279/19538893105337991168",
+    "alpha113": "183184813761431567431/527550113844125761536",
+    "V113": "27026770528279165031729/2110200455376503046144",
+    "tQ_at_alpha113": "1604482572142993109465/131887528461031440384",
+    "tP_minus_tQ_at_alpha113": "451683124663758426763/703400151792167682048",
+    "first_hit_history_counts": {
+      "10,3,0": 120,
+      "5,2,3": 6
+    },
+    "P_hit_masses": {
+      "10,3,0": "390625/5971968",
+      "5,2,3": "1/147456"
+    },
+    "Q_hit_masses": {
+      "10,3,0": "390625/20155392",
+      "5,2,3": "1/41472"
+    },
+    "d_u": {
+      "eP": "-248046875/990677827584",
+      "eQ": "65234375/208971104256",
+      "tP": "-3012109375/41278242816",
+      "tQ": "-417578125/17414258688"
+    },
+    "d_w": {
+      "eP": "102549331/2404631929946112",
+      "eQ": "-1498645/53496602689536",
+      "tP": "-3298748975/300578991243264",
+      "tQ": "-16132121/495338913792"
+    },
+    "interactions": {
+      "eP": "0",
+      "eQ": "0",
+      "tP": "0",
+      "tQ": "0"
+    }
+  },
+  "independent_ordered_checker": {
+    "mode": "literal ordered DFS with integer P/Q numerators and 24^14/12^14 denominators",
+    "visited_prefixes": [
+      889909,
+      886309,
+      884347,
+      880747
+    ],
+    "result": "INDEPENDENT_EXACT_ORDERED_PASS"
+  },
+  "Stage114_dual_only": {
+    "K": "1903247523/2052316",
+    "L": "443700120/513079",
+    "new_tie": "9,1,2",
+    "candidate_crossings": 357,
+    "verified_tie_count": 2,
+    "primal_proof": false
+  },
+  "actual_status": {
+    "author_proof": true,
+    "author_exact_programs_run": true,
+    "independent_driver_review": false,
+    "native_claim": false,
+    "native_result": false,
+    "native_control_error": "CONTROL_QUOTA",
+    "native_session_error": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false
+  }
+}
