@@ -1,0 +1,60 @@
+{
+  "result_id": "R282_DIRTY_SYNCHRONIZING_SUFFIX_20261025_T3",
+  "status": "PASS",
+  "model": "R281 exact 6-edge positive-weight ordered BRC auxiliary",
+  "source_commit": "d5fa39cebe5fcd6cda0e19759f23bbcb77bd023a",
+  "synchronizer": "+++--+",
+  "routes": [
+    [
+      0,
+      1,
+      "++--",
+      2
+    ],
+    [
+      1,
+      1,
+      "---+",
+      0
+    ],
+    [
+      2,
+      1,
+      "----",
+      -2
+    ],
+    [
+      0,
+      -1,
+      "++-+",
+      4
+    ],
+    [
+      1,
+      -1,
+      "-++-",
+      2
+    ],
+    [
+      2,
+      -1,
+      "+--+",
+      2
+    ]
+  ],
+  "max_integer_DP_n": 150,
+  "exact_pointwise_dirty_checks": 7194,
+  "certified_dirty_candidate_layers": 107,
+  "observed_B_equals_Lambda_layers_n9_to150": 139,
+  "even_dirty_sufficient_threshold": 46,
+  "odd_dirty_sufficient_threshold": 43,
+  "even_base": {
+    "binomial": "5567902560",
+    "fibonacci": "4807526976"
+  },
+  "odd_base": {
+    "binomial": "1166803110",
+    "fibonacci": "1134903170"
+  },
+  "math_status": "AUTHOR_SIDE_PROVED_EXACT_SYNCHRONIZING_SUFFIX_AND_BINOMIAL_BOUND; CONDITIONAL_COROLLARY_REQUIRES_R274_R275_R281; NOT_ADMITTED"
+}
