@@ -1,0 +1,153 @@
+{
+  "schema": "EM_R4_EC24_FIFTH_NEWTON_SYMBOLIC_CERTIFICATE_V1",
+  "math_status": "AUTHOR_SIDE_EXACT_PROOF_NOT_INDEPENDENTLY_REVIEWED",
+  "scope": "auxiliary positive ordered binary affine BRC only; no native X6 transfer",
+  "global_claim": "For every c>=4 and r in {0,1,2}, [w^(c-4)] q_(3c+r)(3c+r+w)>0",
+  "proof_certificate": "positive rational shifted polynomial in v=c-4, derived by Laurent formula and Newton identities",
+  "certificates": [
+    {
+      "r": 0,
+      "min_c": 4,
+      "degree": 12,
+      "common_positive_denominator": 59875200,
+      "integer_coefficients_desc": [
+        512,
+        52224,
+        2278144,
+        55925760,
+        859210176,
+        8740714752,
+        61096664992,
+        300865255680,
+        1051252030037,
+        2550829768674,
+        4057622275239,
+        3758453971650,
+        1487060467200
+      ],
+      "minimum_integer_coefficient": 512
+    },
+    {
+      "r": 1,
+      "min_c": 4,
+      "degree": 13,
+      "common_positive_denominator": 389188800,
+      "integer_coefficients_desc": [
+        512,
+        59904,
+        3043456,
+        88573056,
+        1645740096,
+        20680875072,
+        182331631768,
+        1156175760168,
+        5337603511097,
+        17837089490649,
+        41933028620301,
+        65337904132371,
+        59694556519710,
+        23418268473600
+      ],
+      "minimum_integer_coefficient": 512
+    },
+    {
+      "r": 2,
+      "min_c": 4,
+      "degree": 14,
+      "common_positive_denominator": 2724321600,
+      "integer_coefficients_desc": [
+        512,
+        68096,
+        3983616,
+        135466240,
+        2989338352,
+        45387630288,
+        491902888048,
+        3901000383280,
+        22970833500615,
+        100660578649631,
+        323999694536336,
+        741712955860695,
+        1134715553029521,
+        1023922580886450,
+        399045006360000
+      ],
+      "minimum_integer_coefficient": 512
+    }
+  ],
+  "independent_integer_regression_c_range": [
+    4,
+    24
+  ],
+  "independent_integer_regression_cases": 63,
+  "sample_exact_values": [
+    {
+      "c": 4,
+      "r": 0,
+      "exact_value": "24836"
+    },
+    {
+      "c": 4,
+      "r": 1,
+      "exact_value": "60172"
+    },
+    {
+      "c": 4,
+      "r": 2,
+      "exact_value": "146475"
+    },
+    {
+      "c": 5,
+      "r": 0,
+      "exact_value": "3326128/15"
+    },
+    {
+      "c": 5,
+      "r": 1,
+      "exact_value": "11044479/20"
+    },
+    {
+      "c": 5,
+      "r": 2,
+      "exact_value": "27540571/20"
+    },
+    {
+      "c": 12,
+      "r": 0,
+      "exact_value": "450697370791/14515200"
+    },
+    {
+      "c": 12,
+      "r": 1,
+      "exact_value": "1887776193/17920"
+    },
+    {
+      "c": 12,
+      "r": 2,
+      "exact_value": "72340026059/207360"
+    },
+    {
+      "c": 24,
+      "r": 0,
+      "exact_value": "247719981514741/350337889177436160000"
+    },
+    {
+      "c": 24,
+      "r": 1,
+      "exact_value": "19718350430731/5308149836021760000"
+    },
+    {
+      "c": 24,
+      "r": 2,
+      "exact_value": "297354025673153/15924449508065280000"
+    }
+  ],
+  "unproved": [
+    "all Newton differences positive uniformly in c,d",
+    "near-center f_j(2j+s)>=0 for s=0..5",
+    "P000 X6 correspondence and physical time semantics"
+  ],
+  "native_owner_claim": "UNVERIFIED_CONTROL_QUOTA",
+  "native_session": "DENIED_STATIC_READONLY_SCOPE",
+  "independent_review": "NOT_PERFORMED"
+}
