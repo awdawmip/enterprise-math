@@ -1,0 +1,64 @@
+{
+  "schema": "C306_AUTHOR_EXACT_REMOTE_AUDIT_V1",
+  "date": "2026-10-25",
+  "status": "AUTHOR_EXACT_NOT_SOURCE_ADMITTED",
+  "global_snapshot": "18f1a35ac54714743225328150aa7952a8d95899",
+  "enterprise_snapshot": "bb10c4dbe1badc4adad436d075f2fd93f732e89c",
+  "predecessor_c305_commit": "1dc20a643c41bd3a8a0731df0abd71487b1d4898",
+  "source_C293_records_sha256": "03083a77480e6be5615797c2f4ffc503eee6603e9e60cbad1f11fb3ea83b3c89",
+  "mathematical_claims": [
+    "For all P in Z[t] of degree <= d, s>=1, T in Z: gcd(s,content(P)) is recovered from d+1 consecutive residues mod s*(d!)_supp(s) by factorial-supported Newton division and coprime modular inversion.",
+    "This modulus is the least universal single uniform modulus for these consecutive nodes: for every competing N it is necessary and sufficient that s*(d!)_supp(s) divides N."
+  ],
+  "counts": {
+    "paths": 125,
+    "degree_352": 124,
+    "degree_265": 1,
+    "modular_evaluations": 44038,
+    "newton_coefficients": 44038,
+    "C305_gcd_matches": 125,
+    "smaller_uniform_modulus": 125,
+    "independent_synthetic_polynomials": 2160,
+    "independent_synthetic_integer_values": 10800,
+    "sharpness_witnesses": 1899
+  },
+  "ranges": {
+    "C305_modulus_bits": [
+      7233,
+      7897
+    ],
+    "C306_modulus_bits": [
+      6526,
+      7196
+    ],
+    "saved_modulus_bits_per_path": [
+      256,
+      743
+    ],
+    "median_saved_bits": 708,
+    "sum_saved_bits": 88534,
+    "gcd_peeling_rounds": [
+      5,
+      18
+    ],
+    "observed_concurrent_per_path_elapsed_sum_seconds": 378.432
+  },
+  "executed_program_git_blob_sha1": "1696ff8bab4d6a54c26a9675cb57a13a86573609",
+  "synthetic_program_git_blob_sha1": "a28ea8fef1c29d0bdaf87513720a30932367e6c0",
+  "full_local_125_audit_sha256": "fe6b4a29707e0cfaf0af16edcab9927cad7b4fccb74b59050f8a0afc7f3b7cc8",
+  "full_portable_zip": "EM_C306_SUPPORT_OPTIMAL_NEWTON_125_EXACT_PORTABLE.zip",
+  "full_portable_zip_sha256": "c7a08db5515246ec22636597ef85efe52d430399609dbd61127849509eb3928d",
+  "full_portable_zip_files": 47,
+  "author_exact_scope": "Finite 125-path certified integer computation, compared against upstream author-level C305 gcd certificates. The general modulus theorem has complete hand proof. Independent complete Z[t] oracle in predecessor C305 covers only paths 0,28,63.",
+  "native_control": {
+    "task_inventory": "CONTROL_QUOTA",
+    "research_session": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "live_owner_verified": false,
+    "claim": false,
+    "source_result": false,
+    "driver_admitted": false
+  },
+  "BRC_and_X6": "External auxiliary scalar only; original branch, phase, port, joint observer, native six-axis X6 and future operation residuals cannot be erased by scalar content reduction.",
+  "next_question": "C307: coefficient-index adaptive p-adic precision with exact factor-circuit resource bounds; independent native Source review of upstream C300-C306 and separately typed BRC/X6 observer bridge."
+}
