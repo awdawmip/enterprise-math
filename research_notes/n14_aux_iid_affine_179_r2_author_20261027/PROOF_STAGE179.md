@@ -1,0 +1,54 @@
+# Stage179: exact full-real optimal affine interval in the external N14 ternary IID auxiliary model
+
+**Scientific status:** AUTHOR_EXACT (not an independent Source/Driver admission). **Model:** N=14, P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6); full ordered-history randomized stopping and choice of P/Q. Define eP=P(choose Q), eQ=Q(choose P), tP=E_P stopping time, tQ=E_Q stopping time, and V14(alpha)=inf max(tP,tQ) over eP,eQ<=alpha. This is not a P000 six-dimensional native Cell theorem.
+
+## Immutable inputs and assumptions
+
+GLOBAL_KNOWLEDGE_V1 canonical main: 930d01150acf9c60d2a9c1fb20c2217dfaf06744 (P000 startup projection and original canonical blob SHA both 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc). Enterprise Math initial source main: 46aa58bae44ceec7061b770004d0d68337c49110. Stage178 author source: 902326effe03bb35c534e16025c840a304e7ff6e, especially NEXT_TASK_PACKET_179.md and certificate178. The Stage179 dual-only candidate is K=194705694/884339, L=189622936/884339, H=247014020912300666697067/1513892228027570454528, with S=(9,0,1) Q/C tie and U=(12,5,2) P/C tie.
+
+## Theorem (author-level proof inside the exact declared finite model)
+
+Set alpha178=1571019175748196236077/4497734146660704976896 and V178=25558154902620967560277/2248867073330352488448. For **every real** 0<=delta<=52507628125/91506635470798848,
+
+    V14(alpha178+delta)=V178-(384328630/884339)*delta.
+
+The right endpoint and exact value are
+
+    alpha179=1571021756603133836077/4497734146660704976896,
+    V179=25557594090284071560277/2248867073330352488448.
+
+For alpha>alpha179 the **same** affine Bellman support line H-(K+L)*alpha is strictly below the value function (when feasible; extended-real value +infinity when infeasible). This is support-line sharpness, not termination of the original value function.
+
+## Proof
+
+**1. Lower bound by finite exact Bellman recurrence.** For state x=(n,a,b), 0<=a+b<=n<=14, let ell(x)=Q(history)/P(history)=2^(a+b)/3^a. Define
+
+    B(x)=min{K*ell(x), L, 1+sum_i P_i B(child_i(x))}
+
+with continuation unavailable at n=14. This is precisely the optimum of tP+K*eQ+L*eP. Exact Fraction recursion over all C(17,3)=680 states produces H=B(0,0,0), exactly two tie states S(Q/C) and U(P/C), 1,238 strict-positive action gaps (minimum 49549/42448272), and no negative gap. Thus for any feasible policy,
+
+    H <= tP+K*eQ+L*eP <= max(tP,tQ)+(K+L)*alpha,
+
+giving V14(alpha)>=H-(K+L)*alpha.
+
+**2. Complete ordered-history observation.** At S choose Q with probability s and C otherwise; at U choose P with probability u and C otherwise; at every other state use its unique Bellman minimum. For all four corners (s,u) in {0,1}^2 we computed (eP,eQ,tP,tQ) twice: exact rational suffix DP and an independent integer-numerator DFS retaining *every* ordered history separately, masses p/24^n and q/12^n. Both probability totals are exactly 1, and the two algorithms agree on all 16 corner observables with no tolerance. DFS nodes per corner (00,01,10,11) were (292900,263716,292468,263284), totaling 1112368. First-hit path counts: 9 for S, 4864 for U. The P and Q first-hit probabilities at S are 390625/4478976 and 390625/2239488; at U they are 59375/573308928 and 59375/1088391168.
+
+S cannot precede U along one history: U_n-S_n=3, but (U_a-S_a)+(U_b-S_b)=6>3. U cannot precede S since its depth is larger. Therefore first-hit cones are disjoint; the joint mixed finite difference of all four observables is exactly (0,0,0,0). The complete random-policy vector is exactly affine, v(s,u)=v00+s*dS+u*dU, for every real s,u in [0,1]. This also remains true for history-dependent randomizations because Q/P at a fixed count state is constant across its ordered histories, so all such choices induce a valid weighted effective coin at each tie.
+
+**3. Primal upper bound with exact error balance.** Solving eP=eQ for the two coins gives exactly
+
+    s(u)=221018345896667/1050939200000000
+         +(163172/147788325)*u.
+
+Both s(u) and u are valid probabilities for every real u in [0,1]. At u=0, the strategy reproduces alpha178,V178 and its S coin equals the Stage178 endpoint saturated coin. At u=1, s=1999608121070003/9458452800000000 and errors and P-time are alpha179,V179. Exact endpoint margins tP-tQ are respectively
+27547482146984944733/83291373086309351424 and 247971501433994102597/749622357776784162816, both strictly positive; all interpolated strategies have tP>=tQ. Every chosen local action is Bellman-optimal, so tP+K*eQ+L*eP=H. Because eP=eQ=alpha and tP is the maximum time, the lower bound is attained. Moreover alpha(u) increases strictly and affinely, so the equality holds on the **entire real interval**, not just a grid.
+
+**4. Strict right boundary.** The finite full-history policy space is a finite product of compact simplexes; all errors and expectations are continuous, hence the constrained optimum is attained. Equality with the Bellman lower support line requires eP=eQ=alpha (K,L>0), tP>=tQ, and Bellman-minimizing action at every positive-mass history. All non-tie actions have positive gaps; reducing history-dependent tie choices to their effective coins recovers the exact affine balance above. The effective U coin cannot exceed 1. Therefore alpha<=alpha179 under equality. The support line is strictly below V14(alpha) at every feasible alpha>alpha179.
+
+## Verification evidence and boundary
+
+The independently executed exact program VERIFY_STAGE179.py printed STAGE179_AUTHOR_EXACT_FULL_REAL_PASS; all its assertions passed, including 680 states, 1,238 strict gaps, 4 double-computed corners, exact zero cross term, complete coin legality, Stage178 continuity, P-time dominance, dual equality, width and slope. The executed Python source, full rational certificate179.json, complete verify179.log, and SHA256 file manifest are preserved in the complete portable author package. A remote reference program does not by itself prove remote execution. No Monte Carlo, floating-point tolerance, infinite-state claim or native P000 transfer is asserted.
+
+**Stage180 dual-only continuation:** hold S=(9,0,1) Q/C; force U=(12,5,2) to P; traverse dK=-1, dL=-297152/359685. First new closure is W=(11,2,2) Q/C at step 53466096195/69751354286; K180=17305299/78874, L180=8431240/39437, H180=87860433465778875640367/540094853188411195392. Exactly 1,238 strict gaps (minimum 49549/6388794). Stage180 primal not proved. Its next first discriminator is two-coin S/W primal analysis with a separate full-history DFS.
+
+**Research control:** authenticated GitHub login awdawmip and push permission confirmed. Native em_control_tasks returned CONTROL_QUOTA; em_session_start returned STATIC_READONLY_SCOPE_DENIED with operation_sent=false. Active owner, native CLAIM, Source Result and independent Driver admission remain unverified. No formal mathematical acceptance is claimed.
