@@ -130,7 +130,7 @@ assert right[2]-left[2]==-(K+L)*(right[0]-left[0])
 certificate={
     'status':'AUTHOR_EXACT_NOT_ADMITTED_STAGE165',
     'model':{'N':14,'P':['1/8','1/24','5/6'],'Q':['1/12','1/12','5/6'],'scope':'EXTERNAL_N14_IID_FULL_ORDERED_HISTORY'},
-    'upstream':{'stage164_source_commit':'c085c64c14515b4d2fc3cbfb33751d4e1171530c','stage164_certificate':'certificate165.json'},
+    'upstream':{'stage164_source_commit':'c085c64c14515b4d2fc3cbfb33751d4e1171530c','stage164_certificate':'certificate164.json'},
     'dual':{'K':fmt(K),'L':fmt(L),'H':fmt(H),'states':680,'ties':{str(k):list(v) for k,v in ties.items()},'strict_gaps':len(gaps),'min_strict_gap':fmt(min(gaps))},
     'first_hits':{str(s):{'count':h[0],'P_mass':fmt(h[1]),'Q_mass':fmt(h[2])} for s,h in hits_ref.items()},
     'dfs_nodes':nodes,
@@ -149,6 +149,6 @@ for k,v in certificate.items():
     if k in {'corners','first_hits'}:continue
     print(k,v)
 if __name__=='__main__':
-    p=Path(__file__).with_name('certificate164.json')
+    p=Path(__file__).with_name('certificate165.json')
     p.write_text(json.dumps(certificate,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print('PASS Stage165 full real interval; certificate:',p)
