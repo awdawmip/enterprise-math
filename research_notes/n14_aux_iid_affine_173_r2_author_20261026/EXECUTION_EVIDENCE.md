@@ -1,0 +1,9 @@
+# Execution and authority evidence: Stage173 (2026-10-26)
+
+Source inputs: current verified GLOBAL_KNOWLEDGE_V1 main@32303b81b21f488a745aa9af6a05aaef150cf33d (bootstrap, manual, P000, ACTIVE worldview, math, code, BRC, research activity); Enterprise Math main@b03d306acf9763f8db33e09d9fd434f35e4640fd (portable protocol and ordinary control). Exact predecessor immutable Stage172 author commit bd3287d76bf71a967c69a1f1a4fca6275b805f05: proof, actual verification program, certificate, dual173 and next-task document were independently fetched via GitHub connector.
+
+Real GitHub identity: awdawmip, push=true to awdawmip/enterprise-math. Native control read attempts em_control_tasks and em_control_dispatch: CONTROL_QUOTA (not a positive owner read). Native em_session_start: STATIC_READONLY_SCOPE_DENIED with operation_sent=false. Active native owner UNKNOWN; no CLAIM, session, execution binding, Source Result, Driver review, Foundation admission or native registration claimed.
+
+Actual local execution: full VERIFY_STAGE173.py using exact Python Fraction on 680 Bellman states, 1238 strictly positive gaps, 2 ties. Four deterministic corners each verified twice, using suffix recursion and full unmerged ordered integer-numerator DFS; total ordered node visits 1,144,144. Thirteen checks true; stdout ended STAGE173_AUTHOR_EXACT_FULL_REAL_PASS. Actual run log, complete original source and full JSON evidence are in a portable author research package linked separately from this GitHub record. The GitHub checker is a self-contained reference verifier; storage readback is not remote execution.
+
+Actual exact Stage174 scanning gave two ties T=(8,2,0),Z=(14,0,0) at K=L=16044588/70019; 1238 positive gaps; primal remains OPEN. Results are limited to the external IID auxiliary test; BRC use is ordered provenance and positive branch masses, not native six-axis dynamical/physical computation.
