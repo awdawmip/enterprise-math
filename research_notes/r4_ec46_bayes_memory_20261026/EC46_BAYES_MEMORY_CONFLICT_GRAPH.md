@@ -1,0 +1,155 @@
+# R4–EC46: Exact BRC Bayes-memory conflict graph and error-only strict 1/2/3 hierarchy
+
+**Status:** author-side proof and exact checking. Not a native Task CLAIM, frozen Result, Guard pass, independent Driver review, Working Truth, Foundation result, or original-X6/heartbeat theorem.
+
+## 0. Frozen reference and typed scope
+
+- Account canonical read: awdawmip/chatgpt-global-knowledge main@3c2f14ffb124902dc0fe1050a8bc11811842ed48. Read 00_BOOTSTRAP.md, OPERATING_MANUAL.md, Enterprise Math project/task router, P000_STARTUP.json (canonical blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc), ACTIVE 我眼中的世界.md and the applicable mathematics, BRC and research-activity rules.
+- Enterprise Math input main@f3c264c07e8634ec5ddaffe988991dae44128228. Read docs/PORTABLE_RESEARCH_PROTOCOL.md, P000 and native-time companions, joint-observer preservation and weighted-BRC foundation.
+- Exact predecessor: EC45, commit 94195f2789fab44e7903c0eb688125f4f1bbfcd4, research_notes/r4_ec45_memory_hierarchy_20261026/EC45_STRICT_THREE_MEMORY_HIERARCHY.md. EC45 separated K=1,2,3 under stop/continue and a time-error objective. EC46 removes stopping and has identical decision depth for every policy.
+- GitHub authenticated writer: awdawmip. Canonical native task/owner lookup returned CONTROL_QUOTA, so no active owner or formal CLAIM is asserted. Research activity: RA-EMR4-20261026-1830-EC46T11, using a locally assigned stable key, NOT a service-issued execution identity.
+- Reuse: REUSE_APPLIED for the existing strictly positive weighted BRC microbranch carrier and joint future-observer preservation. Ordered branch pair (h,y) is retained; both hypotheses have separately specified source measures. No signed-amplitude or physical X6 operation is inferred.
+- Time: two separately ordered *observation stages*, not calibrated physical heartbeat time. The current observer sees h then forgets h before seeing y unless private memory retains information. No native three-dimensional slice, third coordinate, or six-dimensional update is supplied.
+
+## 1. Exact optimal memory-partition theorem (EC46.1)
+
+Let H,Y be nonempty finite sets. Under two hypotheses P and Q, let p(h,y)>0 and q(h,y)>0 be rational joint probability distributions on H×Y, each of total mass 1. The law may depend on h: NO factorization, common transition matrix or equal denominators is assumed.
+
+A hypothesis-blind controller first observes h, writes private symbol m from {1,...,K} by a stochastic kernel pi_h(m), and later observes y and emits a binary terminal declaration P or Q with kernel u_{m,y}=Pr(declare P | m,y). The previous h is inaccessible except through m. Define e_P=Pr_P(declare Q), e_Q=Pr_Q(declare P).
+
+For S subset H put
+
+\[
+C(S)=\sum_{y\in Y}\min\left(\sum_{h\in S}p(h,y),\ \sum_{h\in S}q(h,y)\right).
+\]
+
+**Theorem.** For every integer K≥1, the least total error over all REAL stochastic encoders/decoders is
+
+\[
+\boxed{R_K:=\min(e_P+e_Q)=
+\min_{\Pi\ {\rm partition\ of}\ H,\ |\Pi|\le K}\sum_{S\in\Pi}C(S).}\tag{46.1}
+\]
+
+**Proof.** Before any assumption of deterministic decisions, the exact expected error is
+
+\[
+L(\pi,u)=\sum_{h,y,m}\pi_h(m)
+\bigl[p(h,y)(1-u_{m,y})+q(h,y)u_{m,y}\bigr].
+\]
+
+For fixed decoders, L is affine in every independent encoder simplex pi_h; an optimum exists at a vertex of each simplex. Fix a minimizing deterministic encoder, which partitions H into its nonempty memory classes. The remaining L is affine in each decoder interval u_{m,y}∈[0,1]; a vertex optimal decoder exists. For each memory class S and label y, pure declaration P incurs ∑_{h∈S}q(h,y), and declaration Q incurs ∑_{h∈S}p(h,y). Their minimum is precisely the displayed summand. Conversely every partition and these Bayes declarations is implemented by an admissible K-memory controller. Replacing one group of stochastic variables by an optimal vertex never increases the objective; thus this proof covers ALL real stochastic policies and not only enumerated deterministic ones. QED.
+
+This optimization theorem concerns the single objective e_P+e_Q. It does not assert that deterministic policies suffice to realize all INTERIOR attainable four-observer vectors.
+
+## 2. Exact quotient-loss formula and graph coloring (EC46.2)
+
+Write d(h,y)=p(h,y)-q(h,y). Unlimited memory retaining h achieves the full-history Bayes optimum
+
+\[
+R_\infty=\sum_{h,y}\min\bigl(p(h,y),q(h,y)\bigr).
+\]
+
+For each fixed partition Π, the exact loss incurred by forgetting distinctions inside memory classes is
+
+\[
+\boxed{
+\sum_{S\in\Pi}C(S)-R_\infty
+=\frac12\sum_{S\in\Pi}\sum_{y\in Y}
+\left[\sum_{h\in S}|d(h,y)|-\left|\sum_{h\in S}d(h,y)\right|\right].
+}\tag{46.2}
+\]
+
+**Proof.** Substitute min(a,b)=(a+b-|a-b|)/2 into both sides and cancel the mass sums. Each bracket is nonnegative by the triangle inequality. It vanishes if and only if all its nonzero real summands d(h,y), for a fixed S,y, share the same sign. A d=0 tie never obstructs merging. QED.
+
+Build the Bayes-decision conflict graph G with vertices H and edge {h,k} if and only if
+
+\[
+\boxed{\exists y\in Y:\ d(h,y)d(k,y)<0.}\tag{46.3}
+\]
+
+A memory class has ZERO loss in (46.2) exactly when it contains no conflicting pair. Equivalently all memory classes are independent sets of G, namely color classes of a proper coloring. Hence the minimal private memory cardinality capable of achieving the full-history Bayes optimum is EXACTLY
+
+\[
+\boxed{K_{\rm Bayes-opt}=\chi(G).}\tag{46.4}
+\]
+
+This is a finite, exact necessary-and-sufficient condition, including zeros/ties, not a heuristic based on the number of distinct current scalar probabilities. The graph retains joint future source labels and the distinction between P and Q. The theorem makes NO claim that matching one optimal linear functional establishes full four-observer-region equality.
+
+## 3. Strict positive witness without stopping or a time tradeoff (EC46.3)
+
+Take H={a,b,c} and Y={+,-}. Source counts (strictly positive integer microbranches) under P and Q are:
+
+| h | P(h,+) | P(h,-) | Q(h,+) | Q(h,-) |
+|---|---:|---:|---:|---:|
+| a | 24 | 8 | 1 | 3 |
+| b | 12 | 4 | 4 | 12 |
+| c | 3 | 1 | 8 | 24 |
+
+Each hypothesis has EXACTLY 52 total branches. Divide each count by 52 for the probability mass. The source system also factors into first-observation counts P:(8,4,1), Q:(1,4,8) out of 13, followed by strictly positive shared conditional terminal counts P:(3,1), Q:(1,3) out of 4. It uses EC45's BRC branch arithmetic but has no intermediate stop or continue decision.
+
+The six signed integer differences 52*d are
+
+| h | + | - |
+|---|---:|---:|
+| a | 23 | 5 |
+| b | 8 | -8 |
+| c | -5 | -23 |
+
+The graph has all three edges a-b, a-c, b-c (at least one y shows opposite decision signs), so it is K3, of chromatic number 3.
+
+The exact grouped Bayes source-count minima are:
+- K=1: all roots in one group give min(39,13)+min(13,39)=26;
+- K=2: partitions {a}|{b,c} and {a,b}|{c} each give 21; {b}|{a,c} gives 26; allowing an empty second group gives 26;
+- K=3: three singleton classes yield 4+8+4=16.
+
+Using theorem (46.1), including all randomized private-memory and terminal policies,
+
+\[
+\boxed{R_1=26/52=1/2,\qquad R_2=21/52,\qquad R_3=16/52=4/13.}\tag{46.5}
+\]
+
+Each strict improvement is 5/52. A preselected public mixture of K-memory strategies cannot beat the best pure K-memory strategy for this linear objective. In particular, this is a 1→2→3 hierarchy in binary terminal CLASSIFICATION ERROR ALONE, rather than EC45's time/error tradeoff.
+
+**Complete four-observer region.** Put v=(e_P,e_Q,t_P,t_Q), counting observation depth as the decision stage. All strategies terminate after stage 2, so t_P=t_Q=2 identically. For K=3, storing h exactly allows the terminal kernel to reproduce ANY full-history stochastic policy u_{h,y}, hence reproduces its complete four-vector, not just an optimum. But K=2 cannot attain e_P+e_Q=4/13 by (46.5); the full-history region contains such a point. It follows rigorously that
+
+\[
+\boxed{K_{\min}(\text{entire four-observer region for this explicit experiment})=3.}\tag{46.6}
+\]
+
+The meaning of t here is a count of two observation stages. It is not independently measured native time.
+
+## 4. All-region finite-memory universal upper bound (EC46.4)
+
+For an arbitrary two-observation H×Y model as above, every full-history stochastic classifier is given by a matrix u_{h,y}∈[0,1]. One implementation uses K=|H| and stores h. A second uses K=2^{|Y|}, with memory symbols the DETERMINISTIC terminal plans f:Y→{P,Q}. After seeing h, draw f according to
+
+\[
+\pi_h(f)=
+\prod_{y:f(y)=P}u_{h,y}
+\prod_{y:f(y)=Q}(1-u_{h,y}).\tag{46.7}
+\]
+
+The weights sum to one and ∑_{f:f(y)=P}pi_h(f)=u_{h,y} for every h,y. Upon seeing y, output f(y). This preserves the complete joint (h,y,decision) probability under BOTH hypotheses, including all four observers. Hence
+
+\[
+\boxed{K_{\rm entire-region}\le \min(|H|,2^{|Y|}).}\tag{46.8}
+\]
+
+This is a universal SUFFICIENT bound, not an asserted universally sharp value.
+
+For the specifically typed three-stage stop-P / stop-Q / continue-then-observe-y extension (the EC45 pattern), pre-sampling one deterministic contingent plan after h similarly gives K≤min(|H|,2+2^{|Y|}); a plan is either one of two immediate stops or continuation with a terminal map Y→{P,Q}. This claim does not cover arbitrary unrestricted multi-stage systems.
+
+## 5. Exact validation and checked range
+
+The actually executed Python program EC46_verify.py checks strictly positive joint source counts using integer arithmetic, clearing unequal rational probability denominators before comparison. Covered families: 4,380 product-form common-terminal models, 3,614 arbitrary root-dependent positive joint models, and 126 unequal original denominator models; total 8,120 models. Verified 292,320 partition-level absolute-value gap identities and corresponding chromatic criteria, with 64 cases of independent direct encoders/decoders inside Python.
+
+The separately written and executed JavaScript BigInt program EC46_independent.js exhaustively enumerates 4, 128, 1,728 pure controllers for the displayed K=1,2,3 witness (1,860 in total) and confirms numerators 26,21,16 and the triangle conflict graph. The program output is EC46_JS_REPORT.json; the general Python output is EC46_REPORT.json. No floating-point model comparison is used.
+
+Finite calculations verify the concrete instance and implementation; the theorems for arbitrary finite alphabets and positive rational mass are established by the proofs above, not by extrapolating the finite tests.
+
+## 6. Next research unit EC47 and precise limitations
+
+The exact graph-coloring criterion solves the MINIMUM MEMORY required to attain one full-history binary Bayes optimum, not minimum memory to retain an ENTIRE region for general multi-stage, forgetful observers. Next investigate a recursively checkable necessary-and-sufficient certificate for exact equality of the full four-observer attainable region; determine what interior nonconvexity, random memory and public mixtures contribute beyond the support-function/Bayes-optimum graph.
+
+For native transfer, P000 remains ACTIVE_LOCKED: the world has six native spatial dimensions, a separately typed time dimension, and a three-dimensional slice as an X6 layer. The fixed native heartbeat update program remains unspecified. No exact map from this abstract source tree to native X6 cells, six-axis updates, third slice coordinate or physical time was proved. EC46 is an auxiliary positive BRC theorem only.
+
+**Disposition:** self-contained author-side proof and exact validation; GitHub storage, research activity checkpoint, formal Result, Guard, independent Driver review and acceptance must be assessed as distinct effects, not inferred from one another.
