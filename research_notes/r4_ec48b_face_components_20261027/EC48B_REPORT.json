@@ -1,0 +1,58 @@
+{
+  "schema": "EM_EC48B_EXACT_FACE_COMPONENT_ENUM_V1",
+  "date": "2026-10-27",
+  "model": {
+    "H": 3,
+    "Y": 2,
+    "K": 2,
+    "positive_integer_entry_domain": [
+      1,
+      2
+    ],
+    "normalized_each_law": true
+  },
+  "totalPairs": 4096,
+  "signaturePeakHistogram": {
+    "1": 100,
+    "2": 2412,
+    "3": 1584
+  },
+  "eligiblePairs": 2512,
+  "breakpointFaceChecks": 6470,
+  "multicomponentFaces": 792,
+  "uncoveredFaces": 0,
+  "example": {
+    "p": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "q": [
+      1,
+      1,
+      1,
+      2,
+      1,
+      1
+    ],
+    "kHull": 2,
+    "tieRawRatio": "1/1",
+    "totalTie": 4,
+    "intervals": [
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        4
+      ]
+    ],
+    "complete": true,
+    "optimalVertices": 16
+  },
+  "proofScope": "Finite domain enumeration only; universal exact component theorem is established algebraically, not by this test."
+}
