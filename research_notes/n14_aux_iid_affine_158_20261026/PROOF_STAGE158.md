@@ -10,26 +10,26 @@ Model: full **ordered-history** behavioral policies stopping by observation 14, 
 \[
 P=(1/8,1/24,5/6),\qquad Q=(1/12,1/12,5/6).
 \]
-Let (e_P=P(\mathrm{decide} Q)), (e_Q=Q(\mathrm{decide} P)), (t_P=E_P\tau), (t_Q=E_Q\tau), and (V_{14}(alpha)=\inf_{\pi:e_P,e_Q\le\alpha}max(t_P,t_Q)).
+Let \(e_P=P(\mathrm{decide}\ Q)\), \(e_Q=Q(\mathrm{decide}\ P)\), \(t_P=E_P\tau\), \(t_Q=E_Q\tau\), and \(V_{14}(\alpha)=\inf_{\pi:e_P,e_Q\le\alpha}\max(t_P,t_Q)\).
 
 Stage157 inherited author endpoint:
 \[
-\alpha_{157}=rac{763084945158127578305}{2192919042319171190784},qquad
+\alpha_{157}=rac{763084945158127578305}{2192919042319171190784},\qquad
 V_{157}=rac{3298586218925748578843}{274114880289896398848}.
 \]
 
 ## New theorem: all real points, not merely corners
 
-For **every real** (0\le\delta\le\Delta_{158}),
+For **every real** \(0\le\delta\le\Delta_{158}\),
 \[
-oxed{V_{14}(\alpha_{157}+delta)=V_{157}
--rac{53344114423224}{86511167249}delta},
-qquad
+oxed{V_{14}(\alpha_{157}+\delta)=V_{157}
+-rac{53344114423224}{86511167249}\delta},
+\qquad
 oxed{\Delta_{158}=rac{54069479530625}{1427681668176543744}}.
 \]
 The exact right endpoint is
 \[
-oxed{\alpha_{158}=rac{763167995878686618305}{2192919042319171190784}},qquad
+oxed{\alpha_{158}=rac{763167995878686618305}{2192919042319171190784}},\qquad
 oxed{V_{158}=rac{3292184925194961698843}{274114880289896398848}}.
 \]
 The same supporting line is **strictly below the optimum** for all (alpha>\alpha_{158}).
@@ -39,7 +39,7 @@ The same supporting line is **strictly below the optimum** for all (alpha>\alpha
 For (s=(n,a,b)), (R(s)=Q(s)/P(s)=2^{a+b}/3^a).
 At
 \[
-K=rac{26880449139504}{86511167249},qquad
+K=rac{26880449139504}{86511167249},\qquad
 L=rac{26463665283720}{86511167249},
 \]
 the finite Bellman recursion is
@@ -59,7 +59,7 @@ H(0)=rac{67118306721229522289887399231}{296195426721776135565213696}.
 For any **arbitrary ordered-history randomized strategy**, induction along each history using the same likelihood ratio gives the uniform bound
 \[
 oxed{H(0)\le t_P+K e_Q+L e_P
-\le max(t_P,t_Q)+(K+L)alpha.}
+\le \max(t_P,t_Q)+(K+L)\alpha.}
 \]
 The asymmetric ordering (K e_Q+L e_P) is essential: the cost (KR) corresponds to P-decision (Q-side error).
 
@@ -113,7 +113,7 @@ Both coins remain legal, and J's P coin stays **strictly interior** even at (h=1
 
 At (h=0,1), (t_P-t_Q) is, respectively,
 \[
-rac{251826953459549368715}{548229760579792797696}>0,qquad
+rac{251826953459549368715}{548229760579792797696}>0,\qquad
 rac{253249280016335608715}{548229760579792797696}>0.
 \]
 Affineness gives (t_P>t_Q) throughout. Direct exact arithmetic gives
@@ -127,8 +127,8 @@ The finite ordered-history behavioral-policy cube is compact, all four observers
 
 Once H's Q coin saturates at h=1, retain J's tie along the same exact dual direction. The next first-gap ray closure is
 \[
-t_{159}=rac{43776221891215860882}{12563497839079943249},qquad
-oxed{K_{159}=rac{580027221414}{1887912013}},qquad
+t_{159}=rac{43776221891215860882}{12563497839079943249},\qquad
+oxed{K_{159}=rac{580027221414}{1887912013}},\qquad
 oxed{L_{159}=rac{566236422120}{1887912013}}.
 \]
 New tie I=(9,5,4) Q/continue; J=(10,2,0) P/continue persists. Fresh 680-state exact Bellman scan: two ties, 1238 strictly positive gaps, smallest (20367756/1887912013), none negative. **This is a dual candidate only; no Stage159 primal interval has been proved.**
