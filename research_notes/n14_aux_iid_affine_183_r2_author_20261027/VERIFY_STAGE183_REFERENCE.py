@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Stage183 exact finite-state Bellman primal analysis, independent full ordered history DFS. The second coin variable u denotes T=(7,2,0), deciding P/C at the Stage183 X=(11,5,2) tie."""
+"""Stage183 exact finite-state Bellman primal analysis, independent full ordered history DFS. The second coin variable u denotes Stage183 X=(11,5,2), deciding P/C."""
 from fractions import Fraction as F
 from functools import lru_cache
 from collections import defaultdict
