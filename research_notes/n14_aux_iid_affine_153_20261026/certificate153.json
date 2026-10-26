@@ -1,0 +1,123 @@
+{
+  "schema": "EM_N14_STAGE153_AUTHOR_EXACT_CERTIFICATE_V1",
+  "evidence_level": "AUTHOR_EXACT_FINITE_LOCAL_EXECUTION",
+  "model": "EXTERNAL_AUXILIARY_TERNARY_IID_N14",
+  "N": 14,
+  "P": [
+    "1/8",
+    "1/24",
+    "5/6"
+  ],
+  "Q": [
+    "1/12",
+    "1/12",
+    "5/6"
+  ],
+  "dual": {
+    "K": "5994/17",
+    "L": "5960/17",
+    "H_root": "79691642847444362851/310422953206480896",
+    "states": 680,
+    "strict_positive_gaps": 1238,
+    "min_positive_gap": "71917/33841152",
+    "negative_gaps": 0,
+    "ties": {
+      "(11,0,1)": [
+        "Q",
+        "C"
+      ],
+      "(12,2,2)": [
+        "Q",
+        "C"
+      ]
+    }
+  },
+  "first_hit_ordered_prefixes": {
+    "B=(11,0,1)": {
+      "histories": 11,
+      "P_mass": "107421875/1451188224",
+      "Q_mass": "107421875/725594112"
+    },
+    "R=(12,2,2)": {
+      "histories": 1555,
+      "P_mass": "607421875/61917364224",
+      "Q_mass": "607421875/34828517376"
+    }
+  },
+  "nonintersection_proof": "B depth11 a=0 cannot reach R depth12 a=2 in exactly one step (a increment<=1); R cannot reach earlier B.",
+  "four_observer_order": [
+    "eP",
+    "eQ",
+    "tP",
+    "tQ"
+  ],
+  "M00": [
+    "1212593154171464035/3505953353861431296",
+    "74830814973455/213986410758144",
+    "5330352655382516317/438244169232678912",
+    "210020984822687/17832200896512"
+  ],
+  "dB": [
+    "4619140625/2229025112064",
+    "-751953125/417942208512",
+    "-25673828125/278628139008",
+    "-17939453125/104485552128"
+  ],
+  "dR": [
+    "607421875/3962711310336",
+    "-607421875/5015306502144",
+    "-607421875/55037657088",
+    "-7896484375/417942208512"
+  ],
+  "corner_dfs_nodes": {
+    "b0r0": 475342,
+    "b0r1": 466012,
+    "b1r0": 475210,
+    "b1r1": 465880
+  },
+  "mixed_fourvector": [
+    "0/1",
+    "0/1",
+    "0/1",
+    "0/1"
+  ],
+  "b_of_r": {
+    "intercept": "2686983670724537/2714624000000000",
+    "slope": "-9019/127248",
+    "allowed_r": [
+      "0",
+      "1"
+    ],
+    "b_at_r1": "7483735012173611/8143872000000000"
+  },
+  "full_real_optimum": {
+    "alpha152": "18373003413933759925/52808422392537808896",
+    "alpha153": "18373341781933759925/52808422392537808896",
+    "eta": "10326171875/1611585156022272",
+    "V152": "318745538371909741813/26404211196268904448",
+    "V153": "318626572163909741813/26404211196268904448",
+    "negative_value_slope": "-11954/17",
+    "sharp_right": true
+  },
+  "time_gap": {
+    "r0": "12253888791127786955/26404211196268904448",
+    "r1": "36937438597383360865/79212633588806713344"
+  },
+  "exact_checks": {
+    "bellman_all_states": true,
+    "corner_backward_equals_literal_DFS": true,
+    "dual_equality_two_endpoints": true,
+    "time_P_greater_than_time_Q_two_endpoints": true,
+    "stage152_endpoint_bridge": true
+  },
+  "limitations": [
+    "No native CLAIM",
+    "No independent Research Driver review",
+    "No Lean proof",
+    "No P000/X6/Heartbeat transfer theorem"
+  ],
+  "fixed_inputs": {
+    "global_snapshot": "43639a1bd021e9c6e90e699fbb7b5021855fbef7",
+    "stage152_author_proof_commit": "d95cd8fdac2e344fe4434fdaa8a08f48074dc8a1"
+  }
+}
