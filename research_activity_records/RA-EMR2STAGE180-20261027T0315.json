@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR2STAGE180-20261027T0315",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "6985a5ef3a0cbba648664afab54956915713f66d",
+          "path": "research_notes/n14_aux_iid_affine_180_r2_author_20261027/PROOF_STAGE180.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "dcfa7c68591d374e1f8c1091851a6ee9d2f2906d673a15c0074a33f0e2d2b812",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "d33f44cb23a5ce3ef256d65af17f7d6e922c181e",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6985a5ef3a0cbba648664afab54956915713f66d/research_notes/n14_aux_iid_affine_180_r2_author_20261027/PROOF_STAGE180.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "obs-EMR2-stage180-proof-20261027-0315",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR2STAGE180-20261027T0315/readbacks/52e5f2d175e9a348f8aa43244bb09eee21941ccdcdd4b76a292d2b2541eecdc2.json",
+          "verification_receipt_sha256": "52e5f2d175e9a348f8aa43244bb09eee21941ccdcdd4b76a292d2b2541eecdc2"
+        }
+      ],
+      "event_id": "STAGE180_AUTHOR_EXACT_20261027T0315",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-27T03:15:00+08:00",
   "registration_key": "session:chat-em-r2-stage180-20261027T0306:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R2-7A180B",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "chat-em-r2-stage180-20261027T0306",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-27T03:15:00+08:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
