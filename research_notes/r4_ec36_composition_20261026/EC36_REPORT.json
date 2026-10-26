@@ -1,0 +1,97 @@
+{
+  "schema": "EM_R4_EC36_COMPOSITION_GITHUB_VERIFY_V1",
+  "status": "PASS",
+  "source": "EC33 transitions_v as remaining-capacity ordered positive-source model",
+  "domain": {
+    "all_H": [
+      1,
+      2,
+      3
+    ],
+    "all_Q_counts": {
+      "1": 4,
+      "2": 27,
+      "3": 256
+    },
+    "all_starting_capacities": "0..H",
+    "lengths": "0..7"
+  },
+  "checks": {
+    "word_formula": 567630,
+    "total_mass": 8904,
+    "tv_formula": 8904,
+    "one_step_projection": 3,
+    "no_go": 13
+  },
+  "witness": [
+    {
+      "n": 0,
+      "TV_numerator": 0,
+      "TV_denominator": 1
+    },
+    {
+      "n": 1,
+      "TV_numerator": 0,
+      "TV_denominator": 1
+    },
+    {
+      "n": 2,
+      "TV_numerator": 0,
+      "TV_denominator": 1
+    },
+    {
+      "n": 3,
+      "TV_numerator": 1,
+      "TV_denominator": 2
+    },
+    {
+      "n": 4,
+      "TV_numerator": 3,
+      "TV_denominator": 4
+    },
+    {
+      "n": 5,
+      "TV_numerator": 7,
+      "TV_denominator": 8
+    },
+    {
+      "n": 6,
+      "TV_numerator": 15,
+      "TV_denominator": 16
+    },
+    {
+      "n": 7,
+      "TV_numerator": 31,
+      "TV_denominator": 32
+    },
+    {
+      "n": 8,
+      "TV_numerator": 63,
+      "TV_denominator": 64
+    },
+    {
+      "n": 9,
+      "TV_numerator": 127,
+      "TV_denominator": 128
+    },
+    {
+      "n": 10,
+      "TV_numerator": 255,
+      "TV_denominator": 256
+    },
+    {
+      "n": 11,
+      "TV_numerator": 511,
+      "TV_denominator": 512
+    },
+    {
+      "n": 12,
+      "TV_numerator": 1023,
+      "TV_denominator": 1024
+    }
+  ],
+  "proof_source": "EC36_COMPOSITION.md",
+  "native_X6_verified": false,
+  "original_owner_verified": false,
+  "independent_review": false
+}
