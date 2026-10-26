@@ -1,0 +1,544 @@
+{
+  "schema": "DISCRETE_COMPATIBILITY_TASKSET_V1",
+  "parent_objective_id": "OBJ-DISCRETE-EMPIRICAL-COMPATIBILITY-20261026",
+  "scope": "Primary-source research and publication of portable falsification/compatibility tasks, not execution of the resulting program.",
+  "created_at": "2026-10-26T09:42:11.167590+00:00",
+  "publisher_id": "EM-DIRECT-3041B2",
+  "research_activity_id": "RA-199BC995ECCA29E0D03F4F59",
+  "native_baseline_commit": "64044ada5e3e2b5d7b3c327942ee028da6e2a967",
+  "global_knowledge_commit": "1f73bff7ce37e663922e3c8dd29411441b0e37a7",
+  "policy_readback_commit": "6e90895b49af7b924baa013d97d258de70853da8",
+  "policy_digest": "sha256:be0a92bae790fc5100f066235a0257c9a75470d152b48cd36909c318d6a61107",
+  "native_source_refs": [
+    "https://github.com/awdawmip/enterprise-math/blob/64044ada5e3e2b5d7b3c327942ee028da6e2a967/p000_reality_foundation.json",
+    "https://github.com/awdawmip/enterprise-math/blob/64044ada5e3e2b5d7b3c327942ee028da6e2a967/definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json",
+    "https://github.com/awdawmip/enterprise-math/blob/64044ada5e3e2b5d7b3c327942ee028da6e2a967/definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json",
+    "https://github.com/awdawmip/enterprise-math/blob/64044ada5e3e2b5d7b3c327942ee028da6e2a967/definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+    "https://github.com/awdawmip/enterprise-math/blob/64044ada5e3e2b5d7b3c327942ee028da6e2a967/definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json",
+    "https://github.com/awdawmip/enterprise-math/blob/64044ada5e3e2b5d7b3c327942ee028da6e2a967/foundational_logic.json",
+    "https://github.com/awdawmip/enterprise-math/blob/64044ada5e3e2b5d7b3c327942ee028da6e2a967/docs/HEARTBEAT_BRC_ONLY_ARITHMETIC.md",
+    "https://github.com/awdawmip/enterprise-math/blob/64044ada5e3e2b5d7b3c327942ee028da6e2a967/research_constraints/heartbeat_brc_only.json",
+    "https://github.com/awdawmip/enterprise-math/blob/64044ada5e3e2b5d7b3c327942ee028da6e2a967/research_notes/BRC_NATIVE_X6_SEMANTIC_ALIGNMENT_20261002_9D72AC.md",
+    "https://github.com/awdawmip/chatgpt-global-knowledge/blob/1f73bff7ce37e663922e3c8dd29411441b0e37a7/projects/enterprise-math/NATIVE_WAVE_COMMON_RESIDUAL_CURRENT.md"
+  ],
+  "source_catalog": "research_notes/DISCRETE_COMPATIBILITY_SOURCES_20261026.json",
+  "task_count": 15,
+  "physical_test_execution_count": 0,
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "verdicts": [
+    "COMPATIBLE_WITHIN_SCOPE",
+    "EXCLUDED_WITHIN_SCOPE",
+    "MISSING_COMPONENT",
+    "THEOREM_NOT_APPLICABLE",
+    "EVIDENCE_UNRESOLVED",
+    "DERIVATION_OR_IMPLEMENTATION_ERROR"
+  ],
+  "tasks": [
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-00",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-00.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-00/TP2-20EC0ABD05545665A8D3.json",
+      "publication_id": "TP2-20EC0ABD05545665A8D3",
+      "taskbook_blob_sha1": "sha1:6ba8e32c83b7f1a2bcfd65d58c380c7a3e58f195",
+      "spec": {
+        "n": 0,
+        "title": "冻结可证伪模型与原生状态—观测桥",
+        "deps": [],
+        "wave": "A",
+        "question": "现行 X6 离散空间、心跳更新及公共余量，能否形成一个会对有限实验给出唯一预测分布的模型？哪些未定义项使它暂时无法被检验？",
+        "premises": "区分离散空间点、离散时间、有限局部状态、有限全局状态、离散能量谱、可计算性六种不同主张。固定现行 X6 语义和 separately typed time；固定心跳周期、局域更新、有限状态数均不得擅自追加。当前用户允许报告基础假设组合与现象的冲突；保护基线文件不等于使基线免于检验。",
+        "first": "用一个两端、各两种设置、各两种输出的实验，列出状态、输入、更新、接收端、读出和随机性来源；每个未能填写的接口标为 MISSING_COMPONENT。",
+        "outputs": [
+          "一份 ModelCapsule：原生状态空间、关系/更新图、时间标定、动力学、边界、准备、测量、参数域和可实现操作。",
+          "一张前提矩阵：每项前提标为已定义、推导结果、待选假设、与基线冲突或未定义。",
+          "一个共同观测桥 R 和误差预算；明确模型版本、冻结参数、训练/留出数据、仪器及环境参数。",
+          "15 项结果接口：所需输入、预测、数据来源、适用尺度、失效前提、最小修订候选。"
+        ],
+        "kill": "若结果只能在看见目标数据后给余量任意赋值，或缺少从原生状态到读数的映射，返回模型缺项；若明确的有限前提集合已导出矛盾，返回条件排除并指出最小冲突集。不能把尚未运行的条目写成兼容。",
+        "value": "先将世界观变成可反驳的具体对象，避免后续每项实验对应不同模型。",
+        "readout": "首先使用实验设置标签、探测事件和联合频数；时间、长度、能量的数值桥在相应任务中补齐。",
+        "mechanism": "现行 X6+公共余量作为待检验原生骨架；不把量子振幅或经典流形写入原生公理。",
+        "sources": []
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-01",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-01.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-01/TP2-E26E6CC48C96AD3D9227.json",
+      "publication_id": "TP2-E26E6CC48C96AD3D9227",
+      "taskbook_blob_sha1": "sha1:4a30005eed4deb4c62f012218d3545efc9d6a547",
+      "spec": {
+        "n": 1,
+        "title": "连续对称性、有限方向与可观测因果结构",
+        "deps": [
+          0
+        ],
+        "wave": "A",
+        "question": "六条原生轴及离散更新怎样产生实验所见旋转/相对速度对称性？哪些精确对称性要求与所选离散作用方式不相容？",
+        "premises": "将坐标邻接图、实际允许更新图、物理信号可达图分开。区分单一结构对称、随机集合分布不变、观测读出对称、低能近似对称。连通拓扑群连续作用于离散拓扑集合只能逐点平凡；整体配置、统计分布或量子态是否受此限制，取决于实际作用对象及其拓扑，不能仅凭名称豁免。",
+        "first": "声明旋转/boost究竟作用于什么对象，是否连续，以及哪一个操作会使实验装置相对原生轴改变方向。",
+        "outputs": [
+          "原生变换到实验设置的作用图，给出与时间和长度标定相容的组合律。",
+          "对连接群作用引理及 BHS 定理逐条做 applicability 表；保留随机离散结构的统计洛伦兹不变可能性及其代价。",
+          "至少一项可测方向/速度依赖预测，连同误差阶、适用能区和观测装置响应。",
+          "对于全域/非邻接更新，给出可控信息影响区域或明确尚未建立因果上界。"
+        ],
+        "kill": "若同时要求连通拓扑群（或其单位连通分支）在同一离散拓扑集合上具有非平凡连续作用，返回精确条件矛盾；不将结论推广至任意非连通群。若预测方向/速度效应超过对应实验限度，排除该参数域；仅声称宏观平均会恢复对称而无误差界，返回缺项。",
+        "value": "分辨离散性自身与特定规则晶格、优选参考系和传播机制的冲突。",
+        "readout": "以光钟、物质钟和腔长的联合读数定义观测，不能只旋转光子而冻结仪器效应。",
+        "mechanism": "允许涌现或统计对称，但必须给出机制及可测残差。",
+        "sources": [
+          "BHS2006",
+          "CAVITY2015",
+          "DOPPLER2014"
+        ]
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-02",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-02.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-02/TP2-24DA8436BF412A1D9AF0.json",
+      "publication_id": "TP2-24DA8436BF412A1D9AF0",
+      "taskbook_blob_sha1": "sha1:f3ad7d5c6d2f5ea19080003a460b0a64d36aba4b",
+      "spec": {
+        "n": 2,
+        "title": "公共余量的 Bell/CHSH 关联与禁止可控超光速信号",
+        "deps": [
+          0
+        ],
+        "wave": "A",
+        "question": "同一公共余量机制能否同时产生违反 CHSH 的有限设置关联和操作性无信号边缘分布？",
+        "premises": "Bell 局域分解 P(a,b|x,y)=sum_lambda rho(lambda)P(a|x,lambda)P(b|y,lambda)，另需设置与 lambda 的适当统计独立。允许任意复杂或任意多共享隐藏状态，也不能在保留这些条件时突破 CHSH≤2。全域更新已使局域分解不能自动假定。",
+        "first": "先检查拟用公共余量是否仍满足该分解；若满足，以四个±1响应和正权重给出有限设置上界，而后才设计非局域候选。",
+        "outputs": [
+          "固定四种设置、±1输出、归一化联合分布及 CHSH 约定。",
+          "一个局域分解适用性判定：成立则直接输出条件性不可行证明；不成立则指出实际违反的是哪项前提。",
+          "把 P_op(a,b|x,y) 明确定义为实际可实现受控设置协议下的操作分布，检验其本地边缘对远端可控设置不变；如使用因果干预记号，列出允许的干预及其物理实现。另行区分被动条件分布 P(a,b|x,y) 和干预分布；放宽设置独立性时不得从条件相关直接推出可控传讯。说明有限样本误差或严格界。",
+          "至少对一个已核验无主要漏洞实验的统计量和实验流程给出原生机制预测；保留选择、损失、时间窗和设置生成的条件。"
+        ],
+        "kill": "CHSH始终≤2的模型不能恢复相关实验；能达到大相关但允许远端可控改变本地边缘分布且无实验容许机制者排除；只贴上共享余量标签或直接抄入量子概率表者缺项。",
+        "value": "用有限实验即可决定正权重共享随机性是否足够，并约束放宽局域性后的真实成本。",
+        "readout": "设置是可操控输入；输出是实际探测记录。明确源、装置、环境和余量的联合分布。",
+        "mechanism": "复用 BRC 正权重联合分支及观测保真；若需非局域更新，明确可操控部分与不可操控关联的差别。",
+        "sources": [
+          "BELL1964",
+          "HENSEN2015",
+          "SHALM2015"
+        ]
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-03",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-03.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-03/TP2-2D2350B14BB1252B07AD.json",
+      "publication_id": "TP2-2D2350B14BB1252B07AD",
+      "taskbook_blob_sha1": "sha1:d6d3363c2e2a17642f69a38287cce44c23f803c4",
+      "spec": {
+        "n": 3,
+        "title": "有限量子情境性与测量上下文的最小状态",
+        "deps": [
+          0
+        ],
+        "wave": "A",
+        "question": "模型能否实现 Peres–Mermin 有限关系及有误差的情境性实验，而不是给每个可观测量分配与测量组合无关的预存值？",
+        "premises": "理想奇偶矛盾需要同一可观测量在不同相容上下文中取同一值，并对相容测量满足乘法关系。真实实验还需兼容性、顺序扰动和操作等价校准；有限精度与扰动不能忽略。",
+        "first": "写出一个明确的九观测量/六上下文关系表；声明同一测量的身份判据及顺序测量更新。",
+        "outputs": [
+          "有限非情境赋值的奇偶不可满足证书，不要求连续全体方向。",
+          "若选择情境机制，给出上下文如何进入原生状态和更新的最小扩充，以及可复用的测量协议。",
+          "将理想不等式与实验中的扰动修正界分开，复现一个已核验实验的目标可观测统计。",
+          "相同装置、准备和操作等价的跨上下文一致性表；不得为每个上下文独立任意拟合。"
+        ],
+        "kill": "坚持非情境确定值及相容乘法而又要求全部目标关系则条件排除；上下文依赖没有机制或扰动误差无法界定则缺项；有限噪声不能自动充当普遍豁免。",
+        "value": "检查公共余量是否保留测量历史和组合关系，并防止仅靠经典隐藏标签模仿量子结构。",
+        "readout": "原生上下文、仪器操作与观测量身份分层；目标侧矩阵只是外部有限关系的记号。",
+        "mechanism": "复用联合关系/未来观测保真检验，找出把不同上下文错误压缩为同态的最小见证。",
+        "sources": [
+          "MERMIN1990",
+          "KIRCHMAIR2009",
+          "MAZUREK2016"
+        ]
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-04",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-04.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-04/TP2-7B089A65C14F78C6BB04.json",
+      "publication_id": "TP2-7B089A65C14F78C6BB04",
+      "taskbook_blob_sha1": "sha1:176ce452f22dfd958926839051f50df879abeb2b",
+      "spec": {
+        "n": 4,
+        "title": "相位、干涉、Born 统计与组合测量",
+        "deps": [
+          0
+        ],
+        "wave": "A",
+        "question": "激活与余量结构如何区分具有相同局部强度但不同相对相位的准备，并在重合、顺序测量和复合系统中给出一致计数？",
+        "premises": "激活不是概率振幅，正分支质量不是带符号/复相位信息。实验有限相位设置即可形成判别，不必预设原生连续角度。I3≈0仅在固定互斥备选及受控边界/背景约定下是合适目标，机械开关狭缝会改变传播边界。",
+        "first": "选两组局部计数相同、重合后输出不同的准备，寻找当前压缩状态是否将它们误合并；使用有限实验相位标签而不预设原生三角函数。",
+        "outputs": [
+          "一项明确的相位/路径关系保真见证，及需要保留的最小原生字段。",
+          "一个两路径实验从准备到探测的预测、归一化、相位扫描或有限设置误差界。",
+          "组合与顺序操作的一致规则；解释何时可用正权重、何时需要额外关系，不能以改名方式混淆类型。",
+          "三路径 I3 的目标定义、边界和探测非线性控制；可追加 PBR/非线性无信号条件审计，但单独列其前提。"
+        ],
+        "kill": "将可由后续重合区分的状态压成同一状态而仍声称信息无损，返回精确压缩失败；没有原生相位/组合读出则缺项；在给定协议与误差内持续不符的动力学被排除。",
+        "value": "将波、余量和量子振幅之间的缺失结构变成最小可检验问题。",
+        "readout": "计数概率是输出；Born法则及目标量子门不能预先成为宣称从原生推导出的结论。",
+        "mechanism": "BRC 类型化正质量、符号/相位关系分开；不足时扩展现有接口，先给确切缺项与有限见证。",
+        "sources": [
+          "SINHA2010",
+          "SAWANT2014",
+          "PBR2012"
+        ]
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-05",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-05.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-05/TP2-4A47E497F6E826BBC2B5.json",
+      "publication_id": "TP2-4A47E497F6E826BBC2B5",
+      "taskbook_blob_sha1": "sha1:f51748e2e14a6a8c4cfb0953ea481f7a63bf6cb1",
+      "spec": {
+        "n": 5,
+        "title": "手征费米子、倍增与规范一致性",
+        "deps": [
+          0,
+          1,
+          9
+        ],
+        "wave": "B",
+        "question": "一个选定的离散原生动力学能否恢复低能手征粒子与相互作用，而不产生不符合观测的额外轻粒子或规范不一致？",
+        "premises": "固定 Lüscher1998 §2列出的自由欧氏平移不变Dirac版本：动量算符解析周期、正确低动量形式、除原点外可逆、朴素γ5反对易四项不能同时满足。先建立有效3+1维手征桥，不能把六原生空间加独立时间直接代入四维γ5。其他Nielsen–Ninomiya版本另列前提，不拼接为普遍禁令。",
+        "first": "先从任务09得到有效3+1维与粒子读出的对应，再从实际更新律或候选提取低能描述，逐项判定所选定理的四个前提。缺少桥则先返回缺项。",
+        "outputs": [
+          "固定一个原始定理版本和适用性表；若适用，输出净手征数/倍增障碍。",
+          "低能模态、手征、额外模态质量与耦合的清单；若只能得到成对自由费米子，明确未完成手征相互作用。",
+          "一个明确规避方案及代价：修改了什么、是否保持稳定性、可控因果和低能规范约束。",
+          "规范流与异常匹配的最低一致性接口；不要求此任务一口气重建整个标准模型。"
+        ],
+        "kill": "在全部定理前提成立时仍声称得到禁止的孤立手征谱，返回矛盾；额外未抑制模态与目标粒子谱不符则排除；未定义粒子/相互作用桥则缺项。",
+        "value": "阻止只恢复标量波或自由Dirac方程就宣布重建真实物质。",
+        "readout": "低能粒子、散射、手征选择规则作为必须解释的外部目标。",
+        "mechanism": "先使用原生关系与更新，不以连续Dirac算符代替缺失动力学；有效描述须标明推导或假设。",
+        "sources": [
+          "NN1981",
+          "GW1982",
+          "LUSCHER1998",
+          "NN_ERRATUM1982"
+        ]
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-06",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-06.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-06/TP2-E36E0016AE79173D20A1.json",
+      "publication_id": "TP2-E36E0016AE79173D20A1",
+      "taskbook_blob_sha1": "sha1:a13ea92cd71a7a323462a620b9e045a2f96dad3b",
+      "spec": {
+        "n": 6,
+        "title": "光子群速度、能量依赖与方向依赖",
+        "deps": [
+          0,
+          1,
+          8
+        ],
+        "wave": "B",
+        "question": "同一原生传播律是否必然产生随能量、方向或偏振变化的到达时间？它在高能天文与实验室尺度是否仍被允许？",
+        "premises": "不假设离散必然色散，也不默认每次心跳跨一格。传播延迟与源本征发射时差、观测能量误差、红移和宇宙学积分分开。现成 E_QG 限值只有在匹配阶数、符号和传播假设时才能转用。",
+        "first": "从一个明确波包/事件传播机制推导可观测到达时间，至少给出首个非零能量依赖项，或证明在规定范围为零。",
+        "outputs": [
+          "v_g(E,n,polarization) 或无需连续频率的等效到达时间分布，以及与任务08一致的单位标定。",
+          "与 LHAASO GRB221009A 的2402.06009v3表1及2025 DisCan重分析、Fermi GRB090510的假设对照；分别记录分析方法、次光速/超光速、阶数及源模型。相同事件不作独立样本。",
+          "源时差、红移、能量重建等 nuisance 参数及其允许域；使用跨源/留出数据验证。",
+          "与方向实验共同检验的参数约束，不将 E_QG 自动等同于格距倒数。"
+        ],
+        "kill": "在已固定模型与误差预算下强制产生超限传播差则排除对应参数域；模型只给空间格点而没有传播、钟或能量读出则缺项。",
+        "value": "将最常见的光学反对意见转成可检验系数，并避免无根据的格距—量子引力能标换算。",
+        "readout": "同一光子能量和本地时钟定义跨实验复用。",
+        "mechanism": "由原生更新得到传播预测；现成色散展开只作外部拟合/桥，不预置为原生规律。",
+        "sources": [
+          "LHAASO2024",
+          "FERMI2013",
+          "DISCAN2025"
+        ]
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-07",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-07.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-07/TP2-554BCB843274D256141E.json",
+      "publication_id": "TP2-554BCB843274D256141E",
+      "taskbook_blob_sha1": "sha1:153bc68c9bb777e0e1fc33a26ea10ca993d2fc8a",
+      "spec": {
+        "n": 7,
+        "title": "偏振双折射、光子衰变与反应阈值",
+        "deps": [
+          0,
+          4,
+          5,
+          6
+        ],
+        "wave": "B",
+        "question": "使到达时间可接受的同一模型，是否仍会导致过大的偏振旋转、真空光子衰变、真空切伦科夫或反应阈值偏移？",
+        "premises": "双折射取决于两螺旋度/偏振模的相对传播；阈值还依赖电子等物质部门和能量动量守恒/合成律。只规定光子色散不能得出全部阈值；不同文献算符、阶数、符号和系数不可混用。",
+        "first": "列出两偏振传播与至少一个光子—电子过程的共同自由参数和守恒规则。",
+        "outputs": [
+          "偏振态传输、带宽去偏振及源偏振 nuisance 模型。",
+          "高能光子稳定性和相关过程阈值的模型特定判别式。",
+          "到达时差、偏振和反应阈值三个通道的同参数一致性表。",
+          "若没有物质部门，明确只完成偏振子任务并返回阈值预测缺项。"
+        ],
+        "kill": "同参数不可同时满足偏振和稳定性数据则排除；为每个通道换一套未声明物质色散或能量规则不能视为通过。",
+        "value": "利用比单一路程时差更敏感或互补的通道，发现传播模型隐藏的不一致。",
+        "readout": "有限偏振设置与探测能量是外部观测量；其原生关系须由任务04/05提供。",
+        "mechanism": "区分共同传播修正与偏振差分修正，保留相位与物质耦合。",
+        "sources": [
+          "POLARIZATION2013",
+          "LHAASO_THRESHOLD2022",
+          "PHOTON_ELECTRON2022"
+        ]
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-08",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-08.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-08/TP2-44BBF602DECE9BA1737B.json",
+      "publication_id": "TP2-44BBF602DECE9BA1737B",
+      "taskbook_blob_sha1": "sha1:e7a9d392da703766d41d8e767b10e439d0abd58c",
+      "spec": {
+        "n": 8,
+        "title": "红移、Doppler、钟速与能量标定",
+        "deps": [
+          0
+        ],
+        "wave": "A",
+        "question": "同一离散模型能否同时解释相对运动频移、引力钟速差、光谱结构和能量交换？观测频率变动究竟对应哪一个原生量？",
+        "premises": "光子数离散不等于允许频率只有固定间隔；E=hν 作为成功有效关系，不自动规定原生能量单位。发射、传播、接收与钟的变化须统一处理。心跳计数没有固定物理时长，除非模型另外给出。",
+        "first": "对同一发射—接收过程写出本地计时、探测事件和能量预算；区分运动Doppler、引力红移和宇宙学红移三类机制。",
+        "outputs": [
+          "可观测 ν、λ、E 与原生状态/更新事件的映射及不确定性。",
+          "Ives–Stilwell 类相向/背向激光实验目标及原文勘误检查；不把单一低速近似当作完整相对论恢复。",
+          "毫米尺度光钟红移目标；将分数频率测量精度与对广义相对论偏离的相对界分开。",
+          "若采用离散频谱/离散时间，推导可见阶梯、混叠或展宽，并给其物理幅度；没有这些假设则不得虚构阶梯。"
+        ],
+        "kill": "同一钟/能量定义不能同时给出运动和引力频移则排除该桥或动力学；靠事后改变单位、固定时长或每次换能量标定来匹配则缺项。",
+        "value": "直接处理用户最初的色移问题，检验观察者转换与能量守恒的共同结构。",
+        "readout": "独立定义本地钟、光谱线与能量交换，不能以待解释的目标公式定义所有读数后再声称推导成功。",
+        "mechanism": "分别推导三类红移机制，采用共同读出；宇宙学项未建模可诚实标记缺项。",
+        "sources": [
+          "DOPPLER2014",
+          "CLOCK2022",
+          "DOPPLER_ERRATUM2015"
+        ]
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-09",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-09.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-09/TP2-19F1C6B42A5D2E1526A1.json",
+      "publication_id": "TP2-19F1C6B42A5D2E1526A1",
+      "taskbook_blob_sha1": "sha1:eda1a5ed96dd5eadd2644afc84642417b1ac9d33",
+      "spec": {
+        "n": 9,
+        "title": "原生六维到可观测三维的动力学及引力距离律",
+        "deps": [
+          0
+        ],
+        "wave": "A",
+        "question": "六个原生空间自由度为什么在现有实验中呈现为通常的三维传播和距离关系？未读出的自由度何时会重新影响观测？",
+        "premises": "原生 X6 含六条空间轴，不改释为三维六方向或位置加速度。不能仅投影三个分量就声称解释三维。6维标准球对称通量导致不同距离幂律的推论，另需标准通量/度量前提，不能只凭数字6硬套。",
+        "first": "定义可实现的物理移动、距离和探测器耦合；列出该读出未分辨的原生自由度或状态等价类及其动力学去向，不预设固定三条隐藏轴，也不直接令其为零。",
+        "outputs": [
+          "一项明确的六维状态到三维操作读出的桥，及其适用未来操作族。",
+          "约束、局域化、紧致化或其他机制之一的具体候选和额外模态/泄漏预测。",
+          "距离律、频率/能量依赖、方向性及转折尺度；对52微米短程引力实验做模型匹配。",
+          "利用联合关系保真给出投影安全证明或可区分的反例；必要时保留辅助状态。"
+        ],
+        "kill": "若桥声称精确无损，却混同了在允许未来操作中给出不同观测的原生状态且未保留修复字段，返回桥失败；若桥声明近似读出，则只有差异超出事先冻结的误差、时间和尺度范围才构成相应反例。必然产生被数据排除的额外维度效应则排除对应假设组合；未定义传播和物质耦合则缺项。",
+        "value": "把最显著的本体—经验维数差异变成独立研究问题，而不以命名或坐标省略解决。",
+        "readout": "原生维数、有效谱维数、可操作维数和仪器读出维数分开报告。",
+        "mechanism": "复用既有未来操作保真条件，追问隐藏自由度为何不以实验可见方式反馈。",
+        "sources": [
+          "LEE2020"
+        ]
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-10",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-10.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-10/TP2-F9D000102333E5280184.json",
+      "publication_id": "TP2-F9D000102333E5280184",
+      "taskbook_blob_sha1": "sha1:f834f5499e3c2f865abcc9437685a33ad97e0058",
+      "spec": {
+        "n": 10,
+        "title": "等效原理、通用耦合与涌现引力的条件障碍",
+        "deps": [
+          0,
+          8,
+          9
+        ],
+        "wave": "B",
+        "question": "以余量、阈值或离散结构解释引力时，为什么不同组成物体具有相同自由落体，并与钟速和引力传播一致？",
+        "premises": "MICROSCOPE 的组成依赖界是特定材料对、实验模型与误差定义下的结果。引力加速度、惯性响应和质量读出需共同推导。若主张涌现无质量自旋2粒子，再检查 Weinberg–Witten 所需洛伦兹协变守恒应力张量等前提；该定理不是普遍反引力定理。",
+        "first": "对两个不同组成的测试体写出同一引力场中的加速度读出，明确质量/内能/余量的耦合方式。",
+        "outputs": [
+          "Eötvös 参数的原生预测及材料/能量组成依赖。",
+          "与 MICROSCOPE 最终结果的统计、系统误差及置信口径对照。",
+          "钟速差、自由落体与引力传播的共同参数表；若尚无引力机制明确返回缺项。",
+          "仅在相关主张存在时完成 Weinberg–Witten 适用性和规避成本表，不把无相关前提的模型判死。"
+        ],
+        "kill": "不可消除的组成依赖超过数据容许域则排除该耦合；仅把余量改名为引力而没有普适耦合则缺项；所有相应 no-go 前提成立又要求被禁止对象则条件排除。",
+        "value": "约束余量作为物理作用机制的普遍性，并避免把能解释一种物体误当作解释引力。",
+        "readout": "加速度、惯性质量、引力响应、钟速须分开定义后建立关系。",
+        "mechanism": "保持原生余量类型，需推导其物理能量/质量或场读出。",
+        "sources": [
+          "MICROSCOPE2022",
+          "WW1980",
+          "GW1708172017"
+        ]
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-11",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-11.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-11/TP2-AC7A287FDB83AF1D7CB1.json",
+      "publication_id": "TP2-AC7A287FDB83AF1D7CB1",
+      "taskbook_blob_sha1": "sha1:26958a03e613fc7951b9dbaca4295b38fbccaa99",
+      "spec": {
+        "n": 11,
+        "title": "路径涨落、相干性及余量噪声的相关结构",
+        "deps": [
+          0,
+          4,
+          6
+        ],
+        "wave": "B",
+        "question": "离散更新和余量传递若产生微小随机误差，长距离累积是否会抹去已观测的图像、相位相干或稳定时钟信号？",
+        "premises": "离散性不必随机，逐步误差不必独立。累积方差取决于全体相关项；不得未经推导套用sqrt(N)随机游走，也不能仅说正负抵消就删除它们。不同空间泡沫模型和实验带宽有不同积累律。",
+        "first": "固定一种可测传播残差，写出其均值、两点相关或确定性误差界，并说明接收端如何耦合。",
+        "outputs": [
+          "路径累积与相位/时间/位置读出的协方差表达，含交叉相关和观测滤波。",
+          "对一项天文相干/成像证据及一项实验室噪声证据的预测或适用性说明。",
+          "若模型预测零噪声，说明结构原因与稳定性，而非事后置零。",
+          "同一余量噪声律与任务02/04的相关机制相容性检查。"
+        ],
+        "kill": "必然累积的散射/展宽/退相干超过数据容许域则排除；只有单步误差而无累积相关结构则缺项；被排除的是该噪声律而非所有离散空间。",
+        "value": "让保留联合余量的必要性接受长基线观测检验，连接微观结构和宏观可见性。",
+        "readout": "使用实际相干函数、角展宽或频谱密度，显式仪器响应与频率区间。",
+        "mechanism": "复用联合关系保真保留相关项，比较可验证的相关/反相关机制。",
+        "sources": [
+          "FOAM2015",
+          "HOLOMETER2017"
+        ]
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-12",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-12.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-12/TP2-CC8B3469BCF5BE75B63B.json",
+      "publication_id": "TP2-CC8B3469BCF5BE75B63B",
+      "taskbook_blob_sha1": "sha1:3e191163bebc14dfe0c8ceaf67d6cfb920e1e3ee",
+      "spec": {
+        "n": 12,
+        "title": "原生三元平衡到表观两力平衡的守恒闭合",
+        "deps": [
+          0
+        ],
+        "wave": "A",
+        "question": "原生稳定非零平衡要求三元关系时，普通两端受力、碰撞和静态平衡怎样成为其合法观测？第三项为何不产生额外可测作用？",
+        "premises": "不改写原生三元平衡及120度语义。有效力、向量角和欧氏平衡方程只能作为待恢复读出。第三项可在读出核中，但需同时核对它对未来操作、动量、能量和环境的影响。",
+        "first": "选择最小两端拉力或反冲实验，构造保留第三项来源、接触与预算的三元 lift，并明确读出。",
+        "outputs": [
+          "一个原生三元状态到表观两端平衡的具体实例或阻碍。",
+          "系统+装置+环境+余量的能量动量预算，区分内部转移和外部交换。",
+          "改变边界或解除约束后的可检验响应；检查隐藏第三项是否重新出现。",
+          "利用既有观测保真条件验证消去第三项的合法范围。"
+        ],
+        "kill": "同一桥不能同时保持静态平衡与释放/反冲后的守恒预测则排除该桥；直接把第三项设零或不登记其未来作用而宣称完整则缺项。",
+        "value": "检查项目特有的基础结构能否兼容最基本机械现象，避免只研究高能天文而漏掉低成本判别。",
+        "readout": "力定义为可测动量/装置响应的有效量，其与原生作用的对应要单独证明。",
+        "mechanism": "显式三元 lift 加联合关系保真；不将原生120度与普通平面角等同。",
+        "sources": []
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-13",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-13.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-13/TP2-0EAFC706FD9127FB1E4D.json",
+      "publication_id": "TP2-0EAFC706FD9127FB1E4D",
+      "taskbook_blob_sha1": "sha1:16430d3a300e98cead7e7e6a3b513ad2946a9c09",
+      "spec": {
+        "n": 13,
+        "title": "尺度变化、辐射稳定性与参数保护",
+        "deps": [
+          0,
+          1,
+          5,
+          6,
+          7
+        ],
+        "wave": "B",
+        "question": "即便最低阶传播调得接近相对论，微观离散性或优选方向会不会通过相互作用在低能重新产生过大的可测破缺？",
+        "premises": "Collins等的论证针对有优选参考系等微观效应在相应有效场论中的辐射传递；不是所有量子引力路线的无条件排除。技术自然性差异本身不是已观测矛盾，但若生成项超限则形成约束。 同参数指同一参考尺度的基础参数与已声明的尺度演化规律；允许运行耦合随尺度变化，不要求每个尺度数值恒同。精细调谐须公开并受跨现象检验，但不因缺少对称保护就自动判错。",
+        "first": "给实际候选机制列出被允许的低阶有效项，指出保护它们为零/很小的确切对称或结构。",
+        "outputs": [
+          "从原生结构到有效项的明确桥，至少完成一个代表性低阶项或条件性保留/生成证明。",
+          "树级与相互作用修正的分离；标明哪些只是估量或有效理论假设。",
+          "跨尺度同参数兼容表，区别真实对称保护、调参、依赖未定义UV信息三种情况。",
+          "若传统有效场论不适用，提出独立可检验的尺度一致性方法，不仅写不适用。"
+        ],
+        "kill": "被允许并实际生成的低能项在固定参数下超过独立限值则排除；只把格距设小却没有保护/修正估计则不算通过；无法建立尺度桥返回缺项。",
+        "value": "检验微小离散尺度能否稳定隐藏，防止仅在自由传播层面得到虚假的安全结论。",
+        "readout": "有效项是观测桥上的参数，不自动等同原生公理或普朗克格距。",
+        "mechanism": "优先复用现有精确组合与余量保真框架；外部环修正是条件参考，原生推导另列。",
+        "sources": [
+          "COLLINS2004"
+        ]
+      }
+    },
+    {
+      "task_id": "RS-DISC-COMPAT-20261026-14",
+      "taskbook_path": "research_tasks/RS-DISC-COMPAT-20261026-14.md",
+      "publication_record_path": "research_task_records/RS-DISC-COMPAT-20261026-14/TP2-A3746291502658D0DD5E.json",
+      "publication_id": "TP2-A3746291502658D0DD5E",
+      "taskbook_blob_sha1": "sha1:f7aff40bdcf7f7c332d356263bda8b245ec7aa78",
+      "spec": {
+        "n": 14,
+        "title": "同模型同参数的联合兼容域与最小失败核心",
+        "deps": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "wave": "C",
+        "question": "一份固定动力学、共同观测桥和参数集，能否同时通过全部已定义的独立现象检验？若不能，最小失败核心是什么？",
+        "premises": "可有实验特定、事先声明且可独立标定的 nuisance 参数；不可为每个现象重定义空间、时间、余量或参数。多个单独95%区间的交集不能直接称为95%联合置信域；相关数据与系统误差要共同处理。 同参数指同一参考尺度的基础参数与已声明的尺度演化规律；允许运行耦合随尺度变化，不要求每个尺度数值恒同。精细调谐须公开并受跨现象检验，但不因缺少对称保护就自动判错。",
+        "first": "汇总前面任务的假设、输出和缺项，将同名参数和观测量对齐；先作逻辑/域交集，再决定是否具备联合统计分析条件。",
+        "outputs": [
+          "假设—现象—参数—来源矩阵与版本化共同模型。",
+          "每个条目的六态结论：范围内兼容、范围内排除、模型缺项、定理不适用、证据待定、推导/实现错误。",
+          "最小冲突假设子集、修订方案及其在其他通道的可测代价；每次修订生成新模型版本。",
+          "至少一个能区分存活版本的新预测或留出检验，并标出尚未覆盖的经验领域。"
+        ],
+        "kill": "联合允许域为空则排除已定义的模型族；若各任务存在不可比较的不同模型版本，返回整合失败；只要关键接口未定义，不能宣布整个离散体系已通过或已被普遍否定。",
+        "value": "让任务集最终产生可选择、可淘汰的研究路线，而非相互独立的解释集合。",
+        "readout": "从任务00继承同一桥，校验所有返回结果的模型、单位和参数版本。",
+        "mechanism": "基于实际完成结果进行整合，出版任务不当作完成实验或数学证明。",
+        "sources": []
+      }
+    }
+  ]
+}
