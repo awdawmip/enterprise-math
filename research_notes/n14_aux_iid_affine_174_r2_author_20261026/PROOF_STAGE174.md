@@ -1,0 +1,72 @@
+# Stage174 — new exact full-real minimax interval; Z terminal coin saturates first
+
+**Evidence class:** \`AUTHOR_EXACT / EXTERNAL_N14_TERNARY_IID / NOT_ADMITTED / NO_NATIVE_CLAIM\`. This concerns an external finite IID auxiliary model and cannot be promoted to P000 or the native X6 Cell world without a separate typed bridge. No formal Task CLAIM, Driver independence, mathematical admission or physical validation is claimed.
+
+## Frozen sources
+GLOBAL_KNOWLEDGE_V1 current at research entry: \`main@2e711e9f23ebe815597ac7b228679cdc8bcdeb63\`. Enterprise Math source read: \`main@b03d306acf9763f8db33e09d9fd434f35e4640fd\`. Stage173 immutable predecessor: \`0fafc162472c8f157ea0a75b46be076c9ecf4d62\`, especially PROOF_STAGE173.md / NEXT_TASK_PACKET_174.md / dual174.json. P000 STARTUP blob \`c6d4d2d79b09537bdae55253baef9c28583e44dc\` pointed to exact canonical P000 blob \`770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc\`; ACTIVE worldview and current portable research protocol were read. The GitHub connector actor was \`awdawmip\`; native owner query failed \`CONTROL_QUOTA\`; native session creation failed \`STATIC_READONLY_SCOPE_DENIED\`, \`operation_sent=false\`.
+
+## Mother problem and theorem
+Fix IID P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), alphabet {0,1,2}, max length N=14. A strategy can depend on **the entire ordered prefix**, randomize decisions to stop, and choose P/Q. Let eP=P(decide Q), eQ=Q(decide P), tP=E_P(tau), tQ=E_Q(tau). Let V14(alpha) be the minimum max(tP,tQ) over eP,eQ<=alpha. The full-history randomized finite policy space is compact, hence the optimum is attained.
+
+Set K=L=16044588/70019, S=32089176/70019 and
+H=2630296570966281555483145/15342709242751472369664.
+
+Previous endpoint:
+alpha173=611493515114730101/1752976676930715648,
+V173=1267557322258081771/109561042308169728.
+
+**Theorem:** for every REAL delta with
+0 <= delta <= 27520663367307918581/157336084335680475365376,
+
+\`V14(alpha173+delta)=V173-(32089176/70019)*delta\`.
+
+Right endpoint:
+alpha174=10295869835213079092569/29500515812940089131008,
+V174=677877812657492293580503/59001031625880178262016.
+
+For alpha>alpha174 in the domain, the SAME affine Bellman support H-S*alpha is strictly below V14(alpha). This only proves support-line sharpness; it is not a claim that V14 terminates.
+
+## Exact dual induction for arbitrary ordered-history strategies
+At count summary s=(n,a,b) where a/b count symbols 0/1, likelihood ratio ell(s)=Q(prefix)/P(prefix)=2^(a+b)/3^a. Define h(s) by the exact rational backward recursion
+
+\`h(s)=min(K*ell(s), L, 1+sum_i P_i*h(child(s,i)))\`,
+
+with continuation unavailable at n=14. Although the suffix *value* is count-sufficient, its one-step inequality applies at **each ordered prefix**. Induction yields for EVERY full-history randomized policy
+\`tP+K*eQ+L*eP>=h(0,0,0)=H\`, and consequently
+\`V14(alpha)>=H-(K+L)*alpha\`.
+
+Exact Fraction DP scans sum(n=0..14) binomial(n+2,2)=680 states. Precisely two states have tied optimal actions:
+T=(8,2,0): decide P vs continue;
+Z=(14,0,0): terminal decide P vs decide Q.
+All other alternatives have 1238 strictly positive gaps, minimum 39435024594685/1926840855822336; zero negative gaps.
+
+## Exact primal and continuous real parameter
+At T choose P with probability t, otherwise continue. At Z choose Q with probability z, otherwise P; elsewhere use the unique Bellman winner. First-hit histories at T: 28 ordered words, P-mass 109375/746496, Q-mass 109375/1679616. First-hit Z: one all-symbol-2 word, with P=Q=6103515625/78364164096. T has exactly two zeros and Z none, so the first-hit cones are disjoint. In particular the mixed term in all four observables vanishes exactly.
+
+Writing M(t,z)=(eP,eQ,tP,tQ) gives the EXACT affine law
+\`M(t,z)=M00+t*dT+z*dZ\`, where
+
+\`M00=(714208978097092447/2629465015396073472, 68375950149359/160489808068608, 1267557322258081771/109561042308169728,149481213853831/13374150672384)\`
+
+\`dT=(-1210671875/1114512556032,2319296875/1253826625536,-16248859375/92876046336,-9353640625/104485552128)\`
+
+\`dZ=(6103515625/78364164096,-6103515625/78364164096,0,0)\`.
+
+These are reconstructed by (1) exact rational suffix DP and (2) a separately written integer-numerator DFS of unmerged labeled ordered histories. Both independently agree on all four deterministic corners; DFS node totals by (t,z)=(0,0),(0,1),(1,0),(1,1) are respectively 285916,285916,282052,282052, totaling **1,135,936**. Both P/Q stop masses equal one, mixed difference=(0,0,0,0).
+
+Error equality eP=eQ uniquely enforces
+
+\`z(t)=406062589150005409/409600000000000000 + (1884827/100000000)*t\`.
+
+The feasible region in the balanced line is EXACTLY
+\`0<=t<=3537410849994591/7720251392000000\`.
+At t=0, z equals the Stage173 saturation value and M matches (alpha173,V173). At the upper bound z=1 while t<1; Z saturates first. As t increases, common error increases exactly to alpha174 and tP falls exactly to V174. The tP-tQ margins at endpoints are respectively
+43007218367498219/109561042308169728 and
+20850768317972957412191/59001031625880178262016,
+both >0. All quantities are affine in t; hence tP>=tQ and eP=eQ throughout. The dual identity \`tP+K*eQ+L*eP=H\` holds at endpoints, thus throughout. Universal dual lower bound meets this feasible primal continuously for **every real** alpha of the stated interval.
+
+## Strict right-support proof
+If equality with H-S*alpha held at any alpha>alpha174, compactness would give an optimizer. The equality chain \`max(tP,tQ)>=tP>=H-KeQ-LeP>=H-S alpha\`, with K,L>0, forces tP>=tQ, eP=eQ=alpha, and Bellman-optimal actions at each positive-mass prefix. All three symbols have positive P and Q probability. Only T and Z may randomize; all other actions are unique. Within a tied count fiber the likelihood ratio and strict optimal continuation are fixed, so P-weighted averaging of history-dependent tie coins preserves all four observables. Disjoint first-hit cones leave exactly the effective t,z affine family. Its unique balanced line is z(t) as above and its legal t domain forces alpha<=alpha174. Contradiction.
+
+## Strength and reproducibility
+A local actual execution of \`VERIFY_STAGE174.py\` produced \`STAGE174_AUTHOR_EXACT_FULL_REAL_PASS\`; the complete author execution source, exact certificate, logs and Stage175 scanner reside in the portable artifact. The remote proof and certificate preserve the sufficient exact witness; a remote GitHub readback proves bytes were stored, not that remote computation ran. BRC carrier reuse is the labeled ordered path / branch provenance and separate positive rational P/Q masses (\`REUSE_APPLIED\`); not native BRC–Shor arithmetic. No X6 embedding, Lean check, independent Driver review, native Task CLAIM, native session or admission has been performed.
