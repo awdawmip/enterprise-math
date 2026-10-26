@@ -1,0 +1,59 @@
+{
+  "schema": "EC48E_EXACT_VERIFICATION_V1",
+  "seed": 480527,
+  "mode": "exact_rational_constructive_verification",
+  "status": "PASS",
+  "stats": {
+    "K_hull_2": 55,
+    "K_hull_3": 154,
+    "K_hull_4": 97,
+    "K_hull_5": 36,
+    "K_hull_6": 6,
+    "K_hull_7": 9,
+    "critical_faces": 3795,
+    "cross_history_collision_models": 94,
+    "eligible_models": 357,
+    "encoder_mixing": 410,
+    "fraction_certificates": 18975,
+    "private_decoder_row": 3385,
+    "total_models": 450
+  },
+  "examples": [
+    {
+      "case": "intra_history_ties_without_cross_history_collision",
+      "H": 4,
+      "Y": 3,
+      "raw_P": [
+        2,
+        2,
+        7,
+        3,
+        6,
+        3,
+        5,
+        10,
+        5,
+        11,
+        11,
+        22
+      ],
+      "raw_Q": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2
+      ],
+      "hull_states": 3,
+      "critical_values": 5
+    }
+  ],
+  "scope": "Only cross-history collision-free models are tested; algebraic theorem covers all such finite positive laws."
+}
