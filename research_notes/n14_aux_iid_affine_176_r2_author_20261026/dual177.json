@@ -1,0 +1,49 @@
+{
+  "schema": "EM_N14_STAGE177_DUAL_ONLY_V1",
+  "status": "DUAL_ONLY_NOT_PRIMAL_PROVED",
+  "parent": "STAGE176_AUTHOR_EXACT",
+  "origin": {
+    "K176": "1696807920718753587/7487608294325270",
+    "L176": "168348947995801752/748760829432527"
+  },
+  "direction": {
+    "dK": "-1",
+    "dL": "-169640/99621",
+    "tie_kept": "T=(8,2,0) P/C",
+    "W": "(4,1,2) Q strictly after positive step"
+  },
+  "first_step": "87249936961344913535484/15838758709430926226465",
+  "K177": "1870855299/8461318",
+  "L177": "911522328/4230659",
+  "H177": "148336146012983121522325/905303534551638736896",
+  "ties": {
+    "(8,2,0)": [
+      "P",
+      "C"
+    ],
+    "(12,5,2)": [
+      "P",
+      "C"
+    ]
+  },
+  "closure": {
+    "state": [
+      12,
+      5,
+      2
+    ],
+    "action": "C",
+    "gap_at_Stage176": "24328297849222139/202165423946782290",
+    "direction_derivative": "-4230659/193663224"
+  },
+  "negative_derivative_candidates": 758,
+  "positive_gaps": 1238,
+  "min_strict_gap": "2003135/203071632",
+  "local_execution": {
+    "program": "SCAN_STAGE177.py",
+    "sha256": "ee3e5dd558f59647f8f94e5b5d7566160a0a8de52ae1aa02dd9e9eacffd9f851",
+    "log_sha256": "9bfff0ef39cfa12f2a62abb04b7b664721e8eba86d79f80415be4eccf3bd0679",
+    "marker": "STAGE177_DUAL_SCAN_PASS"
+  },
+  "primal_proved": false
+}
