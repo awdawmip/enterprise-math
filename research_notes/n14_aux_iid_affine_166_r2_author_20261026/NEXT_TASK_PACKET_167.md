@@ -1,0 +1,7 @@
+# Stage167: portable next question (DUAL ONLY, PRIMAL OPEN)
+
+Stage166 author-proved external N14 IID two-measure full-history minimax interval, no native CLAIM. Stage166 right alpha=881262643750052083615/2530093150022563528704; V=4276909130601160631957/361441878574651932672; R=(10,0,1) Q/C coin 3629376130799541/11823616000000000; Y=(7,4,1) P/C coin saturated at 1.
+
+Stage167 exact preliminary ray from K166=310447538892/1139969309, L166=912521643352/3419907927, direction (dK,dL)=(-1,-10592/12501), maintains R tie and makes Y strictly choose P. First newly closing action occurs at X=(5,1,2), Q/continue, at ray step 1326004521931446335352/219049528214024069917. Candidate K167=51166022460516/192153882113, L167=150858479252536/576461646339, H=12362030636126506094814337691297/63157738823584353992721825792. Two ties (X,R); 1238 remaining strict positive gaps, smallest 172366798507207447/5163915757745737728. No primal optimality claim for Stage167.
+
+Next executable unit: enumerate first-hit ordered histories of X and R; perform exact count-state suffix and *unmerged* ordered integer P/Q DFS at four deterministic coins; derive equal-error affine coin relation, test overlap with Stage166 right endpoint, legal interval, positive time dominance and dual equality for all real points. Prove strict support endpoint or exhibit exact rational obstruction. Keep native P000 and BRC provenance separate; no inherited owner/claim/review.
