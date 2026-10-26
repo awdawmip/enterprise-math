@@ -1,0 +1,65 @@
+{
+  "schema": "EM_R4_EC48_EXACT_FACE_COMPAT_GRAPH_V1",
+  "all_checks": "PASS",
+  "arithmetic": "exact BigInt products and integer intervals",
+  "models": 768,
+  "faces": 4092,
+  "nonempty": 3035,
+  "fullMemory": 192,
+  "oneMemory": 288,
+  "witness": {
+    "P": [
+      [
+        4,
+        2,
+        2
+      ],
+      [
+        4,
+        4,
+        4
+      ],
+      [
+        4,
+        1,
+        1
+      ]
+    ],
+    "Q": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "K": 2,
+    "denominator": "234",
+    "lambda": "9/13",
+    "neutral_q": "52",
+    "deterministic_neutral_mass": [
+      "0",
+      "52"
+    ],
+    "stochastic_neutral_mass": "52*t, 0<=t<=1",
+    "face_intervals": [
+      [
+        "0",
+        "52"
+      ]
+    ],
+    "compatibility_components": 2
+  },
+  "theorem_strength": "Universal result proved in note; samples corroborate implementation only",
+  "native_guard": "UNAVAILABLE_CONTROL_QUOTA",
+  "native_X6": "NOT_EXECUTED"
+}
