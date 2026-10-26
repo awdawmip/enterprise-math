@@ -1,0 +1,125 @@
+{
+  "schema": "EM_N14_STAGE185_AUTHOR_EXACT_REMOTE_SUMMARY_V1",
+  "status": "AUTHOR_EXACT_FULL_REAL_VERIFIED_NOT_ADMITTED",
+  "evidence_level": "local_exact_Fraction_executed; self-authored mathematical proof",
+  "sources": {
+    "global_knowledge_main": "968db47fa025cb6727542a945fdd54890f95dd78",
+    "enterprise_math_main_initial": "3100006d98e989d452c3eafb683a68456fb731a7",
+    "stage184_commit": "61a8afb7baefad66addf70238af4cd33c981f5cc"
+  },
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "scope": "external full-history ternary IID"
+  },
+  "dual": {
+    "K": "11700648/62533",
+    "L": "11700648/62533",
+    "H": "60828835377977479173913/428198791166048600064",
+    "ties": {
+      "(9,0,1)": [
+        "Q",
+        "C"
+      ],
+      "(14,0,0)": [
+        "P",
+        "Q"
+      ]
+    },
+    "states": 680,
+    "strict_gaps": 1238,
+    "min_gap": "3713241817841/107552181583872"
+  },
+  "affine": {
+    "s0": "36748691781079349/37833811200000000",
+    "sz": "128000000/5911533",
+    "z_min": "0",
+    "z_max": "1085119418920651/819200000000000000",
+    "alpha184": "6302854731325816791787/17990936586642819907584",
+    "V184": "49268185437698746127021/4497734146660704976896",
+    "alpha185": "3684877789469437643/10517860061584293888",
+    "V185": "2399458174541646935/219122084616339456",
+    "width": "67855772623365068983/6908519649270842844512256",
+    "slope": "23401296/62533"
+  },
+  "observables": {
+    "base": [
+      "607421199481393049/1752976676930715648",
+      "113465105604569/320979616137216",
+      "2427539729741646935/219122084616339456",
+      "291735040347565/26748301344768"
+    ],
+    "dS": [
+      "15611328125/3962711310336",
+      "-1813671875/557256278016",
+      "-63480078125/495338913792",
+      "-10480859375/46438023168"
+    ],
+    "dZ": [
+      "-6103515625/78364164096",
+      "6103515625/78364164096",
+      "0",
+      "0"
+    ],
+    "mixed": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  "ordered_DFS": {
+    "nodes": {
+      "10": 207250,
+      "11": 207250,
+      "00": 207682,
+      "01": 207682
+    },
+    "total": 829864,
+    "first_hit": {
+      "S": {
+        "paths": 9,
+        "P": "390625/4478976",
+        "Q": "390625/2239488"
+      },
+      "Z": {
+        "paths": 1,
+        "P": "6103515625/78364164096",
+        "Q": "6103515625/78364164096"
+      }
+    }
+  },
+  "checks": {
+    "fraction_bellman_680": true,
+    "strict_1238": true,
+    "independent_corner_exact_agreement": true,
+    "mixed_zero": true,
+    "balanced_errors_at_endpoints": true,
+    "stage184_endpoint_continuity": true,
+    "legal_coins": true,
+    "strict_alpha_growth": true,
+    "strict_value_decrease": true,
+    "timeP_dominant": true,
+    "dual_equality": true,
+    "full_real_interval_proved": true,
+    "strict_fixed_line_to_right_proved": true
+  },
+  "native": {
+    "owner": "UNKNOWN_CONTROL_QUOTA",
+    "session": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "claim": false,
+    "result": false,
+    "driver_review": false
+  },
+  "full_original_evidence": "Portable archive contains VERIFY_STAGE185.py, certificate185.json, raw logs, REPRO_STAGE185.py, SCAN_STAGE186.py and SHA256 manifest. Short REPRO_STAGE185.py also executed."
+}

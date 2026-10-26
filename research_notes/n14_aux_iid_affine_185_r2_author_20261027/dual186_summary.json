@@ -1,0 +1,46 @@
+{
+  "schema": "EM_N14_STAGE186_DUAL_SCAN_SUMMARY_V1",
+  "status": "DUAL_ONLY_NOT_PRIMAL_PROVED",
+  "ray": {
+    "K185": "11700648/62533",
+    "L185": "11700648/62533",
+    "dK": "-1",
+    "dL": "-1",
+    "S_action": "Q",
+    "Z_tie": [
+      "P",
+      "Q"
+    ],
+    "S_continuation_derivative_gap": "62533/7962624"
+  },
+  "first_closure": {
+    "step": "5346201185608896/883779897219559",
+    "state": [
+      5,
+      2,
+      0
+    ],
+    "action": "P",
+    "prior_gap": "3093866426857/71701454389248",
+    "derivative_gap": "-14133016123/1981355655168"
+  },
+  "candidate": {
+    "K186": "2558956801176/14133016123",
+    "L186": "2558956801176/14133016123",
+    "H186": "53350630346247249956056072189/387106994348511975111131136",
+    "ties": {
+      "(5,2,0)": [
+        "P",
+        "C"
+      ],
+      "(14,0,0)": [
+        "P",
+        "Q"
+      ]
+    },
+    "strict_gaps": 1238,
+    "min_gap": "8013894983737/219796666744896",
+    "negative_gradient_roots": 805
+  },
+  "verification": "Exact fractions ray scan executed locally; Stage186 primal interval unproved."
+}
