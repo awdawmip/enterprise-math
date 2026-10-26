@@ -16,7 +16,7 @@ for h in Q2:
     assert all(x > 0 for x in Q2[h] + P2[h])
 for r in R:
     assert sum(Q3[r]) == sum(P3[r]) == 1
-    assert sum(y*q for y,q in zip(Y,Q3[r])) == r
+    assert sum(y*q for y,q in zip(Y, Q3[r])) == r
     assert all(x > 0 for x in Q3[r] + P3[r])
 qbar = tuple(sum(Q1[h]*Q2[h][i] for h in Q2) for i in range(3))
 assert qbar == (F(7, 24), F(5, 12), F(7, 24))
