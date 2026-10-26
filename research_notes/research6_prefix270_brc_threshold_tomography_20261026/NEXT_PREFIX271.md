@@ -1,0 +1,9 @@
+# PREFIX-271 | Typed native heartbeat/port correspondence
+
+**Source research frontier:** PREFIX-270 proves exactly that, on the baseline-stable finite nonnegative-rational WBRC-T31 n-port domain, all binary rational single-edge context stability predicates determine each threshold `T_ij=1/(W*)_ji` (or infinity), recover the complete labeled `W`, and imply full WBRC-T31 contextual equivalence. The author-side exact mirror checker passed all 530 {0,1/4}-entry matrices of sizes 1–3 and 17,528 single-edge probes; do not rerun an identical finite sweep without a changed hypothesis/source.
+
+**One first research question:** Find the exact current Source `model_law_id` and a real typed inter-heartbeat `Phi:H_n→H_(n+1)`, including a six-dimensional native Cell, separate time and heartbeat index, Port/field/momenta/phase, branch provenance and boundary/source state. Does a legal native control faithfully implement the WBRC-T31 positive port update `W↦W+tE_ij` and its Boolean positive-mass stability readout? If yes, prove the bridge and transfer PREFIX-269/270's two-port contrast; if not, identify the **first absent type/correspondence premise** and derive the smallest future-safe residual observer. BRC walk depth is not physical elapsed time.
+
+**Real outstanding validation:** Execute `verify_prefix270_source.py` under a checked-out Enterprise Math Source with `PYTHONPATH=src` and record its actual result. The script was not executed by the publishing run (package not installed). No physical heartbeat, phase BRC cancellation, native TRIADIC_CLOSURE_E check or independent review was performed.
+
+**Authorization:** GitHub owner identity `awdawmip` has author-note writing access; native `em_session_start` returned `STATIC_READONLY_SCOPE_DENIED; operation_sent=false`, task listing returned `CONTROL_QUOTA`. Current Owner/CLAIM unverified. A repository note, PR or transport artifact is not a formal source-backed Researcher CLAIM/Result/Driver admission.
