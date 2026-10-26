@@ -1,0 +1,9 @@
+# Stage180 — execution evidence and authority boundary
+
+Local exact Fraction validation executed; final line STAGE180_AUTHOR_EXACT_FULL_REAL_PASS. Bellman states 680/680, 1238 positive gaps, min 49549/6388794; tied S=(9,0,1), W=(11,2,2). Four independent unmerged ordered DFS node counts: 263716, 252916, 263284, 252484, sum 1032400. DP and DFS agree for all sixteen corner observables; P and Q total masses each equal 1. First-hit ordered path counts S=9,W=900. Eleven precise checks passed: previous endpoint, boundary coin, balanced error, time dominance, dual equality, monotonic alpha/time, slope, mixed zero, strict other gaps, legal coins.
+
+Stage181 dual scan executed locally, returned STAGE181_DUAL_SCAN_PASS, but primal interval UNPROVED. Local portable package EM_STAGE180_AUTHOR_EXACT_PORTABLE_20261027.zip SHA256 5f1b661afd73443d7f2b657e777e36e31f2f05769bc3601be6e54490430da569 contains actual executed VERIFY_STAGE180.py, SCAN_STAGE181.py, both full logs, exact certificate180.json/dual181.json, full proof, next task and internal file-hash manifest. GitHub reference scripts are reproducible adaptations of the locally executed algorithms; GitHub file readback is storage verification, not server execution. GitHub is the durable source for this author proof; portable zip supplements complete run provenance.
+
+Frozen sources: Global 5612ada0f8417b72bb0e9cebe2f5291aba36a2c3; EM initial d237e1d0be04b98cc30f7cb94a75b6a5215febcd; Stage179 immutable 370d2f419c0258c0238b4262c103bbc708158747.
+
+BRC: branch labels and independent positive P/Q rational mass retained, no signed-amplitude cancellation. This external auxiliary model does not prove P000-native Cell dynamics. Native Gateway dispatch/ownership read returned CONTROL_QUOTA and session_start returned STATIC_READONLY_SCOPE_DENIED (operation_sent=false); no formal claim/Source Result/independent Driver admission.

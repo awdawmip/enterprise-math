@@ -1,0 +1,56 @@
+# Stage180 — Exact full-real affine optimality in an external N14 ternary IID model
+
+**Scientific status:** AUTHOR_EXACT (exact rational author proof; no independent Driver admission or native Source CLAIM).
+**Scope:** This is an external 14-step ternary sequential test, not a P000-native six-dimensional Cell result. Fixed GLOBAL_KNOWLEDGE_V1 main 5612ada0f8417b72bb0e9cebe2f5291aba36a2c3 (P000 projection and canonical P000 Git blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc agree), Enterprise Math initial main d237e1d0be04b98cc30f7cb94a75b6a5215febcd, Stage179 author source 370d2f419c0258c0238b4262c103bbc708158747.
+
+## Statement
+
+Let P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), N=14. Policies stop by 14 and choose P or Q, possibly randomized conditional on arbitrary full ordered histories. Write eP=P(decide Q), eQ=Q(decide P), tP=E_P(stop), tQ=E_Q(stop), and
+    V14(alpha)=inf_{eP,eQ<=alpha} max(tP,tQ).
+
+Let
+    alpha179=1571021756603133836077/4497734146660704976896,
+    V179=25557594090284071560277/2248867073330352488448,
+    Delta180=77025390625/13556538588266496.
+For EVERY real 0<=delta<=Delta180,
+    V14(alpha179+delta)=V179-(34167779/78874)*delta.
+The exact right endpoint is
+    alpha180=1571047311779133836077/4497734146660704976896,
+    V180=25552058910086071560277/2248867073330352488448.
+For alpha>alpha180, this SAME Bellman affine support is strictly below V14(alpha), wherever V14 is finite. This is sharpness of that support, not termination of the value function.
+
+## Complete proof
+
+1. **Bellman dual.** For x=(n,a,b), 0<=a+b<=n<=14, the conditional likelihood ratio of Q to P is ell(x)=2^(a+b)/3^a. With
+    K=17305299/78874, L=8431240/39437,
+define
+    B(x)=min{K*ell(x), L, 1+sum_i P_i B(child_i(x))}
+(no continuation at n=14). Every full-history policy satisfies
+    H<=tP+K*eQ+L*eP<=max(tP,tQ)+(K+L)*alpha
+for errors <=alpha, where exhaustive Fraction recursion on all C(17,3)=680 states gives
+    H=B(root)=87860433465778875640367/540094853188411195392.
+Exactly two tied states remain: S=(9,0,1) Q/C and W=(11,2,2) Q/C. There are 1,238 positive action gaps, with minimum 49549/6388794; no negative gaps. Thus V14(alpha)>=H-(K+L)*alpha and K+L=34167779/78874.
+
+2. **Exact primal observers.** At S choose Q with probability s and continue otherwise; at W choose Q with probability w and continue otherwise. Elsewhere use the unique Bellman minimum. Compute v=(eP,eQ,tP,tQ) at all four (s,w) corners using (i) rational suffix DP and (ii) independent integer-numerator, unmerged ordered-history DFS. The latter uses P-numerators (3,1,20)/24 and Q-numerators (1,1,10)/12, proves terminal P and Q masses are exactly one, and separately visits 263716, 252916, 263284, 252484 nodes (TOTAL 1032400). All 16 rational corner values agree exactly; their full values are in certificate180_summary.json and the runnable reference script. There are 9 first-hit histories at S, 900 at W. Their first-hit P masses are 390625/4478976 and 1953125/286654464, and first-hit Q masses are 390625/2239488 and 1953125/161243136. S cannot precede W because W_n-S_n=2 but (W_a-S_a)+(W_b-S_b)=3>2; W cannot precede S due to depth. Thus no history reaches both, giving exactly
+    v(s,w)=v00+s*dS+w*dW
+with mixed difference (0,0,0,0). In observer order (eP,eQ,tP,tQ), the exact vectors are
+    v00=(152710108302249839/438244169232678912, 28084102357655/80244904034304, 624045795826036049/54780521154084864, 24701102433121/2229025112064),
+    dS=(15611328125/3962711310336,-1813671875/557256278016,-63480078125/495338913792,-10480859375/46438023168),
+    dW=(83984375/440301256704,-13671875/92876046336,-466796875/55037657088,-326171875/23219011584).
+
+3. **Full real interval.** Solving eP=eQ produces exactly
+    s(w)=1999608121070003/9458452800000000 - (30855/656837)*w.
+This stays in [0,1] for EVERY real w∈[0,1], with s(0)=1999608121070003/9458452800000000 and s(1)=1555296121070003/9458452800000000. At w=0 the common error/time is exactly (alpha179,V179), with S coin equal to Stage179's boundary coin. At w=1 it is (alpha180,V180). Common error strictly increases and tP decreases affinely with w. Exact P-time dominance margins at the endpoints are
+    247971501433994102597/749622357776784162816 and
+    248709295303994102597/749622357776784162816,
+both positive. The exact dual equality tP+K*eQ+L*eP=H holds at endpoints, hence affinely throughout. Therefore max(tP,tQ)=tP=H-(K+L)*alpha at every attainable alpha in the interval. Strict monotonicity of error in w covers the whole REAL interval, including irrational parameters. This matches the Bellman lower bound in step 1 and proves the theorem.
+
+4. **Strict sharpness of this support.** Suppose equality holds for alpha>alpha180. Because K,L>0, equality requires eP=eQ=alpha and all reached decisions Bellman-minimizing. The only variable decisions are at S and W. Full-history dependence cannot enlarge the attainable observer set: likelihood ratio Q/P is constant over ordered histories at a given count state, and conditional suffix laws are identical; history-dependent coins have the same four aggregate observers as single effective coins s,w∈[0,1]. Disjoint cones eliminate cross-terms. Error equality therefore enforces the above s(w), whose maximum common error in [0,1]^2 is alpha180. Contradiction. The policy observable set is compact (finite horizon/finite history/simplex coins), so finite-valued V14 attains its minimum, giving strict inequality beyond alpha180.
+
+## Verification, BRC, and next frontier
+
+The actual locally executed Fraction program returned STAGE180_AUTHOR_EXACT_FULL_REAL_PASS; independent ordered-history DFS and suffix DP agreed on all corners, while the attached certificate contains exact rational vectors and test assertions. The GitHub reference program is replayable source, not evidence of execution on GitHub. The portable pack separately contains the **actual executed** script, logs, and SHA256 manifest.
+
+BRC resolution: REUSE_APPLIED for labeled ordered paths and separate positive-rational P/Q measures; no signed-amplitude interpretation. Count-state compression is justified for the Bellman value but not a substitute for retained ordered history or an unrestricted future observer. This is not a native Cell, physics, 3D-slice, or P000 theorem.
+
+Stage181 DUAL-ONLY candidate: S=(9,0,1) Q/C and V=(3,1,2) Q/C; K=441833535662847516/2064436478960831, L=432175273775571832/2064436478960831. The primal interval for Stage181 is UNPROVED; see NEXT_TASK_PACKET_181.md and dual181.json.
