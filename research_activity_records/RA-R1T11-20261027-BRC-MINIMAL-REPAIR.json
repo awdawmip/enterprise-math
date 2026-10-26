@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-R1T11-20261027-BRC-MINIMAL-REPAIR",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "3100006d98e989d452c3eafb683a68456fb731a7",
+          "path": "research_notes/r1_n14_brc_minimal_two_law_repair_20261027_r1/PROOF.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "5b15f1620fb4bf91250f8f2eb7ed1ace667a78eb664ba48e84eae3394f64df2d",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "e294d355a5176ac37a407b0dce6c6f7789fdc9c7",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/3100006d98e989d452c3eafb683a68456fb731a7/research_notes/r1_n14_brc_minimal_two_law_repair_20261027_r1/PROOF.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "em-r1-local-proof-readback-20261027-0700",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-R1T11-20261027-BRC-MINIMAL-REPAIR/readbacks/0414ef9fcb51072b6490bdac45b2494dec4df00b6137fd865587914062a04daa.json",
+          "verification_receipt_sha256": "0414ef9fcb51072b6490bdac45b2494dec4df00b6137fd865587914062a04daa"
+        }
+      ],
+      "event_id": "EV-R1-20261027-TWO-LAW-MINIMAL-REPAIR",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-26T23:00:36.408Z",
   "registration_key": "session:chatgpt-automation-20261027-r1-t11-bisim:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R1-B15A1",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "chatgpt-automation-20261027-r1-t11-bisim",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-26T23:00:36.408Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
