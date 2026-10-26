@@ -18,5 +18,35 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "emr1-stage162-exact-author-v1",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@860aa5151cc34634695bbb90a67e10203617114b:journal/enterprise-math/2026-10-26/20261026T142800+0800-r1-n14-stage162-exact.md"
+      ],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "2c43f4dbc5894a1f1fe3c198bc39257696717879",
+          "path": "research_notes/n14_aux_iid_affine_162_r1_author_20261026/certificate162.json",
+          "sha256": "0bf95aa3209b5a2a4e1dbeaa4a43902b8e3d4d4408cb72be139711a11f1931e2",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "emr1-20261026-stage162-exact-cert-immutable-readback-001",
+            "git_blob_sha1": "bd46400d8a5ace6f9190acee849f538561d2b59d",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/2c43f4dbc5894a1f1fe3c198bc39257696717879/research_notes/n14_aux_iid_affine_162_r1_author_20261026/certificate162.json",
+            "server_signature_authenticated": false,
+            "network_request_by_this_tool": false,
+            "call_id": null
+          },
+          "verification_receipt": "research_activity_records/RA-EM-R1-20261026-TURN11-STAGE162/readbacks/947d82591f47e259b69af205c3bbfff217077b83025a6fc297ebf7c709ecf941.json",
+          "verification_receipt_sha256": "947d82591f47e259b69af205c3bbfff217077b83025a6fc297ebf7c709ecf941"
+        }
+      ]
+    }
+  ]
 }
