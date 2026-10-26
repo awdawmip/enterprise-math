@@ -106,9 +106,23 @@ All three identities are exact in Z_(p), hence modulo p². They retain the lower
 
 **Information budget:** A1-A2 and B1-B3 specify the entire three-channel family using O(m) p-local vector entries and two genuine unit charts, versus M² independent coordinates needed for arbitrary signed arrays. O(m) signed-prefix evaluation of T and the distinct infinity port is inherited from the prior theorem. This is a representation and source-faithfulness theorem, not a new cancellation, proof of original Delta_p-R_p=0, or permission to discard rank labels before future quadratic operators.
 
+
+## Second unit — a scalar, not merely cellwise, obstruction at p=13
+
+The upper first-jet band also survives the *specific ordered signed scalar observer*, not just the free labelled-cell observer. At m=2, p=13, only j=3,4 occur in the extra strip. Direct p-local reduction gives d_3=10, d_4=1, and (h_1,h_2,h_3,h_4)=(1,6,7,7) modulo 13. With the exact weight \(2^{l-j}(1+6(j-l))\), the respective row contributions are
+
+\[
+\boxed{\sum_{l=1}^{3}2^{l-3}(1+6(3-l))d_3h_l=7,\qquad
+\sum_{l=1}^{4}2^{l-4}(1+6(4-l))d_4h_l=3\pmod{13}.}
+\]
+
+Therefore \(\boxed{T_{12}^{\mathrm{upper}}=10\pmod{13}\ne0}\). In the already-proved three-channel reflection
+\(Q_p/p^2\equiv(2^{-p}/18)[T_{02}+p(6U_{02}-(T_{12}+T_{03})/6)]\pmod{p^2}\),
+dropping **only** this upper strip while retaining other channels and infinity ports changes the p=13 result from the correct \(104\pmod{169}\) to \(78\pmod{169}\): the artificial change is \(143=13\cdot11\pmod{169}\). This is a concrete constrained-family counterexample to the naive single-chart *scalar* compression at the target precision. It is distinct from the previously reported deletion of the infinity ports.
+
 ## Verification, source scope and next action
 
-The adjacent stdlib checker independently generates exact Pochhammer Taylor coefficients and checks the corrected rank recurrence, both charts, terminal factorial and harmonic seeds, seam nonzero mod p, all labelled cells, ordered signed T and complementary infinity orientation. Actual author run: **4189 exact assertions PASS**, m=1,...,12 (not all 6m+1 prime; the rational identities cover composite values too), independent Pochhammer coefficient path for m<=5, and p-unit checks only for listed target primes. Finite checks supplement the proofs, not independent mathematical review.
+The adjacent stdlib checker independently generates exact Pochhammer Taylor coefficients and checks the corrected rank recurrence, both charts, terminal factorial and harmonic seeds, seam nonzero mod p, all labelled cells, ordered signed T and complementary infinity orientation. Actual author run: **4191 exact assertions PASS**, m=1,...,12 (not all 6m+1 prime; the rational identities cover composite values too), independent Pochhammer coefficient path for m<=5, and p-unit checks only for listed target primes. Finite checks supplement the proofs, not independent mathematical review.
 
 **BRC COMPOSE_APPLIED:** typed carrier (j,l,oriented difference,Hasse channel,p-adic precision) and signed operations. The low observer has a real seam kernel detected by the first jet, so the two-chart representation is necessary. Auxiliary Laurent/Hasse variables are external arithmetic, not native P000 six-dimensional geometry. P000 remains ACTIVE_LOCKED.
 
