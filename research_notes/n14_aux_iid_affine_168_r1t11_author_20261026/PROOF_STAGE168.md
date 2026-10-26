@@ -1,0 +1,69 @@
+# Stage168 — full-real optimal interval and strict right sharpness (R1 author exact computation-assisted proof)
+
+**Status:** AUTHOR_EXACT_COMPUTATION_ASSISTED; not independently Driver-reviewed; not P000 native-X6. This result is about the **external** finite ternary IID sequential-testing model and full ordered-history randomized policies, not about physical native Cell dynamics.
+
+**Frozen sources:** GLOBAL_KNOWLEDGE_V1 main@36463ccb2e7004fa8410a5c56a14708cfa883547; Enterprise Math current-main input main@2e021dce69085d80e3df06bda732f947705e95b2; scientific predecessor Stage167 proof at immutable branch commit f8609b5eb0ad0fb52a5b48a7823c9b6e5e07f42e. The source head and scientific frontier are distinct because Stage167 was published on an author research branch.
+
+## Theorem (all real parameters)
+
+Let P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), τ≤14. For arbitrary full ordered-history stopping/decision policies, define eP=P(decide Q), eQ=Q(decide P), tP=E_P τ, tQ=E_Q τ, V14(α)=inf_{eP,eQ≤α}max(tP,tQ).
+
+For **every real** δ satisfying
+
+0 ≤ δ ≤ **653300078125/1429857692024832**,
+
+we prove
+
+**V14(α167+δ) = V167 − (4277548688/8362241)δ**,
+
+where α167=881276478829564219615/2530093150022563528704 and V167=4275865622441272343957/361441878574651932672. New right endpoint:
+
+**α168=882432475025404219615/2530093150022563528704**,
+
+**V168=4191390146637112343957/361441878574651932672**.
+
+The same support line is **strictly below** V14(α) for α>α168.
+
+## Bellman dual, universal policy class
+
+For count state s=(n,a,b), a,b counting symbols 0,1, the prefix likelihood Q/P is ℓ(s)=2^(a+b)/3^a. Set K=2152236456/8362241 and L=2125312232/8362241. At n<14 the exact backward recurrence is H(s)=min{Kℓ(s), L, 1+Σ_i P_i H(child_i(s))}; at n=14 omit continuation. For **any full ordered-history randomized policy**, the conditional Bellman induction proves
+
+H(root) ≤ tP + K eQ + L eP ≤ max(tP,tQ)+(K+L)α.
+
+Exact rational enumeration covers **680 count states** and yields H(root)=58026151900459658728236701/305391946664037178146816. The only Bellman ties are R=(10,0,1) at decide-Q/continue and Z=(9,2,0) at decide-P/continue. There are 1,238 strictly positive nonminimal action gaps, smallest 199132488595033/16180247553933312, no negative gaps. Count compression computes the IID suffix costs, but does **not** restrict full-history admissibility.
+
+## Ordered-path primal certificate
+
+At R choose immediately Q with probability r; at Z immediately P with probability z; elsewhere choose the unique Bellman minimizer. Complete unmerged ordered-prefix integer DFS (P numerator weights (3,1,20)/24, Q numerator weights (1,1,10)/12) yields exactly:
+
+| Critical state | First-hit ordered paths | P mass | Q mass |
+|---|---:|---|---|
+| R=(10,0,1) | 10 | 9765625/120932352 | 9765625/60466176 |
+| Z=(9,2,0) | 36 | 78125/497664 | 78125/1119744 |
+
+The cones cannot intersect: Z already has two occurrences of symbol zero, but R has zero, and symbol counts never decrease along an ordered extension; R is deeper, so cannot lead to Z. The DFS verifies these first-hit masses are independent of both coins at all four corners.
+
+For M=(eP,eQ,tP,tQ), the disjoint first-hit cones give **M(r,z)=M00+r dR+z dZ** throughout [0,1]^2. Independent (a) cached Fraction count-suffix recursion and (b) literal integer-weight unmerged ordered DFS agree at each of the four corners. Both terminal distributions have mass exactly one, and their exact mixed coefficient M11−M10−M01+M00 is the **zero four-vector**. Complete corners and deltas are recorded in certificate168.json; locally executed verifier and stdout are archived in the Stage168 evidence ZIP. Ordered DFS nodes for 00/01/10/11 are respectively 367237/365077/366997/364837.
+
+The exact error imbalance is
+
+eP−eQ = −16810836564773705/10517860061584293888 + (225517578125/40122452017152)r − (47534453125/17832200896512)z.
+
+Thus balanced errors give the unique exact affine relation
+
+**r(z) = 3362167312954741/11823616000000000 + (5475969/11546500)z**.
+
+For every real z in [0,1], the resulting r is a valid coin strictly between 0 and 1. At z=0, the inherited Stage167 α,V and exact R coin match; at z=1, r=8969559568954741/11823616000000000 and α,V equal the Stage168 endpoint above. The exact gaps tP−tQ at those endpoints are positive:
+
+left 1062481681491670833895/2530093150022563528704,
+right 939301590775510833895/2530093150022563528704.
+
+Both endpoints satisfy **tP+K eQ+L eP=H(root)** exactly. Since all four observers and the balance relation are affine, dual equality, eP=eQ, strict tP dominance, and attainment extend to **every real z in [0,1]**, including irrational choices; α increases by precisely the claimed interval width. This proves the theorem.
+
+## Sharpness and boundary of claims
+
+The finite full-history realization-plan polytope is compact, so the minimum is attained. Equality with the *same* Bellman supporting line at any α>α168 would require eP=eQ=α because K,L>0; it would also force every positively reached action to minimize Bellman, by the strict positive gaps. All randomized choice would therefore occur solely at R/Z. Different ordered histories reaching the same tied count state have the same Q/P likelihood ratio and identical conditional IID suffix observers, so their heterogeneous coins reduce, for these four observers only, to P-first-hit-weighted effective coins. Disjoint cones give exactly M(r,z). The balance equation forces r=r(z), and legal coins imply α≤α168; contradiction. Hence strict right sharpness.
+
+The local exact program really executed and verified Bellman, both corner algorithms, inherited equality, time dominance and zero interaction; the repository portable Python checker is an **adaptation** of the predecessor's program, not evidence of running on GitHub. Native tasks query returned CONTROL_QUOTA, and native session issuance returned STATIC_READONLY_SCOPE_DENIED with operation_sent=false. Owner, CLAIM, formal Result and independent mathematical acceptance are **not verified**. No native-X6 state/readout bridge is established.
+
+**Next:** Stage169 dual-only (not primal-certified) at K169=100796326719840/394715670863, L169=298940013781960/1184147012589, new tie Y=(6,4,1) P/C; see NEXT_TASK_PACKET_169.md.
