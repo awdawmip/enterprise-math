@@ -1,0 +1,142 @@
+{
+  "schema": "EM_N14_STAGE158_AUTHOR_EXACT_RATIONAL_V1",
+  "evidence_class": "AUTHOR_EXACT_COMPUTATION_ASSISTED_NO_INDEPENDENT_DRIVER",
+  "source": {
+    "global_main": "a110753fc8aef4d7c4206eebe63931b32c298bda",
+    "enterprise_math_input_main": "90e8a926574233d61d7e0be2db8ee1358a235b82",
+    "reconciled_stage157_author_commit": "63d33c52d365259eecd062770e7674d2dfb4de4d"
+  },
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "domain": "arbitrary complete ordered-history randomized behavioral policies"
+  },
+  "stage157_endpoint": {
+    "alpha": "763084945158127578305/2192919042319171190784",
+    "V": "3298586218925748578843/274114880289896398848"
+  },
+  "stage158_dual": {
+    "first_ray_step": "6147978656669784/910876079964721",
+    "direction": [
+      "-1",
+      "-25280/14751"
+    ],
+    "K": "26880449139504/86511167249",
+    "L": "26463665283720/86511167249",
+    "root": "67118306721229522289887399231/296195426721776135565213696",
+    "states": 680,
+    "ties": {
+      "(6,1,2)": [
+        "Q",
+        "C"
+      ],
+      "(10,2,0)": [
+        "P",
+        "C"
+      ]
+    },
+    "strict_positive_gaps": 1238,
+    "minimum_positive_gap": "874625881143787/32290120153354752",
+    "negative_gaps": 0
+  },
+  "ordered_hits": {
+    "H": {
+      "state": "(6,1,2)",
+      "histories": 40,
+      "P_mass": "625/124416",
+      "Q_mass": "625/46656"
+    },
+    "J": {
+      "state": "(10,2,0)",
+      "histories": 45,
+      "P_mass": "1953125/11943936",
+      "Q_mass": "1953125/26873856"
+    },
+    "cones_disjoint": true
+  },
+  "affine_observers": {
+    "order": [
+      "eP",
+      "eQ",
+      "tP",
+      "tQ"
+    ],
+    "M00": [
+      "1220395842171464035/3505953353861431296",
+      "223259694920365/641959232274432",
+      "5285134543382516317/438244169232678912",
+      "619867204468061/53496602689536"
+    ],
+    "dH": [
+      "26338176875/253613523861504",
+      "-754323125/10030613004288",
+      "-266343576875/31701690482688",
+      "-15586953125/835884417024"
+    ],
+    "dJ": [
+      "-3201171875/3962711310336",
+      "771484375/557256278016",
+      "-30224609375/165112971264",
+      "-4150390625/46438023168"
+    ],
+    "mixed": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "corner_DFS_nodes": {
+      "10": 448000,
+      "11": 446920,
+      "00": 465880,
+      "01": 464800
+    },
+    "equal_error_coins": {
+      "j0": "660136987826389/4611571200000000",
+      "dj_dh": "5885193739/72055800000",
+      "h_range": [
+        "0",
+        "1"
+      ],
+      "j_within_unit_interval": true
+    }
+  },
+  "stage158_endpoint": {
+    "alpha": "763167995878686618305/2192919042319171190784",
+    "V": "3292184925194961698843/274114880289896398848",
+    "width": "54069479530625/1427681668176543744",
+    "affine_slope": "53344114423224/86511167249",
+    "tP_minus_tQ": [
+      "251826953459549368715/548229760579792797696",
+      "253249280016335608715/548229760579792797696"
+    ],
+    "global_dual_equality_at_both_endpoints": true,
+    "right_sharpness_author_proof": true
+  },
+  "stage159_dual_only": {
+    "ray_t": "43776221891215860882/12563497839079943249",
+    "K": "580027221414/1887912013",
+    "L": "566236422120/1887912013",
+    "new_tie": "(9,5,4) Q/C",
+    "persistent_tie": "(10,2,0) P/C",
+    "states": 680,
+    "strictly_positive_gaps": 1238,
+    "min_gap": "20367756/1887912013",
+    "status": "DUAL_ONLY_PRIMAL_UNPROVED"
+  },
+  "limitations": [
+    "Only external finite iid model",
+    "No native six-dimensional Cell/P000 transfer",
+    "Author calculations are not independent Driver review",
+    "Native source session/CLAIM/Result authorization denied"
+  ]
+}
