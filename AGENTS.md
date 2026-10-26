@@ -207,13 +207,15 @@ A recovered session may use a new Researcher/Driver identity while the original 
 
 Do not infer `NO_TASK` / `NO_DISPATCH` merely because the fresh selector returns no `NEEDS_DISPATCH` task. If fresh task/lane selection is empty while a valid owner lease remains and session liveness is unknown, first verify the latest independently observable conversation response or durable execution progress. Stale means prepare the source-bound successor transition through `control_plane/research_continuation.py`; active means preserve that owner. The new authenticated CLAIM must win the exact predecessor CAS before it fences old writes. Private state-file adoption is not cross-conversation authority.
 
-Immediately before final-channel output, evaluate PRE_FINAL through `tools/research_runtime_guard.py`; `tools/active_turn_liveness.py` remains the primitive liveness evaluator.
+Formal research/task/activity routes evaluate PRE_FINAL through `tools/research_runtime_guard.py`; `tools/active_turn_liveness.py` remains the primitive liveness evaluator.
 
 For explicit `RESEARCH_DRIVER`, `FOUNDATION_STEWARD`, or `CONTROL_PLANE_MAINTENANCE` work without formal task, claim, execution-binding, or research-activity binding fields, pass the original `parent_liveness` object to the same `pre-final` entrypoint. It evaluates control flow only and grants no task or research authority. Missing parent liveness requires evaluation; a completed control subflow does not complete an OPEN research parent. Inputs carrying formal or activity bindings retain the existing routing checks and cannot use this control-only path. Do not invent a task/claim or mark the parent complete to report a control checkpoint.
 
+For genuinely unbound `CONTROL_PLANE_MAINTENANCE`, assess the actual parent objective and next actions directly. The existing local evaluator/result may be reused when useful; neither a local eight-field declaration nor a remote `pre_final` request is required just to report results or blockers. The remote maintenance route remains optional diagnostics and grants no authority. This narrow exception takes precedence over the preceding control-only entrypoint instruction. It does not apply to an issued research session or formal/activity bindings, which cannot be dropped or relabeled as maintenance. An unavailable diagnostic service cannot prohibit an honest blocker report or establish parent completion.
+
 `PARENT_OBJECTIVE_OPEN + EXECUTABLE_NEXT_ACTION -> FINAL_ALLOWED=false`.
 
-`RUNTIME_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN`.
+`FORMAL_OR_ACTIVITY_RUNTIME_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN`.
 
 ### Current task publication and runtime
 

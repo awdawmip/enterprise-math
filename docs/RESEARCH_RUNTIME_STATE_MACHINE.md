@@ -26,6 +26,10 @@ Canonical tools:
 - `tools/research_historical_result_intake.py` — Source-bound historical Result intake, independent review, audit and state projection; native guard supplies the current authority context;
 - `tools/active_turn_liveness.py` — session-liveness primitive.
 
+## Unbound maintenance reporting
+
+Genuinely unbound `CONTROL_PLANE_MAINTENANCE` assesses the actual parent objective and next actions directly, reusing a local evaluator/result when useful. No local eight-field declaration or remote `pre_final` request is required solely to report results or blockers. The existing remote maintenance route is optional diagnostics with `authorized=false`. Diagnostic availability is not a completion gate. Issued research sessions and formal task/claim/execution/activity bindings keep their original checks and cannot be relabeled or removed to enter this exception. This documentation change creates no research, write, freeze, review or promotion authority.
+
 ## Invariants
 
 `UNPUBLISHED_TASK -> NO READY / NO CLAIM / NO EXECUTION`.
