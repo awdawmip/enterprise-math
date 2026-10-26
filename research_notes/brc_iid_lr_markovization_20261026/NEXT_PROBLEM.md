@@ -1,0 +1,11 @@
+# Next independent BRC research unit — non-iid Markovization residual
+
+Mother question: For a finite-horizon sequential two-hypothesis experiment on finite *history-dependent* positive rational branch kernels, characterize when a statistic `T_n(h)` exactly preserves all four observers `(e_P,e_Q,t_P,t_Q)` for every behavioral stopping/decision policy by an `(n,T)`-Markov policy.
+
+Completed and reusable (do not redo): external iid Markovization proof, occupancy LP and one-step LR-erasure counterexample at `research_notes/brc_iid_lr_markovization_20261026/PROOF_LR_MARKOVIZATION.md`; exact checker and output next to it. Stage161 exact interval and Stage162 dual-only candidate belong to their separate author lineage; do not take over an active owner.
+
+First precise question: Suppose (a) prefix likelihood ratio `Q(h)/P(h)` is constant inside each `T_n`-fiber, and (b) for each hypothesis, the one-step law of the next `T`-value conditional on the current full history depends only on `T_n(h)`. Prove that averaging live P-mass action kernels over each fiber preserves the two hypothesis-tagged aggregate action masses and their future updates for all `N`, hence yields an exact occupation-flow LP. Determine whether condition (b) can be weakened to equality of the **policy-induced** continuation pushforwards rather than full controlled lumpability. If yes, state the quantifier order (one policy versus all policies) precisely.
+
+Required falsifier: give a smallest positive-rational finite example in which (a) holds but (b) fails and a specific full-history policy cannot be reproduced with the four observers by any T-policy; separately give an example where (b) holds but (a) fails (the horizon-one binary example may be reused). For nonzero fiber residual, retain its sign/branch provenance before proposing a smaller repair coordinate. Distinguish the information available before and after action choice.
+
+Success: a fully scoped theorem with proof and a finite exact witness or a crisp counterexample; no claim about P000/X6/Heartbeat until an independent native correspondence is established. Resolve the current BRC tool family as a domain specialization, not a new generic toolbox framework.
