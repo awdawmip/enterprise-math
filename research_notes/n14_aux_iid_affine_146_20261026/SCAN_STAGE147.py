@@ -63,6 +63,6 @@ for s in reversed(S):
 assert len(S)==680 and len(ties2)==2 and len(gaps2)==1238 and min(gaps2)>0
 assert set(x[0] for x in ties2)=={T,clo[1]},ties2
 cert={'schema':'EM_N14_STAGE147_AUTHOR_DUAL_CANDIDATE_V1','input':'STAGE146 author exact proof','dK':str(dK),'dL':str(dL),'dL_over_dK':str(dL/dK),'T_gradient_C':list(map(str,Ct)),'old_ties_dgap':[(list(s),c,a,str(d)) for s,c,a,d in tiegrad],'other_closures':len(closure),'first_lambda':str(lam),'first_state':list(clo[1]),'first_actions':[clo[2],clo[3]],'new_K':str(Knew),'new_L':str(Lnew),'new_Hroot':str(H2[(0,0,0)]),'new_ties':[(list(s),list(o)) for s,o in ties2],'states':680,'strict_positive_gaps':len(gaps2),'minimum_positive_gap':str(min(gaps2)),'negative_gaps':0,'primal_stage147':'UNPROVED_AUTHOR_DUAL_ONLY'}
-with open('/mnt/data/EM_stage147_dual_candidate.json','w') as f:json.dump(cert,f,indent=2)
+with open('EM_stage147_dual_candidate.json','w') as f:json.dump(cert,f,indent=2)
 print(json.dumps(cert,indent=2))
 print('PASS_STAGE147_DUAL_SCAN_EXACT')
