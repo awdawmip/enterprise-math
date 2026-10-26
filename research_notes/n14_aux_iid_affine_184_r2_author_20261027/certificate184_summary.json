@@ -1,0 +1,119 @@
+{
+  "schema": "EM_N14_STAGE184_AUTHOR_CERTIFICATE_SUMMARY_V1",
+  "scope": "EXTERNAL_TERNARY_IID_FULL_ORDERED_HISTORIES",
+  "status": "AUTHOR_EXACT_FULL_REAL_VERIFIED_NOT_INDEPENDENTLY_ADMITTED",
+  "global_snapshot": "28f64a904bd2a8c659ab65dc4eccb0de5b49edff",
+  "em_snapshot": "ad62145d6843aa8ac9c57629878b72e904aa0e5b",
+  "source_commit_stage183": "8a985dc98c9762403b37ca51a38ccfabaded4187",
+  "N": 14,
+  "P": [
+    "1/8",
+    "1/24",
+    "5/6"
+  ],
+  "Q": [
+    "1/12",
+    "1/12",
+    "5/6"
+  ],
+  "dual": {
+    "K": "321331011187179/1679273916694",
+    "L": "480139895871848/2518910875041",
+    "M": "1924272825305233/5037821750082",
+    "H": "1816035087448322622333240298837/12544295497767083269983043584",
+    "states": 680,
+    "positive_gaps": 1238,
+    "min_gap": "7747768995607/181361583002952",
+    "ties": {
+      "(9,0,1)": [
+        "Q",
+        "C"
+      ],
+      "(6,2,0)": [
+        "P",
+        "C"
+      ]
+    }
+  },
+  "balanced_family": {
+    "s0": "21925676597479349/37833811200000000",
+    "s_t_slope": "12352512653/31528176000",
+    "t_range": [
+      "0",
+      "1"
+    ],
+    "mixed": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "base": [
+      "609243338520193049/1752976676930715648",
+      "112894024179569/320979616137216",
+      "2458723887395646935/219122084616339456",
+      "293748148272565/26748301344768"
+    ],
+    "dS": [
+      "15611328125/3962711310336",
+      "-1813671875/557256278016",
+      "-63480078125/495338913792",
+      "-10480859375/46438023168"
+    ],
+    "dT": [
+      "-1581717915625/1521681143169024",
+      "23795059375/13374150672384",
+      "-9023193765625/63403380965376",
+      "-83879496875/1114512556032"
+    ]
+  },
+  "first_hits": {
+    "(9,0,1)": {
+      "ordered_paths": 9,
+      "P": "390625/4478976",
+      "Q": "390625/2239488"
+    },
+    "(6,2,0)": {
+      "ordered_paths": 15,
+      "P": "3125/27648",
+      "Q": "3125/62208"
+    }
+  },
+  "corner_dfs_nodes": {
+    "10": 214720,
+    "11": 207250,
+    "00": 215152,
+    "01": 207682
+  },
+  "total_dfs_nodes": 845804,
+  "left": {
+    "alpha": "6293786652175669191787/17990936586642819907584",
+    "V": "50134108209086100977021/4497734146660704976896",
+    "time_margin": "166070625793116812795/562216768332588122112"
+  },
+  "right": {
+    "alpha": "6302854731325816791787/17990936586642819907584",
+    "V": "49268185437698746127021/4497734146660704976896",
+    "time_margin": "149857900062857106545/562216768332588122112"
+  },
+  "width": "2623865494834375/5205710817894334464",
+  "exact_checks": {
+    "stage183_prior_at_t0": true,
+    "stage183_S_coin_at_t0": true,
+    "stage183_exact_left_endpoint": true,
+    "balanced_both": true,
+    "timeP_dominates": true,
+    "dual_equality": true,
+    "alpha_strictly_increasing": true,
+    "cost_strictly_decreasing": true,
+    "slope": true,
+    "nonancestor": true,
+    "positive_other_gaps": true,
+    "legal_coins": true
+  },
+  "executed_original_local_sha256": "d929a450847d04c476f9fd08ad4b581d91e0074d4ecdecdc08ef89a962c903a3",
+  "executed_log_local_sha256": "8753810a481255f2c2c5b78bb1fdb4a330a3829033530e13b3044d23592bf59c",
+  "executed_full_certificate_local_sha256": "751c84d67621e5c668f3d442476bf088159c793196b7fcb9ee9ac784862671a8",
+  "full_portable_zip_sha256": "191236fa99a18f6b9e28636ba23c9803753179b845ae9456b0e40fd14a25a923",
+  "limits": "Local exact execution and author mathematics only; no native Source Result, formal proof, independent Driver review or X6 theorem."
+}
