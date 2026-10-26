@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR2STAGE182-20261027T054006-AUTO11",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "8a985dc98c9762403b37ca51a38ccfabaded4187",
+          "path": "research_notes/n14_aux_iid_affine_183_r2_author_20261027/PROOF_STAGE183.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "9a94a82a8ff1a306cf973b378c56976beab5c78e02324477a221a7c01f3df197",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "c7d6602baeb7f4f9bd2513a4024f40f824e287ad",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/8a985dc98c9762403b37ca51a38ccfabaded4187/research_notes/n14_aux_iid_affine_183_r2_author_20261027/PROOF_STAGE183.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "stage183-proof-observed-20261027T0555",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR2STAGE182-20261027T054006-AUTO11/readbacks/3a5cfe9d838776669296c6afa64f7bc0eb16dd677fe22bf5a894d91e5dc5afa5.json",
+          "verification_receipt_sha256": "3a5cfe9d838776669296c6afa64f7bc0eb16dd677fe22bf5a894d91e5dc5afa5"
+        }
+      ],
+      "event_id": "EVT-EMR2STAGE183-20261027T0540-AUTO11",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-27T05:40:06+08:00",
   "registration_key": "session:chatgpt-automation-run11-20261027T054006:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R2-A11B83",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "chatgpt-automation-run11-20261027T054006",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-27T05:40:06+08:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
