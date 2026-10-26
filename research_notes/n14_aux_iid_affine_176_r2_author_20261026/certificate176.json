@@ -1,0 +1,127 @@
+{
+  "schema": "EM_N14_STAGE176_AUTHOR_EXACT_V1",
+  "status": "AUTHOR_EXACT_FULL_REAL_NOT_NATIVE_ADMITTED",
+  "model": "EXTERNAL_N14_TERNARY_IID_FULL_ORDERED_HISTORY",
+  "frozen_sources": {
+    "global_main": "e3216935b09dc101e4df54f6fe52effbb110da69",
+    "em_main": "bcb3a31c94f4461a592fa50cb177f9d8717f11d6",
+    "predecessor_stage175_commit": "a89b84fb9e2275b4fec80c5cc6411d795afdf6cc",
+    "p000_original_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "dual": {
+    "K": "1696807920718753587/7487608294325270",
+    "L": "168348947995801752/748760829432527",
+    "H": "1733492029996286794626721771839535/10254377114019668494551279992832",
+    "states": 680,
+    "ties": {
+      "(4,1,2)": [
+        "Q",
+        "C"
+      ],
+      "(8,2,0)": [
+        "P",
+        "C"
+      ]
+    },
+    "strict_gaps": 1238,
+    "negative_gaps": 0,
+    "min_positive_gap": "152464420746873000396113/4292712684503529027010560"
+  },
+  "observable_order": [
+    "eP",
+    "eQ",
+    "tP",
+    "tQ"
+  ],
+  "first_hit": {
+    "(4,1,2)": {
+      "histories": 8,
+      "P": "5/3456",
+      "Q": "5/1296"
+    },
+    "(8,2,0)": {
+      "histories": 28,
+      "P": "109375/746496",
+      "Q": "109375/1679616"
+    }
+  },
+  "M00": [
+    "153168173405691179/438244169232678912",
+    "27937973841605/80244904034304",
+    "633778557697110149/54780521154084864",
+    "74740581988693/6687075336192"
+  ],
+  "dW": [
+    "166578227395/4057816381784064",
+    "-1153241975/40122452017152",
+    "-1377728139575/507227047723008",
+    "-6440281555/1114512556032"
+  ],
+  "dT": [
+    "-1210671875/1114512556032",
+    "2319296875/1253826625536",
+    "-16248859375/92876046336",
+    "-9353640625/104485552128"
+  ],
+  "mixed": [
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "balance": {
+    "t0": "1768756796217217/3860125696000000",
+    "t_slope": "4588038935639/193006284800000",
+    "legal_w": [
+      "0",
+      "1"
+    ]
+  },
+  "left": {
+    "alpha": "5147935054057228427975/14750257906470044565504",
+    "V": "338938781942537717887145/29500515812940089131008",
+    "tP_minus_tQ": "10425404935270598468897/29500515812940089131008"
+  },
+  "right": {
+    "alpha": "5148159682306058186075/14750257906470044565504",
+    "V": "338735964098497111620725/29500515812940089131008",
+    "tP_minus_tQ": "10455836014844563234957/29500515812940089131008"
+  },
+  "width": "18719020735813175/1229188158872503713792",
+  "support_slope": "3380297400676771107/7487608294325270",
+  "ordered_dfs_nodes": {
+    "10": 267580,
+    "11": 263716,
+    "00": 282916,
+    "01": 279052,
+    "total": 1093264
+  },
+  "checks": {
+    "bellman_680": true,
+    "positive_gaps_1238": true,
+    "no_negative_gaps": true,
+    "first_hit_disjoint": true,
+    "all_four_suffix_vs_unmerged_DFS": true,
+    "terminal_masses_P_Q_one": true,
+    "mixed_zero": true,
+    "balance_exact": true,
+    "coins_legal_all_reals": true,
+    "parent_alpha_and_V": true,
+    "P_time_dominates": true,
+    "dual_tightness": true,
+    "strict_alpha_growth": true,
+    "strict_time_decrease": true,
+    "right_support_sharpness_mathematical_argument": true
+  },
+  "local_execution": {
+    "program": "VERIFY_STAGE176.py",
+    "sha256": "f2a1063bb506954e0288e13c39b20d95149bf0702f34f829f99df65c451926e4",
+    "stdout_log": "run176.log",
+    "stdout_sha256": "4351667b9d984f4263eacb3daf29da99128abb987d628f9325542cf8e5001959",
+    "returned_marker": "STAGE176_AUTHOR_EXACT_FULL_REAL_PASS",
+    "remote_execution": false
+  },
+  "dual177": "DUAL_ONLY_NOT_PRIMAL",
+  "native_claim": false,
+  "formal_review": false
+}
