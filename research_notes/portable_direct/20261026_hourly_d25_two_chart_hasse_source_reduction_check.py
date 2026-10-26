@@ -82,6 +82,8 @@ def test(m):
     upper=sum((F(1,2)**(j-l)*(1+6*(j-l))*d(j)*h(l)
               for j in range(m+1,M+1) for l in range(1,j+1)),F(0))
     check(direct==lower+upper,"signed ordered sum")
+    if m==2:
+        check(modp(upper,13)==10,"p13 scalar upper strip certificate")
     inf=sum((F(1,2)**(j-l)*(1+6*(j-l))*(d(j)*h(l)+c(j)*k(l))
              for j in range(1,M+1) for l in range(j+1,M+1)),F(0))
     inf_chart = sum(
