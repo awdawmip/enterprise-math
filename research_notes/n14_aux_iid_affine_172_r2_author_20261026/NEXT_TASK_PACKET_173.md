@@ -1,0 +1,9 @@
+# Stage173 — next exact primal question (dual candidate only)
+
+Provenance: GLOBAL_KNOWLEDGE_V1 main@656cd167e44f250e1e900e5c903ad96beb8315a5, Enterprise Math main@f990313d69b823ce51e583a26d01d5f7dc08d1d1, Stage171 author commit 53826073e9b493695cf20f014ead19088fd4d0d6; Stage172 author exact packet co-located.
+
+Scope: frozen **external** N14 IID ternary P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), complete ordered randomized stopping/decision histories. Never promote to P000 native Cell without separate bridge and review.
+
+Stage172 right endpoint alpha172=220608887064170557255/632523287505640882176, V172=1047792388565411809841/90360469643662983168. Move on the exact dual ray dK=-1 and dL=-10592/12501, selecting P at the saturated Y=(5,4,1) state while retaining R=(10,0,1) Q/C tie. A 680-state exact first-closure scan gives step 114433581431727369/19335761917635595, K173=L173=451080/1909, H173=9224707194483683711431/52288007441574002688, and ties R=(10,0,1) [Q,C], Z=(14,0,0) [P,Q]; precisely 1238 strict positive gaps, minimum 8039/309258. **Stage173 is dual-only**, not a primal theorem.
+
+**Next smallest independent question:** Compute exact four deterministic R/Z policy observers via Fraction suffix recursion **and** independent unmerged ordered-history integer-numerator DFS. Verify first-hit cones disjoint (R has one symbol-1 by depth ten, Z none by depth fourteen); derive exact balance r(z), check match to Stage172 endpoint, all randomization bounds, time domination, dual equality, monotone error width and strict support endpoint. Otherwise save an exact rational obstruction. Preserve labeled path origins and positive P/Q masses. Native owner remains unknown because control quota and read-only session denial; do not claim live Task ownership.

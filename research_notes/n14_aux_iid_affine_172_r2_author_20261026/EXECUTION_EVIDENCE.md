@@ -1,0 +1,9 @@
+# Stage172 executed evidence and limits (2026-10-26)
+
+Frozen global main 656cd167e44f250e1e900e5c903ad96beb8315a5, EM main f990313d69b823ce51e583a26d01d5f7dc08d1d1; P000 original blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc matched projection. Authenticated GitHub login awdawmip, EM repo push/admin true. em_status version 0.6.11; em_control_tasks failed CONTROL_QUOTA. em_session_start failed STATIC_READONLY_SCOPE_DENIED (static_machine_readonly; operation_sent=false). No native session/CLAIM/Source Result/Driver mathematical acceptance; active Task owner unknown.
+
+**Actually executed locally:** VERIFY_STAGE172.py (SHA256 8e941083f979919d9f9190c35e7f265de8e783865501d2593955685ddad4992b) using Python standard library Fraction. PASS: 680 state scan; exactly 1238 strict positive gaps; tied R Q/C and Y P/C; independent Fraction suffix DP and full ordered integer DFS agree on every one of 16 observer coordinates; all four terminal P/Q masses equal 1; mixed term exactly (0,0,0,0); 14 listed validation checks true; output STAGE172_AUTHOR_EXACT_FULL_REAL_PASS; 1,152,514 total ordered DFS nodes (290341+286156+290101+285916).
+
+**Actually executed locally:** SCAN_STAGE173.py (SHA256 38046faf066218cc83b23e587e774e875aec46017ea84065bee84d654df94881) found first closure at terminal Z and exact K173=L173=451080/1909 with 1238 strict gaps; dual only, not primal feasibility. See certificate172.json, dual173.json and proof for exact values.
+
+Full original executed Python programs, logs, SHA256 manifest and mathematical proof archived in local portable file EM_STAGE172_AUTHOR_EXACT_PORTABLE.zip (ZIP SHA256 f807b534c188d1a0107a2472e0d60fb2206c46a1c0f0a18e521ab43921ed9bf1). The source names below are author-side artifacts, not native task publications. No BRC native engine executed; BRC information/provenance discipline preserved. GitHub write/readback outcome is separately verified after publication.
