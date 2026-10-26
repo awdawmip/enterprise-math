@@ -1,0 +1,104 @@
+{
+  "status": "STAGE174_AUTHOR_EXACT_FULL_REAL_PROVEN_NOT_ADMITTED",
+  "model": "EXTERNAL_N14_TERNARY_IID_FULL_ORDERED_HISTORY",
+  "sources": {
+    "global_snapshot": "2e711e9f23ebe815597ac7b228679cdc8bcdeb63",
+    "em_snapshot": "b03d306acf9763f8db33e09d9fd434f35e4640fd",
+    "stage173_proof_commit": "0fafc162472c8f157ea0a75b46be076c9ecf4d62"
+  },
+  "dual": {
+    "K": "16044588/70019",
+    "L": "16044588/70019",
+    "H": "2630296570966281555483145/15342709242751472369664",
+    "states": 680,
+    "strict_positive_gaps": 1238,
+    "min_strict_gap": "39435024594685/1926840855822336",
+    "ties": {
+      "(8, 2, 0)": [
+        "P",
+        "C"
+      ],
+      "(14, 0, 0)": [
+        "P",
+        "Q"
+      ]
+    }
+  },
+  "first_hit": {
+    "(8, 2, 0)": {
+      "histories": 28,
+      "P": "109375/746496",
+      "Q": "109375/1679616"
+    },
+    "(14, 0, 0)": {
+      "histories": 1,
+      "P": "6103515625/78364164096",
+      "Q": "6103515625/78364164096"
+    }
+  },
+  "M00": [
+    "714208978097092447/2629465015396073472",
+    "68375950149359/160489808068608",
+    "1267557322258081771/109561042308169728",
+    "149481213853831/13374150672384"
+  ],
+  "dT": [
+    "-1210671875/1114512556032",
+    "2319296875/1253826625536",
+    "-16248859375/92876046336",
+    "-9353640625/104485552128"
+  ],
+  "dZ": [
+    "6103515625/78364164096",
+    "-6103515625/78364164096",
+    "0",
+    "0"
+  ],
+  "mixed": [
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "ordered_dfs_nodes": {
+    "10": 282052,
+    "11": 282052,
+    "00": 285916,
+    "01": 285916
+  },
+  "balance": {
+    "z0": "406062589150005409/409600000000000000",
+    "zs": "1884827/100000000",
+    "legal_t": [
+      "0",
+      "3537410849994591/7720251392000000"
+    ]
+  },
+  "interval": {
+    "alpha_start": "611493515114730101/1752976676930715648",
+    "alpha_end": "10295869835213079092569/29500515812940089131008",
+    "width": "27520663367307918581/157336084335680475365376",
+    "V_start": "1267557322258081771/109561042308169728",
+    "V_end": "677877812657492293580503/59001031625880178262016",
+    "slope": "32089176/70019",
+    "time_margin_start": "43007218367498219/109561042308169728",
+    "time_margin_end": "20850768317972957412191/59001031625880178262016"
+  },
+  "checks": {
+    "bellman_680": true,
+    "all_positive_gaps_1238": true,
+    "dual_root_true": true,
+    "suffix_vs_unmerged_dfs_corners": true,
+    "mixed_zero": true,
+    "legal_coins": true,
+    "stage173_endpoint_match": true,
+    "balanced_errors_all_reals": true,
+    "tP_dominates_all_reals": true,
+    "dual_tightness_all_reals": true,
+    "alpha_increasing": true,
+    "time_decreasing": true,
+    "affine_slope_true": true,
+    "strict_right_support_proved": true
+  },
+  "execution_scope": "Author-local Python Fraction exact DP plus integer-numerator unmerged DFS; remote storage readback is not remote execution."
+}
