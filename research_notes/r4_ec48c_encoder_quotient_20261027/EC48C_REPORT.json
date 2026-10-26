@@ -1,0 +1,144 @@
+{
+  "schema": "EC48C_RESEARCH_REPORT_V1",
+  "research_unit": "R4-EC48C",
+  "created_at": "2026-10-27T02:45:00+08:00",
+  "observer_scope": "fixed-depth-two terminal-binary finite strictly positive weighted BRC source models; S_K in R^2 and N4=(1-alpha,beta,2,2)",
+  "author_proof": "exact optimal encoder graph is component-equivalent to EC48B deterministic full policy graph; full interval criterion; joint adjacent-sign upper bound",
+  "test_program": "EC48C_VERIFY.js",
+  "executed_tool": "functions.exec JavaScript V8 isolate, 2026-10-27; independently container Python 3",
+  "arithmetic": "exact integer signs, integer source multiplicities, no floating point",
+  "exhaustive": {
+    "shapes": [
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        2,
+        1,
+        9
+      ],
+      [
+        3,
+        1,
+        27
+      ],
+      [
+        4,
+        1,
+        81
+      ],
+      [
+        2,
+        2,
+        81
+      ],
+      [
+        3,
+        2,
+        363
+      ],
+      [
+        4,
+        2,
+        1389
+      ],
+      [
+        2,
+        3,
+        729
+      ],
+      [
+        3,
+        3,
+        3867
+      ],
+      [
+        4,
+        3,
+        16065
+      ]
+    ],
+    "all_ternary_sign_matrices": 559344,
+    "eligible_K_hull_le_2": 22614,
+    "eligible_single_component_with_both_tied_endpoints": 22614,
+    "failures": 0,
+    "logical_extension": "component endpoints are forced-sign combinatorial predicates, valid for arbitrary strictly positive real q weights, not only unit q"
+  },
+  "independent_python": {
+    "full_EC48B_graph_vs_encoder_quotient_comparisons": 2187,
+    "cases": "(H,Y,K)=(3,2,1),(3,2,2),(2,3,2), every ternary sign matrix, nonuniform positive integer tied weights",
+    "mismatches": 0,
+    "artifact": "EC48C_VERIFY.py in locally generated downloadable evidence bundle",
+    "scope_not_inferred": "does not prove arbitrary H,Y,K, or original 4-observer variable-depth regions"
+  },
+  "witness": {
+    "P_raw": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "Q_raw": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "sum_P": 16,
+    "sum_Q": 16,
+    "critical_ratio": 1,
+    "generic_signature_counts": [
+      2,
+      2
+    ],
+    "joint_signature_count": 4,
+    "tied_Q_raw_mass": 8,
+    "connected_component_interval_raw": [
+      0,
+      8
+    ]
+  },
+  "environment": {
+    "global_snapshot": "awdawmip/chatgpt-global-knowledge@1aab1a774603c3cec456fefb39876045b5527e98",
+    "em_source_snapshot": "awdawmip/enterprise-math@c1fa3012f3bac47d1d9e4a0f5009d1babcdad121",
+    "previous_math": "awdawmip/enterprise-math@91d7c15573afaf7803c62e3bbdfc0aa00e52aa73",
+    "github_login": "awdawmip",
+    "native_task_owner": "UNKNOWN: CONTROL_QUOTA",
+    "native_session": "DENIED: STATIC_READONLY_SCOPE_DENIED; operation_sent=false",
+    "native_claim": false,
+    "independent_review": false,
+    "foundation_promotion": false
+  },
+  "tool_reuse": [
+    "positive weighted BRC REUSE_APPLIED",
+    "EC48A generic signature REUSE_APPLIED",
+    "EC48B optimal policy graph EXTEND_EXISTING_TOOL"
+  ],
+  "next_question": "EC48D: universal K>=2 full ROC hull implication versus strict-positive rational counterexample with a missing tied-mass interval, then variable-depth four-observer extension"
+}
