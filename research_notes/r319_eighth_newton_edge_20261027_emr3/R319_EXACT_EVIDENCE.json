@@ -1,0 +1,51 @@
+{
+  "schema": "ENTERPRISE_MATH_R319_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "source": "R313/R318 ordered six-edge BRC polynomial recurrence",
+  "arithmetic": "Node.js BigInt exact integer",
+  "range_s": [
+    0,
+    192
+  ],
+  "checks": {
+    "degree": 193,
+    "moment7": 186,
+    "recurrence7": 185,
+    "newton7_direct": 186,
+    "newton7_recovery": 186,
+    "shifted_identity": 186,
+    "strict_bound": 186
+  },
+  "samples": {
+    "7": {
+      "moment7": "-50400",
+      "newton_q7": "8035"
+    },
+    "8": {
+      "moment7": "2081520",
+      "newton_q7": "81306"
+    },
+    "9": {
+      "moment7": "19363680",
+      "newton_q7": "519265"
+    },
+    "10": {
+      "moment7": "126786240",
+      "newton_q7": "2686738"
+    },
+    "32": {
+      "moment7": "12488556949379481600",
+      "newton_q7": "97853716084817920"
+    },
+    "128": {
+      "moment7": "23498613524150167295152128248278997728086435299328000",
+      "newton_q7": "166006399567846238466602050905546615689804467142656"
+    },
+    "192": {
+      "moment7": "7636808761888656979576015490711962523270538085420484624828332904923791360",
+      "newton_q7": "53878992132927956889592359940677195380527149402486370745126213218467840"
+    }
+  },
+  "bound": "for every integer s>=7, a_(s,s-7)>=8035/128 * 2^s >0; equality at s=7",
+  "scope": "Numerical checks only through s=192. Universal claim uses separate symbolic recurrence/induction and coefficient-positivity proof. Not native Source acceptance or Driver review."
+}
