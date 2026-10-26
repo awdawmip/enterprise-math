@@ -1,0 +1,67 @@
+{
+  "schema": "EM_R4_EC44_SOURCE_RANK_ONE_CHECK_V1",
+  "status": "PASS",
+  "arithmetic": "exact integers, each four-observer coordinate scaled by 64",
+  "grid": {
+    "root_action_simplexes_per_root": 15,
+    "terminal_Q_values": 5,
+    "randomized_policies_checked": 1125,
+    "source_path_flow_equalities_checked": 1125,
+    "rank_one_checks_at_terminal": 3375,
+    "membership_checks": 1125
+  },
+  "deterministic": {
+    "pure_current_symbol_policies": 18,
+    "max_L": "5",
+    "maximizers": [
+      "C,C;x=P",
+      "C,C;x=Q"
+    ]
+  },
+  "nonconvex": {
+    "A_over_64": [
+      48,
+      48,
+      112,
+      80
+    ],
+    "B_over_64": [
+      48,
+      48,
+      80,
+      112
+    ],
+    "midpoint_over_64": [
+      48,
+      48,
+      96,
+      96
+    ],
+    "derived_midpoint_ca_cb_out_of_4_and_ua_ub_out_of_16": [
+      2,
+      2,
+      16,
+      0
+    ],
+    "midpoint_memoryless_feasible": false
+  },
+  "memory_gap": {
+    "one_bit_memory_over_64": [
+      48,
+      48,
+      128,
+      128
+    ],
+    "one_bit_L": "11/2",
+    "public_hull_max_L": "5",
+    "exact_gap": "1/2"
+  },
+  "deliberately_bad_flow_rank_one_rejected": true,
+  "research_scope": "finite auxiliary positive-rational two-hypothesis labelled-source stop/decision trees",
+  "unperformed": [
+    "native_X6_heartbeat_update",
+    "full_native_activity_guard",
+    "independent_driver_review",
+    "formal_theorem_admission"
+  ]
+}
