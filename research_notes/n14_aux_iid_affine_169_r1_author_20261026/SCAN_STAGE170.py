@@ -6,6 +6,7 @@ from fractions import Fraction as F
 from functools import lru_cache
 from pathlib import Path
 import json
+
 N=14
 P=(F(1,8),F(1,24),F(5,6))
 R=(10,0,1);Y=(6,4,1)
