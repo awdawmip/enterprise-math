@@ -125,11 +125,11 @@ H=bell((0,0,0))[0]
 assert left[0]==left[1]==a168
 assert right[0]==right[1]==a169
 assert left[2]==v168 and right[2]==v169
-assert a167-a166==width
+assert a169-a168==width
 assert left[2]>left[3] and right[2]>right[3]
 assert all(z[2]+K*z[1]+L*z[0]==H for z in (left,right))
 assert right[2]-left[2]==-(K+L)*width
 print('STAGE169_REFERENCE_REPLAYER_PASS')
 print('states=680 strict_gaps=1238 ordered_dfs_nodes=',sum(counts.values()))
 print('mixed=',mixed,'r0=',r0,'r1=',r1)
-print('alpha169=',a167,'V169=',v167,'eta=',width,'slope=',K+L)
+print('alpha169=',a169,'V169=',v169,'eta=',width,'slope=',K+L)
