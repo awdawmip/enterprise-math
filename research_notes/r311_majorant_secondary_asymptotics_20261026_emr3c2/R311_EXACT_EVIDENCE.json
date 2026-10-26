@@ -1,0 +1,166 @@
+{
+  "schema": "EM_R311_MAJORANT_SECONDARY_THRESHOLD_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "arithmetic": "JavaScript BigInt, all threshold crossing signs exact; Math.exp only display asymptotic predictions",
+  "definition": "A=binom(n-2d-4,d-1), U=sum_r,t binom(d-r,t)binom(r-1,t-1)binom(n,d-r-t), n>=4d+4",
+  "samples": [
+    {
+      "d": 3,
+      "n_star": 20,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 1,
+      "at_gap_digits": 1,
+      "second_order_predicted_integer": 17,
+      "prediction_matches": false
+    },
+    {
+      "d": 4,
+      "n_star": 36,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 2,
+      "at_gap_digits": 2,
+      "second_order_predicted_integer": 34,
+      "prediction_matches": false
+    },
+    {
+      "d": 5,
+      "n_star": 57,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 4,
+      "at_gap_digits": 4,
+      "second_order_predicted_integer": 56,
+      "prediction_matches": false
+    },
+    {
+      "d": 10,
+      "n_star": 235,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 13,
+      "at_gap_digits": 14,
+      "second_order_predicted_integer": 234,
+      "prediction_matches": false
+    },
+    {
+      "d": 20,
+      "n_star": 942,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 37,
+      "at_gap_digits": 36,
+      "second_order_predicted_integer": 942,
+      "prediction_matches": true
+    },
+    {
+      "d": 30,
+      "n_star": 2119,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 62,
+      "at_gap_digits": 62,
+      "second_order_predicted_integer": 2119,
+      "prediction_matches": true
+    },
+    {
+      "d": 60,
+      "n_star": 8466,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 147,
+      "at_gap_digits": 148,
+      "second_order_predicted_integer": 8466,
+      "prediction_matches": true
+    },
+    {
+      "d": 100,
+      "n_star": 23496,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 272,
+      "at_gap_digits": 273,
+      "second_order_predicted_integer": 23496,
+      "prediction_matches": true
+    },
+    {
+      "d": 150,
+      "n_star": 52839,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 439,
+      "at_gap_digits": 438,
+      "second_order_predicted_integer": 52839,
+      "prediction_matches": true
+    },
+    {
+      "d": 250,
+      "n_star": 146712,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 791,
+      "at_gap_digits": 790,
+      "second_order_predicted_integer": 146712,
+      "prediction_matches": true
+    },
+    {
+      "d": 400,
+      "n_star": 375488,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 1352,
+      "at_gap_digits": 1353,
+      "second_order_predicted_integer": 375488,
+      "prediction_matches": true
+    },
+    {
+      "d": 600,
+      "n_star": 844725,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 2138,
+      "at_gap_digits": 2139,
+      "second_order_predicted_integer": 844725,
+      "prediction_matches": true
+    },
+    {
+      "d": 800,
+      "n_star": 1501621,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 2955,
+      "at_gap_digits": 2955,
+      "second_order_predicted_integer": 1501621,
+      "prediction_matches": true
+    },
+    {
+      "d": 1000,
+      "n_star": 2346178,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 3793,
+      "at_gap_digits": 3793,
+      "second_order_predicted_integer": 2346178,
+      "prediction_matches": true
+    },
+    {
+      "d": 1500,
+      "n_star": 5278582,
+      "previous_sign": "NEGATIVE",
+      "at_sign": "POSITIVE",
+      "previous_gap_digits": 5959,
+      "at_gap_digits": 5958,
+      "second_order_predicted_integer": 5278582,
+      "prediction_matches": true
+    }
+  ],
+  "checked_count": 15,
+  "approximations_only": {
+    "c_star": 2.3457507549227654,
+    "beta": 0.4321255214930036,
+    "gamma": -5.513225335374604
+  },
+  "scope": "These are complete certificate crossing thresholds for the listed d only, not a proof of the d->infinity asymptotic and not the true BRC fibre D_d sign",
+  "proof_status": "Author-side symbolic derivation supplied separately; independent Driver review pending"
+}
