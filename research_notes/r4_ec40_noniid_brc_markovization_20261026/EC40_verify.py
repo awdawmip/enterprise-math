@@ -7,6 +7,7 @@ all-depth/all-policy statements belong to the accompanying mathematical proof.
 from fractions import Fraction as F
 import json
 from itertools import product
+from pathlib import Path
 
 D=lambda x: f'{x.numerator}/{x.denominator}'
 first={h:F(1,2) for h in ('a','b')}
@@ -87,5 +88,5 @@ result={
  'mathematical_scope':'two-step witness exact finite checks only; universal theorem proved in separate manuscript',
  'outcome':'PASS'
 }
-with open('/mnt/data/EC40_REPORT.json','w',encoding='utf8') as f:json.dump(result,f,ensure_ascii=False,indent=2,sort_keys=True)
+with Path(__file__).with_name('EC40_REPORT.json').open('w',encoding='utf8') as f:json.dump(result,f,ensure_ascii=False,indent=2,sort_keys=True)
 print(json.dumps(result,ensure_ascii=False,sort_keys=True))
