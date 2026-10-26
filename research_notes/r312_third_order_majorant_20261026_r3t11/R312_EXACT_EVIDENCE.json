@@ -1,0 +1,79 @@
+{
+  "schema": "EM_R312_MAJORANT_THIRD_ORDER_V1",
+  "model": "ordered positive six-edge BRC source-count auxiliary model",
+  "scientific_sources": [
+    "R303",
+    "R305",
+    "R309",
+    "R310",
+    "R311"
+  ],
+  "symbolic": {
+    "status": "PASS",
+    "formal_order": "t^3 with remainder O(t^4)",
+    "symbolic_identities_checked": 8,
+    "critical_equation": "c*exp(-2/c)=1",
+    "beta": "-(4*c**2 - 8*c - 7)/(2*(c + 2))",
+    "gamma": "(6*c**6 - 30*c**5 - 327*c**4 - 283*c**3 - 54*c**2 + 18*c + 1)/(6*c**2*(c + 2)**3)",
+    "eta": "(12*c**8 + 546*c**7 + 4854*c**6 + 7018*c**5 + 5511*c**4 + 877*c**3 - 1914*c**2 - 495*c - 8)/(12*c**3*(c + 2)**5)",
+    "H_over_d_t3_at_critical": "(c+2)*(h-eta)/c^2",
+    "sympy_version": "1.14.0"
+  },
+  "numerical_probe": {
+    "c": "2.34575075492276546242",
+    "beta": "0.432125521493003506106",
+    "gamma": "-5.5132253353746026417",
+    "eta": "7.07283290526706864749",
+    "approximate_root_checks": [
+      {
+        "d": 30,
+        "approximate_real_crossing": "2118.86358471164632517",
+        "d2_scaled_residual": "1.443487409703746",
+        "discarded_U_over_B_tail_upper_bound": "3.4199e-48"
+      },
+      {
+        "d": 60,
+        "approximate_real_crossing": "8465.23531144741595405",
+        "d2_scaled_residual": "1.466002200829725",
+        "discarded_U_over_B_tail_upper_bound": "1.4208e-88"
+      },
+      {
+        "d": 100,
+        "approximate_real_crossing": "23495.2777518137269212",
+        "d2_scaled_residual": "1.474430938784035",
+        "discarded_U_over_B_tail_upper_bound": "2.2064e-98"
+      },
+      {
+        "d": 250,
+        "approximate_real_crossing": "146711.968652748247489",
+        "d2_scaled_residual": "1.481619296631324",
+        "discarded_U_over_B_tail_upper_bound": "6.2168e-116"
+      },
+      {
+        "d": 400,
+        "approximate_real_crossing": "375487.475462257496002",
+        "d2_scaled_residual": "1.483349127582801",
+        "discarded_U_over_B_tail_upper_bound": "6.3446e-125"
+      },
+      {
+        "d": 600,
+        "approximate_real_crossing": "844724.045651933885132",
+        "d2_scaled_residual": "1.484297657790476",
+        "discarded_U_over_B_tail_upper_bound": "1.1193e-132"
+      },
+      {
+        "d": 1000,
+        "approximate_real_crossing": "2346177.37429324104649",
+        "d2_scaled_residual": "1.485049899867575",
+        "discarded_U_over_B_tail_upper_bound": "1.9199e-142"
+      },
+      {
+        "d": 1500,
+        "approximate_real_crossing": "5278581.87834900854629",
+        "d2_scaled_residual": "1.48542379419977",
+        "discarded_U_over_B_tail_upper_bound": "3.4128e-150"
+      }
+    ],
+    "status": "NUMERICAL_CROSSCHECK_ONLY; NOT A RIGOROUS ROOT CERTIFICATE"
+  }
+}
