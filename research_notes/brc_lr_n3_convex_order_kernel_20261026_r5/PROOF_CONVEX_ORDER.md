@@ -1,0 +1,58 @@
+# N=3: convex-order criterion for LR-dependent terminal kernels and exact four-observer compression
+
+2026-10-26. AUTHOR-LEVEL EXACT ALGEBRAIC RESULT; independent Driver review, native CLAIM/Result and P000/X6/Heartbeat transfer are not asserted.
+
+## Source pins and scope
+
+Global knowledge GLOBAL_KNOWLEDGE_V1 main@fdbe5fb3ac671eff6bdacfb249ce900ea7a6b013. The current bootstrap, manual, project/TASK router, P000 startup and original blob, ACTIVE worldview and math/code/BRC/activity policies were read at the same snapshot. P000 original blob: 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc. Project input main@3f0aae162f514595f4b2e5f0ccd04a91fac3abdb; portable protocol blob ca5de2d680d2439ff4b67c2c55fbd4159813cd5c. Predecessor PROOF_N3_ROOT_MASKING.md: research_notes/brc_lr_n3_nontrivial_root_masking_20261026_r5/PROOF_N3_ROOT_MASKING.md, blob 2b0ed09a3b47e0cb35132512fd8d238cc1b2df88.
+
+## Model
+
+Finite positive P/Q tree, horizon N=3. Root and internal histories may stop and declare P or Q, or continue; final declaration is compulsory. Full policies use ordered histories; compressed policies see ONLY (time, exact global likelihood ratio L=P(h)/Q(h)). Four-observer vector:
+
+O = ( P[declare Q], Q[declare P], E_P(tau), E_Q(tau) ).
+
+Time-1 raw histories a,b each have P=Q=1/2 and global L=1. At time 2, R=L_2 ranges over {1/2,1,3/2}, conditional Q laws q_a=(1/4,1/2,1/4), q_b=(1/3,1/3,1/3). Conditional P law at r is r*q_h(r), positive and normalized, since the Q mean R equals 1 in both rows. Strong Q-lumpability fails at time 1. At time 3, global terminal LR Y>0 has Q-law mu_r conditional on R=r, with finite positive support and E_mu_r[Y]=r. Its conditional P-law is (y/r)*mu_r(y). Kernel may depend on r but not on hidden h once r is fixed, and distinct preceding r are allowed to collide at a terminal LR y.
+
+## Theorem A: necessary and sufficient kernel test for ALL signed downstream Bellman losses
+
+Define the call transform Call_r(theta)=E_mu_r[(Y-theta)_+] for theta>0. The following are equivalent:
+
+(A1) For EVERY real A,B,C,D, the time-2 Bellman value
+phi(r)=min{ H(r), C*r+D+E_mu_r[H(Y)] }, with H(x)=min(A*x,B),
+is midpoint-concave on r in {1/2,1,3/2}, i.e. 2*phi(1)>=phi(1/2)+phi(3/2).
+
+(A2) For EVERY theta>0, 2*Call_1(theta)<=Call_(1/2)(theta)+Call_(3/2)(theta).
+
+As all means coincide at 1, (A2) is exactly mu_1 <=_cx (mu_(1/2)+mu_(3/2))/2. For finite rational kernels it suffices to check theta at the finite union of terminal LR support knots and theta=0; between knots the difference is affine and above the last knot it is zero.
+
+Proof. Every H(x)=min(A*x,B) either is affine on x>0, or admits an affine-minus-positive-hinge representation: H(x)=affine(x)-|A|*(x-theta)_+, theta=B/A>0. For A>0,B>0 one may use A*x-A*(x-theta)_+; for A<0,B<0 one may use B-|A|*(x-theta)_+. The kernel maps affine functions to affine functions of r, because E_mu_r Y=r. Hence (A2) is equivalent to midpoint-concavity of E_mu_r H(Y) for every A,B; necessity already follows from A=1,B=theta. Adding C*r+D preserves midpoint-concavity. H itself is concave, and the pointwise minimum of midpoint-concave triples remains midpoint-concave: min(u_mid,v_mid)>=min((u_left+u_right)/2,(v_left+v_right)/2)>=(min(u_left,v_left)+min(u_right,v_right))/2. Thus (A2) implies (A1). Conversely choose C=0,D sufficiently negative so that the continuation option is strictly optimal at all three finite r. Then (A1) forces midpoint-concavity of the kernel expectation. With H=min(x,theta), this forces (A2). QED.
+
+## Theorem B: universal four-scalar root masking despite nonlumpability
+
+Under (A2), for every raw-history randomized stopping/decision policy there exists a (time,exact-LR)-only randomized behavioral policy with the EXACT SAME entire O vector, even though q_a differs from q_b.
+
+Proof. Fix arbitrary real A,B,C,D and minimize J=A*e_P+B*e_Q+C*t_P+D*t_Q. Write gamma=C+D, m=H(1), f_h=E_{q_h} phi(R), d_h=m-f_h. By Theorem A and the stop option in phi, G=2*phi(1)-phi(1/2)-phi(3/2)>=0 and d0=m-phi(1)>=0. Then d_a=d0+G/4, d_b=d0+G/3, dbar=(d_a+d_b)/2=d0+7G/24<=2*dmin, with dmin=d0+G/4>=0. Including root stopping, exact Bellman costs are
+
+V_full = m+min(0, gamma-((d_a-gamma)_+ +(d_b-gamma)_+)/2);
+V_LR   = m+min(0, gamma-(dbar-gamma)_+).
+
+If gamma<=dmin all positive parts are affine and the values coincide. If gamma>dmin, gamma>0 and average_h[(d_h-gamma)_+] <= average_h[(d_h-dmin)_+]=dbar-dmin<=dmin<gamma; also (dbar-gamma)_+ <= average_h[(d_h-gamma)_+]. Both outer minima are zero. So V_full=V_LR for EVERY real cost quadruple, including signed sampling coefficients. The attainable observer images are compact convex finite-dimensional occupation-flow polytopes; compressed Q action flows obey linear conservation at states (time,L), the corresponding P flow is L times Q flow, and the four observers are linear. At terminal Y, different parent-r contributions can be summed because mu_r depends only on r and final decisions depend only on Y. Compressed images are contained in full-history images. Equality of every real linear minimum plus strict convex separation implies equality of the whole two observer polytopes. QED.
+
+## Nonconstant strictly positive rational kernel witness
+
+Fix terminal LR values Y={1/4,2}. Choose
+Q(Y=2 | R=r)=(r-1/4)/(2-1/4)=(4r-1)/7,
+Q(Y=1/4 | R=r)=(2-r)/(7/4).
+
+For r=(1/2,1,3/2), high-terminal-event Q probabilities are (1/7,3/7,5/7), P probabilities are (4/7,6/7,20/21), all strictly positive. Thus the terminal experiment is informative and its Q/P laws really depend on R. For ANY function H on the two endpoint LR values, E_mu_r H(Y) is the AFFINE chord of H(1/4),H(2) in r. In particular (A2) holds with equality for all theta. Unlike the predecessor's common LR-multiplier experiment, this kernel is not a common iid increment.
+
+Explicit raw policy: sample root; at time 1 continue only for h=a (otherwise declare P); at time 2 continue only for h=a,R=3/2 (otherwise declare P); at terminal time 3 declare Q iff Y=1/4. Compressed policy: sample root; at time 1 declare P with probability 1/2 and sample with probability 1/2; at time 2 continue with probability 6/7 only if R=3/2 (else declare P); at terminal time 3 declare Q iff Y=1/4. Both EXACTLY yield
+O = (1/112, 27/28, 27/16, 13/8).
+The Q/P masses sent to terminal time 3 equal 1/8 and 3/16 respectively in both policies.
+
+## Verification and epistemic boundary
+
+Actually executed VERIFY_KERNEL_CONVEX_ORDER.py with standard-library fractions.Fraction: all P/Q masses strictly positive and normalized; q_a != q_b; terminal probabilities vary with r; full call-price convexity at ALL terminal support knots (piecewise-affine finite completeness); exact four-observer witness; and 9^4=6561 signed cost quadruples in {-4,...,4}^4 passed Bellman full-versus-LR equality. Actual stdout is EXACT_CHECK_OUTPUT.txt. The all-real statement rests on the proofs above, NOT extrapolation from the finite coefficient grid. Auxiliary BRC-style exact positive branch weights and typed LR/observer quotient are reused; signed differences of positive probability flows are NOT physical signed BRC amplitudes. This external model establishes no P000, X6, native three-dimensional slice, Heartbeat/BRC-Shor dynamics, future-intervention equivalence or external literature novelty. Theorem A is iff for universal downstream midpoint concavity; only a SUFFICIENT condition for four-scalar masking is claimed.
+
+Open next problem: Is (A2) necessary for universal root masking, or may the root-stop option conceal some failures of (A2)? Find an exact positive rational violating kernel with a separating root-active signed support functional or prove a weaker necessary/sufficient envelope criterion. Time-1 nonunit LR plus hidden later nonlumpability is a separate open branch.
