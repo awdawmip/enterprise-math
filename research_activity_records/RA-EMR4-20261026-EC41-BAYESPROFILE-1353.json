@@ -18,5 +18,35 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "ec41-exact-bayes-profile-four-observer-20261026",
+      "state": "EM_REPRESENTED",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "e54910d752959f73b541282bdc6dc7042ce310f4",
+          "path": "research_notes/r4_ec41_bayes_profile_20261026/EC41_BAYES_PROFILE_FOUR_OBSERVER_THEOREM.md",
+          "sha256": "5ecb5e367766359e0e9701f4e82d2bc9394ffe6a71bcd85af13f7c8b66538ee8",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "ec41-proof-20261026-live-immutable-readback-001",
+            "git_blob_sha1": "5420aa4f2b7d7dac55cbe90ea301838b7acf5de8",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/e54910d752959f73b541282bdc6dc7042ce310f4/research_notes/r4_ec41_bayes_profile_20261026/EC41_BAYES_PROFILE_FOUR_OBSERVER_THEOREM.md",
+            "call_id": null,
+            "server_signature_authenticated": false,
+            "network_request_by_this_tool": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261026-EC41-BAYESPROFILE-1353/readbacks/b62c3483e1886eff0621ed5f2f52998b520cae1be597cd9535f9f758d2c53bd8.json",
+          "verification_receipt_sha256": "b62c3483e1886eff0621ed5f2f52998b520cae1be597cd9535f9f758d2c53bd8"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@f92f32e5d65551909fb6826bbbc875ec84deb781:journal/enterprise-math/2026-10-26/20261026T141000+0800-r4-ec41-bayes-profile.md"
+      ],
+      "repairs_event_id": null
+    }
+  ]
 }
