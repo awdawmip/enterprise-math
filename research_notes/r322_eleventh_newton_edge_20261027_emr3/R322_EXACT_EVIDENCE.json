@@ -1,0 +1,24 @@
+{
+  "schema": "R322_EXACT_INTEGER_CHECK_V1",
+  "result": "PASS",
+  "original_recurrence": "R321 M_s with n_i,delta_i,integer polynomial coefficients",
+  "finite_domain": "s=0..192; q=10 tested s=10..192",
+  "arithmetic": "Python arbitrary precision integers; no floating point",
+  "counts": {
+    "degree": 193,
+    "P10_moment": 183,
+    "D10_difference": 182,
+    "direct_q10": 183,
+    "factorial_recovery": 183,
+    "shift_identity": 183,
+    "strict_lower_bound": 183
+  },
+  "samples": {
+    "10": "1711151",
+    "11": "13364078",
+    "12": "83514118",
+    "13": "451971375"
+  },
+  "symbolic_induction_required": true,
+  "claim_boundary": "Finite verification is independent of infinite-index algebraic induction, not a universal proof"
+}
