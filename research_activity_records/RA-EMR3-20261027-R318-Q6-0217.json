@@ -18,5 +18,35 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "emr3-20261027-r318-q6-proof",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "9566afa9519f4998f9166d6f4f2f36eba812a264",
+          "path": "research_notes/r318_seventh_newton_edge_20261027_emr3/R318_SEVENTH_NEWTON_EDGE_AUTHOR_PROOF.zh-CN.md",
+          "sha256": "769e196c73a70c4d33013bbf348e6444a56669482a40f404dae643da055a3bbb",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "emr3-r318-q6-exact-proof-readback-20261027",
+            "call_id": null,
+            "git_blob_sha1": "2827cf150e06bd915bd6eeecefe6839b1409b73b",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9566afa9519f4998f9166d6f4f2f36eba812a264/research_notes/r318_seventh_newton_edge_20261027_emr3/R318_SEVENTH_NEWTON_EDGE_AUTHOR_PROOF.zh-CN.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261027-R318-Q6-0217/readbacks/56ecd2f5e0e57d7f93c21d90f133a621af382316bf27e3a1d6432a9de0b575bb.json",
+          "verification_receipt_sha256": "56ecd2f5e0e57d7f93c21d90f133a621af382316bf27e3a1d6432a9de0b575bb"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@f1ad05f961cb0c1745459b03d4a86b0c34318ef9:journal/enterprise-math/2026-10-27/20261027T0230+0800-r318-seventh-newton-edge-emr3.md"
+      ],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null
+    }
+  ]
 }
