@@ -1,0 +1,4 @@
+# Stage155 — open exact research unit
+External N14 IID ternary, P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), arbitrary ordered-history randomized sequential policies. Consume Stage154 author-level full-real proof and checker in this directory.
+Stage154 right alpha=18373341782531446925/52808422392537808896, V=318626571958867301813/26404211196268904448, K=68426856/199229,L=68268104/199229. At endpoint U=(10,5,4) Q/C coin u=0 (continuation saturated) and B=(11,0,1) coin b=7483738461750611/8143872000000000 is interior.
+Preserve B Q/C equality, move in direction stabilizing U's continuation, find the next exact first closure among 680 Bellman states. Calculate ordered-history first-hit structures, including nested/conditional mixed terms if present. Prove or refute another real segment with time dominance and strict right sharpness. Source-only; no native CLAIM or independent Driver acceptance.
