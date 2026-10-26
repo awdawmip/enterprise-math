@@ -1,0 +1,86 @@
+{
+  "schema": "EM_EC48_SIGN_PROFILE_SWEEP_AUDIT_V1",
+  "status": "PASS",
+  "input_kind": "finite strictly positive integer joint source counts, independently normalized under P and Q",
+  "algorithm": "sort exact rational likelihood ratios; update grouped sign-bitset histories; compare generic sweep with direct sign rows and complete deterministic encoder/decoder optimization",
+  "seed": "0xC0FFEE27",
+  "generated_cases": 108,
+  "worked_cases": 2,
+  "total_cases": 110,
+  "generic_interval_cases": 705,
+  "ratio_tie_cases": 595,
+  "exact_bruteforce_optimization_checks": 2138,
+  "exact_tie_chromatic_checks": 595,
+  "largest_peak_memory": 4,
+  "four_profile_example": {
+    "P_joint_integer_counts": [
+      4,
+      4,
+      4,
+      1,
+      1,
+      4,
+      1,
+      1
+    ],
+    "Q_joint_integer_counts": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "total_P": "20",
+    "total_Q": "8",
+    "sorted_thresholds": [
+      "2/5",
+      "8/5"
+    ],
+    "generic_profile_counts": [
+      1,
+      4,
+      1
+    ],
+    "lambda": "1",
+    "full_support_numerator": "48",
+    "shared_denominator": "160",
+    "optimal_K_1_numerator": "0",
+    "optimal_K_2_numerator": "24",
+    "optimal_K_3_numerator": "36",
+    "optimal_K_4_numerator": "48",
+    "K3_loss_fraction": "3/40"
+  },
+  "three_profile_example": {
+    "P_joint_integer_counts": [
+      3,
+      3,
+      3,
+      1,
+      1,
+      1
+    ],
+    "Q_joint_integer_counts": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "profile_counts": [
+      1,
+      3,
+      1
+    ]
+  },
+  "verification_scope": "finite generated inputs and worked examples; universal theorem supplied by mathematical proof, not inferred from enumeration",
+  "exclusions": [
+    "seedless behavioral S_K=Z not decided by this audit",
+    "four-coordinate variable-depth stopping not modeled",
+    "native P000/X6 dynamics not modeled",
+    "no CAD/QE or independent Driver review executed"
+  ]
+}
