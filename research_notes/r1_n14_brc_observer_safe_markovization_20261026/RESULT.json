@@ -1,0 +1,43 @@
+{
+  "schema": "EM_R1_AUX_IID_MARKOVIZATION_EXACT_CHECK_V1",
+  "classification": "AUTHOR_FINITE_COMPUTATION_PLUS_GENERAL_HAND_PROOF",
+  "laws": {
+    "P": ["1/8", "1/24", "5/6"],
+    "Q": ["1/12", "1/12", "5/6"]
+  },
+  "checked_cases": [
+    {
+      "N": 3, "seed": 1, "states_checked": 20, "all_four_observers_equal": true,
+      "ordered_observers": {
+        "error_P": "11443121/23887872", "error_Q": "1548431/2985984",
+        "t_P": "95909/55296", "t_Q": "23893/13824"
+      }
+    },
+    {
+      "N": 4, "seed": 5, "states_checked": 35, "all_four_observers_equal": true,
+      "ordered_observers": {
+        "error_P": "3689368331/7739670528", "error_Q": "1003845739/1934917632",
+        "t_P": "41623547/31850496", "t_Q": "15662353/11943936"
+      }
+    },
+    {
+      "N": 5, "seed": 9, "states_checked": 56, "all_four_observers_equal": true,
+      "ordered_observers": {
+        "error_P": "1299254374531/2972033482752", "error_Q": "157017925729/278628139008",
+        "t_P": "28978080655/13759414272", "t_Q": "600081515/286654464"
+      }
+    }
+  ],
+  "naive_uniform_averaging_counterexample": {
+    "k": [1,1,0],
+    "prefixes": {"01":"1","10":"1/2"},
+    "count_policy_stop_Q": "2/3",
+    "naive_stop_Q": "1/2",
+    "P_Q_decision_exact": "1/192", "P_Q_decision_naive": "1/256",
+    "Q_Q_decision_exact": "1/144", "Q_Q_decision_naive": "1/192"
+  },
+  "general_theorem_proof_location": "PROOF.md",
+  "native_P000_transfer": "NOT_CLAIMED",
+  "formal_Lean_check": "NOT_RUN",
+  "independent_review": "PENDING"
+}
