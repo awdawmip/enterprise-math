@@ -135,13 +135,23 @@ c_0+\frac{p_1+c_0\ell_1}{d}
 \frac1{6c_0^4d},\qquad\text{余项各 }O(d^{-2}).
 \tag{13}
 \]
-- 对 \(r\ge4\)，复用此前 R306/R309 保留负尾位置的逐组估计
+- 对 \(r\ge4\)，将此前 R306/R309 的保留负尾位置的逐组估计直接在本模型内复证。因 \(j=d-r-t\le d-2\)，由 (7) 逐因子比较
 \[
-0\le\frac{U_{r,d}(n)}{B_d(n)}
-\le d\,\rho^{r-1},\quad
-\rho=\theta(1+d\theta)=O(d^{-1}).
-\tag{14}
+\frac{\binom n{d-r-t}}{B_d(n)}
+\le\theta^{r+t-2}.
 \]
+另有 \(\binom{d-r}t\le d^t\)，且 \(1\le t\le r\)。故用二项式定理严格得到
+\[
+\begin{aligned}
+0\le\frac{U_{r,d}(n)}{B_d(n)}
+&\le\sum_{t=1}^r
+d^t\binom{r-1}{t-1}\theta^{r+t-2}\\
+&=d\,\theta^{r-1}(1+d\theta)^{r-1}
+=d\,\rho^{r-1},\qquad
+\rho=\theta(1+d\theta)=O(d^{-1}).
+\end{aligned}\tag{14}
+\]
+这里当二项式下指标越界时相应项按零处理；在 \(r\ge4\) 的适用范围所有出现的 \(r+t-2\ge0\)，并且 \(\theta<1\) 对足够大 \(d\) 成立。
 于是 \(\sum_{r\ge4}U_{r,d}/B_d\le d\rho^3/(1-\rho)=O(d^{-2})\)，统一适用于前述参数紧区间与足够大 \(d\)。
 
 对 (12) 展开并加入 (13)，得严格统一渐近式
