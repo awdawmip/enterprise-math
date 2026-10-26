@@ -12,12 +12,11 @@
       "1/12",
       "5/6"
     ],
-    "scope": "EXTERNAL_N14_IID_ORDERED_HISTORIES"
+    "scope": "EXTERNAL_N14_IID_FULL_ORDERED_HISTORY"
   },
-  "source": {
-    "stage164_commit": "c085c64c14515b4d2fc3cbfb33751d4e1171530c",
-    "stage164_certificate": "research_notes/n14_aux_iid_affine_163_r2_author_20261026/certificate164.json",
-    "gkv1": "26a5b1b309aee44516bb5ee17ae76620521fe9de"
+  "upstream": {
+    "stage164_source_commit": "c085c64c14515b4d2fc3cbfb33751d4e1171530c",
+    "stage164_certificate": "certificate164.json"
   },
   "dual": {
     "K": "13623672285/49693891",
@@ -93,7 +92,7 @@
     "-61181640625/557256278016",
     "-20751953125/104485552128"
   ],
-  "dW": [
+  "dY": [
     "-8195/1603087953297408",
     "1975/213986410758144",
     "-77375/66795331387392",
@@ -106,9 +105,12 @@
     "0"
   ],
   "error_balance": {
+    "D0": "-3009001236837785/1752976676930715648",
+    "Dr": "225517578125/40122452017152",
+    "Dy": "-50280865/3505953353861431296",
     "r0": "257914391728953/844544000000000",
     "r_slope": "30168519/11823616000000000",
-    "w_endpoint": "1",
+    "y_endpoint": "1",
     "r_endpoint": "3610801514373861/11823616000000000",
     "alpha_derivative": "248469455/93707153704539389952"
   },
@@ -123,5 +125,6 @@
     "time_gap": "350688935928809353165/843364383340854509568"
   },
   "width": "248469455/93707153704539389952",
-  "slope": "80880101855/149081673"
+  "slope": "80880101855/149081673",
+  "scope": "Stage165 author exact finite N14 external model. No native P000/X6 transfer, independent Driver review, or formal Source acceptance."
 }
