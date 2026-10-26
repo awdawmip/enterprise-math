@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR3-20261026-R309-12OVER5",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "fb8fa9b03d5b69bfac9c00b6ef0ce0ecb812eebd",
+          "path": "research_notes/r309_twelve_fifths_wedge_20261026_emr3/R309_TWELVE_FIFTHS_WEDGE_AUTHOR_PROOF.zh-CN.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "bb25fbd4aa549060b0e95ec089a9a3721978560bbdeaadf22ea408f962048d52",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "fd9187472007eb9c0e72335d3cadf203c0358dd4",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/fb8fa9b03d5b69bfac9c00b6ef0ce0ecb812eebd/research_notes/r309_twelve_fifths_wedge_20261026_emr3/R309_TWELVE_FIFTHS_WEDGE_AUTHOR_PROOF.zh-CN.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "emr3-r309-immutable-source-full-readback-20261026",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261026-R309-12OVER5/readbacks/75ded4357291a8bbe18a00cf740f9eaf82d2fe1bbbb18d0997577a03f9d0aa23.json",
+          "verification_receipt_sha256": "75ded4357291a8bbe18a00cf740f9eaf82d2fe1bbbb18d0997577a03f9d0aa23"
+        }
+      ],
+      "event_id": "emr3-r309-12over5-20261026",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@31d40aa0dd3c2468f4204790a0a929b93e4e606c:journal/enterprise-math/2026-10-26/20261026-r309-12over5-uniform-wedge-emr3.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-26T09:35:49.085Z",
   "registration_key": "session:local-chatgpt-emr3-r309-20261026-1723:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-DIRECT-R309-EMR3-20261026",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-chatgpt-emr3-r309-20261026-1723",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-26T09:35:49.085Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
