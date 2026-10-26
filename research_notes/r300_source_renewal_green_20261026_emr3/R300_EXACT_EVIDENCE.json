@@ -1,0 +1,20 @@
+{
+  "schema": "EM_R300_SOURCE_RENEWAL_GREEN_CERT_V1",
+  "status": "PASS",
+  "arithmetic": "exact unbounded Python integers only",
+  "raw_source_lengths": "0..200",
+  "independent_return_block_lengths": "0..66",
+  "exact_laurent_fibres": "both signs, -22<=k<=22, 0<=n<=200",
+  "fibre_integer_equalities": 18090,
+  "mirror_range": "1<=m<=22",
+  "mirror_integer_equalities": 4135,
+  "sharp_support_positive": "j in [0,m-1] union [4,infinity)",
+  "sharp_support_negative": "m=1: j=1 or j>=4; m=2: j=0 or j>=2; m>=3: all j>=0",
+  "formal_infinite_proof": "q0 first-return block decomposition + group-ring Green inversion (see proof)",
+  "boundaries": "positive-count BRC auxiliary, no phase, no native X6 equivalence, no Driver review",
+  "samples": {
+    "length_3_plus_minus1": "1",
+    "length_4_minus_minus2": "1",
+    "length_80_plus_minus4": "273054273225926"
+  }
+}
