@@ -1,0 +1,103 @@
+{
+  "schema": "EC45_EXACT_INTEGER_SOURCE_CHECK_V1",
+  "source_counts_P": [
+    8,
+    1,
+    4
+  ],
+  "source_counts_Q": [
+    1,
+    8,
+    4
+  ],
+  "terminal_source_counts_P": [
+    3,
+    1
+  ],
+  "terminal_source_counts_Q": [
+    1,
+    3
+  ],
+  "stage1": "mandatory continue; root observed",
+  "stage2": "root forgotten; common x; optional stop-P, stop-Q, continue",
+  "stage3": "visible y; terminal P/Q",
+  "cost": "e_P + e_Q + (t_P+t_Q)/8",
+  "arithmetic": "exact positive integers, objective scaled by 104",
+  "k1": {
+    "memory_states": 1,
+    "deterministic_policies_checked": 12,
+    "best_cost_numerator_over_104": 130,
+    "witness": {
+      "encoded": [
+        0,
+        0,
+        0
+      ],
+      "actions": [
+        2
+      ],
+      "nextMem": [
+        0
+      ],
+      "terminal": [
+        0,
+        1
+      ]
+    }
+  },
+  "k2": {
+    "memory_states": 2,
+    "deterministic_policies_checked": 4608,
+    "best_cost_numerator_over_104": 100,
+    "witness": {
+      "encoded": [
+        0,
+        1,
+        0
+      ],
+      "actions": [
+        0,
+        1
+      ],
+      "nextMem": [
+        0,
+        0
+      ],
+      "terminal": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "k3_witness": {
+    "encoded": [
+      0,
+      1,
+      2
+    ],
+    "actions": [
+      0,
+      1,
+      2
+    ],
+    "nextMem": [
+      0,
+      1,
+      2
+    ],
+    "terminal": [
+      0,
+      0,
+      1,
+      1,
+      0,
+      1
+    ]
+  },
+  "k3_witness_cost_numerator_over_104": 92,
+  "k3_proved_lower_bound_numerator_over_104": 92,
+  "result": "PASS",
+  "limitations": "finite auxiliary positive-source BRC model; no native X6 or formal Guard"
+}
