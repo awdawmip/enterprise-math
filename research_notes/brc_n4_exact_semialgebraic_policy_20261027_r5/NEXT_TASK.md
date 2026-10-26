@@ -1,0 +1,13 @@
+# Portable successor: signed LP versus behavioral semialgebraic fidelity
+
+**Mother question:** For a fixed positive-rational N=4 ordered observation tree, decide if a quotient retaining (time, exact likelihood ratio, minimal residual) preserves the entire attainable four-vector set of stop/decision policies **without** initial persistent random memory.
+
+**Frozen inputs:** GLOBAL_KNOWLEDGE_V1 main@fcf778e263a2de22711ca308108f912f91d7b2e9 and Enterprise Math main@107a893ec5886ade2ca4966b554c723adf215cdd. Current proof is PROOF.md in this directory. Existing predecessor's 32-leaf gap 1/96 is research_notes/brc_n4_hidden_kernel_second_residual_20261026_r5/PROOF.md, not a new result of this activity.
+
+**Proved now:** Every such policy quotient has a rational-polynomial explicit four-observable map. Universal behavioral fidelity equals a decidable forall-full/exists-coarse real-closed-field sentence. Unsafety has a rational full-policy witness. Signed support/LP equality is complete for the convexified (initial persistent seed) coarse class but not automatically sufficient for seedless behavioral policies unless convexity is proved. Finite partition enumeration plus the semialgebraic test produces an exact minimum abstract residual; requiring right-congruent partitions gives an exact online-updatable residual state search. Strong Q-lumpability with state-fixed LR is one sufficient convexity case.
+
+**First unfinished unit:** Generate and actually solve the real polynomial inclusion formula for the previous N4 32-leaf model under (time, LR, first-branch bit), including a bounded exact solver/QE evidence trace. Independently test the signed-support LP condition. A high-value alternative is an explicit strictly positive rational N3/N4 LR-respecting counterexample with matching convex hulls but nonmatching seedless behavioral image, with a rational full policy and exact no-solution certificate.
+
+**Evidence demands:** Save precise tree masses, variables, polynomial equations, solver version, rational/real-arithmetic proof semantics, actual output and reproducible checker. The current VERIFY_EXACT.py establishes only a seven-prefix N2 instance via 432 versus 72 exact deterministic policies and Bellman cross-check; it does **not** run quantifier elimination. Distinguish readout observability from deterministic online state updating. No native P000/X6/Heartbeat transfer, authorized Source CLAIM, Result or independent Driver review is established.
+
+**Next-action recovery:** Recheck exact active owner and protocol when native control access is enabled. Do not commandeer another owner's task; keep this note in author-level research_notes if formal claim remains unavailable.
