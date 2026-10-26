@@ -1,0 +1,129 @@
+{
+  "schema": "EM_N14_STAGE150_EXACT_AUTHOR_CERTIFICATE_V1",
+  "evidence_grade": "AUTHOR_EXACT_FINITE_COMPUTATION_ASSISTED_UNREVIEWED",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "policy_space": "arbitrary complete-ordered-history randomized stopping and decisions"
+  },
+  "source_pins": {
+    "global_main": "252fe47ffec83b449cfbbff70c59c19c0c2999a7",
+    "em_main": "1ee9151e3124246048e94ad7981e1e52752fef0e",
+    "stage149_author_immutable": "8916bf64a694927ce557a35ce71e34643a57b414",
+    "stage149_main_ancestry": "DIVERGED_NOT_MAIN_AT_VERIFICATION"
+  },
+  "ray": {
+    "dK": "-1",
+    "dL": "-112/129",
+    "first_positive_closure": "202961376/32249767",
+    "new_tie": "(13,5,2):P/C"
+  },
+  "dual": {
+    "K": "44712/121",
+    "L": "44200/121",
+    "Hroot": "1183067867036626543351/4418962039762845696",
+    "state_count": 680,
+    "strict_positive_gaps": 1238,
+    "min_gap": "607/29403",
+    "negative_gaps": 0,
+    "ties": [
+      "(11,0,1):Q/C",
+      "(13,5,2):P/C"
+    ]
+  },
+  "first_hit": {
+    "B": {
+      "state": "(11,0,1)",
+      "count": 11,
+      "P": "107421875/1451188224",
+      "Q": "107421875/725594112"
+    },
+    "R": {
+      "state": "(13,5,2)",
+      "count": 14662,
+      "P": "114546875/440301256704",
+      "Q": "114546875/835884417024"
+    }
+  },
+  "corner_DFS_visits": [
+    563974,
+    563842,
+    519988,
+    519856
+  ],
+  "affine": {
+    "M00": [
+      "1212667745012379235/3505953353861431296",
+      "224474522556365/641959232274432",
+      "5331415431779770717/438244169232678912",
+      "630124894153661/53496602689536"
+    ],
+    "dB": [
+      "4619140625/2229025112064",
+      "-751953125/417942208512",
+      "-25673828125/278628139008",
+      "-17939453125/104485552128"
+    ],
+    "dR": [
+      "-114546875/10567230160896",
+      "114546875/10030613004288",
+      "-114546875/440301256704",
+      "-114546875/835884417024"
+    ],
+    "mixed": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "balance_b0": "7957468505269291/8143872000000000",
+    "balance_db_dr": "3658169/636240000"
+  },
+  "interval": {
+    "alpha149": "6124245464096172775/17602807464179269632",
+    "V149": "106280162016260661671/8801403732089634816",
+    "eta150": "13860171875/12892681248178176",
+    "alpha150": "18372793163552518325/52808422392537808896",
+    "V150": "318819628004877985013/26404211196268904448",
+    "slope": "88912/121",
+    "b_at_r1": "727663006224481/740352000000000",
+    "tP_minus_tQ_left": "36781979277243213665/79212633588806713344",
+    "tP_minus_tQ_right": "36808457207099213665/79212633588806713344"
+  },
+  "checks": [
+    "exact rational 680-state Bellman recurrence",
+    "complete initial dual ray competitor gap scan",
+    "fresh Stage150 two-tie exact Bellman re-evaluation",
+    "backward rational four-observer four-corner evaluation",
+    "independent actual ordered-prefix integer-weight DFS",
+    "exact true first-hit cone mass and 4-corner match",
+    "zero mixed term",
+    "balanced errors and time dominance on the entire real interval by affine interpolation",
+    "endpoint dual equality and right-sharpness reduction"
+  ],
+  "execution": {
+    "portable_checker": "VERIFY_STAGE150.py",
+    "portable_file_SHA256": "7b78672955e1aa255c51f8119cf05fd72c83cd5e95c430f792ec204e7c3f4f3d",
+    "local_run": "PASS_STAGE150",
+    "local_full_code": "AUTHOR_FULL_SCAN_STAGE150.py in separately delivered local research package",
+    "independent_driver": "NOT_DONE",
+    "native_claim": "UNVERIFIED",
+    "native_task_read": "CONTROL_QUOTA",
+    "native_session_creation": "STATIC_READONLY_SCOPE_DENIED;operation_sent=false"
+  },
+  "next_dual_only": {
+    "K151": "45154992/127757",
+    "L151": "6412152/18251",
+    "new_tie": "(9,4,1):P/C",
+    "status": "STAGE151_PRIMAL_OPEN"
+  }
+}
