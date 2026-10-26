@@ -1,0 +1,15 @@
+{
+  "schema": "PREFIX270_EXACT_BRC_THRESHOLD_VERIFICATION_V1",
+  "mode": "standalone_exact_source_semantics_mirror_not_Source_import",
+  "status": "PASS",
+  "finite_test_family": "all n x n entries in {0,1/4}, n in {1,2,3}",
+  "baseline_matrices_checked": 530,
+  "by_size": {"1": 2, "2": 16, "3": 512},
+  "exact_probe_stability_checks": 17528,
+  "full_symbolic_quantifier_covered_by": "paper algebraic BRC feedback proof, not finite tests",
+  "example_A": {"W": [["0","1/4"],["0","0"]], "R": [["1","1/4"],["0","1"]], "T_i_j": [["1/1","INFINITY"],["4/1","1/1"]]},
+  "example_B": {"W": [["1/4","0"],["0","0"]], "R": [["4/3","0"],["0","1"]], "T_i_j": [["3/4","INFINITY"],["INFINITY","1/1"]]},
+  "baseline_context_K_2_1_4": {"A": "UNSTABLE", "B": "STABLE", "B_star": [["4/3","0"],["16/3","1"]]},
+  "native_heartbeat_import": "NOT_EXECUTED",
+  "canonical_source_import": "NOT_EXECUTED"
+}
