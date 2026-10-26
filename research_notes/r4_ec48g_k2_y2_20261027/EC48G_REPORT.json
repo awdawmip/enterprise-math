@@ -1,0 +1,116 @@
+{
+  "schema": "EM_R4_EC48G_TWO_LABEL_K2_REPORT_V1",
+  "status": "AUTHOR_SIDE_PROOF_AND_EXACT_CODE_CHECK_PASS",
+  "date": "2026-10-27",
+  "hypothesis": "finite H, exactly two future labels, strictly positive separately normalized joint P,Q, memory=private state K, no persistent shared seed",
+  "theorem": "K_hull <= 2 implies K_seed=K_hull",
+  "scope_limits": [
+    "not universal equality for K_hull>=3",
+    "not variable-depth four-observer region",
+    "not exact per-history future decision kernel",
+    "not native Heartbeat X6 dynamics",
+    "not independent Driver accepted"
+  ],
+  "model_witness": {
+    "P_raw": [
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "Q_raw": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "P_sum": 13,
+    "Q_sum": 12,
+    "likelihood_ratios": [
+      "6/13",
+      "12/13",
+      "24/13"
+    ],
+    "generic_profile_counts": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "K_hull": 2,
+    "K_seed": 2,
+    "critical_ratio": "12/13",
+    "tied_cells": [
+      "h1:y1",
+      "h2:y1",
+      "h3:y1",
+      "h3:y2"
+    ],
+    "alpha_s": "(4+8s)/13",
+    "beta_s": "(2+8s)/12",
+    "support_constant": "2/13",
+    "beta_range": [
+      "1/6",
+      "5/6"
+    ],
+    "decoder_bank": [
+      "(s,0)",
+      "(s,1)"
+    ],
+    "encoder_h3": [
+      "1-s",
+      "s"
+    ]
+  },
+  "exhaustive_arithmetic": {
+    "python_fraction_executed": true,
+    "js_integer_executed": true,
+    "independent_result_agreement": true,
+    "H_checked": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "ternary_templates": 66429,
+    "templates_meeting_tie_and_K2_sides": 6529,
+    "shared_signatures": 5704,
+    "disjoint_signatures": 825,
+    "disjoint_2_by_2": 488,
+    "policy_samples": 89685,
+    "checked_individual_cells": 840030,
+    "strict_profile_checks": 501260,
+    "monotone_stages": 17937,
+    "result": "PASS",
+    "finite_coverage": "all ternary 2-column breakpoint templates with 1..5 histories and <=2 distinct pre/post sign words; five sample points per path stage (rational s=0,1/7,3/7,6/7,1)"
+  },
+  "provenance": {
+    "global_canonical_sha": "ce56f544d74dc20cecea53a8607e752b2e8c8e9c",
+    "enterprise_canonical_sha": "08b420939c4e5e27bc431cbbf4bcb17a3403e9bc",
+    "activity_id": "RA-EMR4-20261027-EC48G-K2-Y2-LOCAL0633",
+    "authenticated_github_user": "awdawmip",
+    "native_owner_lookup": "CONTROL_QUOTA",
+    "native_session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "native_session_operation_sent": false,
+    "claim": false,
+    "driver_review": false
+  },
+  "next": "Analyze K_hull=3 and Y=2 via exact encoder-quotient face graphs; prove S3=Z for all Y=2 or exhibit rational positive counterexample and uncovered exact face interval."
+}
