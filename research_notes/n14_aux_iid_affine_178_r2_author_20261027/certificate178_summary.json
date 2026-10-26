@@ -1,0 +1,95 @@
+{
+  "schema": "EM_N14_STAGE178_AUTHOR_EXACT_REMOTE_SUMMARY_V1",
+  "grade": "AUTHOR_EXACT_NOT_NATIVE_ADMITTED",
+  "source_global_main": "98ccaeb8d933ae4aa84a6e54ec27ec4dcdafe15a",
+  "source_em_main": "ccda180f7789bd22f3bfa1fba07bcac3c8cd2505",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "policy": "all fully ordered randomized stop/declare trees"
+  },
+  "dual": {
+    "K": "64228036011/290873926",
+    "L": "93785824168/436310889",
+    "H": "977402749984215798412630525/5975334471155518248321024",
+    "gaps": 1238,
+    "minimum": "67271053/31414384008",
+    "ties": {
+      "(8, 2, 0)": [
+        "P",
+        "C"
+      ],
+      "(9, 0, 1)": [
+        "Q",
+        "C"
+      ]
+    },
+    "bellman_states": 680
+  },
+  "balance": {
+    "t0": "1870960582929997/3860125696000000",
+    "slope": "147788325/60314464",
+    "s_max": "221018345896667/1050939200000000",
+    "t_at_s_max": "1"
+  },
+  "left": {
+    "alpha": "5148172029061283786075/14750257906470044565504",
+    "V": "338725183820868439620725/29500515812940089131008",
+    "p_time_margin": "1161161876520242492773/3277835090326676570112"
+  },
+  "right": {
+    "alpha": "1571019175748196236077/4497734146660704976896",
+    "V": "25558154902620967560277/2248867073330352488448",
+    "p_time_margin": "27547482146984944733/83291373086309351424"
+  },
+  "delta_alpha": "32144236994494760302321/119611298179161292126814208",
+  "slope": "380255756369/872621778",
+  "first_hits": {
+    "(8, 2, 0)": {
+      "paths": 28,
+      "P": "109375/746496",
+      "Q": "109375/1679616"
+    },
+    "(9, 0, 1)": {
+      "paths": 9,
+      "P": "390625/4478976",
+      "Q": "390625/2239488"
+    }
+  },
+  "observed_local": {
+    "corners": 4,
+    "DFS_nodes": [
+      296764,
+      296332,
+      292900,
+      292468
+    ],
+    "total_nodes": 1178464,
+    "agreement": "exact DP vs unmerged integer DFS all four outputs",
+    "mixed_difference": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "checker_marker": "STAGE178_AUTHOR_EXACT_FULL_REAL_PASS"
+  },
+  "permissions": {
+    "github_login": "awdawmip",
+    "native_owner": "NOT_VERIFIED",
+    "control_tasks": "CONTROL_QUOTA",
+    "session_start": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "native_claim": false,
+    "independent_review": false
+  }
+}

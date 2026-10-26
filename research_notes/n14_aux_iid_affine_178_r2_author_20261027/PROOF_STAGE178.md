@@ -1,0 +1,76 @@
+# Stage178 — external N14 ternary IID all-real optimality (author-level proof)
+
+**Scope/grade.** Finite external sequential-test problem; exact author proof and independently structured local computation, **not** a native six-dimensional P000/Cell theorem, Lean proof, independent review, Source Result or Research Driver acceptance. Frozen input: GLOBAL_KNOWLEDGE_V1 main@98ccaeb8d933ae4aa84a6e54ec27ec4dcdafe15a; Enterprise Math initial main@ccda180f7789bd22f3bfa1fba07bcac3c8cd2505; last Stage177 author result at commit 246f2986999025b724ccccc7ffb92374971fc7d1.
+
+## Question and complete exact statement
+
+Let N=14, P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6). A policy can depend on **the full ordered history** and private randomization; it stops by N and declares P or Q. Set eP=P(declare Q), eQ=Q(declare P), tP=E_P(tau), tQ=E_Q(tau) and
+
+V14(alpha) = min_{eP,eQ<=alpha} max(tP,tQ).
+
+Stage177 gives alpha177=5148172029061283786075/14750257906470044565504 and V177=338725183820868439620725/29500515812940089131008.
+
+**Theorem.** For *every real* 0<=delta<=32144236994494760302321/119611298179161292126814208,
+
+V14(alpha177+delta)=V177-(380255756369/872621778)*delta.
+
+The new endpoint is alpha178=1571019175748196236077/4497734146660704976896 and V178=25558154902620967560277/2248867073330352488448. Beyond alpha178 the same affine Bellman line is strictly below V14(alpha); the value function itself is not terminated by this statement.
+
+## Dual lower bound (complete count-state proof)
+
+For s=(n,a,b) with a first-symbol and b second-symbol occurrences, ell(s)=Q(prefix)/P(prefix)=2^(a+b)/3^a. Let
+
+K=64228036011/290873926 >0,
+L=93785824168/436310889 >0,
+h(s)=min{K*ell(s), L, 1+sum_i P_i*h(s_i)},
+
+where s_i=(n+1,a+[i=0],b+[i=1]), and omit continuation at n=14. Exact rational backward recursion on sum_{n=0}^14 binom(n+2,2)=680 states yields
+
+H=h(0,0,0)=977402749984215798412630525/5975334471155518248321024.
+
+Exactly two states tie for minimum: T=(8,2,0) has P/C, S=(9,0,1) has Q/C. All **1,238** other action gaps are positive (min=67271053/31414384008). Conditioning on *each full ordered prefix* gives, for any policy,
+
+tP+K*eQ+L*eP >= H,
+
+hence max(tP,tQ)>=H-(K+L)*alpha, with K+L=380255756369/872621778. The Bellman state collapse is legal for the dual because conditional futures depend only on counts; this does not assume optimal full-history randomized strategies are state-only.
+
+## T/S first-hit cone separation and all ordered-history policies
+
+T has 2 first-symbol occurrences at depth 8, whereas S has 0 at depth 9. T cannot precede S (counts cannot decrease), and S cannot precede T (depth). Their first-hit cones are disjoint. The complete ordered DFS found 28 T first hits, with P mass 109375/746496 and Q mass 109375/1679616; 9 S first hits, with P mass 390625/4478976 and Q mass 390625/2239488. Both measures are strictly positive on all symbols.
+
+At a fixed tied count state, Q/P is constant on ordered prefixes. Thus a potentially different coin for every prefix averages to an effective P-weighted coin at that state, preserving eP,eQ,tP,tQ exactly. This proves rather than assumes coverage of **all** history-dependent randomized policies for equality cases. The two cones are disjoint, so the mixed finite difference in two coins is zero.
+
+Let t=Pr(declare P at T) and s=Pr(declare Q at S), with continuation otherwise and the unique Bellman action everywhere else. The exact four-component observer vector M=(eP,eQ,tP,tQ) is
+
+M(t,s)=M00+t*dT+s*dS, with
+M00=(153187818587049839/438244169232678912,27935332957655/80244904034304,633635672818036049/54780521154084864,74702335499363/6687075336192);
+dT=(-1210671875/1114512556032,2319296875/1253826625536,-16248859375/92876046336,-9353640625/104485552128);
+dS=(15611328125/3962711310336,-1813671875/557256278016,-63480078125/495338913792,-10480859375/46438023168).
+
+All four deterministic corners were computed by exact suffix DP **and independently** a fully unmerged ordered-prefix DFS with integer mass numerators P=(3,1,20)/24, Q=(1,1,10)/12. At corners (t,s)=00,01,10,11, respectively, the DFS visited 296764,296332,292900,292468 nodes (**1,178,464 total**). Every corner's four rational observables agreed exactly; both stopping masses equal 1. The four-component mixed difference is exactly zero. Code, full rational certificate and original execution log are also carried in the portable evidence package.
+
+## Primal construction, real parameter continuum, saturation
+
+Solving eP=eQ in the affine observer family gives exactly
+
+t(s)=1870960582929997/3860125696000000 + (147788325/60314464)*s.
+
+The exact legal segment is 0<=s<=221018345896667/1050939200000000; at the right edge **t=1**. At s=0 the coin, equal errors and P stopping time match Stage177's right endpoint **exactly**. Increasing s through every real number in that interval increases the common error from alpha177 to alpha178, a width of 32144236994494760302321/119611298179161292126814208.
+
+The margins tP-tQ at the respective endpoints are strictly positive:
+1161161876520242492773/3277835090326676570112
+and 27547482146984944733/83291373086309351424.
+
+Both time differences and eP,eQ are affine, so P-time dominates Q-time for all real intervening s. Both endpoints attain the Bellman identity tP+K*eQ+L*eP=H; therefore so does every intermediate policy. This proves universal lower bound and attainable upper bound equal throughout the complete real interval.
+
+## Strict right-support boundary
+
+The finite product of action-probability simplices is compact, hence an optimum exists. Equality in
+
+max(tP,tQ)>=tP>=H-K*eQ-L*eP>=H-(K+L)*alpha
+
+at alpha>alpha178 forces eP=eQ=alpha (since K,L>0), P-time dominance, and zero probability on all strictly suboptimal Bellman actions. Positive P/Q symbol masses make all reached gaps strict, so only T and S may randomize. By the fixed likelihood-ratio averaging and disjoint-cone argument this reduces every equality strategy to two coins t,s in [0,1]. Equal errors force t=t(s), whose legal segment has maximal common error alpha178, contradiction. Thus the same lower affine line becomes strictly unattainable for every alpha>alpha178.
+
+## Evidence and next question
+
+Author-level checker exit 0 with marker STAGE178_AUTHOR_EXACT_FULL_REAL_PASS; exact Stage179 dual scanner exit 0 with marker STAGE179_DUAL_SCAN_PASS. Stage179 is **only a dual candidate**, not a primal proof. The portable archive carries the actual executed full Python source, all local logs, complete certificate and SHA256 manifest; a shorter remote reference verifier may differ from the executed original. Native control: em_control_tasks=CONTROL_QUOTA; em_session_start=STATIC_READONLY_SCOPE_DENIED, operation_sent=false. No current native owner was confirmed and no formal CLAIM or acceptance was obtained. BRC application: labeled ordered paths and separate positive-rational P/Q masses; no signed-amplitude or native BRC–Shor claim. Next exact task: see NEXT_TASK_PACKET_179.md.
