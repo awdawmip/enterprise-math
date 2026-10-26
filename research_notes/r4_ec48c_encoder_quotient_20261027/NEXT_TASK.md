@@ -1,0 +1,5 @@
+# R4-EC48D next research unit
+Parent EC48: decide whether conv(S_K)=Z implies S_K=Z for fixed finite two-stage positive weighted BRC binary-decision models, not for physical Heartbeat dynamics.
+Verified EC48C frontier: an exact encoder-only graph replaces EC48B's decoder enumeration; statement and proof in EC48C_ENCODER_QUOTIENT_THEOREM.md and full exact report in EC48C_REPORT.json.
+First action: construct deliberately adversarial strict-sign templates H>=6,Y>=3,K>=2, plus variable positive tie weights; run exact quotient intervals at each likelihood-ratio threshold. Any strict gap requires a rational missing open subinterval certified by complete component interval union. If none, state finite coverage accurately and seek an exchange/connectivity lemma.
+Unrepeated verified results: EC48B full-vertex theorem, 4096 pairs with 10766 matched faces, 59049-sign finite family. Never substitute counts for universal proof. Native owner query CONTROL_QUOTA; session-start STATIC_READONLY_SCOPE_DENIED, so no CLAIM, native Result or Driver acceptance.
