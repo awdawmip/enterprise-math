@@ -1,0 +1,44 @@
+{
+  "schema": "EM_R299_AUTHORSIDE_RUN_EVIDENCE_V1",
+  "date": "2026-10-26",
+  "run1": {
+    "script": "R299_effective_cone.py",
+    "status": "PASS",
+    "integer_prefix": "41<=r<=10011",
+    "adjacent_doubling": "41<=r<=10010",
+    "infinite_tail": "r>=10011 via rational invariant cone",
+    "cone_interval": [
+      "2617/1000",
+      "2619/1000"
+    ],
+    "cone_base": [
+      9998,
+      9999,
+      10000
+    ],
+    "M": 10008,
+    "derived_d_ratio": "17/8",
+    "a40": "-727277462",
+    "a41": "1985689179",
+    "a42": "14099205991",
+    "b40": "13329931025",
+    "b41": "43719278697",
+    "b42": "134679084290"
+  },
+  "run2": {
+    "script": "R299_verify.py",
+    "status": "PASS",
+    "raw_word_dp_n": "0..360",
+    "matched_even_gap_coefficients": 181,
+    "matched_parity_coefficients": 179,
+    "exact_polynomial_reduction": true
+  },
+  "verification": "Python 3 stdlib arbitrary precision integer and fractions; executed by author in this turn; source model depends on R294 author-side generating-function proof",
+  "limitations": [
+    "not independently reviewed",
+    "not canonical Source Result",
+    "other effect fibers not compared for n>=601",
+    "no proof N_peak=81",
+    "not native X6 physics"
+  ]
+}
