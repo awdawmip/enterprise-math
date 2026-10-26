@@ -63,6 +63,5 @@ assert min(positive)>0
 report={'stage':170,'status':'DUAL_ONLY','previous_stage':169,'global_snapshot':'97fddf10a23d1b365a89029b1a7bdee752b84d24','em_snapshot':'02755d46a9afc42afcf841ba643d27daec5fa20b',
 'K169':fmt(K),'L169':fmt(L),'dK':fmt(dK),'dL':fmt(dL),'first_t':fmt(tt),'K170':fmt(Knew),'L170':fmt(Lnew),'slope170':fmt(Knew+Lnew),
 'new_closures':closures,'ties170':newties,'states':680,'strict_gaps':len(positive),'min_gap':fmt(min(positive)),'root':fmt(check((0,0,0))[0]),'primal':'UNPROVED'}
-Path(__file__).with_name('candidate170.json').write_text(json.dumps(report,indent=2)+'
-')
+Path(__file__).with_name('candidate170.json').write_text(json.dumps(report,indent=2)+'\n')
 for k,v in report.items():print(k,v)
