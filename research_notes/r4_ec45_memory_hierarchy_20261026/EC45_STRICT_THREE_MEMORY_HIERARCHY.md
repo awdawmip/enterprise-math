@@ -1,0 +1,132 @@
+# R4-EC45 — Strict 1/2/3-state BRC observer-memory hierarchy
+
+**Status:** Author-side exact derivation and independently checked finite-source witness; NOT a native Task CLAIM, Result, Guard acceptance, independent Driver review, Working Truth, Foundation result, or original-X6/heartbeat theorem.
+
+## 0. Fixed source and scope
+
+- Account-level GLOBAL_KNOWLEDGE_V1 canonical snapshot: awdawmip/chatgpt-global-knowledge main@b1c6f9e87fc51617f9b75e37235682850b279b20. Its 00_BOOTSTRAP.md, OPERATING_MANUAL.md, Enterprise Math project/task router, P000_STARTUP.json (canonical P000 blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc) and ACTIVE 我眼中的世界.md were consulted.
+- Project research-input snapshot: awdawmip/enterprise-math main@40ae5bccbce019f594aa9044fb4ed54847cafe3c, including docs/PORTABLE_RESEARCH_PROTOCOL.md and the joint-source observer/weighted BRC contracts.
+- Immediate verified mathematical predecessor: R4-EC44, immutable proof 2a5f65affea1f759feccb766030d51c2a219f3e5, research_notes/r4_ec44_forgetful_observer_20261026/EC44_FORGETFUL_OBSERVER_EXACT_CARRIER.md.
+- GitHub writer identity: awdawmip, admin permission. Native current-owner query failed with CONTROL_QUOTA; Sites gateway exposes a static read-only configuration, no native research authority. The inherited locally visible Researcher-ID is EM-R004-A37B, not newly certified native ownership. Source activity: RA-EMR4-20261026-RUN11-EC45MEMORY.
+- BRC reuse resolution: **REUSE_APPLIED**, positive source multiplicity/provenance from definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json and observer-safe information retention from definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json. The four-observer semantics and original-history flow descend directly from EC44. No signed amplitude or native X6 operation is claimed.
+
+## 1. Theorem EC45.1: exact finite-memory source-history carrier
+
+Let H_t be the finite original-source histories at stage t with unique parent. Under hypotheses i in {P,Q}, let μ_i(h)>0 be the unconditional, rational original-source probability of history h (source paths under each hypothesis separately sum to one at every fixed depth). The time-indexed **current observer** is x=T_t(h) and is allowed to forget observed ancestry. The controller has K internal memory symbols m in {1,...,K}; its first memory distribution π_x(m) may depend on the first observation. At a reached (h,m) the controller chooses stop-P, stop-Q or (before terminal stage) continue and write next memory m'. Its shared decision/update kernel depends only on (t,T_t(h),m), never on the hidden original-source label h.
+
+For real nonnegative conditional source-survival variables f_{h,m}, terminal-decision flows d^P_{h,m},d^Q_{h,m}, and continuation/update flows c_{h,m,m'}, the following equations and inequalities give an **exact semialgebraic feasibility representation**:
+
+(45.INIT) For each first-stage history h, f_{h,m}=π_{T_1(h)}(m), with π_x(m)≥0 and sum_m π_x(m)=1.
+
+(45.CONS) For every h,m,
+f_{h,m}=d^P_{h,m}+d^Q_{h,m}+sum_{m'}c_{h,m,m'}.
+At the terminal stage c=0. All terms are nonnegative.
+
+(45.PARENT) For every child h' of a nonterminal h and every m',
+f_{h',m'}=sum_m c_{h,m,m'}.
+These are conditional-on-source-history flows; the two different source probability measures are multiplied in only when evaluating observations.
+
+(45.RANKK) For any two original histories h,k at the same stage and with T_t(h)=T_t(k), and every memory m:
+f_{k,m} d^a_{h,m}=f_{h,m}d^a_{k,m} for a∈{P,Q};
+f_{k,m} c_{h,m,m'}=f_{h,m}c_{k,m,m'} for every m'.
+
+The four outputs are exactly
+
+e_P=sum_{h,m} μ_P(h)d^Q_{h,m},
+e_Q=sum_{h,m} μ_Q(h)d^P_{h,m},
+t_i=sum_{h,m} t(h) μ_i(h) (d^P_{h,m}+d^Q_{h,m}), i∈{P,Q}.
+
+**Proof (forward).** A controller defines conditional f as its probability of reaching (h,m), conditioned on the original-source history h. The decisions are f times the common (t,x,m)-action probabilities, proving all conservation, parent, and cross-product identities. Integrating with μ_P and μ_Q yields the four outputs.
+
+**Proof (converse).** For every observer-memory fiber (t,x,m) with some f_{h,m}>0, divide the d and c variables by f_{h,m}; (45.RANKK) guarantees the resulting probabilities do not depend on the chosen positive-survival h. The zero-survival cases contribute zero by (45.CONS), so choose any legal kernel there. Reconstruct the initial π_x from (45.INIT) and induct over the source tree using (45.PARENT). This realizes exactly the supplied variables and observations. QED.
+
+For K=1 the representation reduces to EC44's current-only rank-one equations. The claim is an exact sufficient carrier, **not** a globally minimal number of variables and **not** a general LP formulation: cross-products remain quadratic when the observer forgets ancestry. All rational controller instances induce rational certificates, although the general semialgebraic statement permits real probabilities.
+
+## 2. A strictly positive three-stage finite BRC experiment
+
+Stage 1 reveals exactly one of roots a,b,c, then continuation is **mandatory**. The two positive integer source-populations have 13 microbranches each:
+
+| root h | source count under P | source count under Q |
+| --- | ---: | ---: |
+| a | 8 | 1 |
+| b | 1 | 8 |
+| c | 4 | 4 |
+
+At stage 2, the visible symbol is the same x after all three roots: ancestry is forgotten unless private memory retains it. The action is stop-and-declare P, stop-and-declare Q, or continue to stage 3. If continued, stage 3 reveals y in {+,-}; independently of root the strictly positive conditional source counts are P:(3,1), Q:(1,3), both normalized by 4. Stage 3 immediately declares P or Q. Thus all declared source branch counts are positive. With private memory of size K, the controller may write the first observed root into its K-state memory, and may update the memory on continuation at stage 2. Its stage-2 kernel sees only (x,m), its terminal kernel sees only (y,m).
+
+Write v=(e_P,e_Q,t_P,t_Q) as in EC44 and minimize the **declared diagnostic linear objective**
+
+J(v)=e_P+e_Q+(t_P+t_Q)/8,
+
+where τ∈{2,3} since stage 1 is mandatory continuation. This objective is solely a mathematical separator, not a recommendation for a real-world decision protocol.
+
+## 3. Theorem EC45.2: exact strict K=1, K=2, K≥3 separation
+
+For the experiment above, allowing arbitrary real stochastic finite-memory policies in the specified class,
+
+**min J(K=1)=5/4,  min J(K=2)=25/26,  min J(K≥3)=23/26.**
+
+All minima are attained by deterministic controllers. Thus one additional remembered distinction strictly changes the four-observer attainable region at **both** memory increments 1→2 and 2→3; no public fresh coin or stochastic internal state can close either optimum.
+
+### Step A. Full-history information lower bound and K≥3 attainment
+
+At stage 2, given root h, the minimal *additional* cost including an optional extra time step, multiplied by 13, is:
+
+| root h | stop P | stop Q | continue, optimally classify y |
+| --- | ---: | ---: | ---: |
+| a | 1 | 8 | 17/8 |
+| b | 8 | 1 | 17/8 |
+| c | 4 | 4 | 3 |
+
+For example, continuing at a gives source-weighted Bayes error
+min(8·3/4,1·1/4)+min(8·1/4,1·3/4)=1,
+plus time cost (8+1)/8, totaling 17/8. At c this is 2+8/8=3.
+
+Every policy, however much hidden memory it has, therefore pays at least (1+1+3)/13=5/13 beyond the mandatory initial depth-two time cost 4/8=1/2. Thus J≥1/2+5/13=23/26.
+
+Three memory symbols store a,b,c exactly. Stop P at a, stop Q at b, continue at c, then declare P on y=+ and Q on y=-. This policy has
+
+v_3=(2/13,2/13,30/13,30/13),
+
+and J(v_3)=23/26. Extra memory cannot improve on the full-history bound.
+
+### Step B. Exact K=2 lower bound and attainment
+
+Let π_h(m) be the memory distribution selected after seeing root h, and q_m(A) the stage-2 action distribution for A∈{P,Q,C}. A controller choosing C cannot beat the root-specific Bayes value in the table even if granted the **original root** at stage 3. Therefore
+
+13·(J−1/2) ≥ sum_{h∈{a,b,c}} sum_{m=1}^2 π_h(m) sum_A q_m(A) cost_h(A).
+
+The right side is multiaffine in every independent simplex π_h and q_m. Holding all other coordinates fixed, replacing one simplex by a vertex cannot increase its value. Repeating gives a deterministic root→memory assignment and one pure action for each of at most two memory symbols attaining the same or a smaller right side.
+
+Enumerating the at-most-two-action sets gives:
+- {P,Q}: 1+1+4=6.
+- {P,C}: 1+17/8+3=49/8.
+- {Q,C}: 49/8.
+- Only P, only Q, or only C: no improvement on 6.
+
+Consequently J≥1/2+6/13=25/26. This is attained without using stage 3: encode a,c into memory state 1 and b into memory state 2; stage 2 declares P in state 1 and Q in state 2. Hence K=2 optimum is exactly 25/26, even allowing stochastic root encoding, action selection, memory update and stage-3 decision.
+
+### Step C. Exact K=1 optimum
+
+With only one memory symbol, root h has been forgotten by stage 2. The same stage-2 stochastic mixture of P,Q,C must apply across all roots. Pure stop-P and stop-Q each incur error sum 1 and J=1+1/2=3/2. Pure continue produces terminal y distributions P:(3/4,1/4), Q:(1/4,3/4); their optimal total error is 1/2 and both hypotheses reach depth 3, giving J=1/2+6/8=5/4. Stochastic mixtures have an affine objective in the stage-2 probabilities; conditional terminal decisions can never beat the corresponding pure continuation Bayes value. Therefore the minimum is exactly 5/4. QED.
+
+### Consequence and strength
+
+For this explicit three-stage nonprefix observer the minimal private memory capacity **to attain the full observed-root optimum of this particular linear objective** is exactly three states. Two suffice for all root-dependent *binary terminal decisions* in certain simpler one-forgotten-stage examples, so the 2→3 separation here genuinely uses the extra stop/continue choice and ensuing future source observation. This is a model-specific memory lower bound, not a universal claim that every three-root experiment requires three states. A persistent ex-ante random seed choosing current-only plans is distinct from retained observation memory, as in EC44.
+
+## 4. Exact computational evidence and independently executable checks
+
+Companion EC45_verify.js enumerates all deterministic K=1 and K=2 controllers **including memory writing after root, optional stage-2 memory update, and both y-conditioned terminal decisions**. It uses positive integer source counts, exact integer objective J·104, and checks:
+
+- K=1: 1^3 · 3^1 · 1^1 · 2^(2·1) = 12 pure policies; minimum numerator 130 (J=5/4).
+- K=2: 2^3 · 3^2 · 2^2 · 2^(2·2) = 4608 pure policies; minimum numerator 100 (J=25/26).
+- A displayed K=3 construction has numerator 92 (J=23/26), with the universal mathematical lower bound from Step A.
+- An independent Python Fraction source-tree enumeration of the same policy class produced the same exact optima and counts; the local evidence was actually executed.
+
+The proof covers **all real stochastic policies** through the inequalities and multi-affine extremum argument; the finite enumeration alone does not justify that extension. The exact signed/phase source algebra, original-X6 dynamics, unspecified heartbeat update, third native slice coordinate, and physical time attribution are outside this model.
+
+## 5. Next precise unit R4-EC46
+
+Analyze the minimum finite-state memory needed to preserve the **entire four-observer attainable region**, not merely one exposed optimum, for source trees of growing depth. Find a finite recursively checkable observer-memory equivalence criterion, and determine whether a lower bound from distinct optimal continuation-action profiles can become a tight general memory bound. Distinguish deterministic controller memory, randomized private memory and an ex-ante seed, and preserve two original-source measures and the joint future-operation scope. Transfer to a native X6 update requires an explicit native update program, six-axis/three-dimensional-slice embedding, third coordinate, source labels and observation correspondence; this remains unproved.
+
+**Activity/authority state:** author-side exact proof and computation; no native Task owner, CLAIM, frozen Result, Guard, independent review or mathematical admission asserted.
