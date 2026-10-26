@@ -1,0 +1,90 @@
+{
+  "schema": "EM_N14_AUTHOR_EXACT_STAGE170_V1",
+  "status": "AUTHOR_EXACT_PROVED_NOT_NATIVE_REVIEWED",
+  "stage": 170,
+  "global_snapshot": "91502738ab6c509f1e3048394ea361bc8fa0776e",
+  "em_snapshot": "21380852aafeb2b1092442d629c22efb7e7304a8",
+  "model": {
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "N": 14
+  },
+  "bellman": {
+    "K": "4773735/18929",
+    "L": "14183320/56787",
+    "root": "290341590799397120042729/1555410727388508585984",
+    "count_states": 680,
+    "positive_gaps": 1238,
+    "min_positive_gap": "569/56787",
+    "ties": {
+      "(10,0,1)": [
+        "Q",
+        "C"
+      ],
+      "(12,5,2)": [
+        "P",
+        "C"
+      ]
+    }
+  },
+  "first_hit": {
+    "(10,0,1)": {
+      "histories": 10,
+      "P": "9765625/120932352",
+      "Q": "9765625/60466176"
+    },
+    "(12,5,2)": {
+      "histories": 5162,
+      "P": "8065625/73383542784",
+      "Q": "8065625/139314069504"
+    }
+  },
+  "ordered_corner_leaf_counts": {
+    "10": 234729,
+    "11": 214081,
+    "00": 234889,
+    "01": 214241
+  },
+  "coins": {
+    "r_intercept": "8976558429259453/11823616000000000",
+    "r_slope": "5541407/3694880000",
+    "u_range": [
+      "0",
+      "1"
+    ],
+    "four_corner_suffix_equal_ordered": true,
+    "mixed_all_four_zero": true
+  },
+  "left": {
+    "alpha": "882433753904177815735/2530093150022563528704",
+    "V": "4191297370163761372757/361441878574651932672"
+  },
+  "right": {
+    "alpha": "126062165849964145105/361441878574651932672",
+    "V": "4191196473918241372757/361441878574651932672"
+  },
+  "width": "152674215625/274532676868767744",
+  "slope": "28504525/56787",
+  "full_real_interval_author_proof": true,
+  "right_support_sharpness_author_proof": true,
+  "local_check": "PASS",
+  "native_review": "PENDING",
+  "native_owner": "UNKNOWN",
+  "p000_native_transfer": "NOT_PROVED",
+  "next_dual": {
+    "stage": 171,
+    "K": "378837/1529",
+    "L": "1128472/4587",
+    "new_tie": "(12,4,3):Q/C",
+    "old_tie": "(10,0,1):Q/C",
+    "status": "DUAL_ONLY"
+  }
+}
