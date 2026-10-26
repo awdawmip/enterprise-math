@@ -1,22 +1,69 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-R6P280-20261027-0452",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "75b7467c1974fe724723fcc8c4c51e5b300f0c91",
+          "path": "research_notes/research6_prefix280_c4_boundary_mask_20261027/PREFIX280_BOUNDARY_C4_BRC_RECOVERY.zh-CN.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "b871d99e6606ce6b54bf661f7491bac0fd4d83edbd51a8cf6f5fdfb231f788fe",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "53f226a122f9fa4293af2f4fc7acc66ed3c755dd",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/75b7467c1974fe724723fcc8c4c51e5b300f0c91/research_notes/research6_prefix280_c4_boundary_mask_20261027/PREFIX280_BOUNDARY_C4_BRC_RECOVERY.zh-CN.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r6p280-readback-1-20261027",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-R6P280-20261027-0452/readbacks/a98d2ac482a74c95bb589d90303a1d443dcdb270555fc5cc6eff5b72200ad9d0.json",
+          "verification_receipt_sha256": "a98d2ac482a74c95bb589d90303a1d443dcdb270555fc5cc6eff5b72200ad9d0"
+        },
+        {
+          "commit": "75b7467c1974fe724723fcc8c4c51e5b300f0c91",
+          "path": "research_notes/research6_prefix280_c4_boundary_mask_20261027/verify_prefix280.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "cbf03b5130af4d456a8005666de217193d286ca626b8bd563a69ea44cbe01104",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "83dfe10f45d6308b2d2dd1007f52a22047a15ea1",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/75b7467c1974fe724723fcc8c4c51e5b300f0c91/research_notes/research6_prefix280_c4_boundary_mask_20261027/verify_prefix280.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r6p280-readback-2-20261027",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-R6P280-20261027-0452/readbacks/2db1ba7096520c738c665c920dac72b9fffeb5ecb42c4c7a786192f4d77fc0bb.json",
+          "verification_receipt_sha256": "2db1ba7096520c738c665c920dac72b9fffeb5ecb42c4c7a786192f4d77fc0bb"
+        }
+      ],
+      "event_id": "R6P280_EXACT_SOURCE_RESEARCH_20261027_0452",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-26T20:56:39.430Z",
   "registration_key": "session:local-em-r6-p280-20261027-0452:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R006-P280",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-em-r6-p280-20261027-0452",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-26T20:56:39.430Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
