@@ -22,8 +22,12 @@
     "pending_dispatch_original_request_id": "research-onhour-20261026-1129-dispatch-v1",
     "pending_dispatch_issue": "https://github.com/awdawmip/kimi-query-bridge/issues/6518",
     "pending_receipt_issue": "https://github.com/awdawmip/kimi-query-bridge/issues/6519",
-    "last_verified_receipt_status": "RUNNING",
-    "dispatch_request_must_not_be_reissued": true
+    "last_verified_receipt_status": "FAILED",
+    "dispatch_request_must_not_be_reissued": true,
+    "last_verified_receipt_error": "TimeoutExpired",
+    "last_verified_receipt_issue": "https://github.com/awdawmip/kimi-query-bridge/issues/6518",
+    "inner_bridge_completion": "COMPLETE/FAILED; no Source dispatch selection established; not NO_DISPATCH",
+    "must_not_replay_mutation_under_new_id": true
   },
   "prior_external_source": {
     "kind": "READ_ONLY_DIFFERENT_CONVERSATION_CANNOT_BORROW_IDENTITY",
@@ -76,9 +80,10 @@
     "Do not borrow CONTROL_PLANE_MAINTENANCE conversation or different research session claim",
     "Do not substitute author GitHub file, Site read-only status, queued dispatch or support Issue for Source checkpoint/Result"
   ],
-  "next_control_action": "Re-read the original dispatch request research-onhour-20261026-1129-dispatch-v1 by RECEIPT, reconcile only if UNKNOWN, consume exact canonical selector. After current Research session authority & legitimate winning CLAIM are verified use Source prepare/claim/open/checkpoint per current schema; otherwise keep author-only data isolated.",
+  "next_control_action": "Read original dispatch research-onhour-20261026-1129-dispatch-v1 receipt/reconcile under current schema; original inner outcome COMPLETE/FAILED TimeoutExpired, no canonical selection established, no own CLAIM. Diagnose only once by existing support issue #1558 owner route; do not infer NO_DISPATCH or create a duplicate dispatch while side effects/Source last owner unresolved. Preserve Source and native benchmark frontiers.",
   "next_science_action": "Native original-class H0/B0 [X]U mod p^2 benchmark first, then test signed/correctly normalized p373 comparison and original Delta-R, preserving full cutoff and source pins.",
   "closed": false,
   "scheduler_modified": false,
-  "notification_settings_modified": false
+  "notification_settings_modified": false,
+  "control_support_issue": "https://github.com/awdawmip/enterprise-math/issues/1558 (existing shared control transport support; do not use maintenance lane identity)"
 }
