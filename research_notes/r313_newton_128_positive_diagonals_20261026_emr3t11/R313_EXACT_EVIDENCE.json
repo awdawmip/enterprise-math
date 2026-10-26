@@ -1,0 +1,109 @@
+{
+  "schema": "EM_R313_NEWTON_128_DIAGONALS_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "model": "Positive ordered six-edge BRC complete effect fibre difference, R305/R307 rational generating kernel",
+  "arithmetic": "JavaScript BigInt only, exact integer Pascal binomial recurrence and polynomial arithmetic; no floating point for signs",
+  "theorem": "For every integer 0<=s<=128 and every integer d>=max(2,s+1), K_s(d) >= 2^s * sum_{k=0}^s binom(d-s-1,k) > 0",
+  "transformed_kernel": "G(u,z)=(1-u(1+u)^3 z-u(1+u)^6 z^2+u^2(1+u)^8 z^3)/((1+u(1+u)^2 z)(1-(1+u)^4 z+2u(1+u)^5 z^2-u^2(1+u)^7 z^3))",
+  "coefficient_recursion": "M_0=1; M_s=n_s*(1-z)^s-sum_{i=1}^{min(s,12)} delta_i*M_{s-i}*(1-z)^{i-1}; deg M_s<=2s+1",
+  "tested_s_range": [
+    0,
+    128
+  ],
+  "certificate_cells": 8385,
+  "strict_over_2_to_s": 8256,
+  "equal_to_2_to_s": 129,
+  "every_certificate_a_s_k_at_least_2_to_s": true,
+  "independent_old_Q_recurrence_crosscheck": {
+    "d_min": 2,
+    "d_max": 40,
+    "all_s_less_d": true,
+    "exact_comparisons": 819,
+    "result": "PASS"
+  },
+  "samples": {
+    "0": {
+      "degree_m": 0,
+      "min_relative_bound": "1",
+      "k0": "1",
+      "kmiddle": "1",
+      "ks": "1",
+      "all_ge_two_to_s": true
+    },
+    "1": {
+      "degree_m": 3,
+      "min_relative_bound": "2",
+      "k0": "3",
+      "kmiddle": "3",
+      "ks": "2",
+      "all_ge_two_to_s": true
+    },
+    "5": {
+      "degree_m": 11,
+      "min_relative_bound": "32",
+      "k0": "219",
+      "kmiddle": "861",
+      "ks": "32",
+      "all_ge_two_to_s": true
+    },
+    "6": {
+      "degree_m": 12,
+      "min_relative_bound": "64",
+      "k0": "1258",
+      "kmiddle": "3303",
+      "ks": "64",
+      "all_ge_two_to_s": true
+    },
+    "16": {
+      "degree_m": 32,
+      "min_relative_bound": "65536",
+      "k0": "49463699915",
+      "kmiddle": "15847308113",
+      "ks": "65536",
+      "all_ge_two_to_s": true
+    },
+    "32": {
+      "degree_m": 64,
+      "min_relative_bound": "4294967296",
+      "k0": "43443214403995515405902",
+      "kmiddle": "1380321568757842626209",
+      "ks": "4294967296",
+      "all_ge_two_to_s": true
+    },
+    "64": {
+      "degree_m": 128,
+      "min_relative_bound": "18446744073709551616",
+      "k0": "44882907251736133727718671682717736955109050727",
+      "kmiddle": "15108536194639189614560084679655954323332417",
+      "ks": "18446744073709551616",
+      "all_ge_two_to_s": true
+    },
+    "96": {
+      "degree_m": 192,
+      "min_relative_bound": "79228162514264337593543950336",
+      "k0": "52968504098312660258315254825206189677090159533078841021528283502262789",
+      "kmiddle": "191395154942074492361670263065210024130527972211270961828924810209",
+      "ks": "79228162514264337593543950336",
+      "all_ge_two_to_s": true
+    },
+    "128": {
+      "degree_m": 256,
+      "min_relative_bound": "340282366920938463463374607431768211456",
+      "k0": "66136670371209598518248803420277104842247259628189726252693281938546018448611394114754355984994",
+      "kmiddle": "2572850787646615883423570635608883524658610892719274612755195408611442218187699121257089",
+      "ks": "340282366920938463463374607431768211456",
+      "all_ge_two_to_s": true
+    }
+  },
+  "scope": "Finite s-index 0..128, unbounded d by proven Newton-polynomial identity; not all unbounded s",
+  "source_state": {
+    "account_snapshot": "6b84efafacb760e2e0733177c29040fdc3d87b5c",
+    "em_snapshot": "feb91b5fff944892e8e96f61e75bacfea47c4cb2",
+    "native_owner": "UNVERIFIED_CONTROL_QUOTA",
+    "native_session": "STATIC_READONLY_SCOPE_DENIED_OPERATION_NOT_SENT",
+    "formal_claim": false,
+    "source_result": false,
+    "driver_review": false,
+    "physical_x6_transfer": false
+  }
+}
