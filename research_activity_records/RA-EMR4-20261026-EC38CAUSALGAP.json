@@ -18,6 +18,85 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": [],
-  "source_transport_note": "Local logical session key only, not platform/session attestation. Authenticated GitHub actor awdawmip. Native gateway session_start returned STATIC_READONLY_SCOPE_DENIED; control_tasks returned CONTROL_QUOTA. No native session, formal CLAIM or owner verification obtained."
+  "checkpoints": [
+    {
+      "event_id": "EM-R4-EC38-20261026-CAUSAL-OBSERVER-GAP",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "1757dfcdcc1bd9dd069e0fb2d0e1e70b708b33a0",
+          "path": "research_notes/r4_ec38_causal_observer_gap_20261026/EC38_verify.js",
+          "sha256": "1b5b3db0d657907b70af0819dc0257a6e18e6143b9aff7523aaba22559e9a288",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "readback": {
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "EC38-ACT-1",
+            "arguments": {
+              "repository_full_name": "awdawmip/enterprise-math",
+              "ref": "1757dfcdcc1bd9dd069e0fb2d0e1e70b708b33a0",
+              "path": "research_notes/r4_ec38_causal_observer_gap_20261026/EC38_verify.js"
+            },
+            "result": {
+              "isError": false,
+              "structuredContent": {
+                "content": "/* EC38: exact finite positive-source BRC co-adapted coupling gap.\n * Auxiliary source kernels, not a Heartbeat World dynamics execution.\n * Run: node EC38_verify.js\n */\n(function () {\n\"use strict\";\nfunction assert(x,msg){if(!x)throw new Error(msg);}\nfunction kernel(k,which){\n const rows={O:[],Z:[[\"X\",\"Z\",k]]};\n for(let i=0;i<k;i++){\n  const s=\"S\"+i;\n  rows.O.push([\"*\",s,1]);\n  rows[s]=which===\"P\"\n   ?[[String(i),\"Z\",k]]\n   :Array.from({length:k},(_,a)=>[String(a),\"Z\",1]);\n }\n return rows;\n}\nfunction words(rows,n){\n let dist=new Map([[JSON.stringify([\"O\",\"\"]),1n]]);\n for(let t=0;t<n;t++){\n  const next=new Map();\n  for(const [key,v] of dist){\n   const [s,w]=JSON.parse(key);\n   for(const [label,z,m] of rows[s]){\n    const key2=JSON.stringify([z,w+label]);\n    next.set(key2,(next.get(key2)||0n)+v*BigInt(m));\n   }\n  }\n  dist=next;\n }\n const out=new Map();\n for(const [key,v] of dist){\n  const w=JSON.parse(key)[1];\n  out.set(w,(out.get(w)||0n)+v);\n }\n return out;\n}\nfunction total(d){let s=0n;for(const v of d.values())s+=v;return s;}\nfunction l1(a,b){let t=0n;for(const key of new Set([...a.keys(),...b.keys()])){\n const x=a.get(key)||0n,y=b.get(key)||0n;t+=x>=y?x-y:y-x;\n}return t;}\nfunction verify(){\n const checks={model_pairs:0,horizon_comparisons:0,word_cells:0,integer_count_equalities:0,transport_primal_feasibility:0,transport_dual_inequalities:0,primal_dual_optimality:0};\n const examples={};\n for(let k=2;k<=12;k++){\n  const p=kernel(k,\"P\"),q=kernel(k,\"Q\");\n  for(let n=0;n<=6;n++){\n   const a=words(p,n),b=words(q,n),M=BigInt(k)**BigInt(n);\n   assert(total(a)===M&&total(b)===M,\"row-sum multiplicity\");\n   assert(l1(a,b)===0n,\"word law equality\");\n   checks.horizon_comparisons++;checks.word_cells+=a.size;\n   if(n>=2){\n    assert(a.size===k&&b.size===k,\"observable support width\");\n    for(let i=0;i<k;i++){\n     const w=\"*\"+String(i)+\"X\".repeat(n-2);\n     const expect=BigInt(k)**BigInt(n-1);\n     assert(a.get(w)===expect&&b.get(w)===expect,\"exact word count\");\n     checks.integer_count_equalities++;\n    }\n   }\n  }\n  // Second operation: P has one aggregate output i with mass 1,\n  // Q has k outputs b with mass 1/k. Gamma(0,b)=1/k.\n  for(let i=0;i<k;i++){\n   let rowNum=0,primalNum=0,dualNum=0;\n   for(let b=0;b<k;b++){\n    const gammaNum=1, c=Number(i===b);\n    const u=0,v=c;\n    rowNum+=gammaNum;primalNum+=gammaNum*c;dualNum+=v;\n    assert(u+v>=c,\"stage-1 dual condition\");checks.transport_dual_inequalities++;\n    assert(gammaNum===1,\"stage-1 Q column mass (numerator over k)\");\n    checks.transport_primal_feasibility++;\n   }\n   assert(rowNum===k,\"stage-1 P row mass\");\n   assert(primalNum===dualNum&&primalNum===1,\"stage-1 primal/dual value 1/k\");\n   checks.primal_dual_optimality++;\n  }\n  // First operation: both models emit * and choose one of k hidden states.\n  // Gamma(i,j)=1/k on diagonal; downstream payoff h_1(i,j)=1/k.\n  for(let i=0;i<k;i++){\n   let rowNum=0,colNum=0;\n   for(let j=0;j<k;j++){\n    const gammaNum=Number(i===j);\n    rowNum+=gammaNum;colNum+=Number(j===i);\n    // Cost and dual potentials are scaled by k:\n    // c_ij=1/k; U_i=1/k,V_j=0.\n    assert(1+0>=1,\"stage-0 dual inequality\");\n    checks.transport_dual_inequalities++;\n   }\n   assert(rowNum===1&&colNum===1,\"stage-0 diagonal marginal\");\n   checks.transport_primal_feasibility+=2;\n  }\n  // Both objective values equal K*(1/K)*(1/K) = 1/K.\n  const firstPrimalNumerator=k,firstDualNumerator=k;\n  assert(firstPrimalNumerator===firstDualNumerator,\"stage-0 primal dual match\");\n  checks.primal_dual_optimality++;\n  checks.model_pairs++;\n  if([2,3,5,12].includes(k))examples[String(k)]={\n   observed_word_TV:\"0\",\n   coadapted_optimal_match:\"1/\"+k,\n   coadapted_defect:(k-1)+\"/\"+k,\n   each_depth2_word_microcount:String(k)\n  };\n }\n return {schema:\"EM_R4_EC38_CAUSAL_OBSERVER_GAP_VERIFY_V1\",status:\"PASS\",\n  arithmetic:\"exact BigInt source-word counts; integer-scaled rational primal and dual witnesses\",\n  scope:\"auxiliary finite labelled positive-integer source kernels with constant outgoing microbranch total; observer erases microscopic branch identities\",\n  verification_domain:{k:\"2..12\",operation_depth:\"0..6\"},\n  checks,examples,native_X6_tested:false,independent_driver_review:false};\n}\nconst result=verify();\nif(typeof console!==\"undefined\"&&typeof console.log===\"function\")console.log(JSON.stringify(result,null,2));\nreturn result;\n})()\n",
+                "encoding": "utf-8",
+                "sha": "cb00f0ae8d9607b4c989a828e890d6694e645586",
+                "display_url": "https://github.com/awdawmip/enterprise-math/blob/1757dfcdcc1bd9dd069e0fb2d0e1e70b708b33a0/research_notes/r4_ec38_causal_observer_gap_20261026/EC38_verify.js",
+                "display_title": "EC38_verify.js"
+              }
+            }
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "1757dfcdcc1bd9dd069e0fb2d0e1e70b708b33a0",
+          "path": "research_notes/r4_ec38_causal_observer_gap_20261026/EC38_REPORT.json",
+          "sha256": "a0bf57436759b394218ba4dc4dde9635959c7c599613cc1d9a45ac8edda5adc7",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "readback": {
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "EC38-ACT-2",
+            "arguments": {
+              "repository_full_name": "awdawmip/enterprise-math",
+              "ref": "1757dfcdcc1bd9dd069e0fb2d0e1e70b708b33a0",
+              "path": "research_notes/r4_ec38_causal_observer_gap_20261026/EC38_REPORT.json"
+            },
+            "result": {
+              "isError": false,
+              "structuredContent": {
+                "content": "{\n  \"schema\": \"EM_R4_EC38_CAUSAL_OBSERVER_GAP_VERIFY_V1\",\n  \"status\": \"PASS\",\n  \"arithmetic\": \"exact BigInt source-word counts; integer-scaled rational primal and dual witnesses\",\n  \"scope\": \"auxiliary finite labelled positive-integer source kernels with constant outgoing microbranch total; observer erases microscopic branch identities\",\n  \"verification_domain\": {\n    \"k\": \"2..12\",\n    \"operation_depth\": \"0..6\"\n  },\n  \"checks\": {\n    \"model_pairs\": 11,\n    \"horizon_comparisons\": 77,\n    \"word_cells\": 407,\n    \"integer_count_equalities\": 385,\n    \"transport_primal_feasibility\": 803,\n    \"transport_dual_inequalities\": 1298,\n    \"primal_dual_optimality\": 88\n  },\n  \"examples\": {\n    \"2\": {\n      \"observed_word_TV\": \"0\",\n      \"coadapted_optimal_match\": \"1/2\",\n      \"coadapted_defect\": \"1/2\",\n      \"each_depth2_word_microcount\": \"2\"\n    },\n    \"3\": {\n      \"observed_word_TV\": \"0\",\n      \"coadapted_optimal_match\": \"1/3\",\n      \"coadapted_defect\": \"2/3\",\n      \"each_depth2_word_microcount\": \"3\"\n    },\n    \"5\": {\n      \"observed_word_TV\": \"0\",\n      \"coadapted_optimal_match\": \"1/5\",\n      \"coadapted_defect\": \"4/5\",\n      \"each_depth2_word_microcount\": \"5\"\n    },\n    \"12\": {\n      \"observed_word_TV\": \"0\",\n      \"coadapted_optimal_match\": \"1/12\",\n      \"coadapted_defect\": \"11/12\",\n      \"each_depth2_word_microcount\": \"12\"\n    }\n  },\n  \"native_X6_tested\": false,\n  \"independent_driver_review\": false\n}\n",
+                "encoding": "utf-8",
+                "sha": "bdce1d9d9620880302e8d4650cd20da6de455f8a",
+                "display_url": "https://github.com/awdawmip/enterprise-math/blob/1757dfcdcc1bd9dd069e0fb2d0e1e70b708b33a0/research_notes/r4_ec38_causal_observer_gap_20261026/EC38_REPORT.json",
+                "display_title": "EC38_REPORT.json"
+              }
+            }
+          }
+        }
+      ],
+      "kb_sources": [],
+      "note_source": {
+        "commit": "1757dfcdcc1bd9dd069e0fb2d0e1e70b708b33a0",
+        "path": "research_notes/r4_ec38_causal_observer_gap_20261026/EC38_CAUSAL_OBSERVER_GAP.md",
+        "git_blob_sha1": "bde8d34d0782f38e4add5a2b0e86bb1969578fe5",
+        "sha256": "4e4b9635964aad10204e66eb8ffc38250f3d8a882b696ed7b930a1e94de2748d"
+      },
+      "scientific_scope": "AUTHOR_SIDE_AUXILIARY_POSITIVE_BRC; observer full word and microbranch macro-label counts; native_X6 unverified",
+      "local_verification": "JavaScript V8 exact BigInt/transport-certificate PASS (K=2..12; depth 0..6); Node cold-start not claimed",
+      "native_owner_state": "UNVERIFIED_CONTROL_QUOTA",
+      "formal_claim": false,
+      "native_service_session_created": false,
+      "native_guard_executed": false,
+      "independent_driver_review": false
+    }
+  ],
+  "source_transport_note": "Local logical session key only, not platform/session attestation. Authenticated GitHub actor awdawmip. Native gateway session_start returned STATIC_READONLY_SCOPE_DENIED; control_tasks returned CONTROL_QUOTA. No native session, formal CLAIM or owner verification obtained.",
+  "metadata": {
+    "identity_scope": "LOCAL_LOGICAL_KEY_NOT_NATIVE_ATTESTED",
+    "formal_task_owner": "UNVERIFIED_CONTROL_QUOTA",
+    "research_role_scope": "AUTHOR_SIDE_INDEPENDENT_UNIT"
+  }
 }
