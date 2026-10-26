@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR4-20261026-1930-EC47THRESHOLD",
+  "registration_key": "session:local-automation-r4-20261026-1930:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-R004-AUTO-EC47-20261026-1930",
+  "session_id": "local-automation-r4-20261026-1930",
+  "session_state": "KNOWN",
+  "session_key_type": "LOCALLY_ASSIGNED_NOT_SERVICE_AUTHENTICATED",
+  "recorded_at": "2026-10-26T11:45:26.806Z",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "EC47-20261026-1930-source-readback",
+      "state": "EM_REPRESENTED",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "85a523ba6a887395c47d924fe037f772242f6a25",
+          "path": "research_notes/r4_ec47_threshold_memory_20261026/EC47_THRESHOLD_MEMORY_ROC_REGION.md",
+          "sha256": "7331f7c5fbff86d1de287cea5a9374b9b68e31541218d6cf383deb9e5ce9bea7",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "tool_name": "github_fetch_file",
+            "observation_id": "EC47-20261026-GitHubProofReadback",
+            "git_blob_sha1": "60cc67184bb055db6a5d5cd527e036e23c8f5ff0",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "server_signature_authenticated": false,
+            "network_request_by_this_tool": false,
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/85a523ba6a887395c47d924fe037f772242f6a25/research_notes/r4_ec47_threshold_memory_20261026/EC47_THRESHOLD_MEMORY_ROC_REGION.md"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261026-1930-EC47THRESHOLD/readbacks/038f7e7c8d3abefb03b2cfad41ce7be14862c28ca06aed3b3843fd29bbed55a2.json",
+          "verification_receipt_sha256": "038f7e7c8d3abefb03b2cfad41ce7be14862c28ca06aed3b3843fd29bbed55a2"
+        }
+      ],
+      "kb_sources": [],
+      "repairs_event_id": null
+    }
+  ]
+}
