@@ -15,8 +15,9 @@ PREFIX-268 established that `r(z)=z-min_i(z_i)(1,...,1)` is future-safe for the 
 Work entirely within Source WBRC-T30/T31 finite **non-negative rational** port modules with a stable hidden block. Choose the same native chart-relative Cell coordinate `z=(0,0,0,0,0,0)` for both modules. Form a *mathematical product test carrier*, not a declared complete native heartbeat state. Let its intentionally coarse observer be
 
 ```
-q(z, module) = (can6(z), CWM of one completed positive macro-excursion,
-                 with the output-port label forgotten).
+q(z, module) = (can6(z), CWM of the full family of one-step boundary-to-boundary macro transitions,
+                 counting both direct edges and hidden excursions and
+                 forgetting the output-port label).
 ```
 
 Future operations are precisely the WBRC-T31 allowed additions of rational non-negative edges between existing labeled boundary ports. The future observation is the stable/unstable result of Source recurrent positive total-mass analysis. CWM is the positive (count,total,dominant) branch state, not a signed amplitude or absolute global loop zeta.
@@ -70,7 +71,7 @@ Thus the same legal future context yields different stable/unstable BRC outputs 
 
 ### Why two ports is sharp
 
-With one labeled port, the unlabelled macro total mass is just the single scalar `W_eff` entry. Equal CWM entails equal total W, hence equal `W_eff`. Canonical WBRC-T31 states that two baseline-stable modules with the same labeled `W_eff` are dynamically context-equivalent for every allowed non-negative rational port context. Therefore one port cannot realize this observer failure; the exhibited two-port construction attains the lower bound. The statement is conditional on *this* macro-total CWM observer; removing more information can allow earlier failure.
+Under the declared **complete macro-transition observer**, including direct as well as hidden boundary-to-boundary transitions, with one labeled port the unlabelled total macro mass equals the only scalar `W_eff` entry. Finite CWM counts are invoked here only for finite macro-path families (including this acyclic-hidden witness); general recurrent hidden blocks can have infinitely many macro paths and then require their exact convergent total mass rather than a fabricated finite branch count. Equal CWM entails equal total W, hence equal `W_eff`. Canonical WBRC-T31 states that two baseline-stable modules with the same labeled `W_eff` are dynamically context-equivalent for every allowed non-negative rational port context. Therefore one port cannot realize this observer failure; the exhibited two-port construction attains the lower bound. The statement is conditional on *this* macro-total CWM observer; removing more information can allow earlier failure.
 
 An independent paper certificate consists of the positive recurrent cycle of mass exactly 1 for A and the strict integer potential `(1,5)` for B. It does not depend on a floating-point eigensolver.
 
