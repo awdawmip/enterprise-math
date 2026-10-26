@@ -1,0 +1,142 @@
+{
+  "schema": "EM_R4_EC47_JS_EXACT_V1",
+  "all_checks": "PASS",
+  "arithmetic": "Exact safe-range JavaScript integer operations, no floating source comparison",
+  "checked_k": "1..8",
+  "pairwise_graph_checks": 43435,
+  "witness_family": [
+    {
+      "k": 1,
+      "histories": 2,
+      "terminal_labels": 2,
+      "total_positive_sources_each": 10,
+      "lambda_1_chromatic": 1,
+      "lambda_3_chromatic": 2,
+      "exact_region_memory": 2,
+      "complete_graph_pair_checks": 1,
+      "unrestricted_support_lambda_3": "1/10",
+      "one_memory_support_lambda_3": "0",
+      "Bayes_error_sum_lambda_1": "3/5"
+    },
+    {
+      "k": 2,
+      "histories": 4,
+      "terminal_labels": 3,
+      "total_positive_sources_each": 40,
+      "lambda_1_chromatic": 1,
+      "lambda_3_chromatic": 4,
+      "exact_region_memory": 4,
+      "complete_graph_pair_checks": 6,
+      "unrestricted_support_lambda_3": "1/10",
+      "one_memory_support_lambda_3": "0",
+      "Bayes_error_sum_lambda_1": "3/5"
+    },
+    {
+      "k": 3,
+      "histories": 8,
+      "terminal_labels": 4,
+      "total_positive_sources_each": 120,
+      "lambda_1_chromatic": 1,
+      "lambda_3_chromatic": 8,
+      "exact_region_memory": 8,
+      "complete_graph_pair_checks": 28,
+      "unrestricted_support_lambda_3": "1/10",
+      "one_memory_support_lambda_3": "0",
+      "Bayes_error_sum_lambda_1": "3/5"
+    },
+    {
+      "k": 4,
+      "histories": 16,
+      "terminal_labels": 5,
+      "total_positive_sources_each": 320,
+      "lambda_1_chromatic": 1,
+      "lambda_3_chromatic": 16,
+      "exact_region_memory": 16,
+      "complete_graph_pair_checks": 120,
+      "unrestricted_support_lambda_3": "1/10",
+      "one_memory_support_lambda_3": "0",
+      "Bayes_error_sum_lambda_1": "3/5"
+    },
+    {
+      "k": 5,
+      "histories": 32,
+      "terminal_labels": 6,
+      "total_positive_sources_each": 800,
+      "lambda_1_chromatic": 1,
+      "lambda_3_chromatic": 32,
+      "exact_region_memory": 32,
+      "complete_graph_pair_checks": 496,
+      "unrestricted_support_lambda_3": "1/10",
+      "one_memory_support_lambda_3": "0",
+      "Bayes_error_sum_lambda_1": "3/5"
+    },
+    {
+      "k": 6,
+      "histories": 64,
+      "terminal_labels": 7,
+      "total_positive_sources_each": 1920,
+      "lambda_1_chromatic": 1,
+      "lambda_3_chromatic": 64,
+      "exact_region_memory": 64,
+      "complete_graph_pair_checks": 2016,
+      "unrestricted_support_lambda_3": "1/10",
+      "one_memory_support_lambda_3": "0",
+      "Bayes_error_sum_lambda_1": "3/5"
+    },
+    {
+      "k": 7,
+      "histories": 128,
+      "terminal_labels": 8,
+      "total_positive_sources_each": 4480,
+      "lambda_1_chromatic": 1,
+      "lambda_3_chromatic": 128,
+      "exact_region_memory": 128,
+      "complete_graph_pair_checks": 8128,
+      "unrestricted_support_lambda_3": "1/10",
+      "one_memory_support_lambda_3": "0",
+      "Bayes_error_sum_lambda_1": "3/5"
+    },
+    {
+      "k": 8,
+      "histories": 256,
+      "terminal_labels": 9,
+      "total_positive_sources_each": 10240,
+      "lambda_1_chromatic": 1,
+      "lambda_3_chromatic": 256,
+      "exact_region_memory": 256,
+      "complete_graph_pair_checks": 32640,
+      "unrestricted_support_lambda_3": "1/10",
+      "one_memory_support_lambda_3": "0",
+      "Bayes_error_sum_lambda_1": "3/5"
+    }
+  ],
+  "tiny_witness": {
+    "P": [
+      [
+        5,
+        1
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "Q": [
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "total": 10,
+    "Bayes_error_sum": "3/5",
+    "full_lambda_2": "1/10",
+    "K1_lambda_2": "0",
+    "entire_region_memory": 2
+  },
+  "proof_status": "Universal theorem is algebraic; finite checks corroborate only the stated family",
+  "native_X6_validation": "NOT_EXECUTED"
+}
