@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR4-20261026-RUN11-EC45MEMORY",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "94195f2789fab44e7903c0eb688125f4f1bbfcd4",
+          "path": "research_notes/r4_ec45_memory_hierarchy_20261026/EC45_STRICT_THREE_MEMORY_HIERARCHY.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "2e09b6523348e386a54191696b045bd378bfcfe1e74c8087c629671f14cc5be9",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "beab911ee4888075c5c705eb887e3ab30fef1b6d",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/94195f2789fab44e7903c0eb688125f4f1bbfcd4/research_notes/r4_ec45_memory_hierarchy_20261026/EC45_STRICT_THREE_MEMORY_HIERARCHY.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "EC45-20261026-1720-author-source-readback",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261026-RUN11-EC45MEMORY/readbacks/390f2a6ae91affb4e36f62625b770d0036df4e0eff4a55cc80ddb4b0aff8da7a.json",
+          "verification_receipt_sha256": "390f2a6ae91affb4e36f62625b770d0036df4e0eff4a55cc80ddb4b0aff8da7a"
+        }
+      ],
+      "event_id": "EC45-20261026-1720-source-verified",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-26T09:20:52.240Z",
   "registration_key": "session:em-r4-automation-turn11-20261026-1715-local:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R004-A37B",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "em-r4-automation-turn11-20261026-1715-local",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-26T09:20:52.240Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
