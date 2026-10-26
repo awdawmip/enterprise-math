@@ -132,9 +132,22 @@ until the helper or an authorized execution host can check it.
 
 Within one operation, repeated references to the same sidecar reuse one read and
 accepted source. Across calls in the same process, unchanged exact sidecar bytes
-and source bindings in the same root reuse static validation through a bounded
-memory cache. Each new operation still reads persisted bytes: path, size, mtime
+and source bindings in the same root may reuse JSON decoding and static
+validation. This does not avoid full-history I/O: each guard/checkpoint still
+traverses the history and reads every distinct sidecar's bytes. Path, size, mtime
 or an unchanged activity record alone cannot establish an unchanged sidecar.
+
+The shared process-local LRU has at most 128 entries. Only sidecar `bytes`
+objects whose `sys.getsizeof` is at most 64 KiB enter it, including the bytes
+object's overhead; thus retained cache-key bytes objects total at most 8 MiB per
+cache instance. Larger inputs are fully validated without caching or evicting
+existing entries. This is not a total process-memory/RSS limit: key/result
+metadata, caller buffers and transient decoding allocations are separate.
+Eviction or bypass affects only optimization; no data/history is rejected or
+truncated. More than 128 distinct entries, including a 129-entry cyclic scan,
+can thrash the LRU and repeat all static validation on every scan. There is no
+constant-time or warm-history performance guarantee, including across activities.
+
 Changed bytes/bindings or a different root are validated again; a fresh process
 validates its first read. No cache entry is persisted or grants authority. The
 stored receipt digest binds the actual JSON bytes, without requiring another

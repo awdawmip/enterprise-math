@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import shutil
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -37,8 +38,8 @@ class ResearchActivityReadbackReuseTests(unittest.TestCase):
         self.activity_id = 'RA-TESTREUSE01'
         self.session_id = 'synthetic-local-session'
         self.source = observation('research_notes/synthetic-first.md', b'first synthetic source\n')
-        activity._verified_readback.cache_clear()
-        self.addCleanup(activity._verified_readback.cache_clear)
+        activity._cached_readback.cache_clear()
+        self.addCleanup(activity._cached_readback.cache_clear)
         activity.register(root=self.root, activity_id=self.activity_id, mode='TASK_RESEARCH',
                           session_id=self.session_id, researcher_id='EM-TEST-1234')
 
@@ -55,6 +56,83 @@ class ResearchActivityReadbackReuseTests(unittest.TestCase):
             session_id=self.session_id, boundary='pre-final', new_semantic_progress=False,
             registration_source=registration or observation(
                 f'{activity.STORE}/{self.activity_id}.json', self.path().read_bytes()))
+
+    def receipt(self, source, activity_id=None):
+        activity_id = activity_id or self.activity_id
+        accepted, (relative, raw) = activity._source(source, activity_id)
+        path = self.root / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(raw)
+        return accepted, raw
+
+    def history(self, sources, activity_id=None):
+        activity_id = activity_id or self.activity_id
+        return {'activity_id': activity_id, 'checkpoints': [
+            {'event_id': f'event-{index}', 'em_sources': [self.receipt(source, activity_id)[0]],
+             'kb_sources': [], 'state': 'EM_REPRESENTED', 'repairs_event_id': None}
+            for index, source in enumerate(sources)
+        ]}
+
+    def source_with_receipt_size(self, size):
+        content = b'x' * size
+        source = observation('research_notes/size-fixture.md', content)
+        difference = size - sys.getsizeof(activity.encoded(source['readback']))
+        source = observation('research_notes/size-fixture.md', b'x' * (len(content) + difference))
+        self.assertEqual(sys.getsizeof(activity.encoded(source['readback'])), size)
+        return source
+
+    def test_cache_size_boundary_never_limits_valid_input(self):
+        limit = activity._READBACK_CACHE_ENTRY_BYTES
+        for size, expected_checks, expected_entries in ((limit - 1, 1, 1),
+                                                       (limit, 1, 1), (limit + 1, 2, 0)):
+            with self.subTest(size=size):
+                activity._cached_readback.cache_clear()
+                accepted, _ = self.receipt(self.source_with_receipt_size(size))
+                with patch.object(activity, 'verify_observation', wraps=activity.verify_observation) as verify:
+                    for _ in range(2):
+                        self.assertEqual(activity._checked_source(accepted, self.activity_id, self.root),
+                                         'EM_SOURCE_OBSERVED')
+                self.assertEqual(verify.call_count, expected_checks)
+                self.assertEqual(activity._cached_readback.cache_info().currsize, expected_entries)
+        self.assertLessEqual(activity._READBACK_CACHE_ENTRIES * limit, activity._READBACK_CACHE_BYTES)
+
+    def test_oversized_input_does_not_evict_a_warm_small_entry(self):
+        small, _ = self.receipt(self.source)
+        activity._checked_source(small, self.activity_id, self.root)
+        large, _ = self.receipt(self.source_with_receipt_size(activity._READBACK_CACHE_ENTRY_BYTES + 1))
+        with patch.object(activity, 'verify_observation', wraps=activity.verify_observation) as verify:
+            for _ in range(2):
+                self.assertEqual(activity._checked_source(large, self.activity_id, self.root),
+                                 'EM_SOURCE_OBSERVED')
+            activity._checked_source(small, self.activity_id, self.root)
+        self.assertEqual(verify.call_count, 2)
+        self.assertEqual(activity._cached_readback.cache_info().currsize, 1)
+
+    def test_eviction_and_cyclic_thrash_preserve_the_entire_history(self):
+        count = activity._READBACK_CACHE_ENTRIES + 1
+        record = self.history([observation(f'research_notes/eviction-{index}.md', b'fixture\n')
+                               for index in range(count)])
+        with patch.object(activity, 'verify_observation', wraps=activity.verify_observation) as verify:
+            self.assertEqual(len(activity._events(record, self.root)), count)
+            self.assertEqual(verify.call_count, count)
+            self.assertEqual(len(activity._events(record, self.root)), count)
+            self.assertEqual(verify.call_count, 2 * count)
+        self.assertEqual(activity._cached_readback.cache_info().currsize, activity._READBACK_CACHE_ENTRIES)
+
+    def test_activities_share_cache_budget_without_sharing_acceptance(self):
+        per_activity = activity._READBACK_CACHE_ENTRIES // 2 + 1
+        sources = [observation(f'research_notes/shared-{index}.md', b'shared fixture\n')
+                   for index in range(per_activity)]
+        first = self.history(sources)
+        second = self.history(sources, 'RA-SECONDTEST')
+        with patch.object(activity, 'verify_observation', wraps=activity.verify_observation) as verify:
+            self.assertEqual(len(activity._events(first, self.root)), per_activity)
+            self.assertEqual(len(activity._events(second, self.root)), per_activity)
+        self.assertEqual(verify.call_count, 2 * per_activity)
+        info = activity._cached_readback.cache_info()
+        self.assertEqual(info.currsize, activity._READBACK_CACHE_ENTRIES)
+        self.assertLessEqual(info.currsize * activity._READBACK_CACHE_ENTRY_BYTES,
+                             activity._READBACK_CACHE_BYTES)
 
     def test_unchanged_history_reuses_validation_and_new_receipt_is_checked(self):
         self.checkpoint('first')
@@ -79,7 +157,7 @@ class ResearchActivityReadbackReuseTests(unittest.TestCase):
         def read(path):
             reads.append(path)
             return original(path)
-        activity._verified_readback.cache_clear()
+        activity._cached_readback.cache_clear()
         with patch.object(Path, 'read_bytes', read):
             activity._events(record, self.root)
         self.assertEqual(reads.count(receipt), 1)
@@ -150,7 +228,7 @@ class ResearchActivityReadbackReuseTests(unittest.TestCase):
         record = self.checkpoint('first')
         other = Path(self.temporary.name) / 'other'
         shutil.copytree(self.root, other)
-        activity._verified_readback.cache_clear()
+        activity._cached_readback.cache_clear()
         with patch.object(activity, 'verify_observation', wraps=activity.verify_observation) as verify:
             activity._events(record, self.root)
             activity._events(record, other)

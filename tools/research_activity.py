@@ -33,6 +33,9 @@ MODES = ("TASK_RESEARCH", "FREE_AXIOM_DISCOVERY", "UNKNOWN_RESEARCH")
 NO_AUTHORITY = {name: False for name in (
     "task_registration", "claim", "review", "working_truth", "mathematical_acceptance"
 )}
+_READBACK_CACHE_ENTRIES = 128
+_READBACK_CACHE_BYTES = 8 * 1024 * 1024
+_READBACK_CACHE_ENTRY_BYTES = _READBACK_CACHE_BYTES // _READBACK_CACHE_ENTRIES
 
 
 class ActivityError(ValueError):
@@ -243,18 +246,28 @@ def _source(source: Any, activity_id: str) -> tuple[dict[str, Any], tuple[str, b
     return accepted, (accepted["verification_receipt"], data)
 
 
-@lru_cache(maxsize=128)
-def _verified_readback(root: Path, activity_id: str, receipt_sha: str,
-                       pin: tuple[str, str, str, str], data: bytes) -> dict[str, Any]:
-    # Exact persisted bytes are read afresh by each operation. Reuse only their
-    # static validation in this receiver/root, never a path/mtime assertion.
-    # The bounded process-local cache creates no durable certificate or authority.
+def _verify_readback(root: Path, activity_id: str, receipt_sha: str,
+                     pin: tuple[str, str, str, str], data: bytes) -> dict[str, Any]:
     if digest(data) != receipt_sha:
         raise ActivityError("verification receipt bytes drift")
     repository, commit, path, source_sha = pin
     source = {"repository": repository, "commit": commit, "path": path, "sha256": source_sha}
     verified = verify_observation(json.loads(data), source)
     return _observed_source(source, verified, activity_id, receipt_sha)
+
+
+_cached_readback = lru_cache(maxsize=_READBACK_CACHE_ENTRIES)(_verify_readback)
+
+
+def _verified_readback(root: Path, activity_id: str, receipt_sha: str,
+                       pin: tuple[str, str, str, str], data: bytes) -> dict[str, Any]:
+    # Every operation reads fresh bytes. Cache only their static validation for
+    # the exact root/activity/pin/bytes key. The entry count times this bytes-
+    # object size limit bounds retained key bytes to 8 MiB, not total process RSS.
+    # Oversized observations remain valid inputs and never enter the cache.
+    verify = (_cached_readback if sys.getsizeof(data) <= _READBACK_CACHE_ENTRY_BYTES
+              else _verify_readback)
+    return verify(root, activity_id, receipt_sha, pin, data)
 
 
 def _checked_source(source: Any, activity_id: str, root: Path,
