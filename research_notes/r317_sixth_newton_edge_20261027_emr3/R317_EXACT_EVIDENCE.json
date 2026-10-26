@@ -1,0 +1,51 @@
+{
+  "schema": "ENTERPRISE_MATH_R317_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "tested_s_range": [
+    0,
+    192
+  ],
+  "arithmetic": "JavaScript BigInt exact integer; no floating arithmetic in proof checks",
+  "counts": {
+    "degree": 193,
+    "moments0to4": 955,
+    "moment5": 188,
+    "moment5_difference": 187,
+    "newton_q5": 188,
+    "recovery": 188,
+    "positive_bound": 188
+  },
+  "samples": {
+    "5": {
+      "fifth_moment": "2280",
+      "newton_q5": "219"
+    },
+    "6": {
+      "fifth_moment": "20760",
+      "newton_q5": "3163"
+    },
+    "7": {
+      "fifth_moment": "131400",
+      "newton_q5": "19651"
+    },
+    "8": {
+      "fifth_moment": "662280",
+      "newton_q5": "93502"
+    },
+    "128": {
+      "fifth_moment": "2703978872427419112130605621579142811863367024640",
+      "newton_q5": "285853533982141181620965326273377002943416369152"
+    },
+    "192": {
+      "fifth_moment": "382378328209736525202985495198052535388824675970525500810001152737280",
+      "newton_q5": "40575015608356723708322682661824349466424779721724312358741902098432"
+    }
+  },
+  "source_recurrence": "R313 (D/E) as quoted in immutable R316 author proof",
+  "theorem_claim": "For s>=5 a_{s,s-5}=2^s*(625s^5-3125s^4+4425s^3-14275s^2-9250s+18192)/24576 >= (219/32)*2^s>0",
+  "limitations": "Finite test s<=192; infinite statement uses algebraic induction, not numerical extrapolation; no native Driver verification.",
+  "source_global_snapshot": "70ca1279355440ae6e502b1b5635f5a5770c74e2",
+  "source_em_snapshot": "9fa25611d16366078a8e8ec2f2ba61f5642897d3",
+  "verification_engine": "V8 JavaScript BigInt execution of verbatim verifyR317 function body",
+  "scope": "Finite s=0..192 verified; infinite s>=5 proof is supplied separately."
+}
