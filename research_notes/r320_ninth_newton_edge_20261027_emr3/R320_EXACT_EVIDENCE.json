@@ -1,0 +1,60 @@
+{
+  "schema": "EM_R320_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "model": "ordered positive six-edge BRC auxiliary polynomial",
+  "arithmetic": "Node.js BigInt integer only",
+  "range_s": [
+    0,
+    192
+  ],
+  "checks": {
+    "degree": 193,
+    "moment8": 185,
+    "moment8_difference": 184,
+    "newton8_direct": 185,
+    "newton8_recovery": 185,
+    "shifted_identity": 185,
+    "positive_bound": 185
+  },
+  "samples": {
+    "8": {
+      "moment8": "7096320",
+      "newton_q8": "50056"
+    },
+    "9": {
+      "moment8": "34957440",
+      "newton_q8": "442341"
+    },
+    "10": {
+      "moment8": "281877120",
+      "newton_q8": "2793273"
+    },
+    "11": {
+      "moment8": "1991243520",
+      "newton_q8": "14720954"
+    },
+    "12": {
+      "moment8": "11842669440",
+      "newton_q8": "68777996"
+    },
+    "20": {
+      "moment8": "749152411822080",
+      "newton_q8": "1845590586352"
+    },
+    "32": {
+      "moment8": "240544876678506086400",
+      "newton_q8": "433693927420133376"
+    },
+    "128": {
+      "moment8": "2166129319476132452896269457340431770600503530299064320",
+      "newton_q8": "3218668218236258741510650589885660506639203435544576"
+    },
+    "192": {
+      "moment8": "1071671048126288797227486160465226496968301029081857908221322393878507028480",
+      "newton_q8": "1583188599108062249175274932665480216224661221944122633885217420493193216"
+    }
+  },
+  "claim": "For all integers s>=8, a_(s,s-8) >= (6257/32)*2^s > 0",
+  "proof_scope": "Universal claim follows from separate symbolic recurrence induction and positive shift polynomial; finite computation covers only s<=192.",
+  "native_acceptance": false
+}
