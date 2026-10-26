@@ -1,0 +1,146 @@
+{
+  "alphabet": [
+    0,
+    1,
+    2
+  ],
+  "counterexample": {
+    "P": {
+      "A": {
+        "T=1,o=1,D=0": "1/3",
+        "T=1,o=2,D=0": "1/3",
+        "T=3,o=0,D=1": "1/12",
+        "T=3,o=1,D=1": "1/12",
+        "T=3,o=2,D=1": "1/6"
+      },
+      "B": {
+        "T=1,o=0,D=0": "1/3",
+        "T=1,o=2,D=0": "1/3",
+        "T=2,o=*,D=0": "1/3"
+      },
+      "forced_quotient": {
+        "T=1,o=0,D=0": "1/6",
+        "T=1,o=1,D=0": "1/6",
+        "T=1,o=2,D=0": "1/3",
+        "T=2,o=*,D=0": "1/6",
+        "T=3,o=0,D=1": "1/36",
+        "T=3,o=1,D=1": "1/12",
+        "T=3,o=2,D=1": "1/18"
+      },
+      "j0_D1_gap": "1/72",
+      "midpoint": {
+        "T=1,o=0,D=0": "1/6",
+        "T=1,o=1,D=0": "1/6",
+        "T=1,o=2,D=0": "1/3",
+        "T=2,o=*,D=0": "1/6",
+        "T=3,o=0,D=1": "1/24",
+        "T=3,o=1,D=1": "1/24",
+        "T=3,o=2,D=1": "1/12"
+      },
+      "required_t1_continuations": [
+        "1/2",
+        "1/2",
+        "0"
+      ],
+      "required_t2_continuation": "1/2"
+    },
+    "Q": {
+      "A": {
+        "T=1,o=1,D=0": "1/3",
+        "T=1,o=2,D=0": "1/3",
+        "T=3,o=0,D=1": "1/6",
+        "T=3,o=1,D=1": "1/12",
+        "T=3,o=2,D=1": "1/12"
+      },
+      "B": {
+        "T=1,o=0,D=0": "1/3",
+        "T=1,o=2,D=0": "1/3",
+        "T=2,o=*,D=0": "1/3"
+      },
+      "forced_quotient": {
+        "T=1,o=0,D=0": "1/6",
+        "T=1,o=1,D=0": "1/6",
+        "T=1,o=2,D=0": "1/3",
+        "T=2,o=*,D=0": "1/6",
+        "T=3,o=0,D=1": "1/18",
+        "T=3,o=1,D=1": "1/12",
+        "T=3,o=2,D=1": "1/36"
+      },
+      "j0_D1_gap": "1/36",
+      "midpoint": {
+        "T=1,o=0,D=0": "1/6",
+        "T=1,o=1,D=0": "1/6",
+        "T=1,o=2,D=0": "1/3",
+        "T=2,o=*,D=0": "1/6",
+        "T=3,o=0,D=1": "1/12",
+        "T=3,o=1,D=1": "1/24",
+        "T=3,o=2,D=1": "1/24"
+      },
+      "required_t1_continuations": [
+        "1/2",
+        "1/2",
+        "0"
+      ],
+      "required_t2_continuation": "1/2"
+    }
+  },
+  "horizon": 3,
+  "likelihood_ratio_constant_on_every_x_fiber": true,
+  "ordered_prefix_count": 40,
+  "positive_and_normalized": true,
+  "proof_scope": "Excluded midpoint by forced t1+t2 actions; N<=2 convexity is mathematical proof, not finite computation",
+  "schema": "EM_R1_LR_FIBER_N3_EXACT_V1",
+  "source_laws_distinct": true,
+  "state_update_deterministic": true,
+  "status": "AUTHOR_EXACT_FINITE_WITNESS",
+  "time1_PQ": [
+    "1/3",
+    "1/3",
+    "1/3"
+  ],
+  "time2_PQ": [
+    "1/3",
+    "1/3",
+    "1/3"
+  ],
+  "time2_predecessor_Q_TV": "1/2",
+  "time3_P": {
+    "0": [
+      "1/4",
+      "1/4",
+      "1/2"
+    ],
+    "1": [
+      "1/12",
+      "3/4",
+      "1/6"
+    ],
+    "2": [
+      "1/6",
+      "1/2",
+      "1/3"
+    ]
+  },
+  "time3_Q": {
+    "0": [
+      "1/2",
+      "1/4",
+      "1/4"
+    ],
+    "1": [
+      "1/6",
+      "3/4",
+      "1/12"
+    ],
+    "2": [
+      "1/3",
+      "1/2",
+      "1/6"
+    ]
+  },
+  "time3_Q_over_P_by_last_symbol": [
+    "2",
+    "1",
+    "1/2"
+  ]
+}
