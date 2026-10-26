@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact next tangent-ray scan from Stage184: hold S=Q/C tie, choose U=Q."""
+"""Exact next tangent-ray scan from Stage183 to Stage184: hold S=Q/C tie, choose U=P at Stage183 X=(11,5,2)."""
 from fractions import Fraction as F
 from functools import lru_cache
 from pathlib import Path
