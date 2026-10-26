@@ -1,0 +1,70 @@
+{
+  "schema": "EM_R309_TWELVE_FIFTHS_WEDGE_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "arithmetic": "JavaScript BigInt exact integer and reduced rational fractions; no floating point comparisons",
+  "finite_certificate": {
+    "d_min": 3,
+    "d_max": 298,
+    "cases": 296,
+    "n0": "ceil(12*d*d/5)",
+    "all_exact_majorants_A_gt_U": true,
+    "minimum_absolute_gap": "21",
+    "minimum_gap_at": {
+      "d": 3,
+      "n": 22
+    },
+    "minimum_ratio_at": {
+      "d": 30,
+      "n": 2160
+    },
+    "minimum_ratio_numerator_digits": 66,
+    "minimum_ratio_denominator_digits": 66,
+    "witnesses": [
+      {
+        "d": 3,
+        "n": 22,
+        "negative_majorant_terms": 2,
+        "A_decimal_digits": 2,
+        "U_decimal_digits": 2,
+        "gap_decimal_digits": 2,
+        "A": "66",
+        "U": "45",
+        "gap": "21"
+      },
+      {
+        "d": 30,
+        "n": 2160,
+        "negative_majorant_terms": 225,
+        "A_decimal_digits": 66,
+        "U_decimal_digits": 66,
+        "gap_decimal_digits": 64
+      },
+      {
+        "d": 298,
+        "n": 213130,
+        "negative_majorant_terms": 22201,
+        "A_decimal_digits": 976,
+        "U_decimal_digits": 976,
+        "gap_decimal_digits": 974
+      }
+    ]
+  },
+  "symbolic_tail_certificate": {
+    "from_d": 299,
+    "q_min": 297,
+    "s_upper": "17/20",
+    "bonferroni_q297_at_s17over20": "1426166179906813/3353353344000000",
+    "bonferroni_margin_over_17over40": "991008706813/3353353344000000",
+    "tail_numerator": "16*d^3-832*d^2+85*d+510",
+    "tail_positive_reason": "d>=299 implies 16*d-832>0",
+    "d2_boundary": "D_2(n)=n-9 for n>=9; n0(2)=10"
+  },
+  "proved_statement": "For all integers d>=2,n>=ceil(12d^2/5), D_d(n)>0 using inherited R303/R305 exact BRC ordered-source model and R306 majorant",
+  "qualifiers": {
+    "native_owner": "UNVERIFIED_CONTROL_QUOTA",
+    "native_session": "DENIED_STATIC_READONLY_OPERATION_NOT_SENT",
+    "independent_driver_review": "NOT_PERFORMED",
+    "source_result": "NOT_PUBLISHED",
+    "native_X6_cell_transfer": "NOT_ESTABLISHED"
+  }
+}
