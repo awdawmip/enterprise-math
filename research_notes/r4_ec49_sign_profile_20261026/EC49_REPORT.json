@@ -1,0 +1,161 @@
+{
+  "schema": "EM_R4_EC49_SIGN_PROFILE_SCAN_V1",
+  "arithmetic": "positive integers, exact Fraction, simultaneous tied-ratio events",
+  "random_seed": 480049,
+  "random_models": 375,
+  "exact_chamber_comparisons": 2372,
+  "bruteforce_graph_chromatic_checks": 1669,
+  "nonmonotone_witness": {
+    "P": [
+      [
+        3,
+        12
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        6,
+        6
+      ]
+    ],
+    "Q": [
+      [
+        7,
+        7
+      ],
+      [
+        7,
+        7
+      ],
+      [
+        7,
+        7
+      ]
+    ],
+    "scan": {
+      "H": 3,
+      "Y": 2,
+      "M": "42",
+      "ratio_events": 3,
+      "max_distinct_profiles": 3,
+      "thresholds": [
+        "3/7",
+        "6/7",
+        "12/7"
+      ],
+      "chamber_counts": [
+        1,
+        3,
+        3,
+        1
+      ],
+      "peak_chamber_indices": [
+        1,
+        2
+      ]
+    }
+  },
+  "sharpness_instances": [
+    {
+      "future_labels": 1,
+      "histories": 2,
+      "source_mass": "3",
+      "convex_hull_memory": 2,
+      "full_region_memory": 2,
+      "chamber_counts": [
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "future_labels": 2,
+      "histories": 4,
+      "source_mass": "12",
+      "convex_hull_memory": 4,
+      "full_region_memory": 4,
+      "chamber_counts": [
+        1,
+        4,
+        1
+      ]
+    },
+    {
+      "future_labels": 3,
+      "histories": 8,
+      "source_mass": "36",
+      "convex_hull_memory": 8,
+      "full_region_memory": 8,
+      "chamber_counts": [
+        1,
+        8,
+        1
+      ]
+    },
+    {
+      "future_labels": 4,
+      "histories": 16,
+      "source_mass": "96",
+      "convex_hull_memory": 16,
+      "full_region_memory": 16,
+      "chamber_counts": [
+        1,
+        16,
+        1
+      ]
+    },
+    {
+      "future_labels": 5,
+      "histories": 32,
+      "source_mass": "240",
+      "convex_hull_memory": 32,
+      "full_region_memory": 32,
+      "chamber_counts": [
+        1,
+        32,
+        1
+      ]
+    },
+    {
+      "future_labels": 6,
+      "histories": 64,
+      "source_mass": "576",
+      "convex_hull_memory": 64,
+      "full_region_memory": 64,
+      "chamber_counts": [
+        1,
+        64,
+        1
+      ]
+    },
+    {
+      "future_labels": 7,
+      "histories": 128,
+      "source_mass": "1344",
+      "convex_hull_memory": 128,
+      "full_region_memory": 128,
+      "chamber_counts": [
+        1,
+        128,
+        1
+      ]
+    },
+    {
+      "future_labels": 8,
+      "histories": 256,
+      "source_mass": "3072",
+      "convex_hull_memory": 256,
+      "full_region_memory": 256,
+      "chamber_counts": [
+        1,
+        256,
+        1
+      ]
+    }
+  ],
+  "all_checks": "PASS",
+  "mathematics_status": "author-side proof; finite checks corroborate implementations only",
+  "native_scope": "auxiliary two-stage positive BRC; no original X6 heartbeat update"
+}
