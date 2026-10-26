@@ -18,7 +18,79 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "event_id": "EM-R4-EC37-20261026-1030-CAUSAL-LABEL",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "0a7e1d0baebfc648460c58cdc8b6fd99b675fe62",
+          "path": "research_notes/r4_ec37_causal_source_20261026/EC37_GITHUB_VERIFY.js",
+          "sha256": "34d6d6ecb18defceb77aba44cfc7e4ef09647853c07b28476827b5bb8651f7db",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "readback": {
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "EC37-ACT-1",
+            "arguments": {
+              "repository_full_name": "awdawmip/enterprise-math",
+              "ref": "0a7e1d0baebfc648460c58cdc8b6fd99b675fe62",
+              "path": "research_notes/r4_ec37_causal_source_20261026/EC37_GITHUB_VERIFY.js"
+            },
+            "result": {
+              "isError": false,
+              "structuredContent": {
+                "content": "/* EC37 independent BigInt check for finite positive-source label kernels.\n * This is an auxiliary BRC observer certificate, NOT native X6 dynamics.\n * Execute: node EC37_GITHUB_VERIFY.js\n */\nfunction assert(ok, message) { if (!ok) throw Error(message); }\nfunction histogram(K, start, n) {\n  let d = new Map([[JSON.stringify([start, '']), 1n]]);\n  for (let t=0; t<n; t++) {\n    const next=new Map();\n    for (const [key, mult] of d) {\n      const [state, word]=JSON.parse(key);\n      for (const [label, successor, weight] of K[state]) {\n        const k=JSON.stringify([successor, word+label]);\n        next.set(k,(next.get(k)||0n)+mult*BigInt(weight));\n      }\n    }\n    d=next;\n  }\n  const result=new Map();\n  for (const [key, val] of d) {\n    const word=JSON.parse(key)[1];\n    result.set(word,(result.get(word)||0n)+val);\n  }\n  return result;\n}\nfunction l1(a,b) {\n  const keys=new Set([...a.keys(),...b.keys()]);\n  let sum=0n;\n  for (const k of keys) {\n    const x=a.get(k)||0n, y=b.get(k)||0n;\n    sum += x>=y ? x-y : y-x;\n  }\n  return sum;\n}\nfunction labelsAndStates(row) {\n  const L={},S={};\n  for (const [lab,state,w] of row) {\n    L[lab]=(L[lab]||0)+w;\n    S[state]=(S[state]||0)+w;\n  }\n  return JSON.stringify([Object.entries(L).sort(),Object.entries(S).sort()]);\n}\nfunction verify() {\n  const checks={sharp_cases:0,sharp_depths:0,correlation_depths:0,random_pairs:0,random_tv_bounds:0,strict_inequalities:0};\n  for (let M=2;M<=8;M++) for (let a=1;a<=M;a++) {\n    const T={s:[['R','s',M]]}, Q={s:[['B','s',a]]};\n    if(M>a) Q.s.push(['R','s',M-a]);\n    for(let n=0;n<=10;n++) {\n      const x=histogram(T,'s',n), y=histogram(Q,'s',n);\n      assert(l1(x,y)===2n*(BigInt(M)**BigInt(n)-BigInt(M-a)**BigInt(n)), 'sharp exact L1');\n      checks.sharp_depths++;\n    }\n    checks.sharp_cases++;\n  }\n  const stable={U:[['R','U',2]],V:[['B','V',2]]};\n  const A={O:[['R','U',1],['B','V',1]], ...stable};\n  const B={O:[['R','V',1],['B','U',1]], ...stable};\n  assert(labelsAndStates(A.O)===labelsAndStates(B.O),'one-step marginals');\n  for(let n=0;n<=8;n++) {\n    const x=histogram(A,'O',n), y=histogram(B,'O',n);\n    const expect=n<=1?0n:2n*(2n**BigInt(n));\n    assert(l1(x,y)===expect,'two-step joint-correlation no-go');\n    checks.correlation_depths++;\n  }\n  let seed=3701;\n  function rnd(k) {seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;seed>>>=0;return seed%k;}\n  const events=[['R','0'],['R','1'],['B','0'],['B','1']];\n  function kernel() {\n    const K={};\n    for(const state of ['0','1']) {\n      const w=new Array(4).fill(0);\n      for(let j=0;j<6;j++)w[rnd(4)]++;\n      K[state]=w.flatMap((v,i)=>v?[[...events[i],v]]:[]);\n    }\n    return K;\n  }\n  function overlapCount(a,b,state) {\n    const key=(r)=>r[0]+':'+r[1];\n    const v=new Map(a[state].map(r=>[key(r),r[2]]));\n    return b[state].reduce((sum,r)=>sum+Math.min(v.get(key(r))||0,r[2]),0);\n  }\n  for(let j=0;j<140;j++) {\n    const A=kernel(), B=kernel();\n    const k=Math.min(overlapCount(A,B,'0'),overlapCount(A,B,'1'));\n    for(let n=1;n<=7;n++) {\n      const dist=l1(histogram(A,'0',n),histogram(B,'0',n));\n      const bound=2n*(6n**BigInt(n)-BigInt(k)**BigInt(n));\n      assert(dist<=bound,'exact product coupling bound');\n      checks.random_tv_bounds++;\n      if(dist<bound)checks.strict_inequalities++;\n    }\n    checks.random_pairs++;\n  }\n  return {schema:'EM_R4_EC37_GITHUB_BIGINT_VERIFY_V1',status:'PASS',\n    scope:'auxiliary finite constant-M positive-source BRC kernels',\n    method:'exact BigInt word counts, source-label correlations, diagonal relation overlap',\n    checks, native_X6_verified:false, independent_Driver_review:false};\n}\nconsole.log(JSON.stringify(verify(),null,2));\n",
+                "encoding": "utf-8",
+                "sha": "04a7eed5bd09eac9dd927438c53e63504a244305",
+                "display_url": "https://github.com/awdawmip/enterprise-math/blob/0a7e1d0baebfc648460c58cdc8b6fd99b675fe62/research_notes/r4_ec37_causal_source_20261026/EC37_GITHUB_VERIFY.js",
+                "display_title": "EC37_GITHUB_VERIFY.js"
+              }
+            }
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "0a7e1d0baebfc648460c58cdc8b6fd99b675fe62",
+          "path": "research_notes/r4_ec37_causal_source_20261026/EC37_GITHUB_REPORT.json",
+          "sha256": "0fc186aca2a6d2cbc33da9148ab4895c9317950ac93c3f46cb3c28823d2ae889",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "readback": {
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "EC37-ACT-2",
+            "arguments": {
+              "repository_full_name": "awdawmip/enterprise-math",
+              "ref": "0a7e1d0baebfc648460c58cdc8b6fd99b675fe62",
+              "path": "research_notes/r4_ec37_causal_source_20261026/EC37_GITHUB_REPORT.json"
+            },
+            "result": {
+              "isError": false,
+              "structuredContent": {
+                "content": "{\n  \"schema\": \"EM_R4_EC37_GITHUB_BIGINT_VERIFY_V1\",\n  \"status\": \"PASS\",\n  \"scope\": \"auxiliary finite constant-M positive-source BRC kernels\",\n  \"method\": \"exact BigInt word counts, source-label correlations, diagonal relation overlap\",\n  \"checks\": {\n    \"sharp_cases\": 35,\n    \"sharp_depths\": 385,\n    \"correlation_depths\": 9,\n    \"random_pairs\": 140,\n    \"random_tv_bounds\": 980,\n    \"strict_inequalities\": 948\n  },\n  \"native_X6_verified\": false,\n  \"independent_Driver_review\": false\n}\n",
+                "encoding": "utf-8",
+                "sha": "54a0c76c518bfb0873156e1a16744053b656ab7c",
+                "display_url": "https://github.com/awdawmip/enterprise-math/blob/0a7e1d0baebfc648460c58cdc8b6fd99b675fe62/research_notes/r4_ec37_causal_source_20261026/EC37_GITHUB_REPORT.json",
+                "display_title": "EC37_GITHUB_REPORT.json"
+              }
+            }
+          }
+        }
+      ],
+      "kb_sources": [],
+      "note_source": {
+        "commit": "0a7e1d0baebfc648460c58cdc8b6fd99b675fe62",
+        "path": "research_notes/r4_ec37_causal_source_20261026/EC37_CAUSAL_LABEL_COUPLING.md",
+        "git_blob_sha1": "0cb1e72ef616c1bf04e9489b4b410ad47acc7f1c"
+      },
+      "scientific_scope": "AUTHOR_SIDE_AUXILIARY_POSITIVE_BRC; native_X6_unverified",
+      "local_verification": "Python exact Fraction PASS including 980 bounds and 164 Bellman cases; independent Node BigInt PASS; ZIP cold-start PASS",
+      "native_owner_state": "UNVERIFIED_CONTROL_QUOTA",
+      "formal_claim": false,
+      "native_guard_executed": false,
+      "independent_driver_review": false
+    }
+  ],
   "metadata": {
     "identity_scope": "LOCAL_NON_ATTESTED_AUTOMATION_RUN",
     "formal_task_owner": "UNVERIFIED_CONTROL_QUOTA",
