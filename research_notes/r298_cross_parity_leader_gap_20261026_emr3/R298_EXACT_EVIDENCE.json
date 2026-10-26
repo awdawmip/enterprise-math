@@ -1,0 +1,80 @@
+{
+  "schema": "EM_R298_CROSS_PARITY_LEADER_GAP_V1",
+  "status": "PASS",
+  "scope": "positive ordered six-edge BRC auxiliary counts only",
+  "algebraic_certificate": "exact identity L(y,w)=Q(y,w)*T(y,w) over Z[y,w]",
+  "source_generator_dependency": "R294 author-side fixed-effect C_m formula, NOT independently admitted",
+  "dp_max_n": 220,
+  "cross_parity_coefficients_checked": 109,
+  "top_two_raw_dp_checked_n": "81..220",
+  "top_two_raw_dp_layers": 140,
+  "even_gap_doubling_checked_index": "41..110",
+  "samples": {
+    "80": {
+      "winner_effect": [
+        1,
+        -4
+      ],
+      "second_effect": [
+        -1,
+        -4
+      ],
+      "winner_count": "273054273225926",
+      "second_count": "273055000503388",
+      "gap": "-727277462"
+    },
+    "81": {
+      "winner_effect": [
+        -1,
+        -3
+      ],
+      "second_effect": [
+        1,
+        -5
+      ],
+      "winner_count": "438660292107331",
+      "second_count": "438646962176306",
+      "gap": "13329931025"
+    },
+    "82": {
+      "winner_effect": [
+        1,
+        -4
+      ],
+      "second_effect": [
+        -1,
+        -4
+      ],
+      "winner_count": "705689298600741",
+      "second_count": "705687312911562",
+      "gap": "1985689179"
+    },
+    "83": {
+      "winner_effect": [
+        -1,
+        -3
+      ],
+      "second_effect": [
+        1,
+        -5
+      ],
+      "winner_count": "1133890036741797",
+      "second_count": "1133846317463100",
+      "gap": "43719278697"
+    },
+    "220": {
+      "winner_effect": [
+        1,
+        -4
+      ],
+      "second_effect": [
+        -1,
+        -4
+      ],
+      "winner_count": "29404138584314450751708147149602286226748184",
+      "second_count": "29402803125186602016103303467082664685265945",
+      "gap": "1335459127848735604843682519621541482239"
+    }
+  },
+  "limitations": "finite DP does not prove N_peak=81; exact all-length parity identity is conditional on R294 source-to-kernel correspondence; no native Source Result or Driver review"
+}
