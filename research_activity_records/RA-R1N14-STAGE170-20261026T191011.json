@@ -18,5 +18,35 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "EM-R1-STAGE170-20261026-EXACT",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "32c1ecac7f89e5dd90c189509e6236a3541cd94d",
+          "path": "research_notes/n14_aux_iid_affine_170_r1t11_author_20261026/PROOF_STAGE170.md",
+          "sha256": "88d497eaf6208c477c786fd02de4dbbad940e5f36ca29cc8f18886acce7d1b01",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification_receipt": "research_activity_records/RA-R1N14-STAGE170-20261026T191011/readbacks/53721fc2db52419ec69bd2f64e32ec7155c5a8ed3ad6b0a5c0dea0ebd39a2518.json",
+          "verification_receipt_sha256": "53721fc2db52419ec69bd2f64e32ec7155c5a8ed3ad6b0a5c0dea0ebd39a2518",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "r1-stage170-proof-20261026T1915",
+            "call_id": null,
+            "git_blob_sha1": "6a28938990f2626303a6b7d0c6e1b9900f43d221",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/32c1ecac7f89e5dd90c189509e6236a3541cd94d/research_notes/n14_aux_iid_affine_170_r1t11_author_20261026/PROOF_STAGE170.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/315eadf1bdecd0f881268b6d5d5ce35e12cfc126/journal/enterprise-math/2026-10-26/20261026T191408+0800-r1-stage170-author-exact-t11.md"
+      ]
+    }
+  ]
 }
