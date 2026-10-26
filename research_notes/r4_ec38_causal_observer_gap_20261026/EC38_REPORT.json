@@ -1,0 +1,47 @@
+{
+  "schema": "EM_R4_EC38_CAUSAL_OBSERVER_GAP_VERIFY_V1",
+  "status": "PASS",
+  "arithmetic": "exact BigInt source-word counts; integer-scaled rational primal and dual witnesses",
+  "scope": "auxiliary finite labelled positive-integer source kernels with constant outgoing microbranch total; observer erases microscopic branch identities",
+  "verification_domain": {
+    "k": "2..12",
+    "operation_depth": "0..6"
+  },
+  "checks": {
+    "model_pairs": 11,
+    "horizon_comparisons": 77,
+    "word_cells": 407,
+    "integer_count_equalities": 385,
+    "transport_primal_feasibility": 803,
+    "transport_dual_inequalities": 1298,
+    "primal_dual_optimality": 88
+  },
+  "examples": {
+    "2": {
+      "observed_word_TV": "0",
+      "coadapted_optimal_match": "1/2",
+      "coadapted_defect": "1/2",
+      "each_depth2_word_microcount": "2"
+    },
+    "3": {
+      "observed_word_TV": "0",
+      "coadapted_optimal_match": "1/3",
+      "coadapted_defect": "2/3",
+      "each_depth2_word_microcount": "3"
+    },
+    "5": {
+      "observed_word_TV": "0",
+      "coadapted_optimal_match": "1/5",
+      "coadapted_defect": "4/5",
+      "each_depth2_word_microcount": "5"
+    },
+    "12": {
+      "observed_word_TV": "0",
+      "coadapted_optimal_match": "1/12",
+      "coadapted_defect": "11/12",
+      "each_depth2_word_microcount": "12"
+    }
+  },
+  "native_X6_tested": false,
+  "independent_driver_review": false
+}
