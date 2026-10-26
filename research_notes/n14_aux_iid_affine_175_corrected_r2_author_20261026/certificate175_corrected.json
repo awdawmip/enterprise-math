@@ -1,0 +1,179 @@
+{
+  "schema": "EM_N14_STAGE175_CORRECTED_AUTHOR_EXACT_V1",
+  "status": "AUTHOR_EXACT_FULL_REAL_PROVEN_NOT_ADMITTED",
+  "scope": "EXTERNAL_N14_TERNARY_IID_FULL_ORDERED_HISTORY",
+  "frozen_sources": {
+    "global": "150f7544fae2920c2f3092d3602a2e3a59d2bc86",
+    "em_main": "6abbd1af7d754933d5aa2293e451e8e54dbfc4e7",
+    "stage174_commit": "4ce181fc49b127781d98c4734f8844d574fe5355",
+    "p000_canonical_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "diagonal_candidate_obstruction": {
+    "dual_K_L": "4964732675352/21931669411",
+    "ties": {
+      "(6, 3, 3)": [
+        "Q",
+        "C"
+      ],
+      "(14, 0, 0)": [
+        "P",
+        "Q"
+      ]
+    },
+    "balanced_z0": "413782840542005409/409600000000000000",
+    "balanced_z_slope": "-102742439843/409600000000000000",
+    "minimal_balanced_z_on_unit_b": "206891368899782783/204800000000000000",
+    "conclusion": "z(b)>1 for b in [0,1]; valid dual-only but not primal tight"
+  },
+  "corrected_dual_ray": {
+    "origin_K": "16044588/70019",
+    "origin_L": "16044588/70019",
+    "T_affine_P_minus_C": [
+      "-148561/124416",
+      "21205/1679616",
+      "-11069/1492992"
+    ],
+    "direction_K": "-1",
+    "direction_L": "-169640/99621",
+    "first_positive_gap_closure_step": "11785669755441343155/12738854379742782826",
+    "first_closure_state": "(6,3,3)",
+    "first_closure_action": "Q",
+    "negative_derivative_positive_gap_candidates": 760
+  },
+  "dual": {
+    "K": "41521222013193063/181934251842254",
+    "L": "20701458469704504/90967125921127",
+    "H": "53122292194902540973485450586445/311451660365537449574670532608",
+    "states": 680,
+    "strict_positive_gaps": 1238,
+    "negative_gaps": 0,
+    "minimum_positive_gap": "152464420746873000396113/3337744988485269306998784",
+    "ties": {
+      "(6,3,3)": [
+        "Q",
+        "C"
+      ],
+      "(8,2,0)": [
+        "P",
+        "C"
+      ]
+    }
+  },
+  "observables_order": [
+    "eP",
+    "eQ",
+    "tP",
+    "tQ"
+  ],
+  "first_hit": {
+    "(8,2,0)": {
+      "histories": 28,
+      "P": "109375/746496",
+      "Q": "109375/1679616"
+    },
+    "(6,3,3)": {
+      "histories": 8,
+      "P": "1/884736",
+      "Q": "1/373248"
+    }
+  },
+  "corners": {
+    "10": [
+      "305384214928364149/876488338465357824",
+      "56172820149359/160489808068608",
+      "1248389387794081771/109561042308169728",
+      "148283947853831/13374150672384"
+    ],
+    "11": [
+      "152692117853691179/438244169232678912",
+      "9362136280535/26748301344768",
+      "624194590465110149/54780521154084864",
+      "8237994332077/743008370688"
+    ],
+    "00": [
+      "306336326032364149/876488338465357824",
+      "18625316716453/53496602689536",
+      "1267557322258081771/109561042308169728",
+      "149481213853831/13374150672384"
+    ],
+    "01": [
+      "153168173405691179/438244169232678912",
+      "27937973841605/80244904034304",
+      "633778557697110149/54780521154084864",
+      "74740581988693/6687075336192"
+    ]
+  },
+  "M00": [
+    "306336326032364149/876488338465357824",
+    "18625316716453/53496602689536",
+    "1267557322258081771/109561042308169728",
+    "149481213853831/13374150672384"
+  ],
+  "dT": [
+    "-1210671875/1114512556032",
+    "2319296875/1253826625536",
+    "-16248859375/92876046336",
+    "-9353640625/104485552128"
+  ],
+  "dB": [
+    "85510363/3606947894919168",
+    "-2466149/160489808068608",
+    "-851291611/450868486864896",
+    "-49876445/13374150672384"
+  ],
+  "mixed": [
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "balance": {
+    "t0": "3537410849994591/7720251392000000",
+    "t_slope_per_b": "102742439843/7720251392000000",
+    "legal_b": [
+      "0",
+      "1"
+    ],
+    "t_ends": [
+      "3537410849994591/7720251392000000",
+      "1768756796217217/3860125696000000"
+    ]
+  },
+  "interval": {
+    "alpha_start": "10295869835213079092569/29500515812940089131008",
+    "alpha_end": "5147935054057228427975/14750257906470044565504",
+    "width": "90967125921127/9833505270980029710336",
+    "V_start": "677877812657492293580503/59001031625880178262016",
+    "V_end": "338938781942537717887145/29500515812940089131008",
+    "slope": "82924138952602071/181934251842254",
+    "time_margin_start": "20850768317972957412191/59001031625880178262016",
+    "time_margin_end": "10425404935270598468897/29500515812940089131008"
+  },
+  "ordered_DFS_nodes": {
+    "10": 282052,
+    "11": 279052,
+    "00": 285916,
+    "01": 282916
+  },
+  "independent_checks": "exact Fraction suffix DP versus unmerged integer-numerator ordered-history DFS for all 4 deterministic corners; stop P/Q masses each exactly 1",
+  "checks": {
+    "bellman_680": true,
+    "ties_exact": true,
+    "positive_gaps_1238": true,
+    "parent_t_exact": true,
+    "parent_alpha_and_V": true,
+    "errors_balanced_endpoints": true,
+    "coins_legal_for_all_reals": true,
+    "tP_dominates_for_all_reals": true,
+    "dual_tight_all_reals": true,
+    "alpha_strict_increasing": true,
+    "time_strict_decreasing": true,
+    "affine_slope": true,
+    "mixed_zero": true,
+    "right_support_sharpness_argument": true
+  },
+  "local_stdout_marker": "STAGE175_CORRECTED_FULL_REAL_PASS",
+  "remote_execution": false,
+  "independent_driver_review": false,
+  "native_claim": false
+}
