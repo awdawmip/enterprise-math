@@ -1,0 +1,118 @@
+{
+  "deterministic_policies": 216,
+  "model": {
+    "P_t1": {
+      "a": "2/3",
+      "b": "1/3"
+    },
+    "P_t2": {
+      "ax": "1/6",
+      "ay": "1/2",
+      "bx": "1/9",
+      "by": "2/9"
+    },
+    "Q_t1": {
+      "a": "1/3",
+      "b": "2/3"
+    },
+    "Q_t2": {
+      "ax": "1/6",
+      "ay": "1/6",
+      "bx": "4/9",
+      "by": "2/9"
+    },
+    "Q_transition_kernel": {
+      "1/2 -> 1": "2/9",
+      "1/2 -> 1/4": "4/9",
+      "1/2 -> 3": 0,
+      "2 -> 1": "1/6",
+      "2 -> 1/4": 0,
+      "2 -> 3": "1/6"
+    },
+    "t1_LR": {
+      "a": "2",
+      "b": "1/2"
+    },
+    "t2_LR": {
+      "ax": "1",
+      "ay": "3",
+      "bx": "1/4",
+      "by": "1"
+    }
+  },
+  "no_native_X6_or_P000_transfer": true,
+  "proof_scope": "The all-real finite-model theorem is algebraic. These tests verify only specified finite rational instances.",
+  "schema": "EM_R5T11_N2_LR_TERMINAL_POLYTOPE_V1",
+  "status": "EXACT_FRACTION_PASS",
+  "terminal_fiber_collision": [
+    "ax",
+    "by"
+  ],
+  "test": {
+    "O_A": [
+      "677/1152",
+      "577/1152",
+      "19/16",
+      "17/16"
+    ],
+    "O_B": [
+      "25/192",
+      "47/64",
+      "17/24",
+      "19/24"
+    ],
+    "O_constructed": [
+      "451/1440",
+      "923/1440",
+      "9/10",
+      "9/10"
+    ],
+    "O_expected_mixture": [
+      "451/1440",
+      "923/1440",
+      "9/10",
+      "9/10"
+    ],
+    "constructed_policy": {
+      "root": {
+        "C": "3/5",
+        "P": "3/10",
+        "Q": "1/10"
+      },
+      "t1": {
+        "1/2": {
+          "C": "1/2",
+          "P": "3/8",
+          "Q": "1/8"
+        },
+        "2": {
+          "C": "1/2",
+          "P": "3/8",
+          "Q": "1/8"
+        }
+      },
+      "t2": {
+        "1": "13/28",
+        "1/4": "5/6",
+        "3": "3/8"
+      }
+    },
+    "full_two_law_time_decision_image": {
+      "P,0,P": "3/10",
+      "P,0,Q": "1/10",
+      "P,1,P": "9/40",
+      "P,1,Q": "3/40",
+      "P,2,P": "233/1440",
+      "P,2,Q": "199/1440",
+      "Q,0,P": "3/10",
+      "Q,0,Q": "1/10",
+      "Q,1,P": "9/40",
+      "Q,1,Q": "3/40",
+      "Q,2,P": "167/1440",
+      "Q,2,Q": "53/288"
+    },
+    "lambda": "2/5"
+  },
+  "upstream_fiber_strong_lumpability_required": false,
+  "verified_rational_policy_pair_mixtures": 7776
+}
