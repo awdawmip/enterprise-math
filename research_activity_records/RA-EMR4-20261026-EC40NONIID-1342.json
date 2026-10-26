@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR4-20261026-EC40NONIID-1342",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "6ee9ae31c3b58eee5d38d7f6dfd88af3087fb3a9",
+          "path": "research_notes/r4_ec40_noniid_brc_markovization_20261026/EC40_NONIID_BRC_MARKOVIZATION.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "2bfcfe23cbdf3ffe2fc2be867cafc3d94c384ac3a7863966be2aa4978683fc44",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "7920770bf05c40b7a647424a8e6795cdf45c8230",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6ee9ae31c3b58eee5d38d7f6dfd88af3087fb3a9/research_notes/r4_ec40_noniid_brc_markovization_20261026/EC40_NONIID_BRC_MARKOVIZATION.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "ec40-20261026-proof-immutable-readback-001",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261026-EC40NONIID-1342/readbacks/15883f1d72c8c1a803fe7b517d5bb46804ecc7c036211c5b76616333ae906ac9.json",
+          "verification_receipt_sha256": "15883f1d72c8c1a803fe7b517d5bb46804ecc7c036211c5b76616333ae906ac9"
+        }
+      ],
+      "event_id": "ec40-noniid-lumpability-proof-v1",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@11c141acc178d3b6cd5f478ee97751535d61108e:journal/enterprise-math/2026-10-26/20261026T134300+0800-r4-ec40-noniid-lumpability.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-26T05:43:43.135Z",
   "registration_key": "session:em-r4-autoturn11-20261026-1325-local:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R004-EC40A",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "em-r4-autoturn11-20261026-1325-local",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-26T05:43:43.135Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
