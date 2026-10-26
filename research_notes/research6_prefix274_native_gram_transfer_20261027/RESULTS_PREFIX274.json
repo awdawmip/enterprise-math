@@ -1,0 +1,87 @@
+{
+  "schema": "EM_R6_AUTHOR_SIDE_PREFIX274_VERIFICATION_V1",
+  "source_pins": {
+    "global": "4d75b6c92823119d725fff4949699fe3fb0f07c2",
+    "em": "339855dac47f83f01b2301e563ce462e2aa4ff0c"
+  },
+  "verified_status": "AUTHOR_SIDE_EXACT_PROOF_AND_RATIONAL_FORMAL_CHECK",
+  "method": "all ordered labelled source-path-pairs with fractions.Fraction and rational Gaussian C4",
+  "cases": [
+    {
+      "k": 2,
+      "signs": 4,
+      "sparse_assays": 2,
+      "recovered_pair_residuals": 1
+    },
+    {
+      "k": 3,
+      "signs": 8,
+      "sparse_assays": 4,
+      "recovered_pair_residuals": 3
+    },
+    {
+      "k": 4,
+      "signs": 16,
+      "sparse_assays": 7,
+      "recovered_pair_residuals": 6
+    },
+    {
+      "k": 5,
+      "signs": 32,
+      "sparse_assays": 11,
+      "recovered_pair_residuals": 10
+    },
+    {
+      "k": 6,
+      "signs": 64,
+      "sparse_assays": 16,
+      "recovered_pair_residuals": 15
+    }
+  ],
+  "totals": {
+    "Z2_sign_states": 124,
+    "sparse_assays": 40,
+    "pair_residuals": 35
+  },
+  "checked": [
+    "all-labelled-ordered-pairs-identity",
+    "Walsh-inversion",
+    "Parseval-exact",
+    "sparse-Mobius-boolean-differences",
+    "2x2-real-positive-semidefinite-pair-witness",
+    "rational-Gaussian-C4-imaginary-witness"
+  ],
+  "real_psd_witness": {
+    "++": [
+      4,
+      2
+    ],
+    "+-": [
+      0,
+      2
+    ]
+  },
+  "c4_gram_witness": {
+    "sign_only": [
+      2,
+      2
+    ],
+    "relative_i": [
+      1,
+      3
+    ]
+  },
+  "local_exact_python_execution": true,
+  "native_stage46_source_import_executed": false,
+  "model_law_id_complete_and_verified": false,
+  "native_session_start": {
+    "error": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false
+  },
+  "native_dispatch": {
+    "error": "CONTROL_QUOTA"
+  },
+  "active_owner_claim_verified": false,
+  "independent_review": false,
+  "mathematical_admission": false
+}
