@@ -18,5 +18,50 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "EMR5_20261027_MOMENT_COVARIANCE_R5",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "f7561d1d28105a608cecdf27730e6b4bbe09a23e",
+          "path": "research_notes/brc_n3_moment_covariance_residual_20261027_r5/VERIFY.py",
+          "sha256": "5897d8cfc53e8975d2b6af2ab487c1f132bbf50f5122eb660028bc99e2586cee",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "emr5-20261027-covmom-0638-readback-1",
+            "call_id": null,
+            "git_blob_sha1": "55a03763e3a66abf3f7c3170348e726398a25e25",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/f7561d1d28105a608cecdf27730e6b4bbe09a23e/research_notes/brc_n3_moment_covariance_residual_20261027_r5/VERIFY.py",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "f7561d1d28105a608cecdf27730e6b4bbe09a23e",
+          "path": "research_notes/brc_n3_moment_covariance_residual_20261027_r5/EXACT_OUTPUT.txt",
+          "sha256": "96469055b75a02fea943e8dc9095b81429d36fe939ceaaffd11e2453190c5405",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "emr5-20261027-covmom-0638-readback-2",
+            "call_id": null,
+            "git_blob_sha1": "f874cbac644bf56a05363aa14f729f69246130a4",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/f7561d1d28105a608cecdf27730e6b4bbe09a23e/research_notes/brc_n3_moment_covariance_residual_20261027_r5/EXACT_OUTPUT.txt",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [
+        "journal/enterprise-math/2026-10-27/20261027-em-r5-covmom-0638.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ]
 }
