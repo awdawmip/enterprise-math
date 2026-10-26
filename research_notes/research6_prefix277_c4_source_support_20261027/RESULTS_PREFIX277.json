@@ -1,0 +1,53 @@
+{
+  "status": "PREFIX277_AUTHOR_SIDE_EXACT_C4_BRC_PASS",
+  "local_executable": "verify_prefix277.py",
+  "verification_kind": "exact Gaussian rational C4 ordered source-pair observer; author-side; independent of original Stage46/50",
+  "domain": "2 or 3 occupied loads from 0..6, weights 1..5, all relative C4 phases",
+  "exhaustive": {
+    "cases": 72100,
+    "c1_match": 60,
+    "two_nonzero_match": 30,
+    "three_nonzero_match": 30,
+    "min_c2": "-1/3",
+    "max_c2": "0"
+  },
+  "r1_four_phase_readouts": [
+    "5/18",
+    "5/12",
+    "5/18",
+    "5/36"
+  ],
+  "witnesses": {
+    "A_2_loads": {
+      "amplitudes": "[1,-i]",
+      "Z": "2",
+      "c1": "i/2",
+      "c2": "0",
+      "p20": "5/18"
+    },
+    "B_3_loads": {
+      "amplitudes": "[2,-i,-1]",
+      "Z": "6",
+      "c1": "i/2",
+      "c2": "-1/3",
+      "p20": "10/27"
+    },
+    "C_4_loads": {
+      "amplitudes": "[1,i,4,-2i]",
+      "Z": "22",
+      "c1": "i/2",
+      "c2": "1/11",
+      "p20": "25/99"
+    }
+  },
+  "rational_sharp_approach_c2": [
+    "-1225/2871",
+    "-41616/97513",
+    "-1413721/3312555",
+    "-48024900/112529341",
+    "-1631432881/3822685023"
+  ],
+  "formal_proof": "PREFIX277_SHARP_C4_SUPPORT_OBSTRUCTION.zh-CN.md",
+  "native_transfer": "not verified",
+  "original_stage46_stage50_bundle_execution": "not executed"
+}
