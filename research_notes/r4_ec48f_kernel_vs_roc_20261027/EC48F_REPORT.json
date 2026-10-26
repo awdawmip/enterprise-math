@@ -1,0 +1,66 @@
+{
+  "schema": "EM_R4_EC48F_EXACT_CHECK_REPORT_V1",
+  "status": "PASS",
+  "sources": {
+    "P_raw": [
+      [
+        2,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "Q_raw": [
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "normalizers": [
+      18,
+      16
+    ]
+  },
+  "normalized_ratios": [
+    "4/9",
+    "8/9",
+    "16/9"
+  ],
+  "K_hull": 3,
+  "K_seed": 3,
+  "uniform_W_s_endpoint_memory": 3,
+  "uniform_W_s_interior_memory": 4,
+  "critical_faces_checked": 183,
+  "uniform_exact_checks": 7,
+  "unit_square_corner_triangle_cases": 64,
+  "exact_fraction_python_local": "PASS",
+  "javascript_integer_verifier": "SEE_VERIFY_FILE; EXECUTION_NOT_YET_AT_REMOTE_WRITE_TIME",
+  "author_review_status": "PROOF_AUTHOR_SIDE_ONLY",
+  "native_owner_status": "CONTROL_QUOTA",
+  "native_session": "STATIC_READONLY_SCOPE_DENIED",
+  "native_claim": false,
+  "independent_driver_review": false,
+  "next": "Find a true aggregate ROC-face gap or prove K_seed=K_hull in all finite positive source models; distinguish from per-cell kernel interpolation obstruction."
+}
