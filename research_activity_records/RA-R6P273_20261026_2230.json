@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-R6P273_20261026_2230",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "6abbd1af7d754933d5aa2293e451e8e54dbfc4e7",
+          "path": "research_notes/research6_prefix273_phase_effect_coding_20261026/verify_prefix273.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "b87201ff31f0118faaa6a2a1057182c070187dca564e27c053a628b4a249cf2a",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "4c8113f0f559dc69019868dd182f2850b0efad56",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6abbd1af7d754933d5aa2293e451e8e54dbfc4e7/research_notes/research6_prefix273_phase_effect_coding_20261026/verify_prefix273.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r6p273_source_observe_20261026_1443",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-R6P273_20261026_2230/readbacks/d9d9f7baf9e8ddc6bf7786b5cc6524353ad2cf44f624314261a0e789c23bc2b3.json",
+          "verification_receipt_sha256": "d9d9f7baf9e8ddc6bf7786b5cc6524353ad2cf44f624314261a0e789c23bc2b3"
+        }
+      ],
+      "event_id": "r6p273_20261026_exact_cut_code",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-26T14:29:19+00:00",
   "registration_key": "session:LOCAL-R6P273-20261026-2230:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-DIRECT-P2736A",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "LOCAL-R6P273-20261026-2230",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-26T14:29:19+00:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
