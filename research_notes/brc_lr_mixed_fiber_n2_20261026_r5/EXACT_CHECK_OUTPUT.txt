@@ -1,0 +1,11 @@
+MODEL: strictly positive exact rational N=2, 4 first histories, 8 leaves
+FIRST_LR: {'a': Fraction(1, 1), 'b': Fraction(1, 1), 'c': Fraction(2, 1), 'd': Fraction(1, 2)}
+TERMINAL_LR: {('a', 0): Fraction(3, 2), ('a', 1): Fraction(1, 2), ('b', 0): Fraction(1, 1), ('b', 1): Fraction(1, 1), ('c', 0): Fraction(2, 1), ('c', 1): Fraction(2, 1), ('d', 0): Fraction(1, 2), ('d', 1): Fraction(1, 2)}
+FIRST_CONTINUATION_DEFICIT: {'a': Fraction(1, 4), 'b': Fraction(0, 1), 'c': Fraction(0, 1), 'd': Fraction(0, 1)}
+FULL_POLICY_OBSERVERS: (Fraction(9, 32), Fraction(7, 16), Fraction(9, 8), Fraction(9, 8))
+FULL_BELLMAN_OPTIMUM: 55/64
+LR_ONLY_BELLMAN_OPTIMUM: 7/8
+STRICT_GAP: 1/64
+EXHAUSTIVE_LR_DETERMINISTIC: 1296 minimum 7/8
+EXHAUSTIVE_FULL_DETERMINISTIC: 62208 minimum 55/64
+STATUS: PASS (exact Fraction; no floating point)
