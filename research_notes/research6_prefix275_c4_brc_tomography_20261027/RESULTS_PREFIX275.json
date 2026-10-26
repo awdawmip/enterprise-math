@@ -1,0 +1,16 @@
+{
+  "schema": "PREFIX275_AUTHOR_SIDE_EXACT_C4_TOMOGRAPHY_V1",
+  "model": "independent labeled C4 phases; complete fixed detector Gram; ordered provenance path pairs",
+  "cases": [
+    {"k":2,"fixed_phase_settings":3,"accessible_real_dimensions":3,"hidden_diagonal_dimensions":1,"full_gram_dimensions":4,"all_global_phase_quotient_settings_checked":4,"design_determinant":"-2","strict_pd_by_private_identity_coordinates":true,"result":"PASS"},
+    {"k":3,"fixed_phase_settings":7,"accessible_real_dimensions":7,"hidden_diagonal_dimensions":2,"full_gram_dimensions":9,"all_global_phase_quotient_settings_checked":16,"design_determinant":"32","strict_pd_by_private_identity_coordinates":true,"result":"PASS"},
+    {"k":4,"fixed_phase_settings":13,"accessible_real_dimensions":13,"hidden_diagonal_dimensions":3,"full_gram_dimensions":16,"all_global_phase_quotient_settings_checked":64,"design_determinant":"-4096","strict_pd_by_private_identity_coordinates":true,"result":"PASS"},
+    {"k":5,"fixed_phase_settings":21,"accessible_real_dimensions":21,"hidden_diagonal_dimensions":4,"full_gram_dimensions":25,"all_global_phase_quotient_settings_checked":256,"design_determinant":"4194304","strict_pd_by_private_identity_coordinates":true,"result":"PASS"},
+    {"k":6,"fixed_phase_settings":31,"accessible_real_dimensions":31,"hidden_diagonal_dimensions":5,"full_gram_dimensions":36,"all_global_phase_quotient_settings_checked":1024,"design_determinant":"-34359738368","strict_pd_by_private_identity_coordinates":true,"result":"PASS"}
+  ],
+  "diagonal_kernel_counterexample": {"gram_a":"diag(1,1)","gram_b":"diag(3/2,1/2)","fixed_all_on_C4_outcome":"2 for all four relative phases","single_path_outcome_1":"1 versus 3/2"},
+  "source_stage50_two_port_coherence_test": {"coherence":"i/2","four_phases_0_1_2_3":["5/18","5/12","5/18","5/36"],"scope":"Stage50 declared external reader formula, not native law or Stage46 source import"},
+  "source_import_executed":false,
+  "native_model_law_verified":false,
+  "native_claim_verified":false
+}
