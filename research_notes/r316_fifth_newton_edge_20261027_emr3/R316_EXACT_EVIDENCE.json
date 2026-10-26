@@ -1,0 +1,75 @@
+{
+  "schema": "EM_R316_ALL_S_FIFTH_NEWTON_EDGE_EXACT_V1",
+  "status": "PASS",
+  "max_s": 192,
+  "checks": {
+    "polynomial_degree": 193,
+    "previous_moments": 766,
+    "fourth_moment_closed_form": 189,
+    "fourth_moment_recurrence": 188,
+    "fifth_edge_direct": 189,
+    "fifth_edge_moment_reconstruction": 189,
+    "strict_lower_bound": 189
+  },
+  "samples": {
+    "4": {
+      "fourth_derivative": "240",
+      "a_s_s_minus_4": "55",
+      "gap_numerator": "0"
+    },
+    "5": {
+      "fourth_derivative": "2256",
+      "a_s_s_minus_4": "718",
+      "gap_numerator": "9728"
+    },
+    "6": {
+      "fourth_derivative": "12408",
+      "a_s_s_minus_4": "4067",
+      "gap_numerator": "61552"
+    },
+    "7": {
+      "fourth_derivative": "54480",
+      "a_s_s_minus_4": "17726",
+      "gap_numerator": "276576"
+    },
+    "8": {
+      "fourth_derivative": "208344",
+      "a_s_s_minus_4": "66921",
+      "gap_numerator": "1056656"
+    },
+    "9": {
+      "fourth_derivative": "724080",
+      "a_s_s_minus_4": "229850",
+      "gap_numerator": "3649440"
+    },
+    "16": {
+      "fourth_derivative": "1168484352",
+      "a_s_s_minus_4": "358958848",
+      "gap_numerator": "5739737088"
+    },
+    "32": {
+      "fourth_derivative": "1354571616092160",
+      "a_s_s_minus_4": "417776619487232",
+      "gap_numerator": "6684189688594432"
+    },
+    "64": {
+      "fourth_derivative": "96151292877430355279216640",
+      "a_s_s_minus_4": "30101540734379351993221120",
+      "gap_numerator": "481623637179145577866199040"
+    },
+    "128": {
+      "fourth_derivative": "28693769041855005224263788794226583254161424384",
+      "a_s_s_minus_4": "9088491479958323057656530892003253965476069376",
+      "gap_numerator": "145415844963802988270889003786448654700365479936"
+    },
+    "192": {
+      "fourth_derivative": "2687253849195250297595331598184856543091262966958269976724509818880",
+      "a_s_s_minus_4": "855083145021649532682151798175549106644223107508160681754882998272",
+      "gap_numerator": "13681329975105797076646986759840367429885916834501021462556229763072"
+    }
+  },
+  "scientific_scope": "R313 positive-weight ordered six-edge BRC auxiliary count model, Newton edge q=4",
+  "proof_scope": "Author proof for all integer s>=4 from R313 recurrence; machine cross-check only s=0..192",
+  "math_admission": "NOT_REVIEWED",
+  "arithmetic": "JavaScript BigInt exact integer polynomial recurrence; no floating point sign decisions"
+}
