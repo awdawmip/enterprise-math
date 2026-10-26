@@ -19,5 +19,33 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "EC48C-20261027-verified-encoder-quotient",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "kb_sources": [],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "d582d2bd1487446008648fe9da1fae63d2c86b9c",
+          "path": "research_notes/r4_ec48c_encoder_quotient_20261027/EC48C_ENCODER_QUOTIENT_THEOREM.md",
+          "sha256": "268781c9d50a89aa172f4e459ed64478653657e92dfc6107689cccd4b4f762a1",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "R4-EC48C-20261027-GitHubProofReadback-1",
+            "call_id": null,
+            "server_signature_authenticated": false,
+            "network_request_by_this_tool": false,
+            "git_blob_sha1": "a1ef616b3809acc9158d6acb6fe3e3c8270ceeb6",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/d582d2bd1487446008648fe9da1fae63d2c86b9c/research_notes/r4_ec48c_encoder_quotient_20261027/EC48C_ENCODER_QUOTIENT_THEOREM.md"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261027-EC48C-ENCODER-0310/readbacks/0e03f7ce1ea779e680392ecf44ccfd999becf42e82e54c08a58831b369349c89.json",
+          "verification_receipt_sha256": "0e03f7ce1ea779e680392ecf44ccfd999becf42e82e54c08a58831b369349c89"
+        }
+      ]
+    }
+  ]
 }
