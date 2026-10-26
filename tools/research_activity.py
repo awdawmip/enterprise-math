@@ -18,6 +18,7 @@ from pathlib import Path, PurePosixPath
 import re
 import sys
 from datetime import datetime, timezone
+from functools import lru_cache
 from typing import Any, Mapping
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -218,6 +219,13 @@ def verify_observation(observation: Any, pin: Mapping[str, Any]) -> dict[str, An
             "server_signature_authenticated": False}
 
 
+def _observed_source(pin: Mapping[str, Any], verified: Mapping[str, Any],
+                     activity_id: str, receipt_sha: str) -> dict[str, Any]:
+    return {**pin, "publication_state": "EM_SOURCE_OBSERVED", "verification": dict(verified),
+            "verification_receipt": f"{STORE}/{activity_id}/readbacks/{receipt_sha}.json",
+            "verification_receipt_sha256": receipt_sha}
+
+
 def _source(source: Any, activity_id: str) -> tuple[dict[str, Any], tuple[str, bytes] | None]:
     if not isinstance(source, dict) or source.get("repository") != REPOSITORY:
         raise ActivityError("EM source must name awdawmip/enterprise-math")
@@ -231,12 +239,26 @@ def _source(source: Any, activity_id: str) -> tuple[dict[str, Any], tuple[str, b
     verified = verify_observation(observation, pin)
     data = encoded(observation)
     receipt_sha = digest(data)
-    receipt = f"{STORE}/{activity_id}/readbacks/{receipt_sha}.json"
-    return {**pin, "publication_state": "EM_SOURCE_OBSERVED", "verification": verified,
-            "verification_receipt": receipt, "verification_receipt_sha256": receipt_sha}, (receipt, data)
+    accepted = _observed_source(pin, verified, activity_id, receipt_sha)
+    return accepted, (accepted["verification_receipt"], data)
 
 
-def _checked_source(source: Any, activity_id: str, root: Path) -> str:
+@lru_cache(maxsize=128)
+def _verified_readback(root: Path, activity_id: str, receipt_sha: str,
+                       pin: tuple[str, str, str, str], data: bytes) -> dict[str, Any]:
+    # Exact persisted bytes are read afresh by each operation. Reuse only their
+    # static validation in this receiver/root, never a path/mtime assertion.
+    # The bounded process-local cache creates no durable certificate or authority.
+    if digest(data) != receipt_sha:
+        raise ActivityError("verification receipt bytes drift")
+    repository, commit, path, source_sha = pin
+    source = {"repository": repository, "commit": commit, "path": path, "sha256": source_sha}
+    verified = verify_observation(json.loads(data), source)
+    return _observed_source(source, verified, activity_id, receipt_sha)
+
+
+def _checked_source(source: Any, activity_id: str, root: Path,
+                    readbacks: dict[str, dict[str, Any]] | None = None) -> str:
     if not isinstance(source, dict):
         raise ActivityError("invalid stored source")
     base, _ = _source(source, activity_id)
@@ -249,10 +271,13 @@ def _checked_source(source: Any, activity_id: str, root: Path) -> str:
     expected = f"{STORE}/{activity_id}/readbacks/{receipt_sha}.json"
     if receipt != expected:
         raise ActivityError("verification receipt must be exact and activity-local")
-    data = root.joinpath(receipt).read_bytes()
-    if digest(data) != receipt_sha:
-        raise ActivityError("verification receipt bytes drift")
-    rebuilt, _ = _source({**base, "readback": json.loads(data)}, activity_id)
+    if readbacks is None:
+        readbacks = {}
+    if receipt not in readbacks:
+        data = root.joinpath(receipt).read_bytes()
+        pin = tuple(base[key] for key in ("repository", "commit", "path", "sha256"))
+        readbacks[receipt] = _verified_readback(root.resolve(), activity_id, receipt_sha, pin, data)
+    rebuilt = readbacks[receipt]
     if source != rebuilt:
         raise ActivityError("stored source/verification fields drift")
     return "EM_SOURCE_OBSERVED"
@@ -260,6 +285,7 @@ def _checked_source(source: Any, activity_id: str, root: Path) -> str:
 
 def _events(record: Mapping[str, Any], root: Path) -> dict[str, dict[str, Any]]:
     events: dict[str, dict[str, Any]] = {}
+    readbacks: dict[str, dict[str, Any]] = {}
     for row in record["checkpoints"]:
         if not isinstance(row, dict):
             raise ActivityError("invalid checkpoint")
@@ -268,7 +294,7 @@ def _events(record: Mapping[str, Any], root: Path) -> dict[str, dict[str, Any]]:
             raise ActivityError("duplicate checkpoint event_id")
         if not isinstance(row.get("em_sources"), list) or not isinstance(row.get("kb_sources"), list):
             raise ActivityError("checkpoint sources must be lists")
-        states = [_checked_source(x, record["activity_id"], root) for x in row["em_sources"]]
+        states = [_checked_source(x, record["activity_id"], root, readbacks) for x in row["em_sources"]]
         status = "SYNC_DEBT" if not states else ("EM_REPRESENTED" if all(s == "EM_SOURCE_OBSERVED" for s in states) else "VERIFY_EM_PUBLICATION")
         if row.get("state") != status:
             raise ActivityError("checkpoint state must be derived from actual source evidence")

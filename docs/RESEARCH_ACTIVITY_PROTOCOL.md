@@ -130,12 +130,20 @@ unverified successor can clear debt. Connector-only transport must preserve this
 same schema/history and actual hashes; unavailable verification stays explicit
 until the helper or an authorized execution host can check it.
 
-Within an observation check, reuse its computed Git blob and receipt digest rather
-than computing the same identity again for the return fields. The guard derives
-record contents and record_sha256 from one read snapshot: a concurrent update
-cannot pair old events with a newer record hash. Persisted sidecars retain their
-existing full validation on each operation, with no cross-call validation cache.
-Event ordering, source pins, debt repair, lock/CAS and idempotency are unchanged.
+Within one operation, repeated references to the same sidecar reuse one read and
+accepted source. Across calls in the same process, unchanged exact sidecar bytes
+and source bindings in the same root reuse static validation through a bounded
+memory cache. Each new operation still reads persisted bytes: path, size, mtime
+or an unchanged activity record alone cannot establish an unchanged sidecar.
+Changed bytes/bindings or a different root are validated again; a fresh process
+validates its first read. No cache entry is persisted or grants authority. The
+stored receipt digest binds the actual JSON bytes, without requiring another
+canonical re-encoding/hash of an already accepted observation. Normal JSON
+whitespace differences are allowed only with the matching actual receipt digest;
+the underlying source content/blob/repo/ref/path checks still apply. The
+guard derives its record contents and digest from one read snapshot, so a
+concurrent record update cannot mix old events with a newer record hash. Event
+ordering, debt/repair checks, CAS and idempotent writes retain their scopes.
 
 ## Startup, final boundary, and owner visibility
 
