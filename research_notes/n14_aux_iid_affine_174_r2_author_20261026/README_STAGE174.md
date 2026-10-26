@@ -1,0 +1,5 @@
+# Stage174 reproducibility and scope
+
+External IID N14 auxiliary minimax research. \`PROOF_STAGE174.md\` gives full-real interval proof and strict right support, \`certificate174.json\` exact rational witness; \`VERIFY_STAGE174.py\` is the complete self-contained DP+ordered-DFS rechecker. \`SCAN_STAGE175.py\` and \`dual175.json\` supply the next exact DUAL_ONLY candidate; \`NEXT_TASK_PACKET_175.md\` isolates the unsolved next primal problem. \`EXECUTION_EVIDENCE_STAGE174.md\` documents actual local execution and native authority failure; GitHub storage/readback is NOT independent review or native Source admission.
+
+Python 3.10+ standard library, run \`python VERIFY_STAGE174.py\` then \`python SCAN_STAGE175.py\`. The first should print STAGE174_AUTHOR_EXACT_FULL_REAL_PASS; the second STAGE175_DUAL_ONLY_FIRST_GAP_PASS. This repository branch is author-side persistence, not mainline mathematics or P000 promotion.
