@@ -1,0 +1,54 @@
+# LR-minimal two-step policy compression: exact necessity and a root-stopping obstruction
+
+Date: 2026-10-26. Evidence level: AUTHOR-LEVEL EXACT MATHEMATICAL PROOF, external finite non-IID two-measure tree. Activity RA-R5-20261026-LRMIN-1444. No formal native CLAIM, frozen Result, independent Driver acceptance, P000/X6 or physical theorem is asserted.
+
+## Frozen provenance
+
+Account control snapshot: awdawmip/chatgpt-global-knowledge main@26a5b1b309aee44516bb5ee17ae76620521fe9de, with 00_BOOTSTRAP.md, OPERATING_MANUAL.md, P000 projection (original canonical P000 blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc), ACTIVE worldview, BRC and research policy. Source protocol: awdawmip/enterprise-math docs/PORTABLE_RESEARCH_PROTOCOL.md, blob ca5de2d680d2439ff4b67c2c55fbd4159813cd5, read at project main@03bb69a8e78f7d0477e39a1e9750968ca261a09f; later Stage163 commit de185805a29f944d75f88b8cd9186fe6ded45979 checked. Predecessor research_notes/brc_four_scalar_weak_sufficiency_20261026_r5 at commit 6f3f34d66481417e7c2efb96e65ba0c19617e138. GitHub actor awdawmip had push permission. Native control_tasks returned CONTROL_QUOTA, and native session issuance returned STATIC_READONLY_SCOPE_DENIED with operation_sent=false. This is a new independent note, not adoption of any formal active owner's task.
+
+## Setup and exact quantifiers
+
+Let H be the finite set of first observations and Y_h the finite second observations after h; P(h,y)>0 and Q(h,y)>0 on every raw branch. Write L_t(u)=P(u)/Q(u), with orientation P/Q (not Q/P). The time-dependent statistic T_t is the exact likelihood-ratio level L_t, with no additional terminal label. T is not a complete-history state. Full-history behavioral policies may stop and decide P or Q at depth one, or continue and decide at depth two; at depth two stopping is compulsory. Their common randomized decisions have the same law under P and Q. Define O(pi)=(P_pi[decide Q], Q_pi[decide P], E_P tau, E_Q tau). Universal four-observer sufficiency means FOR ALL full-history randomized pi EXISTS a time-and-T-only randomized beta with O(beta)=O(pi).
+
+Strong P-lumpability at time one means, for every h,k with L_1(h)=L_1(k) and every terminal likelihood ratio r, P(L_2=r|h)=P(L_2=r|k). The same condition with Q is equivalent, because for l=L_1(h), P(L_2=r|h)=(r/l)Q(L_2=r|h), with strictly positive r,l.
+
+## Theorem A (iff when first observation is compulsory)
+
+Assume sampling from depth zero to depth one is compulsory. For a strictly positive finite two-step tree and T_1=L_1,T_2=L_2, the following are EQUIVALENT:
+(A) universal exact four-observer sufficiency of time-and-T-only randomized behavioral policies;
+(B) strong P-lumpability, equivalently strong Q-lumpability, of the depth-one to terminal T transition.
+
+Sufficiency proof. Fix full policy pi. For each first-level LR class C_l={h:L_1(h)=l} define its T-policy action probability b_d(l)=sum_{h in C_l} Q(h)pi_d(h) / sum_{h in C_l}Q(h), for d in {stop-P,stop-Q,continue}. They sum to one and reproduce each action's total Q mass; since P(h)=l Q(h) within C_l, they reproduce its P mass too. Strong Q-lumpability implies that reallocating continuation among h in the same class does not change the Q mass arriving at any terminal LR class. The P arrival mass at terminal class r is r times the Q arrival mass, so also unchanged. Choose the terminal T-policy's stop-P probability at r by Q-weighted averaging of the full policy's stop-P probabilities over all its actually continued leaves of LR r, using an arbitrary choice at an unreachable class. This reproduces the Q stop-P mass; because the same r multiplies P mass, it also reproduces the P stop-Q mass after accounting for arrival totals. Depth-one errors and P/Q continuation masses were already matched, hence both errors and both expected sample sizes match exactly. Root baseline sampling is common. QED (B)->(A).
+
+Necessity proof. Suppose two first histories h,k have the same l=L_1 but distinct conditional Q distributions of the terminal LR random variable R=L_2. Their distributions are finite, have mass one and E_Q[R|h]=E_Q[R|k]=l. For theta>0 put F_h(theta)=E_Q[min(R,theta)|h] and D_h(theta)=min(l,theta)-F_h(theta)>=0, by concavity/Jensen. These F functions uniquely determine the finite distribution of R: away from support points their right derivative is Q(R>theta|h), and the jump sizes recover all point masses. Thus unequal R distributions imply some theta>0 with D_h(theta) != D_k(theta). Choose gamma>0 strictly between those two D values, avoiding all equality ties in their common LR class (there are finitely many).
+
+Consider J(pi)=P_pi[decide Q]+theta Q_pi[decide P]+gamma E_Q tau. Given first history u in class l, the optimal immediate stopping loss, excluding compulsory first-sample gamma, is Q(u)min(l,theta). Continuing and then optimally deciding at the terminal sample has loss Q(u)[gamma+F_u(theta)]. Terminal optimal decision depends ONLY on R: decide Q when R<theta and P when R>theta; equality is arbitrary. Hence the complete-history optimum continues precisely when D_u(theta)>gamma; in particular h and k have strictly opposite optimum first-level actions. A T_1-only policy must use one common continuation probability on the entire class and therefore incurs strictly positive additional J loss on at least one positive-mass history. All other LR classes are independent minimization problems, and the terminal rule already attains their minimum, so the strict gap cannot be offset. Consequently min_{T-only}J>min_{history}J. If every full-history four-observer vector had a T-only realization, a linear functional of that vector could not show this strict gap. Contradiction. Thus the LR transition distributions must coincide, yielding strong Q- and P-lumpability. QED (A)->(B).
+
+The iff above is deliberately scoped to compulsory first sampling. If stopping at the root is allowed, it may mask some scalar linear separation; do not silently extend Theorem A to all-root-stopping models.
+
+## Theorem B (strict positive rational counterexample even with root stopping)
+
+Take P(a)=Q(a)=P(b)=Q(b)=1/2, and the following strictly positive conditional second-symbol distributions:
+
+first history | P(x) | P(y) | Q(x) | Q(y)
+a | 3/4 | 1/4 | 1/4 | 3/4
+b | 1/2 | 1/2 | 1/2 | 1/2
+
+This raw history tree is positive and non-IID. Its EXACT LR classes are T_0=1, T_1(a)=T_1(b)=1; T_2(a,x)=3, T_2(a,y)=1/3, T_2(b,x)=T_2(b,y)=1. Strong P-lumpability fails: P(T_2=3|a)=3/4 but P(T_2=3|b)=0.
+
+Use the full-history policy: at root continue; after a continue and at terminal a,x decide P, a,y decide Q; after b stop and decide Q. Direct arithmetic gives
+O(pi)=(5/8,1/8,3/2,3/2), so e_P(pi)+e_Q(pi)=3/4.
+
+For ANY time-and-LR-only randomized beta, root stopping is permitted. Write s=Pr(continue root), p=Pr(continue at depth one | root continued), common for a and b because T_1=1, and c=sp. Matching both expectations 3/2 forces s(1+p)=s+c=3/2. Since 0<=p<=1 and s<=1, c=3/2-s<=3/4. Trajectories stopping before the terminal level have total mass 1-c and P=Q on those stops. Therefore their two error probabilities sum exactly to 1-c, for every randomized stop decision. Continued mass c has half its mass through a and half through b; even if terminal decisions were allowed full history, their minimal possible summed errors are (c/2)[min(3/4,1/4)+min(1/4,3/4)] + (c/2)[min(1/2,1/2)+min(1/2,1/2)]=3c/4. Hence any beta with the two required expectations satisfies
+
+e_P(beta)+e_Q(beta) >= 1-c+3c/4 =1-c/4 >=13/16 >3/4=e_P(pi)+e_Q(pi).
+
+The strict exact rational separating gap is at least 1/16. Thus no root-stopping-allowed LR-only policy matches the displayed four-observer vector. This is stronger than a finite search or floating-point agreement. QED.
+
+As an extra cross-check under compulsory first sampling, theta=1 and gamma=1/4 in Theorem A give the full-history J=9/8 and optimal T-only J=5/4, gap 1/8. Root stopping can erase this *particular* J separation, which explains why the separately constrained error inequality is needed for the root-allowed witness.
+
+## Verification and next problem
+
+VERIFY_LR_MINIMAL_N2.py is an exact Python Fraction checker of all conditional rows, LR levels, nonlumpability, four observables, conditional Bayes overlaps, the 13/16 lower bound and both separating gaps. Its finite checks support this example; the general Theorem A is a symbolic proof and has NOT been independently reviewed, Lean-checked, or promoted to native Enterprise Math Foundation.
+
+This advances the predecessor's question: its nonlumpable T retained redundant terminal z while a coarser LR statistic S was strongly lumpable; here T is already minimal LR. The separate positive rational example shows LR minimality alone does not rescue unsafe quotienting. The next unproved problem is a root-aware NECESSITY criterion for all N=2 trees with exact LR T: can unrestricted root stopping entirely hide some nonlumpability for every four-observer vector, or does an exact occupation-LP separating functional always exist? Seek rigorous proof or a strictly positive rational sufficient-but-nonlumpable example. Higher-horizon predictive observer safety also remains open. No native P000/X6 transfer is asserted without a typed future-operation/observer bridge.
