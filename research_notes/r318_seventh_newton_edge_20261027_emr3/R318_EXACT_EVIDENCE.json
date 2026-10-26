@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_R318_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "arithmetic": "JavaScript BigInt, exact integer",
+  "tested_s_range": [
+    0,
+    192
+  ],
+  "counts": {
+    "degree": 193,
+    "prior_moments_0_5": 1143,
+    "moment6": 187,
+    "moment6_difference": 186,
+    "newton_q6": 187,
+    "moment_recovery": 187,
+    "positive_bound": 187
+  },
+  "samples": {
+    "6": {
+      "moment6": "27360",
+      "newton_q6": "1258"
+    },
+    "7": {
+      "moment6": "217440",
+      "newton_q6": "15466"
+    },
+    "8": {
+      "moment6": "1541520",
+      "newton_q6": "99063"
+    },
+    "9": {
+      "moment6": "8808480",
+      "newton_q6": "497250"
+    },
+    "10": {
+      "moment6": "42752160",
+      "newton_q6": "2163522"
+    },
+    "128": {
+      "moment6": "252998936422745468789535072442011621759222861004800",
+      "newton_q6": "7457692930345857853429784901064630557061643501568"
+    },
+    "192": {
+      "moment6": "54163727995417349947007581300262603528122978307151486747410213225103360",
+      "newton_q6": "1599491930474588853716689954687776416760938645239742063389041273864192"
+    }
+  },
+  "theorem": "For every integer s>=6, a_(s,s-6)=2^s*(3125s^6-24375s^5+77375s^4-215325s^3-41188s^2+333444s+1048032)/589824 >= (629/32)*2^s>0",
+  "caveats": "Finite computation to 192; unbounded theorem separately follows symbolic differentiation recurrence, polynomial finite difference and shifted-positive-coefficient proof. No native independent Driver review or P000 physical interpretation."
+}
