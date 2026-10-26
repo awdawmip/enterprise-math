@@ -6,13 +6,13 @@ from fractions import Fraction as F
 from functools import lru_cache
 from pathlib import Path
 import json
-
 N=14
 P=(F(1,8),F(1,24),F(5,6))
 R=(10,0,1);Y=(6,4,1)
 K=F(100796326719840,394715670863)
 L=F(298940013781960,1184147012589)
 dK=F(-1);dL=F(-10592,12501)
+
 def fmt(x):return str(x.numerator)+(('/'+str(x.denominator)) if x.denominator!=1 else '')
 def ell(s):return F(2**(s[1]+s[2]),3**s[1])
 def child(s,i):return(s[0]+1,s[1]+(i==0),s[2]+(i==1))
