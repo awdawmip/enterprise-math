@@ -1,0 +1,11 @@
+# Stage177 — open primal on potentially nested T/U tie cones
+
+**Scope/status:** external N14 ternary IID full ordered-history randomized sequential minimax, DUAL_ONLY; no native CLAIM or formal admission. P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6), N=14, V14(alpha)=min_{eP,eQ<=alpha} max(E_P tau,E_Q tau).
+
+**Last proved author frontier:** Stage176 theorem and exact code/certificate in this directory; alpha176=5148159682306058186075/14750257906470044565504; V176=338735964098497111620725/29500515812940089131008. At this endpoint W=(4,1,2) chooses Q with probability 1; T=(8,2,0) chooses P with probability 1768756796217217/3860125696000000+4588038935639/193006284800000.
+
+**Exact dual-only candidate:** Along Stage176's T=P/C-preserving ray dK=-1, dL=-169640/99621, first closure occurs at epsilon=87249936961344913535484/15838758709430926226465. K177=1870855299/8461318, L177=911522328/4230659, H177=148336146012983121522325/905303534551638736896. T=(8,2,0) and newly U=(12,5,2) are P/C tied; all other 1238 gaps strictly positive, minimum 2003135/203071632. W becomes strictly Q. Exact source: SCAN_STAGE177.py/dual177.json in local execution package.
+
+**One discriminating first unit:** independently compute four deterministic T/U corner observers with Fraction suffix DP and full-order integer-numerator DFS. T's counts (two 0, no 1) can extend to U's counts (five 0, two 1), so unlike Stage176 the tie cones may be *nested*. Compute actual first-hit/cross-hit masses, derive proper bilinear or conditional coin law; do not assume a zero mixed coefficient. Solve eP=eQ with legal coins; match Stage176 endpoint exactly, test tP>=tQ, increasing common error and dual tightness. Prove a new all-real interval and strict support-line boundary, or record an exact rational infeasibility and corrected direction.
+
+**Evidence/limits:** 680-state exhaustive exact Bellman, all source pins, two genuinely executed corner calculation methods, history-labeled P/Q positive rational masses, full proof or exact obstruction, a bounded Stage178 question. No promotion to X6/P000, Working Truth, Source task or independent Driver authority without separate bridges/admission. Frozen snapshots Global e3216935b09dc101e4df54f6fe52effbb110da69, EM bcb3a31c94f4461a592fa50cb177f9d8717f11d6, Stage175 corrected a89b84fb9e2275b4fec80c5cc6411d795afdf6cc.
