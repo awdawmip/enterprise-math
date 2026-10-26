@@ -1,0 +1,134 @@
+{
+  "schema": "EM_N14_STAGE152_AUTHOR_EXACT_CERTIFICATE_V1",
+  "evidence_level": "AUTHOR_EXACT_FINITE_LOCAL_EXECUTION",
+  "model": "EXTERNAL_AUXILIARY_TERNARY_IID_N14",
+  "N": 14,
+  "P": [
+    "1/8",
+    "1/24",
+    "5/6"
+  ],
+  "Q": [
+    "1/12",
+    "1/12",
+    "5/6"
+  ],
+  "dual": {
+    "K": "12844717560/36346217",
+    "L": "12768141608/36346217",
+    "H_root": "341463027624594134301829727/1327376472826305935572992",
+    "states": 680,
+    "strict_positive_gaps": 1238,
+    "min_positive_gap": "204027667/1130512733568",
+    "negative_gaps": 0,
+    "ties": {
+      "(11,0,1)": [
+        "Q",
+        "C"
+      ],
+      "(8,3,3)": [
+        "Q",
+        "C"
+      ]
+    }
+  },
+  "first_hit_ordered_prefixes": {
+    "B=(11,0,1)": {
+      "histories": 11,
+      "P_mass": "107421875/1451188224",
+      "Q_mass": "107421875/725594112"
+    },
+    "W=(8,3,3)": {
+      "histories": 224,
+      "P_mass": "175/7962624",
+      "Q_mass": "175/3359232"
+    }
+  },
+  "four_observer_order": [
+    "eP",
+    "eQ",
+    "tP",
+    "tQ"
+  ],
+  "M00": [
+    "1212592135672539235/3505953353861431296",
+    "224492569856365/641959232274432",
+    "5330367237943930717/438244169232678912",
+    "70007401392629/5944066965504"
+  ],
+  "dB": [
+    "4619140625/2229025112064",
+    "-751953125/417942208512",
+    "-25673828125/278628139008",
+    "-17939453125/104485552128"
+  ],
+  "dW": [
+    "16372475/56358560858112",
+    "-1952125/10030613004288",
+    "-78138725/2348273369088",
+    "-19052425/278628139008"
+  ],
+  "corner_dfs_nodes": {
+    "b0w0": 496174,
+    "b0w1": 475342,
+    "b1w0": 496042,
+    "b1w1": 475210
+  },
+  "mixed_fourvector": [
+    "0/1",
+    "0/1",
+    "0/1",
+    "0/1"
+  ],
+  "b_of_w": {
+    "intercept": "8061971501813291/8143872000000000",
+    "slope": "-797257531/6362400000000",
+    "allowed_w": [
+      "0",
+      "1"
+    ],
+    "b_at_1": "2686983670724537/2714624000000000"
+  },
+  "full_real_optimum": {
+    "alpha151": "18373001785623238325/52808422392537808896",
+    "alpha152": "18373003413933759925/52808422392537808896",
+    "eta": "6360587975/206282899970850816",
+    "V151": "318746112099955105013/26404211196268904448",
+    "V152": "318745538371909741813/26404211196268904448",
+    "negative_value_slope": "-25612859168/36346217",
+    "sharp_right": true
+  },
+  "exact_checks": {
+    "bellman_all_states": true,
+    "corner_backward_equals_literal_DFS": true,
+    "dual_equality_two_endpoints": true,
+    "time_P_greater_than_time_Q_two_endpoints": true,
+    "stage151_endpoint_bridge": true
+  },
+  "next_dual_candidate_unreviewed": {
+    "direction_dK": "-1",
+    "direction_dL": "-112/129",
+    "ray_t": "500973822/617885689",
+    "first_closing_state": "(12,2,2)",
+    "closing_action": "Q",
+    "K153": "5994/17",
+    "L153": "5960/17",
+    "H153": "79691642847444362851/310422953206480896",
+    "ties": [
+      "(11,0,1) Q/C",
+      "(12,2,2) Q/C"
+    ],
+    "strict_gap_count": 1238,
+    "minimum_strict_gap": "71917/33841152"
+  },
+  "limitations": [
+    "No native CLAIM",
+    "No independent Research Driver review",
+    "No Lean proof",
+    "No P000/X6/Heartbeat model-transfer theorem"
+  ],
+  "fixed_inputs": {
+    "global_snapshot": "43639a1bd021e9c6e90e699fbb7b5021855fbef7",
+    "em_initial_main": "b3d16cec31ce33651cf8702e2e00847b9e3da3ca"
+  }
+}
