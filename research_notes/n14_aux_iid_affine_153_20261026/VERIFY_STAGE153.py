@@ -1,146 +1,97 @@
-#!/usr/bin/env python3
-"""Exact author-side Stage153 Bellman and ordered-history observer verification.
-The model is external auxiliary ternary iid N14; no native X6 identification.
-No external dependencies. Python 3.9+.
-"""
+"""Stage153 author-level exact finite N14 ordered-history verifier."""
 from fractions import Fraction as F
-from functools import lru_cache
 from collections import defaultdict
 from itertools import product
+from pathlib import Path
 import json
-P=(F(1,8),F(1,24),F(5,6))
-Q=(F(1,12),F(1,12),F(5,6))
-PW=(3,1,20); QW=(1,1,10)
 N=14
-K=F(5994,17);L=F(5960,17)
-B=(11,0,1); W=(12,2,2)
-alpha151=F(18373003413933759925,52808422392537808896)
-V151=F(318745538371909741813,26404211196268904448)
-
-def child(s,i):
- n,a,b=s;return (n+1,a+(i==0),b+(i==1))
-def states():
- for n in range(N+1):
-  for a in range(n+1):
-   for b in range(n-a+1):
-    yield n,a,b
-
-def ratio(s):
- n,a,b=s;return F(2**(a+b),3**a)
-@lru_cache(None)
-def dual(s):
- n,a,b=s
- acts={'P':K*ratio(s),'Q':L}
- if n<N: acts['C']=1+sum(P[i]*dual(child(s,i))[0] for i in range(3))
- v=min(acts.values()); return v,tuple(x for x,y in acts.items() if y==v), acts
-
-infos={s:dual(s) for s in states()}
-ties={s:info[1] for s,info in infos.items() if len(info[1])>1}
-assert ties=={B:('Q','C'),W:('Q','C')},ties
-pos=[v-u for s,(u,act,opts) in infos.items() for v in opts.values() if v>u]
-assert len(infos)==680 and len(pos)==1238
-assert min(pos)==F(71917,33841152),min(pos)
-assert dual((0,0,0))[0]==F(79691642847444362851,310422953206480896)
-
-# NOTE choose corner coin 0 = continue, coin 1 = Q stop at tie.
-def action(s,b,w):
+P=(F(1,8),F(1,24),F(5,6));Q=(F(1,12),F(1,12),F(5,6))
+K,L=F(5994,17),F(5960,17);B,Z=(11,0,1),(12,2,2)
+S=[(n,a,b) for n in range(15) for a in range(n+1) for b in range(n-a+1)]
+assert len(S)==680
+def child(s):
+ n,a,b=s;return ((n+1,a+1,b),(n+1,a,b+1),(n+1,a,b))
+def lr(s):return F(2**(s[1]+s[2]),3**s[1])
+H={};A={};ties=[];gaps=[]
+for s in reversed(S):
+ costs={'P':K*lr(s),'Q':L}
+ if s[0]<N:costs['C']=1+sum((P[i]*H[child(s)[i]] for i in range(3)),F())
+ m=min(costs.values());opt=tuple(a for a in costs if costs[a]==m)
+ if len(opt)>1:ties.append((s,opt))
+ A[s]='Q' if s in (B,Z) else opt[0]
+ assert A[s] in opt
+ H[s]=m;gaps.extend(v-m for v in costs.values() if v>m)
+assert set(ties)=={(B,('Q','C')),(Z,('Q','C'))}
+assert len(gaps)==1238 and min(gaps)==F(71917,33841152)
+assert H[0,0,0]==F(79691642847444362851,310422953206480896)
+def act(s,b,z):
  if s==B:return 'Q' if b else 'C'
- if s==W:return 'Q' if w else 'C'
- return dual(s)[1][0]
-ZERO=(F(0),)*4
-@lru_cache(None)
-def observer(s,b,w):
- a=action(s,b,w)
- if a=='P':return (F(0),F(1),F(0),F(0))
- if a=='Q':return (F(1),F(0),F(0),F(0))
- m=[observer(child(s,i),b,w) for i in range(3)]
- return (sum(P[i]*m[i][0] for i in range(3)),
-         sum(Q[i]*m[i][1] for i in range(3)),
-         1+sum(P[i]*m[i][2] for i in range(3)),
-         1+sum(Q[i]*m[i][3] for i in range(3)))
-M={(b,w):observer((0,0,0),b,w) for b,w in product((0,1),repeat=2)}
-def vsum(*lst):return tuple(sum(values) for values in zip(*lst))
-def vdiff(a,b):return tuple(x-y for x,y in zip(a,b))
-m00=M[(0,0)];dB=vdiff(M[(1,0)],m00);dW=vdiff(M[(0,1)],m00)
-assert vsum(m00,dB,dW)==M[(1,1)]
-
-# independent ordered-prefix integer DFS. Direct tree paths, integer likelihood weights;
-# denominators P=24^14, Q=12^14 for full lengths; do not merge prefixes.
-# recurse actual branches; at a terminal t, eP and eQ numerator accumulates
-# initial-history P mass and Q mass; sample-time accumulates depth.
-# Time in caller's distribution remains sum_{prefixes} mass*depth.
-def literal_dfs(b,w):
- vals=[F(0),F(0),F(0),F(0)]
- stack=[((0,0,0),1,1)]
- nodes=0
- while stack:
-  s,pn,qn=stack.pop();nodes+=1
-  n=s[0];assert n<=N
-  act=action(s,b,w)
-  if act=='C':
-   for i in range(3):stack.append((child(s,i),pn*PW[i],qn*QW[i]))
+ if s==Z:return 'Q' if z else 'C'
+ return A[s]
+def backward(b,z):
+ T={}
+ for s in reversed(S):
+  op=act(s,b,z)
+  if op=='Q':v=(F(1),F(),F(),F())
+  elif op=='P':v=(F(),F(1),F(),F())
   else:
-   p=F(pn,24**n);q=F(qn,12**n)
-   if act=='Q':vals[0]+=p
-   else:vals[1]+=q
-   vals[2]+=p*n; vals[3]+=q*n
- return tuple(vals),nodes
-DFS={}
-for bw in product((0,1),repeat=2):
- v,n=literal_dfs(*bw)
- assert v==M[bw],(bw,v,M[bw]);DFS[bw]=n
-# First-hit of tie states under deterministic strict actions. Do not continue past any tie.
-# We need ordered literal prefix path counts and probability masses under both P & Q.
-def first_hits():
- stack=[((0,0,0),1,1)]
- hit={B:[0,F(0),F(0)],W:[0,F(0),F(0)]}
+   assert s[0]<N
+   ch=child(s)
+   v=tuple((F(1) if j>=2 else F())+sum(((P if j%2==0 else Q)[i]*T[ch[i]][j] for i in range(3)),F()) for j in range(4))
+  T[s]=v
+ return T[0,0,0]
+def dfs(b,z):
+ sums=[0]*4;hits=defaultdict(lambda:[0,F(),F()]);count=0
+ stack=[(0,0,0,1,1)]
  while stack:
-  s,pn,qn=stack.pop();n=s[0]
-  if s in hit:
-   hit[s][0]+=1;hit[s][1]+=F(pn,24**n);hit[s][2]+=F(qn,12**n)
-   continue
-  if dual(s)[1][0]=='C':
-   for i in range(3): stack.append((child(s,i),pn*PW[i],qn*QW[i]))
- return hit
-hits=first_hits()
-# Equal error solve eP-eQ=D00 + b DB + w DW=0.
-D00=m00[0]-m00[1]; DB=dB[0]-dB[1];DW=dW[0]-dW[1]
-assert DB!=0
-b0=-D00/DB; beta=-DW/DB
-# b(w)=b0+beta*w; solve legal interval [0,1] in w as rational linear inequality.
-lo=F(0);hi=F(1)
-for a,c in ((b0,beta),(1-b0,-beta)):
- if c>0:lo=max(lo,-a/c)
- elif c<0:hi=min(hi,-a/c)
- else:assert a>=0
-assert lo<=hi
-
-def mix(w):
- b=b0+beta*w
- v=vsum(m00,tuple(b*x for x in dB),tuple(w*x for x in dW))
- assert v[0]==v[1]
- return b,v
-left=mix(lo);right=mix(hi)
-H=dual((0,0,0))[0]
-def dual_eval(m): return m[2]+L*m[0]+K*m[1]
-
-def jfrac(x):return str(x.numerator)+'/'+str(x.denominator)
-def jvec(v):return [jfrac(x) for x in v]
-result={
-  'model':'EXTERNAL_AUXILIARY_IID_TERNARY_N14',
-  'K':jfrac(K),'L':jfrac(L),'H_root':jfrac(H),
-  'bellman_states':len(infos),'ties':{str(s):list(v) for s,v in ties.items()},
-  'strict_gap_count':len(pos),'strict_gap_min':jfrac(min(pos)),
-  'corners':{f'b={b},w={w}':jvec(M[(b,w)]) for b,w in product((0,1),repeat=2)},
-  'corner_dfs_nodes':{str(bw):DFS[bw] for bw in DFS},
-  'M00':jvec(m00),'dB':jvec(dB),'dW':jvec(dW),
-  'mixed_fourvector':jvec(vdiff(M[(1,1)],vsum(m00,dB,dW))),
-  'first_hits':{str(k):{'ordered_count':v[0],'P_mass':jfrac(v[1]),'Q_mass':jfrac(v[2])} for k,v in hits.items()},
-  'compensation':{'b_intercept':jfrac(b0),'b_slope_w':jfrac(beta),'w_min':jfrac(lo),'w_max':jfrac(hi)},
-  'endpoints':{'lower':{'w':jfrac(lo),'b':jfrac(left[0]),'M':jvec(left[1]),'dual_value':jfrac(dual_eval(left[1]))},'upper':{'w':jfrac(hi),'b':jfrac(right[0]),'M':jvec(right[1]),'dual_value':jfrac(dual_eval(right[1]))}},
-  'stage151_bridge':{'alpha151':jfrac(alpha151),'V151':jfrac(V151),'matches_lower':left[1][0]==alpha151 and max(left[1][2:])==V151},
-  'dual_equality_lower':dual_eval(left[1])==H,'dual_equality_upper':dual_eval(right[1])==H,
-  'time_P_dominates_both_endpoints':left[1][2]>=left[1][3] and right[1][2]>=right[1][3]
-}
-with open('certificate153.json','w') as f:json.dump(result,f,indent=2,ensure_ascii=False)
-print(json.dumps(result,indent=2))
+  n,a,c,p,q=stack.pop();count+=1;s=(n,a,c)
+  if s in (B,Z):
+   hits[s][0]+=1;hits[s][1]+=F(p,24**n);hits[s][2]+=F(q,12**n)
+  op=act(s,b,z)
+  if op=='C':
+   assert n<N
+   stack.extend(((n+1,a+1,c,3*p,q),(n+1,a,c+1,p,q),(n+1,a,c,20*p,10*q)))
+  else:
+   x=p*24**(N-n);y=q*12**(N-n)
+   if op=='Q':sums[0]+=x
+   else:sums[1]+=y
+   sums[2]+=n*x;sums[3]+=n*y
+ return tuple(F(sums[j],(24 if j%2==0 else 12)**N) for j in range(4)),count,hits
+corners={};vis=[];first_hit={}
+for b,z in product((0,1),repeat=2):
+ v,n,h=dfs(b,z);assert v==backward(b,z)
+ corners[b,z]=v;vis.append([b,z,n])
+ first_hit[f'{b}{z}']={str(s):[str(x) for x in h[s]] for s in (B,Z)}
+assert all(q==first_hit['00'] for q in first_hit.values())
+assert first_hit['00'][str(B)]==['11','107421875/1451188224','107421875/725594112']
+assert first_hit['00'][str(Z)]==['1555','607421875/61917364224','607421875/34828517376']
+sub=lambda x,y:tuple(a-b for a,b in zip(x,y))
+add=lambda x,y:tuple(a+b for a,b in zip(x,y))
+M=corners[0,0];dB=sub(corners[1,0],M);dZ=sub(corners[0,1],M)
+assert sub(sub(corners[1,1],corners[1,0]),dZ)==(F(),)*4
+b0=(M[1]-M[0])/(dB[0]-dB[1])
+db=-(dZ[0]-dZ[1])/(dB[0]-dB[1])
+assert b0==F(2686983670724537,2714624000000000) and db==-F(9019,127248)
+assert 0<b0<1 and 0<b0+db<1
+def obs(z):return add(add(M,tuple((b0+db*z)*x for x in dB)),tuple(z*x for x in dZ))
+v0,v1=obs(F()),obs(F(1))
+a0=F(18373003413933759925,52808422392537808896)
+a1=F(18373341781933759925,52808422392537808896)
+t0=F(318745538371909741813,26404211196268904448)
+t1=F(318626572163909741813,26404211196268904448)
+for v,a,t in ((v0,a0,t0),(v1,a1,t1)):
+ assert v[0]==v[1]==a and v[2]==t and v[2]>v[3]
+ assert v[2]+K*v[1]+L*v[0]==H[0,0,0]
+assert (a1-a0)==F(10326171875,1611585156022272)
+assert (t0-t1)/(a1-a0)==K+L==F(11954,17)
+rec={'status':'AUTHOR_EXACT_NOT_ADMITTED','dual':{'K':str(K),'L':str(L),'Hroot':str(H[0,0,0])},
+ 'ties':[[list(s),list(v)] for s,v in ties],'strict_gaps':len(gaps),
+ 'min_gap':str(min(gaps)),'dfs_visits':vis,'first_hit':first_hit,
+ 'corners':{f'{b}{z}':[str(x) for x in v] for (b,z),v in corners.items()},
+ 'M00':[str(x) for x in M],'dB':[str(x) for x in dB],'dZ':[str(x) for x in dZ],
+ 'b0':str(b0),'db_dz':str(db),
+ 'left':{'alpha':str(a0),'tP':str(t0),'tQ':str(v0[3])},
+ 'right':{'alpha':str(a1),'tP':str(t1),'tQ':str(v1[3])},
+ 'delta':str(a1-a0),'slope':str(K+L)}
+Path(__file__).with_name('certificate153.replayed.json').write_text(json.dumps(rec,indent=2)+'\n')
+print('PASS Stage153 full real interval; all exact checks passed; first-hits',first_hit['00'])
