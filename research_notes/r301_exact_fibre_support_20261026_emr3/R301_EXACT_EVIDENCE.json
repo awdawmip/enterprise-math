@@ -1,0 +1,122 @@
+{
+  "schema": "EM_R301_EXACT_FIBRE_SUPPORT_V1",
+  "status": "PASS",
+  "method": "independent raw ordered six-edge DP with forbidden 00, exact integers; explicit first-return witness formulas",
+  "checked_n": [
+    0,
+    600
+  ],
+  "fibres_positive_tested": 355813,
+  "constructed_witnesses_tested": 355792,
+  "theorem": "for all n>=9 and both signs, support is exactly k congruent n mod 2, 2-n<=k<=n-8",
+  "small_support": {
+    "0": {
+      "plus": [
+        0
+      ],
+      "minus": []
+    },
+    "1": {
+      "plus": [],
+      "minus": []
+    },
+    "2": {
+      "plus": [],
+      "minus": []
+    },
+    "3": {
+      "plus": [
+        -1
+      ],
+      "minus": []
+    },
+    "4": {
+      "plus": [
+        -2
+      ],
+      "minus": [
+        -2
+      ]
+    },
+    "5": {
+      "plus": [
+        -3
+      ],
+      "minus": [
+        -3
+      ]
+    },
+    "6": {
+      "plus": [
+        -4,
+        -2
+      ],
+      "minus": [
+        -4
+      ]
+    },
+    "7": {
+      "plus": [
+        -5,
+        -3
+      ],
+      "minus": [
+        -5,
+        -3,
+        -1
+      ]
+    },
+    "8": {
+      "plus": [
+        -6,
+        -4,
+        0
+      ],
+      "minus": [
+        -6,
+        -4,
+        -2,
+        0
+      ]
+    }
+  },
+  "maximum_constructive_return_blocks": {
+    "plus": 3,
+    "minus": 2
+  },
+  "plus_three_block_sharp": "for every n>=9, k=6-n has no representation with <=2 blocks",
+  "samples": {
+    "9": {
+      "count_plus": 5,
+      "count_minus": 5,
+      "min_k": -7,
+      "max_k": 1
+    },
+    "10": {
+      "count_plus": 6,
+      "count_minus": 6,
+      "min_k": -8,
+      "max_k": 2
+    },
+    "81": {
+      "count_plus": 77,
+      "count_minus": 77,
+      "min_k": -79,
+      "max_k": 73
+    },
+    "82": {
+      "count_plus": 78,
+      "count_minus": 78,
+      "min_k": -80,
+      "max_k": 74
+    },
+    "600": {
+      "count_plus": 596,
+      "count_minus": 596,
+      "min_k": -598,
+      "max_k": 592
+    }
+  },
+  "scope": "positive ordered six-edge BRC auxiliary q0-return fibres; not native X6 physics",
+  "limitations": "all-length theorem from combinatorial proof; code only checks n<=600; no native Source Result/Driver admission"
+}
