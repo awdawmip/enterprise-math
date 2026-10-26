@@ -84,9 +84,12 @@ def test(m):
     check(direct==lower+upper,"signed ordered sum")
     inf=sum((F(1,2)**(j-l)*(1+6*(j-l))*(d(j)*h(l)+c(j)*k(l))
              for j in range(1,M+1) for l in range(j+1,M+1)),F(0))
-    inf_chart=sum((F(1,2)**(j-l)*(1+6*(j-l))*
-                   (c(j)*h(l)*(d(j)/c(j)+k(l)/h(l)) if j<=m else d(j)*h(l)))
-                   for j in range(1,M+1) for l in range(j+1,M+1)),F(0))
+    inf_chart = sum(
+        F(1,2)**(j-l) * (1+6*(j-l)) * (
+            c(j)*h(l)*(d(j)/c(j)+k(l)/h(l)) if j<=m else d(j)*h(l)
+        )
+        for j in range(1,M+1) for l in range(j+1,M+1)
+    )
     check(inf==inf_chart,"complementary infinity orientation")
     if p in [7,13,19,31,37,43,61,67,73,79,97,103]:
         check(modp(c(m),p)==comb(2*m,m)%p,"mod p c_m")
