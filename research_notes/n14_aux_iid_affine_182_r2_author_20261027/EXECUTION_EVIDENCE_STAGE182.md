@@ -1,0 +1,7 @@
+# Stage182 local verification and authority
+
+Local executed originals VERIFY_STAGE182.py -> STAGE182_AUTHOR_EXACT_FULL_REAL_PASS; SCAN_STAGE183.py -> STAGE183_DUAL_SCAN_PASS (Python fractions.Fraction). Stage182 exact Bellman coverage 680/680, 1238 positive non-tie gaps. Four independent fraction suffix-DP versus integer-weight *unmerged ordered-history* DFS corners agree, nodes 244078/238912/243646/238480, mixed interaction zero; 12/12 exact theorem checks passed. Stage183 scan 680 states and 1238 positive gaps, primal open.
+
+Complete local bundle EM_STAGE182_AUTHOR_EXACT_PORTABLE_20261027.zip includes exact executed programs, raw logs, full rational certificate, longer mathematical proof and internal SHA256 manifest. ZIP SHA256: ae80414f79d7a517935f847568141058c831131a804582f2e1db8bb69c2a434a. GitHub reference scripts are source transformations of previously published Stage181 reference scripts; they are **not** identical to the locally executed originals. Remote file persistence is not remote execution.
+
+Current GitHub identity awdawmip with push rights. Frozen Global main 60adb778fcdb6ae2ba67e6587d70da0903abb4df; EM main f7fcedbcc780d4bc445f1be86002f88aae7ece97. Native em_control_tasks => CONTROL_QUOTA; em_session_start => STATIC_READONLY_SCOPE_DENIED and operation_sent=false. No native session/CLAIM/Source Result/independent review. Formal active owner unknown; no modification to P000.
