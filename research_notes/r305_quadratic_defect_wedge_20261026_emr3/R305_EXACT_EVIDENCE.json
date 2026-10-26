@@ -1,0 +1,21 @@
+{
+  "schema": "EM_R305_QUADRATIC_DEFECT_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "mode": "BigInt exact integer arithmetic; rational bivariate series and independent six-edge DP",
+  "source_equation": "F(x,z)=x^3(1-x-xz+x^2z-x^3z^2+x^5z^3)/[(1+x^2z)(1-x-xz+2x^4z^2-x^6z^3)]",
+  "max_length": 240,
+  "max_defect": 44,
+  "checks": {
+    "series_coefficients": 10845,
+    "direct_checks": 10845,
+    "seen_effects": 55932,
+    "theorem_window_checks": 532,
+    "finite_stronger_window_checks": 6235,
+    "bound_checks": 532
+  },
+  "strongest_finite_check": "D_d(n)>0 for 2<=d<=44, 4d+4<=n<=240 (not an infinite theorem)",
+  "proved_window": "For all integers d>=2 and n>=8d^2, D_d(n)>0 by separate exact combinatorial upper bound",
+  "max_defect_with_theorem_window_in_run": 5,
+  "physical_transfer": "NOT_ESTABLISHED",
+  "independent_driver_review": "NOT_PERFORMED"
+}
