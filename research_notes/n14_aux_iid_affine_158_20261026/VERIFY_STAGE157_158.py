@@ -70,7 +70,7 @@ def verify(K,L,s1,z1,s2,z2,expected):
         return tuple(v[i]+t*d1[i]+x*d2[i] for i in range(4))
     start,end=point(F(0)),point(xmax);h=bell((0,0,0))[0]
     assert end[0]>start[0] and start[0]==start[1] and end[0]==end[1]
-    assert all(o[2]>o[3] and o[2]+K*o[0]+L*o[1]==h for o in (start,end))
+    assert all(o[2]>o[3] and o[2]+K*o[1]+L*o[0]==h for o in (start,end))
     assert start[2]-end[2]==(K+L)*(end[0]-start[0])
     return {'ties':ties,'dual':h,'min_gap':min(gaps),'first_hit':hits['00'], 'nodes':counts,
             'M00':v,'d1':d1,'d2':d2,'x0':x0,'dx_dt':slope,'tmax':xmax,'start':start,'end':end,
