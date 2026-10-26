@@ -130,6 +130,13 @@ unverified successor can clear debt. Connector-only transport must preserve this
 same schema/history and actual hashes; unavailable verification stays explicit
 until the helper or an authorized execution host can check it.
 
+Within an observation check, reuse its computed Git blob and receipt digest rather
+than computing the same identity again for the return fields. The guard derives
+record contents and record_sha256 from one read snapshot: a concurrent update
+cannot pair old events with a newer record hash. Persisted sidecars retain their
+existing full validation on each operation, with no cross-call validation cache.
+Event ordering, source pins, debt repair, lock/CAS and idempotency are unchanged.
+
 ## Startup, final boundary, and owner visibility
 
 The canonical runtime guard returns `REGISTER_RESEARCH_ACTIVITY` for an unbound
