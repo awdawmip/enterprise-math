@@ -1,0 +1,55 @@
+{
+  "schema": "EM_R314_ALL_S_TOP_THREE_NEWTON_EDGES_EXACT_V1",
+  "status": "PASS",
+  "max_s": 128,
+  "checked_edges": 384,
+  "checked_moments": 384,
+  "equalities_at_lower_bound": 129,
+  "strictly_above": 255,
+  "arithmetic": "Pure JavaScript BigInt exact integer-polynomial recurrence E of R313; no floating-point sign testing",
+  "formulas": [
+    "a_{s,s}=2^s (s>=0)",
+    "a_{s,s-1}=2^(s-2)(5s+1) (s>=1)",
+    "a_{s,s-2}=2^(s-5)(25s^2-5s-26) (s>=2)"
+  ],
+  "scope": "All s>=0 proved algebraically; integer verification finite 0..S, independent Driver validation pending",
+  "samples": {
+    "0": {
+      "k=0": "1"
+    },
+    "1": {
+      "k=1": "2",
+      "k=0": "3"
+    },
+    "2": {
+      "k=2": "4",
+      "k=1": "11",
+      "k=0": "8"
+    },
+    "3": {
+      "k=3": "8",
+      "k=2": "32",
+      "k=1": "46"
+    },
+    "8": {
+      "k=8": "256",
+      "k=7": "2624",
+      "k=6": "12272"
+    },
+    "32": {
+      "k=32": "4294967296",
+      "k=31": "172872433664",
+      "k=30": "3411009339392"
+    },
+    "64": {
+      "k=64": "18446744073709551616",
+      "k=63": "1480351211915191517184",
+      "k=62": "58830125615573580644352"
+    },
+    "128": {
+      "k=128": "340282366920938463463374607431768211456",
+      "k=127": "54530249299080388770005780840940855885824",
+      "k=126": "4348532169826470300560363491109459430735872"
+    }
+  }
+}
