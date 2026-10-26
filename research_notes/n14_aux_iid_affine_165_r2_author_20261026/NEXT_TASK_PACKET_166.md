@@ -1,0 +1,9 @@
+# Stage166 portable next unit (DUAL ONLY)
+Source: Stage165 proof, executable exact verifier and certificate in this directory, upstream Stage164 immutable commit c085c64c14515b4d2fc3cbfb33751d4e1171530c.
+Model: external N14 ternary iid P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6). Policies may use full ordered histories. eP=P(decide Q); eQ=Q(decide P); tP=E_P tau; tQ=E_Q tau. V14(alpha)=min max(tP,tQ) with errors<=alpha. Not native P000.
+
+Proved Stage165 author endpoint: alpha165=881259282664541428015/2530093150022563528704, V165=4277168009143268563157/361441878574651932672. Stage165 ties R=(10,0,1) Q/continue and W=(10,7,3) P/continue, W saturated at decide-P on the right.
+
+Dual-only Stage166 scan: from K165=13623672285/49693891 and L165=40009085000/149081673, vary (dK,dL)=(-1,-10592/12501) maintaining R Q/C tie and making W strictly decide-P. The first newly closing gap occurs at step 103222121856592293/56649510584791319 at (7,4,1) decide-P/continue. Candidate K166=310447538892/1139969309, L166=912521643352/3419907927, H_root=74798213336514089844785955701/374688677080092029648633856; 1238 other strictly positive gaps, minimum 8257109179793/957355345452672. These numbers have exact Fraction scan evidence locally, but **no Stage166 primal theorem** has been claimed.
+
+First unanswered question: recompute two tie-cone first-hit ordered histories and P/Q masses, four exact deterministic corner observers with independent suffix/ordered-DFS organizations. Earlier tie (7,4,1) has four zeros and the R=(10,0,1) tie none; neither cone can contain the other, but explicitly verify. Derive legal error-balanced coin relation and left Stage165 match, positive P-time advantage, dual equality, full real interval or exact rational obstruction. Retain positive two-measure labeled branches and separate native BRC/P000 scope. No inherited CLAIM or Reviewer authority.
