@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/r319_eighth_newton_edge_20261027_emr3/R319_EXACT_EVIDENCE.json",
+    "ref": "7be8b200aaa0d702d549ad98f62485ee3a7cb85f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r319-actual-gh-readback-20261027-0330",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"ENTERPRISE_MATH_R319_EXACT_EVIDENCE_V1\",\n  \"status\": \"PASS\",\n  \"source\": \"R313/R318 ordered six-edge BRC polynomial recurrence\",\n  \"arithmetic\": \"Node.js BigInt exact integer\",\n  \"range_s\": [\n    0,\n    192\n  ],\n  \"checks\": {\n    \"degree\": 193,\n    \"moment7\": 186,\n    \"recurrence7\": 185,\n    \"newton7_direct\": 186,\n    \"newton7_recovery\": 186,\n    \"shifted_identity\": 186,\n    \"strict_bound\": 186\n  },\n  \"samples\": {\n    \"7\": {\n      \"moment7\": \"-50400\",\n      \"newton_q7\": \"8035\"\n    },\n    \"8\": {\n      \"moment7\": \"2081520\",\n      \"newton_q7\": \"81306\"\n    },\n    \"9\": {\n      \"moment7\": \"19363680\",\n      \"newton_q7\": \"519265\"\n    },\n    \"10\": {\n      \"moment7\": \"126786240\",\n      \"newton_q7\": \"2686738\"\n    },\n    \"32\": {\n      \"moment7\": \"12488556949379481600\",\n      \"newton_q7\": \"97853716084817920\"\n    },\n    \"128\": {\n      \"moment7\": \"23498613524150167295152128248278997728086435299328000\",\n      \"newton_q7\": \"166006399567846238466602050905546615689804467142656\"\n    },\n    \"192\": {\n      \"moment7\": \"7636808761888656979576015490711962523270538085420484624828332904923791360\",\n      \"newton_q7\": \"53878992132927956889592359940677195380527149402486370745126213218467840\"\n    }\n  },\n  \"bound\": \"for every integer s>=7, a_(s,s-7)>=8035/128 * 2^s >0; equality at s=7\",\n  \"scope\": \"Numerical checks only through s=192. Universal claim uses separate symbolic recurrence/induction and coefficient-positivity proof. Not native Source acceptance or Driver review.\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/7be8b200aaa0d702d549ad98f62485ee3a7cb85f/research_notes/r319_eighth_newton_edge_20261027_emr3/R319_EXACT_EVIDENCE.json",
+      "encoding": "utf-8",
+      "sha": "d22facde3db760259e88d5d48bdba25106e5da1d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
