@@ -1,0 +1,311 @@
+{
+  "schema": "EM_R4_EC43_BELLMAN_VERIFICATION_V1",
+  "research_unit": "R4-EC43",
+  "test_status": "PASS",
+  "arithmetic": "exact integer source masses /16; integer normals, no floating point",
+  "node_counts": {
+    "full": 14,
+    "compressed_first_stage": 13
+  },
+  "normal_grid": {
+    "domain": "{-2,-1,0,1,2}^4",
+    "checked": 625,
+    "strict_support_gaps": 4,
+    "independent_first_stage_decomposition_checked": 625
+  },
+  "witness": {
+    "normal_scaled_6": [
+      6,
+      6,
+      1,
+      1
+    ],
+    "root_dual_scaled_96": {
+      "a": 56,
+      "b": 64,
+      "x": 128
+    },
+    "V_full_scaled_96": 120,
+    "V_compressed_scaled_96": 128,
+    "support_gap": "1/12"
+  },
+  "bellman_certificate": {
+    "full": {
+      "a": {
+        "depth": 1,
+        "mass_P_over_16": 8,
+        "mass_Q_over_16": 8,
+        "children": [
+          "a0",
+          "a1"
+        ],
+        "U_scaled_96": 56,
+        "min_action": "C"
+      },
+      "b": {
+        "depth": 1,
+        "mass_P_over_16": 8,
+        "mass_Q_over_16": 8,
+        "children": [
+          "b0",
+          "b1"
+        ],
+        "U_scaled_96": 64,
+        "min_action": "P"
+      },
+      "a0": {
+        "depth": 2,
+        "mass_P_over_16": 6,
+        "mass_Q_over_16": 2,
+        "children": [
+          "a00",
+          "a01"
+        ],
+        "U_scaled_96": 28,
+        "min_action": "P"
+      },
+      "a00": {
+        "depth": 3,
+        "mass_P_over_16": 3,
+        "mass_Q_over_16": 1,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "P"
+      },
+      "a01": {
+        "depth": 3,
+        "mass_P_over_16": 3,
+        "mass_Q_over_16": 1,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "P"
+      },
+      "a1": {
+        "depth": 2,
+        "mass_P_over_16": 2,
+        "mass_Q_over_16": 6,
+        "children": [
+          "a10",
+          "a11"
+        ],
+        "U_scaled_96": 28,
+        "min_action": "Q"
+      },
+      "a10": {
+        "depth": 3,
+        "mass_P_over_16": 1,
+        "mass_Q_over_16": 3,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "Q"
+      },
+      "a11": {
+        "depth": 3,
+        "mass_P_over_16": 1,
+        "mass_Q_over_16": 3,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "Q"
+      },
+      "b0": {
+        "depth": 2,
+        "mass_P_over_16": 4,
+        "mass_Q_over_16": 4,
+        "children": [
+          "b00",
+          "b01"
+        ],
+        "U_scaled_96": 36,
+        "min_action": "C"
+      },
+      "b00": {
+        "depth": 3,
+        "mass_P_over_16": 3,
+        "mass_Q_over_16": 1,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "P"
+      },
+      "b01": {
+        "depth": 3,
+        "mass_P_over_16": 1,
+        "mass_Q_over_16": 3,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "Q"
+      },
+      "b1": {
+        "depth": 2,
+        "mass_P_over_16": 4,
+        "mass_Q_over_16": 4,
+        "children": [
+          "b10",
+          "b11"
+        ],
+        "U_scaled_96": 36,
+        "min_action": "C"
+      },
+      "b10": {
+        "depth": 3,
+        "mass_P_over_16": 3,
+        "mass_Q_over_16": 1,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "P"
+      },
+      "b11": {
+        "depth": 3,
+        "mass_P_over_16": 1,
+        "mass_Q_over_16": 3,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "Q"
+      }
+    },
+    "compressed": {
+      "x": {
+        "depth": 1,
+        "mass_P_over_16": 16,
+        "mass_Q_over_16": 16,
+        "children": [
+          "a0",
+          "a1",
+          "b0",
+          "b1"
+        ],
+        "U_scaled_96": 128,
+        "min_action": "P"
+      },
+      "a0": {
+        "depth": 2,
+        "mass_P_over_16": 6,
+        "mass_Q_over_16": 2,
+        "children": [
+          "a00",
+          "a01"
+        ],
+        "U_scaled_96": 28,
+        "min_action": "P"
+      },
+      "a00": {
+        "depth": 3,
+        "mass_P_over_16": 3,
+        "mass_Q_over_16": 1,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "P"
+      },
+      "a01": {
+        "depth": 3,
+        "mass_P_over_16": 3,
+        "mass_Q_over_16": 1,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "P"
+      },
+      "a1": {
+        "depth": 2,
+        "mass_P_over_16": 2,
+        "mass_Q_over_16": 6,
+        "children": [
+          "a10",
+          "a11"
+        ],
+        "U_scaled_96": 28,
+        "min_action": "Q"
+      },
+      "a10": {
+        "depth": 3,
+        "mass_P_over_16": 1,
+        "mass_Q_over_16": 3,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "Q"
+      },
+      "a11": {
+        "depth": 3,
+        "mass_P_over_16": 1,
+        "mass_Q_over_16": 3,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "Q"
+      },
+      "b0": {
+        "depth": 2,
+        "mass_P_over_16": 4,
+        "mass_Q_over_16": 4,
+        "children": [
+          "b00",
+          "b01"
+        ],
+        "U_scaled_96": 36,
+        "min_action": "C"
+      },
+      "b00": {
+        "depth": 3,
+        "mass_P_over_16": 3,
+        "mass_Q_over_16": 1,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "P"
+      },
+      "b01": {
+        "depth": 3,
+        "mass_P_over_16": 1,
+        "mass_Q_over_16": 3,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "Q"
+      },
+      "b1": {
+        "depth": 2,
+        "mass_P_over_16": 4,
+        "mass_Q_over_16": 4,
+        "children": [
+          "b10",
+          "b11"
+        ],
+        "U_scaled_96": 36,
+        "min_action": "C"
+      },
+      "b10": {
+        "depth": 3,
+        "mass_P_over_16": 3,
+        "mass_Q_over_16": 1,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "P"
+      },
+      "b11": {
+        "depth": 3,
+        "mass_P_over_16": 1,
+        "mass_Q_over_16": 3,
+        "children": [],
+        "U_scaled_96": 18,
+        "min_action": "Q"
+      }
+    }
+  },
+  "nonprefix_obstruction": {
+    "initial_P_over_4": [
+      3,
+      1
+    ],
+    "initial_Q_over_4": [
+      1,
+      3
+    ],
+    "actual_reach_P": "1/4",
+    "actual_reach_Q": "3/4",
+    "aggregated_uncontrolled_mass": [
+      "1",
+      "1"
+    ],
+    "common_survival_scalar_exists": false
+  },
+  "theorem_scope": "finite prefix-respecting two-measure positive-rational labelled-source stopping trees",
+  "author_side_python_evidence": "Separate local Python Fraction verifier passed 625 normal checks, 200 rational randomized policy path/flow checks and 27 structural checks; Python source in local downloadable ZIP, not executed by this JavaScript file.",
+  "native_X6_test": "NOT_PERFORMED",
+  "independent_Driver_review": "NOT_PERFORMED",
+  "formal_proof_checker": "NOT_PERFORMED"
+}
