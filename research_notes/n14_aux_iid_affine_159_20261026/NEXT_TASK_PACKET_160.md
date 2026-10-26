@@ -1,0 +1,9 @@
+# Stage160 next research task — external N14 model
+
+Stage159 has a complete author exact-rational, entire-real interval proof and strict right sharpness; reuse PROOF_STAGE159.md, PORTABLE_VERIFY_STAGE159.py and certificate159.json rather than recomputing Stage159. This is an external N=14 iid full-ordered-history randomized test, P=(1/8,1/24,5/6), Q=(1/12,1/12,5/6). eP=P(decide Q), eQ=Q(decide P), tP=E_P tau, tQ=E_Q tau. V14(alpha)=min max(tP,tQ) subject to eP,eQ<=alpha. NOT native P000/X6.
+
+Last author endpoint: alpha159=381583997981821329445/1096459521159585595392, V159=13168739674988914815857/1096459521159585595392.
+
+At Stage159 I=(9,5,4) Q/continue coin saturated at 1; J=(10,2,0) P/continue coin remains internal. Continue the J-preserving dual ray dK=-1,dL=-25280/14751. The exact first positive gap closure occurs at t160=6084006567309/15514860922834, with K160=2521611/8218, L160=1229640/4109. The new tie S=(13,5,2) decide P/continue joins persistent J decide P/continue. Fresh exact Bellman check: 680 states, two ties, 1238 positive gaps minimum 565771/37868544, zero negative gaps. **This is dual-only; Stage160 primal interval is open.**
+
+First unfinished independent research unit: compute true ordered first-hit P/Q prefix masses and counts for J and S under Stage160 strict minimizers. Verify whether their ordered cones are disjoint. Obtain all four deterministic coin-corner vectors by exact conditional Fraction suffix recurrence and literal unmerged integer-weight ordered-prefix DFS; check mixed term. Solve eP=eQ in the box, verify left endpoint alpha159/V159 and tP>=tQ. Prove whole-real optimal interval using H(root)<=tP+K160*eQ+L160*eP plus right sharpness, or give a rational infeasibility witness. Keep BRC provenance and observer scope. Preserve source input pins, P000 boundaries, actual authority and pending independent review.
