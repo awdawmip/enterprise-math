@@ -15,33 +15,33 @@ For arbitrary full-ordered-history randomized stopping and decision rules with s
 e_P=P(\text{decide Q}),\quad e_Q=Q(\text{decide P}),\quad
 t_P=E_P τ,\quad t_Q=E_Q τ.
 \]
-Set (V_{14}(\alpha)=\inf_{e_P,e_Qlealpha}\max(t_P,t_Q)). This is external to P000; no embedding or observer-preserving map to the six-native-axis Cell model is claimed.
+Set (V_{14}(\alpha)=\inf_{e_P,e_Q\le\alpha}\max(t_P,t_Q)). This is external to P000; no embedding or observer-preserving map to the six-native-axis Cell model is claimed.
 
 ## Exact theorem
 
 For EVERY real number
 \[
-0le deltale
+0\le \delta\le
 \boxed{\frac{17071484375}{17158292304297984}},
 \]
 the value function satisfies
 \[
 \boxed{
-V_{14}(alpha_{163}+\delta)
+V_{14}(\alpha_{163}+\delta)
 =V_{163}-\frac{1249192}{2175}\delta
 }
 \]
 where
 \[
-alpha_{163}=\frac{440628382682516376365}{1265046575011281764352},\qquad
+\alpha_{163}=\frac{440628382682516376365}{1265046575011281764352},\qquad
 V_{163}=\frac{2138687275177334037541}{180720939287325966336}.
 \]
 The new right endpoint and value are
 \[
-\boxed{alpha_{164}=\frac{62947091618416625195}{180720939287325966336}},\qquad
+\boxed{\alpha_{164}=\frac{62947091618416625195}{180720939287325966336}},\qquad
 \boxed{V_{164}=\frac{2138584004831606037541}{180720939287325966336}}.
 \]
-For every (\alpha>alpha_{164}) within the nontrivial error-bound domain, this Stage164 supporting affine line lies **strictly below** (V_{14}(\alpha)).
+For every (\alpha>\alpha_{164}) within the nontrivial error-bound domain, this Stage164 supporting affine line lies **strictly below** (V_{14}(\alpha)).
 
 ## Bellman dual certificate (all ordered policies)
 
@@ -51,7 +51,7 @@ K=\frac{211248}{725},\qquad L=\frac{615448}{2175},\qquad K+L=\frac{1249192}{2175
 \]
 At nonterminal (s), define
 \[
-H(s)=\min{Kell(s),L,1+\sum_{i=0}^{2}P_iH(s+e_i)};
+H(s)=\min\{K\ell(s),L,1+\sum_{i=0}^{2}P_iH(s+e_i)};
 \]
 at (n=14) omit the continuation. Exact Fraction evaluation of ALL 680 states returns
 \[
@@ -107,9 +107,9 @@ Exact equality (e_P=e_Q) is equivalent to
 \[
 \boxed{r(s)=
 \frac{1786149721302671}{5911808000000000}
-+\frac{751993}{230930000}s},\quad 0le sle1.
++\frac{751993}{230930000}s},\quad 0\le s\le1.
 \]
-Both tie probabilities lie strictly between 0 and 1 for the entire segment except that (s=1) saturates the new tie. Along this segment (\alpha(s)=alpha_{163}+s(alpha_{164}-alpha_{163})) exactly. In particular, the left endpoint matches the published Stage163 value with exact zero difference. At the two ends the exact time gaps are, respectively,
+Both tie probabilities lie strictly between 0 and 1 for the entire segment except that (s=1) saturates the new tie. Along this segment (\alpha(s)=\alpha_{163}+s(\alpha_{164}-\alpha_{163})) exactly. In particular, the left endpoint matches the published Stage163 value with exact zero difference. At the two ends the exact time gaps are, respectively,
 \[
 t_P-t_Q=\frac{525795582839779772735}{1265046575011281764352}>0,\quad
 \frac{25049209729437132035}{60240313095775322112}>0.
@@ -118,7 +118,7 @@ Direct exact substitution gives (t_P+K e_Q+L e_P=H(0)) at each end. All four qua
 
 ## Strict right sharpness
 
-The space of full ordered-history randomized finite-horizon behavioral policies is compact (finite products of action simplices); the value minimum is attained. Equality with the above line at any α>α164 would, since K,L>0, force (e_P=e_Q=\alpha), (t_P=\max(t_P,t_Q)), and equality at every positively visited Bellman state. All positive gaps exclude nonoptimal actions. Only R and S may randomize. At the same count state, ordered histories share the same likelihood ratio and suffix distributions, so arbitrary history-dependent tie coins have a single mass-weighted effective coin for the four observers. Since the tie prefix cones are disjoint, every equality policy has exactly M(r,s) above, with (0le r,sle1). Equality of errors forces r(s); monotonicity of α(s) implies (alphalealpha_{164}), contradiction. Strict support loss to the right follows.
+The space of full ordered-history randomized finite-horizon behavioral policies is compact (finite products of action simplices); the value minimum is attained. Equality with the above line at any α>α164 would, since K,L>0, force (e_P=e_Q=\alpha), (t_P=\max(t_P,t_Q)), and equality at every positively visited Bellman state. All positive gaps exclude nonoptimal actions. Only R and S may randomize. At the same count state, ordered histories share the same likelihood ratio and suffix distributions, so arbitrary history-dependent tie coins have a single mass-weighted effective coin for the four observers. Since the tie prefix cones are disjoint, every equality policy has exactly M(r,s) above, with (0\le r,s\le1). Equality of errors forces r(s); monotonicity of α(s) implies (\alpha\le\alpha_{164}), contradiction. Strict support loss to the right follows.
 
 ## Actual checks, caveats and next
 
