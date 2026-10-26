@@ -1,0 +1,65 @@
+{
+  "schema": "EM_R310_FORTYSEVEN_TWENTIETHS_WEDGE_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "arithmetic": "Python exact arbitrary precision int and fractions, no floating-point sign test",
+  "finite_middle": {
+    "d_range": [
+      401,
+      699
+    ],
+    "cases": 299,
+    "all_A_gt_U": true,
+    "n0": "ceil(47*d*d/20)",
+    "minimum_gap_at": {
+      "d": 401,
+      "n": 377883
+    },
+    "minimum_gap_digits": 1360,
+    "samples": {
+      "401": {
+        "n": 377883,
+        "A_digits": 1362,
+        "U_digits": 1362
+      },
+      "699": {
+        "n": 1148213,
+        "A_digits": 2546,
+        "U_digits": 2546
+      }
+    }
+  },
+  "tail": {
+    "d_from": 700,
+    "s_upper": "213/250",
+    "X0": "74291631/87143500",
+    "T7": "9111325907600653144094645786094459781501739190544971137021/21371402247648017951074183063305372925625000000000000000000",
+    "strict_rational_margin": "2092488275231236871099971363617114085359816057210835071819907/10460767115167513586602035754911397412770296875000000000000000000"
+  },
+  "majorant_failure": {
+    "d": 20,
+    "n": 940,
+    "k": -898,
+    "A": "841970413696628990138267914507153848960",
+    "U": "845166858079448511428916732784738292615",
+    "P_plus": "37769485043317686709727333107320508794765",
+    "P_minus": "36945990738290670181992630146484157565202",
+    "D": "823494305027016527734702960836351229563"
+  },
+  "prior_certificate": {
+    "source_commit": "c782feb0f48f06531f12e97a2752c7e94d33a601",
+    "d_range": [
+      2,
+      400
+    ],
+    "Newton_coefficients": 80199,
+    "rerun_this_round": false
+  },
+  "claims": {
+    "theorem": "D_d(n)>0 for all integer d>=2 and n>=ceil(47d^2/20), conditioned on source BRC combinatorial formulas and reused R307 finite certificate",
+    "native_owner": "UNVERIFIED_CONTROL_QUOTA",
+    "native_claim": false,
+    "native_result": false,
+    "driver_review": false,
+    "physical_transfer": false
+  }
+}
