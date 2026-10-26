@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-R5-20261026-LRMIN-1444",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "ad3dc17ca3a32b50a9635f359730658806c74251",
+          "path": "research_notes/brc_lr_minimal_horizon2_20261026_r5/PROOF_LR_MINIMAL_N2.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "aa05582156f844b0553b1cd9b1f0ed4f46b66e926f9462ed295e82c965f26258",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "9e1435403e077b64a8f1c52211cde3eb66ed6e07",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/ad3dc17ca3a32b50a9635f359730658806c74251/research_notes/brc_lr_minimal_horizon2_20261026_r5/PROOF_LR_MINIMAL_N2.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-r5-lrminimal-proof-readback-20261026",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-R5-20261026-LRMIN-1444/readbacks/9b73eb2eda8d2cc40b30410faebe3f5f27c27b388ed99c4313f0b11ac6c35a44.json",
+          "verification_receipt_sha256": "9b73eb2eda8d2cc40b30410faebe3f5f27c27b388ed99c4313f0b11ac6c35a44"
+        }
+      ],
+      "event_id": "r5-lrminimal-n2-exact-20261026",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-26T06:54:44.679Z",
   "registration_key": "session:em-r5-automation-20261026T1444-lrminimal:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R5-42B7",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "em-r5-automation-20261026T1444-lrminimal",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-26T06:54:44.679Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
