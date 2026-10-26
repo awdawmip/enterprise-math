@@ -1,0 +1,48 @@
+{
+  "schema": "EM_N14_STAGE176_DUAL_ONLY_V1",
+  "status": "STAGE176_DUAL_ONLY_NOT_PRIMAL_PROVED",
+  "parent": "STAGE175_CORRECTED_OFFDIAGONAL_AUTHOR_EXACT",
+  "model": "EXTERNAL_N14_TERNARY_IID_FULL_ORDERED_HISTORY",
+  "direction": {
+    "dK": "-1",
+    "dL": "-169640/99621",
+    "invariant": "T=(8,2,0) P/C tie"
+  },
+  "origin": {
+    "K175": "41521222013193063/181934251842254",
+    "L175": "20701458469704504/90967125921127",
+    "B": "(6,3,3)",
+    "B_preference": "Q becomes strict for positive step"
+  },
+  "first_step": "546791690132072466208602234228/340563103278980896037851489645",
+  "K176": "1696807920718753587/7487608294325270",
+  "L176": "168348947995801752/748760829432527",
+  "H176": "1733492029996286794626721771839535/10254377114019668494551279992832",
+  "ties": {
+    "(4,1,2)": [
+      "Q",
+      "C"
+    ],
+    "(8,2,0)": [
+      "P",
+      "C"
+    ]
+  },
+  "new_first_gap_closure": {
+    "state": [
+      4,
+      1,
+      2
+    ],
+    "action": "Q",
+    "gap_at_stage175": "152464420746873000396113/3337744988485269306998784",
+    "directional_derivative": "-3743804147162635/131589754482327552"
+  },
+  "candidate_negative_derivative_gaps": 759,
+  "strict_positive_gaps": 1238,
+  "minimum_strict_positive_gap": "152464420746873000396113/4292712684503529027010560",
+  "author_exact_dual_scan_pass": true,
+  "new_primal_optimal_interval_proved": false,
+  "native_claim": false,
+  "formal_admission": false
+}
