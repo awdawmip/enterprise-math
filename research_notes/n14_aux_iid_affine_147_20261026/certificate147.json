@@ -1,0 +1,168 @@
+{
+  "schema": "EM_N14_STAGE147_AUTHOR_EXACT_CERTIFICATE_V1",
+  "evidence_class": "AUTHOR_LOCAL_EXACT_COMPUTATION_UNREVIEWED",
+  "scope": "external iid ternary N14; all randomized ordered prefix policies; not native P000/X6/Heartbeat",
+  "immutable_sources": {
+    "global_main_read_sha": "3f9231cf4cf28d5b4db3319e2226095790a66ffc",
+    "enterprise_math_main_read_sha": "3f087ba35e490062aa45f4752d788d0d53e8923d",
+    "stage146_author_source_commit": "d8d1b8bb79e2280031884cf8aefabc6e453bb89d"
+  },
+  "model": {
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "N": 14,
+    "errors": [
+      "P(decide Q)",
+      "Q(decide P)"
+    ],
+    "objective": "min max(E_P tau,E_Q tau) with each error <= alpha"
+  },
+  "bellman": {
+    "K": "488636304489/1197470344",
+    "L": "59157759848/149683793",
+    "Hroot": "59027133919370211202074389/202463115774324935491584",
+    "states": 680,
+    "ties": [
+      [
+        "10,4,1",
+        "P",
+        "C"
+      ],
+      [
+        "7,1,2",
+        "Q",
+        "C"
+      ]
+    ],
+    "strict_positive_action_gaps": 1238,
+    "negative_gaps": 0,
+    "minimum_positive_gap": "6129035788073/1340860232871936"
+  },
+  "first_hit": {
+    "T": {
+      "state": [
+        7,
+        1,
+        2
+      ],
+      "words": 70,
+      "P_mass": "21875/2985984",
+      "Q_mass": "21875/1119744"
+    },
+    "W": {
+      "state": [
+        10,
+        4,
+        1
+      ],
+      "words": 756,
+      "P_mass": "21875/7077888",
+      "Q_mass": "21875/17915904"
+    }
+  },
+  "observer_order": [
+    "eP",
+    "eQ",
+    "tP",
+    "tQ"
+  ],
+  "base_M00": [
+    "1219541629107847135/3505953353861431296",
+    "8272768163645/23776267862016",
+    "5297773635576824017/438244169232678912",
+    "622456093729211/53496602689536"
+  ],
+  "dT": [
+    "1191246875/9393093476352",
+    "-1878471875/20061226008576",
+    "-377661353125/31701690482688",
+    "-44855715625/1671768834048"
+  ],
+  "dW": [
+    "-17828125/1174136684544",
+    "4309375/185752092672",
+    "-169553125/48922361856",
+    "-23384375/15479341056"
+  ],
+  "four_observer_corners": {
+    "v0_w0": [
+      "1219541629107847135/3505953353861431296",
+      "8272768163645/23776267862016",
+      "5297773635576824017/438244169232678912",
+      "622456093729211/53496602689536"
+    ],
+    "v1_w0": [
+      "1219986259621447135/3505953353861431296",
+      "223304629318415/641959232274432",
+      "5292552845031224017/438244169232678912",
+      "207006903609737/17832200896512"
+    ],
+    "v0_w1": [
+      "1219488394611847135/3505953353861431296",
+      "8273319763645/23776267862016",
+      "5296254786821624017/438244169232678912",
+      "622375277329211/53496602689536"
+    ],
+    "v1_w1": [
+      "1219933025125447135/3505953353861431296",
+      "223319522518415/641959232274432",
+      "5291033996276024017/438244169232678912",
+      "206979964809737/17832200896512"
+    ]
+  },
+  "cross_term": [
+    "0",
+    "0",
+    "0",
+    "0"
+  ],
+  "exact_DFS_visited_prefixes": [
+    606232,
+    590482,
+    583552,
+    567802
+  ],
+  "balance": {
+    "v0": "28086276907713/66250051520000",
+    "dv_dw": "36045864/207031411",
+    "w_domain": [
+      "0",
+      "1"
+    ],
+    "v_at_w1": "39620953387713/66250051520000"
+  },
+  "affine_interval": {
+    "alpha146": "246603954391193214663775/708830536865346112978944",
+    "V146": "274086831038532347195394643/22682577179691075615326208",
+    "eta147": "3274332971875/474771825210949632",
+    "alpha147": "246608842944125560263775/708830536865346112978944",
+    "V147": "273961171711816388948994643/22682577179691075615326208",
+    "slope147": "961898383273/1197470344",
+    "end_reason": "W_P_STOP_COIN_REACHES_ONE"
+  },
+  "time_P_minus_Q_at_w0": "386046490754488341010345/840095451099669467234304",
+  "time_P_minus_Q_at_w1": "386586105152287841810345/840095451099669467234304",
+  "verification": {
+    "local_full_author_program": "PASS_STAGE147_AUTHOR_EXACT",
+    "local_Fraction_vs_literal_integer_DFS": "PASS_FOUR_CORNERS",
+    "remote_portable_source_execution": "NOT_EXECUTED_REMOTELY",
+    "proof_status": "AUTHOR_EXACT_FINITE"
+  },
+  "control": {
+    "github_authenticated_login": "awdawmip",
+    "native_control_tasks_error": "CONTROL_QUOTA",
+    "native_session_start_error": "STATIC_READONLY_SCOPE_DENIED",
+    "native_session_operation_sent": false,
+    "native_claim": "UNVERIFIED",
+    "native_result": "NOT_FROZEN",
+    "independent_driver_review": "NOT_PERFORMED"
+  }
+}
