@@ -412,6 +412,13 @@ def reduce_task(
         expire_claim(state, at)
         if review_reopen_at is not None and not review_reopen_consumed and at >= review_reopen_at:
             scope_obligation = None
+            # Reopen only the exact reviewed frozen return, once. The adapter
+            # supplies this binding from current operational Result authority;
+            # an old review cannot reopen a later or different frozen Result.
+            if (state["state"] == "FROZEN_RETURN" and not state.get("claim_id")
+                    and isinstance(task.get("_handoff_scope_review_reopened_result_id"), str)
+                    and state.get("result_id") == task["_handoff_scope_review_reopened_result_id"]):
+                state["state"] = "HANDOFF_READY"
             review_reopen_consumed = True
 
         kind = event.get("event")
