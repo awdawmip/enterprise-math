@@ -1,0 +1,5 @@
+# Verification provenance
+
+Two actually executed local Python programs were independent count/suffix exact Fraction and literal ordered integer-weight DFS, yielding PASS Stage163 author interval+sharpness and PASS Stage164 dual-only scan. Their exact source files, full stdout, JSON certificates and SHA256 manifest were assembled in local `EnterpriseMath_R1_N14_Stage163_Exact_20261026.zip`, SHA256 `b042123c6311f352e1902de6c7733a6b892bed8c2e62c03e3fa6349afd9f027e`.
+
+The GitHub `VERIFY_STAGE163.py` / `SCAN_STAGE164.py` in this directory are **transcriptions adapted programmatically** from exact previously stored Stage162/Stage163 portable source, with the Stage163/164 constants, tie identities and actions substituted. They were not separately executed in this run, so their published blob identifiers are not presented as exact identities for the actually executed local programs. `certificate163.json` and `candidate164.json` reproduce the actual local exact computation outputs by corresponding field. No remote hosted execution or independent mathematical review.
