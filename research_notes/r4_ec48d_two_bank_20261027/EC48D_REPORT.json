@@ -1,0 +1,133 @@
+{
+  "schema": "EM_R4_EC48D_TWO_BANK_EXACT_V1",
+  "math_status": "AUTHOR_SIDE_PROVED_GENERAL_BOUND; FINITE_EXECUTED_CHECKS; NOT_NATIVE_ACCEPTANCE",
+  "exact_arithmetic": "All integer values/products are bounded below 2^53; no floating approximation in decisions.",
+  "source_model": "two-stage strictly positive separately normalized rational P,Q; binary terminal decisions",
+  "seed": 20261027,
+  "coherent_interpolation": {
+    "models": 1192,
+    "thresholds": 11309,
+    "checks": 67854,
+    "Kh_max": 7,
+    "M_max": 10,
+    "examples": [
+      {
+        "label": "four-history crossing-square",
+        "H": 4,
+        "Y": 2,
+        "P": [
+          3,
+          2,
+          2,
+          3,
+          1,
+          2,
+          2,
+          1
+        ],
+        "Q": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "K_hull": 3,
+        "bank_bound": 4,
+        "full_history_bound": 4,
+        "ratios": 3
+      }
+    ],
+    "cardinality_histogram": {
+      "3:4": 104,
+      "4:4": 12,
+      "5:6": 155,
+      "5:5": 60,
+      "5:7": 32,
+      "6:6": 80,
+      "4:5": 28,
+      "6:7": 151,
+      "4:6": 5,
+      "7:7": 12,
+      "6:8": 51,
+      "7:8": 2,
+      "6:10": 5,
+      "5:9": 1,
+      "5:8": 2,
+      "6:9": 12,
+      "2:3": 169,
+      "1:2": 236,
+      "2:4": 46,
+      "3:3": 13,
+      "3:5": 15,
+      "3:6": 1
+    }
+  },
+  "targeted_seedless_graph": {
+    "generated": 1030,
+    "eligible": 581,
+    "face_checks": 581,
+    "multicomponent": 31,
+    "exact_missing_faces": 0,
+    "configurations": [
+      {
+        "K": 2,
+        "H": 7,
+        "Y": 4,
+        "generated": 240,
+        "eligible": 123,
+        "face_checks": 123,
+        "multicomponent": 24,
+        "largest_components": 2,
+        "gaps": 0
+      },
+      {
+        "K": 3,
+        "H": 6,
+        "Y": 3,
+        "generated": 350,
+        "eligible": 189,
+        "face_checks": 189,
+        "multicomponent": 3,
+        "largest_components": 6,
+        "gaps": 0
+      },
+      {
+        "K": 3,
+        "H": 7,
+        "Y": 3,
+        "generated": 240,
+        "eligible": 139,
+        "face_checks": 139,
+        "multicomponent": 3,
+        "largest_components": 6,
+        "gaps": 0
+      },
+      {
+        "K": 3,
+        "H": 6,
+        "Y": 4,
+        "generated": 200,
+        "eligible": 130,
+        "face_checks": 130,
+        "multicomponent": 1,
+        "largest_components": 6,
+        "gaps": 0
+      }
+    ],
+    "largest_components": 6
+  },
+  "source_pins": {
+    "global_main": "bc537c4c13f8de68eda85997a26ffae60e5abee1",
+    "enterprise_main_read": "1f07fa714735d60df7c97117875caf532e238e27",
+    "publication_parent": "d4ce578345f3690f19af0f8fe2518c251b13829a",
+    "ec48c": "d582d2bd1487446008648fe9da1fae63d2c86b9c"
+  },
+  "limitations": [
+    "Finite deterministic tests are not a universal proof.",
+    "Mathematical admission and native ownership not established."
+  ]
+}
