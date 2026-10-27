@@ -121,12 +121,11 @@ Observed tuples (p, P, M, L_p, E_p):
   (19, 3610, 3249, 3, 16)
   (37, 23273, 27380, 20, 17)
   (43, 14792, 64715, 15, 28)
-  (61, 163724, 48, 13) [see verification caution below]
+  (61, 163724, 63257, 48, 13)
   (67, 40401, 260362, 18, 49)
   (211, 400689, 8993242, 128, 83)
   (373, 14886803, 37008314, 92, 281)
 
-Correction for the p=61 line above: the executed exact tuple is (61,163724,63257,48,13). The shorter line without M is an incomplete transcription, NOT another experiment. Exact assertions use the code and the corrected tuple.
 
 ## BRC / evidence / next action
 
