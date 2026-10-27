@@ -1,0 +1,222 @@
+{
+  "schema": "SEMIPRIME_SQUARE_SHELL_RESIDUAL_PRIORITY_PRIOR_ART_LEDGER_V1",
+  "audit_date": "2026-08-29",
+  "researcher_id": "EM-SSMFPA-B7C914",
+  "task_id": "RS-SEMIPRIME-SQUARE-SHELL-RESIDUAL-PRIORITY-PRIOR-ART-AUDIT",
+  "publication_id": "TP2-6F3C9418A72D0E5B31C4",
+  "scope_statement": "External duplication boundary for Fermat shell coordinates, multiplier near-square residuals, modular residue filtering, and the finite-window normalized residual-priority multiplier score e_k/(2*x_k-1).",
+  "labels": [
+    "EXACT_DUPLICATE",
+    "PARTIAL_ANTECEDENT",
+    "ADJACENT_METHOD",
+    "NO_MATERIAL_MATCH_IN_AUDITED_SET"
+  ],
+  "search_surfaces": [
+    "Cambridge Core / Warwick WRAP (Hart 2012 primary article and published PDF)",
+    "AMS / JSTOR / Mathematics of Computation metadata and references (Lehman 1974; McKee 1999)",
+    "arXiv / Mathematics of Computation (Hittmeir 2020/2021)",
+    "Journal of Number Theory / ScienceDirect (Hittmeir 2023)",
+    "FLINT public source repository pinned at commit 7c8c3c8f1c134fa93f3af98f044f9958b9c09a72",
+    "DOAJ / Journal of Cybersecurity and Privacy (Overmars-Venkatraman 2024)",
+    "Broad web/literature search for normalized next-square residual ordering and equivalent formulas"
+  ],
+  "search_queries": [
+    "Fermat factorization quadratic residue sieve modular filtering",
+    "Lehman Factoring Large Integers 1974 multiplier 4kn Fermat",
+    "Hart A One Line Factoring Algorithm multiplier residual ordering",
+    "McKee Speeding Fermat's factoring method modular residue",
+    "\"e_k/(2*x_k-1)\" factoring residual multiplier",
+    "\"ceil(sqrt(kN))^2-kN\" factorization multiplier ordering",
+    "\"distance to next square\" multiplier factorization kN",
+    "\"fractional part\" sqrt(kN) factorization multiplier Fermat",
+    "\"near-square\" multiplier ordering factorization residual",
+    "continued fractions one line factoring multiplier selection"
+  ],
+  "sources": [
+    {
+      "id": "HART2012",
+      "type": "PRIMARY_PEER_REVIEWED",
+      "citation": "William B. Hart, A One Line Factoring Algorithm, Journal of the Australian Mathematical Society 92 (2012), 61-69.",
+      "doi": "10.1017/S1446788712000146",
+      "urls": [
+        "https://doi.org/10.1017/S1446788712000146",
+        "https://wrap.warwick.ac.uk/id/eprint/54707/1/WRAP_Hart_S1446788712000146a.pdf"
+      ],
+      "findings": [
+        "OLF is explicitly a Fermat variant.",
+        "The algorithm advances multiplier i sequentially and tests the near-square residual from ceil(sqrt(n*i)).",
+        "A practical fixed multiplier M=480 and modular square rejection are described.",
+        "Hart explicitly relates OLF to Lehman's multiplier-Fermat search."
+      ]
+    },
+    {
+      "id": "LEHMAN1974",
+      "type": "PRIMARY_PEER_REVIEWED",
+      "citation": "R. Sherman Lehman, Factoring Large Integers, Mathematics of Computation 28 (1974), 637-646.",
+      "doi": "10.1090/S0025-5718-1974-0340163-2",
+      "urls": [
+        "https://doi.org/10.1090/S0025-5718-1974-0340163-2",
+        "https://www.jstor.org/stable/2005940"
+      ],
+      "findings": [
+        "Systematizes a modification of Fermat based on multiples of N.",
+        "Uses difference-of-squares search on 4*k*N in the classical O(N^(1/3)) framework.",
+        "Therefore x_k^2-4*k*N is not a new search object."
+      ]
+    },
+    {
+      "id": "HITTMEIR2021",
+      "type": "PRIMARY_PEER_REVIEWED_AND_PREPRINT",
+      "citation": "Markus Hittmeir, A time-space tradeoff for Lehman's deterministic integer factorization method, Mathematics of Computation 90 (2021), 1999-2010.",
+      "doi": "10.1090/mcom/3623",
+      "urls": [
+        "https://arxiv.org/abs/2006.16729",
+        "https://doi.org/10.1090/mcom/3623"
+      ],
+      "findings": [
+        "Records the historical chain Fermat -> Lawrence (1895 multiples kN) -> Lehman (1974 systematic k).",
+        "Confirms multiplier selection is a long-established axis of improvement."
+      ]
+    },
+    {
+      "id": "HITTMEIR2023",
+      "type": "PRIMARY_PEER_REVIEWED",
+      "citation": "Markus Hittmeir, Integer factorization as subset-sum problem, Journal of Number Theory 249 (2023), 93-118.",
+      "doi": "10.1016/j.jnt.2023.02.010",
+      "urls": [
+        "https://doi.org/10.1016/j.jnt.2023.02.010"
+      ],
+      "findings": [
+        "Develops a hyperbolic modular sieve and applies it to improve Fermat factorization.",
+        "Shows modular elimination/selective search around Fermat remains active prior art.",
+        "Does not, in the audited text, order Hart/Lehman multipliers by e/(2*x-1)."
+      ]
+    },
+    {
+      "id": "MCKEE1999",
+      "type": "PRIMARY_PEER_REVIEWED",
+      "citation": "James McKee, Speeding Fermat's Factoring Method, Mathematics of Computation 68 (1999), 1729-1737.",
+      "doi": "10.1090/S0025-5718-99-01133-3",
+      "urls": [
+        "https://doi.org/10.1090/S0025-5718-99-01133-3"
+      ],
+      "findings": [
+        "Provides a distinct Fermat acceleration using rational-square structure and divisibility constraints.",
+        "Relevant as adjacent Fermat optimization, not an exact match for normalized residual-priority multiplier ordering."
+      ]
+    },
+    {
+      "id": "FLINT2026",
+      "type": "AUTHORITATIVE_IMPLEMENTATION",
+      "citation": "FLINT, src/ulong_extras/factor_one_line.c, pinned commit 7c8c3c8f1c134fa93f3af98f044f9958b9c09a72.",
+      "urls": [
+        "https://github.com/flintlib/flint/blob/7c8c3c8f1c134fa93f3af98f044f9958b9c09a72/src/ulong_extras/factor_one_line.c"
+      ],
+      "findings": [
+        "Defines FLINT_ONE_LINE_MULTIPLIER=480.",
+        "Forms successive in values by in += n after n has been multiplied by 480.",
+        "Tests square - in for squareness; it does not compute or sort by normalized residual e/(2*x-1)."
+      ]
+    },
+    {
+      "id": "OVERMARS_VENKATRAMAN2024",
+      "type": "PEER_REVIEWED_ADJACENT",
+      "citation": "Anthony Overmars and Sitalakshmi Venkatraman, Continued Fractions Applied to the One Line Factoring Algorithm for Breaking RSA, Journal of Cybersecurity and Privacy 4 (2024), 41-54.",
+      "doi": "10.3390/jcp4010003",
+      "urls": [
+        "https://doi.org/10.3390/jcp4010003"
+      ],
+      "findings": [
+        "Explores a different k-selection mechanism for OLF via continued-fraction convergents.",
+        "Demonstrates that multiplier selection itself is an active research degree of freedom.",
+        "No exact normalized next-square residual ordering match was found."
+      ]
+    }
+  ],
+  "claim_classification": [
+    {
+      "claim_id": "C1_SHELL_MIDPOINT_EQUALS_FERMAT",
+      "claim": "F_N(t)=(A0+t)^2-N and first-square midpoint search.",
+      "label": "EXACT_DUPLICATE",
+      "basis": [
+        "HART2012",
+        "HITTMEIR2023"
+      ],
+      "boundary": "Coordinate rewrite of classical Fermat difference-of-squares; no novelty inference."
+    },
+    {
+      "claim_id": "C2_QR_FILTER",
+      "claim": "Reject t when Fermat residual is not a quadratic residue modulo chosen moduli.",
+      "label": "EXACT_DUPLICATE",
+      "basis": [
+        "HART2012",
+        "HITTMEIR2023"
+      ],
+      "boundary": "Modular square rejection/sieving is established prior art; parent use is a baseline implementation choice."
+    },
+    {
+      "claim_id": "C3_MULTI_K_RESIDUAL_OBJECT",
+      "claim": "x_k=ceil(sqrt(4*k*N)), e_k=x_k^2-4*k*N; square e_k yields a difference-of-squares factorization.",
+      "label": "EXACT_DUPLICATE",
+      "basis": [
+        "LEHMAN1974",
+        "HART2012",
+        "HITTMEIR2021"
+      ],
+      "boundary": "Same multiplier-Fermat/Lehman/Hart near-square object up to conventional multiplier/scaling notation."
+    },
+    {
+      "claim_id": "C4_ASCENDING_MULTIPLIER_BASELINE",
+      "claim": "Cycle through multipliers and test each near-square residual.",
+      "label": "EXACT_DUPLICATE",
+      "basis": [
+        "HART2012",
+        "FLINT2026"
+      ],
+      "boundary": "Hart and FLINT implement sequential multiplier cycling; this is the correct classical baseline."
+    },
+    {
+      "claim_id": "C5_NORMALIZED_RESIDUAL_PRIORITY",
+      "claim": "For a finite k-window, prioritize multipliers by score(k)=e_k/(2*x_k-1), smallest first.",
+      "label": "NO_MATERIAL_MATCH_IN_AUDITED_SET",
+      "basis": [
+        "HART2012",
+        "LEHMAN1974",
+        "HITTMEIR2021",
+        "HITTMEIR2023",
+        "MCKEE1999",
+        "FLINT2026",
+        "OVERMARS_VENKATRAMAN2024"
+      ],
+      "boundary": "No audited primary/authoritative source was found that uses this exact normalized next-square residual as a factor-blind multiplier ordering. This is NOT a novelty claim; it is only a negative search result over the frozen audit set."
+    },
+    {
+      "claim_id": "C6_ALTERNATIVE_K_SELECTORS",
+      "claim": "Use information other than ascending k to select/prioritize multipliers.",
+      "label": "ADJACENT_METHOD",
+      "basis": [
+        "LEHMAN1974",
+        "HITTMEIR2021",
+        "OVERMARS_VENKATRAMAN2024"
+      ],
+      "boundary": "The broad idea of smarter multiplier selection is old/active; any value of C5 must come from the exact score and proven/empirical performance, not from the generic concept of reordering k."
+    },
+    {
+      "claim_id": "C7_OTHER_FERMAT_ACCELERATIONS",
+      "claim": "Improve Fermat search by arithmetic/sieving structure not equivalent to residual-priority.",
+      "label": "ADJACENT_METHOD",
+      "basis": [
+        "MCKEE1999",
+        "HITTMEIR2023"
+      ],
+      "boundary": "Strong adjacent prior art; does not duplicate C5 but narrows any possible novelty framing."
+    }
+  ],
+  "normalization_lemma": {
+    "setup": "Let z=4*k*N be nonsquare, x=ceil(sqrt(z)), e=x^2-z and d=x-sqrt(z).",
+    "identity": "e/(2*x-1) = d + d*(1-d)/(2*x-1).",
+    "bounds": "0 < e < 2*x-1 and hence 0 < score < 1.",
+    "interpretation": "The score is the exact upper-square gap normalized by the adjacent-square interval; it is an N,k-derived phase coordinate, not additional information."
+  },
+  "terminal_caveat": "NO_MATERIAL_MATCH_IN_AUDITED_SET is not evidence of novelty, patentability, priority, or algorithmic advantage. It only records that the exact C5 ordering was not located in the frozen audit surfaces/queries."
+}
