@@ -1,38 +1,27 @@
-# D25 original-E3 Hasse detector — a separate exact power-series recurrence audit
+# D25 original-E3 Hasse detector — independent formal-power-series recurrence audit
 
-Date: 2026-10-27 19:00 Asia/Taipei (observed/read cycle). Status: **portable auxiliary, NONBLIND / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING**. This evidence is authored by the present ChatGPT conversation as a nonblind computational cross-check. No service-issued Driver session, current Source Driver DA, frozen Result or native Review is claimed. It is not a clean-blind independent mathematical judgment.
+Observed: 2026-10-27 (Asia/Taipei). Status: **PORTABLE AUXILIARY / NONBLIND / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING**. This is a distinct computational route prepared by the current conversation, not an independent Source-native Driver review, canonical checkpoint or result. Author provenance and existing source notes are preserved.
 
-## Frozen evidence and declared mathematical scope
+## Provenance and scope
 
-- Source observation: `awdawmip/enterprise-math main@86ad7b35edcee010df914e9a1f96587abb3e600d`.
-- Original author theorem: `research_notes/portable_direct/20261027_onhour_d25_original_E3_Hasse_frobenius_second_digit_detector.md`, blob `52a583880859e23bef23f72ea29422fb8a309893`, author provenance `42bb3b9183ba71e95e90722769274ee1d9a446d7`.
-- Global source: `awdawmip/chatgpt-global-knowledge main@93755c1673bf4ba017acc56f5a7608a8cc730409`. P000 remains ACTIVE_LOCKED (native X6, separate time, three-dimensional research slice). This is **external auxiliary algebra** on the original E3 observation, not a theorem about native H0/B0 or X6 dynamics.
-- Audit domain: the eight original target-class primes 13, 19, 37, 43, 61, 67, 211, 373, all computations modulo `p²` in the ordered basis `(1,T)`, `T²=2`. The author claims the all-prime result by a separate Legendre-polynomial proof; this audit verifies eight exact instances using an algebraically distinct coefficient algorithm.
+- Verified Enterprise Math starting source: main@86ad7b35edcee010df914e9a1f96587abb3e600d.
+- Author theorem: research_notes/portable_direct/20261027_onhour_d25_original_E3_Hasse_frobenius_second_digit_detector.md, Git blob 52a583880859e23bef23f72ea29422fb8a309893, original commit 42bb3b9183ba71e95e90722769274ee1d9a446d7.
+- Global Knowledge: main@93755c1673bf4ba017acc56f5a7608a8cc730409; P000 is ACTIVE_LOCKED. The audit is auxiliary classical algebra, not a claim about native X6/three-dimensional slice dynamics or original H0/B0 divided-power [X]U.
+- Actual exact verification domain: primes 13, 19, 37, 43, 61, 67, 211, 373; arithmetic in the ring (Z/p²Z)[T]/(T²−2), with each element written as (a,b) meaning a+bT. These primes are in the author's declared classes.
 
-## Independent exact coefficient/derivative route
+## Separate coefficient and derivative algorithm
 
-Put
-[
-D(X,C)=1-2X+X^2-4CX^3,quad
-F(X,C)=D(X,C)^{-1/2}=sum_{nge0}a_n(C)X^n,quad
-b_n(C)=partial_C a_n(C).
-]
-Writing `d0=1, d1=-2, d2=1, d3=-4C`, with `d'3=-4` and the other `d'k=0`, differentiate `D F²=1` in `X` to obtain `2D F'+D'F=0`. Coefficient comparison, followed by differentiation in `C`, gives the exact recurrences
-[
-2n,a_n=-sum_{k=1}^{min(3,n)}(2n-k)d_k a_{n-k},qquad
-2n,b_n=-sum_{k=1}^{min(3,n)}(2n-k)igl(d_k b_{n-k}+d'_k a_{n-k}igr),
-]
-with `a0=1, b0=0`. For `1≤n≤p−1`, `2n` is invertible modulo `p²`; the computation uses exact modular inverses, **no division in the characteristic-p terminal step**. Evaluate `a_(p−1)` and `b_(p−1)` independently at `sigma(c)=(2+T)/108` and at `c^p`, `c=(2−T)/108`.
+Set D(X,C)=1−2X+X²−4CX³ and F(X,C)=D(X,C)^(−1/2)=Σ[n≥0] a_n(C) X^n, with b_n(C)=∂a_n/∂C. Let d_0=1, d_1=−2, d_2=1, d_3=−4C and d'_1=d'_2=0, d'_3=−4. Formal differentiation in X of D F²=1 gives 2D F' + D'F=0, hence for n≥1:
 
-The audit checks each prime's coordinatewise divisibility by `p`, the equality
-[
-rac{H_p(c^p)-H_p(sigma c)}pmod p
-=H'_p(sigma c)rac{c^p-sigma c}pmod p,
-]
-the CM0 zero `H_p(sigma c) mod p=0`, and the nonzero derivative modulo `p`. The `p=37` and `p=373` published exact coefficients were additionally compared coordinate for coordinate. The code that ran this audit is available as the conversation artifact `EM_DRIVER_D25_HASSE_INDEPENDENT_SERIES_CHECK_20261027.py`, and machine output as `EM_DRIVER_D25_HASSE_SERIES_CHECK_20261027.json` (not submitted as a native record).
+    2n a_n = − Σ[k=1..min(3,n)] (2n−k) d_k a_(n−k)
+    2n b_n = − Σ[k=1..min(3,n)] (2n−k) (d_k b_(n−k) + d'_k a_(n−k)).
 
-| p | (c^p−σc)/p mod p | H'_p(σc) mod p | [H_p(c^p)−H_p(σc)]/p mod p | q_p(18) mod p |
-|---:|:---:|:---:|:---:|---:|
+Initial conditions a_0=1 and b_0=0. For 1≤n≤p−1, every 2n is invertible modulo p². The coefficient H_p(C) is exactly a_(p−1)(C), and H'_p(C) is b_(p−1)(C). This avoids the author's explicit integer-binomial sum and Legendre recurrence; both algorithms calculate the *same original-E3 coefficient*, rather than a renamed replacement model.
+
+The audit forms c=(2−T)/108, sigma(c)=(2+T)/108, computes c^p modulo p², and checks coordinatewise divisibility by p, the exact first-order Taylor quotient modulo p, the accepted-CM0 premise H_p(sigma(c)) mod p = 0 for each tested prime, and nonzero H'_p(sigma(c)) modulo p. Every calculation uses integers, modular inverses and explicit ring pairs.
+
+| Prime p | δ=(c^p−sigma(c))/p mod p | H'_p(sigma(c)) mod p | (H_p(c^p)−H_p(sigma(c)))/p mod p | q_p(18) mod p |
+| ---: | :---: | :---: | :---: | ---: |
 | 13 | (2,1) | (0,11) | (9,9) | 6 |
 | 19 | (17,12) | (0,6) | (11,7) | 1 |
 | 37 | (1,1) | (0,35) | (33,35) | **0** |
@@ -42,10 +31,14 @@ the CM0 zero `H_p(sigma c) mod p=0`, and the nonzero derivative modulo `p`. The 
 | 211 | (208,84) | (0,106) | (84,104) | 145 |
 | 373 | (279,342) | (0,326) | (303,315) | 60 |
 
-Result: **8/8 exact recurrence checks passed**. For `p=37` the scalar norm gate `q_37(18)=0` passes while the full Hasse divided difference is `(33,35)≠(0,0)`, reproducing a concrete witness that a norm-only observer loses a distinguishable residual. At `p=373`, `H_p(sigma c)=(130177,121225)`, `H_p(c^p)=(104067,99591)` modulo 139129, and their divided difference is `(303,315)` modulo 373, matching the author's original-E3 note.
+**Observed finite result: 8/8 exact checks PASS.** At p=37 the scalar norm/Fermat quotient gate q_37(18)=0 passes, but the two-component divided Hasse difference is (33,35) ≠ (0,0), so that scalar compression loses an observer-visible distinction. At p=373, H_p(sigma(c))=(130177,121225), H_p(c^p)=(104067,99591) modulo 139129, giving quotient (303,315) modulo 373.
 
-## Admission and next useful dependency
+The author provides an all-target algebraic proof using finite Legendre polynomials and a simple-zero argument, *conditional on accepted CM0*. This finite recurrence audit corroborates eight specified cases. It does not independently prove the universal theorem, settle original LIFT or supply native H0/B0 Frobenius evidence.
 
-This nonblind cross-check supplies a new recurrence-based computation path for the author's original-E3 Hasse precision comparator. The author's all-prime derivative theorem remains established by its displayed conditional Legendre proof, **not** by this finite audit. The original H0/B0 divided-power `[X]U mod p²` computation, full semilinear Frobenius and eta normalization still require the lawful native owner/benchmark, tracked at Enterprise Math issue #1559. An authenticated original-H0/B0→E3 comparison is required before using this comparator as native evidence. The frozen F7 Result review and current Driver DA remain separate Source-native operations.
+## Native admission and next dependency
+
+The original H0/B0 benchmark first at p=373 still requires actual original-category [X]U mod p², integral basis and eta normalization, full semilinear Frobenius direction, signed odd observer and the frozen Δ−R comparison; existing Enterprise Math issue #1559 tracks that original request. The authentic H0/B0→E3 bridge must be established before interpreting this exact Hasse detector as native evidence. CBRC-F7 frozen Result still needs independent current exact-set Driver review with actual DA.
+
+The executing conversation had access to GitHub archival publication but Site scope only source:read/control:read and no current Driver DA. The corresponding script and complete output are preserved as conversation artifacts EM_DRIVER_D25_HASSE_INDEPENDENT_SERIES_CHECK_20261027.py and EM_DRIVER_D25_HASSE_SERIES_CHECK_20261027.json. No native Driver write, Source CLAIM, OPEN, Review, Reference, Synthesis, Follow-up or new task was made.
 
 Global-Knowledge-Sync: main@93755c16 / GLOBAL_KNOWLEDGE_V1
