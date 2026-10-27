@@ -1,0 +1,18 @@
+MODEL=positive_rational_N3_ten_leaf_optional_stop
+Q_TOTAL= 1 P_TOTAL= 1
+t1_Q_histories= (Fraction(1, 2), Fraction(1, 2))
+t2_LR_alphabet= (Fraction(1, 1), Fraction(1, 4), Fraction(7, 4))
+t3_LR_alphabet= (Fraction(1, 4), Fraction(1, 1), Fraction(7, 4))
+terminal_Q_kernels= {'A': (Fraction(2, 5), Fraction(1, 5), Fraction(2, 5)), 'B': (Fraction(1, 20), Fraction(9, 10), Fraction(1, 20))}
+s= 1/16 d_A= 3/10 d_B= 3/80 d_bar= 27/160 t1_gain= 3/16
+V_full= 281/320 V_LR= 283/320 GAP= 1/160
+full_witness_early= (True, True) late= (True, False, False, False, False, False) O= (Fraction(7, 80), Fraction(13, 20), Fraction(9, 4), Fraction(9, 4))
+lr_witness_early= True late= (True, False, False) O= (Fraction(29, 320), Fraction(51, 80), Fraction(5, 2), Fraction(5, 2))
+s= 1/4 d_A= 3/10 d_B= 3/80 d_bar= 27/160 t1_gain= 3/16
+V_full= 5/4 V_LR= 5/4 GAP= 0
+full_witness_early= (False, False) late= (False, False, False, False, False, False) O= (Fraction(0, 1), Fraction(1, 1), Fraction(1, 1), Fraction(1, 1))
+lr_witness_early= False late= (False, False, False) O= (Fraction(0, 1), Fraction(1, 1), Fraction(1, 1), Fraction(1, 1))
+phase_breakpoints= (Fraction(0, 1), Fraction(3, 80), Fraction(27, 160), Fraction(3, 16), Fraction(9, 40), Fraction(1, 4))
+phase_max_gap= 21/640 at_s= 27/160
+phase_symbolic_segments_verified_by_rational_bellman_and_vertex_checks= 11
+ALL EXACT CHECKS PASSED
