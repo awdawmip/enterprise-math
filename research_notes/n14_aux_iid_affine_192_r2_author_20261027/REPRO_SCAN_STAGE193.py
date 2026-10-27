@@ -52,7 +52,7 @@ ties={s:terminal(s)[1] for s in states if len(terminal(s)[1])>1}
 gaps=[v for s in states for v in terminal(s)[2].values()]
 assert len(ties)==2 and X in ties, ties
 assert len(gaps)==1238
-cert={'stage':193,'status':'DUAL_ONLY_NOT_PRIMAL','direction':{'dK':str(dK),'dL':str(dL)},'parent':{'K193':str(K),'L193':str(L)},'first_closure':{'step':str(step),'state':list(first[1]),'new_action':first[2],'previous_gap':str(first[3]),'gap_derivative':str(first[4])},'dual':{'K193':str(K2),'L193':str(L2),'H193':str(terminal((0,0,0))[0])},'states':len(states),'strict_gaps':len(gaps),'min_positive_gap':str(min(gaps)),'ties':[{ 'state':list(s),'actions':list(v)} for s,v in ties.items()],'preexisting_ties_direction':[{ 'state':list(s),'alternative_action':act,'derivative':str(dg)} for s,act,dg in tied_extra]}
+cert={'stage':193,'status':'DUAL_ONLY_NOT_PRIMAL','direction':{'dK':str(dK),'dL':str(dL)},'parent':{'K192':str(K),'L192':str(L)},'first_closure':{'step':str(step),'state':list(first[1]),'new_action':first[2],'previous_gap':str(first[3]),'gap_derivative':str(first[4])},'dual':{'K193':str(K2),'L193':str(L2),'H193':str(terminal((0,0,0))[0])},'states':len(states),'strict_gaps':len(gaps),'min_positive_gap':str(min(gaps)),'ties':[{ 'state':list(s),'actions':list(v)} for s,v in ties.items()],'preexisting_ties_direction':[{ 'state':list(s),'alternative_action':act,'derivative':str(dg)} for s,act,dg in tied_extra]}
 Path(__file__).with_name('certificate193_dual.json').write_text(json.dumps(cert,indent=2)+'\n')
 print('DERIVATIVE_TIES',tied_extra)
 print('FIRST_CLOSURE',first,'K193',K2,'L193',L2,'H193',terminal((0,0,0))[0])
