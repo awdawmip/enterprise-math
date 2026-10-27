@@ -1,0 +1,38 @@
+{
+  "schema": "EM_STAGE203_EXACT_DUAL_CANDIDATE_V1",
+  "classification": "DUAL_ONLY_PRIMAL_UNPROVED",
+  "K203": "17496/139",
+  "L203": "17496/139",
+  "H203": "188497771183924373447/1903623110104449024",
+  "downward_step": "146871261/103039727",
+  "first_new_state": [
+    13,
+    6,
+    4
+  ],
+  "first_new_transition": [
+    "C",
+    "Q"
+  ],
+  "ties": {
+    "(13, 6, 4)": [
+      "Q",
+      "C"
+    ],
+    "(14, 0, 0)": [
+      "P",
+      "Q"
+    ]
+  },
+  "bellman_states": 680,
+  "positive_gaps": 1238,
+  "min_positive_gap": "16319029/830103552",
+  "parent_stage202_right": {
+    "alpha": "3712577116979992345/10517860061584293888",
+    "V": "2226587199024284573/219122084616339456"
+  },
+  "prefix_signed_changes_count": 791,
+  "source": "scan_stage203.py (locally executed); REPRO_STAGE203_DUAL.py (versioned reference)",
+  "execution": "STAGE203_DUAL_SCAN_PASS",
+  "limitations": "Stage203 primal all-real optimum is an open task, not proved here"
+}

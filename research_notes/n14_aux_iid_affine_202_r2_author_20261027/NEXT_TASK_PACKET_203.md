@@ -1,0 +1,11 @@
+# Stage203 — exact full-history IID next primal unit
+
+Mother question: continue external ternary IID minimax V14(alpha) beyond the new Stage202 author-proven right endpoint without replaying already-proved Stage202 science. The authoritative author-side Stage202 proof, executed verifier, rational certificate and Stage203 dual candidate are in Draft PR #1571.
+
+Frozen inputs and scope: N=14, IID P=(3,1,20)/24, Q=(2,2,20)/24; arbitrary randomized stopping/reporting rules depending on full ordered history. Observer O=(P(report Q),Q(report P),E_P T,E_Q T). Stage202 contact alpha202=3712577116979992345/10517860061584293888, V202=2226587199024284573/219122084616339456. The intended theorem remains strictly inside this external finite IID helper. Keep P000 fixed and preserve the BRC positive P/Q branch weights, ordered provenance and justified count-suffix observer.
+
+Hard target and required evidence: Stage203 **dual-only candidate** K=L=17496/139, H=188497771183924373447/1903623110104449024, ties T=(13,6,4) report Q/continue and Z=(14,0,0) terminal P/Q. Its exact Bellman scan has 680 states, 1238 strictly positive gaps, min 16319029/830103552. Compute all four deterministic tie-corner O vectors using independent Fraction suffix DP and full unmerged integer-weight ordered DFS. Check T/Z ancestry and exact mixed coefficient (do not infer it from prose). Solve equal-error coin law, legal maximal all-real interval and P-time dominance; show contact and right fixed-support strictness, or give a precise rational obstruction with counterexample.
+
+Research value to preserve: Stage202 complete all-real author result and its immutable Git object, exact observer dimensions and quantifier order, Stage201->Stage202 contact, P000 native transfer boundary, author contribution status UNREVIEWED/NOT_ADMITTED. This task packet grants neither Source CLAIM nor mathematical review authority.
+
+Success/return criteria: publish a complete load-bearing proof or exact rational obstruction together with runnable verifier, exact corners/certificate and observed log; provide maximal proved range and smallest next question. Follow actual current Source owner and review admission when available; stage-only PR publication is portable author evidence, not formal Result.

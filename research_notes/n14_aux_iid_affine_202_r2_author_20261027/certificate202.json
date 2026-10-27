@@ -1,0 +1,141 @@
+{
+  "schema": "EM_STAGE202_EXACT_PRIMAL_CERTIFICATE_V1",
+  "classification": "PORTABLE_AUTHOR_EXACT_UNREVIEWED_NOT_ADMITTED",
+  "source_pins": {
+    "global_knowledge": "main@f4ef844a208d4774467436397c4ee4b0481b7ba6",
+    "enterprise_math": "main@d8b1a8272420500b67ddc04033ca9577f7c1f3f8",
+    "stage201_parent": "feb4b102a0d8796cb47723baf6024cb640314c4d",
+    "p000_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "observer": [
+      "P(report Q)",
+      "Q(report P)",
+      "E_P T",
+      "E_Q T"
+    ],
+    "admissible_policies": "arbitrary full ordered-history randomized stopping/reporting"
+  },
+  "dual": {
+    "K202": "94363551/741293",
+    "L202": "94363551/741293",
+    "H202": "18568821153724089963922211/185638477110285856407552",
+    "Bellman_states": 680,
+    "positive_action_gaps": 1238,
+    "min_positive_gap": "16319029/1441073592",
+    "tie_states": {
+      "(6,0,1)": [
+        "Q",
+        "C"
+      ],
+      "(14,0,0)": [
+        "P",
+        "Q"
+      ]
+    }
+  },
+  "corners": {
+    "10": [
+      "637527963670398899/1752976676930715648",
+      "109862867795947/320979616137216",
+      "2226587199024284573/219122084616339456",
+      "259209256439735/26748301344768"
+    ],
+    "11": [
+      "1502983891011196697/5258930030792146944",
+      "134862867795947/320979616137216",
+      "2226587199024284573/219122084616339456",
+      "259209256439735/26748301344768"
+    ],
+    "00": [
+      "627135530211198899/1752976676930715648",
+      "111321003395947/320979616137216",
+      "2265238509513884573/219122084616339456",
+      "267017230439735/26748301344768"
+    ],
+    "01": [
+      "1471806590633596697/5258930030792146944",
+      "136321003395947/320979616137216",
+      "2265238509513884573/219122084616339456",
+      "267017230439735/26748301344768"
+    ]
+  },
+  "affine": {
+    "O00": [
+      "627135530211198899/1752976676930715648",
+      "111321003395947/320979616137216",
+      "2265238509513884573/219122084616339456",
+      "267017230439735/26748301344768"
+    ],
+    "D_B": [
+      "1101221875/185752092672",
+      "-3797228125/835884417024",
+      "-32765121875/185752092672",
+      "-20333265625/69657034752"
+    ],
+    "D_Z": [
+      "-6103515625/78364164096",
+      "6103515625/78364164096",
+      "0",
+      "0"
+    ],
+    "mixed": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "mixed_zero_reason": "B has type-1 symbol count 1 while Z has 0, so B cannot be ancestral to terminal Z; terminal Z cannot precede B"
+  },
+  "balanced_coin": {
+    "z0": "57523270994401049/819200000000000000",
+    "z_slope": "3361047/50000000",
+    "z1": "112590665042401049/819200000000000000",
+    "b_domain": [
+      "0",
+      "1"
+    ]
+  },
+  "endpoints": {
+    "alpha201": "3705289910272792345/10517860061584293888",
+    "V201": "2265238509513884573/219122084616339456",
+    "alpha202": "3712577116979992345/10517860061584293888",
+    "V202": "2226587199024284573/219122084616339456",
+    "delta_alpha": "2316540625/3343537668096",
+    "value_slope": "188727102/741293",
+    "time_difference_left": "77833357751575453/219122084616339456",
+    "time_difference_right": "103144970269975453/219122084616339456"
+  },
+  "ordered_DFS": {
+    "visits_by_corner": {
+      "10": 96406,
+      "11": 96406,
+      "00": 98494,
+      "01": 98494
+    },
+    "total_visits": 389800,
+    "first_arrivals_B": 6,
+    "first_arrivals_Z": 1,
+    "first_arrivals_both": 0,
+    "calculation": "exact integer P/Q path weights with denominator 24^14 at leaves",
+    "verification": "four corners agree exactly with independent Fraction suffix DP"
+  },
+  "executed": {
+    "author_checker": "verify_stage202.py",
+    "stdout": "STAGE202_AUTHOR_EXACT_PASS 389800",
+    "dual_scan_next": "scan_stage203.py",
+    "dual_stdout": "STAGE203_DUAL_SCAN_PASS"
+  },
+  "claim_scope": "external finite ternary IID only; author-level exact proof, neither native P000 X6 transfer nor independent Driver acceptance"
+}
