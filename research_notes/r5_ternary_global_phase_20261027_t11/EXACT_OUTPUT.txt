@@ -1,0 +1,11 @@
+EC48I EXACT PHASE DIAGRAM VERIFIED
+NONTERMINAL TABLES full=2187 coarse=729; terminal decisions universally greedy
+SYMBOLIC LOWER ENVELOPE FULL [(Fraction(281, 1), Fraction(0, 1), Fraction(0, 1)), (Fraction(567, 2), Fraction(0, 1), Fraction(-9, 1)), (Fraction(286, 1), Fraction(-18, 1), Fraction(0, 1)), (Fraction(577, 2), Fraction(-18, 1), Fraction(-9, 1))]
+SYMBOLIC LOWER ENVELOPE COARSE [(Fraction(281, 1), Fraction(0, 1), Fraction(0, 1)), (Fraction(567, 2), Fraction(0, 1), Fraction(-9, 1)), (Fraction(287, 1), Fraction(-18, 1), Fraction(0, 1)), (Fraction(577, 2), Fraction(-18, 1), Fraction(-9, 1))]
+FULL = 281 + min(0,5-18*sa) + min(0,5/2-9*sb)
+COARSE = 281 + min(0,5/2-9*sb,6-18*sa,15/2-18*sa-9*sb)
+GAP = min(18*sa-5,1,5/2-9*sb) if sa>5/18 and sb<5/18; otherwise 0
+ALL-PARAMETER PROOF: exhaustive AFFINE coefficient envelopes over unchanged finite policy space
+GRID 100 exact pointwise checks passed
+OFF-NEIGHBORHOOD witness sa=2/5 sb=1/10: full (Fraction(7, 20), Fraction(7, 20), Fraction(19, 8), Fraction(21, 8)) coarse (Fraction(7, 20), Fraction(7, 20), Fraction(2, 1), Fraction(7, 4)) J 1394/5 1399/5
+TREE CONSERVATION AND STRICT POSITIVITY: PASS
