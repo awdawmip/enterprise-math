@@ -1,0 +1,29 @@
+{
+  "schema": "ENTERPRISE_MATH_R331_EXACT_COMPUTATION_V1",
+  "status": "PASS",
+  "run_date": "2026-10-27",
+  "source": "R330@7c73f56263c3f0515aa28e55ced2d4c703b8e086",
+  "max_r": 256,
+  "bands_certified": 257,
+  "new_bands": "r=18..256 (239)",
+  "positive_rational_newton_coefficients": 33153,
+  "range_of_B_s": "0..768",
+  "in_triangle_positive": 296065,
+  "out_of_triangle_negative_retained": 124191,
+  "highest_newton_coefficient_check": "Delta^r H_r(0)=6^r for all 0<=r<=256",
+  "sha256_full_newton_sequence": "81c190fa50e22dc8479cb337a374706ae300a877fc9c74aa7a9033c49d96cf09",
+  "sha256_canonical_line": "r,k,numerator/denominator\\n; r ascending then k ascending",
+  "independent_symbolic_crosscheck": "R330 symbolic recurrence through r=18, agreement at all r+1 points for each 0<=r<=18; monomial coefficients H18 positive",
+  "r18_boundary": {
+    "H18_0": "398361925444173824",
+    "delta_H18_0": "9646617325339672576/5",
+    "delta18_H18_0": "101559956668416"
+  },
+  "arithmetic": "Python arbitrary-precision integer and Fraction; no float",
+  "command": "python R331_VERIFY.py --max-r 256 --out R331_EXACT_EVIDENCE.json",
+  "mathematical_dependency": "R330 formula (4) rational generating extraction establishing deg H_r<=r for all r; finite Newton interpolation gives all u>=0",
+  "mathematical_status": "AUTHOR_SIDE_COMPUTER_ASSISTED_PROOF_UNREVIEWED_NOT_ADMITTED",
+  "native_owner": "UNVERIFIED_CONTROL_QUOTA",
+  "source_claim": "NOT_OBTAINED",
+  "driver_review": "NOT_PERFORMED"
+}

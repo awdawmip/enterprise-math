@@ -1,0 +1,40 @@
+{
+  "schema": "R334_UNIVERSAL_NEWTON_ANTEPENULTIMATE_SYMBOLIC_V1",
+  "status": "PASS",
+  "assumption": "R330 Eq.(4) exact rational extraction / deg H_r<=r (author-side, not admitted)",
+  "low_order_E": [
+    "1-5*z/4",
+    "z",
+    "z*(11*z**2-16*z+4)/16",
+    "z**2*(3*z-8)*(3*z-2)/8"
+  ],
+  "N2": "-z*(5*z-2)/2",
+  "gpp_ratio": "(4761*j**2-6685*j-9354)/6400 for j>=2",
+  "third_monomial_coefficient_ratio": "r*(r-1)*(243*r**2-95*r-3542)/5400",
+  "universal_newton_coefficient": "c[r,r-2]=2*6**r*(243*r**2-245*r-182)/675 for all integers r>=2",
+  "lower_bound_polynomial_at_r2": "300",
+  "signed_convolution_falling_terms": [
+    [
+      4,
+      "81/6400"
+    ],
+    [
+      3,
+      "-1/2"
+    ],
+    [
+      2,
+      "(9*r**2 - 9*r - 386)/160"
+    ],
+    [
+      1,
+      "0"
+    ],
+    [
+      0,
+      "r*(r - 2)*(r - 1)*(3*r - 1)/48"
+    ]
+  ],
+  "arithmetic": "SymPy exact rationals / polynomial identities",
+  "role": "AUTHOR_SIDE / UNREVIEWED / NOT_ADMITTED"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "R333_BRC_CORANK_EXTENSION_V1",
+  "status": "PASS",
+  "observed_on": "2026-10-27",
+  "model": "signed-tail ordered-six-edge BRC auxiliary combinatorics",
+  "source_R330": "7c73f56263c3f0515aa28e55ced2d4c703b8e086",
+  "source_R332": "16b2209bda28aa8d8082331820e0e1e62410fef3",
+  "r_interval": [
+    301,
+    320
+  ],
+  "new_unbounded_bands": 20,
+  "cumulative_author_side_unbounded_bands": 321,
+  "exact_positive_fraction_coefficients": 6230,
+  "B_s_rows": [
+    0,
+    962
+  ],
+  "inside_triangle_strict_positive": 464166,
+  "outside_triangle_negative_terms_retained": 194675,
+  "extra_degree_checks": 20,
+  "highest_coefficient_six_power_checks": 20,
+  "prior_R332_r300_historical_overlap": "PASS; full local prior JSON H0/DeltaH0/highest/extra compared",
+  "sha256_ordered_coefficients": "b873ec12fd6c5f305fa962bf8244db68cdf09c7bb03af383f022f72402c31d17",
+  "coefficient_record_format": "r,i,numerator/denominator followed by ASCII LF, ascending r/i",
+  "executed_exact_command": "python R333_VERIFY.py --min-r 301 --max-r 320 --prior-r332 /mnt/data/em_r332/R332_EXACT_EVIDENCE.json --out R333_EXACT_EVIDENCE.json",
+  "verifier": "R333_VERIFY.py; regenerates full per-r evidence and coefficients from raw K/J signed polynomial",
+  "scope_dependency": "R330 rational extraction proves deg(H_r)<=r, author-side unreviewed",
+  "limitations": [
+    "not all-r corank positivity",
+    "not original Newton domain global positivity",
+    "not formal proof assistant verification",
+    "not native X6 dynamics",
+    "not independently admitted"
+  ],
+  "mathematical_status": "AUTHOR_SIDE / UNREVIEWED / NOT_ADMITTED"
+}
