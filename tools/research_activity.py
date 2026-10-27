@@ -18,7 +18,6 @@ from pathlib import Path, PurePosixPath
 import re
 import sys
 from datetime import datetime, timezone
-from functools import lru_cache
 from typing import Any, Mapping
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,9 +32,6 @@ MODES = ("TASK_RESEARCH", "FREE_AXIOM_DISCOVERY", "UNKNOWN_RESEARCH")
 NO_AUTHORITY = {name: False for name in (
     "task_registration", "claim", "review", "working_truth", "mathematical_acceptance"
 )}
-_READBACK_CACHE_ENTRIES = 128
-_READBACK_CACHE_BYTES = 8 * 1024 * 1024
-_READBACK_CACHE_ENTRY_BYTES = _READBACK_CACHE_BYTES // _READBACK_CACHE_ENTRIES
 
 
 class ActivityError(ValueError):
@@ -246,28 +242,20 @@ def _source(source: Any, activity_id: str) -> tuple[dict[str, Any], tuple[str, b
     return accepted, (accepted["verification_receipt"], data)
 
 
-def _verify_readback(root: Path, activity_id: str, receipt_sha: str,
+def _verify_readback(activity_id: str, receipt_sha: str,
                      pin: tuple[str, str, str, str], data: bytes) -> dict[str, Any]:
-    if digest(data) != receipt_sha:
+    actual_sha = digest(data)
+    if actual_sha != receipt_sha:
         raise ActivityError("verification receipt bytes drift")
     repository, commit, path, source_sha = pin
     source = {"repository": repository, "commit": commit, "path": path, "sha256": source_sha}
-    verified = verify_observation(json.loads(data), source)
-    return _observed_source(source, verified, activity_id, receipt_sha)
-
-
-_cached_readback = lru_cache(maxsize=_READBACK_CACHE_ENTRIES)(_verify_readback)
-
-
-def _verified_readback(root: Path, activity_id: str, receipt_sha: str,
-                       pin: tuple[str, str, str, str], data: bytes) -> dict[str, Any]:
-    # Every operation reads fresh bytes. Cache only their static validation for
-    # the exact root/activity/pin/bytes key. The entry count times this bytes-
-    # object size limit bounds retained key bytes to 8 MiB, not total process RSS.
-    # Oversized observations remain valid inputs and never enter the cache.
-    verify = (_cached_readback if sys.getsizeof(data) <= _READBACK_CACHE_ENTRY_BYTES
-              else _verify_readback)
-    return verify(root, activity_id, receipt_sha, pin, data)
+    observation = json.loads(data)
+    verified = verify_observation(observation, source)
+    canonical_data = encoded(observation)
+    # Preserve the existing canonical receipt binding. Reuse a digest only for
+    # the exact bytes already hashed, never for a different JSON serialization.
+    canonical_sha = actual_sha if canonical_data == data else digest(canonical_data)
+    return _observed_source(source, verified, activity_id, canonical_sha)
 
 
 def _checked_source(source: Any, activity_id: str, root: Path,
@@ -289,7 +277,9 @@ def _checked_source(source: Any, activity_id: str, root: Path,
     if receipt not in readbacks:
         data = root.joinpath(receipt).read_bytes()
         pin = tuple(base[key] for key in ("repository", "commit", "path", "sha256"))
-        readbacks[receipt] = _verified_readback(root.resolve(), activity_id, receipt_sha, pin, data)
+        # This mapping belongs to one _events call. A later operation reads
+        # and validates the persisted bytes again, including unchanged files.
+        readbacks[receipt] = _verify_readback(activity_id, receipt_sha, pin, data)
     rebuilt = readbacks[receipt]
     if source != rebuilt:
         raise ActivityError("stored source/verification fields drift")

@@ -130,33 +130,27 @@ unverified successor can clear debt. Connector-only transport must preserve this
 same schema/history and actual hashes; unavailable verification stays explicit
 until the helper or an authorized execution host can check it.
 
-Within one operation, repeated references to the same sidecar reuse one read and
-accepted source. Across calls in the same process, unchanged exact sidecar bytes
-and source bindings in the same root may reuse JSON decoding and static
-validation. This does not avoid full-history I/O: each guard/checkpoint still
-traverses the history and reads every distinct sidecar's bytes. Path, size, mtime
-or an unchanged activity record alone cannot establish an unchanged sidecar.
+Within an observation check, reuse its computed Git blob and receipt digest rather
+than computing the same identity again for the return fields. The guard derives
+record contents and record_sha256 from one read snapshot: a concurrent update
+cannot pair old events with a newer record hash. Persisted sidecars retain their
+existing full validation on each operation, with no cross-call validation cache.
+Event ordering, source pins, debt repair, lock/CAS and idempotency are unchanged.
 
-The shared process-local LRU has at most 128 entries. Only sidecar `bytes`
-objects whose `sys.getsizeof` is at most 64 KiB enter it, including the bytes
-object's overhead; thus retained cache-key bytes objects total at most 8 MiB per
-cache instance. Larger inputs are fully validated without caching or evicting
-existing entries. This is not a total process-memory/RSS limit: key/result
-metadata, caller buffers and transient decoding allocations are separate.
-Eviction or bypass affects only optimization; no data/history is rejected or
-truncated. More than 128 distinct entries, including a 129-entry cyclic scan,
-can thrash the LRU and repeat all static validation on every scan. There is no
-constant-time or warm-history performance guarantee, including across activities.
+Within one history validation, repeated references to the same persisted sidecar
+use its first complete byte snapshot and verified source fields. Every row still
+checks its own full source binding and event order. The next operation reads and
+validates the sidecar again, including an unchanged path/size/mtime; changes or
+deletion remain visible. This is operation-local reuse, with no process-wide LRU
+or stored validation certificate. The memo retains source metadata, not raw
+observation bodies.
 
-Changed bytes/bindings or a different root are validated again; a fresh process
-validates its first read. No cache entry is persisted or grants authority. The
-stored receipt digest binds the actual JSON bytes, without requiring another
-canonical re-encoding/hash of an already accepted observation. Normal JSON
-whitespace differences are allowed only with the matching actual receipt digest;
-the underlying source content/blob/repo/ref/path checks still apply. The
-guard derives its record contents and digest from one read snapshot, so a
-concurrent record update cannot mix old events with a newer record hash. Event
-ordering, debt/repair checks, CAS and idempotent writes retain their scopes.
+Stored receipt validation retains the existing canonical JSON receipt binding.
+Reuse the actual-byte digest for canonical receipt bytes; if serialization
+differs, calculate that distinct canonical digest before the original full-field
+comparison. A matching outer digest never skips content/blob/repo/ref/path,
+session, history, write-lock or CAS checks, and does not admit a receipt that the
+previous canonical-binding validation rejected.
 
 ## Startup, final boundary, and owner visibility
 

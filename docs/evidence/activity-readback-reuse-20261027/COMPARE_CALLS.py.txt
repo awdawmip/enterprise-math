@@ -1,0 +1,106 @@
+"""Offline measurements with actual module functions and synthetic temp files."""
+import base64
+import copy
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+import sys
+import tempfile
+from unittest.mock import patch
+
+
+def load(path):
+    spec = importlib.util.spec_from_file_location('measured_activity', path)
+    activity = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(activity)
+    return activity
+
+
+def source(activity):
+    data = b'synthetic complete source\n'
+    commit = 'a' * 40
+    path = 'research_notes/synthetic-compare.md'
+    blob = hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
+    pin = dict(repository=activity.REPOSITORY, commit=commit, path=path,
+               sha256=hashlib.sha256(data).hexdigest())
+    observation = dict(tool_name='github_fetch_file', observation_id='offline-fixture',
+        arguments=dict(repository_full_name=activity.REPOSITORY, ref=commit, path=path),
+        result=dict(isError=False, structuredContent=dict(content=data.decode(), encoding='utf-8',
+            sha=blob, display_url=f'https://github.com/{activity.REPOSITORY}/blob/{commit}/{path}')))
+    return {**pin, 'readback': observation}
+
+
+def measure(path):
+    activity = load(path)
+    result = {'module_blob': hashlib.sha1(b'blob ' + str(len(Path(path).read_bytes())).encode() + b'\0' + Path(path).read_bytes()).hexdigest()}
+    fixture = source(activity)
+    observed = fixture['readback']
+    with patch.object(activity, 'blob_id', wraps=activity.blob_id) as calls:
+        checked = activity.verify_observation(observed, fixture)
+    result['fetch_file_blob_calls'] = calls.call_count
+    mcp = copy.deepcopy(observed)
+    mcp['tool_name'] = 'em_mcp_github_contents'
+    c = mcp['result']['structuredContent']
+    raw = c['content'].encode()
+    mcp['github_response'] = dict(type='file', path=fixture['path'], encoding='base64', sha=c['sha'],
+        size=len(raw), html_url=c['display_url'], content=base64.b64encode(raw).decode())
+    with patch.object(activity, 'blob_id', wraps=activity.blob_id) as calls:
+        activity.verify_observation(mcp, fixture)
+    result['mcp_blob_calls'] = calls.call_count
+    receipt_bytes = activity.encoded(observed)
+    with patch.object(activity, 'digest', wraps=activity.digest) as calls:
+        activity._source(fixture, 'RA-CALLCOUNT01')
+    result['incoming_receipt_same_byte_digest_calls'] = sum(c.args[0] == receipt_bytes for c in calls.call_args_list)
+    invalid = []
+    for field in ('repository_full_name', 'ref', 'path'):
+        value = copy.deepcopy(observed);value['arguments'][field] = 'wrong';invalid.append(value)
+    for field, value in (('display_url', 'wrong'), ('sha', '0' * 40), ('content', 'changed'), ('encoding', 'unknown')):
+        item=copy.deepcopy(observed);item['result']['structuredContent'][field]=value;invalid.append(item)
+    item=copy.deepcopy(observed);item['result']['isError']=True;invalid.append(item)
+    item=copy.deepcopy(observed);item['arguments']['start_line']=1;invalid.append(item)
+    item=copy.deepcopy(observed);item.pop('observation_id');invalid.append(item)
+    result['invalid_observations_rejected'] = []
+    for item in invalid:
+        try:activity.verify_observation(item,fixture)
+        except activity.ActivityError:result['invalid_observations_rejected'].append(True)
+        else:result['invalid_observations_rejected'].append(False)
+    with tempfile.TemporaryDirectory() as temporary:
+        root=Path(temporary);aid='RA-CALLCOUNT01';sid='local-fixture-session'
+        activity.register(root=root,activity_id=aid,mode='TASK_RESEARCH',session_id=sid,researcher_id='EM-TEST-1234')
+        record_path=activity.record_path(aid,root)
+        for event in ('first','second'):
+            record=activity.checkpoint(aid,root=root,event_id=event,
+                expected_sha256=activity.digest(record_path.read_bytes()),em_sources=[fixture])
+        original_read=Path.read_bytes
+        reads=[]
+        def read(p):reads.append(p);return original_read(p)
+        with patch.object(Path,'read_bytes',read):activity.guard(activity_id=aid,root=root,session_id=sid)
+        result['guard_record_reads']=reads.count(record_path)
+        if hasattr(activity,'_cached_readback'):activity._cached_readback.cache_clear()
+        receipt=root/record['checkpoints'][0]['em_sources'][0]['verification_receipt']
+        runs=[]
+        for _ in range(2):
+            reads=[]
+            with patch.object(Path,'read_bytes',read),patch.object(activity,'verify_observation',wraps=activity.verify_observation) as checks,patch.object(activity,'digest',wraps=activity.digest) as hashes:
+                events=activity._events(record,root)
+            runs.append({'sidecar_reads':reads.count(receipt),'full_observation_checks':checks.call_count,
+                'same_receipt_byte_hashes':sum(c.args[0]==receipt_bytes for c in hashes.call_args_list),'event_ids':list(events)})
+        result['repeated_sidecar_runs']=runs
+        # Actual-byte matching but noncanonical JSON: main's canonical receipt binding must be preserved.
+        changed=copy.deepcopy(record)
+        raw=json.dumps(json.loads(receipt.read_bytes()),separators=(',',':')).encode()
+        sha=activity.digest(raw)
+        for row in changed['checkpoints']:
+            pin=row['em_sources'][0];pin['verification_receipt_sha256']=sha
+            pin['verification_receipt']=f'{activity.STORE}/{aid}/readbacks/{sha}.json'
+        (root/changed['checkpoints'][0]['em_sources'][0]['verification_receipt']).write_bytes(raw)
+        try:activity._events(changed,root)
+        except activity.ActivityError as error:result['noncanonical_receipt']={'accepted':False,'error':str(error)}
+        else:result['noncanonical_receipt']={'accepted':True}
+    result['verified_result']=checked
+    return result
+
+
+if __name__ == '__main__':
+    print(json.dumps(measure(sys.argv[1]),indent=2))
