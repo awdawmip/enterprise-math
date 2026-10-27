@@ -1,0 +1,24 @@
+{
+  "all_assertions": "PASS",
+  "cost": "1/8",
+  "date": "2026-10-28",
+  "exhaustive_deterministic_controllers": {
+    "full": {"count": 20736, "optimal": "-1/8", "witness_vec": ["3/8", "1/8", "3/2", "3/2"]},
+    "old": {"count": 48, "optimal": "-1/4", "witness_vec": ["0", "0", "1", "1"]},
+    "refined-erased": {"count": 144, "optimal": "-3/16", "witness_vec": ["9/32", "3/32", "3/2", "3/2"]},
+    "refined-retained": {"count": 2304, "optimal": "-3/16", "witness_vec": ["9/32", "3/32", "3/2", "3/2"]}
+  },
+  "explicit_refined_vector": ["9/32", "3/32", "3/2", "3/2"],
+  "j_positive_accept_gains": {"0": "1/16", "1": "3/16"},
+  "j_weights": {"0": "1/2", "1": "1/2"},
+  "old_one_state_maximum": "-1/4",
+  "randomized_model_checks": 500,
+  "randomized_strict_gap_cases": 47,
+  "refined_one_state_maximum": "-3/16",
+  "schema": "EM_EC48V_EXACT_CERTIFICATE_V1",
+  "scope": "Auxiliary finite strictly positive dual-source BRC; one middle stop/continue decision; full controlled-history LR at each stage; terminal acceptance; no native X6 claim.",
+  "source_mass_checks": {"P": "1", "Q": "1", "strict_positive": true},
+  "source_neutral_kernel": "r(J|H) identical under P,Q",
+  "strict_support_gap": "1/16",
+  "terminal_leaf_count": 8
+}
