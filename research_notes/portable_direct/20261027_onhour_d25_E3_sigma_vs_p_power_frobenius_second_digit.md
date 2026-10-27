@@ -1,12 +1,12 @@
 # D25 / SECOND-DIGIT-LIFT — original E3 unramified Frobenius lift versus pointwise p-th powers
 
-Date: 2026-10-27, Research-onhour lane: \`chatgpt-research-onhour-enterprise-math-20260923\` (distinct from maintenance). Mother: \`ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION\`. Task: \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`, publication \`TP2-B6F4FC938FF94941C1B7\`. Frozen SCIENTIFIC Source: \`c47e13e4aba0e006366f989d6334d443f6333ae3\` (unchanged).
+Date: 2026-10-27, Research-onhour lane: `chatgpt-research-onhour-enterprise-math-20260923` (distinct from maintenance). Mother: `ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION`. Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`, publication `TP2-B6F4FC938FF94941C1B7`. Frozen SCIENTIFIC Source: `c47e13e4aba0e006366f989d6334d443f6333ae3` (unchanged).
 
 **Classification:** AUTHOR-SIDE / EXACT ALGEBRAIC LEMMA / EIGHT EXECUTED INTEGER CHECKS / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING / NATIVE_H0B0_NOT_EXECUTED. This is a directly applicable **conditional original-E3 comparator precision guard**, not a native benchmark result or uniform LIFT proof. Existing prior authors and native owners retain separate contribution provenance.
 
 ## Unfinished original object and precise comparator question
 
-The accepted first-digit UR and frozen original scalar interface leave LIFT: \(\Delta_p=(G_ph-1)/p\equiv R_p\pmod p\) for primes \(p\equiv13,19\pmod{24}\). The exact author proof at \`research_notes/portable_direct/20261026_onhour_d25_native_lift_source_port_identity.md\` retains the original cutoff and gives \(\Delta_p-R_p=(W_p-p)/p^2\bmod p\). Existing support Issue #1559 requires the **same-original-class native H0/B0 divided-power** \([X]U\bmod139129\), actual rank, full sigma-semilinear Frobenius, signed odd Green/Hesse and original \(\kappa\). Original-E3 algebra is useful as a test only **after** a real native H0/B0-to-E3 comparison is authenticated.
+The accepted first-digit UR and frozen original scalar interface leave LIFT: \(\Delta_p=(G_ph-1)/p\equiv R_p\pmod p\) for primes \(p\equiv13,19\pmod{24}\). The exact author proof at `research_notes/portable_direct/20261026_onhour_d25_native_lift_source_port_identity.md` retains the original cutoff and gives \(\Delta_p-R_p=(W_p-p)/p^2\bmod p\). Existing support Issue #1559 requires the **same-original-class native H0/B0 divided-power** \([X]U\bmod139129\), actual rank, full sigma-semilinear Frobenius, signed odd Green/Hesse and original \(\kappa\). Original-E3 algebra is useful as a test only **after** a real native H0/B0-to-E3 comparison is authenticated.
 
 The new, narrow question: over the *original* E3 coefficient ring modulo \(p^2\), what is lost if an evaluator substitutes coordinatewise pointwise \(p\)-th powers for the genuine unramified arithmetic Frobenius lift?
 
@@ -58,11 +58,11 @@ c^{373}&=70573+110819T \pmod{139129},\\
 \]
 The defect is nonzero at the original target prime \(373\). A reduction modulo \(373\) hides it entirely, whereas any signed second-digit comparison modulo \(139129\) must account for it. It is a concrete counterexample to **the identification of pointwise powering with the unramified lift modulo \(p^2\)**, not a counterexample to frozen LIFT.
 
-Executable exact checker: \`research_notes/portable_direct/d25_frobenius_lift_defect_20261027.py\`. It calculates \(c^p\) by ring repeated squaring and independently by the entire integer-binomial numerator, and checks equations (1)–(2) at \(p=13,19,37,43,61,67,211,373\). Execution:
-\`\`\`
+Executable exact checker: `research_notes/portable_direct/d25_frobenius_lift_defect_20261027.py`. It calculates \(c^p\) by ring repeated squaring and independently by the entire integer-binomial numerator, and checks equations (1)–(2) at \(p=13,19,37,43,61,67,211,373\). Execution:
+```
 PASS_E3_SIGMA_VS_P_POWER_P373 {'p': 373, 'q2': 204, 'q108': 192, 'rho': 271, 'd_num': (303, 201), 'c': (105635, 16747), 'sigma_c': (105635, 122382), 'c_p': (70573, 110819), 'defect': (279, 342)}
 PASS_E3_SIGMA_VS_P_POWER_EIGHT_PRIMES
-\`\`\`
+```
 Two integer implementations and exact identities establish the arithmetic evidence; the all-target result comes from the proof above.
 
 ## BRC carrier and acceptance boundary
@@ -73,6 +73,6 @@ Two integer implementations and exact identities establish the arithmetic eviden
 
 ## Exact continuation / evidence debts
 
-Frozen mother and science pin unchanged; accepted D24 UR, CM0/SIMPLE, original cutoff interface, Guo–Zudilin companion results and earlier E3 branch certificates are consumed, not reopened. Existing support Issue #1559 is the responsible path, \`PENDING_OWNER / NATIVE_NOT_EXECUTED\` as observed 2026-10-27. Unresolved scientific obligations: all-prime LIFT proof/refutation (or strict Source-authorized reduction) and actual H0/B0 same-original-class benchmark. Real Research conversation is fixed at \`chatgpt-research-onhour-enterprise-math-20260923\`; maintenance lane is independent. Gateway Source continuation for this Research lane returned \`CONTROL_QUOTA\` this run; Site reports \`research_authority_granted=false\`. No current winner CLAIM, native open/run, current request receipt, authorized native checkpoint, publication admission, or Research-Activity registration was obtained. Historical bridge Issues #6575/#6576 remain provenance only and were not reissued; old staging stays isolated. \`REGISTER_PENDING / SOURCE_NATIVE_SYNC_DEBT\`.
+Frozen mother and science pin unchanged; accepted D24 UR, CM0/SIMPLE, original cutoff interface, Guo–Zudilin companion results and earlier E3 branch certificates are consumed, not reopened. Existing support Issue #1559 is the responsible path, `PENDING_OWNER / NATIVE_NOT_EXECUTED` as observed 2026-10-27. Unresolved scientific obligations: all-prime LIFT proof/refutation (or strict Source-authorized reduction) and actual H0/B0 same-original-class benchmark. Real Research conversation is fixed at `chatgpt-research-onhour-enterprise-math-20260923`; maintenance lane is independent. Gateway Source continuation for this Research lane returned `CONTROL_QUOTA` this run; Site reports `research_authority_granted=false`. No current winner CLAIM, native open/run, current request receipt, authorized native checkpoint, publication admission, or Research-Activity registration was obtained. Historical bridge Issues #6575/#6576 remain provenance only and were not reissued; old staging stays isolated. `REGISTER_PENDING / SOURCE_NATIVE_SYNC_DEBT`.
 
 Next exact action: reconcile this Research lane's original Source requests and native ownership when permitted; have the lawful native executor take the pre-existing #1559 object and produce the raw, reproducible \(p=373\) benchmark with all signed ports. Consume this coefficient guard **only after** documenting the actual E3 comparison and its Frobenius lift. The prior frozen Source pin, existing schedule and notification settings are unchanged.
