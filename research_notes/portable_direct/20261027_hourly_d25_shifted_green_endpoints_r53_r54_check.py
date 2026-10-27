@@ -93,6 +93,7 @@ if __name__ == '__main__':
     assert P(Fraction(3,4)) == Fraction(139*199,4)
     assert P(Fraction(5,4)) == Fraction(5*7*19*163,4)
     assert P(Fraction(7,4)) == Fraction(5*59197,4)
+    assert all(prime(q) for q in (5,7,19,163,59197))
     primes=[p for p in range(13,1000) if p%6==1 and prime(p)]
     rows=[check(p) for p in primes]
     print('Target primes checked:',len(rows))
