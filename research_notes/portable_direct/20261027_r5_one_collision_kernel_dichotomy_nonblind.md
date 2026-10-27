@@ -66,7 +66,7 @@ For finite probability laws on positive support, the call transform `C_i(s)=Σ_j
 
 **Earlier eight-leaf R5 model.** Use `r=1`, `Δ=2`, `q=(1/2,1/2)`, `u=(1/4,3/4,5/4,7/4)`,
 `μ_A=(9,5,11,7)/32`, `μ_B=(8,8,8,8)/32`.
-At `s=3/4` the gains are `G_A=9/64`, `G_B=1/8`. With `δ=17/128` (so `η=17/256`), the exact Jensen separation is `1/256`. This **recovers** the previously published one-tree certificate; it is not credited as a fresh independent numerical discovery.
+At `s=3/4` the gains are `G_A=9/64`, `G_B=1/8`. With `δ=17/128` (so `η=17/256`), the exact Jensen separation is `1/256`. This **recovers** the previously published one-tree certificate; it is not credited as a fresh independent numerical discovery. The original eight-leaf tree also permits a time-2 stopping action, which is **outside** the present one-decision theorem's hypotheses. For the displayed positive time price that action is strictly dominated by the same time-1 declaration, since no additional information arrives before time 3; hence this is a valid support-value crosscheck **after explicit dominance reduction**, not an assertion that the unrestricted original tree itself has the theorem's exact action interface.
 
 **A three-hidden-history check.** Use `r=1`, `u=(1/10,99/100,101/100,19/10)` and the strictly positive normalized mean-one kernels `K(p)=(p,1/2-p,1/2-p,p)` with `p=(1/10,1/4,2/5)`, `q=(1/4,1/2,1/4)`. At `s=1`:
 `G=(47/500,91/400,361/1000)`, `δ=91/400`, `V_LR-V_full=267/8000>0`.
