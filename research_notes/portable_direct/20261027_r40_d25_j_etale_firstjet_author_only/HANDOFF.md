@@ -98,3 +98,16 @@ Same non-independent author, portable only. New files in this directory: `D25_CL
 With `p=6r+1` and `A_r(1)=sum_k binom(r,k)binom(2r,k)/2^k modp`, exact author finite scanning of every p<40000 in this domain checked **1062 target p≡13,19(mod24) zeros**, and **1027 split p≡1,7(mod24)** with signed `p=a²+6b², a≡1(mod3), A_r(1)≡2a(modp)`. This is a *new, bounded numerical arithmetic trace pattern*, NOT a proved universal split/inert theorem, native H0/B0 Frobenius, or LIFT. Reused older finite Clausen square and Legendre antecedents are not recredited. Detailed CM prior-art status remains unresolved; don't assert novelty.
 
 Next scientific unit: derive exact finite-field Jacobsthal/character sum for `A_r(1)`, prove/falsify signed norm/trace law for all p with a properly sourced CM/character argument, and independently prove the actual original H0/B0-Frobenius-LIFT transport. No replacement for p373 native Issue #1559 or UR V2 94687-byte SHA256 original provenance. Current winning own CLAIM/OPEN/session/checkpoint **NOT VERIFIED**; current native jobs 5/5, Site read-only; old exact request receipt IDs `r40_20261027_1543_exact_cont_read_v1`, `r40_20261027_1436_exact_cont_read_v1` returned CONTROL_REQUEST_NOT_FOUND, checkpoint list ACCESS_DENIED. No new research identity or native mutation; current-input predecessor completed_units remain [] absent authentic Source predecessor completed proof. Scientific frozen pin/taskbook/parent, authored history and task scheduling/notifications remain unchanged. GitHub author evidence = GITHUB_DRAFT_STORED / UNREVIEWED / NOT_ADMITTED.
+
+## D25 all-digit Lucas/carry theorem (2026-10-27, same author, not native)
+
+New proof, source verifier, and author-side run certificate:
+- D25_LUCAS_CARRY_MULTISCALE_COEFFICIENT_THEOREM_20261027.md
+- d25_lucas_carry_multiscale_checker_20261027.py
+- d25_lucas_carry_multiscale_author_check_20261027.json
+
+All primes p>=5, all n>=0: c_n=((3n)!(2n)!)/(216^n(n!)^5) satisfies c_n≡product c_(n_i) (mod p) on base-p digit word; nonzero exactly when every digit n_i<=floor((p-1)/3). Full p-adic valuation equals the two Kummer carry channels kappa(n,2n)+2kappa(n,n). Consequently v_p(c_(p^e))=0, so finite k<p p³ valuation cutoff **cannot extend** beyond p. Explicit mod p² failure at p=5. The all-prime proof uses Lucas/Legendre/Kummer, with locally executed 2225-index author regression. Existing earlier one-digit cutoff theorem not recredited.
+
+AUTHOR_DERIVED / AUTHOR_EXACT_CHECKED / GITHUB_DRAFT_STORED / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING. This is author-side portable arithmetic, not a native H0/B0, original LIFT/JT2 proof, Source checkpoint or independent review. Exact native winning CLAIM/OPEN remains unverified; gateway currently active quota 5/5 and lacks executor binding, Sites write relay disabled. Any current-input seed has predecessor completed_units=[]. Frozen scientific source c47e13e4aba0e006366f989d6334d443f6333ae3 and original UR V2 94,687-byte SHA256 provenance unchanged.
+
+Next: prove a horizon N>p exact finite-state index support selector for valuation<3 and signed p³ Cauchy boundary, and separately restore lawful Source continuation/real H0/B0 p373 (#1559) without rerunning prior mathematics.
