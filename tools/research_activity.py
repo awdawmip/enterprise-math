@@ -133,12 +133,17 @@ def _validate_record(record: Any) -> dict[str, Any]:
     return record
 
 
-def read(activity_id: str, root: Path = ROOT) -> dict[str, Any]:
+def _read_record(activity_id: str, root: Path) -> tuple[dict[str, Any], bytes]:
     path = record_path(activity_id, root)
-    record = _validate_record(json.loads(path.read_bytes()))
+    data = path.read_bytes()
+    record = _validate_record(json.loads(data))
     if record["activity_id"] != activity_id:
         raise ActivityError("activity path/identity mismatch")
-    return record
+    return record, data
+
+
+def read(activity_id: str, root: Path = ROOT) -> dict[str, Any]:
+    return _read_record(activity_id, root)[0]
 
 
 def register(*, root: Path = ROOT, **kwargs: Any) -> dict[str, Any]:
@@ -185,12 +190,13 @@ def verify_observation(observation: Any, pin: Mapping[str, Any]) -> dict[str, An
     except (KeyError, TypeError, AttributeError, ValueError) as exc:
         raise ActivityError("invalid connector content") from exc
     url = f"https://github.com/{pin['repository']}/blob/{pin['commit']}/{pin['path']}"
-    if content.get("display_url") != url or content.get("sha") != blob_id(data) or digest(data) != pin["sha256"]:
+    git_blob = blob_id(data)
+    if content.get("display_url") != url or content.get("sha") != git_blob or digest(data) != pin["sha256"]:
         raise ActivityError("connector content/blob/immutable URL does not match source pin")
     if transport == "em_mcp_github_contents":
         raw = observation.get("github_response")
         if (not isinstance(raw, dict) or raw.get("type") != "file" or raw.get("path") != pin["path"]
-                or raw.get("encoding") != "base64" or raw.get("sha") != blob_id(data)
+                or raw.get("encoding") != "base64" or raw.get("sha") != git_blob
                 or raw.get("size") != len(data) or raw.get("html_url") != url):
             raise ActivityError("MCP GitHub Contents observation requires the complete matching immutable API response")
         try:
@@ -207,9 +213,16 @@ def verify_observation(observation: Any, pin: Mapping[str, Any]) -> dict[str, An
         if value is not None:
             _text(value, key)
     return {"kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED" if transport == "github_fetch_file" else "OBSERVED_MCP_GITHUB_API_STRUCTURE_AND_BYTES_VERIFIED", "tool_name": transport,
-            "observation_id": observation_id, "call_id": call_id, "git_blob_sha1": blob_id(data),
+            "observation_id": observation_id, "call_id": call_id, "git_blob_sha1": git_blob,
             "immutable_url": url, "network_request_by_this_tool": False,
             "server_signature_authenticated": False}
+
+
+def _observed_source(pin: Mapping[str, Any], verified: Mapping[str, Any],
+                     activity_id: str, receipt_sha: str) -> dict[str, Any]:
+    return {**pin, "publication_state": "EM_SOURCE_OBSERVED", "verification": dict(verified),
+            "verification_receipt": f"{STORE}/{activity_id}/readbacks/{receipt_sha}.json",
+            "verification_receipt_sha256": receipt_sha}
 
 
 def _source(source: Any, activity_id: str) -> tuple[dict[str, Any], tuple[str, bytes] | None]:
@@ -224,12 +237,29 @@ def _source(source: Any, activity_id: str) -> tuple[dict[str, Any], tuple[str, b
         return {**pin, "publication_state": "VERIFY_EM_PUBLICATION"}, None
     verified = verify_observation(observation, pin)
     data = encoded(observation)
-    receipt = f"{STORE}/{activity_id}/readbacks/{digest(data)}.json"
-    return {**pin, "publication_state": "EM_SOURCE_OBSERVED", "verification": verified,
-            "verification_receipt": receipt, "verification_receipt_sha256": digest(data)}, (receipt, data)
+    receipt_sha = digest(data)
+    accepted = _observed_source(pin, verified, activity_id, receipt_sha)
+    return accepted, (accepted["verification_receipt"], data)
 
 
-def _checked_source(source: Any, activity_id: str, root: Path) -> str:
+def _verify_readback(activity_id: str, receipt_sha: str,
+                     pin: tuple[str, str, str, str], data: bytes) -> dict[str, Any]:
+    actual_sha = digest(data)
+    if actual_sha != receipt_sha:
+        raise ActivityError("verification receipt bytes drift")
+    repository, commit, path, source_sha = pin
+    source = {"repository": repository, "commit": commit, "path": path, "sha256": source_sha}
+    observation = json.loads(data)
+    verified = verify_observation(observation, source)
+    canonical_data = encoded(observation)
+    # Preserve the existing canonical receipt binding. Reuse a digest only for
+    # the exact bytes already hashed, never for a different JSON serialization.
+    canonical_sha = actual_sha if canonical_data == data else digest(canonical_data)
+    return _observed_source(source, verified, activity_id, canonical_sha)
+
+
+def _checked_source(source: Any, activity_id: str, root: Path,
+                    readbacks: dict[str, dict[str, Any]] | None = None) -> str:
     if not isinstance(source, dict):
         raise ActivityError("invalid stored source")
     base, _ = _source(source, activity_id)
@@ -242,10 +272,15 @@ def _checked_source(source: Any, activity_id: str, root: Path) -> str:
     expected = f"{STORE}/{activity_id}/readbacks/{receipt_sha}.json"
     if receipt != expected:
         raise ActivityError("verification receipt must be exact and activity-local")
-    data = root.joinpath(receipt).read_bytes()
-    if digest(data) != receipt_sha:
-        raise ActivityError("verification receipt bytes drift")
-    rebuilt, _ = _source({**base, "readback": json.loads(data)}, activity_id)
+    if readbacks is None:
+        readbacks = {}
+    if receipt not in readbacks:
+        data = root.joinpath(receipt).read_bytes()
+        pin = tuple(base[key] for key in ("repository", "commit", "path", "sha256"))
+        # This mapping belongs to one _events call. A later operation reads
+        # and validates the persisted bytes again, including unchanged files.
+        readbacks[receipt] = _verify_readback(activity_id, receipt_sha, pin, data)
+    rebuilt = readbacks[receipt]
     if source != rebuilt:
         raise ActivityError("stored source/verification fields drift")
     return "EM_SOURCE_OBSERVED"
@@ -253,6 +288,7 @@ def _checked_source(source: Any, activity_id: str, root: Path) -> str:
 
 def _events(record: Mapping[str, Any], root: Path) -> dict[str, dict[str, Any]]:
     events: dict[str, dict[str, Any]] = {}
+    readbacks: dict[str, dict[str, Any]] = {}
     for row in record["checkpoints"]:
         if not isinstance(row, dict):
             raise ActivityError("invalid checkpoint")
@@ -261,7 +297,7 @@ def _events(record: Mapping[str, Any], root: Path) -> dict[str, dict[str, Any]]:
             raise ActivityError("duplicate checkpoint event_id")
         if not isinstance(row.get("em_sources"), list) or not isinstance(row.get("kb_sources"), list):
             raise ActivityError("checkpoint sources must be lists")
-        states = [_checked_source(x, record["activity_id"], root) for x in row["em_sources"]]
+        states = [_checked_source(x, record["activity_id"], root, readbacks) for x in row["em_sources"]]
         status = "SYNC_DEBT" if not states else ("EM_REPRESENTED" if all(s == "EM_SOURCE_OBSERVED" for s in states) else "VERIFY_EM_PUBLICATION")
         if row.get("state") != status:
             raise ActivityError("checkpoint state must be derived from actual source evidence")
@@ -350,7 +386,7 @@ def guard(*, activity_id: str | None = None, boundary: str = "startup",
               "register_command": "python tools/research_activity.py register --session-id <session> --researcher-id <resolved-id> --mode <TASK_RESEARCH|FREE_AXIOM_DISCOVERY>"}
     if activity_id is None or not record_path(activity_id, root).is_file():
         return result
-    record = read(activity_id, root)
+    record, record_data = _read_record(activity_id, root)
     if record["session_state"] == "KNOWN" and (not isinstance(session_id, str) or not session_id.strip()):
         result["required_action"] = "BIND_CURRENT_RESEARCH_ACTIVITY_SESSION"
         return result
@@ -360,7 +396,7 @@ def guard(*, activity_id: str | None = None, boundary: str = "startup",
     repaired = {x["repairs_event_id"] for x in events.values() if x["repairs_event_id"] is not None}
     debts = [x for x in events.values() if x["state"] != "EM_REPRESENTED" and x["event_id"] not in repaired]
     result.update(mode=record["mode"], record_path=f"{STORE}/{activity_id}.json",
-                  record_sha256=digest(record_path(activity_id, root).read_bytes()),
+                  record_sha256=digest(record_data),
                   source_links=[f"https://github.com/{s['repository']}/blob/{s['commit']}/{s['path']}" for e in events.values() for s in e["em_sources"]],
                   sync_debt_events=[x["event_id"] for x in debts], required_action="CONTINUE_ACTIVITY")
     if registration_source is None:

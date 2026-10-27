@@ -1,0 +1,322 @@
+{
+  "schema": "EM_ACTIVITY_OPERATION_LOCAL_REUSE_VALIDATION_V1",
+  "date_utc": "2026-10-27",
+  "python": "3.12.14",
+  "observed_main": "d8b1a8272420500b67ddc04033ca9577f7c1f3f8",
+  "observed_main_activity_blob": "95de1f292f93d30d8744200e06c002202dd8997a",
+  "pr1561_head": "0ad0f1105758522c4d1bc4a34f814877f975e470",
+  "pr1562_previous_head": "1e141f61732d05f3c2fb726d114c3908bd6a646b",
+  "reconstruction": "Approved GitHub PR file patches applied to an isolated pre-existing Source checkout. All three original PR1561/1562 changed-file Git blobs matched GitHub. No Source archive was fetched.",
+  "full_fixture_checkout_context": "1a7e2a95db1d16921e71ccb7968f836bda83d6ac; target main activity bytes match exactly. This is not a full current-main or deployed native integration run.",
+  "scope": "One-record snapshot and operation-local repeated-sidecar/static-digest reuse; no cross-call cache. Existing canonical receipt acceptance/rejection is retained.",
+  "tests": {
+    "pr1561_original": {
+      "pass": 7,
+      "fail": 0,
+      "skip": 0
+    },
+    "pr1562_original": {
+      "pass": 16,
+      "fail": 0,
+      "skip": 0
+    },
+    "baseline_adjacent": {
+      "pass": 27,
+      "fail": 0,
+      "skip": 0
+    },
+    "final_activity_regression": {
+      "pass": 42,
+      "fail": 0,
+      "skip": 0,
+      "includes_final_reuse_tests": 15,
+      "includes_adjacent_registration_and_MCP": 27
+    },
+    "initial_final_test_attempt": {
+      "pass": 14,
+      "fail": 1,
+      "reason": "New test regex omitted the word original from the existing unchanged session error; assertion corrected, production code unchanged."
+    },
+    "negative_comparison_cases_per_variant": 10,
+    "network_or_DNS_attempts": 0
+  },
+  "commands": {
+    "candidate": "python -B -m unittest discover -s tests -p \"test_research_activity*.py\" -v",
+    "focused_original": "python -B -m unittest discover -s tests -p test_research_activity_readback_reuse.py -v",
+    "checks": [
+      "python tools/check_bilingual_pairs.py",
+      "python tools/check_references.py",
+      "git diff --check"
+    ],
+    "comparison": "PYTHONPATH=. python - tools/research_activity.py < docs/evidence/activity-readback-reuse-20261027/COMPARE_CALLS.py.txt"
+  },
+  "checks": {
+    "bilingual_pairs": 134,
+    "source_registry_entries": 67,
+    "lineage_components": 30,
+    "diff_check": "PASS"
+  },
+  "file_integrity": {
+    "tools/research_activity.py": {
+      "bytes": 29901,
+      "sha256": "41bbb6222c87e0ff346fbc6a3719ed7ab0724f3faf610e57c16ef94f9c0fdf2f",
+      "git_blob_sha1": "7a87a3fc3802ab606229bb21c0fb2d74388d5e85"
+    },
+    "tests/test_research_activity_readback_reuse.py": {
+      "bytes": 12017,
+      "sha256": "bdd7c3b26cb275085d9f6661e880602423f601f5834ce09858c19259e93c9cd8",
+      "git_blob_sha1": "9d0b1196e32a6227bad1fda4919b8f6b01933d1c"
+    },
+    "docs/RESEARCH_ACTIVITY_PROTOCOL.md": {
+      "bytes": 10058,
+      "sha256": "b0cc580adaa3c60fd3abf127fe79fae8b9845952b5d05f29e57764b80639b924",
+      "git_blob_sha1": "f7350847f8aa9cd16d0334a866bed8712d6244fd"
+    }
+  },
+  "call_comparison": {
+    "baseline": {
+      "module_blob": "95de1f292f93d30d8744200e06c002202dd8997a",
+      "fetch_file_blob_calls": 2,
+      "mcp_blob_calls": 3,
+      "incoming_receipt_same_byte_digest_calls": 2,
+      "invalid_observations_rejected": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "guard_record_reads": 2,
+      "repeated_sidecar_runs": [
+        {
+          "sidecar_reads": 2,
+          "full_observation_checks": 2,
+          "same_receipt_byte_hashes": 6,
+          "event_ids": [
+            "first",
+            "second"
+          ]
+        },
+        {
+          "sidecar_reads": 2,
+          "full_observation_checks": 2,
+          "same_receipt_byte_hashes": 6,
+          "event_ids": [
+            "first",
+            "second"
+          ]
+        }
+      ],
+      "noncanonical_receipt": {
+        "accepted": false,
+        "error": "stored source/verification fields drift"
+      },
+      "verified_result": {
+        "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+        "tool_name": "github_fetch_file",
+        "observation_id": "offline-fixture",
+        "call_id": null,
+        "git_blob_sha1": "f90ac2bb531311855c3a46de560352bdb9c58915",
+        "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/research_notes/synthetic-compare.md",
+        "network_request_by_this_tool": false,
+        "server_signature_authenticated": false
+      }
+    },
+    "pr1561": {
+      "module_blob": "c4e0c12931274a29c181876cbb096a13aae8f711",
+      "fetch_file_blob_calls": 1,
+      "mcp_blob_calls": 1,
+      "incoming_receipt_same_byte_digest_calls": 1,
+      "invalid_observations_rejected": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "guard_record_reads": 1,
+      "repeated_sidecar_runs": [
+        {
+          "sidecar_reads": 2,
+          "full_observation_checks": 2,
+          "same_receipt_byte_hashes": 4,
+          "event_ids": [
+            "first",
+            "second"
+          ]
+        },
+        {
+          "sidecar_reads": 2,
+          "full_observation_checks": 2,
+          "same_receipt_byte_hashes": 4,
+          "event_ids": [
+            "first",
+            "second"
+          ]
+        }
+      ],
+      "noncanonical_receipt": {
+        "accepted": false,
+        "error": "stored source/verification fields drift"
+      },
+      "verified_result": {
+        "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+        "tool_name": "github_fetch_file",
+        "observation_id": "offline-fixture",
+        "call_id": null,
+        "git_blob_sha1": "f90ac2bb531311855c3a46de560352bdb9c58915",
+        "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/research_notes/synthetic-compare.md",
+        "network_request_by_this_tool": false,
+        "server_signature_authenticated": false
+      }
+    },
+    "pr1562-original": {
+      "module_blob": "3301300d8a9e74cf677972800e6ab435fb821614",
+      "fetch_file_blob_calls": 1,
+      "mcp_blob_calls": 1,
+      "incoming_receipt_same_byte_digest_calls": 1,
+      "invalid_observations_rejected": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "guard_record_reads": 1,
+      "repeated_sidecar_runs": [
+        {
+          "sidecar_reads": 1,
+          "full_observation_checks": 1,
+          "same_receipt_byte_hashes": 1,
+          "event_ids": [
+            "first",
+            "second"
+          ]
+        },
+        {
+          "sidecar_reads": 1,
+          "full_observation_checks": 0,
+          "same_receipt_byte_hashes": 0,
+          "event_ids": [
+            "first",
+            "second"
+          ]
+        }
+      ],
+      "noncanonical_receipt": {
+        "accepted": true
+      },
+      "verified_result": {
+        "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+        "tool_name": "github_fetch_file",
+        "observation_id": "offline-fixture",
+        "call_id": null,
+        "git_blob_sha1": "f90ac2bb531311855c3a46de560352bdb9c58915",
+        "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/research_notes/synthetic-compare.md",
+        "network_request_by_this_tool": false,
+        "server_signature_authenticated": false
+      }
+    },
+    "final": {
+      "module_blob": "7a87a3fc3802ab606229bb21c0fb2d74388d5e85",
+      "fetch_file_blob_calls": 1,
+      "mcp_blob_calls": 1,
+      "incoming_receipt_same_byte_digest_calls": 1,
+      "invalid_observations_rejected": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ],
+      "guard_record_reads": 1,
+      "repeated_sidecar_runs": [
+        {
+          "sidecar_reads": 1,
+          "full_observation_checks": 1,
+          "same_receipt_byte_hashes": 1,
+          "event_ids": [
+            "first",
+            "second"
+          ]
+        },
+        {
+          "sidecar_reads": 1,
+          "full_observation_checks": 1,
+          "same_receipt_byte_hashes": 1,
+          "event_ids": [
+            "first",
+            "second"
+          ]
+        }
+      ],
+      "noncanonical_receipt": {
+        "accepted": false,
+        "error": "stored source/verification fields drift"
+      },
+      "verified_result": {
+        "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+        "tool_name": "github_fetch_file",
+        "observation_id": "offline-fixture",
+        "call_id": null,
+        "git_blob_sha1": "f90ac2bb531311855c3a46de560352bdb9c58915",
+        "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/research_notes/synthetic-compare.md",
+        "network_request_by_this_tool": false,
+        "server_signature_authenticated": false
+      }
+    }
+  },
+  "ast_scope": {
+    "unchanged": [
+      "ActivityError",
+      "encoded",
+      "digest",
+      "blob_id",
+      "_text",
+      "_hex",
+      "_relative",
+      "record_path",
+      "registration",
+      "_validate_record",
+      "register",
+      "checkpoint",
+      "overview",
+      "main"
+    ],
+    "changed": [
+      "read",
+      "verify_observation",
+      "_source",
+      "_checked_source",
+      "_events",
+      "guard"
+    ],
+    "new": [
+      "_observed_source",
+      "_read_record",
+      "_verify_readback"
+    ]
+  },
+  "remote_or_production_actions": "Draft source branch only; no merge/deploy, quota/permission/config change, live activity registration/checkpoint, research, CLAIM/OPEN, MCP call or job-state change.",
+  "performance_boundary": "Actual function/hash/read counts with temporary synthetic files; not wall-clock/RSS benchmark or evidence of inventory-timeout recovery."
+}

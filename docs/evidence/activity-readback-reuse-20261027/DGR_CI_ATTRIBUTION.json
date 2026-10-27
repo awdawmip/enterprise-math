@@ -1,0 +1,34 @@
+{
+  "ci_head": "65add5eb148714ca2969c3b9024b27e049e06425",
+  "ci_checkout_merge": "de4b888f6f979d68dead836b0ed47c6233a6ceec",
+  "ci_target_base": "0ad0f1105758522c4d1bc4a34f814877f975e470",
+  "workflow_run": 40510852723,
+  "failed_job": 122212346254,
+  "base_context": "1a7e2a95db1d16921e71ccb7968f836bda83d6ac",
+  "old_test_blob": "c41aefbbe1fa60bd0d54e311261d660b7cdbe514",
+  "main_fixed_test_blob": "768933002e98354154477b060ea989664ab3a2fb",
+  "main_fix_commit": "29775fa20308f2298273aee61f2fe59b1a840855",
+  "unchanged_baseline_activity_blob": "95de1f292f93d30d8744200e06c002202dd8997a",
+  "candidate_activity_blob": "7a87a3fc3802ab606229bb21c0fb2d74388d5e85",
+  "failure_assertion": "OG-73E5C1A76CFAB901374D != OG-C8F745A6A1DC4E3A48D2",
+  "baseline_module_result": "2 PASS, 1 identical stale-generation assertion failure",
+  "candidate_module_result": "2 PASS, 1 identical stale-generation assertion failure",
+  "fixed_baseline_module_result": "3 PASS, 0 SKIP",
+  "fixed_candidate_module_result": "3 PASS, 0 SKIP",
+  "preserved_checks": [
+    "objective OPEN",
+    "exact authenticated successor generation 2",
+    "previous generation retained",
+    "same objective/title/scope/criteria/research value",
+    "old and corrected invalid Results remain withheld",
+    "stored review cannot bypass quarantine"
+  ],
+  "network_or_DNS_attempts": 0,
+  "permission_code_changed": false,
+  "cancelled_CI_jobs_restarted": false,
+  "ci65_reference": "success",
+  "ci65_quality": "failure: DGR stale assertion, RR133 shard5 success",
+  "commands": [
+    "python -m unittest discover -s tests -p test_dgr_corrected_evidence_frontier.py -v"
+  ]
+}

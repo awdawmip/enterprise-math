@@ -130,6 +130,28 @@ unverified successor can clear debt. Connector-only transport must preserve this
 same schema/history and actual hashes; unavailable verification stays explicit
 until the helper or an authorized execution host can check it.
 
+Within an observation check, reuse its computed Git blob and receipt digest rather
+than computing the same identity again for the return fields. The guard derives
+record contents and record_sha256 from one read snapshot: a concurrent update
+cannot pair old events with a newer record hash. Persisted sidecars retain their
+existing full validation on each operation, with no cross-call validation cache.
+Event ordering, source pins, debt repair, lock/CAS and idempotency are unchanged.
+
+Within one history validation, repeated references to the same persisted sidecar
+use its first complete byte snapshot and verified source fields. Every row still
+checks its own full source binding and event order. The next operation reads and
+validates the sidecar again, including an unchanged path/size/mtime; changes or
+deletion remain visible. This is operation-local reuse, with no process-wide LRU
+or stored validation certificate. The memo retains source metadata, not raw
+observation bodies.
+
+Stored receipt validation retains the existing canonical JSON receipt binding.
+Reuse the actual-byte digest for canonical receipt bytes; if serialization
+differs, calculate that distinct canonical digest before the original full-field
+comparison. A matching outer digest never skips content/blob/repo/ref/path,
+session, history, write-lock or CAS checks, and does not admit a receipt that the
+previous canonical-binding validation rejected.
+
 ## Startup, final boundary, and owner visibility
 
 The canonical runtime guard returns `REGISTER_RESEARCH_ACTIVITY` for an unbound
