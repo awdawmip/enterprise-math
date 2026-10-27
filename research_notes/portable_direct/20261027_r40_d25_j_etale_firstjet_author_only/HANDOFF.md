@@ -63,3 +63,10 @@ Next action when legitimate Source access returns: read exact own continuation a
 
 The local h=0 cusp-regular normalized observer J+theta_t J (A=B) has exact signed CM difference −2^9*3^3*17*43 sqrt(2), hence separates the fixed auxiliary source sheets for every target p≡13 or 19 (mod24) **except the unique p=43**. The latter is a genuine characteristic-43 obstruction to any constant-coefficient cusp-pole-free J/theta first-jet separation. The new standard-library checker still proves exact Q(s) formulas and tests all 1849 F_43 coefficient pairs; it now also checks all 166 target primes below 5000 to confirm the factorization-derived single exception. Original H0/B0 / LIFT not inferred; task, frozen source, role and pending-native provenance unchanged.
 
+
+The normalized cusp-regular combination has a closed rational form
+J+theta_t J = 54(1+27h)(1+243h)^2(13+243h)/(1−27h).
+Cusp h=0 pole cancellation shifts the relevant singularity to the
+ramification divisor h=1/27; this denominator is a p-unit on both fixed
+CM points for all target primes. Native transfer must account for
+ramification/meromorphic source ports; no global holomorphy is asserted.
