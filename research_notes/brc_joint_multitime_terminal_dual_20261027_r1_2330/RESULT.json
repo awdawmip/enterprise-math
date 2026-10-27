@@ -1,0 +1,75 @@
+{
+  "status": "PASS_EXACT_BIGINT_FRACTION_MULTITIME",
+  "domain": "two time slices with four positive LR leaves, plus one t2 stop leaf",
+  "local_deficits": [
+    "1/160",
+    "1/200"
+  ],
+  "sum_local": "9/800",
+  "joint": "1/96",
+  "strict_gap": "1/1200",
+  "rows": [
+    {
+      "a": "0/1",
+      "t3": "0/1",
+      "t4": "0/1",
+      "joint": "0/1"
+    },
+    {
+      "a": "1/3",
+      "t3": "1/240",
+      "t4": "1/360",
+      "joint": "1/144"
+    },
+    {
+      "a": "1/2",
+      "t3": "1/160",
+      "t4": "1/240",
+      "joint": "1/96"
+    },
+    {
+      "a": "3/5",
+      "t3": "1/200",
+      "t4": "1/200",
+      "joint": "1/100"
+    },
+    {
+      "a": "2/3",
+      "t3": "1/240",
+      "t4": "1/240",
+      "joint": "1/120"
+    },
+    {
+      "a": "1/1",
+      "t3": "0/1",
+      "t4": "0/1",
+      "joint": "0/1"
+    }
+  ],
+  "old_observations": [
+    [
+      "7/40",
+      "3/10"
+    ],
+    [
+      "1/10",
+      "1/5"
+    ]
+  ],
+  "new_observations": [
+    [
+      "17/96",
+      "139/480"
+    ],
+    [
+      "13/120",
+      "1/5"
+    ]
+  ],
+  "TV_Q": "1/96",
+  "TV_P": "1/96",
+  "dual_norm": "1/1",
+  "dual_lower_bound": "1/96",
+  "verification": "exact BigInt two-route rectangle support; exact normalization, fractions and witness",
+  "scope": "fixed exogenous arrival masses; no adapted N4 minimax"
+}
