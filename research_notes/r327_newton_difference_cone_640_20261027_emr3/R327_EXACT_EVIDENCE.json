@@ -1,0 +1,61 @@
+{
+  "schema": "R327_BRC_NEWTON_DIFFERENCE_CONE_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "method": "unbounded strip proof using R326 degree bound plus exact integer finite differences",
+  "actual_execution": true,
+  "command": "python R327_verify_newton_difference_cone.py --max-q 640 --json R327_EXACT_EVIDENCE.json",
+  "machine_output_kind": "transcribed_compact_projection_of_actual_local_execution",
+  "original_local_full_evidence_sha256": "87f82f9a63edd08ccc2ee05550d75f29809d3b7b4e888b900901273b24c9a13f",
+  "exact_code_local_sha256": "29582ae74f340d13e5b9c404a9c6ed4e805eaf66f1340b63c80ea0a31b741b9f",
+  "max_q": 640,
+  "max_s_direct": 1280,
+  "triangle_coefficients_checked": 821121,
+  "triangle_strictly_positive": true,
+  "triangle_sha256": "fd37e0fe67867da8ba63c44999e92ee83a4e1ceabfd7e32e2780381b9cd536b9",
+  "forward_differences_checked": 205761,
+  "all_strictly_positive": true,
+  "forward_integer_sha256": "ace585095c2606cb7e5c07d54640a8fe586fe669ae8d37503e2d6042ea9fb2ec",
+  "minimum_integer_forward_difference": "1",
+  "minimum_index": [
+    0,
+    0
+  ],
+  "prior_R325_triangle_s0_to_1024_sha256": "b007bb869980282dc2dc88101e762db65d2b55fa29d553e56a7ea5a237ac0821",
+  "prior_R325_checksum_match": true,
+  "prior_R326_2145_power_coefficients_sha256": "3a3decdf78a2db0fe4726b4e2ad097582994f32e05bd14663624cc3c3314e3c8",
+  "prior_R326_checksum_match": true,
+  "unbounded_strips": {
+    "q_min": 0,
+    "q_max": 640,
+    "s_min": "s>=q"
+  },
+  "integer_forward_difference_theorem": {
+    "q_max": 640,
+    "j_range": "0<=j<=q",
+    "u_range": "all nonnegative integers",
+    "sign": "STRICT_POSITIVE"
+  },
+  "newly_directly_verified_rows": "1025<=s<=1280; original 0..1024 also independently matched",
+  "count_negative_coefficients_outside_triangle_through_s1280": 344328,
+  "q65": {
+    "s65_t65_coefficient": "253365194447841455804611243922267533420939260198",
+    "minimum_forward_integer": "2710505431213761085018632002174854278564453125"
+  },
+  "q640": {
+    "s640_t640_coefficient": "9979019406284975457393865948870571038270528166047943988686731511512233414841644648730990229665534865475095461292644974305750857112268843398128684205183507455604540913972279531887460976767592816002088213922903557148834554392063777452628610974777577803420047699965463893485466038441135463060245600948943511744449916504702962871469243641814092218307913874146760445956728013816519150197054529353218600240156622546677357965989178756019856255125748472550105007347179264952307050166540593"
+  },
+  "execution_elapsed_seconds": 30.729,
+  "source_pins": {
+    "GLOBAL_KNOWLEDGE_V1": "7b33f8066e9993e7c941959a9d738ed405248eb8",
+    "enterprise_math": "95be22f0181d18b7cc7d6df9db4024e8d85e34dd",
+    "R325": "2c62f1502e640d1aed2db6f72956abc6a22ca2d5",
+    "R326": "e5478b005efd75971c31ea8468d725d4c50ea26f"
+  },
+  "limitations": [
+    "Certificate only proves q<=640 across unbounded s; all s<=1280 directly.",
+    "Uses author-side R326 polynomial-degree theorem; Driver not independently reviewed.",
+    "Two prior SHA crosschecks reuse historical author computations; not independent Driver.",
+    "No physical Cell result or foundation admission."
+  ],
+  "next_problem": "Find a uniform nonnegative q-recursion for D_(q,k), or search q>=641 for negative D and distinguish cone failure from triangle failure."
+}
