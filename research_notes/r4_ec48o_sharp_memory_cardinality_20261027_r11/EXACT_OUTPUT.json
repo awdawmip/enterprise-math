@@ -1,0 +1,213 @@
+{
+  "result": "EC48O: exact worst-case memory cardinality C3(k)=max(k,2)",
+  "scope": "finite positive two-source three-stage joint-LR observer, private randomization",
+  "arithmetic": "integer exact for exhaustive witness values, positivity/counts; theorem analytic",
+  "first_history_4": {
+    "number_terminal_leaves": 12,
+    "exact_interval": "0<c<1/16",
+    "full_formula": "1/4-9c/2",
+    "three_state_formula": "1/4-19c/4",
+    "separation_formula": "c/4",
+    "point_c": "1/32",
+    "Vfull": "7/64",
+    "V3": "13/128",
+    "V2": "3/32",
+    "three_state_controllers": 41472,
+    "two_state_controllers": 1024,
+    "checked_points": [
+      {
+        "c": "1/96",
+        "Vfull_scaled": 312,
+        "V3_scaled": 308,
+        "scale": 1536,
+        "gap_scaled": 4,
+        "controllers": 41472
+      },
+      {
+        "c": "1/64",
+        "Vfull_scaled": 184,
+        "V3_scaled": 180,
+        "scale": 1024,
+        "gap_scaled": 4,
+        "controllers": 41472
+      },
+      {
+        "c": "1/32",
+        "Vfull_scaled": 56,
+        "V3_scaled": 52,
+        "scale": 512,
+        "gap_scaled": 4,
+        "controllers": 41472
+      },
+      {
+        "c": "1/24",
+        "Vfull_scaled": 24,
+        "V3_scaled": 20,
+        "scale": 384,
+        "gap_scaled": 4,
+        "controllers": 41472
+      },
+      {
+        "c": "1/20",
+        "Vfull_scaled": 8,
+        "V3_scaled": 4,
+        "scale": 320,
+        "gap_scaled": 4,
+        "controllers": 41472
+      },
+      {
+        "c": "1/16",
+        "Vfull_scaled": -8,
+        "V3_scaled": -12,
+        "scale": 256,
+        "gap_scaled": 4,
+        "controllers": 41472
+      }
+    ],
+    "two_state_point": {
+      "best_scaled": 48,
+      "scale": 512,
+      "controllers": 1024,
+      "witness": {
+        "mem": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "t1": 1,
+        "t2": 3
+      }
+    }
+  },
+  "first_history_1": {
+    "point_c": "1/32",
+    "Vfull": "3/32",
+    "V1": "1/16",
+    "gap": "1/32",
+    "one_state_controllers": [
+      {
+        "t1": 0,
+        "t2": 0,
+        "J_numerator_over_32": -2
+      },
+      {
+        "t1": 0,
+        "t2": 1,
+        "J_numerator_over_32": -2
+      },
+      {
+        "t1": 1,
+        "t2": 0,
+        "J_numerator_over_32": -4
+      },
+      {
+        "t1": 1,
+        "t2": 1,
+        "J_numerator_over_32": 2
+      }
+    ]
+  },
+  "all_k_sample_normalizations": [
+    {
+      "k": 2,
+      "n": 1,
+      "terminal_leaves": 3,
+      "PQ_numerators": 8,
+      "PQ_denominator": 8,
+      "c": "1/32",
+      "positive_regrets_verified": true
+    },
+    {
+      "k": 3,
+      "n": 2,
+      "terminal_leaves": 8,
+      "PQ_numerators": 24,
+      "PQ_denominator": 24,
+      "c": "1/48",
+      "positive_regrets_verified": true
+    },
+    {
+      "k": 4,
+      "n": 2,
+      "terminal_leaves": 12,
+      "PQ_numerators": 32,
+      "PQ_denominator": 32,
+      "c": "1/48",
+      "positive_regrets_verified": true
+    },
+    {
+      "k": 5,
+      "n": 3,
+      "terminal_leaves": 20,
+      "PQ_numerators": 60,
+      "PQ_denominator": 60,
+      "c": "1/64",
+      "positive_regrets_verified": true
+    },
+    {
+      "k": 6,
+      "n": 3,
+      "terminal_leaves": 25,
+      "PQ_numerators": 72,
+      "PQ_denominator": 72,
+      "c": "1/64",
+      "positive_regrets_verified": true
+    },
+    {
+      "k": 7,
+      "n": 3,
+      "terminal_leaves": 30,
+      "PQ_numerators": 84,
+      "PQ_denominator": 84,
+      "c": "1/64",
+      "positive_regrets_verified": true
+    },
+    {
+      "k": 8,
+      "n": 3,
+      "terminal_leaves": 36,
+      "PQ_numerators": 96,
+      "PQ_denominator": 96,
+      "c": "1/64",
+      "positive_regrets_verified": true
+    },
+    {
+      "k": 9,
+      "n": 4,
+      "terminal_leaves": 49,
+      "PQ_numerators": 144,
+      "PQ_denominator": 144,
+      "c": "1/80",
+      "positive_regrets_verified": true
+    },
+    {
+      "k": 10,
+      "n": 4,
+      "terminal_leaves": 55,
+      "PQ_numerators": 160,
+      "PQ_denominator": 160,
+      "c": "1/80",
+      "positive_regrets_verified": true
+    },
+    {
+      "k": 11,
+      "n": 4,
+      "terminal_leaves": 61,
+      "PQ_numerators": 176,
+      "PQ_denominator": 176,
+      "c": "1/80",
+      "positive_regrets_verified": true
+    },
+    {
+      "k": 12,
+      "n": 4,
+      "terminal_leaves": 68,
+      "PQ_numerators": 192,
+      "PQ_denominator": 192,
+      "c": "1/80",
+      "positive_regrets_verified": true
+    }
+  ],
+  "admission": "AUTHOR_PROVED / EXACT_COMPUTATION_PASS / UNREVIEWED / NOT_ADMITTED"
+}
