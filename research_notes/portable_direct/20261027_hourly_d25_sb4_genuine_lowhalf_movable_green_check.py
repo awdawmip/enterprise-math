@@ -67,6 +67,7 @@ def run(p):
     c1=((uw*pow(W,-1,p))-(vs*pow(S,-1,p)))*pow(dj,-1,p)%p
     assert c0 or c1
     W2,S2=normalized(j+1,p)
+    assert W2==aj*W%p and S2==bj*S%p
     assert (c0*(W-S)+c1*(W2-S2))%p == (Lw-Ls)//p%p
     return p,N,j,Lw,Ls,W,S,dj,c0,c1
 
