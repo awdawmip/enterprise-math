@@ -12,7 +12,7 @@ def mul_pair(x,y,m):
 def mul(x,y,m):
     r=len(x)
     return [[tuple(sum(mul_pair(x[i][k],y[k][j],m)[t] for k in range(r))%m
-                   for t in (0,1)) for j in range(r)]
+                   for t in (0,1)) for j in range(r)] for i in range(r)]
 
 
 def sig(x,m):
