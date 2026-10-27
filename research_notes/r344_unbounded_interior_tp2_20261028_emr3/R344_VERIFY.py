@@ -197,6 +197,5 @@ def main():
     Path(args.out).write_text(json.dumps(out, indent=2, ensure_ascii=False)+'\n', encoding='utf-8')
     print('PASS', out['r_interval'], out['exact_positive_newton_coefficients_for_shifted_minor'], out['sha256_lines_r_i_Qdelta_decimal_newline'], flush=True)
 
-
 if __name__=='__main__':
     main()
