@@ -1,0 +1,8 @@
+# Stage194 portable mathematical continuation — DUAL ONLY
+2026-10-27. Parent: external N14 ternary IID stopping problem, arbitrary full-history randomized policies. Do not repeat the Stage193 full-real proof. Current author-level endpoint: alpha193=14081565109314017676563/40067109995656085766144; V193=1695052604792714166418885/160268439982624343064576. X=(8,0,1) Q/C coin x=2968693027437307/4493793024000000; W=(2,2,0) forced P.
+
+New dual-only candidate: K194=L194=33428504/210911, H194=2114050937763575719833221/17330721745693789126656, ties X Q/C and Z=(14,0,0) terminal P/Q. 680 count states, 1238 positive gaps, minimum 5619528281901114949/541585054552930910208. Stage193 W/C opens positively along (dK,dL)=(-1080671/869760,-1); first gap closes at Z after step 1221910229616578434510560/1569185109629130754297999.
+
+Exact next unit: compute all four X/Z corner observers (eP,eQ,tP,tQ) by rational suffix DP and unmerged integer-weight ordered DFS; X can potentially be an ancestor of Z (depth8 a=0 -> depth14 a=0), so calculate mixed term C rather than assuming it is zero. Derive eP=eQ and permissible coin interval, connect left endpoint to Stage193, prove positivity of common-error derivative and tP>=tQ; check dual attainment and strict right support. If invalid give a precise rational obstruction. Only then scan Stage195. The current Stage194 evidence is DUAL_ONLY, not a primal theorem.
+
+Full executed source/log/certificate and SHA256 manifest are available in the Stage193 portable archive SHA256 912aa71b7da3ba95f33e206ec435753e2445421710f84f549ed570d53e4b159e. Formal native task ownership and Driver admission remain unverified.
