@@ -12,7 +12,7 @@ B_0(t)=1+t,\quad B_s(t)=J_s(t)+\sum_{i=1}^{\min(12,s)}K_i(t)B_{s-i}(t),
 D_{q,k}=\sum_{w=0}^{k}(-1)^{k-w}\binom{k}{w}2^{q-w}[t^q]B_{q+w}(t),\qquad
 M_{q,k}=D_{q,k}D_{q+1,k+1}-D_{q,k+1}D_{q+1,k}.
 \]
-K、J 的完整原始整数定义在同一 PR 分支的 \`research_notes/r346_unbounded_interior_tp2_corank301_20261028_emr3/R346_verify.py\`，本轮源码逐项复用，保留负项，未将正质量误代替有符号支路。全部 q,k,r,u 是**组合索引**；没有建立与心跳世界原生 X6 Cell、联合支路或动力学的对应，不作原生物理推断。P000和ACTIVE世界观不改。
+K、J 的完整原始整数定义在同一 PR 分支的 `research_notes/r346_unbounded_interior_tp2_corank301_20261028_emr3/R346_verify.py`，本轮源码逐项复用，保留负项，未将正质量误代替有符号支路。全部 q,k,r,u 是**组合索引**；没有建立与心跳世界原生 X6 Cell、联合支路或动力学的对应，不作原生物理推断。P000和ACTIVE世界观不改。
 
 R348 的作者侧（待独立数学审查）**全指标有理抽取定理**为：对每个 r,u≥0，
 \[
@@ -25,15 +25,15 @@ Q_r(v)=L_r(v+1)L_r(v+2)-L_{r-1}(v+2)L_{r+1}(v+1).
 由四个 D 因子直接得到 \(M_{r+k,k}=5^{2k+1-2r}Q_r(k-1)\)、\(\deg Q_r\le2r\)。
 
 **新精确证书：**从上述原始12项带符号 K/J 重新计算 \(B_0,\ldots,B_{995}\)，保留次数 \(t^0,\ldots,t^{663}\)；构造 \(H_{319},\ldots,H_{331}\) 并对每行使用 r+2 个直接 D 值核验第 r+1 次有限差分为0，最高 r 次有限差分为 \(6^r\)，其余有效 H Newton 差分也严格为正，\(5^rH_r\) 的系数均是整数。每行额外节点为有限计算自检，不代替 R348 的次数界证明。以前述 R348 r=320 规范641项证书 SHA256
-\`ef944e5a2608a1566e8b508699dbf11b0428fd85e230a428d4cbb11071aa98e6\`
+`ef944e5a2608a1566e8b508699dbf11b0428fd85e230a428d4cbb11071aa98e6`
 作精确回归，实际字节一致。
 
 对 r=321,…,330 的 Q_r，计算全部 \(c_{r,j}=\Delta^jQ_r(0)\)，\(0\le j\le2r\)。这10条新带合计
 \[
 \sum_{r=321}^{330}(2r+1)=6520
 \]
-项**全部严格为正**，负值0、零值0。完整逐条规范文本 \`r,j,十进制整数\n\` 的 SHA256 为：
-\`88b663d75bef5c3ca8af055cd7ec1ee22799e46d55fe6e3e8a995605a89c22f5\`。
+项**全部严格为正**，负值0、零值0。完整逐条规范文本 `r,j,十进制整数\n` 的 SHA256 为：
+`88b663d75bef5c3ca8af055cd7ec1ee22799e46d55fe6e3e8a995605a89c22f5`。
 验证 r=320..330 全11条最高差分 \(c_{r,2r}=30^{2r}\operatorname{Cat}_r\)；对 r=321..330、k=1,2,3,4，直接原始 B_s 重算40个 M 值，全部严格正且与 \(\frac{5^{2k+1}}{5^{2r}}Q_r(k-1)\) 精确相等。所有判号使用整数及 Fraction，无浮点推断。完整可复现程序、逐带摘要见 R349_verify.py、R349_EVIDENCE.json；8.0MB十进制原始数据在本轮附件 ZIP 中保留，脚本亦可再生全部字节。
 
 由于 Newton 公式在整数 \(v\ge0\) 下满足
@@ -88,8 +88,8 @@ Q_1(v)=450v^2+2070v+2620,\quad
 
 ## 四、状态、复现及后继
 
-本轮原生 \`em_control_tasks\` 返回 \`CONTROL_QUOTA\`；\`em_session_start\` 返回 \`STATIC_READONLY_SCOPE_DENIED\` 且 \`operation_sent=false\`。本地作者身份不等于服务签发的 Researcher-ID，GitHub 活动登记也不赋予原生 CLAIM、独立审查或数学接纳。任务活跃 Owner 未能权威确认；仍为 AUTHOR_SIDE / EXACT_COMPUTATION / UNREVIEWED / NOT_ADMITTED。
+本轮原生 `em_control_tasks` 返回 `CONTROL_QUOTA`；`em_session_start` 返回 `STATIC_READONLY_SCOPE_DENIED` 且 `operation_sent=false`。本地作者身份不等于服务签发的 Researcher-ID，GitHub 活动登记也不赋予原生 CLAIM、独立审查或数学接纳。任务活跃 Owner 未能权威确认；仍为 AUTHOR_SIDE / EXACT_COMPUTATION / UNREVIEWED / NOT_ADMITTED。
 
-完整复现：在含 R346_verify.py 的同一 PR #1592 源分支运行 \`python research_notes/r349_unbounded_interior_tp2_corank330_20261028_emr3/R349_verify.py\` 和 \`python research_notes/r349_unbounded_interior_tp2_corank330_20261028_emr3/R349_shift_audit.py\`。源码不含外部依赖，仅Python标准库。原始系数8.0MB未写入仓库，脚本能完整再生；完整附件另保留。独立第三方应审查 R348 中 A1–A5 所证明的形式幂级数换元、y 次数截断及 q<m 边界后再认定无界延伸。
+完整复现：在含 R346_verify.py 的同一 PR #1592 源分支运行 `python research_notes/r349_unbounded_interior_tp2_corank330_20261028_emr3/R349_verify.py` 和 `python research_notes/r349_unbounded_interior_tp2_corank330_20261028_emr3/R349_shift_audit.py`。源码不含外部依赖，仅Python标准库。原始系数8.0MB未写入仓库，脚本能完整再生；完整附件另保留。独立第三方应审查 R348 中 A1–A5 所证明的形式幂级数换元、y 次数截断及 q<m 边界后再认定无界延伸。
 
-**后继：**（1）检验 r=331 的 663 个 Q Newton 差分，核对旧 Q330 摘要；（2）证明/否定全部 r 时有向 T 符号图，并寻求**核内带符号配对抵消**机制证明 \(\Delta^nQ_r(0)>0\) 的无界范围；（3）寻找真正的二维 r,k 同步增长 TP₂ 证明或精确负子式。活动 ID：\`RA-EMR3-20261028-R348-CORANK303-0648\`（实际注册时原计划 r303；发现已有 r≤320 而调整本次研究问题，保留同一真实本地会话/活动登记）。
+**后继：**（1）检验 r=331 的 663 个 Q Newton 差分，核对旧 Q330 摘要；（2）证明/否定全部 r 时有向 T 符号图，并寻求**核内带符号配对抵消**机制证明 \(\Delta^nQ_r(0)>0\) 的无界范围；（3）寻找真正的二维 r,k 同步增长 TP₂ 证明或精确负子式。活动 ID：`RA-EMR3-20261028-R348-CORANK303-0648`（实际注册时原计划 r303；发现已有 r≤320 而调整本次研究问题，保留同一真实本地会话/活动登记）。
