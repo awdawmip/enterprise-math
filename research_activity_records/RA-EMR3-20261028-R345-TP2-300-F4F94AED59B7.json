@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR3-20261028-R345-TP2-300-F4F94AED59B7",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "5e043110d76e7a61fa561cc4776ea16870439a15",
+          "path": "research_notes/r345_unbounded_interior_tp2_corank300_20261028_emr3/R345_PROOF.zh-CN.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "e45e49c77d3f8dd0a559753b29432b593020cde036ebe56bfc991213da39693b",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "b74806f28c173b88a19c563389188bb2598bff9c",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/5e043110d76e7a61fa561cc4776ea16870439a15/research_notes/r345_unbounded_interior_tp2_corank300_20261028_emr3/R345_PROOF.zh-CN.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r345-source-readback-20261028-f4f94aed",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261028-R345-TP2-300-F4F94AED59B7/readbacks/22de49c76e38f11dc67f4885d539e636061847ae246e83b6cc52a563ea640853.json",
+          "verification_receipt_sha256": "22de49c76e38f11dc67f4885d539e636061847ae246e83b6cc52a563ea640853"
+        }
+      ],
+      "event_id": "EM-R345-TP2-300-20261028-IMMUTABLE",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@a60b0e5519abd08645918119e516964fcd8edcc0:journal/enterprise-math/2026-10-28/20261028T0227p0800-r345-brc-tp2-corank300-emr3-f4f94aed.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-27T18:27:01.534Z",
   "registration_key": "session:emr3-turn11-20261028-f4f94aed59b74d17882f0681e62baf52:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R345-F4F94AED",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "emr3-turn11-20261028-f4f94aed59b74d17882f0681e62baf52",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-27T18:27:01.534Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
