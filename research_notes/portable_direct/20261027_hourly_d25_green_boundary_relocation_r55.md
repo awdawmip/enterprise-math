@@ -1,4 +1,7 @@
-# D25/LIFT R55 — exact finite Green boundary transport and correlated principal parts
+# D25/LIFT SB-TRANSFER-C — exact finite Green boundary transport and correlated principal parts
+
+> **2026-10-27 source-level provenance correction:** The originally drafted section label “R55” is historical/local, not a new canonical sequential R55: the repository already contained `20261027_hourly_d25_midpoint_high_chart_lift_r54_r55.md` with R55 on the original full scalar's sharp precision. This independent **SB-TRANSFER-C** concerns the *general rational Green adjoint boundary-change matrix* for arbitrary observer weights and the c1-specific source syzygies; it consumes R47/R50, R51/R52 and the earlier genuine low-half R53 and midpoint/high R54/R55 rather than recrediting them. Its restriction to c1 does not solve the real R23 full W/S supercongruence. No canonical numbering, task authority or mathematical acceptance is acquired by author publication.
+
 
 2026-10-27 (Asia/Hong_Kong). Portable author-derived research for the TASK_RESEARCH logical lane chatgpt-research-hourly-enterprise-math-20260923. Exact task RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT; publication TP2-B6F4FC938FF94941C1B7. Mother D25/LIFT/JT2 remains OPEN; frozen scientific Source c47e13e4aba0e006366f989d6334d443f6333ae3 remains unchanged.
 
