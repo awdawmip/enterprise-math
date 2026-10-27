@@ -1,0 +1,26 @@
+{
+  "status": "PASS_EXACT_INTEGER_RATIONAL",
+  "likelihood_ratios": [
+    "1/2",
+    "1",
+    "3/2",
+    "2"
+  ],
+  "mass_unit": "1/40",
+  "physical_coordinate_scale": 80,
+  "number_of_positive_mass_profiles": 256,
+  "equal_moment_classes": 103,
+  "independently_cross_checked_ordered_pairs": 598,
+  "positive_directed_distances": 308,
+  "zero_directed_distances": 290,
+  "check": "finite_call_deficit_formula_vs_exact_zonotope_vertex_facet_optimization",
+  "examples": {
+    "left": "1/160",
+    "right": "1/200",
+    "combined": "1/160",
+    "reverse_inclusion_distance": "0"
+  },
+  "program": "VERIFY.js",
+  "scope": "598 ordered equal-moment pairs among four strictly positive masses in {1,2,3,4}/40; comparison against direct vertex/facet exact optimization",
+  "mathematical_claim": "author proof; universal finite-positive-LR theorem is not established by 598 tests"
+}
