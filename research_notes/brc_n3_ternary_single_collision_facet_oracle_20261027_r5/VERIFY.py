@@ -149,4 +149,3 @@ print('FULL_OPTIMUM', minimum_full, 'COARSE_OPTIMUM', minimum_coarse, 'STRICT_GA
 print('FULL_WITNESS', full_witness)
 print('FULL_ACTIONS', tuple((k,best_action[k]) for k in ('','a','b','ax','ay','bu','bv')))
 print('ALL EXACT CHECKS PASSED')
-
