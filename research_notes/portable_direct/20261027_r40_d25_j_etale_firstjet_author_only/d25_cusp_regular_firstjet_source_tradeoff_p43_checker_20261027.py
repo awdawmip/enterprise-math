@@ -6,6 +6,7 @@ Uses only stdlib rational arithmetic. Not a native H0/B0 or LIFT computation.
 from dataclasses import dataclass
 from fractions import Fraction
 from itertools import product
+from math import isqrt
 import json
 from pathlib import Path
 
@@ -109,6 +110,15 @@ def run():
     assert dReg % p == 0
     assert (-77704704)%p == 37
 
+    # Universal target-prime classification is an integer-factor theorem.
+    # This bounded regression cross-check is not its proof.
+    target_primes = [q for q in range(5, 5000)
+                     if q % 24 in (13, 19)
+                     and all(q % d for d in range(2, isqrt(q) + 1))]
+    assert len(target_primes) == 166
+    assert [q for q in target_primes if dReg % q == 0] == [43]
+    assert dReg % 13 == 11 and dReg % 19 == 15
+
     # Complete coefficient-pair census in F_43. This is a finite-field linear
     # identity check, not the proof of the characteristic-zero sheet formulas.
     count = 0
@@ -136,6 +146,8 @@ def run():
       "s_non_square_mod_p":True,
       "mod43_exact_law":"CM_sheet_diff = 27*s*(cusp_h_minus_one_coeff) in F_43[s]/(s^2-2)",
       "coefficient_pairs_checked":count,
+      "target_primes_below_5000_checked":len(target_primes),
+      "cusp_regular_firstjet_exceptional_target_primes":[43],
       "cusp_regular_and_sheet_separating_simultaneously_mod43":False,
       "additional_outside_scope":"No assertion about nonlinear/higher-jet/meromorphic-normalizer bridges or native H0/B0, original W_p, JT2",
       "result":"PASS"
