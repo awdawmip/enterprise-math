@@ -1,0 +1,64 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-R6-P297-20261027-T11-2147",
+  "registration_key": "session:em-r6-p297-local-run-20261027-2147-turn11:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-R006-P297-T11-LOCAL",
+  "session_id": "em-r6-p297-local-run-20261027-2147-turn11",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-27T14:06:07.549Z",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "prefix297-author-side-exact-proof",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "kb_sources": [],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "a8f12dfe633b841b09cb21d37265997eb908c679",
+          "path": "research_notes/research6_prefix297_nonmonomial_port_classes_20261027/RESULTS_PREFIX297_JS.json",
+          "sha256": "b96d2d4e62e4008d021e187d86949a6f76d9cf2e283bc8f9018f4c8a44cf3a50",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "ecbe8019709ee7acb15f6c87a6a7a56f96a95cd8",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/a8f12dfe633b841b09cb21d37265997eb908c679/research_notes/research6_prefix297_nonmonomial_port_classes_20261027/RESULTS_PREFIX297_JS.json",
+            "observation_id": "r6p297-t11-jsresult-immutable-readback",
+            "server_signature_authenticated": false
+          },
+          "readback": {
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "r6p297-t11-jsresult-immutable-readback",
+            "arguments": {
+              "repository_full_name": "awdawmip/enterprise-math",
+              "path": "research_notes/research6_prefix297_nonmonomial_port_classes_20261027/RESULTS_PREFIX297_JS.json",
+              "ref": "a8f12dfe633b841b09cb21d37265997eb908c679"
+            },
+            "result": {
+              "isError": false,
+              "structuredContent": {
+                "content": "{\n  \"schema\": \"EM_PREFIX297_EXACT_BRC_JS_V1\",\n  \"status\": \"PASS\",\n  \"C4_phases\": 4,\n  \"alphabet_size\": 6,\n  \"inputs_per_phase\": 216,\n  \"construction_count\": 2,\n  \"case_count\": 1728,\n  \"direct_BRC_bin_readouts\": 10368,\n  \"ordered_source_pair_terms\": 93312,\n  \"Gram_entry_checks\": 72,\n  \"nonunique_S_types_lower_bound\": 5,\n  \"classes\": [\n    {\n      \"type\": \"1\",\n      \"row_norms_original\": [\n        \"34\",\n        \"38\",\n        \"54\"\n      ],\n      \"row_norms_new\": [\n        \"34\",\n        \"40\",\n        \"52\"\n      ]\n    },\n    {\n      \"type\": \"2\",\n      \"row_norms_original\": [\n        \"34\",\n        \"46\",\n        \"46\"\n      ],\n      \"row_norms_new\": [\n        \"32\",\n        \"34\",\n        \"60\"\n      ]\n    },\n    {\n      \"type\": \"3\",\n      \"row_norms_original\": [\n        \"30\",\n        \"48\",\n        \"48\"\n      ],\n      \"row_norms_new\": [\n        \"36\",\n        \"42\",\n        \"48\"\n      ]\n    },\n    {\n      \"type\": \"5\",\n      \"row_norms_original\": [\n        \"34\",\n        \"44\",\n        \"48\"\n      ],\n      \"row_norms_new\": [\n        \"28\",\n        \"36\",\n        \"62\"\n      ]\n    },\n    {\n      \"type\": \"6\",\n      \"row_norms_original\": [\n        \"40\",\n        \"40\",\n        \"46\"\n      ],\n      \"row_norms_new\": [\n        \"34\",\n        \"38\",\n        \"54\"\n      ]\n    }\n  ],\n  \"port_mass_e0_over_64\": {\n    \"event\": [\n      16,\n      0\n    ],\n    \"retained_M\": [\n      45,\n      2,\n      0\n    ],\n    \"retained_N\": [\n      5,\n      2,\n      40\n    ],\n    \"leak\": [\n      1\n    ]\n  },\n  \"native_Hn_checked\": false\n}\n",
+                "encoding": "utf-8",
+                "sha": "ecbe8019709ee7acb15f6c87a6a7a56f96a95cd8",
+                "display_url": "https://github.com/awdawmip/enterprise-math/blob/a8f12dfe633b841b09cb21d37265997eb908c679/research_notes/research6_prefix297_nonmonomial_port_classes_20261027/RESULTS_PREFIX297_JS.json"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
