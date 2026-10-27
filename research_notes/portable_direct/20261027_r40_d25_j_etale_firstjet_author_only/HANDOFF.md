@@ -111,3 +111,19 @@ All primes p>=5, all n>=0: c_n=((3n)!(2n)!)/(216^n(n!)^5) satisfies c_n≡produc
 AUTHOR_DERIVED / AUTHOR_EXACT_CHECKED / GITHUB_DRAFT_STORED / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING. This is author-side portable arithmetic, not a native H0/B0, original LIFT/JT2 proof, Source checkpoint or independent review. Exact native winning CLAIM/OPEN remains unverified; gateway currently active quota 5/5 and lacks executor binding, Sites write relay disabled. Any current-input seed has predecessor completed_units=[]. Frozen scientific source c47e13e4aba0e006366f989d6334d443f6333ae3 and original UR V2 94,687-byte SHA256 provenance unchanged.
 
 Next: prove a horizon N>p exact finite-state index support selector for valuation<3 and signed p³ Cauchy boundary, and separately restore lawful Source continuation/real H0/B0 p373 (#1559) without rerunning prior mathematics.
+
+
+## D25 all-horizon p³ carry-support automaton (2026-10-27; author-only)
+
+New **proved auxiliary coefficient theorem**, not an original LIFT/Delta-R certificate. Retains all source indices and two labelled multiplication-carry channels until a precision-safe signed p³ mask. For primes p>=5 and c_n=(3n)!(2n)!/[216^n(n!)^5], an exact three-state valuation-cost automaton selects **all** n<N with v_p(c_n)<3 for arbitrary N. It also gives closed all-exponent counts H_{p,e} for N=p^e; for p=6r-1 the count is exactly (2r)^e(e²+7e+8)/8. The mask provably preserves both W_N and the finite triangular Cauchy sum S_N modulo p³ at every N, without equating them or erasing signed ports.
+
+Reuses (does not re-credit) the preceding author-only Lucas/Kummer lemma and p³ signed finite-Cauchy cutoff. This is not a Source CLAIM/OPEN, native checkpoint, independent review, original H0/B0 experiment, or acceptance. Scientific source/taskbook/publication remain unchanged; author context is shared, so the evidence is NOT independent.
+
+Exact PR files:
+- D25_CARRY_AUTOMATON_P3_ANY_HORIZON_20261027.md (complete algebraic proof and p-adic observer audit).
+- d25_finite_state_p3_carry_support_20261027.py (compact standalone integer reproducer).
+- d25_finite_state_p3_carry_support_author_check_20261027.json (record of the full executed local checker: PASS on 24 matrix rows, >=22353 Legendre oracle indices, and 5 signed Cauchy examples; this remote concise reproducer is not claimed byte-identical to the full local script).
+
+Current status: AUTHOR_DERIVED / AUTHOR_EXACT_CHECKED / GITHUB_DRAFT_STORED / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING. Source read receipt r40_20261027_1515_exact_cont_read_v1 returned CONTROL_QUOTA; old receipt r40_20261027_1543_exact_cont_read_v1 returned CONTROL_REQUEST_NOT_FOUND; own checkpoint listing ACCESS_DENIED; gateway 0.6.11 quota=5/5, no executable binding; Sites static_machine_readonly/write_relay_enabled=false. No winning Source CLAIM, OPEN, run or checkpoint was verified in this author turn. Current-input-only seeds require complete input-artifact readback and predecessor completed_units=[]; do not treat this GitHub branch as predecessor completion.
+
+**Next exact action:** native owner/executor handles authentic p373 original H0/B0 [X]U mod139129, signed Frobenius/eta and Delta_p-R_p under Issue #1559; researcher proves original-class bridge or stricter LIFT certificate. Finite-state sparsification can be applied to that bridge only after verifying the original coefficients and p-adic integrality. UR V2 original four-file 94687-byte SHA-256 4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76 remains pending true-byte provenance verification. Task scheduler, role, native owner and notification settings remain untouched.
