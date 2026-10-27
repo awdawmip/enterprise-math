@@ -1,0 +1,72 @@
+{
+  "research": "BRC_TWO_TIME_COMMON_LAW_TV_EXCESS",
+  "execution": {
+    "status": "PASS_EXACT_BIGINT_RATIONAL",
+    "model": "time-labelled terminal decision product; NOT a controlled N=4 stopping tree",
+    "laws_normalized": true,
+    "strictly_positive_terminal_Q_masses": true,
+    "likelihood_ratios": [
+      "1/2",
+      "1",
+      "3/2",
+      "2"
+    ],
+    "call_vectors": [
+      [
+        "0",
+        "1/80",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1/80",
+        "0"
+      ]
+    ],
+    "two_time_tested_ratios": [
+      "1/2",
+      "1",
+      "3/2",
+      "2"
+    ],
+    "two_time_excess_values": [
+      "1/144",
+      "1/96",
+      "1/100",
+      "1/120"
+    ],
+    "directed_stage_excesses": [
+      "1/160",
+      "1/200"
+    ],
+    "directed_two_time_excess": "1/96",
+    "strict_subadditivity_amount": "1/1200",
+    "dual_support_gap": "1/96",
+    "witness_errors_Q_by_time": [
+      "-1/480",
+      "-1/120"
+    ],
+    "witness_errors_P_by_time": [
+      "1/96",
+      "0"
+    ],
+    "witness_tv_Q": "1/96",
+    "witness_tv_P": "1/96",
+    "additional_rational_ratio_crosschecks": 80
+  },
+  "read_snapshots": {
+    "global_knowledge_v1": "4ce739efd0cb19bd9305dea1e3ca276f99109e66",
+    "enterprise_math_input": "281ecd321ac38064822ec4b7d28ded183373923c"
+  },
+  "evidence_scope": "Exact rational theorem-specific checks; 80 q-grid cases finite. Universal finite-threshold theorem relies on proof in PROOF.md.",
+  "separate_numeric_crosscheck": {
+    "method": "SciPy scipy.optimize.linprog / highs; 256 extreme old policies; this was executed locally, float not universal proof",
+    "cases": 256,
+    "observed_max": 0.010416666666666657,
+    "target": "1/96"
+  },
+  "scope_limit": "EXTERNAL_TIME_LABELLED_TERMINAL_DECISION_MODEL; NOT A TWO_COLLISION CONTROLLED N4 TREE",
+  "authority": "AUTHOR_UNREVIEWED_NOT_ADMITTED; NATIVE_CONTROL_QUOTA; STATIC_NATIVE_SESSION_WRITE_DENIED_OPERATION_NOT_SENT"
+}
