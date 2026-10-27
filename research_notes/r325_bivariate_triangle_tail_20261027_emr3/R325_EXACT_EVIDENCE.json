@@ -1,0 +1,100 @@
+{
+  "schema": "ENTERPRISE_MATH_BRC_NEWTON_R325_EXACT_EVIDENCE_V1",
+  "researcher_id": "EM-DIRECT-R325-0820",
+  "research_activity_id": "RA-EMR3-20261027-R325-0820",
+  "source_frontier": {
+    "global_knowledge_snapshot": "14be18c2c5017e3831777d0a1e05026303527956",
+    "enterprise_math_main": "bf16665ae130258a99c8516298361152e618c308",
+    "predecessor_r324_commit": "42ec6917eeeb30b2f09c4cc43a65d1ba929aca73",
+    "predecessor_source": "research_notes/r324_newton_q12_bivariate_20261027_emr3/R324_Q12_AND_BIVARIATE_AUTHOR_PROOF.zh-CN.md"
+  },
+  "math_infinite": {
+    "claim": "For every integer r>=4, s=4r-3, M_s(z)=-z^r+O(z^(r+1)) and coefficient [t^(7r-5)] B_s(t)=-1 at degree 7r-5>s.",
+    "method": "Formal rational generating-function identity with weight deg_w-4deg_z, exact homogeneous quotient and geometric-series coefficient; not numerical extrapolation.",
+    "scope": "NEGATIVE_OUTSIDE_TRIANGULAR_NEWTON_DOMAIN_ONLY",
+    "verification": "SYMPY_EXACT_POLYNOMIAL_IDENTITIES_PASS",
+    "independent_driver_review": false,
+    "canonical_math_admission": false
+  },
+  "triangle_finite": {
+    "status": "PASS",
+    "arithmetic": "EXACT_PYTHON_INTEGERS",
+    "index_ranges": {
+      "s": [
+        0,
+        1024
+      ],
+      "q_per_row": "all 0<=q<=s"
+    },
+    "strict_positive_cells": 525825,
+    "sha256_serialization": "For s increasing 0..1024 and q increasing 0..s, write ASCII decimal coefficient followed by a single LF; SHA256 the resulting byte stream.",
+    "triangle_sha256": "b007bb869980282dc2dc88101e762db65d2b55fa29d553e56a7ea5a237ac0821",
+    "negative_out_of_domain_coefficients": 220525,
+    "first_out_of_domain_negative": {
+      "s": 3,
+      "q": 4,
+      "coefficient": "-7"
+    },
+    "infinite_tail_family_cases_checked": 253,
+    "family_r_range": [
+      4,
+      256
+    ],
+    "max_polynomial_length": 1793,
+    "boundary_samples": [
+      {
+        "s": 3,
+        "q": 3,
+        "value": "20",
+        "outside_q4": "-7"
+      },
+      {
+        "s": 12,
+        "q": 12,
+        "value": "53288801"
+      },
+      {
+        "s": 13,
+        "q": 13,
+        "value": "294080970",
+        "outside_degree": 23,
+        "outside_leading": "-1"
+      }
+    ],
+    "not_a_universal_positive_proof": true
+  },
+  "independent_check": {
+    "status": "PASS",
+    "method": "Original z-polynomial M_s recurrence followed by full binomial transformation, compared to transformed B_s finite recurrence.",
+    "range_s": [
+      0,
+      192
+    ],
+    "polynomial_coefficients_compared": 32595,
+    "sympy_weighted_certificate": "PASS",
+    "symbolic_terms": {
+      "Q0": "1-T",
+      "Q_minus1": "-z*w^3*(3+T)",
+      "H_minus2": "z*w^2*(1-T)^2",
+      "H_minus3": "z*w*(2-10*T+7*T^2)",
+      "U_grade_minus2": "z*w^2*(1-T)",
+      "U_grade_minus3": "z*w*(2-5*T-T^3/(1-T))"
+    }
+  },
+  "execution_environment": {
+    "python": "3.13.5",
+    "sympy": "1.14.0",
+    "floating_point_sign_tests": false
+  },
+  "actual_local_executed_source_names": [
+    "brc_finite_scan.py",
+    "brc_independent_check.py"
+  ],
+  "actual_local_source_sha256": [
+    "d265f04151929493a3fce4d3fcdf8afb90c0d10d6dfd4815f4e1fbcb54fe20c6",
+    "cd840cac67e1c3c10a61440d87fffee6da93344519854c2d50242ec2301a4659"
+  ],
+  "published_code_semantics": "Corresponding standalone reproducibility scripts included in this research branch; the remote files are separately read back, but were not themselves re-executed after upload.",
+  "retained_boundary": "BRC positive source count versus signed Newton observer; negative witness outside q<=s; P000/ACTIVE untouched; no native mathematical acceptance.",
+  "status": "PASS_AUTHOR_COMPUTATION_NOT_ADMITTED"
+}
