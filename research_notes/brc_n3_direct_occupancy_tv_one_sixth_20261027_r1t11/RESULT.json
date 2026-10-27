@@ -1,0 +1,51 @@
+{
+  "k_bound": "1/12",
+  "model": "15_prefix_8_terminal_N3",
+  "parameter_pairs": [
+    [
+      "2/5",
+      "1/3"
+    ],
+    [
+      "1/6",
+      "1/5"
+    ],
+    [
+      "1/100",
+      "49/100"
+    ],
+    [
+      "1/3",
+      "1/3"
+    ],
+    [
+      "7/20",
+      "31/100"
+    ],
+    [
+      "49/100",
+      "1/100"
+    ]
+  ],
+  "pointwise_bound": "TV_R <= 2*k*abs(ca-cb)*abs(sa-sb) for R=P,Q",
+  "probability_laws": [
+    "P",
+    "Q"
+  ],
+  "qualification": "1/6 is sharp for direct Q-occupancy Markovization; global optimum over all compressors remains open.",
+  "same_witness_other_compressor_exact": true,
+  "sampled_history_policies": 768,
+  "status": "PASS_EXACT_FRACTION",
+  "stop_time_laws_exact": true,
+  "uniform_direct_shadow_coefficient": "1/6",
+  "witness_direct_coefficient_sharp": true,
+  "witness_direct_markovized_TV": {
+    "P": "1/90",
+    "Q": "1/90"
+  },
+  "witness_k": "1/12",
+  "witness_parameters": [
+    "2/5",
+    "1/3"
+  ]
+}
