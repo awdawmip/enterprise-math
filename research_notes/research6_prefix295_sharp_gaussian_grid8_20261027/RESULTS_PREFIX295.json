@@ -1,0 +1,31 @@
+{
+  "schema": "PREFIX295_EXACT_BRC_V1",
+  "source_carrier": "three provenance-labelled Q(i) amplitudes",
+  "phases": 4,
+  "inputs_per_phase": 216,
+  "inputs_total": 864,
+  "ordered_source_pair_terms": 54432,
+  "direct_brc_bin_reads": 6048,
+  "mass_checks": 864,
+  "leak_checks": 864,
+  "cross_input_gram_checks": 36,
+  "event_witness": {
+    "phase": "i",
+    "a_event_numerator": "0",
+    "b_event_numerator": "128",
+    "normalizer": "64*Z; Z=3",
+    "probabilities": [
+      "0",
+      "2/3"
+    ]
+  },
+  "leakage_operator_numerator_diag": [
+    1,
+    0,
+    2
+  ],
+  "worst_leakage": "1/32",
+  "exact_arithmetic": "BigInt Gaussian integers",
+  "native_Hn_executed": false,
+  "verified": true
+}
