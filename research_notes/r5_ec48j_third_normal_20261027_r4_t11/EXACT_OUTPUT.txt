@@ -1,0 +1,19 @@
+R5 EC48J THIRD-NORMAL EXACT CERTIFICATE PASS
+INPUT sa=1/5 sb=1/4; NORMAL=(304,212,-20,33)
+BRC P/Q source mass symbolic conservation: PASS
+Terminal decision: independent Bayes label at each LR, exact
+Policy enumeration: full= 2187 seedless= 729
+Parameter rectangle [19/100,21/100] x [6/25,13/50]
+Exact affine vertex checks: full= 8748 seedless= 2916 total= 11664
+Full optimum throughout rectangle: 1571/8 - (15/2)*sb
+Seedless minus full >= 1/10 throughout rectangle (ALL real parameters)
+Tight rectangle margin: 1/10
+At 1/5,1/4: full= 389/2 seedless= 779/4 exact gap= 1/4
+Full optimal nonterminal policy: {'': 'C', 'a': 'C', 'b': 'C', 'ax': 'P', 'ay': 'C', 'bu': 'C', 'bv': 'Q'}
+Seedless optimal nonterminal policy: {'': 'C', 'a': 'P', 'b': 'C', 'ax': 'C', 'ay': 'P', 'bu': 'C', 'bv': 'Q'}
+Full four-observer witness: ('9/64', '19/32', '21/8', '19/8')
+Seedless four-observer witness: ('9/64', '19/32', '11/8', '13/8')
+Full terminal/stops: [('ax', 2, 'P', '1/4', '1'), ('aym', 3, 'P', '1/4', '2'), ('bul', 3, 'Q', '1/32', '1/2'), ('bum', 3, 'P', '1/16', '1'), ('buh', 3, 'P', '1/32', '3/2'), ('bv', 2, 'Q', '3/8', '1/3')]
+Seedless terminal/stops: [('a', 1, 'P', '1/2', '3/2'), ('bul', 3, 'Q', '1/32', '1/2'), ('bum', 3, 'P', '1/16', '1'), ('buh', 3, 'P', '1/32', '3/2'), ('bv', 2, 'Q', '3/8', '1/3')]
+Independent exact Bellman check: PASS
+SCOPE: external positive two-measure BRC; author-side UNREVIEWED/NOT_ADMITTED
