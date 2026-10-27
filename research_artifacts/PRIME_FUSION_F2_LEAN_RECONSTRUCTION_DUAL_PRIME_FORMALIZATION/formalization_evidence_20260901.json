@@ -1,0 +1,63 @@
+{
+  "schema": "ENTERPRISE_MATH_PRIME_FUSION_F2_FORMALIZATION_EVIDENCE_V1",
+  "task_id": "RS-PRIME-FUSION-F2-LEAN-RECONSTRUCTION-DUAL-PRIME-FORMALIZATION",
+  "publication_id": "TP2-7C31E9A4D5B6082F14CE",
+  "researcher_id": "EM-PFF2-2F7C91",
+  "claim_id": "chatgpt-pff2-20260901-1015-2f7c91",
+  "proof_head": "55a74d3f29c12fa2793a4f3d26b12f06a3b73963",
+  "pr_number": 1043,
+  "pinned_build": {
+    "command": "lake build --wfail -KCI EnterpriseMath",
+    "workflow": "lean",
+    "workflow_run_id": 33462543141,
+    "workflow_run_number": 915,
+    "job_id": 99715572859,
+    "merge_ref": "301e59acd2a35935517cd6a35b0717c568190967",
+    "base_head": "e3d15d0540a1eff65deb3334479e12c2925396f8",
+    "conclusion": "success",
+    "jobs_completed": 8733,
+    "lean": "4.33.0-rc2",
+    "lean_commit": "d8b18978322de05a8f3dba51ef03cf5461676c17",
+    "mathlib_revision": "87adeaebd370a3b6a41ac4f044fddd4bf81803ad"
+  },
+  "axiom_audit": {
+    "load_bearing_declarations": [
+      "EnterpriseMath.PrimeFusion.idempotent_channel_split",
+      "EnterpriseMath.PrimeFusion.reconstruct_positive_primitive_channels",
+      "EnterpriseMath.PrimeFusion.strict_interior_gate_iff",
+      "EnterpriseMath.PrimeFusion.dualPrime_iff_channelled_squarefree_semiprime",
+      "EnterpriseMath.PrimeFusion.dualPrime_fixed_zmod_fields",
+      "EnterpriseMath.PrimeFusion.dualPrime_pointedCRT_prime_field_orders"
+    ],
+    "observed_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "sorry_ax": false,
+    "custom_axioms": false
+  },
+  "finite_regression": {
+    "checker": "research_checks/PRIME_FUSION_F2_LEAN_RECONSTRUCTION_DUAL_PRIME_FORMALIZATION_CHECK_20260901.py",
+    "status": "PASS",
+    "positive_cells": 4096,
+    "diagonal_cells": 64,
+    "strict_interior_cells": 4032,
+    "coprime_channel_cells": 2519,
+    "dual_prime_cells": 228,
+    "scope": "REGRESSION_ONLY_NOT_GENERAL_PROOF",
+    "negative_controls": [
+      "square gate: n=3,c=2 gives U=5 non-square",
+      "orientation gate: n=c=1 satisfies square/parity data but reconstructs b=0",
+      "strict interior: a=b=7 gives V=0",
+      "unordered semiprime factor order cannot recover N/C channel labels"
+    ]
+  },
+  "source_blobs": {
+    "EnterpriseMath/PrimeFusion/Reconstruction.lean": "sha1:0d650686a02fdb5b8c428a18f3de8120518999ca",
+    "EnterpriseMath/PrimeFusion/DualPrime.lean": "sha1:fcaaf1b9fb76e283d64ffc8157f40f70a5d8abbe",
+    "EnterpriseMath/PrimeFusion.lean": "sha1:a2335990361e5d7f7fcfdcdf399daf96e88b0149"
+  },
+  "scope": "T7_T8_ONLY_NO_T9_T12_T15_NO_NEW_MATHEMATICS",
+  "generated_at": "2026-09-01T02:31:00+00:00"
+}
