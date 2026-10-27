@@ -28,7 +28,7 @@ These are **conditional source-original comparison equations**, not measurements
 
 ## New exact conditional theorem (Hodge-filtered classification)
 
-Assume (i) A is integral over R and represents the **pullback-oriented** p-Frobenius on the original smooth E3 crystalline/de Rham lattice; (ii) the identified ordered original basis is an **integral** basis with the Hodge subline H^0(E,Omega^1)=R*omega, and (iii) the CM covariance and positive-sign two-step equation (1) are truly authenticated. Then A is **necessarily and sufficiently**, for one arbitrary r in R-units,
+Assume (i) A is integral over R and represents the **pullback-oriented** p-Frobenius on the original smooth E3 crystalline/de Rham lattice; (ii) the identified ordered original basis is an **integral** basis with the Hodge subline H^0(E,Omega^1)=R*omega, and (iii) the CM covariance and positive-sign two-step equation (1) are truly authenticated. Then **every authentic matrix necessarily belongs to** the following family, parametrized by a unit r in R; conversely every such r meets the displayed matrix equations and Hodge-column condition **but is not thereby certified to be the actual geometric Frobenius**:
 
     A_H(r)=[[p*lambda*r,  sigma(r)^(−1) − p*n*r],
             [p*r,         −p*lambda_bar*r]].             (2)
