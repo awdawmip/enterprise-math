@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-R5-20261027-HINGE-ZONOTOPE-2146-A7D1",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "c4f8ca6f108b190124b6dce815a4ebbb4ac2eac2",
+          "path": "research_notes/brc_r5_general_hinge_zonotope_causal_8leaf_20261027/EXACT_OUTPUT.txt",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "34bc715bdf8c1de82fc165a16fad8ce581fb60ca2b7638a2572b38edb05f9c85",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "bff484a8d6ce3855a736567a6d76df79793c9359",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/c4f8ca6f108b190124b6dce815a4ebbb4ac2eac2/research_notes/brc_r5_general_hinge_zonotope_causal_8leaf_20261027/EXACT_OUTPUT.txt",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r5-hinge-zonotope-source-stdout-01",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-R5-20261027-HINGE-ZONOTOPE-2146-A7D1/readbacks/67717448e55ce8dd51bffa83d2f219a871aa5530761cfc226d6d061f1366ec15.json",
+          "verification_receipt_sha256": "67717448e55ce8dd51bffa83d2f219a871aa5530761cfc226d6d061f1366ec15"
+        }
+      ],
+      "event_id": "R5-HINGE-ZONOTOPE-20261027-CAUSAL8-E1",
+      "kb_sources": [
+        "journal/enterprise-math/2026-10-27/20261027T220600+0800-r5-hinge-zonotope-causal8-a7d1.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-27T21:46:05+08:00",
   "registration_key": "session:local-r5-hinge-zonotope-20261027-2146-a7d1:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R5-LOCAL-HINGE-2146",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-r5-hinge-zonotope-20261027-2146-a7d1",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-27T21:46:05+08:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
