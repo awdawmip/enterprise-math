@@ -1,0 +1,91 @@
+{
+  "schema": "EM_R1_N14_LR_OSC_EXACT_RATIONAL_CERT_V1",
+  "arithmetic": "JavaScript BigInt reduced fractions; no float",
+  "N1": {
+    "prefixes": 3,
+    "P": [
+      "1/2",
+      "1/2"
+    ],
+    "Q": [
+      "3/4",
+      "1/4"
+    ],
+    "full_P": [
+      "1/2",
+      "1/2"
+    ],
+    "full_Q": [
+      "3/4",
+      "1/4"
+    ],
+    "reduced_P": [
+      "1/2",
+      "1/2"
+    ],
+    "reduced_Q": [
+      "1/2",
+      "1/2"
+    ],
+    "LR_oscillation": "1",
+    "TV_Q": "1/4",
+    "sharp_bound": "1/4",
+    "bound_equality": true
+  },
+  "N2": {
+    "prefixes": 7,
+    "P": [
+      "1/2",
+      "1/2"
+    ],
+    "Q": [
+      "3/4",
+      "1/4"
+    ],
+    "full_P": [
+      "1/2",
+      "1/4",
+      "1/4"
+    ],
+    "full_Q": [
+      "1/4",
+      "9/16",
+      "3/16"
+    ],
+    "reduced_P": [
+      "1/2",
+      "1/4",
+      "1/4"
+    ],
+    "reduced_Q": [
+      "1/2",
+      "1/4",
+      "1/4"
+    ],
+    "LR_by_time": {
+      "t1": [
+        "3/2",
+        "1/2"
+      ],
+      "t2": [
+        "9/4",
+        "3/4",
+        "3/4",
+        "1/4"
+      ]
+    },
+    "LR_oscillation_by_time": {
+      "t1": "1",
+      "t2": "2"
+    },
+    "terminal_P_time_weights": [
+      "1/2",
+      "1/2"
+    ],
+    "TV_Q": "5/16",
+    "weighted_theorem_bound": "3/4",
+    "bound_verified": true
+  },
+  "verification_scope": "Two explicit finite IID positive-rational models, horizon one and two; universal theorem proved separately in PROOF.md.",
+  "status": "PASS_EXACT_BIGINT_RATIONAL"
+}
