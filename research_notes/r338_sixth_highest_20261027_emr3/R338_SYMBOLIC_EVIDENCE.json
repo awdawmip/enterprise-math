@@ -1,0 +1,31 @@
+{
+  "schema": "R338_SIXTH_HIGHEST_SYMBOLIC_CERT_V1",
+  "E6": "-z**3*(1153*z**4 - 3348*z**3 + 988*z**2 + 1248*z - 176)/256",
+  "N5": "-z**3*(71*z**2 - 364*z + 216)/32",
+  "fifth_derivative_jet": "-3*(521343783*j**5 - 8566967205*j**4 + 25075613955*j**3 - 39862516475*j**2 - 55487744858*j - 159517646960)/3276800000",
+  "R5": "-r*(r - 4)*(r - 3)*(r - 2)*(r - 1)*(177147*r**5 + 1964655*r**4 - 30019905*r**3 - 38323775*r**2 + 1679314678*r - 7771484640)/8748000000",
+  "c_scaled": "(708588*r**5 - 5372730*r**4 + 9118080*r**3 - 1229500*r**2 + 15060137*r - 9907560)/34171875",
+  "shifted": "324*u**5/15625 + 3386*u**4/9375 + 1751344*u**3/759375 + 8614688*u**2/1366875 + 214593637*u/34171875 + 73/81",
+  "shifted_coefficients": [
+    "324/15625",
+    "3386/9375",
+    "1751344/759375",
+    "8614688/1366875",
+    "214593637/34171875",
+    "73/81"
+  ],
+  "shifted_signs": [
+    "1",
+    "1",
+    "1",
+    "1",
+    "1",
+    "1"
+  ],
+  "status": "PASS",
+  "premise": "conditional on R337 exact extraction and polynomial degree bound, R333-R336 top coefficients",
+  "review": "AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED",
+  "evidence_origin": "Executed local /mnt/data/em_r338/r338_symbolic.py; remote R338 symbolic script is an equivalent-purpose expanded version, not separately executed in this run.",
+  "local_sha256": "d2c530ca5a191a1ddf6b0d62eeb8baa876f8f67a99349dd48b2406716765926f",
+  "caveat": "SymPy reached final ALL PASS and wrote evidence; hosting command wrapper reported timeout after output."
+}
