@@ -1,0 +1,35 @@
+{
+  "schema": "ENTERPRISE_MATH_EC48R_EXACT_SUPPORT_V1",
+  "terminal_leaves": 20,
+  "positive": true,
+  "p_mass": "128/128",
+  "q_mass": "128/128",
+  "three_state_policies": 65536,
+  "full_policies": 16384,
+  "tested": [
+    {
+      "c": "1/128",
+      "full": "127/512",
+      "three_states": "507/2048",
+      "gap": "1/2048"
+    },
+    {
+      "c": "1/64",
+      "full": "47/256",
+      "three_states": "187/1024",
+      "gap": "1/1024"
+    },
+    {
+      "c": "1/32",
+      "full": "7/128",
+      "three_states": "27/512",
+      "gap": "1/512"
+    }
+  ],
+  "analytic_real_interval": "0<c<=1/32",
+  "analytic_full": "5/16-33*c/4",
+  "analytic_3state": "5/16-133*c/16",
+  "analytic_gap": "c/16",
+  "arithmetic": "integer numerator support; fractions reduced by gcd",
+  "admission": "AUTHOR_PROVED / EXACT_COMPUTATION_PASS / UNREVIEWED / NOT_ADMITTED"
+}
