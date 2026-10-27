@@ -20,13 +20,13 @@ Here `S_r` is **after** the exact R25 Hadamard transport from S coefficients to 
 
 ## Theorem A — rational operators have a growing **total degree** budget
 
-For every prime `p=19 mod24`, put `n=deg N`, `d=deg D`. Any pole-free rational jet implementing `S(P(theta)f)=W(f)` on **every** `f in V_m` obeys
+For every prime `p=19 mod24`, put `n=deg N`, `d=deg D`. **Every** pole-free rational jet implementing `S(P(theta)f)=W(f)` on **every** `f in V_m` obeys the lower bound
 
 ```text
-max(0,m-5) <= n+d <= m-1   (the upper bound is achievable by interpolation).
+n+d >= max(0,m-5).
 ```
 
-The lower inequality holds for **every** such rational solution; the upper statement says there always exists at least one solution with `n+d<=m-1`, not that every arbitrary solution has small degree. Consequently, no fixed rational numerator/denominator degree budget independently of `p` transfers the true all-input weighted observer on arbitrarily large primes `p=19 mod24`. In fact the exact recurrence has **no nonzero rational solution as an identity in F_p(t)** for any such `p`.
+Conversely, **there exists at least one** such rational jet with `D=1` and `n+d<=m-1`. Thus the **minimum attainable total degree**, not the degree of every possible expression, lies in `[max(0,m-5), m-1]`. Consequently, no fixed rational numerator/denominator degree budget independently of `p` transfers the true all-input weighted observer on arbitrarily large primes `p=19 mod24`. In fact the exact recurrence has **no nonzero rational solution as an identity in F_p(t)** for any such `p`.
 
 **Proof.** R25 supplies `S_r !=0` for every strict index in this residue class. R30 supplies, for `R_r=W_r/S_r`,
 
