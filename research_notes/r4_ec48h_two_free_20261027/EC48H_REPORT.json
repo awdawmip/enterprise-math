@@ -1,0 +1,453 @@
+{
+  "algorithm": "Fraction chamber signatures; exact decoder and stochastic-encoder path; each elementary moving encoder/decoder segment linear",
+  "criterion_critical_faces_structurally_classified": 30700,
+  "exact_cell_assertions": 156848,
+  "exact_path_faces_checked": 965,
+  "examples": {
+    "four_edge_common_pivot": {
+      "K_hull": 2,
+      "P": [
+        [
+          3,
+          2,
+          2,
+          1
+        ],
+        [
+          3,
+          2,
+          1,
+          2
+        ],
+        [
+          2,
+          3,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          1,
+          2
+        ]
+      ],
+      "Q": [
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "critical_count": 3,
+      "target_certificate": {
+        "A_out": [
+          [
+            1,
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "B_out": [
+          [
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "K": 2,
+        "c": 0,
+        "case": "common_pivot",
+        "check_count": 656,
+        "edges": [
+          [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1,
+              0
+            ]
+          ]
+        ],
+        "first_last_mass": [
+          "0/1",
+          "1/2"
+        ],
+        "free": 2,
+        "r": "1/1",
+        "steps": 41,
+        "support": "1/8",
+        "tied_Q": "1/2",
+        "tied_histories": 4
+      }
+    },
+    "matching_two_free": {
+      "K_hull": 3,
+      "P": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          2,
+          3
+        ]
+      ],
+      "Q": [
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2
+        ]
+      ],
+      "critical_count": 3,
+      "target_certificate": {
+        "A_out": [
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "B_out": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "K": 3,
+        "c": 0,
+        "case": "common_pivot",
+        "check_count": 492,
+        "edges": [
+          [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              1
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1
+            ]
+          ]
+        ],
+        "first_last_mass": [
+          "0/1",
+          "7/12"
+        ],
+        "free": 3,
+        "r": "12/19",
+        "steps": 41,
+        "support": "7/19",
+        "tied_Q": "7/12",
+        "tied_histories": 4
+      }
+    },
+    "three_edge_no_pivot": {
+      "K_hull": 2,
+      "P": [
+        [
+          3,
+          2,
+          2,
+          1
+        ],
+        [
+          3,
+          1,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          2,
+          3
+        ]
+      ],
+      "Q": [
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "critical_count": 3,
+      "target_certificate": {
+        "A_out": [
+          [
+            1,
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        "B_out": [
+          [
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "K": 2,
+        "c": 0,
+        "case": "three_edge_switch",
+        "check_count": 192,
+        "edges": [
+          [
+            [
+              0,
+              0,
+              0,
+              1
+            ],
+            [
+              1,
+              0,
+              1,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              1,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              1,
+              1,
+              0
+            ]
+          ]
+        ],
+        "first_last_mass": [
+          "0/1",
+          "1/2"
+        ],
+        "free": 2,
+        "r": "1/1",
+        "steps": 16,
+        "support": "1/8",
+        "tied_Q": "1/2",
+        "tied_histories": 3
+      }
+    }
+  },
+  "exhaustive_box": "H=3 or 4, Y=2, Praw entries independently in {1,2,4}, Qraw all 2; exactly 3^6+3^8=7290 models",
+  "khull_histogram": {
+    "k_1": 18,
+    "k_2": 1734,
+    "k_3": 4855,
+    "k_4": 1064,
+    "k_5": 317,
+    "k_6": 152
+  },
+  "limits": "exhaustive criterion classification only for the declared finite box; a deterministic subsample receives full Fraction path checks; universal theorem is proved separately; no native X6 readout or physics claim",
+  "models_sampled_for_exact_path": 202,
+  "models_structurally_scanned": 8140,
+  "models_with_all_faces_meeting_criterion": 7757,
+  "path_case_histogram": {
+    "common_pivot": 56,
+    "empty": 652,
+    "matching": 254,
+    "three_edge_switch": 3
+  },
+  "random_box": "850 seeded models with (H,Y)=(4,3):350,(5,4):300,(6,4):200; Praw in [1,7], Qraw in [1,5]",
+  "research_scope": "finite strictly positive normalized two-stage BRC; author-side exact checker",
+  "result": "PASS",
+  "schema": "EM_EC48H_TWO_FREE_EXACT_REPORT_V1",
+  "structural_case_histogram": {
+    "common_pivot": 2467,
+    "empty": 21715,
+    "matching": 6430,
+    "three_edge_switch": 88
+  }
+}
