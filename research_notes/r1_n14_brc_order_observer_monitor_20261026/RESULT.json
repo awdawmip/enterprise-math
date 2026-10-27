@@ -1,0 +1,104 @@
+{
+  "schema": "R1_IID_MONITOR_AUGMENTED_EXACT_CHECK_V1",
+  "model": {
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ]
+  },
+  "monitor": "DFA recognizes any ordered substring 01",
+  "runs": [
+    {
+      "horizon": 3,
+      "augmented_states": 28,
+      "count_states": 20,
+      "terminal_observers": {
+        "P": {
+          "decP": "218689711/497664000",
+          "decQ": "278974289/497664000",
+          "T": "4389077/2304000",
+          "monitor_decP": "29053/13824000",
+          "monitor_decQ": "10523/3456000"
+        },
+        "Q": {
+          "decP": "850147/1944000",
+          "decQ": "1093853/1944000",
+          "T": "15249/8000",
+          "monitor_decP": "2941/1036800",
+          "monitor_decQ": "20689/5184000"
+        }
+      }
+    },
+    {
+      "horizon": 4,
+      "augmented_states": 55,
+      "count_states": 35,
+      "terminal_observers": {
+        "P": {
+          "decP": "34041661943/79626240000",
+          "decQ": "45584578057/79626240000",
+          "T": "100911167/46080000",
+          "monitor_decP": "49319159/13271040000",
+          "monitor_decQ": "81446507/26542080000"
+        },
+        "Q": {
+          "decP": "355866277/829440000",
+          "decQ": "473573723/829440000",
+          "T": "15137327/6912000",
+          "monitor_decP": "2960737/597196800",
+          "monitor_decQ": "60658907/14929920000"
+        }
+      }
+    },
+    {
+      "horizon": 5,
+      "augmented_states": 96,
+      "count_states": 56,
+      "terminal_observers": {
+        "P": {
+          "decP": "5713207112059/12740198400000",
+          "decQ": "7026991287941/12740198400000",
+          "T": "631991050771/265420800000",
+          "monitor_decP": "146075042401/38220595200000",
+          "monitor_decQ": "153760919609/38220595200000"
+        },
+        "Q": {
+          "decP": "534062958481/1194393600000",
+          "decQ": "660330641519/1194393600000",
+          "T": "5267789303/2211840000",
+          "monitor_decP": "3651113443/716636160000",
+          "monitor_decQ": "4779137461/895795200000"
+        }
+      }
+    }
+  ],
+  "minimal_counterexample": {
+    "P": {
+      "original_decP": "1/192",
+      "original_order01_decP": "1/192",
+      "count_decP": "1/192",
+      "count_order01_decP": "1/384",
+      "times": "2"
+    },
+    "Q": {
+      "original_decP": "1/144",
+      "original_order01_decP": "1/144",
+      "count_decP": "1/144",
+      "count_order01_decP": "1/288",
+      "times": "2"
+    }
+  },
+  "claims_checked": [
+    "augmented_stop_flows_exact",
+    "terminal_joint_T_count_monitor_decision_exact",
+    "count_only_four_observers_exact",
+    "order01_counterexample_exact"
+  ],
+  "scientific_scope": "finite IID auxiliary model, exact Fraction; not exhaustive policies or native X6"
+}

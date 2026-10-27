@@ -1,0 +1,50 @@
+{
+  "schema": "PREFIX285_C4_ORDERED_BRC_EXACT_V1",
+  "status": "AUTHOR_SIDE_MODEL_CHECK_PASS_NATIVE_DETECTOR_PENDING",
+  "input_packets": 1024,
+  "direct_ordered_pair_brc_effect_evaluations": 2048,
+  "analytic_crosschecks": 2048,
+  "signatures": 814,
+  "nonsingular_signatures": 704,
+  "singular_signatures": 110,
+  "nontrivial_two_partner_fibers": 66,
+  "max_relative_classes": 2,
+  "diagonal_no_go_checks": 66,
+  "adaptive_one_setting_checks": 66,
+  "branches": {
+    "1": 11,
+    "-1": 11,
+    "i": 22,
+    "-i": 22
+  },
+  "fixed_menu_counterexamples": {
+    "t=1": {
+      "blind_p": 0,
+      "blind_value": "1/3",
+      "separating_p": 1,
+      "separating_values": [
+        "0",
+        "2/3"
+      ]
+    },
+    "t=-1": {
+      "blind_p": 1,
+      "blind_value": "1/3",
+      "separating_p": 0,
+      "separating_values": [
+        "2/3",
+        "0"
+      ]
+    }
+  },
+  "prefix284_pair_J1": [
+    "0",
+    "2/3"
+  ],
+  "scope": "C4 source-labelled formal BRC effect; not an original Stage50 run or a native H_n detector",
+  "source_pins": {
+    "global": "b93af5fa5d1f56cff9a63f730c86247619d79b86",
+    "enterprise_math": "ca7baa915ffc00ff22552862b84edddc953cf1c6"
+  },
+  "checker": "verify_prefix285_portable.js (executed in this same publication call)"
+}

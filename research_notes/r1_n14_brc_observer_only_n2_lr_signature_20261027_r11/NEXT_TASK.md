@@ -1,0 +1,7 @@
+# Next exact research unit — beyond depth-two factorized LR
+
+Preserve the proved author theorem in PROOF.md: for a shared time-1 marginal pi and second-stage likelihood ratio Q(j|i)/P(j|i)=r_j, the unique coarsest deterministic fresh-coin observer-only quotient has states (root, conditional-ratio histogram mu_i, terminal ratio r_j). The all-policy proof is mathematical; two finite rational cases are computationally checked in VERIFY.py/RESULT.json.
+
+Next narrowly test what fails when ratios depend on both i and j, r_ij. A time-1 merge may have the same conditional distribution of ratios but no deterministic symbol-labelled update compatible with terminal likelihood-ratio fibers. Produce an exact rational minimal counterexample or a refined necessary/sufficient rule incorporating labelled successor compatibility. Preserve common-policy P/Q quantifiers, strict positivity and no persistent hidden selector. For nonidentical P(I),Q(I), include the first-stage likelihood-ratio weight in the support functional rather than silently retaining this theorem.
+
+The larger N>=3 question of unique greatest observer-only equivalence remains open. Separate future-work: independent Driver review and explicit Heartbeat/X6 embedding-readout-operations proof; this is an external BRC path-mass model, not an admitted native Cell theorem. Initial source snapshot GLOBAL_KNOWLEDGE_V1 main@8bb9a989 and Enterprise Math main@01576898; author activity RA-R1-20261027-N2-LRSIG11, no formal native CLAIM.

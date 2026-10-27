@@ -1,0 +1,51 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR4-20261027-1600-T11-EIGHTLEAF",
+  "registration_key": "session:LOCAL-EMR4-20261027-1600-T11:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-R004-8LEAF11",
+  "session_id": "LOCAL-EMR4-20261027-1600-T11",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-27T08:03:48.234Z",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "EV-EMR4-20261027-EIGHTLEAF-01",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "9a5469f7d00779eede0530febacc5ccd7cb93c53",
+          "path": "research_notes/r4_8leaf_one_bit_residual_20261027_t11/PROOF.md",
+          "sha256": "c6275c1c4452e28c484ea3ebcf5804e9832fd47072d725d364dab030a97a425c",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "LOCAL-OBS-EMR4-8LEAF-T11-01",
+            "git_blob_sha1": "f4d8f4a2af8c80dc1c273b27ba073303bff76626",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9a5469f7d00779eede0530febacc5ccd7cb93c53/research_notes/r4_8leaf_one_bit_residual_20261027_t11/PROOF.md",
+            "server_signature_authenticated": false,
+            "network_request_by_this_tool": false,
+            "call_id": null
+          },
+          "verification_receipt": "research_activity_records/RA-EMR4-20261027-1600-T11-EIGHTLEAF/readbacks/LOCAL-OBS-EMR4-8LEAF-T11-01.json"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@e511278055bcfe5543b0a19ba0bd4aa989acdf40:journal/enterprise-math/2026-10-27/20261027T1600-r4-eightleaf-one-bit-t11.md"
+      ]
+    }
+  ]
+}

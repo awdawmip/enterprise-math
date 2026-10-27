@@ -1,0 +1,9 @@
+# R1/N14 next exact research unit: is two-law strong lumpability necessary?
+
+**Status:** author-only continuation; NOT native V2 Task, CLAIM, Result, or owner takeover. Base source: this directory's PROOF.md, CERTIFICATE.json, actual code VERIFY_EXECUTED.py.gz. External finite positive binary path laws, not native P000 X6.
+
+Already proved: for any deterministic quotient x with strictly positive two-law path probabilities, constant Q/P in every x-fiber is NECESSARY for universal preservation of joint terminal (T,x,D) for all ordered-history policies. Constant ratio PLUS two-law strong lumpability is SUFFICIENT. Exact model A shows a depth-2 count no-go (forced 1/2 versus 3/5 action); model B shows ratio-only state is not necessarily right-congruent (3/4 versus 9/4 after one symbol) but x=(t,k,switch_count,last) safely repairs all finite horizons. Prior N=4 IID minimal observer classification already completed; do not redo it.
+
+**Smallest unproved unit:** Within finite strictly positive non-IID path models and deterministic letter-updated quotient x, determine whether strong lumpability is also NECESSARY for universal all-policy two-law preservation given ratio-constant fibers. Attempt a minimal N<=3 binary rational counterexample showing compensation among quotient flows, or prove necessity with explicit isolating stopping policies. Rigorously distinguish fixed-policy feasibility, all-policy universality, deterministic letter right-congruence, and per-law aggregate transition lumpability.
+
+**Evidence:** exact rational kernels and prefix probabilities, explicit quotient map, complete argument and independent Fraction checker for any witness, verified sources/limits, and one next obstruction. Do not use native owner powers without a verified CLAIM; preserve any active other owner.

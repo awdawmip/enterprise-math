@@ -1,0 +1,11 @@
+# R5 successor — escape the sixteen-leaf Jensen hull obstruction
+
+State: PORTABLE AUTHOR / UNREVIEWED / NOT_ADMITTED, not a published native Task, CLAIM, Result, or Driver review.
+
+Mother question: strictly positive rational N>=3 tree with conv(O_seedless_LR)=O_full but O_seedless_LR != O_full under all real local LR randomizations, without persistent shared seed?
+
+Read adjacent PROOF.md, VERIFY.py, EXACT_OUTPUT.txt and predecessors brc_lr_adjoint_curvature_20261027_r5 and brc_lr_affine_circuit_duality_20261027_r5. The new exact group-gain theorem proves that, under the explicit within-group threshold condition, any G_A!=G_B yields a positive full-vs-LR hull support gap. The 16-leaf candidate has maximum gap 13261/160000 and is conclusively excluded from the mother-question search; do not retest it as a possible equal-hull witness.
+
+Next independently executable unit: select a distinct strictly positive rational N>=3 candidate whose hidden group Bayes-gain profiles satisfy the exact necessary threshold equalities for the stop/continue cost directions (or provide a reason those probes are structurally masked). Enumerate exact full and seedless-LR deterministic four-vectors. For each full extreme vector either give explicit rational convex coefficients among LR deterministic vectors, or provide a rational separating direction and verified dot products. Abort equal-hull claims after one strict separation. Only after a complete hull-equality certificate should the researcher select a full vector and prove nonmembership in the seedless LR image using a real semialgebraic infeasibility certificate or construct an attaining real LR policy. A finite parameter grid is insufficient.
+
+Carry complete positive P/Q histories and native X6 Cell-path observer typing; preserve P000/ACTIVE worldview and the BRC positive-mass versus signed-error boundary. Use genuine current Source owner/CLAIM and independent review gates when available; this author note gives none. Persist distinct mathematical evidence, checker and stdout in the project, perform immutable readback, and journal the source pin; never repeat the already completed affine-curvature LP dual or signed ternary chambers.

@@ -1,0 +1,19 @@
+SNAPSHOT: finite external Q/P probability tree, N=3, 23 nodes, 14 leaves
+OBJECTIVE: J=e_P+(3/4)e_Q+(11/200)E_Q(tau)
+POSITIVITY_NORMALIZATION_PQ_LR: PASS
+WEAK_SIGNATURE_INVARIANCE: K_a=K_b=(Fraction(1, 4), Fraction(1, 2), Fraction(1, 4))
+POINTWISE_STRONG_LUMPABILITY: FAIL (e.g. K_au=(Fraction(1, 10), Fraction(4, 5), Fraction(1, 10)), K_av=(Fraction(2, 5), Fraction(1, 5), Fraction(2, 5)))
+CONTINUATION_POLICY_TEST_GRID: PASS (9 positive rational pairs)
+FULL_DETERMINISTIC_POLICIES: 256
+SEEDLESS_DETERMINISTIC_POLICIES: 32
+FULL_OPTIMAL_STOP_CONTROL: {'a': 0, 'b': 1, 'au': 0, 'av': 0, 'aw': 0, 'bu': 0, 'bv': 1, 'bw': 0}
+SEEDLESS_OPTIMAL_STOP_CONTROL: {'(1, Fraction(2, 1))': 0, '(1, Fraction(1, 2))': 1, '(2, Fraction(1, 1))': 1, '(2, Fraction(7, 3))': 0, '(2, Fraction(1, 3))': 0}
+O_FULL=(Fraction(43, 240), Fraction(19, 40), Fraction(17, 12), Fraction(7, 4))
+O_SEEDLESS=(Fraction(3, 16), Fraction(11, 24), Fraction(3, 2), Fraction(11, 6))
+V_FULL=379/600
+V_SEEDLESS=1517/2400
+EXACT_SUPPORT_GAP=1/2400
+BELLMAN_CROSSCHECK: PASS
+ROOT_OPTIONAL_STOP_CHECK: PASS; J_rootstop=3/4
+GLOBAL_REAL_RANDOM_POLICY_EXTREMA: guaranteed by depth-wise multi-affinity + Bayes decisions
+ALL EXACT CHECKS PASSED

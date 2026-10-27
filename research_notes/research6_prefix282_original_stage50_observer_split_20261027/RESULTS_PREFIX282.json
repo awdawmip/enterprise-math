@@ -1,0 +1,209 @@
+{
+  "differences_f_minus_g": {
+    "loop_link_cost": "26/11",
+    "mean_source_index": "5/11",
+    "variance": "8/121"
+  },
+  "field_load_diagonal": {
+    "f": {
+      "loop_link_cost": "160/33",
+      "mean_source_index": "16/11",
+      "probs": {
+        "0": "1/33",
+        "1": "16/33",
+        "2": "16/33"
+      },
+      "second_source_moment": "80/33",
+      "variance": "112/363"
+    },
+    "g": {
+      "loop_link_cost": "82/33",
+      "mean_source_index": "1",
+      "probs": {
+        "0": "4/33",
+        "1": "25/33",
+        "2": "4/33"
+      },
+      "second_source_moment": "41/33",
+      "variance": "8/33"
+    }
+  },
+  "input_packets": {
+    "f": [
+      1,
+      4,
+      4
+    ],
+    "g": [
+      2,
+      5,
+      2
+    ]
+  },
+  "normalized_moments_r0_to_r4": {
+    "f": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "20/33",
+        "0"
+      ],
+      [
+        "4/33",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    "g": [
+      [
+        "1",
+        "0"
+      ],
+      [
+        "20/33",
+        "0"
+      ],
+      [
+        "4/33",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ]
+  },
+  "norms": {
+    "f": "33",
+    "g": "33"
+  },
+  "original_source_commit": "318f47839d6bc7c850a3b7cc0fcb22d48febd9ba",
+  "original_source_sha256": {
+    "stage46/brc_port_update.py": "a6bc156c789859d1aabefdef5db56b9d313565c5684d744e591e3371687baee4",
+    "stage49b/gauss_brc.py": "a2a16cee4d9e851aa8c676d1ab68491c7a8954f7ff9232e4cb57424f6fd31ccf",
+    "stage50/interference.py": "43b23d47e5d3da191aeaeefefe4f378fea2166eefd228ae77475f7196ceca853"
+  },
+  "original_stage50_local_calls": 40,
+  "original_stage50_three_input_port_masks": {
+    "f": {
+      "I2_01": "10/99",
+      "I3": "0",
+      "fixed_denominator": "99",
+      "mu_masks_0_to_7": [
+        "0",
+        "1/12",
+        "1/12",
+        "53/198",
+        "1/12",
+        "37/198",
+        "53/198",
+        "17/36"
+      ]
+    },
+    "g": {
+      "I2_01": "10/99",
+      "I3": "0",
+      "fixed_denominator": "99",
+      "mu_masks_0_to_7": [
+        "0",
+        "1/12",
+        "1/12",
+        "53/198",
+        "1/12",
+        "37/198",
+        "53/198",
+        "17/36"
+      ]
+    }
+  },
+  "schema": "PREFIX282_ORIGINAL_STAGE50_OBSERVER_SPLIT_V1",
+  "source_functions": [
+    "stage50.interference.local",
+    "stage50.interference.moment",
+    "stage50.interference.three_masks",
+    "stage50.interference.packet_variance",
+    "stage50.interference.pair_observer",
+    "stage49b.gauss_brc.energy"
+  ],
+  "stage50_external_probability_r0_to_r4_by_C4_phase": {
+    "f": [
+      [
+        "0",
+        "5/18",
+        "5/9",
+        "5/18"
+      ],
+      [
+        "65/594",
+        "5/18",
+        "265/594",
+        "5/18"
+      ],
+      [
+        "145/594",
+        "5/18",
+        "185/594",
+        "5/18"
+      ],
+      [
+        "5/18",
+        "5/18",
+        "5/18",
+        "5/18"
+      ],
+      [
+        "5/18",
+        "5/18",
+        "5/18",
+        "5/18"
+      ]
+    ],
+    "g": [
+      [
+        "0",
+        "5/18",
+        "5/9",
+        "5/18"
+      ],
+      [
+        "65/594",
+        "5/18",
+        "265/594",
+        "5/18"
+      ],
+      [
+        "145/594",
+        "5/18",
+        "185/594",
+        "5/18"
+      ],
+      [
+        "5/18",
+        "5/18",
+        "5/18",
+        "5/18"
+      ],
+      [
+        "5/18",
+        "5/18",
+        "5/18",
+        "5/18"
+      ]
+    ]
+  },
+  "status": "EXACT_SOURCE_MODEL_CHECK_PASS__NOT_NATIVE_HEARTBEAT_ADMITTED",
+  "verification_scope": "Original C4-BRC kernel, declared packet/load readouts; no native heartbeat model_law_id or detector calibration."
+}

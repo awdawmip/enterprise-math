@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR2STAGE18820261027T1110AUTO2",
+  "registration_key": "session:local-chatgpt-emr2-stage188-20261027t1110-auto2:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-R2-LOCAL188-AUTO2",
+  "session_id": "local-chatgpt-emr2-stage188-20261027t1110-auto2",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-27T03:20:22.583Z",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "EV-EMR2-STAGE188-FULLREAL-20261027-1110",
+      "state": "EM_REPRESENTED",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "a45268285ad8312bfbe6f421014329a348350442",
+          "path": "research_notes/n14_aux_iid_affine_188_r2_author_20261027/PROOF_STAGE188.md",
+          "sha256": "dd9aea50a2c6d3a46e51e0596e6d5bb1d68619ca616ac055f3e40295ae7c90a4",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "obs-stage188-author-20261027-1110auto2",
+            "call_id": null,
+            "git_blob_sha1": "dd35c9bb4e13335eb0f741a80ef673c5556ef8a0",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/a45268285ad8312bfbe6f421014329a348350442/research_notes/n14_aux_iid_affine_188_r2_author_20261027/PROOF_STAGE188.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR2STAGE18820261027T1110AUTO2/readbacks/586c06a4d5bfd899e066cc76f503f3653049c5316d73c1768fb87940639afcba.json",
+          "verification_receipt_sha256": "586c06a4d5bfd899e066cc76f503f3653049c5316d73c1768fb87940639afcba"
+        }
+      ],
+      "kb_sources": [],
+      "repairs_event_id": null
+    }
+  ]
+}

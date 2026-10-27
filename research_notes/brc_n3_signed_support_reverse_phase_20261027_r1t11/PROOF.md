@@ -1,0 +1,45 @@
+# BRC R1: reverse-collision signed support, exact two-parameter phase
+
+Date 2026-10-27. AUTHOR_PROVED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED. External finite two-law probability tree, not Heartbeat/X6 dynamics.
+
+## Frozen inputs and authority
+Account GLOBAL_KNOWLEDGE_V1 GitHub main@df354899f3e5831d052e05de65d9ec10f4b207d2: bootstrap/manual, ACTIVE worldview, math/BRC/code policies. Initial Enterprise Math source main@f8fcea6dd1783b578aaf434aac68b7a1388e49d6: AGENTS, p000_reality_foundation.json, X6/time contract, joint-observer preservation, portable research protocol. Prior results: research_notes/brc_n3_signed_support_global_phase_20261027_emr1/PROOF.md at that project snapshot, and research_notes/brc_n3_ternary_single_collision_facet_oracle_20261027_r5/PROOF.md. GitHub actor awdawmip may push to repo. Native task inventory: CONTROL_QUOTA; native session start: STATIC_READONLY_SCOPE_DENIED with operation_sent=false. No official CLAIM or verified owner. BRC first-line positive path/provenance/LR reuse: REUSE_APPLIED; a signed support functional is NOT signed physical mass. P000 retains six native spatial axes and separate time; no native Cell-to-external probability-tree bridge is claimed.
+
+## Model
+15 ordered prefixes and 8 positive terminal leaves; horizon 3; Q and r=P/Q:
+ root (Q=1,r=1); a=(1/2,3/2), b=(1/2,1/2);
+ ax=(1/4,1), ay=(1/4,2), bu=(1/8,1), bv=(3/8,1/3).
+ root→a,b; a→ax,ay; b→bu,bv. Each of ax,bu has 3 terminal children with r=(1/2,1,3/2), Q conditional kernel K_s=(s,1-2s,s), parameter s_a or s_b. Each of ay,bv has one terminal child preserving r. The domain is all real 0<s_a,s_b<1/2. Define P(h)=Q(h)r(h); both laws conserve mass, since sum K_s(y)*r_child=1 at the nontrivial transitions. Full policies may use ordered histories; seedless (t,r)-only policies use the same action distribution whenever state (t,r) coincides and only fresh local randomization, no persistent root seed. Only shared nonterminal class: ax~bu at (2,1).
+
+Observer O=(P(decide Q), Q(decide P), E_P[tau], E_Q[tau]).
+Fix J'(O)=298 O_1+375 O_2+36 O_3-17 O_4. [z]_+ = max(z,0).
+F=min over full-history strategies, C=min over seedless compressed strategies.
+
+## Theorem A: global second-normal phase
+For every real admissible (s_a,s_b):
+ F = 2231/8 - [18*s_a-19/4]_+ - [9*s_b-19/8]_+.
+ C = min(2231/8, 281-[18*s_a-4]_+-[9*s_b-1]_+).
+ C-F>0 iff (s_a-19/72)*(s_b-19/72)<0.
+The maximum gap of this normal is 11/8, attained for instance at (2/5,1/10); the reverse-cross orientation has maximum 3/4.
+
+Proof. Normalize expected future cost at history h by Q(h), excluding sunk observation time. If r=P/Q, stop P costs 375, stop Q costs 298*r, and continue adds 36*r-17. The terminal optima at ratios (1/2,1,3/2) are (149,298,375). Continuing at either collision node has value 19+149s+298(1-2s)+375s =317-72s; hence unrestricted optimal collision cost g(s)=298-[72s-19]_+.
+At ay the optimum is stop P for 375 (continuing would cost 430). At bv the optimum is continue the singleton at 298/3-5=283/3. At a continuation costs 37+(g(s_a)+375)/2 = 747/2-[72s_a-19]_+/2 <375. At b continuation costs 1+g(s_b)/4+(3/4)*(283/3)=(g(s_b)+287)/4<=585/4<149. The root continues, with cost 19+(V_a+V_b)/2<=2231/8<298. Substitution gives F.
+For compressed minimization, each (t,r) class can be visited at most once on a trajectory, so pre-sampling independent actions per class shows a linear functional is minimized by some deterministic compressed table even when fresh coins are allowed. Only ax~bu shares a nonterminal action. Force it to stop P at both, stop Q at both, or continue at both; optimize all other classes by ordinary Bellman recursion. The respective exact minima are:
+  STOP_P: 281;
+  STOP_Q: 2231/8;
+  CONTINUE: 281-[18s_a-4]_+-[9s_b-1]_+.
+For the last branch, forced collision cost is 317-72s, yielding V_a=375-[36s_a-8]_+ and V_b=149-[18s_b-2]_+. STOP_P is always dominated by STOP_Q, proving C.
+Put x=18s_a, y=9s_b, X=[x-19/4]_+, Y=[y-19/8]_+, A=[x-4]_+, B=[y-1]_+. Subtraction yields C-F=X+Y-[A+B-17/8]_+. When x<=19/4 and y<=19/8, X=Y=0 and A+B<=17/8, giving zero. When x>=19/4 and y>=19/8, A=X+3/4,B=Y+11/8, also zero. When x>19/4,y<19/8, the gap is min(X,11/8-B)>0; for x<19/4,y>19/8 it is min(Y,3/4-A)>0. Equality at either threshold gives zero. Since x0/18=y0/9=19/72, the iff follows. The respective caps 11/8 and 3/4 are attainable: cap 11/8 at sa>=49/144,sb<=1/9; cap 3/4 at sa<=2/9,sb>=25/72, inside 0<sa,sb<1/2. QED.
+
+## Corollary: strict certificate at former undecided point
+At (s_a,s_b)=(1/6,1/3), the preceding normal (298,375,37,-17) had zero gap; the new normal yields F=1113/4=2226/8, C=2231/8, gap=5/8. Full-history witness: continue root,a,b,bu,bv; stop Q at ax; stop P at ay; at terminal LR=1/2,1,3/2 decide Q,Q,P; at bv terminal decide Q. Its exact vector is (7/16,7/24,9/4,5/2). All seedless compressed observations satisfy 298 O_1+375 O_2+36 O_3-17 O_4 >=2231/8, but this full witness attains 1113/4. Thus this full vector is outside the compressed behavioral image AND its convex hull. The required hull equality fails at this rational point.
+
+## Theorem B: exact positive diagonal Markovization
+If s_a=s_b=s in (0,1/2), every full-history randomized stopping/decision policy can be replaced by a seedless (t,r)-policy preserving the entire joint terminal law (T,r(H_T),D) under BOTH P and Q. Thus the actual (nonconvexified) four-vector observation sets are equal along this diagonal.
+
+Proof. At s_a=s_b the two histories merged at (2,1) have the same conditional Q child ratio kernel K_s and, since the child likelihood ratios coincide, the same conditional P kernel. All other nonterminal classes are singleton; terminal classes have no outgoing transition. Given an arbitrary full-history policy, write m_Q(h)=Q(h)*Pr(reach h). For each class (t,r) with nonzero incoming Q-mass, choose the common action distribution as the m_Q-weighted average of the original history-specific actions; choose arbitrarily when the incoming mass is zero. Class-conditional transition kernels agree, so Q state-arrival masses and stopped output masses are preserved inductively. At each history m_P(h)=r(h)m_Q(h); the common state ratio makes exactly the same averaging preserve P state-arrival masses and stopped output masses. Thus both terminal joint laws are preserved, with fresh coins only. QED.
+
+## Exact reproducibility, strength and next question
+Local author checker used Python fractions.Fraction on all 15 prefixes and exact Bellman comparisons on 81 rational parameter pairs including 19/72 and both cross orientations. At the swapped point an independent exhaustive checker enumerated 3^6*2^5=23328 deterministic compressed action tables, yielding 326 distinct observer vectors and exact minimum 2231/8. Saved local stdout and result in this research's evidence bundle. The all-real theorem follows from the displayed algebra; finite checking supports only the declared finite instances. No independent Driver review, Lean check, native Result, or native P000 dynamics is asserted.
+
+Next: at an off-diagonal same-side rational pair, e.g. (1/6,1/5) or (1/3,2/5), compute all rational facets of the compressed four-dimensional hull and exact full-history Bellman minima. Either find a further signed separating normal or a rigorous hull-equality certificate. Only after hull equality consider polynomial image nonmembership. The diagonal is settled by exact Markovization and should not be treated as a hull-equal/image-unequal candidate for this model.

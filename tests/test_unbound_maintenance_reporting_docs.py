@@ -6,15 +6,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class MaintenanceReportingDocs(unittest.TestCase):
-    def test_router_separates_optional_maintenance_from_formal_entrypoint(self):
-        text = (ROOT / 'AGENTS.md').read_text()
-        formal = next(line for line in text.splitlines() if line.startswith('For explicit `RESEARCH_DRIVER`'))
-        self.assertNotIn('CONTROL_PLANE_MAINTENANCE', formal)
-        self.assertIn('pass the original `parent_liveness`', formal)
-        maintenance = next(line for line in text.splitlines() if line.startswith('For genuinely unbound'))
-        self.assertIn('neither a local eight-field declaration nor a remote `pre_final` request is required', maintenance)
-        self.assertIn('optional diagnostics', maintenance)
-        self.assertIn('cannot be dropped or relabeled', maintenance)
+    def test_optional_diagnostics_cannot_grant_parent_completion(self):
+        en = (ROOT / 'docs/CHATGPT_ORDINARY_CONTROL.en.md').read_text()
+        zh = (ROOT / 'docs/CHATGPT_ORDINARY_CONTROL.zh-CN.md').read_text()
+        self.assertIn('Diagnostic unavailability cannot prohibit an honest blocker report or establish parent completion', en)
+        self.assertIn('诊断服务不可用不阻止如实报告，不能据此称父目标已完成', zh)
 
     def test_bilingual_reporting_exception_retains_actual_formal_bindings(self):
         en = (ROOT / 'docs/CHATGPT_ORDINARY_CONTROL.en.md').read_text()
@@ -27,11 +23,14 @@ class MaintenanceReportingDocs(unittest.TestCase):
         self.assertIn('cannot be dropped or relabeled', en)
         self.assertIn('不能删去既有研究绑定', zh)
 
-    def test_runtime_explanation_reports_result_without_issuing_authority(self):
-        text = (ROOT / 'docs/RESEARCH_RUNTIME_STATE_MACHINE.md').read_text()
-        self.assertIn('No local eight-field declaration or remote `pre_final` request is required', text)
-        self.assertIn('optional diagnostics with `authorized=false`', text)
-        self.assertIn('formal task/claim/execution/activity bindings keep their original checks', text)
+    def test_formal_api_shape_remains_required_when_called(self):
+        en = (ROOT / 'docs/CHATGPT_ORDINARY_CONTROL.en.md').read_text()
+        zh = (ROOT / 'docs/CHATGPT_ORDINARY_CONTROL.zh-CN.md').read_text()
+        self.assertIn('When calling a formal or optional diagnostic API', en)
+        self.assertIn('实际调用正式或可选诊断 API 时', zh)
+        for text in (en, zh):
+            for field in ('parent_liveness', 'executable_next_actions', 'continuation_lease_active'):
+                self.assertIn(field, text)
 
     def test_admission_description_has_no_fixed_five_request_ceiling(self):
         en = (ROOT / 'docs/CHATGPT_ORDINARY_CONTROL.en.md').read_text()

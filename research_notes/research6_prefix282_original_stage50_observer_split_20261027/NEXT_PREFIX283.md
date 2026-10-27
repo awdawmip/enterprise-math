@@ -1,0 +1,11 @@
+# PREFIX-283｜Stage50来源对角BRC的探测器合法性与完整心跳桥接
+
+固定科学前沿：PREFIX-282使用原始Stage50 archive提交318f47839d6bc7c850a3b7cc0fcb22d48febd9ba与40次真正local运行，得到相同全自相关f=(1,4,4)、g=(2,5,2)在十外Port与three_masks不可区分，但原始packet_variance已经能在源码内部按来源区分，P_f=(1,16,16)/33，P_g=(4,25,4)/33，方差差8/121，闭链对角cost差26/11。PREFIX-279同谱定理、PREFIX-280条件性U0恢复、PREFIX-281共同源滤波不辨识和PREFIX-278 Stage50旧24次测试均已验证，禁止用重复验证代替本单元新工作。
+
+原始可读取Source：用户私有Drive历史bundle文件ID 1ImJLXQSA6ZSebObWVunMbdVmUyKqjl4N，完整SHA256 c90254ee224498e9a4e87717ba202a73cbdc44a82a8b20abdc0a8bb75ef0dbf8，源码Stage50 interference sha256 43b23d47e5d3da191aeaeefefe4f378fea2166eefd228ae77475f7196ceca853；当前规范取本轮持久化前另行核实的EnterpriseMath/GLOBAL固定快照，勿混淆归档科学版本与当前控制。
+
+最小独立研究问题：原始packet_variance对完整packet中来源标签的直接读数，是仅软件输入级诊断、后态可读的BRC观察，还是具有合法完整心跳Detector/Port/field效果的探测器？明确其可实施性类型和来源，分离“读取源码内部完整态”与“系统允许的外部探测”。
+
+要求在一个真实声明范围内列出X6 Cell、Port、材料动量、场/完整来源历史、边界、C4相位、探测效果、独立时间/心跳编号及model_law_id。若有合法探测操作，运行原始Stage50核对f/g可复现概率；若没有，严格刻画合法观察代数中的同谱商或给出第一个缺失接口证书。stage49b.translate_field的load translation并非C4来源局部翻相门；stage50.local输入phase不是演化时相位门，必须沿真实签名分类。
+
+产出完整证明或反例、源头证据、实际执行范围、原生桥余项和PREFIX-284问题。作者侧GitHub记录不等于Result冻结与独立Driver数学接纳。活跃owner查询曾返回CONTROL_QUOTA，session_start为STATIC_READONLY_SCOPE_DENIED。

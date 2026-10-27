@@ -1,0 +1,54 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-R1-20261026-2355-SLNEC",
+  "registration_key": "session:local-r1-20261026-2355:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-R1-5C4E",
+  "session_id": "local-r1-20261026-2355",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-26T23:55:28+08:00",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "EM-R1-20261027-TWO-LAW-STRONG-LUMPABILITY-IFF",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "339855dac47f83f01b2301e563ce462e2aa4ff0c",
+          "path": "research_notes/r1_n14_brc_two_law_strong_lumpability_iff_20261026_r1/PROOF.md",
+          "sha256": "257562d048fc8dd62bf836b108cb5d6d4c56017a1181ce643e58b3f7de84ab73",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification_receipt": "research_activity_records/RA-R1-20261026-2355-SLNEC/readbacks/bd0bdcca32859379a2118c82f7512bf73ba0433f236fe2563722e591a0e96627.json",
+          "verification_receipt_sha256": "bd0bdcca32859379a2118c82f7512bf73ba0433f236fe2563722e591a0e96627",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "r1t11-slne-20261027-checkpoint",
+            "call_id": null,
+            "git_blob_sha1": "a4963f67a633e1fa0db8f2e25a1eaa328f20fb59",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/339855dac47f83f01b2301e563ce462e2aa4ff0c/research_notes/r1_n14_brc_two_law_strong_lumpability_iff_20261026_r1/PROOF.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          }
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/4d75b6c92823119d725fff4949699fe3fb0f07c2/journal/enterprise-math/2026-10-27/20261027T0011%2B0800-r1-two-law-strong-lumpability-iff.md"
+      ]
+    }
+  ],
+  "provenance_note": "Locally assigned logical session key; not authenticated native service identity. Native tasks CONTROL_QUOTA and session start STATIC_READONLY_SCOPE_DENIED; GitHub author-only evidence, no owner takeover.",
+  "source_directory": "research_notes/r1_n14_brc_two_law_strong_lumpability_iff_20261026_r1"
+}

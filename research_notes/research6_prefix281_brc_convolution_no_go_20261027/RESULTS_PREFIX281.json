@@ -1,0 +1,36 @@
+{
+  "status": "PREFIX281_EXACT_C4_BRC_CONVOLUTION_NO_GO_PASS",
+  "source_model": "ordered positive rational C4 paths; source labels and filter-branch provenance retained",
+  "filter_scope": "every nonzero length-1/2/3 source filter with each coefficient w∈{1,2}, phase∈Z/4",
+  "filter_cases": 584,
+  "full_raw_correlation_equalities": 2840,
+  "stage50_external_readout_equalities": 9024,
+  "direct_brc_port_readouts": 18048,
+  "two_round_adaptive_readout_equalities": 64,
+  "initial_C0_C1_C2": [
+    "33",
+    "20",
+    "4"
+  ],
+  "positive_filter_example": {
+    "filter": "(1,1)",
+    "C": [
+      "106",
+      "77",
+      "28",
+      "4"
+    ],
+    "external_r1_p0": "145/1908"
+  },
+  "source_local_flip_witness": {
+    "E_f": "35/198",
+    "E_g": "5/18",
+    "distinguishes": true
+  },
+  "limits": [
+    "Finite exhaustive filter family; unbounded convolution closure proved algebraically, not by enumeration.",
+    "This verifier evaluates formal C4 BRC source path-pairs, not the original Stage50 Python package.",
+    "Convolution and source-selective U0 are conditional candidate operations, not validated full-H_n physical gates.",
+    "The original Stage50 source package was not rerun in this check."
+  ]
+}

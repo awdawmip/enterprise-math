@@ -1,0 +1,59 @@
+{
+  "all_LR_fibers_constant": true,
+  "checks": [
+    {
+      "P_T4_D1": "22548415295213/5764041803520000",
+      "Q_T4_D1": "23333548082111/5586686671104000",
+      "coarse_observer_equal_PQ": true,
+      "full_observer_equal_P": true,
+      "full_observer_equal_Q": true,
+      "positive_occupancy_states": 35,
+      "sample_state_2_1_1_kernel": [
+        "4814/13025",
+        "19583/52100",
+        "13261/52100"
+      ],
+      "type": "two_full_history_policies"
+    },
+    {
+      "P_T4_D1": "57022868286809736173/7081205783220951782400",
+      "Q_T4_D1": "119656647671276301857/14162411566441903564800",
+      "coarse_observer_equal_PQ": true,
+      "full_observer_equal_P": true,
+      "full_observer_equal_Q": true,
+      "positive_occupancy_states": 35,
+      "sample_state_2_1_1_kernel": [
+        "4786676/16463531",
+        "5946016/16463531",
+        "5730839/16463531"
+      ],
+      "type": "two_quotient_policies"
+    }
+  ],
+  "compressed_state_count": 35,
+  "model": {
+    "N": 4,
+    "P": [
+      "1/2",
+      "1/3",
+      "1/6"
+    ],
+    "Q": [
+      "1/3",
+      "1/2",
+      "1/6"
+    ],
+    "alphabet": [
+      0,
+      1,
+      2
+    ],
+    "compression": "x(h)=(t,count_0,count_1)",
+    "lambda": "2/5"
+  },
+  "prefix_count": 121,
+  "proof_scope": "Finite checks of two chosen pairs of strategies; all-horizon convexity and universal Markovization rely on separate mathematical proof.",
+  "schema": "EM_R1_IID_LR_FIBER_CONVEXITY_EXACT_CHECK_V1",
+  "status": "PASS_EXACT_FINITE_INSTANCES",
+  "strong_lumpability_by_IID_and_recursive_x": true
+}

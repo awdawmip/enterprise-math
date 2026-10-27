@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/r334_universal_third_newton_20261027_emr3/R334_SYMBOLIC_EVIDENCE.json",
+    "ref": "74aa535bde1354e1a8ae136d1d54203f02f60a06",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "emr3-r334-symbolic-readback-20261027T0905Z",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"R334_UNIVERSAL_NEWTON_ANTEPENULTIMATE_SYMBOLIC_V1\",\n  \"status\": \"PASS\",\n  \"assumption\": \"R330 Eq.(4) exact rational extraction / deg H_r<=r (author-side, not admitted)\",\n  \"low_order_E\": [\n    \"1-5*z/4\",\n    \"z\",\n    \"z*(11*z**2-16*z+4)/16\",\n    \"z**2*(3*z-8)*(3*z-2)/8\"\n  ],\n  \"N2\": \"-z*(5*z-2)/2\",\n  \"gpp_ratio\": \"(4761*j**2-6685*j-9354)/6400 for j>=2\",\n  \"third_monomial_coefficient_ratio\": \"r*(r-1)*(243*r**2-95*r-3542)/5400\",\n  \"universal_newton_coefficient\": \"c[r,r-2]=2*6**r*(243*r**2-245*r-182)/675 for all integers r>=2\",\n  \"lower_bound_polynomial_at_r2\": \"300\",\n  \"signed_convolution_falling_terms\": [\n    [\n      4,\n      \"81/6400\"\n    ],\n    [\n      3,\n      \"-1/2\"\n    ],\n    [\n      2,\n      \"(9*r**2 - 9*r - 386)/160\"\n    ],\n    [\n      1,\n      \"0\"\n    ],\n    [\n      0,\n      \"r*(r - 2)*(r - 1)*(3*r - 1)/48\"\n    ]\n  ],\n  \"arithmetic\": \"SymPy exact rationals / polynomial identities\",\n  \"role\": \"AUTHOR_SIDE / UNREVIEWED / NOT_ADMITTED\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/74aa535bde1354e1a8ae136d1d54203f02f60a06/research_notes/r334_universal_third_newton_20261027_emr3/R334_SYMBOLIC_EVIDENCE.json",
+      "encoding": "utf-8",
+      "sha": "d99806512e209a439931b28e8052bfcb42039545"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

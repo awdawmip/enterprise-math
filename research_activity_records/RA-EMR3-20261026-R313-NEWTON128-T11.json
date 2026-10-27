@@ -1,0 +1,52 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR3-20261026-R313-NEWTON128-T11",
+  "registration_key": "session:local-chatgpt-emr3-r313-20261026-t11:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-DIRECT-R313-EMR3-20261026",
+  "session_id": "local-chatgpt-emr3-r313-20261026-t11",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-26T12:47:34.731Z",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "emr3-r313-newton128-proof-certificate-20261026",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "d0fa19e7adf80a1ae67bd55583ef7c9fb2d31773",
+          "path": "research_notes/r313_newton_128_positive_diagonals_20261026_emr3t11/R313_NEWTON_128_DIAGONALS_AUTHOR_PROOF.zh-CN.md",
+          "sha256": "bd8d920f740f88c93ed17717e563c2734ef817d6cd65225b0f1e2b3b98c47b3a",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "7c6ddeae7ee7159b3b54fe6ce21c98a75f30b99f",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/d0fa19e7adf80a1ae67bd55583ef7c9fb2d31773/research_notes/r313_newton_128_positive_diagonals_20261026_emr3t11/R313_NEWTON_128_DIAGONALS_AUTHOR_PROOF.zh-CN.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "emr3-r313-immutable-full-proof-readback-20261026-t11",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261026-R313-NEWTON128-T11/readbacks/1bdde32f1f58309f1a21d67aa9d83833bffcfb51cb945a9a2cf0ae53849a38ef.json",
+          "verification_receipt_sha256": "1bdde32f1f58309f1a21d67aa9d83833bffcfb51cb945a9a2cf0ae53849a38ef"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@1109726a4b9d2244b8aa53404ef4a4b27a3ecd04:journal/enterprise-math/2026-10-26/20261026-r313-newton128-emr3t11.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ]
+}

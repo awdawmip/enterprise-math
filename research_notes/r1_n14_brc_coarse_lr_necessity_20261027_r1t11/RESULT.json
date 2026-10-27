@@ -1,0 +1,48 @@
+{
+  "schema": "EM_R1_COARSE_LR_NECESSITY_EXACT_V1",
+  "status": "AUTHOR_PROOF_AND_FINITE_EXACT_CHECK",
+  "theorem": "Every x-fiber must have constant Q/P LR if every full-history strategy admits common two-law (T,o(x_T),D)-preserving x-strategy, even when o is constant",
+  "scope": "finite strictly positive two-law prefix trees; law-independent stop/decide policies; any horizon and terminal observer",
+  "P": [
+    "1/4",
+    "1/4",
+    "1/4",
+    "1/4"
+  ],
+  "Q": [
+    "1/8",
+    "3/8",
+    "1/4",
+    "1/4"
+  ],
+  "x_fibers": {
+    "A": [
+      "a",
+      "b"
+    ],
+    "B": [
+      "c",
+      "d"
+    ]
+  },
+  "o": "constant",
+  "r": "1",
+  "support_full": "1/8",
+  "support_x": "0",
+  "support_gap": "1/8",
+  "original_decision_P": "1/4",
+  "original_decision_Q": "3/8",
+  "finite_coverage": {
+    "history_deterministic": 16,
+    "compressed_deterministic": 4,
+    "method": "exact rational arithmetic",
+    "actual_local_run": "PASS"
+  },
+  "general_quantifier_proof": "hand proof via support separation",
+  "independent_review": "PENDING",
+  "native_owner": "UNVERIFIED_CONTROL_QUOTA",
+  "native_claim": false,
+  "source_global": "4893bfa3f6633d309b6f2beb3757e648044f9154",
+  "source_em": "00cd15ac5b52d1e43357d92f9c7cb2855aba6d10",
+  "next": "N>=2 exact characterization of observer terminal occupancy policy-set inclusion"
+}

@@ -1,0 +1,69 @@
+{
+  "arithmetic": "python fractions.Fraction exact rational",
+  "nonconvex_midpoint": {
+    "fresh_coin_determinant": "1/8",
+    "half_lottery": {
+      "P": {
+        "T1D0": "1/2",
+        "T2D0": "1/8",
+        "T2D1": "3/8"
+      },
+      "Q": {
+        "T1D0": "1/2",
+        "T2D0": "3/8",
+        "T2D1": "1/8"
+      }
+    },
+    "lottery_support_size": 2,
+    "strategies": {
+      "A": {
+        "P": {
+          "T1D0": "1/4",
+          "T2D0": "0/1",
+          "T2D1": "3/4"
+        },
+        "Q": {
+          "T1D0": "3/4",
+          "T2D0": "0/1",
+          "T2D1": "1/4"
+        }
+      },
+      "B": {
+        "P": {
+          "T1D0": "3/4",
+          "T2D0": "1/4",
+          "T2D1": "0/1"
+        },
+        "Q": {
+          "T1D0": "1/4",
+          "T2D0": "3/4",
+          "T2D1": "0/1"
+        }
+      }
+    }
+  },
+  "persistent_seed_still_insufficient": {
+    "deterministic_compressed_tables_checked": 24,
+    "full_witness": {
+      "P": {
+        "T2": "1/3",
+        "T2D1": "1/12"
+      },
+      "Q": {
+        "T2": "1/3",
+        "T2D1": "1/6"
+      }
+    },
+    "max_compressed_linear_witness": "0/1",
+    "prefix_count": 13,
+    "q_over_p_terminal_j": [
+      "2/1",
+      "1/1",
+      "1/2"
+    ],
+    "strict_full_minus_convexified_quotient_gap": "1/36"
+  },
+  "result": "PASS_EXACT_FRACTION",
+  "schema": "ENTERPRISE_MATH_TWO_LAW_CONVEXIFICATION_CERT_V1",
+  "scope": "two concrete N=2 finite-law examples; universal statements proved in PROOF.md"
+}

@@ -1,0 +1,58 @@
+{
+  "schema": "PREFIX285_EXACT_TYPED_C4_BRC_V1",
+  "input_packet_count": 432,
+  "distinct_initial_observation_signatures": 358,
+  "double_class_signatures": 42,
+  "distinct_partner_pairs": 42,
+  "common_C4_filters_tested": 20,
+  "pair_filter_comparisons": 840,
+  "two_probe_pair_comparisons": 84,
+  "sample": {
+    "f": [
+      "1",
+      "i",
+      "1"
+    ],
+    "g": [
+      "1",
+      "-i",
+      "1"
+    ],
+    "common_filter": [
+      "1",
+      "i"
+    ],
+    "f_filtered_masses": [
+      "1",
+      "4",
+      "0",
+      "1"
+    ],
+    "g_filtered_masses": [
+      "1",
+      "0",
+      "4",
+      "1"
+    ],
+    "total_mass": "6",
+    "interior_source_1_f": "2/3",
+    "interior_source_1_g": "0/1",
+    "left_endpoint": "1/6",
+    "right_endpoint": "1/6",
+    "filtered_Cr": [
+      "6+0i",
+      "0-2i",
+      "2+0i",
+      "0-1i"
+    ]
+  },
+  "assertions": [
+    "direct ordered branch-pair mass equals regrouped amplitude mass",
+    "all tested common filters preserve normalized autocorrelation and both endpoints for twin pairs",
+    "at least one of h=(1,1),h=(1,i) distinguishes every enumerated distinct Z2 partner using interior mass",
+    "special C4 counterexample has exact interior separation 2/3"
+  ],
+  "result": "PASS",
+  "native_status": "FORMAL_SOURCE_ALGEBRA_ONLY",
+  "physical_detector_status": "UNVERIFIED"
+}

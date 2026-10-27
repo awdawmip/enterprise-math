@@ -1,0 +1,74 @@
+{
+  "schema": "R1_N14_FINITE_MONITOR_EXACT_SUMMARY_V1",
+  "date": "2026-10-26",
+  "author_status": "COMPUTATION_ASSISTED_PROOF_UNREVIEWED",
+  "global_pin": "2e711e9f23ebe815597ac7b228679cdc8bcdeb63",
+  "enterprise_input_pin": "7765e1f20df165c723f06d64ac6449efbe88df6c",
+  "alphabet": [
+    "0",
+    "1",
+    "2"
+  ],
+  "horizon": 4,
+  "observers": [
+    "has01",
+    "has10",
+    "last2equal"
+  ],
+  "counts": [
+    {
+      "t": 0,
+      "words": 1,
+      "pure": 1,
+      "joint": 1,
+      "max_count_aware_labels": 1
+    },
+    {
+      "t": 1,
+      "words": 3,
+      "pure": 3,
+      "joint": 3,
+      "max_count_aware_labels": 1
+    },
+    {
+      "t": 2,
+      "words": 9,
+      "pure": 8,
+      "joint": 9,
+      "max_count_aware_labels": 2
+    },
+    {
+      "t": 3,
+      "words": 27,
+      "pure": 14,
+      "joint": 27,
+      "max_count_aware_labels": 6
+    },
+    {
+      "t": 4,
+      "words": 81,
+      "pure": 8,
+      "joint": 43,
+      "max_count_aware_labels": 6
+    }
+  ],
+  "unique_prefix_words": 121,
+  "raw_word_edges": 120,
+  "pure_monitor_class_pairs_certified": 150,
+  "total_reachable_joint_states": 83,
+  "verified_example_terminal_probability_keys": 332,
+  "exact_metrics": {
+    "eP": "10875077779/20639121408",
+    "eQ": "607604449/1289945088",
+    "tP": "7478285/3981312",
+    "tQ": "2817205/1492992"
+  },
+  "locally_executed_checks": [
+    "suffix_exhaustive_vs_backward_DP",
+    "all_pair_distinguishing_suffixes",
+    "positive_BRC_Fraction_two_law_joint_flow"
+  ],
+  "full_local_certificate_sha256": "a5ec75dca1be1c5f9cc2b15268e31b3ba28596f01d84f69501771c4c57b44037",
+  "full_local_archive_sha256": "0bca98ac203a80133fc9731674c35ddedc3bb7cdd7c761117afc6a014fafa8fd",
+  "native_owner": "UNVERIFIED_CONTROL_QUOTA"
+}

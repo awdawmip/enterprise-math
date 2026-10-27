@@ -1,0 +1,9 @@
+# R1 N14 portable successor — observer-minimal state repair
+
+**Consumed frontier:** Full two-law positive finite-history, labelled deterministic-update quotient, constant LR fibers and strong lumpability yield a **unique coarsest** stable refinement by exact backward signatures. For the 40-prefix three-symbol non-IID witness, the minimal profile is (1,3,3,3), exactly 10 states versus original x's 8 and 40 full history nodes. Proof in PROOF.md; actual exact rational run in VERIFY.py / RESULT.json. This is AUTHOR proof and finite check, not an independently Driver-admitted theorem.
+
+**Open mother question:** For all common full-history randomized stopping/decision policies, when the target observer sees only (T,o(x),D) under both P and Q, does a unique coarsest fresh-coin recursively updated observer-safe state exist? Are LR constancy, labelled right congruence, and original-x refinement still necessary, or can an observer-safe quotient be strictly coarser?
+
+**First exact unit:** Use the same 40-prefix rational witness. Analyze, separately, (a) full x, (b) only T,D, (c) time-one first-symbol and otherwise T,D, (d) last-symbol at t=3. Write down admissible common policies, construct an exact equivalence/future-flow test or a minimal pair of incomparable sufficient quotients, and prove universal preservation or separation over all real decision kernels (not a finite search). If a non-recursive terminal observer is used, identify that interface explicitly.
+
+**Return evidence:** Full quantified statement, rational input kernels, partition/splitting or separation certificate, actual checker scope, source pins, unresolved gap, next task. BRC branch and predecessor-kernel reuse takes priority. Preserve P000, owner/CLAIM boundaries and independent review; a research note is not native freeze/admission.
