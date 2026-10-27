@@ -1,0 +1,127 @@
+{
+  "schema": "PREFIX283_FORMAL_C4_BRC_DETECTOR_EFFECT_WITNESS_V1",
+  "status": "EXACT_AUTHOR_SIDE_CHECK_PASS__NO_NATIVE_DETECTOR_LAW",
+  "global_knowledge_snapshot": "c2658a2945f4decaf267d7f75f70eda63e6740ea",
+  "enterprise_math_snapshot": "bf16665ae130258a99c8516298361152e618c308",
+  "input_packets": {
+    "f": [
+      1,
+      4,
+      4
+    ],
+    "g": [
+      2,
+      5,
+      2
+    ]
+  },
+  "Z": 33,
+  "autocorrelation": [
+    33,
+    20,
+    4
+  ],
+  "Q": [
+    [
+      -3,
+      -6,
+      0
+    ],
+    [
+      -6,
+      -9,
+      6
+    ],
+    [
+      0,
+      6,
+      12
+    ]
+  ],
+  "general_hermitian_tested": 19683,
+  "toeplitz_tested": 243,
+  "binary_masks_tested": 8,
+  "global_C4_phase_mask_cases": 32,
+  "masks": [
+    [
+      [
+        0,
+        0,
+        0
+      ],
+      "0",
+      "0"
+    ],
+    [
+      [
+        0,
+        0,
+        1
+      ],
+      "16/33",
+      "4/33"
+    ],
+    [
+      [
+        0,
+        1,
+        0
+      ],
+      "16/33",
+      "25/33"
+    ],
+    [
+      [
+        0,
+        1,
+        1
+      ],
+      "32/33",
+      "29/33"
+    ],
+    [
+      [
+        1,
+        0,
+        0
+      ],
+      "1/33",
+      "4/33"
+    ],
+    [
+      [
+        1,
+        0,
+        1
+      ],
+      "17/33",
+      "8/33"
+    ],
+    [
+      [
+        1,
+        1,
+        0
+      ],
+      "17/33",
+      "29/33"
+    ],
+    [
+      [
+        1,
+        1,
+        1
+      ],
+      "1",
+      "1"
+    ]
+  ],
+  "max_diag_gap": "4/11",
+  "single_sample_equal_prior_success": "15/22",
+  "coverage": "Only precise source-labelled C4 ordered pair BRC formal observer; generic Hermitian coefficients are algebraic checks, not always valid POVM effects.",
+  "original_stage50_executed_this_run": false,
+  "native_heartbeat_executed": false,
+  "native_detector_legality": false,
+  "reused_original_evidence": "PREFIX282 Original Stage50 40 local calls (not repeated)",
+  "next": "PREFIX284 native source-addressed detector and typed H_n bridge"
+}
