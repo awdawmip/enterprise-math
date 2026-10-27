@@ -1,0 +1,91 @@
+{
+  "schema": "EM_CRM_JOINT_SOURCE_VALIDATION_V1",
+  "observed_at": "2026-10-27T08:26:09.908172+00:00",
+  "classification": "NO_NEW_MATHEMATICS_CONTROL_PLANE_MAINTENANCE",
+  "source_base": "bdee30996b0cddf2b0248ca5afb4c8445fba2b75",
+  "candidates_reused": {
+    "1556": "c1ddb41f48ed138fc4198b765a73df47bfd1a79e",
+    "1557": "18804524b052c0e03f4bfc44259da9d0089a1b4a"
+  },
+  "composition": "Apply each PR exact production delta once; combine the disjoint runtime_guard_core hunks. Original branches and frozen evidence are preserved.",
+  "changed_executable_blobs": [
+    {
+      "path": "control_plane/research_continuation.py",
+      "old": "873dce4d3306c9cf003915473e4e642791f31a4b",
+      "new": "fb8bf09910ef58a89a2a22e947db1dc22ce693be",
+      "bytes": 62015
+    },
+    {
+      "path": "control_plane/research_driver_followup_transaction.py",
+      "old": "866ebda546996341dfb801272cbe6e304fe74c32",
+      "new": "7fea853e2f51ad84206745b7de34a4638b505120",
+      "bytes": 18271
+    },
+    {
+      "path": "control_plane/research_handoff_scope_runtime.py",
+      "old": "9a6198d46255295993d7ec4a70334187aa966874",
+      "new": "d0cd048f55c6218c8f31a2f76f750174e41fb7e6",
+      "bytes": 2486
+    },
+    {
+      "path": "control_plane/research_runtime_guard_core.py",
+      "old": "d03f48b81956046a198296e685df0e4d60ade328",
+      "new": "9241cb881848cd03d34497a0ccbd3518ba5fbac2",
+      "bytes": 24628
+    },
+    {
+      "path": "research_driver_followup.py",
+      "old": "5bbfc24fecf19771e97408b49b4c945bd3c6bf56",
+      "new": "627fa012ca1c0d905e7569e1e2233cbb6eea2099",
+      "bytes": 94785
+    },
+    {
+      "path": "tools/research_dispatch_core.py",
+      "old": "948140f314c219bca3bb5606f34f7dd3842638a1",
+      "new": "4bd771119059bb70d850a3cf52ce9dbb86f19f12",
+      "bytes": 42960
+    },
+    {
+      "path": "tools/research_result_records.py",
+      "old": "3aa3be4ff9eb83d8ca3c7a9bc5652dd3006f3ef0",
+      "new": "25b2888043294c44a59bdba69d0fb72760cbc3ea",
+      "bytes": 36250
+    },
+    {
+      "path": "tools/research_runtime_reducer.py",
+      "old": "418e173d89a098237f2d12e22970b06386f87607",
+      "new": "68907035b1ec8352185b2ecf1dbd77fd9c80db61",
+      "bytes": 33208
+    }
+  ],
+  "validation": [
+    {
+      "command": "python -m unittest discover -s tests -p test_accepted_result_task_open.py -v",
+      "outcome": "PASS",
+      "scope": "13 fresh-process cases, including accepted review/followup transaction, 20 binding rejection variants, scope/manifest/authority/rollback/postcheck, second review and synthesis, successor plus three scope/interface attacks",
+      "fixture_root": "/workspace/joint-accepted-fixture"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_reviewed_frozen_return_resume.py -v",
+      "outcome": "PASS",
+      "scope": "21 tests; five original T6 server envelopes, real parser/authentication/lifecycle filter/reducer and runtime guard; exact binding/lease/CAS/competing claimant and accepted-state negatives",
+      "fixture_root": "/workspace/joint-accepted-fixture"
+    },
+    {
+      "command": "git diff --check",
+      "outcome": "PASS",
+      "scope": "combined source edits"
+    }
+  ],
+  "fixture_preparation": {
+    "production_code": "All eight changed executable files are byte-identical to the integration files; no production gate was edited.",
+    "data": "Selective local execution snapshot: preserve needed original RR/ER/publications/taskbooks/reports and DA; remove unrelated quarantine entries/compatibility aliases whose referenced records were intentionally omitted; retain the tested historical Result/Driver defects, one original legacy-baseline review, and the existing synthetic semantic-isolation fixture. This is test data only.",
+    "limitations": "This is a focused integration run, not a full-repository test or a live research action. T6 repository lookup values use the unchanged candidate frozen fixture. The full historical original PR evidence remains linked below."
+  },
+  "candidate_evidence": [
+    "https://github.com/awdawmip/enterprise-math/pull/1556",
+    "https://github.com/awdawmip/enterprise-math/pull/1557"
+  ],
+  "role_operations": "Original failed 6077 stays historical; no CLAIM/OPEN/review/Source research state was sent. Fresh authorized owner acceptance follows deployment.",
+  "deployment": "Root coordinates stage/drain/admission-map/Source-ref/Native activation. This Source receipt alone does not establish installation."
+}

@@ -156,6 +156,9 @@ class ReviewWriterHarness:
         self.commit = mock.Mock(side_effect=self._commit)
         self.review_candidate = mock.Mock()
         self.record_factory = mock.Mock(side_effect=self._review_record)
+        # AST loading omits module imports; retain the closed routing constant.
+        self.followup_contract = types.SimpleNamespace(
+            RESULT_CONTINUATION_DECISION="RESULT_ACCEPTED_TASK_OPEN_CONTINUATION")
         namespace = {
             "argparse": argparse, "Path": Path, "json": json,
             "ROOT": self.root, "REVIEW_ROOT": self.root / "research_result_reviews",
@@ -188,6 +191,7 @@ class ReviewWriterHarness:
                 json_bytes=lambda record: (json.dumps(record, sort_keys=True) + "\n").encode(),
                 commit=self.commit),
             "_driver_followup": types.SimpleNamespace(materialize=self.materialize),
+            "_followup_impl": self.followup_contract,
             "_review_evidence": types.SimpleNamespace(state=self.review_state),
         }
         self.namespace = _load_functions(
@@ -277,6 +281,7 @@ class RealPublisherBoundary:
         self.impl._forced_gate_rules = mock.Mock()
         self.impl._now = lambda value=None: value or STAMP
         self.impl.DECISIONS = {"TASK_SET_PUBLISHED"}
+        self.impl.RESULT_CONTINUATION_DECISION = harness.followup_contract.RESULT_CONTINUATION_DECISION
         functions = _load_functions(SOURCE_ROOT / "research_driver_followup.py", {
             "_materialization_binding", "_result_record_pin", "_source_review_record_pin",
         }, {

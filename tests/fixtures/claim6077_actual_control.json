@@ -1,0 +1,976 @@
+{
+  "schema": "CLAIM6077_ACTUAL_CONTROL_REPLAY_FIXTURE_V1",
+  "source_commit": "bfdeab630ff99aa8229c99f69e85ed522bc07b1d",
+  "observed_at": "2026-10-15T23:51:00.004536+00:00",
+  "task": {
+    "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+    "title": "T6 Exact Shape-Moment Threshold: Global Lower-Bound Closure",
+    "kind": "RESEARCH",
+    "owner": "taskbook/unassigned",
+    "base_state": "READY",
+    "priority": "P0",
+    "leverage": "HIGH",
+    "frontier": "Exact T1=6, T2=20, T3=105, T4=301, T5=941 are closed. A degree-6 L=360 witness gives T6<=2332 and the whole L=360 degree-6 integer kernel has minimum max-side mass 2332. All maximal prime factors p>=29 and the entire maximal-p=23 layer are eliminated below 2332. For maximal p=19, global vertical orders 0 through 8 are eliminated. The smallest unfinished mathematical unit is p=19 vertical order 9, split (3,6) and (4,5), followed by orders 10-12 if order 9 is empty.",
+    "next_action": "Starting from the certified p=19 saturated q0 congruence lattice, clear vertical order 9 blocks (3,6) and (4,5) with exact side-mass budgets 2331 and exact mixed congruences. If order 9 is empty, clear orders 10-12. If p=19 is completely eliminated, descend the maximal-prime frontier to p=17,13,11 and then the remaining small-prime layers until either T6=2332 is proved globally or an exact cheaper collision is produced.",
+    "dependencies": [],
+    "source_refs": [
+      "https://github.com/awdawmip/chatgpt-global-knowledge/commit/ec3ab6f84c9cb0d2dc48dcec7c5d3980f98df910",
+      "https://github.com/awdawmip/chatgpt-global-knowledge/commit/7b2115cc09517be5f26fbf5e1739742cd9119154",
+      "https://github.com/awdawmip/chatgpt-global-knowledge/commit/047b47aedbd129d5fb2c2a0af136704f5d802592",
+      "https://github.com/awdawmip/chatgpt-global-knowledge/commit/ba91e9b844886f3f9581392ae4f4c80409adf327",
+      "https://github.com/awdawmip/chatgpt-global-knowledge/commit/5fb0a1695269ee914e5620e03439333a1a70ec91",
+      "https://github.com/awdawmip/chatgpt-global-knowledge/commit/8cdc2272e4d75859002686222dc81d3974a26b1c",
+      "research_artifacts/T6_SHAPE_MOMENT_PERSISTENT_LINE_DRIVER_20260909/dossier.md"
+    ],
+    "evidence_status": "DURABLE_FREE_RESEARCH_FRONTIER_IMPORTED_FOR_TASK_EXECUTION",
+    "last_progress_ref": "https://github.com/awdawmip/chatgpt-global-knowledge/commit/8cdc2272e4d75859002686222dc81d3974a26b1c",
+    "last_progress_at": "2026-09-06T08:47:32+08:00",
+    "hard_block": "MAXIMAL_P19_VERTICAL_ORDERS_9_12_THEN_LOWER_PRIME_DESCENT",
+    "tags": [
+      "T6",
+      "shape-moment",
+      "BRC",
+      "valuation",
+      "Tarry-Escott",
+      "p-adic",
+      "exact-threshold"
+    ],
+    "claim_lease_minutes": 180,
+    "identity_lane": "T6SM",
+    "publication_id": "TP2-34B106D2512A298C9647",
+    "taskbook_blob_sha1": "sha1:87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+    "registration_source": "IMMUTABLE_TASK_RECORD",
+    "publication_published_at": "2026-09-09T06:06:17.587692+00:00"
+  },
+  "result_state": {
+    "state": "RETURN_TO_EXECUTION",
+    "result": {
+      "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_RECORD_V1",
+      "result_id": "RR-C428294CF760BD8D99AA",
+      "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+      "publication_id": "TP2-34B106D2512A298C9647",
+      "execution_record_id": "ER-120BCED768F86DA406CC",
+      "claim_id": "t6sm-exact-solver-01a079fc-20260920",
+      "taskbook_path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+      "taskbook_blob_sha1": "sha1:87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+      "execution_branch": "research/t6sm-p19-order9-01a079fc-20260920",
+      "execution_branch_base": "fdd604f4686649f1374aa2b9568f05867d6f5bee",
+      "return_path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/RETURN.md",
+      "return_blob_sha1": "sha1:94689c1162d43ba0d88abd92a6c662bf030e4a9d",
+      "return_sha256": "sha256:29035b93f4e155a722b496b7b7e78d91d53756f4d8df8c37489e0fc1bb95486a",
+      "owner_head": "6ad7652f4babfce104719808baba6f1d16eef2c0",
+      "researcher_id": "EM-T6SM-B134BD",
+      "frozen_at": "2026-09-19T20:40:03.033069+00:00",
+      "terminal_verdict": "NEGATIVE_BOUNDARY",
+      "hard_target_disposition": "PARTIAL_PROGRESS_GLOBAL_T6_OPEN_P19_AND_P17_Q0_EXCLUDED",
+      "unresolved_residue": "Global T6=2332 is unproved; maximal p17 vertical orders1..16 and lower maximal primes remain. Original prior (3,6) builder archive is missing, but its bounded conclusion has a new independent exact verification.",
+      "output_manifest": [
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/audit_3_6.json",
+          "git_blob_sha1": "sha1:330ab3020f5e0297c1f1e9419c0fe6b334f8b970",
+          "sha256": "sha256:e698343384dbd83434e23ce51b1bd3148768ee0b1c3c8c4b02504105099c6ad6"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/audit_prior_3_6.py",
+          "git_blob_sha1": "sha1:a7fd5fcaf5b9276cea707f28a8fd33a411a528bc",
+          "sha256": "sha256:4fe70334ed39ba6a2674bee50c9bf439e0805a482a5642e33109b5cce34a4211"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/block_4_6.json",
+          "git_blob_sha1": "sha1:f65bca13dce3adf98bf904f8e13178251f6a0e25",
+          "sha256": "sha256:dd2d91f9b14333485fce7ebfcfd0f3e4b7fc8bea30b19119f99b15dcae80531d"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/block_5_5.json",
+          "git_blob_sha1": "sha1:a73e233a80ac50a43d37dffa84dacdb7d3f6ec9b",
+          "sha256": "sha256:ba65cb21600e2189b445e5cd96abcf3eda2e29b11a86238bcdd798445d495bf5"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/block_5_6.json",
+          "git_blob_sha1": "sha1:29804976d710c4d534f879eaad07c02503eb16e7",
+          "sha256": "sha256:a1a52b6391908e1c56c1c465c9c9f6b95d014358df347867709b84b4f3bff8b8"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/block_6_6.json",
+          "git_blob_sha1": "sha1:61741c027910f4e36dff2b6541003f67f470b4cd",
+          "sha256": "sha256:03eed18a11a82582f6fa0dedc5a4da8eb581dbcc975950586d8f3a2e4f32f3ea"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/control_dependency.json",
+          "git_blob_sha1": "sha1:be1ff2b5b08fff2a5ec606b282abda3ea3bd14dc",
+          "sha256": "sha256:ed7b7af80bd8d5e346ad8fe707f61e825c67f977a1bfc442f3e3876b67c4019b"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/coverage_4_5.json",
+          "git_blob_sha1": "sha1:5a9e27211421f88ab48f9db6cfb4e69fd5a47638",
+          "sha256": "sha256:e8d00d385b853a6f74f9df1606aea11807d9db060e9179c657fa748df02c255d"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/coverage_p19.json",
+          "git_blob_sha1": "sha1:f61d29abe8ef850dfc50ea02a46a81dfc8da2d04",
+          "sha256": "sha256:26aa639519448dd68f528de5dc6c2f9d80ede07e567de59bb7ccf2b26bc05ad9"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/higher_orders.py",
+          "git_blob_sha1": "sha1:f8446b55a4d4037988d792c41403b131e77a3313",
+          "sha256": "sha256:82f04673188ac3a1c7940e312d9082730895e0082ab2a676169258c63f78e01a"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/input.json",
+          "git_blob_sha1": "sha1:e2f33462b95e1f0fc4ccc5a38f3bb922a4ade388",
+          "sha256": "sha256:2c6be9c821faf2480e101bafbda191a0d334430e2fffc5bcf0dcaa0f3c726c27"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/layer_validation.txt",
+          "git_blob_sha1": "sha1:ec1eb0177dfcc411a120fd7fe5d66e4b6e214211",
+          "sha256": "sha256:1f1f4d5e4ec8ce1fdac69df1655f6e94f87610ee3c8719b3a5e45e5768d3998f"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/NEXT_FRONTIER.json",
+          "git_blob_sha1": "sha1:3652002ab94b435f0b993871e4bc653e851af5c2",
+          "sha256": "sha256:07bcc22551fc04fab258a410f9b49612c8c56188b2fc9051f67d7814cb0bbff3"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/p17_q0.py",
+          "git_blob_sha1": "sha1:af01439e39d67f3689b55467da9c6b09650133eb",
+          "sha256": "sha256:7ae58b6d4c1e11dca8af8d891849f948e8de8f74d6c96ffa5b272cdf7d719436"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/p17_q0_certificate.json",
+          "git_blob_sha1": "sha1:d9ac014355a6a1058cc8a0cf2141a01082628881",
+          "sha256": "sha256:fdf0b060d47bccd5b2a5095dc4b72d13b68476f49494eb4435b0b50dd30c65f6"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/p17_validation.json",
+          "git_blob_sha1": "sha1:d0a7e6ece75ef5c15b785d1b62a2bfcb66688c05",
+          "sha256": "sha256:e043d8c6bef274f4f06716ba1296e2166c037092c44e22cd65d83dedf245ae2d"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/p19_order9.py",
+          "git_blob_sha1": "sha1:95196a9ca31750f39c7d3c90608433184a3b3db5",
+          "sha256": "sha256:14f531a16ad338aee9fdd6d697cba64442e047570706ad2adaa6b460622382d1"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/PROOF.md",
+          "git_blob_sha1": "sha1:2928642008b2ea563954429ff7e5c8131aa4ce65",
+          "sha256": "sha256:57d3735c11f7abf039feb76da95110322942f90db8d90cfb5d57b06c43d5f4ad"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/RETURN.md",
+          "git_blob_sha1": "sha1:94689c1162d43ba0d88abd92a6c662bf030e4a9d",
+          "sha256": "sha256:29035b93f4e155a722b496b7b7e78d91d53756f4d8df8c37489e0fc1bb95486a"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/run_0000_0025.json",
+          "git_blob_sha1": "sha1:3dab06603570f6b94f9b8ab3b33ddec0e2410f1f",
+          "sha256": "sha256:928a4144184c8a5288fc6e000d01c88c4d9d367a99a16a660fcba8a3257d8a55"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/run_0025_2025.json",
+          "git_blob_sha1": "sha1:596007198d68f10158bef1bf4c0b11541aed0531",
+          "sha256": "sha256:b996174cc8d107ec185379bc26d4a6fed85313e22e78ec0379fce9542a1d5a6c"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/run_2025_8124.json",
+          "git_blob_sha1": "sha1:2c8d769cbef688fba8f2c70b903436909f7041af",
+          "sha256": "sha256:e9366d53648f3490f8aeaf94076d6efb99045e6c37b406978de2bf2149c512b4"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/RUN_MANIFEST.json",
+          "git_blob_sha1": "sha1:bbac47de947ac860311f9f777cac9ff4d56ed887",
+          "sha256": "sha256:29556873e1562c173ab048b86d7f5b4568adaa35e91d687ca5573fe204d4a80a"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/transport_validation.json",
+          "git_blob_sha1": "sha1:64ae867c0909a80209459d96f657de2d10a59f3c",
+          "sha256": "sha256:6ea557da87d155ed3714953ba8e277ec4cedb0bae8e859c2aa73b5a03ed1610e"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/verify_candidate_transport.py",
+          "git_blob_sha1": "sha1:7673531859e4b7f08d457be0e8f6903ec86372b4",
+          "sha256": "sha256:aa2e1c80a0fa01970b249b977a4891c96deef41acb904a3c8fe123f8e9a55021"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/verify_coverage.py",
+          "git_blob_sha1": "sha1:46024ec08840f4f1ea777eafdec3840badadcd61",
+          "sha256": "sha256:583424d222910b36a08e8fa6ee263f07222fc200d90adf4414b26284ea110c14"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/verify_layer.py",
+          "git_blob_sha1": "sha1:fb615acaa17dc4ea076f9b4b22cbfbf0a72515c9",
+          "sha256": "sha256:f5aaad14117a71e9dc16349d251bce042de18aaab961b9df29ebe1eab050af9a"
+        },
+        {
+          "path": "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/verify_p17_q0.py",
+          "git_blob_sha1": "sha1:3c05c8b432b8257e9170b343864e2ed60ffbd15a",
+          "sha256": "sha256:c90e4fdc360250122dd21de7858896f17d0ba53669830c455f2dd6dbc7344085"
+        }
+      ],
+      "method_harvest": "DOMAIN_OPERATOR",
+      "independence_status": "SHARED_AMBIENT_CONTEXT_DISCLOSED",
+      "source_exposure_status": "NONBLIND_DISCLOSED",
+      "next_control_plane_recommendation": "Existing T6 line Driver should independently review this frozen proof/census; then continue the same Task at maximal p17 vertical order1 without replaying verified p19. The p19 uniform unique-nearest-plane gate fails at the recorded p17 order1 affine radius, so require exact multi-candidate enumeration or a proved stronger reduction.",
+      "driver_review_required": true,
+      "_record_path": "research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/RR-C428294CF760BD8D99AA.json"
+    },
+    "review": {
+      "record_schema": "ENTERPRISE_MATH_RESEARCH_RESULT_REVIEW_V1",
+      "review_id": "DR-0D8591E64A4073A61E6A",
+      "result_id": "RR-C428294CF760BD8D99AA",
+      "result_record_path": "research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/RR-C428294CF760BD8D99AA.json",
+      "result_record_sha256": "sha256:4d2ebdb11a15bdc1a52a3baca99e8045188bc206414cb3e61b22153171359976",
+      "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+      "publication_id": "TP2-34B106D2512A298C9647",
+      "execution_record_id": "ER-120BCED768F86DA406CC",
+      "driver_id": "EM-DVR-FBF223",
+      "review_path": "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/a7e76c9fdfba92481712/T6_CURRENT_OWNER_PARTIAL_PROGRESS_AND_P17_REVIEW_20261012.md",
+      "review_blob_sha1": "sha1:064d8e0969b97038a85bf37e4538a7462b7d16d9",
+      "review_sha256": "sha256:0f479fbc57f3bcc31d8c36143013e1a169133157ae9f86554e309d3c281807fe",
+      "reviewed_at": "2026-10-12T01:29:18.322367+00:00",
+      "disposition": "RETURN_TO_OWNER",
+      "destination_class": "FOLLOWUP_TASK",
+      "destination_ref_or_none": "RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET",
+      "terminal": false,
+      "reviewer_contribution_ids": [
+        "EM-DIRECT-49ADE6",
+        "EM-DIRECT-E1F2B6",
+        "EM-DIRECT-FA0C27",
+        "EM-DVR-4C90FB",
+        "EM-DVR-C1A1D9",
+        "EM-DVR-FBF223"
+      ],
+      "reviewer_session_id": "MCP-cd5eefdde49843898b2a70c1af94d8dd",
+      "write_authority_checked_at": "2026-10-12T01:29:18.332841+00:00",
+      "driver_authority_record_id": "DA-A1DB35C00ED2F8C2A9FA",
+      "driver_authority_source_comment_id": 6115340052,
+      "write_authorization": {
+        "schema": "ENTERPRISE_MATH_CONTROL_WRITE_AUTHORIZATION_V1",
+        "kind": "REVIEW",
+        "evidence_kind": "CANONICAL_LOCAL_GUARD_WITH_SERVER_SOURCE_ENVELOPES_NOT_PLATFORM_ATTESTATION",
+        "payload_sha256": "49accdf44d3d936c71de30aee6e76364ffda37976b96411b329b8333d9dd4707",
+        "source_commit": "76d5a29fbcaa8cae806832dad048b285341bf4b9",
+        "authorized_at": "2026-10-12T01:29:18.332841+00:00",
+        "authority_observed_through_comment_id": 6115340052,
+        "principal": {
+          "authority_record_id": "DA-A1DB35C00ED2F8C2A9FA",
+          "session_id": "MCP-cd5eefdde49843898b2a70c1af94d8dd",
+          "driver_id": "EM-DVR-FBF223"
+        }
+      },
+      "_review_path": "research_result_reviews/RR-C428294CF760BD8D99AA/DR-0D8591E64A4073A61E6A.json",
+      "review_authority_kind": "IMMUTABLE_REVIEW",
+      "review_authority_id": "DR-0D8591E64A4073A61E6A",
+      "source_review_ids": [
+        "DR-0D8591E64A4073A61E6A"
+      ]
+    },
+    "terminal": false,
+    "review_parallel_state": "SINGLE_REVIEW_FLOW",
+    "parallel_review_ids": [
+      "DR-0D8591E64A4073A61E6A"
+    ],
+    "review_intake_id": null,
+    "review_set_sha256": null,
+    "driver_followup_state": "FOLLOWUP_TASKSET_READY",
+    "driver_followup": {
+      "canonical_promotion_granted": false,
+      "created_at": "2026-10-12T01:29:25.176194+00:00",
+      "decision": "TASK_SET_PUBLISHED",
+      "driver_id": "EM-DVR-FBF223",
+      "foundation_authority_granted": false,
+      "gate_decisions": [
+        {
+          "decision": "REQUIRED",
+          "evidence_refs": [
+            "research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/RR-C428294CF760BD8D99AA.json@2f257c02d95b9cd630c23284bea2516a1be3f853",
+            "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_P17_ORDER1_SMALL_BRANCH_THEOREM.md@bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4",
+            "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_P17_ORDER1_BRANCH_BOUND_RESULTS.json@bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4"
+          ],
+          "gate": "MATHEMATICAL_CONTINUATION",
+          "reason": "The original global Task remains open. Publish only this one finite child covering four domain exclusions and twelve unsearched affine classes under the proved299-path bound; its changed hard target supplies a real new information gap."
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [
+            "research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/RR-C428294CF760BD8D99AA.json@2f257c02d95b9cd630c23284bea2516a1be3f853",
+            "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_CURRENT_OWNER_PARTIAL_PROGRESS_AND_P17_REVIEW_20261012.md@bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4"
+          ],
+          "gate": "LEAN_FORMALIZATION",
+          "reason": "This nonterminal RETURN_TO_OWNER retains the partial result and requests no global theorem, L4, canonical promotion or Foundation admission. Exact arithmetic and a decisive independent final child review are the present scope."
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [
+            "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_INDEPENDENT_PAPER_REVIEW.md@bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4",
+            "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_CURRENT_OWNER_PARTIAL_PROGRESS_AND_P17_REVIEW_20261012.md@bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4"
+          ],
+          "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+          "reason": "This nonterminal return claims no novelty or completed global tool. Treat exact Gram-Schmidt enumeration as established method. The bounded Fincke-Pohst bibliographic match had no accessible primary technical text and is not a completed stronger duplication audit. Reassess any later ACCEPTED claim separately."
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [
+            "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_INDEPENDENT_STATIC_CERTIFICATE_RESULTS.json@bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4",
+            "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_SMALL_BRANCH_BOUND_SECOND_PASS.md@bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4",
+            "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_PAPER_SCOPE_SECOND_PASS.md@bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4"
+          ],
+          "gate": "INDEPENDENT_REPLICATION",
+          "reason": "No whole-p19 independent census or replication campaign is claimed. The Source static p17 q0 audit and two paper passes verify exactly their bounded statements. The new finite child supplies its own exact execution and ordinary independent review; preserve the old computation as author evidence."
+        },
+        {
+          "decision": "SATISFIED_BY_REVIEWED_RESULT",
+          "evidence_refs": [
+            "research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/RR-C428294CF760BD8D99AA.json@2f257c02d95b9cd630c23284bea2516a1be3f853",
+            "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/p17_q0_certificate.json@2f257c02d95b9cd630c23284bea2516a1be3f853",
+            "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/input.json@2f257c02d95b9cd630c23284bea2516a1be3f853",
+            "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/PROOF.md@2f257c02d95b9cd630c23284bea2516a1be3f853",
+            "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_INDEPENDENT_PAPER_REVIEW.md@bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4",
+            "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_INDEPENDENT_STATIC_CERTIFICATE_RESULTS.json@bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4"
+          ],
+          "gate": "INTEGRATION_OR_TOOL_HARVEST",
+          "reason": "The immutable RR declares DOMAIN_OPERATOR. Harvest/reuse only its task-local saturated congruence lattice and signed-budget certificate/search recipe as the exact child input, with independently reconstructed static data. No new global tool family, Working Truth, Foundation promotion, novelty or stronger census independence is granted. This mandatory gate is not waived."
+        },
+        {
+          "decision": "NOT_REQUIRED",
+          "evidence_refs": [
+            "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_SMALL_BRANCH_BOUND_SECOND_PASS.md@bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4",
+            "driver_reviews/mcp/MCP-cd5eefdde49843898b2a70c1af94d8dd/7592bca554f5d835bc7c/T6_P17_ORDER1_SMALL_BRANCH_THEOREM.md@bcf86761cfd4ccf391df6e277e30d7e0f2a9bab4"
+          ],
+          "gate": "ADVERSARIAL_AUDIT",
+          "reason": "A separate new audit Task is not justified for this nonterminal return. The preserved paper passes pressure-check ties, center dependence, both budgets, all composite coordinates, maximal-prime membership and H0 completion. They do not claim an executed affine census; retain all final child guard controls and survivors."
+        }
+      ],
+      "packet_id": "DFU-A781ABC4981EC521CA0B",
+      "parent_objective_id": "EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD",
+      "policy": "AUTO_PUBLISH_TASKSET_OR_PARENT_CLOSE_V1",
+      "result_id": "RR-C428294CF760BD8D99AA",
+      "review_destination_class": "FOLLOWUP_TASK",
+      "review_disposition": "RETURN_TO_OWNER",
+      "review_id": "DR-0D8591E64A4073A61E6A",
+      "schema": "ENTERPRISE_MATH_DRIVER_REVIEW_FOLLOWUP_V1",
+      "source_next_control_plane_recommendation": "Existing T6 line Driver should independently review this frozen proof/census; then continue the same Task at maximal p17 vertical order1 without replaying verified p19. The p19 uniform unique-nearest-plane gate fails at the recorded p17 order1 affine radius, so require exact multi-candidate enumeration or a proved stronger reduction.",
+      "source_publication_id": "TP2-34B106D2512A298C9647",
+      "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+      "task_publications": [
+        {
+          "publication_id": "TP2-26869C0B4D63A6BB761D",
+          "task_id": "RS-T6-P17-VERTICAL-ORDER1-EXACT-AFFINE-BUDGET",
+          "task_role": "MATHEMATICAL_CONTINUATION"
+        }
+      ],
+      "working_truth_granted": false,
+      "_path": "research_driver_followups/DR-0D8591E64A4073A61E6A/DFU-A781ABC4981EC521CA0B.json"
+    }
+  },
+  "comments": [
+    {
+      "url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/comments/5710114816",
+      "html_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5710114816",
+      "issue_url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/240",
+      "id": 5710114816,
+      "node_id": "IC_kwDOTx_cyM8AAAABVFlwAA",
+      "user": {
+        "login": "awdawmip",
+        "id": 30957095,
+        "node_id": "MDQ6VXNlcjMwOTU3MDk1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/30957095?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/awdawmip",
+        "html_url": "https://github.com/awdawmip",
+        "followers_url": "https://api.github.com/users/awdawmip/followers",
+        "following_url": "https://api.github.com/users/awdawmip/following{/other_user}",
+        "gists_url": "https://api.github.com/users/awdawmip/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/awdawmip/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/awdawmip/subscriptions",
+        "organizations_url": "https://api.github.com/users/awdawmip/orgs",
+        "repos_url": "https://api.github.com/users/awdawmip/repos",
+        "events_url": "https://api.github.com/users/awdawmip/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/awdawmip/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "created_at": "2026-09-17T06:36:48Z",
+      "updated_at": "2026-09-17T06:36:48Z",
+      "body": "{\"schema\":\"ENTERPRISE_MATH_SCHEDULER_EVENT_V1\",\"event\":\"CLAIM\",\"task_id\":\"RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND\",\"publication_id\":\"TP2-34B106D2512A298C9647\",\"taskbook_blob_sha1\":\"sha1:87b3a6f38e9350f7a3f56624b27bff2a7778a439\",\"claim_id\":\"claim-T6SM-autoB-20260917-063620-9ba6e075\",\"researcher_id\":\"EM-T6SM-2516C0\",\"actor\":\"EM-T6SM-2516C0\",\"at\":\"2026-09-17T06:36:20Z\",\"lease_minutes\":180,\"session_id\":\"chatgpt-autoB-20260917-063620-9ba6e075\",\"activity_id\":\"RA-20260917-AUTOB-T6SM-2516C0-9BA6E075\",\"dispatch_request_id\":\"chatgpt-20260917-autoB-063243-6c5b36a4\",\"dispatch_source_sha\":\"eabcb3576288c62d134bffe704af60287b91ddb7\",\"theorem_owner\":\"taskbook/unassigned\",\"execution_branch\":\"research/t6sm-autob-2516c0-20260917\",\"execution_branch_base\":\"f45e3441dbb97991c50fb92892bc98226af09883\",\"allowed_outputs\":[\"research_notes/t6sm_2516c0_20260917/\",\"research_artifacts/T6_SHAPE_MOMENT_2516C0_20260917/\",\"research_checks/T6_SHAPE_MOMENT_2516C0_20260917.py\",\"research_returns/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_2516C0_20260917.md\",\"research_execution_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/\",\"research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/\"]}",
+      "author_association": "OWNER",
+      "pin": null,
+      "reactions": {
+        "url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/comments/5710114816/reactions",
+        "total_count": 0,
+        "+1": 0,
+        "-1": 0,
+        "laugh": 0,
+        "hooray": 0,
+        "confused": 0,
+        "heart": 0,
+        "rocket": 0,
+        "eyes": 0
+      },
+      "performed_via_github_app": {
+        "id": 1144995,
+        "client_id": "Iv23liVemv8A9if9v0F2",
+        "slug": "chatgpt-codex-connector",
+        "node_id": "A_kwHOAOQ6Gs4AEXij",
+        "owner": {
+          "login": "openai",
+          "id": 14957082,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjE0OTU3MDgy",
+          "avatar_url": "https://avatars.githubusercontent.com/u/14957082?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/openai",
+          "html_url": "https://github.com/openai",
+          "followers_url": "https://api.github.com/users/openai/followers",
+          "following_url": "https://api.github.com/users/openai/following{/other_user}",
+          "gists_url": "https://api.github.com/users/openai/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/openai/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/openai/subscriptions",
+          "organizations_url": "https://api.github.com/users/openai/orgs",
+          "repos_url": "https://api.github.com/users/openai/repos",
+          "events_url": "https://api.github.com/users/openai/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/openai/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "ChatGPT Codex Connector",
+        "description": "Bring ChatGPT and Codex to your GitHub repositories.",
+        "external_url": "https://www.chatgpt.com",
+        "html_url": "https://github.com/apps/chatgpt-codex-connector",
+        "created_at": "2025-02-14T01:37:05Z",
+        "updated_at": "2026-09-23T18:52:59Z",
+        "permissions": {
+          "actions": "write",
+          "checks": "read",
+          "contents": "write",
+          "emails": "read",
+          "issues": "write",
+          "metadata": "read",
+          "pull_requests": "write",
+          "statuses": "read",
+          "workflows": "write"
+        },
+        "events": [
+          "check_run",
+          "check_suite",
+          "commit_comment",
+          "issues",
+          "issue_comment",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "pull_request_review_thread",
+          "repository",
+          "status",
+          "sub_issues"
+        ]
+      },
+      "minimized": null
+    },
+    {
+      "url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/comments/5715323149",
+      "html_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5715323149",
+      "issue_url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/240",
+      "id": 5715323149,
+      "node_id": "IC_kwDOTx_cyM8AAAABVKjpDQ",
+      "user": {
+        "login": "awdawmip",
+        "id": 30957095,
+        "node_id": "MDQ6VXNlcjMwOTU3MDk1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/30957095?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/awdawmip",
+        "html_url": "https://github.com/awdawmip",
+        "followers_url": "https://api.github.com/users/awdawmip/followers",
+        "following_url": "https://api.github.com/users/awdawmip/following{/other_user}",
+        "gists_url": "https://api.github.com/users/awdawmip/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/awdawmip/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/awdawmip/subscriptions",
+        "organizations_url": "https://api.github.com/users/awdawmip/orgs",
+        "repos_url": "https://api.github.com/users/awdawmip/repos",
+        "events_url": "https://api.github.com/users/awdawmip/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/awdawmip/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "created_at": "2026-09-17T13:39:59Z",
+      "updated_at": "2026-09-17T13:39:59Z",
+      "body": "{\"schema\":\"ENTERPRISE_MATH_SCHEDULER_EVENT_V1\",\"event\":\"CLAIM\",\"task_id\":\"RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND\",\"publication_id\":\"TP2-34B106D2512A298C9647\",\"claim_id\":\"CLM-T6SM-6E0914-20260917T1340Z\",\"actor\":\"EM-DIRECT-6E0914\",\"researcher_id\":\"EM-DIRECT-6E0914\",\"theorem_owner\":\"EM-DIRECT-6E0914\",\"execution_branch\":\"main\",\"execution_branch_base\":\"87a16bbe18dcc26ac335a1994a67e813d3afc15f\",\"allowed_outputs\":[\"research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_6E0914_20260917/\",\"research_returns/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND_6E0914_20260917.md\",\"research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/\"],\"lease_minutes\":180}",
+      "author_association": "OWNER",
+      "pin": null,
+      "reactions": {
+        "url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/comments/5715323149/reactions",
+        "total_count": 0,
+        "+1": 0,
+        "-1": 0,
+        "laugh": 0,
+        "hooray": 0,
+        "confused": 0,
+        "heart": 0,
+        "rocket": 0,
+        "eyes": 0
+      },
+      "performed_via_github_app": {
+        "id": 1144995,
+        "client_id": "Iv23liVemv8A9if9v0F2",
+        "slug": "chatgpt-codex-connector",
+        "node_id": "A_kwHOAOQ6Gs4AEXij",
+        "owner": {
+          "login": "openai",
+          "id": 14957082,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjE0OTU3MDgy",
+          "avatar_url": "https://avatars.githubusercontent.com/u/14957082?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/openai",
+          "html_url": "https://github.com/openai",
+          "followers_url": "https://api.github.com/users/openai/followers",
+          "following_url": "https://api.github.com/users/openai/following{/other_user}",
+          "gists_url": "https://api.github.com/users/openai/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/openai/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/openai/subscriptions",
+          "organizations_url": "https://api.github.com/users/openai/orgs",
+          "repos_url": "https://api.github.com/users/openai/repos",
+          "events_url": "https://api.github.com/users/openai/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/openai/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "ChatGPT Codex Connector",
+        "description": "Bring ChatGPT and Codex to your GitHub repositories.",
+        "external_url": "https://www.chatgpt.com",
+        "html_url": "https://github.com/apps/chatgpt-codex-connector",
+        "created_at": "2025-02-14T01:37:05Z",
+        "updated_at": "2026-09-23T18:52:59Z",
+        "permissions": {
+          "actions": "write",
+          "checks": "read",
+          "contents": "write",
+          "emails": "read",
+          "issues": "write",
+          "metadata": "read",
+          "pull_requests": "write",
+          "statuses": "read",
+          "workflows": "write"
+        },
+        "events": [
+          "check_run",
+          "check_suite",
+          "commit_comment",
+          "issues",
+          "issue_comment",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "pull_request_review_thread",
+          "repository",
+          "status",
+          "sub_issues"
+        ]
+      },
+      "minimized": null
+    },
+    {
+      "url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/comments/5744808484",
+      "html_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5744808484",
+      "issue_url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/240",
+      "id": 5744808484,
+      "node_id": "IC_kwDOTx_cyM8AAAABVmrSJA",
+      "user": {
+        "login": "awdawmip",
+        "id": 30957095,
+        "node_id": "MDQ6VXNlcjMwOTU3MDk1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/30957095?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/awdawmip",
+        "html_url": "https://github.com/awdawmip",
+        "followers_url": "https://api.github.com/users/awdawmip/followers",
+        "following_url": "https://api.github.com/users/awdawmip/following{/other_user}",
+        "gists_url": "https://api.github.com/users/awdawmip/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/awdawmip/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/awdawmip/subscriptions",
+        "organizations_url": "https://api.github.com/users/awdawmip/orgs",
+        "repos_url": "https://api.github.com/users/awdawmip/repos",
+        "events_url": "https://api.github.com/users/awdawmip/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/awdawmip/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "created_at": "2026-09-19T19:45:53Z",
+      "updated_at": "2026-09-19T19:45:53Z",
+      "body": "{\n  \"schema\": \"ENTERPRISE_MATH_SCHEDULER_EVENT_V1\",\n  \"event\": \"CLAIM\",\n  \"task_id\": \"RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND\",\n  \"publication_id\": \"TP2-34B106D2512A298C9647\",\n  \"claim_id\": \"t6sm-exact-solver-01a079fc-20260920\",\n  \"researcher_id\": \"EM-T6SM-B134BD\",\n  \"actor\": \"EM-T6SM-B134BD\",\n  \"session_id\": \"01a079fc-5f7a-7ec2-9f67-c8a0da70cb4d:/root/exact_solver\",\n  \"activity_id\": \"RA-T6SM-B134BD-20260920\",\n  \"execution_record_id\": \"ER-120BCED768F86DA406CC\",\n  \"theorem_owner\": \"T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND\",\n  \"execution_branch\": \"research/t6sm-p19-order9-01a079fc-20260920\",\n  \"execution_branch_base\": \"fdd604f4686649f1374aa2b9568f05867d6f5bee\",\n  \"allowed_outputs\": [\n    \"research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/\"\n  ],\n  \"taskbook_blob_sha1\": \"sha1:87b3a6f38e9350f7a3f56624b27bff2a7778a439\",\n  \"lease_minutes\": 90\n}",
+      "author_association": "OWNER",
+      "pin": null,
+      "reactions": {
+        "url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/comments/5744808484/reactions",
+        "total_count": 0,
+        "+1": 0,
+        "-1": 0,
+        "laugh": 0,
+        "hooray": 0,
+        "confused": 0,
+        "heart": 0,
+        "rocket": 0,
+        "eyes": 0
+      },
+      "performed_via_github_app": {
+        "id": 1144995,
+        "client_id": "Iv23liVemv8A9if9v0F2",
+        "slug": "chatgpt-codex-connector",
+        "node_id": "A_kwHOAOQ6Gs4AEXij",
+        "owner": {
+          "login": "openai",
+          "id": 14957082,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjE0OTU3MDgy",
+          "avatar_url": "https://avatars.githubusercontent.com/u/14957082?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/openai",
+          "html_url": "https://github.com/openai",
+          "followers_url": "https://api.github.com/users/openai/followers",
+          "following_url": "https://api.github.com/users/openai/following{/other_user}",
+          "gists_url": "https://api.github.com/users/openai/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/openai/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/openai/subscriptions",
+          "organizations_url": "https://api.github.com/users/openai/orgs",
+          "repos_url": "https://api.github.com/users/openai/repos",
+          "events_url": "https://api.github.com/users/openai/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/openai/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "ChatGPT Codex Connector",
+        "description": "Bring ChatGPT and Codex to your GitHub repositories.",
+        "external_url": "https://www.chatgpt.com",
+        "html_url": "https://github.com/apps/chatgpt-codex-connector",
+        "created_at": "2025-02-14T01:37:05Z",
+        "updated_at": "2026-09-23T18:52:59Z",
+        "permissions": {
+          "actions": "write",
+          "checks": "read",
+          "contents": "write",
+          "emails": "read",
+          "issues": "write",
+          "metadata": "read",
+          "pull_requests": "write",
+          "statuses": "read",
+          "workflows": "write"
+        },
+        "events": [
+          "check_run",
+          "check_suite",
+          "commit_comment",
+          "issues",
+          "issue_comment",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "pull_request_review_thread",
+          "repository",
+          "status",
+          "sub_issues"
+        ]
+      },
+      "minimized": null
+    },
+    {
+      "url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/comments/5745200026",
+      "html_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-5745200026",
+      "issue_url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/240",
+      "id": 5745200026,
+      "node_id": "IC_kwDOTx_cyM8AAAABVnDLmg",
+      "user": {
+        "login": "awdawmip",
+        "id": 30957095,
+        "node_id": "MDQ6VXNlcjMwOTU3MDk1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/30957095?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/awdawmip",
+        "html_url": "https://github.com/awdawmip",
+        "followers_url": "https://api.github.com/users/awdawmip/followers",
+        "following_url": "https://api.github.com/users/awdawmip/following{/other_user}",
+        "gists_url": "https://api.github.com/users/awdawmip/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/awdawmip/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/awdawmip/subscriptions",
+        "organizations_url": "https://api.github.com/users/awdawmip/orgs",
+        "repos_url": "https://api.github.com/users/awdawmip/repos",
+        "events_url": "https://api.github.com/users/awdawmip/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/awdawmip/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "created_at": "2026-09-19T20:49:34Z",
+      "updated_at": "2026-09-19T20:49:34Z",
+      "body": "{\n  \"schema\": \"ENTERPRISE_MATH_SCHEDULER_EVENT_V1\",\n  \"event\": \"HANDOFF\",\n  \"task_id\": \"RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND\",\n  \"publication_id\": \"TP2-34B106D2512A298C9647\",\n  \"claim_id\": \"t6sm-exact-solver-01a079fc-20260920\",\n  \"researcher_id\": \"EM-T6SM-B134BD\",\n  \"actor\": \"EM-T6SM-B134BD\",\n  \"result_id\": \"RR-C428294CF760BD8D99AA\",\n  \"terminal_scope\": \"RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW\",\n  \"handoff_scope\": \"FROZEN_RETURN_AWAITING_DRIVER_REVIEW\",\n  \"progress_ref\": \"https://github.com/awdawmip/enterprise-math/blob/259cdd62c65f2a24d1dac8521494dd158ad71313/research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/RR-C428294CF760BD8D99AA.json\",\n  \"next_action\": \"Existing T6 line Driver independently reviews RR-C428294CF760BD8D99AA: p19 orders9-12 cleared and old(3,6) independently verified; with frozen0-8, p19 excluded; p17 q0 static certificate also clears. Global T6 remains OPEN. Then continue SAME Task at maximal p17 vertical order1, using exact multi-candidate affine enumeration or a proved stronger reduction; the current p19 unique-nearest-plane sufficient gate fails there. Preserve original missing builder provenance and use first-published actual Result blob62e50de0541fcb25492cffd9354afa8d3a3cda52 for review binding; postpublication byte audit at16b0e37ff939f9324ba778d23d952490980d3f6e.\"\n}",
+      "author_association": "OWNER",
+      "pin": null,
+      "reactions": {
+        "url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/comments/5745200026/reactions",
+        "total_count": 0,
+        "+1": 0,
+        "-1": 0,
+        "laugh": 0,
+        "hooray": 0,
+        "confused": 0,
+        "heart": 0,
+        "rocket": 0,
+        "eyes": 0
+      },
+      "performed_via_github_app": {
+        "id": 1144995,
+        "client_id": "Iv23liVemv8A9if9v0F2",
+        "slug": "chatgpt-codex-connector",
+        "node_id": "A_kwHOAOQ6Gs4AEXij",
+        "owner": {
+          "login": "openai",
+          "id": 14957082,
+          "node_id": "MDEyOk9yZ2FuaXphdGlvbjE0OTU3MDgy",
+          "avatar_url": "https://avatars.githubusercontent.com/u/14957082?v=4",
+          "gravatar_id": "",
+          "url": "https://api.github.com/users/openai",
+          "html_url": "https://github.com/openai",
+          "followers_url": "https://api.github.com/users/openai/followers",
+          "following_url": "https://api.github.com/users/openai/following{/other_user}",
+          "gists_url": "https://api.github.com/users/openai/gists{/gist_id}",
+          "starred_url": "https://api.github.com/users/openai/starred{/owner}{/repo}",
+          "subscriptions_url": "https://api.github.com/users/openai/subscriptions",
+          "organizations_url": "https://api.github.com/users/openai/orgs",
+          "repos_url": "https://api.github.com/users/openai/repos",
+          "events_url": "https://api.github.com/users/openai/events{/privacy}",
+          "received_events_url": "https://api.github.com/users/openai/received_events",
+          "type": "Organization",
+          "user_view_type": "public",
+          "site_admin": false
+        },
+        "name": "ChatGPT Codex Connector",
+        "description": "Bring ChatGPT and Codex to your GitHub repositories.",
+        "external_url": "https://www.chatgpt.com",
+        "html_url": "https://github.com/apps/chatgpt-codex-connector",
+        "created_at": "2025-02-14T01:37:05Z",
+        "updated_at": "2026-09-23T18:52:59Z",
+        "permissions": {
+          "actions": "write",
+          "checks": "read",
+          "contents": "write",
+          "emails": "read",
+          "issues": "write",
+          "metadata": "read",
+          "pull_requests": "write",
+          "statuses": "read",
+          "workflows": "write"
+        },
+        "events": [
+          "check_run",
+          "check_suite",
+          "commit_comment",
+          "issues",
+          "issue_comment",
+          "pull_request",
+          "pull_request_review",
+          "pull_request_review_comment",
+          "pull_request_review_thread",
+          "repository",
+          "status",
+          "sub_issues"
+        ]
+      },
+      "minimized": null
+    },
+    {
+      "url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/comments/6204642392",
+      "html_url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6204642392",
+      "issue_url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/240",
+      "id": 6204642392,
+      "node_id": "IC_kwDOTx_cyM8AAAABcdNUWA",
+      "user": {
+        "login": "awdawmip",
+        "id": 30957095,
+        "node_id": "MDQ6VXNlcjMwOTU3MDk1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/30957095?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/awdawmip",
+        "html_url": "https://github.com/awdawmip",
+        "followers_url": "https://api.github.com/users/awdawmip/followers",
+        "following_url": "https://api.github.com/users/awdawmip/following{/other_user}",
+        "gists_url": "https://api.github.com/users/awdawmip/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/awdawmip/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/awdawmip/subscriptions",
+        "organizations_url": "https://api.github.com/users/awdawmip/orgs",
+        "repos_url": "https://api.github.com/users/awdawmip/repos",
+        "events_url": "https://api.github.com/users/awdawmip/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/awdawmip/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "created_at": "2026-10-15T23:45:51Z",
+      "updated_at": "2026-10-15T23:45:51Z",
+      "author_association": "OWNER",
+      "body": "{\"allowed_outputs\":[\"research_artifacts/mcp/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/MCP-45e25848f80945b899ca8ea285c13f07/\"],\"claim_id\":\"MCP-4e81ef90c2578a2342de3e8f\",\"continuation\":{\"expected_previous_claim_id\":\"t6sm-exact-solver-01a079fc-20260920\",\"expected_previous_comment_id\":5744808484,\"frontier\":{\"artifacts\":[{\"git_blob_sha1\":\"62e50de0541fcb25492cffd9354afa8d3a3cda52\",\"path\":\"research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/RR-C428294CF760BD8D99AA.json\",\"repository\":\"awdawmip/enterprise-math\",\"sha256\":\"4d2ebdb11a15bdc1a52a3baca99e8045188bc206414cb3e61b22153171359976\",\"source_commit\":\"259cdd62c65f2a24d1dac8521494dd158ad71313\"}],\"completed_units\":[\"Preserve immutable RR-C428294CF760BD8D99AA as NEGATIVE_BOUNDARY / PARTIAL_PROGRESS_GLOBAL_T6_OPEN_P19_AND_P17_Q0_EXCLUDED, with nonterminal DR-0D8591E64A4073A61E6A. The old p19 census retains author-evidence strength and the p17 q0 static reconstruction retains its bounded review scope; no new whole-campaign independent acceptance is asserted.\",\"Consume the accepted q1-q4 Source references at their exact scopes from genuine Driver F73673 direction Source8b51f7fec9f92a8398a56f595aeadc75fdb3a34d: q1 RR-81586AD70E1CEA1B7140/DR-A550BA4AE2C2C51AA899 has12EMPTY+4OUTSIDE, q2 RR-AD107A4A930BFF07FAB9/DR-B02CEB5F5E99A5D947AE has272specified literal systems, q3 RR-9E4EA0B85D8DB82A3607/DR-9766FCC689761D44EF3F has3264current-Gen2 systems, q4 RR-FC5B70D043CE518DAD0B/DR-8C4DDD770323FD58FC52 has30992specified systems and actual finite Task DONE. These are preserved prior results, not new work by this actor.\"],\"contributor_ids\":[\"EM-T6SM-B134BD\"],\"current_unfinished_unit\":\"The existing Global Task and OPEN Goal OG-F252ABC3F5BB7B9499E7 remain unresolved. The one delegated new unit is the complete admissible maximal-p17 cancellation-normalized q14(split7,7) side-roster/disjoint-pair count/cost preflight under b866fa935b62df35c6be65560c5aeebb0f64b1e958c84c34e469d5faf8735d24. No roster, N, q14 code or affine result exists yet. Orders5..13, lower maximal-prime/H0 completion and the global alternative remain open.\",\"do_not_repeat\":[\"Do not rerun accepted p19/q0/q1/q2/q3/q4 campaigns, their old producers/checkers or accepted censuses; retain each prior author/review strength.\",\"Preserve full integer/composite atom identities, multiplicities, signs, both side budgets, all mixed congruences, H0 and lower-prime completion obligations. The finite q14 unit does not replace the Global hard target.\",\"Reuse only complete portable R1 common kernel/weights/exact GS/mu; no old R1 targets/particular/centers/budgets/radius as q14 case data.\",\"Keep all CONTROL, Native quota, code CI and U2 wrapping/policy/lease history, directed NONBLIND exposure, all prior Source authors and UNKNOWN helper roles. Plan contributors F73673 and PARITYREV-12B648 are excluded from independent decisive review of their new plan/result.\",\"No affine representative/feasibility or old scientific execution during this preflight. Never label unvisited/interrupted cases EMPTY or claim whole-Task SATISFIED/global closure from q14.\"],\"next_action\":\"After this actor own genuine winning claim/open and full current authority/source verification, construct and perform the single bounded complete-roster/count preflight:120seconds,1GiB,serial1. Freeze exact atom factors, multiplicities, canonical full roster/pair specification, independently checked disjoint-support count/order/digest, code/resource logs and truthful partial boundary if stopped. Affine remains NO_AFFINE_START until COMPLETE preflight, all actual code/codec/input/output/Source/upload/live-memory budgets, immutable Source full readback and genuine nonauthor preparation review pass.\",\"source_commit\":\"54161fa3c83b040842ac1dc962947e1f70db325f\"},\"mode\":\"RESUME\",\"previous_researcher_id\":\"EM-T6SM-B134BD\",\"reason\":\"Resume the canonically released existing Global Task with new own Researcher EM-T6-BFF294/SID MCP-45e25848f80945b899ca8ea285c13f07/RA-401CE79523D3F9699C79CD5C. Preserve exact predecessor CLAIM/comment CAS and original RR bytes, rather than borrow the old identity or reset its frontier. Driver F73673 b866 final delegation and PARITYREV paper/MF1 contribution are retained, alongside Root EM-DVR-FBF223, 4CF, Fair and all inherited/UNKNOWN Source authors. This actual actor previously performed CONTROL_QUOTA/code CI and U2 packaging/policy/lease support; NONBLIND shared-source history is retained, no clean or independent-own-result claim. Preparation grants no claim/open or scientific authority.\",\"schema\":\"ENTERPRISE_MATH_CLAIM_CONTINUATION_V1\",\"session_id\":\"MCP-45e25848f80945b899ca8ea285c13f07\"},\"event\":\"CLAIM\",\"execution_branch\":\"main\",\"execution_branch_base\":\"54161fa3c83b040842ac1dc962947e1f70db325f\",\"executor_role\":\"RESEARCHER\",\"lease_minutes\":120,\"publication_id\":\"TP2-34B106D2512A298C9647\",\"researcher_id\":\"EM-T6-BFF294\",\"schema\":\"ENTERPRISE_MATH_SCHEDULER_EVENT_V1\",\"session_id\":\"MCP-45e25848f80945b899ca8ea285c13f07\",\"task_id\":\"RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND\",\"theorem_owner\":\"T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND\"}",
+      "reactions": {
+        "url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/comments/6204642392/reactions",
+        "total_count": 0,
+        "+1": 0,
+        "-1": 0,
+        "laugh": 0,
+        "hooray": 0,
+        "confused": 0,
+        "heart": 0,
+        "rocket": 0,
+        "eyes": 0
+      },
+      "performed_via_github_app": null,
+      "minimized": null,
+      "pin": null
+    }
+  ],
+  "execution_intents": [
+    {
+      "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+      "record_state": "CLAIM_INTENT",
+      "execution_record_id": "ER-120BCED768F86DA406CC",
+      "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+      "publication_id": "TP2-34B106D2512A298C9647",
+      "taskbook_path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+      "taskbook_blob_sha1": "sha1:87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+      "claim_id": "t6sm-exact-solver-01a079fc-20260920",
+      "researcher_id": "EM-T6SM-B134BD",
+      "theorem_owner": "T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND",
+      "execution_branch": "research/t6sm-p19-order9-01a079fc-20260920",
+      "execution_branch_base": "fdd604f4686649f1374aa2b9568f05867d6f5bee",
+      "allowed_outputs": [
+        "research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/"
+      ],
+      "owner_lease_minutes": 90,
+      "prepared_at": "2026-09-19T19:44:28.967123+00:00"
+    },
+    {
+      "allowed_outputs": [
+        "research_artifacts/mcp/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/MCP-45e25848f80945b899ca8ea285c13f07/"
+      ],
+      "claim_id": "MCP-4e81ef90c2578a2342de3e8f",
+      "continuation": {
+        "expected_previous_claim_id": "t6sm-exact-solver-01a079fc-20260920",
+        "expected_previous_comment_id": 5744808484,
+        "frontier": {
+          "artifacts": [
+            {
+              "git_blob_sha1": "62e50de0541fcb25492cffd9354afa8d3a3cda52",
+              "path": "research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/RR-C428294CF760BD8D99AA.json",
+              "repository": "awdawmip/enterprise-math",
+              "sha256": "4d2ebdb11a15bdc1a52a3baca99e8045188bc206414cb3e61b22153171359976",
+              "source_commit": "259cdd62c65f2a24d1dac8521494dd158ad71313"
+            }
+          ],
+          "completed_units": [
+            "Preserve immutable RR-C428294CF760BD8D99AA as NEGATIVE_BOUNDARY / PARTIAL_PROGRESS_GLOBAL_T6_OPEN_P19_AND_P17_Q0_EXCLUDED, with nonterminal DR-0D8591E64A4073A61E6A. The old p19 census retains author-evidence strength and the p17 q0 static reconstruction retains its bounded review scope; no new whole-campaign independent acceptance is asserted.",
+            "Consume the accepted q1-q4 Source references at their exact scopes from genuine Driver F73673 direction Source8b51f7fec9f92a8398a56f595aeadc75fdb3a34d: q1 RR-81586AD70E1CEA1B7140/DR-A550BA4AE2C2C51AA899 has12EMPTY+4OUTSIDE, q2 RR-AD107A4A930BFF07FAB9/DR-B02CEB5F5E99A5D947AE has272specified literal systems, q3 RR-9E4EA0B85D8DB82A3607/DR-9766FCC689761D44EF3F has3264current-Gen2 systems, q4 RR-FC5B70D043CE518DAD0B/DR-8C4DDD770323FD58FC52 has30992specified systems and actual finite Task DONE. These are preserved prior results, not new work by this actor."
+          ],
+          "contributor_ids": [
+            "EM-T6SM-B134BD"
+          ],
+          "current_unfinished_unit": "The existing Global Task and OPEN Goal OG-F252ABC3F5BB7B9499E7 remain unresolved. The one delegated new unit is the complete admissible maximal-p17 cancellation-normalized q14(split7,7) side-roster/disjoint-pair count/cost preflight under b866fa935b62df35c6be65560c5aeebb0f64b1e958c84c34e469d5faf8735d24. No roster, N, q14 code or affine result exists yet. Orders5..13, lower maximal-prime/H0 completion and the global alternative remain open.",
+          "do_not_repeat": [
+            "Do not rerun accepted p19/q0/q1/q2/q3/q4 campaigns, their old producers/checkers or accepted censuses; retain each prior author/review strength.",
+            "Preserve full integer/composite atom identities, multiplicities, signs, both side budgets, all mixed congruences, H0 and lower-prime completion obligations. The finite q14 unit does not replace the Global hard target.",
+            "Reuse only complete portable R1 common kernel/weights/exact GS/mu; no old R1 targets/particular/centers/budgets/radius as q14 case data.",
+            "Keep all CONTROL, Native quota, code CI and U2 wrapping/policy/lease history, directed NONBLIND exposure, all prior Source authors and UNKNOWN helper roles. Plan contributors F73673 and PARITYREV-12B648 are excluded from independent decisive review of their new plan/result.",
+            "No affine representative/feasibility or old scientific execution during this preflight. Never label unvisited/interrupted cases EMPTY or claim whole-Task SATISFIED/global closure from q14."
+          ],
+          "next_action": "After this actor own genuine winning claim/open and full current authority/source verification, construct and perform the single bounded complete-roster/count preflight:120seconds,1GiB,serial1. Freeze exact atom factors, multiplicities, canonical full roster/pair specification, independently checked disjoint-support count/order/digest, code/resource logs and truthful partial boundary if stopped. Affine remains NO_AFFINE_START until COMPLETE preflight, all actual code/codec/input/output/Source/upload/live-memory budgets, immutable Source full readback and genuine nonauthor preparation review pass.",
+          "source_commit": "54161fa3c83b040842ac1dc962947e1f70db325f"
+        },
+        "mode": "RESUME",
+        "previous_researcher_id": "EM-T6SM-B134BD",
+        "reason": "Resume the canonically released existing Global Task with new own Researcher EM-T6-BFF294/SID MCP-45e25848f80945b899ca8ea285c13f07/RA-401CE79523D3F9699C79CD5C. Preserve exact predecessor CLAIM/comment CAS and original RR bytes, rather than borrow the old identity or reset its frontier. Driver F73673 b866 final delegation and PARITYREV paper/MF1 contribution are retained, alongside Root EM-DVR-FBF223, 4CF, Fair and all inherited/UNKNOWN Source authors. This actual actor previously performed CONTROL_QUOTA/code CI and U2 packaging/policy/lease support; NONBLIND shared-source history is retained, no clean or independent-own-result claim. Preparation grants no claim/open or scientific authority.",
+        "schema": "ENTERPRISE_MATH_CLAIM_CONTINUATION_V1",
+        "session_id": "MCP-45e25848f80945b899ca8ea285c13f07"
+      },
+      "execution_branch": "main",
+      "execution_branch_base": "54161fa3c83b040842ac1dc962947e1f70db325f",
+      "execution_record_id": "ER-D44E77F91EE7C4ED2B81",
+      "executor_role": "RESEARCHER",
+      "owner_lease_minutes": 120,
+      "prepared_at": "2026-10-15T23:36:38.273699+00:00",
+      "publication_id": "TP2-34B106D2512A298C9647",
+      "record_schema": "ENTERPRISE_MATH_RESEARCH_EXECUTION_RECORD_V1",
+      "record_state": "CLAIM_INTENT",
+      "researcher_id": "EM-T6-BFF294",
+      "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+      "taskbook_blob_sha1": "sha1:87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+      "taskbook_path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+      "theorem_owner": "T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND",
+      "theorem_owner_source": "PREDECESSOR_EXECUTION_BINDING"
+    }
+  ],
+  "actual_native_task_state": {
+    "actor": null,
+    "claim_id": null,
+    "dispatch_state": "NEEDS_DISPATCH",
+    "driver_disposition": "RETURN_TO_OWNER",
+    "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+    "frontier": "Exact T1=6, T2=20, T3=105, T4=301, T5=941 are closed. A degree-6 L=360 witness gives T6<=2332 and the whole L=360 degree-6 integer kernel has minimum max-side mass 2332. All maximal prime factors p>=29 and the entire maximal-p=23 layer are eliminated below 2332. For maximal p=19, global vertical orders 0 through 8 are eliminated. The smallest unfinished mathematical unit is p=19 vertical order 9, split (3,6) and (4,5), followed by orders 10-12 if order 9 is empty.",
+    "handoff_scope": "FROZEN_RETURN_AWAITING_DRIVER_REVIEW",
+    "hard_block": "MAXIMAL_P19_VERTICAL_ORDERS_9_12_THEN_LOWER_PRIME_DESCENT",
+    "identity_lane": "T6SM",
+    "identity_source": null,
+    "ignored_events": [
+      {
+        "index": 4,
+        "reason": "RESUME requires a released or expired predecessor claim"
+      }
+    ],
+    "kind": "RESEARCH",
+    "last_claim_comment_id": 5744808484,
+    "last_claim_id": "t6sm-exact-solver-01a079fc-20260920",
+    "last_owner_activity_at": "2026-09-19T19:45:53+00:00",
+    "last_progress_at": "2026-09-19T20:49:34+00:00",
+    "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/259cdd62c65f2a24d1dac8521494dd158ad71313/research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/RR-C428294CF760BD8D99AA.json",
+    "last_researcher_id": "EM-T6SM-B134BD",
+    "last_server_author_login": "awdawmip",
+    "last_server_comment_id": 6204642392,
+    "lease_until": null,
+    "leverage": "HIGH",
+    "next_action": "Resume task under Driver disposition",
+    "owner": "taskbook/unassigned",
+    "ownership_epoch": 5744808484,
+    "priority": "P0",
+    "publication_id": "TP2-34B106D2512A298C9647",
+    "registration_source": "IMMUTABLE_TASK_RECORD",
+    "researcher_id": null,
+    "result_id": "RR-C428294CF760BD8D99AA",
+    "result_record_path": "research_result_records/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/RR-C428294CF760BD8D99AA.json",
+    "session_id": "01a079fc-5f7a-7ec2-9f67-c8a0da70cb4d:/root/exact_solver",
+    "source_refs": [
+      "https://github.com/awdawmip/chatgpt-global-knowledge/commit/ec3ab6f84c9cb0d2dc48dcec7c5d3980f98df910",
+      "https://github.com/awdawmip/chatgpt-global-knowledge/commit/7b2115cc09517be5f26fbf5e1739742cd9119154",
+      "https://github.com/awdawmip/chatgpt-global-knowledge/commit/047b47aedbd129d5fb2c2a0af136704f5d802592",
+      "https://github.com/awdawmip/chatgpt-global-knowledge/commit/ba91e9b844886f3f9581392ae4f4c80409adf327",
+      "https://github.com/awdawmip/chatgpt-global-knowledge/commit/5fb0a1695269ee914e5620e03439333a1a70ec91",
+      "https://github.com/awdawmip/chatgpt-global-knowledge/commit/8cdc2272e4d75859002686222dc81d3974a26b1c",
+      "research_artifacts/T6_SHAPE_MOMENT_PERSISTENT_LINE_DRIVER_20260909/dossier.md"
+    ],
+    "state": "HANDOFF_READY",
+    "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+    "terminal_scope": "RESEARCH_RETURN_FROZEN_AWAITING_DRIVER_REVIEW",
+    "title": "T6 Exact Shape-Moment Threshold: Global Lower-Bound Closure"
+  },
+  "actual_failed_claim": {
+    "created": 1792107863,
+    "error": "CANONICAL_REJECTED: registered execution requires a current winning live Issue #240 CLAIM",
+    "formal_task_created": false,
+    "operation": "claim",
+    "receipt": {
+      "claim_comment_id": 6204642392,
+      "claim_id": "MCP-4e81ef90c2578a2342de3e8f",
+      "execution_started": false,
+      "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND"
+    },
+    "request_id": "t6-global-own-claim-20261015-01",
+    "status": "FAILED",
+    "updated": 1792108039
+  }
+}

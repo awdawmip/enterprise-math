@@ -358,6 +358,8 @@ def _route(state: Mapping[str, Any], *, result_available: bool | None = None) ->
             role, action = "CONTROL_PLANE_MAINTENANCE", "LEGACY_BRANCH_RESULT_INTAKE_REQUIRED"
         else:
             role, action = "RESEARCH_DRIVER", "ACTIVATE_NEW_DRIVER_AND_REVIEW_FROZEN_RESULT"
+    elif dispatch == "AWAITING_TASK_CONTROL_CONTINUATION":
+        role, action = "RESEARCH_DRIVER", "RESOLVE_ACCEPTED_RESULT_TASK_OBLIGATIONS"
     elif dispatch == "LEASED":
         role, action = "RESEARCHER", "VERIFY_LIVENESS_THEN_PREPARE_EXPLICIT_TAKEOVER"
     elif dispatch == "NEEDS_DISPATCH":
