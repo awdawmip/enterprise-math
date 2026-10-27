@@ -1,0 +1,51 @@
+{
+  "status": "PREFIX287_BRC_BINARY_ISOMETRY_EXACT_PASS",
+  "arithmetic": "Gaussian BigInt; four ordered BRC source pairs per Port-bin",
+  "source_packets": 1024,
+  "phase_settings": 4,
+  "exact_brc_mass_readouts": 32768,
+  "exact_mass_checks": 4096,
+  "exact_full_inner_product_isometry_checks": 4096,
+  "distinct_signatures": 814,
+  "singular_signatures": 110,
+  "ambiguous_signatures": 66,
+  "optimal_binary_discriminator_checks": 66,
+  "total_variation_equalities": 66,
+  "phase_zero_indistinguishable_pairs": 11,
+  "binary_event": [
+    "(+,1)",
+    "(-,2)"
+  ],
+  "witness": {
+    "a": "(1,i,1)",
+    "b": "(1,-i,1)",
+    "p": 1,
+    "raw_a": [
+      "1",
+      "0",
+      "4",
+      "1",
+      "1",
+      "4",
+      "0",
+      "1"
+    ],
+    "raw_b": [
+      "1",
+      "4",
+      "0",
+      "1",
+      "1",
+      "0",
+      "4",
+      "1"
+    ],
+    "mass_denominator": "12",
+    "event_E": [
+      "0",
+      "2/3"
+    ],
+    "port_totals": "1/2 each"
+  },
+  "scope": "formal C4 BRC; native H_n detector pending"
+}
