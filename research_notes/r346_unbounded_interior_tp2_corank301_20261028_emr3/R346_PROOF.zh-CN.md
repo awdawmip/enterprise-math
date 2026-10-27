@@ -1,88 +1,93 @@
-# R346｜BRC Newton 内区 TP₂ 第301条无界差分带：完整精确整数证书
+# R346｜BRC Newton 内区 TP₂：第301条无界差分带的精确证书
 
-日期：2026-10-28（Asia/Shanghai）。研究状态：AUTHOR_SIDE_EXACT / R330_CONDITIONAL / DRIVER_UNREVIEWED / NOT_ADMITTED。
-固定知识读取：`awdawmip/chatgpt-global-knowledge main@0e5f9a101ea9ad5e9538ed90af71323400ba2180`；项目当前源读取：`awdawmip/enterprise-math@6cd52f7b1794a4a5a8d4585dc6f6fcf561eefc19`；复用 R345 不可变数学前沿 `5e043110d76e7a61fa561cc4776ea16870439a15`。
+日期：2026-10-28（Asia/Shanghai）。
+状态：**AUTHOR_SIDE_EXACT / CONDITIONAL_ON_R330 / DRIVER_UNREVIEWED / NOT_ADMITTED**。
 
-## 对象、范围与语义
+账户规则读取：`awdawmip/chatgpt-global-knowledge main@0e5f9a101ea9ad5e9538ed90af71323400ba2180`；项目基准读取：`awdawmip/enterprise-math@6cd52f7b1794a4a5a8d4585dc6f6fcf561eefc19`；沿用 R345 作者侧前沿：`5e043110d76e7a61fa561cc4776ea16870439a15`。
 
-本研究对象为 R345 原始**十二项有符号 K/J 递推的有序六边 BRC 辅助组合模型**，初始条件 `B_0(t)=1+t`。保留所有所需次数内的有符号高次项。人口为该辅助组合模型的完整标号递推，分支符号与 multiplicity 保留在系数中；观察量为系数抽取和有限差分；未来操作限定为下述整数差分、行列式及 Newton 插值。此一维指标是辅助模型的代数参数，不是独立的原生空间方向；没有建立向 P000 原生 X6 六维 Cell 动力学的对应，不作物理推论。P000、ACTIVE 世界观、联合关系保全规则均保持不变。
+## 1. 数学对象与约束
 
-记
-[
-D_{q,k}=sum_{v=0}^k(-1)^{k-v}inom{k}{v}2^{q-v}[t^q]B_{q+v}(t),quad0le kle q,
-]
-[
+研究对象是 R345 的**完整十二项带符号 K/J 有序六边 BRC 辅助组合递推**，初值 `B_0(t)=1+t`。保留所有本次抽取度数内的正负项。原始分支数量、符号与乘积保留在 K/J 系数；观察范围只包含 BRC 组合系数抽取、整数差分与行列式；允许未来操作是其精确代数延拓。此辅助模型不等于心跳世界原生六维 X6 Cell 动力学；本结论不作 X6 物理归因。P000、ACTIVE 世界观与联合关系保全约束未变动。
+
+定义
+
+\[
+D_{q,k}=\sum_{v=0}^{k}(-1)^{k-v}\binom{k}{v}2^{q-v}[t^q]B_{q+v}(t),\quad 0\le k\le q,
+\]
+
+\[
 M_{q,k}=D_{q,k}D_{q+1,k+1}-D_{q,k+1}D_{q+1,k}.
-]
+\]
 
-**明确的尚待独立复核前提（R330）**：对于一切整数 `r,u≥0`，`D_{r+u,u}=5^uH_r(u)`，其中 `H_r∈Q[u]` 且 `deg H_r≤r`。
+**载重前提：** R330 尚待独立复核的全指标命题：对所有整数 `r,u≥0`，`D_{r+u,u}=5^uH_r(u)`，`H_r\in\mathbb Q[u]` 且 `\deg H_r\le r`。
 
-令 `L_r(v)=5^rH_r(v)`，并按 R344/R345 定义
-[
+定义 `L_r(v)=5^rH_r(v)` 与
+
+\[
 Q_r(v)=L_r(v+1)L_r(v+2)-L_{r-1}(v+2)L_{r+1}(v+1).
-]
-直接按 `r=q-k` 代入可得对所有 `k≥1,r≥1`
-[
-M_{r+k,k}=5^{2k+1-2r}Q_r(k-1).
-]
-R330 给出 `deg Q_r≤2r`。故完整系数
-[
-t_{r,i}=Delta^iQ_r(0)quad(0le ile2r)
-]
-的严格正性，借 Newton 恒等式
-[
-Q_r(v)=sum_{i=0}^{2r}t_{r,i}inom vi
-]
-便能证明全部非负整数 `v` 上的严格正性。
+\]
 
-## 新增 R346 证书
+将 `q=r+k` 代入定义，准确得到
 
-从原始十二项 K/J 递推重新计算 `B_s,0≤s≤908`，保留指数 `0…605`；构建 `H_0,…,H_{302}`，各自逐点计算 `u=0,…,r+1`，检验 `Δ^{r+1}H_r(0)=0`、全部 `r+1` 项 Newton 系数正且最高项 `Δ^rH_r(0)=6^r`。这些额外节点是有限核对，不取代 R330 的无限次数定理。
+\[
+M_{r+k,k}=5^{2k+1-2r}Q_r(k-1),\qquad r\ge1,\ k\ge1.
+\]
 
-以全部整数 Newton 系数算出 `Q_{301}(0),…,Q_{301}(602)`，计算完整603项前向差分，**603项全部严格正；零/负项0；精确差分的最小项在 i=0**。
+由 R330 有 `\deg Q_r\le 2r`。令 `t_{r,i}=\Delta^iQ_r(0)`，`0\le i\le2r`，则 Newton 插值给出
 
-新增603项规范行 `301,i,decimal_integer\n` 的 SHA256 为：
+\[
+Q_r(v)=\sum_{i=0}^{2r}t_{r,i}\binom vi,\qquad v\in\mathbb Z_{\ge0}.
+\]
 
-`242f508cdf355e238c7052d3e7bb66b71754d5e474c85e617328210f951c4484`。
+所以对固定 `r` 完整证明所有 `t_{r,i}>0`，便可推出所有 `k\ge1` 的 `M_{r+k,k}>0`。
 
-全部 `r=1…300` 的90,600项旧证书从本次原始递推独立重建，SHA256：
+## 2. 本轮精确证书
 
-`5f897213f1bc399a6f649b7a9bb3932a1d670cbae4eb7baa98a08eee96c9b384`（与R345一致）。
+重新执行原始十二项 K/J 带符号递推，计算 `B_s,0\le s\le908`，保留幂次 `0,\ldots,605`；构造 `H_0,\ldots,H_{302}` 并检查 `\Delta^{r+1}H_r(0)=0`、全部 `H_r` 的 Newton 系数严格正、`\Delta^rH_r(0)=6^r`，其中 `0\le r\le302`。额外节点检查属于有限验证，不代替 R330 全指标引理。
 
-其中 `r=256…300` 的摘要仍为
-`5835f388f9a78bbcde8bff10a4ff5bfa85364794a8658084efb48526d5fbb136`（与R345一致）。
+精确生成 `Q_{301}(0),\ldots,Q_{301}(602)`，求其 **603个完整 Newton 系数**：
 
-全部 `r=1…301` 共 `91,203` 项系数规范序列的SHA256为
-`0890ffe6433ce6a8edbcca77c94fd05e854628ef2ec4ffca7143d413c6cf6515`。
+- 全部603项严格正；0项非正。
+- 全部系数中的最小值在 `i=0`。
+- 603项规范文本 `301,i,decimal_difference\n` 的 SHA256：`242f508cdf355e238c7052d3e7bb66b71754d5e474c85e617328210f951c4484`。
+- 从头重算 `r=1\ldots300` 的旧90,600项，SHA256：`5f897213f1bc399a6f649b7a9bb3932a1d670cbae4eb7baa98a08eee96c9b384`（与R345一致）。
+- 旧 `r=256\ldots300` 摘要：`5835f388f9a78bbcde8bff10a4ff5bfa85364794a8658084efb48526d5fbb136`（与R345一致）。
+- 全部 `r=1\ldots301` 共91,203项 SHA256：`0890ffe6433ce6a8edbcca77c94fd05e854628ef2ec4ffca7143d413c6cf6515`。
 
-最高项另满足
-[
-t_{301,602}=30^{602}operatorname{Cat}_{301}>0,
-quad operatorname{Cat}_{301}=rac1{302}inom{602}{301}.
-]
-最高项恒等式由首项 `Δ^rH_r(0)=6^r` 及最高幂系数比较推得，并与精确计算一致。
+最高阶系数同时满足精确恒等式
 
-## 条件结论与推广
+\[
+t_{301,602}=30^{602}\operatorname{Cat}_{301}
+=\frac{30^{602}}{302}\binom{602}{301}>0.
+\]
 
-继承 R345 的300条差分带，并加入第301条，得到**计算辅助、以 R330 为前提的作者侧结论**
-[
-oxed{M_{q,k}>0,quad kge1,quad1le q-kle301.}
-]
-由于已验证需要的 `H_0…H_{302}` Newton 正性，同一薄楔内 `D` 各元素均正；由相邻TP₂的正比值望远镜公式，得
-[
-oxed{D_{q,k}D_{p,ell}-D_{q,ell}D_{p,k}>0,
-quad1le k<ellle q<p, p-kle302.}
-]
-该结论的无限指标为沿固定余阶差分带的 `k`，不是 `r,k` 同时无界的全二维猜想。
+其推导为 `\Delta^rH_r(0)=6^r` 给出 `L_r` 最高幂系数 `30^r/r!`，在 `Q_r` 中相减得到 Catalan 因子；本轮亦由整数计算复核。
 
-## 精确复验、可移植交接、来源
+## 3. 本轮新增条件定理
 
-本轮本地实际执行程序为 `R346_verify.py`，仅用 Python 整数与 Fraction；机器摘要为 `R346_SUMMARY.json`；完整输出数据在本轮交付材料 `R346_EVIDENCE.json`，其 SHA256 为
-`78cca14b8051fba5295a610bcea78fb890fbeb293baf1f635dd9439213093dba`。
-本轮本地源 SHA256 `b7a0e0be716cef2f5b1c6ec49b87c74084c38d379277ab26fbd9b9e0fab486a4`。复验使用：
-`python R346_verify.py`，运行后比较 `R346_SUMMARY.json` 中的SHA及603项正性。
-源算法源于不可变 R345 GitHub 文件 `research_notes/r345_unbounded_interior_tp2_corank300_20261028_emr3/R345_VERIFY.py`，本轮在同一K/J定义下另写完整重验程序并重算旧90,600项摘要。
+结合 R345 的300条带，基于 R330 载重前提，得到
 
-**接续问题**：计算 `r=302` 时 `H_{303}`、完整 `Q_{302}` 的605项系数；以及优先独立复核 R330 的全指标有理抽取与多项式次数界。出现 Newton 非正项时区别正锥证书失效与实际二阶子式变负。固定审查义务：独立 Driver 审查、数学原生接纳与 X6 桥接均仍待办理。
+\[
+\boxed{M_{q,k}>0,\quad k\ge1,\quad 1\le q-k\le301.}
+\]
 
-**权限记录**：本轮 GitHub 登录 `awdawmip`；原生 `em_control_tasks` 查询返回 `CONTROL_QUOTA`，`em_session_start` 返回 `STATIC_READONLY_SCOPE_DENIED, operation_sent=false`，活跃 Owner 未取得权威确认，未申请或冒领CLAIM/Result。
+依照 R341 的合法矩形比值望远镜及上述域内 `D` 的正性，进一步得
+
+\[
+\boxed{D_{q,k}D_{p,\ell}-D_{q,\ell}D_{p,k}>0,
+\quad1\le k<\ell\le q<p,\quad p-k\le302.}
+\]
+
+“无界”特指每个固定余阶差分带内的 `k` 可无限增长；`r,k` 同时增长的全二维内区 TP₂ 仍为开放目标。
+
+## 4. 复现、精确范围与交接
+
+运行 `python R346_verify.py`。执行仅使用 Python 任意精度整数和 `Fraction`，不使用浮点判断；已执行本地原件 `R346_verify.py` 的 SHA256：
+`b7a0e0be716cef2f5b1c6ec49b87c74084c38d379277ab26fbd9b9e0fab486a4`。
+
+完整本地机器证据 `R346_EVIDENCE.json` SHA256：
+`78cca14b8051fba5295a610bcea78fb890fbeb293baf1f635dd9439213093dba`；存档摘要 `R346_SUMMARY.json`。复用来源 `research_notes/r345_unbounded_interior_tp2_corank300_20261028_emr3/R345_VERIFY.py`（R345 commit：`5e043110d76e7a61fa561cc4776ea16870439a15`）。本轮生成代码独立复现该原始 K/J 约定并重算 R345 历史摘要。
+
+下一独立研究单元：`r=302` 所需 `H_{303}`、`Q_{302}` 共605项完整 Newton 差分；另需独立审查 R330 全指标有理抽取与次数界，尝试证明同时控制 `r,k` 的统一正锥条件。
+
+权限：GitHub 实际登录 `awdawmip`；本轮原生任务读取 `CONTROL_QUOTA`、原生 session 创建 `STATIC_READONLY_SCOPE_DENIED`（`operation_sent=false`）；原生活跃 owner/CLAIM 未获权威确认，无 Source Result 与独立 Driver 接纳。
