@@ -1,0 +1,130 @@
+{
+  "schema": "EM_EC48G_EXACT_VERIFICATION_V1",
+  "date": "2026-10-27",
+  "scientific_status": "AUTHOR_SIDE_PROOF_AND_FINITE_VERIFICATION",
+  "sources": {
+    "global_main": "bb0c0f4538fbc3ea90fc4118ecc8ce88f09f17bc",
+    "enterprise_math_main": "fdbc7b890b4c4f132ab13005ba6db46e6a6fd9e0",
+    "parent_EC48F": "795f9beabbd4fb10c973b3bd2976acaf76064aa4",
+    "activity_id": "RA-EMR4-20261027-0918-EC48G-R11"
+  },
+  "python_run": {
+    "status": "PASS",
+    "implementation": "Python 3 standard library fractions.Fraction",
+    "test_family": "all ternary sign matrices of dimension 3 histories x 3 future labels",
+    "total_sign_templates": 19683,
+    "pivot_qualifying_templates": 108,
+    "verified_exact_policy_evaluations": 1620,
+    "per_template_interpolation_points": [
+      "0",
+      "1/4",
+      "1/2",
+      "3/4",
+      "1"
+    ],
+    "phases": [
+      "absorbed",
+      "incoming",
+      "outgoing"
+    ],
+    "construction": "q0=1+((5h+7y) mod 4); P_raw=q0*(2+sign); Q_raw=2*q0; normalize independently",
+    "checked": [
+      "K_hull state budget",
+      "forced strict bits",
+      "all decoder/encoder probabilities in [0,1]",
+      "exact support",
+      "exact tied-q mass",
+      "explicit 3x2 witness"
+    ]
+  },
+  "independent_javascript_run": {
+    "status": "PASS",
+    "implementation": "Node.js assert and exact integer arithmetic with probabilities scaled by 4",
+    "total_sign_templates": 19683,
+    "pivot_qualifying_templates": 108,
+    "verified_exact_policy_evaluations": 1620,
+    "stdout": "{\"status\":\"PASS\",\"total_templates\":19683,\"qualified_pivot_templates\":108,\"exact_policies_checked\":1620,\"arithmetic\":\"integer\",\"witness\":{\"P\":[[1,3],[1,2],[2,3]],\"Q\":[[1,1],[1,1],[1,1]],\"K_hull\":2,\"K_seed\":2,\"central_r\":\"1\",\"face\":\"alpha-beta=1/6; beta in [1/3,2/3]\"}}"
+  },
+  "rational_witness": {
+    "P_raw": [
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "Q_raw": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "P_sum": 12,
+    "Q_sum": 6,
+    "critical_ratios": [
+      "1/2",
+      "1",
+      "3/2"
+    ],
+    "strict_profile_counts": [
+      1,
+      2,
+      2,
+      1
+    ],
+    "K_hull": 2,
+    "K_seed": 2,
+    "critical_r": "1",
+    "C": [
+      "01"
+    ],
+    "D": [
+      [
+        "00",
+        "01"
+      ],
+      [
+        "01",
+        "11"
+      ]
+    ],
+    "static_EC48F_B": 3,
+    "new_pivot_state_bound": 2,
+    "face_support": "alpha-beta=1/6",
+    "face_beta_interval": [
+      "1/3",
+      "2/3"
+    ],
+    "face_segments": [
+      [
+        "alpha=(3+t)/6",
+        "beta=(2+t)/6"
+      ],
+      [
+        "alpha=(4+t)/6",
+        "beta=(3+t)/6"
+      ]
+    ]
+  },
+  "limitations": [
+    "Exhaustive only over the declared finite 3x3 ternary sign templates and the stated fixed positive weight construction.",
+    "No inference that all |D_r|=2 critical faces admit K_hull memory.",
+    "The general mathematical theorem is backed by the author-side algebraic proof, not by a formal proof assistant.",
+    "No native X6 experiment or transfer claim, formal CLAIM, independent Driver review or Foundation admission."
+  ]
+}
