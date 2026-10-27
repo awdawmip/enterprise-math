@@ -26,7 +26,26 @@ class DgrCorrectedEvidenceFrontierTests(unittest.TestCase):
         head = objectives.current_head(OBJECTIVE_ID, ROOT)
         self.assertIsNotNone(head)
         self.assertEqual("OPEN", head["objective_status"])
-        self.assertEqual("OG-73E5C1A76CFAB901374D", head["objective_generation_id"])
+        self.assertEqual("OG-C8F745A6A1DC4E3A48D2", head["objective_generation_id"])
+
+        # The authenticated same-state successor retains the historical scope.
+        records = ROOT / "research_objective_records" / OBJECTIVE_ID
+        previous = json.loads(
+            (records / "OG-73E5C1A76CFAB901374D.json").read_text(encoding="utf-8")
+        )
+        current = json.loads(
+            (records / "OG-C8F745A6A1DC4E3A48D2.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual("OG-73E5C1A76CFAB901374D", previous["objective_generation_id"])
+        self.assertEqual(head["objective_generation_id"], current["objective_generation_id"])
+        self.assertEqual(previous["objective_generation_id"], current["previous_objective_generation_id"])
+        self.assertEqual(2, current["generation"])
+        for field in (
+            "objective_id", "objective_status", "title", "scope",
+            "success_criteria", "closure_criteria", "research_value",
+        ):
+            with self.subTest(field=field):
+                self.assertEqual(previous[field], current[field])
 
     def test_invalid_corrected_sink_does_not_restore_historical_result(self):
         # The authenticated replacement edge remains valid even when the sink's
