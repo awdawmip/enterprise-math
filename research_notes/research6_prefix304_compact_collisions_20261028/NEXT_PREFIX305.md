@@ -1,0 +1,9 @@
+# PREFIX-305｜自适应BRC相干恢复及扰动稳定性
+
+冻结：GLOBAL_KNOWLEDGE_V1 `e344669d819845d79fccfdd05ce47760d2d527da`；Enterprise Math科学输入 `5b6df67b655ef97a9c25c91b6805c07b833dfabd`；PREFIX299矩阵原件 Git Blob `b6acffe158f014469235f5428d2889ff43b62810`；PREFIX303非自适应Q(i)³六次定理；PREFIX304 `q=1,A5³` 的11对短碰撞证书与S4-6/S7-3联合最少四参考定理。
+
+科学问题1：定义参考选择可以依赖K0和之前读数的完整决策树，分析全Q(i)³上的最坏新增读数数目，取得严格优于六次的自适应构造或真正适用于自适应量词的碰撞历史/下界；既有固定掩码证书不能直接用于自适应。
+
+科学问题2：在基础K0、两外部参考读数各有已知绝对误差及参考相位校准偏移条件下，推导E、C、Rj恢复及三来源反演的可认证误差上界，充分利用PREFIX302的Tj非零及强耦合选Port，区分仪器代数稳定性与原生物理残差。
+
+科学问题3：从真实Source取得已签发model_law_id、合法Detector相干参考门、原生X6测后态和联合来源/时间保真对应；否则维持NATIVE_ATTRIBUTION_PENDING_BRC_REVALIDATION。正式任务Owner/CLAIM仍须当前授权，作者侧保存不等于Result/admission。
