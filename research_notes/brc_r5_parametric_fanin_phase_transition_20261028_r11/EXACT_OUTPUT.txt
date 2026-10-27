@@ -1,0 +1,23 @@
+MODEL alpha=1/10 beta=4/5 Q/P leaf sums=1/1, all 8 leaves positive
+LEAF AU0: Q=1/12, P=3/40, R=9/10
+LEAF AU1: Q=1/12, P=11/120, R=11/10
+LEAF AV0: Q=1/6, P=1/24, R=1/4
+LEAF AV1: Q=1/6, P=1/24, R=1/4
+LEAF BU0: Q=1/8, P=1/40, R=1/5
+LEAF BU1: Q=1/8, P=9/40, R=9/5
+LEAF BV0: Q=1/8, P=1/4, R=2
+LEAF BV1: Q=1/8, P=1/4, R=2
+DESCRIPTIONS full=1444, LR=396; DISTINCT full=1024, LR=388
+LAMBDA (Fraction(20, 1), Fraction(10, 1), Fraction(-2, 1), Fraction(3, 1)): V_full=115/12, V_LR=39/4, gap=1/6
+FULL O=(Fraction(13, 120), Fraction(13, 24), Fraction(11, 4), Fraction(5, 2)), LR O=(Fraction(13, 120), Fraction(13, 24), Fraction(35, 12), Fraction(8, 3))
+FACET (Fraction(1800, 1), Fraction(900, 1), Fraction(-208, 1), Fraction(355, 1)): V_full=998, V_LR=2045/2, gap=49/2
+FACET: 4 distinct LR support points verified exactly
+PARAM a=1/10, b=31/50: full=301/30, LR=121/12, gap=1/20, distinct=(1024,388)
+PARAM a=1/10, b=2/3: full=119/12, LR=121/12, gap=1/6, distinct=(1024,388)
+PARAM a=1/10, b=9/10: full=28/3, LR=19/2, gap=1/6, distinct=(1024,388)
+PARAM a=2/5, b=31/50: full=301/30, LR=121/12, gap=1/20, distinct=(1024,388)
+PARAM a=2/5, b=2/3: full=119/12, LR=121/12, gap=1/6, distinct=(1024,388)
+PARAM a=2/5, b=4/5: full=115/12, LR=39/4, gap=1/6, distinct=(1024,388)
+PARAM a=2/5, b=9/10: full=28/3, LR=19/2, gap=1/6, distinct=(1024,388)
+PARAM a=49/100, b=601/1000: full=12097/1200, LR=121/12, gap=1/400, distinct=(1024,388)
+ALL EXACT CHECKS PASSED
