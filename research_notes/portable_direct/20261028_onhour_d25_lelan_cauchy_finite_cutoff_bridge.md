@@ -29,8 +29,7 @@ For example, the equality between this representation and Le Lan's four generali
 
 $$
 {}_2F_1(1/3,1/6;1;z)\,{}_2F_1(2/3,5/6;1;z)
-=(1-z)^{-1/2},
-{}_3F_2(1/2,1/3,2/3;1,1;z),
+=(1-z)^{-1/2}\,{}_3F_2(1/2,1/3,2/3;1,1;z),
 $$
 
 using Euler's and Clausen's identities. Here this is solely a formal series identity; no convergence at a p-adic unit or native X6 interpretation is implied.
@@ -56,7 +55,7 @@ $$
 The exact coefficient ratio (b_m/b_{m-1}=(2m-1)/(4m)) (m≥1) proves, by induction,
 
 $$
-\boxed{B_m-2J_m=(2m+1)b_mquad(m\geq0).}
+\boxed{B_m-2J_m=(2m+1)b_m\quad(m\geq0).}
 $$
 
 Reordering the **finite** Cauchy sum without dropping any term gives
@@ -64,7 +63,7 @@ Reordering the **finite** Cauchy sum without dropping any term gives
 $$
 \begin{aligned}
 S_N
-&=\sum_{k=0}^{N}t_kleft((3k-1)B_{N-k}+3J_{N-k}\right)\\
+&=\sum_{k=0}^{N}t_k\left((3k-1)B_{N-k}+3J_{N-k}\right)\\
 &=\boxed{\frac12\sum_{k=0}^{N}(6k+1)t_k B_{N-k}
 -\frac32\sum_{k=0}^{N}(2(N-k)+1)t_k b_{N-k}.}
 \end{aligned}
@@ -76,7 +75,7 @@ Equivalently, the exact finite transfer residue is
 
 $$
 \boxed{S_N-W_N=
-\sum_{k=0}^{N}t_kleft[
+\sum_{k=0}^{N}t_k\left[
 (6k+1)\bigl(\tfrac12 B_{N-k}-1\bigr)
 -\tfrac32(2(N-k)+1)b_{N-k}\right].}
 $$
