@@ -99,3 +99,18 @@ Source checkpoint. Parent objective and frozen scientific source unchanged.
 
 The h=0 cusp-regular normalized auxiliary first jet J+theta_t J has exact signed sheet difference −2^9*3^3*17*43 sqrt(2). Consequently it separates the original fixed CM sheets modulo every target prime p≡13,19 (mod24) **except p=43**, for which its sheet contrast vanishes. The only prime factors of the exact integer are 2,3,17,43; among target primes only 43 occurs. The difference modulo 13,19,43 has scalar coefficients 11,15,0. All source-point rational denominators are p-units for target p>3. This corollary is local holomorphy at h=0 only, not a claim about every cusp of X_0(3). Classification for all target primes follows from the factorization; the checker additionally verifies 166 target primes below 5000 as finite regression. The restricted constant-linear-firstjet family still has the genuine p43 obstruction; no claim about original native LIFT follows.
 
+
+## Exact rational form and the retained ramification pole
+
+The h=0-cusp-regular combination has the exact rational simplification
+
+    J+theta_t J = 54(1+27h)(1+243h)^2(13+243h)/(1−27h).
+
+Indeed writing N=(1+27h)(1+243h)^3, the expression is
+((1+27h)N'−54N)/(1−27h), and factoring the numerator yields the displayed result.
+The cusp h=0 pole cancels, but a pole may remain at the theta_t ramification
+locus h=1/27. At the two original CM sheets 1−27h_±=−2(1±sqrt(2)),
+whose norm is −4, a unit for every target prime. Thus the target-class
+mod-p contrast proved above is well defined. The claimed regularity is
+strictly local at h=0; the meromorphic/ramification divisor and its
+source-provenance cannot be silently discarded by a native transfer.
