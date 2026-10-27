@@ -1,0 +1,44 @@
+{
+  "schema": "EM_PREFIX292_RATIONAL_PELL_BRC_CONNECTOR_VERIFIER_V1",
+  "status": "PASS",
+  "arithmetic": "BigInt Gaussian exact integers; common 4r denominator; all ordered source-leg pairs",
+  "finite_domain": "6 sources values per coordinate x 3 sources x 4 C4 phases x 5 Pell solutions",
+  "input_phase_pell_cases": 4320,
+  "direct_bin_mass_checks": 25920,
+  "ordered_source_leg_pair_products_including_cross": 293760,
+  "basis_gram_equalities": 180,
+  "full_mass_equalities": 4320,
+  "cross_input_equalities": 4320,
+  "coherent_decode_equalities": 4320,
+  "rank_one_leakage_equalities_and_bounds": 4320,
+  "exact_E_event_equalities": 4320,
+  "sharp_witnesses": 20,
+  "pell_solutions": [
+    {
+      "p": 1,
+      "r": 1,
+      "maximum_loss_fraction": "1/2"
+    },
+    {
+      "p": 5,
+      "r": 3,
+      "maximum_loss_fraction": "1/18"
+    },
+    {
+      "p": 19,
+      "r": 11,
+      "maximum_loss_fraction": "1/242"
+    },
+    {
+      "p": 71,
+      "r": 41,
+      "maximum_loss_fraction": "1/3362"
+    },
+    {
+      "p": 265,
+      "r": 153,
+      "maximum_loss_fraction": "1/46818"
+    }
+  ],
+  "status_scope": "FORMAL_C4_BRC_ONLY; SOURCE_NATIVE_HN_NOT_TESTED; AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED"
+}
