@@ -50,12 +50,12 @@ When each positive critical face is reachable, every boundary segment of the pla
 
 ### W3: nonmatching and NO common pivot, still two-state seedless preservation
 
-P_raw=[[3,2,2,1],[3,1,2,2],[2,1,2,3]], total 23; Q_raw is three rows [2,2,2,2], total 24. Normalize p=P_raw/23, q=Q_raw/24. Exact Khull=2. At r=24/23 the fixed set C is empty and the distinct graph edges are 1000->1100, 1000->1011 and 0001->1011. There is no pivot because OR{1000,0001}=1001 is not <= AND{1100,1011}=1000. The 3-edge switching construction gives three consecutive segments:
+P_raw=[[3,2,2,1],[3,1,2,2],[2,1,2,3]], total 24; Q_raw is three rows [2,2,2,2], total 24. Normalize p=P_raw/24, q=Q_raw/24. Exact Khull=2. At r=1 the fixed set C is empty and the distinct graph edges are 1000->1100, 1000->1011 and 0001->1011. There is no pivot because OR{1000,0001}=1001 is not <= AND{1100,1011}=1000. The 3-edge switching construction gives three consecutive segments:
 
-alpha=(9+4s)/23, beta=(6+4s)/24;
-alpha=(13+4t)/23, beta=(10+4t)/24;
-alpha=(17+2v)/23, beta=(14+2v)/24,
-with s,t,v in [0,1]. Each lies on alpha-(24/23)beta=3/23. Beta covers [1/4,2/3] exactly, with shared endpoints. All other faces are covered by the theorem, hence K_seed=Khull=2 for this entire model.
+alpha=(9+4s)/24, beta=(6+4s)/24;
+alpha=(13+4t)/24, beta=(10+4t)/24;
+alpha=(17+2v)/24, beta=(14+2v)/24,
+with s,t,v in [0,1]. Each lies on alpha-beta=1/8. Beta covers [1/4,2/3] exactly, with shared endpoints. All other faces are covered by the theorem, hence K_seed=Khull=2 for this entire model.
 
 ### W4: full K2,2 collision and common pivot
 
