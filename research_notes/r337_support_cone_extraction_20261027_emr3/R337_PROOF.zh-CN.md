@@ -1,0 +1,86 @@
+# R337｜从原始 K/J 递推直接证明 BRC Newton 的支撑锥、抽取恒等式与精确次数
+
+**状态：AUTHOR_SIDE / FORMAL_SERIES_PROOF / EXACT_INTEGER_PASS / UNREVIEWED / NOT_ADMITTED。** 这是 R330 关键引理的另一项作者侧证明，不是独立 Driver 审查；只属于有序六边 BRC 辅助组合模型，不涉及 P000 原生六维 Cell 动力学。
+
+## 定义和来源
+
+GLOBAL_KNOWLEDGE_V1 冻结：main@edbbe204c4417149655022554f50f0d0004eb179；本轮最初读取数学 main@26176ded01b1bb6227b66c6dae612081a1a114df。原始模型来自 R330 不可变提交 7c73f56263c3f0515aa28e55ced2d4c703b8e086，作者侧 R336 前沿 83f8376658be664109d566744c635314970e6a86。模型：
+
+$$K_i(t)=-t^{i-1}\sum_{j=1}^4 d_{ij}(1+t)^{i+1-j},$$
+$$ (d_{i1},d_{i2},d_{i3},d_{i4})=(-\binom4i+\binom2{i-1},\binom5{i-1}-\binom5{i-2},\binom7{i-2},-\binom9{i-3}),$$
+$$J_s(t)=-\binom3{s-1}t^s(1+t)^s-\binom6{s-1}t^s(1+t)^{s-1}+\binom8{s-2}t^s(1+t)^{s-2}.$$
+
+越界二项数为零，K_i 对 i>12 为零，J_s 对 s>10 为零。B_0(t)=1+t，B_s(t)=J_s(t)+sum_{i=1}^{min(s,12)}K_i(t)B_{s-i}(t)。定义 U(x,t)=sum_{s>=0}B_s(t)x^s=A(x,t)/D(x,t)，其中 A=1+t+sum_{s>=1}J_s(t)x^s，D=1-sum_{i>=1}K_i(t)x^i。保留所有带符号域外系数。令 b_{s,q}=[t^q]B_s(t) 及
+
+$$D_{q,k}=\sum_{v=0}^k(-1)^{k-v}\binom{k}{v}2^{q-v}b_{q+v,q},\qquad0\le k\le q.$$
+
+本文将 D_{q,k} 与母函数分母 D(x,t) 视为不同记号。
+
+## 定理与证明一：全 q 有理分母、支撑锥
+
+记 d_m(x)=[t^m]D(x,t)、a_m(x)=[t^m]A(x,t)。原始 K_i 的 t^{i-1}x^i 因子意味着 deg_x d_m<=m+1 (m>=1)；J_s 的 t^sx^s 因子意味着 deg_x a_m<=m。直接由 K_1=2+3t、[t]K_2=-1 得 d_0=1-2x、d_1=-3x+x^2、a_0=1。取 F_q=[t^q]U，利用 DU=A 可在 Z[x] 中归纳定义
+
+$$P_0=1,\qquad
+P_q=d_0^qa_q-\sum_{m=1}^q d_md_0^{m-1}P_{q-m}.$$
+
+因此，对全部整数 q>=0：
+
+$$\boxed{F_q(x)=\frac{P_q(x)}{(1-2x)^{q+1}},\quad P_q\in\mathbb Z[x],\quad \deg P_q\le2q.}\tag{1}$$
+
+这是严格归纳：首项次数<=q+q；第 m 项次数<=(m+1)+(m-1)+2(q-m)=2q。将 x=1/2 代入递推，对 q>=1 仅 m=1 存活，而 d_1(1/2)=-5/4，故
+
+$$\boxed{P_q(1/2)=(5/4)^q.}\tag{2}$$
+
+定义 y=1-2x、calP(y,z)=yU((1-y)/2,yz)。在 Q[[y,z]] 中逐个 z 阶严谨代换：
+
+$$\boxed{\mathcal P(y,z)=\sum_{q\ge0}P_q((1-y)/2)z^q.}\tag{3}$$
+
+若 G_j(z)=[y^j]calP(y,z)，则由 (1)(3) 立即得到**支撑锥**
+
+$$\boxed{[z^q]G_j(z)=0\quad(j>2q).}\tag{4}$$
+
+该支撑锥确保后面的无穷级数截断合法，是此前 R330 推导值得单独证明的交换求和条件。
+
+## 证明二：D 的无界抽取公式，不丢弃尾项
+
+直接展开差分：
+
+$$D_{q,k}=4^q[x^{q+k}t^q](1-x)^kU(x/2,t).$$
+
+把 t=(1-x)z 代入并用 (3)，对 q>=r>=0 得
+
+$$D_{q,q-r}=4^q[x^{2q-r}z^q](1-x)^{-r-1}\mathcal P(1-x,z)$$
+$$=4^q\sum_{j=0}^{2q}[z^q]G_j(z)[x^{2q-r}](1-x)^{j-r-1}.$$
+
+式 (4) 先严格消去 j>2q。其余 r<j<=2q 项是次数 j-r-1<2q-r 的多项式，其 x^{2q-r} 系数严格为零；j<=r 项按负整数指数二项式公式求系数。**对所有 q>=r>=0**：
+
+$$\boxed{D_{q,q-r}=4^q\sum_{j=0}^r[z^q]G_j(z)\binom{2q-j}{r-j}.}\tag{5}$$
+
+这不是从有限 q 外推，也没有提前删除三角域外的负项。
+
+## 证明三：统一的 g_j 次数与 H_r 的最高项
+
+因 D((1-y)/2,yz) 整除 y，设 E(y,z)=D((1-y)/2,yz)/y、N(y,z)=A((1-y)/2,yz)，则 calP=N/E。由前三个 K 项逐个展开直接得到 E_0(z)=1-5z/4，E_1(z)=z，N_0=1；t 估值还保证 deg_z E_l<=l+1、deg_z N_l<=l。递推
+
+$$g_0=1,\quad g_j=N_jE_0^j-\sum_{\ell=1}^j E_\ell g_{j-\ell}E_0^{\ell-1}$$
+
+给出 G_j(z)=g_j(z)/E_0(z)^{j+1}；各项次数归纳为 deg g_j<=2j，**对任意 j 均成立**。在 a=4/5 时 E_0(a)=0、E_1(a)=a，故 g_j(a)=-a g_{j-1}(a)=(-a)^j。
+
+令 q=r+u、H_r(u)=5^{-u}D_{r+u,u}。展开 (5) 中的有理分母：
+
+$$\boxed{H_r(q-r)=5^r\sum_{j=0}^r\sum_{m=0}^{2j}g_{j,m}(4/5)^m\binom{q-m+j}{j}\binom{2q-j}{r-j}.}\tag{6}$$
+
+此式关于 q 的次数<=r。边界 q<m<=2j 且 q>=r>=j 时，0<=q-m+j<j，故下降阶乘二项式恰为零，与系数定义吻合。最高项按 g_j(4/5)=(-4/5)^j 求和：
+
+$$[u^r]H_r=\frac{5^r}{r!}\sum_{j=0}^r\binom rj(-4/5)^j2^{r-j}
+=\boxed{\frac{6^r}{r!}>0}.\tag{7}$$
+
+故 H_r 次数**恰为 r**，对所有 r>=0。另由 (1)(2)，固定 q 时 b_{s,q}/2^s 在 s>=q 上是最高项 (5/4)^q s^q/q! 的有理多项式，因而最终为正；这**不提供**两指标同步增长时的统一正性界。
+
+## 计算证据、边界和下一问题
+
+另写了与 R330 程序无共享导入的 Python 标准库整数/Fraction 复验程序 R337_portable_verifier.py，真实执行 q_max=64：重建 B_0..B_128；8385 项 b_{s,q} 与 (1) 逐项一致；2145 个 (q,r) 的直接 D 与 (5) 相等；65项 P_q(1/2) 检查、65项次数界、r=0..16 的17项 Delta^r H_r(0)=6^r 检查全 PASS；观察并保留3532个三角域外负项。机器输出见 R337_EXACT_EVIDENCE.json。另有更详细的逐 q 摘要校验 SHA256 11d1a9f77015c013046c56f01c35135b3a2cd7313167f4656b066bd92bed6a2f，全部采用精确整数/Fraction。
+
+**数学增量是 (1)—(7) 的不依赖 R330 假设的直接证明。** 有限核对本身不是无界证明，且此证明仍为原作者上下文，不是独立审核。R331—R336 对特定系数的正性证书、正式 owner/CLAIM/Result 和 Driver 审查并未在本轮被核准。P000 和 ACTIVE 世界观未改。
+
+下一问题：用 P_q 递推 (1) 或 H_r 抽取式 (6) 寻找能同时控制 r、u 增长的正锥不变性或真实域内反例。独立 Driver 应检验第2段的支撑锥换序和 (6) 的边界，而不是把本作者证明标成独立审查。
