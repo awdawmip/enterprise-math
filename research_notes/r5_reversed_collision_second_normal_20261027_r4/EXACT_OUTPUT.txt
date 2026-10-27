@@ -1,0 +1,17 @@
+R5 REVERSED-COLLISION SECOND-NORMAL CERTIFICATE PASS
+INPUT: sa=1/10, sb=2/5; NORMAL=(298,376,37,-17)
+SOURCE MASS CONSERVATION: P=Q=1, EXACT SYMBOLIC PASS
+DETERMINISTIC POLICY ENUMERATION: full=2187, seedless=729
+BOX CORNERS: [('0', '22/71'), ('0', '1/2'), ('19/71', '22/71'), ('19/71', '1/2')]
+ALL CORNER COMPARISONS: 11664 PASS
+OPTIMUM FOR ALL REAL 0<sa<19/71, 22/71<sb<1/2:
+  full     = 1135/4 - (71/8)*sb
+  seedless = 284 - (71/8)*sb
+  gap      = 1/4
+FULL_POLICY: {'': 'C', 'a': 'C', 'b': 'C', 'ax': 'Q', 'ay': 'P', 'bu': 'C', 'bv': 'C'}
+COARSE_POLICY: {'': 'C', 'a': 'P', 'b': 'C', 'ax': 'C', 'ay': 'P', 'bu': 'C', 'bv': 'C'}
+FULL_OBSERVER: ('17/40', '3/10', '9/4', '5/2') J= 1401/5
+COARSE_OBSERVER: ('7/40', '11/20', '3/2', '2') J= 5609/20
+PREVIOUS NORMAL (298,375,37,-17) OPTIMA: (Fraction(2799, 10), Fraction(2799, 10)) GAP=0
+NEW EXACT RATIONAL SUPPORT GAP: 1/4
+SCOPE: external two-measure positive BRC tree; UNREVIEWED / NOT_ADMITTED
