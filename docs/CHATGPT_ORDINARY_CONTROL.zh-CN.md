@@ -25,7 +25,9 @@ Protocol: `EM_CHAT_CONTROL_V1` · English: [CHATGPT_ORDINARY_CONTROL.en.md](CHAT
 
 摘要算法是去掉 `sha256` 后，递归排序对象键、紧凑 JSON、非 ASCII 原样 UTF-8、无末尾换行的 SHA-256；客户端不需要计算，更不能猜。重复 JSON 键、NaN/Infinity、凭证字段均拒绝。服务核验私库及受信任 GitHub actor、创建时正文、执行前双读指纹和持久化幂等状态。
 
-创建后不要编辑 Issue 正文、标题或标签，也不要给同一逻辑操作新建重复 Issue。请求首次受理要求创建与更新时间一致且在 24 小时内。每个 conversation 最多 5 个未结束请求，通常逐步发送。普通 payload 最多 16 KiB，规范 envelope 最多 32 KiB；长证据使用分片上传。
+创建后不要编辑 Issue 正文、标题或标签，也不要给同一逻辑操作新建重复 Issue。请求首次受理要求创建与更新时间一致且在 24 小时内。多个模型/终端可按需提交请求，不设固定五槽接纳上限；现有单 worker 仍串行执行。普通 payload 最多 16 KiB，规范 envelope 最多 32 KiB；长证据使用分片上传。
+
+接纳请求不等于取得 Task CLAIM 或执行授权。现有 Source owner/租约机制保持；`WAITING_RESOURCE` 作业仍需在资源恢复后显式对原 ID `reconcile`，不能把 CLAIM 过期当作作业自动恢复。
 
 ## 2. 回读及只读操作
 

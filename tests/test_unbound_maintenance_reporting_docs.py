@@ -33,6 +33,17 @@ class MaintenanceReportingDocs(unittest.TestCase):
         self.assertIn('optional diagnostics with `authorized=false`', text)
         self.assertIn('formal task/claim/execution/activity bindings keep their original checks', text)
 
+    def test_admission_description_has_no_fixed_five_request_ceiling(self):
+        en = (ROOT / 'docs/CHATGPT_ORDINARY_CONTROL.en.md').read_text()
+        zh = (ROOT / 'docs/CHATGPT_ORDINARY_CONTROL.zh-CN.md').read_text()
+        self.assertNotIn('maximum five unfinished requests', en)
+        self.assertNotIn('每个 conversation 最多 5 个未结束请求', zh)
+        self.assertIn('no fixed five-request admission ceiling', en)
+        self.assertIn('不设固定五槽接纳上限', zh)
+        for text in (en, zh):
+            self.assertIn('WAITING_RESOURCE', text)
+            self.assertIn('reconcile', text)
+
 
 if __name__ == '__main__':
     unittest.main()
