@@ -1,0 +1,11 @@
+# EC48H — Multiple free decoder rows and genuinely obstructed collision faces
+
+Frozen research frontier: EC48G proves that for each critical r, either `|T_r| <= K_hull-|C_r|` or both `|A_r\C_r| <= 1` and `|B_r\C_r| <= 1` suffices to traverse the whole face without persistent public random seeds. Consequently every finite positive two-stage model with at most two tied histories at each likelihood-ratio threshold has `K_seed=K_hull`. Verified rational examples include `|D_r|=2` with three histories and `|D_r|=3` with four histories, both with `K_hull=K_seed=2`. Proof and reproducible `Fraction` checker in `EC48G_ONE_FREE_DECODER_THEOREM.md` and `EC48G_VERIFY.py` at the same immutable source commit.
+
+## Exact next problem
+
+Find the smallest finite positive rational pair `P_raw,Q_raw` for which some critical r has **two or more free decoder slots**, **more tied histories than free slots**, and **at least two outside endpoint words on each side**. Check whether a continuous path through optimal conditional encoder/decoder factorizations using `K_hull` states fills every tied q-mass, even if the EC48F signature bank uses more states. A decisive negative result requires the exact missing rational face interval with a complete verified encoder-component certificate, not just a failure of a particular constructive bank. A positive result should exhibit a general reconfiguration/merge move preserving all forced strict bits.
+
+Current owner/authority observation 2026-10-27: authenticated GitHub actor `awdawmip` with repo push; private Enterprise Math control `em_control_tasks` returned `CONTROL_QUOTA` and native `em_session_start(RESEARCHER)` returned `STATIC_READONLY_SCOPE_DENIED`, `operation_sent=false`. Thus the EC48G author-side activity is neither an active native CLAIM nor a native Result or independent review. Research-Activity-ID `RA-EMR4-20261027-1035-EC48G-ONEFREE`. Frozen Global Knowledge source `main@b4e5b0531b2d2acd9b3905dcadc0384672d5a544`, Enterprise Math control source `main@1c67bd8d61e22b95275b742e196df18868065a3f`, predecessor EC48F at `795f9beabbd4fb10c973b3bd2976acaf76064aa4`.
+
+This is an auxiliary positive-weight, fixed-two-stage BRC model; it carries no native X6 dynamical or three-dimensional slice theorem. Pursue native transport only with typed embedding, readout and preservation evidence.
