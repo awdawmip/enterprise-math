@@ -1,0 +1,30 @@
+{
+  "schema": "R033_GROWTH_ATLAS_V1",
+  "status": "EXACT_CHECKPOINT_NOT_CANONICAL",
+  "reference_range": "BFS exact r=0..20; independent distance/BFS agreement through r=40; direct-shell holdout r=100",
+  "fcc": {
+    "distance": "max(max(|x|,|y|,|z|), (|x|+|y|+|z|)/2) on D3",
+    "A": "A_0=1; A_r=10*r^2+2 for r>=1",
+    "V": "(10*r^3+15*r^2+11*r+3)/3",
+    "shell_induced_edges": "24*r^2 for r>=1",
+    "outside_edges_exposed_faces": "12*(3*r^2+3*r+1)",
+    "finite_difference": "Delta^2 A=20; Delta^3 V=20 in steady range"
+  },
+  "hcp": {
+    "distance_even_k": "max(|k|, |k|/2 + max(|i|,|j|,|i+j|))",
+    "distance_odd_k": "max(|k|, (|k|+1)/2 + max(i,j,i+j,-i-1,-j-1,-i-j-1))",
+    "A": "A_0=1; even r: (21*r^2+4)/2; odd r: (21*r^2+3)/2",
+    "V": "even r: (14*r^3+21*r^2+14*r+4)/4; odd r: (14*r^3+21*r^2+14*r+3)/4",
+    "shell_induced_edges": "even r:27*r^2; odd r:27*r^2-3",
+    "outside_edges_exposed_faces": "12*(3*r^2+3*r+1)",
+    "finite_difference": "period-2 closure; steady Delta^2 A alternates 20/22"
+  },
+  "holdout_r100": {
+    "fcc": {"A":100002,"V":3383701,"shell_induced_edges":240000,"outside_edges":363612,"orbits":{"85":58806,"273":38808,"341":2376,"885":12}},
+    "hcp": {"A":105002,"V":3552851,"shell_induced_edges":270000,"outside_edges":363612,"orbits":{"69":44106,"228":43806,"229":1188,"448":14702,"453":294,"458":294,"469":12,"581":297,"1764":297,"1765":6}}
+  },
+  "first_irreducible_difference": {
+    "rooted_induced_graph": "r=1; trace(shell adjacency^4): FCC=384, HCP=408",
+    "shell_cardinality": "r=2; FCC=42, HCP=44"
+  }
+}
