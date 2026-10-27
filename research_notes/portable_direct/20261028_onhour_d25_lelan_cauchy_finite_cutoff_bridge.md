@@ -12,35 +12,35 @@ The source proves the untruncated analytic identity via an Euler transformation 
 
 Set, formally over Q,
 
-[
-A_k=inom{2k}{k}^{2}inom{3k}{k},quad
-d_k=rac{A_k}{108^k},quad
-t_k=rac{d_k}{2^k}=rac{A_k}{216^k},quad
-b_j=rac{inom{2j}{j}}{8^j}.
-]
+$$
+A_k=\binom{2k}{k}^{2}\binom{3k}{k},\quad
+d_k=\frac{A_k}{108^k},\quad
+t_k=\frac{d_k}{2^k}=\frac{A_k}{216^k},\quad
+b_j=\frac{\binom{2j}{j}}{8^j}.
+$$
 
 The source's Cauchy coefficients after evaluation at z=1/2 are **exactly**
 
-[
-a_n=sum_{j=0}^{n}b_j,t_{n-j}.
-]
+$$
+a_n=\sum_{j=0}^{n}b_j\,t_{n-j}.
+$$
 
 For example, the equality between this representation and Le Lan's four generalized binomial factors follows from the formal identity
 
-[
-{}_2F_1(1/3,1/6;1;z),{}_2F_1(2/3,5/6;1;z)
+$$
+{}_2F_1(1/3,1/6;1;z)\,{}_2F_1(2/3,5/6;1;z)
 =(1-z)^{-1/2},
 {}_3F_2(1/2,1/3,2/3;1,1;z),
-]
+$$
 
 using Euler's and Clausen's identities. Here this is solely a formal series identity; no convergence at a p-adic unit or native X6 interpretation is implied.
 
 Define the **different labeled finite sums**
 
-[
-S_N=sum_{n=0}^{N}(3n-1)a_n,qquad
-W_N=sum_{k=0}^{N}(6k+1)t_k.
-]
+$$
+S_N=\sum_{n=0}^{N}(3n-1)a_n,\qquad
+W_N=\sum_{k=0}^{N}(6k+1)t_k.
+$$
 
 The frozen D25 target is W_{p-1}, with the complete original cutoff and weight.
 
@@ -48,38 +48,38 @@ The frozen D25 target is W_{p-1}, with the complete original cutoff and weight.
 
 Write
 
-[
-B_m=sum_{j=0}^{m}b_j,qquad
-J_m=sum_{j=0}^{m}j,b_j.
-]
+$$
+B_m=\sum_{j=0}^{m}b_j,\qquad
+J_m=\sum_{j=0}^{m}j\,b_j.
+$$
 
 The exact coefficient ratio (b_m/b_{m-1}=(2m-1)/(4m)) (m≥1) proves, by induction,
 
-[
-oxed{B_m-2J_m=(2m+1)b_mquad(mgeq0).}
-]
+$$
+\boxed{B_m-2J_m=(2m+1)b_mquad(m\geq0).}
+$$
 
 Reordering the **finite** Cauchy sum without dropping any term gives
 
-[
-egin{aligned}
+$$
+\begin{aligned}
 S_N
-&=sum_{k=0}^{N}t_kleft((3k-1)B_{N-k}+3J_{N-k}ight)\\
-&=oxed{rac12sum_{k=0}^{N}(6k+1)t_k B_{N-k}
--rac32sum_{k=0}^{N}(2(N-k)+1)t_k b_{N-k}.}
-end{aligned}
-]
+&=\sum_{k=0}^{N}t_kleft((3k-1)B_{N-k}+3J_{N-k}\right)\\
+&=\boxed{\frac12\sum_{k=0}^{N}(6k+1)t_k B_{N-k}
+-\frac32\sum_{k=0}^{N}(2(N-k)+1)t_k b_{N-k}.}
+\end{aligned}
+$$
 
 Denote the two terms on the last line by H_N and K_N, respectively, so **S_N=H_N-K_N exactly in Q**, before any congruence or approximation. The second summand K_N is the finite-cutoff boundary. It is not an optional p-adic error discarded by an infinite generating-function identity.
 
 Equivalently, the exact finite transfer residue is
 
-[
-oxed{S_N-W_N=
-sum_{k=0}^{N}t_kleft[
-(6k+1)igl(	frac12 B_{N-k}-1igr)
--	frac32(2(N-k)+1)b_{N-k}ight].}
-]
+$$
+\boxed{S_N-W_N=
+\sum_{k=0}^{N}t_kleft[
+(6k+1)\bigl(\tfrac12 B_{N-k}-1\bigr)
+-\tfrac32(2(N-k)+1)b_{N-k}\right].}
+$$
 
 This formula is valid for every N, all p>3 after reduction modulo p^r (denominators are powers of 2,3), and preserves the signed weight, original 216 terms, all indices, convolution fibers, and full cutoff. It supplies a precise interface to investigate whether the separate finite Cauchy congruence has a provable relationship to frozen LIFT. The identity alone **does not** assert S_{p-1}=W_{p-1} modulo any particular p-power.
 
@@ -89,28 +89,28 @@ The companion `research_notes/portable_direct/d25_lelan_finite_cutoff_guard_2026
 
 For N=372, in Z/51895117 Z:
 
-[
-egin{array}{c|r}
+$$
+\begin{array}{c|r}
 W_{372}&373\\
 S_{372}&8487242\\
 H_{372}&29983232\\
 K_{372}&21495990
-end{array}
-]
+\end{array}
+$$
 
 and (29983232-21495990=8487242) exactly as displayed. Modulo (373^2=139129),
 
-[
-H_{372}equiv70497=189cdot373,quad
-K_{372}equiv70124=188cdot373,quad
-S_{372}equiv373.
-]
+$$
+H_{372}\equiv70497=189\cdot373,\quad
+K_{372}\equiv70124=188\cdot373,\quad
+S_{372}\equiv373.
+$$
 
 Thus **dropping the boundary K would alter even the first surviving p-adic digit** in this original instance. At the next digit,
 
-[
-S_{372}-W_{372}equiv61cdot373^2pmod{373^3}.
-]
+$$
+S_{372}-W_{372}\equiv61\cdot373^2\pmod{373^3}.
+$$
 
 This is an exact counterexample to identifying the truncated Cauchy sum with the truncated 216 sum modulo p³, **not** a counterexample to the original LIFT (whose W_{372}=373 mod p³ is preserved).
 
@@ -118,7 +118,7 @@ The verification also performs exact rational coefficient comparisons for n=0,..
 
 ## 4. Source text precision audit
 
-In the HTML source, immediately before its display (3.1)–(3.2) evaluation, the printed operator is (-1+	frac32 z,d/dz), while the following displayed weighted coefficients are (3n-1) and the next line is (	frac32P'(1/2)-P(1/2)). The printed operator would instead multiply the z^n coefficient by (	frac32 n-1). The **operator consistent with the ensuing equations** is (-1+3z,d/dz), or, at z=1/2, (-1+	frac32 d/dz). Our finite proof above uses direct finite sums, so it does not depend on silently adopting the inconsistent printed operator. This audit does not undermine the analytically established Theorem 1 when the operator is interpreted consistently.
+In the HTML source, immediately before its display (3.1)–(3.2) evaluation, the printed operator is (-1+\tfrac32 z\,d/dz), while the following displayed weighted coefficients are (3n-1) and the next line is (\tfrac32P'(1/2)-P(1/2)). The printed operator would instead multiply the z^n coefficient by (\tfrac32 n-1). The **operator consistent with the ensuing equations** is (-1+3z\,d/dz), or, at z=1/2, (-1+\tfrac32 d/dz). Our finite proof above uses direct finite sums, so it does not depend on silently adopting the inconsistent printed operator. This audit does not undermine the analytically established Theorem 1 when the operator is interpreted consistently.
 
 ## 5. BRC, X6 observer scope, and exact continuation
 
