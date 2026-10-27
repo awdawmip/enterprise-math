@@ -1,0 +1,9 @@
+# EC48L | Decide original-set equality after universal one-bit support equality
+
+**Inherited verified author-side frontier:** EC48K theorem shows conv(S_B1)=conv(S_F) for every finite strictly-positive two-source horizon-two tree with available current LR and a policy-dependent one-bit history encoder. Source: research_notes/r4_ec48k_one_bit_support_20261027_r11/PROOF.md, exact checker VERIFY.js and EXACT_OUTPUT.json, UNREVIEWED / NOT_ADMITTED; EC48J full proof remains at commit bcc78048736a01f6d07850d3adc0b998f47f76a0.
+
+**One precise unresolved question:** Is S_B1=S_F as original possibly nonconvex four-readout sets for every three-first-stage-history tree, or can a rational 3-history example exhibit a point O in S_F but not in S_B1?
+
+Do not search for a separating hyperplane: EC48K proves every linear support matches. Instead compute image membership of the stochastic one-bit encoder/decoder, including nontrivial randomized encoder b|h, and time-1 action rows (stop/reject, stop/accept, continue) conditioned on (LR,b). At terminal, acceptance rows depend on (LR,b). For a proposed rational target, form exact polynomial constraints in the unit cube, and certify infeasibility by exact interval rational elimination, quantifier elimination, or a complete custom finite certificate with a proof of exhaustiveness. Equivalently prove explicit universal realizability under stated restrictions. Check nonconvex gap at exact rational readout vector, and report minimal leaf count only if proved.
+
+**Typed scope:** finite positive 2-source, horizon-two stochastic sequential experiments; all branch P,Q masses retained; observer (alpha,beta,E_P T,E_Q T); policy-dependent single-bit history encoder; no persistent public random seed. Original region is a different claim than convex-hull equality. X6 transfer, native heartbeat arithmetic and admission require independent work.
