@@ -1,0 +1,17 @@
+MODEL: 8 strictly positive rational P/Q leaves, denominator 128
+P_TOTAL=1 Q_TOTAL=1
+ROOT_LR: U=9/8 V=7/8
+T2_LR: U.C=V.C=1; U.O=3/2; V.O=1/2
+T3_C_LR: 1/2, 1, 3/2 for both hidden sources
+POLICIES_FULL=20736 POLICIES_LR=864
+UNIQUE_OBSERVATIONS_FULL=380 LR=120
+TARGET_LAMBDA=(20, 23, 10, -9)
+FULL_MIN=667/32  FULL_POINT=(43/64, 7/32, 19/8, 19/8)
+FULL_POLICY=('C', 'C', 'C', 'Q', 'P', 'Q', ('Q', 'Q', 'P'), ('P', 'P', 'P'))
+LR_MIN=167/8  LR_POINT=(1, 0, 23/16, 3/2)
+LR_POLICY=('Q', 'C', 'Q', 'Q', 'P', 'Q', ('P', 'P', 'P'), ('P', 'P', 'P'))
+EXACT_GAP=1/32
+COMMON_COLLISION_STOP_MIN=167/8 CONTINUE_MIN=1337/64
+G_A=7/4 G_B=7/8
+FINITE_SCALAR_PRICE_AUDIT_CASES=9537 (not a universal proof)
+ALL EXACT TWO-UPSTREAM CHECKS PASSED
