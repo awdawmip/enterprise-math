@@ -70,3 +70,17 @@ Cusp h=0 pole cancellation shifts the relevant singularity to the
 ramification divisor h=1/27; this denominator is a p-unit on both fixed
 CM points for all target primes. Native transfer must account for
 ramification/meromorphic source ports; no global holomorphy is asserted.
+
+
+## D25 finite Cauchy second jet to p³ (2026-10-27)
+
+**New author-only portable unit, NOT native, UNREVIEWED / NOT_ADMITTED.** Exact signed p³ precision formula, proof, checker and author-check JSON at:
+- D25_CAUCHY_SECOND_JET_SIGNED_P3_20261027.md
+- d25_cauchy_second_jet_p3_checker_20261027.py
+- d25_cauchy_second_jet_p3_author_check_20261027.json
+
+For every prime p>=5, the triangular finite Cauchy observation is expressed as a full second-jet value plus **three signed high-degree overflow layers**: O_{>=p}(P C2) at p³, (p/2)O_{>=p}(P C01 L) at p², and (p²/8)O_{>=p}(P C0 L²) at p. Their p-adic support ranges are proven from v_p(c_k)=floor(3k/p)+floor(2k/p); no unsigned or untruncated substitution is asserted. The exact formulas and proof are in the linked standalone note; the author-side standard-library finite-ring checker passed 17 primes (including target p=373 and p=997). This is a **new, weaker exact reduction interface**, not the original W_p≡p (mod p³) proof or native H0/B0 transport; sample third-digit residues remain samples.
+
+Native Source CLAIM/OPEN/checkpoint remains **unverified**. Earlier request reads returned CONTROL_REQUEST_NOT_FOUND; as of this run the gateway reports 5/5 active quota and no executor binding. No session/identity/channel replay was used. Author uploads are not predecessor completed research; for CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS preserve completed_units=[]. Frozen scientific source c47e13e4aba0e006366f989d6334d443f6333ae3, taskbook, parent goal unchanged.
+
+**Next lawful scientific frontier:** prove or refute the universal target-class signed-tail relation at p², then analyze the displayed p³ signed residual; alternatively obtain authentic original H0/B0 Frobenius/weighted-observer transfer and p=373 native evidence via #1559. Distinct prior UR V2 original must still be recovered as 94687 bytes with SHA256 4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76 before provenance completion. Do not repeat UR mathematics. No scheduler/Actions/cron or independent-review claim.
