@@ -94,3 +94,8 @@ Original UR V2 four-file source provenance remains separately pending:
 94687 bytes, SHA256 4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76.
 This author-only lemma neither reconstructs UR nor counts as its formal
 Source checkpoint. Parent objective and frozen scientific source unchanged.
+
+## Target-prime corollary: one exceptional target prime
+
+The h=0 cusp-regular normalized auxiliary first jet J+theta_t J has exact signed sheet difference −2^9*3^3*17*43 sqrt(2). Consequently it separates the original fixed CM sheets modulo every target prime p≡13,19 (mod24) **except p=43**, for which its sheet contrast vanishes. The only prime factors of the exact integer are 2,3,17,43; among target primes only 43 occurs. The difference modulo 13,19,43 has scalar coefficients 11,15,0. All source-point rational denominators are p-units for target p>3. This corollary is local holomorphy at h=0 only, not a claim about every cusp of X_0(3). Classification for all target primes follows from the factorization; the checker additionally verifies 166 target primes below 5000 as finite regression. The restricted constant-linear-firstjet family still has the genuine p43 obstruction; no claim about original native LIFT follows.
+
