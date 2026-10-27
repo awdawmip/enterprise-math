@@ -1,0 +1,9 @@
+# Stage214 portable next research packet — dual candidate only
+
+Frozen external model P=(3,1,20)/24, Q=(2,2,20)/24, N=14; full ordered-history randomized stopping and P/Q decisions, V14(α)=inf max(E_Pτ,E_Qτ) with both classification errors ≤α. Author Stage213 exact all-real result (UNREVIEWED / NOT_ADMITTED): α213=3747353537341061245/10517860061584293888, V213=2068074187667448833/219122084616339456.
+
+**Stage214 dual-only:** K214=265549752/2687315, H214=2351021677817497415171339/29442503241037913260032. New Q/continue tie at (7,2,2), old terminal P/Q tie at (14,0,0); 680 Bellman states, 1238 strict positive gaps, minimum 1026961/348276024; exact H214=H213+2α213(K214−K213). No Stage214 primal proof yet.
+
+**Next unit:** evaluate full four deterministic policy corners O=(eP,eQ,tP,tQ) using Fraction suffix DP and independent complete ordered-history positive integer P/Q-mass DFS; determine path mixed u*z term, solve equal-error real coin law, legality and P/Q time dominance. Prove a new all-real optimal segment and fixed-right strictness, or give an exact rational obstruction. Preserve BRC path provenance and observation/continuation scope. Do not rerun verified Stage213 144460 DFS visits or Stage214 dual scan.
+
+P000 native X6 and active worldview stay immutable; this is an external finite auxiliary model, not physical transfer. Require actual current owner/claim authority for native Source actions; no author-created RA or PR grants it. Input source pins for this author study: GLOBAL_KNOWLEDGE_V1 main@6b3e7a6520898c41e063db04e82b1d3c2c9c3a4b; EM main@d42136a33bab42ab25e6d4318774708be2544d62; P000 original blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc.
