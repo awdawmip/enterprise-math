@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR3-20261027-R327-1025",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "8332494a0aea16df27beb9828edfb41b3f234e09",
+          "path": "research_notes/r327_newton_difference_cone_640_20261027_emr3/R327_verify_newton_difference_cone.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "29582ae74f340d13e5b9c404a9c6ed4e805eaf66f1340b63c80ea0a31b741b9f",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "84b578150084e22d70f7fbaeaa3f171008e884e2",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/8332494a0aea16df27beb9828edfb41b3f234e09/research_notes/r327_newton_difference_cone_640_20261027_emr3/R327_verify_newton_difference_cone.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "R327-SOURCE-CODE-IMMUTABLE-READBACK-1029",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261027-R327-1025/readbacks/e0ae4fb0aeaadae1d3c8f5ab742ad0e19ecc6d849f21f068cca37eea58541f37.json",
+          "verification_receipt_sha256": "e0ae4fb0aeaadae1d3c8f5ab742ad0e19ecc6d849f21f068cca37eea58541f37"
+        }
+      ],
+      "event_id": "R327-BRC-NEWTON-CONE-Q640-20261027",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-27T10:25:25+08:00",
   "registration_key": "session:emr3-r327-20261027T1025-local:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-DIRECT-EMR3-R327-1025",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "emr3-r327-20261027T1025-local",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-27T10:25:25+08:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
