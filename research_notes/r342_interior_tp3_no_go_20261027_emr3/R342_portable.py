@@ -29,6 +29,7 @@ def solve(n=320):
   z=J(s) if s<=10 else {}
   for i in range(1,min(12,s)+1):z=add(z,mul(ks[i],B[s-i]))
   B.append(z)
+ assert all(B[s].get(j,0)>0 for s in range(len(B)) for j in range(s+1))
  D=[]
  for q in range(n+3):
   a=[2**(q-v)*B[q+v].get(q,0) for v in range(q+1)];row=[]
