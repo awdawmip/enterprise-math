@@ -1,0 +1,9 @@
+# R5 successor: all-decision hull gate for the positive 8-leaf fan-in model
+
+Status: AUTHOR PROPOSAL / UNREVIEWED / NOT_ADMITTED, not canonical native Task/CLAIM/Result. Mother goal: find or exclude exact rational N>=3 models satisfying conv(O_seedless_LR)=O_full but O_seedless_LR != O_full over ALL REAL local policy probabilities, without persistent shared seed.
+
+Precise input: adjacent PROOF.md, AUTHOR_VERIFY.py, AUTHOR_EXACT_OUTPUT.txt. Frozen policy: 2026-10-27 GLOBAL_KNOWLEDGE_V1 main@45b3f5d2 and enterprise-math@ee9a41c2; keep P000 six-axis X6 and full path/observer provenance. Do NOT redo the proven k-gate convexity lemma, affine circuit LP, previous Jensen test, or fixed-slice semialgebraic witness.
+
+NEW UNIT: enumerate the COMPLETE finite set of deterministic history policies and time/LR-signature policies for the 8-leaf tree, with t=1/t=2 stopping and declarations UNRESTRICTED and all t=3 declarations allowed. Explicitly state enumeration cardinalities and aliases. Produce for each full deterministic four-vector a rational convex combination of LR deterministic vectors, or one rational separating signed direction with exact dot-product optimal values. Just one genuine unrestricted strict separation is enough to exclude this model. Fixed-slice lambda=(-80,-8,12,0) gap=1 and polynomial Z=XY are NOT unrestricted claims.
+
+Only if full hull equality is proved, seek an ALL-REAL semialgebraic infeasibility certificate for a full point, respecting every remaining LR control; finite grids are insufficient. Otherwise choose a DISTINCT candidate with nontrivial t=2 LR fan-in and fewer signed support obstructions. Preserve positive P/Q branch masses, X6 ordered paths, proper Source ownership/CLAIM rules and actual independent review. Provide exact proof/checker/stdout, provenance and a minimal next question.
