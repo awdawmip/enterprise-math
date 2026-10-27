@@ -145,3 +145,15 @@ Observed gateway 0.6.11 at 2026-10-27T15:42Z: native active job quota 5/5, execu
 Highest portable frontier: two coefficient carry source laws and exact joint p³ Cauchy observer compression. Current required native frontier: source-faithful original H0/B0/Frobenius/Delta-R transport, native p373 benchmark at Issue #1559, and recovery of authentic UR V2 original four files of exactly 94687 bytes with SHA-256 4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76. No full UR V2 bundle match was found in the focused available GitHub default-branch code search, PR/issue search, local uploaded files, or Google Drive searches on this turn. Preserve that uncertainty; do NOT reconstruct the original from unrelated documents.
 
 Next exact step: once the actual Source owner and runner are verified, supply the true H0/B0 p-integral port coefficient map and Frobenius observer, then either prove compatibility with this two-source pair mask or show a concrete obstruction with preserved origin indices. Separately reconcile any original native request under its original ID and record actual CLAIM/OPEN/provenance, not GitHub storage as a substitute. Current draft PR remains AUTHOR evidence and does not grant acceptance.
+
+
+## D25 exact signed prime-horizon pair support (2026-10-28; author-only)
+
+New standalone proof/reproducer/author summary in this directory:
+- D25_PRIME_HORIZON_WEIGHTED_PAIR_SUPPORT_20261028.md
+- d25_prime_horizon_weighted_pair_support_reproducer_20261028.py
+- d25_prime_horizon_weighted_pair_support_author_summary_20261028.json
+
+This distinct exact theorem sharpens the *original signed* S_p modulus-p^3 termwise mask: when p=6r+1, the u/c-only mask gives (4r+1)^2 retained ordered source pairs, but the factor 3(j+k)-1 annihilates exactly r additional pairs with (j,k)=(4r+1-k,k), 3r+1<=k<=4r. Thus the true signed support is 16r^2+7r+1 (p=19:166; p=373:61939). When p=6r-1 it is 16r^2-2r, with no weight-only deletion. Full author-side Legendre valuation and independent finite-ring signed-sum checks passed 595285 pairs over fourteen primes; universal claim rests on the proof, not the scan. This refines earlier author-only coefficient pair masking without re-crediting it; it is not native H0/B0, no Source writer or independent admission. Original scientific source pin and taskbook remain unchanged; own exact Source continuation currently CONTROL_QUOTA and checkpoint list ACCESS_DENIED. CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS implies predecessor completed_units=[]; preserve the new note only as author-side staged research. UR V2 exact original still pending 94687-byte SHA-256 verification; original H0/B0 p373/Frobenius stays with Issue #1559.
+
+Next precise scientific/native action: recover exact owner/CLAIM/OPEN from Source once authorized, and establish a genuine source-faithful original H0/B0 coefficient/weight/observer map before transporting the mask or applying it to Delta_p-R_p. No repeated UR proof or scheduler change.
