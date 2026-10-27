@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR1-20261027-1601-SAMESIDEFACET",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "eb2ba75469454c5b6f6b46c683b1d4ecdce897b7",
+          "path": "research_notes/brc_n3_same_side_exact_facet_20261027_1601_r1/PROOF.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "9bc71c465d5aa7e21da7b2e6015a2ede94bb54cadcea38d0df40f2bbdd6fd0c9",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "fa7bed2f9b0d73276b71d45df4fded32daa06062",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/eb2ba75469454c5b6f6b46c683b1d4ecdce897b7/research_notes/brc_n3_same_side_exact_facet_20261027_1601_r1/PROOF.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "OBS-EMR1-20261027-FACET-IMMUTABLE-01",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR1-20261027-1601-SAMESIDEFACET/readbacks/da7358673b2886392a09d6eba843433fac32af39aa779c8284c180b1cb35329a.json",
+          "verification_receipt_sha256": "da7358673b2886392a09d6eba843433fac32af39aa779c8284c180b1cb35329a"
+        }
+      ],
+      "event_id": "EMR1-20261027-SAMESIDE-FACET-CERT-01",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-27T08:16:42.223Z",
   "registration_key": "session:local-em-r1-20261027-1601-facetq1657:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R1-20261027-1601-FACETQ1657",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-em-r1-20261027-1601-facetq1657",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-27T08:16:42.223Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
