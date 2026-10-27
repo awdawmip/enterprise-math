@@ -18,7 +18,7 @@ a_k=\frac{(6k+7)(2k+1)(3k+1)(3k+2)}{36(6k+1)(k+1)^3},\quad
 b_k=\frac{(8k+9)(2k+1)(4k+1)(4k+3)}{288(8k+1)(k+1)^3}.
 \]
 
-At rank k a freely variable labelled source state (W_k,S_k) transfers by W_(k+1)=a_k W_k and S_(k+1)=b_k S_k; its signed observer is d_k=W_k-S_k. This free-state observer audit is distinct from the one fixed factorial trajectory. Rank k is an auxiliary arithmetic index, not an X6 spatial coordinate.
+At rank k a freely variable labelled source state (W_k,S_k) transfers by W_{k+1}=a_k W_k and S_{k+1}=b_k S_k; its signed observer is d_k=W_k-S_k. This free-state observer audit is distinct from the one fixed factorial trajectory. Rank k is an auxiliary arithmetic index, not an X6 spatial coordinate.
 
 Define
 
@@ -29,9 +29,9 @@ a_k-b_k=\frac{(2k+1)P(k)}{288(k+1)^3(6k+1)(8k+1)}.
 
 ## R49 — universal bounded observation window with exactly one target-class exceptional prime
 
-Let p>=7 be prime, p≡1 (mod 6), and assume a_t and b_t, t=k,k+1,k+2, are all *well-defined units* in F_p (numerators and denominators nonzero). Set A_j=product_(t=k)^(k+j-1) a_t and B_j=product b_t, with A_0=B_0=1. The row from the j-th future signed observation is [A_j,-B_j], so the determinant with row [1,-1] at k is exactly Δ_j=A_j-B_j.
+Let p>=7 be prime, p≡1 (mod 6), and assume a_t and b_t, t=k,k+1,k+2, are all *well-defined units* in F_p (numerators and denominators nonzero). Set A_j=product_{t=k}^(k+j-1) a_t and B_j=product b_t, with A_0=B_0=1. The row from the j-th future signed observation is [A_j,-B_j], so the determinant with row [1,-1] at k is exactly Δ_j=A_j-B_j.
 
-**Theorem.** If P(k)≠0 (mod p), the first two observations determine both source amplitudes. If P(k)=0 but P(k+1)≠0, the first three suffice, since Δ_1=0 and Δ_2=a_k(a_(k+1)-b_(k+1))≠0. The **only** unit-admissible failure of both tests in the target prime family is p=79411 and k≡5394 (mod p). There Δ_3=13918≠0 (mod p), so four observations are necessary and sufficient. For 0<=k<p this exceptional rank is exactly 5394. This is a claim about *linear reconstruction from signed observer data for every freely varying labelled state*, not an extra claim about hidden factorial initial conditions.
+**Theorem.** If P(k)≠0 (mod p), the first two observations determine both source amplitudes. If P(k)=0 but P(k+1)≠0, the first three suffice, since Δ_1=0 and Δ_2=a_k(a_{k+1}-b_{k+1})≠0. The **only** unit-admissible failure of both tests in the target prime family is p=79411 and k≡5394 (mod p). There Δ_3=13918≠0 (mod p), so four observations are necessary and sufficient. For 0<=k<p this exceptional rank is exactly 5394. This is a claim about *linear reconstruction from signed observer data for every freely varying labelled state*, not an extra claim about hidden factorial initial conditions.
 
 **Proof/certificate.** Integer shift and 8-by-8 Sylvester resultant give
 
@@ -50,8 +50,8 @@ Both 79411 and 18558017 are primes, but 18558017≡5 (mod 6). Modulo 7 the polyn
 P(k)\equiv P(k+1)\equiv0,\quad P(k+2)\equiv22144\pmod{79411},
 \]
 \[
-(a_k,a_(k+1),a_(k+2))=(63693,63793,2920),\qquad
-(b_k,b_(k+1),b_(k+2))=(63693,63793,61628)\pmod{79411}.
+(a_k,a_{k+1},a_{k+2})=(63693,63793,2920),\qquad
+(b_k,b_{k+1},b_{k+2})=(63693,63793,61628)\pmod{79411}.
 \]
 
 Therefore Δ_1=Δ_2=0 and
@@ -67,50 +67,50 @@ Minimality has a concrete observer-fiber witness: states (W_k,S_k)=(1,0) and (0,
 Reuse R47's second-order recurrence in a source-faithful form:
 
 \[
-\alpha_k=a_k-b_k,\quad\beta_k=a_ka_(k+1)-b_kb_(k+1),\quad
-\gamma_k=a_kb_k(a_(k+1)-b_(k+1))>0;
+\alpha_k=a_k-b_k,\quad\beta_k=a_ka_{k+1}-b_kb_{k+1},\quad
+\gamma_k=a_kb_k(a_{k+1}-b_{k+1})>0;
 \]
 \[
-\alpha_kd_(k+2)-\beta_kd_(k+1)+\gamma_kd_k=0.
+\alpha_kd_{k+2}-\beta_kd_{k+1}+\gamma_kd_k=0.
 \]
 
-For every finite rational signed observer c_0,...,c_(N-1), define v_(-2)=v_(-1)=0 and uniquely solve the *adjoint*
+For every finite rational signed observer c_0,...,c_{N-1}, define v_{-2}=v_{-1}=0 and uniquely solve the *adjoint*
 
 \[
-\boxed{\gamma_kv_k-\beta_(k-1)v_(k-1)+\alpha_(k-2)v_(k-2)=c_k\quad(0\le k<N),}
+\boxed{\gamma_kv_k-\beta_{k-1}v_{k-1}+\alpha_{k-2}v_{k-2}=c_k\quad(0\le k<N),}
 \]
 
 omitting negative-index terms. Such v exists over Q because every γ_k is positive rational. Set
 
 \[
-C_(N+1)=\alpha_(N-1)v_(N-1),\quad
-C_N=\alpha_(N-2)v_(N-2)-\beta_(N-1)v_(N-1)
+C_{N+1}=\alpha_{N-1}v_{N-1},\quad
+C_N=\alpha_{N-2}v_{N-2}-\beta_{N-1}v_{N-1}
 \]
 
 (negative-index terms omitted for N=1). Then the **complete two-boundary finite Green identity** is
 
 \[
-\boxed{\sum_{k=0}^{N-1}c_kd_k=-C_Nd_N-C_(N+1)d_(N+1).}\tag{R50-G}
+\boxed{\sum_{k=0}^{N-1}c_kd_k=-C_Nd_N-C_{N+1}d_{N+1}.}\tag{R50-G}
 \]
 
-**Proof.** With \(\mathcal B_k=\alpha_(k-1)v_(k-1)d_(k+1)+[\alpha_(k-2)v_(k-2)-\beta_(k-1)v_(k-1)]d_k\), direct expansion gives
+**Proof.** With \(\mathcal B_k=\alpha_{k-1}v_{k-1}d_{k+1}+[\alpha_{k-2}v_{k-2}-\beta_{k-1}v_{k-1}]d_k\), direct expansion gives
 \[
-\mathcal B_(k+1)-\mathcal B_k
-=v_k[\alpha_kd_(k+2)-\beta_kd_(k+1)+\gamma_kd_k]
--d_k[\gamma_kv_k-\beta_(k-1)v_(k-1)+\alpha_(k-2)v_(k-2)]
+\mathcal B_{k+1}-\mathcal B_k
+=v_k[\alpha_kd_{k+2}-\beta_kd_{k+1}+\gamma_kd_k]
+-d_k[\gamma_kv_k-\beta_{k-1}v_{k-1}+\alpha_{k-2}v_{k-2}]
 =-c_kd_k.
 \]
-Summing and using B_0=0, B_N=C_Nd_N+C_(N+1)d_(N+1) proves the identity. The rational adjoint has no automatic p-integrality. Both boundary coordinates and the division data must remain labelled. QED.
+Summing and using B_0=0, B_N=C_Nd_N+C_{N+1}d_{N+1} proves the identity. The rational adjoint has no automatic p-integrality. Both boundary coordinates and the division data must remain labelled. QED.
 
-**Sharp mandatory pole for one low-rank port.** For every target prime p>=13, let H=floor((3p-1)/4), N=H+1. The two endpoint ranks N,N+1 are in the R48 high-high interval, hence v_p(d_N),v_p(d_(N+1))>=3. Put c_1=1 and other c_k=0. Then Σ c_k d_k=d_1=85/288 is a p-adic unit. If both C_N and C_(N+1) had valuations >=-2, the Green right side would be divisible by p, a contradiction. Thus
+**Sharp mandatory pole for one low-rank port.** For every target prime p>=13, let H=floor((3p-1)/4), N=H+1. The two endpoint ranks N,N+1 are in the R48 high-high interval, hence v_p(d_N),v_p(d_{N+1})>=3. Put c_1=1 and other c_k=0. Then Σ c_k d_k=d_1=85/288 is a p-adic unit. If both C_N and C_{N+1} had valuations >=-2, the Green right side would be divisible by p, a contradiction. Thus
 
 \[
-\boxed{\min\{v_p(C_N),v_p(C_(N+1))\}\le-3.}
+\boxed{\min\{v_p(C_N),v_p(C_{N+1})\}\le-3.}
 \]
 
 This is a source/observer-specific endpoint pole theorem. It neither proves nor disproves the full W_p=S_p (mod p^3) target or a genuine nonlocal WZ cancellation.
 
-**Executed exact author certificates.** Python stdlib 8x8 integer Bareiss determinant, factorization, finite-field polynomial gcd and exceptional transfer values: PASS. Separate stdlib Fraction Green-adjoint/reconstruction check for p=13,19,37,181,373: PASS, with tuples (v_p(d_N),v_p(d_(N+1)),v_p(C_N),v_p(C_(N+1))):
+**Executed exact author certificates.** Python stdlib 8x8 integer Bareiss determinant, factorization, finite-field polynomial gcd and exceptional transfer values: PASS. Separate stdlib Fraction Green-adjoint/reconstruction check for p=13,19,37,181,373: PASS, with tuples (v_p(d_N),v_p(d_{N+1}),v_p(C_N),v_p(C_{N+1})):
 
 | p | N | exact tuple |
 |---:|---:|---|
