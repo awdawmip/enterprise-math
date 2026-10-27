@@ -1,0 +1,124 @@
+{
+  "schema": "EM_EC48O_EXACT_REPORT_V1",
+  "research_date": "2026-10-27",
+  "epistemic_status": "AUTHOR_PROVED_EXACT_COMPUTATION_PASS_UNREVIEWED_NOT_ADMITTED",
+  "source_snapshot": {
+    "global_main": "e4a50e129afcb9385b416dc05f9ebd52a11ef6df",
+    "enterprise_main": "9ea3a32edc6d8b286518e19a44316ac08256cbeb"
+  },
+  "model": {
+    "horizon": 3,
+    "sources": [
+      "P",
+      "Q"
+    ],
+    "k": 4,
+    "first_history_codes": [
+      "00",
+      "01",
+      "10",
+      "11"
+    ],
+    "strictly_positive_terminal_leaves": 20,
+    "mass_denominator": 128,
+    "shared_x_terminals": {
+      "neutral": [
+        4,
+        4
+      ],
+      "informative_up": [
+        3,
+        1
+      ],
+      "informative_down": [
+        1,
+        3
+      ]
+    },
+    "private_x_plus": [
+      16,
+      8
+    ],
+    "private_x_minus": [
+      8,
+      16
+    ]
+  },
+  "theorem": {
+    "state_cardinality_all_k": "M*(k)=max(k,2)",
+    "valid_real_c_interval": "0<c<1/10",
+    "k_ge_2_support_gap": "c/(2*k*ceil(log2(k)))",
+    "k4_analytic_interval_extension": "0<c<1/9",
+    "k4_full": "5/16-17c/4",
+    "k4_three_state": "5/16-69c/16"
+  },
+  "witness_at_c_1_16": {
+    "full_vector": [
+      "19/32",
+      "9/32",
+      "17/8",
+      "17/8"
+    ],
+    "three_state_vector": [
+      "19/32",
+      "9/32",
+      "69/32",
+      "69/32"
+    ],
+    "full_support": "3/64",
+    "three_state_support": "11/256",
+    "exact_gap": "1/256"
+  },
+  "checks": [
+    {
+      "c": "1/32",
+      "full": "23/128",
+      "three_state": "91/512",
+      "gap": "1/512",
+      "controllers": 16384
+    },
+    {
+      "c": "1/16",
+      "full": "3/64",
+      "three_state": "11/256",
+      "gap": "1/256",
+      "controllers": 16384
+    },
+    {
+      "c": "1/10",
+      "full": "-9/80",
+      "three_state": "-19/160",
+      "gap": "1/160",
+      "controllers": 16384
+    }
+  ],
+  "total_exact_three_state_controller_evaluations": 49152,
+  "generic_constructive_family_checks": {
+    "k_range": "2..32 inclusive",
+    "models": 31,
+    "c_values": [
+      "1/32",
+      "1/16",
+      "1/11"
+    ],
+    "normalization_positive_masses_and_constructive_vectors": "PASS"
+  },
+  "k1_three_leaf": {
+    "c": "1/32",
+    "full": "3/32",
+    "one_state": "1/16",
+    "gap": "1/32"
+  },
+  "local_full_machine_output": {
+    "file": "EXACT_OUTPUT.json in local ZIP",
+    "bytes": 8345,
+    "sha256": "50d554f9494488262cad84c8daecac40d216873168972214b5769bf679e54634",
+    "reproduce": "python VERIFY.py > EXACT_OUTPUT.json"
+  },
+  "review_pending": [
+    "independent theorem review",
+    "prior art",
+    "formal mathematical admission",
+    "native typed X6 transfer"
+  ]
+}
