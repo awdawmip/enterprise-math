@@ -1,0 +1,161 @@
+{
+  "schema": "EM_PREFIX303_VERIFIED_SUMMARY_V1",
+  "date": "2026-10-28",
+  "researcher_role": "TASK_RESEARCH_AUTHOR_SIDE_ONLY",
+  "fixed_global_knowledge_main": "aabcc07189497c8a89554d5c0b1e254feaf05e54",
+  "frozen_enterprise_math_scientific_input": "ed40106b737c25a210a20469592d8fd512aea512",
+  "source_prefix299": {
+    "path": "research_notes/research6_prefix299_rank2_left_orbits_20261027/RESULTS_PREFIX299.json",
+    "git_blob": "b6acffe158f014469235f5428d2889ff43b62810"
+  },
+  "full_rational_gaussian_theorem": {
+    "domain": "Q(i)^3",
+    "fixed_phase": true,
+    "prior_K0_five_port_masses": true,
+    "nonadaptive_extra_reference_choices": [
+      "1",
+      "i"
+    ],
+    "minimum_extra_mass_readouts": 6,
+    "proof": "Five or fewer rational linear reference cross-terms have a nonzero kernel over Q^6; a and -a collide. Six use {E,C,R_j} each with references 1,i and PREFIX-302 T_j!=0 inverse."
+  },
+  "finite_domains": {
+    "A6": {
+      "alphabet": [
+        "0",
+        "1",
+        "-1",
+        "i",
+        "-i",
+        "1+i"
+      ],
+      "input_states_per_instance": 216,
+      "instances": 48,
+      "total_inputs": 10368,
+      "labelled_mass_readouts": 155520,
+      "ordered_labelled_source_pairs": 1731456,
+      "K0_collision_pairs": 10480,
+      "Gram_entries": 108,
+      "has_nonC4_K0_collisions_for_instances": 32,
+      "full_output_local_sha256": "8b36a2738ffacc16c896b2211c6d36c1c4b92f40a78408f8a0c18d44f721314a"
+    },
+    "A5_C4_closed": {
+      "alphabet": [
+        "0",
+        "1",
+        "-1",
+        "i",
+        "-i"
+      ],
+      "input_states_per_instance": 125,
+      "instances": 48,
+      "total_inputs": 6000,
+      "labelled_mass_readouts": 90000,
+      "ordered_labelled_source_pairs": 1002000,
+      "K0_collision_pairs": 10208,
+      "Gram_entries": 108,
+      "has_nonC4_K0_collisions_for_instances": 32,
+      "full_output_local_sha256": "99b17784b89fb2569acd4b3252c9aa56b6e1baab98ccf4cd2a641cb12778e89d"
+    }
+  },
+  "per_orbit_minimum_for_both_domains": {
+    "S4": [
+      2,
+      2,
+      2,
+      2,
+      3,
+      3
+    ],
+    "S7": [
+      2,
+      2,
+      3,
+      3,
+      2,
+      2
+    ]
+  },
+  "phase_dependence": "Each of four q phases has identical minimum for each orbit; all-phase per-orbit minimum matches.",
+  "universal_fixed_scheme": {
+    "minimum_extra_readouts": 4,
+    "works_for_both_domains_and_all_twelve_orbits_all_phases": true,
+    "example_mask": "0x033",
+    "example_references": [
+      "E+1",
+      "E+i",
+      "R1+1",
+      "R1+i"
+    ],
+    "optimal_mask_count": 21,
+    "optimal_masks": [
+      "0x033",
+      "0x03c",
+      "0x0c3",
+      "0x0cc",
+      "0x123",
+      "0x12c",
+      "0x161",
+      "0x162",
+      "0x164",
+      "0x168",
+      "0x1c2",
+      "0x213",
+      "0x21c",
+      "0x291",
+      "0x292",
+      "0x294",
+      "0x298",
+      "0x2c1",
+      "0x303",
+      "0x30c",
+      "0x3c0"
+    ]
+  },
+  "non_C4_collision_certificate": {
+    "source_domain": "A5^3 subset of A6^3",
+    "orbit": "S4_orbit_1",
+    "q": "1",
+    "a": [
+      "1",
+      "i",
+      "-1"
+    ],
+    "a_prime": [
+      "1",
+      "-i",
+      "-1"
+    ],
+    "five_base_BRC_numerator_masses": [
+      "32",
+      "32",
+      "53",
+      "20",
+      "52"
+    ],
+    "mass_denominator": 64
+  },
+  "certificate_verification": {
+    "candidate_extra_reference_order": [
+      "E+1",
+      "E+i",
+      "C+1",
+      "C+i",
+      "R1+1",
+      "R1+i",
+      "R2+1",
+      "R2+i",
+      "R3+1",
+      "R3+i"
+    ],
+    "method": "Enumerate all base-signature-colliding unordered input pairs; build exact ten-bit difference masks using ordered labelled BRC path-pair masses; enumerate all 1024 reference subsets and compare all constrained masks.",
+    "code": "verify_prefix303.js",
+    "code_local_sha256": "2a21a99020717bd31f6f119777afbcfc47f2cf8fae91d07f79bd5a812d55cc40",
+    "independent_check": "Python exact integer Gaussian reference implementation agrees on all 48 configurations, all per-class minimum masks and all universal masks.",
+    "run_A6": "node verify_prefix303.js /tmp/prefix303_a6.json",
+    "run_A5": "EM_BRC_SOURCE_ALPHABET=C4_CLOSED_5 node verify_prefix303.js /tmp/prefix303_a5.json"
+  },
+  "admission": "AUTHOR_SIDE_EXACT_PROOF_AND_EXHAUSTIVE_FINITE_CERTIFICATE / UNREVIEWED / NOT_ADMITTED / NATIVE_ATTRIBUTION_PENDING_BRC_REVALIDATION",
+  "native_owner_check": "em_control_tasks returned CONTROL_QUOTA; owner/claim unknown; GitHub write is not Source session/claim/Result",
+  "next": "NEXT_PREFIX304.md"
+}
