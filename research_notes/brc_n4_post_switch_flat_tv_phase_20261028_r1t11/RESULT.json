@@ -1,0 +1,33 @@
+{
+  "status": "PASS_EXACT_FRACTION_N4_POST_SWITCH_FLAT_PHASE",
+  "interval": ["26911/39215", "27483/39215"],
+  "phase_width": "52/3565",
+  "d2": "1/506",
+  "d23": "1/506",
+  "d3": "(1-lambda)/2000 (previous all-[0,1] theorem)",
+  "strict_gap_lower": "2933/19607500",
+  "dual_min": "-153/506",
+  "dual_oscillation": "1",
+  "bellman_prefix_cases": 243,
+  "endpoint_evidence": {
+    "26911/39215": {
+      "a_s_z_k_m": ["496/1265","249/253","249/253","307/39215","4767/7843"],
+      "Q_residual_A_B": ["1/506","0"],
+      "TV_Q": "1/506", "TV_P": "1/506"
+    },
+    "27483/39215": {
+      "a_s_z_k_m": ["498/1265","251/253","251/253","307/78430","4755/7843"],
+      "Q_residual_A_B": ["0","1/506"],
+      "TV_Q": "1/506", "TV_P": "1/506"
+    },
+    "7/10": {
+      "a_s_z_k_m": ["21907/55660","11039/11132","11039/11132","921/222640","3375/5566"],
+      "Q_residual_A_B": ["5/44528","83/44528"],
+      "TV_Q": "1/506", "TV_P": "1/506"
+    }
+  },
+  "validation": "Actual full local Fraction verifier executed with consistent result; uploaded VERIFY.py is a standalone independently replayable equivalent mathematical certificate; universal interval follows affine identities, not finite sampling.",
+  "source_global": "5b03e7f250babaf694305861ca991d84fe4cdffc",
+  "source_enterprise": "4a285e59dbb40ef554edd4a5ef871bbd361fe85b",
+  "status_scope": "author-side unreviewed, native owner CONTROL_QUOTA, not admitted"
+}
