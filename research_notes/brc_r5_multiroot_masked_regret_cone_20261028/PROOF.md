@@ -1,6 +1,6 @@
 # R5 — Multi-root shared-gate masked-regret identity and rational cone certificate
 
-Date: 2026-10-28 (Asia/Shanghai). Author: locally identified `EM-R5-LOCAL-20261028-CONE-AUTHOR`; research activity `RA-EMR5-CONE-20261028-0113-7CA1`. AUTHOR_PROVED / EXACT_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED. No native Source CLAIM, Result or independent Driver admission is represented.
+Date: 2026-10-28 (Asia/Shanghai). Author: locally identified `EM-R005-7CA1`; research activity `RA-EMR5-CONE-20261028-0113-7CA1`. AUTHOR_PROVED / EXACT_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED. No native Source CLAIM, Result or independent Driver admission is represented.
 
 ## Exact frozen sources and model boundary
 
