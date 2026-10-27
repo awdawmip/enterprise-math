@@ -1,0 +1,129 @@
+{
+  "schema": "EC48P_EXACT_RATIONAL_REPORT_V1",
+  "as_of": "2026-10-27",
+  "status": "AUTHOR_PROVED / EXACT_COMPUTATION_PASS / UNREVIEWED / NOT_ADMITTED",
+  "claim": "Sharp raw four-coordinate region memory M*(H4,k)=max(k,2). Strict positive rational k>=2 family support gap c/(2*k*ceil(log2(k))) for real 0<c<=1/16.",
+  "source_pins": {
+    "global_main": "5757eed6a2acb37dffe2f53363bcb27e2c40a3bb",
+    "enterprise_main": "88d3f0f6f1bface54cf6bef9eba6177c8326afab",
+    "predecessor_ec48o_commit": "20eb4f35105908f403d631608657d7973bd604ee"
+  },
+  "execution": {
+    "engine": "python3 fractions.Fraction",
+    "script_git_blob": "1bcdc610c2af88782b0319f618629dfa01eabb7c",
+    "script_matches_locally_executed_source": true,
+    "raw_stdout_sha256": "0fb1bd844c6c275958c3c3a80b4e20a6a2198ad271dcc86a19e2ccc4a6031ea8",
+    "raw_stdout_bytes": 14814,
+    "raw_stdout_local_archive": "EnterpriseMath_EC48P_H4_Sharp_Memory_20261027.zip contains separately developed cross-check; complete remotely reproducible stdout from VERIFY.py",
+    "deterministic_support_controller_evaluations": 50448,
+    "components": {
+      "inherited_ec48o_k4_3_cost_points": 49152,
+      "new_ec48p_k3_3_cost_points": 1296
+    },
+    "constructive_family_k_range": [
+      2,
+      32
+    ],
+    "family_instances": 31,
+    "constructive_costs": [
+      "1/64",
+      "1/32",
+      "1/16"
+    ],
+    "notes": "k=4 predecessor also computes a c=1/10 point; four-stage clipping at high costs makes it outside EC48P theorem parameter range. No floating point calculations."
+  },
+  "k3_14_leaf": {
+    "cost": "1/16",
+    "k": 3,
+    "s": 2,
+    "mu": "1/24",
+    "total_terminal_leaves": 14,
+    "full_vector": [
+      "9/16",
+      "13/48",
+      "37/12",
+      "37/12"
+    ],
+    "two_state_vector": [
+      "9/16",
+      "13/48",
+      "25/8",
+      "25/8"
+    ],
+    "V_F": "-3/32",
+    "V_2": "-19/192",
+    "gap": "1/192",
+    "root_stop_value": "-1/8",
+    "leaf_construction": "For each h=0,1,2 private +=(P1/6,Q1/12), private -=(P1/12,Q1/6). Shared j: zero bit neutral=(1/24,1/24); one bit up=(1/32,1/96),down=(1/96,1/32); codes 00,01,10. Each source total 1."
+  },
+  "exhaustive_k3": [
+    {
+      "c": "1/64",
+      "V_F": "25/128",
+      "V_2": "149/768",
+      "gap": "1/768",
+      "controllers": 432
+    },
+    {
+      "c": "1/32",
+      "V_F": "19/192",
+      "V_2": "37/384",
+      "gap": "1/384",
+      "controllers": 432
+    },
+    {
+      "c": "1/16",
+      "V_F": "-3/32",
+      "V_2": "-19/192",
+      "gap": "1/192",
+      "controllers": 432
+    }
+  ],
+  "inherited_k4_crosschecks": [
+    {
+      "c": "1/32",
+      "V_F": "15/128",
+      "V_3": "59/512",
+      "gap": "1/512",
+      "controllers": 16384
+    },
+    {
+      "c": "1/16",
+      "V_F": "-5/64",
+      "V_3": "-21/256",
+      "gap": "1/256",
+      "controllers": 16384
+    }
+  ],
+  "k1_3_leaf": {
+    "c": "1/32",
+    "full_vector": [
+      "3/8",
+      "1/8",
+      "7/2",
+      "7/2"
+    ],
+    "one_state_vector": [
+      "3/8",
+      "1/8",
+      "4",
+      "4"
+    ],
+    "full_support": "1/32",
+    "one_state_support": "0",
+    "gap": "1/32"
+  },
+  "scope": [
+    "finite strictly positive two-source model",
+    "horizon four with single common initial root",
+    "time-indexed update-before-action m-state controller",
+    "observations P/Q accept and expected stopping time",
+    "joint-prefix P/Q likelihood ratio and private source-independent randomization",
+    "no native X6 bridge or empirical physical conclusion"
+  ],
+  "limitations": [
+    "Analytic k and real-c theorem is proved by the written normal-form and fiber argument, not inferred from 31 finite k tests.",
+    "Raw equality uses explicit P/Q fiber construction, not merely support equality.",
+    "No native CLAIM, Source Result, independent Driver review or admission obtained."
+  ]
+}
