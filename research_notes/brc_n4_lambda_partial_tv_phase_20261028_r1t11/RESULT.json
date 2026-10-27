@@ -1,0 +1,33 @@
+{
+  "status": "PASS_EXACT_FRACTION_N4_LAMBDA_PHASE",
+  "source_tree": "research_notes/brc_n4_fprime_partial_unmask_strict_subadd_20261028_r1t11/VERIFY.py",
+  "global_snapshot": "701a4ae677a65afcf19dea82c218ae69e48ef079",
+  "em_snapshot": "ad705afd013ba0037bdc222515b4effa9a18b095",
+  "parameter": "lambda = Pr(CONTINUE at AV0 t3), with Pr(STOP Q)=1-lambda",
+  "real_interval": [
+    "0",
+    "26911/39215"
+  ],
+  "d2": "1/506",
+  "d3": "(1-lambda)/2000",
+  "d23": "727/314040-(31/62808)*lambda",
+  "d23_minus_d2": "(31/62808)*(26911/39215-lambda)",
+  "strict_subadd_gap": "640753/3972606000-(101/15702000)*lambda",
+  "gap_at_right": "769/4901875",
+  "dual_minima": {
+    "2": "-153/506",
+    "3": "-1229/4000",
+    "23": "-7913/26170"
+  },
+  "exact_samples": [
+    "0",
+    "1/7",
+    "1/4",
+    "1/2",
+    "26911/39215"
+  ],
+  "symbolic_evidence": "joint occupancy affine-coefficient identities, endpoint feasibility and Bellman duals for all real behavioral strategies",
+  "author_local_full_verifier_sha256": "5e5fced2be1e42cbff1fa0a03a9a1c5d3993110d0fa9aec54e1efa033727b8a6",
+  "author_local_full_result_sha256": "ad412f4f9ba163e029aa476c0474a4f3c0fbdcd66af726cac15afe3c177eb3c4",
+  "status_scope": "AUTHOR_EXACT_PROOF; UNREVIEWED; NOT_ADMITTED; no X6 dynamics transfer"
+}
