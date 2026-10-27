@@ -1,5 +1,5 @@
 "use strict";
-(function(){
+const __EM_REPORT = (function(){
   const J=[1,2,3,4], SCALE=80;
   function assert(c,message){if(!c)throw Error(message);}
   function gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){const t=a%b;a=b;b=t;}return a||1;}
@@ -66,5 +66,5 @@
     examples:{left:d1[0]+"/"+d1[1],right:d2[0]+"/"+d2[1],combined:d12[0]+"/"+d12[1],reverse_inclusion_distance:"0"}
   };
   return JSON.stringify(result,null,2);
-})()
-
+})();
+console.log(__EM_REPORT);
