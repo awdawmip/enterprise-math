@@ -36,6 +36,11 @@ def specimen(p,a,b):
         fx=mul(eta,sigma(x,m),m)
         ffx=mul(eta,sigma(fx,m),m)
         assert ffx==mul(norm,x,m)
+    # Units u_c=1+p*c*T act by u_c F u_c^-1, sending b -> b+2c.
+    c=(a+b+1)%p
+    u=(1,(p*c)%m)
+    eta_gauged=mul(mul(u,eta,m),u,m) # sigma(u)^(-1)==u (mod p^2)
+    assert eta_gauged==((1+p*a)%m,(p*(b+2*c))%m)
     return norm[0],chi
 
 
@@ -63,7 +68,7 @@ def run():
     out={"status":"PASS","classification":"AUTHOR_DERIVED_AUTHOR_EXACT_CHECKED_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
          "scope":"auxiliary pinned-basis unramified quadratic semilinear models; not H0/B0",
          "theorem":"For p=13,19 mod24, eta(a,b)=1+p(a+bT); Norm mod p^2=1+2pa; F mod p is sigma; odd coefficient jet=b mod p. Every fixed norm fiber has p different odd jets.",
-         "cases":cases,"checked_pairs":sum(x['tested_eta'] for x in cases),
+         "cases":cases,"gauge_checks":sum(x['tested_eta'] for x in cases),"checked_pairs":sum(x['tested_eta'] for x in cases),
          "source_pin":"c47e13e4aba0e006366f989d6334d443f6333ae3",
          "actual_native_experiment":"NOT_RUN","native_result_or_claim":"NOT_ASSERTED"}
     print(json.dumps(out,ensure_ascii=False,sort_keys=True,indent=2))

@@ -34,3 +34,19 @@ Exact standard-library checker d25_frobenius_even_odd_jet_fiber_checker_20261028
 UR V2 original remains a separate hash/provenance debt: 94687 bytes; expected SHA256 4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76. On a CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS Source seed, predecessor completed_units=[] and all input artifacts require full readback before typed continuation_prepare.
 
 **Next discriminating action:** obtain actual authorized original H0/B0 p373 normalized Frobenius and signed odd observer under #1559; then test whether original-class constraints bind the odd second digit b to even data or demand a separate signed port. Do not replace a native result with this ring witness, a scalar W_p regression or a provisional author PR.
+
+
+## Exact gauge-orbit corollary (second verified unit)
+
+Fix a,b,c in F_p and let u_c=1+pcT. In R₂, σ(u_c)^{-1}=u_c modulo p². Conjugating the **semilinear** operator with this unit gives
+
+u_c F_(a,b) u_c^{-1}(x)
+ = u_c η_(a,b) σ(u_c)^{-1} σ(x)
+ = η_(a,b+2c) σ(x)
+ = F_(a,b+2c)(x)  (mod p²).
+
+Since 2 is invertible modulo p, these changes act **transitively** on all p distinct pinned b labels with fixed a/norm. Thus the b-coordinate is not gauge-invariant for an *unmarked* semilinear module. The previous exact non-descent theorem is deliberately for the **pinned generator/odd readout**; treating its b labels as p physically distinct Frobenius modules without an anchor would be invalid.
+
+Native implication: the original H0/B0 task must provide an actual basis/marked-section normalization and a corresponding signed Green/Hesse observer (or a separately proved genuinely gauge-invariant odd quantity). Merely supplying a rank-one norm/F² scalar cannot justify a pinned odd second-digit output. Conversely, this toy gauge equivalence does NOT prove that the authentic native odd source channel is pure gauge or zero.
+
+The standalone checker also directly verifies this conjugation formula for all 6520 tested (p,a,b) pairs by selecting c=a+b+1 modulo p. These are author-side exact checks; the displayed algebra proves the full target-prime statement.
