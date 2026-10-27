@@ -1,0 +1,218 @@
+{
+  "scope": "finite strictly positive two-stage BRC terminal ROC; no persistent common seed; not X6",
+  "P_raw": [
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      1,
+      3,
+      2
+    ],
+    [
+      2,
+      1,
+      3
+    ],
+    [
+      2,
+      3,
+      1
+    ],
+    [
+      3,
+      1,
+      2
+    ],
+    [
+      3,
+      2,
+      1
+    ]
+  ],
+  "Q_raw": [
+    [
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2
+    ]
+  ],
+  "P_total": 36,
+  "Q_total": 36,
+  "critical_ratios": [
+    "1/2",
+    "1",
+    "3/2"
+  ],
+  "strict_chamber_signature_counts": [
+    1,
+    3,
+    3,
+    1
+  ],
+  "K_hull": 3,
+  "K_seed": 4,
+  "critical_r": "1",
+  "face_support_alpha_minus_beta": "1/6",
+  "full_face_beta_interval": [
+    "1/3",
+    "2/3"
+  ],
+  "unreachable_at_K3": {
+    "alpha": "2/3",
+    "beta": "1/2"
+  },
+  "compatible_history_edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "optimal_encoder_enumeration": {
+    "K3": {
+      "tested": 729,
+      "optimal": 12,
+      "edges": 0,
+      "components": 12,
+      "face_tied_mass_component_intervals": {
+        "[0,0]": 6,
+        "[1/3,1/3]": 6
+      }
+    },
+    "K4": {
+      "tested": 4096,
+      "optimal": 264,
+      "edges": 576,
+      "components": 1
+    }
+  },
+  "four_state_six_phases": 6,
+  "tie_mass_phase_boundaries": [
+    "0",
+    "1/18",
+    "1/9",
+    "1/6",
+    "2/9",
+    "5/18",
+    "1/3"
+  ],
+  "exact_fraction_sample_checks_middle": 30,
+  "exact_fraction_sample_checks_other_critical_faces": {
+    "1/2": [
+      [
+        "5/6",
+        "2/3"
+      ],
+      [
+        "7/8",
+        "3/4"
+      ],
+      [
+        "11/12",
+        "5/6"
+      ],
+      [
+        "23/24",
+        "11/12"
+      ],
+      [
+        "1",
+        "1"
+      ]
+    ],
+    "3/2": [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "1/8",
+        "1/12"
+      ],
+      [
+        "1/4",
+        "1/6"
+      ],
+      [
+        "3/8",
+        "1/4"
+      ],
+      [
+        "1/2",
+        "1/3"
+      ]
+    ]
+  },
+  "abstract_exhaustive_audit": {
+    "distinct_type_subsets_by_size": {
+      "0": 1,
+      "1": 27,
+      "2": 351,
+      "3": 2925,
+      "4": 6186,
+      "5": 5199,
+      "6": 1867,
+      "7": 324,
+      "8": 24
+    },
+    "tested_three_decoder_nontrivial_subsets": 13570,
+    "no_extreme_to_extreme_path_count": 1,
+    "unique_obstruction_row_type_indices": [
+      5,
+      7,
+      11,
+      15,
+      19,
+      21
+    ],
+    "row_type_enumeration_order": "itertools.product((-1,0,1),repeat=3)"
+  },
+  "mathematical_status": "author-side direct combinatorial proof, finite exact checks, pending independent review"
+}
