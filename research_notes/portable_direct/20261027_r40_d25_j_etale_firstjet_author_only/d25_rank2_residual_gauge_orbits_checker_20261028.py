@@ -161,6 +161,5 @@ def main():
     out.write_text(json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:report[k] for k in ('all','total_verified_finite_field_K','total_group_actions','second_jet_samples','p373_symbolic_prediction')},ensure_ascii=False))
 
-
 if __name__=='__main__':
     main()
