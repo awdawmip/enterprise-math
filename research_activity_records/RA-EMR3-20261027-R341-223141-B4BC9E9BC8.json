@@ -1,40 +1,69 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR3-20261027-R341-223141-B4BC9E9BC8",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "cad0f5e5536d7d4dc651588a7d26ebab485acf2a",
+          "path": "research_notes/r341_interior_full_tn2_20261027_emr3/R341_EVIDENCE.json",
+          "publication_state": "VERIFY_EM_PUBLICATION",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "1b445bd29590a6fb489ff4d7a691abe4ea5c6198fd448235dd0a1c92722e687b"
+        }
+      ],
+      "event_id": "R341-INTERIOR-TP2-LIFT-439633040",
+      "kb_sources": [
+        "journal/enterprise-math/2026-10-27/20261027T223141+0800-r341-interior-tp2-lifting-emr3.md"
+      ],
+      "repairs_event_id": null,
+      "state": "VERIFY_EM_PUBLICATION"
+    },
+    {
+      "em_sources": [
+        {
+          "commit": "cad0f5e5536d7d4dc651588a7d26ebab485acf2a",
+          "path": "research_notes/r341_interior_full_tn2_20261027_emr3/R341_EVIDENCE.json",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "1b445bd29590a6fb489ff4d7a691abe4ea5c6198fd448235dd0a1c92722e687b",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "f5c731001977e74b15638c70c706955000d1d590",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/cad0f5e5536d7d4dc651588a7d26ebab485acf2a/research_notes/r341_interior_full_tn2_20261027_emr3/R341_EVIDENCE.json",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "obs-r341-evidence-20261027-2236-local",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261027-R341-223141-B4BC9E9BC8/readbacks/2392219b2b0964939bf2c34212cc8afcf088017a6f33c00731a3f4d552210c72.json",
+          "verification_receipt_sha256": "2392219b2b0964939bf2c34212cc8afcf088017a6f33c00731a3f4d552210c72"
+        }
+      ],
+      "event_id": "R341-FINITE-TP2-OBSERVED-SOURCE-REPAIR",
+      "kb_sources": [
+        "journal/enterprise-math/2026-10-27/20261027T223141+0800-r341-interior-tp2-lifting-emr3.md"
+      ],
+      "repairs_event_id": "R341-INTERIOR-TP2-LIFT-439633040",
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-27T22:31:41+08:00",
   "registration_key": "session:local-chatgpt-emr3-20261027T222058-B4BC9E9BC8:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-AUTO3-R341-B4BC9E9BC8",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-chatgpt-emr3-20261027T222058-B4BC9E9BC8",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-27T22:31:41+08:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": [
-    {
-      "event_id": "R341-INTERIOR-TP2-LIFT-439633040",
-      "em_sources": [
-        {
-          "repository": "awdawmip/enterprise-math",
-          "commit": "cad0f5e5536d7d4dc651588a7d26ebab485acf2a",
-          "path": "research_notes/r341_interior_full_tn2_20261027_emr3/R341_EVIDENCE.json",
-          "sha256": "1b445bd29590a6fb489ff4d7a691abe4ea5c6198fd448235dd0a1c92722e687b",
-          "publication_state": "VERIFY_EM_PUBLICATION"
-        }
-      ],
-      "kb_sources": [
-        "journal/enterprise-math/2026-10-27/20261027T223141+0800-r341-interior-tp2-lifting-emr3.md"
-      ],
-      "state": "VERIFY_EM_PUBLICATION",
-      "repairs_event_id": null
-    }
-  ]
+  "session_state": "KNOWN"
 }
