@@ -1,0 +1,110 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX294_EXACT_CHECK_V1",
+  "status": "PASS",
+  "scope": "auxiliary C4 Q(i) ordered-source BRC model; linear five-bin contractions with fixed J0,J1",
+  "source_pin": "enterprise-math@42bb3b9183ba71e95e90722769274ee1d9a446d7",
+  "global_pin": "chatgpt-global-knowledge@93755c1673bf4ba017acc56f5a7608a8cc730409",
+  "input_set": "each of three source positions in {0,1,-1,i,-i,1+i}",
+  "phase_cases": 4,
+  "input_packets_per_phase": 216,
+  "input_phase_cases": 864,
+  "direct_brc_bin_readouts": 5184,
+  "ordered_source_pair_products": 46656,
+  "cross_input_standard_basis_gram_checks": 36,
+  "residual_rank_one_witnesses": [
+    {
+      "phase": "(1, 0)",
+      "leak_numerator": 16,
+      "input_norm": 2
+    },
+    {
+      "phase": "(0, 1)",
+      "leak_numerator": 16,
+      "input_norm": 2
+    },
+    {
+      "phase": "(-1, 0)",
+      "leak_numerator": 16,
+      "input_norm": 2
+    },
+    {
+      "phase": "(0, -1)",
+      "leak_numerator": 16,
+      "input_norm": 2
+    }
+  ],
+  "denominator": 8,
+  "universal_lower_bound_worst_leak": "1/32",
+  "reference_constructor_worst_leak": "1/8",
+  "seven_determinant_obstructions": [
+    {
+      "residual_diagonal": [
+        0,
+        0,
+        1
+      ],
+      "det_8sqG_minus_diag": 47872,
+      "sum_two_squares": false
+    },
+    {
+      "residual_diagonal": [
+        0,
+        1,
+        0
+      ],
+      "det_8sqG_minus_diag": 46848,
+      "sum_two_squares": false
+    },
+    {
+      "residual_diagonal": [
+        0,
+        1,
+        1
+      ],
+      "det_8sqG_minus_diag": 45616,
+      "sum_two_squares": false
+    },
+    {
+      "residual_diagonal": [
+        1,
+        0,
+        0
+      ],
+      "det_8sqG_minus_diag": 47872,
+      "sum_two_squares": false
+    },
+    {
+      "residual_diagonal": [
+        1,
+        0,
+        1
+      ],
+      "det_8sqG_minus_diag": 46624,
+      "sum_two_squares": false
+    },
+    {
+      "residual_diagonal": [
+        1,
+        1,
+        0
+      ],
+      "det_8sqG_minus_diag": 45616,
+      "sum_two_squares": false
+    },
+    {
+      "residual_diagonal": [
+        1,
+        1,
+        1
+      ],
+      "det_8sqG_minus_diag": 44415,
+      "sum_two_squares": false
+    }
+  ],
+  "phase_partner_event_probs": [
+    "0",
+    "2/3"
+  ],
+  "native_detector_run": false,
+  "formal_independent_review": false
+}
