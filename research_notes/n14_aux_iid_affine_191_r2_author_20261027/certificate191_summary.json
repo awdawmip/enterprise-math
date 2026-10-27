@@ -1,0 +1,99 @@
+{
+  "schema": "STAGE191_AUTHOR_EXACT_RATIONAL_SUMMARY_V1",
+  "date": "2026-10-27",
+  "scope": "EXTERNAL_IID_N14",
+  "author_status": "UNREVIEWED_NOT_ADMITTED",
+  "global_snapshot": "b87062620426fe6a36250644bbc08789c86cd2af",
+  "em_main_input": "8e9c6ec65632404dd596c69f9d8329d7841f0218",
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ]
+  },
+  "dual": {
+    "K": "610519409541/3646579780",
+    "L": "30208318184/182328989",
+    "H": "531209309176160736181221937/4161698766215586030551040",
+    "states": 680,
+    "strict_positive_gaps": 1238,
+    "min_positive_gap": "8957179515094375931/451573216820267581440",
+    "ties": [
+      {
+        "s": [
+          8,
+          0,
+          1
+        ],
+        "actions": [
+          "Q",
+          "C"
+        ]
+      },
+      {
+        "s": [
+          10,
+          5,
+          2
+        ],
+        "actions": [
+          "P",
+          "C"
+        ]
+      }
+    ]
+  },
+  "primal": {
+    "x0": "21216994209825749/44937930240000000",
+    "dx_dz": "577693/3900862000",
+    "z_inclusive": [
+      "0",
+      "1"
+    ],
+    "x_endpoint": "3031949890455107/6419704320000000",
+    "alpha190": "28137949158459611576537/80134219991312171532288",
+    "V190": "3422790017676192400495567/320536879965248686129152",
+    "delta_alpha": "569778090625/4347559678348099584",
+    "alpha191": "4019708522944196853791/11447745713044595933184",
+    "V191": "488968003499440699225081/45790982852178383732736",
+    "slope": "-1214685773221/3646579780",
+    "tP_minus_tQ_0": "217534777678506481212413/961610639895746058387456",
+    "tP_minus_tQ_rate": "36688939255625/5796746237797466112",
+    "mixed_term": [
+      "0",
+      "0",
+      "0",
+      "0"
+    ]
+  },
+  "exact_DFS": {
+    "nodes_by_corner": {
+      "10": 181582,
+      "11": 166222,
+      "00": 182350,
+      "01": 166990
+    },
+    "nodes_total": 697144,
+    "first_hits_X": 8,
+    "first_hits_Z": 640,
+    "ancestor_hits": 0,
+    "method": "unmerged ordered history, separate integer P and Q branch masses over 24^14"
+  },
+  "local_run": "STAGE191_AUTHOR_EXACT_FULL_REAL_PASS",
+  "evidence_archive": {
+    "filename": "EM_STAGE191_AUTHOR_EXACT_PORTABLE_20261027.tar.xz",
+    "sha256": "4366a6cee59c057cb99820c1d7d298231e7cc1e2ff53bbd0beec7b7d7b67bb38"
+  },
+  "claims_not_made": [
+    "Source CLAIM",
+    "Research Driver admission",
+    "X6 native transfer"
+  ]
+}
