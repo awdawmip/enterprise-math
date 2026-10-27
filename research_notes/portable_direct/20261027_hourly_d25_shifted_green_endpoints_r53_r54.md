@@ -1,4 +1,7 @@
-# D25/LIFT R53–R54 — shifting the exact Green boundary removes the exceptional fourth-order pole
+# D25/LIFT SB-SHIFT-A / SB-WINDOW-B — shifted authentic Green endpoint and two-versus-three-rank precision
+
+> **2026-10-27 source-level provenance correction (same Research lane):** The originally drafted section names “R53” and “R54” in this file are **local labels, not new canonical chronological IDs**. Before this file was written, `20261027_hourly_d25_original_half_green_precision_r53.md` had already established R53 for the *genuine R23 low-half observer*, and `20261027_hourly_d25_midpoint_high_chart_lift_r54_r55.md` had established R54 cross-rank midpoint/high jet gluing and R55 original-full-scalar precision. This file's distinct claims are **SB-SHIFT-A** (universal unit `a_{N+1}-b_{N+1}` and shifted *rank-one d1* Green port) and **SB-WINDOW-B** (same-precision three-*rank* window as an alternative to one extra `p`-adic digit for free labelled sources). The old R53 low-half proof and old R54/R55 full-scalar interface are consumed with their own credit. The first 2-port Smith-factor calculation itself reuses R51/R52, and is **not** separately claimed as new. No Result/Source promotion follows from this naming correction.
+
 
 2026-10-27 (Asia/Hong_Kong). Portable author-derived research for the hourly TASK_RESEARCH lane `chatgpt-research-hourly-enterprise-math-20260923`; not a maintenance-lane or independent-review output. Mother objective `D25/LIFT/JT2` stays OPEN. Exact Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`, publication `TP2-B6F4FC938FF94941C1B7`. **Frozen scientific Source pin:** `c47e13e4aba0e006366f989d6334d443f6333ae3` (distinct from mutable control HEAD).
 
