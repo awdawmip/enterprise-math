@@ -1,0 +1,48 @@
+{
+  "schema": "R334_INDEPENDENT_INTEGER_CHECK_V1",
+  "status": "PASS",
+  "r_interval": [
+    2,
+    80
+  ],
+  "checked_third_coefficients": 79,
+  "checked_top_two_coefficients_each": 79,
+  "checked_extra_degree_nodes": 79,
+  "B_signed_rows": [
+    0,
+    242
+  ],
+  "inside_triangle_positive": 29646,
+  "outside_triangle_negative_retained": 12457,
+  "sha256_third_r_values": "3bf74bd8296bc3be0bf5a3405152ccf8b920f5b53c189948d0e747b2c6ff54b7",
+  "samples": [
+    {
+      "r": 2,
+      "third": "32",
+      "expected": "32"
+    },
+    {
+      "r": 3,
+      "third": "4064/5",
+      "expected": "4064/5"
+    },
+    {
+      "r": 4,
+      "third": "261696/25",
+      "expected": "261696/25"
+    },
+    {
+      "r": 5,
+      "third": "2688768/25",
+      "expected": "2688768/25"
+    },
+    {
+      "r": 80,
+      "third": "20323237378527334358114295660355111502228006297079507055524622368768/25",
+      "expected": "20323237378527334358114295660355111502228006297079507055524622368768/25"
+    }
+  ],
+  "inference": "finite exact cross-check; universal identity proved conditionally using R330 extraction",
+  "arithmetic": "integer/Fraction only; dict polynomials; signed tails preserved",
+  "role": "AUTHOR_SIDE / UNREVIEWED / NOT_ADMITTED"
+}
