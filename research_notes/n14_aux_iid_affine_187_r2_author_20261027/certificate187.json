@@ -1,0 +1,175 @@
+{
+  "schema": "EM_R2_N14_STAGE187_AUTHOR_EXACT_CERTIFICATE_V1",
+  "date": "2026-10-27",
+  "research_object": "EXTERNAL_TERNARY_IID_FULL_ORDERED_HISTORY_RANDOMIZED_STOPPING_N14",
+  "author_status": "AUTHOR_LEVEL_MATH_PROOF_WITH_EXACT_EXECUTED_VERIFICATION",
+  "admission_status": "NOT_INDEPENDENTLY_REVIEWED_NOT_NATIVE_RESULT",
+  "pinned_sources": {
+    "global_knowledge_main": "b93af5fa5d1f56cff9a63f730c86247619d79b86",
+    "enterprise_math_main_initial": "28ecdefbfebe8418383794ebe1635617fd1df069",
+    "parent_stage186_commit": "210e25cc4c80f3053bf00ae14e6d9dfbf6d40436",
+    "parent_stage186_proof_blob": "6dd79b5cd668afa49d3f58843eee5939df1aed8b"
+  },
+  "model": {
+    "N": 14,
+    "P": [
+      "1/8",
+      "1/24",
+      "5/6"
+    ],
+    "Q": [
+      "1/12",
+      "1/12",
+      "5/6"
+    ],
+    "alpha186": "880819177025099228444495/2513951372772311530733568",
+    "V186": "15842003227930467204041319427/1448035990716851441702535168"
+  },
+  "dual": {
+    "K": "30912926277555/175004717024",
+    "L": "948381852216/5468897407",
+    "H": "20011003723884904564897099291/149794525046841680093773824",
+    "states": 680,
+    "strict_gaps": 1238,
+    "negative_gaps": 0,
+    "min_strict_gap": "464592386670727/29031182497677312",
+    "ties": [
+      {
+        "s": [
+          5,
+          2,
+          0
+        ],
+        "actions": [
+          "P",
+          "C"
+        ]
+      },
+      {
+        "s": [
+          13,
+          6,
+          4
+        ],
+        "actions": [
+          "Q",
+          "C"
+        ]
+      }
+    ]
+  },
+  "primal": {
+    "observation_order": [
+      "eP",
+      "eQ",
+      "tP",
+      "tQ"
+    ],
+    "corner_by_r_t": {
+      "0,0": [
+        "614327151481393049/1752976676930715648",
+        "112420430604569/320979616137216",
+        "2399458174541646935/219122084616339456",
+        "285698065347565/26748301344768"
+      ],
+      "0,1": [
+        "614327156485249049/1752976676930715648",
+        "112420429746569/320979616137216",
+        "2399458169537790935/219122084616339456",
+        "285698064489565/26748301344768"
+      ],
+      "1,0": [
+        "612777799304353049/1752976676930715648",
+        "112911152064569/320979616137216",
+        "2373868606529886935/219122084616339456",
+        "284015611027565/26748301344768"
+      ],
+      "1,1": [
+        "612777804249889049/1752976676930715648",
+        "37637050405523/106993205379072",
+        "2373868601584350935/219122084616339456",
+        "94671870059855/8916100448256"
+      ]
+    },
+    "mixed_term": [
+      "-625/18786186952704",
+      "625/20061226008576",
+      "625/2348273369088",
+      "625/1671768834048"
+    ],
+    "r_t": "(29069040000*t+1085119418920651)/(80000*(4235*t+158600461647))",
+    "alpha_t": "(1382578638172183457*t+47564235559355358336002730)/(855945643032576*(4235*t+158600461647))",
+    "alpha_prime": "5947690894506310000401604043/(285315214344192*(4235*t+158600461647)^2)",
+    "tP_minus_tQ": "(1150048844006343543963931657-464927064418088234390*t)/(27390260577042432*(4235*t+158600461647))",
+    "r0": "1085119418920651/12688036931760000",
+    "r1": "1085148487960651/12688037270560000",
+    "alpha187": "47564236941933996508186187/135753377754634620902572032",
+    "V187": "47526009692613945133124984819/4344108088148307868882305024",
+    "delta_alpha": "5947690894506310000401604043/7176849460674877056318920028290285568",
+    "slope": "-61261145548467/175004717024",
+    "right_strict": "proved_via_history_effective_coin_reduction_and_Bellman_strict_gaps"
+  },
+  "independent_ordered_dfs": {
+    "nodes_by_r_t": {
+      "0,0": 207250,
+      "0,1": 196954,
+      "1,0": 196750,
+      "1,1": 186574
+    },
+    "total_nodes": 787528,
+    "first_hit_R_at_r0": 10,
+    "first_hit_T_at_r0": 3432,
+    "T_descending_R_at_r0": 40,
+    "T_without_R": 3392,
+    "corner_match": "EXACT_FRACTION_EQUALITY",
+    "weights": "integer_products_scaled_by_24^14",
+    "mode": "UNMERGED_ORDERED_HISTORY"
+  },
+  "successor_stage188_dual_only": {
+    "dK": "-29050354413/50249878528",
+    "dL": "-1",
+    "first_closure_step": "729553468601176190107808/1240617250081039376022727",
+    "K": "39993714743501421/226849611128761",
+    "L": "39205434834768424/226849611128761",
+    "H": "552023450050793309312530706424493/4142313307078339047903008391168",
+    "ties": [
+      {
+        "s": [
+          5,
+          2,
+          0
+        ],
+        "actions": [
+          "P",
+          "C"
+        ]
+      },
+      {
+        "s": [
+          8,
+          0,
+          1
+        ],
+        "actions": [
+          "Q",
+          "C"
+        ]
+      }
+    ],
+    "states": 680,
+    "strict_gaps": 1238,
+    "min_strict_gap": "1858369546682908/55124455504288923",
+    "primal_proof": false
+  },
+  "evidence": {
+    "executed_source_filename": "VERIFY_STAGE187_EXECUTED.py",
+    "executed_stdout_filename": "RUN_STAGE187_EXACT.txt",
+    "executed_sentinel": "STAGE187_AUTHOR_EXACT_FULL_REAL_PASS",
+    "github_source_companion": "VERIFY_STAGE187_REFERENCE.py",
+    "github_ref_verifies_remote_execution": false,
+    "native_claim": false,
+    "driver_review": false,
+    "lean_formal": false
+  },
+  "next_question": "Stage188 R=(5,2,0) P/C and X=(8,0,1) Q/C disjoint arrival cones; derive exact corner observations, balance, legal coins, tP advantage and full real optimality or obstruction."
+}
