@@ -1,0 +1,19 @@
+SOURCE: 8 strictly positive P,Q terminal leaves; all 8 terminal LRs unique
+STATE COLLISION: t2 AU=BU=1; t1 A=1/2 B=3/2
+RAW POLICY TABLES: full=186624, LR=62208
+REACHABILITY-REDUCED TABLES: full=1444, LR=1152
+DISTINCT FOUR-VECTORS: full=1402, LR=754
+ALL LR VECTORS ARE FULL VECTORS: True
+SIGNED LAMBDA: (Fraction(-20, 1), Fraction(-10, 1), Fraction(-2, 1), Fraction(3, 1))
+NODE t1 A stop P,Q -4 -4 full optimal -59/12
+NODE t1 B stop P,Q -5 -15 full optimal -61/4
+NODE t2 AU stopP stopQ continue -4/3 -3 -13/4
+NODE t2 AV stopP stopQ continue -5/3 0 -5/6
+NODE t2 BU stopP stopQ continue -2 -9/2 -17/4
+NODE t2 BV stopP stopQ continue -3 -21/2 -43/4
+SHARED GATE LR MIN BY ACTION P,Q,C: -19 -239/12 -239/12
+FULL WITNESS: (Fraction(43, 48), Fraction(5, 12), Fraction(8, 3), Fraction(29, 12))
+LR WITNESS: (Fraction(11, 12), Fraction(1, 3), Fraction(5, 2), Fraction(9, 4))
+FULL MIN: -121/6 LR MIN: -239/12 GAP: 1/4
+EXHAUSTIVE DETERMINISTIC ENUMERATION AND BELLMAN EXACTLY AGREE
+ALL EXACT CHECKS PASSED
