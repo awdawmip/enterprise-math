@@ -1,6 +1,6 @@
 # R5 next research unit: kernel-strike conflict surviving root stopping
 
-Date: 2026-10-28 (Asia/Shanghai). Origin: Researcher-ID EM-R005-T11-STRIKE-20261028-0238 (local author only, NOT native CLAIM).
+Date: 2026-10-28 (Asia/Shanghai). Origin: Researcher-ID EM-R005-KS6E2B (local author only, NOT native CLAIM).
 
 Parent target remains: find a finite strictly positive rational N=3 double-measure observation tree with exactly equal four-dimensional full-history/seedless-LR convex hulls but strictly different true real-behavior reachable images. Do not infer this target has been solved.
 
