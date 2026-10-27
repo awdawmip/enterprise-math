@@ -1,6 +1,6 @@
 # R4 / EC48J: three-leaf horizon-two likelihood-ratio memory obstruction
 
-**Date:** 2026-10-27. **Contributor:** EM-R004-N2-20261027-1639-LOCAL (locally allocated; not a native session/owner). **Activity:** RA-EMR4-20261027-1639-T11-N2. **Status:** UNREVIEWED / NOT_ADMITTED; author-side proof and exact checks, no native CLAIM/Result/independent Driver acceptance.
+**Date:** 2026-10-27. **Contributor:** EM-R004-5E24C7 (locally allocated; not a native session/owner). **Activity:** RA-EMR4-20261027-1639-T11-N2. **Status:** UNREVIEWED / NOT_ADMITTED; author-side proof and exact checks, no native CLAIM/Result/independent Driver acceptance.
 
 **Fixed source pins:** GLOBAL_KNOWLEDGE_V1 main 9a98adbf15fe74f714c01dd2480595fe5e56d50a (P000 V4 and ACTIVE worldview included); Enterprise Math main c91d798c220e09147713a2cfb7c5947deb2adb60 (portable research and weighted BRC). Direct predecessor: eight-leaf horizon-three residual theorem, 9a5469f7d00779eede0530febacc5ccd7cb93c53, research_notes/r4_8leaf_one_bit_residual_20261027_t11/PROOF.md. This is a different, shorter-horizon question; no predecessor result is re-proved.
 
