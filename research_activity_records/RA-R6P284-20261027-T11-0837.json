@@ -18,5 +18,33 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "R6P284_C4_ENDPOINT_Z2_AUTHOR_SIDE_20261027",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "kb_sources": [],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "df7034d818765c15132690b6fe783935ef8cb930",
+          "path": "research_notes/research6_prefix284_c4_endpoint_z2_20261027/RESULTS_PREFIX284.json",
+          "sha256": "68afcd9798712da10b7001b8d6ea660632b93e927f4d57cae27caa0967bb7456",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "observation_id": "r6p284-t11-source-result-readback-20261027",
+            "tool_name": "github_fetch_file",
+            "git_blob_sha1": "f56562b6302a432afa89cd7aa0595cb2878130c5",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/df7034d818765c15132690b6fe783935ef8cb930/research_notes/research6_prefix284_c4_endpoint_z2_20261027/RESULTS_PREFIX284.json",
+            "server_signature_authenticated": false,
+            "network_request_by_this_tool": false,
+            "call_id": null
+          },
+          "verification_receipt": "research_activity_records/RA-R6P284-20261027-T11-0837/readbacks/f42a323e6fc56f282959f3adbcd2088768b5273ee0f8f32a7c30aa06612da788.json",
+          "verification_receipt_sha256": "f42a323e6fc56f282959f3adbcd2088768b5273ee0f8f32a7c30aa06612da788"
+        }
+      ]
+    }
+  ]
 }
