@@ -1,0 +1,7 @@
+# Stage217 portable research packet — dual-only
+
+External ternary IID N=14: P=(3,1,20)/24, Q=(2,2,20)/24. Optimize V14(alpha)=inf_{eP,eQ<=alpha}max(tP,tQ) over all randomized full ordered-history stop/declare policies. Inherited Stage216 author-side right endpoint: alpha216=7504698785088745369/21035720123168587776; V216=4095371032631387677/438244169232678912. Preserve the exact authorship/status and Stage216 source evidence in this PR; no independent mathematical admission.
+
+Stage217 exact **dual-only**: K217=157464/1631; H217=13979469720797262916799/178694060004624826368; Bellman ties T=(13,8,4) P/C and Z=(14,0,0) terminal P/Q. Exact 680 states, 1238 positive action gaps, minimum 294667/12682656; contact H217=H216+2*alpha216*(K217-K216). Stage216 fixed supporting line is strictly below the next dual bound for alpha>alpha216.
+
+**Next exact research unit:** compute four deterministic tie-policy observers O=(eP,eQ,tP,tQ) by two independent methods: rational IID suffix DP and complete ordered-history integer positive P/Q mass DFS. Prove mixed-term presence/absence from ancestor incidence; solve eP=eQ real coin, legality, monotone shared error and tP-tQ sign, inherited endpoint contact, maximal full-real optimality interval or exact rational obstruction. Only then scan Stage218. BRC mass/multiplicity/provenance remains typed; external model has no proven P000-X6 transfer. Native task/owner/Driver authorization and formal review remain separate.
