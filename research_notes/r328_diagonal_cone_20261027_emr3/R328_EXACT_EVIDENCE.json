@@ -1,0 +1,45 @@
+{
+  "schema": "ENTERPRISE_MATH_R328_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "scope": "R325 ordered-six-edge auxiliary BRC Newton observation",
+  "arithmetic": "Python arbitrary-precision exact integers (no float signs)",
+  "max_q": 256,
+  "max_s_direct": 512,
+  "finite_certificate": {
+    "triangle_positive_count": 131841,
+    "triangle_sha256": "2f02841655331ce5e456b629f3d1a9339709eefb5afa0f3b3194b62572709c8e",
+    "forward_d_positive_count": 33153,
+    "forward_d_sha256": "504b74e5b6000a402fc9f44ece5b65390d666bcd4bc18850f05a5c025d7cee01",
+    "top_five_diagonal_equalities": 1275,
+    "top_five_diagonal_sha256": "639cb4a2e487032e6e34c6db79761a6e6b6f7d63cec229265978d6fb96612b8d",
+    "minimum_positive_difference": "1",
+    "minimum_difference_at": [
+      0,
+      0
+    ],
+    "negative_offdomain_count": 55325,
+    "r327_s1280_triangle_sha256_match": null,
+    "r327_q640_d_sha256_match": null,
+    "samples": {
+      "0": {
+        "b_s0": "1",
+        "b_ss": "1",
+        "negative_outside": 0
+      },
+      "3": {
+        "b_s0": "8",
+        "b_ss": "20",
+        "negative_outside": 2
+      },
+      "13": {
+        "b_s0": "8192",
+        "b_ss": "294080970",
+        "negative_outside": 6
+      }
+    }
+  },
+  "unbounded_strip_consequence": "0<=q<=256, all s>=q, conditional on R326 structural lemma",
+  "analytic_new_result": "for every fixed r>=0, D_(q,q-r)/5^(q-r) = (6^r/r!)*q^r + O_r(q^(r-1)), hence eventually positive; r=0..4 formulas are positive for all q>=r",
+  "verification_limit": "finite recomputation and symbolic identities are author-side; independent Driver and native Result absent",
+  "elapsed_seconds": 6.266
+}
