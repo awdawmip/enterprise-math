@@ -1,10 +1,15 @@
-# 下一研究单元：N=3 两律压缩的真实最优常数
+# 下一研究单元：N=3 两律共同策略的真实最优压缩常数
 
-冻结输入：GLOBAL_KNOWLEDGE_V1 main@95662c56b4492b094365ee4e7a001939b2671e9e；Enterprise Math main@d66a463c3c156840d4023b57e6a84e98eac8dfc8。
-本轮完整证明见本目录 PROOF.md；VERIF Y.py（实际文件为 VERIFY.py）和 RESULT.json 给出精确有限交叉检验；成果分类 UNREVIEWED / NOT_ADMITTED。
+冻结输入：GLOBAL_KNOWLEDGE_V1 main@95662c56b4492b094365ee4e7a001939b2671e9e；Enterprise Math 原研究输入 main@d66a463c3c156840d4023b57e6a84e98eac8dfc8。本文及同目录 PROOF.md、DUAL_LOWER_BOUND.md、VERIFY.py、RESULT.json 为本轮作者侧 portable 研究，UNREVIEWED / NOT_ADMITTED。
 
-已经证明：对任意真实模型 0<s_a,s_b<1/2 和任意完整历史策略，真实非对角树上的直接占用平均压缩 σ 在 P、Q 下共同满足 TV(T,D)≤|s_a−s_b|/6，且两个完整停止时间边际严格相等。对于这个**指定直接算法**，存在 (2/5,1/3) 的双律同时达到 1/90 的例子；但该例子存在另一个完全无损压缩器，因此**不能作为全体压缩策略的 minimax 下界**。
+本轮完成两步且无需重做：真实非对角树 Q 占用质量 Markov 化，将双律 (T,D) 联合 TV 统一上界从 |sa−sb|/2 降为 |sa−sb|/6，并在同一策略下精确保留双律完整停止时间边际；复用已发表的独立有理 facet 见证，将真实 minimax 压缩常数从无已证正下界提高为
 
-最小未决问题：精确决定 K_* = sup_{s_a≠s_b} sup_{π full} inf_{σ compressed} max_{R∈{P,Q}}TV(L_R^π(T,D),L_R^σ(T,D)) / |s_a−s_b|。当前严格证明 0≤K_*≤1/6。寻求带精确有理证书的正下界或改良上界；重点考虑 |s_a−s_b|→0 时的两律耦合 LP/双线性策略约束。次要独立问题：找到覆盖整个非对角参数域的有限有符号支撑法向集合，或构造未覆盖的有理点。
+\[
+\boxed{15/2527\le K_*\le1/6}.
+\]
 
-保持 BRC 原分支标号、双律共同动作及无持久随机种子；区分所有压缩策略最优误差与某个算法的误差。未核实 native owner 和 CLAIM（该只读控制请求本轮返回 CONTROL_QUOTA），本文不冒充官方 Result 或 Driver 接受成果。外部概率模型与 P000 六维 Cell/三维切片映射尚未证明。
+K_* 的量词顺序是 sup_{0<sa,sb<1/2,sa≠sb} sup_{π full} inf_{σ compressed} max_{R=P,Q} TV(L_R^π(T,D),L_R^σ(T,D)) / |sa−sb|。直接占用平均算法在 (2/5,1/3) 同时达到 1/90，证明该算法的 1/6 统一系数不可改进，但此同一 π 存在另一全局无损压缩策略；不能因此宣称 K_*=1/6。
+
+**最小未决**：构造针对所有压缩策略的更大精确有理下界，或改善压缩器上界；优先求 |sa−sb|→0 的双律线性化最优系数，明确保存策略、叶标号、双律质量、约束与证书语义。可按需使用已有有限 Bellman/支撑面工具，勿将有限抽样充当全域证书。
+
+另一个独立问题是覆盖全部非对角参数的有限支撑法向证书。保持 BRC 有序来源与无跨时隐含种子；不得将外部概率辅助模型的结果当成 P000 原生六维 Cell 结论。上轮 23,328 张策略表已经有持久证书，勿重复计算。native owner/CLAIM 读取本轮返回 CONTROL_QUOTA，未获得正式 Result 或独立 Driver 审查。
