@@ -1,0 +1,13 @@
+# R5 continuation: one certified separator replaces the unneeded all-facet rejection test
+
+**Status:** author-side portable research; UNREVIEWED / NOT_ADMITTED. This note neither claims a new canonical Task nor changes live ownership, activity registration, Source-native Result or mathematical admission.
+
+Mother question: In finite strictly positive rational two-measure observation trees with optional early stopping, can the seedless time/LR four-observer attainable image be strictly smaller than the full image while **all four-coordinate signed supports still agree**?
+
+Fixed sources: GLOBAL_KNOWLEDGE_V1 **main@ad4f63878ca0534cdd52af1c5590bff3a777ab08** with original locked P000; Enterprise Math R5 original immutable phase proof **a5e3add6096c1b2f9fc9adeb9c546acfd4db831e**, and this directory's PROOF.md, executed VERIFY.py and EXACT_OUTPUT.txt. A separate latest R5 compulsory-arrival hinge completeness theorem on main@f3b1cff2be50a4c77576894d71562eb7fd78068f does not apply unchanged to optional early stopping.
+
+Completed and not to repeat: For the old support normal (298,375,37,-17), a strict gap exists if s_a>5/18 and s_b<5/18, and the pair (1/10,2/5) has a zero gap. For the new support normal (298,376,37,-17), the entire region 0<s_a<19/71 and 22/71<s_b<1/2 has exact gap 1/4. In particular **(1/10,2/5) is rejected for hull equality**, even though the old normal did not separate. No full facet enumeration is needed merely to certify that rejection.
+
+Next minimal independently executable question: At a rational pair outside both certified separation regions—for example **(s_a,s_b)=(1/4,1/4)**—enumerate exact full-history and seedless deterministic four-vector supports and compute a complete exact rational facet/convex-hull inclusion certificate, or exhibit one more strict separating signed normal. The stopping tree and branch provenance must remain identical. If hull equality truly holds, only then test raw seedless-image membership via exact semialgebraic methods rather than numerical proximity.
+
+Required evidence: precise rational P/Q tree, all full and seedless pure observer vectors or an exact reusable certificate that accounts for them, rational oriented facet/normal, proven extremal value and full witness if separated, exact executable checker and captured output. Distinguish author proof, finite verification, formal Source record and independent review. No native X6 or residual physics follows without typed correspondence and observer-preservation proofs.
