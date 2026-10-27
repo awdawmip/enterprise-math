@@ -1,0 +1,128 @@
+# PREFIX-289｜C4-BRC二值探测的最小测后载体与精确重置损失定理
+
+日期：2026-10-27。成果类型：AUTHOR_SIDE_EXACT_FORMAL_BRC_PROOF / UNREVIEWED / NATIVE_H_N_BRIDGE_PENDING / NOT_ADMITTED。
+
+## 0. 固定来源、权限、证据级别
+
+本轮固定账户长期知识读快照：awdawmip/chatgpt-global-knowledge main@b87062620426fe6a36250644bbc08789c86cd2af，已读取 00_BOOTSTRAP.md、OPERATING_MANUAL.md、TASK_RESEARCH 角色路由、P000_STARTUP.json 和 P000_REALITY_FOUNDATION.json，后者 Git blob 为 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc，与启动投影一致。ACTIVE 世界观、数学/BRC/代码规则亦已读取。项目科研输入在本轮开始固定为 awdawmip/enterprise-math@8e9c6ec65632404dd596c69f9d8329d7841f0218；本轮所需项目 PORTABLE_RESEARCH_PROTOCOL.md Git blob ca5de2d680d2439ff4b67c2c55fbd4159813cd5c。前序严格固定为 PREFIX-288 证明与后继问题：
+- https://github.com/awdawmip/enterprise-math/blob/bae6e8b14a0c68df44e9043a2f226f0097ae9e51/research_notes/research6_prefix288_binary_effect_poststate_20261027/PREFIX288_BINARY_EFFECT_SPECTRUM_AND_POSTSTATE.zh-CN.md
+- https://github.com/awdawmip/enterprise-math/blob/bae6e8b14a0c68df44e9043a2f226f0097ae9e51/research_notes/research6_prefix288_binary_effect_poststate_20261027/NEXT_PREFIX289.md
+
+GitHub 实读身份为 awdawmip、仓库权限 admin，证明的是作者侧可保存数学物料，**不证明原生 Source 当前活跃 owner、CLAIM 或正式研究权限**。本轮没有取得原生 Detector 的 model_law_id、H_n 全态输入或测后物理演化回执，没有冒领其他活跃 CLAIM。本轮是针对已有已验证 C4 来源型 BRC 的独立可移植研究单元，不重复 PREFIX-288 的已完成证明及实验。
+
+P000 六维空间加独立时间、六轴两两 PERP_E、120° 原生正角、三维切片而非二维原生平面、三元闭合和平衡原则均不改变。本文三来源振幅载体是限定的**关系/来源寄存器**，不是三个原生空间轴；以下“5维”只表示辅助复线性寄存器的代数维数，不是 X6 空间维数。
+
+## 1. 精确四有序路径对与二值事件
+
+在三个来源标签 j=0,1,2 上令 a_j ∈ Q(i)，非零输入总质量 Z=Σ|a_j|²；越界来源为零。C4 控制 q∈{1,i,-1,-i}，σ=±1，j=0,1,2,3，定义保留两条来源支路的八bin振幅
+
+  V_q(a)_(σ,j) = (q a_j + σ a_(j-1))/2.
+
+BRC 双输入（或同输入质量）逐bin由四个有序来源路径对之和计算：
+  4 M_(σ,j)(a,b) = Σ_{s,t∈{0,1}} arm_s(a) conjugate(arm_t(b)),
+其中 arm_0=q a_j、arm_1=σ a_(j-1)。正质量来自完整复有序对和，不允许用正质量直接模拟相位抵消。
+
+由于对每个 j 的两σ支路配对，Σ_(σ,j) M_(σ,j)(a,a)=Z。事件 E={(+,1),(-,2)} 对应两个输出
+
+  J_q(a) = (u,v) = ((a_0+q a_1)/2, (q a_2-a_1)/2).
+
+记 M_E(a)=|u|²+|v|²，P_E=M_E/Z，A_q=J_q^* J_q。该有序来源对 BRC 载体和观测范围与 PREFIX-288 相同；前序已证明 A_q 效应谱 {0,1/4,3/4}，本轮使用并给出独立短证。
+
+## 2. 定理A：严格的最小五维“带结果标签”测后载体
+
+**命题。** 任取复内积空间 K、等距来源嵌入 W:Q(i)^3→K（可经复数扩张理解）和正交投影 P:K→K，若 W^*PW=A_q，且观察结果 E 与 E^c 以相互正交的投影后态表示，则 dim_C K≥5。这一界可由只使用高斯有理数与来源路径对的带权五坐标构造精确达到；它还保持原八bin来源振幅的重构能力及单次 E/E^c 投影。
+
+**谱与秩的来源BRC证明。** J_q 的两行分别是 (1,q,0)/2 与 (0,-1,q)/2。二行的来源交叉有序路径对 Gram 读数为
+
+  J_q J_q^* = [[1/2, -q/4],[-conjugate(q)/4,1/2]].
+
+直接代入 q conjugate(q)=1，二模态的特征方程为 (λ−1/2)^2=1/16，两个严格正值 λ=1/4 与 3/4；第三核模态为 K_q=(-q,1,conjugate(q))，满足 J_q K_q=0 且 ||K_q||²=3。因此 rank(A_q)=rank(J_q)=2，而 I−A_q 严格正（最小本征值1/4），rank(I−A_q)=3。
+
+对任何满足上述条件的 W,P，有 ||PW a||²=<a,A_q a>，故 rank(PW)=rank(A_q)=2；同理 rank((I−P)W)=rank(I−A_q)=3。这两个像空间正交，所以 dim_C K≥2+3=5。这个证明不要求普通传播器，不改变来源标签含义。
+
+**达到下界的精确构造。** 定义带结果类型的直和
+
+  K_min = Q(i)^2_E ⊕ Q(i)^3_Ec,
+
+其中 E 两坐标采用普通复正质量，Ec 的三个坐标采用**来源路径对 Gram 权重**
+
+  G_q(x,y) = <x,y>−<J_q x,J_q y> = <x,(I−A_q)y>.
+
+由于 I−A_q 的本征值为 1、3/4、1/4，该 Gram 严格正定。令
+
+  W_min(a)=(J_q a,a),   P_E(u,x)=(u,0),   P_Ec(u,x)=(0,x).
+
+直接展开全部来源对得到
+  ||W_min(a)||² = ||J_q a||²+G_q(a,a)=Z;
+  ||P_E W_min(a)||²=M_E(a);
+  ||P_Ec W_min(a)||²=Z−M_E(a).
+
+这不是把Ec来源载荷当成具有普通正质量的重复拷贝：**必须使用带交叉项的 G_q**。若在第二个直和臂上错误使用普通 Σ|a_j|²，便得到 Z+M_E 而不是 Z，违反BRC质量守恒（除 J_q a=0）。
+
+进一步令 T_q(a) 为原八bin的六个Ec振幅，原两binE振幅恰为 J_q a。原等距性质给
+  <T_q x,T_q y>=G_q(x,y).
+所以 (u,x)↦(u,T_q x) 是从 K_min 到原八bin寄存器中子空间的等距编码；它精确重构八个带来源、带Port标签的振幅及声明的 E/Ec 投影，而不是仅保存概率。这说明五坐标是该特定一轮仪器的**最小结果分支封闭载体**。
+
+**范围限制。** 五是满足“等距准备嵌入 + 两正交结果寄存器 + 给定 A_q”时的最小**复线性**维数，不是所有概念上可能的Detector实现或所需物理资源的下界。若仅保留概率不保存正交测后结果，条件不同；若允许后续任意八bin门使上述五维像不封闭，必须再审查新的未来操作，不能宣布五坐标全局充分。这里没有额外产生X6原生空间维度。
+
+## 3. 定理B：将两个测后分支强行送回旧三来源类型的锋利质量缺口
+
+PREFIX-288 已证明非零 E 分支通常不属于 im V_q。本轮进一步**定量刻画**“最自然的原旧态正交重置”究竟损失多少质量。
+
+设 Q_q=V_q V_q^* 为八bin空间到旧三来源准备像的正交投影。令 Π_E、Π_Ec 表示八bin中两组正交bin投影；对输入 a 定义精确缺口
+
+  D_E(a)=||Π_E V_q(a)||² − ||Q_q Π_E V_q(a)||²;
+  D_Ec(a)=||Π_Ec V_q(a)||² − ||Q_q Π_Ec V_q(a)||².
+
+这只分析指定的正交拉回/再嵌入，不宣称不存在任意其他非线性、耗散或带环境的重置。
+
+**定理。** 对所有 q∈C4、a∈Q(i)^3，
+  D_E(a)=D_Ec(a)
+        =(3/16)[Z−|<a,K_q>|²/3]
+        =(3Z−|<a,K_q>|²)/16.
+
+证明：V_q^* Π_E V_q=A_q，由等距性有
+  ||Q_q Π_E V_q a||²=||A_q a||²；
+所以 D_E=<a,(A_q−A_q²)a>。
+互补分支同理：
+  D_Ec=<a,[(I−A_q)−(I−A_q)²]a>=<a,(A_q−A_q²)a>。
+在核模态 K_q 上 λ=0，在另外两个模态 λ=1/4、3/4 上 λ−λ²=3/16，因此
+  A_q−A_q²=(3/16) P_(K_q⊥)，
+且 P_(K_q⊥) 的质量是 Z−|<a,K_q>|²/3。结论成立。
+
+结果：0≤D_E=D_Ec≤3Z/16，两端锋利；D=0 当且仅当 a∈span K_q。只要 P_E>0，就必然 a 不在核上，因此**两个输出分支的旧类型正交回收均产生严格正损失**。如果两分支都做此投影而不补入显式寄存器/环境，合计损失正好
+  D_E+D_Ec=(3/8)[Z−|<a,K_q>|²/3]。
+这只是形式BRC质量，不是已经校准的热、能量或物质损耗。
+
+## 4. 精确来源见证
+
+固定 q=i、a=(1,i,1)、b=(1,-i,1)，两组输入质量 Z=3。
+- 对 a，J_i(a)=0，E质量0、Ec质量3，旧类型正交回收损失0。
+- 对 b，J_i(b)=(1,i)，E质量2、Ec质量1，故 P_E(b)=2/3。
+- K_i=(-i,1,-i)，|<b,K_i>|²=1，于是 D_E(b)=D_Ec(b)=(9−1)/16=1/2。
+- 如果**错误**地先投影结果再将其正交压回旧准备态，E分支质量2→3/2，Ec分支质量1→1/2，总质量3→2。这是精确损失1，原总质量的1/3；不可能靠忽略被丢弃的正交残差却仍宣称测后质量守恒。
+
+这一见证与 PREFIX-288 的“后态不闭合”定性结论一致，但现在给出了最优旧像正交近似下**每个分支的精确距离平方及普适锋利界**，属于新的定量结论。
+
+## 5. 实际检查器、覆盖与边界
+
+实际运行本目录 verify_prefix289.py，以 BigInt 等价的 Python 任意精度**高斯整数对**执行，不使用浮点、π、经典三角函数、普通时间传播器或一般矩阵指数。每个 bin 的质量显式遍历四个有序来源路径对，保留 C4 相位、来源及 Port。输入：
+
+  a0∈{1,2,3,4}；
+  a1=m1·i^k1，a2=m2·i^k2；
+  m1,m2∈{1,2,3,4}，k1,k2∈{0,1,2,3}；
+  q∈C4。
+
+共1024个来源包、4096个来源/相位案例、32768个bin BRC有序路径对求值。逐案例检查原质量守恒、事件分支与 J 公式一致、两个重置缺口恰等于 3Z−|<a,K>|² 的整数证书（共8192项相等关系）、锋利界及 a/b 见证，全部通过。4080/4096案例缺口严格正，8/4096案例达到形式概率上界。本有限枚举**不是通用定理的证明**，通用量词由第2、3节代数证明承担。原始Stage50程序和完整原生 H_n Detector本轮均未执行；本成果没有声明合法 model_law_id 或物理时间演化。
+
+实际本地代码 git blob SHA1：0edf03b75f7e4dc8e33f7b659374dd7c7d0e14c3；代码 SHA-256：aef9f8e3e3f95af6014b7100c149506084931bee0366726d12f28c7c193ce19d。结果文件 git blob SHA1：86d0dd04b3bcd7ae7fe6c52362d65096a79dcf77；结果 SHA-256：68ebefca2d735d2f0697acfdc932ab934b477ae66abae1f54ad43fd2c610c574。来源文件为本目录 verify_prefix289.py、RESULTS_PREFIX289.json；代码和结果已按独立新建GitHub提交回读精确一致，论文自己的远程存储以其GitHub不可变提交回执为准。
+
+## 6. H_n 原生桥、能力与下一个问题
+
+实际 Source definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json 的 fixed_heartbeat_program 为 null；definitions/HEARTBEAT_SELF_CONSISTENT_INSTANT_V0_1.json 要求原生完整瞬态包含模型范围、六维Cell、材料/动量、场、来源和边界、branch/provenance、物理时序与 model_law_id。此处没有为 V_q、Π_E、Π_Ec 和正交结果寄存器获得原生 H_n 合法操作或测后态律。因此既不能把这个五坐标当成原生Cell轴，也不能把 D_E 当真实材料损失。SOURCE/H_n BRIDGE仍待校准/验证。
+
+**后继 PREFIX-290 精确问题：** 以实际原生合法的 model_law_id 与 H_n 为输入，寻找或否定使单次 E/Ec 事件测后具有至少等价于上面 K_min 的正交结果存储的操作接口；给出完整字段、端口来源保真、场/材料后态、边界、损耗及独立时间更新。若只能提供三来源重准备 API，就利用本轮 3Z−|<a,K>|² 整数证书核对其质量缺陷并标明差额的去向；任何别的重置模型必须先声明额外寄存器/环境及其质量账本。没有原生证据时，保留这一问题为 NATIVE_H_N_BRIDGE_PENDING，形式数学不升格成原生物理规律。
+
+**实际身份状态：** author-side portable evidence persisted; live native owner/CLAIM not verified; no native Result/freeze/review/admission. 独立Driver不得把本作者验证器视作独立审阅。证据完成不等于父研究目标完成。
+
+状态：AUTHOR_SIDE_EXACT_PROOF / 4096_SOURCE_PHASE_CASES / 32768_DIRECT_BRC_BINS / 8192_RESET_DEFECT_EQUALITIES / FIVE_DIM_MINIMAL_CARRIER / NATIVE_BRIDGE_PENDING / NOT_ADMITTED。

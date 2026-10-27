@@ -1,0 +1,15 @@
+# R5 next problem — use exact curvature chambers to prefilter all-support equality
+
+Status: author-level portable research proposal; no native Task publication, CLAIM, Result or independent mathematical review.
+
+**Mother question.** Can a strictly positive rational N=3 observation tree have conv(O_seedless_LR)=O_full yet O_seedless_LR != O_full, with all local LR randomization probabilities ranging through the entire real interval [0,1]?
+
+**Frozen research input.** GLOBAL_KNOWLEDGE_V1 main@64ee78649f92fdc0f078d98b112d401c4d4d61d2, project scientific context main@94a39c5c31e0be9a2a8550e680586994c9d6a123. Reuse predecessor research_notes/brc_lr_adjoint_curvature_20261027_r5/PROOF.md and adjacent new exact-curvature PROOF.md, VERIFY.py and EXACT_OUTPUT.txt, retaining the source versions and scope.
+
+**Verified new method.** For any finite LR successor set, affine-curvature rho is exactly the maximum absolute three-point chord deviation; its rational dual optimizers are one atom vs bracketing two-point law. Three-support kernels with the same mean satisfy the TV-curvature equality for every continuation value. At a fixed current LR r the largest possible three-support TV is gamma(r), a sharp triangular formula. On Y=(1/2,1,3/2) the full signed terminal Bellman curvature is an explicit tent in (a,b), independent of affine (u,v) terminal costs. A rational fixed-policy curvature oracle is therefore O(m^3), exact and piecewise rational-linear.
+
+**Next executable unit.** Select a genuinely new N=3 positive rational candidate with a hidden-history collision, rather than reusing previously separated ten-, twelve-, or fourteen-leaf models. Record complete P/Q observation tree and four-observable vector semantics. Enumerate the full-history and seedless-LR **deterministic** strategy four-vectors using exact fractions. For every full-history deterministic vector, prove membership in conv(LR deterministic vectors) with exact rational barycentric weights, or produce an exact rational separating hyperplane. With perfect recall on full histories, deterministic extrema suffice to decide equality of all linear support values, although they do not decide image equality.
+
+**Conditional next unit.** Only if all exact support directions agree, select a rational point of O_full and establish nonmembership in O_LR under every real seedless randomization parameter. Provide an algebraic invariant or real polynomial feasibility certificate, not a finite random grid. Use the signed curvature oracle and gamma(r) to screen candidate collisions and reduce their branch search.
+
+**Evidence/deliverable.** Source-native proof/negative result, executable exact verifier and actual output, precise remaining mathematical question, verified remote write and research activity checkpoint. Current native owner/session authority must be checked before claiming; repository notes alone confer no CLAIM, mathematical admission, or P000 change. Model is a typed auxiliary observer over fixed X6 Cell state with separately typed time and preserved branch provenance, not an asserted native Heartbeat dynamical law.

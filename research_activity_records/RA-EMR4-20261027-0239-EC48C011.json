@@ -1,0 +1,51 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR4-20261027-0239-EC48C011",
+  "registration_key": "session:chat-automation-r4-20261027-0229-t11:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-R004-EC48C011",
+  "session_id": "chat-automation-r4-20261027-0229-t11",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-27T02:39:42+08:00",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "EC48C-20261027-T11-verified-proof",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "kb_sources": [],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "eb01f9f2086102faaeda4dd5cd91dacf10efd74f",
+          "path": "research_notes/r4_ec48c_encoder_quotient_20261027/EC48C_ENCODER_QUOTIENT_THEOREM.md",
+          "sha256": "54bd9b66375005d17709518eae79d2f939e20a8942383543864bc454c5c76460",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification_receipt": "research_activity_records/RA-EMR4-20261027-0239-EC48C011/readbacks/b883efb894fb3bd969a14e38566f9ac8708d09e2b4ab08dbf9aa62c7e8430701.json",
+          "verification_receipt_sha256": "b883efb894fb3bd969a14e38566f9ac8708d09e2b4ab08dbf9aa62c7e8430701",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "R4-EC48C-20261027-GitHubProofReadback",
+            "git_blob_sha1": "2ebaf470daf09dd9a21b544f0691b77e8d855741",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/eb01f9f2086102faaeda4dd5cd91dacf10efd74f/research_notes/r4_ec48c_encoder_quotient_20261027/EC48C_ENCODER_QUOTIENT_THEOREM.md",
+            "server_signature_authenticated": false,
+            "network_request_by_this_tool": false,
+            "call_id": null
+          }
+        }
+      ]
+    }
+  ],
+  "session_key_type": "LOCALLY_ASSIGNED_NOT_SERVICE_AUTHENTICATED"
+}

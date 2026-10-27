@@ -25,7 +25,9 @@ Protocol: `EM_CHAT_CONTROL_V1` · English: [CHATGPT_ORDINARY_CONTROL.en.md](CHAT
 
 摘要算法是去掉 `sha256` 后，递归排序对象键、紧凑 JSON、非 ASCII 原样 UTF-8、无末尾换行的 SHA-256；客户端不需要计算，更不能猜。重复 JSON 键、NaN/Infinity、凭证字段均拒绝。服务核验私库及受信任 GitHub actor、创建时正文、执行前双读指纹和持久化幂等状态。
 
-创建后不要编辑 Issue 正文、标题或标签，也不要给同一逻辑操作新建重复 Issue。请求首次受理要求创建与更新时间一致且在 24 小时内。每个 conversation 最多 5 个未结束请求，通常逐步发送。普通 payload 最多 16 KiB，规范 envelope 最多 32 KiB；长证据使用分片上传。
+创建后不要编辑 Issue 正文、标题或标签，也不要给同一逻辑操作新建重复 Issue。请求首次受理要求创建与更新时间一致且在 24 小时内。多个模型/终端可按需提交请求，不设固定五槽接纳上限；现有单 worker 仍串行执行。普通 payload 最多 16 KiB，规范 envelope 最多 32 KiB；长证据使用分片上传。
+
+接纳请求不等于取得 Task CLAIM 或执行授权。现有 Source owner/租约机制保持；`WAITING_RESOURCE` 作业仍需在资源恢复后显式对原 ID `reconcile`，不能把 CLAIM 过期当作作业自动恢复。
 
 ## 2. 回读及只读操作
 
@@ -137,13 +139,13 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 
 ## 8. 最终回复前的只读检查
 
-最终回复前，通过同一 GitHub 通道提交 `pre_final`，由服务器运行已准入 Source 的 `tools/research_runtime_guard.py` 原生判据。freeze/review 成功或 session_close 都不代替 PRE_FINAL。`status=SUCCEEDED` 仅指评估完成；必须读取 `receipt.result.final_allowed` 与 `required_action`。false 时继续指定动作。该检查不授数学或执行权限。
+正式研究路径最终回复前，通过同一 GitHub 通道提交 `pre_final`，由服务器运行已准入 Source 的 `tools/research_runtime_guard.py` 原生判据。freeze/review 成功或 session_close 都不代替 PRE_FINAL。`status=SUCCEEDED` 仅指评估完成；必须读取 `receipt.result.final_allowed` 与 `required_action`。false 时继续指定动作。该检查不授数学或执行权限。
 
 - 正式任务已冻结或已交接：传本会话成功 open/resume 的 `run_request_id`、成功 freeze 或 release=true 的 publish_checkpoint 对应 `completion_request_id`，以及 `parent_liveness`。已经冻结/关闭的历史 run 仍可检查，不重新授权已结束研究。服务器校验真实回执、session 与 Source 执行意图，并从当前 Source 推导父目标是否关闭；客户端填 COMPLETE 不能覆盖。其它正式状态暂不支持，不冒称完成。
 - 无正式 run 的 Driver 控制工作：传自己的 `session_request_id` 与 `parent_liveness`；可选 `research_mode` 只能为 `RESEARCH_DRIVER`。该 Driver session 已有正式 run 时必须走正式路径。
-- 本逻辑会话从未发行研究 session 的维护工作：传 `research_mode=CONTROL_PLANE_MAINTENANCE` 与 `parent_liveness`。不能删去既有研究绑定降级走维护路径。
+- 本逻辑会话从未发行研究 session，且无正式 task/claim/execution 或 activity 绑定的 `CONTROL_PLANE_MAINTENANCE`：直接依据真实父目标、已完成动作与剩余阻断报告；可按需复用已有本地 liveness 结果。无需为允许回复而创建八字段自报对象或远端请求。需要诊断时仍可选传 `research_mode=CONTROL_PLANE_MAINTENANCE` 与 `parent_liveness`；其 `authorized=false` 不授任何研究/写入权限。诊断服务不可用不阻止如实报告，不能据此称父目标已完成。不能删去既有研究绑定或把研究会话改称维护来选择此例外。
 
-`parent_liveness` 保留真实原父目标，严格包含八个布尔字段：`parent_objective_complete`、`user_requested_stop_pause_review_or_wait`、`parent_hard_blocker`、`platform_or_tool_hard_limit`、`independent_safe_work_exhausted`、`same_action_repeated_without_state_change`、`supported_alternative_available`、`parent_state_recomputed_without_change`；另有非负整数 `executable_next_actions`，可选布尔 `continuation_lease_active`。不得为获得 final 而虚构用户停止要求或硬限制。正式父目标完成状态由 Source 独立推导；closure 未核实时明确返回 false 和修复/核对动作。保存回执中的 Source pin 与 evaluated-state hash。
+实际调用正式或可选诊断 API 时，`parent_liveness` 保留真实原父目标，严格包含八个布尔字段：`parent_objective_complete`、`user_requested_stop_pause_review_or_wait`、`parent_hard_blocker`、`platform_or_tool_hard_limit`、`independent_safe_work_exhausted`、`same_action_repeated_without_state_change`、`supported_alternative_available`、`parent_state_recomputed_without_change`；另有非负整数 `executable_next_actions`，可选布尔 `continuation_lease_active`。不得为获得 final 而虚构用户停止要求或硬限制。正式父目标完成状态由 Source 独立推导；closure 未核实时明确返回 false 和修复/核对动作。保存回执中的 Source pin 与 evaluated-state hash。
 
 
 ## Portable research delivery (2026-09-23)

@@ -1,0 +1,148 @@
+# R1/N14 — Coarsest labelled likelihood-ratio quotient for arbitrary two-stage laws
+
+**2026-10-27. Author mathematical proof; external positive-weight BRC auxiliary model. Not a native P000 theorem, formal Task Result, independent Driver review, or Lean proof.**
+
+## Frozen sources and authority
+
+GLOBAL_KNOWLEDGE_V1 \`main@cc9bb8a39531f5b6dc06133d6575cf6f48d21a17\` (bootstrap, manual, P000 projection and original, ACTIVE worldview, maths/BRC protocols); Enterprise Math scientific input \`main@713861ee37a8e027afa8843141a768d55f072547\` (portable research protocol, project definition, weighted BRC). Immediate prior result: \`research_notes/r1_n14_brc_observer_only_n2_lr_signature_20261027_r11/PROOF.md\` at \`6e88c23f448bc8a9fd76d666f121b2ece40c20e8\`.
+
+Real connected GitHub writer: \`awdawmip\`; local non-native author activity \`RA-20261027-1203-N2-LR-LABEL\`. Native \`dispatch(RESEARCH/P0)\` and \`control_tasks\` returned \`CONTROL_QUOTA\`; \`session_start\` returned \`STATIC_READONLY_SCOPE_DENIED\` with \`operation_sent=false\`. Active owner and formal CLAIM **not verified**. This paper is an independent authored auxiliary mathematical derivation; it does not adopt another owner's Task. BRC reuse verdict \`REUSE_APPLIED\`: positive P/Q labelled-path mass streams and the conditional exact likelihood-ratio histogram. The port labelling is preserved until safe quotient proof.
+
+## Theorem and scope
+
+Let I in finite labelled alphabet A and J in finite labelled alphabet B be observed in order. P,Q are arbitrary strictly positive joint laws on A x B. Define p_i=P(I=i), q_i=Q(I=i), p_ij=P(J=j|I=i), q_ij=Q(J=j|I=i) and the **terminal path likelihood ratio**
+
+\[
+L_{ij}=\frac{q_iq_{ij}}{p_ip_{ij}}=\frac{Q(i,j)}{P(i,j)}.
+\]
+
+At t=0 an initial policy may stop/decide, otherwise after I it may stop/decide or continue, and after J it must decide D in {0,1}. Full policies can be randomized and depend on entire ordered history. The compressed state z_t is time-typed, must update deterministically by the **actual observed next letter**, and its common P/Q decision rule can use fresh current-state randomization only, no persistent hidden selector. Universal observer sufficiency means that for **every** full policy, a single common compressed policy preserves simultaneously the entire joint distributions (T,D) under P and Q for T in {0,1,2}.
+
+Let R={L_ij}. Define the P-conditional terminal LR histogram
+
+\[
+\mu_i(r)=\sum_{j:L_{ij}=r}p_{ij}
+\]
+
+and the label-ordered vector v_i=(L_ij)_{j in B}. Put sigma_i=(v_i,mu_i).
+
+**Theorem.** The recursive quotient
+
+\[
+z_0=root,\quad z_1(i)=\sigma_i,\quad z_2(i,j)=L_{ij},\qquad
+\rho_1(\sigma_i,j)=L_{ij}
+\]
+
+is universally observer sufficient. Every universally sufficient deterministic letter-updated state partition refines its time-1 sigma-fibres and its time-2 LR-fibres. Hence it is the **unique coarsest** such partition, up to renaming, with exactly
+
+\[
+\boxed{1+|\{\sigma_i:i\in A\}|+|R|}
+\]
+
+time-typed states. Unlike the predecessor, neither P(I)=Q(I) nor L_ij=r_j independent of i is assumed.
+
+### Lemma 1: the first-stage LR is already encoded by mu
+
+By direct summation,
+
+\[
+\sum_r r\mu_i(r)=\sum_jp_{ij}L_{ij}
+=\sum_j\frac{q_iq_{ij}}{p_i}=\frac{q_i}{p_i}.
+\tag{1}
+\]
+
+This is the precise finite common-space conditional expectation law E_P[L_2|I=i]=L_1(i), not an assumption of invariant probabilities under changing populations. Therefore equal mu already implies equal first-stage q_i/p_i; no additional ratio coordinate is necessary.
+
+### Lemma 2: all-policy constructive sufficiency
+
+Copy the full root stop/decision kernel. Conditional on continuing at the root, write c_i for continuation after I=i, e_i for D=1 on stopping at time 1, and d_ij for terminal D=1. (Zero-reach conditional parameters may be chosen arbitrarily.)
+
+For each group G of equal sigma, let P_G=sum_{i in G} p_i and set
+
+\[
+c_G=\frac{\sum_{i\in G}p_ic_i}{P_G},\qquad
+e_G=\frac{\sum_{i\in G}p_i(1-c_i)e_i}
+          {\sum_{i\in G}p_i(1-c_i)}
+\]
+
+with e_G=0 if its denominator is 0. By (1), q_i=a_G p_i on G, so these common fresh-coin decisions match under **both** laws all stopped mass and D splits at time 1.
+
+At t=2, for each r in R the full P arrival mass (conditional on root continuation) is
+
+\[
+A_r=\sum_{i,j:L_{ij}=r}p_ic_ip_{ij}
+=\sum_G\left(\sum_{i\in G}p_ic_i\right)\mu_G(r)
+=\sum_G P_Gc_G\mu_G(r).
+\tag{2}
+\]
+
+This equals the quotient arrival mass: sigma has a well-defined next-letter update because v_i is equal throughout G, and the LR histograms are equal too. Since L_ij=r on each terminal class, the matching **Q** arrival mass is r A_r. Define U_r=sum_{i,j:L_ij=r}p_ic_ip_ij d_ij and set the quotient terminal D=1 probability to U_r/A_r when A_r>0, else 0. It matches P mass U_r and Q mass rU_r; D=0 follows by subtraction. Initial, time-1 and time-2 laws of (T,D) match under P,Q, for arbitrary real randomized full kernels, without persistent hidden randomness. □
+
+### Lemma 3: terminal LR and symbol-labelled vector are necessary
+
+Suppose some terminal state S mixes positive-probability histories with ratios on opposite sides of b. Use the full policy T=2 almost surely and D=1 exactly when L_ij>b. Its observable value of Q(T=2,D=1)-bP(T=2,D=1) is
+
+\[
+H_{\rm full}=\sum_{ij}P(ij)[L_{ij}-b]_+.
+\]
+
+Any compressed matching policy must have T=2 almost surely too. Strict positivity forces every reachable first-state continuation to be certain. Terminal D then is constant on each compressed terminal state, so its maximum functional value is
+
+\[
+H_z=\sum_S\left[\sum_{(i,j)\in S}P(ij)(L_{ij}-b)\right]_+.
+\]
+
+Positive-part subadditivity is strict on a state mixing signs; H_z<H_full, contradiction. Hence each terminal z_2 fibre has constant LR. If z_1(i)=z_1(k), letter-deterministic update implies z_2(ij)=z_2(kj) for every j, hence L_ij=L_kj for all j. The vectors v_i and v_k must agree. □
+
+### Lemma 4: exact LR histograms are also necessary
+
+For arbitrary real b define s_i(b)=sum_j p_ij[L_ij-b]_+=sum_r mu_i(r)[r-b]_+. For arbitrary lambda inspect the observable support functional
+
+\[
+F_{b,\lambda}=Q(T=2,D=1)-bP(T=2,D=1)-\lambda P(T=2).
+\]
+
+The **attained** full-policy maximum is
+
+\[
+M_{\rm full}=\sum_i p_i[s_i(b)-\lambda]_+,
+\tag{3}
+\]
+
+by selecting whether to continue after each i and setting terminal D=1 iff L_ij>b. Root stopping scores 0 and cannot improve a nonnegative attained maximum. If a compressed time-1 state merges G, its continuation probability is shared within G. Even if we unfairly permit unrestricted terminal information, its maximum is bounded by
+
+\[
+M_z\le\sum_G P_G\left[
+\frac{\sum_{i\in G}p_i s_i(b)}{P_G}-\lambda\right]_+.
+\tag{4}
+\]
+
+If i,k in one G have s_i(b) different, choosing lambda strictly between their values makes positive-part Jensen inequality strictly separate (3) from (4), impossible for universal sufficiency. Therefore all s_i(b) within a fibre agree for every b. The piecewise-linear call function b↦sum_r mu_i(r)[r-b]_+ determines every finite atom and its exact mass by its derivative jumps. Thus mu_i=mu_k. Together with Lemma 3 every sufficient partition refines sigma and terminal L. The constructed quotient attains both bounds, so it is the unique coarsest quotient with the asserted count. □
+
+## Exact minimal port-swap witness (two first and two second symbols)
+
+P(I)=Q(I)=(1/2,1/2),
+P(J|0)=(1/3,2/3), Q(J|0)=(2/3,1/3);
+P(J|1)=(2/3,1/3), Q(J|1)=(1/3,2/3).
+
+Then v_0=(2,1/2), v_1=(1/2,2) while both mu_i have masses mu_i(2)=1/3 and mu_i(1/2)=2/3. Equality of **unlabelled** histograms is insufficient: a single time-1 state would need the same letter j=0 to update to terminal ratio 2 **and** 1/2.
+
+For the full policy T=2 always and D=1 iff i=j, exact values are
+
+\[
+P(T=2,D=1)=1/3,\qquad Q(T=2,D=1)=2/3.
+\]
+
+With the first state merged, any deterministic symbol-updated terminal decision is a function of J, but P(J=j)=Q(J=j)=1/2. Thus the compressed rule necessarily has P(T=2,D=1)=Q(T=2,D=1), violating the target by **1/3**. The fully labelled terminal total variation is 1/3, while the merged-letter marginal TV is zero. The minimal valid profile is (1,2,2), total **5**, versus the invalid histogram-only suggestion (1,1,2). This port-swap obstruction cannot occur with fewer than two first or fewer than two second symbols.
+
+## Nonidentical first marginals do not obstruct safe grouping
+
+Let P(I)=(1/4,1/4,1/2), Q(I)=(3/8,3/8,1/4), P(J|i)=(1/2,1/2) for all i; Q(J|0)=Q(J|1)=(2/3,1/3) and Q(J|2)=(1/4,3/4). Here v_0=v_1=(2,1), mu_0=mu_1; v_2=(1/4,3/4) differs. The initial likelihood ratios (3/2,3/2,1/2) are the first moments of mu. The coarsest profile is (1,2,4), total **7** from ten original prefixes.
+
+For the full policy 'continue only after I=0; decide terminal D=1 iff J=0', the compressed policy 'continue from {0,1} with probability 1/2; terminal D=1 iff L=2' matches P(T=2)=1/4, Q(T=2)=3/8 and P(T=2,D=1)=1/8, Q(T=2,D=1)=1/4. The attached exact BigInt rational verifier checks these values and the minimal signatures.
+
+## Evidence and boundaries
+
+VERIFY.js uses reduced BigInt numerator/denominator arithmetic, explicitly checks positive normalized rows, exact conditional-LR first moments and both state profiles, and exhausts the **four deterministic terminal D(J)** decisions for the invalid merged 2x2 observer. It verifies the displayed unequal-first-marginal quotient witness. RESULT.json records its actual output. These are finite-model computations only; the universal quantifier rests on Lemmas 1–4. The original broader local Python Fraction computation is available as a separate local evidence package.
+
+Status: **AUTHOR_THEOREM_PROVED / FINITE_EXACT_CERTIFICATE_PASS / INDEPENDENT_REVIEW_PENDING / NATIVE_OWNER_UNVERIFIED**. Prior-art novelty and P000/X6 spatial embedding/readout, third slice coordinate semantics, and future-operation preservation are unproved; no physical law, Working Truth, native Task completion or claimed formal Result follows.

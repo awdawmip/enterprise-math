@@ -1,0 +1,11 @@
+input checks: PASS
+direct full-tree vs occupation flow for A, B, lift: PASS
+convex mixture exact flow recovery: PASS
+O(A) = (Fraction(2125259, 11612160), Fraction(4567081, 5806080), Fraction(2041, 1152), Fraction(1003, 576))
+O(B) = (Fraction(11461, 15750), Fraction(78139, 252000), Fraction(1291, 900), Fraction(328, 225))
+O(average) = (Fraction(37768661, 82944000), Fraction(22740727, 41472000), Fraction(30779, 19200), Fraction(46067, 28800))
+lifted root (continue, decideQ) = (Fraction(5, 6), Fraction(1, 6))
+lifted t1 (continue, decideQ) = (Fraction(31, 50), Fraction(1, 25))
+lifted t2 [(r,continue,decideQ)] = [(Fraction(1, 2), Fraction(89, 155), Fraction(23, 155)), (Fraction(1, 1), Fraction(10, 31), Fraction(13, 31)), (Fraction(3, 2), Fraction(77, 124), Fraction(43, 217))]
+lifted t3 [(y,decideQ)] = [(Fraction(1, 4), Fraction(1953, 3884)), (Fraction(1, 1), Fraction(264821, 924990)), (Fraction(2, 1), Fraction(101710, 211887))]
+CONCLUSION: PASS (one exact constructive witness, not universal enumeration)

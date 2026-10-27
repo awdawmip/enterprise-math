@@ -1,0 +1,52 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR3-20261027-R317-Q5-0121",
+  "registration_key": "session:local-emr3-20261027-r317-0121:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-DIRECT-R317-EMR3-20261027",
+  "session_id": "local-emr3-20261027-r317-0121",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-26T17:33:22.079Z",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "emr3-20261027-r317-q5-proof",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "a7593de1b3d4fa723165a6d12c02075c268232eb",
+          "path": "research_notes/r317_sixth_newton_edge_20261027_emr3/R317_ALL_S_SIXTH_NEWTON_AUTHOR_PROOF.zh-CN.md",
+          "sha256": "7bff01ad2db8749db3093f1429fcd1d4924980af698407198cdc478140f40379",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "r317-emr3-20261027-source-readback",
+            "git_blob_sha1": "7231bc9b64a46454ff34cdbf0144cc3b436f8a10",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/a7593de1b3d4fa723165a6d12c02075c268232eb/research_notes/r317_sixth_newton_edge_20261027_emr3/R317_ALL_S_SIXTH_NEWTON_AUTHOR_PROOF.zh-CN.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false,
+            "call_id": null
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261027-R317-Q5-0121/readbacks/17a187d301f376d50adfc9cfcd1217373a564de8ab1b0a2d5b87e3166995283e.json",
+          "verification_receipt_sha256": "17a187d301f376d50adfc9cfcd1217373a564de8ab1b0a2d5b87e3166995283e"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@de99073a78bf0c28b3f93ea359665ea2e2015110:journal/enterprise-math/2026-10-27/20261027013426+0800-r317-sixth-newton-edge-emr3.md"
+      ]
+    }
+  ]
+}

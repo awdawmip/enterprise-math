@@ -1,0 +1,78 @@
+{
+  "schema": "EM_PREFIX296_EXACT_BRC_V1",
+  "status": "PASS",
+  "number_domain": "BigInt Z[i]",
+  "denominator": 8,
+  "candidate_gram_matrices": 63,
+  "diagonal_candidates": 27,
+  "edge_candidates": 36,
+  "norm_survivors": 7,
+  "norm_exclusions": 56,
+  "max_determinant": 49152,
+  "examples": [
+    {
+      "d": "011",
+      "edge": "12",
+      "unit": "0,1",
+      "rank": 1,
+      "detM": "48+208i"
+    },
+    {
+      "d": "011",
+      "edge": "12",
+      "unit": "0,-1",
+      "rank": 1,
+      "detM": "-208-48i"
+    },
+    {
+      "d": "101",
+      "edge": "02",
+      "unit": "-1,0",
+      "rank": 1,
+      "detM": "-192-96i"
+    },
+    {
+      "d": "102",
+      "edge": "none",
+      "unit": "none",
+      "rank": 2,
+      "detM": "-120+176i"
+    },
+    {
+      "d": "110",
+      "edge": "01",
+      "unit": "0,1",
+      "rank": 1,
+      "detM": "-48+208i"
+    },
+    {
+      "d": "110",
+      "edge": "01",
+      "unit": "0,-1",
+      "rank": 1,
+      "detM": "208+48i"
+    },
+    {
+      "d": "201",
+      "edge": "none",
+      "unit": "none",
+      "rank": 2,
+      "detM": "-176-120i"
+    }
+  ],
+  "rank1_cases": 5,
+  "rank2_cases": 2,
+  "C4_phases": 4,
+  "inputs_per_phase": 216,
+  "phase_model_input_cases": 6048,
+  "direct_BRC_bin_readouts": 38020,
+  "ordered_source_pairs": 342180,
+  "Gram_entry_checks": 378,
+  "mass_checks": 6048,
+  "leak_identity_checks": 6048,
+  "phase_partner_probabilities": [
+    "0",
+    "2/3"
+  ],
+  "native_Hn_checked": false
+}

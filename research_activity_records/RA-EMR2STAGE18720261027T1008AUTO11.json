@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR2STAGE18720261027T1008AUTO11",
+  "registration_key": "session:local-chatgpt-emr2-stage187-20261027t1008:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-R2-LOCAL187-AUTO11",
+  "session_id": "local-chatgpt-emr2-stage187-20261027t1008",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-27T10:08:01+08:00",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "EV-EMR2-STAGE187-FULLREAL-20261027-1008",
+      "state": "EM_REPRESENTED",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "df3002a04596f1f8e793557754238a68fdc76c08",
+          "path": "research_notes/n14_aux_iid_affine_187_r2_author_20261027/PROOF_STAGE187.md",
+          "sha256": "7ac38565e66ad6bcfb25bde04e22e9b79a01b479546a20cbcdb0e91b3a0b4581",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "obs-em-r2-stage187-20261027-1008",
+            "call_id": null,
+            "git_blob_sha1": "c906f3f87095e41a89947385f7297ebccaf25053",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/df3002a04596f1f8e793557754238a68fdc76c08/research_notes/n14_aux_iid_affine_187_r2_author_20261027/PROOF_STAGE187.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR2STAGE18720261027T1008AUTO11/readbacks/50ac2d3443a883e9763f1715c25372bfa531026878ae77d3868ec5288349ada6.json",
+          "verification_receipt_sha256": "50ac2d3443a883e9763f1715c25372bfa531026878ae77d3868ec5288349ada6"
+        }
+      ],
+      "kb_sources": [],
+      "repairs_event_id": null
+    }
+  ]
+}

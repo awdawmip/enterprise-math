@@ -1,0 +1,9 @@
+# PREFIX-279: exact typed bridge from original Stage50 input to native heartbeat
+
+Reuse original provenance: Stage50 git bundle file ID 1ImJLXQSA6ZSebObWVunMbdVmUyKqjl4N; byte SHA-256 c90254ee224498e9a4e87717ba202a73cbdc44a82a8b20abdc0a8bb75ef0dbf8; original commit 318f47839d6bc7c850a3b7cc0fcb22d48febd9ba. Original Stage50 replay 512 existing named tests/2 core calls PASS. PREFIX-278 executed actual original Stage50 local for A=[1,-i], B=[2,-i,-1], C=[1,i,4,-2i] with r=1/2 and p=0/1/2/3: 24 exact source calls PASS. All c1=i/2; c2=0,-1/3,1/11. Original r2 p0 detector = 5/18,10/27,25/99. Do not repeat as an independent new model.
+
+One precise missing question: Is Stage50 local_input(packet,r=2,phase=p), followed by its original 12-port coin and Gauss link shift, realizable as a genuine lawful operation on complete native H_n, not just a declared source-history control parameter?
+
+Inputs: original stage50/interference.py, stage45/brc_loop_recheck.py, stage46/brc_port_update.py, stage49b/gauss_brc.py, current P000, definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json, definitions/HEARTBEAT_SELF_CONSISTENT_INSTANT_V0_1.json and any **actually sourced** model_law_id. Build the typed map for six-axis Cell and native address, Port, integer link field, material/momenta, branch and source, legal C4 phase gate, detector effect/normalization, boundary response and separately typed physical time. Verify BRC pair observer factorization under the map; or prove a precise first missing operation and preserve c2 as the future history residual.
+
+No non-BRC substitute evolution, no pi or trigonometric numerical fallback, no promotion to physical theorem without the mapped law. Current native researcher control rejects session with STATIC_READONLY_SCOPE_DENIED, tasks with CONTROL_QUOTA; Owner/CLAIM UNKNOWN, GitHub publication author-side only. Save proof or exact infeasibility certificate and next question with immutable readback.

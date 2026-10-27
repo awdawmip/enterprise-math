@@ -1,0 +1,66 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR5-20261027-WEAKSTRONG-T11",
+  "registration_key": "session:chat-emr5-20261027-t11-client-local:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-R5-WEAKSTRONG-T11",
+  "session_id": "chat-emr5-20261027-t11-client-local",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-27T04:08:56.140Z",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "EMR5-20261027-T11-WEAKSTRONG-EXACT-RESEARCH-PUBLICATION",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "001527142eb56a89ab1330fd443b8f1edf0c672a",
+          "path": "research_notes/brc_n3_weak_strong_lumpability_gap_20261027_r5/EXACT_OUTPUT.txt",
+          "sha256": "8556dce31d9641b0e12d2e7b7bc3483c8b9d05940b4fde3763d8474d34e6f3ae",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "EMR5-20261027-T11-IMMUTABLE-READBACK-01",
+            "call_id": null,
+            "git_blob_sha1": "c1eaf29d562717dd77e39922ec09bc845bd69aa7",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/001527142eb56a89ab1330fd443b8f1edf0c672a/research_notes/brc_n3_weak_strong_lumpability_gap_20261027_r5/EXACT_OUTPUT.txt",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "readback": {
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "EMR5-20261027-T11-IMMUTABLE-READBACK-01",
+            "arguments": {
+              "repository_full_name": "awdawmip/enterprise-math",
+              "path": "research_notes/brc_n3_weak_strong_lumpability_gap_20261027_r5/EXACT_OUTPUT.txt",
+              "ref": "001527142eb56a89ab1330fd443b8f1edf0c672a"
+            },
+            "result": {
+              "result": {
+                "content": "SNAPSHOT: finite external Q/P probability tree, N=3, 23 nodes, 14 leaves\nOBJECTIVE: J=e_P+(3/4)e_Q+(11/200)E_Q(tau)\nPOSITIVITY_NORMALIZATION_PQ_LR: PASS\nWEAK_SIGNATURE_INVARIANCE: K_a=K_b=(Fraction(1, 4), Fraction(1, 2), Fraction(1, 4))\nPOINTWISE_STRONG_LUMPABILITY: FAIL (e.g. K_au=(Fraction(1, 10), Fraction(4, 5), Fraction(1, 10)), K_av=(Fraction(2, 5), Fraction(1, 5), Fraction(2, 5)))\nCONTINUATION_POLICY_TEST_GRID: PASS (9 positive rational pairs)\nFULL_DETERMINISTIC_POLICIES: 256\nSEEDLESS_DETERMINISTIC_POLICIES: 32\nFULL_OPTIMAL_STOP_CONTROL: {'a': 0, 'b': 1, 'au': 0, 'av': 0, 'aw': 0, 'bu': 0, 'bv': 1, 'bw': 0}\nSEEDLESS_OPTIMAL_STOP_CONTROL: {'(1, Fraction(2, 1))': 0, '(1, Fraction(1, 2))': 1, '(2, Fraction(1, 1))': 1, '(2, Fraction(7, 3))': 0, '(2, Fraction(1, 3))': 0}\nO_FULL=(Fraction(43, 240), Fraction(19, 40), Fraction(17, 12), Fraction(7, 4))\nO_SEEDLESS=(Fraction(3, 16), Fraction(11, 24), Fraction(3, 2), Fraction(11, 6))\nV_FULL=379/600\nV_SEEDLESS=1517/2400\nEXACT_SUPPORT_GAP=1/2400\nBELLMAN_CROSSCHECK: PASS\nROOT_OPTIONAL_STOP_CHECK: PASS; J_rootstop=3/4\nGLOBAL_REAL_RANDOM_POLICY_EXTREMA: guaranteed by depth-wise multi-affinity + Bayes decisions\nALL EXACT CHECKS PASSED\n",
+                "encoding": "utf-8",
+                "sha": "c1eaf29d562717dd77e39922ec09bc845bd69aa7",
+                "display_url": "https://github.com/awdawmip/enterprise-math/blob/001527142eb56a89ab1330fd443b8f1edf0c672a/research_notes/brc_n3_weak_strong_lumpability_gap_20261027_r5/EXACT_OUTPUT.txt",
+                "display_title": "EXACT_OUTPUT.txt"
+              }
+            }
+          }
+        }
+      ],
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ]
+}

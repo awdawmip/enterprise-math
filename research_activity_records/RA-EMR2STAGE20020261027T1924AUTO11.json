@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR2STAGE20020261027T1924AUTO11",
+  "registration_key": "session:local-emr2-auto11-stage200-20261027-190611:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "LOCAL-EM-R2-AUTO11-STAGE200-NOT-SERVICE-ISSUED",
+  "session_id": "local-emr2-auto11-stage200-20261027-190611",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-27T11:24:50.848Z",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "EV-STAGE200-PROOF-20261027T1925",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "7f66ae09e450c30dce7c70ee96ea1678ca95ce03",
+          "path": "research_notes/n14_aux_iid_affine_200_r2_author_20261027/PROOF_STAGE200.md",
+          "sha256": "f360009296b0111908d0e20669ca42972fe6bef56a9c22acfc0c9ed4b814fd1c",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "EMR2STAGE200-LOCAL-READBACK-20261027-1925",
+            "call_id": null,
+            "git_blob_sha1": "5ffbd94c60c317cd206e8a99bbb013e3405e0a56",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/7f66ae09e450c30dce7c70ee96ea1678ca95ce03/research_notes/n14_aux_iid_affine_200_r2_author_20261027/PROOF_STAGE200.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR2STAGE20020261027T1924AUTO11/readbacks/cfcf731108718c88d268d16fba292cbcab3ebdd575b780c6a0a86788fe73f0de.json",
+          "verification_receipt_sha256": "cfcf731108718c88d268d16fba292cbcab3ebdd575b780c6a0a86788fe73f0de"
+        }
+      ],
+      "kb_sources": [],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null
+    }
+  ]
+}

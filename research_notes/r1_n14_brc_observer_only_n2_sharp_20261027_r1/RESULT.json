@@ -1,0 +1,118 @@
+{
+  "status": "PASS_EXACT_BIGINT_RATIONAL",
+  "model": "ternary_two_law_nonIID_horizon_2",
+  "ordered_prefixes": 13,
+  "source_scope": "GLOBAL_KNOWLEDGE_V1 main@c2658a2945f4deca; Enterprise Math science input main@72bdcc67b5a8bc5",
+  "first_symbol_P_Q": [
+    "1/3",
+    "1/3",
+    "1/3"
+  ],
+  "P_second": [
+    [
+      "1/4",
+      "1/4",
+      "1/2"
+    ],
+    [
+      "1/12",
+      "3/4",
+      "1/6"
+    ],
+    [
+      "1/6",
+      "1/2",
+      "1/3"
+    ]
+  ],
+  "Q_second": [
+    [
+      "1/2",
+      "1/4",
+      "1/4"
+    ],
+    [
+      "1/6",
+      "3/4",
+      "1/12"
+    ],
+    [
+      "1/3",
+      "1/2",
+      "1/6"
+    ]
+  ],
+  "LR_terminal": [
+    "2",
+    "1",
+    "1/2"
+  ],
+  "mean_P_last": [
+    "1/6",
+    "1/2",
+    "1/3"
+  ],
+  "mean_Q_last": [
+    "1/3",
+    "1/2",
+    "1/6"
+  ],
+  "full": {
+    "P_T2": "1/3",
+    "Q_T2": "1/3",
+    "P_T2_D1": "1/12",
+    "Q_T2_D1": "1/6",
+    "P_T1_D0": "2/3",
+    "Q_T1_D0": "2/3"
+  },
+  "separation": {
+    "full_Q_minus_P": "1/12",
+    "coarse_bound": "1/18",
+    "strict_gap": "1/36"
+  },
+  "first_state_partition_defects": [
+    {
+      "partition": "all_merged",
+      "k1_upper": "1/18",
+      "k1_gap": "1/36",
+      "k2_upper": "1/9",
+      "k2_gap": "1/36"
+    },
+    {
+      "partition": "merge_0_1",
+      "k1_upper": "1/18",
+      "k1_gap": "1/36",
+      "k2_upper": "1/9",
+      "k2_gap": "1/36"
+    },
+    {
+      "partition": "merge_0_2",
+      "k1_upper": "5/72",
+      "k1_gap": "1/72",
+      "k2_upper": "5/36",
+      "k2_gap": "0"
+    },
+    {
+      "partition": "merge_1_2",
+      "k1_upper": "1/12",
+      "k1_gap": "0",
+      "k2_upper": "1/8",
+      "k2_gap": "1/72"
+    },
+    {
+      "partition": "all_distinct",
+      "k1_upper": "1/12",
+      "k1_gap": "0",
+      "k2_upper": "5/36",
+      "k2_gap": "0"
+    }
+  ],
+  "terminal_distinct_LR": 3,
+  "observer_only_minimum_time_typed_profile": [
+    1,
+    3,
+    3
+  ],
+  "observer_only_minimum_total_states": 7,
+  "proof_scope": "Author universal exclusion and seven-state minimality proof. This executable certifies one finite positive rational model; no independent Driver, Lean, or P000 transfer."
+}

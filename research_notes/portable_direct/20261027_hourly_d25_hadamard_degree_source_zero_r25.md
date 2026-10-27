@@ -1,0 +1,104 @@
+# D25/LIFT R25 — Exact Hadamard bridge, growing jet degree and one missing weighted S source per p≡13 (mod24)
+
+Date 2026-10-27 (Asia/Hong_Kong). TASK_RESEARCH logical lane `chatgpt-research-hourly-enterprise-math-20260923`, distinct from CONTROL_PLANE_MAINTENANCE. Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`, publication `TP2-B6F4FC938FF94941C1B7`. Frozen scientific Source pin `c47e13e4aba0e006366f989d6334d443f6333ae3`, not retargeted. Mother D25/LIFT/JT2 OPEN.
+
+**AUTHOR-DERIVED / AUTHOR-EXACT-CHECKED / UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY**. This is a distinct finite-field source/observer lemma, not a canonical task checkpoint, native CM/Frobenius experiment, frozen Result or independent Driver review.
+
+## Consumed predecessor facts; precise carrier
+
+Do not recredit R22 (commit `953a90bc8d1d8cf252c1e671741a4b7d5e3625e8`), R23 (`a88573ebcb030a8ddedc6a3d8020805ec88cb1d7`), or R24 (`73a9246ec47de455e7c21c97135ca6e60ffc5a71`). The external Guo–Zudilin 2019 two-truncation S theorem remains an external proved input to R23, not a W=S identity. Here the new proofs require only the **previously derived exact R23/R24 source formulas** and elementary algebra.
+
+Fix a prime p=6m+1≥7 and F_p. For 0≤r<m, with rising factorials in F_p, set
+
+    a_r = ( (2/3)_r )^3 / [ (7/6)_r (4/3)_r r! ],
+    b_r = ( (2/3)_r )^3 / [ (11/12)_r (7/6)_r (17/12)_r ],
+    h_r = (4/3)_r r! / [ (11/12)_r (17/12)_r ].
+
+All factors are p-units on this strict range; r=m is a forbidden singular endpoint for the a/b recurrences. R24's genuine p²-reflected W-high and S-mid source coordinates for j=2m+r are
+
+    A_(2m+r) = C_m (2r+1) 2^r a_r,
+    B_(2m+r) = D_m (8r+13/3) 9^r b_r,
+
+where the R24 constants C_m,D_m are nonzero in F_p. Original labels are W, S, p²-divided, and j=p−1−k. Neither coordinate is a native Enterprise spatial axis.
+
+## Theorem 1 — exact coefficientwise Hadamard kernel (unweighted transfer)
+
+For all 0≤r<m,
+
+    b_r=h_r a_r;   h_0=1;
+    (r−1/12)(r+5/12)h_r = r(r+1/3)h_(r−1)    (1≤r<m).     [1]
+
+Thus for polynomials F_W(X)=Σ_(r<m)a_r X^r, F_S(X)=Σ_(r<m)b_r X^r and H_m(X)=Σ_(r<m)h_r X^r,
+
+    F_S = F_W ⊙ H_m                                            [2]
+
+where ⊙ denotes the **coefficientwise** Hadamard product, not polynomial multiplication. The h_r are all nonzero, hence this unweighted coefficient operator is diagonal and invertible on the m-coordinate carrier.
+
+Proof: cancel the common (2/3)_r³ and (7/6)_r factors in the exact R24 definitions to obtain h_r. Divide successive Pochhammer terms to get [1]; its numerator and denominator stay nonzero for r<m. Identity [2] follows coefficientwise. No assertion about the original scalar W=S is made. QED.
+
+## Theorem 2 — polynomial-in-r jet order must grow with p
+
+Write θ=X d/dX. Suppose P∈F_p[t] implements [2] through a coefficientwise differential polynomial P(θ), i.e.
+
+    P(θ)F_W=F_S in F_p[X], deg(F_W)<m.                  [3]
+
+Because each a_r≠0, [3] is equivalent to P(r)=h_r at each r=0,...,m−1. When m≥3, **no** P of degree ≤m−3 can satisfy [3]. Therefore the minimum possible degree of such a polynomial is either m−2 or m−1. In particular no fixed-order, prime-uniform polynomial in θ can realize the *entire coefficientwise* W→S map as p grows.
+
+Proof: h_0=P(0)=1. For 1≤r≤m−1, [1] forces Q(r)=0 for
+
+    Q(t)=(t−1/12)(t+5/12)P(t)−t(t+1/3)P(t−1).         [4]
+
+If P is a nonzero constant, Q=−5P/144 is nonzero, contrary to any root r when m≥2. If deg P=d≥1 and d<m, the highest t^(d+2) terms cancel and the t^(d+1) coefficient of Q equals d times the nonzero leading coefficient of P. Thus deg Q=d+1. Under d≤m−3, deg Q≤m−2 yet Q has m−1 distinct roots 1,...,m−1, a contradiction. Since interpolation on m distinct field points always gives degree ≤m−1, the claimed two possibilities follow. This is a no-go for a **diagonal low-jet map**, not for nonlocal WZ telescoping, other gauges, or a scalar-only identity. QED.
+
+## Theorem 3 — sharp rank and valuation of the genuinely weighted W/S source transfer
+
+Combining [2] with the actual R24 weighted ports gives a fully explicit diagonal map
+
+    B_(2m+r)=q_r A_(2m+r),
+    q_r=(D_m/C_m)(9/2)^r h_r (8r+13/3)/(2r+1).       [5]
+
+The denominator and all factors except the S weight are units in F_p. Its zeros are exactly the indices where 24r+13 is divisible by p. For 0≤r<m,
+
+    13≤24r+13≤24m−11=4p−15.
+
+Only multiples p,2p,3p are possible. Checking the four residues p≡1,7,13,19 (mod24), the only possibility is **p≡13 (mod24)**, at
+
+    r_0=(p−13)/24;   j_0=2m+r_0=(3p−7)/8;
+    k_0=p−1−j_0=(5p−1)/8.                          [6]
+
+Consequently, for all prime p≡13 (mod24), the diagonal weighted map [5] on the free source-coordinate carrier has **rank m−1 and one-dimensional kernel** spanned by the coordinate at r_0. For p≡19 (mod24), it has **rank m**. More generally p≡1,7,19 (mod24) gives full rank. These are *weighted-coordinate* ranks: the unweighted Hadamard transform [2] remains invertible.
+
+The same rank hole corresponds to an **exact original-term p-adic valuation mismatch**. For every 3m+1≤k≤4m, v_p((2k)!(3k)!/(k!)⁵)=v_p((4k)!/(k!)⁴)=2 and 3p<6k+1<4p; hence v_p(w_k)=2. The companion weight 8k+1 can be divisible by p at at most one index in this interval. It occurs exactly at [6], where
+
+    8k_0+1=5p,   8j_0+7=3p,
+    v_p(s_(k_0))=3 > v_p(w_(k_0))=2.                 [7]
+
+At every other k in that same interval v_p(s_k)=2. This classifies a genuine **single source-level third-digit hole** in S-mid for every p≡13 (mod24), not just the p=13 example previously reported in R24. The proof uses factorial valuations and exact integer weights; no finite census is needed.
+
+This does NOT disprove a non-diagonal WZ identity with boundary compensators. It proves that a unit-diagonal, source-label-preserving W→S pairing fails at one index throughout one hard-target residue class. Do not conflate a zero B coordinate with a vanished total M_p, an erased positive-infinity source, or a native six-dimensional spatial compression.
+
+## Author-side exact checks and typed witnesses
+
+The accompanying standard-library checker at `research_notes/portable_direct/20261027_hourly_d25_hadamard_degree_source_zero_r25_check.py` was actually executed locally. It independently constructs the original R23 factorial A/B sources and the R24 a/b recurrences, tests the h Hadamard identity, both rank jets, exact source-zero classification, finite-difference interpolation degrees and selected original integer-binomial valuations modulo p⁴. **PASS** on all 148 primes 7≤p<2000, p≡1 (mod6), covering 22,952 coefficient/port indices. This supports the author check; universal theorems are algebraic and do not follow from the finite test.
+
+Representative exact F_p observations:
+
+| p | m | min-degree of P(θ) (computed) | U=ΣA | M=ΣB | zero B index r_0 |
+|---:|---:|---:|---:|---:|---:|
+| 13 | 2 | 1 | 10 | 7 | 0 |
+| 19 | 3 | 1 | 9 | 3 | none |
+| 37 | 6 | 5 | 20 | 20 | 1 |
+| 61 | 10 | 9 | 17 | 48 | 2 |
+| 181 | 30 | 29 | 152 | 0 | 7 |
+| 373 | 62 | 61 | 266 | 92 | 15 |
+| 733 | 122 | 121 | 67 | 174 | 30 |
+
+Among these **148 tested primes**, only p=19 has interpolation degree m−2; the universal theorem merely proves the interval [m−2,m−1], **not** a classification of all exceptional primes. At p=181, M=0 is an aggregate cancellation among many source terms, while the single exact zero source and U=152 persist distinctly. At p=733, the S-mid coordinate at r_0=30 is zero while the W-high coordinate is nonzero and M=174; this is not the earlier Ward observer resonance.
+
+BRC: **COMPOSE_APPLIED** to R23/R24's typed pair of finite sources. The retained carrier includes k↔j↔r labels, series identity, factorial provenance, p²/p³ valuations, the unweighted invertible Hadamard map, weighted rank loss, rank jets and admissible future source comparisons. P000/ACTIVE Heartbeat native X6 and its distinct time coordinate remain fixed; these arithmetic ranks/indices are external finite-field auxiliary observations, not a redefinition of Enterprise geometry.
+
+## Durable continuation (do not recredit)
+
+The parent W_p−S_p modp³ bridge remains OPEN; R23's remaining obligation is Σ_(k=0..3m)(w_k−s_k)=−p² U_p (modp³). The next exact unit is to test or construct a *non-diagonal, boundary-retaining* WZ/contiguous transfer carrying the explicit Hadamard kernel [1], the rank-hole [6] for p≡13 (mod24), and both R24 Picard–Fuchs forcing terms into the low-half divided defect. A mere P(θ) bounded-jet substitution or deletion of the vanished B_(j0) is now insufficient in the claimed coefficientwise scope.
+
+Original fixed z=2 six-channel Hasse J/E, positive-infinity and high/high sources remain separate unresolved ports. Original-class H0/B0, [X]U modp², semilinear Frobenius η/κ, native p=373 experiment and independent Driver are NOT_DONE. Not a formal Result/freeze/admission. Previous successful read-only own recovery #6571 and continuation #6572/#6573/#6574 reported NO_LIVE_CLAIM, NEEDS_DISPATCH, Source-persisted checkpoint with unmatched historical claim pointers. A fresh gateway continuation/task read attempt this turn returned CONTROL_QUOTA before any successful receipt. This does not prove NO_DISPATCH; old protected session/staging remains untouched. Control restoration is tracked in enterprise-math#1558. Maintain Research/maintenance ID separation; do not mutate claim/session/scheduler here. Evidence can be kept as author-side portable material only until actual Source admission.

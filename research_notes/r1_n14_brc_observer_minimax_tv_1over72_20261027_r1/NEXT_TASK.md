@@ -1,0 +1,9 @@
+# Next independent unit: N=3 observer-only quantitative and structural compression
+
+Inherited proven author result: in the strictly-positive 13-prefix N=2 two-law example, the fixed compression that forgets the first letter admits **sharp minimax max(TV_P,TV_Q) = 1/72** against the specified full policy. Reusable exact common-reach lemma: for A subset B and P(B)=Q(B) both for target and compressed, any -1<=k<=1 gives eP(A)-eQ(A)+k e(B) <=2 max(TV_P,TV_Q). Do not reprove the prior exact nonrepresentability gap 1/36 or mislabel it the TV optimum.
+
+1. Freeze exact P,Q and target witness from research_notes/r1_n14_brc_coarse_lr_not_sufficient_20261027_r1t11/PROOF.md (40 ordered prefixes, N=3 non-IID). Find the **global** infimum max(TV_P,TV_Q) over one common deterministic-letter-updated fresh-coin state-local compressed policy for coarse (T,D), or the original stated observer (T,o(x),D). Provide exact dual/polynomial lower certificate and exact rational or algebraic attaining strategy. Root/early decisions must be covered. Finite-grid searches are only exploration.
+2. Separately address N>=3 **unique coarsest universally sufficient quotient versus incomparable coarsest quotients**. Incomparability demands two universally sufficient recursive partitions, proof of minimality and rigorous insufficiency of their common coarsening. Attainable-region nonconvexity alone does not imply nonuniqueness.
+3. Reuse BRC positive path weights and labelled residuals. State all quantifiers, allowed future actions, observer, source pins and evidence coverage. Preserve native P000 six-axis and 3D research-slice boundaries; no automatic external-to-native promotion.
+4. Reverify owner through Source before owner-scoped work. A CONTROL_QUOTA or read-only authority result permits **only** independent unclaimed author research; persist verified evidence to EM research_notes and append GK progress journal. Driver/Lean/native mapping remain separate.
+

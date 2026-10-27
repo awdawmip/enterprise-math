@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR3-20261027-R325-0820",
+  "registration_key": "session:EM-DIRECT-R325-0820-ONE-RUN:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-DIRECT-R325-0820",
+  "session_id": "EM-DIRECT-R325-0820-ONE-RUN",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-27T00:31:51.290Z",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "PROGRESS-R325-20261027-TRIANGLE-TAIL-0820",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "kb_sources": [],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "2c62f1502e640d1aed2db6f72956abc6a22ca2d5",
+          "path": "research_notes/r325_bivariate_triangle_tail_20261027_emr3/R325_TRIANGULAR_AND_NEGATIVE_TAIL_PROOF.zh-CN.md",
+          "sha256": "a060c8bcd6936fd1a56f425fba8e1252da74e178cda2c09436245042d8def5e9",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "observation_id": "r325-github-source-immutable-readback-20261027",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "89e3cddf378647d366f953fb3caa100cbd0979e8",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/2c62f1502e640d1aed2db6f72956abc6a22ca2d5/research_notes/r325_bivariate_triangle_tail_20261027_emr3/R325_TRIANGULAR_AND_NEGATIVE_TAIL_PROOF.zh-CN.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false,
+            "call_id": null
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261027-R325-0820/readbacks/31df35277b27282b1fd930be11b722e0a8140ee4ade07747aeadb3dae8b4b685.json",
+          "verification_receipt_sha256": "31df35277b27282b1fd930be11b722e0a8140ee4ade07747aeadb3dae8b4b685"
+        }
+      ]
+    }
+  ]
+}

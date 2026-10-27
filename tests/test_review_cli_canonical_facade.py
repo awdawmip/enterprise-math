@@ -106,7 +106,7 @@ OTHER_DOUBLES = {
     'control_plane/research_result_authority_fault_isolation.py': 'def operational_results(rows,root,**kwargs): return rows\ndef operational_reviews(rows,root): return rows\n',
     'control_plane/research_continuation_write_authority.py': 'def operational(rows,kind,root): return rows\n',
     'control_plane/research_continuation.py': 'class ContinuationError(ValueError): pass\ndef require_review_authority(*args,**kwargs): return None\n',
-    'research_driver_followup.py': 'class DriverFollowupError(ValueError): pass\n',
+    'research_driver_followup.py': 'class DriverFollowupError(ValueError): pass\nRESULT_CONTINUATION_DECISION = "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION"\n',
     'research_driver_followup_guard.py': '',
     'research_result_control_replacements.py': 'class ResultControlReplacementError(ValueError): pass\ndef replacement_edges(*args,**kwargs): return {}\n',
     'control_plane/research_control_bootstrap.py': 'from control_plane import research_driver_review_authority_fault_isolation as isolation\ndef install(root): isolation.install(root)\n',

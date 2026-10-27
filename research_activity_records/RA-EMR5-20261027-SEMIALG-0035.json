@@ -1,0 +1,52 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR5-20261027-SEMIALG-0035",
+  "registration_key": "session:LOCAL-EMR5-20261027T0035-ASYNCRUN-11:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-R5-SEMAL27",
+  "session_id": "LOCAL-EMR5-20261027T0035-ASYNCRUN-11",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-27T00:35:10+08:00",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "PROOF_AND_EXACT_CHECK_20261027",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "8d0abb98fa9501873771f75aecd08ef94e402e12",
+          "path": "research_notes/brc_n4_exact_semialgebraic_policy_20261027_r5/VERIFY_EXACT.py",
+          "sha256": "72d91b2f8a9bea6e39094e9d57b5e47d494211eb7daaac84a43eea8c0a8d93ab",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "emr5-20261027-code-readback",
+            "call_id": null,
+            "git_blob_sha1": "f767525f6eb6c52c6d1933e6a072a04d21f7a87f",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/8d0abb98fa9501873771f75aecd08ef94e402e12/research_notes/brc_n4_exact_semialgebraic_policy_20261027_r5/VERIFY_EXACT.py",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR5-20261027-SEMIALG-0035/readbacks/d6f17268e60ab0b4a9c38ddd12c629769215c2be1f0b40f0f39678a148d97593.json",
+          "verification_receipt_sha256": "d6f17268e60ab0b4a9c38ddd12c629769215c2be1f0b40f0f39678a148d97593"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@59e3da7b1c0781ca47152f09faaa5e5af0ae73b4:journal/enterprise-math/2026-10-27/20261027T003510+0800-r5-semialgebraic-quotient.md"
+      ],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null
+    }
+  ]
+}

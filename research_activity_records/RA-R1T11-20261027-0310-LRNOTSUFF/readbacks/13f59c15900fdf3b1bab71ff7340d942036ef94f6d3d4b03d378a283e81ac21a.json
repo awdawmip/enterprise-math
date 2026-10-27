@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/r1_n14_brc_coarse_lr_not_sufficient_20261027_r1t11/VERIFY.py",
+    "ref": "3d286528018a83852f6cf09e86c475c83b5311f5",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r1t11-github-immutable-verify-20261027-0319",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact rational verifier for a law-independent coarse-observer LR counterexample.\"\"\"\nfrom fractions import Fraction as F\nfrom itertools import product\nimport json\n\nsymbols = range(3)\nr = (F(2),F(1),F(1,2))\nP_early = (F(1,3),)*3\nP_hi = (F(1,4),F(1,4),F(1,2))\nP_lo = (F(1,12),F(3,4),F(1,6))\n\ndef state(h):\n    if len(h) <= 2:\n        return (len(h),)\n    return (len(h),h[-1])\n\ndef early(h):\n    return F(1,3)**len(h)\n\ndef conditional(h):\n    return P_hi if h==(0,0) else P_lo\n\ndef mass(h,law):\n    if len(h) <= 2:\n        return early(h)\n    p=early(h[:2])*conditional(h[:2])[h[2]]\n    return p*(r[h[2]] if law=='Q' else F(1))\n\ndef s(v): return str(v.numerator) + '/' + str(v.denominator)\n\nfor alphabet in (P_hi,P_lo):\n    assert sum(alphabet)==1 and sum(p*q for p,q in zip(alphabet,r))==1\n    assert all(v>0 for v in alphabet)\nfor t in range(4):\n    for law in ('P','Q'):\n        assert sum((mass(h,law) for h in product(symbols,repeat=t)),F(0))==1\n    fibers = {}\n    for h in product(symbols,repeat=t):\n        fibers.setdefault(state(h),set()).add(mass(h,'Q')/mass(h,'P'))\n    assert all(len(z)==1 for z in fibers.values()),(t,fibers)\n\n# Original: no stop before t=2; at t=2 continue only history (0,0).\n# At t=3 output D=1 only if last symbol=0.\nt3=F(1,9)\nP_target=mass((0,0,0),'P')\nQ_target=mass((0,0,0),'Q')\nassert (P_target,Q_target)==(F(1,36),F(1,18))\n\n# The compressed x-only policy must continue at t=2 with u=1/9\n# because all length-two prefixes share one state and t<2 stopping is absent.\nu=t3\npbar=tuple(sum((conditional(h)[j] for h in product(symbols,repeat=2)),F(0))/9 for j in symbols)\nqbar=tuple(pbar[j]*r[j] for j in symbols)\nassert sum(pbar)==sum(qbar)==1\n# Achieving Q/P=2 at (T=3,D=1) forces D=1 only on j=0.\nP_cap=u*pbar[0]\nQ_cap=u*qbar[0]\nassert P_cap==F(11,972)\nassert Q_cap==F(11,486)\nP_gap=P_target-P_cap\nQ_gap=Q_target-Q_cap\nassert P_gap==F(4,243) and Q_gap==F(8,243)\n\n# Exact branchwise coefficient: Q-2P is 0 for j=0 and negative for other symbols.\nseparation={str(j):s(qbar[j]-2*pbar[j]) for j in symbols}\nassert separation['0']=='0/1'\nassert all((qbar[j]-2*pbar[j])<0 for j in (1,2))\n\nresult={\n 'schema':'EM_R1_COARSE_LR_NOT_SUFFICIENT_V1',\n 'horizon':3,'alphabet':[0,1,2],\n 'positive_histories_checked':40,\n 'LR_fiber_constancy_verified_for_t':[0,1,2,3],\n 'full_policy_T3':s(t3),\n 'full_policy_P_T3_D1':s(P_target),\n 'full_policy_Q_T3_D1':s(Q_target),\n 'compressed_forced_continue_at_t2':s(u),\n 'compressed_pre_action_P_last0':s(pbar[0]),\n 'compressed_pre_action_Q_last0':s(qbar[0]),\n 'compressed_max_P_T3_D1_given_ratio2':s(P_cap),\n 'compressed_max_Q_T3_D1_given_ratio2':s(Q_cap),\n 'forced_P_shortfall':s(P_gap),\n 'forced_Q_shortfall':s(Q_gap),\n 'conditional_gap_Q_minus_2P_by_symbol':separation,\n 'status':'EXACT_FRACTION_PASS'\n}\nprint(json.dumps(result,sort_keys=True,indent=2))\n",
+      "display_title": "VERIFY.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3d286528018a83852f6cf09e86c475c83b5311f5/research_notes/r1_n14_brc_coarse_lr_not_sufficient_20261027_r1t11/VERIFY.py",
+      "encoding": "utf-8",
+      "sha": "bc253aa42875c7146c99264bff58db5f9c717f65"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

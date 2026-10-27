@@ -1,0 +1,73 @@
+{
+  "schema": "EM_R1_N14_NONIID_TWO_LAW_CERTIFICATE_V1",
+  "date": "2026-10-26",
+  "scope": "EXTERNAL_TWO_SYMBOL_FINITE_SEQUENTIAL_DECISION_MODEL",
+  "model_A": {
+    "P01": "1/4",
+    "P10": "1/4",
+    "Q01": "3/8",
+    "Q10": "1/4",
+    "P_cond_decide_P_given_count_11": "1/2",
+    "Q_cond_decide_P_given_count_11": "3/5",
+    "result": "NO_COMMON_COUNT_ONLY_POLICY_FOR_ALL_STOP_AT_T2_AND_SELECT_01"
+  },
+  "model_B": {
+    "P": "iid fair binary",
+    "Q": "first fair, subsequent switches with probability 3/4",
+    "count": [
+      1,
+      1
+    ],
+    "ratio_01": "3/2",
+    "ratio_10": "3/2",
+    "ratio_011": "3/4",
+    "ratio_101": "9/4",
+    "result": "RATIO_ONLY_NOT_DETERMINISTIC_RIGHT_CONGRUENCE",
+    "repair": "state (t,count,number of switches,last symbol) with exact two-law lumpability"
+  },
+  "checks": [
+    {
+      "N": 3,
+      "law": "P",
+      "nonzero_discrepancies": 0,
+      "terminal_state_decision_keys": 30,
+      "terminal_total": "1/1"
+    },
+    {
+      "N": 3,
+      "law": "Q",
+      "nonzero_discrepancies": 0,
+      "terminal_state_decision_keys": 30,
+      "terminal_total": "1/1"
+    },
+    {
+      "N": 4,
+      "law": "P",
+      "nonzero_discrepancies": 0,
+      "terminal_state_decision_keys": 58,
+      "terminal_total": "1/1"
+    },
+    {
+      "N": 4,
+      "law": "Q",
+      "nonzero_discrepancies": 0,
+      "terminal_state_decision_keys": 58,
+      "terminal_total": "1/1"
+    },
+    {
+      "N": 5,
+      "law": "P",
+      "nonzero_discrepancies": 0,
+      "terminal_state_decision_keys": 102,
+      "terminal_total": "1/1"
+    },
+    {
+      "N": 5,
+      "law": "Q",
+      "nonzero_discrepancies": 0,
+      "terminal_state_decision_keys": 102,
+      "terminal_total": "1/1"
+    }
+  ],
+  "method": "fractions.Fraction exact original ordered-prefix flows vs compressed Markov state flows"
+}

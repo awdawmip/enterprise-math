@@ -220,6 +220,18 @@ def _apply_followup_gate(
         }
     scope = {}
     packet = followup.get("packet")
+    if isinstance(packet, dict) and packet.get("decision") == _followup_impl.RESULT_CONTINUATION_DECISION:
+        return {
+            **reduced,
+            "state": _followup_impl.RESULT_CONTINUATION_STATE,
+            "terminal": False,
+            "driver_followup_state": followup.get("state"),
+            "driver_followup": packet,
+            "result_continuation": packet["result_continuation"],
+            "task_completion_granted": False,
+            "parent_completion_granted": False,
+            "parent_final_granted": False,
+        }
     if isinstance(packet, dict) and packet.get("decision") == _followup_impl.TASK_SCOPE_DECISION:
         scope = {
             "terminal_scope": "TASK",
@@ -434,6 +446,22 @@ def _task_result_state_operational(
                 "result_review_authority": evidence,
                 "result_operational_review_authority": authorities,
             }
+        incomplete = sorted(rid for rid, authority in authorities.items()
+                            if authority.get("driver_followup_state") == _followup_impl.RESULT_CONTINUATION_STATE)
+        if incomplete:
+            return {
+                **base,
+                "state": _followup_impl.RESULT_CONTINUATION_STATE,
+                "terminal": False,
+                "accepted_result_incomplete_ids": incomplete,
+                "result_continuations": {rid: authorities[rid]["driver_followup"]["result_continuation"]
+                                         for rid in incomplete},
+                "result_review_authority": evidence,
+                "result_operational_review_authority": authorities,
+                "task_completion_granted": False,
+                "parent_completion_granted": False,
+                "parent_final_granted": False,
+            }
         return {
             **base,
             "result_review_authority": evidence,
@@ -483,6 +511,8 @@ def _preflight_first_review_followup(
     tasks = spec.get("tasks", [])
     if decision not in _followup_impl.DECISIONS:
         raise ResultRecordError("follow-up spec decision is invalid")
+    if decision == _followup_impl.RESULT_CONTINUATION_DECISION:
+        _followup_impl._result_continuation_spec(spec)
     if decision == _followup_impl.EXISTING_ASSET_DECISION:
         raise ResultRecordError("existing asset binding requires an existing exact-set review synthesis")
     if not isinstance(tasks, list):
@@ -509,6 +539,13 @@ def _preflight_first_review_followup(
             raise ResultRecordError(
                 f"required follow-up gates have no matching task role: {missing}"
             )
+    elif decision == _followup_impl.RESULT_CONTINUATION_DECISION:
+        _followup_impl._result_acceptance_continuation(
+            probe_review, result, continuation=spec.get("result_continuation"),
+            tasks=tasks, gates=gates, root=ROOT, current_publication_required=True,
+        )
+        parent = _followup_impl._source_parent_objective(probe_review, result, ROOT)
+        _followup_impl._parent_status_at_materialization(parent, ROOT)
     elif decision == _followup_impl.TASK_SCOPE_DECISION:
         _followup_impl._task_scope_continuation(
             probe_review, result, terminal_scope=spec.get("terminal_scope"),
@@ -617,12 +654,13 @@ def command_review_with_authority(args: argparse.Namespace) -> int:
         )
 
     publisher_args = {}
-    if spec is not None and "prospective_result_authority_binding" in spec:
+    if spec is not None and ("prospective_result_authority_binding" in spec
+                            or spec.get("decision") == _followup_impl.RESULT_CONTINUATION_DECISION):
         # This opt-in route needs the live reviewer as publisher. Ordinary
         # follow-ups retain their existing legacy/no-publisher behavior.
         session = getattr(args, "reviewer_session_id", None)
         if current_authority is None or not isinstance(session, str) or not session.strip():
-            raise ResultRecordError("prospective follow-up requires current review authority and session")
+            raise ResultRecordError("typed follow-up requires current review authority and session")
         publisher_args = {"publishing_driver_id": args.driver_id,
                           "publisher_session_id": session}
 

@@ -664,6 +664,19 @@ def _overlay_result_state(
         value["dispatch_state"] = "AWAITING_REVIEW"
         value["next_action"] = "Driver review required before terminal closure or researcher redispatch"
         return value
+    if result_state["state"] == "ACCEPTED_RESULT_TASK_INCOMPLETE":
+        value.update(state="FROZEN_RETURN", dispatch_state="AWAITING_TASK_CONTROL_CONTINUATION",
+                     terminal=False, claim_id=None, actor=None, researcher_id=None,
+                     identity_source=None, lease_until=None,
+                     driver_disposition=review.get("disposition") if review else None,
+                     review_id=review.get("review_id") if review else None,
+                     task_completion_granted=False)
+        continuation = result_state.get("result_continuation")
+        value["result_continuation"] = copy.deepcopy(continuation)
+        value["result_continuations"] = copy.deepcopy(result_state.get("result_continuations", {}))
+        value["next_action"] = (continuation["next_action"] if isinstance(continuation, dict)
+                                else "Driver must resolve the recorded accepted-result process obligations")
+        return value
     if result_state["state"] == "RETURN_TO_EXECUTION":
         value["state"] = "HANDOFF_READY"
         value["dispatch_state"] = "NEEDS_DISPATCH"

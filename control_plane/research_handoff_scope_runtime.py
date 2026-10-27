@@ -12,16 +12,24 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 REOPEN_KEY = "_handoff_scope_review_reopened_at"
+REOPEN_RESULT_KEY = "_handoff_scope_review_reopened_result_id"
 
 
 def definition_for_result(task: dict[str, Any], result_state: Any) -> dict[str, Any]:
     value = copy.deepcopy(task)
     value.pop(REOPEN_KEY, None)
+    value.pop(REOPEN_RESULT_KEY, None)
     if isinstance(result_state, dict) and result_state.get("state") == "RETURN_TO_EXECUTION":
         review = result_state.get("review")
         reopened_at = review.get("reviewed_at") if isinstance(review, dict) else None
         if isinstance(reopened_at, str) and reopened_at.strip():
             value[REOPEN_KEY] = reopened_at
+            result = result_state.get("result")
+            result_id = result.get("result_id") if isinstance(result, dict) else None
+            if (isinstance(result_id, str) and result_id.strip()
+                    and result.get("task_id") == task.get("task_id")
+                    and result.get("publication_id") == task.get("publication_id")):
+                value[REOPEN_RESULT_KEY] = result_id
     return value
 
 

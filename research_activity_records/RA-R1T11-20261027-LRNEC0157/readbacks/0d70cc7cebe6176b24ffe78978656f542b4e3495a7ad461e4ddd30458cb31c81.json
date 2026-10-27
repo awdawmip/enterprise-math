@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/r1_n14_brc_coarse_lr_necessity_20261027_r1t11/VERIFY.py",
+    "ref": "c0cd34e784ca6b9d7e87e60c95809d66882ae039",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r1t11-20261027-lrnec-verify-readback",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact rational check of coarse terminal observer LR-necessity witness.\nFinite verification only. The universal theorem is established separately by proof.\n\"\"\"\nfrom fractions import Fraction as F\nfrom itertools import product\n\nH = ('a','b','c','d')\nP = dict(zip(H, (F(1,4),)*4))\nQ = dict(zip(H, (F(1,8),F(3,8),F(1,4),F(1,4))))\nx = {'a':'A','b':'A','c':'B','d':'B'}\nr = F(1)\nassert sum(P.values()) == sum(Q.values()) == 1\nassert all(P[h]>0 and Q[h]>0 for h in H)\n\n# All 16 full-history deterministic depth-one decisions, exact rational.\nhistory_points=[]\nfor actions in product((0,1), repeat=4):\n    pa=sum((P[h]*u for h,u in zip(H,actions)),F(0))\n    qa=sum((Q[h]*u for h,u in zip(H,actions)),F(0))\n    history_points.append((pa,qa))\nassert len(history_points)==16\n\n# All four compressed deterministic classifiers and their convex randomized mixtures.\ncompressed_points=[]\nfor a,b in product((0,1),repeat=2):\n    act = {'A':a,'B':b}\n    pa=sum((P[h]*act[x[h]] for h in H),F(0))\n    qa=sum((Q[h]*act[x[h]] for h in H),F(0))\n    compressed_points.append((pa,qa))\nassert len(compressed_points)==4\nassert all(p==q for p,q in compressed_points)\n\nhistory_support=max((q-r*p for p,q in history_points))\ncompressed_support=max((q-r*p for p,q in compressed_points))\nassert history_support==F(1,8)\nassert compressed_support==F(0)\n\n# Unique 2-class compressed state masses and a quantitative fiber-straddling defect.\nstate_mass={key:(sum((P[h] for h in H if x[h]==key), F(0)),\n                 sum((Q[h] for h in H if x[h]==key), F(0))) for key in ('A','B')}\nassert state_mass=={'A':(F(1,2),F(1,2)),'B':(F(1,2),F(1,2))}\npositive=lambda v:max(v,F(0))\nfine=sum((positive(Q[h]-r*P[h]) for h in H),F(0))\ncoarse=sum((positive(q-r*p) for p,q in state_mass.values()),F(0))\nassert (fine,coarse,fine-coarse)==(F(1,8),F(0),F(1,8))\n\n# Original event D=1 precisely on symbol 'b'.\np_event=P['b'];q_event=Q['b']\nassert (p_event,q_event)==(F(1,4),F(3,8))\nassert (p_event,q_event) not in compressed_points\nprint('PASS: P/Q positive normalized; 16 full-history and 4 compressed deterministic decisions')\nprint('PASS: observed D=1 masses under P,Q =',str(p_event),str(q_event))\nprint('PASS: exact support (fine, coarse, gap) =',fine,coarse,fine-coarse)\nprint('Scope: horizon 1, alphabet 4, deterministic decisions exhaustive; randomized policies handled analytically by convex support.')\n",
+      "display_title": "VERIFY.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c0cd34e784ca6b9d7e87e60c95809d66882ae039/research_notes/r1_n14_brc_coarse_lr_necessity_20261027_r1t11/VERIFY.py",
+      "encoding": "utf-8",
+      "sha": "fb3f94e0b6be1b1e2bff83da1557686987f59872"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

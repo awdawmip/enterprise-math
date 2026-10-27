@@ -1,0 +1,52 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR3-20261027-R316-Q4-0020",
+  "registration_key": "session:local-emr3-20261027-r316-0020:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-DIRECT-R316-EMR3-20261027",
+  "session_id": "local-emr3-20261027-r316-0020",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-26T16:35:46.014Z",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "emr3-20261027-r316-q4-proof",
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null,
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "38341f858423e2612297c06c8e4997a1d4f44f03",
+          "path": "research_notes/r316_fifth_newton_edge_20261027_emr3/R316_FIFTH_NEWTON_EDGE_AUTHOR_PROOF.zh-CN.md",
+          "sha256": "adf4fad35707e04d9b290bafb574284b58b1f2f0e5958d3028e43df3ca9b7fb9",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "emr3-r316-source-full-readback-20261027",
+            "git_blob_sha1": "cef9a73a7d6b2370fc3511963a2ac8f35a75b26d",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/38341f858423e2612297c06c8e4997a1d4f44f03/research_notes/r316_fifth_newton_edge_20261027_emr3/R316_FIFTH_NEWTON_EDGE_AUTHOR_PROOF.zh-CN.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false,
+            "call_id": null
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261027-R316-Q4-0020/readbacks/e799c03c94cf2296e78948bdfdbac2ef12d1413ac8c8d31404967cb9f63e5ad6.json",
+          "verification_receipt_sha256": "e799c03c94cf2296e78948bdfdbac2ef12d1413ac8c8d31404967cb9f63e5ad6"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@fcf778e263a2de22711ca308108f912f91d7b2e9:journal/enterprise-math/2026-10-27/20261027-r316-fifth-newton-edge-emr3.md"
+      ]
+    }
+  ]
+}
