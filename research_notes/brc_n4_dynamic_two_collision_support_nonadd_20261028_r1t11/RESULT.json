@@ -1,0 +1,147 @@
+{
+  "status": "PASS_EXACT_FRACTION_N4_DYNAMIC_NONADDITIVITY",
+  "scope": "External strictly positive depth-4 dual-measure observation tree; exact signed support minima over all local behavioral policies",
+  "lambda": [
+    "100",
+    "2501/100",
+    "0",
+    "1/10"
+  ],
+  "node_count_by_time": {
+    "1": 2,
+    "2": 4,
+    "3": 8,
+    "4": 16
+  },
+  "collisions": {
+    "t2": [
+      "AU",
+      "BU"
+    ],
+    "t3": [
+      "AV0",
+      "AV1"
+    ]
+  },
+  "cases": {
+    "full": {
+      "support_value": "785/32",
+      "vector": [
+        "69/800",
+        "5/8",
+        "19/8",
+        "11/4"
+      ],
+      "root_policy": {
+        "A": "C",
+        "B": "C"
+      },
+      "t1_t2_assignments_checked": 729,
+      "t2_signatures": 4,
+      "t3_signatures": 8,
+      "root_conditioned_minima": {
+        "A:C/B:C": "785/32",
+        "A:P/B:C": "19647/800",
+        "A:C/B:P": "10033/400",
+        "A:P/B:P": "2511/100"
+      },
+      "t2_policy": {
+        "AU": "P",
+        "AV": "C",
+        "BU": "C",
+        "BV": "P"
+      },
+      "t3_policy": {
+        "AV0": "Q",
+        "AV1": "C",
+        "BU0": "Q",
+        "BU1": "P"
+      }
+    },
+    "t2": {
+      "support_value": "11783/480",
+      "vector": [
+        "69/800",
+        "5/8",
+        "61/24",
+        "35/12"
+      ],
+      "root_policy": {
+        "A": "C",
+        "B": "C"
+      },
+      "t1_t2_assignments_checked": 243,
+      "t2_signatures": 3,
+      "t3_signatures": 8,
+      "root_conditioned_minima": {
+        "A:C/B:C": "11783/480",
+        "A:P/B:C": "19647/800",
+        "A:C/B:P": "10033/400",
+        "A:P/B:P": "2511/100"
+      }
+    },
+    "t3": {
+      "support_value": "11783/480",
+      "vector": [
+        "69/800",
+        "5/8",
+        "29/12",
+        "35/12"
+      ],
+      "root_policy": {
+        "A": "C",
+        "B": "C"
+      },
+      "t1_t2_assignments_checked": 729,
+      "t2_signatures": 4,
+      "t3_signatures": 6,
+      "root_conditioned_minima": {
+        "A:C/B:C": "11783/480",
+        "A:P/B:C": "19647/800",
+        "A:C/B:P": "30119/1200",
+        "A:P/B:P": "2511/100"
+      }
+    },
+    "both": {
+      "support_value": "19647/800",
+      "vector": [
+        "1/40",
+        "7/8",
+        "2",
+        "7/4"
+      ],
+      "root_policy": {
+        "A": "P",
+        "B": "C"
+      },
+      "t1_t2_assignments_checked": 243,
+      "t2_signatures": 3,
+      "t3_signatures": 6,
+      "root_conditioned_minima": {
+        "A:C/B:C": "11791/480",
+        "A:P/B:C": "19647/800",
+        "A:C/B:P": "30119/1200",
+        "A:P/B:P": "2511/100"
+      },
+      "t2_policy": {
+        "(2, Fraction(1, 1))": "C",
+        "(2, Fraction(2, 1))": "P"
+      },
+      "t3_policy": {
+        "(3, Fraction(1, 5))": "Q",
+        "(3, Fraction(9, 5))": "P"
+      }
+    }
+  },
+  "gaps": {
+    "t2": "1/60",
+    "t3": "1/60",
+    "both": "11/400"
+  },
+  "strict_subadditivity": "7/1200",
+  "tv_positive_lower_bound": "11/50124",
+  "open_lambda_linf_radius": "7/48000",
+  "check_coverage": "Complete t1/t2 deterministic assignments (729 or 243 per compression mode) and exact optimal t3 signatures; behavioral randomizations covered by multi-affine extreme-point proof.",
+  "execution_provenance": "Author-side local Python Fraction verifier executed; remote VERIFY.py preserves exact model, enumeration, assertions. This file is an exact derived summary with all four signature-policy minima, not verbatim local 4261-byte stdout.",
+  "limits": "Not an exact two-law TV minimax result, X6 native evolution theorem, independent review or formal proof checker."
+}
