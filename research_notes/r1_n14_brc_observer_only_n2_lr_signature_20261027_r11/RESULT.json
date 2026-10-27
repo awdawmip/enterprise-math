@@ -1,0 +1,91 @@
+{
+  "status": "PASS_EXACT_FRACTION",
+  "execution_provenance": "Python fractions.Fraction executed on local instance; remote VERIFY.py implements the same finite tests. Remote-source reexecution pending until GitHub readback.",
+  "model_a": {
+    "prefixes": 13,
+    "min_profile": [
+      1,
+      3,
+      3
+    ],
+    "min_total": 7,
+    "scores": [
+      "1/4",
+      "1/12",
+      "1/6"
+    ],
+    "partitions": [
+      {
+        "groups": [
+          [
+            0,
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "lambda": "1/6",
+        "gap": "1/36"
+      },
+      {
+        "groups": [
+          [
+            0,
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "lambda": "5/24",
+        "gap": "1/72"
+      },
+      {
+        "groups": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "lambda": "1/8",
+        "gap": "1/72"
+      },
+      {
+        "groups": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "lambda": "1/6",
+        "gap": "1/36"
+      }
+    ]
+  },
+  "model_b": {
+    "prefixes": 11,
+    "min_profile": [
+      1,
+      1,
+      3
+    ],
+    "min_total": 5,
+    "P_T2_D1": "1/8",
+    "Q_T2_D1": "1/4"
+  },
+  "local_expanded_checker": {
+    "sha256": "c8cbf650ad8ee110562f172d31e824079ec0579920a958164f97f2a666973bbc",
+    "git_blob": "0588598021bb966b042b6b0fec005b2c24eec677"
+  },
+  "scope": {
+    "exhaustive_first_partitions_3_symbol": true,
+    "general_all_policy_by_computation": false,
+    "independent_review": false,
+    "P000_X6_bridge": false
+  }
+}
