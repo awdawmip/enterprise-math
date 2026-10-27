@@ -1,0 +1,86 @@
+{
+  "schema": "ENTERPRISE_MATH_R328_SYMBOLIC_EVIDENCE_V1",
+  "status": "PASS",
+  "method": "exact rational generating series, Vandermonde, symbolic polynomial identities and positive shifts",
+  "H0": "2*x",
+  "H1": "-x*(x - 3)",
+  "H2": "-4*x**2*(2*x - 1)",
+  "A0": "1",
+  "A1": "1 - 2*x",
+  "denominator_zero_order": "-(5*z - 4)/4",
+  "denominator_first_order": "z",
+  "numerator_y0": "1",
+  "numerator_y1": "0",
+  "G_y_coefficients": [
+    "-4/(5*z - 4)",
+    "-16*z/(5*z - 4)**2",
+    "z*(195*z**3 - 376*z**2 + 172*z - 48)/(5*z - 4)**3",
+    "z**2*(1675*z**4 - 4570*z**3 + 4984*z**2 - 2816*z + 512)/(5*z - 4)**4",
+    "z**2*(51475*z**6 - 215560*z**5 + 384104*z**4 - 358800*z**3 + 177840*z**2 - 47232*z + 4864)/(4*(5*z - 4)**5)"
+  ],
+  "verified_bands": [
+    {
+      "r": 0,
+      "formula_D_over_5_power": "1",
+      "shifted_at_q_eq_r_plus_u": "1",
+      "shifted_coefficients_descending": [
+        "1"
+      ],
+      "leading_coefficient": "1",
+      "positive_for_all_q_ge_r": true
+    },
+    {
+      "r": 1,
+      "formula_D_over_5_power": "6*q",
+      "shifted_at_q_eq_r_plus_u": "6*u + 6",
+      "shifted_coefficients_descending": [
+        "6",
+        "6"
+      ],
+      "leading_coefficient": "6",
+      "positive_for_all_q_ge_r": true
+    },
+    {
+      "r": 2,
+      "formula_D_over_5_power": "2*(45*q**2 - 27*q - 46)/5",
+      "shifted_at_q_eq_r_plus_u": "18*u**2 + 306*u/5 + 32",
+      "shifted_coefficients_descending": [
+        "18",
+        "306/5",
+        "32"
+      ],
+      "leading_coefficient": "18",
+      "positive_for_all_q_ge_r": true
+    },
+    {
+      "r": 3,
+      "formula_D_over_5_power": "4*(45*q**3 - 81*q**2 - 82*q - 40)/5",
+      "shifted_at_q_eq_r_plus_u": "36*u**3 + 1296*u**2/5 + 2588*u/5 + 160",
+      "shifted_coefficients_descending": [
+        "36",
+        "1296/5",
+        "2588/5",
+        "160"
+      ],
+      "leading_coefficient": "36",
+      "positive_for_all_q_ge_r": true
+    },
+    {
+      "r": 4,
+      "formula_D_over_5_power": "2*(675*q**4 - 2430*q**3 - 51*q**2 - 2386*q + 4080)/25",
+      "shifted_at_q_eq_r_plus_u": "54*u**4 + 3348*u**3/5 + 71178*u**2/25 + 106732*u/25 + 880",
+      "shifted_coefficients_descending": [
+        "54",
+        "3348/5",
+        "71178/25",
+        "106732/25",
+        "880"
+      ],
+      "leading_coefficient": "54",
+      "positive_for_all_q_ge_r": true
+    }
+  ],
+  "general_asymptotic": "fixed r: D_(q,q-r)=5^(q-r)*(6^r q^r/r!+O_r(q^(r-1))) as q tends to infinity",
+  "general_asymptotic_argument": "unique pole order r+1 comes from (-y*z)^r/(1-5*z/4)^(r+1); lower terms have pole order <=r",
+  "review_status": "AUTHOR_SYMBOLIC_VERIFIED / DRIVER_UNREVIEWED / NOT_ADMITTED"
+}
