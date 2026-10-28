@@ -1,0 +1,75 @@
+{
+  "all_pass": true,
+  "exhaustive_cases": [
+    {
+      "classes": 12,
+      "expected": 12,
+      "generator_transitions": 243,
+      "matrices_exhausted": 81,
+      "p": 3,
+      "status": "PASS"
+    },
+    {
+      "classes": 30,
+      "expected": 30,
+      "generator_transitions": 1875,
+      "matrices_exhausted": 625,
+      "p": 5,
+      "status": "PASS"
+    },
+    {
+      "classes": 56,
+      "expected": 56,
+      "generator_transitions": 7203,
+      "matrices_exhausted": 2401,
+      "p": 7,
+      "status": "PASS"
+    },
+    {
+      "classes": 132,
+      "expected": 132,
+      "generator_transitions": 43923,
+      "matrices_exhausted": 14641,
+      "p": 11,
+      "status": "PASS"
+    },
+    {
+      "classes": 182,
+      "expected": 182,
+      "generator_transitions": 85683,
+      "matrices_exhausted": 28561,
+      "p": 13,
+      "status": "PASS"
+    },
+    {
+      "classes": 380,
+      "expected": 380,
+      "generator_transitions": 390963,
+      "matrices_exhausted": 130321,
+      "p": 19,
+      "status": "PASS"
+    }
+  ],
+  "mathematics": "Proof in companion .md; finite checks are author-side only.",
+  "model": "A=diag(aI2,bI2), a!=b, gauge=GL2xGL2, X invertible",
+  "p373_exact_witness": {
+    "C0": "I_2",
+    "C1": "I_2 + E12",
+    "X": "I_2",
+    "classes_on_X_invertible_stratum": 139502,
+    "det_K_both": 1,
+    "det_YX_both": 1,
+    "jordan_flag_C0": 0,
+    "jordan_flag_C1": 1,
+    "p": 373,
+    "source_jet_status": "AUXILIARY_ONLY_NOT_NATIVE",
+    "status": "PASS",
+    "tr_K_squared_over_two_both": 2,
+    "trace_YX_both": 2
+  },
+  "schema": "D25_BALANCED_BLOCKS_GAUGE_AUTHOR_CHECK_V1",
+  "totals": {
+    "generator_transitions": 529890,
+    "matrices": 176630
+  }
+}
