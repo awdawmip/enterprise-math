@@ -176,35 +176,14 @@ python tools/research_identity.py allocate --role FOUNDATION_STEWARD
 
 The Steward helper defaults to the `STW` lane and renders `Steward-ID`.
 
-## 8. Mandatory visible marker on every final response
+## 8. Optional visible identity marker
 
-Canonical machine contract:
-
-`final_response_identity_policy.json`.
-
-Freeze:
-
-`ACTIVE_ENTERPRISE_MATH_ROLE -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER`.
-
-This applies to every assistant message on the `final` channel while `RESEARCHER`, `RESEARCH_DRIVER`, or `FOUNDATION_STEWARD` is active. It includes short status replies, readiness/completion receipts, handoffs, blocked/no-go conclusions, refusals, and ordinary role answers. Commentary/progress/tool messages are not final responses and do not require the footer.
-
-Researcher marker resolution:
-
-1. active explicit task → `Researcher-ID: <ID> / <TASK_ID>`;
-2. no task + free mode → `Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY`;
-3. other direct task research → `Researcher-ID: <ID> / TASK_RESEARCH`.
-
-Driver marker:
-
-`Driver-ID: <ID> / CONTROL_PLANE`
-
-Foundation Steward marker:
-
-`Steward-ID: <ID> / FOUNDATION_STEWARD`
-
-The marker appears **exactly once**. Registration state such as `REGISTER_PENDING` never suppresses it.
-
-If `Global-Knowledge-Sync:` is also emitted, the role identity marker appears immediately before it and the Global-Knowledge-Sync line remains last.
+The current communication policy is `final_response_identity_policy.json`.
+A report or saved research material requires no identity footer. When useful,
+show the actual role/scope: `Researcher-ID: <ID> / <TASK_ID>` (or
+`FREE_AXIOM_DISCOVERY` / `TASK_RESEARCH`), `Driver-ID: <ID> / CONTROL_PLANE`, or
+`Steward-ID: <ID> / FOUNDATION_STEWARD`. A marker grants no task, review or
+completion authority. There is no required sync footer or tail ordering.
 
 ## 9. Registration
 
@@ -279,4 +258,4 @@ Role identity is observability/provenance only. It does not weaken or replace:
 
 The intended invariant is:
 
-> Every active Enterprise Math role resolves its execution identity before substantive work begins and emits exactly one role-appropriate identity marker on every final response, without turning identity persistence into a research-time GitHub dependency.
+> Every active Enterprise Math role resolves its execution identity before substantive work begins and may show an optional role-appropriate identity marker, without turning identity persistence into a research-time GitHub dependency.

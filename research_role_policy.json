@@ -107,7 +107,10 @@
   "delegated_driver_orchestration": {
     "protocol": "docs/CODEX_RESEARCH_ORCHESTRATION.en.md",
     "role": "RESEARCH_DRIVER",
-    "scopes": ["PORTFOLIO_OWNER", "RESEARCH_LINE"],
+    "scopes": [
+      "PORTFOLIO_OWNER",
+      "RESEARCH_LINE"
+    ],
     "activation": "EXPLICIT_CURRENT_USER_AUTHORIZATION_OR_OWNER_DELEGATION_WITHIN_THAT_AUTHORIZATION",
     "own_identity_and_current_activation_required": true,
     "owner_responsibility": "PORTFOLIO_DIRECTION_CROSS_LINE_SYNTHESIS_SPLITS_AND_CONTROL_COORDINATION",
@@ -153,8 +156,8 @@
       "Direct user research tasks outside a Driver relay self-allocate a Researcher-ID when the current conversation has none.",
       "Foundation Steward sessions self-allocate or preserve a Steward-ID without creating another scheduler claim step.",
       "Researcher-ID identifies a RESEARCHER execution conversation/session; Driver-ID identifies a RESEARCH_DRIVER conversation/session; Steward-ID identifies a FOUNDATION_STEWARD conversation/session.",
-      "Every assistant final response while an Enterprise Math role is active displays exactly one role-appropriate identity marker.",
-      "If Global-Knowledge-Sync is also emitted, the role identity marker appears immediately before it."
+      "Role-appropriate identity markers are optional communication. Omitting a footer never blocks reporting or preserving research materials.",
+      "A visible marker, when useful, must describe the actual active identity and scope; it never grants task authority."
     ]
   },
   "manual_dispatch_identity": {

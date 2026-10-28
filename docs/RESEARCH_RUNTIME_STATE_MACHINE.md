@@ -36,6 +36,13 @@ Canonical tools:
 
 `SESSION_STALE + OWNER_LEASE_ACTIVE -> VERIFIED_FRONTIER -> AUTHENTICATED_SUCCESSOR_CLAIM_CAS -> FENCE_OLD_WRITER`.
 
-`PARENT_OBJECTIVE_OPEN + EXECUTABLE_NEXT_ACTION -> FINAL_ALLOWED=false`.
+`PARENT_OBJECTIVE_OPEN + EXECUTABLE_NEXT_ACTION -> FORMAL_COMPLETION_ALLOWED=false`.
+
+Ordinary reports and material preservation are not task-completion transitions.
+The public `pre-final` command returns a non-authorizing reporting decision; use
+`--formal-task-completion` for the original repository-backed completion check.
+`terminal` and shared task/Result/Review writes retain their existing authority
+checks. Unshared derivation needs no activity pre-registration. See the
+[current research protocol](PORTABLE_RESEARCH_PROTOCOL.md).
 
 The archived pre-V2 state is provenance, not a runtime fallback. Exact source bytes are pinned in `control_plane/legacy_control_migration_manifest.json` and preserved on `archive/legacy-control-plane-pre-v2-20260902`.

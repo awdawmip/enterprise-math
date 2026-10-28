@@ -89,11 +89,11 @@ def test_tool_surface_is_connector_first_and_exact_task_first():
     assert "Do not poll CI" in text
 
 
-def test_agents_is_connector_first_and_current_only():
+def test_agents_routes_to_project_and_account_entries():
     text = read("AGENTS.md")
-    assert "CONNECTED_GITHUB_PLUGIN = PRIMARY_REMOTE_GITHUB_PATH" in text
-    assert "Current-only hot path" in text
-    assert "current execution router" in text.lower()
+    assert "CONTRIBUTING.md#agentproject-task-entry" in text
+    assert "00_BOOTSTRAP.md" in text
+    assert "private-repository access is not a prerequisite" in text
     assert not re.search(r"\bR0\d{2}\b", text)
 
 

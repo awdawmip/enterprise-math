@@ -242,18 +242,11 @@ class ActiveTurnContinuationLivenessTests(unittest.TestCase):
             liveness.REQUIRED_ACTIONS[liveness.CONTROL_STATE_INCONSISTENT],
         )
 
-    def test_agents_routes_liveness_and_remote_silence_correctly(self):
-        text = read("AGENTS.md")
-        for marker in (
-            "active_turn_liveness.json",
-            "docs/ACTIVE_TURN_CONTINUATION_LIVENESS.md",
-            "SUBFLOW_COMPLETE != USER_OBJECTIVE_COMPLETE",
-            "DETERMINISTIC_NEXT_STEP_EXISTS -> CONTINUE_IN_SAME_TURN",
-            "REMOTE_SUBFLOW_TERMINATED != PARENT_TASK_TERMINATED",
-            "REMOTE_SILENT` describes repository traffic",
-            "USER_INTERRUPT -> PREEMPT_NONESSENTIAL_DIAGNOSTIC_EXPANSION",
-        ):
-            self.assertIn(marker, text)
+    def test_project_control_entry_routes_liveness(self):
+        self.assertIn("control_plane/current_control_authority.json", read("AGENTS.md"))
+        authority = json.loads(read("control_plane/current_control_authority.json"))
+        self.assertEqual("active_turn_liveness.json", authority["control_liveness"]["contract"])
+        self.assertFalse(authority["control_liveness"]["external_supervisor_has_mathematical_or_claim_authority"])
 
     def test_driver_terminal_stage_requires_same_turn_routing_evaluation(self):
         text = read("docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md")

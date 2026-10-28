@@ -61,7 +61,7 @@
       "runtime_on_main": false
     }
   },
-  "research_delivery": {"policy": "control_plane/research_delivery_policy.json", "protocol": "docs/PORTABLE_RESEARCH_PROTOCOL.md", "taskbook_environment_is_admission": false, "research_results_are_primary": true},
+  "research_delivery": {"policy": "control_plane/research_delivery_policy.json", "protocol": "docs/PORTABLE_RESEARCH_PROTOCOL.md", "taskbook_environment_is_admission": false, "research_results_are_primary": true, "legacy_reporting_and_fingerprint_requirements_are_admission": false, "ordinary_reporting_grants_task_completion_authority": false, "unshared_derivation_requires_activity_preregistration": false},
   "scheduled_execution": {
     "protocol": "docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md",
     "recovery_order": ["RECONCILE_UNKNOWN_EFFECTS", "RESTORE_OWN_UNFINISHED_WORK", "CANONICAL_DISPATCH"],
@@ -176,6 +176,7 @@
     "coverage_router": "tools/enterprise_toolbox.py",
     "coverage_lookup_is_tool_use": false,
     "relevant_match_requires_reuse_resolution": true,
+    "reuse_resolution_timing": "BEFORE_NOVELTY_CLAIMS_OR_SHARED_TOOL_ACCEPTANCE_NOT_PRIVATE_EXPLORATION",
     "execution_unavailability_is_capability_gap": false
   },
   "role_transitions": {
@@ -259,8 +260,8 @@
     "TASK_RESEARCH": [
       "GLOBAL_KNOWLEDGE_TASK_BOOTSTRAP_WHEN_AVAILABLE",
       "EXACT_TASK_FIRST",
-      "TOOL_COVERAGE_BEFORE_NEW_GENERAL_MECHANISM",
-      "REUSE_RESOLUTION_AFTER_RELEVANT_MATCH",
+      "TOOL_COVERAGE_BEFORE_METHOD_NOVELTY_CLAIM",
+      "REUSE_RESOLUTION_BEFORE_METHOD_NOVELTY_OR_SHARED_TOOL_ACCEPTANCE",
       "IMMUTABLE_V2_TASK_PUBLICATION",
       "PERSIST_ANY_MATERIAL_NEEDED_AFTER_FINAL_TO_GITHUB_OR_GOOGLE_DRIVE"
     ],

@@ -15,7 +15,7 @@
     "SOURCE_SESSION_BOUND"
   ],
   "entry_invariant": "Any conversation entering an Enterprise Math RESEARCHER, RESEARCH_DRIVER, or FOUNDATION_STEWARD role must resolve or allocate its role identity before substantive work begins. Researchers expose Researcher-ID; Drivers expose Driver-ID; Foundation Stewards expose Steward-ID. Research mode is a separate typed state and does not alter identity uniqueness.",
-  "final_response_invariant": "While an Enterprise Math RESEARCHER, RESEARCH_DRIVER, or FOUNDATION_STEWARD role is active, every assistant final response ends with exactly one role-appropriate identity marker. Identity registration state never suppresses this obligation.",
+  "final_response_invariant": "Role identity footers are optional communication, not a condition for reporting or preserving materials. Actual task/session identity checks remain unchanged.",
   "entry_events": [
     "direct user research task",
     "explicit EM_FREE_RESEARCHER activation",
@@ -69,7 +69,6 @@
   },
   "final_response": {
     "policy": "final_response_identity_policy.json",
-    "marker_count": 1,
     "driver_scope": "CONTROL_PLANE",
     "steward_scope": "FOUNDATION_STEWARD",
     "researcher_scope_precedence": [
@@ -78,9 +77,8 @@
       "TASK_RESEARCH"
     ],
     "direct_is_not_visible_scope": true,
-    "registration_pending_does_not_suppress_marker": true,
     "commentary_progress_exempt": true,
-    "when_global_knowledge_sync_present": "IDENTITY_MARKER_IMMEDIATELY_BEFORE_GLOBAL_KNOWLEDGE_SYNC"
+    "marker_required": false
   },
   "free_research_context_rule": {
     "preferred_launch": "NEW_CONVERSATION_OR_OTHERWISE_CONTEXT_CLEAN_EM_FREE_SESSION",
@@ -106,7 +104,7 @@
     "derivation": "SHA-256(task_id + NUL + dispatch_id), uppercase first 6 hex characters, prefixed by EM-<LANE>-",
     "helper": "python tools/research_identity.py allocate --task <TASK> --role RESEARCHER --lane <LANE> --dispatch-id <DISPATCH_ID>",
     "state": "PREALLOCATED_FOR_DISPATCH",
-    "first_use": "the receiving conversation preserves the preallocated Researcher-ID from first use and emits the required identity footer on every final response"
+    "first_use": "the receiving conversation preserves the preallocated Researcher-ID from first use; visible identity markers are optional"
   },
   "scheduler_claim": {
     "research_mode": "TASK_RESEARCH",
@@ -137,7 +135,7 @@
     "registration": "CREATE_OWN_REGISTRATION_RECORD_IF_WRITE_PATH_AVAILABLE_ELSE_REGISTER_PENDING"
   },
   "role_transition": {
-    "same_conversation": "preserve the underlying execution handle and switch the visible role label/mode; update Research-Role / Research-Mode metadata as applicable and immediately use the new role footer template",
+    "same_conversation": "preserve the underlying execution handle and switch the visible role label/mode; update Research-Role / Research-Mode metadata as applicable and use the destination role template if a marker is shown",
     "new_conversation": "allocate a new role identity",
     "task_to_free_same_conversation": "identity may be preserved but the free run is ANCHOR_EXPOSED unless the context was independently clean before discovery began",
     "free_to_task_same_conversation": "identity may be preserved; once an explicit task is accepted, switch to TASK_RESEARCH and normal task context may be loaded",
