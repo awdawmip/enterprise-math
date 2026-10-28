@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR5-20261028-2040-A575C0",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "a575c0f628246b28700d046bf88d43cbb005afed",
+          "path": "research_notes/brc_r5_two_collision_occupation_bellman_20261028_t2040/EXACT_OUTPUT.txt",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "a25857afd00ec05d05e63f0366eaa1bd2e6f74acba8069b2aa1d356e686c54c1",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "54aa6218f54e73f09c11d2b7a5de999e784188c0",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/a575c0f628246b28700d046bf88d43cbb005afed/research_notes/brc_r5_two_collision_occupation_bellman_20261028_t2040/EXACT_OUTPUT.txt",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "emr5-20261028-2049-bellman-output",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR5-20261028-2040-A575C0/readbacks/66d810abb3765a64c8f81250021e6b6afe74e416891c747edfaedacb4c402bac.json",
+          "verification_receipt_sha256": "66d810abb3765a64c8f81250021e6b6afe74e416891c747edfaedacb4c402bac"
+        }
+      ],
+      "event_id": "EMR5-20261028-2049-BELLMAN",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@e5db78b6959035377935b4404ceed3496eb5e076:journal/enterprise-math/2026-10-28/20261028T204803+0800-r5-two-collision-bellman-a575c0.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-28T12:48:03.489Z",
   "registration_key": "session:local-emr5-20261028-2038-a575c0:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "LOCAL_EM_R5_20261028_OCC_BELLMAN_A575C0",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-emr5-20261028-2038-a575c0",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-28T12:48:03.489Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
