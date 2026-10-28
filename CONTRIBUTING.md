@@ -4,24 +4,6 @@ Thank you for helping test the project.
 
 [Chinese version](CONTRIBUTING.zh-CN.md)
 
-## Agent/project task entry
-
-`AGENTS.md` contains entry routes. Use the public project route relevant to the current task and reuse still-valid loaded context. Account-global requirements are supplied through an authorized user's account entry; public contributors do not need access to a private knowledge repository.
-
-| Current work | Public project entry |
-|---|---|
-| Project-native semantics | [P000](p000_reality_foundation.json) and its declared companion contracts; [Heartbeat World](definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json) for research |
-| FREE before candidate freeze | [Primitive-only substrate](definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md) |
-| Formal task/control work | [Architecture and roles](docs/RESEARCH_ARCHITECTURE.md), [current control precedence](control_plane/current_control_authority.json), [runtime](docs/RESEARCH_RUNTIME_STATE_MACHINE.md), [V2 publication](docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md) |
-| Research advancement and preservation | [Current research protocol](docs/PORTABLE_RESEARCH_PROTOCOL.md) |
-| Research identity/activity | [Role identity](docs/RESEARCH_IDENTITY_PROTOCOL.md), [activity persistence](docs/RESEARCH_ACTIVITY_PROTOCOL.md) |
-| BRC residual fitting | [Native X6 semantic alignment](research_notes/BRC_NATIVE_X6_SEMANTIC_ALIGNMENT_20261002_9D72AC.md) |
-| Driver organization/continuation | [Line ownership](docs/CODEX_RESEARCH_ORCHESTRATION.en.md), [Source continuation](docs/RESEARCH_CONTINUATION_PROTOCOL.md) |
-| Tool use/source operations | [Reuse protocol](docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md), [GitHub/source-read protocol](docs/GITHUB_INTERACTION_BUDGET.md) |
-| Unbound maintenance reporting | [Reporting scope](docs/CHATGPT_ORDINARY_CONTROL.en.md#final-interaction-gate) |
-
-For a selected task, begin with the exact taskbook/current immutable publication and first required dependency; expand only from a concrete need. The prior-work catalog in “Start small” below is for ordinary targeted contributions; FREE Phase A uses its primitive-only route before freeze. Existing formal role, task and ownership bindings retain their canonical checks. Ordinary reporting and unshared derivation do not claim those authorities. Build/test commands and contribution operations remain in this guide and the linked project documents.
-
 ## You do not need to agree with the theory
 
 The most valuable contribution may be a proof that a proposed rule fails.

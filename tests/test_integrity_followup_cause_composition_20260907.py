@@ -91,18 +91,6 @@ class IntegrityFollowupCauseCompositionTests(unittest.TestCase):
         for task in self.tasks.values():
             self.copy_source(task["publication_record_path"])
             self.copy_source(task["taskbook_path"])
-        # The old real rows contain only retired heading diagnostics. Exercise
-        # multi-cause isolation using a genuine forbidden-authority defect in
-        # this temporary fixture; all actual repository records stay untouched.
-        for tid, row in self.integrity_rows.items():
-            task = self.tasks[tid]
-            record = _load(self.root, task["publication_record_path"])
-            record["working_truth_granted"] = True
-            _write_json(self.root, task["publication_record_path"], record)
-            pin = followup._git_blob_sha1((self.root / task["publication_record_path"]).read_bytes())
-            task["publication_record_blob_sha1"] = pin
-            row["record_blob_sha1"] = pin
-            row["allowed_task_record_audit_errors"] = ["publication cannot grant Working Truth"]
         self.copy_source(self.packet["packet_path"])
         self.reviews = []
         self.copy_review(self.packet["review_id"])
@@ -188,12 +176,11 @@ class IntegrityFollowupCauseCompositionTests(unittest.TestCase):
 
         derived = followup.derived_task_rows(ROOT)
         current_integrity = integrity.validated_quarantines(ROOT)
-        self.assertFalse(set(OVERLAPS) & set(current_integrity))
+        self.assertEqual(set(OVERLAPS), set(derived) & set(current_integrity))
         for task, publication in OVERLAPS.items():
             with self.subTest(task=task, publication=publication):
                 self.assertEqual(publication, derived[task]["publication_id"])
-                self.assertEqual("DRIVER_FOLLOWUP_AUTHORITY_QUARANTINE", _definitions(ROOT)[task]["registration_source"])
-                self.assertEqual("BLOCKED", _definitions(ROOT)[task]["base_state"])
+                self.assertEqual(publication, current_integrity[task]["publication_id"])
         self.assert_composed(ROOT, _definitions(ROOT))
         self.assertFalse(set(OVERLAPS) & set(research_task_records.current_records(ROOT)))
         self.assertEqual([], integrity.audit_runtime_projection(ROOT))
@@ -242,9 +229,9 @@ class IntegrityFollowupCauseCompositionTests(unittest.TestCase):
 
         self.add_shared_source()
         rows = integrity.validated_quarantines(self.root)
-        raw = set(core.audit(self.root))
         for row in rows.values():
-            self.assertTrue({row["record_path"] + ": " + e for e in row["allowed_task_record_audit_errors"]} <= raw)
+            _, body = research_taskbook.split_taskbook((self.root / row["taskbook_path"]).read_text(encoding="utf-8"))
+            self.assertEqual(sorted(row["allowed_task_record_audit_errors"]), sorted(core.validate_body(body)))
         definitions = _definitions(self.root)
         self.assert_composed(self.root, definitions)
         self.assertFalse(set(self.tasks) & set(research_task_records.current_records(self.root)))

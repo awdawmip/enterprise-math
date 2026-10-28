@@ -9,9 +9,7 @@ parent-objective status become authority:
    actually complete from repository state, including cohort/two-pass synthesis;
 3. ``tools.research_runtime`` remains the pure active-turn liveness primitive.
 
-The module governs formal task-completion authority. Reporting and preserving
-existing materials are always permitted and grant no completion authority.
-It grants no mathematical
+The module governs final-interaction permission only.  It grants no mathematical
 truth, Foundation authority, or canonical theorem promotion.
 """
 from __future__ import annotations
@@ -127,10 +125,8 @@ def canonical_pre_final_state(
 
 
 def pre_final_gate(
-    state: Mapping[str, Any], *, root: Path = ROOT, formal_task_completion: bool = False
+    state: Mapping[str, Any], *, root: Path = ROOT
 ) -> dict[str, Any]:
-    if not formal_task_completion:
-        return research_runtime_guard.material_report_decision()
     safe, closure = canonical_pre_final_state(state, root=root)
     decision = research_runtime.pre_final_gate(safe)
     return {
@@ -209,8 +205,6 @@ def main() -> int:
     )
     sub = parser.add_subparsers(dest="command", required=True)
     pre = sub.add_parser("pre-final")
-    pre.add_argument("--formal-task-completion", action="store_true",
-                     help="check shared task/parent completion authority; ordinary reports need no check")
     _add_state(pre)
     terminal = sub.add_parser("terminal")
     _add_state(terminal)
@@ -228,7 +222,7 @@ def main() -> int:
     args = parser.parse_args()
     state = _load_state(args)
     result = (
-        pre_final_gate(state, formal_task_completion=args.formal_task_completion)
+        pre_final_gate(state)
         if args.command == "pre-final"
         else apply_terminal_event(state, args.event)
     )

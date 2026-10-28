@@ -15,6 +15,15 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         policy = {
             "schema": "ENTERPRISE_MATH_TASKBOOK_POLICY_SET_V1",
             "status": "ACTIVE",
+            "policy_inputs": [
+                "AGENTS.md",
+                "docs/GITHUB_INTERACTION_BUDGET.md",
+                "docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md",
+                "research_role_policy.json",
+                "research_identity_state_machine.json",
+                "final_response_identity_policy.json",
+                "research_taskbook_contract.json",
+            ],
             "conflict_checks": [
                 {
                     "id": "TB-REMOTE-RUNTIME",
@@ -47,6 +56,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
                 "identity_policy": "AUTO_RESOLVE_OR_ALLOCATE",
                 "final_response_identity_policy": "INHERIT_GLOBAL",
                 "origin_kind": "<one allowed origin kind>",
+                "policy_review": {},
             },
             "task_origin_contract": {
                 "required_for_new_taskbooks": True,
@@ -115,7 +125,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             "task_lineage": "NEW_DIRECTION",
             "policy_review": {
                 "policy_set": "research_taskbook_policy.json",
-                "policy_digest": digest or "historical-unused-policy-stamp",
+                "policy_digest": digest or rt.policy_digest(root),
                 "review_state": "PASS",
                 "temporary_overrides": overrides or [],
             },
@@ -142,45 +152,19 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         path.write_text(rt.render_taskbook(meta, body))
         self.assertIn("TB-META", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
 
-    def test_documentation_change_does_not_block_legacy_taskbook(self):
+    def test_policy_change_makes_stamp_stale(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
         path = self.write_task(root)
         (root / "AGENTS.md").write_text("changed")
-        self.assertEqual([], rt.audit_taskbook(path, root=root, dispatch=True))
+        self.assertIn("TB-POLICY-STALE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
 
-    def test_old_aggregate_stamp_is_not_an_admission_proof(self):
+    def test_final_response_policy_change_makes_stamp_stale(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
         path = self.write_task(root)
         (root / "final_response_identity_policy.json").write_text("changed-footer-policy")
-        self.assertEqual([], rt.audit_taskbook(path, root=root, dispatch=True))
-
-    def test_missing_or_pending_stamp_does_not_block_current_validation(self):
-        td, root = self.make_root()
-        self.addCleanup(td.cleanup)
-        path = self.write_task(root)
-        meta, body = rt.split_taskbook(path.read_text())
-        for review in (None, {"review_state":"PENDING_DRIVER_REVIEW", "policy_digest":"old"}):
-            if review is None:
-                meta.pop("policy_review", None)
-            else:
-                meta["policy_review"] = review
-            path.write_text(rt.render_taskbook(meta, body))
-            self.assertEqual([], rt.audit_taskbook(path, root=root, dispatch=True))
-
-    def test_current_machine_rule_is_still_enforced_without_any_stamp(self):
-        td, root = self.make_root()
-        self.addCleanup(td.cleanup)
-        path = self.write_task(root, body="Current prohibited instruction")
-        meta, body = rt.split_taskbook(path.read_text())
-        meta.pop("policy_review")
-        path.write_text(rt.render_taskbook(meta, body))
-        policy_path = root / "research_taskbook_policy.json"
-        policy = json.loads(policy_path.read_text())
-        policy["conflict_checks"].append({"id":"TB-CURRENT-RULE", "severity":"ERROR", "patterns":["prohibited instruction"]})
-        policy_path.write_text(json.dumps(policy))
-        self.assertIn("TB-CURRENT-RULE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+        self.assertIn("TB-POLICY-STALE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
 
     def test_remote_directive_requires_explicit_override(self):
         td, root = self.make_root()
@@ -207,7 +191,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         path = self.write_task(root, body="CI_NOT_REQUIRED_FOR_RESEARCH.\n")
         self.assertIn("TB-RESTATE-REMOTE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
 
-    def test_unstamped_legacy_still_checks_actual_metadata(self):
+    def test_unstamped_legacy_warns_but_cannot_dispatch(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
         meta = {
@@ -221,9 +205,8 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         path.write_text(rt.render_taskbook(meta, "# Old\n"))
         non_dispatch = rt.audit_taskbook(path, root=root, dispatch=False)
         dispatch = rt.audit_taskbook(path, root=root, dispatch=True)
-        self.assertNotIn("TB-POLICY-UNSTAMPED", self.codes(non_dispatch))
-        self.assertNotIn("TB-POLICY-UNSTAMPED", self.codes(dispatch))
-        self.assertIn("TB-META", self.codes(dispatch))
+        self.assertEqual(next(f["severity"] for f in non_dispatch if f["code"] == "TB-POLICY-UNSTAMPED"), "WARN")
+        self.assertEqual(next(f["severity"] for f in dispatch if f["code"] == "TB-POLICY-UNSTAMPED"), "ERROR")
 
 
 if __name__ == "__main__":

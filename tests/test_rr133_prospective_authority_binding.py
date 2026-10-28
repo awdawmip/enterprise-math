@@ -77,7 +77,7 @@ class RR133BindingTests(unittest.TestCase):
         data['quarantines']=[row for row in data['quarantines'] if row['execution_record_id']==binding.OLD_EXECUTION]
         write_json(self.root/'research_execution_record_audit_quarantines.json',data)
         for relative in ['research_taskbook_policy.json', 'research_taskbook_contract.json',
-                         'research_driver_followup_legacy_reviews.json']:
+                         'research_driver_followup_legacy_reviews.json', *books.policy_manifest(BASE)['policy_inputs']]:
             self.copy(relative)
         write_json(self.root / receipts.CUTOVER, {'schema':'ENTERPRISE_MATH_CONTINUATION_RECORD_CUTOVER_V1','records':{}})
         self.source = self.make_generation(binding.SOURCE_TASK, binding.SOURCE_PUBLICATION, 'SOURCE_GEN2_FIXTURE.md', SOURCE_TIME)
@@ -168,6 +168,7 @@ class RR133BindingTests(unittest.TestCase):
     def make_generation(self, task, old_id, filename, timestamp):
         old=json.loads((self.root/f'research_task_records/{task}/{old_id}.json').read_text())
         meta,body=books.split_taskbook((self.root/old['taskbook_path']).read_text())
+        meta['policy_review']['policy_digest']=books.policy_digest(self.root)
         if task==binding.SOURCE_TASK:
             body=binding.source_generation_body(body,old['research_value'])
             meta['origin_kind']='DRIVER_ROADMAP'
@@ -392,7 +393,7 @@ class RR133BindingTests(unittest.TestCase):
         self.assertEqual([binding.OLD_RESULT],held['withheld_result_ids'])
         self.assertIsNone(result_isolation.withheld_state(binding.SOURCE_TASK,self.source['publication_id'],self.root))
         self.assertEqual([binding.OLD_PACKET],list(isolation.validated_quarantines(self.root)))
-        self.assertEqual([],tasks.audit(self.root))
+        self.assertEqual(4,len(tasks.audit(self.root)))
         self.add_history_compatibility()
         self.assertEqual([],tasks.audit(self.root))
         self.assertEqual([binding.OLD_RESULT],result_isolation.withheld_state(binding.SOURCE_TASK,binding.SOURCE_PUBLICATION,self.root)['withheld_result_ids'])
@@ -447,7 +448,7 @@ class RR133BindingTests(unittest.TestCase):
         for pin in binding.OLD_PINS:self.assertEqual(pin,binding._pin(self.root,pin['path']))
 
 
-    def test_retired_heading_hold_needs_no_atomic_history_migration(self):
+    def test_current_only_taskbook_quarantine_requires_exact_atomic_history_migration(self):
         name='control_plane/task_integrity_quarantine_addendum_20260902.json'
         current=json.loads((BASE/name).read_text())
         # Model the exact pre-Gen2 hold; Main now retains it historically.
@@ -480,11 +481,11 @@ class RR133BindingTests(unittest.TestCase):
         record=self.root/f"research_task_records/{binding.SOURCE_TASK}/{self.source['publication_id']}.json"
         new_bytes=record.read_bytes();record.unlink();write_json(self.root/name,current)
         task_integrity.install(self.root)
-        self.assertNotIn(binding.SOURCE_TASK,task_integrity.validated_quarantines(self.root))
+        self.assertEqual(binding.SOURCE_PUBLICATION,task_integrity.validated_quarantines(self.root)[binding.SOURCE_TASK]["publication_id"])
         record.write_bytes(new_bytes)
-        before=(self.root/name).read_bytes()
-        self.assertNotIn(binding.SOURCE_TASK,task_integrity.validated_quarantines(self.root))
-        self.assertEqual(before,(self.root/name).read_bytes())
+        with self.assertRaisesRegex(task_integrity.TaskIntegrityIsolationError,'one pinned active head'):
+            tasks.current_records(self.root)
+        current['quarantines']=[];write_json(self.root/name,current);self.add_history_compatibility()
         self.assertEqual(self.source['publication_id'],tasks.current_records(self.root)[binding.SOURCE_TASK]['publication_id'])
         self.assertEqual([],tasks.audit(self.root))
         self.assertEqual([binding.OLD_RESULT],result_isolation.withheld_state(binding.SOURCE_TASK,binding.SOURCE_PUBLICATION,self.root)['withheld_result_ids'])

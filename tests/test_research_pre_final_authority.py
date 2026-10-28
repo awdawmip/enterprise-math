@@ -71,7 +71,7 @@ class RepositoryDerivedPreFinalTests(unittest.TestCase):
             "derive_objective_closure",
             return_value=closure,
         ) as derive:
-            out = authority.pre_final_gate(state, formal_task_completion=True)
+            out = authority.pre_final_gate(state)
         return out, derive
 
     def test_forged_caller_complete_is_ignored_when_repository_parent_open(self):
@@ -171,7 +171,7 @@ class RepositoryDerivedPreFinalTests(unittest.TestCase):
         ) as current:
             safe, closure = authority.canonical_pre_final_state(legacy)
             with self.assertRaisesRegex(authority.research_runtime.RuntimeStateError, "LEGACY_BASELINE_REGISTERED"):
-                authority.pre_final_gate(legacy, formal_task_completion=True)
+                authority.pre_final_gate(legacy)
         current.assert_not_called()
         self.assertFalse(closure["derived_parent_complete"])
         self.assertFalse(closure["final_permission_granted"])
@@ -194,7 +194,7 @@ class RepositoryDerivedPreFinalTests(unittest.TestCase):
             authority.research_parent_closure,
             "derive_objective_closure",
         ) as derive:
-            out = authority.pre_final_gate(self.state(), formal_task_completion=True)
+            out = authority.pre_final_gate(self.state())
             terminal = authority.apply_terminal_event(self.state(), "PARENT_OBJECTIVE_COMPLETE")
         derive.assert_not_called()
         self.assertFalse(out["canonical_final_allowed"])

@@ -33,8 +33,7 @@ def _is_activity_state(state: Mapping[str, Any]) -> bool:
     # Activity metadata cannot opt a task/claim out of its original authority checks.
     if any(key in state for key in (
         "task", "task_id", "publication_id", "task_registration", "owner_claim",
-        "execution_scope", "execution_binding", "execution_record_id", "claim_id",
-        "execution_cohort_id", "execution_lane_id"
+        "execution_scope", "execution_binding", "execution_record_id"
     )):
         return False
     return state.get("research_mode", state.get("mode")) not in (
@@ -43,12 +42,6 @@ def _is_activity_state(state: Mapping[str, Any]) -> bool:
 
 
 def _activity_gate(state: Mapping[str, Any], boundary: str, root: Path) -> dict[str, Any]:
-    if "activity_id" not in state:
-        # Unshared derivation and ordinary material preservation need no ledger
-        # pre-registration. This never grants a task claim or a protected write.
-        return {"activity_allowed": True, "persistence_allowed": True,
-                "authorized": False, "authorization_authority": "UNSHARED_RESEARCH_NO_TASK_AUTHORITY",
-                "activity_registration_optional": True, "scope": "UNSHARED_DERIVATION_AND_MATERIALS"}
     try:
         result = _activity.guard(activity_id=state.get("activity_id"), boundary=boundary,
             event_id=state.get("research_checkpoint_event_id"), session_id=state.get("session_id"),
@@ -108,19 +101,7 @@ def _control_only_pre_final_gate(state: Mapping[str, Any]) -> dict[str, Any]:
     return result
 
 
-def material_report_decision() -> dict[str, Any]:
-    """Reporting is communication, never a shared-task completion grant."""
-    return {"final_allowed": True, "material_report_allowed": True,
-            "persistence_allowed": True, "authorized": False,
-            "task_completion_authorized": False,
-            "authorization_authority": "REPORT_EXISTING_MATERIALS_ONLY",
-            "required_action": "REPORT_ACTUAL_RESULTS_AND_NEXT_ACTION"}
-
-
-def pre_final_gate(state: Mapping[str, Any], *, root: Path = ROOT,
-                   formal_task_completion: bool = False) -> dict[str, Any]:
-    if not formal_task_completion:
-        return material_report_decision()
+def pre_final_gate(state: Mapping[str, Any], *, root: Path = ROOT) -> dict[str, Any]:
     if _is_control_only_pre_final_state(state):
         return _control_only_pre_final_gate(state)
     if not _is_activity_state(state):
@@ -353,8 +334,6 @@ def main() -> int:
     authorize.add_argument("--now")
 
     pre = sub.add_parser("pre-final")
-    pre.add_argument("--formal-task-completion", action="store_true",
-                     help="check task completion authority; ordinary material reports need no check")
     _add_state(pre)
 
     terminal = sub.add_parser("terminal")
@@ -416,7 +395,7 @@ def main() -> int:
     if args.command == "authorize":
         result = authorize_execution(state, events=events, now=parsed_now)
     elif args.command == "pre-final":
-        result = pre_final_gate(state, formal_task_completion=getattr(args, "formal_task_completion", False))
+        result = pre_final_gate(state)
     elif args.command == "terminal":
         result = _core.apply_terminal_event(state, args.event)
     elif args.command == "adopt":

@@ -26,12 +26,15 @@ def test_integrity_shell_remains_zero_example_rigor_surface_when_explicitly_used
         assert seeded not in text
 
 
-def test_agents_free_hot_path_routes_primitive_substrate():
+def test_agents_free_hot_path_uses_primitive_substrate_and_triggered_full_policies():
     text = read("AGENTS.md")
     assert SUBSTRATE in text
-    assert "primitive-only entry" in text
-    assert "00_CURRENT_NATIVE_FOUNDATION.md" not in text
-    assert "FREE Phase A" in read("CONTRIBUTING.md")
+    assert "FREE Phase A receives the **primitive substrate**" in text
+    assert "FOUNDATION_FOR_DISCOVERY != CATALOG_OF_CURRENT_ACHIEVEMENTS" in text
+    assert "Load triggered semantic policies only when needed" in text
+    assert "FOUNDATIONAL_LOGIC.md" in text
+    assert "native_semantics_admissibility.json" in text
+    assert "do not preload the general current-result router" in text
 
 
 def test_free_role_and_anti_anchor_keep_full_integrity_policy_triggered_not_default():

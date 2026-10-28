@@ -24,10 +24,6 @@ The V1 shared-registry path is read-only after cutover. It may be inspected for 
 
 A taskbook is the task-specific research contract. It is not itself task authority.
 
-Taskbooks do not require an aggregate rule-document fingerprint or a cached `policy_review` PASS stamp. Old stamps remain readable historical metadata; they do not block a current validation or authorize execution. Publication checks the actual current task rules, origin/lineage and publisher authority. Locate versions with an existing Git commit and file path; matching the latest HEAD is not a research or mathematical-validity requirement. Existing immutable taskbook-byte bindings and live task/claim/owner checks remain separate.
-
-`tools/research_taskbook.py audit --dispatch` runs the current checks. The legacy `review --approve` spelling is a read-only validation alias; it neither writes a stamp nor grants approval. `policy-digest` generation is removed. New task generators and `prepare-taskbook` do not compute or refresh a rule fingerprint. No old taskbook or research record needs a batch rewrite.
-
 For task delivery, apply [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md). Specify an answerable research question with exact inputs; place host-specific execution in support work, without making the host a conversation admission requirement. Existing immutable records retain their mathematical scope and provenance.
 
 Freeze:
@@ -90,9 +86,9 @@ Freeze:
 
 `RENAMING_DOES_NOT_RESET_LINEAGE`.
 
-## 4. Scientific content, with optional headings
+## 4. Five mandatory content sections
 
-Preserve the actual scientific information below in the taskbook. These five headings are recommended labels, not publication requirements; other headings, languages or continuous prose are accepted:
+Every taskbook contains nonempty task-local sections for:
 
 1. Mother question;
 2. Frozen inputs and scope;

@@ -44,8 +44,7 @@ class ContextReadBudgetContractTests(unittest.TestCase):
     def test_router_and_github_budget_expose_the_hard_guard(self):
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
         github_budget = (ROOT / "docs" / "GITHUB_INTERACTION_BUDGET.md").read_text(encoding="utf-8")
-        self.assertIn("CONTRIBUTING.md#agentproject-task-entry", agents)
-        for text in (github_budget,):
+        for text in (agents, github_budget):
             self.assertIn("research_context_budget.json", text)
             self.assertIn("UNBOUNDED_COLLECTION_READ_FOR_DISCOVERY", text)
         self.assertIn("Issue #240", github_budget)

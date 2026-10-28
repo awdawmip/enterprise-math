@@ -67,8 +67,8 @@ class CurrentControlAuthorityDispatchTests(unittest.TestCase):
         ):
             result = dispatch.route_control(events, now=NOW, observations=observations)
         effective.assert_called_once_with(events, now=NOW, root=dispatch.ROOT)
-        owners.assert_not_called()
-        lanes.assert_not_called()
+        self.assertIs(states, owners.call_args.kwargs["states"])
+        self.assertIs(states, lanes.call_args.kwargs["states"])
         return result
 
     def test_shared_snapshot_preserves_canonical_fresh_priority_and_kind(self):
@@ -85,14 +85,12 @@ class CurrentControlAuthorityDispatchTests(unittest.TestCase):
         self.assertEqual("RS-HIGH", expected["task_id"])
         result = self.route(states, [])
         self.assertEqual(research_runtime.CLAIM_NEW_OWNER, result["action"])
-        self.assertEqual(expected["task_id"], result["target"]["task_id"])
-        self.assertEqual(expected["fair_selection"], result["fair_selection"])
+        self.assertEqual(expected, result["target"])
 
-    def test_stale_existing_claim_competes_with_fresh_task_on_shared_snapshot(self):
+    def test_stale_existing_claim_precedes_fresh_task_on_shared_snapshot(self):
         owner = {
             "task_id": "RS-RECOVER",
             "kind": "RESEARCH",
-            "priority": "P3",
             "state": "IN_PROGRESS",
             "dispatch_state": "LEASED",
             "claim_id": "existing-winning-claim",
@@ -111,8 +109,8 @@ class CurrentControlAuthorityDispatchTests(unittest.TestCase):
                 }
             },
         )
-        self.assertEqual("CLAIM_NEW_OWNER", result["action"])
-        self.assertEqual("RS-FRESH", result["target_key"])
+        self.assertEqual("PREPARE_SUCCESSOR_CLAIM", result["action"])
+        self.assertEqual(owner["claim_id"], result["claim_id"])
         self.assertTrue(result["new_claim_required"])
 
 

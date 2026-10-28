@@ -56,11 +56,12 @@ def safe_path(value: str) -> Path:
 
 def _validated_exception_paths(
     root: Path,
-) -> tuple[set[str], set[str], list[str]]:
-    """Return exact non-style defect paths and envelope suppressions."""
+) -> tuple[set[str], set[str], set[str], list[str]]:
+    """Return exact known-defect paths, envelope suppressions, and legacy-heading paths."""
     errors: list[str] = []
     try:
-        # Use the canonical fault-isolated view for non-style defects.
+        # Compatibility-waiver validation resolves operational/current state, so
+        # install the same canonical task-local fault-isolated view first.
         research_control_bootstrap.install(root)
         current_rows = integrity_isolation.validated_quarantines(root)
         audit_only_rows = record_audit_isolation.validated_rows(root)
@@ -68,9 +69,16 @@ def _validated_exception_paths(
             integrity_isolation.suppression_strings(root)
             | record_audit_isolation.envelope_suppression_strings(root)
         )
+        compatibility_suppressions, compatibility_errors = (
+            task_records_facade._compatibility_suppressions(root)
+        )
     except Exception as exc:
-        return set(), set(), [f"publication exception validation failed: {exc}"]
+        return set(), set(), set(), [f"publication exception validation failed: {exc}"]
 
+    errors.extend(
+        f"task-record compatibility waiver invalid: {item}"
+        for item in compatibility_errors
+    )
     known_defect_paths = {
         row["record_path"]
         for row in current_rows.values()
@@ -80,13 +88,19 @@ def _validated_exception_paths(
         for row in audit_only_rows
         if isinstance(row.get("record_path"), str)
     }
-    return known_defect_paths, exact_suppressions, errors
+    legacy_heading_paths = {
+        item.split(": ", 1)[0]
+        for item in compatibility_suppressions
+        if ": " in item
+    }
+    return known_defect_paths, legacy_heading_paths, exact_suppressions, errors
 
 
 def audit(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     (
         known_defect_paths,
+        legacy_heading_paths,
         exact_suppressions,
         exception_errors,
     ) = _validated_exception_paths(root)
@@ -177,6 +191,11 @@ def audit(root: Path = ROOT) -> list[str]:
                 f"{rel}: taskbook task_id {meta.get('task_id')!r} does not match "
                 f"record task_id {record.get('task_id')!r}"
             )
+            continue
+
+        # Existing exact legacy-heading waivers have their alias payloads and
+        # nonoperational status validated by the dedicated compatibility layer.
+        if rel in legacy_heading_paths:
             continue
 
         for message in record_core.validate_body(body):

@@ -23,7 +23,7 @@ The default flow is:
 
 `-> APPLY / EXECUTE / COMPOSE / EXTEND / CONFIRM GAP`
 
-`-> RESEARCH` (lookup may also run alongside derivation or after preserving results)
+`-> RESEARCH`
 
 `-> METHOD HARVEST AT ACCEPTED RETURN`.
 
@@ -31,7 +31,7 @@ Freeze:
 
 `NEW_MECHANISM_BY_DEFAULT = FORBIDDEN`.
 
-`METHOD_NOVELTY_OR_SHARED_TOOL_ACCEPTANCE_REQUIRES_CONFIRMED_CAPABILITY_GAP`.
+`NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP`.
 
 `TOOL_COVERAGE_LOOKUP != TOOL_USE`.
 
@@ -41,7 +41,7 @@ This is reuse discipline, not a theorem premise and not a Foundation change.
 
 Do not preload the toolbox before understanding a task. Tool names can anchor problem formulation.
 
-For ordinary `TASK_RESEARCH`, first read the exact task and first necessary dependency. Once the information structure is clear, perform coverage lookup before claiming method novelty or accepting a shared general-purpose method. Unshared exploration, derivation and material preservation may proceed first or in parallel.
+For ordinary `TASK_RESEARCH`, first read the exact task and first necessary dependency. Once the information structure is clear, perform coverage lookup **before constructing a new general-purpose method, helper calculus, quotient, certificate, invariant or search engine**.
 
 Recommended lookup:
 
@@ -67,7 +67,7 @@ Coverage resolves to:
 
 A positive match is **not** proof that the tool was actually reused.
 
-Before novelty claims or shared-tool acceptance, relevant matches resolve to one of these states:
+Every relevant match must then resolve to one of the machine-policy reuse states:
 
 - `REUSE_APPLIED` — exact mathematical/tool interface was applied to the current task; no software execution was necessary;
 - `REUSE_EXECUTED` — an existing executable implementation was actually run for the claimed computation/certificate;

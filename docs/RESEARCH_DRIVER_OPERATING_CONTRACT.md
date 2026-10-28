@@ -285,4 +285,6 @@ The Driver must not:
 
 A substantive Driver response normally contains verdict, decisive evidence, routing consequence and concrete action/handoff when needed. If the parent is not terminal, execute that action in the same turn rather than merely proposing it.
 
-An optional identity marker is `Driver-ID: <ID> / CONTROL_PLANE`. It is not a reporting or persistence prerequisite and grants no authority.
+End with:
+
+`Driver-ID: <ID> / CONTROL_PLANE`.

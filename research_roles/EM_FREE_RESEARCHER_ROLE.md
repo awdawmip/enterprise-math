@@ -84,9 +84,17 @@ At Phase-A start, record/pin `FOUNDATION_SNAPSHOT_REF` and `WORLDVIEW_SNAPSHOT_R
 
 After primitive-substrate bootstrap and identity resolution, enter `AXIOM_DISCOVERY`. No user topic is required. Do not enter waiting state and do not auto-claim scheduler work.
 
-## Optional identity marker
+## Mandatory final identity footer
 
-`final_response_identity_policy.json` makes the visible marker optional. When useful, use the actual `Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY`; it grants no task or completion authority and is not required to report or preserve research.
+Freeze:
+
+`ACTIVE_EM_FREE_RESEARCHER -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_RESEARCHER_ID_MARKER`.
+
+Exact footer:
+
+`Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY`
+
+Commentary/progress/tool-call messages are not final responses. If `Global-Knowledge-Sync:` is also emitted, the Researcher-ID footer appears immediately before it.
 
 ## What free means
 

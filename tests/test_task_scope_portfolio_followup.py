@@ -104,8 +104,9 @@ def run_case(case):
         # Legacy integrity is checked against the actual immutable source tree,
         # not duplicated as unrelated incomplete Results in this small fixture.
         baseline_audit = guard.baseline_audit
-        capture('research_taskbook_policy.json')
-        capture('research_taskbook_contract.json')
+        policy = capture('research_taskbook_policy.json')
+        for relative in policy['policy_inputs']:
+            capture(relative)
         registry = json.loads(REPO.joinpath('research_driver_review_authority_quarantines.json').read_bytes())
         row = registry['entries'][0]
         write('research_driver_review_authority_quarantines.json', {**registry, 'entries': [row]})
@@ -458,7 +459,7 @@ def run_case(case):
                 liveness = {key: False for key in active_turn_liveness._BOOL_FIELDS}
                 liveness['executable_next_actions'] = 1
                 live = research_runtime_guard.pre_final_gate(
-                    {'research_mode': 'RESEARCH_DRIVER', 'parent_liveness': liveness}, root=root, formal_task_completion=True)
+                    {'research_mode': 'RESEARCH_DRIVER', 'parent_liveness': liveness}, root=root)
                 assert live['final_allowed'] is False and live['authorized'] is False, live
                 assert live['required_action'] == 'EXECUTE_SELECTED_NEXT_ACTION_NOW'
                 print_value = {'case': case, 'status': 'PASS', 'terminal_scope': 'TASK',

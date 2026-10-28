@@ -227,10 +227,6 @@ def event_time(event: dict[str, Any]) -> datetime:
 def state_from_task(task: dict[str, Any]) -> dict[str, Any]:
     return {
         "task_id": task["task_id"],
-        "kind": task.get("kind"),
-        "priority": task.get("priority"),
-        "parent_task_id": task.get("parent_task_id"),
-        "scheduling_trace": [],
         "state": task["base_state"],
         "claim_id": None,
         "actor": None,
@@ -392,10 +388,6 @@ def reduce_task(
     now: datetime,
 ) -> dict[str, Any]:
     state = state_from_task(task)
-    from tools.research_fair_selection import trace_availability, trace_claim
-    trace_at = task.get("publication_published_at") or task.get("last_progress_at") or "1970-01-01T00:00:00+00:00"
-    trace_comment = 0
-    trace_availability(state, trace_at, trace_comment)
     scope_obligation = _handoff_obligation(task, state)
     # Supplied only by the canonical operational Result adapter, never task JSON.
     review_reopen = task.get("_handoff_scope_review_reopened_at")
@@ -405,7 +397,6 @@ def reduce_task(
 
     last_event_time: datetime | None = None
     for index, event in enumerate(matching):
-        trace_availability(state, trace_at, trace_comment)
         if event.get("schema") not in (None, "ENTERPRISE_MATH_SCHEDULER_EVENT_V1"):
             ignore(state, index, "wrong event schema")
             continue
@@ -418,12 +409,7 @@ def reduce_task(
             ignore(state, index, "events must be supplied in GitHub comment order / nondecreasing event time")
             continue
         last_event_time = at
-        expiry = state.get("lease_until")
         expire_claim(state, at)
-        if expiry is not None and at >= expiry:
-            trace_availability(state, expiry.isoformat(), 0)
-        trace_at = event["at"]
-        trace_comment = (event.get("_github") or {}).get("comment_id") or 0
         if review_reopen_at is not None and not review_reopen_consumed and at >= review_reopen_at:
             scope_obligation = None
             # Reopen only the exact reviewed frozen return, once. The adapter
@@ -510,7 +496,6 @@ def reduce_task(
             state["last_researcher_id"] = researcher_id
             state["identity_source"] = "EVENT" if supplied_researcher_id is not None else "AUTO_CLAIM_DERIVED"
             state["lease_until"] = at + duration
-            trace_claim(state, claim_id, event["at"], trace_comment)
             continue
 
         if kind in {"HEARTBEAT", "PROGRESS", "HANDOFF", "HARD_BLOCK", "DONE"}:
@@ -670,11 +655,7 @@ def reduce_task(
 
         ignore(state, index, f"unknown event type: {kind!r}")
 
-    trace_availability(state, trace_at, trace_comment)
-    expiry = state.get("lease_until")
     expire_claim(state, now)
-    if expiry is not None and now >= expiry:
-        trace_availability(state, expiry.isoformat(), 0)
     _project_unresolved_handoff(task, state, scope_obligation)
     state["lease_until"] = state["lease_until"].isoformat() if isinstance(state.get("lease_until"), datetime) else None
 
@@ -717,10 +698,6 @@ def validate_policy(policy: dict[str, Any]) -> list[str]:
                 errors.append(f"selection_policy.{field} must be a nonempty string list")
     if policy.get("legacy_task_definition_source") is not None:
         errors.append("legacy task-definition source must be null after cutover")
-    weights = selection.get("priority_weights") if isinstance(selection, dict) else None
-    if weights is not None and (not isinstance(weights, dict) or set(weights) != {"P0", "P1", "P2", "P3"}
-                               or any(type(w) is not int or w <= 0 for w in weights.values())):
-        errors.append("selection_policy.priority_weights must contain positive integer P0/P1/P2/P3 weights")
     return errors
 
 
@@ -737,24 +714,18 @@ def select_state(
     policy: dict[str, Any],
     *,
     kind: str = "RESEARCH",
-    candidates: Iterable[dict[str, Any]] | None = None,
 ) -> dict[str, Any] | None:
-    states = list(states)
     selection = policy["selection_policy"]
     state_rank = {name: index for index, name in enumerate(selection["state_order"])}
     priority_rank = {name: index for index, name in enumerate(selection["priority_order"])}
     leverage_rank = {name: index for index, name in enumerate(selection["leverage_order"])}
     candidates = [
-        value for value in (states if candidates is None else candidates)
+        value for value in states
         if value.get("dispatch_state") == "NEEDS_DISPATCH"
         and (kind == "ANY" or value.get("kind") == kind)
     ]
     if not candidates:
         return None
-    if selection.get("priority_weights"):
-        from tools.research_fair_selection import select
-        return select([s for s in states if kind == "ANY" or s.get("kind") == kind],
-                      candidates, selection["priority_weights"])
 
     def key(value: dict[str, Any]) -> tuple[Any, ...]:
         try:

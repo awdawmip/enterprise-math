@@ -2,8 +2,6 @@
 
 Status: `ACTIVE / CURRENT ONLY`
 
-Rule-document versions are provenance, not an aggregate publication gate. Legacy `policy_review.policy_digest`/PASS fields are readable but are neither required nor compared to current document bytes. The publisher still validates actual current task rules and all independent publication, identity, byte-binding and ownership constraints. Use Git commit plus path to locate materials without requiring an old taskbook to match the current HEAD.
-
 An official task exists only after one immutable publication record is written under `research_task_records/<task-id>/<publication-id>.json` and pins the exact taskbook blob.
 
 Canonical surfaces:
@@ -24,7 +22,7 @@ python tools/research_task_records.py audit
 
 Publication requires publisher identity, `parent_objective_id`, `research_value`, lineage/origin review, exact taskbook blob, and a conflict-safe immutable record write. The canonical writer also persists the prepared taskbook's `identity_lane`, `source_refs`, `dependencies`, `evidence_status`, `successor_gate`, separate `migration_source`, and `parent_objective_generation_id` when present. Migration provenance must not replace source-backed task identity, lineage, parentage, successor-gate, or source-reference semantics.
 
-Body headings and language are free. The following labels are an optional writing aid for preserving the actual scientific question, assumptions, inputs, sources, required evidence and completion criteria:
+Every executable publication body contains nonempty current sections:
 
 - `Mother question`;
 - `Frozen inputs and scope`;
@@ -49,8 +47,8 @@ Freeze:
 When the local canonical publication command cannot be executed, an authorized remote/manual writer must perform an equivalent preflight before creating the immutable record. It must:
 
 1. parse the exact taskbook frontmatter and body;
-2. require substantive, non-placeholder body content; do not require five fixed headings, language, or a legacy heading waiver;
-3. run actual current taskbook checks; a cached policy digest/PASS is not an admission condition;
+2. require the five canonical body sections above with nonempty, non-placeholder payloads;
+3. run the current taskbook policy audit and require machine `PASS`;
 4. pin the exact taskbook Git blob;
 5. preserve source-backed identity, origin, lineage, parent task, complete successor gate and source references, while storing migration-wrapper provenance separately;
 6. require the exact `supersedes_publication_id` for every revision;

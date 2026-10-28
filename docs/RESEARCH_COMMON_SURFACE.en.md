@@ -356,7 +356,6 @@ Every `tools/*.py` file must have exactly one machine/human owner surface: Commo
 - `tools/check_exact_arithmetic_policy.py`
 - `tools/check_references.py`
 - `tools/check_research_common_surface.py`
-- `tools/research_fair_selection.py` — read-only weighted opportunity accounting for canonical dispatch; no execution authority.
 - `tools/heartbeat_world_library.py`
 - `tools/research_identity.py`
 - `tools/research_taskbook.py`

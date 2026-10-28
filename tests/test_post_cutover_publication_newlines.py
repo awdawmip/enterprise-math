@@ -41,7 +41,7 @@ class PublicationNewlineTests(unittest.TestCase):
             record_path.write_text(json.dumps(record), encoding="utf-8")
             record_bytes = record_path.read_bytes()
             with mock.patch.object(envelope, "ROOT", root), mock.patch.object(
-                envelope, "_validated_exception_paths", return_value=(set(), set(), [])
+                envelope, "_validated_exception_paths", return_value=(set(), set(), set(), [])
             ):
                 errors = envelope.audit(root)
             self.assertEqual(data, task_path.read_bytes())

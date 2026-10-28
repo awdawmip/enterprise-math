@@ -179,9 +179,7 @@ def check() -> None:
     )
     reuse = tools.get("reuse_resolution", {})
     require(reuse.get("coverage_hit_is_tool_use") is False, "coverage hit must not count as tool use")
-    require(reuse.get("required_after_any_relevant_match") is False, "lookup must not block private exploration or preservation")
-    require(reuse.get("required_before_claiming_novelty_or_accepting_shared_tool") is True,
-            "novelty claims and shared-tool acceptance still require reuse resolution")
+    require(reuse.get("required_after_any_relevant_match") is True, "relevant tool match must require reuse resolution")
     require(
         "REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE" in set(reuse.get("states", [])),
         "reuse resolution must represent execution unavailability separately",
@@ -317,10 +315,9 @@ def check() -> None:
     require("COVERAGE_LOOKUP != TOOL_USE" in steward, "Steward addendum must distinguish coverage from use")
 
     agents = read("AGENTS.md")
-    require("control_plane/current_control_authority.json" in agents,
-            "AGENTS must route to current control authority")
-    require("CONTRIBUTING.md#agentproject-task-entry" in agents,
-            "AGENTS must route to public task-specific project instructions")
+    require("CONTROL_PLANE_MAINTENANCE" in agents, "AGENTS missing control-plane maintenance mode")
+    require("research_control_dispatch.py" in agents, "AGENTS missing recovery-aware control dispatch")
+    require("READ_SNAPSHOT != WRITE_AUTHORITY" in agents, "AGENTS missing mutation-authority boundary")
 
     for isolated in (
         "research_scheduler.json",

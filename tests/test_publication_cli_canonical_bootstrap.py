@@ -195,14 +195,15 @@ print('PASS: strict pre-bootstrap fork retained; canonical CLI and alias order a
         self.assertNotEqual(0, result.returncode)
         self.assertIn(f"publication fork for {FORK_TASK}".encode(), result.stdout + result.stderr)
 
-    def test_arbitrary_heading_is_published_without_a_style_waiver(self):
+    def test_bad_new_taskbook_is_not_published(self):
         text = self.prepared_book.decode("utf-8")
         heading = "## Frozen inputs and scope"
         self.assertIn(heading, text)
-        self.root.joinpath(BOOK).write_bytes(text.replace(heading, "## 实际输入与假设").encode("utf-8"))
+        self.root.joinpath(BOOK).write_bytes(text.replace(heading, "## Removed fixture section").encode("utf-8"))
         result = self._publish()
-        self.assertEqual(0, result.returncode, result.stdout + result.stderr)
-        self.assertTrue(self.root.joinpath("research_task_records", FIXTURE_TASK).exists())
+        self.assertNotEqual(0, result.returncode)
+        self.assertIn(b"mandatory body section is missing or empty: Frozen inputs and scope", result.stdout + result.stderr)
+        self.assertFalse(self.root.joinpath("research_task_records", FIXTURE_TASK).exists())
 
     def test_pin_drift_on_quarantined_history_still_rejects(self):
         self.root.joinpath(self.pinned_book).write_bytes(self.pinned_book_bytes + b"\n")

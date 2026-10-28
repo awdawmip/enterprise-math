@@ -176,7 +176,7 @@ class OwnerUnresolvedPublicationForkTests(unittest.TestCase):
         _, body = core.research_taskbook.split_taskbook(
             (ROOT / record["taskbook_path"]).read_text(encoding="utf-8")
         )
-        self.assertEqual([], core.validate_body(body))
+        self.assertEqual(D78_ERRORS, set(core.validate_body(body)))
 
     def test_p022_audit_basis_fails_when_fork_isolation_disappears(self):
         forks = fork.validated_quarantines(ROOT)
@@ -202,7 +202,7 @@ class OwnerUnresolvedPublicationForkTests(unittest.TestCase):
         self.assertEqual([], record_audit.audit_against(raw, ROOT))
         unrelated = "research_task_records/RS-TEST/TP2-TEST.json: wrong record_schema"
         self.assertEqual([unrelated], record_audit.audit_against(raw + [unrelated], ROOT))
-        old_error = next(e for e in raw if e in record_audit.suppression_strings(ROOT))
+        old_error = next(e for e in raw if D78 in e)
         new_error = old_error + " [changed defect]"
         changed = [new_error if e == old_error else e for e in raw]
         errors = record_audit.audit_against(changed, ROOT)

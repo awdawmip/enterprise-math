@@ -251,13 +251,10 @@ def validated_rows(root: Path = ROOT) -> list[dict[str, Any]]:
 
 def suppression_strings(root: Path = ROOT) -> set[str]:
     """Exact suppressions for the full immutable task-record audit only."""
-    from control_plane import research_task_records_impl as core
-
     return {
         f"{row['record_path']}: {suffix}"
         for row in validated_rows(root)
         for suffix in row["allowed_task_record_audit_errors"]
-        if not core.is_retired_body_style_error(suffix)
     }
 
 

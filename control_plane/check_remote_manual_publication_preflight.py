@@ -59,12 +59,10 @@ def check() -> None:
         "remote/manual publication must require canonical-equivalent preflight",
     )
     require(
-        tuple(task.get("remote_manual_recommended_body_sections", []))
+        tuple(task.get("remote_manual_required_body_sections", []))
         == tuple(record_core.MANDATORY_BODY_SECTIONS),
-        "remote/manual recommended labels drifted from canonical renderer",
+        "remote/manual mandatory body sections drifted from canonical publication tool",
     )
-    require(task.get("remote_manual_body_style_required") is False,
-            "remote/manual publication must not require fixed heading style")
     require(
         task.get("remote_manual_exact_taskbook_blob_required") is True,
         "remote/manual publication must pin exact taskbook Git blob",
@@ -100,7 +98,7 @@ def check() -> None:
         require(marker in protocol, f"publication protocol missing remote fallback invariant: {marker}")
 
     for section in record_core.MANDATORY_BODY_SECTIONS:
-        require(section in protocol, f"publication protocol missing recommended body section {section}")
+        require(section in protocol, f"publication protocol missing canonical body section {section}")
 
     require(
         "record_core.validate_body(body)" in envelope,

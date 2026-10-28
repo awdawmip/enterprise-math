@@ -26,8 +26,6 @@ PUBLICATION_TRANSACTION_V2 = "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2"
 RESOLUTION_SCHEMA = "ENTERPRISE_MATH_TASK_PUBLICATION_RESOLUTION_REGISTRY_V1"
 RESOLUTION_FILE = "research_task_publication_resolutions.json"
 PUBLISHER_ROLES = {"RESEARCHER", "RESEARCH_DRIVER", "FOUNDATION_STEWARD"}
-# Recommended renderer labels; the historical public name remains for callers
-# that serialize that template. These labels are not publication requirements.
 MANDATORY_BODY_SECTIONS = (
     "Mother question",
     "Frozen inputs and scope",
@@ -223,21 +221,15 @@ def _section_payloads(body: str) -> dict[str, str]:
     return out
 
 
-def is_retired_body_style_error(message: str) -> bool:
-    """Recognize only the removed five-heading diagnostic in old audit metadata."""
-    return message.startswith("mandatory body section is missing or empty: ")
-
-
 def validate_body(body: str) -> list[str]:
-    """Validate usable content without prescribing headings or a language."""
     errors: list[str] = []
-    # A title/heading alone supplies no scientific task content.
-    content = "\n".join(line for line in body.splitlines()
-                        if line.strip() and not line.lstrip().startswith("#"))
-    if not content.strip():
-        errors.append("taskbook body has no substantive content")
-    if _PLACEHOLDER.search(body):
-        errors.append("taskbook body contains placeholder text")
+    payloads = _section_payloads(body)
+    for section in MANDATORY_BODY_SECTIONS:
+        payload = payloads.get(section, "")
+        if not payload:
+            errors.append(f"mandatory body section is missing or empty: {section}")
+        elif _PLACEHOLDER.search(payload):
+            errors.append(f"mandatory body section contains placeholder text: {section}")
     return errors
 
 
@@ -263,6 +255,13 @@ def _prepared(path: Path, root: Path = ROOT) -> tuple[dict[str, Any], str]:
     body_errors = validate_body(body)
     if body_errors:
         raise TaskRecordError("; ".join(body_errors))
+    review = meta.get("policy_review")
+    if (
+        not isinstance(review, dict)
+        or review.get("review_state") != "PASS"
+        or review.get("policy_digest") != research_taskbook.policy_digest(root)
+    ):
+        raise TaskRecordError("taskbook requires current machine policy PASS")
     findings = research_taskbook.audit_taskbook(path, root=root, dispatch=True)
     hard = [item for item in findings if item["severity"] == "ERROR"]
     if hard:
@@ -297,17 +296,37 @@ def prepare_taskbook(
     )
     if prepared.get("base_state") in {None, "DRAFT", "BACKLOG"}:
         prepared["base_state"] = "READY"
+    review = prepared.get("policy_review")
+    if not isinstance(review, dict):
+        review = {"temporary_overrides": []}
+    review = dict(review)
+    review["policy_set"] = "research_taskbook_policy.json"
+    review["policy_digest"] = research_taskbook.policy_digest(root)
+    review["review_state"] = "PENDING_POLICY_REVIEW"
+    review.setdefault("temporary_overrides", [])
+    prepared["policy_review"] = review
 
     with tempfile.TemporaryDirectory() as td:
         candidate = Path(td) / path.name
         candidate.write_text(
             research_taskbook.render_taskbook(prepared, body), encoding="utf-8"
         )
-        first = research_taskbook.audit_taskbook(candidate, root=root, dispatch=True)
+        first = research_taskbook.audit_taskbook(candidate, root=root, dispatch=False)
         hard = [item for item in first if item["severity"] == "ERROR"]
         if hard:
             raise TaskRecordError(
-                "taskbook validation failed: "
+                "machine review failed: "
+                + "; ".join(f"{item['code']}:{item['message']}" for item in hard)
+            )
+        prepared["policy_review"]["review_state"] = "PASS"
+        candidate.write_text(
+            research_taskbook.render_taskbook(prepared, body), encoding="utf-8"
+        )
+        final = research_taskbook.audit_taskbook(candidate, root=root, dispatch=True)
+        hard = [item for item in final if item["severity"] == "ERROR"]
+        if hard:
+            raise TaskRecordError(
+                "post-review lint failed: "
                 + "; ".join(f"{item['code']}:{item['message']}" for item in hard)
             )
         final_text = candidate.read_text(encoding="utf-8")
@@ -518,6 +537,12 @@ def command_new(args: argparse.Namespace) -> int:
         "task_lineage": args.lineage,
         "parent_task_id": args.parent_task_id,
         "successor_gate": successor,
+        "policy_review": {
+            "policy_set": "research_taskbook_policy.json",
+            "policy_digest": research_taskbook.policy_digest(ROOT),
+            "review_state": "PENDING_POLICY_REVIEW",
+            "temporary_overrides": [],
+        },
     }
     body = f"""# {args.title}
 

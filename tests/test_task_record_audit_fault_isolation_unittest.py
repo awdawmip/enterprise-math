@@ -36,7 +36,7 @@ class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
         self.assertTrue(current_publications)
         self.assertEqual(set(), audit_publications & current_publications)
 
-    def test_prior_art_history_is_retained_and_style_hold_tracks_latest_bytes(self):
+    def test_prior_art_history_is_retained_and_current_quarantine_tracks_latest_head(self):
         rows = {
             row["publication_id"]: row for row in audit_isolation.validated_rows(ROOT)
         }
@@ -44,11 +44,10 @@ class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
             audit_isolation.BASIS_SUPERSEDED,
             rows["TP2-487CC790F9F7AA01CAAF"]["nonoperational_basis"],
         )
-        current = current_isolation.quarantine_rows(ROOT)[
+        current = current_isolation.validated_quarantines(ROOT)[
             "RS-P000-6D-ROTATION-PRIOR-ART-DUPLICATION-AUDIT"
         ]
         self.assertEqual("TP2-2F8C6A1D9E7043B5C812", current["publication_id"])
-        self.assertNotIn(current["task_id"], current_isolation.validated_quarantines(ROOT))
 
     def test_fork_blocked_rows_track_live_forks_and_resolved_history_is_superseded(self):
         from control_plane import research_publication_fault_isolation as publication_isolation
@@ -108,16 +107,12 @@ class TaskRecordAuditFaultIsolationTests(unittest.TestCase):
 
     def test_every_declared_suppression_is_exact_record_prefixed(self):
         rows = audit_isolation.validated_rows(ROOT)
-        from control_plane import research_task_records_impl as core
-        expected = sum(sum(not core.is_retired_body_style_error(e)
-                           for e in row["allowed_task_record_audit_errors"]) for row in rows)
+        expected = sum(len(row["allowed_task_record_audit_errors"]) for row in rows)
         suppressions = audit_isolation.suppression_strings(ROOT)
         self.assertEqual(expected, len(suppressions))
         for row in rows:
             prefix = row["record_path"] + ": "
-            active = [e for e in row["allowed_task_record_audit_errors"]
-                      if not core.is_retired_body_style_error(e)]
-            self.assertEqual(bool(active), any(value.startswith(prefix) for value in suppressions))
+            self.assertTrue(any(value.startswith(prefix) for value in suppressions))
 
 
 if __name__ == "__main__":

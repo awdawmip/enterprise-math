@@ -31,16 +31,31 @@ class ControlPlaneEfficiencyContractTests(unittest.TestCase):
             policy["mutation_authority"]["refresh_target_authority_immediately_before_remote_mutation"]
         )
 
-    def test_entry_routes_to_control_liveness_without_copying_rules(self):
+    def test_hot_router_contains_control_plane_preemption_and_convergence_rules(self):
         text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
-        self.assertIn("control_plane/current_control_authority.json", text)
-        authority = json.loads((ROOT / "control_plane/current_control_authority.json").read_text())
-        self.assertTrue(authority["control_liveness"]["user_interrupt_preempts_nonessential_diagnostics"])
-        self.assertFalse(authority["control_liveness"]["external_supervisor_has_mathematical_or_claim_authority"])
+        for marker in (
+            "CONTROL_PLANE_MAINTENANCE",
+            "Control-plane efficiency soft watchdog",
+            "USER_INTERRUPT -> PREEMPT_NONESSENTIAL_DIAGNOSTIC_EXPANSION",
+            "SUFFICIENT_EVIDENCE -> STOP_DIAGNOSTIC_EXPANSION",
+            "SAME_ERROR_SIGNATURE -> COLLAPSE_TO_ONE_ROOT_CAUSE",
+            "READ_SNAPSHOT != WRITE_AUTHORITY",
+            "2–3 tool calls",
+            "If two consecutive tool results produce no material state change",
+            "A user status/report/direction-change message immediately preempts nonessential diagnostic expansion",
+        ):
+            self.assertIn(marker, text)
 
     def test_control_plane_mode_does_not_grant_research_authority(self):
-        authority = json.loads((ROOT / "control_plane/current_control_authority.json").read_text())
-        self.assertIn("NO_THEOREM_OR_REVIEW_AUTHORITY", authority["role_expectations"]["CONTROL_PLANE_MAINTENANCE"])
+        text = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        self.assertIn(
+            "`CONTROL_PLANE_MAINTENANCE` is not a research identity and grants no Researcher, Driver, Steward, theorem, review, or promotion authority.",
+            text,
+        )
+        self.assertIn(
+            "`CONTROL_PLANE_MAINTENANCE` alone does not activate a research-role identity marker.",
+            text,
+        )
 
 
 if __name__ == "__main__":

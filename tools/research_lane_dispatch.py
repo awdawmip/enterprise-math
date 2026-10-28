@@ -54,20 +54,9 @@ def lane_states(
             frozen = research_cohort_runtime.lane_results(
                 task_id, cohort_id, lane_id, root
             )
-            # Completed lanes still contribute their admitted service history.
-            reduced = research_lane_claims.reduce_lane(
-                task_id, cohort_id, lane_id, events, now=now, root=root)
-            from tools.research_fair_selection import canonical_availability, lifecycle_clock
-            canonical_availability(reduced, source="COHORT_OPEN",
-                                   opened_at=lifecycle_clock(cohort.get("opened_at")), now=now)
             if frozen:
-                clocks = [lifecycle_clock(item.get("frozen_at")) for item in frozen]
-                canonical_availability(reduced, source="CANONICAL_LANE_RESULT",
-                    closed_at=min(clocks) if all(c is not None for c in clocks) else None,
-                    now=now)
                 states.append(
                     {
-                        **reduced,
                         "task_id": task_id,
                         "execution_cohort_id": cohort_id,
                         "execution_lane_id": lane_id,
@@ -83,6 +72,14 @@ def lane_states(
                     }
                 )
                 continue
+            reduced = research_lane_claims.reduce_lane(
+                task_id,
+                cohort_id,
+                lane_id,
+                events,
+                now=now,
+                root=root,
+            )
             states.append(reduced)
     return states
 

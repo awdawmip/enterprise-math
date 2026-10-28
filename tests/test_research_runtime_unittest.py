@@ -194,11 +194,19 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
         contract = json.loads((ROOT / "research_taskbook_contract.json").read_text(encoding="utf-8"))
         policy = json.loads((ROOT / "research_taskbook_policy.json").read_text(encoding="utf-8"))
         final = json.loads((ROOT / "final_response_identity_policy.json").read_text(encoding="utf-8"))
-        self.assertIn("docs/RESEARCH_RUNTIME_STATE_MACHINE.md", agents)
+        for marker in (
+            "OWNER_LEASE != SESSION_LIVENESS",
+            "SESSION_STALE + OWNER_LEASE_ACTIVE -> STALE_RECOVERABLE",
+            "TASK_FROZEN -> REEVALUATE_PARENT",
+            "RUNTIME_FINAL_ALLOWED_FALSE -> FINAL_CHANNEL_FORBIDDEN",
+            "OFFICIAL_NEW_TASK -> IMMUTABLE_V2_TASK_PUBLICATION_RECORD",
+            "UNPUBLISHED_TASK -> NO READY / NO CLAIM / NO EXECUTION",
+        ):
+            self.assertIn(marker, agents)
         self.assertEqual(contract["runtime_state_machine"], "research_runtime_state_machine.json")
         self.assertEqual(contract["task_record_store"], "research_task_records/<task-id>/<publication-id>.json")
         self.assertEqual(contract["publication_contract"]["researcher_driver_approval_required"], False)
-        self.assertNotIn("policy_inputs", policy)
+        self.assertIn("research_task_publication_contract_v2.json", policy["policy_inputs"])
         self.assertEqual(final["final_permission_authority"], "research_runtime_state_machine.json")
         self.assertEqual(final["pre_final_permission_gate"]["evaluator"], "research_pre_final_authority.py")
         self.assertEqual(final["pre_final_permission_gate"]["registration_guard"], "tools/research_runtime_guard.py")

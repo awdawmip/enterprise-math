@@ -39,7 +39,7 @@ class ControlOnlyPreFinalTests(unittest.TestCase):
             with self.subTest(mode=mode):
                 state = self.state(mode)
                 before = copy.deepcopy(state)
-                result = guard.pre_final_gate(state, formal_task_completion=True)
+                result = guard.pre_final_gate(state)
                 self.assertEqual(state, before)
                 self.assertFalse(result["final_allowed"])
                 self.assertEqual(result["required_action"], "EXECUTE_SELECTED_NEXT_ACTION_NOW")
@@ -52,21 +52,21 @@ class ControlOnlyPreFinalTests(unittest.TestCase):
     def test_explicit_mode_alias_uses_the_same_control_route(self):
         state = self.state()
         state["mode"] = state.pop("research_mode")
-        self.assertFalse(guard.pre_final_gate(state, formal_task_completion=True)["final_allowed"])
+        self.assertFalse(guard.pre_final_gate(state)["final_allowed"])
 
     def test_completed_standalone_control_objective_can_report_without_authorization(self):
         # This self-contained fixture finishes its own small control objective;
         # it does not mark the owner's ongoing research objective complete.
         state = self.state(complete=True, next_actions=0)
         state["parent_objective"]["description"] = "Repair the sole typo in a local control fixture"
-        result = guard.pre_final_gate(state, formal_task_completion=True)
+        result = guard.pre_final_gate(state)
         self.assertTrue(result["final_allowed"])
         self.assertEqual(result["required_action"], "RETURN_FINAL")
         self.assertFalse(result["authorized"])
         self.assertFalse(result["parent_liveness"]["continuation_lease_preserved"])
 
     def test_completed_parent_with_executable_work_fails_closed_and_keeps_lease(self):
-        result = guard.pre_final_gate(self.state(complete=True, next_actions=1), formal_task_completion=True)
+        result = guard.pre_final_gate(self.state(complete=True, next_actions=1))
         self.assertFalse(result["final_allowed"])
         self.assertEqual(result["parent_liveness"]["transition"], "CONTROL_STATE_INCONSISTENT")
         self.assertEqual(result["required_action"], "REBUILD_CONTROL_STATE_FROM_AUTHORITATIVE_PARENT_OBJECTIVE")
@@ -75,7 +75,7 @@ class ControlOnlyPreFinalTests(unittest.TestCase):
     def test_missing_parent_liveness_requests_evaluation(self):
         for state in ({"research_mode": ROLES[0]}, {"research_mode": ROLES[0], "parent_liveness": None}):
             with self.subTest(state=state):
-                result = guard.pre_final_gate(state, formal_task_completion=True)
+                result = guard.pre_final_gate(state)
                 self.assertFalse(result["final_allowed"])
                 self.assertFalse(result["authorized"])
                 self.assertEqual(result["required_action"], "EVALUATE_PARENT_LIVENESS")
@@ -86,7 +86,7 @@ class ControlOnlyPreFinalTests(unittest.TestCase):
                 state = self.state()
                 state["parent_liveness"] = value
                 with self.assertRaisesRegex(guard.RuntimeAuthorizationError, "control-only PRE_FINAL"):
-                    guard.pre_final_gate(state, formal_task_completion=True)
+                    guard.pre_final_gate(state)
 
     def test_all_required_booleans_are_present_and_strict(self):
         for field in BOOLEAN_FIELDS:
@@ -94,13 +94,13 @@ class ControlOnlyPreFinalTests(unittest.TestCase):
             del state["parent_liveness"][field]
             with self.subTest(field=field, missing=True):
                 with self.assertRaisesRegex(guard.RuntimeAuthorizationError, field):
-                    guard.pre_final_gate(state, formal_task_completion=True)
+                    guard.pre_final_gate(state)
             for value in (0, 1, "false", None):
                 with self.subTest(field=field, value=value):
                     state = self.state()
                     state["parent_liveness"][field] = value
                     with self.assertRaisesRegex(guard.RuntimeAuthorizationError, field):
-                        guard.pre_final_gate(state, formal_task_completion=True)
+                        guard.pre_final_gate(state)
 
     def test_count_and_optional_lease_keep_primitive_types(self):
         for field, values in (("executable_next_actions", (True, -1, 1.0, "1", None)),
@@ -110,7 +110,7 @@ class ControlOnlyPreFinalTests(unittest.TestCase):
                     state = self.state()
                     state["parent_liveness"][field] = value
                     with self.assertRaisesRegex(guard.RuntimeAuthorizationError, field):
-                        guard.pre_final_gate(state, formal_task_completion=True)
+                        guard.pre_final_gate(state)
 
     def test_control_label_cannot_hide_any_formal_binding_even_when_empty(self):
         for field in ("task", "task_id", "publication_id", "task_registration", "owner_claim",
@@ -121,21 +121,21 @@ class ControlOnlyPreFinalTests(unittest.TestCase):
                     state = self.state(complete=True, next_actions=0)
                     state[field] = value
                     with self.assertRaisesRegex(guard.RuntimeAuthorizationError, "task must be an object|task.task_id is required"):
-                        guard.pre_final_gate(state, formal_task_completion=True)
+                        guard.pre_final_gate(state)
 
-    def test_unshared_derivation_does_not_require_activity_preregistration(self):
+    def test_noncontrol_and_free_still_require_research_activity(self):
         for mode in ("FREE_AXIOM_DISCOVERY", "TASK_RESEARCH", "UNRECOGNIZED", None):
             with self.subTest(mode=mode):
                 state = self.state(mode, complete=True, next_actions=0)
-                result = guard.pre_final_gate(state, formal_task_completion=True)
-                self.assertTrue(result["activity_allowed"])
-                self.assertFalse(result["authorized"])
-                self.assertEqual(result["scope"], "UNSHARED_DERIVATION_AND_MATERIALS")
+                result = guard.pre_final_gate(state)
+                self.assertFalse(result["final_allowed"])
+                self.assertFalse(result["activity_allowed"])
+                self.assertEqual(result["required_action"], "REGISTER_RESEARCH_ACTIVITY")
 
     def test_control_label_cannot_bypass_activity_bindings_but_session_id_is_allowed(self):
         state = self.state(complete=True, next_actions=0)
         state["session_id"] = "control-session-fixture"
-        result = guard.pre_final_gate(state, formal_task_completion=True)
+        result = guard.pre_final_gate(state)
         self.assertTrue(result["final_allowed"])
         self.assertFalse(result["authorized"])
         for key in ("activity_id", "activity_registration_source", "research_checkpoint_event_id"):
@@ -144,7 +144,7 @@ class ControlOnlyPreFinalTests(unittest.TestCase):
                     mixed = copy.deepcopy(state)
                     mixed[key] = value
                     with self.assertRaisesRegex(guard.RuntimeAuthorizationError, "task must be an object"):
-                        guard.pre_final_gate(mixed, formal_task_completion=True)
+                        guard.pre_final_gate(mixed)
 
     def test_control_pre_final_does_not_enable_execution_or_task_terminal_events(self):
         for mode in ROLES:
@@ -165,7 +165,7 @@ class ControlOnlyPreFinalTests(unittest.TestCase):
                               ["-m", "tools.research_runtime_guard"]):
                     with self.subTest(complete=complete, entry=entry):
                         run = subprocess.run([sys.executable, "-B", "-X", "utf8", *entry,
-                            "pre-final", "--formal-task-completion", "--state-file", str(path)], cwd=ROOT,
+                            "pre-final", "--state-file", str(path)], cwd=ROOT,
                             capture_output=True, text=True, encoding="utf-8", timeout=30)
                         self.assertEqual(run.returncode, expected, run.stderr + run.stdout)
                         result = json.loads(run.stdout)

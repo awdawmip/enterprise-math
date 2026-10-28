@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -29,6 +30,26 @@ def load_json(path: Path) -> dict[str, Any]:
 
 def policy_manifest(root: Path = ROOT) -> dict[str, Any]:
     return load_json(root / "research_taskbook_policy.json")
+
+
+def git_blob_identity(data: bytes) -> bytes:
+    """Return the raw SHA-1 identity Git assigns to this exact file content."""
+    header = f"blob {len(data)}\0".encode("ascii")
+    return hashlib.sha1(header + data).digest()
+
+
+def policy_digest(root: Path = ROOT) -> str:
+    policy = policy_manifest(root)
+    h = hashlib.sha256()
+    paths = ["research_taskbook_policy.json", *policy["policy_inputs"]]
+    for rel in paths:
+        path = root / rel
+        data = path.read_bytes()
+        h.update(rel.encode("utf-8"))
+        h.update(b"\0")
+        h.update(git_blob_identity(data))
+        h.update(b"\0")
+    return "sha256:" + h.hexdigest()
 
 
 def split_taskbook(text: str) -> tuple[dict[str, Any], str]:
@@ -226,15 +247,34 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
         if key in meta:
             findings.append({"severity": "ERROR", "code": "TB-RUNTIME-META", "message": f"forbidden fixed runtime metadata: {key}"})
 
-    # Legacy policy_review stamps remain readable provenance. Current admission
-    # runs the actual rules below; document fingerprints and cached PASS labels
-    # cannot grant or withhold publication/execution authority.
-    overrides = override_map(meta)
-    required_override_fields = policy.get("override_required_fields", [])
-    for cid, item in overrides.items():
-        for field in required_override_fields:
-            if not item.get(field):
-                findings.append({"severity": "ERROR", "code": "TB-OVERRIDE-SCHEMA", "message": f"override {cid} missing {field}"})
+    review = taskbook_review(meta)
+    if review is None:
+        sev = "ERROR" if dispatch else "WARN"
+        findings.append({
+            "severity": sev,
+            "code": "TB-POLICY-UNSTAMPED",
+            "message": "taskbook has no policy_review stamp; legacy files may remain archived, but dispatch requires review",
+        })
+        overrides: dict[str, dict[str, Any]] = {}
+    else:
+        overrides = override_map(meta)
+        if review.get("policy_set") != "research_taskbook_policy.json":
+            findings.append({"severity": "ERROR", "code": "TB-POLICY-SET", "message": "policy_review.policy_set must be research_taskbook_policy.json"})
+        current = policy_digest(root)
+        if review.get("policy_digest") != current:
+            findings.append({
+                "severity": "ERROR" if dispatch else "WARN",
+                "code": "TB-POLICY-STALE",
+                "message": f"policy digest stale: taskbook={review.get('policy_digest')} current={current}",
+            })
+        if dispatch and review.get("review_state") != "PASS":
+            findings.append({"severity": "ERROR", "code": "TB-POLICY-REVIEW", "message": "dispatch requires policy_review.review_state=PASS"})
+
+        required_override_fields = policy.get("override_required_fields", [])
+        for cid, item in overrides.items():
+            for field in required_override_fields:
+                if not item.get(field):
+                    findings.append({"severity": "ERROR", "code": "TB-OVERRIDE-SCHEMA", "message": f"override {cid} missing {field}"})
 
     for check in policy.get("conflict_checks", []):
         hits = regex_hits(body, check["patterns"])
@@ -328,6 +368,12 @@ def base_metadata(args: argparse.Namespace) -> dict[str, Any]:
         "task_lineage": args.lineage,
         "parent_task_id": args.parent_task_id,
         "successor_gate": successor_gate,
+        "policy_review": {
+            "policy_set": "research_taskbook_policy.json",
+            "policy_digest": policy_digest(ROOT),
+            "review_state": "PENDING_DRIVER_REVIEW",
+            "temporary_overrides": [],
+        },
     }
     if args.origin_candidate_id:
         meta["origin_candidate_id"] = args.origin_candidate_id
@@ -368,18 +414,51 @@ Status: `DRAFT / POLICY_REVIEW_PENDING / NOT DISPATCHABLE`
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(render_taskbook(meta, body), encoding="utf-8")
     print(out.relative_to(ROOT))
-    print("created; complete task-local content and inputs, then audit before publication")
+    print("created with PENDING_DRIVER_REVIEW; edit task-local content, complete any successor gate, then run review --approve")
     return 0
 
 
 def command_review(args: argparse.Namespace) -> int:
-    """Compatibility alias for current validation; never mint a review stamp."""
     path = Path(args.path)
     if not path.is_absolute():
         path = ROOT / path
-    findings = audit_taskbook(path, dispatch=True)
-    print_findings(path, findings)
-    return int(any(f["severity"] == "ERROR" for f in findings))
+    text = path.read_text(encoding="utf-8")
+    meta, body = split_taskbook(text)
+    meta["final_response_identity_policy"] = "INHERIT_GLOBAL"
+    review = taskbook_review(meta) or {"policy_set": "research_taskbook_policy.json", "temporary_overrides": []}
+    review["policy_set"] = "research_taskbook_policy.json"
+    review["policy_digest"] = policy_digest(ROOT)
+    review["review_state"] = "PENDING_DRIVER_REVIEW"
+    meta["policy_review"] = review
+    path.write_text(render_taskbook(meta, body), encoding="utf-8")
+
+    findings = audit_taskbook(path, dispatch=False)
+    blocking = [f for f in findings if f["severity"] == "ERROR"]
+    if blocking:
+        print_findings(path.relative_to(ROOT), findings)
+        print("review not approved")
+        return 1
+
+    if args.approve:
+        review["review_state"] = "PASS"
+        meta["policy_review"] = review
+        if meta.get("base_state") == "DRAFT":
+            meta["base_state"] = "READY"
+        path.write_text(render_taskbook(meta, body), encoding="utf-8")
+        dispatch_findings = audit_taskbook(path, dispatch=True)
+        if any(f["severity"] == "ERROR" for f in dispatch_findings):
+            print_findings(path.relative_to(ROOT), dispatch_findings)
+            return 1
+        print(f"{path.relative_to(ROOT)}: POLICY_REVIEW_PASS")
+        return 0
+
+    print(f"{path.relative_to(ROOT)}: review refreshed; approval still pending")
+    return 0
+
+
+def command_digest(_: argparse.Namespace) -> int:
+    print(policy_digest(ROOT))
+    return 0
 
 
 def main() -> int:
@@ -412,6 +491,9 @@ def main() -> int:
     review.add_argument("path")
     review.add_argument("--approve", action="store_true")
     review.set_defaults(func=command_review)
+
+    digest = sp.add_parser("policy-digest")
+    digest.set_defaults(func=command_digest)
 
     args = p.parse_args()
     return args.func(args)

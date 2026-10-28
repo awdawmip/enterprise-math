@@ -23,7 +23,8 @@
     "origin_kind": "<current allowed origin>",
     "task_lineage": "NEW_DIRECTION|CONTINUATION|REPLAY|INTEGRATION|MAINTENANCE",
     "parent_task_id": "<required for continuation>",
-    "successor_gate": "<required for continuation>"
+    "successor_gate": "<required for continuation>",
+    "policy_review": "<current policy digest and PASS at publication>"
   },
   "registry_record_required": {
     "publisher_role": "<role>",
@@ -37,13 +38,12 @@
     "working_truth_granted": false,
     "canonical_promotion_granted": false
   },
-  "rule": "Publication metadata remains required. Body headings and language are free; preserve the actual question, assumptions, inputs, provenance, required evidence and scientific completion criteria. Recommended labels are a writing aid, not admission.",
-  "recommended_body_sections": [
+  "mandatory_body_sections": [
     "Mother question",
     "Frozen inputs and scope",
     "Hard target and required outputs",
     "Research value to preserve",
     "Success, kill, and return criteria"
   ],
-  "body_style_required": false
+  "rule": "No alternative free-form task publication format is official. A task may have richer task-local sections, but these publication fields/sections cannot be omitted."
 }

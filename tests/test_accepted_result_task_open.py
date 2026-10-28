@@ -70,8 +70,9 @@ def run_case(case):
         parent_bytes = parent_path.read_bytes()
         capture('research_driver_followup_legacy_reviews.json')
         baseline_audit = guard.baseline_audit
-        capture('research_taskbook_policy.json')
-        capture('research_taskbook_contract.json')
+        policy = capture('research_taskbook_policy.json')
+        for relative in policy['policy_inputs']:
+            capture(relative)
         registry = capture('research_driver_review_authority_quarantines.json')
         row = registry['entries'][0]
         write('research_driver_review_authority_quarantines.json', {**registry, 'entries': [row]})

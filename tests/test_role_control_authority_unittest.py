@@ -64,8 +64,7 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
         self.assertEqual("ENTERPRISE_MATH_TOOL_INVOCATION_POLICY_V2", policy["schema"])
         reuse = policy["reuse_resolution"]
         self.assertFalse(reuse["coverage_hit_is_tool_use"])
-        self.assertFalse(reuse["required_after_any_relevant_match"])
-        self.assertTrue(reuse["required_before_claiming_novelty_or_accepting_shared_tool"])
+        self.assertTrue(reuse["required_after_any_relevant_match"])
         for state in (
             "REUSE_APPLIED",
             "REUSE_EXECUTED",
@@ -197,7 +196,8 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
 
     def test_control_plane_role_does_not_gain_research_authority(self):
         text = self.read("AGENTS.md")
-        self.assertIn("control_plane/current_control_authority.json", text)
+        self.assertIn("CONTROL_PLANE_MAINTENANCE", text)
+        self.assertIn("grants no Researcher, Driver, Steward, theorem, review, or promotion authority", text)
         precedence = self.load("control_plane/current_control_authority.json")
         expected = precedence["role_expectations"]["CONTROL_PLANE_MAINTENANCE"]
         self.assertIn("NO_RESEARCH_ROLE_IDENTITY", expected)

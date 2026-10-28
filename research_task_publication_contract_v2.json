@@ -20,7 +20,7 @@
   "purpose": "Make publication a single immutable record creation after taskbook preparation/validation, remove the shared-registry write hotspot, make fresh dispatch consume the same canonical task definitions, and route live execution through recovery-aware research_control_dispatch.py without adding research-step GitHub traffic.",
   "publication_phases": [
     "DRAFT_TASKBOOK",
-    "PREPARE_AND_CURRENT_RULE_VALIDATION",
+    "PREPARE_AND_MACHINE_POLICY_REVIEW",
     "IMMUTABLE_RECORD_CREATE",
     "DISPATCH_DISCOVERY"
   ],
@@ -35,7 +35,7 @@
     "LEGACY_SCHEDULER_DEFINITION_FILE_IS_COMPATIBILITY_BASELINE_ONLY",
     "PUBLISH_MUST_NOT_SELF_ASSERT_POLICY_PASS_BEFORE_VALIDATION",
     "V2_PUBLICATION_REQUIRES_NONEMPTY_FRONTIER_AND_NEXT_ACTION",
-    "V2_PUBLICATION_REQUIRES_SUBSTANTIVE_NONPLACEHOLDER_BODY",
+    "V2_PUBLICATION_REQUIRES_FILLED_MANDATORY_BODY_SECTIONS",
     "RESEARCHER_PUBLICATION_DOES_NOT_GRANT_GLOBAL_PRIORITY_OR_TRUTH",
     "PUBLICATION_DOES_NOT_GRANT_WORKING_TRUTH_FOUNDATION_OR_CANONICAL_PROMOTION",
     "TASK_PUBLICATION_IS_A_SEMANTIC_CHECKPOINT_NOT_A_ROUTINE_HEARTBEAT",
@@ -43,6 +43,13 @@
     "MIGRATION_WRAPPER_PROVENANCE_MUST_NOT_OVERWRITE_SOURCE_TASK_IDENTITY_LINEAGE_PARENTAGE_SUCCESSOR_GATE_OR_SOURCE_REFS",
     "EXACT_PRESERVATION_CLAIM_REQUIRES_FIELD_LEVEL_SOURCE_BACKED_VERIFICATION",
     "SCHEMA_VALID_SEMANTIC_PRESERVATION_FAULT_IS_NONOPERATIONAL_UNTIL_AUTHORIZED_SUPERSEDING_GENERATION"
+  ],
+  "mandatory_body_sections": [
+    "Mother question",
+    "Frozen inputs and scope",
+    "Hard target and required outputs",
+    "Research value to preserve",
+    "Success, kill, and return criteria"
   ],
   "publisher_roles": [
     "RESEARCHER",
@@ -54,7 +61,7 @@
   "publication_transaction": {
     "version": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
     "prepare": "May rewrite the draft taskbook only after in-memory normalization and successful machine lint; preparation has no task-existence authority.",
-    "publish": "Requires a prepared taskbook passing actual current validation and creates exactly one immutable publication record with exclusive file creation; no cached policy stamp or fixed body headings are required.",
+    "publish": "Requires an already prepared current-policy-PASS taskbook in the shared taskbook format and creates exactly one immutable publication record with exclusive file creation.",
     "failure_semantics": "If publication record creation fails, no task was published. Existing immutable records are never overwritten or silently rolled back.",
     "republication": "A corrected generation must name the exact prior publication_id it supersedes."
   },
@@ -83,13 +90,5 @@
     "semantic_integrity_quarantine": "research_task_semantic_integrity_quarantines.json",
     "semantic_integrity_runtime": "control_plane/research_task_semantic_integrity_fault_isolation.py",
     "known_semantic_faults_fail_closed": true
-  },
-  "recommended_body_sections": [
-    "Mother question",
-    "Frozen inputs and scope",
-    "Hard target and required outputs",
-    "Research value to preserve",
-    "Success, kill, and return criteria"
-  ],
-  "body_style_required": false
+  }
 }

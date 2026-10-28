@@ -4,24 +4,6 @@
 
 [英文版](CONTRIBUTING.md)
 
-## 代理与项目任务入口
-
-`AGENTS.md` 仅提供入口。按当前任务选择适用的公开项目指引，复用仍有效的已读上下文。账户通用要求通过用户授权的账户入口读取；公开贡献者无需访问私有知识库。
-
-| 当前工作 | 公开项目入口 |
-|---|---|
-| 研究推进与成果保全 | [现行研究协议](docs/PORTABLE_RESEARCH_PROTOCOL.md) |
-| 项目原生语义 | [P000](p000_reality_foundation.json) 及其声明的配套契约；研究时的[心跳世界](definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json) |
-| 候选冻结前的 FREE | [仅原始基底入口](definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md) |
-| 正式任务或控制操作 | [架构与角色](docs/RESEARCH_ARCHITECTURE.md)、[现行控制优先级](control_plane/current_control_authority.json)、[运行状态机](docs/RESEARCH_RUNTIME_STATE_MACHINE.md)、[V2 发布协议](docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md) |
-| 研究身份与活动 | [角色身份](docs/RESEARCH_IDENTITY_PROTOCOL.md)、[活动持久化](docs/RESEARCH_ACTIVITY_PROTOCOL.md) |
-| BRC 残差拟合 | [原生 X6 语义对齐](research_notes/BRC_NATIVE_X6_SEMANTIC_ALIGNMENT_20261002_9D72AC.md) |
-| Driver 组织与续接 | [研究线职责](docs/CODEX_RESEARCH_ORCHESTRATION.zh-CN.md)、[Source 续接协议](docs/RESEARCH_CONTINUATION_PROTOCOL.md) |
-| 工具与来源操作 | [工具复用协议](docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md)、[GitHub 与来源读取协议](docs/GITHUB_INTERACTION_BUDGET.md) |
-| 无正式绑定的维护汇报 | [汇报适用范围](docs/CHATGPT_ORDINARY_CONTROL.zh-CN.md#8-最终回复前的只读检查) |
-
-选定任务后，从精确任务书、现行不可变发布及首个必要依赖开始，出现具体需要时再扩展。下方“从小问题开始”的前人工作目录适用于普通定向贡献；FREE Phase A 在冻结前走原始基底入口。既有正式角色、任务与所有权绑定仍按各自规范核验。普通汇报和不改变共享状态的自由推导不宣称取得这些权限。构建、测试命令及贡献操作保留在本指引与引用的项目文档中。
-
 ## 你不需要赞同整个理论
 
 最有价值的贡献完全可能是证明某个候选规则错误。

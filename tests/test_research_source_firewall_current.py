@@ -291,7 +291,7 @@ class RuntimeWrapperTests(unittest.TestCase):
         self.assertEqual(base, {key: out[key] for key in base})
         transport = out["startup_transport"]
         self.assertEqual("ENTERPRISE_MATH_RESEARCH_STARTUP_TRANSPORT_V2", transport["schema"])
-        self.assertNotIn("taskbook_policy_digest_impact", transport)
+        self.assertEqual("NONE_CONTROL_TRANSPORT_ONLY", transport["taskbook_policy_digest_impact"])
         availability = transport["task_availability_authority"]
         self.assertEqual("CANONICAL_RESEARCH_CONTROL_DISPATCH_OUTPUT_ONLY", availability["authority"])
         self.assertFalse(availability["manual_override_allowed"])

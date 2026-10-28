@@ -1,7 +1,8 @@
-"""Retire X6 presentation-only holds while retaining real publication defects.
+"""Owner-directed isolation of six current, invalid X6 publications.
 
-All mutation probes use temporary fixtures or in-memory projections. Immutable
-repository research records, claims, Results and reviews are never rewritten.
+These tests do not declare the publications historically nonoperational and do
+not supply replacement research semantics. Mutation probes are in memory or in
+temporary fixtures; immutable repository publications are never rewritten.
 """
 from __future__ import annotations
 
@@ -56,29 +57,53 @@ class X6CurrentPublicationIntegrityIsolationTests(unittest.TestCase):
     def setUpClass(cls):
         research_control_bootstrap.install(ROOT)
 
-    def test_six_original_records_and_heading_diagnostics_remain_historical(self):
-        rows = isolation.quarantine_rows(ROOT)
+    def test_six_exact_records_and_four_actual_errors_are_pinned(self):
+        rows = isolation.validated_quarantines(ROOT)
         for task_id, publication_id in EXPECTED.items():
             with self.subTest(task_id=task_id):
                 row = rows[task_id]
                 self.assertEqual(publication_id, row["publication_id"])
                 self.assertEqual(ERRORS, row["allowed_task_record_audit_errors"])
-                _, body = record_core.research_taskbook.split_taskbook((ROOT / row["taskbook_path"]).read_text())
-                self.assertEqual([], record_core.validate_body(body))
-                self.assertNotIn(task_id, isolation.validated_quarantines(ROOT))
+                body = (ROOT / row["taskbook_path"]).read_text(encoding="utf-8")
+                self.assertEqual(ERRORS, record_core.validate_body(body))
+                self.assertIsNone(row["operational_publication_id"])
+                for flag in (
+                    "working_truth_granted", "foundation_authority_granted",
+                    "canonical_promotion_granted", "successor_triggered",
+                ):
+                    self.assertIs(row[flag], False)
 
-    def test_retired_style_rows_have_no_remaining_publication_or_dispatch_effect(self):
+    def test_only_the_six_current_definitions_change_and_are_blocked(self):
         from tools import research_dispatch, research_task_records
+        from tools import research_runtime_reducer as reducer
+
         with without_new_rows():
             before_current = research_task_records.current_records(ROOT)
             before = {item["task_id"]: item for item in research_dispatch.merged_definitions(ROOT)}
         after_current = research_task_records.current_records(ROOT)
         after = {item["task_id"]: item for item in research_dispatch.merged_definitions(ROOT)}
-        self.assertEqual(before_current, after_current)
-        self.assertEqual(before, after)
+        self.assertEqual(set(EXPECTED), set(before_current) - set(after_current))
+        self.assertEqual({k: v for k, v in before_current.items() if k not in EXPECTED}, after_current)
+        self.assertEqual(set(before), set(after))
+        self.assertEqual(
+            {k: v for k, v in before.items() if k not in EXPECTED},
+            {k: v for k, v in after.items() if k not in EXPECTED},
+        )
         for task_id, publication_id in EXPECTED.items():
-            self.assertEqual(publication_id, after_current[task_id]["publication_id"])
-            self.assertEqual("READY", after[task_id]["base_state"])
+            with self.subTest(task_id=task_id):
+                self.assertEqual("READY", before[task_id]["base_state"])
+                item = after[task_id]
+                self.assertEqual("BLOCKED", item["base_state"])
+                self.assertIsNone(item["publication_id"])
+                self.assertEqual([publication_id], item["publication_ids"])
+                self.assertEqual("TASK_INTEGRITY_QUARANTINE", item["registration_source"])
+                # This is a projection probe, not a claim about live Issue events.
+                state = research_dispatch.reduce_definition(
+                    item, [], now=reducer.parse_time("2026-09-07T08:20:00Z"), root=ROOT,
+                )
+                self.assertEqual("BLOCKED", state["state"])
+                self.assertIsNone(state["publication_id"])
+                self.assertIsNone(state["claim_id"])
 
     def test_unrelated_authenticated_claim_keeps_its_winner(self):
         from tools import research_dispatch as dispatch
@@ -129,11 +154,13 @@ class X6CurrentPublicationIntegrityIsolationTests(unittest.TestCase):
         self.assertEqual(payload["claim_id"], after["claim_id"])
         self.assertEqual("LEASED", after["dispatch_state"])
 
-    def test_retired_heading_errors_need_no_envelope_or_audit_exception(self):
+    def test_twenty_four_errors_require_the_new_validated_isolation(self):
+        rows = isolation.validated_quarantines(ROOT)
+        expected = {f"{rows[task]['record_path']}: {error}" for task in EXPECTED for error in ERRORS}
         with without_new_rows():
-            self.assertEqual([], envelope.audit(ROOT))
+            self.assertEqual(expected, set(envelope.audit(ROOT)))
         self.assertEqual([], envelope.audit(ROOT))
-        self.assertFalse(any("mandatory body section" in e for e in isolation.suppression_strings(ROOT)))
+        self.assertTrue(expected <= isolation.suppression_strings(ROOT))
 
     def test_record_and_taskbook_pin_drift_fail_closed(self):
         for field in ("record_blob_sha1", "taskbook_blob_sha1"):
@@ -145,7 +172,7 @@ class X6CurrentPublicationIntegrityIsolationTests(unittest.TestCase):
                         isolation.validated_quarantines(ROOT)
                     self.assertTrue(any("blob drift" in item for item in envelope.audit(ROOT)))
 
-    def test_retired_missing_style_is_ignored_but_invented_error_still_fails(self):
+    def test_missing_and_invented_error_suppressions_fail_strict_audit(self):
         task_id = next(iter(EXPECTED))
         for extra in (False, True):
             with self.subTest(extra=extra):
@@ -159,19 +186,15 @@ class X6CurrentPublicationIntegrityIsolationTests(unittest.TestCase):
                     marker = row["record_path"] + ": " + removed
                 with mock.patch.object(isolation, "quarantine_rows", return_value=rows):
                     errors = isolation.audit_task_records(ROOT)
-                if extra:
-                    self.assertTrue(any(marker in item for item in errors), errors)
-                else:
-                    self.assertFalse(any(marker in item for item in errors), errors)
+                self.assertTrue(any(marker in item for item in errors), errors)
         # The early envelope gate is not the strict error-set validator; both
         # existing gates are required. No broader exception is introduced here.
 
     def test_new_bad_record_does_not_inherit_existing_exceptions(self):
         exceptions = envelope._validated_exception_paths(ROOT)
         self.assertEqual([], exceptions[-1])
-        row = isolation.quarantine_rows(ROOT)[next(iter(EXPECTED))]
+        row = isolation.validated_quarantines(ROOT)[next(iter(EXPECTED))]
         record = json.loads((ROOT / row["record_path"]).read_text(encoding="utf-8"))
-        record["record_schema"] = "INVALID_SCHEMA"
         new_task = "RS-OWNER-UNREGISTERED-BAD-PUBLICATION-FIXTURE"
         new_pub = "TP2-OWNER-UNREGISTERED-BAD-FIXTURE"
         body = (ROOT / row["taskbook_path"]).read_text(encoding="utf-8").replace(record["task_id"], new_task)
@@ -193,7 +216,7 @@ class X6CurrentPublicationIntegrityIsolationTests(unittest.TestCase):
             ):
                 found = envelope.audit(root)
         prefix = f"research_task_records/{new_task}/{new_pub}.json: "
-        self.assertTrue(any(e.startswith(prefix) and "live task record must use record_schema" in e for e in found), found)
+        self.assertEqual({prefix + error for error in ERRORS}, set(found))
 
 
 if __name__ == "__main__":

@@ -67,8 +67,9 @@ def run_case(case):
         # Existing helper makes a real independently blocked semantic fixture;
         # canonical bootstrap/validators run, with no authority grants mocked.
         _write_semantic_fixture(root)
-        capture("research_taskbook_policy.json")
-        capture("research_taskbook_contract.json")
+        policy = capture("research_taskbook_policy.json")
+        for relative in policy["policy_inputs"]:
+            capture(relative)
         # Guard keeps its immutable legacy membership contract, not timestamps.
         baseline = capture("research_driver_followup_legacy_reviews.json")
         raw_reviews = research_result_records._base._RAW_ITER_REVIEWS(REPO)
