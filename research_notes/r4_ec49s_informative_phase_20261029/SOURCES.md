@@ -1,0 +1,7 @@
+# EC49S sources and scoped comparison
+
+1. Original scientific parent: EC49R author-side evidence, PR #1660, exact head e02d9fd7e6d72916020d2868d610974a4ec41758, https://github.com/awdawmip/enterprise-math/pull/1660 . The η=1/200 model and original total-variation certificate 49/7200 are reused as stated; EC49S derives the exact optimum and the all-η phase diagram in that same protocol.
+2. Anderson, Ryan A.; Guido Montúfar. "The Value Function Semi-Algebraic Set in Partially Observable Markov Decision Processes." ICML 2026, PMLR 306:2677–2715, https://proceedings.mlr.press/v306/anderson26a.html ; arXiv:2606.03048. Infinite-horizon memoryless POMDP value-set geometry, different result.
+3. Bork, Alexander; Joost-Pieter Katoen; Tim Quatmann; Svenja Stein. "Multi-Cost-Bounded Reachability Analysis of POMDPs." UAI 2025, PMLR 286:355–387, https://proceedings.mlr.press/v286/bork25a.html . Multi-resource reachability, not a proof of this finite cost-code support gap.
+4. Canonical rules pinned at study entry: GLOBAL_KNOWLEDGE_V1 main@794471c0becbb4e592926210e952855ebc858da6 (00_BOOTSTRAP, OPERATING_MANUAL, project P000/ACTIVE, MATH_RESEARCH_POLICY); Enterprise Math main@a64342a6b2c72856b4d76b4c955d03bb1799c364 (PORTABLE_RESEARCH_PROTOCOL, AUTONOMOUS_RESEARCH_OPERATIONS).
+5. The publisher pages were checked 2026-10-29. Prior-art and novelty reviews remain separate from mathematical correctness; no independent originality or theorem acceptance is claimed.
