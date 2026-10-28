@@ -1,0 +1,309 @@
+{
+  "schema": "PREFIX314_FOUR_CONTACT_BRC_AND_GENERIC_GAUGE_V1",
+  "scope": "auxiliary S7-3 q=1 Q(i)^3, five exact Q0 and ten Q1/Qi with |error|<=1",
+  "input_port_matrix": "PREFIX313 A/8 S7-3",
+  "source_pins": {
+    "PREFIX313_PROOF_BLOB": "2b46147df679f8702a72af6442d4ab577e1fe508",
+    "PREFIX313_CODE_BLOB": "6fb88ab539b0d8ae91b6ad1f7b2c9328a6fd4215",
+    "PREFIX313_RESULTS_BLOB": "1e708b461742b55e8bc3a75c387b6339cfdfd689"
+  },
+  "source_states": [
+    [
+      [
+        "-8/9",
+        "0"
+      ],
+      [
+        "0",
+        "-8/9"
+      ],
+      [
+        "4/9",
+        "0"
+      ]
+    ],
+    [
+      [
+        "0",
+        "-8/9"
+      ],
+      [
+        "8/9",
+        "0"
+      ],
+      [
+        "0",
+        "4/9"
+      ]
+    ],
+    [
+      [
+        "0",
+        "8/9"
+      ],
+      [
+        "8/9",
+        "0"
+      ],
+      [
+        "0",
+        "-4/9"
+      ]
+    ],
+    [
+      [
+        "-8/9",
+        "0"
+      ],
+      [
+        "0",
+        "8/9"
+      ],
+      [
+        "4/9",
+        "0"
+      ]
+    ]
+  ],
+  "common_baseline": [
+    "32/81",
+    "20/81",
+    "37/162",
+    "50/81",
+    "85/324"
+  ],
+  "common_references": {
+    "Q1": [
+      "113/81",
+      "83/81",
+      "217/162",
+      "185/81",
+      "535/324"
+    ],
+    "Qi": [
+      "113/81",
+      "101/81",
+      "199/162",
+      "185/81",
+      "409/324"
+    ]
+  },
+  "all_brc_values": [
+    {
+      "port": 0,
+      "Q0": "32/81",
+      "references": {
+        "Q1": {
+          "values": [
+            "41/81",
+            "185/81",
+            "185/81",
+            "41/81"
+          ],
+          "range": "16/9",
+          "common_observation": "113/81"
+        },
+        "Qi": {
+          "values": [
+            "41/81",
+            "41/81",
+            "185/81",
+            "185/81"
+          ],
+          "range": "16/9",
+          "common_observation": "113/81"
+        }
+      }
+    },
+    {
+      "port": 1,
+      "Q0": "20/81",
+      "references": {
+        "Q1": {
+          "values": [
+            "137/81",
+            "29/81",
+            "29/81",
+            "137/81"
+          ],
+          "range": "4/3",
+          "common_observation": "83/81"
+        },
+        "Qi": {
+          "values": [
+            "173/81",
+            "137/81",
+            "65/81",
+            "29/81"
+          ],
+          "range": "16/9",
+          "common_observation": "101/81"
+        }
+      }
+    },
+    {
+      "port": 2,
+      "Q0": "37/162",
+      "references": {
+        "Q1": {
+          "values": [
+            "325/162",
+            "289/162",
+            "109/162",
+            "325/162"
+          ],
+          "range": "4/3",
+          "common_observation": "217/162"
+        },
+        "Qi": {
+          "values": [
+            "109/162",
+            "325/162",
+            "73/162",
+            "109/162"
+          ],
+          "range": "14/9",
+          "common_observation": "199/162"
+        }
+      }
+    },
+    {
+      "port": 3,
+      "Q0": "50/81",
+      "references": {
+        "Q1": {
+          "values": [
+            "257/81",
+            "149/81",
+            "257/81",
+            "113/81"
+          ],
+          "range": "16/9",
+          "common_observation": "185/81"
+        },
+        "Qi": {
+          "values": [
+            "113/81",
+            "257/81",
+            "149/81",
+            "257/81"
+          ],
+          "range": "16/9",
+          "common_observation": "185/81"
+        }
+      }
+    },
+    {
+      "port": 4,
+      "Q0": "85/324",
+      "references": {
+        "Q1": {
+          "values": [
+            "733/324",
+            "337/324",
+            "481/324",
+            "733/324"
+          ],
+          "range": "11/9",
+          "common_observation": "535/324"
+        },
+        "Qi": {
+          "values": [
+            "481/324",
+            "733/324",
+            "85/324",
+            "481/324"
+          ],
+          "range": "2",
+          "common_observation": "409/324"
+        }
+      }
+    }
+  ],
+  "chebyshev_contact_weights": [
+    "2/9",
+    "5/18",
+    "5/18",
+    "2/9"
+  ],
+  "chebyshev_centre": [
+    [
+      "-32/81",
+      "0"
+    ],
+    [
+      "40/81",
+      "0"
+    ],
+    [
+      "16/81",
+      "0"
+    ]
+  ],
+  "chebyshev_r2": "976/729",
+  "pairwise_squared_distances": {
+    "0,1": "32/9",
+    "0,2": "32/9",
+    "0,3": "256/81",
+    "1,2": "320/81",
+    "1,3": "32/9",
+    "2,3": "32/9"
+  },
+  "squared_half_diameter": "80/81",
+  "affine_gram_det": "1310720/59049",
+  "generic_gauge_J32": [
+    [
+      "32",
+      "32",
+      "0",
+      "0",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "-16",
+      "0",
+      "16"
+    ],
+    [
+      "48",
+      "0",
+      "0",
+      "28",
+      "6"
+    ],
+    [
+      "-16",
+      "32",
+      "16",
+      "16",
+      "8"
+    ],
+    [
+      "-2",
+      "0",
+      "0",
+      "19",
+      "33"
+    ]
+  ],
+  "generic_gauge_det": "-1287/2048",
+  "generic_complex_gauge_root_bound": 32,
+  "generic_nonzero_first_source_phase_orbit_bound": 16,
+  "global_minimax_pair_lower_bound_unimproved": "1062562/458329",
+  "full_five_port_gram_diag": [
+    "31/32",
+    "1",
+    "63/64"
+  ],
+  "direct_brc_counts": {
+    "ordered_brc_mass_pairs": 820,
+    "mass_readings": 60,
+    "ordered_jacobian_pairs": 225,
+    "jacobian_product_terms": 450,
+    "gram_entries": 9
+  },
+  "native_result_or_driver_admission": false,
+  "result": "PASS"
+}
