@@ -11,11 +11,12 @@ from fractions import Fraction
 
 def trace_availability(state, at, comment_id):
     eligible = state.get("state") in {"READY", "HANDOFF_READY"} and not state.get("claim_id")
+    owner_present = bool(state.get("claim_id"))
     trace = state["scheduling_trace"]
     previous = next((item for item in reversed(trace) if item["event"] == "AVAILABLE"), None)
-    if previous is None or previous["eligible"] != eligible:
+    if previous is None or (previous["eligible"], previous.get("owner_present")) != (eligible, owner_present):
         trace.append(dict(event="AVAILABLE", at=at, comment_id=comment_id,
-                          phase=2, eligible=eligible))
+                          phase=2, eligible=eligible, owner_present=owner_present))
 
 
 def trace_claim(state, claim_id, at, comment_id):
@@ -31,12 +32,74 @@ def target_key(state):
                  ("task_id", "execution_cohort_id", "execution_lane_id"))
 
 
-def _clock(value):
+def lifecycle_clock(value):
     try:
+        if isinstance(value, datetime):
+            return value
         at = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
         return at.replace(tzinfo=timezone.utc) if at.tzinfo is None else at
     except (ValueError, TypeError):
-        return datetime(1970, 1, 1, tzinfo=timezone.utc)
+        return None
+
+
+def _clock(value):
+    return lifecycle_clock(value) or datetime(1970, 1, 1, tzinfo=timezone.utc)
+
+
+def canonical_availability(state, *, source, closed_at=None, reopened_at=None,
+                           opened_at=None, now=None):
+    """Project canonical lifecycle boundaries without changing runtime authority.
+
+    Unknown overlay time cannot establish any earlier availability: retain the
+    accepted service events but suppress that unproved eligibility interval and
+    report the degradation. Merely appending false at now would leave ghost debt.
+    """
+    trace = state.get("scheduling_trace")
+    if trace is None:
+        state["scheduling_history_degraded"] = source + ":MISSING_TRACE"
+        return state
+    raw = [dict(item) for item in trace]
+    unknown_close = closed_at is None and opened_at is None
+    if unknown_close:
+        state["scheduling_history_degraded"] = source + ":UNKNOWN_OVERLAY_START"
+    def underlying(at):
+        # Source lifecycle edges precede Issue comments admitted at that same
+        # timestamp (CLAIM gates use at >= reviewed_at). Expiry/base markers
+        # already use comment_id=0 and therefore belong to the boundary itself.
+        entries = [e for e in raw if e["event"] == "AVAILABLE" and
+                   (_clock(e["at"]) < at or
+                    (_clock(e["at"]) == at and not e.get("comment_id")))]
+        return max(entries, key=lambda e: (_clock(e["at"]), e.get("comment_id") or 0, e["phase"])) if entries else {}
+    projected = []
+    for item in raw:
+        if item["event"] == "AVAILABLE":
+            at = _clock(item["at"])
+            before_open = opened_at is not None and at < opened_at
+            after_close = unknown_close or (closed_at is not None and at >= closed_at)
+            before_reopen = reopened_at is None or at < reopened_at
+            if before_open or (after_close and before_reopen):
+                item["eligible"] = False
+        projected.append(item)
+    if opened_at is not None:
+        value = underlying(opened_at)
+        projected.append(dict(event="AVAILABLE", eligible=bool(value.get("eligible")),
+            owner_present=bool(value.get("owner_present")), at=opened_at.isoformat(), comment_id=0, phase=0))
+    if closed_at is not None:
+        projected.append(dict(event="AVAILABLE", eligible=False,
+            at=closed_at.isoformat(), comment_id=0, phase=0))
+    if reopened_at is not None:
+        # Review reopens claimless work; it never makes a live lease available.
+        value = underlying(reopened_at)
+        projected.append(dict(event="AVAILABLE", eligible=not value.get("owner_present", False),
+            owner_present=bool(value.get("owner_present")), at=reopened_at.isoformat(), comment_id=0, phase=0))
+    elif unknown_close and state.get("dispatch_state") == "NEEDS_DISPATCH" and isinstance(now, datetime):
+        # Current eligibility is known, its past start is not. This is an honest
+        # current boundary, not a fabricated historical reopening timestamp.
+        projected.append(dict(event="AVAILABLE", eligible=True,
+            at=now.isoformat(), comment_id=0, phase=0))
+    state["scheduling_trace"] = projected
+    state["scheduling_availability_source"] = source
+    return state
 
 
 def directions(states):
@@ -74,10 +137,21 @@ def select(states, candidates, weights):
     available = set()
     history = []
     missing = 0
+    degradation_reasons = set()
     for key, state in by_key.items():
         trace = state.get("scheduling_trace")
-        if trace is None:
+        available_entries = [e for e in trace or [] if e["event"] == "AVAILABLE"]
+        last_available = max(available_entries, key=lambda e: (_clock(e["at"]), e.get("comment_id") or 0, e["phase"])) if available_entries else None
+        if (state.get("dispatch_state") not in {"NEEDS_DISPATCH", "LEASED"}
+                and last_available and last_available["eligible"]):
+            # Compatibility for callers supplying an older canonical projection
+            # without lifecycle timestamps. Never trust its reducer-only tail.
+            state = canonical_availability(dict(state), source="UNRECONCILED_CANONICAL_OVERLAY")
+            trace = state["scheduling_trace"]
+        if trace is None or state.get("scheduling_history_degraded"):
             missing += 1
+            degradation_reasons.add(state.get("scheduling_history_degraded") or "MISSING_TRACE")
+        if trace is None:
             if state.get("dispatch_state") == "NEEDS_DISPATCH":
                 available.add(key)
         for index, item in enumerate(trace or []):
@@ -140,6 +214,7 @@ def select(states, candidates, weights):
         "weights": dict(weights), "successful_claims": len(successful),
         "priority_credit": {p: str(credits[p]) for p in weights},
         "direction": group, "missing_history_tasks": missing,
+        "degraded_history_reasons": sorted(degradation_reasons),
         "direction_basis": "EXPLICIT_PARENT_CHAIN" if winner.get("parent_task_id") else "EXACT_TASK_ID",
         "history_scope": "CURRENT_AUTHENTICATED_PUBLICATION_AND_LANE_REPLAY",
         "atomic_global_quota": False,

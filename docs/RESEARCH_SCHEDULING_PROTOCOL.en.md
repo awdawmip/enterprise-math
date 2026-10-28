@@ -16,6 +16,8 @@ This is an advisory weighted selector, not an atomic global quota or a new refus
 
 Historical accounting is limited to the authenticated current-publication/lane replay already admitted by the canonical reducer. An older publication's filtered-out claims cannot be asserted valid from its task name. Missing availability/history/parent metadata is reported in `fair_selection` and falls back to currently visible tasks; historical dependency or publication changes without retained transitions cannot establish exact past eligibility. Raw events, scientific conclusions, publication authority and old task records are unchanged. Owner lease and conversation liveness remain independent; claim expiry releases ownership but does not automatically execute or resume a job.
 
+Canonical Result/Review freeze and reopen timestamps also bound availability: raw READY or lease-expiry traces cannot accrue shares while canonical work is complete or awaiting review. Cohort opening and lane-result freeze times similarly bound lane service. If an overlay's start time is unavailable, that task's unproved availability interval is excluded and the degraded-history reason is reported; accepted CLAIM facts remain counted. Appending a false marker only at the current time would preserve past ghost debt and is insufficient.
+
 ## Registered HANDOFF intent
 
 HANDOFF terminality is machine-explicit. Natural-language `next_action`, `summary`, and `progress_ref` are descriptive evidence only and never decide whether the owner is returning work for Driver review or handing it to another researcher.

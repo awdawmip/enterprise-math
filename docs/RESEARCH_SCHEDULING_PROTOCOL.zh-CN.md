@@ -16,6 +16,8 @@ Issue #240 的运行态变更必须来自经服务器认证、未编辑且属于
 
 历史计账范围是 canonical reducer 已准入的当前发布代次/lane 认证事件；不能凭任务名字把已被过滤的旧发布 CLAIM 当作有效历史。`fair_selection` 明示缺失历史/可用状态/父链时的退化，退回当前可见任务。历史依赖或发布变化若没有保留状态转移，无法证明过去的精确可领取性。原事件、科学结论、发布权限及旧任务记录不变。owner lease 与会话存活仍相互独立；claim 过期释放归属，不会自动执行或恢复 job。
 
+canonical Result/Review 的 freeze/reopen 时间也约束可领取区间：任务完成或等待审查期间，原始 READY、租约过期轨迹不能继续累积份额。cohort 开启及 lane Result freeze 时间同样约束 lane 可用期。覆盖状态缺少开始时间时，排除该任务未经证明的可用区间并报告历史降级原因，仍保留成功 CLAIM 事实；只在当前时间追加 false 无法消除过去的幽灵欠账。
+
 ## 已注册 HANDOFF 的意图
 
 HANDOFF 的终态意图必须由机器可读字段明确表达。自然语言字段 `next_action`、`summary` 和 `progress_ref` 仅提供描述性证据，不能决定 owner 是将工作返回给 Driver 审查，还是交给另一位研究员继续。

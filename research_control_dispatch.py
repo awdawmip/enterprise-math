@@ -691,6 +691,8 @@ def route_control(
             if kind != "ANY" and state.get("kind") != kind:
                 continue
             if state.get("dispatch_state") == "COHORT_ACTIVE":
+                # Preserve prior task-global successful service as history only.
+                fair_states.append(state)
                 for lane in research_lane_dispatch.lane_states(state["task_id"], events, now=now, root=root):
                     fair_states.append({**lane, "kind": state.get("kind"),
                                         "priority": state.get("priority"),

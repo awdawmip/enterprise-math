@@ -356,6 +356,7 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 - `tools/check_exact_arithmetic_policy.py`
 - `tools/check_references.py`
 - `tools/check_research_common_surface.py`
+- `tools/research_fair_selection.py` — canonical 调度的只读加权机会计账，不授予执行权限。
 - `tools/heartbeat_world_library.py`
 - `tools/research_identity.py`
 - `tools/research_taskbook.py`

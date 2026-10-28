@@ -234,6 +234,7 @@ class FairSelectionTests(unittest.TestCase):
         with patch.object(core, "_parse_taskbook", return_value=meta):
             definition = router.research_dispatch._ORIGINAL_REGISTERED_DEFINITION(record)
         self.assertNotIn("parent_task_id", definition)
+
         raw_state = {"task_id": "child"}
         with patch.object(core, "_dispatch_result_read_snapshot", side_effect=lambda root: nullcontext()), \
              patch.object(core, "merged_definitions", return_value=[definition]), \
@@ -242,6 +243,98 @@ class FairSelectionTests(unittest.TestCase):
             states = core.effective_states([], now=BASE)
         self.assertEqual(states[0]["parent_task_id"], "parent")
         self.assertNotIn("parent_task_id", definition)
+
+    def canonical(self, source, result_state, events=(), now=None):
+        from tools import research_dispatch_core as core
+        events = copy.deepcopy(list(events))
+        for e in events:
+            e["_github"].update(server_authenticated=True, control_authorized=True,
+                                 issue_number=240, edited=False)
+        with patch.object(core.research_result_records, "task_result_state", return_value=result_state), \
+             patch.object(core.research_result_records, "iter_results", return_value=[]), \
+             patch.object(core, "_filter_registered_events", side_effect=lambda task, events, *args: (events, [])), \
+             patch.object(core, "_overlay_active_cohort", side_effect=lambda task, state, root: state):
+            return core.reduce_definition(source, list(events), now=now or BASE + timedelta(seconds=1000))
+
+    def test_terminal_unknown_time_cannot_leave_ghost_priority_or_direction_debt(self):
+        source = {**task("old-p3", "P3"), "registration_source": "IMMUTABLE_TASK_RECORD"}
+        old = self.canonical(source, dict(state="TERMINAL", result={"result_id": "RR-old"}))
+        self.assertEqual(old["dispatch_state"], "COMPLETE")
+        live = reduce(task("p0", "P0"))
+        for n in range(100):
+            service(live, 3*n+1)
+        newcomer = reduce(task("new-p3", "P3"))
+        newcomer["scheduling_trace"][0]["at"] = (BASE + timedelta(seconds=400)).isoformat()
+        selected = rr.select_state([old, live, newcomer], POLICY)
+        self.assertEqual(selected["task_id"], "p0")
+        self.assertEqual(selected["fair_selection"]["priority_credit"], {"P0":"0", "P1":"0", "P2":"0", "P3":"0"})
+        self.assertEqual(selected["fair_selection"]["missing_history_tasks"], 1)
+        # Direct consumers of an older canonical projection are also safe.
+        ghost = {**reduce(source), "dispatch_state": "COMPLETE", "state": "DONE"}
+        selected = rr.select_state([ghost, live, newcomer], POLICY)
+        self.assertEqual(selected["fair_selection"]["priority_credit"]["P3"], "0")
+
+    def test_known_freeze_clips_expiry_and_preserves_claim_count(self):
+        source = {**task("closed", "P3"), "registration_source": "IMMUTABLE_TASK_RECORD"}
+        frozen = BASE + timedelta(seconds=20)
+        events = [event("closed", "CLAIM", 1, "old", lease_minutes=1)]
+        for status in ("TERMINAL", "AWAITING_DRIVER_REVIEW", "ACCEPTED_RESULT_TASK_INCOMPLETE"):
+            lifecycle = dict(state=status, result=dict(result_id="RR-old", frozen_at=frozen.isoformat()),
+                             review={"disposition":"ACCEPTED"})
+            closed = self.canonical(source, lifecycle, events)
+            avail = [e for e in closed["scheduling_trace"] if e["event"] == "AVAILABLE" and fair._clock(e["at"]) >= frozen]
+            self.assertTrue(avail)
+            self.assertFalse(any(e["eligible"] for e in avail))
+            self.assertEqual(len([e for e in closed["scheduling_trace"] if e["event"] == "CLAIM"]), 1)
+
+    def test_completed_direction_cannot_lend_ghost_credit_to_new_child(self):
+        source = {**task("old-direction", "P1"), "registration_source": "IMMUTABLE_TASK_RECORD"}
+        old = self.canonical(source, dict(state="TERMINAL", result={"result_id":"RR"}))
+        live = reduce(task("live-direction", "P1"))
+        for n in range(100):
+            service(live, 3*n+1)
+        child = reduce(task("new-child", "P1", parent_task_id="old-direction"))
+        child["last_progress_at"] = (BASE+timedelta(seconds=400)).isoformat()
+        child["scheduling_trace"][0]["at"] = child["last_progress_at"]
+        self.assertEqual(rr.select_state([old, live, child], POLICY)["task_id"], "live-direction")
+        service(live, 401)
+        self.assertEqual(rr.select_state([old, live, child], POLICY)["task_id"], "new-child")
+
+    def test_lane_open_and_freeze_are_real_availability_boundaries(self):
+        from tools import research_lane_dispatch as lanes
+        cohort = dict(cohort_id="co", opened_at=(BASE+timedelta(seconds=20)).isoformat(),
+                      lanes=[dict(lane_id="lane", publication_id="TP2")])
+        raw = reduce(task("lane-task", "P3"))
+        frozen = dict(result_id="RR", frozen_at=(BASE+timedelta(seconds=30)).isoformat())
+        with patch.object(lanes.research_cohort_runtime, "active_cohorts", return_value=[cohort]), \
+             patch.object(lanes.research_cohort_runtime, "lane_results", return_value=[frozen]), \
+             patch.object(lanes.research_lane_claims, "reduce_lane", side_effect=lambda *a, **kw:copy.deepcopy(raw)):
+            projected = lanes.lane_states("lane-task", [], now=BASE+timedelta(seconds=40))[0]
+        for e in projected["scheduling_trace"]:
+            if e["event"] == "AVAILABLE" and e["eligible"]:
+                self.assertGreaterEqual(fair._clock(e["at"]), BASE+timedelta(seconds=20))
+                self.assertLess(fair._clock(e["at"]), BASE+timedelta(seconds=30))
+        self.assertEqual(projected["dispatch_state"], "AWAITING_COHORT_REFERENCE")
+
+    def test_review_reopens_at_its_real_clock_without_preempting_live_lease(self):
+        source = {**task("reopen", "P1"), "registration_source": "IMMUTABLE_TASK_RECORD"}
+        lifecycle = dict(state="RETURN_TO_EXECUTION", result=dict(result_id="RR", frozen_at=(BASE+timedelta(seconds=20)).isoformat()),
+                         review=dict(disposition="REQUEST_REVISION", reviewed_at=(BASE+timedelta(seconds=100)).isoformat()))
+        opened = self.canonical(source, lifecycle)
+        for e in opened["scheduling_trace"]:
+            if e["event"] == "AVAILABLE" and 20 <= (fair._clock(e["at"])-BASE).total_seconds() < 100:
+                self.assertFalse(e["eligible"])
+        at_review = [e for e in opened["scheduling_trace"] if e["event"] == "AVAILABLE" and e["at"] == lifecycle["review"]["reviewed_at"]]
+        self.assertTrue(any(e["eligible"] for e in at_review))
+        leased = self.canonical(source, lifecycle, [event("reopen", "CLAIM", 1, "owner")], BASE+timedelta(seconds=120))
+        self.assertEqual(leased["claim_id"], "owner")
+        self.assertEqual(leased["dispatch_state"], "LEASED")
+        self.assertFalse(any(e["eligible"] for e in leased["scheduling_trace"]
+                            if e["event"] == "AVAILABLE" and fair._clock(e["at"]) >= BASE+timedelta(seconds=100)))
+        same_clock = self.canonical(source, lifecycle, [event("reopen", "CLAIM", 100, "new-owner")], BASE+timedelta(seconds=120))
+        self.assertTrue(any(e["eligible"] for e in same_clock["scheduling_trace"]
+                            if e["event"] == "AVAILABLE" and e.get("comment_id") == 0
+                            and e["at"] == lifecycle["review"]["reviewed_at"]))
 
 
 if __name__ == "__main__":
