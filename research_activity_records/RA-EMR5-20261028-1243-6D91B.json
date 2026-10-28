@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR5-20261028-1243-6D91B",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "608a898f2dcf74074d484354d02cc53860557fda",
+          "path": "research_notes/brc_r5_fiberwise_bellman_double_collision_20261028_t1243/VERIFY.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "4bda394f25e0e31658e349fab37bfdff953a3ede6f874daad62fc8c3b0290fe0",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "daf0c217f8a53457acd3c678c915a70019fd6370",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/608a898f2dcf74074d484354d02cc53860557fda/research_notes/brc_r5_fiberwise_bellman_double_collision_20261028_t1243/VERIFY.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-emr5-20261028-1243-verify-code",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR5-20261028-1243-6D91B/readbacks/54b824a7b4f0063fc1818bbe28552c8a5d492ca3daa580627984244ffa302566.json",
+          "verification_receipt_sha256": "54b824a7b4f0063fc1818bbe28552c8a5d492ca3daa580627984244ffa302566"
+        }
+      ],
+      "event_id": "EMR5-20261028-T1243-FIBER-BELLMAN",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-28T12:43:25+08:00",
   "registration_key": "session:local-chat-r5-20261028-t1243-6d91b:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R5-6D91B",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-chat-r5-20261028-t1243-6d91b",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-28T12:43:25+08:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
