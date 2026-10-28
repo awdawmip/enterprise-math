@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "classification": "AUTHOR_SIDE_EXACT_AUXILIARY_BRC_THEOREM_NOT_ADMITTED",
+  "frozen_input": "S7-3; q=1; U=A/8; b0,b2; r=25/54; PREFIX-316 frozen 5 Q0 and 10 Q1/Qi",
+  "global_knowledge_main_read_pin": "a796bc2faf7883195bf45b70fd6502ef5e22bfe4",
+  "enterprise_math_current_main_read_pin": "f75dae1d65ef842089950d0a440c61cab20e42e2",
+  "underlying_PREFIX317_science_pin": "dedcf9f123adbc065324ee57fb8676acafcf4f8a",
+  "port1_imag_band_x_plus_y": {
+    "p": "7187/7825",
+    "q": "-1943/1565"
+  },
+  "p": [
+    "7187/15650 - sqrt(70808281)/15650",
+    "7187/15650 + sqrt(70808281)/15650"
+  ],
+  "q": [
+    "-1943/3130 - sqrt(1123201)/3130",
+    "-1943/3130 + sqrt(1123201)/3130"
+  ],
+  "contact_source_states": [
+    [
+      "(1 - I)*(sqrt(70808281) - 7187*I)/16902",
+      "(1 - I)*(7187 + sqrt(70808281)*I)/16902",
+      "(1 - I)*(-sqrt(70808281) + 7187*I)/33804"
+    ],
+    [
+      "(1 - I)*(7187 - sqrt(70808281)*I)/16902",
+      "(1 - I)*(-sqrt(70808281) - 7187*I)/16902",
+      "(-7187 + sqrt(70808281)*I)*(1 - I)/33804"
+    ],
+    [
+      "5*(1 - I)*(sqrt(1123201) + 1943*I)/16902",
+      "5*(-1943 + sqrt(1123201)*I)*(1 - I)/16902",
+      "5*(1 - I)*(-sqrt(1123201) - 1943*I)/33804"
+    ],
+    [
+      "5*(-1943 - sqrt(1123201)*I)*(1 - I)/16902",
+      "5*(1 - I)*(-sqrt(1123201) + 1943*I)/16902",
+      "5*(1 - I)*(1943 + sqrt(1123201)*I)/33804"
+    ]
+  ],
+  "center": [
+    "20*I*(-16420293*sqrt(70808281) - 60737337*sqrt(1123201) - 1264*sqrt(79531932027481) + 48609131024)/(76059*(-5*sqrt(79531932027481) - 9390*sqrt(1123201) + 1878*sqrt(70808281) + 192282955))",
+    "25*I*(-1264*sqrt(79531932027481) + 48609131024 + 60737337*sqrt(1123201) + 16420293*sqrt(70808281))/(76059*(-5*sqrt(79531932027481) - 9390*sqrt(1123201) + 1878*sqrt(70808281) + 192282955))",
+    "10*I*(-48609131024 + 1264*sqrt(79531932027481) + 60737337*sqrt(1123201) + 16420293*sqrt(70808281))/(76059*(-5*sqrt(79531932027481) - 9390*sqrt(1123201) + 1878*sqrt(70808281) + 192282955))"
+  ],
+  "contact_weights": [
+    "5*(-9*sqrt(79531932027481) - 26617*sqrt(1123201) + 1943*sqrt(70808281) + 346109319)/(36*(-5*sqrt(79531932027481) - 9390*sqrt(1123201) + 1878*sqrt(70808281) + 192282955))",
+    "5*(-9*sqrt(79531932027481) - 26617*sqrt(1123201) + 1943*sqrt(70808281) + 346109319)/(36*(-5*sqrt(79531932027481) - 9390*sqrt(1123201) + 1878*sqrt(70808281) + 192282955))",
+    "(-45*sqrt(79531932027481) - 35935*sqrt(1123201) + 24089*sqrt(70808281) + 1730546595)/(36*(-5*sqrt(79531932027481) - 9390*sqrt(1123201) + 1878*sqrt(70808281) + 192282955))",
+    "(-45*sqrt(79531932027481) - 35935*sqrt(1123201) + 24089*sqrt(70808281) + 1730546595)/(36*(-5*sqrt(79531932027481) - 9390*sqrt(1123201) + 1878*sqrt(70808281) + 192282955))"
+  ],
+  "lambda": "5*(-9*sqrt(79531932027481) - 26617*sqrt(1123201) + 1943*sqrt(70808281) + 346109319)/(18*(-5*sqrt(79531932027481) - 9390*sqrt(1123201) + 1878*sqrt(70808281) + 192282955))",
+  "exact_distance_squared": "125*(-162667779235369 - 13964341*sqrt(79531932027481))/(642774609*(-192282955 - 1878*sqrt(70808281) + 9390*sqrt(1123201) + 5*sqrt(79531932027481)))",
+  "exact_continuous_radius_squared": "125*(-254244589*sqrt(79531932027481) - 372571208550*sqrt(1123201) + 74514241710*sqrt(70808281) + 6978625254508499)/(2571098436*(-5*sqrt(79531932027481) - 9390*sqrt(1123201) + 1878*sqrt(70808281) + 192282955))",
+  "rigorous_interval_radius_squared": [
+    "1565258/1000000",
+    "1565260/1000000"
+  ],
+  "previous_PREFIX317_eight_state_radius_squared": "184807873005625/118075452616116",
+  "strictly_exceeds_previous_finite_certificate": true,
+  "still_below_full_auxiliary_two_state_bound": true,
+  "source_sphere_squared": "625/324",
+  "gaussian_rational_phase_supremum_equals_algebraic_continuous_optimum": true,
+  "arcs": {
+    "b0": {
+      "circle_boundary_intersections": 28,
+      "feasible_endpoints": 4,
+      "closed_feasible_arcs": 2,
+      "all_arcs_in_support_minor_circle_arc": true,
+      "chord_support_exact": true,
+      "algebraic_contact_BRC_checks": [
+        "PASS",
+        "PASS"
+      ]
+    },
+    "b2": {
+      "circle_boundary_intersections": 28,
+      "feasible_endpoints": 6,
+      "closed_feasible_arcs": 3,
+      "all_arcs_in_support_minor_circle_arc": true,
+      "chord_support_exact": true,
+      "algebraic_contact_BRC_checks": [
+        "PASS",
+        "PASS"
+      ]
+    }
+  },
+  "exact_port_gram_entries_checked": 9,
+  "tagged_brc_masses_checked": 60,
+  "tagged_ordered_path_pairs": 820,
+  "no_native_X6_detector_physics_correspondence": true,
+  "theorem_scope": "FIXED_REPORT_FIXED_SCALE_TWO_SOURCE_SHAPES_CONTINUOUS_PHASE_ARCS_ONLY"
+}
