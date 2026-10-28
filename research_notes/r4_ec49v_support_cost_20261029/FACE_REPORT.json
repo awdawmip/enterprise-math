@@ -1,0 +1,31 @@
+{
+  "schema": "EC49V_COST_FACE_OUTER_CERT_V1",
+  "eta": "1/200",
+  "universal_all_real_low_eta": "alpha-beta-(C1-C2)/6<=1/9 for 0<=eta<=1/6",
+  "source_costs": {
+    "C1": "43/48",
+    "C2": "7/8"
+  },
+  "compressed_behavioral_delta_interval": [
+    "59/576",
+    "11/96"
+  ],
+  "full_delta": "7/48",
+  "gap_at_least": "1/32",
+  "legal_behavioral_example": {
+    "alpha": "109/192",
+    "beta": "67/144",
+    "C1": "43/48",
+    "C2": "7/8"
+  },
+  "convex_hull_mix": {
+    "weights": [
+      "3/8",
+      "9/16",
+      "1/16"
+    ],
+    "delta": "11/96",
+    "retained_shared_seed": "required for displayed mix unless independent behavioral compiler proved"
+  },
+  "status": "EXACT_FRACTION_CHECK_PASS; cost face not solved"
+}
