@@ -1,0 +1,385 @@
+{
+  "schema": "PREFIX313_MULTISTATE_LIFT_EXACT_BRC_V1",
+  "scope": "S7-3 q=1, auxiliary Q(i)^3, five exact Q0, ten independent Q1/Qi epsilon=1",
+  "source_pins": {
+    "PREFIX299_BLOB": "b6acffe158f014469235f5428d2889ff43b62810",
+    "PREFIX312_BLOB": "c2b0e2fb3c79c4c4667ed1b402e593813d99b774"
+  },
+  "matrix_A": [
+    [
+      [
+        "4",
+        "0"
+      ],
+      [
+        "4",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ]
+    ],
+    [
+      [
+        "0",
+        "0"
+      ],
+      [
+        "-4",
+        "0"
+      ],
+      [
+        "4",
+        "0"
+      ]
+    ],
+    [
+      [
+        "-5",
+        "3"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "-3",
+        "1"
+      ]
+    ],
+    [
+      [
+        "-2",
+        "-2"
+      ],
+      [
+        "4",
+        "4"
+      ],
+      [
+        "2",
+        "2"
+      ]
+    ],
+    [
+      [
+        "-2",
+        "0"
+      ],
+      [
+        "0",
+        "0"
+      ],
+      [
+        "5",
+        "2"
+      ]
+    ]
+  ],
+  "triple": {
+    "raw_B": [
+      [
+        [
+          "-2",
+          "0"
+        ],
+        [
+          "0",
+          "-2"
+        ],
+        [
+          "1",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "-2"
+        ],
+        [
+          "2",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      [
+        [
+          "0",
+          "2"
+        ],
+        [
+          "2",
+          "0"
+        ],
+        [
+          "0",
+          "-1"
+        ]
+      ]
+    ],
+    "scale": "4/9",
+    "common_Q0_numerators": [
+      128,
+      80,
+      74,
+      200,
+      85
+    ],
+    "common_Q0_denominator": 324,
+    "widths": [
+      [
+        "8/9",
+        "8/9"
+      ],
+      [
+        "2/3",
+        "2/3"
+      ],
+      [
+        "2/3",
+        "7/9"
+      ],
+      [
+        "2/3",
+        "8/9"
+      ],
+      [
+        "11/18",
+        "1"
+      ]
+    ],
+    "port_evidence": [
+      {
+        "port": 0,
+        "raw_A_times_B": [
+          [
+            "-8",
+            "-8"
+          ],
+          [
+            "8",
+            "-8"
+          ],
+          [
+            "8",
+            "8"
+          ]
+        ],
+        "BRC_Q0": "32/81",
+        "area2_num": "256",
+        "references": {
+          "Q1": {
+            "min": "41/81",
+            "max": "185/81",
+            "common_observation": "113/81"
+          },
+          "Qi": {
+            "min": "41/81",
+            "max": "185/81",
+            "common_observation": "113/81"
+          }
+        }
+      },
+      {
+        "port": 1,
+        "raw_A_times_B": [
+          [
+            "4",
+            "8"
+          ],
+          [
+            "-8",
+            "4"
+          ],
+          [
+            "-8",
+            "-4"
+          ]
+        ],
+        "BRC_Q0": "20/81",
+        "area2_num": "96",
+        "references": {
+          "Q1": {
+            "min": "29/81",
+            "max": "137/81",
+            "common_observation": "83/81"
+          },
+          "Qi": {
+            "min": "65/81",
+            "max": "173/81",
+            "common_observation": "119/81"
+          }
+        }
+      },
+      {
+        "port": 2,
+        "raw_A_times_B": [
+          [
+            "7",
+            "-5"
+          ],
+          [
+            "5",
+            "7"
+          ],
+          [
+            "-5",
+            "-7"
+          ]
+        ],
+        "BRC_Q0": "37/162",
+        "area2_num": "148",
+        "references": {
+          "Q1": {
+            "min": "109/162",
+            "max": "325/162",
+            "common_observation": "217/162"
+          },
+          "Qi": {
+            "min": "73/162",
+            "max": "325/162",
+            "common_observation": "199/162"
+          }
+        }
+      },
+      {
+        "port": 3,
+        "raw_A_times_B": [
+          [
+            "14",
+            "-2"
+          ],
+          [
+            "2",
+            "14"
+          ],
+          [
+            "14",
+            "2"
+          ]
+        ],
+        "BRC_Q0": "50/81",
+        "area2_num": "-48",
+        "references": {
+          "Q1": {
+            "min": "149/81",
+            "max": "257/81",
+            "common_observation": "203/81"
+          },
+          "Qi": {
+            "min": "113/81",
+            "max": "257/81",
+            "common_observation": "185/81"
+          }
+        }
+      },
+      {
+        "port": 4,
+        "raw_A_times_B": [
+          [
+            "9",
+            "2"
+          ],
+          [
+            "-2",
+            "9"
+          ],
+          [
+            "2",
+            "-9"
+          ]
+        ],
+        "BRC_Q0": "85/324",
+        "area2_num": "170",
+        "references": {
+          "Q1": {
+            "min": "337/324",
+            "max": "733/324",
+            "common_observation": "535/324"
+          },
+          "Qi": {
+            "min": "85/324",
+            "max": "733/324",
+            "common_observation": "409/324"
+          }
+        }
+      }
+    ],
+    "lift_ranks": [
+      6,
+      6
+    ],
+    "centre_real6": [
+      "-32/117",
+      "0",
+      "8/13",
+      "-32/117",
+      "16/117",
+      "0"
+    ],
+    "contact_weights": [
+      "4/13",
+      "9/26",
+      "9/26"
+    ],
+    "squared_pair_distances": [
+      "32/9",
+      "32/9",
+      "320/81"
+    ],
+    "squared_half_diameter": "80/81",
+    "squared_miniball_radius": "16/13",
+    "PREFIX311_full_model_pair_bound": "1062562/458329"
+  },
+  "invalid_triple": {
+    "v": "e1",
+    "w": "e2",
+    "widths": [
+      [
+        "1/2",
+        "0"
+      ],
+      [
+        "1/2",
+        "0"
+      ],
+      [
+        "5/8",
+        "3/8"
+      ],
+      [
+        "3/4",
+        "3/4"
+      ],
+      [
+        "1/4",
+        "0"
+      ]
+    ],
+    "lift_ranks": [
+      4,
+      5
+    ],
+    "R2_Uv": [
+      "-1/4",
+      "-1/4"
+    ],
+    "R2_Uw": [
+      "1/2",
+      "1/2"
+    ],
+    "R2_norm_Uv_sq": "1/8"
+  },
+  "direct_labelled_BRC": {
+    "masses": 90,
+    "ordered_pairs": 1230,
+    "gram_entries": 9
+  },
+  "result": "PASS",
+  "unresolved": "Does a true same-Q0 multistate fibre reach radius^2 greater than full pairwise L?"
+}
