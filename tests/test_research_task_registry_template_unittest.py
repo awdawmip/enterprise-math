@@ -36,10 +36,11 @@ class TaskPublicationTemplateTests(unittest.TestCase):
         self.assertFalse(record["working_truth_granted"])
         self.assertFalse(record["canonical_promotion_granted"])
 
-    def test_five_mandatory_body_sections_are_frozen(self):
+    def test_five_recommended_body_labels_are_available_without_a_style_gate(self):
         template = json.loads((ROOT / "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json").read_text(encoding="utf-8"))
+        self.assertFalse(template["body_style_required"])
         self.assertEqual(
-            template["mandatory_body_sections"],
+            template["recommended_body_sections"],
             [
                 "Mother question",
                 "Frozen inputs and scope",
