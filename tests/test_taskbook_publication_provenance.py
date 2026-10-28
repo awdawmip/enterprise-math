@@ -212,13 +212,13 @@ class TaskbookPublicationProvenanceTests(unittest.TestCase):
         rp.unlink()
         self.assertTrue(any("no immutable publication record" in e for e in self.audit()))
 
-    def test_strict_body_and_template_errors_are_not_hidden(self):
+    def test_body_style_is_free_and_template_metadata_errors_still_rejected(self):
         book, record, rp = self.book_record()
         meta, _ = gate.research_taskbook.split_taskbook(book.read_text(encoding="utf-8"))
         book.write_text(gate.research_taskbook.render_taskbook(meta, "## Mother question\n\nOnly one section."), encoding="utf-8")
         record["taskbook_blob_sha1"] = gate.core.taskbook_blob(book)
         self.write_json(rp.relative_to(self.root), record)
-        self.assertTrue(any("mandatory body section" in e for e in self.audit()))
+        self.assertEqual([], self.audit())
         self.book_record()
         self.write_json("templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json", {"schema": "BAD"})
         self.assertIn("publication template schema drift", self.audit())

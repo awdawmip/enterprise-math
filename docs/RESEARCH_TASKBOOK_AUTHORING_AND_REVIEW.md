@@ -90,9 +90,9 @@ Freeze:
 
 `RENAMING_DOES_NOT_RESET_LINEAGE`.
 
-## 4. Five mandatory content sections
+## 4. Scientific content, with optional headings
 
-Every taskbook contains nonempty task-local sections for:
+Preserve the actual scientific information below in the taskbook. These five headings are recommended labels, not publication requirements; other headings, languages or continuous prose are accepted:
 
 1. Mother question;
 2. Frozen inputs and scope;

@@ -26,6 +26,8 @@ PUBLICATION_TRANSACTION_V2 = "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2"
 RESOLUTION_SCHEMA = "ENTERPRISE_MATH_TASK_PUBLICATION_RESOLUTION_REGISTRY_V1"
 RESOLUTION_FILE = "research_task_publication_resolutions.json"
 PUBLISHER_ROLES = {"RESEARCHER", "RESEARCH_DRIVER", "FOUNDATION_STEWARD"}
+# Recommended renderer labels; the historical public name remains for callers
+# that serialize that template. These labels are not publication requirements.
 MANDATORY_BODY_SECTIONS = (
     "Mother question",
     "Frozen inputs and scope",
@@ -221,15 +223,21 @@ def _section_payloads(body: str) -> dict[str, str]:
     return out
 
 
+def is_retired_body_style_error(message: str) -> bool:
+    """Recognize only the removed five-heading diagnostic in old audit metadata."""
+    return message.startswith("mandatory body section is missing or empty: ")
+
+
 def validate_body(body: str) -> list[str]:
+    """Validate usable content without prescribing headings or a language."""
     errors: list[str] = []
-    payloads = _section_payloads(body)
-    for section in MANDATORY_BODY_SECTIONS:
-        payload = payloads.get(section, "")
-        if not payload:
-            errors.append(f"mandatory body section is missing or empty: {section}")
-        elif _PLACEHOLDER.search(payload):
-            errors.append(f"mandatory body section contains placeholder text: {section}")
+    # A title/heading alone supplies no scientific task content.
+    content = "\n".join(line for line in body.splitlines()
+                        if line.strip() and not line.lstrip().startswith("#"))
+    if not content.strip():
+        errors.append("taskbook body has no substantive content")
+    if _PLACEHOLDER.search(body):
+        errors.append("taskbook body contains placeholder text")
     return errors
 
 

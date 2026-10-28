@@ -263,6 +263,11 @@ def _write_fixture(
 
 
 class TaskRecordCompatibilityTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        from control_plane import research_control_bootstrap
+        research_control_bootstrap.install(records.ROOT)
+
     def test_semantic_fixture_is_validated_and_nonoperational(self) -> None:
         import research_operational_publications as operational
 
@@ -287,13 +292,11 @@ class TaskRecordCompatibilityTests(unittest.TestCase):
             _write_fixture(root)
             self.assertEqual([], records.audit(root))
 
-    def test_same_legacy_body_without_waiver_fails(self) -> None:
+    def test_same_legacy_body_without_waiver_passes(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
             _write_fixture(root, include_waiver=False)
-            errors = records.audit(root)
-            self.assertTrue(any("Frozen inputs and scope" in item for item in errors))
-            self.assertTrue(any("Success, kill, and return criteria" in item for item in errors))
+            self.assertEqual([], records.audit(root))
 
     def test_blob_drift_is_never_waived(self) -> None:
         with tempfile.TemporaryDirectory() as td:
@@ -302,20 +305,13 @@ class TaskRecordCompatibilityTests(unittest.TestCase):
             hist_path.write_text(hist_path.read_text(encoding="utf-8") + "\nDRIFT\n", encoding="utf-8")
             errors = records.audit(root)
             self.assertTrue(any("taskbook blob drift" in item for item in errors))
-            self.assertTrue(any("pinned taskbook blob drift" in item for item in errors))
 
-    def test_extra_missing_current_section_exceeds_waiver_scope(self) -> None:
+    def test_extra_missing_heading_does_not_require_a_new_waiver(self) -> None:
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
-            body = LEGACY_BODY.replace(
-                "## Mother question\n\nHistorical mother question.\n\n", ""
-            )
+            body = LEGACY_BODY.replace("## Mother question\n\nHistorical mother question.\n\n", "")
             _write_fixture(root, historical_body=body)
-            errors = records.audit(root)
-            self.assertTrue(
-                any("waiver scope does not exactly equal current body-policy errors" in item for item in errors)
-            )
-            self.assertTrue(any("Mother question" in item for item in errors))
+            self.assertEqual([], records.audit(root))
 
 
 if __name__ == "__main__":

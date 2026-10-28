@@ -172,6 +172,7 @@ def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
         if isinstance(record.get("publication_id"), str)
     }
 
+    active: dict[str, dict[str, Any]] = {}
     for task_id, row in rows.items():
         publication_id = row["publication_id"]
         record = by_publication.get(publication_id)
@@ -207,16 +208,29 @@ def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
         taskbook_path = root / row["taskbook_path"]
         if not taskbook_path.exists():
             raise TaskIntegrityIsolationError(f"{task_id}: quarantined taskbook path missing")
-        actual_taskbook_blob = core.git_blob_sha1_bytes(taskbook_path.read_bytes())
+        taskbook_data = taskbook_path.read_bytes()
+        actual_taskbook_blob = core.git_blob_sha1_bytes(taskbook_data)
         if actual_taskbook_blob != row["taskbook_blob_sha1"]:
             raise TaskIntegrityIsolationError(
                 f"{task_id}: quarantined taskbook blob drift; "
                 f"declared={row['taskbook_blob_sha1']} actual={actual_taskbook_blob}"
             )
-    return rows
+        if any(not core.is_retired_body_style_error(error)
+               for error in row["allowed_task_record_audit_errors"]):
+            active[task_id] = row
+            continue
+        # The same pinned content may genuinely be empty/unfilled. Translate
+        # that diagnostic in memory and retain its hold; never rewrite history.
+        _, body = core.research_taskbook.split_taskbook(taskbook_data.decode("utf-8"))
+        body_errors = core.validate_body(body)
+        if body_errors:
+            active[task_id] = {**row, "allowed_task_record_audit_errors": body_errors}
+    return active
 
 
 def suppression_sources(root: Path = ROOT) -> dict[str, str]:
+    from control_plane import research_task_records_impl as core
+
     rows = validated_quarantines(root)
     return {
         f"{row['record_path']}: {suffix}": str(
@@ -224,6 +238,7 @@ def suppression_sources(root: Path = ROOT) -> dict[str, str]:
         )
         for row in rows.values()
         for suffix in row["allowed_task_record_audit_errors"]
+        if not core.is_retired_body_style_error(suffix)
     }
 
 

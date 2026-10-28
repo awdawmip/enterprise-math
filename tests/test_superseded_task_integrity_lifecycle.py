@@ -17,14 +17,14 @@ class SupersededTaskIntegrityLifecycleTests(unittest.TestCase):
         self.assertIn(OLD, rows)
         self.assertEqual(rows[OLD]["nonoperational_basis"], "DIRECTLY_SUPERSEDED_SAME_TASK")
 
-    def test_geo8_old_body_errors_remain_exactly_suppressed(self):
+    def test_geo8_old_heading_errors_are_retired_without_rewriting_history(self):
         prefix = (
             "research_task_records/RS-GEO8-BORSUK-R6-LASSAK-33-COMPRESSION-PRESSURE/"
             "TP2-D425335E9566A3F6A54C.json: "
         )
         suppressions = audit_isolation.suppression_strings(ROOT)
-        self.assertIn(prefix + "mandatory body section is missing or empty: Frozen inputs and scope", suppressions)
-        self.assertIn(prefix + "mandatory body section is missing or empty: Hard target and required outputs", suppressions)
+        self.assertNotIn(prefix + "mandatory body section is missing or empty: Frozen inputs and scope", suppressions)
+        self.assertNotIn(prefix + "mandatory body section is missing or empty: Hard target and required outputs", suppressions)
 
     def test_geo8_current_record_is_direct_superseder(self):
         rows = audit_isolation.validated_rows(ROOT)
