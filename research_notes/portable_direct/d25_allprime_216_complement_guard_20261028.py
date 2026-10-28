@@ -89,5 +89,4 @@ def main():
     print('NEW_P_MOD_6_EQ_5_EXTENSION',len(other),'primes')
     for w in witnesses:print('PORT_WITNESS',w)
 
-
 if __name__=='__main__':main()
