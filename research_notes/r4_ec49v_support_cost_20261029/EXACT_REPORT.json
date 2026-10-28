@@ -1,0 +1,27 @@
+{
+  "schema": "EC49V_EXACT_FRACTION_SUPPORT_ENVELOPE_V1",
+  "interval": "0<=eta<1/2",
+  "method": "7 exact nonempty fiber positive-part formulas + 125 prefix assignments; exact Fraction affine arrangement and independent terminal masks",
+  "prefix_assignments": 125,
+  "local_mask_partition_cells": 9,
+  "global_subcells_before_merge": 13,
+  "segments": [
+    {
+      "start": "0",
+      "end": "7/18",
+      "intercept": "1/27",
+      "slope": "0"
+    },
+    {
+      "start": "7/18",
+      "end": "1/2",
+      "intercept": "-1/36",
+      "slope": "1/6"
+    }
+  ],
+  "hard_checkpoints": {
+    "1/200": "1/27",
+    "5/12": "1/24"
+  },
+  "status": "EXACT_LOCAL_CHECK_PASS; ANALYTIC_ALL_REAL_PROOF; UNREVIEWED; NOT_ADMITTED"
+}
