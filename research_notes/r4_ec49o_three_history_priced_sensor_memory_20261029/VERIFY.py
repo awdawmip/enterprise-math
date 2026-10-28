@@ -4,6 +4,7 @@ No external dependencies. This auxiliary probability model is not native signed 
 from fractions import Fraction as F
 from itertools import product
 import json
+from pathlib import Path
 
 W = X = Y = range(3)
 
@@ -109,6 +110,6 @@ report={
  'verification_scope':'Exact Fraction atoms, normalization, all W/source single-sensor marginals, 3 witness four-vectors; exact deterministic causal support enumeration; analytic convexity extends to all real fresh behavioral policies.',
  'not_claimed':'No native signed BRC, X6, 3D slice, source Result/CLAIM or independent review.'
 }
-with open('/mnt/data/em_ec49o/EXACT_REPORT.json','w',encoding='utf-8') as f:
+with Path(__file__).with_name('EXACT_REPORT.json').open('w',encoding='utf-8') as f:
     json.dump(report,f,indent=2,ensure_ascii=False);f.write('\n')
 print(json.dumps(report,indent=2,ensure_ascii=False))
