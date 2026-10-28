@@ -11,7 +11,7 @@ from control_plane import research_task_records_impl as core
 from control_plane import research_task_integrity_fault_isolation as current
 from control_plane import research_task_record_audit_fault_isolation as historical
 from tools import research_task_records as records
-from tests.test_research_task_record_compatibility import _write_fixture
+from tests.test_research_task_record_compatibility import _write_fixture, _write_semantic_fixture
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -48,6 +48,7 @@ class TaskbookBodyStyleIndependenceTests(unittest.TestCase):
             p = root / row[key]
             p.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(ROOT / row[key], p)
+        _write_semantic_fixture(root)
         return root, row, data
 
     def test_style_hold_retires_without_changing_original_record_or_taskbook(self):
