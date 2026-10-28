@@ -9,7 +9,10 @@ from math import comb
 from fractions import Fraction
 from hashlib import sha256
 P=Path(__file__).resolve().parent
-sys.path.insert(0,str(P/'research_notes/r346_unbounded_interior_tp2_corank301_20261028_emr3'))
+SRC=P/'research_notes/r346_unbounded_interior_tp2_corank301_20261028_emr3'
+if not (SRC/'R346_verify.py').is_file():
+    SRC=P.parent/'r346_unbounded_interior_tp2_corank301_20261028_emr3'
+sys.path.insert(0,str(SRC))
 from R346_verify import K,J,C,add,mul,eval_newton
 
 def differences(a):
