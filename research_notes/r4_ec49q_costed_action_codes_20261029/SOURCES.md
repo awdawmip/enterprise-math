@@ -9,7 +9,7 @@ Public background (related methods, not a novelty certificate):
 - Bork et al., 2025, multi-cost-bounded reachability, UAI PMLR 286: https://proceedings.mlr.press/v286/bork25a.html . Relevant context for maintaining coupled resource coordinates; EC49Q uses its own finite direct proof.
 
 Exact executable evidence: \`VERIFY.py\` in this directory is the Python standard-library Fraction checker actually executed locally; \`EXACT_REPORT.json\` is its emitted report, with verified Git blob byte identities before publication:
-- \`VERIFY.py\` SHA1 Git Blob \`80e991905ee3e8abbf22247af2b81ffc0ef82bcf\`.
+- \`VERIFY.py\` SHA1 Git Blob \`f5ac0ec245fc12a7f1c3a557b9f5d020f5fbbffb\`.
 - \`EXACT_REPORT.json\` SHA1 Git Blob \`c593b4dcddd2528a09d61c13d7cc16ac18533545\`.
 - \`PROOF.md\` contains the all-real argument. Exhaustive finite checks do NOT substitute for analytic proof.
 - Exact positive BRC leaf masses, resource prices, expected P/Q costs, information partitions and legal behavioral coin assumptions are declared in \`PROOF.md\`; no native X6 or signed/phase BRC execution is asserted.
