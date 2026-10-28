@@ -1,0 +1,44 @@
+{
+  "status": "PASS_EXACT_BRC_N4_BINARY_ZERO_PHASE_BOTH_ORIENTATIONS",
+  "date": "2026-10-28",
+  "grid_parameters": 625,
+  "grid_observer_checks": 1250,
+  "zero_cases": {
+    "AU": 335,
+    "BU": 345
+  },
+  "necessary_failure_cases": {
+    "AU": 290,
+    "BU": 280
+  },
+  "witness_reverse": {
+    "a": "3/4",
+    "b": "3/4",
+    "cA": "1/3",
+    "cB": "5/12",
+    "shared": "1/3",
+    "m": "1/64",
+    "x": "1/112",
+    "y": "3/448",
+    "AV_continue": "1/28",
+    "BV_continue": "1/28"
+  },
+  "capacity_counterexamples": {
+    "AU": [
+      "1/20",
+      "1",
+      "0",
+      "1"
+    ],
+    "BU": [
+      "1",
+      "1/20",
+      "1",
+      "0"
+    ]
+  },
+  "theorem_scope": "All real 0<a,b<=1 and 0<=cA,cB<=1; analytic necessity, sufficiency, and compactness; grid verifies implementation only.",
+  "positive_minimax_values": "NOT_CALCULATED",
+  "native_X6_bridge": "NOT_ESTABLISHED",
+  "admission": "AUTHOR_UNREVIEWED_NOT_ADMITTED"
+}
