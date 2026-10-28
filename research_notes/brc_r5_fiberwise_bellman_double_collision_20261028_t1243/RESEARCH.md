@@ -55,6 +55,8 @@ The aggregate advantage within *each* LR group vanishes. So every shared H conti
 
 **V_LR=7/8, V_full=13/16, V_LR-V_full=1/16.**
 
+An explicit complete-history optimizer declares P after HA+, Q after HA-, P when stopping HB, P after LA+, Q after LA-, and Q when stopping LB; it yields exactly **O_full=(1/4,3/8,3/2,3/2)** and L=13/16. A fully valid LR policy stopping immediately at t=1 and using the optimal ratio label yields **O_LR=(1/4,1/2,1,1)** and L=7/8. The exhaustive checker also proves no LR policy achieves lower loss; this is not inferred from only those two samples.
+
 Theorem 2 yields exactly 3/64+1/64=1/16 as the hidden-source advantage at the two LR fibers. This explicitly shows a flat aggregate LR score can conceal strictly opposing sourcewise Bellman actions. The model has unequal convex hulls, so it fails the mother objective's first gate.
 
 More generally, for two equal-Q-mass sources where one has gain g>0 and the other zero, and each continuation incurs identical unconditional time cost k, the exact price-loss gap is
