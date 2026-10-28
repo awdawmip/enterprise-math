@@ -11,10 +11,10 @@ This is a research-continuity dossier, not a second executable task registry.
 | Native quadratic observer | Completed the previously open even-modulus fixed-probe interface: K(1)=0, K(2)=1, K(4)=6, otherwise K(m)=7 | Complete bounded paper proof + exact supplemental checks; independent review pending; no full-Cell compression |
 | CELL-U2 | Implemented arbitrary declared per-material/per-incoming incidence in a finite BRC prefix, with full packet/path leaves and source × target × incoming outputs | Actual pinned positive-BRC execution; addresses finite-prefix I1/I2; native G1–G5 remain UNKNOWN |
 | Euler clock | Derived the declared-independent-wait composition A=(1-F)/(1-u) C(F) and R_h(F), with equal-mean and parity-typing counterexamples | Conditional renewal interface, existing method composition; native clock selection and calibration remain UNKNOWN |
-| BRC active branches | Checked and excluded today's R5 Bellman, N4 local/global, and PREFIX316 continuations from duplicate work | Read-only avoidance, not a new mathematical result or an active-owner determination |
+| BRC residual passive observer | Applied the shared waiting-clock interface to the exact BRC-R-160 pulse; first detection pgf F^11, equal-mean clock witnesses and a geometric-clock observer bound | New positive-clock observer execution only; no 384-atom source-world rerun, no new general theorem or native clock selection |
 | OAI7 external interfaces | Retained the distinct original evidence/audit debts in the monthly catalogue | Not served mathematically this wave; next cold-line slot should address one exact source obligation |
 
-The first native question is locally closed at author-proof level and should receive review, not automatic indefinite continuation. This deliberate rotation then served CELL and Euler. Original base proofs, old check counts, library curation and same-theme filenames are not counted as new results.
+The first native question is locally closed at author-proof level and should receive review, not automatic indefinite continuation. This deliberate rotation then served CELL, Euler, and a specific BRC residual passive-clock application. The Euler finite-mean tail certificate belongs to the same clock-interface unit, and its BRC application reuses that shared interface rather than adding a second general-theorem count. Original base proofs, old check counts, library curation and same-theme filenames are not counted as new results.
 
 ## Shared and orphan obligations
 
@@ -36,7 +36,8 @@ These are exact source locators reported by the control peer, not proof that the
 
 - `QUADRATIC_EVEN_PROBES.md`, `verify_quadratic_even.py`, `quadratic_validation.json`.
 - `U2_INCIDENCE_ADAPTER.md`, `u2_incidence_prefix.py`, `u2_adapter_validation.json`.
-- `EULER_CLOCK_BRIDGE.md`, `verify_euler_clock.py`, `euler_clock_validation.json`.
+- `EULER_CLOCK_BRIDGE.md`, `EULER_CLOCK_TAIL_CERTIFICATE.md`, `verify_euler_clock.py`, `euler_clock_validation.json`.
+- `BRC_PASSIVE_CLOCK_REUSE.md`, `verify_brc_passive_clock.py`, `brc_passive_clock_validation.json`.
 - `RESEARCH_INTERFACES.json` gives machine-readable statements and applicability boundaries.
 
 Independent peer feedback is tracked separately with exact byte hashes. The original author does not self-sign a Driver review. Root handles Source publication and actual immutable readback; local files alone are not claimed to be durable external delivery. Direct research activity RA is branch-persisted at `2a81170fdfe6605608a596446e78e7dabbc27df0`, with startup guard passed; canonical main intake pending at that observation. No formal task, claim or old identity was adopted.
