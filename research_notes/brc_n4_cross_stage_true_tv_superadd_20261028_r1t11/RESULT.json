@@ -1,0 +1,86 @@
+{
+  "schema": "EM_BRC_N4_CROSS_STAGE_TRUE_TV_SUPERADDITIVE_EXACT_CERTIFICATE_V1",
+  "status": "AUTHOR_EXACT_FRACTION_VERIFIED_NOT_ADMITTED",
+  "observed_local_execution": "PASS_EXACT_FRACTION_N4_TRUE_TV_SUPERADDITIVITY",
+  "verification_file": "VERIFY.py",
+  "certificate_file": "CERTIFICATES.txt",
+  "arithmetic": "Python stdlib fractions.Fraction, exact arbitrary precision rational",
+  "scope": "fixed strict-positive N4 double law Q/P branch tree; independent t1-t4 behavioral randomization; all 16 two-law terminal (T,D) probabilities",
+  "global_knowledge_snapshot": "2bccd0522d7ed724311b3ed1c85842b95cdeba8d",
+  "enterprise_math_snapshot": "80377c37dc2d2a3eadedcff350a8e14ef591022a",
+  "predecessor_verifier_blob": "623e74206dd0259bc2d0f2ac65d5124833cb0edb",
+  "exact": {
+    "d2": "1/3036",
+    "d3": "0",
+    "d23": "1037/1884240",
+    "superadd_gap": "105341/476712720",
+    "t2_change": "epsilon from 0 to 1/10000 transfers STOP_P from CONTINUE at AU",
+    "tv_target_change": "epsilon/6 in both Q and P",
+    "robust_superadd_gap_lower": "20376341/119178180000"
+  },
+  "target_law": {
+    "Q": [
+      "0",
+      "0",
+      "1/3",
+      "11/72",
+      "1/36",
+      "25/144",
+      "1/12",
+      "11/48"
+    ],
+    "P": [
+      "0",
+      "0",
+      "7/12",
+      "11/72",
+      "11/360",
+      "19/120",
+      "53/2400",
+      "127/2400"
+    ]
+  },
+  "verification": {
+    "all_tree_masses_strictly_positive": true,
+    "both_laws_mass_conserved": true,
+    "causal_occupation_fiber_cross_products_checked": true,
+    "conditional_behavior_reconstruction_exact": true,
+    "bellman_prefix_coverage_each": 243,
+    "all_real_randomized_behavior_reduction": "multi-affine deterministic vertex lemma",
+    "S2": {
+      "primal_TV_P": "1/3036",
+      "primal_TV_Q": "1/3036",
+      "Bellman_min": "-153/506",
+      "F_score": "-919/3036",
+      "dual_gap": "1/3036"
+    },
+    "S3": {
+      "primal_TV_P": "0",
+      "primal_TV_Q": "0"
+    },
+    "S23": {
+      "primal_TV_P": "1037/1884240",
+      "primal_TV_Q": "1037/1884240",
+      "Bellman_min": "-7913/26170",
+      "F_score": "-570773/1884240",
+      "dual_gap": "1037/1884240"
+    },
+    "on_disk_local_package": "/mnt/data/EnterpriseMath_N4_TrueTV_Superadd_20261028.zip",
+    "remote_published_verifier_byte_identity_with_local_full_verifier": false,
+    "scope_note": "short public-to-private repo verifier refactors but uses identical exact theorem and rational certificates; local extended verifier was executed, shortened remote verifier not yet independently executed"
+  },
+  "permissions": {
+    "github_identity": "awdawmip",
+    "native_owner_query": "CONTROL_QUOTA",
+    "native_session_registration": "STATIC_READONLY_SCOPE_DENIED; operation_sent=false",
+    "native_CLAIM": false,
+    "formal_Result": false,
+    "independent_review": false
+  },
+  "limitations": [
+    "Author-side external finite positive BRC observation model only, no P000 X6 native bridge",
+    "Not a universal superadditivity assertion for all full history policies",
+    "The d3=0 witness remains exact but a stronger both-single-loss-positive counterexample is the next research unit",
+    "Remote short verifier not independently re-executed; local full exact Fraction verifier executed and replayed with byte-identical local output"
+  ]
+}
