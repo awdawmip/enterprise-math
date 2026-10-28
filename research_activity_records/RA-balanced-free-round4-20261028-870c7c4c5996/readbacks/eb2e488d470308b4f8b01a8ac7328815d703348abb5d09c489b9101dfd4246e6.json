@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/balanced_resume_20261028/free_round4/phase_b/phase_b_check_result.json",
+    "ref": "397aeed183046480d083290db92dc1c79b980a74",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-FREE-R4-import-root-wave16-14-20261028",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"status\": \"PASS\",\n  \"phase\": \"B_POST_IMMUTABLE_RAW_FREEZE\",\n  \"proof_status\": \"BOUNDED_CHECK_ONLY_NOT_UNBOUNDED_PROOF\",\n  \"T7_reuse\": {\n    \"resolution\": \"REUSE_EXECUTED\",\n    \"callable\": \"enterprise_math.finite_symmetry.orbit_partition\",\n    \"complete_action_count\": 720,\n    \"elements\": 64,\n    \"orbit_sizes_by_active_axis_count\": [\n      [\n        0,\n        1\n      ],\n      [\n        1,\n        6\n      ],\n      [\n        2,\n        15\n      ],\n      [\n        3,\n        20\n      ],\n      [\n        4,\n        15\n      ],\n      [\n        5,\n        6\n      ],\n      [\n        6,\n        1\n      ]\n    ],\n    \"source_sha256\": \"714e75dc3a8f0c9adcdbbae4c3b6d1b9bfbcd64d18a97ffeb16e5ed5fbeea736\",\n    \"scope\": \"finite axis-choice action of equality boxes; no bound or infinite-graph claim\"\n  },\n  \"exhaustive_restricted_native_populations\": [\n    {\n      \"universe\": \"nine Cells at (u,v,0,0,0,0), u,v in {0,1,2}\",\n      \"nonempty_subsets\": 511,\n      \"full_population_preserved\": true,\n      \"by_min_degree\": {\n        \"0\": 262,\n        \"1\": 233,\n        \"2\": 16\n      }\n    },\n    {\n      \"universe\": \"eight Cells at (u,v,w,0,0,0), u,v,w in {0,1}\",\n      \"nonempty_subsets\": 255,\n      \"full_population_preserved\": true,\n      \"by_min_degree\": {\n        \"0\": 90,\n        \"1\": 134,\n        \"2\": 30,\n        \"3\": 1\n      }\n    }\n  ],\n  \"all_axis_choices_constructions_checked\": 64,\n  \"native_state\": \"six signed coordinates retained; four or three fixed fields are actual restrictions\",\n  \"time\": \"static; no time variable required\"\n}\n",
+      "display_title": "phase_b_check_result.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/397aeed183046480d083290db92dc1c79b980a74/research_notes/balanced_resume_20261028/free_round4/phase_b/phase_b_check_result.json",
+      "encoding": "utf-8",
+      "sha": "8eb094e6334c6c470689d040d5a47ef73ac156cc"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
