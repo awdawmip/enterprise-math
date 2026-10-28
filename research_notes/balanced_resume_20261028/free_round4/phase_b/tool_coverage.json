@@ -1,0 +1,1381 @@
+{
+  "query": "finite native X6 signed unit axis adjacency minimum degree cardinality cube",
+  "verdict": "REUSE_CANDIDATE_FOUND",
+  "tool_families": [
+    {
+      "score": 9,
+      "id": "T7_FINITE_SYMMETRY_EQUIVARIANCE",
+      "name": "Finite Symmetry / Orbit / Equivariance Calculus",
+      "status": "HARVESTED_AND_TOOLIZED",
+      "triggers": [
+        "symmetry",
+        "group action",
+        "orbit",
+        "stabilizer",
+        "equivariant",
+        "relabeling",
+        "automorphism",
+        "canonical choice",
+        "torsor",
+        "orientation"
+      ],
+      "capabilities": [
+        "orbit partition",
+        "stabilizer",
+        "fixed-point/canonical-choice obstruction",
+        "equivariant-map count/enumeration",
+        "finite torsor/stabilizer audit"
+      ],
+      "hard_boundary": "a canonical choice or signed structure cannot be inferred when the declared symmetry action has no required invariant datum; extra carrier structure may not be imported silently",
+      "source_methods": [
+        "src/enterprise_math/finite_symmetry.py",
+        "driver_reviews/R064_PHASEA_N0_FIRST_LOCAL_INTERACTION_CARRIER_DRIVER_REVIEW_20260822.md",
+        "research_tasks/FQ009_ORIENTATION_TORSOR_ATLAS_STEWARD_VERIFICATION_20260822.md"
+      ]
+    },
+    {
+      "score": 6,
+      "id": "T11_DISCRETE_MORSE_CHAIN_REDUCTION",
+      "name": "Discrete Morse / Acyclic-Matching Chain Reduction",
+      "status": "DRIVER_ACCEPTED_NEW_ENTERPRISE_TOOL_INTERFACE",
+      "api": [
+        "VALIDATE_CHAIN_COMPLEX",
+        "MATCH",
+        "ACYCLIC",
+        "CANCELLABLE_PAIR",
+        "CANCEL",
+        "MORSE_REDUCE",
+        "CRITICAL_GENERATORS",
+        "MORSE_BOUNDARY",
+        "PROJECT",
+        "LIFT",
+        "HOMOLOGY_CERT",
+        "OBSTRUCTION"
+      ],
+      "triggers": [
+        "discrete Morse",
+        "acyclic matching",
+        "chain complex",
+        "critical generators",
+        "Morse reduction",
+        "unit cancellation",
+        "chain homotopy",
+        "homology compression"
+      ],
+      "capabilities": [
+        "exact adjacent-grade matching validation",
+        "closed-gradient obstruction",
+        "unit-incidence cancellation",
+        "critical-generator reduction",
+        "exact reduced boundary",
+        "projection/lift/homotopy strong-deformation-retract certificate"
+      ],
+      "hard_boundary": "Requires an explicit finite free chain complex. Over Z only unit pivots plus/minus 1 cancel. Homology equivalence is not T6 operation safety, and greedy matching is not canonical or optimal by default.",
+      "source_methods": [
+        "src/enterprise_math/discrete_morse_collapse.py"
+      ],
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_SIX_RETURN_DRIVER_INTAKE_20260823.md",
+      "result": "research_notes/TOOL_DISCOVERY_DISCRETE_MORSE_ACYCLIC_MATCHING_RESULT_20260823.md"
+    },
+    {
+      "score": 6,
+      "id": "T1_SCALE_ENUMERATION_VALUATION",
+      "name": "Enterprise Scale Enumeration / Valuation Calculus",
+      "status": "ACCEPTED_DERIVED_TOOL",
+      "api": [
+        "DELTA",
+        "GEN",
+        "VAL",
+        "MOBIUS",
+        "LOCAL"
+      ],
+      "triggers": [
+        "scale",
+        "shell",
+        "count",
+        "enumeration",
+        "growth",
+        "finite difference",
+        "generating function",
+        "valuation",
+        "inclusion-exclusion",
+        "Mobius",
+        "basin"
+      ],
+      "capabilities": [
+        "scale enumeration",
+        "shell extraction",
+        "finite-difference certificates",
+        "rational-series/recurrence compression",
+        "valuation and local-to-global overlap correction"
+      ],
+      "hard_boundary": "NO_UNIVERSAL_NATIVE_EHRHART_POLYNOMIALITY",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_NATIVE_VALUATION_EHRHART_BRION_CALCULUS_REPORT_20260822.md",
+      "subtools": [
+        {
+          "id": "T1_TRIAXIAL_DIRECTIONAL_DEFECT",
+          "classification": "GLOBAL_SUBTOOL",
+          "status": "DRIVER_ACCEPTED_NARROWED_EXECUTABLE",
+          "api": [
+            "DECLARE_FRAME",
+            "DIFF1",
+            "RHOMBUS2",
+            "TRIPLE_DEFECT",
+            "XRAY_KERNEL_CERT",
+            "FRAME_WIDTH",
+            "MULTIFRAME_UNIQUENESS",
+            "EXPOSED_AUGMENT",
+            "FULL_ADJOINT",
+            "CHIRALITY_ADJOINT",
+            "COMPRESSED_GRAM",
+            "GRAM_FACTOR"
+          ],
+          "triggers": [
+            "triaxial directional difference",
+            "rhombus defect",
+            "triple defect",
+            "ghost kernel",
+            "native-hex tomography",
+            "frame-width uniqueness",
+            "exposed-vertex augmentation"
+          ],
+          "capabilities": [
+            "primitive/canonical frame declaration with explicit unoriented deduplication",
+            "shared tomography and Hive/rhombus directional-defect core",
+            "native-hex kernel/uniqueness certificates",
+            "exposed-vertex unimodular augmentation",
+            "typed full adjoint",
+            "characteristic-sensitive compressed Gram diagnostic"
+          ],
+          "hard_boundary": "FULL_ADJOINT != COMPRESSED_GRAM; native-hex/support-compatible width scope only; endpoint coalescence != trace identity; verified coefficient characteristics 0,2,3,5,7 on the adjoint/Gram integration path; Y-Delta, binary/nonlinear tomography, Foundation mutation, width-theorem extension and new top-level family promotion are forbidden.",
+          "source_methods": [
+            "src/enterprise_math/triaxial_directional_defect.py",
+            "src/enterprise_math/_triaxial_directional_defect_core.py"
+          ],
+          "tests": [
+            "tests/test_triaxial_directional_defect_integration.py"
+          ],
+          "driver_review": "driver_reviews/TRIAXIAL_DIRECTIONAL_DEFECT_INDEPENDENT_TOOL_VERIFICATION_DRIVER_REVIEW_20260825.md@f364c75d55e8018bcea80bdf00fc025f2ad7dd02"
+        }
+      ]
+    },
+    {
+      "score": 3,
+      "id": "T12_IDEMPOTENT_PATH_CLOSURE_BELLMAN",
+      "name": "Idempotent Path Closure / Bellman Fixed-Point Calculus",
+      "status": "DRIVER_ACCEPTED_NEW_ENTERPRISE_TOOL_INTERFACE",
+      "api": [
+        "VALIDATE_SEMIRING",
+        "WEIGHTED_RELATION",
+        "COMPOSE",
+        "PATH_VALUE",
+        "POWER",
+        "CLOSURE",
+        "RESIDUAL_LEFT",
+        "RESIDUAL_RIGHT",
+        "BELLMAN_OPERATOR",
+        "LEAST_FIXED_POINT",
+        "GREATEST_FIXED_POINT",
+        "OPTIMAL_PATH_CERT",
+        "UNBOUNDED_CYCLE_CERT",
+        "OBSTRUCTION"
+      ],
+      "triggers": [
+        "tropical",
+        "min-plus",
+        "max-plus",
+        "idempotent semiring",
+        "Kleene star",
+        "path closure",
+        "all-path envelope",
+        "Bellman",
+        "fixed point",
+        "residuation",
+        "weighted path"
+      ],
+      "capabilities": [
+        "semiring matrix path composition",
+        "fixed-length path envelopes",
+        "all-path closure under exact cycle/completeness hypotheses",
+        "improving-cycle certificate",
+        "Bellman least/greatest fixed points",
+        "matrix residual inequality solving with P008 ownership retained"
+      ],
+      "hard_boundary": "Weights must be explicitly declared. Residuation/Galois adjunction alone remains P008-owned. Improving cycles or incomplete carriers may obstruct a finite closure; a path envelope is not automatically a metric.",
+      "implementation_status": "INTERFACE_AND_EXACT_CHECKER_ACCEPTED_NO_PRODUCTION_MODULE_YET",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_SIX_RETURN_DRIVER_INTAKE_20260823.md",
+      "result": "research_notes/TOOL_DISCOVERY_TROPICAL_RESIDUATION_IDEMPOTENT_CLOSURE_RESULT_20260823.md"
+    },
+    {
+      "score": 3,
+      "id": "T3_TYPED_INCIDENCE_CIRCUIT",
+      "name": "Typed Incidence Circuit Calculus",
+      "status": "ACCEPTED_DERIVED_TOOL_SCOPE_NARROWED",
+      "api": [
+        "SIGN",
+        "CIRCUITS",
+        "ELIMINATE",
+        "SEPARATE",
+        "DUAL",
+        "REALIZATION_CHECK"
+      ],
+      "triggers": [
+        "circuit",
+        "cocircuit",
+        "cycle",
+        "cut",
+        "separator",
+        "path difference",
+        "provenance defect",
+        "reroute",
+        "incidence"
+      ],
+      "capabilities": [
+        "signed cycle certificates",
+        "circuit elimination",
+        "minimal cut/cocircuit",
+        "same-endpoint path-defect decomposition",
+        "metric-erasure realization check"
+      ],
+      "hard_boundary": "DIRECTION_ONLY_SIGNED_CIRCUIT_NOT_DERIVED",
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_NATIVE_ORIENTED_MATROID_CIRCUIT_CALCULUS_RESULT_20260822.md"
+    },
+    {
+      "score": 3,
+      "id": "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+      "name": "Finite Fiber Capacity / Collision-Minima Calculus",
+      "status": "ACCEPTED_TOOL_COMPOSITION_NOVELTY_DOWNGRADED",
+      "api": [
+        "RAW_CAPACITY",
+        "QUOTIENT_CAPACITY",
+        "FIBER_FREE",
+        "COLLISION_DEFECT",
+        "COLLISION_WITNESS",
+        "REPRESENTATIVE_PACKING_COVERING",
+        "SUCCESSIVE_COLLISION_MINIMA"
+      ],
+      "triggers": [
+        "fiber",
+        "quotient capacity",
+        "collision",
+        "representative",
+        "compression",
+        "packing",
+        "covering",
+        "minima",
+        "same observation"
+      ],
+      "capabilities": [
+        "fiber capacity",
+        "collision defect",
+        "equal-fiber witness",
+        "optimal one-representative-per-fiber compression",
+        "first collision scales"
+      ],
+      "hard_boundary": "semantic observation/quotient must already be declared or derived; the tool cannot invent pi to force a capacity theorem",
+      "prior_enterprise_machinery": [
+        "predictive quotient",
+        "operation quotient",
+        "function/relation collision spectra",
+        "finite preimage multiplicity"
+      ],
+      "driver_review": "driver_reviews/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_DRIVER_REVIEW_20260822.md",
+      "result": "research_notes/TOOL_DISCOVERY_NATIVE_GEOMETRY_OF_NUMBERS_MINIMA_CALCULUS_RESULT_20260822.md"
+    },
+    {
+      "score": 3,
+      "id": "T5_PRECISION_REFINEMENT",
+      "name": "Integer Precision / Refinement Calculus",
+      "status": "HARVESTED_PREEXISTING_DERIVED_TOOL_FAMILY",
+      "triggers": [
+        "precision",
+        "refinement",
+        "coarse",
+        "fine",
+        "projection",
+        "detail",
+        "carry",
+        "borrow",
+        "mixed radix",
+        "scale chain",
+        "graded transport"
+      ],
+      "capabilities": [
+        "exact projection/recomposition",
+        "fiber detail",
+        "carry/borrow",
+        "precision-chain decomposition",
+        "graded transport",
+        "nonlinear projection defect"
+      ],
+      "hard_boundary": "finite integer precision only unless a separate theorem supplies continuum/limit semantics",
+      "source_methods": [
+        "src/enterprise_math/precision.py",
+        "src/enterprise_math/graded_precision.py",
+        "src/enterprise_math/precision_system.py",
+        "src/enterprise_math/precision_proof.py"
+      ]
+    }
+  ],
+  "methods": [
+    {
+      "score": 18,
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "CURATED_SOURCE_STATUS_PRESERVED",
+      "owner_review_status": "ORIGINAL_SOURCE_AND_REVIEW_STATUSES_REMAIN_AUTHORITATIVE",
+      "validation_kind": "BIBLIOGRAPHIC_INDEX_ONLY_NOT_MATHEMATICAL_REVIEW",
+      "api": [],
+      "mathematical_admission": false,
+      "reuse_resolution": {
+        "coverage_verdict": "NOT_APPLICABLE",
+        "matched_tool_or_method_ids": [],
+        "reuse_resolution_state": "NOT_APPLICABLE",
+        "how_applied_or_why_not": "This record adds source navigation for an existing research branch. The mathematical reuse/composition statements, if any, remain inside each original source and the bounded extraction; no mathematical or executable tool is invoked by this catalog.",
+        "hard_boundary_checked": "A search result or paper index is not tool acceptance, a new theorem proof, formalization, or Foundation admission."
+      },
+      "method_id": "curation.20261022.native",
+      "name": "Native X6 derived observer, translation-phase and adjacency source index",
+      "source_refs": [
+        "docs/RESEARCH_LIBRARY.md",
+        "docs/research_library/20261022/native.md",
+        "docs/research_library/20261022/native.json",
+        "research_notes/free_native_discovery/20261017_EM_FREE_185026_X6_POSITIVE_NEIGHBOR_FIBERS_WHOLE.json",
+        "research_notes/free_native_discovery/20261017_EM_FREE_185026_TRANSLATION_PHASE_MIN64_AND_CLOSED_TRACE_WHOLE.json",
+        "research_notes/owner_goal_20261017/native_x6_adjacency_automorphism_cf1677/NATIVE_X6_FULL_CELL_ADJACENCY_AUTOMORPHISMS_ARE_SIGNED_AFFINE_DERIVED_NOTE_V1.md"
+      ],
+      "triggers": [
+        "X6 sensor positive neighbor quadratic readout fibers 729 714",
+        "six positive neighbor sensor fifteen doubletons",
+        "S6 finite Abelian translation phase min64 minimum 64",
+        "signed affine adjacency automorphism Z6 rigidity",
+        "signed neighbor closed trace min24 old V10 reuse",
+        "finite forbidden Cell separator unreviewed candidate"
+      ],
+      "capabilities": [
+        "Locate existing derived X6 observer-fiber, finite Abelian phase and full adjacency results with their exact carrier restrictions and source review scope."
+      ],
+      "input_contract": "A lookup over the fixed Heartbeat native six-dimensional discrete Cell substrate. Choose the exact raw signed chart, declared observer/future-operation language, finite Abelian carrier class or all-Cell unit-adjacency graph; time, if relevant, stays separately typed.",
+      "output_contract": "Bibliographic navigation to source-bounded derived results and formulas. The signed-neighbor minimum-24 closed trace is indexed as exact reuse of old V10, with no new theorem, tool or vote. Unreviewed separator candidates are separated from reviewed units.",
+      "hard_boundary": "No native plane, reduced-dimensional ontology or physical force law is introduced. The minimum-64 statement remains within its explicit finite Abelian S6-equivariant carrier class and does not assert a universal nonlinear/nonabelian/FSM lower bound. T4/T6/T7 ownership and source-specific reuse boundaries are preserved."
+    },
+    {
+      "score": 12,
+      "method_id": "candidate.x6.one_positive_raw_stability_certificate",
+      "name": "Sharp one-positive-support raw X6 stability with an integer and symbolic DIV consumer",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md",
+        "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py"
+      ],
+      "api": [
+        "audit_case"
+      ],
+      "triggers": [
+        "one positive support raw X6 stability certificate",
+        "sharp three twentieth one tenth raw marginal mass bound",
+        "单正支点原始二十表稳定性"
+      ],
+      "input_contract": "Two finite positive spatial mass populations in one shared external anchor and labelled signed X6 frame; exact positive integer numerators and one positive integer common denominator. Aggregate and cancel equal Cells first, then require at most one positive site in the signed difference. D is the sum of all twenty complete raw three-axis marginal L1 norms.",
+      "output_contract": "Complete raw and joint (can3, per-slice common offset) tables; post-cancellation P/N, L1 and D; exact integer comparisons for L1 <= (3/20)D and, when total masses agree, L1 <= (1/10)D. Constants, masses and nonzero ratios remain literal canonical unevaluated DIV nodes. Zero has no ratio. The consumer also checks the two distinct nonzero equality conditions.",
+      "core_law": "For f=P delta_q - nu after cancellation, every table has norm abs(P-N+a_I)+a_I and sum_I a_I >= 10N. The sharp 3/20 constant requires N=2P, negative sites on individual axis lines and equal six-axis aggregate negative masses. The sharp equal-mass 1/10 constant only requires single-axis negative sites; axis aggregates need not be equal.",
+      "hard_boundary": "Raw addresses or jointly retained can3 and common offset are mandatory; can3 alone is insufficient. Shared chart provenance is a caller premise. The signed difference is analytical bookkeeping, not a negative BRC branch. No branch history/count/max-weight recovery, general p<=7 constant, global novelty, formal acceptance or Foundation promotion follows. Finite tests audit the consumer; the separate paper carries the all-input proof.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Uses existing canonical signed X6 Cell, signed BRC support/unit-step interfaces, raw joint slice reconstruction and exact_arithmetic.division/compare_divisions. The existing raw stability source supplies observation typing; the separately audited one-positive proof sharpens its restricted support case. No quotient or root evaluation is requested, so no collapse trace is fabricated.",
+        "hard_boundary_checked": "Positive population numerators remain integer states; denominator nodes stay unreduced. Historical canonical module initialization is outside the bounded main-ledger observation and is not claimed migrated. No transitive runtime certificate is inferred from a static or finite-call audit."
+      },
+      "runtime": "Python arbitrary-precision integers, canonical Spatial6 and DivisionExpr identities, and twelve pinned paper/native/arithmetic source dependencies. audit_case performs finite raw-table aggregation and returns a certificate; it does not materialize a quotient or a root.",
+      "validation_refs": [
+        "experiments/owner_one_positive_stability_20260908/certificate.json",
+        "experiments/owner_one_positive_stability_20260908/README.md",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/review.py",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/review.json",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/REVIEW.md"
+      ],
+      "source_sha256": {
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md": "b49eac9291c7b6a6ec458a133700ee17a4573972e58787a976871512746dd4e7",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f6fe6713fb46bc0fd9c6626333cb44afd14c88b13b7f7d99fe8f928859434038",
+        "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py": "283c0b64e995077d01e5b42114ffd5791bafadeb5f175b4df17118ee1a9d5878",
+        "experiments/owner_one_positive_stability_20260908/certificate.json": "11fd30fcc2894ffdcd7ed43e1266b65dc063aa12b57f9f5b653eb9d437bc3010",
+        "experiments/owner_one_positive_stability_20260908/README.md": "91f4c918eead64e0efb32f24577c9e4db081412131ccf4b22313a0ae96e4d820",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/review.py": "785f60ee9f66445e1675c19f7a93981355819c674001ad4eb85bf26c09c1d010",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/review.json": "2bb0c93ce92aff98f7f5e3dc2d1cfb74481bbbc1121288ab54b0512ef29ae47c",
+        "experiments/owner_one_positive_stability_20260908/independent_review_20260908/REVIEW.md": "8a72e04a80dcbf93556690438f8cc51229ff95bebdf5a81d57ae2ca6139f5076"
+      }
+    },
+    {
+      "score": 12,
+      "method_id": "result.x6.compressed_raw_dual_certificate",
+      "name": "Compressed raw X6 integer dual bound and original equality fibers / 压缩 raw X6 整数对偶界与原始取等纤维",
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "api": [],
+      "description": "Paper theorem composing positive-support raw compression with complete finite integer table potentials. It transfers a verified compressed-carrier linear bound to arbitrary finite original negative support and supplies the full gap and the precise equality-fiber conditions. 这是纸面条件定理，未实现通用对偶验证器。",
+      "triggers": [
+        "compressed raw X6 integer dual certificate positive support finite carrier",
+        "X6 正支撑压缩 raw 有限整数对偶证书 原空间取等纤维"
+      ],
+      "source_refs": [
+        "research_notes/OWNER_COMPRESSED_RAW_DUAL_CERTIFICATE_REVIEW_20260908.md"
+      ],
+      "dependency_refs": [
+        "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md",
+        "experiments/owner_positive_support_compression_20260908/check_positive_support_compression.py",
+        "research_notes/OWNER_THREE_POSITIVE_EQUAL_MASS_STRUCTURAL_REVIEW_20260908.md",
+        "research_notes/OWNER_THREE_POSITIVE_STAR_SHARP_STABILITY_REVIEW_20260908.md",
+        "research_notes/OWNER_THREE_POSITIVE_STAR_WEIGHT_PROFILE_REVIEW_20260908.md"
+      ],
+      "source_sha256": {
+        "research_notes/OWNER_COMPRESSED_RAW_DUAL_CERTIFICATE_REVIEW_20260908.md": "193e5833b3d59e434ff656779839501af6ddd6ece9a40b6fe36aad406071bbdc",
+        "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md": "2cb061262e713859fd419871d0be9e4d5041698a01a46a55bd5ef5fc3f7e38b4",
+        "experiments/owner_positive_support_compression_20260908/check_positive_support_compression.py": "f7e31ef40a2af4da1eaf0726068b212bb5efd66e82056ef91c8ee29581853660",
+        "research_notes/OWNER_THREE_POSITIVE_EQUAL_MASS_STRUCTURAL_REVIEW_20260908.md": "47f12081c02090cc19de25b2c8ed234b6ed8a5ed300ea4fb13df4d8ff71dcda8",
+        "research_notes/OWNER_THREE_POSITIVE_STAR_SHARP_STABILITY_REVIEW_20260908.md": "6a809986a77a5cc21deb8cdb4062af13d44993fc465b073111eaacf5f7671fe1",
+        "research_notes/OWNER_THREE_POSITIVE_STAR_WEIGHT_PROFILE_REVIEW_20260908.md": "fe5169d2e5e093d21753ad27994825ecf4f58d9ea2fa19d042dd445e78b6e0e6"
+      },
+      "validation_refs": [
+        "research_notes/OWNER_COMPRESSED_RAW_DUAL_CERTIFICATE_REVIEW_20260908.md"
+      ],
+      "validation_kind": "ROOT_CANDIDATE_WITH_BOUNDED_INDEPENDENT_PAPER_REVIEW_SECTION_7_NOT_FORMAL_ACCEPTANCE",
+      "input_contract": "In one common external anchor and labelled raw integer X6 chart, aggregate two finite positive rational populations and Jordan-cancel first. Fix a nonempty positive support S with every w_s>0 and arbitrary finite negative population disjoint from S. Use the actual positive-support coordinate compression C=product_i(A_i union {max(A_i)+1}). Supply all twenty complete integer tables b_I:C_I->Z, integer L>0 and B>=0, with |b_I|<=L and F(z)=sum_I b_I(z_I)<=-B for every z in C minus S. The positive potentials a_s=F(s) may be signed and nonuniform.",
+      "output_contract": "The paper proves L*D>=sum_s(a_s*w_s)+B*N for every finite original negative population, with a full nonnegative table/negative-site gap. Equality requires all table gaps zero and original negative support inside phi^(-1)({F=-B}); a tight point has a singleton original fiber exactly when all its coordinates lie in their A_i. A uniform L*D>=A*M follows only with the additional positive A, all a_s>=A and B>=A conditions, with its own extra equality terms. The S-empty branch is D=20*N=20*M, and zero difference has no ratio.",
+      "core_law": "Raw compression preserves P,N and each of twenty marginal L1 norms because every positive projected address has a singleton fiber and other fibers combine only nonpositive mass. The finite table pairing proves the conditional linear bound and exact gap; pullback preserves the original raw semantics and exposes rather than erases non-singleton equality fibers.",
+      "result_scope": {
+        "post_jordan_positive_support_fixed_finite_nonempty": true,
+        "same_external_anchor_and_labelled_raw_x6_chart": true,
+        "positive_rational_population_weights": true,
+        "arbitrary_finite_original_negative_support_disjoint_from_S": true,
+        "signed_difference_is_analysis_not_negative_brc_primitive": true,
+        "coordinate_carrier": "A_i={s_i:s in S}; c_i=max(A_i)+1; C=product_i(A_i union {c_i})",
+        "compression_preserves_P_N_and_each_raw_marginal_L1": true,
+        "table_contract": "all twenty complete b_I:C_I->Z; integer L>0; |b_I|<=L",
+        "potential_contract": "F=sum_I b_I; integer B>=0; F(z)<=-B for every z in C minus S",
+        "positive_potentials": "a_s=F(s); signed and nonuniform values allowed",
+        "linear_bound": "L*D >= sum_s(a_s*w_s)+B*N",
+        "B_zero_allowed": true,
+        "uniform_M_bound_requires": "integer A>0; every a_s>=A; B>=A",
+        "uniform_bound": "L*D >= A*M",
+        "uniform_coefficient": "native unevaluated DIV(L,A) only after A>0",
+        "full_linear_gap": "sum_(I,t)(L*abs(h'_I(t))-b_I(t)*h'_I(t))+sum_(z in C minus S)((-F(z)-B)*n'(z))",
+        "linear_equality_iff": "all table-address gaps vanish and every actual negative compressed point has F=-B",
+        "original_negative_support": "subset phi^(-1)(Z), where Z={z in C minus S:F(z)=-B}",
+        "singleton_fiber_iff": "every coordinate of the compressed point belongs to its A_i",
+        "all_tight_fibers_singleton_sufficient_condition": "Z subset product_i A_i",
+        "support_condition_alone_classifies_equality": false,
+        "uniform_equality_extra_conditions": "all a_s=A; if N>0 also B=A, in addition to the linear equality conditions",
+        "empty_positive_support_branch": "D=20*N=20*M; no max(empty set)",
+        "zero_difference_ratio_defined": false,
+        "budget_exhaustion_means_mathematical_falsehood": false,
+        "finite_carrier_complete_check_required_for_future_certificate": true,
+        "generic_dual_verifier_implemented": false,
+        "all_three_positive_sharp_bound_proved": false,
+        "optimal_certificate_search_provided": false,
+        "main_question_closed": false,
+        "formal_result_or_working_truth_granted": false
+      },
+      "hard_boundary": "RESULT_ONLY with no API and no new tool family. No generic dual verifier, optimal dual search, carrier enumeration or new arithmetic runtime is implemented here. Full verification of a supplied finite certificate would still be required; a few samples or a budget overrun do not prove or refute the theorem. B=0 and signed/nonuniform a_s remain linear bounds and do not automatically yield a positive uniform M coefficient. A tight-set support condition alone does not classify all equality weights; a failed all-Z singleton check does not preclude every possible further classification. This is not an all-p3 sharp theorem or closure of the parent research question. Signed analysis is not a negative native BRC primitive, and no microscopic/history recovery, formal Result, Working Truth or main admission is granted.",
+      "reuse_resolution": {
+        "coverage_verdict": "EXTEND_EXISTING_TOOL",
+        "matched_toolsets": [
+          "T0_BRC"
+        ],
+        "matched_method_ids": [
+          "result.x6.positive_support_raw_l1_compression",
+          "candidate.x6.positive_support_raw_compression_certificate",
+          "result.x6.three_positive_star_raw_stability",
+          "result.x6.three_positive_star_fixed_weight_stability"
+        ],
+        "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+        "how_applied_or_why_not": "The already reviewed paper composes positive-support compression, raw projection contracts and existing concrete star table-dual examples. This harvest exposes that conditional theorem and reuses the two already registered star IDs without copying their method objects. No mathematical implementation is executed.",
+        "coverage_is_not_execution": true
+      },
+      "note": "The p3 probe is retained only as an already registered boundary/example dependency of the star papers; this record does not duplicate result.x6.three_positive_raw_mass_boundary. The old two star result objects remain byte-identical in their original shard.",
+      "tags": [
+        "X6",
+        "raw",
+        "positive-support-compression",
+        "integer-dual",
+        "finite-carrier",
+        "equality-fibers",
+        "RESULT_ONLY",
+        "T0_BRC-reuse"
+      ]
+    },
+    {
+      "score": 12,
+      "method_id": "result.x6.positive_support_raw_l1_compression",
+      "name": "Positive-support-preserving raw X6 compression with every coordinate-marginal L1 unchanged",
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md"
+      ],
+      "validation_refs": [
+        "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md"
+      ],
+      "validation_kind": "COMPLETE_PAPER_PROOF_AND_BOUNDED_REVIEW_IN_THE_SAME_SOURCE",
+      "api": [],
+      "triggers": [
+        "positive support raw X6 L1 compression",
+        "X6 正支点 raw L1 压缩"
+      ],
+      "input_contract": "Finite rational signed spatial difference of positive populations in one common external anchor and labelled signed X6 frame. Aggregate identical Cells, cancel, then define the Jordan positive support S. For nonempty finite S use A_i={q_i:q in S} and a fresh integer c_i; p=0 is a separate nonpositive constant-map case.",
+      "output_contract": "The coordinate product map fixing A_i and sending its complement to c_i fixes S with singleton inverse fibers; preserves every positive-site mass, positive/negative totals, global L1 and each raw coordinate-subset marginal L1, hence all twenty complete raw three-axis L1 norms and their sum D. Its carrier has size product_i(|A_i|+1)<=(p+1)^6; p=2 with r differing axes gives 3^r*2^(6-r)<=729. Zero stays zero with no ratio.",
+      "core_law": "Every positive raw projection address has a singleton inverse fiber. All other projected addresses carry only nonpositive mass, so their coalescence creates no new opposite-sign cancellation.",
+      "hard_boundary": "The carrier bound is not the actual support count or a solved weight optimization. The map depends on post-Jordan S; it is an analytic raw readout compression, not a native isometry or physical event. It does not preserve signed displacements, paths, common-depth, branch history or microscopic BRC histograms. can3 alone, unpaired depth and arbitrary linear observations do not inherit the claim. Signed analysis is not a negative BRC primitive; no formal acceptance or new family follows.",
+      "result_scope": {
+        "post_jordan_positive_support": true,
+        "same_anchor_labelled_signed_x6": true,
+        "all_twenty_complete_raw_three_axis_norms": true,
+        "preserves_every_coordinate_marginal_l1": true,
+        "carrier_bound_is_actual_support_count": false,
+        "p_zero_handled_separately": true,
+        "zero_ratio_defined": false,
+        "recovers_microscopic_brc": false,
+        "executable_theorem_certificate": false
+      },
+      "reuse_resolution": {
+        "coverage_verdict": "EXTEND_EXISTING_TOOL",
+        "matched_tool_or_method_ids": [
+          "T0_BRC",
+          "T6_OPERATION_SAFE_QUOTIENT",
+          "candidate.x6.raw_joint_observer_recovery",
+          "candidate.x6.one_positive_raw_stability_certificate",
+          "result.x6.sparse_marginal_stability"
+        ],
+        "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+        "how_applied_or_why_not": "The paper composes existing raw/Jordan observation typing with the declared operation-descent contract and independently proves the additional singleton-fiber L1 preservation law for arbitrary finite positive support. This is a local extension of raw stability analysis, not a new global family; no executable method was run.",
+        "hard_boundary_checked": "Operation descent alone does not imply L1 equality. The channel-average quotient classification has a different carrier and is not used as this proof."
+      },
+      "source_sha256": {
+        "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md": "2cb061262e713859fd419871d0be9e4d5041698a01a46a55bd5ef5fc3f7e38b4"
+      }
+    },
+    {
+      "score": 9,
+      "method_id": "candidate.x6.positive_support_raw_compression_certificate",
+      "name": "Positive-support raw X6 compression with a bounded native executable certificate",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": null,
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "formal_acceptance": null,
+      "source_refs": [
+        "experiments/owner_positive_support_compression_20260908/check_positive_support_compression.py",
+        "experiments/owner_positive_support_compression_20260908/README.md",
+        "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md"
+      ],
+      "validation_refs": [
+        "experiments/owner_positive_support_compression_20260908/certificate.json",
+        "experiments/owner_positive_support_compression_20260908/independent_review_20260908/review.py",
+        "experiments/owner_positive_support_compression_20260908/independent_review_20260908/review.json",
+        "experiments/owner_positive_support_compression_20260908/independent_review_20260908/REVIEW.md"
+      ],
+      "validation_kind": "AUTHOR_FIXED_CERTIFICATE_AND_SEPARATE_BOUNDED_CONSUMER_REVIEW",
+      "api": [
+        "audit_compression"
+      ],
+      "api_binding": {
+        "module_path": "experiments/owner_positive_support_compression_20260908/check_positive_support_compression.py",
+        "callable": "audit_compression",
+        "signature": "(case_id, mu_atoms, nu_atoms, denominator=1)"
+      },
+      "triggers": [
+        "positive support raw X6 compression executable certificate",
+        "X6 正支点 raw L1 压缩执行证书"
+      ],
+      "input_contract": "Two finite positive populations in one shared external anchor and labelled signed X6 frame. Each atom has exact canonical Spatial6 identity and a strictly positive Python int numerator; denominator is a strictly positive Python int. Aggregate equal cells and Jordan-cancel before deriving S. Boolean, subclass/noninteger and nonpositive weights are outside the contract. Signed subtraction remains an auxiliary analysis ledger, not negative BRC branch mass.",
+      "output_contract": "Returns the actual Jordan signed difference, coordinate compression specification, compressed signed ledger, positive-site masses, P/N, global L1 and all twenty raw three-axis tables before/after with equal per-table L1 and sum D. Native joint can3/common-offset reconstruction is actually checked. The carrier product is computed without enumeration; p=0 uses a constant map, including zero with no ratio. The common mass unit, L1 and D retain literal unevaluated canonical DIV nodes.",
+      "core_law": "Reuse the published positive-support singleton-fiber compression law and the existing integer population/raw projection/joint reconstruction functions. Every positive projected address is protected from negative merging; other negative addresses may coalesce. The caller receives finite input checks, not a new all-input theorem proof from examples.",
+      "hard_boundary": "Only audit_compression is exposed by this entry. Low-level pushforward alone does not promise norm preservation for an arbitrary or stale specification. The executable checks twenty three-axis raw marginals, not every coordinate subset covered by the paper. Raw addresses, physical displacement, word/path multiplicity, microscopic BRC, common-depth and branch history are not all preserved; can3 alone is insufficient. No p>=3 stability constant or new two-positive sharp-bound checker is supplied. Finite call observations exclude import-time and unexecuted transitive compliance claims.",
+      "result_scope": {
+        "post_jordan_positive_support": true,
+        "same_anchor_labelled_signed_x6": true,
+        "generic_finite_positive_support": true,
+        "raw_table_count_per_case": 20,
+        "all_coordinate_subsets_executed": false,
+        "carrier_enumerated": false,
+        "carrier_bound_is_actual_support_count": false,
+        "p_zero_handled_separately": true,
+        "zero_ratio_defined": false,
+        "retains_symbolic_div_mass_unit": true,
+        "arbitrary_low_level_pushforward_norm_guarantee": false,
+        "recovers_microscopic_brc": false,
+        "new_two_positive_sharp_bound_checker": false
+      },
+      "runtime_dependency_manifest": {
+        "path": "experiments/owner_positive_support_compression_20260908/certificate.json",
+        "field": "source_sha256",
+        "count": 14,
+        "all_transitive_arithmetic_compliance_claimed": false
+      },
+      "bounded_execution_evidence": {
+        "author_cases": 18,
+        "author_raw_tables": 360,
+        "independent_new_cases": 5,
+        "independent_new_raw_tables": 100,
+        "independent_new_rejections": 3,
+        "independent_maximum_observed_positive_support": 17,
+        "independent_fresh_default_replay_of_author_certificate": true,
+        "recorded_source_evidence_is_not_reexecuted_by_registration": true
+      },
+      "reuse_resolution": {
+        "coverage_verdict": "EXTEND_EXISTING_TOOL",
+        "matched_tool_or_method_ids": [
+          "T0_BRC",
+          "candidate.x6.one_positive_raw_stability_certificate",
+          "candidate.x6.raw_joint_observer_recovery",
+          "result.x6.positive_support_raw_l1_compression",
+          "result.x6.sparse_marginal_stability"
+        ],
+        "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+        "how_applied_or_why_not": "The published package executes the unchanged population/raw/joint APIs, canonical signed X6 slice/reconstruction and unevaluated DIV constructors. Its exact call evidence and separate independent code-object audit are pinned below. T6 contributes only the existing descent contract at paper level; this entry does not reopen a search or claim a new family.",
+        "hard_boundary_checked": "The old audit_case remains restricted to p<=1 and is called only by the author's five before/after compatibility cases. Metadata registration imports the exposed module for callable/signature inspection but executes no mathematical consumer."
+      },
+      "source_sha256": {
+        "experiments/owner_positive_support_compression_20260908/check_positive_support_compression.py": "f7e31ef40a2af4da1eaf0726068b212bb5efd66e82056ef91c8ee29581853660",
+        "experiments/owner_positive_support_compression_20260908/README.md": "5b6394b07d916c8bdf33b7577314938d0bb15337ceec395dac471f2a4ea1af14",
+        "research_notes/OWNER_POSITIVE_SUPPORT_RAW_COMPRESSION_REVIEW_20260908.md": "2cb061262e713859fd419871d0be9e4d5041698a01a46a55bd5ef5fc3f7e38b4",
+        "experiments/owner_positive_support_compression_20260908/certificate.json": "e1d6e819678d3472acc95aa9b1655f001161dcb93a02c7e0cb47219a542e1cf5",
+        "experiments/owner_positive_support_compression_20260908/independent_review_20260908/review.py": "d49d91d6686b68790cbad7966d1db2421b4ef2533f5de9e6b5c18d2dee3258a9",
+        "experiments/owner_positive_support_compression_20260908/independent_review_20260908/review.json": "2b69f5e837c8067bb266931e438b4207e394aff16f0f40c56d4d759dddeb844a",
+        "experiments/owner_positive_support_compression_20260908/independent_review_20260908/REVIEW.md": "30765a5a8292251e6c65d4d0679497e2e32a3e36493cb77d0c8d3451ab5c4cdc"
+      }
+    },
+    {
+      "score": 9,
+      "method_id": "candidate.x6.quadratic_shell_max_shortest_length",
+      "name": "All-N signed X6 quadratic-shell maximal shortest word length and attaining endpoint",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T1_SCALE_ENUMERATION_VALUATION",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "source_refs": [
+        "experiments/owner_shell_length_20260907/shell_length.py",
+        "research_notes/OWNER_SHELL_LENGTH_FRONTIER_20260907.md",
+        "research_notes/OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md",
+        "research_notes/OWNER_SHELL_LENGTH_BRC_RUNTIME_20260908.md"
+      ],
+      "api": [
+        "upper_length",
+        "upper_length_evaluation",
+        "reduction_parameters",
+        "construct_endpoint",
+        "verify_endpoint",
+        "certificate"
+      ],
+      "triggers": [
+        "quadratic shell maximal shortest length",
+        "six squares fixed sum U(N)",
+        "平方壳最短词长锐界"
+      ],
+      "input_contract": "Nonnegative integer quadratic readout N=sum z_i^2, explicit six signs and separate construction/large-BRC-readout budgets.",
+      "output_contract": "Lmax(N)=max{k>=0:k^2<=6N,k congruent N mod2}, plus an attaining raw signed endpoint, actual common-depth, all20 lossless joint slice addresses and shortest-word count when within budget. The v2 certificate includes ordered BRC DIV/ROOT collapse traces; large trace integers have lossless typed hex encoding.",
+      "core_law": "A six-residue reduction verifies every hypothesis of Meng-Sun Lemma 2.4, completing the all-N theorem; the executable constructor realizes its three-square/Hadamard proof.",
+      "hard_boundary": "N is quadratic readout, not event length. Auxiliary b=floor(U/6) is not native common-depth. Existence proof is independent of search success; pseudopolynomial construction and representation budgets are not fast bit-complexity guarantees.",
+      "reuse_resolution": {
+        "coverage_verdict": "COMPOSE_EXISTING_TOOLS",
+        "matched_tool_or_method_ids": [
+          "T0_BRC",
+          "T1_SCALE_ENUMERATION_VALUATION"
+        ],
+        "reuse_resolution_state": "COMPOSE_APPLIED",
+        "how_applied_or_why_not": "Executes unchanged pure-integer signed_brc and x6_signed coordinate/norm/length APIs; all materialized division, remainder and roots use the existing exact_arithmetic BRC facade. Shortest-word multiplicity retains the original signed BRC factorial ratio and requires a zero BRC remainder. The published fixed-sum four-square lemma and all strict inequalities are unchanged.",
+        "hard_boundary_checked": "Original signed identity, no additional native dimension, classical prior art explicitly attributed."
+      },
+      "runtime": "Python arbitrary-precision integers, existing BRC exact_arithmetic facade, and frozen native signed X6 modules. Historical direct-division multiplicity functions are not called by the governed v2 certificate.",
+      "validation_refs": [
+        "experiments/owner_shell_length_20260907/validate_selected_cases.py",
+        "research_notes/OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md",
+        "experiments/owner_shell_length_20260907/validate_brc_runtime.py",
+        "experiments/owner_shell_length_20260907/validate_brc_runtime.json",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/review.py",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/review.json",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/REVIEW.md"
+      ],
+      "source_sha256": {
+        "experiments/owner_shell_length_20260907/shell_length.py": "31c09afd186ecc86d608fdfeb3b014091f22a3b40bcbdc32d568fe0c0db8aa18",
+        "experiments/owner_shell_length_20260907/validate_selected_cases.py": "5c8c8322971904f58af26bf53ec88abdbeb1ba2965355e96e4d1391d2ac76ba0",
+        "research_notes/OWNER_SHELL_LENGTH_FRONTIER_20260907.md": "5cec9acf830ec0600b8bc7dd45f4b081f771a69da0ab7c6e43ecb53a602d8bb4",
+        "research_notes/OWNER_SHELL_LENGTH_INDEPENDENT_AUDIT_20260907.md": "80324f18bbdc9fe01f38b6943870c8ed36fa0068512e3fa874da21f4f71c8ea0",
+        "experiments/owner_shell_length_20260907/validate_brc_runtime.py": "956126dae579767e65dd9f4f80ab04947a8cc1bdbaa9e34c6e41125dea2a21ec",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/review.py": "013ca7d3cb7f7164a166ddad3cbd80c5b3fc18a00fe88944c37159100a98ab4c",
+        "experiments/owner_shell_length_20260907/validate_brc_runtime.json": "c4b454f6b84ed774d8471d685106c143ebea98d689c28cf7aba1ae9817d4fae9",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/review.json": "9d485a64cc490ce8ee60b502279bdcc82f6dc522e92d1b2b40d30e6175eb788d",
+        "experiments/owner_shell_length_20260907/brc_runtime_independent_20260908/REVIEW.md": "e12793f3a41eed96afcf12e148075cab59420be170f3ce535614a88d0afdeac4",
+        "research_notes/OWNER_SHELL_LENGTH_BRC_RUNTIME_20260908.md": "a0a470afcd1d78eab4d65b7c87b2eb925574c2fe2d66e062974662207828b0d8"
+      }
+    },
+    {
+      "score": 9,
+      "method_id": "candidate.x6.two_positive_raw_stability_certificate",
+      "name": "Two-positive raw X6 stability certificate / 双正支点 raw X6 稳定性证书",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T0_BRC",
+      "status": "TOOLBOX_INTEGRATION_CANDIDATE",
+      "owner_review_status": "INTERNAL_EVIDENCE_REVIEWED_FORMAL_ACCEPTANCE_ABSENT",
+      "description": "Existing published executable for two positive support raw X6 stability certificate: aggregate positive populations, form the Jordan difference, verify all twenty raw marginals, D >= 4*M, and the original-coordinate equal-weight rectangle equality classification. 双正支点、二十张 raw 表、整数不等式与矩形取等的既有可执行证书登记。",
+      "scope": "Finite positive populations in a common externally supplied anchor and labelled integer X6 chart, with at most two Jordan-positive sites after aggregation and cancellation.",
+      "triggers": [
+        "two positive support raw X6 stability certificate",
+        "X6 双正支点 raw 二十表 稳定性 矩形取等 证书"
+      ],
+      "capabilities": [
+        "canonical Spatial6 positive populations and post-cancellation Jordan support",
+        "complete twenty raw three-axis tables with reversible joint can3 plus offset",
+        "integer D >= 4*M certificate for p<=2 including p<=1, p=0 and zero-difference boundaries",
+        "original-coordinate equal-weight checkerboard rectangle equality",
+        "native literal unevaluated, unreduced DivisionExpr ratios"
+      ],
+      "api": [
+        "audit_two_positive_stability"
+      ],
+      "api_signatures": {
+        "audit_two_positive_stability": "(case_id, mu_atoms, nu_atoms, denominator=1)"
+      },
+      "implementation_ref": "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py",
+      "input_contract": [
+        "mu_atoms and nu_atoms are finite populations of canonical Spatial6 points with strictly positive exact-int numerator weights; duplicate points are aggregated before common population cancellation.",
+        "denominator is a strictly positive exact int; booleans and int subclasses are rejected. The common mass unit is the existing unevaluated DIV(1,s).",
+        "All atoms must belong to the same externally established anchor and labelled raw integer chart. Signed values describe the analytical difference of two positive BRC populations, never a negative native branch.",
+        "The post-Jordan positive support must have size at most two. The existing one-positive audit is called only on its p<=1 branch."
+      ],
+      "output_contract": [
+        "Full integer Jordan ledger and all twenty ordered raw marginal tables, including joint can3 addresses and common offsets; can3-alone is insufficient.",
+        "Integer M, D, D-4*M and the scope-appropriate proof branch; the nonzero equality flag is checked against actual original-coordinate rectangle corners and equal absolute numerator weights.",
+        "Native literal DivisionExpr nodes for common unit and displayed masses/ratios remain unevaluated and unreduced. M=D=0 has no ratio."
+      ],
+      "executable_scope": {
+        "post_jordan_positive_support_at_most": 2,
+        "positive_integer_population_numerators": true,
+        "strict_positive_integer_common_denominator": true,
+        "same_external_anchor_and_labelled_raw_x6_chart_required": true,
+        "aggregate_then_cancel_before_support_check": true,
+        "signed_difference_is_analysis_only": true,
+        "complete_ordered_raw_three_axis_tables": 20,
+        "joint_can3_plus_common_offset_required": true,
+        "integer_bound": "D >= 4*M",
+        "nonzero_equality": "original-coordinate equal-weight checkerboard rectangle",
+        "literal_unreduced_unevaluated_division_expr": true,
+        "zero_difference_ratio": null,
+        "p_le_1_uses_existing_audit_case_only_in_its_scope": true,
+        "extends_to_three_positive_support": false,
+        "recovers_microscopic_branch_history": false,
+        "formal_result_created": false,
+        "working_truth_granted": false,
+        "main_admission_inferred": false
+      },
+      "hard_boundary": "This source-only candidate registers an already published bounded consumer. It adds no theorem, family, formal Result, Working Truth, or main admission. It does not certify p>=3, infer anchor/branch history, replace raw coordinates by can3 alone, evaluate a rational quotient, or claim transitive migration of historical Fraction initialization. Finite author/reviewer cases are retained evidence, not a universal proof substitute.",
+      "source_refs": [
+        "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py",
+        "experiments/owner_two_positive_stability_20260908/certificate.json",
+        "experiments/owner_two_positive_stability_20260908/README.md",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/review_two_positive.py",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/author_input_pins.json",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/README.md",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/validation.json"
+      ],
+      "runtime_refs": [
+        "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md",
+        "exact_arithmetic_runtime_policy.json",
+        "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py",
+        "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py",
+        "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md",
+        "research_notes/OWNER_TWO_POSITIVE_EQUALITY_CLASSIFICATION_REVIEW_20260908.md",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md",
+        "research_notes/OWNER_X6_STABILITY_20260907.md",
+        "src/enterprise_math/__init__.py",
+        "src/enterprise_math/core.py",
+        "src/enterprise_math/division.py",
+        "src/enterprise_math/exact_arithmetic.py",
+        "tools/check_exact_arithmetic_policy.py"
+      ],
+      "source_sha256": {
+        "experiments/owner_two_positive_stability_20260908/check_two_positive_stability.py": "3fe2fa6c824b7cff1fca4ad9a3f0235fc008c2a00b152893559eed54d2f63da7",
+        "experiments/owner_two_positive_stability_20260908/certificate.json": "244e9cd7844e391b3f19cdbebaaad36fd70ddf14c97701252847ca2a50761e7e",
+        "experiments/owner_two_positive_stability_20260908/README.md": "929dedf2a8f5ac05b965406ad15eca1ecab27c05d9586fdbdf2406af2843c327",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/review_two_positive.py": "37c831a0b51dbd6cd16e9657d3f402f7903af7deaa205ce17772639b6af3b51e",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/author_input_pins.json": "57a90c8aa99f22d51cbb8bd905cf9700900ecdb4f56b081cacaf8d713841548c",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/README.md": "c01d49cd12927db32cb14a515707ebf4e4c72214caf47f2229bc7eaff9e2490a",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/validation.json": "513f65ccf2c08796adadfd2ebeafb4fd8fb4f2fb6b540d913af537a51df479ac",
+        "definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md": "519a16725156be5461c6e28a0dcef664e267cff4e85120cfb257d5d540ec459e",
+        "exact_arithmetic_runtime_policy.json": "0fdb8eddc09d9e734ddd91b52d6c3c18c9d6036837dfe9fee0bbdbdb7d44b2aa",
+        "experiments/owner_one_positive_stability_20260908/check_one_positive_stability.py": "283c0b64e995077d01e5b42114ffd5791bafadeb5f175b4df17118ee1a9d5878",
+        "experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py": "6f0d79a519c53fed1300b3fabf500c34e30aa46cdd63b409fa6ecc115071ecb4",
+        "experiments/x6_signed_native_spatial_v16_20260905/x6_signed.py": "e48b6f2133edc588fde98b1b0f02ce27fecda915b152b7901300898920d52b8e",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_20260907.md": "b49eac9291c7b6a6ec458a133700ee17a4573972e58787a976871512746dd4e7",
+        "research_notes/OWNER_ONE_POSITIVE_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f6fe6713fb46bc0fd9c6626333cb44afd14c88b13b7f7d99fe8f928859434038",
+        "research_notes/OWNER_TWO_POSITIVE_EQUALITY_CLASSIFICATION_REVIEW_20260908.md": "1a50237cb4a92a3ec2ef7168b7bd8e90598f69aba394217221f24c83fa810ec7",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_BOUND_REVIEW_20260908.md": "1bb732a50cccbbec6c8c11950104c62eed9afc15f326fcc39d9142bd13b24a35",
+        "research_notes/OWNER_TWO_POSITIVE_RAW_STABILITY_INDEPENDENT_AUDIT_20260908.md": "f610e3d642b53279efa91dec15ad3b392270768f73ad0a31edf38212b60be61c",
+        "research_notes/OWNER_X6_STABILITY_20260907.md": "2915e70210dce5bc136c915e45e96a7c8a1f6dd414fae1590a4687f41bff3127",
+        "src/enterprise_math/__init__.py": "bf974df0ef0f57991947d061cb300e835e53bc79ff5667e4229fcc7a6cadbdcc",
+        "src/enterprise_math/core.py": "d2814d1d31eb195905f05136f250fcac2232b8cfc7dc6c9797000733ddebe636",
+        "src/enterprise_math/division.py": "4421c6dc9acfaa61492137951e543973c010c6a127655126152cc18763cc35e9",
+        "src/enterprise_math/exact_arithmetic.py": "f4f8feead82dc53a35e5fec495b31e46e64820f7b115c9efd6034063e68f8ad6",
+        "tools/check_exact_arithmetic_policy.py": "d5629502352e8207a4616368858e68dec1c259e8a0c635769163784dc8bd01fa"
+      },
+      "validation_refs": [
+        "experiments/owner_two_positive_stability_20260908/certificate.json",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/README.md",
+        "experiments/owner_two_positive_stability_20260908/independent_review_20260908/validation.json"
+      ],
+      "validation_contract": {
+        "registration_validator": "experiments/20260908_owner_two_positive_stability/validate_registration.py",
+        "registration_receipt": "experiments/20260908_owner_two_positive_stability/validation.json",
+        "registration_checks": "Exact source/dependency pins, canonical loader queries, actual public signature import, and preservation of prior catalog bytes/objects only.",
+        "historical_author_evidence": "17 cases / 340 raw tables / 18 input rejects; original certificate retained at its immutable source pin.",
+        "historical_independent_evidence": "9 independent cases / 180 raw tables / 19 rejects including fresh-process source-pin drift; portable review receipt retained at its immutable source pin.",
+        "historical_mathematical_cases_replayed_by_registration": false
+      },
+      "reuse_resolution": {
+        "coverage_verdict": "EXTEND_EXISTING_TOOL",
+        "matched_method_ids": [
+          "candidate.x6.one_positive_raw_stability_certificate",
+          "candidate.x6.positive_support_raw_compression_certificate",
+          "candidate.x6.raw_joint_observer_recovery",
+          "result.x6.two_positive_raw_stability",
+          "result.x6.two_positive_equality_rectangle"
+        ],
+        "matched_toolsets": [
+          "T0_BRC"
+        ],
+        "reuse_resolution_state": "EXTEND_EXISTING_TOOL",
+        "resolution": "Register the existing p2 consumer in the same X6/raw BRC family. Keep the one-positive and raw-compression executables and both p2 RESULT_ONLY records unchanged; their paper scope is not an executable API duplicate.",
+        "execution_boundary": "The published consumer already composes canonical X6, one-positive population/raw projection and native DIV. This registration imports the actual public module only to inspect its API; it does not claim to execute those mathematical capabilities again."
+      },
+      "runtime_constraints": {
+        "canonical_imports_required": true,
+        "arbitrary_precision_integer_mass_numerators": true,
+        "division_expr": "native symbolic, unevaluated and unreduced",
+        "historical_fraction_initialization_transitively_migrated": false,
+        "anchoring_is_a_caller_provenance_requirement": true
+      },
+      "tags": [
+        "X6",
+        "raw",
+        "two-positive",
+        "p<=2",
+        "stability",
+        "rectangle-equality",
+        "positive-BRC-populations",
+        "symbolic-DIV",
+        "source-only-candidate"
+      ]
+    },
+    {
+      "score": 9,
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "CURATED_SOURCE_STATUS_PRESERVED",
+      "owner_review_status": "ORIGINAL_SOURCE_AND_REVIEW_STATUSES_REMAIN_AUTHORITATIVE",
+      "validation_kind": "BIBLIOGRAPHIC_INDEX_ONLY_NOT_MATHEMATICAL_REVIEW",
+      "api": [],
+      "mathematical_admission": false,
+      "reuse_resolution": {
+        "coverage_verdict": "NOT_APPLICABLE",
+        "matched_tool_or_method_ids": [],
+        "reuse_resolution_state": "NOT_APPLICABLE",
+        "how_applied_or_why_not": "This record adds source navigation for an existing research branch. The mathematical reuse/composition statements, if any, remain inside each original source and the bounded extraction; no mathematical or executable tool is invoked by this catalog.",
+        "hard_boundary_checked": "A search result or paper index is not tool acceptance, a new theorem proof, formalization, or Foundation admission."
+      },
+      "method_id": "curation.202610.month.cell_euler",
+      "name": "CELL 闭包与路径证书：本月来源索引",
+      "source_refs": [
+        "docs/RESEARCH_LIBRARY.md",
+        "docs/research_library/202610_month/cell_euler.md",
+        "docs/research_library/202610_month/cell_euler.json"
+      ],
+      "triggers": [
+        "CELL closure U1 U25 port budget resource recovery path certificate finite modulus X6 replay",
+        "CELL 闭包与路径证书"
+      ],
+      "capabilities": [
+        "U1–U25 的精确预算、恢复与修复；原生实验文献及路径反例按来源定型",
+        "Locate exact hypotheses, formulas, original authors, proof/review sources and remaining boundaries; this is bibliographic navigation."
+      ],
+      "input_contract": "Select the exact carrier, hypotheses, parameter ranges and original source status in the cited entry before using a result. Source navigation does not execute any mathematical method.",
+      "output_contract": "Existing-source navigation with precise formulas, bounds, original review/acceptance and reuse distinctions. No new proof, executable API or mathematical verdict.",
+      "hard_boundary": "Do not infer parent completion, universal applicability, native physical meaning, new tool-family acceptance or science execution from this documentation index. Read the source-specific limits; historical, branch-only, unreviewed and NO_INVOKE records retain those states."
+    },
+    {
+      "score": 9,
+      "classification": "RESULT_ONLY",
+      "family_id": null,
+      "status": "CURATED_SOURCE_STATUS_PRESERVED",
+      "owner_review_status": "ORIGINAL_SOURCE_AND_REVIEW_STATUSES_REMAIN_AUTHORITATIVE",
+      "validation_kind": "BIBLIOGRAPHIC_INDEX_ONLY_NOT_MATHEMATICAL_REVIEW",
+      "api": [],
+      "mathematical_admission": false,
+      "reuse_resolution": {
+        "coverage_verdict": "NOT_APPLICABLE",
+        "matched_tool_or_method_ids": [],
+        "reuse_resolution_state": "NOT_APPLICABLE",
+        "how_applied_or_why_not": "This record adds source navigation for an existing research branch. The mathematical reuse/composition statements, if any, remain inside each original source and the bounded extraction; no mathematical or executable tool is invoked by this catalog.",
+        "hard_boundary_checked": "A search result or paper index is not tool acceptance, a new theorem proof, formalization, or Foundation admission."
+      },
+      "method_id": "curation.202610.month.misc_formal",
+      "name": "形式结果、公共接口与 J1：本月来源索引",
+      "source_refs": [
+        "docs/RESEARCH_LIBRARY.md",
+        "docs/research_library/202610_month/misc_formal.md",
+        "docs/research_library/202610_month/misc_formal.json"
+      ],
+      "triggers": [
+        "RR65 RR4B RR133 Public129 Q24 J1 finite star affine cube compiler Fitting CE",
+        "形式结果、公共接口与 J1"
+      ],
+      "capabilities": [
+        "实际 RR/DR/HIRR 绑定、标记编译器与有限接口；保留仅到任务的验收范围",
+        "Locate exact hypotheses, formulas, original authors, proof/review sources and remaining boundaries; this is bibliographic navigation."
+      ],
+      "input_contract": "Select the exact carrier, hypotheses, parameter ranges and original source status in the cited entry before using a result. Source navigation does not execute any mathematical method.",
+      "output_contract": "Existing-source navigation with precise formulas, bounds, original review/acceptance and reuse distinctions. No new proof, executable API or mathematical verdict.",
+      "hard_boundary": "Do not infer parent completion, universal applicability, native physical meaning, new tool-family acceptance or science execution from this documentation index. Read the source-specific limits; historical, branch-only, unreviewed and NO_INVOKE records retain those states."
+    },
+    {
+      "score": 9,
+      "method_id": "heartbeat.general_linear_newton_spectrum",
+      "name": "Heartbeat general integer-mixing Newton spectrum and exact Smith rhythm",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T9_HOLONOMY_COCOYCLE_GLUING",
+      "related_families": [
+        "T5_PRECISION_REFINEMENT",
+        "T0_BRC"
+      ],
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "source_refs": [
+        "src/enterprise_math/heartbeat_newton_spectrum.py",
+        "src/enterprise_math/heartbeat_residual_holonomy.py",
+        "tests/test_heartbeat_newton_spectrum.py",
+        "research_notes/heartbeat_newton_spectrum_20260920_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_newton_spectrum_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "api": [
+        "NewtonSpectrum",
+        "characteristic_coefficients",
+        "newton_polygon",
+        "BalanceCertificate",
+        "certify_balanced_powers",
+        "local_smith_depths",
+        "periodic_newton_spectra",
+        "torsion_capacity_rate",
+        "SmithRhythmCertificate",
+        "find_smith_rhythm"
+      ],
+      "triggers": [
+        "Newton spectrum",
+        "general integer axis mixing",
+        "p-adic Smith depth",
+        "exact carry rhythm",
+        "single-slope certificate"
+      ],
+      "capabilities": [
+        "exact characteristic/Newton slopes without p-adic root approximation",
+        "finite necessary-and-sufficient depth-balance diagnosis",
+        "constructive uniform all-n interval",
+        "certified exact local Smith recurrence",
+        "asymptotic p-torsion capacity curve"
+      ],
+      "reuse_resolution": {
+        "state": "EXTEND_EXISTING_TOOL / REUSE_EXECUTED",
+        "existing": "heartbeat.integer_residual_holonomy",
+        "gap": "Old decision is limited to monomial cycles; arbitrary matrix mixing needs characteristic/Newton slope and all-n lattice certificates. Existing BRC Fraction operations and torsion observers are executed unchanged."
+      },
+      "hard_boundary": "Dimension1..6 nonsingular integer matrices; fixed periodic program only. Smith channels are not native spatial axes. No affine-effect, path, arbitrary switching, physical stability or constant-bit-memory guarantee. Bounded period search may return None without disproving existence.",
+      "theorem_refs": [
+        "HBW-NS-001",
+        "HBW-NS-002",
+        "HBW-NS-003",
+        "HBW-NS-004"
+      ]
+    },
+    {
+      "score": 9,
+      "method_id": "heartbeat.integer_residual_holonomy",
+      "name": "Heartbeat integer monodromy / residual-holonomy diagnostic",
+      "classification": "DOMAIN_OPERATOR",
+      "family_id": "T9_HOLONOMY_COCOYCLE_GLUING",
+      "related_families": [
+        "T5_PRECISION_REFINEMENT",
+        "T0_BRC",
+        "T6_OPERATION_SAFE_QUOTIENT",
+        "T8_RELATION_OBSERVABLE_SPECTRUM"
+      ],
+      "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+      "source_refs": [
+        "src/enterprise_math/heartbeat_residual_holonomy.py",
+        "tests/test_heartbeat_residual_holonomy.py",
+        "research_notes/heartbeat_world_intrinsic_laws_20260920_AD0416/RESEARCH_NOTE.md",
+        "research_notes/heartbeat_world_intrinsic_laws_20260920_AD0416/THEOREM_LEDGER.json"
+      ],
+      "api": [
+        "identity",
+        "matmul",
+        "matpow",
+        "determinant",
+        "smith_invariant_factors",
+        "ResidualProfile",
+        "monodromy",
+        "phase_residual_profiles",
+        "cyclic_radix_heartbeat",
+        "radix_staircase_factors",
+        "residual_branch_count",
+        "torsion_killed_count",
+        "prime_valuation",
+        "cyclic_weighted_heartbeat",
+        "cyclic_valuation_depths",
+        "monomial_action",
+        "monomial_cycles",
+        "monomial_cycle_valuation_data",
+        "monomial_valuation_depths",
+        "monomial_valuation_balance",
+        "periodic_monomial_valuation_balance",
+        "characteristic_coefficients",
+        "newton_root_valuations",
+        "carry_slope_spectrum",
+        "carry_spread_rate",
+        "carry_balanced",
+        "phase_carry_spectra",
+        "smith_p_depths",
+        "smith_factor_ratio",
+        "smith_increment_trace",
+        "eventual_control_cycle",
+        "control_cycle_monodromy",
+        "control_carry_spectrum",
+        "control_carry_spectra"
+      ],
+      "triggers": [
+        "heartbeat monodromy",
+        "integer residual holonomy",
+        "Smith residue profile",
+        "radix staircase",
+        "carry holonomy",
+        "phase residual",
+        "nonuniform cyclic scaling",
+        "p-adic heartbeat depth",
+        "valuation balance",
+        "monomial heartbeat",
+        "p-adic anisotropy drift",
+        "cycle mean valuation",
+        "Newton carry slope",
+        "general axis mixing",
+        "p-adic eigenvalue slope",
+        "carry balance",
+        "state-dependent heartbeat",
+        "finite control carry spectrum",
+        "eventual control cycle"
+      ],
+      "capabilities": [
+        "exact small-dimension integer monodromy",
+        "finite cokernel Smith profile",
+        "phase residual spectrum",
+        "canonical six-axis radix staircase",
+        "residual branch-count and torsion-order observer",
+        "exact p-adic depth profile for cyclic per-axis integer scaling",
+        "bounded within-cycle valuation-anisotropy diagnostic",
+        "necessary-and-sufficient bounded p-adic anisotropy test for periodic monomial heartbeat programs",
+        "exact Newton-polygon carry-slope spectrum for general nonsingular integer monodromy",
+        "phase-invariant asymptotic carry slope diagnostic",
+        "general bounded-versus-linear p-adic Smith-depth drift criterion",
+        "finite Smith growth-ratio trace for diagnosing entry into an eventual affine-periodic carry regime",
+        "exact asymptotic carry-slope assignment for finite deterministic state-dependent integer heartbeats"
+      ],
+      "reuse_resolution": {
+        "state": "COMPOSE_APPLIED / CAPABILITY_GAP_CONFIRMED / DOMAIN_OPERATOR",
+        "checked": [
+          "T5_PRECISION_REFINEMENT",
+          "T9_HOLONOMY_COCOYCLE_GLUING",
+          "T0_BRC",
+          "current src/enterprise_math search"
+        ],
+        "reason": "Existing tools cover carry semantics, holonomy semantics and BRC branch safety separately, but not integer monodromy cokernels or Smith residual spectra."
+      },
+      "hard_boundary": "Raw signed integer charts and small nonsingular integer matrices (default SNF limit 6). No fixed Heartbeat World program, nonlinear dynamics, physical time law, thermodynamic entropy, large-matrix SNF performance claim or automatic Foundation admission. General carry-slope theorem assumes a fixed nonsingular integer monodromy; nonlinear/state-dependent cocycles are not covered. smith_increment_trace is not a proof finder for the eventual period."
+    },
+    {
+      "score": 9,
+      "method_id": "logic.triangular_gauge_normalization",
+      "name": "Triangular gauge normalization proof schema",
+      "classification": "CANDIDATE_NOT_TOOL",
+      "family_id": "T5_PRECISION_REFINEMENT",
+      "status": "PROOF_SCHEMA_REUSE_ONLY",
+      "source_refs": [
+        "research_notes/QUADRATIC_PACKET_LOGIC_TOOL_HARVEST_20260826.md",
+        "research_returns/QUADRATIC_PACKET_HIGHER_JET_AUTOMORPHISM_NO_SECTION_AUDIT_RAW_20260825.md"
+      ],
+      "triggers": [
+        "triangular normalization",
+        "unit gauge",
+        "recursive modular normal form",
+        "coefficient-by-coefficient reduction"
+      ],
+      "capabilities": [
+        "recognize triangular gauge action",
+        "derive recursive mod-q normal form",
+        "derive uniqueness by degree induction",
+        "derive orbit count when independent residue ranges are proved"
+      ],
+      "note": "Do not create a new tool family yet. Current evidence is one strong application plus overlap with ordinary integer precision/modular normalization. Promote only after a second independent application family supports a stable reusable API."
+    }
+  ],
+  "executable_modules": [
+    {
+      "score": 7,
+      "id": "module:signed",
+      "name": "signed.py",
+      "description": "Signed integer-state extensions for Enterprise Math.",
+      "source_ref": "src/enterprise_math/signed.py",
+      "api": [
+        "signed_order_root",
+        "signed_order_collapse",
+        "signed_magnitude_root",
+        "signed_magnitude_collapse"
+      ],
+      "triggers": [
+        "signed"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:_cell_slice_codec",
+      "name": "_cell_slice_codec.py",
+      "description": "Exact extraction of the tested three-region slice codec.\nNot a codec for arbitrary X6 states. Source: user-visible verify_lines.py,\nSHA256 b190bf460e87c855c2e4f5b4c61b75473c0422afad70bd2b7deb1663d6ee54e7.\nThe three function bodies below are unchanged; the public wire API wraps them.",
+      "source_ref": "src/enterprise_math/_cell_slice_codec.py",
+      "api": [
+        "encode",
+        "decode",
+        "code_step"
+      ],
+      "triggers": [
+        " cell slice codec"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:adaptive_precision",
+      "name": "adaptive_precision.py",
+      "description": "Adaptive finite precision selection for Enterprise Math P018 stage 6.",
+      "source_ref": "src/enterprise_math/adaptive_precision.py",
+      "api": [
+        "predicate_conflict_fiber",
+        "conflict_multiplicity",
+        "conflict_profile",
+        "refinement_proof_gain",
+        "product_observations",
+        "product_conflict_bound",
+        "joint_predicate_complete",
+        "optimal_target_decision_cost",
+        "optimal_target_first_observation",
+        "optimal_worst_case_decision_cost",
+        "complete_observation_cost_bound"
+      ],
+      "triggers": [
+        "adaptive precision"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:admissible_support",
+      "name": "admissible_support.py",
+      "description": "Finite admissible-support relation diagnostics for A4 correspondence algebra.",
+      "source_ref": "src/enterprise_math/admissible_support.py",
+      "api": [
+        "compose_relations",
+        "converse_relation",
+        "common_target_relation",
+        "analyze_admissible_support_family",
+        "AdmissibleSupportReport"
+      ],
+      "triggers": [
+        "admissible support"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:box_collapse",
+      "name": "box_collapse.py",
+      "description": "Finite common-collapse certificates for labeled axis-aligned integer boxes.",
+      "source_ref": "src/enterprise_math/box_collapse.py",
+      "api": [
+        "intersect_boxes",
+        "pair_intersection_cardinality",
+        "pairwise_intersection_clique",
+        "pairwise_multiplicity_signature",
+        "box_helly_equivalence",
+        "extremal_intersection_certificate",
+        "deletion_safe_intersection_certificate",
+        "reconstruct_bounds_after_deletions",
+        "LabeledIntegerBox",
+        "FacetWitness",
+        "BoxIntersectionCertificate",
+        "DeletionSafeBoxCertificate"
+      ],
+      "triggers": [
+        "box collapse"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:brc_conditional_lift",
+      "name": "brc_conditional_lift.py",
+      "description": "Conditional-distribution lift certificates for finite control BRC.",
+      "source_ref": "src/enterprise_math/brc_conditional_lift.py",
+      "api": [
+        "independence_witness",
+        "certify_conditional_lift",
+        "conditional_mass_matrix",
+        "conditional_mass_defect",
+        "lift_endpoint_measure",
+        "encode_endpoint_measure",
+        "ConditionalLift",
+        "LiftCertificate"
+      ],
+      "triggers": [
+        "brc conditional lift"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:brc_control_mass",
+      "name": "brc_control_mass.py",
+      "description": "Mass-only quotient bridge between finite control-port BRC and recurrent mass calculus.",
+      "source_ref": "src/enterprise_math/brc_control_mass.py",
+      "api": [
+        "control_mass_matrix",
+        "certify_control_mass_partition",
+        "quotient_control_mass_matrix",
+        "ControlMassQuotient"
+      ],
+      "triggers": [
+        "brc control mass"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:brc_control_port",
+      "name": "brc_control_port.py",
+      "description": "Finite typed control-port BRC over exact affine effect histograms.",
+      "source_ref": "src/enterprise_math/brc_control_port.py",
+      "api": [
+        "certify_control_partition",
+        "refine_control_partition",
+        "ControlPacket"
+      ],
+      "triggers": [
+        "brc control port"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:brc_critical_ratio_jet",
+      "name": "brc_critical_ratio_jet.py",
+      "description": "Exact powered critical gauges and finite branch-ratio jets for Weighted-BRC.",
+      "source_ref": "src/enterprise_math/brc_critical_ratio_jet.py",
+      "api": [
+        "powered_critical_gauge",
+        "critical_ratio_jet",
+        "full_powered_ratio_jet",
+        "critical_ratio_first_response",
+        "PoweredCriticalGauge",
+        "CriticalRatioJet",
+        "FullPoweredRatioJet",
+        "CriticalRatioResponseState"
+      ],
+      "triggers": [
+        "brc critical ratio jet"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:brc_histogram",
+      "name": "brc_histogram.py",
+      "description": "Exact finite positive-rational branch-weight histogram BRC carrier.",
+      "source_ref": "src/enterprise_math/brc_histogram.py",
+      "api": [
+        "weight_histogram",
+        "histogram_recoalesce",
+        "histogram_serial",
+        "leading_recoalesce",
+        "leading_serial",
+        "dominant_degeneracy_error_bound",
+        "power_sum_root_polynomial",
+        "LeadingPair",
+        "WeightHistogram"
+      ],
+      "triggers": [
+        "brc histogram"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:brc_residue_quotient",
+      "name": "brc_residue_quotient.py",
+      "description": "Certified observer-scoped quotients of finite residue-port BRC packets.",
+      "source_ref": "src/enterprise_math/brc_residue_quotient.py",
+      "api": [
+        "affine_moment_operator",
+        "packet_digest",
+        "certify_port_quotient",
+        "verify_quotient_certificate",
+        "refine_port_partition",
+        "QuotientCertificate",
+        "QuotientMomentPacket"
+      ],
+      "triggers": [
+        "brc residue quotient"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    },
+    {
+      "score": 3,
+      "id": "module:brc_residue_wheel_complexity",
+      "name": "brc_residue_wheel_complexity.py",
+      "description": "Exact finite counting boundary for fixed BRC vertical residue wheels.",
+      "source_ref": "src/enterprise_math/brc_residue_wheel_complexity.py",
+      "api": [
+        "periodic_support_count",
+        "canonical_difference_square_pair",
+        "fixed_squarehood_wheel_must_be_nonempty",
+        "legendre_symbol_reference",
+        "prime_shift_square_support_count",
+        "fixed_wheel_boundary",
+        "DifferenceSquarePair",
+        "FixedWheelBoundary"
+      ],
+      "triggers": [
+        "brc residue wheel complexity"
+      ],
+      "status": "CURRENT_EXECUTABLE_SOURCE_DISCOVERY"
+    }
+  ],
+  "next_rule": "Inspect semantic preconditions and hard boundaries before deciding REUSE / COMPOSE / EXTEND_EXISTING_TOOL."
+}

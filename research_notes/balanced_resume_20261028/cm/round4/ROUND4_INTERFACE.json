@@ -1,0 +1,81 @@
+{
+  "schema": "BOUNDED_RESEARCH_INTERFACE_V1",
+  "researcher_id": "EM-DIRECT-38A864",
+  "activity_id": "RA-BALANCE-CM-20261028-38A864",
+  "status": "AUTHOR_FROZEN_REVIEW_PENDING",
+  "formal_task_or_driver_disposition": false,
+  "proof": {
+    "repo_path": "research_notes/balanced_resume_20261028/cm/round4/CM24_P_POWER_INDEX_VALUATIONS_AND_SEPARATED_DIMENSION.md",
+    "sha256": "09e26d4322403c2f4e79f3050f5fbffb7acce9ec60c403ff24d68e26ad9023a1"
+  },
+  "exact_inputs": [
+    "Prime p congruent to 13 or 19 modulo 24; valuation normalized by v_p(p)=1.",
+    "Characteristic-zero rational recurrence from round2 section7 with a_0=0,a_1=1.",
+    "For the separated-quotient corollary only: exactly the prior complete unramified DVR, strong completion, connection and normalized good-infinity frame."
+  ],
+  "candidate_outputs": [
+    "For every integer k>=1, v_p(a_(p^k))=-k.",
+    "Thus the fixed sequence is unbounded p-adically.",
+    "By the prior reviewed 5/6 comparison, the separated strong row cokernel has dimension5 and weak-comparison kernel K[(r,0)].",
+    "Explicit closure approximants w_k=(r^(p^k)-b_(p^k))/a_(p^k) have norm at most p^(-k)."
+  ],
+  "method": {
+    "hypergeometric_parameters": [
+      "1/3",
+      "5/6",
+      "7/6"
+    ],
+    "U": "1-3z^2/4",
+    "pullback": "z^6/(16U^2)",
+    "series": "A(z)=z U^(-2/3) F(pullback)",
+    "special_index": "n_k=(p^k-1)/6",
+    "valuation": "v_p(c_(n_k))=-k; v_p(c_n)>=-(k-1) for 0<=n<n_k",
+    "noncancellation": "Integral binomial substitution leaves the leading n_k term as the unique least-valuation summand at index p^k."
+  },
+  "reuse_resolution": "COMPOSE_APPLIED",
+  "harvest": "RESULT_ONLY_STANDARD_COMPOSE",
+  "new_tool_family": false,
+  "dependencies": [
+    {
+      "repo_path": "research_notes/balanced_resume_20261028/cm/round2/CM24_SEPARATED_QUOTIENT_FIVE_SURVIVORS.md",
+      "commit": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76",
+      "sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+      "author": "EM-DIRECT-38A864",
+      "sections": "7 and 8; full carrier and comparison in preceding sections"
+    },
+    {
+      "repo_path": "research_notes/owner_goal_20261016/cm24_convergence_new_anchor/weak_six_boundary_normal_form/CM24_SIX_BOUNDARY_WEAK_COKERNEL_NORMAL_FORM_AUTHOR.md",
+      "commit": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+      "git_blob": "06a9fc065e334f4974bb43f0cd978502613c542a",
+      "author": "EM-DIRECT-88303D",
+      "use": "Original normalized infinity observations and rational scalar normal form."
+    }
+  ],
+  "validation": {
+    "paper_proof": "AUTHOR_CANDIDATE_AWAITING_NONAUTHOR_CHECK",
+    "symbolic_check": "Exact rational pullback coefficient residuals [0,0,0].",
+    "prime_samples": 0,
+    "recurrence_samples": 0,
+    "all_index_theorem_program_checked": false,
+    "formal_task_core_run": false
+  },
+  "formal_scope_boundary": {
+    "current_owner_liveness": "UNKNOWN_CONTROL_QUOTA",
+    "exact_known_formal_cores": "Finite Hesse p^3 transport and first-digit UR reciprocity are separately typed and not executed.",
+    "evidence": "coverage/COVERAGE_BOUNDARY.md",
+    "stop_if_exact_overlap_found": true
+  },
+  "remaining": [
+    "Actual strong exactness of (r,0).",
+    "Exact strong horizontal dimension.",
+    "Classification of the non-Hausdorff closure-of-zero quotient.",
+    "Formal intake/Driver disposition, if separately authorized."
+  ],
+  "excluded": [
+    "Y/Z/kappa values",
+    "New native X6 geometric/physical claims",
+    "Altered frame, lattice, or prime domain for the CM corollary",
+    "Retroactive editing of round2 5-or-6 historical result"
+  ],
+  "parent_goal": "OPEN_CONTINUES_BY_ROOT"
+}

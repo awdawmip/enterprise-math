@@ -1,0 +1,60 @@
+{
+  "schema": "DIRECT_C34_CENTERED_COVARIANCE_SUPPLEMENT_INTERFACE_V1",
+  "id": "C34_CENTERED_CROSS_ROUTE_COVARIANCE",
+  "author": "EM-DIRECT-099801",
+  "activity_id": "RA-BALANCE-FORMAL-20261028-099801",
+  "classification": "REQUIRED_NOTATION_AND_PROOF_INTERFACE_SUPPLEMENT_NOT_NEW_THEOREM",
+  "paper_sha256": "1377b67f565385cbd61e8a7cd5fad02468c726689e506c5bbb6dbac959455c53",
+  "original_source_sha256": "15cabd1b7cef47082a521706d5ebcb8ee48f4c6e0efaf4541fb1d3d9cf4bd1aa",
+  "finding_report_sha256": "7d391774e813ea5d88a2ba30561d5c27a500278d46c864eb18e29c75deb6eb8d",
+  "review_state": "AWAITING_DISTINCT_NONAUTHOR_REVIEW",
+  "independence_disclosure": "Supplement author also authored the finding report; that report cannot independently approve this supplement.",
+  "dimensions": {
+    "S": "M target signs",
+    "H": "q by M selector of distinct labelled original coordinates",
+    "Y": "q target signs, H S",
+    "X_r": "q route-report signs",
+    "D_r": "q by q diagonal positive biases",
+    "C_l": "M by M centered target covariance",
+    "Gamma_l": "q by q centered observed target covariance, H C_l H^T",
+    "R_l_rs": "q by q raw cross-route moment",
+    "G_l_rs": "q by q centered cross-route covariance"
+  },
+  "hypotheses": [
+    "Target and each route error process stationary; exact population expectations.",
+    "Whole target process and three whole error processes mutually independent as sigma-algebras; within-route temporal/spatial dependence unrestricted.",
+    "Same target coordinate/time labels, nondisturbing readout, no uncalibrated shift.",
+    "Each error sign has positive mean eta in (0,1]; r!=s in cross-route identities.",
+    "Three-view raw same-coordinate calibration uses selected original signs, not arbitrary linear mixtures."
+  ],
+  "definitions": {
+    "mu_r": "E[X_r]=D_r v, v=H m",
+    "g_rs_a": "E[X_r(a,t) X_s(a,t)]=[R_0_rs]_(a,a), RAW",
+    "R_l_rs": "E[X_r(t+l) X_s(t)^T], RAW",
+    "G_l_rs": "E[(X_r(t+l)-mu_r)(X_s(t)-mu_s)^T]=R_l_rs-mu_r mu_s^T, CENTERED"
+  },
+  "identities": [
+    "g_rs_a=eta_r_a eta_s_a",
+    "eta_1_a=positive_sqrt(g_12_a g_13_a/g_23_a), cyclic companions",
+    "R_l_rs=D_r (Gamma_l+v v^T) D_s",
+    "G_l_rs=D_r Gamma_l D_s",
+    "Full visibility H=I_M: G_l_rs=D_r C_l D_s",
+    "v=D_r^{-1} mu_r; Gamma_l=D_r^{-1} G_l_rs D_s^{-1}"
+  ],
+  "additional_target_family_input": "C_l=A^l Sigma from the declared affine binary update model; calibration alone does not prove this.",
+  "downstream_scope": [
+    "Full visibility plus inherited Sigma>0 gives A=C1 Sigma^{-1}, without requiring A invertible.",
+    "For a block Hankel built from recovered Gamma_l, exact rank rho<=M; hidden original coordinates at least max(0,rho-q)."
+  ],
+  "not_concluded": [
+    "Actual whole-process independence or alignment from route agreement.",
+    "Finite-sample convergence or confidence.",
+    "Legal rho-coordinate binary minimum realization or full hidden graph identification.",
+    "Native or physical bridge; historical computations revalidated."
+  ],
+  "original_source_modified": false,
+  "scientific_programs": 0,
+  "formal_task_core_executions": 0,
+  "formal_mathematical_votes": 0,
+  "new_theorem_count": 0
+}

@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "phase": "B_POST_IMMUTABLE_RAW_FREEZE",
+  "proof_status": "BOUNDED_CHECK_ONLY_NOT_UNBOUNDED_PROOF",
+  "T7_reuse": {
+    "resolution": "REUSE_EXECUTED",
+    "callable": "enterprise_math.finite_symmetry.orbit_partition",
+    "complete_action_count": 720,
+    "elements": 64,
+    "orbit_sizes_by_active_axis_count": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        15
+      ],
+      [
+        3,
+        20
+      ],
+      [
+        4,
+        15
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        6,
+        1
+      ]
+    ],
+    "source_sha256": "714e75dc3a8f0c9adcdbbae4c3b6d1b9bfbcd64d18a97ffeb16e5ed5fbeea736",
+    "scope": "finite axis-choice action of equality boxes; no bound or infinite-graph claim"
+  },
+  "exhaustive_restricted_native_populations": [
+    {
+      "universe": "nine Cells at (u,v,0,0,0,0), u,v in {0,1,2}",
+      "nonempty_subsets": 511,
+      "full_population_preserved": true,
+      "by_min_degree": {
+        "0": 262,
+        "1": 233,
+        "2": 16
+      }
+    },
+    {
+      "universe": "eight Cells at (u,v,w,0,0,0), u,v,w in {0,1}",
+      "nonempty_subsets": 255,
+      "full_population_preserved": true,
+      "by_min_degree": {
+        "0": 90,
+        "1": 134,
+        "2": 30,
+        "3": 1
+      }
+    }
+  ],
+  "all_axis_choices_constructions_checked": 64,
+  "native_state": "six signed coordinates retained; four or three fixed fields are actual restrictions",
+  "time": "static; no time variable required"
+}
