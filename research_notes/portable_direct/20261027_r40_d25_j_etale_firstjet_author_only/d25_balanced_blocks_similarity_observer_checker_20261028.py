@@ -89,26 +89,69 @@ def orbit_check(p):
             'generator_transitions':transitions,'status':'PASS'}
 
 
+def m4(x, y, p):
+    return tuple(tuple(sum(x[i][k] * y[k][j] for k in range(4)) % p
+                       for j in range(4)) for i in range(4))
+
+
+def minus4(x, y, p):
+    return tuple(tuple((x[i][j] - y[i][j]) % p for j in range(4))
+                 for i in range(4))
+
+
+def det4(x, p):
+    a=[list(row) for row in x]
+    det=1
+    for j in range(4):
+        pivot=next((i for i in range(j,4) if a[i][j] % p),None)
+        if pivot is None: return 0
+        if pivot!=j:
+            a[j],a[pivot]=a[pivot],a[j]
+            det=(-det)%p
+        pivotval=a[j][j] % p
+        det=det*pivotval%p
+        u=pow(pivotval,-1,p)
+        for i in range(j+1,4):
+            factor=a[i][j]*u%p
+            for k in range(j,4):
+                a[i][k]=(a[i][k]-factor*a[j][k])%p
+    return det
+
+
 def witness_373():
     p=373
     I=(1,0,0,1)
     J=(1,1,0,1)
-    def sq(a):
-        # [[0,I],[a,0]]^2 = diag(a,a)
-        return (a,a)
-    # The labels differ exactly by the Jordan flag.
     assert label(I,p)==(2,1,0)
     assert label(J,p)==(2,1,1)
-    assert mm(I,I,p)==I
-    assert mm(J,J,p)==(1,2,0,1)
-    assert sq(I)!=sq(J)
+    A=((0,0,0,0),(0,0,0,0),(0,0,1,0),(0,0,0,1))
+    eye4=tuple(tuple(int(i==j) for j in range(4)) for i in range(4))
+
+    def make_matrices(Y):
+        a,b,c,d=Y
+        K=((0,0,1,0),(0,0,0,1),(a,b,0,0),(c,d,0,0))
+        B=((0,0,1,0),(0,0,0,1),(-a%p,-b%p,0,0),(-c%p,-d%p,0,0))
+        return B,K
+
+    B0,K0=make_matrices(I)
+    B1,K1=make_matrices(J)
+    assert minus4(m4(B0,A,p),m4(A,B0,p),p)==K0
+    assert minus4(m4(B1,A,p),m4(A,B1,p),p)==K1
+    sq0=m4(K0,K0,p)
+    sq1=m4(K1,K1,p)
+    assert sq0==eye4
+    assert sq1!=eye4
+    assert sq1==((1,1,0,0),(0,1,0,0),(0,0,1,1),(0,0,0,1))
+    assert sum(sq0[i][i] for i in range(4)) * pow(2,-1,p)%p==2
+    assert sum(sq1[i][i] for i in range(4)) * pow(2,-1,p)%p==2
+    assert det4(K0,p)==det4(K1,p)==1
     return {'p':p,'X':'I_2','C0':'I_2','C1':'I_2 + E12',
             'trace_YX_both':2,'det_YX_both':1,
             'tr_K_squared_over_two_both':2,'det_K_both':1,
             'jordan_flag_C0':0,'jordan_flag_C1':1,
+            'exact_4x4_products_and_commutators_checked':True,
             'classes_on_X_invertible_stratum':p*p+p,
             'source_jet_status':'AUXILIARY_ONLY_NOT_NATIVE','status':'PASS'}
-
 
 def main():
     cases=[orbit_check(p) for p in (3,5,7,11,13,19)]
