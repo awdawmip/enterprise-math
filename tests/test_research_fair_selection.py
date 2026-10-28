@@ -316,6 +316,23 @@ class FairSelectionTests(unittest.TestCase):
                 self.assertLess(fair._clock(e["at"]), BASE+timedelta(seconds=30))
         self.assertEqual(projected["dispatch_state"], "AWAITING_COHORT_REFERENCE")
 
+    def test_unknown_runnable_history_uses_service_age_without_starvation(self):
+        states = self.pool()
+        for s in states:
+            s["scheduling_history_degraded"] = "UNKNOWN_OVERLAY_START"
+            s["scheduling_history_known_from"] = None
+            for e in s["scheduling_trace"]:
+                if e["event"] == "AVAILABLE":
+                    e["eligible"] = False
+        counts = Counter()
+        for n in range(100):
+            chosen = rr.select_state(states, POLICY)
+            self.assertEqual(chosen["fair_selection"]["method"], "WEIGHTED_SERVICE_AGE_FALLBACK")
+            counts[chosen["priority"]] += 1
+            service(next(s for s in states if s["task_id"] == chosen["task_id"]), n*3+1)
+        self.assertGreater(counts["P3"], 0)
+        self.assertGreater(counts["P0"], counts["P3"])
+
     def test_review_reopens_at_its_real_clock_without_preempting_live_lease(self):
         source = {**task("reopen", "P1"), "registration_source": "IMMUTABLE_TASK_RECORD"}
         lifecycle = dict(state="RETURN_TO_EXECUTION", result=dict(result_id="RR", frozen_at=(BASE+timedelta(seconds=20)).isoformat()),

@@ -62,6 +62,9 @@ def canonical_availability(state, *, source, closed_at=None, reopened_at=None,
     unknown_close = closed_at is None and opened_at is None
     if unknown_close:
         state["scheduling_history_degraded"] = source + ":UNKNOWN_OVERLAY_START"
+        state["scheduling_history_known_from"] = (
+            reopened_at.isoformat() if reopened_at is not None else
+            now.isoformat() if isinstance(now, datetime) else None)
     def underlying(at):
         # Source lifecycle edges precede Issue comments admitted at that same
         # timestamp (CLAIM gates use at >= reviewed_at). Expiry/base markers
@@ -134,6 +137,7 @@ def select(states, candidates, weights):
     direction_credit = {}
     counts = {}
     last = {}
+    last_direction = {}
     available = set()
     history = []
     missing = 0
@@ -148,12 +152,13 @@ def select(states, candidates, weights):
             # without lifecycle timestamps. Never trust its reducer-only tail.
             state = canonical_availability(dict(state), source="UNRECONCILED_CANONICAL_OVERLAY")
             trace = state["scheduling_trace"]
+            by_key[key] = state
+        if not trace:
+            state = {**state, "scheduling_history_degraded": "MISSING_TRACE"}
+            by_key[key] = state
         if trace is None or state.get("scheduling_history_degraded"):
             missing += 1
             degradation_reasons.add(state.get("scheduling_history_degraded") or "MISSING_TRACE")
-        if trace is None:
-            if state.get("dispatch_state") == "NEEDS_DISPATCH":
-                available.add(key)
         for index, item in enumerate(trace or []):
             history.append((_clock(item["at"]), item.get("comment_id") or 0,
                             item["phase"], key, index, item))
@@ -173,6 +178,15 @@ def select(states, candidates, weights):
         priority = winner.get("priority")
         if priority not in weights:
             continue
+        counts[key] = counts.get(key, 0) + 1
+        last[priority] = len(successful)
+        last_direction[(priority, family[key])] = len(successful)
+        if winner.get("scheduling_history_degraded"):
+            known_from = lifecycle_clock(winner.get("scheduling_history_known_from"))
+            if known_from is None or _clock(item["at"]) < known_from:
+                # The CLAIM is a fact, but an unknown eligible set cannot prove
+                # either a positive entitlement or a negative fairness debt.
+                continue
         # A successful successor CAS is a new unit even though the predecessor
         # was leased. Include that winner at its historical service boundary.
         eligible = available | {key}
@@ -187,8 +201,6 @@ def select(states, candidates, weights):
             direction_credit[pair] = direction_credit.get(pair, Fraction()) + Fraction(1, len(groups))
         pair = (priority, family[key])
         direction_credit[pair] -= 1
-        counts[key] = counts.get(key, 0) + 1
-        last[priority] = len(successful)
 
     active = {s.get("priority") for s in candidates} & weights.keys()
     if not active:
@@ -199,18 +211,26 @@ def select(states, candidates, weights):
                                    "missing_history_tasks": missing,
                                    "atomic_global_quota": False}}
     total = sum(weights[p] for p in active)
-    priority = max(active, key=lambda p: (credits[p] + Fraction(weights[p], total),
-                                        -last.get(p, 0), weights[p], p))
+    degraded_candidates = any(by_key[target_key(s)].get("scheduling_history_degraded") for s in candidates)
+    if degraded_candidates:
+        # Unknown eligibility must not pin a runnable low-priority task behind
+        # unprovable negative debt forever. Shared successful-service age is an
+        # approximate, debt-free fallback; it does not invent historical supply.
+        priority = max(active, key=lambda p: (weights[p] * (len(successful) + 1 - last.get(p, 0)), weights[p], p))
+    else:
+        priority = max(active, key=lambda p: (credits[p] + Fraction(weights[p], total),
+                                            -last.get(p, 0), weights[p], p))
     pool = [s for s in candidates if s.get("priority") == priority]
     groups = {family[target_key(s)] for s in pool}
-    group = min(groups, key=lambda g: (-direction_credit.get((priority, g), Fraction()),
+    group = min(groups, key=lambda g: (last_direction.get((priority, g), 0) if degraded_candidates
+                                      else -direction_credit.get((priority, g), Fraction()),
                 min(_clock(s.get("last_progress_at")) for s in pool if family[target_key(s)] == g), g))
     pool = [s for s in pool if family[target_key(s)] == group]
     winner = min(pool, key=lambda s: (counts.get(target_key(s), 0),
                  _clock(s.get("last_progress_at")), target_key(s)))
     # Attach a projection to the returned copy, never to event/state authority.
     return {**{k: v for k, v in winner.items() if k != "scheduling_trace"}, "fair_selection": {
-        "method": "AVAILABLE_WEIGHTED_SUCCESSFUL_CLAIMS",
+        "method": "WEIGHTED_SERVICE_AGE_FALLBACK" if degraded_candidates else "AVAILABLE_WEIGHTED_SUCCESSFUL_CLAIMS",
         "weights": dict(weights), "successful_claims": len(successful),
         "priority_credit": {p: str(credits[p]) for p in weights},
         "direction": group, "missing_history_tasks": missing,

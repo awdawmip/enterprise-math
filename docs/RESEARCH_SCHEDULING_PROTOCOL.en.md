@@ -18,6 +18,8 @@ Historical accounting is limited to the authenticated current-publication/lane r
 
 Canonical Result/Review freeze and reopen timestamps also bound availability: raw READY or lease-expiry traces cannot accrue shares while canonical work is complete or awaiting review. Cohort opening and lane-result freeze times similarly bound lane service. If an overlay's start time is unavailable, that task's unproved availability interval is excluded and the degraded-history reason is reported; accepted CLAIM facts remain counted. Appending a false marker only at the current time would preserve past ghost debt and is insufficient.
 
+If a runnable candidate's eligibility history cannot be reconstructed, selection uses weighted age since the last shared successful service rather than an invented positive/negative entitlement. This transparent fallback spreads opportunities without claiming exact historical proportions; it cannot leave low-priority work behind unprovable debt forever.
+
 ## Registered HANDOFF intent
 
 HANDOFF terminality is machine-explicit. Natural-language `next_action`, `summary`, and `progress_ref` are descriptive evidence only and never decide whether the owner is returning work for Driver review or handing it to another researcher.
