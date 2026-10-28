@@ -1,0 +1,53 @@
+{
+  "schema": "EM_PREFIX326_EXACT_STATIC_BRC_FIBRE_V1",
+  "status": "PASS",
+  "scientific_scope": "Static S7-3 auxiliary BRC, A/8, exact Q0=(128,80,74,200,85)/64; all complex source states modulo global U(1)",
+  "source_input_commit": "66ad9fdaddc4389a5d6f544cb9864fde9a5dacd6",
+  "global_knowledge_snapshot": "243041d5d4e2c6bc8b78be63668669b0f1d26dce",
+  "ordered_pairs_per_port": 9,
+  "ports": 5,
+  "full_source_pairs": 45,
+  "lex_basis_equations": 6,
+  "quartic_F_coefficients": [
+    5951717425889645,
+    -228788223822434620,
+    4023748873308624400,
+    -20488030744357515000,
+    31325392094413630000
+  ],
+  "necessary_elimination_polynomial": "(t-1)*F(t)",
+  "irreducible_mod_prime": 13,
+  "gcd_F_with_t13_minus_t_degree": 0,
+  "gcd_F_with_t169_minus_t_degree": 0,
+  "sturm_total_nonpositive_real_F_roots": 0,
+  "sturm_total_positive_real_F_roots": 2,
+  "positive_root_intervals": [
+    [
+      "333/100",
+      "335/100"
+    ],
+    [
+      "352/100",
+      "353/100"
+    ]
+  ],
+  "old_rational_orbits": [
+    "unit* (-2,-2i,1)",
+    "unit* (-2,2i,1)"
+  ],
+  "new_algebraic_orbits": [
+    {
+      "t": "3.336880983322474 (locator only)",
+      "a": "(0.50219303708744-0.34793834059197i,0.97166847040143-2.0661313056160i,1.826713163942953)"
+    },
+    {
+      "t": "3.523460021231483 (locator only)",
+      "a": "(0.29344821558397+0.49998836461350i,0.95595721613680+2.0375273628622i,1.877088176200437)"
+    }
+  ],
+  "all_original_five_BRC_residues_mod_quartic_zero": true,
+  "complex_phase_orbits": 4,
+  "gaussian_rational_phase_orbits": 2,
+  "project_status": "AUTHOR_SIDE_EXACT_COMPUTATION_UNREVIEWED_NOT_ADMITTED",
+  "native_x6_detector_evolution_bridge": "PENDING"
+}
