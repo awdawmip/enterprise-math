@@ -1,0 +1,630 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX309_SHARP_LS_FRAME_CERTIFICATE_V1",
+  "date": "2026-10-28",
+  "status": "AUTHOR_SIDE_EXACT_FINITE_CERTIFICATE_UNREVIEWED_NOT_ADMITTED_REGISTER_PENDING",
+  "global_knowledge_snapshot": "30a0b3ec845e08a9d5d2ea2bd179c27735398ee2",
+  "science_input_snapshot": "17010f1d01c52fe5aa905fc8c2a6e826cb253124",
+  "source_prefix299_blob": "b6acffe158f014469235f5428d2889ff43b62810",
+  "model": "auxiliary source-labelled coherent C4-BRC E,C,R1,R2,R3 / Q(i)^3 / all independent real readout errors <= epsilon",
+  "decoder": "selected-port normal complex least-squares left inverse",
+  "budget_8": "E,C,any two R with known-configuration-optimal omission",
+  "budget_10": "all five ports",
+  "configs_checked": 48,
+  "exact_gram_entries": 432,
+  "actual_brc_mass_reads": 720,
+  "ordered_source_path_pairs": 9840,
+  "exact_error_corner_evaluations": 2162688,
+  "exact_maximum_squared_gains": {
+    "eight_ref": "47553/3364",
+    "ten_ref": "37829377/3814209"
+  },
+  "previous_conservative_squared_gains": {
+    "eight_ref": "512/29",
+    "ten_ref": "320/31"
+  },
+  "full_generated_results_sha256": "4229b5ca29387227b92033e2f9f3e773101fe284ea7dbcde666627c4bf201063",
+  "generated_result_instructions": "python3 verify_prefix309.py > RESULTS_PREFIX309.json",
+  "max_witnesses": {
+    "eight_ref": {
+      "family": "S7",
+      "orbit": 5,
+      "q": [
+        0,
+        1
+      ],
+      "omitted": "R3",
+      "detG": 118784,
+      "max_norm_Bw_sq": "12465733632",
+      "signed_error_witness": [
+        [
+          -1,
+          1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ]
+    },
+    "ten_ref": {
+      "family": "S4",
+      "orbit": 3,
+      "q": [
+        1,
+        0
+      ],
+      "detG": 249984,
+      "max_norm_Bw_sq": "38737282048",
+      "signed_error_witness": [
+        [
+          -1,
+          1,
+          1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          1,
+          -1,
+          -1
+        ],
+        [
+          -1,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "per_config": [
+    {
+      "family": "S4",
+      "orbit": 1,
+      "q": [
+        1,
+        0
+      ],
+      "eight_best_squared_gain": "43929/3364",
+      "eight_omit": "R1",
+      "ten_squared_gain": "36069125/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 1,
+      "q": [
+        0,
+        1
+      ],
+      "eight_best_squared_gain": "110399236/9740641",
+      "eight_omit": "R2",
+      "ten_squared_gain": "35631296/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 1,
+      "q": [
+        -1,
+        0
+      ],
+      "eight_best_squared_gain": "43929/3364",
+      "eight_omit": "R1",
+      "ten_squared_gain": "36069125/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 1,
+      "q": [
+        0,
+        -1
+      ],
+      "eight_best_squared_gain": "110399236/9740641",
+      "eight_omit": "R2",
+      "ten_squared_gain": "35631296/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 2,
+      "q": [
+        1,
+        0
+      ],
+      "eight_best_squared_gain": "43929/3364",
+      "eight_omit": "R1",
+      "ten_squared_gain": "36069125/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 2,
+      "q": [
+        0,
+        1
+      ],
+      "eight_best_squared_gain": "110399236/9740641",
+      "eight_omit": "R2",
+      "ten_squared_gain": "35631296/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 2,
+      "q": [
+        -1,
+        0
+      ],
+      "eight_best_squared_gain": "43929/3364",
+      "eight_omit": "R1",
+      "ten_squared_gain": "36069125/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 2,
+      "q": [
+        0,
+        -1
+      ],
+      "eight_best_squared_gain": "110399236/9740641",
+      "eight_omit": "R2",
+      "ten_squared_gain": "35631296/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 3,
+      "q": [
+        1,
+        0
+      ],
+      "eight_best_squared_gain": "44121/3364",
+      "eight_omit": "R1",
+      "ten_squared_gain": "37829377/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 3,
+      "q": [
+        0,
+        1
+      ],
+      "eight_best_squared_gain": "10296/841",
+      "eight_omit": "R1",
+      "ten_squared_gain": "35163202/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 3,
+      "q": [
+        -1,
+        0
+      ],
+      "eight_best_squared_gain": "44121/3364",
+      "eight_omit": "R1",
+      "ten_squared_gain": "37829377/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 3,
+      "q": [
+        0,
+        -1
+      ],
+      "eight_best_squared_gain": "10296/841",
+      "eight_omit": "R1",
+      "ten_squared_gain": "35163202/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 4,
+      "q": [
+        1,
+        0
+      ],
+      "eight_best_squared_gain": "44121/3364",
+      "eight_omit": "R1",
+      "ten_squared_gain": "37829377/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 4,
+      "q": [
+        0,
+        1
+      ],
+      "eight_best_squared_gain": "10296/841",
+      "eight_omit": "R1",
+      "ten_squared_gain": "35163202/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 4,
+      "q": [
+        -1,
+        0
+      ],
+      "eight_best_squared_gain": "44121/3364",
+      "eight_omit": "R1",
+      "ten_squared_gain": "37829377/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 4,
+      "q": [
+        0,
+        -1
+      ],
+      "eight_best_squared_gain": "10296/841",
+      "eight_omit": "R1",
+      "ten_squared_gain": "35163202/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 5,
+      "q": [
+        1,
+        0
+      ],
+      "eight_best_squared_gain": "365/29",
+      "eight_omit": "R1",
+      "ten_squared_gain": "36353281/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 5,
+      "q": [
+        0,
+        1
+      ],
+      "eight_best_squared_gain": "38113/3364",
+      "eight_omit": "R1",
+      "ten_squared_gain": "35631296/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 5,
+      "q": [
+        -1,
+        0
+      ],
+      "eight_best_squared_gain": "365/29",
+      "eight_omit": "R1",
+      "ten_squared_gain": "36353281/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 5,
+      "q": [
+        0,
+        -1
+      ],
+      "eight_best_squared_gain": "38113/3364",
+      "eight_omit": "R1",
+      "ten_squared_gain": "35631296/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 6,
+      "q": [
+        1,
+        0
+      ],
+      "eight_best_squared_gain": "10777/841",
+      "eight_omit": "R1",
+      "ten_squared_gain": "36449281/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 6,
+      "q": [
+        0,
+        1
+      ],
+      "eight_best_squared_gain": "10296/841",
+      "eight_omit": "R1",
+      "ten_squared_gain": "35163202/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 6,
+      "q": [
+        -1,
+        0
+      ],
+      "eight_best_squared_gain": "10777/841",
+      "eight_omit": "R1",
+      "ten_squared_gain": "36449281/3814209"
+    },
+    {
+      "family": "S4",
+      "orbit": 6,
+      "q": [
+        0,
+        -1
+      ],
+      "eight_best_squared_gain": "10296/841",
+      "eight_omit": "R1",
+      "ten_squared_gain": "35163202/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 1,
+      "q": [
+        1,
+        0
+      ],
+      "eight_best_squared_gain": "131686789/9740641",
+      "eight_omit": "R3",
+      "ten_squared_gain": "36105218/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 1,
+      "q": [
+        0,
+        1
+      ],
+      "eight_best_squared_gain": "40929/3364",
+      "eight_omit": "R2",
+      "ten_squared_gain": "34859201/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 1,
+      "q": [
+        -1,
+        0
+      ],
+      "eight_best_squared_gain": "131686789/9740641",
+      "eight_omit": "R3",
+      "ten_squared_gain": "36105218/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 1,
+      "q": [
+        0,
+        -1
+      ],
+      "eight_best_squared_gain": "40929/3364",
+      "eight_omit": "R2",
+      "ten_squared_gain": "34859201/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 2,
+      "q": [
+        1,
+        0
+      ],
+      "eight_best_squared_gain": "131686789/9740641",
+      "eight_omit": "R2",
+      "ten_squared_gain": "36105218/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 2,
+      "q": [
+        0,
+        1
+      ],
+      "eight_best_squared_gain": "40929/3364",
+      "eight_omit": "R3",
+      "ten_squared_gain": "34859201/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 2,
+      "q": [
+        -1,
+        0
+      ],
+      "eight_best_squared_gain": "131686789/9740641",
+      "eight_omit": "R2",
+      "ten_squared_gain": "36105218/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 2,
+      "q": [
+        0,
+        -1
+      ],
+      "eight_best_squared_gain": "40929/3364",
+      "eight_omit": "R3",
+      "ten_squared_gain": "34859201/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 3,
+      "q": [
+        1,
+        0
+      ],
+      "eight_best_squared_gain": "365/29",
+      "eight_omit": "R3",
+      "ten_squared_gain": "36353281/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 3,
+      "q": [
+        0,
+        1
+      ],
+      "eight_best_squared_gain": "11000/841",
+      "eight_omit": "R3",
+      "ten_squared_gain": "34031044/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 3,
+      "q": [
+        -1,
+        0
+      ],
+      "eight_best_squared_gain": "365/29",
+      "eight_omit": "R3",
+      "ten_squared_gain": "36353281/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 3,
+      "q": [
+        0,
+        -1
+      ],
+      "eight_best_squared_gain": "11000/841",
+      "eight_omit": "R3",
+      "ten_squared_gain": "34031044/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 4,
+      "q": [
+        1,
+        0
+      ],
+      "eight_best_squared_gain": "10777/841",
+      "eight_omit": "R3",
+      "ten_squared_gain": "36449281/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 4,
+      "q": [
+        0,
+        1
+      ],
+      "eight_best_squared_gain": "10314/841",
+      "eight_omit": "R3",
+      "ten_squared_gain": "37311298/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 4,
+      "q": [
+        -1,
+        0
+      ],
+      "eight_best_squared_gain": "10777/841",
+      "eight_omit": "R3",
+      "ten_squared_gain": "36449281/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 4,
+      "q": [
+        0,
+        -1
+      ],
+      "eight_best_squared_gain": "10314/841",
+      "eight_omit": "R3",
+      "ten_squared_gain": "37311298/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 5,
+      "q": [
+        1,
+        0
+      ],
+      "eight_best_squared_gain": "9956/841",
+      "eight_omit": "R3",
+      "ten_squared_gain": "4028132/423801"
+    },
+    {
+      "family": "S7",
+      "orbit": 5,
+      "q": [
+        0,
+        1
+      ],
+      "eight_best_squared_gain": "47553/3364",
+      "eight_omit": "R3",
+      "ten_squared_gain": "34859201/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 5,
+      "q": [
+        -1,
+        0
+      ],
+      "eight_best_squared_gain": "9956/841",
+      "eight_omit": "R3",
+      "ten_squared_gain": "4028132/423801"
+    },
+    {
+      "family": "S7",
+      "orbit": 5,
+      "q": [
+        0,
+        -1
+      ],
+      "eight_best_squared_gain": "47553/3364",
+      "eight_omit": "R3",
+      "ten_squared_gain": "34859201/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 6,
+      "q": [
+        1,
+        0
+      ],
+      "eight_best_squared_gain": "9956/841",
+      "eight_omit": "R3",
+      "ten_squared_gain": "4028132/423801"
+    },
+    {
+      "family": "S7",
+      "orbit": 6,
+      "q": [
+        0,
+        1
+      ],
+      "eight_best_squared_gain": "47553/3364",
+      "eight_omit": "R3",
+      "ten_squared_gain": "34859201/3814209"
+    },
+    {
+      "family": "S7",
+      "orbit": 6,
+      "q": [
+        -1,
+        0
+      ],
+      "eight_best_squared_gain": "9956/841",
+      "eight_omit": "R3",
+      "ten_squared_gain": "4028132/423801"
+    },
+    {
+      "family": "S7",
+      "orbit": 6,
+      "q": [
+        0,
+        -1
+      ],
+      "eight_best_squared_gain": "47553/3364",
+      "eight_omit": "R3",
+      "ten_squared_gain": "34859201/3814209"
+    }
+  ],
+  "scope_warning": "sharp for this LS decoder/8-ref omission family, not all nonlinear estimators, other menus or native X6 Detector"
+}
