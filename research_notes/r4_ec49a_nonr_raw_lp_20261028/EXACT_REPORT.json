@@ -1,0 +1,111 @@
+{
+  "arithmetic": "stdlib fractions.Fraction, no float",
+  "exact_controller_vector_reconstructed": 1632,
+  "exact_deterministic_policies": 432,
+  "leaf_table": [
+    {
+      "LR": "1/3",
+      "P": "3/32",
+      "Q": "9/32",
+      "h": 0,
+      "w": 0,
+      "z": 0
+    },
+    {
+      "LR": "1/3",
+      "P": "1/32",
+      "Q": "3/32",
+      "h": 0,
+      "w": 1,
+      "z": 0
+    },
+    {
+      "LR": "3",
+      "P": "9/32",
+      "Q": "3/32",
+      "h": 0,
+      "w": 0,
+      "z": 1
+    },
+    {
+      "LR": "3",
+      "P": "3/32",
+      "Q": "1/32",
+      "h": 0,
+      "w": 1,
+      "z": 1
+    },
+    {
+      "LR": "1/3",
+      "P": "1/32",
+      "Q": "3/32",
+      "h": 1,
+      "w": 0,
+      "z": 0
+    },
+    {
+      "LR": "1/3",
+      "P": "3/32",
+      "Q": "9/32",
+      "h": 1,
+      "w": 1,
+      "z": 0
+    },
+    {
+      "LR": "3",
+      "P": "3/32",
+      "Q": "1/32",
+      "h": 1,
+      "w": 0,
+      "z": 1
+    },
+    {
+      "LR": "3",
+      "P": "9/32",
+      "Q": "3/32",
+      "h": 1,
+      "w": 1,
+      "z": 1
+    }
+  ],
+  "model": "8 strict-positive rational terminal leaves / 3 decision times",
+  "non_R_kernel_gap": "1/8",
+  "non_R_next_readout_z1_w1": [
+    "1/16",
+    "3/16"
+  ],
+  "non_R_w1_kernels": [
+    "1/4",
+    "3/4"
+  ],
+  "result": "PASS",
+  "reverse_W_ignoring_policy_checks": 1632,
+  "scope": "fixed 1-state erased-history updater; source-neutral behavioral policies; terminal W ancillary given Z; four O coordinates only",
+  "seeded_rational_policies": 1200,
+  "source_probabilities": {
+    "KW": {
+      "0": {
+        "0": "3/4",
+        "1": "1/4"
+      },
+      "1": {
+        "0": "1/4",
+        "1": "3/4"
+      }
+    },
+    "PZ": {
+      "0": "1/4",
+      "1": "3/4"
+    },
+    "QZ": {
+      "0": "3/4",
+      "1": "1/4"
+    }
+  },
+  "special_four_vector": [
+    "3/8",
+    "1/8",
+    "2",
+    "2"
+  ]
+}
