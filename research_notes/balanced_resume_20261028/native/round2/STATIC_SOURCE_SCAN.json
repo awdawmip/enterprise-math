@@ -1,0 +1,225 @@
+{
+  "schema": "STATIC_SOURCE_AUDIT_V1",
+  "checker_sha256": "5689152e970b652a8e40c3c120eda3b45320c8745968a5cb416fa9b9dbdc5385",
+  "checker_executed": false,
+  "checker_imported": false,
+  "counts_are_syntactic_sites_not_runtime_counts": true,
+  "counts": {
+    "assertion_sites": 11,
+    "strict_comparison_calls": 30,
+    "near_calls": 4,
+    "sqrt_calls": 6
+  },
+  "assertion_sites": [
+    {
+      "line": 8,
+      "condition": "l <= h"
+    },
+    {
+      "line": 30,
+      "condition": "a * b > 0"
+    },
+    {
+      "line": 41,
+      "condition": "b >= 0"
+    },
+    {
+      "line": 45,
+      "condition": "type(k) is int"
+    },
+    {
+      "line": 55,
+      "condition": "b > 0"
+    },
+    {
+      "line": 61,
+      "condition": "b is None and type(a) is I"
+    },
+    {
+      "line": 99,
+      "condition": "mag.h <= G"
+    },
+    {
+      "line": 118,
+      "condition": "a.l * a.h > 0"
+    },
+    {
+      "line": 136,
+      "condition": "P(a).h < P(b).l"
+    },
+    {
+      "line": 161,
+      "condition": "type(j) is int"
+    },
+    {
+      "line": 242,
+      "condition": "abs(x).h < G * (N + 1)"
+    }
+  ],
+  "strict_comparison_calls": [
+    {
+      "line": 128,
+      "expression": "lt('.12',imin(*pivs))"
+    },
+    {
+      "line": 129,
+      "expression": "lt(imax(*pivs),'1.74')"
+    },
+    {
+      "line": 138,
+      "expression": "lt(abs(a-P(b)),tol)"
+    },
+    {
+      "line": 146,
+      "expression": "lt(pi0,pit)"
+    },
+    {
+      "line": 147,
+      "expression": "lt(pit,pi0+I(10**10,10**10))"
+    },
+    {
+      "line": 270,
+      "expression": "lt(ZetaMax,ZM)"
+    },
+    {
+      "line": 271,
+      "expression": "lt(expo(-j/ZM),a)"
+    },
+    {
+      "line": 272,
+      "expression": "lt((ZM-zs)*expo(-2/zs),'.00015')"
+    },
+    {
+      "line": 273,
+      "expression": "lt('.157',imin(Q.values()))"
+    },
+    {
+      "line": 273,
+      "expression": "lt(imax(Q.values()),40)"
+    },
+    {
+      "line": 274,
+      "expression": "lt(imax(abs(x) for x in D.values()),'2.83')"
+    },
+    {
+      "line": 281,
+      "expression": "lt(x,y)"
+    },
+    {
+      "line": 282,
+      "expression": "lt(16,imin(q(n) for n in [16,19,21]))"
+    },
+    {
+      "line": 283,
+      "expression": "lt(norm(W),119)"
+    },
+    {
+      "line": 284,
+      "expression": "lt(Lc.coeff(f,W),335)"
+    },
+    {
+      "line": 286,
+      "expression": "lt(10**8*Fc.coeff(T,W,True),'2.3')"
+    },
+    {
+      "line": 287,
+      "expression": "lt(10**7*Fc.coeff(T,pm,True),'1.27')"
+    },
+    {
+      "line": 288,
+      "expression": "lt(10**15*Fl.coeff(T,Mu,True),7)"
+    },
+    {
+      "line": 290,
+      "expression": "lt(10**10*alias,'2.5')"
+    },
+    {
+      "line": 294,
+      "expression": "lt(10**8*g,'8.1')"
+    },
+    {
+      "line": 294,
+      "expression": "lt(10**29*gt,'9.2')"
+    },
+    {
+      "line": 300,
+      "expression": "lt(curl,[1498,'45.1','13.8','.00458','.000022'][i])"
+    },
+    {
+      "line": 301,
+      "expression": "lt(curc,[13530,151,31,'.00122','.000004'][i])"
+    },
+    {
+      "line": 302,
+      "expression": "lt(curt,[26500,1160,800,800,800][i])"
+    },
+    {
+      "line": 305,
+      "expression": "lt(err,'.00161' if m==1 else '.0000075')"
+    },
+    {
+      "line": 328,
+      "expression": "lt(norm(v),'16.16' if sign==1 else '3.89')"
+    },
+    {
+      "line": 357,
+      "expression": "lt(lower[pos],V)"
+    },
+    {
+      "line": 375,
+      "expression": "lt(x,v)"
+    },
+    {
+      "line": 381,
+      "expression": "lt(['.057','.00055','.00047','.0028','.0039','.0020','.0020'][pos],test(neg))"
+    },
+    {
+      "line": 385,
+      "expression": "lt(approxnorm(x),v)"
+    }
+  ],
+  "near_calls": [
+    {
+      "line": 377,
+      "expression": "near(x,v,'.00002')"
+    },
+    {
+      "line": 386,
+      "expression": "near(q(1),'.32468')"
+    },
+    {
+      "line": 386,
+      "expression": "near(d(1),'.32851')"
+    },
+    {
+      "line": 388,
+      "expression": "near(a,e,'.00002')"
+    }
+  ],
+  "sqrt_calls": [
+    {
+      "line": 85,
+      "expression": "(s.x*s.x+s.y*s.y).sqrt()"
+    },
+    {
+      "line": 148,
+      "expression": "P(3).sqrt()"
+    },
+    {
+      "line": 216,
+      "expression": "(t*t+(k-h)**2).sqrt()"
+    },
+    {
+      "line": 217,
+      "expression": "X.sqrt()"
+    },
+    {
+      "line": 218,
+      "expression": "(v*v+(B-2*k*v)*X).sqrt()"
+    },
+    {
+      "line": 269,
+      "expression": "(1+2*ZM).sqrt()"
+    }
+  ]
+}

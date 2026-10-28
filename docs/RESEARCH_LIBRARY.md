@@ -12,6 +12,12 @@
 
 独立论文复核不等于正式 Driver 接受或 Task 关闭；本轮未新增工具族、Working Truth 或 Foundation 晋升。12 类也不是完整 canonical Task 清单，正式任务实时状态仍为 `UNKNOWN`。下方 435 条和 2,474 文件是原冻结文献整理的历史计数，保持不变。后续单元另记其自身来源、审核与轮次，不倒填首轮。
 
+## 后续加强与方法检索
+
+Student／Parity 的同一尾部成果链已从首轮小锥，经有界相对间隙扩展到全部正的第二间隙：每个固定阶数有可计算的总尺度阈值；紧总尺度问题仍开放。完整公式、假设与证明见[最强范围稿](../research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md)、[接口](../research_notes/balanced_resume_20261028/analysis/PARITY_ALL_SECOND_GAPS_SUM_TAIL_INTERFACE.json)及[非作者纸面复核](../research_notes/balanced_resume_20261028/review/PARITY_ALL_SECOND_GAPS_REVIEW.md)。这是同一成果链的加强，不将三个嵌套适用域重复计数。
+
+[本轮方法检索增补](../research_method_inventory_addenda/20261028_balanced_research.json)提供五个来源索引，API 为空，不添加工具族或正式接纳。既有有限计算、一般证明与条件接口仍按各自证据等级使用。
+
 ## 本月总目录
 
 以下 **435 个文献整理单元**可合并多个同对象结果；其中也包含条件接口、旧结论复用、未审稿与负面边界，不能作为新定理数量或已接受结果数量。不同分卷的交叉引用按原始来源去重，首批 23 条目保留在下表后的旧入口。

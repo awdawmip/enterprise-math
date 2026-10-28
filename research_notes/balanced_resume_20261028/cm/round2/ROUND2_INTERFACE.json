@@ -1,0 +1,49 @@
+{
+  "schema": "CM_SEPARATED_QUOTIENT_BOUND_INTERFACE_V1",
+  "author": "EM-DIRECT-38A864",
+  "activity_id": "RA-BALANCE-CM-20261028-38A864",
+  "paper_sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+  "formal_task_authority": false,
+  "driver_disposition": false,
+  "new_tool_family": false,
+  "status": "FROZEN_AUTHOR_PROOF_PENDING_NONAUTHOR_REVIEW",
+  "domain": "p=13 or19 modulo24; actual unramified complete DVR O and original rank-two row connection; p-adic completion of O[r,(1-r^2)^-1,(4r^2-1)^-1], then invert p",
+  "outputs": {
+    "separated_dimension": "5 or 6",
+    "surviving_independent_representatives": [
+      "(1,0)dr",
+      "(1/(r-1),0)dr",
+      "(1/(r+1),0)dr",
+      "(1/(r-1/2),0)dr",
+      "(1/(r+1/2),0)dr"
+    ],
+    "weak_to_separated_map": "SURJECTIVE",
+    "comparison_kernel": "0 or K[(r,0)dr]",
+    "closure_of_zero_in_algebraic_strong_cokernel": "INFINITE_DIMENSIONAL_USING_REVIEWED_ROUND1_RESULT"
+  },
+  "new_paid_interfaces": [
+    "actual integral selected finite-log-gauge column Ha ka=J(f0)",
+    "integral good-infinity first column from H1=(p/beta)G H1(z^p)",
+    "completion has the exact p-separated partial-fraction c0 basis",
+    "six inherited rational representatives span the separated quotient by density and finite-dimensional closedness"
+  ],
+  "remaining_exact_alternative": {
+    "sequence": "a_j=8[z^j]H12; a0=0,a1=1,a_-1=a_-2=0",
+    "recurrence": "a_(j+2)=((5j(j+1)+2)a_j-j(j-1)a_(j-2))/(4(j+1)(j+2)), integer j>=0 over Q before p-adic evaluation",
+    "bounded": "separated dimension6; weak comparison iso",
+    "unbounded": "separated dimension5; comparison kernel Kr; explicit rational approximants witness r in closure",
+    "selected_alternative": null,
+    "finite_samples_decide": false
+  },
+  "scope_exclusions": [
+    "actual choice of dimension5 or6",
+    "r lies in image versus closure only",
+    "strong horizontal kernel exact dimension",
+    "new physical/native dimensions",
+    "Y/Z/kappa evaluation",
+    "general claim for arbitrary strong completions"
+  ],
+  "harvest": "RESULT_ONLY_STANDARD_COMPOSE",
+  "reuse_resolution": "COMPOSE_APPLIED",
+  "scientific_programs_or_kernel_run": false
+}
