@@ -8,16 +8,15 @@
   "human_protocol": "docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md",
   "invariants": [
     "QUESTION_OR_TASK_SEMANTICS_FIRST",
-    "EXISTING_TOOL_COVERAGE_CHECK_BEFORE_NEW_MECHANISM_INVENTION",
+    "EXISTING_TOOL_COVERAGE_CHECK_BEFORE_NOVELTY_CLAIM_OR_SHARED_ACCEPTANCE",
     "COVERAGE_LOOKUP_IS_NOT_TOOL_REUSE",
-    "TOOL_MATCH_REQUIRES_EXPLICIT_REUSE_RESOLUTION",
+    "NOVELTY_CLAIM_OR_SHARED_ACCEPTANCE_REQUIRES_RELEVANT_MATCH_RESOLUTION",
     "EXISTING_TOOL_COVERAGE -> REUSE_OR_COMPOSE_UNLESS_EXACT_SCOPE_GAP_IS_RECORDED",
-    "NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP",
+    "METHOD_NOVELTY_OR_SHARED_TOOL_ACCEPTANCE_REQUIRES_CONFIRMED_CAPABILITY_GAP",
     "TOOL_USE_PRESERVES_SEMANTIC_TYPING_AND_HARD_BOUNDARIES",
     "EXPLICIT_DISCOVERY_FIREWALL_CONTROLS_TOOL_VISIBILITY_UNTIL_ITS_FREEZE_POINT",
     "CONTROL_PLANE_MAINTENANCE_DOES_NOT_TRIGGER_MATHEMATICAL_TOOLBOX_BY_DEFAULT",
-    "TOOL_ACCEPTANCE_DOES_NOT_MUTATE_FOUNDATION",
-    "EVERY_ACCEPTED_RESEARCH_RETURN_GETS_METHOD_HARVEST_CLASSIFICATION"
+    "TOOL_ACCEPTANCE_DOES_NOT_MUTATE_FOUNDATION"
   ],
   "coverage_verdicts": [
     "REUSE_EXISTING_TOOL",
@@ -28,7 +27,7 @@
   ],
   "reuse_resolution": {
     "coverage_hit_is_tool_use": false,
-    "required_after_any_relevant_match": true,
+    "required_after_any_relevant_match": false,
     "states": [
       "REUSE_APPLIED",
       "REUSE_EXECUTED",
@@ -39,14 +38,14 @@
       "NOT_APPLICABLE"
     ],
     "rules": [
-      "A registry or lexical match alone does not satisfy the reuse gate.",
+      "A registry match alone does not prove actual reuse; no lookup or resolution record is needed merely to start unshared derivation or preserve materials.",
       "For a mathematical calculus or theorem interface, applying its exact declared input/output law and hard boundary to the current task counts as REUSE_APPLIED even when no software execution is required.",
       "When a matching executable source method is required for the claimed computation/certificate and the current environment can execute it, use the existing implementation rather than silently reimplementing it and record REUSE_EXECUTED.",
       "When executable reuse is materially required but unavailable in the current environment, record REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE; do not claim that the executable tool was run and do not treat unavailability as a capability gap in the mathematics/tool family.",
       "COMPOSE_APPLIED requires identifying the concrete existing tools/methods being composed and preserving each hard boundary.",
       "EXTEND_EXISTING_TOOL requires a capability absent from the existing interface while preserving ownership of the existing family.",
       "CAPABILITY_GAP_CONFIRMED requires an exact missing input/output capability, not merely a naming/package/domain difference.",
-      "Before constructing a new general-purpose mechanism, every relevant coverage match must have one explicit reuse-resolution state."
+      "Before claiming a new general-purpose mechanism or accepting it as shared machinery, resolve relevant matches; exploration and preservation may proceed first."
     ],
     "minimum_record": [
       "coverage_verdict",
@@ -54,12 +53,13 @@
       "reuse_resolution_state",
       "how_applied_or_why_not",
       "hard_boundary_checked"
-    ]
+    ],
+    "required_before_claiming_novelty_or_accepting_shared_tool": true
   },
   "role_timing": {
     "TASK_RESEARCH": {
       "mandatory": true,
-      "when": "after the exact task semantics and first necessary dependency are understood, before constructing a new general-purpose mechanism or helper calculus, unless the exact taskbook declares an active discovery-information firewall that postpones current-tool visibility until a named freeze point",
+      "when": "after understanding the exact task; lookup may run alongside derivation or after preserving results, and is required before claiming method novelty or accepting shared reusable machinery",
       "action": "query the current toolbox registry, method inventory and executable-source search surface; resolve every relevant match through reuse_resolution; apply or execute the narrowest adequate existing tool when available, or record the exact missing capability"
     },
     "TASK_RESEARCH_DISCOVERY_FIREWALL": {
@@ -127,7 +127,8 @@
       "Is the residue an extension of an existing tool or a genuinely new family?",
       "What exact input/output capability is missing?"
     ],
-    "rule": "If the gap is only naming, packaging, a special case, a different application domain, or inability to execute an otherwise adequate existing implementation in the current chat environment, do not create a new tool family. Register an alias/specialization/domain facade, reuse the mathematical interface, or record execution unavailability as appropriate."
+    "rule": "If the gap is only naming, packaging, a special case, a different application domain, or inability to execute an otherwise adequate existing implementation in the current chat environment, do not create a new tool family. Register an alias/specialization/domain facade, reuse the mathematical interface, or record execution unavailability as appropriate.",
+    "applies_to": "novelty claims and shared-tool acceptance, not private exploration or preservation"
   },
   "post_return_harvest": {
     "required_for": [
@@ -146,7 +147,8 @@
       "DUPLICATE_ALIAS",
       "NO_TOOL_PAYLOAD"
     ],
-    "required_action": "update the registry/inventory when reuse value or routing changes; otherwise persist the no-tool classification in the Driver/Steward review"
+    "required_action": "update the registry/inventory when reuse value or routing changes; otherwise persist the no-tool classification in the Driver/Steward review",
+    "preservation_requires_classification": false
   },
   "anti_duplication": {
     "same_mechanism_different_historical_name": "ALIAS_OR_SUBTOOL",

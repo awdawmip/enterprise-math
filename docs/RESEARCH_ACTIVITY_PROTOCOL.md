@@ -52,7 +52,7 @@ time, not an invented earlier start time.
 }
 ```
 
-Persist this unique file to EM before substantive research and obtain the full
+When recording an activity, persist this unique file to EM and obtain the full
 file at the returned immutable commit. Match the exact content and returned Git
 blob. A permitted direct-main CAS write is a lightweight option; a PR/CI wait is
 not an activity-registration prerequisite. A source-branch record is remotely
@@ -154,8 +154,10 @@ previous canonical-binding validation rejected.
 
 ## Startup, final boundary, and owner visibility
 
-The canonical runtime guard returns `REGISTER_RESEARCH_ACTIVITY` for an unbound
-ordinary research state. Its activity branch never returns task authorization.
+Unshared derivation may begin without activity pre-registration. The canonical
+runtime guard permits that local scope with `authorized=false`; it grants no
+task claim or protected write. An explicitly supplied activity record still
+requires its original session/source/CAS checks.
 Use `activity_id`, `session_id`, and `activity_registration_source` in that state.
 The latter has the same repo/commit/path/SHA/readback shape as an EM source above,
 but targets the **current exact activity record**. A stale record readback cannot
@@ -178,11 +180,14 @@ The overview reports stored metadata only. It retains historical debt and lists
 recorded repairs separately until the activity guard revalidates their exact
 evidence. It does not reread research sources during every dispatch.
 
-`tools/research_runtime_guard.py pre-final` additionally consumes
+For an explicitly requested formal boundary,
+`tools/research_runtime_guard.py pre-final --formal-task-completion` consumes
 `research_checkpoint_event_id` and the original primitive `parent_liveness`
 inputs from `tools/active_turn_liveness.py`. Persistence does not close an open
 parent with executable work. `new_semantic_progress=false` (or the activity CLI's
 `--no-new-semantic-progress`) handles a stop before new research without inventing
 a result; it never clears an existing debt. Repository guards cannot intercept
 arbitrary chat messages by themselves: the ChatGPT startup/continuation routers
-must invoke or faithfully apply these entry and checkpoint boundaries.
+must preserve the actual shared-task and record-write checks. Ordinary reporting
+and material preservation remain available without an activity registration or
+checkpoint; see [current research protocol](PORTABLE_RESEARCH_PROTOCOL.md).

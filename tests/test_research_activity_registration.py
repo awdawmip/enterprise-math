@@ -59,16 +59,16 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
         return activity.guard(activity_id=record["activity_id"], root=self.root,
                               session_id=session_id, registration_source=self.registration_source(record), **kwargs)
 
-    def test_fresh_public_cli_gives_registration_action_for_ordinary_unregistered_chat(self):
+    def test_fresh_public_cli_allows_unshared_derivation_without_task_authority(self):
         result = subprocess.run([sys.executable, "-B", "-X", "utf8",
             str(ROOT.joinpath("tools/research_runtime_guard.py")), "authorize", "--state-json",
             json.dumps({"research_mode": "TASK_RESEARCH", "session_id": "new-direct-chat"})],
             cwd=self.root, capture_output=True, text=True, encoding="utf-8", timeout=30)
-        self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         decision = json.loads(result.stdout)
-        self.assertEqual(decision["required_action"], "REGISTER_RESEARCH_ACTIVITY")
+        self.assertTrue(decision["activity_registration_optional"])
         self.assertFalse(decision["authorized"])
-        self.assertFalse(any(decision["authority"].values()))
+        self.assertNotIn("execution_binding", decision)
 
     def test_free_phase_a_registers_without_topic_task_catalog_or_claim_and_is_idempotent(self):
         record = self.register()
@@ -230,7 +230,7 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
         liveness.update(parent_objective_complete=True, executable_next_actions=0)
         result = runtime_guard.pre_final_gate({"activity_id": record["activity_id"],
             "activity_registration_source": self.registration_source(record),
-            "research_checkpoint_event_id": "past-checkpoint", "parent_liveness": liveness}, root=self.root)
+            "research_checkpoint_event_id": "past-checkpoint", "parent_liveness": liveness}, root=self.root, formal_task_completion=True)
         self.assertTrue(result["persistence_allowed"])
         self.assertFalse(result["activity_allowed"])
         self.assertFalse(result["final_allowed"])
@@ -328,18 +328,18 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
         record = self.checkpoint(self.register(), "current", em_sources=[self.source()])
         state = {"activity_id": record["activity_id"], "session_id": record["session_id"],
                  "activity_registration_source": self.registration_source(record)}
-        self.assertEqual(runtime_guard.pre_final_gate(state, root=self.root)["required_action"], "RECORD_SEMANTIC_CHECKPOINT")
+        self.assertEqual(runtime_guard.pre_final_gate(state, root=self.root, formal_task_completion=True)["required_action"], "RECORD_SEMANTIC_CHECKPOINT")
         state["research_checkpoint_event_id"] = "current"
         state["parent_liveness"] = {name: False for name in (
             "parent_objective_complete", "user_requested_stop_pause_review_or_wait", "parent_hard_blocker",
             "platform_or_tool_hard_limit", "independent_safe_work_exhausted", "same_action_repeated_without_state_change",
             "supported_alternative_available", "parent_state_recomputed_without_change")}
         state["parent_liveness"]["executable_next_actions"] = 1
-        self.assertFalse(runtime_guard.pre_final_gate(state, root=self.root)["final_allowed"])
+        self.assertFalse(runtime_guard.pre_final_gate(state, root=self.root, formal_task_completion=True)["final_allowed"])
         state["parent_liveness"]["user_requested_stop_pause_review_or_wait"] = True
-        self.assertTrue(runtime_guard.pre_final_gate(state, root=self.root)["final_allowed"])
+        self.assertTrue(runtime_guard.pre_final_gate(state, root=self.root, formal_task_completion=True)["final_allowed"])
         state["parent_liveness"]["parent_objective_complete"] = True
-        self.assertFalse(runtime_guard.pre_final_gate(state, root=self.root)["final_allowed"])
+        self.assertFalse(runtime_guard.pre_final_gate(state, root=self.root, formal_task_completion=True)["final_allowed"])
 
     def test_explicit_nonresearch_roles_do_not_get_relabelled_as_research_activity(self):
         for mode in ("CONTROL_PLANE_MAINTENANCE", "RESEARCH_DRIVER", "FOUNDATION_STEWARD"):

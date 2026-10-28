@@ -458,7 +458,7 @@ def run_case(case):
                 liveness = {key: False for key in active_turn_liveness._BOOL_FIELDS}
                 liveness['executable_next_actions'] = 1
                 live = research_runtime_guard.pre_final_gate(
-                    {'research_mode': 'RESEARCH_DRIVER', 'parent_liveness': liveness}, root=root)
+                    {'research_mode': 'RESEARCH_DRIVER', 'parent_liveness': liveness}, root=root, formal_task_completion=True)
                 assert live['final_allowed'] is False and live['authorized'] is False, live
                 assert live['required_action'] == 'EXECUTE_SELECTED_NEXT_ACTION_NOW'
                 print_value = {'case': case, 'status': 'PASS', 'terminal_scope': 'TASK',

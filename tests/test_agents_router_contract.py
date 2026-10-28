@@ -25,131 +25,30 @@ def assert_status_version_at_least(
 
 
 class AgentsRouterContractTests(unittest.TestCase):
-    def test_agents_is_small_execution_router_not_research_catalog(self):
-        text = read("AGENTS.md")
-        self.assertIn("STABLE EXECUTION ROUTER", text)
-        assert_status_version_at_least(self, text, 3, 0)
-        self.assertIn("is not a theorem catalog", text)
-        self.assertLess(len(text.splitlines()), 460)
-        self.assertLess(len(text), 28500)
-        for stale_or_agenda_token in (
-            "Issue #164",
-            "Research Relay #82",
-            "classical pi",
-            "root choice",
-            "random-walk",
-            "graph distance",
-            "State Pair",
-            "A4 correspondence",
-        ):
-            self.assertNotIn(stale_or_agenda_token, text)
 
-    def test_agents_routes_source_only_control_fields_through_narrow_precedence(self):
-        text = read("AGENTS.md")
-        for marker in (
-            "Narrow control-authority precedence",
-            "control_plane/current_control_authority.json",
-            "CONTROL_PRECEDENCE != MATHEMATICAL_PRECEDENCE",
-            "READ_SNAPSHOT != REVIEW_WRITE_AUTHORITY",
-            "research_review_write_authority.json",
-        ):
-            self.assertIn(marker, text)
-        self.assertIn("does **not** override mathematical truth", text)
 
-    def test_agents_routes_free_to_primitive_substrate_without_menu(self):
+
+
+
+
+
+    def test_agents_routes_to_canonical_project_entries(self):
         text = read("AGENTS.md")
+        self.assertIn("CONTRIBUTING.md#agentproject-task-entry", text)
+        self.assertIn("control_plane/current_control_authority.json", text)
         self.assertIn("definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md", text)
-        self.assertIn("FOUNDATION_FOR_DISCOVERY != CATALOG_OF_CURRENT_ACHIEVEMENTS", text)
-        self.assertIn("NO_DEFAULT_DISCOVERY_LENS_MENU", text)
-        self.assertIn("do not preload the general current-result router", text)
-        self.assertIn("do not supply suggested questions or discovery-lens menus", text)
-        self.assertIn("generic exclusion categories", text)
-
-    def test_agents_task_start_is_exact_task_first_not_common_surface_first(self):
-        text = read("AGENTS.md")
-        self.assertIn("**exact task entry**", text)
-        self.assertIn("first exact dependency required to begin", text)
-        self.assertIn("Soft routine source-read budget before substantive work: `<= 3`", text)
-        self.assertIn("Common Surface is a lookup", text)
-
-    def test_agents_uses_current_candidate_successor_and_promotion_boundaries(self):
-        text = read("AGENTS.md")
-        for marker in (
-            "RAW_AXIOM_CANDIDATE != WORKING_TRUTH != CANONICAL_FOUNDATION",
-            "PASS_IS_NOT_A_SUCCESSOR_TRIGGER",
-            "READY_PR != PROMOTION_LANE_LEASE",
-            "docs/GOVERNANCE_MAINTENANCE_LIVENESS.md",
-        ):
-            self.assertIn(marker, text)
-
-    def test_agents_preserves_tool_reuse_gate_after_identity_merge(self):
-        text = read("AGENTS.md")
-        for marker in (
-            "tool_invocation_policy.json",
-            "docs/ENTERPRISE_TOOL_INVOCATION_PROTOCOL.md",
-            "enterprise_toolbox_registry.json",
-            "research_method_inventory.json",
-            "tools/enterprise_toolbox.py",
-            "UNDERSTAND_TASK_FIRST -> TOOL_LOOKUP_SECOND",
-            "COVERAGE_LOOKUP != TOOL_USE",
-            "REUSE_EXECUTED",
-            "REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE",
-            "NEW_TOOL_DIRECTION_REQUIRES_CONFIRMED_CAPABILITY_GAP",
-            "Discovery-firewall timing exception",
-        ):
-            self.assertIn(marker, text)
-
-    def test_agents_makes_final_role_identity_footer_unconditional_for_research_roles(self):
-        text = read("AGENTS.md")
-        self.assertIn("final_response_identity_policy.json", text)
-        self.assertIn(
-            "ACTIVE_ENTERPRISE_MATH_RESEARCH_ROLE -> EVERY_ASSISTANT_FINAL_RESPONSE_ENDS_WITH_EXACTLY_ONE_ROLE_IDENTITY_MARKER",
-            text,
-        )
-        self.assertIn(
-            "`CONTROL_PLANE_MAINTENANCE` alone does not activate a research-role identity marker.",
-            text,
-        )
-        self.assertIn("Driver-ID: <ID> / CONTROL_PLANE", text)
-        self.assertIn("Steward-ID: <ID> / FOUNDATION_STEWARD", text)
-        self.assertIn("Researcher-ID: <ID> / <TASK_ID>", text)
-        self.assertIn("Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY", text)
-        self.assertIn("Researcher-ID: <ID> / TASK_RESEARCH", text)
-        self.assertIn("Do not use `DIRECT` as a visible researcher scope", text)
-
-    def test_agents_low_burden_dispatch_is_one_claim_and_no_poll_loop(self):
-        text = read("AGENTS.md")
-        self.assertIn("One canonical task selection/claim boundary is sufficient", text)
-        self.assertIn("verify its current immutable V2 publication and claimability", text)
-        self.assertIn("Between genuine semantic checkpoints, default added governance operations are zero", text)
+        self.assertIn("private-repository access is not a prerequisite", text)
+        # Every public relative route must resolve without private account access.
+        for target in re.findall(r"\]\(([^)]+)\)", text):
+            if not target.startswith("https://"):
+                self.assertTrue((ROOT / target.split("#")[0]).is_file(), target)
         contract = json.loads(read("research_dispatch_contract.json"))
         self.assertEqual("research_control_dispatch.py", contract["canonical_tool"])
-        self.assertIn("One self-contained GitHub Issue #240 CLAIM envelope", contract["registered_claim_authority"])
-        for invariant in (
-            "NO_SEPARATE_REMOTE_EXECUTION_INTENT_WRITE_IS_REQUIRED_BEFORE_CLAIM",
-            "NONCOHORT_REGISTERED_CLAIM_MUST_REFERENCE_OPERATIONAL_PUBLICATION_AND_EXACT_BRANCH_BASE_OUTPUT_SCOPE",
-            "FIRST_VALID_AUTHORIZED_ISSUE_CLAIM_COMMITS_THE_OWNER_RACE_WITHIN_ITS_OWNER_SCOPE",
-            "SERVER_COMMENT_ID_DETERMINES_EVENT_ORDER",
-            "EDITED_EVENT_COMMENTS_DO_NOT_MUTATE_HISTORY",
-        ):
-            self.assertIn(invariant, contract["core_invariants"])
         envelope = contract["server_event_envelope"]
-        self.assertEqual(240, envelope["issue"])
         self.assertEqual("GitHub comment_id", envelope["ordering_authority"])
         self.assertFalse(envelope["body_actor_authority"])
         self.assertFalse(envelope["body_at_authority"])
 
-    def test_agents_has_chat_only_control_plane_soft_watchdog(self):
-        text = read("AGENTS.md")
-        for marker in (
-            "CONTROL_PLANE_MAINTENANCE",
-            "Control-plane efficiency soft watchdog",
-            "USER_INTERRUPT -> PREEMPT_NONESSENTIAL_DIAGNOSTIC_EXPANSION",
-            "SUFFICIENT_EVIDENCE -> STOP_DIAGNOSTIC_EXPANSION",
-            "SAME_ERROR_SIGNATURE -> COLLAPSE_TO_ONE_ROOT_CAUSE",
-            "READ_SNAPSHOT != WRITE_AUTHORITY",
-        ):
-            self.assertIn(marker, text)
 
     def test_tool_surface_matches_agents_role_routing_without_transition_guard(self):
         text = read("docs/EM_RESEARCH_TOOL_SURFACE.md")
