@@ -1,0 +1,185 @@
+{
+  "author_status": "AUTHOR_SIDE_EXACT_DERIVATION_UNREVIEWED_NOT_ADMITTED",
+  "dual_total_oscillations": [
+    "1",
+    "1",
+    "1"
+  ],
+  "enterprise_math_input_pin": "d2c0c9157cc89f1c08c9db7c321b4c4702278703",
+  "finite_S2_Bellman_prefix_cases_each": 243,
+  "global_knowledge_pin": "30a0b3ec845e08a9d5d2ea2bd179c27735398ee2",
+  "interior_fraction_probes_per_phase": 2,
+  "model_positive_mass_conservation": "PASS",
+  "native_bridge": "P000 X6 future-operation fidelity not established",
+  "new_interval": [
+    "27483/39215",
+    "1"
+  ],
+  "observer_compression_typed_flow": "53 group occupancy variables, 3/6/13 LR fibers at t2/t3/t4",
+  "phase2_breakpoint": "89/125",
+  "piecewise_d2_equals_d23": [
+    {
+      "lambda": [
+        "27483/39215",
+        "11526/16445"
+      ],
+      "value": "1/506"
+    },
+    {
+      "lambda": [
+        "11526/16445",
+        "89/125"
+      ],
+      "value": "11/22855+39*lambda/18284"
+    },
+    {
+      "lambda": [
+        "89/125",
+        "1"
+      ],
+      "value": "13*lambda/228-11/285"
+    }
+  ],
+  "preceding_witness_boundary": "27483/39215",
+  "prior_d3": "(1-lambda)/2000 on [0,1] per prior independent theorem",
+  "rational_endpoint_evidence": {
+    "1": {
+      "dual_lower_bounds": [
+        "1/506",
+        "239/91420",
+        "7/380"
+      ],
+      "law_tv": [
+        "7/380",
+        "7/380"
+      ],
+      "nonzero_occupancy_entries": 19,
+      "signed_P_residual": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-7/380",
+        "0",
+        "7/380"
+      ],
+      "signed_Q_residual": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "7/380",
+        "0",
+        "-7/380"
+      ]
+    },
+    "11526/16445": {
+      "dual_lower_bounds": [
+        "1/506",
+        "1/506",
+        "197/144210"
+      ],
+      "law_tv": [
+        "1/506",
+        "1/506"
+      ],
+      "nonzero_occupancy_entries": 19,
+      "signed_P_residual": [
+        "0",
+        "0",
+        "-1/506",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/506"
+      ],
+      "signed_Q_residual": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/506",
+        "0",
+        "-1/506"
+      ]
+    },
+    "27483/39215": {
+      "dual_lower_bounds": [
+        "1/506",
+        "1416929/717007060",
+        "12187/8941020"
+      ],
+      "law_tv": [
+        "1/506",
+        "1/506"
+      ],
+      "nonzero_occupancy_entries": 19,
+      "signed_P_residual": [
+        "0",
+        "0",
+        "-1/506",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/506"
+      ],
+      "signed_Q_residual": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/506",
+        "0",
+        "-1/506"
+      ]
+    },
+    "89/125": {
+      "dual_lower_bounds": [
+        "1/506",
+        "1/500",
+        "1/500"
+      ],
+      "law_tv": [
+        "1/500",
+        "1/500"
+      ],
+      "nonzero_occupancy_entries": 14,
+      "signed_P_residual": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/500",
+        "0",
+        "1/500"
+      ],
+      "signed_Q_residual": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1/500",
+        "0",
+        "-1/500"
+      ]
+    }
+  },
+  "scope": "frozen positive finite N4 two-law tree, F_lambda, S2 and S23 with independent shared (time,LR) behavior; 0<=lambda<=1",
+  "status": "PASS_EXACT_FRACTION_N4_COMPLETE_POST_FLAT_PHASES",
+  "strict_subadditivity_on_new_range": "(1-lambda)/2000 positive for lambda<1; zero at lambda=1",
+  "true_first_post_flat_switch": "11526/16445",
+  "universal_real_lambda_argument": "Exact convex occupancy-flow interpolation plus affine F_lambda targets, convex TV, and globally valid S2 Bellman duals",
+  "verified_dual_minima": [
+    "-153/506",
+    "-6981/22855",
+    "-85/456"
+  ]
+}
