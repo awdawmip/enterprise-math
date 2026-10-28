@@ -11,7 +11,7 @@ from fractions import Fraction
 from math import comb
 from hashlib import sha256
 BASE=Path(__file__).resolve().parent
-sys.path.insert(0,str(BASE/'research_notes/r346_unbounded_interior_tp2_corank301_20261028_emr3'))
+sys.path.insert(0,str(BASE.parent/'r346_unbounded_interior_tp2_corank301_20261028_emr3'))
 from R346_verify import K,J,C,add,mul,forward_differences,eval_newton
 OLD_Q332='2c718b864b329b386227c5d3ccff50dc7f9c6ab5b428a65492f34a9e4736b9c2'
 
