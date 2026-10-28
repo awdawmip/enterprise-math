@@ -65,9 +65,9 @@ L=\frac1{54}\sum_{o,x,y}r_{o,x,y}k_{o,z(o,x,y)}
 Maximizing acceptance for positive coefficients and dropping each k≤1 gives
 \[
 L\le \frac1{54}\sum_{o,z}\sum_{v\in\{0,1,2\}}
-       [\sum_w q_{w,o}s_w(z,v)]_+,
+       [\sum_w q_{w,o}s_w(x(o,z,v),y(o,z,v))]_+,
 \]
-where for Y-first, z is the y value and v is the missing x (rather than reversing arguments of s). The right side is convex in the three initial simplex vectors (q_{w,X},q_{w,Y}); its maximum is attained at a deterministic vertex where each W selects STOP, X-first or Y-first. For any one order and fixed first reading, selecting a nonempty proper subset of the three W signed rows gives a permutation of (1,-1,0) over the missing-sensor values, positive-part sum exactly 1; selecting none or all three gives 0. Thus at most two order tags each contribute 1 per first reading. There are three readings and each coefficient is 1/54. Therefore L≤6/54=1/9.
+where (x(o,z,v),y(o,z,v))=(z,v) for X-first and (v,z) for Y-first; the signed kernel always receives its original X,Y arguments. The right side is convex in the three initial simplex vectors (q_{w,X},q_{w,Y}); its maximum is attained at a deterministic vertex where each W selects STOP, X-first or Y-first. For any one order and fixed first reading, selecting a nonempty proper subset of the three W signed rows gives a permutation of (1,-1,0) over the missing-sensor values, positive-part sum exactly 1; selecting none or all three gives 0. Thus at most two order tags each contribute 1 per first reading. There are three readings and each coefficient is 1/54. Therefore L≤6/54=1/9.
 
 Attainment: send W0,W1→X-first and W2→Y-first, always buy both. For X-first accept iff y=x; for Y-first accept iff y=x+2 mod3. Exact direct mass sums yield (alpha,beta,C,C)=(4/9,1/3,3,3). A one-bit controller instead uses (X,0),(X,1),(Y,0) to encode all W, always buys both, accepts iff s_W(x,y)=+1; direct sum gives (1/2,1/3,3,3). Bounds and equality follow, for all real policies (not solely enumerated rational policies).
 
