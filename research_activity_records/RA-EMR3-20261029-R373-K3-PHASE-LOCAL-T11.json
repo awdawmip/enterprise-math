@@ -18,5 +18,35 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "EMR3-20261029-R373-K3-PF2-CHECKPOINT-0633",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "3797ab05af7000d240a170f0301bb313d900fae2",
+          "path": "research_notes/r373_signed_k3_corank5_phase_20261029_emr3/R373_reproduce.py",
+          "sha256": "519dfd3e2c07524e2ce6dc48ea873756fd4522d11bb2b226fc9b59a7dab89ce7",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "EMR3-20261029-R373-SOURCE-IMMUTABLE-OBS-0633",
+            "call_id": null,
+            "git_blob_sha1": "08068c51c39df46504182e2d816ac3eebc236a4c",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/3797ab05af7000d240a170f0301bb313d900fae2/research_notes/r373_signed_k3_corank5_phase_20261029_emr3/R373_reproduce.py",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261029-R373-K3-PHASE-LOCAL-T11/readbacks/cb3628247f797a54ebc2b5505d0529ee694a6145006832b5f2092acfb719414a.json",
+          "verification_receipt_sha256": "cb3628247f797a54ebc2b5505d0529ee694a6145006832b5f2092acfb719414a"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@52d8c3c2f820ccaad7240db6ee82d31e13dc2dd3:journal/enterprise-math/2026-10-29/20261029T063200+0800-r373-signed-k3-corank5-pf2.md"
+      ],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null
+    }
+  ]
 }
