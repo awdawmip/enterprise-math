@@ -1,0 +1,8 @@
+# Next portable R5 unit — multi-collision globally exposed face
+Parent: find a strictly positive rational P/Q tree with conv(I_LR)=I_full and I_LR != I_full, for all real no-persistent-seed LR behavior policies and O=(eP,eQ,TP,TQ).
+
+Read the immutable prior exposed-face study at 2ea525e27882e26a64cf6d3573b5e230da87f708 and this note. Build two interacting time–LR collision information sets; preserve P/Q branch masses, hidden sources, stop/continue options, time indices and every terminal label.
+
+First executable task: compute bilinear B(x,y) and rational rank-three minor; solve its UNIQUE normal lambda exactly. Require a complete Bellman proof that all four corners are globally maximizing, not just coplanar. Theorem A immediately rejects equal-TP/TQ rank-three patches when early-stopping histories give opposite signed time contrasts. Test lambda1*r_h-lambda2 at every reached terminal branch; resolve any zero-score free label using Theorem B or exact observer redundancy.
+
+Only after those face checks, prove all-direction convex-hull equality by symbolic Bellman criterion or exact positive-rational convex combination for EVERY complete-history deterministic observation vector. Then certify a point in I_full not implementable by any real LR policy, including all ties. Maintain exact reproducible P/Q leaf table, code, outputs, provenance and incomplete formal Source/Driver review statuses.
