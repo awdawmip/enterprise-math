@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "path": "research_notes/divisor_extrema/20261028_c42_nonuniform_factor_paths_group_balance.md",
+    "ref": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "exposed_tool_name": "mcp__codex_apps__github_fetch_file",
+  "observation_id": "local-inventory-c42-20261028",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# C42：非均匀因子顺序下的分组配平与起点偏好不变性\n\nProgress-Event-ID: prime-c42-biased-path-balance-20261028\nDate: 2026-10-28 Asia/Taipei\nStatus: AUTHOR_DERIVED_FINITE_EXACT_CHECKED / CONDITIONAL_MODEL / INDEPENDENT_REVIEW_PENDING\nGlobal-read: 2bccd0522d7ed724311b3ed1c85842b95cdeba8d\nEM-read: 80377c37dc2d2a3eadedcff350a8e14ef591022a\nResearch-Activity-ID: NONE_ALLOCATED; REGISTRATION_PENDING\n\n## 1. 固定残差，只改变路径准备\n\n消费C41@6260552a645856aeabfd328fac1561b11c298095:research_notes/divisor_extrema/20261028_c41_context_rank_balanced_path_variance.md，blob1d3676731388134f1a13d8d19677c71bfedf6b05及挂载复算包。保持素数单步图、恒定反对称路线差Δ、单位1的rho_1和来源身份。规范累计R=Σ_(p<q)Δ_pq X_pq，X_pq为p先于q的出现对数；端点势对各路径加同一值。准备顺序不是物理时间，权重类别数不是空间维数；P000/X6与世界观不变。\n\n新增候选准备法则：每种因子有固定λ_p>0，尚余b_p次时，下一种选p的概率λ_pb_p/Σλ_qb_q。λ全相等恢复均匀不同因子词。此为既有Plackett–Luce不放回排序律的重复因子应用。每个词权重由正有理分支组成；辅助独立优先值CDF x^λ只用于证明，不作物理传播或随机模拟。初始1..5均只有一个空/单类因子词，权重1。\n\n## 2. 完整有限方差\n\nθ_pq=λ_p/(λ_p+λ_q)，E R=Σ_(p<q)a_pa_qΔ_pqθ_pq。\n\n定义K_p(q,r)=λ_pλ_qλ_r/[(λ_p+λ_q+λ_r)(λ_p+λ_q)(λ_p+λ_r)]，\nJ_pq=λ_pλ_q(λ_p²+λ_pλ_q+λ_q²)/[(λ_p+λ_q)²(λ_p+2λ_q)(2λ_p+λ_q)]。\n\n准确有VarR=Σ_p a_pΣ_(q,r)a_qa_rΔ_pqΔ_prK_p(q,r)+Σ_(p<q)a_pa_qΔ_pq²J_pq。\n\n证明：临时标记重复因子，独立优先值按大小排序产生上述词法则。单标记p的投影为Σ_q a_qΔ_pq[F_q(Z)-θ_pq]，其协方差核是K。每对比较扣除两个单标记投影，得到条件于任一标记均值0的双标记项；不同余项即使共享一个标记也正交，其方差为J。全部项保留。均匀λ时K=J=1/12，恢复C41。\n\n## 3. 三次项消失的充要条件\n\na=t u，u为固定正整数次数向量，则VarR_t=C3 t³+C2 t²，C3、C2为上一式用u代a的两部分，均非负，非零Δ给C2>0。\n\n将相同λ分为g组G_h，则C3=0当且仅当Σ_(q∈G_h)u_qΔ_pq=0对每个p及h成立。证明将投影按组汇总，矩阵经正对角缩放成为[1/(λ_p+l_h+l_j)]；不同组权l_h的Cauchy主子式严格正，故其核为零。\n\n完全配平曲率空间维数binom(k-g,2)。所有λ相同回到Δu=0；所有λ两两不同则只有Δ=0能消去三次项。三类型出现不同权重时非零常曲率必有三次项；四类型分成两组可保留非零配平。相同组是准确参数条件，不能从有限精度的接近自动推出。\n\n## 4. 三因子例、弱偏好与留出尺度\n\n固定Δ23=1、Δ25=-1、Δ35=1，n=30^t。均匀准备Var=t²/4。每步λ2=λ3=1、λ5=2时，E R=t²/2仍相同，但Var=t²/4+t²(t-1)/90=(2t³+43t²)/180。\n\nt1/2/3/4/10/100方差分别1/4、47/45、49/20、68/15、35、13500；均匀为1/4、1、9/4、4、25、2500。t≤4运行完整BRC分布，后两行用已证恒等式。\n\n30六词概率按(2,3,5),(2,5,3),(3,2,5),(3,5,2),(5,2,3),(5,3,2)排列为1/12,1/6,1/12,1/6,1/4,1/4，对应规范累计1,0,0,1,1,0。故t1整份累计分布仍为0/1各半；所有t均值相同，重复后的方差才显出区别。\n\n继续加入C41统一势Phi=Omega²，正向增量≥Omega+1>0，终值共同平移不改方差。除以异类出现对数3t²后，方差为1/(36t²)+(t-1)/(810t²)，与均匀的1/(36t²)区分；这仍是路径观察的相对分散。\n\n取λ=(1,1,1+s)，s>-1，准确Var=t²/4+C(s)t²(t-1)，C(s)=s²(2s²+5s+5)/[6(s+2)²(s+3)(2s+3)]。s≠0时C>0，C/s²→5/216；比较量为s²t。该弱偏好结论是方差尺度，不是临界阵列完整分布已求解。\n\n同一固定准备族的前两规模方差给C3=(V2-4V1)/4、C2=2V1-V2/4；第三规模必须V3=(9/2)V2-9V1。六套实例只用前两项确定、第三规模由完整分布留出核验。上述例V1=1/4、V2=47/45恢复C3=1/90；各输入方差误差≤1/200时C3属于[7/1440,5/288]，仍严格正。误差预算是总体方差输入的确定性限制。\n\n## 5. 起点偏好可以保留整份分布；非均匀分组配平见证\n\n若Δa=0，将词首项p移到末尾改变R的量是-Σ_q a_qΔ_pq=0。R在循环轮转轨道中相同；均匀词中每个轨道首项为p的比例是a_p/L。因此R与首项类型独立。\n\n所以只在第一步按任意正概率选择类型，余下词均匀，整份R分布与全均匀时完全一致。该结论保留所有矩；持续每步偏好与只改变起点准备不同。对任意循环轮转不变的基线词分布同样成立。\n\n一般若两词法则满足固定0<m≤dQ/dP≤M<∞，则m Var_P R≤Var_Q R≤M Var_P R，来自方差的最小平方偏差表示；此给保持量级的另一充分条件。\n\n四素数2/3/5/7、次数均t、λ=(1,1,2,2)，取上三角Δ=(0,1,-1,-1,1,0)。对两组{2,3}/{5,7}分别配平，C3=0、C2=14/45，因此VarR_(210^t)=14t²/45。t1和t2全分布直接核验。把第二优先权改为11/10，得C3=587/2482263>0。\n\n## 6. 方向校准与分布层次\n\n两素数词的顺序赔率O_pq=P(pq)/P(qp)=λ_p/λ_q，所以O_pq O_qr=O_pr。连通比较确定相对λ，共同倍率不可辨；这些读数检验的是准备律，与残差兼容式分开。\n\n固定有限k、u、Δ、λ且C3>0时，(R_t-E R_t)/sqrt(C3 t³+C2 t²)趋标准高斯。证明独立单标记投影有t个量级的有界求和，满足Lyapunov；退化余项相对方差C2/(tC3)趋0。C3=0时本轮给出精确方差与分布不变关系，退化分布的一般极限单列待求。高斯形状、方差大小与机械稳定分别定型。\n\n## 7. 执行、文献与状态\n\n主程序：441套小模型完整分布对照、15264条直接带权词；2916项四类型曲率分组判据；28项维数、12项正定主子式；8项首步偏好完整分布不变、1836项词轮转；六弱偏好输入及优先权反推。主日志461次完整BRC分布、21486条直接词（按配置计算）、serial/recoalesce各31676次。\n附加程序：6项留出t3方差、150个标记排列的概率表示、初始1..5、2875条统一正势边；23次BRC分布、serial/recoalesce各6913次。全部断言通过；一般命题由自足证明支持。代码biased_paths.py、run_checks.py、scale_and_source_checks.py、完整中文证明及7份JSON在C42附件。大t值是公式，不冒称逐历史枚举。\n\n复用BRC8138字节/blob9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1，与当前源匹配；原c12加载器沿既有方式在内存省略未使用相对import。仅同(counts,reward)状态并合，正概率不被signed观察抵消。\n\n公开实际读取Turner等arXiv1810.12068引言和式1，Han/Qian arXiv1804.00034正文§1–2及Lemma2.2；Plackett1975出版者题录摘要。PL、Hoeffding/异质U统计、Cauchy正定与CLT属既有工具；本轮为因子路径模型的自足应用与具体判据，不宣称完整新颖性审查。\n\n2026-10-28 em_session_start(prime-c42-biased-path-balance-20261028-a1)返回平台安全检查拦截，无session/claim回执，未改走其他登记通道。Source/附件为自检草稿保全，独立审核、形式化和数学物理准入分别待办。本轮没有物理实验数据。下一项需由独立来源确定路径偏好是否服从固定权重律，或如何由已有残差共同决定，而非从想得到的方差倒选概率。\n",
+      "display_title": "20261028_c42_nonuniform_factor_paths_group_balance.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2ea525e27882e26a64cf6d3573b5e230da87f708/research_notes/divisor_extrema/20261028_c42_nonuniform_factor_paths_group_balance.md",
+      "encoding": "utf-8",
+      "sha": "baab458cd76580b822b8bdee6e9294c71b3f465a"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

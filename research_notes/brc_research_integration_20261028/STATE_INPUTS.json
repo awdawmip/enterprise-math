@@ -1,0 +1,88 @@
+{
+  "source_repository": "awdawmip/enterprise-math",
+  "source_commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+  "scope": "Exact task-directory absence at fixed immutable snapshot; normalized Issue #240 body inventory baseline. No claim of current native reducer authorization.",
+  "comments": {
+    "file": "issue240_before_comments.normalized.json",
+    "source_tool": "github_fetch_issue_comments",
+    "format": "CONNECTOR_NORMALIZED_NOT_RAW_GITHUB_REST",
+    "count": 1221,
+    "max_id": 6390431276,
+    "latest_updated_at": null,
+    "latest_updated_at_unavailable_reason": "All normalized created_at and updated_at fields are null; issue_url and author_association are not returned. Do not construct or infer these metadata fields.",
+    "actual_keys": [
+      "url",
+      "body",
+      "user",
+      "id",
+      "pull_request_review_id",
+      "in_reply_to_id",
+      "created_at",
+      "updated_at",
+      "review",
+      "side",
+      "line",
+      "start_line",
+      "path",
+      "body_html"
+    ],
+    "non_null_created_at_count": 0,
+    "non_null_updated_at_count": 0,
+    "raw_reducer_input_eligible": false,
+    "saved_objects": "Unchanged original connector-normalized objects; JSON serialization only."
+  },
+  "root_tree": {
+    "file": "root_tree_2ea.raw.json",
+    "url": "https://api.github.com/repos/awdawmip/enterprise-math/git/trees/2ea525e27882e26a64cf6d3573b5e230da87f708",
+    "returned_sha": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+    "recursive": false,
+    "truncated": false,
+    "entry_count": 222,
+    "cohort_root": "research_execution_cohorts",
+    "cohort_root_matches": [],
+    "cohort_loader_source": {
+      "path": "research_execution_cohorts.py",
+      "git_blob_sha1": "de49b0308444c0645fb8913e538c719220bf3738",
+      "contract": "iter_cohorts reads research_execution_cohorts/*/*.json and returns [] if directory is absent"
+    }
+  },
+  "result_tree": {
+    "file": "result_tree_2ea.raw.json",
+    "root_path": "research_result_records",
+    "root_entry": {
+      "path": "research_result_records",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "c076c196e36905bf8f9665253a0d4168f0630ee3",
+      "url": "https://api.github.com/repos/awdawmip/enterprise-math/git/trees/c076c196e36905bf8f9665253a0d4168f0630ee3"
+    },
+    "url": "https://api.github.com/repos/awdawmip/enterprise-math/git/trees/c076c196e36905bf8f9665253a0d4168f0630ee3",
+    "returned_sha": "c076c196e36905bf8f9665253a0d4168f0630ee3",
+    "recursive": false,
+    "truncated": false,
+    "entry_count": 178
+  },
+  "tasks": [
+    {
+      "task_id": "RS-OPENAI-ETH-BRC-REPRESENTATION-20261028",
+      "publication_id": "TP2-1E91CE2076D5D90171E6",
+      "result_task_directory_matches": [],
+      "cohort_root_exists": false,
+      "normalized_comment_body_mentions": []
+    },
+    {
+      "task_id": "RS-OPENAI-ETH-CELL-COUNTING-20261028",
+      "publication_id": "TP2-43FD60AE6CFEC6147600",
+      "result_task_directory_matches": [],
+      "cohort_root_exists": false,
+      "normalized_comment_body_mentions": []
+    },
+    {
+      "task_id": "RS-OPENAI-QFT-BRC-RESIDUAL-20261028",
+      "publication_id": "TP2-A9BCBF65D1395E75F2F7",
+      "result_task_directory_matches": [],
+      "cohort_root_exists": false,
+      "normalized_comment_body_mentions": []
+    }
+  ]
+}

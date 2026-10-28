@@ -1,0 +1,512 @@
+{
+  "status": "PASS",
+  "scope": "AUTHOR_SIDE_EXACT_FINITE_VERIFICATION_WITH_HAND_PROOF",
+  "source_pins": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+      "path": "src/enterprise_math/brc_histogram.py",
+      "git_blob_sha1": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+      "path": "src/enterprise_math/brc_rational_holonomy.py",
+      "git_blob_sha1": "2591640fe348da9cd7f293a957bea9ae92c82943"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+      "path": "src/enterprise_math/brc_weighted_recurrent.py",
+      "git_blob_sha1": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+    }
+  ],
+  "import_scope": "Unchanged brc_histogram and its two exact import dependencies",
+  "execution_import_mode": "ISOLATED_LOCAL_PACKAGE_SHIM",
+  "domains": {
+    "rgs_max_r": 7,
+    "color_max_r": 7,
+    "all_primary_max_r": 5,
+    "all_cnf_variables_max_r": 3
+  },
+  "brc_execution": {
+    "entrypoints": {
+      "histogram_serial": 231,
+      "histogram_recoalesce": 203
+    },
+    "input_carrier": "Positive-rational WeightHistogram; unit-weight counting branches",
+    "count_projection_scope": "Counts only; block-count aggregation is not a same-query behavioral quotient",
+    "fiber_carrier_semantics": "Weight = colorings per logical class; coefficient = number of logical classes",
+    "branch_identity": "RGS canonical partition plus injective distinct noncurrent-color labels",
+    "observer_scope": "Equality partition and same(i,j); no allocator transition reachability",
+    "normalization_performed": false
+  },
+  "gate_truth_tables": {
+    "OR": {
+      "complete_truth_rows": 8,
+      "unique_extension": true
+    },
+    "AND": {
+      "complete_truth_rows": 8,
+      "unique_extension": true
+    },
+    "NOT": {
+      "complete_truth_rows": 4,
+      "unique_extension": true
+    }
+  },
+  "rgs_color_fibers": [
+    {
+      "r": 1,
+      "logical_classes": 1,
+      "well_formed_colored_encodings": 1,
+      "enumerated_colored_encodings": 1,
+      "fibers_by_block_count": [
+        {
+          "blocks": 1,
+          "logical_classes": 1,
+          "colorings_per_class": 1,
+          "colored_encodings": 1
+        }
+      ],
+      "fiber_size_histogram": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "r": 2,
+      "logical_classes": 2,
+      "well_formed_colored_encodings": 4,
+      "enumerated_colored_encodings": 4,
+      "fibers_by_block_count": [
+        {
+          "blocks": 1,
+          "logical_classes": 1,
+          "colorings_per_class": 2,
+          "colored_encodings": 2
+        },
+        {
+          "blocks": 2,
+          "logical_classes": 1,
+          "colorings_per_class": 2,
+          "colored_encodings": 2
+        }
+      ],
+      "fiber_size_histogram": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "r": 3,
+      "logical_classes": 5,
+      "well_formed_colored_encodings": 27,
+      "enumerated_colored_encodings": 27,
+      "fibers_by_block_count": [
+        {
+          "blocks": 1,
+          "logical_classes": 1,
+          "colorings_per_class": 3,
+          "colored_encodings": 3
+        },
+        {
+          "blocks": 2,
+          "logical_classes": 3,
+          "colorings_per_class": 6,
+          "colored_encodings": 18
+        },
+        {
+          "blocks": 3,
+          "logical_classes": 1,
+          "colorings_per_class": 6,
+          "colored_encodings": 6
+        }
+      ],
+      "fiber_size_histogram": [
+        [
+          3,
+          1
+        ],
+        [
+          6,
+          4
+        ]
+      ]
+    },
+    {
+      "r": 4,
+      "logical_classes": 15,
+      "well_formed_colored_encodings": 256,
+      "enumerated_colored_encodings": 256,
+      "fibers_by_block_count": [
+        {
+          "blocks": 1,
+          "logical_classes": 1,
+          "colorings_per_class": 4,
+          "colored_encodings": 4
+        },
+        {
+          "blocks": 2,
+          "logical_classes": 7,
+          "colorings_per_class": 12,
+          "colored_encodings": 84
+        },
+        {
+          "blocks": 3,
+          "logical_classes": 6,
+          "colorings_per_class": 24,
+          "colored_encodings": 144
+        },
+        {
+          "blocks": 4,
+          "logical_classes": 1,
+          "colorings_per_class": 24,
+          "colored_encodings": 24
+        }
+      ],
+      "fiber_size_histogram": [
+        [
+          4,
+          1
+        ],
+        [
+          12,
+          7
+        ],
+        [
+          24,
+          7
+        ]
+      ]
+    },
+    {
+      "r": 5,
+      "logical_classes": 52,
+      "well_formed_colored_encodings": 3125,
+      "enumerated_colored_encodings": 3125,
+      "fibers_by_block_count": [
+        {
+          "blocks": 1,
+          "logical_classes": 1,
+          "colorings_per_class": 5,
+          "colored_encodings": 5
+        },
+        {
+          "blocks": 2,
+          "logical_classes": 15,
+          "colorings_per_class": 20,
+          "colored_encodings": 300
+        },
+        {
+          "blocks": 3,
+          "logical_classes": 25,
+          "colorings_per_class": 60,
+          "colored_encodings": 1500
+        },
+        {
+          "blocks": 4,
+          "logical_classes": 10,
+          "colorings_per_class": 120,
+          "colored_encodings": 1200
+        },
+        {
+          "blocks": 5,
+          "logical_classes": 1,
+          "colorings_per_class": 120,
+          "colored_encodings": 120
+        }
+      ],
+      "fiber_size_histogram": [
+        [
+          5,
+          1
+        ],
+        [
+          20,
+          15
+        ],
+        [
+          60,
+          25
+        ],
+        [
+          120,
+          11
+        ]
+      ]
+    },
+    {
+      "r": 6,
+      "logical_classes": 203,
+      "well_formed_colored_encodings": 46656,
+      "enumerated_colored_encodings": 46656,
+      "fibers_by_block_count": [
+        {
+          "blocks": 1,
+          "logical_classes": 1,
+          "colorings_per_class": 6,
+          "colored_encodings": 6
+        },
+        {
+          "blocks": 2,
+          "logical_classes": 31,
+          "colorings_per_class": 30,
+          "colored_encodings": 930
+        },
+        {
+          "blocks": 3,
+          "logical_classes": 90,
+          "colorings_per_class": 120,
+          "colored_encodings": 10800
+        },
+        {
+          "blocks": 4,
+          "logical_classes": 65,
+          "colorings_per_class": 360,
+          "colored_encodings": 23400
+        },
+        {
+          "blocks": 5,
+          "logical_classes": 15,
+          "colorings_per_class": 720,
+          "colored_encodings": 10800
+        },
+        {
+          "blocks": 6,
+          "logical_classes": 1,
+          "colorings_per_class": 720,
+          "colored_encodings": 720
+        }
+      ],
+      "fiber_size_histogram": [
+        [
+          6,
+          1
+        ],
+        [
+          30,
+          31
+        ],
+        [
+          120,
+          90
+        ],
+        [
+          360,
+          65
+        ],
+        [
+          720,
+          16
+        ]
+      ]
+    },
+    {
+      "r": 7,
+      "logical_classes": 877,
+      "well_formed_colored_encodings": 823543,
+      "enumerated_colored_encodings": 823543,
+      "fibers_by_block_count": [
+        {
+          "blocks": 1,
+          "logical_classes": 1,
+          "colorings_per_class": 7,
+          "colored_encodings": 7
+        },
+        {
+          "blocks": 2,
+          "logical_classes": 63,
+          "colorings_per_class": 42,
+          "colored_encodings": 2646
+        },
+        {
+          "blocks": 3,
+          "logical_classes": 301,
+          "colorings_per_class": 210,
+          "colored_encodings": 63210
+        },
+        {
+          "blocks": 4,
+          "logical_classes": 350,
+          "colorings_per_class": 840,
+          "colored_encodings": 294000
+        },
+        {
+          "blocks": 5,
+          "logical_classes": 140,
+          "colorings_per_class": 2520,
+          "colored_encodings": 352800
+        },
+        {
+          "blocks": 6,
+          "logical_classes": 21,
+          "colorings_per_class": 5040,
+          "colored_encodings": 105840
+        },
+        {
+          "blocks": 7,
+          "logical_classes": 1,
+          "colorings_per_class": 5040,
+          "colored_encodings": 5040
+        }
+      ],
+      "fiber_size_histogram": [
+        [
+          7,
+          1
+        ],
+        [
+          42,
+          63
+        ],
+        [
+          210,
+          301
+        ],
+        [
+          840,
+          350
+        ],
+        [
+          2520,
+          140
+        ],
+        [
+          5040,
+          22
+        ]
+      ]
+    }
+  ],
+  "cnf_checks": [
+    {
+      "r": 1,
+      "primary_variables": 1,
+      "variables": 1,
+      "clauses": 1,
+      "max_width": 1,
+      "all_primary_patterns_checked": 2,
+      "all_boolean_assignments_checked": 2,
+      "rgs_satisfying_assignments_checked": 1
+    },
+    {
+      "r": 2,
+      "primary_variables": 3,
+      "variables": 5,
+      "clauses": 10,
+      "max_width": 3,
+      "all_primary_patterns_checked": 8,
+      "all_boolean_assignments_checked": 32,
+      "rgs_satisfying_assignments_checked": 2
+    },
+    {
+      "r": 3,
+      "primary_variables": 6,
+      "variables": 12,
+      "clauses": 27,
+      "max_width": 3,
+      "all_primary_patterns_checked": 64,
+      "all_boolean_assignments_checked": 4096,
+      "rgs_satisfying_assignments_checked": 5
+    },
+    {
+      "r": 4,
+      "primary_variables": 10,
+      "variables": 22,
+      "clauses": 52,
+      "max_width": 3,
+      "all_primary_patterns_checked": 1024,
+      "all_boolean_assignments_checked": null,
+      "rgs_satisfying_assignments_checked": 15
+    },
+    {
+      "r": 5,
+      "primary_variables": 15,
+      "variables": 35,
+      "clauses": 85,
+      "max_width": 3,
+      "all_primary_patterns_checked": 32768,
+      "all_boolean_assignments_checked": null,
+      "rgs_satisfying_assignments_checked": 52
+    },
+    {
+      "r": 6,
+      "primary_variables": 21,
+      "variables": 51,
+      "clauses": 126,
+      "max_width": 3,
+      "all_primary_patterns_checked": null,
+      "all_boolean_assignments_checked": null,
+      "rgs_satisfying_assignments_checked": 203
+    },
+    {
+      "r": 7,
+      "primary_variables": 28,
+      "variables": 70,
+      "clauses": 175,
+      "max_width": 3,
+      "all_primary_patterns_checked": null,
+      "all_boolean_assignments_checked": null,
+      "rgs_satisfying_assignments_checked": 877
+    }
+  ],
+  "predicate_circuit": {
+    "r": 4,
+    "predicate": "(same(1,2) OR same(3,4)) AND NOT same(1,3)",
+    "satisfying_partitions": 5,
+    "accepted_rgs": [
+      [
+        1,
+        1,
+        2,
+        1
+      ],
+      [
+        1,
+        1,
+        2,
+        2
+      ],
+      [
+        1,
+        2,
+        2,
+        2
+      ],
+      [
+        1,
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        3,
+        3
+      ]
+    ],
+    "variables": 32,
+    "clauses": 82,
+    "all_primary_patterns_checked": 1024,
+    "max_width": 3
+  },
+  "totals": {
+    "enumerated_well_formed_color_strings": 873612,
+    "rgs_sequences": 1155,
+    "primary_patterns": 33866,
+    "all_cnf_boolean_assignments": 4130
+  },
+  "boundaries": [
+    "Color strings are well-formed static encodings, not proven reachable allocator states or histories.",
+    "Bell(r) counts partitions; applying it to dynamic behavioral classes consumes the source theorem's premises.",
+    "General unique extension and count preservation use the written induction, not finite testing alone.",
+    "No Lean/formal check, independent review, task acceptance, ETH speedup, or native physics claim."
+  ],
+  "elapsed_seconds": 1.078258
+}
