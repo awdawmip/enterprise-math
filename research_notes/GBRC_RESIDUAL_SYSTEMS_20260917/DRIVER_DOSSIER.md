@@ -27,3 +27,14 @@ Do not infer a mathematical theorem from publication. Consume exact frozen resul
 ## Driver assignment
 
 Authenticated control event `5709235871` assigns `EM-DVR-GBRC01` to `GV-GBRC-LINE-DRIVER-20260917` publication `TP2-82249061C7765A4DDD9B` under this parent. The assignment carries control-plane routing authority only.
+
+## 2026-10-28 scoped research integration
+
+The existing line Driver assignment and R1 dependency/review gates above remain in force. This addition records the user's bounded consolidation request, handled by `EM-DVR-C27825` under source authority `DA-5FF9D8DF3219E8FE325B` ([authenticated event](https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6459829269)); it is not succession or independent mathematical acceptance.
+
+- Integration frontier: [recent research synthesis](../brc_research_integration_20261028/INTEGRATION.md), including the 36-task scoped inventory and the final scientific freeze `9be9207b976de51173e476b1c3d42e539b6df17c`.
+- New concrete research task: `RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028`, publication `TP2-8FD66B1B48BE87DA1AC1`, with four work packages preserving all six original ETH/QFT internal units.
+- The three original ETH/QFT entrypoints are to be superseded only after the new task reaches main. Actual event and readback receipts are kept in [STATUS.json](../brc_research_integration_20261028/STATUS.json).
+- Author-side seed: [alias-partition count-preserving encoding](../brc_alias_counting_bridge_20261028/PROOF.md), with executed exact checks and original source pins; no independent acceptance.
+- Retrospective source linkage: `RA-1F686C920CB47220E290E591` for C41/C42; `RA-E58964C8293848CCF4D666BA` for dynamic alias/triadic references. Historical session and researcher identities remain unknown.
+- R1 typed-carrier preparation STOP and continuation budget remain attached to their original scope. The existing R1 integration task and exact-set review gates are not discharged by this report. R2/R3/R4/R5/R6/D25 keep their own evidence, tasks and open questions.

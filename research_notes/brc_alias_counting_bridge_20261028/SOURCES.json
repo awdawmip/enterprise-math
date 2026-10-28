@@ -1,0 +1,129 @@
+{
+  "title": "Sources for the dynamic alias counting bridge",
+  "author": "EM-ETHQFT-F37BEB",
+  "research_activity_id": "RA-FE1BB9B3ABA3A9D010C342A6",
+  "status": "AUTHOR_SIDE_CHECK_PASS_NOT_INDEPENDENT_REVIEW",
+  "production_modules": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+      "path": "src/enterprise_math/brc_histogram.py",
+      "git_blob_sha1": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+      "path": "src/enterprise_math/brc_rational_holonomy.py",
+      "git_blob_sha1": "2591640fe348da9cd7f293a957bea9ae92c82943"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+      "path": "src/enterprise_math/brc_weighted_recurrent.py",
+      "git_blob_sha1": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+    }
+  ],
+  "production_import_scope": "Only the three exact dependency pins are asserted; local run used an isolated package shim, not the whole repository public facade test suite",
+  "project_sources": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+      "path": "research_notes/chatgpt_direct/20261028_residual_dynamic_alias_52c8e1/RESULT.md",
+      "git_blob_sha1": "a325a779f777cfe3ae24dca3dbcc90fc6421a618",
+      "sections": [
+        "2",
+        "3",
+        "4"
+      ],
+      "role": "Conditional unreviewed project input: same-language quotient and Bell partition family; exact compact source read, original ZIP not executed"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+      "path": "research_notes/chatgpt_direct/20261028_residual_triadic_references_7b6e42/RESULT.md",
+      "git_blob_sha1": "eae8de8e9683e33890cf5fdb747b573fdfe182a2",
+      "sections": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "role": "Conditional author-checked unreviewed compilation/interface provenance; exact compact source read, source execution counts not added to this run"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+      "path": "docs/P023_COMPOSITION_SAFE_COLLAPSE.en.md",
+      "git_blob_sha1": "0576256c244b158292f6f02eb5532c5dbdcceb30",
+      "sections": [
+        "2",
+        "10",
+        "12"
+      ],
+      "role": "Existing fiber-constancy and future-compatible quotient context; not a count-preservation theorem for nonuniform fibers"
+    }
+  ],
+  "external_standard_method_sources": [
+    {
+      "authors": [
+        "Samantha Dahlberg",
+        "Robert Dorward",
+        "Jonathan Gerhard",
+        "Thomas Grubb",
+        "Carlin Purcell",
+        "Lindsey Reppuhn",
+        "Bruce E. Sagan"
+      ],
+      "title": "Set partition patterns and statistics",
+      "publication": "Discrete Mathematics 339 (2016), 1–16",
+      "doi": "10.1016/j.disc.2015.07.001",
+      "url": "https://users.math.msu.edu/users/bsagan/Papers/Old/spp-dm.pdf",
+      "scope_read": "PDF page 2, section 1",
+      "supports": "Standard 1-based restricted growth functions and partition bijection"
+    },
+    {
+      "author": "SageMath documentation",
+      "title": "Set partitions",
+      "url": "https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/set_partition.html",
+      "scope_read": "to_restricted_growth_word_blocks and from_restricted_growth_word_blocks",
+      "supports": "Standard executable restricted-growth representation; interface has 0-based variants"
+    },
+    {
+      "author": "Sibylle Rosa Natalina Möhle-Rotondi",
+      "title": "Formalizing Methods for Propositional Model Counting and Enumeration",
+      "publication": "Doctoral thesis, JKU, June 2022",
+      "url": "https://www.a4cp.org/sites/default/files/sibylle_rosa_natalina_mohle-rotondi_-_formalizing_methods_for_propositional_model_counting_and_enumeration.pdf",
+      "scope_read": "Printed page 33 Example 6.2 and section 20.3.4",
+      "supports": "Complete Tseitin definitions uniquely extend input assignments and preserve model count; general Plaisted–Greenbaum contrast"
+    },
+    {
+      "authors": [
+        "Alexis de Colnet",
+        "Stefan Szeider",
+        "Tianwei Zhang"
+      ],
+      "title": "Compilation and Fast Model Counting beyond CNF",
+      "version": "arXiv:2502.00434v1",
+      "url": "https://arxiv.org/html/2502.00434v1",
+      "scope_read": "Section 4.1 The Tseitin Encoding",
+      "supports": "Per-gate AND/OR definitional CNF with constant-size overhead"
+    }
+  ],
+  "external_source_verification": "Primary sources checked in this shared author research context; attribution is to standard methods, not a novelty or exhaustive prior-art conclusion",
+  "execution_evidence": {
+    "file": "EXACT_REPORT.json",
+    "checker": "VERIFY.py",
+    "actual_mode": "ISOLATED_LOCAL_PACKAGE_SHIM",
+    "actual_status": "PASS",
+    "new_optional_tests_run_for_packaging": false
+  },
+  "reproduction_command": "PYTHONPATH=src python3 research_notes/brc_alias_counting_bridge_20261028/VERIFY.py",
+  "counting_domains": {
+    "logical_states": "RGS representatives of partitions of r named slots",
+    "colored_encodings": "All well-formed noncurrent-color strings with fixed current color; fixed allocator reachability not inferred",
+    "histories": "No claim about history counts; existing BRC history multiplicities are not normalized away"
+  },
+  "novelty_and_admission": "Standard RGS and complete Tseitin application; project interface increment; not an independent review, formal proof, ETH speedup or native-physics result"
+}
