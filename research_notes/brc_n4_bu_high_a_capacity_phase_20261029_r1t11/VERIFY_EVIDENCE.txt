@@ -1,0 +1,21 @@
+Verification execution evidence (author-side), 2026-10-29
+
+A. Full local 16-leaf + symbolic program VERIFY.py
+SHA256: c30c37c8ca6c0e4bf2e4ec481332a0552cffdac3e4864103776bf39daead5aef
+Observed stdout:
+PASS_SYMBOLIC_N4_BU_UPPER_CAPACITY_INTERVAL
+a=-1/50 + sqrt(40521)/200: exact_epsilon=-(-1299 + sqrt(40521))*(-189 + sqrt(40521))/(9600*(111 + sqrt(40521)))
+a=99/100: exact_epsilon=14261/3004800
+a=199/200: exact_epsilon=959/188400
+a=1: exact_epsilon=73/13440
+source_scope: external positive P/Q BRC 16-leaf tree, AU/BU shared stage2 behavior
+logical_scope: analytic proof all a in [alpha,1] is in PROOF.md; finite checks only check code/instances
+
+B. GitHub RELEASE source independently rerun by identical bytes
+Git blob SHA1: 0d9b4b1c28ed388aad4a43fb51e50ac7d376fa0f
+Local Git blob SHA1 recomputed as SHA1('blob '+1730+'\0'+release_bytes): 0d9b4b1c28ed388aad4a43fb51e50ac7d376fa0f
+Observed stdout:
+PASS_SYMBOLIC_N4_BU_UPPER_CAPACITY_RELEASE
+a=1 gives epsilon=73/13440
+
+Provenance and boundaries: full independent mathematical peer review NOT performed; native task registration/Result NOT issued. Full local code and runnable terminal evidence carried in conversation's ZIP artifact. These finite exact computations and symbolic equalities check the implementation/identities; the all-real minimax theorem relies on the analytic proof in PROOF.md.
