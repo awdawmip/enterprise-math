@@ -78,6 +78,17 @@ This is the polynomial reduction of \({}_4F_3(3/4,1,1,5/4;3/2,3/2,3/2;u)\). Its 
 \quad\Longleftrightarrow\quad T_d(9)\stackrel{?}{=}0.\tag{52.3}
 \]
 
+### Exact rational/composite carrier for reverse coefficients
+
+The same \(\rho_r\), before reduction modulo \(p\), has the *positive rational* factorial expression
+\[
+\boxed{\displaystyle
+\rho_r=\frac{(r!)^4(4r+1)!}{(2r)!\,((2r+1)!)^3}
+=\frac{4r+1}{(2r+1)^3}
+ \frac{\binom{4r}{2r}}{\binom{2r}{r}^2}.}\tag{52.4}
+\]
+This follows from the given \(\rho_{r+1}/\rho_r\) by adjacent factorial cancellation, with \(\rho_0=1\). Here factorials/binomials are evaluated as exact integers/rationals **before** modular reduction; expression (52.4) is not an instruction to invert arbitrary factorial denominators outside \(0\le r\le d\). It preserves the composite-indexed background rather than deleting its relation to the prime-exceptional endpoint. Checked by exact rational arithmetic at ranks \(r=0,\dots,11\); the algebraic induction is valid for all \(r\ge0\).
+
 ## Verification, observer and continuation
 
 Python standard-library exact checker tested rational coefficient contradictions at \(z=1/9,9,-1/2,2,1\), and checked the full reciprocal coefficient identity, all coefficients of the homogeneous operator including its first omitted degree, and the exact source inversion at \(z=2,9,-1\) for all **338 primes** \(7\le p<5000\), \(p\equiv3\bmod4\). All checks passed. The observed special value zero at these finite primes is not a general theorem and was already observed in GH-38.
