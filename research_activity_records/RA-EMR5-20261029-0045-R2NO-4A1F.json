@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR5-20261029-0045-R2NO-4A1F",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "7a33f26b90a1bc9c8183f87c37076bfa8eeee42b",
+          "path": "research_notes/brc_r5_four_signature_rank_two_convex_rate_20261029_t0045/VERIFY.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "95194e114caff71688545cfa7ad9a60769e23e2351433307d1e5225d4ef28bae",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "870ab10ce81c34f49d871f34907e5072af95a97e",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/7a33f26b90a1bc9c8183f87c37076bfa8eeee42b/research_notes/brc_r5_four_signature_rank_two_convex_rate_20261029_t0045/VERIFY.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-emr5-20261029-rank-two-verify-1",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR5-20261029-0045-R2NO-4A1F/readbacks/00ca9fac15294fa9194404c422eb05a1e6587e2f955000cce39d7b21d96b98ee.json",
+          "verification_receipt_sha256": "00ca9fac15294fa9194404c422eb05a1e6587e2f955000cce39d7b21d96b98ee"
+        }
+      ],
+      "event_id": "R5-F4-RANK2-CONVEX-RATE-20261029-EXACT-1",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-28T16:46:25.018Z",
   "registration_key": "session:local-emr5-20261029-0045-4A1F:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R5-4A1F",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-emr5-20261029-0045-4A1F",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-28T16:46:25.018Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
