@@ -1,4 +1,4 @@
-# D25/LIFT GH-58–GH-59 — First Frobenius boundary gate for labeled Gauss F/G ports
+# D25/LIFT GH-58–GH-59 — Resonant and terminal Frobenius gates for labeled Gauss F/G ports
 
 Date: 2026-10-28 Asia/Hong_Kong. **AUTHOR-DERIVED / AUTHOR-EXACT-CHECKED / UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY / REGISTER_PENDING.** Not a native CLAIM, RUN, checkpoint or mathematically admitted Result.
 
@@ -17,7 +17,7 @@ The Gauss equation already proved in GH-56 is
 \[
 {\mathscr D}Y=z(1-z)Y''+(5/4-7z/4)Y'-9Y/64=0. \tag{58.0}
 \]
-This research asks whether local jets at z=9 alone force the open G-port vanishing for all p=11 mod24, and what the *first missing global compatibility* condition actually is. We separate GH-58 (a local no-go) from GH-59 (an operator-derived characteristic-p global boundary). Neither proves the all-prime G-port identity or original GH-3 truncated sum.
+This research asks whether local jets at z=9 alone force the open G-port vanishing for all p=11 mod24, and which global characteristic-p compatibility conditions must be added. We separate GH-58 (a local no-go) from GH-59 (an operator-derived characteristic-p global boundary). Neither proves the all-prime G-port identity or original GH-3 truncated sum.
 
 ## GH-58 — exact ordinary-point recurrence and insufficiency theorem (PROVED)
 
@@ -58,7 +58,14 @@ B_p=a_{p-1}(0,1),\quad
 \tag{59.2}
 \]
 
-**Proof of necessity.** At the first resonant coefficient n=p-1 of (58.1), terms involving a_{p+1} and a_p have a factor p and disappear. The surviving factor on a_{p-1} is (-1+3/8)²=25/64, a p-unit for all admissible primes. Therefore a_{p-1}=0.
+**Proof of necessity.** At coefficient n=p-1 of (58.1), the **terminal** gate (not the first degeneracy), terms involving a_{p+1} and a_p have a factor p and disappear. The surviving factor on a_{p-1} is (-1+3/8)²=25/64, a p-unit for all admissible primes. Therefore a_{p-1}=0.
+
+**Earlier resonant equation.** Already at n=p-2 the leading coefficient of a_p in (58.1) vanishes. It supplies a separate apparent compatibility condition
+\[
+\boxed{\mathfrak C_p(u,v)=\frac{39}{2}a_{p-1}(u,v)+\frac{169}{64}a_{p-2}(u,v)=0.}
+\tag{59.1a}
+\]
+(This uses n=p-2 modulo p.) Hence n=p-1 is **not** the first zero-leading-coefficient index; it is the decisive terminal selector. The proof below shows that the terminal condition is stronger and automatically implies this earlier one, so no independent gate is lost. The first degree where the ordinary-point forward recurrence cannot divide by the leading coefficient is n=p-2.
 
 **Proof of sufficiency.** Assume a_{p-1}=0. At n=p-2 the a_p coefficient also vanishes and the a_{p-1} term is zero; hence (-2+3/8)² a_{p-2}=169 a_{p-2}/64=0. Since the admissible primes are 3 mod 8 and hence exclude 13, a_{p-2}=0. Descending from n=p-3 through n=m+1, if a_{n+1}=a_{n+2}=0, (58.1) reduces to (n+3/8)²a_n=0. In that interval 8n+3 is nonzero modulo p: the only nonnegative root below p is n=m=(p-3)/8. Therefore a_{m+1},...,a_{p-1}=0. The remaining polynomial \sum_{n=0}^m a_nw^n satisfies every coefficient of \mathscr DY=0, since at n=m the last factor vanishes and all further coefficients are zero.
 
