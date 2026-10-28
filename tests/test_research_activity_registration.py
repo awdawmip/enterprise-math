@@ -360,10 +360,11 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
         import research_control_dispatch as dispatch
         # Existing selector inputs are held fixed; the actual activity store is
         # read by the real canonical route and must not supply a fresh candidate.
-        with mock.patch.object(dispatch.research_dispatch, "effective_states", return_value={}), \
+        policy = dispatch.research_runtime_reducer.load_policy(dispatch.ROOT)
+        with mock.patch.object(dispatch.research_dispatch, "effective_states", return_value=[]), \
              mock.patch.object(dispatch, "_leased_targets", return_value=[]), \
              mock.patch.object(dispatch, "_fresh_lane", return_value=None), \
-             mock.patch.object(dispatch.research_runtime_reducer, "load_policy", return_value={}), \
+             mock.patch.object(dispatch.research_runtime_reducer, "load_policy", return_value=policy), \
              mock.patch.object(dispatch.research_runtime_reducer, "select_state", return_value=None), \
              mock.patch.object(dispatch.research_publication_fault_isolation, "validated_quarantines", return_value={}), \
              mock.patch.object(dispatch.research_task_integrity_fault_isolation, "validated_quarantines", return_value={}):
