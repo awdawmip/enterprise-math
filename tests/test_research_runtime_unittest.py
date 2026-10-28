@@ -206,7 +206,7 @@ class ResearchRuntimeTransitionTests(unittest.TestCase):
         self.assertEqual(contract["runtime_state_machine"], "research_runtime_state_machine.json")
         self.assertEqual(contract["task_record_store"], "research_task_records/<task-id>/<publication-id>.json")
         self.assertEqual(contract["publication_contract"]["researcher_driver_approval_required"], False)
-        self.assertIn("research_task_publication_contract_v2.json", policy["policy_inputs"])
+        self.assertNotIn("policy_inputs", policy)
         self.assertEqual(final["final_permission_authority"], "research_runtime_state_machine.json")
         self.assertEqual(final["pre_final_permission_gate"]["evaluator"], "research_pre_final_authority.py")
         self.assertEqual(final["pre_final_permission_gate"]["registration_guard"], "tools/research_runtime_guard.py")

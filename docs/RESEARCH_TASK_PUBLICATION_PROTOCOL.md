@@ -2,6 +2,8 @@
 
 Status: `ACTIVE / CURRENT ONLY`
 
+Rule-document versions are provenance, not an aggregate publication gate. Legacy `policy_review.policy_digest`/PASS fields are readable but are neither required nor compared to current document bytes. The publisher still validates actual current task rules and all independent publication, identity, byte-binding and ownership constraints. Use Git commit plus path to locate materials without requiring an old taskbook to match the current HEAD.
+
 An official task exists only after one immutable publication record is written under `research_task_records/<task-id>/<publication-id>.json` and pins the exact taskbook blob.
 
 Canonical surfaces:

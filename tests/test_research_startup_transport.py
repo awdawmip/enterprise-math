@@ -147,11 +147,8 @@ class ResearchStartupTransportTests(unittest.TestCase):
             "INJECTED_CONTEXT_ONLY_DO_NOT_REMOTE_SEARCH_OR_FETCH_FOR_TASK_START",
         )
         self.assertEqual(payload["remote_control_reads"], "TRIGGERED_ONLY")
-        self.assertEqual(payload["taskbook_policy_digest_impact"], "NONE_CONTROL_TRANSPORT_ONLY")
-        self.assertEqual(
-            payload["conversation_rebase"]["taskbook_policy_digest_impact"],
-            "NONE_CONTROL_TRANSPORT_ONLY",
-        )
+        self.assertNotIn("taskbook_policy_digest_impact", payload)
+        self.assertNotIn("taskbook_policy_digest_impact", payload["conversation_rebase"])
 
 
 if __name__ == "__main__":

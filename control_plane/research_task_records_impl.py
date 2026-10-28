@@ -255,13 +255,6 @@ def _prepared(path: Path, root: Path = ROOT) -> tuple[dict[str, Any], str]:
     body_errors = validate_body(body)
     if body_errors:
         raise TaskRecordError("; ".join(body_errors))
-    review = meta.get("policy_review")
-    if (
-        not isinstance(review, dict)
-        or review.get("review_state") != "PASS"
-        or review.get("policy_digest") != research_taskbook.policy_digest(root)
-    ):
-        raise TaskRecordError("taskbook requires current machine policy PASS")
     findings = research_taskbook.audit_taskbook(path, root=root, dispatch=True)
     hard = [item for item in findings if item["severity"] == "ERROR"]
     if hard:
@@ -296,37 +289,17 @@ def prepare_taskbook(
     )
     if prepared.get("base_state") in {None, "DRAFT", "BACKLOG"}:
         prepared["base_state"] = "READY"
-    review = prepared.get("policy_review")
-    if not isinstance(review, dict):
-        review = {"temporary_overrides": []}
-    review = dict(review)
-    review["policy_set"] = "research_taskbook_policy.json"
-    review["policy_digest"] = research_taskbook.policy_digest(root)
-    review["review_state"] = "PENDING_POLICY_REVIEW"
-    review.setdefault("temporary_overrides", [])
-    prepared["policy_review"] = review
 
     with tempfile.TemporaryDirectory() as td:
         candidate = Path(td) / path.name
         candidate.write_text(
             research_taskbook.render_taskbook(prepared, body), encoding="utf-8"
         )
-        first = research_taskbook.audit_taskbook(candidate, root=root, dispatch=False)
+        first = research_taskbook.audit_taskbook(candidate, root=root, dispatch=True)
         hard = [item for item in first if item["severity"] == "ERROR"]
         if hard:
             raise TaskRecordError(
-                "machine review failed: "
-                + "; ".join(f"{item['code']}:{item['message']}" for item in hard)
-            )
-        prepared["policy_review"]["review_state"] = "PASS"
-        candidate.write_text(
-            research_taskbook.render_taskbook(prepared, body), encoding="utf-8"
-        )
-        final = research_taskbook.audit_taskbook(candidate, root=root, dispatch=True)
-        hard = [item for item in final if item["severity"] == "ERROR"]
-        if hard:
-            raise TaskRecordError(
-                "post-review lint failed: "
+                "taskbook validation failed: "
                 + "; ".join(f"{item['code']}:{item['message']}" for item in hard)
             )
         final_text = candidate.read_text(encoding="utf-8")
@@ -537,12 +510,6 @@ def command_new(args: argparse.Namespace) -> int:
         "task_lineage": args.lineage,
         "parent_task_id": args.parent_task_id,
         "successor_gate": successor,
-        "policy_review": {
-            "policy_set": "research_taskbook_policy.json",
-            "policy_digest": research_taskbook.policy_digest(ROOT),
-            "review_state": "PENDING_POLICY_REVIEW",
-            "temporary_overrides": [],
-        },
     }
     body = f"""# {args.title}
 
