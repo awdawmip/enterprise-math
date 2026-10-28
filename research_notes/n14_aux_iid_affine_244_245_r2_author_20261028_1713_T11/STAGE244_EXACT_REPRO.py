@@ -152,7 +152,6 @@ result={
  'forward_checked_masks':sorted(set(left['masks']+right['masks'])),
  'proof_scope':'Finite horizon N14 exact all-real full-history randomized policies, external IID only; no native X6 transfer.'
 }
-Path(__file__).with_name('CERT_STAGE244_EXACT.json').write_text(json.dumps(result,indent=2,ensure_ascii=False)+'
-',encoding='utf-8')
+Path(__file__).with_name('CERT_STAGE244_EXACT.json').write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
 print('STAGE244_EXACT_AUTHOR_PASS',len(points),'ordered_nodes',nodes)
 print('ALPHA',right['alpha'],'VALUE',right['value'],'WIDTH',result['delta'])
