@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "symbolic_C": "s**2*(2*s**2 + 5*s + 5)/(6*(s + 2)**2*(s + 3)*(2*s + 3))",
+  "C_over_s_squared_limit": "5/216",
+  "examples": [
+    {
+      "relative_priority_bias": "0",
+      "cubic_coefficient": "0",
+      "quadratic_coefficient": "1/4",
+      "equal_extra_and_uniform_variance_t": null
+    },
+    {
+      "relative_priority_bias": "1/100",
+      "cubic_coefficient": "8417/3672531702",
+      "quadratic_coefficient": "1836249017/7345063404",
+      "equal_extra_and_uniform_variance_t": "1836282685/16834"
+    },
+    {
+      "relative_priority_bias": "1/10",
+      "cubic_coefficient": "23/109368",
+      "quadratic_coefficient": "27319/109368",
+      "equal_extra_and_uniform_variance_t": "27365/23"
+    },
+    {
+      "relative_priority_bias": "1",
+      "cubic_coefficient": "1/90",
+      "quadratic_coefficient": "43/180",
+      "equal_extra_and_uniform_variance_t": "47/2"
+    },
+    {
+      "relative_priority_bias": "2",
+      "cubic_coefficient": "23/840",
+      "quadratic_coefficient": "187/840",
+      "equal_extra_and_uniform_variance_t": "233/23"
+    },
+    {
+      "relative_priority_bias": "-1/2",
+      "cubic_coefficient": "1/90",
+      "quadratic_coefficient": "43/180",
+      "equal_extra_and_uniform_variance_t": "47/2"
+    }
+  ],
+  "relative_priorities_recovered": [
+    "1",
+    "6/5",
+    "7/4",
+    "33/10"
+  ],
+  "original_normalized_priorities": [
+    "1",
+    "6/5",
+    "7/4",
+    "33/10"
+  ],
+  "pair_odds": {
+    "(0, 1)": "5/6",
+    "(0, 2)": "4/7",
+    "(0, 3)": "10/33",
+    "(1, 2)": "24/35",
+    "(1, 3)": "4/11",
+    "(2, 3)": "35/66"
+  },
+  "incompatible_odds_example": {
+    "(0, 1)": "2",
+    "(1, 2)": "2",
+    "(0, 2)": "1/2"
+  },
+  "scope": "Variance crossover exact; full critical triangular-array distribution not asserted."
+}
