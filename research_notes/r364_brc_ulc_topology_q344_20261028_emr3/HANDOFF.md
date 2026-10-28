@@ -1,0 +1,9 @@
+# R364 HANDOFF (2026-10-28)
+
+Task: continue finite signed BRC Newton/ULC topology from R363, no native claim or Driver mathematical admission. Frontiers: R363 immutable 445094491021488c839ca3c49dc2859981841bf4, original signed K/J R346 implementation sibling in this PR; GLOBAL_KNOWLEDGE main 2799b8b74f23b071340d43d53fd7cc18038d189b; Enterprise Math control main 7f23e5cb67cd455564317004e377feba60ace1bb.
+
+Proved exact r5 small-index counterexample: ULC sign ++-----++ (two changes), strict T(5,2)>0,T(5,3)<0,T(5,8)>0. Complete finite r1..344 sign table encoded in R364_ULC_COMPACT_344.json: r1..4 all negative; r5..32 +−+; r33..344 −+. 119024 Newton positive, 118336 Turán strict, 118336 ULC comparisons with 107767 neg /10569 pos /0 zero. r337..343 are separately pinned R363 finite certificates; r343 independently rechecked. Q344: 689/689 Newton positive; 687/687 strict Turán; 630 ULC fails/57 passes; coefficient SHA256 8b840f5fa5cb8aff6ccb57600fa792ad8ee98bfde39393107f1784361bac2143. Q343 regression: 019e7f8866384a1e5beed7ed05f69a77c784333932057106c3dd4a20dca90899.
+
+Reproduction: in this PR research_notes/r364... run python R364_exact_counterexample.py, python R364_ulc_window.py 101 150, python R364_q344.py. The full research ZIP has original seven window JSONs, complete r1..344 full CSV, 689-line Q344 coefficients and logs; published compact losslessly describes all 344 sign runs. Scripts preserve K/J sign branches and exact int/Fraction; no alternative positive mass compression.
+
+Remaining work: derive exact all-r lower end ULC T_(r,1) sign criterion and test/prove threshold r33, find an r≥345 counterexample or prove no further positive island, explore full Turán/PF2; independent formal review of R363 full-index extraction and native X6 observer-safe embedding. These are open, and no mathematical acceptance/Working Truth/P000 edit occurred. Source Owner and native Task authority unverified; only GitHub repository writer awdawmip authenticated.
