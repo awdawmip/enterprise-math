@@ -1,0 +1,8 @@
+# Stage251 — next exact asymmetric sequential minimax value
+
+Inputs: external ternary IID P=(3,1,20)/24, Q=(2,2,20)/24, errors eP<=3/10 and eQ<=19/40, arbitrary randomized full ordered-history stopping by N=11. Earlier proved frontiers: Stage249 V9=65983208881/10195269120 at immutable commit a71f7fcf055342aca54e5d969f31102cc926929e; Stage250 V10=46306027119263/7618838952960 by the matching Fraction Bellman/primal witness in this directory. Stage248 N>=13 value 27/5 provides an eventual lower-bound plateau, not the unknown N11 value.
+
+Next independent scientific unit: compute V11(3/10,19/40) exactly, or produce a rational obstruction for a specific proposed support face. Construct count-state P-occupancy LP, carrying L(i,j,k)=(2/3)^i*2^j for Q masses. Minimize z subject to z>=tP and z>=tQ; eP<=3/10 and eQ<=19/40. Reconstruct exact dual error multipliers lambdaP,lambdaQ>=0 and time weights thetaP,thetaQ>=0, thetaP+thetaQ=1. Verify every Bellman inequality on C(14,3)=364 count states. Recover an exact rational primal stopping/classification policy with explicit randomization weights. Independently sum full unmerged ordered-history path masses under P and Q, checking eP,eQ,tP,tQ, normalization and the max-time objective.
+
+Determine whether Stage250's one-sided thetaP=1 remains optimal or an interior time support is necessary. Scope: external IID model and its four observers; any X6-native/BRC transfer requires a separately proved future-operation-preserving map. Deliver exact proof, executable code, actual arithmetic evidence, and new follow-up unit to the existing Draft PR #1571. Author claims remain UNREVIEWED / NOT_ADMITTED until independent project review and native task admission.
+
