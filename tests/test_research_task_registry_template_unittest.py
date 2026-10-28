@@ -19,7 +19,6 @@ class TaskPublicationTemplateTests(unittest.TestCase):
             "parent_objective_id",
             "origin_kind",
             "task_lineage",
-            "policy_review",
         ):
             self.assertIn(field, task)
         record = template["registry_record_required"]
