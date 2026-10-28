@@ -1,0 +1,90 @@
+{
+  "ec49e_obstruction": {
+    "conditional_Q_spectra": {
+      "(0, 0)": {
+        "1": "1/15",
+        "2/7": "14/15"
+      },
+      "(0, 1)": {
+        "1": "1/5",
+        "7/2": "4/5"
+      },
+      "(1, 0)": {
+        "1": "4/15",
+        "1/11": "11/15"
+      },
+      "(1, 1)": {
+        "1": "4/5",
+        "11": "1/5"
+      }
+    },
+    "historical_c_1_8_coarse_support": "0",
+    "historical_c_1_8_fine_support": "3/80",
+    "historical_gap": "3/80",
+    "initial_nodes_split": true,
+    "quotient_classes_by_stage": {
+      "1": 2,
+      "2": 4,
+      "3": 5
+    },
+    "quotient_state_observable_as_stage_and_exact_LR": false,
+    "source": "EC49E PROOF.md @ 4cc5c0407d499562b7f3039a51454c53dc438c82",
+    "stage_2_TV_for_Y1_0": "14/15",
+    "stage_2_TV_for_Y1_1": "4/5"
+  },
+  "model_kind": "auxiliary dual-source positive-rational BRC observation tree (not native X6 or signed BRC)",
+  "proof_scope": "finite positive-rational trees, exact current LR, action-conditioned Q kernel, source-neutral behavioral policies; general equivalence theorem proved separately in PROOF.md",
+  "safe_model": {
+    "P_sum": "1",
+    "Q_sum": "1",
+    "all_leaf_masses_strictly_positive": true,
+    "all_reconstructions_exact": true,
+    "deterministic_full_history_policies_verified": 5832,
+    "leaves": 8,
+    "quotient_classes_by_stage": {
+      "1": 1,
+      "2": 2,
+      "3": 3
+    },
+    "quotient_state_observable_as_stage_and_exact_LR": true,
+    "rational_random_full_history_policies_verified": 1000,
+    "sample_fine_policy_observation": [
+      "377/576",
+      "329/576",
+      "25/12",
+      "73/36"
+    ],
+    "sample_reconstructed_policy": {
+      "(0, 0)": {
+        "accept": "5/16",
+        "continue": "1/2",
+        "reject": "3/16"
+      },
+      "(0, 0, 0)": {
+        "accept": "3/8",
+        "reject": "5/8"
+      },
+      "(0, 0, 1)": {
+        "accept": "27/56",
+        "reject": "29/56"
+      },
+      "(0, 1)": {
+        "accept": "1/6",
+        "continue": "2/3",
+        "reject": "1/6"
+      },
+      "(0, 1, 1)": {
+        "accept": "7/8",
+        "reject": "1/8"
+      },
+      "(0,)": {
+        "accept": "2/9",
+        "continue": "2/3",
+        "reject": "1/9"
+      }
+    },
+    "uncompressed_history_nodes": 14
+  },
+  "schema": "EC49F_EXACT_FRACTION_REPORT_V1",
+  "verification_scope": "all 729 deterministic two-stage decision patterns crossed with eight stated terminal masks, 1000 rational random policies; complete finite quotient signatures for safe and EC49E models"
+}
