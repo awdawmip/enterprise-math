@@ -1,0 +1,80 @@
+{
+  "schema": "CM_BALANCED_RESUME_INTERFACE_EXTRACTION_V1",
+  "author": "EM-DIRECT-38A864",
+  "activity_id": "RA-BALANCE-CM-20261028-38A864",
+  "formal_task_authority": false,
+  "new_tool_family": false,
+  "global_novelty_claimed": false,
+  "entries": [
+    {
+      "local_id": "CM-RESUME-MULTIPOINT-001",
+      "kind": "FINITE_FIELD_OBSERVER_THEOREM",
+      "paper": "CM24_MULTIPOINT_TRACE_ENDPOINT_DECODER.md",
+      "paper_sha256": "d85a69d5e20438ab63a653e3aea6ffbbddfebbbd8ec92435e8a85d7b9c3f970c",
+      "domain": "p=6m+1 prime congruent 13 or 19 mod24; distinct a_i in F_p; d_i>=1; D=sum d_i<=m; V={deg B<=p-2,[z^(3m)]B=0}",
+      "input": "Complete central P_B plus actual outer U_B of x^(-3m)(x-3)B(x(x-3)^2/4)/24",
+      "output": "Exactly D independent F_p-linear outer scalars reconstruct all beta_i,k=[v^k]B(a_i+v), k<d_i.",
+      "constructor": [
+        "Choose unramified root alpha over extension degree e<=3, alpha=0 at a=0 and alpha=4 at a=1.",
+        "Normalize R_alpha,T=24 (x^N T)(alpha+t)/(alpha+t-3).",
+        "Invert the triangular coefficient matrix of q(alpha+t)-a.",
+        "Apply e^(-1)Tr_E/Fp to each resulting functional."
+      ],
+      "minimal_local_input": "At nonzero alpha use jets through d_i-1; at zero use Laurent coefficients -N through -N+d_i-1. Threshold sharp jointly with all prescribed finite jets at other points.",
+      "reuse": "Original Hermite lower bound and a=1 decoder preserved; new matching upper construction for arbitrary endpoints.",
+      "harvest": "RESULT_ONLY_STANDARD_COMPOSE",
+      "verification": "Nonauthor bounded paper review; finite exact 21366 scalar equalities PASS, no all-prime theorem inferred from finite execution.",
+      "excluded": [
+        "D>m",
+        "fixed-full-forcing variations",
+        "actual Y/Z/h_div/kappa evaluation",
+        "undeclared future operations",
+        "global tool novelty"
+      ],
+      "review": {
+        "file": "../review/CM_REVIEW.md",
+        "paper_sha256": "d85a69d5e20438ab63a653e3aea6ffbbddfebbbd8ec92435e8a85d7b9c3f970c",
+        "status": "NONDECISIVE_NONAUTHOR_PAPER_CHECK_NO_UNRESOLVED_DEFECT",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_driver_disposition": false
+      }
+    },
+    {
+      "local_id": "CM-RESUME-STRONG-001",
+      "kind": "NONARCHIMEDEAN_STRONG_COMPLETION_OBSTRUCTION",
+      "paper": "CM24_STRONG_COMPLETION_NONCLOSED_RANGE.md",
+      "paper_sha256": "b19248580b174c7ce6aaacc453ab777f7c81f8ec820a5c153c4acd1cc2dca1e0",
+      "domain": "Original complete unramified DVR O, p=13 or19 mod24; A=O[r,(1-r^2)^-1,(4r^2-1)^-1]; Rhat=completion_p(A)[1/p]; original row D.",
+      "input": "Exact original integral Frobenius rows L(u_n)=p^n b_n, with second-component Laurent initial exponent1-p^n and unit coefficient beta^n.",
+      "output": [
+        "dim_K ker(L on Rhat^2)<=2",
+        "image L is not closed",
+        "algebraic cokernel is infinite dimensional; quotient topology non-Hausdorff",
+        "weak six-dimensional cokernel comparison is not surjective"
+      ],
+      "proof_dependencies": [
+        "Faithful finite-level localization-to-Laurent embeddings and p-adic inverse limit",
+        "Ambient Laurent-completion field has differential constants exactly K",
+        "Distinct unit initial exponents give infinite mod-p linear independence",
+        "Banach open mapping and finite-dimensional DVR lattice",
+        "Finite-algebraic-codimension range of bounded Banach map is closed"
+      ],
+      "harvest": "RESULT_ONLY_STANDARD_COMPOSE",
+      "verification": "Independent nonauthor paper cross-review found no must-fix in all four bounded claims. No computations or proof kernel used; no Driver disposition.",
+      "excluded": [
+        "dim H0 exact value",
+        "separated quotient dimension",
+        "weak comparison injectivity",
+        "explicit specified nonexact strong source",
+        "whole CM objective closure"
+      ],
+      "review": {
+        "file": "../formal/CM24_STRONG_COMPLETION_CROSS_REVIEW.md",
+        "sha256": "7aef0cc8f60c1efda342dfeb514e7ee29f4138a5e3962218dd8a7b0575ee09f6",
+        "paper_sha256": "b19248580b174c7ce6aaacc453ab777f7c81f8ec820a5c153c4acd1cc2dca1e0",
+        "status": "LOCAL_NONAUTHOR_PAPER_CHECK_NO_MUSTFIX_FOUND",
+        "formal_driver_disposition": false
+      }
+    }
+  ]
+}
