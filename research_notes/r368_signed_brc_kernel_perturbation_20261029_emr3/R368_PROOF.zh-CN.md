@@ -19,7 +19,7 @@ B_s(t)=[x^s]U_0(x,t),\quad A(x,t)=1+t+\sum_{s\ge1}J_s(t)x^s.
 
 这就是对 `J_1(t)` 增加 `θt`，而不是替换、取绝对值或截断原带符号 K/J 支路。它满足 `deg_x[t^a]A_θ≤a`；原 `c=[t]K(1/2,t)=5/4` 不变。因此 R363 作者侧通用抽取定理可直接应用于本形式模型族。**这是一条符合分次条件的辅助模型形式扰动，不是声称原始 BRC 实物机理允许调整某个已命名物理参数。**
 
-完整基础整数输入为 `R365_Q345_352_FULL_COEFFICIENTS.txt`，5,584行 `r,j,c`，SHA256 `50bf1a56fabe89d4752ed71634cbb95d6c7c320d61b09aba1c501857650555a7`。完整本轮程序从原始带符号核重算 \(B_0,\ldots,B_{1061}\)，同时复验全部5,584个基线系数与上述数据逐项相同，而不仅比较摘要。
+历史原始数据为 `R365_Q345_352_FULL_COEFFICIENTS.txt`，5,584行 `r,j,c`，SHA256 `50bf1a56fabe89d4752ed71634cbb95d6c7c320d61b09aba1c501857650555a7`。本轮程序**默认不依赖该外部数据文件**，从原始带符号核重算 \(B_0,\ldots,B_{1061}\)，同时复验全部5,584个基线系数与上述数据逐项相同，而不仅比较摘要。
 
 ## 2. 新定理：存在真实核内形式扰动的保形开区间
 
@@ -119,10 +119,10 @@ V=\min_r\frac{4r c_{r,0}c_{r,2}}{(2r-1)c_{r,1}^2}.
 
 ## 4. 复现、来源与后继问题
 
-GitHub 可执行源码：`R368_perturb.py`（同目录）；依赖同一 PR 分支已有的 `r346.../R346_verify.py`，以及从 R365 研究包恢复的 5,584 行原始数据。执行：
+GitHub 可执行源码：`R368_perturb.py`（同目录）；依赖同一 PR 分支已有的 `r346.../R346_verify.py`，执行时直接从同一 PR 分支的 R346 原始核重新生成全部 R365 系数并核对 5,584 行历史 SHA256，不需要自行获取或解压历史 ZIP：
 
-`python research_notes/r368_signed_brc_kernel_perturbation_20261029_emr3/R368_perturb.py R365_Q345_352_FULL_COEFFICIENTS.txt`
+`python research_notes/r368_signed_brc_kernel_perturbation_20261029_emr3/R368_perturb.py`
 
-完整原始数据、执行日志、二次响应机器证据及逐文件 SHA256 清单一并保存在本轮研究 ZIP；脚本也会检查原始数据 SHA256、生成原始响应摘要，不依赖浮点决定正负。背景经典必要条件与 PF₂ 结论详见 Aissen–Schoenberg–Whitney (1952)，以及 Xie–Xu, *Ultra Log-Concavity and Real-Rootedness of Dependence Polynomials*, EJC 33(4), P4.9，2026-10-09，DOI `10.37236/13310`，只用其标准背景概念，没有把论文结果冒称 BRC 证明。
+也可传入 `R365_Q345_352_FULL_COEFFICIENTS.txt` 路径以逐行额外交叉核对。完整原始数据、执行日志、二次响应机器证据及逐文件 SHA256 清单一并保存在本轮研究 ZIP；脚本也会检查原始数据 SHA256、生成原始响应摘要，不依赖浮点决定正负。背景经典必要条件与 PF₂ 结论详见 Aissen–Schoenberg–Whitney (1952)，以及 Xie–Xu, *Ultra Log-Concavity and Real-Rootedness of Dependence Polynomials*, EJC 33(4), P4.9，2026-10-09，DOI `10.37236/13310`，只用其标准背景概念，没有把论文结果冒称 BRC 证明。
 
 **下一独立研究单元**：选择实际原始有符号 K 参数（而非本轮形式允许的分子 \(xt\) 项），推导 \(\delta K\to\delta B\to\delta Q\) 的二次以上响应及严谨可行区间；另外从 `M(r)` 对增大余阶的变化寻找全 r 的 PF₂ 结构性证明或反例。全指标抽取 R363 独立逻辑审查、项目 native X6 信息保真映射仍保持开放，原主任务 Owner 的 Source/CLAIM/Driver 审查不得由本作者侧结果代替。

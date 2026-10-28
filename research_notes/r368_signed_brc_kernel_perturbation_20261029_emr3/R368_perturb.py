@@ -3,7 +3,7 @@
 
 Usage from project checkout:
   python research_notes/r368_signed_brc_kernel_perturbation_20261029_emr3/R368_perturb.py \
-    path/to/R365_Q345_352_FULL_COEFFICIENTS.txt
+    [path/to/R365_Q345_352_FULL_COEFFICIENTS.txt]
 
 Computes all linear/quadratic response coefficients in the Newton basis for
 r=345..352. The signed 12-term K is untouched, its signed J contributions are
@@ -51,15 +51,19 @@ def bound_for_finite_rows(rows,aa,bb):
     assert p>1 and ((p-1)<=M or (p-1-M)**2*T <= (p-1+M)**2)
     return M,arg,p,T,U
 
-def main(input_path: Path):
+def main(input_path: Path | None):
     t0=time.monotonic()
-    raw=input_path.read_bytes()
-    assert hashlib.sha256(raw).hexdigest()==DATA_HASH
     baseline={}
-    for line in raw.splitlines():
-        r,j,c=map(int,line.split(b','));assert START<=r<=END and 0<=j<=2*r and (r,j) not in baseline
-        baseline[(r,j)]=c
-    assert len(baseline)==5584
+    if input_path is not None:
+        raw=input_path.read_bytes()
+        assert hashlib.sha256(raw).hexdigest()==DATA_HASH
+        for line in raw.splitlines():
+            r,j,c=map(int,line.split(b','))
+            assert START<=r<=END and 0<=j<=2*r and (r,j) not in baseline
+            baseline[(r,j)]=c
+        assert len(baseline)==5584
+    # With no input file, rebuild the entire historical R365 baseline from
+    # the signed K/J kernel and verify its original 7,668,800-byte SHA256.
     maxs=3*(END+1)+2;lim=2*(END+1)+2
     kernels=[None]+[K(i) for i in range(1,13)]
     B0=[[1,1]]
@@ -84,7 +88,8 @@ def main(input_path: Path):
         L1[r]=eval_newton([int(x) for x in l1],2*END+3)
     print('L0/L1',len(L0),'sec',round(time.monotonic()-t0,2),flush=True)
     aa,bb={},{}
-    sha_a,sha_b=hashlib.sha256(),hashlib.sha256()
+    sha0,sha_a,sha_b=hashlib.sha256(),hashlib.sha256(),hashlib.sha256()
+    use_input=bool(baseline)
     for r in range(START,END+1):
         q0=[];q1=[];q2=[]
         for v in range(2*r+1):
@@ -96,12 +101,19 @@ def main(input_path: Path):
             q1.append(e*b+a*f-g*d-c*h)
             q2.append(e*f-g*h)
         c0,c1,c2=fd(q0),fd(q1),fd(q2)
-        assert len(c0)==2*r+1 and all(c0[j]==baseline[(r,j)] for j in range(2*r+1)), ('baseline mismatch',r)
+        assert len(c0)==2*r+1
+        for j,x in enumerate(c0):
+            sha0.update(f'{r},{j},{x}\n'.encode())
+            if use_input:
+                assert x==baseline[(r,j)], ('baseline mismatch',r,j)
+            else:
+                baseline[(r,j)]=x
         for j,(x,y) in enumerate(zip(c1,c2)):
             aa[(r,j)]=x;bb[(r,j)]=y
             sha_a.update(f'{r},{j},{x}\n'.encode())
             sha_b.update(f'{r},{j},{y}\n'.encode())
         print('row',r,'all base checks',len(c0),'sec',round(time.monotonic()-t0,2),flush=True)
+    assert len(baseline)==5584 and sha0.hexdigest()==DATA_HASH, "R365 baseline sha mismatch"
     M,arg,p,T,U=bound_for_finite_rows(baseline,aa,bb)
     print("BOUND",p,"sec",round(time.monotonic()-t0,2),flush=True)
     theta=Fraction(1,p)
@@ -149,7 +161,7 @@ def main(input_path: Path):
     def ratio(x):return {'numerator':str(x.numerator),'denominator':str(x.denominator)}
     out={'schema':'EM_R368_SIGNED_BRC_NUMERATOR_PERTURBATION_V1','source_full_coeff_sha256':DATA_HASH,
          'input_model':'A_theta=A+theta*t*x; K_theta=K unchanged (all signed twelve K branches)',
-         'r_range':[START,END],'base_count':len(baseline),'response_order':2,'B_max':maxs,
+         'r_range':[START,END],'base_count':len(baseline),'baseline_regenerated_without_data_file':not use_input, 'response_order':2,'B_max':maxs,
          'response_linear_sha256':sha_a.hexdigest(),'response_quadratic_sha256':sha_b.hexdigest(),
          'max_amplitude_bound_M':ratio(M),'max_M_location':{'r':arg[0],'j':arg[1]},
          'safe_theta_abs_leq':f'1/{p}','safe_theta_denominator':str(p),
@@ -168,5 +180,5 @@ def main(input_path: Path):
     return out
 
 if __name__=='__main__':
-    p=Path(sys.argv[1]) if len(sys.argv)>1 else HERE/'R365_Q345_352_FULL_COEFFICIENTS.txt'
+    p=Path(sys.argv[1]) if len(sys.argv)>1 else None
     main(p)

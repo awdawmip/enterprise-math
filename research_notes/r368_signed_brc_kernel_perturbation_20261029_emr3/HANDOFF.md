@@ -8,7 +8,7 @@
 
 **Exact checks:** 5,584 baseline and response coefficients; 5,568 Turan inequalities and 8 ULC first-index guards, `T<U`; both theta endpoints check 5,568 strict Turan signs + 8 ULC failures; 16 directly reconstructed D-minor equalities. Linear-response SHA256 `8afe0b222252d60a7bd879ba92edab3762e13d1ebee42820bc8d1b9b00fd31d7`; quadratic `3b3b14660da0e25fea7d9ab9d34424eef056a9b2de3359d0ff9cbffd6708c77f`.
 
-**Reproduce:** `R368_perturb.py <path-to-R365_Q345_352_FULL_COEFFICIENTS.txt>` from the project checkout; script requires the sibling prior R346 source and checks original row checksum `50bf1a56fabe89d4752ed71634cbb95d6c7c320d61b09aba1c501857650555a7`. Complete rows and logs in attached archive; no new credential or hidden file.
+**Reproduce:** `python research_notes/r368_signed_brc_kernel_perturbation_20261029_emr3/R368_perturb.py` directly from the existing PR checkout. The script imports the original signed R346 K/J source in the sibling directory, *rebuilds the complete original R365 baseline without needing a downloaded ZIP/CSV*, asserts the 5,584-row historical SHA256 `50bf1a56fabe89d4752ed71634cbb95d6c7c320d61b09aba1c501857650555a7`, and reproduces the 5,584 linear/quadratic responses. Optionally supply the R365 CSV path for additional row-by-row input comparison. Complete data and execution logs are also in the research archive; no credential or private input.
 
 **Limit:** This is a formal admissible A-parameter variation, not an independently authorized physical BRC parameter or X6 bridge. R363 generic extraction is still author-side pending independent review. 1792 is only the smallest integer denominator certified by the current uniform M-majorant and R367 ball, not the sharp radius of this restricted nonlinear parameter curve.
 
