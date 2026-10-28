@@ -1,0 +1,256 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX310_BRC_ANTIPODAL_NOISE_CERTIFICATE_V1",
+  "version": 1,
+  "input_project_main": "94fbdca156237439661e74007165261b9b493eed",
+  "input_global_main": "2a24dd5d0e16a1b273d49ae4a49242efc6b2d6cd",
+  "source_matrices_git_blob": "b6acffe158f014469235f5428d2889ff43b62810",
+  "status": "AUTHOR_SIDE_EXACT_PROOF_WITH_FINITE_BRC_CERTIFICATE_UNREVIEWED_NOT_ADMITTED",
+  "test_epsilon": "1",
+  "source_pm_axis": "(0,±(1+i),0)",
+  "source_pm_diagonal": "(0,±1,0)",
+  "full_Qi_Q1_reference_lower_bound_sq_epsilon_axis": "2",
+  "full_Qi_Q1_reference_lower_bound_sq_epsilon_diagonal": "1",
+  "omitted_diagonal_reference_lower_bound_sq_epsilon": "2",
+  "checker_expected_counts": {
+    "configurations": 48,
+    "axis_configurations": 32,
+    "diagonal_configurations": 16,
+    "diagonal_port_omission_configurations": 16,
+    "base_pairs_equal": 320,
+    "reference_intervals_overlap": 608,
+    "direct_brc_mass_evaluations": 1856,
+    "ordered_labelled_source_path_pairs": 25216,
+    "max_reference_mass_numerator_difference": 128
+  },
+  "per_orbit": [
+    {
+      "family": "S4",
+      "orbit": 1,
+      "second_col": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          -4
+        ]
+      ],
+      "type": "AXIS"
+    },
+    {
+      "family": "S4",
+      "orbit": 2,
+      "second_col": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "type": "AXIS"
+    },
+    {
+      "family": "S4",
+      "orbit": 3,
+      "second_col": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          -4
+        ]
+      ],
+      "type": "AXIS"
+    },
+    {
+      "family": "S4",
+      "orbit": 4,
+      "second_col": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "type": "AXIS"
+    },
+    {
+      "family": "S4",
+      "orbit": 5,
+      "second_col": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "type": "DIAGONAL"
+    },
+    {
+      "family": "S4",
+      "orbit": 6,
+      "second_col": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "type": "DIAGONAL"
+    },
+    {
+      "family": "S7",
+      "orbit": 1,
+      "second_col": [
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          -4,
+          0
+        ]
+      ],
+      "type": "AXIS"
+    },
+    {
+      "family": "S7",
+      "orbit": 2,
+      "second_col": [
+        [
+          4,
+          0
+        ],
+        [
+          -4,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "type": "AXIS"
+    },
+    {
+      "family": "S7",
+      "orbit": 3,
+      "second_col": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "type": "DIAGONAL"
+    },
+    {
+      "family": "S7",
+      "orbit": 4,
+      "second_col": [
+        [
+          0,
+          0
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "type": "DIAGONAL"
+    },
+    {
+      "family": "S7",
+      "orbit": 5,
+      "second_col": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          -4
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "type": "AXIS"
+    },
+    {
+      "family": "S7",
+      "orbit": 6,
+      "second_col": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          -4
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "type": "AXIS"
+    }
+  ],
+  "limitations": "Sharp only for antipodal one-middle-source witness subclass; not globally minimax nor native-Detector implementation; no formal Source review"
+}
