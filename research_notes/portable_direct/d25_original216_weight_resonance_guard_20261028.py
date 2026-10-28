@@ -71,6 +71,20 @@ def check(p):
     L = first_log_shift(m, m, p)
     H = harmonic(m, p)
     correction = (L - 3 * inv(2, p) * H) % p
+    H2, H3, H4 = (harmonic(j*m, p) for j in (2, 3, 4))
+    # Exact rational rewriting and prime-reflection at p-1=6m.
+    assert L == (H2 + H3 + 2*H - 4*H4) * inv(6, p) % p
+    assert H4 == H2
+    assert correction == (H3 - 3*H2 - 7*H) * inv(6, p) % p
+    # Classical Eisenstein/Lehmer harmonic congruences, used only at mod p.
+    q2 = (pow(2, p-1, q)-1)//p
+    q3 = (pow(3, p-1, q)-1)//p
+    q3888 = (pow(3888, p-1, q)-1)//p
+    assert H3 == -2*q2 % p
+    assert H2 == -3*inv(2,p)*q3 % p
+    assert H == (-2*q2 - 3*inv(2,p)*q3) % p
+    assert correction == (2*q2 + 5*inv(2,p)*q3) % p
+    assert correction == q3888*inv(2,p) % p
     left_unweighted = (a - t*e) % q
     assert left_unweighted % p == 0
     assert left_unweighted // p == (t % p)*correction % p
@@ -86,9 +100,10 @@ def check(p):
         assert (W - original_weighted)%p == 0
     out = dict(p=p,m=m,resonant_unit=a%p,T_unit=t%p,
                weight_source_correction=source_defect//q,
-               W_mod_p3=W)
+               Fermat_q3888=q3888, W_mod_p3=W)
     if p == 373:
         assert (a,t,e,L,H,correction) == (32200,117244,110409,151,73,228)
+        assert (H2,H3,H4,q2,q3,q3888) == (108,338,108,204,301,83)
         assert (source_defect//q,source_defect) == (214,29773606)
         assert (original_weighted,clausen_weighted) == (12010600,34132111)
         assert (W-original_weighted)//p % q == 106930
