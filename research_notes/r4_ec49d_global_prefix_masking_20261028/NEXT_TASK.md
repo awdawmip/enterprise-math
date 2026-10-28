@@ -1,0 +1,7 @@
+# EC49E — policy-complete two-future-stage LR predictive signature
+
+Proposed author-side continuation only, NOT a native V2 task or CLAIM. Do not redo EC49C's local one-step spectrum iff or EC49D's fixed-exogenous-prefix theorem, strictly positive controllable-route masking, and delay threshold. Both remain author-proved, unreviewed, not admitted.
+
+Next discriminating unit: after source-ancillary W introduce two genuinely **informative** future signals Y1,Y2 and two optional continuation decisions, with strictly positive rational source-conditioned controlled kernels. Fix the precise memory update, accessible complete LR, source-neutral controller language and stop time. Test whether equality of **all one-step** LR spectra is insufficient for the full raw four-vector region; EC48W already has a related two-stage counterexample, so require a genuinely different action-conditioned or minimal witness, or derive a sharp constructive two-step causal sufficiency condition.
+
+Give complete P/Q kernel tables, exact branch provenance, proof for all real behavioral strategies or strict separating rational support inequality, and actual reproducible exact verifier. Distinguish raw region from convex hull and separate scalar/positive-probability BRC from signed/amplitude and native P000 X6. Preserve the independent open question of rational observation targets requiring only irrational feasible finite-memory behavioral strategies in non-Markov models. Review/admission and Source/CLAIM remain separate authorized operations.
