@@ -35,14 +35,17 @@ def prime_field_check(p: int, d: int) -> dict:
     # distinct characters because p does not divide d.
     tested_monomials = 0
     nonbalanced_invariant = 0
+    monomial_point_evaluations = 0
     for degree in range(d):
         for a in range(degree + 1):
             b = degree-a
-            is_invariant = all(
+            mismatch_count = sum(
                 (pow(x,a,p)*pow(y,b,p) -
-                 pow(generator*x % p,a,p)*pow(pow(generator,p-2,p)*y % p,b,p)) % p == 0
+                 pow(generator*x % p,a,p)*pow(pow(generator,p-2,p)*y % p,b,p)) % p != 0
                 for x in range(p) for y in range(p)
             )
+            is_invariant = mismatch_count == 0
+            monomial_point_evaluations += p*p
             assert is_invariant == ((a-b) % d == 0)
             if is_invariant and a != b:
                 nonbalanced_invariant += 1
@@ -61,6 +64,7 @@ def prime_field_check(p: int, d: int) -> dict:
         "p":p,"d":d,"group_order":len(h),"source_states":p*p,
         "orbits":orbit_count,"invariant_keys":len(observed_keys),
         "monomials_below_d_tested":tested_monomials,
+        "monomial_point_evaluations":monomial_point_evaluations,
         "nonbalanced_invariants_below_d":nonbalanced_invariant,
         "nonzero_phase_witness":nonzero_phase_witness,
     }
@@ -138,6 +142,7 @@ def main():
         "total_prime_state_checks":sum(v["source_states"] for v in primes),
         "total_quadratic_extension_ordered_states":sum(v["ordered_states"] for v in ext),
         "total_sub_d_monomial_tests":sum(v["monomials_below_d_tested"] for v in primes),
+        "total_monomial_point_evaluations":sum(v["monomial_point_evaluations"] for v in primes),
         "limits":"Universal invariant-ring statement is proved algebraically; checks are exact finite samples only."
     }
     out=Path(__file__).with_name("d25_opposite_weight_invariant_ring_author_check_20261028.json")
