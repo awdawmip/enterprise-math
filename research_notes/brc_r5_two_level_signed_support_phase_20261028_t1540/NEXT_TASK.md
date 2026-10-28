@@ -1,0 +1,11 @@
+# R5 successor — construct fully signed-support-equal heterogeneous multi-collision tree
+
+Mother problem: a strictly positive finite rational passive two-law observation tree where the convex hulls of all four-dimensional full-history and seedless likelihood-ratio real-behavior images coincide, yet the true images differ. The mother problem is OPEN.
+
+Preserve verified evidence from this exact R5 increment: research_notes/brc_r5_two_level_signed_support_phase_20261028_t1540/{RESEARCH.md,VERIFY.py,EXACT_OUTPUT.txt}. The 22-history, two-heterogeneous-nonterminal-collision predecessor tree fails the necessary convex-hull-equality test: lambda=(4,4,-8,9) gives min_full=39/8 vs min_LR=5; lambda=(38,38,-76,85) gives min_full=91/2 vs min_LR=47. Do not repeat its all-support hull search.
+
+Next minimal scientific unit: change exact source-specific third-stage conditional ratios and positive rational branch weights, or add a third hidden upstream source, respecting both conditional normalization and E_Q[next_ratio]=current_ratio. Retain two predictive-heterogeneous nonterminal LR collision levels. Compute SOURCEWISE Bellman advantages first; eliminate a candidate on any strict signed four-support gap. Choose variants where all potentially exposed normals have common sourcewise minimizing actions despite predictive heterogeneity.
+
+Completion standard: First obtain a globally complete ALL signed-four-direction convex-hull equality proof (exact full/seedless LR deterministic vertex hull inclusion, facet certificates, or equivalent symbolic theorem). Only then find rational O in full image with a true GLOBAL all-real-local-randomness semialgebraic nonmembership certificate in the LR image, retaining stop/continue and all terminal declarations. A finite grid or local rank-three patch is not sufficient.
+
+Controls: this is UNREVIEWED/NOT_ADMITTED author-side continuation. Canonical active Source owner and CLAIM remain to be verified after CONTROL_QUOTA clears; no inherited service identity, review or X6 native transfer. Frozen scientific GLOBAL_KNOWLEDGE_V1 main@c4a44293d89f7f12bfbdb89d261ec77abf8f2595, project baseline main@f75dae1d65ef842089950d0a440c61cab20e42e2. Preserve P000 and ACTIVE worldview.
