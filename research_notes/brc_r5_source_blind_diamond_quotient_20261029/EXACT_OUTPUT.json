@@ -1,0 +1,28 @@
+{
+  "status": "PASS_EXACT_R5_SOURCE_BLIND_DIAMOND_OBSERVER_QUOTIENT",
+  "checks": {
+    "mean_normalizations": true,
+    "terminal_mass_normalization_both_laws": true,
+    "full_terminal_Q_law_midpoint": true,
+    "randomized_declaration_midpoint": true,
+    "four_observer_midpoint": true,
+    "source_resolved_midpoint_infeasible": true,
+    "exact_rational_policy_mixture_stress_240": true
+  },
+  "input": {
+    "source_vectors_v": {"A": "11/1200", "B": "23/3600"},
+    "source_vectors_w": {"A": "1/40", "B": "1/100"},
+    "policy_F": ["1", "0", "1"],
+    "policy_G": ["0", "1", "0"],
+    "policy_H": ["1/2", "1/2", "4/13"]
+  },
+  "source_wedge": "-49/2880000",
+  "positive_terminal_cell_count": 13,
+  "four_observations": {
+    "F": ["13513/21600", "523/1800", "1109/600", "2863/1800"],
+    "G": ["9539/20800", "857/2080", "173/80", "71/40"],
+    "midpoint_H": ["608891/1123200", "65761/187200", "4813/2400", "3029/1800"]
+  },
+  "scientific_scope": "finite two-measure LR diamond; common source-blind final kernel eta; no native X6 or canonical review",
+  "formal_admission": "NOT_ADMITTED"
+}
