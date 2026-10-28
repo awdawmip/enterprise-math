@@ -45,6 +45,26 @@ def transport_via_factorials(length: int, power: int = 3):
     return a_total, b_total
 
 
+def exact_signed_cutoff_ports(length: int):
+    """Keep four original weighted ports separate at the true half cutoff."""
+    modulus = length**3
+    half = (length-1)//2
+    a_inv = pow(216, -1, modulus)
+    b_inv = pow(2304, -1, modulus)
+    a_low = a_high = b_low = b_high = 0
+    for n in range(length):
+        x = comb(2*n, n)**2
+        a_term = ((6*n+1)*x*comb(3*n, n)*pow(a_inv, n, modulus)) % modulus
+        b_term = ((8*n+1)*x*comb(4*n, 2*n)*pow(b_inv, n, modulus)) % modulus
+        if n <= half:
+            a_low += a_term
+            b_low += b_term
+        else:
+            a_high += a_term
+            b_high += b_term
+    return tuple(t % modulus for t in (a_low, a_high, b_low, b_high))
+
+
 def main():
     expected = {
         25: (3150, 9400, 9375),
@@ -66,11 +86,27 @@ def main():
     assert 9375 == 15*25**2
     assert 43218 == 18*49**2
     assert 272000 % (85**2) == 4675
+    # The comparator's high-half vanishing is itself prime-sensitive;
+    # losing this B port would incorrectly attribute the whole defect to A.
+    composite_ports = {
+        25: (4525, 14250, 10650, 14375),
+        85: (80750, 335750, 310250, 448375),
+    }
+    for length, target in composite_ports.items():
+        ports = exact_signed_cutoff_ports(length)
+        assert ports == target, (length, ports)
+        a_low, a_high, b_low, b_high = ports
+        modulus = length**3
+        assert (a_low+a_high) % modulus == transport_via_factorials(length)[0]
+        assert (b_low+b_high) % modulus == transport_via_factorials(length)[1]
+        assert b_high != 0  # contrasts with prime half-cut vanishing
+        print(f'PORT_WITNESS length={length} A_low={a_low} A_high={a_high} '
+              f'B_low={b_low} B_high={b_high} B_high_mod_length2={b_high%(length**2)}')
     for prime in [7, 13, 19, 37, 43, 373]:
         a, b = transport_via_binomials(prime)
         assert a == b, (prime, a, b)
     print('PASS_D25_COMPOSITE_CUTOFF_FALSIFIER 5 exact composite witnesses; '
-          '2 independent integer evaluators; 6 prime regressions')
+          '2 independent integer evaluators; 2 signed cutoff witnesses; 6 prime regressions')
 
 
 if __name__ == '__main__':
