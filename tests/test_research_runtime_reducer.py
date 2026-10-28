@@ -79,7 +79,7 @@ class RuntimeReducerTests(unittest.TestCase):
             {**task("RS-R", state="READY", priority="P0"), "state": "READY", "dispatch_state": "NEEDS_DISPATCH"},
             {**task("RS-H", state="HANDOFF_READY", priority="P2", leverage="LOW"), "state": "HANDOFF_READY", "dispatch_state": "NEEDS_DISPATCH"},
         ]
-        self.assertEqual("RS-H", rr.select_state(states, policy)["task_id"])
+        self.assertEqual("RS-R", rr.select_state(states, policy)["task_id"])
 
     def test_superseded_blocked_task_exposes_its_retirement_evidence(self):
         old_block = {

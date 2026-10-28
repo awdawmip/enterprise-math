@@ -858,10 +858,17 @@ def effective_states(
     events: list[dict[str, Any]], *, now: datetime, root: Path = ROOT
 ) -> list[dict[str, Any]]:
     with _dispatch_result_read_snapshot(root):
-        return [
+        states = [
             reduce_definition(task, events, now=now, root=root)
             for task in merged_definitions(root)
         ]
+        # Scheduling metadata belongs to the read-only projection. Do not add
+        # fields to registered_definition: existing immutable execution/review
+        # bindings validate that exact definition independently of scheduling.
+        records = research_task_records.current_records(root)
+        for state in states:
+            state["parent_task_id"] = records.get(state["task_id"], {}).get("parent_task_id")
+        return states
 
 
 def select_task(

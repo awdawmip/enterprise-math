@@ -54,9 +54,13 @@ def lane_states(
             frozen = research_cohort_runtime.lane_results(
                 task_id, cohort_id, lane_id, root
             )
+            # Completed lanes still contribute their admitted service history.
+            reduced = research_lane_claims.reduce_lane(
+                task_id, cohort_id, lane_id, events, now=now, root=root)
             if frozen:
                 states.append(
                     {
+                        **reduced,
                         "task_id": task_id,
                         "execution_cohort_id": cohort_id,
                         "execution_lane_id": lane_id,
@@ -72,14 +76,6 @@ def lane_states(
                     }
                 )
                 continue
-            reduced = research_lane_claims.reduce_lane(
-                task_id,
-                cohort_id,
-                lane_id,
-                events,
-                now=now,
-                root=root,
-            )
             states.append(reduced)
     return states
 

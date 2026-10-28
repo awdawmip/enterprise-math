@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Enterprise Math recover-before-fresh canonical control-plane router.
+"""Enterprise Math recovery-aware weighted-fair control-plane router.
 
 This module composes the existing fresh task/lane selectors with exact-owner-scope
 conversation liveness. It never creates a CLAIM and never changes owner-lease
-semantics. A valid owner lease and a stale owner execution session are routed to
-stale-session adoption with the existing winning CLAIM preserved.
+semantics. A verified stale owner is a candidate for a source-bound successor
+CLAIM. Its old claim remains reserved until the existing predecessor CAS wins.
 
 The CLAIM-origin researcher/Driver identity is provenance after the bound session
 is stale. Recovery is bound to the exact task/claim/durable frontier plus current
@@ -299,6 +299,8 @@ def route_from_candidates(
     now,
     fresh_task: Mapping[str, Any] | None,
     fresh_lane: Mapping[str, Any] | None,
+    policy: Mapping[str, Any] | None = None,
+    states: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Pure routing core used by the repository-backed wrapper and regression tests."""
     recoverable: list[tuple[str, dict[str, Any], dict[str, Any]]] = []
@@ -337,6 +339,34 @@ def route_from_candidates(
             raise ControlDispatchError(
                 f"{key}: leased-state/session decision is inconsistent; recompute canonical state"
             )
+
+    if policy is not None and policy["selection_policy"].get("priority_weights"):
+        # Recovery is an eligible next research unit, not a permanent jump ahead
+        # of every fresh direction. Exact active sessions never enter this pool.
+        choices = {}
+        for _, target, decision in recoverable:
+            state = target["state"]
+            if _successor_fields(state).get("new_claim_required"):
+                choices[_state_target_key(state)] = (_adoption_result(target, decision), state)
+        fresh = ([s for s in states if s.get("dispatch_state") == "NEEDS_DISPATCH"]
+                 if states is not None else [s for s in (fresh_task, fresh_lane) if s is not None])
+        for state in fresh:
+            key = _state_target_key(state)
+            choices[key] = ({
+                "action": research_runtime.CLAIM_NEW_OWNER,
+                "surface": COHORT_LANE if state.get("execution_lane_id") else ORDINARY_TASK,
+                "target": dict(state), "target_key": key,
+                "owner_claim_preserved": False, "new_claim_required": True,
+                "reason": "weighted fair next research opportunity",
+            }, state)
+        if choices:
+            pool = [{**s, "dispatch_state": "NEEDS_DISPATCH"} for _, s in choices.values()]
+            selected = research_runtime_reducer.select_state(
+                states if states is not None else pool, policy, kind="ANY", candidates=pool)
+            result, _ = choices[_state_target_key(selected)]
+            result["fair_selection"] = selected["fair_selection"]
+            result["target"] = {k: v for k, v in result["target"].items() if k != "scheduling_trace"}
+            return result
 
     if recoverable:
         _, target, decision = min(recoverable, key=lambda item: item[0])
@@ -652,16 +682,36 @@ def route_control(
         # recovery, fresh-task and cohort selection. Never pick then relabel a
         # different priority, or require Driver assignment for an ordinary filter.
         states = [state for state in states if state.get("priority") == priority]
-    leased = _leased_targets(events, now=now, kind=kind, root=root, states=states)
+    leased = []
     policy = research_runtime_reducer.load_policy(root)
-    fresh_task = research_runtime_reducer.select_state(states, policy, kind=kind)
-    fresh_lane = _fresh_lane(events, now=now, kind=kind, root=root, states=states)
+    fair_states = None
+    if policy["selection_policy"].get("priority_weights"):
+        fair_states = []
+        for state in states:
+            if kind != "ANY" and state.get("kind") != kind:
+                continue
+            if state.get("dispatch_state") == "COHORT_ACTIVE":
+                for lane in research_lane_dispatch.lane_states(state["task_id"], events, now=now, root=root):
+                    fair_states.append({**lane, "kind": state.get("kind"),
+                                        "priority": state.get("priority"),
+                                        "parent_task_id": state.get("parent_task_id")})
+            else:
+                fair_states.append(state)
+        leased = [{"surface": COHORT_LANE if s.get("execution_lane_id") else ORDINARY_TASK,
+                   "state": s} for s in fair_states if s.get("dispatch_state") == "LEASED"]
+        fresh_task = fresh_lane = None
+    else:
+        leased = _leased_targets(events, now=now, kind=kind, root=root, states=states)
+        fresh_task = research_runtime_reducer.select_state(states, policy, kind=kind)
+        fresh_lane = _fresh_lane(events, now=now, kind=kind, root=root, states=states)
     result = route_from_candidates(
         leased,
         observations=observations,
         now=now,
         fresh_task=fresh_task,
         fresh_lane=fresh_lane,
+        policy=policy,
+        states=fair_states,
     )
     if priority is not None:
         result["selection_filter"] = {"kind": kind, "priority": priority}
