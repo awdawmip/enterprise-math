@@ -1,0 +1,23 @@
+{
+  "status": "PASS_EXACT_RATIONAL_N4_FULL_EPSILON_TV_PHASE_REUSE",
+  "date": "2026-10-28",
+  "source_dependency_commit": "6aea9fde5a3d088f6307299cf969bbb334dd6191",
+  "source_dependency_verify_git_blob": "6630a89ffb960d40ebb3a8be12f9432b9e58209c",
+  "model": "external strictly positive N4 two-law sequential stopping tree; 16 Law(T,D) coordinates; real fresh-random behaviors",
+  "parameter_domain": "0<=epsilon<=1/2 (REAL)",
+  "d2": "1/3036 + epsilon/506",
+  "d23": "1037/1884240 + (143/78510)*epsilon",
+  "d3_reused": "(143/31000)*max(0,epsilon-255/572)",
+  "endpoint_TV_both_laws": {
+    "S2": {"epsilon=0":"1/3036","epsilon=1/2":"1/759"},
+    "S23":{"epsilon=0":"1037/1884240","epsilon=1/2":"2753/1884240"}
+  },
+  "bellman_global_minima": {"S2":"-153/506","S23":"-7913/26170"},
+  "bellman_prefix_combinations_each": 243,
+  "first_gap_zero": "1682800345/3522923148",
+  "strict_superadd_region": "0<=epsilon<1682800345/3522923148",
+  "triple_positive_strict_superadd_region": "255/572<epsilon<1682800345/3522923148",
+  "additional_independent_verifier": "Original standard-library Fraction VERIFY.py executed locally, PASS_EXACT_RATIONAL_N4_FULL_EPSILON_TV_PHASE; full proof/code/stdout in local linked evidence packet",
+  "mathematical_status": "AUTHOR_EXACT_PROOF_UNREVIEWED_NOT_ADMITTED",
+  "native_X6_correspondence": "NOT_PROVED"
+}
