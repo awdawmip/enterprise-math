@@ -1,0 +1,7 @@
+# Next research unit: multi-stage residual interaction beyond terminal-neutral LR fibers
+
+Current new author-side theorem: on the exact positive N4 Q/P tree, terminal AV00/AV01 Q->P change with 0<=eta<=1 preserves exact d2,d3,d23 for all 27483/39215<=lambda<=1. It uses a causal matching primal occupancy-flow transfer and three S2 plus one S3 bounded Bellman dual annihilating the common LR=1/4 direction. AUTHOR_PROVED / EXACT_FRACTION_VERIFIED / UNREVIEWED / NOT_ADMITTED. Do not count reproducing the same 12 probes as a new increment.
+
+Unresolved discriminating problem: change F at time 2 or time 3, with hidden-history-dependent STOP/CONTINUE probabilities, not merely at terminal r=1/4. On the SAME tree, find an exact rational F such that d23(F)>d2(F)+d3(F), or prove a genuinely cross-stage sufficient non-superadditivity condition for an explicit family. Recheck upstream survival equality within any LR fiber before using the 53-variable linear flow; do not assume arbitrary behavioral outcome sets convex.
+
+Require labeled positive Q/P mass and LR source, complete 16-coordinate Law(T,D) under both laws, actual implementable independent instant policies, exact all-real-randomization Bellman/dual certificates for every minimax claim (or a different fully valid global proof), and source/validation/limits. This is external finite BRC research; no P000-native X6 transfer or Foundation admission. Native active Owner and scoped CLAIM must be read and authorized independently before formal task execution. Never borrow prior researcher session keys.
