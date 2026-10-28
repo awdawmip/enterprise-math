@@ -14,6 +14,8 @@
 
 ## 后续加强与方法检索
 
+第二轮的完整整合见[第二轮研究前沿与证据边界](../research_notes/balanced_resume_20261028/SECOND_ROTATION.md)及[机器索引](../research_notes/balanced_resume_20261028/SECOND_ROTATION.json)：分别记录 Student 同链加强、CM 未决二分、FREE 既有工具应用和 OAI7 静态审核／未绑定执行披露；不改首轮统计或原有数学状态。
+
 Student／Parity 的同一尾部成果链已从首轮小锥，经有界相对间隙扩展到全部正的第二间隙：每个固定阶数有可计算的总尺度阈值；紧总尺度问题仍开放。完整公式、假设与证明见[最强范围稿](../research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md)、[接口](../research_notes/balanced_resume_20261028/analysis/PARITY_ALL_SECOND_GAPS_SUM_TAIL_INTERFACE.json)及[非作者纸面复核](../research_notes/balanced_resume_20261028/review/PARITY_ALL_SECOND_GAPS_REVIEW.md)。这是同一成果链的加强，不将三个嵌套适用域重复计数。
 
 [本轮方法检索增补](../research_method_inventory_addenda/20261028_balanced_research.json)提供五个来源索引，API 为空，不添加工具族或正式接纳。既有有限计算、一般证明与条件接口仍按各自证据等级使用。
