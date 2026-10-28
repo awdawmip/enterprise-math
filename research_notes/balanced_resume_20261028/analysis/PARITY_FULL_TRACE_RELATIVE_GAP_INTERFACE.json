@@ -1,0 +1,95 @@
+{
+  "schema": "PARITY_FULL_TRACE_RELATIVE_GAP_TAIL_AUTHOR_INTERFACE_V1",
+  "author": "EM-ANALYSIS-1E507F",
+  "activity_id": "RA-9C879FA5E6538D45DD9AE10F",
+  "status": "NEW_AUTHOR_PAPER_CANDIDATE_DISTINCT_REVIEW_PENDING",
+  "paper": {
+    "path": "PARITY_FULL_TRACE_BOUNDED_RELATIVE_GAP_TAIL_AUTHOR.md",
+    "sha256": "129cad117292b1e90f3f0f8eb6c2791c2e5a050adff386c9e4a0b4c6e0d55c5e",
+    "bytes": 13398
+  },
+  "input": {
+    "m": "integer>=2 fixed",
+    "C": "positive rational fixed",
+    "physical_parameters": "S>=0,a>0,c>0",
+    "normalization": "Original complete signed normalized secant trace Gap=tr(B^-1 A)-(m-1); full frames and metrics retained",
+    "scaled_parameters": "epsilon=1/[m(S+a)],lambda=a/(S+a) in(0,1],nu=c/(S+a)>0"
+  },
+  "conclusion": {
+    "threshold": "computable rational R_m(C)>=1",
+    "domain": "0<c<=C(S+a) and S+a>=R_m(C)/m",
+    "lower_bound": "Gap >= (m-1)/2*((1+c/(S+a))^(m+1)-1) >= (m^2-1)c/[2(S+a)] >0",
+    "uniformities": [
+      "all first-gap fractions lambda in[0,1] at the analytic boundary",
+      "all relative second-gap ratios 0<nu<=C",
+      "no upper bound on a",
+      "no positive lower bound on a or c",
+      "S=0 allowed when a sufficiently large"
+    ],
+    "not_claimed": [
+      "one R uniform in m",
+      "one R uniform in unbounded C",
+      "all total scales",
+      "all arbitrary gaps at a fixed scale",
+      "coefficientwise positivity",
+      "formal Task or parent completion",
+      "Native or physical implication"
+    ]
+  },
+  "new_bridge": {
+    "common_input_center": "(theta+r0/2)^j shared at both endpoints",
+    "secant_factor": "F_L=exp(LJ/2)E_L, E_L=sum_(2h<n)(LJ/2)^(2h)/(2h+1)!",
+    "scaled_pair": "A*=E_lambda^T A_c(epsilon)E_lambda; B*=D_v E_lambda_prime^T A_c(epsilon/v)E_lambda_prime D_v",
+    "parameters": "v=1+nu; lambda_prime=(lambda+nu)/(1+nu); D_v=diag(v^(j-m+1/2))",
+    "limiting_signature": "same positive even / negative odd definite blocks at both endpoints",
+    "relative_spectrum": "n strictly positive generalized eigenvalues at epsilon0",
+    "determinant_ratio": "(1+nu)^(m^2-1)",
+    "limit_bound": "G0(lambda,nu)>=(m-1)*[(1+nu)^(m+1)-1]",
+    "uniform_small_gap_control": "exact Gap=nu*P(epsilon,lambda,nu)/(mD(epsilon,nu)), polynomial P from weighted support, D>=|K|>0"
+  },
+  "threshold_recipe": {
+    "A_C": "sum_(i>=1,p,q)|p_ipq| C^q",
+    "B_C": "sum_(i>=1,q)|d_iq| C^q",
+    "H_C": "sum_(p,q)|p_0pq| C^q",
+    "E_C": "(A_C/d0+H_C*B_C/d0^2)/m",
+    "R_m_C": "max(1,2E_C/(m^2-1))",
+    "evaluated_numerically": false
+  },
+  "sources": [
+    {
+      "path": "research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_UNEQUAL_GAPS_UNIFORM_BOUNDED_SECTOR_TAIL_AUTHOR.md",
+      "commit": "1a553d4d28a105230ecebd5a555dc8adbab8ee28",
+      "git_blob": "f05b0b5be5c7d78c7faf58ae1f818bc67cea103c",
+      "consumption": "complete trace, determinant and polynomial normalization"
+    },
+    {
+      "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/parity_all_m_c1_uniform_sum_tail_addendum_v2_author/PARITY_ALL_M_C1_POSITIVE_TOP_HOMOGENEOUS_FACE_AND_UNIFORM_SUM_TAIL_AUTHOR_V2.md",
+      "commit": "1a553d4d28a105230ecebd5a555dc8adbab8ee28",
+      "git_blob": "c94088a17f4a09dd2d16171162c09ed13807a8bf",
+      "consumption": "metric analytic germ and centered limiting parity signature only; old c1 vote not transferred"
+    },
+    {
+      "path": "research_notes/balanced_resume_20261028/analysis/PARITY_UNBOUNDED_SMALL_CONE_AUTHOR.md",
+      "commit": "59fd52bb8c3a3cbd7a135918579eafd311b39fec",
+      "sha256": "f9a9415455b9b004f9e2854e999eaebd4934acd7211084b87bf1bc5c0634e921",
+      "consumption": "weighted polynomial support lemma; old small-cone proof remains unchanged"
+    }
+  ],
+  "method_harvest": {
+    "classification": "RESULT_ONLY_COMPOSE",
+    "reuse_resolution": "COMPOSE_APPLIED",
+    "global_tool_family_added": false,
+    "novelty": "Internal scope extension, no exhaustive external novelty assertion"
+  },
+  "scientific_programs": 0,
+  "canonical_task_execution": false,
+  "new_driver_review_vote": false,
+  "source_exposure": "NONBLIND_SHARED_CONTROL_CONTEXT_DISCLOSED",
+  "review_requirements": [
+    "same centered input at both endpoints",
+    "order of D_v and E_lambda_prime",
+    "limiting positivity does not imply finite metric definiteness",
+    "det exponent m^2-1",
+    "exact polynomial substitution and uniform nu0 bound"
+  ]
+}
