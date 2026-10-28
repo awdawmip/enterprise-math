@@ -1,0 +1,26 @@
+{
+  "arguments": {
+    "path": "research_notes/OPENAI_ETH_QFT_TASKSET_20261028.md",
+    "ref": "7cf6424f92803f434886b6ee1b1a72507f6753ca",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "exposed_tool_name": "mcp__codex_apps__github_fetch_file",
+  "observation_id": "local-ethqft-taskset-main-readback-20261028",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# OpenAI ETH / QFT × BRC：研究任务集与接续入口\n\nDate: 2026-10-28（Asia/Hong_Kong）\nPublisher: EM-ETHQFT-F37BEB / RESEARCHER\nResearch activity: RA-FE1BB9B3ABA3A9D010C342A6\nProgress-Event-ID: openai-eth-qft-taskset-20261028-f37beb\n\n## 目标与任务结构\n\n将 [2026-10-27 关联报告](https://github.com/awdawmip/enterprise-math/blob/55d7023906e9a82198047820bfb5cd29efcaf566/research_notes/OPENAI_ETH_QFT_PROJECT_RELEVANCE_20261027_0809.md) 的三个建议整理为三个正式研究任务。内部六个研究单元是：外部表示合同、表示保真与成本、计数编码与迁移、有限响应消元、尺度统一控制、原生读出接口。\n\n任务集属于现有母目标 `OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS`，绑定其 OPEN generation `OG-7AE66316D7566C519AE0`。工作落在该目标的残差载体、观察相对的最小记忆、正权稳定界及原生几何接口范围。三项均源于用户本次明确研究方向，lineage 为 `NEW_DIRECTION`；前次报告为来源和问题依据。\n\n| 任务 | 正式 Task ID | 首轮交付 | 建议顺序 |\n|---|---|---|---|\n| A：ETH 保真表示与位复杂度 | `RS-OPENAI-ETH-BRC-REPRESENTATION-20261028` | 精确来源合同；一个表示的保真证明/反例；完整位成本账 | 优先开始 |\n| B：有限 Cell 路径计数编码 | `RS-OPENAI-ETH-CELL-COUNTING-20261028` | 编码/解码及唯一扩展证明；规模界；原参数迁移结论 | 可与 A 并行 |\n| C：QFT 启发的残差保真 | `RS-OPENAI-QFT-BRC-RESIDUAL-20261028` | 有限响应保真；模型族统一界/反例；X6 读出适用性 | 可独立开始，内部依次推进 |\n\n三项采用研究员发布的默认有效级别 `P2 / MEDIUM`。表内次序是本任务集的执行建议。三项都可以从任务书的首个动作启动，互不等待全部结项；B 可复用 A 已完成的来源合同，也可直接核对同一固定来源。C 内部后两个里程碑消费其前面已经完成的模型与观察合同。\n\n## 任务书与不可变出版记录\n\n任务书和下列不可变记录在同一个完整 main 事务中可见时，构成正式任务发布；执行者按当次规范运行态取得任务。\n\n| 任务 | 任务书 | Publication ID | 不可变记录 |\n|---|---|---|---|\n| A | [表示与位成本](../research_tasks/RS-OPENAI-ETH-BRC-REPRESENTATION-20261028.md) | `TP2-1E91CE2076D5D90171E6` | [A 记录](../research_task_records/RS-OPENAI-ETH-BRC-REPRESENTATION-20261028/TP2-1E91CE2076D5D90171E6.json) |\n| B | [计数编码与迁移](../research_tasks/RS-OPENAI-ETH-CELL-COUNTING-20261028.md) | `TP2-43FD60AE6CFEC6147600` | [B 记录](../research_task_records/RS-OPENAI-ETH-CELL-COUNTING-20261028/TP2-43FD60AE6CFEC6147600.json) |\n| C | [消元、尺度与读出](../research_tasks/RS-OPENAI-QFT-BRC-RESIDUAL-20261028.md) | `TP2-A9BCBF65D1395E75F2F7` | [C 记录](../research_task_records/RS-OPENAI-QFT-BRC-RESIDUAL-20261028/TP2-A9BCBF65D1395E75F2F7.json) |\n\n三项的正式输出均为研究结果。正面证明、准确反例、资源障碍和有证据的适用性边界，按各自验收条件处理。母目标的后续审查与整体收口沿现有流程进行。\n\n## 首轮应解决的六个研究单元\n\n1. **A / 来源合同。** 区分 ETH 修订稿与公开形式化的时间界，定位一个能完整跟踪的代数表示步骤，明确输入、上下文、载体、恢复关系和信任范围。\n2. **A / 保真与成本。** 对具体 `q` 与 `h` 证明纤维常值或给出反例；把表示构造、运算位长、比较、恢复及峰值空间全部计入原输入复杂度。\n3. **B / 编码与迁移。** 先固定被计数的有限路径对象，再证明每个对象恰有一个辅助变量扩展。列出变量、子句、位长增长，并与已有直接算法比较迁移收益。\n4. **C / 有限响应。** 使用实际有类型 BRC 的首返路径核，保留长度/延迟与声明的来源信息；证明边界响应或给出遗漏记忆造成失真的见证。\n5. **C / 尺度统一。** 在一个明确模型族上获得尺度无关的稳定/误差界，或证明逐个有限稳定不能支持所需统一结论。\n6. **C / 原生读出。** 对一个有限源—探测观察建立 X6 读出合同，证明后继闭合或展示遗漏共残差的反例；完整更新规则不足时给出精确缺口与最小接口。\n\n## 来源与已完成前沿\n\n- 外部算法来源：`openai/math@7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a`，具体正文和 Lean 范围路径写在 A、B 任务书。\n- 项目科学接口：A、B 保留关联报告使用的 `enterprise-math@86e005efc8990e631f3b28fd090357f5e47f6a95`；发布准备时确认 P023、多路径桥和 Weighted-BRC 三份文档在 `382e6d3005559d808b8ed49cded36d2b01b299b2` 的 Git blob 相同。\n- 原生语义与本轮控制来源：`enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2`；C 另引公开原生波与预测残差笔记的精确提交，保留其局部、未审阅等原始证据范围。\n- QFT 公开性采用关联报告在 2026-10-27 的观察基线。执行时若有新的公开证明，以新增版本证据判断可移植引理；当前有限任务已有独立可执行输入。\n- 本轮已完成问题拆分、来源绑定、正式任务元数据、母目标绑定与出版 preflight。待执行的是各任务书中的证明、编码、实际计算和必要审查。\n\n## 发布校验\n\n本轮以固定上游原始源码调用 `tools.research_task_records` 的 `prepare_taskbook`、`_prepared`、公开 facade `build_record` 和 `audit`，并调用 `tools.research_taskbook.audit_taskbook(dispatch=True)`。\n\n校验范围是本次三个新任务及其六份任务书/记录构成的事务：五个必需章节、origin/lineage、现行 policy PASS、精确 taskbook blob、publisher、母目标当前 OPEN generation 及 selection receipt、默认等级与保留的语义字段。准备所得 policy digest 为 `sha256:be0a92bae790fc5100f066235a0257c9a75470d152b48cd36909c318d6a61107`。写边界核对当前源和并发变化，正式可见性由 main 完整出版及不可变回读确认。\n\n这份校验记录支持任务出版；科学论证、形式检查、物理对应和独立审查分别按任务合同提交实际证据。\n\n## 完整接续提示词\n\n```text\n接续 awdawmip/enterprise-math 的 OpenAI ETH/QFT × BRC 任务集。\n先读 research_notes/OPENAI_ETH_QFT_TASKSET_20261028.md 及本次对应 PR，再按项目当前入口读取所选 Task 的正式任务书和不可变 publication。\n\n建议从 RS-OPENAI-ETH-BRC-REPRESENTATION-20261028 开始：先完成 A1 的精确来源合同，然后只选一个关键表示完成 A2 的保真结论与位成本。\n如当前运行态已由其他执行者持有该任务，保留其所有权，按当前规范选择本任务集另一个可执行项或接续该任务的合法前沿。\nRS-OPENAI-ETH-CELL-COUNTING-20261028 可并行开展有限对象的编码证明；RS-OPENAI-QFT-BRC-RESIDUAL-20261028 可独立从有限边界响应开始。\n\n核对自己的当前身份、活动与任务权限；按现有任务运行规则进入执行。已发布任务和建议次序不等于本提示词已经为你取得所有权。\n消费已有来源和有效结果，直接推进任务书列明的最小数学问题。先声明实际 BRC 载体、观察、允许后续操作和误差/资源范围，再复用相关接口。\nETH 侧逐项保留修订稿和形式化范围；计数编码证明唯一扩展并计算规模膨胀。QFT 侧先完成具体有限结论，再研究模型族统一界和原生读出。\nP000 与公开项目本体约束按既有类型使用；有符号/相位与正质量、总响应与时间响应、有限模型与全域原生更新分别验收。\n\n交付完整定义、证明或准确反例、可复核证书/实际运行记录、资源或误差推导和下一项未决数学问题。来源读取、有限核对、独立形式检查与项目接纳按各自实际证据记录。\n将研究成果写到所选任务允许的现有项目表面，保留精确来源与运行态前沿，并提交现行所需的结果和审查。完成一个任务后回到母目标的当前控制状态，按具体新信息决定后续，不预先声称母目标闭合。\n```\n",
+      "display_title": "OPENAI_ETH_QFT_TASKSET_20261028.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/7cf6424f92803f434886b6ee1b1a72507f6753ca/research_notes/OPENAI_ETH_QFT_TASKSET_20261028.md",
+      "encoding": "utf-8",
+      "sha": "3eeaeec8e2d1a97f21a52d066cb8fc4a862328be"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
