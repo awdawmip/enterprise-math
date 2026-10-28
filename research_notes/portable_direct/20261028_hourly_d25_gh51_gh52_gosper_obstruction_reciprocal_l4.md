@@ -1,76 +1,87 @@
-# D25/LIFT GH-51/GH-52 — Uniform rational Gosper obstruction and homogeneous reciprocal hypergeometric carrier
+# D25/LIFT GH-51/GH-52 — Gosper obstruction and homogeneous reciprocal carrier
 
-Date: 2026-10-28. Author-side portable research; **AUTHOR-DERIVED / AUTHOR-EXACT-CHECKED / UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY / REGISTER_PENDING**. Parent `ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION` remains OPEN. Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication `TP2-B6F4FC938FF94941C1B7`. Frozen science Source pin `c47e13e4aba0e006366f989d6334d443f6333ae3` unchanged. Research logical conversation `chatgpt-research-hourly-enterprise-math-20260923` is separate from maintenance. **No native winning CLAIM, authorized OPEN, native checkpoint, or independent Driver admission is asserted.**
+2026-10-28. Portable author-side derivation; **UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING**. Parent ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION OPEN; Task RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT; publication TP2-B6F4FC938FF94941C1B7. Frozen science pin c47e13e4aba0e006366f989d6334d443f6333ae3 unchanged. This research lane is chatgpt-research-hourly-enterprise-math-20260923, not maintenance. No native CLAIM/OPEN/Source checkpoint or mathematical admission is claimed.
 
-## Source and exact mathematics
+## Input
 
-Consume original GH-38/39 single-sum coefficients (not a projected Gauss-square total):
-[
-c_0=1,quad rac{c_{r+1}}{c_r}=rac{(4r+1)^3}{(4r+2)(4r+3)(4r+4)},qquad T_d(z)=sum_{r=0}^d(8r+1)c_rz^r.
-]
-This scalar finite-field port does not replace original W/S, six Hasse ports or native Heartbeat X6 observation.
+GH-38/39 original hypergeometric source (not Gauss-square quotient):
 
-### GH-51 — PROVED: no uniform first-order rational Gosper telescoper
+\[
+c_0=1,\quad c_{r+1}/c_r=(4r+1)^3/[(4r+2)(4r+3)(4r+4)],\quad T_d(z)=\sum_{r=0}^{d}(8r+1)c_rz^r.
+\]
 
-For every nonzero rational (z), there is **no** (G(k)inmathbb Q(k)) satisfying identically
-[
+## GH-51 — PROVED: no uniform rational one-term Gosper antidifference
+
+For every nonzero rational \(z\), no \(G(k)\in\mathbb Q(k)\) solves the identity
+
+\[
 z(4k+1)^3G(k+1)-(4k+2)(4k+3)(4k+4)G(k)
-=(8k+1)(4k+2)(4k+3)(4k+4). 	ag{51.1}
-]
-Equivalently ((8k+1)c_k z^k) has no indefinite antidifference of the form (G(k)c_k z^k) with rational (G).
+=(8k+1)(4k+2)(4k+3)(4k+4).\tag{51.1}
+\]
 
-**Proof.** Let (A(k)=z(4k+1)^3), (B(k)=(4k+2)(4k+3)(4k+4)). If (G) has poles, choose one (eta) with minimum real part. At (k=eta-1), only (G(k+1)) has a pole, so (A(eta-1)=0) and (eta=3/4). Choose a pole (alpha) of maximum real part. At (k=alpha), only (G(k)) has a pole, so (B(alpha)=0) and (alphain{-1,-3/4,-1/2}). This contradicts (operatorname{Re}etaleoperatorname{Re}alpha). Thus (G) is polynomial.
+Equivalently, the summand \((8k+1)c_kz^k\) has no indefinite antidifference \(G(k)c_kz^k\) with rational \(G\).
 
-For (z
-e1), the leading term of the left side is (64(z-1)g_Nk^{N+3}) against degree-four right side; (G(k)=ak+b). Comparing coefficients of (k^4,k^3) forces
-[
-a=rac8{z-1},qquad b=rac{5z-1}{(z-1)^2}.
-]
-The remaining (k^2,k^1) residuals are respectively
-[
--rac{128z(2z+1)}{(z-1)^2},qquad-rac{4z(33z+59)}{(z-1)^2}.
-]
-For (z
-e0) these cannot vanish simultaneously. In particular at (z=9), forced (G=k+11/16) gives (k^2) residual (-342). For (z=1), leading coefficient (64N-96
-e0) forces (N=2). Coefficient matching forces (G(k)=16k^2-4k-1/6), but (k^1) residual is (-38/3). Contradiction. QED.
+**Proof.** Set \(A(k)=z(4k+1)^3\), \(B(k)=(4k+2)(4k+3)(4k+4)\). If a rational solution has poles, a pole \(\beta\) with minimum real part requires \(A(\beta-1)=0\), so \(\beta=3/4\): at \(k=\beta-1\), only \(G(k+1)\) is singular. A pole \(\alpha\) with maximum real part requires \(B(\alpha)=0\), so \(\alpha\in\{-1,-3/4,-1/2\}\): at \(k=\alpha\), only \(G(k)\) is singular. Contradiction. Thus \(G\) is polynomial.
 
-**Scope:** characteristic-zero uniform rational-antidifference obstruction only. It does *not* exclude (p)-dependent WZ certificates, finite-field arithmetic, Frobenius/CM or nonlocal cancellation.
+For \(z\ne1\), comparison of leading degrees forces \(G(k)=ak+b\), then comparison of \(k^4,k^3\) forces \(a=8/(z-1)\), \(b=(5z-1)/(z-1)^2\). The residuals at \(k^2,k^1\) are respectively
 
-### GH-52 — PROVED: reverse direct source gives homogeneous fourth-order carrier
+\[
+-\frac{128z(2z+1)}{(z-1)^2},\qquad-\frac{4z(33z+59)}{(z-1)^2}.
+\]
 
-Let (p=4d+3ge7) be prime, in (mathbb F_p). Set
-[
-ho_0=1,quadrac{ho_{r+1}}{ho_r}
-=rac{(4r+3)(4r+4)(4r+5)}{(4r+6)^3};(0le r<d),quad
-R_d(u)=sum_{r=0}^dho_r u^r.
-]
-All these denominators are units; (ho_r
-e0) through (d). Reversing the **original** rank via (4d=p-3) proves
-[
-oxed{c_{d-r}=c_dho_r,quad
-T_d(z)=-c_dz^d(8	heta_u+5)R_d(u)|_{u=z^{-1}}quad(zinmathbb F_p^	imes).}	ag{52.1}
-]
-Indeed (c_{d-r-1}/c_{d-r}=ho_{r+1}/ho_r) and (8(d-r)+1equiv-(8r+5)). Hence the still-open original target is equivalent to ((8	heta+5)R_d(1/9)=0).
+For \(z\ne0\) these cannot vanish simultaneously. At \(z=9\) the forced candidate is \(G(k)=k+11/16\) with residual \(-342\) already at \(k^2\). For \(z=1\), leading degree is \(N+2\) with nonzero coefficient \(64N-96\); hence \(N=2\). The \(k^4,k^3,k^2\) equations force \(G(k)=16k^2-4k-1/6\), whose \(k^1\) residual is \(-38/3\ne0\). QED.
 
-With (	heta=u,d/du), define
-[
-mathscr L_4=	heta(	heta+	frac12)^3-
-u(	heta+	frac34)(	heta+1)^2(	heta+	frac54).
-]
-Then the **whole polynomial** satisfies
-[
-oxed{mathscr L_4 R_d=0quad	ext{in }mathbb F_p[u].}	ag{52.2}
-]
-Proof: the coefficient of (u^n) for (1le nle d) is
-(n(n+1/2)^3ho_n-(n-1/4)n^2(n+1/4)ho_{n-1}=0).
-The constant term vanishes. At first omitted (n=d+1), the potential forcing is (-(d+3/4)(d+1)^2(d+5/4)ho_d=0) because (d+3/4=p/4=0). Above (d+1) both terms vanish. The leading coefficient of the recurrence is invertible for (1le nle d), so (R_d(0)=1) uniquely fixes the solution among polynomials of degree (le d). QED.
+**Exact scope:** characteristic-zero rational \(G(k)\) independent of \(p,d\). Does not rule out prime-sensitive WZ, Frobenius/CM, finite-character or nonlocal certificates.
 
-It is the degree-(d) reduction of the formal ({}_4F_3(3/4,1,1,5/4;3/2,3/2,3/2;u)) coefficient sequence. This *homogeneous reciprocal* carrier differs from GH-38's nonzero forward Picard–Fuchs truncation forcing. No equality of richer observer ports follows, and the unknown special-value zero has not been proved.
+## GH-52 — PROVED: direct reverse source, homogeneous fourth-order equation
 
-## Executed evidence / BRC / continuation
+For prime \(p=4d+3\ge7\), work in \(\mathbb F_p\). Define
 
-The Python standard-library checker `20261028_hourly_d25_gh51_gh52_gosper_reciprocal_check.py` passed for **338 primes** (7le p<5000,;pequiv3mod4), all ranks including the first omitted coefficient, reverse coefficients and exact (52.1) at (z=2,9,-1) for each prime. Rational coefficient no-go tested at (z=1/9,9,-1/2,2,1). Finite check is not a proof of the special value; the already-known observation (T_d(9)=0) was not counted as a new theorem.
+\[
+\rho_0=1,\quad
+\frac{\rho_{r+1}}{\rho_r}=
+\frac{(4r+3)(4r+4)(4r+5)}{(4r+6)^3}\;(0\le r<d),
+\qquad R_d(u)=\sum_{r=0}^{d}\rho_ru^r.
+\]
 
-BRC `COMPOSE_APPLIED`: exact rank, forward/reverse provenance, signed (mathbb F_p) coefficients, inversion map and differential/jet operations are retained. The compressed scalar is sufficient only for the declared (T_d(z)) observer with (52.1); original W/S, six Hasse ports, GH-20/GH-21 higher digits and P000 native X6 states remain independent.
+All denominators and all \(\rho_r\) are nonzero modulo \(p\) in this range. Reversing the original ranks, without Gauss-pair convolution, proves
 
-**Next exact unit:** seek an *independent* finite-character/Frobenius connection certificate for ((8	heta+5)R_d(1/9)=0), using the homogeneous fourth-order operator, not a tautological reversal or GH-37 Laurent reassembly. If found, transport back using (52.1). GH-3 all-prime vanishing, p² source port relations, native p=373, Result/review and formal D25 task continuation remain OPEN.
+\[
+\boxed{c_{d-r}=c_d\rho_r,\qquad
+T_d(z)=-c_d z^d(8\theta_u+5)R_d(z^{-1})
+\quad(z\in\mathbb F_p^\times).}\tag{52.1}
+\]
+
+Proof: \(4d=p-3\) gives \(c_{d-r-1}/c_{d-r}=\rho_{r+1}/\rho_r\) and \(8(d-r)+1=2p-5-8r\equiv-(8r+5)\).
+
+With \(\theta=u\partial_u\), define
+
+\[
+\mathscr L_4=\theta(\theta+\tfrac12)^3-u(\theta+\tfrac34)(\theta+1)^2(\theta+\tfrac54).
+\]
+
+Then, as a **whole polynomial**, not merely a truncated formal series,
+
+\[
+\boxed{\mathscr L_4R_d=0\quad\text{in }\mathbb F_p[u].}\tag{52.2}
+\]
+
+Proof: at \(1\le n\le d\) the coefficient is
+\(n(n+1/2)^3\rho_n-(n-1/4)n^2(n+1/4)\rho_{n-1}=0\) by the ratio.
+The constant vanishes. At the first omitted degree \(n=d+1\), the sole possible forcing is
+\(-(d+3/4)(d+1)^2(d+5/4)\rho_d=0\), because \(d+3/4=p/4=0\). All higher degrees vanish. Leading recurrence coefficients for \(1\le n\le d\) are units, so \(R_d(0)=1\) uniquely fixes this solution among degree-\(\le d\) polynomials. QED.
+
+This is the polynomial reduction of \({}_4F_3(3/4,1,1,5/4;3/2,3/2,3/2;u)\). Its homogeneous reciprocal carrier is distinct from GH-38's inhomogeneous **forward** Picard–Fuchs carrier. This is a new route, not a proof of the still-open special value
+
+\[
+(8\theta+5)R_d(1/9)\stackrel{?}{=}0
+\quad\Longleftrightarrow\quad T_d(9)\stackrel{?}{=}0.\tag{52.3}
+\]
+
+## Verification, observer and continuation
+
+Python standard-library exact checker tested rational coefficient contradictions at \(z=1/9,9,-1/2,2,1\), and checked the full reciprocal coefficient identity, all coefficients of the homogeneous operator including its first omitted degree, and the exact source inversion at \(z=2,9,-1\) for all **338 primes** \(7\le p<5000\), \(p\equiv3\bmod4\). All checks passed. The observed special value zero at these finite primes is not a general theorem and was already observed in GH-38.
+
+BRC **COMPOSE_APPLIED**: full integer ranks, signed field coefficients, forward/reverse source provenance, variable inversion, differential/jet future operations are retained. The scalar quotient is sufficient only for \(T_d(z)\) under (52.1); original W/S, six Hasse ports, native X6, p-adic GH-20/21 and R23/R36 Green ports remain separate.
+
+**Next:** obtain an independent Frobenius connection, character sum, or prime-sensitive WZ certificate for (52.3) using the homogeneous \(\mathscr L_4\) carrier, then pull back through (52.1). Do not repeat the prior Laurent reassembly, Gauss-square tail, or finite samples as if they prove vanishing. Original GH-3, native p=373 and formal D25 execution/Driver review remain OPEN.
