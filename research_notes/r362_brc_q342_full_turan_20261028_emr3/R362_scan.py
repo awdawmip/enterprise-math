@@ -6,7 +6,8 @@ from math import comb
 from pathlib import Path
 import json,sys
 P=Path(__file__).resolve().parent
-sys.path.insert(0,str(P/'research_notes/r346_unbounded_interior_tp2_corank301_20261028_emr3'))
+ROOT=P.parent.parent if P.parent.name=='research_notes' else P
+sys.path.insert(0,str(ROOT/'research_notes/r346_unbounded_interior_tp2_corank301_20261028_emr3'))
 from R346_verify import C,K,J,add,mul,forward_differences as diff,eval_newton
 N=342
 
