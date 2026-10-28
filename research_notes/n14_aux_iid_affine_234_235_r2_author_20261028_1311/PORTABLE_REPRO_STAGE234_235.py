@@ -75,7 +75,6 @@ if __name__=='__main__':
  assert F(results[0]['right']['tP'])==F(results[1]['left']['tP'])
  assert F(results[0]['slope'])<F(results[1]['slope'])
  out=Path(__file__).resolve().parent/'PORTABLE_EXACT_CERT_STAGE234_235.json'
- out.write_text(json.dumps(results,indent=2,ensure_ascii=False)+'
-')
+ out.write_text(json.dumps(results,indent=2,ensure_ascii=False)+'\n')
  for r in results:print('STAGE',r['stage'],'PASS',r['total_nodes'],'vertices',r['balanced_vertices'],'right_alpha',r['right']['alpha'])
  print('STAGE234_235_PORTABLE_EXACT_PASS',sum(r['total_nodes'] for r in results))
