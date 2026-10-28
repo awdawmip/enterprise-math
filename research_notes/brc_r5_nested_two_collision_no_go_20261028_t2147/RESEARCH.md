@@ -1,6 +1,6 @@
 # R5: a single nested LR collision chain has no convex-hull-equal / image-unequal example
 
-Date: 2026-10-28 Asia/Shanghai. Research author: local TASK_RESEARCH identity LOCAL_EMR5_20261028_2147_NOGO_E51C, GitHub account awdawmip. Status: AUTHOR_PROVED / EXACT_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED.
+Date: 2026-10-28 Asia/Shanghai. Research author: local TASK_RESEARCH identity EM-R5-E51C (earlier author's unvalidated alias: LOCAL_EMR5_20261028_2147_NOGO_E51C), GitHub account awdawmip. Status: AUTHOR_PROVED / EXACT_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED.
 
 Frozen authority inputs: GLOBAL_KNOWLEDGE_V1 main@3c35bc5fca7735427aa7eb24db858c38ffe90b01; Enterprise Math main@d251140e90dad87106e825c2c83fd8c56fab0b4e. Read global bootstrap/manual, ACTIVE worldview, mathematical/code/BRC/activity policies and TASK_RESEARCH route; project AGENTS, P000, HEARTBEAT X6+time, observer-preservation, portable/autonomous research protocols, and predecessor research_notes/brc_r5_two_collision_occupation_bellman_20261028_t2040/RESEARCH.md. The global P000_STARTUP projection blob did not match current project P000 blob, so the full project p000_reality_foundation.json was read. All deductions below concern a finite N2 two-law sequential statistical observer, not a native X6 embedding. BRC usage is source-preserving positive-rational branch masses, P/Q likelihood-ratio moment transport, and source-specific Bellman increments.
 
