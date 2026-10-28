@@ -1,0 +1,156 @@
+{
+  "compressed_companion": "STOP 11/96; A+S 84/96; B-only 1/96; constant D; reject terminal",
+  "description": "Two-source positive BRC observer; all-real proof is separate from Fraction enumeration",
+  "linear_functional": "H=alpha-beta-(E_PT+E_QT)/36",
+  "results": [
+    {
+      "both_policies_source_stage_costs": {
+        "P": {
+          "stage1": "43/48",
+          "stage2": "7/8",
+          "total": "85/48"
+        },
+        "Q": {
+          "stage1": "43/48",
+          "stage2": "7/8",
+          "total": "85/48"
+        }
+      },
+      "compressed_cost_matched_companion_acceptance_pair": {
+        "P": "0",
+        "Q": "0"
+      },
+      "eta": "1/200",
+      "full_H_value": "41/864",
+      "full_acceptance_pair": {
+        "P": "7/16",
+        "Q": "7/24"
+      },
+      "group_fiber_table": {
+        "0": {
+          "post_u_optimized_s_value": "1/27",
+          "profit_if_A": "1/54",
+          "profit_if_B": "0"
+        },
+        "01": {
+          "post_u_optimized_s_value": "1/54",
+          "profit_if_A": "-1/54",
+          "profit_if_B": "-1/18"
+        },
+        "012": {
+          "post_u_optimized_s_value": "0",
+          "profit_if_A": "-1/18",
+          "profit_if_B": "-1/9"
+        },
+        "02": {
+          "post_u_optimized_s_value": "1/54",
+          "profit_if_A": "-1/54",
+          "profit_if_B": "-1/18"
+        },
+        "1": {
+          "post_u_optimized_s_value": "1/27",
+          "profit_if_A": "1/54",
+          "profit_if_B": "0"
+        },
+        "12": {
+          "post_u_optimized_s_value": "1/54",
+          "profit_if_A": "-1/54",
+          "profit_if_B": "-1/18"
+        },
+        "2": {
+          "post_u_optimized_s_value": "1/27",
+          "profit_if_A": "1/54",
+          "profit_if_B": "0"
+        }
+      },
+      "independent_terminal_enumeration_per_source_eta": 112,
+      "independent_terminal_masks_checked_per_nonempty_fiber_U": 8,
+      "number_of_deterministic_compressed_prefix_assignments": 125,
+      "strict_linear_separation_margin": "1/96",
+      "strictly_positive_source_atoms_per_source": 18,
+      "support_H_max": "1/27",
+      "support_attaining_assignments_count": 18,
+      "support_attaining_prefix_assignment_examples": [
+        "(None, ('A', 0), ('A', 1))",
+        "(None, ('A', 1), ('A', 0))",
+        "(('A', 0), None, ('A', 1))"
+      ]
+    },
+    {
+      "both_policies_source_stage_costs": {
+        "P": {
+          "stage1": "43/48",
+          "stage2": "7/8",
+          "total": "85/48"
+        },
+        "Q": {
+          "stage1": "43/48",
+          "stage2": "7/8",
+          "total": "85/48"
+        }
+      },
+      "compressed_cost_matched_companion_acceptance_pair": {
+        "P": "0",
+        "Q": "0"
+      },
+      "eta": "5/12",
+      "full_H_value": "41/864",
+      "full_acceptance_pair": {
+        "P": "7/16",
+        "Q": "7/24"
+      },
+      "group_fiber_table": {
+        "0": {
+          "post_u_optimized_s_value": "1/27",
+          "profit_if_A": "1/54",
+          "profit_if_B": "0"
+        },
+        "01": {
+          "post_u_optimized_s_value": "1/36",
+          "profit_if_A": "-1/108",
+          "profit_if_B": "-5/108"
+        },
+        "012": {
+          "post_u_optimized_s_value": "1/72",
+          "profit_if_A": "-1/24",
+          "profit_if_B": "-7/72"
+        },
+        "02": {
+          "post_u_optimized_s_value": "13/216",
+          "profit_if_A": "5/216",
+          "profit_if_B": "-1/72"
+        },
+        "1": {
+          "post_u_optimized_s_value": "1/27",
+          "profit_if_A": "1/54",
+          "profit_if_B": "0"
+        },
+        "12": {
+          "post_u_optimized_s_value": "1/36",
+          "profit_if_A": "-1/108",
+          "profit_if_B": "-5/108"
+        },
+        "2": {
+          "post_u_optimized_s_value": "1/27",
+          "profit_if_A": "1/54",
+          "profit_if_B": "0"
+        }
+      },
+      "independent_terminal_enumeration_per_source_eta": 112,
+      "independent_terminal_masks_checked_per_nonempty_fiber_U": 8,
+      "number_of_deterministic_compressed_prefix_assignments": 125,
+      "strict_linear_separation_margin": "5/864",
+      "strictly_positive_source_atoms_per_source": 18,
+      "support_H_max": "1/24",
+      "support_attaining_assignments_count": 2,
+      "support_attaining_prefix_assignment_examples": [
+        "(('A', 0), ('A', 1), ('A', 0))",
+        "(('A', 1), ('A', 0), ('A', 1))"
+      ]
+    }
+  ],
+  "schema": "EC49U_EXACT_FRACTION_CERTIFICATE_V1",
+  "status": "AUTHOR_PROVED_EXACT_CHECK_PASS_UNREVIEWED_NOT_ADMITTED",
+  "verification_semantics": "Fraction only; exhaustive 5^3=125 pure initial choices and optimal local S/terminal masks, per eta",
+  "witness_policy": "STOP 1/8; A+S 41/48; B+S 1/48; accept if Z=W; fully retain W"
+}
