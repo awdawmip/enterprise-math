@@ -1,0 +1,59 @@
+{
+  "schema": "REUSABLE_INTERFACE_SCOPE_V1",
+  "interface_id": "RSA-SUPPLIED-DYADIC-COMPOSITE-PH-REUSE",
+  "kind": "CLASSICAL_ALGORITHM_SPECIALIZATION_WITH_EXPLICIT_CERTIFICATE_BOUNDARY",
+  "new_algorithm": false,
+  "new_tool_family": false,
+  "formal_acceptance": false,
+  "paper": "RSA_COMPOSITE_REUSE_BOUNDARY.md",
+  "paper_sha256": "2e804dfbe2559b0ea6c8ff70100c4f6d512de8b8a8ce04fb938121001a96f005",
+  "inputs": {
+    "n": "Odd public integer n>=3; original RSA target specializes to n=pq for distinct odd primes",
+    "transcript": "Nonempty finite units x_i and positive Delta_i with x_i^Delta_i=1 mod n; invalid input rejected",
+    "public_derived": "L=lcm Delta_i=2^s*u with u odd, y_i=x_i^u; repeated squaring determines exact dyadic orders",
+    "not_supplied": [
+      "factorization of n",
+      "factorization of the odd part u",
+      "hidden local orders",
+      "collision-generation oracle"
+    ]
+  },
+  "antecedent_match": {
+    "primary": "arXiv:0707.4102v5 Section 4 Theorem 4.2 and Corollary 4.3",
+    "parameter_map": "paper prime parameter=2; a=maximal-order supplied y_j; b=y_i; depths computed publicly",
+    "required_extra_output_check": "Cyclicity alone is weaker than injectivity of every CRT projection. Check a generator half-power equals global -1, unless subgroup trivial.",
+    "root_witness_format": "For dyadic digit failure after global half-power check, retain the square-root residual w and gcd(w-1,n). Not guaranteed by an arbitrary black-box factor-only implementation."
+  },
+  "outputs": [
+    "proper divisor 1<d<n, with nontrivial square-root witness if the dyadic residual is retained",
+    "trivial group certificate, or explicit y_i=g^e_i with g^(2^(t-1))=-1; every prime-power CRT projection injective"
+  ],
+  "paid_costs": [
+    "input validation",
+    "LCM arithmetic",
+    "odd stripping exponentiation of bitlength O(log L)",
+    "exact order detection at most r*s squarings",
+    "classical dyadic digit/gcd arithmetic",
+    "certificate verification"
+  ],
+  "limits": [
+    "proper divisor may be composite",
+    "positive certificate is not primality proof",
+    "does not generate collisions",
+    "does not constrain newly added generators",
+    "does not replace formal current Task/owner authorization",
+    "external classical modular arithmetic; no native X6 physical lift"
+  ],
+  "verification": {
+    "kind": "PAPER_DERIVATION_AND_PRIMARY_TEXT_MATCH",
+    "scientific_code_run": false,
+    "old_extractor_run": false,
+    "old_fixtures_run": false,
+    "paper_examples": [
+      "n=15, K=<4> cyclic but projection modulo3 noninjective",
+      "n=45, z=19 gives gcd(18,45)=9 proper composite divisor",
+      "n=9, (x,Delta)=(2,6), stripped y=8 gives positive dyadic certificate"
+    ],
+    "independent_review": "PENDING_NONAUTHOR_SCOPE_REVIEW"
+  }
+}
