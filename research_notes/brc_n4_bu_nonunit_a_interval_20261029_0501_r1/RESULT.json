@@ -1,0 +1,30 @@
+{
+  "schema": "EM_AUTHOR_EXACT_SYMBOLIC_RESULT_V1",
+  "date": "2026-10-29",
+  "theorem": "For b=1/40,z=1,c_B=0 and all real a in [1/2,alpha], d2(a)=d23(a)=b*c(a)/(4+c(a)), c(a) positive root of (a+3b)c^2+(3a+8b)c+14b-4a=0",
+  "alpha": "1-3*C/(40*(4+C))",
+  "C": "(sqrt(40521)-131)/80",
+  "alpha_decimal": "0.98649143066396745155",
+  "C_decimal": "0.87872857665991862886",
+  "verified_execution": {
+    "command": "python VERIFY_RELEASE.py",
+    "environment": "local Python 3 + SymPy",
+    "stdout": [
+      "PASS_EXACT_BU_BIT_NONUNIT_A_INTERVAL; leaf_count=16; algebraic_a_points=4; symbolic_duals=4",
+      "alpha= 0.98649143066396745155  c_alpha= 0.87872857665991862886"
+    ],
+    "source_git_blob": "39f8441c53f55b383266058c24e117f5f26ad38c",
+    "source_sha256": "53b950366a8ad933908fd74b29b530e2da4779177be151600976899c40eedfee",
+    "scope": "four exact symbolic dual identities; weights sum to one; 16-leaf positive two-law conservation; full observable joint distributions at a=1/2,3/4,19/20,alpha",
+    "proof_scope": "Analytical proof covers continuum of real a and all legal real causal randomized S2 and S23 strategies. Four exact sample a points are implementation checks only."
+  },
+  "input_refs": {
+    "global_knowledge_snapshot": "253970b693bd99d2ad6039a052cef097f74662ed",
+    "project_snapshot": "f7a2d2dedbe703bedc3fea8639a8a348541535c8",
+    "prior_single_point_proof": "81e2b59eafd850eea03f7050b73a8526b67d5700"
+  },
+  "native_registration": "REGISTER_PENDING_CONTROL_QUOTA",
+  "review": "UNREVIEWED",
+  "admission": "NOT_ADMITTED",
+  "native_transfer": "UNPROVED"
+}
