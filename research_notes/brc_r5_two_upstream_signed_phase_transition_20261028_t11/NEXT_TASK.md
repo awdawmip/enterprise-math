@@ -1,0 +1,11 @@
+# R5 follow-up: behavioral image membership at exact all-signed hull equality
+
+Frozen input: this directory's PROOF.md, VERIFY.py and EXACT_OUTPUT.txt; earlier two-upstream Bellman envelope in research_notes/brc_r5_two_upstream_scalar_price_blindspot_20261028_t11/PROOF.md. Initial knowledge snapshot GLOBAL_KNOWLEDGE_V1 main@2a24dd5d0e16a1b273d49ae4a49242efc6b2d6cd; Enterprise Math main@94fbdca156237439661e74007165261b9b493eed.
+
+Mother problem: strictly positive rational finite dual-measure trees with equal four-dimensional convex hulls but unequal true complete-history and seedless LR behavioral images.
+
+**Completed, do not repeat:** For one collision with theta=3/4,a=1/4,b=1/8 and distinct upstream roots 1±(1-theta)d, all signed supports coincide for 0<d<=10/29, by a necessary/sufficient symbolic theorem; d=2/5 is strictly separated by integer signed lambda=(400,440,220,-199), exact gap 3/8. The d=1/10 case has a genuine LR collision with differing future kernels, yet equal convex hulls. Exact 20736/864 pure-policy enumerations verified six signed directions at d=1/10,10/29,2/5, plus the exact d=2/5 separating point. This finite direction check is NOT a universal proof; the symbolic theorem is.
+
+**Next unit:** Decide whether the true 4D seedless-LR real-behavioral image at d=1/10 equals the full image. Use variables x_U,x_V (independent root continuations), root stop declarations, one common collided-C continuation y and common stop declaration, U.O/V.O declaration probabilities, and three terminal declarations. Provide either an explicit rational full-policy vector with an exact polynomial/quantifier-elimination infeasibility certificate for all real compressed choices, or constructive all-real realization of every full-image point. Numerical optimization alone cannot prove nonattainment. Preserve time-1 stops and all terminal declarations; P000 native X6/typed time and BRC positive-rational branch provenance remain unchanged.
+
+**State:** AUTHOR_PROVED / EXACT_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED. This is portable mathematical evidence, not native Source owner/CLAIM/Result/review. The canonical task list read returned CONTROL_QUOTA; revisit Source authority only for formal role-bound execution/admission.
