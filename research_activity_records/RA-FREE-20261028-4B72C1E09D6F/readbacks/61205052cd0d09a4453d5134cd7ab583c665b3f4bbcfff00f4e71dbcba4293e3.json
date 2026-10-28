@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/balanced_resume_20261028/free/post_freeze/clock_alphabet_clarification.md",
+    "ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "owner-balance-wave8_readback_5",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# POST_FREEZE_CLARIFICATION：外部时钟与固定内部字母表\n\nCandidate-ID: `AC-FREE-20261028-4B72C1-RETURN-HORIZON`\n\n本补充由非作者 `balance_review` 在原稿冻结后的数学审核中请求；不修改 Phase A 原始文件，不涉及当前项目成果查重，不新增外部新颖性主张。\n\n原稿的 `Q_t` 表示时间 `t` 的精确观察等价类集，已经证明 `|Q_t|=N(H,t)`，并构造时刻依赖的下降更新 `δ_t:Q_t×S→Q_(t+1)`。为将每层类数落实为固定存储字母表，令 `M=M(H)=max_t N(H,t)`，取固定内部字母表 `A={1,...,M}`。每个时刻任选一个双射\n\n`i_t:Q_t→{1,...,N(H,t)}⊆A`。\n\n使用可访问的外部时钟 `t`，在输入单步 `s` 时，对当前有效内部符号 `a` 执行\n\n`a_next=i_(t+1)(δ_t(i_t^(-1)(a),s))`。\n\n读出为时间 `t` 的等价类读出复合 `i_t^(-1)`。从初态开始，内部符号始终在对应时间的有效像中；对该时刻不可达的其他内部符号，可任意定义总化转移而不影响观察任务。因此同一固定内部字母表恰有 `M` 个符号即可实现原稿的全部合法输入/观察，不必取各时刻位移标签的并集。\n\n反方向，原稿在最大层给出的两两可区分历史证明任何固定内部字母表必须至少有 `M` 个符号。这完成固定字母表与“最小峰值类数”之间的明确桥接，并支持原稿 `ceil(log_2 M)` 位的精确内部存储主张。代码表、更新规则以及声明为外部可用的时钟，均不计入所定义的运行时内部记忆成本；若计入时钟，必须另立成本模型。\n\nResearcher-ID: EM-R-4B72C1 / FREE_AXIOM_DISCOVERY\n",
+      "display_title": "clock_alphabet_clarification.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/0d3b22c10ba255041b9ea88207f5fffa0ac62c76/research_notes/balanced_resume_20261028/free/post_freeze/clock_alphabet_clarification.md",
+      "encoding": "utf-8",
+      "sha": "2a05c9959c37fe2f753efd2987184eb7073c47c2"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
