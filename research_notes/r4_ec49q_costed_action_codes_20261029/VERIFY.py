@@ -153,12 +153,21 @@ def main():
                     acc = int(act == "SA") if act in ("SR", "SA") else int(term[w, act, z])
                     full_clone[idx] += source[w, z] * acc
                     full_clone[2 + idx] += source[w, z] * paid
-                    # Compile initial purchase to A if W=0 else B. Terminal
-                    # remembers the actual chosen label and recovers W.
-                    recovered_w = 0 if w == 0 else 1
-                    coded_acc = int(act == "SA") if not paid else int(term[recovered_w, act, z])
+                    # Implement the actual cost-neutral action-label code.
+                    # Since both clones cost one and reveal the same Z, the
+                    # encoded label replaces the original first action.
+                    if paid:
+                        coded_action = "A" if w == 0 else "B"
+                        recovered_w = 0 if coded_action == "A" else 1
+                        recovered_original_action = init[recovered_w]
+                        assert recovered_original_action in ("A", "B")
+                        coded_acc = int(term[recovered_w, recovered_original_action, z])
+                        coded_price = 1
+                    else:
+                        coded_acc = int(act == "SA")
+                        coded_price = 0
                     compressed_clone[idx] += source[w, z] * coded_acc
-                    compressed_clone[2 + idx] += source[w, z] * paid
+                    compressed_clone[2 + idx] += source[w, z] * coded_price
             assert tuple(full_clone) == tuple(compressed_clone)
             clone_policies_verified += 1
     assert clone_policies_verified == 4096
