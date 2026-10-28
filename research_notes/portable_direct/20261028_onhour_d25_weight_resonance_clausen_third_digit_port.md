@@ -90,6 +90,48 @@ The independent complete original sum gives \(W_{373}=373\bmod373^3\). The origi
 
 Companion executable: `research_notes/portable_direct/d25_original216_weight_resonance_guard_20261028.py`. Actual execution marker: `PASS_D25_ORIGINAL216_UNIQUE_RESONANCE_SOURCE_DEFECT 11 exact-prime-cases`.
 
+## Theorem 3 — exact harmonic reflection and classical Fermat-quotient transport
+
+Let \(H_j=\sum_{k=1}^{j}k^{-1}\in\mathbf Z_{(p)}\) for \(j<p\), and define the classical Fermat quotient \(q_p(b)=(b^{p-1}-1)/p\bmod p\), for p not dividing b. Reorganizing **the same three original signed shifted-factor sums** gives an *exact rational identity*
+\[
+L_m=\frac{H_{2m}+H_{3m}+2H_m-4H_{4m}}6.
+\]
+Since \(p-1=6m\), the reflection \(j\mapsto p-j\) gives \(H_{4m}\equiv H_{2m}\pmod p\). Hence, by elementary algebra alone,
+\[
+\boxed{L_m-\tfrac32H_m\equiv
+\frac{H_{3m}-3H_{2m}-7H_m}6\pmod p.}\tag{4}
+\]
+Here no outside result beyond elementary finite-field reflection is needed.
+
+For a **second, optional external-arithmetic observer**, consume the *classical, pre-existing* Eisenstein/Emma-Lehmer congruences
+\[
+H_{3m}\equiv-2q_p(2),\quad
+H_{2m}\equiv-\tfrac32q_p(3),\quad
+H_m\equiv-2q_p(2)-\tfrac32q_p(3)\pmod p.
+\]
+These are imported standard harmonic congruences (not claimed as our discoveries): Emma Lehmer, *Annals of Mathematics* **39** (1938), 350–360, DOI https://doi.org/10.2307/1968791 ; the p/6 statement is also documented at https://oeis.org/A238201 . Substituting them in (4), using \(q_p(ab)\equiv q_p(a)+q_p(b)\pmod p\), yields
+\[
+\boxed{L_m-\tfrac32H_m\equiv
+2q_p(2)+\tfrac52q_p(3)
+=\tfrac12q_p(2^4\,3^5)=\tfrac12q_p(3888)
+\pmod p.}\tag{5}
+\]
+Equation (2) therefore has the sharper entirely exact-number-theoretic form
+\[
+\boxed{(6m+1)(a_m-T_m^{(0)}E_m)
+\equiv\frac{p^2T_m^{(0)}}2q_p(3888)\pmod{p^3}.}\tag{6}
+\]
+This is a **source-port formula**, not a formula for the total original sum. In particular a zero at one prime does not imply all-prime zero. The new work is the derivation connecting this *particular original resonant source* to the imported classical quotient; no novelty is claimed for Lehmer's identities.
+
+The same independent standard-library checker now also verifies (4), all three classical congruences and (5)–(6) at 11 primes, without floating point. At p=373 the exact additional residues are
+\[
+(H_m,H_{2m},H_{3m},H_{4m})=(73,108,338,108),\
+(q_p(2),q_p(3),q_p(3888))=(204,301,83).
+\]
+Thus \(83/2\equiv228\pmod{373}\) and \(122\cdot228\equiv214\pmod{373}\), agreeing with the original independent \(214p^2\) certificate. At p=13, \(q_{13}(3888)=0\bmod13\), whereas p=373 gives 83; this illustrates that the isolated source defect is not universally zero.
+
+**Exact next mathematical unit:** combine (6) with a genuine, independent formula for the **remaining original source indices** in the Clausen \(pD_1+p^2D_2\) bookkeeping. The required remainder at each target prime must cancel \(\tfrac12T_m^{(0)}q_p(3888)\) and the other existing p-adic source ports. Do not sum a tautological decomposition of the already-known full W and call it an all-prime proof.
+
 ## BRC and native-world typing
 
 **BRC COMPOSE_APPLIED** to the original finite signed integer carrier \((p,n,6n+1,a_n,T_n^{(0)},E_n,\nu_p,\text{source label})\). Original index n and weight, all low/middle/high bands and residual \(p^2\cdot214\) remain distinguishable. Observer is \(\mathcal D A\bmod p^3\), original \(W_p\bmod p^3\), separately the unweighted future operations on A. Equation (1) is an exact fiber-constancy obstruction, and (2) is a source-preserving repair coordinate. The scalar polynomial z is an explicitly **external arithmetic observation**, not an independent native spatial plane, X6 cell coordinate, physical dynamics, or a same-original-class H0/B0 divided-power computation. P000 Heartbeat native X6 Cell plus separately typed time and its joint-relation preservation constraints remain intact.
