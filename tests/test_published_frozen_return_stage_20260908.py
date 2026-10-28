@@ -36,9 +36,9 @@ class PublishedFrozenReturnStageTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory(prefix="em-fr-stage-")
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
-        policy = taskbooks.policy_manifest(ROOT)
         for relative in {
-            "research_taskbook_policy.json", *policy["policy_inputs"],
+            "research_taskbook_policy.json", "research_taskbook_contract.json",
+            "research_task_publication_contract_v2.json", "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json",
             "research_control_event_authorization.json", "research_runtime_policy_v2.json",
             OLD_RECORD, OLD_BOOK,
         }:
@@ -63,8 +63,7 @@ class PublishedFrozenReturnStageTests(unittest.TestCase):
         self.assertEqual(prepared, checked)
         self.assertEqual(state, checked["base_state"])
         self.assertEqual(self.original_body, body)
-        self.assertEqual("PASS", checked["policy_review"]["review_state"])
-        self.assertEqual(taskbooks.policy_digest(self.root), checked["policy_review"]["policy_digest"])
+        self.assertEqual(self.original_meta.get("policy_review"), checked.get("policy_review"))
         record = records.build_record(checked, path=path, publisher_role="RESEARCH_DRIVER",
             publisher_id="EM-DVR-TEMP-FIXTURE", research_value=self.old_record["research_value"],
             published_at=PUBLISHED,
@@ -81,6 +80,18 @@ class PublishedFrozenReturnStageTests(unittest.TestCase):
         self.assertEqual(record["publication_id"], current["publication_id"])
         definition = next(value for value in dispatch.merged_definitions(self.root) if value["task_id"] == task_id)
         return record, definition
+
+    def test_publication_accepts_old_pending_stamp_without_refresh(self):
+        self.original_meta["policy_review"] = {"policy_digest":"historical-unused", "review_state":"PENDING_POLICY_REVIEW"}
+        record, _ = self.publish("READY")
+        meta, _ = taskbooks.split_taskbook((self.root / record["taskbook_path"]).read_text())
+        self.assertEqual(meta["policy_review"], self.original_meta["policy_review"])
+
+    def test_publication_needs_no_aggregate_stamp(self):
+        self.original_meta.pop("policy_review", None)
+        record, _ = self.publish("READY")
+        meta, _ = taskbooks.split_taskbook((self.root / record["taskbook_path"]).read_text())
+        self.assertNotIn("policy_review", meta)
 
     def comment(self, definition, kind="CLAIM", comment_id=1, at=CLAIMED, **changes):
         # Synthetic server objects exist only inside TEMP execution tests; no

@@ -39,8 +39,7 @@ class PublicationScopeRepairTests(unittest.TestCase):
         self.fixture.setUp()
         self.addCleanup(self.fixture.tearDown)
         self.root = self.fixture.root
-        for relative in ["research_taskbook_policy.json", "research_taskbook_contract.json",
-                         *books.policy_manifest(BASE)["policy_inputs"]]:
+        for relative in ["research_taskbook_policy.json", "research_taskbook_contract.json"]:
             destination = self.root / relative
             destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(BASE / relative, destination)
@@ -70,7 +69,6 @@ class PublicationScopeRepairTests(unittest.TestCase):
         meta, body = books.split_taskbook(original.read_text())
         self.meta = copy.deepcopy(meta)
         self.body = body
-        self.meta["policy_review"]["policy_digest"] = books.policy_digest(self.root)
         self.new_path = self.root / "research_tasks/RSA_PROSPECTIVE_FIXTURE.md"
         self.new_path.write_text(books.render_taskbook(self.meta, body))
         # The specimen reviewed target is independently admitted to the native

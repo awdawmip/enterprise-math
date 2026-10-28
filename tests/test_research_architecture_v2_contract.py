@@ -203,12 +203,9 @@ def test_free_candidate_origin_requires_audited_candidate_provenance():
     assert not [item for item in origin_findings(audited, dispatch=True) if item["severity"] == "ERROR"]
 
 
-def test_taskbook_policy_digest_includes_architecture_and_candidate_state():
+def test_taskbook_semantic_rules_remain_without_aggregate_digest():
     policy = load_json("research_taskbook_policy.json")
-    inputs = set(policy["policy_inputs"])
-    assert "research_architecture.json" in inputs
-    assert "research_axiom_candidate_state_machine.json" in inputs
-    assert "docs/RESEARCH_ARCHITECTURE.md" in inputs
+    assert "policy_inputs" not in policy
     semantics = "\n".join(policy["semantic_review_requirements"])
     assert "provenance laundering" in semantics
     assert "Stage 2+" in semantics

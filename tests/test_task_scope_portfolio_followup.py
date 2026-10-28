@@ -104,9 +104,8 @@ def run_case(case):
         # Legacy integrity is checked against the actual immutable source tree,
         # not duplicated as unrelated incomplete Results in this small fixture.
         baseline_audit = guard.baseline_audit
-        policy = capture('research_taskbook_policy.json')
-        for relative in policy['policy_inputs']:
-            capture(relative)
+        capture('research_taskbook_policy.json')
+        capture('research_taskbook_contract.json')
         registry = json.loads(REPO.joinpath('research_driver_review_authority_quarantines.json').read_bytes())
         row = registry['entries'][0]
         write('research_driver_review_authority_quarantines.json', {**registry, 'entries': [row]})

@@ -1566,12 +1566,6 @@ def _taskbook_text(spec: dict[str, Any], parent: str) -> str:
         "task_lineage": lineage,
         "parent_task_id": parent_task_id,
         "successor_gate": successor_gate,
-        "policy_review": {
-            "policy_set": "research_taskbook_policy.json",
-            "policy_digest": research_taskbook.policy_digest(ROOT),
-            "review_state": "PENDING_POLICY_REVIEW",
-            "temporary_overrides": [],
-        },
     }
     body = f"""# {spec['title'].strip()}
 

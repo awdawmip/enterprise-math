@@ -77,7 +77,7 @@ class RR133BindingTests(unittest.TestCase):
         data['quarantines']=[row for row in data['quarantines'] if row['execution_record_id']==binding.OLD_EXECUTION]
         write_json(self.root/'research_execution_record_audit_quarantines.json',data)
         for relative in ['research_taskbook_policy.json', 'research_taskbook_contract.json',
-                         'research_driver_followup_legacy_reviews.json', *books.policy_manifest(BASE)['policy_inputs']]:
+                         'research_driver_followup_legacy_reviews.json']:
             self.copy(relative)
         write_json(self.root / receipts.CUTOVER, {'schema':'ENTERPRISE_MATH_CONTINUATION_RECORD_CUTOVER_V1','records':{}})
         self.source = self.make_generation(binding.SOURCE_TASK, binding.SOURCE_PUBLICATION, 'SOURCE_GEN2_FIXTURE.md', SOURCE_TIME)
@@ -168,7 +168,6 @@ class RR133BindingTests(unittest.TestCase):
     def make_generation(self, task, old_id, filename, timestamp):
         old=json.loads((self.root/f'research_task_records/{task}/{old_id}.json').read_text())
         meta,body=books.split_taskbook((self.root/old['taskbook_path']).read_text())
-        meta['policy_review']['policy_digest']=books.policy_digest(self.root)
         if task==binding.SOURCE_TASK:
             body=binding.source_generation_body(body,old['research_value'])
             meta['origin_kind']='DRIVER_ROADMAP'
