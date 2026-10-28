@@ -1,0 +1,9 @@
+# EC49K｜来源、现有技术及证据等级
+
+1. **直接数学基线**：Enterprise Math EC49J Draft PR #1641，commit `f8dd558b01097cdcafa8fae4d58264278f0254bb`，`research_notes/r4_ec49j_policy_dependent_lr_20261028/{PROOF.md,NEXT_TASK.md,VERIFY.py,EXACT_REPORT.json}`。保留 EC49J 的模型、叶子、作者状态；此前只建立了局部行动分布障碍。本轮首次对其具体模型导出原始四维区域的全局严格超平面及锐支撑差，不将前作局部结论误报为已有全局证明。
+2. **固定账户级规范**：`awdawmip/chatgpt-global-knowledge main@09dea6eca32c0046521d20b95be668df4a3fea6a`，实读 `00_BOOTSTRAP.md`、`OPERATING_MANUAL.md`、`projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md`、`projects/enterprise-math/00_EM_TASK_RESEARCHER_BOOTSTRAP.md`、`projects/enterprise-math/P000_REALITY_FOUNDATION.json`、`我眼中的世界.md` 与适用数学/代码/BRC研究规则。P000 原件 blob `770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc`，与启动投影中登记的 `canonical_blob_sha1` 一致。
+3. **项目当前科学基线**：`awdawmip/enterprise-math main@8af4c90fcf16743e351c9bac7662235d47c26a24`。核对 `AGENTS.md`、`p000_reality_foundation.json`、`definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`、`docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md` 和 `docs/PORTABLE_RESEARCH_PROTOCOL.md`。原生 Gateway 版本 0.6.11 显示 `research_authority_granted=false`，活跃任务读取返回 `CONTROL_QUOTA`，不推断 Owner 身份。
+4. **2026年已发表相关科学文献**：Ryan A. Anderson & Guido Montúfar, *The Value Function Semi-Algebraic Set in Partially Observable Markov Decision Processes*, ICML 2026, Proceedings of Machine Learning Research 306:2677–2715, https://proceedings.mlr.press/v306/anderson26a.html 。其对象是**无限时域记忆无关** POMDP 值函数可行集合；半代数几何和不完全可观察所引入的非线性策略约束是相关技术背景，**不能替代本轮有限两阶段模型的完整证明，也不构成其优先权声明**。
+5. **占据测度先例**：Qingda Wei & Xian Chen, *Continuous-time Markov Decision Processes with Finite-horizon Expected Total Cost Criteria* (2014), https://arxiv.org/abs/1408.5497 。关注连续时间受约束 MDP 的占据测度；本轮模型区分两潜在来源、部分遗忘和同一个控制策略，故公式须独立证明。
+
+实际使用的BRC接口为正权标记分支、来源比的共同流转移与观察纤维是否安全可降阶；未执行有符号 BRC 的合并相消。`VERIFY.py` 为本轮实际执行代码，`EXACT_REPORT.json` 为其 stdout 原件。Python Fraction 覆盖的策略类和证明中的任意实数结论严格区分。独立审阅、原生 Research-Activity、Result 与 P000/ACTIVE 变更均未发生。
