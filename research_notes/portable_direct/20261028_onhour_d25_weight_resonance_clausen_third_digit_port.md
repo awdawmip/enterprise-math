@@ -1,8 +1,8 @@
 # D25 original 216 — unique weighted resonance and the third-digit Clausen source defect
 
-Date: 2026-10-28 14:xx Asia/Hong_Kong. Classification: **AUTHOR-SIDE / EXACT ALGEBRAIC THEOREMS / 11 EXECUTED MODULAR CHECKS / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING / NATIVE_NOT_EXECUTED**.
+Date: 2026-10-28 14:10 Asia/Hong_Kong. Classification: **AUTHOR-SIDE / EXACT ALGEBRAIC THEOREMS / 11 EXECUTED MODULAR CHECKS / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING / NATIVE_NOT_EXECUTED**.
 
-Mother objective: \`ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION\`. Task: \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`. Publication: \`TP2-B6F4FC938FF94941C1B7\`. Research ordinary-control logical label \`chatgpt-research-onhour-enterprise-math-20260923\`, distinct from CONTROL_PLANE_MAINTENANCE. The label is **not** a service-issued CLAIM or permission. Frozen scientific Source pin: \`c47e13e4aba0e006366f989d6334d443f6333ae3\` (unchanged).
+Mother objective: `ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION`. Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`. Publication: `TP2-B6F4FC938FF94941C1B7`. Research ordinary-control logical label `chatgpt-research-onhour-enterprise-math-20260923`, distinct from CONTROL_PLANE_MAINTENANCE. The label is **not** a service-issued CLAIM or permission. Frozen scientific Source pin: `c47e13e4aba0e006366f989d6334d443f6333ae3` (unchanged).
 
 ## Scientific question and authentic object
 
@@ -88,7 +88,7 @@ p\,a_{62}=12010600,\qquad p\,T_{62}^{(0)}E_{62}=34132111\pmod{51895117},
 \]
 The independent complete original sum gives \(W_{373}=373\bmod373^3\). The original resonant coefficient contributes \(a_{62}=32200\bmod139129\) to its normalized \(W_{373}/373\); the sum of all other original source indices contributes \(106930\bmod139129\). They add to 1 modulo 139129. This demonstrates a **nonzero** original third-digit source correction even at a prime where the whole target congruence holds.
 
-Companion executable: \`research_notes/portable_direct/d25_original216_weight_resonance_guard_20261028.py\`. Actual execution marker: \`PASS_D25_ORIGINAL216_UNIQUE_RESONANCE_SOURCE_DEFECT 11 exact-prime-cases\`.
+Companion executable: `research_notes/portable_direct/d25_original216_weight_resonance_guard_20261028.py`. Actual execution marker: `PASS_D25_ORIGINAL216_UNIQUE_RESONANCE_SOURCE_DEFECT 11 exact-prime-cases`.
 
 ## BRC and native-world typing
 
@@ -96,8 +96,8 @@ Companion executable: \`research_notes/portable_direct/d25_original216_weight_re
 
 ## Source execution status and exact continuation
 
-Current Site gateway read at 2026-10-28 14:01 Asia/Hong_Kong: v0.6.11, \`research_authority_granted=false\`, \`write_relay_enabled=false\`, static machine read-only, so no new current session, Source winning CLAIM, OPEN, native checkpoint, formal activity or Result is asserted. Prior on-hour recovery bridge request \`research-onhour-20261027-0501-recovery-r13\` / kimi-query-bridge #6575 is a successful read of historical local session pointers and neutral staging; prior dispatch \`research-onhour-20261027-0507-dispatch-r13\` / #6576 has final FAILED / TimeoutExpired. Do not replay or borrow any maintenance identity. Current Site checkpoint read returned ACCESS_DENIED. Project README/source claims still require legal canonical Source continuation for formal execution.
+Current Site gateway read at 2026-10-28 14:01 Asia/Hong_Kong: v0.6.11, `research_authority_granted=false`, `write_relay_enabled=false`, static machine read-only, so no new current session, Source winning CLAIM, OPEN, native checkpoint, formal activity or Result is asserted. Prior on-hour recovery bridge request `research-onhour-20261027-0501-recovery-r13` / kimi-query-bridge #6575 is a successful read of historical local session pointers and neutral staging; prior dispatch `research-onhour-20261027-0507-dispatch-r13` / #6576 has final FAILED / TimeoutExpired. Do not replay or borrow any maintenance identity. Current Site checkpoint read returned ACCESS_DENIED. Project README/source claims still require legal canonical Source continuation for formal execution.
 
-Native evidence priority: \`awdawmip/enterprise-math#1559\` was OPEN at 2026-10-28 14:xx Asia/Hong_Kong, actual executing owner not established. Required original \(p=373\) H0/B0 divided-power \([X]U\bmod139129\), module rank, semilinear Frobenius direction/eta, original signed odd Green/Hesse, \(\kappa\), \(\Delta_p-R_p\), full raw provenance and independent reproduction. This author-side scalar certificate **does not** satisfy that experiment.
+Native evidence priority: `awdawmip/enterprise-math#1559` was OPEN at 2026-10-28 14:10 Asia/Hong_Kong, actual executing owner not established. Required original \(p=373\) H0/B0 divided-power \([X]U\bmod139129\), module rank, semilinear Frobenius direction/eta, original signed odd Green/Hesse, \(\kappa\), \(\Delta_p-R_p\), full raw provenance and independent reproduction. This author-side scalar certificate **does not** satisfy that experiment.
 
 Smallest next mathematical task: insert the exact resonant contribution (2) into the existing low/middle/high \(D_1,D_2,\gamma,G'\) bookkeeping, identify a *non-circular* telescoping identity for the **remaining indices** which cancels the p373 value 214 and general \(T_m^{(0)}(L_m-\tfrac32H_m)\) across both frozen target classes. The fully general \(W_p\equiv p\bmod p^3\) remains OPEN. Other Research lanes' recent GH-36/GH-37 proofs are separately sourced, with no borrowed ownership or automatic contribution merger. D25/LIFT/JT2 remains OPEN. The author note/program are pending independent review and formal Source admission.
