@@ -1,0 +1,116 @@
+{
+  "unit": "EC49G",
+  "status": "EXACT_FINITE_ENUMERATION_PASS",
+  "source": "eight strictly positive rational (W,A,B) leaves; W neutral under P,Q",
+  "conditioned_leaf_masses": {
+    "0": {
+      "10": [
+        "1/4",
+        "1/6"
+      ],
+      "11": [
+        "1/2",
+        "1/12"
+      ],
+      "01": [
+        "1/6",
+        "1/4"
+      ],
+      "00": [
+        "1/12",
+        "1/2"
+      ]
+    },
+    "1": {
+      "10": [
+        "1/6",
+        "1/12"
+      ],
+      "11": [
+        "7/12",
+        "1/6"
+      ],
+      "01": [
+        "1/12",
+        "1/6"
+      ],
+      "00": [
+        "1/6",
+        "7/12"
+      ]
+    }
+  },
+  "acquisition_costs": {
+    "A": "2",
+    "B": "3/2"
+  },
+  "support": "alpha - 2 beta - (E_P T + E_Q T)/24",
+  "action_marginal_LR": {
+    "A": {
+      "A1": "3",
+      "A0": "1/3"
+    },
+    "B": {
+      "B1": "2",
+      "B0": "1/2"
+    }
+  },
+  "action_conditional_Q_A1_given_B1": {
+    "W0": "1/4",
+    "W1": "1/2"
+  },
+  "root_option_support": {
+    "W0": {
+      "reject": "0",
+      "accept": "-1",
+      "buy_A": "5/48",
+      "buy_B": "1/8"
+    },
+    "W1": {
+      "reject": "0",
+      "accept": "-1",
+      "buy_A": "1/12",
+      "buy_B": "1/24"
+    },
+    "coarse": {
+      "reject": "0",
+      "accept": "-1",
+      "buy_A": "1/12",
+      "buy_B": "1/12"
+    }
+  },
+  "policy_counts": {
+    "coarse_deterministic": 74,
+    "W_revealed_deterministic": 5476
+  },
+  "W0_policy": "('buy', 'B', ('stop', 0), ('continue', 0, 1))",
+  "W1_policy": "('buy', 'A', ('stop', 0), ('stop', 1))",
+  "W0_vector": [
+    "1/2",
+    "1/12",
+    "17/6",
+    "13/6"
+  ],
+  "W1_vector": [
+    "3/4",
+    "1/4",
+    "2",
+    "2"
+  ],
+  "full_vector": [
+    "5/8",
+    "1/6",
+    "29/12",
+    "25/12"
+  ],
+  "coarse_support_max": "1/12",
+  "full_support_max": "5/48",
+  "exact_gap": "1/48",
+  "scope": "finite passive eight-atom two-source acquisition; each A/B acquired at most once; zero prior cost; real behavioral randomization convexifies deterministic policies for linear support",
+  "not_claimed": [
+    "native signed BRC transfer",
+    "X6 heartbeat physical correspondence",
+    "minimal-state characterization",
+    "universal novelty priority"
+  ]
+}
