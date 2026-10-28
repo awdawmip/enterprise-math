@@ -1,0 +1,9 @@
+# R5 portable successor — cross-level coupling of exact local two-law TV polygons
+
+Mother target: an exact finite positive rational sequential two-measure model whose four-dimensional signed support functions for complete-history and seedless likelihood-ratio policies agree in ALL directions while the actual behavioral images differ; none of the local TV results alone solves it.
+
+Verified predecessor: this directory's RESEARCH.md proves the exact joint feasible polygon of (TV_Q,TV_P) for every common-parent-LR finite signature family, including strict-positive realizations and sharp signed support via <=4 vertices. Use it and the earlier source-tagged Bellman and occupation-weighted-TV bounds without re-proving them. Preserve P000 / ACTIVE six-spatial-axis + one-time-dimension worldview and separation from external statistical auxiliary models.
+
+Smallest executable question: do two interacting, nonterminal likelihood-ratio collision fibers F1,F2 admit independent simultaneous extremizers from their local TV polygons, or do shared transition/occupation-flow constraints exclude a rational point from the product? First try the F1 kernel s=(1/2,1,2,3), r=3/2 with local vertices (0,0),(3/4,1/2),(1,1),(2/3,8/9). Retain explicit P/Q source masses, actual time, paths, positivity, and conditional forecast kernels; specify the F2 merge mechanism and original 22-history candidate only if its true branches satisfy the new constraints.
+
+Deliver either a globally valid coupling theorem or an exact rational counterexample with complete all-real proof and Fraction-based reproducibility; distinguish it from floating grids, localized rank nonconvexity and the full mother problem. Formally checked/admitted state requires independent source-native review and permission. No active owner/CLAIM obtained in this run; do not infer authority from GitHub commit.
