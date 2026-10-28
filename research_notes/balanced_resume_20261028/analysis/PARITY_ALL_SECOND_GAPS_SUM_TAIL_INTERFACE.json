@@ -1,0 +1,97 @@
+{
+  "schema": "PARITY_ALL_SECOND_GAPS_EFFECTIVE_SUM_TAIL_INTERFACE_V1",
+  "author": "EM-ANALYSIS-1E507F",
+  "activity": "RA-9C879FA5E6538D45DD9AE10F",
+  "status": "AUTHOR_CANDIDATE_DISTINCT_REVIEW_PENDING",
+  "proof": {
+    "file": "PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md",
+    "sha256": "cf9fc55ac4a4a193cc4d5c9e8355fde02dae577f0241344b05d48961dea771a0",
+    "bytes": 11608
+  },
+  "theorem": {
+    "m": "fixed integer>=2",
+    "parameters": "S>=0,a>0,c>0",
+    "normalization": "Original complete signed normalized secant A,B; no frame, branch, sign or denominator change",
+    "threshold": "computable rational R_m=max(Rpert_m,Rbounded_m(1))>=1, independent of S,a,c",
+    "domain": "S+a>=R_m/m",
+    "lower_bounds": [
+      "Gap>=((m-1)/4)*((1+c/(S+a))^(m+1)-1)",
+      "Gap>=(m^2-1)c/(4(S+a))>0"
+    ],
+    "relative_second_gap_upper_bound": "NONE",
+    "gap_positive_lower_bounds": "NONE",
+    "m_uniform_threshold": false,
+    "compact_total_scale_region": "OPEN"
+  },
+  "effective_recipe": {
+    "metric": "M(epsilon) centered analytic rational matrix; M0 has definite positive even and negative odd blocks",
+    "signature": "Sigma=+I_even direct_sum -I_odd; P=Sigma M0>0",
+    "denominator": "Q(epsilon)=product_i product_h(1+epsilon(theta_i+h))>=1",
+    "polynomial_remainder": "V=(Q*M-M0*Q)/epsilon in rational polynomial matrices",
+    "coefficient_majorant": "E=sum_l entrywise_abs([epsilon^l]V)",
+    "k_m": "||P^-1||infinity ||E||infinity",
+    "Rpert_m": "max(1,5*k_m)",
+    "Rbounded_m_1": "exact rational C=1 threshold in previous full-trace bounded-relative proof",
+    "evaluated_numerically": false
+  },
+  "reusable_lemma": {
+    "id": "COMMON_SIGNATURE_RELATIVE_TRACE_PERTURBATION",
+    "kind": "BOUNDED_CLASSICAL_COMPOSED_INTERFACE_NOT_NEW_GLOBAL_FAMILY",
+    "assumptions": [
+      "Sigma real symmetric, Sigma^2=I",
+      "P_A,P_B real positive definite and commute with Sigma",
+      "A=P_A^(1/2)(Sigma+R_A)P_A^(1/2)",
+      "B=P_B^(1/2)(Sigma+R_B)P_B^(1/2)",
+      "R_A,R_B symmetric with spectral norms<=eta<1"
+    ],
+    "definitions": [
+      "C=P_B^(-1/2)P_A^(1/2), which commutes with Sigma",
+      "T0=||C||F^2=tr((Sigma P_B)^-1(Sigma P_A))"
+    ],
+    "output": "|tr(B^-1 A)-T0| <= (2eta/(1-eta))*T0",
+    "consequence": "eta<=1/5 -> tr(B^-1 A)>=T0/2",
+    "preserved": "arbitrary signed cross-parity perturbations remain in R_A,R_B",
+    "not_applicable": [
+      "unrelated signature decompositions",
+      "positive reference forms that fail to commute with common Sigma",
+      "eta>=1",
+      "additive error reinterpreted as relative error"
+    ],
+    "tool_admission": false
+  },
+  "join": {
+    "nu": "c/(S+a)",
+    "small_nu": "0<nu<=1 uses previous exact nu-factor full-trace theorem",
+    "large_nu": "nu>=1 uses uniform relative trace bound and T0>=(m-1)(1+nu)^(m+1)",
+    "overlap": "nu=1 covered by both",
+    "final_lower_bound_fraction": "1/4"
+  },
+  "dependencies": [
+    {
+      "paper": "PARITY_FULL_TRACE_BOUNDED_RELATIVE_GAP_TAIL_AUTHOR.md",
+      "sha256": "129cad117292b1e90f3f0f8eb6c2791c2e5a050adff386c9e4a0b4c6e0d55c5e",
+      "scope_consumed": "same centered exact pair; limiting trace positivity allnu; effective smallnu C1 theorem"
+    },
+    {
+      "paper": "PARITY_UNBOUNDED_SMALL_CONE_AUTHOR.md",
+      "sha256": "f9a9415455b9b004f9e2854e999eaebd4934acd7211084b87bf1bc5c0634e921",
+      "scope_consumed": "weighted support, transitively through previous paper"
+    }
+  ],
+  "non_claims": [
+    "all S+a",
+    "m-uniform bound",
+    "evaluated practical threshold",
+    "full P1 coefficientwise positivity",
+    "HCM0 all-parameter solution",
+    "Native physical law",
+    "formal Task completion",
+    "Driver acceptance",
+    "WorkingTruth or Foundation"
+  ],
+  "method_harvest": "RESULT_ONLY_COMPOSE_APPLIED",
+  "scientific_programs": 0,
+  "new_tool_family": false,
+  "source_exposure": "SHARED_CONTROL_CONTEXT_NONBLIND_DISCLOSED",
+  "dedup_accounting": "One mathematical tail-result chain; nested small-cone and bounded-ratio domains are proof dependencies, not separate independent discoveries"
+}
