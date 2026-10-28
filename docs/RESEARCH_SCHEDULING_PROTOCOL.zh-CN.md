@@ -4,11 +4,21 @@
 
 定时对话的每轮入口、角色职责、未完请求恢复及跨轮接续见 [自主研究执行协议](AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md)。先协调未知副作用、恢复已有前沿，再领取新任务；一个控制子流程完成不等于研究父目标完成。
 
-任务定义只来自不可变的 V2 发布记录。`research_control_dispatch.py` 先处理陈旧会话下的既有 owner 恢复，再把全新任务选择交给 `tools/research_dispatch.py`，把并行 cohort lane 选择交给 `tools/research_lane_dispatch.py`。
+任务定义只来自不可变的 V2 发布记录。在开始新研究单元的边界，`research_control_dispatch.py` 将可领取的新任务、cohort lane 及已核实陈旧 owner 的后继候选一起排序。活跃的精确 owner 会话仍受保护；恢复仍须保留精确 predecessor/frontier，并通过现行认证后继 CLAIM/CAS。选择本身不授予执行权限。
 
 Issue #240 的运行态变更必须来自经服务器认证、未编辑且属于授权操作者的 GitHub 评论封装。`tools/research_runtime_reducer.py` 只是纯 reducer，不持有任务表，也没有数学权威。
 
-选择顺序由 `research_runtime_policy_v2.json` 定义。owner lease 与会话存活相互独立；陈旧会话在核验 durable frontier 后接管原 claim，不创建第二个 claim。
+比例在 `research_runtime_policy_v2.json` 配置，初始 P0/P1/P2/P3 = 40/30/20/10。这是工程初始值，不是用户指定数字。`tools/research_fair_selection.py` 从共享认证事件快照中、reducer 实际接受的 CLAIM 和可领取状态变化重建加权服务余额：每次成功领取按当时可用档位的归一化权重记份额，实际获领档位扣一个机会。缺席档不累计欠账，其份额可以借用，恢复时不要求偿还缺席期的份额。交接或过期后新的成功领取计入；失败、同 claim_id 重试、HEARTBEAT、PROGRESS 及原 owner 的读取/续租不增加次数。
+
+同优先级按显式 `parent_task_id` 父链识别方向，在当时可用方向间均分机会；缺失父链时透明退回精确任务 ID，不凭任务名字或身份 ID 前缀模糊聚类。同方向先兼顾较少成功领取的任务，再照顾等待更久的任务。leverage 与 HANDOFF 状态不再享有无条件优先。显式优先级过滤和 Source 正式定向分派保留原范围。
+
+这是建议性的加权选择，不是原子的全局配额，也不新增领取拒绝门槛。实际归属仍由现行单任务/lane CLAIM 及 predecessor CAS 决定。多终端可能用同一旧快照成功领取不同任务；下次读取会计入每个实际赢家，再由后续选择补偿，不能保证每十次并发领取精确为 4/3/2/1。竞争后按原流程刷新 canonical 状态，无须新锁、轮询器或后台服务。
+
+历史计账范围是 canonical reducer 已准入的当前发布代次/lane 认证事件；不能凭任务名字把已被过滤的旧发布 CLAIM 当作有效历史。`fair_selection` 明示缺失历史/可用状态/父链时的退化，退回当前可见任务。历史依赖或发布变化若没有保留状态转移，无法证明过去的精确可领取性。原事件、科学结论、发布权限及旧任务记录不变。owner lease 与会话存活仍相互独立；claim 过期释放归属，不会自动执行或恢复 job。
+
+canonical Result/Review 的 freeze/reopen 时间也约束可领取区间：任务完成或等待审查期间，原始 READY、租约过期轨迹不能继续累积份额。cohort 开启及 lane Result freeze 时间同样约束 lane 可用期。覆盖状态缺少开始时间时，排除该任务未经证明的可用区间并报告历史降级原因，仍保留成功 CLAIM 事实；只在当前时间追加 false 无法消除过去的幽灵欠账。
+
+可领取候选的历史资格无法重建时，按距上次共享成功服务的加权间隔分散机会，不凭未知区间制造正负份额。该透明降级不声称精确历史配比，也不让低优先级任务永久背负无法证明的欠账。
 
 ## 已注册 HANDOFF 的意图
 

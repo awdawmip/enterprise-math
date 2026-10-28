@@ -9,6 +9,9 @@
   "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE_REQUIRED",
   "default_claim_lease_minutes": 120,
   "selection_policy": {
+    "priority_weights": {"P0": 40, "P1": 30, "P2": 20, "P3": 10},
+    "method": "AVAILABLE_WEIGHTED_SUCCESSFUL_CLAIMS",
+    "ordering_fields_scope": "LEGACY_POLICY_WITHOUT_PRIORITY_WEIGHTS_ONLY",
     "state_order": [
       "HANDOFF_READY",
       "READY"

@@ -807,7 +807,7 @@ def reduce_definition(
         state["identity_lane"] = task.get("identity_lane")
     state = _overlay_result_state(task, state, root, result_state)
     state = _overlay_active_cohort(task, state, root)
-    return _block_unreviewed_registered_done(
+    state = _block_unreviewed_registered_done(
         task,
         state,
         authenticated,
@@ -817,6 +817,30 @@ def reduce_definition(
         reducer_ignored_indices,
         resolved_lease_minutes=lease,
     )
+    from tools.research_fair_selection import canonical_availability
+    if result_state is not None and not state.get("historical_review_available"):
+        closed_at = _result_freeze_time(result_state, root)
+        withheld_at = result_state.get("withheld_frozen_at")
+        if closed_at is None and isinstance(withheld_at, str) and withheld_at.strip():
+            closed_at = _lifecycle_time(withheld_at, "withheld frozen_at")
+        review = result_state.get("review") or {}
+        reopened_at = None
+        if result_state.get("state") == "RETURN_TO_EXECUTION" and review.get("reviewed_at"):
+            reopened_at = _lifecycle_time(review["reviewed_at"], "reviewed_at")
+        canonical_availability(state, source="CANONICAL_RESULT_REVIEW", closed_at=closed_at,
+                               reopened_at=reopened_at, now=now)
+    if state.get("dispatch_state") == "COHORT_ACTIVE":
+        from tools.research_fair_selection import lifecycle_clock
+        cohorts = research_cohort_runtime.active_cohorts(task["task_id"], root)
+        clocks = [lifecycle_clock(c.get("opened_at")) for c in cohorts]
+        canonical_availability(state, source="CANONICAL_COHORT",
+            closed_at=min(clocks) if clocks and all(c is not None for c in clocks) else None, now=now)
+    elif state.get("dispatch_state") not in {"NEEDS_DISPATCH", "LEASED"}:
+        trace = state.get("scheduling_trace", [])
+        last_available = next((e for e in reversed(trace) if e["event"] == "AVAILABLE"), None)
+        if last_available is not None and last_available["eligible"]:
+            canonical_availability(state, source="CANONICAL_CONTROL_OVERLAY", now=now)
+    return state
 
 
 @contextmanager
@@ -858,10 +882,17 @@ def effective_states(
     events: list[dict[str, Any]], *, now: datetime, root: Path = ROOT
 ) -> list[dict[str, Any]]:
     with _dispatch_result_read_snapshot(root):
-        return [
+        states = [
             reduce_definition(task, events, now=now, root=root)
             for task in merged_definitions(root)
         ]
+        # Scheduling metadata belongs to the read-only projection. Do not add
+        # fields to registered_definition: existing immutable execution/review
+        # bindings validate that exact definition independently of scheduling.
+        records = research_task_records.current_records(root)
+        for state in states:
+            state["parent_task_id"] = records.get(state["task_id"], {}).get("parent_task_id")
+        return states
 
 
 def select_task(
