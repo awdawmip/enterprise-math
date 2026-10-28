@@ -1,0 +1,99 @@
+{
+  "actual_executed_BRC_counts": {
+    "ordered_labelled_pair_terms": 410,
+    "positive_mass_computations": 30
+  },
+  "checks": "PASS",
+  "concrete_witness": {
+    "baseline_Q0": [
+      "29/49",
+      "145/392",
+      "1073/3136",
+      "725/784",
+      "2465/6272"
+    ],
+    "reference_differences_Q1": [
+      "2",
+      "-12/7",
+      "-6/7",
+      "0",
+      "-1/2"
+    ],
+    "reference_differences_Qi": [
+      "2",
+      "-12/7",
+      "-1/7",
+      "2",
+      "-11/14"
+    ],
+    "reference_report_Q1": [
+      "99/49",
+      "509/392",
+      "3649/3136",
+      "221/784",
+      "2577/6272"
+    ],
+    "reference_report_Qi": [
+      "57/49",
+      "565/392",
+      "7569/3136",
+      "1509/784",
+      "12657/6272"
+    ],
+    "t0": [
+      "-1/2",
+      "3/14"
+    ],
+    "t2": [
+      "-1/2",
+      "-3/14"
+    ],
+    "two_state_MEB_sq": "60/49"
+  },
+  "model": {
+    "inferred_real_imag_amplitude_interval_length": "1",
+    "noise_per_each_Q1_Qi": "1",
+    "output_cloud_diameter_sq_upper": "2",
+    "port4_row_U": [
+      [
+        "-1/4",
+        "-1/4"
+      ],
+      [
+        "1/2",
+        "1/2"
+      ],
+      [
+        "1/4",
+        "1/4"
+      ]
+    ],
+    "port4_row_norm_sq": "3/4",
+    "port4_shape_abs_sq": "25/8",
+    "port4_shape_values": [
+      [
+        "7/4",
+        "-1/4"
+      ],
+      [
+        "7/4",
+        "1/4"
+      ]
+    ],
+    "source_abs_sq_per_unit_scale": "9"
+  },
+  "parent_prerequisite": "PREFIX-321 author-side full-phase critical radius r^2<=29/98",
+  "proof_status": "AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED",
+  "schema": "PREFIX324_EXACT_AUXILIARY_BRC_EVIDENCE_V1",
+  "scope": "STATIC_S7_3_TWO_SHAPE_MIXED_FIBER_ONLY; NO_NATIVE_X6_TRANSFER",
+  "theorem_certificate": {
+    "critical_r_sq": "29/98",
+    "full_auxiliary_preexisting_lower_L": "1062562/458329",
+    "large_scale_formula_MEB_sq_bound": "(29/6)*r^2+2/3",
+    "planar_geometry_lemma": "requires proof in paper, not asserted by finite script",
+    "small_scale_MEB_sq_bound": "48/25",
+    "small_scale_cut_r_sq": "16/75",
+    "strict_L_minus_uniform_bound": "19888933/89832484",
+    "uniform_mixed_MEB_sq_bound": "411/196"
+  }
+}
