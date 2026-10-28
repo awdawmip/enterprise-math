@@ -392,7 +392,7 @@ class RR133BindingTests(unittest.TestCase):
         self.assertEqual([binding.OLD_RESULT],held['withheld_result_ids'])
         self.assertIsNone(result_isolation.withheld_state(binding.SOURCE_TASK,self.source['publication_id'],self.root))
         self.assertEqual([binding.OLD_PACKET],list(isolation.validated_quarantines(self.root)))
-        self.assertEqual(4,len(tasks.audit(self.root)))
+        self.assertEqual([],tasks.audit(self.root))
         self.add_history_compatibility()
         self.assertEqual([],tasks.audit(self.root))
         self.assertEqual([binding.OLD_RESULT],result_isolation.withheld_state(binding.SOURCE_TASK,binding.SOURCE_PUBLICATION,self.root)['withheld_result_ids'])
@@ -447,7 +447,7 @@ class RR133BindingTests(unittest.TestCase):
         for pin in binding.OLD_PINS:self.assertEqual(pin,binding._pin(self.root,pin['path']))
 
 
-    def test_current_only_taskbook_quarantine_requires_exact_atomic_history_migration(self):
+    def test_retired_heading_hold_needs_no_atomic_history_migration(self):
         name='control_plane/task_integrity_quarantine_addendum_20260902.json'
         current=json.loads((BASE/name).read_text())
         # Model the exact pre-Gen2 hold; Main now retains it historically.
@@ -480,11 +480,11 @@ class RR133BindingTests(unittest.TestCase):
         record=self.root/f"research_task_records/{binding.SOURCE_TASK}/{self.source['publication_id']}.json"
         new_bytes=record.read_bytes();record.unlink();write_json(self.root/name,current)
         task_integrity.install(self.root)
-        self.assertEqual(binding.SOURCE_PUBLICATION,task_integrity.validated_quarantines(self.root)[binding.SOURCE_TASK]["publication_id"])
+        self.assertNotIn(binding.SOURCE_TASK,task_integrity.validated_quarantines(self.root))
         record.write_bytes(new_bytes)
-        with self.assertRaisesRegex(task_integrity.TaskIntegrityIsolationError,'one pinned active head'):
-            tasks.current_records(self.root)
-        current['quarantines']=[];write_json(self.root/name,current);self.add_history_compatibility()
+        before=(self.root/name).read_bytes()
+        self.assertNotIn(binding.SOURCE_TASK,task_integrity.validated_quarantines(self.root))
+        self.assertEqual(before,(self.root/name).read_bytes())
         self.assertEqual(self.source['publication_id'],tasks.current_records(self.root)[binding.SOURCE_TASK]['publication_id'])
         self.assertEqual([],tasks.audit(self.root))
         self.assertEqual([binding.OLD_RESULT],result_isolation.withheld_state(binding.SOURCE_TASK,binding.SOURCE_PUBLICATION,self.root)['withheld_result_ids'])

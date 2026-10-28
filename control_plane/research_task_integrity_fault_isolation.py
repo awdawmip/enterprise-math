@@ -187,11 +187,6 @@ def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
             for item in heads.get(task_id, [])
             if item.get("publication_id")
         }
-        if active_ids != {publication_id}:
-            raise TaskIntegrityIsolationError(
-                f"{task_id}: integrity quarantine requires exactly one pinned active head; "
-                f"expected={[publication_id]!r} actual={sorted(active_ids)!r}"
-            )
         if record.get("_record_path") != row["record_path"]:
             raise TaskIntegrityIsolationError(f"{task_id}: record_path drift")
         record_path = root / row["record_path"]
@@ -218,13 +213,20 @@ def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
         if any(not core.is_retired_body_style_error(error)
                for error in row["allowed_task_record_audit_errors"]):
             active[task_id] = row
-            continue
-        # The same pinned content may genuinely be empty/unfilled. Translate
-        # that diagnostic in memory and retain its hold; never rewrite history.
-        _, body = core.research_taskbook.split_taskbook(taskbook_data.decode("utf-8"))
-        body_errors = core.validate_body(body)
-        if body_errors:
-            active[task_id] = {**row, "allowed_task_record_audit_errors": body_errors}
+        else:
+            # The same pinned content may genuinely be empty/unfilled. Translate
+            # that diagnostic in memory and retain its hold; never rewrite history.
+            _, body = core.research_taskbook.split_taskbook(taskbook_data.decode("utf-8"))
+            body_errors = core.validate_body(body)
+            if body_errors:
+                active[task_id] = {**row, "allowed_task_record_audit_errors": body_errors}
+        # A retired presentation record may now be superseded history. It must
+        # not impose current-head/migration requirements on a valid successor.
+        if task_id in active and active_ids != {publication_id}:
+            raise TaskIntegrityIsolationError(
+                f"{task_id}: integrity quarantine requires exactly one pinned active head; "
+                f"expected={[publication_id]!r} actual={sorted(active_ids)!r}"
+            )
     return active
 
 

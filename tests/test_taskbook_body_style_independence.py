@@ -57,6 +57,23 @@ class TaskbookBodyStyleIndependenceTests(unittest.TestCase):
         self.assertEqual(set(), current.suppression_strings(root))
         self.assertEqual(before, {key: (root / row[key]).read_bytes() for key in before})
 
+    def test_valid_successor_does_not_require_migrating_an_old_style_record(self):
+        root, row, _ = self.fixture()
+        record = json.loads((root / row['record_path']).read_text())
+        next_record = dict(record, publication_id='TP2-BODY-STYLE-NEXT',
+                           publication_generation=record['publication_generation'] + 1,
+                           supersedes_publication_id=record['publication_id'])
+        next_path = root / 'research_task_records' / row['task_id'] / 'TP2-BODY-STYLE-NEXT.json'
+        next_path.write_text(json.dumps(next_record))
+        before = (root / current.QUARANTINE_FILE).read_bytes()
+        self.assertEqual({}, current.validated_quarantines(root))
+        self.assertEqual('TP2-BODY-STYLE-NEXT', core.current_records(root)[row['task_id']]['publication_id'])
+        self.assertEqual(before, (root / current.QUARANTINE_FILE).read_bytes())
+        old = root / row['record_path']
+        old.write_bytes(old.read_bytes() + b'\n')
+        with self.assertRaisesRegex(current.TaskIntegrityIsolationError, 'record blob drift'):
+            current.validated_quarantines(root)
+
     def test_retired_hold_does_not_hide_original_record_or_taskbook_byte_drift(self):
         for field in ('record_path', 'taskbook_path'):
             root, row, _ = self.fixture()
@@ -91,6 +108,13 @@ class TaskbookBodyStyleIndependenceTests(unittest.TestCase):
         (root / current.QUARANTINE_FILE).write_text(json.dumps(data))
         self.assertIn(row['task_id'], current.validated_quarantines(root))
         self.assertEqual({row['record_path'] + ': unknown scientific-input defect'}, current.suppression_strings(root))
+        record = json.loads((root / row['record_path']).read_text())
+        successor = dict(record, publication_id='TP2-NONSTYLE-NEXT',
+                         publication_generation=record['publication_generation'] + 1,
+                         supersedes_publication_id=record['publication_id'])
+        (root / 'research_task_records' / row['task_id'] / 'TP2-NONSTYLE-NEXT.json').write_text(json.dumps(successor))
+        with self.assertRaisesRegex(current.TaskIntegrityIsolationError, 'one pinned active head'):
+            current.validated_quarantines(root)
 
     def test_historical_mixed_errors_retain_non_style_checks(self):
         rows = [{'record_path': 'research_task_records/T/P.json',
