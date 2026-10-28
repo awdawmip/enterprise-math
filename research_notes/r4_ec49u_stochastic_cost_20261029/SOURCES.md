@@ -1,0 +1,15 @@
+# EC49U source log (read-only scope)
+
+Scientific read snapshot (frozen once for this unit):
+
+- `GLOBAL_KNOWLEDGE_V1`, canonical `awdawmip/chatgpt-global-knowledge`, `main@75c30a747792c0e33c7116eb01db2f77d00868da`; read `00_BOOTSTRAP.md`, `OPERATING_MANUAL.md`, `我眼中的世界.md`, math/code/output policy, BRC priority, EM research activity and PR handoff instructions. `projects/enterprise-math/P000_REALITY_FOUNDATION.json` Git blob `770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc` is a global projection, not a replacement for project P000.
+- `awdawmip/enterprise-math`, scientific main read `4dab5fcd7d61f67f721f21b2f6251b4eede4750c`; read `AGENTS.md`, `p000_reality_foundation.json` (project-current Git blob `bcc2590d3168a28f72e8b9f0f9b1f76faadcd488`), `definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`, `definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json`, `definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json`, `definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`, `control_plane/current_control_authority.json`, `docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `control_plane/research_delivery_policy.json`.
+- Direct scientific predecessor: EC49T Draft PR #1666, immutable research commit `dd5711b0c27d1886918c8bd69b2660978fde4593`, files `research_notes/r4_ec49t_cost_neutral_20261029/PROOF.md` and `NEXT_TASK.md`; scientific earlier lineage EC49S Draft PR #1662, commit `613f00f7a013ce64286aabbdfa32a303726c9477`.
+
+External scientific context (verified 2026-10-29; claims limited to abstracts/intro):
+
+1. Valentina Zaccaria, Philip Jordan, Tingting Ni, Gian Antonio Susto, Maryam Kamgarpour, *Finite-Time Guarantees for Constrained Reinforcement Learning under Partial Observability*, posted **2026-10-15**, arXiv:2610.21548, https://arxiv.org/abs/2610.21548 . Studies constrained POMDP with finite-window approximations and filter-stability-dependent reward/cost feasibility gaps. EC49U proves a different finite, fully explicit exact separator and does not apply their assumptions/algorithm.
+2. Ryan A. Anderson and Guido Montufar, *The Value Function Semi-Algebraic Set in Partially Observable Markov Decision Processes*, **ICML 2026**, PMLR 306:2677–2715, https://proceedings.mlr.press/v306/anderson26a.html . Studies infinite-horizon memoryless POMDP feasible value sets, distinct from this finite two-source behavioral compression.
+3. Linus Heck, Filip Macák, Milan Češka, Sebastian Junges, *Constrained and Robust Policy Synthesis with Satisfiability-Modulo-Probabilistic-Model-Checking*, AAAI 2026, published **2026-03-14**, https://ojs.aaai.org/index.php/AAAI/article/view/40944 . Provides context for finite structural constraints; no theorem from it is reused as EC49U proof.
+
+Boundary: external scientific consensus is not P000; positive-rational source leaves are not signed BRC amplitudes; source probabilities and cost readouts are distinguished from native spatial coordinates/heartbeat time. No protected file edits.

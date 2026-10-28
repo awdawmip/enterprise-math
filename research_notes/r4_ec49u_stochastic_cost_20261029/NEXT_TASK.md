@@ -1,0 +1,11 @@
+# EC49V — The full information-strength support envelope and exact expected-cost face
+
+Status: PROPOSED_PORTABLE_AUTHOR_FOLLOWUP; **not a canonical Task/CLAIM**.
+
+Preserve EC49U's explicit 18-leaf P/Q source model, the W/U/Z alphabets, positive-rational branch provenance, the two action labels A/B with costs 1/2, the post-U sensor S cost 1, one pre-erasure memory bit, and all terminal/stop choices. Do not alter P000 or ACTIVE worldview. Parent proof and executed checker are in the immutable EC49U PR/commit referenced by `HANDOFF.md` once published; inherited EC49T draft PR #1666 and commit `dd5711b0c27d1886918c8bd69b2660978fde4593` remain scientific sources, not an admitted Result.
+
+**Hard unit 1.** Derive the exact piecewise-linear formula in eta for `max_compressed H`, `H=alpha-beta-(E_PT+E_QT)/36`, for every real `0<=eta<1/2`. Derive it from the seven possible nonempty W-fiber contributions and a finite partition/envelope proof, not a sampled grid. Check all breakpoints by exact Fraction rational arithmetic and cross-validate independent terminal masks. The known hard checkpoints are: `H_max(1/200)=1/27`, `H_max(5/12)=1/24`, `H_max(eta)=1/27` for all `0<=eta<=1/6`.
+
+**Hard unit 2.** For fixed source/stage cost expectations `C1_P=C1_Q=43/48`, `C2_P=C2_Q=7/8`, determine the **exact** achievable `(alpha,beta)` section under behavioral compressed policies; no claim of convexity or a polytope until proved. Give at least one exact rational cost-constrained sharp support certificate, or a counterexample showing that the unrestricted H-separator is not a tight cost-section deficit. Confront randomized cost compensation explicitly, including paths with and without S and independent vs shared randomization.
+
+**Scientific return.** A finite source-bound certificate (Fraction and/or symbolic interval decomposition), exact hypotheses for any all-real assertion, an independent solver crosscheck if available, prior-art comparison including 2026-10-15 arXiv:2610.21548, output/uncertainty, and the next falsifiable question. Separate exact auxiliary positive-weight BRC from native signed amplitude and the required X6 typed morphism; do not announce theorem admission without independent Driver review.
