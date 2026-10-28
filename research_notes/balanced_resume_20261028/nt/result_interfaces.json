@@ -1,0 +1,50 @@
+{
+  "schema": "UNREVIEWED_RESULT_INTERFACE_BUNDLE_V1",
+  "researcher_id": "EM-NT-EFC4A8",
+  "formal_acceptance": false,
+  "method_harvest": "RESULT_ONLY",
+  "new_tool_family": false,
+  "interfaces": [
+    {
+      "id": "NT-20261028-PRIME-CAPACITY-27-28",
+      "statement": "For S={2,3},a=(0,0),L=2 and prime residual q>=5, C(27)=5 and C(28)=4; exact fixed-length residual bits decrease 3 to 2.",
+      "proof": "prime_capacity_threshold.md#theorem-1-a-larger-h-can-require-fewer-residual-bits",
+      "scope": "EXTERNAL_CLASSICAL_INTEGER_FIXED_OBSERVER",
+      "reuse": "NT-DIV-RESIDUAL-CAPACITY exact quotient; T4 finite-fiber capacity",
+      "status": "AUTHOR_PROOF_REVIEW_PENDING"
+    },
+    {
+      "id": "NT-20261028-PRIME-CAPACITY-SHARP66",
+      "statement": "In the same fixed instance, C(H)=7 iff H in [45,62] or H>=66, for integer H>=1.",
+      "proof": "prime_capacity_threshold.md#theorem-2-exact-full-capacity-set-and-permanent-threshold",
+      "dependencies": [
+        "Inherited exact quotient remains unreviewed",
+        "Nagura 1952: x>25 has prime in (x,6x/5)"
+      ],
+      "status": "AUTHOR_PROOF_REVIEW_PENDING"
+    },
+    {
+      "id": "NT-20261028-CRT-FIBER-BITS",
+      "statement": "For the fixed six-cell N871 coupled payload observer, feasible nonnegative integer baseline has C=min(e,gamma1)-max(0,e-gamma4)+1 exact prefix-distinct states; extra fixed-length bits ceil(log2 C).",
+      "proof": "crt_repair_bits.md#theorem-1-exact-feasible-fiber-and-minimal-conditional-code-length",
+      "dependencies": [
+        "Exact baseline consistency inequalities",
+        "Inherited six-cell reconstruction formula",
+        "All integer prefix cuts on same fixed support"
+      ],
+      "status": "AUTHOR_PROOF_REVIEW_PENDING"
+    },
+    {
+      "id": "NT-20261028-CRT-MASS-BITS",
+      "statement": "At total mass M>=0, maximal compatible fiber size is floor(M/2)+1 and sharp conditional repair bits ceil(log2(floor(M/2)+1)).",
+      "proof": "crt_repair_bits.md#theorem-2-sharp-worst-case-bound-at-total-mass-m",
+      "scope_exclusions": [
+        "Not unweighted QRWheel storage lower bound",
+        "Not runtime or factoring-speed bound",
+        "Baseline/preparation/t computation costs excluded",
+        "No support changes or future dynamics"
+      ],
+      "status": "AUTHOR_PROOF_REVIEW_PENDING"
+    }
+  ]
+}
