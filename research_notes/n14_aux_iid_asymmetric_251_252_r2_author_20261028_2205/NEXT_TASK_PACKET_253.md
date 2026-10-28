@@ -1,0 +1,9 @@
+# Stage253 — Exact two-parameter robustness region for N=12 asymmetric sequential minimax
+
+Mother question: how does min max(E_P tau,E_Q tau) depend on independent error caps (a,b) in the *external* ternary IID P=(3,1,20)/24, Q=(2,2,20)/24? This research does not assert any native X6/P000 dynamics transfer.
+
+Verified author parent: Stage251–252 proof/code in the same directory of Draft PR #1571. Earlier Stage250 immutable commit 50ccfad5c0052af422fff9a97854b05843f722ba. N12 fixed-cap exact value 4500007219693683431/814267306817003520, dual K12=7416207288/112220771, root H12=710830290256337191/12527189335646208, tie states A=(1,0,1) (P/C) and B=(0,0,12) (P/Q), coins x=1564797113/11222077100 and y=1121360544147507/3372018359375000.
+
+Scientific step: extract the exact four-observer vectors w00=observers(0,0), u=observers(1,0)-w00, v=observers(0,1)-w00 from the verified parent program. Let w(x,y)=w00+x*u+y*v, invert the rational 2x2 error matrix to express x=x(a,b), y=y(a,b). Find a rational nonzero-area two-parameter region containing (3/10,19/40) with 0<=x,y<=1 and tP(x,y)>=tQ(x,y). On it give a mathematically proven all-real-valued affine optimum V12(a,b)=H12(0)-K12*(a+b) by a matching primal/dual pair. Distinguish coin saturation from first time-dominance contact and examine cap-wise nearest obstructions.
+
+Required outputs: exact inequalities or vertices of the certified region, complete proof, runnable Fraction checker with actually executed evidence, explicit observed and future-operation scope, at least one sharp boundary witness, and the next minimal question. Preserve P/Q labelled ordered-history branch masses. Formal Source CLAIM/Result, independent Driver review and native correspondence require separate authority/evidence; author result alone is UNREVIEWED/NOT_ADMITTED.
