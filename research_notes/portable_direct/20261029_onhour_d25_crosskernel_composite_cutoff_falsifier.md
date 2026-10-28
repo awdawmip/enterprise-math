@@ -69,6 +69,25 @@ Verifier: `research_notes/portable_direct/d25_crosskernel_composite_cutoff_falsi
 
 **BRC/observer applied:** carrier is the signed and source-labeled finite family of pairs `(N,n,A-term,B-term)` with integer coefficient, denominator/unit, cutoff and modulus; the observer is `A_N-B_N mod N^3`, with future operation changing the cutoff between prime N and composite N. Compression to one scalar congruence without source/cutoff typing would erase precisely the failure mode. This is external finite-ring arithmetic, **not** a new X6 native geometric operation, balance axiom or BRC foundation theorem.
 
+## Second exact unit: preserve the comparator's signed high-half port
+
+The published B high-half vanishing result is a **prime-only** input in T1, not a formal property of the original summands for every cutoff. Our new counterexamples have separately computed original four source-labeled half-cut ports, using h=(N−1)/2 and no replacement cutoff:
+
+| N | A_low | A_high | B_low | B_high | B_high mod N² |
+|---:|---:|---:|---:|---:|---:|
+| 25 | 4525 | 14250 | 10650 | 14375 | 0 |
+| 85 | 80750 | 335750 | 310250 | 448375 | 425 |
+
+All entries are residues mod N³ and recombine to the already reported A_N and B_N. At N=25 the comparator B high half is **nonzero modulo N³**, though zero modulo N². At N=85 it is **nonzero even modulo N²** (residue 425). Thus a formal attempt to carry over the Guo–Zudilin B half-cut vanishing to all N would already fail, independently of the original A high-tail correction. The full bridge defect is
+
+\[
+D_N=(A_{\le h}-B_{\le h})+(A_{>h}-B_{>h})\pmod{N^3},
+\]
+
+and the second signed pair cannot be replaced by only the A high half outside the proved prime setting.
+
+This pinpoints the hypothesis boundary for a prospective uniform prime-sensitive WZ or CM argument: preserve both original high-half ports until prime-specific vanishing is actually proved. **Status:** exact finite four-port certificates for N=25,85; no universal theorem. Checked by the updated verifier at project commit `893389bdcc3afefe1d439387e3286027018590a7`.
+
 ## Continuation, current owner separation, and exact next step
 
 No mathematical claim of uniform `A_p=B_p mod p³` was made; no full prime theorem and no new native experiment. The immediate *portable* proof task remains the original **T1** prime-index bridge, for frozen classes p≡13,19 mod24: construct a prime-sensitive finite-field/CM/nonlocal-WZ identity for the half-cut difference plus nonvanishing 216 high-tail; any candidate transformation must fail or explicitly become undefined for N=25 and N=85, as its scope prescribes. Do not repeat earlier 781-prime observations as proof or re-prove the completed 216 reflection.
