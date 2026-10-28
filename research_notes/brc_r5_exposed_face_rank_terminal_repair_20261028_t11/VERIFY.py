@@ -49,4 +49,6 @@ if __name__=='__main__':
     print('minor=',minor,' Z=',Z)
     print('full witness: x=1/2, y_U=1, y_V=1/2')
     print('LR unrestricted repair: x=1/2, y=5/8, V terminal swap=1/30')
+    assert F(93,384)+F(864,384**2)==F(127,512)<F(1,4)
+    print('restricted supnorm distance strictly > 1/384 by exact inverse-minor bound')
     print('PASS_EXACT_R5_FACE_RANK_AND_TERMINAL_REPAIR')
