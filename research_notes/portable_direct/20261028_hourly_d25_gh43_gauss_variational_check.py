@@ -66,6 +66,5 @@ def main():
     print("PASS_GH43_FORCED_VARIATIONAL_JET",len(results),"primes, mod p")
     print("SAMPLE_BOUNDARY",[x for x in results if x[0] in (7,11,19,43,67,127)])
 
-
 if __name__ == '__main__':
     main()
