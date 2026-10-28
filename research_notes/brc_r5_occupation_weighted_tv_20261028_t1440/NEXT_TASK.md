@@ -1,0 +1,11 @@
+# R5 follow-up — support-equal multi-level predictive heterogeneity
+
+**Parent**: strictly positive rational finite passive two-law observation tree for which full-history and seedless likelihood-ratio behavioral policies have equal convex hulls in O=(e_P,e_Q,T_P,T_Q) but different *true* four-observer images. Current scientific status: unproved parent witness; do not equate local nonconvexity or numerical hull agreement with full result.
+
+**Inputs**: RESEARCH.md, VERIFY.py, EXACT_OUTPUT.txt in this folder; predecessor research_notes/brc_r5_multilevel_lumpability_tv_20261028_t1340/RESEARCH.md; source frozen GLOBAL_KNOWLEDGE_V1 main@24e87efc3f9be57dab101b68577900c07d602ea1, Enterprise Math baseline main@f89d309e632bdf08cb6e5c665d3466d2b2efd406. All files are author-side UNREVIEWED / NOT_ADMITTED; no verified Source owner or CLAIM.
+
+**Discriminating first unit**: retain two distinct nonterminal LR collision levels with at least three next-signature values (two shared values force homogeneous kernels by the two moment equations). Choose strictly positive *rational* Q rows satisfying sum Q=1 and sum_s s*Q(s)=r; obtain P rows exactly by s*Q(s)/r. Keep raw hidden-source IDs, separate stage and law. For each candidate, compute epsilon_t^P,Q=sum_F C_F^P,Q delta_F^P,Q and sourcewise Bellman continuation advantages on every globally potentially exposed face; verify terminal declaration ties and any extra behavioral coordinates.
+
+**Target acceptance evidence**: (1) a complete all-signed-direction equality certificate for the two convex hulls, via a proof or an exact all-vertex rational hull representation over the declared *complete* deterministic strategy finite domain; (2) an exact rational four-vector in the full image; (3) a global real-policy LR nonmembership proof, e.g. a fully specified semialgebraic sign decomposition/certificate that includes all stop, continue and terminal declaration probabilities. A finite random grid, positive TV diameter or local bilinear rank-three patch is insufficient.
+
+**Not-yet-completed**: exact support equality, real-policy nonmembership, independent Driver review, Source Result, X6 native embedding/readout/future preservation. Do not overwrite existing task/Result/review. Respect active owner once readable; this note grants no role authority.
