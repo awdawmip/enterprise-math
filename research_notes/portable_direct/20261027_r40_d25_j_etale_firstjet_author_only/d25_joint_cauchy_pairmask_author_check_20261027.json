@@ -1,0 +1,91 @@
+{
+  "date": "2026-10-27",
+  "status": "PASS",
+  "scope": "AUTHOR_EXACT_CHECK_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "statement": "Full u_n p-adic carry enumerator and exact pairwise p^3 Cauchy triangle mask",
+  "checked_primes": [
+    5,
+    7,
+    11,
+    13,
+    19,
+    43
+  ],
+  "independent_factorial_valuation_checks": 2720,
+  "u_formula_vs_transfer_exponents_per_prime": 7,
+  "direct_signed_examples": [
+    {
+      "p": 5,
+      "N": 13,
+      "retained_pairs": 72,
+      "total_pairs": 91,
+      "S_mod_p3": 82
+    },
+    {
+      "p": 7,
+      "N": 17,
+      "retained_pairs": 114,
+      "total_pairs": 153,
+      "S_mod_p3": 115
+    },
+    {
+      "p": 11,
+      "N": 25,
+      "retained_pairs": 246,
+      "total_pairs": 325,
+      "S_mod_p3": 466
+    },
+    {
+      "p": 13,
+      "N": 29,
+      "retained_pairs": 321,
+      "total_pairs": 435,
+      "S_mod_p3": 2157
+    },
+    {
+      "p": 19,
+      "N": 41,
+      "retained_pairs": 636,
+      "total_pairs": 861,
+      "S_mod_p3": 3372
+    }
+  ],
+  "large_horizon_dp_counts": [
+    {
+      "p": 5,
+      "e": 5,
+      "N": 3125,
+      "u_active": 1683,
+      "triangle_active_pairs": 148896
+    },
+    {
+      "p": 7,
+      "e": 4,
+      "N": 2401,
+      "u_active": 1657,
+      "triangle_active_pairs": 215089
+    },
+    {
+      "p": 13,
+      "e": 3,
+      "N": 2197,
+      "u_active": 1903,
+      "triangle_active_pairs": 397295
+    },
+    {
+      "p": 43,
+      "e": 3,
+      "N": 79507,
+      "u_active": 69343,
+      "triangle_active_pairs": 428617260
+    },
+    {
+      "p": 373,
+      "e": 3,
+      "N": 51895117,
+      "u_active": 45390883,
+      "triangle_active_pairs": 168999151344875
+    }
+  ],
+  "limitations": "Exact integer checking supports but does not prove universal equations; no native H0/B0 or Source admission."
+}

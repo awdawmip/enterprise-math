@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-28",
+  "status": "PASS",
+  "classification": "AUTHOR_EXACT_CHECK_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "statement": "Exact prime-horizon signed p^3 pair support in S_p; p mod 6 closed counts",
+  "exact_oracle_pairs": 595285,
+  "tested_primes": [
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    31,
+    37,
+    43,
+    73,
+    211,
+    373,
+    997
+  ],
+  "cases": [
+    {
+      "p": 13,
+      "retained": 79,
+      "extra_weight_only": 2,
+      "S_mod_p3": 13
+    },
+    {
+      "p": 19,
+      "retained": 166,
+      "extra_weight_only": 3,
+      "S_mod_p3": 3268
+    },
+    {
+      "p": 373,
+      "retained": 61939,
+      "extra_weight_only": 62,
+      "S_mod_p3": 8487242
+    },
+    {
+      "p": 997,
+      "retained": 442059,
+      "extra_weight_only": 166,
+      "S_mod_p3": 487065407
+    }
+  ],
+  "expanded_local_checker_sha256": "764833c79813918572f432bf734918d4745f66e786e83a75d26c96e95c770f50",
+  "expanded_local_author_json_sha256": "3a91c6d4c137a137868876c9b01ec3f6f4b12f46b8bb79a3dbfccf7ac1b606e7",
+  "native_H0_B0": "NOT_RUN",
+  "source_claim": "UNVERIFIED",
+  "accepted": false
+}

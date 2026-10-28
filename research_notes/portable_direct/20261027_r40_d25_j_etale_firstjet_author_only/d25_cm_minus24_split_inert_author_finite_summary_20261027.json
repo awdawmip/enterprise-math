@@ -1,0 +1,43 @@
+{
+  "schema": "D25_CM_MINUS24_FINITE_CERTIFICATE_V1",
+  "date": "2026-10-27",
+  "status": "PASS_FINITE_RANGE_ONLY_AUTHOR_UNREVIEWED_NOT_ADMITTED",
+  "domain": "prime p>=7, p<40000, p%6=1",
+  "prime_count": 2089,
+  "counts_mod24": {
+    "1": {
+      "primes": 501,
+      "A_zero": 0,
+      "split_matches": 501
+    },
+    "7": {
+      "primes": 526,
+      "A_zero": 0,
+      "split_matches": 526
+    },
+    "13": {
+      "primes": 532,
+      "A_zero": 532
+    },
+    "19": {
+      "primes": 530,
+      "A_zero": 530
+    }
+  },
+  "original_full_record_sha256": "df4054e51030578be655cb2a52ed051b5455a5a4697c8a40743ef93457d6cc29",
+  "two_exact_calculation_routes": [
+    "binomial_recurrence",
+    "factorial_modular_binomial"
+  ],
+  "tests": [
+    "full_sieve_7<=p<40000",
+    "exhaustive_a2_plus_6b2_signed_representation",
+    "Euler_chi(-6,p)"
+  ],
+  "universal_claim": "CONJECTURE_ONLY",
+  "source_checkpoint": false,
+  "native_claim": false,
+  "independent_review": false,
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "next_action": "prove/refute all-prime Jacobsthal/CM(-24) signed trace without treating auxiliary result as original H0/B0"
+}

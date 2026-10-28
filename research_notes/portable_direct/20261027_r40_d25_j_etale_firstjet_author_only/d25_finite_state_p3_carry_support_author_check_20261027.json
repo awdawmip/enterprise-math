@@ -1,0 +1,95 @@
+{
+  "status": "PASS",
+  "date": "2026-10-27",
+  "scope": "AUTHOR_EXACT_CHECK_NOT_NATIVE",
+  "theorem": "all primes p>=5; digit-carry finite-state selector and closed p^e active counts",
+  "checked_primes": [
+    5,
+    7,
+    11,
+    13,
+    19,
+    31,
+    37,
+    43
+  ],
+  "matrix_rows_checked": 24,
+  "total_oracle_indices_checked_at_least": 22353,
+  "signed_convolution_examples": [
+    {
+      "prime": 5,
+      "N": 13,
+      "active_k_count": 11,
+      "W_mod_p3": 25,
+      "S_mod_p3": 82
+    },
+    {
+      "prime": 7,
+      "N": 17,
+      "active_k_count": 13,
+      "W_mod_p3": 98,
+      "S_mod_p3": 115
+    },
+    {
+      "prime": 11,
+      "N": 25,
+      "active_k_count": 19,
+      "W_mod_p3": 455,
+      "S_mod_p3": 466
+    },
+    {
+      "prime": 13,
+      "N": 29,
+      "active_k_count": 21,
+      "W_mod_p3": 1473,
+      "S_mod_p3": 2157
+    },
+    {
+      "prime": 19,
+      "N": 41,
+      "active_k_count": 29,
+      "W_mod_p3": 551,
+      "S_mod_p3": 3372
+    }
+  ],
+  "large_horizon_counts": [
+    {
+      "p": 5,
+      "e": 8,
+      "active": 4096,
+      "all": 390625
+    },
+    {
+      "p": 7,
+      "e": 8,
+      "active": 46413,
+      "all": 5764801
+    },
+    {
+      "p": 13,
+      "e": 6,
+      "active": 111475,
+      "all": 4826809
+    },
+    {
+      "p": 19,
+      "e": 6,
+      "active": 947611,
+      "all": 47045881
+    },
+    {
+      "p": 43,
+      "e": 5,
+      "active": 5727555,
+      "all": 147008443
+    },
+    {
+      "p": 373,
+      "e": 4,
+      "active": 1567464719,
+      "all": 19356878641
+    }
+  ],
+  "claim": "proof is algebraic; finite checks do not establish universality",
+  "review": "UNREVIEWED_NOT_ADMITTED"
+}
