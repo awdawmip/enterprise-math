@@ -1,0 +1,9 @@
+# R5 next: source occupancy and signed Bellman support
+
+Mother problem remains: find a finite strictly-positive rational two-law sequential model with equality of all 4D signed support functions for full-history and unseeded likelihood-ratio policies, but inequality of their ACTUAL real behavioral images.
+
+Predecessor: RESEARCH.md here proves an exact all-real triple polytope (TV_Q,TV_P,gamma_k), where gamma_k is the minimum source-tagged Q conditional mass at one successor LR signature. For stage 1 s=(1/2,1,2,3),r=3/2,u=v=3/5, gamma4<=4/25 sharply; the equal-source-weight second collision has Q paired incoming capacity <=1/25. The positive two-stage rational tree has gamma4=19/125 and second-stage TV_Q=TV_P=1/2. Do not falsely claim the local TV polygons alone fail to factor: the obstruction depends on retaining source occupancy.
+
+Next smallest proof obligation: introduce two nonterminal stop/continue decisions into this exact two-stage tree. Derive a sharp four-dimensional signed Bellman improvement using the source occupancy coordinate, preserving distinct P,Q masses, time, terminal-decision optimization, and real seedless LR action constraints. If strict signed support separation occurs, exclude this model. If not, prove all-directions convex-hull equality BEFORE testing true-image inequality.
+
+Required evidence: all exact branch masses and decision payoffs, full real-policy proof (multiaffine/Bellman or exact algebraic certificates), Fraction checker with runnable source and output, explicit unresolved lemma, immutable published files and readback. Maintain P000, active X6/worldview, and Source owner/claim/review distinctions; this is not yet native X6 time evolution.
