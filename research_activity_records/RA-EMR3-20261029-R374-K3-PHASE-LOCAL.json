@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
+  "activity_id": "RA-EMR3-20261029-R374-K3-PHASE-LOCAL",
+  "registration_key": "session:EMR3-R374-20261029T073132-LOCAL-RESEARCH:TASK_RESEARCH",
+  "registration_origin": {
+    "kind": "LIVE_SESSION",
+    "source_tracking_key": null
+  },
+  "mode": "TASK_RESEARCH",
+  "researcher_id": "EM-EMR3-R374-LOCAL",
+  "session_id": "EMR3-R374-20261029T073132-LOCAL-RESEARCH",
+  "session_state": "KNOWN",
+  "recorded_at": "2026-10-29T07:31:32+08:00",
+  "authority": {
+    "task_registration": false,
+    "claim": false,
+    "review": false,
+    "working_truth": false,
+    "mathematical_acceptance": false
+  },
+  "checkpoints": [
+    {
+      "event_id": "EMR3-20261029-R374-K3-PF2-CHECKPOINT-0732",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "9ccfb87658981a419e6c55baedfe1933e81478f4",
+          "path": "research_notes/r374_signed_k3_corank6_phase_20261029_emr3/R374_verify.py",
+          "sha256": "0df1189ad7759b77443a76dd0feb636a51bab55426668c667caaca4c6bb1f962",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "EMR3-20261029-R374-IMMUTABLE-OBS-0732",
+            "call_id": null,
+            "git_blob_sha1": "e3c70fe4e21c0895b35c1e629418fc23c248ef94",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/9ccfb87658981a419e6c55baedfe1933e81478f4/research_notes/r374_signed_k3_corank6_phase_20261029_emr3/R374_verify.py",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR3-20261029-R374-K3-PHASE-LOCAL/readbacks/bf204d0cd3c5a526b33967aa06177c47cb0f32f59cff6d964eba75d9b252a59b.json",
+          "verification_receipt_sha256": "bf204d0cd3c5a526b33967aa06177c47cb0f32f59cff6d964eba75d9b252a59b"
+        }
+      ],
+      "kb_sources": [],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null
+    }
+  ]
+}
