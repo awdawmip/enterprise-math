@@ -3,11 +3,11 @@
 
 
 def primes(limit):
-    mark = bytearray(b'\\x01')*limit
-    mark[:2] = b'\\x00\\x00'
+    mark = bytearray(b'\x01')*limit
+    mark[:2] = b'\x00\x00'
     for k in range(2, int(limit**0.5)+1):
         if mark[k]:
-            mark[k*k:limit:k] = b'\\x00'*(((limit-1-k*k)//k)+1)
+            mark[k*k:limit:k] = b'\x00'*(((limit-1-k*k)//k)+1)
     return [p for p in range(7,limit) if mark[p] and p%4==3]
 
 
