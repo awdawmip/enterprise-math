@@ -1,0 +1,1716 @@
+{
+  "schema": "EM_BALANCED_SECOND_ROTATION_DOCUMENTARY_INDEX_V1",
+  "date": "2026-10-28",
+  "timezone": "Asia/Shanghai",
+  "repository": "awdawmip/enterprise-math",
+  "source_snapshot": "d1a8bb0db86016afa72b546f31142de071facec7",
+  "classification": "DOCUMENTARY_INTEGRATION_NO_NEW_MATHEMATICAL_VOTE",
+  "source_state": "Frozen immutable research-branch evidence through wave9; no main intake asserted here.",
+  "parent_objective": "OPEN",
+  "formal_runtime_state": "UNKNOWN",
+  "first_rotation": {
+    "index": {
+      "repo_path": "research_notes/balanced_resume_20261028/RESULTS_INDEX.json",
+      "sha256": "2bad8c212e1c35b840d678e36e225e917619bbe1b12d3d683054f6da793f6238",
+      "git_blob": "3107e5d0328f4f8dc1ed9283f7aab1c822a2fcf5",
+      "bytes": 96457,
+      "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+    },
+    "human_index": {
+      "repo_path": "research_notes/balanced_resume_20261028/RESULTS_INDEX.md",
+      "sha256": "815d6eb994a90117d7332b41e77b175354551cb2819b891c599d124d3a81abe8",
+      "git_blob": "e617e55c8e246cb18930c15a4b7f9431cd8f5200",
+      "bytes": 9208,
+      "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+    },
+    "fair_outcomes": {
+      "repo_path": "research_notes/balanced_resume_20261028/FAIR_ROTATION_OUTCOMES.json",
+      "sha256": "761797686ce458a0fee8a6b81c0b813a0132ae52f3fc6cc1376acdcaf4c606e1",
+      "git_blob": "66a383a57308e87fb116b1ba20cfab28e5702956",
+      "bytes": 18909,
+      "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+    },
+    "unchanged": true,
+    "first_rotation_family_count": 12,
+    "first_rotation_service_unit_count": 12,
+    "historical_monthly_documentary_count": 435,
+    "do_not_add_to_accepted_theorem_count": true
+  },
+  "counting": {
+    "report_sections": 4,
+    "meaning": "One strengthened Student chain, one CM undecided dichotomy, one existing-tool FREE application, one static external audit. This is not a count of accepted/new theorems.",
+    "nested_student_domains_are_one_chain": true,
+    "new_formal_driver_acceptances": 0,
+    "new_tool_families": 0,
+    "foundation_changes": 0,
+    "root_documentary_math_votes": 0
+  },
+  "status_policy": {
+    "author_pending": "Preserve creation-time author status; later exact hash-bound reviews are distinct overlay facts.",
+    "paper_review": "Reported bounded nonauthor paper/interface findings, with contribution and exposure disclosures; no formal Driver disposition or Task closure.",
+    "inherited_interfaces": "Original hypotheses and unresolved earlier source statuses remain load-bearing.",
+    "scope_snapshot": "The complete original proof and review control any compressed description."
+  },
+  "outcomes": [
+    {
+      "id": "SECOND-STUDENT-ALL-C",
+      "kind": "STRENGTHENING_ONE_EXISTING_RESULT_CHAIN",
+      "family": "student_parity",
+      "strongest_scope": "For each fixed integer m>=2, one computable rational R_m independent of S,a,c gives the exact full signed trace tail for S>=0,a>0,c>0 and S+a>=R_m/m, with no upper bound on c/(S+a).",
+      "formula_quoted": [
+        "Gap>=((m-1)/4)*((1+c/(S+a))^(m+1)-1)",
+        "Gap>=(m^2-1)c/(4(S+a))>0"
+      ],
+      "author_interface_quoted": {
+        "schema": "PARITY_ALL_SECOND_GAPS_EFFECTIVE_SUM_TAIL_INTERFACE_V1",
+        "author": "EM-ANALYSIS-1E507F",
+        "activity": "RA-9C879FA5E6538D45DD9AE10F",
+        "status": "AUTHOR_CANDIDATE_DISTINCT_REVIEW_PENDING",
+        "proof": {
+          "file": "PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md",
+          "sha256": "cf9fc55ac4a4a193cc4d5c9e8355fde02dae577f0241344b05d48961dea771a0",
+          "bytes": 11608
+        },
+        "theorem": {
+          "m": "fixed integer>=2",
+          "parameters": "S>=0,a>0,c>0",
+          "normalization": "Original complete signed normalized secant A,B; no frame, branch, sign or denominator change",
+          "threshold": "computable rational R_m=max(Rpert_m,Rbounded_m(1))>=1, independent of S,a,c",
+          "domain": "S+a>=R_m/m",
+          "lower_bounds": [
+            "Gap>=((m-1)/4)*((1+c/(S+a))^(m+1)-1)",
+            "Gap>=(m^2-1)c/(4(S+a))>0"
+          ],
+          "relative_second_gap_upper_bound": "NONE",
+          "gap_positive_lower_bounds": "NONE",
+          "m_uniform_threshold": false,
+          "compact_total_scale_region": "OPEN"
+        },
+        "effective_recipe": {
+          "metric": "M(epsilon) centered analytic rational matrix; M0 has definite positive even and negative odd blocks",
+          "signature": "Sigma=+I_even direct_sum -I_odd; P=Sigma M0>0",
+          "denominator": "Q(epsilon)=product_i product_h(1+epsilon(theta_i+h))>=1",
+          "polynomial_remainder": "V=(Q*M-M0*Q)/epsilon in rational polynomial matrices",
+          "coefficient_majorant": "E=sum_l entrywise_abs([epsilon^l]V)",
+          "k_m": "||P^-1||infinity ||E||infinity",
+          "Rpert_m": "max(1,5*k_m)",
+          "Rbounded_m_1": "exact rational C=1 threshold in previous full-trace bounded-relative proof",
+          "evaluated_numerically": false
+        },
+        "reusable_lemma": {
+          "id": "COMMON_SIGNATURE_RELATIVE_TRACE_PERTURBATION",
+          "kind": "BOUNDED_CLASSICAL_COMPOSED_INTERFACE_NOT_NEW_GLOBAL_FAMILY",
+          "assumptions": [
+            "Sigma real symmetric, Sigma^2=I",
+            "P_A,P_B real positive definite and commute with Sigma",
+            "A=P_A^(1/2)(Sigma+R_A)P_A^(1/2)",
+            "B=P_B^(1/2)(Sigma+R_B)P_B^(1/2)",
+            "R_A,R_B symmetric with spectral norms<=eta<1"
+          ],
+          "definitions": [
+            "C=P_B^(-1/2)P_A^(1/2), which commutes with Sigma",
+            "T0=||C||F^2=tr((Sigma P_B)^-1(Sigma P_A))"
+          ],
+          "output": "|tr(B^-1 A)-T0| <= (2eta/(1-eta))*T0",
+          "consequence": "eta<=1/5 -> tr(B^-1 A)>=T0/2",
+          "preserved": "arbitrary signed cross-parity perturbations remain in R_A,R_B",
+          "not_applicable": [
+            "unrelated signature decompositions",
+            "positive reference forms that fail to commute with common Sigma",
+            "eta>=1",
+            "additive error reinterpreted as relative error"
+          ],
+          "tool_admission": false
+        },
+        "join": {
+          "nu": "c/(S+a)",
+          "small_nu": "0<nu<=1 uses previous exact nu-factor full-trace theorem",
+          "large_nu": "nu>=1 uses uniform relative trace bound and T0>=(m-1)(1+nu)^(m+1)",
+          "overlap": "nu=1 covered by both",
+          "final_lower_bound_fraction": "1/4"
+        },
+        "dependencies": [
+          {
+            "paper": "PARITY_FULL_TRACE_BOUNDED_RELATIVE_GAP_TAIL_AUTHOR.md",
+            "sha256": "129cad117292b1e90f3f0f8eb6c2791c2e5a050adff386c9e4a0b4c6e0d55c5e",
+            "scope_consumed": "same centered exact pair; limiting trace positivity allnu; effective smallnu C1 theorem"
+          },
+          {
+            "paper": "PARITY_UNBOUNDED_SMALL_CONE_AUTHOR.md",
+            "sha256": "f9a9415455b9b004f9e2854e999eaebd4934acd7211084b87bf1bc5c0634e921",
+            "scope_consumed": "weighted support, transitively through previous paper"
+          }
+        ],
+        "non_claims": [
+          "all S+a",
+          "m-uniform bound",
+          "evaluated practical threshold",
+          "full P1 coefficientwise positivity",
+          "HCM0 all-parameter solution",
+          "Native physical law",
+          "formal Task completion",
+          "Driver acceptance",
+          "WorkingTruth or Foundation"
+        ],
+        "method_harvest": "RESULT_ONLY_COMPOSE_APPLIED",
+        "scientific_programs": 0,
+        "new_tool_family": false,
+        "source_exposure": "SHARED_CONTROL_CONTEXT_NONBLIND_DISCLOSED",
+        "dedup_accounting": "One mathematical tail-result chain; nested small-cone and bounded-ratio domains are proof dependencies, not separate independent discoveries"
+      },
+      "minimal_inputs": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md",
+          "sha256": "cf9fc55ac4a4a193cc4d5c9e8355fde02dae577f0241344b05d48961dea771a0",
+          "git_blob": "90645a1eba137e7d51a3a3c24f98f3a2375b34c2",
+          "bytes": 11608,
+          "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_ALL_SECOND_GAPS_SUM_TAIL_INTERFACE.json",
+          "sha256": "787e44d8a4928b170f2b4cbc9bf1f64e4e5095a67b79685b4bab3c29a80e0e6e",
+          "git_blob": "c5a77176d287d5c95de289ac0aa7272691e11b8c",
+          "bytes": 4083,
+          "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_BOUNDED_RELATIVE_GAP_TAIL_AUTHOR.md",
+          "sha256": "129cad117292b1e90f3f0f8eb6c2791c2e5a050adff386c9e4a0b4c6e0d55c5e",
+          "git_blob": "eea26dcfedbbc84b01c45cc43e342643fbc4e0d6",
+          "bytes": 13398,
+          "verified_ref": "66f3b23d112fba1dfb555576a91e2fac20746251"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_RELATIVE_GAP_INTERFACE.json",
+          "sha256": "663ee5cbeb5c5d8f0693e18c257ec3a64a7cd5321f267acc0dd0c49dae15ea90",
+          "git_blob": "ba1e45798370a4fe10172322f05d35a64688d207",
+          "bytes": 4404,
+          "verified_ref": "66f3b23d112fba1dfb555576a91e2fac20746251"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_UNBOUNDED_SMALL_CONE_AUTHOR.md",
+          "sha256": "f9a9415455b9b004f9e2854e999eaebd4934acd7211084b87bf1bc5c0634e921",
+          "git_blob": "dfb56ab769bfa7da3c4ed7ffa66511726c549ade",
+          "bytes": 10603,
+          "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+        }
+      ],
+      "inherited_original_sources_quoted": [
+        {
+          "path": "research_notes/owner_goal_20261016/parity_tail_independent_review/PARITY_UNEQUAL_GAPS_UNIFORM_BOUNDED_SECTOR_TAIL_AUTHOR.md",
+          "commit": "1a553d4d28a105230ecebd5a555dc8adbab8ee28",
+          "git_blob": "f05b0b5be5c7d78c7faf58ae1f818bc67cea103c",
+          "consumption": "complete trace, determinant and polynomial normalization"
+        },
+        {
+          "path": "research_notes/owner_goal_20261016/p11_independent_native_driver/parity_all_m_c1_uniform_sum_tail_addendum_v2_author/PARITY_ALL_M_C1_POSITIVE_TOP_HOMOGENEOUS_FACE_AND_UNIFORM_SUM_TAIL_AUTHOR_V2.md",
+          "commit": "1a553d4d28a105230ecebd5a555dc8adbab8ee28",
+          "git_blob": "c94088a17f4a09dd2d16171162c09ed13807a8bf",
+          "consumption": "metric analytic germ and centered limiting parity signature only; old c1 vote not transferred"
+        },
+        {
+          "path": "research_notes/balanced_resume_20261028/analysis/PARITY_UNBOUNDED_SMALL_CONE_AUTHOR.md",
+          "commit": "59fd52bb8c3a3cbd7a135918579eafd311b39fec",
+          "sha256": "f9a9415455b9b004f9e2854e999eaebd4934acd7211084b87bf1bc5c0634e921",
+          "consumption": "weighted polynomial support lemma; old small-cone proof remains unchanged"
+        }
+      ],
+      "nested_history": [
+        "First rotation small cone: f9a9415455b9b004f9e2854e999eaebd4934acd7211084b87bf1bc5c0634e921",
+        "Bounded relative ratio: 129cad117292b1e90f3f0f8eb6c2791c2e5a050adff386c9e4a0b4c6e0d55c5e",
+        "Strongest all second gaps: cf9fc55ac4a4a193cc4d5c9e8355fde02dae577f0241344b05d48961dea771a0"
+      ],
+      "counting_rule": "One tail-result chain strengthened; three nested domains are not three independent discoveries. First-rotation files/counts remain frozen.",
+      "review_records": [
+        {
+          "ledger": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND5.json",
+            "sha256": "c710ac0bc5bb8c30f8df80bc5e6e3dcd9aa2963fcbf067ca9eb35000af6daa95",
+            "git_blob": "bc5f337cd3797683982ec0fcc682c194626673fb",
+            "bytes": 753,
+            "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+          },
+          "ledger_record_quoted": {
+            "line": "student_parity_relative_gap",
+            "author_file": "analysis/PARITY_FULL_TRACE_BOUNDED_RELATIVE_GAP_TAIL_AUTHOR.md",
+            "author_sha256": "129cad117292b1e90f3f0f8eb6c2791c2e5a050adff386c9e4a0b4c6e0d55c5e",
+            "review_file": "PARITY_RELATIVE_GAP_REVIEW.md",
+            "review_sha256": "0327f10496e95221deacef1cd060e3d4dc09c68da7bfb043645d55a9316a170d",
+            "reviewer": "EM-REVIEW-58D6A2",
+            "finding": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_NEW_BOUNDED_RELATIVE_GAP_SCOPE",
+            "proof_level": "INDEPENDENT_SYMBOLIC_PAPER_REVIEW_NO_SCIENTIFIC_EXECUTION",
+            "formal_admission": false
+          },
+          "author": {
+            "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_BOUNDED_RELATIVE_GAP_TAIL_AUTHOR.md",
+            "sha256": "129cad117292b1e90f3f0f8eb6c2791c2e5a050adff386c9e4a0b4c6e0d55c5e",
+            "git_blob": "eea26dcfedbbc84b01c45cc43e342643fbc4e0d6",
+            "bytes": 13398,
+            "verified_ref": "66f3b23d112fba1dfb555576a91e2fac20746251"
+          },
+          "review": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/PARITY_RELATIVE_GAP_REVIEW.md",
+            "sha256": "0327f10496e95221deacef1cd060e3d4dc09c68da7bfb043645d55a9316a170d",
+            "git_blob": "2070c37bcb6395895d72effc948884fc38662a46",
+            "bytes": 6603,
+            "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+          },
+          "formal_admission": false,
+          "root_mathematical_vote": false
+        },
+        {
+          "ledger": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND6.json",
+            "sha256": "c79a4f24283bc73456309f06aa230d95875591be6bf7836b68a7c23a5d7115bc",
+            "git_blob": "336b83c9e1bc8ae778bd506f376d75135dd7dd87",
+            "bytes": 738,
+            "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+          },
+          "ledger_record_quoted": {
+            "line": "student_parity_all_second_gaps",
+            "author_file": "analysis/PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md",
+            "author_sha256": "cf9fc55ac4a4a193cc4d5c9e8355fde02dae577f0241344b05d48961dea771a0",
+            "review_file": "PARITY_ALL_SECOND_GAPS_REVIEW.md",
+            "review_sha256": "d6948de506b6dcc11a171069fb561846f5577e4613c2e443219f64bf94135d24",
+            "reviewer": "EM-REVIEW-58D6A2",
+            "finding": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_NEW_ALL_SECOND_GAPS_TOTAL_SCALE_TAIL",
+            "nested_prior_domains_not_new_discoveries": true,
+            "formal_admission": false
+          },
+          "author": {
+            "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md",
+            "sha256": "cf9fc55ac4a4a193cc4d5c9e8355fde02dae577f0241344b05d48961dea771a0",
+            "git_blob": "90645a1eba137e7d51a3a3c24f98f3a2375b34c2",
+            "bytes": 11608,
+            "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+          },
+          "review": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/PARITY_ALL_SECOND_GAPS_REVIEW.md",
+            "sha256": "d6948de506b6dcc11a171069fb561846f5577e4613c2e443219f64bf94135d24",
+            "git_blob": "06df4eaade8adb2705f4924f4dfa614fcf40155f",
+            "bytes": 6664,
+            "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+          },
+          "formal_admission": false,
+          "root_mathematical_vote": false
+        },
+        {
+          "ledger": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND7.json",
+            "sha256": "c0962c1d26dcb286030bf33b7ff55abe4fc3cc381e41ec5ac74e4f262675a5fc",
+            "git_blob": "8a06874468014283ab41a3a65c8ffbe3a4c48fb1",
+            "bytes": 1699,
+            "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+          },
+          "ledger_record_quoted": {
+            "line": "student_parity_all_second_gaps_second_reader",
+            "author_file": "analysis/PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md",
+            "author_sha256": "cf9fc55ac4a4a193cc4d5c9e8355fde02dae577f0241344b05d48961dea771a0",
+            "review_file": "../formal/round2/PARITY_ALL_SECOND_GAPS_CROSS_REVIEW.md",
+            "review_sha256": "073ebed1449bb12bd132a0d5d4abb002cafff203b1474b1f75e962b6a7dd72a4",
+            "reviewer": "EM-DIRECT-099801",
+            "finding": "LOCAL_NONAUTHOR_PAPER_CHECK_NO_MUSTFIX_FOUND",
+            "root_review_agent_action": "REPORT_METADATA_AND_HASH_RECEIVED_NOT_AN_ADDITIONAL_MATHEMATICAL_VOTE",
+            "formal_admission": false
+          },
+          "author": {
+            "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md",
+            "sha256": "cf9fc55ac4a4a193cc4d5c9e8355fde02dae577f0241344b05d48961dea771a0",
+            "git_blob": "90645a1eba137e7d51a3a3c24f98f3a2375b34c2",
+            "bytes": 11608,
+            "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+          },
+          "review": {
+            "repo_path": "research_notes/balanced_resume_20261028/formal/round2/PARITY_ALL_SECOND_GAPS_CROSS_REVIEW.md",
+            "sha256": "073ebed1449bb12bd132a0d5d4abb002cafff203b1474b1f75e962b6a7dd72a4",
+            "git_blob": "f6e863d4c0083b0a4723adee36119d8e8525310a",
+            "bytes": 9125,
+            "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+          },
+          "formal_admission": false,
+          "root_mathematical_vote": false
+        }
+      ],
+      "review_limits": "Distinct nonauthor paper checks at complete normalization and inherited metric/small-ratio interfaces; no scientific program or proof kernel.",
+      "unpaid_obligations": [
+        "all S+a",
+        "m-uniform bound",
+        "evaluated practical threshold",
+        "full P1 coefficientwise positivity",
+        "HCM0 all-parameter solution",
+        "Native physical law",
+        "formal Task completion",
+        "Driver acceptance",
+        "WorkingTruth or Foundation"
+      ],
+      "new_global_tool_family": false,
+      "formal_acceptance": false,
+      "formal_task_completion": false
+    },
+    {
+      "id": "SECOND-CM-SEPARATED",
+      "kind": "BOUNDED_DICHOTOMY_WITH_ALTERNATIVE_UNDECIDED",
+      "family": "cm_algebra",
+      "author_interface_quoted": {
+        "schema": "CM_SEPARATED_QUOTIENT_BOUND_INTERFACE_V1",
+        "author": "EM-DIRECT-38A864",
+        "activity_id": "RA-BALANCE-CM-20261028-38A864",
+        "paper_sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+        "formal_task_authority": false,
+        "driver_disposition": false,
+        "new_tool_family": false,
+        "status": "NONAUTHOR_BOUNDED_PAPER_CHECK_COMPLETE_NO_MUSTFIX",
+        "domain": "p=13 or19 modulo24; actual unramified complete DVR O and original rank-two row connection; p-adic completion of O[r,(1-r^2)^-1,(4r^2-1)^-1], then invert p",
+        "outputs": {
+          "separated_dimension": "5 or 6",
+          "surviving_independent_representatives": [
+            "(1,0)dr",
+            "(1/(r-1),0)dr",
+            "(1/(r+1),0)dr",
+            "(1/(r-1/2),0)dr",
+            "(1/(r+1/2),0)dr"
+          ],
+          "weak_to_separated_map": "SURJECTIVE",
+          "comparison_kernel": "0 or K[(r,0)dr]",
+          "closure_of_zero_in_algebraic_strong_cokernel": "INFINITE_DIMENSIONAL_USING_REVIEWED_ROUND1_RESULT"
+        },
+        "new_paid_interfaces": [
+          "actual integral selected finite-log-gauge column Ha ka=J(f0)",
+          "integral good-infinity first column from H1=(p/beta)G H1(z^p)",
+          "completion has the exact p-separated partial-fraction c0 basis",
+          "six inherited rational representatives span the separated quotient by density and finite-dimensional closedness"
+        ],
+        "remaining_exact_alternative": {
+          "sequence": "a_j=8[z^j]H12; a0=0,a1=1,a_-1=a_-2=0",
+          "recurrence": "a_(j+2)=((5j(j+1)+2)a_j-j(j-1)a_(j-2))/(4(j+1)(j+2)), integer j>=0 over Q before p-adic evaluation",
+          "bounded": "separated dimension6; weak comparison iso",
+          "unbounded": "separated dimension5; comparison kernel Kr; explicit rational approximants witness r in closure",
+          "selected_alternative": null,
+          "finite_samples_decide": false
+        },
+        "scope_exclusions": [
+          "actual choice of dimension5 or6",
+          "r lies in image versus closure only",
+          "strong horizontal kernel exact dimension",
+          "new physical/native dimensions",
+          "Y/Z/kappa evaluation",
+          "general claim for arbitrary strong completions"
+        ],
+        "harvest": "RESULT_ONLY_STANDARD_COMPOSE",
+        "reuse_resolution": "COMPOSE_APPLIED",
+        "scientific_programs_or_kernel_run": false,
+        "review": {
+          "path": "../../formal/round2/CM24_SEPARATED_QUOTIENT_CROSS_REVIEW.md",
+          "sha256": "ae68fcbb851365de912db987a3e0e6abe0d6dc3d55c0b7dda3828c226412b951",
+          "reviewer": "EM-DIRECT-099801",
+          "paper_sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+          "driver_disposition": false,
+          "exact_dimension_decided": false
+        }
+      },
+      "minimal_inputs": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/cm/round2/CM24_SEPARATED_QUOTIENT_FIVE_SURVIVORS.md",
+          "sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+          "git_blob": "4e8ed5380e8980156417d82bd04ada7eef736b27",
+          "bytes": 14505,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/cm/round2/ROUND2_INTERFACE.json",
+          "sha256": "477eaf01e8a5e57b56ac76619c60a9bb80a0aa9ebc742232df421a8ddc29364f",
+          "git_blob": "08dd27a984cf26c64e1b6bc632f2c676ed79b803",
+          "bytes": 2567,
+          "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/cm/round2/SCOPE_FREEZE.json",
+          "sha256": "8243ba6aec04ceae960d95afd79259f7b41da7f94fe576ebbd491fa603308159",
+          "git_blob": "165424c293677b0c24b99900a22b6f9a9fe453b2",
+          "bytes": 1957,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/cm/CM24_STRONG_COMPLETION_NONCLOSED_RANGE.md",
+          "sha256": "b19248580b174c7ce6aaacc453ab777f7c81f8ec820a5c153c4acd1cc2dca1e0",
+          "git_blob": "dad756a3bfaa7e8edb7f0fd58a5c367743447d98",
+          "bytes": 13584,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/formal/CM24_STRONG_COMPLETION_CROSS_REVIEW.md",
+          "sha256": "7aef0cc8f60c1efda342dfeb514e7ee29f4138a5e3962218dd8a7b0575ee09f6",
+          "git_blob": "9980302d8899bc09f7cf20fd2459818f6417b085",
+          "bytes": 9212,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        }
+      ],
+      "inherited_original_source_from_review": {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "56f5938da3f707c1d9db1b39afde124eac4634e3",
+        "path": "research_notes/owner_goal_20261016/cm24_convergence_new_anchor/weak_six_boundary_normal_form/CM24_SIX_BOUNDARY_WEAK_COKERNEL_NORMAL_FORM_AUTHOR.md",
+        "git_blob": "06a9fc065e334f4974bb43f0cd978502613c542a",
+        "scope": "Actual finite gauges, normalized infinity Frobenius, rational six-boundary normal form; reported reviewed dependency, not reconstructed by this documentary pass."
+      },
+      "outcome": {
+        "separated_dimension": "5 or 6",
+        "surviving_independent_representatives": [
+          "(1,0)dr",
+          "(1/(r-1),0)dr",
+          "(1/(r+1),0)dr",
+          "(1/(r-1/2),0)dr",
+          "(1/(r+1/2),0)dr"
+        ],
+        "weak_to_separated_map": "SURJECTIVE",
+        "comparison_kernel": "0 or K[(r,0)dr]",
+        "closure_of_zero_in_algebraic_strong_cokernel": "INFINITE_DIMENSIONAL_USING_REVIEWED_ROUND1_RESULT"
+      },
+      "recurrence_and_unselected_alternative": {
+        "sequence": "a_j=8[z^j]H12; a0=0,a1=1,a_-1=a_-2=0",
+        "recurrence": "a_(j+2)=((5j(j+1)+2)a_j-j(j-1)a_(j-2))/(4(j+1)(j+2)), integer j>=0 over Q before p-adic evaluation",
+        "bounded": "separated dimension6; weak comparison iso",
+        "unbounded": "separated dimension5; comparison kernel Kr; explicit rational approximants witness r in closure",
+        "selected_alternative": null,
+        "finite_samples_decide": false
+      },
+      "review_records": [
+        {
+          "ledger": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND8.json",
+            "sha256": "d9c2549c406703bae88bbce9196b3a595aa4434a914ddd47a997f4585dc798fc",
+            "git_blob": "02efe7abaec51c156bc9a25b6227f120a35f25cd",
+            "bytes": 3740,
+            "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+          },
+          "ledger_record_quoted": {
+            "line": "cm_separated_strong_quotient",
+            "author_file": "cm/round2/CM24_SEPARATED_QUOTIENT_FIVE_SURVIVORS.md",
+            "author_sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+            "review_file": "CM_SEPARATED_QUOTIENT_REVIEW.md",
+            "review_sha256": "2ce99c5684d3169ccbafbb81b3e0724bca25b731621b2a4cdf7ed5c875ac499f",
+            "reviewer": "EM-REVIEW-58D6A2",
+            "finding": "NO_UNRESOLVED_DEFECT_AT_DECLARED_INHERITED_INTERFACES_5_OR_6_UNDECIDED",
+            "formal_admission": false
+          },
+          "author": {
+            "repo_path": "research_notes/balanced_resume_20261028/cm/round2/CM24_SEPARATED_QUOTIENT_FIVE_SURVIVORS.md",
+            "sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+            "git_blob": "4e8ed5380e8980156417d82bd04ada7eef736b27",
+            "bytes": 14505,
+            "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+          },
+          "review": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/CM_SEPARATED_QUOTIENT_REVIEW.md",
+            "sha256": "2ce99c5684d3169ccbafbb81b3e0724bca25b731621b2a4cdf7ed5c875ac499f",
+            "git_blob": "c790d1008c7694ad212e10bf09b6527deb1e3d95",
+            "bytes": 5988,
+            "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+          },
+          "formal_admission": false,
+          "root_mathematical_vote": false
+        },
+        {
+          "ledger": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND8.json",
+            "sha256": "d9c2549c406703bae88bbce9196b3a595aa4434a914ddd47a997f4585dc798fc",
+            "git_blob": "02efe7abaec51c156bc9a25b6227f120a35f25cd",
+            "bytes": 3740,
+            "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+          },
+          "ledger_record_quoted": {
+            "line": "cm_separated_second_reader",
+            "author_file": "cm/round2/CM24_SEPARATED_QUOTIENT_FIVE_SURVIVORS.md",
+            "author_sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+            "review_file": "../formal/round2/CM24_SEPARATED_QUOTIENT_CROSS_REVIEW.md",
+            "review_sha256": "ae68fcbb851365de912db987a3e0e6abe0d6dc3d55c0b7dda3828c226412b951",
+            "reviewer": "EM-DIRECT-099801",
+            "finding": "LOCAL_NONAUTHOR_PAPER_CHECK_NO_MUSTFIX_FOUND",
+            "review_agent_action": "FULL_REPORT_READ_HASH_CHECKED_ATTRIBUTED_NOT_AN_ADDITIONAL_VOTE",
+            "formal_admission": false
+          },
+          "author": {
+            "repo_path": "research_notes/balanced_resume_20261028/cm/round2/CM24_SEPARATED_QUOTIENT_FIVE_SURVIVORS.md",
+            "sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+            "git_blob": "4e8ed5380e8980156417d82bd04ada7eef736b27",
+            "bytes": 14505,
+            "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+          },
+          "review": {
+            "repo_path": "research_notes/balanced_resume_20261028/formal/round2/CM24_SEPARATED_QUOTIENT_CROSS_REVIEW.md",
+            "sha256": "ae68fcbb851365de912db987a3e0e6abe0d6dc3d55c0b7dda3828c226412b951",
+            "git_blob": "a5127960a2841160edb0b909a3f917a2e66e4533",
+            "bytes": 10138,
+            "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+          },
+          "formal_admission": false,
+          "root_mathematical_vote": false
+        }
+      ],
+      "review_limits": "At the exact original completion lattice, selected integral columns and canonical Frobenius normalization. Neither review chooses five versus six or reruns a finite coefficient scan.",
+      "unpaid_obligations": [
+        "actual choice of dimension5 or6",
+        "r lies in image versus closure only",
+        "strong horizontal kernel exact dimension",
+        "new physical/native dimensions",
+        "Y/Z/kappa evaluation",
+        "general claim for arbitrary strong completions"
+      ],
+      "not_same_as_first_rotation": "First-round algebraic strong cokernel remains infinite-dimensional; this result concerns its Hausdorff separated quotient.",
+      "new_global_tool_family": false,
+      "formal_acceptance": false,
+      "formal_task_completion": false
+    },
+    {
+      "id": "SECOND-FREE-RETURN-APPLICATION",
+      "kind": "DERIVED_NOT_AXIOM_BOUNDED_APPLICATION_RESULT_ONLY",
+      "family": "native_brc",
+      "candidate_id": "AC-FREE-20261028-4B72C1-RETURN-HORIZON",
+      "minimal_inputs": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/free/phase_a/phase_a_candidate.md",
+          "sha256": "ca2dd60ed65ea3fe6222dafadd4cc2cb5d09a769e2771ced294f4894b39df03a",
+          "git_blob": "9ab57fc0fbfe0ad6483a8699bbcb7e6b4e3004a6",
+          "bytes": 10317,
+          "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/free/phase_a/phase_a_freeze_manifest.json",
+          "sha256": "974c6ed76a6a9473839b789dea1da216938514714b0b04d6c7e36af8be00ba87",
+          "git_blob": "27fcb161d11742ac850fbb597ffafb1b3244d66d",
+          "bytes": 1059,
+          "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/free/phase_a/phase_a_start_exposure.json",
+          "sha256": "79be168ea7f4cbf2c57d12f2d93dc795b0b591be2d5cd8ba93b02ec3bc798d06",
+          "git_blob": "3eb5dcb1a789d6adcec07635d525721700ef0abd",
+          "bytes": 3935,
+          "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/free/post_freeze/clock_alphabet_clarification.md",
+          "sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+          "git_blob": "2a05c9959c37fe2f753efd2987184eb7073c47c2",
+          "bytes": 1651,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/free/phase_b/phase_b_audit.md",
+          "sha256": "c9bb61e76f8f09c3b6d04a03b9f7b445c021cd3cf791ba3881a91f60be0d92ed",
+          "git_blob": "6cca845d8916cdbc4fb7d9a758840e97aee89e9e",
+          "bytes": 8547,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/free/phase_b/phase_b_source_evidence.json",
+          "sha256": "c50c9d9f9675468d3f0c947fa9487c4009c4301ad31cd6545781c41048915982",
+          "git_blob": "5201217d56059717aa276ff638f7a5e91885ab28",
+          "bytes": 2465,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        }
+      ],
+      "assumptions": [
+        "Native signed Z^6 Cell torsor; a chosen genuine Cell c, not a distinguished global origin.",
+        "All words over the twelve signed-unit steps; fixed horizon H>=0 and time t=0,...,H.",
+        "Only return-to-c Boolean readout at the present and every allowed future prefix.",
+        "Deterministic observer; external step clock t and H available without retaining input history.",
+        "Only runtime internal memory is charged; fixed code tables, updates, readout rules and the supplied clock are not included.",
+        "Underlying full native walker is not physically replaced or erased by the observer quotient."
+      ],
+      "reported_formulas": [
+        "C_6(-1)=0; C_6(r)=sum_(j=0)^min(5,r) binom(5,j) binom(r-j+6,6), r>=0.",
+        "h=H-t, m=min(t,h), r=m-((m-t) mod2); N(H,t)=C_6(r)+1[t>h].",
+        "M(H)=max_t N(H,t)=C_6(floor(H/2)); fixed runtime bits=ceil(log2 M(H)); M(H)~H^6/1440."
+      ],
+      "reuse_disposition": {
+        "core": "Existing near/FAR contact quotient, distinguishing word and decreasing-horizon safe update are duplicate/reuse of t0.brc_finite_horizon_contact and T6.",
+        "application": "Restrict the existing quotient to the exact-step reachable parity population and compute its peak under the stated free-clock cost model.",
+        "source_interface": "src/enterprise_math/brc_contact_horizon.py; HBRC-RP-007/008 in research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json, exact local sources recorded in Phase B; not a fresh remote-source claim by the reviewer.",
+        "new_capability_gap_confirmed": false,
+        "external_priority": "UNKNOWN_NOT_CLAIMED_FOR_EXACT_PEAK_FORMULA",
+        "no_successor_from_pass": true
+      },
+      "contribution_and_review": {
+        "core_review": {
+          "ledger": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND7.json",
+            "sha256": "c0962c1d26dcb286030bf33b7ff55abe4fc3cc381e41ec5ac74e4f262675a5fc",
+            "git_blob": "8a06874468014283ab41a3a65c8ffbe3a4c48fb1",
+            "bytes": 1699,
+            "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+          },
+          "ledger_record_quoted": {
+            "line": "free_return_horizon",
+            "author_file": "free/phase_a/phase_a_candidate.md",
+            "author_sha256": "ca2dd60ed65ea3fe6222dafadd4cc2cb5d09a769e2771ced294f4894b39df03a",
+            "post_freeze_clarification_file": "free/post_freeze/clock_alphabet_clarification.md",
+            "clarification_sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+            "review_file": "FREE_RETURN_HORIZON_REVIEW.md",
+            "review_sha256": "26d122311785b4ac22ca3d51ba4af663225af465113f596dab042dd6bc640e2f",
+            "reviewer": "EM-REVIEW-58D6A2",
+            "finding": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_AFTER_DISCLOSED_FIXED_ALPHABET_CLARIFICATION",
+            "reviewer_contribution": "Requested and supplied the explicit standard clock-dependent recoding bridge; original equivalence/counting proof independently checked",
+            "phase_b_dedup_complete": false,
+            "formal_admission": false
+          },
+          "author": {
+            "repo_path": "research_notes/balanced_resume_20261028/free/phase_a/phase_a_candidate.md",
+            "sha256": "ca2dd60ed65ea3fe6222dafadd4cc2cb5d09a769e2771ced294f4894b39df03a",
+            "git_blob": "9ab57fc0fbfe0ad6483a8699bbcb7e6b4e3004a6",
+            "bytes": 10317,
+            "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+          },
+          "review": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/FREE_RETURN_HORIZON_REVIEW.md",
+            "sha256": "26d122311785b4ac22ca3d51ba4af663225af465113f596dab042dd6bc640e2f",
+            "git_blob": "d6e47efb76bd231a64ab7bd114fd9c22ee3137f1",
+            "bytes": 6070,
+            "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+          },
+          "formal_admission": false,
+          "root_mathematical_vote": false,
+          "post_freeze_clarification_file_pin": {
+            "repo_path": "research_notes/balanced_resume_20261028/free/post_freeze/clock_alphabet_clarification.md",
+            "sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+            "git_blob": "2a05c9959c37fe2f753efd2987184eb7073c47c2",
+            "bytes": 1651,
+            "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+          }
+        },
+        "phase_b_reuse_review": {
+          "ledger": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND8.json",
+            "sha256": "d9c2549c406703bae88bbce9196b3a595aa4434a914ddd47a997f4585dc798fc",
+            "git_blob": "02efe7abaec51c156bc9a25b6227f120a35f25cd",
+            "bytes": 3740,
+            "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+          },
+          "ledger_record_quoted": {
+            "line": "free_return_horizon_phase_b",
+            "author_file": "free/phase_b/phase_b_audit.md",
+            "author_sha256": "c9bb61e76f8f09c3b6d04a03b9f7b445c021cd3cf791ba3881a91f60be0d92ed",
+            "review_file": "FREE_RETURN_REUSE_DISPOSITION.md",
+            "review_sha256": "f2622af20fa5146cd1a4c50d5f5f46ee90e80ce9cae83ce714eff1dd51e0e404",
+            "reviewer": "EM-REVIEW-58D6A2",
+            "finding": "CORE_MECHANISM_REUSED_EXACT_REACHABLE_PARITY_PEAK_BOUNDED_APPLICATION",
+            "classification": [
+              "DERIVED_NOT_AXIOM",
+              "BOUNDED_APPLICATION",
+              "RESULT_ONLY"
+            ],
+            "original_candidate_file": "free/phase_a/phase_a_candidate.md",
+            "original_candidate_sha256": "ca2dd60ed65ea3fe6222dafadd4cc2cb5d09a769e2771ced294f4894b39df03a",
+            "clarification_file": "free/post_freeze/clock_alphabet_clarification.md",
+            "clarification_sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+            "reviewer_contribution_disclosed": true,
+            "formal_admission": false
+          },
+          "author": {
+            "repo_path": "research_notes/balanced_resume_20261028/free/phase_b/phase_b_audit.md",
+            "sha256": "c9bb61e76f8f09c3b6d04a03b9f7b445c021cd3cf791ba3881a91f60be0d92ed",
+            "git_blob": "6cca845d8916cdbc4fb7d9a758840e97aee89e9e",
+            "bytes": 8547,
+            "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+          },
+          "review": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/FREE_RETURN_REUSE_DISPOSITION.md",
+            "sha256": "f2622af20fa5146cd1a4c50d5f5f46ee90e80ce9cae83ce714eff1dd51e0e404",
+            "git_blob": "061b20a3fb78b46a65b292e35770eb35a685784e",
+            "bytes": 4223,
+            "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+          },
+          "formal_admission": false,
+          "root_mathematical_vote": false,
+          "original_candidate_file_pin": {
+            "repo_path": "research_notes/balanced_resume_20261028/free/phase_a/phase_a_candidate.md",
+            "sha256": "ca2dd60ed65ea3fe6222dafadd4cc2cb5d09a769e2771ced294f4894b39df03a",
+            "git_blob": "9ab57fc0fbfe0ad6483a8699bbcb7e6b4e3004a6",
+            "bytes": 10317,
+            "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+          },
+          "clarification_file_pin": {
+            "repo_path": "research_notes/balanced_resume_20261028/free/post_freeze/clock_alphabet_clarification.md",
+            "sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+            "git_blob": "2a05c9959c37fe2f753efd2987184eb7073c47c2",
+            "bytes": 1651,
+            "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+          }
+        },
+        "bridge_review": {
+          "ledger": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND8.json",
+            "sha256": "d9c2549c406703bae88bbce9196b3a595aa4434a914ddd47a997f4585dc798fc",
+            "git_blob": "02efe7abaec51c156bc9a25b6227f120a35f25cd",
+            "bytes": 3740,
+            "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+          },
+          "ledger_record_quoted": {
+            "line": "free_clock_alphabet_independent_bridge_reader",
+            "author_file": "free/post_freeze/clock_alphabet_clarification.md",
+            "author_sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+            "review_file": "../formal/round2/FREE_EXTERNAL_CLOCK_ALPHABET_CROSS_REVIEW.md",
+            "review_sha256": "814f68bc289aa82201460a5401b05c1af1f27b8b85aab1a173fa4db736bb6397",
+            "reviewer": "EM-DIRECT-099801",
+            "finding": "LOCAL_NONAUTHOR_PAPER_CHECK_NO_MUSTFIX_FOUND",
+            "review_agent_action": "FULL_REPORT_READ_HASH_CHECKED_ATTRIBUTED_NOT_AN_ADDITIONAL_VOTE",
+            "formal_admission": false
+          },
+          "author": {
+            "repo_path": "research_notes/balanced_resume_20261028/free/post_freeze/clock_alphabet_clarification.md",
+            "sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+            "git_blob": "2a05c9959c37fe2f753efd2987184eb7073c47c2",
+            "bytes": 1651,
+            "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+          },
+          "review": {
+            "repo_path": "research_notes/balanced_resume_20261028/formal/round2/FREE_EXTERNAL_CLOCK_ALPHABET_CROSS_REVIEW.md",
+            "sha256": "814f68bc289aa82201460a5401b05c1af1f27b8b85aab1a173fa4db736bb6397",
+            "git_blob": "194e487eda453dcf55af4614ab9a0a42769c80b1",
+            "bytes": 4159,
+            "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+          },
+          "formal_admission": false,
+          "root_mathematical_vote": false
+        },
+        "reviewer_contribution": "EM-REVIEW-58D6A2 requested and supplied in outline the fixed-alphabet clock-dependent recoding bridge. His check is not an independent vote on that contribution.",
+        "third_reader": "EM-DIRECT-099801 did not request or construct the bridge and independently checked only the frozen implementation bridge against the original contract.",
+        "exposure": "Original Phase-A permitted-source exposure is preserved in its freeze records; subsequent reviewers are source-exposed with shared control context. No retrospective clean-blind certification is issued."
+      },
+      "execution_evidence": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/free/phase_a/phase_a_check.py",
+          "sha256": "80c53bb4bf24ece2d2b7617dbc6d7a93114158c17d48aa857801335aab5e6670",
+          "git_blob": "704604033876d7e0223b4ae9abace329580240a5",
+          "bytes": 2613,
+          "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/free/phase_a/phase_a_check_output.json",
+          "sha256": "371570bf35ebc7455c867b26d72ab729edf5441666df9f10331e04e4a92b1de2",
+          "git_blob": "c0a74df1dfc03e344bbc9bd90bfbfef92b0cf729",
+          "bytes": 3324,
+          "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/free/phase_b/phase_b_reuse_check.py",
+          "sha256": "5748f00a0c3971f2b5ae13af0e88c810b6285c6f298062ae14c11291c8883163",
+          "git_blob": "1e973db473a502855a8df35457230da878626311",
+          "bytes": 2535,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/free/phase_b/phase_b_reuse_check_output.json",
+          "sha256": "fd79d8f07b9c277daf0395eb3da4b8a54e0bd7e506f84c996d0bb893edce0110",
+          "git_blob": "6c0463f08019f42a4a0e338daf9b6b343d851bb5",
+          "bytes": 3695,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        }
+      ],
+      "execution_scope": "Author Phase A checks H0..4 and radius0..6; Phase B actual T0/T6 reuse H0..5. Finite checks do not replace the universal paper argument. Documentary integrator did not rerun.",
+      "unpaid_obligations": [
+        "No theorem about a memory model charging the clock/code tables/workspace.",
+        "No visited-set-history capacity transfer: Theta(H^6) states here differs from Theta(H^6) bits in another problem.",
+        "No physical memory law, native state compression, new general tool family or exhaustive external novelty claim."
+      ],
+      "new_global_tool_family": false,
+      "formal_acceptance": false,
+      "formal_task_completion": false
+    },
+    {
+      "id": "SECOND-OAI090-STATIC",
+      "kind": "SUPPLEMENTAL_STATIC_EXTERNAL_PROOF_COVERAGE_AUDIT",
+      "family": "euler_measurement",
+      "subline": "OAI7-090",
+      "minimal_inputs": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/round2/OAI090_FINITE_COVERAGE_AUDIT.md",
+          "sha256": "974eed99cd05fd51a06f95cd572b7255f3835398d9b6a289d6d29c114e9739ce",
+          "git_blob": "a9a70240303122d8b769f6d07d78e2c16ff2da60",
+          "bytes": 17627,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/round2/OAI090_PROOF_COVERAGE.json",
+          "sha256": "5e6508bbb19604411e15817c9a8aa4737064f89592d54014a0f667ecc0c8d5cc",
+          "git_blob": "279695157bb2581cd1315ecdb132cdc40b2a6d74",
+          "bytes": 7906,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/round2/ORIGINAL_SOURCE_PINS.json",
+          "sha256": "cfd3db971bb5ac447cb78fce0f6e37a4aec16482367d817f9d38e5a4cea2532b",
+          "git_blob": "945caca7592c90d57fd412d8c2ff227aab907379",
+          "bytes": 2168,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/round2/ROUND2_DOSSIER.json",
+          "sha256": "9c0024b8d89f7e06e294b776f434672c3b07cf1915bca8cf96a1d33bbb7e5212",
+          "git_blob": "f91307d9938acb22caadd74b4e76025736d60054",
+          "bytes": 2210,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/round2/NO_RETROACTIVE_AUTHORIZATION.json",
+          "sha256": "9d35b4d1719b3d76ce16f40ea1853a06cf68a3ddb72fb03d0495ee63ed9d2cfd",
+          "git_blob": "f34ef17f504308c30535eee6eac53484cf8ef415",
+          "bytes": 2122,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/round2/ORIGINAL_RUN_RECEIPT.json",
+          "sha256": "d08ade5435f804d1704e95dd60ffe4a050932c609a7771f38fcc45b8064df122",
+          "git_blob": "421af58660d50dc079fb2eed717ef157c04e57b0",
+          "bytes": 814,
+          "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+        }
+      ],
+      "source": {
+        "repository": "openai/math",
+        "commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+        "checker_blob": "23768a5c2d88e100399bb5c4347447e86a7160cb",
+        "paper_blob": "dad316cc2ad861a7482d79b46b6f840ed83d2a5e"
+      },
+      "external_model": "Classical Euclidean R^2 squared distance and two-body potentials; no native X6, plane or physical-clock bridge is supplied.",
+      "author_static_coverage_quoted": {
+        "schema": "OAI090_STATIC_PROOF_COVERAGE_V1",
+        "source": {
+          "repository": "openai/math",
+          "commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+          "checker_blob": "23768a5c2d88e100399bb5c4347447e86a7160cb",
+          "paper_blob": "dad316cc2ad861a7482d79b46b6f840ed83d2a5e"
+        },
+        "status": "BOUNDED_STATIC_RESEARCH_AUDIT_NOT_TASK_COMPLETION",
+        "formal_task": "RS-OAI7-090-A-20261007-6F2A81",
+        "original_execution_evidence_class": "UNBOUND_EXECUTION_EVIDENCE",
+        "source_assertion_sites": [
+          8,
+          30,
+          41,
+          45,
+          55,
+          61,
+          99,
+          118,
+          136,
+          161,
+          242
+        ],
+        "assertion_families": [
+          {
+            "lines": [
+              8
+            ],
+            "obligation": "Interval endpoints ordered",
+            "paper": "app:finite-certificate"
+          },
+          {
+            "lines": [
+              30,
+              118
+            ],
+            "obligation": "Reciprocals and elimination pivots exclude zero",
+            "paper": "app:finite-certificate"
+          },
+          {
+            "lines": [
+              41
+            ],
+            "obligation": "Computed sqrt upper bound nonnegative; exact argument nonnegativity additionally proved in audit",
+            "paper": "app:finite-certificate"
+          },
+          {
+            "lines": [
+              45,
+              55,
+              61,
+              161
+            ],
+            "obligation": "Integer powers, positive rational denominator, interval input and integer phase typing",
+            "paper": "app:finite-certificate"
+          },
+          {
+            "lines": [
+              99
+            ],
+            "obligation": "Reduced exponential argument modulus at most one",
+            "paper": "app:finite-certificate"
+          },
+          {
+            "lines": [
+              136
+            ],
+            "obligation": "All lt strict comparisons separate interval endpoints",
+            "paper": "lem:finite-certificate; app:finite-certificate"
+          },
+          {
+            "lines": [
+              242
+            ],
+            "obligation": "Taylor geometric majorant denominator positive",
+            "paper": "lem:finite-certificate item 4"
+          }
+        ],
+        "comparison_groups": [
+          {
+            "id": "PIVOTS",
+            "lines": [
+              128,
+              129
+            ],
+            "paper_labels": [
+              "lem:finite-certificate"
+            ],
+            "paper_item": 1,
+            "meaning": "Both 20x20 inverses: diagonal pivot absolute bounds .12 and 1.74"
+          },
+          {
+            "id": "PI_ENCLOSURE",
+            "lines": [
+              146,
+              147
+            ],
+            "paper_labels": [
+              "app:finite-certificate"
+            ],
+            "meaning": "Machin enclosure lies strictly within declared 1e-50 pi bracket"
+          },
+          {
+            "id": "PARAMETER_POLYTOPE",
+            "lines": [
+              270,
+              271,
+              272
+            ],
+            "paper_labels": [
+              "eq:parameter-polytope"
+            ],
+            "meaning": "z maximum, three exponent maxima, delta critical-point maximum"
+          },
+          {
+            "id": "NODE_CONSTANTS",
+            "lines": [
+              273,
+              274,
+              282
+            ],
+            "paper_labels": [
+              "lem:finite-certificate"
+            ],
+            "paper_item": 2,
+            "meaning": ".157<Q<40, |D|<2.83; Q16,Q19,Q21>16"
+          },
+          {
+            "id": "MIDPOINTS",
+            "lines": [
+              281
+            ],
+            "paper_labels": [
+              "lem:finite-certificate"
+            ],
+            "paper_item": 2,
+            "meaning": "15 successive residue-gap midpoint bounds"
+          },
+          {
+            "id": "W_AND_JETS",
+            "lines": [
+              283,
+              284,
+              286,
+              287,
+              288
+            ],
+            "paper_labels": [
+              "analytic:tail-variation",
+              "lem:finite-certificate"
+            ],
+            "paper_item": 3,
+            "meaning": "norm(W), finite and tail envelope expressions; continuous-frequency interpretation requires separate monotonicity proof"
+          },
+          {
+            "id": "REPETITION_AND_TARGETS",
+            "lines": [
+              290,
+              294
+            ],
+            "paper_labels": [
+              "analytic:repetition-norm",
+              "lem:finite-certificate"
+            ],
+            "paper_item": 3,
+            "meaning": "Geometric repetition expression and two omitted-target expressions"
+          },
+          {
+            "id": "RAW_CURVATURE",
+            "lines": [
+              300,
+              301,
+              302
+            ],
+            "paper_labels": [
+              "lem:finite-certificate"
+            ],
+            "paper_item": 4,
+            "meaning": "Three raw expressions at five specified radii; uniform-frequency and radial range transfer is separate"
+          },
+          {
+            "id": "TAYLOR",
+            "lines": [
+              305
+            ],
+            "paper_labels": [
+              "eq:finite-taylor-polynomial",
+              "lem:finite-certificate"
+            ],
+            "paper_item": 4,
+            "meaning": "Degree20 divided-polynomial truncation bounds on 14 signed half-cells"
+          },
+          {
+            "id": "INVERSE_NORMS",
+            "lines": [
+              328
+            ],
+            "paper_labels": [
+              "eq:finite-system",
+              "lem:finite-certificate"
+            ],
+            "paper_item": 1,
+            "meaning": "maximum column sums of two interval-enclosed inverses <16.16 and <3.89"
+          },
+          {
+            "id": "POLYNOMIAL_TABLES",
+            "lines": [
+              357,
+              375,
+              381
+            ],
+            "paper_labels": [
+              "eq:finite-sign-tests",
+              "eq:exceptional-tests",
+              "eq:bernstein-row-conversion",
+              "eq:polytope-row-minimum"
+            ],
+            "paper_item": 5,
+            "meaning": "27 ordinary degree20 and 4 exceptional degree<=22 tables, structurally 659 Bernstein row minima"
+          },
+          {
+            "id": "COEFFICIENT_NORMS",
+            "lines": [
+              385
+            ],
+            "paper_labels": [
+              "lem:finite-certificate"
+            ],
+            "paper_item": 1,
+            "meaning": "convex endpoint bound plus remaining coordinate envelopes gives norm(A_i e)<2.58,2.80"
+          },
+          {
+            "id": "SANITY_APPROXIMATIONS",
+            "lines": [
+              138,
+              377,
+              386,
+              388
+            ],
+            "paper_labels": [
+              "app:finite-certificate"
+            ],
+            "meaning": "near helper plus extra eight endpoint coefficients, Q1/D1, four matrix-entry diagnostics; not a replacement for strict tables"
+          }
+        ],
+        "dimensions": {
+          "M": [
+            16,
+            22
+          ],
+          "V": [
+            16,
+            1
+          ],
+          "W": [
+            16,
+            2
+          ],
+          "SL": [
+            20,
+            22
+          ],
+          "SC": [
+            20,
+            1
+          ],
+          "R": [
+            20,
+            20
+          ],
+          "R0": [
+            20,
+            3
+          ],
+          "Yf": [
+            20,
+            8
+          ],
+          "gamma_i": [
+            3,
+            8
+          ],
+          "Ai": [
+            23,
+            8
+          ],
+          "ordinary_power_rows": [
+            21,
+            8
+          ],
+          "exceptional_padded_rows": [
+            23,
+            8
+          ]
+        },
+        "independently_rederived_existing_premises": [
+          "All six syntactic sqrt-call families have nonnegative exact arguments for the fixed constants",
+          "Four decay endpoint differences are positive rational numbers",
+          "Jet envelope derivative in X is negative for n>=1; t-endpoint domination follows",
+          "Parameter polytope row minimum follows from a box product with a three-vertex triangle",
+          "Gaussian actual-parameter vector lies in polytope given scalar threshold claims",
+          "Power-to-Bernstein lower bounds are uniform in both tau and the entire polytope"
+        ],
+        "not_covered": [
+          "Current formal claim/runtime authorization or Task completion",
+          "General-purpose interval or matrix library correctness for arbitrary malformed inputs",
+          "Full spectral identities, Schwartz convergence and Fourier normalization independently audited",
+          "All infinite block bounds, Schur-tail inverse, exact interpolation and numerical correction bounds independently audited",
+          "Uniform raw-curvature extremum and global signs independently audited",
+          "Energy-transfer theorem, arbitrary configuration limit, complete monotonicity transfer independently audited",
+          "Native signed Z6 Cell torsor or native time/physics bridge",
+          "Global post-2026-10-22 novelty"
+        ],
+        "next_minimal_obligation": "At a future properly assigned owner boundary, independently audit the stated continuous curvature-extremum lemma and its transfer of raw L/T/constant bounds; no new checker run is required for that paper proof audit.",
+        "new_theorem_count": 0,
+        "new_tool_family_count": 0
+      },
+      "review_records": [
+        {
+          "ledger": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND8.json",
+            "sha256": "d9c2549c406703bae88bbce9196b3a595aa4434a914ddd47a997f4585dc798fc",
+            "git_blob": "02efe7abaec51c156bc9a25b6227f120a35f25cd",
+            "bytes": 3740,
+            "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+          },
+          "ledger_record_quoted": {
+            "line": "oai090_static_coverage",
+            "author_file": "native/round2/OAI090_FINITE_COVERAGE_AUDIT.md",
+            "author_sha256": "974eed99cd05fd51a06f95cd572b7255f3835398d9b6a289d6d29c114e9739ce",
+            "review_file": "OAI090_STATIC_COVERAGE_REVIEW.md",
+            "review_sha256": "1ffb7d2b0f2a59c69f63687ef88c1666b9c16e660fc91ad3215a0883b561e5cb",
+            "reviewer": "EM-REVIEW-58D6A2",
+            "finding": "NO_MISMATCH_FOUND_WITHIN_STATIC_SCOPE_NO_REEXECUTION",
+            "formal_admission": false,
+            "coverage_file": "native/round2/OAI090_PROOF_COVERAGE.json",
+            "coverage_sha256": "5e6508bbb19604411e15817c9a8aa4737064f89592d54014a0f667ecc0c8d5cc",
+            "original_run_status": "UNBOUND_EXECUTION_EVIDENCE_NO_RETROACTIVE_AUTHORIZATION",
+            "new_theorem_count": 0
+          },
+          "author": {
+            "repo_path": "research_notes/balanced_resume_20261028/native/round2/OAI090_FINITE_COVERAGE_AUDIT.md",
+            "sha256": "974eed99cd05fd51a06f95cd572b7255f3835398d9b6a289d6d29c114e9739ce",
+            "git_blob": "a9a70240303122d8b769f6d07d78e2c16ff2da60",
+            "bytes": 17627,
+            "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+          },
+          "review": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/OAI090_STATIC_COVERAGE_REVIEW.md",
+            "sha256": "1ffb7d2b0f2a59c69f63687ef88c1666b9c16e660fc91ad3215a0883b561e5cb",
+            "git_blob": "c9281f11e86266cd40023f9757c2abcb9a51cbfd",
+            "bytes": 5907,
+            "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+          },
+          "formal_admission": false,
+          "root_mathematical_vote": false,
+          "coverage_file_pin": {
+            "repo_path": "research_notes/balanced_resume_20261028/native/round2/OAI090_PROOF_COVERAGE.json",
+            "sha256": "5e6508bbb19604411e15817c9a8aa4737064f89592d54014a0f667ecc0c8d5cc",
+            "git_blob": "279695157bb2581cd1315ecdb132cdc40b2a6d74",
+            "bytes": 7906,
+            "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+          }
+        }
+      ],
+      "review_scope": "Full fixed 389-line original checker plus specified TeX finite-system, parameter-polytope, finite-certificate, jet-monotonicity and appendix sections. Not full-paper universal optimality.",
+      "execution_process_fact": {
+        "count_of_disclosed_original_checker_runs": 1,
+        "classification": "UNBOUND_EXECUTION_EVIDENCE",
+        "event": "NO_RETROACTIVE_AUTHORIZATION",
+        "disclosure_quoted": {
+          "schema": "EM_UNBOUND_EXECUTION_DISCLOSURE_V1",
+          "event": "NO_RETROACTIVE_AUTHORIZATION",
+          "recorded_at_utc": "2026-10-28T05:43:57Z",
+          "researcher_id": "EM-NATIVE-A8C19E",
+          "activity_id": "RA-BALANCE-NATIVE-20261028-A8C19E",
+          "evidence_class": "UNBOUND_EXECUTION_EVIDENCE",
+          "source_commit": "adc7f1241b42e322a6451854ab7e4b4c146bf78a",
+          "source_repository": "openai/math",
+          "checker_blob": "23768a5c2d88e100399bb5c4347447e86a7160cb",
+          "command": [
+            "python3",
+            "-I",
+            "verification/check_certificate.py"
+          ],
+          "started_at_utc": "2026-10-28T05:38:22.269739+00:00",
+          "elapsed_seconds": 6.263905215999785,
+          "actual_receipt": "ORIGINAL_RUN_RECEIPT.json",
+          "exit_code": 0,
+          "overlap_formal_task": "RS-OAI7-090-A-20261007-6F2A81",
+          "publication_id": "TP2-79BD2127769C593E5315",
+          "publication_blob": "ec10af59db61bc9ec286d064f6c161723aed3bfc",
+          "taskbook_blob": "a5638eb5b100dc86e9fc3aa98cec2cf719870271",
+          "claim_token_obtained": false,
+          "runtime_binding_obtained": false,
+          "live_owner": "UNKNOWN",
+          "cause": "The taskbook core execution was run before establishing formal task claim/runtime authority. Direct research activity registration does not supply that authority.",
+          "disclosure": "Agent disclosed the actual execution to root immediately upon receiving the execution-boundary warning; original logs and receipt retained unchanged.",
+          "official_task_state_modified": false,
+          "canonical_rr_created": false,
+          "task_completion_claimed": false,
+          "mathematical_acceptance_claimed": false,
+          "repeat_or_instrumented_execution_stopped": true,
+          "subsequent_scope": "Static source-to-paper mapping and independent premise analysis only.",
+          "publication_scope_note": "Taskbook and immutable publication are readable and have no NO_INVOKE field or text. ACTIVE/claimable/unassigned are definition fields, not a current owner or an execution grant.",
+          "no_retroactive_authorization": true,
+          "next_execution_gate": "Before any further original-task core run, obtain actual current formal claim/runtime authorization; API quota and direct activity labels do not bypass this requirement."
+        },
+        "actual_receipt_quoted": {
+          "command": [
+            "python3",
+            "-I",
+            "verification/check_certificate.py"
+          ],
+          "cwd_relative": "original",
+          "started_at_utc": "2026-10-28T05:38:22.269739+00:00",
+          "elapsed_seconds": 6.263905215999785,
+          "exit_code": 0,
+          "stdout_bytes": 0,
+          "stderr_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+          "assertions": "enabled by isolated -I execution without -O or -OO",
+          "source_modified": false,
+          "checker_blob": "23768a5c2d88e100399bb5c4347447e86a7160cb",
+          "scope": "Actual original finite certificate checker run only; no analytic-propagation or universal-energy proof acceptance."
+        },
+        "interpretation": "The original checker was run before formal claim/runtime authority was established. Exit zero is retained as an actual fact; later direct registration, static review and publication do not authorize it retroactively or complete the overlapping Task.",
+        "subsequent_work": "Static source-to-paper mapping and local premise review only; no repeat/instrumented checker execution by the reviewer or this documentary integrator."
+      },
+      "formal_task_overlap": "RS-OAI7-090-A-20261007-6F2A81",
+      "formal_publication_id": "TP2-79BD2127769C593E5315",
+      "live_owner": "UNKNOWN",
+      "formal_claim_obtained": false,
+      "runtime_binding_obtained": false,
+      "next_minimal_obligation": "At a future properly assigned owner boundary, independently audit the stated continuous curvature-extremum lemma and its transfer of raw L/T/constant bounds; no new checker run is required for that paper proof audit.",
+      "unpaid_obligations": [
+        "Current formal claim/runtime authorization or Task completion",
+        "General-purpose interval or matrix library correctness for arbitrary malformed inputs",
+        "Full spectral identities, Schwartz convergence and Fourier normalization independently audited",
+        "All infinite block bounds, Schur-tail inverse, exact interpolation and numerical correction bounds independently audited",
+        "Uniform raw-curvature extremum and global signs independently audited",
+        "Energy-transfer theorem, arbitrary configuration limit, complete monotonicity transfer independently audited",
+        "Native signed Z6 Cell torsor or native time/physics bridge",
+        "Global post-2026-10-22 novelty"
+      ],
+      "new_theorem_count": 0,
+      "new_global_tool_family": false,
+      "formal_acceptance": false,
+      "formal_task_completion": false
+    }
+  ],
+  "second_rotation_review_bindings": [
+    {
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND5.json",
+        "sha256": "c710ac0bc5bb8c30f8df80bc5e6e3dcd9aa2963fcbf067ca9eb35000af6daa95",
+        "git_blob": "bc5f337cd3797683982ec0fcc682c194626673fb",
+        "bytes": 753,
+        "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+      },
+      "ledger_record_quoted": {
+        "line": "student_parity_relative_gap",
+        "author_file": "analysis/PARITY_FULL_TRACE_BOUNDED_RELATIVE_GAP_TAIL_AUTHOR.md",
+        "author_sha256": "129cad117292b1e90f3f0f8eb6c2791c2e5a050adff386c9e4a0b4c6e0d55c5e",
+        "review_file": "PARITY_RELATIVE_GAP_REVIEW.md",
+        "review_sha256": "0327f10496e95221deacef1cd060e3d4dc09c68da7bfb043645d55a9316a170d",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "finding": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_NEW_BOUNDED_RELATIVE_GAP_SCOPE",
+        "proof_level": "INDEPENDENT_SYMBOLIC_PAPER_REVIEW_NO_SCIENTIFIC_EXECUTION",
+        "formal_admission": false
+      },
+      "author": {
+        "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_BOUNDED_RELATIVE_GAP_TAIL_AUTHOR.md",
+        "sha256": "129cad117292b1e90f3f0f8eb6c2791c2e5a050adff386c9e4a0b4c6e0d55c5e",
+        "git_blob": "eea26dcfedbbc84b01c45cc43e342643fbc4e0d6",
+        "bytes": 13398,
+        "verified_ref": "66f3b23d112fba1dfb555576a91e2fac20746251"
+      },
+      "review": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/PARITY_RELATIVE_GAP_REVIEW.md",
+        "sha256": "0327f10496e95221deacef1cd060e3d4dc09c68da7bfb043645d55a9316a170d",
+        "git_blob": "2070c37bcb6395895d72effc948884fc38662a46",
+        "bytes": 6603,
+        "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+      },
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND6.json",
+        "sha256": "c79a4f24283bc73456309f06aa230d95875591be6bf7836b68a7c23a5d7115bc",
+        "git_blob": "336b83c9e1bc8ae778bd506f376d75135dd7dd87",
+        "bytes": 738,
+        "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+      },
+      "ledger_record_quoted": {
+        "line": "student_parity_all_second_gaps",
+        "author_file": "analysis/PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md",
+        "author_sha256": "cf9fc55ac4a4a193cc4d5c9e8355fde02dae577f0241344b05d48961dea771a0",
+        "review_file": "PARITY_ALL_SECOND_GAPS_REVIEW.md",
+        "review_sha256": "d6948de506b6dcc11a171069fb561846f5577e4613c2e443219f64bf94135d24",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "finding": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_NEW_ALL_SECOND_GAPS_TOTAL_SCALE_TAIL",
+        "nested_prior_domains_not_new_discoveries": true,
+        "formal_admission": false
+      },
+      "author": {
+        "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md",
+        "sha256": "cf9fc55ac4a4a193cc4d5c9e8355fde02dae577f0241344b05d48961dea771a0",
+        "git_blob": "90645a1eba137e7d51a3a3c24f98f3a2375b34c2",
+        "bytes": 11608,
+        "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+      },
+      "review": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/PARITY_ALL_SECOND_GAPS_REVIEW.md",
+        "sha256": "d6948de506b6dcc11a171069fb561846f5577e4613c2e443219f64bf94135d24",
+        "git_blob": "06df4eaade8adb2705f4924f4dfa614fcf40155f",
+        "bytes": 6664,
+        "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+      },
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND7.json",
+        "sha256": "c0962c1d26dcb286030bf33b7ff55abe4fc3cc381e41ec5ac74e4f262675a5fc",
+        "git_blob": "8a06874468014283ab41a3a65c8ffbe3a4c48fb1",
+        "bytes": 1699,
+        "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+      },
+      "ledger_record_quoted": {
+        "line": "free_return_horizon",
+        "author_file": "free/phase_a/phase_a_candidate.md",
+        "author_sha256": "ca2dd60ed65ea3fe6222dafadd4cc2cb5d09a769e2771ced294f4894b39df03a",
+        "post_freeze_clarification_file": "free/post_freeze/clock_alphabet_clarification.md",
+        "clarification_sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+        "review_file": "FREE_RETURN_HORIZON_REVIEW.md",
+        "review_sha256": "26d122311785b4ac22ca3d51ba4af663225af465113f596dab042dd6bc640e2f",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "finding": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_AFTER_DISCLOSED_FIXED_ALPHABET_CLARIFICATION",
+        "reviewer_contribution": "Requested and supplied the explicit standard clock-dependent recoding bridge; original equivalence/counting proof independently checked",
+        "phase_b_dedup_complete": false,
+        "formal_admission": false
+      },
+      "author": {
+        "repo_path": "research_notes/balanced_resume_20261028/free/phase_a/phase_a_candidate.md",
+        "sha256": "ca2dd60ed65ea3fe6222dafadd4cc2cb5d09a769e2771ced294f4894b39df03a",
+        "git_blob": "9ab57fc0fbfe0ad6483a8699bbcb7e6b4e3004a6",
+        "bytes": 10317,
+        "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+      },
+      "review": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/FREE_RETURN_HORIZON_REVIEW.md",
+        "sha256": "26d122311785b4ac22ca3d51ba4af663225af465113f596dab042dd6bc640e2f",
+        "git_blob": "d6e47efb76bd231a64ab7bd114fd9c22ee3137f1",
+        "bytes": 6070,
+        "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+      },
+      "formal_admission": false,
+      "root_mathematical_vote": false,
+      "post_freeze_clarification_file_pin": {
+        "repo_path": "research_notes/balanced_resume_20261028/free/post_freeze/clock_alphabet_clarification.md",
+        "sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+        "git_blob": "2a05c9959c37fe2f753efd2987184eb7073c47c2",
+        "bytes": 1651,
+        "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+      }
+    },
+    {
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND7.json",
+        "sha256": "c0962c1d26dcb286030bf33b7ff55abe4fc3cc381e41ec5ac74e4f262675a5fc",
+        "git_blob": "8a06874468014283ab41a3a65c8ffbe3a4c48fb1",
+        "bytes": 1699,
+        "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+      },
+      "ledger_record_quoted": {
+        "line": "student_parity_all_second_gaps_second_reader",
+        "author_file": "analysis/PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md",
+        "author_sha256": "cf9fc55ac4a4a193cc4d5c9e8355fde02dae577f0241344b05d48961dea771a0",
+        "review_file": "../formal/round2/PARITY_ALL_SECOND_GAPS_CROSS_REVIEW.md",
+        "review_sha256": "073ebed1449bb12bd132a0d5d4abb002cafff203b1474b1f75e962b6a7dd72a4",
+        "reviewer": "EM-DIRECT-099801",
+        "finding": "LOCAL_NONAUTHOR_PAPER_CHECK_NO_MUSTFIX_FOUND",
+        "root_review_agent_action": "REPORT_METADATA_AND_HASH_RECEIVED_NOT_AN_ADDITIONAL_MATHEMATICAL_VOTE",
+        "formal_admission": false
+      },
+      "author": {
+        "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md",
+        "sha256": "cf9fc55ac4a4a193cc4d5c9e8355fde02dae577f0241344b05d48961dea771a0",
+        "git_blob": "90645a1eba137e7d51a3a3c24f98f3a2375b34c2",
+        "bytes": 11608,
+        "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+      },
+      "review": {
+        "repo_path": "research_notes/balanced_resume_20261028/formal/round2/PARITY_ALL_SECOND_GAPS_CROSS_REVIEW.md",
+        "sha256": "073ebed1449bb12bd132a0d5d4abb002cafff203b1474b1f75e962b6a7dd72a4",
+        "git_blob": "f6e863d4c0083b0a4723adee36119d8e8525310a",
+        "bytes": 9125,
+        "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+      },
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND8.json",
+        "sha256": "d9c2549c406703bae88bbce9196b3a595aa4434a914ddd47a997f4585dc798fc",
+        "git_blob": "02efe7abaec51c156bc9a25b6227f120a35f25cd",
+        "bytes": 3740,
+        "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+      },
+      "ledger_record_quoted": {
+        "line": "cm_separated_strong_quotient",
+        "author_file": "cm/round2/CM24_SEPARATED_QUOTIENT_FIVE_SURVIVORS.md",
+        "author_sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+        "review_file": "CM_SEPARATED_QUOTIENT_REVIEW.md",
+        "review_sha256": "2ce99c5684d3169ccbafbb81b3e0724bca25b731621b2a4cdf7ed5c875ac499f",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "finding": "NO_UNRESOLVED_DEFECT_AT_DECLARED_INHERITED_INTERFACES_5_OR_6_UNDECIDED",
+        "formal_admission": false
+      },
+      "author": {
+        "repo_path": "research_notes/balanced_resume_20261028/cm/round2/CM24_SEPARATED_QUOTIENT_FIVE_SURVIVORS.md",
+        "sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+        "git_blob": "4e8ed5380e8980156417d82bd04ada7eef736b27",
+        "bytes": 14505,
+        "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+      },
+      "review": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/CM_SEPARATED_QUOTIENT_REVIEW.md",
+        "sha256": "2ce99c5684d3169ccbafbb81b3e0724bca25b731621b2a4cdf7ed5c875ac499f",
+        "git_blob": "c790d1008c7694ad212e10bf09b6527deb1e3d95",
+        "bytes": 5988,
+        "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+      },
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND8.json",
+        "sha256": "d9c2549c406703bae88bbce9196b3a595aa4434a914ddd47a997f4585dc798fc",
+        "git_blob": "02efe7abaec51c156bc9a25b6227f120a35f25cd",
+        "bytes": 3740,
+        "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+      },
+      "ledger_record_quoted": {
+        "line": "oai090_static_coverage",
+        "author_file": "native/round2/OAI090_FINITE_COVERAGE_AUDIT.md",
+        "author_sha256": "974eed99cd05fd51a06f95cd572b7255f3835398d9b6a289d6d29c114e9739ce",
+        "review_file": "OAI090_STATIC_COVERAGE_REVIEW.md",
+        "review_sha256": "1ffb7d2b0f2a59c69f63687ef88c1666b9c16e660fc91ad3215a0883b561e5cb",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "finding": "NO_MISMATCH_FOUND_WITHIN_STATIC_SCOPE_NO_REEXECUTION",
+        "formal_admission": false,
+        "coverage_file": "native/round2/OAI090_PROOF_COVERAGE.json",
+        "coverage_sha256": "5e6508bbb19604411e15817c9a8aa4737064f89592d54014a0f667ecc0c8d5cc",
+        "original_run_status": "UNBOUND_EXECUTION_EVIDENCE_NO_RETROACTIVE_AUTHORIZATION",
+        "new_theorem_count": 0
+      },
+      "author": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/round2/OAI090_FINITE_COVERAGE_AUDIT.md",
+        "sha256": "974eed99cd05fd51a06f95cd572b7255f3835398d9b6a289d6d29c114e9739ce",
+        "git_blob": "a9a70240303122d8b769f6d07d78e2c16ff2da60",
+        "bytes": 17627,
+        "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+      },
+      "review": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/OAI090_STATIC_COVERAGE_REVIEW.md",
+        "sha256": "1ffb7d2b0f2a59c69f63687ef88c1666b9c16e660fc91ad3215a0883b561e5cb",
+        "git_blob": "c9281f11e86266cd40023f9757c2abcb9a51cbfd",
+        "bytes": 5907,
+        "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+      },
+      "formal_admission": false,
+      "root_mathematical_vote": false,
+      "coverage_file_pin": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/round2/OAI090_PROOF_COVERAGE.json",
+        "sha256": "5e6508bbb19604411e15817c9a8aa4737064f89592d54014a0f667ecc0c8d5cc",
+        "git_blob": "279695157bb2581cd1315ecdb132cdc40b2a6d74",
+        "bytes": 7906,
+        "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+      }
+    },
+    {
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND8.json",
+        "sha256": "d9c2549c406703bae88bbce9196b3a595aa4434a914ddd47a997f4585dc798fc",
+        "git_blob": "02efe7abaec51c156bc9a25b6227f120a35f25cd",
+        "bytes": 3740,
+        "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+      },
+      "ledger_record_quoted": {
+        "line": "free_return_horizon_phase_b",
+        "author_file": "free/phase_b/phase_b_audit.md",
+        "author_sha256": "c9bb61e76f8f09c3b6d04a03b9f7b445c021cd3cf791ba3881a91f60be0d92ed",
+        "review_file": "FREE_RETURN_REUSE_DISPOSITION.md",
+        "review_sha256": "f2622af20fa5146cd1a4c50d5f5f46ee90e80ce9cae83ce714eff1dd51e0e404",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "finding": "CORE_MECHANISM_REUSED_EXACT_REACHABLE_PARITY_PEAK_BOUNDED_APPLICATION",
+        "classification": [
+          "DERIVED_NOT_AXIOM",
+          "BOUNDED_APPLICATION",
+          "RESULT_ONLY"
+        ],
+        "original_candidate_file": "free/phase_a/phase_a_candidate.md",
+        "original_candidate_sha256": "ca2dd60ed65ea3fe6222dafadd4cc2cb5d09a769e2771ced294f4894b39df03a",
+        "clarification_file": "free/post_freeze/clock_alphabet_clarification.md",
+        "clarification_sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+        "reviewer_contribution_disclosed": true,
+        "formal_admission": false
+      },
+      "author": {
+        "repo_path": "research_notes/balanced_resume_20261028/free/phase_b/phase_b_audit.md",
+        "sha256": "c9bb61e76f8f09c3b6d04a03b9f7b445c021cd3cf791ba3881a91f60be0d92ed",
+        "git_blob": "6cca845d8916cdbc4fb7d9a758840e97aee89e9e",
+        "bytes": 8547,
+        "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+      },
+      "review": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/FREE_RETURN_REUSE_DISPOSITION.md",
+        "sha256": "f2622af20fa5146cd1a4c50d5f5f46ee90e80ce9cae83ce714eff1dd51e0e404",
+        "git_blob": "061b20a3fb78b46a65b292e35770eb35a685784e",
+        "bytes": 4223,
+        "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+      },
+      "formal_admission": false,
+      "root_mathematical_vote": false,
+      "original_candidate_file_pin": {
+        "repo_path": "research_notes/balanced_resume_20261028/free/phase_a/phase_a_candidate.md",
+        "sha256": "ca2dd60ed65ea3fe6222dafadd4cc2cb5d09a769e2771ced294f4894b39df03a",
+        "git_blob": "9ab57fc0fbfe0ad6483a8699bbcb7e6b4e3004a6",
+        "bytes": 10317,
+        "verified_ref": "4d6409b6c61da27a056ef19ae6008fb1fc632267"
+      },
+      "clarification_file_pin": {
+        "repo_path": "research_notes/balanced_resume_20261028/free/post_freeze/clock_alphabet_clarification.md",
+        "sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+        "git_blob": "2a05c9959c37fe2f753efd2987184eb7073c47c2",
+        "bytes": 1651,
+        "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+      }
+    },
+    {
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND8.json",
+        "sha256": "d9c2549c406703bae88bbce9196b3a595aa4434a914ddd47a997f4585dc798fc",
+        "git_blob": "02efe7abaec51c156bc9a25b6227f120a35f25cd",
+        "bytes": 3740,
+        "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+      },
+      "ledger_record_quoted": {
+        "line": "cm_separated_second_reader",
+        "author_file": "cm/round2/CM24_SEPARATED_QUOTIENT_FIVE_SURVIVORS.md",
+        "author_sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+        "review_file": "../formal/round2/CM24_SEPARATED_QUOTIENT_CROSS_REVIEW.md",
+        "review_sha256": "ae68fcbb851365de912db987a3e0e6abe0d6dc3d55c0b7dda3828c226412b951",
+        "reviewer": "EM-DIRECT-099801",
+        "finding": "LOCAL_NONAUTHOR_PAPER_CHECK_NO_MUSTFIX_FOUND",
+        "review_agent_action": "FULL_REPORT_READ_HASH_CHECKED_ATTRIBUTED_NOT_AN_ADDITIONAL_VOTE",
+        "formal_admission": false
+      },
+      "author": {
+        "repo_path": "research_notes/balanced_resume_20261028/cm/round2/CM24_SEPARATED_QUOTIENT_FIVE_SURVIVORS.md",
+        "sha256": "60548b26b12a98b1d721b6e6f282c6fe3f063689ac7b928de2c3ad7b10bc9a10",
+        "git_blob": "4e8ed5380e8980156417d82bd04ada7eef736b27",
+        "bytes": 14505,
+        "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+      },
+      "review": {
+        "repo_path": "research_notes/balanced_resume_20261028/formal/round2/CM24_SEPARATED_QUOTIENT_CROSS_REVIEW.md",
+        "sha256": "ae68fcbb851365de912db987a3e0e6abe0d6dc3d55c0b7dda3828c226412b951",
+        "git_blob": "a5127960a2841160edb0b909a3f917a2e66e4533",
+        "bytes": 10138,
+        "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+      },
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND8.json",
+        "sha256": "d9c2549c406703bae88bbce9196b3a595aa4434a914ddd47a997f4585dc798fc",
+        "git_blob": "02efe7abaec51c156bc9a25b6227f120a35f25cd",
+        "bytes": 3740,
+        "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+      },
+      "ledger_record_quoted": {
+        "line": "free_clock_alphabet_independent_bridge_reader",
+        "author_file": "free/post_freeze/clock_alphabet_clarification.md",
+        "author_sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+        "review_file": "../formal/round2/FREE_EXTERNAL_CLOCK_ALPHABET_CROSS_REVIEW.md",
+        "review_sha256": "814f68bc289aa82201460a5401b05c1af1f27b8b85aab1a173fa4db736bb6397",
+        "reviewer": "EM-DIRECT-099801",
+        "finding": "LOCAL_NONAUTHOR_PAPER_CHECK_NO_MUSTFIX_FOUND",
+        "review_agent_action": "FULL_REPORT_READ_HASH_CHECKED_ATTRIBUTED_NOT_AN_ADDITIONAL_VOTE",
+        "formal_admission": false
+      },
+      "author": {
+        "repo_path": "research_notes/balanced_resume_20261028/free/post_freeze/clock_alphabet_clarification.md",
+        "sha256": "6ad6a465fc2e98ea3ceeb38c9f98b4b98bf172683c6873b14bc1cad4f210a2ea",
+        "git_blob": "2a05c9959c37fe2f753efd2987184eb7073c47c2",
+        "bytes": 1651,
+        "verified_ref": "0d3b22c10ba255041b9ea88207f5fffa0ac62c76"
+      },
+      "review": {
+        "repo_path": "research_notes/balanced_resume_20261028/formal/round2/FREE_EXTERNAL_CLOCK_ALPHABET_CROSS_REVIEW.md",
+        "sha256": "814f68bc289aa82201460a5401b05c1af1f27b8b85aab1a173fa4db736bb6397",
+        "git_blob": "194e487eda453dcf55af4614ab9a0a42769c80b1",
+        "bytes": 4159,
+        "verified_ref": "d1a8bb0db86016afa72b546f31142de071facec7"
+      },
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    }
+  ],
+  "provenance_validation": {
+    "source_readback_receipts_rechecked": 172,
+    "effective_source_paths": 154,
+    "root_source_integrity_report_quoted": {
+      "scope": "exact branch through wave9; older untouched initial RA records excluded from wave union",
+      "verified_unique_wave_paths": 154,
+      "verified_final_manifest_paths": 154,
+      "json_parsed": 87,
+      "python_ast_parsed": 14,
+      "exact_author_review_bindings": 23,
+      "all_checks_passed": true,
+      "scientific_reruns_by_owner": 0,
+      "mathematical_votes_by_owner": 0
+    },
+    "second_rotation_exact_bindings": 9,
+    "total_exact_bindings_through_round8": 23,
+    "scientific_reruns_by_documentary_integrator": 0,
+    "new_math_votes_by_documentary_integrator": 0
+  }
+}

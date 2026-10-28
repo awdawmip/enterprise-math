@@ -1,0 +1,58 @@
+{
+  "status": "EXACT_CLOCK_INTERFACE_PASS",
+  "horizon": 32,
+  "source_edge_prefix": [
+    "1",
+    "-1/2",
+    "-1/2",
+    "-1/2",
+    "-1/6",
+    "0",
+    "1/27",
+    "1/18",
+    "11/486"
+  ],
+  "deterministic_response": [
+    "1",
+    "1",
+    "-1/2",
+    "-1/2",
+    "-1/2",
+    "-1/2",
+    "-1/2",
+    "-1/2",
+    "-1/6"
+  ],
+  "geometric_response": [
+    "1",
+    "1/4",
+    "-1/8",
+    "-5/16",
+    "-37/96",
+    "-37/96",
+    "-593/1728",
+    "-1945/6912",
+    "-26809/124416"
+  ],
+  "third_clock_independent_renewal_convolution_matches": true,
+  "clock_summaries": [
+    {
+      "clock": "deterministic_2",
+      "transport_mark_one_probability": "2/5",
+      "mean_return_clock_duration": "8",
+      "even_mark_mean": "36/5",
+      "odd_mark_mean": "46/5"
+    },
+    {
+      "clock": "geometric_half",
+      "transport_mark_one_probability": "2/5",
+      "mean_return_clock_duration": "8",
+      "even_mark_mean": "36/5",
+      "odd_mark_mean": "46/5"
+    }
+  ],
+  "deterministic_clock_has_only_even_durations_but_odd_transport_mark_mass": "2/5",
+  "native_clock_selection": "UNKNOWN",
+  "BRC_world_reexecution": false,
+  "script_sha256": "dfc1acaeac0d4ede8f308e5e19a2d0b0ab157e8b057828fd9cd409e11ec7443c"
+}

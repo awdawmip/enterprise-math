@@ -1,0 +1,1814 @@
+{
+  "schema": "EM_BALANCED_RESEARCH_FIRST_ROTATION_DOCUMENTARY_INDEX_V1",
+  "date": "2026-10-28",
+  "timezone": "Asia/Shanghai",
+  "repository": "awdawmip/enterprise-math",
+  "source_snapshot": "7d2acd57622cbe7ad6acf4547d450e918dd670bb",
+  "source_branch": "research/balanced-resume-20261028-18c67b",
+  "publication_state_at_index_freeze": "SOURCE_BRANCH_PERSISTED_WITH_IMMUTABLE_FULL_FILE_READBACKS_MAIN_INTAKE_NOT_ASSERTED",
+  "classification": "DOCUMENTARY_EXTRACTION_NOT_MATHEMATICAL_REVIEW_OR_CANONICAL_THEOREM_REGISTRY",
+  "scope": {
+    "known_monthly_library_families": 12,
+    "first_rotation_substantive_service_units": 12,
+    "complete_canonical_task_inventory_established": false,
+    "canonical_live_task_state": "UNKNOWN_CONTROL_QUOTA",
+    "original_435_units": "Historical documentary catalogue count; never added to this count as accepted theorems.",
+    "counts_are_theorem_or_acceptance_totals": false,
+    "parent_research_objective": "OPEN"
+  },
+  "status_policy": {
+    "author_creation_pending_fields": "Preserved verbatim inside quoted author interfaces; current bounded-review evidence is the exact artifact/review hash binding in the overlay.",
+    "review_level": "Distinct nonauthor paper/interface checks with shared control/source context disclosed; not clean-blind, not formal Driver acceptance, not proof-kernel certification.",
+    "root_mathematical_votes": 0,
+    "formal_task_closures": 0,
+    "foundation_changes": 0,
+    "new_global_tool_families": 0,
+    "no_bootstrap_of_inherited_claims": "New review findings apply to the exact declared scope and inherited interfaces; prior source status and outstanding obligations are not silently upgraded."
+  },
+  "first_rotation_units": [
+    {
+      "id": "BR-20261028-P11",
+      "library_family": "p11",
+      "title_zh": "完整有符号 Cauchy 外环的显式首端点区间",
+      "service_unit_count": 1,
+      "kind": "QUANTITATIVE_DOMAIN_INTERFACE",
+      "summary_from_author_interface_zh": "继承 A₀ 非奇异后，以显式有理 K_m 给出 η_m=min(1,1/(2K_m))（K_m=0 时 η_m=1）；0<t≤η_m 内同号且 |det S_m(t)|≥2⁻ⁿ|det A₀|tⁿ。",
+      "scope_limit_summary_zh": "不闭合 η_m<t≤1，不证明 m 一致区间；core98、fixed233、m7 固定证书 NO_INVOKE 保留。",
+      "proof": {
+        "repo_path": "research_notes/balanced_resume_20261028/analysis/P11_OUTER_CAUCHY_EFFECTIVE_FIRST_ENDPOINT_AUTHOR.md",
+        "sha256": "23ca7298dc70de05f61f816515f2efea3dd83e6b3fe8bc4026629cfc6e098c7b",
+        "git_blob": "67fa5fdf68d86adb7b4a4030ab6a5d7674c0dd87",
+        "bytes": 7259,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "interface_source": {
+        "repo_path": "research_notes/balanced_resume_20261028/analysis/ANALYSIS_MATH_INTERFACES.json",
+        "sha256": "4b69f19d6cfe4e8f658c8fa9b575714eea20b1a6e3770f5f1cca90bb1610b4e2",
+        "git_blob": "0d584b0715af87f0873d07a92810a9893e7bf951",
+        "bytes": 4690,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "author_interface_quoted": {
+        "id": "ANALYSIS-P11-OUTER-FIRST-ENDPOINT",
+        "source_entry": "P11-CAUCHY-OUTER-COVARIANCE-BOUNDARY",
+        "artifact": "P11_OUTER_CAUCHY_EFFECTIVE_FIRST_ENDPOINT_AUTHOR.md",
+        "pin": {
+          "sha256": "23ca7298dc70de05f61f816515f2efea3dd83e6b3fe8bc4026629cfc6e098c7b",
+          "bytes": 7259
+        },
+        "mathematical_kind": "QUANTITATIVE_DERIVED_DOMAIN_INTERFACE",
+        "input": "Frozen full signed Cauchy covariance S_m and inherited all-m nonsingular first crossing A0; integer m>=2",
+        "construction": "C_j=t U_j/d_j; d_j>=delta_j=d_j(1)>0; |A(t)-A0|<=tE with A=S/t and explicit rational E",
+        "constants": "Km=||A0^-1||infinity ||E||infinity; eta_m=1 if Km=0 else min(1,1/(2Km))",
+        "output": "0<t<=eta_m implies same determinant sign as A0 and |det S_m(t)|>=2^(-n)|det A0|t^n; explicit cofactor lower bound",
+        "exclusions": [
+          "all t up to1 unless evaluated eta_m=1",
+          "m-uniform collar",
+          "all-m coefficient positivity",
+          "new proof of crossing input",
+          "positive definiteness of inner blocks",
+          "scientific NO_INVOKE runs"
+        ],
+        "reuse_resolution": "COMPOSE_APPLIED",
+        "novelty": "Standard perturbation methods reused; no novel generic mechanism"
+      },
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/analysis/P11_OUTER_CAUCHY_EFFECTIVE_FIRST_ENDPOINT_AUTHOR.md",
+          "sha256": "23ca7298dc70de05f61f816515f2efea3dd83e6b3fe8bc4026629cfc6e098c7b",
+          "git_blob": "67fa5fdf68d86adb7b4a4030ab6a5d7674c0dd87",
+          "bytes": 7259,
+          "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/P11_ENDPOINT_REVIEW.md",
+          "sha256": "232c46de712afb54d3f1ce969c92dd353fc3f1fc3b4f8d35eed81e7b65516063",
+          "git_blob": "a00e23109e98953cb4ae97c5d200ae37ed692673",
+          "bytes": 2994,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND3.json",
+          "sha256": "71ffabaa90564985211e1071101553aa98ef740bee11d23e243b4db315926232",
+          "git_blob": "4e3a6c23592ba900ed1c3914cba000486a36169b",
+          "bytes": 2719,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "verification_artifacts": [],
+      "next_obligation_from_author_sources": "Quantitative collar leaves eta_m<t<=1; exact full signed outer matrix remains the object.",
+      "status": "NONAUTHOR_PAPER_OR_INTERFACE_REVIEW_REPORTED_NO_OPEN_DEFECT_WITHIN_EXACT_SCOPE_NOT_FORMALLY_ADMITTED",
+      "formal_live_task_state": "UNKNOWN",
+      "new_global_tool_family": false,
+      "count_is_accepted_theorems": false
+    },
+    {
+      "id": "BR-20261028-PARITY",
+      "library_family": "student_parity",
+      "title_zh": "完整 Parity trace 的小线性锥正尾",
+      "service_unit_count": 1,
+      "kind": "BOUNDED_NEW_DOMAIN_COROLLARY",
+      "summary_from_author_interface_zh": "实际多项式支撑 p+q≤j−1 给出可计算 δ_m；(1+a+c)/(m(S+a))≤δ_m 时 Gap>0，因此全部正间隙路径 a+c=o(S) 最终适用。",
+      "scope_limit_summary_zh": "固定 m；不推出所有 S、m 一致阈值、路径单调性或逐项系数正性。",
+      "proof": {
+        "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_UNBOUNDED_SMALL_CONE_AUTHOR.md",
+        "sha256": "f9a9415455b9b004f9e2854e999eaebd4934acd7211084b87bf1bc5c0634e921",
+        "git_blob": "dfb56ab769bfa7da3c4ed7ffa66511726c549ade",
+        "bytes": 10603,
+        "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+      },
+      "interface_source": {
+        "repo_path": "research_notes/balanced_resume_20261028/analysis/ANALYSIS_MATH_INTERFACES.json",
+        "sha256": "4b69f19d6cfe4e8f658c8fa9b575714eea20b1a6e3770f5f1cca90bb1610b4e2",
+        "git_blob": "0d584b0715af87f0873d07a92810a9893e7bf951",
+        "bytes": 4690,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "author_interface_quoted": {
+        "id": "ANALYSIS-PARITY-UNBOUNDED-CONE",
+        "source_entry": "parity.unequal_gap_uniform_sector_tail",
+        "artifact": "PARITY_UNBOUNDED_SMALL_CONE_AUTHOR.md",
+        "pin": {
+          "sha256": "f9a9415455b9b004f9e2854e999eaebd4934acd7211084b87bf1bc5c0634e921",
+          "bytes": 10603
+        },
+        "mathematical_kind": "BOUNDED_NEW_DOMAIN_COROLLARY",
+        "input": "Fixed integer m>=2; original complete signed normalized secant trace; S>=0,a,c>0",
+        "new_support": "Z=sum z_jpq epsilon^j a^p c^q has p+q<=j-1 after Ngap=cZ and Z(0)=0",
+        "constants": "alpha=|K|m(m^2-1); Bm=sum_(j>=2,p,q)|z_jpq|; delta_m=1 if Bm=0 else min(1,alpha/(2Bm))",
+        "output": "(1+a+c)/(m(S+a))<=delta_m implies Gap>0; all positive paths a+c=o(S) eventually satisfy this, without differentiability/lower bounds",
+        "error": "|Gap/c-(m^2-1)/(S+a)|<=Cm(1+a+c)/(m^2(S+a)^2) when rho<=1",
+        "exclusions": [
+          "all-S arbitrary-gap positivity",
+          "m-uniform delta",
+          "path monotonicity",
+          "coefficientwise positivity",
+          "native propagation"
+        ],
+        "reuse_resolution": "COMPOSE_APPLIED",
+        "novelty": "No exhaustive external novelty claim"
+      },
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_UNBOUNDED_SMALL_CONE_AUTHOR.md",
+          "sha256": "f9a9415455b9b004f9e2854e999eaebd4934acd7211084b87bf1bc5c0634e921",
+          "git_blob": "dfb56ab769bfa7da3c4ed7ffa66511726c549ade",
+          "bytes": 10603,
+          "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/PARITY_REVIEW.md",
+          "sha256": "9aa75235b559cbbba713417ee7d8c4cd872a09a221ba9dba8d6060fb447a2df3",
+          "git_blob": "ab8c151e5b9226cbf933b1344c6c33e403f8656f",
+          "bytes": 3761,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER.json",
+          "sha256": "fe3517ddf8fb98d2f9bd8f91a2f7ec94c9253261696f0189c74837432287f8ad",
+          "git_blob": "d8a0e1361a70381525bc6fd16c602eb341fdfeaf",
+          "bytes": 2239,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "verification_artifacts": [],
+      "next_obligation_from_author_sources": "Actual delta_m size / larger scaled-gap limit, or existing raw COMMON coefficient-caller source gap. Later relative-gap manuscript is excluded from this first-rotation count.",
+      "status": "NONAUTHOR_PAPER_OR_INTERFACE_REVIEW_REPORTED_NO_OPEN_DEFECT_WITHIN_EXACT_SCOPE_NOT_FORMALLY_ADMITTED",
+      "formal_live_task_state": "UNKNOWN",
+      "new_global_tool_family": false,
+      "count_is_accepted_theorems": false
+    },
+    {
+      "id": "BR-20261028-NATIVE",
+      "library_family": "native_brc",
+      "title_zh": "模二次读出的固定非自适应最少 probe 数",
+      "service_unit_count": 1,
+      "kind": "BOUNDED_OBSERVER_THEOREM",
+      "summary_from_author_interface_zh": "在原有全 signed X6 chart、精确输出及全部平移未来语言下，K(1)=0，K(2)=1，K(4)=6，其余 m 的 K(m)=7。",
+      "scope_limit_summary_zh": "允许空方案；不是完整 Cell 身份压缩，也不含自适应、噪声、混合模数或有界域最优。",
+      "proof": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/QUADRATIC_EVEN_PROBES.md",
+        "sha256": "92115d030dec8ce07354c6cbda33eb553c769605e299141223eefd6618f36a47",
+        "git_blob": "6eb2d0e96db94789cd5e402ba01f7a838d72b235",
+        "bytes": 8389,
+        "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+      },
+      "interface_source": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/RESEARCH_INTERFACES.json",
+        "sha256": "8fbed26420bdb6f836f6d85a17a52a7e7eaa4100347f29a81a676e7ae66173c6",
+        "git_blob": "1d391e7c9b2e0bc33236b594bc049511d864a033",
+        "bytes": 6361,
+        "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+      },
+      "author_interface_quoted": {
+        "id": "NB20261028-QPROBES",
+        "class": "BOUNDED_THEOREM_CANDIDATE",
+        "statement": "Fixed nonadaptive q_m(x+a) probe minimum on Z^6: K(1)=0,K(2)=1,K(4)=6,K(m)=7 otherwise.",
+        "assumptions": [
+          "m integer >=1",
+          "full signed native raw X6 chart",
+          "all finite signed-unit translation words",
+          "exact scalar outputs, fixed nonadaptive offsets, same unknown initial state",
+          "empty scheme allowed"
+        ],
+        "proof": "QUADRATIC_EVEN_PROBES.md",
+        "verification": [
+          "verify_quadratic_even.py",
+          "quadratic_validation.json"
+        ],
+        "reuse": [
+          "T6_OPERATION_SAFE_QUOTIENT",
+          "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA"
+        ],
+        "new_tool_family": false,
+        "not_claimed": [
+          "full native Cell identity compression",
+          "adaptive/noisy/mixed-modulus/bounded-domain optimum",
+          "external novelty",
+          "formal/native admission"
+        ],
+        "author": "EM-NATIVE-A8C19E",
+        "review_status": "NONDECISIVE_PEER_REVIEW_NO_DEFECT_REPORTED",
+        "formal_result_or_task_admission": false,
+        "proof_sha256": "92115d030dec8ce07354c6cbda33eb553c769605e299141223eefd6618f36a47"
+      },
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/native/QUADRATIC_EVEN_PROBES.md",
+          "sha256": "92115d030dec8ce07354c6cbda33eb553c769605e299141223eefd6618f36a47",
+          "git_blob": "6eb2d0e96db94789cd5e402ba01f7a838d72b235",
+          "bytes": 8389,
+          "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/NATIVE_REVIEW.md",
+          "sha256": "a162f2373275a8b4432faace5d76416bdace68a36f0a660b534527c61c7a892a",
+          "git_blob": "d5ae9ce1b408028178cbbc1785843c99b5dfdcb7",
+          "bytes": 3702,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER.json",
+          "sha256": "fe3517ddf8fb98d2f9bd8f91a2f7ec94c9253261696f0189c74837432287f8ad",
+          "git_blob": "d8a0e1361a70381525bc6fd16c602eb341fdfeaf",
+          "bytes": 2239,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "verification_artifacts": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/verify_quadratic_even.py",
+          "sha256": "8d643c1ccba1451ae4c824bc883f2677b54723bedff9e7e90ad7de9ac33f300a",
+          "git_blob": "2adddf989c6985a51b11694924d3a47937c8a4ea",
+          "bytes": 3502,
+          "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/quadratic_validation.json",
+          "sha256": "8225a528e0ef5cd57cfa99f50943a3f611e526cb26d12342cb19c9c3dc095f45",
+          "git_blob": "5d2b1b0ebbf4343014d7521b9a3fd14b3bac55cb",
+          "bytes": 4929,
+          "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+        }
+      ],
+      "next_obligation_from_author_sources": "Do not reopen the answered fixed-probe instance without a new observer/acquisition grammar; full Cell/path/branch identity remains outside the theorem.",
+      "status": "NONAUTHOR_PAPER_OR_INTERFACE_REVIEW_REPORTED_NO_OPEN_DEFECT_WITHIN_EXACT_SCOPE_NOT_FORMALLY_ADMITTED",
+      "formal_live_task_state": "UNKNOWN",
+      "new_global_tool_family": false,
+      "count_is_accepted_theorems": false
+    },
+    {
+      "id": "BR-20261028-CM-ALG",
+      "library_family": "cm_algebra",
+      "title_zh": "实际强完备化的非闭像及无限维代数余核",
+      "service_unit_count": 1,
+      "kind": "NONARCHIMEDEAN_COMPLETION_OBSTRUCTION",
+      "summary_from_author_interface_zh": "对指定 p-adic 完备环及原 rank-two 连接，dim H⁰≤2，L 的像非闭，代数余核无限维；原 weak 六维余核比较不能满射。",
+      "scope_limit_summary_zh": "以原 integral Frobenius rows 为继承接口；不决定 H⁰ 精确值、separated quotient、比较核或显式非像源。",
+      "proof": {
+        "repo_path": "research_notes/balanced_resume_20261028/cm/CM24_STRONG_COMPLETION_NONCLOSED_RANGE.md",
+        "sha256": "b19248580b174c7ce6aaacc453ab777f7c81f8ec820a5c153c4acd1cc2dca1e0",
+        "git_blob": "dad756a3bfaa7e8edb7f0fd58a5c367743447d98",
+        "bytes": 13584,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "interface_source": {
+        "repo_path": "research_notes/balanced_resume_20261028/cm/CM_THEOREM_TOOL_INTERFACES.json",
+        "sha256": "799aa5717ca9d74feb530c0eba3e3a88a36523ea53ea42fd29b0d0335ac3a9bd",
+        "git_blob": "21ff48f913dc82f93f6c459aa4054f59b5deec1b",
+        "bytes": 4319,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "author_interface_quoted": {
+        "local_id": "CM-RESUME-STRONG-001",
+        "kind": "NONARCHIMEDEAN_STRONG_COMPLETION_OBSTRUCTION",
+        "paper": "CM24_STRONG_COMPLETION_NONCLOSED_RANGE.md",
+        "paper_sha256": "b19248580b174c7ce6aaacc453ab777f7c81f8ec820a5c153c4acd1cc2dca1e0",
+        "domain": "Original complete unramified DVR O, p=13 or19 mod24; A=O[r,(1-r^2)^-1,(4r^2-1)^-1]; Rhat=completion_p(A)[1/p]; original row D.",
+        "input": "Exact original integral Frobenius rows L(u_n)=p^n b_n, with second-component Laurent initial exponent1-p^n and unit coefficient beta^n.",
+        "output": [
+          "dim_K ker(L on Rhat^2)<=2",
+          "image L is not closed",
+          "algebraic cokernel is infinite dimensional; quotient topology non-Hausdorff",
+          "weak six-dimensional cokernel comparison is not surjective"
+        ],
+        "proof_dependencies": [
+          "Faithful finite-level localization-to-Laurent embeddings and p-adic inverse limit",
+          "Ambient Laurent-completion field has differential constants exactly K",
+          "Distinct unit initial exponents give infinite mod-p linear independence",
+          "Banach open mapping and finite-dimensional DVR lattice",
+          "Finite-algebraic-codimension range of bounded Banach map is closed"
+        ],
+        "harvest": "RESULT_ONLY_STANDARD_COMPOSE",
+        "verification": "Independent nonauthor paper cross-review found no must-fix in all four bounded claims. No computations or proof kernel used; no Driver disposition.",
+        "excluded": [
+          "dim H0 exact value",
+          "separated quotient dimension",
+          "weak comparison injectivity",
+          "explicit specified nonexact strong source",
+          "whole CM objective closure"
+        ],
+        "review": {
+          "file": "../formal/CM24_STRONG_COMPLETION_CROSS_REVIEW.md",
+          "sha256": "7aef0cc8f60c1efda342dfeb514e7ee29f4138a5e3962218dd8a7b0575ee09f6",
+          "paper_sha256": "b19248580b174c7ce6aaacc453ab777f7c81f8ec820a5c153c4acd1cc2dca1e0",
+          "status": "LOCAL_NONAUTHOR_PAPER_CHECK_NO_MUSTFIX_FOUND",
+          "formal_driver_disposition": false
+        }
+      },
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/cm/CM24_STRONG_COMPLETION_NONCLOSED_RANGE.md",
+          "sha256": "b19248580b174c7ce6aaacc453ab777f7c81f8ec820a5c153c4acd1cc2dca1e0",
+          "git_blob": "dad756a3bfaa7e8edb7f0fd58a5c367743447d98",
+          "bytes": 13584,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/formal/CM24_STRONG_COMPLETION_CROSS_REVIEW.md",
+          "sha256": "7aef0cc8f60c1efda342dfeb514e7ee29f4138a5e3962218dd8a7b0575ee09f6",
+          "git_blob": "9980302d8899bc09f7cf20fd2459818f6417b085",
+          "bytes": 9212,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND3.json",
+          "sha256": "71ffabaa90564985211e1071101553aa98ef740bee11d23e243b4db315926232",
+          "git_blob": "4e3a6c23592ba900ed1c3914cba000486a36169b",
+          "bytes": 2719,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "finding_quoted": "LOCAL_NONAUTHOR_PAPER_CHECK_NO_MUSTFIX_FOUND_AT_INHERITED_FROBENIUS_INTERFACE",
+        "reviewer": "EM-DIRECT-099801",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "verification_artifacts": [],
+      "next_obligation_from_author_sources": "Exact strong horizontal dimension, separated quotient, comparison kernel and explicit specified source outside the strong image remain open.",
+      "status": "NONAUTHOR_PAPER_OR_INTERFACE_REVIEW_REPORTED_NO_OPEN_DEFECT_WITHIN_EXACT_SCOPE_NOT_FORMALLY_ADMITTED",
+      "formal_live_task_state": "UNKNOWN",
+      "new_global_tool_family": false,
+      "count_is_accepted_theorems": false
+    },
+    {
+      "id": "BR-20261028-CM-AN",
+      "library_family": "cm_analytic",
+      "title_zh": "多端点 Hasse jets 的最优 trace decoder",
+      "service_unit_count": 1,
+      "kind": "FINITE_FIELD_OBSERVER_THEOREM",
+      "summary_from_author_interface_zh": "在 p=6m+1、p≡13或19 mod24、D=Σd_i≤m 的指定载体上，用恰 D 个 F_p 外部线性标量重建全部目标 jets，给出最多三次扩域后的 trace 降回构造。",
+      "scope_limit_summary_zh": "复用已有维数下界；a=0 保留 Laurent 偏移；不求实际 Y/Z/h_div/κ，也不覆盖 D>m。",
+      "proof": {
+        "repo_path": "research_notes/balanced_resume_20261028/cm/CM24_MULTIPOINT_TRACE_ENDPOINT_DECODER.md",
+        "sha256": "d85a69d5e20438ab63a653e3aea6ffbbddfebbbd8ec92435e8a85d7b9c3f970c",
+        "git_blob": "927571a91a77f57d085d7d2f8e528454f03366e4",
+        "bytes": 11935,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "interface_source": {
+        "repo_path": "research_notes/balanced_resume_20261028/cm/CM_THEOREM_TOOL_INTERFACES.json",
+        "sha256": "799aa5717ca9d74feb530c0eba3e3a88a36523ea53ea42fd29b0d0335ac3a9bd",
+        "git_blob": "21ff48f913dc82f93f6c459aa4054f59b5deec1b",
+        "bytes": 4319,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "author_interface_quoted": {
+        "local_id": "CM-RESUME-MULTIPOINT-001",
+        "kind": "FINITE_FIELD_OBSERVER_THEOREM",
+        "paper": "CM24_MULTIPOINT_TRACE_ENDPOINT_DECODER.md",
+        "paper_sha256": "d85a69d5e20438ab63a653e3aea6ffbbddfebbbd8ec92435e8a85d7b9c3f970c",
+        "domain": "p=6m+1 prime congruent 13 or 19 mod24; distinct a_i in F_p; d_i>=1; D=sum d_i<=m; V={deg B<=p-2,[z^(3m)]B=0}",
+        "input": "Complete central P_B plus actual outer U_B of x^(-3m)(x-3)B(x(x-3)^2/4)/24",
+        "output": "Exactly D independent F_p-linear outer scalars reconstruct all beta_i,k=[v^k]B(a_i+v), k<d_i.",
+        "constructor": [
+          "Choose unramified root alpha over extension degree e<=3, alpha=0 at a=0 and alpha=4 at a=1.",
+          "Normalize R_alpha,T=24 (x^N T)(alpha+t)/(alpha+t-3).",
+          "Invert the triangular coefficient matrix of q(alpha+t)-a.",
+          "Apply e^(-1)Tr_E/Fp to each resulting functional."
+        ],
+        "minimal_local_input": "At nonzero alpha use jets through d_i-1; at zero use Laurent coefficients -N through -N+d_i-1. Threshold sharp jointly with all prescribed finite jets at other points.",
+        "reuse": "Original Hermite lower bound and a=1 decoder preserved; new matching upper construction for arbitrary endpoints.",
+        "harvest": "RESULT_ONLY_STANDARD_COMPOSE",
+        "verification": "Nonauthor bounded paper review; finite exact 21366 scalar equalities PASS, no all-prime theorem inferred from finite execution.",
+        "excluded": [
+          "D>m",
+          "fixed-full-forcing variations",
+          "actual Y/Z/h_div/kappa evaluation",
+          "undeclared future operations",
+          "global tool novelty"
+        ],
+        "review": {
+          "file": "../review/CM_REVIEW.md",
+          "paper_sha256": "d85a69d5e20438ab63a653e3aea6ffbbddfebbbd8ec92435e8a85d7b9c3f970c",
+          "status": "NONDECISIVE_NONAUTHOR_PAPER_CHECK_NO_UNRESOLVED_DEFECT",
+          "reviewer": "EM-REVIEW-58D6A2",
+          "formal_driver_disposition": false
+        }
+      },
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/cm/CM24_MULTIPOINT_TRACE_ENDPOINT_DECODER.md",
+          "sha256": "d85a69d5e20438ab63a653e3aea6ffbbddfebbbd8ec92435e8a85d7b9c3f970c",
+          "git_blob": "927571a91a77f57d085d7d2f8e528454f03366e4",
+          "bytes": 11935,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/CM_REVIEW.md",
+          "sha256": "71a1c9c31d11984e3e69385c3377187c49b8f7782e89491282aebeba3662223a",
+          "git_blob": "8b267474a615624eb4e7a486f2edaf7845518b55",
+          "bytes": 4931,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER.json",
+          "sha256": "fe3517ddf8fb98d2f9bd8f91a2f7ec94c9253261696f0189c74837432287f8ad",
+          "git_blob": "d8a0e1361a70381525bc6fd16c602eb341fdfeaf",
+          "bytes": 2239,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "verification_artifacts": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/cm/check_multipoint_decoder.py",
+          "sha256": "27bf73d86ae28aa38b741e4506b5179bedb4d949ef77ba916ed32a54e93c0723",
+          "git_blob": "5326839fb16028dc6cedff1a56dfed50a3494349",
+          "bytes": 4716,
+          "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/cm/multipoint_decoder_check.json",
+          "sha256": "d13243713a9fc1297fa48a642342a8f81a67cdac674be4a734812bde7cf18f08",
+          "git_blob": "d563431e616702e9bb6e641e2a0c26aba3297da9",
+          "bytes": 24012,
+          "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+        }
+      ],
+      "next_obligation_from_author_sources": "Actual Y/Z/h_div/kappa evaluation and D>m remain outside this exact observer result.",
+      "status": "NONAUTHOR_PAPER_OR_INTERFACE_REVIEW_REPORTED_NO_OPEN_DEFECT_WITHIN_EXACT_SCOPE_NOT_FORMALLY_ADMITTED",
+      "formal_live_task_state": "UNKNOWN",
+      "new_global_tool_family": false,
+      "count_is_accepted_theorems": false
+    },
+    {
+      "id": "BR-20261028-NT",
+      "library_family": "number_theory",
+      "title_zh": "固定 prime-fiber 容量的非单调性与永久阈值",
+      "service_unit_count": 1,
+      "kind": "BOUNDED_CAPACITY_RESULT",
+      "summary_from_author_interface_zh": "固定 S={2,3}, a=(0,0), L=2：C(27)=5、C(28)=4；C(H)=7 当且仅当 H∈[45,62] 或 H≥66。",
+      "scope_limit_summary_zh": "继承 exact quotient 及原状态；永久阈值证明使用 Nagura 1952 的素数区间定理；不推出一般 S,a,L 结论。",
+      "proof": {
+        "repo_path": "research_notes/balanced_resume_20261028/nt/prime_capacity_threshold.md",
+        "sha256": "3b88d1e7566cec28291e1ce1d9b4994a5ff77e1ed543448cb5d350d6479ea89c",
+        "git_blob": "1a524c0d4da3f79bfc374da1eb7a3c0b10c5685f",
+        "bytes": 7574,
+        "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+      },
+      "interface_source": {
+        "repo_path": "research_notes/balanced_resume_20261028/nt/result_interfaces.json",
+        "sha256": "9b87f5fb1fdaf4b673ac1ad1bbe1e35cf4664b3e093ceb8c3d4db15173a9b8ed",
+        "git_blob": "f67f030a1b47374b63bfb1d7b231888ce6d69b1f",
+        "bytes": 2407,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "author_interface_quoted": [
+        {
+          "id": "NT-20261028-PRIME-CAPACITY-27-28",
+          "statement": "For S={2,3},a=(0,0),L=2 and prime residual q>=5, C(27)=5 and C(28)=4; exact fixed-length residual bits decrease 3 to 2.",
+          "proof": "prime_capacity_threshold.md#theorem-1-a-larger-h-can-require-fewer-residual-bits",
+          "scope": "EXTERNAL_CLASSICAL_INTEGER_FIXED_OBSERVER",
+          "reuse": "NT-DIV-RESIDUAL-CAPACITY exact quotient; T4 finite-fiber capacity",
+          "status": "NONDECISIVE_REVIEW_NO_DEFECT_NOT_ADMITTED"
+        },
+        {
+          "id": "NT-20261028-PRIME-CAPACITY-SHARP66",
+          "statement": "In the same fixed instance, C(H)=7 iff H in [45,62] or H>=66, for integer H>=1.",
+          "proof": "prime_capacity_threshold.md#theorem-2-exact-full-capacity-set-and-permanent-threshold",
+          "dependencies": [
+            "Inherited exact quotient remains unreviewed",
+            "Nagura 1952: x>25 has prime in (x,6x/5)"
+          ],
+          "status": "NONDECISIVE_REVIEW_NO_DEFECT_NOT_ADMITTED"
+        }
+      ],
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/nt/prime_capacity_threshold.md",
+          "sha256": "3b88d1e7566cec28291e1ce1d9b4994a5ff77e1ed543448cb5d350d6479ea89c",
+          "git_blob": "1a524c0d4da3f79bfc374da1eb7a3c0b10c5685f",
+          "bytes": 7574,
+          "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/NT_REVIEW.md",
+          "sha256": "4a622e182163df2c23c37cf8d0d3d944508054f53f274e9f4b71963bcaec35d9",
+          "git_blob": "f3cbff88d8f977fdb9bdae411261bb30ecc4d9de",
+          "bytes": 3566,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER.json",
+          "sha256": "fe3517ddf8fb98d2f9bd8f91a2f7ec94c9253261696f0189c74837432287f8ad",
+          "git_blob": "d8a0e1361a70381525bc6fd16c602eb341fdfeaf",
+          "bytes": 2239,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "verification_artifacts": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/nt/prime_capacity_check.py",
+          "sha256": "018baca381b7610fe2908cc01aea5c8f2933bb70bf25da3e93b9e0a966d6909c",
+          "git_blob": "497ad2db8dca9d814b568a0d8ddfa3ea90ea4c05",
+          "bytes": 2246,
+          "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/nt/prime_capacity_check_result.json",
+          "sha256": "2004d1ad067ce26baf0991e9f7ad9180d37d4c20beb279b05f0402dcc40902db",
+          "git_blob": "c54df087fb18b847f8b766c9ff8c7e5ce14f0198",
+          "bytes": 7779,
+          "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+        }
+      ],
+      "next_obligation_from_author_sources": "General prime-fiber C(H), donor-exchange threshold and missing historical prefix certificates remain open; no historical large enumeration rerun.",
+      "status": "NONAUTHOR_PAPER_OR_INTERFACE_REVIEW_REPORTED_NO_OPEN_DEFECT_WITHIN_EXACT_SCOPE_NOT_FORMALLY_ADMITTED",
+      "formal_live_task_state": "UNKNOWN",
+      "new_global_tool_family": false,
+      "count_is_accepted_theorems": false
+    },
+    {
+      "id": "BR-20261028-T6",
+      "library_family": "t6_formal",
+      "title_zh": "signed moment completion 的耦合必要 cuts",
+      "service_unit_count": 1,
+      "kind": "TASK_SPECIFIC_EXISTING_INTERFACE_EXTENSION",
+      "summary_from_author_interface_zh": "由 M₀,…,M₆ 与两个非负预算构造 −C_hk B₊≤L_hk≤C_hk B₋；解析 cutoff≤49 后，21 个 scalar maxima 用 Fraction 精确求值。",
+      "scope_limit_summary_zh": "21 个 cuts 是一个接口单元；仅必要条件，无实际 surviving class 筛除、无新 census、无全局 T6 闭合。",
+      "proof": {
+        "repo_path": "research_notes/balanced_resume_20261028/analysis/T6_COUPLED_MOMENT_COMPLETION_CUTS_AUTHOR.md",
+        "sha256": "038487aba02c1b5a812a499628f88cfc3cd3d08331b6711128c310815951b478",
+        "git_blob": "2f562e61293b46d97decb9a7ced681dc5aef8f67",
+        "bytes": 8999,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "interface_source": {
+        "repo_path": "research_notes/balanced_resume_20261028/analysis/ANALYSIS_MATH_INTERFACES.json",
+        "sha256": "4b69f19d6cfe4e8f658c8fa9b575714eea20b1a6e3770f5f1cca90bb1610b4e2",
+        "git_blob": "0d584b0715af87f0873d07a92810a9893e7bf951",
+        "bytes": 4690,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "author_interface_quoted": {
+        "id": "ANALYSIS-T6-COUPLED-MOMENT-CUTS",
+        "source_entry": "T6-P17-BRANCH-COMPLETION",
+        "artifact": "T6_COUPLED_MOMENT_COMPLETION_CUTS_AUTHOR.md",
+        "pin": {
+          "sha256": "038487aba02c1b5a812a499628f88cfc3cd3d08331b6711128c310815951b478",
+          "bytes": 8999
+        },
+        "mathematical_kind": "EXISTING_DOMAIN_INTERFACE_EXTENSION",
+        "input": "Rational residual M0..M6, nonnegative integer Bplus/Bminus; 13-smooth integer atoms a>=2; exact signed reciprocal moment completion equations",
+        "observer": "L_hk=sum_j [x^j](x^k product_(b=2)^(h+1)(1-bx)) M_j, h>=1,k>=0,h+k<=6",
+        "output": "-C_hk Bplus <= L_hk <= C_hk Bminus; 21 caps are exact dictionary unit-cost maxima, not 21 independent discoveries",
+        "cutoff": "ceil((h+k+1)(h+1)/(k+1))<=49; every endpoint in this family is admissible, dominates tail",
+        "budget_refinement": "C_hk(B)=max ratios among affordable allowed atoms or0; -Bplus C(Bplus)<=L<=Bminus C(Bminus)",
+        "exclusions": [
+          "sufficiency",
+          "actual surviving class filtered",
+          "new affine census",
+          "global T6 closure",
+          "reopening accepted q1-q4"
+        ],
+        "exact_computation": {
+          "script": "t6_moment_cut_constants.py",
+          "output": "T6_MOMENT_CUT_CONSTANTS_ACTUAL.json",
+          "scientific_scope": "Only 21 scalar maxima under proved analytic cutoff; Fraction exact arithmetic",
+          "pins": {
+            "t6_moment_cut_constants.py": {
+              "sha256": "606c5033a559eef33a89762a3751167982789871059d3eb6a35117601b32fa58",
+              "bytes": 2490
+            },
+            "T6_MOMENT_CUT_CONSTANTS_ACTUAL.json": {
+              "sha256": "5e49c81ba19aac80712d4a95306bec973a99e4dc6c46c93af74372149f159ffd",
+              "bytes": 32019
+            }
+          }
+        },
+        "reuse_resolution": "EXTEND_EXISTING_TOOL",
+        "global_family_added": false
+      },
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/analysis/T6_COUPLED_MOMENT_COMPLETION_CUTS_AUTHOR.md",
+          "sha256": "038487aba02c1b5a812a499628f88cfc3cd3d08331b6711128c310815951b478",
+          "git_blob": "2f562e61293b46d97decb9a7ced681dc5aef8f67",
+          "bytes": 8999,
+          "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/T6_MOMENT_REVIEW.md",
+          "sha256": "c45714c04d93cc45dc24373fe22073f9a01ab657acfe752e56f7487cab2802e1",
+          "git_blob": "166a49e68647ed7dbbcc3fdd4ac63d16e87942c4",
+          "bytes": 3556,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND2.json",
+          "sha256": "6e81b2d7b5ce86402d006ecf979c95de93774708ccb5ae8be4290b5bb6aa8a3e",
+          "git_blob": "240e56a7616f2c30032552e2975d980ff143e059",
+          "bytes": 1423,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "finding_quoted": "NO_UNRESOLVED_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "verification_artifacts": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/analysis/t6_moment_cut_constants.py",
+          "sha256": "606c5033a559eef33a89762a3751167982789871059d3eb6a35117601b32fa58",
+          "git_blob": "4a17c60281aa3c3970675659096c04a10ee03259",
+          "bytes": 2490,
+          "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/analysis/T6_MOMENT_CUT_CONSTANTS_ACTUAL.json",
+          "sha256": "5e49c81ba19aac80712d4a95306bec973a99e4dc6c46c93af74372149f159ffd",
+          "git_blob": "adb73380042b70c7524165a0ddcf8512e8d2e07b",
+          "bytes": 32019,
+          "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+        }
+      ],
+      "next_obligation_from_author_sources": "Consume only against actual authorized later-order residual M and budgets if source survivors exist; q1–q4 accepted census remains closed.",
+      "status": "NONAUTHOR_PAPER_OR_INTERFACE_REVIEW_REPORTED_NO_OPEN_DEFECT_WITHIN_EXACT_SCOPE_NOT_FORMALLY_ADMITTED",
+      "formal_live_task_state": "UNKNOWN",
+      "new_global_tool_family": false,
+      "count_is_accepted_theorems": false
+    },
+    {
+      "id": "BR-20261028-MISC",
+      "library_family": "misc_formal",
+      "title_zh": "非反射线性载体：单 seed 模拟与流完成边界",
+      "service_unit_count": 1,
+      "kind": "ONE_BOUNDED_PAPER_WITH_THREE_SCOPED_INTERFACES",
+      "summary_from_author_interface_zh": "同一论文给出 single nonzero seed 的 pre-query gcd 模拟、已知完整有限生成表的有效反射，以及无完成标记的 streamed finite module 基数/支持不可统一终止求取边界。",
+      "scope_limit_summary_zh": "单 seed/线性/精确 equality 与已知生成表或无完成标记三种域分别保留；不构造新的 factoring mechanism，不宣称通用定理新颖性。",
+      "proof": {
+        "repo_path": "research_notes/balanced_resume_20261028/formal/NONREFLECTIVE_LINEAR_BOUNDARY.md",
+        "sha256": "d51ea08de731482414d658cbf0fa424a4b9c6b08ff59fd16ba8adfea7d6c9b35",
+        "git_blob": "64449fd30110e0fa1a338dc51713cadadd14097d",
+        "bytes": 12677,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "interface_source": {
+        "repo_path": "research_notes/balanced_resume_20261028/formal/theorem_interfaces.json",
+        "sha256": "a22a8ec5438a7c9a427a9a3a246195baea2f318d834b3101807dac9a874e6591",
+        "git_blob": "2fcd7a160418c3755a99243b699fbb6791889041",
+        "bytes": 3832,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "author_interface_quoted": [
+        {
+          "id": "BF-MISC-SINGLE-SEED-PREQUERY-GCD",
+          "kind": "BOUNDED_PAPER_THEOREM",
+          "statement": "For any N>=2 and nonzero single seed in any Z/NZ-module, every finite adaptive linear/equality transcript is publicly simulated exactly or yields a proper gcd before the next equality query.",
+          "scope": [
+            "exact addition/negation/scalar action",
+            "one known nonzero seed",
+            "public scalar control and fixed random tape",
+            "only extensional equality observations"
+          ],
+          "exclusions": [
+            "independent opaque seeds",
+            "zero seed",
+            "nonlinear operations",
+            "handle serialization",
+            "physical interpretation"
+          ],
+          "status": "LOCALLY_NONAUTHOR_PAPER_REVIEWED_NO_OPEN_DEFECTS_NOT_FORMAL_ACCEPTANCE",
+          "method_resolution": "REUSE_APPLIED_EXISTING_GCD_AND_OPERATION_SAFE_QUOTIENT",
+          "proof_file": "NONREFLECTIVE_LINEAR_BOUNDARY.md",
+          "review": {
+            "path": "research_notes/balanced_resume_20261028/review/FORMAL_LINEAR_REVIEW.md",
+            "author_proof_sha256": "d51ea08de731482414d658cbf0fa424a4b9c6b08ff59fd16ba8adfea7d6c9b35",
+            "review_sha256": "c4eb3012b302d6a766de3d55b3ad6d175bb4fd187cf4e01cf8b7a900283db594"
+          },
+          "proof_section": 2
+        },
+        {
+          "id": "BF-MISC-GENERATOR-LOCAL-REFLECTION",
+          "kind": "CLASSICAL_APPLICATION",
+          "statement": "A certified finite generator list with exact operations/equality reflects the generated module and recovers a presentation by finite coefficient enumeration.",
+          "scope": [
+            "observed module equals span of supplied list",
+            "finite coefficient ring Z/NZ"
+          ],
+          "exclusions": [
+            "ambient module larger than generated span",
+            "unknown generator-stream completion",
+            "efficiency claim"
+          ],
+          "status": "LOCALLY_NONAUTHOR_PAPER_REVIEWED_NO_OPEN_DEFECTS_NOT_FORMAL_ACCEPTANCE",
+          "method_resolution": "REUSE_APPLIED",
+          "proof_file": "NONREFLECTIVE_LINEAR_BOUNDARY.md",
+          "review": {
+            "path": "research_notes/balanced_resume_20261028/review/FORMAL_LINEAR_REVIEW.md",
+            "author_proof_sha256": "d51ea08de731482414d658cbf0fa424a4b9c6b08ff59fd16ba8adfea7d6c9b35",
+            "review_sha256": "c4eb3012b302d6a766de3d55b3ad6d175bb4fd187cf4e01cf8b7a900283db594"
+          },
+          "proof_section": 3
+        },
+        {
+          "id": "BF-MISC-BOUNDED-STREAM-NONCOMPLETION",
+          "kind": "BOUNDED_COMPUTABILITY_BOUNDARY",
+          "statement": "Uniform exact cardinality/support remains undecidable for finite streamed modules with known cardinality upper bound N, total decidable handle validity/equality and exact compositional operations.",
+          "scope": [
+            "whole infinite stream supplies semantic module",
+            "no complete end marker",
+            "program-index effective domain"
+          ],
+          "exclusions": [
+            "proper support factoring mechanism",
+            "halting oracle admission",
+            "finite-prefix completion",
+            "new general theorem novelty"
+          ],
+          "status": "LOCALLY_NONAUTHOR_PAPER_REVIEWED_NO_OPEN_DEFECTS_NOT_FORMAL_ACCEPTANCE",
+          "method_resolution": "COMPOSE_APPLIED_CLASSICAL_HALTING_AND_FINITE_MODULES",
+          "proof_file": "NONREFLECTIVE_LINEAR_BOUNDARY.md",
+          "review": {
+            "path": "research_notes/balanced_resume_20261028/review/FORMAL_LINEAR_REVIEW.md",
+            "author_proof_sha256": "d51ea08de731482414d658cbf0fa424a4b9c6b08ff59fd16ba8adfea7d6c9b35",
+            "review_sha256": "c4eb3012b302d6a766de3d55b3ad6d175bb4fd187cf4e01cf8b7a900283db594"
+          },
+          "proof_section": 4
+        }
+      ],
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/formal/NONREFLECTIVE_LINEAR_BOUNDARY.md",
+          "sha256": "d51ea08de731482414d658cbf0fa424a4b9c6b08ff59fd16ba8adfea7d6c9b35",
+          "git_blob": "64449fd30110e0fa1a338dc51713cadadd14097d",
+          "bytes": 12677,
+          "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/FORMAL_LINEAR_REVIEW.md",
+          "sha256": "c4eb3012b302d6a766de3d55b3ad6d175bb4fd187cf4e01cf8b7a900283db594",
+          "git_blob": "e81c41855f5883fb20530d6ae3187b38d4822f3b",
+          "bytes": 4031,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND3.json",
+          "sha256": "71ffabaa90564985211e1071101553aa98ef740bee11d23e243b4db315926232",
+          "git_blob": "4e3a6c23592ba900ed1c3914cba000486a36169b",
+          "bytes": 2719,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "verification_artifacts": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/formal/verify_nonreflective_boundary.py",
+          "sha256": "e6dd4fde9178e1407a9c54c0d46c29fa13d46d6075d4cffb7b294ab87355dabe",
+          "git_blob": "875971e946f4de248db609c5b9e6b1970c013281",
+          "bytes": 3738,
+          "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/formal/nonreflective_validation.json",
+          "sha256": "cc8318d8c621fd491ffdbfc2753649bf6fdb47090290835a63ead43d485b5009",
+          "git_blob": "9d6d966522e2d2a2fc39a79ebe9f03851a76203c",
+          "bytes": 244,
+          "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+        }
+      ],
+      "next_obligation_from_author_sources": "Independent opaque seeds/nonlinear operations and a genuine public-N nonreflective pre-readout support mechanism remain outside this paper.",
+      "status": "NONAUTHOR_PAPER_OR_INTERFACE_REVIEW_REPORTED_NO_OPEN_DEFECT_WITHIN_EXACT_SCOPE_NOT_FORMALLY_ADMITTED",
+      "formal_live_task_state": "UNKNOWN",
+      "new_global_tool_family": false,
+      "count_is_accepted_theorems": false
+    },
+    {
+      "id": "BR-20261028-BRC",
+      "library_family": "brc_residual",
+      "title_zh": "既有 passive pulse 的等待时钟实际复用",
+      "service_unit_count": 1,
+      "kind": "CROSS_LINE_REUSE_APPLICATION_NOT_NEW_GENERAL_THEOREM",
+      "summary_from_author_interface_zh": "复用 BRC-R-160 的 12-period pulse 与 Euler 等待变换：首次观测 τ=T₁₁，pgf=F¹¹；同均值 deterministic/geometric 时钟有不同响应，后者趋于 1/48 并有显式界。",
+      "scope_limit_summary_zh": "继承 pulse 原 provisional 状态；时钟独立、每整数 tick 可观测且无跳过/反作用；不改进旧 adversarial skip 定理，不产生原生时钟。",
+      "proof": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/BRC_PASSIVE_CLOCK_REUSE.md",
+        "sha256": "545800b5aaeccc773d46a672e642b3f67ca315fca81e0d22156936bb03cc74e3",
+        "git_blob": "16fcb1491f598cb6956ab66753ba172618a25d0f",
+        "bytes": 5816,
+        "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+      },
+      "interface_source": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/RESEARCH_INTERFACES.json",
+        "sha256": "8fbed26420bdb6f836f6d85a17a52a7e7eaa4100347f29a81a676e7ae66173c6",
+        "git_blob": "1d391e7c9b2e0bc33236b594bc049511d864a033",
+        "bytes": 6361,
+        "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+      },
+      "author_interface_quoted": {
+        "id": "NB20261028-BRC-PASSIVE-CLOCK",
+        "class": "CROSS_LINE_REUSE_APPLICATION",
+        "serves_library_family": "brc_residual",
+        "source_entry": "BRC-R-160",
+        "statement": "For the inherited positive 12-period pulse under the declared iid waiting clock, first detection T11 has pgf F^11; deterministic and geometric mean-two clocks differ; geometric pulse observer approaches 1/48 with explicit minorization bound.",
+        "assumptions": [
+          "consume source-reported pulse without source-world rerun",
+          "iid positive integer waits independent of the entire retained source family",
+          "observe every integer tick without backreaction",
+          "no source-program round skipping",
+          "geometric-case explicit hold/advance probability 1/2"
+        ],
+        "proof": "BRC_PASSIVE_CLOCK_REUSE.md",
+        "proof_sha256": "545800b5aaeccc773d46a672e642b3f67ca315fca81e0d22156936bb03cc74e3",
+        "verification": [
+          "verify_brc_passive_clock.py",
+          "brc_passive_clock_validation.json"
+        ],
+        "reuse": [
+          "NB20261028-EULER-CLOCK",
+          "T0_BRC positive clock observer",
+          "T6 operation-safe clock residue quotient"
+        ],
+        "resolution": "COMPOSE_APPLIED_AND_CLOCK_OBSERVER_REUSE_EXECUTED",
+        "new_tool_family": false,
+        "count_as_new_general_theorem": false,
+        "author": "EM-NATIVE-A8C19E",
+        "review_status": "INDEPENDENT_REVIEW_PENDING",
+        "formal_result_or_task_admission": false,
+        "not_claimed": [
+          "native clock or physical calibration",
+          "world-state quotient or world kernel replacement",
+          "R161 adversarial skip theorem improvement",
+          "full arbitrary ensemble identification"
+        ]
+      },
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/native/BRC_PASSIVE_CLOCK_REUSE.md",
+          "sha256": "545800b5aaeccc773d46a672e642b3f67ca315fca81e0d22156936bb03cc74e3",
+          "git_blob": "16fcb1491f598cb6956ab66753ba172618a25d0f",
+          "bytes": 5816,
+          "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/BRC_CLOCK_REUSE_REVIEW.md",
+          "sha256": "d8877932bba3c5aed9f0e3f289a160073fb271a963902837303be86b104baf39",
+          "git_blob": "73e1b1d22e10442505e4c905908422f819d3ea8a",
+          "bytes": 3190,
+          "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND4.json",
+          "sha256": "93e54854d9708a96b0824526f9315438cf65b78ffe0d8c484c355ff9b062e4f6",
+          "git_blob": "8e0e8cac8fa6b4ffa964db287092e08212f9ab39",
+          "bytes": 1115,
+          "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+        },
+        "finding_quoted": "NO_UNRESOLVED_INTERFACE_OR_SCOPE_DEFECT_FOUND",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "verification_artifacts": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/verify_brc_passive_clock.py",
+          "sha256": "3cc522f95715b4549ab71b5d173577abc91a55e6a96723d7328990a38af87f1d",
+          "git_blob": "dd3d4d42e1dceb86a77348b5894357df6a373ac6",
+          "bytes": 2305,
+          "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/brc_passive_clock_validation.json",
+          "sha256": "fc98163aa919d008a9f2b0417a5ab58b868d234074ba38d5d45ddd56c20db746",
+          "git_blob": "7ae8dedbb3af1b222edafa0a57fffb4eac42a25b",
+          "bytes": 644,
+          "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+        }
+      ],
+      "next_obligation_from_author_sources": "Establish a sourced incident read/clock protocol and determine whether actual transitions satisfy independence, no skipping and whole-tick observability.",
+      "status": "NONAUTHOR_PAPER_OR_INTERFACE_REVIEW_REPORTED_NO_OPEN_DEFECT_WITHIN_EXACT_SCOPE_NOT_FORMALLY_ADMITTED",
+      "formal_live_task_state": "UNKNOWN",
+      "new_global_tool_family": false,
+      "count_is_accepted_theorems": false
+    },
+    {
+      "id": "BR-20261028-CELL",
+      "library_family": "cell_euler",
+      "title_zh": "固定 finite-layout U2 的 incidence prefix adapter",
+      "service_unit_count": 1,
+      "kind": "EXECUTED_TASK_SPECIFIC_TOOL_EXTENSION",
+      "summary_from_author_interface_zh": "显式 material/incoming incidence 下保留有标记 path/packet 叶及 source-target-incoming 读出，给出 W=Kᵀ；复用正质量 BRC 实现并执行有限验证。",
+      "scope_limit_summary_zh": "固定 Cells、每 port 非空 distinct anchored three-axis triples、uniform packet 与等权三腿、0<ρ<1；不支付 G1–G5 或任意深度/非线性未来闭合。",
+      "proof": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/U2_INCIDENCE_ADAPTER.md",
+        "sha256": "47d14702e4d5bcb4dac14ec175ab55d36ee5017bb3c516f28af0ff2708e47796",
+        "git_blob": "d097264e824c333611a678b06219ed90f5ea4cab",
+        "bytes": 7763,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "interface_source": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/RESEARCH_INTERFACES.json",
+        "sha256": "8fbed26420bdb6f836f6d85a17a52a7e7eaa4100347f29a81a676e7ae66173c6",
+        "git_blob": "1d391e7c9b2e0bc33236b594bc049511d864a033",
+        "bytes": 6361,
+        "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+      },
+      "author_interface_quoted": {
+        "id": "NB20261028-U2-ADAPTER",
+        "class": "EXECUTED_TOOL_EXTENSION_CANDIDATE",
+        "statement": "Finite fixed-layout U2 prefix accepts explicit material/incoming incidence and retains full labelled path/packet leaves plus source-target-incoming readout; W=K^T.",
+        "assumptions": [
+          "explicit nonempty anchored distinct three-axis triples at every signed port and material",
+          "fixed distinct X6 Cells",
+          "uniform packet selection and three equal response legs",
+          "0<rho<1",
+          "finite requested depth; resource overflow raises"
+        ],
+        "proof": "U2_INCIDENCE_ADAPTER.md",
+        "verification": [
+          "u2_incidence_prefix.py",
+          "u2_adapter_validation.json"
+        ],
+        "reuse": [
+          "T0_BRC",
+          "t0.weighted_brc_cwm",
+          "T6 observer preservation"
+        ],
+        "resolution": "REUSE_EXECUTED_AND_TASK_SPECIFIC_EXTEND_EXISTING_TOOL",
+        "new_tool_family": false,
+        "not_claimed": [
+          "G1-G5 native action reaction time occupancy",
+          "all-depth joint-state closure",
+          "gated/unknown nonlinear future sufficiency"
+        ],
+        "author": "EM-NATIVE-A8C19E",
+        "review_status": "NONDECISIVE_PEER_REVIEW_NO_DEFECT_REPORTED",
+        "formal_result_or_task_admission": false,
+        "proof_sha256": "47d14702e4d5bcb4dac14ec175ab55d36ee5017bb3c516f28af0ff2708e47796"
+      },
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/native/U2_INCIDENCE_ADAPTER.md",
+          "sha256": "47d14702e4d5bcb4dac14ec175ab55d36ee5017bb3c516f28af0ff2708e47796",
+          "git_blob": "d097264e824c333611a678b06219ed90f5ea4cab",
+          "bytes": 7763,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/U2_ADAPTER_REVIEW.md",
+          "sha256": "7e427c4fbc2194c78e4a6005e0fbfadf5e4eb06111fd166871223e633136a340",
+          "git_blob": "275bc165cd4e4bbde74aaecf6f5720886df50d74",
+          "bytes": 4698,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND2.json",
+          "sha256": "6e81b2d7b5ce86402d006ecf979c95de93774708ccb5ae8be4290b5bb6aa8a3e",
+          "git_blob": "240e56a7616f2c30032552e2975d980ff143e059",
+          "bytes": 1423,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "finding_quoted": "NO_UNRESOLVED_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "verification_artifacts": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/u2_incidence_prefix.py",
+          "sha256": "7a4ce17c5c5e5ef00c99b95e01b81336c069bfdabe9ecc93cb9b74108ec3c030",
+          "git_blob": "9fa5502a9176f98e77cb75671b6f5512f83593ee",
+          "bytes": 9883,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/u2_adapter_validation.json",
+          "sha256": "f63d94d20524c2daabd28bae3d57e17c8cda11dbb2dd01a4cb0844098d4b335f",
+          "git_blob": "185ccae357846a6e4d37961601be0811bfe42c6e",
+          "bytes": 2970,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        }
+      ],
+      "next_obligation_from_author_sources": "G1–G5 native action/reaction/time/occupancy and unknown nonlinear future sufficiency remain unresolved.",
+      "status": "NONAUTHOR_PAPER_OR_INTERFACE_REVIEW_REPORTED_NO_OPEN_DEFECT_WITHIN_EXACT_SCOPE_NOT_FORMALLY_ADMITTED",
+      "formal_live_task_state": "UNKNOWN",
+      "new_global_tool_family": false,
+      "count_is_accepted_theorems": false
+    },
+    {
+      "id": "BR-20261028-EULER",
+      "library_family": "euler_measurement",
+      "title_zh": "声明独立等待时钟的 held-state 接口与尾界",
+      "service_unit_count": 1,
+      "kind": "ONE_CONDITIONAL_INTERFACE_UNIT_WITH_TAIL_APPENDIX",
+      "summary_from_author_interface_zh": "iid 正整数等待且独立于整个 source edge 过程时，A(u)=(1−F(u))/(1−u) C(F(u))，联合 return-mark 为 R_h(F(u))；有限均值时同单元附录提供显式 tail/horizon 界。",
+      "scope_limit_summary_zh": "状态在等待中保持；有界观察，F(0)=0；均值仅为均值/尾界所需条件；不允许 state-dependent waits 的简单替换，不等同 clock-duration parity 或物理校准。",
+      "proof": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/EULER_CLOCK_BRIDGE.md",
+        "sha256": "25712f05260a722b9bc0b96ee529752d562e3c10fbae6cff211e5399d6990af1",
+        "git_blob": "95a5102bbe37fa28507922ea83c29aa344820d9e",
+        "bytes": 8144,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "interface_source": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/RESEARCH_INTERFACES.json",
+        "sha256": "8fbed26420bdb6f836f6d85a17a52a7e7eaa4100347f29a81a676e7ae66173c6",
+        "git_blob": "1d391e7c9b2e0bc33236b594bc049511d864a033",
+        "bytes": 6361,
+        "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+      },
+      "author_interface_quoted": {
+        "id": "NB20261028-EULER-CLOCK",
+        "class": "CONDITIONAL_INTERFACE_AND_COUNTEREXAMPLE",
+        "statement": "For iid positive integer waits independent of entire source edge process, A(u)=(1-F(u))/(1-u) C(F(u)); joint return mark kernels R_h(F(u)); mean wait alone does not determine response.",
+        "assumptions": [
+          "inherited exact Euler conditional edge model",
+          "entire joint edge/sign/channel/path process independent of waits",
+          "state held during waiting; nth edge complete at T_n",
+          "F(0)=0; bounded observable",
+          "finite mean required only for stated mean formulas"
+        ],
+        "proof": "EULER_CLOCK_BRIDGE.md",
+        "verification": [
+          "verify_euler_clock.py",
+          "euler_clock_validation.json"
+        ],
+        "reuse": [
+          "existing positive path serial/alternative composition",
+          "standard renewal held-state transform"
+        ],
+        "resolution": "COMPOSE_APPLIED_SOURCE_SPECIFIC_INTERFACE",
+        "new_tool_family": false,
+        "not_claimed": [
+          "native clock selection",
+          "physical time calibration",
+          "state-dependent waiting scalar substitution",
+          "h equals clock-duration parity",
+          "general theorem novelty"
+        ],
+        "author": "EM-NATIVE-A8C19E",
+        "review_status": "NONDECISIVE_PEER_REVIEW_NO_DEFECT_REPORTED",
+        "formal_result_or_task_admission": false,
+        "proof_sha256": "25712f05260a722b9bc0b96ee529752d562e3c10fbae6cff211e5399d6990af1",
+        "same_unit_supplement": {
+          "file": "EULER_CLOCK_TAIL_CERTIFICATE.md",
+          "sha256": "7ba80666047c3a33fdd7420080e19af39ea716d4bc4f09b11eb2ad9c8bd961a7",
+          "statement": "If mu=EW finite, |a_t|<=min(1,n mu/(t+1)+(2/9)^floor(n/4)) for integer n>=1,t>=0; a rational delta-horizon interface follows."
+        }
+      },
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/native/EULER_CLOCK_BRIDGE.md",
+          "sha256": "25712f05260a722b9bc0b96ee529752d562e3c10fbae6cff211e5399d6990af1",
+          "git_blob": "95a5102bbe37fa28507922ea83c29aa344820d9e",
+          "bytes": 8144,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/EULER_CLOCK_REVIEW.md",
+          "sha256": "5abecd2990b8660fbc1eae0165dbdc91c612e04ee74651ec215bcc818dd0ead8",
+          "git_blob": "42332c049a5abd9cea638087ff006a11527b5add",
+          "bytes": 3267,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND3.json",
+          "sha256": "71ffabaa90564985211e1071101553aa98ef740bee11d23e243b4db315926232",
+          "git_blob": "4e3a6c23592ba900ed1c3914cba000486a36169b",
+          "bytes": 2719,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "verification_artifacts": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/verify_euler_clock.py",
+          "sha256": "dfc1acaeac0d4ede8f308e5e19a2d0b0ab157e8b057828fd9cd409e11ec7443c",
+          "git_blob": "552e84c336a9322b9dca0b7a385266077b77031b",
+          "bytes": 3717,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/native/euler_clock_validation.json",
+          "sha256": "3e7b322320f4b0bb413babcd46542ab8100334adefc5d0ab7c854bbef8b46ee6",
+          "git_blob": "f4d3f244803721d9d6998c02edadd1207fb01f37",
+          "bytes": 1218,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        }
+      ],
+      "next_obligation_from_author_sources": "Native clock selection, actual independence and physical calibration remain open; the tail appendix is not a second service unit.",
+      "status": "NONAUTHOR_PAPER_OR_INTERFACE_REVIEW_REPORTED_NO_OPEN_DEFECT_WITHIN_EXACT_SCOPE_NOT_FORMALLY_ADMITTED",
+      "formal_live_task_state": "UNKNOWN",
+      "new_global_tool_family": false,
+      "count_is_accepted_theorems": false,
+      "same_unit_appendix": {
+        "artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/native/EULER_CLOCK_TAIL_CERTIFICATE.md",
+          "sha256": "7ba80666047c3a33fdd7420080e19af39ea716d4bc4f09b11eb2ad9c8bd961a7",
+          "git_blob": "9b909280cc34ed5bbf356127c4482845db351488",
+          "bytes": 2736,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "review": {
+          "author_artifact": {
+            "repo_path": "research_notes/balanced_resume_20261028/native/EULER_CLOCK_TAIL_CERTIFICATE.md",
+            "sha256": "7ba80666047c3a33fdd7420080e19af39ea716d4bc4f09b11eb2ad9c8bd961a7",
+            "git_blob": "9b909280cc34ed5bbf356127c4482845db351488",
+            "bytes": 2736,
+            "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+          },
+          "review_artifact": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/EULER_TAIL_REVIEW.md",
+            "sha256": "ecde3e14efb76cdd09ad4ddb3db57c55b7465c417abb6dadd8522fce6728efd4",
+            "git_blob": "1c75b5f9f4540867318357312f40bcc7f86dc0c2",
+            "bytes": 1643,
+            "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+          },
+          "ledger": {
+            "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND3.json",
+            "sha256": "71ffabaa90564985211e1071101553aa98ef740bee11d23e243b4db315926232",
+            "git_blob": "4e3a6c23592ba900ed1c3914cba000486a36169b",
+            "bytes": 2719,
+            "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+          },
+          "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+          "reviewer": "EM-REVIEW-58D6A2",
+          "formal_admission": false,
+          "root_mathematical_vote": false
+        },
+        "separate_service_or_theorem_count": false
+      }
+    },
+    {
+      "id": "BR-20261028-NT-SUP",
+      "library_family": "supplement_number_theory",
+      "title_zh": "固定六 cell coupled payload 的精确 repair bits",
+      "service_unit_count": 1,
+      "kind": "BOUNDED_CONDITIONAL_CAPACITY_RESULT",
+      "summary_from_author_interface_zh": "固定 N871 六 cell 支撑，已供 marginals+carry 时纤维 C=min(e,γ₁)−max(0,e−γ₄)+1；总质量 M 下最大 C=⌊M/2⌋+1，所需额外固定 bits 为 ⌈log₂ C⌉。",
+      "scope_limit_summary_zh": "非负整数 payload 且 baseline 一致；全部 prefix 在相同固定支撑上。不是 unweighted QRWheel 内存、runtime/factoring 下界，baseline/取 t 成本另计。",
+      "proof": {
+        "repo_path": "research_notes/balanced_resume_20261028/nt/crt_repair_bits.md",
+        "sha256": "022633656b11b01c644aeae1970b5c25ecb23599bdfd4eacefd53b61b273d213",
+        "git_blob": "7ff9c973dc183ca59d2b5b3ba3ec2ef4ca7d8f94",
+        "bytes": 7308,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "interface_source": {
+        "repo_path": "research_notes/balanced_resume_20261028/nt/result_interfaces.json",
+        "sha256": "9b87f5fb1fdaf4b673ac1ad1bbe1e35cf4664b3e093ceb8c3d4db15173a9b8ed",
+        "git_blob": "f67f030a1b47374b63bfb1d7b231888ce6d69b1f",
+        "bytes": 2407,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "author_interface_quoted": [
+        {
+          "id": "NT-20261028-CRT-FIBER-BITS",
+          "statement": "For the fixed six-cell N871 coupled payload observer, feasible nonnegative integer baseline has C=min(e,gamma1)-max(0,e-gamma4)+1 exact prefix-distinct states; extra fixed-length bits ceil(log2 C).",
+          "proof": "crt_repair_bits.md#theorem-1-exact-feasible-fiber-and-minimal-conditional-code-length",
+          "dependencies": [
+            "Exact baseline consistency inequalities",
+            "Inherited six-cell reconstruction formula",
+            "All integer prefix cuts on same fixed support"
+          ],
+          "status": "NONDECISIVE_REVIEW_NO_DEFECT_NOT_ADMITTED"
+        },
+        {
+          "id": "NT-20261028-CRT-MASS-BITS",
+          "statement": "At total mass M>=0, maximal compatible fiber size is floor(M/2)+1 and sharp conditional repair bits ceil(log2(floor(M/2)+1)).",
+          "proof": "crt_repair_bits.md#theorem-2-sharp-worst-case-bound-at-total-mass-m",
+          "scope_exclusions": [
+            "Not unweighted QRWheel storage lower bound",
+            "Not runtime or factoring-speed bound",
+            "Baseline/preparation/t computation costs excluded",
+            "No support changes or future dynamics"
+          ],
+          "status": "NONDECISIVE_REVIEW_NO_DEFECT_NOT_ADMITTED"
+        }
+      ],
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/nt/crt_repair_bits.md",
+          "sha256": "022633656b11b01c644aeae1970b5c25ecb23599bdfd4eacefd53b61b273d213",
+          "git_blob": "7ff9c973dc183ca59d2b5b3ba3ec2ef4ca7d8f94",
+          "bytes": 7308,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/CRT_REPAIR_REVIEW.md",
+          "sha256": "bd4b657255707fcccb444dacbaa51229322ecbce0abaeb519f2c19e95ec83a22",
+          "git_blob": "2ff2949f1d5f9213d87a9bc3994d2d8cd7213fd2",
+          "bytes": 2905,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND2.json",
+          "sha256": "6e81b2d7b5ce86402d006ecf979c95de93774708ccb5ae8be4290b5bb6aa8a3e",
+          "git_blob": "240e56a7616f2c30032552e2975d980ff143e059",
+          "bytes": 1423,
+          "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+        },
+        "finding_quoted": "NO_UNRESOLVED_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "verification_artifacts": [
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/nt/crt_repair_bits_check.py",
+          "sha256": "84ac7d8fa2a764e3bb649be5eeb2e13c05364ed7d7c0ead9490ae2db43e71bd1",
+          "git_blob": "791eb734b61de5bb26fe81bb23b2928cd11b85d4",
+          "bytes": 1603,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        },
+        {
+          "repo_path": "research_notes/balanced_resume_20261028/nt/crt_repair_bits_check_result.json",
+          "sha256": "9ecee8a43c002fc1d3fe905168442b58eea1ac6af203089c50d1d154aef9e1e1",
+          "git_blob": "6de289962db5c5b8219602b0336701cc390ebd50",
+          "bytes": 1610,
+          "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+        }
+      ],
+      "next_obligation_from_author_sources": "Paid shared shifted-square rank descriptor and actual total cost remain open; source recovery and formal R004 ownership verification retain priority.",
+      "status": "NONAUTHOR_PAPER_OR_INTERFACE_REVIEW_REPORTED_NO_OPEN_DEFECT_WITHIN_EXACT_SCOPE_NOT_FORMALLY_ADMITTED",
+      "formal_live_task_state": "UNKNOWN",
+      "new_global_tool_family": false,
+      "count_is_accepted_theorems": false
+    }
+  ],
+  "additional_non_theorem_work": [
+    {
+      "id": "SUPPORT-RSA-PRIOR-ART",
+      "kind": "BOUNDED_PRIMARY_SOURCE_COMPARISON",
+      "artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/nt/rsa_prior_art_boundary.md",
+        "sha256": "2c2fa594cc89b24d4c449ceafd0376594c394f23b0345cd709d8d7536ca62f78",
+        "git_blob": "3cb5deed18ef0b83c9265046216061ae437712ca",
+        "bytes": 2745,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "counts_as_new_theorem": false,
+      "finding": "Pohlig–Hellman original Section III p108 equations21–31 / Section IV equations34–40 establish classical digit-lifting overlap; full semiprime membership-or-factor wrapper prior art remains unresolved.",
+      "formal_prior_art_gate_completed": false
+    },
+    {
+      "id": "SUPPORT-SOURCE-GAPS",
+      "kind": "MISSING_SOURCE_RECHECK",
+      "artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/nt/line_dossier.json",
+        "sha256": "6303d16f5270b069b7610dc9aef40e11ee3cc92538a9c7927a4a6ffa5621dd9b",
+        "git_blob": "8aa017e485d131b72da93c38ecbe2d128418872d",
+        "bytes": 10223,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "section": "source_gap_recheck",
+      "counts_as_new_theorem": false,
+      "records_quoted": [
+        {
+          "entry": "NT-SUP-GAUSSIAN-WEDGE160",
+          "source": "research_notes/author_support/20261014_five_port_gaussian_square_fixed_modulus_wedge.md",
+          "missing": "fixed_modulus_wedge_positive_newton_certificate.json and verify_fixed_modulus_wedge.py",
+          "expected_certificate_bytes": 1177341,
+          "expected_certificate_sha256": "78432b1c4fc73d9b79735063aec0b1c2e184399197c9022fd2ea0fbfdd43d802",
+          "observed": "Exact current source still says separately delivered author package, not Source-published; exact filename search found no workspace copy. Author computer-assisted status preserved."
+        },
+        {
+          "entry": "NT-SUP-J1-R61-64",
+          "source": "research_notes/directed_recovery/20261011_J1_r61_r64_unreviewed_support.md",
+          "missing": "Full r61-r64 certificate and EM_R2_J1_r61_r64_portable_bundle.zip",
+          "expected_certificate_sha256": "f4d79e8cb9d480b71a6b8f111e4271d1d58c0abb74be98812355657fa16398c1",
+          "expected_zip_sha256": "8d2a94c2fb18e823722e688e4e4408a40c630cf064087e3e33942f5bc1cbcb15",
+          "observed": "Exact current source explicitly says conversation artifacts are not asserted to reside in Git; exact filename search found no workspace copy. No re-verification claimed."
+        },
+        {
+          "entry": "NT-SUP-ADAPTIVE-THIRD",
+          "source": "research_notes/portable_driver/20261001_0903_adaptive_primitive_lattice_third_congruence.md",
+          "missing": "Full hypotheses and proof source for the reported third-congruence bound",
+          "observed": "Only the 1161-byte portable checkpoint was available at exact current path; unreviewed status retained. Remaining H/Q2 boundary with four follower divisibility constraints is not solved."
+        }
+      ]
+    },
+    {
+      "id": "SUPPORT-CROSS-LINE",
+      "kind": "CROSS_LINE_INTERFACE_SYNTHESIS_NOT_INDEPENDENT_REVIEW",
+      "artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/nt/CROSS_LINE_CAPACITY_BOUNDARIES.md",
+        "sha256": "22173d12d72cd3ef7c1009efb742251afcbf6076e41f0696608a73323a7fd301",
+        "git_blob": "340c6ae0ef7a7293f606c23e2b93fd37aeb4012e",
+        "bytes": 9678,
+        "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+      },
+      "review": {
+        "author_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/nt/CROSS_LINE_CAPACITY_BOUNDARIES.md",
+          "sha256": "22173d12d72cd3ef7c1009efb742251afcbf6076e41f0696608a73323a7fd301",
+          "git_blob": "340c6ae0ef7a7293f606c23e2b93fd37aeb4012e",
+          "bytes": 9678,
+          "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+        },
+        "review_artifact": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/CROSS_LINE_CAPACITY_REVIEW.md",
+          "sha256": "9b2b410f3339971a9f346e5127cef9c8475bd4de92433f73c5ea884f0180b95b",
+          "git_blob": "41914aa6f7876c3861bc54b825867ed39f20a888",
+          "bytes": 3149,
+          "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+        },
+        "ledger": {
+          "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND4.json",
+          "sha256": "93e54854d9708a96b0824526f9315438cf65b78ffe0d8c484c355ff9b062e4f6",
+          "git_blob": "8e0e8cac8fa6b4ffa964db287092e08212f9ab39",
+          "bytes": 1115,
+          "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+        },
+        "finding_quoted": "NO_UNRESOLVED_INTERFACE_OR_SCOPE_DEFECT_FOUND",
+        "reviewer": "EM-REVIEW-58D6A2",
+        "formal_admission": false,
+        "root_mathematical_vote": false
+      },
+      "counts_as_new_theorem": false,
+      "finding": "Reuse existing finite-fiber and observer-safety interfaces; keep repair-bit, restricted-probe and effective-reflection lines separate because carrier, acquisition grammar and cost differ. Author wrote the CRT unit and does not supply its independent review."
+    }
+  ],
+  "later_frontier_excluded_from_first_rotation": {
+    "line": "student_parity",
+    "artifact_candidate_path": "research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_BOUNDED_RELATIVE_GAP_TAIL_AUTHOR.md",
+    "interface_candidate_path": "research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_RELATIVE_GAP_INTERFACE.json",
+    "status_at_first_rotation_freeze": "LATER_MANUSCRIPT_UNDER_SEPARATE_REVIEW_NOT_IN_SOURCE_SNAPSHOT",
+    "first_rotation_count": 0,
+    "rule": "Bind a later immutable publication and exact independent review before presenting its outcome; never overwrite the first unit or add it to this first-rotation service count."
+  },
+  "review_bindings": [
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/analysis/PARITY_UNBOUNDED_SMALL_CONE_AUTHOR.md",
+        "sha256": "f9a9415455b9b004f9e2854e999eaebd4934acd7211084b87bf1bc5c0634e921",
+        "git_blob": "dfb56ab769bfa7da3c4ed7ffa66511726c549ade",
+        "bytes": 10603,
+        "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/PARITY_REVIEW.md",
+        "sha256": "9aa75235b559cbbba713417ee7d8c4cd872a09a221ba9dba8d6060fb447a2df3",
+        "git_blob": "ab8c151e5b9226cbf933b1344c6c33e403f8656f",
+        "bytes": 3761,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER.json",
+        "sha256": "fe3517ddf8fb98d2f9bd8f91a2f7ec94c9253261696f0189c74837432287f8ad",
+        "git_blob": "d8a0e1361a70381525bc6fd16c602eb341fdfeaf",
+        "bytes": 2239,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/QUADRATIC_EVEN_PROBES.md",
+        "sha256": "92115d030dec8ce07354c6cbda33eb553c769605e299141223eefd6618f36a47",
+        "git_blob": "6eb2d0e96db94789cd5e402ba01f7a838d72b235",
+        "bytes": 8389,
+        "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/NATIVE_REVIEW.md",
+        "sha256": "a162f2373275a8b4432faace5d76416bdace68a36f0a660b534527c61c7a892a",
+        "git_blob": "d5ae9ce1b408028178cbbc1785843c99b5dfdcb7",
+        "bytes": 3702,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER.json",
+        "sha256": "fe3517ddf8fb98d2f9bd8f91a2f7ec94c9253261696f0189c74837432287f8ad",
+        "git_blob": "d8a0e1361a70381525bc6fd16c602eb341fdfeaf",
+        "bytes": 2239,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/nt/prime_capacity_threshold.md",
+        "sha256": "3b88d1e7566cec28291e1ce1d9b4994a5ff77e1ed543448cb5d350d6479ea89c",
+        "git_blob": "1a524c0d4da3f79bfc374da1eb7a3c0b10c5685f",
+        "bytes": 7574,
+        "verified_ref": "975a3f434aa219721dbbd36906232401012841b3"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/NT_REVIEW.md",
+        "sha256": "4a622e182163df2c23c37cf8d0d3d944508054f53f274e9f4b71963bcaec35d9",
+        "git_blob": "f3cbff88d8f977fdb9bdae411261bb30ecc4d9de",
+        "bytes": 3566,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER.json",
+        "sha256": "fe3517ddf8fb98d2f9bd8f91a2f7ec94c9253261696f0189c74837432287f8ad",
+        "git_blob": "d8a0e1361a70381525bc6fd16c602eb341fdfeaf",
+        "bytes": 2239,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/cm/CM24_MULTIPOINT_TRACE_ENDPOINT_DECODER.md",
+        "sha256": "d85a69d5e20438ab63a653e3aea6ffbbddfebbbd8ec92435e8a85d7b9c3f970c",
+        "git_blob": "927571a91a77f57d085d7d2f8e528454f03366e4",
+        "bytes": 11935,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/CM_REVIEW.md",
+        "sha256": "71a1c9c31d11984e3e69385c3377187c49b8f7782e89491282aebeba3662223a",
+        "git_blob": "8b267474a615624eb4e7a486f2edaf7845518b55",
+        "bytes": 4931,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER.json",
+        "sha256": "fe3517ddf8fb98d2f9bd8f91a2f7ec94c9253261696f0189c74837432287f8ad",
+        "git_blob": "d8a0e1361a70381525bc6fd16c602eb341fdfeaf",
+        "bytes": 2239,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/nt/crt_repair_bits.md",
+        "sha256": "022633656b11b01c644aeae1970b5c25ecb23599bdfd4eacefd53b61b273d213",
+        "git_blob": "7ff9c973dc183ca59d2b5b3ba3ec2ef4ca7d8f94",
+        "bytes": 7308,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/CRT_REPAIR_REVIEW.md",
+        "sha256": "bd4b657255707fcccb444dacbaa51229322ecbce0abaeb519f2c19e95ec83a22",
+        "git_blob": "2ff2949f1d5f9213d87a9bc3994d2d8cd7213fd2",
+        "bytes": 2905,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND2.json",
+        "sha256": "6e81b2d7b5ce86402d006ecf979c95de93774708ccb5ae8be4290b5bb6aa8a3e",
+        "git_blob": "240e56a7616f2c30032552e2975d980ff143e059",
+        "bytes": 1423,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "finding_quoted": "NO_UNRESOLVED_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/analysis/T6_COUPLED_MOMENT_COMPLETION_CUTS_AUTHOR.md",
+        "sha256": "038487aba02c1b5a812a499628f88cfc3cd3d08331b6711128c310815951b478",
+        "git_blob": "2f562e61293b46d97decb9a7ced681dc5aef8f67",
+        "bytes": 8999,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/T6_MOMENT_REVIEW.md",
+        "sha256": "c45714c04d93cc45dc24373fe22073f9a01ab657acfe752e56f7487cab2802e1",
+        "git_blob": "166a49e68647ed7dbbcc3fdd4ac63d16e87942c4",
+        "bytes": 3556,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND2.json",
+        "sha256": "6e81b2d7b5ce86402d006ecf979c95de93774708ccb5ae8be4290b5bb6aa8a3e",
+        "git_blob": "240e56a7616f2c30032552e2975d980ff143e059",
+        "bytes": 1423,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "finding_quoted": "NO_UNRESOLVED_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/U2_INCIDENCE_ADAPTER.md",
+        "sha256": "47d14702e4d5bcb4dac14ec175ab55d36ee5017bb3c516f28af0ff2708e47796",
+        "git_blob": "d097264e824c333611a678b06219ed90f5ea4cab",
+        "bytes": 7763,
+        "verified_ref": "ac5f6391b9d3f77ddc6c103d1dd6455a00091ec0"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/U2_ADAPTER_REVIEW.md",
+        "sha256": "7e427c4fbc2194c78e4a6005e0fbfadf5e4eb06111fd166871223e633136a340",
+        "git_blob": "275bc165cd4e4bbde74aaecf6f5720886df50d74",
+        "bytes": 4698,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND2.json",
+        "sha256": "6e81b2d7b5ce86402d006ecf979c95de93774708ccb5ae8be4290b5bb6aa8a3e",
+        "git_blob": "240e56a7616f2c30032552e2975d980ff143e059",
+        "bytes": 1423,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "finding_quoted": "NO_UNRESOLVED_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/formal/NONREFLECTIVE_LINEAR_BOUNDARY.md",
+        "sha256": "d51ea08de731482414d658cbf0fa424a4b9c6b08ff59fd16ba8adfea7d6c9b35",
+        "git_blob": "64449fd30110e0fa1a338dc51713cadadd14097d",
+        "bytes": 12677,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/FORMAL_LINEAR_REVIEW.md",
+        "sha256": "c4eb3012b302d6a766de3d55b3ad6d175bb4fd187cf4e01cf8b7a900283db594",
+        "git_blob": "e81c41855f5883fb20530d6ae3187b38d4822f3b",
+        "bytes": 4031,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND3.json",
+        "sha256": "71ffabaa90564985211e1071101553aa98ef740bee11d23e243b4db315926232",
+        "git_blob": "4e3a6c23592ba900ed1c3914cba000486a36169b",
+        "bytes": 2719,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/analysis/P11_OUTER_CAUCHY_EFFECTIVE_FIRST_ENDPOINT_AUTHOR.md",
+        "sha256": "23ca7298dc70de05f61f816515f2efea3dd83e6b3fe8bc4026629cfc6e098c7b",
+        "git_blob": "67fa5fdf68d86adb7b4a4030ab6a5d7674c0dd87",
+        "bytes": 7259,
+        "verified_ref": "59fd52bb8c3a3cbd7a135918579eafd311b39fec"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/P11_ENDPOINT_REVIEW.md",
+        "sha256": "232c46de712afb54d3f1ce969c92dd353fc3f1fc3b4f8d35eed81e7b65516063",
+        "git_blob": "a00e23109e98953cb4ae97c5d200ae37ed692673",
+        "bytes": 2994,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND3.json",
+        "sha256": "71ffabaa90564985211e1071101553aa98ef740bee11d23e243b4db315926232",
+        "git_blob": "4e3a6c23592ba900ed1c3914cba000486a36169b",
+        "bytes": 2719,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/EULER_CLOCK_BRIDGE.md",
+        "sha256": "25712f05260a722b9bc0b96ee529752d562e3c10fbae6cff211e5399d6990af1",
+        "git_blob": "95a5102bbe37fa28507922ea83c29aa344820d9e",
+        "bytes": 8144,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/EULER_CLOCK_REVIEW.md",
+        "sha256": "5abecd2990b8660fbc1eae0165dbdc91c612e04ee74651ec215bcc818dd0ead8",
+        "git_blob": "42332c049a5abd9cea638087ff006a11527b5add",
+        "bytes": 3267,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND3.json",
+        "sha256": "71ffabaa90564985211e1071101553aa98ef740bee11d23e243b4db315926232",
+        "git_blob": "4e3a6c23592ba900ed1c3914cba000486a36169b",
+        "bytes": 2719,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/EULER_CLOCK_TAIL_CERTIFICATE.md",
+        "sha256": "7ba80666047c3a33fdd7420080e19af39ea716d4bc4f09b11eb2ad9c8bd961a7",
+        "git_blob": "9b909280cc34ed5bbf356127c4482845db351488",
+        "bytes": 2736,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/EULER_TAIL_REVIEW.md",
+        "sha256": "ecde3e14efb76cdd09ad4ddb3db57c55b7465c417abb6dadd8522fce6728efd4",
+        "git_blob": "1c75b5f9f4540867318357312f40bcc7f86dc0c2",
+        "bytes": 1643,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND3.json",
+        "sha256": "71ffabaa90564985211e1071101553aa98ef740bee11d23e243b4db315926232",
+        "git_blob": "4e3a6c23592ba900ed1c3914cba000486a36169b",
+        "bytes": 2719,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "finding_quoted": "NO_UNRESOLVED_MATHEMATICAL_DEFECT_FOUND_WITHIN_STATED_NEW_SCOPE",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/cm/CM24_STRONG_COMPLETION_NONCLOSED_RANGE.md",
+        "sha256": "b19248580b174c7ce6aaacc453ab777f7c81f8ec820a5c153c4acd1cc2dca1e0",
+        "git_blob": "dad756a3bfaa7e8edb7f0fd58a5c367743447d98",
+        "bytes": 13584,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/formal/CM24_STRONG_COMPLETION_CROSS_REVIEW.md",
+        "sha256": "7aef0cc8f60c1efda342dfeb514e7ee29f4138a5e3962218dd8a7b0575ee09f6",
+        "git_blob": "9980302d8899bc09f7cf20fd2459818f6417b085",
+        "bytes": 9212,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND3.json",
+        "sha256": "71ffabaa90564985211e1071101553aa98ef740bee11d23e243b4db315926232",
+        "git_blob": "4e3a6c23592ba900ed1c3914cba000486a36169b",
+        "bytes": 2719,
+        "verified_ref": "41a52eb9bb6495283e2a81bb5455f09dd3e4c117"
+      },
+      "finding_quoted": "LOCAL_NONAUTHOR_PAPER_CHECK_NO_MUSTFIX_FOUND_AT_INHERITED_FROBENIUS_INTERFACE",
+      "reviewer": "EM-DIRECT-099801",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/native/BRC_PASSIVE_CLOCK_REUSE.md",
+        "sha256": "545800b5aaeccc773d46a672e642b3f67ca315fca81e0d22156936bb03cc74e3",
+        "git_blob": "16fcb1491f598cb6956ab66753ba172618a25d0f",
+        "bytes": 5816,
+        "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/BRC_CLOCK_REUSE_REVIEW.md",
+        "sha256": "d8877932bba3c5aed9f0e3f289a160073fb271a963902837303be86b104baf39",
+        "git_blob": "73e1b1d22e10442505e4c905908422f819d3ea8a",
+        "bytes": 3190,
+        "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND4.json",
+        "sha256": "93e54854d9708a96b0824526f9315438cf65b78ffe0d8c484c355ff9b062e4f6",
+        "git_blob": "8e0e8cac8fa6b4ffa964db287092e08212f9ab39",
+        "bytes": 1115,
+        "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+      },
+      "finding_quoted": "NO_UNRESOLVED_INTERFACE_OR_SCOPE_DEFECT_FOUND",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    },
+    {
+      "author_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/nt/CROSS_LINE_CAPACITY_BOUNDARIES.md",
+        "sha256": "22173d12d72cd3ef7c1009efb742251afcbf6076e41f0696608a73323a7fd301",
+        "git_blob": "340c6ae0ef7a7293f606c23e2b93fd37aeb4012e",
+        "bytes": 9678,
+        "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+      },
+      "review_artifact": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/CROSS_LINE_CAPACITY_REVIEW.md",
+        "sha256": "9b2b410f3339971a9f346e5127cef9c8475bd4de92433f73c5ea884f0180b95b",
+        "git_blob": "41914aa6f7876c3861bc54b825867ed39f20a888",
+        "bytes": 3149,
+        "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+      },
+      "ledger": {
+        "repo_path": "research_notes/balanced_resume_20261028/review/REVIEW_LEDGER_ROUND4.json",
+        "sha256": "93e54854d9708a96b0824526f9315438cf65b78ffe0d8c484c355ff9b062e4f6",
+        "git_blob": "8e0e8cac8fa6b4ffa964db287092e08212f9ab39",
+        "bytes": 1115,
+        "verified_ref": "7d2acd57622cbe7ad6acf4547d450e918dd670bb"
+      },
+      "finding_quoted": "NO_UNRESOLVED_INTERFACE_OR_SCOPE_DEFECT_FOUND",
+      "reviewer": "EM-REVIEW-58D6A2",
+      "formal_admission": false,
+      "root_mathematical_vote": false
+    }
+  ],
+  "provenance_checks": {
+    "five_wave_full_file_readbacks_revalidated": [
+      {
+        "wave": 1,
+        "manifest_files": 12,
+        "readback_files_including_registration": 13,
+        "all_full_content_hash_bytes_blobs_match": true
+      },
+      {
+        "wave": 2,
+        "manifest_files": 17,
+        "readback_files_including_registration": 17,
+        "all_full_content_hash_bytes_blobs_match": true
+      },
+      {
+        "wave": 3,
+        "manifest_files": 25,
+        "readback_files_including_registration": 25,
+        "all_full_content_hash_bytes_blobs_match": true
+      },
+      {
+        "wave": 4,
+        "manifest_files": 25,
+        "readback_files_including_registration": 25,
+        "all_full_content_hash_bytes_blobs_match": true
+      },
+      {
+        "wave": 5,
+        "manifest_files": 19,
+        "readback_files_including_registration": 19,
+        "all_full_content_hash_bytes_blobs_match": true
+      }
+    ],
+    "total_readback_receipts": 99,
+    "effective_distinct_published_paths": 89,
+    "exact_author_review_bindings": 14,
+    "all_selected_author_review_hashes_match_actual_source_readbacks": true,
+    "scientific_code_rerun_by_documentary_control": false
+  }
+}

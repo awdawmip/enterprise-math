@@ -1,0 +1,148 @@
+{
+  "schema": "BALANCED_RESEARCH_INTERFACE_EXTRACTION_V1",
+  "activity_id": "RA-BALANCE-NATIVE-20261028-A8C19E",
+  "source_snapshot": "1a553d4d28a105230ecebd5a555dc8adbab8ee28",
+  "entries": [
+    {
+      "id": "NB20261028-QPROBES",
+      "class": "BOUNDED_THEOREM_CANDIDATE",
+      "statement": "Fixed nonadaptive q_m(x+a) probe minimum on Z^6: K(1)=0,K(2)=1,K(4)=6,K(m)=7 otherwise.",
+      "assumptions": [
+        "m integer >=1",
+        "full signed native raw X6 chart",
+        "all finite signed-unit translation words",
+        "exact scalar outputs, fixed nonadaptive offsets, same unknown initial state",
+        "empty scheme allowed"
+      ],
+      "proof": "QUADRATIC_EVEN_PROBES.md",
+      "verification": [
+        "verify_quadratic_even.py",
+        "quadratic_validation.json"
+      ],
+      "reuse": [
+        "T6_OPERATION_SAFE_QUOTIENT",
+        "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA"
+      ],
+      "new_tool_family": false,
+      "not_claimed": [
+        "full native Cell identity compression",
+        "adaptive/noisy/mixed-modulus/bounded-domain optimum",
+        "external novelty",
+        "formal/native admission"
+      ],
+      "author": "EM-NATIVE-A8C19E",
+      "review_status": "NONDECISIVE_PEER_REVIEW_NO_DEFECT_REPORTED",
+      "formal_result_or_task_admission": false,
+      "proof_sha256": "92115d030dec8ce07354c6cbda33eb553c769605e299141223eefd6618f36a47"
+    },
+    {
+      "id": "NB20261028-U2-ADAPTER",
+      "class": "EXECUTED_TOOL_EXTENSION_CANDIDATE",
+      "statement": "Finite fixed-layout U2 prefix accepts explicit material/incoming incidence and retains full labelled path/packet leaves plus source-target-incoming readout; W=K^T.",
+      "assumptions": [
+        "explicit nonempty anchored distinct three-axis triples at every signed port and material",
+        "fixed distinct X6 Cells",
+        "uniform packet selection and three equal response legs",
+        "0<rho<1",
+        "finite requested depth; resource overflow raises"
+      ],
+      "proof": "U2_INCIDENCE_ADAPTER.md",
+      "verification": [
+        "u2_incidence_prefix.py",
+        "u2_adapter_validation.json"
+      ],
+      "reuse": [
+        "T0_BRC",
+        "t0.weighted_brc_cwm",
+        "T6 observer preservation"
+      ],
+      "resolution": "REUSE_EXECUTED_AND_TASK_SPECIFIC_EXTEND_EXISTING_TOOL",
+      "new_tool_family": false,
+      "not_claimed": [
+        "G1-G5 native action reaction time occupancy",
+        "all-depth joint-state closure",
+        "gated/unknown nonlinear future sufficiency"
+      ],
+      "author": "EM-NATIVE-A8C19E",
+      "review_status": "NONDECISIVE_PEER_REVIEW_NO_DEFECT_REPORTED",
+      "formal_result_or_task_admission": false,
+      "proof_sha256": "47d14702e4d5bcb4dac14ec175ab55d36ee5017bb3c516f28af0ff2708e47796"
+    },
+    {
+      "id": "NB20261028-EULER-CLOCK",
+      "class": "CONDITIONAL_INTERFACE_AND_COUNTEREXAMPLE",
+      "statement": "For iid positive integer waits independent of entire source edge process, A(u)=(1-F(u))/(1-u) C(F(u)); joint return mark kernels R_h(F(u)); mean wait alone does not determine response.",
+      "assumptions": [
+        "inherited exact Euler conditional edge model",
+        "entire joint edge/sign/channel/path process independent of waits",
+        "state held during waiting; nth edge complete at T_n",
+        "F(0)=0; bounded observable",
+        "finite mean required only for stated mean formulas"
+      ],
+      "proof": "EULER_CLOCK_BRIDGE.md",
+      "verification": [
+        "verify_euler_clock.py",
+        "euler_clock_validation.json"
+      ],
+      "reuse": [
+        "existing positive path serial/alternative composition",
+        "standard renewal held-state transform"
+      ],
+      "resolution": "COMPOSE_APPLIED_SOURCE_SPECIFIC_INTERFACE",
+      "new_tool_family": false,
+      "not_claimed": [
+        "native clock selection",
+        "physical time calibration",
+        "state-dependent waiting scalar substitution",
+        "h equals clock-duration parity",
+        "general theorem novelty"
+      ],
+      "author": "EM-NATIVE-A8C19E",
+      "review_status": "NONDECISIVE_PEER_REVIEW_NO_DEFECT_REPORTED",
+      "formal_result_or_task_admission": false,
+      "proof_sha256": "25712f05260a722b9bc0b96ee529752d562e3c10fbae6cff211e5399d6990af1",
+      "same_unit_supplement": {
+        "file": "EULER_CLOCK_TAIL_CERTIFICATE.md",
+        "sha256": "7ba80666047c3a33fdd7420080e19af39ea716d4bc4f09b11eb2ad9c8bd961a7",
+        "statement": "If mu=EW finite, |a_t|<=min(1,n mu/(t+1)+(2/9)^floor(n/4)) for integer n>=1,t>=0; a rational delta-horizon interface follows."
+      }
+    },
+    {
+      "id": "NB20261028-BRC-PASSIVE-CLOCK",
+      "class": "CROSS_LINE_REUSE_APPLICATION",
+      "serves_library_family": "brc_residual",
+      "source_entry": "BRC-R-160",
+      "statement": "For the inherited positive 12-period pulse under the declared iid waiting clock, first detection T11 has pgf F^11; deterministic and geometric mean-two clocks differ; geometric pulse observer approaches 1/48 with explicit minorization bound.",
+      "assumptions": [
+        "consume source-reported pulse without source-world rerun",
+        "iid positive integer waits independent of the entire retained source family",
+        "observe every integer tick without backreaction",
+        "no source-program round skipping",
+        "geometric-case explicit hold/advance probability 1/2"
+      ],
+      "proof": "BRC_PASSIVE_CLOCK_REUSE.md",
+      "proof_sha256": "545800b5aaeccc773d46a672e642b3f67ca315fca81e0d22156936bb03cc74e3",
+      "verification": [
+        "verify_brc_passive_clock.py",
+        "brc_passive_clock_validation.json"
+      ],
+      "reuse": [
+        "NB20261028-EULER-CLOCK",
+        "T0_BRC positive clock observer",
+        "T6 operation-safe clock residue quotient"
+      ],
+      "resolution": "COMPOSE_APPLIED_AND_CLOCK_OBSERVER_REUSE_EXECUTED",
+      "new_tool_family": false,
+      "count_as_new_general_theorem": false,
+      "author": "EM-NATIVE-A8C19E",
+      "review_status": "INDEPENDENT_REVIEW_PENDING",
+      "formal_result_or_task_admission": false,
+      "not_claimed": [
+        "native clock or physical calibration",
+        "world-state quotient or world kernel replacement",
+        "R161 adversarial skip theorem improvement",
+        "full arbitrary ensemble identification"
+      ]
+    }
+  ]
+}

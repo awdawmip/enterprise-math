@@ -1,0 +1,138 @@
+{
+  "status": "EXACT_PINNED_BRC_ADAPTER_CHECKS_PASS",
+  "cases": [
+    {
+      "case": "both_irregular",
+      "leaf_counts": [
+        24,
+        90,
+        1008
+      ],
+      "source_labelled_own_returns": {
+        "0": {
+          "count": 45,
+          "total": "1/144",
+          "dominant": "1/1728"
+        },
+        "1": {
+          "count": 48,
+          "total": "5/768",
+          "dominant": "1/3456"
+        }
+      },
+      "expected_totals": [
+        "1/144",
+        "5/768"
+      ],
+      "full_trace_sha256": "ee53654c36b65e191007f2683589fdb8934c5da3e8d1cd70ce6518fb95bd35ae",
+      "full_trace_utf8_bytes": 439123,
+      "first_row_mass": [
+        "4/3",
+        "1",
+        "5/6",
+        "1",
+        "5/6",
+        "1",
+        "7/6",
+        "1",
+        "7/6",
+        "1",
+        "2/3",
+        "1"
+      ]
+    },
+    {
+      "case": "only_first_irregular",
+      "leaf_counts": [
+        24,
+        1485,
+        17748
+      ],
+      "source_labelled_own_returns": {
+        "0": {
+          "count": 279,
+          "total": "1/144",
+          "dominant": "1/6912"
+        },
+        "1": {
+          "count": 1560,
+          "total": "5/768",
+          "dominant": "1/138240"
+        }
+      },
+      "expected_totals": [
+        "1/144",
+        "5/768"
+      ],
+      "full_trace_sha256": "3ee2bf95b2cd0d757faade6c88482adc640b8b42ad968bea1af14793f5bc0da1",
+      "full_trace_utf8_bytes": 7589374,
+      "first_row_mass": [
+        "4/3",
+        "1",
+        "5/6",
+        "1",
+        "5/6",
+        "1",
+        "7/6",
+        "1",
+        "7/6",
+        "1",
+        "2/3",
+        "1"
+      ]
+    },
+    {
+      "case": "only_second_irregular",
+      "leaf_counts": [
+        24,
+        1485,
+        17064
+      ],
+      "source_labelled_own_returns": {
+        "0": {
+          "count": 1440,
+          "total": "5/768",
+          "dominant": "1/69120"
+        },
+        "1": {
+          "count": 162,
+          "total": "5/768",
+          "dominant": "1/6912"
+        }
+      },
+      "expected_totals": [
+        "5/768",
+        "5/768"
+      ],
+      "full_trace_sha256": "0ea936b3f3255e89229c76972724322410de2f92b637c844f6cf1e4d5bbacc15",
+      "full_trace_utf8_bytes": 7268819,
+      "first_row_mass": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ]
+    }
+  ],
+  "invalid_inputs_rejected": 4,
+  "BRC_calls": {
+    "cwm_edge": 459,
+    "cwm_propagate": 39797,
+    "cwm_recoalesce": 48891
+  },
+  "packet_router_blob": "7465f5aa16cbb8fba61ba4be80f8a6884b879c53",
+  "brc_source_blob": "3f205696709e847909958a153f8fe10d3f6b70f0",
+  "adapter_sha256": "7a4ce17c5c5e5ef00c99b95e01b81336c069bfdabe9ecc93cb9b74108ec3c030",
+  "new_theorem": false,
+  "new_tool_family": false,
+  "native_G1_through_G5": "UNKNOWN",
+  "execution": "New targeted adapter checks; old 97/3329/25074 checks not rerun or recounted."
+}

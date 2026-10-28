@@ -1,0 +1,60 @@
+# Phase B 审计：Cell 回返时域计数是现有 contact quotient 的有界应用
+
+Candidate-ID: `AC-FREE-20261028-4B72C1-RETURN-HORIZON`
+
+原始 Phase A 六文件在 Source commit `4d6409b6c61da27a056ef19ae6008fb1fc632267` 已由 owner 完整回读封存；原稿 SHA256 `ca2dd60ed65ea3fe6222dafadd4cc2cb5d09a769e2771ced294f4894b39df03a`。本审计不改写发现来源或冻结文本。
+
+**结论：`DERIVED_NOT_AXIOM / BOUNDED_APPLICATION / RESULT_ONLY`。** 核心 near/FAR 商、区分词和递减时域安全更新已经存在于 `t0.brc_finite_horizon_contact`，因此这些不能再计为新机制。冻结稿值得保留的明确内容，是把既有商限制到从共同起点恰走 `t` 步的全部可达总体，再计算外部时钟可用时的精确峰值。它是既有 T0/T6/T4 的具体计数应用；本轮没有确认任何需要新工具、新公理或后继研究线的能力缺口。
+
+这是作者的 Phase B 分类建议；非作者 `balance_review` 已独立检查核心数学并要求补足固定 alphabet 编码桥。补充保存在独立 `post_freeze_clock_alphabet_clarification.md`。非作者最终审稿的正式措辞与状态以其自身文件为准；本审计不自签 accepted，也不主张 Native/Foundation/canonical admission。
+
+## 查重的具体碰撞
+
+精确原源 `src/enterprise_math/brc_contact_horizon.py` 声明：两个带标签的原生 X6 位置、相对位移 `d=y−x`、十二 signed unit 相对移动、当前及未来接触观察；`ContactState.encode(d,h)` 在 `||d||_1<=h` 时保留 `d`，否则保留 FAR。`advance` 实现递减剩余时间，`distinguishing_contact_word` 输出抵消某个界内位移的后缀。
+
+原 theorem ledger `research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json` 的 `HBRC-RP-008` 已明确给出该商最粗、完整 `Z^6` 上类别数为 `2+sum 2^s binom(6,s)binom(h,s)`，以及无统一有限 quotient 覆盖无界时域。`HBRC-RP-007` 已给出固定余数/当前接触 bit 不充分。冻结稿第 2—3 证明节与该既有接口直接碰撞。
+
+本稿的静止起点 `c` 和当前位置 `x_t`，正是该两标签模型的 `from_pair(c,x_t,H−t)` 特例。单起点回返不增加原工具的观察或操作能力。新增表达没有自动构成新 scope。
+
+确切的计数差异是：旧全域计数考虑所有 `d in Z^6`，而本稿在每个时刻只考虑
+
+`P_t={d: ||d||_1<=t, ||d||_1≡t mod2}`。
+
+将旧商限制到 `P_t`，界内点数是 `C_6(r)`，界外类存在当且仅当 `t>H−t`，其中 `r=min(t,H−t)−((min(t,H−t)−t) mod2)`。由此得到 `N(H,t)` 和 `max_t N(H,t)=C_6(floor(H/2))`。已查来源中没有出现这个完整峰值公式；但“未在所查来源看到公式”不能证明新颖性。这个限制与生成函数计数属于基本推论/有界应用，不主张严格新增一般能力。
+
+时钟限定也应准确表述：旧源“不存在统一有限 quotient”针对原状态商；本稿进一步明确即便内部更新依赖免费步数时钟，同一时刻增长的可区分历史数仍排除统一有限内部 alphabet。这个加强由同层可达总体计数直接导出，不能冒称 Myhill–Nerode 经典定理本身已经逐字覆盖“免费时钟”的机器模型。
+
+## 与本月相邻结果的区别
+
+已检查 owner 指定的 `docs/research_library/202610_month/native_brc.json` 与 `misc_formal.json`，只从具体命中展开必要原 source。
+
+`X6-REVISIT-HISTORY` 的原稿和 Phase B 审计已经复用同一个 contact-horizon/T6 框架，但它观察任意过去 visited-set 的逐步重访，当前完整 Cell 和 clock 为免费旁信息，得到最坏**比特**容量 `Θ(H^6)`。本稿只检测固定起点的回返，当前位移由内部记忆表达，得到**状态数** `Θ(H^6)`、固定比特容量 `Θ(log H)`。两者观察、免费信息和记忆对象不同；不能把两种增长率拼接成共同物理记忆规律。本稿不推进或重开那条已存在的 history-memory 线。
+
+`X6-ABSORBING-FRONTIER` 的 first-hit 吸收观察同样是另一未来语言；本稿不迁移它的审核或容量结论。`GEO6-COORDINATE-SPECTRUM-APPLICATION` 已将原生坐标图上的 Lee 球计数归为经典/既有接口应用，进一步说明这里只应保留精确实例。`MISC-RR133-TYPED-BRIDGE` 的 finite-composition descent 是通用边界兼容性信息，本稿无需调用其随机、部分定义或复杂终端表示的专门后续。
+
+## 实际复用与执行
+
+Coverage 查询实际通过 `tools/enterprise_toolbox.py` 完成，完整 JSON 本地保存在 `phase_b_tool_coverage.json` 与 `phase_b_contact_methods.json`。最初大输出有截断；后续改为读取精确命中方法和对应原源，不把截断当成读完。查询不是执行，以下才是实际 reuse。
+
+- `t0.brc_finite_horizon_contact`: **REUSE_EXECUTED**。`phase_b_reuse_check.py` 直接导入原有 `ContactState`、`DIRECTIONS`、`distinguishing_contact_word`，对 `H=0,...,5` 每个时刻的完整可达总体核对类别数、全部合法一步的递减时域更新，并执行所有不同观察类的原有区分词。
+- `T6_OPERATION_SAFE_QUOTIENT / quotient.predictive_partition`: **REUSE_EXECUTED**。同一程序直接调用原有 `finite_horizon_partition` 和 `restricted_block_count`，在显式有限的分层可达状态集 `(t,x)` 上计算每个时刻、剩余时域的最粗观察分区。末层仅为满足软件总函数契约作自环总化；从第 `t` 层只查询 `H−t` 步，故伪延长不会被用来证明原问题。所有计数与冻结稿公式相符。
+- `T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA`: **REUSE_APPLIED**。复用其明确的有限 body/已声明 semantic quotient 接口：`kappa(P_t)=|q_(H−t)(P_t)|`，每个已占等价类取一个代表恰好达到最小容量，区分后缀确保每一类必须分开。没有创造新的有限纤维计数机制。其 August 原文含已被替代的旧几何描述；这里只复用第 2—4 节抽象有限集合定理，不继承旧本体。
+- Newton、回归 mass、带符号振幅、随机历史、链复形等 broad lexical 命中：**NOT_APPLICABLE**，因为本输入为确定性的 signed unit 空间步和布尔回返，不具有那些接口所需的系数/权重/复形。词汇相关不构成工具使用。
+
+执行退出码为 0，结果 `PASS_BOUNDED_REUSE_EXECUTED` 保存在 `phase_b_reuse_check_output.json`。这些是有限压力核验；一般定理依据冻结稿证明及已复用接口，不是由有限通过推到无穷。
+
+## 可验证外部先例及其限度
+
+2026-10-28 实际 HTTP 200 获取了 [Myhill–Nerode theorem](https://en.wikipedia.org/wiki/Myhill%E2%80%93Nerode_theorem) 与 [Word problem for groups](https://en.wikipedia.org/wiki/Word_problem_for_groups) 两个公开解释页；URL、返回正文 SHA256 和具体相关段落保存在 `phase_b_external_sources.json`。这是二级来源核验，不是全面文献调查。
+
+前者明确陈述“无区分后缀”定义的等价关系、有限指数当且仅当 regular，以及等价类数等于最小 DFA 状态数。本稿的可区分后缀与最小状态论证正是经典有限状态思路的具体使用。后者给出群生成词回到单位元的 word-problem 语言定义，亦明确 finitely generated free abelian groups 的 word problem 可解。原生 `Z^6` 的回返判断有直接的 signed 六计数器算法；本稿的有限状态 no-go 绝不是不可计算性结论。
+
+没有核验到“带免费时钟的恰步长奇偶总体峰值公式”这一精确外部文献命题，所以该精确公式的外部优先权为 **UNKNOWN / NOT_CLAIMED**。已有的明确机制先例已经足够否定新方法主张；无需通过扩大搜索来维护新颖性叙事。
+
+## 建议处置
+
+保存为现有 contact-horizon 接口下的精确 reachable-population/clock-capacity 应用记录，附上原始冻结、暴露来源、非作者审核及复用运行。核心商机制按 **同命题/已知复用** 处理；整包按 **有界应用** 处理；不宣称严格新一般 scope，不注册新工具，不自动发布后继任务。
+
+当前没有真正未解决的数学单元需要续推。这一轮的有价值结果是：独立来源路径实际再次抵达已有机制，并把可达奇偶总体和 clock 成本写成可检查的精确实例。按既有机制复用关闭本轮即可；owner 可在整体研究组合中保留它作为说明/回归实例，而不追加重复研究预算。
+
+Researcher-ID: EM-R-4B72C1 / FREE_AXIOM_DISCOVERY

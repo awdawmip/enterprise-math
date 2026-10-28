@@ -1,8 +1,24 @@
 # 研究成果、公式、定理与工具库
 
-整理范围：**2026 年 10 月 1 日至本次冻结快照**（Asia/Shanghai）；研究来源冻结于 [`56f5938`](https://github.com/awdawmip/enterprise-math/tree/56f5938da3f707c1d9db1b39afde124eac4634e3)。必要的较早论文、已离开当前主树的历史报告及未合并研究分支，按各自固定提交追溯。
+历史文献整理范围：**2026 年 10 月 1 日至原整理冻结快照**（Asia/Shanghai）；研究来源冻结于 [`56f5938`](https://github.com/awdawmip/enterprise-math/tree/56f5938da3f707c1d9db1b39afde124eac4634e3)。必要的较早论文、已离开当前主树的历史报告及未合并研究分支，按各自固定提交追溯。
 
-本目录按对象和适用条件整理已有研究，提供结论、公式、证明位置、作者、原审核、复用关系与未支付缺口。原有探索保持暂停。本次整理不新增证明、数学审核、工具接受、Lean 证明或 Foundation 晋升，也未执行科学计算。
+本目录按对象和适用条件整理研究，提供结论、公式、证明位置、作者、原审核、复用关系与未支付缺口。下列 435 条所属的历史文献整理阶段在暂停探索期间完成；该整理阶段不新增证明、数学审核、工具接受、Lean 证明或 Foundation 晋升，也未执行科学计算。该历史边界不表示当前研究仍暂停。
+
+## 2026-10-28 恢复研究与首轮平衡推进
+
+用户最新指令为“平衡推进所有研究”，研究已恢复。首轮对本月库的 12 个已知分类各交付一个有界研究或实际复用单元，原作者接口、精确公式与适用条件、独立非作者论文复核及下一义务见[首轮成果索引](../research_notes/balanced_resume_20261028/RESULTS_INDEX.md)、[机器索引](../research_notes/balanced_resume_20261028/RESULTS_INDEX.json)和[公平轮转实际结果](../research_notes/balanced_resume_20261028/FAIR_ROTATION_OUTCOMES.json)。其来源冻结于 `7d2acd57622cbe7ad6acf4547d450e918dd670bb`，复核逐项绑定冻结稿散列。
+
+新内容包括模二次读出最少 probes、CM 多端点 decoder 与强完备化边界、Parity/P11 的有界解析域、prime-fiber/CRT 容量、T6 必要 cuts、非反射线性边界、U2 adapter 和声明时钟下的 Euler/BRC 接口。12 是本轮服务单元数；Euler 尾附录、同稿多个推论及 21 个 T6 cuts 不拆作新增定理，BRC 时钟项明确计作实际复用。RSA 先例核对、缺包查证与跨线比较另行记录。
+
+独立论文复核不等于正式 Driver 接受或 Task 关闭；本轮未新增工具族、Working Truth 或 Foundation 晋升。12 类也不是完整 canonical Task 清单，正式任务实时状态仍为 `UNKNOWN`。下方 435 条和 2,474 文件是原冻结文献整理的历史计数，保持不变。后续单元另记其自身来源、审核与轮次，不倒填首轮。
+
+## 后续加强与方法检索
+
+第二轮的完整整合见[第二轮研究前沿与证据边界](../research_notes/balanced_resume_20261028/SECOND_ROTATION.md)及[机器索引](../research_notes/balanced_resume_20261028/SECOND_ROTATION.json)：分别记录 Student 同链加强、CM 未决二分、FREE 既有工具应用和 OAI7 静态审核／未绑定执行披露；不改首轮统计或原有数学状态。
+
+Student／Parity 的同一尾部成果链已从首轮小锥，经有界相对间隙扩展到全部正的第二间隙：每个固定阶数有可计算的总尺度阈值；紧总尺度问题仍开放。完整公式、假设与证明见[最强范围稿](../research_notes/balanced_resume_20261028/analysis/PARITY_FULL_TRACE_ALL_SECOND_GAPS_SUM_TAIL_AUTHOR.md)、[接口](../research_notes/balanced_resume_20261028/analysis/PARITY_ALL_SECOND_GAPS_SUM_TAIL_INTERFACE.json)及[非作者纸面复核](../research_notes/balanced_resume_20261028/review/PARITY_ALL_SECOND_GAPS_REVIEW.md)。这是同一成果链的加强，不将三个嵌套适用域重复计数。
+
+[本轮方法检索增补](../research_method_inventory_addenda/20261028_balanced_research.json)提供五个来源索引，API 为空，不添加工具族或正式接纳。既有有限计算、一般证明与条件接口仍按各自证据等级使用。
 
 ## 本月总目录
 

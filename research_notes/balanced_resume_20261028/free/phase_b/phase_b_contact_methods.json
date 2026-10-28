@@ -1,0 +1,521 @@
+[
+  {
+    "score": 9,
+    "method_id": "t0.brc_finite_horizon_contact",
+    "name": "BRC finite-horizon native-X6 contact observer",
+    "classification": "DOMAIN_OPERATOR",
+    "family_id": "T0_BRC",
+    "status": "EXTRACTED_EXECUTABLE_CANDIDATE_NOT_FOUNDATION",
+    "api": [
+      "ContactState",
+      "contact_class_count",
+      "native_l1_ball",
+      "distinguishing_contact_word",
+      "contact_push"
+    ],
+    "triggers": [
+      "contact horizon",
+      "occupancy",
+      "relative displacement",
+      "finite future",
+      "heartbeat collision"
+    ],
+    "capabilities": [
+      "exact decreasing-horizon near/far abstraction",
+      "coarsest full-unit-action contact classification",
+      "explicit distinguishing suffix",
+      "positive weighted contact propagation using existing BRC histogram"
+    ],
+    "source_refs": [
+      "src/enterprise_math/brc_contact_horizon.py",
+      "src/enterprise_math/predictive_quotient.py",
+      "tests/test_brc_heartbeat_toolkit.py",
+      "docs/toolbox/BRC_HEARTBEAT_RESIDUE_TOOLKIT.md"
+    ],
+    "theorem_refs": [
+      "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json#HBRC-RP-007",
+      "research_notes/heartbeat_brc_library_20260920_AD0416/THEOREM_LEDGER.json#HBRC-RP-008"
+    ],
+    "hard_boundary": "Two tagged positions; relative signed-unit steps; decreasing finite h; current/future contact only. No absolute-position recovery, past contact history, multi-body dynamics or unbounded-horizon finite-state promise."
+  },
+  {
+    "score": 6,
+    "method_id": "domain.precision.quotient_root_atlas_carry",
+    "name": "Exact quotient-root atlas and ternary state-count carry operator",
+    "classification": "DOMAIN_OPERATOR",
+    "family_id": "T1_SCALE_ENUMERATION_VALUATION",
+    "supporting_family_ids": [
+      "T4_FINITE_FIBER_CAPACITY_COLLISION_MINIMA",
+      "T5_PRECISION_REFINEMENT"
+    ],
+    "status": "DRIVER_ADMITTED_DOMAIN_OPERATOR",
+    "source_refs": [
+      "research_notes/P018_QUOTIENT_ROOT_ATLAS_TERNARY_CARRY_DRIVER_ACCEPTED_THEOREM_NODE_20260828.md",
+      "research_notes/P018_QUOTIENT_ROOT_ATLAS_TERNARY_CARRY_THEOREM_TOOL_HARVEST_20260828.md",
+      "driver_reviews/P018_TERNARY_CARRY_THRESHOLD_TO_CARDINALITY_DRIVER_REVIEW_20260827.md",
+      "driver_reviews/P018_QUOTIENT_ROOT_ATLAS_CARRY_DOMAIN_OPERATOR_ADMISSION_20260828.md",
+      "EnterpriseMath/Precision/RootStateAtlasCardinality.lean",
+      "src/enterprise_math/p018_root_state_decomposition.py",
+      "src/enterprise_math/p018_root_state_carry.py",
+      "tests/test_p018_root_state_decomposition.py",
+      "tests/test_p018_root_state_carry.py",
+      "tests/test_p018_root_state_exact_count.py"
+    ],
+    "api": [
+      "state_coalescence_horizon",
+      "exact_distinct_root_state_count",
+      "quotient_root_state_decomposition",
+      "horizon_state_carry",
+      "ternary_state_count_carry",
+      "ternary_state_count_band"
+    ],
+    "triggers": [
+      "quotient root atlas",
+      "floor quotient root",
+      "distinct quotient-root states",
+      "coalescence horizon",
+      "denominator atlas",
+      "root-state cardinality",
+      "horizon carry",
+      "ternary count carry",
+      "compressed denominator scan"
+    ],
+    "capabilities": [
+      "compute the exact state-specific coalescence horizon and high-denominator cutoff",
+      "certify the high injective chart and contiguous forced low-root chart",
+      "compute exact distinct quotient-root state cardinality without a full denominator scan",
+      "certify the unique optional horizon state by a binary boundary carry",
+      "compress the exact count to a three-valued threshold carry",
+      "materialize the compressed root-state atlas for regression or downstream finite reasoning"
+    ],
+    "core_law": "For n>=1 and r>=1, with H=R_(r+1)(r*n-1) and D=floor(n/(H+1)^r), the quotient-root atlas R_r(floor(n/d)), 1<=d<=n, is the disjoint union of an injective D-state high chart and the forced low interval 1..H-1 plus at most the horizon H. Hence |S|+1=D+H+kappa; with q=floor(H/r) the three-point D-band compresses this to |S|+1=H+q+tau with tau in {0,1,2} selected by two exact thresholds.",
+    "hard_boundary": "DOMAIN_OPERATOR only. The carrier is the finite positive-denominator quotient-root atlas. Do not generalize to arbitrary floor maps or quotient semigroups, do not infer prime/factoring/Legendre or continuum claims, do not erase the H=0 branch, and do not treat the ternary state-count carry as a universal T5 carry law. No Foundation mutation follows."
+  },
+  {
+    "score": 6,
+    "method_id": "quotient.predictive_partition",
+    "name": "Finite predictive quotient compiler",
+    "classification": "GLOBAL_SUBTOOL",
+    "family_id": "T6_OPERATION_SAFE_QUOTIENT",
+    "status": "CANONICAL_MAIN_EXECUTABLE",
+    "source_refs": [
+      "src/enterprise_math/predictive_quotient.py"
+    ],
+    "triggers": [
+      "predictive quotient",
+      "future observation",
+      "partition refinement",
+      "distinguishing horizon"
+    ],
+    "capabilities": [
+      "finite-horizon partition",
+      "stable predictive partition",
+      "future block profile",
+      "distinguishing horizon"
+    ]
+  },
+  {
+    "score": 6,
+    "method_id": "t0.brc_fixed_wheel_complexity_boundary",
+    "name": "BRC fixed residue-wheel complexity boundary",
+    "classification": "DOMAIN_OPERATOR",
+    "family_id": "T0_BRC",
+    "status": "RESEARCH_PROVED_NEGATIVE_BOUNDARY_EXECUTABLE",
+    "source_refs": [
+      "src/enterprise_math/brc_residue_wheel_complexity.py",
+      "tests/test_brc_residue_wheel_complexity.py",
+      "research_notes/BRC_FIXED_RESIDUE_WHEEL_COMPLEXITY_BOUNDARY_20260906.md"
+    ],
+    "api": [
+      "periodic_support_count",
+      "canonical_difference_square_pair",
+      "fixed_squarehood_wheel_must_be_nonempty",
+      "legendre_symbol_reference",
+      "prime_shift_square_support_count",
+      "fixed_wheel_boundary"
+    ],
+    "triggers": [
+      "BRC residue wheel complexity",
+      "fixed modular sieve density",
+      "vertical candidate count",
+      "giant CRT wheel",
+      "quadratic residue support"
+    ],
+    "capabilities": [
+      "exact periodic support count in a finite vertical horizon",
+      "constructive proof that every admissible difference-of-squares strip has nonempty fixed QR-wheel support",
+      "exact odd-prime shifted-square QR support count",
+      "explicit fixed-wheel Theta(T) negative boundary"
+    ],
+    "core_law": "For fixed period P and nonempty support S, the retained offsets below T equal floor(T/P)|S| plus the tail support count, hence (|S|/P)T+O(P)=Theta(T). Every integer C not congruent 2 mod4 has an explicit difference-of-squares point whose vertical residue survives every fixed QR wheel, so a fixed residue table cannot delete an admissible strip entirely.",
+    "hard_boundary": "This is classical periodic counting, quadratic-character and difference-of-squares mathematics used to close a BRC research route. It is not a lower bound for arbitrary factoring algorithms. Growing/segmented sieves may change implementation tradeoffs, but no exponent improvement follows merely from a fixed finite wheel. No Foundation promotion is made."
+  },
+  {
+    "score": 6,
+    "method_id": "t0.brc_linear_deep_tail",
+    "name": "BRC order-one linear deep-tail multiplier transport",
+    "classification": "GLOBAL_SUBTOOL",
+    "family_id": "T0_BRC",
+    "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+    "source_refs": [
+      "src/enterprise_math/brc_linear_deep_tail.py",
+      "tests/test_brc_linear_deep_tail.py",
+      "experiments/brc_linear_deep_tail_benchmark.py",
+      "research_notes/BRC_LINEAR_DEEP_TAIL_20260907.md",
+      "research_artifacts/brc_linear_deep_tail_benchmark_20260907.csv"
+    ],
+    "api": [
+      "LinearDeepTailState",
+      "order1_pell_pair",
+      "order1_two_correction_certificate",
+      "linear_tail_sufficient",
+      "common_mod8_linear_tail_sufficient",
+      "linear_tail_threshold",
+      "common_mod8_linear_tail_threshold",
+      "transport_order1_linear_tail",
+      "odd_n_linear_deep_tail_states"
+    ],
+    "triggers": [
+      "BRC linear deep tail",
+      "order one Pell predictor",
+      "long multiplier horizon",
+      "N one fifth tail",
+      "table free mod8 tail",
+      "linear denominator root transport"
+    ],
+    "capabilities": [
+      "exact order-one Pell lower ratio (4m+3h)/(4m+h) for h=1,2",
+      "root increment predictor floor(2hJ/(4m+h)) without sqrt-ratio tables",
+      "exact state-dependent two-correction certificate J h^3 <= m(4m+3h)(4m+h)",
+      "root-free sufficient certificate 256m^5 >= N h^6",
+      "single common odd-N mod-8 tail threshold 4m^5 >= N",
+      "unbounded multiplier stream beyond the previous max_multiplier<=100 table boundary",
+      "finite full-pipeline speedup over fair incremental direct-isqrt baselines in tested 512..8192-bit cohorts"
+    ],
+    "core_law": "For h in {1,2}, the order-one Pell pair A=4m+3h, B=4m+h satisfies (m+h)B^2-mA^2=h^3 and A/B<sqrt((m+h)/m). Therefore d=floor(2hJ/(4m+h)) is a lower root increment. If J h^3<=mAB, at most two BRC odd-width corrections recover the exact target root/remainder. Since J<=sqrt(mN) and A,B>=4m, the root-free condition 256m^5>=N h^6 suffices; h=2 yields the common mod-8 tail condition 4m^5>=N.",
+    "hard_boundary": "This is an exact multiplier-state transport optimization only. It does not reduce a Lehman/Hart-style N^(1/3) factor-search horizon, prove an asymptotic factorization speedup, or imply RSA practicality. The deep-tail threshold is enormous at RSA bit sizes. Finite Python speedups are implementation evidence, not machine-model complexity theorems."
+  },
+  {
+    "score": 6,
+    "method_id": "t0.brc_mass_class_congruence_lift",
+    "name": "Heartbeat aggregate action-mass class refinement and joint frame lifting",
+    "family_id": "T0_BRC",
+    "classification": "GLOBAL_SUBTOOL",
+    "status": "EXECUTABLE_RESEARCH_CANDIDATE_NOT_FOUNDATION",
+    "api": [
+      "KernelTerm",
+      "GermMassClass",
+      "MassKernel",
+      "MassLiftSeed",
+      "SplitMassObstruction",
+      "ClassLiftComponent",
+      "MassLiftResult",
+      "germ_mass_classes",
+      "lift_mass_seed",
+      "lift_mass_family",
+      "collision_horizon",
+      "mass_germ_defect",
+      "JointMassLiftSpace",
+      "compress_mass_lifts"
+    ],
+    "source_refs": [
+      "src/enterprise_math/heartbeat_mass_refinement.py",
+      "tests/test_heartbeat_mass_refinement.py",
+      "research_notes/heartbeat_mass_refinement_20260922_AD0416/RESEARCH_NOTE.md",
+      "research_notes/heartbeat_mass_refinement_20260922_AD0416/THEOREM_LEDGER.json"
+    ],
+    "triggers": [
+      "mass class lifting",
+      "changing frame matching",
+      "joint refinement obstruction",
+      "aggregate branch mass symmetry"
+    ],
+    "capabilities": [
+      "refine whole-domain action germs before mass-profile matching",
+      "complete one-digit shared-frame affine union under declared matching budget",
+      "compress complete mass-lift fibers to one certified affine space",
+      "explicit mass-split versus geometric obstruction",
+      "finite action collision horizon",
+      "monotone per-source mass defect diagnostic"
+    ],
+    "reuse_resolution": {
+      "state": "EXTEND_EXISTING_TOOL / REUSE_EXECUTED",
+      "methods": [
+        "t0.brc_guarded_congruence_lift",
+        "t0.brc_online_peak_symmetry",
+        "t0.brc_exact_carry_peak"
+      ],
+      "gap": "Prior fixed atom matching is too strong for equal aggregate class mass and cannot cover changing fine-class correspondences."
+    },
+    "theorem_refs": [
+      "HBW-MR-001",
+      "HBW-MR-002",
+      "HBW-MR-003",
+      "HBW-MR-004",
+      "HBW-MR-005",
+      "HBW-MR-006"
+    ],
+    "hard_boundary": "Fixed supplied low seeds and ports, rational stochastic atom law, integer linear macro-actions, fixed p and boundary carry observer. No all-GL6 or raw-atom-word equivalence, infinite-lift termination, multi-digit single affine promise, or reinterpretation of repair counts as probability."
+  },
+  {
+    "score": 6,
+    "method_id": "t0.brc_phase_fourth_moment",
+    "name": "BRC fourth-order fixed-phase lifted-moment transport",
+    "classification": "GLOBAL_SUBTOOL",
+    "family_id": "T0_BRC",
+    "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+    "source_refs": [
+      "src/enterprise_math/brc_phase_fourth_moment.py",
+      "tests/test_brc_phase_fourth_moment.py",
+      "experiments/brc_phase_fourth_moment_benchmark.py",
+      "research_notes/BRC_PHASE_FOURTH_MOMENT_20260907.md",
+      "research_artifacts/brc_phase_fourth_moment_benchmark_20260907.csv"
+    ],
+    "api": [
+      "FourthPhaseMomentState",
+      "FourthPhaseMomentTracker",
+      "fourth_phase_tail_sufficient",
+      "fourth_phase_tail_threshold",
+      "aligned_fourth_phase_tail_threshold",
+      "phase_fourth_difference_bounds",
+      "phase_fourth_candidate_gap",
+      "odd_n_fourth_phase_tail_states",
+      "reused_reciprocal_table_bytes"
+    ],
+    "triggers": [
+      "BRC fourth phase difference",
+      "N one seventh multiplier tail",
+      "fixed phase lifted moment",
+      "remove unbounded dynamic products",
+      "early phase root recurrence"
+    ],
+    "capabilities": [
+      "exact unbounded odd-N mod-8 root/remainder transport from an m^7>=128N tail",
+      "cubic phase-root extrapolation from four labeled exact phase states",
+      "exact target residual using the signed remainder jet and a four-coordinate lifted quadratic moment carrier",
+      "uniform integer fourth-difference correction bound -347..7",
+      "negative correction recovery using the existing 1024-byte normalized reciprocal table with at most two estimate increments and one adjacent-candidate comparison",
+      "nineteen fixed seed-root transitions followed by recurrence with no further target square roots",
+      "moment updates whose new products use only a bounded correction or fixed small coefficients",
+      "exact completion-gap preservation for the BALANCED zero-false-negative square-residue cascade"
+    ],
+    "core_law": "For (m+8i)N=J_i^2+R_i, i=0..3, let u=Delta J_0, v=Delta^2 J_0, w=Delta^3 J_0 and C=4J_3-6J_2+4J_1-J_0. Then (m+32)N-C^2=-R_0+4R_1-6R_2+4R_3-2(4uw+3v^2+12vw+6w^2). Under m^7>=128N, e=Delta^4J_0 lies in [-347,7]. The lifted moments UW,V2,VW,W2 update using only bounded e, and the existing Round-13 reciprocal table recovers the dominant negative correction exactly.",
+    "observer_contract": "Retain four labeled phase triples plus the ordered finite-difference and quadratic-moment state. A root-only, remainder-total, Boolean-support, or unlabeled phase quotient cannot reproduce the exact residual or completion-gap future operation.",
+    "hard_boundary": "Exact integer transport on the declared odd-N fixed-phase tail. Nineteen direct-root seeds must be amortized by a long stream. Finite timing crossover is runtime-dependent. The result does not reduce the multiplier horizon, change Lehman/Hart factorization complexity, imply RSA practicality, mutate Foundation, or create a new top-level BRC family."
+  },
+  {
+    "score": 6,
+    "method_id": "t0.brc_phase_root_recurrence",
+    "name": "BRC fixed-phase root/remainder third-difference transport",
+    "classification": "GLOBAL_SUBTOOL",
+    "family_id": "T0_BRC",
+    "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+    "source_refs": [
+      "src/enterprise_math/brc_phase_root_recurrence.py",
+      "tests/test_brc_phase_root_recurrence.py",
+      "experiments/brc_phase_root_recurrence_benchmark.py",
+      "research_notes/BRC_PHASE_ROOT_RECURRENCE_20260907.md",
+      "research_artifacts/brc_phase_root_recurrence_benchmark_20260907.csv"
+    ],
+    "api": [
+      "PhaseRootRemainderState",
+      "PhaseRootRemainderTracker",
+      "phase_root_candidate_gap",
+      "phase_root_third_difference_bounds",
+      "odd_n_phase_root_tail_states",
+      "reused_reciprocal_table_bytes"
+    ],
+    "triggers": [
+      "BRC phase root recurrence",
+      "third finite difference multiplier root",
+      "remove order-one quotient after warmup",
+      "reuse reciprocal table for BRC correction",
+      "fixed mod-8 phase root remainder"
+    ],
+    "capabilities": [
+      "exact unbounded fixed-phase root/remainder transport after fourteen order-one seed transitions",
+      "quadratic extrapolation of each mod-8 phase root from three labeled exact phase states",
+      "exact target residual G=R0-3R1+3R2-6b(b-a) without target square root or q(2J+q)",
+      "uniform common-tail integer correction bound -3..387",
+      "reuse of the existing 1024-byte normalized reciprocal table for constant-comparison phase closure",
+      "preservation of the exact completion gap for composition with the zero-false-negative BALANCED square-residue cascade",
+      "optional exact lifted product state using only bounded-correction multipliers, retained as a CPU-negative alternative"
+    ],
+    "core_law": "For phase-spaced states (m+8i)N=J_i^2+R_i, let a=J_1-J_0, b=J_2-J_1 and C=3J_2-3J_1+J_0. Then (m+24)N-C^2=R_0-3R_1+3R_2-6b(b-a). On 4m^5>=N, e=J_3-C is the integer third phase difference and satisfies -3<=e<=387. For C>=75078, floor(G/(2C+1)) lies in {e,e+1}; the existing Round-13 1 KiB lower-reciprocal table recovers that floor with at most two increments, and one sign check yields the exact (J_3,R_3).",
+    "observer_contract": "Retain three labeled phase triples (m_i,J_i,R_i). Roots alone, Boolean support, or an unlabeled aggregate are inadequate because the exact residual and future completion-gap observer depend on the individual remainders and phase order.",
+    "hard_boundary": "Exact integer transport only on the already-certified odd-N order-one deep tail and fixed mod-8 representative phases. The finite performance crossover is runtime-dependent; direct division remains appropriate for smaller operands. This does not reduce the multiplier horizon, change Lehman/Hart factorization complexity, imply RSA practicality, or create a new top-level BRC family."
+  },
+  {
+    "score": 6,
+    "method_id": "t0.brc_quotient_jet_tail",
+    "name": "BRC stride-8 quotient/remainder jet tail",
+    "classification": "GLOBAL_SUBTOOL",
+    "family_id": "T0_BRC",
+    "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+    "source_refs": [
+      "src/enterprise_math/brc_quotient_jet_tail.py",
+      "tests/test_brc_quotient_jet_tail.py",
+      "experiments/brc_quotient_jet_benchmark.py",
+      "research_notes/BRC_QUOTIENT_JET_TAIL_20260907.md",
+      "research_artifacts/brc_quotient_jet_benchmark_20260907.csv"
+    ],
+    "api": [
+      "QuotientJetOrbit",
+      "QuotientJetTailStep",
+      "QuotientJetTailScanner",
+      "outgoing_sparse_step",
+      "quotient_jet_bound_sufficient",
+      "quotient_jet_tail_threshold",
+      "QuotientJetTailScanner.advance_inplace"
+    ],
+    "triggers": [
+      "BRC quotient jet",
+      "avoid linear-tail division",
+      "stride-8 multiplier quotient recurrence",
+      "quotient remainder transport",
+      "fifteen seed divisions",
+      "division-free BRC tail"
+    ],
+    "capabilities": [
+      "decompose the odd-N mod-8 sparse multiplier stream into five fixed-step residue orbits",
+      "seed every orbit with three exact Euclidean quotient samples, exactly fifteen divisions total",
+      "quadratically extrapolate the next quotient and recover the exact quotient/remainder by at most four signed denominator repairs",
+      "prove the quotient third-difference correction interval [-4,4] under the common linear tail and m>=962h",
+      "retain exact quotient remainder and bounded first/second finite-difference repair coordinates",
+      "avoid a fresh large-integer quotient division and generic quotient-times-denominator product after seeding",
+      "compose with the order-one linear BRC root closure and the staged square-gap residue cascade",
+      "provide an allocation-free in-place scan path for large-integer hot loops",
+      "operate without a multiplier-horizon table or upper multiplier bound"
+    ],
+    "core_law": "For one fixed source residue class modulo 8, let q_m=floor(2hJ_m/(4m+h)) and rho_m be the exact Euclidean remainder. Consecutive visits differ by 8. Under 4m^5>=N and m>=962h, the smooth third-difference plus source-root phase has magnitude below one, while the floor phase contributes strictly between -4 and 4; hence epsilon=q_(m+8)-3q_m+3q_(m-8)-q_(m-16) lies in [-4,4]. Carrying rho and P=(Delta q+Delta^2 q)(D+32) yields the exact provisional residual S=rho+2h(J'-J)-32q-P, normalized by at most four additions/subtractions of D'=D+32. Five orbits times three samples require fifteen seed divisions; all later quotient states are exact recurrence states.",
+    "hard_boundary": "This extends t0.brc_linear_deep_tail and composes with t0.brc_square_gap_cascade; it is not a new top-level tool family. The proof controls exact multiplier-state transport only and does not shorten a Lehman/Hart-style search horizon or establish a factorization-complexity improvement. Finite Python benchmarks favor the jet only for sufficiently large integers (around 4096 bits in the committed environment); small-size routing should retain native division. The exact quotient remainder must not be collapsed to quotient-only or a fitted real trend."
+  },
+  {
+    "score": 6,
+    "method_id": "t0.brc_square_gap_cascade",
+    "name": "BRC staged square-gap residue cascade",
+    "classification": "GLOBAL_SUBTOOL",
+    "family_id": "T0_BRC",
+    "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+    "source_refs": [
+      "src/enterprise_math/brc_square_gap_cascade.py",
+      "tests/test_brc_square_gap_cascade.py",
+      "experiments/brc_square_gap_cascade_benchmark.py",
+      "research_notes/BRC_SQUARE_GAP_CASCADE_20260907.md",
+      "research_artifacts/brc_square_gap_cascade_benchmark_20260907.csv"
+    ],
+    "api": [
+      "CASCADE_STAGE_MODULI",
+      "CASCADE_PROFILES",
+      "passes_square_residue_cascade",
+      "filtered_square_root_cascade",
+      "cascade_survival_density",
+      "cascade_raw_table_bytes",
+      "cascade_profile_stats"
+    ],
+    "triggers": [
+      "BRC square-gap cascade",
+      "quadratic-residue staged table",
+      "second isqrt filter",
+      "4032 12155 12673",
+      "use BRC residue tables"
+    ],
+    "capabilities": [
+      "reuse the existing 504-byte mod-4032 checked-in table as first gate",
+      "compile small secondary bit tables for moduli 12155 and 12673 once per process",
+      "zero-false-negative necessary filtering for exact squares",
+      "exact CRT survival density for pairwise-coprime stages",
+      "BALANCED 3-stage profile using 3609 raw bytes total",
+      "BALANCED uniform survivor density 19440/30808063 about 0.0631 percent",
+      "finite composition benchmark with the order-one linear deep-tail pipeline"
+    ],
+    "core_law": "If g is an integer square then g is a quadratic residue modulo every cascade modulus. The registered stage moduli 4032, 12155 and 12673 are pairwise coprime, so CRT makes the uniform joint survivor density the product of the exact per-stage QR densities. Later modular reductions are evaluated only on earlier survivors, giving a fixed-size staged necessary filter with no false negatives.",
+    "hard_boundary": "This is classical modular square filtering composed with T0_BRC. It reduces the second squarehood isqrt but does not shorten the multiplier horizon or prove a factorization-complexity improvement. Finite Python timing gains are environment-dependent. Reciprocal-table replacement of the order-one division and radix BRC correction tables were explored but not promoted because they were slower than native operations in the tested runtime."
+  },
+  {
+    "score": 6,
+    "method_id": "t0.brc_square_increment_difference_jet",
+    "name": "BRC square-increment finite-difference jet tail",
+    "classification": "GLOBAL_SUBTOOL",
+    "family_id": "T0_BRC",
+    "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+    "source_refs": [
+      "src/enterprise_math/brc_energy_difference_jet_tail.py",
+      "src/enterprise_math/brc_quotient_jet_tail.py",
+      "tests/test_brc_energy_difference_jet_tail.py",
+      "experiments/brc_energy_difference_jet_benchmark.py",
+      "research_notes/BRC_ENERGY_DIFFERENCE_JET_TAIL_20260907.md",
+      "research_artifacts/brc_energy_difference_jet_benchmark_20260907.csv"
+    ],
+    "api": [
+      "EnergyJetSeedSample",
+      "EnergyDifferenceJetOrbit",
+      "EnergyDifferenceJetTailStep",
+      "EnergyDifferenceJetTailScanner",
+      "root_stride_third_difference",
+      "root_third_difference_bound_sufficient",
+      "square_increment_third_difference"
+    ],
+    "triggers": [
+      "BRC square increment jet",
+      "eliminate q times 2J plus q",
+      "general-multiplication-free BRC tail",
+      "energy finite difference multiplier transport",
+      "root third difference bound",
+      "compose quotient jet with square-gap tables"
+    ],
+    "capabilities": [
+      "retain exact E=q(2J+q) on each of the five fixed-step mod-8 source orbits",
+      "prove the exact third-difference product identity coupling quotient and root jets",
+      "prove the sharp common-tail root third-difference interval [-3,387]",
+      "reuse the quotient-jet intervals epsilon in [-4,4] and Delta^2 q in [-2,98]",
+      "retain the sole unbounded mixed product (Delta q)(Delta^2 J) and transport it using only bounded-coefficient multiplications",
+      "after fifteen quotient divisions and fifteen direct square-increment seed products, perform no fresh division and no multiplication of two N-growing operands",
+      "preserve exact multiplier root/remainder states with at most two ordinary BRC root corrections",
+      "compose unchanged with the BALANCED 4032/12155/12673 square-gap residue cascade"
+    ],
+    "core_law": "On one stride-8 source orbit let s=nabla q, a=nabla^2 q, t=nabla J, u=nabla^2 J, e=nabla^3 q_new, w=nabla^3 J_new and E=q(2J+q). Then nabla^3 E_new = e(2(J+q+s+a+t+u+w)+e)+2w(q+s+a)+6(su+a(s+t)). The quotient jet gives e in [-4,4] and a in [-2,98]. For J=floor(sqrt(mN)), the common tail 4m^5>=N gives 0<Delta_8^3 sqrt(mN)<=384; floor phase contributes strictly between -4 and 4, hence w lies in the sharp integer interval [-3,387]. Retaining M=su and updating M_new=M+s w+(a+e)u+(a+e)w means every post-seed product has a fixed bounded integer factor.",
+    "hard_boundary": "This is an exact multiplier-state execution optimization extending t0.brc_quotient_jet_tail; it does not shorten a Lehman/Hart-style multiplier horizon, change factor-search complexity, establish RSA practicality, or create a new top-level BRC family. Finite CPython timings favor the difference jet only for sufficiently large integers (near parity at 4096 bits and favorable at 8192/16384 bits in the committed run); smaller inputs should retain the fresh native product. The exact quotient remainder, root finite differences, energy finite differences, and mixed provenance coordinate must not be collapsed."
+  },
+  {
+    "score": 6,
+    "method_id": "t0.brc_square_increment_scaled_cross_coordinate",
+    "name": "BRC square-increment scaled cross-coordinate jet",
+    "classification": "GLOBAL_SUBTOOL",
+    "family_id": "T0_BRC",
+    "status": "RESEARCH_PROVED_DERIVED_EXECUTABLE",
+    "source_refs": [
+      "src/enterprise_math/brc_energy_scaled_cross_tail.py",
+      "tests/test_brc_energy_scaled_cross_tail.py",
+      "experiments/brc_energy_scaled_cross_benchmark.py",
+      "research_notes/BRC_ENERGY_SCALED_CROSS_COORDINATE_20260907.md",
+      "research_artifacts/brc_energy_scaled_cross_benchmark_20260907.csv"
+    ],
+    "api": [
+      "ScaledCrossEnergyOrbit",
+      "ScaledCrossEnergyTailScanner",
+      "scaled_cross_from_mixed",
+      "mixed_from_scaled_cross",
+      "square_increment_scaled_cross_third_difference",
+      "next_scaled_cross"
+    ],
+    "triggers": [
+      "BRC energy cross coordinate",
+      "compact square-increment jet",
+      "remove six times K multiplication",
+      "observer-equivalent mixed coordinate",
+      "scaled finite difference energy carrier"
+    ],
+    "capabilities": [
+      "bijectively replace the older mixed coordinate M using already-retained quotient/root finite differences",
+      "evaluate the exact square-increment third difference as e*(2*(J_new+q_new)-e)+2*w*(q_new-e)+C",
+      "transport C exactly with only bounded-coefficient big-integer multiplications",
+      "preserve the existing quotient-third, root-third and two-root-correction proof bounds",
+      "preserve the exact fifteen quotient divisions and fifteen square-increment product seed budget",
+      "match the existing square-increment difference scanner state-for-state",
+      "compose unchanged with the BALANCED square-gap residue cascade"
+    ],
+    "core_law": "Let s=nabla q, a=nabla^2 q, t=nabla J, u=nabla^2 J, e=nabla^3 q_new, w=nabla^3 J_new and M=s*u. Define C=6*(M+a*(s+t)). Because a,s,t are already retained, M=C/6-a*(s+t), so this is an observer-equivalent coordinate change. At the target point, nabla^3 E_new=e*(2*(J_new+q_new)-e)+2*w*(q_new-e)+C. With a_new=a+e and u_new=u+w, C_new=C+6*s*w+6*e*(s+t)+6*a_new*(2*u_new+a_new). The new multipliers are bounded by the inherited e in [-4,4], w in [-3,387] and a_new in [-2,98] bounds.",
+    "hard_boundary": "This is a compatible constant-factor execution variant extending t0.brc_square_increment_difference_jet, not a new top-level BRC family. It does not reduce the multiplier search horizon or factorization complexity. Finite CPython reference timings show a modest roughly 2.6%-13.8% gain across the tested 1024..16384-bit cohorts; these timings are environment-dependent and not an asymptotic machine theorem. Exact square-gap residue-state transport and a 2-adic front gate were also tested but not promoted because their end-to-end gain was marginal after the energy jet became the dominant cost."
+  }
+]
