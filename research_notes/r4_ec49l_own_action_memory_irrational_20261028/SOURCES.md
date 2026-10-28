@@ -1,0 +1,6 @@
+# EC49L Sources / boundaries
+
+- Immediate predecessor EC49K author-side Draft PR #1644: https://github.com/awdawmip/enterprise-math/pull/1644 , immutable research commit 192e82d610eab777248ffa134bafe46847e29b53; retained own-action history is NEW in EC49L. Prior PR was unreviewed, and is not silently admitted.
+- Externally verified: Ryan A. Anderson and Guido Montúfar, "The Value Function Semi-Algebraic Set in Partially Observable Markov Decision Processes", Proceedings of ICML 2026, PMLR 306, pp. 2677–2715; https://proceedings.mlr.press/v306/anderson26a.html ; arXiv 2606.03048 dated 2026-06-02. Different setting: infinite-horizon memoryless POMDPs, not this finite two-step behavioral obstruction. Background, not proof or novelty certificate.
+- Frozen GLOBAL_KNOWLEDGE_V1 canonical snapshot: main@2799b8b74f23b071340d43d53fd7cc18038d189b ; enterprise-math scientific input: main@7f23e5cb67cd455564317004e377feba60ace1bb ; read 2026-10-28. P000, joint-observer preservation, ACTIVE account-worldview and X6 heartbeat time left unchanged.
+- Exact local verification: actual Python Fraction/SymPy implementation in VERIFY.py, original stdout in EXACT_REPORT.json; theorems derived algebraically. Source tensor is an auxiliary POSITIVE BRC probability branch carrier. No signed amplitudes, native heartbeat execution, independent Driver review, Source CLAIM or Result.
