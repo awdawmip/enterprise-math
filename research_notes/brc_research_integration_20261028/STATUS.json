@@ -1,59 +1,302 @@
 {
   "schema": "ENTERPRISE_MATH_RESEARCH_INTEGRATION_RECEIPT_V1",
-  "observed_at": "2026-10-28T03:28:25.998782+00:00",
-  "stage": "SOURCE_BUNDLE_PREPARED; THREE_RUNTIME_SUPERSEDE_EVENTS_PENDING",
+  "observed_at": "2026-10-28T03:35:12.390948+00:00",
+  "stage": "SUCCESSOR_ON_MAIN_AND_THREE_EXACT_OLD_ENTRIES_SUPERSEDED",
   "task_id": "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028",
   "publication_id": "TP2-8FD66B1B48BE87DA1AC1",
   "task_lineage": "INTEGRATION",
   "objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
   "objective_generation_id": "OG-7AE66316D7566C519AE0",
+  "parent_research_objective_status": "OPEN",
+  "request_scope": "Inspect and synthesize recent research, repair two source linkages, advance one bounded mathematical bridge, publish integrated follow-up and retire three duplicate entries",
+  "source_merge_commit": "853693c4c0fe1ad0c33a5023f1491053afddbfb6",
+  "pull_request": "https://github.com/awdawmip/enterprise-math/pull/1618",
   "driver_id": "EM-DVR-C27825",
   "driver_authority_record_id": "DA-5FF9D8DF3219E8FE325B",
   "driver_authority_comment_id": 6459829269,
+  "same_conversation_author": "EM-ETHQFT-F37BEB",
   "science_status": "AUTHOR_DERIVED_EXACT_FINITE_CHECK_PASS_UNREVIEWED",
   "scientific_acceptance_granted": false,
-  "retrospective_records": [
-    {
-      "activity_id": "RA-1F686C920CB47220E290E591",
-      "path": "research_activity_records/RA-1F686C920CB47220E290E591.json",
-      "event_id": "retrospective-20261028-factor_path_c41_c42",
-      "state": "EM_REPRESENTED",
-      "record_sha256": "dfe4ca3cfb6ffb18a486705fa4213b3512c24588f6e0134bd82b11902b588d17",
-      "sidecars": [
-        "research_activity_records/RA-1F686C920CB47220E290E591/readbacks/acd22ed91b0e3f7fb089585a66dbeba1500032eda5aec57c3c371bb1ec70f806.json",
-        "research_activity_records/RA-1F686C920CB47220E290E591/readbacks/a47c2028822afd6a2f59141dad860a41ba1778b91574aef80a1152d170c62289.json"
-      ]
-    },
-    {
-      "activity_id": "RA-E58964C8293848CCF4D666BA",
-      "path": "research_activity_records/RA-E58964C8293848CCF4D666BA.json",
-      "event_id": "retrospective-20261028-dynamic_alias_triadic_references",
-      "state": "EM_REPRESENTED",
-      "record_sha256": "bfda4bdce6a706e74cdf7ef8c1e83174553e33543170be72a935ee1e35a57f4d",
-      "sidecars": [
-        "research_activity_records/RA-E58964C8293848CCF4D666BA/readbacks/eeccaba1037cac4382f85f19eea98aded860e7c1231b78ddf95f3fb649c18e1c.json",
-        "research_activity_records/RA-E58964C8293848CCF4D666BA/readbacks/9c556fb55b52bd46c9041b040bb8327f98ffc37df6c2918b22394cfa2e032da4.json"
-      ]
-    }
-  ],
-  "old_tasks": [
+  "new_task_runtime": {
+    "task_id": "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028",
+    "state": "READY",
+    "claim_id": null,
+    "actor": null,
+    "researcher_id": null,
+    "last_researcher_id": null,
+    "identity_source": null,
+    "lease_until": null,
+    "hard_block": null,
+    "last_progress_ref": "research_notes/brc_alias_counting_bridge_20261028/PROOF.md",
+    "last_progress_at": "2026-10-28T03:27:38.208350+00:00",
+    "next_action": "先复用已发布seed，固定一段有界API操作及未来same观察的约束对象族，写清计数域、合法域与成本；并行核对ETH真实外部步骤合同，不重做无约束Bell枚举。",
+    "ignored_events": [],
+    "dispatch_state": "NEEDS_DISPATCH",
+    "title": "BRC 未来保真残差、保数表示与稳定性综合研究",
+    "kind": "RESEARCH",
+    "owner": "taskbook/unassigned",
+    "priority": "P2",
+    "leverage": "HIGH",
+    "frontier": "已有同源分区到唯一扩展3-CNF的作者证明及精确核验；待把统一保真合同用于约束状态/真实路径、组合误差与准备律稳定，并完整保留原ETH/QFT六单元义务。",
+    "source_refs": [
+      "awdawmip/enterprise-math@55d7023906e9a82198047820bfb5cd29efcaf566:research_notes/OPENAI_ETH_QFT_PROJECT_RELEVANCE_20261027_0809.md",
+      "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:p000_reality_foundation.json",
+      "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json",
+      "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json",
+      "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+      "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:docs/P023_COMPOSITION_SAFE_COLLAPSE.en.md",
+      "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
+      "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
+      "openai/math@7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a:preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/main_full_version.tex",
+      "openai/math@7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a:lean/docs/378.md",
+      "awdawmip/enterprise-math@7cf6424f92803f434886b6ee1b1a72507f6753ca:research_task_records/RS-OPENAI-ETH-BRC-REPRESENTATION-20261028/TP2-1E91CE2076D5D90171E6.json",
+      "awdawmip/enterprise-math@7cf6424f92803f434886b6ee1b1a72507f6753ca:research_task_records/RS-OPENAI-ETH-CELL-COUNTING-20261028/TP2-43FD60AE6CFEC6147600.json",
+      "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+      "https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf",
+      "awdawmip/enterprise-math@1272b0a120180098e7ec107afcb021c90af79609:research_notes/HEARTBEAT_NATIVE_WAVE_COMMON_RESIDUAL_CCBF9335_20260929.md",
+      "awdawmip/enterprise-math@f7d2123cd2b857cee263297a49450643b62042fe:research_notes/HEARTBEAT_PREDICTIVE_RESIDUAL_M3_20260929.md",
+      "awdawmip/enterprise-math@7cf6424f92803f434886b6ee1b1a72507f6753ca:research_task_records/RS-OPENAI-QFT-BRC-RESIDUAL-20261028/TP2-A9BCBF65D1395E75F2F7.json",
+      "awdawmip/enterprise-math@9be9207b976de51173e476b1c3d42e539b6df17c:research_notes/divisor_extrema/20261028_c41_context_rank_balanced_path_variance.md",
+      "awdawmip/enterprise-math@9be9207b976de51173e476b1c3d42e539b6df17c:research_notes/divisor_extrema/20261028_c42_nonuniform_factor_paths_group_balance.md",
+      "awdawmip/enterprise-math@9be9207b976de51173e476b1c3d42e539b6df17c:research_notes/chatgpt_direct/20261028_residual_dynamic_alias_52c8e1/RESULT.md",
+      "awdawmip/enterprise-math@9be9207b976de51173e476b1c3d42e539b6df17c:research_notes/chatgpt_direct/20261028_residual_triadic_references_7b6e42/RESULT.md",
+      "awdawmip/enterprise-math@9be9207b976de51173e476b1c3d42e539b6df17c:research_notes/brc_n4_t3_all_history_exact_repair_20261028_r1t11/PROOF.md",
+      "awdawmip/enterprise-math@9be9207b976de51173e476b1c3d42e539b6df17c:research_notes/research6_prefix313_multistate_lift_20261028/PREFIX313_EXACT_MULTISTATE_LIFT_AND_BRC_COUNTEREXAMPLES.zh-CN.md",
+      "awdawmip/enterprise-math@9be9207b976de51173e476b1c3d42e539b6df17c:docs/P023_PARTIAL_OPERATION_QUOTIENT_SUPPLEMENT_08.en.md",
+      "research_notes/brc_alias_counting_bridge_20261028/PROOF.md",
+      "research_notes/brc_research_integration_20261028/INTEGRATION.md"
+    ],
+    "registration_source": "IMMUTABLE_TASK_RECORD",
+    "publication_id": "TP2-8FD66B1B48BE87DA1AC1",
+    "event_authentication": "NO_RUNTIME_EVENT",
+    "last_server_comment_id": null,
+    "last_server_author_login": null,
+    "identity_lane": "BRCSYN"
+  },
+  "supersede_events": [
     {
       "task_id": "RS-OPENAI-ETH-BRC-REPRESENTATION-20261028",
       "publication_id": "TP2-1E91CE2076D5D90171E6",
-      "runtime_supersede_state": "PENDING"
+      "event": "SUPERSEDE",
+      "comment_id": 6459946010,
+      "url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6459946010",
+      "created_at": "2026-10-28T03:31:19Z",
+      "updated_at": "2026-10-28T03:31:19Z",
+      "server_author": {
+        "login": "awdawmip",
+        "user_id": 30957095,
+        "author_association": "OWNER"
+      },
+      "next_action": "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028 / TP2-8FD66B1B48BE87DA1AC1 / Work package 1A-1B: preserve the exact external ETH theorem/source contract, future-faithful representation proof or counterexample, and full original-input bit-cost ledger."
     },
     {
       "task_id": "RS-OPENAI-ETH-CELL-COUNTING-20261028",
       "publication_id": "TP2-43FD60AE6CFEC6147600",
-      "runtime_supersede_state": "PENDING"
+      "event": "SUPERSEDE",
+      "comment_id": 6459947343,
+      "url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6459947343",
+      "created_at": "2026-10-28T03:31:25Z",
+      "updated_at": "2026-10-28T03:31:25Z",
+      "server_author": {
+        "login": "awdawmip",
+        "user_id": 30957095,
+        "author_association": "OWNER"
+      },
+      "next_action": "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028 / TP2-8FD66B1B48BE87DA1AC1 / Work package 2: extend the published alias-partition seed to a new constrained state or actual labeled path family, preserving encode/decode bijection, unique auxiliary extension, the 35-path/one-endpoint distinction, and N/M/k/L resource accounting."
     },
     {
       "task_id": "RS-OPENAI-QFT-BRC-RESIDUAL-20261028",
       "publication_id": "TP2-A9BCBF65D1395E75F2F7",
-      "runtime_supersede_state": "PENDING"
+      "event": "SUPERSEDE",
+      "comment_id": 6459948929,
+      "url": "https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6459948929",
+      "created_at": "2026-10-28T03:31:32Z",
+      "updated_at": "2026-10-28T03:31:32Z",
+      "server_author": {
+        "login": "awdawmip",
+        "user_id": 30957095,
+        "author_association": "OWNER"
+      },
+      "next_action": "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028 / TP2-8FD66B1B48BE87DA1AC1 / Work package 4A-4C: retain finite typed-BRC first-return response and delay, one explicit model family's uniform stability or exact nonuniform counterexample, and one finite-window native X6 readout closure/failure/precise missing contract. Preparation-law results are scoped inputs."
     }
   ],
+  "old_task_runtime": [
+    {
+      "task_id": "RS-OPENAI-ETH-BRC-REPRESENTATION-20261028",
+      "state": "SUPERSEDED",
+      "claim_id": null,
+      "actor": null,
+      "researcher_id": null,
+      "last_researcher_id": null,
+      "identity_source": null,
+      "lease_until": null,
+      "hard_block": null,
+      "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/853693c4c0fe1ad0c33a5023f1491053afddbfb6/research_notes/brc_research_integration_20261028/INTEGRATION.md",
+      "last_progress_at": "2026-10-28T03:31:19+00:00",
+      "next_action": "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028 / TP2-8FD66B1B48BE87DA1AC1 / Work package 1A-1B: preserve the exact external ETH theorem/source contract, future-faithful representation proof or counterexample, and full original-input bit-cost ledger.",
+      "ignored_events": [],
+      "dispatch_state": "COMPLETE",
+      "title": "ETH 算法的 BRC 保真表示与位复杂度接口",
+      "kind": "RESEARCH",
+      "owner": "taskbook/unassigned",
+      "priority": "P2",
+      "leverage": "MEDIUM",
+      "frontier": "已定位固定 ETH 稿与形式化范围；待完成一个具体表示的保真证明或反例及实际位成本推导。",
+      "source_refs": [
+        "awdawmip/enterprise-math@55d7023906e9a82198047820bfb5cd29efcaf566:research_notes/OPENAI_ETH_QFT_PROJECT_RELEVANCE_20261027_0809.md",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:p000_reality_foundation.json",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:docs/P023_COMPOSITION_SAFE_COLLAPSE.en.md",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
+        "openai/math@7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a:preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/main_full_version.tex",
+        "openai/math@7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a:lean/docs/378.md"
+      ],
+      "registration_source": "IMMUTABLE_TASK_RECORD",
+      "publication_id": "TP2-1E91CE2076D5D90171E6",
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "last_server_comment_id": 6459946010,
+      "last_server_author_login": "awdawmip",
+      "identity_lane": "ETHQFT"
+    },
+    {
+      "task_id": "RS-OPENAI-ETH-CELL-COUNTING-20261028",
+      "state": "SUPERSEDED",
+      "claim_id": null,
+      "actor": null,
+      "researcher_id": null,
+      "last_researcher_id": null,
+      "identity_source": null,
+      "lease_until": null,
+      "hard_block": null,
+      "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/853693c4c0fe1ad0c33a5023f1491053afddbfb6/research_notes/brc_research_integration_20261028/INTEGRATION.md",
+      "last_progress_at": "2026-10-28T03:31:25+00:00",
+      "next_action": "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028 / TP2-8FD66B1B48BE87DA1AC1 / Work package 2: extend the published alias-partition seed to a new constrained state or actual labeled path family, preserving encode/decode bijection, unique auxiliary extension, the 35-path/one-endpoint distinction, and N/M/k/L resource accounting.",
+      "ignored_events": [],
+      "dispatch_state": "COMPLETE",
+      "title": "有限 Cell 路径的计数保持编码与 ETH 资源迁移",
+      "kind": "RESEARCH",
+      "owner": "taskbook/unassigned",
+      "priority": "P2",
+      "leverage": "MEDIUM",
+      "frontier": "已有路径、重数与支持的明确区分；待证明选定有限族到固定宽度 CNF 的唯一扩展及原参数资源界。",
+      "source_refs": [
+        "awdawmip/enterprise-math@55d7023906e9a82198047820bfb5cd29efcaf566:research_notes/OPENAI_ETH_QFT_PROJECT_RELEVANCE_20261027_0809.md",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:p000_reality_foundation.json",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:docs/P023_COMPOSITION_SAFE_COLLAPSE.en.md",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
+        "openai/math@7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a:preprints/The-Exponential-Time-Hypothesis-is-False-October-25-2026/build/main_full_version.tex",
+        "openai/math@7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a:lean/docs/378.md"
+      ],
+      "registration_source": "IMMUTABLE_TASK_RECORD",
+      "publication_id": "TP2-43FD60AE6CFEC6147600",
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "last_server_comment_id": 6459947343,
+      "last_server_author_login": "awdawmip",
+      "identity_lane": "ETHQFT"
+    },
+    {
+      "task_id": "RS-OPENAI-QFT-BRC-RESIDUAL-20261028",
+      "state": "SUPERSEDED",
+      "claim_id": null,
+      "actor": null,
+      "researcher_id": null,
+      "last_researcher_id": null,
+      "identity_source": null,
+      "lease_until": null,
+      "hard_block": null,
+      "last_progress_ref": "https://github.com/awdawmip/enterprise-math/blob/853693c4c0fe1ad0c33a5023f1491053afddbfb6/research_notes/brc_research_integration_20261028/INTEGRATION.md",
+      "last_progress_at": "2026-10-28T03:31:32+00:00",
+      "next_action": "RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028 / TP2-8FD66B1B48BE87DA1AC1 / Work package 4A-4C: retain finite typed-BRC first-return response and delay, one explicit model family's uniform stability or exact nonuniform counterexample, and one finite-window native X6 readout closure/failure/precise missing contract. Preparation-law results are scoped inputs.",
+      "ignored_events": [],
+      "dispatch_state": "COMPLETE",
+      "title": "QFT 启发的 BRC 保真消元、尺度稳定与 X6 读出",
+      "kind": "RESEARCH",
+      "owner": "taskbook/unassigned",
+      "priority": "P2",
+      "leverage": "MEDIUM",
+      "frontier": "已有 P023 与有限正权 BRC 稳定接口；待对一个明确模型建立边界响应保真、一个模型族的统一界/反例和原生读出适用性。",
+      "source_refs": [
+        "awdawmip/enterprise-math@55d7023906e9a82198047820bfb5cd29efcaf566:research_notes/OPENAI_ETH_QFT_PROJECT_RELEVANCE_20261027_0809.md",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:p000_reality_foundation.json",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:docs/P023_COMPOSITION_SAFE_COLLAPSE.en.md",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md",
+        "awdawmip/enterprise-math@382e6d3005559d808b8ed49cded36d2b01b299b2:definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md",
+        "https://openai.com/index/building-scientific-understanding-with-academic-communities/",
+        "https://www.claymath.org/wp-content/uploads/2022/06/yangmills.pdf",
+        "awdawmip/enterprise-math@1272b0a120180098e7ec107afcb021c90af79609:research_notes/HEARTBEAT_NATIVE_WAVE_COMMON_RESIDUAL_CCBF9335_20260929.md",
+        "awdawmip/enterprise-math@f7d2123cd2b857cee263297a49450643b62042fe:research_notes/HEARTBEAT_PREDICTIVE_RESIDUAL_M3_20260929.md"
+      ],
+      "registration_source": "IMMUTABLE_TASK_RECORD",
+      "publication_id": "TP2-A9BCBF65D1395E75F2F7",
+      "event_authentication": "GITHUB_SERVER_COMMENT_ENVELOPE",
+      "last_server_comment_id": 6459948929,
+      "last_server_author_login": "awdawmip",
+      "identity_lane": "ETHQFT"
+    }
+  ],
+  "runtime_validation": {
+    "status": "PASS",
+    "entrypoints": [
+      "tools.research_dispatch_core.events_from_github_comments",
+      "tools.research_dispatch_core.registered_definition",
+      "tools.research_dispatch_core.reduce_definition"
+    ],
+    "result_and_cohort_overlays_included": true,
+    "all_events_server_authenticated": true,
+    "ignored_event_count": 0,
+    "source_policy_snapshot": "2ea525e27882e26a64cf6d3573b5e230da87f708",
+    "source_policy_unchanged_through_publication_by_commit_diff": true,
+    "raw_events_file": "CONTROL_EVENTS.json",
+    "scope": "Only the three exact old publications and new integration publication; not a whole-repository runtime audit"
+  },
+  "pre_supersede_evidence": {
+    "complete_normalized_comment_bodies": 1221,
+    "normalized_time_and_association_unavailable": true,
+    "old_task_or_publication_body_matches": 0,
+    "raw_rest_updated_since": "2026-10-28T00:00:00Z",
+    "raw_rest_comments_before_supersede": 1,
+    "result_and_cohort_absence": "STATE_INPUTS.json plus source deltas without Result/cohort changes"
+  },
+  "retrospective_source_activities": [
+    {
+      "activity_id": "RA-1F686C920CB47220E290E591",
+      "sources": "C41/C42 and late C43",
+      "session_state": "UNKNOWN",
+      "live_activity_authority": false,
+      "initial_source_publication_and_guard": "853693c4c0fe1ad0c33a5023f1491053afddbfb6 / persistence_allowed=true; activity_allowed=false",
+      "late_c43_checkpoint": "retrospective-20261028-factor_path_c43"
+    },
+    {
+      "activity_id": "RA-E58964C8293848CCF4D666BA",
+      "sources": "dynamic alias / triadic references",
+      "session_state": "UNKNOWN",
+      "live_activity_authority": false,
+      "initial_source_publication_and_guard": "853693c4c0fe1ad0c33a5023f1491053afddbfb6 / persistence_allowed=true; activity_allowed=false"
+    }
+  ],
+  "own_activity_id": "RA-FE1BB9B3ABA3A9D010C342A6",
+  "own_research_checkpoints": [
+    "brc-research-synthesis-20261028-f37beb",
+    "brc-research-synthesis-late-sources-20261028-f37beb"
+  ],
+  "late_source_addendum": "LATE_SOURCE_ADDENDUM.md",
   "r1_stop_preserved": true,
   "new_claim_created": false,
-  "whole_repository_audit_performed": false
+  "whole_repository_audit_performed": false,
+  "hosted_ci_at_merge": {
+    "state": "QUEUED",
+    "required_branch_checks": [],
+    "pass_claimed": false
+  },
+  "native_publication_audit": "PASS; new task and locally loaded old task publications; no policy overrides"
 }

@@ -6,7 +6,9 @@
 
 本次也完成了一个有限研究推进：把动态同源引用的规范分区接到保数 3-CNF，分别核对逻辑状态、良构颜色表示与历史计数的含义，并真实调用固定版本的生产 BRC 函数。该推进属于 **作者侧证明及精确检查通过、未独立审阅**；任务整合及正式出版均不自动改变科学接纳等级。
 
-> **发布与状态回执**：本批保存新任务 `RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028` / `TP2-8FD66B1B48BE87DA1AC1`、本报告、数学种子，以及两条 retrospective 来源登记 `RA-1F686C920CB47220E290E591`、`RA-E58964C8293848CCF4D666BA` 与完整读回 sidecars。受限 Driver 为 `EM-DVR-C27825`，真实授权事件为 [6459829269](https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6459829269)。三个旧入口的 SUPERSEDE 需在本批入 main 后逐一执行；实际提交、PR、控制事件与原生回读结果统一记录于 [STATUS.json](STATUS.json)，以其中观察时间为准。
+> **已完成发布与状态接续**：[PR #1618](https://github.com/awdawmip/enterprise-math/pull/1618) 已合并，公开提交 `853693c4c0fe1ad0c33a5023f1491053afddbfb6`；新任务 `RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028` / `TP2-8FD66B1B48BE87DA1AC1` 的任务书与记录逐字回读一致。三个旧入口分别通过真实事件 [6459946010](https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6459946010)、[6459947343](https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6459947343)、[6459948929](https://github.com/awdawmip/enterprise-math/issues/240#issuecomment-6459948929) 接续；原生完整 reducer 的结果为旧项 `SUPERSEDED / dispatch COMPLETE`、新项 `READY / NEEDS_DISPATCH`，没有 CLAIM、没有忽略事件。两条来源补登记 `RA-1F686C920CB47220E290E591`、`RA-E58964C8293848CCF4D666BA` 已在 main 并通过 retrospective 持久化检查，原会话身份保持未知。实际范围与完整回执见 [STATUS.json](STATUS.json)。
+
+发布期间晚到的 C43 与 D25 GH-32/GH-33 已另作 [来源附录](LATE_SOURCE_ADDENDUM.md)：C43 已给具体历史反馈桥、充分状态见证和条件 O(t) 方差界；D25 已有 F 端口二分及二阶极点消除。后续直接消费这些结果，不重做已消除的小问题；总任务的完整硬目标保持不变。
 
 共同研究问题是：**在固定对象、准备律、观察及允许未来操作后，什么残差必须保留；什么历史可以安全取商；得到的表示能否实际构造、执行与恢复，并在组合和尺度增长中控制误差？** 这一问题容纳同源关系、程序路径、返回核与有限反演等研究对象，但每个对象的载体与量词仍须独立声明。
 
@@ -70,7 +72,7 @@
 
 对 C41 最早提交至固定 head 的 34 个提交、alias 最早提交至固定 head 的 33 个提交，核查新增/修改的 research_activity_records；两段期间仅涉及 R353 活动记录及本轮 ETH/QFT 活动记录，完整读取后均未找到替代上述旧来源的补登记。由两个精确追踪键原生推导出的候选 RA 路径在固定 head 均不存在。
 
-这证明的是**源首次公开之后至固定快照的指定追踪范围内，没有找到相应补接**；较早活动采用其他别名或追踪键的可能性仍未知。代码搜索零结果没有被用作“全库绝无登记”的依据。本轮最终补记及实际 ID 以文首发布回执为准；补记是追踪公开研究来源，不追认未发生的旧 CLAIM、旧运行或独立审阅。
+这证明的是**源首次公开之后至固定快照的指定追踪范围内，没有找到相应补接**；较早活动采用其他别名或追踪键的可能性仍未知。代码搜索零结果没有被用作“全库绝无登记”的依据。本轮补记及实际 ID 见文首发布回执；补记是追踪公开研究来源，不追认未发生的旧 CLAIM、旧运行或独立审阅。
 
 ## 3. 最近研究前沿：能共享什么，必须保留什么
 
