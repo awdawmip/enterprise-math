@@ -81,7 +81,7 @@ def run():
               'q336_regression':summaries[0],'q337_new':summaries[1],
               'top3_universal_ratios_r337_exact_recheck':True,
               'direct_D_minor_checks':8,'new_q337_coefficient_file':'R357_Q337_FULL_COEFFICIENTS.txt',
-              'new_q336_file_sha256':sha256(complete.encode()).hexdigest(),
+              'new_q337_file_sha256':sha256(complete.encode()).hexdigest(),
               'exact_integer_and_fraction':True,'float_sign_checks':False,
               'method':'R346 K/J signed recurrence + R351 D/H/Q Newton extraction',
               'elapsed_seconds':round(time.monotonic()-start,3)}
