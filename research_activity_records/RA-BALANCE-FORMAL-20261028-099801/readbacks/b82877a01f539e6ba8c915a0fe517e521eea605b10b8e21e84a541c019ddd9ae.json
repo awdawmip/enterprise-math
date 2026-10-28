@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/balanced_resume_20261028/formal/round4/C34_CENTERED_COVARIANCE_INTERFACE.json",
+    "ref": "397aeed183046480d083290db92dc1c79b980a74",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "owner-balance-wave16_readback_7",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"DIRECT_C34_CENTERED_COVARIANCE_SUPPLEMENT_INTERFACE_V1\",\n  \"id\": \"C34_CENTERED_CROSS_ROUTE_COVARIANCE\",\n  \"author\": \"EM-DIRECT-099801\",\n  \"activity_id\": \"RA-BALANCE-FORMAL-20261028-099801\",\n  \"classification\": \"REQUIRED_NOTATION_AND_PROOF_INTERFACE_SUPPLEMENT_NOT_NEW_THEOREM\",\n  \"paper_sha256\": \"1377b67f565385cbd61e8a7cd5fad02468c726689e506c5bbb6dbac959455c53\",\n  \"original_source_sha256\": \"15cabd1b7cef47082a521706d5ebcb8ee48f4c6e0efaf4541fb1d3d9cf4bd1aa\",\n  \"finding_report_sha256\": \"7d391774e813ea5d88a2ba30561d5c27a500278d46c864eb18e29c75deb6eb8d\",\n  \"review_state\": \"AWAITING_DISTINCT_NONAUTHOR_REVIEW\",\n  \"independence_disclosure\": \"Supplement author also authored the finding report; that report cannot independently approve this supplement.\",\n  \"dimensions\": {\n    \"S\": \"M target signs\",\n    \"H\": \"q by M selector of distinct labelled original coordinates\",\n    \"Y\": \"q target signs, H S\",\n    \"X_r\": \"q route-report signs\",\n    \"D_r\": \"q by q diagonal positive biases\",\n    \"C_l\": \"M by M centered target covariance\",\n    \"Gamma_l\": \"q by q centered observed target covariance, H C_l H^T\",\n    \"R_l_rs\": \"q by q raw cross-route moment\",\n    \"G_l_rs\": \"q by q centered cross-route covariance\"\n  },\n  \"hypotheses\": [\n    \"Target and each route error process stationary; exact population expectations.\",\n    \"Whole target process and three whole error processes mutually independent as sigma-algebras; within-route temporal/spatial dependence unrestricted.\",\n    \"Same target coordinate/time labels, nondisturbing readout, no uncalibrated shift.\",\n    \"Each error sign has positive mean eta in (0,1]; r!=s in cross-route identities.\",\n    \"Three-view raw same-coordinate calibration uses selected original signs, not arbitrary linear mixtures.\"\n  ],\n  \"definitions\": {\n    \"mu_r\": \"E[X_r]=D_r v, v=H m\",\n    \"g_rs_a\": \"E[X_r(a,t) X_s(a,t)]=[R_0_rs]_(a,a), RAW\",\n    \"R_l_rs\": \"E[X_r(t+l) X_s(t)^T], RAW\",\n    \"G_l_rs\": \"E[(X_r(t+l)-mu_r)(X_s(t)-mu_s)^T]=R_l_rs-mu_r mu_s^T, CENTERED\"\n  },\n  \"identities\": [\n    \"g_rs_a=eta_r_a eta_s_a\",\n    \"eta_1_a=positive_sqrt(g_12_a g_13_a/g_23_a), cyclic companions\",\n    \"R_l_rs=D_r (Gamma_l+v v^T) D_s\",\n    \"G_l_rs=D_r Gamma_l D_s\",\n    \"Full visibility H=I_M: G_l_rs=D_r C_l D_s\",\n    \"v=D_r^{-1} mu_r; Gamma_l=D_r^{-1} G_l_rs D_s^{-1}\"\n  ],\n  \"additional_target_family_input\": \"C_l=A^l Sigma from the declared affine binary update model; calibration alone does not prove this.\",\n  \"downstream_scope\": [\n    \"Full visibility plus inherited Sigma>0 gives A=C1 Sigma^{-1}, without requiring A invertible.\",\n    \"For a block Hankel built from recovered Gamma_l, exact rank rho<=M; hidden original coordinates at least max(0,rho-q).\"\n  ],\n  \"not_concluded\": [\n    \"Actual whole-process independence or alignment from route agreement.\",\n    \"Finite-sample convergence or confidence.\",\n    \"Legal rho-coordinate binary minimum realization or full hidden graph identification.\",\n    \"Native or physical bridge; historical computations revalidated.\"\n  ],\n  \"original_source_modified\": false,\n  \"scientific_programs\": 0,\n  \"formal_task_core_executions\": 0,\n  \"formal_mathematical_votes\": 0,\n  \"new_theorem_count\": 0\n}\n",
+      "display_title": "C34_CENTERED_COVARIANCE_INTERFACE.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/397aeed183046480d083290db92dc1c79b980a74/research_notes/balanced_resume_20261028/formal/round4/C34_CENTERED_COVARIANCE_INTERFACE.json",
+      "encoding": "utf-8",
+      "sha": "f3b51e0e9aa25f2605f178855255d3ed12451de8"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

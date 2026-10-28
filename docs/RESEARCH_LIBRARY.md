@@ -22,6 +22,8 @@ Student／Parity 的同一尾部成果链已从首轮小锥，经有界相对间
 
 第三轮见[复用、条件审核与剩余义务](../research_notes/balanced_resume_20261028/THIRD_ROTATION.md)及[机器索引](../research_notes/balanced_resume_20261028/THIRD_ROTATION.json)：P11 端点字典为范围澄清；C34 为须补中心化记号的条件审核；RSA 完整先例命中后登记复用；原生方向无第四个新数学单元。独立论文审核不等于正式接受，原计数保持不变。
 
+第四轮见[固定递推、记号补充与经典工具复用](../research_notes/balanced_resume_20261028/FOURTH_ROTATION.md)及[机器索引](../research_notes/balanced_resume_20261028/FOURTH_ROTATION.json)：CM 的精确 valuation 定理在固定载体上选定五维分离商；C34 记号义务由单独补充与非作者审核支付；FREE 有限邻接结论归为 Simon 引理的标准复用。原文、原条件审核历史与前三轮计数不回改；实际像、强核和相关物理边界仍按各稿保留。
+
 ## 本月总目录
 
 以下 **435 个文献整理单元**可合并多个同对象结果；其中也包含条件接口、旧结论复用、未审稿与负面边界，不能作为新定理数量或已接受结果数量。不同分卷的交叉引用按原始来源去重，首批 23 条目保留在下表后的旧入口。

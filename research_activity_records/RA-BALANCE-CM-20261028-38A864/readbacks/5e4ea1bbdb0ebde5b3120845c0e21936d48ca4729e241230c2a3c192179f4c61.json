@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/balanced_resume_20261028/cm/round4/check_hypergeometric_pullback.py",
+    "ref": "397aeed183046480d083290db92dc1c79b980a74",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "balance-cm-round4-wave16_readback_3",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact rational identity check; no prime or recurrence-value enumeration.\"\"\"\nimport json\nimport sympy as s\n\nz = s.symbols(\"z\")\nU = 1 - s.Rational(3, 4) * z**2\nw = z**6 / (16 * U**2)\nP = 4 - 5 * z**2 + z**4\nell = 1 / z + z / U\nT = 36 * z**4 * (4 - z**2) / (4 - 3 * z**2)**2\n\nC2 = P * s.diff(w, z)**2\nC1 = (2 * P * ell + s.diff(P, z)) * s.diff(w, z) + P * s.diff(w, z, 2)\nC0 = P * (s.diff(ell, z) + ell**2) + s.diff(P, z) * ell + 2 * z**2 - 2\n\nresiduals = [\n    s.cancel(C2 - T * w * (1 - w)),\n    s.cancel(C1 - T * (s.Rational(7, 6) - s.Rational(13, 6) * w)),\n    s.cancel(C0 + s.Rational(5, 18) * T),\n]\nassert residuals == [0, 0, 0]\nprint(json.dumps({\n    \"check\": \"EXACT_RATIONAL_PULLBACK_THREE_COEFFICIENT_IDENTITIES\",\n    \"sympy_version\": s.__version__,\n    \"variables\": [\"z\"],\n    \"coefficient_domain\": \"Q\",\n    \"residuals\": [str(r) for r in residuals],\n    \"all_zero\": True,\n    \"prime_samples\": 0,\n    \"recurrence_samples\": 0,\n    \"valuation_theorem_verified_by_program\": False,\n    \"scope\": \"Author symbolic regression supplement; paper proof required for valuations and all-k claim.\"\n}, indent=2))\n",
+      "display_title": "check_hypergeometric_pullback.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/397aeed183046480d083290db92dc1c79b980a74/research_notes/balanced_resume_20261028/cm/round4/check_hypergeometric_pullback.py",
+      "encoding": "utf-8",
+      "sha": "497f146f83e86986b507f4a4544888d9860ca52c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
