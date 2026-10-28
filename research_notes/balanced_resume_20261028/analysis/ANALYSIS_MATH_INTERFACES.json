@@ -1,0 +1,98 @@
+{
+  "schema": "EM_BALANCED_RESUME_ANALYSIS_MATH_INTERFACES_V1",
+  "author": "EM-ANALYSIS-1E507F",
+  "activity_id": "RA-9C879FA5E6538D45DD9AE10F",
+  "status": "AUTHOR_CANDIDATES_DISTINCT_REVIEW_PENDING",
+  "formal_result_or_driver_vote": false,
+  "native_foundation_changed": false,
+  "global_tool_family_added": false,
+  "units": [
+    {
+      "id": "ANALYSIS-PARITY-UNBOUNDED-CONE",
+      "source_entry": "parity.unequal_gap_uniform_sector_tail",
+      "artifact": "PARITY_UNBOUNDED_SMALL_CONE_AUTHOR.md",
+      "pin": {
+        "sha256": "f9a9415455b9b004f9e2854e999eaebd4934acd7211084b87bf1bc5c0634e921",
+        "bytes": 10603
+      },
+      "mathematical_kind": "BOUNDED_NEW_DOMAIN_COROLLARY",
+      "input": "Fixed integer m>=2; original complete signed normalized secant trace; S>=0,a,c>0",
+      "new_support": "Z=sum z_jpq epsilon^j a^p c^q has p+q<=j-1 after Ngap=cZ and Z(0)=0",
+      "constants": "alpha=|K|m(m^2-1); Bm=sum_(j>=2,p,q)|z_jpq|; delta_m=1 if Bm=0 else min(1,alpha/(2Bm))",
+      "output": "(1+a+c)/(m(S+a))<=delta_m implies Gap>0; all positive paths a+c=o(S) eventually satisfy this, without differentiability/lower bounds",
+      "error": "|Gap/c-(m^2-1)/(S+a)|<=Cm(1+a+c)/(m^2(S+a)^2) when rho<=1",
+      "exclusions": [
+        "all-S arbitrary-gap positivity",
+        "m-uniform delta",
+        "path monotonicity",
+        "coefficientwise positivity",
+        "native propagation"
+      ],
+      "reuse_resolution": "COMPOSE_APPLIED",
+      "novelty": "No exhaustive external novelty claim"
+    },
+    {
+      "id": "ANALYSIS-T6-COUPLED-MOMENT-CUTS",
+      "source_entry": "T6-P17-BRANCH-COMPLETION",
+      "artifact": "T6_COUPLED_MOMENT_COMPLETION_CUTS_AUTHOR.md",
+      "pin": {
+        "sha256": "038487aba02c1b5a812a499628f88cfc3cd3d08331b6711128c310815951b478",
+        "bytes": 8999
+      },
+      "mathematical_kind": "EXISTING_DOMAIN_INTERFACE_EXTENSION",
+      "input": "Rational residual M0..M6, nonnegative integer Bplus/Bminus; 13-smooth integer atoms a>=2; exact signed reciprocal moment completion equations",
+      "observer": "L_hk=sum_j [x^j](x^k product_(b=2)^(h+1)(1-bx)) M_j, h>=1,k>=0,h+k<=6",
+      "output": "-C_hk Bplus <= L_hk <= C_hk Bminus; 21 caps are exact dictionary unit-cost maxima, not 21 independent discoveries",
+      "cutoff": "ceil((h+k+1)(h+1)/(k+1))<=49; every endpoint in this family is admissible, dominates tail",
+      "budget_refinement": "C_hk(B)=max ratios among affordable allowed atoms or0; -Bplus C(Bplus)<=L<=Bminus C(Bminus)",
+      "exclusions": [
+        "sufficiency",
+        "actual surviving class filtered",
+        "new affine census",
+        "global T6 closure",
+        "reopening accepted q1-q4"
+      ],
+      "exact_computation": {
+        "script": "t6_moment_cut_constants.py",
+        "output": "T6_MOMENT_CUT_CONSTANTS_ACTUAL.json",
+        "scientific_scope": "Only 21 scalar maxima under proved analytic cutoff; Fraction exact arithmetic",
+        "pins": {
+          "t6_moment_cut_constants.py": {
+            "sha256": "606c5033a559eef33a89762a3751167982789871059d3eb6a35117601b32fa58",
+            "bytes": 2490
+          },
+          "T6_MOMENT_CUT_CONSTANTS_ACTUAL.json": {
+            "sha256": "5e49c81ba19aac80712d4a95306bec973a99e4dc6c46c93af74372149f159ffd",
+            "bytes": 32019
+          }
+        }
+      },
+      "reuse_resolution": "EXTEND_EXISTING_TOOL",
+      "global_family_added": false
+    },
+    {
+      "id": "ANALYSIS-P11-OUTER-FIRST-ENDPOINT",
+      "source_entry": "P11-CAUCHY-OUTER-COVARIANCE-BOUNDARY",
+      "artifact": "P11_OUTER_CAUCHY_EFFECTIVE_FIRST_ENDPOINT_AUTHOR.md",
+      "pin": {
+        "sha256": "23ca7298dc70de05f61f816515f2efea3dd83e6b3fe8bc4026629cfc6e098c7b",
+        "bytes": 7259
+      },
+      "mathematical_kind": "QUANTITATIVE_DERIVED_DOMAIN_INTERFACE",
+      "input": "Frozen full signed Cauchy covariance S_m and inherited all-m nonsingular first crossing A0; integer m>=2",
+      "construction": "C_j=t U_j/d_j; d_j>=delta_j=d_j(1)>0; |A(t)-A0|<=tE with A=S/t and explicit rational E",
+      "constants": "Km=||A0^-1||infinity ||E||infinity; eta_m=1 if Km=0 else min(1,1/(2Km))",
+      "output": "0<t<=eta_m implies same determinant sign as A0 and |det S_m(t)|>=2^(-n)|det A0|t^n; explicit cofactor lower bound",
+      "exclusions": [
+        "all t up to1 unless evaluated eta_m=1",
+        "m-uniform collar",
+        "all-m coefficient positivity",
+        "new proof of crossing input",
+        "positive definiteness of inner blocks",
+        "scientific NO_INVOKE runs"
+      ],
+      "reuse_resolution": "COMPOSE_APPLIED",
+      "novelty": "Standard perturbation methods reused; no novel generic mechanism"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "BOUNDED_RESEARCH_INTERFACES_NOT_CANONICAL_THEOREM_REGISTRY",
+  "author": "EM-DIRECT-099801",
+  "entries": [
+    {
+      "id": "BF-MISC-SINGLE-SEED-PREQUERY-GCD",
+      "kind": "BOUNDED_PAPER_THEOREM",
+      "statement": "For any N>=2 and nonzero single seed in any Z/NZ-module, every finite adaptive linear/equality transcript is publicly simulated exactly or yields a proper gcd before the next equality query.",
+      "scope": [
+        "exact addition/negation/scalar action",
+        "one known nonzero seed",
+        "public scalar control and fixed random tape",
+        "only extensional equality observations"
+      ],
+      "exclusions": [
+        "independent opaque seeds",
+        "zero seed",
+        "nonlinear operations",
+        "handle serialization",
+        "physical interpretation"
+      ],
+      "status": "AUTHOR_CANDIDATE_PENDING_DISTINCT_REVIEW",
+      "method_resolution": "REUSE_APPLIED_EXISTING_GCD_AND_OPERATION_SAFE_QUOTIENT",
+      "proof_file": "NONREFLECTIVE_LINEAR_BOUNDARY.md#2"
+    },
+    {
+      "id": "BF-MISC-GENERATOR-LOCAL-REFLECTION",
+      "kind": "CLASSICAL_APPLICATION",
+      "statement": "A certified finite generator list with exact operations/equality reflects the generated module and recovers a presentation by finite coefficient enumeration.",
+      "scope": [
+        "observed module equals span of supplied list",
+        "finite coefficient ring Z/NZ"
+      ],
+      "exclusions": [
+        "ambient module larger than generated span",
+        "unknown generator-stream completion",
+        "efficiency claim"
+      ],
+      "status": "AUTHOR_REUSE_PENDING_DISTINCT_REVIEW",
+      "method_resolution": "REUSE_APPLIED",
+      "proof_file": "NONREFLECTIVE_LINEAR_BOUNDARY.md#3"
+    },
+    {
+      "id": "BF-MISC-BOUNDED-STREAM-NONCOMPLETION",
+      "kind": "BOUNDED_COMPUTABILITY_BOUNDARY",
+      "statement": "Uniform exact cardinality/support remains undecidable for finite streamed modules with known cardinality upper bound N, total decidable handle validity/equality and exact compositional operations.",
+      "scope": [
+        "whole infinite stream supplies semantic module",
+        "no complete end marker",
+        "program-index effective domain"
+      ],
+      "exclusions": [
+        "proper support factoring mechanism",
+        "halting oracle admission",
+        "finite-prefix completion",
+        "new general theorem novelty"
+      ],
+      "status": "AUTHOR_CANDIDATE_PENDING_DISTINCT_REVIEW",
+      "method_resolution": "COMPOSE_APPLIED_CLASSICAL_HALTING_AND_FINITE_MODULES",
+      "proof_file": "NONREFLECTIVE_LINEAR_BOUNDARY.md#4"
+    }
+  ],
+  "formal_task_claims": 0,
+  "driver_votes": 0,
+  "new_tool_families": 0,
+  "parent_objective": "OPEN"
+}
