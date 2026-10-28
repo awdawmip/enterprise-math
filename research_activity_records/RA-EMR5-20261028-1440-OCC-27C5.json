@@ -18,5 +18,35 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "EMR5-20261028-T1440-OCC-TV",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "e8bfe95b2fe90203681df9e59cccfd8a3b3d6c6b",
+          "path": "research_notes/brc_r5_occupation_weighted_tv_20261028_t1440/VERIFY.py",
+          "sha256": "9419052827b8ef1125491b728e9fb588a5c49d3d3cafec680893939e030bf2ef",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "local-emr5-20261028-1440-verify-code",
+            "call_id": null,
+            "git_blob_sha1": "436a972b7edd632f25a317ef8ad8e45782d6132a",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/e8bfe95b2fe90203681df9e59cccfd8a3b3d6c6b/research_notes/brc_r5_occupation_weighted_tv_20261028_t1440/VERIFY.py",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR5-20261028-1440-OCC-27C5/readbacks/c4aad5d1b54167afae5fd6f7d45ab3213bb25f0e7db21af5ff350e197078993d.json",
+          "verification_receipt_sha256": "c4aad5d1b54167afae5fd6f7d45ab3213bb25f0e7db21af5ff350e197078993d"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@c4b076402410ac7a87c9f9875625ac4836b6bf13:journal/enterprise-math/2026-10-28/20261028T144351+0800-r5-weighted-tv-27c5.md"
+      ],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null
+    }
+  ]
 }
