@@ -1,0 +1,11 @@
+# EC49AF verified sources and permissions, 2026-10-29
+
+Frozen GLOBAL_KNOWLEDGE_V1 canonical main: 6629bd6fe79d111d72f54b1b01ec1e031254bf64. Entry blobs: 00_BOOTSTRAP.md 930974512083aeb9eed285881f3582054ae120fa; OPERATING_MANUAL.md f92084f91b2a88f8d3bc0f5f57dee5751ac775ed; ACTIVE 我眼中的世界.md 99238c3466eb0805748bae01fd1a20868a5a351e. Read current math, BRC, code, handoff, temporal, and Enterprise Math activity procedures from this pin.
+
+Frozen Enterprise Math scientific/control main: cc55cd808640ebaa973d8605e8bda137192073e5. Read AGENTS.md; p000_reality_foundation.json V5 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488; native X6/heartbeat definition; residual-fidelity and joint-observer constraints; docs/PORTABLE_RESEARCH_PROTOCOL.md and docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md; current_control_authority.json. P000 and ACTIVE worldview remain unchanged.
+
+Previous source EC49AD Draft PR #1688 at immutable d974d04c95c1cb67045ad9abf6387d97248b740e; EC49AE author-side branch at immutable 1ade545076983c001e112bb689ae6a44d904d39b, research_notes/r4_ec49ae_parametric_eta_20261029/, proves full one-prefix region for eta in [0,1/100]; EC49AF adds wider-but-scoped theorems.
+
+External methodological comparison only: Anderson & Montúfar, ICML 2026 PMLR 306, https://proceedings.mlr.press/v306/anderson26a.html; Main & Randour, LICS 2026, https://doi.org/10.4230/LIPIcs.LICS.2026.68. Neither constitutes evidence for our mathematical identities or model transfer.
+
+Native em_status v0.6.11: research_authority_granted=false, control state CODE_REVIEW_REQUIRED, active job quota 5/5; actual em_control_tasks read returned CONTROL_QUOTA. Formal active Owner unresolved. GitHub connector authenticated account awdawmip is the author-side transport identity only; not a Source session/CLAIM or mathematical admission. Current evidence: hand proof PROOF.md; actually executed JS BigInt rational sources VERIFY.mjs and ENDPOINT_AUDIT.mjs and exact reports; second verifier exhaustive only for 288 endpoint policies. No credentials or sensitive material.
