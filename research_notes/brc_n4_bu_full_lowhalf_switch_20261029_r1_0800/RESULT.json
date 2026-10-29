@@ -1,0 +1,24 @@
+{
+  "status": "PASS_EXACT_BU_N4_A_GAP_SWITCH",
+  "result_scope": "All real 0<a<=1/2 for F=(a,1/40,1,0), AU/BU shared immediate behavior, O=(T,Decision,Z_BU). d2=d23.",
+  "switch_tau": "(25+sqrt(5889))/640",
+  "switch_tau_decimal": "0.1589684690184354416903971",
+  "zero_region": "0<a<=7/80",
+  "rational_region": "7/80<a<=tau: (80a-7)/(640(20a+1))",
+  "algebraic_region": "tau<=a<=1/2: c*(a)/[40(4+c*(a))], f_a(c*)=0 and c*>0",
+  "symbolic_checks": "15 exact identities in local extended VERIFY.py, 13 in published VERIFY_RELEASE.py",
+  "exact_16_leaf_cases": [
+    "1/20",
+    "7/80",
+    "1/8",
+    "3/20",
+    "5/32",
+    "221/1320",
+    "5/24",
+    "497/1840",
+    "347/760"
+  ],
+  "observed_outcome": "Local extended verifier: PASS_EXACT_BU_N4_A_GAP_SWITCH",
+  "proof_basis": "Analytic global event-TV dual certificates, not finite-point extrapolation",
+  "native_scope": "AUTHOR_ONLY; UNREVIEWED; NOT_ADMITTED; X6 native correspondence unproved"
+}
