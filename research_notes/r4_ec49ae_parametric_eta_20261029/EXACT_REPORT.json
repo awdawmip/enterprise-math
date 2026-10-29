@@ -1,0 +1,89 @@
+{
+  "schema": "EC49AE_ETA_INTERVAL_PREFIX_DOMINANCE_V1",
+  "eta_interval": [
+    "0",
+    "1/100"
+  ],
+  "model_leaves_each_source": 18,
+  "costs": [
+    "43/48",
+    "7/8"
+  ],
+  "universal_prefix": [
+    "w0=A0",
+    "w1=A1",
+    "w2=(9/16)A0+(1/16)B0+(3/8)STOP",
+    "always S after payment"
+  ],
+  "endpoint_prefixes": 288,
+  "active_ratio_breakpoints": 18,
+  "stop_ratio_breakpoint": "1",
+  "distinct_nonzero_cross_polynomials": 978,
+  "interior_root_polynomials": [
+    [
+      1,
+      -286,
+      64
+    ],
+    [
+      1,
+      -268,
+      100
+    ],
+    [
+      1,
+      -176,
+      -36
+    ],
+    [
+      1,
+      -140,
+      36
+    ],
+    [
+      13,
+      -1798,
+      448
+    ],
+    [
+      13,
+      -1708,
+      628
+    ]
+  ],
+  "ordered_rational_interval_samples": [
+    "1/1000",
+    "9/2500",
+    "1/200",
+    "3/500",
+    "9/1250",
+    "3/400",
+    "9/1000"
+  ],
+  "exact_quadratic_nonnegativity_checks": 38304,
+  "identically_zero_gap_polynomials": 30072,
+  "discrimination_capacity": {
+    "0": "59/576",
+    "1/200": "59/576",
+    "1/100": "59/576"
+  },
+  "fiber_delta_1_over_12": {
+    "0": {
+      "delta": "1/12",
+      "alpha_min": "113/368",
+      "alpha_max": "3/4"
+    },
+    "1/200": {
+      "delta": "1/12",
+      "alpha_min": "1229/4016",
+      "alpha_max": "3/4"
+    },
+    "1/100": {
+      "delta": "1/12",
+      "alpha_min": "5411/17744",
+      "alpha_max": "3/4"
+    }
+  },
+  "status": "AUTHOR_PROVED / EXACT_FRACTION_CHECK_PASS / UNREVIEWED / NOT_ADMITTED",
+  "scope": "All real fresh-coin causal strategies, fixed costs, eta in [0,1/100]; finite exact certificate + analytic convexity and support function argument"
+}
