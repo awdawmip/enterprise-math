@@ -1,0 +1,11 @@
+SCOPE: finite 2-law stop/continue model; 3 initially labeled sources; two exogenous positive binary stages; 3 LR decision times and forced time 4.
+CHECK: P/Q initial normalization; 12 positive full nature leaves; 48 strictly positive P/Q terminal-error pairs; all continuation prefix likelihood ratios; sourcewise centered averages.
+EXACT_BRANCHES=12 TERMINAL_PAIR_CHECKS=48 LR_DETERMINISTIC=16
+LR_MIN_eP=39/160
+FULL_OBSERVER=(617/2560,323/1280,39/32,23/16)
+MATCHED_LR_OBSERVER=(79/320,41/160,39/32,23/16)
+FULL_MINUS_MATCHED_LR_ERRORS=(-3/512,-1/256)
+STRICT_SIGNED_SUPPORT_GAP=7/2560
+LR_AFFINE_DETERMINANT=1/1280
+CHECKER_SCOPE: exact finite rational arithmetic for this instance; universal all-real claims require the separate algebraic flow proof in RESEARCH.md.
+PASS_EXACT_R5_FROZEN_LR_DYNAMIC_BRANCH
