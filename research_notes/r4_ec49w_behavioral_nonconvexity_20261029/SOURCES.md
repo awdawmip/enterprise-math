@@ -1,0 +1,9 @@
+# EC49W sources (read 2026-10-29)
+
+1. Primary inherited theorem and exact source model: Enterprise Math EC49V Draft PR #1670, commit 1b6afb0b3d015c383812de56378e834ea8742006, research_notes/r4_ec49v_support_cost_20261029/PROOF.md. EC49W uses its J inequality, cost section, convexified 3-prefix mixture and behavioral lower witness, and adds strict behavioral nonattainment and exact always-S optimum.
+2. Governance and P000 worldview (scope only): GLOBAL_KNOWLEDGE_V1 main@f7ab5d4dc91d41a028048a691a3b40b111ffdf48, Enterprise Math main@3d715614576c0687380028e764a179eeaa346fc8. Canonical bootstrap/manual, P000 original/startup, ACTIVE 我眼中的世界.md, portable/autonomous research protocols.
+3. Foo, Ki Vin and Schipper, Burkhard C., “Kuhn’s theorem for games of the extensive form with unawareness”, Games and Economic Behavior 159 (2026), 564–583, DOI 10.1016/j.geb.2026.07.007; https://econpapers.repec.org/article/eeegamebe/v_3a159_3ay_3a2026_3ai_3ac_3ap_3a564-583.htm . Contemporary comparison on mixed/behavior strategies and recall; its unawareness model differs from this two-cost sensor-erasure problem.
+4. Halpern and Pass, “Sequential Equilibrium in Games of Imperfect Recall”, https://www.cs.cornell.edu/home/halpern/papers/imperfect.pdf . Background for nonequivalence; the signed-fiber proof in PROOF.md is independent.
+5. Unverified lead: arXiv:2610.21548 mentioned in parent NEXT_TASK, not successfully retrieved in this run. Its identity/theorems must be independently checked before citation.
+
+The exact enumeration supplies a finite certificate for a theorem with an independently proved convex extreme-point reduction. No independent scientific novelty audit or native mathematical admission is claimed.
