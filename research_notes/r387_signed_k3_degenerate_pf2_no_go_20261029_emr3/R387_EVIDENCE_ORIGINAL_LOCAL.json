@@ -1,0 +1,236 @@
+{
+  "schema": "R387_SIGNED_BRC_DEGENERATE_ALL_CORANK_PF2_NO_GO_V1",
+  "mode": "AUTHOR_SIDE_EXACT_NOT_ADMITTED",
+  "model": "Original 12-branch signed BRC K/J -> B -> D, only K3[t^2]=-8(1+theta)",
+  "theta": "15/8",
+  "scope": "All r>=1 proved from R386 formal generating law; finite exact regression r=1..16",
+  "a_jet_0_4": [
+    "1",
+    "6",
+    "32",
+    "40",
+    "-320"
+  ],
+  "b_jet_0_6": [
+    "1",
+    "0",
+    "36/5",
+    "248/5",
+    "496",
+    "26304/5",
+    "63040"
+  ],
+  "symbolic": {
+    "l2_to_l6": {
+      "2": "36/5",
+      "3": "248/5",
+      "4": "11752/25",
+      "5": "122592/25",
+      "6": "7295392/125"
+    },
+    "normalized_c_r_minus_1": "k*(5069*k - 3503)/729",
+    "normalized_c_r_minus_2": "k*(23088025*k**4 + 142252166*k**3 - 277249951*k**2 + 70249636*k + 167395128)/6377292",
+    "normalized_turan_sign_numerator": "-k**2*(23088025*k**4 - 166084966*k**3 + 303079583*k**2 - 290082956*k + 241021182)/3188646",
+    "shifted_positive_polynomial": "23088025*t**4 + 295675534*t**3 + 1275008843*t**2 + 1828352924*t + 36990852",
+    "symbolic_checks": 4
+  },
+  "even_top_coefficient_equalities_checked": 32,
+  "odd_top_coefficient_equalities_checked": 8,
+  "r": [
+    {
+      "r": 1,
+      "negative_c_indices": [
+        0,
+        1
+      ],
+      "negative_turan_indices": [],
+      "highest_nonzero_index": 1,
+      "odd_negative_highest_newton_coefficient": "-180"
+    },
+    {
+      "r": 2,
+      "negative_c_indices": [],
+      "negative_turan_indices": [
+        1
+      ],
+      "highest_nonzero_index": 2,
+      "turan_at_r_minus_1": "-36550080000",
+      "low_rank_witness": {
+        "type": "T",
+        "index": 1,
+        "value": "-36550080000"
+      }
+    },
+    {
+      "r": 3,
+      "negative_c_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "negative_turan_indices": [
+        2
+      ],
+      "highest_nonzero_index": 3,
+      "odd_negative_highest_newton_coefficient": "-17496000"
+    },
+    {
+      "r": 4,
+      "negative_c_indices": [
+        1
+      ],
+      "negative_turan_indices": [
+        1
+      ],
+      "highest_nonzero_index": 4,
+      "turan_at_r_minus_1": "89266122316800000000",
+      "low_rank_witness": {
+        "type": "c",
+        "index": 1,
+        "value": "-38801920000"
+      }
+    },
+    {
+      "r": 5,
+      "negative_c_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "negative_turan_indices": [
+        3,
+        4
+      ],
+      "highest_nonzero_index": 5,
+      "odd_negative_highest_newton_coefficient": "-1889568000000"
+    },
+    {
+      "r": 6,
+      "negative_c_indices": [
+        0
+      ],
+      "negative_turan_indices": [],
+      "highest_nonzero_index": 6,
+      "turan_at_r_minus_1": "3741711036002795520000000000000",
+      "low_rank_witness": {
+        "type": "c",
+        "index": 0,
+        "value": "-611532248000000000"
+      }
+    },
+    {
+      "r": 7,
+      "negative_c_indices": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "negative_turan_indices": [
+        4
+      ],
+      "highest_nonzero_index": 7,
+      "odd_negative_highest_newton_coefficient": "-214277011200000000"
+    },
+    {
+      "r": 8,
+      "negative_c_indices": [],
+      "negative_turan_indices": [
+        3
+      ],
+      "highest_nonzero_index": 8,
+      "turan_at_r_minus_1": "52581891577180967092224000000000000000000",
+      "low_rank_witness": {
+        "type": "T",
+        "index": 3,
+        "value": "-363895513606887945543769505792000000000000000000"
+      }
+    },
+    {
+      "r": 9,
+      "negative_c_indices": [
+        8,
+        9
+      ],
+      "negative_turan_indices": [],
+      "highest_nonzero_index": 9,
+      "odd_negative_highest_newton_coefficient": "-24993270586368000000000"
+    },
+    {
+      "r": 10,
+      "negative_c_indices": [],
+      "negative_turan_indices": [
+        9
+      ],
+      "highest_nonzero_index": 10,
+      "turan_at_r_minus_1": "-26087755184051231751507070156800000000000000000000"
+    },
+    {
+      "r": 11,
+      "negative_c_indices": [
+        10,
+        11
+      ],
+      "negative_turan_indices": [],
+      "highest_nonzero_index": 11,
+      "odd_negative_highest_newton_coefficient": "-2969200545660518400000000000"
+    },
+    {
+      "r": 12,
+      "negative_c_indices": [],
+      "negative_turan_indices": [
+        11
+      ],
+      "highest_nonzero_index": 12,
+      "turan_at_r_minus_1": "-28170219429804488967541960279874076672000000000000000000000000"
+    },
+    {
+      "r": 13,
+      "negative_c_indices": [
+        12,
+        13
+      ],
+      "negative_turan_indices": [],
+      "highest_nonzero_index": 13,
+      "odd_negative_highest_newton_coefficient": "-357322077094917242880000000000000"
+    },
+    {
+      "r": 14,
+      "negative_c_indices": [],
+      "negative_turan_indices": [
+        13
+      ],
+      "highest_nonzero_index": 14,
+      "turan_at_r_minus_1": "-1150507727667199269347160138784714601980231680000000000000000000000000000"
+    },
+    {
+      "r": 15,
+      "negative_c_indices": [
+        14,
+        15
+      ],
+      "negative_turan_indices": [],
+      "highest_nonzero_index": 15,
+      "odd_negative_highest_newton_coefficient": "-43414632367032445009920000000000000000"
+    },
+    {
+      "r": 16,
+      "negative_c_indices": [],
+      "negative_turan_indices": [
+        14,
+        15
+      ],
+      "highest_nonzero_index": 16,
+      "turan_at_r_minus_1": "-34282466107049534377904361331950702521435214053376000000000000000000000000000000000"
+    }
+  ],
+  "external_sources": [
+    "https://arxiv.org/abs/2610.17135",
+    "https://www.symmetricfunctions.com/polyaFrequency.htm"
+  ],
+  "boundary": "Auxiliary signed-combinatorial model, not native X6 dynamics, not physical calibration; R386 author-side dependency"
+}
