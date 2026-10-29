@@ -137,5 +137,4 @@ def main():
             print('SPECTRAL_SOURCE',d)
     print('PASS_A216_P3_SCALAR_SPECTRAL_JET',len(ps),'primes p=1 mod6 <500',sum(p%24 in (13,19) for p in ps),'CM0 target primes')
 
-
 if __name__ == '__main__': main()
