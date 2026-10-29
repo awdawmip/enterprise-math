@@ -1,0 +1,32 @@
+{
+  "schema": "PREFIX337_NONZERO_REPORT_AND_GAUGE_QUOTIENT_CERTIFICATE_V1",
+  "status": "PASS_AUTHOR_SIDE_EXACT_RATIONAL",
+  "executed_program": "verify_prefix337_compact.py",
+  "executed_output": "PASS_AUTHOR_SIDE_EXACT_RATIONAL 45 ordered BRC pairs, 6 certified root boxes FIXED_MEB2>10500/3721>L 5175/3721<QUOTIENT_MEB2<3/2<L",
+  "source_pin": "d550a2b412b220337e24fbfe8fa66509f853c90a",
+  "global_rules_pin": "29ff7aab4f786bee4e422cd5223317335d49c1e3",
+  "model": "S7-3 static auxiliary complex five-port BRC; U=A/8",
+  "scale": "10/61",
+  "mass_raw": [
+    1360,
+    128,
+    2330,
+    1864,
+    1261
+  ],
+  "nonzero_reference_report": {
+    "port3_im": "1/2",
+    "other_nine": "0",
+    "absolute_error": "1"
+  },
+  "complete_orbits": 6,
+  "each_orbit_feasible_phase": "nonempty proper closed arc",
+  "fixed_meb2_strict_lower": "10500/3721",
+  "gauge_quotient_meb2_strict_lower": "5175/3721",
+  "gauge_quotient_meb2_strict_upper": "3/2",
+  "baseline": "1062562/458329",
+  "validations": "exact Fraction assertions; 45 ordered source-labelled BRC pairs; six certified prior root cubes; nonzero report; two-point contact; phase-quotient six-cover and C1,C5 separation",
+  "provenance": "PREFIX336 six root cubes and completeness reused as author-side verified premise; not independently admitted",
+  "project_admission": "UNREVIEWED_NOT_ADMITTED",
+  "native_transfer": "X6/Detector/joint observer/time pending"
+}
