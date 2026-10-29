@@ -18,7 +18,11 @@ const q=(x,c,u)=>div(sum([0,1,2].map(w=>mul(x[w][c],t(w,u)))),R(3));
 const d=(x,c,u,z)=>sum([0,1,2].map(w=>mul(x[w][c],sub(P(w,u,z),mul(K,Q(w,u,z))))));
 const phi=(x,c,u)=>sum([0,1,2].map(z=>mx(Z,d(x,c,u,z))));
 const H=x=>sum([0,1,2,3].flatMap(c=>[0,1].map(u=>phi(x,c,u))));
-const dual=(x,e)=>add(mul(LAM,sub(C20,e)),sum([0,1,2,3].flatMap(c=>[0,1].map(u=>mx(Z,sub(phi(x,c,u),mul(LAM,q(x,c,u)))))));
+const dual=(x,e)=>{
+ const parts=[];
+ for(let c=0;c<4;c++)for(let u=0;u<2;u++)parts.push(mx(Z,sub(phi(x,c,u),mul(LAM,q(x,c,u)))));
+ return add(mul(LAM,sub(C20,e)),sum(parts));
+};
 const Y=e=>[[sub(R(9,16),mul(R(6),e)),Z,add(R(1,16),mul(R(3),e)),Z],[Z,O,Z,Z],[O,Z,Z,Z]];
 const templates=e=>{
  const B=add(R(1,16),mul(R(3),e)),out=[];
