@@ -1,0 +1,97 @@
+{
+  "schema": "PREFIX356_AUTHOR_EXACT_PARAMETRIC_DISCRIMINANT_V1",
+  "status": "AUTHOR_SIDE_EXACT_SYMBOLIC_UNREVIEWED_NOT_ADMITTED",
+  "scope": "Static auxiliary 5-Port complex 3D intensity inverse model, global phase quotient; not native X6/time/Detector",
+  "frozen_input": {
+    "A_gaussian_integer": [
+      ["4","4","0"], ["0","-4","4"], ["-5 + 3*I","0","-3 + I"],
+      ["-2 - 2*I","4 + 4*I","2 + 2*I"], ["-2","0","5 + 2*I"]
+    ],
+    "Q_intensities_numerators": [
+      "204144*t + 34000", "56336*t + 3200", "1286*t + 58250",
+      "12936*t + 46600", "28011*t + 31525"
+    ],
+    "denominator": 59536
+  },
+  "identity": {
+    "P_u_degree": 6,
+    "P_t_degree": 4,
+    "discriminant_t_degree": 40,
+    "discriminant_factor_pattern": [[1,6],[1,6],[1,10],[3,2],[12,1]],
+    "root_inversion": "u -> Q2/(Q1*conjugate(u))"
+  },
+  "factors": {
+    "linear_1": {
+      "degree": 1, "multiplicity_in_discriminant": 6,
+      "primitive_integer_coefficients_desc": ["3521","200"],
+      "real_roots_in_[0,1/4]": 0
+    },
+    "linear_2": {
+      "degree": 1, "multiplicity_in_discriminant": 6,
+      "primitive_integer_coefficients_desc": ["12759","2125"],
+      "real_roots_in_[0,1/4]": 0
+    },
+    "linear_3": {
+      "degree": 1, "multiplicity_in_discriminant": 10,
+      "primitive_integer_coefficients_desc": ["643","29125"],
+      "real_roots_in_[0,1/4]": 0
+    },
+    "degree_3": {
+      "degree": 3, "multiplicity_in_discriminant": 2,
+      "primitive_integer_coefficients_desc": [
+        "20146977828425934386944",
+        "-1153636440395600981600",
+        "-3151971160768643750",
+        "-1890887364703125"
+      ],
+      "real_roots_in_[0,1/4]": 1
+    },
+    "degree_12": {
+      "degree": 12, "multiplicity_in_discriminant": 1,
+      "primitive_integer_coefficients_desc": [
+        "72073133497478816634576565357272095025334258453503003705363023348874787430224325968",
+        "90640551439644799790247873757836521359498416001523358057202788762902637008342480800",
+        "1184818157271765802003127245841271183572585282118897693002728124437874560275356972500",
+        "-426731522433187649107900175307353730444922687917456091638481638274162206196595812500",
+        "-18491610059767141491319899412650811605813682988011226821808145220541160827480859375",
+        "704560206933091576818097731976205320567202701629000198802059473672883946992187500",
+        "-12106421437347968074423528475885912869309861269090497482707733839761345214843750",
+        "-2632222084690958962190857227386443504477621403876257840243659869272119140625000",
+        "462100842864000574732245405188868399502508643685529573047006187931060791015625",
+        "26205900272837145279080081152094906949968084331532737592434873199462890625000",
+        "105548034469055604800682612571794974685428350971947228908348083496093750000",
+        "-5776227609919665228367920056573618169451995373220684242248535156250000000",
+        "-28436441841456532304316682119883888810921854690313339233398437500000000"
+      ],
+      "real_roots_in_[0,1/4]": 2
+    }
+  },
+  "isolations": {
+    "first_ordinary_fold": {
+      "open_interval": ["0.0140246596320690270474","0.0140246596320690270475"],
+      "width": "1/10^22", "factor_degree": 12, "factor_root_count": 1,
+      "strict_endpoint_signs": [-1,1]
+    },
+    "cubic_projection_exception": {
+      "open_interval": ["0.0598990506977195435624","0.0598990506977195435625"],
+      "width": "1/10^22", "factor_degree": 3, "factor_root_count": 1,
+      "strict_endpoint_signs": [-1,1]
+    },
+    "second_ordinary_fold": {
+      "open_interval": ["0.0669341021803707452694","0.0669341021803707452695"],
+      "width": "1/10^22", "factor_degree": 12, "factor_root_count": 1,
+      "strict_endpoint_signs": [1,-1]
+    }
+  },
+  "lift_obstruction_resultant": {
+    "degree_t": 24, "gcd_with_H12_degree": 0, "gcd_with_H3_degree": 3,
+    "factor_degree_multiplicities": [[1,6],[1,6],[1,6],[3,2]]
+  },
+  "mathematical_consequences": [
+    "The first degree-12 root is the earliest possible genuine physical Jacobian singular parameter for t>=0.",
+    "Each degree-12 interval contains exactly one algebraic discriminant parameter; the simple zero and unique finite lift yield one physical ordinary fold, under the real involution.",
+    "The positive cubic root is a projection/lift-degeneracy candidate: its physical status is not decided by this discriminant certificate alone."
+  ],
+  "predecessor_endpoint_reference": "PREFIX-355 author-exact endpoint count certificates 6,4,4,2, not rerun here",
+  "remaining": "Isolate and filter the positive cubic factor in the full (u,v) physical equations; complete independent Driver review and native X6/BRC faithful-transfer obligations."
+}
