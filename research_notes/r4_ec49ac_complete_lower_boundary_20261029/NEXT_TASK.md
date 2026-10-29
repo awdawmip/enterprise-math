@@ -1,0 +1,5 @@
+# EC49AD — Vertical filling of the finite-cost causal observation region
+
+Frozen inputs: EC49AC complete exact lower alpha_min(delta) for 0<=delta<=59/576, with knots and support certificates in PROOF.md / VERIFY.py, source 18-leaf P/Q law, fixed both-source costs (43/48,7/8), eta=1/200, erased history w and independent fresh behavioral coins. Do not replace strategy class with persistent mixture seed. P000/ACTIVE worldview unchanged.
+
+Precise open question: for a fixed real delta, is every alpha in [alpha_min(delta),1-3*delta] realizable by one legal fresh-coin causal policy, or is the vertical feasible set disconnected/nonconvex? First choose delta=1/12, lower alpha=1229/4016 (beta=2683/12048), upper alpha=3/4. Construct an algebraic path with fixed delta and exact stage budgets, or prove a particular rational point impossible via a true all-real semialgebraic certificate. Claiming convex-hull membership without causal factorization does not suffice. Report source/proof/certificate, verification domain and next remaining point. Native signed BRC/X6 transfer is a separate typed task.
