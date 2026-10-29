@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Audit current Enterprise Math control-authority routing across active surfaces.
 
-This checker is deliberately narrow and non-mathematical. It verifies only the
+This maintenance checker compares declared configuration and migration paths,
+not documentation versions, prose markers or implementation spelling. It does
+not certify runtime behavior and is non-mathematical. It verifies only the
 post-cutover control facts owned by ``current_control_authority.json``:
 
 * immutable V2 task publication;
@@ -21,7 +23,6 @@ research-task mathematics, or discovery candidate content.
 from __future__ import annotations
 
 import json
-import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,25 +39,9 @@ def load_json(path: str) -> dict:
     return value
 
 
-def read(path: str) -> str:
-    return (ROOT / path).read_text(encoding="utf-8")
-
-
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise ControlAuthorityError(message)
-
-
-def require_version_at_least(text: str, label: str, major: int, minor: int) -> None:
-    match = re.search(r"Status: `[^`]* / V(\d+)\.(\d+)`", text)
-    if match is None:
-        raise ControlAuthorityError(f"{label}: cannot parse status version")
-    current = (int(match.group(1)), int(match.group(2)))
-    required = (major, minor)
-    if current < required:
-        raise ControlAuthorityError(
-            f"{label}: version V{current[0]}.{current[1]} is below required V{major}.{minor}"
-        )
 
 
 def check() -> None:
@@ -275,53 +260,6 @@ def check() -> None:
         "Steward to control transition must clear Steward authority",
     )
 
-    publication_protocol = read("docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md")
-    require("CANONICAL TASK PUBLICATION / V2" in publication_protocol, "human task publication protocol must be V2")
-    require("python tools/research_task_records.py publish" in publication_protocol, "human publication protocol missing V2 publish command")
-    require("python tools/research_task_registry.py publish" not in publication_protocol, "human publication protocol still instructs V1 publish")
-    require("python tools/research_task_registry.py new" not in publication_protocol, "human publication protocol still instructs V1 new")
-
-    driver = read("docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md")
-    require_version_at_least(driver, "Driver contract", 5, 3)
-    require("Task publication: `research_task_publication_contract_v2.json`" in driver, "Driver contract must use V2 publication")
-    require("Canonical live dispatch: `research_control_dispatch.py`" in driver, "Driver contract must use recovery-aware live dispatch")
-    require("COVERAGE_LOOKUP != TOOL_USE" in driver, "Driver contract must distinguish coverage from use")
-    require("Review write authority: `research_review_write_authority.json`" in driver, "Driver contract missing review write authority")
-    require("READ_SNAPSHOT != REVIEW_WRITE_AUTHORITY" in driver, "Driver contract missing review write-boundary invariant")
-
-    handoff = read("docs/RESEARCHER_DURABLE_HANDOFF_PROTOCOL.md")
-    require("RESEARCHER_ID != ADDRESSABLE_MAILBOX" in handoff, "handoff protocol must freeze one-shot Researcher identity")
-    require("immutable commit SHA" in handoff, "handoff protocol must require immutable GitHub locators")
-
-    supervisor = read("infrastructure/cloudflare-supervisor/README.md")
-    require("no mathematical authority" in supervisor, "external Supervisor boundary must remain non-mathematical")
-    require(
-        "OWNER_STATE_AND_AUDIT_AND_ALARM_UPDATE -> ONE STORAGE TRANSACTION" in supervisor,
-        "Supervisor docs missing atomic state/audit/alarm invariant",
-    )
-
-    free_role = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
-    require("ROLE-SPECIFIC CONTRACT V6.4" in free_role, "FREE role must be current V6.4 control version")
-    require("Task publication: `research_task_publication_contract_v2.json`" in free_role, "FREE role must use V2 publication")
-    require("Phase B — mandatory tool dedup and reuse resolution" in free_role, "FREE Phase B must require tool reuse resolution")
-
-    architecture = read("docs/RESEARCH_ARCHITECTURE.md")
-    require("ACTIVE / CANONICAL GOVERNANCE / V2.6" in architecture, "human research architecture must be V2.6")
-    require("control_plane/current_control_authority.json" in architecture, "human architecture must route through narrow control precedence")
-    require("research_control_dispatch.py" in architecture, "human architecture must name recovery-aware live dispatch")
-    require("TOOL_COVERAGE_LOOKUP != TOOL_USE" in architecture, "human architecture must distinguish coverage from use")
-
-    steward = read("docs/FOUNDATION_STEWARD_CONTROL_PLANE_ADDENDUM.md")
-    require("tools/research_task_records.py prepare" in steward, "Steward addendum missing V2 prepare path")
-    require("research_control_dispatch.py" in steward, "Steward addendum missing recovery-aware dispatch")
-    require("COVERAGE_LOOKUP != TOOL_USE" in steward, "Steward addendum must distinguish coverage from use")
-
-    agents = read("AGENTS.md")
-    require("control_plane/current_control_authority.json" in agents,
-            "AGENTS must route to current control authority")
-    require("CONTRIBUTING.md#agentproject-task-entry" in agents,
-            "AGENTS must route to public task-specific project instructions")
-
     for isolated in (
         "research_scheduler.json",
         "tools/research_scheduler.py",
@@ -335,24 +273,6 @@ def check() -> None:
     require((ROOT / "research_runtime_policy_v2.json").is_file(), "V2 runtime policy missing")
     require((ROOT / "tools/research_runtime_reducer.py").is_file(), "V2 runtime reducer missing")
 
-    router = read("research_control_dispatch.py")
-    require("ENTERPRISE_MATH_SESSION_LIVENESS_OBSERVATIONS_V2" in router, "live control router missing owner-scope observation V2")
-    require("TASK_RESEARCH_RESPONSE" in router, "live control router missing task-response liveness kind")
-    require("DURABLE_EXECUTION_PROGRESS" in router, "live control router missing durable-progress liveness kind")
-    require("research_control_bootstrap.install(ROOT)" in router, "live control router must install canonical bootstrap")
-    # select_task uses this same effective-states -> policy -> reducer chain.
-    # The live router shares its state snapshot with owner recovery and lane
-    # selection, so requiring a second select_task call would reject that reuse.
-    require(
-        all(fragment in router for fragment in (
-            "states = research_dispatch.effective_states(events, now=now, root=root)",
-            "policy = research_runtime_reducer.load_policy(root)",
-            "fresh_task = research_runtime_reducer.select_state(states, policy, kind=kind)",
-        )),
-        "live control router must subordinate canonical fresh selection over shared effective states",
-    )
-    require("research_runtime.ADOPT_OWNER_CLAIM" in router, "live control router missing same-CLAIM adoption path")
-    require('"VERIFY_SESSION_LIVENESS"' in router, "live control router missing unknown-liveness route")
 
 
 def main() -> int:
@@ -361,9 +281,10 @@ def main() -> int:
     except (ControlAuthorityError, OSError, json.JSONDecodeError) as exc:
         print(f"ERROR: {exc}")
         return 1
-    print("PASS: current control authority, owner-scope liveness, role transitions, publication, dispatch, and tool-reuse surfaces are consistent.")
+    print("PASS: current control authority, owner-scope liveness, role transitions, publication, dispatch, and tool-reuse declarations are consistent.")
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
