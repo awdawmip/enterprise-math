@@ -2,7 +2,7 @@
 """R379: exact eleventh-corank PF2 phase of a signed BRC K3 deformation.
 
 Run from Enterprise Math PR #1592 checkout:
-    python research_notes/r378_signed_k3_corank10_20261029_emr3/R379_compute.py
+    python research_notes/r379_signed_k3_corank11_20261029_emr3/R379_compute.py
 Requires SymPy.  Derived solely from the original R346 signed twelve-term
 K/J -> B -> D -> raw minors recurrence, without the R348/R363 all-index claim.
 Exact interval signs use rational Bernstein coefficients, never sampling.
