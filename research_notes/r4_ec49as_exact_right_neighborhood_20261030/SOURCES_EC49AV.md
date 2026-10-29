@@ -1,0 +1,7 @@
+# EC49AV sources and scope
+
+- Canonical account knowledge, same read snapshot for this turn: awdawmip/chatgpt-global-knowledge main@4a0183c9f3cd13030fe30ca574c498b20e787d9f; `00_BOOTSTRAP.md`, `OPERATING_MANUAL.md`, P000 startup plus canonical original, ACTIVE `我眼中的世界.md`, applicable research/code/PR-handoff policies.
+- Project current control input read before research: awdawmip/enterprise-math main@58d3995828b0ab3b3ebc9d015b8f7c9e751822ad; `AGENTS.md`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `docs/RESEARCH_CONTINUATION_PROTOCOL.md`, `docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md`. Concurrent main updates are separate from this frozen scientific input.
+- Exact source frontier: awdawmip/enterprise-math draft PR #1730, immutable EC49AU commit `c1ea6b05eded5f5b86f72a9dbaae77ee43659423`, `PROOF_EC49AU.md`, `VERIFY_EC49AU.py`, and `NEXT_TASK_EC49AV.md`.
+- New mathematics: proofs in `PROOF_EC49AV.md`, independently executed Python Fraction enumeration plus committed JavaScript BigInt certificate, reported in `EC49AV_REPORT.json`. Published script `VERIFY_EC49AV.js` contains exactly the ECMAScript proof-checking function run to generate the report.
+- Source-native `em_context_manifest(DIRECTED_RESEARCH)`: `authority_granted=false`; the owner/task inventory query returned `CONTROL_QUOTA`. Thus no verified formal owner, CLAIM, Result, independent Driver review or admission is claimed. GitHub branch documents are research handoffs, not native Source records.
