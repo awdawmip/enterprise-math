@@ -18,5 +18,35 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "EM-R11-BRC-BU-AFFINE-K-20261029-2330P0800",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "8eba97da029cd4ef90feaecd34f6f4dd1f1da409",
+          "path": "research_notes/brc_n4_bu_affine_k_capacity_20261029_r11/PROOF.md",
+          "sha256": "c84074192469372082b91b53ec3bbdad1e0e3bbaeec12d2b6aa4b9900ff62b3c",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "github_fetch_file",
+            "observation_id": "local-r11-20261029T2349-em-proof-fullread",
+            "call_id": null,
+            "git_blob_sha1": "6eb3d9da1acd022398f0c2971ef92a9a759b1e60",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/8eba97da029cd4ef90feaecd34f6f4dd1f1da409/research_notes/brc_n4_bu_affine_k_capacity_20261029_r11/PROOF.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-EMR11-20261029T2346-AFFINEK/readbacks/289f5c0d0b36e6e54d4de21feff6ce7f4812d6c9375ca442891be91d7f9557aa.json",
+          "verification_receipt_sha256": "289f5c0d0b36e6e54d4de21feff6ce7f4812d6c9375ca442891be91d7f9557aa"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@38898088a2f45ce1a8fdd5be7b115e617b2fe83d:journal/enterprise-math/2026-10-29/20261029T2330p0800-r11-brc-bu-affine-k-8eba97d.md"
+      ],
+      "state": "EM_REPRESENTED",
+      "repairs_event_id": null
+    }
+  ]
 }
