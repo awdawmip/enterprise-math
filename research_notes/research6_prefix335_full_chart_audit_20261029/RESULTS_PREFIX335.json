@@ -1,0 +1,33 @@
+{
+  "schema": "PREFIX335_EXACT_ALGEBRA_AUDIT_V1",
+  "status": "PASS_AUTHOR_SIDE_SYMBOLIC",
+  "model": "S7-3 static auxiliary five-port labelled BRC, A as source rows, Q=b/64",
+  "exact_input_b": [
+    32,
+    16,
+    10,
+    104,
+    29
+  ],
+  "chart_infinity": "NO_SOLUTIONS: mod (5,i-2), gcd(-2s^3+s,-2s^2+s-1)=1",
+  "affine_D_zero": "NO_SOLUTIONS: b1,b2,b3 positive and f1*f2*f3 != 0",
+  "resultant_factors_degrees": {
+    "y=1": 2,
+    "y=1+i": 1,
+    "y=1-i": 1,
+    "17y=9+2i": 1,
+    "H(y)": 4
+  },
+  "resultant_expected_factor_exact": true,
+  "quartic_H_squarefree": true,
+  "quartic_branch_real_positive_t_count": 2,
+  "T_real_root_intervals": [
+    "(45534/100000,45535/100000)",
+    "(64597/100000,64598/100000)"
+  ],
+  "T_charpoly_exact": true,
+  "physical_S1_phase_orbits": 4,
+  "complex_bilinear_fiber_points": 6,
+  "explicit_ordered_BRC_pairs_computed": 90,
+  "limitations": "Auxiliary static BRC only; source authorship is shared-context, not native independent Driver review or X6 bridge"
+}
