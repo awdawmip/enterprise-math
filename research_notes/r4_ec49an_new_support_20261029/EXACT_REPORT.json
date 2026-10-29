@@ -1,0 +1,48 @@
+{
+  "schema": "EC49AN_EXACT_FRACTION_V1",
+  "status": "PASS_EXACT_AUTHOR_UNREVIEWED",
+  "source_model": "18+18 positive-probability BRC leaf observer, C1=43/48",
+  "eta_interval": [
+    "41/1106",
+    "1/20"
+  ],
+  "lambda_formula": "(553/946)*eta-152/473",
+  "intercept_formula": "22625/60544-(13825/30272)*eta",
+  "certification": "168 distinct first-stage vertices at two eta endpoints; convexity in x and eta",
+  "vertex_checks": 336,
+  "fiber_evaluations": 2688,
+  "endpoints": {
+    "41/1106": {
+      "lambda": "-567/1892",
+      "B": "675/1892",
+      "max_D": "675/1892",
+      "tight_vertices": 24,
+      "strict_vertices": 144,
+      "smallest_strict_margin": "5/516"
+    },
+    "1/20": {
+      "lambda": "-5527/18920",
+      "B": "42485/121088",
+      "max_D": "42485/121088",
+      "tight_vertices": 16,
+      "strict_vertices": 152,
+      "smallest_strict_margin": "143/165120"
+    }
+  },
+  "strict_nonattainment_endpoint_midpoints": {
+    "41/1106": {
+      "pairs": 144,
+      "minimum_midpoint_gap": "41/16512"
+    },
+    "1/20": {
+      "pairs": 48,
+      "minimum_midpoint_gap": "321/110080"
+    }
+  },
+  "witness_costs": [
+    "25/32",
+    "43/48"
+  ],
+  "fixed_cost_interiors": "support strictly unattained for any eta in certified interval and LOW<C2<HIGH",
+  "formal_independence": "AUTHOR_SIDE_ONLY; UNREVIEWED; NOT_ADMITTED"
+}
