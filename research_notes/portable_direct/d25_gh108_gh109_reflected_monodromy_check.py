@@ -28,7 +28,7 @@ def P_even(d,p):
     if not d:return [1]
     for n in range(1,d):
         c=plus([0]+[(2*n+1)*v for v in b],[-n*v for v in a],p)
-        inv=pow(n+1,-1,p);a,b=[...b],[(x*inv)%p for x in c]
+        inv=pow(n+1,-1,p);a,b=b,[x*inv%p for x in c]
     assert all(b[i]==0 for i in range(1,d+1,2))
     return b
 
