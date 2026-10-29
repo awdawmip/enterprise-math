@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-29",
+  "status": "AUTHOR_ANALYTIC_PROOF_UNREVIEWED_NOT_ADMITTED",
+  "scientific_results": {
+    "exact_rectangle": "49/50<=a<=1, 3/50<=b<=9/70: d2=d23=(a+3b-1)(7-a-21b)/(12*(4*a+12*b+2))",
+    "exact_zero_wedge": "0<a,b<=1 and b>=2*a/7: d2=d23=0",
+    "general_feasible_upper": "d2=d23<=b*max(2*a-7*b,0)/(8*(a+2*b))",
+    "rational_counterexample": {
+      "a": "49/50",
+      "b": "1/5",
+      "params": [
+        "49/50",
+        "1/5",
+        "14/69",
+        "83/345",
+        "1/5"
+      ],
+      "TV_P": "7/690",
+      "TV_Q": "7/690",
+      "invalid_extended_capacity": "203/19200",
+      "strict_improvement": "63/147200"
+    },
+    "upper_family_crossover": "gamma=(sqrt(38494)-83)/750; crossover not proven true minimax switch"
+  },
+  "actual_local_verification": {
+    "program": "VERIFY.py (complete extended local program)",
+    "status": "PASS_EXACT_BRC_N4_BU_EXPANDED_RECTANGLE_ZERO_WEDGE_AND_COUNTEREXAMPLE",
+    "symbolic_identities": 32,
+    "strict_positive_leaves": 16,
+    "rational_rectangle_points": 12,
+    "zero_wedge_points": 6,
+    "legal_rational_competitors": 900
+  },
+  "publication_verify_status": "VERIFY_RELEASE.py is a separately published compact checker; do not infer it was executed solely from GitHub readback",
+  "control": {
+    "native_status": "CODE_REVIEW_REQUIRED",
+    "research_authority_granted": false,
+    "active_owner": "UNKNOWN_CONTROL_QUOTA",
+    "research_activity": "REGISTER_PENDING",
+    "admission": "UNREVIEWED_NOT_ADMITTED"
+  },
+  "worldview": "P000 locked 6D native discrete cells +1D time; research slice is 3D; external finite model not proven faithful to native physics",
+  "snapshot": "awdawmip/chatgpt-global-knowledge@4235656a960a3d2261c9681749b6de3c2a401708"
+}
