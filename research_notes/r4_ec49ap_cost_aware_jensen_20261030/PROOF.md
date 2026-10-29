@@ -96,7 +96,7 @@ The six exact vertex paid-cost values are `43/96,9/16,59/96,2/3,25/32,43/48`. Th
 
 \[
  c(x)\le L(l+n)+Uh=L+(U-L)h,
-\quad c(x)\ge C2\Longrightarrow h\ge\frac{C2-L}{U-L}=\frac3{11}.\tag{4}
+\quad c(x)\ge C_2\Longrightarrow h\ge\frac{C_2-L}{U-L}=\frac3{11}.\tag{4}
 \]
 
 Also, writing `c_min=43/96`,
