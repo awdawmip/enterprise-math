@@ -851,28 +851,11 @@ def _dispatch_result_read_snapshot(root: Path = ROOT):
     result-state overlay rescans the complete immutable Result/Review stores,
     turning one dispatch into repeated repository-wide I/O.  The original
     functions are restored immediately after this effective-state derivation, so
-    writers and later calls always observe fresh repository bytes. Execution
-    records share this same read scope; the public wrapper's existing authority
-    snapshot verifies their complete file set and bytes again on exit.
+    writers and later calls always observe fresh repository bytes.
     """
     base_results = research_result_records.iter_results
     base_reviews = research_result_records.iter_reviews
-    base_executions = research_execution_records.iter_records
     target_root = root.resolve()
-    read_scope = research_result_records._result_authority._ACTIVE.get()
-    cached_executions = None
-
-    def iter_executions(local_root: Path = research_execution_records.ROOT):
-        nonlocal cached_executions
-        active = research_result_records._result_authority._ACTIVE.get()
-        if (local_root.resolve() != target_root or active is None or active is not read_scope
-                or active[0] != target_root):
-            return base_executions(local_root)
-        if cached_executions is None:
-            cached_executions = base_executions(local_root)
-        # Original reads return fresh nested objects. A consumer must not be
-        # able to edit the next reader's claim/session/allowed-output inputs.
-        return copy.deepcopy(cached_executions)
 
     def iter_results(local_root: Path = research_result_records.ROOT):
         if local_root.resolve() != target_root:
@@ -884,11 +867,9 @@ def _dispatch_result_read_snapshot(root: Path = ROOT):
             return base_reviews(local_root)
         return list(cached_reviews)
 
-    research_execution_records.iter_records = iter_executions
-    try:
-        # Install before Result validation: its receipt checks already consume
-        # execution records. Load lazily so unused malformed files do not gain
-        # a new eager-validation boundary.
+    # ER cache is context-local; the enclosing authority guard still checks
+    # its complete bytes/file set. No module-global execution reader changes.
+    with research_execution_records.read_snapshot(root):
         cached_results = tuple(base_results(root))
         cached_reviews = tuple(base_reviews(root))
         research_result_records.iter_results = iter_results
@@ -898,8 +879,6 @@ def _dispatch_result_read_snapshot(root: Path = ROOT):
         finally:
             research_result_records.iter_results = base_results
             research_result_records.iter_reviews = base_reviews
-    finally:
-        research_execution_records.iter_records = base_executions
 
 
 def effective_states(
