@@ -859,12 +859,13 @@ def _dispatch_result_read_snapshot(root: Path = ROOT):
     base_reviews = research_result_records.iter_reviews
     base_executions = research_execution_records.iter_records
     target_root = root.resolve()
+    read_scope = research_result_records._result_authority._ACTIVE.get()
     cached_executions = None
 
     def iter_executions(local_root: Path = research_execution_records.ROOT):
         nonlocal cached_executions
         active = research_result_records._result_authority._ACTIVE.get()
-        if (local_root.resolve() != target_root or active is None
+        if (local_root.resolve() != target_root or active is None or active is not read_scope
                 or active[0] != target_root):
             return base_executions(local_root)
         if cached_executions is None:

@@ -288,6 +288,26 @@ class FollowupAuthoritySnapshotTests(unittest.TestCase):
                 self.assertIsNone(pool.submit(authority._ACTIVE.get).result())
             self.assertIs(executions.iter_records, original)
 
+    def test_independently_guarded_thread_cannot_borrow_an_older_execution_view(self):
+        from concurrent.futures import ThreadPoolExecutor
+        self.execution()
+        original = executions.iter_records
+
+        def fresh_claim():
+            with dispatch._dispatch_result_read_snapshot(self.root):
+                return executions.intent_for_claim("TASK-ONE", "CLAIM-NEW", self.root)
+
+        with self.assertRaisesRegex(authority.ResultAuthorityIsolationError, "snapshot inputs changed"):
+            with dispatch._dispatch_result_read_snapshot(self.root):
+                old = executions.intent_for_claim("TASK-ONE", "CLAIM-ONE", self.root)
+                self.execution(claim="CLAIM-NEW")
+                with ThreadPoolExecutor(max_workers=1) as pool:
+                    fresh = pool.submit(fresh_claim).result()
+                self.assertEqual(old["claim_id"], "CLAIM-ONE")
+                self.assertEqual(fresh["claim_id"], "CLAIM-NEW")
+        self.assertIs(executions.iter_records, original)
+        self.assertIsNone(authority._ACTIVE.get())
+
 
 if __name__ == "__main__":
     unittest.main()
