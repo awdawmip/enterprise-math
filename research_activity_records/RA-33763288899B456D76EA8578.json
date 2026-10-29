@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-33763288899B456D76EA8578",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "309b4d061a164c1b2c3d9fed519cbae2822d75b9",
+          "path": "research_notes/brc_n4_bu_h_strict_falsifier_20261030_emr1/VERIFY_EVIDENCE.txt",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "dee7e9cefe0072e6fbd1f5ab82c7007c80e8440b0fd19b346ea80fef92375f63",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "112b1e062d2aed04bfb855003660d39dc0cc6f3b",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/309b4d061a164c1b2c3d9fed519cbae2822d75b9/research_notes/brc_n4_bu_h_strict_falsifier_20261030_emr1/VERIFY_EVIDENCE.txt",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "EMR1-20261030-LOCAL-FETCH-EVIDENCE-309B4D0",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-33763288899B456D76EA8578/readbacks/8cf807b62c5454e04234e70815e4056095cb37c61f1183383366e7c38e6d3558.json",
+          "verification_receipt_sha256": "8cf807b62c5454e04234e70815e4056095cb37c61f1183383366e7c38e6d3558"
+        }
+      ],
+      "event_id": "EMR1-20261030-H_STRICT_FALSIFIER-CHECKPOINT",
+      "kb_sources": [
+        "journal/enterprise-math/2026-10-30/20261030T0500p0800-emr1-bu-H-strict-falsifier-309b4d0.md @1f0b8985fd6ca8804198fa97a9563db09a0f0e0d"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-29T21:18:21.965210+00:00",
   "registration_key": "session:LOCAL-EMR1-20261030-884ECBFB213A6F79411B:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-DIRECT-FCECEF",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "LOCAL-EMR1-20261030-884ECBFB213A6F79411B",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-29T21:18:21.965210+00:00",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
