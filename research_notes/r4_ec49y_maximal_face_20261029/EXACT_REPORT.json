@@ -1,0 +1,55 @@
+{
+  "bounds": "Applies only to the alpha-beta=59/576 maximal slice at fixed exact C1,C2; not whole (alpha,beta) image.",
+  "endpoint_certificate": {
+    "groups": [
+      {
+        "b": "0",
+        "max_D": "59/576",
+        "maximizers": 72
+      },
+      {
+        "b": "1/16",
+        "max_D": "59/576",
+        "maximizers": 48
+      }
+    ],
+    "max_b_endpoint_same_optimal_acceptance_interval": true,
+    "no_blind_code_U_in_max_endpoint_vertices": true,
+    "smallest_gain_over_used_code_U_in_max_endpoint_vertices": "11/6400",
+    "total_vertices": 288
+  },
+  "model": {
+    "C1": "43/48",
+    "C2": "7/8",
+    "eta": "1/200",
+    "randomization": "independent source-blind fresh behavioral coins; no persistent common seed",
+    "source_positive_rational_leaves_each": 18
+  },
+  "proven_all_real": {
+    "delta_star": "59/576",
+    "every_delta_star_policy_senses_S_on_all_positive_probability_paid_paths": true,
+    "face_alpha": [
+      "109/192",
+      "133/192"
+    ],
+    "face_beta": [
+      "67/144",
+      "85/144"
+    ],
+    "face_relation": "beta=alpha-59/576"
+  },
+  "provenance": "All-real reduction supplied in PROOF.md; 288 endpoints checked exactly with Python fractions.",
+  "rational_realization": {
+    "S": "buy with probability 1 on every paid path",
+    "accept": "positive signed-contrast cells, plus STOP with probability r",
+    "formula": "alpha=109/192+r/8, beta=67/144+r/8, 0<=r<=1",
+    "prefix": "W0:A0, W1:A1, W2:A0 with 9/16, B0 with 1/16, STOP with 3/8",
+    "sample_r": [
+      "0",
+      "1/3",
+      "1"
+    ]
+  },
+  "schema": "EC49Y_EXACT_MAXIMAL_ACCEPTANCE_FACE_V1",
+  "status": "AUTHOR_PROVED / FRACTION_CHECK_PASS / UNREVIEWED / NOT_ADMITTED"
+}
