@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-29",
+  "status": "AUTHOR_EXACT_PROOF_SYMBOLIC_FRACTION_VERIFIED_UNREVIEWED_NOT_ADMITTED",
+  "theorems": [
+    "forall 0<a,b<=1 d2=d23=0 iff b>=2a/7",
+    "forall 0<b<2a/7: d2=d23>=b(2a-7b)/(14+41b)>0",
+    "a=49/50, b in [3/50,beta], beta=1641/1525-sqrt(3002689)/1830: d2=d23=(a+3b-1)(7-a-21b)/(12*(4a+12b+2))"
+  ],
+  "rational_example": {
+    "a": "49/50",
+    "b": "129/1000",
+    "c": "3311/7468",
+    "A": "1",
+    "B": "367/3000",
+    "U": "1318631/7468000",
+    "V": "367/3000",
+    "TV_P": "1215137/89616000",
+    "TV_Q": "1215137/89616000"
+  },
+  "verified": {
+    "script": "VERIFY.py",
+    "symbolic_groups": 20,
+    "positive_leaves": 16,
+    "rational_capacity_points": 3,
+    "zero_loss_points": 3,
+    "exact_competitor_samples": 1000,
+    "local_execution": "PASS",
+    "universal_conclusions_from": "analytic proof"
+  },
+  "native_X6_fidelity": "UNPROVED",
+  "task_claim": "NONE",
+  "driver_review": "NONE",
+  "control_snapshot": "1aa429dd8447ba15023b009f1553184679af16a2",
+  "scientific_input": "7638017feec1a8d8a4ac533ead9eed21deab0ac9",
+  "next": "beta<b<=gamma true global minimax transition"
+}
