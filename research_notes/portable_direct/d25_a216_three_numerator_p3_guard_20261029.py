@@ -13,6 +13,26 @@ def primes(limit):
             yield p
 
 
+def published_theta_digits(p):
+    """Independent prior 2026-10-28 factorial-reflection theorem, NOT our new result.
+
+    Source: enterprise-math@321f924, original216_p3_middle_tail_reflection.md.
+    Returns tau_{p,r} for 0 <= r < m, and its sum modulo p.
+    """
+    m = (p-1)//6
+    factorial = [1]*p
+    for n in range(1,p):
+        factorial[n] = factorial[n-1]*n % p
+    power = pow(216,2*m,p)
+    digits=[]
+    for r in range(m):
+        den = factorial[4*m+1+2*r]*factorial[3*r+1] % p
+        tau = 3*(2*r+1)*power*pow(factorial[2*m+r],5,p)*pow(den,-1,p)%p
+        digits.append(tau)
+        power = power*216 % p
+    return digits, sum(digits)%p
+
+
 def source_ledger(p):
     assert p > 3 and p % 6 == 1
     m = (p - 1) // 6
@@ -34,12 +54,16 @@ def source_ledger(p):
     inv216 = pow(216, -1, modulus)
     z216 = 1
     exact_terms = []
+    original_double_hit = {}
     for n in range(p):
         corr = (1 + p*s1 + p*p*two_inv*(s1*s1 - s2)) % modulus
         predicted = (p**hits * c * u * corr) % modulus
         assert predicted == direct, (p, n, hits, predicted, direct)
         weight = 6*n + 1
         tier[hits] = (tier[hits] + weight*predicted) % modulus
+        if hits == 2:
+            assert (weight*predicted)%modulus % (p*p) == 0
+            original_double_hit[4*m-n] = ((weight*predicted)%modulus)//(p*p)
         if n == m:
             midpoint_weight = weight
             midpoint_coefficient_modp = int(predicted % p)
@@ -82,12 +106,16 @@ def source_ledger(p):
     assert ((ports[0]+ports[1]+ports[2])%modulus) == tier[0]
     assert ((ports[3]+ports[4])%modulus) == tier[1]
     assert ports[5] == tier[2]
+    old_tau, old_theta = published_theta_digits(p)
+    assert len(original_double_hit) == m
+    assert all(original_double_hit[r] == old_tau[r] for r in range(m)), p
+    assert old_theta == (tier[2]//(p*p)), (p, old_theta, tier[2])
     assert sum(tier) % modulus == independent
     if p <= 373:
         assert binomial == independent
     assert independent % p**2 == (p if p % 6 == 1 else -p) % p**2  # informational baseline
     return {"p":p,"m":m,"tier0":tier[0],"tier1":tier[1],"tier2":tier[2],
-            "tier3":tier[3],"middle_n_m_unit":midpoint_coefficient_modp if p==373 else None,"six_ports":ports if p in (13,19,373) else None,"A":independent,"A_over_p2_residue":((independent-p)%modulus)//p**2,
+            "tier3":tier[3],"prior_Theta": old_theta if p in (13,19,373) else None,"middle_n_m_unit":midpoint_coefficient_modp if p==373 else None,"six_ports":ports if p in (13,19,373) else None,"A":independent,"A_over_p2_residue":((independent-p)%modulus)//p**2,
             "boundary_terms":exact_terms}
 
 
