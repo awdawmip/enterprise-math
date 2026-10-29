@@ -125,3 +125,18 @@ Prior sources consumed: 20261025_offphase_d25_frozen_Rp_cutoff_identification_al
 **Highest live obligations:** prove/refute the *prime-sensitive* nonzero residual (4)/(6) uniformly in both target residue classes, without extending previously completed auxiliary p³ truncation theory. Existing native support issue **awdawmip/enterprise-math#1559** was read OPEN/PENDING_OWNER: the real original p373 H0/B0 divided-power [X]U mod139129, module rank, Frobenius direction/eta, signed Green/Hesse, kappa and Delta-R still need a legitimate native executor with source, actual run, and independent validation. No scalar surrogate passes that benchmark.
 
 **Operational recovery:** gateway 0.6.11 at this read reports research_authority_granted=false, executor_binding_configured=false, active quota 5/5; advertised recovery_status schema lacks an executable action in this Site. Own checkpoint_list ACCESS_DENIED; previous exact control_result request NOT_FOUND for this Site subject does not establish an empty queue. Exact Source claim/session/run/current target_request_id remain unverified; no dispatch, mutation, claim/open/Source checkpoint, freeze, admission, other-lane action, or schedule/notification change was made. Author-side GitHub capture is not a role-authorized Source checkpoint. Next lawful control action is original receipt/continuation on an authorized native surface, then Source-bound independent review and native benchmark execution.
+
+## Sharp necessity boundary: a second exact no-go unit
+
+The general two-moment law (2), without invoking CM0, has a **precise factorized defect** relative to an attempted indiscriminate rank-one collapse. Since H0=k0+12d0, subtraction gives the *all-prime p=6m+1* theorem
+
+\[
+\boxed{\frac{L_A+E_A}{p^2}-H_0V
+\equiv k_0(V+12V_\theta)\pmod p.}\tag{9}
+\]
+
+Therefore the reduction to H0V is valid for this observer **if and only if** the right-hand product vanishes in F_p. CM0 (k0=0) is a sufficient *source-supported* condition in the target classes, but cannot be silently omitted when moving to another prime class. The derivative-tail moment is retained before testing (9).
+
+The actually executed independent original 216 scalar checks produce two concrete non-target counterexamples to an unrestricted collapse. For p=7 (modulus p³=343), (k0,d0,H0,V,Vtheta)=(2,1,0,1,6), original source (L_A,E_A)=(147,147), and (L_A+E_A)/p²=6 whereas H0V=0; the missing obstruction is 2*(1+12*6)=6 mod7. For p=31 (modulus 29791), (k0,d0,H0,V,Vtheta)=(21,6,0,6,28), (L_A,E_A)=(12493,7688) and (L_A+E_A)/p²=21 whereas H0V=0; the missing obstruction is 21*(6+12*28)=21 mod31. Both independently original binomial A_p values and source-pair projections agree.
+
+These are exact counterexamples to **unconditional rank-one compression**, not to D25/LIFT, the frozen R source alignment, or the original 216 supercongruence. The two ordinary tests have been incorporated into the same project Python verifier, now 21 target regressions plus p=7,31 non-CM0 controls. Equation (9) is a direct algebraic corollary of (2), not a new axiom; Source/Result/native and admission statuses are unchanged.
