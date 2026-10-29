@@ -1,0 +1,3 @@
+# Next exact mathematical unit
+
+Freeze the same 16 positive P/Q leaves, full (T,Decision,Z_BU) observation, lawful A,B,c,U,V parameters and exact event duals L0,L3,R,K. New proved rectangle: 97/100<=a<=99/100 and 1/100<=b<=1/8. Determine the first b>1/8 boundary where capacity optimality fails; begin with the exact endpoint obstruction N0=131a²+576ab-232a+549b²-1746b+245 and the factored L3(3/7)-ecap expression. Give an extended observable dual or a lawful rational competitor with strict improvement. Independently audit the inherited four-atom all-causal reduction. Preserve P000 native X6 / three-dimensional slice / time fidelity as separate obligations.
