@@ -89,5 +89,4 @@ function verify() {
     "PASS_EXACT_R5_Q_SIDE_PERMANENT_OBSTRUCTION"
   ].join("\n")+"\n";
 }
-return verify();
 console.log(verify());
