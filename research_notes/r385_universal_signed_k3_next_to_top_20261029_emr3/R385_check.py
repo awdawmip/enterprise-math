@@ -12,7 +12,9 @@ from fractions import Fraction as F
 
 HERE=Path(__file__).resolve().parent
 sys.path.insert(0,str(HERE.parent/'r384_universal_signed_k3_catalan_top_20261029_emr3'))
-from R384_verify import build,differences as difference
+import R384_verify as raw
+build=raw.build
+difference=getattr(raw, 'difference', None) or raw.differences
 
 PARAMS=['-1/2','0','1/2','901/1000','902/1000','1','15/8','2']
 MAX_R=16
