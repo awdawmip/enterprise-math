@@ -1,0 +1,45 @@
+{
+  "schema": "EC49AI_INDEPENDENT_BIGINT_COST_FACET_V1",
+  "model": "eta=3/10, C1=43/48, C2=7/8-eps, 0<=eps<=3/128; erased history; fresh independent coins",
+  "source_leaves": "18+18 positive, normalized; P/Q marginals matched",
+  "global_sharp_H": "919/8256-(49/860)*eps",
+  "lambda": "49/860",
+  "endpoint_certificates": {
+    "0": {
+      "C2": "7/8",
+      "sharp_support": "919/8256",
+      "vertices_indexed": 288,
+      "vertices_distinct": 168,
+      "dual_max": "919/8256",
+      "dual_min": "343/6880",
+      "equality_indexed": 40,
+      "primal_Y": "919/8256"
+    },
+    "3/128": {
+      "C2": "109/128",
+      "sharp_support": "36319/330240",
+      "vertices_indexed": 288,
+      "vertices_distinct": 168,
+      "dual_max": "36319/330240",
+      "dual_min": "5341/110080",
+      "equality_indexed": 40,
+      "primal_Y": "36319/330240"
+    }
+  },
+  "endpoint_distinct_vertex_inequalities": 336,
+  "indexed_endpoints_checked": 576,
+  "X_fixed_prefix_optimal_H": "919/8256-(179/2236)*eps",
+  "Y_minus_X": "(3/130)*eps",
+  "X_breakpoint": "C2=7/8",
+  "Y_mask": [
+    "0,0,2",
+    "0,1,0",
+    "1,0,1",
+    "1,1,1",
+    "2,0,0",
+    "2,1,0"
+  ],
+  "independent_review": "NOT_PERFORMED",
+  "native_signed_BRC_or_X6_transfer": "NOT_CLAIMED",
+  "result": "PASS_EXACT_BIGINT_AUTHOR_UNREVIEWED"
+}
