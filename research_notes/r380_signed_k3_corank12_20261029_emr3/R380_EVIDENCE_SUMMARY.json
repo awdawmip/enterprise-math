@@ -1,0 +1,75 @@
+{
+  "schema": "EM_R380_SIGNED_K3_CORANK12_EXACT_EVIDENCE_SUMMARY_V1",
+  "date": "2026-10-29",
+  "provenance": "TASK_RESEARCH author-side portable; not native CLAIM or mathematical admission",
+  "r": 12,
+  "model": "Original R346 signed 12-branch K/J BRC, only K3[t2]=-8(1+theta), theta>-1",
+  "upstream_commit": "7f95a326502d83201348dd7ff35cf642655605b8",
+  "result": "The finite 25-entry raw-D corank-12 Newton observation has PF2 iff -1<theta<=eta12; eta12 is the unique real root T13 in (1853003/1000000,1853004/1000000)",
+  "root_display_approx": "1.8530038337280164",
+  "symbolic_certificate_status": "R380_SYMBOLIC_PASS",
+  "exact_certificate_status": "R380_EXACT_PASS",
+  "coefficients": 25,
+  "turan": 23,
+  "bernstein_intervals": 57,
+  "bernstein_strict_positive_rationals": 1739,
+  "subdivisions": 0,
+  "strict_positive_integer_tail_coefficients": 9,
+  "independent_r369_exact_equalities_at_three_rational_points": 75,
+  "joint_coefficients_sha256": "6f093d09164d0c0d585cd0aa2a7f3f39721c5d8814ec38d75d066a5df3829ac9",
+  "bernstein_certificate_sha256": "9df2bcc99e639689b89ea387a18c78896cc285b8617216d830de755b0162eb6c",
+  "top_identity": "c24(theta)=208012*(30-16*theta)^24",
+  "degenerate_theta": "15/8",
+  "degenerate_positive_indices": "0..12",
+  "degenerate_zero_indices": "13..24",
+  "degenerate_turan_failure": "T11(15/8)<0",
+  "negative_cover": [
+    [
+      "T13",
+      "(eta12,1853004/1000000]"
+    ],
+    [
+      "T13",
+      "[1853004/1000000,1871/1000]"
+    ],
+    [
+      "T11",
+      "[1871/1000,47/25]"
+    ],
+    [
+      "c13",
+      "[47/25,2]"
+    ],
+    [
+      "c5",
+      "[2,21/10]"
+    ],
+    [
+      "c2",
+      "[21/10,23/10]"
+    ],
+    [
+      "c0",
+      "[23/10,12/5]"
+    ],
+    [
+      "c4",
+      "[12/5,3]"
+    ],
+    [
+      "c1",
+      "[3,4]"
+    ],
+    [
+      "c0",
+      "[4,+infinity)"
+    ]
+  ],
+  "scope": "finite original signed D/M/Newton observation, not whole D TP2, global Q, native X6 or physics",
+  "original_global_snapshot": "2d0f4dc371fb593a9ecd18a503d34be660a0be9d",
+  "original_project_snapshot": "b3eb3edeea9285e841dee79fafa840187248233a",
+  "P000_original_blob": "bcc2590d3168a28f72e8b9f0b9f1b76faadcd488",
+  "owner_status": "CONTROL_QUOTA; current owner unverified",
+  "admission": "UNREVIEWED_NOT_ADMITTED",
+  "next": "r=13 27 finite coefficients, common PF2 theta threshold; independently audit R348/R363 theta=15/8 extraction/degree bound"
+}
