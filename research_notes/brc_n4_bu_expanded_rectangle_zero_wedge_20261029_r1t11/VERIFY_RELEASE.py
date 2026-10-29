@@ -22,7 +22,7 @@ p=(c+4)/(23-2*c);q=(3-7*c)/(23-2*c)
 r=2*(1+4*c-c*c)/(23-2*c);u=2*(c*c-2*c+7)/(23-2*c)
 l1=c/(7-2*c);l2=7*(1-c)/(7-2*c);l3=2*c*(2-c)/(7-2*c);l4=2*c*c/(7-2*c)
 identities={
-"L0_event":p*Q2+q*(H-s)+r*P4+u*P6+7*p*(V-B)/4-L0,
+"L0_event":p*Q2+q*(H-s)+r*P4+u*(t+rP)+7*p*(V-B)/4-L0,
 "L3_event":l1*Q3+l2*Q7+l3*P4+l4*(t+rP)+7*c*(V-B)/(4*(7-2*c))-L3,
 "R_capacity":(1-c/3)*Q7+c*P6/3-R-c*(1-A)/12,
 "L0_weights":p+q+r+u-1,
@@ -58,10 +58,11 @@ leaves=[(path, q/4, q/4*ratio[path][i]) for path,q in q2.items() for i in range(
 assert len(leaves)==16
 assert sum(z[1] for z in leaves)==sum(z[2] for z in leaves)==1
 assert all(q>0 and p>0 for _,q,p in leaves)
-def obs(A,B,c,U,V):
+def obs(A,B,c,U,V,force_target=False):
     A,B,c,U,V=map(F,[A,B,c,U,V])
     assert 0<=A<=1 and 0<=B<=1 and 0<=c<=1 and 0<=U<=A and 0<=V<=B
-    y={"AU":c,"BU":c,"AV":U/A if A else F(0),"BV":V/B if B else F(0)}
+    y=({"AU":F(1),"BU":F(0),"AV":F(0),"BV":F(0)} if force_target
+       else {"AU":c,"BU":c,"AV":U/A if A else F(0),"BV":V/B if B else F(0)})
     result=[]
     for col in (1,2):
         v=[F(0)]*4
@@ -75,7 +76,7 @@ def obs(A,B,c,U,V):
     return result
 def target(a,b):
     # AU's second-stage continuation is 1; all other second-stage rates 0.
-    return obs(a,b,F(0),a,F(0))
+    return obs(a,b,F(0),F(0),F(0),True)
 def tv(x,y):
     return [sum(abs(u-v) for u,v in zip(p,q))/2 for p,q in zip(x,y)]
 for a0 in (F(49,50),F(99,100),F(1)):
