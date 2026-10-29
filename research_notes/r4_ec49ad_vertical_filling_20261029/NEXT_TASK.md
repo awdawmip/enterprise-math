@@ -1,0 +1,5 @@
+# EC49AE — first budget/eta perturbation of universal-prefix theorem
+
+The fixed-cost (43/48,7/8), eta=1/200 auxiliary observer's complete real (alpha,beta) feasible region and convexity are solved by EC49AD (PROOF.md), reusing EC49AC's exact six-knot lower graph. Do not redo the fixed-cost vertical fibers.
+
+Change source-identical expected stage costs (C1,C2), or source information parameter eta, while keeping the same positive-leaf P/Q model, erasure, no retained seed, and exact causal x*s*a constraints. Determine a nontrivial parameter domain where a single first-prefix plus fresh terminal coins realizes the entire fixed-cost projection, OR give two exact rational legal strategies whose midpoint is impossible for all real behavioral policies (valid semialgebraic/dual certificate). Do not infer four-dimensional variable-cost convexity from the current two-dimensional fixed-cost polygon. Preserve P000/ACTIVE worldview and signed-BRC/X6 typing boundaries.
