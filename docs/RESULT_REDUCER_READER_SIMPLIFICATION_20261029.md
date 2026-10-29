@@ -33,3 +33,23 @@ tests cover scope lifetime, root separation, changed inputs, failures,
 reentrancy, threads and a 100-call follow-up wrapper (one inner validation).
 Together with the reader-injection tests, 13 focused tests pass. This count
 is not a measurement of full-catalog runtime or full historical integration.
+
+## Activity bookkeeping, not tool-wrapper self-attestation
+
+The current activity guard checks the actual repository record and session
+association. It no longer replays connector tool names, display URLs, call IDs
+or every historical checkpoint readback before allowing ordinary progress.
+Its authority fields remain false; real claims/reviews/execution keep their
+own authorization. Retrospective records remain tracking-only, not live actors.
+
+Appending a checkpoint validates that new event and preserves history, with
+idempotent event IDs and current-byte CAS. Missing or malformed old receipt
+metadata does not freeze an unrelated append. The old registration-json CLI
+option remains accepted but is no longer opened. Overview explicitly reports
+metadata, not evidence revalidation. Nine activity tests pass; combined direct
+Source additions now total 22 focused tests. New-source native registration is
+also exercised by the backend integration fixture.
+
+This requires coordinated delivery with the backend removal of its old
+activity_registration_binding refresh adapter. Do not deploy only that removal
+against the old Source guard and claim full compatibility.
