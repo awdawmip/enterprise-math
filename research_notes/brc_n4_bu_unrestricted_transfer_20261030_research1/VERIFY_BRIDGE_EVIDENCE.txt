@@ -1,0 +1,13 @@
+Executed locally 2026-10-30, Python 3 / SymPy 1.14 exact symbolic:
+$ python VERIFY_BRIDGE.py
+PASS_BRIDGE_OLD_TARGET_MINUS_VS_NEW_CANDIDATE_MINUS
+PASS_COMMON_CONDITIONAL_RATE_AND_4_ATOM_MODEL
+PASS_EXACT_ATTAINMENT -413/1250 + sqrt(26521161)/15000
+
+Independent full 16-leaf local recheck, 24 rational S2 policies x 2 laws plus symbolic certificates:
+PASS_PATHWISE_K_FIDELITY 24 policies x 2 laws (exact rational)
+PASS_FARKAS_THREE_EVENTS_AND_ENDPOINTS exact symbolic
+PASS_ATTAINMENT_EXACT_RADICAL -413/1250 + sqrt(26521161)/15000 approx 0.012924666557278792
+PASS_UNRESTRICTED_S2_S23_TRANSFER_WITHIN_STATED_MODEL
+
+Finite examples support code/model checks only. Universal conclusion from PROOF.md.
