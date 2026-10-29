@@ -153,6 +153,28 @@ def inspect(p):
                 K_A_cut=2*m,K_B_cut=cut)
 
 
+
+def split_branch_defect(p):
+    """Exact no-go for extending the CM0 rank-one quotient to split primes."""
+    assert p in (7, 31)
+    mod = p**3
+    m = (p-1)//6
+    a = companion(p, 'A')
+    U,H,L,E = weighted_source(p, a, 2*m, 6)
+    assert H == 0
+    k0 = sum(a[:2*m+1]) % p
+    d0 = sum(i*a[i] for i in range(2*m+1)) % p
+    h0 = (k0 + 12*d0) % p
+    v = (sum(a[2*m+1:]) % mod)//p**2
+    vtheta = (sum(i*a[i] for i in range(2*m+1,p)) % mod)//p**2
+    full_tail = ((L+E)%mod)//p**2
+    naive_rankone = h0*v % p
+    defect = (full_tail-naive_rankone)%p
+    assert defect == k0*(v+12*vtheta)%p
+    assert defect != 0
+    assert complete_direct(p, 'A') == (U+L)%mod
+    return (p,k0,d0,h0,v,vtheta,L,E,full_tail,naive_rankone,defect)
+
 def main():
     checks=[inspect(p) for p in primes_under(400)]
     assert len(checks)==21, len(checks)
@@ -164,7 +186,9 @@ def main():
     assert (x['R_frozen'],x['Delta'],x['R_A_low'],x['R_B_low']) == (196,196,187,246)
     assert (x['L_A'],x['E_A'],x['L_B'],x['E_B']) == (p*p,196*p*p,119*p*p,111*p*p)
     assert (x['U_A'],x['U_B'],x['H_B']) == (51756361,49669053,14329914)
-    print('PASS_D25_ORIGINAL_A216_B2304_FROZEN_LOW_HIGH',len(checks),'target primes <400; independent factorial-binomial original sums; original frozen R double sum')
+    for p in (7,31):
+        print('SPLIT_CLASS_NO_GO',split_branch_defect(p))
+    print('PASS_D25_ORIGINAL_A216_B2304_FROZEN_LOW_HIGH',len(checks),'target primes <400; independent factorial-binomial original sums; original frozen R double sum; 2 exact non-CM0 quotient counterexamples')
 
 
 if __name__ == '__main__':
