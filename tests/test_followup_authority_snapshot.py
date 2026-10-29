@@ -19,6 +19,7 @@ import research_review_evidence as evidence
 from control_plane import research_result_authority_fault_isolation as authority
 from tools import research_dispatch as dispatch
 from tools import research_result_records as results
+from tools import research_execution_records as executions
 
 
 class FollowupAuthoritySnapshotTests(unittest.TestCase):
@@ -214,6 +215,78 @@ class FollowupAuthoritySnapshotTests(unittest.TestCase):
         self.assertEqual(counts[:4], [1, 1, 1, 2])
         self.assertEqual((results.iter_results, results.iter_reviews), previous)
         self.assertIsNone(authority._ACTIVE.get())
+
+    def execution(self, name="ER-ONE", *, root=None, claim="CLAIM-ONE"):
+        root = self.root if root is None else root
+        row = {"execution_record_id": name, "task_id": "TASK-ONE",
+               "claim_id": claim, "allowed_outputs": ["original/"]}
+        path = root / "research_execution_records/TASK-ONE" / (name + ".json")
+        self.write(path, row)
+        return path
+
+    def test_execution_reads_share_one_scan_and_preserve_nested_object_isolation(self):
+        self.execution()
+        original = executions.iter_records
+        with mock.patch.object(executions, "iter_records", wraps=original) as reads:
+            with dispatch._dispatch_result_read_snapshot(self.root):
+                first = executions.intent_for_claim("TASK-ONE", "CLAIM-ONE", self.root)
+                first["allowed_outputs"].append("caller-change/")
+                with dispatch._dispatch_result_read_snapshot(self.root):
+                    second = executions.intent_for_claim("TASK-ONE", "CLAIM-ONE", self.root)
+                self.assertEqual(second["allowed_outputs"], ["original/"])
+                self.assertEqual(reads.call_count, 1)
+        self.assertIs(executions.iter_records, original)
+
+    def test_execution_byte_or_set_changes_still_reject_and_next_call_is_fresh(self):
+        for change in ("edit", "add", "delete"):
+            with self.subTest(change=change):
+                path = self.execution()
+                extra = self.root / "research_execution_records/TASK-ONE/ER-TWO.json"
+                extra.unlink(missing_ok=True)
+                original = executions.iter_records
+                with self.assertRaisesRegex(authority.ResultAuthorityIsolationError,
+                                            "snapshot inputs changed"):
+                    with dispatch._dispatch_result_read_snapshot(self.root):
+                        executions.iter_records(self.root)
+                        if change == "edit":
+                            self.execution(claim="CLAIM-NEW")
+                        elif change == "add":
+                            self.execution("ER-TWO", claim="CLAIM-TWO")
+                        else:
+                            path.unlink()
+                self.assertIs(executions.iter_records, original)
+                self.assertIsNone(authority._ACTIVE.get())
+                self.assertEqual(executions.iter_records(self.root), original(self.root))
+
+    def test_execution_duplicates_and_malformed_bytes_are_not_suppressed(self):
+        self.execution()
+        second = self.execution("ER-TWO")
+        with dispatch._dispatch_result_read_snapshot(self.root):
+            with self.assertRaisesRegex(executions.ExecutionRecordError, "multiple execution intents"):
+                executions.intent_for_claim("TASK-ONE", "CLAIM-ONE", self.root)
+        second.write_text("{broken", encoding="utf-8")
+        original = executions.iter_records
+        with self.assertRaises(json.JSONDecodeError):
+            with dispatch._dispatch_result_read_snapshot(self.root):
+                executions.iter_records(self.root)
+        self.assertIs(executions.iter_records, original)
+
+    def test_other_execution_root_reads_and_unguarded_thread_remain_fresh(self):
+        from concurrent.futures import ThreadPoolExecutor
+        other = self.root / "other-execution-root"
+        self.execution()
+        self.execution(root=other)
+        with dispatch._dispatch_result_read_snapshot(self.root):
+            self.assertEqual(len(executions.iter_records(other)), 1)
+            self.execution("ER-TWO", root=other)
+            self.assertEqual(len(executions.iter_records(other)), 2)
+            # The global reader wrapper must not give another thread a cached
+            # view when that thread has no guarded authority context.
+            original = executions.iter_records
+            with ThreadPoolExecutor(max_workers=1) as pool:
+                self.assertEqual(len(pool.submit(executions.iter_records, self.root).result()), 1)
+                self.assertIsNone(pool.submit(authority._ACTIVE.get).result())
+            self.assertIs(executions.iter_records, original)
 
 
 if __name__ == "__main__":
