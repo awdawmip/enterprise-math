@@ -1,0 +1,15 @@
+INPUT_TWO_LAW: A=B=1/2; A kernel P=(1/4,3/4), Q=(3/4,1/4); B P=(2/5,3/5), Q=(3/5,2/5)
+LR_TERMINAL_RATIOS: 1/3, 3, 2/3, 3/2
+POLICIES: LR deterministic 144; FULL deterministic 432
+RECTANGLE V00: (Fraction(0, 1), Fraction(1, 1), Fraction(3, 2), Fraction(3, 2))
+RECTANGLE V01: (Fraction(1, 5), Fraction(7, 10), Fraction(2, 1), Fraction(2, 1))
+RECTANGLE V10: (Fraction(0, 1), Fraction(1, 1), Fraction(2, 1), Fraction(2, 1))
+RECTANGLE V11: (Fraction(13, 40), Fraction(13, 40), Fraction(3, 1), Fraction(3, 1))
+RECTANGLE_RANK3_DETERMINANT: -3/160
+FULL_BYPASS_VIA_WITNESS: (Fraction(1, 8), Fraction(5, 8), Fraction(5, 2), Fraction(5, 2))
+BYPASS_DECOMPOSITION_EQUALITY: TRUE
+EXACT_GLOBAL_LR_MIN: 131 EXACT_FULL_MIN: 130
+SIGNED_SEPARATOR: 100e_P + 100e_Q + 11T_P + 11T_Q >= 131 for all LR; FULL witness=130
+L_INFINITY_DISTANCE_LOWER_BOUND: 1/222
+ABSTRACT_FACE_SEPARATION: Phi=coordinate_2+2*coordinate_4 >= 0 for LR corners+off-face; Phi(H)=-1
+PASS_EXACT_R5_BYPASS_RECTANGLE_FACET_VETO
