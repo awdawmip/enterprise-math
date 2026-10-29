@@ -1,0 +1,9 @@
+# EC49AJ reproducible portable research handoff
+
+Scientific new result: for eta=3/10, k=177/172, C1=43/48 and C2=7/8−epsilon, the full all-real behavioral support has three sharp rational affine segments on epsilon in [0,3/32], with globally sharp kinks at 3/128 and 179/2592. Refer to PROOF.md for the precise domain, causal erasure, explicit attaining Y_epsilon, fixed lambda=49/860 dual bound and complete convex-hull reasoning.
+
+Reproduce exact arithmetic: python3 VERIFY.py (Python Fraction) and node VERIFY.js (JavaScript BigInt). The JSON reports preserve executed author-side exact checks: 288 indexed vertices at each of four knots (1152 inequalities; distinct counts 168,168,168,144). Check the convex-hull proof itself before mathematical acceptance; arithmetic checks are not a formal theorem prover. The original full local author Fraction verifier additionally checked the complete alpha/beta affine coefficients and acceptance masks.
+
+Source pins, model boundaries and the upstream EC49AI PR #1698 are recorded in SOURCES.md. The smallest next independent mathematical unit is EC49AK in NEXT_TASK.md: correct first-stage constrained vertices for epsilon just greater than 3/32. This is NOT a duplicate request to redo the initial cost segment.
+
+Native research authority false, owner query CONTROL_QUOTA, no verified native CLAIM, Result, independent Driver review or Foundation admission. This PR is an author-side preserved research artifact; status PORTABLE_DRAFT / UNREVIEWED / NOT_ADMITTED. P000/ACTIVE worldview untouched. No credential, no shared random seed, no signed/phase/native transfer.
