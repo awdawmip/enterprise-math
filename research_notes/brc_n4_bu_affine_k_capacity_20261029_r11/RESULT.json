@@ -1,0 +1,40 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_RESULT_V1",
+  "date": "2026-10-29",
+  "title": "Adaptive affine event splice extends BRC N4 BU curved capacity minimax to b<=37/250",
+  "status": [
+    "AUTHOR_ANALYTIC_PROOF",
+    "EXACT_SYMBOLIC_VERIFIED",
+    "FIVE_16LEAF_PQ_RATIONAL_CASES",
+    "UNREVIEWED",
+    "NOT_ADMITTED"
+  ],
+  "theorem": "For all real 0<b<=37/250 and alpha(b)<=a<=1, d2(a,b)=d23(a,b)=(a+3b-1)(7-a-21b)/(12(4a+12b+2)); alpha=(sqrt(121b^2+10b+25)-4b)/5.",
+  "method": "k(a)=a/4+11/100, legal L0/L3/capacity observed-event TV dual, exact polynomial interval bounds and matching lawful strategy",
+  "source_global_main": "137ea2eaed9f1bf446d3e8715bab98a389d70d0c",
+  "source_enterprise_math_main": "f646634cd1a6c4f9f659180bf15a743b02871864",
+  "prior_scientific_merge": "e16b81cd664f1a1c69cf1447d55c91e6792440dc",
+  "scope": "External strictly-positive P/Q 16-leaf BRC N4 finite model, target F=(a,b,1,0), full joint terminal observer (T,Decision,Z_BU), all legal real causal randomized S2/S23 strategies",
+  "verification": {
+    "sympy_exact_identities": 25,
+    "rational_16leaf_cases": 5,
+    "both_laws_normalized": true,
+    "P_and_Q_TV_checked": true,
+    "stdout_file": "VERIFY_EVIDENCE.txt",
+    "source_file": "VERIFY.py"
+  },
+  "dependencies": [
+    "Author-side 16-leaf-to-four-atom causal reduction",
+    "Existing legal observable L0/L3/capacity TV event bounds"
+  ],
+  "native_control": {
+    "research_authority_granted": false,
+    "owner_query_error": "BACKEND_IDENTITY_CHECK_UNAVAILABLE",
+    "owner_query_operation_sent": false,
+    "claim_created": false,
+    "result_admitted": false,
+    "independent_review": false
+  },
+  "native_P000_X6_time_fidelity": "NOT_PROVEN",
+  "next": "Explore b=149/1000 with variable k(a,b) or produce exact full 16-leaf strict rival."
+}

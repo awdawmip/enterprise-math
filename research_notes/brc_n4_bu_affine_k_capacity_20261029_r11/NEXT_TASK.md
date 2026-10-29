@@ -1,0 +1,9 @@
+# Continue after affine-splice exact minimax through b=37/250
+
+Use the author-side proof and actual verifier in this folder. Frozen GLOBAL_KNOWLEDGE_V1 `main@137ea2eaed9f1bf446d3e8715bab98a389d70d0c`; Enterprise Math initial science `main@f646634cd1a6c4f9f659180bf15a743b02871864`. Dependencies: exact four-atom reduction (1a4898a57e952245eeacb38be7adf109faa49f49); observable L0/L3/capacity dual (d78e2b5729c824918126aec8ffb26ff3e5dc4cb5); PR #1714's b<=73/500 proof. These are author-side, pending independent review. Keep full (T,Decision,Z_BU) joint observation and all real lawful instantaneous causal strategies.
+
+Finished: for every real 0<b<=37/250 and alpha(b)<=a<=1, d2=d23=(a+3b-1)(7-a-21b)/[12(4a+12b+2)]. Exact affine splice k(a)=a/4+11/100; polynomial sign bounds valid over rational rectangle. Five exact P/Q 16-leaf witnesses and 25 symbolic checks executed. No need to repeat these.
+
+**Next smallest mathematical discriminator:** examine b=149/1000 and a near the positive root alpha(b), plus a=1. At b=149/1000 the current affine k produces L0(k)-E<0 near alpha and L3(k)-E<0 at a=1, but those are **dual-certificate gaps**, not a minimax counterexample. Derive a legal two-variable splice k(a,b) with 0<k<=3/7, k<=C and L0(k)>=E, L3(k)>=E for a new whole continuous region; alternatively add legitimate joint observable-event duals. Test whether a simultaneous splice exists via exact algebraic inequalities and rational interval decomposition.
+
+Accept a new analytic matched lower/upper theorem on a genuinely larger continuous real domain, or a lawful rational strategy beating E for both P and Q whose complete strictly-positive 16-leaf observation TVs are computed exactly. Preserve BU source provenance and native X6/future-operation correspondence as independent proof obligations. This packet grants no active CLAIM, session, review or admission.
