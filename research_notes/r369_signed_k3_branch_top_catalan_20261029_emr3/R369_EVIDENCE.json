@@ -1,0 +1,98 @@
+{
+  "schema": "EM_R369_SIGNED_K3_TOP_CATALAN_V1",
+  "date": "2026-10-29",
+  "source_kernel": "original R346 signed 12-term K and J; only K3[t^2] = -8*(1+theta)",
+  "theta_symbolic_jets_r1": [
+    "4*(128*theta**2 - 600*theta + 655)",
+    "24*(32*theta**2 - 120*theta + 105)",
+    "4*(8*theta - 15)**2"
+  ],
+  "all_r_conditional_formula": "Delta^(2r) Q_{theta,r}(0) = Catalan(r) * (30-16*theta)^(2r), r>=1, conditional on R363 all-index formal extraction and degree",
+  "top_zero_parameter": "15/8",
+  "r1_finite_unconditional_examples": {
+    "0": {
+      "r1_newton_coefficients": [
+        "2620",
+        "2520",
+        "900"
+      ],
+      "ordinary_turan_defect": "3992400",
+      "ULC_defect": "-3081600",
+      "positive": true
+    },
+    "1": {
+      "r1_newton_coefficients": [
+        "732",
+        "408",
+        "196"
+      ],
+      "ordinary_turan_defect": "22992",
+      "ULC_defect": "-407424",
+      "positive": true
+    },
+    "5/4": {
+      "r1_newton_coefficients": [
+        "420",
+        "120",
+        "100"
+      ],
+      "ordinary_turan_defect": "-27600",
+      "ULC_defect": "-153600",
+      "positive": true
+    },
+    "15/8": {
+      "r1_newton_coefficients": [
+        "-80",
+        "-180",
+        "0"
+      ],
+      "ordinary_turan_defect": "32400",
+      "ULC_defect": "32400",
+      "positive": false
+    },
+    "3": {
+      "r1_newton_coefficients": [
+        "28",
+        "792",
+        "324"
+      ],
+      "ordinary_turan_defect": "618192",
+      "ULC_defect": "590976",
+      "positive": true
+    }
+  },
+  "finite_exact_checks_by_theta": {
+    "0": {
+      "top_catalan_checks": 10,
+      "direct_D_minor_identity_checks": 4,
+      "top_r10": "5856403079919600000000000000000000"
+    },
+    "1": {
+      "top_catalan_checks": 10,
+      "direct_D_minor_identity_checks": 4,
+      "top_r10": "1405292018123083527011434496"
+    },
+    "5/4": {
+      "top_catalan_checks": 10,
+      "direct_D_minor_identity_checks": 4,
+      "top_r10": "1679600000000000000000000"
+    },
+    "15/8": {
+      "top_catalan_checks": 10,
+      "direct_D_minor_identity_checks": 4,
+      "top_r10": "0"
+    },
+    "3": {
+      "top_catalan_checks": 10,
+      "direct_D_minor_identity_checks": 4,
+      "top_r10": "214119375490588529017850167296"
+    }
+  },
+  "symbolic_formula_checks": 3,
+  "symbolic_raw_D_minor_checks": 3,
+  "independent_finite_top_checks": 50,
+  "raw_D_minor_checks": 20,
+  "arithmetic": "integer, exact rational and symbolic polynomial; no floating signs",
+  "classification": "AUTHOR_SIDE_EXACT / CONDITIONAL_ALL_R / EXACT_R1_COUNTEREXAMPLES / DRIVER_UNREVIEWED / NOT_ADMITTED",
+  "native_x6": "no state embedding or dynamics transfer proven"
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "R355_BRC_CORANK335_SUMMARY_V1",
+  "date": "2026-10-28",
+  "status": "AUTHOR_SIDE_EXACT_UNREVIEWED_NOT_ADMITTED",
+  "model": "signed twelve-term BRC auxiliary combinatorial recurrence",
+  "inputs": {
+    "git_previous_R354": "b1fcc9f5e9b4b40964d0232bc08952df63963ec4",
+    "kernel_R346": "research_notes/r346_unbounded_interior_tp2_corank301_20261028_emr3/R346_verify.py",
+    "conditional_all_index_R348": "5347e506bd145028d7338e9f7993dcd2a2fed97c"
+  },
+  "execution": {
+    "command": "python R355_verify.py",
+    "smax": 1010,
+    "t_degree_range": [
+      0,
+      673
+    ],
+    "H_r_range": [
+      333,
+      336
+    ],
+    "Q_regression_r": 334,
+    "Q_new_r": 335,
+    "exact_arithmetic": "Python arbitrary precision int / Fraction",
+    "float_sign_tests": false,
+    "degree_next_difference_zero_for_H": true,
+    "top3_ratios_exact_r335": true,
+    "direct_D_minor_checks": 8,
+    "elapsed_seconds": 10.007
+  },
+  "q334": {
+    "coefficients": 669,
+    "strict_positive": true,
+    "sha256": "e92c455f5f097dcdfbce8b5f3268fe5096d0f4d3cff91a0d685993017deee26a"
+  },
+  "q335": {
+    "coefficients": 671,
+    "strict_positive_count": 671,
+    "negative_count": 0,
+    "zero_count": 0,
+    "first_digits": 1170,
+    "last_digits": 1188,
+    "minimum_index": 0,
+    "catalan_top": true,
+    "full_coefficient_text_format": "335,j,decimal_integer\\n",
+    "full_coefficient_sha256": "95e782ee91ff3b097d2af2d02106c53680b825c3290fbb3cb0365437096af943"
+  },
+  "script_sha256": "d0c41f747111297c584f3310a75a3dccfb1a57a89204e8a2a6b0b32e1b86f01f",
+  "script_git_blob_sha1": "d698ef7826373051b936ff142b3954b209e73c6f",
+  "finite_scope_limit": "Q335 complete Newton coefficients conditional on R348 full-index extraction/degree lemma",
+  "native_X6_transfer": false,
+  "Driver_review": "PENDING",
+  "Source_Result": "NOT_PUBLISHED"
+}

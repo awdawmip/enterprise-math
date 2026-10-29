@@ -1,0 +1,64 @@
+{
+  "schema": "R345_BRC_INTERIOR_TP2_300_BAND_SUMMARY_V1",
+  "status": "EXACT_INTEGER_FRACTION_PASS",
+  "research_activity_id": "RA-EMR3-20261028-R345-TP2-300-F4F94AED59B7",
+  "date": "2026-10-28",
+  "global_knowledge_read_ref": "75eb1260e8d5d61a1f075ab675984d3f94d4ea55",
+  "project_base_read_ref": "55abd52563ee8b722ecbdd770547eda9fe64d678",
+  "model": "ordered hexagonal signed 12-term K/J BRC auxiliary; not native X6",
+  "predecessor": "R344, commit 618c5976eea8ab587f21392974d814a11da4ef94",
+  "source_B_s_s_max": 905,
+  "source_exact_coefficient_degrees": "0..603",
+  "H_r": "0..301: 302 complete rows, Newton coefficients all positive, top=6^r, extra difference Δ^(r+1)H_r(0)=0 for each r",
+  "q_delta_certificates": {
+    "old_r": [
+      1,
+      255
+    ],
+    "new_r": [
+      256,
+      300
+    ],
+    "all_r": [
+      1,
+      300
+    ],
+    "previous_positive": 65535,
+    "new_positive": 25065,
+    "total_positive": 90600,
+    "zeros": 0,
+    "negatives": 0,
+    "max_degree_2r": "from R330 unreviewed lemma",
+    "catalan_top_equalities": 300,
+    "sha256_previous": "6b3f762cada37f8b00a51541a2568d93633911d6839fe0fee9bcf2ebf85aa795",
+    "sha256_new": "5835f388f9a78bbcde8bff10a4ff5bfa85364794a8658084efb48526d5fbb136",
+    "sha256_all": "5f897213f1bc399a6f649b7a9bb3932a1d670cbae4eb7baa98a08eee96c9b384",
+    "canonical_lines": "r,i,base10-positive-Delta^iQ_r(0) followed by LF, sorted increasing r then i"
+  },
+  "independent_crosscheck": {
+    "R331_full_33153_Fraction_coefficients": "PASS exact casewise equality and SHA256",
+    "R332_44_band_H0_deltaH0_highest_extra": "PASS all 44",
+    "R344_65535_Q_Newton_coefficients": "PASS exact SHA256 match"
+  },
+  "execution": {
+    "actual_command": "python R345_VERIFY.py --max-r 300 --prior R331_INTERPOLATION_EVIDENCE_256.json --r332 R332_EXACT_EVIDENCE.json --out R345_EVIDENCE.json",
+    "standalone_command": "python R345_VERIFY.py --max-r 300 --out R345_EVIDENCE.json",
+    "actual_local_status": "PASS",
+    "floating_point_signs": false,
+    "actual_source_git_blob_sha1": "0906b3be45773359f04d6ea84982d46fd8243bff",
+    "machine_evidence": "Generated 300 per-r SHA256 entries; new 45 listed in R345_NEW_BAND_CERTIFICATES.csv; program regenerates full JSON"
+  },
+  "mathematical_result": {
+    "adjacent": "M_(q,k)>0 for all k>=1 and 1<=q-k<=300, conditional on R330",
+    "nonadjacent": "D_(q,k)D_(p,l)-D_(q,l)D_(p,k)>0 for 1<=k<l<=q<p, p-k<=301"
+  },
+  "authorization": {
+    "native_owner": "UNVERIFIED: em_control_tasks returned CONTROL_QUOTA",
+    "native_claim": false,
+    "native_result": false,
+    "driver_review": false,
+    "mathematical_admission": false,
+    "P000_and_active_worldview_modified": false
+  },
+  "next": "Check r=301 shifted Q_{301} with H_302, or derive a uniform r/k-co-growing positivity mechanism; independent R330 rational-extraction proof review."
+}

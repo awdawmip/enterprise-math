@@ -1,0 +1,62 @@
+{
+  "schema": "R352_BRC_CORANK333_SUMMARY_V1",
+  "date": "2026-10-28",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE_LOCAL",
+  "native_session_granted": false,
+  "active_owner_verified": false,
+  "source_global": "528875d07cb0dd4cdac66626f455f09ee712f1da",
+  "source_project": "382e6d3005559d808b8ed49cded36d2b01b299b2",
+  "model": "signed twelve-term BRC auxiliary recurrence",
+  "input_prev_pr": "1592@3062723fa7d568d06419b9878bcddb870c98a016",
+  "s_max": 1004,
+  "t_coefficient_range": [
+    0,
+    669
+  ],
+  "H_range": [
+    331,
+    334
+  ],
+  "new_Q333": {
+    "r": 333,
+    "differences": 667,
+    "strictly_positive": 667,
+    "zero": 0,
+    "negative": 0,
+    "min_index": 0,
+    "sha256": "80d7047d63ad845cc1c7f81b8c45f9537bbe7fc2475fd36a7111428113be2e60",
+    "first_digits": 1163,
+    "last_digits": 1181,
+    "catalan_top_exact": true
+  },
+  "regression_Q332": {
+    "r": 332,
+    "differences": 665,
+    "sha256": "2c718b864b329b386227c5d3ccff50dc7f9c6ab5b428a65492f34a9e4736b9c2",
+    "match": true
+  },
+  "direct_D_minor_checks": 8,
+  "H_extra_degree_zero": [
+    331,
+    332,
+    333,
+    334
+  ],
+  "exact_arithmetic": "Python arbitrary integer and Fraction",
+  "float_sign_checks": false,
+  "actual_executed_local_file_git_blob": "3c40a0fc794b5a29424a17eae5b2203c8218d78c",
+  "actual_executed_local_file_sha256": "9d6fb3459ffdc0ebd44d0854e64fe054950457c695a61617cfee5737ffedcf09",
+  "actual_local_evidence_sha256": "85bf1fa13aae425d8bebac64697129b0b9d57fd0891d5eeb0e37f821e80af242",
+  "all_index_inference": "CONDITIONAL_ON_UNREVIEWED_R348_A1_A5",
+  "x6_transfer": "NOT_ESTABLISHED",
+  "mathematical_admission": "NOT_ADMITTED",
+  "next": "Q334 669 complete Newton differences or independent R348 audit",
+  "reproducibility_correction": {
+    "status": "EXECUTED_IN_ACTUAL_PR_DIRECTORY_LAYOUT_PASS",
+    "original_scientific_commit": "d210128f6b490dbbc84fefcf453ca81a313aecdb",
+    "original_source_blob": "842871a293c7f777587e4361abbad6f3f7c4c0fb",
+    "corrected_source_blob": "3c40a0fc794b5a29424a17eae5b2203c8218d78c",
+    "change": "R346 import path relative to source BASE.parent, matching PR checkout structure; verified rerun Q333/Q332 SHA256 identical",
+    "science_claim_unchanged": true
+  }
+}

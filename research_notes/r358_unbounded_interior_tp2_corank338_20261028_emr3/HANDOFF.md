@@ -1,0 +1,11 @@
+# R358 continuation handoff | 2026-10-28
+
+**Starting point:** R357 immutable commit `7956ab8e57c70870847466710cc258b7240e622c`; R348 author-side full-index extraction proof `5347e506bd145028d7338e9f7993dcd2a2fed97c`. GLOBAL_KNOWLEDGE_V1 pinned `main@d40c3832bcd560666362bf55ed58bd71b040c057`, EM main read `4eab4f4b0d65708233ab87bd7477b896aaccc24e`. Reuse existing Draft PR #1592; native owner unknown (`CONTROL_QUOTA`).
+
+**New verified author-side science:** Original signed twelve-term recurrence computed B0..B1019, H336..339. Q338 Newton coefficient list (677/677 positive) SHA256 `a1bfe1e15b52143446f3e9b098278a992815f0e89a80ae14c6b474588723967d`; Q337 previous SHA256 matches. 8 exact raw D-minor checks. Additional 3652/3652 strictly positive *finite* Turán inequalities of Newton coefficients for r=1..48,337,338. ULC is conclusively false for r1: coefficients (2620,2520,900), cross-defect -3081600; Q338 has 619 ULC failures in 675 eligible indices. Proof details in `R358_PROOF.zh-CN.md`; scripts `R358_verify.py` and `R358_logconcavity_probe.py` are the executed sources (Git blobs 7206ed8e and dc465f4e), rely on unchanged R346_verify.py.
+
+**Logical status:** `AUTHOR_SIDE_EXACT / CONDITIONAL_ON_R348 / UNREVIEWED / NOT_ADMITTED`. At k>=1, strips 1<=q-k<=338 follow from full coefficient positivity *if* R348(A1-A5) is correct; finite raw D minors stand directly. This does not settle full two-index TP2, X6 correspondence, or P000. No native CLAIM/Result/Driver promotion. GitHub writer login cannot substitute native owner.
+
+**Next reproducible action:** change target from r338 to r339 in the checker and update prior digest to a1bfe1e1..., validate 679 exact Newton differences and prior Q338 regression; in parallel test ordinary strict Turán inequalities for intermediate 49<=r<=336 and seek a proof or an exact failing index. Do not elevate ULC because r1 is a counterexample. Independently inspect R348 A2-A5 formal extraction proof with truthful contribution overlap.
+
+**Transport/authority:** This is a portable author-side PR artifact, not Source-protected task execution. The exact R358 coefficients, execution logs and per-r probe records are regenerable from the committed code and kept in the local full research archive. Formal Research Activity/source checkpoint and independent Driver review proceed under their own authority.

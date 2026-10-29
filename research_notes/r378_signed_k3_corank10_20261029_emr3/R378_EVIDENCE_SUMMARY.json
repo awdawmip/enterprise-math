@@ -1,0 +1,54 @@
+{
+  "schema": "R378_SIGNED_K3_CORANK10_GLOBAL_PF2_V1",
+  "status": "R378_EXACT_PASS",
+  "source_joint_digest": "a5fa8566861e5259d1a714df1c62661001657c94925fc6789fe730e110ac9915",
+  "r": 10,
+  "eta10": "unique real root T11 on (1844956/1e6,1844957/1e6)",
+  "eta10_refined_bracket": [
+    "2178139942814347317877583491/1180591620717411303424000000",
+    "544534985703586829469395873/295147905179352825856000000"
+  ],
+  "root_uniqueness": "-T11 prime strict positive on bracket; T11 positive before a",
+  "negative_cover": [
+    [
+      "T11",
+      "1844957/1000000",
+      "18749/10000"
+    ],
+    [
+      "T9",
+      "18749/10000",
+      "188/100"
+    ],
+    [
+      "c11",
+      "188/100",
+      "21/10"
+    ],
+    [
+      "c5",
+      "21/10",
+      "13/5"
+    ],
+    [
+      "c0",
+      "13/5",
+      "3"
+    ],
+    [
+      "c0",
+      "3",
+      "+infinity"
+    ]
+  ],
+  "interval_objects": 46,
+  "verified_bernstein_segments": 47,
+  "tested_bernstein_intervals": 48,
+  "positive_bernstein_coefficients": 1243,
+  "max_depth": 1,
+  "exact_bernstein_digest": "23d57f68b649ee25d6216e5ab8b55c6b4610af5dcaf52460c73e2622afddef07",
+  "independent_r369_three_point_equalities": 63,
+  "collapse_at_15_over_8": "c0..c10>0, c11..c20=0, T9<0, T11=0",
+  "scope": "Finite raw D minors, not global D TP2, not all-index Q, not native X6, author-side UNREVIEWED NOT_ADMITTED",
+  "generated_full_evidence": "Run R378_compute.py and R378_verify.py; regenerates R378_COEFFICIENTS.json and R378_EVIDENCE.json with complete exact integer polynomials, rational certificate interval endpoints and tail coefficients."
+}

@@ -1,0 +1,7 @@
+# Enterprise Math R380 接续包（Draft PR #1592）
+
+任务：接续 R379 第十一余阶，不重复旧证书。2026-10-29，本轮完成原始十二项保留符号的 BRC K/J 核（只把 K3[t²] 改为 -8(1+θ)，θ>-1）第十二余阶 r=12 的25项原始 D/M/Newton 有限序列全参数 PF₂ 定理：**PF₂ 当且仅当 -1<θ≤η₁₂**，η₁₂ 为 T13 在 (1853003/10^6,1853004/10^6) 的唯一实根，约1.8530038337280164。证明位于 R380_PROOF.zh-CN.md；复现程序依次 R380_compute.py 和 R380_verify.py；同一 PR 分支上包含原始 R346_verify.py、R369_check.py。计算程序生成全量 R380_COEFFICIENTS.json（25项 c_j、23项 T_j）；验证程序生成逐区间 R380_EVIDENCE.json（57份纯有理 Bernstein 正证书、1739个严格正有理数系数、9个正尾部整数、75次独立路线有理点相等）。二者联合系数 SHA256 6f093d09164d0c0d585cd0aa2a7f3f39721c5d8814ec38d75d066a5df3829ac9，正证书序列 SHA256 9df2bcc99e639689b89ea387a18c78896cc285b8617216d830de755b0162eb6c。重要边界 θ=15/8 时 c13..c24=0、其余 c0..c12>0、T11<0。
+
+读取知识快照 GLOBAL_KNOWLEDGE_V1 main@2d0f4dc371fb593a9ecd18a503d34be660a0be9d；项目 main@b3eb3edeea9285e841dee79fafa840187248233a；当前原始 P000 V5 Git blob bcc2590d3168a28f72e8b9f0b9f1b76faadcd488。GLOBAL P000_STARTUP projection canonical SHA 770e1b... 已旧，后继以实际 project 原件为准，勿修改 P000。上游 R379 immutable 7f95a326502d83201348dd7ff35cf642655605b8。作者侧 GitHub 持久化不构成原生 Source CLAIM、Result、Driver 独立数学接纳；2026-10-29 13:20+08 活跃 owner 查询 CONTROL_QUOTA，native research_authority_granted=false。没有无限 Q 抽取或六维 X6 原生保真证明，来源支路和联合关系必须保留。前12余阶共同 PF₂ 区间 (-1,σ6] 依赖此前作者侧各相图待独立审查。
+
+下一真实问题：r=13 的27项有限原始 D/Newton 序列，优先在 (-1,σ6] 查找精确负系数或负 Turán，再作完整参数分类；平行独立审查 R348/R363 对 θ=15/8 的全指标抽取及次数界。研究证据的再运行输出须保持实际数学范围，不能认领 Source Owner、以新身份独立审阅或伪造原生 X6 推论。
