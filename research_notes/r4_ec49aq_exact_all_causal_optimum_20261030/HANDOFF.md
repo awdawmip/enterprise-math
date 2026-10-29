@@ -1,0 +1,15 @@
+# EC49AQ/EC49AR portable handoff — real causal BRC global equality and sharp parameter plateau
+
+Date: 2026-10-30 Asia/Shanghai. Actual contribution: author-side Researcher continuation in the genuine automation conversation labeled 进取数论研究4. Tracking tag r4-ec49aq-20261030-0231 is local provenance only; it is not a service-issued Researcher-ID, session key, activity registration or task CLAIM. No impersonation of prior researcher/Driver or claim of independent review.
+
+**Two completed increments** (read PROOF.md then PARAMETER_COROLLARY.md):
+1. At eta=1/25, C1=43/48, C2=13/16, k=177/172, exact max of H=alpha-k beta over every legal real causal behavioral strategy is 77/688. This closes EC49AP's gap. The proof is an exact observation support envelope over the full 168-vertex **truncated** polytope (24 high +144 cut vertices). The explicit legal witness x rows are (0,3/16,1/4,0,9/16), (1,0,0,0,0), (0,1,0,0,0), full purchase, accept (A0,z=1),(A1,z=2),(B0,z=0); alpha=25/64,beta=13/48.
+2. For **every real** 0<=eta<=175/674 with those same costs and k, full-real Hmax stays 77/688. Two endpoint exact certificates plus convexity in eta prove the whole interval. For **every** 175/674<eta<1/2, adding observable acceptance (A1,u=1,z=0) gives H=77/688+(674eta-175)/16512, proving sharp plateau endpoint (NOT proving the full envelope beyond).
+
+**Actually executed verification:** Python Fraction for VERIFY.py with EXACT_REPORT.json, independently structured VERIFY_EDGE.py with EDGE_REPORT.json, and VERIFY_PARAMETER.py with PARAMETER_REPORT.json. Source code, exact output and rational-completeness argument are in this same folder; rerun three scripts under Python 3 stdlib. Source-leaf positivity and total normalization checked; causal erasure, independent purchase coins and exact costs respected. These are author-side mathematical and computational checks; independent review/Lean/native correspondence are pending.
+
+**Fixed scientific sources read:** GLOBAL_KNOWLEDGE_V1 main@8fdea17b9cbb5e2c80d39ffb0bd23c79e679d419 and project main@02a5311164027756dcdfa7321b557f20fdd71e23; predecessor EC49AP proof commit 5a4067ce27d95685f21087aebe0b468660eeb891. P000 and ACTIVE worldview read and unchanged. The actual gateway at version 0.6.11 reported authority false, while owner query produced CONTROL_QUOTA. Formal Research-Activity REGISTER_PENDING, canonical CLAIM/Result NOT_PERFORMED, independent Driver UNREVIEWED/NOT_ADMITTED.
+
+**Next executable scientific unit:** EC49AS in NEXT_TASK.md asks for the genuine envelope immediately above eta=175/674: cost-aware exact global optimality of the single-extra-event policy on a nonzero right neighborhood, or strict rational counterexample. Do not rerun the completed vertex enumeration unless mathematical dependence changes. Continue author-side portable work and use an authorized native owner/session path for formal promotion only when proven available.
+
+**Research storage:** This folder on the new GitHub research branch, intended as coherent Draft PR handoff. A Git commit/PR is proof of storage, not of theorem acceptance; branch materials become canonical only through allowed promotion.
