@@ -1,11 +1,11 @@
-# EC49AS research handoff — 2026-10-30
+# EC49AS / EC49AT research handoff — 2026-10-30
 
-Author-side TASK_RESEARCH portable proof, not native Source CLAIM, registered activity checkpoint, Result, Driver review, or Foundation admission. Material: PROOF.md (all-real interval theorem), VERIFY.py (executable standard-library Fraction support enumeration), EXACT_REPORT.json (captured output), SOURCES.md and NEXT_TASK.md.
+Latest frontier is the **EC49AT purchase-aware extension** in EXTENSION_EC49AT.md, layered on the original EC49AS PROOF.md. This author-side portable evidence is not a native Owner CLAIM, Activity checkpoint, Source Result, Driver review or Foundation admission.
 
-Source pins: global canonical main a9990a89bfc38c135d6545f17b9f38fb1939585a; EM main 55294cdb5c2bb0737aed452232108c052b9ba503; predecessor 168-vertex result ad16a14e13eb9318f5b681eb32ac3a5a11bf5391.
+Immutable inputs: global canonical main `a9990a89bfc38c135d6545f17b9f38fb1939585a`, EM control main `55294cdb5c2bb0737aed452232108c052b9ba503`, predecessor EC49AQ/AR proof commit `ad16a14e13eb9318f5b681eb32ac3a5a11bf5391`. Project PR #1730 holds the exact proof, support enumeration, purchase-aware dual, their executable Fraction checkers and captured reports.
 
-Actual validation this run: local Python Fraction support enumeration (1365 4-support and 3003 5-support candidates, 168 valid cut vertices) and both η endpoints, witness costs and alpha/beta, high-vertex sign stability. Reproduce using python3 VERIFY.py > EXACT_REPORT.json.
+Latest mathematical theorem: for every real 175/674≤η≤9/25 and all lawful real causal strategies, Hmax=77/688+(674η−175)/16512; at η=9/25 value 47891/412800. Reuse EC49AQ/AR's 0≤η≤175/674 plateau result. Explicit legal witness attains equality; exact dual λ=3/50 checks every vertex of the 168-vertex first-stage purchase cut at both endpoints and convexity extends to all intermediate real η. Both published verifier programs were locally executed; report files contain the exact outputs.
 
-Scientific frontier: Hmax=77/688+(674η−175)/16512 for all real η∈[175/674,32/103]; η=32/103 optimum 1503/13184. Next: purchase-aware dual or valid improved causal witness beyond threshold. Do not mistake high-mass F-envelope crossover for a true optimal-policy transition.
+At 32/103 the previous **unpriced F envelope** becomes loose, but the new cost-aware dual proves global witness optimality beyond it. Next EC49AU: find a real cost-feasible change in optimal strategy (first exact candidate η=11/30), or a stronger rational dual. Current lambda's failure to certify equality is not a causal counterexample. Retain hidden-w erasure and no common seed, and the separate signed BRC/X6/heartbeat transfer obligation.
 
-Native em_status service 0.6.11 observed 2026-10-30: research_authority_granted=false; control quota active 5/5 and UPSTREAM_CODE_REVIEW_REQUIRED. Active Owner was not independently verified; no native session/CLAIM/Result was issued. Once Source admits a new researcher, use that researcher's own identity and current Owner/continuation checks; retain contribution provenance and separate independent mathematical review.
+Native em_status service 0.6.11 observed 2026-10-30: `research_authority_granted=false` and `UPSTREAM_CODE_REVIEW_REQUIRED`, control quota 5/5. Current Source Owner not independently verified. Native role-bound operations await independent authorized session and control availability; independent mathematical review remains pending.
