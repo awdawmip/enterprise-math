@@ -63,6 +63,34 @@ def ports(p):
             'LIFT_residual':(J+Q)%p}
 
 
+
+def frozen_scalar_observer(p, original_A_mod_p3, expected_defect):
+    """Independent companion-Clausen, high-degree signed cutoff, Delta-R.
+
+    This is a scalar regression of an existing frozen theorem, NOT native H0/B0.
+    """
+    modulus = p**3
+    s = [1]
+    for n in range(p-1):
+        # (1/6)_n (1/3)_n/(2^n*(n!)^2)
+        s.append(s[-1]*(6*n+1)*(3*n+1)*pow(36*(n+1)**2,-1,modulus)%modulus)
+    g = sum(s)%modulus
+    h = sum((12*n+1)*s[n] for n in range(p))%modulus
+    suffix=[0]*(p+1)
+    for n in range(p-1,-1,-1):
+        suffix[n]=(suffix[n+1]+s[n])%modulus
+    high = sum((12*j+1)*s[j]*suffix[p-j] for j in range(1,p))%modulus
+    assert high%(p**2)==0, ('frozen cutoff divisibility',p)
+    assert g%p==0, ('frozen CM0',p)
+    R=high//(p**2)
+    divided=( (g//p)*h-1 )%(p**2)
+    assert divided%p==0, ('accepted UR first digit',p)
+    Delta=divided//p
+    assert (g*h-high)%modulus==original_A_mod_p3, ('original Clausen',p)
+    assert (Delta-R)%p==expected_defect, ('exact defect identity',p)
+    return Delta,R
+
+
 def raw_binomial_recompute(p):
     modulus=p**4
     A=B=0
@@ -81,7 +109,11 @@ def main(limit):
     records=[]
     for p in ps:
         r=ports(p)
+        delta, reflected = frozen_scalar_observer(p, r['A_mod_p3'], r['LIFT_residual'])
         assert r['LIFT_residual']==0, ('finite LIFT falsifier',r)
+        if p in (13,19,373):
+            r['Delta_mod_p']=delta
+            r['Frozen_R_mod_p']=reflected
         if p in (13,19,373):
             aa, bb = raw_binomial_recompute(p)
             # raw independent result is checked vs all four valued source ports
@@ -91,6 +123,7 @@ def main(limit):
     print('TARGET_PRIMES',len(ps),'LIMIT',limit,'CLASS_COUNTS',
           {r:sum(p%24==r for p in ps) for r in (13,19)})
     for x in records:print('EXACT_SAMPLE',x)
+    print('PASS_FROZEN_CLAUSEN_DELTA_MINUS_R_EQUALS_SIGNED_CARRY_FOR_ALL_TARGET_SAMPLES')
     print('STATUS: FINITE EXACT REGRESSION, NOT A PROOF OF CARRY2/LIFT OR NATIVE H0/B0')
 
 if __name__=='__main__':
