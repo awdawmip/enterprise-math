@@ -1,0 +1,92 @@
+{
+  "schema": "PREFIX345_AUDITABLE_EXACT_RATIONAL_RESULT_SUMMARY_V1",
+  "date": "2026-10-29",
+  "status": "PASS_AUTHOR_SIDE_EXACT_RATIONAL",
+  "scope": "static auxiliary S7-3 five-Port complex BRC ordered path pairs, retained phase; fixed exact five port q",
+  "inputs": {
+    "global_knowledge_main": "2bf1702d3a5b60d026c482a41b87a9f8c4a6784f",
+    "enterprise_math_main": "35458bfe0ecaf9e6ec5e1d5914e5736025797629",
+    "upstream": "PREFIX342 source package at scientific merge 1180caebc14a3470bca9624d8cb56d1467d6dc3d",
+    "upstream_script": "verify_prefix342.py",
+    "root_box_radius": "1/10^29",
+    "source_orbits": 6
+  },
+  "checkpoints": [
+    {
+      "h": "31/20",
+      "support": [
+        "0-",
+        "1+",
+        "3+",
+        "4+",
+        "5-"
+      ],
+      "verdict": "EXACT_5_CONTACT_MEB",
+      "strict_bounds": [
+        "all 5 weights > 1/100",
+        "all other 7 endpoint slacks >1/1000",
+        "Im(t_j)<-3/4"
+      ]
+    },
+    {
+      "h": "39/25",
+      "support": [
+        "0-",
+        "1+",
+        "3+",
+        "4+",
+        "5-"
+      ],
+      "verdict": "EXACT_5_POINT_BALL_NOT_FULL_ARC_BALL",
+      "strict_bounds": [
+        "endpoint 3- excess >1/2000"
+      ]
+    },
+    {
+      "h": "39/25",
+      "support": [
+        "0-",
+        "1+",
+        "3+",
+        "3-",
+        "4+",
+        "5-"
+      ],
+      "verdict": "EXACT_6_CONTACT_MEB",
+      "strict_bounds": [
+        "all 6 weights >1/100",
+        "all other 6 endpoint slacks >1/100",
+        "Im(t_j)<-3/4"
+      ]
+    },
+    {
+      "h": "33/20",
+      "support": [
+        "0-",
+        "1+",
+        "3+",
+        "3-",
+        "4+",
+        "5-"
+      ],
+      "verdict": "EXACT_6_CONTACT_MEB",
+      "strict_bounds": [
+        "23503/10000 < MEB^2(T6) <23505/10000",
+        "all 6 weights >1/100",
+        "all other 6 endpoint slacks >1/100",
+        "Im(t_j)<-3/4"
+      ]
+    }
+  ],
+  "method": "exact Banach rational root boxes (upstream reexecuted), integer sqrt isolation at 10^35, Fraction interval Gram inverse Neumann bound e<1e-6 and beta radius <1e-9, positive contact dual, strict convexity of full continuous phase arcs; no angular grid or floating-point inequality",
+  "full_source_claim": "For all 1<h<=33/20, S(h) compact nonempty, no admissible antipodal pair, and MEB^2(S(h))>23503/10000>1062562/458329; uses containment only, not six-orbit exhaustiveness.",
+  "significant_boundary": "The h=33/20 upper bound is for the six constructed source arcs T6 only. Global S may contain extra source orbits. No native X6, Detector, phase quotient or time-transfer assertion.",
+  "source_data": "Full exact Fraction intervals are generated as RESULTS_PREFIX345.json by verify_prefix345.py; remote summary records conservative strict bounds checked in the actual run.",
+  "run_stdout": [
+    "PASS_AUTHOR_SIDE_EXACT_RATIONAL",
+    "h=33/20: 23503/10000 < MEB²(T6) < 23505/10000, and > L",
+    "for every 1<h<=33/20: full fibre MEB²(S(h)) > 23503/10000",
+    "five-contact support fails between h=31/20 and 39/25; six-contact verified at 39/25"
+  ],
+  "authority": "GITHUB_AUTHOR_SIDE_ONLY / UNREVIEWED / NOT_ADMITTED / NO_NATIVE_CLAIM"
+}
