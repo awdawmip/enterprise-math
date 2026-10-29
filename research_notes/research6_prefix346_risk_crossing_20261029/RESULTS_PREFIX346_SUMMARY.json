@@ -1,0 +1,42 @@
+{
+  "schema": "PREFIX346_S7_3_CERTIFIED_T6_CROSSING_BRACKET_SUMMARY_V1",
+  "status": "PASS_AUTHOR_SIDE_EXACT_RATIONAL",
+  "h_left": "166639681/100000000",
+  "h_right": "83319841/50000000",
+  "interval_width": "1/100000000",
+  "L": "1062562/458329",
+  "four_point_labels": [
+    [
+      0,
+      "-"
+    ],
+    [
+      1,
+      "+"
+    ],
+    [
+      3,
+      "-"
+    ],
+    [
+      4,
+      "+"
+    ]
+  ],
+  "weights": [
+    "140253/1000000",
+    "100513/1000000",
+    "363029/1000000",
+    "396205/1000000"
+  ],
+  "certified_left": "V(h_left)>L+1/10000000000",
+  "certified_right": "all twelve strict L-distance_squared slacks>1/1000000000",
+  "analytic_arc_coverage": "all six Im(<c,a_j>/w_j)<-7/10, so whole arcs bounded by endpoints",
+  "crossing_conclusion": "some h in (h_left,h_right) has MEB²(T6(h))=L",
+  "scope_boundary": "all-source S(h) lower certified for every 1<h<=h_left; right upper is only for the six constructed orbits",
+  "precursor_sha256": "9fe2b8126e7ed68f52e91ccb5bcfc2ea06776bb02e3a806e4d27f2ff0c65b524",
+  "checker_sha256": "47e2a3509dc9c544af8aefaa9f2ae99783cbee1850560104fe99bcb0a051b9f7",
+  "original_machine_json_sha256": "2fc0f6f9c22da84a084496dea17df39e6b4db02deaa8778a40fabe9d4be03ef4",
+  "author_side_only": true,
+  "accepted": false
+}
