@@ -1,0 +1,131 @@
+{
+  "A_upper3_determinant": "-32 + 32*I",
+  "P_degree_t": 4,
+  "P_degree_u": 6,
+  "checks": [
+    "matrix_exact",
+    "B_exact",
+    "45_tagged_paths",
+    "quadratic_resultant_symbolic",
+    "recovery_identity_exact",
+    "physical_leading_coeff_obstruction_exact",
+    "Fp13_bezout_exact",
+    "full_discriminant_factorization_exact",
+    "rational_sturm_all_real_roots",
+    "cubic_noncritical_resultants_exact",
+    "Fp37_subresultant_rank_witness",
+    "degree12_nonprojection_gcd_exact"
+  ],
+  "cubic_projection_critical": false,
+  "cubic_regular_certificate": "gcd(C,Res_u(D,A4*A5))=gcd(C,Res_u(D,Q))=gcd(C,Res_u(D,W))=1, gcd_u(P,P') over Q(i)[t]/C has degree one",
+  "dependency_sources": [
+    "PREFIX352 t>=497/1250 no sources",
+    "PREFIX353 t=1/4 two regular sources",
+    "PREFIX354 t=1753/125000 six, t=561/40000 four, t=33467/500000 four, t=13387/200000 two"
+  ],
+  "discriminant_factors": [
+    {
+      "degree": 1,
+      "multiplicity": 6,
+      "primitive_ascending_coefficients": ["200", "3521"]
+    },
+    {
+      "degree": 1,
+      "multiplicity": 6,
+      "primitive_ascending_coefficients": ["2125", "12759"]
+    },
+    {
+      "degree": 1,
+      "multiplicity": 10,
+      "primitive_ascending_coefficients": ["29125", "643"]
+    },
+    {
+      "degree": 3,
+      "multiplicity": 2,
+      "primitive_ascending_coefficients": [
+        "-1890887364703125",
+        "-3151971160768643750",
+        "-1153636440395600981600",
+        "20146977828425934386944"
+      ]
+    },
+    {
+      "degree": 12,
+      "multiplicity": 1,
+      "primitive_ascending_coefficients": [
+        "-28436441841456532304316682119883888810921854690313339233398437500000000",
+        "-5776227609919665228367920056573618169451995373220684242248535156250000000",
+        "105548034469055604800682612571794974685428350971947228908348083496093750000",
+        "26205900272837145279080081152094906949968084331532737592434873199462890625000",
+        "462100842864000574732245405188868399502508643685529573047006187931060791015625",
+        "-2632222084690958962190857227386443504477621403876257840243659869272119140625000",
+        "-12106421437347968074423528475885912869309861269090497482707733839761345214843750",
+        "704560206933091576818097731976205320567202701629000198802059473672883946992187500",
+        "-18491610059767141491319899412650811605813682988011226821808145220541160827480859375",
+        "-426731522433187649107900175307353730444922687917456091638481638274162206196595812500",
+        "1184818157271765802003127245841271183572585282118897693002728124437874560275356972500",
+        "90640551439644799790247873757836521359498416001523358057202788762902637008342480800",
+        "72073133497478816634576565357272095025334258453503003705363023348874787430224325968"
+      ]
+    }
+  ],
+  "discriminant_t_degree": 40,
+  "finite_field_at_cubic": {
+    "C_derivative_image": 32,
+    "C_t_image": 0,
+    "P_coefficients_ascending": [4,4,16,12,17,20,25],
+    "gcd_P_Pprime": "u-12",
+    "i_image": 6,
+    "prime": 37,
+    "t_image": 14
+  },
+  "finite_field_at_t0": {
+    "P0_coefficients_ascending": [4,4,1,4,10,3,11],
+    "bezout_U_ascending": [3,3,12,5,10],
+    "bezout_V_ascending": [7,10,7,9,5,7],
+    "bezout_equals_one": true,
+    "i_image": 5,
+    "prime": 13
+  },
+  "input_q0": ["2125/3721","200/3721","29125/29768","5825/7442","31525/59536"],
+  "input_q_plus": ["4","1","1","1","1"],
+  "native_X6": "NOT_EXECUTED_OR_IMPLIED",
+  "next_question": "independent adversarial review of elimination/field-specialization/fold argument; construct native X6 path-provenance + third-slice-component observer-preserving lift",
+  "path_pairs_with_labels": 45,
+  "positive_candidate_intervals": {
+    "alpha": {
+      "left": "701232981603/50000000000000",
+      "right": "1402465963207/100000000000000",
+      "width": "1/100000000000000"
+    },
+    "beta": {
+      "left": "6693410218037/100000000000000",
+      "right": "3346705109019/50000000000000",
+      "width": "1/100000000000000"
+    },
+    "gamma": {
+      "left": "956334182991/2500000000000",
+      "right": "38253367319641/100000000000000",
+      "width": "1/100000000000000"
+    },
+    "projection_cubic": {
+      "left": "5989905069771/100000000000000",
+      "right": "1497476267443/25000000000000",
+      "width": "1/100000000000000"
+    }
+  },
+  "prior_endpoint_certificates_reexecuted": false,
+  "schema": "EM_PREFIX355_THREE_EXACT_FOLD_THRESHOLDS_V1",
+  "scope": "auxiliary static complex C3 five-Port full exact-intensity fibres modulo U(1), t in [0,1]",
+  "source_count_regimes": {
+    "(alpha,beta)": 4,
+    "(beta,gamma)": 2,
+    "(gamma,1]": 0,
+    "[0,alpha)": 6,
+    "alpha": 5,
+    "beta": 3,
+    "gamma": 1
+  },
+  "status": "AUTHOR_EXACT_SYMBOLIC_DERIVED_ON_PREFIX352_353_354_UNREVIEWED_NOT_ADMITTED",
+  "three_actual_physical_singular_parameters": "alpha,beta,gamma; actual existence uses prior exact source-count certificates"
+}
