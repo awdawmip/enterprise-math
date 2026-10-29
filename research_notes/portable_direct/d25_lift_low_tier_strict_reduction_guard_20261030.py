@@ -63,7 +63,6 @@ def ports(p):
             'LIFT_residual':(J+Q)%p}
 
 
-
 def frozen_scalar_observer(p, original_A_mod_p3, expected_defect):
     """Independent companion-Clausen, high-degree signed cutoff, Delta-R.
 
