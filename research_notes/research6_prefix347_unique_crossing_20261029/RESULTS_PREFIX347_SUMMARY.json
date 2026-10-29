@@ -1,0 +1,63 @@
+{
+  "schema": "PREFIX347_AUTHOR_SIDE_EXACT_RATIONAL_SUMMARY_V1",
+  "date": "2026-10-29",
+  "status": "PASS_AUTHOR_SIDE_EXACT_RATIONAL_T6_STRICT_MONOTONICITY",
+  "scope": "S7-3 auxiliary C^3 retained phase, six independently Banach-isolated source arcs T6(h), not all-source S(h)",
+  "h_bracket": [
+    "166639681/100000000",
+    "83319841/50000000"
+  ],
+  "L": "1062562/458329",
+  "fixed_positive_contact": [
+    [
+      0,
+      "-"
+    ],
+    [
+      1,
+      "+"
+    ],
+    [
+      3,
+      "-"
+    ],
+    [
+      3,
+      "+"
+    ],
+    [
+      4,
+      "+"
+    ]
+  ],
+  "full_interval_exact_bounds": {
+    "gram_inverse_neumann_error": "<1/100000",
+    "beta_enclosure_error": "<1/400000",
+    "min_contact_weight": ">1/10000",
+    "min_seven_noncontact_radius_squared_slack": ">3/1000",
+    "all_six_arc_convexity_coefficients": "Im(<c,a_j>/w_j)<-97/100",
+    "derivative": "-19811/10000 < dMEB²(T6(h))/dh < -19808/10000"
+  },
+  "endpoint_sign_certificates_from_reexecuted_prefix346": {
+    "left": "MEB²(T6(h_left))>L+1/10^10",
+    "right": "MEB²(T6(h_right))<L-1/10^9"
+  },
+  "proved": "Exactly one crossing of L by MEB²(T6(h)) in the entire open h bracket.",
+  "validation": "Python Fraction/isqrt enclosing all h in bracket, 10^-29 six Banach source boxes, 45 labelled ordered BRC terms; prior PREFIX342 and PREFIX346 scripts reexecuted; no floating inequality predicates or angular grids.",
+  "source_sha256": "1d615596147c062ac13f747b7e037711447d7b1bf62ea97f522adb405fde59f2",
+  "full_machine_json_sha256": "33531161855555a854020f6d650f6e4069cb6ebd2e4e23d5b45bb97d3ba738eb",
+  "full_machine_json_generation": "run verify_prefix347.py alongside pinned verify_prefix342.py and verify_prefix346.py, produces RESULTS_PREFIX347.json",
+  "upstream_immutable_commits": [
+    "1180caebc14a3470bca9624d8cb56d1467d6dc3d",
+    "3b7795e5522fd1f57360b4360d6e5d024d8fe8c2"
+  ],
+  "limitations": [
+    "No independent six-source exhaustion -> no full-source S upper bound or crossing uniqueness",
+    "Auxiliary C^3 -> native X6/Detector/time transfer unproved",
+    "Author-side, not Driver-reviewed/admitted"
+  ],
+  "frozen_snapshots": {
+    "global_main": "61759c9e6113a3dc1e1711d8acc80e40c424b3d8",
+    "enterprise_main": "4ffdef264544aeea65b68be98a36ab5a829d9f12"
+  }
+}
