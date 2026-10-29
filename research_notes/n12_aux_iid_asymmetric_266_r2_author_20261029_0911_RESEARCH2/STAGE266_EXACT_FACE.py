@@ -180,3 +180,33 @@ print('history_nodes',sum(h['nodes'] for h in history),
       'terminal_leaves',sum(h['leaves'] for h in history),
       'double_source_exact_normalization',True)
 print('stage265_shared_edge I5,I6 verified full observer equality')
+
+# Forward Stage267: exact, independently ordered-history-verified feasible exterior witness.
+K = policy((0, 1))
+assert K[(1, 2, 0)] == 'Q'
+K[(1, 2, 0)] = 'C'
+obsK = from_counts(K)
+obsK_hist, K_meta = ordered_history_dfs(K)
+assert obsK == obsK_hist
+assert obsK == (
+    F(71046311473,990677827584),F(109630907431,139314069504),
+    F(1722912951593,371504185344),F(63545971253,11609505792))
+cap267 = tuple(F(49,100)*(vectors[(0,1)][i]+vectors[(1,1)][i]) +
+               F(1,50)*obsK[i] for i in range(4))
+assert cap267 == (
+    F(3776724593681,49533891379200),
+    F(1799211749497,2321901158400),
+    F(3355004206763,687970713600),
+    F(3336652788737,580475289600))
+assert cap267[3] > cap267[2]
+outer = cross(vectors[(0,1)],vectors[(1,1)],cap267)
+assert outer == F(-47704025643875,11501279977342425366528)
+assert cross(vectors[(0,1)],vectors[(1,1)],vectors[(0,0)]) > 0
+old_support_gap = lamP*cap267[0]+lamQ*cap267[1]+cap267[3]-H[ZERO]
+assert old_support_gap == F(2449655187043,317396922649804800)
+print('STAGE267_EXACT_FEASIBILITY_WITNESS_PASS')
+print('Stage267 K ordered_nodes',K_meta['nodes'],
+      'terminal_leaves',K_meta['leaves'], 'two_source_normalized',True)
+print('Stage267 candidate_caps',cap267[:2],
+      'feasible_time_Q',cap267[3], 'outside_orient',outer,
+      'old_support_gap',old_support_gap)
