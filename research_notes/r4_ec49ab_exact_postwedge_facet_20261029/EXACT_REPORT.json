@@ -1,0 +1,40 @@
+{
+  "schema": "EC49AB_BIGINT_EXACT_FACET_V1",
+  "status": "AUTHOR_PROVED / EXACT_BIGINT_CHECK_PASS / UNREVIEWED / NOT_ADMITTED",
+  "leaves_each_source": 18,
+  "dual": {
+    "k": "5346/2341",
+    "breakpoint": "17/288",
+    "cap": "5049/37456",
+    "groups": [
+      {
+        "b": "0",
+        "vertices": 144,
+        "equalities": 0,
+        "max_score": "297/2341"
+      },
+      {
+        "b": "1/16",
+        "vertices": 144,
+        "equalities": 48,
+        "max_score": "5049/37456"
+      }
+    ],
+    "vertex_checks": 288,
+    "equality_vertices": 48
+  },
+  "sharp": {
+    "delta_min": "0",
+    "delta_max": "3047/38400",
+    "formula": "alpha_min=3*delta+(5346/2341)*max(0,delta-17/288)"
+  },
+  "witness": {
+    "delta": "1/16",
+    "alpha": "915/4682",
+    "beta": "4979/37456",
+    "C1": "43/48",
+    "C2": "7/8",
+    "extra_accept_probability": "400/2341"
+  },
+  "scope": "Analytic all-real causal-convex reduction is in PROOF.md; finite endpoints checked here. No native BRC/X6 or independent review claim."
+}
