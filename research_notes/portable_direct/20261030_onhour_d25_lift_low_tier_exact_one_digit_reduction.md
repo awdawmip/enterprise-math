@@ -54,9 +54,15 @@ Now use the existing frozen finite Clausen cutoff bridge, not a newly invented o
 
 A_p congruent gh-p^2 R_p mod p^3.
 
-It follows EXACTLY that
+Dividing the already proven cutoff identity (A_p-p)=p(G_p*h-1)-p^2*R_p by p^2 (integrality from accepted UR) gives the **EXACT SAME-OBSERVER DEFECT IDENTITY**
 
-  LIFT: (G_p*h-1)/p congruent R_p mod p
+  Delta_p - R_p = (G_p*h-1)/p - R_p
+                congruent (A_p-p)/p^2
+                congruent J_p+Q_p  (mod p).    (DEFECT-ID)
+
+It follows, preserving the actual signed p-adic defect rather than merely its zero set, that
+
+  LIFT: Delta_p congruent R_p mod p
   iff A_p congruent p mod p^3
   iff J_p+Q_p congruent 0 mod p.   (LIFT-ONE-DIGIT)
 
