@@ -13,7 +13,11 @@ import sympy as sp
 HERE=Path(__file__).resolve().parent
 SRC=HERE.parent/'r384_universal_signed_k3_catalan_top_20261029_emr3'
 sys.path.insert(0,str(SRC if (SRC/'R384_verify.py').is_file() else HERE))
-from R384_verify import build, differences
+from R384_verify import build
+try:
+    from R384_verify import differences
+except ImportError:
+    from R384_verify import difference as differences
 
 theta=F(15,8)
 s,k=sp.symbols('s k')
