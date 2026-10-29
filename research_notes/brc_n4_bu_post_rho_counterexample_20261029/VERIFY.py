@@ -19,7 +19,7 @@ r=b/a
 assert r==(1-cstar)*(4+cstar)/(3*cstar*cstar+8*cstar+14)
 # cstar < c0=(sqrt(5889)-73)/10 implies r>rho, verified without floating point.
 assert 25*5889>383**2
-assert cstar < Q(383,5)/10-Q(73,10)
+assert cstar == Q(383,5)/10-Q(73,10)
 assert Q(0)<A<1 and Q(0)<B<1 and Q(0)<=U<=A and Q(0)<=V<=B and Q(0)<c<1
 h=b*cstar/(4+cstar)
 
