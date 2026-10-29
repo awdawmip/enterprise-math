@@ -142,6 +142,5 @@ def main():
         test_one(p, direct=(p<=67 or p in (83,131,251,3347)))
     print('PASS_GH102_GH103:',len(primes),'primes, complete polynomial coefficient identities, exact G squarefree checks; direct Fermat-quotient finite-log traces selected')
 
-
 if __name__=='__main__':
     main()
