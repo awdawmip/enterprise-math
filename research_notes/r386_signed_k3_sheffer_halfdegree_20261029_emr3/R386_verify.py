@@ -24,7 +24,11 @@ if (SIBLING / 'R384_verify.py').is_file():
 else:
     sys.path.insert(0, str(HERE))
 
-from R384_verify import build, differences  # type: ignore[import-not-found]
+from R384_verify import build  # type: ignore[import-not-found]
+try:
+    from R384_verify import differences  # type: ignore[import-not-found]
+except ImportError:
+    from R384_verify import difference as differences  # type: ignore[import-not-found]
 
 PARAMS = ['-1/2', '0', '1/2', '1', '15/8']
 MAX_R = 16
