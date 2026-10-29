@@ -1,6 +1,6 @@
 # D25 / SECOND-DIGIT-LIFT — exact original 216/2304 fifth-digit sharpness and source-resolved carry
 
-At: 2026-10-30 Asia/Hong_Kong. Research lane: \`chatgpt-research-onhour-enterprise-math-20260923\` (not maintenance). Parent objective: \`ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION\`; Task \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`; publication \`TP2-B6F4FC938FF94941C1B7\`. Frozen **scientific** Source pin \`c47e13e4aba0e006366f989d6334d443f6333ae3\` is unchanged. Classification: **AUTHOR-SIDE / PROVED FIXED-PRIME COUNTEREXAMPLE / EXECUTED FINITE CHECK / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING / SOURCE_CHECKPOINT_PENDING**.
+At: 2026-10-30 Asia/Hong_Kong. Research lane: `chatgpt-research-onhour-enterprise-math-20260923` (not maintenance). Parent objective: `ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION`; Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication `TP2-B6F4FC938FF94941C1B7`. Frozen **scientific** Source pin `c47e13e4aba0e006366f989d6334d443f6333ae3` is unchanged. Classification: **AUTHOR-SIDE / PROVED FIXED-PRIME COUNTEREXAMPLE / EXECUTED FINITE CHECK / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING / SOURCE_CHECKPOINT_PENDING**.
 
 ## Exact statement and new fixed-prime result
 
@@ -66,7 +66,7 @@ The last column is \(T_j/p^{j+1}\pmod p\). Hence all four staged valuations are 
 
 ## Reproducibility and exact finite coverage
 
-Executable source: [\`d25_a216_b2304_p5_source_carry_20261030.py\`](d25_a216_b2304_p5_source_carry_20261030.py). Run \`python d25_a216_b2304_p5_source_carry_20261030.py\` with Python >=3.8, standard library only.
+Executable source: [`d25_a216_b2304_p5_source_carry_20261030.py`](d25_a216_b2304_p5_source_carry_20261030.py). Run `python d25_a216_b2304_p5_source_carry_20261030.py` with Python >=3.8, standard library only.
 
 The two exact original recurrences modulo \(p^5\), valid while \(n+1<p\), are
 \[
@@ -75,7 +75,7 @@ The two exact original recurrences modulo \(p^5\), valid while \(n+1<p\), are
 \]
 All inverted factors are p-units. A sieve exhaustively enumerates all 667 primes with \(5\le p<5000\), of which 166 satisfy \(p\equiv13,19\pmod{24}\). A second code path independently re-evaluates the raw binomial numerator sums at p=13,19,373 and compares both full sums and all four valuation sources. Actual standard-library execution completed with:
 
-\`\`\`text
+```text
 PRIMES_BELOW_5000 667 TARGET_RESIDUE_CLASSES 166
 P4_BRIDGE_FAILURES []
 P5_EXACT_ZERO_PRIMES [5, 7]
@@ -86,7 +86,7 @@ SOURCES [1104071, 676020, 1800307, 720195] CUMULATIVE [1104071, 1780091, 1104299
 P 373 A 2934720761840 B 3393369805886 D 3368096883534 D_OVER_P4 174
 SOURCES [733423539977, 7002596438016, 7147343892256, 2924964479471] CUMULATIVE [733423539977, 515904244900, 443132404063, 3368096883534] CARRY_DIGITS [21, 107, 333, 174]
 PASS_EXACT_A216_B2304_P5_SOURCE_CARRY
-\`\`\`
+```
 
 The 667 p^4 passes constitute exact *finite* support, **not** a proof for all primes. p=13 itself is a complete counterexample to a proposed universal p^5 strengthening, and p=5,7 are observed finite zero exceptions rather than a general law.
 
@@ -94,6 +94,6 @@ The 667 p^4 passes constitute exact *finite* support, **not** a proof for all pr
 
 The original frozen mod p^3 LIFT obligation remains the author-side equivalence \(J_p+C_mH_m\equiv0\pmod p\) for all p≡13,19 (mod24). Prior notes supplied the low two-zone p-adic jet, middle hypergeometric kernel, p-resonant factor three and nonhomogeneous Picard–Fuchs boundary; global all-prime cancellation still needs proof. Do not upgrade this p^5 counterexample to a proof of p^3 LIFT or substitute a stronger bridge for the frozen target.
 
-The **highest-priority native benchmark** remains issue #1559: original fixed p373 H0/B0 divided-power \([X]U\bmod139129\), native module rank and actual semilinear Frobenius/eta, odd signed Green/Hesse observer, same-definition kappa and independent reproduction. On 2026-10-30 this Site reported \`research_authority_granted=false\`, \`write_relay_enabled=false\`; own checkpoint read returned \`ACCESS_DENIED\`. Real Source session/CLAIM/run/request recovery requires its separately authorized exact read. Issue #1559 was OPEN without a confirmed assignee on this run's GitHub read. Author-side GitHub evidence is not a canonical Source checkpoint, Result or review.
+The **highest-priority native benchmark** remains issue #1559: original fixed p373 H0/B0 divided-power \([X]U\bmod139129\), native module rank and actual semilinear Frobenius/eta, odd signed Green/Hesse observer, same-definition kappa and independent reproduction. On 2026-10-30 this Site reported `research_authority_granted=false`, `write_relay_enabled=false`; own checkpoint read returned `ACCESS_DENIED`. Real Source session/CLAIM/run/request recovery requires its separately authorized exact read. Issue #1559 was OPEN without a confirmed assignee on this run's GitHub read. Author-side GitHub evidence is not a canonical Source checkpoint, Result or review.
 
 **Next precise action:** authorized native evaluator takes #1559 and executes the unchanged original class; portable mathematical work should target a *coupled* proof/possible counterexample for \(J_p+C_mH_m\) with the intact source/observer boundary. Any p^4 proof candidate must remain compatible with the demonstrated **nonzero p^5 digit** at 13,19,373. Preserve P000, the ACTIVE worldview and frozen scientific pin.
