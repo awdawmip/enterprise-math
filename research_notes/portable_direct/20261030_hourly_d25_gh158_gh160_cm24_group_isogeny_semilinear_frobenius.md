@@ -30,7 +30,7 @@ For p≡11 (mod 24), E is ordinary and its geometric endomorphism ring is the ma
 
   a_q(E_(B±))=Tr(pi_q)=−(A²−6C²)=6y²−4x².                   (3)
 
-This determines the integer trace *sign* without GH-157's separate binary-form class enumeration or rational-2-torsion sign argument. Tr(Psi)=±4x remains dependent on u and the selected CM orientation; do not falsely fix that sign. For inert p≡19 (mod 24), GH-156 gives pi_q=[p]; (2) yields Psi²=[−2p], hence the supersingular quaternionic Psi has trace 0 and norm 2p.
+This determines the integer trace *sign* without GH-157's separate binary-form class enumeration or rational-2-torsion sign argument. Tr(Psi)=±4x remains dependent on u and the selected CM orientation; do not falsely fix that sign. For inert p≡19 (mod 24), GH-156 gives Tr(pi_q)=2p and Norm(pi_q)=p². The reduced norm of (pi_q−[p]) in the supersingular quaternion division endomorphism algebra is p²+p²−p·(2p)=0; definiteness forces pi_q=[p]. Hence (2) yields Psi²=[−2p], and the quaternionic Psi has trace 0 and norm 2p.
 
 For p=3347=2·40²+3·7², gamma=80+7s has norm 6694=2p and gamma²=6106+1120s. Thus pi_q=−3053±560s, trace −6106, integer #E(F_(3347²))=11,208,516. This is a different author-side proof route to the previously known trace, not a new independently reviewed result.
 
