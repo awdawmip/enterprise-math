@@ -131,6 +131,5 @@ def main():
     print(f'D1={D(1)}; D2={D(2)}; D3={D(3)}; terminal_joint_checks={joint_counts*2}')
     print('STAGE304B_SOURCE_REVEAL_RESET_EXACT_PASS')
 
-
 if __name__ == '__main__':
     main()
