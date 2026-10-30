@@ -40,6 +40,19 @@ def certificate(p):
             tail += 2*(6*(i+k)+1)*Pi*c[k]*zp[i+k]
     tail%=p
 
+    # Independently evaluate the frozen reflected R port from its own
+    # rising-factorial recurrence (C_1=1/10), NOT the new factorial c[k].
+    ca, sum_ca, sum_aca, reflected = pow(10,-1,p), 0, 0, 0
+    for i in range(1,m+1):
+        if i>1:
+            a=i-1
+            ca=ca*36*a*a*pow((6*a+5)*(3*a+2),-1,p)%p
+        sum_ca=(sum_ca+ca)%p
+        sum_aca=(sum_aca+i*ca)%p
+        bi=coeff[i]*zp[i]%p
+        reflected=(reflected+2*bi*((6*i+1)*sum_ca-6*sum_aca))%p
+    assert reflected==tail,(p,reflected,tail)
+
     # Independent original factorial/binomial A216 expression.
     original = sum((6*n+1)*comb(2*n,n)**2*comb(3*n,n)
                    *pow(216,-n,M) for n in range(p))%M
@@ -50,7 +63,8 @@ def certificate(p):
         h=G//p
         assert (6*h*Gprime+p*(h*h-tail))%(p*p)==original//p%(p*p)
     return dict(p=p,m=m,A=original,G=G,Gprime_mod_p2=Gprime%(p*p),
-                boundary_mod_p=tail,CM_zero=G%p==0)
+                boundary_mod_p=tail,frozen_R_mod_p=reflected,
+                CM_zero=G%p==0)
 
 
 if __name__=='__main__':
