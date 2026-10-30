@@ -14,6 +14,8 @@ For every prime `p=6m+1>=7`, put
 ]
 All rational expressions are in `Z_(p)` for `0<=k<p`. Let `x=G_p(1/2)`, `y=G_p'(1/2)`.
 
+The already-published 2026-10-26 Clausen derivative source-port note (commit `2d7bdfd7821d3afac8eaefb4b88bfedca8ff46be`) established the exact truncated convolution `W=M(M+12N)-Q` and original `Q/p²=R_p`. Below is an independent explicit factorial formula for `Q/p²`, plus exact p³ regression; it is **not** a new discovery of the preexisting convolution or original LIFT equivalence.
+
 The classical Clausen identity, as an exact formal-power-series identity over Q, states
 [
  left({}_2F_1(1/6,1/3;1;z)ight)^2
@@ -94,7 +96,11 @@ For all **45** primes `7<=p<500, p≡1 (mod6)`, including **23** in the frozen t
 | 19 | 3 | 1596 | 344 | 12 | 19 |
 | 373 | 62 | 24495656 | 78545 | **196** | 373 |
 
-**Important nonzero boundary:** at p=19 and p=373, dropping `p²τ_p` changes the original p³ arithmetic. At p=373 the value `196` matches the numerical residue of a previously recorded original scalar port, but equality of two numerical residues alone does **not** identify their operators, provenance or mathematical definitions; no such identification is claimed. The original CM class, source labels and signed observer are untouched.
+**Nonzero boundary and exact reconciliation to the frozen port:** at p=19 and p=373, dropping `p²τ_p` changes the original p³ arithmetic. The previously published author-side source alignment [2026-10-26](../portable_direct/20261026_onhour_d25_native_lift_source_port_identity.md) already proved `Q/p² ≡ R_p (mod p)` for the original reflected scalar `R_p`, using the original `B_k=((1/6)_k(1/3)_k)/(2^k(k!)²)` and the same signed cutoff `Q`. The current `B_k=g_k2^{-k}` and `Q=E_p` are **definitionally identical** to those sources. There is also a direct all-target-primes index reconciliation: reindex the high index in (5) by `a=p-k`, so that `1<=a<=i<=m`; then `6(i+k)+1≡6(i-a)+1 (mod p)`, `B_i≡2^{-i}binom(m,i)binom(2m,i)`, and `B_{p-a}/p²≡2^{-(p-a)}c_{p-a}`. The prior independently proved equality `B_{p-a}/p²≡C_a` then yields
+[
+\tau_p\equiv 2\sum_{i=1}^{m}B_i\sum_{a=1}^{i}(1+6(i-a))C_a\equiv R_p\pmod p.
+]
+Thus the `196` at p=373 is an **actual source-aligned equality**, not merely a matching numeric residue. The new contribution of this note is the explicit factorial triangular representation (3)–(5), its direct valuation proof, and an independent original-binomial p³ checker; the underlying Clausen cutoff identity, Source R alignment, and equivalence to LIFT were **already obtained** in the 2026-10-26 author note and are consumed rather than claimed anew. The original CM class, source labels and signed observer remain unchanged.
 
 ## BRC and next exact obligation
 
