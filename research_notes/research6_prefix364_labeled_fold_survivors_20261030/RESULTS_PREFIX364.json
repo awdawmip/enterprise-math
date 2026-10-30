@@ -1,0 +1,45 @@
+{
+  "schema": "EM_PREFIX364_FOUR_BRANCH_EXACT_INTERVAL_CERTIFICATE_V1",
+  "classification": "AUTHOR_SIDE_EXACT_RATIONAL / UNREVIEWED / NOT_ADMITTED",
+  "global_snapshot": "b86a7783db271ebadd217ac6acbd0249653336d3",
+  "project_source_snapshot": "bcd9709cc57f0313c734d0b53110f9f0d6f0cd1a",
+  "span": [
+    "1/16",
+    "33467/500000"
+  ],
+  "interval_segments": 662,
+  "banach_root_boxes": 2648,
+  "survivor_span": [
+    "33467/500000",
+    "7/100"
+  ],
+  "survivor_labels": [
+    "R2",
+    "R3"
+  ],
+  "survivor_segments": 4,
+  "survivor_boxes": 8,
+  "survivor_endpoint_witnesses": 10,
+  "survivor_failed_attempts": 0,
+  "endpoint_witness_boxes": 2652,
+  "failed_adaptive_attempts": 402,
+  "max_K_ceiling_1e9": 515481794,
+  "max_R_ceiling_1e9": 255743,
+  "min_self_mapping_margin_floor_1e9": 4,
+  "r1_Re_v_upper": "-49751841361/50000000000",
+  "r2_Re_v_lower": "-71240759467/100000000000",
+  "uniform_source_labels": [
+    "R0",
+    "R1",
+    "R2",
+    "R3"
+  ],
+  "observer_C_gap_R2_minus_R1_gt": "2/5",
+  "observer_threshold": "(Q1(t)+Q3(t)- (341/200)*Q1(t))/59536",
+  "observer_threshold_margin_each_gt": "1/5",
+  "measurement_additive_noise_abs_le": "1/8",
+  "branch_distinctness": "For every exact-parameter Banach box all 6 label pairs have disjoint real coordinate cubes",
+  "proof_basis": "Fraction-only four-real-variable Banach contractions, exact continuous-parameter bounds and shared endpoint witnesses; initial labeled t=1/16 roots rely on PREFIX362 certified Rouché/lift boxes",
+  "limitation": "Exact full-branch continuation to 0.066934 plus two surviving labels through tb to 0.07; R0/R1 fold pairing follows only when the predecessor H12 exhaustive-unique-ordinary-fold classification is accepted as dependency.",
+  "next": "Obtain a standalone certified Lyapunov-Schmidt or interval-normal-form splice from R0/R1 at 0.066934 to tb, discharging dependency on global H12 uniqueness; then extend R2/R3 to t=1/4."
+}
