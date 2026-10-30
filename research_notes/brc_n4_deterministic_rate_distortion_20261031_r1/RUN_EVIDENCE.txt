@@ -1,0 +1,10 @@
+PASS_BRC_N4_DETERMINISTIC_RATE_DISTORTION_20261031
+Model: original 16 positive K-leaves per law; 6 distinct prepared rows; 6 lawful S23 policies.
+epsilon=0/8; partitions=203; exact minimax deterministic [K=3,4,5,6]=[1/2,1/5,1/40,0]; PASS
+epsilon=1/8; partitions=203; exact minimax deterministic [K=3,4,5,6]=[1/2,1/5,1/40,0]; PASS
+epsilon=2/8; partitions=203; exact minimax deterministic [K=3,4,5,6]=[1/2,1/5,1/40,0]; PASS
+epsilon=4/8; partitions=203; exact minimax deterministic [K=3,4,5,6]=[1/2,1/5,1/40,0]; PASS
+Scope: exhaustive six-row deterministic collision bounds and explicit-code upper checks for six witnesses; analytic data processing extends upper to all legal S23/S2 policies and all real epsilon in [0,1/2].
+Class-preserving stochastic-code result is proved analytically; not inferred from finite enumeration.
+
+Execution: JavaScript source VERIFY.js evaluated inside V8 via eval(verifySource) with integer semantics and explicit assertions. PASS was observed before code blob upload. Exact code blob: 570772bd138bcd613e34296b53915b63df387da7.
