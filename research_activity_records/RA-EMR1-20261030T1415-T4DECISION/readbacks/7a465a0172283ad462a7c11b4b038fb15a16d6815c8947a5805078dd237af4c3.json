@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_n4_t4_terminal_decision_phase_20261030_r1/VERIFY.py",
+    "ref": "ced452250c458a13b2b23faaad4d5d27bd5b191c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "obs-emr1-20261030-t4terminaldecision-verify1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "from fractions import Fraction as F\nfrom itertools import product\n\nq = dict(AU=F(1,6), AV=F(1,3), BU=F(1,4), BV=F(1,4))\nr = dict(AU=(F(9,10),F(11,10)), AV=(F(1,4),)*2,\n         BU=(F(1,5),F(9,5)), BV=(F(2),)*2)\n\ndef put(a,k,v): a[k] = a.get(k,F(0))+v\n\ndef obs(L,u,v,d0,d1):\n    y,c,z={},{},{}\n    for s in q:\n        for j,k in product(range(2),repeat=2):\n            m=q[s]/4*(r[s][j] if L=='P' else 1)\n            if s in ('AV','BV'): a=('E',)\n            elif s=='AU': a=('A',)\n            else: a=('B',)\n            put(c,a,m)\n            put(z,(a[0],j) if s=='BU' else a,m)\n            if s!='BU': put(y,a,m); continue\n            t,d=(u,d0) if j==0 else (v,d1)\n            put(y,('B3',),m*(1-t))\n            put(y,('B4P',k),m*t*d)\n            put(y,('B4Q',k),m*t*(1-d))\n    assert sum(y.values())==sum(c.values())==sum(z.values())==1\n    return y,c,z\n\ndef TV(p,q):\n    return sum((abs(p.get(i,F(0))-q.get(i,F(0))) for i in p.keys()|q.keys()),F(0))/2\n\ndef run(u,v,d0,d1):\n    p,pc,pz=obs('P',u,v,d0,d1)\n    q,qc,qz=obs('Q',u,v,d0,d1)\n    assert pc==qc=={('E',):F(7,12),('A',):F(1,6),('B',):F(1,4)}\n    assert (pz['B',0],pz['B',1],qz['B',0],qz['B',1])==(F(1,40),F(9,40),F(1,8),F(1,8))\n    target=(abs(v-u)+abs(v*d1-u*d0)+abs(v*(1-d1)-u*(1-d0)))/20\n    assert TV(p,q)==target and target<=F(1,10)\n    mid={i:(p.get(i,F(0))+q.get(i,F(0)))/2 for i in p.keys()|q.keys()}\n    assert TV(p,mid)==TV(q,mid)==target/2\n    for L,z,actual in (('P',pz,p),('Q',qz,q)):\n        reconstructed={}\n        for a,m in z.items():\n            if a[0]!='B': put(reconstructed,a,m); continue\n            j=a[1]; t,d=(u,d0) if j==0 else (v,d1)\n            put(reconstructed,('B3',),m*(1-t))\n            for k in range(2):\n                put(reconstructed,('B4P',k),m*t*d/2)\n                put(reconstructed,('B4Q',k),m*t*(1-d)/2)\n        assert TV(actual,reconstructed)==0\n    return target,target/2\n\nfor L in ('P','Q'):\n    raw=[q[s]/4*(r[s][j] if L=='P' else 1) for s in q for j,k in product(range(2),repeat=2)]\n    assert len(raw)==16 and min(raw)>0 and sum(raw)==1\nvalues=[F(0),F(1,4),F(1,2),F(3,4),F(1)]\nfor args in product(values,repeat=4): run(*args)\nassert run(F(1),F(1),F(0),F(1))==(F(1,10),F(1,20))\nassert run(F(1),F(1),F(0),F(0))==(F(0),F(0))\nfor t in values: assert run(t,t,F(0),F(1))==(t/10,t/20)\nprint('PASS_BRC_N4_T4_TERMINAL_DECISION_EXACT_20261030; 16+16 positive source leaves; 625 rational profiles; sharp witness 1/10,1/20; equality phase checked')\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/ced452250c458a13b2b23faaad4d5d27bd5b191c/research_notes/brc_n4_t4_terminal_decision_phase_20261030_r1/VERIFY.py",
+      "encoding": "utf-8",
+      "sha": "f384f34f97ffb4d42c50370f47c4b256b67ec1ba"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}

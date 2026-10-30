@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR1-20261030T1415-T4DECISION",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "ced452250c458a13b2b23faaad4d5d27bd5b191c",
+          "path": "research_notes/brc_n4_t4_terminal_decision_phase_20261030_r1/VERIFY.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "e8d877d559f4b4f09d4e5c28b59acd6c047d3fadbb505ce88129181cf13b9c8c",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "f384f34f97ffb4d42c50370f47c4b256b67ec1ba",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/ced452250c458a13b2b23faaad4d5d27bd5b191c/research_notes/brc_n4_t4_terminal_decision_phase_20261030_r1/VERIFY.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "obs-emr1-20261030-t4terminaldecision-verify1",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR1-20261030T1415-T4DECISION/readbacks/7a465a0172283ad462a7c11b4b038fb15a16d6815c8947a5805078dd237af4c3.json",
+          "verification_receipt_sha256": "7a465a0172283ad462a7c11b4b038fb15a16d6815c8947a5805078dd237af4c3"
+        }
+      ],
+      "event_id": "EMR1-20261030T1415-T4DECISION-VERIFY",
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/ee78d6eedf2044707804bffb78595f302f56cb7a/journal/enterprise-math/2026-10-30/20261030T1422p0800-emr1-t4-decision-phase-ced4522.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-30T06:24:42.074Z",
   "registration_key": "session:emr1-20261030T1415-T4DECISION:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R1-1415C30A",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "emr1-20261030T1415-T4DECISION",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-30T06:24:42.074Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
