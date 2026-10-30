@@ -1,0 +1,72 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX360_EXACT_ORIGINAL_FOLD_INTERVAL_CERTIFICATE_V1",
+  "status": "AUTHOR_SIDE_EXACT_RATIONAL_CERTIFICATE_UNREVIEWED_NOT_ADMITTED",
+  "scope": "Original four real quadratic source-ratio equations for the static auxiliary complex 3x5 model; not native X6/BRC time evolution",
+  "source_pins": {
+    "enterprise_math_main": "f2972ea48c82f39c42fb8e269489d609a36aee4c",
+    "global_knowledge_main": "0e491176513f7ff996d61c71827e2701bad1c225"
+  },
+  "A": [
+    [
+      "4",
+      "4",
+      "0"
+    ],
+    [
+      "0",
+      "-4",
+      "4"
+    ],
+    [
+      "-5 + 3*I",
+      "0",
+      "-3 + I"
+    ],
+    [
+      "-2 - 2*I",
+      "4 + 4*I",
+      "2 + 2*I"
+    ],
+    [
+      "-2",
+      "0",
+      "5 + 2*I"
+    ]
+  ],
+  "Q": [
+    "204144*t + 34000",
+    "56336*t + 3200",
+    "1286*t + 58250",
+    "12936*t + 46600",
+    "28011*t + 31525"
+  ],
+  "critical_t_bracket": [
+    "70123298160345135237/5000000000000000000000",
+    "5609863852827610819/400000000000000000000"
+  ],
+  "center_rationals_as_decimals": [
+    "0.22416323214158283670630785941792808848881523452979999193923620",
+    "-0.24081495053939324356645167760550696020519114581305598219932237",
+    "-1.0263787544104748986987554168176044325688426452963062286001035",
+    "0.72609159911412071647411833780080183354882096701841599155246569",
+    "0.014024659632069027047458493290402341456793930742530287608928365"
+  ],
+  "cube_radius": "1/10^24",
+  "augmented_system": "G(x,t)=(F_1,F_2,F_3,F_4,det(F_x)); F_k=Q1*H_k-Q_{k+1}; H=(|u|^2,|v|^2,|B0+B1*u+B2*v|^2,|D0+D1*u+D2*v|^2)",
+  "exact_rational_certificate": {
+    "contraction_lt_1_over_10": true,
+    "displacement_plus_contraction_r_lt_r": true,
+    "K_lt": "1/1000000000000000000",
+    "d_lt": "1/1000000000000000000000000000000000000",
+    "minor_rank3_sign": "positive",
+    "minor_abs_lower_gt_10pow14": true,
+    "lambda_Ft_sign": "negative",
+    "lambda_Ft_abs_gt_10pow18": true,
+    "lambda_Hessian_ww_sign": "negative",
+    "lambda_Hessian_ww_abs_gt_10pow48": true
+  },
+  "proof_type": "Exact rational interval Banach (uniform augmented Jacobian) + interval adjugate rank/transversality/curvature",
+  "logical_conclusion": "Unique augmented critical (x,t) in box; rank J=3; lambda Ft !=0 and lambda Fxx[w,w] !=0; ordinary fold of F at critical point.",
+  "dependencies": "Prior PREFIX-356 isolates H12 root and confirms no alternative positive H12 root in bracket; PREFIX-355 supplies endpoint 6/4 count. This check is independent for local fold structure.",
+  "boundaries": "No claim of native X6 physical dynamics, global branch pairing beyond local fold, second fold not checked, not reviewed/admitted."
+}
