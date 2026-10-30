@@ -1,0 +1,9 @@
+# R5 next unit: bridge the route-memory witness back to the exact Task action alphabet
+
+The preceding RESEARCH.md establishes an exact two-law, two-LR-collision, four-observer model with FULL/LR equal full-rank R^4 convex hulls but unequal actual real images. Witness: O*=(21/64,11/32,7/2,7/2), seedless LR invariant |eP-eQ|<=|TP-TQ|/8, distance >=1/144. Thirty-two FULL Boolean outputs each equal one of eight LR Boolean outputs, with affine determinant -1/1024.
+
+CRUCIAL SCOPE: first-stage X is a NONTERMINAL ROUTE CHOICE. Both routes survive, unlike a strict stop/continue-only tree. The prior mother task remains OPEN unless the canonical Task allows routing or this gadget is faithfully realized with permitted stop/continue actions.
+
+Next: first inspect the exact canonical mother hard target and live owner when native read/role authority permits. If routing actions are in scope, independently verify this candidate and its error/stop-time kernels against the target; seek independent Driver review, not self-admission. Otherwise try to realize the latent route bit using *only* allowed stop/continue and exogenous history while retaining all observer constraints; do not simply rename route actions as stopping decisions. Use BRC labelled positive P/Q flows and preserve provenance. For each candidate require exact ALL-SIGNED finite-vector convex hull equality before any actual real-image separation claim; then derive a quantified polynomial invariant/Farkas/semialgebraic certificate or a face-fiber surjectivity proof.
+
+Actual authority: native control inventory read CONTROL_QUOTA; session_start STATIC_READONLY_SCOPE_DENIED with operation_sent=false, no native CLAIM, Result or independent Driver review. Frozen GLOBAL_KNOWLEDGE_V1 main@63f701b793312d4d7997eb893a218f9c29c070fb and EM main@f05844fa7a1ed5fa3e75fc98eecd757949bcb3f2. The protected P000 and ACTIVE worldview were not changed.
