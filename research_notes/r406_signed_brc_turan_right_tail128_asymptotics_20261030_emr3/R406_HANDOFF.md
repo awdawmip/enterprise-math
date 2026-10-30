@@ -2,7 +2,7 @@
 
 母目标：在 P000 与 ACTIVE 语义边界内继续探索 Enterprise Math 数学；本研究分支只处理原始十二支路带符号 BRC **辅助组合模型**。
 
-**已完成：** 手工证明对所有固定 `k≥1` 的 `D_(r,r−k)/Cat_r²` 两项渐近式及最终严格正性 `∀k∃R(k)∀r≥R(k)`；精确整数程序证实 `1≤k≤128` 的所有 `r≥k+3` 的严格正性（33,280个严格正的平移系数）。独立内核点核验771次；全文见 `R406_PROOF.zh-CN.md`，源码见 `r406_verify.py`，逐k证书指纹见 `R406_CERT_SUMMARY.json`。
+**已完成：** 手工证明对所有固定 `k≥1` 的 `D_(r,r−k)/Cat_r²` 两项渐近式及最终严格正性 `∀k∃R(k)∀r≥R(k)`；精确整数程序证实 `1≤k≤128` 的所有 `r≥k+3` 的严格正性（33,280个严格正的平移系数）。独立内核点核验771次；全文见 `R406_PROOF.zh-CN.md`，源码见 `r406_verify.py`，逐k证书指纹见 `R406_CERT_MANIFEST.json`。
 
 **来源与强度：** R405 GitHub immutable commit `32818e88b2c377460dc8cbada8957239cc837d30`，R402/R403 模型传递和 R404 正核仍属于各自作者侧未审资料。本轮 `UNREVIEWED / NOT_ADMITTED`，没有原生 CLAIM/Result；Owner 读请求返回 CONTROL_QUOTA；保留协作与独立性信息。完整可重建证据 JSON 的 SHA256 `f3af2a75c59f01b3648f4691c08baef5b1f9bca9efbfb563080edf4893ac89a3`，本地压缩包附完整原始数据。
 
