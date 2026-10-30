@@ -1,0 +1,9 @@
+# Next exact R5 unit — compensating activated L decision gate
+
+Sources: sibling RESEARCH.md, VERIFY.py, EXACT_OUTPUT.txt, predecessor immutable 8a4e2fde8fcd7e81c3cf7d3241cfdead39c07131 at research_notes/brc_r5_observer_fibre_20261031_t0640/RESEARCH.md.
+
+Proved all-real boundary: with L (LR=3/2) truly STOP at t3 or CONTINUE to t4, strictly positive terminal kernels and constant 1/8 L error, FULL and LR time-image/hulls coincide iff ell0=ell1. If unequal, time support separation is abs(ell0-ell1)/8=TV/12; even when equal, four-observer convex hulls differ by signed support gap 1/8. Do not redo fixed L-gate kernel-only search. Parent mother question remains OPEN.
+
+Next candidate: modify a genuinely coupled downstream natural transition/split or source-sensitive *interior* reward at L, with positive P/Q row sums and valid LR multipliers, to cancel signed observer gaps while retaining multiple serial interacting LR mergers and nontrivial source flow. Avoid unrelated sidecar, external seed, zero-probability paths or changed observer target. Derive all-real observer map first; screen time hull, then enumerate deterministic FULL and LR rational four-vectors and require for every FULL vector an exact <=5 LR vertex convex-combination certificate, or an exact rational Farkas separator. Check rank=4. Only then use polynomial/semialgebraic membership to prove an explicit legal FULL witness is outside actual real LR image. Record BRC labelled mass and the minimal residual future observer.
+
+Frozen read snapshots: GLOBAL_KNOWLEDGE_V1 main@09292cceaa714d59e1ddcb3d250509b4b87fd624; EM main@f7f61aa61a5a5ee63061542ff3a5028bf1776c1c. P000/ACTIVE untouched. Native read-only scope rejected session creation pre-submission; Owner query quota blocked. Author-side portable proof/remote storage is not Source CLAIM/Result/Driver admission. Next owner must check actual current control status before formal continuation.
