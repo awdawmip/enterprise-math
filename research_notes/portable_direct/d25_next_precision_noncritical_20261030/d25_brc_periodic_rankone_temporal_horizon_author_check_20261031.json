@@ -1,0 +1,171 @@
+{
+  "schema": "D25_BRC_PERIODIC_TEMPORAL_RANKONE_AUTHOR_CHECK_V1",
+  "date": "2026-10-31",
+  "status": "AUTHOR_EXACT_CHECKED_NOT_NATIVE_UNREVIEWED",
+  "checks": {
+    "sharp_periodic": [
+      {
+        "period": 1,
+        "rank_each_phase": 1,
+        "first_split_length": 2,
+        "witness_word": [
+          0,
+          0
+        ],
+        "a_witness_mass": 48,
+        "b_witness_mass": 60,
+        "word_checks": 7,
+        "equal_pre_split_checks": 3
+      },
+      {
+        "period": 2,
+        "rank_each_phase": 1,
+        "first_split_length": 3,
+        "witness_word": [
+          0,
+          0,
+          0
+        ],
+        "a_witness_mass": 96,
+        "b_witness_mass": 120,
+        "word_checks": 15,
+        "equal_pre_split_checks": 7
+      },
+      {
+        "period": 3,
+        "rank_each_phase": 1,
+        "first_split_length": 4,
+        "witness_word": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "a_witness_mass": 192,
+        "b_witness_mass": 240,
+        "word_checks": 31,
+        "equal_pre_split_checks": 15
+      },
+      {
+        "period": 4,
+        "rank_each_phase": 1,
+        "first_split_length": 5,
+        "witness_word": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "a_witness_mass": 384,
+        "b_witness_mass": 480,
+        "word_checks": 63,
+        "equal_pre_split_checks": 31
+      },
+      {
+        "period": 5,
+        "rank_each_phase": 1,
+        "first_split_length": 6,
+        "witness_word": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "a_witness_mass": 768,
+        "b_witness_mass": 960,
+        "word_checks": 127,
+        "equal_pre_split_checks": 63
+      },
+      {
+        "period": 6,
+        "rank_each_phase": 1,
+        "first_split_length": 7,
+        "witness_word": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "a_witness_mass": 1536,
+        "b_witness_mass": 1920,
+        "word_checks": 255,
+        "equal_pre_split_checks": 127
+      },
+      {
+        "period": 7,
+        "rank_each_phase": 1,
+        "first_split_length": 8,
+        "witness_word": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "a_witness_mass": 3072,
+        "b_witness_mass": 3840,
+        "word_checks": 511,
+        "equal_pre_split_checks": 255
+      }
+    ],
+    "nonperiodic_delay": [
+      {
+        "first_split": 1,
+        "a_witness_mass": 2,
+        "b_witness_mass": 1,
+        "total_mass_each": 5
+      },
+      {
+        "first_split": 2,
+        "a_witness_mass": 4,
+        "b_witness_mass": 2,
+        "total_mass_each": 25
+      },
+      {
+        "first_split": 3,
+        "a_witness_mass": 8,
+        "b_witness_mass": 4,
+        "total_mass_each": 125
+      },
+      {
+        "first_split": 4,
+        "a_witness_mass": 16,
+        "b_witness_mass": 8,
+        "total_mass_each": 625
+      },
+      {
+        "first_split": 5,
+        "a_witness_mass": 32,
+        "b_witness_mass": 16,
+        "total_mass_each": 3125
+      },
+      {
+        "first_split": 6,
+        "a_witness_mass": 64,
+        "b_witness_mass": 32,
+        "total_mass_each": 15625
+      }
+    ],
+    "rankone_factorization": {
+      "parameter_cases": 24,
+      "history_word_checks": 2856
+    },
+    "periodic_phase_lift": {
+      "cases": 12,
+      "lifted_word_checks": 1140,
+      "exact_rank_checks": 12
+    },
+    "total_periodic_word_checks": 1009,
+    "total_pre_split_equalities": 501
+  },
+  "verdict": "PASS"
+}

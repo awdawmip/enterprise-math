@@ -1,0 +1,148 @@
+{
+  "status": "PASS",
+  "type": "AUTHOR_EXACT_INTEGER_CHECK",
+  "date": "2026-10-30",
+  "scope": "nonnormalized positive-integer conditional-private-branch BRC; auxiliary, not native X6",
+  "exhaustive_unequal_masses": {
+    "configurations": 15625,
+    "source_tuples": 187500,
+    "target_row_evaluations": 656250,
+    "nonzero_row_residual_instances": 89530,
+    "nonzero_row_mass_defect_instances": 65736,
+    "nontrivial_bound_equality_instances": 19750
+  },
+  "nonuniform_multistate_history": {
+    "delta": 2,
+    "Rmax": 3,
+    "Rbar": 3,
+    "checks": [
+      {
+        "t": 1,
+        "l1_integer_history_error": 2,
+        "upper_integer": 2,
+        "true_integer_total": 2,
+        "quotient_integer_total": 2
+      },
+      {
+        "t": 2,
+        "l1_integer_history_error": 7,
+        "upper_integer": 12,
+        "true_integer_total": 4,
+        "quotient_integer_total": 5
+      },
+      {
+        "t": 3,
+        "l1_integer_history_error": 20,
+        "upper_integer": 54,
+        "true_integer_total": 8,
+        "quotient_integer_total": 14
+      },
+      {
+        "t": 4,
+        "l1_integer_history_error": 55,
+        "upper_integer": 216,
+        "true_integer_total": 16,
+        "quotient_integer_total": 41
+      },
+      {
+        "t": 5,
+        "l1_integer_history_error": 152,
+        "upper_integer": 810,
+        "true_integer_total": 32,
+        "quotient_integer_total": 122
+      },
+      {
+        "t": 6,
+        "l1_integer_history_error": 427,
+        "upper_integer": 2916,
+        "true_integer_total": 64,
+        "quotient_integer_total": 365
+      },
+      {
+        "t": 7,
+        "l1_integer_history_error": 1220,
+        "upper_integer": 10206,
+        "true_integer_total": 128,
+        "quotient_integer_total": 1094
+      },
+      {
+        "t": 8,
+        "l1_integer_history_error": 3535,
+        "upper_integer": 34992,
+        "true_integer_total": 256,
+        "quotient_integer_total": 3281
+      }
+    ]
+  },
+  "sharp_singleton_history": {
+    "delta": 1,
+    "Rmax": 2,
+    "Rbar": 1,
+    "checks": [
+      {
+        "t": 1,
+        "original_count": 2,
+        "quotient_count": 1,
+        "exact_integer_l1_error": 1,
+        "bound": 1
+      },
+      {
+        "t": 2,
+        "original_count": 4,
+        "quotient_count": 1,
+        "exact_integer_l1_error": 3,
+        "bound": 3
+      },
+      {
+        "t": 3,
+        "original_count": 8,
+        "quotient_count": 1,
+        "exact_integer_l1_error": 7,
+        "bound": 7
+      },
+      {
+        "t": 4,
+        "original_count": 16,
+        "quotient_count": 1,
+        "exact_integer_l1_error": 15,
+        "bound": 15
+      },
+      {
+        "t": 5,
+        "original_count": 32,
+        "quotient_count": 1,
+        "exact_integer_l1_error": 31,
+        "bound": 31
+      },
+      {
+        "t": 6,
+        "original_count": 64,
+        "quotient_count": 1,
+        "exact_integer_l1_error": 63,
+        "bound": 63
+      },
+      {
+        "t": 7,
+        "original_count": 128,
+        "quotient_count": 1,
+        "exact_integer_l1_error": 127,
+        "bound": 127
+      },
+      {
+        "t": 8,
+        "original_count": 256,
+        "quotient_count": 1,
+        "exact_integer_l1_error": 255,
+        "bound": 255
+      },
+      {
+        "t": 9,
+        "original_count": 512,
+        "quotient_count": 1,
+        "exact_integer_l1_error": 511,
+        "bound": 511
+      }
+    ]
+  },
+  "generality": "Theorems follow from tensor-product telescoping and positive-operator recurrence; enumeration only checks stated finite cases."
+}

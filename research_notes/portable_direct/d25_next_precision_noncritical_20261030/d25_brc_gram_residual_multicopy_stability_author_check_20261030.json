@@ -1,0 +1,183 @@
+{
+  "status": "PASS",
+  "type": "AUTHOR_EXACT_INTEGER_CHECK",
+  "date": "2026-10-30",
+  "model": "auxiliary finite positive-integer BRC kernels, conditionally independent private paths; not native X6",
+  "families": [
+    {
+      "sizes": [
+        2,
+        2
+      ],
+      "weights": [
+        1,
+        2
+      ],
+      "configs": 729,
+      "source_tuples": 28431,
+      "target_row_evaluations": 188082,
+      "nontrivial_equality_cases": 2670,
+      "max_integer_bound_slack": 128,
+      "equality_example": {
+        "sizes": [
+          2,
+          2
+        ],
+        "weights": [
+          1,
+          2
+        ],
+        "m": 1,
+        "source": [
+          1
+        ],
+        "lhs": 4,
+        "rhs": 4,
+        "total_mass": 6
+      }
+    },
+    {
+      "sizes": [
+        2,
+        3
+      ],
+      "weights": [
+        2,
+        1
+      ],
+      "configs": 1728,
+      "source_tuples": 20736,
+      "target_row_evaluations": 72576,
+      "nontrivial_equality_cases": 2120,
+      "max_integer_bound_slack": 66,
+      "equality_example": {
+        "sizes": [
+          2,
+          3
+        ],
+        "weights": [
+          2,
+          1
+        ],
+        "m": 1,
+        "source": [
+          1
+        ],
+        "lhs": 4,
+        "rhs": 4,
+        "total_mass": 7
+      }
+    }
+  ],
+  "aggregate_configs": 2457,
+  "aggregate_source_tuples": 49167,
+  "aggregate_target_row_evaluations": 260658,
+  "sharp_one_step_and_horizon": {
+    "D": 2,
+    "one_step_tv": [
+      1,
+      2
+    ],
+    "t_horizon_exact": [
+      {
+        "t": 1,
+        "tv_num": 1,
+        "tv_den": 2,
+        "upper_num": 1,
+        "upper_den": 2
+      },
+      {
+        "t": 2,
+        "tv_num": 3,
+        "tv_den": 4,
+        "upper_num": 3,
+        "upper_den": 4
+      },
+      {
+        "t": 3,
+        "tv_num": 7,
+        "tv_den": 8,
+        "upper_num": 7,
+        "upper_den": 8
+      },
+      {
+        "t": 4,
+        "tv_num": 15,
+        "tv_den": 16,
+        "upper_num": 15,
+        "upper_den": 16
+      },
+      {
+        "t": 5,
+        "tv_num": 31,
+        "tv_den": 32,
+        "upper_num": 31,
+        "upper_den": 32
+      },
+      {
+        "t": 6,
+        "tv_num": 63,
+        "tv_den": 64,
+        "upper_num": 63,
+        "upper_den": 64
+      },
+      {
+        "t": 7,
+        "tv_num": 127,
+        "tv_den": 128,
+        "upper_num": 127,
+        "upper_den": 128
+      },
+      {
+        "t": 8,
+        "tv_num": 255,
+        "tv_den": 256,
+        "upper_num": 255,
+        "upper_den": 256
+      }
+    ]
+  },
+  "variable_total_mass_obstruction": [
+    {
+      "t": 1,
+      "integer_count_from_x": 2,
+      "integer_count_from_r": 1
+    },
+    {
+      "t": 2,
+      "integer_count_from_x": 4,
+      "integer_count_from_r": 1
+    },
+    {
+      "t": 3,
+      "integer_count_from_x": 8,
+      "integer_count_from_r": 1
+    },
+    {
+      "t": 4,
+      "integer_count_from_x": 16,
+      "integer_count_from_r": 1
+    },
+    {
+      "t": 5,
+      "integer_count_from_x": 32,
+      "integer_count_from_r": 1
+    },
+    {
+      "t": 6,
+      "integer_count_from_x": 64,
+      "integer_count_from_r": 1
+    },
+    {
+      "t": 7,
+      "integer_count_from_x": 128,
+      "integer_count_from_r": 1
+    },
+    {
+      "t": 8,
+      "integer_count_from_x": 256,
+      "integer_count_from_r": 1
+    }
+  ],
+  "proof_scope": "General finite-domain theorem is proved in companion Markdown; checks are exact finite cross-checks only."
+}
