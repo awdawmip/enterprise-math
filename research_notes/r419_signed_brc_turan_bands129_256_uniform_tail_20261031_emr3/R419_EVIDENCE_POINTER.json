@@ -1,0 +1,42 @@
+{
+  "schema": "EM_R419_EVIDENCE_POINTER_V1",
+  "date": "2026-10-31",
+  "source_range": {
+    "s_min": 129,
+    "s_max": 256,
+    "r_rule": "integers r>=s+1",
+    "parity_cases": 256
+  },
+  "exact_certificate": {
+    "numerator_positive_coefficients": 49792,
+    "denominator_positive_coefficients": 49792,
+    "boundary_raw_checks": 256,
+    "arithmetic": "exact integers only",
+    "generator": "r419_exact_certify.py",
+    "full_evidence_file": "R419_FULL_EVIDENCE_129_256.json",
+    "full_evidence_bytes": 39387830,
+    "full_evidence_sha256": "bd4829a0bd04a9085c5b4672007f3763cd24fa0ce5d1aee603c719250245172d",
+    "full_row_digest_summary_file": "R419_EVIDENCE_SUMMARY_129_256.json",
+    "full_row_digest_summary_sha256": "c2d07f45bd45bdd8a8b699e716c121a35e4c8e5dbae4b54de105b1e2a7a48aeb"
+  },
+  "independent": {
+    "script": "r419_independent_validation.py",
+    "raw_delta_and_catalan_pairs": 252,
+    "polynomial_identity_pairs": 84,
+    "all_case_digest_and_coefficient_sign_checks": 256
+  },
+  "analytic_theorem": {
+    "s_condition": "integer s>=3",
+    "bound": "r > s+1+3s(s+1)(2s+1)/(4s+1)",
+    "corollary": "for all integers s>=7 and r>=2s^2, D_(r,s)>0",
+    "proof": "R419_PROOF.zh-CN.md"
+  },
+  "origin": {
+    "global_snapshot": "053f10e0e8ce78f013ddc43ab4d62e3382f7744e",
+    "project_snapshot": "42fae018032be0be1b496b749472ead751d624a2",
+    "predecessor_pr_sha": "ba992e845f1239c85d35ec9bff256e2726fd0a61"
+  },
+  "scope": "signed BRC auxiliary combinatorial observable; no native X6 correspondence",
+  "formal_status": "AUTHOR_SIDE_EXACT / UNREVIEWED / NOT_ADMITTED",
+  "persistence_note": "This pointer and deterministic generator are saved to GitHub; full raw coefficient JSON is in the conversation-local zip, not separately uploaded to GitHub."
+}
