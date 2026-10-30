@@ -6,9 +6,9 @@
 
 沿用 R404 Catalan 正核和 R407—R409 的原始十二支路**带符号** BRC K/J→B→D 辅助模型。定义整数 r>=s+1 时
 
-[
+\[
 \delta_{r,s}=[t^r](1-t)(1+t)^{2s}(1+t^2)^{r-s},\quad H_{r,s}=\binom{r+s}{2s}\delta_{r,s},\quad D_{r,s}=H_{r,s}^2-H_{r,s-1}H_{r,s+1}.
-]
+\]
 
 **R410 定理：对全部整数 r>=24，D_(r,23)>0。** 在 R403 signed BRC Jet 传递恒等式成立的条件下，相关退化 Turán 首项严格正且消零阶数为 92；这里不主张原生 X6 的物理对应。
 
@@ -16,24 +16,24 @@
 
 使用 R404 的带符号 Catalan 核（明确的上游依赖）：
 
-[
+\[
 \delta_{r,s}=\sum_{0\le j<s,\;r-s+j\equiv0\pmod 2}
 \binom{s-1}{j}2^{s-1-j}\operatorname{Cat}_{(r-s+j)/2},\quad
 \operatorname{Cat}_n=\binom{2n}{n}/(n+1).
-]
+\]
 
 令 r=2m+ε（ε=0,1），C₀(m)=Cat_(m-1)、C₁(m)=Cat_m、Δ_(s,ε)(m)=δ_(2m+ε,s)/Cε(m)。精确二项式比值给出：
 
-[
+\[
 \frac{D_{r,s}}{[\binom{r+s}{2s}C_\epsilon(m)]^2}
 =\Delta_{s,\epsilon}(m)^2-
 \lambda(r,s)\Delta_{s-1,\epsilon}(m)\Delta_{s+1,\epsilon}(m),
-]
-[
+\]
+\[
 \lambda(r,s)=
 \frac{2s(2s-1)(r+s+1)(r-s)}
 {(2s+2)(2s+1)(r+s)(r-s+1)}.
-]
+\]
 
 取 s=23，分奇偶令 m=12+x、x 为任意非负整数。偶 r=24+2x、奇 r=25+2x。实际运行 `r410_verify.py` 的精确 SymPy 有理函数约分，获得两条恒等式 Fε(x)=Pε(x)/Qε(x)。偶数组两个多项式均为22次；奇数组均为23次。完整**降幂整数系数**及分组校验哈希记录于 `R410_EVIDENCE.json`。两组合计47个分子系数、47个分母系数**全部严格为正**，特别包含常数项及最高次项。
 

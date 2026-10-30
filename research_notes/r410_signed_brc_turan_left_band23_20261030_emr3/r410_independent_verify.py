@@ -1,21 +1,34 @@
 #!/usr/bin/env python3
-"""Independent stdlib integer cross-check. Universal identity is symbolic producer's."""
+"""R410 independent standard-library integer checks of published coefficient certificate.
+
+This tests selected integer values, including outside SymPy producer's r<=120 grid.
+Universal claim continues to rely on producer's exact symbolic rational identity.
+"""
 import json
 from math import comb
 from pathlib import Path
+
 s=23
 J=json.loads(Path(__file__).with_name('R410_EVIDENCE.json').read_text())
 assert J['schema']=='ENTERPRISE_MATH_R410_TURAN_FIXED_S23_ONLY_V1'
+
 def delta_direct(r,s):
     return sum(comb(r-s,j) * ((comb(2*s,r-2*j) if 0<=r-2*j<=2*s else 0) - (comb(2*s,r-2*j-1) if 0<=r-2*j-1<=2*s else 0)) for j in range(r-s+1))
-def catalan(n): return comb(2*n,n)//(n+1)
+
+def catalan(n):
+    return comb(2*n,n)//(n+1)
+
 def delta_kernel(r,s):
     return sum(comb(s-1,j)*2**(s-1-j)*catalan((r-s+j)//2) for j in range(s) if (r-s+j)%2==0)
-def H(r,s): return comb(r+s,2*s)*delta_direct(r,s)
+
+def H(r,s):
+    return comb(r+s,2*s)*delta_direct(r,s)
+
 def eval_poly(coeff,x):
     y=0
     for a in coeff: y=y*x+a
     return y
+
 runs=0
 for c in J['certificates']:
     eps=c['parity']; m0=c['m0']; P=c['numerator_coefficients_desc']; Q=c['denominator_coefficients_desc']
