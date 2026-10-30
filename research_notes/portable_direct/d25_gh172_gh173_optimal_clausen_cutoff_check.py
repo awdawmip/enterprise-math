@@ -100,6 +100,5 @@ def main():
     print('COUNTS mod_p4_direct',len(checked),'frozen_class',166,'fast_p4_scalar',len(extended))
     print('PASS_GH172_GH173_OPTIMAL_CLAUSEN_CUTOFF_SCALAR_CANCELLATION_EXACT')
 
-
 if __name__=='__main__':
     main()
