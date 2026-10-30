@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/r412_signed_brc_turan_left_band25_20261030_emr3/R412_PROOF.zh-CN.md",
+    "ref": "84b736bead9564d65774aab3f03f9af1cc188d9e",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "R412-84B736B-PR1708-OBS-20261030T1232Z",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# R412｜带符号 BRC 辅助组合模型：固定 s=25 的无界余阶 Turán 严格正性\n\n2026-10-30；作者侧可移植精确代数研究。状态：**UNREVIEWED / NOT_ADMITTED**；该定理限定在明确的带符号 BRC 辅助组合模型，不声称已验证原生 X6 动力学或外部物理。复用 R404 Catalan 正核恒等式与 R407 归一化（上游模型传递仍待独立审阅）。\n\n## 命题和证书\n\n对整数 r≥s+1，定义\n\n\\[\n\\delta_{r,s}=[t^r](1-t)(1+t)^{2s}(1+t^2)^{r-s},\\qquad\nH_{r,s}=\\binom{r+s}{2s}\\delta_{r,s},\\qquad\nD_{r,s}=H_{r,s}^2-H_{r,s-1}H_{r,s+1}.\n\\]\n\n**R412 定理：对所有整数 r≥26，有 D_{r,25}>0。**\n\n先用 Catalan 正核恒等式\n\\[\n\\delta_{r,s}=\\sum_{\\substack{0\\le j<s\\\\r-s+j\\equiv0\\pmod2}}\n\\binom{s-1}{j}2^{s-1-j}\\operatorname{Cat}_{(r-s+j)/2},\n\\qquad \\operatorname{Cat}_n=\\frac{\\binom{2n}{n}}{n+1}.\n\\]\n令 r=2m+\\varepsilon，\\varepsilon∈{0,1}，C_0(m)=Cat_{m-1}、C_1(m)=Cat_m，\\Delta_{q,\\varepsilon}(m)=\\delta_{2m+\\varepsilon,q}/C_\\varepsilon(m)。有限 Catalan 比值用精确有理连乘表示，二项式比值严格给出\n\\[\n\\frac{D_{r,s}}{(\\binom{r+s}{2s}C_\\varepsilon(m))^2}\n=\\Delta_{s,\\varepsilon}(m)^2-\\lambda(r,s)\\Delta_{s-1,\\varepsilon}(m)\\Delta_{s+1,\\varepsilon}(m),\n\\]\n\\[\n\\lambda(r,s)=\\frac{2s(2s-1)(r+s+1)(r-s)}\n{(2s+2)(2s+1)(r+s)(r-s+1)}.\n\\]\n\n取 s=25、m=13+x、整数 x≥0，则偶数 r=26+2x、奇数 r=27+2x，正好覆盖全部合法 r。精确符号消元分别得到 F_\\varepsilon(x)=P_\\varepsilon(x)/Q_\\varepsilon(x)，其全部**整数系数**按降幂顺序列在 R412_EVIDENCE.json，复算程序为 r412_verify.py。偶数族 deg(P)=deg(Q)=24，各25个系数严格正；奇数族度数各25，各26个系数严格正。共**51个正分子系数和51个正分母系数**。偶数分子最小系数119239753692458541645824，分母最小5561647104；奇数分子最小119239753692458541645824，分母最小22246588416。\n\n所以每个 x≥0 均有 P_\\varepsilon(x)>0、Q_\\varepsilon(x)>0；二项式与 Catalan 规范化因子同样严格正，得全称命题。全余阶结论来自完整有理恒等式及有限的整系数证书，而非抽样外推。分母无零点问题，因为其系数及常数项均严格正。\n\n## 精确运行和证据范围\n\n实际执行：R412_EXACT_PASS 2 51 51 95 285；覆盖95个原始整数 Turán 等式/符号点、285个独立 Catalan 核精确比较（合法起点至 r≤120）。独立的纯标准库复算返回 R412_INDEPENDENT_INTEGER_PASS 10 points, 30 Catalan-kernel checks；另检查了大于120的点。没有浮点判号。原始证据 R412_EVIDENCE.json 的 SHA256 是 d30954cd5e3131b89164c567c8d7fe4a3a2612587623970d4db1c83d9e55400e。端点整数直接计算 D_(26,25)=102537491612819520304708627904，D_(27,25)=156870621707240393406985401348016，均严格正。\n\n## 边界、接续及来源\n\n联合 R404—R411 固定 s=3..24 和 R406 右距 1≤r−s≤128 的作者侧结果，剩余未覆盖候选域缩为 **s≥26 且 r−s≥129**，首点 (r,s)=(155,26)。在 R403 有符号 jet 传递式成立的额外前提下，对应退化首项消零阶为4s=100；但这一传递与原生 X6 动力学尚未独立审核，本研究并未作物理归因。\n\n下一单元：固定 s=26、所有 r≥27 的正性判定，或推导不依赖逐带证书的统一解析定理/精确反例。保留十二 signed branch 的符号、抵消及 provenance，不把其压缩成仅有正质量的观察。\n\n固定读取的全球知识快照：awdawmip/chatgpt-global-knowledge main@51309f36bdcd96b26f08d9a10153cfca1142ecda；项目快照：awdawmip/enterprise-math main@dcde68d8979770a9aa5d29ef7a0591a98b9913de，已读 P000、ACTIVE 世界观、portable 协议。本轮 GitHub 连接身份 awdawmip；原生服务报告 research_authority_granted=false、CODE_REVIEW_REQUIRED，任务查询 CONTROL_QUOTA，不能确认 Source owner 或取得正式 CLAIM/Result/Driver Review。P000、ACTIVE 未修改。\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/84b736bead9564d65774aab3f03f9af1cc188d9e/research_notes/r412_signed_brc_turan_left_band25_20261030_emr3/R412_PROOF.zh-CN.md",
+      "encoding": "utf-8",
+      "sha": "6226e5748b124e270c32dd571f6004d491cc5338"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
