@@ -1,0 +1,8 @@
+V8 exact BigInt verified execution (2026-10-30):
+PASS_EXACT_BIGINT_BRC_N4_20261030 grid=3645 source_leaves=16 S2_support_D=1/4:4,1/2:3,3/4:5
+
+Independent Python fractions.Fraction executed locally on same model, verified 3^6 * 5=3645 cases, source16 and S2 witnesses:
+S2 witness D= 1/4 active_atoms= 4 T_eps_1/4= 1/16
+S2 witness D= 1/2 active_atoms= 3 T_eps_1/4= 3/40
+S2 witness D= 3/4 active_atoms= 5 T_eps_1/4= 7/80
+EXACT_PASS_BRC_N4_UPPER_EQUALITY_LOWER_CLASSIFICATIONsource_leaves=16grid_strategy_noise_pairs=3645endpoint_witnesses=3+3

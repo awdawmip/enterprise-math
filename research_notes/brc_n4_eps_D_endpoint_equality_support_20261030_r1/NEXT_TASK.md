@@ -1,0 +1,6 @@
+# Next research unit
+Author-proved frontier: exact endpoint deficit identities (A,B1,B2), all-real upper/lower equality classification, and lawful terminal-support minima S2: 4 for 0<D<1/2, 3 for D=1/2, 5 for 1/2<D<1; S23: 5 for every 0<D<1. Source PR #1756 @24fa3d1259bec2362060f70d3b58b80a99526280. Not admitted or independently reviewed.
+
+Next: classify preservation of these exact atomwise conditions under *sequences* of lawful history-adapted stage-4 decisions and compound observation kernels. Establish a minimal finite exact counterexample to an unlicensed history quotient, or prove an explicit conditional-kernel factorization and sufficient-state criterion with its scope. Preserve fair actual K and information-set causality; do not postulate physical K rewrites.
+
+Parallel bridge obligation: specify typed native Heartbeat X6 Cell path+separately typed time to 16-leaf S2/S23 observation map, preserve joint provenance and future-operation composition, or exhibit a precise incompatibility. Require independent review and actual native task authority for formal Result admission.
