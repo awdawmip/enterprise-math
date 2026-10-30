@@ -88,7 +88,7 @@ This proves (B); the derivative of 6d+4pd² is 6+8pd, a p-unit. Solving first mo
 **Stronger signed-residual transport corollary.** The already accepted first digit implies d_p−d_p*∈pZ_p. Linearizing the same polynomial at d_p* gives the precise residual, not just a zero test:
 
 \[
-\boxed{\Delta_p-R_p=\frac{A_p-p}{p^2}
+\boxed{\Delta_p-R_p\equiv\frac{A_p-p}{p^2}
 \equiv6(g\bmod p)^2\,\frac{d_p-d_p^*}{p}\pmod p.} \tag{G}
 \]
 
