@@ -1,0 +1,353 @@
+{
+  "status": "PASS",
+  "scope": "AUTHOR_EXACT_INTEGER_AUXILIARY_BRC_ONLY",
+  "claim": "same numeric strictly-positive reversible transition AND same initial distribution reach sharp uniform 2m-1 distinguishing horizon",
+  "structural_parameter_cases": 18,
+  "exhaustive_word_parameter_domain": {
+    "m": [
+      1,
+      2,
+      3
+    ],
+    "c_d_pairs": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "horizon": "0..2m-1, all 4^t ordered output words"
+  },
+  "exhaustive_word_pair_comparisons": 4365,
+  "larger_m_structural_and_witness_checks": [
+    4,
+    5,
+    6
+  ],
+  "proof_scope": "all integers m>=1,c,d>=1 via parity-reflection of binomial weights and prior integer keep/reset decomposition",
+  "cases": [
+    {
+      "m": 1,
+      "c": 1,
+      "d": 1,
+      "N": 1,
+      "common_initial_weights": [
+        1
+      ],
+      "same_numeric_transition": [
+        [
+          2
+        ]
+      ],
+      "row_sum": 2,
+      "full_word_exhaustive": true
+    },
+    {
+      "m": 1,
+      "c": 2,
+      "d": 1,
+      "N": 1,
+      "common_initial_weights": [
+        1
+      ],
+      "same_numeric_transition": [
+        [
+          3
+        ]
+      ],
+      "row_sum": 3,
+      "full_word_exhaustive": true
+    },
+    {
+      "m": 1,
+      "c": 1,
+      "d": 2,
+      "N": 1,
+      "common_initial_weights": [
+        1
+      ],
+      "same_numeric_transition": [
+        [
+          3
+        ]
+      ],
+      "row_sum": 3,
+      "full_word_exhaustive": true
+    },
+    {
+      "m": 2,
+      "c": 1,
+      "d": 1,
+      "N": 3,
+      "common_initial_weights": [
+        1,
+        3
+      ],
+      "same_numeric_transition": [
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "row_sum": 5,
+      "full_word_exhaustive": true,
+      "m2_all_zero_length3": {
+        "A": 84080,
+        "B": 84110,
+        "first_split_l1": 1920,
+        "total_each": 2048000
+      }
+    },
+    {
+      "m": 2,
+      "c": 2,
+      "d": 1,
+      "N": 3,
+      "common_initial_weights": [
+        1,
+        3
+      ],
+      "same_numeric_transition": [
+        [
+          3,
+          3
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "row_sum": 6,
+      "full_word_exhaustive": true
+    },
+    {
+      "m": 2,
+      "c": 1,
+      "d": 2,
+      "N": 3,
+      "common_initial_weights": [
+        1,
+        3
+      ],
+      "same_numeric_transition": [
+        [
+          3,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "row_sum": 9,
+      "full_word_exhaustive": true
+    },
+    {
+      "m": 3,
+      "c": 1,
+      "d": 1,
+      "N": 5,
+      "common_initial_weights": [
+        1,
+        10,
+        5
+      ],
+      "same_numeric_transition": "exact-form-asserted",
+      "row_sum": 17,
+      "full_word_exhaustive": true
+    },
+    {
+      "m": 3,
+      "c": 2,
+      "d": 1,
+      "N": 5,
+      "common_initial_weights": [
+        1,
+        10,
+        5
+      ],
+      "same_numeric_transition": "exact-form-asserted",
+      "row_sum": 18,
+      "full_word_exhaustive": true
+    },
+    {
+      "m": 3,
+      "c": 1,
+      "d": 2,
+      "N": 5,
+      "common_initial_weights": [
+        1,
+        10,
+        5
+      ],
+      "same_numeric_transition": "exact-form-asserted",
+      "row_sum": 33,
+      "full_word_exhaustive": true
+    },
+    {
+      "m": 4,
+      "c": 1,
+      "d": 1,
+      "N": 7,
+      "common_initial_weights": [
+        1,
+        21,
+        35,
+        7
+      ],
+      "same_numeric_transition": "exact-form-asserted",
+      "row_sum": 65,
+      "full_word_exhaustive": false,
+      "all_zero_first_split_signed_gap": -327600
+    },
+    {
+      "m": 4,
+      "c": 2,
+      "d": 1,
+      "N": 7,
+      "common_initial_weights": [
+        1,
+        21,
+        35,
+        7
+      ],
+      "same_numeric_transition": "exact-form-asserted",
+      "row_sum": 66,
+      "full_word_exhaustive": false,
+      "all_zero_first_split_signed_gap": -21288960
+    },
+    {
+      "m": 4,
+      "c": 1,
+      "d": 2,
+      "N": 7,
+      "common_initial_weights": [
+        1,
+        21,
+        35,
+        7
+      ],
+      "same_numeric_transition": "exact-form-asserted",
+      "row_sum": 129,
+      "full_word_exhaustive": false,
+      "all_zero_first_split_signed_gap": -650160
+    },
+    {
+      "m": 5,
+      "c": 1,
+      "d": 1,
+      "N": 9,
+      "common_initial_weights": [
+        1,
+        36,
+        126,
+        84,
+        9
+      ],
+      "same_numeric_transition": "exact-form-asserted",
+      "row_sum": 257,
+      "full_word_exhaustive": false,
+      "all_zero_first_split_signed_gap": -93260160
+    },
+    {
+      "m": 5,
+      "c": 2,
+      "d": 1,
+      "N": 9,
+      "common_initial_weights": [
+        1,
+        36,
+        126,
+        84,
+        9
+      ],
+      "same_numeric_transition": "exact-form-asserted",
+      "row_sum": 258,
+      "full_word_exhaustive": false,
+      "all_zero_first_split_signed_gap": -23967498240
+    },
+    {
+      "m": 5,
+      "c": 1,
+      "d": 2,
+      "N": 9,
+      "common_initial_weights": [
+        1,
+        36,
+        126,
+        84,
+        9
+      ],
+      "same_numeric_transition": "exact-form-asserted",
+      "row_sum": 513,
+      "full_word_exhaustive": false,
+      "all_zero_first_split_signed_gap": -186157440
+    },
+    {
+      "m": 6,
+      "c": 1,
+      "d": 1,
+      "N": 11,
+      "common_initial_weights": [
+        1,
+        55,
+        330,
+        462,
+        165,
+        11
+      ],
+      "same_numeric_transition": "exact-form-asserted",
+      "row_sum": 1025,
+      "full_word_exhaustive": false,
+      "all_zero_first_split_signed_gap": -40914720000
+    },
+    {
+      "m": 6,
+      "c": 2,
+      "d": 1,
+      "N": 11,
+      "common_initial_weights": [
+        1,
+        55,
+        330,
+        462,
+        165,
+        11
+      ],
+      "same_numeric_transition": "exact-form-asserted",
+      "row_sum": 1026,
+      "full_word_exhaustive": false,
+      "all_zero_first_split_signed_gap": -41937548083200
+    },
+    {
+      "m": 6,
+      "c": 1,
+      "d": 2,
+      "N": 11,
+      "common_initial_weights": [
+        1,
+        55,
+        330,
+        462,
+        165,
+        11
+      ],
+      "same_numeric_transition": "exact-form-asserted",
+      "row_sum": 2049,
+      "full_word_exhaustive": false,
+      "all_zero_first_split_signed_gap": -81789523200
+    }
+  ],
+  "admission": "UNREVIEWED_NOT_ADMITTED_NOT_NATIVE"
+}
