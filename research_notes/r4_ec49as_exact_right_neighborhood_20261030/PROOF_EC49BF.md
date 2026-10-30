@@ -65,3 +65,23 @@ Published VERIFY_EC49BF.py was executed locally with Python Fraction/SymPy 1.14.
 A diagnostic reuse of the prior exact scalar-price checker finds no common price across slabs ending at eta=1/2 for 52 of 196 ordinary edges, including arbitrarily short tested slabs; all 196 admit their own endpoint-only price. This is a **certificate-method obstruction**, not a new feasible strategy. Next EC49BG should classify those 52 edges algebraically and prove or refute Hmax=F on the open interval.
 
 Provenance: GLOBAL_KNOWLEDGE_V1 pinned main@7b33f8066e9993e7c941959a9d738ed405248eb8; Enterprise Math source main@72298ad74a277018c9eda7640abb788b14a77b1d; Draft PR #1730 predecessor branch head read 166b438ab6363eb1d6e91e2a1c845d9058d71d43. P000 and ACTIVE worldview read and unchanged. Native research_authority_granted=false, Owner lookup CONTROL_QUOTA; no Source-native CLAIM, Result, independent review or mathematical admission. Signed BRC/X6/Heartbeat transfer remains separately unproved.
+
+
+## Corollary: rigorous first-order endpoint gap class
+
+Set epsilon=1/2-eta>0 and C=351/2752. The proved upper/lower enclosure gives
+
+    epsilon/[172(1-epsilon)] <= C-Hmax(1/2-epsilon)
+                               <= C-F(1/2-epsilon)
+
+throughout 0<epsilon<=1/200. Direct exact differentiation of the displayed radical formula yields
+
+    F'(1/2) = 1/24 + sqrt(6)/48 = (2+sqrt(6))/48.
+
+Therefore, with no assumption about which interior strategy is optimal,
+
+    1/172 <= liminf_(eta↑1/2) [C-Hmax(eta)]/(1/2-eta)
+          <= limsup_(eta↑1/2) [C-Hmax(eta)]/(1/2-eta)
+          <= (2+sqrt(6))/48.
+
+In particular C-Hmax(eta) is **Theta(1/2-eta)** near the nonnegative-kernel endpoint. This is a rigorous slope **interval**, not a differentiability assertion for Hmax or an identified derivative. The exact derivative above follows from elementary differentiation of F, or direct symbolic substitution.
