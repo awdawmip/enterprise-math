@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR404-20261030T043647Z-3C89B8",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "89cba1614fe75643ffb61e3e715169e2de103528",
+          "path": "research_notes/r404_signed_brc_catalan_kernel_turan_sharp_s3_s5_20261030_emr3/R404_PROOF.zh-CN.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "ee57a09f4f9b2cfa364a15bd9feff6225391b96d607496b21d9fedda7ef0c557",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "a5641008e04fe9c6ccebf41455770c1d417e3a82",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/89cba1614fe75643ffb61e3e715169e2de103528/research_notes/r404_signed_brc_catalan_kernel_turan_sharp_s3_s5_20261030_emr3/R404_PROOF.zh-CN.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "R404-3C89B8-PR1708-OBS-20261030T0436Z",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR404-20261030T043647Z-3C89B8/readbacks/e7a89d12eba76cf734abf9dfb82b4cc9be74af1b068b426d9766c4af4cc394f0.json",
+          "verification_receipt_sha256": "e7a89d12eba76cf734abf9dfb82b4cc9be74af1b068b426d9766c4af4cc394f0"
+        }
+      ],
+      "event_id": "R404-PROOF-20261030-3C89B8",
+      "kb_sources": [
+        "journal/enterprise-math/2026-10-30/20261030T123600+0800-r404-catalan-kernel-turan-sharpness-emr3.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-30T04:36:47Z",
   "registration_key": "session:local-chatgpt-R404-20261030T0424Z-3C89B8:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R404-3C89B8",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-chatgpt-R404-20261030T0424Z-3C89B8",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-30T04:36:47Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
