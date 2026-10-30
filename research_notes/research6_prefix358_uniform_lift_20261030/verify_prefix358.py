@@ -23,7 +23,7 @@ H = [x[0]**2+x[1]**2, x[2]**2+x[3]**2]
 for k in range(2):
     b0,b1,b2 = list(B.row(k))
     h_re = S.re(b0)+S.re(b1)*x[0]-S.im(b1)*x[1]+S.re(b2)*x[2]-S.im(b2)*x[3]
-    h_im = S.im(b0)+S.im(b1)*x[0]+S.re(b1)*x[1]+S.im(b1)*x[1]+S.im(b2)*x[2]+S.re(b2)*x[3]
+    h_im = S.im(b0)+S.im(b1)*x[0]+S.re(b1)*x[1]+S.im(b2)*x[2]+S.re(b2)*x[3]
     H.append(S.expand(h_re*h_re+h_im*h_im))
 F = S.Matrix([S.expand(Q[0]*H[k]-Q[k+1]) for k in range(4)])
 J = F.jacobian(x)
