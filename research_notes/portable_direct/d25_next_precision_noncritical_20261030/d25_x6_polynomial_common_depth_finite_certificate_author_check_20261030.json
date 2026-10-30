@@ -1,0 +1,283 @@
+{
+  "candidate_count": 6,
+  "cases": {
+    "common_axis_depth_quadratic_safe": {
+      "all_integer_states_relative_descends": true,
+      "declared_total_degree": 2,
+      "difference_nonzero_monomial_count": 0,
+      "difference_polynomial_coefficients": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "finite_exact_interpolation_grid_side": 2,
+      "first_failure_witness": null,
+      "grid_points_checked": 64,
+      "nonzero_grid_witness_count": 0
+    },
+    "depth_quadratic_bad": {
+      "all_integer_states_relative_descends": false,
+      "declared_total_degree": 2,
+      "difference_nonzero_monomial_count": 2,
+      "difference_polynomial_coefficients": [
+        [
+          {
+            "coefficient": 1,
+            "exp": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": 2,
+            "exp": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "finite_exact_interpolation_grid_side": 2,
+      "first_failure_witness": {
+        "h": 0,
+        "q": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "relative_one_step_difference": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "same_initial_relative_observation": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "z": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "z_plus_delta": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "grid_points_checked": 64,
+      "nonzero_grid_witness_count": 64
+    },
+    "mixed_depth_cubic_bad": {
+      "all_integer_states_relative_descends": false,
+      "declared_total_degree": 3,
+      "difference_nonzero_monomial_count": 2,
+      "difference_polynomial_coefficients": [
+        [
+          {
+            "coefficient": 1,
+            "exp": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "coefficient": 2,
+            "exp": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          }
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "finite_exact_interpolation_grid_side": 3,
+      "first_failure_witness": {
+        "h": 0,
+        "q": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "relative_one_step_difference": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "same_initial_relative_observation": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "z": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "z_plus_delta": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "grid_points_checked": 729,
+      "nonzero_grid_witness_count": 486
+    },
+    "mixed_depth_quadratic_bad": {
+      "all_integer_states_relative_descends": false,
+      "declared_total_degree": 2,
+      "difference_nonzero_monomial_count": 1,
+      "difference_polynomial_coefficients": [
+        [
+          {
+            "coefficient": 1,
+            "exp": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        [],
+        [],
+        [],
+        []
+      ],
+      "finite_exact_interpolation_grid_side": 2,
+      "first_failure_witness": {
+        "h": 0,
+        "q": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "relative_one_step_difference": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "same_initial_relative_observation": [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "z": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "z_plus_delta": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "grid_points_checked": 64,
+      "nonzero_grid_witness_count": 32
+    },
+    "relative_cubic_safe": {
+      "all_integer_states_relative_descends": true,
+      "declared_total_degree": 3,
+      "difference_nonzero_monomial_count": 0,
+      "difference_polynomial_coefficients": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "finite_exact_interpolation_grid_side": 3,
+      "first_failure_witness": null,
+      "grid_points_checked": 729,
+      "nonzero_grid_witness_count": 0
+    },
+    "relative_quadratic_safe": {
+      "all_integer_states_relative_descends": true,
+      "declared_total_degree": 2,
+      "difference_nonzero_monomial_count": 0,
+      "difference_polynomial_coefficients": [
+        [],
+        [],
+        [],
+        [],
+        []
+      ],
+      "finite_exact_interpolation_grid_side": 2,
+      "first_failure_witness": null,
+      "grid_points_checked": 64,
+      "nonzero_grid_witness_count": 0
+    }
+  },
+  "date": "2026-10-30",
+  "identity": "delta(q,h)=D[T(Eq+(h+1)delta)-T(Eq+h delta)]",
+  "mode": "AUTHOR_EXACT_INTEGER_SYMBOLIC_AND_GRID",
+  "schema": "D25_X6_POLYNOMIAL_QUOTIENT_EXACT_GRID_AUTHOR_CHECK_V1",
+  "scope": "Declared Z6 polynomial candidates only, not an actual native heartbeat program",
+  "state_pair_grid_checks": 1714,
+  "status": "PASS"
+}
