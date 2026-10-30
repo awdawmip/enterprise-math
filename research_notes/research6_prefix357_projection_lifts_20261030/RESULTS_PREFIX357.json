@@ -1,0 +1,51 @@
+{
+  "schema": "PREFIX357_EXACT_CUBIC_PROJECTION_CERTIFICATE_V1",
+  "status": "AUTHOR_SIDE_EXACT_SYMBOLIC_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "model": "static auxiliary complex 3D five-Port intensity inverse problem, global U(1) quotient",
+  "interval_t": "0 <= t <= 1/4",
+  "matrix_A": [
+    "4,4,0",
+    "0,-4,4",
+    "-5+3i,0,-3+i",
+    "-2-2i,4+4i,2+2i",
+    "-2,0,5+2i"
+  ],
+  "Q_numerators": [
+    "34000+204144*t",
+    "3200+56336*t",
+    "58250+1286*t",
+    "46600+12936*t",
+    "31525+28011*t"
+  ],
+  "common_denominator": 59536,
+  "H3_desc": [
+    "20146977828425934386944",
+    "-1153636440395600981600",
+    "-3151971160768643750",
+    "-1890887364703125"
+  ],
+  "tc_unique_real_root_open_interval": [
+    "0.0598990506977195435624",
+    "0.0598990506977195435625"
+  ],
+  "tc_interval_width": "10^-22",
+  "proof_recomputed": {
+    "cubic_irreducible_over_Q_i": true,
+    "gcd_D_E_over_K_u": "monic degree 1, u-u0",
+    "gcd_P_Pu_over_K_u": "monic degree 1, u-u0",
+    "P_uu_u0_nonzero": true,
+    "physical_u_relation": "Q1*u0*conjugate(u0)=Q2",
+    "F5_U_v_proportional_to_F4_U_v": true,
+    "F4_U_v_reversed_conjugate_symmetry": true,
+    "strict_interval_upper_bound_G": "G=Q1*|b|^2-4Q3*|a|^2 < -10^14",
+    "strict_interval_upper_bound_separation_test": "5G+Q1*|a|^2<0",
+    "port3_two_distinct_physical_lifts": "|v1-v2|^2>1/5",
+    "original_jacobian_resultant_in_cubic_field_nonzero": true
+  },
+  "result": "H3 is a nonsingular physical projection collision; unique projected double root has two distinct physical regular v-lifts",
+  "full_interval_classification": "conditional on PREFIX356 exact H12/H3 discriminant exhaustion and PREFIX354/355 endpoint regular source counts: 6/4/2 physical source orbits between two folds; only H12 roots physically singular",
+  "BRC_carrier": "five port labels and source identity retained; projection to u alone is lossy at tc",
+  "native_X6_transfer": "NOT_ESTABLISHED",
+  "independent_Driver_review": "PENDING",
+  "reference_source": "README_PREFIX357.zh-CN.md; verify_prefix357.py; RUN_PREFIX357.txt; predecessor PREFIX356 verify_prefix356.py"
+}
