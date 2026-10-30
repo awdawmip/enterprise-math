@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_n4_bu_t4_probe_two_law_deficiency_20261030_emr1/VERIFY_REPAIR.py",
+    "ref": "94873d536809ab0a304ad16d0b312ddb72f5a1e7",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "obs-emr1-20261030T0915-T4repair-source",
+  "result": {
+    "structuredContent": {
+      "content": "\"\"\"Finite exact BU-fiber two-law repair theorem, 2026-10-30.\n\nExternal 16-leaf source; distributional vs pathwise information clearly separated.\n\"\"\"\nfrom fractions import Fraction as F\nfrom itertools import combinations\n\nq = (F(1,4),)*4   # BU conditional Q law: (j0k0,j0k1,j1k0,j1k1)\np = (F(1,20),F(1,20),F(9,20),F(9,20))\n\ndef tv(x,y):\n    return sum((abs(a-b) for a,b in zip(x,y)),F())/2\n\nassert sum(p)==sum(q)==1\nassert tv(p,q)==F(2,5)\n\n# Blackwell regeneration from one retained bit j, using a single kernel\n# K(k=0|j)=K(k=1|j)=1/2, valid under BOTH P and Q.\nfor law in (p,q):\n    j=(law[0]+law[1],law[2]+law[3])\n    reconstructed=(j[0]/2,j[0]/2,j[1]/2,j[1]/2)\n    assert reconstructed==law\n    for mask in range(16):\n        assert sum((law[i] for i in range(4) if mask & (1<<i)),F()) == sum((reconstructed[i] for i in range(4) if mask & (1<<i)),F())\n\nassert (p[2]+p[3],q[2]+q[3])==(F(9,10),F(1,2))\n\n# No-BU-repair common decoder: triangle inequality gives minmax >= TV(P,Q)/2.\n# The arithmetic midpoint attains the bound for the *full* leaf distribution.\nmid=tuple((u+v)/2 for u,v in zip(p,q))\nassert mid==(F(3,20),F(3,20),F(7,20),F(7,20))\nassert tv(p,mid)==tv(q,mid)==F(1,5)\nm=F(1,4)\nassert m*F(1,5)==F(1,20)\n\n# Pathwise deterministic factorization for all 16 Boolean queries:\n# any two leaves merged would be distinguished by a singleton indicator,\n# hence four distinct local classes (two bits) are necessary and sufficient.\nfor i,j in combinations(range(4),2):\n    assert any((int(bool(mask&(1<<i))) != int(bool(mask&(1<<j)))) for mask in range(16))\nassert len(set(range(4)))==4\n\nm_old=F(71691,2414000)\nassert m_old/F(5)==F(71691,12070000)\n\nprint(\"BU_COND_P=\",','.join(map(str,p)))\nprint(\"BU_COND_Q=\",','.join(map(str,q)))\nprint(\"BU_COND_TV_PQ=2/5\")\nprint(\"ONE_BIT_J_REGENERATION=EXACT_BOTH_LAWS_ALL_16_BOOLEAN_QUERIES\")\nprint(\"ZERO_BIT_FULL_LEAF_DECODER_MIDPOINT=\",','.join(map(str,mid)))\nprint(\"ZERO_BIT_CONDITIONAL_MINIMAX_RADIUS=1/5\")\nprint(\"ZERO_BIT_UNCONDITIONAL_G0_MINIMAX_RADIUS=1/20\")\nprint(\"PATHWISE_ALL_QUERY_MIN_CLASSES=4_BITS=2\")\nprint(\"OLD_OPTIMUM_STRATEGY_ZERO_BIT_BU_DEFICIENCY=71691/12070000\")\nprint(\"PASS_EXACT_BRC_N4_BU_MINIMAL_STATISTICAL_REPAIR\")\n",
+      "display_title": "VERIFY_REPAIR.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/94873d536809ab0a304ad16d0b312ddb72f5a1e7/research_notes/brc_n4_bu_t4_probe_two_law_deficiency_20261030_emr1/VERIFY_REPAIR.py",
+      "encoding": "utf-8",
+      "sha": "6ab41f1b89c708000bbbb27496810269e294c9e8"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
