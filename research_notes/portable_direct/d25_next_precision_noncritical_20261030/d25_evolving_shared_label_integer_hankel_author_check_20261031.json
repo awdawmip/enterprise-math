@@ -1,0 +1,173 @@
+{
+  "classification": "AUTHOR_EXACT_CHECKED_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "date": "2026-10-31",
+  "delayed_counterexample": {
+    "basis_certificate": {
+      "basis_lengths": [
+        0,
+        1,
+        2,
+        2,
+        3,
+        3
+      ],
+      "basis_words": [
+        "ε",
+        "0",
+        "00",
+        "10",
+        "000",
+        "010"
+      ],
+      "equivalent": false,
+      "nonzero_basis_discrepancies": [
+        {
+          "difference": 32,
+          "word": "000"
+        },
+        {
+          "difference": 32,
+          "word": "010"
+        }
+      ],
+      "rank": 6
+    },
+    "first_difference_length": 3,
+    "first_distinguishing_word": "000",
+    "initial_weights": [
+      1,
+      0,
+      0
+    ],
+    "k_A": [
+      0,
+      0,
+      1
+    ],
+    "k_B": [
+      0,
+      0,
+      -1
+    ],
+    "length_0_3": [
+      {
+        "L1": 0,
+        "mass_a": 1,
+        "mass_b": 1
+      },
+      {
+        "L1": 0,
+        "mass_a": 16,
+        "mass_b": 16
+      },
+      {
+        "L1": 0,
+        "mass_a": 256,
+        "mass_b": 256
+      },
+      {
+        "L1": 2048,
+        "mass_a": 4096,
+        "mass_b": 4096
+      }
+    ],
+    "transition": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "exact_ground_truth_words_examined_until_first_difference": 31486,
+  "exact_span_proof": "Q-linear column closure of block difference representation; never signed BRC path counts",
+  "exhaustive_binary_transition_parameter_tests": 1296,
+  "general_bound": "all words length at most m_A+m_B-1; same m gives 2m-1",
+  "max_basis_rank_in_exhaustive_cases": 4,
+  "model": "integer BRC fixed two-source 2x2 emission couplings; evolving finite shared label with full post-emission integer transitions",
+  "reset_counterexample": {
+    "basis_certificate": {
+      "basis_lengths": [
+        0,
+        1,
+        2,
+        2
+      ],
+      "basis_words": [
+        "ε",
+        "0",
+        "00",
+        "10"
+      ],
+      "equivalent": false,
+      "nonzero_basis_discrepancies": [
+        {
+          "difference": 16,
+          "word": "00"
+        },
+        {
+          "difference": 16,
+          "word": "10"
+        }
+      ],
+      "rank": 4
+    },
+    "initial_weights": [
+      1,
+      1
+    ],
+    "k_A": [
+      1,
+      -1
+    ],
+    "k_B": [
+      -1,
+      1
+    ],
+    "length_0": {
+      "L1": 0,
+      "mass_a": 2,
+      "mass_b": 2
+    },
+    "length_1": {
+      "L1": 0,
+      "mass_a": 32,
+      "mass_b": 32
+    },
+    "length_2": {
+      "L1": 256,
+      "mass_a": 512,
+      "mass_b": 512
+    },
+    "same_initial_histogram": true,
+    "transition": [
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ]
+  },
+  "scope": [
+    "finite label set",
+    "integer nonnegative path kernels",
+    "fully observed ordered time words",
+    "fixed observer and post-emission label transition law",
+    "author computation only"
+  ],
+  "status": "PASS",
+  "three_label_full_horizon_5_comparisons": 48
+}
