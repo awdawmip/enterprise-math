@@ -1,0 +1,20 @@
+RUN_EVIDENCE — author-side BigInt exact execution on 2026-10-31 Asia/Shanghai
+Execution: in-process V8 JavaScript verify() defined in the tool execution; published VERIFY.js is the function's verbatim toString() plus its display wrapper. No Python/native BRC physics runtime was invoked.
+{
+  "status": "PASS_BRC_N4_COARSE_TERMINAL_EXACT_RANK",
+  "strict_positive_leaves": 16,
+  "fixed_policy_rank": 4,
+  "universal_policy_rank": 6,
+  "minor_determinant": "1/50",
+  "noise_values": [
+    "0/1",
+    "1/8",
+    "1/4",
+    "1/2"
+  ],
+  "fixed_factorizations": 32,
+  "legal_S23_deterministic_stage3_policies": 64,
+  "policy_state_checks": 2048
+}
+Coverage: 16 positive source leaves and exact P/Q normalization; four fixed-W factorization checks at each of four epsilon values; rank computation; one exact six-policy minor; 64 lawful stage-three S23 deterministic decision policies × 8 prepared states × 4 noise values = 2048 exact source-state/strategy factorization comparisons.
+Real-domain and full S2/S23 statements have separate analytic proof. These finite checks alone do not prove an infinite family.
