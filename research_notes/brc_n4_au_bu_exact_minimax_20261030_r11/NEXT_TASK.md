@@ -1,0 +1,7 @@
+# Next smallest independent scientific question, 2026-10-30
+
+The exact external finite BRC N=4 minmax with four-field observer (T,Decision,Z_BU,Z_AU) is now analytically closed at 71691/2414000 for a=961/1000,b=151/1000, subject to the original instantaneous behavioral S2/S23 information-set semantics and K' reduction of PR #1735. New source: this directory's PROOF.md; do not repeat the numerical search or prove again the already closed inequality.
+
+Next mathematical unit: define a **minimal genuinely downstream time-four readout** (e.g. an additional observable depending on T=4 and one j/k leaf outcome) and determine whether the same K' remains a target-fixing, lawful S23 pushforward; if it fails, exhibit a specific lawful rational original S2 policy and compute all sixteen P/Q leaf masses, the original/refined joint-observer TV vectors, and a candidate smallest provenance/timing repair coordinate. Distinguish 'this K' fails' from 'no sufficient reduction exists'. Before any X6 interpretation, provide an explicit P000 affine-Z6 cell-space embedding, observer and future-operation preservation certificate, and separately typed time semantics.
+
+Independent mathematical reviewer: reconstruct the five observed atoms, rederive both event-mask duals from raw leaves rather than author formulas, audit S2/S23 current-likelihood-ratio decision measurability, boundary policies and the P000 native scope. Any formal claim/Result/review must use current real identity/Owner permissions and cannot be implied by this branch/PR.
