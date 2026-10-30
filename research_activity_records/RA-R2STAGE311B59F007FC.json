@@ -18,5 +18,35 @@
     "working_truth": false,
     "mathematical_acceptance": false
   },
-  "checkpoints": []
+  "checkpoints": [
+    {
+      "event_id": "EV-R2-STAGE311B-59F007FC",
+      "state": "EM_REPRESENTED",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "59f007fce6daee3d2cfef9b3575f9c3101571dba",
+          "path": "research_notes/n12_aux_iid_stage311b_nonlinear_tv_localization_20261030_RESEARCH2/REPRO_STAGE311B_EXECUTED_STDOUT.txt",
+          "sha256": "7edac33970af8241b2456287aae371994d9e21753db1a87ee1cc99ba88c0d118",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "tool_name": "github_fetch_file",
+            "observation_id": "OBS-R2-STAGE311B-59F007FC-LOG",
+            "call_id": null,
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "git_blob_sha1": "e0f20883e7b3f1fc139a4bde72381b47d45ccf9b",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/59f007fce6daee3d2cfef9b3575f9c3101571dba/research_notes/n12_aux_iid_stage311b_nonlinear_tv_localization_20261030_RESEARCH2/REPRO_STAGE311B_EXECUTED_STDOUT.txt",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-R2STAGE311B59F007FC/readbacks/26051e58cda010a26c315c341bd561569b2fad7d00f8c87b6193c6a20c4c4978.json",
+          "verification_receipt_sha256": "26051e58cda010a26c315c341bd561569b2fad7d00f8c87b6193c6a20c4c4978"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@1e1b7e9e85997164f215d6f0624a3d2cb1474f6b:journal/enterprise-math/2026-10-30/20261030T232101+0800-stage311b-nonlinear-tv-r2-59f007fc.md"
+      ],
+      "repairs_event_id": null
+    }
+  ]
 }
