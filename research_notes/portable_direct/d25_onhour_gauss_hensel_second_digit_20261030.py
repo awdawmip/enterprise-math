@@ -117,6 +117,6 @@ def verify_one(p, verbose=True):
     return (p,R,h,fp%(p*p),root,d,d_pred)
 
 if __name__=='__main__':
-    ps=[p for p in range(13,501) if is_prime(p) and p%24 in (13,19)]
+    ps=[p for p in range(13,1500) if is_prime(p) and p%24 in (13,19)]
     out=[verify_one(p,p in (13,19,37,43,211,373)) for p in ps]
-    print(f'PASS_GAUSS_HENSEL_SECOND_DIGIT: {len(out)} target primes p<501')
+    print(f'PASS_GAUSS_HENSEL_SECOND_DIGIT: {len(out)} target primes p<1500')
