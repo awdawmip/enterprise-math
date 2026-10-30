@@ -1,0 +1,96 @@
+{
+  "schema": "EC49AZ_EXACT_POINT_OPTIMUM_V1",
+  "date": "2026-10-30",
+  "eta": "21/50",
+  "first_cost": "43/48",
+  "second_cost": "13/16",
+  "objective": "alpha-(177/172)*beta",
+  "vertices": 168,
+  "edges": 924,
+  "cost_infeasible_edges": 720,
+  "dual_certified_edges": 196,
+  "exceptional_edges": 8,
+  "rational_price_cap": "617983/5160000",
+  "rational_price_histogram": {
+    "0": 144,
+    "6199/53750": 34,
+    "19421/215000": 18
+  },
+  "exceptional_edge_supports": [
+    [
+      0,
+      2,
+      4,
+      6,
+      10
+    ],
+    [
+      0,
+      3,
+      4,
+      6,
+      10
+    ],
+    [
+      0,
+      6,
+      10,
+      12,
+      14
+    ],
+    [
+      0,
+      6,
+      10,
+      13,
+      14
+    ],
+    [
+      1,
+      2,
+      4,
+      5,
+      11
+    ],
+    [
+      1,
+      3,
+      4,
+      5,
+      11
+    ],
+    [
+      1,
+      5,
+      11,
+      12,
+      14
+    ],
+    [
+      1,
+      5,
+      11,
+      13,
+      14
+    ]
+  ],
+  "t_star": "285/184-5*sqrt(202)/92",
+  "p_star": "21/46+5*sqrt(202)/184",
+  "alpha": "22289/55200-sqrt(202)/2760",
+  "beta": "13/48",
+  "H_exact": "593779/4747200-sqrt(202)/2760",
+  "H_decimal": "0.1199303182730642778364531",
+  "author_verified": true,
+  "independent_review": false,
+  "native_result_admitted": false,
+  "published_checker_local_git_blob": "cd5712fa0d9c698ad9b39f1d59f05ee7c8af09a9",
+  "executed_full_local_report_sha256": "9b417b82a010bc750aeee59d0966af0a0df4684658acfc846550d27b5bc13c64",
+  "report_method": "The committed Python checker deterministically emits the full per-edge 196 rational-price map. This compact summary is not a substitute for executing the checker.",
+  "reference_artifacts": [
+    "VERIFY_EC49AZ.py",
+    "PROOF_EC49AZ.md",
+    "VERIFY_EC49AX.py"
+  ],
+  "next": "EC49BA: eta=43/100, or interval [2/5,21/50] exact proof",
+  "status": "AUTHOR_ANALYTIC_PROOF / EXACT_CHECK_PASS / PORTABLE_DRAFT / UNREVIEWED / NOT_ADMITTED"
+}

@@ -1,0 +1,8 @@
+# EC49AZ portable handoff
+Parent: Enterprise Math continuous research; exposed TASK_RESEARCH-style author, not Source-native Owner/CLAIM holder. No borrowed session or independent review. Boundaries: positive 18+18 probability P/Q-BRC observer only.
+**Highest new durable frontier:** η=21/50 exact all-real point optimum Hmax=593779/4747200−√202/2760. Witness t*=285/184−5√202/92, single partial paid fiber (0,1) with p*=21/46+5√202/184; accept six observable events in PROOF_EC49AZ.md.
+**Do not redo:** Previous EC49AV/AW/AX/AY author-side sparse/edge/signature/semialgebraic work, except scope-changing gaps. New check: 720 infeasible edges, 196 rational dual-priced edges (144 zero, 34 at 6199/53750, 18 at 19421/215000), eight special edges with exact square completion.
+**Reproduce:** run `python VERIFY_EC49AZ.py > output.json` with sibling VERIFY_EC49AX.py and SymPy 1.14.0. Output includes the entire 196-edge λ table. Local execution passed; source blob equals executed bytes. This is not independent mathematical review.
+**Sources:** knowledge main fa44cfc3c40e2c38f2c084397d0b257194f974f4; EM main aeba28cc77ccd95884bbe0dec1d0225732559d9d; previous branch head d218e04af0c0e04f0b9a99f520ad53d11e1a5af1.
+**Permissions:** native service 0.6.11 status research_authority_granted=false; active_jobs 5/5; active owner not independently readable. No Source native RA/CLAIM/Result or independent Driver review. Activity registration pending; no world-view or P000 mutation. All files PORTABLE_DRAFT / UNREVIEWED / NOT_ADMITTED.
+**Next EC49BA:** η=43/100 point and parametrized interval [2/5,21/50], test new regular-edge switches; separate typed signed-BRC/X6/heartbeat preservation question. See NEXT_TASK_EC49BA.md.
