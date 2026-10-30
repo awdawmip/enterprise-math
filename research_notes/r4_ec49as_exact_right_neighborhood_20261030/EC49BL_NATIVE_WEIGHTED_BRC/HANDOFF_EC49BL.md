@@ -1,0 +1,7 @@
+# EC49BL — current author-side portable handoff
+
+Scientific result: an observer-specific strengthening of EC49BK for exact signed native X6 positive-rational Weighted-BRC **per-witness** port. Full analytical statement/proof in PROOF_EC49BL.md; original executed verifier in VERIFY_EC49BL.py.gz.b64; original executed deterministic exact report in EXACT_REPORT_EC49BL.json; next task in NEXT_TASK_EC49BM.md. The source kernel is pinned Git blob 300a96e3dc24bf6fff73743037a0347a8bc83176, project main@7a590c60e49a420b88518fec60818ac3b70a4b7d, global main@104a8e9dabd6198aeb9994305ea4fd4f4eea0d12. User-worldview protected P000 and ACTIVE remain unchanged.
+
+Run original verifier after base64+gzip decode in a directory beside *the exact same pinned native signed_brc.py* (included by the project path experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py; copy or use a working checkout). It checks and writes exact JSON report; compare bytes with published report. The exact extended per-witness BRC port is *derived from* native endpoint_weight's mathematical sum of path weights, not an existing exposed Python per-witness API. This is not a physical/complex-phase claim.
+
+Native source 0.6.11 on this run: research_authority_granted=false; active job count 5/5, task/owner query CONTROL_QUOTA; no canonical CLAIM, source Result, independent Driver review or formal admission is asserted. Handoff is durable author-side PR evidence. Next EC49BM: general rational weight-lattice congruence and symmetry minimality.
