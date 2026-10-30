@@ -1,0 +1,147 @@
+{
+  "schema": "PREFIX358_EXACT_RATIONAL_TWO_BRANCH_BANACH_CERTIFICATE_V1",
+  "verdict": "PASS_PREFIX358_EXACT_TWO_UNIFORMLY_REGULAR_PHYSICAL_LIFTS",
+  "classification": "AUTHOR_SIDE_STATIC_AUXILIARY_ONLY_UNREVIEWED_NOT_ADMITTED",
+  "model": "A complex 5x3; Q(t)/59536; quotient by global U(1)",
+  "t_is_heartbeat_time": false,
+  "A_as_strings": [
+    [
+      "4",
+      "4",
+      "0"
+    ],
+    [
+      "0",
+      "-4",
+      "4"
+    ],
+    [
+      "-5 + 3*I",
+      "0",
+      "-3 + I"
+    ],
+    [
+      "-2 - 2*I",
+      "4 + 4*I",
+      "2 + 2*I"
+    ],
+    [
+      "-2",
+      "0",
+      "5 + 2*I"
+    ]
+  ],
+  "Q_as_strings": [
+    "204144*t + 34000",
+    "56336*t + 3200",
+    "1286*t + 58250",
+    "12936*t + 46600",
+    "28011*t + 31525"
+  ],
+  "H3_root_bracket": [
+    "74873813372149429453/1250000000000000000000",
+    "958384811163512697/16000000000000000000"
+  ],
+  "certified_parameter_interval_containing_tc_neighborhood": [
+    "74871313372149429453/1250000000000000000000",
+    "958416811163512697/16000000000000000000"
+  ],
+  "epsilon": "1/500000",
+  "cube_radius": "1/10000",
+  "interval_method": "Exact infinity-norm Banach with rational inverse M, 4 real quadratic intensity equations, derivative Hessian bounds, t0 bracket midpoint",
+  "branches": [
+    {
+      "branch": 1,
+      "center_decimals": [
+        "-0.350254450435209402",
+        "-0.139786042875789802",
+        "-0.717408911887365257",
+        "0.864319809947346322"
+      ],
+      "approx_inverse_integer_numerators_over_10e12": [
+        [
+          -19818383,
+          2437003,
+          1059089,
+          -2925650
+        ],
+        [
+          -27717154,
+          -6106270,
+          -2653704,
+          7330646
+        ],
+        [
+          21692609,
+          -6067635,
+          5315680,
+          -7356399
+        ],
+        [
+          18005454,
+          7477525,
+          4412158,
+          -6106011
+        ]
+      ],
+      "contraction_bound_ceiling_over_10e12": 13075480496,
+      "center_displacement_bound_ceiling_over_10e12": 8126442,
+      "ball_self_mapping_margin_floor_over_10e12": 90566010,
+      "exact_checks": {
+        "M_invertible": true,
+        "contraction_lt_1_over_10": true,
+        "displacement_lt_3_over_40000": true,
+        "strict_cube_self_mapping": true
+      }
+    },
+    {
+      "branch": 2,
+      "center_decimals": [
+        "-0.350254450435209402",
+        "-0.139786042875789802",
+        "-0.998209376262943823",
+        "0.515075064299927955"
+      ],
+      "approx_inverse_integer_numerators_over_10e12": [
+        [
+          82751731,
+          22595224,
+          9819585,
+          -27125825
+        ],
+        [
+          -284721632,
+          -56615651,
+          -24604413,
+          67967736
+        ],
+        [
+          84750865,
+          9525104,
+          4711767,
+          -17382714
+        ],
+        [
+          164246172,
+          39458319,
+          9131349,
+          -33687494
+        ]
+      ],
+      "contraction_bound_ceiling_over_10e12": 90288460177,
+      "center_displacement_bound_ceiling_over_10e12": 70349369,
+      "ball_self_mapping_margin_floor_over_10e12": 20621785,
+      "exact_checks": {
+        "M_invertible": true,
+        "contraction_lt_1_over_10": true,
+        "displacement_lt_3_over_40000": true,
+        "strict_cube_self_mapping": true
+      }
+    }
+  ],
+  "v_squared_separation_lower_ceil_descriptive": "strict > 1/6",
+  "v_squared_separation_lower_floor_over_10e12": 200568855071,
+  "u_squared_difference_upper": "8/100000000",
+  "physical_source_construction": "Take y1=sqrt(Q1(t)/59536)>0, y2=u*y1, y3=v*y1, z=A[:3,:]^-1*y[:3]; certified |Az|^2=Q(t)/59536",
+  "limitations": "No completeness outside the two disjoint certified cubes; no native X6/BRC computation, no future-operation transfer; no native Result or independent review."
+}
