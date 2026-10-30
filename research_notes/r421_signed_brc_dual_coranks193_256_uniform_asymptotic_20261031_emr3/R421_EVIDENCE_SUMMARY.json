@@ -1,0 +1,102 @@
+{
+  "schema": "R421_SIGNED_BRC_AUX_EXACT_SUMMARY_V1",
+  "date": "2026-10-31",
+  "status": "AUTHOR_SIDE_EXACT_UNREVIEWED_NOT_ADMITTED",
+  "global_knowledge_main_read_pin": "d310c5f090bd5883e89df4c5827468959073541b",
+  "enterprise_math_main_read_pin": "e4da8741fc91c6b584de6a61a9c8cd6b7ae1ed66",
+  "prior_R420_source_commit": "d4659e227a1a1a5fd0f35db5476ba1b87ec915c2",
+  "claim": "193<=m<=256, s>=3 => D_(s+m,s)>0",
+  "analytic": "For every fixed m>=1, lim_{s->infinity} s^2 D_(s+m,s)/W_s^2 =4^m/(m+1)",
+  "band_count": 64,
+  "positive_polynomial_coefficients": 57856,
+  "full_raw_json_total_bytes": 99327714,
+  "independent": {
+    "direct_signed_delta_checks": 960,
+    "turan_cross_multiply_checks": 320,
+    "all_coefficients_checked": 57856,
+    "leading_coefficients_checked": 64
+  },
+  "raw_json_files": [
+    {
+      "file": "R421_EVIDENCE_193_202.json",
+      "m_range": [
+        193,
+        202
+      ],
+      "bytes": 11710699,
+      "sha256": "9eabf4c1044c4090020585bd05e36c695bd4583cbc9bc124cb6d98efcec52e7b",
+      "positive_coefficients": 7960
+    },
+    {
+      "file": "R421_EVIDENCE_203_212.json",
+      "m_range": [
+        203,
+        212
+      ],
+      "bytes": 13013371,
+      "sha256": "41c4b9d71279e1228efa5a8ca3a97c9073056a3af8ccabf57a8eb0f14690dde0",
+      "positive_coefficients": 8360
+    },
+    {
+      "file": "R421_EVIDENCE_213_222.json",
+      "m_range": [
+        213,
+        222
+      ],
+      "bytes": 14389373,
+      "sha256": "ab2e77559beab1e3dac8fdfa7b20aaf0d0070b750faee7e92cedbd19551075a1",
+      "positive_coefficients": 8760
+    },
+    {
+      "file": "R421_EVIDENCE_223_231.json",
+      "m_range": [
+        223,
+        231
+      ],
+      "bytes": 14187935,
+      "sha256": "478a3c1f767f3ec9a9cc3ee9f306b97fa869e8ae77770fd33a235a7d203f7c55",
+      "positive_coefficients": 8226
+    },
+    {
+      "file": "R421_EVIDENCE_232_239.json",
+      "m_range": [
+        232,
+        239
+      ],
+      "bytes": 13641190,
+      "sha256": "414f54e6f2c0369ea563f5c25da176dafcdd180ade3571e5d77fec6ca118acf1",
+      "positive_coefficients": 7584
+    },
+    {
+      "file": "R421_EVIDENCE_240_245.json",
+      "m_range": [
+        240,
+        245
+      ],
+      "bytes": 10890943,
+      "sha256": "8e6580d45003ed1a3044306ae457e1ced1fe564aabd00400cae9366ee623934f",
+      "positive_coefficients": 5856
+    },
+    {
+      "file": "R421_EVIDENCE_246_251.json",
+      "m_range": [
+        246,
+        251
+      ],
+      "bytes": 11474442,
+      "sha256": "845975839c449979df7fda1e776bd77391b88afb84b68f7f1540c0ac53e236f9",
+      "positive_coefficients": 6000
+    },
+    {
+      "file": "R421_EVIDENCE_252_256.json",
+      "m_range": [
+        252,
+        256
+      ],
+      "bytes": 10019761,
+      "sha256": "725c66360c0f1fc04b6251709f69d66f9b831b020d0b6db202fb96bcc0a054b3",
+      "positive_coefficients": 5110
+    }
+  ],
+  "storage_scope": "Eight raw JSON files are in conversation ZIP, not individually uploaded to this GitHub branch; rerun generator with --full and compare these SHA256 values."
+}
