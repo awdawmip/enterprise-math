@@ -10,28 +10,32 @@
   "actor": "awdawmip",
   "sources": {
     "global_knowledge_main": "c4901dbacb7d324d144197e88ca8a8d3a1c140ef",
-    "enterprise_math_main": "ae26ceec541fc54102253d70ee80cefbb0fd3bbf",
+    "enterprise_math_main_at_start": "ae26ceec541fc54102253d70ee80cefbb0fd3bbf",
     "predecessor": "ab8754904f4f82ecde486dd060a2620ec319371b",
     "source_leaf": "6d9bc93c9d110418d22daf344ed83d883a4a1a23"
   },
-  "authority": {
-    "native_session": "NOT_ISSUED",
+  "identity": {
+    "site_authority": "READ_ONLY_NO_RESEARCH_AUTHORITY",
     "native_claim": "NOT_VERIFIED",
-    "owner_lookup": "CONTROL_QUOTA",
-    "native_driver_review": "NONE",
-    "activity": "REGISTER_PENDING"
+    "owner_inventory": "CONTROL_QUOTA",
+    "independent_review": "NONE",
+    "author_activity_id": "RA-EMR1-20261030T091030-BUT4",
+    "activity_registration_commit": "b9d541db192cc2905adf3e600f2feb00f794ec28",
+    "activity_checkpoint": "PENDING_BINDING"
   },
-  "new_operation": "Post-terminal T4 probe of BU second stage-three child and second fourth leaf",
-  "claims": [
-    "TV(P_O,Q_O)=0",
-    "TV(P_OH,Q_OH)=1/20",
-    "optimal_law_independent_reconstruction_radius=1/40",
-    "BU_local_radius=B*c/40"
+  "scope": "External 16-leaf two-law source plus newly declared post-terminal T4 readouts; excludes native P000 X6/time model",
+  "results": [
+    "Original O' policy G0 P/Q coarse laws identical",
+    "Single T4 leaf Boolean gives TV_PQ=1/20; sharp zero-bit decoder radius 1/40",
+    "For full BU four-leaf readouts zero-bit decoder radius 1/20, one j-bit is Blackwell sufficient, two j/k-bits necessary for pathwise deterministic universal query"
   ],
   "evidence": [
     "PROOF.md",
     "VERIFY.py",
-    "VERIFY_EVIDENCE.txt"
+    "VERIFY_EVIDENCE.txt",
+    "REPAIR_THEOREM.md",
+    "VERIFY_REPAIR.py",
+    "VERIFY_REPAIR_EVIDENCE.txt"
   ],
-  "next": "Operation-aware two-law sufficiency for later probes."
+  "next": "Controlled T4 causal kernel factorization and legal post-terminal time semantics."
 }
