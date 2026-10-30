@@ -106,7 +106,7 @@ The accepted D24 first digit implies \(6hy\equiv1\pmod p\), so equivalently \((6
 Python standard-library integer checker:
 **research_notes/portable_direct/d25_a216_twofactor_clausen_boundary_20261030.py**.
 
-The program was actually run and compared independent original \((6n+1)\binom{2n}{n}^2\binom{3n}{n}/216^n\) integer-binomial sums with (6), checking both factorial (3) and original signed cutoff (5). **All 45 primes** with \(7\le p<500,\ p\equiv1\pmod6\) passed, including **23 target-class primes**. A separate fixed-\(p=373\) run also passed.
+The program was actually run and compared independent original \((6n+1)\binom{2n}{n}^2\binom{3n}{n}/216^n\) integer-binomial sums with (6), checking both factorial (3) and original signed cutoff (5). It **also independently recomputes the frozen original reflected scalar** from the separate \(C_1=1/10\), \(C_{a+1}/C_a=36a^2/[(6a+5)(3a+2)]\) recurrence and asserts \(R_p=\tau_p\pmod p\) on every tested prime. **All 45 primes** with \(7\le p<500,\ p\equiv1\pmod6\) passed, including **23 target-class primes**. A separate fixed-\(p=373\) run also passed.
 
 | \(p\) | \(m\) | \(G_p(1/2)\bmod p^3\) | \(G'_p(1/2)\bmod p^2\) | \(\tau_p\bmod p\) | \(A_p\bmod p^3\) |
 |---:|---:|---:|---:|---:|---:|
