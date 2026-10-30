@@ -94,12 +94,12 @@ Scientific Source pin `c47e13e4aba0e006366f989d6334d443f6333ae3`, P000 and ACTIV
 
 ## Additional executed fixed-prime source cross-check (same research unit)
 
-The already-published exact Fraction checker was extended and rerun against the original signed middle source at fixed primes 13, 19, 373. The backward recurrence defines (y_0); the exact finite identity follows by summing (3) after multiplication by (d_s):
+The already-published exact Fraction checker was extended and rerun against the original signed middle source at fixed primes 13, 19, 373. The backward recurrence defines \(y_0\); the exact finite identity follows by summing (3) after multiplication by \(d_s\):
 
-[
-oxed{ sum_{s=0}^{m-1}W_m(s)d_s=-d_0D_m(0)y_0 }quad	ext{over }mathbb Q.
-]
+\[
+\boxed{\sum_{s=0}^{m-1} W_m(s)d_s=-d_0D_m(0)y_0}\quad\text{in }\mathbb Q.
+\]
 
-Each denominator is a (p)-unit for (p=6m+1) prime; the independently evaluated original middle valuation-two scalar is 10 (mod 13), 9 (mod 19) and **266 (mod 373)**. At (p=373), (m=62), the exact Newton polynomial was computed from 62 rational nodes and had degree **61**. The proved polynomial lower bound is 59 and the constructive upper bound is 61. These values verify the original n-labelled scalar contribution only, not the native H0/B0 ([X]U) module experiment.
+Every denominator is a \(p\)-unit for \(p=6m+1\) prime; the independently evaluated original middle valuation-two scalar is 10 (mod 13), 9 (mod 19) and **266 (mod 373)**. At \(p=373\), \(m=62\), the exact Newton polynomial was computed from 62 rational nodes and had degree **61**. The proved polynomial lower bound is 59 and the constructive upper bound is 61. These values verify the original n-labelled scalar contribution only, not the native H0/B0 \([X]U\) module experiment.
 
-Executed source script commit `3e75f33489915828ec4193cff9c44a10ef55d754` (same path above; remote blob `c05a07392cf00dcac08eec95a6fddf59d8812e15`). This added p373 execution is a finite exact check, while the general rational identity and degree bounds rest on the proofs above.
+Executed source script commit 3e75f33489915828ec4193cff9c44a10ef55d754 (same path above; remote blob c05a07392cf00dcac08eec95a6fddf59d8812e15). This added p373 execution is a finite exact check, while the general rational identity and degree bounds rest on the proofs above.
