@@ -1,0 +1,7 @@
+# EC49BU — Automaton-based finite-group substring rank without raw path enumeration
+
+Parent objective: establish provenance-preserving minimally sufficient BRC memory for future native-X6 path observations. Consume the exact n=6,z=0 EC49BT theorem (rank 288 -> 444 -> 458, plus unweighted count 459) and the EC49BS typed all-word reduction. No native CLAIM or independent review was issued by EC49BT.
+
+**First scientific unit:** for arbitrary even n, displacement z, fixed finite H<=S6 and a finite family of signed-substring predicates, construct a finite-state product automaton recording the selected Boolean atoms. Give a theorem that computes each H-character orbit rank by reachability/semilinear count signatures (or counterexample if that method fails), preserving path order, original sign, source identity, and multiplicity. Avoid enumerating all 12^n words; state exact complexity in n, automaton states, |H| and arithmetic bit lengths.
+
+**Testable target:** reproduce the pinned EC49BT 458-dimensional rank and four-word composition counterexample via an independently implemented state method, and test at n=8,z=0 where the original native total has 1,281,420 paths. Establish a condition for AB to be redundant with the separate A,B observations; distinguish fixed instrument from covariant weights. Provide exact code, proof, full inputs, reproducible certificate and actual Source-owner/authority status. Treat auxiliary filter extensions and physical Heartbeat dynamics separately.
