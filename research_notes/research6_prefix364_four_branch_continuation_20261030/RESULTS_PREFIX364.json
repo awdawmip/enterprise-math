@@ -1,0 +1,30 @@
+{
+  "schema":"EM_PREFIX364_FOUR_PHYSICAL_SOURCE_CONTINUATION_V1",
+  "status":"AUTHOR_SIDE_EXACT_RATIONAL_UNREVIEWED_NOT_ADMITTED",
+  "frozen_global_main":"802ddc66d8755f7a95a0dcb8a34573cb7a7b69e6",
+  "frozen_project_main":"ea390dcadd5d3233200fad2aa0888d427f157db8",
+  "t_start":"1/16","t_end":"133/2000",
+  "segments_per_branch":512,"root_boxes":2048,"endpoint_witnesses":2052,
+  "root_cube_radius":"1/5000","witness_cube_radius":"1/10000000",
+  "strict_rational_outward_bounds_1e9":{
+    "R0":{"max_K_ceiling":541028274,"max_R_ceiling":69879,"min_margin_floor":21916,"terminal_center_decimal":["-0.375943629312","-0.068358624255","-1.006329183805","0.462024722284"]},
+    "R1":{"max_K_ceiling":615263928,"max_R_ceiling":65626,"min_margin_floor":11321,"terminal_center_decimal":["-0.369151236831","-0.098660418999","-0.997271060697","0.481264689829"]},
+    "R2":{"max_K_ceiling":25963341,"max_R_ceiling":7447,"min_margin_floor":187360,"terminal_center_decimal":["-0.356841243112","-0.136641286386","-0.704939832525","0.853946779781"]},
+    "R3":{"max_K_ceiling":25272058,"max_R_ceiling":11836,"min_margin_floor":183110,"terminal_center_decimal":["0.038138155774","0.380199940827","-1.094865873962","0.165632086904"]}
+  },
+  "checks":["2048 exact Banach root cubes self-map and contraction","2052 exact parameter endpoint witnesses overlap and connect","pairwise disjoint four root cubes at all parameter segments","t=1/16 source labels match PREFIX-362 exact root discs","exact terminal proximity/exclusion relative to PREFIX-361 fold center"],
+  "source_corollaries":{
+    "R0_R1_initial_distance_maxnorm_gt":"9/100",
+    "R0_R1_terminal_distance_maxnorm_lt":"1/25",
+    "R0_R1_terminal_distance_from_fold_center_lt":"1/30",
+    "R2_R3_terminal_distance_from_fold_center_gt":"1/5",
+    "coherent_C_R2_minus_R1_gt":"2/5",
+    "coherent_observer_threshold_margin_each_gt":"1/5",
+    "single_observation_abs_error_tolerated":"1/8"
+  },
+  "archive_filename":"PREFIX364_VERIFIER_AND_EVIDENCE.tar.gz",
+  "archive_sha256":"f59a5bc281bdfe6925f79d3cab22f5e18b3eda8668658c9d992fa9b57fcadd6a",
+  "archive_git_blob_sha":"d24b824e7550c3bbbc18328bf4694bc9c399c423",
+  "unproved":"final branch-to-fold connection and independent global source exhaustiveness, native P000 X6/typed BRC time bridge",
+  "verdict":"PASS_PREFIX364_EXACT_FOUR_LABELED_CONTINUATIONS_TO_0P0665"
+}
