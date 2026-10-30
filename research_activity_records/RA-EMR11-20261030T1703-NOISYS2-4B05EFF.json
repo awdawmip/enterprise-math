@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-EMR11-20261030T1703-NOISYS2-4B05EFF",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "4b05eff9aa9779034ffed6694aa2b6dec6393a7c",
+          "path": "research_notes/brc_n4_noisy_s2_joint_factor_marginal_inversion_20261030_r11/RUN_EVIDENCE.txt",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "9fc8c9731bb0e8ea445cc2c6279c898d87e02179a82fdfcda9c02de078e08423",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "a0b1dcdbb9f396adcfd3e50ab53754ea0602631b",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/4b05eff9aa9779034ffed6694aa2b6dec6393a7c/research_notes/brc_n4_noisy_s2_joint_factor_marginal_inversion_20261030_r11/RUN_EVIDENCE.txt",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "EMR11-20261030T1719-REMOTE-VERIFY-OBS1",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-EMR11-20261030T1703-NOISYS2-4B05EFF/readbacks/8b30a06431770676a9aab93b9be0b0c917522fa257630f27e943881c80dd77e9.json",
+          "verification_receipt_sha256": "8b30a06431770676a9aab93b9be0b0c917522fa257630f27e943881c80dd77e9"
+        }
+      ],
+      "event_id": "EMR11-20261030T1719-BRC-NOISY-S2",
+      "kb_sources": [
+        "journal/enterprise-math/2026-10-30/20261030T171900+0800-em-r11-noisy-s2-factorization-4b05eff.md@a78bff2f79b2337c6b2b3bbbde6490c8a68a57c2"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-10-30T09:18:18Z",
   "registration_key": "session:local-r11-turn11-20261030-4b05eff:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-R11-4B05EFF",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-r11-turn11-20261030-4b05eff",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-10-30T09:18:18Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
