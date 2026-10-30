@@ -1,0 +1,14 @@
+# Stage297-B portable research handoff: future observer descent and fourth moment
+
+Status: PORTABLE_RESEARCH_NEXT_UNIT / UNREVIEWED / NOT_ADMITTED (2026-10-30).
+Predecessor: Stage296-B in this same immutable source commit after publication; Stage295-B.2 immutable c8948e1dfb4cf22af040350f2129e03012f7cf2b. Preserve current P000/ACTIVE X6 and research authority rules; no native Claim or formal task publication is asserted.
+
+**Established and do not redo:** For source-blind two-visit a=1/4, conditional IID shared parameter (arbitrary pre-mix and S correlation) has minimum mean TV risk 5/16 versus free 1/4; exact gap 1/16. Deterministic-parity coupling with fair shared first bit and E/X modes weighted 3/8,5/8 realizes the free midpoint; history-adapted retune rate 5/8 after first zero or 3/8 after first one also realizes it, but requires distinct interface resources. The two-mode minimality is restricted to primitive deterministic-parity modes. General arbitrary correlated kernels have no two-mode lower bound. For three conditionally IID visits fixed first two moments m1=1/2,m2=3/8, third moment ranges [9/32,11/32]; exact ordered 3-word TV diameter 1/4, first-success-stop TV diameter 1/16, and optimal radii 1/8,1/32, respectively. Full derivation and executable exact Fraction checker are in Stage296-B files.
+
+**First research target:** Construct a minimal finite two-mode example in which joint output (A,B) agrees yet a later permitted operation reading Z differs; characterize smallest retained label for safety by exact future-kernel factorization. Quantify source-weighted TV if the label is discarded. If possible prove sharp optimal bound rather than one finite grid. Distinguish Z (mode), U (fair base bit), Theta (port parameter), S (source) and readout histories.
+
+**Second target:** For four IID Bernoulli visits with common mixed Theta, fix m1,m2,m3 to a strictly feasible rational triple and derive exact m4 interval (including rational endpoint measures), full-ordered word and first-success-stop TV diameter, minimax radius, and executable rational certificate. Keep moment Hausdorff constraints and all-zero/nonzero mass branches exact.
+
+**Native bridge target:** Read native typed X6/BRC port and packet contracts; give a formal candidate map preserving source, ordered route, branching multiplicity, relevant future operations and separate time typing. Do not claim physical applicability without native validated trace. Retain Stage278-A Bellman N=12 frontier separately.
+
+Acceptance for portable note: exact proposition and assumptions, proof or counterexample, readable executed checker with actual output, source-pinned documentation on the existing PR, immutable readback; status UNREVIEWED/NOT_ADMITTED pending genuine independent review and current owner permission.

@@ -1,0 +1,10 @@
+two_stage a=0 free=1/2 iid_mixed=3/4 gap=1/4 parity_weight=0
+two_stage a=1/16 free=7/16 iid_mixed=161/256 gap=49/256 parity_weight=15/128
+two_stage a=1/8 free=3/8 iid_mixed=33/64 gap=9/64 parity_weight=7/32
+two_stage a=1/4 free=1/4 iid_mixed=5/16 gap=1/16 parity_weight=3/8
+two_stage a=3/8 free=1/8 iid_mixed=9/64 gap=1/64 parity_weight=15/32
+two_stage a=1/2 free=0 iid_mixed=0 gap=0 parity_weight=1/2
+three_stage m1=1/2 m2=3/8 m3_range=[9/32,11/32] full_word_tv_diameter=1/4 stop_tv_diameter=1/16 full_minimax_radius=1/8
+three_stage_lower: {(0, 0, 0): Fraction(11, 32), (0, 0, 1): Fraction(1, 32), (0, 1, 0): Fraction(1, 32), (0, 1, 1): Fraction(3, 32), (1, 0, 0): Fraction(1, 32), (1, 0, 1): Fraction(3, 32), (1, 1, 0): Fraction(3, 32), (1, 1, 1): Fraction(9, 32)}
+three_stage_upper: {(0, 0, 0): Fraction(9, 32), (0, 0, 1): Fraction(3, 32), (0, 1, 0): Fraction(3, 32), (0, 1, 1): Fraction(1, 32), (1, 0, 0): Fraction(3, 32), (1, 0, 1): Fraction(1, 32), (1, 1, 0): Fraction(1, 32), (1, 1, 1): Fraction(11, 32)}
+STAGE296B_COUPLING_AND_CUBIC_MOMENT_EXACT_PASS
