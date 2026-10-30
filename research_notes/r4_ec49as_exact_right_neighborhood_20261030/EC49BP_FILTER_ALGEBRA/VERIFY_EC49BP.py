@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""EC49BP exact audit; byte-pinned native signed_brc.py from same repo."""
+"""EC49BP exact audit; requires byte-pinned signed_brc.py adjacent to this script."""
 from collections import Counter
 from fractions import Fraction as F
 from hashlib import sha1
+from itertools import product
 from pathlib import Path
 import importlib.util, json
 from sympy import Matrix
-here=Path(__file__).resolve()
-candidates=(here.with_name('signed_brc.py'),here.parents[3]/'experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py')
+here=Path(__file__).resolve(); candidates=(here.with_name('signed_brc.py'),here.parents[3]/'experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py')
 p=next((z for z in candidates if z.is_file()),None)
 if p is None:raise FileNotFoundError('pinned signed_brc.py missing; copy from experiments/x6_signed_native_spatial_v16_20260905')
 b=p.read_bytes()
@@ -15,9 +15,9 @@ assert sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()=='300a96e3dc24bf6
 spec=importlib.util.spec_from_file_location('native_brc',p); m=importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
 q=(2,3,3,2,1,1)
 def ks(K,d=6):
- if d==1:yield (K,);return
+ if d==1: yield (K,); return
  for i in range(K+1):
-  for r in ks(K-i,d-1):yield (i,)+r
+  for r in ks(K-i,d-1): yield (i,)+r
 def words(k):
  c=Counter({s:v for i,v in enumerate(k,1) for s in (i,-i) if v}); w=[]
  def rec():
@@ -33,8 +33,7 @@ def wt(w):
   if s>0:a*=q[s-1]
  return a
 def atom(w):return tuple(int(i in {abs(t) for t in w}) for i in (1,2,3))
-klist=list(ks(2)); W=sorted(w for k in klist for w in words(k))
-assert len(W)==396==len(set(W))
+klist=list(ks(2)); W=sorted(w for k in klist for w in words(k));assert len(W)==396==len(set(W))
 assert m.endpoint_multiplicity(4,(0,)*6)==396
 assert sum(map(wt,W),F(0))==m.endpoint_weight(4,(0,)*6,tuple(map(F,q)),(1,)*6)==1560
 assert all(wt(tuple(-s for s in reversed(w)))==wt(w) for w in W)
