@@ -84,7 +84,7 @@ def original_jet_overdegree(p):
         a,b=k-1-l,k-1-2*l
         xa=x*a%p;ya=(y*a+x*inv6)%p;za=(z*a+y*inv6)%p
         ik=pow(k*k,-1,p)
-        x=xa*b*ik
+        x=xa*b*ik%p
         y=(ya*b+xa*inv3)*ik%p
         z=(za*b+ya*inv3)*ik%p
         u.append(x);w.append(z)
