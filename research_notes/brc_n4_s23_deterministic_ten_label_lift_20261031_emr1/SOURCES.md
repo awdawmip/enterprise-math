@@ -1,0 +1,7 @@
+# Inputs, attribution and proof boundary
+
+- Verified account-level normative snapshot: awdawmip/chatgpt-global-knowledge main@046ea636a513734e0e1b6d736c6fc8c2f68e5809, 2026-10-31. Read 00_BOOTSTRAP.md, OPERATING_MANUAL.md, project router, P000 original (blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc), P000 projection, ACTIVE worldview, MATH_RESEARCH_POLICY and BRC priority.
+- Verified project control source: awdawmip/enterprise-math main@5c7c9f8795fdc02da62e9c681db900d9718841e7, docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md and docs/PORTABLE_RESEARCH_PROTOCOL.md.
+- Direct predecessor author-side finite proof: awdawmip/enterprise-math PR #1757, immutable commit 6a78eef5487058815d600ae2b53c3f52d957c1aa, research_notes/brc_n4_time_policy_m8_m9_exact_setcover_20261031_emr1/{PROOF.md,VERIFY.cpp,NEXT_TASK.md}. Reused: M, the S23 2048-table grammar, S64 lower bound and the concrete ten-box cover. This new theorem extends the ten-box achievability from S64 to *all* deterministic S23 policies, and carefully does NOT claim the randomized extension.
+- Math uses positive-weighted BRC row masses; these are conditional source probabilities, not phase amplitudes or a native heartbeat evolution law. No outside papers or literature novelty claim.
+- Local mathematical author provenance: this actual assistant execution; no claim to be an independent mathematical reviewer, native task Owner, or a service-signed researcher identity.
