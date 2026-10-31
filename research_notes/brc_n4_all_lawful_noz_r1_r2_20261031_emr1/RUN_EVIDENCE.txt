@@ -1,0 +1,12 @@
+SOURCE_LEAVES: P=16/240 Q=16/240, positive and normalized; prepared states=8
+FULL_FUTURE_TV: R1=3/4 each input; R2=1/2 each input
+FL: [("('AU', 0)", '19/80'), ("('AU', 1)", '21/80'), ("('AV', 0)", '1/4'), ("('AV', 1)", '1/4')]
+FR: [("('BU', 0)", '1/10'), ("('BU', 1)", '2/5'), ("('BV', 0)", '1/4'), ("('BV', 1)", '1/4')]
+LAWFUL_H_DAGGER: AU=(3,P), AV=(2,P), BU=(3,Q), BV=(2,Q)
+DISJOINT_PACKING: R1>=3/4; R2>=1/2
+AUDIT: 27 T2 kernels x 64 T3 ratio maps = 1728 lawful deterministic subfamily
+FULL_PUBLIC_OUTPUT_EXACT_COMPARISONS: 27648
+AUDIT_MAX: R1= 3/4 R2= 1/2
+THEOREM: all S23 and S2, no-Z (T,Decision), R1=3/4 R2=1/2
+SCOPE: complete randomized/adaptive/T4 universal claims follow analytically by TV data processing, not enumeration
+PASS_BRC_N4_ALL_LAWFUL_NOZ_R1_R2_EXACT_20261031
