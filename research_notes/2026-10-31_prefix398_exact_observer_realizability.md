@@ -1,0 +1,68 @@
+# PREFIX-398 — Exact coherent-observer elimination, a complete nominal-intensity decision, and a rigorous false-positive witness
+
+2026-10-31. AUTHOR_SIDE_EXACT_VERIFIED / UNREVIEWED / NOT_ADMITTED. External auxiliary static complex three-amplitude five-Port model only. Not native P000 X6, a three-dimensional research slice or typed BRC dynamics.
+
+## Source and prior theorem
+
+Frozen GLOBAL_KNOWLEDGE_V1 canonical main 21a6d767034f342fbb64d3788339333776d5b3bd, P000 source blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc, and Enterprise Math main c68fd26c8e605f2434a38f17f786a3bc2b26b6f7. Applicable normative entry, ACTIVE worldview, TASK_RESEARCH, mathematics and Portable Research protocol were read. We use the AUTHOR-SIDE PREFIX-397 theorem and reproducible checker, research_notes/2026-10-31_prefix397_centered_six_source_stability.md and research_notes/prefix397_exact_checker.py. Its six-root statement is not an independently admitted Result.
+
+Five-Port complex matrix A = [[4,4,0],[0,-4,4],[-5+3i,0,-3+i],[-2-2i,4+4i,2+2i],[-2,0,5+2i]].
+Nominal intensity vector I0=(1,121/100,73/36,532313/23400,11531293/748800).
+Let r=sqrt(I2/I1), k=I3/I1, s4=I4/I1, s5=I5/I1, and z the real Cayley phase. At I0, r0=11/10. The original source elimination has H=C^2+T^2-kD^2 and H=-(352/950625)(1+z^2)F(z), where
+
+F(z)=(3z+2)(247273497z^5-45399147334z^4+719077831171z^3+1525709995366z^2-179308209566z-8362430980).
+
+Exact symbolic recomputation confirms the identity. F has one simple real root in each of (-9/4,-19/10),(-7/10,-3/5),(-1/20,-1/50),(1/10,1/5),(19,20),(150,180), and gcd(F,D2)=1 at I0. All six are real-source lifts by the original normalized-port derivation, no additional finite/infinite roots.
+
+## Theorem 1: observer eliminant and exact complete decision at I=I0
+
+The coherent readout Cu=|1+u|^2 along a source with Cayley z equals
+
+Cu(z)=1+r0^2+2r0(1-z^2)/(1+z^2)=(441+z^2)/(100(1+z^2)).
+
+Write F(z)=E(z^2)+z O(z^2), with deg E=3 and deg O<=2. The exact eliminant in w=z^2 is R(w)=E(w)^2-w O(w)^2, of degree six. Since (100c-1)w=441-100c, clearing denominators yields the degree-six coherent-observer polynomial P(c)=(100c-1)^6 R((441-100c)/(100c-1)). Its exact factorization is
+
+P(c)=1874048000(1300c-3973) Q5(c), where
+Q5(c)=17616324113803715625000000c^5
+-170017885155092076618750000c^4
++478188589950524328075687500c^3
+-315306817366897125140520625c^2
++9574900000493549487762400c
+-65232877245380926430453.
+
+The six different absolute-z bins imply six distinct Cu values, hence no extraneous real observer roots. The known source z=-2/3 yields Cu=3973/1300 exactly. A direct independent SymPy resultant reproduces the factorization and verifies the quintic is irreducible over Q.
+
+For any rational measured coherent value q and nonnegative rational measurement bound eta, with all five true intensities fixed exactly at I0, a real complex source exists iff one of these six algebraic Cu roots lies in [q-eta,q+eta]. This condition is completely decidable by rational Sturm isolation: refine the six disjoint rational z-bins; compare Cu's rational monotone bounds against q±eta; when a threshold coincides with an algebraic Cu root, detect it exactly with gcd(F,441-100t+(1-100t)z^2) and count common roots in the relevant bin. All non-equality cases terminate after finite bisections; equality is decided by gcd. The executable has an implementation resource ceiling of 512 halvings and raises if exceeded, rather than inventing a Boolean. The mathematical algorithm has no fixed ceiling and terminates on every rational input. This establishes a complete bidirectional exact test specifically for fixed I=I0, not yet for uncertain five intensities.
+
+## Theorem 2: precise failure of the previous necessary-enclosure classifier with full positive noise budgets
+
+Let measured intensities J=I0, each true intensity independently satisfy |Ij-Jj|<=xi=1/8000, and allow independent coherent error |q-Cu_true|<=eta=1/200. Choose the rational measured coherent value
+
+q*=44101/10100 = Cu(1/10,11/10).
+
+(A) q* lies strictly inside the old PREFIX-397 necessary positive-z observer interval derived from the full intensity box and z in (1/10,1/5):
+10667942941178/2516170839325 < q* < 3415144850141/781948476221.
+Therefore the prior coarse-bin necessary interval test permits the record.
+
+(B) Nonetheless there is NO real complex source satisfying all six simultaneous measured constraints, for any true intensities in the full five-dimensional continuous box.
+
+Proof. PREFIX-397's sharp normalization bounds place r in [r0-rho_r,r0+rho_r], with rho_r=xi(1+121/100)/((11/10)(1-xi)), and (k,s4,s5) within radii rho_j=xi(1+I0_j)/(1-xi). At the two rational endpoints z=1/8,3/20, expand the full polynomial H(z,r0+dr,k0+dk,s40+ds4,s50+ds5) into exactly 40 nonzero rational monomials. The rigorous bound B(z)=sum_{alpha !=0}|h_alpha|prod rho_j^alpha gives H(1/8)>0 and H(3/20)<0 throughout the whole normalized box; strict exact margins and all 40-term coefficient enclosures are generated by the attached checker. PREFIX-397's six distinct global regular roots and the degree-six ceiling force the unique positive-z source into (1/8,3/20).
+
+Since Cu(z,r)=1+r^2+2r(1-z^2)/(1+z^2) increases in r for r>1 and decreases with |z|>0, that source obeys Cu_true < Cu(1/8,r0+rho_r). Consequently
+
+q* - Cu(1/8,r0+rho_r) - eta = 36774993166673/2033066038174600 > 0.
+
+For each of the other five absolute-z root bins, the rational extremal Cu endpoints at r0±rho_r have a distance from q* strictly larger than eta (five exact margins are in the generated JSON). Thus all six source bins are excluded. Unlike an artificial eta=0 counterexample, this counterexample retains precisely the previous positive xi and eta budgets.
+
+The necessary-bin hit but impossible existential lifting is a proven false positive, not a contradiction of the six-root stability theorem. It also demonstrates that neither interval membership nor the current finite classification by Cu can alone serve as a necessary-and-sufficient six-observation realizability algorithm.
+
+## Evidence, scope, next problem
+
+Exact Python Fraction coefficient enclosure and exact SymPy polynomial arithmetic run successfully with three PASS markers:
+PASS_PREFIX398_EXACT_SIX_SOURCE_OBSERVER_ELIMINANT_AND_RATIONAL_DECIDER
+PASS_PREFIX398_STRICT_FALSE_POSITIVE_UNDER_FIVE_INTENSITY_AND_CU_NOISE
+PASS_PREFIX398_INDEPENDENT_RESULTANT_IRREDUCIBILITY_AND_RATIONAL_SOURCE.
+
+The full locally executed proof checker, independent checker, JSON exact fractions, original terminal logs and 7-file integrity-checked archive are linked in the research handoff. The GitHub program is a reproduced portable source version and must be re-executed before treating the remote bytes as independently run. The positive-noise theorem assumes the six-root certificates from PREFIX-397, an author-side calculation not yet admitted by independent review.
+
+PREFIX-399 research obligation: given arbitrary rational measured center J1..J5, independent intensity bounds xi1..xi5 and observed coherent q with eta, construct a terminating exact *joint* semialgebraic feasibility procedure with an explicit algebraic witness or nonexistence certificate; retain all six labeled phase-amplitude sources and distinct original Port data. Compare reduced variables (I1,r,k,s4,s5,z), CAD/subresultant real-root methods, and existence-enhanced interval enclosures. Preserve the P000 native X6 and typed BRC bridging obligations. Cu is sufficient only for the specified observer-label task, not a license to merge provenance.
