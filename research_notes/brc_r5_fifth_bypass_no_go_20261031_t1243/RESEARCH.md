@@ -40,11 +40,11 @@ A=(1,0,0,0,1), lambda(A)=(-1,1,1,0,0,0);
 B=(1,1,1,1,0), lambda(B)=(1,-1,0,0,0,1);
 C=(1,1,0,1,1), lambda(C)=(0,0,1,-1,0,1).
 
-From A, tA*mu0>=1, and tA*mu2,tA*mu3,tA*mu4>=0. Hence mu0 nonzero. From B, tB*muz>=1, and tB*mu1,tB*mu2,tB*mu3>=0. Hence muz nonzero.
+Write the barycentric components with zero-based indices 0,...,5, and let mu1 denote the Lz coefficient. From A, tA*mu0>=1, and tA*mu3,tA*mu4,tA*mu5>=0, because lambda3(A)=lambda4(A)=lambda5(A)=0. Thus mu0 is nonzero. From B, tB*mu1>=1, and tB*mu2,tB*mu3,tB*mu4>=0, because lambda2(B)=lambda3(B)=lambda4(B)=0. Thus mu1 is nonzero.
 
-If mu0 and muz have the same sign, tA and tB share that sign. All six mu components have the same weak sign (mu1 from B; mu4 from A; mu2,mu3 from both), with mu0,muz strictly nonzero. This contradicts sum(mu)=0.
+If mu0 and mu1 have the same sign, tA and tB share that sign. All six mu components have that same weak sign: mu0 from A, mu1 from B, mu2 from B, mu3 and mu4 from both, and mu5 from A. With mu0,mu1 strictly nonzero, this contradicts sum(mu)=0.
 
-If mu0 and muz have opposite signs, tA and tB have opposite signs, forcing mu2=mu3=0 from the two sets of inequalities. But lambda2(C)=-1 is then unchanged along every kernel fibre, so C cannot project into the LR hull. Contradiction. QED.
+If mu0 and mu1 have opposite signs, tA and tB have opposite signs. Their shared zero-coordinate inequalities force mu3=mu4=0. But lambda3(C)=-1 remains unchanged along every kernel fibre (since mu3=0), so C cannot project into the LR hull. Contradiction. QED.
 
 ## Exact rational regression and a concrete separator
 
