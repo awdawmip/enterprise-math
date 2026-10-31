@@ -68,7 +68,7 @@ s1、s2 不新增 A/B：各读取对应 M 乘 w_c(s)。sA 使 A 已完成，B �
 
 n=14 的 sB 所有分支总权重：W0=W1=**461488623298560**；无权闭合路径数**748315668672**，与原生独立接口一致。单一进程内部计时约S目标锥 **2.71s** vs 泛用halo **9.75s**，是当前机器/实现的单次观测，不是一般时间复杂度或真实物理时间。n14终端typed状态数24对应72个未压缩整数槽，显式加性状态33坐标；动态规划峰值仍大于终端容量。
 
-**完整原始证据**以同目录的 EC49CH_FULL_EVIDENCE_20261031.tar.xz.b64 文本交付；它以标准base64表示19KB tar.xz，包含实际执行源码、原生内核、JSON、33条字面路径证书、运行日志、本证明和NEXT任务；校验解码后归档SHA256=**df8747af2db92ca1f2ae25539661a41d3e972afaea7c60f177718a296437617f**。恢复：base64 -d EC49CH_FULL_EVIDENCE_20261031.tar.xz.b64 | tar -xJf -；在解压目录运行 python VERIFY_EC49CH.py ; python VERIFY_EC49CH_SPAN.py ; python VERIFY_EC49CH_CERT.py。项目使用原生BRC加权/计数，而非给一般数值传播器改名；不进行π或经典三角运算。不宣称物理残差、心跳瞬传或世界观公理得到经验验证。
+**远端证据边界**：本目录实际保存完整定理证明、33条真实路径原始字面证书 `CERTIFICATE_EC49CH.json`、实际执行且已核对Git blob的独立整数检查器 `VERIFY_EC49CH_STANDALONE.py`、逐长度精确结果摘要 `EXACT_REPORT_EC49CH_SUMMARY.json`，以及 `NEXT_TASK_EC49CI.md`。从本目录直接执行 `python VERIFY_EC49CH_STANDALONE.py` 可无须扩展归档复核 `33×33` 非零minor。扩展原始证据的19KB `EC49CH_FULL_EVIDENCE_20261031.tar.xz` 包含完整DP程序、原始JSON、路径张成空间程序、原生源码、运行日志等，**本次仅保存为当前对话可下载附件，没有冒称已上传GitHub**；该归档SHA256为 **df8747af2db92ca1f2ae25539661a41d3e972afaea7c60f177718a296437617f**。完整原始DP和主机性能的进一步复算依赖该扩展附件，GitHub摘要保留其实际执行范围及结果。项目使用原生BRC加权/计数，而非给一般数值传播器改名；不进行π或经典三角运算。不宣称物理残差、心跳瞬传或世界观公理得到经验验证。
 
 ## 文献、身份与下一问题
 
