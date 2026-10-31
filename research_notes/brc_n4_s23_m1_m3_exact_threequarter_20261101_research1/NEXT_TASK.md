@@ -1,0 +1,7 @@
+# Next research unit: complete behavioral S23 finite-label minimax
+
+New result: R_beh(k,m)=3/4 for every k>=1 and m=1,2,3. With the existing m=4,...,9 theorem this closes the exact first nine finite policy-label positions.
+
+Main unfinished target: R_beh(4,10) and R_beh(6,10), both supported only within [1/2,2/3]. For k>=6, first construct a small mixed witness collection containing the 64 point-mass signatures plus explicit rational lawful 11-control behavior policies. At a proposed error radius r, one label's feasible reconstructed 6-by-4 center is a rational linear program with exact total-variation constraints. Search for a finite-label covering impossibility, record a complete integer/rational certificate and independent checker; a mere optimization failure is not sufficient. Test alternative fixed decoders rather than the already-refuted frozen ten uniform-pair kernels. A strict lower bound for k>=6 propagates to k<=6. A matching explicit universal decoder is required for an exact optimum.
+
+Retain causal S23 stage grouping, original six-source positive mixture M, fixed encoder before H, deterministic label based on H only, and the exact inf/sup/min order. Keep S2 transfer, P000 native X6 Cell and independent time, future-observer information preservation, and independent review as separate obligations. Native active owner currently unverified (CONTROL_QUOTA); new proof is portable author-side, REGISTER_PENDING / NOT_ADMITTED until native authority is valid.
