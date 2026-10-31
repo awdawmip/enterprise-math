@@ -1,0 +1,42 @@
+{
+  "normalized_r_to_factorial_errors": {
+    "128": [
+      {"error_denominator": "1", "error_numerator": "0", "j": 0},
+      {"error_denominator": "64", "error_numerator": "-1", "j": 1},
+      {"error_denominator": "1392640", "error_numerator": "-29443", "j": 2},
+      {"error_denominator": "3932160", "error_numerator": "-51883", "j": 3},
+      {"error_denominator": "3463622688768", "error_numerator": "-18058482007", "j": 4},
+      {"error_denominator": "554179630202880", "error_numerator": "-825498581399", "j": 5},
+      {"error_denominator": "6284005820879339520", "error_numerator": "-2080727641374541", "j": 6}
+    ],
+    "512": [
+      {"error_denominator": "1", "error_numerator": "0", "j": 0},
+      {"error_denominator": "256", "error_numerator": "-1", "j": 1},
+      {"error_denominator": "89391104", "error_numerator": "-478211", "j": 2},
+      {"error_denominator": "17163091968", "error_numerator": "-58144123", "j": 3},
+      {"error_denominator": "71776325219647488", "error_numerator": "-97826645991667", "j": 4},
+      {"error_denominator": "4176077103688581120", "error_numerator": "-1661756667455641", "j": 5},
+      {"error_denominator": "143799239440113579337973760", "error_numerator": "-13046657685406817594033", "j": 6}
+    ],
+    "64": [
+      {"error_denominator": "1", "error_numerator": "0", "j": 0},
+      {"error_denominator": "32", "error_numerator": "-1", "j": 1},
+      {"error_denominator": "520192", "error_numerator": "-21641", "j": 2},
+      {"error_denominator": "12484608", "error_numerator": "-317953", "j": 3},
+      {"error_denominator": "159802982400", "error_numerator": "-1570894181", "j": 4},
+      {"error_denominator": "2556847718400", "error_numerator": "-6983784433", "j": 5},
+      {"error_denominator": "40255010478489600", "error_numerator": "-23669511406601", "j": 6}
+    ]
+  },
+  "original_vs_catalan_checks": 3157,
+  "pascal_strict_minors_checked": 1204,
+  "r4_negative_right_edge": -1568,
+  "r5_positive_right_edge": 345744,
+  "right_edge_determinant_checks": 197,
+  "right_edge_minor_checks": {"16": 1204, "40": 1204, "8": 1204, "80": 1204},
+  "right_edge_ratio_checks": 788,
+  "schema": "R428_SIGNED_BRC_BOUNDARY_POISSON_EVIDENCE_V1",
+  "source": "R427 signed BRC definition + independent direct binomial formula",
+  "status": "EXACT_FINITE_CHECKS_NOT_ANALYTIC_PROOF",
+  "unbounded_argument": "analytically: fixed-j signed-difference limit; LGV Pascal determinant positivity"
+}
