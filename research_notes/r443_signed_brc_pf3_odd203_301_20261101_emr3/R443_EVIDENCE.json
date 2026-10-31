@@ -1,0 +1,76 @@
+{
+  "schema": "ENTERPRISE_MATH_R443_AUTHOR_CERTIFIED_EVIDENCE_V1",
+  "date": "2026-11-01",
+  "status": "AUTHOR_SIDE_CERTIFIED_FINITE_EXHAUSTION_UNREVIEWED_NOT_ADMITTED_REGISTER_PENDING",
+  "models": {
+    "global_canonical_main": "e24390a59977583b8c67ad75824da14f7cec8c17",
+    "em_main": "ace20a3785eb79ba4f7f4fa7299871fffc07a96e",
+    "r441": "8fba98f1654ef4050ccc562be1ec197c01f31a47",
+    "r442": "78a8bdc58b73343bcf60cdf81dee62ee829976af"
+  },
+  "claim": "For each odd r=203..301 step 2, the entire semi-infinite Toeplitz sequence has maximum PF order exactly 3; no extrapolation past r=301.",
+  "input": {
+    "rows": 50,
+    "independent_raw_catalan_equalities": 12550,
+    "all_positive": true,
+    "file": "R443_INPUTS.txt",
+    "bytes": 2349510,
+    "sha256": "58110cfb7715a59adce6b9266623567870d7a2bff13944fc2fece2ea76aa11c9",
+    "regenerator_blob": "50411ae1e5ca1bcbce4ca8f66dc2bfe17c487ee5"
+  },
+  "pf3": {
+    "lemma": "R441 Schur/Littlewood-Richardson contiguous rows, arbitrary columns",
+    "complete_reduced_minors": {
+      "1": 12550,
+      "2": 1602125,
+      "3": 138604200,
+      "total": 140218875
+    },
+    "all_strictly_positive": true,
+    "order2_arithmetic": "Boost cpp_int exact integer",
+    "order3_arithmetic": "binary long double downward 50-bit dyadic truncation + rigorous 6e-15 absolute-sum error bound + cpp_int fallback",
+    "sign_threshold": "1e-12",
+    "interval_certified_order3": 138604200,
+    "integer_fallback_order3": 0,
+    "integer_crosscheck_order3": 33812,
+    "minimum_observed_relative_margin": "1.69388099089e-06",
+    "source_blob": "c6e0671dfcec2af55ceb8a5da9e50363a85cb056",
+    "stdout_sha256": "1cc372639d342fc2cf0ab8854014cb5ccf26f7e67a26a465dbcb8a771aac8be0",
+    "stdout_complete_lines": 151
+  },
+  "independent_anchor": {
+    "r": 203,
+    "all_integer_exact_count": 1414909,
+    "all_strict_positive": true,
+    "source_blob": "a78327cb7ad0a431d2f347aab04fa4d255fc745e",
+    "stdout_sha256": "1d265273d6aafa3f27400630895be365db290456f43838a23c6208ac17c16d5f"
+  },
+  "pf4": {
+    "negative_exact_leibniz_witnesses": 50,
+    "rows": "0,1,2,3",
+    "columns": "r-3,r-2,r-1,r",
+    "source_blob": "7439b96588b9a5d6188e850df149a693ad1c7d62",
+    "witness_file": "R443_PF4_NEGATIVE_WITNESSES.txt",
+    "witness_sha256": "c1fdfe3ab7e0cb80cc41c846329ca54e6eaf894ee8bbfddf5ddd80f264f442b4"
+  },
+  "runtime": {
+    "machine": "x86_64",
+    "compiler": "g++ 14.2.0 -O3 -std=c++17 -fno-fast-math",
+    "long_double": {
+      "iec559": true,
+      "digits": 64,
+      "radix": 2,
+      "max_exponent": 16384,
+      "rounding": "FE_TONEAREST"
+    }
+  },
+  "authority": {
+    "directed_research_granted": false,
+    "active_owner": "CONTROL_QUOTA",
+    "formal_claim": false,
+    "result": false,
+    "driver_review": false,
+    "admitted": false
+  },
+  "next": "Analytic PF3 for all odd r>=99, or first r>=303 with explicit 3x3 negative Schur-reduced minor."
+}
