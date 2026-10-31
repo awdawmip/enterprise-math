@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Stage321-B exact rational exterior and expanded-local Pareto certificates."""
+"""Stage321-B: exact rational exterior-cover and expanded local Pareto certificates.
+
+Requires only Python 3 standard library. No float values enter assertions.
+Uses Stage307 unique global root, Stage315 MAP reset, Stage316 convolution,
+and Stage320 B-box sharpness as mathematically stated external dependencies.
+"""
 from fractions import Fraction as Q
 from math import comb
 
@@ -75,6 +80,7 @@ def exterior():
         counts.append((nodes,leaves))
     assert counts==[(335,168),(55,28),(29,15),(141,71)],counts
     assert mingap>target
+    # d(x*,y*)<=d(witness). b=(5/16)d
     assert Q(5,16)*target==Q(1,160000)
     print('EXTERIOR_COUNTS',counts)
     print('EXTERIOR_MIN_EXACT_GAP_NUM_DEN',mingap.numerator,mingap.denominator)
@@ -139,7 +145,7 @@ def rectangle():
     return branch_min
 
 def budget():
-    delta=Q(31,5000000)
+    delta=Q(31,5000000)  # 6.2e-6
     old=Q(11,10000000)
     assert delta/old==Q(62,11)
     assert delta<Q(1,160000)
