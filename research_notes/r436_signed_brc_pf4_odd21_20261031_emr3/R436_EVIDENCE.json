@@ -1,0 +1,70 @@
+{
+  "schema": "EM_R436_EXACT_EVIDENCE_V1",
+  "date": "2026-10-31",
+  "r": 21,
+  "gcd": 92,
+  "normalized_coefficients": [
+    265937685,
+    5052816015,
+    44755366500,
+    245123196435,
+    928703791575,
+    2580473188755,
+    5440446007920,
+    8883931485000,
+    11370958222140,
+    11473827951300,
+    9134206720080,
+    5715598465395,
+    2787996290625,
+    1046134052145,
+    296152950600,
+    61538108580,
+    9027870995,
+    883364625,
+    53024972,
+    1616615
+  ],
+  "lower_exact_positive": {
+    "order1": 20,
+    "order2": 6270,
+    "order3": 1903534
+  },
+  "full_order4": {
+    "positive": 574661783,
+    "zero": 0,
+    "negative": 0,
+    "total": 574661783,
+    "exact_fallback": 0,
+    "cutoff": "1e-15",
+    "long_double_mant_dig": 64,
+    "environment": "IEEE754, FE_TONEAREST"
+  },
+  "exact_spot_order4": 30625,
+  "exact_negative_order5": "-12890242975052687549013416749816254638339557376",
+  "order5_rows": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "order5_columns": [
+    18,
+    19,
+    20,
+    21,
+    22
+  ],
+  "stdout_fast": "R436_PF4_R21_CERTIFIED u1=1..19 pos=574661783 zero=0 neg=0 total=574661783 exact_fallback=0 cutoff=1e-15 mant=64",
+  "stdout_python": "R436_EXACT_PASS lower {1: {'positive': 20, 'zero': 0, 'negative': 0}, 2: {'positive': 6270, 'zero': 0, 'negative': 0}, 3: {'positive': 1903534, 'zero': 0, 'negative': 0}} spot4 30625 negative_E21 -12890242975052687549013416749816254638339557376",
+  "local_sha256": {
+    "cpp": "2c5e9ecf26e4b823f6e551b23abb4d672cdca220723e888885423010ec2c17d6",
+    "python": "83feccd21bb85c2e81cfce9534ee616a677cdfde59ac3999be38bbdbd6954848",
+    "source_json": "aeb02ed0fae33b9c96506768952efba60c2b9c419ae5ddee26af86c02eb487bb"
+  },
+  "canonical_global_read_pin": "9ea44fd85c3a33dbf65680980e7d472934da04a2",
+  "canonical_project_read_pin": "fa56bd5ca2e741971266ccd81244dbb11e4daf51",
+  "status": "AUTHOR_SIDE_COMPUTER_ASSISTED_EXACT / DRIVER_UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING",
+  "claim_scope": "Auxiliary signed BRC scalar observer, r=21. No native X6 transfer or P000 promotion"
+}
