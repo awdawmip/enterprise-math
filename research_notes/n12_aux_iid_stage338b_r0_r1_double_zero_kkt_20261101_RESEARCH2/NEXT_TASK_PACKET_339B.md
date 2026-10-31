@@ -1,0 +1,9 @@
+# Stage339-B — exact second-order/global test of the r0=r1 double-zero KKT candidate
+
+Parent: locate the first global two-source Pareto budget transition in the 3-visit source-labelled Bernoulli/BRC auxiliary observer. Frozen inputs: GLOBAL_KNOWLEDGE_V1 main@21a6d767034f342fbb64d3788339333776d5b3bd, EM main@0e46715ac981a244ea0b799b29dc4efaf410acc8, P000 V5 original blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. The scientific predecessor Stage338-B is the proof/code/log alongside this task file; preceding Stage337-B is on immutable EM commit 8db2fe68f2bbb9f9cf86afb4ea48f98f7eb41d20.
+
+Proved: a UNIQUE double-zero solution r0=r1=0 exists for 231083/10^6<x<231085/10^6 and 5554961/10^7<y<5555202/10^7, has r2>0,r3<0 and 16 fixed tagged signs. Its full two-cusp Clarke cone has an explicitly constructed supporting gradient with alpha=1, beta in (14/73,3/14), lambda>0; hence NO simultaneous strictly negative first-order derivatives. This is necessary only, not local Pareto sufficient.
+
+Immediate decision problem: characterize all second-order feasible perturbations of b<=b(q*) near q*, including directions tangent to r1=0, and produce either (1) exact rational improving competitor q close to q* with b(q)<=b(q*), c(q)<c(q*), or (2) a rigorous local error bound c(q)>c(q*) for all sufficiently close q obeying b(q)<=b(q*). Distinguish the two public residual cusp chambers and the labelled source cusp. Next: compare surviving q* to r0/r1 arcs and two-group additive allocation, then outside-R.
+
+Output: exact inequalities and intervals, complete proof or explicit counterexample, executable Fraction/SymPy checker with actual stdout, result status separated from native CLAIM/Result/independent Driver review. Auxiliary model is not P000 native X6, 3D slice, independent time, triadic closure or final Cell addressing; preserve all source provenance.
