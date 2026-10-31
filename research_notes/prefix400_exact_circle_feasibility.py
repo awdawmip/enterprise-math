@@ -45,7 +45,7 @@ class Point:
         ca=(245*self.ta+123*self.sa)/N
         cb=(245*self.tb+123*self.sb)/N
         da=(-123*self.ta+245*self.sa)/N
-        db=(-123*self.tb+245*self.sa)/N
+        db=(-123*self.tb+245*self.sb)/N
         return {"tag": self.tag, "T": [str(self.ta),str(self.tb)],
                 "sigma": [str(self.sa),str(self.sb)],
                 "c": [str(ca),str(cb)], "d": [str(da),str(db)],
