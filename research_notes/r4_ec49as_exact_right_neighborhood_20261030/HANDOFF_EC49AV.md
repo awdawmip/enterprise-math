@@ -1,0 +1,9 @@
+# EC49AV author-side portable research handoff (2026-10-30)
+
+Parent: Enterprise Math / 进取数论. Research identity: this ChatGPT research task acting as an author-side portable researcher; no inherited Source researcher ID, Owner, CLAIM or mathematical review authority. Current Source context reports authority_granted=false; canonical owner query returned CONTROL_QUOTA.
+
+Exact predecessor: draft PR #1730 commit c1ea6b05eded5f5b86f72a9dbaae77ee43659423. Current deliverable: deterministic-purchase theorem + sparse unrestricted optimum reduction in PROOF_EC49AV.md; published executable VERIFY_EC49AV.js and its actual exact EC49AV_REPORT.json.
+
+New verified result: at η=11/30, the exact maximum among all real first-stage distributions with deterministic observation-only sensor purchase is 14401/123840; 255 purchase masks, 3003 potential five-support sets per mask, 445440 nonsingular supports, 6240 feasible bases, and 32 maximizing mask/basis pairs checked with exact BigInt arithmetic. For unrestricted purchases an optimal policy always exists with at most 5 positive first-stage entries and at most 1 fractional purchased observable fiber. Therefore any strict improvement over the known W must involve precisely one fractional positive-mass purchase decision in such an extreme optimal representative. The unrestricted true optimum remains between the lawful W and the prior scalar-price bound 209867/1802560; formal review pending.
+
+Next scientific action: EC49AW, exact one-fractional-fiber optimization; don't re-run deterministic-mask enumeration. Source-native registration, CLAIM, Result and independent Driver review require active scope and real receipts. P000, ACTIVE worldview, signed BRC and native X6/heartbeat remain outside the proven theorem; no protected content changed. All six files in this scoped handoff are safe to share only within the existing private repository; no secrets or permission changes.

@@ -1,0 +1,5 @@
+# EC49AS immutable sources
+- GLOBAL_KNOWLEDGE_V1 canonical main verified 2026-10-30: a9990a89bfc38c135d6545f17b9f38fb1939585a. Read 00_BOOTSTRAP.md, OPERATING_MANUAL.md, P000_STARTUP.json, ACTIVE 我眼中的世界.md, math/code/research/routing policies; startup P000 original blob verified 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc.
+- Enterprise Math canonical main source: 55294cdb5c2bb0737aed452232108c052b9ba503. Read AGENTS.md, p000_reality_foundation.json, definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json, control authority, docs/PORTABLE_RESEARCH_PROTOCOL.md and autonomous operations.
+- EC49AQ/AR predecessor exact model and 168-vertex lemma: commit ad16a14e13eb9318f5b681eb32ac3a5a11bf5391, research_notes/r4_ec49aq_exact_all_causal_optimum_20261030/{PROOF.md,PARAMETER_COROLLARY.md,VERIFY.py,VERIFY_PARAMETER.py}; draft PR #1727.
+- External prior-art novelty not established. Mathematical statement confined to this explicitly defined auxiliary BRC model, not an assertion about empirical physics or native X6.

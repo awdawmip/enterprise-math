@@ -1,0 +1,17 @@
+EC49CP_FULL_EVIDENCE.tar.xz
+2026-10-31
+archive bytes: 12512
+archive sha256: a34fdc083e11123f715bfe13daaf5c6863f8ddce6f1004cb3506435c87ad5794
+archive Git blob sha1: d6ed4483d2d4b50ea3ba6564982e6ed6ec2085a4
+archive members:
+README_EC49CP.md
+VERIFY_EC49CP.py
+EXACT_REPORT_EC49CP.json
+NEXT_EC49CQ.md
+RUN_EC49CP.log
+source/native_signed_brc.py
+Repro:
+mkdir -p /tmp/ec49cp && tar -xJf EC49CP_FULL_EVIDENCE.tar.xz -C /tmp/ec49cp
+cd /tmp/ec49cp && python VERIFY_EC49CP.py --max-h 12 --literal-h 5
+Run status author checked: passed h=1..12 ranks; 9 literal witnesses *1364 nonempty words; native BRC totals n=0,2,4.
+Mathematics: PROOF_DRAFT, EXACT_INTEGER_FINITE_AUDIT_PASS; formal project status UNREVIEWED/NOT_ADMITTED.

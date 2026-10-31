@@ -1,0 +1,8 @@
+# EC49BK exact provenance
+
+Global canonical source main@104a8e9dabd6198aeb9994305ea4fd4f4eea0d12:
+00_BOOTSTRAP.md; OPERATING_MANUAL.md; projects/enterprise-math/P000_REALITY_FOUNDATION.json (blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc); projects/enterprise-math/P000_STARTUP.json; 我眼中的世界.md ACTIVE; knowledge/preferences/MATH_RESEARCH_POLICY.json; knowledge/procedures/BRC_RESEARCH_PRIORITY_AND_USAGE_20260905.md; knowledge/procedures/EM_RESEARCH_ACTIVITY_REGISTRATION_20260908.md.
+
+Project canonical source main@7a590c60e49a420b88518fec60818ac3b70a4b7d:
+AGENTS.md; p000_reality_foundation.json (P000 V5); definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json; definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md; definitions/ENTERPRISE_BRC_MULTIPATH_ENRICHMENT_BRIDGE_20260821.md; research_notes/X6_SIGNED_PATH_BRC_AND_PRIMITIVE_LINE_V17_20260905.md; docs/PORTABLE_RESEARCH_PROTOCOL.md; docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md; docs/HEARTBEAT_BRC_ONLY_ARITHMETIC.md; research_constraints/heartbeat_brc_only.json; control_plane/current_control_authority.json.
+Exact actual BRC kernel: experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py; git blob 300a96e3dc24bf6fff73743037a0347a8bc83176. Functions shortest_path_multiplicity and endpoint_multiplicity used. All scientific statements are from this model and original proof, not from arbitrary Internet physics/phase references. Older author-side EC49BJ source in this PR; own author continuation EC49BK here.

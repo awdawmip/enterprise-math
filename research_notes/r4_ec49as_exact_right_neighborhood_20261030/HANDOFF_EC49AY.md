@@ -1,0 +1,9 @@
+# Portable handoff — EC49AY
+
+Scientific frontier: all-real EXACT causal observation maximum in the strictly positive auxiliary 18+18 probability P/Q-BRC model is h(eta)+G(eta) for eta_star≤eta≤2/5, with eta_star defined by the quartic in PROOF_EC49AY.md. At eta=2/5 the maximum is 15451/123840−sqrt(215)/2160. This is an algebraic improvement over the previous lawful rational witness and is attained by the explicitly legal observation-only fractional purchase strategy. Prior exact proof for lower eta is inherited and must not be recomputed without identified regression.
+
+Files: PROOF_EC49AY.md, VERIFY_EC49AY.py, VERIFY_SYMBOLIC_EC49AY.py, EXACT_REPORT_EC49AY.json, SOURCES_EC49AY.md, NEXT_TASK_EC49AZ.md. Standard-library verifier imports existing sibling VERIFY_EC49AX.py and was actually executed locally; separate SymPy 1.14.0 symbolic identity checker was also executed locally. The finite certificate is inherited and reproduced at the pinned scientific frontier. No custom axioms, signed/native transfer, formal acceptance or independent reviewer verdict claimed.
+
+Next: complete EC49AZ at eta=21/50 with real causal optimization and precise threshold/new strategy or rational counterexample; separately determine typed positive-to-signed BRC/X6 preservation/obstruction. Reconcile genuine owner/native authority before formal CLAIM/Result. Current native status research_authority_granted=false and the owner query returned CONTROL_QUOTA. Keep portable author-only results distinct from Source admission.
+
+Prompt: Continue EC49AZ from this immutable EC49AY theorem and the given exact scripts. Reuse frozen GLOBAL_KNOWLEDGE_V1/P000/ACTIVE worldview, honor current owner. Determine whether the η=2/5 radical optimizer remains optimal at η=21/50 by exhaustive exact edge/score partition and causal certificates; publish only the actual proof or lawful counterexample, clearly type boundaries and unanswered mathematical questions.

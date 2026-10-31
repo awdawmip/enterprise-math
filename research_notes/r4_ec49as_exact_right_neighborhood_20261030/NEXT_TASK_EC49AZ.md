@@ -1,0 +1,9 @@
+# EC49AZ — next exact postcritical phase and native transfer
+
+EC49AY author-side frontier: complete ALL-REAL unrestricted causal optimum of the strictly positive auxiliary 18+18 P/Q BRC observer for eta∈[eta_star,2/5], including Hmax(2/5)=15451/123840−sqrt(215)/2160 and an optimal partial-purchase strategy. Earlier eta≤eta_star values are already proved. No formal Task Result, Source-native owner/CLAIM or independent Driver review; no signed-BRC/X6/Heartbeat physical transfer.
+
+**First smallest next question:** at rational eta=21/50, enumerate the same 168 vertices and 924 edges, with correct exact paid-mass clipping; optimize the continuation of EC49AY's eight-edge family and check whether one of the formerly regular 196 edges takes over. The old 196 four-corner certificates stop at eta=2/5, and must NOT be extrapolated. Provide an exact rational lawful improvement/contradiction to naive radical extrapolation, or a matching all-real upper bound with exhaustive exact certificates.
+
+**Second typed question:** specify a readout-, operation-, provenance- and residual-preserving map from positive auxiliary P/Q leaf model to signed/phase BRC, ENTERPRISE_NATIVE_X6 (six native signed axis coordinates), the three-dimensional research slice and Heartbeat World. Identify obstructions (phase cancellation, hidden history erasure) before declaring any native correspondence. Keep P000 and ACTIVE worldview untouched.
+
+Next executor: use PROOF_EC49AY.md and the two checked scripts in this directory, plus the existing immutable EC49AX commit a9f43647260503a9544b9f52994bb076006835bf; save exact theorem/counterexample, source hashes, validation scope and next research question through the current authorized owner/portable procedure.

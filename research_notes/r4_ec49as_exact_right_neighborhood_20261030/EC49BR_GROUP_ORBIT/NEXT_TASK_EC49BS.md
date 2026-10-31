@@ -1,0 +1,7 @@
+# EC49BS — Typed selective-ensemble BRC and exact aggregation bridge
+
+Mother question: minimal future-sufficient memory for original signed-X6 BRC paths and declared observer/operation languages. Consume EC49BR author proof, checker, exact JSON and unchanged native signed_brc kernel; do not assume admission or borrowed claim.
+
+First independent unit: specify a typed path-selection operator accepting a finite nonnegative rational multiset of ordered signed-X6 words, a length, an endpoint displacement, a Boolean prefix/suffix filter and a fixed/covariant group-action label. Prove a commuting identity that recovers endpoint_weight(n,z,wp,wm) for mu≡1 with no filter, preserving original signs and multiplicities. Either implement as a conservative extension of the existing kernel after reviewing source API/authority or produce an exact interface contract and a computational counterexample; report honestly which was achieved. Next determine the exact count-character rank and potential bit complexity for general finite H at larger n,r.
+
+Required evidence: source-pinned definitions, precise quantifier/model boundaries, proof or exact failing witness, executed original-kernel comparison where possible, code plus complete finite certificate and true authorization state. No physical heartbeat or complex amplitude claim.

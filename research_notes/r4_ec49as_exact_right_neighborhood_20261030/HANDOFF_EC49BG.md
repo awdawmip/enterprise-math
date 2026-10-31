@@ -1,0 +1,9 @@
+# EC49BG — Portable scientific handoff
+
+2026-10-30. Full all-real causal optimum F on [99/200,1/2] is author-proved with exact Fraction/SymPy checks. Main new tool: parameter-dependent cost dual lambda(eps)=27/172-eps/2 on all 196 ordinary edges; 160 exact endpoints collapse to 17 cost-polynomial classes and Hordinary≤351/2752-19eps/192, attained by explicit all-purchase policy. The eight exceptional edges are signature-isomorphic and attain the algebraic F; their objective is strictly better at eps>0. At eta=1/2 nonnegative-kernel endpoint, optimum C=351/2752 and exact true left slope (2+sqrt6)/48.
+
+Artifacts in this directory: PROOF_EC49BG.md, COMPLETE exact executed VERIFY_EC49BG.py.gz.b64 (decode gzip+base64 to VERIFY_EC49BG.py; decoded SHA256 bc547c17e3ce2a67e7fa246757de54fff58bfea2c8d4f4949fc33ab278811d12), EXACT_REPORT_EC49BG.json, SOURCES_EC49BG.md, NEXT_TASK_EC49BH.md. Run with Python3 + SymPy, compare semantic JSON. Executed complete checker was locally re-run with identical byte output before publishing.
+
+Scientific inputs GLOBAL_KNOWLEDGE_V1 main@85921ed2579d2f4329cda5c554edc1d47538d137, EM main@5e4de2f5a2d55d1fe7d0a558b69c5342fbdd8574, predecessor PR #1730 head c72a02eed9cd8ba00127957dea09ac720c642b59. P000 and worldview unmodified. Native gateway DIRECTED_RESEARCH authority false, owner query CONTROL_QUOTA; no native Research-Activity, CLAIM, Result, Driver review or mathematical admission. Project output remains author-side PORTABLE_DRAFT / UNREVIEWED / NOT_ADMITTED, no signed BRC/X6/Heartbeat transfer.
+
+Next EC49BH independent adversarial proof check, then full parameter-phase synthesis and separately typed native-model bridge.
