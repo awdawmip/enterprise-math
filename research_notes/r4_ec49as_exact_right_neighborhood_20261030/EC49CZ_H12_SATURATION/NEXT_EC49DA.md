@@ -1,0 +1,9 @@
+# EC49DA — all-h remaining-fiber construction or smallest counterexample
+
+Science inputs: GLOBAL_KNOWLEDGE_V1 main@2639f7f151f9a56762bb8adc2b49c77594370e18; Enterprise Math main@4d349d63a10612d9e196f49791bd5946c6dd9bba; EC49CZ h12 positive-BRC theorem/certificate in PR #1730. Preserve P000, native full X6 ordered signed steps and the exact finite-window observer.
+
+Question: Can the EC49CZ positive-quadrant boundary construction be extended to all remaining displacement fibers, including negative-E1 boundary and interior six-row DFA fibers, to prove for EVERY integer h>=4 that the real-length n=2h+8 observer rank equals 18h^2+24h+12? Or give the smallest h and an explicit fiber where this fails. Prior all-h necessary bound n>=2h+8 is an author-side predecessor result. Need a genuine uniform construction, recursive full-rank minor or exact obstruction; do not extrapolate finite h<=12.
+
+First unit: classify the six DFA row states for interior fibers and try a universal 18-column block construction using three linearly independent positive-BRC weight vectors per distinguishable automaton state. For negative-E1 extreme fibers provide explicit positive E1/E2 supply and tag-control constructions. Prove tag separation and nonzero symbolic determinants. Reuse EC49CZ uniform four-tag 12-column construction on strictly positive boundary fibers.
+
+Acceptance: declare exact domain, assumptions, rank semantics and channels; give full load-bearing proof or precise counterexample, a small independent exact checker for boundary cases and any necessary finite bridge, and preserve actual native activity/owner/CLAIM/admission state without invention. Preserve source and next question in project PR.
