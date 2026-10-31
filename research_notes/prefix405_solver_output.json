@@ -1,0 +1,80 @@
+{
+  "E_minus": "82830681/100000000",
+  "E_plus": "64470681/100000000",
+  "gap": "217169319/100000000",
+  "legacy_far_no": {
+    "checked": 1,
+    "nodes": 1,
+    "status": "NO"
+  },
+  "model": "external auxiliary static normalized I1=1",
+  "negative_branch": {
+    "Y": [
+      [
+        "-59999/160000",
+        "20001/160000"
+      ],
+      [
+        "99999/160000",
+        "-20001/160000"
+      ],
+      [
+        "99999/160000",
+        "-60001/160000"
+      ]
+    ],
+    "status": "YES",
+    "u": [
+      "0/1",
+      "-1/1"
+    ],
+    "v": [
+      "-1/40000",
+      "0/1"
+    ]
+  },
+  "no_certificate_replayed": true,
+  "noisy_midpoint": {
+    "den": 1000,
+    "nodes": {
+      "0": {
+        "by": "I4",
+        "kind": "exclude"
+      },
+      "1": {
+        "by": "I4",
+        "kind": "exclude"
+      }
+    },
+    "roots": 2,
+    "status": "NO",
+    "tested": 2
+  },
+  "positive_branch": {
+    "Y": [
+      [
+        "-19999/160000",
+        "-59999/160000"
+      ],
+      [
+        "59999/160000",
+        "59999/160000"
+      ],
+      [
+        "59999/160000",
+        "99999/160000"
+      ]
+    ],
+    "status": "YES",
+    "u": [
+      "0/1",
+      "1/1"
+    ],
+    "v": [
+      "-1/40000",
+      "0/1"
+    ]
+  },
+  "status": "PASS_PREFIX405_COMPLETE_NO_SEMIDECISION_AND_ROBUST_NONCONVEXITY",
+  "witness_branches": 2
+}
