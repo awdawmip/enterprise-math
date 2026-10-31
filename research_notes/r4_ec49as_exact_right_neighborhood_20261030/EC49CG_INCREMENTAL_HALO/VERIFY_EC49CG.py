@@ -75,6 +75,7 @@ def terminal(src):
   for i in range(3):t[ATOM[q]][i]+=v[i]
  return t
 
+
 def closed(r):
     # All orbit states are per-state values, not an orbit-summed mass.
     out=[[0,0,0] for _ in range(4)]
