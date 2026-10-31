@@ -1,0 +1,7 @@
+# R5 next independent research unit, 2026-10-31
+
+Current evidence: AUTHOR_PROVED / EXACT_INTEGER_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING; not Source-CLAIMED. The diagonal three-stage 12-path stop tree with any interior source-sensitive u=0 middle STOP errors eta00 != eta10 already has exact four-hull support gap 9 epsilon |eta00-eta10| /128 for sufficiently small epsilon; do not repeat it. This also has a full 4D rank witness with det=3/32768.
+
+Mother objective remains: positive dual-measure genuine STOP/CONTINUE process with equal FULL/LR four-observer convex hulls but different real behavioral images, seedless LR and rank four.
+
+Next: use newer off-diagonal upstream-adjusted 2D-time-hull-equal process from PR #1663 at 31d7a6b703054bb335242312d6bf17f30fbf49e5; vary source-sensitive u=1 or time-4 errors. For every rational model, exactly enumerate 128 LR and 262144 FULL Boolean four-vectors (or prove equivalent complete certificates). First certify full four-hull equality via rational convex combinations of at most five LR vectors for every FULL vertex, or provide a rational Farkas separator, and verify rank four. Only once four-hull equality holds test actual seedless LR real-image nonmembership by semialgebraic arguments. Preserve all Q/P path fractions, STOP semantics, source pins, declared observer, author history and formal Source owner/CLAIM boundaries.

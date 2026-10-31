@@ -1,0 +1,14 @@
+ENTERPRISE_MATH_R5_EXACT_UNIFORM_STAGE3_P_COMPENSATION
+model_nodes=14; LR_keys=12; FULL_binary_policies=16384; LR_binary_policies=4096
+BRC_P_mass_A11_B11=7/36; BRC_PplusQ_time_deficit=7/24
+FULL_max_intercepts_by_m=0:3/22;1/12:-1/176;1/9:17/132;7/36:-7/528
+LR_max_intercepts_by_m=0:0;1/12:-25/176;1/9:-19/132;7/36:-7/528
+support_gap/epsilon=3/22 for 0<=rho<=3/44; 25/176-rho/12 for 3/44<=rho<=75/44; 0 for rho>=75/44 (admissible kernels)
+rho=1: FULL_support/epsilon=95/396; LR_support/epsilon=287/1584; gap=31/528
+FULL_witness_O=509/1200,16597/54000,32/9,65/18
+LR_support_witness_O=879/2000,64567/216000,137/36,281/72
+LR_integer_inequality=17424000 eP - 870408 TP - 173448 TQ <= 3668533
+FULL_integer_lhs=3669556; right=3668533; integer_gap=1023
+LR_affine_dim=4; determinant=1/12960000000
+distance_Linf_lower_bound=31/559632
+PASS_EXACT_R5_UNIFORM_STAGE3_COMPENSATION_ENVELOPE

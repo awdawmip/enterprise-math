@@ -1,0 +1,9 @@
+# R5 next exact science — genuinely coupled two-merger exception to rigidity
+
+Mother target: strictly positive rational finite two-law stop/continue experiment with FULL and seedless exact-LR four-observer convex hulls equal for all signed directions, but ACTUAL real images unequal; alternatively prove a broader impossibility theorem.
+
+Consume this note's one-merger theorem and unchanged input pins. For a forced-reach first collision with one-step terminal classification, equality of all signed supports forces identical sourcewise Q-weighted terminal exact-LR distributions, and then exact policy Markovization gives actual-image equality. Its finite exact decision procedure checks truncated min functions at the union of rational LR knots. Hence the next counterexample must genuinely exceed this scope; do not repeat single-merger examples or quantized-LR artifacts.
+
+Build a genuinely interacting two-merger DAG with exact collision equations P(h)Q(h')=P(h')Q(h) at BOTH nodes and source-sensitive future predictive kernels. Preserve path-labelled positive BRC P/Q masses and time labels; model the earlier decision's effect on later reachable mass. Apply the existing no-compensation sign criterion to screen candidates, then enumerate deterministic FULL and seedless exact-LR four-vectors. For every FULL vertex give rational convex coefficients on at most five LR vertices or a fully exact Farkas separating certificate. Finite signed-direction sweeps do not establish hull equality.
+
+Only after all-signed hull equality is proved, study nonmembership of an actual FULL observation in the LR REAL behavioral image via exact semialgebraic feasibility, including zero continuation flows. Retain original P000 and ACTIVE worldview. Provide full proof/model/code/executed output/immutable readback; label author proof UNREVIEWED / NOT_ADMITTED until valid independent admission. Do not infer native role/CLAIM/Result from a GitHub branch.

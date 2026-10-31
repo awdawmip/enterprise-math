@@ -1,0 +1,9 @@
+# R5 successor — time-only first, beyond the fixed twelve masses
+
+Parent: research_notes/brc_r5_binary_lr_markovization_threeclass_20261030_t2138/RESEARCH.md at f68cf18321962f2502c0de505879722ee27d2e9a; new theorem: this directory's RESEARCH.md and VERIFY.py. Original mother target is a genuine STOP/CONTINUE P/Q finite tree whose four-observer FULL and seedless LR convex hulls coincide while actual real behavior sets differ. Do not substitute a persistent LR policy mixture.
+
+New proven kill condition: on the exact predecessor's twelve strictly positive P/Q terminal masses, 7T_P-6T_Q has FULL minus LR support 1/128, independent of ANY terminal-error assignment. Do not sweep error coefficients on those fixed masses again.
+
+Next smallest independent unit: vary the three-child natural Q transition probabilities within the affine likelihood-ratio fibers, maintaining all strict positivity, both measure normalizations, and exact LR collision classes. Before choosing any error kernel, certify exact equality or inequality of the FULL and LR time-projection convex hulls in both signed directions (finite deterministic policy convex hulls; output exact Farkas line if unequal). An exact time-hull-equal candidate merits a four-observer all-signed rational vertex containment certificate (<=5 LR vectors per FULL vertex) or an exact Farkas separator. Only then attack actual real seedless-LR behavior equality/nonmembership semialgebraically.
+
+For each candidate freeze all 12 P/Q mass fractions, branch ratio keys, stop/continue timing, positive terminal error table, the arithmetic program and raw evidence; distinguish sampling from complete analysis. Read current P000/ACTIVE, real owner/source authority and portable protocol. The proof remains unreviewed until independently admitted; no native six-axis physical correspondence is asserted.
