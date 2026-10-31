@@ -1,0 +1,7 @@
+# Stage326-B — first true global Pareto departure, now bracketed above 1/5000 and below 71/10000
+
+Read adjacent Stage325-B full proof, exact checker and output. Frozen Stage325 input: GLOBAL_KNOWLEDGE_V1 main@8213df12edc1ce2684ad086a529b3d21803d782c; Enterprise Math main@5bd6b64a60e9d8c6df4a6a6b501229b6b2755d48; scientific Stage324-B commit a9b6f58bd0d1b474e2190d3628babf46dd3fedb3. Earlier lemmas are author-only, unreviewed.
+
+Precise new frontier: the specific single-block right r1=0 continuation is provably beaten at algebraically defined epsilon_0 with 7/1000<epsilon_0<71/10000 by the rational two-block witness q=(6/25,29/50) in each block. The witness has public slack >1/1000 and tagged advantage >3/4000. This does not establish that the witness itself is the global minimizer. Stage324 proves the old branch for epsilon<=1/5000, conditionally on earlier author results.
+
+Next discriminating unit: construct exact sign-aware partitions across r3=0 and the D3(3/4,y) word-sign transition, then certify an earlier strict competitor or globally exclude all alternate competitors through a proposed first switch. Produce an exact rational/algebraic crossing bracket and executable checker; distinguish a first optimizer switch from failure of a convenient certificate. Preserve full source-tagged joint laws, the native X6 mapping gap and independent-review/admission status. Do not recompute the old 253-leaf/1024-tile Stage324 certificate without an affected dependency.
