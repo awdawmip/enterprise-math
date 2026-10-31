@@ -1,0 +1,24 @@
+# Executed verification evidence
+Date (UTC): 2026-10-31
+Execution: JavaScript V8 exact integer checker source VERIFY.js, evaluated in active tool runtime.
+No floating-point probability evaluation. Common denominator for six public atoms = 1920.
+{
+  "status": "PASS_BRC_N4_NO_TIME_KEEP_Z_ALL_LAWFUL_R1_R2_20261031",
+  "exact_arithmetic": "integer on common output denominator 1920",
+  "model": "two laws, each 16 strictly positive leaves; eight prepared inputs",
+  "tested_subfamily": "27 time-2 deterministic action patterns x 64 lawful time-3 class decisions",
+  "policies_per_error": 1728,
+  "epsilon_values": [
+    "0",
+    "1/8",
+    "1/4",
+    "1/2"
+  ],
+  "inputs_per_policy": 8,
+  "public_output_atoms": 6,
+  "comparisons": 110592,
+  "max_one_code_tv": "2/3",
+  "max_two_code_tv": "1/2",
+  "scope": "finite deterministic S23 subfamily; continuous eps and all stochastic S23/S2 proved analytically"
+}
+Mathematical coverage: finite checker tests the specifically stated 27*64 deterministic lawful S23 subfamily for four exact noise levels and every prepared input. Independent analytic proof covers all S23/S2 policies and real epsilon. No native Source/task Result or independent reviewer is claimed.

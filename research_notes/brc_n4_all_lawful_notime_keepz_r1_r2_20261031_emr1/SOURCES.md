@@ -1,0 +1,8 @@
+# Inputs, pins and provenance (2026-10-31)
+
+- GLOBAL_KNOWLEDGE_V1 canonical read pin: awdawmip/chatgpt-global-knowledge main@36ab6f9975d2141963e6e0180233320400e6d877. Read 00_BOOTSTRAP.md, OPERATING_MANUAL.md, ACTIVE worldview, relevant BRC/math research rules.
+- Enterprise Math project control pin: awdawmip/enterprise-math main@dae896eec630511ed988677bd6b4f134e02a45c7. Read AGENTS.md, p000_reality_foundation.json, definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json, docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md, docs/PORTABLE_RESEARCH_PROTOCOL.md and control_plane/current_control_authority.json.
+- Mathematical predecessor, author-side not admitted: PR #1757, 08b716689211beaaafde39677fdc6b74aa1d44b4; particularly research_notes/brc_n4_all_lawful_noz_r1_r2_20261031_emr1/PROOF.md and research_notes/brc_n4_hstar_observer_ablation_20261031_emr1/PROOF.md at 396bae14dba75ade9130cfc80c0410293a61b4e3.
+- Classical TV definition / common submeasure overlap: https://doi.org/10.1093/imaiai/iaab021 (2021 literature, section 1.4). Classical TV contraction under Markov kernels is used directly, and the new finite application is proved self-contained.
+- Actual authority read: native Sites gateway 0.6.11 reported research_authority_granted=false; read-only current task/owner listing rejected CONTROL_QUOTA. GitHub PR publication is portable author evidence only, not native claim, Result, independent review or accepted theorem.
+- No P000 or ACTIVE worldview records are modified. Source preparations and terminal sensor are externally stipulated rational model data; full native Cell/time/observer commutation remains a separate research obligation.
