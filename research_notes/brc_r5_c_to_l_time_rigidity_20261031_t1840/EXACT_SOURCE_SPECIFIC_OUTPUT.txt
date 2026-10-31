@@ -1,0 +1,8 @@
+case01 theta_equal=11/2 alpha=(1/4,1/5) kappa=(3/4,1/6) FULL_outside_LR_hull=0 LR_vertices=6
+case02 theta_equal=29/5 alpha=(1/4,1/5) kappa=(9/10,4/15) FULL_outside_LR_hull=0 LR_vertices=6
+case03 theta_equal=9/2 alpha=(1/4,1/4) kappa=(1/4,1/4) FULL_outside_LR_hull=0 LR_vertices=6
+case04 theta=(9/2,19/2) alpha=(1/4,1/8) kappa=(1/4,1/4) H=(16,-17) gap=5/32 outsiders=512
+case05 theta=(9/2,11/2) alpha=(1/4,1/4) kappa=(1/4,3/4) H=(12,-13) gap=1/16 outsiders=192
+case06 theta=(9/2,11/2) alpha=(1/4,1/5) kappa=(1/4,1/6) H=(12,-13) gap=1/20 outsiders=192
+policy_enumeration=4096_FULL+16_LR_each; cases=6; all Fraction arithmetic
+PASS_EXACT_R5_SOURCE_SPECIFIC_C_DETOUR_TIME_HULL_COMPENSATION
