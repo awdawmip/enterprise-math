@@ -1,0 +1,9 @@
+# EC49CQ — recover the nine-dimensional ε-current rolling residual
+
+Continuation: EC49CP_EPSILON_OBSERVER/README_EC49CP.md and immutable full evidence archive (including original theorem, executable checker, JSON and native BRC implementation), EC49CO predecessor commit 30cb1b7879e0ab433d6b80b7d969e80a715ff80d. Same locked P000, native X6, actual positive BRC type weights (2,3,3,2,1,1) / (3,2,3,2,1,1), negative primitive weight 1, A/B ordered-pattern eight reachable states, four full suffix operations a,b,c,d.
+
+Completed and not to be repeated: for h>=1 and sufficiently long even histories, nonempty-only O_h rank D_h=3(3h²+7h+1), including ε increases rank D_h+9. Joint rolling T from O_(h+1)^ε to all next O_h^ε has rank D_(h+1) and kernel dimension9 at the zero-displacement fiber, despite the original six-dimensional nonempty-only kernel at 2E1,2E2. Nine genuine length10 exact positive-BRC multiset witness differences, modular h=1..12, literal suffix lengths1..5, and native aggregate n=0,2,4 checked; full evidence in preceding archive.
+
+Specific unanswered question: add exactly one genuinely new allowed observer or whole operation. Option A: read a declared primitive-prefix intermediate (inside c/d) at a declared relative X6 displacement, preserving typed branch counts and A/B automaton. Option B: add one new fully specified signed-X6 operation with different net displacement. Compute its restriction to the existing 9D kernel, full new rolling rank, and the smallest needed retained current observer. Prove all h or mark finite check, and present real nonnegative path multiset witness if rank changes. Preserve origin/observer, provenance, source pin and permission/admission boundaries.
+
+Status: portable author research proposal / no V2 publication, CLAIM, native Result or Driver review.
