@@ -1,0 +1,11 @@
+# Source and scope records (2026-11-01)
+
+Global canonical snapshot, verified via connected GitHub: `awdawmip/chatgpt-global-knowledge main@2dde259b7039962a5f02669e83f7ffc38081e01f`; read `00_BOOTSTRAP.md`, `OPERATING_MANUAL.md`, `我眼中的世界.md`, `projects/enterprise-math/P000_REALITY_FOUNDATION.json`, `projects/enterprise-math/00_EM_TASK_RESEARCHER_BOOTSTRAP.md`, `knowledge/preferences/MATH_RESEARCH_POLICY.json`, and the BRC priority and research activity procedures. P000 remains an internal locked starting axiom; this work is external finite stochastic BRC, not a derivation of P000.
+
+Project canonical starting snapshot, verified via connected GitHub: `awdawmip/enterprise-math main@42da097851a02b96f8ff2018f5c28096eec13866`; read `docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `AGENTS.md` and active control authority. This standalone author-side result does not claim ownership of a live task or a Source CLAIM.
+
+Exact predecessor: `awdawmip/enterprise-math` PR #1762, proof `research_notes/brc_n4_s23_behavioral_storage_threshold_20261101_emr1/PROOF.md` at commit `24287b48d496fcf2eb01777c9e6ee3f90047a36d`; its randomized-encoder lower bound 1/47 is used with its original scope. Full eleven-control S23 behavior chart and coupling proof: same PR, `research_notes/brc_n4_s23_behavioral_eleven_control_entropy_20261031_emr1/PROOF.md` at commit `00e2754b6823b3ecc2add4d486339759061686cf`. No external novelty/prior-art assertion is made.
+
+Numerical evidence: locally executed Python standard-library Fraction checker in `VERIFY.py`, output `RUN_EVIDENCE.txt`. The 2048 deterministic control tables and 2048 behavior-grid parameter tuples are each complete **for their declared finite grid**, not for all real controls; the latter scope follows from analytic proof. No credentials, secrets or private-worldview text are embedded in public-source research files.
+
+Native owner/authorization: an `em_status` call in this run did not return a receipt (tool execution timeout). Earlier-turn original messages report `STATIC_READONLY_SCOPE_DENIED` and `CONTROL_QUOTA`; these are historic reports, not a current native readback. GitHub identity `awdawmip` is a repository principal only and does not equal Source-native Researcher authorization. Status UNREVIEWED / NOT_ADMITTED, author-side evidence only.
