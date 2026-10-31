@@ -103,6 +103,12 @@ def verify_even_symbolic():
             assert raw_h(r,s)==via_cat(r,s)
             assert Q(raw_h(r,s),h0)==peval(b[s-2],k)
             count+=1
+    # Additional signed-to-Catalan checks over odd and even rows.
+    for rr in range(5,32):
+        for s in range(2,min(rr,8)+1):
+            assert raw_h(rr,s)==via_cat(rr,s)
+            count+=1
+    assert count==372
     edge={}
     for k in range(3,12):
         r=2*k;n=r-2
