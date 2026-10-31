@@ -60,7 +60,7 @@ def check():
             if m==1:
                 assert Fraction(D,comb(2*s,s)**2)==Fraction(4*(2*s+1)*(s**3-5*s+1),(s+1)**2*(s+2)**2)
             tests.append(dict(s=s,m=m,positive=True,normalization=True))
-    assert (bc(6,4)*delta(2,1))**2-(bc(4,2)*delta(1,2))*(bc(6,6)*delta(3,0))==-5
+    assert (bc(5,4)*delta(2,1))**2-(bc(4,2)*delta(1,2))*(bc(6,6)*delta(3,0))==-5
     result=dict(status='R424_EXACT_PASS',identity_pairs=identity,linear_moment_pairs=bound,positive_kernel_pairs=positive,zero_kernel_pairs=zero,global_tail_turan_samples=tests,finite_scaling_samples=finite_scaling,negative_edge=dict(s=2,m=1,r=3,D=-5))
     Path(__file__).with_name('R424_EVIDENCE.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print('R424_EXACT_PASS',identity,bound,positive,zero,'global_tail_samples',len(tests),'negative_edge',-5)
