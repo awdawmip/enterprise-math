@@ -1,0 +1,55 @@
+{
+  "schema": "R441_SIGNED_BRC_FULL_ODD_PF4_V1",
+  "status": "AUTHOR_SIDE_EXACT_CERTIFIED / DRIVER_UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING",
+  "global_knowledge_main": "7587da72c5f050ee4df05753ccbca1302abefddc",
+  "enterprise_math_main": "993a408982a302265cb3c31f93e69e4751299500",
+  "source_R440_commit": "041b43903aed0d809020adcedaab95cf3c7b0cf1",
+  "counts": {
+    "input_coefficients_crosschecked": 2448,
+    "odd_rows_5_to_99": 48,
+    "full_certified_ordinary_schur_minors": 44854096,
+    "positive_odd_rows_7_to_97": 46,
+    "positive_ordinary_minors_7_to_97": 40604453,
+    "rounding_certified_without_fallback": 44854096,
+    "exact_integer_fallback": 0,
+    "r29_by_order": [
+      28,
+      406,
+      4060,
+      31465
+    ],
+    "r29_integer_total": 35959
+  },
+  "negative_witnesses": {
+    "r5": {
+      "cols": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "normalized_det": "-81"
+    },
+    "r99": {
+      "cols": [
+        96,
+        97,
+        98,
+        99
+      ],
+      "normalized_det": "-4326141419490865273677202540057073528586532246800554919817305839911537477845060811759488414491462453391837105694206933982652536875"
+    }
+  },
+  "full_raw_stdout_sha256": "1e9ead5adc56beee833aa3a25142652e4c1052633b9dbce3984579b5e0c785cb",
+  "input_sha256": "b670153b91db2b2f60cdc6d09e1ecbdda753545afed9f0b6bcf73a97698809bf",
+  "output": "R441_CERTIFICATE_DONE rows=48 total=44854096 exact_fallback=0 mant=64 cutoff=1e-12",
+  "error_bound": "less than 9e-18 * Shat, using delta=2^-59, u=2^-64; cutoff=1e-12 * Shat",
+  "max_pf_rank_odd_5_to_97": {
+    "5": 3,
+    "7": 4,
+    "9,11,13,15": 5,
+    "17..97 odd": 4
+  },
+  "no_native_owner_verification": "em_control_tasks CONTROL_QUOTA; directed_context authority_granted=false",
+  "next": "Parameterize PF3 obstruction for odd r>=99; formally independently review Schur/LR reduction and math certificate."
+}
