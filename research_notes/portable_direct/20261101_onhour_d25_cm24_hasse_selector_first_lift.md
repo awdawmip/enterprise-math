@@ -103,3 +103,28 @@ Actually executed two equivalent standard-library integer validation implementat
 Parent: original full weighted 216 congruence \(A_p\equiv p\bmod p^3\) for p≡13,19 (mod24). The stronger conjecture \(A_p-2B_p+p\chi_{-3}(p)\equiv0\bmod p^4\) remains OPEN. Immutable new frontier: CM(-24) selector, inert-branch unit-partner proof, and p≡19 nonzero first-lift inverse formula. Do not redo previous beta Legendre ports or high three valuation/reflection sectors. Next action: on p≡13 (mod24), prove or falsify the mod-p² beta defect/carry cancellation; next parent bridge is the joint original 216/2304 finite WZ/CM with signed tails. Fixed-373 original H0/B0 divided-power, semilinear Frobenius, rank, signed Green/Hesse, kappa and independent replication remain NOT_EXECUTED/PENDING_OWNER on Enterprise Math issue #1559.
 
 Research logical lane: chatgpt-research-onhour-enterprise-math-20260923; maintenance lane not used. Read-only original recovery request research-onhour-20261031-0202-recovery-r15 (#6632) supplied no winning CLAIM/run; the exact dispatch request research-onhour-20261031-0205-dispatch-r15 (#6633) has final FAILED / UPSTREAM_CODE_REVIEW_REQUIRED. The current gateway's read-only status shows research_authority_granted=false, executor_binding_configured=false, CODE_REVIEW_REQUIRED. No repeat mutation, new dispatch, session assumption, Source checkpoint, Result or independent review is claimed. Research-Activity REGISTER_PENDING; native Source CHECKPOINT_PENDING. Earlier neutral staging remains separate from accepted sources. P000 and ACTIVE Heartbeat World unchanged; project proof is author-side and NOT_ADMITTED.
+
+## Corollary C — derivative-only first-lift observer (next research unit)
+
+Continue from Theorem B rather than redoing its proof. For any inert p>3, write t₀=2sqrt(2)/3 and n=floor((p-1)/4). Since G_p=0 modp and dt/dz=-1/(2t), differentiation of the **already proved finite** Legendre polynomial ports yields the exact unit observer
+
+\[
+\boxed{H_p\equiv-\frac89\begin{cases}
+P_n'(t_0)/t_0,&n\ {\rm even},\\[2pt]
+(\frac2p)\,P_n'(t_0),&n\ {\rm odd}
+\end{cases}\pmod p.}
+\]
+
+For odd n, differentiating t^p P_n(t) in characteristic p kills the derivative of t^p, but keeps t^(p-1)=(2/p), since t₀²=8/9. This is an **actual finite-field Frobenius operation**, not deletion of the second-digit defect. Parity guarantees P_n'(t₀)/t₀ (even n) or P_n'(t₀) (odd n) lies in F_p, even when sqrt(2) is not in F_p. The unit-partner theorem proves the relevant derivative never vanishes at these inert primes.
+
+In the target p≡19 mod24, n is even. Combining with the universal first-lift identity from Theorem B gives the stronger explicit formula
+
+\[
+\boxed{\frac{G_p}{p}\equiv-\frac98
+\left(\frac{P_n'(t_0)}{t_0}\right)^{-1}\pmod p,\qquad
+n=\frac{p-3}{4},\quad p\equiv19\pmod{24}.}
+\]
+
+For p≡13 mod24, n is odd and (2/p)=-1, so \(H_p\equiv\frac89P_n'(t_0)\pmod p\). The still-open higher-digit G_p/p² must retain its first-lift defect and signed boundary; this corollary computes the **unit partner**, not that defect.
+
+Exact edge witnesses: p=19 has \(P_4'(t_0)/t_0=145/18\equiv7\pmod{19}\), giving H=17 and G/p=9; p=13 has \(P_3'(t_0)=31/6\equiv3\pmod{13}\), giving H=7. The updated project certificate actually ran this derivative test at **122 inert primes <=1500** and the new closed-form G/p check at **29 p≡19 mod24 primes <=1500**, all passed. Program updated commit 0432ec2094d779c6aa021d538099db0842bfbce6, Git blob e39514e1ce1a29f0f233c474097a5df5944794a6, matched the local executed file. This is a derived all-prime corollary with scoped finite regression, not a separate native benchmark completion.
