@@ -1,0 +1,16 @@
+# Stage286-B — third tied-port visit, minimum observer residual and exact joint higher moments
+
+Status: proposed portable author handoff, `UNREVIEWED / NOT_ADMITTED`. Parent: Stage285-B `PROOF_STAGE285B.md`, after Stage284-B (scientific PR #1571). Preserve independent Stage278-A N=12 Bellman next-face problem and native X6 correspondence as separately open.
+
+**Frozen starting model:** the same fully ordered positive rational P/Q non-IID law on `R,S` from Stage285-B, source-blind upstream U~Bernoulli(x) before R,S, final route T=R XOR U, and a single globally tied source-blind downstream Y port; now visit Y **three** times with independent Bernoulli draws conditional on fixed global setting `(x,y)`. Declare full path IDs `(source,U,R,S,T,Y1,Y2,Y3)` and terminal leaves including stopping after any visit. Source-independent ex ante mixture of complete global settings is allowed; route-adapted y remains excluded unless separately defined.
+
+**First discriminating exact rational witness:** set upstream `X=0` deterministically and compare two ex ante *global Y-setting* distributions:
+
+- A: `Y=1/4` or `3/4`, with probability `1/2` each;
+- B: `Y=0` with mass `1/5`, or `Y=5/8` with mass `4/5`.
+
+Both have `(u,m1,m2,c1,c2)=(0,1/2,5/16,0,0)`, so Stage285-B's five-coordinate quotient identifies them. However, `E_A[Y^3]=7/32=28/128` whereas `E_B[Y^3]=25/128`, a strict difference `3/128` in the probability that all three downstream port trials continue (under either source). This is already an exact obstruction to extending the old quotient to the three-visit observer family. Confirm via fully enumerated source-tagged ordered paths; do not confuse an explicit counterexample with a complete characterization.
+
+**Research target:** prove the full exact real convex hull (or a rigorous explicit upper/lower semialgebraic description) for `u=E[X]` and `m_j=E[Y^j]`, `c_j=E[XY^j]` for `j=1,2,3`; give a constructive rational moment witness or a finite positive-atomic representation when all inputs are rational. Candidate block decomposition is masses `a0=1-u`, `a1=u` and conditional truncated [0,1] moment vectors `(b_k,d_k,e_k)` with `b0=m1-c1`, `d0=m2-c2`, `e0=m3-c3` and `b1=c1,d1=c2,e1=c3`. A plausible necessary PSD/localizing condition for each group is that `[[b,d],[d,e]]` and `[[a-b,b-d],[b-d,d-e]]` be PSD; prove sufficiency or exhibit a counterexample and additional needed constraints (including degenerate endpoints) before asserting an iff statement. If using outside moment theory, cite actual source and read scope; do not claim uniqueness from truncated moments.
+
+**Acceptance:** save exact real-domain proof or a strictly scoped counterexample; a complete ordered path/source/port identity table, bounded observer and exact gap; standard library Fraction reproduction with actual executed stdout; declared verification range; next independent mathematical question; and real GitHub source readback/receipt. Preserve `PORTABLE_AUTHOR / UNREVIEWED / NOT_ADMITTED` unless native authority and independent review are actually obtained. P000, ACTIVE worldview and portable research protocol are still mandatory inputs; correspondence to a six-dimensional Cell dynamical operator is not implied by a finite external path theorem.

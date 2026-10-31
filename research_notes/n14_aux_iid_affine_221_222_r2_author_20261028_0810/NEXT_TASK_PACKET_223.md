@@ -1,0 +1,9 @@
+# Stage223 exact-primal continuation — DUAL ONLY
+
+Frozen auxiliary N14 IID model P=(3,1,20)/24, Q=(2,2,20)/24; all ordered-history randomized stop-and-declare policies, error caps eP,eQ<=alpha, objective V14=min max(tP,tQ). Stage222 author-exact endpoint alpha222=234542079040923721/657366253849018368 and V222=127901570763740681/13695130288521216, with K222=588036024/6419795 and H222=410483428040280012261601/5494995559412316241920.
+
+New Stage223 **DUAL ONLY** candidate: K223=472392/5245, H223=165229233763072546009/2244717448852930560. Two Bellman ties T=(12,6,4) Q/continue, Z=(14,0,0) P/Q. Enumerated 680 states, 1238 strict gaps; minimum positive gap 3955909/293652864. Exact equality H223=H222+2*alpha222*(K223-K222); Stage223 full-real primal is not yet proven.
+
+NEXT: Calculate four deterministic tie corner O00,O01,O10,O11 exactly with rational suffix DP and unmerged ordered P/Q integer-weight DFS. Prove mixed term is zero or identify exact obstruction; T has b=4 versus Z b=0. Solve legal error-balance z(u), verify full real u-range, increasing common error, strict tP>tQ at both endpoints, Bellman bound equality and nontrivial new maximal interval; or return the first exact rational obstruction. Only then scan Stage224.
+
+Keep predecessor Stage221/222 proof and certificates as immutable author evidence (do not redo). Preserve P000 six native spatial dimensions + separately typed time, ACTIVE joint-observer preservation/BRC, no native X6 bridge asserted. Native owner query CONTROL_QUOTA, no formal CLAIM, Source Result, independent Driver admission. Local author identity is not a service authorization. Source pins: global main@20265f0e5e1d6561043fd2b1505e486e1be38425, EM main@d2c0c9157cc89f1c08c9db7c321b4c4702278703, prior author commit 7281c83a9970b288bc19dba8d44db0918ba4bfe9.
