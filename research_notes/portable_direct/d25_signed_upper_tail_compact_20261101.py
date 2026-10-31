@@ -29,7 +29,7 @@ def forward(p):
             b=b*(2*k+1)*(4*k+1)*(4*k+3)*pow(288*h**3,-1,m)%m
     return A,B
 
-def original_integer_binomials(p):
+def original_integer_binomials(p, lower=None):
     m=p**4;n=4*(p-1);v=[0]*(n+1);f=[1]*(n+1)
     for i in range(1,n+1):
         q=i;e=0
@@ -42,7 +42,7 @@ def original_integer_binomials(p):
         inv[i-1]=inv[i]*q%m
     def c(n,k):
         return (p**(v[n]-v[k]-v[n-k])*f[n]*inv[k]*inv[n-k])%m
-    lo=(3*p+3)//4;x=pow(pow(216,-1,m),lo,m);y=pow(pow(2304,-1,m),lo,m)
+    lo=(3*p+3)//4 if lower is None else lower;x=pow(pow(216,-1,m),lo,m);y=pow(pow(2304,-1,m),lo,m)
     inv216=pow(216,-1,m);inv2304=pow(2304,-1,m);A=B=0
     for k in range(lo,p):
         h=c(2*k,k)**2
@@ -64,4 +64,11 @@ def verify():
         print(p, 'U=',u, 'A5/p^3=',A//p**3, 'B5/p^3=',B//p**3)
     print('PASS exact integer two-route crosschecks; not an all-prime theorem')
 
-if __name__=='__main__':verify()
+if __name__=='__main__':
+    verify()
+    for p in (1019,17231):
+        A,B=original_integer_binomials(p,lower=0)
+        assert (A-2*B-p)%p**4==0
+        assert (A+p)%p**3==0 and (B+p)%p**3==0
+        print('EXCEPTIONAL_FULL_AFFINE',p,'A=',A,'B=',B,'A-2B-p mod p^4=',(A-2*B-p)%p**4)
+

@@ -60,3 +60,16 @@ The **original same-class fixed p=373 native H0/B0 divided-power experiment** is
 Gateway em_status v0.6.11 at 2026-11-01: research_authority_granted=false, executor_binding_configured=false; original own-lane request research-onhour-20261031-0205-dispatch-r15 returned CONTROL_REQUEST_NOT_FOUND in this client's scope. The reported recovery_status is not exposed as a callable tool, and a historical missing request is not Source ownership. No valid current session, CLAIM/open/run, native Source checkpoint, Result, review or acceptance was created; the three earlier staging artifacts remain independent; user schedule/notification and P000/ACTIVE worldview are unchanged.
 
 **Next:** consume this published author-side exceptional-zero certificate, continue exact p13 Jacobi first-jet proof or counterexample and prioritize a genuinely authorized same-original-class H0/B0 p373 executor. Use Source-native continuation/claim/review only after current authority is verified.
+
+## Second exact unit: both exceptional primes satisfy the full original affine relation
+
+We additionally ran the **same original integer-binomial code with lower endpoint 0**, hence full weighted A_p and B_p rather than only their highest ports. The two chosen least nonnegative residues modulo p^4 are
+
+| p | A_p mod p^4 | B_p mod p^4 | integer A_p-2B_p-p on these representatives |
+|---:|---:|---:|---:|
+| 1019 | 287800440629 | 143900219805 | 0 |
+| 17231 | 48238865242842508 | 68196423129404799 | -88153981015984321 = -(17231)^4 |
+
+For both primes p≡2 (mod3), χ_{-3}(p)=-1. Thus **A_p-2B_p+pχ_{-3}(p)≡0 mod p^4** is verified independently by original integer-binomial evaluation; A_p≡B_p≡-p mod p^3 also holds at both exact inputs. Combined with D_5=0 mod p^4, the **lower five** original signed ports by themselves satisfy the full affine scalar congruence at these two inputs. The calculation neither proves the conjectural all-prime affine relation nor makes the port lossless for a future model-specific observer.
+
+The repository verifier now runs both this full original evaluation and the earlier 2260-prime finite upper-reflection scan; raw integer equalities above are standalone cross-checkable witnesses.
