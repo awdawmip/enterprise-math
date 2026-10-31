@@ -87,3 +87,19 @@ Marker `PASS_D25_GAUSS_JET_GREEN_P_CARRY_EXACT`. Universal scope comes from the 
 The frozen original p³ congruence and its four-source cancellation remain **OPEN**. Next: construct a finite p-local *evaluation adjoint at z=1/2* transporting the above Green source and terminal to the full original signed Clausen lower-jet obstruction, explicitly testing p19/p67/p373 and keeping both gamma and Green carry. Do not silently equate (mathcal G_p) and (mathbf R_p).
 
 Native issue `awdawmip/enterprise-math#1559` (read 2026-10-31) is OPEN with no confirmed executor: fixed373 original H0/B0 divided-power [X]U modulo139129, module rank, semilinear Frobenius/eta, signed Green/Hesse, kappa and independent replay **NOT_EXECUTED**. Own Research lane recovery `awdawmip/kimi-query-bridge#6632`: no own claim/run and source_authority_verified=false; original dispatch `#6633` terminal FAILED/UPSTREAM_CODE_REVIEW_REQUIRED. No mutation was retried, no maintenance identity used, and no Source-native checkpoint, Result, review or formal admission is asserted. Historical staging remains separate. Original recurring task unchanged.
+
+## Second same-turn unit — rigorous p-adic evaluation boundary (no false integral closure)
+
+The exact Green identity above is an identity of **formal series** and of rational functions; the coefficientwise p-carry is legitimate. It does **not** justify substituting `z=1/2` into its infinite power-series antiderivative and exchanging summation with p-adic evaluation.
+
+**All-prime no-go lemma.** For every prime `p=6l+1>=7`, with `mu(z)=(1-z)^(-3l-1)`, the individual terms of the formal expansion of `mu` at `z0=1/2` do **not** tend to zero p-adically. In fact, for every integer `s>=1`,
+[
+[z^{p^s}]mu(z)cdot (1/2)^{p^s}
+=inom{3l+p^s}{p^s},2^{-p^s}
+equivrac12pmod p.
+]
+**Proof.** Since `3l=(p-1)/2<p`, Lucas's theorem applied to the base-p digits of `3l+p^s` and `p^s` gives the binomial residue `1 mod p`. Fermat's theorem gives `2^(p^s)=2 (mod p)`. The terms remain p-adic units for infinitely many indices, so the series cannot converge at `z0`. QED. This does **not** make the original rational function singular: `mu(1/2)=2^(3l+1)` is a p-unit. It only forbids the unsupported infinite-series evaluation/antiderivative shortcut.
+
+A small independent integer witness `(p,s=1,2,3; binomial mod p; term mod p)`: `p=13: (1,7)`, `p=19: (1,10)`, `p=67: (1,34)`, `p=373: (1,187)` at every stated `s`. The lemma itself is proved for **all** `s`, independent of these checks.
+
+**Refined next operation:** build a **finite** rational/adjoint evaluation certificate at `z=1/2` with its denominator-unit and truncation control first, rather than treating the formal Green primitive as a convergent p-adic series. The current exact coefficient identity and its first p-carry are retained. No equivalence to frozen signed `R_p`, original native H0/B0 or full supercongruence is claimed.
