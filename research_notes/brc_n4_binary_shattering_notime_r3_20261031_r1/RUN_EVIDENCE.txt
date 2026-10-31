@@ -1,0 +1,10 @@
+Source: exact Python Fraction calculation, executed locally 2026-10-31; no floating point.
+SOURCE_LEAVES P=16 Q=16 strictly_positive normalized
+RATIO_CLASSES=6 distinct; POLICY_MASKS=16; EXACT_Y_COMPARISONS=512
+REFERENCE_UPPER 8/8 full-path TV=1/2; applies by data processing
+DUAL_NULLSPACE_CERTIFICATES=1105 exact; all with sign ratio=1/2
+ANALYTIC_THEOREM: R3(noT,withZ; S23/S2)=1/2 for all eps in [0,1/2]
+ANALYTIC_COROLLARY: R1=R2=R3(Decision-only; S23/S2)=1/2
+PASS_BRC_N4_BINARY_SHATTERING_R3_OBSERVER_20261031
+
+Validation coverage: 16 source masks × four rational eps values × eight conditioned preparations=512; all 81 deterministic 4×3 encoders and 1,024 seeded rational stochastic encoders, 1105 nullspace examples. Universal real-encoder/epsilon result is proved analytically.
