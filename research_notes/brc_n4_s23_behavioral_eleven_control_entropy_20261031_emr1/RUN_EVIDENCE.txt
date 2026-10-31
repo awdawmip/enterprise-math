@@ -1,0 +1,18 @@
+# Execution evidence: exact JS integer program
+
+Source: VERIFY.js in this same commit. Evaluated in the current V8 JavaScript runtime prior to remote publication, with no floating-point optimization. Inputs are integer branch-mix numerator matrix K and the common 11-slot causal map.
+
+PASS_BRC_N4_S23_BEHAVIORAL_11D_ENTROPY_20261031
+matrix_inverse_scaled4=OK
+matrix_inverse_infinity_norm=21
+two_level_randomized_parameter_vectors=2048
+distinct_prepared_time_laws=2048
+exact_mixture_inversions=49152
+rank_mod_65521=11
+lipschitz_pair_checks=1024
+arbitrary_real_parameter_theorem=ANALYTIC_ONLY
+native_P000_and_independent_review=NOT_CLAIMED
+
+The 2048 checked vectors are 11 independent behavioral coin choices in {1/4, 1/2}; not an enumeration of the separate 2048 deterministic S23 policies. 2048 * 6 * 4 = 49152 exact latent-source reconstruction identities. The modulo-65521 full-rank certificate uses integer Gaussian elimination and verifies an eleven-independent-column claim over Q. The 1024 pair comparisons are checks of selected exact rational vectors, not the universal analytic proof.
+
+Universal lower and upper bounds for all real behavioral probabilities are proved in PROOF.md via exact inverse stability, packing and a pathwise coupling. No physical X6 mapping, S2 generalization, native project Result, mathematical admission or independent review was performed.
