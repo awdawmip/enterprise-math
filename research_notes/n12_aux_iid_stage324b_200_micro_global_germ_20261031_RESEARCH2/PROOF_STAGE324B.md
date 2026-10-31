@@ -1,0 +1,73 @@
+# Stage324-B: exact 200-micro global Pareto germ (author proof)
+
+2026-10-31, Asia/Shanghai. Scientific status: PORTABLE_AUTHOR_PROOF / EXACT_FRACTION_EXECUTED / UNREVIEWED / NOT_ADMITTED. No native CLAIM, Result, Driver acceptance, Foundation promotion or native-X6 physical realization is inferred. The full theorem is conditional on Stage307-B.2 (unique public minimizer), Stage315-B (four central MAP resets), Stage316-B (exact two-source infimal convolution), and Stage317-B (tagged endpoint classification), preserving their author-only status.
+
+Frozen canonical knowledge: awdawmip/chatgpt-global-knowledge main@cb0b9839dd73b810de04bfbbce323873a9392ca3, including bootstrap, operating manual, P000 projection, ACTIVE worldview and mathematics/BRC procedures. Project input: awdawmip/enterprise-math main@1c1534cc3ef3e9f53b9f578c5c2104b4f9a2777f, including original P000 V5, native X6, current authority and docs/PORTABLE_RESEARCH_PROTOCOL.md. Scientific predecessor: immutable Stage323-B commit 5012b13aba6131cdbb8fcc098bdc8398ed2d45d9, Draft PR #1736.
+
+## Fixed model and theorem
+
+Two strictly positive hidden sources, eight independent locked Bernoulli ports, three future Bernoulli accesses, public observer (W,Y), and source-tagged observer (S,J,W,Y). For k=0,1,2,3 let B_k(z)=z^k(1-z)^(3-k), p=(61,21,9,9)/160 and r_k(x,y)=(4/5)B_k(x)+(1/5)B_k(y)-p_k. Define d(x,y)=1/2 sum_k binom(3,k)|r_k(x,y)|, b=(5/16)d, and
+
+c(x,y)=[63 D_3(1/4,x)+D_3(3/4,x)+9D_3(1/4,y)+7D_3(3/4,y)]/256,
+
+where D_3 is total variation between the eight binary-word distributions of three independent Bernoulli trials. C_3(s)=min{c(x,y): b(x,y)<=s}. The named author-only reductions yield the full eight-rate objectives P_3=b(x,y)+b(x',y'), T_3=33/1024+c(x,y)+c(x',y') after resetting four central rates.
+
+Stage307-B.2 locates the unique minimum d at (x*,y*) with r_0=r_1=0 and strict rational brackets
+
+231083940855521/10^15 < x* < 231083940855522/10^15,
+555508857277/10^12 < y* < 555508857278/10^12.
+
+Let beta*=b(x*,y*) and P_min=2beta*. NEW CONDITIONAL THEOREM: for every real 0<=epsilon<=delta=1/5000, the exact full eight-rate Pareto value is
+
+F_3(P_min+epsilon)=33/1024+c(x*,y*)+c(x_epsilon,y_epsilon),
+
+where (x_epsilon,y_epsilon) is the unique rightward point on the kink r_1=0 with b=beta*+epsilon. For positive epsilon exactly two eight-rate optimizers allocate the entire budget to one block or the other. At epsilon=0 the tagged optimum is unique. The new local envelope satisfies -48<C_3''(s)<-34 for beta*<s<beta*+1/5000. For 0<theta<epsilon<=1/5000, the penalty of splitting epsilon into theta and epsilon-theta satisfies
+
+34 theta(epsilon-theta) < Delta_epsilon(theta) < 48 theta(epsilon-theta).
+
+The certified interval doubles Stage323-B's 1/10000. Its endpoint is a certificate radius, not the first proven optimizer switch.
+
+## Exhaustive exterior bound for every real parameter
+
+Choose R=[9/40,237/1000] x [107/200,1151/2000] = [0.225,0.237] x [0.535,0.5755]. Four closed strips cover [0,1]^2 minus the open interior of R: [0,9/40]x[0,1], [237/1000,1]x[0,1], [9/40,237/1000]x[0,107/200], [9/40,237/1000]x[1151/2000,1].
+
+Set W=(231083940855/10^12,555508857277/10^12) and U=d(W)>=d(x*,y*). For every rational rectangle A, exactly bound each cubic B_k by its endpoint values and its interior critical value at k/3 (when k=1,2 and the critical point belongs to its input interval). Denoting the resulting residual enclosure by [ell_k,u_k], let L(A)=1/2 sum_k binom(3,k) max(0,ell_k,-u_k). Inclusion monotonicity proves L(A)<=inf_A d.
+
+Bisect the longer side until L(A)-U>(16/5)delta=2/3125. The executable Fraction certificate exhaustively covers the four exterior strips. The exact (visited nodes, accepted leaves) are (127,64), (61,31), (31,16), (283,142): 253 accepted closed leaves, 502 visited nodes. Their smallest rational lower gap is
+
+G=802755828294193039039494768618433/1250000000000000000000000000000000000,
+
+and the *strict positive* margin is
+
+G-2/3125=2755828294193039039494768618433/1250000000000000000000000000000000000 > 0.
+
+Thus for every real (x,y) outside int(R), b(x,y)-beta*>delta. All feasible block parameters through beta*+delta are therefore strictly in int(R), not merely sampled at grid centers.
+
+## New local 1024-tile exact sign certificate
+
+The upper y boundary deliberately remains below the D_3(3/4,y) sign transition: B_2(3/4)-B_2(1151/2000)=243951/8000000000>0. All sixteen Bernoulli-word TV sign comparisons are verified via exact rational cubic extrema. They justify c_x=-(1-x)(189-183x)/256<0 and c_y=3y(1-y)/64>0 throughout R.
+
+Divide closed R into 32x32=1024 rational subrectangles. Exact interval extensions, checked for every tile, establish r_2>0, r_3<0, hence d=3r_2+[r_0]_+ +3[r_1]_+; nonzero determinant det(grad b,grad c), positive in chamber (r_0<=0,r_1<=0) and negative in the other three smooth sign chambers; and negative r_{0,y},r_{1,y}. Implicit kink slopes |dy/dx|<27/2 and the other residual's strict monotone transverse crossing imply the two kink curves have their only intersection at the established unique root.
+
+Moving away from the root on each of four kink arms has |db/dx|>7/50. The four complete interval bounds for dc/db are strictly disjoint and ordered:
+
+r_1/right: (-13/10,-11/10);
+r_0/right: (-11/10,-7/10);
+r_1/left: (8/5,2);
+r_0/left: (5/2,41/10).
+
+On r_1=0, implicit y'=-r_{1,x}/r_{1,y} and y''=-(r_{1,xx}+r_{1,yy}(y')^2)/r_{1,y}. Writing B(x)=b(x,y(x)), E(x)=c(x,y(x)), the interval certificate proves (E''B'-E'B'')/(B')^3 lies strictly in (-48,-34) on all of R. These are rigorous enclosures of every real point in each tile, not finite numerical sampling. The old (-46,-34) bound is not assumed outside its smaller predecessor rectangle.
+
+## Finish: availability, optimality, budget allocation
+
+Let h=29/20000. Exact Stage307 root brackets and the new bounds verify h<both x-margins to the boundary of R and (27/2)h<both y-margins. Every kink arm from the root exists for |x-x*|<=h inside R and gains public budget by more than (7/50)h=203/1000000>delta.
+
+An optimum with unused block budget can be improved by c_x<0 and continuity while remaining feasible. At an active smooth level set, the nonzero determinant excludes an interior constrained minimum. Exterior exclusion removes every boundary candidate; only the four kink arms remain. Each achieves all budgets from beta* through beta*+delta, and integrating the disjoint dc/db intervals from their common root makes r_1/right the unique cheapest branch. It is one-to-one because db/dx>7/50.
+
+By Stage316's exact two-source infimal convolution, the full constrained optimum minimizes C_3(beta*+theta)+C_3(beta*+epsilon-theta) over 0<=theta<=epsilon. Strict negativity of C_3'' forces exactly the two endpoint allocations, equal by source interchange; integrating -48<C_3''<-34 twice yields the strict 34/48 split-penalty bounds. Named central-rate reset and tagged endpoint results finish the conditional full eight-rate classification.
+
+## Execution and remaining scope
+
+REPRO_STAGE324B.py is an executable Python 3 Fraction-only exhaustive checker; REPRO_STAGE324B_EXECUTED_STDOUT.txt is its actual execution log and ends in STAGE324B_200_MICRO_GLOBAL_PARETO_EXACT_PASS. 253 rational exterior leaves, 1024 entire interval tiles, 16 TV comparisons, all chamber determinants, four kink slopes, the curvature and branch reach were checked. It does not re-prove the earlier author-only dependencies or constitute independent review or Lean formalization.
+
+The external BRC probability observer has not been mapped to P000's native six signed X6 steps and provenance, true three-dimensional slice including its third coordinate, primitive triadic closure, typed ordered time or registered lossless six-nonnegative-field Cell address with future-observer preservation. Next Stage325-B should extend delta strictly beyond 1/5000 using a correct subdivision of any additional TV sign chambers, or construct an exact full-law competitor proving an upper bound on the first genuine switch. A failed tile is not evidence of a real switch.
