@@ -1,0 +1,10 @@
+# Sources, pins, reuse and authority
+Date: 2026-10-31. Actual connected GitHub identity: awdawmip (read/write access). Research performed as local ChatGPT author continuation; formal native CLAIM/Result/independent review not asserted.
+- Frozen account GLOBAL_KNOWLEDGE_V1 verified main: 50e3a63b9a124221e0a53f9bfd9dab624d0403fa; 00_BOOTSTRAP.md and OPERATING_MANUAL.md read there, plus mathematical policy, BRC priority, current worldview and Enterprise Math project role/P000 routing.
+- Enterprise Math canonical main scientific/control read pin: 7a46ed70b59ca823805468daab0122ac0b230a20.
+- Native P000 project contract: enterprise-math@7a46ed70b59ca823805468daab0122ac0b230a20:p000_reality_foundation.json (P000 V5; ACTIVE_LOCKED). Current joint-observer contract: definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json; native time: definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json.
+- Portable work contract: enterprise-math@7a46ed70b59ca823805468daab0122ac0b230a20:docs/PORTABLE_RESEARCH_PROTOCOL.md; docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md.
+- Immediate exact mathematical predecessor, independent review pending: enterprise-math PR #1757 @ dbe12d2403b9b40216b0ee001465be82f6fae270, research_notes/brc_n4_decision_observer_sandwich_20261031_r1/PROOF.md. Additional frozen sensor/early-stop semantics: e160c3842237fc16ea6d7ac6b0b11df299de0e64, research_notes/brc_n4_all_lawful_notime_keepz_r1_r2_20261031_emr1/PROOF.md.
+- BRC exact positive-rational carrier reuse decision: REUSE_APPLIED and REUSE_EXECUTED by exact-integer M matrix and dual-column verification; no new toolbox family invented.
+- Native gateway real read-only status observed 2026-10-31T06:05Z: research_authority_granted=false, em_control_tasks returned CONTROL_QUOTA; formal active owner not verified. Work is AUTHOR_ANALYTIC_PROOF, UNREVIEWED, NOT_ADMITTED and is not a native session/CLAIM or substitute Review.
+- Theorem draws on classical finite-dimensional total-variation contraction, Markov kernels and linear algebra; no claim of novelty for these general tools or independent external literature review.

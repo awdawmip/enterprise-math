@@ -1,0 +1,9 @@
+# Exact next problem
+
+Proved and executed in this predecessor: a lawful S23 stop-at-T3 binary decision saturates P/Q full-word TV=43/120, one unprepared common simulator has sharp minimax 43/240 **uniformly over all lawful S2/S23 outputs**, and the retained-S statewise all-policy stage-two preparation quotient requires six states. Do not repeat these completed claims as another discovery. All author checked, UNREVIEWED/NOT_ADMITTED, no native physics transfer.
+
+**Next discriminating question:** Drop S from the retained state and use the genuine original coarse public terminal observer O=(T,Decision,Z_BU). Determine exact smallest common encoded state under (i) one fixed S23 policy, (ii) all lawful S23 policies, (iii) all lawful S2 policies. State whether output includes a compression tag; whether preserving joint history versus terminal marginal; and whether later operations may read K only upon T4. Give exact quotient and lawful distinguishing policies, or a minimal counterexample. Do not transplant the six-state proof without its retained-S premise.
+
+Parallel independent native obligation: locate a genuinely independently specified P000 X6 time transition and source-preparation interface; test cylinder-mass and observer-commutation equations. The midpoint lookup kernel constructed from P/Q weights is only a simulator. No pi/trigonometric, matrix-exponential or untyped fallback for native residual claims. Preserve typed BRC source, multiplicity, branch and phase boundaries.
+
+Completion evidence: exact sources, declared observer/operations/quantifiers, analytic proof or certified exact finite counterexample with executed code, GitHub remote readback and actual owner/reviewer/admission status.

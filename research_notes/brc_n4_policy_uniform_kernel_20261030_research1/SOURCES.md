@@ -1,0 +1,11 @@
+# Frozen authority and provenance — 2026-10-30
+
+GLOBAL_KNOWLEDGE_V1 canonical read main@2e4b934513a481b0bd40ac2754a84dd682e210c2. Read 00_BOOTSTRAP.md, OPERATING_MANUAL.md, projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md, projects/enterprise-math/00_EM_TASK_RESEARCHER_BOOTSTRAP.md, P000_STARTUP.json, 我眼中的世界.md, and relevant math, code, BRC, activity and PR handoff routes. P000 startup projection still pins older V4 blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc; full current project V5 was read.
+
+Enterprise Math project control/science input main@045e3a179da469cc5c52944b35a729183b6a5b52. Current P000 V5 full blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488; ACTIVE Heartbeat X6 contract, joint-relation observer preservation, autonomous research operations and portable research protocol read.
+
+Direct earlier frontier: PR #1757 head 022dbc470b1fe01d57d394ad197e3ae800be3938, research_notes/brc_n4_three_symbol_readonly_sufficiency_20261030_r1/PROOF.md and NEXT_TASK.md. Original S2/S23 information-set antecedent: commit 6d9bc93c9d110418d22daf344ed83d883a4a1a23 at research_notes/brc_n4_bu_unrestricted_transfer_20261030_research1/OBSERVER_AU_REFINEMENT_NO_GO.md; terminal six-parameter strategy: commit 0552b8b067068e779b8722e1689ceaa29a33d086 at research_notes/brc_n4_t4_s2_joint_interaction_20261030_emr1/PROOF.md.
+
+External conceptual research, not imported proof assumptions: M. Ali Khan, Haomiao Yu, Zhixiang Zhang, A simple proof of Blackwell's theorem on the comparison of experiments for a general state space, Economics Letters 247 (Feb 2025), 112146, DOI https://doi.org/10.1016/j.econlet.2024.112146. Maxwell Rosenthal, Prior-free Blackwell, Economic Theory Bulletin 14 (2026), article 4, published 2026-03-17, DOI https://doi.org/10.1007/s40505-026-00307-6. Prior-free ranking is distinct from exact common-kernel invertibility.
+
+Authenticated GitHub actor awdawmip has push permission. Native Site 0.6.11 status research_authority_granted=false, quota active 5/5, control Source CODE_REVIEW_REQUIRED/full_snapshot_verified=false; attempt to list live tasks/Owner returned CONTROL_QUOTA. This is portable author-side work, not an official Task CLAIM, native Result or independent review. VERIFY.py was actually run in Python Fraction locally; exact stdout in RUN_EVIDENCE.txt. No Lean formal checker or native X6 experiment was executed.

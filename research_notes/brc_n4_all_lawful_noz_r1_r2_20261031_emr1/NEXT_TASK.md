@@ -1,0 +1,11 @@
+# Next portable research unit — observer ablation with time suppressed
+
+**Do not redo:** For the fixed H* single policy with public `(T,D)` only, author-proved `R1=2/3, R2=1/2`; for **all** lawful S23 or S2 and this same no-Z public observation, the present author-proof gives exactly `R1=3/4, R2=1/2`, witnessed by H-dagger. These are separate quantifier orders. Both preserve all eight preparations; neither is a physical X6 theorem.
+
+**Next exact problem:** Keep BU sensor Z and its presence indicator but *suppress T*. For all S23 (and separately S2), determine exact `R1(all H; O=(Decision,Z_BU))` at every real epsilon in `[0,1/2]`. The fixed H* result gives the rigorous lower bound `2/3`; the all-public-channel one-code construction gives upper bound `3/4`. Determine whether the optimal policy-aware common decoder attains `2/3`, exceeds it for some lawful stopping grammar/epsilon, or exhibits a nonconstant exact epsilon phase. A candidate must explicitly state whether Z is emitted on a BU path that stops at time 2, before J exists; this is an observer-interface definition, not an algebraic afterthought.
+
+**Already resolved corollary:** For the same no-T but Z-retained all-policy problem, `R2=1/2`: H*'s three mutually disjoint source-block output laws yield >=1/2 by the majority-decoder lemma, while the universal two-code full-path reconstruction kernel yields <=1/2 by TV data processing. Preserve sensor semantics of the original declared model and source this result to both predecessor proofs.
+
+**Native bridge pending:** Specify an independent P000 six-axis Cell transition/time and preparation interface, then prove (or exhibit obstruction to) the commutative map into these 16 stipulated BRC probability leaves and legal terminal observers. Preserve the six signed axes, separately typed native time, ordered path provenance and joint observer scope; no physical calibration is assumed.
+
+**Acceptance evidence:** precise policy grammar, complete public-output law for every prepared state, exact rational counterexample or universal distribution-reconstruction kernel with TV certificate, a finite checker with clearly bounded coverage, immutable source/reference and unresolved assumptions. Independently review before mathematical admission.

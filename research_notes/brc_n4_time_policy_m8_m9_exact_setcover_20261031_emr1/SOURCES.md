@@ -1,0 +1,8 @@
+# Frozen sources, scope, and provenance
+
+- Global private canonical snapshot read through connected GitHub: `awdawmip/chatgpt-global-knowledge main@cbc7507249aa29143ac9930a3aad0a2d5cc52f8a`. Read both bootstrap and operating manual at this same snapshot, plus ACTIVE `我眼中的世界.md`, math/code/BRC/EM activity policies, P000 original and startup projection.
+- Enterprise Math canonical input: `awdawmip/enterprise-math main@3244d13af5ec26808eac8494504988f414cddc6e`. Read `AGENTS.md`, P000 V5 `p000_reality_foundation.json`, joint observer preservation, current control authority, `docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md`, `docs/PORTABLE_RESEARCH_PROTOCOL.md` and Heartbeat/BRC-only scope rules.
+- Direct predecessor: PR #1757 immutable `2f89b355f390352da406ef5568bd3152f9504c63`, `research_notes/brc_n4_time_policy_m5_m7_weighted_cover_20261031_r1/{PROOF.md,VERIFY.js,NEXT_TASK.md}`, author-side, unreviewed.
+- Four-label universal upper predecessor, analytically restated in this proof: immutable `60aaef914954cb656a2f74140d77e2e647030eda`, `research_notes/brc_n4_time_policy_four_label_exact_20261031_emr1/PROOF.md`.
+- Authenticated GitHub actor read: `awdawmip`. Native Site status at 2026-10-31 ~12:03 UTC: `research_authority_granted=false`, `backend_connected=false`, `write_relay_enabled=false`, Site gateway v0.6.11 pin. Current task/owner query returned `CONTROL_QUOTA`; owner was NOT independently confirmed. No native CLAIM/Result/review/admission asserted.
+- Finite positive-mass BRC observation theorem only. No π/trigonometric/native-physics computation was run. Signed/complex phase, P000 native X6/time bridge, and full S2 stopping information legality remain separate obligations.

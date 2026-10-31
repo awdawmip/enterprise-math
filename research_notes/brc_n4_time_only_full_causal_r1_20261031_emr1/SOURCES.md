@@ -1,0 +1,11 @@
+# Provenance, exact frozen inputs, method and authority
+
+Date: 2026-10-31. Current connected GitHub actor: awdawmip, GitHub repo push available. Author-side local ChatGPT research only; no borrowed native Researcher-ID, claim, Result, Driver review or scientific admission.
+
+- GLOBAL_KNOWLEDGE_V1 canonical main observed and fixed at 003144c29fefef05710a9967c648d532c28a13aa; both universal entry files, TASK project router, global P000 startup, ACTIVE worldview, mathematical proof policy, BRC usage policy and EM activity routing read at that immutable snapshot.
+- P000 global read projection was checked against original blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc. Enterprise Math original P000 V5 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488 at project main pinned below. Their versions are distinct, neither is overwritten.
+- Enterprise Math canonical main frozen for this run at cb59f2d182fa47f65cbb1e9de7e9c89b01239c48. Read docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md, docs/PORTABLE_RESEARCH_PROTOCOL.md, definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json, definitions/RESIDUAL_FAITHFUL_DISCRETE_RELATIONAL_SYSTEM.json, and definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json.
+- Immediate mathematical predecessor: Enterprise Math Draft PR #1757 immutable e30ebcffd8263842b1e6646e2fe16762a65935ce, research_notes/brc_n4_time_visible_observer_staircase_20261031_emr1/{PROOF.md,NEXT_TASK.md,VERIFY.js}; original complete S2/S23 first-stage A/B information-set semantics read at PR #1735 immutable 6d9bc93c9d110418d22daf344ed83d883a4a1a23, research_notes/brc_n4_bu_unrestricted_transfer_20261030_research1/PROOF.md, Appendix I.
+- Existing BRC positive-rational branch carrier and exact total variation: REUSE_APPLIED and REUSE_EXECUTED via eight conditioned preparations, exact shared Markov kernels, and constructive common submeasures. No new BRC tool family.
+- Native Site v0.6.11 read-only status on 2026-10-31: research_authority_granted=false; canonical active tasks query returned CONTROL_QUOTA. Formal active Owner is unverified. Draft PR persistence is author-side evidence only, UNREVIEWED/NOT_ADMITTED.
+- External theorems used are elementary finite-alphabet total variation overlap, positive Markov kernel domination and finite behavioral/pure-plan expansion. No external novelty or physical inference is claimed.
