@@ -88,41 +88,30 @@ def direct_last_band(p):
     ib = pow(2304,-1,m)
     aa = bb = 0
     for k in range((3*p+3)//4, p):
-        aa += (6*k+1)*comb(2*k,k)*&*ÛÛXÊËÊJÝÊXKËJB
-ÏH
-
-ÊÌJJÛÛX
-ËÊJÛÛXËÊJÝÊXËJB]\
+        aa += (6*k+1)*comb(2*k,k)**2*comb(3*k,k)*pow(ia,k,m)
+        bb += (8*k+1)*comb(4*k,2*k)*comb(2*k,k)**2*pow(ib,k,m)
+    return ((aa-2*bb)%m)//p**3
 
-XKLI[JKËÜ
-ÂYXZ[
-NÈH[Y\×Ý\ÝÊL
-B[
-	ÐÒPÒÑQÔSQTÉË[ÊK	ÍO\LL	ÊBÜ[ÎKHÜYÚ[[ÜÜÊ
-BYJVÍWKLÍWJI\
-\ÜÙ\Y	\
-ÈOH\ÜÙ\YËÜ
-ÈOHYXÝYÝ\\ÝZ[
-
-KY[
-KËLKLËNKÍËËÍÌÊN\ÜÙ\YËÜ
-ÈOH\XÝÛ\ÝØ[
-
-K[
-	ÔÔÕÒUTÔÉË	ÝKHH[	ËÊ
-K
-JK
-KJK
-K
-ËK
-ËÊWK	ÑÛ\ÝÜÉËYËÜ
-Ë	ÑÚIËÊKLI\
-ÜK[\
-KWJBK[ÜYÚ[[ÜÜÊLÊB\ÜÙ\[
 
-KLILLÊOHÜK[\
-KJB[
-	ÐSÔÈÓTÈULLÎTÔÉÊB[
-	ÕSUTÐSTTURSÔUSNSUHQÔTÔÒSÓTÔÎÈÓÑSÕIÊB[
-	ÑSÕTSÔTQSHQÑNÔSÈUUHÍÌÈÐÕÑVPÕUQ	ÊBY×Û[YW×ÈOH	××ÛXZ[×ÉÎXZ[
-B
+def main():
+    ps = primes_up_to(1200)
+    print('CHECKED_PRIMES',len(ps),'5<=p<=1200')
+    for p in ps:
+        pa,pb = original_ports(p)
+        diff=(pa[5]-2*pb[5])%p**4
+        assert diff %p**3 == 0
+        assert diff//p**3 == reflected_upper_tail(p),p
+        if p in (5,7,11,13,19,37,67,373):
+            assert diff//p**3 == direct_last_band(p),p
+            print('PORT_WITNESS',p,
+                  'v(A,B) by band',[(0,0),(0,1),(1,1),(2,2),(3,2),(3,3)],
+                  'D_last/p^3',diff//p**3,
+                  'D_i',[(a-2*b)%p**4 for a,b in zip(pa,pb)])
+    pa,pb=original_ports(13)
+    assert all((a-2*b)%13**4 != 0 for a,b in zip(pa,pb))
+    print('ALL PORTS NONZERO AT p=13: PASS')
+    print('UNIVERSAL UPPER-TAIL FORMULA: FINITE REGRESSION PASS; PROOF IN NOTE')
+    print('FULL FOURTH-ORDER AFFINE BRIDGE: OPEN; NATIVE 373 H0/B0: NOT_EXECUTED')
+
+if __name__ == '__main__':
+    main()
