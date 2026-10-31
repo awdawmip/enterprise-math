@@ -1,33 +1,55 @@
-"""EC49CI independent replay: actual signed-X6 BRC + n8 literal minor certificate."""
-import base64,json,zlib
+"""EC49CI small independent replay. Python 3, standard library and pinned
+native_signed_brc.py (original Git blob 300a96e3dc24bf6fff73743037a0347a8bc83176).
+Reads EC49CI_N8_WITNESS.b64 (base64 of zlib-compressed JSON); checks
+literal real length-8 signed X6 words, exact rational fiber rank, modular
+nonzero minors, and exact BRC returns for n=6,8,10.
+"""
+import base64, json, zlib
 from fractions import Fraction
-from native_signed_brc import endpoint_weight,endpoint_multiplicity
+from native_signed_brc import endpoint_weight, endpoint_multiplicity
+
 E=(0,)*6
 S={'s1':(-1,-1),'s2':(-2,-2),'sA':(1,2,-1,-2),'sB':(2,1,-2,-1)}
 S2={a+'>'+b:p+q for a,p in S.items() for b,q in S.items()}
 S12={**S,**S2}
 W=((2,3,3,2,1,1),(3,2,3,2,1,1))
 P=1000003
+
+
 def dz(word):
     z=[0]*6
     for a in word:z[abs(a)-1]+=1 if a>0 else -1
     return tuple(z)
+
+
 def inv(z):return tuple(-x for x in z)
+
+
 def sub(q,a,b,c):
     return 2 if q==2 or (q==1 and a==c) else int(a==b)
+
+
 def advance(q,a):
     qa,qb=divmod(q,3)
     return 3*sub(qa,a,1,2)+sub(qb,a,2,1)
+
+
 def end(q,w):
     for a in w:q=advance(q,a)
     return q
+
+
 def atom(q):return 2*int(q//3==2)+int(q%3==2)
+
+
 def weights(w):
     out=[1,1,1]
     for a in w:
         if a>0:
             for c in range(2):out[c]*=W[c][a-1]
     return tuple(out)
+
+
 def column(word,suffixes):
     z=dz(word);q=end(0,word);v=weights(word)
     out=[]
@@ -38,6 +60,8 @@ def column(word,suffixes):
         for j in range(4):
             out.extend(v[c]*w[c] if active and j==k else 0 for c in range(3))
     return out
+
+
 def determinant_mod(matrix):
     a=[[x%P for x in row] for row in matrix]
     n=len(a);det=1
@@ -52,6 +76,8 @@ def determinant_mod(matrix):
                 for j in range(k+1,n):a[i][j]=(a[i][j]-f*a[k][j])%P
                 a[i][k]=0
     return det%P
+
+
 def rational_rank(rows):
     if not rows:return 0
     a=[[Fraction(x) for x in row] for row in rows];r=0
@@ -68,6 +94,8 @@ def rational_rank(rows):
         r+=1
         if r==len(a):break
     return r
+
+
 def fiber_rank(suffixes):
     out={}
     for d in sorted({inv(dz(s)) for s in suffixes.values()}):
@@ -78,7 +106,8 @@ def fiber_rank(suffixes):
             for j in range(4):rows.append([int(k==j) for k in lookup])
         out[str(d)]=rational_rank(rows)
     return out
-D2={inv(dz(s)) for s in S2.values()}
+
+
 def dp_return(n):
     state={(E,0):(1,1,1)}
     for depth in range(n):
@@ -87,6 +116,7 @@ def dp_return(n):
             for a in range(1,7):
                 for sign in (1,-1):
                     step=sign*a; zz=list(z);zz[a-1]+=sign;zz=tuple(zz)
+                    # Exact reverse reachability to any double-suffix endpoint.
                     if not any(sum(abs(x-y) for x,y in zip(zz,d))<=rem and
                                (rem-sum(abs(x-y) for x,y in zip(zz,d)))%2==0
                                for d in D2):continue
@@ -104,9 +134,15 @@ def dp_return(n):
                 endpoint_multiplicity(n,d))
         assert got==expect,(n,s,got,expect)
     return len(state)
+
+
+D2={inv(dz(s)) for s in S2.values()}
+
+
 def main():
-    assert list(fiber_rank(S2).values())==[3,5,4,5,4,4]
-    assert list(fiber_rank(S12).values())==[3,6,4,6,4,4]
+    expected2=[3,5,4,5,4,4]; expected12=[3,6,4,6,4,4]
+    assert list(fiber_rank(S2).values())==expected2
+    assert list(fiber_rank(S12).values())==expected12
     cert=json.loads(zlib.decompress(base64.b64decode(open('EC49CI_N8_WITNESS.b64').read())))
     for key,suffixes,rank in [('n8_S2',S2,75),('n8_S_or_S2',S12,81)]:
         entry=cert[key];paths=entry['witness_paths'];inds=entry['selected_rows']
@@ -116,8 +152,10 @@ def main():
         assert det==entry['determinant_mod'] and det!=0
         print(key, 'rank',rank,'determinant mod',P,'=',det)
     for n in (6,8,10):print('native BRC crosscheck n=',n,'terminal typed states',dp_return(n))
+    # This literal pair is invisible to two S suffixes but not to three.
     a=(1,)*6;b=(3,)*6;s=S['s1']
     assert all(not any(column(p,S2)) for p in (a,b))
     assert dz(a+s+s+s)==E and dz(b+s+s+s)!=E
     print('PASS: ranks, native totals, and strict non-update witness')
+
 if __name__=='__main__':main()
