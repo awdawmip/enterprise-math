@@ -1,0 +1,7 @@
+# Provenance and scope — one/two symbol BRC N4
+
+- Verified GLOBAL_KNOWLEDGE_V1 canonical main: `abb8588aafc2e3e865166637ba33af56f0f595a4`. Read the 00_BOOTSTRAP, OPERATING_MANUAL, Enterprise Math role router, P000 startup, ACTIVE worldview, BRC, math, code, research-registration and temporal contracts.
+- Enterprise Math main: `f7f61aa61a5a5ee63061542ff3a5028bf1776c1c`. Read AGENTS.md, P000 V5 blob `bcc2590d3168a28f72e8b9f0f9b1f76faadcd488`, ACTIVE native X6/time/residual worldview, current-control authority, PORTABLE_RESEARCH_PROTOCOL and AUTONOMOUS_RESEARCH_OPERATIONS.
+- Frozen author-side predecessor: `c9559807c0b41b4ba8f2d83e12b947f50765b80c` in PR #1757, `research_notes/brc_n4_unrestricted_three_code_sharp_20261031_emr1/{PROOF.md,VERIFY.py,NEXT_TASK.md}`; legal S23/S2 grammar also in `71f3ed586bc4100bc7bc221fe814a326faca8461`'s lawful-policy PROOF. Prior proofs are UNREVIEWED/NOT_ADMITTED.
+- Original model's 16-leaf P/Q integer weights and six-class rational M are explicitly in PROOF.md. The local Fraction verifier executed over the declared finite combinations, without external packages. General probability comparison/data-processing and elementary disjoint-support packing are classical mathematics, with new model-specific lawful witness and sharp k=1,2 results.
+- GitHub account observed: `awdawmip`. Native Enterprise Math Site 0.6.11 reported `research_authority_granted=false`, active job quota 5/5 and owner query `CONTROL_QUOTA`. No current native owner, CLAIM, Result or independent review is asserted.
