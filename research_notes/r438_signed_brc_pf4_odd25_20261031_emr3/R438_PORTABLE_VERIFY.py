@@ -1,6 +1,6 @@
-"""R438 r23 signed-BRC exact complementary verifier.
+"""R438 r25 signed-BRC exact complementary verifier.
 
-The separate R438_PF4_R23_FAST.cpp is the complete certified 4th-order
+The separate R438_PF4_R25_FAST.cpp is the complete certified 4th-order
 enumerator. This Python file uses ONLY integer arithmetic for raw coefficients,
 complete 1st-3rd order minors, PF5 witness, and independent 4th-order spots.
 """
