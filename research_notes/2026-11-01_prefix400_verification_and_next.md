@@ -17,6 +17,14 @@ between-branch noisy observed separation >111190717/275815180.
 
 GitHub subject: awdawmip, repository ordinary push=true. Native DIRECTED_RESEARCH authority_granted=false, complete_task_packet=false. Native em_control_tasks(owner inventory) returned CONTROL_QUOTA; own em_session_start returned STATIC_READONLY_SCOPE_DENIED, operation_sent=false (read-only connector identity), so no source-native registration/CLAIM/Result was performed. Portable research_notes only.
 
-The main program and independent checker were transcribed to GitHub and must be executed there before any claim of remote-binary equivalence; local executed sources/logs and exhaustive eight-case sign table are included in the local evidence package. The formula proof does not rely on software fingerprint matching.
+The main checker in GitHub has immutable Git blob SHA 95b5bfe15c5d127f6e67423f91dd227936d4d1a2 and the independent checker has cebfcf493b134a29e861b1d99b4c8a9fd07fa4b0. Both SHA values EXACTLY match the locally executed Python files (computed from Git blob framing and file bytes). Therefore local run results apply to identical remote source bytes. The complete 8-case machine-output sign table and logs are also present in the local evidence package.
+
+Selected exhaustive NO certificate: for joint-noise midpoint case k=2, T lies in [19457/160,19583/160] and Z lies in [-7687,67467]. All nine candidates fail at least one of the four constraints (T>=L,T<=U,Z>=A,Z<=B):
+- circle anchor: (-1,+1,+1,+1).
+- T lower intersections: (0,+1,+1,-1), (0,+1,-1,+1).
+- T upper intersections: (+1,0,+1,-1), (+1,0,-1,+1).
+- Z lower intersections: (-1,+1,0,+1), (+1,-1,0,+1).
+- Z upper intersections: (-1,+1,+1,0), (+1,-1,+1,0).
+Every sign is exact in rational-square-root arithmetic. The general NO-certificate completeness is provided by the circle-boundary lemma. The formula proof does not rely on software fingerprint matching.
 
 Next: extend to noisy I3, then generic five Port intensities and Cu; preserve both signs of sigma.
