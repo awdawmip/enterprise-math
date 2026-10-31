@@ -211,7 +211,7 @@ def _install_operational_audit_views(root: Path) -> None:
 
 
 def install(root: Path = ROOT) -> None:
-    research_publication_fault_isolation.install(root)
+    # Integrity installation already installs publication isolation first.
     research_task_integrity_fault_isolation.install(root)
     research_task_semantic_integrity_fault_isolation.install(root)
     research_result_review_audit_fault_isolation.install(root)
@@ -261,3 +261,4 @@ def install(root: Path = ROOT) -> None:
 if __name__ == "__main__":
     install()
     print("PASS: canonical control-plane runtime bootstrap installed.")
+

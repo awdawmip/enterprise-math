@@ -438,6 +438,15 @@ def validated_quarantines(root: Path = ROOT) -> dict[str, dict[str, Any]]:
 def _validated_quarantines(
     root: Path, review_rows: dict[str, dict[str, Any]],
 ) -> dict[str, dict[str, Any]]:
+    from control_plane.research_read_view import reuse_read
+
+    return reuse_read(root, "followup_quarantines", review_rows,
+                      lambda: _compute_validated_quarantines(root, review_rows))
+
+
+def _compute_validated_quarantines(
+    root: Path, review_rows: dict[str, dict[str, Any]],
+) -> dict[str, dict[str, Any]]:
     """Validate packets with source rows supplied by strict cause validators.
 
     Keep this input local: successor validation reenters operational review
@@ -856,3 +865,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

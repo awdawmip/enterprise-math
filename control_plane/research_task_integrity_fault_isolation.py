@@ -297,8 +297,8 @@ def install(root: Path = ROOT) -> None:
     from control_plane import research_publication_fault_isolation as publication_isolation
 
     publication_isolation.install(root)
-    rows = validated_quarantines(root)
-
+    # This layer wires readers without an extra integrity scan.
+    # Publication isolation above and actual consumers retain their validation.
     from control_plane import research_task_records_impl as core
     from tools import research_dispatch, research_task_records
 
@@ -333,9 +333,6 @@ def install(root: Path = ROOT) -> None:
 
         research_dispatch.merged_definitions = merged_definitions
         research_dispatch._task_integrity_fault_isolation_installed = True
-
-    if set(rows) != set(validated_quarantines(root)):
-        raise TaskIntegrityIsolationError("task integrity quarantine changed during install")
 
 
 def audit_task_records(root: Path = ROOT) -> list[str]:
@@ -413,3 +410,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

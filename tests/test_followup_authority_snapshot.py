@@ -19,6 +19,7 @@ import research_review_evidence as evidence
 from control_plane import research_result_authority_fault_isolation as authority
 from tools import research_dispatch as dispatch
 from tools import research_result_records as results
+from tools import research_execution_records as executions
 
 
 class FollowupAuthoritySnapshotTests(unittest.TestCase):
@@ -214,6 +215,182 @@ class FollowupAuthoritySnapshotTests(unittest.TestCase):
         self.assertEqual(counts[:4], [1, 1, 1, 2])
         self.assertEqual((results.iter_results, results.iter_reviews), previous)
         self.assertIsNone(authority._ACTIVE.get())
+
+    def execution(self, name="ER-ONE", *, root=None, claim="CLAIM-ONE"):
+        root = self.root if root is None else root
+        row = {"execution_record_id": name, "task_id": "TASK-ONE",
+               "claim_id": claim, "allowed_outputs": ["original/"]}
+        path = root / "research_execution_records/TASK-ONE" / (name + ".json")
+        self.write(path, row)
+        return path
+
+    def test_execution_reads_share_one_scan_and_preserve_nested_object_isolation(self):
+        self.execution()
+        original = executions.iter_records
+        with mock.patch.object(executions, "_read_records", wraps=executions._read_records) as reads:
+            with dispatch._dispatch_result_read_snapshot(self.root):
+                first = executions.intent_for_claim("TASK-ONE", "CLAIM-ONE", self.root)
+                first["allowed_outputs"].append("caller-change/")
+                with dispatch._dispatch_result_read_snapshot(self.root):
+                    second = executions.intent_for_claim("TASK-ONE", "CLAIM-ONE", self.root)
+                self.assertEqual(second["allowed_outputs"], ["original/"])
+                self.assertEqual(reads.call_count, 1)
+        self.assertIs(executions.iter_records, original)
+
+    def test_execution_byte_or_set_changes_still_reject_and_next_call_is_fresh(self):
+        for change in ("edit", "add", "delete"):
+            with self.subTest(change=change):
+                path = self.execution()
+                extra = self.root / "research_execution_records/TASK-ONE/ER-TWO.json"
+                extra.unlink(missing_ok=True)
+                original = executions.iter_records
+                with self.assertRaisesRegex(authority.ResultAuthorityIsolationError,
+                                            "snapshot inputs changed"):
+                    with dispatch._dispatch_result_read_snapshot(self.root):
+                        executions.iter_records(self.root)
+                        if change == "edit":
+                            self.execution(claim="CLAIM-NEW")
+                        elif change == "add":
+                            self.execution("ER-TWO", claim="CLAIM-TWO")
+                        else:
+                            path.unlink()
+                self.assertIs(executions.iter_records, original)
+                self.assertIsNone(authority._ACTIVE.get())
+                self.assertEqual(executions.iter_records(self.root), original(self.root))
+
+    def test_execution_duplicates_and_malformed_bytes_are_not_suppressed(self):
+        self.execution()
+        second = self.execution("ER-TWO")
+        with dispatch._dispatch_result_read_snapshot(self.root):
+            with self.assertRaisesRegex(executions.ExecutionRecordError, "multiple execution intents"):
+                executions.intent_for_claim("TASK-ONE", "CLAIM-ONE", self.root)
+        second.write_text("{broken", encoding="utf-8")
+        original = executions.iter_records
+        with self.assertRaises(json.JSONDecodeError):
+            with dispatch._dispatch_result_read_snapshot(self.root):
+                executions.iter_records(self.root)
+        self.assertIs(executions.iter_records, original)
+
+    def test_other_execution_root_reads_and_unguarded_thread_remain_fresh(self):
+        from concurrent.futures import ThreadPoolExecutor
+        other = self.root / "other-execution-root"
+        self.execution()
+        self.execution(root=other)
+        with dispatch._dispatch_result_read_snapshot(self.root):
+            self.assertEqual(len(executions.iter_records(other)), 1)
+            self.execution("ER-TWO", root=other)
+            self.assertEqual(len(executions.iter_records(other)), 2)
+            # The global reader wrapper must not give another thread a cached
+            # view when that thread has no guarded authority context.
+            original = executions.iter_records
+            with ThreadPoolExecutor(max_workers=1) as pool:
+                self.assertEqual(len(pool.submit(executions.iter_records, self.root).result()), 1)
+                self.assertIsNone(pool.submit(authority._ACTIVE.get).result())
+            self.assertIs(executions.iter_records, original)
+
+    def test_independently_guarded_thread_cannot_borrow_an_older_execution_view(self):
+        from concurrent.futures import ThreadPoolExecutor
+        self.execution()
+        original = executions.iter_records
+
+        def fresh_claim():
+            with dispatch._dispatch_result_read_snapshot(self.root):
+                return executions.intent_for_claim("TASK-ONE", "CLAIM-NEW", self.root)
+
+        with self.assertRaisesRegex(authority.ResultAuthorityIsolationError, "snapshot inputs changed"):
+            with dispatch._dispatch_result_read_snapshot(self.root):
+                old = executions.intent_for_claim("TASK-ONE", "CLAIM-ONE", self.root)
+                self.execution(claim="CLAIM-NEW")
+                with ThreadPoolExecutor(max_workers=1) as pool:
+                    fresh = pool.submit(fresh_claim).result()
+                self.assertEqual(old["claim_id"], "CLAIM-ONE")
+                self.assertEqual(fresh["claim_id"], "CLAIM-NEW")
+        self.assertIs(executions.iter_records, original)
+        self.assertIsNone(authority._ACTIVE.get())
+
+    def test_non_lifo_threads_leave_no_execution_reader_or_cache_installed(self):
+        import threading
+        from concurrent.futures import ThreadPoolExecutor
+        self.execution()
+        original = executions.iter_records
+        result_readers = results.iter_results, results.iter_reviews
+        a_entered = threading.Event()
+        b_entered = threading.Event()
+        a_may_exit = threading.Event()
+        a_exited = threading.Event()
+        order = []
+        views = []
+
+        def a():
+            with dispatch._dispatch_result_read_snapshot(self.root):
+                self.assertIs(executions.iter_records, original)
+                executions.iter_records(self.root)
+                views.append(executions._READ_VIEW.get())
+                order.append("A enter")
+                a_entered.set()
+                self.assertTrue(a_may_exit.wait(10))
+            order.append("A exit")
+            a_exited.set()
+            return authority._ACTIVE.get(), executions._READ_VIEW.get()
+
+        def b():
+            self.assertTrue(a_entered.wait(10))
+            with dispatch._dispatch_result_read_snapshot(self.root):
+                self.assertIs(executions.iter_records, original)
+                executions.iter_records(self.root)
+                views.append(executions._READ_VIEW.get())
+                order.append("B enter")
+                b_entered.set()
+                self.assertTrue(a_exited.wait(10))
+                executions.iter_records(self.root)
+            order.append("B exit")
+            return authority._ACTIVE.get(), executions._READ_VIEW.get()
+
+        try:
+            with ThreadPoolExecutor(max_workers=2) as pool:
+                fa, fb = pool.submit(a), pool.submit(b)
+                self.assertTrue(b_entered.wait(10))
+                a_may_exit.set()
+                self.assertEqual(fa.result(timeout=10), (None, None))
+                self.assertEqual(fb.result(timeout=10), (None, None))
+            self.assertEqual(order, ["A enter", "B enter", "A exit", "B exit"])
+            self.assertIs(executions.iter_records, original)
+            self.assertIsNone(executions._READ_VIEW.get())
+            self.assertIsNot(views[0], views[1])
+            self.assertTrue(all(not view.active and view.rows is None for view in views))
+        finally:
+            # The existing Result/Review global wrappers predate this ER change;
+            # restore their fixture state without claiming to fix that layer.
+            results.iter_results, results.iter_reviews = result_readers
+            executions.iter_records = original
+
+    def test_inherited_execution_context_is_cleared_and_cannot_resurrect_cache(self):
+        from contextvars import copy_context
+        self.execution()
+        with dispatch._dispatch_result_read_snapshot(self.root):
+            executions.iter_records(self.root)
+            view = executions._READ_VIEW.get()
+            inherited = copy_context()
+        self.assertFalse(view.active)
+        self.assertIsNone(view.rows)
+        self.assertIsNone(executions._READ_VIEW.get())
+        self.execution(claim="CLAIM-NEW")
+
+        def read_again():
+            with executions.read_snapshot(self.root):
+                return executions.intent_for_claim("TASK-ONE", "CLAIM-NEW", self.root)
+
+        self.assertIsNotNone(inherited.run(read_again))
+        self.assertFalse(view.active)
+        self.assertIsNone(view.rows)
+
+    def test_execution_read_scope_without_authority_guard_keeps_fresh_reads(self):
+        self.execution()
+        with executions.read_snapshot(self.root):
+            self.assertIsNone(executions._READ_VIEW.get())
+            self.assertIsNotNone(executions.intent_for_claim("TASK-ONE", "CLAIM-ONE", self.root))
+            self.execution(claim="CLAIM-NEW")
+            self.assertIsNotNone(executions.intent_for_claim("TASK-ONE", "CLAIM-NEW", self.root))
 
 
 if __name__ == "__main__":

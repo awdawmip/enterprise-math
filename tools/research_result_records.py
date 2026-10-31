@@ -24,9 +24,8 @@ from __future__ import annotations
 import argparse
 import json
 import sys
-from contextlib import contextmanager
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any
 
 _REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(_REPO_ROOT) not in sys.path:
@@ -181,21 +180,6 @@ def _parallel_reviews(root: Path = ROOT) -> dict[str, list[dict[str, Any]]]:
 # unchanged and still validates historical source bytes.
 _base._parallel.results = _parallel_results
 _base._parallel.result_reviews = _parallel_reviews
-
-
-@contextmanager
-def _base_runtime_view() -> Iterator[None]:
-    """Bind the compatibility reducer to this public facade for one reduction."""
-
-    names = ("iter_results", "iter_reviews", "latest_review", "_parallel_synthesis")
-    previous = {name: getattr(_base, name) for name in names}
-    try:
-        for name in names:
-            setattr(_base, name, globals()[name])
-        yield
-    finally:
-        for name, value in previous.items():
-            setattr(_base, name, value)
 
 
 def _apply_followup_gate(
@@ -414,8 +398,11 @@ def _task_result_state_operational(
     publication_id: str | None = None,
 ) -> dict[str, Any] | None:
     """Compose generation, replacement, review, follow-up, and parallel-result authority."""
-    with _base_runtime_view():
-        base = _BASE_TASK_RESULT_STATE(task_id, root, publication_id)
+    base = _BASE_TASK_RESULT_STATE(
+        task_id, root, publication_id,
+        result_reader=iter_results, review_reader=latest_review,
+        synthesis_reader=_parallel_synthesis,
+    )
     if base is None:
         return None
 
@@ -814,3 +801,4 @@ if __name__ == "__main__":
     ) as exc:
         print("ERROR:", exc)
         raise SystemExit(1)
+
