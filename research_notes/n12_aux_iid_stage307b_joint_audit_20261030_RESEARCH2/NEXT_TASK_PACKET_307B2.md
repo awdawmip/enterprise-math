@@ -1,0 +1,11 @@
+# Stage307-B.2 continuation — algebraic public optimum and sharp Pareto boundary
+
+Source: Stage306-B immutable `e6801c19582e0a91be182fb49561f685b08cc403`; Stage307-B.1 publication in the same research2 PR. Retain frozen input probabilities and the eight (S,J,W,Y) positive-rational branch weights from PROOF_STAGE307B.md. Use the same single deterministic locked real rate per (J,W,Y), conditional-IID future F visits, fair H, public history-adaptive H/F policies. No new official native claim or peer review is inferred from this draft.
+
+**Verified and do not repeat:** For all n≥1, the exact all-policy joint S/J terminal minimax is T_n^*=(7/64)D_n, with unique majority-source rate table. At n=3 it is 77/1024. At that unique table public error is 11/256. The outer bound T_n(t)≥(7/64)D_n+(1/8)(D_n/16-P_n(t))_+ and exact feasible pair (3/128,165/2048) are proved and checked. Every public-three-F-optimal t must have T_3≥163/2048 because Stage306 has a certified P_3^*<1/128. These are not the sharp full frontier.
+
+**First hard next question:** Solve the original d(x,y)=1/2Σ_{k=0}^3 C(3,k)| (4/5)b_k(x)+(1/5)b_k(y)-p_k | on [0,1]^2, with p=(61,21,9,9)/160 and b_k(z)=z^k(1-z)^(3-k). Stage306 supplies a global dyadic enclosure, not an algebraic optimum. Determine rigorously whether the global minimizer obeys residuals r0=r1=0; obtain resultant/Sturm root isolation plus global sign-cell and boundary exclusion or a genuine exact counterexample.
+
+**Second hard next question:** Compute sharp Pareto tradeoff between public P_3 and joint T_3, for the same eight rates; exploit the exact unique joint-optimal endpoint and the four independent G fibers. A parametric algebraic/semialgebraic certificate for small public-risk budgets is useful. Keep the frozen observer scopes separate; do not replace (S,J) audit by pooled-only scoring.
+
+**Acceptance/evidence:** exact proof or scoped obstruction; reproducible rational/symbolic code with executed stdout; explicit dependence on predecessor SHA and positive branch BRC observer; declare finite vs continuum proof coverage. Save to the existing research2 PR branch and read back. Keep UNREVIEWED/NOT_ADMITTED until independent Source admission. Do not infer P000 X6 native correspondence from this auxiliary model.
