@@ -1,0 +1,1396 @@
+{
+  "schema": "EM_R440_SIGNED_BRC_ODD_SOLID_PF4_V1",
+  "status": "R440_EXACT_PASS / AUTHOR_SIDE_UNREVIEWED / NOT_ADMITTED",
+  "date": "2026-11-01",
+  "global_knowledge_read_commit": "bc1bcc8e37542f6acf0042cd9671ab44696adcc7",
+  "em_current_control_read_commit": "42da097851a02b96f8ff2018f5c28096eec13866",
+  "prior_math": "R432 analytic odd r>=99 obstruction at immutable 83a97192b7e2bb5cc7e741b005d36bca9632a653",
+  "claim": "For odd r>=5, every solid Toeplitz minor of order <=4 is nonnegative iff 7<=r<=97; all these 9384 in-support minors are strictly positive. Not PF4 classification.",
+  "proof_partition": "r=5: explicit negative; odd r=7..97: exhaustive 9384 exact checks; odd r>=99: R432 analytic negative 4x4 M_r; no cases omitted.",
+  "coeff_crosschecks": 2448,
+  "solid_minors_checked": 9792,
+  "positive": 9790,
+  "negative": 2,
+  "zero": 0,
+  "finite_positive_odd_rows": 46,
+  "finite_positive_count": 9384,
+  "negative_exceptions": [
+    {
+      "r": 5,
+      "p": 4,
+      "d": 1,
+      "det_normalized": "-81"
+    },
+    {
+      "r": 99,
+      "p": 4,
+      "d": 96,
+      "det_normalized": "-4326141419490865273677202540057073528586532246800554919817305839911537477845060811759488414491462453391837105694206933982652536875"
+    }
+  ],
+  "r99_R432_P_48": "-71552034705250",
+  "r99_R432_P_49": "52661023196976",
+  "r99_analytic_ratio_verified": true,
+  "r99_raw_negative_det": "-115246082789101735991251056864398754373427074253183158266550193264854116984597924848915937271509963257957985112375950573367129607905225440000",
+  "full_determinant_transcript_sha256": "8cec26d08db49f1a59c6af2c829fa81b6c6c3fc323f315e018fe5c2ae1205816",
+  "by_row": [
+    {
+      "r": 5,
+      "gcd": "14",
+      "support_length": 4,
+      "by_order": [
+        {
+          "positive": 4,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 4,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 4,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 3,
+          "negative": 1,
+          "zero": 0
+        }
+      ],
+      "exceptions": [
+        {
+          "p": 4,
+          "d": 1,
+          "det_normalized": "-81"
+        }
+      ]
+    },
+    {
+      "r": 7,
+      "gcd": "3",
+      "support_length": 6,
+      "by_order": [
+        {
+          "positive": 6,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 6,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 6,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 6,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 9,
+      "gcd": "22",
+      "support_length": 8,
+      "by_order": [
+        {
+          "positive": 8,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 8,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 8,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 8,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 11,
+      "gcd": "26",
+      "support_length": 10,
+      "by_order": [
+        {
+          "positive": 10,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 10,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 10,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 10,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 13,
+      "gcd": "4",
+      "support_length": 12,
+      "by_order": [
+        {
+          "positive": 12,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 12,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 12,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 12,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 15,
+      "gcd": "17",
+      "support_length": 14,
+      "by_order": [
+        {
+          "positive": 14,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 14,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 14,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 14,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 17,
+      "gcd": "38",
+      "support_length": 16,
+      "by_order": [
+        {
+          "positive": 16,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 16,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 16,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 16,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 19,
+      "gcd": "2",
+      "support_length": 18,
+      "by_order": [
+        {
+          "positive": 18,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 18,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 18,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 18,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 21,
+      "gcd": "92",
+      "support_length": 20,
+      "by_order": [
+        {
+          "positive": 20,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 20,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 20,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 20,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 23,
+      "gcd": "10",
+      "support_length": 22,
+      "by_order": [
+        {
+          "positive": 22,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 22,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 22,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 22,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 25,
+      "gcd": "12",
+      "support_length": 24,
+      "by_order": [
+        {
+          "positive": 24,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 24,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 24,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 24,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 27,
+      "gcd": "116",
+      "support_length": 26,
+      "by_order": [
+        {
+          "positive": 26,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 26,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 26,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 26,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 29,
+      "gcd": "248",
+      "support_length": 28,
+      "by_order": [
+        {
+          "positive": 28,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 28,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 28,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 28,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 31,
+      "gcd": "1",
+      "support_length": 30,
+      "by_order": [
+        {
+          "positive": 30,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 30,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 30,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 30,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 33,
+      "gcd": "2",
+      "support_length": 32,
+      "by_order": [
+        {
+          "positive": 32,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 32,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 32,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 32,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 35,
+      "gcd": "74",
+      "support_length": 34,
+      "by_order": [
+        {
+          "positive": 34,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 34,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 34,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 34,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 37,
+      "gcd": "4",
+      "support_length": 36,
+      "by_order": [
+        {
+          "positive": 36,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 36,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 36,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 36,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 39,
+      "gcd": "82",
+      "support_length": 38,
+      "by_order": [
+        {
+          "positive": 38,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 38,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 38,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 38,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 41,
+      "gcd": "172",
+      "support_length": 40,
+      "by_order": [
+        {
+          "positive": 40,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 40,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 40,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 40,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 43,
+      "gcd": "4",
+      "support_length": 42,
+      "by_order": [
+        {
+          "positive": 42,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 42,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 42,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 42,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 45,
+      "gcd": "376",
+      "support_length": 44,
+      "by_order": [
+        {
+          "positive": 44,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 44,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 44,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 44,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 47,
+      "gcd": "14",
+      "support_length": 46,
+      "by_order": [
+        {
+          "positive": 46,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 46,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 46,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 46,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 49,
+      "gcd": "4",
+      "support_length": 48,
+      "by_order": [
+        {
+          "positive": 48,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 48,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 48,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 48,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 51,
+      "gcd": "212",
+      "support_length": 50,
+      "by_order": [
+        {
+          "positive": 50,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 50,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 50,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 50,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 53,
+      "gcd": "8",
+      "support_length": 52,
+      "by_order": [
+        {
+          "positive": 52,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 52,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 52,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 52,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 55,
+      "gcd": "4",
+      "support_length": 54,
+      "by_order": [
+        {
+          "positive": 54,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 54,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 54,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 54,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 57,
+      "gcd": "472",
+      "support_length": 56,
+      "by_order": [
+        {
+          "positive": 56,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 56,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 56,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 56,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 59,
+      "gcd": "488",
+      "support_length": 58,
+      "by_order": [
+        {
+          "positive": 58,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 58,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 58,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 58,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 61,
+      "gcd": "16",
+      "support_length": 60,
+      "by_order": [
+        {
+          "positive": 60,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 60,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 60,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 60,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 63,
+      "gcd": "1",
+      "support_length": 62,
+      "by_order": [
+        {
+          "positive": 62,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 62,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 62,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 62,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 65,
+      "gcd": "134",
+      "support_length": 64,
+      "by_order": [
+        {
+          "positive": 64,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 64,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 64,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 64,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 67,
+      "gcd": "2",
+      "support_length": 66,
+      "by_order": [
+        {
+          "positive": 66,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 66,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 66,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 66,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 69,
+      "gcd": "284",
+      "support_length": 68,
+      "by_order": [
+        {
+          "positive": 68,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 68,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 68,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 68,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 71,
+      "gcd": "146",
+      "support_length": 70,
+      "by_order": [
+        {
+          "positive": 70,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 70,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 70,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 70,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 73,
+      "gcd": "4",
+      "support_length": 72,
+      "by_order": [
+        {
+          "positive": 72,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 72,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 72,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 72,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 75,
+      "gcd": "4",
+      "support_length": 74,
+      "by_order": [
+        {
+          "positive": 74,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 74,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 74,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 74,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 77,
+      "gcd": "632",
+      "support_length": 76,
+      "by_order": [
+        {
+          "positive": 76,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 76,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 76,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 76,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 79,
+      "gcd": "6",
+      "support_length": 78,
+      "by_order": [
+        {
+          "positive": 78,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 78,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 78,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 78,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 81,
+      "gcd": "332",
+      "support_length": 80,
+      "by_order": [
+        {
+          "positive": 80,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 80,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 80,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 80,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 83,
+      "gcd": "4",
+      "support_length": 82,
+      "by_order": [
+        {
+          "positive": 82,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 82,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 82,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 82,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 85,
+      "gcd": "8",
+      "support_length": 84,
+      "by_order": [
+        {
+          "positive": 84,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 84,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 84,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 84,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 87,
+      "gcd": "356",
+      "support_length": 86,
+      "by_order": [
+        {
+          "positive": 86,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 86,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 86,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 86,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 89,
+      "gcd": "8",
+      "support_length": 88,
+      "by_order": [
+        {
+          "positive": 88,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 88,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 88,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 88,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 91,
+      "gcd": "8",
+      "support_length": 90,
+      "by_order": [
+        {
+          "positive": 90,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 90,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 90,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 90,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 93,
+      "gcd": "16",
+      "support_length": 92,
+      "by_order": [
+        {
+          "positive": 92,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 92,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 92,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 92,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 95,
+      "gcd": "194",
+      "support_length": 94,
+      "by_order": [
+        {
+          "positive": 94,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 94,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 94,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 94,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 97,
+      "gcd": "4",
+      "support_length": 96,
+      "by_order": [
+        {
+          "positive": 96,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 96,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 96,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 96,
+          "negative": 0,
+          "zero": 0
+        }
+      ],
+      "exceptions": []
+    },
+    {
+      "r": 99,
+      "gcd": "404",
+      "support_length": 98,
+      "by_order": [
+        {
+          "positive": 98,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 98,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 98,
+          "negative": 0,
+          "zero": 0
+        },
+        {
+          "positive": 97,
+          "negative": 1,
+          "zero": 0
+        }
+      ],
+      "exceptions": [
+        {
+          "p": 4,
+          "d": 96,
+          "det_normalized": "-4326141419490865273677202540057073528586532246800554919817305839911537477845060811759488414491462453391837105694206933982652536875"
+        }
+      ]
+    }
+  ],
+  "scope": "Only consecutive row AND column index sets, 1..4; finite support Toeplitz signed BRC; nonconsecutive minors not exhaustively checked for r>=29",
+  "next": "r29 sparse-minor PF4 complete certificate or exact negative sparse witness; separate proof of any solid-to-global PF4 inference if proposed"
+}

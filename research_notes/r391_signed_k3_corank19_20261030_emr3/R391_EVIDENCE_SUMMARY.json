@@ -1,0 +1,53 @@
+{
+  "schema": "EM_R391_CORANK19_AUTHOR_SIDE_EVIDENCE_SUMMARY_V1",
+  "date": "2026-10-30",
+  "r": 19,
+  "statement": "39-entry signed-BRC raw-D Newton PF2 iff -1<theta<=eta19",
+  "eta19": "unique T19 root in (1862144/1000000,1862145/1000000)",
+  "eta19_approx": "1.8621443487511826",
+  "secondary_T19_root_bracket": [
+    "1868088/1000000",
+    "1868089/1000000"
+  ],
+  "c19_strictly_negative_throughout_secondary_bracket": true,
+  "top_coefficient": "c38=1767263190*(30-16theta)^38",
+  "counts": {
+    "C": 39,
+    "T": 37,
+    "exact_rational_crosschecks": 532,
+    "certificate_objects": 80,
+    "certificate_subintervals": 91,
+    "bernstein_calls": 93,
+    "strict_positive_rational_Bernstein_controls": 4348,
+    "max_bisection_depth": 11,
+    "negative_cover_segments": 12
+  },
+  "run_status": [
+    "R391_SYMBOLIC_PASS",
+    "R391_EXACT_PASS"
+  ],
+  "source_polynomial_sha256": "ef953996cb3c785fd6a15f51cc7b8be84bdc2245ae5535fa6d8f4951e417383f",
+  "certificate_chain_sha256": "7653636cd845c516cbf835024cf2ae14fe729b014ea8a5c2547f5642ed040f5d",
+  "generated_outputs_sha256": {
+    "R391_POLYNOMIALS.json": "0e0e17d3fb26860213168d48cda4ce303f2cc633528bafc3e4567d9fc0412ece",
+    "R391_EVIDENCE.json": "7ecff2097b80769408afcda519ffacfd56e68dd26cd78b7975185d73bd151cb2"
+  },
+  "executed_code_git_blob": {
+    "r391_exact.py": "4832d13b5e6e3e8d7f3c1c5a36914978274b70a4",
+    "r391_symbolic.py": "f6bb9b996a129415a83f7409771107cc435b2661",
+    "r391_certify.py": "62aea7845f9da610e7748e05ed971a70454ffbd0"
+  },
+  "model_scope": "finite signed twelve-branch BRC auxiliary observation only; no infinite-Q/global-D TP2/native X6 claim",
+  "source_versions": {
+    "global_knowledge": "6dd6d2d00b5bad517b119e48aa7c9b8426b45be0",
+    "enterprise_math_main": "84b725104b07628241b4a12be4d77b423ebf6c0f",
+    "r390": "f6fc39da42ba9d11029076cf7642f2b5178a958c"
+  },
+  "status": [
+    "AUTHOR_SIDE_EXACT",
+    "DRIVER_UNREVIEWED",
+    "NOT_ADMITTED",
+    "REGISTER_PENDING",
+    "OWNER_UNVERIFIED"
+  ]
+}
