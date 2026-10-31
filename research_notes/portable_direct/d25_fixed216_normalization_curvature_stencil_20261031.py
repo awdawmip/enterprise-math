@@ -71,6 +71,5 @@ def main():
     for row in anchors:
         print(row)
 
-
 if __name__ == '__main__':
     main()
