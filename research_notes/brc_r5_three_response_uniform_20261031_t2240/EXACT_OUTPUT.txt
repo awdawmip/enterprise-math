@@ -1,0 +1,10 @@
+PINNED_BASELINE v=1/8 w=1/4; theta0=theta1=11/2
+LR_H_LO = max(117, 16321/160 + 171*z/4)
+LR_H_HI = max(143/2, 4547/80 + 2547*z/80)
+W_LO=(3819/32, 0*z); W_HI=(1037/16, 283*z/16)
+z_cross=1922/4835; minimum_two_direction_witness_gap=26581/77360
+LR_four_rank iff z != 1/8; at z=1/8: 8(eP-eQ)-TP+TQ=0
+FULL_x_max=3/20; FULL_y_max=17/40; full_policies=4096; lr_policies=16
+robust_box |v-1/8|<=1/1000, |w-1/4|<=1/1000, |z|<=1/2
+uniform_support_gap_in_box>=749817/3868000; uniform_infinity_distance>=749817/1999756000
+PASS_EXACT_R5_THREE_RESPONSE_UNIFORM_RECTANGLE_NO_GO
