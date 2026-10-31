@@ -1,6 +1,6 @@
 # EC49CI — S² 操作闭包下的原生 BRC 最小可更新残差
 
-当前前沿：EC49CH 单次有限后缀集合 S 的精确 33 维有理线性加性读出定理，含33条真实长度6路径模1,000,003非零 minor 91267。源内容在同目录 README_EC49CH.md、EC49CH_FULL_EVIDENCE_20261031.tar.xz.b64；先复用，不重做。身份：仅 AUTHOR PORTABLE DRAFT，未取得正式CLAIM/Result、独立审阅或项目接纳。
+当前前沿：EC49CH 单次有限后缀集合 S 的精确 33 维有理线性加性读出定理，含33条真实长度6路径模1,000,003非零 minor 91267。源内容在同目录 README_EC49CH.md、CERTIFICATE_EC49CH.json、VERIFY_EC49CH_STANDALONE.py、EXACT_REPORT_EC49CH_SUMMARY.json（完整原始归档另见作者本轮对话附件）；先复用，不重做。身份：仅 AUTHOR PORTABLE DRAFT，未取得正式CLAIM/Result、独立审阅或项目接纳。
 
 ## 冻结科学输入
 
