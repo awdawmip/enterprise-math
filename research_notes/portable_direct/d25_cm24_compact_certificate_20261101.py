@@ -65,3 +65,37 @@ for p in ps:
 print('PASS CM selector',len(ps),'primes <=5000; inert',inert,'split',len(ps)-inert)
 print('PASS exact Hasse coefficients and beta observer',tested,'primes <=997')
 print('PASS p=19 mod24 unit inverse first lift and signed tail',lift,'primes <=1500')
+
+# Second observer: a purely Legendre-derivative readout of H and of G/p.
+def legendre_derivative(p,n,t):
+    a,b=(1,0),t
+    da,db=(0,0),(1,0)
+    if n==0:return a,da
+    for k in range(1,n):
+        inv=pow(k+1,-1,p)
+        c=scale(add(scale(mul(t,b,p),2*k+1,p),scale(a,-k,p),p),inv,p)
+        dc=scale(add(scale(add(b,mul(t,db,p),p),2*k+1,p),scale(da,-k,p),p),inv,p)
+        a,b=b,c;da,db=db,dc
+    return b,db
+
+n_derivative=n_inert_lift=0
+for p in ps:
+    if p>1500:break
+    if pow((-6)%p,(p-1)//2,p)!=p-1:continue
+    n=((p-1)//2)//2;t=(0,2*pow(3,-1,p)%p)
+    val,dval=legendre_derivative(p,n,t)
+    assert val==(0,0)
+    if n%2==0:
+        unit=scale(mul(dval,(0,3*pow(4,-1,p)%p),p),-8*pow(9,-1,p),p)
+    else:
+        chi2=1 if pow(2,(p-1)//2,p)==1 else -1
+        unit=scale(dval,-8*pow(9,-1,p)*chi2,p)
+    g,h,_=beta(p,p)
+    assert g==0 and unit==(h,0) and h!=0,('derivative H',p)
+    n_derivative+=1
+    if p%24==19:
+        gg,_,_=beta(p,p*p)
+        assert gg//p==pow(unit[0],-1,p),('Legendre first lift',p)
+        n_inert_lift+=1
+print('PASS inert Legendre derivative H observer',n_derivative,'primes <=1500')
+print('PASS p19-class first lift from P_n derivative',n_inert_lift,'primes <=1500')
