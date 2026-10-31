@@ -1,0 +1,30 @@
+# Exact execution evidence
+Date: 2026-10-31
+Executor: connected-tool JavaScript V8, running the same main() body stored in VERIFY.js.
+
+{
+  "marker": "PASS_BRC_N4_TIME_VISIBLE_STOPPING_SHATTERING_20261031",
+  "counts": {
+    "normalization": 8,
+    "time_policy_rows": 512,
+    "tagged_witness_rows": 32,
+    "full_carrier_upper_checks": 24,
+    "inverse_column_pairs": 15
+  },
+  "reference_error_numerators_over_40": {
+    "k1": 30,
+    "k2": 20,
+    "k4": 8,
+    "k5": 1
+  },
+  "inverse_diameter": 40,
+  "epsilon_grid": [
+    "0",
+    "1/8",
+    "1/4",
+    "1/2"
+  ],
+  "proof_scope": "finite checks are audits; arbitrary stochastic encoders/policies and the real-epsilon interval follow from PROOF.md"
+}
+
+The exact integer check establishes the stated finite identities and sample epsilon-grid audits; arbitrary stochastic policies and real epsilon are handled by PROOF.md's analytic arguments. No native session/CLAIM/admission asserted.
