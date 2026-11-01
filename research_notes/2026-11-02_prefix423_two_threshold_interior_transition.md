@@ -92,3 +92,7 @@ PASS_PREFIX423_INDEPENDENT_RAW_FIVE_PORT_AND_GLOBAL_SQUARE_CERTIFICATE。
 
 **下一步**：向下覆盖 0.002<η<0.0195，确定更大区间的真正首次失效；
 将两条阈值推广到 0≤ε≤10^(-6) 的曲面，并验证内点区宽度。
+
+## 已保存的可执行证据
+
+[源码、实际执行日志与 SHA-256 清单（Brotli 压缩的 tar）](PREFIX423_CODE_EVIDENCE.tar.br)，远程 Git blob `ba70aa330493c6ca9f91f4506bb1448f7d075735`，文件 4121 字节，归档原文件 SHA-256 `d508b7cb7840143ce3de9c0c8746fec341f64ab59d16706e157699d5ffb1bf6d`。内容包括 `prefix423_exact_certificate.py`、`prefix423_independent_matrix.py`、两份真实执行日志及清单。恢复方法：使用 Brotli 解压 `.tar.br` 为 tar，再以 tar 解包；各文件可按归档 SHA256SUMS.txt 核验。主脚本的 1448 项有理区间断言和独立 SymPy 代数检查由实际日志确认通过。它们属作者侧证书，尚待独立科学审核。
