@@ -4,6 +4,7 @@ This intentionally does not import the SymPy checker or its transformed-port coe
 """
 from fractions import Fraction as F
 
+
 def C(x=0,y=0):
     return (F(x),F(y))
 
