@@ -1,22 +1,52 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-RESEARCH1-20261102-FIVEPOINT-5E58AF1F",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "5e58af1f8c251fbe729ebc7772e3d95c73502e76",
+          "path": "research_notes/brc_n4_s23_five_witness_exact_32_63_20261102_research1/VERIFY.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "606a745492d545833c973e3d386fde9511c9198ca13daf4c8c32db522835701a",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "59c95e668ead9ff52a2e11c707cb5dbb360e5e61",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/5e58af1f8c251fbe729ebc7772e3d95c73502e76/research_notes/brc_n4_s23_five_witness_exact_32_63_20261102_research1/VERIFY.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "local-readback-research1-20261102-5e58af1f-verify",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-RESEARCH1-20261102-FIVEPOINT-5E58AF1F/readbacks/a67419553f6b1894157ff52e38c5d8965935385d39679bf57c91b2efc4052355.json",
+          "verification_receipt_sha256": "a67419553f6b1894157ff52e38c5d8965935385d39679bf57c91b2efc4052355"
+        }
+      ],
+      "event_id": "EM-FIVEPOINT-32_63-5E58AF1F",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@c42efe5ebd591da8429a122272a16c727cb12d68:journal/enterprise-math/2026-11-02/20261102T053737+0800-research1-brc-fivepoint-32over63.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-11-01T21:37:37Z",
   "registration_key": "session:local-research1-20261101T2137Z-fivepoint-5e58af1f:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "LOCAL-awdawmip-RESEARCH1-FIVEPOINT-5E58AF1F",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "local-research1-20261101T2137Z-fivepoint-5e58af1f",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-11-01T21:37:37Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
