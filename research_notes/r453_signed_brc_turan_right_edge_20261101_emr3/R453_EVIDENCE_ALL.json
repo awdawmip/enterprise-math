@@ -1,0 +1,224 @@
+{
+  "schema": "R453_EXACT_INTEGER_CERTIFICATE_V1",
+  "status": "AUTHOR_SIDE_UNREVIEWED",
+  "result": "R453_EXACT_PASS",
+  "r_domain": "r=2k+1, k >= floor((s+2)/2)",
+  "s_range": [
+    101,
+    120
+  ],
+  "j_index": "j=r-s",
+  "certified_polynomials": 40,
+  "strict_positive_coefficients": 22140,
+  "condensation_exact_polynomial_identities": 20,
+  "independent_raw_signed_checks": 300,
+  "combined_rows_sha256": "41b09ac261daf937f829d87f3479c584e72d28660a018e9a3a3788cabae078c2",
+  "combined_digest_encoding": "For s increasing, SHA256 update ASCII decimal s, colon (0x3a), then raw 32 bytes from per-row SHA256",
+  "per_row_digest_encoding": "Two polynomials in order 2,3; uint8(order), uint16BE(number of coefficients); each strictly positive coefficient represented by uint32BE(number of bytes) followed by its unsigned minimal big-endian integer bytes",
+  "source_program": "R453_VERIFY.py",
+  "execution_slices": [
+    [
+      101,
+      107
+    ],
+    [
+      108,
+      108
+    ],
+    [
+      109,
+      114
+    ],
+    [
+      115,
+      118
+    ],
+    [
+      119,
+      120
+    ]
+  ],
+  "rows": [
+    {
+      "s": 101,
+      "k0": 51,
+      "r_min": 103,
+      "degree_p2": 404,
+      "degree_p3": 606,
+      "strict_positive_coefficients": 1012,
+      "sha256": "123bdca19cfd3d581a258a0dcc716d34312719ac20bfec3cbe1b6da18d866897"
+    },
+    {
+      "s": 102,
+      "k0": 52,
+      "r_min": 105,
+      "degree_p2": 408,
+      "degree_p3": 612,
+      "strict_positive_coefficients": 1022,
+      "sha256": "14b1618fccb64c7f095225d63ee8237958508645aefd17f7cc9c9e03fa7bb642"
+    },
+    {
+      "s": 103,
+      "k0": 52,
+      "r_min": 105,
+      "degree_p2": 412,
+      "degree_p3": 618,
+      "strict_positive_coefficients": 1032,
+      "sha256": "2955ee49df73ab5883f1e752ad400cf1303aeeaf4b539ccff9f1960814e4d6f3"
+    },
+    {
+      "s": 104,
+      "k0": 53,
+      "r_min": 107,
+      "degree_p2": 416,
+      "degree_p3": 624,
+      "strict_positive_coefficients": 1042,
+      "sha256": "fdb9d76dbdafd2e0d03703bce705a5dc79563f529f62a0df743fa78cdbe7c844"
+    },
+    {
+      "s": 105,
+      "k0": 53,
+      "r_min": 107,
+      "degree_p2": 420,
+      "degree_p3": 630,
+      "strict_positive_coefficients": 1052,
+      "sha256": "9ea7aa45e49a50b97329078d679678664385c11160e4c29ff2aff2aecdad4608"
+    },
+    {
+      "s": 106,
+      "k0": 54,
+      "r_min": 109,
+      "degree_p2": 424,
+      "degree_p3": 636,
+      "strict_positive_coefficients": 1062,
+      "sha256": "4fc46d09120d99968d81370374fc75ed07f70f6b12c35772c7c7e83afa53171d"
+    },
+    {
+      "s": 107,
+      "k0": 54,
+      "r_min": 109,
+      "degree_p2": 428,
+      "degree_p3": 642,
+      "strict_positive_coefficients": 1072,
+      "sha256": "a991e73d6d3a4005eaecc12f09375bc9d7a6eb68d9ffecfe53512b9441ade981"
+    },
+    {
+      "s": 108,
+      "k0": 55,
+      "r_min": 111,
+      "degree_p2": 432,
+      "degree_p3": 648,
+      "strict_positive_coefficients": 1082,
+      "sha256": "bbdd141cbacd9191046ea32e80da98f47dd52e121a6120974925c973b3564ed4"
+    },
+    {
+      "s": 109,
+      "k0": 55,
+      "r_min": 111,
+      "degree_p2": 436,
+      "degree_p3": 654,
+      "strict_positive_coefficients": 1092,
+      "sha256": "37c93611e6bed779093a7c3836f2fa5fcb56bea7374bc6a5a84d5be8cb418ca9"
+    },
+    {
+      "s": 110,
+      "k0": 56,
+      "r_min": 113,
+      "degree_p2": 440,
+      "degree_p3": 660,
+      "strict_positive_coefficients": 1102,
+      "sha256": "65fe509a5b58ced0a4f8f7c6ccf5abf95424cc8b11c64fa16de67ba0268cb126"
+    },
+    {
+      "s": 111,
+      "k0": 56,
+      "r_min": 113,
+      "degree_p2": 444,
+      "degree_p3": 666,
+      "strict_positive_coefficients": 1112,
+      "sha256": "2c66633fba64ab7d4e9eea7ecf0eaa34ff262b2e5d171522fdf90f7479d1b971"
+    },
+    {
+      "s": 112,
+      "k0": 57,
+      "r_min": 115,
+      "degree_p2": 448,
+      "degree_p3": 672,
+      "strict_positive_coefficients": 1122,
+      "sha256": "c452dd314b7d3500da15573e9b0c8b7237fb45b9445d45e9a67e1c7f33e58620"
+    },
+    {
+      "s": 113,
+      "k0": 57,
+      "r_min": 115,
+      "degree_p2": 452,
+      "degree_p3": 678,
+      "strict_positive_coefficients": 1132,
+      "sha256": "ae98349717ed4175d4367b55932b166d599d3a41c0c3f4b155c353d9d73c64f1"
+    },
+    {
+      "s": 114,
+      "k0": 58,
+      "r_min": 117,
+      "degree_p2": 456,
+      "degree_p3": 684,
+      "strict_positive_coefficients": 1142,
+      "sha256": "1945678eebc3c86a9c42d51f1a7c9cd0a8d18815fd03fe84dd413f78f2740bbd"
+    },
+    {
+      "s": 115,
+      "k0": 58,
+      "r_min": 117,
+      "degree_p2": 460,
+      "degree_p3": 690,
+      "strict_positive_coefficients": 1152,
+      "sha256": "5e5d93b50723c0c17dff330dcdf6e47d200bacd9108c67322709d4dba92aaba5"
+    },
+    {
+      "s": 116,
+      "k0": 59,
+      "r_min": 119,
+      "degree_p2": 464,
+      "degree_p3": 696,
+      "strict_positive_coefficients": 1162,
+      "sha256": "c3f865b2888ca1431d4b6cf4a40da921d75f0a976f835a4e97de744df02a07e0"
+    },
+    {
+      "s": 117,
+      "k0": 59,
+      "r_min": 119,
+      "degree_p2": 468,
+      "degree_p3": 702,
+      "strict_positive_coefficients": 1172,
+      "sha256": "1243482265db8312b45ba727834dca74ad7b187d2d3853472e62e91e20f76f56"
+    },
+    {
+      "s": 118,
+      "k0": 60,
+      "r_min": 121,
+      "degree_p2": 472,
+      "degree_p3": 708,
+      "strict_positive_coefficients": 1182,
+      "sha256": "6b8b1e7367a30b1c69ca61c08160a06bb0a0b29045ec2dbe4887d0c597c28ee4"
+    },
+    {
+      "s": 119,
+      "k0": 60,
+      "r_min": 121,
+      "degree_p2": 476,
+      "degree_p3": 714,
+      "strict_positive_coefficients": 1192,
+      "sha256": "73e81ef015eb6aef8c931dda67f0a4fc52edb81291b3422cc0afef0151e076d0"
+    },
+    {
+      "s": 120,
+      "k0": 61,
+      "r_min": 123,
+      "degree_p2": 480,
+      "degree_p3": 720,
+      "strict_positive_coefficients": 1202,
+      "sha256": "55859f9dd7eacec8b901be964385eefdd30e740743299c4096335360bb92c0a3"
+    }
+  ],
+  "scope": "Finite parameter s-range, infinite legal k; not proof of all-s PF3 or native X6 mapping. No native claim/review/acceptance."
+}
