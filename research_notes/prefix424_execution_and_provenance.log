@@ -1,0 +1,44 @@
+PREFIX-424 — original local execution records (2026-11-02)
+Scientific frozen pin: awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d
+Control snapshot: enterprise-math@7c243c3b6558eb938c7ab3240fc91ee762a3a38f
+Global normative main: chatgpt-global-knowledge@f22d16f479f747cae6f44e7e09f3a3d66889dd95
+Original predecessor exact source: research_notes/PREFIX423_CODE_EVIDENCE.tar.br at commit 9a1ea3ab71469ff6a4f645852d1be9f33b09fdc9.
+
+# Replayed predecessor + new delta checker
+PASS_PREFIX423_FULL_NEGATIVE_SOURCE_TWO_THRESHOLDS_INTERIOR_TRANSITION
+PREFIX424_EXTRA_INTEGER_CHECKS 724
+PREFIX424_TOTAL_INTEGER_CHECKS 2172
+PREFIX424_PHASE_BOUNDS Vss:(7649,7832) Vs_eta:(691,708) Vs_r:(5,6)
+PREFIX424_ETA0_INTERVAL 0.01952966218269903976527 0.01952966218269903976529
+PREFIX424_DERIVATIVE_A -7838/691 < A_prime < -7654/708
+PREFIX424_DERIVATIVE_B 7643/708 < B_prime < 7827/691
+PREFIX424_WIDTH (15298/708)*epsilon < W < (15664/691)*epsilon
+PASS_PREFIX424_TWO_PARAMETER_DELTA_EXACT_CERTIFICATE
+
+# Standalone no-parent checker (separately run)
+strict_integer_checks_total= 2172 boxes= 120 precision= 1000000000000000000000000000000000000
+PREFIX424 Vs_eta > 691 [691.067837541093,707.4843612168991]
+PREFIX424 Vsr > 5 [5.28834870358505,5.32654121703376]
+PREFIX424 Vss > 7649 [7649.585027996239,7831.342438571271]
+PREFIX424 all-epsilon Vs at eta=0.0195 negative [-0.02848250572292479,-0.01279339879193519]
+PREFIX424 all-epsilon Vs at eta=0.01956 positive [0.01333662579787897,0.0292926118610282]
+PASS_PREFIX424_TWO_PARAMETER_GLOBAL_PHASE_DIAGRAM_EXACT_INTERVAL_CERTIFICATE
+
+# Separate symbolic original-matrix checker
+point 1 2 1953/100000 mixed_sympy= 5.30733349763743308307056
+point 1000001/1000000 2000001/1000000 977/50000 mixed_sympy= 5.31706300055332069064579
+point 2000001/2000000 3999999/2000000 3907/200000 mixed_sympy= 5.30708539941064977962334
+PASS_PREFIX424_INDEPENDENT_RAW_MATRIX_AND_SYMBOLIC_MIXED_PARTIAL
+
+# SHA256 of locally executed source files
+prefix424_delta_certificate.py: 16cc5706cb8d24331abb6f621a0e92e9cd0254aec4de68510f68f52e75389749
+prefix424_exact_two_parameter_certificate.py: ef19aa5c56f8088c18567a1d0704c576233a52e6be0b67da356f57b0af077773
+prefix424_independent_derivative.py: 493fc145d3d83be78255b5b6b0f0524ef15bc2f677bcae2d30976673afee2cf8
+# Independently verified comprehensive evidence archive (10 files)
+tar.gz SHA256: bd6db366b697f512222110483ffdec0124f020afda8bc9abf2c694f3a4933e87
+tar.br SHA256: 267d69f9007fda140a26a7309b27343110445300c53f37d6538bcd1f39baa317
+# Native control status (real outcome):
+GitHub user: awdawmip; project push permission: true
+Native em_control_tasks: CONTROL_QUOTA (5/5)
+Native em_session_start: STATIC_READONLY_SCOPE_DENIED; operation_sent=false
+No native CLAIM, Result, independent Review or Admission. Report is author-side exact verified only.
