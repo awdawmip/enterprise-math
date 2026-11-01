@@ -1,0 +1,19 @@
+PREFIX-417 execution evidence (2026-11-01)
+Science input Enterprise Math main@813d9a8c66c9facccbafd5492d439f1288ade1cd
+Global policy snapshot main@54fa7d60d81f96fd4ff80a18304013fec0b7b94e
+
+Command: python prefix417_exact_curvature_checker.py
+Exit code: 0
+PASS_PREFIX417_RESULTANT_REDUCES_TO_PREFIX413_QUARTIC
+PASS_PREFIX417_EXACT_RATIONAL_INTERVAL_SECOND_DERIVATIVE
+eta_first interval approximately 0.624178510143516 0.6241785101435683
+eta_second interval approximately -422.8278680271848 -422.82786802717436
+Curvature theorem: -422.827868028 < eta_cross_second(0+) < -422.827868026
+
+Command: python prefix417_independent_raw_matrix.py
+Exit code: 0
+PASS_PREFIX417_INDEPENDENT_RAW_MATRIX_GENERAL_W_COEFFICIENTS
+
+Source scripts executed in local Python environment using SymPy. All PASS comparisons in primary checker are exact Fraction/isqrt. The displayed float endpoints are not the proof decision procedure.
+
+Prior published PREFIX-413/414/416 global optimum and active-set results are author-side and unreviewed; this evidence does not mark native research admission.
