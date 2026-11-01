@@ -1,0 +1,67 @@
+{
+  "schema": "R463_SIGNED_BRC_RIGHT_EDGE_EXACT_EVIDENCE_V1",
+  "date": "2026-11-01",
+  "source_pin": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "scope": "signed BRC auxiliary scalar only",
+  "exact_arithmetic": "integer coefficients in Z[u] and exact Catalan integer sums",
+  "s_certificate": [
+    {
+      "s": 175,
+      "k0": 88,
+      "r_min": 177,
+      "degree_p2": 700,
+      "degree_p3": 1050,
+      "strict_positive_coefficients": 1752,
+      "sha256": "5a68b3d2ced114ee7744e5a75b8553717314a3d0ea1b5b497b0739ba09847239",
+      "execution_program": "R463_VERIFY.py",
+      "result": "R463_EXACT_PASS",
+      "observed_elapsed_seconds": 23.844
+    },
+    {
+      "s": 176,
+      "k0": 89,
+      "r_min": 179,
+      "degree_p2": 704,
+      "degree_p3": 1056,
+      "strict_positive_coefficients": 1762,
+      "sha256": "418eaf75094b247defaabe4ace9fc9f435f5e8e99739827df7663fb4e4a19170",
+      "execution_program": "R462_VERIFY.py (unchanged arithmetic kernel)",
+      "result": "R462_EXACT_PASS",
+      "observed_elapsed_seconds": 23.316
+    }
+  ],
+  "number_of_parameter_polynomials": 4,
+  "total_strict_positive_integer_coefficients": 3514,
+  "desnanot_jacobi_exact_polynomial_identities": 2,
+  "raw_signed_convolution_equalities": 20,
+  "catalan_equalities": 20,
+  "row": {
+    "r": 199,
+    "checks": {
+      "positive_a": 198,
+      "positive_d2": 198,
+      "positive_d3": 198,
+      "total": 594,
+      "independent_raw": 8,
+      "independent_alternating": 8
+    },
+    "coefficient_stream_sha256": "c8ff088e63055df019c1138976ce9a865967df55e41c1a86bc5c54bfd346f6f1",
+    "minor_stream_sha256": "419f52742ac4ab2b9a1d026653799c9176ce114935326524f040c15a13c70d91",
+    "maximum_coefficient_bits": 560,
+    "result": "R463_ROW_EXACT_PASS",
+    "runtime_seconds": 0.01
+  },
+  "unfinished": [
+    "s=177,178 not certified in this run",
+    "independent R447/R450/R452 review",
+    "native X6 observer-preserving bridge"
+  ],
+  "authority": {
+    "github_login": "awdawmip",
+    "native_research_authority_granted": false,
+    "native_control_state": "CODE_REVIEW_REQUIRED",
+    "owner_list": "CONTROL_QUOTA",
+    "claim_or_result_published": false
+  },
+  "code_provenance": "R463_VERIFY.py and R463_ROW_VERIFY.py are directly derived from GitHub R462 immutable code; local execution source blobs are e8098963327d39fb8744bcfafd715d014d97be08 and 6236f039a6c128e4810623835605e6efad4cfa77 (Git blob SHA-1). The earlier exact s=176 passed with original R462_VERIFY.py blob 7c641c985b8c48ef3fb2ddcb2142e38ca0a4ccff."
+}
