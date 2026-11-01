@@ -174,6 +174,8 @@ G(\varepsilon,7/4000)>19/100000>0,
 
 相关已发表方法：Conca–Edidin–Hering–Vinzant, *An algebraic characterization of injectivity in phase retrieval*, Applied and Computational Harmonic Analysis 38(2), 346–356 (2015), DOI `10.1016/j.acha.2014.06.005`；Candès–Eldar–Strohmer–Voroninski, *Phase Retrieval via Matrix Completion*, SIAM Journal on Imaging Sciences 6(1), 199–225 (2013), DOI `10.1137/110848074`。前者讨论泛型强度观测的代数可识别性，后者讨论结构照明的相位恢复；两者都**不直接证明本固定 Port 的带噪候选全局最优性**。当前模型的新结论来自上述具体有理区间与原矩阵推导。
 
+**2026 年已发表前沿的适用边界。** Amir–Bendory–Dym–Edidin, *The stability of generalized phase retrieval problem over compact groups*, *Applied and Computational Harmonic Analysis* **82** (2026), 101838, DOI `10.1016/j.acha.2025.101838`，在低维结构先验下证明广义相位恢复的唯一性与双 Lipschitz 稳定性；Bendory–Dym–Edidin–Suresh, *Phase Retrieval with Semialgebraic and ReLU Neural Network Priors*, *SIAM Journal on Mathematics of Data Science* **7** (2025), 1705–1728, DOI `10.1137/23M161731X`，研究半代数结构先验下的泛型可识别性。这些成果为本问题的稳定性和半代数消元提供参考，但没有给出本固定五 Port、联合区间噪声下的候选或全局最优支路判定。具体五 Port 的全域最优证明仍需独立完成。
+
 **PREFIX-419（最小未完单元）**：在完整 `ε∈[0,10⁻⁶]` 与 `η∈[0.00175,0.00187]` 上，证明实际两相位叶的全局最优来源分别正好等于第2节两个显式构造，或寻找精确反例（较优的其他 `u,v`）。可先检验正叶的全局支持上界/严格 KKT、负叶二次约束可行集其他连通分支，再对 `(r,s)` 矩形证明真正的角点最优性。该义务一旦解决，上述显式候选唯一性才能被提升为实际最优支路切换唯一性。P000 X6 三维切片及第三分量读出桥接继续作为**独立**研究。
 
 ## 6. 控制与保存语义
