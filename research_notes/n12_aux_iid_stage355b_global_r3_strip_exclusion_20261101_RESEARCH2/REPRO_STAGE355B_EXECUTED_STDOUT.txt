@@ -1,0 +1,15 @@
+STAGE355B_GLOBAL_TV_FLOOR_AND_R3_STRATUM_STRICT_DOMINATION_EXACT_PASS
+world: external source-labeled Bernoulli auxiliary model; q=(x,y) in [0,1]^2
+global_b_floor: 3779/1000000 decimal 0.003779
+star_b_interval: 60466137897435968881245663229467249/16000000000000000000000000000000000000 < beta_star < 12093227581101105947231257122667737/3200000000000000000000000000000000000
+star_beta_upper: 188957/50000000
+budget_max: 11/5000 per_source_b_cap: 299/50000
+r3_domination_witness: x= 29/125 y= 349/625
+witness_b: 408627/100000000 decimal 0.00408627
+witness_c: 130337110081/4000000000000 decimal 0.03258427752025
+certificate_floor: leaves=67;max_depth=37;classes={'TV_FLOOR': 67};exact_area=1;strict_overlap=0
+certificate_r3: leaves=37;max_depth=22;classes={'B_OVER_CAP': 12, 'NO_R3_ZERO': 18, 'Q_STRICT_DOMINATES': 7};exact_area=1;strict_overlap=0
+certificate_strip: leaves=73;max_depth=31;classes={'B_OVER_CAP': 26, 'NO_R3_STRIP': 26, 'Q_STRICT_DOMINATES': 21};exact_area=1;strict_overlap=0
+theorem: for every 0<=E<=11/5000, no unrestricted global minimizer contains |r3|<=1/2000 in either source
+dependency: no Stage336/342/346 global bound; P000 native X6 transfer NOT established
+author_side_status: EXACT_FRACTION_EXECUTED / UNREVIEWED / NOT_ADMITTED
