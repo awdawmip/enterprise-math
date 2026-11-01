@@ -1,0 +1,9 @@
+# EC49DS — General positive dual-BRC ten-step history rank locus
+
+Continue from the verified EC49DR theorem and its two standard-library exact checks. Preserve frozen scientific source pins global 773d538180bfb49e24cffeb35c3ee75eb0628e2e and EM fc0f038e7bfd12c886b4d37f900bfb770c0f61ab, native signed-X6 endpoint -2E1, n=10, and the actual six-feature row M(w)=(Xz,Yz,z).
+
+Main open question: for arbitrary x,y in (0,infinity)^6, determine necessary and sufficient polynomial conditions for the span of genuine ten-step signed native history-feature rows to reach 18. Build exactly from the complete 333 reachable (positive count vector,z) states, deduplicate instrument vectors without losing associated ports and A/B provenance, and calculate maximal-minor support or equivalent elimination ideals; test whether smaller gate families cover the positive orthant. Distinguish failure of a chosen minor from actual rank drop.
+
+Independent downstream obligation: directly review and possibly replace EC49DO six-/five-feature projection for actual returning-future observations (A/B flags, ports and cross-boundary operators), including the transfer to all h and minimality, before claiming unconditional actual-future saturation. First executable question: classify full rank in an explicit parameter stratum x1!=x2, y1=y2, where EC49DQ gate I vanishes. Either produce an exact real native full-rank minor or a proven rank upper bound; retain both outcomes as useful progress.
+
+Research currently portable only; static native service lacks research write authority, owner read currently CONTROL_QUOTA. Continue with actual authorized credentials only, do not borrow earlier session keys. Published GitHub author notes are durable but not canonical mathematical admission.
