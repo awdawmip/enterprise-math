@@ -74,6 +74,7 @@ def audit(h,t):
     H2 = C(F(3,16)+h/3+t/6)
     rh = max(H1,H2)
     rl = max(rh,root)
+    # The lower-witness quadratic is an exact identity, not numerical agreement.
     assert 32*root*root+(40-32*h)*root-(9+12*h)==0
     assert C(F(3,16))<=rh<=C(F(1,4))
     assert C(F(3,16))<=rl<=C(F(1,4))
@@ -97,6 +98,7 @@ def audit(h,t):
     w3=C(1)-alpha-beta+w2
     w=(w1,w2,w3,w4)
     assert sum(w,C())==1 and all(C()<=v<=C(1) for v in w)
+    # Construct every original positive source, then apply full source mixing.
     def F4(a,b,c):
         return (a,(1-a)*b,(1-a)*(1-b)*c,(1-a)*(1-b)*(1-c))
     def obs(a,b,c):
@@ -121,6 +123,8 @@ def audit(h,t):
             assert tv(v[i],ch[i])<=rh, (h,t,'hull',i,a,b,c)
             assert tv(v[i],cl[i])<=rl, (h,t,'lawful',i,a,b,c)
             n+=2
+    # At a=U the AV first-atom discrepancy equals the claimed radii,
+    # and TV cannot be smaller than a single event discrepancy.
     assert abs(obs(U,B0,Z0)[2][0]-ch[2][0])==rh
     assert abs(obs(U,B0,Z0)[2][0]-cl[2][0])==rl
     return n, int(root>rh), int(root==rh), int(root<rh)
