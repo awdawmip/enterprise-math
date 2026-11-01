@@ -1,0 +1,80 @@
+{
+  "schema": "R459_SIGNED_BRC_AUTHOR_SIDE_EXACT_CERTIFICATE_V1",
+  "date": "2026-11-01",
+  "status": "AUTHOR_SIDE_EXACT_INTEGER_AND_SYMBOLIC / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING",
+  "fixed_input": {
+    "global_main": "54fa7d60d81f96fd4ff80a18304013fec0b7b94e",
+    "em_main": "76e2ebe9125f7dd4318d020494197bbd65bd3d91",
+    "r458_pr_head": "50b65793eb9621335b957874f2d663f0d61bf350"
+  },
+  "rows": [
+    {
+      "s": 163,
+      "k0": 82,
+      "r_min": 165,
+      "degree_p2": 652,
+      "degree_p3": 978,
+      "strict_positive_coefficients": 1632,
+      "sha256": "fbdb4ebfada31e1a3a109d8aee56e47a99c8a71f3dbe82ea93e2c333a856618e"
+    },
+    {
+      "s": 164,
+      "k0": 83,
+      "r_min": 167,
+      "degree_p2": 656,
+      "degree_p3": 984,
+      "strict_positive_coefficients": 1642,
+      "sha256": "22992c1abb6343b8de8fbf9bb870013067539990b5f26972d1e00d3c91984d1c"
+    },
+    {
+      "s": 165,
+      "k0": 83,
+      "r_min": 167,
+      "degree_p2": 660,
+      "degree_p3": 990,
+      "strict_positive_coefficients": 1652,
+      "sha256": "dc6f868f942a810bc965bcc25a10f96f233c50da259c9500ea6e117e6650bcb8"
+    },
+    {
+      "s": 166,
+      "k0": 84,
+      "r_min": 169,
+      "degree_p2": 664,
+      "degree_p3": 996,
+      "strict_positive_coefficients": 1662,
+      "sha256": "c066bfb92fea388adf2103ffc9f1764b0e948d62410a0e9b4970cf67ad0ea79b"
+    }
+  ],
+  "s_range": [
+    163,
+    166
+  ],
+  "integer_polynomial_count": 8,
+  "all_strict_positive_coefficients": 6588,
+  "desnanot_jacobi_exact_polynomial_identities": 4,
+  "raw_signed_EOR_integer_equalities": 40,
+  "raw_signed_catalan_integer_equalities": 40,
+  "full_row_validation": {
+    "r": [
+      187,
+      189
+    ],
+    "positive_coefficient_tests": 374,
+    "positive_D2_tests": 374,
+    "positive_D3_tests": 374,
+    "total_exact_integer_sign_tests": 1122,
+    "original_signed_checks": 16,
+    "alternating_catalan_checks": 16,
+    "coefficient_stream_sha256": "5bd982526af08cdc234199da68d47c0cbddc0014d03d29115d93b1ddb8e137bf",
+    "minor_stream_sha256": "c585a5cd37c38c6d45e8f8b5e4f84cf3d38a09c5ff349033ab133356916bdce1"
+  },
+  "executed_local_code_sha256": {
+    "R459_VERIFY_py": "617a01c2f471ace988db4239d3860be06e8116d624bff7735f84a927e280f847",
+    "R459_ROW_VERIFY_py": "92048d30b54f705fe7d8218338cefc862fcc6a47fae81741721dee44c7077680"
+  },
+  "run_semantics": "Four separate exact Z[u] certificates, s=163 run printed row before multi-s process stopped; s=164,165,166 each printed R459_EXACT_PASS, not an all-range one-shot success. Direct rows r=187,189 printed R459_ROW_EXACT_PASS.",
+  "arithmetic": "Python arbitrary-precision integers, exact polynomial operations; no floating-point sign testing.",
+  "scope": "Infinitely many k only for each fixed s=163..166. Half-infinite PF3 for odd r=187,189 conditional on previously stated R447/R450 and R452..R458 author-side lemmas, not native X6.",
+  "native_control": "em_status research_authority_granted=false; em_control_tasks CONTROL_QUOTA; formal owner, claim, independent review not verified",
+  "next": "Check s=167,168; seek uniform s-growth control via Turan factorization and exact coefficients."
+}
