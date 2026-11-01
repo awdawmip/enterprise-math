@@ -1,19 +1,26 @@
-Independent local execution (Python stdlib Fraction and exact ordered Q(sqrt(d)), 2026-11-01):
-h=0 exact_lawful=(-5/8)+(1/8)*sqrt(43) exact_hull=3/16 positive_gap=PASS
-h=1/4096 exact_lawful=(-5/8)+(1/8)*sqrt(22019/512) exact_hull=3073/16384 positive_gap=PASS
-h=1/1024 exact_lawful=(-5/8)+(1/8)*sqrt(5507/128) exact_hull=769/4096 positive_gap=PASS
-h=1/800 exact_lawful=(-5/8)+(1/8)*sqrt(4303/100) exact_hull=601/3200 positive_gap=PASS
-h=1/256 exact_lawful=(-5/8)+(1/8)*sqrt(1379/32) exact_hull=193/1024 positive_gap=PASS
-h=1/128 exact_lawful=(-5/8)+(1/8)*sqrt(691/16) exact_hull=97/512 positive_gap=PASS
-h=1/64 exact_lawful=(-5/8)+(1/8)*sqrt(347/8) exact_hull=49/256 positive_gap=PASS
-h=1/32 exact_lawful=(-5/8)+(1/8)*sqrt(175/4) exact_hull=25/128 positive_gap=PASS
-h=1/20 exact_lawful=(-5/8)+(1/8)*sqrt(221/5) exact_hull=1/5 positive_gap=PASS
-h=1/16 exact_lawful=(-5/8)+(1/8)*sqrt(89/2) exact_hull=13/64 positive_gap=PASS
-h=1/12 exact_lawful=(-5/8)+(1/8)*sqrt(45) exact_hull=5/24 positive_gap=PASS
-h=1/10 exact_lawful=(-5/8)+(1/8)*sqrt(227/5) exact_hull=17/80 positive_gap=PASS
-h=1/9 exact_lawful=(-5/8)+(1/8)*sqrt(137/3) exact_hull=31/144 positive_gap=PASS
-h=1/8 exact_lawful=(-5/8)+(1/8)*sqrt(46) exact_hull=7/32 positive_gap=PASS
-exact_points=14 vertices_per_point=8 rows=6 atoms=4
+BRC N4/S23 exact lawful-vs-joint-hull shared-b-lower theorem verification
+Execution: 2026-11-01, local Python 3 stdlib Fraction and exact ordered Q(sqrt(d)).
+Verified executed program bytes: git hash-object of local VERIFY_REMOTE.py = f64542e5f6bb1d4f76ee81ce202fb425cd7e9b54, matching the immutable GitHub VERIFY.py blob at commit 224d289ea3ba45d36522a6e3d1d172db6a00e2ba.
+Command: python VERIFY_REMOTE.py (same bytes as GitHub VERIFY.py).
+Exact stdout:
+
+h=0 lawful=(-5/8)+(1/8)*sqrt(43) hull=3/16 gap_positive=PASS
+h=1/4096 lawful=(-5/8)+(1/8)*sqrt(22019/512) hull=3073/16384 gap_positive=PASS
+h=1/1024 lawful=(-5/8)+(1/8)*sqrt(5507/128) hull=769/4096 gap_positive=PASS
+h=1/800 lawful=(-5/8)+(1/8)*sqrt(4303/100) hull=601/3200 gap_positive=PASS
+h=1/256 lawful=(-5/8)+(1/8)*sqrt(1379/32) hull=193/1024 gap_positive=PASS
+h=1/128 lawful=(-5/8)+(1/8)*sqrt(691/16) hull=97/512 gap_positive=PASS
+h=1/64 lawful=(-5/8)+(1/8)*sqrt(347/8) hull=49/256 gap_positive=PASS
+h=1/32 lawful=(-5/8)+(1/8)*sqrt(175/4) hull=25/128 gap_positive=PASS
+h=1/20 lawful=(-5/8)+(1/8)*sqrt(221/5) hull=1/5 gap_positive=PASS
+h=1/16 lawful=(-5/8)+(1/8)*sqrt(89/2) hull=13/64 gap_positive=PASS
+h=1/12 lawful=(-5/8)+(1/8)*sqrt(45) hull=5/24 gap_positive=PASS
+h=1/10 lawful=(-5/8)+(1/8)*sqrt(227/5) hull=17/80 gap_positive=PASS
+h=1/9 lawful=(-5/8)+(1/8)*sqrt(137/3) hull=31/144 gap_positive=PASS
+h=1/8 lawful=(-5/8)+(1/8)*sqrt(46) hull=7/32 gap_positive=PASS
+exact_cases=14 vertices_per_case=8 preparation_rows=6 atoms=4
 PASS_BRC_N4_S23_SHARED_B_LOWER_FULL_ADMISSIBLE_GAP_20261101
 
-The executed program in the local calculation is an independent equivalent implementation; the published VERIFY.py reuses the source-pinned Q/F4/P/TV interface and implements the same exact vertex and witness checks. All-real coverage follows PROOF.md analytic inequalities, not sampled points.
+Additional independent local implementation (different source text, same six-source model and exact 14-case vertex checks) also passed. Its executed output contained the same exact radius formulas with descriptive field names.
+
+Scope: 14 rational h samples; 8 vertices each; 6 preparation distributions of 4 stopping atoms each; original six-source mixing. Continuous real h and full parameter box are proved analytically in PROOF.md. This is exact arithmetic execution, not native task/result admission.
