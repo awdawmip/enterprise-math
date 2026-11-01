@@ -1,0 +1,102 @@
+{
+  "schema": "ENTERPRISE_MATH_EC49DJ_EXECUTED_V1",
+  "date": "2026-11-01",
+  "status": "PASS",
+  "claim": "EXACT_EXTREME_FIBRE_AFFINE_POSITIVE_TRICHOTOMY_AUTHOR_SIDE",
+  "source_pins": {
+    "global_knowledge_main": "944038342fa74e70abe2bdd11fcb02c58051768f",
+    "enterprise_math_main": "15009ebc884193a7713c4e81e2ad9f007068bd74",
+    "prior_author_frontier": "c60360294b6b0578826ca4db927154d1d6df2659"
+  },
+  "model": "ordered signed native six-axis X6, final A/B adjacency incl seams, positive BRC channels x,y and path count; affine y=ax+b, a,b>0",
+  "exact_phase_diagram": {
+    "all_x_equal": [
+      1,
+      1,
+      3,
+      4,
+      4,
+      4
+    ],
+    "x1_equals_x2_but_nonconstant": [
+      1,
+      2,
+      5,
+      8,
+      11,
+      12
+    ],
+    "x1_differs_x2": [
+      1,
+      2,
+      5,
+      9,
+      12,
+      12
+    ]
+  },
+  "m_columns": [
+    "m=0",
+    "m=1",
+    "m=2",
+    "m=3",
+    "m=4",
+    "m>=5"
+  ],
+  "checks": [
+    {
+      "runtime": "Python 3 standard library, actual executed source preserved in local complete-evidence archive",
+      "command": "python VERIFY_EC49DJ.py --maxh 30 --maxm 6",
+      "parameter_samples": 7,
+      "h_range": [
+        1,
+        30
+      ],
+      "m_range": [
+        0,
+        6
+      ],
+      "moduli": [
+        1000003,
+        1000033
+      ],
+      "modular_rank_checks": 11760,
+      "nonzero_3x3_modular_checks": 4920,
+      "native_paths_reconstructed": 10050,
+      "result": "PASS"
+    },
+    {
+      "runtime": "ECMAScript V8 (executed via JS function body, exact source on GitHub)",
+      "check": "new Function(source)()",
+      "parameter_samples": 7,
+      "h_range": [
+        1,
+        30
+      ],
+      "m_range": [
+        0,
+        6
+      ],
+      "moduli": [
+        1000003,
+        1000033
+      ],
+      "modular_rank_checks": 11760,
+      "nonzero_3x3_modular_checks": 4920,
+      "native_paths_reconstructed": 10050,
+      "determinant_formula_samples": 20,
+      "result": "PASS"
+    }
+  ],
+  "evidence_interpretation": "Finite modular nonzero implies nonzero integer determinant for selected parameter sets; universal theorem follows from displayed symbolic identities and combinatorial upper bounds, not these finite checks.",
+  "authority": {
+    "research_authority_granted": false,
+    "executor_binding_configured": false,
+    "active_job_quota": "5/5",
+    "owner_query": "CONTROL_QUOTA",
+    "formal_claim": false,
+    "independent_driver_review": false,
+    "admitted": false
+  },
+  "next": "EC49DK: internal affine-positive fibres at n=2h+8, first h=2,D=0, target 18 weighted observation rank, and independent six-feature proof audit"
+}
