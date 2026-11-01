@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "exact_operation_words_h_0_through_7": 97656,
+  "word_displacement_support_sizes": {"0":1,"1":4,"2":9,"3":16,"4":25,"5":36,"6":49,"7":64},
+  "weighted_bruteforce_vs_multinomial": "PASS: all observed fibers and 3 channels, h=0..7",
+  "weighted_dynamic_program_vs_multinomial": "PASS: all observed fibers and 3 channels, h=1..12",
+  "D_minus_2E2": {"all_h_return":"NONE","exact_rank":"0","cumulative_rank":"0"},
+  "sample_return_mass": {
+    "h1:0,2": {"count":1,"BRC_x":1,"BRC_y":1},
+    "h1:-2,0": {"count":1,"BRC_x":4,"BRC_y":75},
+    "h1:0,-2": {"count":0,"BRC_x":0,"BRC_y":0},
+    "h2:0,2": {"count":4,"BRC_x":24,"BRC_y":140},
+    "h2:-2,0": {"count":4,"BRC_x":96,"BRC_y":10500},
+    "h2:0,-2": {"count":0,"BRC_x":0,"BRC_y":0},
+    "h3:0,2": {"count":18,"BRC_x":456,"BRC_y":15150},
+    "h3:-2,0": {"count":15,"BRC_x":1776,"BRC_y":1119375},
+    "h3:0,-2": {"count":0,"BRC_x":0,"BRC_y":0}
+  },
+  "boundary": "Finite tests validate implementation. All-h reachability and zero ranks follow from the exact displacement equation."
+}
