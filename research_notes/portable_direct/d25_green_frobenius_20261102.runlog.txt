@@ -1,0 +1,16 @@
+LOCAL_EXACT_ARITHMETIC_RUN; 2026-11-02 +08; Python standard library; NOT_NATIVE_H0_B0.
+CHECK_SCOPE: all p<=997 with p%6=1: 80 target13/19: 45
+CERTIFICATE {'p': 13, 'r': 2, 'legendre_carry': 2, 'green_deformation': 9, 'integral_J': 0, 'frobenius_correction': 3, 'E': 11, 'a0': 11, 'first_digit_residual': 0}
+CERTIFICATE {'p': 19, 'r': 3, 'legendre_carry': 4, 'green_deformation': 4, 'integral_J': 12, 'frobenius_correction': 3, 'E': 15, 'a0': 8, 'first_digit_residual': 0}
+CERTIFICATE {'p': 37, 'r': 6, 'legendre_carry': 9, 'green_deformation': 14, 'integral_J': 14, 'frobenius_correction': 3, 'E': 15, 'a0': 23, 'first_digit_residual': 0}
+CERTIFICATE {'p': 61, 'r': 10, 'legendre_carry': 25, 'green_deformation': 60, 'integral_J': 16, 'frobenius_correction': 3, 'E': 11, 'a0': 24, 'first_digit_residual': 0}
+CERTIFICATE {'p': 109, 'r': 18, 'legendre_carry': 62, 'green_deformation': 16, 'integral_J': 56, 'frobenius_correction': 3, 'E': 34, 'a0': 78, 'first_digit_residual': 0}
+CERTIFICATE {'p': 373, 'r': 62, 'legendre_carry': 46, 'green_deformation': 351, 'integral_J': 322, 'frobenius_correction': 3, 'E': 316, 'a0': 24, 'first_digit_residual': 0}
+SCALAR_CM_FROBENIUS_GREEN_CHECK PASS 45
+WHOLE_POLYNOMIAL_PASS {'p': 7, 'polynomial_degree': 15, 'Frobenius_coefficient': 2}
+WHOLE_POLYNOMIAL_PASS {'p': 13, 'polynomial_degree': 29, 'Frobenius_coefficient': 4}
+WHOLE_POLYNOMIAL_PASS {'p': 19, 'polynomial_degree': 43, 'Frobenius_coefficient': 6}
+WHOLE_POLYNOMIAL_PASS {'p': 37, 'polynomial_degree': 85, 'Frobenius_coefficient': 12}
+WHOLE_POLYNOMIAL_PASS {'p': 61, 'polynomial_degree': 141, 'Frobenius_coefficient': 20}
+WHOLE_POLYNOMIAL_PASS {'p': 109, 'polynomial_degree': 253, 'Frobenius_coefficient': 36}
+WHOLE_POLYNOMIAL_PASS {'p': 373, 'polynomial_degree': 869, 'Frobenius_coefficient': 124}
