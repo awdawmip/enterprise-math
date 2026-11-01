@@ -1,8 +1,8 @@
 # PREFIX-408：非零 I3 噪声下的最优临界半径与 PSD 秩缺口证书
 
-日期：2026-11-01。项目：Enterprise Math / 进取数论，研究6。类型：外部**静态**复振幅五 Port 逆问题；作者侧精确证明、符号/有理数运行核验。状态：UNREVIEWED / NOT_ADMITTED / NATIVE_REGISTER_PENDING。不是 P000 原生 X6、三轴切片或 typed BRC 动力学的结论。
+日期：2026-11-01。项目：Enterprise Math / 进取数论，研究6。类型：外部**静态**复振幅五 Port 逆问题；作者侧精确证明、符号/有理数运行核验。状态：UNREVIEWED / NOT_ADMITTED / NATIVE_REGISTER_PENDING。不是 P000 原生 X6、三维研究层或 typed BRC 动力学的结论。
 
-冻结输入：GLOBAL_KNOWLEDGE_V1 main@7b33f8066e9993e7c941959a9d738ed405248eb8；Enterprise Math main@71f5e22a2d4de499694c6db4bf7f195df6d63ab0。延续 research_notes/2026-11-01_prefix407_exact_rank_one_boundary_certificate.md。已读取规范入口、P000、ACTIVE 世界观、当前 portable research 及自主研究协议。当前作者属于本轮便携研究，不据上轮本地 R-ID 冒充原生身份或 CLAIM。
+冻结输入：全局主干经 GitHub 实读及 compare 确认；旧网关同步 pin 7b33f806 显著落后，故**不把它当作当前主干**。GLOBAL_KNOWLEDGE_V1 main@eefc162283b2f27ce1333bde7e9ff7cc81e6b1d1；Enterprise Math main@71f5e22a2d4de499694c6db4bf7f195df6d63ab0。延续 research_notes/2026-11-01_prefix407_exact_rank_one_boundary_certificate.md。已读取规范入口、P000、ACTIVE 世界观、当前 portable research 及自主研究协议。当前作者属于本轮便携研究，不据上轮本地 R-ID 冒充原生身份或 CLAIM。
 
 ## 1. 精确输入与观察接口
 
