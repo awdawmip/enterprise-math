@@ -1,0 +1,9 @@
+# Source pins, governance and verification scope
+
+Date 2026-11-01. Actual connected GitHub login was awdawmip; repository permissions included push. Normative GLOBAL_KNOWLEDGE_V1 main snapshot observed as 20087dedd51935dd3bdecff5a1f1f8b03d4829a4. Read 00_BOOTSTRAP.md, OPERATING_MANUAL.md, applicable Enterprise Math project/task router, P000 startup projection and canonical original (matching blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc), ACTIVE worldview, math/output/code rules and BRC activity guidance.
+
+Current EM main normative snapshot was ca2aee0bdeab31c46fab533fa93a34427ee1745a: docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context, docs/PORTABLE_RESEARCH_PROTOCOL.md, research_priorities/research_method.json, docs/RESEARCH_ACTIVITY_PROTOCOL.md, research_persistence_policy.json. **Scientific** inputs remain frozen to the prior author-side exact model and results: EM commits 43ec6098b1330ae86d0a7863be336c5d97f6ef34 and c9733c685867703b98cb04f83948d53329fca100; current behavior snapshots do not re-pin scientific evidence.
+
+Actual Python stdlib execution used Fraction and exact Q(sqrt(d)) sign comparisons. The original local validation script checked ten rational h boxes x eight vertices and the phase-boundary identity; the published companion VERIFY.py reproduces these exact core checks with the same observation map. The universal real claim rests on PROOF.md event inequalities and constructive real interval bounds, not the finite ten-box computation.
+
+The private Sites Enterprise Math gateway reported static_readonly, research_authority_granted=false and write_relay_enabled=false; the actual native owner inventory request returned CONTROL_QUOTA. No live formal owner, CLAIM, Result, review or mathematical admission could be verified. The GitHub branch is author-side research evidence, not a governance promotion. Do not store or transmit session keys, credentials or private repository rule text in a public research artifact.
