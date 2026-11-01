@@ -187,6 +187,7 @@ def main():
             for v in range(h-abs(s)+1):
                 defect=h-abs(s)-v
                 if defect==0:
+                    per_h['boundary_fibers']+=1
                     paths,rows=boundary_family(s,v,h)
                     T=observation(paths,rows,'count')
                     M=observation(paths,rows,'weight_count')
