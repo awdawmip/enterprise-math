@@ -14,9 +14,9 @@ Two exact positive BRC branch product channels have positive-step weights W0=(2,
 
 For each integer **h>=1**, put
 
-[
+$
 B_h=\{(2s,2v,0,0,0,0): s,v\in\mathbb Z,\ v\ge0,\ |s|+v=h\}.
-]
+$
 
 There are exactly 2h+1 such endpoint fibers. For **every** D in B_h, the Q-rank of the exact-depth-h **and** cumulative-depth-(1..h) observer on length n=2h+8 native ordered signed-X6 prefixes with endpoint D is **12**. The positive mixed edge s>0,v>0 reuses the explicit EC49CZ all-h theorem; the new independent proofs below cover **the entire s<=0 edge** and the positive E1 corner (s=h,v=0). All h are quantified analytically; no induction from finite observed windows is used.
 
@@ -32,9 +32,9 @@ For the positive E1 corner D=(2h,0,0,0,0,0), the only returning suffix is a^h, c
 
 For each of the four tags take **three** positive four-letter gadgets g, where '1','2','3' stand for +E1,+E2,+E3. Let -g be the four negative axis steps in the same order, with **no** cancellation of path provenance. Set
 
-[
+$
 P_{u,v,g}=(-E_1)^{2u}\Vert g\Vert(-g)\Vert(+E_2)^{2v}.
-]
+$
 
 These are 12 genuine words of length 2h+8 and endpoint D. A/B pairs occur only inside g, since all transitions into and out of g pass a negative step.
 
@@ -49,24 +49,24 @@ The 3x3 matrix columns are precisely (W0(g),W1(g),1)^T. For tag0 these columns a
 
 For any matching suffix, each column in each tag block is transformed by the same diagonal matrix diag(F0,F1,1), with F0=3^(2v)12^u and F1=2^(2v)27^u. Organizing 12 output rows by (tag,channel) and 12 prefixes by (tag,gadget) yields a block-diagonal 12x12 integer observer minor with exact determinant
 
-[
+$
 \Delta_-(u,v)=-(216^4)(F_0F_1)^4
              =-(216^4)(6^{2v}324^u)^4\ne0.
-]
+$
 
 Consequently **all h+1 negative-edge fibers have rank exactly 12 for every h>=1**, including the formerly finite-only D=(-2h,0) extreme fiber.
 
 ### 3. Positive E1 corner
 
 Use the same twelve gadgets and
-[
+$
 Q_{h,g}=g\Vert(-g)\Vert(+E_1)^{2h}.
-]
+$
 The unique return suffix a^h creates no new A/B adjacency. The common positive BRC channel factors are (2^(2h),3^(2h),1), giving the 12x12 exact determinant
 
-[
+$
 \Delta_+(h,0)=-(216^4)6^{8h}\ne0.
-]
+$
 
 ### 4. Closing the whole boundary, and the remaining interior
 
