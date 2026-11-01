@@ -1,0 +1,9 @@
+# R5 next unit — upstream time-marginal hull repair
+
+Mother target remains OPEN: legal full-rank four-observer LR image with FULL/LR convex hulls equal yet actual real observation images unequal.
+
+New fixed frontier: in the coupled-key model of this directory, max_FULL(21TP-26TQ)=-7/8, max_LR=-1, hence strict gap 1/8 **using only time**. Exactly 6 LR time-hull vertices, 7 FULL, single extra W=(55/32,91/64); time-space L-infinity distance W-to-LR hull exactly 1/376. No terminal X/Y answer or end-signal change at fixed reachability/timing can repair this. A1 terminal P/Q perturbations |alpha|,|beta|<=1/100 preserve four-dimensional rank and the six old signed support separations. Do not repeat terminal-only searches.
+
+Next smallest problem: replace the two upstream low-edge kernels by A1 (P,Q)=(2a,a), A2 (P,Q)=(2b,b), 0<a,b<1/2, leaving original source masses, real shared keys I=(1,1), J=(2,2), C and B, and positive nature probabilities. Derive the eight LR and 64 FULL exact time vectors; classify the **all-real semialgebraic locus** where the two (TP,TQ) convex hulls coincide. Equivalently find a universal signed time marginal separator on a declared parameter region, or rational primal certificates for every FULL corner. Retain boundary/degenerate cases. If time convex hulls coincide, re-evaluate full four-observer rank and every signed support (exact primal/Farkas), and only afterwards test actual real LR image nonmembership (s=pq chart or exact semialgebraic proof).
+
+Evidence to save: complete source-labelled P/Q kernel and time-flow definition, reproducible exact arithmetic program, analytical proof/verified parameters, legitimate reviewer/owner state, and precise next question. Do not promote portable auxiliary result to native X6 or formally accepted Result without separate authorization and review.
