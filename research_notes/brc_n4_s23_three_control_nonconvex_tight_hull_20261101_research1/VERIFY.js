@@ -55,7 +55,7 @@ function verify(){
  ok(midpointRadius===120,"parameter midpoint radius mismatch");
  return {
    pass:"PASS_BRC_N4_S23_THREE_CONTROL_NONCONVEX_TIGHT_HULL_20261101",
-   execution:"Node.js v22.16.0; exact integer probability scale 384",
+   execution:"V8 JavaScript isolate (published source); local equivalent Node.js v22.16.0 independently tested; exact integer scale 384",
    grid_policies:grid, prepared_row_checks:rowChecks, continuum_vertices:corners,
    vertex_row_checks:vertexRowChecks,
    corner_TV_by_prepared_row_over_384:[112,112,112,72,72,0],
