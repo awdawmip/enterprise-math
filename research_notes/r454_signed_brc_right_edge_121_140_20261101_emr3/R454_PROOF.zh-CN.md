@@ -8,84 +8,84 @@
 
 取奇数 `r=2k+1`、`2≤s≤r`，定义原始 signed BRC 辅助标量系数：
 
-[
-H(r,s)=inom{r+s}{2s}[t^r](1-t)(1+t)^{2s}(1+t^2)^{r-s}.
-]
+$
+H(r,s)=\binom{r+s}{2s}[t^r](1-t)(1+t)^{2s}(1+t^2)^{r-s}.
+$
 
 令 `a_s=H(2k+1,s)`，支撑之外的系数为0；Catalan 数 `C_j=\binom{2j}{j}/(j+1)`。R450–R453 已证明带符号卷积与下式严格相同：
 
-[
-H(2k+1,s)=inom{2k+1+s}{2s}sum_{q=0}^{lfloor(s-1)/2floor}
-inom{s-1}{2q}4^q C_{k-q}.
-]
+$
+H(2k+1,s)=\binom{2k+1+s}{2s}\sum_{q=0}^{\lfloor(s-1)/2\rfloor}
+\binom{s-1}{2q}4^q C_{k-q}.
+$
 
 正和是输入重排后的精确恒等式，不代表原始 BRC 的 signed cancellation 可被当成正支路质量。
 
 定义相邻二、三阶 Toeplitz 子式：
 
-[
-Delta_s=a_s^2-a_{s-1}a_{s+1},
-]
-[
-Theta_s=a_s^3-2a_{s-1}a_sa_{s+1}
+$
+\Delta_s=a_s^2-a_{s-1}a_{s+1},
+$
+$
+\Theta_s=a_s^3-2a_{s-1}a_sa_{s+1}
 +a_{s-2}a_{s+1}^2+a_{s-1}^2a_{s+2}-a_{s-2}a_sa_{s+2}.
-]
+$
 
 ## 2. 新定理与完整证明
 
-**R454 主定理。** 对每个整数 (mathbf{121le sle140}) 和每个整数 (mathbf{kgelfloor(s+2)/2floor})，有
+**R454 主定理。** 对每个整数 (\mathbf{121\le s\le 140}) 和每个整数 (mathbf{kge\lfloor(s+2)/2\rfloor})，有
 
-[
-oxed{Delta_s>0,qquadTheta_s>0.}
-]
+$
+\boxed{\Delta_s>0,\qquad\Theta_s>0.}
+$
 
 **证明。** 使用 R452–R453 已推导的精确分解，令 `B_t(k)=H(2k+1,t)/C_k`、`m=⌊(t−1)/2⌋`：
 
-[
-(2t)!,B_t(k)=E_t(k)O_t(k)R_t(k),
-]
+$
+(2t)!\,B_t(k)=E_t(k)O_t(k)R_t(k),
+$
 其中
 
-[
-E_t(k)=prod_{v=0}^{t-1}2(k+1-lfloor t/2floor+v),
-]
-[
-O_t(k)=prod_{v=0}^{lfloor t/2floor}(2k+2v+1),
-]
-[
-R_t(k)=sum_{q=0}^{m}inom{t-1}{2q}2^q
-prod_{h=q}^{m-1}(2k-2h-1)prod_{d=0}^{q-1}(k+1-d).
-]
+$
+E_t(k)=\prod_{v=0}^{t-1}2(k+1-\lfloor t/2\rfloor+v),
+$
+$
+O_t(k)=\prod_{v=0}^{\lfloor t/2\rfloor}(2k+2v+1),
+$
+$
+R_t(k)=\sum_{q=0}^{m}\binom{t-1}{2q}2^q
+\prod_{h=q}^{m-1}(2k-2h-1)\prod_{d=0}^{q-1}(k+1-d).
+$
 
 空乘积=1。固定每个 `s=121,…,140`，设 `k_0=⌊(s+2)/2⌋`、`u=k-k_0≥0`、`F=(2(s+2))!`。对于 `t=s−2,…,s+2`，令 `Q_t(u)=F B_t(k_0+u)`。由于 `F/(2t)!` 为整数且上述三个因子属于 `ℤ[u]`，故 `Q_t∈ℤ[u]`。
 
 记 `A=Q_s`, `B=Q_{s-1}`, `C=Q_{s+1}`, `D=Q_{s-2}`, `E=Q_{s+2}`，构造
 
-[
-P_2=A^2-BC,quad
+$
+P_2=A^2-BC,\quad
 P_3=A^3-2ABC+DC^2+B^2E-DAE.
-]
+$
 
 直接代入得严格恒等式
 
-[
-Delta_s=C_k^2P_2(u)/F^2,quad
-Theta_s=C_k^3P_3(u)/F^3.
-]
+$
+\Delta_s=C_k^2P_2(u)/F^2,\quad
+\Theta_s=C_k^3P_3(u)/F^3.
+$
 
 本轮**实际运行**相同的精确 `ℤ[u]` 程序，覆盖上述全部20个整数 `s`。对每个 `s`，完整检查 `deg P_2=4s`、`deg P_3=6s`，并且 `P_2,P_3` 的每个整数系数都**严格大于0**。已穷尽检查的系数总数为
 
-[
-sum_{s=121}^{140}[(4s+1)+(6s+1)]=oxed{26,140}.
-]
+$
+\sum_{s=121}^{140}[(4s+1)+(6s+1)]=\boxed{26,140}.
+$
 
 这是40个完整符号多项式的全部系数，而非有限 `k` 取样、数值插值或浮点估计。正系数意味着对任意 `u≥0` 两个多项式均严格正。因 `C_k,F>0`，得所述两个子式对全部合法 `k` 严格正。证毕。
 
 每个 `s` 另作精确 `ℤ[u]` 交叉验算
 
-[
+$
 A P_3=P_2^2-(B^2-DA)(C^2-AE),
-]
+$
 
 即 Turán–Desnanot–Jacobi 恒等式的独立代数计算路径。这20次完整多项式恒等式在系数层面全部成立。
 
@@ -126,8 +126,8 @@ R447 已用无限参数整数系数证书证明：对于所有奇数 `r≥99`，
 
 左区间 `0≤j≤22` 与右区间 `23≤j≤n` 正好覆盖所有 `0≤j≤n`，没有漏掉一个相邻二阶或三阶子式。系数 `a_j=H(r,r−j)>0` 由原始 Catalan 正和表达保障。于是由 R450 的连续局部正性充分判据（原始提交 `6d79677bda1fbce91c8b5f5af70dc830a33bd9dd`，定理 A）及 R441 的 Jacobi–Trudi/Littlewood–Richardson 非负展开，得到：
 
-[
-\boxed{\forall,r\in\{99,101,\ldots,163\},\quad T^{(r)}\in PF_3.}
-]
+$
+\boxed{\\forall\,r\in\{99,101,\ldots,163\},\quad T^{(r)}\in PF_3.}
+$
 
 这项合成**没有新增参数值超出历史完整数值证书**；它提供的是一条由两端**无限参数符号证书拼接**而成的完整半无限矩阵 PF₃ 证明。与原 R450 逐行检查全部局部子式的证法相比，来源证据的组织和推理路径不同。其适用界在 `r=165` 处出现缺口：`j=23,24` 的三阶相邻子式既未被 R447 的最大列24覆盖，也未落入 `s≤140` 的右端窗口，不能外推。
