@@ -1,0 +1,185 @@
+{
+  "research_unit": "EC49DO",
+  "status": "PASS_AUTHOR_SIDE_EXACT_FINITE_AUDIT",
+  "source": "VERIFY_EC49DO_PORTABLE.py",
+  "verified_scope": "full finite history sufficient-state DP, exact Fraction row ranks; native signed-X6 path semantics; n=2,4,6,8,10,12; h=2,3,cumulative1..2; 3 strictly positive parameter families",
+  "n_values": [
+    2,
+    4,
+    6,
+    8,
+    10,
+    12
+  ],
+  "compressed_state_counts": [
+    1,
+    8,
+    37,
+    128,
+    357,
+    848
+  ],
+  "reference_parameters": {
+    "unequal_first_two": {
+      "x": [
+        2,
+        3,
+        1,
+        2,
+        3,
+        4
+      ],
+      "y": [
+        5,
+        7,
+        3,
+        5,
+        7,
+        9
+      ]
+    },
+    "equal_first_two_nonconstant": {
+      "x": [
+        2,
+        2,
+        5,
+        2,
+        2,
+        2
+      ],
+      "y": [
+        5,
+        5,
+        11,
+        5,
+        5,
+        5
+      ]
+    },
+    "all_equal": {
+      "x": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "y": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    }
+  },
+  "rank_order": "each tuple=(exact h2, exact h3, cumulative 1..2)",
+  "ranks": {
+    "unequal_first_two": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        4,
+        4,
+        4
+      ],
+      [
+        9,
+        9,
+        9
+      ],
+      [
+        13,
+        15,
+        15
+      ],
+      [
+        15,
+        18,
+        18
+      ],
+      [
+        15,
+        18,
+        18
+      ]
+    ],
+    "equal_first_two_nonconstant": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        4,
+        4,
+        4
+      ],
+      [
+        9,
+        9,
+        9
+      ],
+      [
+        13,
+        14,
+        14
+      ],
+      [
+        15,
+        17,
+        17
+      ],
+      [
+        15,
+        18,
+        18
+      ]
+    ],
+    "all_equal": [
+      [
+        1,
+        1,
+        1
+      ],
+      [
+        3,
+        3,
+        3
+      ],
+      [
+        5,
+        5,
+        5
+      ],
+      [
+        5,
+        6,
+        6
+      ],
+      [
+        5,
+        6,
+        6
+      ],
+      [
+        5,
+        6,
+        6
+      ]
+    ]
+  },
+  "independent_native_literal_path_exhaustion": "n=2,4,6 4730 full paths, PASS",
+  "independent_integer_minor_verification": "30 full native path minors and 60 modular residues PASS in locally executed proof archive; three central native path certificates are published in EC49DO_WITNESSES.md",
+  "proof_scope": "all h parity equivalence analytic; generic nonconstant parameter Zariski-open saturation only; all equal parameter class n=8; no independent review or formal project admission",
+  "source_snapshots": {
+    "global_main": "d95e450b75960ec5d9f852cf1fc6ee97589c15a5",
+    "enterprise_math_main": "24105e0072d94c23847bf7d02e7d57401c4dc99a"
+  },
+  "native_authority": "research_authority_granted=false; owner=CONTROL_QUOTA; no formal claim/result"
+}
