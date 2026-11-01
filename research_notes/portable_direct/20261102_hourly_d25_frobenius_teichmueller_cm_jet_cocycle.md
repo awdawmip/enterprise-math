@@ -85,7 +85,7 @@ The original projective first-lift defect at p=373 remains `D_p/p=365`; the cano
 
 ## Exact finite computation / limits
 
-A standard-library-only modular recurrence checker was executed on **all 107 primes p<=3000 with p mod 24 in {13,19}**, checking (1) on four Euler jets, (2), (4), (5), (7), the original double-zero hypotheses and the exact modular arithmetic. Six representative primes (13,19,37,61,373,1171) also received independent original-binomial-summand checks. All tests PASS. In this finite domain only, the signed coordinate shift (8) was nonzero at all 107 primes; there is **no** universal nonvanishing claim.
+A standard-library-only modular recurrence checker was executed on **all 107 primes p<=3000 with p mod 24 in {13,19}**, checking (1) for j=0,1,2 using stored Euler jets through order 3, plus (2), (4), (5), (7), the original double-zero hypotheses and the exact modular arithmetic. Six representative primes (13,19,37,61,373,1171) also received independent original-binomial-summand checks. All tests PASS. In this finite domain only, the signed coordinate shift (8) was nonzero at all 107 primes; there is **no** universal nonvanishing claim.
 
 ```text
 p,D/p,Q_A,Q_B,U_A,U_B,cocycle,weighted_shift_A,weighted_shift_B,bridge_shift
@@ -99,7 +99,7 @@ p,D/p,Q_A,Q_B,U_A,U_B,cocycle,weighted_shift_A,weighted_shift_B,bridge_shift
 
 Full ordered-row SHA256 of the actual 107-prime exact run:
 `c1e090c983f697affec35d8c3c6b0afe00fbe43ded5193a5291e6eeda5a0c751`.
-Companion portable checker and stdout are in the run's delivered evidence bundle, `d25_frobenius_cm_jet_20261102.py` and `d25_frobenius_cm_jet_20261102.runlog.txt`. No float, network, native H0/B0 execution, or Lean checker was used.
+Companion portable checker and actual stdout are also published as `research_notes/portable_direct/d25_frobenius_cm_jet_20261102.py` (Git blob `c3849b7464e1705b5d0ad6bf0b3dd0d795ffa4d0`) and `research_notes/portable_direct/d25_frobenius_cm_jet_20261102.runlog.txt` (Git blob `964f74b0ffeb9ce3c1bc9b9a48a5c88c9a044fc3`); both were read back from exact remote commits. No float, network, native H0/B0 execution, or Lean checker was used.
 
 ## BRC, dependencies and next action
 
