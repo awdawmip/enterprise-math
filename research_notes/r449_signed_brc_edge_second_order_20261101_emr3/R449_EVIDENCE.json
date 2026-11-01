@@ -1,0 +1,21 @@
+{
+  "c1": "-h*(3*h + 5)/4",
+  "c1_identity_for_all_h": true,
+  "c2": "h*(h - 1)*(27*h**2 + 89*h + 254)/96",
+  "c2_identity_for_all_h": true,
+  "independent_exact_fixed_h_series_checks": 8,
+  "minor_first_order_integer_column_checks": 381,
+  "minor_orders_checked": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "numeric_original_convolution_exact_checks": 36,
+  "provenance": "R448 original signed convolution; symbolic h is an indeterminate",
+  "schema": "R449_SIGNED_BRC_POISSON_EDGE_SECOND_ORDER_EXACT_V1",
+  "scope": "fixed integer h and fixed columns as r goes to infinity; no uniformity in growing j",
+  "status": "AUTHOR_SIDE_EXACT_SYMBOLIC; UNREVIEWED; NOT_ADMITTED",
+  "toeplitz_first_order": "[-3 sum(j_v^2)+(6m-11)sum(j_v)+m(m-1)*(5-2m)]/4"
+}
