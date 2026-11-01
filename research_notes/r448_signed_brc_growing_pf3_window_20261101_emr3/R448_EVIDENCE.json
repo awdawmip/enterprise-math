@@ -1,0 +1,220 @@
+{
+  "schema": "R448_SIGNED_BRC_GROWING_PF3_WINDOW_AUTHOR_CHECKS_V1",
+  "theorem": "for every integer L>=1 and odd r>=652 L^5: all contiguous-row order<=3 Toeplitz minors with columns in [0,L] are strictly positive",
+  "analytic_bounds": {
+    "F_deviation": "abs(F_hq-1)<=7 h^2/r for r>=8h^2",
+    "F_adjacent": "abs(F_(q+1)-F_q)<=24 h/r",
+    "signed_binomial_stein": "abs(h! rho_h/r^h-1)<=31 h^2/r",
+    "matrix_error_m1": "<=31 L^2/r",
+    "matrix_error_m2": "<=186 L^3/r",
+    "matrix_error_m3": "<=1302 L^5/r",
+    "Vandermonde_lower_m3": "2",
+    "theorem_threshold": "r>=652 L^5 (m3 error<2; m2 error<1; m1 error<1)"
+  },
+  "original_signed_convolution_checks": 30,
+  "original_test_pairs": [
+    [
+      9,
+      0
+    ],
+    [
+      9,
+      1
+    ],
+    [
+      9,
+      2
+    ],
+    [
+      9,
+      3
+    ],
+    [
+      17,
+      0
+    ],
+    [
+      17,
+      1
+    ],
+    [
+      17,
+      2
+    ],
+    [
+      17,
+      3
+    ],
+    [
+      17,
+      4
+    ],
+    [
+      17,
+      5
+    ],
+    [
+      17,
+      6
+    ],
+    [
+      17,
+      7
+    ],
+    [
+      99,
+      0
+    ],
+    [
+      99,
+      1
+    ],
+    [
+      99,
+      2
+    ],
+    [
+      99,
+      3
+    ],
+    [
+      99,
+      4
+    ],
+    [
+      99,
+      5
+    ],
+    [
+      99,
+      6
+    ],
+    [
+      99,
+      7
+    ],
+    [
+      99,
+      8
+    ],
+    [
+      343,
+      0
+    ],
+    [
+      343,
+      1
+    ],
+    [
+      343,
+      2
+    ],
+    [
+      343,
+      3
+    ],
+    [
+      343,
+      4
+    ],
+    [
+      343,
+      5
+    ],
+    [
+      343,
+      6
+    ],
+    [
+      343,
+      7
+    ],
+    [
+      343,
+      8
+    ]
+  ],
+  "exact_F_checks": 156,
+  "exact_adjacent_ratio_checks": 120,
+  "exact_sample_minor_checks": 374,
+  "sample_summary": [
+    {
+      "L": 1,
+      "odd_r": 653,
+      "orders": {
+        "1": 2,
+        "2": 1
+      }
+    },
+    {
+      "L": 2,
+      "odd_r": 20865,
+      "orders": {
+        "1": 3,
+        "2": 3,
+        "3": 1
+      }
+    },
+    {
+      "L": 3,
+      "odd_r": 158437,
+      "orders": {
+        "1": 4,
+        "2": 6,
+        "3": 4
+      }
+    },
+    {
+      "L": 4,
+      "odd_r": 667649,
+      "orders": {
+        "1": 5,
+        "2": 10,
+        "3": 10
+      }
+    },
+    {
+      "L": 5,
+      "odd_r": 2037501,
+      "orders": {
+        "1": 6,
+        "2": 15,
+        "3": 20
+      }
+    },
+    {
+      "L": 6,
+      "odd_r": 5069953,
+      "orders": {
+        "1": 7,
+        "2": 21,
+        "3": 35
+      }
+    },
+    {
+      "L": 7,
+      "odd_r": 10958165,
+      "orders": {
+        "1": 8,
+        "2": 28,
+        "3": 56
+      }
+    },
+    {
+      "L": 8,
+      "odd_r": 21364737,
+      "orders": {
+        "1": 9,
+        "2": 36,
+        "3": 84
+      }
+    }
+  ],
+  "math_status": "AUTHOR_SIDE_ANALYTIC_PROOF; COMPUTATIONAL_SPOT_CHECKS; UNREVIEWED; NOT_ADMITTED",
+  "limitations": [
+    "does not prove whole half-infinite PF3",
+    "does not reach proportional j/r windows",
+    "test samples are not a substitute for the analytic proof",
+    "no native X6 or physical-model transfer"
+  ]
+}
