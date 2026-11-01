@@ -1,0 +1,185 @@
+{
+  "schema": "LOCAL_RESEARCH_TASKSET_PREFLIGHT_BUNDLE_V1",
+  "taskset_id": "LOCAL-RESEARCH-AND-SCREENING-20261101-6DE891",
+  "candidate_preflight": {
+    "status": "LOCAL_CANDIDATE_PREFLIGHT_PASS",
+    "remote_publication_performed": false,
+    "scope": "Only these new publications and exact selected parents; no repository-wide PASS asserted",
+    "observed_source_ref": "996d6ef33dfbb8a3a8902ea81e9ff09b18053a56",
+    "publisher_id": "EM-DIRECT-6DE891",
+    "published_at": "2026-11-01T14:35:00+00:00",
+    "native_source_files_verified": 180,
+    "native_parent_objective_audit": "PASS_WITH_DRIVER_AUTHORITY_CONTRACT_ENABLED",
+    "native_strict_candidate_audit": "PASS_NO_EXCEPTION_SUPPRESSIONS",
+    "bootstrap_equivalence": "Candidate IDs absent from complete publication tree and every applicable isolation/resolution registry; exact original parent gate applied. Historical review/followup and HANDOFF overlays have no new-task input.",
+    "transport_remaining": "Root must atomically commit every taskbook+record pair, non-force CAS from observed parent, reconcile moving paths, then read back exact blobs at resulting immutable commit.",
+    "semantic_review_boundary": "Native origin/lineage checks and field preservation passed; scientific scope/source interpretation remains the author review documented in the taskset design.",
+    "tasks": [
+      {
+        "task_id": "RS-ROUGH-PARITY-LOCAL-STATE-UPDATE-20261101",
+        "publication_id": "TP2-13B36639D27B58C98C02",
+        "taskbook_path": "research_tasks/RS-ROUGH-PARITY-LOCAL-STATE-UPDATE-20261101.md",
+        "taskbook_blob_sha1": "sha1:7f0ed6af0002c15ec8aebdac5f2307da83d2f9d7",
+        "record_path": "research_task_records/RS-ROUGH-PARITY-LOCAL-STATE-UPDATE-20261101/TP2-13B36639D27B58C98C02.json",
+        "record_git_blob_sha1": "sha1:671de3dccc2e422e5fcbaccf6e0629f33948111b",
+        "parent": {
+          "objective_id": "OBJ-GEOMETRY-BRC-RESIDUAL-ACCUMULATION-SYSTEMS",
+          "objective_generation_id": "OG-7AE66316D7566C519AE0",
+          "objective_status": "OPEN",
+          "parent_task_id": null,
+          "binding_source": "TASK_PUBLICATION_DIRECT"
+        },
+        "source_refs": [
+          "awdawmip/enterprise-math@212b6f7ee3966535db9376686ee6263271533713:research_notes/2026-11-01/local-solutions-and-parity-windows-6de891.md",
+          "awdawmip/enterprise-math@24eb5e125a7bf52366cc49f1ed2594c0cd6d5b14:research_notes/RH_CRITICAL_ROUGH_ARITY_POSITIVE_HISTOGRAM_GAUGE_20260908.md",
+          "awdawmip/enterprise-math@9bce0563395c812cf1bb92dff8d991ffba1f51f2:research_notes/early_bottleneck_revisit_20261029_c5a31e/REVIEW_AND_CANDIDATE.md",
+          "awdawmip/enterprise-math@24eb5e125a7bf52366cc49f1ed2594c0cd6d5b14:src/enterprise_math/p017_rough_recursion.py"
+        ],
+        "effective_rank": "P2/MEDIUM",
+        "lint_findings": []
+      },
+      {
+        "task_id": "RS-BRC-LOCAL-PREFIX-NET-VALUE-20261101",
+        "publication_id": "TP2-A2DB6A0428DC8F6E2EE0",
+        "taskbook_path": "research_tasks/RS-BRC-LOCAL-PREFIX-NET-VALUE-20261101.md",
+        "taskbook_blob_sha1": "sha1:52d6d1dd60b0cad44de352c3ceb8a11361b31fae",
+        "record_path": "research_task_records/RS-BRC-LOCAL-PREFIX-NET-VALUE-20261101/TP2-A2DB6A0428DC8F6E2EE0.json",
+        "record_git_blob_sha1": "sha1:239f61973a4e3c1e00f269d3ceee2ca36911a552",
+        "parent": {
+          "objective_id": "OBJ-SEMIPRIME-SQUARE-SHELL-FACTORIZATION",
+          "objective_generation_id": "OG-94F9DC002F795C10ACF9",
+          "objective_status": "OPEN",
+          "parent_task_id": "RS-SEMIPRIME-SQUARE-SHELL-MIDPOINT-BOUNDARY-FACTORIZATION",
+          "binding_source": "TASK_PUBLICATION_DIRECT"
+        },
+        "source_refs": [
+          "awdawmip/enterprise-math@24eb5e125a7bf52366cc49f1ed2594c0cd6d5b14:src/enterprise_math/brc_opportunistic_shortcuts.py",
+          "awdawmip/enterprise-math@24eb5e125a7bf52366cc49f1ed2594c0cd6d5b14:research_notes/BRC_OPPORTUNISTIC_SHORTCUT_PORTFOLIO_20260907.md",
+          "awdawmip/enterprise-math@24eb5e125a7bf52366cc49f1ed2594c0cd6d5b14:research_notes/BRC_SQUAREFREE_KERNEL_COMPRESSION_NEGATIVE_20260907.md",
+          "awdawmip/enterprise-math@24eb5e125a7bf52366cc49f1ed2594c0cd6d5b14:research_tasks/SEMIPRIME_RESIDUAL_PRIORITY_HART_STREAMING_COST_AUDIT_CANONICAL_REPUBLICATION_20261013.md",
+          "awdawmip/enterprise-math@24eb5e125a7bf52366cc49f1ed2594c0cd6d5b14:research_tasks/FACTOR_BLIND_QR_CRT_PREFIX_INDEX_COST_20261013.md",
+          "awdawmip/enterprise-math@212b6f7ee3966535db9376686ee6263271533713:research_notes/2026-11-01/local-solutions-and-parity-windows-6de891.md",
+          "awdawmip/enterprise-math@996d6ef33dfbb8a3a8902ea81e9ff09b18053a56:research_tasks/SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY_FACTORIZATION_EXPLORATION_20260829.md",
+          "awdawmip/enterprise-math@996d6ef33dfbb8a3a8902ea81e9ff09b18053a56:research_task_records/RS-SEMIPRIME-SQUARE-SHELL-MIDPOINT-BOUNDARY-FACTORIZATION/TP2-12778A2D48A1D5A57BA9.json"
+        ],
+        "effective_rank": "P2/MEDIUM",
+        "lint_findings": []
+      },
+      {
+        "task_id": "RS-BRC-TABLEFREE-TAIL-LOCAL-COST-20261101",
+        "publication_id": "TP2-7AA587095F56589D45F7",
+        "taskbook_path": "research_tasks/RS-BRC-TABLEFREE-TAIL-LOCAL-COST-20261101.md",
+        "taskbook_blob_sha1": "sha1:96905206bc7b2cef4eb1412cc7b5a3e5b40e27ee",
+        "record_path": "research_task_records/RS-BRC-TABLEFREE-TAIL-LOCAL-COST-20261101/TP2-7AA587095F56589D45F7.json",
+        "record_git_blob_sha1": "sha1:c186c1f1c1d32f7e4a3e9c52893d028a69b2f64d",
+        "parent": {
+          "objective_id": "OBJ-SEMIPRIME-SQUARE-SHELL-FACTORIZATION",
+          "objective_generation_id": "OG-94F9DC002F795C10ACF9",
+          "objective_status": "OPEN",
+          "parent_task_id": "RS-SEMIPRIME-SQUARE-SHELL-MIDPOINT-BOUNDARY-FACTORIZATION",
+          "binding_source": "TASK_PUBLICATION_DIRECT"
+        },
+        "source_refs": [
+          "awdawmip/enterprise-math@24eb5e125a7bf52366cc49f1ed2594c0cd6d5b14:src/enterprise_math/brc_table_free_tail.py",
+          "awdawmip/enterprise-math@24eb5e125a7bf52366cc49f1ed2594c0cd6d5b14:research_notes/BRC_TABLE_FREE_TAIL_20260907.md",
+          "awdawmip/enterprise-math@24eb5e125a7bf52366cc49f1ed2594c0cd6d5b14:research_notes/BRC_OPPORTUNISTIC_SHORTCUT_PORTFOLIO_20260907.md",
+          "awdawmip/enterprise-math@212b6f7ee3966535db9376686ee6263271533713:research_notes/2026-11-01/local-solutions-and-parity-windows-6de891.md",
+          "awdawmip/enterprise-math@996d6ef33dfbb8a3a8902ea81e9ff09b18053a56:research_tasks/SEMIPRIME_SQUARE_SHELL_MIDPOINT_BOUNDARY_FACTORIZATION_EXPLORATION_20260829.md",
+          "awdawmip/enterprise-math@996d6ef33dfbb8a3a8902ea81e9ff09b18053a56:research_task_records/RS-SEMIPRIME-SQUARE-SHELL-MIDPOINT-BOUNDARY-FACTORIZATION/TP2-12778A2D48A1D5A57BA9.json"
+        ],
+        "effective_rank": "P2/MEDIUM",
+        "lint_findings": []
+      },
+      {
+        "task_id": "RS-FERMAT-LANDAU-SCREENING-IMPLEMENTATION-REPAIR-20261101",
+        "publication_id": "TP2-A3769AB88B65DCB73E47",
+        "taskbook_path": "research_tasks/RS-FERMAT-LANDAU-SCREENING-IMPLEMENTATION-REPAIR-20261101.md",
+        "taskbook_blob_sha1": "sha1:69ef9402bad085105de4ed21fae80f55a38df48d",
+        "record_path": "research_task_records/RS-FERMAT-LANDAU-SCREENING-IMPLEMENTATION-REPAIR-20261101/TP2-A3769AB88B65DCB73E47.json",
+        "record_git_blob_sha1": "sha1:d8b8145a71507e2cd95f0a939582b771629f68d6",
+        "parent": {
+          "objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+          "objective_generation_id": "OG-AA2BAD92F59DC97880C7",
+          "objective_status": "OPEN",
+          "parent_task_id": null,
+          "binding_source": "TASK_PUBLICATION_DIRECT"
+        },
+        "source_refs": [
+          "awdawmip/enterprise-math@a5902327c911630a2c6a387fbbc4822232edaebd:research_inputs/2026-11-01/fermat_landau_wheel_dichotomy_complete_monograph.md",
+          "awdawmip/enterprise-math@1e41c0acc37b9347c91c1d4ded6327433d898edb:research_notes/2026-11-01/fermat-landau-monograph-review-6de891.md",
+          "awdawmip/enterprise-math@996d6ef33dfbb8a3a8902ea81e9ff09b18053a56:research_tasks/PRIME_COORD_FACTOR_BLIND_BENCHMARK_SUITE_20260827.md"
+        ],
+        "effective_rank": "P2/MEDIUM",
+        "lint_findings": []
+      }
+    ]
+  },
+  "fresh_parent_source_check": {
+    "schema": "TASKSET_FRESH_PARENT_SOURCE_RECEIPT_V1",
+    "repository": "awdawmip/enterprise-math",
+    "scope": "Four new task publications and their exact selected parents; not a repository-wide scientific audit",
+    "observed_parent_commit": "8c21590456c07ad03baa2a1573cd8feffa186cb1",
+    "base_state_commit": "996d6ef33dfbb8a3a8902ea81e9ff09b18053a56",
+    "writer_original_commit": "24eb5e125a7bf52366cc49f1ed2594c0cd6d5b14",
+    "manifest_original_files_checked": 180,
+    "manifest_blob_changes": [],
+    "source_manifest_sha256": "sha256:2ab833f3efe6611f3f2e7a92ca8e92d08bf81decd0bf984c025a202f777dd8cb",
+    "candidate_preflight_report_sha256": "sha256:b40976593a59eefcf34ae1ed10473eed6b2bcb9c404ab08adb9784c8d09276df",
+    "task_records_tree_sha": "253bb842e1a885f1f6a2eb2a703d81b60987e13b",
+    "taskbooks_tree_sha": "47863485b7397583f3fc3c3536a977b68972244b",
+    "both_trees_match_prior_complete_snapshot": true,
+    "all_relevant_trees_untruncated": true,
+    "parent_objectives_and_authority_sources_unchanged": true,
+    "task_exclusion_registries_unchanged": true,
+    "tasks": [
+      {
+        "task_id": "RS-ROUGH-PARITY-LOCAL-STATE-UPDATE-20261101",
+        "publication_id": "TP2-13B36639D27B58C98C02",
+        "taskbook_path": "research_tasks/RS-ROUGH-PARITY-LOCAL-STATE-UPDATE-20261101.md",
+        "record_path": "research_task_records/RS-ROUGH-PARITY-LOCAL-STATE-UPDATE-20261101/TP2-13B36639D27B58C98C02.json",
+        "task_id_absent": true,
+        "taskbook_path_absent": true,
+        "publication_id_absent": true,
+        "exact_taskbook_blob_sha1": "sha1:7f0ed6af0002c15ec8aebdac5f2307da83d2f9d7",
+        "exact_record_git_blob_sha1": "sha1:671de3dccc2e422e5fcbaccf6e0629f33948111b"
+      },
+      {
+        "task_id": "RS-BRC-LOCAL-PREFIX-NET-VALUE-20261101",
+        "publication_id": "TP2-A2DB6A0428DC8F6E2EE0",
+        "taskbook_path": "research_tasks/RS-BRC-LOCAL-PREFIX-NET-VALUE-20261101.md",
+        "record_path": "research_task_records/RS-BRC-LOCAL-PREFIX-NET-VALUE-20261101/TP2-A2DB6A0428DC8F6E2EE0.json",
+        "task_id_absent": true,
+        "taskbook_path_absent": true,
+        "publication_id_absent": true,
+        "exact_taskbook_blob_sha1": "sha1:52d6d1dd60b0cad44de352c3ceb8a11361b31fae",
+        "exact_record_git_blob_sha1": "sha1:239f61973a4e3c1e00f269d3ceee2ca36911a552"
+      },
+      {
+        "task_id": "RS-BRC-TABLEFREE-TAIL-LOCAL-COST-20261101",
+        "publication_id": "TP2-7AA587095F56589D45F7",
+        "taskbook_path": "research_tasks/RS-BRC-TABLEFREE-TAIL-LOCAL-COST-20261101.md",
+        "record_path": "research_task_records/RS-BRC-TABLEFREE-TAIL-LOCAL-COST-20261101/TP2-7AA587095F56589D45F7.json",
+        "task_id_absent": true,
+        "taskbook_path_absent": true,
+        "publication_id_absent": true,
+        "exact_taskbook_blob_sha1": "sha1:96905206bc7b2cef4eb1412cc7b5a3e5b40e27ee",
+        "exact_record_git_blob_sha1": "sha1:c186c1f1c1d32f7e4a3e9c52893d028a69b2f64d"
+      },
+      {
+        "task_id": "RS-FERMAT-LANDAU-SCREENING-IMPLEMENTATION-REPAIR-20261101",
+        "publication_id": "TP2-A3769AB88B65DCB73E47",
+        "taskbook_path": "research_tasks/RS-FERMAT-LANDAU-SCREENING-IMPLEMENTATION-REPAIR-20261101.md",
+        "record_path": "research_task_records/RS-FERMAT-LANDAU-SCREENING-IMPLEMENTATION-REPAIR-20261101/TP2-A3769AB88B65DCB73E47.json",
+        "task_id_absent": true,
+        "taskbook_path_absent": true,
+        "publication_id_absent": true,
+        "exact_taskbook_blob_sha1": "sha1:69ef9402bad085105de4ed21fae80f55a38df48d",
+        "exact_record_git_blob_sha1": "sha1:d8b8145a71507e2cd95f0a939582b771629f68d6"
+      }
+    ],
+    "result": "PASS_FOR_ATOMIC_NON_FORCE_CAS_FROM_OBSERVED_PARENT",
+    "remote_write_performed_by_this_check": false,
+    "remaining_action": "Root performs the one complete atomic publication transaction from the observed parent; if the branch parent changes, reconcile affected evidence; then read exact taskbook/record blobs back at resulting immutable commit.",
+    "checked_at": "2026-11-01T14:36:54+00:00"
+  }
+}
