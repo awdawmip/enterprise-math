@@ -1,0 +1,50 @@
+{
+  "schema": "R468_SIGNED_BRC_PF3_LOCAL_CERTIFICATE_V1",
+  "checked_odd_r_from": 233,
+  "checked_odd_r_to": 239,
+  "rows": 4,
+  "support_definition": "a_h=H(r,r-h) for 0<=h<=r-2; zero otherwise",
+  "coefficient_count_strictly_positive": 940,
+  "adjacent_2x2_count_strictly_positive": 940,
+  "adjacent_3x3_count_strictly_positive": 940,
+  "total_exact_integer_sign_checks": 2820,
+  "independent_signed_raw_checks": 32,
+  "independent_alternating_catalan_checks": 32,
+  "exact_arithmetic": "Python integer arithmetic; all signs exact",
+  "coefficient_stream_sha256": "bdd913270590e0c4793d6be5c2ea94435d447dde71b71210fc5a409919100d29",
+  "adjacent_minor_stream_sha256": "f54e747ff1276b587868155b63ce7153b8e18ef3e5121a12c239de4f55a6866d",
+  "stream_encoding": "sequential 4-byte big-endian length followed by big-endian unsigned integer, each r then j ascending; adjacent minor stream D2,D3 interleaved",
+  "proof_route": "strict positivity of adjacent 2x2 and 3x3 -> all contiguous-row minors by projective convexity -> all minors by R441-A Schur/Littlewood-Richardson",
+  "scope": "four odd r, 233 through 239; full finite-support local minors; projective-convexity criterion in R450 needed for half-infinite PF3",
+  "status": "AUTHOR_SIDE_EXACT_INTEGER_AND_ANALYTIC; DRIVER_UNREVIEWED; NOT_ADMITTED; REGISTER_PENDING",
+  "row_statistics": [
+    {
+      "r": 233,
+      "positive_coefficients": 232,
+      "positive_adjacent_2x2": 232,
+      "positive_adjacent_3x3": 232,
+      "maximum_coefficient_bits": 658
+    },
+    {
+      "r": 235,
+      "positive_coefficients": 234,
+      "positive_adjacent_2x2": 234,
+      "positive_adjacent_3x3": 234,
+      "maximum_coefficient_bits": 664
+    },
+    {
+      "r": 237,
+      "positive_coefficients": 236,
+      "positive_adjacent_2x2": 236,
+      "positive_adjacent_3x3": 236,
+      "maximum_coefficient_bits": 670
+    },
+    {
+      "r": 239,
+      "positive_coefficients": 238,
+      "positive_adjacent_2x2": 238,
+      "positive_adjacent_3x3": 238,
+      "maximum_coefficient_bits": 676
+    }
+  ]
+}
