@@ -1,8 +1,10 @@
 """Exact signed-axis BRC kernels on the P000-V4 X6 spatial candidate."""
 from __future__ import annotations
+
 from fractions import Fraction
 from math import factorial
 from typing import Iterable, Sequence
+
 
 def _z6(z:Iterable[int]):
     z=tuple(z)
@@ -10,14 +12,18 @@ def _z6(z:Iterable[int]):
         raise ValueError("six signed integer components required")
     return z
 
+
 def support_size(z:Iterable[int])->int:
     return sum(x!=0 for x in _z6(z))
+
 
 def shortest_event_count(z:Iterable[int])->int:
     return sum(abs(x) for x in _z6(z))
 
+
 def spatial_norm_squared(z:Iterable[int])->int:
     return sum(x*x for x in _z6(z))
+
 
 def shortest_path_multiplicity(z:Iterable[int])->int:
     z=_z6(z); m=shortest_event_count(z)
@@ -25,11 +31,13 @@ def shortest_path_multiplicity(z:Iterable[int])->int:
     for x in z: out//=factorial(abs(x))
     return out
 
+
 def _weak_compositions(total:int,parts:int,prefix=()):
     if parts==1:
         yield prefix+(total,); return
     for k in range(total+1):
         yield from _weak_compositions(total-k,parts-1,prefix+(k,))
+
 
 def endpoint_multiplicity(length:int,z:Iterable[int])->int:
     z=_z6(z)
@@ -43,6 +51,7 @@ def endpoint_multiplicity(length:int,z:Iterable[int])->int:
         for ai,bi,k in zip(a,b,ks): denom*=factorial(ai+k)*factorial(bi+k)
         total+=factorial(length)//denom
     return total
+
 
 def endpoint_weight(
     length:int,
@@ -66,11 +75,14 @@ def endpoint_weight(
         total+=term
     return total
 
+
 def return_multiplicity(length:int)->int:
     return endpoint_multiplicity(length,(0,0,0,0,0,0))
 
+
 def primitive_straight(z:Iterable[int])->bool:
     return support_size(z)==1
+
 
 __all__=[
     "support_size","shortest_event_count","spatial_norm_squared",
