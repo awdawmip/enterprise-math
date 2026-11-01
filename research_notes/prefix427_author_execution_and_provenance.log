@@ -1,0 +1,26 @@
+2026-11-02 author-side executed evidence and provenance
+Original executed local sources:
+prefix427_exact_certificate.py SHA256 78bc6c958aeabecb7deadb128c24599fb1b2495271fc742d2594e5c63e7912fc
+prefix427_independent_raw_matrix.py SHA256 901f9efed986f6cdcd88c5b2b3a12d02407655f15ba75b522685f94ebf014f9d
+prefix427_endpoint_crosscheck.py SHA256 714486940ef81156f874c87e8af697822906f97e78ee26474415405fb876d886
+These original executed versions are bundled in the local evidence archive. The GitHub scripts are independent compact reproduction variants. Do not treat their text as byte-identical to the executed originals.
+
+Exact Fraction/isqrt execution: CONTINUUM_ANALYTIC_ARGUMENT_CHECKS 19 ALL_PASS.
+D in (0.0034659052110844455,0.0034659102869602134).
+C in (2233.7342115816377,2233.741461619673).
+C(0)=2233.741163787511...; C(1e-6)=2233.736570214725...
+PASS_PREFIX427_EXACT_RATIONAL_UNIFORM_QUADRATIC_CERTIFICATE
+
+Independent SymPy rederivation:
+11 raw-matrix identities PASS, rational-circle joint fifth-Port PASS, objective law PASS, coefficient formula PASS.
+PASS_PREFIX427_INDEPENDENT_ORIGINAL_MATRIX_SYMBOLIC_DERIVATION
+
+Endpoint-only mpmath crosscheck (not universal proof):
+epsilon=0 delta=1e-6 feasible ratio=2229.2928529596798012
+epsilon=0 delta=1e-8 feasible ratio=2233.696570358681768
+epsilon=1e-6 delta=1e-6 feasible ratio=2229.2882777664510162
+epsilon=1e-6 delta=1e-8 feasible ratio=2233.6919769703760013
+PASS_PREFIX427_ENDPOINT_FEASIBILITY_CROSSCHECK
+
+Global Knowledge read main@4d8bdb9ad4e90fab69a8dc5d1d22c21b3ed4cd0f; Enterprise Math normative source main@28f85eb6ab2d327918209fa2ec8dc91cdbbad505;
+scientific task pin f42f2906d77f24085c123f3ccfe9667d41caa96d. Canonical native owner query returned CONTROL_QUOTA; Sites connected backend report research_authority_granted=false. Evidence published to GitHub is not a canonical CLAIM/Result/Review/Admission.
