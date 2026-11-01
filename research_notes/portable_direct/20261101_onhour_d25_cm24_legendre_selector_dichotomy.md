@@ -2,17 +2,17 @@
 
 2026-11-01 Asia/Hong_Kong. **AUTHOR-SIDE MATHEMATICAL PROOF USING CLASSICAL CM/DEURING + EXECUTED FINITE CHECK; UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING / SOURCE_CHECKPOINT_PENDING / NATIVE_NOT_RUN.**
 
-Task: \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`. Publication \`TP2-B6F4FC938FF94941C1B7\`. Frozen scientific Source pin \`c47e13e4aba0e006366f989d6334d443f6333ae3\`. This Research lane \`chatgpt-research-onhour-enterprise-math-20260923\` retains its logical identity, without using the maintenance lane. The exact predecessor cutoff/Frobenius identity is \`research_notes/portable_direct/20261101_onhour_d25_quadratic_frobenius_carry_elimination.md\` (the predecessor contribution is consumed, not recredited).
+Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`. Publication `TP2-B6F4FC938FF94941C1B7`. Frozen scientific Source pin `c47e13e4aba0e006366f989d6334d443f6333ae3`. This Research lane `chatgpt-research-onhour-enterprise-math-20260923` retains its logical identity, without using the maintenance lane. The exact predecessor cutoff/Frobenius identity is `research_notes/portable_direct/20261101_onhour_d25_quadratic_frobenius_carry_elimination.md` (the predecessor contribution is consumed, not recredited).
 
 ## New all-prime theorem — CM Legendre selector, including the ordinary complementary class
 
-For any prime p>3 with p=5 (mod 8), let s²=2 over \`F_(p²)\`, n=(p−1)/4, and t_−=1/2−s/3. Then
+For any prime p>3 with p=5 (mod 8), let s²=2 over `F_(p²)`, n=(p−1)/4, and t_−=1/2−s/3. Then
 
 \[
 \boxed{P_n(2s/3)=0\pmod p\quad\Longleftrightarrow\quad p\equiv13\pmod {24}.}
 \]
 
-Equivalently, the finite original \`U_p(t)=sum_(k=0)^(p−1) (1/4)_k(3/4)_k t^k/(k!)²\` obeys
+Equivalently, the finite original `U_p(t)=sum_(k=0)^(p−1) (1/4)_k(3/4)_k t^k/(k!)²` obeys
 
 \[
 U_p(t_-)\equiv0\pmod p\quad (p=13\ \mathrm{mod}\ 24),
@@ -20,7 +20,7 @@ U_p(t_-)\equiv0\pmod p\quad (p=13\ \mathrm{mod}\ 24),
 U_p(t_-)\not\equiv0\pmod p\quad (p=5\ \mathrm{mod}\ 24).
 \]
 
-This closes the previously finite-only **Legendre CM selector** in the predecessor note for the entire stated prime class. It does not prove the original \`F_beta,p(1/9)=0 (mod p²)\` or original weighted216 target.
+This closes the previously finite-only **Legendre CM selector** in the predecessor note for the entire stated prime class. It does not prove the original `F_beta,p(1/9)=0 (mod p²)` or original weighted216 target.
 
 ## Proof, with every algebraic connection explicit
 
@@ -104,11 +104,11 @@ For p=13 (mod 24), \((3/p)=1\), so p is inert and E_t is supersingular; for p=5 
 
 ## Exact finite validation (independent arithmetic interface)
 
-Companion executable: \`research_notes/portable_direct/d25_p13_cm24_legendre_selector_20261101.py\`. Run with Python standard-library integer arithmetic; checks 95 primes p≤1200 with p=1 (mod4) for **every coefficient** in (HL), and among the p=5 (mod8) primes checks 26 inert p=13 (mod24) zero selectors and 25 split p=5 (mod24) nonzero selectors in the full quadratic two-coordinate ring. Crosscheck values: p5 (0,4); p13 (0,0); p29 (0,24); p37 (0,0); p53 (0,18); p61 (0,0); p109 (0,0); p373 (0,0), coordinates in F_p[s]/(s²−2). This is coverage of those stated finite domains, not a native experiment or a replacement for proof.
+Companion executable: `research_notes/portable_direct/d25_p13_cm24_legendre_selector_20261101.py`. Run with Python standard-library integer arithmetic; checks 95 primes p≤1200 with p=1 (mod4) for **every coefficient** in (HL), and among the p=5 (mod8) primes checks 26 inert p=13 (mod24) zero selectors and 25 split p=5 (mod24) nonzero selectors in the full quadratic two-coordinate ring. Crosscheck values: p5 (0,4); p13 (0,0); p29 (0,24); p37 (0,0); p53 (0,18); p61 (0,0); p109 (0,0); p373 (0,0), coordinates in F_p[s]/(s²−2). This is coverage of those stated finite domains, not a native experiment or a replacement for proof.
 
 ## Consumed frontier, BRC observer fidelity, and immediate next unit
 
-The predecessor \`20261101_onhour_d25_quadratic_frobenius_carry_elimination.md\` required two mod-p selectors (S) to eliminate its first Frobenius carry. **The separate Legendre selector is now proven** for every p=13 (mod24). Using the predecessor's *existing* original-beta mod-p CM selector as a separately sourced input, the predecessor's \(H_p(t_-)\equiv0\pmod p\) and carry elimination are now unconditional relative to that already established beta result. Retain the original source-labeled cutoff \(R_p(t)=t^pH_p(t)\), its quadratic branch and signed trace; no new native operator is inferred. The smallest mathematical obligation is the first digit of the remaining even trace:
+The predecessor `20261101_onhour_d25_quadratic_frobenius_carry_elimination.md` required two mod-p selectors (S) to eliminate its first Frobenius carry. **The separate Legendre selector is now proven** for every p=13 (mod24). Using the predecessor's *existing* original-beta mod-p CM selector as a separately sourced input, the predecessor's \(H_p(t_-)\equiv0\pmod p\) and carry elimination are now unconditional relative to that already established beta result. Retain the original source-labeled cutoff \(R_p(t)=t^pH_p(t)\), its quadratic branch and signed trace; no new native operator is inferred. The smallest mathematical obligation is the first digit of the remaining even trace:
 
 \[
 \frac12\operatorname{Tr}\!\left(\overline{t_-}
@@ -120,4 +120,4 @@ In BRC terms this is an actual composed carrier/observer bridge: original finite
 
 Mother scientific target remains \(A_p\equiv p\pmod{p^3}\) for p=13,19 (mod24), combining the original 216 Delta−R port. Fixed p373 original-class native benchmark remains issue https://github.com/awdawmip/enterprise-math/issues/1559 (OPEN/unassigned on 2026-11-01), requiring raw [X]U mod139129, rank, semilinear Frobenius, signed observers, kappa, and independent replication; **NATIVE_NOT_RUN / PENDING_OWNER**.
 
-2026-11-01 fresh Gateway 0.6.11: research_authority_granted=false, executor_binding_configured=false, Source control code review required. Own checkpoint list ACCESS_DENIED; prior request \`research-onhour-20261031-0205-dispatch-r15\` currently returned CONTROL_REQUEST_NOT_FOUND for this authenticated client; its actual global outcome remains unverified. There is no new session/claim/run or Source checkpoint/Result/review. Keep old staging separate and no duplicate dispatch. Preserve P000, ACTIVE worldview, scientific pin and existing hourly scheduler state. This document and companion program are **author-side provenance artifacts**, not canonical Source task admission.
+2026-11-01 fresh Gateway 0.6.11: research_authority_granted=false, executor_binding_configured=false, Source control code review required. Own checkpoint list ACCESS_DENIED; prior request `research-onhour-20261031-0205-dispatch-r15` currently returned CONTROL_REQUEST_NOT_FOUND for this authenticated client; its actual global outcome remains unverified. There is no new session/claim/run or Source checkpoint/Result/review. Keep old staging separate and no duplicate dispatch. Preserve P000, ACTIVE worldview, scientific pin and existing hourly scheduler state. This document and companion program are **author-side provenance artifacts**, not canonical Source task admission.
