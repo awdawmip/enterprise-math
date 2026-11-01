@@ -1,0 +1,10 @@
+H=(5,0,5,-8); norm1=18; K=(3,8/5)
+alpha_i=epsilon*(b_i*(h_i-1)-a_i*h_i)
+min_FULL_H=-35/8+(min(0,alpha1)+min(0,alpha2))/8
+min_LR_H=-33/8+min(0,alpha1+alpha2)/8
+signed_gap=1/4+[min(0,alpha1+alpha2)-min(0,alpha1)-min(0,alpha2)]/8 >= 1/4
+exact_grid_cases=72; opposite_sign_cases=24; vertex_observations=19856
+rank_abs_det_kstop=59/20480
+example_alpha=(Fraction(-5, 8), Fraction(9, 8)); full_min=-285/64; lr_min=-33/8; gap=21/64; full_witness=(Fraction(253, 320), Fraction(113, 512), Fraction(169, 64), Fraction(1383, 512))
+example_distance_Linf_lower=7/384; universal_distance_Linf_lower=1/72
+PASS_EXACT_R5_SOURCE_ASYMMETRIC_THIRD_KEY_GAP_MONOTONICITY
