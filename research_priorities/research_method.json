@@ -1,0 +1,67 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_METHOD_V1",
+  "record_kind": "RESEARCH_METHOD_PREFERENCE",
+  "status": "ACTIVE",
+  "version": 1,
+  "effective_date": "2026-11-01",
+  "scope": "TASK_RESEARCH_REVIEW_AND_PORTFOLIO_DECISIONS",
+  "apply_when": ["TASK_RESEARCH", "RESEARCH_DRIVER", "FROZEN_FREE_PHASE_B"],
+  "purpose": "Advance the selected mother objective through useful constructions, discriminating questions, and varied admissible research routes.",
+  "rules": [
+    {
+      "id": "EM-RM01",
+      "action": "Use the existing task or research note to connect the mother objective, the selected local question, the current construction and the remaining objective. On a local return, identify the next unresolved part of the mother objective or its actual closure criterion."
+    },
+    {
+      "id": "EM-RM02",
+      "action": "Choose an executable next scientific action with a discriminating outcome: a specified construction, lemma, exact example, certificate, or counterexample test. State the input and the information that each outcome would add; continue from the highest valid frontier."
+    },
+    {
+      "id": "EM-RM03",
+      "action": "When a local route reaches an obstruction, inspect the particular representation, retained observation, allowed operation, or intermediate objective responsible for it. Develop a concrete admissible change when one has research value, and test that change against the existing obstruction. Record the precise remaining question when no useful change is available."
+    },
+    {
+      "id": "EM-RM04",
+      "action": "At route-selection or continuation decisions, compare materially different admissible approaches by expected information gain and executable work. Reuse existing results where helpful and give alternative routes a reasoned opportunity. Use current portfolio authority and existing records to continue, pause, combine, or close local work."
+    },
+    {
+      "id": "EM-RM05",
+      "action": "For a proposed counterexample, test its exact input against the selected candidate's actual hypotheses and load-bearing claim. Preserve a verified failure, repair or retire the affected construction, and identify the remaining mother-objective question. Evaluate a changed construction on its own distinguishing prediction and evidence."
+    },
+    {
+      "id": "EM-RM06",
+      "action": "Treat a frozen route as an execution commitment under the existing claim, freeze and portfolio rules. Freezing does not change the evidence status of WORKING_TRUTH or make it a proved result. Preserve actual counterexamples and revise the affected route through the existing authorized route-change rules."
+    },
+    {
+      "id": "EM-RM07",
+      "apply_when": "CLAIMING_ALGORITHMIC_OR_COMPLEXITY_IMPROVEMENT",
+      "action": "Account for the full cost of input transformation, representation length, preprocessing, precision, core operations, output recovery and verification. For a new coordinate system or operator, give its construction from the original input. Keep unknown factors and unresolved solving steps as actual remaining work. Apply this accounting to the claimed improvement, not as a universal gate on research."
+    }
+  ],
+  "authorized_account_rule_routes": {
+    "access": "ONLY_FOR_USERS_ALREADY_AUTHORIZED_TO_READ_THE_PRIVATE_ACCOUNT_REPOSITORY",
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "entrypoints": ["00_BOOTSTRAP.md", "OPERATING_MANUAL.md"],
+    "judgment_and_expression": "knowledge/preferences/OUTPUT_TEMPORAL_SEMANTICS_POLICY.json#conclusion_contract",
+    "mathematical_evidence": "knowledge/preferences/MATH_RESEARCH_POLICY.json",
+    "body_ownership": "General judgment/expression rules and mathematical proof standards remain in their existing account records; this file supplies only Enterprise Math method choices."
+  },
+  "public_contributor_route": "CONTRIBUTING.md#agentproject-task-entry",
+  "free_phase_a": {
+    "method_rules_loaded": false,
+    "entry": "definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md",
+    "authorized_account_context": "GENERIC_GLOBAL_RULES_ONLY",
+    "question_generation": "RESEARCHER_FROM_EXISTING_PRIMITIVE_SUBSTRATE",
+    "method_rule_opening": "AFTER_CANDIDATE_FREEZE_AND_APPLICABLE_SOURCE_FIREWALL"
+  },
+  "integration": {
+    "protocol": "docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context",
+    "packet_field": "current_normative_context",
+    "application": "Agent-applied method preference; the packet carries current-read references and does not evaluate research content.",
+    "new_registry": false,
+    "new_runtime_gate": false,
+    "grants_role_or_claim": false,
+    "changes_p000_or_frozen_scientific_inputs": false,
+    "deployment_asserted": false
+  }
+}

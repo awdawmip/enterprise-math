@@ -32,6 +32,18 @@ Driver AUTHORIZE succession separately binds the exact old DA and source comment
 
 Current control source and artifact source commits are distinct. Verify actual Git blobs or a trusted loader manifest; a dirty/untracked local file cannot be advertised as HEAD:path. Explicit task inputs and authenticated progress/checkpoint refs may identify immutable branch candidates. They become verified pins only after actual bounded readback, with task/publication/manifest/firewall checks. Preserve unknown or missing evidence honestly.
 
+## Current normative context
+
+Read or reuse current behavioral rules separately from the task's immutable scientific inputs. The `current_normative_context` field in continuation and compact startup packets is a set of current-read locators. It does not attest that those rules were fetched or applied. Resolve its `main` locators to the current applicable rule snapshot, or reuse a still-valid verified snapshot under the governing entry. A bundled historical account snapshot remains a cache/source locator; it does not freeze current behavioral policy for later work.
+
+For users already authorized to use the private account knowledge repository, enter `awdawmip/chatgpt-global-knowledge` through `00_BOOTSTRAP.md` and `OPERATING_MANUAL.md`. The `conclusion_contract` in `knowledge/preferences/OUTPUT_TEMPORAL_SEMANTICS_POLICY.json` owns general judgment and expression rules; `knowledge/preferences/MATH_RESEARCH_POLICY.json` owns mathematical evidence and proof standards. Follow their current routes without copying their bodies into taskbooks or delegation prompts. Public contributors follow the public project guides and need no private-repository access.
+
+For TASK research, Driver decisions and audited, frozen FREE Phase B, apply the single public method record [`research_priorities/research_method.json`](../research_priorities/research_method.json). FREE Phase A retains the existing primitive substrate and source firewall. It may use generic account principles when authorized; it defers this project's method record, research agendas and tool/result menus until the existing freeze boundary.
+
+These rule locators stay outside `source_artifacts`, `frontier_template.artifacts`, task publication bindings and frozen evidence. Reading current rules preserves the original scientific input pins, P000, proof scope, provenance, source exposure and review/role authority. An older packet without this field uses this same protocol entry. Updating source code or documentation establishes no deployment result: use actual service/packet readback to establish which generator is running, and retain any existing code-review or deployment requirements.
+
+## Source publication and authorization
+
 Source artifact/checkpoint publication occurs before a PROGRESS/HANDOFF pointer is emitted. A generated plan, a queued job, an upload, a transport checkpoint or an unknown response is not completed Source publication. Multi-file native output sets use current-head non-force CAS, then complete blob/content readback. Unknown outcomes use durable operation reconciliation; do not blind-retry a mutation.
 
 New Result freeze requires actual-current claim/session/epoch and fresh authenticated events. New review requires current DA/session, current Result bytes and contribution-independence checks. Receipt payload digests bind the declared operation and evidence. The exact legacy cutover manifest preserves pre-existing bytes but exempts no original integrity or mathematical check. Post-cutover records lacking valid authorization remain raw history without operational result/review authority.
