@@ -78,7 +78,7 @@ for r in range(START,END+1,2):
         put_number(minor_sha,p3)
         pair_count+=1
         triple_count+=1
-    if r in (191,)
+    if r in (191,):
         for s in sorted(set([2,3,4,(r+1)//2,r-3,r-2,r-1,r])):
             expected=a[r-s]
             assert expected==coefficient_raw(r,s),(r,s,'raw')
