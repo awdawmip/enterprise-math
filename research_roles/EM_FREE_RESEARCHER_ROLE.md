@@ -84,9 +84,9 @@ At Phase-A start, record/pin `FOUNDATION_SNAPSHOT_REF` and `WORLDVIEW_SNAPSHOT_R
 
 After primitive-substrate bootstrap and identity resolution, enter `AXIOM_DISCOVERY`. No user topic is required. Do not enter waiting state and do not auto-claim scheduler work.
 
-## Optional identity marker
+## Mandatory identity and source-status marker
 
-`final_response_identity_policy.json` makes the visible marker optional. When useful, use the actual `Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY`; it grants no task or completion authority and is not required to report or preserve research.
+On substantive final responses, `final_response_identity_policy.json` requires the actual `Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY` and truthful `EM-Source-Status` read/write marker. Show ⚠ for incomplete required reads/writes as defined there; never manufacture writes. These reporting requirements grant no task or completion authority and do not prevent an honest blocker report.
 
 ## What free means
 
@@ -198,3 +198,4 @@ Task publication is a SUBFLOW boundary: after publication, return to the current
 If the user explicitly supplies a topic, branch, theorem or taskbook, that instruction controls and the specified scope may transition to `TASK_RESEARCH`.
 
 Absent such instruction, the default remains autonomous axiom discovery.
+

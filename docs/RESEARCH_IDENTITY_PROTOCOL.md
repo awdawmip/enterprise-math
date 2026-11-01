@@ -57,7 +57,7 @@ This applies to:
 
 Identity registration is provenance infrastructure, not a mathematical hard block. If the registration write path is unavailable, preserve the locally resolved ID and continue as `REGISTER_PENDING`; retry only at a semantic checkpoint.
 
-Identity resolution and identity display are separate obligations. A correctly allocated ID that is omitted from a final response does **not** satisfy the visible-identity contract.
+Identity resolution and identity display are separate obligations. A correctly allocated ID omitted from a substantive final response does **not** satisfy the mandatory visible-identity contract. Identity alone is not evidence of reading or writing; include the source-status footer below.
 
 ## 3. Resolution order
 
@@ -176,14 +176,19 @@ python tools/research_identity.py allocate --role FOUNDATION_STEWARD
 
 The Steward helper defaults to the `STW` lane and renders `Steward-ID`.
 
-## 8. Optional visible identity marker
+## 8. Mandatory truthful identity and source-status footer
 
-The current communication policy is `final_response_identity_policy.json`.
-A report or saved research material requires no identity footer. When useful,
-show the actual role/scope: `Researcher-ID: <ID> / <TASK_ID>` (or
-`FREE_AXIOM_DISCOVERY` / `TASK_RESEARCH`), `Driver-ID: <ID> / CONTROL_PLANE`, or
-`Steward-ID: <ID> / FOUNDATION_STEWARD`. A marker grants no task, review or
-completion authority. There is no required sync footer or tail ordering.
+Current communication policy: `final_response_identity_policy.json`, restored by the explicit user instruction of 2026-11-01 23:11:29 UTC.
+Every substantive Enterprise Math response shows `EM-Source-Status: read=...; write=...`.
+Active research roles also show their actual `Researcher-ID`, `Driver-ID` or `Steward-ID` and real task/mode scope. Control-only maintenance shows source status without inventing a research identity. Progress/tool messages are not final reports. If an active research identity is unresolved, visibly report that uncertainty with the actual role rather than fabricate an ID or block an honest status report; actual research/shared-operation identity checks remain in force.
+
+Read and write are independent. State successful reading only from actual required-source evidence; valid snapshot reuse requires the applicable freshness policy, retained verification time and exact ref. Failed or unknown reads carry a visible warning and brief reason. A remembered SHA or footer alone is not a verified read.
+
+A required write is successful only after actual authorized publication and remote readback or an authoritative completion receipt for the exact artifact/operation. Show a visible warning for not written, failed, pending or unknown writes, with the affected destination and brief reason. Reconcile an uncertain operation before retrying. One successful destination cannot hide another incomplete destination. Use `WRITE_NOT_REQUIRED` only when no durable write is required, never for a failed or skipped preservation duty; do not manufacture writes to satisfy a footer.
+
+Reuse existing source refs and receipt evidence. No per-step hashes, extra registry or self-proof ceremony is required. The marker communicates actual state; it grants no read/write, CLAIM, review or completion authority, does not override a denial or pause, and is not platform-wide prompt injection. A failure warning permits an honest report without pretending the underlying work is complete. The mandatory global-knowledge footer remains separate.
+
+Machine labels and exact warning strings are in `final_response_identity_policy.json#source_status_reporting`.
 
 ## 9. Registration
 
@@ -258,4 +263,5 @@ Role identity is observability/provenance only. It does not weaken or replace:
 
 The intended invariant is:
 
-> Every active Enterprise Math role resolves its execution identity before substantive work begins and may show an optional role-appropriate identity marker, without turning identity persistence into a research-time GitHub dependency.
+> Every active Enterprise Math role resolves its execution identity before substantive work begins and must show a truthful role-appropriate identity and source-status footer in substantive final responses, without turning identity persistence into a research-time GitHub dependency.
+

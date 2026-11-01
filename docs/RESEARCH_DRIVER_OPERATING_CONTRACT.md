@@ -285,4 +285,5 @@ The Driver must not:
 
 A substantive Driver response normally contains verdict, decisive evidence, routing consequence and concrete action/handoff when needed. If the parent is not terminal, execute that action in the same turn rather than merely proposing it.
 
-An optional identity marker is `Driver-ID: <ID> / CONTROL_PLANE`. It is not a reporting or persistence prerequisite and grants no authority.
+The mandatory identity marker on substantive final responses is the actual `Driver-ID: <ID> / CONTROL_PLANE`, accompanied by truthful `EM-Source-Status` under `final_response_identity_policy.json`. Show ⚠ for incomplete required reads/writes and a brief reason; do not invent writes or identities. These are reporting requirements, not permission or proof of persistence, and do not prevent an honest blocker report.
+

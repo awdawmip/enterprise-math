@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_FINAL_RESPONSE_IDENTITY_POLICY_V3",
   "status": "ACTIVE",
-  "effective": "2026-08-28",
+  "effective": "2026-11-01",
   "scope": [
     "RESEARCHER",
     "RESEARCH_DRIVER",
@@ -11,7 +11,7 @@
     "CONTROL_PLANE_MAINTENANCE"
   ],
   "role_transition_contract": "control_plane/role_transition_matrix.json",
-  "core_invariant": "ROLE_IDENTITY_MARKERS_ARE_OPTIONAL_COMMUNICATION_NOT_RESEARCH_OR_PERSISTENCE_AUTHORITY",
+  "core_invariant": "ROLE_IDENTITY_AND_SOURCE_STATUS_MARKERS_ARE_MANDATORY_TRUTHFUL_COMMUNICATION_NOT_RESEARCH_OR_PERSISTENCE_AUTHORITY",
   "control_plane_identity_rule": "CONTROL_PLANE_MAINTENANCE alone is not a research role, does not allocate or render Researcher-ID/Driver-ID/Steward-ID, and may preserve any prior role identity only as non-authorizing provenance until a destination research role is explicitly reactivated.",
   "final_permission_authority": "research_runtime_state_machine.json",
   "pre_final_permission_gate": {
@@ -33,10 +33,11 @@
     "research_role_footer_required": false,
     "research_runtime_identity_gate_applies_merely_because_control_mode_is_active": false,
     "liveness_contract": "active_turn_liveness.json",
-    "rule": "Control-only finalization follows the cooperative control-plane liveness/efficiency contract and the current user objective; it must not fabricate research registration or identity merely to render a control report. If a research role is reactivated, transition through role_transition_matrix.json before using a research footer or research runtime authority."
+    "rule": "Control-only finalization follows the cooperative control-plane liveness/efficiency contract and the current user objective; it must not fabricate research registration or identity merely to render a control report. If a research role is reactivated, transition through role_transition_matrix.json before using a research footer or research runtime authority. Show the mandatory EM-Source-Status footer without inventing a research-role identity.",
+    "source_status_footer_required": true
   },
   "final_response_definition": "An ordinary report of actual results and next actions; reporting does not assert formal shared-task or parent completion.",
-  "non_final_exemption": "commentary/progress/tool-call messages do not require the footer because they are not final responses",
+  "non_final_exemption": "commentary/progress/tool-call messages do not require the final footer",
   "identity_resolution_before_final": false,
   "templates": {
     "RESEARCH_DRIVER": "Driver-ID: <ID> / CONTROL_PLANE",
@@ -52,8 +53,8 @@
   ],
   "steward_scope": "FOUNDATION_STEWARD",
   "ordering": {
-    "marker_required": false,
-    "marker_placement": "optional; no fixed tail order or sync marker is required"
+    "marker_required": true,
+    "marker_placement": "Visible footer of every substantive Enterprise Math response: actual role identity plus EM-Source-Status. Where account GLOBAL_KNOWLEDGE rules apply, also show its required separate Global-Knowledge-Sync marker; public contributors without private-account scope need no fabricated GK access."
   },
   "role_transition": "The footer template changes only after the destination research role is active. Identity provenance may persist according to research_identity_state_machine.json, but source-role authority never persists implicitly; CONTROL_PLANE_MAINTENANCE renders no research-role footer, and same-context FREE blindness follows role_transition_matrix.json exposure rules.",
   "forbidden": [
@@ -66,5 +67,50 @@
     "rendering any Researcher-ID/Driver-ID/Steward-ID merely because CONTROL_PLANE_MAINTENANCE is active",
     "carrying a stale source-role footer across a role transition before destination authority is active",
     "using DIRECT as the visible researcher scope"
-  ]
+  ],
+  "source_status_reporting": {
+    "authority": "EXPLICIT_USER_INSTRUCTION_20261101T231129Z",
+    "required": true,
+    "template": "EM-Source-Status: read=<state + exact source/snapshot>; write=<state + target/receipt or brief reason>",
+    "read_states": {
+      "READ_OK": "已读取",
+      "READ_LEASED": "有效快照复用",
+      "READ_FAILED": "⚠读取失败",
+      "READ_UNKNOWN": "⚠读取待确认"
+    },
+    "write_states": {
+      "WRITE_OK": "已写入并核验",
+      "WRITE_NOT_REQUIRED": "无需写入",
+      "WRITE_NOT_DONE": "⚠未写入",
+      "WRITE_FAILED": "⚠写入失败",
+      "WRITE_PENDING": "⚠写入待确认",
+      "WRITE_UNKNOWN": "⚠写入待确认"
+    },
+    "read_success_requires": [
+      "actual successful required-source read",
+      "exact source ref and actual verification time"
+    ],
+    "read_lease_requires": [
+      "previously verified immutable snapshot",
+      "still-valid applicable source freshness policy",
+      "actual verification time and ref retained",
+      "refresh when current state matters"
+    ],
+    "write_success_requires": [
+      "all required destinations published within actual authorization",
+      "actual successful remote readback or authoritative completion receipt for the exact operation/artifact",
+      "reference to that evidence"
+    ],
+    "write_not_required_requires": "No durable write is required by the current task or existing preservation duty. A failed, denied, pending or unattempted required write is not N/A.",
+    "incomplete_write_requires": [
+      "visible ⚠ warning in footer",
+      "brief specific reason and affected destination",
+      "preserve uncertain operation identity and reconcile before any retry"
+    ],
+    "per_target_rule": "Report read and write independently and each required destination; one successful write never hides another incomplete write.",
+    "no_synthetic_write": true,
+    "authority_boundary": "Formatting does not issue identity, bypass denied STOP, grant source/task/write authority, resume paused work or establish mathematical acceptance. Reuse existing read/receipt evidence without per-step hashing or extra proof ceremonies.",
+    "coverage_boundary": "Repository communication contract; not platform-wide prompt injection or a guarantee that clients executed reads/writes.",
+    "unresolved_identity": "If an active research identity cannot be verified, show ⚠身份待确认 and the actual role without inventing an ID; keep source read/write warnings. This does not waive existing identity checks before authorized research or shared operations."
+  }
 }

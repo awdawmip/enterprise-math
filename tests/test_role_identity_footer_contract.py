@@ -19,10 +19,10 @@ def load_identity():
     return module
 
 
-def test_machine_policy_marker_is_optional_and_grants_no_authority():
+def test_machine_policy_marker_is_required_and_grants_no_authority():
     policy = json.loads(read("final_response_identity_policy.json"))
     assert policy["status"] == "ACTIVE"
-    assert policy["ordering"]["marker_required"] is False
+    assert policy["ordering"]["marker_required"] is True
     assert policy["identity_resolution_before_final"] is False
     assert policy["pre_final_permission_gate"]["registration_authentication_required"] is True
     assert policy["pre_final_permission_gate"]["caller_supplied_parent_status_is_authority"] is False
@@ -35,17 +35,17 @@ def test_hot_router_routes_instead_of_repeating_footer_rules():
     assert "EVERY_ASSISTANT_FINAL_RESPONSE" not in text
 
 
-def test_role_policy_keeps_identity_and_makes_footer_optional():
+def test_role_policy_keeps_identity_and_requires_truthful_footer():
     policy = json.loads(read("research_role_policy.json"))
     identity = policy["research_identity"]
     assert identity["final_response_policy"] == "final_response_identity_policy.json"
-    assert "optional communication" in "\n".join(identity["rules"])
+    assert "mandatory on substantive final responses" in "\n".join(identity["rules"])
     assert identity["visible_markers"]["RESEARCH_DRIVER"] == "Driver-ID: <ID> / CONTROL_PLANE"
 
 
-def test_identity_state_machine_keeps_actual_scope_without_footer_requirement():
+def test_identity_state_machine_keeps_actual_scope_with_footer_requirement():
     machine = json.loads(read("research_identity_state_machine.json"))
-    assert machine["final_response"]["marker_required"] is False
+    assert machine["final_response"]["marker_required"] is True
     assert machine["final_response"]["researcher_scope_precedence"] == ["ACTIVE_TASK_ID", "FREE_AXIOM_DISCOVERY", "TASK_RESEARCH"]
     assert machine["final_response"]["direct_is_not_visible_scope"] is True
     assert machine["final_response"]["commentary_progress_exempt"] is True
@@ -89,11 +89,12 @@ def test_explicit_task_scope_beats_mode_and_direct_never_leaks_to_marker():
     assert "/ DIRECT" not in payload["visible_marker"]
 
 
-def test_role_documents_keep_optional_markers():
+def test_role_documents_require_truthful_markers():
     free = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
     driver = read("docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md")
     assert "final_response_identity_policy.json" in free
-    assert "Optional identity marker" in free
+    assert "Mandatory identity and source-status marker" in free
     assert "Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY" in free
-    assert "optional identity marker" in driver
+    assert "mandatory identity marker" in driver
     assert "Driver-ID: <ID> / CONTROL_PLANE" in driver
+
