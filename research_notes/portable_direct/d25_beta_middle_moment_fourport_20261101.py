@@ -94,6 +94,5 @@ def main():
     print('p | S | W | middle/middle divided by p² | high/low divided by p² | full signed tail mod p³ | LL+LM mod p²')
     for d in data: print(' | '.join(map(str,d)))
 
-
 if __name__=='__main__':
     main()
