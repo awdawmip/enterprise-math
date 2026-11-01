@@ -92,3 +92,19 @@ Next discriminating step: construct a finite joint **weighted original 216↔230
 **Separate native experiment still open:** exact same-original-class fixed-\(p=373\) H0/B0 divided-power \([X]U\bmod139129\), module rank, true semilinear Frobenius and normalization \(\eta\), odd signed Green/Hesse, \(\kappa\), and independently reproducible native execution. Support Issue \`awdawmip/enterprise-math#1559\` remains PENDING_OWNER/NOT_EXECUTED. No portable weighted scalar, point count or jet substitutes for that original object.
 
 **Execution and Source:** original dispatch `research-onhour-20261031-0205-dispatch-r15` at `awdawmip/kimi-query-bridge#6633` has confirmed terminal `FAILED / UPSTREAM_CODE_REVIEW_REQUIRED`; never blind-reissue. Read-only gateway 0.6.11 in this run reported no Research execution authorization, no executor binding and 5/5 active control jobs. No own authenticated native session/claim/run, checkpoint, Result, freeze or review is claimed. `REGISTER_PENDING / SYNC_DEBT` remains for formal research ingestion. Current mathematical source is frozen at the cited pin; this neutral research note does not rebase it. No scheduler or notification settings modified.
+
+
+## Independent original weighted-jet discriminator (same research turn, second scientific unit)
+
+The scalar fourth-digit relation \(\alpha_p=2\beta_p\) **does not imply** the naive weighted first-jet relation \((\theta Y_p)(1/2)=2(\theta Z_p)(1/9)\bmod p\), where \(Y_p=(1+6\theta)F_p\), \(Z_p=(1+8\theta)H_p\), \(\theta=z\,d/dz\), and \(F_p,H_p\) are the two original full-period unweighted sums. Direct integer binomial computation of every original coefficient and the independent rational-recursion construction gave:
+
+| p | weighted W mod p | weighted S mod p | theta Y(1/2) mod p | theta Z(1/9) mod p | theta Y−2 theta Z mod p |
+|---:|---:|---:|---:|---:|---:|
+| 13 | 0 | 0 | 3 | 7 | 2 |
+| 19 | 0 | 0 | 12 | 5 | 2 |
+| **373** | 0 | 0 | **292** | **77** | **138** |
+| 1171 | 0 | 0 | 760 | 886 | 159 |
+
+At p=373 the original full-weighted fourth digits obey \(\alpha_{373}=228=2(114)=2\beta_{373}\pmod{373}\), while the **first derivative jets** obey \(292-2(77)=138\ne0\pmod{373}\). Thus the naive derivative transfer is refuted at the frozen diagnostic prime. A genuinely normalized **3x3 weighted-jet** transport remains open, with the 138 mismatch serving as an essential signed diagnostic rather than a barrier to more general transports. This retains full original weights and classical observer distinctions; it is not the native fixed-class H0/B0 run.
+
+Execution evidence: author-side script \`d25_jet_readout_discriminator_20261102.py\`, output \`d25_jet_readout_discriminator_20261102.check.json\`. Both independent original-integer binomial and modular-recursive readouts matched on four primes. Next exact scientific step should preserve both the scalar digit ratio 228:114 and the nonzero weighted first-jet discrepancy 138 for p=373, or pursue direct signed Clausen \(\Delta_p-R_p\) proof. No original native benchmark was claimed.
