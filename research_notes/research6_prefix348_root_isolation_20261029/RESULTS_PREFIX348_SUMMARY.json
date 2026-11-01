@@ -1,0 +1,59 @@
+{
+  "schema": "PREFIX348_EXACT_RATIONAL_T6_ROOT_BRACKET_SUMMARY_V1",
+  "status": "PASS_AUTHOR_SIDE_EXACT_RATIONAL_T6_ROOT_ISOLATION",
+  "input_global_knowledge_main": "43f732595432c4e32d7656c3cb32add46e127ba8",
+  "input_project_main": "9085a8bd7842858d679d29c9305c6993cdcb2fd0",
+  "model": "auxiliary retained-phase S7-3 C3 BRC five-port; six source phase arcs T6",
+  "baseline_L": "1062562/458329",
+  "left": {
+    "h": "166639681327965/100000000000000",
+    "F_minus_L_outward": [
+      "104153697/10000000000000000000000",
+      "52076849/5000000000000000000000"
+    ],
+    "strict_sign": "POSITIVE"
+  },
+  "right": {
+    "h": "166639681327966/100000000000000",
+    "F_minus_L_outward": [
+      "-23485997/2500000000000000000000",
+      "-93943987/10000000000000000000000"
+    ],
+    "strict_sign": "NEGATIVE"
+  },
+  "width": "1/100000000000000",
+  "support": [
+    [
+      0,
+      "-"
+    ],
+    [
+      1,
+      "+"
+    ],
+    [
+      3,
+      "-"
+    ],
+    [
+      3,
+      "+"
+    ],
+    [
+      4,
+      "+"
+    ]
+  ],
+  "min_positive_weight_lower_in_both": ">0.0001535976086",
+  "min_7_noncontacts_slack_lower_in_both": ">0.0032486631852",
+  "six_arc_Im_t_upper_in_both": "<-0.97079",
+  "Gram_Neumann_inverse_error_upper_in_both": "<6.15e-27",
+  "beta_interval_error_upper_in_both": "<2.03e-27",
+  "validated_source_roots": 6,
+  "validated_BRC_ordered_path_pairs": 45,
+  "upstream_strict_derivative": "-19811/10000 < F'(h) < -19808/10000 over [1.66639681,1.66639682]",
+  "conclusion": "Exactly one hc in (166639681327965/10^14,166639681327966/10^14) satisfies MEB^2(T6(hc))=L.",
+  "method": "Fraction + isqrt + outward intervals; five-contact Gram positive weights, seven endpoint slack, six full arcs convexity; upstream 342, 346, 347 checkers reexecuted.",
+  "limits": "Global all-source exhaustion S=T6 and native X6 transfer not proved. Formal task claim, independent review, admission absent.",
+  "reproducibility": "Run verify_prefix348.py together with exact upstream scripts verify_prefix342.py, verify_prefix346.py, verify_prefix347.py from immutable predecessor sources."
+}

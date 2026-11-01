@@ -1,0 +1,39 @@
+{
+  "schema": "EM_PREFIX363_EXACT_CONTINUATION_V1",
+  "number_of_segments": 32,
+  "span": [
+    "1197981013954390871249/20000000000000000000000",
+    "1/16"
+  ],
+  "cube_radius": "1/2000",
+  "witness_cube_radius": "1/10000000",
+  "branches": [
+    {
+      "h3_branch": 1,
+      "fiber_label": "R2",
+      "maximum_contraction_ceiling_over_1e9": 66842745,
+      "maximum_displacement_ceiling_over_1e9": 80283,
+      "minimum_self_mapping_margin_floor_over_1e9": 386296,
+      "endpoint_witnesses": 33
+    },
+    {
+      "h3_branch": 2,
+      "fiber_label": "R1",
+      "maximum_contraction_ceiling_over_1e9": 557341677,
+      "maximum_displacement_ceiling_over_1e9": 190637,
+      "minimum_self_mapping_margin_floor_over_1e9": 30692,
+      "endpoint_witnesses": 33
+    }
+  ],
+  "global_v_real_part_separation_gt": "26/100",
+  "global_v_squared_separation_gt": "169/2500",
+  "uniform_C_R2_minus_R1_gt": "2/5",
+  "threshold": "(Q1(t)+Q3(t)-(43/25)*Q1(t))/59536",
+  "threshold_margin_each_gt": "1/5",
+  "additive_noise_abs_robust": "1/8",
+  "verified_interval_boxes": 64,
+  "verified_endpoint_witnesses": 66,
+  "verification": "Exact fractions only; finite cubic-complex model; each branch unique in own cube; shared endpoint witness links adjacent parameter cubes.",
+  "status": "AUTHOR_SIDE_EXACT_RATIONAL / UNREVIEWED / NOT_ADMITTED",
+  "pending": "No two-fold global branch matching, no native X6 and no typed BRC heartbeat test"
+}

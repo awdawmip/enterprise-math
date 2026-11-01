@@ -1,0 +1,141 @@
+{
+  "schema": "PREFIX343_FULL_FIBRE_REPORT_HAUSDORFF_STABILITY_V1",
+  "status": "PASS_AUTHOR_SIDE_EXACT_RATIONAL_WITH_PREFIX342_CERTIFIED_LOWER_INPUT",
+  "model": "STATIC_AUXILIARY_S7_3_FIVE_PORT_BRC_KEEP_GLOBAL_PHASE",
+  "exact_intensity_q": [
+    "2125/3721",
+    "200/3721",
+    "29125/29768",
+    "5825/7442",
+    "31525/59536"
+  ],
+  "source_scope": "ALL_COMPLEX_SOURCES_WITH_EXACT_MASSES_NOT_ONLY_SIX_ROOTS",
+  "A_dagger_A": [
+    [
+      [
+        62,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0
+      ],
+      [
+        64,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        63,
+        0
+      ]
+    ]
+  ],
+  "BRC_ordered_pairs": 45,
+  "BRC_port_evidence": [
+    {
+      "port": 1,
+      "ordered_pairs": 9,
+      "exact_gaussian_sum": [
+        1360,
+        0
+      ],
+      "intensity": "2125/3721"
+    },
+    {
+      "port": 2,
+      "ordered_pairs": 9,
+      "exact_gaussian_sum": [
+        128,
+        0
+      ],
+      "intensity": "200/3721"
+    },
+    {
+      "port": 3,
+      "ordered_pairs": 9,
+      "exact_gaussian_sum": [
+        2330,
+        0
+      ],
+      "intensity": "29125/29768"
+    },
+    {
+      "port": 4,
+      "ordered_pairs": 9,
+      "exact_gaussian_sum": [
+        1864,
+        0
+      ],
+      "intensity": "5825/7442"
+    },
+    {
+      "port": 5,
+      "ordered_pairs": 9,
+      "exact_gaussian_sum": [
+        1261,
+        0
+      ],
+      "intensity": "31525/59536"
+    }
+  ],
+  "full_source_norm_squared_bound": "347150/115351",
+  "param_h_open_closed_interval": "1 < h <= 71/46",
+  "q3": "29125/29768",
+  "target_port": 3,
+  "report_Im_target": "h",
+  "other_nine_components_target": 0,
+  "absolute_component_error": 1,
+  "phase_endpoint_imag_floor_max": "25/46",
+  "hausdorff_radius_lipschitz_constant": "21/10",
+  "frame_speed_certificate": "347150/115351 < (21/10)^2*(29125/29768-(25/46)^2)",
+  "reference_h": "3/2",
+  "prefix342_five_contact_r2_lower": "16322694483/6250000000",
+  "radius_lower_at_reference": "202/125",
+  "max_h_perturbation_from_reference": "1/23",
+  "all_h_strict_radius_lower": "8767/5750",
+  "all_h_strict_radius_squared_lower": "76860289/33062500",
+  "legacy_L": "1062562/458329",
+  "certified_superL_margin": "96343272081/15153502562500",
+  "all_h_nonempty_compact": true,
+  "no_antipodes_for_h_gt_one": true,
+  "analytic_proof_dependencies": [
+    "All q_j<1 makes nine non-target report components automatic.",
+    "Global unit phase preserves all ordered BRC pairs and exact intensities.",
+    "Arc boundary speed ||a||/sqrt(q3-t^2) bounded by 21/10.",
+    "Nested upper arcs give d_H(S(h1),S(h2))<=21/10*(h2-h1).",
+    "MEB radius is 1-Lipschitz under Euclidean Hausdorff distance.",
+    "PREFIX342 five-contact lower proves R(S(3/2))>202/125."
+  ],
+  "not_required": "SIX_SOURCE_EXHAUSTIVENESS_FOR_ANY_FULL_FIBRE_LOWER_BOUND",
+  "scope_limitations": [
+    "author-side",
+    "static auxiliary C3",
+    "global phase retained",
+    "X6/Detector/time preservation pending",
+    "native review pending"
+  ]
+}

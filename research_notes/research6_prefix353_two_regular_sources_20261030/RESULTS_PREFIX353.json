@@ -1,0 +1,111 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX353_EXACT_ROOT_COUNT_V1",
+  "research_status": "AUTHOR_SIDE_EXACT_SYMBOLIC_PROOF_UNREVIEWED_NOT_ADMITTED",
+  "parameter": "1/4",
+  "input_q0": [
+    "2125/3721",
+    "200/3721",
+    "29125/29768",
+    "5825/7442",
+    "31525/59536"
+  ],
+  "input_qplus": [
+    "4",
+    "1",
+    "1",
+    "1",
+    "1"
+  ],
+  "q_at_t": [
+    "21259/14884",
+    "4321/14884",
+    "117143/119072",
+    "24917/29768",
+    "154111/238144"
+  ],
+  "intensity_ratios": [
+    "1",
+    "4321/21259",
+    "117143/170072",
+    "24917/42518",
+    "154111/340144"
+  ],
+  "sextic_coefficients_ascending": [
+    "5090835228527261 + 71614895574338548*I",
+    "417416545202030142 + 543235570042720056*I",
+    "3337275220717175466 + 1137796654098146880*I",
+    "10776039194181628336",
+    "16419146937566867214 - 5597875276434275520*I",
+    "10103847682197884622 - 13149381638926200696*I",
+    "606268127997851879 - 8528625800598994972*I"
+  ],
+  "resultant_factor": "nonzero_constant * u * P(u)",
+  "resultant_constant": "117143/3346503372637742055424",
+  "complex_roots_total_with_multiplicity": 6,
+  "rational_disks": [
+    {
+      "center_real": "-851569/1000000",
+      "center_imag": "-150284/1000000",
+      "radius": "1/100000",
+      "rouche_certificate": "8*LHS<RHS",
+      "sector": "A",
+      "physical_modulus": "PROVED_OUTSIDE"
+    },
+    {
+      "center_real": "-450571/1000000",
+      "center_imag": "-15519/1000000",
+      "radius": "1/100000",
+      "rouche_certificate": "8*LHS<RHS",
+      "sector": "B",
+      "physical_modulus": "PROVED_EQUAL"
+    },
+    {
+      "center_real": "-291886/1000000",
+      "center_imag": "343595/1000000",
+      "radius": "1/100000",
+      "rouche_certificate": "8*LHS<RHS",
+      "sector": "C",
+      "physical_modulus": "PROVED_EQUAL"
+    },
+    {
+      "center_real": "-231474/1000000",
+      "center_imag": "-40850/1000000",
+      "radius": "1/100000",
+      "rouche_certificate": "8*LHS<RHS",
+      "sector": "A",
+      "physical_modulus": "PROVED_INSIDE"
+    },
+    {
+      "center_real": "33589/1000000",
+      "center_imag": "-195171/1000000",
+      "radius": "1/100000",
+      "rouche_certificate": "8*LHS<RHS",
+      "sector": "D",
+      "physical_modulus": "PROVED_INSIDE"
+    },
+    {
+      "center_real": "174076/1000000",
+      "center_imag": "-1011464/1000000",
+      "radius": "1/100000",
+      "rouche_certificate": "8*LHS<RHS",
+      "sector": "D",
+      "physical_modulus": "PROVED_OUTSIDE"
+    }
+  ],
+  "self_inversive_involution": "u -> (4321/21259)/conjugate(u)",
+  "unique_nonzero_v_per_sextic_root": true,
+  "all_two_physical_v_norms_exact": true,
+  "physical_source_count": 2,
+  "physical_jacobians_nonsingular": true,
+  "exact_checkers": {
+    "rouche": 6,
+    "sectors": 4,
+    "modulus_exclusions": 4,
+    "resultant": true,
+    "gcd": true,
+    "self_inversion": true,
+    "jacobian_reduction": true
+  },
+  "model_limit": "Frozen static auxiliary C^3 five-Port intensity inverse problem; no native X6 or time evolution",
+  "next": "Isolate first physical-source critical parameter in (0,1/4), conditional on the six regular t=0 predecessor sources; classify fold/collision/other change via exact discriminant."
+}

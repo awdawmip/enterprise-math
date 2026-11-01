@@ -1,0 +1,7 @@
+# PREFIX-361 | Second original-real ordinary fold and source pairing
+
+Scientific frontier: PREFIX-360 establishes, within the static auxiliary 5-Port model, an exact rational interval certificate of the first ordinary fold. Its critical t lies strictly in (0.0140246596320690270474, 0.0140246596320690270475). The original four-real-equation Jacobian has rank 3 and the oriented adjugate contractions lambda.F_t and lambda.F_xx[w,w] are both strictly negative. The two local source branches occur on the smaller-t side. This is an author-side certificate, not a native X6/time-evolution result.
+
+Immediate independent unit: freeze the same A and Q(t)/59536; certify a second exact augmented root of (F_1,..,F_4,det F_x) for 0.0669341021803707452694 < t_b < 0.0669341021803707452695, with full rational interval Newton/adjugate proof of rank 3, transverse unfolding and nonzero quadratic curvature. Determine the side of the paired sources. Preserve source IDs rather than infer global correspondence from ordering of projected elimination roots.
+
+Then connect the two certified local folds to the prior exact full-fiber 6->4->2 counts using rigorous continuation or complete source tracking. Maintain separate obligations for actual typed BRC execution and an explicit P000 native X6 embedding, three-dimensional slice third component, provenance/order, future observations and heartbeat time. Publish proof, executable code, actual output and boundaries under real authority, with independent review pending.

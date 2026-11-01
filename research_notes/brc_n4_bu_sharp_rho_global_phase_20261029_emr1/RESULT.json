@@ -1,0 +1,58 @@
+{
+  "schema": "ENTERPRISE_MATH_AUTHOR_SIDE_SCIENTIFIC_RESULT_V1",
+  "date": "2026-10-29",
+  "title": "BRC N4 BU true global sharp rho transition from root-formula minimax to E0",
+  "model": "Strictly positive external 16-leaf P/Q behavioral causal stopping model; observer (T,Decision,Z_BU)",
+  "status": "AUTHOR_ANALYTIC_PROOF_EXACT_CHECKED_UNREVIEWED_NOT_ADMITTED",
+  "statement": {
+    "domain": "0<a<=1, rho*a<=b<=1, rho=(sqrt(5889)-25)/329",
+    "d2_equals_d23": true,
+    "formula": "b*(2*a-7*b)/(8*(a+2*b)) if rho*a<=b<=2*a/7; 0 if b>=2*a/7",
+    "root_strictly_suboptimal": "rho<b/a<2/7; h=b*C/(4+C) with C positive root of (a+3b)C^2+(3a+8b)C+14b-4a=0",
+    "capacity_condition": "Not required for the global upper cone"
+  },
+  "witness": {
+    "a": "1/2",
+    "b": "872/10793",
+    "C": "9/25",
+    "true_loss": "1022202/154134833",
+    "old_root_candidate": "72/10793",
+    "strict_gap": "6030/154134833",
+    "policy": {
+      "A": "1/2",
+      "B": "872/10793",
+      "u": "4689/14281",
+      "U": "16541840/154134833",
+      "V": "872/10793"
+    }
+  },
+  "validation": {
+    "published_program": "VERIFY_RELEASE.py",
+    "published_program_executed": true,
+    "published_symbolic_relations": 22,
+    "published_exact_16_leaf_counterexample": true,
+    "extended_local_validation": "32 symbolic identities, four additional 16-leaf rational high-cone strategies and zero policy; extended source in local evidence archive, not claimed to be same as concise release",
+    "continuous_theorem_basis": "Analytic TV event dual three-way partition with matching legitimate causal strategy; finite checks are corroboration",
+    "formal_checker": false,
+    "independent_reviewer": false
+  },
+  "authority": {
+    "github_login": "awdawmip",
+    "native_research_authority": false,
+    "owner_read": "CONTROL_QUOTA",
+    "formal_claim": false,
+    "formal_result": false,
+    "driver_review": false
+  },
+  "source_pins": {
+    "GLOBAL_KNOWLEDGE_V1": "0d4f6f9957a0e636c207d4c6fc4585463e72a96c",
+    "enterprise_math_scientific_input": "054560e20268196aa73885c4f2eb5c05c7e21ab0",
+    "causal_reduction": "1a4898a57e952245eeacb38be7adf109faa49f49",
+    "previous_rho_certificate": "9bf7867bb34ae3737630a145286dc80a73b46e1a"
+  },
+  "limits": [
+    "External finite source-labelled observer only; not P000 native X6, no physical bridge",
+    "Low-cone root-attaining capacity wall a+3h>1 remains open",
+    "Native task/Result or independent Driver acceptance not claimed"
+  ]
+}

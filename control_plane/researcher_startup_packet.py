@@ -18,6 +18,11 @@ import re
 from pathlib import Path
 from typing import Any, Iterable
 
+if __package__:
+    from .research_normative_context import current_normative_context
+else:
+    from research_normative_context import current_normative_context
+
 ROOT = Path(__file__).resolve().parents[1]
 POLICY_PATH = ROOT / "research_context_budget.json"
 SCHEMA = "ENTERPRISE_MATH_RESEARCHER_STARTUP_PACKET_V1"
@@ -276,6 +281,7 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
 
     packet: dict[str, Any] = {
         "schema": SCHEMA,
+        "current_normative_context": current_normative_context(),
         "request_id": request_id,
         "generated_at": receipt.get("generated_at"),
         "source_sha": source_sha,

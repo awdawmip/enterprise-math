@@ -1,0 +1,66 @@
+{
+  "status": "PASS_PREFIX370_EXACT_SIX_AND_TWO_SOURCE_INTERVALS",
+  "arithmetic": "exact rational/Gaussian rational",
+  "r_radius": "3/1000000000",
+  "cases": [
+    {
+      "r0": "5/16",
+      "t0": "1925/582401",
+      "r_interval": [
+        "312499997/1000000000",
+        "312500003/1000000000"
+      ],
+      "t_interval": [
+        "7519527265625019125/2275003930173124885169",
+        "7519535234375019125/2275003882326874885169"
+      ],
+      "sturm_variations": [
+        6,
+        0
+      ],
+      "physical_source_count": 6,
+      "sylvester_sizes": [
+        11,
+        9,
+        7
+      ],
+      "neumann_strict_upper_bounds": [
+        "1/10",
+        "1/2",
+        "1/10000"
+      ]
+    },
+    {
+      "r0": "2/5",
+      "t0": "3500/36989",
+      "r_interval": [
+        "399999997/1000000000",
+        "400000003/1000000000"
+      ],
+      "t_interval": [
+        "139999994900000019125/1479560030621599885169",
+        "140000005100000019125/1479559969378399885169"
+      ],
+      "sturm_variations": [
+        4,
+        2
+      ],
+      "physical_source_count": 2,
+      "sylvester_sizes": [
+        11,
+        9,
+        7
+      ],
+      "neumann_strict_upper_bounds": [
+        "1/100",
+        "1/100",
+        "1/10000"
+      ]
+    }
+  ],
+  "all_nonzero_leading_and_constant_conditions": true,
+  "continuous_not_sampling": true,
+  "verified_by": "locally executed Python SymPy 1.14 full and compact checkers",
+  "independent_review": false,
+  "native_X6_BRC_bridge": false
+}

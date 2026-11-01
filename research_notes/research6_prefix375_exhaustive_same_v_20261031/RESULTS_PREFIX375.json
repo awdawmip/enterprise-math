@@ -1,0 +1,28 @@
+{
+  "unit": "PREFIX-375",
+  "date_local": "2026-10-31",
+  "global_knowledge_pin": "7c3130bc1a11f50266cfef83d123c939fdf3917d",
+  "em_scientific_input": "d6784e1dad20bf11d02962ba8f199ea95051218a",
+  "model": "static auxiliary complex three-dimensional five-Port U(1) source",
+  "theorem": "unique physical x with two distinct sources sharing exact same v, exactly two sources there",
+  "P_Zx": "969505478041769500*x^3-252816887318686105*x^2+21782521288209164*x-619641499680032",
+  "root_interval": [
+    "100169778291/1000000000000",
+    "100169778292/1000000000000"
+  ],
+  "sturm_real_roots_total": 3,
+  "sturm_roots_below_physical": 2,
+  "sturm_roots_physical": 1,
+  "witness": {
+    "N_gt": "1/10",
+    "slack_gt": "1/125",
+    "Cu_gap_gt": "1"
+  },
+  "local_execution": [
+    "PASS_PREFIX375_UNIQUE_GLOBAL_SAME_V_DOUBLE_SOURCE"
+  ],
+  "verification": "exact rational polynomial Groebner basis equality, Sturm root counts and zero-free strict sign interval",
+  "status": "UNREVIEWED / NOT_ADMITTED",
+  "native_X6_or_typed_BRC_computation": false,
+  "remaining": "different conjugate v with equal Cv and minimal joint observer"
+}

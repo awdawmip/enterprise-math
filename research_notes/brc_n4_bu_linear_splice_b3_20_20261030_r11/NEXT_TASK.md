@@ -1,0 +1,9 @@
+# Next exact BRC N=4 BU discrimination after b<=3/20
+
+Current verified author-side frontier: within the *external* strictly positive 16-leaf P/Q finite model with full (T,Decision,Z_BU) joint observation, all real 0<b<=3/20, alpha(b)<=a<=1 are conditionally solved by the capacity strategy, with d2=d23=E=(a+3b-1)(7-a-21b)/[12(4a+12b+2)]. The new linear splice is k(a)=3a/5-59/250. Do not repeat the 35 symbolic assertions or 7 finite 16-leaf rational checks unless dependencies/inputs change; those are author validation, not independent review.
+
+**Exact new obstruction:** At a=481/500,b=19/125=0.152,q=17/50, G=1957/250000>0, C=1423/3836, and L0(q)-E=-1201/26971875, L3(q)-E=-38597/2841037500. L3 increases on [0,q], L0 decreases on [0,3/7], hence no **single** k in [0,3/7] can make both endpoints >= E. This is a strict *dual splice impossibility*, not a counterexample to optimal strategy.
+
+**Smallest distinct next question:** Can a new **legal observable joint-event TV functional**, a multi-location dual cover, or a direct primal/dual minimax argument prove d2=d23=E at this exact rational parameter (and then on an open continuous region past b=3/20)? If not, exhibit a lawful rational randomized causal competitor (A,B,u,U,V) satisfying all inequalities and compute the complete 16-leaf P and Q total variations, *both* strictly below E=297407/23016000 at this parameter.
+
+Reuse original source-marked BU four-atom reduction and event formulas from commits 1a4898a57e952245eeacb38be7adf109faa49f49, d78e2b5729c824918126aec8ffb26ff3e5dc4cb5, and this folder's PROOF.md/VERIFY.py. No P000 native-X6, future AU provenance or physical-time equivalence has been established. Keep author contribution and reviewer independence status truthful; do not claim a native Task/Result/CLAIM without actual current authority.

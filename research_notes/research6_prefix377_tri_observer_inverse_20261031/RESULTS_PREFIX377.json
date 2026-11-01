@@ -1,0 +1,43 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_SYMBOLIC_RESULT_V1",
+  "unit": "PREFIX-377",
+  "date": "2026-10-31",
+  "model": "static auxiliary complex 3-component five-port intensity inverse",
+  "global_knowledge_source": "db67e816ccef05e3ef541cbcf54b7fecdf36e9d7",
+  "enterprise_math_source": "64565b090581935a850c483272bf5b26b8077486",
+  "x_range": [
+    "8/85",
+    "4321/21259"
+  ],
+  "K": "1101/424 - (995/106)*x",
+  "readouts": [
+    "Cu=1+x+2a",
+    "Du=1+x-2b",
+    "Cv=1+K(x)+2c"
+  ],
+  "reconstruction": [
+    "a=(Cu-1-x)/2",
+    "b=(1+x-Du)/2",
+    "c=(Cv-1-K(x))/2",
+    "d=N/D"
+  ],
+  "D": "10+6a-14b",
+  "N": "(14a+6b+18)*c+(39/2)*a-2*b+(132-257*x)/4",
+  "exact_checks": {
+    "x_max_lt_quarter": true,
+    "232U": "1002472/21259",
+    "232U_lt_49": true,
+    "232Kmax": "6757/17",
+    "232Kmax_lt_400": true,
+    "D_gt_three": true,
+    "finite_difference_identity": true,
+    "inverse_lipschitz": "173/12",
+    "feasible_candidate_diameter_per_eta": "173/6"
+  },
+  "execution": "python3 verify_prefix377.py; author-side SymPy exact symbolic local run",
+  "stdout_marker": "PASS_PREFIX377_UNIFORM_TRI_OBSERVER_INVERSE_LIPSCHITZ",
+  "scope": "same fixed t and same original five intensities, two physically admissible normalized sources",
+  "status": "AUTHOR_SIDE_EXACT_SYMBOLIC / LOCAL_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+  "native_authority": "STATIC_READONLY_SCOPE_DENIED; CONTROL_QUOTA; no CLAIM/Result/Driver admission",
+  "native_P000_X6_typed_BRC": false
+}

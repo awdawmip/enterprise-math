@@ -1,0 +1,50 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_RESEARCH_RESULT_V1",
+  "date": "2026-10-29",
+  "title": "Exact gamma minimax switch for a=49/50 fixed BRC N4 BU observer",
+  "scope": "External strictly positive 16-leaf finite two-law BRC stopping tree, full (T,Decision,Z_BU) observer, all real lawful causal policies",
+  "theorem": "d2=d23=e_p for 3/50<=b<=gamma; =e_0 for gamma<=b<=7/25; =0 for 7/25<=b<=1",
+  "gamma": "(sqrt(38494)-83)/750",
+  "gamma_approx": "0.15093183825600634856",
+  "beta_old": "0.12916563872152901812",
+  "e_p": "(7-a-21b)*(a+3b-1)/(12*(4a+12b+2)); a=49/50",
+  "e_0": "b*(2a-7b)/(8*(a+2b)); a=49/50",
+  "strict_witness": {
+    "a": "49/50",
+    "b": "4/25",
+    "strategy": [
+      "49/50",
+      "4/25",
+      "21/65",
+      "344/1625",
+      "4/25"
+    ],
+    "optimal_TV": "21/1625",
+    "obsolete_capacity_extrapolation": "437/33600",
+    "gap": "181/2184000"
+  },
+  "verification": {
+    "program": "VERIFY_RELEASE.py",
+    "local_extended_ran": true,
+    "release_source_stored": true,
+    "release_source_byte_rerun": false,
+    "symbolic_identity_groups": 19,
+    "positive_leaves": 16,
+    "capacity_samples": 5,
+    "alternative_samples": 5,
+    "zero_samples": 4,
+    "last_line": "PASS_EXACT_GAMMA_SWITCH_HIGH_B_RELEASE",
+    "continuous_quantifiers_by": "analytical exhaustive event-dual proof"
+  },
+  "authority": {
+    "github_login": "awdawmip",
+    "research_authority_granted": false,
+    "current_owner_query": "CONTROL_QUOTA",
+    "native_claim": false,
+    "native_result": false,
+    "driver_review": false,
+    "admission": "UNREVIEWED / NOT_ADMITTED"
+  },
+  "fidelity": "No proved native P000 X6 / heartbeat bridge",
+  "next": "solve 0<b<3/50 at fixed a=49/50"
+}

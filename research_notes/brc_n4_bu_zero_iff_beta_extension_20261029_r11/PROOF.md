@@ -1,0 +1,82 @@
+# BRC N=4 BU observer: complete zero-loss boundary and enlarged exact capacity interval
+
+**2026-10-29 | AUTHOR ANALYTIC PROOF / EXACT CHECKS / UNREVIEWED / NOT_ADMITTED.**
+
+## Frozen model and provenance
+
+Source: `enterprise-math@01959291d98e6d666cf6b769889bcca623caf12c:research_notes/brc_n4_bu_expanded_rectangle_zero_wedge_20261029_r1t11/PROOF.md` (parent blob `8dfee379b45b88dfe26f07375e076fa071c19843`). The external strictly positive 16-leaf double law has second-stage Q masses AU=1/6, AV=1/3, BU=1/4, BV=1/4, ratios P/Q=1,1/4,1,2; AU third descendants have P/Q 9/10,11/10 and BU descendants 1/5,9/5. Both laws normalize exactly to 1. This is not a verified native P000 X6/three-dimensional-slice/time embedding.
+
+For target F=(a,b,1,0), 0<a,b<=1, observation (T,Decision,Z_BU) and causal AU/BU shared instantaneous behavior, reuse the source-proved observation-preserving deterministic postprocessing and actual realizability (not an unconstrained occupancy relaxation): d2=d23 equals the global minimax over A,B,c,U,V with 0<=A,B,c<=1, 0<=U<=A, 0<=V<=B. Set
+
+s=(A-a+B-b)/2,
+t=(A-a+3(B-b))/4,
+H=Bc/4,
+rQ=a/6-Ac/6-U/3-V/4,
+rP=a/6-Ac/6-U/12-V/2.
+
+The target-minus-competitor four-atom signed measures, ordered (1,Q,0),(2,Q,0),(3,P,0),(3,Q,1), are
+
+DeltaQ=(s,H-s-rQ,rQ,-H),
+DeltaP=(t,H-t-rP,rP,-H).
+
+They each sum to zero; e=max(TVQ,TVP) is at least the absolute signed mass on any atom or event. This complete-observer reduction is sourced, while the following two results are new.
+
+## Theorem 1 — Exact zero-loss domain, both directions
+
+For **every real 0<a,b<=1**,
+
+**d2(a,b)=d23(a,b)=0 iff b>=2a/7.**
+
+When b>=2a/7, the legal policy A=a, B=b, c=0, U=V=2a/7 makes both four-atom differences zero (previous source's sufficient construction). Conversely if e=0, the first atoms s=t=0 give B-b=2t-s=0 and A-a=3s-2t=0. Since b>0, last-atom H=Bc/4=0 forces c=0. The third atoms rQ=rP=0 then force U=V by subtraction and U=V=2a/7 by substitution, so V<=B implies b>=2a/7. For an infimum approaching 0, the closed bounded feasible five-parameter set is compact, giving the same conclusion. The exact-zero compressed policy is unique; full-history refinements need not be unique.
+
+**Strict quantitative version.** If 0<b<2a/7, all real causal competitors obey
+
+**e >= b(2a-7b)/(14+41b)>0.**
+
+Indeed |s|,|t|,|rP|,|rQ|<=e and H=Bc/4<=e. Thus |B-b|=|2t-s|<=3e, bc=Bc+(b-B)c<=4e+3e=7e, and Ac<=c<=7e/b (A,c<=1). The *exact identity*
+
+2a-7b = 2Ac+7(V-b)+16rP-4rQ
+
+follows from 8rP-2rQ=a-Ac-7V/2. Since V<=B, it gives 2a-7b<=14e/b+21e+16e+4e, which rearranges to the claimed lower bound. The source causal reduction extends this inequality to any original full-history candidate, not only the compressed witnesses.
+
+## Theorem 2 — A certified nonempty extension of exact capacity optimum
+
+Fix a=49/50 and let
+
+q(b)=1372500*b^2-2953800*b+358631;
+**beta=1641/1525-sqrt(3002689)/1830 = 0.129165638721529018...**,
+
+the unique root of q in (9/70,13/100). For **all real 3/50<=b<=beta**, the full causal minimax is
+
+**d2=d23=ep=(a+3b-1)(7-a-21b)/[12(4a+12b+2)]**, at a=49/50.
+
+The interval is strictly larger than the previously proved b<=9/70 rectangle; beta is only an endpoint of the exhibited dual certificate, **not** a proved true optimizer switch.
+
+*Matching real causal upper witness:* A=1, B=(a+3b-1)/3=b-1/150, c=cp=(7-a-21b)/(4a+12b+2)=7(43-150b)/[8(75b+37)], U=B(1+cp), V=B. For the stated interval, 3/7<cp<=119/166<1, B>0 and U<2b<=13/50<a, so all causal inequalities hold. Substitution gives DeltaQ=((1-a)/3,ep-(1-a)/3,0,-ep) and DeltaP=(0,0,ep,-ep). Q has TV=ep because 3ep>=(1-a), equivalent to G>=0 where G=5a^2+8ab-21b^2-2b-5. Here G(3/50)=48/625 and dG/db=(2920-21000b)/500>0 up to b<13/100, hence both TVs are ep.
+
+*Universal event-dual lower witness:* The source derivation has actual nonnegative event weights that sum to 1 and causal corrections with V-B<=0 or A-1<=0, giving for every legal competitor
+
+L0(c)=[4a-14b-3ac-(a+3b)c^2]/[2(23-2c)]<=e, if 0<=c<=3/7;
+L3(c)=c[a-(a+3b)c]/[2(7-2c)]<=e, if 0<=c<=1;
+R(c)=c(a+3b-1)/12<=e, if 0<=c<=1.
+
+These are exact linear combinations of *complete observed four-atom events*. VERIFY.py checks the three symbolic identities. L0 decreases for a,b>0 on [0,3/7]. The exact source identity
+
+L0(3/7)-ep=N0/[840(2a+6b+1)],
+N0=131a^2+576ab-232a+549b^2-1746b+245
+
+becomes N0=q(b)/2500 at a=49/50. q is strictly decreasing on [3/50,13/100], q(9/70)>0, q(13/100)<0, so L0(3/7)>=ep through beta. Also the exact factorization at a=49/50 is
+
+L3(3/7)-ep=(4650b-931)(9150b-1219)/[1444800(75b+37)]>0,
+
+as b<=beta<13/100<1219/9150<931/4650. The derivative sign of L3 is that of D(c)=7a-14(a+3b)c+2(a+3b)c^2, with D'(c)=(a+3b)(4c-14)<0 for c in [0,1]; thus L3 has no interior minimum. As L3(cp)=R(cp)=ep and R is strictly increasing, split c into [0,3/7], [3/7,cp], [cp,1]. The L0 endpoint, L3 endpoints, and R monotonicity respectively yield e>=ep on every interval. The actual causal upper witness gives equality.
+
+*New rational point beyond previous certified range:* a=49/50, b=129/1000>9/70 and <beta; A=1, B=367/3000, c=3311/7468, U=1318631/7468000, V=367/3000, and **TVP=TVQ=1215137/89616000**.
+
+## Exact run, source and next objective
+
+Local extended VERIFY.py was executed with SymPy and Fraction: 20 symbolic equality groups, 16 strictly positive Q/P leaf pairs and exact mass conservation, 3 exact rational capacity points (including 129/1000), 3 exact zero-loss witnesses, 1000 exact lawful random competitors checked against the global lower bound. Exit 0: PASS_EXACT_SYMBOLIC / PASS_RECTANGLE_POINT / PASS_ZERO_WEDGE / PASS_1000_EXACT_CAUSAL_COMPETITORS. The continuous-real theorems are analytical and do not follow from a finite random test. No Lean formalization, independent review, native Result, or native X6 fidelity claim.
+
+GLOBAL_KNOWLEDGE_V1 control pin main@1aa429dd8447ba15023b009f1553184679af16a2; source-selected Enterprise Math main@7638017feec1a8d8a4ac533ead9eed21deab0ac9, original parent proof as above. P000 world is discrete native six-axis spatial cells, an independent time coordinate, three-dimensional research slice (not a native 2D plane), with mandatory provenance-residual semantics; this finite double-law theorem does not establish faithful native transfer.
+
+Next: for fixed a=49/50 and beta<b<=gamma=(sqrt(38494)-83)/750, find a new full-atom event dual or a strictly better exact feasible policy. L0(3/7)'s failure above beta is **not** proof of primal optimizer failure, and gamma is only a crossing of two upper-bound families.

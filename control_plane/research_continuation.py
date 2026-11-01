@@ -20,6 +20,8 @@ from pathlib import Path, PurePosixPath
 from typing import Any, Mapping
 from urllib.parse import unquote, urlsplit
 
+from control_plane.research_normative_context import current_normative_context
+
 SCHEMA = "ENTERPRISE_MATH_CLAIM_CONTINUATION_V1"
 REPOSITORY = "awdawmip/enterprise-math"
 POLICY = "control_plane/executor_succession_policy.json"
@@ -692,6 +694,7 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                      "retry_after": ready_at.isoformat(), "last_canonical_owner_activity_at": state["last_owner_activity_at"],
                      "activity_barrier_is_not_independent_session_liveness_proof": True}
     return {"schema": "ENTERPRISE_MATH_CONTINUATION_PACKET_V1", "source_commit": source_commit,
+            "current_normative_context": current_normative_context(),
             "observed_at": now.isoformat(), "task_id": task_id, "publication_id": record["publication_id"],
             "task": copy.deepcopy(record), "runtime": state, "route": _route(state, result_available=result_available),
             "source_artifacts": pins, "artifact_errors": artifact_errors,

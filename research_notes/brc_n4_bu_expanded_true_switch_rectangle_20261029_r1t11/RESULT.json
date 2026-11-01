@@ -1,0 +1,68 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_RESULT_V1",
+  "date": "2026-10-29",
+  "problem": "BRC N4 BU source-bit: globally optimal causal TV distance in an enlarged two-parameter rectangle",
+  "mathematical_scope": "external strictly-positive 16-leaf two-law P/Q stopping tree; observable (T,Decision,Z_BU); target F=(a,b,1,0); all legal real-time causal randomized S2 and S23 strategies, conditional on inherited full lawful strategy four-observation-atom reduction",
+  "parameter_domain": {
+    "a_min": "39/40",
+    "a_max": "99/100",
+    "b_min": "1/50",
+    "b_max": "2/25"
+  },
+  "exact_result": {
+    "switch_polynomial": "G=5*a^2+8*a*b-21*b^2-2*b-5",
+    "root_equation": "(a+3*b)*c^2+(3*a+8*b)*c+14*b-4*a=0; c* unique in (3/7,1)",
+    "if_G_nonpositive": "d2=d23=b*c*/(4+c*)",
+    "if_G_nonnegative": "d2=d23=(a+3*b-1)*(7-a-21*b)/(12*(4*a+12*b+2))",
+    "on_G_zero": "formulas and lawful witness strategies coincide at A=1",
+    "prior_rectangle_area_ratio": "45/2"
+  },
+  "exact_witnesses": [
+    {
+      "branch": "root",
+      "a": "39/40",
+      "b": "1911/94520",
+      "c": "9/10",
+      "d": "351/94520"
+    },
+    {
+      "branch": "switch",
+      "a": "93/95",
+      "b": "4/95",
+      "c": "4/5",
+      "d": "2/285"
+    },
+    {
+      "branch": "capacity",
+      "a": "39/40",
+      "b": "3/40",
+      "c": "89/136",
+      "d": "89/8160"
+    }
+  ],
+  "evidence": {
+    "proof": "PROOF.md",
+    "release_source": "VERIFY_RELEASE.py",
+    "original_local_execution_source_sha256": "21bd5c1250e19f407666ef37da49ff7def78b8f25178ea16a62eccef0db22b4b",
+    "execution_output": "VERIFY_EVIDENCE.txt",
+    "execution_status": "PASS_EXACT_BRC_N4_BU_EXPANDED_2D_RECTANGLE",
+    "actual_local_checks": "17 symbolic identities; normalized 16 strictly positive P and Q source leaves; four exact matching witness calls for three distinct parameter points",
+    "published_release_source_byte_identical_execution": "NOT_EXECUTED",
+    "continuous_real_parameter_proof": "analytic observable-event TV dual covering all c in [0,1] and lawful matching causal strategies"
+  },
+  "provenance": {
+    "global_knowledge_v1_snapshot": "a37fa4ab30818265e57b5f75ab3b9897a92642c8",
+    "enterprise_math_science_snapshot": "7077ed6a37db2b05bf0e43aa640e56f8fb0024c5",
+    "inherited_brc_author_proof": "2f8848bc7384af055041a64e47ae8ffb7e46e1dd",
+    "causal_reduction_dependency": "01959291d98e6d666cf6b769889bcca623caf12",
+    "k_dual_dependency": "bf8837884b110d34ee83766bdf99cb9d7db22409",
+    "github_identity": "awdawmip",
+    "native_service_status": "0.6.11; research_authority_granted=false; control CODE_REVIEW_REQUIRED; native active jobs 5/5",
+    "active_owner": "NOT_INDEPENDENTLY_CONFIRMED",
+    "native_role_and_claim": "NO_CLAIM_OR_RESULT_GRANTED",
+    "research_role": "AUTHOR_SIDE_PORTABLE_TASK_RESEARCH"
+  },
+  "status": "AUTHOR_ANALYTIC_PROOF / LOCAL_EXACT_VERIFIED / GITHUB_PUBLICATION_PENDING_READBACK / UNREVIEWED / NOT_ADMITTED",
+  "native_x6_fidelity": "NOT_PROVED",
+  "next": "Test first optimal branch transition beyond b=2/25: L0/L3 dual endpoint, c_C=3/7, U causal constraints and alternative e0=b(2a-7b)/(8(a+2b))."
+}

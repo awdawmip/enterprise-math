@@ -1,0 +1,9 @@
+2026-10-29 14:12 Asia/Shanghai, local CPython/SymPy exact verifier execution. Input pinned as described in PROOF.md.
+WITNESS root a= 39/40 b= 1911/94520 c= 9/10 exact_tv= 351/94520
+WITNESS root a= 93/95 b= 4/95 c= 4/5 exact_tv= 2/285
+WITNESS cap a= 93/95 b= 4/95 c= 4/5 exact_tv= 2/285
+WITNESS cap a= 39/40 b= 3/40 c= 89/136 exact_tv= 89/8160
+PASS_EXACT_BRC_N4_BU_EXPANDED_2D_RECTANGLE 17 symbolic identities 16 positive leaves
+Executed local source: VERIFY.py in local evidence bundle, SHA256 21bd5c1250e19f407666ef37da49ff7def78b8f25178ea16a62eccef0db22b4b.
+GitHub VERIFY_RELEASE.py is a separately prepared, fuller release verifier; the actual output above is from the local source, and identical published-byte reexecution is not claimed.
+Finite checks confirm algebraic identities and witnesses; real-parameter minimax relies on the analytic proof and inherited full-causal-reduction result.

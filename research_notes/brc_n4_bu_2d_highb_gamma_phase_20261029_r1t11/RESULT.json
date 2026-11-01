@@ -1,0 +1,28 @@
+{
+  "schema": "EM_AUTHOR_MATH_RESULT_V1",
+  "status": "AUTHOR_ANALYTIC_PROOF",
+  "independent_review": "PENDING",
+  "canonical_admission": "NOT_ADMITTED",
+  "date": "2026-10-29",
+  "model": "external finite 16-leaf BRC BU observer; inherited all-causal reduction",
+  "domain": {
+    "a": [
+      "97/100",
+      "99/100"
+    ],
+    "b": [
+      "307/2100",
+      "1"
+    ]
+  },
+  "result": "d2=d23=e_p for b<=gamma(a); =e_0 for gamma(a)<=b<=2a/7; =0 beyond",
+  "gamma": "(7-19a+sqrt(256a^2+469a+49))/105",
+  "verification": {
+    "sympy": "PASS_EXACT_BU_N4_TWO_DIMENSIONAL_HIGHB_SWITCH_20261029",
+    "rational_cases": 6,
+    "python_source_sha256": "6ed4a40ff0289149daaead644c0bded71f99a27708db69ac82e3143d428f340e",
+    "git_blob_sha1": "808e3253f534351d6c7a620f146485c3a3a9b8be",
+    "full_leaf_independent": "PENDING"
+  },
+  "next": "Audit causal reduction; extend b<1/100 or gamma curve in a."
+}

@@ -1,0 +1,32 @@
+{
+  "unit": "PREFIX-376",
+  "model": "auxiliary static complex 3-component / 5-Port intensity",
+  "claim": "joint (Cu,Cv) is injective on the physical source fiber for every t in [0,1/4]",
+  "physical_x_range": [
+    "8/85",
+    "4321/21259"
+  ],
+  "checks": {
+    "recomputed_B_and_two_normalized_intensity_equations": true,
+    "conjugate_u_only_forces_v": [
+      "-35/18",
+      "41/42"
+    ],
+    "conjugate_u_only_lower_bound_c2_minus_Kmax": "22777/11016",
+    "conjugate_v_only_forces_u": [
+      "26/9",
+      "41/21"
+    ],
+    "conjugate_v_only_a2_gt_xmax": true,
+    "both_conjugated_forces_b_equal_minus2d": true,
+    "both_conjugated_forces_a_equal_minus1_minus2c": true,
+    "K_minus_c2_equals_minus_N_over_179776": true,
+    "N_derivative_at_upper_bound": "-29533757524/21259",
+    "N_at_upper_bound": "8101139328585/451945081",
+    "explicit_real_part_recovery": true
+  },
+  "verification": "exact symbolic identities and rational inequalities; paper sign case split",
+  "depends_on_prior_source_classification_for_injectivity": false,
+  "status": "AUTHOR_SIDE_EXACT_SYMBOLIC / LOCAL_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+  "native_X6_or_typed_BRC_execution": false
+}

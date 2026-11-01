@@ -1,0 +1,54 @@
+{
+  "schema": "PREFIX340_EXACT_RATIONAL_VERIFIED_OUTPUT_SUMMARY_V1",
+  "status": "PASS_AUTHOR_SIDE_EXACT_RATIONAL_WITH_FROZEN_SIX_ORBIT_EXHAUSTIVENESS",
+  "actual_executed_checker": "/mnt/data/prefix340/verify_prefix340.py",
+  "actual_executed_checker_sha256": "dd3e49dac53e6c7ed5e30c8285a99bf24383fa3df75739a6cf7b9b95c57eb1b0",
+  "actual_complete_machine_json_sha256": "11cda4a1c0ff027b243fda104a0e85d8486d35e06975698ac999dfc9cc05639e",
+  "reproducer_in_repo": "verify_prefix340.py",
+  "note": "This is a compact summary of actual exact rational test output, not byte-for-byte copy of the larger local machine JSON. The full local executable and machine JSON remain in the conversation source package.",
+  "frozen_global_snapshot": "af7078ea2c398adb2c9009d23bbf3df01483880a",
+  "frozen_project_snapshot": "c7c8b0ea6797e9a549073d0babe7ec67e78cb893",
+  "first_independent_certificates": [
+    "C4 Banach existence-uniqueness",
+    "C5 Banach existence-uniqueness",
+    "45 ordered source-labelled BRC path pairs",
+    "10 nonzero three-row minors",
+    "six rational squared-norm bounds",
+    "two full rational report witnesses"
+  ],
+  "max_source_squared_norm_upper_exact": "111681147220656557937/37210000000000000000",
+  "port3_row_squared_norm": "11/16",
+  "baseline_L": "1062562/458329",
+  "wide_window": {
+    "h": "1<h<=39/25",
+    "phase_4": "(24+7i)/25",
+    "phase_5": "(-3-4i)/5",
+    "port3_imag_4_mid": "42748256309/76250000000",
+    "port3_imag_4_abs_error": "181/122000000000",
+    "port3_imag_5_mid": "68875132857/122000000000",
+    "port3_imag_5_abs_error": "47/24400000000",
+    "two_point_MEB2_lower": "925000655382376079707/372100000000000000000",
+    "strict_risk_gt": "62/25"
+  },
+  "strong_window": {
+    "h": "1<h<=151/100",
+    "phase_4": "(513+184i)/545",
+    "phase_5": "(-133-156i)/205",
+    "port3_imag_4_mid": "13904600303/27250000000",
+    "port3_imag_4_abs_error": "151/106384000000",
+    "port3_imag_5_mid": "512940296723/1000400000000",
+    "port3_imag_5_abs_error": "1849/1000400000000",
+    "two_point_MEB2_lower": "2141533632562785203651879/831457450000000000000000",
+    "strict_risk_gt": "257/100"
+  },
+  "h_3_over_2_full_fibre": {
+    "strict_lower": "257/100",
+    "strict_upper": "1079652619427222137307/409310000000000000000",
+    "strict_simple_upper": "66/25",
+    "no_feasible_antipodal_pairs": true,
+    "certificate_center": "c_h=i(h-1)conj(u)^T/||u||^2; u=third row of U",
+    "conditional_on": "PREFIX339 all six physical source phase orbits exhaust intensity fibre"
+  },
+  "scope": "auxiliary complex dimension 3 with coherent phases, not native P000 X6",
+  "role_status": "AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED; no Source CLAIM or independent Driver review"
+}

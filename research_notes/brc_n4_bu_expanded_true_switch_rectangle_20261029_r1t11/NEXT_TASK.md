@@ -1,0 +1,7 @@
+# Next scientific unit: first new two-parameter boundary beyond the enlarged switch rectangle
+
+Current exact author frontier: all real (a,b) in [39/40,99/100] x [1/50,2/25], full legal causal BU-source N=4 observable (T,Decision,Z_BU), minimax two-branch formula switched by G(a,b)=5a^2+8ab-21b^2-2b-5. Input proof is PROOF.md, with 17 exact symbolic checks and 16 positive source leaves verified locally. Inherited causal four-atom reduction and event duals remain author-only, awaiting independent review.
+
+Next smallest independent mathematical question: hold a=39/40, increase b from 2/25. Identify the first point at which the capacity strategy A=1,B=(a+3b-1)/3,c=(7-a-21b)/(4a+12b+2),U=B(1+c),V=B fails to be globally optimal, or else exhibit a strictly larger certified interval. Test exact observable lower bounds L0(c), L3(c), R(c), K(c), the endpoint c=3/7, and the alternative e0=b(2a-7b)/[8(a+2b)]. If candidate switch appears, produce an exact rational or algebraic counterexample or matching all-c TV dual plus lawful causal strategy. Preserve both P and Q totals, BU source and path provenance.
+
+Acceptance evidence for this unit: a precise boundary with a rigorous all-real c partition and matching feasible strategy, or one exact legal rival outperforming the old optimal witness. Keep P000 native X6, three-dimensional slice and separately typed time as separate fidelity-bridge obligations. Do not turn author-only result into admitted Source Result without native CLAIM and independent review.
