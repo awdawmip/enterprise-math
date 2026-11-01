@@ -1,55 +1,79 @@
-# D25 / 2026-11-02 — full-truncation Picard–Fuchs endpoint, all prime-power lengths
+# D25 — Full-period Picard–Fuchs truncation defect at every prime-power length (2026-11-02)
 
-**Status:** AUTHOR-DERIVED / EXACT PROOF / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_H0_B0. This is an author-only neutral research note, **not** a formal Source checkpoint, CLAIM, execution, Result or review. Scientific source pin remains `c47e13e4aba0e006366f989d6334d443f6333ae3`. Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication `TP2-B6F4FC938FF94941C1B7`. Research logical lane is `chatgpt-research-onhour-enterprise-math-20260923`, not the maintenance lane. No Source-registered identity is asserted.
+**Status:** AUTHOR-DERIVED / EXACT ALGEBRAIC PROOF / FINITE CHECK 12 CASES / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_EXPERIMENT. This research note is neutral evidence, NOT a formal Source checkpoint, execution, CLAIM, Result or review. Frozen scientific pin: c47e13e4aba0e006366f989d6334d443f6333ae3; publication TP2-B6F4FC938FF94941C1B7; Task RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT. Declared Research logical lane: chatgpt-research-onhour-enterprise-math-20260923, distinct from maintenance; no issued Source identity asserted.
 
-## Exact theorem
+## All-prime/all-r exact theorem
 
-Fix any prime p>3 and integer r>=1; put N=p^r, theta=z d/dz, and work with the p-integral rational polynomials
+Let p>3 be prime, r>=1, N=p^r. Set theta=z*d/dz and, in the p-local rational polynomial ring,
 
-[
-a_k=rac{(1/2)_k(1/3)_k(2/3)_k}{(k!)^3}
-=rac{inom{2k}{k}^2inom{3k}{k}}{108^k},qquad F_N(z)=sum_{k=0}^{N-1}a_kz^k,
-]
+a_k = C(2k,k)^2*C(3k,k)/108^k
+    = (1/2)_k*(1/3)_k*(2/3)_k/(k!)^3,
 
-[
-b_k=rac{(1/4)_k(1/2)_k(3/4)_k}{(k!)^3}
-=rac{inom{4k}{2k}inom{2k}{k}^2}{256^k},qquad H_N(z)=sum_{k=0}^{N-1}b_kz^k.
-]
+b_k = C(4k,2k)*C(2k,k)^2/256^k
+    = (1/4)_k*(1/2)_k*(3/4)_k/(k!)^3,
 
-Define the operators (mathcal L_A=	heta^3-z(	heta+1/2)(	heta+1/3)(	heta+2/3)), (mathcal L_B=	heta^3-z(	heta+1/4)(	heta+1/2)(	heta+3/4)). Then, **as exact rational polynomial identities**,
+F_N(z) = SUM_{k=0}^{N-1} a_k*z^k,
+H_N(z) = SUM_{k=0}^{N-1} b_k*z^k.
 
-[
-oxed{mathcal L_A F_N=-N^3 a_Nz^N,qquadmathcal L_B H_N=-N^3b_Nz^N.}
-]
+Here C(n,k) means the integer binomial coefficient, and (x)_k is the rising factorial. Define the independent differential operators
 
-Moreover, for **every** p>3 and r>=1, (a_Nequiv1/9pmod p), (b_Nequiv3/32pmod p), both units. Consequently the endpoint source coefficients have **exact** p-adic valuation 3r. Thus both full truncated equations are homogeneous modulo p^(3r), but have nonzero sources modulo p^(3r+1):
+L_A = theta^3 - z*(theta+1/2)*(theta+1/3)*(theta+2/3),
 
-[
-mathcal L_A F_Nequiv-(p^{3r}/9)z^N,qquad
-mathcal L_B H_Nequiv-(3p^{3r}/32)z^Npmod {p^{3r+1}}.
-]
+L_B = theta^3 - z*(theta+1/4)*(theta+1/2)*(theta+3/4).
 
-At the **two original model arguments**, where (W_p=(1+6	heta)F_p(1/2)), (S_p=(1+8	heta)H_p(1/9)),
+**Exactly over rational polynomials**, without limiting processes,
 
-[
-oxed{(mathcal L_A F_N)(1/2)equiv-p^{3r}/18,quad
-       (mathcal L_B H_N)(1/9)equiv-p^{3r}/96pmod{p^{3r+1}}.}
-]
+(1) L_A F_N(z) = -N^3*a_N*z^N;
+    L_B H_N(z) = -N^3*b_N*z^N.
 
-The ratio of these **two specifically typed differential defects** is (16/3mod p), *not* a proved isogeny period or native Frobenius transfer factor.
+For **every p>3 and every r>=1**, the omitted coefficients satisfy
 
-### Proof and checkable integer origin
+(2) a_N = 1/9 (mod p);  b_N = 3/32 (mod p),
 
-The term recurrences give (n^3a_n=(n-1/2)(n-2/3)(n-1/3)a_{n-1}) and (n^3b_n=(n-3/4)(n-1/2)(n-1/4)b_{n-1}). The interior coefficients cancel under their displayed operators; at the unique omitted degree z^N, the remaining coefficient is -N^3a_N or -N^3b_N. For N=p^r, Lucas gives (inom{2N}{N}equiv2), (inom{3N}{N}equiv3), (inom{4N}{2N}equiv6mod p). Fermat gives (108^Nequiv108), (256^Nequiv256mod p), hence (a_Nequiv12/108=1/9), (b_Nequiv24/256=3/32mod p). Their preceding coefficients have exact valuation 3r because all three factors N-alpha are p-units. Also ((1/2)^Nequiv1/2), ((1/9)^Nequiv1/9mod p). This proves the two special-point defects.
+and are p-adic units. Hence **the highest polynomial coefficients of both operator residuals have valuation exactly 3r**, so the full truncated series satisfy their respective homogeneous Picard–Fuchs equations modulo p^(3r), but no stronger:
 
-The computation independently evaluated the four original integer-binomial coefficients `a_(N-1),a_N,b_(N-1),b_N` modulo p^(3r+1), verified their boundary recurrences and the evaluated ODE source. **12/12 exact cases passed:** p=5,7,13,19,37 with r=1,2; p=373,1171 with r=1. For p=373, p^3=51895117, p^4=19356878641: original-point defects are 7524791965=145 p^3 and 12299142729=237 p^3, with ratio 254 (mod 373). For p=1171 the leading digits are 65 and 1110. Finite checks support, but are not the proof.
+(3) L_A F_N(z) = -(p^(3r)/9)*z^N (mod p^(3r+1));
+    L_B H_N(z) = -(3*p^(3r)/32)*z^N (mod p^(3r+1)).
 
-## Impact, provenance and actual remaining work
+At the actual unweighted arguments of the two original weighted models,
 
-The original mother task is still (Delta_p-R_p=0mod p) for p=13,19 (mod24), equivalently (W_pequiv pmod p^3) under the frozen accepted UR and *signed* Clausen source identity. This theorem **does not prove LIFT or W-S**. It establishes a sharp formal-boundary fact: modulo p^3, the **full** unweighted original model differential equations have no truncation source, whereas the previously analyzed **reflected sub-tail** has a nonzero mod-p endpoint source. These are different source objects. At p^4 the full source reappears and must not be erased. Preserve both weighted derivative ports, the signed cutoff Q, the CM twist and the odd Hesse/Green observer.
+W_p = [1+6*theta] F_p(z) evaluated at z=1/2,
+S_p = [1+8*theta] H_p(z) evaluated at z=1/9,
 
-**Next exact science:** derive or disprove a p-adic horizontal/Gauss–Manin or finite WZ transfer that matches **both weighted observables** at their CM points modulo p^3 and directly yields (W_p-S_p=0mod p^3) or (Delta-R=0mod p). A common j, a scalar ODE residual, or more numerical examples does not suffice. Earlier accepted CM0/SIMPLE/UR, reflected source-port identity, Wilson decompositions, gauge analysis and zero-fiber fourth-digit witnesses are not reopened.
+these **different operator defects** obey for each r:
 
-The **original native fixed373** H0/B0 divided-power `[X]U mod 139129`, rank, actual semilinear Frobenius eta, signed odd Green/Hesse, kappa, and independent reproduction are still NOT_EXECUTED/PENDING_OWNER via `awdawmip/enterprise-math#1559`. Do not equate the ordinary Hesse candidate norm 122102 with the native coefficient without original-class rank and normalization evidence.
+(4) [L_A F_N]_(z=1/2) = -p^(3r)/18 (mod p^(3r+1));
+    [L_B H_N]_(z=1/9) = -p^(3r)/96 (mod p^(3r+1)).
 
-Control status read this run: Sites gateway 0.6.11 reports `research_authority_granted=false`, `executor_binding_configured=false`, `UPSTREAM_CODE_REVIEW_REQUIRED` and 5/5 active native jobs. Prior request `research-onhour-20261031-0205-dispatch-r15` ended FAILED (recorded in `awdawmip/kimi-query-bridge#6633`); it was not reissued. No active own session, claim, run or Source checkpoint is claimed; this neutral Git note is **evidence persistence only**, subject to independent review and formal intake.
+Their leading digits have ratio 16/3 (mod p). This is a typed differential-operator defect ratio, NOT a proven p-adic period-transfer factor or native Frobenius gauge.
+
+## Proof
+
+The exact adjacent ratios imply
+
+n^3*a_n = (n-1/2)*(n-2/3)*(n-1/3)*a_(n-1),
+n^3*b_n = (n-3/4)*(n-1/2)*(n-1/4)*b_(n-1).
+
+After applying L_A or L_B, all internal polynomial coefficients cancel, while the only missing n=N term leaves precisely the two expressions (1).
+
+Because N=p^r, the integer Lucas congruences give C(2N,N)=2, C(3N,N)=3, C(4N,2N)=6 (mod p). Fermat gives 108^N=108 and 256^N=256 (mod p). Hence a_N=(2^2*3)/108=1/9 and b_N=(6*2^2)/256=3/32 (mod p). Both denominators are p-units for p>3, proving (2) and the sharp 3r valuation in (3). The same coefficient recurrence shows v_p(a_(N-1))=v_p(b_(N-1))=3r because all three factors (N-alpha) are units. Finally, (1/2)^N=1/2 and (1/9)^N=1/9 (mod p) yields (4). QED.
+
+The source-typed full-period cutoff in (1) is **not the prior reflected 216 sub-tail C_m**. The latter has a distinct, nonzero mod-p endpoint forcing term; both facts coexist without cancellation-by-relabeling. Project BRC is applied as provenance/observer discipline; the classical polynomial ring is not native X6 space.
+
+## Executed independent exact check
+
+A standalone integer program calculated a_(N-1), a_N, b_(N-1), b_N independently using the two original binomial formulas, checked their term-recurrence boundary modulo p^(3r+1), and evaluated both actual operator defects. **12 of 12 tests PASSED:** (p,r)=(5,1),(5,2),(7,1),(7,2),(13,1),(13,2),(19,1),(19,2),(37,1),(37,2),(373,1),(1171,1).
+
+At p=373, p^3=51895117 and p^4=19356878641, the defects modulo p^4 are 7524791965=145*p^3 and 12299142729=237*p^3; the modular digit ratio is 254. For p=1171 the leading digits are 65 and 1110. Numeric checks support but do not replace the algebraic all-prime proof.
+
+The local author-side reproducible files were generated with names d25_full_period_picard_fuchs_defect_20261102.md, .py, .check.json, .continuation.json, and a bundled .zip. This plain-text note preserves the proof even when the original local bundle is unavailable.
+
+## Mother target and exact unfinished work
+
+The frozen D25 goal remains Delta_p-R_p=0 (mod p) for all p congruent to 13 or 19 (mod 24), equivalent under accepted UR and the original signed Clausen source cutoff to W_p=p (mod p^3). The present theorem **does not prove** W_p-S_p=0 or D25 LIFT. It says a full-period *unweighted* differential-equation transport modulo p^3 does not require a truncation-source correction; it does **not** identify either weighted solution or original Q, Hesse/Green signs, twisted Frobenius or normalized Gauss–Manin map. At p^4 the two distinct defects must be restored.
+
+The next useful mathematical obligation is an explicit finite, weighted, source-preserving 216-to-2304 horizontal/Gauss–Manin or WZ transport at their CM points through p^2, yielding W_p-S_p=0 (mod p^3) or directly Delta_p-R_p=0. Do not repeat accepted D24 CM0/SIMPLE/UR, the original R=Q/p^2 identification, Wilson three-band reductions, second-digit gauge redundancy, or zero-fiber fourth-digit counterexamples. No universal congruence claim is made from finite checks.
+
+**Native benchmark:** same-original-class fixed p=373 H0/B0 divided-power [X]U (mod 139129), module rank, true semilinear Frobenius eta, odd signed Hesse/Green, kappa and independent replica remain PENDING_OWNER / NOT_EXECUTED under awdawmip/enterprise-math#1559 (open/unassigned on readback). Ordinary Hesse candidate norm 122102 is not a native coefficient without rank-one and normalization evidence.
+
+**Control:** Gateway 0.6.11 reported research_authority_granted=false, executor_binding_configured=false, UPSTREAM_CODE_REVIEW_REQUIRED, 5/5 active jobs. Prior research dispatch request research-onhour-20261031-0205-dispatch-r15 has a FAILED upstream-code-review receipt in awdawmip/kimi-query-bridge#6633; do not reissue it. No current own Source session, claim, run or role-bound checkpoint is asserted. This Git note is only neutral author-side persistence. Frozen scientific pin and original scheduling/notifications remain unchanged.
