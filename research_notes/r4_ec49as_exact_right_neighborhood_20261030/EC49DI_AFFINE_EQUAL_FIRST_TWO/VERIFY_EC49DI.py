@@ -202,6 +202,6 @@ def main():
                     global_checks.append({'h':h,'s':s,'v':v,'mode':mode,'ranks':per})
     report={'status':'PASS','weights':{'x':X,'y':Y,'a':2,'b':1},'gate_det':-2*(X[0]-X[2])**3,'extreme_rank_by_m':predicted,'extreme_h_range':f'2..{args.maxh}','extreme_m_range':'0..5','extreme_checks':len(extrema)*2,'all_fiber_checks':len(global_checks)*2,'fibers_and_modes':len(global_checks),'all_fiber_rank_max':max(d['ranks'][0]['rank'] for d in global_checks),'max_suffixes_to_reach_rank':max(z['words_until_full'] for item in global_checks for z in item['ranks']), 'global_results':global_checks}
     print(json.dumps({k:v for k,v in report.items() if k!='global_results'},ensure_ascii=False,indent=2))
-    with open('/mnt/data/ec49di_work/EC49DI_EXECUTED.json','w') as f:json.dump(report,f,indent=2)
+    with open('EC49DI_EXECUTED.json','w') as f:json.dump(report,f,indent=2)
 
 if __name__=='__main__':main()
