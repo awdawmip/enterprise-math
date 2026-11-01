@@ -1,17 +1,20 @@
-Actual local command: python /mnt/data/em_hull_phase_20261101/VERIFY.py
-Exact standard-library Fraction / ordered quadratic-field output summary:
-h=0 radical lawful=(-5+sqrt(43))/8 hull=3/16
-h=1/1000 radical lawful=(-5+sqrt(21521/500))/8 hull=47/250
-h=1/64 radical lawful=(-5+sqrt(1397/32))/8 hull=25/128
-h=1/32 radical lawful=(-5+sqrt(709/16))/8 hull=13/64
-h=1/16 radical lawful=(-5+sqrt(365/8))/8 hull=7/32
-h=1/15 radical lawful=(-5+sqrt(229/5))/8 hull=53/240
-h=1/14 hull-tight lawful=hull=25/112
-h=1/12 hull-tight lawful=hull=11/48
-h=1/10 hull-tight lawful=hull=19/80
-h=1/8 hull-tight lawful=hull=1/4
-Exact phase-boundary: 64h*^2+40h*-3=0 and T(h*)=H(h*) in Q(sqrt(37)).
-six BRC source labels; six joint preparation rows; four stops; 10 rational test boxes x 8 vertices.
+Actual execution and exact remote-source equality, 2026-11-01.
+
+Initial full independent local verifier: python /mnt/data/em_hull_phase_20261101/VERIFY.py
+Companion GitHub VERIFY.py copied byte-for-byte to local VERIFY_REMOTE.py and EXECUTED with Python standard-library Fraction and exact ordered Q(sqrt(d)). Its observed git hash-object was 6baacef37b5289e6c6fce671009e6a10855a2776, matching GitHub's immutable VERIFY.py blob at initial artifact commit 44eba3a4dba0e786ceb3d934dd62cce4ab89bf19. The following is the actual complete stdout from that companion-source execution:
+
+h=0 mode=radical lawful=(-5/8)+(1/8)*sqrt(43) hull=3/16 gap=(-13/16)+(1/8)*sqrt(43)
+h=1/1000 mode=radical lawful=(-5/8)+(1/8)*sqrt(21521/500) hull=47/250 gap=(-813/1000)+(1/8)*sqrt(21521/500)
+h=1/64 mode=radical lawful=(-5/8)+(1/8)*sqrt(1397/32) hull=25/128 gap=(-105/128)+(1/8)*sqrt(1397/32)
+h=1/32 mode=radical lawful=(-5/8)+(1/8)*sqrt(709/16) hull=13/64 gap=(-53/64)+(1/8)*sqrt(709/16)
+h=1/16 mode=radical lawful=(-5/8)+(1/8)*sqrt(365/8) hull=7/32 gap=(-27/32)+(1/8)*sqrt(365/8)
+h=1/15 mode=radical lawful=(-5/8)+(1/8)*sqrt(229/5) hull=53/240 gap=(-203/240)+(1/8)*sqrt(229/5)
+h=1/14 mode=hull-tight lawful=25/112 hull=25/112 gap=0
+h=1/12 mode=hull-tight lawful=11/48 hull=11/48 gap=0
+h=1/10 mode=hull-tight lawful=19/80 hull=19/80 gap=0
+h=1/8 mode=hull-tight lawful=1/4 hull=1/4 gap=0
+phase_boundary h*=(sqrt(37)-5)/16 exact polynomial and branch equality PASS
+sources=6 rows=6 atoms=4 rational_boxes=10 vertices_per_box=8
 PASS_BRC_N4_S23_ONE_ENDPOINT_EXACT_HULL_GAP_PHASE_20261101
 
-Scope: exact arithmetic sanity checks, plus analytic proof for all real h in [0,1/8] in PROOF.md. The recorded command ran the full local VERIFY.py; the remotely published VERIFY.py is the equivalent compact core checker, to be executed separately on this exact remote version.
+These ten finite rational-box runs verify numerical identities, all 8 vertices per box and source-mixture implementation. The separate analytic PROOF.md establishes the all-real continuum result for 0<=h<=1/8. No formal proof checker or independent review is claimed.
