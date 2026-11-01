@@ -1,0 +1,26 @@
+s 10
+s 20
+s 30
+s 40
+s 50
+s 60
+s 70
+s 80
+s 90
+s 100
+{
+  "result": "R452_EXACT_PASS",
+  "s_range": [
+    2,
+    100
+  ],
+  "r_condition": "r=2k+1, k >= (s+2)//2, j=r-s",
+  "positive_polynomials": 198,
+  "positive_coefficients": 50688,
+  "factorization_checks": 26,
+  "input_catalan_checks": 84,
+  "independent_signed_checks": 84,
+  "direct_exact_minor_checks": 36,
+  "coefficient_stream_sha256": "ac6c6bf48f54f6dda11eec5c23c032efbaff4f3b27bd814cb0c51e2d5e36bdbc",
+  "coefficient_encoding": "for s increasing 2..100 and order=2,3: uint8(s),uint8(order),uint16_be(degree), each strictly positive coefficient ascending: uint32_be(byte_length),unsigned_minimal_be"
+}
