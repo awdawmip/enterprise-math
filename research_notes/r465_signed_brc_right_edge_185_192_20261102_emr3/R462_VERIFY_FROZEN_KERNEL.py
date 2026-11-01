@@ -93,7 +93,7 @@ def main():
  for s in range(lo,hi+1):
   row=s_certificate(s,detail=(s in [lo,hi]));rows.append(row)
   print(json.dumps(row),flush=True)
- result={"result":"R462_EXACT_PASS","s_range":[lo,hi],"verified_count":len(rows),"positive_coefficients":sum(x["strict_positive_coefficients"] for x in rows),"rows":rows,"method":"Positive integer coefficients in u=k-k0 for D2,D3; exact independent Desnanot-Jacobi polynomial identity; boundary raw signed BRC checks"}
+ result={"result":"R462_EXACT_PASS","s_range":[lo,hi],"verified_count":len(rows),"positive_coefficients":sum(x['strict_positive_coefficients'] for x in rows),"rows":rows,"method":"Positive integer coefficients in u=k-k0 for D2,D3; exact independent Desnanot-Jacobi polynomial identity; boundary raw signed BRC checks"}
  with open('R462_EVIDENCE.json','w') as f:json.dump(result,f,indent=2)
  print(json.dumps({k:v for k,v in result.items() if k!='rows'},indent=2),flush=True)
 if __name__=='__main__':main()
