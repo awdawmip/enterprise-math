@@ -36,7 +36,7 @@ z_5=\frac{22+15i}{8}(1+u)+\frac{5+9i}{4}v.
 |v|^2\le\beta,
 \]
 \[
-\bigl||1+v|^2-2\bigr|\le\eta,\quad
+\bigl||1+v|^2-1\bigr|\le\eta,\quad
 \bigl||z_5|^2-709/32\bigr|\le\eta.
 \]
 
@@ -60,7 +60,7 @@ c(w)=\frac{709(w^2-1)}{64},\quad E=\frac{53}{8}.
 \[
 I_4=J(w)+A(w)x+B(w)y+16t,\quad
 k:=I_5-709/32=c(w)+P(w)x+Q(w)y+Et,\quad
-h:=|1+v|^2-2=2x+t.
+h:=|1+v|^2-1=2x+t.
 \]
 
 **正相位显式来源**：`w+=√(1−ε)`，令
