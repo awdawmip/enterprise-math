@@ -1,0 +1,19 @@
+Independent local execution (Python stdlib Fraction and exact ordered Q(sqrt(d)), 2026-11-01):
+h=0 exact_lawful=(-5/8)+(1/8)*sqrt(43) exact_hull=3/16 positive_gap=PASS
+h=1/4096 exact_lawful=(-5/8)+(1/8)*sqrt(22019/512) exact_hull=3073/16384 positive_gap=PASS
+h=1/1024 exact_lawful=(-5/8)+(1/8)*sqrt(5507/128) exact_hull=769/4096 positive_gap=PASS
+h=1/800 exact_lawful=(-5/8)+(1/8)*sqrt(4303/100) exact_hull=601/3200 positive_gap=PASS
+h=1/256 exact_lawful=(-5/8)+(1/8)*sqrt(1379/32) exact_hull=193/1024 positive_gap=PASS
+h=1/128 exact_lawful=(-5/8)+(1/8)*sqrt(691/16) exact_hull=97/512 positive_gap=PASS
+h=1/64 exact_lawful=(-5/8)+(1/8)*sqrt(347/8) exact_hull=49/256 positive_gap=PASS
+h=1/32 exact_lawful=(-5/8)+(1/8)*sqrt(175/4) exact_hull=25/128 positive_gap=PASS
+h=1/20 exact_lawful=(-5/8)+(1/8)*sqrt(221/5) exact_hull=1/5 positive_gap=PASS
+h=1/16 exact_lawful=(-5/8)+(1/8)*sqrt(89/2) exact_hull=13/64 positive_gap=PASS
+h=1/12 exact_lawful=(-5/8)+(1/8)*sqrt(45) exact_hull=5/24 positive_gap=PASS
+h=1/10 exact_lawful=(-5/8)+(1/8)*sqrt(227/5) exact_hull=17/80 positive_gap=PASS
+h=1/9 exact_lawful=(-5/8)+(1/8)*sqrt(137/3) exact_hull=31/144 positive_gap=PASS
+h=1/8 exact_lawful=(-5/8)+(1/8)*sqrt(46) exact_hull=7/32 positive_gap=PASS
+exact_points=14 vertices_per_point=8 rows=6 atoms=4
+PASS_BRC_N4_S23_SHARED_B_LOWER_FULL_ADMISSIBLE_GAP_20261101
+
+The executed program in the local calculation is an independent equivalent implementation; the published VERIFY.py reuses the source-pinned Q/F4/P/TV interface and implements the same exact vertex and witness checks. All-real coverage follows PROOF.md analytic inequalities, not sampled points.
