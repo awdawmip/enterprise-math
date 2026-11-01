@@ -1,0 +1,44 @@
+{
+  "schema": "R451_RIGHT_EDGE_POLYNOMIAL_CERTIFICATE_V1",
+  "date": "2026-11-01",
+  "scope": "For every odd r>=29, at j=r-s for s=2..26, adjacent D2 and D3 are strictly positive. For each fixed s>=2, eventual right-edge positivity has an analytic proof. Whole-matrix PF3 not claimed.",
+  "base_k": 14,
+  "range_s": [
+    2,
+    26
+  ],
+  "max_input_s": 28,
+  "polynomials": {
+    "order2": 25,
+    "order3": 25,
+    "total": 50
+  },
+  "positive_coefficients": {
+    "order2": 1425,
+    "order3": 2125,
+    "total": 3550
+  },
+  "degrees": {
+    "order2": "4s",
+    "order3": "6s"
+  },
+  "coefficients_sha256": "9949dc5e0815b362e897c462ddf223a360bc6285b3e05135ed32d4d0e90e42af",
+  "encoding": "s=2..26; 2 then 3; s and order one byte each; degree uint16BE; each coefficient ascending degree as uint32BE byte length plus unsigned minimal big-endian bytes",
+  "direct_checks": {
+    "catalan": 135,
+    "signed_raw": 30,
+    "integer_minor": 50,
+    "leading_coefficient": 50
+  },
+  "runner": "python3 R451_CHECK.py",
+  "execution_result": "R451_EXACT_PASS",
+  "source_pins": {
+    "global": "107480548e0b4acf67585e6d9b5a9918960184fc",
+    "enterprise_math": "e5f31bafe2c7dd421430023f4d717013c424525f",
+    "previous_research": "6d79677bda1fbce91c8b5f5af70dc830a33bd9dd"
+  },
+  "status": "AUTHOR_SIDE_EXACT_SYMBOLIC / GITHUB_PENDING_AT_CREATION / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING",
+  "native_owner_read": "CONTROL_QUOTA; authority_granted=false",
+  "native_claim_result_review": false,
+  "reference": "Rietsch, Totally Positive Toeplitz Matrices: Classical and Modern, ICM 2026, DOI 10.1137/25M1806727"
+}
