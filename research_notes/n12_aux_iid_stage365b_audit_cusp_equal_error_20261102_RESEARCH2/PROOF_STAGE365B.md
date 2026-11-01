@@ -1,6 +1,6 @@
 # Stage365-B — exact equal-error projection across the first audit-label cusp
 
-Date: 2026-11-02 (Asia/Shanghai). Research2 portable author proof. Current normative reads: GLOBAL_KNOWLEDGE_V1 main@d3ebf7b4e9c1566dd94238753f20f720e8ca877e and Enterprise Math main@50bf997b8d71444b78f8cddb2debb489ec85ed8b. Frozen scientific sources: global bf84bd7c61a2444b59b1da96be57df0e9ae47e53, EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419, original P000 V4. Model and evidence are author-side; no native admission is asserted.
+Date: 2026-11-02 (Asia/Shanghai). Research2 portable author proof. Current normative reads: GLOBAL_KNOWLEDGE_V1 main@d3ebf7b4e9c1566dd94238753f20f720e8ca877e and Enterprise Math main@50bf997b8d71444b78f8cddb2debb489ec85ed8b. Frozen scientific sources: global bf84bd7c61a2444b59b1da96be57df0e9ae47e53, EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419, project P000 V5 (frozen/current blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488); account-level P000 V4 companion (global blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc). Model and evidence are author-side; no native admission is asserted.
 
 ## Original 16-label Bernoulli/BRC observer
 

@@ -1,6 +1,6 @@
 # Stage366-B — audit-cusp allocation vs unrestricted competitors
 
-Date: 2026-11-02. Research2 portable author handoff from Stage365-B, Draft PR #1736. Frozen science pins: GLOBAL_KNOWLEDGE_V1 bf84bd7c61a2444b59b1da96be57df0e9ae47e53; EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419; original P000 V4. Current normative context must be refreshed separately.
+Date: 2026-11-02. Research2 portable author handoff from Stage365-B, Draft PR #1736. Frozen science pins: GLOBAL_KNOWLEDGE_V1 bf84bd7c61a2444b59b1da96be57df0e9ae47e53; EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419; project P000 V5 (frozen/current blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488); account-level P000 V4 companion (global blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc). Current normative context must be refreshed separately.
 
 New verified author-side results in original 16-label/four-port Bernoulli/BRC model: every real p in K=[.2373,.2387]×[.5745,.5775] with |r1(p)|<=1e-5 has equal-error q on r1=0 in R=[.237,.239]×[.574,.578]; c(p)-c(q)>2r1(p)/25 for r1>0 and >14(-r1(p))/25 for r1<0. The fixed-error path may cross the first audit cusp B2(y)=9/64. Along the right r1=0 arc, phi'(s) jumps upward by >1/10 at that cusp. See PROOF_STAGE365B.md and the exact executed verifier/stdout.
 
