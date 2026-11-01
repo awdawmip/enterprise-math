@@ -2,7 +2,7 @@
 
 日期：2026-11-01。作者身份：当前进取数论研究6便携研究对话，不是 Source 签发的 owner/CLAIM/Result/Review。数学状态：AUTHOR_SIDE_EXACT_VERIFIED / UNREVIEWED / NOT_ADMITTED / NATIVE_REGISTER_PENDING。
 
-冻结来源：GLOBAL_KNOWLEDGE_V1 main@7b33f8066e9993e7c941959a9d738ed405248eb8；Enterprise Math main@71f5e22a2d4de499694c6db4bf7f195df6d63ab0。已读取规范入口、P000、ACTIVE 世界观、docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md、docs/PORTABLE_RESEARCH_PROTOCOL.md、PREFIX-407 原文。
+冻结来源：经 GitHub main compare 实证，而非使用过期网关 pin。GLOBAL_KNOWLEDGE_V1 main@eefc162283b2f27ce1333bde7e9ff7cc81e6b1d1；Enterprise Math main@71f5e22a2d4de499694c6db4bf7f195df6d63ab0。已读取规范入口、P000、ACTIVE 世界观、docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md、docs/PORTABLE_RESEARCH_PROTOCOL.md、PREFIX-407 原文。
 
 研究问题及精确证明见 research_notes/2026-11-01_prefix408_nonzero_i3_sharp_threshold_and_psd_gap.md。两项新增结果：
 
