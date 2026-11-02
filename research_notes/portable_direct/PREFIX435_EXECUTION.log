@@ -1,0 +1,18 @@
+2026-11-02 PREFIX-435 author-side actual local execution outputs.
+
+$ python prefix435_exact_certificate.py
+PASS_PREFIX435_EXACT_FRACTION_TOMOGRAPHY
+base_rank=5 augmented_rank=9 determinant= 1001129928661/65536
+tags= ((0, 1), (1, 0), (1, 1), (1, 2)) original_collision_repaired=True
+
+$ python prefix435_independent_sympy.py
+PASS_PREFIX435_INDEPENDENT_SYMPY
+rank_Q= 5 rank_augmented= 9
+determinant= 1001129928661/65536
+tagged_difference= [37577/1960000, -86890077/1960000, -709/16, -86814923/1960000]
+
+$ python prefix435_phase_path_semiring.py
+PASS_PREFIX435_PHASE_TAGGED_SEMIRING_6561_EXACT_PAIRS
+two_shortest_x6_paths=2 phase_intensity_pairs= [(0, 4, 2), (1, 2, 0), (2, 0), (3, 2, 4)]
+
+Scope: exact arithmetic and symbolic algebra on declared auxiliary observers; not native coherent BRC execution, independent review, or admission.
