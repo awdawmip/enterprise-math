@@ -1,0 +1,44 @@
+{
+  "unit": "EC49EXC",
+  "status": "PASS",
+  "model": "native signed X6 7-operation; h=2..7; full p_h symbolic BRC key; rank9 T4 observer",
+  "theorem": {
+    "H": 7,
+    "M": 5,
+    "S_at_most": 4,
+    "minimum_E": 80,
+    "attained": true
+  },
+  "schedules": {
+    "total": 204204,
+    "M5": 26037,
+    "early_repeat_certified": 21583,
+    "late_repeat": 4454,
+    "late_H5_screen_certified": 4090,
+    "late_H6_screen_certified": 332,
+    "late_H7_optimistic_certified": 32,
+    "unresolved": 0
+  },
+  "H5_exact_key_prefixes": 251,
+  "H6_bound71_outcome": {
+    "no_E_at_most_71": 332,
+    "exact_E_68": 32
+  },
+  "H7_optimistic_outcome": {
+    "cases": 32,
+    "cost_12": 32,
+    "unique_p7_keys": 4
+  },
+  "executed": {
+    "python": true,
+    "node_js_independent": true
+  },
+  "frozen_inputs": {
+    "global": "773d538180bfb49e24cffeb35c3ee75eb0628e2e",
+    "em": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab"
+  },
+  "predecessor": "0a8be226b838cced08120135e3213779a9b6954d",
+  "full_evidence_uncompressed_sha256": "eab3891a66f8d730cf0dc1382cb008709f7dda74b3131140e2950854abf440fd",
+  "next": "EC49EXD_H7_M4_S6",
+  "admission": "AUTHOR_EXACT_FINITE_PROOF / INDEPENDENT_COMPUTATION_PASS / PORTABLE_DRAFT / NOT_ADMITTED"
+}
