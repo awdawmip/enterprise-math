@@ -17,7 +17,7 @@ For every q≥1 and any finite nonnegative rational joint histogram mu, Phi_2 is
 
 Proof. The pullback of every monomial x^alpha of total degree at most two along an affine map is a rational linear combination of the same 28 monomials, so the exact transformed expectation is a rational linear combination of the stored old expectations in the indicated source sector. Weight and target-sector aggregation are additive. Compose this factorization inductively. Positivity is preserved by the assumed branch weights. QED.
 
-Define two typed storage alternatives, HIST (the complete occupied (r,x,weight) bins) and MOMENT2_AFFINE (the 28q moments). If the downstream declaration is L_2, both represent the same entire future observation stream. Computing and retaining whichever of their two *actually serialized UTF-8 byte strings* is shorter is therefore exact for that declared consumer. No universal density-only threshold is required: both the integer/Fraction bit length and the selected JSON format contribute to the decision. A consumer requiring the full joint histogram or higher-order/path/signed/provenance observables keeps HIST unless a stronger exact decoder certificate applies.
+Define two typed storage alternatives, HIST (the complete occupied (r,x,weight) bins) and MOMENT2_AFFINE (the 28q moments). If the downstream declaration is L_2, both represent the same entire future observation stream. Computing and retaining whichever of their two *actually serialized UTF-8 byte strings* is shorter is therefore exact for that declared consumer. No universal density-only threshold is required: both the integer/Fraction bit length and the selected JSON format contribute to the decision. A consumer requiring the full joint endpoint/history histogram or higher-order endpoint observables keeps HIST unless a stronger exact decoder certificate applies. Consumers requiring ordered paths, signed amplitudes or additional provenance retain those as separately typed source channels: HIST itself records only aggregated endpoint/history masses.
 
 ## 3. Theorem B — exact criterion for recovering histograms on a known support dictionary
 
@@ -44,7 +44,7 @@ Source B:
 
 Every terminal is reachable after exactly four primitive signed X6 steps with exactly two -e_1 steps. The multiplicity available from distinct ordered words at every terminal exceeds the requested mass (verified by exhaustive enumeration of 12^4 words). Each source has nine mutually distinct ordered words. Direct exact evaluation gives all 28 sector quadratic moments equal (thus all 84 joint observations equal), yet sum_x mu_A(r,x) x_2^3=0 and sum_x mu_B(r,x) x_2^3=24. Consequently a future consumer of the cubic observer distinguishes them. This is a finite, explicit residual for extending the observer language, not a defect in the exact L_2 descent theorem.
 
-The seven occupied union bins give an integral kernel relation with coefficients (-1,-4,-1,+4,+4,-3,+1) in the order of the preceding signed terms. The equality follows by direct monomial substitution, and the certificate independently checks every monomial and exact native path realizability.
+Ordering the seven union bins as B1,B2,B3,A2,A3,B4,A1 gives the integral signed kernel coefficients (-1,-4,-1,+4,+4,-3,+1); equivalently, evaluation at A1+4A2+4A3 equals evaluation at B1+4B2+B3+3B4 for each degree-≤2 monomial. The equality follows by direct monomial substitution, and the certificate independently checks every monomial and exact native path realizability.
 
 ## 5. Exact finite computation and storage regimes
 
