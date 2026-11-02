@@ -6,7 +6,7 @@ from math import comb
 from experiments.x6_signed_native_spatial_v16_20260905 import signed_brc as brc
 
 def moments(K,n,upto=3):
-    return tuple(sum((n-2*k)**j for k in K) for j in range(upto+1)
+    return tuple(sum((n-2*k)**j for k in K) for j in range(upto+1))
 def feasible(K,n):
     return all(K.count(k)<=comb(n,k) for k in set(K))
 def det(a):
