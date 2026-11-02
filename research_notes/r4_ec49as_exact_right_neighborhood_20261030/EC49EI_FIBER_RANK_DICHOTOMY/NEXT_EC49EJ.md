@@ -1,0 +1,9 @@
+# EC49EJ — Equal-count multi-horizon trie optimization via exact 2/4-type theorem
+
+**Parent:** EC49EI / EC49EH, existing Draft PR #1730. **Frozen science:** GLOBAL `773d538180bfb49e24cffeb35c3ee75eb0628e2e` and EM `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`. Apply current behavioral norms independently. Preserve native signed six-axis paths, exact first-A/B seam atoms, strict-positive two-channel BRC, P000 and ACTIVE worldview.
+
+**Reusable exact reduction:** For any future h/p fiber, `r=p1+p2-h-1`, `f0=p1-2p3-r`, `g0=p2-r`. Event-containing fibers (r>=1) have exact rank nine and **must contain all four** transfer types represented by ce/ec/de/ed. No-event fibers (r=0) have rank 5+2[f0>0]+2[g0>0]; full rank requires both F/G transfer types, possible iff f0,g0>0. Each is proved by exact integer left-kernel and unimodular certificates in README_EC49EI.md; independent JS/Python finite checkers cover h<=7.
+
+**Exact executable unit:** Update/reuse `EC49EH_EQUAL_FIBER_MULTI_HORIZON/SOLVE_EC49EH_MILP.py`, replacing the expensive all-rank-subset enumeration by just these mandatory 2/4 type sets. For H=7 (then H=8 if tractable), optimize the union of genuine primitive signed-step prefixes over all windows h=2..H, requiring one equal-positive-count p per horizon. Validate every word, complete p, nine-observer rank, primitive trie and actual solver bound/gap. A cheaper value gives a native counterexample to `U_eq(H)=min(8H+12,4H+30)`; a matching exact proof/solver certificate supports the corresponding finite H.
+
+**Resource question:** Separately count unique native prefix edges, BRC positive-weight factors/monomials and occupied observer readout columns for competing solutions. Distinguish rigorous finite optimization from all-H conjecture. Preserve provenance and any unsolved bound. Maintain honest author-side/unreviewed status; do not assume a current owner or a native Result.
