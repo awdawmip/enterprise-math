@@ -1,0 +1,132 @@
+{
+  "pass": "PASS_BRC_N4_S23_SHARED_CAUSAL_EDGE_UNIQUE_MAX_13_20_20261102",
+  "scientific_source_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "population": "six separately labeled positive-weight sources AU0,AU1,AV,BU0,BU1,BV",
+  "bank": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D6",
+    "D7",
+    "D8",
+    "K1",
+    "K2",
+    "K3"
+  ],
+  "probability_scale": 1000,
+  "risk2_denominator": 2000,
+  "family": "z(s,t,u)=(s,t,u,0,0;1,0,0,0,0,0) for s,t,u in [0,1]",
+  "causal_edge": "s=3/5,t=3/10,0<=u<=1",
+  "prepared_six_at_u_half": [
+    [
+      600,
+      200,
+      100,
+      100
+    ],
+    [
+      600,
+      200,
+      90,
+      110
+    ],
+    [
+      600,
+      0,
+      0,
+      400
+    ],
+    [
+      300,
+      350,
+      0,
+      350
+    ],
+    [
+      300,
+      350,
+      0,
+      350
+    ],
+    [
+      300,
+      0,
+      0,
+      700
+    ]
+  ],
+  "risk2_all_ten_at_u_half": {
+    "D1": 1600,
+    "D2": 2000,
+    "D3": 2000,
+    "D4": 1400,
+    "D6": 1300,
+    "D7": 1420,
+    "D8": 1400,
+    "K1": 1400,
+    "K2": 1300,
+    "K3": 2000
+  },
+  "endpoint_risk2": {
+    "K2_at_0": 1000,
+    "K2_at_half": 1300,
+    "D6_at_half": 1300,
+    "D6_at_1": 1000
+  },
+  "cube_vertices": [
+    {
+      "s": 0,
+      "t": 0,
+      "u": 0,
+      "bank_risk2": 1000
+    },
+    {
+      "s": 0,
+      "t": 0,
+      "u": 1,
+      "bank_risk2": 1000
+    },
+    {
+      "s": 0,
+      "t": 1,
+      "u": 0,
+      "bank_risk2": 1000
+    },
+    {
+      "s": 0,
+      "t": 1,
+      "u": 1,
+      "bank_risk2": 1000
+    },
+    {
+      "s": 1,
+      "t": 0,
+      "u": 0,
+      "bank_risk2": 1000
+    },
+    {
+      "s": 1,
+      "t": 0,
+      "u": 1,
+      "bank_risk2": 1000
+    },
+    {
+      "s": 1,
+      "t": 1,
+      "u": 0,
+      "bank_risk2": 1200
+    },
+    {
+      "s": 1,
+      "t": 1,
+      "u": 1,
+      "bank_risk2": 1200
+    }
+  ],
+  "analytic_certificate": "For u<=1/2, K2 TV <= 1/2+3u/10; for u>=1/2, D6 TV <=4/5-3u/10, by convexity. Both strictly below 13/20 outside u=1/2. At u=1/2, all ten TV >=13/20.",
+  "exact_edge_maximum": "13/20",
+  "unique_maximizer": "u=1/2",
+  "open_region": "m(s,t,u)>=13/20-max(|s-3/5|,|t-3/10|)-|u-1/2|; region with loss<1/20 violates radius 3/5",
+  "status": "author exact integer certificate; unreviewed/not admitted"
+}
