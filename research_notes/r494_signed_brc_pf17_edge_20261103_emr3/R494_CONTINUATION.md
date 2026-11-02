@@ -1,0 +1,8 @@
+# R494 — portable continuation frontier
+Date: 2026-11-03. Frozen R462 pin `18783e01e3646c72b7aab3b16d3f565e83e6446f`; predecessor R493 author-side commit `e2a8bd5cabb1d1d62bb909fd8ddf0a727724fe21`. Scope: exact signed BRC scalar H_k(t), odd r=2k+1, right-edge s=3, adjacent Toeplitz determinant rank17.
+
+NEW THEOREM: D17(k)>0 at all integers k=1,...,37; D17(k)<0 at all integers k>=38. Exact factorization f17=G17*P17/N17 with deg(P17)=33; 34 coefficients of P17(38+u) all negative and P17(1..37) all positive. See R494_PROOF.zh-CN.md for proof. R493 D16(k)>0 for all k>=1; rank16/17 permanently oppose at k>=38.
+
+Actual local Python standard-library run `R494_VERIFY.py` returned R494_EXACT_PASS. Its full machine output includes 103 polynomial coefficient equalities, 34 strict negative shift coefficients, 37 strict positive boundary values, 720 independent raw signed BRC convolution comparisons, 30 original 17x17 integer Bareiss determinants and 17 k=2 rank-recurrence checks. R494_EVIDENCE.json here records the complete P17 and shifted coefficient arrays and boundary integer certificate; run the published source to regenerate all raw-evaluation diagnostics. Additional structural result: F_2(z)=1/(1-84z+2205z²-25725z³).
+
+NEXT INDEPENDENT UNIT: s=3,m=18 all-integer sign classification; compare fixed-k rank generating-function poles for k=2,6,8,14,21,38 to explain rank-dependent changes. GitHub authenticated actor awdawmip with admin/write; native em_session_start denied STATIC_READONLY_SCOPE_DENIED, em_control_tasks returned CONTROL_QUOTA. Owner/CLAIM/Result/Driver admission not established; source PR is author-side handoff only. P000/ACTIVE worldview and frozen scientific pin unchanged.
