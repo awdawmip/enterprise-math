@@ -1,0 +1,11 @@
+PREFIX-446 compact exact reproducer — actual local execution, 2026-11-02
+PASS: rank 117 one-step closure 351 unit path witnesses 45 q3-example 156/5
+
+Expanded separate exact run with pinned original X6 signed_brc.py (blob 300a96e3dc24bf6fff73743037a0347a8bc83176):
+PASS PREFIX-446: canonical frozen BRC blob 300a96e3dc24bf6fff73743037a0347a8bc83176
+rank_checks 117 one_step_factorization_checks 351
+unit_native_path_witness_checks 45 signed_brc_capacity_checks 246
+arbitrary_rational_full_sector_updates 126
+q=3,d=2,n=7: A {0: 1, 6: 1, 4: 2} B {3: 2, 1: 1, 7: 1} observer (Fraction(2, 1), Fraction(2, 1), Fraction(2, 1), Fraction(-2, 1), 0, 0, Fraction(76, 1)) next_global_M2_delta 156/5
+
+Note: the expanded program, original pinned BRC file and SHA256 manifest are in the author-side complete local evidence archive. This compact remote reproducer has been executed independently with the stated result. Actual upstream ControlPacket import remains pending.
