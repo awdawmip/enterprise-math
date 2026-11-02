@@ -1,0 +1,166 @@
+{
+  "scope": "p<=10000, prime p=1 mod6",
+  "all_primes": 611,
+  "all_general_identity_checks": "PASS",
+  "cm_target_primes": 312,
+  "cm_second_carry_one_finite_check": 312,
+  "sample_rows": [
+    {
+      "p": 7,
+      "r": 1,
+      "L_modp": 2,
+      "j": 1,
+      "Q_half": 3,
+      "Wr_half": 5,
+      "R_A_weighted": 4,
+      "F_weighted_modp2": 7
+    },
+    {
+      "p": 13,
+      "r": 2,
+      "L_modp": 0,
+      "j": 7,
+      "Q_half": 4,
+      "Wr_half": 11,
+      "R_A_weighted": 11,
+      "F_weighted_modp2": 13,
+      "g": 7,
+      "u": 11,
+      "second_carry": 1,
+      "observed_target_one": true
+    },
+    {
+      "p": 19,
+      "r": 3,
+      "L_modp": 0,
+      "j": 1,
+      "Q_half": 2,
+      "Wr_half": 17,
+      "R_A_weighted": 5,
+      "F_weighted_modp2": 19,
+      "g": 6,
+      "u": 8,
+      "second_carry": 1,
+      "observed_target_one": true
+    },
+    {
+      "p": 31,
+      "r": 5,
+      "L_modp": 21,
+      "j": 6,
+      "Q_half": 16,
+      "Wr_half": 23,
+      "R_A_weighted": 28,
+      "F_weighted_modp2": 31
+    },
+    {
+      "p": 37,
+      "r": 6,
+      "L_modp": 0,
+      "j": 24,
+      "Q_half": 2,
+      "Wr_half": 26,
+      "R_A_weighted": 21,
+      "F_weighted_modp2": 37,
+      "g": 21,
+      "u": 23,
+      "second_carry": 1,
+      "observed_target_one": true
+    },
+    {
+      "p": 43,
+      "r": 7,
+      "L_modp": 0,
+      "j": 20,
+      "Q_half": 27,
+      "Wr_half": 19,
+      "R_A_weighted": 30,
+      "F_weighted_modp2": 43,
+      "g": 4,
+      "u": 31,
+      "second_carry": 1,
+      "observed_target_one": true
+    },
+    {
+      "p": 373,
+      "r": 62,
+      "L_modp": 0,
+      "j": 294,
+      "Q_half": 57,
+      "Wr_half": 27,
+      "R_A_weighted": 49,
+      "F_weighted_modp2": 373,
+      "g": 340,
+      "u": 24,
+      "second_carry": 1,
+      "observed_target_one": true
+    },
+    {
+      "p": 1171,
+      "r": 195,
+      "L_modp": 0,
+      "j": 544,
+      "Q_half": 176,
+      "Wr_half": 278,
+      "R_A_weighted": 177,
+      "F_weighted_modp2": 1171,
+      "g": 1082,
+      "u": 87,
+      "second_carry": 1,
+      "observed_target_one": true
+    },
+    {
+      "p": 9967,
+      "r": 1661,
+      "L_modp": 9909,
+      "j": 1666,
+      "Q_half": 1374,
+      "Wr_half": 9638,
+      "R_A_weighted": 6019,
+      "F_weighted_modp2": 9967
+    }
+  ],
+  "independent_finite_green_checks": [
+    {
+      "p": 7,
+      "green_kernel_value": 5,
+      "passed": true
+    },
+    {
+      "p": 13,
+      "green_kernel_value": 11,
+      "passed": true
+    },
+    {
+      "p": 19,
+      "green_kernel_value": 17,
+      "passed": true
+    },
+    {
+      "p": 31,
+      "green_kernel_value": 23,
+      "passed": true
+    },
+    {
+      "p": 37,
+      "green_kernel_value": 26,
+      "passed": true
+    },
+    {
+      "p": 43,
+      "green_kernel_value": 19,
+      "passed": true
+    },
+    {
+      "p": 373,
+      "green_kernel_value": 27,
+      "passed": true
+    },
+    {
+      "p": 1171,
+      "green_kernel_value": 278,
+      "passed": true
+    }
+  ],
+  "note": "Only algebraic bridge identities are proven. second_carry=1 is finite-tested, not a universal proof."
+}
