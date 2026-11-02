@@ -1,0 +1,127 @@
+{
+  "schema": "D25_AUTHOR_SIDE_PORTABLE_CONTINUATION_20261102_ORDINARY_V1_V2_V1SECOND_V2FIRST_V1",
+  "classification": "AUTHOR_DERIVED_VERIFIED_LOCAL_AND_GITHUB_NOTE_UNREVIEWED_NOT_ADMITTED_NOT_SOURCE_CHECKPOINT",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_do_not_use": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_source_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_goal": "Original Delta_p-R_p == 0 mod p for every prime p ==13 or 19 mod24, or precise same-definition counterexample. Native H0/B0 p373 remains separately required.",
+  "immutable_author_frontier": {
+    "ordinary_v1": {
+      "commit": "3dd822d95da90d9ffa48a344f6c8ada46b8ffcb5",
+      "path": "research_notes/portable_direct/20261102_onhour_d25_ordinary_v1_rectangular_cancellation.md",
+      "blob_sha": "c8e1297a02a9429bc3fc4b47405c60e0ec7e84ba"
+    },
+    "ordinary_v2": {
+      "commit": "b46bb821037ee7f21ca0598be6a53d2fee9a655f",
+      "path": "research_notes/portable_direct/20261102_onhour_d25_ordinary_v2_three_port_moment.md",
+      "blob_sha": "4f6a8d7ea1e5d4f765581b50c1c8439e8983c5a0"
+    }
+  },
+  "completed_units": [
+    {
+      "kind": "CONDITIONAL_EXACT_ORDINARY_VALUATION_ONE_RECTANGLE_CANCELLATION",
+      "models": [
+        "W216",
+        "S2304"
+      ],
+      "hypotheses": "Low CM M0=M1=0 mod p",
+      "local_factor_checks": 43059,
+      "primes": [
+        13,
+        19,
+        37,
+        43,
+        61,
+        67,
+        109,
+        139,
+        373
+      ]
+    },
+    {
+      "kind": "EXACT_ORDINARY_VALUATION_TWO_THREEPORT_FACTOR",
+      "models": [
+        "W216",
+        "S2304"
+      ],
+      "hypotheses": "No CM premise for general three-port; conditional two-port corollary when M0=M1=0 modp",
+      "local_factor_checks": 59428,
+      "primes": [
+        13,
+        19,
+        37,
+        43,
+        61,
+        67,
+        109,
+        139,
+        373
+      ]
+    },
+    {
+      "kind": "FIXED_P373_FIVE_SOURCE_RESIDUAL_CERTIFICATE",
+      "original_signed_readout": "ordinary_v0 + ordinary_v1_next_digit + ordinary_v2_first_digit + anomaly + baseline",
+      "signed_digits_mod373": [
+        143,
+        82,
+        143,
+        4,
+        1
+      ],
+      "sum": 373,
+      "modulus": 373,
+      "proof_scope": "fixed prime, original weighted W216−2S2304+p²; not native H0/B0"
+    },
+    {
+      "kind": "FINITE_S2304_B2_ZERO_PATTERN",
+      "primes_range": "all primes <=3000 in classes 13/19 mod24",
+      "n_primes": 107,
+      "count_class13": 53,
+      "count_class19": 54,
+      "claim": "source-tagged low valuation-two weighted tail B2=0 modp",
+      "status": "FINITE_VERIFIED_UNIVERSAL_UNPROVED"
+    }
+  ],
+  "do_not_repeat": [
+    "D24 frozen UR; RR-AC9B3BA5BD277CE043F5",
+    "existing original double-model p^2 and p^4 scalar finite checks",
+    "previous p373 scalar carries",
+    "old failed dispatch attempt"
+  ],
+  "outstanding": [
+    "D25 all-prime original Delta-R congruence",
+    "prove or refute S2304 B2=0 for all target primes",
+    "lift ordinary v1 rectangle formula one more p-digit",
+    "separately execute native H0/B0 p373 evidence and independent review"
+  ],
+  "next_exact_action": "Construct p-local finite WZ/character-sum certificate for S2304 B2 low v2 weighted tail (107 finite zeros) OR calculate precise ordinary-v1 second-digit moment via factorial units modp², then recombine into original Delta-R signed Clausen observer; retain native benchmark separately.",
+  "native_benchmark": {
+    "issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "last_observed": "OPEN_UNASSIGNED",
+    "status": "PENDING_OWNER_NOT_EXECUTED",
+    "required": [
+      "original [X]U mod139129",
+      "genuine H0/B0 module rank",
+      "semilinear Frobenius and eta",
+      "odd signed Green/Hesse and kappa",
+      "independent check"
+    ]
+  },
+  "control": {
+    "actual_session_id": null,
+    "claim_id": null,
+    "run_id": null,
+    "source_checkpoint": null,
+    "own_checkpoint_read": "ACCESS_DENIED",
+    "own_exact_continuation": "NOT_CONFIRMED_NEW_SUCCESS",
+    "old_original_request_id": "research-onhour-20261031-0205-dispatch-r15",
+    "old_request_historical_receipt": "https://github.com/awdawmip/kimi-query-bridge/issues/6633#issuecomment-6530006527",
+    "native_control_result_this_client": "CONTROL_REQUEST_NOT_FOUND",
+    "registration": "REGISTER_PENDING_SYNC_DEBT",
+    "site_authorization": "RESEARCH_WRITE_UNAVAILABLE",
+    "required_configuration": "distinct authorized Site-bound backend Research execution client and secure user-entered credentials"
+  },
+  "schedule": "UNCHANGED_ENABLED_HOURLY_PHASE_AND_NOTIFICATIONS"
+}
