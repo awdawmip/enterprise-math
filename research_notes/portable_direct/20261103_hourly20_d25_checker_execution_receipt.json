@@ -1,0 +1,43 @@
+{
+  "schema": "D25_AUTHOR_EXECUTION_RECEIPT_V1",
+  "date": "2026-11-03",
+  "classification": "AUTHOR_LOCAL_EXECUTED_VERIFICATION_NOT_NATIVE_H0_B0_NOT_MATHEMATICAL_ADMISSION",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "frozen_science": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "script_commit": "0ae5bca67d0f6da403da76ed437a191d80a0d3d7",
+  "script_path": "research_notes/portable_direct/d25_frobenius_beta_verify_20261103.py",
+  "script_exact_git_blob_sha1": "6bcb354440dd90f485f0b8b26b81caa90d277091",
+  "script_local_sha256": "3e4646a99179806d9651be8cffc7b47b155d81f481a354ac40c411898eb1b7d6",
+  "execution": "python /mnt/data/d25_frobenius_beta_verify_20261103.py",
+  "execution_status": "COMPLETED_ZERO_EXIT_ALL_ASSERTIONS_PASS",
+  "stdout_sha256": "aac514b1c4e3cb0ac0b94b4114a06bc2f8cd5bc7aff866866928ac28b551420c",
+  "stdout_length_bytes": 2967,
+  "coverage": {
+    "all_primes_7_to_10000_p_1mod6": 611,
+    "top_coefficient": 611,
+    "complete_beta_moment": 611,
+    "incomplete_beta_wr": 611,
+    "target_class_carry": 312,
+    "coefficientwise_primes": [
+      7,
+      13,
+      19,
+      31,
+      37,
+      43,
+      73,
+      373,
+      1171
+    ]
+  },
+  "p373": {
+    "chi_2": -1,
+    "omega_half": 27,
+    "I_half": 142,
+    "g": 340,
+    "j": 294,
+    "carry": 1
+  },
+  "evidence_scope": "Finite exact checks and authored algebraic proofs. Universal carry=1 remains OPEN.",
+  "native_status": "NO_NATIVE_CLAIM_RUN_CHECKPOINT_RESULT_OR_H0_B0_EXP"
+}
