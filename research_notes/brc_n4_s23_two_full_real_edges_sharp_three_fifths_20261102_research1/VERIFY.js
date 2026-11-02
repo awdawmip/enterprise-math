@@ -59,7 +59,7 @@ seven_fixed:["D1","D2","D3","D4","D6","D7","D8"],free_kernels:{K1,K2,K3},
 twenty_discrete_min_risks:Object.fromEntries(Object.entries(minBank).map(([n,v])=>[n,frac(v)])),
 twenty_discrete_max:frac(Math.max(...Object.values(minBank))),
 two_continua_endpoints:Object.fromEntries(Object.entries(ends).map(([n,v])=>[n,frac(v)])),
-analytic_two_edge_coverage:"K2 on [0,1/3], K1 on [1/3,1] by affine sources and TV convexity",
+analytic_two_edge_coverage:"K2 covers J[0,2/5], K1 covers J[2/5,1]; D4 covers H[0,1/5], K1 covers H[1/5,1] by affine sources and TV convexity",
 lower_core:core,lower_fixed_minima:Object.fromEntries(core.map((n,i)=>[n,frac(fixedMin[i])])),
 triple_combinations:120,forbidden_triple_count:forbidden.length,three_label_assignments:3**10,min_forbidden_monochromatic_hits:minimum,
 sharp_optimum:"3/5",prior_single_H_optimum:"7/12",increment:"1/60",status:"author exact computation; unreviewed/not admitted"};
