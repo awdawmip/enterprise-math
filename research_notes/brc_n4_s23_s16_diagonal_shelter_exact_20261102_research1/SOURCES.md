@@ -1,0 +1,8 @@
+# Source and authority ledger
+
+- Frozen scientific input: awdawmip/enterprise-math immutable `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Not repinned by current normative reads.
+- Verified predecessor: awdawmip/enterprise-math PR #1765, commit `2b85bbba145e2f102eb4744009eb807a51bb3b0b`, `research_notes/brc_n4_s23_nine_witness_released_label_exact_phase_20261102_research1/PROOF.md` and `VERIFY.py`. The inherited exact S9 radii are not silently re-proved in the new V8 program.
+- Global current normative snapshot: awdawmip/chatgpt-global-knowledge `main@862f0fa0ebebeb396b60b1062e9c1c9226479ace`; entry `00_BOOTSTRAP.md`, `OPERATING_MANUAL.md`, P000 startup, ACTIVE worldview, MATH_RESEARCH_POLICY, OUTPUT_TEMPORAL_SEMANTICS_POLICY, BRC priority and project router.
+- EM canonical control snapshot: `main@05e3569e65762ba6abb5e89eaf7113f8492f7a82`; `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`, `research_priorities/research_method.json`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, current AGENTS.
+- Actual account on connected GitHub: `awdawmip`, repository permission `admin`. Native Enterprise Math gateway is static/read-only; `em_session_start` rejected `STATIC_READONLY_SCOPE_DENIED` with `operation_sent=false`; owner inventory returned `CONTROL_QUOTA`. No native session key, CLAIM, owner takeover, formal Result, or review claimed.
+- Evidence: code `VERIFY.js` is the executed V8 exact checker; `RUN_EVIDENCE.json` is its output. Original six labeled prepared sources and shared causal variable are used explicitly. Source publication on an author-side draft PR is not native admission.
