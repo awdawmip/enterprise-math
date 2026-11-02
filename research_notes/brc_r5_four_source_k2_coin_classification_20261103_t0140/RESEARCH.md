@@ -55,9 +55,9 @@ Use the fixed invertible affine observer coordinates of the predecessor:
 Exact substitution yields `(x',d',r1',r2')=(x,d-S_eta/2,r1,r2)`. Thus the physical normal `n_mu` is, up to an additive scalar common to both policy classes, the functional
 
     Psi = r1+d'+(mu/2)r2
-        = d + sum_s q_s z_s [1+(c/2)t_s(mu-eta_s)].  (2)
+        = d + sum_s q_s [1+(c/2)t_s(mu-eta_s)].  (2)
 
-All four q values and all transition kernels are positive, with no cancellations in the probability flows; the signed coefficients in `Psi` are observer costs, not negative path probabilities.
+All exposed-face weights q*_s and natural transition kernels are positive; every realized q_s is nonnegative, with no cancellations in the probability flows; the signed coefficients in `Psi` are observer costs, not negative path probabilities.
 
 ## All-real FULL optimization
 
