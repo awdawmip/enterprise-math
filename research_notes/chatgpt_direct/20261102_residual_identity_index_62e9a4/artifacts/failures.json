@@ -1,0 +1,145 @@
+{
+  "mode": "failures",
+  "cases": [
+    {
+      "name": "stale_request_current_key",
+      "source_before": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "arbitrary_hint": 2,
+      "bad_response": true,
+      "verified_response": false,
+      "bad_source": [
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "verified_source": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "observations": [
+        [
+          "key_bit",
+          0,
+          false
+        ],
+        [
+          "key_bit",
+          1,
+          true
+        ],
+        [
+          "key_bit",
+          2,
+          false
+        ],
+        [
+          "pair_witness",
+          0,
+          1,
+          false
+        ],
+        [
+          "fallback_match",
+          0,
+          false
+        ],
+        [
+          "fallback_match",
+          1,
+          false
+        ],
+        [
+          "fallback_match",
+          2,
+          false
+        ]
+      ]
+    },
+    {
+      "name": "wrong_existing_target",
+      "hint": 1,
+      "verified_observations": [
+        [
+          "key_bit",
+          0,
+          true
+        ],
+        [
+          "key_bit",
+          1,
+          false
+        ],
+        [
+          "key_bit",
+          2,
+          false
+        ],
+        [
+          "pair_witness",
+          0,
+          0,
+          false
+        ],
+        [
+          "fallback_match",
+          0,
+          false
+        ],
+        [
+          "fallback_match",
+          1,
+          false
+        ],
+        [
+          "fallback_match",
+          2,
+          true
+        ]
+      ],
+      "bad_source": [
+        [
+          4,
+          5,
+          6
+        ]
+      ],
+      "good_source": [
+        [
+          1,
+          2,
+          3
+        ]
+      ]
+    }
+  ],
+  "assertions": 4,
+  "targets": 3,
+  "slots": 1,
+  "colors": 2,
+  "key_bits": 3,
+  "members": 54,
+  "candidates": 109,
+  "kernel_cache_misses": 124,
+  "primitive_uses": 254
+}

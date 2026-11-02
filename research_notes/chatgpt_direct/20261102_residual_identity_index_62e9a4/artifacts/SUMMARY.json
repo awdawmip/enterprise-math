@@ -1,0 +1,89 @@
+{
+  "mode_count": 12,
+  "new_assertions": 251348,
+  "inherited_gate_assertions": 1427252,
+  "per_file": [
+    {
+      "file": "audit_r1.json",
+      "mode": "audit",
+      "assertions": 11550,
+      "kernel_cache_misses": 13821,
+      "primitive_uses": 32731
+    },
+    {
+      "file": "audit_r2_representatives.json",
+      "mode": "audit",
+      "assertions": 43168,
+      "kernel_cache_misses": 59523,
+      "primitive_uses": 148408
+    },
+    {
+      "file": "costs.json",
+      "mode": "costs",
+      "assertions": 470,
+      "kernel_cache_misses": 1265,
+      "primitive_uses": 2622
+    },
+    {
+      "file": "hints.json",
+      "mode": "hints",
+      "assertions": 13632,
+      "kernel_cache_misses": 283575,
+      "primitive_uses": 456448
+    },
+    {
+      "file": "failures.json",
+      "mode": "failures",
+      "assertions": 4,
+      "kernel_cache_misses": 124,
+      "primitive_uses": 254
+    },
+    {
+      "file": "lifecycle.json",
+      "mode": "lifecycle",
+      "assertions": 3864,
+      "kernel_cache_misses": 17934,
+      "primitive_uses": 22524
+    },
+    {
+      "file": "workload.json",
+      "mode": "workload",
+      "assertions": 3,
+      "kernel_cache_misses": 270,
+      "primitive_uses": 3120
+    },
+    {
+      "file": "scaling.json",
+      "mode": "scaling",
+      "assertions": 16896
+    },
+    {
+      "file": "ring_costs.json",
+      "mode": "ring_costs",
+      "assertions": 958,
+      "inherited_gate_assertions": 7888
+    },
+    {
+      "file": "empty_filter.json",
+      "mode": "empty_filter",
+      "assertions": 3
+    },
+    {
+      "file": "ring_execute_bind.json",
+      "mode": "ring_graph",
+      "assertions": 80400,
+      "inherited_gate_assertions": 701739,
+      "kernel_cache_misses": 893,
+      "primitive_attempts": 86412
+    },
+    {
+      "file": "ring_execute_restart.json",
+      "mode": "ring_graph",
+      "assertions": 80400,
+      "inherited_gate_assertions": 717625,
+      "kernel_cache_misses": 932,
+      "primitive_attempts": 88102
+    }
+  ],
+  "audit_scope_note": "77 complete one-slot preparations; 142 consistent-name representatives for two-slot tests. The larger 1900-state two-slot run timed out and has no passed claim."
+}

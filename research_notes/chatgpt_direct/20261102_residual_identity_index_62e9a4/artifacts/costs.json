@@ -1,0 +1,286 @@
+{
+  "mode": "costs",
+  "paths": [
+    {
+      "name": "A",
+      "key": 1,
+      "commands": 50,
+      "old_target_index": 55,
+      "checked_hint": 55,
+      "observations": [
+        [
+          "key_bit",
+          0,
+          true
+        ],
+        [
+          "key_bit",
+          1,
+          false
+        ],
+        [
+          "key_bit",
+          2,
+          false
+        ],
+        [
+          "key_bit",
+          3,
+          false
+        ],
+        [
+          "key_bit",
+          4,
+          false
+        ],
+        [
+          "current_port",
+          0,
+          0,
+          true
+        ]
+      ],
+      "retired": [
+        [
+          1,
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "B",
+      "key": 8,
+      "commands": 50,
+      "old_target_index": 55,
+      "checked_hint": 55,
+      "observations": [
+        [
+          "key_bit",
+          0,
+          false
+        ],
+        [
+          "key_bit",
+          1,
+          false
+        ],
+        [
+          "key_bit",
+          2,
+          false
+        ],
+        [
+          "key_bit",
+          3,
+          true
+        ],
+        [
+          "key_bit",
+          4,
+          false
+        ],
+        [
+          "current_port",
+          1,
+          0,
+          true
+        ]
+      ],
+      "retired": [
+        [
+          1,
+          4,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "C",
+      "key": 15,
+      "commands": 50,
+      "old_target_index": 55,
+      "checked_hint": 55,
+      "observations": [
+        [
+          "key_bit",
+          0,
+          true
+        ],
+        [
+          "key_bit",
+          1,
+          true
+        ],
+        [
+          "key_bit",
+          2,
+          true
+        ],
+        [
+          "key_bit",
+          3,
+          true
+        ],
+        [
+          "key_bit",
+          4,
+          false
+        ],
+        [
+          "current_port",
+          2,
+          0,
+          true
+        ]
+      ],
+      "retired": [
+        [
+          4,
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "stale_A",
+      "key": 1,
+      "commands": 48,
+      "old_target_index": 53,
+      "checked_hint": 164,
+      "observations": [
+        [
+          "key_bit",
+          0,
+          true
+        ],
+        [
+          "key_bit",
+          1,
+          false
+        ],
+        [
+          "key_bit",
+          2,
+          false
+        ],
+        [
+          "key_bit",
+          3,
+          false
+        ],
+        [
+          "key_bit",
+          4,
+          false
+        ],
+        [
+          "current_port",
+          0,
+          0,
+          false
+        ]
+      ],
+      "retired": []
+    },
+    {
+      "name": "stale_B",
+      "key": 8,
+      "commands": 48,
+      "old_target_index": 53,
+      "checked_hint": 164,
+      "observations": [
+        [
+          "key_bit",
+          0,
+          false
+        ],
+        [
+          "key_bit",
+          1,
+          false
+        ],
+        [
+          "key_bit",
+          2,
+          false
+        ],
+        [
+          "key_bit",
+          3,
+          true
+        ],
+        [
+          "key_bit",
+          4,
+          false
+        ],
+        [
+          "current_port",
+          1,
+          0,
+          false
+        ]
+      ],
+      "retired": []
+    },
+    {
+      "name": "empty",
+      "key": 0,
+      "commands": 40,
+      "old_target_index": 16,
+      "checked_hint": 151,
+      "observations": [
+        [
+          "key_bit",
+          0,
+          false
+        ],
+        [
+          "key_bit",
+          1,
+          false
+        ],
+        [
+          "key_bit",
+          2,
+          false
+        ],
+        [
+          "key_bit",
+          3,
+          false
+        ],
+        [
+          "key_bit",
+          4,
+          false
+        ]
+      ],
+      "retired": []
+    }
+  ],
+  "updates": {
+    "('bind', 0, 0)": 41,
+    "('bind', 0, 1)": 53,
+    "('bind', 0, 2)": 56,
+    "('drop', 0)": 5,
+    "('copy', 0, 0)": 0,
+    "('copy', 0, 1)": 20,
+    "('copy', 0, 2)": 20,
+    "('copy', 0, 3)": 20,
+    "('copy', 0, 4)": 20,
+    "('copy', 0, 5)": 20
+  },
+  "migration_commands": 840,
+  "target_directory_conversion_commands": 852,
+  "assertions": 470,
+  "targets": 3,
+  "slots": 6,
+  "colors": 7,
+  "key_bits": 5,
+  "members": 285,
+  "candidates": 1724,
+  "kernel_cache_misses": 1265,
+  "primitive_uses": 2622
+}
