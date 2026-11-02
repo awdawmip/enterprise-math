@@ -1,0 +1,45 @@
+{
+  "schema": "D25_FROBENIUS_BETA_CHECK_SUMMARY_V1",
+  "run_date": "2026-11-03",
+  "python": "CPython standard library, exact finite-field modular arithmetic",
+  "coverage": {
+    "prime_p_le_10000_p_1mod6": 611,
+    "top_coefficient_checks": 611,
+    "complete_beta_moment_checks": 611,
+    "incomplete_beta_vs_wronskian": 611,
+    "target_13_or_19mod24_finite_carry_checks": 312,
+    "independent_full_polynomial_checks": [
+      7,
+      13,
+      19,
+      31,
+      37,
+      43,
+      73,
+      373,
+      1171
+    ]
+  },
+  "p373": {
+    "r": 62,
+    "u": 186,
+    "chi_2": -1,
+    "omega_lead": 311,
+    "omega_half": 27,
+    "beta_half": 142,
+    "g": 340,
+    "j": 294,
+    "transformed_carry": 1,
+    "complete_beta_moment": 6
+  },
+  "hand_proved": [
+    "F1_exact_frobenius_boundary",
+    "F2_complete_beta_moment",
+    "F3_character_readout",
+    "F4_incomplete_beta_linear_recurrence"
+  ],
+  "open": "Universal second-carry congruence 4gj+8I(1/2)=1 for all p mod24 in {13,19}",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "status": "AUTHOR_DERIVED_UNREVIEWED_NOT_ADMITTED_REGISTER_PENDING",
+  "native_H0_B0": "NOT_EXECUTED"
+}
