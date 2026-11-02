@@ -1,0 +1,164 @@
+{
+  "unit": "EC49ET",
+  "target": "H7-M2-S6",
+  "enumeration": {
+    "3": {
+      "complete_words": 6,
+      "eligible_words": 4,
+      "signature_counts": {
+        "feg": 2,
+        "gef": 2
+      }
+    },
+    "4": {
+      "complete_words": 8,
+      "eligible_words": 8,
+      "signature_counts": {
+        "ce": 3,
+        "de": 3,
+        "ec": 1,
+        "ed": 1
+      }
+    },
+    "5": {
+      "complete_words": 120,
+      "eligible_words": 120,
+      "signature_counts": {
+        "ce": 36,
+        "de": 36,
+        "ec": 24,
+        "ed": 24
+      }
+    },
+    "6": {
+      "complete_words": 360,
+      "eligible_words": 360,
+      "signature_counts": {
+        "ce": 90,
+        "de": 90,
+        "ec": 90,
+        "ed": 90
+      }
+    },
+    "7": {
+      "complete_words": 140,
+      "eligible_words": 120,
+      "signature_counts": {
+        "feg": 60,
+        "gef": 60
+      }
+    }
+  },
+  "color_names": [
+    [
+      3,
+      "feg"
+    ],
+    [
+      3,
+      "gef"
+    ],
+    [
+      4,
+      "ce"
+    ],
+    [
+      4,
+      "de"
+    ],
+    [
+      4,
+      "ec"
+    ],
+    [
+      4,
+      "ed"
+    ],
+    [
+      5,
+      "ce"
+    ],
+    [
+      5,
+      "de"
+    ],
+    [
+      5,
+      "ec"
+    ],
+    [
+      5,
+      "ed"
+    ],
+    [
+      6,
+      "ce"
+    ],
+    [
+      6,
+      "de"
+    ],
+    [
+      6,
+      "ec"
+    ],
+    [
+      6,
+      "ed"
+    ],
+    [
+      7,
+      "feg"
+    ],
+    [
+      7,
+      "gef"
+    ]
+  ],
+  "base_edges": 28,
+  "trie_nodes": 3779,
+  "optimizer": {
+    "status": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "objective": 116,
+    "extra_edges": 88,
+    "gap": 0.0,
+    "dual_bound_extra": 88.0,
+    "binary_nodes": 3778,
+    "selected_nodes": 116,
+    "selected_terminals": 16,
+    "witness": {
+      "3": [
+        "feg",
+        "gef"
+      ],
+      "4": [
+        "cecc",
+        "dedd",
+        "eccc",
+        "eddd"
+      ],
+      "5": [
+        "cecfg",
+        "dedgf",
+        "eccfg",
+        "eddgf"
+      ],
+      "6": [
+        "fegfgc",
+        "fegfgd",
+        "geffgc",
+        "geffgd"
+      ],
+      "7": [
+        "fegfggf",
+        "geffggf"
+      ]
+    },
+    "resources": [
+      116,
+      2,
+      6
+    ]
+  }
+}

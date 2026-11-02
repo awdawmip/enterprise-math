@@ -1,0 +1,7 @@
+# EC49EU — H=7 three-BRC-cache exact native-X6 Pareto strata
+
+**Parent:** EC49ET, exact theorem `min(E | H=7,M=2)=116` achieved at `(E,M,S)=(116,2,6)`; inherited H=6 full Pareto EC49ES. Frozen scientific inputs GLOBAL `773d538180bfb49e24cffeb35c3ee75eb0628e2e`, Enterprise Math `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`; behavioral policy refresh independently via current canonical main. P000 and ACTIVE Heartbeat World unchanged.
+
+**Next concrete unit:** enumerate all positive-count fiber assignments for H=7 with exactly three distinct cache keys. Classify S=4 and S=6 using the mandatory transfer sets from EC49EI. Apply certified H6→H7 native terminal-edge lower bounds and exact signed primitive-prefix trie DP to solve the lowest-cost stratum or produce an attaining counterexample to a proposed bound. Compare with minimal cache `(116,2,6)` and minimal edges `U_eq(7)=58` only at their typed resource scopes. Preserve per-word provenance, signed six-axis paths, the nine historical atom observer and symbolic positive-weight BRC multipliers; do not silently replace with a classical surrogate. Report complete Pareto only if all nondominated cases have proved lower bounds and constructive witnesses.
+
+**Required evidence:** enumeration coverage, exact source/code, integer DP or equivalent certified solver, independent six-axis path and rational rank audit, immutable source references, actual artifact publication/readback, realistic role/owner status. Formal CLAIM/Result remains governed by current native authority.
