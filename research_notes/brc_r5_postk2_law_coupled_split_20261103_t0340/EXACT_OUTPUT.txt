@@ -1,0 +1,22 @@
+normal_gap constant kappa 0 gap 0
+normal_gap constant kappa -1/8 gap 0
+sample constant FULL_deterministic 2048 LR_deterministic 16
+normal_gap compensated kappa 0 gap 0
+normal_gap compensated kappa -1/8 gap 0
+sample compensated FULL_deterministic 2048 LR_deterministic 16
+normal_gap generic kappa 0 gap 725/37152
+normal_gap generic kappa -1/8 gap 41749/3900960
+sample generic FULL_deterministic 2048 LR_deterministic 16
+normal_gap vary_r kappa 0 gap 1/384
+normal_gap vary_r kappa -1/8 gap 1/384
+sample vary_r FULL_deterministic 2048 LR_deterministic 16
+compensation_delta ('0', '1/256', '-1/256', '1/128')
+p ('1/2', '129/256', '127/256', '65/128') q ('1/2', '17/32', '15/32', '9/16') rP ('1/16', '5/64', '3/64', '3/32') rQ ('1/8', '5/32', '3/32', '3/16')
+new_normal ('82/9', '95/9', '3', '0') hFULL 101861/5184 hLR 407237/20736 exact_gap 23/2304
+FULL_witness ('4741/6144', '1657/9216', '5489/1536', '29891/9216')
+distance_Linf_lower 23/52224
+PASS_EXACT_R5_POSTK2_LAW_COUPLED_SPLIT_RIGIDITY
+exact_assertions 13128
+deterministic_FULL_per_kernel 2048 LR 16 kernel_sets 4
+independent_nonbinary_terminal_path_checks 160
+full_real_scope analytic proof in RESEARCH.md; program checks finite rational instances
