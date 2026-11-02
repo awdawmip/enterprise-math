@@ -1,0 +1,95 @@
+{
+  "schema": "D25_CM_TWIST_ARITHMETIC_POWER_GAUGE_P3_CHECK_V1",
+  "date": "2026-11-03",
+  "method": "independent JS BigInt modular exponent verification of author-side Python checker",
+  "count": 77,
+  "passed": 77,
+  "sign_only_p2_failures": 75,
+  "sign_only_matches": [
+    37,
+    331
+  ],
+  "examples": [
+    {
+      "p": 13,
+      "epsilon": -1,
+      "q18_mod_p": 6,
+      "q18_mod_p2": 45,
+      "power_gauge_mod_p2": 64,
+      "power_gauge_mod_p3": 2092,
+      "inverse_power_gauge_mod_p3": 272,
+      "naive_sign_p2": false
+    },
+    {
+      "p": 19,
+      "epsilon": 1,
+      "q18_mod_p": 1,
+      "q18_mod_p2": 1,
+      "power_gauge_mod_p2": 96,
+      "power_gauge_mod_p3": 3706,
+      "inverse_power_gauge_mod_p3": 5321,
+      "naive_sign_p2": false
+    },
+    {
+      "p": 37,
+      "epsilon": -1,
+      "q18_mod_p": 0,
+      "q18_mod_p2": 814,
+      "power_gauge_mod_p2": 1368,
+      "power_gauge_mod_p3": 17796,
+      "inverse_power_gauge_mod_p3": 32855,
+      "naive_sign_p2": true
+    },
+    {
+      "p": 43,
+      "epsilon": 1,
+      "q18_mod_p": 29,
+      "q18_mod_p2": 1577,
+      "power_gauge_mod_p2": 775,
+      "power_gauge_mod_p3": 6322,
+      "inverse_power_gauge_mod_p3": 36207,
+      "naive_sign_p2": false
+    },
+    {
+      "p": 109,
+      "epsilon": -1,
+      "q18_mod_p": 51,
+      "q18_mod_p2": 11278,
+      "power_gauge_mod_p2": 7520,
+      "power_gauge_mod_p3": 1183739,
+      "inverse_power_gauge_mod_p3": 527123,
+      "naive_sign_p2": false
+    },
+    {
+      "p": 181,
+      "epsilon": -1,
+      "q18_mod_p": 65,
+      "q18_mod_p2": 19070,
+      "power_gauge_mod_p2": 5248,
+      "power_gauge_mod_p3": 5836706,
+      "inverse_power_gauge_mod_p3": 2189737,
+      "naive_sign_p2": false
+    },
+    {
+      "p": 373,
+      "epsilon": -1,
+      "q18_mod_p": 60,
+      "q18_mod_p2": 57129,
+      "power_gauge_mod_p2": 133533,
+      "power_gauge_mod_p3": 26568043,
+      "inverse_power_gauge_mod_p3": 45918164,
+      "naive_sign_p2": false
+    },
+    {
+      "p": 1171,
+      "epsilon": 1,
+      "q18_mod_p": 855,
+      "q18_mod_p2": 548883,
+      "power_gauge_mod_p2": 1278733,
+      "power_gauge_mod_p3": 1265562935,
+      "inverse_power_gauge_mod_p3": 869459304,
+      "naive_sign_p2": false
+    }
+  ],
+  "status": "PASS_EXACT_INTEGER_NOT_NATIVE_H0_B0"
+}
