@@ -1,0 +1,10 @@
+CASE uniform rho 1 criterion True threshold_gaps 0,0
+CASE path_I rho 1 criterion True threshold_gaps 0,0,0,0
+CASE path_BJ rho 1 criterion True threshold_gaps 0,0,0,0
+CASE C_violation rho 1 criterion False threshold_gaps 0,1/96,0
+CASE IJ_violation rho 1 criterion False threshold_gaps 0,1/192,0,0
+CASE rho_4_5 rho 4/5 criterion True threshold_gaps 0,0,0,0
+CASE rho_6_5 rho 6/5 criterion True threshold_gaps 0,0,0,0
+WITNESS normal (Fraction(35, 12), Fraction(-23, 3)) FULL -1025/72 LR -4103/288 gap 1/96 observer (Fraction(899, 1152), Fraction(125, 576), Fraction(10, 3), Fraction(25, 8)) Linf_lower 1/1016
+PASS_EXACT_R5_RATIO_BALANCED_TIME_PROJECTION_CLASSIFICATION
+TOTAL_EXACT_CHECKS 369 CASES 7 FULL_CONFIGS_PER_CASE 2048 LR_CONFIGS_PER_CASE 16 SIGNED_NORMALS_PER_CASE 48
