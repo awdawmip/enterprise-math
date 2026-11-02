@@ -1,0 +1,48 @@
+{
+  "pass": "PASS_BRC_S23_A_SIDE_RELEASE_EDGE_SHARP_SEVEN_ELEVENTHS_20261102",
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "decoder_bank_pin": "57a6db1d81068504cca2b3a6ea809a63555473d6",
+  "prior_6d_result_pin": "c02114d77f9686730566fee07ea7b654acd171c0",
+  "family": "(1/5,1/3,t,0,0;1,1,0,1/5,1,0), all real 0<=t<=1",
+  "sharp_parameter": "5/11",
+  "sharp_risk": "7/11",
+  "old_t": "9/20",
+  "old_risk": "19/30",
+  "exact_gain": "1/330",
+  "labels": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D6",
+    "D7",
+    "D8",
+    "K1_old",
+    "K2_old",
+    "K3_repair"
+  ],
+  "risks_at_sharp": [
+    "7/11",
+    "1/1",
+    "1/1",
+    "2/3",
+    "4/5",
+    "2/3",
+    "7/11",
+    "526/825",
+    "7/11",
+    "4/5"
+  ],
+  "exact_endpoint_certificates": {
+    "D1_at_0": "1/2",
+    "D1_at_5_11": "7/11",
+    "D8_at_5_11": "7/11",
+    "D8_at_1": "1/2"
+  },
+  "upper_bound_left": "1/2 + 3*t/10, 0<=t<=5/11",
+  "upper_bound_right": "3/4 - t/4, 5/11<=t<=1",
+  "proof": "Six source distribution rows affine in t; for each fixed decoder its max-of-TV risk is convex. On each side its endpoint chord supplies the displayed upper bound, strictly below 7/11 away from t=5/11. Exact ten risks at t=5/11 supply the lower bound.",
+  "robustness": "For any z in the valid 11-cube, m_bank(z)>=7/11 - sum_j |z_j-W7_j|; the relative L1 ball of radius 1/330 has m_bank>19/30.",
+  "native_claim": false,
+  "independent_review": false
+}
