@@ -1,0 +1,336 @@
+{
+  "status": "EXACT_CHECK_PASS",
+  "version": "EC49EE",
+  "native_model": "signed X6 ordered primitive paths; first A/B event order including history/future seam",
+  "history_length": 10,
+  "history_displacement": [
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "historical_real_path_representatives": {
+    "N0": [
+      -2,
+      -2,
+      -1,
+      -1,
+      1,
+      1,
+      -1,
+      2,
+      2,
+      -1
+    ],
+    "N1": [
+      -2,
+      -2,
+      -1,
+      -1,
+      -1,
+      2,
+      2,
+      -1,
+      1,
+      1
+    ],
+    "N2": [
+      -2,
+      -2,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      -1,
+      2,
+      2
+    ],
+    "A0": [
+      -2,
+      -2,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      2,
+      2,
+      -1
+    ],
+    "A2": [
+      -2,
+      -2,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      2,
+      2
+    ],
+    "B0": [
+      -2,
+      -2,
+      -1,
+      -1,
+      -1,
+      2,
+      1,
+      1,
+      -1,
+      2
+    ],
+    "B1": [
+      -2,
+      -2,
+      -1,
+      -1,
+      -1,
+      -1,
+      2,
+      2,
+      1,
+      1
+    ],
+    "AB": [
+      -2,
+      -2,
+      -1,
+      -1,
+      -1,
+      -1,
+      1,
+      2,
+      1,
+      2
+    ],
+    "BA": [
+      -2,
+      -2,
+      -1,
+      -1,
+      -1,
+      -1,
+      2,
+      1,
+      1,
+      2
+    ]
+  },
+  "rank_field": "Q (0/1 minors bounded by Hadamard 19683 < modular prime 1000003)",
+  "h1": "only e; five terminal observations, rank5",
+  "all_h_claim": "T_cde(h)=T_cde_equal(h)=16*h-4 for integer h>=2; analytically proved in README",
+  "exact_finite_audits": [
+    {
+      "h": 2,
+      "returning_words": 4,
+      "transfer_classes": 4,
+      "same_positive_counts": [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "witness": {
+        "C": "ec",
+        "D": "ed",
+        "c": "ce",
+        "d": "de"
+      },
+      "unimodular_minor": -1,
+      "primitive_prefix_cost": 28,
+      "finite_class_representative_minimum": 28,
+      "finite_optimal_representative_pairs": 1
+    },
+    {
+      "h": 3,
+      "returning_words": 12,
+      "transfer_classes": 8,
+      "same_positive_counts": [
+        4,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "witness": {
+        "C": "ecc",
+        "D": "edd",
+        "c": "cce",
+        "d": "dde"
+      },
+      "unimodular_minor": -1,
+      "primitive_prefix_cost": 44,
+      "finite_class_representative_minimum": 44,
+      "finite_optimal_representative_pairs": 4
+    },
+    {
+      "h": 4,
+      "returning_words": 32,
+      "transfer_classes": 8,
+      "same_positive_counts": [
+        5,
+        3,
+        1,
+        0,
+        0,
+        0
+      ],
+      "witness": {
+        "C": "eccc",
+        "D": "eddd",
+        "c": "ccce",
+        "d": "ddde"
+      },
+      "unimodular_minor": -1,
+      "primitive_prefix_cost": 60,
+      "finite_class_representative_minimum": 60,
+      "finite_optimal_representative_pairs": 9
+    },
+    {
+      "h": 5,
+      "returning_words": 80,
+      "transfer_classes": 8,
+      "same_positive_counts": [
+        6,
+        4,
+        1,
+        0,
+        0,
+        0
+      ],
+      "witness": {
+        "C": "ecccc",
+        "D": "edddd",
+        "c": "cccce",
+        "d": "dddde"
+      },
+      "unimodular_minor": -1,
+      "primitive_prefix_cost": 76,
+      "finite_class_representative_minimum": 76,
+      "finite_optimal_representative_pairs": 16
+    },
+    {
+      "h": 6,
+      "returning_words": 192,
+      "transfer_classes": 8,
+      "same_positive_counts": [
+        7,
+        5,
+        1,
+        0,
+        0,
+        0
+      ],
+      "witness": {
+        "C": "eccccc",
+        "D": "eddddd",
+        "c": "ccccce",
+        "d": "ddddde"
+      },
+      "unimodular_minor": -1,
+      "primitive_prefix_cost": 92,
+      "finite_class_representative_minimum": 92,
+      "finite_optimal_representative_pairs": 25
+    },
+    {
+      "h": 7,
+      "returning_words": 448,
+      "transfer_classes": 8,
+      "same_positive_counts": [
+        8,
+        6,
+        1,
+        0,
+        0,
+        0
+      ],
+      "witness": {
+        "C": "ecccccc",
+        "D": "edddddd",
+        "c": "cccccce",
+        "d": "dddddde"
+      },
+      "unimodular_minor": -1,
+      "primitive_prefix_cost": 108,
+      "finite_class_representative_minimum": null,
+      "finite_optimal_representative_pairs": 0
+    },
+    {
+      "h": 8,
+      "returning_words": 1024,
+      "transfer_classes": 8,
+      "same_positive_counts": [
+        9,
+        7,
+        1,
+        0,
+        0,
+        0
+      ],
+      "witness": {
+        "C": "eccccccc",
+        "D": "eddddddd",
+        "c": "ccccccce",
+        "d": "ddddddde"
+      },
+      "unimodular_minor": -1,
+      "primitive_prefix_cost": 124,
+      "finite_class_representative_minimum": null,
+      "finite_optimal_representative_pairs": 0
+    },
+    {
+      "h": 9,
+      "returning_words": 2304,
+      "transfer_classes": 8,
+      "same_positive_counts": [
+        10,
+        8,
+        1,
+        0,
+        0,
+        0
+      ],
+      "witness": {
+        "C": "ecccccccc",
+        "D": "edddddddd",
+        "c": "cccccccce",
+        "d": "dddddddde"
+      },
+      "unimodular_minor": -1,
+      "primitive_prefix_cost": 140,
+      "finite_class_representative_minimum": null,
+      "finite_optimal_representative_pairs": 0
+    },
+    {
+      "h": 10,
+      "returning_words": 5120,
+      "transfer_classes": 8,
+      "same_positive_counts": [
+        11,
+        9,
+        1,
+        0,
+        0,
+        0
+      ],
+      "witness": {
+        "C": "eccccccccc",
+        "D": "eddddddddd",
+        "c": "ccccccccce",
+        "d": "ddddddddde"
+      },
+      "unimodular_minor": -1,
+      "primitive_prefix_cost": 156,
+      "finite_class_representative_minimum": null,
+      "finite_optimal_representative_pairs": 0
+    }
+  ]
+}
