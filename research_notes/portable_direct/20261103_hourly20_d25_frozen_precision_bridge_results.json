@@ -1,0 +1,56 @@
+{
+  "schema": "D25_FROZEN_CLAUSEN_PRECISION_BRIDGE_AUTHOR_RESULT_V1",
+  "date": "2026-11-03",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_science_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "math_result": "E^[q]=-R^[q] and Delta^[q]-R^[q]=(W-p)/p^2 for all finite q>=1 under frozen original hypotheses",
+  "execution": {
+    "original_recursions_precision": "p^5 detailed; p^4 scan",
+    "detailed_prime_count": 7,
+    "detailed_primes": [
+      13,
+      19,
+      37,
+      43,
+      181,
+      373,
+      1171
+    ],
+    "direct_signed_pair_check": "p=13,19,37,43,181,373",
+    "target_scan": "all 312 p<=10000, p%24 in {13,19}",
+    "scan_no_target_mod_p3_failures": true,
+    "scan_next_digit_nonzero_count": 312,
+    "universal_nonzero_theorem": false
+  },
+  "p373": {
+    "E_digits": [
+      177,
+      196,
+      150
+    ],
+    "R_digits": [
+      196,
+      176,
+      222
+    ],
+    "Delta_digits": [
+      196,
+      31,
+      1
+    ],
+    "residue_digits": [
+      0,
+      228,
+      151
+    ],
+    "R_mod_p3": 30952482,
+    "Delta_mod_p3": 150888
+  },
+  "p13": {
+    "W_mod_p4": 19786,
+    "residue_mod_p2": "9*13"
+  },
+  "status": "AUTHOR_DERIVED_ALGEBRAIC_PROOF_FINITE_EXACT_CHECK_UNREVIEWED_NOT_ADMITTED_REGISTER_PENDING",
+  "native_H0_B0_executed": false
+}
