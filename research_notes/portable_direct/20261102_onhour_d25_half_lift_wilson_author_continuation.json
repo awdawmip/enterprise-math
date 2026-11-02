@@ -1,0 +1,81 @@
+{
+  "schema": "D25_AUTHOR_SIDE_CONTINUATION_20261102_HALF_LIFT_WILSON_V1",
+  "timestamp_utc": "2026-11-02",
+  "status": "AUTHOR_DERIVED_EXACT_WITH_FINITE_REGRESSION_UNREVIEWED_NOT_ADMITTED_REGISTER_PENDING_SYNC_DEBT",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_science_input_commit": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_goal": "For every p≡13,19(mod24), exact frozen Delta_p=(G_p h−1)/p ≡ R_p(mod p), or exact counterexample or rigorously equivalent smaller certificate; native H0/B0 at p373 independently required.",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "prohibited_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "immutable_author_side_frontier": [
+    {
+      "kind": "EXACT_ALL_TARGET_PINNED_LIFT_TO_HALF_CUTOFF_IDENTITY",
+      "theorem": "Delta_p−R_p ≡ [(W((p−1)/2)−p)/p²]+B2_W(p) mod p; equivalently W((p−1)/2) ≡ p−p²B2_W(p) mod p³.",
+      "evidence_commit": "d1516e1c887e90a9fb55cee93678964e09b582e6",
+      "path": "research_notes/portable_direct/20261102_onhour_d25_lift_half_cutoff_source_bridge.md",
+      "source_dependence": "Frozen Clausen W=gh−T and T=p²R modp³; accepted D24 UR first digit W=p modp².",
+      "scope": "All p≡13,19(mod24); argument algebraically exact conditional only on already accepted frozen input and stated cited prior art."
+    },
+    {
+      "kind": "EXACT_ALL_P_EQ_1_MOD_6_WILSON_REFLECTED_W216_TAIL",
+      "theorem": "For p=6m+1, B2_W≡sum_(r=1)^m (6r−2)U_r; U_1=(6/p)/9; U_(r+1)=U_r*r(6r−1)(6r+1)/(9(2r+1)^3) modp.",
+      "evidence_commit": "d1516e1c887e90a9fb55cee93678964e09b582e6",
+      "path": "research_notes/portable_direct/20261102_onhour_d25_lift_half_cutoff_source_bridge.md",
+      "scope": "All primes p≡1(mod6), p>3."
+    },
+    {
+      "kind": "FINITE_INDEPENDENT_ORIGINAL_OBSERVER_CHECK",
+      "checker_commit": "0ba53a16f16196d1c7ea4aadf83404c8a29b690c",
+      "checker_path": "research_notes/portable_direct/d25_lift_half_cutoff_wilson_checker_20261102.py",
+      "coverage": "107 target primes ≤3000, 207 primes ≡1(mod6) ≤3000, integer binomial cross-check p=13,19,37,43,373.",
+      "observed": "0 mismatches in all asserted identities; 107 target Delta−R finite residuals zero; finite only.",
+      "p373": {
+        "G_mod_373_squared": 65672,
+        "h_mod_373_squared": 62835,
+        "Delta": 196,
+        "R": 196,
+        "J_half": 107,
+        "B2_W": 266,
+        "W_half_mod_373_cubed": 14887176
+      }
+    }
+  ],
+  "inherited_not_to_recompute": [
+    "D24 RR-AC9B3BA5BD277CE043F5 frozen/accepted UR/JT0 and parent CM0/SIMPLE",
+    "2019 Guo–Zudilin source theorem and S2304 B2=0 exact consequence",
+    "W216 B2 428-prime finite scan and 373 previous five-port decomposition",
+    "Previous ordinary v1/v2 source-port moment theorems",
+    "Original failed Research dispatch request research-onhour-20261031-0205-dispatch-r15"
+  ],
+  "outstanding_evidence": [
+    "Uniform proof or actual counterexample for original J_half+B2_W=0 in BOTH p=13/19 mod24 classes.",
+    "Native same-original p=373 H0/B0 divided-power [X]U mod139129, rank, semilinear Frobenius, eta, signed Green/Hesse kappa and independent validation at issue #1559.",
+    "Formal Source recovery/owner, legal Research session/claim/open/run, source checkpoint and math review/admission."
+  ],
+  "next_exact_action": "Construct original terminating half-W216 second p-adic digit J_H using a genuine finite polynomial/parameter deformation; compare coefficient-by-coefficient or via typed jet with Wilson-reflected U_r recurrence, retaining the finite cutoff and the original Delta−R. Test both 13/19 mod24, especially p373 (J=107,B2=266).",
+  "brc_reuse": "COMPOSE_APPLIED: original integer/source coordinate k=3m+r, valuation2, finite-field recurrence with signed weight and Legendre branch (6/p), keep B2 repair until divided-digit observer; no positive-mass shortcut.",
+  "source_control": {
+    "native_recovery_status": "NOT_AUTHENTICATED_NOT_KNOWN_EMPTY",
+    "own_session_id": null,
+    "own_claim_id": null,
+    "own_run_id": null,
+    "Source_checkpoint": null,
+    "own_registration": "REGISTER_PENDING_SYNC_DEBT",
+    "previous_original_request_id": "research-onhour-20261031-0205-dispatch-r15",
+    "original_receipt": "https://github.com/awdawmip/kimi-query-bridge/issues/6633#issuecomment-6530006527",
+    "old_receipt_status": "FAILED_UPSTREAM_CODE_REVIEW_REQUIRED",
+    "fresh_request_result": "CONTROL_REQUEST_NOT_FOUND (2026-11-02)",
+    "previous_exact_continuation_request_id": "onhour-20261102-0457-d25-continuation-read-v1",
+    "previous_exact_continuation_outcome": "CONTROL_QUOTA; no actual authenticated owner packet",
+    "native_gateway_version": "0.6.11",
+    "site_phase": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "backend_connected": false,
+    "site_write_relay_enabled": false,
+    "research_write_authority_granted": false,
+    "safe_required_configuration": "Separate Site-bound backend Research client, secure user-entered credential and native executor binding. No maintenance identity reused.",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "support_status_as_checked": "OPEN, no confirmed assignee, NOT_EXECUTED"
+  },
+  "presentation_and_schedule": "Original hourly on-hour schedule/phase, enabled and notification settings/behavior left untouched; no additional scheduler/Actions/cron."
+}
