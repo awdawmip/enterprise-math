@@ -1,0 +1,9 @@
+# Stage380-B | Exact sign-chamber and KKT classification
+
+Scientific pins unchanged: GLOBAL bf84bd7c61a2444b59b1da96be57df0e9ae47e53; Enterprise Math 2af3fc484eb11060b69e0afc1b562bcaf5ad1419; P000 Blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Load current behavioral rules separately.
+
+Verified author-side scientific frontier: Stage379-B, Research2 Draft PR #1736. Every global minimizer of the original 16-audit-label/4-residual-channel two-source Bernoulli/BRC auxiliary problem, after source exchange, is in P=(0.2308,0.2345)x(0.55,0.56), Q=(0.2365,0.239]x(0.57566,0.57574). The new exact lambda=483/400 certificate has 1453 closed leaves, no unresolved, CSV SHA256 aa48034a214df51a493d387862e12d05eed5b18681299574f41264656262d828. This is a researcher-authored theorem candidate, not an independent review or canonical native Result.
+
+Next specific scientific action: classify fixed-sign polynomial chambers for b and c in the remaining four-dimensional tube, retaining all 16 original audit comparisons and 4 residuals; derive and solve relevant interior KKT equations for the joint active budget and the critical sign faces, especially r1(P)=0 and r1(Q)=0. Produce one exact critical-face lemma, a finite complete critical-system reduction, or a feasible exact rational counterexample strictly cheaper than the inherited algebraic cusp candidate. Provide strict algebraic bounds and an executed checker for computational evidence. The counterexample route tests only a candidate, not a proven theorem.
+
+Publish a complete proof/witness, precise domain, source labels, verification and next open question to this Draft PR. Formal CLAIM/Source Result/Review requires current independent native authority. P000/X6 three-dimensional-slice observer, third-coordinate, update and residual-fidelity transfer remain separate mother-objective obligations.
