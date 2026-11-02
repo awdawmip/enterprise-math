@@ -1,0 +1,157 @@
+{
+  "case": {
+    "E": 86,
+    "id": 46,
+    "keys": [
+      [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        4,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        4,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        5,
+        3,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        5,
+        3,
+        1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "words": [
+      [
+        3,
+        "feg"
+      ],
+      [
+        3,
+        "gef"
+      ],
+      [
+        4,
+        "gefc"
+      ],
+      [
+        4,
+        "fegc"
+      ],
+      [
+        4,
+        "edfg"
+      ],
+      [
+        4,
+        "defg"
+      ],
+      [
+        5,
+        "fegfg"
+      ],
+      [
+        5,
+        "geffg"
+      ],
+      [
+        6,
+        "geffgc"
+      ],
+      [
+        6,
+        "fegfgc"
+      ],
+      [
+        6,
+        "edfgfg"
+      ],
+      [
+        6,
+        "defgfg"
+      ],
+      [
+        7,
+        "fegfgfg"
+      ],
+      [
+        7,
+        "geffgfg"
+      ]
+    ]
+  },
+  "dp": {
+    "stdout": "PASS min_extra=58 total=86 nodes=3149 colors=14 largest_states=16384 convolutions=376624",
+    "stderr": "",
+    "seconds": 0.01,
+    "returncode": 0,
+    "nodes": 3149,
+    "colors": 14
+  },
+  "milp": {
+    "status": 0,
+    "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "seconds": 0.06,
+    "objective": 86.0,
+    "bound": 86.0,
+    "gap": 0.0,
+    "native_pre_count": 86,
+    "words": {
+      "3": [
+        "feg",
+        "gfe"
+      ],
+      "4": [
+        "degf",
+        "fegc",
+        "fegd",
+        "gfec"
+      ],
+      "6": [
+        "degffg",
+        "fegcgf",
+        "fegfgd",
+        "gfefgc"
+      ],
+      "7": [
+        "fegfggf",
+        "gfefgfg"
+      ],
+      "5": [
+        "fegfg",
+        "gfefg"
+      ]
+    }
+  }
+}
