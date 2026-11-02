@@ -15,6 +15,23 @@ class TruthfulSourceStatusContractTests(unittest.TestCase):
         cls.doc = (ROOT / 'docs/RESEARCH_IDENTITY_PROTOCOL.md').read_text()
         cls.portable = (ROOT / 'docs/PORTABLE_RESEARCH_PROTOCOL.md').read_text()
 
+
+    def test_footer_display_is_english_without_new_read_exemption(self):
+        self.assertEqual(self.status['display_language'], 'en')
+        self.assertIn('brief warning reasons in English', self.status['display_language_rule'])
+        self.assertEqual(self.status['read_states'], {
+            'READ_OK': 'Verified', 'READ_LEASED': 'Verified snapshot reused',
+            'READ_FAILED': '⚠ Read failed', 'READ_UNKNOWN': '⚠ Unconfirmed'})
+        self.assertEqual(self.status['write_states'], {
+            'WRITE_OK': 'Written and verified', 'WRITE_NOT_REQUIRED': 'Not required',
+            'WRITE_NOT_DONE': '⚠ Not written', 'WRITE_FAILED': '⚠ Write failed',
+            'WRITE_PENDING': '⚠ Unconfirmed', 'WRITE_UNKNOWN': '⚠ Unconfirmed'})
+        self.assertIn('⚠ Identity unconfirmed', self.status['unresolved_identity'])
+        self.assertIn('Read=', self.status['template'])
+        self.assertIn('Write=', self.status['template'])
+        self.assertIn('brief warning reasons must be English', self.doc)
+        self.assertIn('Write=Not required', self.portable)
+
     def test_both_active_contracts_require_visible_status(self):
         self.assertTrue(self.policy['ordering']['marker_required'])
         self.assertTrue(self.identity['final_response']['marker_required'])
@@ -33,7 +50,7 @@ class TruthfulSourceStatusContractTests(unittest.TestCase):
         self.assertIn('all required destinations published', required)
         self.assertIn('actual successful remote readback or authoritative completion receipt', required)
         self.assertIn('exact operation/artifact', required)
-        self.assertEqual(self.status['write_states']['WRITE_OK'], '已写入并核验')
+        self.assertEqual(self.status['write_states']['WRITE_OK'], 'Written and verified')
 
     def test_every_incomplete_state_is_visibly_warned(self):
         for state in ('WRITE_NOT_DONE', 'WRITE_FAILED', 'WRITE_PENDING', 'WRITE_UNKNOWN'):
@@ -49,7 +66,7 @@ class TruthfulSourceStatusContractTests(unittest.TestCase):
     def test_no_write_task_does_not_create_artificial_write_or_hide_failure(self):
         self.assertTrue(self.status['no_synthetic_write'])
         self.assertIn('failed, denied, pending or unattempted required write is not N/A', self.status['write_not_required_requires'])
-        self.assertEqual(self.status['write_states']['WRITE_NOT_REQUIRED'], '无需写入')
+        self.assertEqual(self.status['write_states']['WRITE_NOT_REQUIRED'], 'Not required')
 
     def test_read_and_multiple_write_targets_remain_independent(self):
         self.assertIn('read and write independently', self.status['per_target_rule'])

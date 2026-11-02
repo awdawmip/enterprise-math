@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_FINAL_RESPONSE_IDENTITY_POLICY_V3",
   "status": "ACTIVE",
-  "effective": "2026-11-01",
+  "effective": "2026-11-02",
   "scope": [
     "RESEARCHER",
     "RESEARCH_DRIVER",
@@ -71,20 +71,20 @@
   "source_status_reporting": {
     "authority": "EXPLICIT_USER_INSTRUCTION_20261101T231129Z",
     "required": true,
-    "template": "EM-Source-Status: read=<state + exact source/snapshot>; write=<state + target/receipt or brief reason>",
+    "template": "EM-Source-Status: Read=<state + exact source/snapshot>; Write=<state + target/receipt or brief English reason>",
     "read_states": {
-      "READ_OK": "已读取",
-      "READ_LEASED": "有效快照复用",
-      "READ_FAILED": "⚠读取失败",
-      "READ_UNKNOWN": "⚠读取待确认"
+      "READ_OK": "Verified",
+      "READ_LEASED": "Verified snapshot reused",
+      "READ_FAILED": "⚠ Read failed",
+      "READ_UNKNOWN": "⚠ Unconfirmed"
     },
     "write_states": {
-      "WRITE_OK": "已写入并核验",
-      "WRITE_NOT_REQUIRED": "无需写入",
-      "WRITE_NOT_DONE": "⚠未写入",
-      "WRITE_FAILED": "⚠写入失败",
-      "WRITE_PENDING": "⚠写入待确认",
-      "WRITE_UNKNOWN": "⚠写入待确认"
+      "WRITE_OK": "Written and verified",
+      "WRITE_NOT_REQUIRED": "Not required",
+      "WRITE_NOT_DONE": "⚠ Not written",
+      "WRITE_FAILED": "⚠ Write failed",
+      "WRITE_PENDING": "⚠ Unconfirmed",
+      "WRITE_UNKNOWN": "⚠ Unconfirmed"
     },
     "read_success_requires": [
       "actual successful required-source read",
@@ -111,6 +111,9 @@
     "no_synthetic_write": true,
     "authority_boundary": "Formatting does not issue identity, bypass denied STOP, grant source/task/write authority, resume paused work or establish mathematical acceptance. Reuse existing read/receipt evidence without per-step hashing or extra proof ceremonies.",
     "coverage_boundary": "Repository communication contract; not platform-wide prompt injection or a guarantee that clients executed reads/writes.",
-    "unresolved_identity": "If an active research identity cannot be verified, show ⚠身份待确认 and the actual role without inventing an ID; keep source read/write warnings. This does not waive existing identity checks before authorized research or shared operations."
+    "unresolved_identity": "If an active research identity cannot be verified, show ⚠ Identity unconfirmed and the actual role without inventing an ID; keep source read/write warnings. This does not waive existing identity checks before authorized research or shared operations.",
+    "display_language": "en",
+    "display_language_authority": "EXPLICIT_USER_INSTRUCTION_20261102T004407Z",
+    "display_language_rule": "Render all footer labels, state text and brief warning reasons in English, regardless of body language; preserve exact source paths, IDs and receipt references."
   }
 }

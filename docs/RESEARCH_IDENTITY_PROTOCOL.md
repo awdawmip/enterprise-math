@@ -179,7 +179,7 @@ The Steward helper defaults to the `STW` lane and renders `Steward-ID`.
 ## 8. Mandatory truthful identity and source-status footer
 
 Current communication policy: `final_response_identity_policy.json`, restored by the explicit user instruction of 2026-11-01 23:11:29 UTC.
-Every substantive Enterprise Math response shows `EM-Source-Status: read=...; write=...`.
+Every substantive Enterprise Math response shows `EM-Source-Status: Read=...; Write=...`.
 Active research roles also show their actual `Researcher-ID`, `Driver-ID` or `Steward-ID` and real task/mode scope. Control-only maintenance shows source status without inventing a research identity. Progress/tool messages are not final reports. If an active research identity is unresolved, visibly report that uncertainty with the actual role rather than fabricate an ID or block an honest status report; actual research/shared-operation identity checks remain in force.
 
 Read and write are independent. State successful reading only from actual required-source evidence; valid snapshot reuse requires the applicable freshness policy, retained verification time and exact ref. Failed or unknown reads carry a visible warning and brief reason. A remembered SHA or footer alone is not a verified read.
@@ -187,6 +187,8 @@ Read and write are independent. State successful reading only from actual requir
 A required write is successful only after actual authorized publication and remote readback or an authoritative completion receipt for the exact artifact/operation. Show a visible warning for not written, failed, pending or unknown writes, with the affected destination and brief reason. Reconcile an uncertain operation before retrying. One successful destination cannot hide another incomplete destination. Use `WRITE_NOT_REQUIRED` only when no durable write is required, never for a failed or skipped preservation duty; do not manufacture writes to satisfy a footer.
 
 Reuse existing source refs and receipt evidence. No per-step hashes, extra registry or self-proof ceremony is required. The marker communicates actual state; it grants no read/write, CLAIM, review or completion authority, does not override a denial or pause, and is not platform-wide prompt injection. A failure warning permits an honest report without pretending the underlying work is complete. The mandatory global-knowledge footer remains separate.
+
+Footer labels, state text and brief warning reasons must be English regardless of the response body language (user instruction 2026-11-02). Preserve exact source paths, IDs and receipt references. Read states are `Verified`, `Verified snapshot reused`, `⚠ Read failed` and `⚠ Unconfirmed`; write states are `Written and verified`, `Not required`, `⚠ Not written`, `⚠ Write failed` and `⚠ Unconfirmed` (pending or unknown). Unresolved identity is `⚠ Identity unconfirmed`.
 
 Machine labels and exact warning strings are in `final_response_identity_policy.json#source_status_reporting`.
 
