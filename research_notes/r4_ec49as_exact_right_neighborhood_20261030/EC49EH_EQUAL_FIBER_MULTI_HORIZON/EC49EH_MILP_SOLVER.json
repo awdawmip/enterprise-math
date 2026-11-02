@@ -1,0 +1,290 @@
+{
+  "base_h2": {
+    "cost": 28,
+    "mandatory_words": [
+      "ce",
+      "de",
+      "ec",
+      "ed"
+    ],
+    "returning_words": 8
+  },
+  "limitation": "Numerical MILP optimality report; independently exact Python enumeration proves H2/H3, and integer witnesses exactly verify H4..maxH.",
+  "method": "finite exact 0-1 prefix closure + complete transfer-rank fiber options, HiGHS zero MIP gap",
+  "results": [
+    {
+      "H": 3,
+      "additional_cost_after_h2": 8,
+      "native_trie_cost": 36,
+      "num_0_1_variables": 186,
+      "num_constraints": 181,
+      "num_fiber_rank_options": 4,
+      "num_new_prefix_edges": 182,
+      "returning_word_counts": {
+        "3": 51
+      },
+      "seconds": 0.005,
+      "selected_certificates": {
+        "3": [
+          {
+            "determinant": -1,
+            "fiber": [
+              3,
+              2,
+              1,
+              0,
+              0,
+              0
+            ],
+            "independent_observation_columns": 9,
+            "words": [
+              "ceg",
+              "deg",
+              "ecg",
+              "edg"
+            ]
+          }
+        ]
+      },
+      "solver_mip_dual_bound": 8.0,
+      "solver_mip_gap": 0.0,
+      "status": "OPTIMAL",
+      "witness_union_cost_exact": 36
+    },
+    {
+      "H": 4,
+      "additional_cost_after_h2": 16,
+      "native_trie_cost": 44,
+      "num_0_1_variables": 1271,
+      "num_constraints": 1277,
+      "num_fiber_rank_options": 13,
+      "num_new_prefix_edges": 1258,
+      "returning_word_counts": {
+        "3": 51,
+        "4": 304
+      },
+      "seconds": 0.053,
+      "selected_certificates": {
+        "3": [
+          {
+            "determinant": -1,
+            "fiber": [
+              4,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "independent_observation_columns": 9,
+            "words": [
+              "cef",
+              "def",
+              "ecf",
+              "edf"
+            ]
+          }
+        ],
+        "4": [
+          {
+            "determinant": -1,
+            "fiber": [
+              5,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "independent_observation_columns": 9,
+            "words": [
+              "ceff",
+              "deff",
+              "ecff",
+              "edff"
+            ]
+          }
+        ]
+      },
+      "solver_mip_dual_bound": 16.0,
+      "solver_mip_gap": 0.0,
+      "status": "OPTIMAL",
+      "witness_union_cost_exact": 44
+    },
+    {
+      "H": 5,
+      "additional_cost_after_h2": 22,
+      "native_trie_cost": 50,
+      "num_0_1_variables": 7790,
+      "num_constraints": 7840,
+      "num_fiber_rank_options": 30,
+      "num_new_prefix_edges": 7760,
+      "returning_word_counts": {
+        "3": 51,
+        "4": 304,
+        "5": 1770
+      },
+      "seconds": 0.73,
+      "selected_certificates": {
+        "3": [
+          {
+            "determinant": -1,
+            "fiber": [
+              3,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "independent_observation_columns": 9,
+            "words": [
+              "feg",
+              "gfe"
+            ]
+          }
+        ],
+        "4": [
+          {
+            "determinant": -1,
+            "fiber": [
+              4,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "independent_observation_columns": 9,
+            "words": [
+              "fegf",
+              "gfef"
+            ]
+          }
+        ],
+        "5": [
+          {
+            "determinant": -1,
+            "fiber": [
+              4,
+              2,
+              1,
+              0,
+              0,
+              0
+            ],
+            "independent_observation_columns": 9,
+            "words": [
+              "fegfg",
+              "gfefg"
+            ]
+          }
+        ]
+      },
+      "solver_mip_dual_bound": 22.0,
+      "solver_mip_gap": 0.0,
+      "status": "OPTIMAL",
+      "witness_union_cost_exact": 50
+    },
+    {
+      "H": 6,
+      "additional_cost_after_h2": 26,
+      "native_trie_cost": 54,
+      "num_0_1_variables": 45298,
+      "num_constraints": 45421,
+      "num_fiber_rank_options": 58,
+      "num_new_prefix_edges": 45240,
+      "returning_word_counts": {
+        "3": 51,
+        "4": 304,
+        "5": 1770,
+        "6": 10224
+      },
+      "seconds": 2.763,
+      "selected_certificates": {
+        "3": [
+          {
+            "determinant": -1,
+            "fiber": [
+              3,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "independent_observation_columns": 9,
+            "words": [
+              "fge",
+              "gef"
+            ]
+          }
+        ],
+        "4": [
+          {
+            "determinant": -1,
+            "fiber": [
+              3,
+              2,
+              1,
+              0,
+              0,
+              0
+            ],
+            "independent_observation_columns": 9,
+            "words": [
+              "fgeg",
+              "gefg"
+            ]
+          }
+        ],
+        "5": [
+          {
+            "determinant": -1,
+            "fiber": [
+              4,
+              2,
+              1,
+              0,
+              0,
+              0
+            ],
+            "independent_observation_columns": 9,
+            "words": [
+              "fgegf",
+              "gefgf"
+            ]
+          }
+        ],
+        "6": [
+          {
+            "determinant": -1,
+            "fiber": [
+              4,
+              3,
+              1,
+              0,
+              0,
+              0
+            ],
+            "independent_observation_columns": 9,
+            "words": [
+              "fgegfg",
+              "gefgfg"
+            ]
+          }
+        ]
+      },
+      "solver_mip_dual_bound": 26.0,
+      "solver_mip_gap": 0.0,
+      "status": "OPTIMAL",
+      "witness_union_cost_exact": 54
+    }
+  ],
+  "solver_versions": {
+    "numpy": "2.3.5",
+    "python": "3.13.5",
+    "scipy": "1.17.0"
+  },
+  "status": "PASS"
+}
