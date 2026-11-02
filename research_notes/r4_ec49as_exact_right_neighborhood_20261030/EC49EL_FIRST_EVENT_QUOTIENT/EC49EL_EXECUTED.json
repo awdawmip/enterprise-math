@@ -1,0 +1,175 @@
+{
+  "analytic_results": {
+    "all_h_rank9_condition": "q>=1 OR (q=0 AND u>=1 AND v>=1)",
+    "all_h_rank9_fiber_count": "number_of_positive_fibers - h",
+    "all_h_word_count_formula": "sum_{r=0..floor((h-1)/2)} h! 4^(h-2r-1)/(r!(r+1)!(h-2r-1)!)",
+    "fiber_word_count_formula": "h! 2^q/(r!(r+1)!q!u!v!) where r=p3-1, q=p1+p2-h-1, u=h-p2-2r-1, v=h+1-p1",
+    "q0_min_extra_edges_relative_to_mandatory_h2": "4h+4r+2 for h>=3, r=p3-1, q=0 and u,v>=1",
+    "q0_rank9_condition": "u>=1 AND v>=1",
+    "universal_unrestricted_cost_at_H9": "OPEN; constructive upper bound 66"
+  },
+  "direct_path_words_checked_h1_to6": 12358,
+  "finite_state_horizon_results": [
+    {
+      "dp_states_after_h": 6,
+      "full_rank_fibers": 0,
+      "h": 1,
+      "positive_count_fibers": 1,
+      "q0_fibers": 1,
+      "q0_full_rank": 0,
+      "return_words": 1
+    },
+    {
+      "dp_states_after_h": 33,
+      "full_rank_fibers": 1,
+      "h": 2,
+      "positive_count_fibers": 3,
+      "q0_fibers": 2,
+      "q0_full_rank": 0,
+      "return_words": 8
+    },
+    {
+      "dp_states_after_h": 110,
+      "full_rank_fibers": 4,
+      "h": 3,
+      "positive_count_fibers": 7,
+      "q0_fibers": 4,
+      "q0_full_rank": 1,
+      "return_words": 51
+    },
+    {
+      "dp_states_after_h": 278,
+      "full_rank_fibers": 9,
+      "h": 4,
+      "positive_count_fibers": 13,
+      "q0_fibers": 6,
+      "q0_full_rank": 2,
+      "return_words": 304
+    },
+    {
+      "dp_states_after_h": 590,
+      "full_rank_fibers": 17,
+      "h": 5,
+      "positive_count_fibers": 22,
+      "q0_fibers": 9,
+      "q0_full_rank": 4,
+      "return_words": 1770
+    },
+    {
+      "dp_states_after_h": 1111,
+      "full_rank_fibers": 28,
+      "h": 6,
+      "positive_count_fibers": 34,
+      "q0_fibers": 12,
+      "q0_full_rank": 6,
+      "return_words": 10224
+    },
+    {
+      "dp_states_after_h": 1918,
+      "full_rank_fibers": 43,
+      "h": 7,
+      "positive_count_fibers": 50,
+      "q0_fibers": 16,
+      "q0_full_rank": 9,
+      "return_words": 58947
+    },
+    {
+      "dp_states_after_h": 3100,
+      "full_rank_fibers": 62,
+      "h": 8,
+      "positive_count_fibers": 70,
+      "q0_fibers": 20,
+      "q0_full_rank": 12,
+      "return_words": 340064
+    },
+    {
+      "dp_states_after_h": 4758,
+      "full_rank_fibers": 86,
+      "h": 9,
+      "positive_count_fibers": 95,
+      "q0_fibers": 25,
+      "q0_full_rank": 16,
+      "return_words": 1964862
+    },
+    {
+      "dp_states_after_h": 7005,
+      "full_rank_fibers": 115,
+      "h": 10,
+      "positive_count_fibers": 125,
+      "q0_fibers": 30,
+      "q0_full_rank": 20,
+      "return_words": 11374000
+    }
+  ],
+  "max_h": 10,
+  "model": "signed-native X6, ordered A/B first-occurrence, two symbolic positive BRC monomials",
+  "new_unit": "EC49EL",
+  "prior_full_fiber_matches": [
+    {
+      "all_fibers_match_prior_github_artifact": true,
+      "h": 7
+    },
+    {
+      "all_fibers_match_prior_github_artifact": true,
+      "h": 8
+    }
+  ],
+  "prior_q0_min_cost_matches": [
+    {
+      "checked_q0_fullrank_fibers": 9,
+      "h": 7
+    },
+    {
+      "checked_q0_fullrank_fibers": 12,
+      "h": 8
+    }
+  ],
+  "q_positive_unimodular_minor": {
+    "column_indices": [
+      1,
+      3,
+      4,
+      7,
+      8,
+      11,
+      13,
+      17,
+      18
+    ],
+    "det": -1,
+    "pairs": [
+      [
+        1,
+        "A"
+      ],
+      [
+        2,
+        "B"
+      ],
+      [
+        0,
+        "A"
+      ],
+      [
+        0,
+        "B"
+      ]
+    ]
+  },
+  "status": "PASS",
+  "witness_minor": {
+    "column_names": [
+      "f_tag_A",
+      "f_tag_B",
+      "f_tag_AB",
+      "f_tag_BA",
+      "g_tag_N",
+      "g_tag_A",
+      "g_tag_B",
+      "g_tag_AB",
+      "g_tag_BA"
+    ],
+    "det": -1,
+    "omit_column": 0
+  }
+}
