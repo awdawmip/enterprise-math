@@ -1,0 +1,5 @@
+# EC49EC — Shared-prefix primitive cost
+
+Continuation of EC49EB author draft on PR #1730. Frozen source pins: global 773d538180bfb49e24cffeb35c3ee75eb0628e2e, EM fc0f038e7bfd12c886b4d37f900bfb770c0f61ab. Research model retains native signed X6 a–e, A/B first-occurrence seam, dual positive BRC and count channel, P000, and unchanged ACTIVE worldview.
+
+Optimization target: for each fixed returning future-operator horizon h, replace the sum of primitive lengths across distinct selected future words by the number of unique signed native X6 primitive prefix edges in their joint trie (a shared prefix evaluated only once). Minimize trie cost among sets recovering all nine observable historical atoms, both without count-fiber constraints and with identical six-axis positive-step counts. Enumerate h=2,3,4 exactly first and compare with EC49EB separate-word costs 32,34,56; output exact winning word set, full signed primitive trie, 9-column nonzero determinant and exhaustive-domain certificate. Preserve word/bucket provenance and separate BRC numerical-factor caching from observer quotienting. Generalize only with proof. Native ownership and independent review unchanged.
