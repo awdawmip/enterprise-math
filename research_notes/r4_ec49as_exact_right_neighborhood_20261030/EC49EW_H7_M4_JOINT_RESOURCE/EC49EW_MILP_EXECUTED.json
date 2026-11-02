@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "model": "independent 0-1 MILP terminal cover, tree closure and paid edges",
+  "cases": [
+    {
+      "case": "H7_M4_S4",
+      "nodes": 7875,
+      "required_terminal_colors": 20,
+      "milp_variables": 7875,
+      "constraints": 7894,
+      "solver_status": 0,
+      "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "total_E": 92.0,
+      "dual_lower_bound": 92.0,
+      "gap": 0.0,
+      "expected": 92
+    },
+    {
+      "case": "H7_M4_S6_T2T4",
+      "nodes": 2270,
+      "required_terminal_colors": 12,
+      "milp_variables": 2270,
+      "constraints": 2281,
+      "solver_status": 0,
+      "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "total_E": 72.0,
+      "dual_lower_bound": 72.0,
+      "gap": 0.0,
+      "expected": 72
+    }
+  ]
+}
