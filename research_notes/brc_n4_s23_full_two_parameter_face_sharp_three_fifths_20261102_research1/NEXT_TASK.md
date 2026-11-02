@@ -1,0 +1,5 @@
+# Next discriminating unit
+
+Closed: `S18 ∪ J([0,1]) ∪ H([0,1]^2)` with H(s,t)=(s,t,0,0,0;1,0,0,0,0,0) has exact fixed-seven/free-three minimax **3/5**. Proof uses ten source-event witnesses (84 forbidden triples, 59049 colorings) and twenty-five exact rational square cells, each covered by one of D1,D4,K1,K2; affine/multi-affine preparation plus TV convexity gives **all real pairs**. Original six-source labels, shared b_U and frozen scientific input `43ec6098b1330ae86d0a7863be336c5d97f6ef34` retained. Latest source: this folder's PROOF.md, VERIFY.js, RUN_EVIDENCE.json.
+
+Open: select a larger legal face in which a shared causal parameter b or an additional stop variable genuinely varies, compute the original six source distributions, prove whether they are multiaffine on a chosen cell or identify non-multiaffine terms, and then certify a finite convex cover or an exact interior counterexample. Alternatively advance the full unrestricted ten-label eleven-coordinate objective from earlier `[1/2,2/3]` with different jointly optimized decoder families. Distinguish full input family/global model claims from the fixed-seven/free-three witness subproblem.
