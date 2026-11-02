@@ -8,7 +8,7 @@ Fix a chart-relative Cell in the six-axis native X6 torsor under P000. Restrict 
 
 ## Theorem 1: sharp minimal path-branch cardinality
 
-For fixed nonnegative integer n, let b(n) be the least m for which two different m-word bags have identical M0,M1,M2; let b(n)=infinity if none. Then
+For fixed nonnegative integer n, let b(n) be the least m for which two m-word bags with DIFFERENT TERMINAL ENDPOINT HISTOGRAMS have identical M0,M1,M2; let b(n)=infinity if none. Distinct ordered words sharing the same endpoint are the same atom for this particular endpoint-histogram question; path-provenance distinctions are separately typed. Then
 
     b(n)=infinity (0<=n<=2); b(3)=4; b(n)=3 (n>=4).
 
