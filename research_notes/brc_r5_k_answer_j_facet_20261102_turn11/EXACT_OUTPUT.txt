@@ -1,0 +1,21 @@
+segment 0 2/5 FULL_min witness (Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(1, 1), Fraction(0, 1), Fraction(1, 1), Fraction(0, 1))
+segment 0 2/5 LR_min witness (Fraction(1, 1), Fraction(0, 1), Fraction(1, 1))
+segment 0 2/5 FULL_max witness (Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(1, 1), Fraction(0, 1), Fraction(1, 1))
+segment 0 2/5 LR_max witness (Fraction(1, 1), Fraction(0, 1), Fraction(0, 1))
+segment 2/5 1 FULL_min witness (Fraction(0, 1), Fraction(0, 1), Fraction(1, 1), Fraction(1, 1), Fraction(0, 1), Fraction(1, 1), Fraction(0, 1))
+segment 2/5 1 LR_min witness (Fraction(1, 1), Fraction(0, 1), Fraction(1, 1))
+segment 2/5 1 FULL_max witness (Fraction(0, 1), Fraction(1, 1), Fraction(0, 1), Fraction(0, 1), Fraction(1, 1), Fraction(0, 1), Fraction(1, 1))
+segment 2/5 1 LR_max witness (Fraction(1, 1), Fraction(1, 1), Fraction(0, 1))
+aligned-J FULL/LR E support ranges 1 21/20
+aligned-J oblique normal (2, -1, 1, 0) hFULL 71/15 hLR 93/20 gap 1/12
+aligned-J FULL witness (Fraction(57, 80), Fraction(27, 80), Fraction(175, 48), Fraction(167, 48)) infinity distance lower bound 1/48
+aligned-J LR affine minor -49/61440 FULL Jacobian minor 23/1966080
+s=1 witness FULL (Fraction(0, 1), Fraction(1, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)) (Fraction(51, 80), Fraction(31, 80), Fraction(89, 24), Fraction(337, 96))
+s=1 LR E upper 1 FULL E upper 41/40
+s=1 signed support gap E 1/40 infinity distance lower bound 1/80
+s=1 signed support gap -E 0 time supports both directions equal
+J-neutralization at K s=1: positive E gap=(1-t)/40; t=1 forces E==1 and rank<=3
+LR affine det 13/98304 FULL Jacobian minor 47/1310720
+two exact affine-envelope intervals, total corner strategies 128 8
+checks 1525 physical_evaluations 1888
+PASS_EXACT_R5_K_ANSWER_NEUTRALIZATION_FACET_MIGRATION
