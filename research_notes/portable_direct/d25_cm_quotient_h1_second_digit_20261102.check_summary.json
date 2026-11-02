@@ -1,0 +1,63 @@
+{
+  "schema": "D25_CM_QUOTIENT_SECOND_DIGIT_SUMMARY_V1",
+  "date": "2026-11-02",
+  "frozen_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "status": "AUTHOR_EXECUTED_EXACT_FINITE_CHECK_UNREVIEWED_NOT_ADMITTED",
+  "executable": "research_notes/portable_direct/d25_cm_quotient_h1_second_digit_20261102.py",
+  "source_replay_dependency": "research_notes/portable_direct/d25_ordinary_second_jet_checker_20261102.py",
+  "command": "python d25_cm_quotient_h1_second_digit_20261102.py --limit 3000",
+  "target_domain": "primes p<=3000, p mod24 in {13,19}",
+  "checked_target_primes": 107,
+  "non_cm_control_prime": 7,
+  "all_passed": true,
+  "identities": [
+    "exact quotient square first harmonic",
+    "independent deformed Gauss first port",
+    "second harmonic pair/diagonal tail",
+    "source-preserving divided second digit",
+    "previous original signed Delta-R"
+  ],
+  "corrections_nonzero_for_target_count": 107,
+  "direct_ordered_pair_and_independent_full_W_primes": [
+    13,
+    19,
+    37,
+    373,
+    1171
+  ],
+  "p373": {
+    "H1_ordinary_mod_139129": 10417,
+    "quotient_square_integral_mod_139129": 52939,
+    "root_correction_mod_139129": 96607,
+    "H1_deformed_mod_139129": 83152,
+    "epsilon_over_p_mod_373": 340,
+    "flat_divided": 361,
+    "root_repair": 171,
+    "deformation_repair": 267,
+    "quadratic": 194,
+    "H2_eighth": 366,
+    "three_band": 133,
+    "total_integer": 1492,
+    "total_mod_373": 0,
+    "previous_N_over_p": 53
+  },
+  "p13": {
+    "flat": 4,
+    "root": 10,
+    "deformation": 4,
+    "quadratic": 3,
+    "H2_eighth": 8,
+    "three_band": 10,
+    "total_mod_p": 0
+  },
+  "p19": {
+    "flat": 12,
+    "root": 14,
+    "deformation": 1,
+    "quadratic": 16,
+    "H2_eighth": 6,
+    "three_band": 8,
+    "total_mod_p": 0
+  },
+  "coverage_statement": "Executed integer congruence checks; universal mother theorem remains open. Exact theorems A-C are algebraically derived. No native p373 H0/B0 experiment was executed."
+}
