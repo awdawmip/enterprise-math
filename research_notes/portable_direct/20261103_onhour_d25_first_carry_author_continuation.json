@@ -1,0 +1,43 @@
+{
+  "schema": "D25_ONHOUR_AUTHOR_DIRECT_CARRY_CONTINUATION_V1",
+  "date": "2026-11-03",
+  "role": "TASK_RESEARCH",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_id_NOT_USED": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_commit": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "parent_frontier_main_before_write": "e3e3e054b2abd05a585a950a32ce6544f405b057",
+  "proof": "research_notes/portable_direct/20261103_onhour_d25_first_carry_proof_direct_second_carry.md",
+  "checker": "research_notes/portable_direct/d25_first_carry_collapse_checker_20261103.py",
+  "mother_goal": "Delta_p-R_p=0 mod p (p mod 24=13 or19); original W216 full p^3 congruence",
+  "completed": "12jh=1 via accepted W=p mod p² plus finite Clausen; H2 test and beta=1/2-6ph² modp² proved; direct exact residual (W-p)/p²=(6AD-1)/p+h²+E modp",
+  "finite_check": "8/8 independent exact modular samples incl p=373; no universal second-digit proof",
+  "p373": {
+    "A": 65672,
+    "D": 78545,
+    "h": 24,
+    "j": 294,
+    "E": 177,
+    "product_carry": 366,
+    "square_carry": 203,
+    "root_mod_p2": 32638
+  },
+  "next_exact_action": "Prove or counterexample (6AD-1)/p+h²-S/5=0 modp for all target primes; preserve original full 216 source and accepted frozen bridge",
+  "native_benchmark": "p373 original H0/B0 issue 1559 NOT_EXECUTED; owner pending",
+  "source": {
+    "session_authorized": false,
+    "claim": null,
+    "run": null,
+    "checkpoint": null,
+    "result": null,
+    "admission": false,
+    "old_request": "research-onhour-20261031-0205-dispatch-r15",
+    "old_request_issue": 6633,
+    "old_request_status": "FAILED_UPSTREAM_CODE_REVIEW_REQUIRED",
+    "recovery_read_issue": 6632,
+    "staging": "INDEPENDENT"
+  },
+  "status": "AUTHOR_DERIVED_PROVED_PARTIAL_FINITE_CHECKED_UNREVIEWED_NOT_ADMITTED_REGISTER_PENDING_SYNC_DEBT",
+  "scheduler_mutation": "NONE"
+}
