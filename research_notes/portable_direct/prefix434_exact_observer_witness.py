@@ -43,15 +43,16 @@ for tag,u in [('plus',i),('minus',-i)]:
     rows.append((R,S,D,Y,F5,F4,K))
     print(tag,'u=',u,'v=',v,'r=',R,'s=',S,'|v|^2=',D)
     print(tag,'|1+v|^2=',Y,'|z5|^2=',F5,'|z4|^2=',F4,'kappa=',K)
-assert rows[0][:5]==rows[1][:5]
-assert rows[0][5]!=rows[1][5]
-assert rows[0][6]!=rows[1][6]
+assert rows[0][:5]==rows[1][:5]  # exact equality of every retained observation
+assert rows[0][5]!=rows[1][5]  # z4 intensity differs
+assert rows[0][6]!=rows[1][6]  # even absolute objective differs
 assert rows[0][5]<41<rows[1][5]
 assert rows[1][6]>rows[0][6]
 print('EXACT_OBJECTIVE_DIFFERENCE',rows[1][6]-rows[0][6])
 print('FIFTH_PORT_OFFSET',rows[0][4]-F(709,32))
 print('OBSERVED_FIBER_IDENTICAL_EXCEPT_TARGET: PASS')
 print('ALL_CONSTRAINTS_AT_ETA_39_OVER_2000_EPS_ANY_IN_0_TO_1E-6: PASS')
+# Exact finite polarization probes for (1,u,v), no transcendentals.
 for name,z in [('u+',i),('u-',-i),('v',v)]:
     re=((one+z).abs2()-(one-z).abs2())/4
     im=((one-Q(0,1)*z).abs2()-(one+Q(0,1)*z).abs2())/4
