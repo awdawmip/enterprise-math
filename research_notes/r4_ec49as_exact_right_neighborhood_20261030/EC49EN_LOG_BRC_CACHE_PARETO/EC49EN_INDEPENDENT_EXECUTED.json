@@ -1,0 +1,168 @@
+{
+  "status": "PASS",
+  "unit": "EC49EN_INDEPENDENT_EXACT_COVER",
+  "method": "complete bounded nonnegative integer p-fiber enumeration and exact bitmask set cover",
+  "range_H": [
+    2,
+    12
+  ],
+  "number_of_certified_subproblems": 22,
+  "completeness_bound": "Any fiber touching h<=H has A=max(p1-1,p2+2e-1)<=H; thus e<=(H+1)/2, p1<=H+1, p2<=H-2e+1.",
+  "rows": [
+    {
+      "H": 2,
+      "eventOnly": false,
+      "candidate_positive_fibers": 1,
+      "distinct_horizon_intervals": 1,
+      "exact_min_fibers": 1
+    },
+    {
+      "H": 2,
+      "eventOnly": true,
+      "candidate_positive_fibers": 1,
+      "distinct_horizon_intervals": 1,
+      "exact_min_fibers": 1
+    },
+    {
+      "H": 3,
+      "eventOnly": false,
+      "candidate_positive_fibers": 4,
+      "distinct_horizon_intervals": 2,
+      "exact_min_fibers": 1
+    },
+    {
+      "H": 3,
+      "eventOnly": true,
+      "candidate_positive_fibers": 4,
+      "distinct_horizon_intervals": 2,
+      "exact_min_fibers": 2
+    },
+    {
+      "H": 4,
+      "eventOnly": false,
+      "candidate_positive_fibers": 10,
+      "distinct_horizon_intervals": 3,
+      "exact_min_fibers": 2
+    },
+    {
+      "H": 4,
+      "eventOnly": true,
+      "candidate_positive_fibers": 10,
+      "distinct_horizon_intervals": 4,
+      "exact_min_fibers": 2
+    },
+    {
+      "H": 5,
+      "eventOnly": false,
+      "candidate_positive_fibers": 20,
+      "distinct_horizon_intervals": 5,
+      "exact_min_fibers": 2
+    },
+    {
+      "H": 5,
+      "eventOnly": true,
+      "candidate_positive_fibers": 20,
+      "distinct_horizon_intervals": 6,
+      "exact_min_fibers": 3
+    },
+    {
+      "H": 6,
+      "eventOnly": false,
+      "candidate_positive_fibers": 35,
+      "distinct_horizon_intervals": 7,
+      "exact_min_fibers": 2
+    },
+    {
+      "H": 6,
+      "eventOnly": true,
+      "candidate_positive_fibers": 35,
+      "distinct_horizon_intervals": 9,
+      "exact_min_fibers": 3
+    },
+    {
+      "H": 7,
+      "eventOnly": false,
+      "candidate_positive_fibers": 56,
+      "distinct_horizon_intervals": 10,
+      "exact_min_fibers": 2
+    },
+    {
+      "H": 7,
+      "eventOnly": true,
+      "candidate_positive_fibers": 56,
+      "distinct_horizon_intervals": 12,
+      "exact_min_fibers": 3
+    },
+    {
+      "H": 8,
+      "eventOnly": false,
+      "candidate_positive_fibers": 84,
+      "distinct_horizon_intervals": 13,
+      "exact_min_fibers": 3
+    },
+    {
+      "H": 8,
+      "eventOnly": true,
+      "candidate_positive_fibers": 84,
+      "distinct_horizon_intervals": 16,
+      "exact_min_fibers": 3
+    },
+    {
+      "H": 9,
+      "eventOnly": false,
+      "candidate_positive_fibers": 120,
+      "distinct_horizon_intervals": 17,
+      "exact_min_fibers": 3
+    },
+    {
+      "H": 9,
+      "eventOnly": true,
+      "candidate_positive_fibers": 120,
+      "distinct_horizon_intervals": 20,
+      "exact_min_fibers": 4
+    },
+    {
+      "H": 10,
+      "eventOnly": false,
+      "candidate_positive_fibers": 165,
+      "distinct_horizon_intervals": 21,
+      "exact_min_fibers": 3
+    },
+    {
+      "H": 10,
+      "eventOnly": true,
+      "candidate_positive_fibers": 165,
+      "distinct_horizon_intervals": 25,
+      "exact_min_fibers": 4
+    },
+    {
+      "H": 11,
+      "eventOnly": false,
+      "candidate_positive_fibers": 220,
+      "distinct_horizon_intervals": 26,
+      "exact_min_fibers": 3
+    },
+    {
+      "H": 11,
+      "eventOnly": true,
+      "candidate_positive_fibers": 220,
+      "distinct_horizon_intervals": 30,
+      "exact_min_fibers": 4
+    },
+    {
+      "H": 12,
+      "eventOnly": false,
+      "candidate_positive_fibers": 286,
+      "distinct_horizon_intervals": 31,
+      "exact_min_fibers": 3
+    },
+    {
+      "H": 12,
+      "eventOnly": true,
+      "candidate_positive_fibers": 286,
+      "distinct_horizon_intervals": 36,
+      "exact_min_fibers": 4
+    }
+  ],
+  "conclusion": "All 22 finite minima equal analytic formulas; see README_EC49EN.md for proof at every H."
+}
