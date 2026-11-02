@@ -71,3 +71,27 @@ The smallest incomplete mathematical unit is a **nonanomalous source-preserving 
 Original fixed-373 native H0/B0 divided-power [X]U mod139129, rank, semilinear Frobenius eta, signed odd Green/Hesse, kappa and independent checker remain PENDING_OWNER / NOT_EXECUTED (Enterprise Math #1559). This scalar result is not a native experiment.
 
 Research logical lane exclusively `chatgpt-research-onhour-enterprise-math-20260923` (separate from maintenance). Original request `research-onhour-20261031-0205-dispatch-r15` has terminal FAILED / UPSTREAM_CODE_REVIEW_REQUIRED receipt at kimi-query-bridge #6633, and was not resubmitted. The 2026-11-02 gateway reported research_authority_granted=false, executor_binding_configured=false, own checkpoint ACCESS_DENIED and exact continuation CONTROL_QUOTA; no own session/CLAIM/run/Source checkpoint. This note is **neutral author evidence storage only**, not activity registration, Source publication or independent acceptance. Original schedule/notifications remain unchanged.
+
+## Independent second unit: direct signed ordinary compensation through p^4 (finite source certificate)
+
+To test the nonanomalous compensation **without subtracting it from an assumed full-sum identity**, an independent exact p-adic recurrence evaluated every original weighted term for all k<p^2 in four primes (13,19,37,373), assigning a source anomaly flag separately to W (delta_2+delta_3>0) and S (delta_4>0). It accumulates the original nonanomalous sums and the baseline p^2 *directly*, then independently reassembles the complete W-2S+p^2 sum. Coverage: 141,028 k positions, both original sources, exact arithmetic mod p^4.
+
+| p | direct signed anomaly p²,p³ digits | direct signed ordinary+baseline p²,p³ digits | W_(p²)-2S_(p²)+p² (mod p^4) |
+|---:|---:|---:|---:|
+|13|6,7|7,5|0|
+|19|1,5|18,13|0|
+|37|36,33|1,3|0|
+|373|4,306|369,66|0|
+
+At **p=373** the independently accumulated original source values (mod p^4) are:
+
+```
+W anomaly = 2,087,908,903; S anomaly = 2,782,162,613;
+W ordinary = 17,269,108,867; S ordinary = 16,574,855,157.
+Signed anomaly:  15,880,462,318 = p²(4 + 306p) (mod p^4).
+Signed ordinary + p² baseline:
+                  3,476,416,323 = p²(369 + 66p) (mod p^4).
+Sum = 0 (mod p^4).
+```
+
+The digit identity is genuinely **signed with carry**: `4+369=p` and `306+66+1=p`. In p=19 mod24 the anomalous S source is 0 modulo p^4, whereas the ordinary source still supplies the cancelling term. These four-prime equalities are finite exact observations, and the new full-boundary formula independently predicts the anomalous half. Constructing an all-prime finite telescope for the **ordinary** half and translating it to Delta-R remains the live proof task; a finite signed cancellation is not a universal W-2S theorem.
