@@ -4,34 +4,34 @@
 
 ## Population and observations
 
-Take one chart-relative Cell in the *full* signed-six-axis X6 spatial torsor. Restrict a test population to ordered native words of a common length (n\ge0) using only (+e_1,-e_1). The count (k) of negative steps determines endpoint displacement ((n-2k,0,0,0,0,0)), and there are (inom nk) distinct allowed words. Let (c_k) be the nonnegative integer count of selected distinct words at that endpoint, (0\le c_k\leinom nk). This is a typed embedded observer family, retaining its X6 provenance.
+Take one chart-relative Cell in the *full* signed-six-axis X6 spatial torsor. Restrict a test population to ordered native words of a common length (n\ge0) using only (+e_1,-e_1). The count (k) of negative steps determines endpoint displacement ((n-2k,0,0,0,0,0)), and there are (\binom nk) distinct allowed words. Let (c_k) be the nonnegative integer count of selected distinct words at that endpoint, (0\le c_k\le\binom nk). This is a typed embedded observer family, retaining its X6 provenance.
 
 For an integer residue-state count (q\ge1) and degree (d\ge0), declare
-[
+$
 T_{r,j}=\sum_{\substack{0\le k\le n\\ k\equiv r\pmod q}}c_k(n-2k)^j,
 \qquad 0\le r<q,\quad 0\le j\le d.
-]
+$
 The (r) state records path-history residue, not a seventh spatial axis or physical heartbeat time.
 
 ## Theorem 1. Exact rank and complete recovery
 
 Over the rationals the observation map has
-[
+$
 \boxed{\operatorname{rank}(c\mapsto T)=\min(n+1,q(d+1)).}
-]
+$
 Thus it uniquely determines every terminal multiplicity (c_0,\ldots,c_n) **if and only if**
-[
+$
 \boxed{n+1\le q(d+1).}
-]
+$
 Proof: permute columns by the residue (k\bmod q). Every block is a truncated Vandermonde matrix of rank (min(|K_r|,d+1)), with pairwise distinct evaluation points (x_k=n-2k). The residue-class sizes differ by at most one; their block ranks add to the displayed minimum. When (|K_r|\le d+1), construct the Lagrange basis (L_{r,k}(X)=\prod_{t\in K_r,t\ne k}(X-x_t)/(x_k-x_t)=\sum_j\lambda_{r,k,j}X^j). Then **the explicit exact inverse** is (c_k=\sum_j\lambda_{r,k,j}T_{r,j}). This also covers empty residue classes.
 
 ## Theorem 2. Positive native-path counterexamples whenever recovery fails
 
-For every (q\ge1,d\ge0,n\ge q(d+1)), set (m=d+1), (k_t=qt) for (0\le t\le m). Construct source ensembles (E,O) by taking (inom mt) distinct words at (k_t), respectively for even or odd (t). Each side has exactly (2^d) words. All their (q(d+1)) observations (T_{r,j}) agree, yet
-[
+For every (q\ge1,d\ge0,n\ge q(d+1)), set (m=d+1), (k_t=qt) for (0\le t\le m). Construct source ensembles (E,O) by taking (\binom mt) distinct words at (k_t), respectively for even or odd (t). Each side has exactly (2^d) words. All their (q(d+1)) observations (T_{r,j}) agree, yet
+$
 \boxed{T_{0,d+1}(E)-T_{0,d+1}(O)=(d+1)!(2q)^{d+1}>0.}
-]
-Proof: all (k_t) share residue zero, and the alternating binomial finite difference annihilates every polynomial of degree at most (d). Applying it to the degree (d+1) endpoint monomial gives the exact expression. For legality with distinct native words, partition the first (q(d+1)) step slots into (d+1) blocks of size (q). Distinct choices of (t) blocks yield (inom{d+1}{t}) distinct signed-step words with (qt) negatives, proving (inom n{qt}\geinom{d+1}{t}). This is an exact positive-unit-branch construction, not a signed virtual histogram.
+$
+Proof: all (k_t) share residue zero, and the alternating binomial finite difference annihilates every polynomial of degree at most (d). Applying it to the degree (d+1) endpoint monomial gives the exact expression. For legality with distinct native words, partition the first (q(d+1)) step slots into (d+1) blocks of size (q). Distinct choices of (t) blocks yield (\binom{d+1}{t}) distinct signed-step words with (qt) negatives, proving (\binom n{qt}\ge\binom{d+1}{t}). This is an exact positive-unit-branch construction, not a signed virtual histogram.
 
 The (2^d) witness size is an explicit uniform upper bound, not a claim of cardinality minimality: PREFIX-441 already gave the sharper three-word ((q,d)=(1,2)) witness for (n\ge4).
 
@@ -42,7 +42,7 @@ For ((q,d)=(2,2)), the six parity-separated quadratic observations recover the c
 At (n=4), PREFIX-441's three-word pair (A=(0,3,3)), (B=(1,1,4)) has equal (M_0,M_1,M_2) and parity mass (P_{even}), but
 (T_{even,1}(A)-T_{even,1}(B)=8).
 The five readouts ((M_0,M_1,M_2,P_{even},T_{even,1})) have the matrix, with columns ordered (k=0,1,2,3,4),
-[
+$
 \begin{pmatrix}
 1&1&1&1&1\\
 4&2&0&-2&-4\\
@@ -50,16 +50,16 @@ The five readouts ((M_0,M_1,M_2,P_{even},T_{even,1})) have the matrix, with colu
 1&0&1&0&1\\
 4&0&0&0&-4
 \end{pmatrix}
-]
+$
 of determinant **-512**. They recover the entire (n=4) endpoint distribution using quadratic or lower degree readouts, an alternative to PREFIX-441's cubic-plus-parity completion.
 
 ## Theorem 3. Operation-closed signed-step BRC observation
 
 Appending (+e_1) preserves the residue (r) and changes (x\to x+1); appending (-e_1) sends (r\to r+1\pmod q) and (x\to x-1). Consequently the exact future updates are
-[
+$
 T'_{r,j}=\sum_{i=0}^j\binom jiT_{r,i}\quad (+e_1),\qquad
 T'_{r,j}=\sum_{i=0}^j\binom ji(-1)^{j-i}T_{r-1,i}\quad (-e_1).
-]
+$
 Any finite positive-rational alternatives and serial compositions of these typed control/affine edges preserve all declared sector moments through order (d). The fixed ((q,d)=(2,2)) carrier fits two finite control labels plus one second-order `MomentState` per label, under the existing typed affine-effect BRC semantics. This is an exact auxiliary path observation theorem; full endpoint recovery continues to require the horizon inequality at the resulting length.
 
 ## Verification, evidence, and continuation
