@@ -1,0 +1,76 @@
+{
+  "schema": "R474_EXACT_INTEGER_VERIFICATION_V1",
+  "scope": [
+    {
+      "n": 2,
+      "alphabet": [
+        1,
+        6
+      ],
+      "sequences": 216,
+      "sharp_local_positive": 78,
+      "nonstrict_local_pass": 78,
+      "nonstrict_local_false_positive": 0
+    },
+    {
+      "n": 3,
+      "alphabet": [
+        1,
+        6
+      ],
+      "sequences": 1296,
+      "sharp_local_positive": 62,
+      "nonstrict_local_pass": 68,
+      "nonstrict_local_false_positive": 6
+    },
+    {
+      "n": 4,
+      "alphabet": [
+        1,
+        6
+      ],
+      "sequences": 7776,
+      "sharp_local_positive": 18,
+      "nonstrict_local_pass": 54,
+      "nonstrict_local_false_positive": 36
+    },
+    {
+      "n": 5,
+      "alphabet": [
+        1,
+        6
+      ],
+      "sequences": 46656,
+      "sharp_local_positive": 4,
+      "nonstrict_local_pass": 109,
+      "nonstrict_local_false_positive": 105
+    },
+    {
+      "n": 6,
+      "alphabet": [
+        1,
+        4
+      ],
+      "sequences": 16384,
+      "sharp_local_positive": 0,
+      "nonstrict_local_pass": 38,
+      "nonstrict_local_false_positive": 38
+    }
+  ],
+  "all_finite_input_classification_sha256": "008dd99b505ffae0995d010ebc92340cdcc502e85df476389835d43b4ebb6c96",
+  "geometric_family": "For n>=3 and q>0, a_j=q^j has D2>=0,D3>=0 but det rows 0,1,2 cols 1,2,n+1 = -q^(n+1).",
+  "boundary_verification": {
+    "n": [
+      3,
+      4,
+      7
+    ],
+    "q": [
+      1,
+      2,
+      3
+    ],
+    "all_pass": true
+  },
+  "status": "R474_EXACT_PASS"
+}
