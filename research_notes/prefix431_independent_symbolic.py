@@ -17,6 +17,7 @@ W=S.sqrt(N*beta-K*K)
 V=J+(A*P+B*Q)*K/N+(A*Q-B*P)*W/N+16*beta
 Z=S.sqrt(37577-64000000*x*x)
 Ax=11776000000*x*x-263748000000*x-3419507
+# The target expressions are independent from differentiation process.
 Vs=-(Ax+(44932875-488000*x)*Z)/(9394250*Z)
 Vse= -((23552000000*x-263748000000)/Z+Ax*64000000*x/Z**3-488000)/9394250
 R2=(1507328000000000000*x**4
@@ -44,6 +45,7 @@ cases=[('V_s',S.diff(V,T),Vs),('V_s_eta',S.diff(V,T,E),Vse),
 for key,raw,formula in cases:
     rawbase=evalbase(raw)
     diff=S.simplify(S.radsimp(rawbase-formula))
+    # Squared-radical/rational normal forms sometimes need one cancellation step.
     if diff!=0:
         diff=S.simplify(S.together(S.expand_power_base(diff,force=True)))
     assert diff==0,(key,diff)
