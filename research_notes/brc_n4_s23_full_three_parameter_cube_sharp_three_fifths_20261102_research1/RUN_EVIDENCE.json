@@ -1,0 +1,120 @@
+{
+  "pass": "PASS_BRC_N4_S23_FULL_THREE_PARAMETER_CUBE_SHARP_THREE_FIFTHS_20261102",
+  "scientific_source_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "model": "six positive-weight sources AU0 AU1 AV BU0 BU1 BV; shared causal b_U",
+  "scale": 3360000,
+  "tv_denominator": 6720000,
+  "decoders": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D6",
+    "D7",
+    "D8",
+    "K1_new",
+    "K2",
+    "K3"
+  ],
+  "K1_new": "2/5 0 2/5 1/5;2/5 2/5 0 1/5;3/5 0 0 2/5;2/5 2/5 0 1/5",
+  "claim": "Sharp 3/5 over S18 union J([0,1]) union F([0,1]^3), seven fixed decoders and three free stochastic kernels",
+  "F": "(s,t,u,0,0;1,0,0,0,0,0)",
+  "cube": {
+    "vertices": 1331,
+    "cubes": 1000,
+    "counts": {
+      "D1": 53,
+      "D8": 139,
+      "D4": 170,
+      "K2": 97,
+      "K1_new": 448,
+      "D6": 93
+    },
+    "worst_selected_corner_risk": "3/5",
+    "worst_cell": [
+      1,
+      5,
+      0
+    ],
+    "decoder_index_witness_1000_cells": "0000066666000066666600066666660066666666066666666633333333333333333333333333333333333333333333333333000086666600006666660006666666006666666606666666663333333333333333333333333333333333333333333333333300088666660008666666000666666600066666660066666666773333333377333333337733333333773333333377333333330088866666008866666600886666660777777666777777766677777773337777777333777777733377777773337777333333088884466608888446660888774666777777776677777777667777777733777777773377777777337777777733777777333388888444448888844444888877444477777777447777777774777777777777777777777777777777777777777777777777778888844444888884444488887744447777777744777777777477777777777777777777777777777777777777777777777777888884444488888444448888774444777777774477777777747777777777777777777777777777777777777777777777777788888444448888844444888877444487777774447777777774777777777777777777777777777777777777777777777777778888844444888884444488887744448887777444877777774477777777777777777777777777777777777777777777777777",
+    "criterion": "One common decoder for all eight corners of each of 1000 cells; tensor multi-affinity and TV convexity cover every real interior point."
+  },
+  "j_endpoint_risks": [
+    {
+      "t": "0",
+      "decoder": "K2",
+      "risk2": 3360000,
+      "risk": "1/2"
+    },
+    {
+      "t": "2/5",
+      "decoder": "K2",
+      "risk2": 3360000,
+      "risk": "1/2"
+    },
+    {
+      "t": "2/5",
+      "decoder": "K1_new",
+      "risk2": 4032000,
+      "risk": "3/5"
+    },
+    {
+      "t": "1",
+      "decoder": "K1_new",
+      "risk2": 4032000,
+      "risk": "3/5"
+    }
+  ],
+  "face_cells": 25,
+  "face_counts": {
+    "D1": 8,
+    "D4": 2,
+    "K1_new": 11,
+    "K2": 4
+  },
+  "old_policies": 20,
+  "old_policies_max_min": "3/5",
+  "lower_core": [
+    "W",
+    "X",
+    "Y",
+    "Z",
+    "T5",
+    "U",
+    "V",
+    "Hm",
+    "J1",
+    "Jp"
+  ],
+  "forbidden_triples": 84,
+  "colorings_checked": 59049,
+  "min_monochromatic_hits": 1,
+  "causal_edge_endpoints": [
+    {
+      "u": "0",
+      "decoder": "K1_new",
+      "risk2": 3360000,
+      "risk": "1/2"
+    },
+    {
+      "u": "5/7",
+      "decoder": "K1_new",
+      "risk2": 3360000,
+      "risk": "1/2"
+    },
+    {
+      "u": "5/7",
+      "decoder": "D6",
+      "risk2": 3360000,
+      "risk": "1/2"
+    },
+    {
+      "u": "1",
+      "decoder": "D6",
+      "risk2": 3360000,
+      "risk": "1/2"
+    }
+  ],
+  "causal_edge_bank_sup": "1/2",
+  "evidence_class": "author exact integer execution; independent review pending"
+}
