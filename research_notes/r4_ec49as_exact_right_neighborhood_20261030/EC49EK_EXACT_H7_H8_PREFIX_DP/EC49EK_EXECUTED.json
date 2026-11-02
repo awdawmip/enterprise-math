@@ -1,0 +1,1196 @@
+{
+  "complete_all_horizons_witness": {
+    "all_within_horizon_positive_count_fibers_equal": true,
+    "each_horizon_nine_atom_rank": 9,
+    "joint_cost": 58,
+    "prefix_witness_h2": [
+      "ce",
+      "de",
+      "ec",
+      "ed"
+    ],
+    "schedule": {
+      "3": [
+        "feg",
+        "gef"
+      ],
+      "4": [
+        "fegf",
+        "geff"
+      ],
+      "5": [
+        "fegff",
+        "gefff"
+      ],
+      "6": [
+        "fegfff",
+        "geffff"
+      ],
+      "7": [
+        "fegffff",
+        "gefffff"
+      ]
+    }
+  },
+  "evidence_method": "Finite full grammar enumeration, exhaustive rank subset masks, exact prefix-trie masked DP. Rank over GF(1000003) is exact for full rank of nine-row 0/1 matrix via determinant bound.",
+  "h2": {
+    "fiber": [
+      3,
+      1,
+      1,
+      0,
+      0,
+      0
+    ],
+    "mandatory_words": [
+      "ce",
+      "de",
+      "ec",
+      "ed"
+    ],
+    "rank": 9,
+    "trie_cost": 28
+  },
+  "h7": {
+    "base_plus_h7_minimum_native_edges": 58,
+    "best_fiber": {
+      "min_added": 30,
+      "minimal_rank_masks": 1,
+      "necessary_types": 2,
+      "p": [
+        3,
+        5,
+        1,
+        0,
+        0,
+        0
+      ],
+      "prefix_nodes": 317,
+      "types": 3,
+      "witness_words": [
+        "feggggg",
+        "gefgggg"
+      ],
+      "words": 42
+    },
+    "fiber_types_distribution": {
+      "1": 1,
+      "2": 6,
+      "3": 9,
+      "4": 12,
+      "8": 22
+    },
+    "fibers_total": 50,
+    "full_rank_fibers": 43,
+    "minimal_rank_subsets_computed_exactly": 43,
+    "minimum_added_edges_over_all_fibers": 30,
+    "per_fiber_exact_minima": [
+      {
+        "min_added": null,
+        "p": [
+          2,
+          6,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_max": 7,
+        "types": 2,
+        "words": 7
+      },
+      {
+        "min_added": 30,
+        "minimal_rank_masks": 1,
+        "necessary_types": 2,
+        "p": [
+          3,
+          5,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 317,
+        "types": 3,
+        "witness_words": [
+          "feggggg",
+          "gefgggg"
+        ],
+        "words": 42
+      },
+      {
+        "min_added": 37,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          3,
+          6,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 769,
+        "types": 4,
+        "witness_words": [
+          "ceggggg",
+          "deggggg",
+          "egggggc",
+          "egggggd"
+        ],
+        "words": 84
+      },
+      {
+        "min_added": 30,
+        "minimal_rank_masks": 1,
+        "necessary_types": 2,
+        "p": [
+          4,
+          4,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 697,
+        "types": 3,
+        "witness_words": [
+          "fefgggg",
+          "geffggg"
+        ],
+        "words": 105
+      },
+      {
+        "min_added": null,
+        "p": [
+          4,
+          4,
+          2,
+          0,
+          0,
+          0
+        ],
+        "rank_max": 7,
+        "types": 2,
+        "words": 105
+      },
+      {
+        "min_added": 37,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          4,
+          5,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 3225,
+        "types": 4,
+        "witness_words": [
+          "cefgggg",
+          "defgggg",
+          "efggggc",
+          "efggggd"
+        ],
+        "words": 420
+      },
+      {
+        "min_added": 47,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          4,
+          6,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 1925,
+        "types": 8,
+        "witness_words": [
+          "cecgggg",
+          "dedgggg",
+          "eggggcc",
+          "eggggdd"
+        ],
+        "words": 420
+      },
+      {
+        "min_added": 30,
+        "minimal_rank_masks": 1,
+        "necessary_types": 2,
+        "p": [
+          5,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 893,
+        "types": 3,
+        "witness_words": [
+          "feffggg",
+          "gefffgg"
+        ],
+        "words": 140
+      },
+      {
+        "min_added": 34,
+        "minimal_rank_masks": 1,
+        "necessary_types": 2,
+        "p": [
+          5,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 1895,
+        "types": 3,
+        "witness_words": [
+          "faeeggg",
+          "gaeefgg"
+        ],
+        "words": 420
+      },
+      {
+        "min_added": 37,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          5,
+          4,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 5975,
+        "types": 4,
+        "witness_words": [
+          "ceffggg",
+          "deffggg",
+          "effgggc",
+          "effgggd"
+        ],
+        "words": 840
+      },
+      {
+        "min_added": 43,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          5,
+          4,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 6679,
+        "types": 4,
+        "witness_words": [
+          "egaeggc",
+          "egaeggd",
+          "deaeggg",
+          "ceaeggg"
+        ],
+        "words": 840
+      },
+      {
+        "min_added": 47,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          5,
+          5,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 6884,
+        "types": 8,
+        "witness_words": [
+          "cecfggg",
+          "dedfggg",
+          "efgggcc",
+          "efgggdd"
+        ],
+        "words": 1680
+      },
+      {
+        "min_added": 56,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          5,
+          6,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 2697,
+        "types": 8,
+        "witness_words": [
+          "ceccggg",
+          "deddggg",
+          "ecccggg",
+          "edddggg"
+        ],
+        "words": 1120
+      },
+      {
+        "min_added": 30,
+        "minimal_rank_masks": 1,
+        "necessary_types": 2,
+        "p": [
+          6,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 697,
+        "types": 3,
+        "witness_words": [
+          "fefffgg",
+          "geffffg"
+        ],
+        "words": 105
+      },
+      {
+        "min_added": 34,
+        "minimal_rank_masks": 1,
+        "necessary_types": 2,
+        "p": [
+          6,
+          2,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 2777,
+        "types": 3,
+        "witness_words": [
+          "faeefgg",
+          "gaeeffg"
+        ],
+        "words": 630
+      },
+      {
+        "min_added": null,
+        "p": [
+          6,
+          2,
+          3,
+          0,
+          0,
+          0
+        ],
+        "rank_max": 7,
+        "types": 2,
+        "words": 210
+      },
+      {
+        "min_added": 37,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          6,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 5975,
+        "types": 4,
+        "witness_words": [
+          "cefffgg",
+          "defffgg",
+          "efffggc",
+          "efffggd"
+        ],
+        "words": 840
+      },
+      {
+        "min_added": 43,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          6,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 18854,
+        "types": 4,
+        "witness_words": [
+          "efaeggc",
+          "efaeggd",
+          "deaefgg",
+          "ceaefgg"
+        ],
+        "words": 2520
+      },
+      {
+        "min_added": 47,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          6,
+          4,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 9979,
+        "types": 8,
+        "witness_words": [
+          "cecffgg",
+          "dedffgg",
+          "effggcc",
+          "effggdd"
+        ],
+        "words": 2520
+      },
+      {
+        "min_added": 53,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          6,
+          4,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 11126,
+        "types": 8,
+        "witness_words": [
+          "egaegcc",
+          "egaegdd",
+          "deadegg",
+          "ceacegg"
+        ],
+        "words": 2520
+      },
+      {
+        "min_added": 56,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          6,
+          5,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 7562,
+        "types": 8,
+        "witness_words": [
+          "ceccfgg",
+          "deddfgg",
+          "ecccfgg",
+          "edddfgg"
+        ],
+        "words": 3360
+      },
+      {
+        "min_added": 64,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          6,
+          6,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 2287,
+        "types": 8,
+        "witness_words": [
+          "cecccgg",
+          "dedddgg",
+          "eccccgg",
+          "eddddgg"
+        ],
+        "words": 1680
+      },
+      {
+        "min_added": 30,
+        "minimal_rank_masks": 1,
+        "necessary_types": 2,
+        "p": [
+          7,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 317,
+        "types": 3,
+        "witness_words": [
+          "feffffg",
+          "gefffff"
+        ],
+        "words": 42
+      },
+      {
+        "min_added": 34,
+        "minimal_rank_masks": 1,
+        "necessary_types": 2,
+        "p": [
+          7,
+          1,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 1895,
+        "types": 3,
+        "witness_words": [
+          "faeeffg",
+          "gaeefff"
+        ],
+        "words": 420
+      },
+      {
+        "min_added": 38,
+        "minimal_rank_masks": 1,
+        "necessary_types": 2,
+        "p": [
+          7,
+          1,
+          3,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 1117,
+        "types": 3,
+        "witness_words": [
+          "faaeeeg",
+          "gaaeeef"
+        ],
+        "words": 420
+      },
+      {
+        "min_added": 37,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          7,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 3225,
+        "types": 4,
+        "witness_words": [
+          "ceffffg",
+          "deffffg",
+          "effffgc",
+          "effffgd"
+        ],
+        "words": 420
+      },
+      {
+        "min_added": 43,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          7,
+          2,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 18854,
+        "types": 4,
+        "witness_words": [
+          "efaefgc",
+          "efaefgd",
+          "deaeffg",
+          "ceaeffg"
+        ],
+        "words": 2520
+      },
+      {
+        "min_added": 49,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          7,
+          2,
+          3,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 7319,
+        "types": 4,
+        "witness_words": [
+          "egaaeec",
+          "egaaeed",
+          "deaaeeg",
+          "ceaaeeg"
+        ],
+        "words": 840
+      },
+      {
+        "min_added": 47,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          7,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 6884,
+        "types": 8,
+        "witness_words": [
+          "cecfffg",
+          "dedfffg",
+          "efffgcc",
+          "efffgdd"
+        ],
+        "words": 1680
+      },
+      {
+        "min_added": 53,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          7,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 21641,
+        "types": 8,
+        "witness_words": [
+          "efaegcc",
+          "efaegdd",
+          "deadefg",
+          "ceacefg"
+        ],
+        "words": 5040
+      },
+      {
+        "min_added": 56,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          7,
+          4,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 7562,
+        "types": 8,
+        "witness_words": [
+          "ceccffg",
+          "deddffg",
+          "ecccffg",
+          "edddffg"
+        ],
+        "words": 3360
+      },
+      {
+        "min_added": 63,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          7,
+          4,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 8419,
+        "types": 8,
+        "witness_words": [
+          "egaeccc",
+          "egaeddd",
+          "deaddeg",
+          "ceacceg"
+        ],
+        "words": 3360
+      },
+      {
+        "min_added": 64,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          7,
+          5,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 4425,
+        "types": 8,
+        "witness_words": [
+          "cecccfg",
+          "dedddfg",
+          "eccccfg",
+          "eddddfg"
+        ],
+        "words": 3360
+      },
+      {
+        "min_added": 72,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          7,
+          6,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 1133,
+        "types": 8,
+        "witness_words": [
+          "ceccccg",
+          "deddddg",
+          "ecccccg",
+          "edddddg"
+        ],
+        "words": 1344
+      },
+      {
+        "min_added": null,
+        "p": [
+          8,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "rank_max": 7,
+        "types": 2,
+        "words": 7
+      },
+      {
+        "min_added": null,
+        "p": [
+          8,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        "rank_max": 7,
+        "types": 2,
+        "words": 105
+      },
+      {
+        "min_added": null,
+        "p": [
+          8,
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        "rank_max": 7,
+        "types": 2,
+        "words": 210
+      },
+      {
+        "min_added": null,
+        "p": [
+          8,
+          0,
+          4,
+          0,
+          0,
+          0
+        ],
+        "rank_max": 5,
+        "types": 1,
+        "words": 35
+      },
+      {
+        "min_added": 37,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          8,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 769,
+        "types": 4,
+        "witness_words": [
+          "cefffff",
+          "defffff",
+          "efffffc",
+          "efffffd"
+        ],
+        "words": 84
+      },
+      {
+        "min_added": 43,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          8,
+          1,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 6679,
+        "types": 4,
+        "witness_words": [
+          "efaeffc",
+          "efaeffd",
+          "ceaefff",
+          "deaefff"
+        ],
+        "words": 840
+      },
+      {
+        "min_added": 49,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          8,
+          1,
+          3,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 7319,
+        "types": 4,
+        "witness_words": [
+          "efaaeec",
+          "efaaeed",
+          "ceaaeef",
+          "deaaeef"
+        ],
+        "words": 840
+      },
+      {
+        "min_added": 47,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          8,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 1925,
+        "types": 8,
+        "witness_words": [
+          "cecffff",
+          "dedffff",
+          "effffcc",
+          "effffdd"
+        ],
+        "words": 420
+      },
+      {
+        "min_added": 53,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          8,
+          2,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 11126,
+        "types": 8,
+        "witness_words": [
+          "efaefcc",
+          "efaefdd",
+          "ceaceff",
+          "deadeff"
+        ],
+        "words": 2520
+      },
+      {
+        "min_added": 60,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          8,
+          2,
+          3,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 4333,
+        "types": 8,
+        "witness_words": [
+          "eaaeecc",
+          "eaaeedd",
+          "ceaacee",
+          "deaadee"
+        ],
+        "words": 840
+      },
+      {
+        "min_added": 56,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          8,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 2697,
+        "types": 8,
+        "witness_words": [
+          "ceccfff",
+          "deddfff",
+          "ecccfff",
+          "edddfff"
+        ],
+        "words": 1120
+      },
+      {
+        "min_added": 63,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          8,
+          3,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 8419,
+        "types": 8,
+        "witness_words": [
+          "efaeccc",
+          "efaeddd",
+          "ceaccef",
+          "deaddef"
+        ],
+        "words": 3360
+      },
+      {
+        "min_added": 64,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          8,
+          4,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 2287,
+        "types": 8,
+        "witness_words": [
+          "cecccff",
+          "dedddff",
+          "eccccff",
+          "eddddff"
+        ],
+        "words": 1680
+      },
+      {
+        "min_added": 72,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          8,
+          4,
+          2,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 2547,
+        "types": 8,
+        "witness_words": [
+          "ecaccce",
+          "edaddde",
+          "ceaccce",
+          "deaddde"
+        ],
+        "words": 1680
+      },
+      {
+        "min_added": 72,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          8,
+          5,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 1133,
+        "types": 8,
+        "witness_words": [
+          "ceccccf",
+          "deddddf",
+          "ecccccf",
+          "edddddf"
+        ],
+        "words": 1344
+      },
+      {
+        "min_added": 80,
+        "minimal_rank_masks": 1,
+        "necessary_types": 4,
+        "p": [
+          8,
+          6,
+          1,
+          0,
+          0,
+          0
+        ],
+        "prefix_nodes": 269,
+        "types": 8,
+        "witness_words": [
+          "ceccccc",
+          "deddddd",
+          "ecccccc",
+          "edddddd"
+        ],
+        "words": 448
+      }
+    ],
+    "total_returning_words": 58947
+  },
+  "pinned_model": {
+    "BRC": "two independent positive multiplicative instruments; cached by full six-axis positive step counts",
+    "history_atoms": [
+      [
+        "N",
+        0
+      ],
+      [
+        "N",
+        1
+      ],
+      [
+        "N",
+        2
+      ],
+      [
+        "A",
+        0
+      ],
+      [
+        "A",
+        2
+      ],
+      [
+        "B",
+        0
+      ],
+      [
+        "B",
+        1
+      ],
+      [
+        "AB",
+        0
+      ],
+      [
+        "BA",
+        0
+      ]
+    ],
+    "operations": {
+      "a": [
+        -1,
+        -1
+      ],
+      "b": [
+        -2,
+        -2
+      ],
+      "c": [
+        1,
+        2,
+        -1,
+        -2
+      ],
+      "d": [
+        2,
+        1,
+        -2,
+        -1
+      ],
+      "e": [
+        3,
+        1,
+        1,
+        -3
+      ],
+      "f": [
+        1,
+        -1
+      ],
+      "g": [
+        2,
+        -2
+      ]
+    }
+  },
+  "scope": "Exact h=2+h=7 lower-bound problem; full 2..7 upper witness",
+  "status": "PASS"
+}
