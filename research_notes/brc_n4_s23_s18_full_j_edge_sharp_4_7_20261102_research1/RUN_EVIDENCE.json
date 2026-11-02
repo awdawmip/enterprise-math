@@ -1,0 +1,120 @@
+{
+  "pass": "PASS_BRC_N4_S23_S18_ALL_REAL_J_EDGE_SHARP_4_7_20261102",
+  "source_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "scale": 50400,
+  "TV_denominator": 100800,
+  "six_sources": [
+    "AU0",
+    "AU1",
+    "AV",
+    "BU0",
+    "BU1",
+    "BV"
+  ],
+  "kernel_group_rows": [
+    "AU",
+    "AV",
+    "BU",
+    "BV"
+  ],
+  "fixed_decoders": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D6",
+    "D7",
+    "D8"
+  ],
+  "free_kernels": [
+    "4/7 3/7 0 0;4/7 3/7 0 0;0 32/63 3/7 4/63;1/7 0 3/7 3/7",
+    "1 0 0 0;1 0 0 0;4/7 0 0 3/7;0 4/7 3/7 0",
+    "4/7 0 3/7 0;4/7 3/7 0 0;3/7 0 1/7 3/7;4/7 0 0 3/7"
+  ],
+  "S18_min_risks": {
+    "W": "4/7",
+    "J": "16/35",
+    "A": "4/7",
+    "B": "4/7",
+    "C": "4/7",
+    "X": "4/7",
+    "Y": "4/7",
+    "Z": "4/7",
+    "T1": "1/2",
+    "T2": "1/2",
+    "T3": "1/2",
+    "T4": "1/2",
+    "T5": "4/7",
+    "T6": "1/2",
+    "T7": "1/2",
+    "T8": "1/2",
+    "U": "4/7",
+    "V": "4/7"
+  },
+  "lower_core": [
+    "W",
+    "J",
+    "A",
+    "B",
+    "C",
+    "X",
+    "Y",
+    "Z",
+    "T5",
+    "U",
+    "V"
+  ],
+  "forbidden_source_event_triples": 111,
+  "three_colorings_verified": 177147,
+  "edge_partition": [
+    "0",
+    "17/63",
+    "1"
+  ],
+  "edge_endpoint_risks": {
+    "K1_t0": "4/7",
+    "K1_t17_63": "4/7",
+    "K3_t17_63": "18/35",
+    "K3_t1": "4/7"
+  },
+  "exact_continuum_argument": "Convex L_K1(J(t)) on [0,17/63], convex L_K3(J(t)) on [17/63,1]",
+  "binary": {
+    "total": 2048,
+    "max": "4/7",
+    "maximizer_count": 832,
+    "above_4_7": 0,
+    "at_4_7": 832
+  },
+  "ternary": {
+    "total": 177147,
+    "max": "4/7",
+    "maximizer_count": 40041,
+    "above_4_7": 0,
+    "at_4_7": 40041
+  },
+  "one_coordinate_eighth_grid": {
+    "total": 78848,
+    "max": "5/8",
+    "above_4_7": 288,
+    "first": {
+      "free_index_0based": 0,
+      "binary_other_coordinates": 17,
+      "free_value": "2/8",
+      "risk": "5/8"
+    }
+  },
+  "off_edge_H_policy": "1/4 1 0 0 0;1 0 0 0 0 0",
+  "H_bank_risks": [
+    "1/1",
+    "1/1",
+    "1/1",
+    "5/8",
+    "1/1",
+    "53/80",
+    "5/8",
+    "1/1",
+    "1/1",
+    "3/4"
+  ],
+  "arithmetic": "safe integer scale 50400, TV denominator 100800, no floating-point for mathematical quantities"
+}
