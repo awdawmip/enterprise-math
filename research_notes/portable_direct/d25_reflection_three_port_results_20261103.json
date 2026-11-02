@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "method": "EXACT_ZMOD_P3_STDLIB",
+  "prime_range": "5<=p<=3000",
+  "tested_primes": 428,
+  "mod6_1_count": 207,
+  "mod6_5_count": 221,
+  "theorem_checks": [
+    "exact reciprocal valuations (three exceptions)",
+    "edge 3 middle square 4",
+    "all four polynomial moments (1,k,6k+1,k^2)"
+  ],
+  "finite_candidate": "W_p congruent p*Legendre(-3,p) mod p^3 in this finite domain only; not a proof",
+  "p373": {
+    "a": 124,
+    "m": 186,
+    "c": 248,
+    "C1": 1391290,
+    "C6k1": 49112537,
+    "W_mod_p3": 373
+  },
+  "p13": {
+    "a": 4,
+    "m": 6,
+    "c": 8,
+    "C1": 1690,
+    "C6k1": 1014,
+    "W_mod_p3": 13
+  },
+  "p5": {
+    "a": 1,
+    "m": 2,
+    "c": 3,
+    "C1": 0,
+    "C6k1": 0,
+    "W_mod_p3": 120
+  },
+  "provenance": "Executed locally via independently equivalent recurrence checker; full portable local result record separately archived"
+}
