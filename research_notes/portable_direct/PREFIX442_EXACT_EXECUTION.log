@@ -1,0 +1,11 @@
+SOURCE signed_brc.py blob: 300a96e3dc24bf6fff73743037a0347a8bc83176
+PIN enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d
+EXECUTION PYTHONPATH=. python prefix442_compact_remote_checker.py
+PASS native signed BRC pinned blob; 300 exact ranks; 32 positive-word fibers; n=4 mixed observer gap=8
+
+Long-form author certificate (executed separately):
+SOURCE pinned native signed_brc git blob: 300a96e3dc24bf6fff73743037a0347a8bc83176
+PASS rank/recovery: 924 (n,q,d) cases; exact Fraction Gaussian elimination + Lagrange inversion
+PASS integer source fibers: 75 general witness checks; q=2 d=2 gap=384; n=4 hybrid determinant=-512
+PASS future signed-axis port closure: 40 cases; derived exact affine update (not an upstream ControlPacket run)
+PASS PREFIX-442 EXACT CERTIFICATE
