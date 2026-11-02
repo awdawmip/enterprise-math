@@ -67,7 +67,7 @@ def verify_one(p):
         assert reduced==delta,(p,name,"reduced vs direct",reduced,delta)
         generic=(c*q*f[2]+p*(q*(f[1]//p)+c*q*f[2]+ratiomod(1,2,p*p)*q*q*(f[2]+c*(f[3]-f[2]))))%(p*p)
         assert generic==delta,(p,name,"generic vs direct")
-        out[name]={"q":q,"f0_over_p":f[0]//p,"f1_over_p":f[1]//p,"f2_mod_p2":f[2]%(p*p),"f3_mod_p":f[3]%p,"delta":delta,"pf_boundary_mod_p3":(f[3]-f3model)%M}
+        out[name]={"q":q,"f0_over_p":f[0]//p,"f1_over_p":f[1]//p,"f2_mod_p2":f[2]%(p*p),"f3_mod_p":f[3]%p,"pf_lambda_mod_p":(s1*ratio)%p,"delta":delta,"pf_boundary_mod_p3":(f[3]-f3model)%M}
     G=(out["A"]["delta"]-2*out["B"]["delta"])%(p*p)
     return {"p":p,"A":out["A"],"B":out["B"],"G":G,"digits":[G%p,G//p]}
 
