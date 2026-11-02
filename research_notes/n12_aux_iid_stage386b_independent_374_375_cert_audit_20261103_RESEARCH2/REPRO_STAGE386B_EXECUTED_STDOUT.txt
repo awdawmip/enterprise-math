@@ -1,0 +1,79 @@
+STAGE386B_INDEPENDENT_374_375_ALL_REAL_PASS
+{
+  "certificates": [
+    {
+      "bytes": 1871013,
+      "leaves": 9970,
+      "parts": [
+        {
+          "leaves": 5915,
+          "maxdepth": 23,
+          "min_strict_margin": "1799349512576361/343597383680000000000000",
+          "region": "LEFT",
+          "splits": 5914
+        },
+        {
+          "leaves": 3817,
+          "maxdepth": 22,
+          "min_strict_margin": "151612754522789/175921860444160000000000",
+          "region": "RIGHT_LO",
+          "splits": 3816
+        },
+        {
+          "leaves": 95,
+          "maxdepth": 17,
+          "min_strict_margin": "42846882689324109/21990232555520000000000000",
+          "region": "RIGHT_HI",
+          "splits": 94
+        },
+        {
+          "leaves": 143,
+          "maxdepth": 18,
+          "min_strict_margin": "2073507671/40960000000000000",
+          "region": "RIGHT_X_LO",
+          "splits": 142
+        }
+      ],
+      "sha256": "636a84ea0eb1e9b4aaf7262d632eb7df8207be039044b832885b4ba00e56d4e4",
+      "stage": "374"
+    },
+    {
+      "bytes": 653418,
+      "leaves": 3619,
+      "parts": [
+        {
+          "leaves": 503,
+          "maxdepth": 15,
+          "min_strict_margin": "99755440874619/671088640000000000000",
+          "region": "P_LO",
+          "splits": 502
+        },
+        {
+          "leaves": 1070,
+          "maxdepth": 18,
+          "min_strict_margin": "174819003459/83886080000000000000",
+          "region": "P_HI",
+          "splits": 1069
+        },
+        {
+          "leaves": 2046,
+          "maxdepth": 16,
+          "min_strict_margin": "14000834771847/5368709120000000000000",
+          "region": "Q_CORE",
+          "splits": 2045
+        }
+      ],
+      "sha256": "75d0233f4425b0ad8f6fb46bea8a68be1568e328b237ef8cf9250c5d3cc8e6e7",
+      "stage": "375"
+    }
+  ],
+  "comparator_cost": "16174439790495832521/256000000000000000000",
+  "conditional_on": "Stage373 upstream localization",
+  "frozen_em": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+  "frozen_global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+  "mode": "EXACT_FRACTION",
+  "root_beta_lower": "15116461719181908801/4000000000000000000000",
+  "root_beta_upper": "60466487110135696287/16000000000000000000000",
+  "stage": 386,
+  "verified_leaf_total": 13589
+}
