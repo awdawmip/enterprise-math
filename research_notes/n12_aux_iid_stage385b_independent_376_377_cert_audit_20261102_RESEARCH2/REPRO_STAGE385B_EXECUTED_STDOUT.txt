@@ -1,0 +1,55 @@
+STAGE377_INDEPENDENT_COMPLETE
+STAGE376_INDEPENDENT_COMPLETE
+{
+  "arithmetic": "exact rational Fraction; original 16 comparisons and four residual channels",
+  "checked_total_leaves": 66712,
+  "conclusion": "BOTH_PROVED_CONDITIONAL_CONTINUOUS_EXCLUSIONS_AUDITED; earlier Stage375 global localization retained as hypothesis",
+  "frozen_em": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+  "frozen_global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+  "frozen_p000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488",
+  "references": {
+    "376": {
+      "reference_budget": "156126870406900413/16000000000000000000",
+      "reference_variable_cost": "16174439790495832521/256000000000000000000",
+      "strict_budget_slack_lower": "42135396240750870209/125000000000000000000000000"
+    },
+    "377": {
+      "reference_budget": "156132177077208474961587/16000000000000000000000000",
+      "reference_variable_cost": "16174336378406867755705673/256000000000000000000000000",
+      "strict_budget_slack_lower": "10832551344268724969/2000000000000000000000000000"
+    }
+  },
+  "root_beta_lower": "944783310450150227432709/250000000000000000000000000",
+  "root_beta_upper": "1889567055780061738592991/500000000000000000000000000",
+  "scope": "Stage385 independent upstream audit of Stage376/377 original all-real certificates",
+  "stage376": {
+    "bytes": 15996423,
+    "counts": {
+      "BUDGET": 19175,
+      "DUAL": 47071
+    },
+    "full_binary_coverage": true,
+    "leaves": 66246,
+    "max_depth": 38,
+    "sha256": "5f0452e3b8488d7a843233c0c12f5f6b2cc9cf6916a38e8f5cbdf143b9bfb8ac",
+    "smallest_closure_margins": {
+      "BUDGET": "29711704317/67108864000000000000",
+      "DUAL": "3889567101150619/16777216000000000000000000"
+    }
+  },
+  "stage377": {
+    "bytes": 51353,
+    "counts": {
+      "P": 387,
+      "Q": 79
+    },
+    "dual_cost_gap_lower": "17461273132244294327/256000000000000000000000000",
+    "full_binary_coverage": true,
+    "sha256": "bcb2b5b8ba4f07288fc462de02ce7cb4873fce84734c1015433beac0e33338c3",
+    "smallest_support_margins": {
+      "P": "34117720219/1374389534720000000",
+      "Q": "45089955300219/21474836480000000000000"
+    }
+  }
+}
+STAGE385B_INDEPENDENT_STAGE376_377_PASS
