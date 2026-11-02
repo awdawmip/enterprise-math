@@ -134,7 +134,7 @@ If yQ>alpha, increase xP instead. This preserves r0(P)<=0 and the two r1 equalit
 
 At a double-r1 solution xQ=0.239 is impossible: r1(0.239,0.57574)>0 and r1_y<0; the Q face lies strictly inside the right boundary. All perturbations therefore remain feasible in the true original [0,1]^4 domain. Contradiction yields yQ=alpha.
 
-Now alpha fixes xQ uniquely by strict increase of f(x) on x<1/3; P's exact r1-zero graph has strictly increasing BdotP, so the exact joint budget chooses one xP; then r1(P)=0 chooses exactly one yP. Thus there is at most one ordered minimizer. Original compact attainment supplies at least one, so it is unique.
+Now alpha fixes xQ uniquely by strict increase of f(x) on x<1/3; P's exact r1-zero graph has BdotP>0, so its budget is strictly increasing and the exact joint budget chooses one xP; then r1(P)=0 chooses exactly one yP. Thus there is at most one ordered minimizer. Original compact attainment supplies at least one, so it is unique.
 
 For existence and isolation, the independent exact Fraction checker brackets alpha, x_alpha and beta* as above; at xP=0.23113 the P r1=0 y-coordinate is between .55565 and .55566, while at xP=.23115 the face y-coordinate is between .55571 and .55572. The corresponding strict quadratic budget enclosures straddle target B*-b(Q). The resulting solution has r0(P)<0 because xP>0.23113>x_beta_high. This independently certifies feasibility of the isolated exact critical configuration.
 
