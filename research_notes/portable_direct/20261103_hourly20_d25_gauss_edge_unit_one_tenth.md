@@ -47,3 +47,22 @@ A standard-library Python program computes the **original** finite Gauss G and 2
 Apply the parameter-free E_p carrier in the inherited second-order Hensel / original 216 identity; find a terminating Gauss/CM or WZ certificate, or a counterexample, coupling epsilon, derivative units and the proven far-upper two-prefix defect. The all-target-primes 12 j h = 1 (mod p) equality and the frozen mother statement remain open. Keep predecessor contributions and frozen source pin; avoid redoing H1-H4.
 
 Control readback on 2026-11-03: gateway 0.6.11 UPSTREAM_CODE_REVIEW_REQUIRED, research_authority_granted=false, executor_binding_configured=false, active_jobs=5/5. Existing #6637 recovery read-only SUCCEEDED and #6638 continuation definitive FAILED were re-read, not replayed. Service session/claim/run not changed; two neutral archived staging records remain historical, not progress. Support #1558 controls native repair; #1559 is separate p373 H0/B0. This author-side GitHub publication grants no formal CLAIM, OPEN, checkpoint, Result, review or admission.
+
+
+## U3 — Exact parameter-free Hensel / signed source-carry reduction
+
+For a target-class prime p mod 24 in {13,19}, retain the *inherited CM0 hypothesis*, H3c second-Hensel theorem and all original Gauss/216 source labels. Let delta and epsilon in {0,...,p-1} be the first two Hensel digits of the Gauss root near z=1/2; let d=G'(1/2) mod p^2 be its canonical integer representative; and W=[(1+6theta)F](1/2) be the original full 216 signed scalar.
+
+Set S_p=sum_{k=1}^r L_k 2^{-k}[(6k-5)Lambda_k-6Gamma_k] in F_p. The already proved H3c states
+
+    W/p = -6 delta d^2 + p(4 delta^2 d^2 - 6 epsilon d^2 + E_p) (mod p^2).
+
+By U2, E_p=-S_p/5. Define B=-6 delta d^2 (integer), K=4 delta^2 d^2-6 epsilon d^2-S_p/5 (mod p). This gives the exact equivalence, under H3c's hypotheses,
+
+    W/p=1 (mod p^2)
+       if and only if
+    [B=1 (mod p) and ((B-1)/p)+K=0 (mod p)].
+
+The integer quotient is formed only in the displayed B=1 (mod p) branch. This is an exact two-stage target reduction with a parameter-free, origin-preserving Clausen correction, **not** a proof of the all-prime target vanishing or the distinct frozen Delta-R mother.
+
+At p=373, inherited H3 data delta=274, epsilon=321, d=78545 (mod 373^2), together with new S_373=234, yield B=1 (mod 373), (B-1)/373=348 (mod 373) and K=25 (mod 373), so 348+25=0 (mod 373). The exact condition reproduces W/373=1 (mod 373^2). The general finite CM/WZ cancellation remains the next proof target.
