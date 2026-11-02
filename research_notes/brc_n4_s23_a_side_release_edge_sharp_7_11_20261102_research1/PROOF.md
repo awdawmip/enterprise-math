@@ -1,91 +1,134 @@
-# BRC S23 — exact A-side release edge at 7/11 for the pinned ten-decoder bank
+# BRC S23 — sharp A-side release edge at 7/11 for a pinned ten-decoder bank
 
-**Date:** 2026-11-02. **Category:** author-side mathematical theorem with exact rational executable evidence; UNREVIEWED / NOT_ADMITTED. **Frozen scientific input:** `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. **Concrete decoder-bank source:** `57a6db1d81068504cca2b3a6ea809a63555473d6`. **Direct scientific predecessor:** `c02114d77f9686730566fee07ea7b654acd171c0`. GitHub author is not asserted to hold a native execution session or CLAIM.
+**Date:** 2026-11-02. **Evidence type:** author-side exact mathematical proof and executed BigInt rational checker. **Status:** UNREVIEWED / NOT_ADMITTED. **Scientific input pin:** \`43ec6098b1330ae86d0a7863be336c5d97f6ef34\`; **specific ten-decoder bank:** \`57a6db1d81068504cca2b3a6ea809a63555473d6\`; **predecessor:** \`c02114d77f9686730566fee07ea7b654acd171c0\`. No native CLAIM/Result or independent review is asserted.
 
-## New exact theorem and domain
+## Theorem
 
-In the original six-source, shared-causal BRC S23 model, retain the specific seven fixed decoders D1,D2,D3,D4,D6,D7,D8 and three rational kernels K1_old,K2_old,K3_repair from the decoder-bank pin. Write
-[
-z=(z_0,z_1,z_2,z_3,z_4;z_5,z_6,z_7,z_8,z_9,z_{10}).
-]
-Define the legal A-side release edge
-[
-Z(t)=(1/5,1/3,t,0,0;1,1,0,1/5,1,0),quad tin[0,1].
-]
-For a decoder D, (L_D(z)) is the maximum total variation over six separately labeled observed preparation sources, and (m_{mathcal B}(z)=min_{Dinmathcal B}L_D(z)). Then
-[
-oxed{max_{0le tle1}m_{mathcal B}(Z(t))=rac7{11}},
-qquadoxed{argmax_{tin[0,1]}m_{mathcal B}(Z(t))={5/11}}.
-]
-The new rational adversary is
-[
-W_7=(1/5,1/3,5/11,0,0;1,1,0,1/5,1,0).
-]
-Its ten risks in the bank order are exactly
-[
-(7/11,1,1,2/3,4/5,2/3,7/11,526/825,7/11,4/5).
-]
-Every entry is at least 7/11, establishing the lower bound. The previous witness (W_6=Z(9/20)) has bank risk (19/30). The strict increase on this *specific fixed decoder bank* is
-[
-7/11-19/30=oxed{1/330}.
-]
+Keep the original BRC N=4, S23 six-source model, the pinned seven fixed decoders \`D1,D2,D3,D4,D6,D7,D8\`, and three specific rational decoders \`K1_old,K2_old,K3_repair\`. With eleven common causal parameters written as
 
-## Six-source law and entire real-parameter proof
+\[
+z=(z_0,z_1,z_2,z_3,z_4;\ z_5,z_6,z_7,z_8,z_9,z_{10}),
+\]
 
-The same frozen model uses indexed source parameters
-[
-A=(0,0,0,1,1,1), B=(2,2,3,2,2,4), C=(5,6,7,8,9,10),G=(0,0,1,2,2,3)
-]
-and nonuniform source mixing
-[
-M=egin{pmatrix}
-10&10&0&0&0&0\9&11&0&0&0&0\0&0&20&0&0&0\
-0&0&0&10&10&0\0&0&0&2&18&0\0&0&0&0&0&20
-end{pmatrix}.
-]
-For the i-th raw source, with (x=z_{A_i}, b=z_{B_i}, c=z_{C_i}), retain
-[
-R_i=(x,(1-x)b,(1-x)(1-b)c,(1-x)(1-b)(1-c)).
-]
-The actual six labeled observation rows are (P(z)=(M/20)R(z)). The observed decoder rows are (Q(D)=(M/20)(D_{G_i,*})_{i=0}^5), and
-[
-L_D(z)=max_{0le i<6}rac12sum_{j=0}^3|P_{ij}(z)-Q_{ij}(D)|.
-]
-Throughout the stated edge, each (P_{ij}(Z(t))) is affine in t. Therefore (L_D(Z(t))) is convex for every fixed decoder D.
+define the **legal A-side release edge**
 
-The exact rational endpoint evaluations are
-[
-L_{D1}(Z(0))=1/2,quad L_{D1}(Z(5/11))=7/11,
-]
-[
-L_{D8}(Z(5/11))=7/11,quad L_{D8}(Z(1))=1/2.
-]
-Use the D1 convex chord on ([0,5/11]) and D8 convex chord on ([5/11,1]). For every real t,
-[
-m_{mathcal B}(Z(t))le
-egin{cases}
-1/2+3t/10,&0le tle5/11,\
-3/4-t/4,&5/11le tle1.
-end{cases}
-]
-Each piece is strictly below 7/11 except at its common endpoint (t=5/11). Combined with the exact witness vector this proves the maximum and its uniqueness for *all real t*. No finite sampling is used as a continuum argument.
+\[
+Z(t)=(1/5,1/3,t,0,0;\ 1,1,0,1/5,1,0),\qquad 0\le t\le1.
+\]
 
-## Robustness beyond a single witness
+Let \(L_D(z)\) be the maximum total-variation distance across the *six separately labeled* observations for decoder \(D\), and let \(m_{\mathcal B}(z)=\min_{D\in\mathcal B}L_D(z)\), where \(\mathcal B\) is exactly the pinned ten-decoder bank. Then
 
-Every causal row is a three-stage probability law, and each global parameter occurs at most once within a given raw source row. Changing one global coordinate (z_j) by (delta) changes that raw probability row by TV at most (|delta|); the nonnegative, row-stochastic (M/20) cannot amplify this TV bound. By replacing coordinates one at a time, for any two valid global policies (z,win[0,1]^{11}),
-[
-|m_{mathcal B}(z)-m_{mathcal B}(w)|lesum_{j=0}^{10}|z_j-w_j|.
-]
-Consequently the entire relative open neighborhood
-[
-sum_{j=0}^{10}|z_j-(W_7)_j|<1/330
-]
-has (m_{mathcal B}(z)>19/30). In the full eleven-parameter cube this neighborhood has positive Lebesgue volume, even though W7 lies on some boundary faces. This exact robustness bound reuses the labeled source structure.
+\[
+\boxed{\max_{t\in[0,1]}m_{\mathcal B}(Z(t))=\frac7{11}},
+\quad
+\boxed{\operatorname*{arg\,max}_{t\in[0,1]}m_{\mathcal B}(Z(t))=\{5/11\}}.
+\]
 
-## Reproducibility and scope
+The new **rational adversary** is
 
-Run `node VERIFY.js > RUN_EVIDENCE.recomputed.json` with Node.js supporting BigInt. The script constructs the seven deterministic half-half kernels and all three rational stochastic kernels, checks row normalization, reconstructs the original source and mixing maps, computes four endpoint risks and the full ten-risk witness vector using reduced exact BigInt fractions, checks the predecessor witness and an exact affine identity at t=1/4, and emits JSON. The endpoint convexity argument above is the complete symbolic continuum proof. The script does not enumerate the full eleven-dimensional problem.
+\[
+W_7=Z(5/11)=(1/5,1/3,5/11,0,0;\ 1,1,0,1/5,1,0).
+\]
 
-For the larger *reoptimized* union (mathcal S_{18}cup J([0,1])cup F_5([0,1]^5)cupmathcal C_6cup Z([0,1])), the previous author-side universal lower bound 3/5 remains; the pinned bank gives upper bound 7/11. Hence the currently supported author-side interval is ([3/5,7/11]). No claim is made that 7/11 is optimal after redesigning the three free kernels.
+In bank order, its ten exact errors are
 
-**BRC interface:** the full labeled six-row probability carrier is preserved, TV is the declared observer, and arbitrary-rational decoder kernels are readouts on a common shared causal source law. No source identity, branch provenance, or observer row is collapsed.
+\[
+(7/11,\ 1,\ 1,\ 2/3,\ 4/5,\ 2/3,\ 7/11,\ 526/825,\ 7/11,\ 4/5).
+\]
+
+The smallest is \(7/11\). The previously recorded W6 witness is \(Z(9/20)\) and has fixed-bank error \(19/30\). The sharp new increment for this bank is therefore
+
+\[
+\frac7{11}-\frac{19}{30}=\boxed{\frac1{330}}.
+\]
+
+## Source-preserving proof for the whole real interval
+
+Maintain exactly the six source indices and source mixture from the pinned construction:
+
+\[
+A=(0,0,0,1,1,1),\quad
+B=(2,2,3,2,2,4),\quad
+C=(5,6,7,8,9,10),\quad G=(0,0,1,2,2,3).
+\]
+
+\[
+M=\begin{pmatrix}
+10&10&0&0&0&0\\
+9&11&0&0&0&0\\
+0&0&20&0&0&0\\
+0&0&0&10&10&0\\
+0&0&0&2&18&0\\
+0&0&0&0&0&20
+\end{pmatrix}.
+\]
+
+For raw source \(i\), put \(x=z_{A_i}\), \(b=z_{B_i}\), \(c=z_{C_i}\), and keep the full causal four-outcome row
+
+\[
+R_i(z)=\bigl(x,\ (1-x)b,\ (1-x)(1-b)c,\ (1-x)(1-b)(1-c)\bigr).
+\]
+
+The observed source tuple is \(P(z)=(M/20)R(z)\), while decoder \(D\) has observed tuple \(Q(D)=(M/20)(D_{G_i,*})_{i=0}^{5}\). The exact error is
+
+\[
+L_D(z)=\max_{0\le i<6}\frac12\sum_{j=0}^3
+\bigl|P_{ij}(z)-Q_{ij}(D)\bigr|.
+\]
+
+Along \(Z(t)\), each \(R_i\) and hence each complete \(P_{ij}\) is affine in \(t\). For any fixed decoder \(D\), \(L_D(Z(t))\) is convex as a maximum of sums of absolute affine expressions.
+
+The independent exact-rational checker obtains these four values:
+
+\[
+L_{D1}(Z(0))=\frac12,\qquad L_{D1}(Z(5/11))=\frac7{11},
+\]
+
+\[
+L_{D8}(Z(5/11))=\frac7{11},\qquad L_{D8}(Z(1))=\frac12.
+\]
+
+On the left interval, D1's convex chord bounds its risk; on the right interval, D8's convex chord does so. As \(m_{\mathcal B}\) is the minimum over all decoders, for **every real \(t\in[0,1]\)**:
+
+\[
+m_{\mathcal B}(Z(t))\le
+\begin{cases}
+\frac12+\frac{3t}{10},&0\le t\le5/11,\\[3pt]
+\frac34-\frac{t}{4},&5/11\le t\le1.
+\end{cases}
+\]
+
+The left expression is strictly increasing to \(7/11\); the right expression strictly decreases from \(7/11\). The exact ten-risk vector at \(W_7\) supplies equality. This proves both the maximum and its unique attaining parameter on the **entire real continuum**, without a mesh-to-continuum inference.
+
+## Positive-volume robust obstruction
+
+Every global parameter \(z_j\) occurs at most once in each raw source law \(R_i\). If only one parameter varies by \(\delta\), its four-outcome TV distance changes by at most \(|\delta|\). Because \(M/20\) has nonnegative entries and each row sums to one, the observed mixture inherits the bound. Telescoping over coordinates and applying the 1-Lipschitz nature of the distance to a fixed decoder yields
+
+\[
+\bigl|m_{\mathcal B}(z)-m_{\mathcal B}(w)\bigr|
+\le \sum_{j=0}^{10}|z_j-w_j|,\qquad z,w\in[0,1]^{11}.
+\]
+
+Therefore the following entire neighborhood of the new witness has error strictly larger than the previous \(19/30\) fixed-bank bound:
+
+\[
+\boxed{\left\{z\in[0,1]^{11}:
+\sum_{j=0}^{10}|z_j-(W_7)_j|<\frac1{330}\right\}}
+\quad\Longrightarrow\quad m_{\mathcal B}(z)>\frac{19}{30}.
+\]
+
+The intersection of the open \(\ell_1\)-ball with \([0,1]^{11}\) has positive eleven-dimensional Lebesgue measure, although \(W_7\) lies on boundary faces.
+
+## Verification and next open problem
+
+Execute \`node VERIFY.js > RUN_EVIDENCE.recomputed.json\` in this directory. The source uses reduced fractions with BigInt, reconstructs the seven half-half fixed decoders and three rational kernels, six causal source rows, and nonuniform mixing; checks all decoder stochastic rows, the exact four endpoint values, the ten witness values, the old W6 value and source-affinity at \(t=1/4\). \`RUN_EVIDENCE.json\` is the actual run output. The endpoint convexity proof supplies the universal real-parameter step.
+
+The **joint reoptimized** problem with the prior \(S_{18}\), complete \(J\), complete \(F_5\), complete \(C_6\), and now this complete \(Z\) edge still allows three arbitrary real stochastic decoder kernels. Its existing lower certificate gives \(3/5\), while the concrete pinned bank supplies an upper certificate \(7/11\); the resulting author-side interval is
+
+\[
+\boxed{\frac35\le R_{\mathrm{joint}}\le\frac7{11}}.
+\]
+
+This is an interval for the reoptimized problem and an **exact theorem only for the stated fixed bank on the edge**. The next discriminating action is to repair \(W_7\) with three jointly reoptimized kernels without losing the previous entire real \(F_5/C_6\) cell-covering certificates, or derive a new universal-in-kernels TV incompatibility lower bound.
+
+**BRC reuse:** The six labeled source probabilities retain their causal origin and positive weights; the TV observer and shared parameter equalities are explicitly preserved. P000/native spatial and time ontology remains a separate project foundation and is not altered by this decoder subproblem.
