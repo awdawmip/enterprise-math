@@ -74,8 +74,10 @@ For general H≥3, this same construction has `2H` labeled word observations, `H
 
 ## 6. Actually executed evidence and limits
 
-- `VERIFY_EC49EK.py`: Python standard-library exhaustive word enumeration, exact nine-row prime-field rank with determinant bound, **integer prefix-trie DP** per positive-count fiber and minimal rank signature subset; nonempty exact reports for H=7 and H=8. Output `EC49EK_H7_EXECUTED.json` / `EC49EK_H8_EXECUTED.json`. Results: `PASS`, both new exact optima 58 and 62.
+- `VERIFY_EC49EK.py`: Python standard-library exhaustive word enumeration, exact nine-row prime-field rank with determinant bound, **integer prefix-trie DP** per positive-count fiber and minimal rank signature subset; nonempty exact reports for H=7 and H=8. Output `EC49EK_EXECUTED.json` (H=7) / `EC49EK_H8_EXECUTED.json` (H=8). Results: `PASS`, both new exact optima 58 and 62.
 - `VERIFY_EC49EK_INDEPENDENT.py`: independent EC49EG nine-real-history seam simulator, all distinct `(positive-count fiber, transfer signature)` comparisons for H=7 and H=8 (**264** and **388** groups), two-instrument BRC identities for the full sixteen-word H=8 upper witness, and a fully independent h=3 subset brute force (**12,369** nonempty subsets; optimum 36). Output `EC49EK_INDEPENDENT_EXECUTED.json`, `PASS`.
+Run the independent checker from this directory with `PYTHONPATH=../EC49EG_FULL_ALPHABET_MULTI_HORIZON:. python VERIFY_EC49EK_INDEPENDENT.py > EC49EK_INDEPENDENT_EXECUTED.json`; it imports the already-published `VERIFY_EC49EG.py` from the adjacent EC49EG research directory. To regenerate DP evidence, use `python VERIFY_EC49EK.py 7 > EC49EK_EXECUTED.json` and `python VERIFY_EC49EK.py 8 > EC49EK_H8_EXECUTED.json`.
+
 - `EC49EK_SUMMARY.json`: small machine-readable counts, minima, explicit witness and provenance. Full per-fiber rows are in the two executed JSON files; hashes listed in `SHA256SUMS_EC49EK.txt`.
 
 Finite coverage is the complete specified operation-word space at h=7 and 8. This work establishes `U_eq(7)` and `U_eq(8)` in the stated native path/BRC/observer model. The general exact formula for every H≥9 remains open. The actual GitHub artifact/branch is an author-side portable result, not an authenticated Source Result, independent Driver acceptance or a physical heartbeat runtime benchmark.
