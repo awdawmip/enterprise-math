@@ -1,0 +1,242 @@
+{
+  "unit": "EC49ES",
+  "status": "PASS",
+  "problem": "H6 full Pareto (E distinct native signed prefix edges, M symbolic positive-BRC vector keys, S terminal observer transition signatures)",
+  "frozen_sources": {
+    "global": "773d538180bfb49e24cffeb35c3ee75eb0628e2e",
+    "em": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab"
+  },
+  "inherited_exact_points": "EC49ER(90,2,6),(68,3,6),(84,3,4); EC49EM(54,4,6)",
+  "results": {
+    "4": {
+      "all_cases": 647,
+      "H5_prefix_screened": 267,
+      "exact_tested_cases": 380,
+      "H5_lower_bound": "E(H5)+4 <= supplied H6 feasible bound, because each of four terminal T4 signatures at h6 has a distinct last primitive native edge not a prefix of a shorter operation word (prefix-free native token encoding)",
+      "screened_counts": {
+        "60": 12,
+        "66": 8,
+        "74": 80,
+        "64": 88,
+        "68": 12,
+        "76": 8,
+        "72": 172
+      },
+      "case_bound": 80,
+      "min_E": 72,
+      "case_within_bound": 52,
+      "best_p_h3_to_h6": [
+        [
+          3,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          4,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          4,
+          4,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "witness": {
+        "3": [
+          "ceg",
+          "deg",
+          "ecg",
+          "edg"
+        ],
+        "4": [
+          "cegg",
+          "degg",
+          "ecgg",
+          "edgg"
+        ],
+        "5": [
+          "ceggc",
+          "deggd",
+          "ecggc",
+          "edggd"
+        ],
+        "6": [
+          "ceggfg",
+          "degggf",
+          "ecggfg",
+          "edgggf"
+        ]
+      },
+      "witness_E": 72,
+      "witness_M": 4,
+      "witness_S": 4,
+      "witness_nodes": 2074,
+      "trie_nodes_traversed": 972428,
+      "max_DP_states": 65536,
+      "elapsed_sec": 15.86
+    },
+    "5": {
+      "all_cases": 5349,
+      "H5_prefix_screened": 5173,
+      "exact_tested_cases": 176,
+      "H5_lower_bound": "E(H5)+4 <= supplied H6 feasible bound, because each of four terminal T4 signatures at h6 has a distinct last primitive native edge not a prefix of a shorter operation word (prefix-free native token encoding)",
+      "screened_counts": {
+        "52": 176
+      },
+      "case_bound": 60,
+      "min_E": 60,
+      "case_within_bound": 16,
+      "best_p_h3_to_h6": [
+        [
+          3,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          4,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          5,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "witness": {
+        "3": [
+          "ceg",
+          "deg",
+          "ecg",
+          "edg"
+        ],
+        "4": [
+          "cegg",
+          "degg",
+          "ecgg",
+          "edgg"
+        ],
+        "5": [
+          "ceggg",
+          "deggg",
+          "ecggg",
+          "edggg"
+        ],
+        "6": [
+          "cegggg",
+          "degggg",
+          "ecgggg",
+          "edgggg"
+        ]
+      },
+      "witness_E": 60,
+      "witness_M": 5,
+      "witness_S": 4,
+      "witness_nodes": 515,
+      "trie_nodes_traversed": 421676,
+      "max_DP_states": 58880,
+      "elapsed_sec": 4.0
+    }
+  },
+  "all_points": [
+    [
+      90,
+      2,
+      6
+    ],
+    [
+      68,
+      3,
+      6
+    ],
+    [
+      84,
+      3,
+      4
+    ],
+    [
+      54,
+      4,
+      6
+    ],
+    [
+      72,
+      4,
+      4
+    ],
+    [
+      60,
+      5,
+      4
+    ]
+  ],
+  "pareto": [
+    [
+      54,
+      4,
+      6
+    ],
+    [
+      60,
+      5,
+      4
+    ],
+    [
+      68,
+      3,
+      6
+    ],
+    [
+      72,
+      4,
+      4
+    ],
+    [
+      84,
+      3,
+      4
+    ],
+    [
+      90,
+      2,
+      6
+    ]
+  ],
+  "validity": "Finite 7-operation alphabet, h=2,...,6, signed native X6 return +2E1, common full positive step p by h, rational rank9 9 historical observer states, two positive BRC symbolic channels, full ordered native prefix trie",
+  "execution_seconds": 20.34
+}
