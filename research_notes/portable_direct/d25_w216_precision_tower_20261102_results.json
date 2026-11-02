@@ -1,0 +1,129 @@
+{
+  "schema": "D25_W216_ALL_ORDER_PORTS_EXACT_CHECK_V1",
+  "date": "2026-11-02",
+  "status": "AUTHOR_SIDE_EXECUTED_FINITE_EXACT_CHECK_UNREVIEWED_NOT_ADMITTED",
+  "proof": "research_notes/portable_direct/20261102_hourly20_d25_w216_allorder_threeband_precision.md",
+  "script": "research_notes/portable_direct/d25_w216_precision_tower_20261102.py",
+  "original_execution_log_note": "This concise verified evidence excerpt summarizes the executed local original script. The complete original JSON run log is separately included in the downloadable author-side bundle; never treat this file as an authenticated native experiment.",
+  "full_range": {
+    "p": "primes p=1 mod6, 7<=p<=3000",
+    "count": 207,
+    "q": 4,
+    "failures": [],
+    "arithmetic": "exact modular integer"
+  },
+  "extra_q_cases": [
+    [
+      7,
+      3
+    ],
+    [
+      7,
+      4
+    ],
+    [
+      7,
+      5
+    ],
+    [
+      7,
+      7
+    ],
+    [
+      13,
+      4
+    ],
+    [
+      13,
+      5
+    ],
+    [
+      13,
+      14
+    ],
+    [
+      19,
+      4
+    ],
+    [
+      19,
+      5
+    ],
+    [
+      31,
+      4
+    ],
+    [
+      37,
+      4
+    ],
+    [
+      43,
+      4
+    ],
+    [
+      61,
+      4
+    ],
+    [
+      373,
+      4
+    ],
+    [
+      373,
+      5
+    ],
+    [
+      1171,
+      4
+    ]
+  ],
+  "integer_binomial_boundary_checks": {
+    "selected_primes": [
+      7,
+      13,
+      19,
+      31,
+      37,
+      43,
+      373,
+      1171
+    ],
+    "indices": 46,
+    "failures": []
+  },
+  "p373": {
+    "q4": {
+      "modulus": 19356878641,
+      "W_original": 16762123164,
+      "W_ports": 16762123164,
+      "fourth_digit": 323,
+      "new_ports_raw_mod_p": {
+        "v0_e3": 343,
+        "v1_e2": 117,
+        "v2_e1": 323
+      },
+      "new_port_total_mod_p": 37
+    },
+    "q5": {
+      "modulus": 7220115733093,
+      "W_original": 4468844210594,
+      "W_ports": 4468844210594,
+      "fourth_digit": 323,
+      "fifth_digit": 230
+    }
+  },
+  "fourth_digit_samples": {
+    "7": 2,
+    "13": 4,
+    "19": 8,
+    "37": 30,
+    "43": 32,
+    "373": 323,
+    "1171": 75
+  },
+  "claim_scope": "The universal all-q reconstruction is algebraically proved; all numerical prime claims are finite exact computations, not an all-primes W=p modp^3 proof.",
+  "frozen_task": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "frozen_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "native": "NOT_RUN_REGISTER_PENDING"
+}
