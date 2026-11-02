@@ -1,0 +1,5 @@
+# Source, identity and verification
+
+Frozen scientific input: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`. New theorem extends `awdawmip/enterprise-math@08f897bd61fc6e387bdb9afeb0be1433a7e43834` (the initial exact 3/5 lower/upper for H(1/4), H(1/5)); same source model, modified K1. Canonical global normative main read `5005b5c1fbf7f6fcb2e97d486990c866ef069d19`; EM normative main read `7d5cf2250c5a333307999efbca6d245aba43b724`. P000 startup projection and original canonical blob matched SHA `770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc`.
+
+Verification: actual V8 exact integer run of `VERIFY.js`, all twenty declared finite policies, eight continuum endpoints, six-row affine checks, 84 triple events, 59049 assignments. Real continuum proof derives from convexity; no approximate grid inference. GitHub authenticated login `awdawmip`, repository push/admin. Native task/owner read returned `CONTROL_QUOTA`, Site gateway `research_authority_granted=false` (2026-11-02T08:07:44Z). Stored as author-side mathematical materials; native CLAIM/Result and independent review remain unconfirmed.
