@@ -1,0 +1,17 @@
+2026-11-02 D25 GAUSS_DEFECT_EXACT_CHECK
+coefficientwise polynomial tests primes: [7, 13, 19, 31, 37, 43, 61] PASS
+all p=1 mod 6 primes <=3000: 207 PASS
+target p=13/19 mod 24 primes <=3000: 107 PASS
+verified: Clausen p², Euler/Cauchy p², defect E[0..2], raw triangle J[0..2], reflected K[0..2], CM vanishing in finite targets
+finite-only observation on targets: K0=0, K1=-1/2 mod p
+p class Umodp thetaUmodp E0 K0 K1 K2
+7 7 2 1 6 5 6 6
+13 13 0 7 12 0 6 8
+19 19 0 1 9 0 9 16
+31 7 21 6 0 0 28 25
+37 13 0 24 10 0 18 13
+43 19 0 20 29 0 21 34
+61 13 0 43 39 0 30 38
+373 13 0 294 229 0 186 77
+1171 19 0 544 649 0 585 260
+END PASS: exact modular integer arithmetic; no native experiment, independent review, or project admission
