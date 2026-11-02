@@ -1,0 +1,8 @@
+# Exact sources and actual provenance
+
+- Frozen scientific input, inherited unchanged: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`.
+- Immediate eight-witness theorem and eight off-bank witnesses: `awdawmip/enterprise-math@d60079f51d79b14d43d6d2bcd301a5a0ad275807`, `research_notes/brc_n4_s23_eight_witness_three_kernel_sharp_half_20261102_research1/{PROOF.md,VERIFY.py}`.
+- Current behavioral/project routing read 2026-11-02: `awdawmip/chatgpt-global-knowledge main@77e29c24ce9a8f7cec42c9c5fc9e349db30533d9` (`00_BOOTSTRAP.md`, `OPERATING_MANUAL.md`, mathematical/evidence/output/BRC routes); `awdawmip/enterprise-math main@c1684669226d18dc255e93d592872a85fd65f67b` (`AGENTS.md`, `docs/RESEARCH_CONTINUATION_PROTOCOL.md`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `p000_reality_foundation.json`, Heartbeat World and joint-preservation contracts, `research_priorities/research_method.json`). These are normative read versions, **not** substitutions for the frozen scientific source pin.
+- New exact arithmetic execution: locally executed Python standard library `Fraction` `VERIFY.py`; saved stdout `RUN_EVIDENCE.json`. Continuous real-kernel lower bounds are established by the event inequality plus finite exhaustive assignment certificate; exact source code is included.
+- Exploratory search: SciPy HiGHS linear/MILP feasibility assisted discovery of the rational upper kernels. The published proof and checker require no SciPy and do not rely on solver optimality claims.
+- Control: local author-side research only. Site gateway `0.6.11` reports `research_authority_granted=false`; current native queue/owner query returned `CONTROL_QUOTA` on 2026-11-02. Thus this report is UNREVIEWED / NOT_ADMITTED, not an authenticated CLAIM, Result or Review.
