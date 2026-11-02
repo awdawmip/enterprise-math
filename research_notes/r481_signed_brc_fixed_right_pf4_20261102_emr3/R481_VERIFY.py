@@ -85,5 +85,5 @@ if __name__=='__main__':
         'finite_check_window': {'k': [4,100],'s':[2,12],'condition':'s<=2k+1'},
         'mathematical_scope':'Exact limiting constants via Catalan ratios; strict positivity for s>=5 by cosh-product and Schur Jacobi-Trudi proof. Finite checks are only independent validation.'
     }
-    with open('/mnt/data/r481_evidence.json','w') as f:json.dump(summary,f,indent=2,ensure_ascii=False)
+    with open(__import__('pathlib').Path(__file__).with_name('R481_EVIDENCE.json'),'w') as f:json.dump(summary,f,indent=2,ensure_ascii=False)
     print(json.dumps(summary,indent=2,ensure_ascii=False))
