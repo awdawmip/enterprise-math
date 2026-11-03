@@ -1,0 +1,118 @@
+{
+  "schema": "EM_D25_HASSE_LEGENDRE_P2_FINITE_CERTIFICATE_20261104",
+  "domain": "all primes 7<=p<=2000 with p=1 mod6",
+  "prime_count": 148,
+  "coefficient_cases": 46052,
+  "failures": 0,
+  "target_primes": 77,
+  "target_nonzero_odd_correction": 77,
+  "target_odd_zero_primes": [],
+  "arithmetics": "exact standard-library integers modulo p^2; R2=(Z/p^2Z)[t]/(t^2-t+1/8)",
+  "proof_scope": "universal coefficient theorem separately proved for p=6r+1>=7; 77 odd-nonzero cases are finite observations only",
+  "selected": [
+    {
+      "p": 7,
+      "r": 1,
+      "Hasse_ring_mod_p2": [
+        2,
+        21
+      ],
+      "Legendre_ring_mod_p2": [
+        37,
+        0
+      ],
+      "normalized_difference_mod_p": [
+        2,
+        3
+      ]
+    },
+    {
+      "p": 13,
+      "r": 2,
+      "Hasse_ring_mod_p2": [
+        78,
+        65
+      ],
+      "Legendre_ring_mod_p2": [
+        26,
+        0
+      ],
+      "normalized_difference_mod_p": [
+        4,
+        5
+      ]
+    },
+    {
+      "p": 19,
+      "r": 3,
+      "Hasse_ring_mod_p2": [
+        266,
+        247
+      ],
+      "Legendre_ring_mod_p2": [
+        76,
+        0
+      ],
+      "normalized_difference_mod_p": [
+        10,
+        13
+      ]
+    },
+    {
+      "p": 37,
+      "r": 6,
+      "Hasse_ring_mod_p2": [
+        185,
+        666
+      ],
+      "Legendre_ring_mod_p2": [
+        333,
+        0
+      ],
+      "normalized_difference_mod_p": [
+        33,
+        18
+      ]
+    },
+    {
+      "p": 43,
+      "r": 7,
+      "Hasse_ring_mod_p2": [
+        1548,
+        1634
+      ],
+      "Legendre_ring_mod_p2": [
+        602,
+        0
+      ],
+      "normalized_difference_mod_p": [
+        22,
+        38
+      ]
+    },
+    {
+      "p": 373,
+      "r": 62,
+      "Hasse_ring_mod_p2": [
+        112273,
+        35808
+      ],
+      "Legendre_ring_mod_p2": [
+        17158,
+        0
+      ],
+      "normalized_difference_mod_p": [
+        255,
+        96
+      ],
+      "frozen_gauss_divided_mod_p": 340,
+      "hasse_minus_gauss_divided_mod_p": "334+96t"
+    }
+  ],
+  "author_scope": "AUTHOR_DERIVED_UNREVIEWED_NOT_ADMITTED",
+  "native_h0b0_benchmark": "NOT_RUN",
+  "frozen_input": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "source_checkpoint": "NOT_WRITTEN"
+}
