@@ -117,7 +117,7 @@ The concurrent other researcher lane's reciprocal-index 3-atom moment law concer
 
 ## Executed exact checks, finite domain
 
-The accompanying standalone Node.js/BigInt script independently rebuilds EVERY original binomial coefficient `B_k mod p^3`, compares it with the evaluated degree-two auxiliary polynomial recurrence, separately evaluates every low/middle/upper coefficient by factorial and harmonic formulas, checks all triple-zero suffix coefficients, then checks the six-source weighted identity. It **actually ran**, with all assertions passing, for primes `7,13,19,37,43,109,181,373` (788 individual original coefficients).
+The accompanying standalone Node.js/BigInt script independently rebuilds EVERY original binomial coefficient `B_k mod p^3`, compares it with the evaluated degree-two auxiliary polynomial recurrence, separately evaluates every low/middle/upper coefficient by factorial and harmonic formulas, checks all triple-zero suffix coefficients, then checks the six-source weighted identity. It **actually ran**, with all assertions passing, for primes `7,13,19,37,43,109,181,373` (782 individual original coefficients).
 
 At p=373, `L2=82, M2=158, H2=266 (mod 373)`; `W0=15521276, W1=16326002, W2=133 (mod 373^3 for W0,W1 and mod 373 for W2)`. The original weighted sum equals 373 modulo `373^3=51895117`; the half-cutoff second digit equals 107 and its high companion equals 266, giving 107+266=373. The latter is a numerical regression of the OPEN all-prime equality, not a universal proof. Results JSON and exact executable source are separate immutable files.
 
