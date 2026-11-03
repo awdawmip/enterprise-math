@@ -1,0 +1,7 @@
+# Stage402-B — coupled BRC Euler transfer and exact minimal memory distribution
+
+Parent Stage401-B: full sharp G_C future quotient over paired native-X6 direction letters with LIVE synchronized K, mathematical induction and executed exact finite-state tests. Frozen sources unchanged: EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419, GLOBAL bf84bd7c61a2444b59b1da96be57df0e9ae47e53, P000 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Normative rules from current main. Authorship is not review or Source RESULT.
+
+First independent research action: given m, marginal 12×12 directed histograms J_P,J_Q, six-dimensional endpoints and LIVE K=r, compute D_C(r,g) (integer count for each Stage401 paired joint signature g=G_C) without enumerating whole paired paths. Reuse Stage400's exact paired-prefix transfer, remembering up to 2C+1 recent paired labels and both residual directed edge sets. Check exact distribution at C=2 against independent enumeration over ±E1/±E2 with K nonzero, m<=5. Report class sizes q_C and fixed-bit requirement.
+
+Second: find and prove a nontrivial sparse-J transfer optimization, counting histogram construction, 288 directed counters, input binary length and output exact-integer bit length. Search for a strict additional class-reduction family or explicit failure. Keep positive endpoint BRC mass and signed factors typed apart. Save theorem, reproducible verifier, actual evidence and next question to Source, with native role/admission boundaries preserved.
