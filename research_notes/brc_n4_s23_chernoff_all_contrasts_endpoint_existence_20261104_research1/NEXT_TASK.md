@@ -1,0 +1,5 @@
+# Global zero-classification next unit
+
+For the true optimized B Chernoff exponent and lawful S23 fixed `h=1/42`, prove exact F sign on `(0,0.10243902443]` and `[0.10243902445,1)`, or exhibit another certified zero. A predecessor proves a unique zero within the narrow omitted interval; the new endpoint theorem proves negative sign sufficiently near zero and positive sign sufficiently near one for every `0<h<1/2`. A complete global classification requires bridging compact bands with explicit interval bounds and the two endpoint neighborhoods. Avoid interpreting finite meshes or a plotted sign as a proof for an interval.
+
+Proposed first executable question: derive explicit rational `s0,s1` with strict F<0 on `(0,s0]` and F>0 on `[s1,1)` at `h=1/42` from the quantified endpoint derivatives, then certify the compact complements by adaptive rational-interval analysis. Preserve exact source labels, Chernoff optimization, sampling prices, branch provenance and frozen scientific baseline `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Separate study of finite budgets is available as another useful path. S23 ten-label minimax target remains `[1/2,2/3]`.
