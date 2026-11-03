@@ -1,0 +1,50 @@
+{
+  "schema": "D25_ONHOUR_GUO_ZUDILIN_Q4_LITERATURE_DISCHARGE_CONTINUATION_V1",
+  "date": "2026-11-03",
+  "role": "TASK_RESEARCH",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_goal": "D24 second digit Delta_p=(G_p*h-1)/p=R_p modp, p=13,19 mod24; 216 auxiliary goal OPEN",
+  "prior_frontier_commit": "6b7130b6b600cc9bcfe96a7a95d527733fc9199b",
+  "source_proved": "Guo-Zudilin 2019 Theorem 1.1 q->1: both S_(p-1) and S_((p-1)/2) equal p*(-3/p) modp^3 for p>3",
+  "local_proved": "By prior Q4 bridge and both literature truncations, [(5+8theta)Q4](1)=0 modp all p>=5; hence 216-2304 two-tail reduces to 216 single-tail exact modp3",
+  "validation": "76 primes <=400, original independent binomial sums and finite Q4 modular checks PASS",
+  "do_not_repeat": [
+    "D24 accepted first digit",
+    "216 Q3 full high-tail theorem",
+    "2304 Q4 zero proof: externally solved by Guo-Zudilin 2019",
+    "terminal -2p3 fourth digit",
+    "Gauss far/Clausen certificates"
+  ],
+  "unproved": [
+    "216 remaining half-carry against Q3 high tail all target primes",
+    "exact binding of W216 auxiliary equality to frozen Delta_p-R_p scalar observer",
+    "native p373 H0/B0 Frobenius"
+  ],
+  "next_exact_action": "Read frozen accepted scalar interface with Phi_xx and construct source-preserving Delta-R to 216 half/high equivalence or counterexample; use p13,p19,p373; then seek terminating single-tail certificate",
+  "source_authority": {
+    "site_read_at": "2026-11-03T07:03Z",
+    "research_authority_granted": false,
+    "write_relay_enabled": false,
+    "original_request_id": "research-onhour-20261031-0205-dispatch-r15",
+    "original_issue": 6633,
+    "original_receipt": "COMPLETE outer; FAILED inner UPSTREAM_CODE_REVIEW_REQUIRED",
+    "native_session_id": null,
+    "native_claim_id": null,
+    "native_run_id": null,
+    "native_checkpoint": null
+  },
+  "evidence_origin": {
+    "external": "Guo/Zudilin 2019 Adv.Math.346 329-358 DOI10.1016/j.aim.2019.02.008 pp1-3, eq2,3,Theorem1.1",
+    "internal": "enterprise-math@6b7130b6... Q4 bridge"
+  },
+  "proof_status": "EXACT_COROLLARY_OF_PUBLISHED_SOURCE_AND_PRIOR_SCOPED_PROOF",
+  "review_status": "UNREVIEWED_NOT_ADMITTED",
+  "registration": "REGISTER_PENDING",
+  "native_issue": 1559,
+  "control_issue": 1558,
+  "scheduler_mutation": "NONE",
+  "notification_mutation": "NONE"
+}
