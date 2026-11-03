@@ -1,0 +1,22 @@
+CASE GROUPED_NONPROPORTIONAL
+r= (Fraction(3, 5), Fraction(3, 5), Fraction(1, 4), Fraction(1, 4)) v= (Fraction(3, 10), Fraction(3, 10), Fraction(1, 5), Fraction(1, 5))
+kappa= 76/137 t= 19/137 rho= (Fraction(-9, 274), Fraction(-9, 274), Fraction(42, 685), Fraction(42, 685)) selected stages= (2, 2, 3, 3)
+W_FULL= (Fraction(1709, 2304), Fraction(515, 3072), Fraction(251, 64), Fraction(1283, 384)) signed normal= (Fraction(0, 1), Fraction(0, 1), Fraction(-19, 137), Fraction(1, 1))
+h_FULL= 147157/52608 h_LR= 147073/52608 GAP= 7/4384 LINF_DISTANCE_LOWER= 7/4992
+DETERMINISTIC_POINTS 1536 16 ASSERTIONS_TO_NOW 32
+CASE UNGROUPED_NONPROPORTIONAL
+r= (Fraction(3, 5), Fraction(1, 2), Fraction(2, 5), Fraction(1, 4)) v= (Fraction(3, 10), Fraction(3, 10), Fraction(1, 5), Fraction(1, 5))
+kappa= 228/397 t= 57/397 rho= (Fraction(-177, 3970), Fraction(51, 3970), Fraction(-59, 1985), Fraction(112, 1985)) selected stages= (2, 3, 2, 3)
+W_FULL= (Fraction(1715, 2304), Fraction(171, 1024), Fraction(2285, 576), Fraction(6427, 1920)) signed normal= (Fraction(0, 1), Fraction(0, 1), Fraction(-57, 397), Fraction(1, 1))
+h_FULL= 2117369/762240 h_LR= 141095/50816 GAP= 59/47640 LINF_DISTANCE_LOWER= 59/54480
+DETERMINISTIC_POINTS 1536 16 ASSERTIONS_TO_NOW 67
+CASE PROPORTIONAL_CONTROL
+r= (Fraction(3, 5), Fraction(3, 5), Fraction(1, 4), Fraction(1, 4)) v= (Fraction(3, 10), Fraction(3, 10), Fraction(1, 8), Fraction(1, 8))
+kappa= 1/2 t= 1/8 rho= (Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)) selected stages= (2, 2, 2, 2)
+W_FULL= (Fraction(1715, 2304), Fraction(171, 1024), Fraction(187, 48), Fraction(427, 128)) signed normal= (Fraction(0, 1), Fraction(0, 1), Fraction(-1, 8), Fraction(1, 1))
+h_FULL= 547/192 h_LR= 547/192 GAP= 0 LINF_DISTANCE_LOWER= 0
+DETERMINISTIC_POINTS 1536 16 ASSERTIONS_TO_NOW 99
+MASK_COMMON_RATIO t= 7/20 A= (Fraction(1, 25), Fraction(1, 40), Fraction(1, 100), Fraction(-1, 80)) W_FULL= (Fraction(889, 1152), Fraction(81, 512), Fraction(1379, 360), Fraction(9449, 2880)) h_FULL= -9313/4800 h_LR= -2329/1200 GAP= 1/1600 LINF_DISTANCE_LOWER= 1/2160
+MASK_COMMON_RATIO t= 931/2648 A= (Fraction(29, 662), Fraction(19, 662), Fraction(9, 662), Fraction(-3, 331)) W_FULL= (Fraction(889, 1152), Fraction(81, 512), Fraction(1379, 360), Fraction(9449, 2880)) h_FULL= -61459/31776 h_LR= -30743/15888 GAP= 9/10592 LINF_DISTANCE_LOWER= 3/4772
+ASSERTIONS_TOTAL 114
+PASS_EXACT_R5_K3_SUBDIAGONAL_RATIO_DISPERSION
