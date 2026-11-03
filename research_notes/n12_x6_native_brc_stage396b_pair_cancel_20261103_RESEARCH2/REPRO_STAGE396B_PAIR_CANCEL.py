@@ -67,8 +67,8 @@ def act(w,kind,d=None):
     raise ValueError(kind)
 
 def prove_witness(H,C):
-    u=((0,-1),(1,1),(1,-1))
-    v=((0,-1),(2,1),(2,-1))
+    u=((0,-1),(1,1),(1,-1),(2,1),(2,-1))
+    v=((0,-1),(2,1),(2,-1),(1,1),(1,-1))
     tail=((3,1),(3,-1))*C+((0,1),)*H
     w=u+tail; x=v+tail
     k=H+2*C+1
@@ -85,7 +85,7 @@ def prove_witness(H,C):
         w,x=w1,x1
         assert observe(w)==observe(x)
     assert w==u and x==v
-    w=act(w,'APPEND',(1,-1)); x=act(x,'APPEND',(1,-1))
+    w=act(w,'APPEND',(2,-1)); x=act(x,'APPEND',(2,-1))
     assert observe(w)!=observe(x)
     assert observe(w)[-2]+1==observe(x)[-2], (H,C,observe(w)[-2:],observe(x)[-2:])
     return k

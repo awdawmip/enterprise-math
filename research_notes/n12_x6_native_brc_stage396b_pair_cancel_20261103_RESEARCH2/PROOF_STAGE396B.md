@@ -22,11 +22,11 @@ This bound is sufficient uniformly; a fixed O-fiber may have a smaller exact quo
 
 For every H,C>=0, on the class of all observation fibers with +E1 in D, no uniform suffix of length H+2C suffices. Hence the minimum universally sufficient suffix length is exactly H+2C+1.
 
-Proof. Set u=(-E1,+E2,-E2) and v=(-E1,+E3,-E3). Let tail=(+E4,-E4)^C (+E1)^H and compare w=u tail, w'=v tail. Both have the same endpoint, length, turn count, source, all twenty triple readouts and common depth. Choose omega_(+Ei)=i+1, omega_(-Ei)=-1/(i+1); the product of either opposite-sign pair equals -1, hence Omega(w)=Omega(w'). The native N and positive weighted B depend on endpoint and length and are equal for every fixed p. The two paths have identical H+2C-symbol suffix tail, but their preceding labels differ.
+Proof. Set u=(-E1,+E2,-E2,+E3,-E3) and v=(-E1,+E3,-E3,+E2,-E2). Let tail=(+E4,-E4)^C (+E1)^H and compare w=u tail, w'=v tail. Both have the same endpoint, length, turn count, source, all twenty triple readouts and common depth. For every choice of fixed nonzero rational factors omega_d, both prefixes have the same signed-letter multiset, hence Omega(w)=Omega(w') for all such factors. The tails also coincide. The native N and positive weighted B depend on endpoint and length and are equal for every fixed p. The two paths have identical H+2C-symbol suffix tail, but their preceding labels differ.
 
-Perform H legal POPs of the terminal +E1 symbols and then C terminal CANCEL operations, successively deleting each (+E4,-E4) pair. Both observations still agree and the remaining paths are u and v. APPEND(-E2) changes tau by 0 for u and 1 for v. Their future observations diverge using exactly H POPs and C CANCELs. Thus a smaller uniform window fails. QED.
+Perform H legal POPs of the terminal +E1 symbols and then C terminal CANCEL operations, successively deleting each (+E4,-E4) pair. Both observations still agree and the remaining paths are u and v. APPEND(-E3) changes tau by 0 for u and 1 for v. Their future observations diverge using exactly H POPs and C CANCELs. Thus a smaller uniform window fails. QED.
 
-At H=1,C=1, this is a concrete counterexample to reusing the selective-POP Stage395-B barrier signature after extending the operation language: POP removes +E1, CANCEL crosses the -E4 barrier by deleting (+E4,-E4), and APPEND(-E2) reveals the previously hidden distinction. The same works within the previous H=3 limit.
+At H=1,C=1, this is a concrete counterexample to reusing the selective-POP Stage395-B barrier signature after extending the operation language: POP removes +E1, CANCEL crosses the -E4 barrier by deleting (+E4,-E4), and APPEND(-E3) reveals the previously hidden distinction. The same works within the previous H=3 limit.
 
 ## Added joint-history observation
 
