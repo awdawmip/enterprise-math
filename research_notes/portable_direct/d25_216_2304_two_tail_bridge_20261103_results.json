@@ -1,0 +1,67 @@
+{
+  "schema": "D25_216_2304_DOUBLE_TAIL_EXACT_CHECK_V1",
+  "executed_date": "2026-11-03",
+  "method": "Original coefficients via p-free factorial units mod p^3; 216/2304 high tails via independent terminating rational recurrences mod p; original integer binomial cross-check for eight primes.",
+  "prime_domain": "All 301 primes 5<=p<=2000",
+  "exact_dual_tail_identity_checks": "301/301 PASS",
+  "finite_2304_high_tail_zero_checks": "301/301 PASS; UNPROVED universally",
+  "finite_216_2304_bridge_p3_checks": "301/301 PASS; UNPROVED universally",
+  "original_D25_target_checks": "77/77 PASS; UNPROVED universally",
+  "original_integer_crosscheck_primes": [
+    5,
+    7,
+    11,
+    13,
+    19,
+    37,
+    43,
+    373
+  ],
+  "columns": [
+    "prime",
+    "(W_h-S_h)/p^2 mod p",
+    "(W_p-W_h)/p^2 mod p",
+    "(S_p-S_h)/p^2 mod p",
+    "(W_p-S_p)/p^2 mod p"
+  ],
+  "selected": [
+    [
+      13,
+      3,
+      10,
+      0,
+      0
+    ],
+    [
+      19,
+      10,
+      9,
+      0,
+      0
+    ],
+    [
+      37,
+      17,
+      20,
+      0,
+      0
+    ],
+    [
+      373,
+      107,
+      266,
+      0,
+      0
+    ]
+  ],
+  "p373_details": {
+    "p_squared": 139129,
+    "W_h_mod_p3": 14887176,
+    "S_h_mod_p3": 373,
+    "W_h_minus_S_h": 14886803,
+    "W_p_mod_p3": 373,
+    "S_p_mod_p3": 373
+  },
+  "mathematical_status": "Scoped formulas proved algebraically, conjectural zero/bridge checked in finite range only. NOT_ADMITTED",
+  "source_status": "No authenticated Research Source session/claim/run/checkpoint. Native #1559 H0/B0 experiment NOT_EXECUTED."
+}
