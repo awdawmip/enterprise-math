@@ -1,0 +1,170 @@
+{
+  "marker": "STAGE416B_SHARP_6_7_EXACT_PASS",
+  "scope": "All-horizon theorem is symbolic; executable checks exact witnesses, 144 one-APP direction pairs each, and complete F_n for 5<=n<=25.",
+  "science_pins": {
+    "global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+    "enterprise_math": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "p000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488"
+  },
+  "trace": [
+    [
+      "POP"
+    ],
+    [
+      "POP"
+    ],
+    [
+      "CANCEL"
+    ],
+    [
+      "CANCEL"
+    ]
+  ],
+  "witnesses": {
+    "P_five_tail_failure": {
+      "inputs": [
+        "AABAABAB",
+        "AAABABAA",
+        "ABAAABAB",
+        "AAABABAA"
+      ],
+      "matching_suffix": [
+        5,
+        7
+      ],
+      "initial_observation_equal": true,
+      "final_K": [
+        2,
+        1
+      ],
+      "final_observers_differ": true,
+      "first_APP_full_144_checks": "PASS"
+    },
+    "Q_six_tail_failure": {
+      "inputs": [
+        "AAAAAABAB",
+        "AABABABAA",
+        "AAAAAABAB",
+        "ABAABABAA"
+      ],
+      "matching_suffix": [
+        6,
+        6
+      ],
+      "initial_observation_equal": true,
+      "final_K": [
+        2,
+        2
+      ],
+      "final_observers_differ": true,
+      "first_APP_full_144_checks": "PASS"
+    }
+  },
+  "counts": {
+    "5": [
+      2,
+      2,
+      2
+    ],
+    "6": [
+      6,
+      6,
+      6
+    ],
+    "7": [
+      12,
+      12,
+      12
+    ],
+    "8": [
+      20,
+      20,
+      20
+    ],
+    "9": [
+      30,
+      30,
+      30
+    ],
+    "10": [
+      42,
+      31,
+      32
+    ],
+    "11": [
+      56,
+      32,
+      33
+    ],
+    "12": [
+      72,
+      32,
+      33
+    ],
+    "13": [
+      90,
+      32,
+      33
+    ],
+    "14": [
+      110,
+      32,
+      33
+    ],
+    "15": [
+      132,
+      32,
+      33
+    ],
+    "16": [
+      156,
+      32,
+      33
+    ],
+    "17": [
+      182,
+      32,
+      33
+    ],
+    "18": [
+      210,
+      32,
+      33
+    ],
+    "19": [
+      240,
+      32,
+      33
+    ],
+    "20": [
+      272,
+      32,
+      33
+    ],
+    "21": [
+      306,
+      32,
+      33
+    ],
+    "22": [
+      342,
+      32,
+      33
+    ],
+    "23": [
+      380,
+      32,
+      33
+    ],
+    "24": [
+      420,
+      32,
+      33
+    ],
+    "25": [
+      462,
+      32,
+      33
+    ]
+  }
+}
