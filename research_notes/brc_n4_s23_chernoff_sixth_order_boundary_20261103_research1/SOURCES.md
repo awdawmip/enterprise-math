@@ -1,0 +1,8 @@
+# Inputs and evidence classification
+
+- Frozen scientific input: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34 (unchanged).
+- Direct frozen-model predecessor, author-side and unreviewed: awdawmip/enterprise-math@b6d1b1eb9673cc3b8e0d4fdc5479b8e74b698d20, research_notes/brc_n4_s23_fisher_equal_chernoff_phase_reversal_20261103_research1/{PROOF.md,VERIFY.js,NEXT_TASK.md}; GitHub PR #1765.
+- Current behavioral entry (2026-11-03 observed canonical snapshots): awdawmip/chatgpt-global-knowledge@bb8bc338690ed4285a2ebddfc85b7a48f92af2c5, 00_BOOTSTRAP.md, OPERATING_MANUAL.md, mathematics and output policies; awdawmip/enterprise-math@cf01dd293cc34feaf69c835025d7880c8d501f65, P000, Heartbeat World, joint observer, current research method, portable continuation protocol. Normative current reads are not scientific-pin updates.
+- New theorem: analytic Taylor expansion through degree six plus analytic implicit-function theorem. Execution: python VERIFY.py, CPython with SymPy 1.14.0; outputs RUN_EVIDENCE.txt. CAS verifies exact coefficient identities and integer sign certificates, not independent formal admission.
+- Scope: specific S23 two-state source-tagged experiment; local-in-h analytic crossing near s_* only; costs are stipulated abstract prices, not measured operations; original ten-label minimax bound [1/2,2/3] unchanged.
+- Native control: current query em_control_tasks returned CONTROL_QUOTA; em_session_start was denied STATIC_READONLY_SCOPE_DENIED before sending. No current real native Researcher-ID, active Owner/CLAIM, Result or independent review was asserted. GitHub author-side branch persistence does not alter native task authority.
