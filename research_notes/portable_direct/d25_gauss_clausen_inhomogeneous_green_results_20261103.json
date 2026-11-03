@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "type": "AUTHOR-SIDE FINITE EXACT CHECK",
+  "domain": "77 target primes <=2000 with p mod24 in {13,19}",
+  "case_count": 77,
+  "full_high_convolution": [
+    13,
+    19,
+    37,
+    373
+  ],
+  "samples": [
+    {
+      "p": 13,
+      "r": 2,
+      "K0": 12,
+      "K_last": 4,
+      "E": 0,
+      "original_W_mod_p3": 13,
+      "gauss_ODE_residual": 1183
+    },
+    {
+      "p": 19,
+      "r": 3,
+      "K0": 18,
+      "K_last": 15,
+      "E": 7,
+      "original_W_mod_p3": 19,
+      "gauss_ODE_residual": 1444
+    },
+    {
+      "p": 37,
+      "r": 6,
+      "K0": 22,
+      "K_last": 15,
+      "E": 26,
+      "original_W_mod_p3": 37,
+      "gauss_ODE_residual": 10952
+    },
+    {
+      "p": 373,
+      "r": 62,
+      "K0": 58,
+      "K_last": 5,
+      "E": 177,
+      "original_W_mod_p3": 373,
+      "gauss_ODE_residual": 28799703
+    }
+  ]
+}
