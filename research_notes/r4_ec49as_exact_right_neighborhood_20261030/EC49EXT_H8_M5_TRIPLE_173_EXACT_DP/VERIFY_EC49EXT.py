@@ -46,6 +46,7 @@ def catalog():
 
 def run():
     cases = catalog()
+    words.cache_clear()  # release the 946-case catalogue cache before per-instance trie solving
     exe = HERE / 'exact_dp'
     subprocess.run(['g++', '-O3', '-std=c++17', str(EXJ / 'EXACT_OR_MASK_DP.cpp'), '-o', str(exe)], check=True)
     outputs = []
