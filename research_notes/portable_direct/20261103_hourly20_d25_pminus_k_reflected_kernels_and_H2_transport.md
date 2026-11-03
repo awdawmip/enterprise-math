@@ -49,7 +49,7 @@ For j=2,3,4, write jk=pq_j+r_j with 1≤r_j<p. Under k→p−k, q_j becomes (j�
 
 ## Corollary B: original weighted reflection is polynomial and pole-free
 
-Put B_k=(6k+1)b_k and C_k=(8k+1)c_k. For every integer k in the stated range, including the four exceptional weighted ports,
+Put B_k=(6k+1)b_k and C_k=(8k+1)c_k. For every integer k in the stated range, including any exceptional weighted indices (four distinct ports for primes p≥11),
 
 \[
 \frac{B_kB_{p-k}}{p^3}\equiv
