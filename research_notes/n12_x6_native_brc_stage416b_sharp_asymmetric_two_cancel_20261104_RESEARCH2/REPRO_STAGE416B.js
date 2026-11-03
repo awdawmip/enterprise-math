@@ -1,3 +1,4 @@
+const stage416bResult=(function(){
 'use strict';
 // Stage416-B exact X6 witnesses and source-labeled suffix-key counts.
 // All output is integer/finite. All-horizon sufficiency is proved in PROOF_STAGE416B.md.
@@ -65,3 +66,6 @@ return {marker:'STAGE416B_SHARP_6_7_EXACT_PASS',
   scope:'All-horizon theorem is symbolic; executable checks exact witnesses, 144 one-APP direction pairs each, and complete F_n for 5<=n<=25.',
   science_pins:{global:'bf84bd7c61a2444b59b1da96be57df0e9ae47e53',enterprise_math:'2af3fc484eb11060b69e0afc1b562bcaf5ad1419',p000_blob:'bcc2590d3168a28f72e8b9f0f9b1f76faadcd488'},
   trace,witnesses,counts};
+
+})();
+console.log(JSON.stringify(stage416bResult,null,2));
