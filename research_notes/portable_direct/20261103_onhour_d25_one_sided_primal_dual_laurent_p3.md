@@ -5,15 +5,15 @@ Date: 2026-11-03; independent author-side TASK_RESEARCH work for logical lane `c
 ## Theorem 1: original middle ↔ high reflected reciprocal pair
 
 Let p=6r+1>=7 be prime, let
-[
+$
 b_k=\frac{(2k)!(3k)!}{(k!)^5 216^k}
 =\frac{\binom{2k}{k}^2\binom{3k}{k}}{216^k},
 \qquad W_{p-1}=\sum_{k=0}^{p-1}(6k+1)b_k.
-]
+$
 For every integer j with 2r+1<=j<=3r, write `x_j=b_j/p` and `y_j=b_{p-j}/p^2`. Both are p-adic units, and **for every such p and j**:
-[
+$
 \boxed{x_j y_j\equiv\frac{1}{36j^3}\pmod p.} \tag{1}
-]
+$
 In particular, `y_j=(36j^3 x_j)^(-1) (mod p)`, with all factors invertible.
 
 **Self-contained proof.** Legendre's factorial valuation gives v_p(b_j)=1 and v_p(b_{p-j})=2 on exactly these oriented bands. For 0<=q<=3, 0<=s<p, the p-free factorial block is `(pq+s)!/p^q = (-1)^q q! s! (mod p)`. Here the block quotients for 2j,3j,2(p-j),3(p-j) are 0,1,1,1. Hence, after dividing the product by p^3, its numerator is the product of
@@ -25,7 +25,7 @@ The three negative factorial-block signs leave numerator `(-1)^j 6j^2`. The deno
 ## Theorem 2: one-sided complete p^3 formula (no high coefficients)
 
 For every prime p=6r+1>=7, in Z_(p):
-[
+$
 \boxed{
 W_{p-1}\equiv
 \sum_{k=0}^{2r}(6k+1)b_k+
@@ -33,7 +33,7 @@ W_{p-1}\equiv
 p(6j+1)x_j+
 p^2\frac{1-6j}{36j^3x_j}
 \right]\pmod{p^3}.} \tag{2}
-]
+$
 The inverse in the second term needs only `x_j (mod p)`, while the first term uses the genuine p-adic lift `x_j (mod p^2)`. Thus the high 216 band is recovered from exactly the same original middle-band source, without an independent high-band factorial evaluation.
 
 **Proof.** Partition 0<=k<=p-1 into 0..2r, 2r+1..3r, 3r+1..4r and 4r+1..6r. The last band has v_p(b_k)>=3. Pair the high index k=p-j (3r+1..4r) with the middle j (2r+1..3r). Since `6(p-j)+1=1-6j (mod p)` and b_(p-j) has valuation two, (1) gives `(6(p-j)+1)b_(p-j)=p^2(1-6j)/(36j^3x_j) (mod p^3)`. The middle term is exactly p(6j+1)x_j. Sum each directed pair. QED.
@@ -43,24 +43,24 @@ For p mod24 in {13,19}, consume the accepted first-digit result; the frozen D25 
 ## Theorem 3: two-carrier SL2 transport and retained observer
 
 Set `X_j=x_j mod p`, `Z_j=j^3 y_j mod p`. Then `X_j Z_j=1/36 (mod p)`. For 2r+1<=j<3r put
-[
+$
 \rho_j=\frac{(2j+1)(3j+1)(3j+2)}{36(j+1)^3}\in\mathbb F_p^\times.
-]
+$
 The original exact consecutive-coefficient ratio yields
-[
+$
 \boxed{
 \binom{X_{j+1}}{Z_{j+1}}=
 \begin{pmatrix}\rho_j&0\\0&\rho_j^{-1}\end{pmatrix}
 \binom{X_j}{Z_j},\qquad
 \det=1,\quad X_jZ_j=1/36.} \tag{3}
-]
+$
 The original signed second-digit high observer is
-[
+$
 \boxed{
 T_{\mathrm{high}}(p)=
 \sum_{j=2r+1}^{3r}\frac{(1-6j)Z_j}{j^3}
 \equiv\frac{W_{p-1}-W_{3r}}{p^2}\pmod p.} \tag{4}
-]
+$
 This is a finite algebraic 2-component dual transport/readout in F_p; it is not a native X6 spatial cell, Frobenius, or substitute for the frozen source provenance. The original indices, coefficients, valuation bands, orientation, sign, and p-adic lifts are retained (BRC COMPOSE_APPLIED). The transfer remains on its stated open interior; its singular exiting boundary requires the already sourced p-adic edge-lift, not a fictional invertible step.
 
 ## Actual exact checks, distinct from proof
