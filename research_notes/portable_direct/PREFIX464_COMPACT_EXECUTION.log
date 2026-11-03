@@ -1,0 +1,79 @@
+FAMILY r0 rank=0 basis=[]
+PASS m=0 states=1 paths=1
+PASS m=1 states=11 paths=11
+PASS m=2 states=62 paths=121
+PASS m=3 states=242 paths=1331
+PASS m=4 states=743 paths=14641
+PASS m=5 states=1925 paths=161051
+PASS m=6 states=4396 paths=1771561
+PASS m=7 states=9108 paths=19487171
+FIBER p=2 distinct=1 occupations=15 bits=0
+FIBER p=4 distinct=1 occupations=70 bits=0
+FIBER p=8 distinct=1 occupations=495 bits=0
+FIBER p=16 distinct=1 occupations=4845 bits=0
+FAMILY r1 rank=1 basis=[[1, 2, 3, 4]]
+PASS m=0 states=1 paths=1
+PASS m=1 states=11 paths=11
+PASS m=2 states=66 paths=121
+PASS m=3 states=286 paths=1331
+PASS m=4 states=995 paths=14641
+PASS m=5 states=2937 paths=161051
+PASS m=6 states=7620 paths=1771561
+PASS m=7 states=17820 paths=19487171
+FIBER p=2 distinct=9 occupations=15 bits=4
+FIBER p=4 distinct=17 occupations=70 bits=5
+FIBER p=8 distinct=33 occupations=495 bits=6
+FIBER p=16 distinct=65 occupations=4845 bits=7
+FAMILY r2 rank=2 basis=[[1, 0, 2, 1], [0, 1, 0, 1]]
+PASS m=0 states=1 paths=1
+PASS m=1 states=11 paths=11
+PASS m=2 states=66 paths=121
+PASS m=3 states=286 paths=1331
+PASS m=4 states=998 paths=14641
+PASS m=5 states=2970 paths=14641
+PASS m=6 states=7812 paths=1771561
+PASS m=7 states=18612 paths=19487171
+FIBER p=2 distinct=12 occupations=15 bits=4
+FIBER p=4 distinct=35 occupations=70 bits=6
+FIBER p=8 distinct=117 occupations=495 bits=8
+FIBER p=16 distinct=425 occupations=4845 bits=10
+FAMILY r3 rank=3 basis=[[1, 0, 0, 2], [0, 1, 0, 0], [0, 0, 1, 0]]
+PASS m=0 states=1 paths=1
+PASS m=1 states=11 paths=11
+PASS m=2 states=66 paths=121
+PASS m=3 states=286 paths=1331
+PASS m=4 states=1000 paths=14641
+PASS m=5 states=2992 paths=161051
+PASS m=6 states=7942 paths=1771561
+PASS m=7 states=19162 paths=19487171
+FIBER p=2 distinct=14 occupations=15 bits=6
+FIBER p=4 distinct=55 occupations=70 bits=8
+FIBER p=8 distinct=285 occupations=495 bits=11
+FIBER p=16 distinct=1785 occupations=4845 bits=14
+FAMILY r4 rank=4 basis=[[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]]
+PASS m=0 states=1 paths=1
+PASS m=1 states=11 paths=11
+PASS m=2 states=66 paths=121
+PASS m=3 states=286 paths=1331
+PASS m=4 states=1001 paths=14641
+PASS m=5 states=3003 paths=161051
+PASS m=6 states=8008 paths=1771561
+PASS m=7 states=19448 paths=19487171
+FIBER p=2 distinct=15 occupations=15 bits=7
+FIBER p=4 distinct=70 occupations=70 bits=10
+FIBER p=8 distinct=495 occupations=495 bits=13
+FIBER p=16 distinct=4845 occupations=4845 bits=17
+FAMILY rational rank=4 basis=[[3, 0, 2, 2], [-3, -1, -2, -1], [0, 0, 0, -1], [1, 0, 0, 0]]
+PASS m=0 states=1 paths=1
+PASS m=1 states=11 paths=11
+PASS m=2 states=66 paths=121
+PASS m=3 states=286 paths=1331
+PASS m=4 states=1001 paths=14641
+PASS m=5 states=3003 paths=161051
+PASS m=6 states=8008 paths=1771561
+PASS m=7 states=19448 paths=19487171
+FIBER p=2 distinct=15 occupations=15 bits=9
+FIBER p=4 distinct=70 occupations=70 bits=13
+FIBER p=8 distinct=495 occupations=495 bits=16
+FIBER p=16 distinct=4845 occupations=4845 bits=20
+ALL_CHECKS_PASS
