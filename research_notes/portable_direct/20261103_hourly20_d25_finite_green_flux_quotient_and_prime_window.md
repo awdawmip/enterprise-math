@@ -69,19 +69,19 @@ As of the authenticated Gateway status read for this run, version 0.6.11 has `UP
 
 ## Literature-grounded second route: proven 2304 anchor and explicit 216 comparison obligation
 
-Verified on 2026-11-03 using the author/publisher record: V. J. W. Guo and W. Zudilin, *A q-microscope for supercongruences*, arXiv:1803.01830 (2018; revised 2019), `https://arxiv.org/abs/1803.01830`, proves for every prime p>3:
+Verified 2026-11-03 from the primary public source: Victor J. W. Guo and Wadim Zudilin, *A q-microscope for supercongruences*, arXiv:1803.01830 (2018; revised 2019), https://arxiv.org/abs/1803.01830. They proved for every prime p>3:
 
-[
-S_{2304}(p-1):=sum_{k=0}^{p-1}(8k+1)rac{(4k)!}{(k!)^4 2304^k}
-equiv pleft(rac{-3}{p}ight)pmod{p^3}.
-]
+\[
+S_{2304}(p-1):=\sum_{k=0}^{p-1}(8k+1)\frac{(4k)!}{(k!)^4\,2304^k}
+\equiv p\left(\frac{-3}{p}\right)\pmod{p^3}.
+\]
 
-The paper's `binom(4k,2k)*binom(2k,k)^2/(2^(8k)*3^(2k))` is precisely the above original 2304 kernel; no unsourced kernel renormalization is used. Therefore the **exact conditional reduction**
+The paper's `binom(4k,2k)*binom(2k,k)^2/(2^(8k)*3^(2k))` is precisely the above 2304 kernel since \(2^{8k}3^{2k}=2304^k\). The original-kernel identities preserve both initial coefficients and weights. Therefore the following **conditional reduction** is exact:
 
-[
-W_{216}(p-1)equiv S_{2304}(p-1)pmod{p^3}
-quadLongrightarrowquad
-W_{216}(p-1)equiv pleft(rac{-3}{p}ight)pmod{p^3}
-]
+\[
+W_{216}(p-1)\equiv S_{2304}(p-1)\pmod{p^3}
+\Longrightarrow
+W_{216}(p-1)\equiv p\left(\frac{-3}{p}\right)\pmod{p^3}.
+\]
 
-holds for each p>3, and in particular would prove the frozen narrower mother target for p mod24 in {13,19}. The implication is immediate by the proven 2304 theorem; **the 216–2304 comparison remains a proof obligation** and is supported only by the 301-prime finite observation and earlier author comparisons. This supplies an independent scientifically useful candidate route in addition to low/middle/high Green-WZ gluing. Test a p-dependent finite transformation without losing either original weighted sum or the distinct terminal boundary contributions.
+For primes p mod24 in {13,19} the Legendre symbol is +1, so this route proves the frozen narrower mother target once its **216–2304 comparison lemma** is established. That comparison remains an open proof obligation and is supported currently by the 301-prime finite observation and earlier author comparisons. It offers another discriminating route alongside original signed low/middle/high Green-WZ gluing. Candidate transformations must retain original weighted terms and both kernels' exact terminal contribution.
