@@ -1,0 +1,11 @@
+# Next R5 unit — full clock-plane support and hull-equality certificates
+
+Immutable predecessor: this folder's `RESEARCH.md`, `VERIFY.py` and `EXACT_OUTPUT.txt` on the branch commit to which the PR handoff points. Scientific pins are unchanged: GK `a01383f825ef9d43b4b754254303298c64041568`, EM `86149263e38c22292c9def1e0f69092efa1be77e`. Current norms remain independently mutable and read from canonical main. Preserve the common-label P/Q finite experiment, four source labels C,I,BJ,IJ and the original four-observer maps.
+
+Two all-real clock-only sweeps now exist. The predecessor's `n_1(theta)=(0,0,-theta,4)` covers `0<theta<=9/8`, while the present `n_2(theta)=(0,0,4,-theta)` covers `0<theta<=96/11`. The rational example `r=(1/5,1/2,1/5,1/2), v=(4/5,9/10,4/5,9/10)` has zero support gap for the **entire** first family but a positive gap `5/144` at `n_2(8)`. Both use source-carrier Bellman comparisons, retaining arbitrary answer parameters `p,q`.
+
+**Smallest next executable question:** derive the *entire two-dimensional signed clock plane* support functions `h_FULL(0,0,a,b)` and `h_LR(0,0,a,b)` for arbitrary real `(a,b)`. Account for upstream corners if the componentwise source-monotonicity region fails. Find the exact finite conic subdivision into piecewise linear Bellman regions, then characterize clock vectors which evade separation in all directions. Compute one rational full clock-plane-equal nontrivial candidate, if it exists, or an exact rational separating normal for a candidate that fails.
+
+Use the existing 1,536 FULL / 16 LR exact deterministic enumeration to test candidate formulas, and preserve a finite-domain certificate distinct from any continuous parameter theorem. For a full four-observer hull-equality candidate, provide a rational convex mixture of at most five LR vertices for **each** FULL vertex, or a rational Farkas separator. After all signed hull normals have been accounted for, address actual image nonmembership via real semialgebraic methods.
+
+Only an authenticated current Researcher/Driver and valid native owner/CLAIM receipts may change formal task/Result/review state. GitHub PR author-side Source material remains distinct from formal acceptance.
