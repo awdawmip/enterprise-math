@@ -53,7 +53,7 @@ def run():
         stdin, nodes, nwords = build_input(case['schedule'])
         assert nwords == case['words']
         p = subprocess.run([str(exe), '80'], input=stdin, capture_output=True, text=True, check=True)
-        regex = r'BOUND_PASS minimum_total_at_least=80 nodes=(\\d+) colors=(\\d+)'
+        regex = r'BOUND_PASS minimum_total_at_least=80 nodes=(\d+) colors=(\d+)'
         match = re.fullmatch(regex, p.stdout.strip())
         assert match is not None and int(match[1]) == nodes, (case['index'], p.stdout)
         outputs.append(dict(index=case['index'], words=nwords, nodes=nodes,
