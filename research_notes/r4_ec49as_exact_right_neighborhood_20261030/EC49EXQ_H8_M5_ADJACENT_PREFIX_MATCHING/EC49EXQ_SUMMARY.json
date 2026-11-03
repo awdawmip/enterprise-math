@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "date": "2026-11-03",
+  "predecessor": "bef999d022176de2cbd78a0944b7dee3a461141a",
+  "inputs": {
+    "global": "773d538180bfb49e24cffeb35c3ee75eb0628e2e",
+    "enterprise_math": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab"
+  },
+  "model": "H8_M5_S6",
+  "triple": {
+    "total": 123147,
+    "previous_survivors_lt80": 16223,
+    "new_survivors_lt80": 946,
+    "excluded_lt80": 122201,
+    "excluded_le80": 121432
+  },
+  "double": {
+    "total": 1866362,
+    "previous_survivors_lt80": 494545,
+    "new_survivors_lt80": 63665,
+    "excluded_lt80": 1802697,
+    "excluded_le80": 1769484
+  },
+  "all": {
+    "total": 1989509,
+    "previous_survivors_lt80": 510768,
+    "new_survivors_lt80": 64611,
+    "excluded_lt80": 1924898,
+    "excluded_le80": 1890916
+  },
+  "native_word_test": {
+    "status": "PASS",
+    "tested_pairs": 141842,
+    "collision_groups": 120
+  },
+  "verification": "full C++17 exact integer census and separate direct-native-word Python test",
+  "author_status": "PORTABLE_DRAFT_UNREVIEWED_NOT_ADMITTED"
+}
