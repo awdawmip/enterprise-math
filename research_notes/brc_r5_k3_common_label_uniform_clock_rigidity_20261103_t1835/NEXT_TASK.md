@@ -1,0 +1,9 @@
+# NEXT_TASK — common-label K3 beyond source-uniform clocks
+
+Mother objective: a genuine finite two-law stopping experiment with equal four-observer FULL and seedless LR convex hulls, but different actual real-behaviour observer images. On 2026-11-03, a complete ten-real-parameter classification was proved for the strict common-label K3 topology with arbitrary p_s,q_s and uniform source r_s=r, v_s=v: hulls equal iff p and q are both source-constant; then actual images are equal. Complete analytic proof, 142 executed exact Fraction assertions and two signed separating normals are in this research_notes directory. Physical predecessor is commit 0d74ec81ef571623da677f49cdad29926b9c5a3f.
+
+Frozen scientific inputs: global a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e. Current normative rules, P000 and ACTIVE native X6/Heartbeat are separate; preserve scientific pins. Follow the current portable-research protocol.
+
+Smallest next research unit: allow r_s,v_s to be source-heterogeneous while p_s,q_s are also arbitrary. Seek an exact signed normal detecting nonuniform clocks independently of answer heterogeneity, or a rational hull-equal candidate. Reuse the exact common-label stage oracle, enumerate all 1536 FULL / 16 LR rational observer points for candidates, and produce for each FULL vertex a <=5-LR-point rational mixture or one rational Farkas separation witness. For a hull-equal candidate, then test actual real-policy LR nonmembership. Source/BRC four-path provenance, the policy-independent terminal sample space and review/claim authority must be maintained.
+
+Current evidence status: AUTHOR_PROVED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY. Native Site is static read-only and owner lookup returned CONTROL_QUOTA on this run; no native CLAIM, Result or independent Driver review receipt.
