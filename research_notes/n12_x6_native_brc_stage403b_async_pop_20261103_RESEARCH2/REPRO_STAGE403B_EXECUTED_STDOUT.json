@@ -1,0 +1,133 @@
+{
+  "marker": "STAGE403B_ASYNC_BOUNDARY_PASS",
+  "sample_C_range": "0..6",
+  "family": [
+    {
+      "C": 0,
+      "m": 4,
+      "K_initial": 1,
+      "L_minus_1": 1,
+      "L_sufficient": 2,
+      "Q1": "AABA",
+      "Q2": "ABAA",
+      "final_JQ_1": {
+        "AA": 1,
+        "AB": 1
+      },
+      "final_JQ_2": {
+        "AB": 1,
+        "BA": 1
+      }
+    },
+    {
+      "C": 1,
+      "m": 6,
+      "K_initial": 1,
+      "L_minus_1": 3,
+      "L_sufficient": 4,
+      "Q1": "AABABA",
+      "Q2": "ABAABA",
+      "final_JQ_1": {
+        "AA": 1,
+        "AB": 1
+      },
+      "final_JQ_2": {
+        "AB": 1,
+        "BA": 1
+      }
+    },
+    {
+      "C": 2,
+      "m": 8,
+      "K_initial": 1,
+      "L_minus_1": 5,
+      "L_sufficient": 6,
+      "Q1": "AABABABA",
+      "Q2": "ABAABABA",
+      "final_JQ_1": {
+        "AA": 1,
+        "AB": 1
+      },
+      "final_JQ_2": {
+        "AB": 1,
+        "BA": 1
+      }
+    },
+    {
+      "C": 3,
+      "m": 10,
+      "K_initial": 1,
+      "L_minus_1": 7,
+      "L_sufficient": 8,
+      "Q1": "AABABABABA",
+      "Q2": "ABAABABABA",
+      "final_JQ_1": {
+        "AA": 1,
+        "AB": 1
+      },
+      "final_JQ_2": {
+        "AB": 1,
+        "BA": 1
+      }
+    },
+    {
+      "C": 4,
+      "m": 12,
+      "K_initial": 1,
+      "L_minus_1": 9,
+      "L_sufficient": 10,
+      "Q1": "AABABABABABA",
+      "Q2": "ABAABABABABA",
+      "final_JQ_1": {
+        "AA": 1,
+        "AB": 1
+      },
+      "final_JQ_2": {
+        "AB": 1,
+        "BA": 1
+      }
+    },
+    {
+      "C": 5,
+      "m": 14,
+      "K_initial": 1,
+      "L_minus_1": 11,
+      "L_sufficient": 12,
+      "Q1": "AABABABABABABA",
+      "Q2": "ABAABABABABABA",
+      "final_JQ_1": {
+        "AA": 1,
+        "AB": 1
+      },
+      "final_JQ_2": {
+        "AB": 1,
+        "BA": 1
+      }
+    },
+    {
+      "C": 6,
+      "m": 16,
+      "K_initial": 1,
+      "L_minus_1": 13,
+      "L_sufficient": 14,
+      "Q1": "AABABABABABABABA",
+      "Q2": "ABAABABABABABABA",
+      "final_JQ_1": {
+        "AA": 1,
+        "AB": 1
+      },
+      "final_JQ_2": {
+        "AB": 1,
+        "BA": 1
+      }
+    }
+  ],
+  "short_binary_words_checked": 254,
+  "short_binary_groups": 254,
+  "native_X6_BRC_steps": 12,
+  "BRC_n": 8,
+  "N8_P": "68768",
+  "N8_Q": "385056",
+  "operation_language": "arbitrary paired APPEND; at most one Q-only POP; at most C synchronized two-source inverse-pair CANCEL",
+  "K_rule": "sum of equal labels at shared absolute indices i <= min(mP,mQ)"
+}
