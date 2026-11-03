@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "domain": "every prime p <= 2000 with p mod 24 in {13,19}",
+  "case_count": 77,
+  "argument_lifts_per_p": [
+    1,
+    2,
+    3
+  ],
+  "original_integer_binomial_independent_cases": [
+    13,
+    19,
+    373
+  ],
+  "sample_rows": [
+    {
+      "p": 13,
+      "G_over_p_mod_p2": 76,
+      "Gprime_mod_p2": 1,
+      "weighted_derivative_mod_p2": 68,
+      "weighted_second_derivative_mod_p": 2,
+      "W_1_mod_p3": 13,
+      "W_1_plus_p_mod_p3": 1066,
+      "symmetric_curvature_mod_p3": 338
+    },
+    {
+      "p": 19,
+      "G_over_p_mod_p2": 84,
+      "Gprime_mod_p2": 344,
+      "weighted_derivative_mod_p2": 278,
+      "weighted_second_derivative_mod_p": 8,
+      "W_1_mod_p3": 19,
+      "W_1_plus_p_mod_p3": 6745,
+      "symmetric_curvature_mod_p3": 2888
+    },
+    {
+      "p": 373,
+      "G_over_p_mod_p2": 65672,
+      "Gprime_mod_p2": 78545,
+      "weighted_derivative_mod_p2": 84217,
+      "weighted_second_derivative_mod_p": 319,
+      "W_1_mod_p3": 373,
+      "W_1_plus_p_mod_p3": 27656831,
+      "symmetric_curvature_mod_p3": 44382151
+    }
+  ]
+}
