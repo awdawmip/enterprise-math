@@ -40,5 +40,30 @@
     "#6638"
   ],
   "gateway_observation": "2026-11-04 gateway version 0.6.11; research_authority_granted=false; control UPSTREAM_CODE_REVIEW_REQUIRED; active native quota 5/5, new_job_allowed_by_quota=false",
-  "admission": "UNREVIEWED_NOT_ADMITTED"
+  "admission": "UNREVIEWED_NOT_ADMITTED",
+  "last_explicit_recovery_receipts": {
+    "observed_as_of": "2026-11-01T07:29:17Z; not a fresh current Source ownership assertion",
+    "recovery_issue": "awdawmip/kimi-query-bridge#6637",
+    "recovery_request_id": "hourly-recovery-20261101T1518p0800-r11",
+    "recovery_status": "SUCCEEDED",
+    "historical_service_session_id": "MCP-06f7ad61a8d841d9ba1ba1ef4d088d94",
+    "historical_execution_id": "EM-ENTERPRISE-5298BA",
+    "historical_session_state": "ACTIVE_AS_OF_READ",
+    "historical_own_pending": 0,
+    "historical_own_runs": 0,
+    "historical_unopened_claims": 0,
+    "historical_unpublished_uploads": 0,
+    "preserved_neutral_staging_manifest_ids": [
+      "SD-5a0e03b9df11da5699b7",
+      "SD-191fdf4304433f8d9912"
+    ],
+    "source_authority_verified": false,
+    "continuation_issue": "awdawmip/kimi-query-bridge#6638",
+    "continuation_request_id": "hourly-d25-continuation-20261101T1530p0800-r11",
+    "continuation_terminal": "FAILED",
+    "continuation_exact_error": "UPSTREAM_CODE_REVIEW_REQUIRED: control_plane/check_current_control_authority.py, control_plane/check_post_cutover_publication_envelope.py, control_plane/check_remote_manual_publication_preflight.py, control_plane/research_startup_transport.py, control_plane/research_task_integrity_fault_isolation.py",
+    "next_control_owner": "Control plane maintenance / adapter code-review and deployment; original Research lane performs fresh readback only after gate changes",
+    "native_run_request_id": null,
+    "native_claim_request_id": null
+  }
 }
