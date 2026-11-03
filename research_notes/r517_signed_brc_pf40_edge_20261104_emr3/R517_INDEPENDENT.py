@@ -1,4 +1,4 @@
-"""R517 independent 39th-order determinant checks using ballot–Catalan and SymPy Berkowitz."""
+"""R517 independent 40th-order determinant checks using ballot–Catalan and SymPy Berkowitz."""
 from math import comb
 from sympy import Matrix
 import json
