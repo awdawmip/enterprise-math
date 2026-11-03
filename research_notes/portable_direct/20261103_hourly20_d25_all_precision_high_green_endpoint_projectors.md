@@ -1,73 +1,88 @@
-# D25 — Exact all-precision high-strip Green rank-three normal form and directed endpoint projectors
+# D25 — Exact all-precision original-216 high-strip Green normal form and directed endpoint projectors
 
-Date: 2026-11-03 (+08). TASK_RESEARCH **author-side portable mathematics**, UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING; not native Source checkpoint/Result/Claim. Logical lane: `chatgpt-research-hourly-enterprise-math-20260923` (not maintenance). Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication `TP2-B6F4FC938FF94941C1B7`; original frozen science pin `c47e13e4aba0e006366f989d6334d443f6333ae3`. Mother target for p mod24 in {13,19}: the original signed W_(p−1) equals p mod p³.
+2026-11-03 (+08). TASK_RESEARCH author-side portable mathematics; **UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING**. Logical lane: \`chatgpt-research-hourly-enterprise-math-20260923\` (maintenance lane not used). Task: \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`, publication \`TP2-B6F4FC938FF94941C1B7\`, frozen scientific input pin \`c47e13e4aba0e006366f989d6334d443f6333ae3\`. No native session, winning CLAIM, OPEN, Source checkpoint, Result or review is asserted by this note.
 
-## Exact theorem A: all-order source-oriented rank-three quotient
+## Original source and all-precision polynomial observer
 
-Use the original factorial source, not a reciprocal surrogate:
-[
-b_k=rac{(2k)!(3k)!}{(k!)^5,216^k},quad
-A(k)=(2k+1)(3k+1)(3k+2)=18k^3+27k^2+13k+2,quad
-rac{b_{k+1}}{b_k}=rac{A(k)}{36(k+1)^3}.
-]
-For any prime p=6r+1≥7 define k_s=3r+1+s=(p+1)/2+s, 0≤s≤r, and Y_s=b_{k_s}/p² in Z_(p). Legendre valuations are 2 for 0≤s<r, and 3 for s=r. In the ring Z_(p)[s] define
+For every prime \(p=6r+1\ge7\), retain the *original* coefficient
+\[
+b_k=\frac{(2k)!(3k)!}{(k!)^5\,216^k},\quad
+\frac{b_{k+1}}{b_k}=\frac{A(k)}{36(k+1)^3},\quad
+A(k)=(2k+1)(3k+1)(3k+2)=18k^3+27k^2+13k+2.
+\]
+Put
+\[
+k_s=3r+1+s=\frac{p+1}{2}+s,\quad 0\le s\le r,\qquad Y_s=\frac{b_{k_s}}{p^2}\in\mathbb Z_{(p)}.
+\]
+Legendre's formula gives \(v_p(b_{k_s})=2\) for \(0\le s<r\), and \(v_p(b_{k_r})=3\). For any polynomial \(P\in\mathbb Z_{(p)}[s]\), define
+\[
+\mathscr D_pP(s)=\frac{A(k_s)}{36}P(s+1)-k_s^3P(s).
+\tag{A1}
+\]
+**Exact rational telescoping theorem:**
+\[
+\boxed{\sum_{s=0}^{r-1}(\mathscr D_pP)(s)Y_s
+=k_r^3P(r)Y_r-k_0^3P(0)Y_0.}\tag{A2}
+\]
+Proof: the original coefficient recurrence gives \((k_s+1)^3Y_{s+1}=A(k_s)Y_s/36\), so each summand is the forward difference of \(k_s^3P(s)Y_s\). The sum telescopes without approximation.
 
-[
-oxed{mathscr D_pP(s)=rac{A(k_s)}{36}P(s+1)-k_s^3P(s).}
-]
+**All-digit rank-three theorem.** For every \(N\ge1\), \(R_N=\mathbb Z/p^N\mathbb Z\), every polynomial weight \(W\in R_N[s]\) admits a unique decomposition
+\[
+\boxed{W=\mathscr D_pP+d_0+d_1s+d_2s^2,\qquad
+R_N[s]=\mathscr D_p(R_N[s])\oplus R_N\{1,s,s^2\}.}\tag{A3}
+\]
+It also holds over \(\mathbb Z_{(p)}[s]\). Indeed, \(A(k_s)/36\) and \(k_s^3\) have respective leading coefficients \(1/2\) and \(1\), so the leading term of \(\mathscr D_pP\), for any nonzero degree-\(m\) \(P\) with leading coefficient \(a\), is \(-a s^{m+3}/2\). Multiplication by \(-1/2\) is a unit in either ring and preserves nonzero leading coefficients. Repeated leading-term cancellation produces a degree-at-most-2 remainder and the same leading-term property proves uniqueness, including when \(R_N\) has zero divisors.
 
-For every p-integral polynomial P, **exactly**, not merely modulo p²,
-[
-oxed{sum_{s=0}^{r-1}(mathscr D_pP)(s)Y_s
-=k_r^3P(r)Y_r-k_0^3P(0)Y_0.}	ag{A}
-]
-Proof: the summand equals (k_s+1)^3P(s+1)Y_(s+1)-k_s^3P(s)Y_s by the original rational ratio. Summing telescopes.
+Define \(M_j=\sum_{s=0}^{r-1}s^jY_s\). Combining (A2)–(A3) gives an **exact original-source observer reconstruction**:
+\[
+\boxed{\sum_{s=0}^{r-1}W(s)Y_s=
+d_0M_0+d_1M_1+d_2M_2+k_r^3P(r)Y_r-k_0^3P(0)Y_0.}\tag{A4}
+\]
+In particular, \(P=1\), \(K_j=\sum k_s^jY_s\), yields
+\[
+\boxed{-18K_3+27K_2+13K_1+2K_0=36(k_r^3Y_r-k_0^3Y_0).}\tag{A5}
+\]
+The physical signed high strip is already in the low-degree remainder:
+\[
+\boxed{\frac{H_2(p)}{p^2}=
+\sum_{s=0}^{r-1}(6k_s+1)Y_s=(3p+4)M_0+6M_1.}\tag{A6}
+\]
 
-For any N≥1 and R_N=Z/p^NZ, the operator raises the degree of any nonzero P of degree m by exactly 3, with leading coefficient multiplied by -1/2, a **unit** for p≥7: A(k_s)/36 has leading coefficient 1/2 while k_s³ has leading coefficient 1. Hence repeated leading-term elimination proves a unique decomposition for every W∈R_N[s]:
-[
-oxed{W=mathscr D_pP+d_0+d_1s+d_2s²,quad
-R_N[s]=operatorname{im}mathscr D_poplus R_N{1,s,s²}.}	ag{B}
-]
-This holds also over Z_(p). Uniqueness works despite possible zero-divisor leading coefficients because multiplication by a unit is injective. Writing M_j=∑_(s=0)^(r-1) s^jY_s,
-[
-oxed{sum W(s)Y_s=d_0M_0+d_1M_1+d_2M_2
-+k_r³P(r)Y_r-k_0³P(0)Y_0.}	ag{C}
-]
-For P=1, letting K_j=∑ k_s^jY_s, a concrete exact cubic certificate is
-[
--18K_3+27K_2+13K_1+2K_0=36(k_r³Y_r-k_0³Y_0).
-]
-The **original signed high contribution** is
-[
-oxed{H_2(p)/p²=sum(6k_s+1)Y_s=(3p+4)M_0+6M_1.}	ag{D}
-]
+## Independent directed endpoint projectors
 
-## Exact theorem B: independent original-source boundary ports
+Since \(1\le r<p\), \(r^{-1}\in\mathbb Z_{(p)}\). The explicit polynomials
+\[
+P_{\rm in}(s)=1-\frac{s}{r},\qquad P_{\rm out}(s)=\frac{s}{r}
+\]
+have complementary endpoint values. Put \(W_{\rm in/out}=\mathscr D_pP_{\rm in/out}\); explicitly
+\[
+W_{\rm out}(s)=\frac{A(k_s)(s+1)/36-k_s^3s}{r},\qquad
+W_{\rm in}(s)=\frac{A(k_s)}{36}-k_s^3-W_{\rm out}(s).
+\]
+They are p-integral **degree-four polynomial weights** satisfying the exact, separately addressable flux certificates
+\[
+\boxed{\sum_{s=0}^{r-1}W_{\rm in}(s)Y_s=-k_0^3Y_0,}
+\qquad
+\boxed{\sum_{s=0}^{r-1}W_{\rm out}(s)Y_s=k_r^3Y_r.}\tag{B1}
+\]
+Proof: apply (A2) to the two complementary endpoint conditions. The formulas hold modulo \(p^N\) for every \(N\), with the original source and separate orientation.
 
-Since 0<r<p, the two p-integral linear polynomials
-[
-P_{m in}(s)=1-s/r,qquad P_{m out}(s)=s/r
-]
-satisfy opposite endpoint conditions. Their explicit degree-four polynomial weights are
-[
-W_{m out}(s)=rac{A(k_s)(s+1)/36-k_s³s}{r},qquad
-W_{m in}(s)=A(k_s)/36-k_s³-W_{m out}(s).
-]
-Equation (A) gives two independent directed exact flux certificates:
-[
-oxed{sum W_{m in}(s)Y_s=-k_0³Y_0},quad
-oxed{sum W_{m out}(s)Y_s=k_r³Y_r}.	ag{E}
-]
-They work at **every p-adic precision**, with no additional singular weight factor. These artificial projector weights are distinct from the signed weight (D); the latter's remaining interior moments must be matched by a genuine cross-band relation.
+**Comparison / BRC scope.** Earlier D25 established a global 216 polynomial Gosper three-moment form; the new contribution is its exact original *high-strip p-adic source* interface together with independent directed endpoint projectors and arbitrary precision. The earlier Hensel-lifted four-moment form at commit \`5123cbd362e87cc13edf7856e2b11ab54cfd1293\` applies to the **different** rational observer \(W(s)Y_s/(2s+3)\) modulo \(p^2\). This three-moment form applies to \(W(s)Y_s\) for polynomial \(W\), at all precisions. The preserved source fields are the original factorial coefficients, valuation, directed \(s\mapsto k_s\), declared polynomial, exact precision and typed entrance/exit endpoints; no native X6 structural promotion is claimed.
 
-The earlier three-moment Gosper construction applies to original polynomial observers globally. This result explicitly specializes it to the original normalized high strip at **all p-adic orders**, and adds directed endpoint projectors. The prior rank-four Hensel theorem `5123cbd3...` is for the different rational observer W(s)Y_s/(2s+3) modulo p². These are different observer classes, not conflicting claims.
+## Exact integer execution
 
-## Executed certificate and BRC preservation
+The checked-in companion Python stdlib script uses original factorial units, verifies the source ratio, (A2), (B1), normal-form coefficient elimination and moment reconstruction for \(s^3,\ldots,s^{10}\) over \(\mathbb Z/p^4\mathbb Z\). It **actually ran and passed** for all 148 primes \(7\le p\le2000,\ p\equiv1\pmod6\), covering 22,952 high-strip positions. The expanded local checker additionally cross-checked small primes \(p\le37\) against the independent original binomial formula modulo \(p^6\). Representative residues:
 
-The companion stdlib checker uses the original p-free factorial-unit arithmetic, verifies exact recurrence (A), both endpoint projectors (E), arbitrary high monomial weights degrees 3..10 by coefficientwise normal form, and the original signed observer (D), all modulo p⁴. A separate expanded local checker also cross-checks p≤37 against direct original integer binomial coefficients modulo p⁶. Actual execution passed **148 primes, 7≤p≤2000, p mod6=1; 22,952 oriented high-strip positions**. Samples (p, entrance mod p⁴, exit mod p⁴, H₂/p² mod p): (13,7295,25246,10), (19,21152,66291,9), (373,2860891407,11524594801,266). Finite regression is supplementary to the exact algebraic proof; independent formal review has not occurred.
+| \(p\) | \(r\) | entrance flux mod \(p^4\) | exit flux mod \(p^4\) | \(H_2/p^2\bmod p\) |
+|---:|---:|---:|---:|---:|
+| 13 | 2 | 7295 | 25246 | 10 |
+| 19 | 3 | 21152 | 66291 | 9 |
+| 373 | 62 | 2860891407 | 11524594801 | 266 |
 
-BRC observer retains the original factorial source, oriented k_s, valuations, chosen precision, weight class, and *separately* typed entrance and exit; this polynomial rank concerns an auxiliary scalar observer, not P000's native six-dimensional space.
+Theorems (A2)–(B1) have exact algebraic proofs. Finite testing is supplementary, not an independent review or formal native experiment.
 
-## Next executable mathematical unit / control boundary
+## Next mother-objective unit / control status
 
-Apply (E) at the original 2r/3r/4r cutoffs in a genuinely p-dependent **signed** low/middle/high Green–WZ ansatz. Preserve all physical signed interior moments from (D) and test exact remaining endpoint/residual equations at p=13,19,373 before asserting universal LIFT. Do not redo D24 first digit, previous original-four-source middle carry, or onhour block two-jet. Frozen mother congruence remains open. Gateway 0.6.11 at 2026-11-03 returns UPSTREAM_CODE_REVIEW_REQUIRED, research_authority_granted=false, executor_binding_configured=false, active jobs 5/5. Historical #6637 read-only recovery and terminal failed #6638 remain unchanged; control support #1558. This is author-side research evidence, not a newly authorized native Research run or checkpoint.
+Construct a genuinely \(p\)-dependent signed original-source low/middle/high Green–WZ relation using separately addressable \(2r,3r,4r\) fluxes, preserving the **actual signed interior moments** in (A6) rather than replacing them with manufactured projector weights. Evaluate exact original endpoint/residual equations at \(p=13,19,373\) before a universal conclusion. The frozen mother target \(W_{p-1}\equiv p\pmod {p^3}\) for \(p\bmod24\in\{13,19\}\) is still open.
+
+Live authenticated Gateway 0.6.11 on 2026-11-03 reports \`UPSTREAM_CODE_REVIEW_REQUIRED\`, \`research_authority_granted=false\`, \`executor_binding_configured=false\`, and active-job quota \`5/5\`. The historical genuine-lane read-only recovery #6637 and terminal failed continuation #6638 are not replayed; support owner remains existing Enterprise Math issue #1558. This source note is **author evidence / not native Source checkpoint / UNREVIEWED / NOT_ADMITTED**.
