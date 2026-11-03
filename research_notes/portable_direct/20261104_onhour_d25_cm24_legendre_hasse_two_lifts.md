@@ -65,3 +65,31 @@ BRC `COMPOSE_APPLIED`: carrier `(p, t, Z/p²[t]/(8t²−8t+1), operator, basis)`
 **Control:** no new registration, claim, open, run, native Source checkpoint, Result or review. Historic exact request `research-onhour-20261031-0205-dispatch-r15` (#6633) stays definitively FAILED, never replayed. Sites status at 2026-11-03 16:00 UTC: `research_authority_granted=false`, `write_relay_enabled=false`; v0.6.11 control remains `UPSTREAM_CODE_REVIEW_REQUIRED`. This GitHub file is author-only evidence, not role-bound persistence. Research logical ID `chatgpt-research-onhour-enterprise-math-20260923` is source metadata only, not service session identity; maintenance `chatgpt-hourly-enterprise-math-20260921` is never used.
 
 Sources: Chisholm et al., *p-Adic Analogues of Ramanujan Type Formulas for 1/π*, Mathematics 2013, Theorems 1–2, https://www.math.rwth-aachen.de/~Gabriele.Nebe/papers/Ramanujan.pdf ; discriminant -24 Hilbert class polynomial https://fungrim.org/entry/20b6d2/ ; exact frozen project source pin as above; prior current F4 and R2 author notes (do not promote them here).
+
+## Theorem 3 — **new first-jet bridge directly to the frozen Gauss low port**
+
+The accepted frozen CM0 source already uses the original low Gauss polynomial
+`G_r(lambda)=sum_(k=0)^r binom(r,k)binom(2r,k)lambda^k
+           =2F1(-r,-2r;1;lambda)`.
+Meanwhile, the exact classical quadratic Legendre transformation yields
+`L_r(lambda)=Legendre_(2r)(sqrt(1-lambda))
+             =2F1(-r,r+1/2;1;lambda)`;
+since the degree is even, this is a polynomial in lambda. **The two finite polynomials are congruent mod p, but their p² difference is now explicit**, rather than assumed to be equal:
+
+For **every prime p=6r+1≥7 and all lambda in Z_(p)**,
+`L_r(lambda)-G_r(lambda)
+ = (p/2) * sum_(k=1)^r binom(r,k)binom(2r,k)lambda^k
+                     * sum_(i=0)^(k-1) 1/(i-2r)   (mod p²).`  (JET)
+
+**Proof.** The exact identity `r+1/2=-2r+p/2` gives, coefficientwise for each `k≤r`, `(-2r+p/2)_k=(-2r)_k prod_(i=0)^(k-1)(1+p/[2(i-2r)])`. All factors `i-2r` are p-units. Expanding that finite product to first order gives (JET), with no analytic limits, guess, numerical sign choice, CM assumption or new axiom. QED.
+
+For lambda=1/2 at **p=373, r=62**, the two fully integral representatives are:
+`G_62(1/2)=126820=373*340 (mod 139129)`;
+`L_62(1/2)=17158=373*46 (mod 139129)`;
+therefore `(L_62-G_62)/373 =79 (mod373)`, and the independent harmonic right-hand side of JET gives exactly **79**. At p=13,19,37 the corresponding harmonic jets are **8,17,25**. The new jet is a *specific original-Gauss ↔ Legendre repair coordinate*; it can enter subsequent second-digit source-mapping checks in the frozen F4 calculation without inventing a native Frobenius coefficient.
+
+This supplies a **three-lift, source-labeled fixed-373 witness**:
+`(A_373/373, L_124/373, G_62/373)=(301+96t, 46, 340)`
+in `F_373[t]/(t²-t+1/8)`. All three reduce to the same zero **before division by 373**. A mod-p scalar match is insufficient for a p² Source or H0/B0 identification. The correction `79` is explicitly derived rather than fitted; at other primes the correction may vanish accidentally (e.g. p=193), without changing its scope.
+
+**Executed check:** in addition to the Theorem 2 148-prime class regression, the companion program separately verifies (JET) on **all 148 primes p=6r+1≤2000** by computing the original finite-binomial `G_r`, the Legendre recurrence `L_r` and the harmonic-sum right side, modulo p². This is local exact arithmetic; native H0/B0 remains NOT_EXECUTED. Subsequent proof work should use this new exact repair coordinate where the original low port is compared to an elliptic CM/Legendre model, while retaining distinct F4-Green and signed-tail observers.

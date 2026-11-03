@@ -54,6 +54,20 @@ def legendre_binomial(p,modulus):
     coeffs=[(-1)**m*comb(2*r,m)*comb(2*r+m,m) for m in range(2*r+1)]
     return polynomial_value(coeffs,modulus)
 
+
+def gauss_legendre_first_jet(p):
+    r=(p-1)//6; modulus=p*p
+    G=sum(comb(r,k)*comb(2*r,k)*pow(2,-k,modulus)
+          for k in range(r+1))%modulus
+    h=0; correction=0
+    for k in range(1,r+1):
+        h=(h+pow(k-1-2*r,-1,p))%p
+        w=comb(r,k)*comb(2*r,k)*pow(2,-k,p)%p
+        correction=(correction+w*h*pow(2,-1,p))%p
+    L=legendre_recurrence(p,modulus)
+    assert (L-G)%modulus==(p*correction)%modulus, (p,G,L,correction)
+    return (G,L,correction)
+
 if __name__=="__main__":
     groups={1:[0,0],7:[0,0],13:[0,0],19:[0,0]}
     for p in range(7,2001):
@@ -74,3 +88,10 @@ if __name__=="__main__":
         print(json.dumps({"p":p,"Hasse_mod_p2":a,
               "Hasse_divided_p_mod_p":[v//p for v in a],
               "Legendre_mod_p2":l,"Legendre_divided_p_mod_p":l//p}))
+
+if __name__=="__main__":
+    for p in range(7,2001):
+        if prime(p) and p%6==1:
+            gauss_legendre_first_jet(p)
+    for p in (13,19,37,373):
+        print("GAUSS_LEGENDRE_JET",p,gauss_legendre_first_jet(p))
