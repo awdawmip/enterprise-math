@@ -102,4 +102,5 @@ for(const pair of schemes)for(const [n,e] of betas)for(let j=0;j<6;j++){
  maskChecks++;
 }
 const result={flag:"PASS_BRC_S23_NINE_FEATURE_SHARP_NOISY_INVERSE_20261103",schemes:schemes.length,beta_pairs:betas.length,deletions:6,random_exact_reconstructions_and_bounds:checked,exact_feasible_sharp_witnesses:sharp,scope:"nine selected scalar event coordinates, exact rational checks"};
+if (typeof process !== "undefined" && process.stdout) process.stdout.write(JSON.stringify(result)+"\n");
 JSON.stringify(result);
