@@ -7,3 +7,5 @@
 - Mathematical basis is the exact labeled Bernoulli stopping law, likelihood ratio rule, finite-sample data processing (Blackwell order), and elementary Fisher information. Full proof is given in PROOF.md.
 - Python stdlib Fraction program and actual console output are the finite computational evidence. Exact grid: h in {0,1/100,1/42,1/6}, s in {0,1/4,1/2,3/4,1}, N in {1,...,7}; full continuum claims are analytic.
 - GitHub account login: awdawmip; private Site gateway 2026-11-03 reports research_authority_granted=false and write_relay_enabled=false; native task read returned CONTROL_QUOTA. This is an author-side source artifact, not a native CLAIM/Result/review.
+
+Verification-scope refinement: the h=1/6 row in the exact Fraction grid tests the standalone ternary/binary likelihood identity algebraically; it is outside the lawful S23 eleven-parameter witness restriction h<=1/42. All S23-specific exact test points use h=0,1/100,1/42. This distinction is part of the recorded validation scope.
