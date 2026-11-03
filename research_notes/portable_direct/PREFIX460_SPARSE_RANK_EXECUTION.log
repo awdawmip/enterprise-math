@@ -1,0 +1,44 @@
+PREFIX460 consolidated exact modular execution witness — 2026-11-03.
+Frozen scientific pin: f42f2906d77f24085c123f3ccfe9667d41caa96d
+Python 3.13.5; NumPy 2.3.5; primes 32003 and 32009 (trial division verified).
+48 exact ranks: 4 values m x 6 character sizes x 2 primes.
+Execution provenance: m=10..12 completed in initial invocation; monolithic process was time-limited at m=13. The m=13 t=0 block and t=1..5 blocks were completed in separate invocations of identical certificate functions. All individual ranks passed. Reported selected rows use deterministic per-(s,sum(a)) stratum SHA256 ordering.
+
+m=10 d=11 B=12376
+t full_rows selected_rows columns rank_32003 rank_32009 defect
+0 4900 949 924 918 918 6
+1 3108 697 672 666 666 6
+2 1897 445 420 415 415 5
+3 1106 319 294 289 289 5
+4 610 193 168 164 164 4
+5 314 137 112 108 108 4
+W_size=53834; rank_W=12216; deficiency=160; R_11(q)=12376q-160 q>=11 PASS
+
+m=11 d=12 B=18564
+0 7476 1411 1386 1379 1379 7
+1 4900 949 924 918 918 6
+2 3108 697 672 666 666 6
+3 1897 445 420 415 415 5
+4 1106 319 294 289 289 5
+5 610 193 168 164 164 4
+W_size=88166; rank_W=18388; deficiency=176; R_12(q)=18564q-176 q>=12 PASS
+
+m=12 d=13 B=27132
+0 11088 1873 1848 1841 1841 7
+1 7476 1411 1386 1379 1379 7
+2 4900 949 924 918 918 6
+3 3108 697 672 666 666 6
+4 1897 445 420 415 415 5
+5 1106 319 294 289 289 5
+W_size=139139; rank_W=26940; deficiency=192; R_13(q)=27132q-192 q>=13 PASS
+
+m=13 d=14 B=38760
+0 16044 2667 2640 2632 2632 8
+1 11088 1873 1848 1841 1841 7
+2 7476 1411 1386 1379 1379 7
+3 4900 949 924 918 918 6
+4 3108 697 672 666 666 6
+5 1897 445 420 415 415 5
+W_size=212681; rank_W=38552; deficiency=208; R_14(q)=38760q-208 q>=14 PASS
+
+This log is a faithful compact consolidation of the actual block checks; its displayed output shape is not asserted to be a single uninterrupted program run.
