@@ -1,0 +1,44 @@
+{
+  "status": "PASS_BRC_S23_SHARP_FORWARD_NONLINEAR_TV_MODULUS_20261103",
+  "frozen_science": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "theorem": "sup_{||z-w||_inf<=delta} max_{view,label} TV = 1-(1-delta)^3, 0<=delta<=1",
+  "sharp_lipschitz": "3 (supremum as delta tends to zero)",
+  "overwrite_masks": [
+    [
+      3,
+      31
+    ],
+    [
+      7,
+      27
+    ],
+    [
+      11,
+      23
+    ],
+    [
+      15,
+      19
+    ]
+  ],
+  "beta_pairs": [
+    [
+      "0",
+      "0"
+    ],
+    [
+      "1/2",
+      "1/2"
+    ],
+    [
+      "1/4",
+      "3/4"
+    ]
+  ],
+  "counts": {
+    "exact_extremizers": 84,
+    "random_pair_bound_checks": 1200,
+    "labeled_row_bound_checks": 21600
+  },
+  "scope": "finite checks corroborate; analytic Bernoulli coupling and extremizer prove real-domain statement"
+}
