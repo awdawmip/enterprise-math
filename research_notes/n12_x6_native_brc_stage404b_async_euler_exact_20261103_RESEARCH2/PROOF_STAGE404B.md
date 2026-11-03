@@ -26,7 +26,7 @@ An exact coupled-Euler transfer retaining last two paired letters computes T0 wi
 
 ## Theorem 404.2 — strict full-fiber lossless compression with K>0
 
-Write A=+E1, B=-E1. Take P1=AABA, P2=ABAA, Q=AAAA. Each has native length four. The two P histories have identical directed adjacency J_P={AA:1,AB:1,BA:1}, endpoint 2E1, direction counts and all endpoint-dependent BRC outputs; Q is fixed, J_Q={AA:3}. The current coincidence K is 3 for both. The *entire* exact current-observation fiber consists of these two source pairs: the only P Euler words with the prescribed J_P and endpoint 2E1 are AABA and ABAA (BAAB has a different final letter/count of A? In fact BAAB has the same letter counts and J_P, but K(BAAB,AAAA)=2, so it is excluded). The only Q word with J_Q and endpoint 4E1 is AAAA.
+Write A=+E1, B=-E1. Take P1=AABA, P2=ABAA, Q=AAAA. Each has native length four. The two P histories have identical directed adjacency J_P={AA:1,AB:1,BA:1}, endpoint 2E1, direction counts and all endpoint-dependent BRC outputs; Q is fixed, J_Q={AA:3}. The current coincidence K is 3 for both. The marginal P Euler words with the prescribed J_P and endpoint 2E1 are AABA, ABAA and BAAB; BAAB has K(BAAB,AAAA)=2 and is excluded. The only Q word with J_Q and endpoint 4E1 is AAAA. Thus the *entire* exact current-observation fiber consists of the stated two source pairs.
 
 Both pairs have the identical T0=(A,A,A); Theorem 404.1 therefore certifies exact future equivalence for the full twelve-symbol APPEND language and one Q POP. Their length-2 *paired suffixes* differ: (B,A),(A,A) versus (A,A),(A,A). The uniform Stage403 paired-suffix representation has two states, while the exact quotient has one: 1 bit -> 0 bits. Native twelve-direction BRC recurrence N4(2E1)=64.
 
