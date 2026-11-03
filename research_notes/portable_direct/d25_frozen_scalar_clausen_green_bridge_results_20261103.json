@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-03",
+  "scope": "p<=2000, p%24 in {13,19}",
+  "tested": 77,
+  "passed": 77,
+  "arithmetic": "exact integers modulo p^3; modular inverses of p-units",
+  "claims": [
+    "signed frozen R=negative weighted finite Green K",
+    "(W216-p)/p²=Delta-R for target primes under accepted UR"
+  ],
+  "samples": [
+    {
+      "p": 13,
+      "Delta": 0,
+      "R": 0,
+      "K": 1,
+      "thetaK": 2,
+      "E": 0,
+      "W": 13
+    },
+    {
+      "p": 19,
+      "Delta": 12,
+      "R": 12,
+      "K": 2,
+      "thetaK": 2,
+      "E": 7,
+      "W": 19
+    },
+    {
+      "p": 37,
+      "Delta": 11,
+      "R": 11,
+      "K": 9,
+      "thetaK": 1,
+      "E": 26,
+      "W": 37
+    },
+    {
+      "p": 43,
+      "Delta": 15,
+      "R": 15,
+      "K": 18,
+      "thetaK": 35,
+      "E": 28,
+      "W": 43
+    },
+    {
+      "p": 373,
+      "Delta": 196,
+      "R": 196,
+      "K": 109,
+      "thetaK": 103,
+      "E": 177,
+      "W": 373
+    }
+  ],
+  "independent_original_integer_sum_samples": [
+    13,
+    19,
+    37,
+    43,
+    373
+  ],
+  "native_benchmark_executed": false
+}
