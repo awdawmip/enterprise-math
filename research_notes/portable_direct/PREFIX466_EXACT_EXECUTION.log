@@ -1,0 +1,21 @@
+PREFIX466_NATIVE_X6_PATTERN_GATE_EXACT_CERTIFICATE
+model=11 signed-axis directions; x=+e1, a=+e2, b=+e3; first x unrestricted
+gate=all later x require immediately previous two letters a,b
+weights=x:1, a:6,b:12,c:18,d:24,e:36, all negatives:1
+count_F=(1+z)/(1-10z-z^3); mass_F=(1+z)/(1-101z-72z^3)
+same_base_witness=abc,bca,cab; q=0,1,2; base_weight=1296
+=== exact full X6 dynamic hist ===
+n=0 states=1 ordered=1 weighted_mass=1 brute=PASS
+n=1 states=11 ordered=11 weighted_mass=102 brute=PASS
+n=2 states=74 ordered=110 weighted_mass=10302 brute=PASS
+n=3 states=348 ordered=1101 weighted_mass=1040574 brute=PASS
+n=4 states=1270 ordered=11021 weighted_mass=105105318 brute=PASS
+n=5 states=3899 ordered=110320 weighted_mass=10616378862 brute=PASS
+n=6 states=10493 ordered=1104301 weighted_mass=1072329186390
+n=7 states=25423 ordered=11054031 weighted_mass=108312815408286
+n=8 states=56526 ordered=110650630 weighted_mass=10940358735514950
+generic_pattern=a weighted_series_0_6=1,17,184,2078,23356,262652,2953504 PASS
+generic_pattern=ab weighted_series_0_6=1,17,170,1742,18134,188480,1957964 PASS
+generic_pattern=aba weighted_series_0_6=1,17,170,1700,17084,172268,1736960 PASS
+generic_pattern=aa weighted_series_0_6=1,17,170,1728,17756,182320,1871584 PASS
+ALL_CHECKS_PASS
