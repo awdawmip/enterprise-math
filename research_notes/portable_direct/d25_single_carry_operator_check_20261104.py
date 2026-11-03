@@ -5,10 +5,10 @@ from math import comb, isqrt
 
 
 def primes_upto(n):
-    b = bytearray(b'\\x01') * (n+1)
-    b[:2] = b'\\0\\0'
+    b = bytearray(b'\x01') * (n+1)
+    b[:2] = b'\0\0'
     for i in range(2, isqrt(n)+1):
-        if b[i]: b[i*i::i] = b'\\0' * ((n-i*i)//i+1)
+        if b[i]: b[i*i::i] = b'\0' * ((n-i*i)//i+1)
     return [i for i in range(2,n+1) if b[i]]
 
 
