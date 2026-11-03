@@ -1,0 +1,9 @@
+# NEXT_TASK — joint K3 full-hull candidates
+
+Frozen scientific inputs: GLOBAL_KNOWLEDGE_V1 a01383f825ef9d43b4b754254303298c64041568; Enterprise Math 86149263e38c22292c9def1e0f69092efa1be77e. Current rules are refreshed separately, not treated as frozen scientific pins. Consume this note's RESEARCH.md, VERIFY.py, EXACT_OUTPUT.txt and predecessor physical event bridge at e498befa4d647ade7eb87620127ebe20213167eb. P000/ACTIVE worldview remain protected.
+
+Exact frontier: Theorem A is an all-signed real-policy support oracle on sixteen open parameters p_s,q_s,r_s,v_s. It reduces FULL to 6 upstream sourcewise maximizations and LR to 16 upstream/stage maxima. Theorem B proves every kernel within sup norm eps<9/2236 of (p0,q0,r0,v0) is strictly separated in two explicit signed directions. A fully heterogenous exact 16-parameter rational witness has been checked. These are author-side, pending independent review and native admission.
+
+Next science: choose an explicit rational outside-box candidate family. Compute the complete FULL and LR deterministic observer vectors with exact rationals. A hull-equal candidate needs each of 1536 FULL points represented by <=5 LR rational vertices in R4; a separated candidate needs one exact signed Farkas normal and its source-level witness. A separate branch should test the stricter common terminal-readout topology, which is distinct from the current action-selectable L0/L1 experiment. Preserve original frozen inputs, source identity and explicit observation map; do not infer actual image nonmembership from nonconvex policy-parameter source flows.
+
+Actual native state in this run: site reports research_authority_granted=false (static_machine_readonly), active owner inspection returned CONTROL_QUOTA; no CLAIM, Result or Driver review is inferred. Save source-backed results under current permitted GitHub branch, verify one scoped readback.

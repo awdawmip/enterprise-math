@@ -1,0 +1,14 @@
+kernel 0 direction nP FULL 1135/32 LR 851/24 gap 1/96
+kernel 0 direction nQ FULL 2093/96 LR 523/24 gap 1/96
+kernel 0 direction mixed FULL -13/4 LR -13/4 gap 0
+kernel 1 direction nP FULL 15322633/432000 LR 851/24 gap 4633/432000
+witness nP observer 100109/128000,714019/4608000,566231/144000,1926769/576000 distance_inf_lower 4633/8064000
+kernel 1 direction nQ FULL 3139519/144000 LR 523/24 gap 1519/144000
+witness nQ observer 100109/128000,714019/4608000,566231/144000,1926769/576000 distance_inf_lower 1519/5760000
+kernel 1 direction mixed FULL -13/4 LR -13/4 gap 0
+exact_checks 89
+uniform_flow_bound 43/144
+uniform_direction_lipschitz 559/432 43/48
+uniform_gap_lower 1691/216000 69/8000
+strict_uniform_radius 9/2236
+PASS_EXACT_R5_K3_JOINT16_SIGNED_ENVELOPE_ROBUSTNESS
