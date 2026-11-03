@@ -65,3 +65,23 @@ Independent standard-library Python integer code: `d25_finite_green_flux_quotien
 Sources consumed: `20261103_hourly20_d25_all_precision_high_green_endpoint_projectors.md` (formal polynomial rank-three, directed fluxes), onhour `20261103_onhour_d25_middle_high_reflection_second_jet_cocycle.md` (corrected dual), and current `research_priorities/research_method.json`. All are author evidence; no reuse of another lane's Researcher identity.
 
 As of the authenticated Gateway status read for this run, version 0.6.11 has `UPSTREAM_CODE_REVIEW_REQUIRED`, `research_authority_granted=false`, `executor_binding_configured=false`, quota 5/5. This is a portable author-side note, not a native Source checkpoint, CLAIM, RUN, Result or accepted mathematical theorem. Research recovery #6637 and terminal failure #6638 refer to bridge Issues, not new Gateway request IDs; old service session/staging/claims were not mutated. Support routing remains #1558. Preservation: `REGISTER_PENDING / UNREVIEWED / NOT_ADMITTED`.
+
+
+## Literature-grounded second route: proven 2304 anchor and explicit 216 comparison obligation
+
+Verified on 2026-11-03 using the author/publisher record: V. J. W. Guo and W. Zudilin, *A q-microscope for supercongruences*, arXiv:1803.01830 (2018; revised 2019), `https://arxiv.org/abs/1803.01830`, proves for every prime p>3:
+
+[
+S_{2304}(p-1):=sum_{k=0}^{p-1}(8k+1)rac{(4k)!}{(k!)^4 2304^k}
+equiv pleft(rac{-3}{p}ight)pmod{p^3}.
+]
+
+The paper's `binom(4k,2k)*binom(2k,k)^2/(2^(8k)*3^(2k))` is precisely the above original 2304 kernel; no unsourced kernel renormalization is used. Therefore the **exact conditional reduction**
+
+[
+W_{216}(p-1)equiv S_{2304}(p-1)pmod{p^3}
+quadLongrightarrowquad
+W_{216}(p-1)equiv pleft(rac{-3}{p}ight)pmod{p^3}
+]
+
+holds for each p>3, and in particular would prove the frozen narrower mother target for p mod24 in {13,19}. The implication is immediate by the proven 2304 theorem; **the 216–2304 comparison remains a proof obligation** and is supported only by the 301-prime finite observation and earlier author comparisons. This supplies an independent scientifically useful candidate route in addition to low/middle/high Green-WZ gluing. Test a p-dependent finite transformation without losing either original weighted sum or the distinct terminal boundary contributions.
