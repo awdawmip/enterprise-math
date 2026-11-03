@@ -27,14 +27,7 @@ def main():
         if digest not in unique:
             p=subprocess.run([str(exe),'76'],input=inp,text=True,capture_output=True,timeout=90,check=True)
             stdout=p.stdout.strip()
-            assert re.match(r'^BOUND_PASS minimum_total_at_least=76 nodes=\d+ colors=22,stdout),stdout
-            unique[digest]=stdout
-        results.append(dict(index=idx,original_total_candidate_words=case['words'],nodes=nodes,input_sha256=digest,
-                            cutoff_h7=76,solver_stdout=unique[digest],fresh_h8_edges_at_least=4))
-    assert len(results)==18 and len(unique)==12
-    print(json.dumps(dict(status='PASS',unique_h7_inputs=12,cases=results,remaining_triple=579,remaining_double=44234),indent=2))
-if __name__=='__main__':main()
-,stdout),stdout
+            assert stdout==f'BOUND_PASS minimum_total_at_least=76 nodes={nodes} colors=22',stdout
             unique[digest]=stdout
         results.append(dict(index=idx,original_total_candidate_words=case['words'],nodes=nodes,input_sha256=digest,
                             cutoff_h7=76,solver_stdout=unique[digest],fresh_h8_edges_at_least=4))
