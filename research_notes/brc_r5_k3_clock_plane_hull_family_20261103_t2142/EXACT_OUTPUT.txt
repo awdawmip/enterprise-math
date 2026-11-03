@@ -1,0 +1,12 @@
+clock_analytic_formulas=FULL_4_stage_max/LR_16_corner_stage_max
+clock_family=(r_C=r_I=R, r_BJ=r_IJ=L, v_s=k*r_s; 0<L<=R<1, 0<k<=1)
+clock_equality_candidate_r (Fraction(4, 5), Fraction(4, 5), Fraction(1, 5), Fraction(1, 5)) v (Fraction(2, 5), Fraction(2, 5), Fraction(1, 10), Fraction(1, 10))
+clock_hull_vertices 5 polygon [(Fraction(3, 1), Fraction(3, 1)), (Fraction(673, 180), Fraction(4663, 1440)), (Fraction(733, 180), Fraction(9671, 2880)), (Fraction(187, 48), Fraction(427, 128)), (Fraction(331, 96), Fraction(619, 192))]
+clock_full_deterministic_checked 1536 clock_LR_deterministic_checked 16
+clock_normal_fan_exact_rays 104
+other_family_models 5 family_rays 484
+mixed_full_witness (Fraction(907, 1152), Fraction(235, 1536), Fraction(5609, 1440), Fraction(9551, 2880)) stages (3, 3, 1, 1)
+mixed_normal (Fraction(8, 1), Fraction(0, 1), Fraction(28, 9), Fraction(-56, 9)) h_FULL -1597/720 h_LR -821/360 gap 1/16 distance_lower 3/832
+mixed_normal (Fraction(0, 1), Fraction(-32, 1), Fraction(4, 1), Fraction(-8, 1)) h_FULL -3803/240 h_LR -3823/240 gap 1/12 distance_lower 1/528
+assertions 2886
+PASS_EXACT_R5_K3_FULL_CLOCK_PLANE_EQUAL_NONUNIFORM_FAMILY
