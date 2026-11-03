@@ -1,0 +1,17 @@
+CORE_PATTERN_aba
+n=0 paths=1 parikh=1 B=1 Q=[1, 0, 0, 0] F=1 N(H=0,1,2,>=3)=[1, 1, 1, 1]
+n=1 paths=11 parikh=11 B=11 Q=[10, 1, 0, 0] F=11 N(H=0,1,2,>=3)=[11, 11, 11, 11]
+n=2 paths=110 parikh=65 B=65 Q=[62, 11, 1, 0] F=74 N(H=0,1,2,>=3)=[65, 65, 66, 74]
+n=3 paths=1100 parikh=275 B=275 Q=[271, 65, 11, 1] F=348 N(H=0,1,2,>=3)=[275, 276, 287, 348]
+n=4 paths=11001 parikh=935 B=932 Q=[929, 275, 65, 11] F=1280 N(H=0,1,2,>=3)=[932, 943, 1008, 1280]
+n=5 paths=110021 parikh=2718 B=2685 Q=[2682, 932, 275, 65] F=3954 N(H=0,1,2,>=3)=[2685, 2750, 3025, 3954]
+n=6 paths=1100320 parikh=7017 B=6824 Q=[6821, 2685, 932, 275] F=10713 N(H=0,1,2,>=3)=[6824, 7099, 8031, 10713]
+n=7 paths=11004300 parikh=16500 B=15697 Q=[15694, 6824, 2685, 932] F=26135 N(H=0,1,2,>=3)=[15697, 16629, 19314, 26135]
+n=8 paths=110054001 parikh=35970 B=33295 Q=[33292, 15697, 6824, 2685] F=58498 N(H=0,1,2,>=3)=[33295, 35980, 42804, 58498]
+CROSS_PATTERN_monotone_sign_consistent
+pattern=aaa closed_base_series_coefficients=PASS n=0..6
+pattern=aab closed_base_series_coefficients=PASS n=0..6
+pattern=abb closed_base_series_coefficients=PASS n=0..6
+pattern=baa closed_base_series_coefficients=PASS n=0..6
+pattern=ababa closed_base_series_coefficients=PASS n=0..6
+ALL_CHECKS_PASS
