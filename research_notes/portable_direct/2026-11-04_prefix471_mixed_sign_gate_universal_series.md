@@ -109,7 +109,7 @@ The companion Python 3 standard-library certificate at `research_notes/portable_
 - `k=2`: `aa, aA, ab, AB`;
 - `k=3`: `aba, aAa, aaa`.
 
-Executed reference certificate (the full Python local version) tested `n=0..7` for all seven words, and direct word enumeration through `n=4`. All assertions passed. At `n=7`, the four k=2 gates each have 16,666 feasible occupancy vectors and 15,863 distinct base states; three k=3 gates each have 16,500 occupancy vectors and 15,697 base states. The source contains every formula and test domain. The GitHub source is the compacted equivalent implementation of the same checker; it is published as reproducible code and has not been independently executed in the remote GitHub environment.
+Executed reference certificate (the full Python local version) tested `n=0..7` for all seven words, and direct word enumeration through `n=4`. All assertions passed. At `n=7`, the four k=2 gates each have 16,666 feasible occupancy vectors and 15,863 distinct base states; three k=3 gates each have 16,500 occupancy vectors and 15,697 base states. The source contains every formula and test domain. The exact published Python source was separately executed locally with Python 3 standard library; its local Git blob SHA is `50daf0f2c0c2734b3bbce828c00cfe66ead3e245`, identical to the GitHub connector's uploaded/fetched blob. It returned `ALL_CHECKS_PASS`, with actual output in `research_notes/portable_direct/PREFIX471_EXACT_EXECUTION.log`. Source execution is local, not a remote GitHub Actions or native control-plane run.
 
 Recorded local execution:
 
