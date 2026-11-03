@@ -1,0 +1,5 @@
+# Next scientific unit: full-s finite-contrast Chernoff crossing
+
+Fix h=1/42 (v=1/21) and the same frozen T/B observer and cost model. Earlier exact local zero lies in (0.10243902443,0.10243902445), with local strict derivative certificate. The new monotone delta_* formula and envelope derivative formula (PROOF.md eqs. 1,8) reduce interval differentiation to explicit one-variable functions. Use directed rational interval bounds for atanh/log/exp/sqrt and the band quadratic-error bound R_v(b-a)^2. Cover s∈(0,1) with endpoint expansions near 0 and 1, and finite middle rational bands. Prove F<0 left of the isolated interval and F>0 right (or exhibit a second sign-changing interval). Fully document interval union/exhaustiveness, outward rounding and source/environment. A sign grid without interval coverage remains exploratory.
+
+A second independent route: derive a closed positive formula for partial_s H where H=F/(h^4*s*(1-s)) and test the uniform monotonicity conjecture at h=1/42. Preserve the original ten-label minimax objective [1/2,2/3] as a separate unclosed mother target. Do not conflate GitHub author-side storage with native CLAIM/Result/admission.
