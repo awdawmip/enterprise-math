@@ -1,0 +1,5 @@
+# EC49EXU — continue H8/M5 signed-native BRC exact prefix optimization
+
+Frozen science pins: Global `773d538180bfb49e24cffeb35c3ee75eb0628e2e`, EM `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`; P000/ACTIVE unchanged. Latest author-side threshold proof: EC49EXT 173 newly excluded three-collision schedules with `400<N<=575`, added to EC49EXR's 92, leaving **681 three-collision + 44,234 double-collision = 44,915** unresolved E<80 candidates. Global proved `63<=E*<=80`.
+
+Smallest next unit: use EC49EXT's size-sorted exact catalogue from the EC49EXS 946-row TSV; run the unmodified EC49EXJ complete native step trie and integer OR-mask DP for schedules with `575<N<=700`, with a bounded runtime and per-case cutoff receipt. Timed-out items remain unresolved, not excluded. Explore stronger L-4 observer-compatible bounds if DP cost dominates. Never replace original signed X6/BRC scientific semantics. Save the proof, source, executed evidence and next task in established PR #1730; native Owner/CLAIM/Result require current authenticated authority.
