@@ -59,7 +59,9 @@ def shifted(z, omitted, factor=F(1,100)):
 def main():
     count=0
     wrong=0
-    for masks,betas,drop in product(MASKS,BETA_PAIRS,range(6)):
+    for masks,logical_betas,drop in product(MASKS,BETA_PAIRS,range(6)):
+        # Assign beta_N to the mask omitting bit 2, beta_E to the mask covering it.
+        betas=tuple(logical_betas[1] if mask & (1<<2) else logical_betas[0] for mask in masks)
         # Positive indistinguishability witnesses and necessity of omitted label
         w=shifted(BASE,drop)
         assert fiber_criterion(BASE,w,drop)
