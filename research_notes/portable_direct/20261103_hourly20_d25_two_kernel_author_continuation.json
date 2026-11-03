@@ -1,0 +1,58 @@
+{
+  "schema": "D25_HOURLY20_TWO_KERNEL_CUBIC_MOMENT_AUTHOR_CONTINUATION_V1",
+  "recorded_at": "2026-11-03T13:20:20+08:00",
+  "role": "TASK_RESEARCH",
+  "logical_conversation_id": "chatgpt-research-hourly-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_goal": "Delta_p-R_p == 0 mod p, p mod24 in {13,19}; equivalently W216(p-1)==p mod p^3; OPEN",
+  "source_prior_author": "e15cb849720aaf5388cc252ad47c14eaa015cbe8",
+  "sibling_comparator": "eeb6f882aae70ec0a2b37d74ea7b7f988ee1a9c4",
+  "proof_path": "research_notes/portable_direct/20261103_hourly20_d25_two_kernel_moment_normal_form.md",
+  "checker_path": "research_notes/portable_direct/d25_two_kernel_moment_boundary_check_20261103.py",
+  "completed_author_units": [
+    "Unique rational Gosper image and rank-three polynomial moment quotient for the two source kernels",
+    "Exact finite cubic Euler moment boundaries modulo p^5 using the two Fermat quotients",
+    "No rational p-independent one-index termwise 216/2304 kernel multiplier"
+  ],
+  "exact_tests": "301 primes 5..2000 PASS for both original coefficient recurrences; independent factorial endpoints p=5,7,13,19,37,373",
+  "author_status": "HAND_PROVED / FINITE_EXACT_CHECKED / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING",
+  "native_completed_units": [],
+  "native_claim": null,
+  "native_run": null,
+  "native_checkpoint": null,
+  "history_recovery": {
+    "issue": 6637,
+    "status": "SUCCEEDED",
+    "old_service_session": "MCP-06f7ad61a8d841d9ba1ba1ef4d088d94",
+    "neutral_staging_archives": 2,
+    "unpublished_uploads": 0
+  },
+  "history_continuation": {
+    "issue": 6638,
+    "status": "FAILED",
+    "fault": "UPSTREAM_CODE_REVIEW_REQUIRED"
+  },
+  "gateway": {
+    "version": "0.6.11",
+    "research_authority_granted": false,
+    "executor_binding_configured": false,
+    "active_jobs": 5,
+    "active_job_limit": 5,
+    "code_gate": "UPSTREAM_CODE_REVIEW_REQUIRED"
+  },
+  "next_exact_action": "Obtain a two-index/p-dependent 216-2304 relation; reduce residuals using separate three-moment normal forms and check target p=13,19,373, original -2p^3 last-weighted-endpoint versus (2,6) cubic-operator boundary; then prove p^3 bridge or produce valid counterexample.",
+  "do_not_repeat": [
+    "D24 first carry",
+    "four-source second carry",
+    "older affine Gosper obstruction",
+    "sibling finite 216/2304 comparison",
+    "new rank-three two-kernel normal form"
+  ],
+  "control_support_issue": 1558,
+  "native_benchmark_issue": 1559,
+  "scheduler_mutation": "NONE",
+  "notification_mutation": "NONE"
+}
