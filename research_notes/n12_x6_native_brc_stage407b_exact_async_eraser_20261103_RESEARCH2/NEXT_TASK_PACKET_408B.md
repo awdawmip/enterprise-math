@@ -1,0 +1,9 @@
+# Stage408-B — smaller symbolic eraser skeletons for exact two-source X6 memory
+
+Scientific parent: Stage407-B (PROOF_STAGE407B.md), Research2 Draft PR #1736. Frozen global bf84bd7c61a2444b59b1da96be57df0e9ae47e53; frozen EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419; P000 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Current rules separately on canonical mains; P000 and ACTIVE worldview unchanged.
+
+Mother objective: determine future-minimal sufficient memory for a fixed pair of native X6 ordered BRC histories, observing endpoints, directed J_P/J_Q, absolute-index coincidence K and every future intermediate observer/enabledness.
+
+Verified Stage407-B: with arbitrary paired APP, one POP_Q and one simultaneous inverse-pair CANCEL, a block of four APPs shields original history from any remaining deletion; all traces without such a block (<=9 APP + 2 deletes) exactly determine future equivalence. New length-6 complete fiber: P=A^6, Q∈{AABABA,ABAABA,ABABAA}, where A=+E1,B=-E1. Three raw (P3,Q4) keys, but precisely two classes: the first two Q histories are equivalent even though both end in inverse BA; Q2 is distinguished by POP. Typed twelve-direction BRC N6(6E1)=1,W=64 and N6(2E1)=4665,W=32760, weights A2 B3 other1. Executed Python integer source and output on parent branch.
+
+Next discriminating question: replace the huge <=11-action alphabet enumeration with a smaller complete finite family of **symbolic eraser templates**, using remaining deletion budgets and equality/inverse classes of appended directions. Prove each eliminated test is simulated, or supply a concrete counterexample. Retain exact K for the one-step Q length offset, and compose with Stage402 coupled K and Stage404 Euler residual counts to classify larger fibers without materializing all paths. Measure numeric-length vs binary-input costs; preserve author/Driver separation and current owner/permission gates.
