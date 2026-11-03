@@ -1,0 +1,12 @@
+SHELL_POLYNOMIAL_PREFIX verified M=0..109; SHELL_VECTOR_COUNTS q=0..10
+EXHAUSTIVE RANK_UNRANK k= 1 n=0..7 counts= [1, 11, 65, 276, 942, 2740, 7044, 16410]
+EXHAUSTIVE RANK_UNRANK k= 2 n=0..7 counts= [1, 11, 65, 275, 933, 2694, 6869, 15863]
+EXHAUSTIVE RANK_UNRANK k= 3 n=0..7 counts= [1, 11, 65, 275, 932, 2685, 6824, 15697]
+EXHAUSTIVE RANK_UNRANK k= 4 n=0..7 counts= [1, 11, 65, 275, 932, 2684, 6815, 15652]
+LARGE_EXACT n= 64 k= 1 states_bits= 36 samples= 7 PASS
+LARGE_EXACT n= 256 k= 2 states_bits= 51 samples= 7 PASS
+LARGE_EXACT n= 1024 k= 3 states_bits= 67 samples= 7 PASS
+LARGE_EXACT n= 65536 k= 2 states_bits= 115 samples= 7 PASS
+LARGE_EXACT n= 1000000000 k= 2 states_bits= 226 samples= 7 PASS
+LARGE_EXACT n= 1000000000 k= 1000000001 states_bits= 202 samples= 7 PASS
+ALL_CHECKS_PASS
