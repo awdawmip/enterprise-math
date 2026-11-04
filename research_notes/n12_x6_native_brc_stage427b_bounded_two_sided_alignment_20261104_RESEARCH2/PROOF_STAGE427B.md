@@ -31,7 +31,7 @@ For source s, at most p_s original letters can be removed, so every original pos
 
 At every time t the current overlap h_t=min(|P_t|,|Q_t|) lies in [c,H], since |s_t| >= c_s and |s_t|<=m_s+a_s. For k<=c both initial letters remain unchanged, and their matching contribution is the stored B. For c<k<=h_t, if k<=c_s the original letter is in the indexed map; otherwise the letter is in the current mutable stack at offset k-c_s. Thus
  K(P_t,Q_t)=B+sum_(k=c+1)^h_t [letter_P(t,k)=letter_Q(t,k)].
-The right side is determined entirely by the carrier. Every primitive operation transforms its stacks, endpoint, J, counters and K using only those stored fields. Legalities are determined by budgets, stack lengths and (for CANCEL) the two current tail directions. The carrier therefore defines a deterministic transition system conjugate to the full-word observer for this operation language; induction over the finite operation sequence proves future sufficiency.
+The right side is determined entirely by the carrier. Every primitive operation transforms its stacks, endpoint, J, counters and K using only those stored fields. Legalities are determined by budgets, stack lengths and (for CANCEL) the two current tail directions. The carrier therefore defines a deterministic, observer-preserving quotient of the full-word transition system for this operation language; induction over the finite operation sequence proves future sufficiency.
 
 For the width, let x_s=c_s and y_s=m_s+a_s. Since y_s-x_s<=a_s+p_s, taking minima gives min_s(y_s)-min_s(x_s)<=max_s(y_s-x_s)<=max_s(a_s+p_s), proving W's bound. QED.
 
