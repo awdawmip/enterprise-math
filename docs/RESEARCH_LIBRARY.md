@@ -6,6 +6,8 @@
 
 ## 2026-11-04 冷线推进与完整母题盘点
 
+[第三批成果与源恢复](research_library/20261104/THIRD_PASS.md)新增 Borsuk 同并图、不同逐输入合并代价的反例，并恢复 T6 精确 q14 计划及缺输入合同。三批合计八个科学服务单元加一个源恢复单元；前两批已分别在 PR1768、PR1769 合并且全部81个累积文件读回一致。[公平续接清单](../research_notes/balanced_resume_20261104/FAIR_CONTINUATION_QUEUE.json)保留其它冷线位置。
+
 [第二批三条冷线](research_library/20261104/SECOND_PASS.md)追加 Hodge 固定支撑 rank-one torsion-free 障碍、CELL U27F-02 精确事件来源与条件桥障碍、CM literal strong completion 的水平核为零。各有不同代理的冻结稿复核；两批共七个科学服务单元，不等于七个正式任务接受或101母题覆盖。第一批已在 PR1768 合并并逐文件读回。
 
 [本批研究、公式与复用目录](research_library/20261104/README.md)保全四条线：Student/Parity 在有界总尺度的大第二间隙正性及紧域归约、R004 标记环境商与顺序约束、带独立符号翻转的有限观察者 sharp minimum128、C34 单轨迹校准障碍与重复实验秩置信证书。四份非作者复核分别绑定原稿哈希；原创建状态与后续审核分开，未作正式 Task 接受或 Foundation 晋升。
@@ -98,5 +100,6 @@ python tools/enterprise_toolbox.py methods CELL closure port budget
 - X6 的部分附件、局部分离器审核、较早公式定位及未审核推广仍保留缺口；BRC 中撤回引理、未闭父问题和未执行桥接不因整理而升级。
 
 原生条目采用固定六维离散 Cell 空间的签名坐标图，时间在需要时另行定型。外部经典分析／代数模型保持其声明类型；本目录不据此生成全 X6 传播结论或物理定律。
+
 
 

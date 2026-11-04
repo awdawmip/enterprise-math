@@ -1,0 +1,122 @@
+{
+  "schema": "NONEXECUTABLE_THIRD_PASS_OUTCOMES_20261104_V1",
+  "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+  "publication_base": "d5df173a54c5500b77ff2cfae99c8c647db5fc5f",
+  "units": [
+    {
+      "id": "BR-20261104-BORSUK",
+      "classification": "FROZEN_AUTHOR_WITH_DISTINCT_EXACT_VERSION_PAPER_REVIEW",
+      "scientific_service_units": 1,
+      "author": "EM-C34-D16900",
+      "reviewer": "EM-REVIEW-53C747",
+      "paper": "cm_formal/borsuk_next/BORSUK_INPUT_INDEXED_COARSENING_COUNTEREXAMPLE.md",
+      "paper_sha256": "79ec68199294aa3f638da0edf969dabc19bddf753f6522601bb7388d8eddbeb7",
+      "interface": "cm_formal/borsuk_next/BORSUK_COARSENING_INTERFACE.json",
+      "review": "inventory/review_borsuk/BORSUK_INDEPENDENT_REVIEW.md",
+      "review_sha256": "d5667d6e3ef919cd26d3119766ab920953a3e0bd442656b2d27fe032d6ff97a4",
+      "binding": "inventory/review_borsuk/REVIEW_BINDING.json",
+      "review_finding": "PASS",
+      "source_relation": {
+        "parent_objective_id": "OBJ-EXTERNAL-GEOMETRY-BORSUK-R6-UPPER-BOUND-PRESSURE-20260902",
+        "related_task_id": "RS-GEO9-BORSUK-R6-CONTINUOUS-CERTIFICATE-INDEPENDENT-AUDIT",
+        "related_publication_id": "TP2-E775DD52A6818401B4F3",
+        "kind": "NONSHARED_QUANTIFIER_INTERFACE_SUPPORT; NOT_BLOCKED_TASK_EXECUTION"
+      },
+      "inputs": [
+        "Exact old GEO8 lens and 33 cap/sign-sector atoms",
+        "Finite unit-diameter R6 inputs; arbitrary valid cap parameter and orthogonal horizontal frame",
+        "Atom-respecting coarsening with either one common coloring or input-indexed coloring"
+      ],
+      "result": "Two finite input families have the same union diameter graph K33 and common-template cost33, but exact adaptive costs2 and7. The union graph loses information needed by the input-indexed query.",
+      "formulae": [
+        "|F2|=528 and union(G_K:K in F2)=K33; max_K chi(G_K)=2",
+        "F7=F2 union {regular 7-point R6 simplex}; same union K33, max_K chi(G_K)=7",
+        "chi(union_K G_K)=33 for both families",
+        "The simplex edge Gram matrix is (I6+11^T)/2, with rank6"
+      ],
+      "reuse": "Old GEO8 explicit sign-sector pair witnesses, finite diameter-graph coloring and standard simplex geometry; no new general graph tool.",
+      "remaining": [
+        "No improved bound for b6",
+        "No universal input-dependent 32-coarsening scheme or continuous certificate",
+        "No GEO9 unblocking or latest-literature-status claim",
+        "Finite graph equivalence is not an infinite-set strict-supremum argument"
+      ],
+      "evidence": "Hand proof and independent noncontributing nonblind hand review; no scientific program.",
+      "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+      "formal_acceptance": false,
+      "root_math_votes": 0,
+      "new_tool_family": false,
+      "source_paths": {
+        "paper": "research_notes/balanced_resume_20261104/cm_formal/borsuk_next/BORSUK_INPUT_INDEXED_COARSENING_COUNTEREXAMPLE.md",
+        "interface": "research_notes/balanced_resume_20261104/cm_formal/borsuk_next/BORSUK_COARSENING_INTERFACE.json",
+        "binding": "research_notes/balanced_resume_20261104/inventory/review_borsuk/REVIEW_BINDING.json"
+      }
+    },
+    {
+      "id": "BR-20261104-T6-RECOVERY",
+      "classification": "SOURCE_RECOVERY_NOT_NEW_SCIENCE_RESULT",
+      "scientific_service_units": 0,
+      "source_recovery_units": 1,
+      "author": "/root/research_nt_1104",
+      "source_auditor": "/root/research_inventory_1104",
+      "paper": "nt/t6_recovery/T6_LATER_ORDER_RESIDUAL_SOURCE_RECOVERY.md",
+      "paper_sha256": "f993f186f19fb4c77cb69a0886abe967fb92728534069e888155c713941e5390",
+      "interface": "nt/t6_recovery/SUPPORT_REQUEST.json",
+      "audit": "inventory/review_t6_source/SOURCE_AUDIT.md",
+      "binding": "inventory/review_t6_source/SOURCE_AUDIT.json",
+      "review_finding": "PASS_SOURCE_BINDINGS_NOT_MATH_REVIEW",
+      "source_relation": {
+        "parent_objective_id": "EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD",
+        "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+        "publication_id": "TP2-34B106D2512A298C9647",
+        "kind": "BOUNDED_SOURCE_RECOVERY_NOT_FORMAL_TASK_HANDOFF"
+      },
+      "result": "Recovered exact final q14 (7,7) plan, distinguished it from an executable or residual caller, and verified q1-q4 historical accepted-source chains.",
+      "formulae": [
+        "Final q14 specification sha256=b866fa935b62df35c6be65560c5aeebb0f64b1e958c84c34e469d5faf8735d24",
+        "Pre-q0 side slack<=292 is only a prefamily bound",
+        "Required caller: signed t,u; M0=sum(t)+sum(u); Mk=sum t/[17(17q+r)]^k + sum u_s/(17s)^k for k=1..6",
+        "B+=2331-V+-P(u), B-=2331-V--N(u), both nonnegative"
+      ],
+      "remaining": [
+        "Actual q14 roster/N/hash and executable are absent in the recovered capsule",
+        "No actual later-order signed u, M0-M6, B+/B- packet was recovered",
+        "No global threshold theorem, new census, automatic q5 expansion, or whole-repository absence proof"
+      ],
+      "evidence": "Independent byte/link audit: 9 author payloads,34 source files, gzip/tar hashes,23 embedded members,4 exact selected copies and4 historical RR/DR chains. No science execution.",
+      "reuse": "Old q1-q4 accepted results, final q14 planning capsule and Oct28 coupled moment cuts; all remain old results.",
+      "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+      "formal_acceptance": false,
+      "root_math_votes": 0,
+      "new_tool_family": false,
+      "source_paths": {
+        "paper": "research_notes/balanced_resume_20261104/nt/t6_recovery/T6_LATER_ORDER_RESIDUAL_SOURCE_RECOVERY.md",
+        "interface": "research_notes/balanced_resume_20261104/nt/t6_recovery/SUPPORT_REQUEST.json",
+        "binding": "research_notes/balanced_resume_20261104/inventory/review_t6_source/SOURCE_AUDIT.json"
+      }
+    }
+  ],
+  "counts": {
+    "third_pass_scientific_service_units": 1,
+    "third_pass_source_recovery_units": 1,
+    "first_two_passes_scientific_service_units": 7,
+    "combined_scientific_service_units": 8,
+    "combined_source_recovery_units": 1,
+    "new_formal_acceptances": 0,
+    "root_math_votes": 0,
+    "new_tool_families": 0,
+    "all_101_parent_groups_served": false
+  },
+  "counting_rule": "One Borsuk counterexample interface unit; T6 is one documentary recovery and zero new science units. Eight is not a theorem count or all101 coverage.",
+  "status_policy": "Original author creation-state markers remain unchanged; later exact-version review and persistence are separate facts.",
+  "previous_canonical_intakes": [
+    {
+      "pr": 1768,
+      "merge": "5b05a2828a84b3fb73c6069d9dd0af6fb2a0aa6c"
+    },
+    {
+      "pr": 1769,
+      "merge": "93ba9293d85f0a9bd78acfbece831f9972b9dd5d"
+    }
+  ]
+}
