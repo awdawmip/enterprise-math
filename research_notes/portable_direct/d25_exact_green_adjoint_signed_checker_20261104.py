@@ -89,3 +89,32 @@ if __name__=="__main__":
     print(json.dumps({"exact_fraction_primes":[exact_fraction_check(p) for p in (13,19)],
        "finite_primes":len(tested),"nonzero_bridges_in_range":sum(bool(x["direct_signed"]) for x in tested),
        "samples":samples},indent=2))
+
+
+def quartic_seam_check(p):
+    assert is_prime(p) and p%6==1 and p>=7
+    mod=p**3; h=(p-1)//2; T=(p+1)//4
+    f=pfree_factorials(p,4*(p-1),mod)
+    d=pow(72,-1,p)
+    s=boundary=kh_num=0
+    denominator=coef(p,mod,f,h+1,"B")//(p*p)%p
+    assert denominator==2*pow(72,-1,p)%p
+    for t in range(1,T+1):
+        original=coef(p,mod,f,h+t,"B")//(p*p)%p
+        assert original==2*d%p,(p,t)
+        s=(s+(2*t-1)*d)%p
+        boundary=(boundary+(8*t-3)*d)%p
+        kh_num=(kh_num+(6*(h+t)+1)*original)%p
+        if t<T:
+            d=d*t*(16*t*t-1)*pow(18*(2*t+1)**3,-1,p)%p
+    assert boundary==0,(p,"quartic boundary")
+    Kh=kh_num*pow(denominator,-1,p)%p
+    assert Kh==-72*s%p,(p,"Green seam")
+    chi=1 if pow(6,(p-1)//2,p)==1 else -1
+    assert chi*pow(18,-1,p)*Kh%p==(-4*chi*s)%p
+    return {"p":p,"S":s,"Kh":Kh,"seam_over_p2":(-4*chi*s)%p}
+
+if __name__=="__main__":
+    seams=[quartic_seam_check(p) for p in range(7,2001) if p%6==1 and is_prime(p)]
+    print(json.dumps({"seam_count":len(seams),"zero_seam_primes":[q["p"] for q in seams if q["S"]==0],
+        "selected_seams":[q for q in seams if q["p"] in (13,19,97,373)]},indent=2))
