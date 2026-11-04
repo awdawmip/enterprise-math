@@ -1,0 +1,35 @@
+{
+  "marker": "STAGE437B_TWO_SIDED_CORRIDOR_CWM_PASS",
+  "cases": 20,
+  "future_prefixes": 14349,
+  "replayed_step_comparisons": 37970,
+  "maximum_original_label_slots_with_suffix_duplicates": 9,
+  "native_signed_append_directions": 12,
+  "counterexample": {
+    "P": "AAABAAA",
+    "P_prime": "ABAAAAA",
+    "Q": "CC",
+    "budgets": [
+      1,
+      1,
+      0,
+      2
+    ],
+    "initial_K": 0,
+    "after_Q_APPEND_A_twice": [
+      1,
+      2
+    ],
+    "P_corridor": "AB",
+    "P_prime_corridor": "AA"
+  },
+  "positive_unit_CWM_three_branches": {
+    "c": 3,
+    "w": 3,
+    "m": 1
+  },
+  "verification_scope": "exact finite positive BRC unit-weight matching observer; not runtime physics",
+  "executor": "Code Mode V8, exact safe integers",
+  "source_claim": "author-side finite executable evidence",
+  "frozen_EM": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419"
+}
