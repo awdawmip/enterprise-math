@@ -1,0 +1,71 @@
+{
+  "marker": "STAGE427B_BOUNDED_TWO_SIDED_ALIGNMENT_PASS",
+  "input": {
+    "alphabet": "A,B,C subset of native twelve directions",
+    "max_initial_length": 2,
+    "budget_profiles": [
+      [
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1,
+        2
+      ]
+    ]
+  },
+  "initial_pairs": 338,
+  "visited_states": 56261,
+  "legality_checks": 1068959,
+  "legal_transitions": 211794,
+  "max_window": 3,
+  "all_twelve_direction_append_pairs": 144,
+  "witnesses": [
+    {
+      "L": 1,
+      "before": 1,
+      "afterPop": 1,
+      "afterReplace": [
+        2,
+        1
+      ]
+    },
+    {
+      "L": 2,
+      "before": 1,
+      "afterPop": 1,
+      "afterReplace": [
+        2,
+        1
+      ]
+    },
+    {
+      "L": 7,
+      "before": 1,
+      "afterPop": 1,
+      "afterReplace": [
+        2,
+        1
+      ]
+    },
+    {
+      "L": 32,
+      "before": 1,
+      "afterPop": 1,
+      "afterReplace": [
+        2,
+        1
+      ]
+    }
+  ],
+  "frozen_pins": {
+    "global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+    "em": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "p000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488"
+  },
+  "scope": "finite exhaustive oracle plus independent symbolic argument; author-side unreviewed"
+}
