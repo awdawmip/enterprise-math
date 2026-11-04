@@ -1,0 +1,11 @@
+# R5 next science: same-side u all-signed convex-hull screening
+
+Mother target: strictly positive source-route-sensitive P/Q experiment with conv O4(FULL)=conv O4(seedless LR) but actual O4 images unequal. Current two-merger split/reconvergence source kernel has exact Jensen support gap in an OPEN mixed-side u domain; it does not settle the mother objective.
+
+Use the current RESEARCH.md and VERIFY.py from this folder; preserve origin, route, positive Q/P masses, (t,LR) keys and allowed action timing. Frozen science pins remain GLOBAL_KNOWLEDGE_V1 a01383f825ef9d43b4b754254303298c64041568 and Enterprise Math 86149263e38c22292c9def1e0f69092efa1be77e. P000/ACTIVE unchanged. Research is author-side/unreviewed/not admitted; no native task ownership inferred from GitHub permissions.
+
+Concrete next instance: same topology with u=(5/32,6/32,7/32,8/32) in provenance order A-L,A-R,B-L,B-R. All edges strictly positive and four u parameters are heterogeneous but above the n=(1,1,-1/16,0) switching threshold, making the one-normal Jensen gap zero. Now enumerate ALL FULL deterministic four-vectors and all seedless LR deterministic four-vectors. For each FULL vector either solve EXACT rational convex membership with <=5 LR vertices, or produce an exact rational Farkas strict separating functional. Finite signed-normal sweeps do not establish equality. Retain explicit witness and distance if separation.
+
+If this fails, try the all-low u=(1/32,2/32,3/32,1/16) and/or modify route-to-M2 mixing while preserving positive P/Q likelihood ratio moments. If all-signed equality succeeds for a candidate, test actual REAL observer-image nonmembership by a sound semialgebraic certificate with boundary conditions. Do not confuse nonconvex full source flows with the four-observer image. Preserve results and future-relevant residuals.
+
+Deliver a complete portable mathematical report, executable exact verifier, actual stdout, and smallest next question on the existing R5 PR, with one remote readback. GitHub archival evidence does not create a native CLAIM, Result or independent Driver review.
