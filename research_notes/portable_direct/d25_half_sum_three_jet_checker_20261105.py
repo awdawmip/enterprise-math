@@ -74,9 +74,11 @@ def normalized_jet(p):
 
 if __name__=='__main__':
     results=[normalized_jet(p) for p in primes(997)]
-    assert len(results)>0
+    assert len(results)==80
+    assert all(r['target_residual']==0 for r in results), 'finite original full sum residue mismatch'
+    assert all(r['half_second_digit'] is not None for r in results)
     points=[next(a for a in results if a['p']==p) for p in (7,13,19,139,373)]
     outcome={'schema':'D25_ORIGINAL_216_HALF_JET_CHECK_V1','date':'2026-11-05','domain':'all checked primes 7<=p<=997, p=1 mod6','count':len(results),'failures':0,'sample':points,'scope':'exact finite modular checks; algebraic finite expansion proved separately; native H0/B0 not performed'}
-    output='/mnt/data/d25_half_sum_three_jet_results_20261105.json'
+    output='d25_half_sum_three_jet_results_20261105.json'
     with open(output,'w') as f:json.dump(outcome,f,ensure_ascii=False,indent=2)
     print(json.dumps(outcome,ensure_ascii=False,indent=2))
