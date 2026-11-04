@@ -1,0 +1,151 @@
+{
+  "status": "STAGE430B_GENERAL_POP_ONE_APPEND_QUOTIENT_PASS",
+  "exact_fiber_tests": [
+    {
+      "b": 2,
+      "n": 3,
+      "m": 4,
+      "alphabet": [
+        0,
+        1,
+        2
+      ],
+      "operations": 75,
+      "histories": 2187,
+      "fibers": 2133,
+      "nontrivial_fibers": 54,
+      "pairs": 54,
+      "same_tuple_pairs": 0,
+      "different_tuple_pairs": 54,
+      "distinguished_pairs": 54
+    },
+    {
+      "b": 2,
+      "n": 3,
+      "m": 7,
+      "alphabet": [
+        0,
+        1,
+        2
+      ],
+      "operations": 75,
+      "histories": 59049,
+      "fibers": 35190,
+      "nontrivial_fibers": 14841,
+      "pairs": 37206,
+      "same_tuple_pairs": 4374,
+      "different_tuple_pairs": 32832,
+      "distinguished_pairs": 32832
+    },
+    {
+      "b": 2,
+      "n": 4,
+      "m": 8,
+      "alphabet": [
+        0,
+        1
+      ],
+      "operations": 75,
+      "histories": 4096,
+      "fibers": 1820,
+      "nontrivial_fibers": 1044,
+      "pairs": 4856,
+      "same_tuple_pairs": 512,
+      "different_tuple_pairs": 4344,
+      "distinguished_pairs": 4344
+    },
+    {
+      "b": 1,
+      "n": 3,
+      "m": 6,
+      "alphabet": [
+        0,
+        1,
+        2
+      ],
+      "operations": 38,
+      "histories": 19683,
+      "fibers": 15426,
+      "nontrivial_fibers": 3483,
+      "pairs": 5157,
+      "same_tuple_pairs": 297,
+      "different_tuple_pairs": 4860,
+      "distinguished_pairs": 4860
+    }
+  ],
+  "lower_bound_families": [
+    {
+      "pop_budget": 0,
+      "window_bits": 1,
+      "history_count": 2,
+      "distinct_future_signatures": 2,
+      "n": 3,
+      "m": 14,
+      "initial_observer_equal": true
+    },
+    {
+      "pop_budget": 1,
+      "window_bits": 2,
+      "history_count": 4,
+      "distinct_future_signatures": 4,
+      "n": 4,
+      "m": 19,
+      "initial_observer_equal": true
+    },
+    {
+      "pop_budget": 2,
+      "window_bits": 3,
+      "history_count": 8,
+      "distinct_future_signatures": 8,
+      "n": 5,
+      "m": 24,
+      "initial_observer_equal": true
+    },
+    {
+      "pop_budget": 3,
+      "window_bits": 4,
+      "history_count": 16,
+      "distinct_future_signatures": 16,
+      "n": 6,
+      "m": 29,
+      "initial_observer_equal": true
+    },
+    {
+      "pop_budget": 4,
+      "window_bits": 5,
+      "history_count": 32,
+      "distinct_future_signatures": 32,
+      "n": 7,
+      "m": 34,
+      "initial_observer_equal": true
+    },
+    {
+      "pop_budget": 5,
+      "window_bits": 6,
+      "history_count": 64,
+      "distinct_future_signatures": 64,
+      "n": 8,
+      "m": 39,
+      "initial_observer_equal": true
+    },
+    {
+      "pop_budget": 6,
+      "window_bits": 7,
+      "history_count": 128,
+      "distinct_future_signatures": 128,
+      "n": 9,
+      "m": 44,
+      "initial_observer_equal": true
+    },
+    {
+      "pop_budget": 7,
+      "window_bits": 8,
+      "history_count": 256,
+      "distinct_future_signatures": 256,
+      "n": 10,
+      "m": 49,
+      "initial_observer_equal": true
+    }
+  ],
+  "scope": "All 12 APPEND labels; exhaustive finite initial-word subalphabets. Unbounded theorem established by symbolic proof."
+}
