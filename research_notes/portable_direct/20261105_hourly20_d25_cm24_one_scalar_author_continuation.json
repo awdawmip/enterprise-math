@@ -1,0 +1,41 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-05",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "logical_conversation_id_requested": "chatgpt-research-hourly-enterprise-math-20260923",
+  "native_role_status": "REGISTER_PENDING_NO_NEW_ROLE_BOUND_WRITE",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "latest_completed_unit": "For p>=5, p=5 mod8, defined r=(p-1)/4, n=r+1, y=t+t^-1, u=(y+2)/24, a_p=u^r*t^-n*C_p. Proved a_p in Fp; C_p=a_p*t^n*u^-r and prior norm N=a_p^2. The single scalar a_p retains first-jet branch provenance; split-class vanishing is open.",
+  "latest_evidence": {
+    "primes_checked": 168,
+    "split": 85,
+    "inert": 83,
+    "exact_tests": "ALL_PASS",
+    "claim_grade": "AUTHOR_DERIVED_EXACT_PROOF_FINITE_CHECKED_UNREVIEWED_NOT_ADMITTED",
+    "example_p373": {
+      "a": 125,
+      "d0": 239,
+      "d1": 40,
+      "norm": 332
+    }
+  },
+  "do_not_repeat": [
+    "Previously proved Hasse 2-isogeny and first-jet Frobenius; do not repeat.",
+    "Do not promote finite split checks to general theorem.",
+    "Original native p373 H0/B0 Frobenius eta/kappa and Delta-R still pending.",
+    "Preserve Source durable frontier, claim/session history and contributor provenance; portable evidence is not canonical checkpoint."
+  ],
+  "next_action": "Independently evaluate the scalar a_p by finite CM/3-isogeny/character sums; prove split p=5 mod24 vanishing, then Jacobi-Green-Wronskian p^2 correction; separately native original-class p373 H0/B0 divided-power eta/kappa/Delta-R.",
+  "last_native_control_request_id": "rhourly20-20261105-0420-d25-fresh-source-continuation",
+  "last_verified_native_source": "19b36cc1e9f768cc264e7a44f83f5cd9c852512a",
+  "persisted_checkpoint_state": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+  "execution_authorized": false,
+  "claim_or_run_created": false,
+  "native_source_frontier_changed": false,
+  "artifact_paths": [
+    "research_notes/portable_direct/20261105_hourly20_d25_cm24_one_scalar_hasse_certificate.md",
+    "research_notes/portable_direct/d25_cm24_one_scalar_hasse_20261105.py"
+  ]
+}
