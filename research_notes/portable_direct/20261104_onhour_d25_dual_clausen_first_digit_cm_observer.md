@@ -102,3 +102,37 @@ The frozen hard target remains Δ_p−R_p=0 mod p for p≡13,19 (mod24). Existin
 Research provenance/observer: original 216 and 2304 factorial populations each retain original k, coefficient, normalization, valuation cut, prime-class character, finite polynomial coefficients and derivative weighted moment. Their Clausen squares are first-digit algebraic **projections** with explicitly declared range and invertibility; no native-X6 H0/B0 or original p-adic higher-digit replacement is asserted. BRC reuse is exact source-labelled pairing/class discrimination with original operations. Publication is neutral author-side evidence, not Source CLAIM/run/checkpoint/Result/review.
 
 Control status at 2026-11-04 08:02Z: Sites v0.6.11 static read-only, no authenticated Research execution authority or write relay. Historical original request `research-onhour-20261031-0205-dispatch-r15` has definitive GitHub bridge receipt kimi-query-bridge#6633 COMPLETE/FAILED/UPSTREAM_CODE_REVIEW_REQUIRED; not replayed. Three prior neutral staging sources remain separate. No current Source checkpoint or formal acceptance claimed.
+
+
+## Same-turn second scientific unit: full unweighted *second- and third-digit* defect
+
+The two low-band polynomials above track the first digit. Return to the ORIGINAL full p-term coefficients and define, in the ring Z/(p^3),
+```text
+A_full(p) = sum_{k=0}^{p-1} a_k
+B_full(p) = sum_{k=0}^{p-1} b_k
+epsilon = (-3/p)
+D_p = A_full(p) - epsilon B_full(p)  (mod p^3).
+```
+A separate full-coefficient recurrence (including every valuation band, not the low-band truncation) and independent exact integer-binomial reconstruction at seven representative primes verified the following sharper, **finite-range** observations for ALL 301 primes 5<=p<=2000:
+
+- `D_p=0 (mod p^2)` for 301/301.
+- `D_p=0 (mod p^3)` precisely in the **149 tested split class** primes `(-6/p)=+1` (p mod24 = 1,5,7,11).
+- In each of the **152 tested inert class** primes `(-6/p)=-1` (p mod24 = 13,17,19,23), `v_p(D_p)=2` exactly (the normalized third digit is nonzero).
+
+The finite data do NOT prove any all-prime p^2/p^3 statement. The strong distinction is critical for the frozen p≡13,19 (mod24) goal: **the unweighted third digits do not cancel**, so the target weighted congruence must retain an explicit derivative/moment correction. The split-prime third-digit phenomenon supplies a competing-prime discriminant rather than an extra requirement on the D25 target.
+
+Using the exact original identity `W_p-V_p = (A_full-B_full)+(6sum k a_k - 8sum k b_k)`, for p≡13,19 mod24 (so epsilon=+1), define the nonzero first component `D_p/p^2 mod p` and the signed genuine original weighted-source repair `(6sum k a_k - 8sum k b_k)/p^2 mod p` whenever its numerator is divisible by p^2. The finite computations for all **77 target primes <=2000** verify that divisibility and exact opposing residues. Actual witnesses:
+
+```text
+p  A_full mod p^3  B_full mod p^3  (A-B)/p^2  moment_repair/p^2
+13       1859             676           7               6
+19       2888            2527           1              18
+373   9878159        28243187         241             132
+```
+Here `moment_repair=6sum k a_k-8sum k b_k`; in each row the last two columns sum to p. Exact integer p^3 sample values are: p=13, source defect 1183 and repair 1014, total 2197; p=19, defect 361 and repair 6498, total 6859; p=373, defect 33530089 and repair 18365028, total 51895117. These are **original-source, nonzero signed compensation witnesses**, not a proof for all primes.
+
+### Mechanism and actionable continuation
+
+First-digit cross-family coincidence (C1) persists through the second digit in the tested finite domain, but its third digit separates sharply by `(-6/p)`. The next discriminating construction is an explicit certificate for `D_p/p^2` in the inert classes and an independently derived signed moment/Green boundary certificate of the opposite value. Test the same exact two-source observers for p=13,19,97,373. Do not replace this with the proven first-digit Clausen squares or the p^4 auxiliary conjecture, and do not declare the fixed-373 native-X6 benchmark executed.
+
+The companion checker now includes a second full mod-p^3 pass over all 301 primes, with 1,036 *independently rebuilt original binomial source terms* at p=5,7,11,13,19,97,373. This second unit is FINITE EXACT CHECKED / NEW SCOPED CONJECTURE AND EXACT FINITE SIGNED WITNESSES / UNREVIEWED / NOT_ADMITTED.
