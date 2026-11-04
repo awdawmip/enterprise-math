@@ -34,8 +34,4 @@ signs_m0_to40 ++++++---++++---++++---++++----+++----+++
 R544_INDEPENDENT_RAW_DET_PASS H=B checked 12 determinants 14
 ```
 
-局部已执行文件的 SHA-256（供完全复现及差异诊断；GitHub 写入以远端文件实际字节为准）：
-`R544_VERIFY.py: d3579095e6d61e17e2ed3e3300df47df9ad1a9e40b9ab2146c47d17564ca7449`
-`R544_INDEPENDENT.py: 44ec805c5d5b26fe28777952393a5c5ec1a4dce367c34198803292d34d8a7cfe`
-
 数学依赖：Toeplitz–Hessenberg 行列式展开、Rouché 定理、有限有理区间计算、非实主导复根 Cesàro 均值。全部11个圆盘和全部55对中心经精确计算覆盖；对无限阶的严格结论依据证明，不依赖 257 项数值样本。
