@@ -36,7 +36,7 @@ Inputs and coverage:
 
 Two additional separately executed author-side audits:
 1. `AUDIT_EC49FAH.py`: independent breadth-first search in color-mask state space confirms all **3,964** local q values; all **9,316** unordered native family-pair capacities among the 137 actually used families are checked against signed-prefix existence at C and absence at C+1; all four existing explicit witness sets are rechecked as cost 76 with required observation signatures and per-depth q bounds.
-2. `AUDIT_EC49FAH_PAIRWISE.py`: an independently coded complete 12,356-schedule direct subset enumeration confirms `min B_local=76`, exactly 66 cases of equality, and zero <76 cases.
+2. `AUDIT_EC49FAH_PAIRWISE_CENSUS.py`: an independently coded complete 12,356-schedule direct subset enumeration confirms `min B_local=76`, exactly 66 cases of equality, and zero <76 cases.
 
 The original EC49FAG three-way prefix obstructions were also tested: **2,520** live three-fiber events; adding their immediate counting inequality increases the numerical depth lower bound in **18 schedules**, by a combined **34 edges** across those schedules. They are structurally informative but are **not needed** for the exact 76 threshold: the exact local observer demands and existing pairwise signed-prefix capacities already close it. Thus no full five-fiber integer multicover optimizer is needed for this theorem.
 
@@ -60,7 +60,7 @@ From the sibling research-notes directory, run:
 python3 EC49FAH_H8_M5_EXACT_76_OPTIMUM/VERIFY_EC49FAH_COMPACT.py > EC49FAH_COMPACT_REPORT.json
 ```
 
-This program reads only the existing pinned native generator, unchanged EXY candidate TSV and EXY exact capacities table. Its exact executed output is stored as `EC49FAH_COMPACT_REPORT.json`. The two independent audit reports are stored as `EC49FAH_INDEPENDENT_AUDIT.json` and `EC49FAH_INDEPENDENT_PAIRWISE_CENSUS.json`, and their executed source is `AUDIT_EC49FAH.py` and `AUDIT_EC49FAH_PAIRWISE.py`. These audit scripts reuse the primary source's trie, then independently recompute its key local and global claims; they are not independent Driver reviews.
+This program reads only the existing pinned native generator, unchanged EXY candidate TSV and EXY exact capacities table. Its exact executed output is stored as `EC49FAH_COMPACT_REPORT.json`. The two independent audit reports are stored as `EC49FAH_INDEPENDENT_AUDIT_COMPACT.json` and `EC49FAH_INDEPENDENT_PAIRWISE_CENSUS_COMPACT.json`, and their executed source is `AUDIT_EC49FAH.py` and `AUDIT_EC49FAH_PAIRWISE_CENSUS.py`. These audit scripts reuse the primary source's trie, then independently recompute its key local and global claims; they are not independent Driver reviews.
 
 Witness dataset: `../EC49FAB_H8_M5_FOUR_EXPLICIT_76_WITNESSES/EC49FAB_EXPLICIT_76_WITNESSES.json`. The four examples have original ranking identifiers 1512, 1513, 2200, 2203 (unranked TSV rows 592,782,3307,3954). Their exact selected paths and observer signatures are in that earlier immutable file, not replaced here.
 
