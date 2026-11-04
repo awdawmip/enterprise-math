@@ -52,13 +52,15 @@ Observed gateway 0.6.11: UPSTREAM_CODE_REVIEW_REQUIRED, research_authority_grant
 
 ## Literature-aware refinement (same research turn)
 
-Guo and Zudilin, *A q-microscope for supercongruences* (arXiv:1803.01830, revised 2019), Theorem 1.1 and its q→1 specialization establish for **all primes p>3**:
-[
-V_p=sum_{k=0}^{p-1}rac{inom{4k}{2k}inom{2k}{k}^{2}}{2^{8k}3^{2k}}(8k+1)
-equiv pleft(rac{-3}{p}ight)pmod{p^3}.
-]
+Guo and Zudilin, *A q-microscope for supercongruences* (arXiv:1803.01830, revised 2019), Theorem 1.1 and its q-to-1 specialization establish for **all primes p>3**:
+
+\[
+V_p=\sum_{k=0}^{p-1}\frac{\binom{4k}{2k}\binom{2k}{k}^{2}}{2^{8k}3^{2k}}(8k+1)
+\equiv p\left(\frac{-3}{p}\right)\pmod{p^3}.
+\]
+
 Exact coefficient match: the denominator 2^(8k)*3^(2k)=2304^k, and the two binomial factors multiply to (4k)!/(k!)^4. Source: https://arxiv.org/abs/1803.01830 (abstract; text equations (2), (5), theorem 1.1). This is **established external mathematics**, not a discovery of Enterprise Math or merely numerical evidence.
 
-Therefore the experimentally checked *pair* (5) has **asymmetric status**: its quartic V_p branch is a proven published theorem, while the 216 W_p branch and their comparison remain finite-data candidates here. On the mother target classes p≡13,19 (mod24), (-3/p)=+1, so the 216 target W_p≡p is *equivalent* (using this published theorem) to the unresolved mixed-kernel cancellation W_p−V_p≡0 mod p³. The exact all-prime Green/two-seam reduction (4) supplies an independent source-preserving representation of that obligation, not a substitute proof. For p≡5 (mod6), the known V_p value is −p, so testing the 216 signed extension on those primes adds a genuinely different diagnostic regime.
+Therefore the experimentally checked *pair* (5) has **asymmetric status**: its quartic V_p branch is a proven published theorem, while the 216 W_p branch and their comparison remain finite-data candidates here. On the mother target classes p congruent 13,19 (mod24), (-3/p)=+1, so the 216 target W_p congruent p is *equivalent* (using this published theorem) to the unresolved mixed-kernel cancellation W_p-V_p congruent 0 mod p^3. The exact all-prime Green/two-seam reduction (4) supplies an independent source-preserving representation of that obligation, not a substitute proof. For p congruent 5 (mod6), the known V_p value is -p, so testing the 216 signed extension on those primes adds a genuinely different diagnostic regime.
 
-The 2019 published proof does not establish the six-channel/source-provenance Green decomposition or native X6/BRC interpretation. Conversely this author-side decomposition does not extend the theorem's admission status. Next action: use the Guo–Zudilin V theorem as a consumed input and seek a terminal certificate for W−V (or a sourced pre-existing W theorem), retaining the D24 second-digit bridge as separate.
+The published proof does not establish the six-channel/source-provenance Green decomposition or native X6/BRC interpretation. Conversely this author-side decomposition does not extend the theorem's admission status. Next action: use the Guo-Zudilin V theorem as a consumed input and seek a terminal certificate for W-V (or a sourced pre-existing W theorem), retaining the D24 second-digit bridge as separate.
