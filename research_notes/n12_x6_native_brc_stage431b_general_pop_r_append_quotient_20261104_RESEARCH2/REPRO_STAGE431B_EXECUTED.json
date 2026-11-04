@@ -1,0 +1,144 @@
+{
+  "status": "STAGE431B_GENERAL_POP_APPEND_QUOTIENT_EXACT_PASS",
+  "exact_fiber_checks": [
+    {
+      "p": 0,
+      "r": 2,
+      "n": 2,
+      "m": 4,
+      "alphabet": [
+        0,
+        1,
+        2
+      ],
+      "initial_histories": 729,
+      "observed_fibers": 711,
+      "nontrivial_fibers": 18,
+      "pairs_same_tuple": 0,
+      "pairs_distinct_tuple": 18,
+      "legal_operation_words": 157,
+      "paired_full_trace_checks": 114
+    },
+    {
+      "p": 1,
+      "r": 2,
+      "n": 3,
+      "m": 5,
+      "alphabet": [
+        0,
+        1,
+        2
+      ],
+      "initial_histories": 6561,
+      "observed_fibers": 6012,
+      "nontrivial_fibers": 531,
+      "pairs_same_tuple": 0,
+      "pairs_distinct_tuple": 567,
+      "legal_operation_words": 614,
+      "paired_full_trace_checks": 2055
+    },
+    {
+      "p": 2,
+      "r": 2,
+      "n": 3,
+      "m": 5,
+      "alphabet": [
+        0,
+        1
+      ],
+      "initial_histories": 256,
+      "observed_fibers": 240,
+      "nontrivial_fibers": 16,
+      "pairs_same_tuple": 0,
+      "pairs_distinct_tuple": 16,
+      "legal_operation_words": 1515,
+      "paired_full_trace_checks": 32
+    },
+    {
+      "p": 2,
+      "r": 2,
+      "n": 4,
+      "m": 6,
+      "alphabet": [
+        0,
+        1
+      ],
+      "initial_histories": 1024,
+      "observed_fibers": 760,
+      "nontrivial_fibers": 216,
+      "pairs_same_tuple": 0,
+      "pairs_distinct_tuple": 320,
+      "legal_operation_words": 1515,
+      "paired_full_trace_checks": 704
+    }
+  ],
+  "same_tuple_examples": [
+    {
+      "kind": "P-hidden-Euler-switch",
+      "operation_words_compared": 614,
+      "complete_traces_equal": true
+    },
+    {
+      "kind": "Q-hidden-Euler-switch",
+      "operation_words_compared": 614,
+      "complete_traces_equal": true
+    }
+  ],
+  "lower_bound_families": [
+    {
+      "p": 0,
+      "r": 2,
+      "bit_length": 2,
+      "history_count": 4,
+      "distinct_traces": 4,
+      "n": 3,
+      "m": 19
+    },
+    {
+      "p": 1,
+      "r": 2,
+      "bit_length": 3,
+      "history_count": 8,
+      "distinct_traces": 8,
+      "n": 4,
+      "m": 24
+    },
+    {
+      "p": 2,
+      "r": 2,
+      "bit_length": 4,
+      "history_count": 16,
+      "distinct_traces": 16,
+      "n": 5,
+      "m": 29
+    },
+    {
+      "p": 3,
+      "r": 2,
+      "bit_length": 5,
+      "history_count": 32,
+      "distinct_traces": 32,
+      "n": 6,
+      "m": 34
+    },
+    {
+      "p": 2,
+      "r": 3,
+      "bit_length": 5,
+      "history_count": 32,
+      "distinct_traces": 32,
+      "n": 5,
+      "m": 34
+    },
+    {
+      "p": 4,
+      "r": 2,
+      "bit_length": 6,
+      "history_count": 64,
+      "distinct_traces": 64,
+      "n": 7,
+      "m": 39
+    }
+  ],
+  "scope": "All twelve future native append labels; all legal operation words up to each stated budget; finite initial subalphabets. General theorem and lower bound proved symbolically."
+}
