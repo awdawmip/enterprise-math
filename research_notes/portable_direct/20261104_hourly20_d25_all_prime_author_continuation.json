@@ -12,7 +12,8 @@
   "author_side_completed_units": [
     "All-prime p>=5 extension of six-channel valuation Green reduction and two-seam original signed bridge",
     "Elementary binomial proof for a_h/p=-2(6/p), b_h/p=-1, E1/p²=(2(6/p)-1)/36 mod p for every prime p>=5",
-    "Executed finite exact certificate all 667 primes p<=5000 including 337 new p=5 mod6 examples, candidate W216=V2304=Legendre(-3,p)*p mod p³"
+    "Executed finite exact certificate all 667 primes p<=5000 including 337 new p=5 mod6 examples, candidate W216=V2304=Legendre(-3,p)*p mod p³",
+    "Literature readback: Guo-Zudilin arXiv:1803.01830 Theorem 1.1 proves quartic V_p = Legendre(-3,p)*p mod p³ for all p>3; exact binomial coefficient match. W_p still finite-only here."
   ],
   "previous_author_side_inputs": [
     "20261104_hourly20_d25_wall_graded_green_boundary_certificate.md",
@@ -21,13 +22,14 @@
   "note_path": "research_notes/portable_direct/20261104_hourly20_d25_all_prime_two_seam_extension.md",
   "checker_path": "research_notes/portable_direct/d25_all_prime_two_seam_expansion_20261104.py",
   "mother_objective": "Frozen D24 Delta_p-R_p second digit lift for p mod24 {13,19}; original signed 216 vs2304 mod p³ and separate native fixed-373 benchmark",
-  "highest_author_side_frontier": "All-prime p>=5 two-seam identity plus exact quadratic-character seam digit; finite 667-prime signed scalar character candidate",
-  "unfinished_unit": "Prove signed cancellation of G0+E0*T0+p²(2chi6-1)/36*T1-2 sum n*b_n (mod p³) with true finite WZ/terminating hypergeometric certificate; preserve separate D24 bridge",
-  "next_exact_action": "Check prior art of full scalar character result, construct and endpoint-test a finite WZ certificate at p=5,11,13,19,23,97,373; keep fixed-373 native benchmark separate",
+  "highest_author_side_frontier": "All-prime p>=5 two-seam identity plus exact quadratic-character seam digit; finite 667-prime signed scalar character candidate; quartic V_p all-prime RHS is known published theorem (Guo-Zudilin), W_p and signed comparison still open.",
+  "unfinished_unit": "Find sourced proof or construct finite WZ/p-adic certificate for W_p−V_p≡0 mod p³ (on p≡13,19 mod24 first); preserve frozen D24 Delta_p−R_p bridge.",
+  "next_exact_action": "Use verified Guo-Zudilin quartic V theorem (arXiv:1803.01830 eq(2), Thm1.1); check prior art on 216 W, then derive signed terminal cancellation from all-prime Green zero-wall/first-seam/tail formula, including p=5,11,13,19,23,97,373; separate native fixed373.",
   "do_not_repeat": [
     "Exact rational last-wall theorem",
     "Prior p=6r+1 six-channel/two-seam work",
-    "Native old request replay or maintenance lane research identity"
+    "Native old request replay or maintenance lane research identity",
+    "Reprove already published Guo-Zudilin quartic V_p supercongruence"
   ],
   "native_session": "NOT_VERIFIED_IN_THIS_CLIENT",
   "native_claim": "NOT_ESTABLISHED",
@@ -37,5 +39,11 @@
   "support_control": "#1558",
   "support_fixed373": "#1559",
   "admission": "UNREVIEWED_NOT_ADMITTED",
-  "publication_kind": "Neutral GitHub author-side note, not Source checkpoint or Result"
+  "publication_kind": "Neutral GitHub author-side note, not Source checkpoint or Result",
+  "prior_art": {
+    "authors": "Victor J. W. Guo and Wadim Zudilin",
+    "title": "A q-microscope for supercongruences",
+    "url": "https://arxiv.org/abs/1803.01830",
+    "scope": "Quartic V_p for all p>3; NOT 216 W_p or new Green decomposition"
+  }
 }
