@@ -1,0 +1,40 @@
+PREFIX-486 exact reachability and combinatorial-formula certificate
+Models: native X6 restricted a/A,b/B,c/C,d/D,e/E plus x; source N/B/C; KMP w=aab or aba
+Arithmetic: integers within exact IEEE-754 safe range; counts are reachability sets (not path multiplicities).
+GATE=aab
+n=0 base=1 H0=1 H1=1 types=1,0,0 triples_by_s/q={}
+BRUTE_EXHAUSTIVE n=0 paths=1 mask_equivalence=PASS
+n=1 base=11 H0=11 H1=11 types=11,0,0 triples_by_s/q={}
+BRUTE_EXHAUSTIVE n=1 paths=11 mask_equivalence=PASS
+n=2 base=74 H0=78 H1=78 types=70,4,0 triples_by_s/q={}
+BRUTE_EXHAUSTIVE n=2 paths=110 mask_equivalence=PASS
+n=3 base=347 H0=391 H1=391 types=303,44,0 triples_by_s/q={}
+BRUTE_EXHAUSTIVE n=3 paths=1100 mask_equivalence=PASS
+n=4 base=1278 H0=1541 H1=1542 types=1015,262,1 triples_by_s/q={"0/0":1}
+BRUTE_EXHAUSTIVE n=4 paths=11001 mask_equivalence=PASS
+n=5 base=3952 H0=5080 H1=5088 types=2824,1120,8 triples_by_s/q={"0/0":6,"0/1":1,"1/0":1}
+n=6 base=10711 H0=14582 H1=14617 types=6840,3836,35 triples_by_s/q={"0/0":21,"0/1":6,"0/2":1,"1/0":6,"1/1":1}
+n=7 base=26133 H0=37405 H1=37516 types=14861,11161,111 triples_by_s/q={"0/0":56,"0/1":21,"0/2":6,"1/0":21,"1/1":6,"1/2":1}
+n=8 base=58496 H0=87405 H1=87691 types=29587,28623,286 triples_by_s/q={"0/0":126,"0/1":56,"0/2":21,"1/0":56,"1/1":21,"1/2":6}
+n=9 base=121853 H0=188861 H1=189498 types=54845,66371,637 triples_by_s/q={"0/0":252,"0/1":126,"0/2":56,"1/0":126,"1/1":56,"1/2":21}
+GATE=aba
+n=0 base=1 H0=1 H1=1 types=1,0,0 triples_by_s/q={}
+BRUTE_EXHAUSTIVE n=0 paths=1 mask_equivalence=PASS
+n=1 base=11 H0=11 H1=11 types=11,0,0 triples_by_s/q={}
+BRUTE_EXHAUSTIVE n=1 paths=11 mask_equivalence=PASS
+n=2 base=74 H0=78 H1=78 types=70,4,0 triples_by_s/q={}
+BRUTE_EXHAUSTIVE n=2 paths=110 mask_equivalence=PASS
+n=3 base=348 H0=392 H1=392 types=304,44,0 triples_by_s/q={}
+BRUTE_EXHAUSTIVE n=3 paths=1100 mask_equivalence=PASS
+n=4 base=1280 H0=1543 H1=1544 types=1017,262,1 triples_by_s/q={"0/0":1}
+BRUTE_EXHAUSTIVE n=4 paths=11001 mask_equivalence=PASS
+n=5 base=3954 H0=5082 H1=5090 types=2826,1120,8 triples_by_s/q={"0/0":6,"0/1":1,"1/0":1}
+n=6 base=10713 H0=14583 H1=14617 types=6843,3836,34 triples_by_s/q={"0/0":21,"0/1":6,"1/0":6,"1/1":1}
+n=7 base=26135 H0=37400 H1=37504 types=14870,11161,104 triples_by_s/q={"0/0":56,"0/1":21,"1/0":21,"1/1":6}
+n=8 base=58498 H0=87381 H1=87640 types=29615,28624,259 triples_by_s/q={"0/0":126,"0/1":56,"1/0":56,"1/1":21}
+n=9 base=121855 H0=188793 H1=189353 types=54917,66378,560 triples_by_s/q={"0/0":252,"0/1":126,"1/0":126,"1/1":56}
+DIFF n=6 aab_minus_aba=1 exact_formula=1
+DIFF n=7 aab_minus_aba=7 exact_formula=7
+DIFF n=8 aab_minus_aba=27 exact_formula=27
+DIFF n=9 aab_minus_aba=77 exact_formula=77
+ALL_CHECKS_PASS
