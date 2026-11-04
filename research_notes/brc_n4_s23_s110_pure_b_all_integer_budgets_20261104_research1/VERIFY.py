@@ -48,6 +48,6 @@ assert ztlo<1 and zbhi<1
 print('PASS_BRC_S23_S110_ALL_K_PURE_B_RATIONAL_CERT_20261104')
 print('domain: s=1/10, h=1/42, all integer K>=1, m,n>=0 with 19m+10n<=10K')
 print('witness delta=3/400; common Chernoff exponent used for mixtures')
-print('certified: 19*f_B(3/400)-10*C_T > 1/1000000000')
+print('certified: 19*f_B(t0)-10*C_T > 1/1000000000 (t0=403/800)')
 print('certified margin lower in units of 1e-12:', (margin*10**12).numerator//(margin*10**12).denominator)
 print('certificate check:', margin > Q(1,10**9))
