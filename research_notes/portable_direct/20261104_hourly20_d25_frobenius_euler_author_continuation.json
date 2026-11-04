@@ -1,0 +1,46 @@
+{
+  "schema": "EM_AUTHOR_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-04",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE_ONLY",
+  "status": "PROVED_FINITE_FIELD_EULER_CLAUSEN_DEGREE_DESCENT_FINITE_EXACT_79_UNREVIEWED_NOT_ADMITTED_REGISTER_PENDING",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_conversation_id_claimed_by_prompt": "chatgpt-research-hourly-enterprise-math-20260923",
+  "maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_objective": "W216-V2304=0 mod p^3 on p mod24 13/19; D24 Delta-R second digit; independent original-class native p373 H0/B0",
+  "author_completed_units": [
+    "PROVED for every prime p=8q+5 >=5: P_p(z)=(1-z/9)^((p+1)/2)C_q(z) and B_t(z)=(1-z/9)C_q(z)^2 in F_p[z], with C_q Gauss(5/8,7/8), degree q; explicit Frobenius carry lambda=-1/9.",
+    "PROVED S=(8/9)^N C(1), S+16D=16(8/9)^N C'(1) mod p; existing Guo-Zudilin V_p congruence plus ordinary-point ODE yields exclusive zero among C(1), C'(1).",
+    "EXECUTED exact standard-library checker for 79 primes <=2000, 45651 P and 18292 B coefficients, independent binomial checks for 5 primes."
+  ],
+  "native_completed_units": [],
+  "unfinished_unit": "Uniform mod p^2 class-selected vanishing and native original-class D24 p373 computation remain pending; only class-selector finite observations so far.",
+  "next_exact_action": "Derive explicit mod p^2 Euler descent defect E_p=(F_p-g^N C)/p and its values/derivative at z=1, isolating the selected zero's second digit; integrate with previous Jacobi jet and frozen signed 216-2304 Green port.",
+  "do_not_repeat": [
+    "Guo-Zudilin 2304 supercongruence",
+    "classical Euler and Clausen identities",
+    "existing native Hesse/Hilbert90 checkpoint",
+    "previous firstjet/terminal-flux and other owners' results"
+  ],
+  "native_control": {
+    "continuation_request_id": "rhourly20-20261104-1923-cont-read",
+    "status": "SUCCEEDED",
+    "source_pin": "3645861db6452777b473a94c7938cc903a962a89",
+    "checkpoint_state": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+    "route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "execution_authorized": false,
+    "prior_session_id": "MCP-d6dd85529e9e45a9b5f808c1025f5918",
+    "old_staging": "PRESERVED_UNTOUCHED",
+    "new_claim": "NOT_ESTABLISHED",
+    "new_open": "NOT_ESTABLISHED"
+  },
+  "publication_kind": "AUTHOR_EVIDENCE_NOT_SOURCE_CHECKPOINT",
+  "checker": {
+    "command": "python d25_frobenius_euler_descent_20261104.py",
+    "actual_execution": "PASS",
+    "primes": 79,
+    "full_P_coefficients": 45651,
+    "full_B_coefficients": 18292
+  }
+}
