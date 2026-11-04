@@ -10,9 +10,9 @@ Keep every H2–H7 selected word in each of four EC49FAB schedules (source ranks
 
 **Theorem (exact four-family optimum):**
 
-[
+\[
 \boxed{E^*_{\mathrm{fixed}\ H2\ldots H7,\ H5\lor H6\mathrm{-rooted}\ H8,H9}=94}
-]
+\]
 
 for each of the four fixed early schedules. This is a strict extension of EC49FAL's H6-only rooted theorem. The unrestricted mother problem retains its author-side range `80 <= E*_H9 <= 94`.
 
@@ -33,23 +33,23 @@ Thus both new horizons must use **the same fifth full key**. There are precisely
 
 For each such class K, let P0 be the fixed 72-edge native prefix set, W8(K)/W9(K) the *complete* eligible word pools, and `Pref(W)` all distinct nonempty **signed primitive-step** prefixes. Set
 
-[
+\[
 d_8(K)=\min_{A\subseteq W_8(K),\ \mathrm{rank}(A)=9}
      |\mathrm{Pref}(A)\setminus P_0|.
-]
+\]
 
 To obtain a rigorous, optimistic lower bound for additional H9 edges, allow H9 to reuse **every prefix from every eligible H8 word for free**, even if that H8 word was not selected:
 
-[
+\[
 d_9^+(K)=\min_{B\subseteq W_9(K),\ \mathrm{rank}(B)=9}
  |\mathrm{Pref}(B)\setminus(P_0\cup\mathrm{Pref}(W_8(K)))|.
-]
+\]
 
 For any actual H8 choice A, `Pref(A) ⊆ Pref(W8(K))`, hence the exact total cost satisfies
 
-[
+\[
 \boxed{E\ge72+d_8(K)+d_9^+(K).}
-]
+\]
 
 The executable verifier computes both minima **exactly** using a signed-primitive prefix trie. At each trie node, dynamic-programming state `mask` records which of the six inherited observation signatures are represented by selected terminal words beneath the node. Sibling states combine by bitwise OR with additive cost; charge one for a nonempty prefix absent from the free-prefix set whenever its subtree contributes a nonzero mask. Rank-nine masks are precomputed exactly. This exhausts all terminal selections without enumerating exponential word subsets.
 
