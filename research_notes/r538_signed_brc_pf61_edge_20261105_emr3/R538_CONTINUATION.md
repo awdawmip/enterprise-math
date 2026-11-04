@@ -1,0 +1,3 @@
+# R538 continuation
+
+Frozen R462 @ `18783e01e3646c72b7aab3b16d3f565e83e6446f`; R537 @ `9b1db0818af3d3a1d7e6cbd8f2f2f17e7c96ebc9`. R538 author-side exact conditional result for m=61: D_61 positive 1≤k≤7 and k≥16, negative 8≤k≤15. Proof derives from 122-term exact Newton polynomial, verified on 367 points, with all 122 positive shifted forward differences at k=16. 20 raw signed Bareiss checks and 22754 H/B grid pairs. Source/certificate R538_VERIFY.js and R538_EVIDENCE.json; source frozen R462. Formal active Owner, Claim/Result, independent Driver approval are not asserted. Next m=62 or structural fixed-k generating function poles; preserve P000 and frozen source.
