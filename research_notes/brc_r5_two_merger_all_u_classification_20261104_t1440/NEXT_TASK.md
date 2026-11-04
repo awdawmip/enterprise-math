@@ -1,0 +1,9 @@
+# R5 successor research unit
+
+Mother objective: find a finite, strictly positive source-route-sensitive P/Q BRC experiment for which conv O4(FULL)=conv O4(seedless LR), yet actual real-policy O4 images differ. Current completed author-side fixed-model result is this folder's RESEARCH.md/VERIFY.py/EXACT_OUTPUT.txt: the entire two-merger source-route family with 0<u_j<1/2 is classified; convex hull equality occurs exactly when all u_j agree, in which case actual behavior images also agree.
+
+Frozen scientific pins remain GLOBAL_KNOWLEDGE_V1 a01383f825ef9d43b4b754254303298c64041568 and Enterprise Math 86149263e38c22292c9def1e0f69092efa1be77e. P000/ACTIVE remain unchanged. Native ownership, Result and Driver review are separate from author-side GitHub preservation.
+
+Next exact scientific action: build one interacting multi-merger source/route-dependent topology beyond this closed four-parameter family, with fully specified positive Q/P transition tables and LR moments. Calculate exact four-observer deterministic vectors. Either produce a rational Farkas direction separating a FULL vector from all LR vertices, or for every FULL deterministic vertex provide an exact nonnegative LR combination of at most five vertices. Only after all-signed hull equality is proven, test actual real LR-image nonmembership by a sound semialgebraic/elimination certificate. Use Bellman argmax and predictive lumpability as diagnostics, not as a ban on exploring new mechanisms.
+
+Publish exact model, proof, runnable verifier, actual output, scope and subsequent discriminating question on this R5 PR; read back remote immutable content. No native CLAIM or independent review is inferred from repository write access.
