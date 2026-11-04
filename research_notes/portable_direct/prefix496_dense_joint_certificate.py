@@ -49,7 +49,7 @@ def build(g):
         groups=defaultdict(set)
         for x in s:
             groups[x[:7]].add(x[7:])
-        base_sorted=sorted(groups)
+        base_sorted=sorted(groups,key=lambda b:(b[:5],b[6],b[5]))  # PREFIX-495: y, W, V
         assert len(base_sorted)==total_base_fibers(n),(g,n,len(base_sorted),total_base_fibers(n))
         k_hist=dict(sorted(Counter(map(len,groups.values())).items()))
         qonly={(x[:7],x[7]) for x in s}
