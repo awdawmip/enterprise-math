@@ -31,7 +31,7 @@ Guo–Zudilin (2019), A q-microscope for supercongruences, arXiv:1803.01830, pro
 
 Define J_p = W_p − 2 V_p + epsilon_p p.
 
-For **every prime 5<=p<=2000, all 301 primes**, the executed exact calculation establishes:
+For **every prime 5<=p<=5000, all 667 primes**, the executed exact calculation establishes:
 
 \[
 \boxed{J_p\equiv0\pmod{p^4}\quad(5\le p\le2000,\;p\text{ prime}).}\tag{F}
@@ -43,16 +43,16 @@ This is a computationally exhaustive FINITE statement for the stated domain, **n
 \boxed{W_p-\varepsilon_pp\stackrel{?}{\equiv}2(V_p-\varepsilon_pp)\pmod{p^4},\quad p>3.}\tag{C}
 \]
 
-An equivalent fourth-digit prediction is W_p − V_p = V_p − epsilon_p p (mod p^4). This is different from claiming W_p=V_p (mod p^4): that stronger, uncorrected claim fails at p=13 and at 300 of 301 primes checked.
+An equivalent fourth-digit prediction is W_p − V_p = V_p − epsilon_p p (mod p^4). This is different from claiming W_p=V_p (mod p^4): that stronger, uncorrected claim fails at p=13 and at 666 of 667 primes checked.
 
-The quartic half/full equality must also keep its precision: the two quartic truncations agree mod p^3 by Guo–Zudilin, but their p^4 residues differ at **300/301** tested primes (only p=17 is an equality in this finite range).
+The quartic half/full equality must also keep its precision: the two quartic truncations agree mod p^3 by Guo–Zudilin, but their p^4 residues differ at **666/667** tested primes (only p=17 is an equality in this finite range).
 
 ## Exact execution and independently checked original coefficients
 
 Companion reproducible executable:
 research_notes/portable_direct/d25_signed_fourth_digit_exact_checker_20261104.mjs
 
-This program actually executed in the present author-side JavaScript BigInt engine; 301/301 pass, zero failures. The complete sieve enumerates all primes up to 2000. No coefficient or valuation layer is discarded. It computes both original sum families over Z/p^4 using their exact rational recurrences:
+This program actually executed in the present author-side JavaScript BigInt engine; 667/667 pass, zero failures. The complete sieve enumerates all primes up to 5000. No coefficient or valuation layer is discarded. It computes both original sum families over Z/p^4 using their exact rational recurrences:
 
 \[
 a_{k+1}/a_k=(2k+1)(3k+1)(3k+2)/[36(k+1)^3],
