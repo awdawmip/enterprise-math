@@ -1,22 +1,50 @@
 {
-  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "activity_id": "RA-63A1F44D61885FB2CCDD31B2",
+  "authority": {
+    "claim": false,
+    "mathematical_acceptance": false,
+    "review": false,
+    "task_registration": false,
+    "working_truth": false
+  },
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "e2a0caf52713929b0bb6a6a249f6cdaa4bd15178",
+          "path": "research_notes/brc_r5_timing_threshold_pair_20261105_t0538/VERIFY.py",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "38c1c91a0b00d3f7bfe4d71eec0859d2e2eca2bcef911903aa19254a4717ec46",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "54ec845e510274b3aac35e5667fe9dedec75ea8f",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/e2a0caf52713929b0bb6a6a249f6cdaa4bd15178/research_notes/brc_r5_timing_threshold_pair_20261105_t0538/VERIFY.py",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "OBS-R5-20261105-SRC-VERIFY-01",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-63A1F44D61885FB2CCDD31B2/readbacks/ed57bbc5763d159c325dcd6076ed65dd6644e23f710e0635d45612c0afd6fda3.json",
+          "verification_receipt_sha256": "ed57bbc5763d159c325dcd6076ed65dd6644e23f710e0635d45612c0afd6fda3"
+        }
+      ],
+      "event_id": "R5-TIMING-THRESHOLDS-20261105-0538",
+      "kb_sources": [],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
+  "mode": "TASK_RESEARCH",
+  "recorded_at": "2026-11-04T21:49:24.234Z",
   "registration_key": "session:chatgpt-automation-r5-8b2c5c63a1f44d61885fb2ccdd31b29d:TASK_RESEARCH",
   "registration_origin": {
     "kind": "LIVE_SESSION",
     "source_tracking_key": null
   },
-  "mode": "TASK_RESEARCH",
   "researcher_id": "EM-DIRECT-8B2C5C",
+  "schema": "ENTERPRISE_MATH_RESEARCH_ACTIVITY_V1",
   "session_id": "chatgpt-automation-r5-8b2c5c63a1f44d61885fb2ccdd31b29d",
-  "session_state": "KNOWN",
-  "recorded_at": "2026-11-04T21:49:24.234Z",
-  "authority": {
-    "task_registration": false,
-    "claim": false,
-    "review": false,
-    "working_truth": false,
-    "mathematical_acceptance": false
-  },
-  "checkpoints": []
+  "session_state": "KNOWN"
 }
