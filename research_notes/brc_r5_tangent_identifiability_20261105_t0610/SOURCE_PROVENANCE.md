@@ -1,0 +1,9 @@
+# Sources, role, proof scope (2026-11-05)
+
+Global normative read: awdawmip/chatgpt-global-knowledge canonical main e8ba2c13a8e1411e5e9d5f7a8a711a20af64db6e, entry 00_BOOTSTRAP.md/OPERATING_MANUAL.md; P000 projection matched canonical P000 blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc; ACTIVE worldview read. Project current normative docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context, docs/PORTABLE_RESEARCH_PROTOCOL.md, current control and method routes read at project main 13a245c2bcb7d4c9a3cde5ca8e796f9965931a00. Scientific pins separately preserved: Global a01383f825ef9d43b4b754254303298c64041568, project 86149263e38c22292c9def1e0f69092efa1be77e.
+
+Scientific predecessor: project immutable author commit e2a0caf52713929b0bb6a6a249f6cdaa4bd15178, research_notes/brc_r5_timing_threshold_pair_20261105_t0538/RESEARCH.md.
+
+Exact local computation used Python Fraction; locally executed full 148-check program yields companion EXACT_OUTPUT.txt. VERIFY.py stored here is a shorter exact independent reproducer of the same rational theorem instance; the saved output is from the full local program, so do not assert byte-identical source/output run. Universal theorem is analytic; finite tests cover only declared rational inputs. The original full local code is retained as a conversation artifact if needed.
+
+Authenticated GitHub login: awdawmip; native MCP service registered researcher EM-DIRECT-597517 and activity RA-6A0C63A77ECC99540ACEE683 via canonical Source commit e912fb489c92ef3a541b904e507248b8881d55bf. This registration grants no CLAIM or mathematical admission. No credentials were copied to project files.
