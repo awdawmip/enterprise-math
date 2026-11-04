@@ -1,0 +1,13 @@
+PARAMS a,b 1/2 3/4
+CASE w 1/5 threshold 1/6 regime EQUALITY
+KNOTS [('0', '0'), ('1/4', '0'), ('1/2', '-1/10'), ('1', '-1/20'), ('3/2', '-1/10'), ('7/4', '0'), ('2', '0')]
+ALL_REAL_EQUALITY_BY_PIECEWISE_LINEAR_CALL_GAP_AND_FIXED_TIME_POLYGON
+CASE w 1/6 threshold 1/6 regime EQUALITY
+KNOTS [('0', '0'), ('1/4', '0'), ('1/2', '-1/12'), ('1', '0'), ('3/2', '-1/12'), ('7/4', '0'), ('2', '0')]
+ALL_REAL_EQUALITY_BY_PIECEWISE_LINEAR_CALL_GAP_AND_FIXED_TIME_POLYGON
+CASE w 1/8 threshold 1/6 regime SEPARATED
+KNOTS [('0', '0'), ('1/4', '0'), ('1/2', '-1/16'), ('1', '1/16'), ('3/2', '-1/16'), ('7/4', '0'), ('2', '0')]
+SEPARATOR (Fraction(1, 1), Fraction(1, 1), Fraction(-7, 64), Fraction(0, 1)) FULL_W (Fraction(3, 8), Fraction(3, 4), Fraction(5, 2), Fraction(5, 2)) hFULL 109/128 hLR 27/32 GAP 1/128 DIST_INF_LOWER 1/270 LR_COUNT 288
+CROSSING_CALL_GAPS at t=1: 1/4 3/20
+CROSSING_CALL_GAPS at t=3/8: 0 1/40
+PASS_EXACT_R5_BYPASS_CROSSING_INFORMATION_ORDERS_PHASE_THRESHOLD
