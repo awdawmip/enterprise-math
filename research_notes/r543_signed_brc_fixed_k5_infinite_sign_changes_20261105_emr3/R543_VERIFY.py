@@ -56,6 +56,7 @@ dominant_lb=min(LB(centers[i])-eps for i in (7,8))
 remainder_ub=max(UB(centers[i])+eps for i in range(7))
 assert dominant_lb==F(1926336411,1000000)
 assert remainder_ub==F(1904177,1000)
+assert max(ratios)<F(556,100000)
 assert dominant_lb>1926 and remainder_ub<1905
 assert centers[7][1]>eps and centers[8][1]<-eps
 # Two simple nonreal conjugate dominant roots => nonzero residues.
