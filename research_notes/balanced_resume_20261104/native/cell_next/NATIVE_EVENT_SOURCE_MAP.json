@@ -1,0 +1,70 @@
+{
+  "schema": "U27F02_LOCAL_EVENT_SOURCE_AUDIT_V1",
+  "author": "EM-NATIVE-3ED020",
+  "formal_claim": null,
+  "related_task": "RS-CELL-U27F-02-NATIVE-TRIAD-20261012",
+  "publication": "TP2-122BB1AADA80A49E7B53",
+  "selected_source_transition": {
+    "path": "research_inputs/U27F_20261012/fixtures/carry_Q.json",
+    "before": "/data/2",
+    "after": "/data/3",
+    "stages": [
+      "LOCAL_CARRY",
+      "RELATION_COMMITTED"
+    ]
+  },
+  "earlier_movement_transition": {
+    "before": "/data/1",
+    "after": "/data/2",
+    "stages": [
+      "RESERVE_OR_DETACH",
+      "LOCAL_CARRY"
+    ],
+    "direction": "RAW_NATIVE_SIGNED_DISPLACEMENT +E3",
+    "not_new_commit_displacement": true
+  },
+  "source_entities": [
+    {
+      "entity": "material B",
+      "source_identity": "body index1",
+      "role_at_commit": "same Cell in both frames",
+      "native_action_occurrence": "UNKNOWN; no occurrence obtained merely from material identity"
+    },
+    {
+      "entity": "token2",
+      "role_before": "held at B Cell",
+      "role_after": "bound to edge(0,1), port5, side1, at same Cell",
+      "native_action_occurrence": "UNKNOWN; storage-class update is a conditional ledger event"
+    },
+    {
+      "entity": "token0 / AB side0",
+      "role": "unchanged bound relation at A, port0",
+      "native_action_occurrence": "UNKNOWN; relation endpoint is not an action occurrence"
+    },
+    {
+      "entity": "port4 / port5",
+      "role": "earlier planned +E3 move / compensating -E3 word prefix",
+      "source_for_word_semantics": "exact recovered local_latent.material",
+      "force_reaction_bridge": "UNKNOWN"
+    }
+  ],
+  "required_native_fields": {
+    "event_atomicity_and_boundary": "UNKNOWN",
+    "three_nonzero_occurrence_ids": "UNKNOWN",
+    "qualified_signed_directions": "UNKNOWN",
+    "third_occurrence_provenance": "UNKNOWN",
+    "Adm_E": "UNKNOWN",
+    "TRIADIC_CLOSURE_E": "UNKNOWN",
+    "action_to_ledger_readout": "UNKNOWN",
+    "reaction_storage_and_release": "UNKNOWN",
+    "physical_time_and_boundary_update": "UNKNOWN",
+    "native_occupancy_law": "UNKNOWN"
+  },
+  "not_inferred": [
+    "three bodies/tokens/registers imply three primitive actions",
+    "port5 is a mechanical reaction force",
+    "same Cell means no possible internal action",
+    "the commit is necessarily a primitive stable event",
+    "fixture ledger successor is a full native successor"
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "ENTERPRISE_MATH_RESULT_INTERFACE_V1",
+  "result_id": "cm24.actual_strong_horizontal_kernel_zero",
+  "status": "AUTHOR_CANDIDATE_AWAITING_DISTINCT_REVIEW",
+  "author": "EM-ANALYSIS-3050DA",
+  "agent": "/root/research_analysis_1104",
+  "paper": "CM24_STRONG_HORIZONTAL_KERNEL_ZERO_AUTHOR.md",
+  "identity_registration": "REGISTER_PENDING",
+  "formal_shared_authority": false,
+  "inputs": {
+    "prime": "p prime congruent to 13 or 19 modulo 24",
+    "field": "original complete unramified DVR O, uniformizer p, perfect residue field; K=O[1/p]",
+    "ring": "Rhat=completion_p(O[r,(1-r^2)^(-1),(4r^2-1)^(-1)])[1/p]",
+    "connection": "S=4r^3-3r; q=4r^2-1; P=(1-r^2)q; A=2S-1; B=4S-5; D=(2P)^(-1)[[A,1],[B,-A]]",
+    "operators": "L(h)=h'+hD on Rhat^(1x2); Kcal(v)=(Pv')'-2qv on Rhat",
+    "finite_scalar_frames": "v_a=f0(z_a(r-a)) in O[[r-a]], v_a(a)=1, Kcal(v_a)=0 for a=1,-1,1/2,-1/2",
+    "infinity_frame": "z=1/r; J=diag(z,z^(-1)); H'=Dinf H, H(0)=I; Dinf=-J^(-1)J'-z^(-2)J^(-1)D(1/z)J; Dinf(0)=[[0,1/8],[0,0]]",
+    "bounded_input": "F=H11 in O[[z]], F(0)=1",
+    "unbounded_input": "G=H12; a_j=8[z^j]G and inherited all-k theorem v_p(a_(p^k))=-k"
+  },
+  "outputs": [
+    "ker(Kcal:Rhat->Rhat)=0",
+    "ker(L:Rhat^(1x2)->Rhat^(1x2))=0",
+    "Any actual strong primitive is unique if it exists"
+  ],
+  "proof_interface": {
+    "strong_local_fields": "E_x={Laurent coefficient families bounded below in valuation and tending to zero as exponent tends to minus infinity}; constants K",
+    "finite_pole_step": "W=P(v_a v'-v_a'v) is constant; residue of (v/v_a)'=W/(P v_a^2) forces W/P'(a)=0, hence v is a constant multiple of v_a and has no negative local coefficients",
+    "partial_fraction_step": "Strong c0 partial-fraction basis implies no finite negative parts -> v=sum b_j r^j with b_j->0",
+    "infinity_step": "u1=zF is invertible in E_z; w=v/u1 obeys w'=C/(Pinf F^2), Pinf=4-5z^2+z^4; this kills all negative w coefficients",
+    "unbounded_exclusion": "U=G/F has U'=1/(2Pinf F^2) and unbounded coefficient norm, so bounded w=c+2CU forces C=0",
+    "local_kernel": "ker(Kcal:E_z->E_z)=K zF",
+    "global_intersection": "Global v has only nonpositive z powers from its Tate polynomial part, but K zF has strictly positive powers; therefore v=0",
+    "row_scalar_equivalence": "h(v)=(-2Pv'+Av,v); L(h(v))=(-2Kcal(v),0)"
+  },
+  "source_boundary": {
+    "current_main": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+    "fourth_rotation_branch": "a3a9267e4143b3f61e81c8513e7ffff7c623b431",
+    "fourth_rotation_paper_sha256": "09e26d4322403c2f4e79f3050f5fbffb7acce9ec60c403ff24d68e26ad9023a1",
+    "branch_merged_into_main_claim": false,
+    "valuation_and_dimension5_reproved_or_recounted": false
+  },
+  "reuse": {
+    "classification": "RESULT_ONLY_STANDARD_COMPOSE_EXTEND_EXISTING_CM_KERNEL_RESULT",
+    "old_weak_gluing_author": "EM-FREE-CF1677",
+    "old_frame_and_normal_form_author": "EM-DIRECT-88303D",
+    "strong_embedding_partial_fractions_and_valuation_author": "EM-DIRECT-38A864",
+    "new_obligation": "Replace unavailable strong full-gauge multiplication by bounded scalar Wronskian arguments and exact coefficient-support intersection",
+    "new_global_tool_family": false,
+    "global_novelty_priority": false
+  },
+  "route_comparison": [
+    "Full weak-gauge transfer unavailable: strong elements are not assumed Robba-annulus functions and full gauges need not be bounded",
+    "Separated-cokernel/approximation data alone does not decide actual kernel or image",
+    "Selected bounded Wronskian route uses exact integral finite solutions and first infinity solution, with known second-column unboundedness"
+  ],
+  "nonclaims": [
+    "actual strong-image membership of (r,0)",
+    "existence of arbitrary strong primitives",
+    "Y/Z/kappa values or endpoint source evaluations",
+    "classification of closure(L(X))/L(X)",
+    "changed prime class, integral lattice, completion or frame",
+    "full unbounded-gauge action on E_z",
+    "native spatial dimensions, clocks, physical laws, or formal Task completion"
+  ],
+  "execution": {
+    "scientific_program": false,
+    "scientific_import": false,
+    "symbolic_checker": false,
+    "recurrence_samples": 0,
+    "actual_BRC_or_formal_Task_run": false
+  },
+  "independent_review_targets": [
+    "finite scalar-coordinate elimination and integrality",
+    "faithful strong embeddings at finite points",
+    "constant field K and residue of a derivative",
+    "exact c0 principal-part extraction",
+    "actual JH infinity orientation and Pinf sign",
+    "no illicit multiplication by unbounded G or full gauge",
+    "valuation input is the existing reviewed branch version",
+    "support intersection and row/scalar equivalence"
+  ]
+}

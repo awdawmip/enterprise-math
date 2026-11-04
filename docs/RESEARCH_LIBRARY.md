@@ -6,6 +6,8 @@
 
 ## 2026-11-04 冷线推进与完整母题盘点
 
+[第二批三条冷线](research_library/20261104/SECOND_PASS.md)追加 Hodge 固定支撑 rank-one torsion-free 障碍、CELL U27F-02 精确事件来源与条件桥障碍、CM literal strong completion 的水平核为零。各有不同代理的冻结稿复核；两批共七个科学服务单元，不等于七个正式任务接受或101母题覆盖。第一批已在 PR1768 合并并逐文件读回。
+
 [本批研究、公式与复用目录](research_library/20261104/README.md)保全四条线：Student/Parity 在有界总尺度的大第二间隙正性及紧域归约、R004 标记环境商与顺序约束、带独立符号翻转的有限观察者 sharp minimum128、C34 单轨迹校准障碍与重复实验秩置信证书。四份非作者复核分别绑定原稿哈希；原创建状态与后续审核分开，未作正式 Task 接受或 Foundation 晋升。
 
 [完整结构盘点](../research_notes/balanced_resume_20261104/inventory/all_declared_parent_groups.json)记录 101 个声明母题和 525 个结构 publication 叶；[首批实际结果](../research_notes/balanced_resume_20261104/FIRST_PASS_OUTCOMES.json)只计四个科学服务单元。它们不代表全部母题已推进，实时 owner/lease 未据此推定。原有12分卷继续作为历史文献视图。[方法复用](research_library/20261104/METHODS.md)提供输入边界和来源，不新增工具族。
@@ -96,4 +98,5 @@ python tools/enterprise_toolbox.py methods CELL closure port budget
 - X6 的部分附件、局部分离器审核、较早公式定位及未审核推广仍保留缺口；BRC 中撤回引理、未闭父问题和未执行桥接不因整理而升级。
 
 原生条目采用固定六维离散 Cell 空间的签名坐标图，时间在需要时另行定型。外部经典分析／代数模型保持其声明类型；本目录不据此生成全 X6 传播结论或物理定律。
+
 

@@ -1,0 +1,46 @@
+{
+  "schema": "LOCAL_HODGE_RANK_ONE_NORMAL_SUPPORT_FILTER_V1",
+  "status": "AUTHOR_PROOF_PENDING_INDEPENDENT_REVIEW_NOT_REGISTERED",
+  "classification": "STANDARD_DEFORMATION_AND_DEPTH_TOOLS_APPLIED_TO_ENLARGED_H0P_FAMILY",
+  "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+  "old_result": "RR-D0D2E8489B7EC4AE9AB4",
+  "inputs": {
+    "X": "Smooth projective complex variety",
+    "Z": "Smooth integral closed subvariety of X",
+    "E": "Coherent rank-one torsion-free sheaf on Z",
+    "X_R": "Projective first-order deformation over C[epsilon]/epsilon^2",
+    "kappa": "Its actual Kodaira-Spencer class",
+    "optional_T": "Declared finite-dimensional space of ambient deformation directions"
+  },
+  "calculation": "delta_Z(kappa) = restriction followed by T_X|Z -> N_Z/X",
+  "outputs": {
+    "if_delta_nonzero": "NO_PERFECT_LIFT of i_*E over specified X_R",
+    "if_delta_zero": "NOT_DECIDED_BY_THIS_FILTER",
+    "kernel_relation": "ker complete_AtKS(i_*E) is contained in ker delta_Z",
+    "rank_relation": "rank complete_AtKS|T >= rank delta_Z|T",
+    "image_relation": "im complete_AtKS|T surjects to im delta_Z|T; injectivity is not asserted"
+  },
+  "proof_dependencies": [
+    "Rank-one torsion-free is locally a line bundle off codimension >=2 on smooth integral Z",
+    "A perfect derived lift of a sheaf over dual numbers is a flat sheaf",
+    "Annihilator of locally cyclic lifted sheaf recovers an actual embedded support deformation",
+    "Depth >=2 makes H1 restriction away from singular locus injective",
+    "Standard complete Atiyah-Kodaira-Spencer perfect-lift criterion with declared hypotheses"
+  ],
+  "fixed_H0P_application": {
+    "same_carrier": "K=Q(i), lattice Z[i]^6, h=diag(1,1,1,-1,-1,-3), A0=E^3 x E^3, diagonal Z",
+    "D0": "diag(1,1,3)",
+    "normal_map": "B -> D0^(-1) transpose(B) - B",
+    "old_normal_kernel": "span(E11,E22,E12+E21)",
+    "new_uniform_complete_rank_lower_bound": 6,
+    "uniform_obstructed_direction": "B=E33; normal image = -(2/3) E33",
+    "chern_character": "ch3(j_*E)=[Z], with same nonzero exceptional projection",
+    "strict_extension_examples": "L tensor I_C for any line bundle L and subscheme C of dimension <=1, including nonreduced curves",
+    "exact_rank_claimed_for_new_family": false
+  },
+  "excluded_outputs": ["converse or positive lifting when delta=0", "exact rank six for every member", "full Ext basis", "unrestricted mixed/perfect no-go", "higher-order unobstructedness", "very-general algebraicity", "Hodge conjecture decision"],
+  "execution": "Proof only; source reading, byte comparison and hashes only. No scientific program or numerical experiment run.",
+  "task_state_changed": false,
+  "positive_H0R_dependency_supplied": false,
+  "novel_global_tool_family_claimed": false
+}
