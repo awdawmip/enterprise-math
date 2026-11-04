@@ -107,3 +107,55 @@ def main():
     print('examples:',dict(sorted(examples.items())))
 
 if __name__=='__main__':main()
+
+
+def full_padic_check(limit=2000):
+    """Exact finite p^2/p^3 original *full* unweighted and moment test."""
+    records=defaultdict(lambda:{'primes':0,'modp2_equal':0,'modp3_equal':0})
+    samples={}
+    raw_checks=0
+    for p in primes(limit):
+        mod=p**3
+        a=b=1
+        A=B=1
+        Ua=Ub=0
+        inv36=pow(36,-1,mod)
+        inv576=pow(576,-1,mod)
+        for k in range(p-1):
+            stepinv=pow(k+1,-3,mod)
+            a=a*(2*k+1)*(3*k+1)*(3*k+2)*stepinv*inv36%mod
+            b=b*(4*k+1)*(4*k+2)*(4*k+3)*stepinv*inv576%mod
+            A=(A+a)%mod
+            B=(B+b)%mod
+            Ua=(Ua+(k+1)*a)%mod
+            Ub=(Ub+(k+1)*b)%mod
+            if p in (5,7,11,13,19,97,373):
+                n=k+1
+                assert a==comb(2*n,n)**2*comb(3*n,n)*pow(216,-n,mod)%mod,(p,n,'a')
+                assert b==comb(2*n,n)**2*comb(4*n,2*n)*pow(2304,-n,mod)%mod,(p,n,'b')
+                raw_checks+=2
+        e3=1 if pow(-3,(p-1)//2,p)==1 else -1
+        e6=1 if pow(-6,(p-1)//2,p)==1 else -1
+        delta=(A-e3*B)%mod
+        row=records[p%24];row['primes']+=1
+        row['modp2_equal']+=int(delta%(p*p)==0)
+        row['modp3_equal']+=int(delta==0)
+        assert delta%(p*p)==0,(p,delta)
+        assert (delta==0)==(e6==1),(p,delta,e6)
+        if p%24 in (13,19):
+            repair=(6*Ua-8*Ub)%mod
+            assert repair%(p*p)==0,(p,repair)
+            assert (delta+repair)%mod==0,(p,delta,repair)
+        if p in (5,7,11,13,17,19,23,37,73,97,373):
+            samples[p]={'A_full_mod_p3':A,'B_full_mod_p3':B,
+                        'eps_minus3':e3,'eps_minus6':e6,
+                        'signed_defect_mod_p3':delta,
+                        'signed_defect_quotient_p2':delta//(p*p),
+                        'target_weighted_moment_repair_mod_p3':(6*Ua-8*Ub)%mod if p%24 in (13,19) else None}
+    print('PASS full unweighted p^2 and character-graded p^3:',len(primes(limit)),'primes <=',limit)
+    print('full p-adic by mod24:',dict(sorted(records.items())))
+    print('PASS independent original binomial modulo p^3 terms:',raw_checks)
+    print('full p-adic samples:',dict(sorted(samples.items())))
+
+if __name__=='__main__':
+    full_padic_check()
