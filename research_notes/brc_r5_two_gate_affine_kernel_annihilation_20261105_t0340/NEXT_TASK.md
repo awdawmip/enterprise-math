@@ -1,0 +1,9 @@
+# R5 continuation: full four-dimensional hull certificates for lawful two-gate models
+
+Mother target: strictly positive P/Q stopped BRC with unrestricted P/Q declarations, hull(O4(FULL))=hull(O4(seedless LR)) but O4(FULL) != O4(seedless LR) as actual sets. Frozen research input GLOBAL a01383f825ef9d43b4b754254303298c64041568 and EM 86149263e38c22292c9def1e0f69092efa1be77e.
+
+New frontier: source-covariance D_j and second-gate interaction E_l satisfy exact equations (1)-(3) in RESEARCH.md. A common, column-affine continuation kernel can annihilate nonzero D through a second gate, and a nonuniform second action can reveal it in stopping times. 6561 deterministic policies checked in VERIFY.py. This does not settle full hull equality.
+
+Next discriminating question: in this explicit rational 2-gate P/Q model and the minimally perturbed lawful nonaffine M', is full 4D convex hull equality possible when all legal actions and free declarations are allowed? Enumerate deterministic FULL first and second actions and terminal labels; enumerate seedless LR deterministic policies by *observed* t,r keys, not history; use exact Fraction/integer hull membership or support Farkas certificates. Test changes to the K and M parameter family only after identifying the exact separating witness or cancellation.
+
+Deliverable: exact 4D vertex sets (possibly de-duplicated with an auditable map), an exact hull inclusion or separating functional, source code with documented coverage, and — only if complete hull equality is proved — a semialgebraic LR real-behavior nonmembership certificate. Preserve all hidden provenance while deriving; do not infer real-image inequality from a nonzero canonical-policy difference. Retain author-side / no CLAIM / no admission classification until independent control status supports more.
