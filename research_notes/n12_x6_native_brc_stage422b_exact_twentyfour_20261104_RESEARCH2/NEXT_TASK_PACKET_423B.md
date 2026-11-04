@@ -1,0 +1,9 @@
+# Stage423-B — Multisource coupled-stack bounds and direct class counting
+
+Parent: Stage422-B, 2026-11-04, source proof and exact validation on Draft PR #1736. The exact historical future quotient for three Q POPs and two paired CANCELs is q_(3,2)(F_n)=24 for every integer n>=11. The new general invariant for synchronized append and paired cancellation is surviving-appended-Q <= surviving-appended-P, hence original deletion count dQ <= Q-POP-used + dP. The specialized 24-class upper proof uses three types: B-capped s=n-5 (1 key), common 6+6 original tail when P ends A^3 (14 keys), and fixed-P with common Q-last-7 (9 keys). Twelve explicit attempted probes provide 24 lower-witness signatures in F11 and front-padding preserves them for all n.
+
+Frozen scientific inputs: GLOBAL bf84bd7c61a2444b59b1da96be57df0e9ae47e53; EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419; original P000 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Keep complete six-component endpoints, both full directed J, absolute-position K, original word provenance, attempted-operation enabledness and all twelve native APP directions.
+
+Next A: generalize the coupled-stack invariant to k sources, asymmetric POPs, different cancellation arities and synchronization incidence graphs; give exact hypotheses, minimal counterexamples and deletion-frontier formulae. Next B: connect the 24-class quotient to Stage412 remaining-Euler-edge/J/K dynamic programming to calculate exact 24 class populations without enumerating ordered original path pairs, with accounted preprocessing and integer input encoding. Next C: seek a native-X6 observer/minimal-memory compiler with rigorous source-to-state representation and finite-cost bounds.
+
+Status: author-side proof + actual exact integer verification saved; independent Driver proof review, live Source Owner, native CLAIM/Result and canonical admission separately pending. No new frozen science or P000 alteration.

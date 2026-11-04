@@ -1,0 +1,67 @@
+{
+  "marker": "STAGE422B_EXACT_TWENTY_FOUR_COUPLED_STACK_PASS",
+  "theorem": "q_(3,2)(F_n) = 24 for all n >= 11",
+  "frozen_global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+  "frozen_em": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+  "p000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488",
+  "finite_n_checked": [
+    11,
+    40
+  ],
+  "total_original_histories_checked": 16760,
+  "traces_examined": 30382,
+  "same_group_trace_comparisons": 911460,
+  "lower_bound_12_explicit_probe_cert": {
+    "11": 24,
+    "12": 24,
+    "16": 24,
+    "30": 24,
+    "40": 24
+  },
+  "snapshots": {
+    "11": {
+      "history_count": 56,
+      "safe_7_8_key_count": 43,
+      "new_sufficient_classes": 24,
+      "b_capped_history_count": 6
+    },
+    "12": {
+      "history_count": 72,
+      "safe_7_8_key_count": 44,
+      "new_sufficient_classes": 24,
+      "b_capped_history_count": 8
+    },
+    "16": {
+      "history_count": 156,
+      "safe_7_8_key_count": 44,
+      "new_sufficient_classes": 24,
+      "b_capped_history_count": 16
+    },
+    "30": {
+      "history_count": 702,
+      "safe_7_8_key_count": 44,
+      "new_sufficient_classes": 24,
+      "b_capped_history_count": 44
+    },
+    "40": {
+      "history_count": 1332,
+      "safe_7_8_key_count": 44,
+      "new_sufficient_classes": 24,
+      "b_capped_history_count": 64
+    }
+  },
+  "finite_trace_language": [
+    {
+      "max_APP": 1,
+      "APP_alphabet_size": 12,
+      "max_trace_steps": 6
+    },
+    {
+      "max_APP": 2,
+      "APP_alphabet_size": 2,
+      "max_trace_steps": 7
+    }
+  ],
+  "execution_note": "Condensed record of actual full local REPRO_STAGE422B_EXECUTED.json output; full probe traces are literal in REPRO_STAGE422B.py, which was executed successfully in this run.",
+  "statement_status": "AUTHOR_SIDE_PROOF_WITH_FINITE_REPRO; INDEPENDENT_REVIEW_PENDING"
+}
