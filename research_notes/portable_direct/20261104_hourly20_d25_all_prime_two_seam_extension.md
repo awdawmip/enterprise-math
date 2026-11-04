@@ -40,7 +40,7 @@ Using the companion Python standard-library program, original coefficients, both
 
 The further identity
 W_p = V_p = ( (-3)/p ) p (mod p^3)                                         (5)
-was verified for these 667 primes, and is **FINITE-DATA CANDIDATE ONLY** in this work. For p=5 mod6 the observed common residue is -p; for p=1 mod6 it is +p. No all-prime proof or novelty claim is made for (5), and existing published results on these exact weighted sums need specific prior-art checking. Examples: p=5,11,23 yield respectively residues 120 mod125, 1320 mod1331, 12144 mod12167; p=13,19,97,373 yield p itself.
+was verified for these 667 primes. The quartic V_p part is an **already published theorem**, as recorded in the literature-aware refinement below; the 216 W_p part and equality of the two remain finite-data candidates in this work. For p=5 mod6 the observed common residue is -p; for p=1 mod6 it is +p. No all-prime proof or novelty claim is made for (5), and existing published results on these exact weighted sums need specific prior-art checking. Examples: p=5,11,23 yield respectively residues 120 mod125, 1320 mod1331, 12144 mod12167; p=13,19,97,373 yield p itself.
 
 BRC observer: indexed signed original a,b populations, arithmetic p-valuations, path/cut provenance and future finite Green operation; no unproved native X6 transfer, no replacement of a fixed-373 native benchmark.
 
@@ -49,3 +49,16 @@ BRC observer: indexed signed original a,b populations, arithmetic p-valuations, 
 Next small scientific problem: an actual terminating hypergeometric/WZ certificate for the remaining cancellation on the RHS of (4). Test proposed identity including endpoints for p=5,11,13,19,23,97,373, then check prior-art status of all-class (5). The frozen D24 Delta_p-R_p second-digit bridge and native fixed-373 H0/B0/rank/Frobenius/independent replay stay separate.
 
 Observed gateway 0.6.11: UPSTREAM_CODE_REVIEW_REQUIRED, research_authority_granted=false, executor_binding_configured=false, active_jobs 5/5. Standalone recovery_status not exposed in this client. No request reissue, cross-lane session, CLAIM, OPEN, native checkpoint, Result or admission. Control issue #1558 and native-373 issue #1559 remain assigned support paths; current detailed status was not mutated. GitHub author-side evidence is neutral, not Source durable checkpoint.
+
+## Literature-aware refinement (same research turn)
+
+Guo and Zudilin, *A q-microscope for supercongruences* (arXiv:1803.01830, revised 2019), Theorem 1.1 and its q→1 specialization establish for **all primes p>3**:
+[
+V_p=sum_{k=0}^{p-1}rac{inom{4k}{2k}inom{2k}{k}^{2}}{2^{8k}3^{2k}}(8k+1)
+equiv pleft(rac{-3}{p}ight)pmod{p^3}.
+]
+Exact coefficient match: the denominator 2^(8k)*3^(2k)=2304^k, and the two binomial factors multiply to (4k)!/(k!)^4. Source: https://arxiv.org/abs/1803.01830 (abstract; text equations (2), (5), theorem 1.1). This is **established external mathematics**, not a discovery of Enterprise Math or merely numerical evidence.
+
+Therefore the experimentally checked *pair* (5) has **asymmetric status**: its quartic V_p branch is a proven published theorem, while the 216 W_p branch and their comparison remain finite-data candidates here. On the mother target classes p≡13,19 (mod24), (-3/p)=+1, so the 216 target W_p≡p is *equivalent* (using this published theorem) to the unresolved mixed-kernel cancellation W_p−V_p≡0 mod p³. The exact all-prime Green/two-seam reduction (4) supplies an independent source-preserving representation of that obligation, not a substitute proof. For p≡5 (mod6), the known V_p value is −p, so testing the 216 signed extension on those primes adds a genuinely different diagnostic regime.
+
+The 2019 published proof does not establish the six-channel/source-provenance Green decomposition or native X6/BRC interpretation. Conversely this author-side decomposition does not extend the theorem's admission status. Next action: use the Guo–Zudilin V theorem as a consumed input and seek a terminal certificate for W−V (or a sourced pre-existing W theorem), retaining the D24 second-digit bridge as separate.
