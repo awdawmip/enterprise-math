@@ -67,7 +67,9 @@ Executed exact standard-library integer checker: `d25_hesse_cm_inert_first_digit
 Retain the typed **(original coefficient source, prime, valuation band, A, M, W, Hesse Hasse, field of definition)** observer. CM/Hasse vanishing is an exact **first-digit projection** and does not erase higher digits or independent H0/B0 native evidence. BRC applicability audit: this classical hypergeometric family has no evidenced native BRC carrier or BRC operation under the frozen Task; do not claim a BRC theorem from the observer notation. Actual useful reuse here is source/valuation preservation and exact finite-field mapping.
 
 External source locators:
-- Classical Hilbert class polynomial -24: https://numberdb.org/Hilbert_class_polynomials
+- Specific Hilbert class polynomial H_-24 coefficients: https://oeis.org/A305474 (row D=-24: [14670139392, -4834944, 1]).
+- CM j-values with discriminant -24 appearing explicitly in Table 2 of a Cambridge-published article: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/431DD2D83596708EE2F2936BF6B85292/S0008414X00002819a.pdf/mahler-measures-as-linear-combinations-of-l-values-of-multiple-modular-forms.pdf
+- Classical Hilbert class polynomial directory: https://numberdb.org/Hilbert_class_polynomials
 - Deuring criterion (explicit theorem): https://link.springer.com/article/10.1007/s10231-024-01528-x
 - Hesse-pencil context: https://arxiv.org/abs/1606.08352
 - Prior D25 Clausen-square author-side proof: `research_notes/portable_direct/20261104_onhour_d25_dual_clausen_first_digit_cm_observer.md`.
