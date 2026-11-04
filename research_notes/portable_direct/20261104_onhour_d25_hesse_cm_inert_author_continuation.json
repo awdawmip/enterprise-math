@@ -1,0 +1,78 @@
+{
+  "schema": "EM_AUTHOR_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-04",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE_ONLY",
+  "status": "CLASSICAL_CM_COROLLARY_PROVED_EXACT_CHECKED_UNREVIEWED_NOT_ADMITTED_REGISTER_PENDING",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_objective": "D24 frozen Delta_p-R_p=0 mod p for p=13,19 mod24; original W216-V2304=0 mod p^3; fixed-373 native H0/B0 required independently",
+  "prior_source": "research_notes/portable_direct/20261104_onhour_d25_dual_clausen_first_digit_author_continuation.json",
+  "completed_units": [
+    "Original finite-field Clausen squares for the 216 (p=1 mod6) and 2304 (p=1,3 mod8) coefficient families (consumed from previous author work)",
+    "New p=6r+1 all-prime first-digit criterion: A216(p)=0 modp iff (-6/p)=-1; hence exactly p=13,19 mod24 and weighted first moment and W216 vanish modp",
+    "Classical quadratic Gauss transform through z=(2+sqrt2)/4 to Hesse Hasse invariant, Hesse CM j satisfying Hilbert H_-24, and Deuring splitting criterion",
+    "Exact finite check 611 primes 7<=p<=10000 and 22 coefficientwise quadratic polynomial transformations"
+  ],
+  "theorem_scope": {
+    "primes": "p>=7 prime, p=1 mod6",
+    "exact_statement": "A216_full ≡ 0 modp iff (-6/p)=-1; in the inert classes M216_full≡W216_full≡0 modp",
+    "dependence": "Prior exact Clausen polynomial square; classical Gauss quadratic transformation, Hesse Hasse criterion, Deuring CM reduction and Hilbert class polynomial of discriminant -24",
+    "cm_field": "Q(sqrt(-6))",
+    "cm_discriminant": -24,
+    "source_observers": [
+      "original 216 a_k",
+      "p-adic valuation",
+      "full A/M/W",
+      "Hesse Hasse polynomial",
+      "finite extension F_p[sqrt2]",
+      "CM discriminant"
+    ],
+    "proof_status": "SCOPED EXACT COROLLARY, UNREVIEWED, NOT_ADMITTED",
+    "independent_checks": {
+      "eligible_prime_count": 611,
+      "inert_zero_count": 312,
+      "split_nonzero_count": 299,
+      "full_polynomial_transform_prime_count": 22,
+      "failure_count": 0
+    }
+  },
+  "current_unfinished_unit": "For inert target classes construct the first nonzero p-adic coefficient/moment defect, prove D_p=(A216_full-B2304_full)/p² modp and exact negative moment repair; complete W216-V2304 modp³ by signed WZ/Green certificate. Preserve native H0/B0 separately.",
+  "next_exact_action": "Derive the original full-source p² defect and signed moments without truncating p-adic upper bands, test p=13 (D=7),19 (D=1),373 (D=241), then seek a uniform signed telescoping/Green relation; separately support native p=373 benchmark issue #1559.",
+  "no_repeat": [
+    "already proved D24 unit reciprocity",
+    "Guo-Zudilin 2304 double-truncation theorem",
+    "prior 216/2304 Clausen-square proofs",
+    "repeat 1227 prime first-digit enumeration solely to report status"
+  ],
+  "native_session": "NOT_FRESHLY_VERIFIED",
+  "native_claim": "NOT_ESTABLISHED",
+  "native_run": "NOT_ESTABLISHED",
+  "native_checkpoint": "NOT_WRITTEN",
+  "result": "NOT_ADMITTED",
+  "request_receipts": [
+    {
+      "request_id": "onhour-d25-20261104-1702-continuation-read",
+      "operation": "continuation",
+      "status": "FAILED",
+      "error": "SOURCE_TREE_SIZE_LIMIT: files=20001/20000; bytes=536420029/1073741824",
+      "source_sha": "5b05a2828a84b3fb73c6069d9dd0af6fb2a0aa6c",
+      "retry": "NO_REPLAY"
+    },
+    {
+      "request_id": "research-onhour-20261031-0205-dispatch-r15",
+      "receipt": "awdawmip/kimi-query-bridge#6633 COMPLETE/FAILED UPSTREAM_CODE_REVIEW_REQUIRED",
+      "retry": "NO_REPLAY"
+    }
+  ],
+  "source_status": "em_status 0.6.11 research_authority_granted=false; source_sync.control CODE_REVIEW_REQUIRED at 2026-11-04 17h Asia/Hong_Kong; current Source write not established",
+  "native_support": "awdawmip/enterprise-math#1559",
+  "native_benchmark": "[X]U mod139129 for p=373, module rank, actual semilinear Frobenius, independent replay; NOT_EXECUTED by this unit",
+  "old_staging": "three historical neutral independent sources; not adopted into Result",
+  "author_proof_path": "research_notes/portable_direct/20261104_onhour_d25_hesse_cm_inert_first_digit_proof.md",
+  "author_checker_path": "research_notes/portable_direct/d25_hesse_cm_inert_first_digit_checker_20261104.py",
+  "author_publication": "GITHUB_MAIN_AUTHOR_SIDE_PORTABLE_NOT_SOURCE_CHECKPOINT",
+  "release_or_handoff": "NO_NATIVE_CLAIM_TO_RELEASE"
+}
