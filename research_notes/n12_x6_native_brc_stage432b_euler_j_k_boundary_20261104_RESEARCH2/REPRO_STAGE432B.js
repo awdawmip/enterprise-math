@@ -79,7 +79,7 @@ function directWords(E,endpoint){
       for(const [k,v] of seen)if(expected.get(k)!==v)return;
       words.push(w);return;
     }
-    for(const x of active)rec(x);
+    for(const x of active)rec(w+x);
   }
   for(const x of active)rec(x);return words;
 }
