@@ -1,0 +1,25 @@
+PREFIX-487: N-only, NB-only, triple-source exact reachability
+GATE=aab
+n=0 base=1 N=1 N_only=1 NB_only=0 NBC=0 check=PASS
+n=1 base=11 N=7 N_only=7 NB_only=0 NBC=0 check=PASS
+n=2 base=74 N=32 N_only=32 NB_only=0 NBC=0 check=PASS
+n=3 base=347 N=107 N_only=107 NB_only=0 NBC=0 check=PASS
+n=4 base=1278 N=282 N_only=280 NB_only=1 NBC=1 check=PASS
+n=5 base=3952 N=633 N_only=617 NB_only=8 NBC=8 check=PASS
+n=6 base=10711 N=1270 N_only=1201 NB_only=34 NBC=35 check=PASS
+n=7 base=26133 N=2342 N_only=2128 NB_only=103 NBC=111 check=PASS
+n=8 base=58496 N=4043 N_only=3506 NB_only=251 NBC=286 check=PASS
+n=9 base=121853 N=6618 N_only=5455 NB_only=526 NBC=637 check=PASS
+GATE=aba
+n=0 base=1 N=1 N_only=1 NB_only=0 NBC=0 check=PASS
+n=1 base=11 N=7 N_only=7 NB_only=0 NBC=0 check=PASS
+n=2 base=74 N=32 N_only=32 NB_only=0 NBC=0 check=PASS
+n=3 base=348 N=102 N_only=102 NB_only=0 NBC=0 check=PASS
+n=4 base=1280 N=257 N_only=255 NB_only=1 NBC=1 check=PASS
+n=5 base=3954 N=558 N_only=542 NB_only=8 NBC=8 check=PASS
+n=6 base=10713 N=1090 N_only=1023 NB_only=33 NBC=34 check=PASS
+n=7 base=26135 N=1966 N_only=1766 NB_only=96 NBC=104 check=PASS
+n=8 base=58498 N=3331 N_only=2847 NB_only=225 NBC=259 check=PASS
+n=9 base=121855 N=5366 N_only=4350 NB_only=456 NBC=560 check=PASS
+CHECK_DOMAIN=n:0..9;brute:n:0..4;source_masks:ALL
+ALL_CHECKS_PASS
