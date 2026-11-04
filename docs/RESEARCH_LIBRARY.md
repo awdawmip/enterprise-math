@@ -4,9 +4,15 @@
 
 本目录按对象和适用条件整理研究，提供结论、公式、证明位置、作者、原审核、复用关系与未支付缺口。下列 435 条所属的历史文献整理阶段在暂停探索期间完成；该整理阶段不新增证明、数学审核、工具接受、Lean 证明或 Foundation 晋升，也未执行科学计算。该历史边界不表示当前研究仍暂停。
 
+## 2026-11-04 冷线推进与完整母题盘点
+
+[本批研究、公式与复用目录](research_library/20261104/README.md)保全四条线：Student/Parity 在有界总尺度的大第二间隙正性及紧域归约、R004 标记环境商与顺序约束、带独立符号翻转的有限观察者 sharp minimum128、C34 单轨迹校准障碍与重复实验秩置信证书。四份非作者复核分别绑定原稿哈希；原创建状态与后续审核分开，未作正式 Task 接受或 Foundation 晋升。
+
+[完整结构盘点](../research_notes/balanced_resume_20261104/inventory/all_declared_parent_groups.json)记录 101 个声明母题和 525 个结构 publication 叶；[首批实际结果](../research_notes/balanced_resume_20261104/FIRST_PASS_OUTCOMES.json)只计四个科学服务单元。它们不代表全部母题已推进，实时 owner/lease 未据此推定。原有12分卷继续作为历史文献视图。[方法复用](research_library/20261104/METHODS.md)提供输入边界和来源，不新增工具族。
+
 ## 2026-10-28 恢复研究与首轮平衡推进
 
-用户最新指令为“平衡推进所有研究”，研究已恢复。首轮对本月库的 12 个已知分类各交付一个有界研究或实际复用单元，原作者接口、精确公式与适用条件、独立非作者论文复核及下一义务见[首轮成果索引](../research_notes/balanced_resume_20261028/RESULTS_INDEX.md)、[机器索引](../research_notes/balanced_resume_20261028/RESULTS_INDEX.json)和[公平轮转实际结果](../research_notes/balanced_resume_20261028/FAIR_ROTATION_OUTCOMES.json)。其来源冻结于 `7d2acd57622cbe7ad6acf4547d450e918dd670bb`，复核逐项绑定冻结稿散列。
+当时用户指令为“平衡推进所有研究”，研究恢复。首轮对本月库的 12 个已知分类各交付一个有界研究或实际复用单元，原作者接口、精确公式与适用条件、独立非作者论文复核及下一义务见[首轮成果索引](../research_notes/balanced_resume_20261028/RESULTS_INDEX.md)、[机器索引](../research_notes/balanced_resume_20261028/RESULTS_INDEX.json)和[公平轮转实际结果](../research_notes/balanced_resume_20261028/FAIR_ROTATION_OUTCOMES.json)。其来源冻结于 `7d2acd57622cbe7ad6acf4547d450e918dd670bb`，复核逐项绑定冻结稿散列。
 
 新内容包括模二次读出最少 probes、CM 多端点 decoder 与强完备化边界、Parity/P11 的有界解析域、prime-fiber/CRT 容量、T6 必要 cuts、非反射线性边界、U2 adapter 和声明时钟下的 Euler/BRC 接口。12 是本轮服务单元数；Euler 尾附录、同稿多个推论及 21 个 T6 cuts 不拆作新增定理，BRC 时钟项明确计作实际复用。RSA 先例核对、缺包查证与跨线比较另行记录。
 
@@ -90,3 +96,4 @@ python tools/enterprise_toolbox.py methods CELL closure port budget
 - X6 的部分附件、局部分离器审核、较早公式定位及未审核推广仍保留缺口；BRC 中撤回引理、未闭父问题和未执行桥接不因整理而升级。
 
 原生条目采用固定六维离散 Cell 空间的签名坐标图，时间在需要时另行定型。外部经典分析／代数模型保持其声明类型；本目录不据此生成全 X6 传播结论或物理定律。
+

@@ -1,0 +1,252 @@
+{
+  "schema": "NONEXECUTABLE_FIRST_PASS_OUTCOMES_20261104_V1",
+  "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+  "publication_base": "09941b1e0c3fab9fa6b995c401206ff3fd714396",
+  "classification": "DOCUMENTARY_INTAKE_NOT_FORMAL_MATHEMATICAL_ACCEPTANCE",
+  "units": [
+    {
+      "id": "BR-20261104-STUDENT",
+      "line": "student_parity",
+      "author": "EM-ANALYSIS-3050DA",
+      "paper": "analysis/PARITY_BOUNDED_TOTAL_SCALE_LARGE_SECOND_GAP_AUTHOR.md",
+      "paper_sha256": "52332f92d0435d26c1e7985dba96d1be7fee508c98100fdcff66e8530fbb0207",
+      "interface": "analysis/PARITY_LARGE_SECOND_GAP_INTERFACE.json",
+      "review": "inventory/review_analysis/PARITY_LARGE_SECOND_GAP_INDEPENDENT_REVIEW.md",
+      "reviewer": "EM-REVIEW-53C747",
+      "review_sha256": "1eccc79089a4a8afb4f9af1314e34b35f1b5dc75e5d4103e608a8abf5b73efba",
+      "binding": "inventory/review_analysis/REVIEW_BINDING.json",
+      "review_finding": "PASS",
+      "mother_problem": "Original complete signed normalized Parity secant trace positivity",
+      "source_parent_group_relation": {
+        "kind": "SCIENTIFIC_SUPPORT_NOT_FORMAL_TASK_HANDOFF",
+        "parent_objective_id": "OBJ-ROUTE-A-PERFECT-PRIME-TABLE-CRITICAL-COFACTOR-ALL-M",
+        "task_id": "RS-PERFECT-PRIME-AP-HCM0-EXTREME-BRANCH-PARITY-DOMINATION",
+        "publication_id": "TP2-4F8D04C54528CFF5E1B2"
+      },
+      "assumptions": [
+        "Fixed integer m>=2; positive rational R",
+        "Original complete signed forms and both actual secant frames",
+        "S>=0,a>0,m(S+a)<=R,c>=C_m(R)"
+      ],
+      "result": "Gap >= b_m(R)[m(S+a+c)]^(2m-1)>0 with explicitly coefficient-defined positive rational C_m(R),b_m(R).",
+      "formulae": [
+        "s^(-(2m-1)) Gap -> kappa_m integral_0^1 u^(mr)(1-u^m)^(m-1)(1-u)^(m-1)du",
+        "C_m(R)=1/(m rho), b_m(R)=gamma/(2 q(R) Dmax)",
+        "Combined with the inherited all-c total-scale tail and all-S small-c strip, possible fixed-m counterexamples lie in S+a<A0 and delta<c<C."
+      ],
+      "remaining": [
+        "Compact middle domain sign",
+        "m-uniform estimates",
+        "Practical evaluated thresholds and full coefficientwise/parent claims"
+      ],
+      "reuse": "Existing signed secant/common-center metric, Beta integral, nilpotent calculus and rational coefficient majorants; no new method family.",
+      "execution_evidence": "Paper proof only; no scientific program or stopped P11/m7 consumer run.",
+      "status": "FROZEN_AUTHOR_WITH_DISTINCT_EXACT_VERSION_PAPER_REVIEW",
+      "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+      "formal_task_state": "UNKNOWN",
+      "formal_acceptance": false,
+      "root_mathematical_votes": 0,
+      "new_tool_family": false,
+      "new_scientific_service_units": 1,
+      "source_paths": {
+        "paper": "research_notes/balanced_resume_20261104/analysis/PARITY_BOUNDED_TOTAL_SCALE_LARGE_SECOND_GAP_AUTHOR.md",
+        "interface": "research_notes/balanced_resume_20261104/analysis/PARITY_LARGE_SECOND_GAP_INTERFACE.json",
+        "review": "research_notes/balanced_resume_20261104/inventory/review_analysis/PARITY_LARGE_SECOND_GAP_INDEPENDENT_REVIEW.md",
+        "binding": "research_notes/balanced_resume_20261104/inventory/review_analysis/REVIEW_BINDING.json"
+      }
+    },
+    {
+      "id": "BR-20261104-R004",
+      "line": "supplement_number_theory",
+      "author": "/root/research_nt_1104",
+      "paper": "nt/R004_EMBEDDED_DEFECT_AND_SEQUENTIAL_CONSTRAINTS.md",
+      "paper_sha256": "15004aff928f298eab4d052e97a8bd0b0c0ce5e473b280b7e13b38f991b472d8",
+      "interface": "nt/interface.json",
+      "review": "cm_formal/review_nt/R004_INDEPENDENT_REVIEW.md",
+      "reviewer": "EM-C34-D16900",
+      "review_sha256": "03c083bd2fa8ab2f3c7724ca69a8eb817e8c56599d6ac7b925a82b532d5977e9",
+      "binding": "cm_formal/review_nt/review_result.json",
+      "review_finding": "PASS",
+      "mother_problem": "R004 p-adic target-defect profile sufficiency under future operations",
+      "source_parent_group_relation": {
+        "kind": "SCIENTIFIC_SUPPORT_NOT_FORMAL_TASK_HANDOFF",
+        "parent_objective_id": "OBJ-EARLY-BOTTLENECK-REVISIT-20260930",
+        "task_id": "RS-R004-PADIC-TARGET-DEFECT-RESIDUAL-PROFILE-20260930",
+        "publication_id": "TP2-2F73D1BB1AAA29EF4FCD"
+      },
+      "assumptions": [
+        "External finite R-modules, R=Z/(p^K)",
+        "Fixed target; exactly labeled constraint additions and surjective coordinate cuts",
+        "Retain actual ambient quotient, embedded target, quotient/control maps"
+      ],
+      "result": "Same-profile and embedding/control-kernel collisions refute the compressed states; the marked ambient quotient gives exact sequential transport. At fixed labeled ambient/profile, declared future queries separate embedded targets.",
+      "formulae": [
+        "Q=V/A; D=q(B) subset Q",
+        "Constraint C: U=q(C), D_new= D/(D intersection U)",
+        "Surjective cut f: Vprime/f(A) is canonically V/(A+ker f)",
+        "For a fixed F_p^n basis and dimension d, conditional fixed-length capacity is ceil(log2 GaussianBinomial(n,d,p))."
+      ],
+      "remaining": [
+        "Efficient fully costed p-primary implementation",
+        "Restricted-language compression",
+        "Arbitrary refinements, inverse lifts, new targets and nonlinear queries outside stated language"
+      ],
+      "reuse": "Standard module quotient/third-isomorphism algebra, Gaussian-binomial counting and finite-class capacity; result-only application.",
+      "execution_evidence": "Author finite external-module checks PASS; distinct reviewer reran the same frozen implementation once and matched output except elapsed time. Not an independent implementation or universal proof by enumeration.",
+      "status": "FROZEN_AUTHOR_WITH_DISTINCT_EXACT_VERSION_PAPER_REVIEW",
+      "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+      "formal_task_state": "UNKNOWN",
+      "formal_acceptance": false,
+      "root_mathematical_votes": 0,
+      "new_tool_family": false,
+      "new_scientific_service_units": 1,
+      "source_paths": {
+        "paper": "research_notes/balanced_resume_20261104/nt/R004_EMBEDDED_DEFECT_AND_SEQUENTIAL_CONSTRAINTS.md",
+        "interface": "research_notes/balanced_resume_20261104/nt/interface.json",
+        "review": "research_notes/balanced_resume_20261104/cm_formal/review_nt/R004_INDEPENDENT_REVIEW.md",
+        "binding": "research_notes/balanced_resume_20261104/cm_formal/review_nt/review_result.json"
+      }
+    },
+    {
+      "id": "BR-20261104-NATIVE",
+      "line": "native_brc",
+      "author": "EM-NATIVE-3ED020",
+      "paper": "native/SIGNED_OBSERVER_MIN128.md",
+      "paper_sha256": "b16f1739c77546c3ae4079b041ebec4caaf79e2ecc61f7eb0cfb078a5b605aa3",
+      "interface": "native/INTERFACE.json",
+      "review": "analysis/review_native/SIGNED_OBSERVER_MIN128_INDEPENDENT_REVIEW.md",
+      "reviewer": "EM-ANALYSIS-3050DA",
+      "review_sha256": "d1b60d5db5b34af2f237295035536b40a3ac72a1ca872c1c7001f95999b5fd2f",
+      "binding": "analysis/review_native/SIGNED_OBSERVER_MIN128_REVIEW_RECEIPT.json",
+      "review_finding": "PASS_EXACT_STATED_SCOPE",
+      "mother_problem": "Existing finite Abelian translation-observer line, with independent coordinate sign flips added to its declared future language",
+      "source_parent_group_relation": {
+        "kind": "DOCUMENTED_RESEARCH_LINE_NO_EXACT_FORMAL_TASK_MATCH_LOCATED",
+        "parent_objective_id": null,
+        "original_source": "research_notes/free_native_discovery/20261017_EM_FREE_185026_TRANSLATION_PHASE_MIN64_AND_CLOSED_TRACE_WHOLE.json",
+        "boundary": "Related native observer themes do not establish a formal Task binding; no service credit is assigned to every native/P000 group."
+      },
+      "assumptions": [
+        "Finite Abelian group generated by six labeled xi",
+        "0 and all twelve signed xi are pairwise distinct",
+        "Every signed coordinate permutation induces its corresponding automorphism"
+      ],
+      "result": "Sharp minimum cardinality128 with unique labeled equality relation kernel; old64 quotient fails one allowed flip, and q128 is its coarsest operation-safe refinement.",
+      "formulae": [
+        "K*={v in (2Z)^6: sum_i v_i=0 mod4}",
+        "[Z^6:K*]=128",
+        "q128 retains one common parity bit beyond the fixed old q64"
+      ],
+      "remaining": [
+        "An actual native mechanism requiring or excluding the declared sign flips",
+        "Full Cell/packet/provenance preservation and physical clock/dynamics remain outside the theorem"
+      ],
+      "reuse": "Existing relation-index lemma and T6 operation-safe quotient/T7 equivariance; no new tool family or global novelty claim.",
+      "execution_evidence": "Hand proof and distinct hand review; no group enumeration or actual typed BRC execution.",
+      "status": "FROZEN_AUTHOR_WITH_DISTINCT_EXACT_VERSION_PAPER_REVIEW",
+      "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+      "formal_task_state": "UNKNOWN",
+      "formal_acceptance": false,
+      "root_mathematical_votes": 0,
+      "new_tool_family": false,
+      "new_scientific_service_units": 1,
+      "source_paths": {
+        "paper": "research_notes/balanced_resume_20261104/native/SIGNED_OBSERVER_MIN128.md",
+        "interface": "research_notes/balanced_resume_20261104/native/INTERFACE.json",
+        "review": "research_notes/balanced_resume_20261104/analysis/review_native/SIGNED_OBSERVER_MIN128_INDEPENDENT_REVIEW.md",
+        "binding": "research_notes/balanced_resume_20261104/analysis/review_native/SIGNED_OBSERVER_MIN128_REVIEW_RECEIPT.json"
+      }
+    },
+    {
+      "id": "BR-20261104-C34",
+      "line": "number_theory",
+      "author": "EM-C34-D16900",
+      "paper": "cm_formal/C34_SINGLE_TRAJECTORY_OBSTRUCTION_AND_REPLICATED_RANK_CERTIFICATE.md",
+      "paper_sha256": "c618c0eab825a9260f3f254dcf6e99fb731dc667559e9c7374520b871cd6f590",
+      "interface": "cm_formal/C34_SAMPLING_INTERFACE.json",
+      "review": "native/review_cm/REVIEW.md",
+      "reviewer": "EM-NATIVE-3ED020",
+      "review_sha256": "cee038dd8aeeb71b3b690f458e68652f991d33fb443dcb43c1fc7760ca9acec1",
+      "binding": "native/review_cm/REVIEW.json",
+      "review_finding": "BOUNDED_TECHNICAL_PASS",
+      "mother_problem": "Existing C34 partial-observation/colored-readout line: population calibration versus statistically certified hidden-rank observation",
+      "source_parent_group_relation": {
+        "kind": "DOCUMENTED_RESEARCH_LINE_NO_EXACT_FORMAL_TASK_MATCH_LOCATED",
+        "parent_objective_id": null,
+        "original_source": "research_notes/divisor_extrema/20261021_c34_partial_observation_colored_readout.md",
+        "boundary": "No exact C34 formal Task binding found in the bounded structural scan; not a claim that all finite-control or empirical-compatibility tasks were served."
+      },
+      "assumptions": [
+        "Declared independent whole error routes, allowed within-route memory",
+        "Positive coordinate gains for rank transport",
+        "For confidence: N iid replicas of the entire target-and-instrument window, fixed N/u/w/alpha and block design"
+      ],
+      "result": "Static random-effect routes obstruct consistent single-trajectory gain calibration; a two-route replicated-window Hankel minor certificate needs no gain calibration.",
+      "formulae": [
+        "Static eta=1/3 versus2/3 observed-law TV=1/4, hence radius1/6 maximal error probability>=3/8",
+        "Ergodic refresh construction gives finite-window TV<=1/4+6(T-1)lambda, not pointwise inconsistency at fixed lambda",
+        "K_G=(I_u tensor D_r) K_Gamma (I_w tensor D_s)",
+        "K=(L+1)q^2+(L+2)q, delta=sqrt(2log(2K/alpha)/N), L=u+w-2",
+        "3 rho delta ||inverse(Jhat)||_infinity<1 certifies a nonzero population rho-minor; M>=rho and hidden>=max(0,rho-q)"
+      ],
+      "remaining": [
+        "Actual whole-process independence and replica-design evidence",
+        "Power under quantified gains/conditioning or justified dependence assumptions",
+        "No optional-stopping, adaptive-design, floating-point or universal sample guarantee"
+      ],
+      "reuse": "Standard two-point testing, coupling, bounded-variable concentration, diagonal rank invariance and Neumann perturbation applied to C34.",
+      "execution_evidence": "Paper proof and distinct hand review only; no actual measurement dataset or scientific program.",
+      "status": "FROZEN_AUTHOR_WITH_DISTINCT_EXACT_VERSION_PAPER_REVIEW",
+      "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+      "formal_task_state": "UNKNOWN",
+      "formal_acceptance": false,
+      "root_mathematical_votes": 0,
+      "new_tool_family": false,
+      "new_scientific_service_units": 1,
+      "source_paths": {
+        "paper": "research_notes/balanced_resume_20261104/cm_formal/C34_SINGLE_TRAJECTORY_OBSTRUCTION_AND_REPLICATED_RANK_CERTIFICATE.md",
+        "interface": "research_notes/balanced_resume_20261104/cm_formal/C34_SAMPLING_INTERFACE.json",
+        "review": "research_notes/balanced_resume_20261104/native/review_cm/REVIEW.md",
+        "binding": "research_notes/balanced_resume_20261104/native/review_cm/REVIEW.json"
+      }
+    }
+  ],
+  "counts": {
+    "bounded_scientific_lines": 4,
+    "service_units": 4,
+    "distinct_exact_version_reviews": 4,
+    "declared_parent_groups_in_inventory": 101,
+    "claim_all_101_served": false,
+    "formal_task_claims": 0,
+    "new_formal_acceptances": 0,
+    "new_tool_families": 0,
+    "root_mathematical_votes": 0
+  },
+  "status_policy": "Original author/interface creation-time pending-review status is preserved byte-for-byte. Later exact-version reviews are separate overlay facts. Publication does not convert these into formal accepted Results.",
+  "coverage_boundary": "The two exact historical Task relations are scientific support only. Native and C34 have documentary mother-line sources but no exact formal Task binding established by this intake.",
+  "intake_debts": [
+    {
+      "round": "20261028 round3",
+      "head": "307e62efdfa33e16ad9b8aaed0559b588583bc99",
+      "pr": "https://github.com/awdawmip/enterprise-math/pull/1631",
+      "observed": "OPEN_UNMERGED"
+    },
+    {
+      "round": "20261028 round4",
+      "head": "a3a9267e4143b3f61e81c8513e7ffff7c623b431",
+      "observed": "PUBLISHED_BRANCH_NOT_MAIN",
+      "dedup_results": [
+        "CM v_p(a_(p^k))=-k and separated dimension5",
+        "C34 centered covariance supplement",
+        "FREE finite-neighbour support standard Simon reuse"
+      ]
+    }
+  ],
+  "next_fair_queue": [
+    "T6 later-order residual/budget or Hodge later-source recovery",
+    "CM actual strong image/kernel after dimension5",
+    "CELL G1-G5 or empirical-compatibility mechanism",
+    "Broader OAI7/CFD/Borsuk/logic exact source-and-state reconciliation"
+  ],
+  "no_automatic_successor": "Do not create constant variants or fill slots with fake progress. Review/source recovery retains its own evidence-work classification."
+}

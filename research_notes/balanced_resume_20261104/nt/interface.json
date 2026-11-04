@@ -1,0 +1,84 @@
+{
+  "schema": "LOCAL_R004_EMBEDDED_DEFECT_SUPPORT_INTERFACE_V1",
+  "status": "PROPOSED_LOCAL_EXTRACTION_NOT_REGISTERED_NOT_REVIEWED",
+  "classification": "COMPOSE_APPLIED_RESULT_ONLY",
+  "existing_task_id": "RS-R004-PADIC-TARGET-DEFECT-RESIDUAL-PROFILE-20260930",
+  "source_sha": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+  "author": "/root/research_nt_1104",
+  "scope": {
+    "domain": "External finite R-modules, R = Z/(p^K), prime p and positive K",
+    "allowed_operations": [
+      "Add labeled known-constraint submodules while retaining the original target",
+      "Apply specified surjective R-linear coordinate maps",
+      "Compose finitely many of these operations with exact transport of all input labels"
+    ],
+    "observations": ["exact resulting target-defect module", "p-adic layer profile", "cardinality", "zero/nonzero defect"],
+    "excluded": ["inverse coordinate lifts", "arbitrary refinement", "new target rows", "nonlinear queries", "approximation", "native spatial operators", "Heartbeat/BRC arithmetic"],
+    "native_bridge": "External algebraic carrier/readout only. No claim changes P000/native X6 or exports a Cell address."
+  },
+  "state": {
+    "Q": "An exact finite ambient module presentation, initially V/A",
+    "q": "Actual quotient map V -> Q with original input/control labeling",
+    "D_embedded": "The actual target image q(B) as a submodule of Q",
+    "coordinate_identifications": "Exact identifications needed to interpret constraints after each surjective coordinate change",
+    "not_sufficient": ["abstract D alone", "layer profile alone", "abstract types of Q and D alone", "only individually computed kernels for a table of controls"]
+  },
+  "operations": [
+    {
+      "name": "add_constraints",
+      "input": "Current marked state and exact submodule C in its current labeled coordinate domain",
+      "calculation": "U = q(C); pi: Q -> Q/U",
+      "output": "(Q/U, pi o q, pi(D_embedded)), retaining all coordinate identifications",
+      "certificate": "D_new is canonically D_embedded/(D_embedded intersect U)"
+    },
+    {
+      "name": "surjective_coordinate_cut",
+      "input": "Current marked state and a specified surjective R-linear map f: V -> Vprime",
+      "calculation": "N = ker(f); quotient Q by q(N)",
+      "output": "Marked quotient identified with Vprime/f(A), with target image and future control transport",
+      "certificate": "Vprime/f(A) is canonically V/(A+ker(f)); target defect is the image of B"
+    },
+    {
+      "name": "observe",
+      "input": "Current exact embedded defect",
+      "output": "Exact module presentation, p-adic profile, cardinality, or zero/nonzero as requested"
+    }
+  ],
+  "failure_conditions": [
+    "Reject an unproved non-surjective coordinate map in the cut operation",
+    "Reject profile-only or abstract-type-only inputs as full state unless a separate restricted-language certificate is supplied",
+    "Reject a missing control identification after quotient/coordinate changes",
+    "Do not infer a joint update from the sum of individually stored kernels",
+    "Do not treat a new target or inverse lift as covered by the retained-original-target theorem"
+  ],
+  "extracted_results": [
+    {"local_id": "R004-LOCAL-20261104-P1", "statement": "Exact constraint update and sequential quotient transport", "strength": "standard algebra applied to the declared R004 language"},
+    {"local_id": "R004-LOCAL-20261104-P2", "statement": "Surjective coordinate cuts are equivalent to quotienting by the transported coordinate kernel", "strength": "standard algebra applied"},
+    {"local_id": "R004-LOCAL-20261104-C1", "statement": "Rank-one Z/4 profile collision separated by the same constraint", "strength": "explicit exact counterexample; rank-one exponent minimality proved"},
+    {"local_id": "R004-LOCAL-20261104-C2", "statement": "Fixed ambient quotient and same profile still require target embedding", "strength": "explicit exact counterexample"},
+    {"local_id": "R004-LOCAL-20261104-C3", "statement": "Individual control kernels do not determine combined-update kernel", "strength": "explicit exact counterexample to that compressed control representation"},
+    {"local_id": "R004-LOCAL-20261104-T3", "statement": "At fixed labeled Q/profile, exact future behavior distinguishes every embedded D", "strength": "author proof, not independently reviewed"},
+    {"local_id": "R004-LOCAL-20261104-C4", "statement": "Field conditional fixed-length capacity is ceil(log2 Gaussian-binomial(n,d,p))", "strength": "application of standard Grassmann counting and finite-class capacity"}
+  ],
+  "cost_contract": {
+    "algorithmic_speedup_claimed": false,
+    "information_bound": "Conditional on p,n,d, a fixed ambient basis and common control interpreter; computational cost is not included in the bit count",
+    "must_account_for": ["input and control reading", "module and embedding presentation", "label/coordinate maps", "submodule sums and intersections", "quotient and normal-form construction", "profile calculation", "encoding and decoding", "preprocessing", "output recovery", "verification"],
+    "efficient_p_primary_implementation": "OPEN"
+  },
+  "verification": {
+    "script": "verify_r004_embedding.py",
+    "actual_command": "python verify_r004_embedding.py > verification.json",
+    "captured_result": "verification.json",
+    "raw_program_result": "PASS",
+    "actual_typed_BRC": false,
+    "status": "PASS_EXTERNAL_FINITE_MODULE_MODEL_ONLY_NOT_FORMAL_ADMISSION",
+    "general_evidence_proposed": "Written proofs for independent review; no dependency on execution output",
+    "brc_scope_determination": "OUTSIDE_SCOPED_RULE: exact external finite module algebra, with no heartbeat, BRC-Shor, native operator, or native residual attribution",
+    "brc_scope_sources": ["docs/HEARTBEAT_BRC_ONLY_ARITHMETIC.md", "research_constraints/heartbeat_brc_only.json", "docs/PORTABLE_RESEARCH_PROTOCOL.md"],
+    "scope_boundary": "The rule expressly does not extend to other professional mathematics. Ordinary exact arithmetic is not renamed BRC; no exemption or pending BRC gate is asserted."
+  },
+  "shared_state_mutation": false,
+  "task_completion_claimed": false,
+  "review_pending": true
+}

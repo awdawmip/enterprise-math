@@ -1,0 +1,58 @@
+{
+  "schema": "LOCAL_INDEPENDENT_TECHNICAL_REVIEW_V1",
+  "reviewer": "EM-NATIVE-3ED020",
+  "reviewer_session": "/root/research_native_1104",
+  "author": "EM-C34-D16900",
+  "created_at": "2026-11-04T08:53:41.746922+00:00",
+  "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+  "inputs": [
+    {
+      "path": "/workspace/agent_artifacts/balanced_resume_20261104/cm_formal/C34_SINGLE_TRAJECTORY_OBSTRUCTION_AND_REPLICATED_RANK_CERTIFICATE.md",
+      "sha256": "c618c0eab825a9260f3f254dcf6e99fb731dc667559e9c7374520b871cd6f590",
+      "read_scope": "complete visible document"
+    },
+    {
+      "path": "/workspace/agent_artifacts/balanced_resume_20261104/source_snapshot/research_notes/divisor_extrema/20261021_c34_partial_observation_colored_readout.md",
+      "sha256": "15cabd1b7cef47082a521706d5ebcb8ee48f4c6e0efaf4541fb1d3d9cf4bd1aa",
+      "read_scope": "complete visible document"
+    },
+    {
+      "path": "/workspace/agent_artifacts/balanced_resume_20261028/formal/round4/C34_CENTERED_COVARIANCE_SUPPLEMENT.md",
+      "sha256": "1377b67f565385cbd61e8a7cd5fad02468c726689e506c5bbb6dbac959455c53",
+      "read_scope": "complete visible document"
+    },
+    {
+      "path": "/workspace/agent_artifacts/balanced_resume_20261104/cm_formal/C34_SAMPLING_INTERFACE.json",
+      "sha256": "d8d966cd0c94af38af058eb4c4fc88cdcf674f4fce3978c42835e2c7fce09943",
+      "read_scope": "complete JSON"
+    }
+  ],
+  "review_body": "REVIEW.md",
+  "review_body_sha256": "cee038dd8aeeb71b3b690f458e68652f991d33fb443dcb43c1fc7760ca9acec1",
+  "disposition": "BOUNDED_TECHNICAL_PASS",
+  "blocking_findings": [],
+  "verified_claims": [
+    "Theorem1: complete observed law TV=1/4, including infinite history; randomized gain-estimation risk >=3/8 at closed radius1/6",
+    "Theorem2: independent ergodic retain/refresh route coupling gives uniform-in-class risk obstruction >=5/16; no fixed-model inconsistency asserted",
+    "Proposition3: centered cross-route Hankel rank invariant under positive unknown diagonal gains, hence <=M",
+    "Lemma4: K=(L+1)q^2+(L+2)q, Hoeffding union bound and centered entrywise error <=3delta",
+    "Theorem5: simultaneous entrywise control plus strict Neumann minor test gives valid adaptive-minor certificate for the fixed design"
+  ],
+  "review_method": "hand proof only; no scientific program execution",
+  "independence": {
+    "pre_freeze_proof_contribution": false,
+    "author_proof_repair": false,
+    "same_project_and_source_context": true,
+    "source_blind": false,
+    "formal_shared_review_vote": false,
+    "root_mathematical_votes": 0
+  },
+  "scope_limits": [
+    "conditional external probability/matrix model",
+    "independent window replicas must include latent instrument histories",
+    "no optional-stopping or adaptive-design confidence claim",
+    "no universal power guarantee or inverse rounding certificate",
+    "no native physical mechanism or general novelty claim"
+  ],
+  "source_write_status": "NOT_WRITTEN_LOCAL_REVIEW_PRESERVED_PUBLICATION_PENDING"
+}

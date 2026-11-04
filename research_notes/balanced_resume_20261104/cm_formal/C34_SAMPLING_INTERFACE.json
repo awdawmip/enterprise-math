@@ -1,0 +1,75 @@
+{
+  "schema": "LOCAL_RESEARCH_HANDOFF_V1",
+  "date": "2026-11-04",
+  "author": "EM-C34-D16900",
+  "execution_provenance": "/root/research_cm_formal_1104",
+  "identity_registration": "REGISTER_PENDING",
+  "research_mode": "TASK_RESEARCH",
+  "research_activity_id": null,
+  "formal_task_claim": null,
+  "shared_state_changed": false,
+  "status": "AUTHOR_PROVED_AWAITING_DISTINCT_NONCONTRIBUTING_REVIEW",
+  "paper": "C34_SINGLE_TRAJECTORY_OBSTRUCTION_AND_REPLICATED_RANK_CERTIFICATE.md",
+  "source_main_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+  "sources": [
+    {
+      "path": "research_notes/divisor_extrema/20261021_c34_partial_observation_colored_readout.md",
+      "git_blob": "4b374626ba07ca48eea9ed853e92de00826b7526",
+      "sha256": "15cabd1b7cef47082a521706d5ebcb8ee48f4c6e0efaf4541fb1d3d9cf4bd1aa",
+      "consumed": "Population calibration; whole-process independence with unrestricted route memory; deterministic Hankel minor test; sampling gap."
+    },
+    {
+      "commit": "397aeed183046480d083290db92dc1c79b980a74",
+      "path": "research_notes/balanced_resume_20261028/formal/round4/C34_CENTERED_COVARIANCE_SUPPLEMENT.md",
+      "local_preserved_path": "/workspace/agent_artifacts/balanced_resume_20261028/formal/round4/C34_CENTERED_COVARIANCE_SUPPLEMENT.md",
+      "sha256": "1377b67f565385cbd61e8a7cd5fad02468c726689e506c5bbb6dbac959455c53",
+      "consumed": "Centered versus raw moment definitions; G_l = D_r Gamma_l D_s; inherited target-rank conditions."
+    }
+  ],
+  "results": [
+    {
+      "local_label": "Theorem 1",
+      "kind": "exact_calibration_counterexample",
+      "inputs": "q=M=1; symmetric strict copy-refresh target with persistence 1/2; three independent stationary static error signs of common positive mean eta; whole-process mutual independence.",
+      "output": "At eta=1/3 versus 2/3, observed finite or infinite trajectory laws have TV=1/4. Every common-gain estimator has maximal error probability at radius 1/6 at least 3/8.",
+      "not_claimed": "Population nonidentifiability, or impossibility of all single-trajectory rank statistics."
+    },
+    {
+      "local_label": "Theorem 2",
+      "kind": "uniform_finite_sample_obstruction",
+      "inputs": "Replace each static error by an independent stationary two-state retain/refresh Markov chain, refresh probability lambda>0.",
+      "output": "Length-T observed-law TV at eta=1/3 versus 2/3 is at most 1/4+6(T-1)lambda. Taking lambda=1/(48 max(1,T-1)) gives maximal estimation error probability at least 5/16.",
+      "not_claimed": "Failure of pointwise consistency for a fixed stationary ergodic instrument."
+    },
+    {
+      "local_label": "Proposition 3",
+      "kind": "existing_factorization_application",
+      "inputs": "Two distinct independent whole error routes with positive coordinate gains; selected original target coordinates; Gamma_l=H A^l Sigma H^T.",
+      "output": "K_G=(I_u tensor D_r) K_Gamma (I_w tensor D_s), hence equal rank at most M; a certified rho-minor proves hidden-coordinate count at least max(0,rho-q).",
+      "not_required": "Gain calibration, a third route, a gain lower bound, invertibility of A, or positive definiteness of Sigma."
+    },
+    {
+      "local_label": "Lemma 4 and Theorem 5",
+      "kind": "conditional_fixed_design_confidence_certificate",
+      "inputs": "N iid replicas of the whole joint target-and-two-instrument window 0..L; L=u+w-2; q selected coordinates; N,u,w,alpha fixed in advance; Proposition 3 hypotheses.",
+      "moments_count": "K=(L+1)q^2+(L+2)q",
+      "entrywise_radius": "delta=sqrt(2 log(2K/alpha)/N); centered cross-moment entry error at most 3 delta simultaneously with probability >=1-alpha.",
+      "certificate": "An invertible empirical rho-minor Jhat with 3 rho delta ||inverse(Jhat)||_infinity < 1 certifies a nonzero corresponding population minor.",
+      "output": "With probability >=1-alpha every certificate returned within the prescribed fixed block is correct: M>=rho and hidden>=max(0,rho-q).",
+      "adaptive_minor_selection": "Allowed within the one fixed data set and prescribed block; no union bound over minors is needed.",
+      "limitations": "Independent replica assumption includes fresh latent instrument histories. No optional-stopping guarantee, universal power/sample bound, actual-data validation, or floating-point implementation is supplied."
+    }
+  ],
+  "method_classification": "Standard two-point testing, coupling, bounded-variable concentration, diagonal-rank invariance and Neumann perturbation applied to C34. No new general tool family or general novelty claim.",
+  "dedup_scope": "Original C34; preserved centered supplement; C35; bounded scan of C51-C56 and Source research-note collections. Not exhaustive literature novelty review.",
+  "scientific_program_executions": 0,
+  "native_scope": "External classical probability and declared matrix observer; no new native dimensions, time, physical scale or prime-generating mechanism.",
+  "owner_mathematical_votes": 0,
+  "independent_reviews": [],
+  "source_write": "NOT_WRITTEN_SOURCE_PUBLICATION_PENDING",
+  "next_scientific_obligations": [
+    "Distinct noncontributing review against frozen paper and interface hashes.",
+    "Actual whole-process independence and sampling/repetition design evidence.",
+    "Useful power bounds under quantified gains and conditioning, or dependence-aware concentration under justified mixing assumptions."
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "schema": "ENTERPRISE_MATH_RESULT_INTERFACE_V1",
+  "result_id": "parity.full_signed_trace.bounded_total_scale_large_second_gap",
+  "status": "AUTHOR_CANDIDATE_AWAITING_DISTINCT_REVIEW",
+  "classification": "RESULT_ONLY_COMPOSE_EXTEND_EXISTING_TRACE_CHAIN",
+  "author": "EM-ANALYSIS-3050DA",
+  "agent": "/root/research_analysis_1104",
+  "identity_registration_state": "REGISTER_PENDING",
+  "authorized_for_formal_shared_transition": false,
+  "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+  "paper": "PARITY_BOUNDED_TOTAL_SCALE_LARGE_SECOND_GAP_AUTHOR.md",
+  "input_contract": {
+    "m": "fixed integer >=2",
+    "R": "positive rational",
+    "physical_parameters": "real S>=0, a>0, c>0",
+    "subdomain": "m(S+a)<=R and c>=C_m(R)",
+    "normalization": "n=m-1; theta_i=(i+1)/m; w_i=(-1)^i binom(n,i); t=mS; L=ma; N=m(a+c); r=t+L; s=t+N",
+    "original_forms": "phi_l(x)=(x)_l/l!; G_b[i,l]=(phi_l(t+theta_i+b)-phi_l(t+theta_i))/b; D_v[i,i]=(n!/m)w_i/(v+theta_i)_m; A=G_L^T D_r G_L; B=G_N^T D_s G_N",
+    "target": "Gap=tr(B^{-1}A)-n"
+  },
+  "outputs": [
+    {
+      "kind": "uniform_positive_large_second_gap_endpoint",
+      "formula": "s^{-(2m-1)}Gap -> kappa_m a00(r), uniformly for 0<=t,L and t+L<=R",
+      "scalar": "a00(r)=integral_0^1 u^{mr}(1-u^m)^{m-1}(1-u)^{m-1}du >= alpha=4^{-ceil(mR)-m}",
+      "constant": "kappa_m=[E_1^{-1}M0^{-1}E_1^{-T}]_{00}>0"
+    },
+    {
+      "kind": "effective_subdomain_theorem",
+      "formula": "Gap(S,a,c)>=b_m(R)[m(S+a+c)]^{2m-1}>0",
+      "threshold": "C_m(R)=1/(m rho)",
+      "lower_bound_constant": "b_m(R)=gamma/(2q(R)Dmax)",
+      "endpoint_inclusion": "c=C_m(R) and m(S+a)=R included; no positive lower bound on a or S+a"
+    },
+    {
+      "kind": "composition_corollary_not_separate_discovery",
+      "formula": "Any fixed-m physical counterexample lies in S>=0, a>0, S+a<A0, delta<c<C, whose closure is compact",
+      "dependencies": "A0=R_m/m from existing all-second-gap total-scale tail; delta=delta_m(A0) from existing all-S small-second-gap strip; C=C_m(R_m)",
+      "overlap_case": "If delta>=C, these three domains cover all physical parameters for this m; no such comparison is evaluated here"
+    }
+  ],
+  "exact_certificate": {
+    "variables": ["z", "t", "L"],
+    "evaluation": "z=1/s, s=t+L+mc",
+    "J": "J[j-1,j]=j on indices 0,...,m-2, all other entries 0",
+    "E_b": "sum_{2h<m-1}(bJ/2)^{2h}/(2h+1)!",
+    "Q_i": "product_{h=0}^{m-1}(1+z(theta_i+h))",
+    "Q": "product_{i=0}^{m-1}Q_i",
+    "M": "M(z)[j,k]=((m-1)!/m) z^{-(m-1)}sum_i w_i(z theta_i+1/2)^{j+k}/Q_i(z)",
+    "W": "W=Q M is a rational polynomial matrix, W(0)=M0",
+    "q": "q(r)=m^{-m^2}product_{k=1}^{m^2}(mr+k)",
+    "Ahat": "exp(tJ^T/2) F_L^T Q_r F_L exp(tJ/2), with F_L=sum_{k=0}^{m-2}L^kJ^k/(k+1)! and Q_r=Y^TD_rY",
+    "Amat": "q(t+L)Ahat, a rational polynomial matrix",
+    "V": "E_{1-tz}^{-1}, evaluated by its finite nilpotent inverse",
+    "sigma": "sign(det M0)",
+    "d": "sigma det W, with d0=|det M0|",
+    "Kmat": "sigma Q V adj(W) V^T",
+    "P": "sum_{j,k}z^{j+k}Kmat[j,k]Amat[k,j]-n z^{2m-1}q(t+L)d(z)",
+    "identity": "s^{-(2m-1)}Gap=P(z,t,L)/(q(t+L)d(z))",
+    "gamma": "d0 kappa_m q(0)alpha",
+    "Bd": "sum_{ell>=1}|[z^ell]d|",
+    "BP": "sum_{ell>=1,a,b>=0}|[z^ell t^a L^b]P|R^{a+b}",
+    "rho_d": "1 if Bd=0, else min(1,d0/(2Bd))",
+    "rho_P": "1 if BP=0, else min(1,gamma/(2BP))",
+    "rho": "min(rho_d,rho_P)",
+    "Dmax": "sum_{ell>=0}|[z^ell]d|",
+    "verification_inequalities": [
+      "P(0,t,L)>=gamma on 0<=t,L,t+L<=R",
+      "|d(z)-d0|<=z Bd for 0<=z<=1",
+      "|P(z,t,L)-P(0,t,L)|<=z BP for 0<=z<=1,0<=t,L<=R",
+      "For 0<z<=rho: d(z)>=d0/2 and P(z,t,L)>=gamma/2",
+      "0<q(t+L)d(z)<=q(R)Dmax on the claimed triangular domain"
+    ]
+  },
+  "reuse": {
+    "router": "docs/ENTERPRISE_TOOLBOX_REGISTRY.md",
+    "matched_method": "curation.20261028.balance.analysis",
+    "resolution": "COMPOSE_AND_EXTEND_RESULT_DOMAIN",
+    "inherited": ["complete signed secant normalization", "common-input recentering", "analytic centered metric and limiting parity signature", "polynomial denominator q", "rational coefficient majorants", "all-c total-scale tail", "all-S small-c strip"],
+    "new_boundary": "Large second gap uniformly over bounded earlier total scale, including its zero-scale analytic corner",
+    "new_global_tool_family": false,
+    "global_novelty_priority_claim": false
+  },
+  "execution": {
+    "scientific_program_run": false,
+    "numeric_scan_run": false,
+    "symbolic_package_run": false,
+    "coefficient_table_evaluated": false,
+    "threshold_numerically_evaluated": false,
+    "identity_helper_run": true,
+    "stopped_P11_core98_fixed233_invoked": false
+  },
+  "nonclaims": [
+    "positivity in the remaining compact middle domain",
+    "thresholds uniform in m",
+    "full finite-scale parity blocks or definite metric",
+    "coefficientwise P1 or higher-face positivity",
+    "practical complexity or numerical coverage",
+    "HCM0, complete Student/P11 mother objective, native physics, or formal task completion",
+    "new shared tool family or Source publication"
+  ],
+  "independent_review_targets": [
+    "common T_t congruence used for both forms",
+    "C_s inverse scale exponent 2m-1",
+    "E_1^{-T}e0 orientation in positive kappa_m",
+    "Beta substitution exponent mr and rational alpha",
+    "polynomial W and Amat with all rational factors retained",
+    "sigma, adjugate, d and P signs",
+    "zero-Bd/BP cases, R<1, m=2, equality endpoints",
+    "all three inherited hypotheses in compact-domain gluing"
+  ],
+  "source_write_state": "NOT_WRITTEN_LOCAL_AUTHOR_PRESERVATION_ONLY"
+}

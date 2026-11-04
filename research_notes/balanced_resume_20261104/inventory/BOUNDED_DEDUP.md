@@ -1,0 +1,15 @@
+# Bounded source dedup — 2026-11-04
+
+Source boundary: frozen Enterprise Math main `39556bf5207aa5ba559a27ec591c1bc1bf43b457`; plus the actually read original R004 source and the already published round3/round4 branch. This is project source triage, not an exhaustive literature novelty search. Search produced no new mathematical review vote.
+
+R004 original was read from `awdawmip/chatgpt-global-knowledge@8c863c7ec308cfc74dc325af21e41da24d0f10a7`, path `journal/enterprise-math/2026-08-10/20260810T233000+0800-r004-padic-structural-target-defect.md`, Git blob `26f45d4267e192614943d3c93c765161c01802b2`. Exact text and actual connector response are in `R004_original_20260810.md` and `R004_original_readback.json`.
+
+The original already contains the row/ker duality for target preservation, the quotient defect module and scalar monotonicity, a field circuit family that is not a matroid, a Z/4Z mod-p-rank failure, and bounded non-sub/supermodularity checks. The September30 checkpoint adds the standard invariant-factor layer profile and its coordinatewise monotonicity. Neither source establishes future-operation sufficiency. The exact Task is `RS-R004-PADIC-TARGET-DEFECT-RESIDUAL-PROFILE-20260930`, publication `TP2-2F73D1BB1AAA29EF4FCD`.
+
+Bounded exact-phrase scans of existing `research_notes`, `research_artifacts`, `research_result_records`, and `docs` for `layer profile`, `missing-target module`, `Row(A_H)`, `ambient cancellation`, `标记环境商` and `module cut compiler` found the September30 checkpoint and its library transcription, but no proposed same-profile/same-update separation or marked-ambient update calculus. One initial command included the nonexistent directory `research_results`; its exit2 is not a full successful-scan claim. Existing-directory matches remain evidence, and the final scan excludes that nonexistent path. The separate causal-identifiability R004 documents concern a different object. Compressed blobs and all remote branches were not exhaustively expanded.
+
+Result sent to the R004 author: pursue minimal project-specific collisions and a sufficient marked ambient quotient; acknowledge quotient functoriality/third-isomorphism as standard algebra. No worldwide novelty claim follows from bounded absence of a textual hit.
+
+For C34, a separate bounded scan of `research_notes/divisor_extrema`, `research_notes/balanced_resume_20261028`, and `research_notes/portable_direct` looked for sample confidence, independent repeats, replicated observations, static noise, single-trajectory/infinite-observation calibration and Hankel confidence. It found C53/C54's explicit deterministic-not-sample-confidence boundary, but no proposed static-random-effect impossibility or repeated-experiment Hankel confidence interface. The fourth-round C34 centered covariance supplement is existing prior work at `a3a9267e4143b3f61e81c8513e7ffff7c623b431`; its unmerged status does not reset novelty. Standard random-effect nonidentifiability, concentration, and rank perturbation should be identified as reused tools.
+
+EM-Source-Status: Read: Verified snapshot reused. Write: Not required. Scope: local source-search report only.
