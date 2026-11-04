@@ -1,0 +1,54 @@
+{
+  "schema": "LOCAL_BORSUK_INPUT_INDEXED_COARSENING_COUNTEREXAMPLE_V1",
+  "author": "EM-C34-D16900",
+  "author_execution": "/root/research_cm_formal_1104",
+  "date": "2026-11-04",
+  "status": "AUTHOR_PROVED_AWAITING_DISTINCT_NONCONTRIBUTING_REVIEW",
+  "identity_registration": "REGISTER_PENDING",
+  "parent_objective": "OBJ-EXTERNAL-GEOMETRY-BORSUK-R6-UPPER-BOUND-PRESSURE-20260902",
+  "related_published_question": "RS-GEO9-BORSUK-R6-CONTINUOUS-CERTIFICATE-INDEPENDENT-AUDIT / TP2-E775DD52A6818401B4F3",
+  "formal_task_executed": false,
+  "formal_task_claimed": false,
+  "shared_state_changed": false,
+  "paper": "BORSUK_INPUT_INDEXED_COARSENING_COUNTEREXAMPLE.md",
+  "source_snapshot": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+  "current_remote_source_binding": "LATEST_SOURCE_READBACK.json",
+  "exact_carrier": {
+    "ambient": "External Euclidean R6",
+    "lens": "L=B_r(0) intersect B_1(c), c=r e6",
+    "constants": "r^2=3/7, ell=1/(2r)-r, ell^2=1/84, 2r ell=1/7, rho^2=5/12",
+    "atoms": "Same GEO8 cap plus 32 sign sectors; any 0<delta<r, h=sqrt(r^2-delta^2/4), fixed horizontal orthonormal frame and arbitrary boundary tie assignment"
+  },
+  "new_result": {
+    "family_F2": "528 indexed legal unit-diameter inputs, one for every pair of distinct atom labels; each has two or three points and exact input-specific whole-restricted-atom coarsening cost 2",
+    "sector_pair_recipe": "Scale the old a(u),a(v) witness pair by t=1/||a(u)-a(v)||<1 and add c; scaled pair distance is 1, and each squared distance to c is <33/35",
+    "family_F7": "Add the explicitly aligned 7-point regular simplex K_star to F2; exact worst input-specific coarsening cost 7",
+    "common_readout": "Both aggregate atom graphs are K33, and one coloring valid simultaneously for the entire family requires exactly 33 colors",
+    "same_index_count_option": "Repeat a two-point input in F2 to make both indexed families have 529 indices; adaptive costs stay 2 and 7",
+    "negative_interface_statement": "The aggregate union graph, even with input-count metadata, does not determine the worst input-specific coarsening number"
+  },
+  "reused_not_new": [
+    "GEO8 lens constants and cap/sector and sector/sector witness geometry",
+    "GEO7 finite diameter-graph coloring equivalence",
+    "Standard regular simplex and graph coloring facts"
+  ],
+  "safe_composition": {
+    "retained_data": "Input identity together with atom labels and diameter-edge incidence",
+    "fixed_common_coloring_query": "Union graph is sufficient",
+    "adaptive_per_input_coloring_query": "Keep the input-indexed graphs or a separately proved sufficient summary; union alone is insufficient",
+    "continuous_bridge": "Still required separately for any universal Euclidean coverage/strict-diameter claim"
+  },
+  "not_claimed": [
+    "Refutation of GEO8 fixed whole-lens template theorem",
+    "Universal adaptive coarsening with at most 32 colors",
+    "A new bound on b(6) or latest external literature status",
+    "No legal input can have a more complicated atom graph",
+    "Execution or unblocking of any formal GEO9 Task",
+    "Native metric, spatial or BRC attribution"
+  ],
+  "scientific_program_executions": 0,
+  "root_mathematical_votes": 0,
+  "independent_reviews": [],
+  "new_general_tool_family": false,
+  "source_write": "NOT_WRITTEN_SOURCE_PUBLICATION_PENDING"
+}

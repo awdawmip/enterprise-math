@@ -1,0 +1,99 @@
+{
+  "schema": "EM_T6_LATER_ORDER_SURVIVOR_SUPPORT_REQUEST_V1",
+  "classification": "LOCAL_SOURCE_RECOVERY_HANDOFF_NOT_SHARED_STATE_OR_EXECUTION_AUTHORITY",
+  "actor": "/root/research_nt_1104",
+  "parent_objective_id": "EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD",
+  "global_task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "historical_publication_id": "TP2-34B106D2512A298C9647",
+  "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+  "question": "Does an immutable actual later-order p17 signed-budget-feasible local survivor already exist after the accepted q1-q4 units?",
+  "recovered_current_candidate_family": {
+    "total_vertical_order": 14,
+    "side_split": [
+      7,
+      7
+    ],
+    "source_final_spec_sha256": "b866fa935b62df35c6be65560c5aeebb0f64b1e958c84c34e469d5faf8735d24",
+    "exact_roster": null,
+    "roster_cardinality": null,
+    "primitive_pair_count": null,
+    "actual_executable": null,
+    "actual_survivor": null,
+    "residual_M0_to_M6": null,
+    "remaining_Bplus_Bminus": null,
+    "status": "EXPLICITLY_UNGENERATED_IN_RECOVERED_PLAN; NO_LATER_ACTUAL_CALLER_FOUND_IN_BOUNDED_SEARCH"
+  },
+  "requested_if_actual_survivor_exists": [
+    {
+      "field": "case_identity_and_provenance",
+      "required": "Stable case ID, order/split, exact current caller publication/Result/checkpoint, immutable path/commit/blob/hash; no borrowed historical claimant."
+    },
+    {
+      "field": "vertical_multiplicities",
+      "required": "Complete signed integer map (q,r)->t with exact denominator 17(17q+r), cost and factor/admissibility data; include composite/repeated atoms."
+    },
+    {
+      "field": "q0_vector",
+      "required": "All 16 signed integers u_s in fixed s=1..16 order, not merely an affine center or a modular residue."
+    },
+    {
+      "field": "six_mixed_congruences",
+      "required": "Exact verification sum_s u_s*s^(-k) = -sum_(q,r)t_(q,r)*(17q+r)^(-k) modulo 17^k for k=1..6."
+    },
+    {
+      "field": "both_local_side_masses",
+      "required": "Exact Vplus+P(u) and Vminus+N(u), each <=2331, with separate signed components."
+    },
+    {
+      "field": "moments",
+      "required": "Seven exact reduced rationals M0..M6, M0=sum(t)+sum(u), Mk=sum(t/a^k)+sum(u/(17s)^k), k=1..6."
+    },
+    {
+      "field": "remaining_budgets",
+      "required": "Exact nonnegative Bplus=2331-Vplus-P(u), Bminus=2331-Vminus-N(u); pre-q0 budgets and family upper bounds are insufficient."
+    },
+    {
+      "field": "generating_evidence",
+      "required": "Frozen input/code/certificate hashes and real execution provenance or a complete hand derivation; sufficient to distinguish a real local survivor from a relaxed demonstration."
+    }
+  ],
+  "reuse_on_receipt": {
+    "method": "Existing Oct28 21 coupled-moment cuts and budget-specific constants; no additional cut family required.",
+    "source_author": "research_notes/balanced_resume_20261028/analysis/T6_COUPLED_MOMENT_COMPLETION_CUTS_AUTHOR.md",
+    "source_review": "research_notes/balanced_resume_20261028/review/T6_MOMENT_REVIEW.md",
+    "output": "Named completion rejection or retained real local survivor under exact input bindings. Never relabel completion-excluded as affine EMPTY."
+  },
+  "if_no_survivor_exists": {
+    "next_separate_unit": "Assess and, if selected under current rules, construct the recovered q14 one-sided roster and canonical disjoint pair preflight.",
+    "historical_plan_stop_limits_only": {
+      "preflight_seconds": 120,
+      "preflight_memory_bytes": 1073741824,
+      "serial_science_concurrency": 1,
+      "affine_later_seconds": 600,
+      "affine_later_memory_bytes": 2147483648,
+      "pair_count_cap": 2000000
+    },
+    "remaining_pre_affine_evidence": [
+      "actual complete canonical roster and pair cardinality",
+      "actual generator/code and complete ordered input digest",
+      "implemented proof codec and full input/output/Source budget accounting",
+      "applicable current own execution provenance and nonauthor preparation review required by the adopted plan"
+    ],
+    "do_not": [
+      "rerun accepted q1-q4 classifications",
+      "use old R1 particular vectors or centers for q14",
+      "invent M or exact B from an upper bound",
+      "treat historical actor/lease/source observation as current authority",
+      "infer global T6 closure from q14 local emptiness"
+    ]
+  },
+  "operations_this_unit": {
+    "scientific_execution": false,
+    "census_rerun": false,
+    "new_moment_cut_evaluation": false,
+    "claim_or_formal_state_change": false,
+    "source_byte_validation": true
+  },
+  "absence_claim_limit": "Frozen snapshot, listed fixed-string search areas and exact recovered capsule only; not all compressed repository members, live MCP or all GitHub.",
+  "parent_action": "Preserve recovery, route an exact source-locator request if needed, and choose the next distinct unit using the portfolio. This file itself sends no external message and opens no task."
+}

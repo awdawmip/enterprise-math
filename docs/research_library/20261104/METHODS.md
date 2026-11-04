@@ -21,3 +21,13 @@ The author interfaces in [RESULTS.json](RESULTS.json) specify exact formulas, fa
 | Actual strong horizontal kernel | Bounded Laurent Wronskians, derivative residues, c0 principal parts, support intersection | Literal strong completion and original prime/lattice; unbounded gauge not used as an operator; uniqueness without existence. |
 
 Full contracts and exclusions: [second-pass source index](SECOND_PASS_RESULTS.json). No shared Tool API or new tool family is admitted.
+
+
+## Third-pass interfaces
+
+| Need | Reuse | Boundary |
+|---|---|---|
+| Input-indexed atom coarsening | GEO8 pair witnesses, finite diameter graphs, standard simplex geometry | Keep each input identity and its own edges; union graph only answers common coloring. No continuous/general b6 certificate. |
+| Later-order T6 moment completion | Existing final q14 plan, q1-q4 results and Oct28 coupled cuts | Source recovery only. Require actual signed t/u, M0-M6 and both residual budgets; prefamily292 is not a realized caller. |
+
+See [third-pass evidence](THIRD_PASS_RESULTS.json). No executable API, new tool family, or new formal acceptance is created.
