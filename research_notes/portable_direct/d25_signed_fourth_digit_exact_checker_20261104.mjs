@@ -51,7 +51,7 @@ function factorialReconstruction(p, e) {
   return { W, V };
 }
 function verify() {
-  const ps = primesUpTo(2000);
+  const ps = primesUpTo(5000);
   const sourceCases = new Set([5,7,11,13,19,23,97,373]);
   const sharpCases = [11,13,19,373];
   let exact = 0, nonzeroComparison = 0, nonzeroHalfTail = 0;
@@ -92,7 +92,7 @@ function verify() {
   });
   return {
     schema:"D25_SIGNED_FOURTH_DIGIT_EXACT_FINITE_V1",
-    domain:"all primes 5 <= p <= 2000", tested_primes:exact,
+    domain:"all primes 5 <= p <= 5000", tested_primes:exact,
     modulus:"p^4", finite_candidate:"W_p-2*V_p+p*(-3/p) == 0 mod p^4",
     errors:0, nonzero_W_minus_V_mod_p4:nonzeroComparison,
     W_minus_V_zero_p:comparisonZeros,
