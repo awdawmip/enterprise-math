@@ -7,6 +7,7 @@ from fractions import Fraction as Q
 from math import isqrt
 N, SCALE = 34, 10**48
 A, B = Q(11,21), Q(10,21)
+
 def I(x): return x if isinstance(x,tuple) else (Q(x),Q(x))
 def add(x,y):
  x,y=I(x),I(y);return x[0]+y[0],x[1]+y[1]
@@ -15,8 +16,7 @@ def sub(x,y):return add(x,neg(y))
 def mul(x,y):
  x,y=I(x),I(y);p=[a*b for a in x for b in y];return min(p),max(p)
 def div(x,y):
- y=I(y);assert y[0]>0
- return mul(x,(1/y[1],1/y[0]))
+ y=I(y);assert y[0]>0;return mul(x,(1/y[1],1/y[0]))
 def sqrt_i(x):
  x=Q(x);assert x>0
  k=isqrt(x.numerator*SCALE*SCALE//x.denominator)
@@ -27,8 +27,7 @@ def lnq(x):
  x=Q(x);assert x>0
  v=(x-1)/(x+1);assert abs(v)<Q(1,3)
  term=v;total=Q(0)
- for j in range(N):
-  total+=2*term/Q(2*j+1);term*=v*v
+ for j in range(N): total+=2*term/Q(2*j+1);term*=v*v
  err=2*abs(term)/(Q(2*N+1)*(1-v*v))
  return total-err,total+err
 def lni(x):
@@ -43,6 +42,7 @@ def info(s):
  H=lni(A/B);J=lni((1-B*s)/(1-A*s));rho=quant(div(J,add(H,J)))
  cb=add(mul(rho,lni(div(rho,A*s))),mul(sub(1,rho),lni(div(sub(1,rho),1-A*s))))
  return ct,fh,cb
+
 def checkpos(label,x):
  assert x[0]>0,(label,float(x[0]),float(x[1]))
  print(label,'GT',f'{x[0]*10**13//1}/10000000000000')
