@@ -17,7 +17,7 @@ H(T)=(T−j+)(T−j−)=T²−4834944T+14670139392.
 The polynomial H is the known Hilbert class polynomial H_{−24} of Q(sqrt(−6)); verified by published class polynomial tables, OEIS A305474, LMFDB. The discriminant −24 point is therefore an exact external CM anchor for the original x=1/9 Gauss period, including both conjugate branches.
 
 ## Short-Jacobi observer and bounded evidence
-For p=8q+5 prime define J_p(z)=sum_{k=0}^q binom(q,k)binom(3q+1,k)(z/9)^k in F_p[z]. Since 5/8=−q+5p/8 and 7/8=−(3q+1)+3p/8, coefficients J_p agree modulo p with the first q+1 coefficients of C(z).
+For p=8q+5 prime define J_p(z)=sum_{k=0}^q binom(q,k)binom(3q+1,k)(z/9)^k in F_p[z]. Since 5/8=−q+p/8 and 7/8=−(3q+1)+3p/8, coefficients J_p agree modulo p with the first q+1 coefficients of C(z).
 An actual exact modular check of all 569 primes p≤20000 with p≡5 mod8 found:
  p≡13 mod24 (288): (-6/p)=−1, J_p(1)=0, J_p'(1)≠0;
  p≡ 5 mod24 (281): (-6/p)=+1, J_p(1)≠0, J_p'(1)=0.
