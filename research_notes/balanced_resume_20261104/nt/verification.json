@@ -1,0 +1,242 @@
+{
+  "arithmetic": "exact finite sets over Z/(p^k)",
+  "behavior_and_capacity": [
+    {
+      "all_subspaces": 5,
+      "cyclic_nonzero_controls": 3,
+      "dimensions": {
+        "0": {
+          "all_finite_zero_query_signatures": 1,
+          "fixed_length_bits": 0,
+          "one_step_size_signatures": 1,
+          "states": 1
+        },
+        "1": {
+          "all_finite_zero_query_signatures": 3,
+          "fixed_length_bits": 2,
+          "one_step_size_signatures": 3,
+          "states": 3
+        },
+        "2": {
+          "all_finite_zero_query_signatures": 1,
+          "fixed_length_bits": 0,
+          "one_step_size_signatures": 1,
+          "states": 1
+        }
+      },
+      "n": 2,
+      "p": 2
+    },
+    {
+      "all_subspaces": 16,
+      "cyclic_nonzero_controls": 7,
+      "dimensions": {
+        "0": {
+          "all_finite_zero_query_signatures": 1,
+          "fixed_length_bits": 0,
+          "one_step_size_signatures": 1,
+          "states": 1
+        },
+        "1": {
+          "all_finite_zero_query_signatures": 7,
+          "fixed_length_bits": 3,
+          "one_step_size_signatures": 7,
+          "states": 7
+        },
+        "2": {
+          "all_finite_zero_query_signatures": 7,
+          "fixed_length_bits": 3,
+          "one_step_size_signatures": 7,
+          "states": 7
+        },
+        "3": {
+          "all_finite_zero_query_signatures": 1,
+          "fixed_length_bits": 0,
+          "one_step_size_signatures": 1,
+          "states": 1
+        }
+      },
+      "n": 3,
+      "p": 2
+    },
+    {
+      "all_subspaces": 6,
+      "cyclic_nonzero_controls": 4,
+      "dimensions": {
+        "0": {
+          "all_finite_zero_query_signatures": 1,
+          "fixed_length_bits": 0,
+          "one_step_size_signatures": 1,
+          "states": 1
+        },
+        "1": {
+          "all_finite_zero_query_signatures": 4,
+          "fixed_length_bits": 2,
+          "one_step_size_signatures": 4,
+          "states": 4
+        },
+        "2": {
+          "all_finite_zero_query_signatures": 1,
+          "fixed_length_bits": 0,
+          "one_step_size_signatures": 1,
+          "states": 1
+        }
+      },
+      "n": 2,
+      "p": 3
+    },
+    {
+      "all_subspaces": 28,
+      "cyclic_nonzero_controls": 13,
+      "dimensions": {
+        "0": {
+          "all_finite_zero_query_signatures": 1,
+          "fixed_length_bits": 0,
+          "one_step_size_signatures": 1,
+          "states": 1
+        },
+        "1": {
+          "all_finite_zero_query_signatures": 13,
+          "fixed_length_bits": 4,
+          "one_step_size_signatures": 13,
+          "states": 13
+        },
+        "2": {
+          "all_finite_zero_query_signatures": 13,
+          "fixed_length_bits": 4,
+          "one_step_size_signatures": 13,
+          "states": 13
+        },
+        "3": {
+          "all_finite_zero_query_signatures": 1,
+          "fixed_length_bits": 0,
+          "one_step_size_signatures": 1,
+          "states": 1
+        }
+      },
+      "n": 3,
+      "p": 3
+    },
+    {
+      "all_subspaces": 8,
+      "cyclic_nonzero_controls": 6,
+      "dimensions": {
+        "0": {
+          "all_finite_zero_query_signatures": 1,
+          "fixed_length_bits": 0,
+          "one_step_size_signatures": 1,
+          "states": 1
+        },
+        "1": {
+          "all_finite_zero_query_signatures": 6,
+          "fixed_length_bits": 3,
+          "one_step_size_signatures": 6,
+          "states": 6
+        },
+        "2": {
+          "all_finite_zero_query_signatures": 1,
+          "fixed_length_bits": 0,
+          "one_step_size_signatures": 1,
+          "states": 1
+        }
+      },
+      "n": 2,
+      "p": 5
+    }
+  ],
+  "elapsed_seconds": 0.570017,
+  "examples": {
+    "fixed_ambient_f2_squared": {
+      "after": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "individual_kernel_collision": {
+      "after_joint": [
+        [
+          0
+        ],
+        [
+          1
+        ]
+      ],
+      "kernels": [
+        [
+          [
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              0,
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ]
+          ]
+        ]
+      ]
+    },
+    "rank_one_z4": {
+      "after": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "before": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "quotient_law": {
+    "all_submodules": 15,
+    "all_triples": 3375,
+    "all_two_update_quadruples": 50625,
+    "ambient_elements": 16,
+    "coordinate_deletion_pairs": 225,
+    "k": 2,
+    "n": 2,
+    "p": 2
+  },
+  "rank_one_minimality": {
+    "primes": [
+      2,
+      3,
+      5
+    ],
+    "rank_one_field_state_pairs": 12,
+    "scope": "Finite confirmation only; paper proves this for every prime."
+  },
+  "status": "PASS"
+}
