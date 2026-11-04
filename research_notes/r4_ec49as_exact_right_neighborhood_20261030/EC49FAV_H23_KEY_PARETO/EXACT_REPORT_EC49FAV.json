@@ -1,0 +1,417 @@
+{
+  "status": "PASS_AUTHOR_SIDE_EXACT_INTEGER",
+  "study": "EC49FAV",
+  "date": "2026-11-05",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "H2_legal_words": 6,
+  "H3_legal_words": 38,
+  "H2_rank9_subsets": 25,
+  "key_classes": 8,
+  "at_most_key_optima": {
+    "1": {
+      "edges": 42,
+      "H2": [
+        "ce",
+        "de",
+        "ec",
+        "ed"
+      ],
+      "H3": [
+        "feg",
+        "gef"
+      ],
+      "keys": [
+        [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "keys_used": 1,
+      "early_edges": 28,
+      "added_H3": 14
+    },
+    "2": {
+      "edges": 31,
+      "H2": [
+        "de",
+        "ec",
+        "fe"
+      ],
+      "H3": [
+        "feg",
+        "gef"
+      ],
+      "keys": [
+        [
+          3,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "keys_used": 2,
+      "early_edges": 22,
+      "added_H3": 9
+    },
+    "3": {
+      "edges": 16,
+      "H2": [
+        "fe",
+        "ge"
+      ],
+      "H3": [
+        "feg",
+        "gef"
+      ],
+      "keys": [
+        [
+          2,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "keys_used": 3,
+      "early_edges": 12,
+      "added_H3": 4
+    },
+    "4": {
+      "edges": 16,
+      "H2": [
+        "fe",
+        "ge"
+      ],
+      "H3": [
+        "feg",
+        "geg"
+      ],
+      "keys": [
+        [
+          2,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "keys_used": 4,
+      "early_edges": 12,
+      "added_H3": 4
+    },
+    "5": {
+      "edges": 16,
+      "H2": [
+        "fe",
+        "ge"
+      ],
+      "H3": [
+        "feg",
+        "geg"
+      ],
+      "keys": [
+        [
+          2,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ]
+      ],
+      "keys_used": 4,
+      "early_edges": 12,
+      "added_H3": 4
+    }
+  },
+  "whole_H2_H9_witness": {
+    "edge_count": 112,
+    "keys": [
+      [
+        2,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        4,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        6,
+        4,
+        1,
+        0,
+        0,
+        0
+      ]
+    ],
+    "signature_count": 6,
+    "by_horizon": {
+      "2": {
+        "words": [
+          "fe",
+          "ge"
+        ],
+        "keys": [
+          [
+            2,
+            1,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "signature_mask": 48,
+        "total_prefix_edges": 12
+      },
+      "3": {
+        "words": [
+          "feg",
+          "gef"
+        ],
+        "keys": [
+          [
+            3,
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "signature_mask": 48,
+        "total_prefix_edges": 16
+      },
+      "4": {
+        "words": [
+          "fegc",
+          "fegd",
+          "gefc",
+          "gefd"
+        ],
+        "keys": [
+          [
+            4,
+            2,
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "signature_mask": 15,
+        "total_prefix_edges": 32
+      },
+      "5": {
+        "words": [
+          "feggf",
+          "gefgf"
+        ],
+        "keys": [
+          [
+            4,
+            2,
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "signature_mask": 48,
+        "total_prefix_edges": 38
+      },
+      "6": {
+        "words": [
+          "fegccc",
+          "fegddd",
+          "gefccc",
+          "gefddd"
+        ],
+        "keys": [
+          [
+            6,
+            4,
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "signature_mask": 15,
+        "total_prefix_edges": 70
+      },
+      "7": {
+        "words": [
+          "fegccfg",
+          "fegddgf",
+          "gefccfg",
+          "gefddgf"
+        ],
+        "keys": [
+          [
+            6,
+            4,
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "signature_mask": 15,
+        "total_prefix_edges": 82
+      },
+      "8": {
+        "words": [
+          "feggfgfc",
+          "feggfgfd",
+          "gefgfgfc",
+          "gefgfgfd"
+        ],
+        "keys": [
+          [
+            6,
+            4,
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "signature_mask": 15,
+        "total_prefix_edges": 106
+      },
+      "9": {
+        "words": [
+          "feggfgfgf",
+          "gefgfgfgf"
+        ],
+        "keys": [
+          [
+            6,
+            4,
+            1,
+            0,
+            0,
+            0
+          ]
+        ],
+        "signature_mask": 48,
+        "total_prefix_edges": 112
+      }
+    }
+  },
+  "rank_criterion": "(E or F) and (C or F) and (D or G) and (J or G)",
+  "method": "Exhaustive H2/H3 complete seven-operation native-X6 words, exact 2-window native primitive-prefix OR-mask DP with full six-coordinate key masks, plus independent full-horizon literal witness audit"
+}
