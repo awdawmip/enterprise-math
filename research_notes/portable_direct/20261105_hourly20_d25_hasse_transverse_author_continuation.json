@@ -1,0 +1,48 @@
+{
+  "schema": "ENTERPRISE_MATH_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "dated": "2026-11-05",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "mother_objective": "Preserve original D24 second-digit Delta_p-R_p mod p and native H0/B0 p373 module; auxiliary CM−24 Hasse first-jet arithmetic provides diagnostics only.",
+  "frozen_scientific_source_commit": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_research_lane_label": "chatgpt-research-hourly-enterprise-math-20260923",
+  "separate_maintenance_lane_label": "chatgpt-hourly-enterprise-math-20260921",
+  "current_control_read": {
+    "request_id": "research-hourly20-20261105-0117-fresh-continuation",
+    "status": "SUCCEEDED",
+    "source_commit": "daa92f7892541c5da16d2a7dbfcd28782b1214af",
+    "persisted_checkpoint": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+    "route_action": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "execution_authorized": false
+  },
+  "researcher_status": "AUTHOR_SIDE_ONLY; REGISTER_PENDING; no own service-issued session, CLAIM, OPEN or Source checkpoint asserted",
+  "source_frontier": "PRESERVE_UNMODIFIED",
+  "new_author_side_completed_units": [
+    "PROVED universal full-polynomial Hasse first-jet syzygy A C'−T C+[Q+64t(t−1)^2]H=0 for all p>=5.",
+    "PROVED CM-branch transverse zero criterion: C(a)=0 at Q(a)=0 implies C'(a)=−4(1−a)/(1+a) H(a) nonzero for all p>=5.",
+    "PROVED inert p=13 mod24 Hasse=0 and C !=0 on all Q roots, so the earlier two-coordinate norm is universally NONZERO, using exact H_-24 j relation and Deuring supersingular reduction.",
+    "PROVED conditional unique unramified p² first-jet lift if split p=5 mod24 satisfies still-open Q|C mod p; exact displacement δ.",
+    "FINITE EXACT TEST: 168 primes p<=5000 for full coefficient syzygy; 85 split and 83 inert CM conditions; 12 exact mod-p² direct root substitutions."
+  ],
+  "artifacts": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/20261105_hourly20_d25_cm24_hasse_transversality_firstjet.md"
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/d25_cm24_hasse_transverse_lift_20261105.py"
+    }
+  ],
+  "unresolved": [
+    "Prove the split-class Q|C_p for all p=5 mod24; current finite exact checks are not general proof.",
+    "Return to Source-native p=373 original-class H0/B0 divided-power, [X]U mod p², rank, Frobenius semilinear direction/η/κ, signed Hesse/Green and Delta_p-R_p."
+  ],
+  "do_not_repeat": [
+    "Do not re-prove previous Frobenius–Möbius/norm compression; this note adds syzygy, transversality, inert proof, conditional p² lift.",
+    "Do not replace earlier Source persisted checkpoint, completed_units, contributor_ids, scientific pins or status with this author-side material.",
+    "Do not equate this auxiliary CM Legendre lift with a native crystalline H0/B0 experiment."
+  ],
+  "next_precise_action": "Obtain an all-prime proof for split Q|C_p via finite CM isogeny or hypergeometric transformation, using transverse derivative and lift to isolate next p-adic obstruction; parallel canonical next action remains authenticated p373 H0/B0 original-class module.",
+  "evidence_status": "AUTHOR-PROVED / EXACT FINITE-VERIFIED / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_CHECKPOINT"
+}
