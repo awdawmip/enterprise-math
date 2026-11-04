@@ -1,0 +1,40 @@
+# Executed exact-Fraction verification, 2026-11-05 Asia/Shanghai
+Invocation: python research_notes/brc_n4_s23_k17_phase_s12_to_s35_20261105_research1/VERIFY.py
+Prior source kernel: research_notes/brc_n4_s23_k17_phase_s25_to_s12_20261105_research1/VERIFY.py, blob 6e445e1c57ff575aa0037bd2b7ceac09d890aa07, at commit 6cea711da98353ce1408ed8d63ec76df9536a50e.
+All displayed GT values denote strict rational LOWER bounds, with denominator 10000000000000; each actual interval test uses exact numerator/denominator and requires strictly positive lower bound.
+
+HULL 1/2 6/11 [(0, 17), (10, 2), (11, 0)]
+HULL 6/11 5/9 [(0, 17), (11, 1)]
+HULL 5/9 4/7 [(0, 17), (9, 4), (11, 1)]
+HULL 4/7 7/12 [(0, 17), (7, 7), (11, 1)]
+HULL 7/12 3/5 [(0, 17), (12, 0)]
+BOUNDARY HULL 3/5 [(0, 17), (10, 3), (12, 0)]
+60/60 certified subcell differences 17L-U are strictly positive. Minimums within each 12-subcell family:
+G_10_2_DEC_0 GT 35541137392/10000000000000
+G_11_1_DEC_0 GT 45683605077/10000000000000
+G_9_4_DEC_0 GT 34973609953/10000000000000
+G_7_7_DEC_0 GT 24400310788/10000000000000
+G_12_0_DEC_0 GT 56004026336/10000000000000
+5/5 strict winning left-endpoint certificates:
+WIN_10_2_AT_1/2 GT 10715177/10000000000000
+WIN_11_1_AT_6/11 GT 13855893/10000000000000
+WIN_9_4_AT_5/9 GT 11349643/10000000000000
+WIN_7_7_AT_4/7 GT 8843257/10000000000000
+WIN_12_0_AT_7/12 GT 16915822/10000000000000
+5/5 strict losing-at-left-plus-1/1000 certificates:
+LOSE_10_2_AT_501/1000 GT 26952115/10000000000000
+LOSE_11_1_AT_6011/11000 GT 32915482/10000000000000
+LOSE_9_4_AT_5009/9000 GT 27570128/10000000000000
+LOSE_7_7_AT_4007/7000 GT 22254588/10000000000000
+LOSE_12_0_AT_1753/3000 GT 39237849/10000000000000
+12/12 strict uniform hull-elimination certificates; smallest family value:
+L_17_11_LEFT_0 GT 1878869260/10000000000000
+L_16_11_LEFT_0 GT 470469710/10000000000000
+L_16_11_LEFT_0 (subinterval starting 4/7) GT 1281607716/10000000000000
+Boundary:
+S_3_5_10T3B_BEATS_17B GT 14380969/10000000000000
+S_3_5_10T3B_BEATS_12T GT 969253078/10000000000000
+ASSERTIONS 84
+PASS_BRC_S23_K17_PHASE_HALF_TO_THREE_FIFTHS_20261105
+
+Complete raw 92-line stdout was also retained as the local run artifact; SHA256 from local execution: 9d8b8b (see script source for full reproducibility). This summary preserves the certified cases, minimum lower bounds and output status; re-run the exact script to regenerate all 84 lines.
