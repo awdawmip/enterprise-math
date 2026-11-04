@@ -1,3 +1,6 @@
+// Stage437-B native X6 positive-unit-branch BRC exact checker.
+// Usage: node REPRO_STAGE437B.js (Node.js 22); also callable by runStage437B().
+function runStage437B() {
 "use strict";
 const D=[1,2,3,4,5,6,-1,-2,-3,-4,-5,-6],A=1,B=-1,C=2;
 const ZERO={c:0,w:0,m:0}, ONE={c:1,w:1,m:1};
@@ -95,3 +98,9 @@ return {marker:"STAGE437B_TWO_SIDED_CORRIDOR_CWM_PASS",cases,
  after_Q_APPEND_A_twice:[x.k,y.k],P_corridor:"AB",P_prime_corridor:"AA"},
  positive_unit_CWM_three_branches:unit(3),
  verification_scope:"exact finite positive BRC unit-weight matching observer; not runtime physics"};
+
+}
+const stage437bResult = runStage437B();
+if (typeof module !== "undefined" && typeof require !== "undefined" && require.main === module) {
+  process.stdout.write(JSON.stringify(stage437bResult, null, 2) + "\n");
+}
