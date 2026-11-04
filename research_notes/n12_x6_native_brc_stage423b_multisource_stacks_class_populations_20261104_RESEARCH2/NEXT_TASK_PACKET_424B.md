@@ -1,0 +1,11 @@
+# Stage424-B — Execute Euler/J/K state compiler and multisource sharpness
+
+Parent: Stage423-B author-side k-source frontier theorem and exact 24-class population formula, delivered in the Stage423 directory on Draft PR #1736. Preserve scientific pins GLOBAL bf84bd7c61a2444b59b1da96be57df0e9ae47e53; EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419; P000 bcc2590d3168a28f72e8b9f0f9b1f76faadcd488.
+
+**Known proofs and model:** with k sources, common APP, no unilateral anchor POP and enabled deletion events with per-source arity b_(e,j), d_j≤d_anchor+t_j+Σ_e max(0,b_ej-b_eanchor). Equality for Q-only 2-letter inverse CANCEL demonstrates necessity of the arity term. Under the **unreviewed** Stage422 p=3,c=2 full-future partition, the 24 population multiset for n≥11 is (n-8)(n-9) once; 2(n-8) once; n-7 six times; n-8 twice; 1 fourteen times. Finite n=11..100 and three-source stack-depth≤5 checks are actually executed.
+
+**Next executable unit A:** implement remaining-Euler directed-edge pair DP with exact K increment and sufficient terminal tails for F_n. At n=11..30 check every terminal class count against the closed form, including full endpoints, directed J, absolute K, edge multiplicities, first/last direction constraints and identity of indistinguishable edges. Return counts of visited DP states and bit-cost accounting for packed/binary input; compare against direct O(n²) enumeration rather than presuming an algorithmic speedup.
+
+**Unit B:** vary k≥3 deletion incidence and arity. Find the shortest exact witness saturating the new bound for multiple sources concurrently, or an improved bound under a specified fixed inverse-pair operation hypergraph.
+
+Keep the X6 12-direction basis, original source provenance, P000 and original observer unchanged. Do not conflate author evidence with independent mathematical review or native CLAIM/Result/Driver admission. Deliver proof, runnable code and complete executed evidence with immutable GitHub readback; note actual native authority separately.
