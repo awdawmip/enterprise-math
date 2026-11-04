@@ -1,5 +1,7 @@
 # 2026-11-04 第一批研究成果与证据
 
+后续见[第二批三条冷线](SECOND_PASS.md)及[机器索引](SECOND_PASS_RESULTS.json)。本页保持第一批四线的独立计数与边界。
+
 本批保全四条冷研究线的冻结作者稿和四份逐字节绑定的非作者论文复核。它们分别推进原有 Student/Parity、R004、有限 Abelian 观察者、C34 采样接口；**不代表覆盖全部 101 个声明母题，也不构成正式 Task 接受或母问题关闭**。原作者稿的创建时待审状态保持原样，后续复核作为独立事实列出。
 
 科学比较源为 `39556bf5207aa5ba559a27ec591c1bc1bf43b457`；发布基线为后继 `09941b1e0c3fab9fa6b995c401206ff3fd714396`（新增 PREFIX487）。下列卡片不新增数学票；完整假设、证明与边界以原稿为准。
@@ -98,3 +100,4 @@ Student 与旧 Route-A/HCM0 目标、R004 与 EARLY-BOTTLENECK 目标有明确�
 [方法复用目录](METHODS.md)只提供来源和输入边界，不新建 shared Tool、可执行 API 或工具族。机器摘录见 [RESULTS.json](RESULTS.json)。
 
 EM-Source-Status: Read=Verified snapshot reused (39556bf5207aa5ba559a27ec591c1bc1bf43b457); Write=Not required (documentary extraction; publication receipts are maintained separately).
+

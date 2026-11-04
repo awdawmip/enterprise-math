@@ -10,3 +10,14 @@ This directory is an evidence index, not an executable tool registration. Existi
 | Replicated hidden-rank confidence | Two-point testing/coupling, Hoeffding, diagonal rank invariance, Neumann perturbation | IID entire joint windows, fixed design, exact inverse/error test; arbitrary within-route history is not iid time sampling. C34 paper. |
 
 The author interfaces in [RESULTS.json](RESULTS.json) specify exact formulas, failure modes and excluded operations. R004 finite executions are supplemental exact-model checks, not a BRC implementation or independent universal proof. Other three units are paper-only.
+
+
+## Second-pass result-only applications
+
+| Need | Reuse | Boundary |
+|---|---|---|
+| Fixed-support rank-one sheaf obstruction | Depth/local cohomology, flat support deformation, complete Atiyah-Kodaira-Spencer criterion, leading GRR cycle | Necessary obstruction only; no converse/exact full rank/H0R premise. |
+| Native event source fidelity | Existing U2 observation-fibre preservation and exact source-record comparison | Selected old ledger event and explicitly conditional displacement-only bridge; G1-G5 unknown. |
+| Actual strong horizontal kernel | Bounded Laurent Wronskians, derivative residues, c0 principal parts, support intersection | Literal strong completion and original prime/lattice; unbounded gauge not used as an operator; uniqueness without existence. |
+
+Full contracts and exclusions: [second-pass source index](SECOND_PASS_RESULTS.json). No shared Tool API or new tool family is admitted.

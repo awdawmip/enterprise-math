@@ -1,0 +1,194 @@
+{
+  "schema": "U27F02_PARTIAL_SOURCE_SUCCESSOR_NOT_NATIVE_COMPLETION",
+  "source_commit": "39556bf5207aa5ba559a27ec591c1bc1bf43b457",
+  "before_record": "carry_Q.json /data/2",
+  "after_record": "carry_Q.json /data/3",
+  "known_conditional_ledger_successor": {
+    "material_cells": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "bound": {
+      "0": {
+        "cell": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "edge": [
+          0,
+          1
+        ],
+        "port": 0,
+        "side": 0
+      },
+      "1": {
+        "cell": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "edge": [
+          0,
+          3
+        ],
+        "port": 2,
+        "side": 0
+      },
+      "2": {
+        "cell": [
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        "edge": [
+          0,
+          1
+        ],
+        "port": 5,
+        "side": 1
+      },
+      "3": {
+        "cell": [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "edge": [
+          2,
+          3
+        ],
+        "port": 1,
+        "side": 0
+      }
+    },
+    "held": {},
+    "free": {},
+    "reference": {
+      "modes": [
+        "A",
+        "A",
+        "D"
+      ],
+      "paths": {
+        "cells": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "length": 4,
+        "links": [
+          [
+            0,
+            1,
+            [
+              0
+            ],
+            [
+              5
+            ]
+          ],
+          [
+            0,
+            3,
+            [
+              2
+            ],
+            []
+          ],
+          [
+            2,
+            3,
+            [
+              1
+            ],
+            []
+          ]
+        ]
+      }
+    },
+    "after_relation_commit": true
+  },
+  "physical_successor": {
+    "material_internal_state": "UNKNOWN",
+    "primitive_actions": "UNKNOWN",
+    "native_field_response": "UNKNOWN",
+    "support_reaction_or_consumed_action_budget": "UNKNOWN",
+    "release_or_reparticipation_condition": "UNKNOWN",
+    "time_and_boundary": "UNKNOWN"
+  },
+  "fixed_U2_adapter_projection": "Same cells and same explicitly fixed incidence/kernel/depth give identical response output for both frames; no such scientific output computed this turn",
+  "status": "CONDITIONAL_LEDGER_SOURCE_PRESERVED; NATIVE_SUCCESSOR_UNKNOWN",
+  "no_two_legal_native_completions_claimed": true
+}
