@@ -85,3 +85,28 @@ Test a *proposed transport certificate* on `p={5,11,13,19,373}`, not merely fina
 **Source/lane boundary:** author-side GitHub research note only, independent of canonical control checkpoint. Current Site configuration explicitly gives `research_authority_granted=false`, `write_relay_enabled=false` at 2026-11-04. Prior unresolved control request `research-onhour-20261031-0205-dispatch-r15` returned `CONTROL_REQUEST_NOT_FOUND` from the Site adapter in this turn; retain historical failure/receipt provenance rather than replay. Research logical lane `chatgpt-research-onhour-enterprise-math-20260923` is never substituted with maintenance lane `chatgpt-hourly-enterprise-math-20260921`. No Source session, claim, run, release or Result is asserted; site research role registration remains `REGISTER_PENDING` and native checkpoint `NOT_WRITTEN`.
 
 **Status:** AUTHOR-DERIVED EXACT COROLLARY OF PUBLISHED THEOREM; UNREVIEWED / NOT_ADMITTED; QUARTIC PORT CLOSED; D25 MOTHER OPEN.
+
+## Same-turn follow-on science: signed residual discriminator (finite exact)
+
+After closing the quartic val2 term rigorously, the **remaining** cross-family observer can be written, using original integer/valuation carriers, as
+```text
+M_p = [ (A_(216,v0)+A_(216,v1)-V_p(h)) mod p^3 ]/p^2 mod p;
+H_p = A_(216,v2)/p^2 mod p;
+W_p-V_p = p^2*(M_p+H_p) mod p^3,
+```
+whenever the numerator defining `M_p` is divisible by `p²` (which has been **checked** in the listed samples, not proved universally). The `p²`-divisibility of `H_p` follows from the exact 216 valuation partition. No equivalence or homomorphism between unrelated BRC ports is inferred merely from a common scalar output.
+
+A new independent exact integer recurrence script checked the 216 original coefficients and 2304 truncated coefficients at `p={5,11,13,19,37,373}`:
+
+| p | M_p (mod p) | H_p (mod p) | M_p+H_p |
+|---:|---:|---:|---:|
+| 5 | 4 | 1 | 0 |
+| 11 | 10 | 1 | 0 |
+| 13 | 3 | 10 | 0 |
+| 19 | 10 | 9 | 0 |
+| 37 | 17 | 20 | 0 |
+| 373 | 107 | 266 | 0 |
+
+For `p=373`, `p²=139129`, and the low/mid-versus-quartic-half defect is exactly `139129*107=14886803` modulo `p³`; the original 216 second-valuation contribution is `139129*266=37008314`. These are **individually nonzero and oppositely signed as scalar port observations**, giving a concrete required compensation for any future cross-model certificate. The code is retained in the same-turn portable evidence bundle `d25_216_quartic_signed_residue_port_20261104.py`; these samples are not a proof of W=V or of all-prime p²-divisibility of M.
+
+The next actual proof obligation is now specifically `M_p=-H_p` for all required p, with full source/denominator/band endpoint preservation. Prefer a terminating 216-to-quartic-half WZ or parameter-transform certificate. First test any candidate against the nonzero `(M,H)=(3,10),(10,9),(107,266)` at `p=13,19,373`, not just against final zero residues.
