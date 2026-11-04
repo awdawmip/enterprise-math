@@ -1,0 +1,8 @@
+# Source and evidence pins (2026-11-05)
+- Frozen scientific model: https://github.com/awdawmip/enterprise-math/tree/43ec6098b1330ae86d0a7863be336c5d97f6ef34
+- Direct predecessor exact theorem and inherited rational-certificate primitives: https://github.com/awdawmip/enterprise-math/blob/a32d626ebacbd28f4fba7fe5ca7da877ae4b2556/research_notes/brc_n4_s23_k17_phase_s35_to_s23_20261105_research1/PROOF.md and VERIFY.py in that folder.
+- Control entry (read-only source snapshot): awdawmip/enterprise-math main@97d0cfac72117a11876d50736bc17bc81fd2b111, docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context, p000_reality_foundation.json, definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json, research_priorities/research_method.json.
+- Account rule snapshot: awdawmip/chatgpt-global-knowledge main@9d954cf34ebd2e0258ff0c8d3ccaa89d77621cc5; 00_BOOTSTRAP.md, OPERATING_MANUAL.md, current output/mathematical/code policies.
+- Original Chernoff sequential design perspective (method context only, not mathematical proof source): H. Chernoff, Sequential Design of Experiments, Stanford technical report SOL ONR 42 (June 1958), https://statistics.stanford.edu/technical-reports/sequential-design-experiments .
+- Native Researcher activity RA-E8214A2B9646E03D3EC300CC registered and Source-verified; source commit 8ffb5e7aa61f0d6f9a057a68a324fd16ce4acb69. This identity does not certify current CLAIM or review.
+- Actual code run: Python standard-library Fraction/isqrt, 80 strict rational assertions, exact integer hull checks. RUN_EVIDENCE.txt includes numerical lower bounds shown for readability; decisions compare full exact fractions, never the truncated displayed values.
