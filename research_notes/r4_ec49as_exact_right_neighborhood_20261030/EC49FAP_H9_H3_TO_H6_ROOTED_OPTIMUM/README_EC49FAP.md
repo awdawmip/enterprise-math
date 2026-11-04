@@ -16,6 +16,14 @@ For each fixed H2–H7 source schedule 1512, 1513, 2200 and 2203, the exact mini
 
 Enumerate all seven-letter suffix words at lengths 1 through 6 whose *signed six-axis* sum is exactly zero. Their counts are respectively **4, 18, 88, 454, 2,424 and 13,236**. For every existing selected H3–H6 root, append every suffix of the required length, then compute the full positive six-coordinate BRC key and original nine-start observer DFA signature. Filter only signatures outside the inherited six. Group complete surviving H8/H9 words by their exact full key.
 
+**Closed formula for zero-net BRC suffixes.** The seven frozen operation codes have signed-X6 net vectors: a=(-2,0,0,0,0,0), b=(0,-2,0,0,0,0), e=(+2,0,0,0,0,0), while c,d,f,g each have zero net vector. Thus a zero-net n-operation word contains no b and has exactly the same number k of a and e operations. The remaining n-2k positions may independently use any of c,d,f,g. Therefore, for every integer n>=0, the number of ordered zero-net operation words is exactly
+
+```
+Z(n) = sum_{k=0..floor(n/2)} n! / (k! * k! * (n-2k)!) * 4^(n-2k).
+```
+
+This is a counting identity on the *original ordered operation language*, not a quotient of the signed primitive trajectories. The identity evaluates to Z(1..6)=4,18,88,454,2424,13236 and independently certifies completeness of the suffix enumerator's output counts. Its all-n formula can replace 7^n brute-force counting in future search-size planning, while the individual ordered paths are still generated when their observers/prefixes are required.
+
 Across the four schedules, the numbers of separately rank-nine capable H8/H9 key classes are 34/50 in every case. Zero of the four old key classes can furnish a rank-nine H8 or H9 word pool. Thus H8 and H9 must jointly use a *single new fifth key*. The rank-nine-capable intersection is exactly 22 new keys per schedule, i.e. **88 fixed-schedule/key cases** (not distinct keys across schedules).
 
 Write P0 for the 72 primitive nonempty prefixes from H2–H7. For a new key K let W8(K), W9(K) denote all the eligible H8/H9 word pools and Pref(S) their ordered signed-primitive prefix sets. Define
