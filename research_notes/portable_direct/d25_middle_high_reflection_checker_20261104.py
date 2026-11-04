@@ -9,11 +9,11 @@ import json
 
 
 def primes(limit):
-    sieve = bytearray(b'\\x01') * (limit + 1)
-    sieve[:2] = b'\\x00\\x00'
+    sieve = bytearray([1]) * (limit + 1)
+    sieve[:2] = bytes([0, 0])
     for d in range(2, isqrt(limit) + 1):
         if sieve[d]:
-            sieve[d*d::d] = b'\\x00' * ((limit-d*d)//d+1)
+            sieve[d*d::d] = bytes([0]) * ((limit-d*d)//d+1)
     return [p for p in range(7, limit+1) if sieve[p] and p % 6 == 1]
 
 
