@@ -67,3 +67,33 @@ Native benchmark obligation remains the original fixed-373 H0/B0 divided-power [
 The 2026-11-04 Sites read-only gateway returned v0.6.11, research_authority_granted=false and write_relay_enabled=false; exact Source recovery_status/session/claim/run was unavailable in this client. Historical request research-onhour-20261031-0205-dispatch-r15 remains an original request, not replayed. This note is a neutral author-side mathematics record, not a Source CLAIM, checkpoint, Result, review or mathematical acceptance.
 
 BRC/provenance: labelled populations are original 216/2304 terms, each with original coefficient, index, valuation and independent source; forward operation is original factorial ratio; backward operation is exact finite Green; signed observer is W-V with retained p-adic remainder and terminal. No native X6 experiment or transfer theorem is asserted.
+
+
+## Theorem 3 — Green seam response equals an old quartic normalized boundary observer
+
+This additional, same-turn unit actually *combines* Theorem 2 with the previously completed quartic valuation-two theorem. Continue assuming p=6r+1>=7, h=(p-1)/2, chi=(6/p), and set T=floor((p+1)/4). The already proved quartic normalization is
+
+d_t=(4t-2)!(t!)^4/[9^t((2t)!)^4] in Z_(p), 1<=t<=T,
+b_(h+t)/p^2 = 2d_t (mod p), d_1=1/72 (mod p).
+
+Its literature-closed second-valuation cancellation gives
+  sum_(t=1)^T (8t-3)d_t=0 (mod p).
+
+The finite Green definition also yields K_h=sum_(n=h+1)^(p-1)(6n+1)b_n/b_(h+1), where the quotients mean products of the p-integral recurrence factors, *not* division by a nonunit modulo p^3. Terms with valuation b_n>=3 are zero modulo p after division by the fixed valuation-two b_(h+1). Therefore
+
+K_h = (1/d_1) sum_(t=1)^T (6t-2)d_t
+    = -72 sum_(t=1)^T (2t-1)d_t       (mod p).             (5)
+
+Together with f_h/p^2=chi/18 this proves the new exact modulo-p seam transport:
+
+boxed: f_h K_h/p^2 = -4chi sum_(t=1)^T (2t-1)d_t (mod p).   (6)
+
+This identifies the *one actual middle/high seam Green contribution* as a previously accessible, independent quartic valuation-two observer, with its sign, source and termination retained.
+
+Exact finite checks from original quartic factorial coefficients and independent d_t recurrence:
+p=13: T=3, S=sum(2t-1)d_t=4, K_h=11, seam/p^2=3;
+p=19: T=5, S=3, K_h=12, seam/p^2=7;
+p=373: T=93, S=132, K_h=194, seam/p^2=155.
+For all 148 p=1 (mod 6), 7<=p<=2000, the already proved quartic boundary sum sum(8t-3)d_t was zero. In this finite range S=0 only at p=97 (147 nonzero seam responses). This is a finite observation: the unit f_h/p^2 and the complete adjoint response K_h are different data.
+
+**Resulting exact next action:** Insert (6) into the signed Green expression (3); seek a terminal identity for the *remaining* e_j=0,1,2 sources and quartic correction with the seam explicitly extracted. The p=97 vanishing seam is a useful mechanism-discrimination test alongside p=13,19,373. Keep the fixed-373 native H0/B0 benchmark independently pending.
