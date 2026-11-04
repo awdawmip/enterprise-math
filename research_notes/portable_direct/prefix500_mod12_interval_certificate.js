@@ -47,4 +47,4 @@ function check(){
     grid_cases:cases,grid_domain:"0<=d,e<=8; |a| in {0,1,2,3,4} dividing 12; -3<=b<=3; -7<=c<=7",
     integer_semantics:"JavaScript safe integers for all declared bounded checks"};
 }
-return check();
+console.log(JSON.stringify(check()));
