@@ -34,7 +34,7 @@ Define J_p = W_p − 2 V_p + epsilon_p p.
 For **every prime 5<=p<=5000, all 667 primes**, the executed exact calculation establishes:
 
 \[
-\boxed{J_p\equiv0\pmod{p^4}\quad(5\le p\le2000,\;p\text{ prime}).}\tag{F}
+\boxed{J_p\equiv0\pmod{p^4}\quad(5\le p\le5000,\;p\text{ prime}).}\tag{F}
 \]
 
 This is a computationally exhaustive FINITE statement for the stated domain, **not a universal proof**. The corresponding all-prime hypothesis is:
