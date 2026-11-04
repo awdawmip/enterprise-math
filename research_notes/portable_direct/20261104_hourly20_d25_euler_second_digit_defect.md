@@ -74,3 +74,26 @@ Representative exact results \((p,q,E_p(1),\theta E_p(1))\) modulo p:
 Use the two **separate** correction sources to derive a class-selected finite identity at z=1, showing that the original selected factor \(S=F_p(1)\) (p mod24=13) or \(Y=(1+16\theta)F_p(1)\) (p mod24=5) vanishes modulo p^2. The present identity proves the exact discrepancy for all p=8q+5 but does not itself prove that class-specific cancellation. Compare the resulting criterion with earlier Jacobi harmonic/one-seam and native original-class D24 evidence without copying those completed proofs.
 
 Canonical native continuation rhourly20-20261104-1923-cont-read: SUCCEEDED at Source 3645861db6452777b473a94c7938cc903a962a89; preserved SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED native frontier, route REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION, execution_authorized=false. Protected old session/staging was not changed. Native p373 H0/B0, [X]U and Delta-R are pending in their exact earlier roles. This author artifact is not a native checkpoint, Result or mathematical admission.
+
+
+## Corollary: exact scalar certificate for the selected second-digit zero
+
+All C-values in this paragraph are taken from their **original p-adic rational coefficients modulo p^2**, while E-observations are the finite-polynomial residues just proved. Set \(u=(8/9)^N\), with \(N=(p+1)/2\), and let \(e_0=E_p(1)\), \(e_1=(\theta E_p)(1)\) modulo p. For the previously observed p mod24 class selector, the following are **if-and-only-if arithmetic certificates**, not assumptions of their own vanishing:
+
+If \(p\equiv13\pmod{24}\) and \(C(1)\equiv0\pmod p\), then
+\[
+\boxed{F_p(1)\equiv0\pmod{p^2}\ \Longleftrightarrow\
+u\,\frac{C(1)}p+e_0\equiv0\pmod p.}
+\]
+
+If \(p\equiv5\pmod{24}\) and \(C'(1)\equiv0\pmod p\), then
+\[
+\boxed{(1+16\theta)F_p(1)\equiv0\pmod{p^2}\ \Longleftrightarrow\
+u\left(16\frac{C'(1)}p-C(1)\right)+e_0+16e_1\equiv0\pmod p.}
+\]
+
+Proof: at z=1, \(F_p=g^NC+pE_p\) modulo p^2. The first statement follows by evaluation. For the second, apply \(1+16\theta\) **before** evaluating at z=1: since \(1-16N/8=1-2N=-p\) exactly, the transformed term is \(u(16 C'(1)-pC(1))\). Subtract and divide by p. Both equivalences preserve all exact divisibility hypotheses. They reduce the selected second-digit question to a single, explicit finite-field cancellation.
+
+Exact evaluated source pairs (baseline term, discrepancy term), whose sum is 0 modulo the displayed p, are: p=5 (2,3), p=13 (4,9), p=29 (17,12), p=37 (25,12), p=53 (45,8), p=61 (27,34), p=373 (254,119). These are examples, not a uniform proof of class selection or cancellation.
+
+Next proof target is now sharply stated: prove the boxed right-hand sides vanish on their specified residue classes using a finite Jacobi/CM/WZ symmetry of C, R and the truncated logarithm. Do not replace this exact arithmetic identity by an analytic logarithm evaluated at z=1 or by a bare scalar total that loses its two BRC source ports.
