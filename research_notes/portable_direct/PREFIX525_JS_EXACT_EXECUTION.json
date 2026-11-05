@@ -1,0 +1,82 @@
+{
+  "verdict": "ALL_CHECKS_PASS",
+  "model": "PREFIX-518/524 four-STAR signed-X6",
+  "phaseStates": 48,
+  "axisChecks": 1728,
+  "weightedTransferCoefficientChecks": 37254,
+  "macroDepthMax": 5,
+  "primitiveHistoriesScanned": 74640,
+  "gateHistograms": [
+    {
+      "depth": 0,
+      "hits": {
+        "0": 48
+      },
+      "jointHp1": {
+        "0,0": 48
+      }
+    },
+    {
+      "depth": 1,
+      "hits": {
+        "0": 288
+      },
+      "jointHp1": {
+        "0,0": 288
+      }
+    },
+    {
+      "depth": 2,
+      "hits": {
+        "0": 1719,
+        "1": 9
+      },
+      "jointHp1": {
+        "0,0": 1440,
+        "0,1": 279,
+        "1,1": 9
+      }
+    },
+    {
+      "depth": 3,
+      "hits": {
+        "0": 10260,
+        "1": 108
+      },
+      "jointHp1": {
+        "0,0": 6912,
+        "0,1": 3348,
+        "1,1": 108
+      }
+    },
+    {
+      "depth": 4,
+      "hits": {
+        "0": 61236,
+        "1": 972
+      },
+      "jointHp1": {
+        "0,0": 29184,
+        "0,1": 32052,
+        "1,1": 972
+      }
+    },
+    {
+      "depth": 5,
+      "hits": {
+        "0": 365472,
+        "1": 7776
+      },
+      "jointHp1": {
+        "0,0": 138240,
+        "0,1": 214272,
+        "0,2": 12960,
+        "1,1": 6912,
+        "1,2": 864
+      }
+    }
+  ],
+  "formula": "f_d=2 W f_(d-1)+(z-1)e_T e_T^t W^2 f_(d-2)",
+  "brc": "p_a=(K_a-|sigma_a(c_d)-sigma_a(c_0)|)/2",
+  "scope": "exact integer finite verification of all-length algebraic proof; author run"
+}
