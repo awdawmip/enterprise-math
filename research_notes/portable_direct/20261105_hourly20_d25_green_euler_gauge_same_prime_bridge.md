@@ -1,19 +1,19 @@
 # D25 — Exact same-prime Green–Euler gauge bridge for the finite Gauss second digit
 
-Date: 2026-11-05 \(Asia/Hong_Kong\). Role: TASK_RESEARCH, author-side portable evidence. Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication: `TP2-B6F4FC938FF94941C1B7`; immutable scientific pin: `c47e13e4aba0e006366f989d6334d443f6333ae3`.
+Date: 2026-11-05 (Asia/Hong_Kong). Role: TASK_RESEARCH, author-side portable evidence. Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication: `TP2-B6F4FC938FF94941C1B7`; immutable scientific pin: `c47e13e4aba0e006366f989d6334d443f6333ae3`.
 
 Status: **AUTHOR-DERIVED / EXACT POLYNOMIAL GAUGE IDENTITY / FINITE-EXACT-CHECKED / UNREVIEWED / NOT_ADMITTED**. This is a bridge between the existing short-Jacobi Green–Wronskian certificate (20261104) and the finite Euler/high-cutoff p² source (20261105). It neither alters the original native D24 H0/B0 experiment nor claims native Source task ownership.
 
 ## Same-prime, same-normalization theorem
 
-Let \\(p=8q+5\\) be prime (\\(q\ge0\\)), \(N=(p+1)/2\), and work coefficientwise in \(\mathbb Z_{(p)}[z]\) modulo \\(p^2\\). Let
+Let \(p=8q+5\) be prime (\(q\ge0\)), \(N=(p+1)/2\), and work coefficientwise in \(\mathbb Z_{(p)}[z]\) modulo \(p^2\). Let
 
 \[
 J_p(z)=\sum_{j=0}^q \binom qj\binom{3q+1}j(z/9)^j,\qquad
 C_p(z)=\sum_{j=0}^q\frac{(5/8)_j(7/8)_j}{(j!)^2}(z/9)^j.
 \]
 
-Let (K_p^{\rm harm}(z)=\sum_{j=0}^q J_jh_jz^j), with the *previously fixed* short harmonic (h_j=\(H_q-H_{q-j}\)/8+3\(H_{3q+1}-H_{3q+1-j}\)/8). The existing exact short-kernel theorem gives \(C_p=J_p-pK_p^{\rm harm}\pmod{p^2}\). Define
+Let (K_p^{\rm harm}(z)=\sum_{j=0}^q J_jh_jz^j), with the *previously fixed* short harmonic \(h_j=(H_q-H_{q-j})/8+3(H_{3q+1}-H_{3q+1-j})/8\). The existing exact short-kernel theorem gives \(C_p=J_p-pK_p^{\rm harm}\pmod{p^2}\). Define
 
 \[
 F_p^{\rm full}(x)=\sum_{k=0}^{p-1}\frac{(1/8)_k(3/8)_k}{(k!)^2}x^k,\quad
@@ -70,7 +70,7 @@ Thus the Green \(W_1\) contribution is absorbed by the finite Euler gauge change
 
 Companion standard-library checker independently constructs full Gauss and short ((5/8,7/8)) coefficients modulo \(p^2\), finite Jacobi coefficients modulo \(p^2\), and harmonic \(K^{\rm harm}\) modulo (p); calculates lower Euler and upper cutoff scalar ports separately; checks (B), both selected Green-to-Gauss reductions, and independently the two original \(p^2\) Gauss observables. **PASS 168/168 primes \(5\le p\le5000, p\equiv5\pmod8\)**. For all 9 primes \(p\le149\) in this class, also PASS *every coefficient* of (A) in degrees \(0,\ldots,p-1\). All 168 selected second digits were zero (finite exact evidence).
 
-At \\(p=373\\) (the inert auxiliary Jacobi class), \(u=82\), \(H_0=332\), \(H_1=372\), \(W_1=189\), \(V_0=124\), \(V_1=176\). Therefore
+At \(p=373\) (the inert auxiliary Jacobi class), \(u=82\), \(H_0=332\), \(H_1=372\), \(W_1=189\), \(V_0=124\), \(V_1=176\). Therefore
 \[
 e_0=124+82\cdot332\equiv119,\qquad
 e_1=176+82\(372-187\cdot332/8\)\equiv71\pmod{373}.
