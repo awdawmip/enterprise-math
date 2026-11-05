@@ -1,0 +1,3 @@
+# Next scientific research unit
+
+Continue unchanged K=17, N=4 S23 auxiliary T/B model and frozen science pin 43ec6098b1330ae86d0a7863be336c5d97f6ef34 into the real interval 9/10 <= s <= 10/11. Starting certified right-boundary optimizer is 10T+6B. Enumerate all integer cost breakpoints k/m for 1<=m<=17, upper hulls and genuine switch points, and build exact real-interval signs plus uniqueness proofs. Separately find an explicit observable/decision-risk map from the auxiliary T/B Chernoff exponent to the original ten-label S23 minimax, keeping joint branch provenance; the mother problem remains open under prior [1/2,2/3] enclosure. Independent mathematical review and authorized native Result admission of this author-side proof are pending.
