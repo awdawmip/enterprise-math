@@ -87,4 +87,3 @@ if __name__=='__main__':
     t=time.time(); out={'stage':'465B','binary':binary_checks(),'ternary':ternary_witness()}
     out['duration_seconds']=round(time.time()-t,3)
     print(json.dumps(out,indent=2,ensure_ascii=False))
-
