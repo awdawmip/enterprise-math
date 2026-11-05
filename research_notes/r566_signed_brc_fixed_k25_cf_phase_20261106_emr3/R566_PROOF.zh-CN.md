@@ -52,7 +52,7 @@
 
 主导项为 `2|A||λ|^m cos(mθ+arg A)`，由 θ/π 无理与 Weyl 等分布，余弦正负各占1/2；指数小误差影响的指标属于渐缩零点邻域，密度为0。因此 s_m 正负密度各1/2。若无限多项为零，Skolem–Mahler–Lech 定理保证存在一条无限等差子列零值；但沿任何非零步长该无理旋转仍等分布，出现任意大 `|cos|>1/2`，与主导项及误差矛盾，故零项仅有限。h>0 保持 D_m 与 s_m 同号。
 
-**实际执行：** Python 3.13.5 / SymPy 1.14.0；运行 `python -u R566_VERIFY.py` 的数学等价本地实现（本地程序的说明和少量格式与远端归档源不同，远端最终字节版独立重跑待完成）。49圆盘、1176不交、50项 H 恒等式、完整有理相位排除以及 m=0..1024 的整数递推均通过；前12阶原始整数 Berkowitz 行列式独立核对。前1025阶正512、负513、零0、相邻换号311次；终止 `R566_K25_HALF_DENSITY_AUTHOR_CERT_PASS`。
+**实际执行：** Python 3.13.5 / SymPy 1.14.0；运行归档脚本的**逐字节一致**本地版本（Git Blob `cc34d1be1f5784c276c28aa4fa7179b775896f01`）。程序实际执行 `python -u R566_ARCHIVED_VERIFY.py` 通过，并与首次等价实现输出及归档 `R566_EVIDENCE.txt` 逐字节一致。49圆盘、1176不交、50项 H 恒等式、完整有理相位排除以及 m=0..1024 的整数递推均通过；前12阶原始整数 Berkowitz 行列式独立核对。前1025阶正512、负513、零0、相邻换号311次；终止 `R566_K25_HALF_DENSITY_AUTHOR_CERT_PASS`。
 
 外部经典理论参考：https://encyclopediaofmath.org/wiki/Skolem-Mahler-Lech_theorem 及 Weyl 无理旋转等分布定理。该作者侧结果尚未取得独立数学审阅，不自动构成正式 Task Result、Working Truth、Foundation 或 X6 动力学结论。
 
