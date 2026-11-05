@@ -9,7 +9,7 @@ def primes(bound):
     flags[0]=flags[1]=0
     for d in range(2,isqrt(bound)+1):
         if flags[d]:
-            flags[d*d::d]=b'\\0'*((bound-d*d)//d+1)
+            flags[d*d::d]=b'\0'*((bound-d*d)//d+1)
     return [p for p in range(7,bound+1) if flags[p] and p%6==1]
 
 def row(p):
