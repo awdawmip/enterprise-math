@@ -1,0 +1,135 @@
+{
+  "schema": "ENTERPRISE_MATH_STAGE458B_EXECUTED_SUMMARY_V1",
+  "date": "2026-11-05",
+  "status": "EXECUTED_LOCAL_EXACT_INTEGER_WITH_INDEPENDENT_FINITE_FUTURE_ORACLE",
+  "source_git_blob_sha1": "913f8e956a486c32528e27c4e41f50d567c4f608",
+  "future_source_git_blob_sha1": "5332fcf060b72b620f11894710a632d8eb9fa1d2",
+  "marker": "STAGE458B_UNIFIED_ZERO_P_POP_RANK_PASS",
+  "finite": {
+    "cases": 2425,
+    "nonempty": 1047,
+    "c_equals_m": 288,
+    "per_key_rank_and_mass_checks": 4453,
+    "all_assertions": "PASSED"
+  },
+  "large": [
+    {
+      "parameters": [
+        64,
+        80,
+        15,
+        17,
+        1,
+        0,
+        0
+      ],
+      "qF": "1",
+      "population": "5061384194832966",
+      "DP_states": 6098
+    },
+    {
+      "parameters": [
+        64,
+        80,
+        15,
+        17,
+        1,
+        5,
+        0
+      ],
+      "qF": "13",
+      "population": "5061384194832966",
+      "DP_states": 6131
+    },
+    {
+      "parameters": [
+        64,
+        80,
+        15,
+        17,
+        1,
+        5,
+        3
+      ],
+      "qF": "55",
+      "population": "5061384194832966",
+      "DP_states": 6289
+    },
+    {
+      "parameters": [
+        64,
+        80,
+        15,
+        17,
+        1,
+        16,
+        0
+      ],
+      "qF": "315",
+      "population": "5061384194832966",
+      "DP_states": 6662
+    },
+    {
+      "parameters": [
+        64,
+        80,
+        15,
+        17,
+        1,
+        25,
+        3
+      ],
+      "qF": "88060",
+      "population": "5061384194832966",
+      "DP_states": 5592
+    },
+    {
+      "parameters": [
+        64,
+        80,
+        15,
+        17,
+        1,
+        60,
+        3
+      ],
+      "qF": "6655258248672",
+      "population": "5061384194832966",
+      "DP_states": 27699
+    },
+    {
+      "parameters": [
+        92,
+        126,
+        20,
+        25,
+        3,
+        12,
+        7
+      ],
+      "qF": "12685",
+      "population": "1121449082621221549433213976",
+      "DP_states": 7768
+    }
+  ],
+  "future_tree": {
+    "marker": "STAGE458B_FULL_NATIVE_FUTURE_TREE_PASS",
+    "fibers": 352,
+    "histories": 672,
+    "pairs": 448,
+    "boundaries": [
+      "c<m",
+      "c=m",
+      "c>m"
+    ],
+    "native_append_directions": 12,
+    "cached_full_trees": 51711
+  },
+  "scope": "initial A/B isolated B, full 12-direction future APPEND, signed X6 endpoints and directed adjacency, source-distinct exact positive integer BRC mass",
+  "limits": [
+    "Finite full-observer enumeration for small parameters only",
+    "No independent Driver admission",
+    "Depends on immutable Stage457B.py for c<m",
+    "Raw complete run JSON retained as local conversation artifact STAGE458B_EXECUTED.json; this repository summary retains source blobs, complete deterministic reproducer, core exact outputs and coverage"
+  ]
+}
