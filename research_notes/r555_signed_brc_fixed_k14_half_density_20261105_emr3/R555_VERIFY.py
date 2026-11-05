@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""R555: exact k=13 signed BRC root isolation and finite recurrence checks.
+"""R555: exact k=14 signed BRC root isolation and finite recurrence checks.
 Python 3 + SymPy; float nroots is only a candidate generator.
 All proof predicates use Python Fraction.
 """

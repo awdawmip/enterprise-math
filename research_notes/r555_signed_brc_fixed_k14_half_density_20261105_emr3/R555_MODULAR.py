@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""R555: exact prime-field elimination of all cyclotomic root ratios of Q_13."""
+"""R555: exact prime-field elimination of all cyclotomic root ratios of Q_14."""
 from R555_VERIFY import polynomials
 from fractions import Fraction as F
 from sympy import Symbol,Poly,cyclotomic_poly
 from time import perf_counter
+import os, hashlib
 from math import isqrt
 P=65537;x=Symbol('x');u=Symbol('u')
 assert pow(3,65536,P)==1 and pow(3,32768,P)==P-1
@@ -101,14 +102,19 @@ def modular_cert(co):
   R,rem=divrem(R,[P-1,1]);assert rem==[0]
  assert len(R)==D+1 and evaluate(R,1)!=0
  print("R555_MOD_INTERPOLATION_PASS deg_R=702",flush=True)
- upper_q=2*D*D;phi=totient_sieve(upper_q);candidates=[];mu=mobius_sieve(3000)
- for q in range(2,upper_q+1):
-  if phi[q]>D:continue
+ upper_q=2*D*D;phi=totient_sieve(upper_q)
+ candidates=[q for q in range(2,upper_q+1) if phi[q]<=D]
+ mu=mobius_sieve(max(candidates))
+ digest=hashlib.sha256(','.join(map(str,R)).encode()).hexdigest()
+ assert digest=="c84af0f4ea7c4cb3f40087cac608edbeb118893d1def03dbffe79e53e57824bc",digest
+ start=int(os.getenv("START","0"));end=int(os.getenv("END",str(len(candidates))))
+ assert 0<=start<=end<=len(candidates)
+ for idx in range(start,end):
+  q=candidates[idx]
   f=cyclo_mod(q,mu)
   assert len(f)-1==phi[q]
   assert len(gcd_mod(R,f))==1,(q,"cyclotomic factor")
-  candidates.append(q)
  assert (D,upper_q,len(candidates),max(candidates))==(702,985608,1356,2940)
- print("R555_MOD_CYCLOTOMIC_PASS p=65537 deg_R=702 q_bound=720000 gcd_checks=1173 max_q=2730 runtime_s=",round(perf_counter()-st,3))
+ print("R555_MOD_CYCLOTOMIC_CHUNK_PASS p=65537 deg_R=702 q_bound=985608 q_candidates=1356 max_q=2940 range=",start,end,"R_sha256=",digest,"runtime_s=",round(perf_counter()-st,3))
 if __name__=="__main__":
  co,a,p2=polynomials();modular_cert(co)
