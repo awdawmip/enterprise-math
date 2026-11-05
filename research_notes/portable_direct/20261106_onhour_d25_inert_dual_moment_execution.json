@@ -1,0 +1,86 @@
+{
+  "schema": "D25_INERT_DUAL_MOMENT_EXACT_COMPUTATION_SUMMARY_V1",
+  "date": "2026-11-06",
+  "source": "Zhi-Hong Sun 2022 Conjecture 5.28; DOI 10.3934/math.2022153",
+  "scope": "all primes p<10000 with p%24 in [13,17,19,23]",
+  "count": 616,
+  "by_class": {
+    "13": 157,
+    "17": 152,
+    "19": 155,
+    "23": 152
+  },
+  "frozen_class_count": 312,
+  "zero_H_failures": 0,
+  "zero_G_failures": 0,
+  "zero_E_failures": 0,
+  "identity_failures": 0,
+  "independent_binomial_check_primes": [
+    13,
+    17,
+    19,
+    23,
+    37,
+    43,
+    139,
+    373
+  ],
+  "samples": [
+    {
+      "p": 13,
+      "m": 2197,
+      "A": 1859,
+      "B": 676,
+      "W": 13,
+      "V": 13
+    },
+    {
+      "p": 17,
+      "m": 4913,
+      "A": 867,
+      "B": 4335,
+      "W": 4896,
+      "V": 4896
+    },
+    {
+      "p": 19,
+      "m": 6859,
+      "A": 2888,
+      "B": 2527,
+      "W": 19,
+      "V": 19
+    },
+    {
+      "p": 23,
+      "m": 12167,
+      "A": 3174,
+      "B": 7406,
+      "W": 12144,
+      "V": 12144
+    },
+    {
+      "p": 373,
+      "m": 51895117,
+      "A": 9878159,
+      "B": 28243187,
+      "W": 373,
+      "V": 373
+    }
+  ],
+  "p4_sharpness_H_over_p3_modp": {
+    "13": 4,
+    "17": 2,
+    "19": 11,
+    "23": 13,
+    "37": 24,
+    "43": 34
+  },
+  "off_domain_H": {
+    "5_mod_125": 84,
+    "7_mod_343": 165
+  },
+  "full_rows_local_sha256": "4990e3f21571b18629b5a4d894e1859fa03482bf6ee16c8a3e8dd06564a8705e",
+  "classification": "AUTHOR_SIDE_FINITE_VERIFIED_UNREVIEWED_NOT_ADMITTED",
+  "native_p373_H0_B0": "NOT_RUN",
+  "support_issue": 1559
+}
