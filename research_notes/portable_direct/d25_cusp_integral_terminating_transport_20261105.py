@@ -112,6 +112,14 @@ def calculate(p):
                ((8*k+1) if k<=h else 0))
               for k in range(K+1))%m
     assert short==(W-Vh)%m
+    # Separate the k-transport into a p-unit carrier and the v_p(b_k)>=1 shell.
+    first_divisible_B_index=(p+3)//4
+    columns=[original_2304[k] *
+             (sum((6*n+1)*T[n][k] for n in range(p))-
+              ((8*k+1) if k<=h else 0))%m for k in range(K+1)]
+    low_columns_residue=sum(columns[:first_divisible_B_index])%m
+    high_columns_residue=sum(columns[first_divisible_B_index:])%m
+    assert (low_columns_residue+high_columns_residue)%m==short
     overhang=sum((8*k+1)*original_2304[k] for k in range(K+1,J+1))%m
     before_overhang=sum((8*k+1)*original_2304[k]
                         for k in range(h+1,K+1))%m
@@ -119,6 +127,9 @@ def calculate(p):
                 triangular_identity="PASS", W=W,V=V,Vh=Vh,
                 W_minus_V=(W-V)%m, short_certificate=short,
                 before_overhang=before_overhang, overhang=overhang,
+                first_divisible_B_index=first_divisible_B_index,
+                column_k0=columns[0], low_columns_residue=low_columns_residue,
+                high_columns_residue=high_columns_residue,
                 upper_shell_sum=(before_overhang+overhang)%m,
                 origin_U0=U0, origin_gauge0=gauge[0],
                 pure_series_iterations=it)
