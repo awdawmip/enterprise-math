@@ -98,7 +98,7 @@ class Counter:
         qf,pop=self.solve(self.start)
         return dict(qF=str(qf),population=str(pop),DP_states=self.solve.cache_info().currsize,
                     hidden_T_states=sum(len(hidden_prefix(self.c,q,f,self.kp,self.kq,self.d)) for q in (0,1) for f in (0,1)),
-                    c=self.c,visible_P=self.m-self.c,visible_Q=self.n-self.c+int(self.c==0))
+                    c=self.c,visible_P=self.m-self.c,visible_Q=self.n-self.c)
 
     def unrank(self,r):
         qf,_=self.solve(self.start)
