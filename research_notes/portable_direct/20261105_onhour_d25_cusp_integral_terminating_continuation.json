@@ -1,0 +1,59 @@
+{
+  "schema": "D25_AUTHOR_SIDE_CONTINUATION_V1",
+  "date": "2026-11-05",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "scientific_source_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "predecessor": "research_notes/portable_direct/20261105_onhour_d25_cm_branch_collision_jet_continuation.json @ bdf3d5414ca91460565f7e440b430182d3c3abc4",
+  "mother_objective": "For every p ≡13 or 19 (mod24), prove/disprove Delta_p-R_p=0 (modp) at original frozen source interface, equivalent to W_p-V_p=0 (modp^3).",
+  "highest_frontier": "AUTHOR-PROVED, conditional only on previously author-proved analytic positive high-CM transport: p-integral CM-cusp series U(s)∈Z[1/6][[s]] at z=s²/3,t=s³U, U0=32/729, gauge N(s)∈Z[1/6][[s]], exact A(s²/3)=N(s)B(t(s)). PROVED finite triangular coefficient transport alpha_n/2^n=Σ(k≤floor(2n/3))T[n,k] beta_k/9^k for all integer n, with T[n,k]∈Z[1/6] and original signed coefficients. PROVED W_p-V_p≡E_p (modp³) with outer k≤floor(2(p-1)/3), using previously established V_p≡V_{(p-1)/2} (modp³). E_p vanishing all target primes OPEN. EXECUTED exact residue checker for p=5,7,11,13,17,19,23,31,37 with 0 assertions failures, first-prime shell values p13 1183+1014=0 mod2197 and p19 1083+5776=0 mod6859.",
+  "evidence": [
+    {
+      "path": "research_notes/portable_direct/20261105_onhour_d25_cusp_integral_terminating_transport.md",
+      "commit": "3bac4f92ee7e316b2074a70b82e6ae89f7ed479c",
+      "git_blob_sha1": "478322512a0bcc6f6116316592732abd5925fd35",
+      "classification": "AUTHOR_SIDE_EXACT_DERIVATION_UNREVIEWED"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_cusp_integral_terminating_transport_20261105.py",
+      "commit": "cbae6db8cada79f7278946467e3a5dd462d1bb32",
+      "git_blob_sha1": "93d7f1e192d812c7f1b117be35156a27ba1ef1c5",
+      "classification": "CHECKER_EXECUTED_LOCAL_9_PRIMES"
+    }
+  ],
+  "verification": "Exact polynomial ring computations mod p³ of U,N,T, every n<p coefficient verified against independent integer binomials; nine listed primes passed. GitHub both files read back by immutable commit refs and hashes. Local checker warning was unrelated spreadsheet runtime startup warmup, process exit=0 and output JSON assertions PASS. No native p373 run or formal review.",
+  "brc_observer": "Retains source model/prime, high+ vs low- CM branches, signed odd/even s-cosets, integer/residue values, all T[n,k] index and weights, h,K,J endpoints, 2304 p² shell cancellation, p³ carry extraction. Projection to finite k-support is algebraically exact at declared observer.",
+  "do_not_repeat": [
+    "Consume prior author positive CM analytic identity and Puiseux cancellation as sourced scope; do not republish as a newly accepted theorem.",
+    "Do not replace native original-class fixed p373 H0/B0 benchmark with portable Hesse/finite 216-2304 arithmetic.",
+    "Do not claim a uniform p³ W-V congruence from nine-prime regression or this triangular exact-identity alone.",
+    "Preserve original Source frozen task pin and all previous contributor histories; no use of maintenance lane session/claim."
+  ],
+  "unresolved": [
+    "Proof/refutation of E_p≡0 (modp³) uniformly for p≡13,19 (mod24), via a new terminating n,k recurrence/telescoping with exact endpoint/carry.",
+    "Original-class H0/B0 divided-power p373 [X]U mod139129, rank, semilinear Frobenius eta, native κ, signed Hesse/Green observer and independent replication: NOT_EXECUTED, PENDING_OWNER, support Issue #1559.",
+    "AUTHOR_SIDE proofs/published checker UNREVIEWED / NOT_ADMITTED / not native Source Result."
+  ],
+  "next_exact_action": "Construct a finite p-integral recurrence or creative-telescoping relation for T[n,k] proving signed E_p=0 modp³ for both target residue classes, retaining k=h and k=K boundaries. First derive candidate recurrence from cusp equation 27G(s²/3)U²=H(s³U) and N gauge; validate at p13,p19, then prove uniform statement. Separately native p373 Issue #1559 needs an authorized owner and real original-class evaluator.",
+  "source_request": {
+    "prior_request_id": "onhour11-20261105-2105-d25-source-read",
+    "prior_status": "SUCCEEDED",
+    "prior_execution_authorized": false,
+    "latest_read_request_id": "onhour11-20261105-2200-d25-cusp-source-cont",
+    "latest_observed_status": "QUEUED; later receipt attempted but gateway returned transient BACKEND_IDENTITY_CHECK_UNAVAILABLE with operation_sent=false; reconcile original request, do not resend.",
+    "session_id": null,
+    "claim_id": null,
+    "run_id": null,
+    "result_id": null,
+    "execution_authorized": false,
+    "formal_execution": "NOT_ESTABLISHED"
+  },
+  "native_support": {
+    "issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "status_observed": "OPEN; no assignee in fetched Issue",
+    "acceptance": "real original-class p373 fixed H0/B0 divided-power certificate with independent reproduction"
+  },
+  "classification": "AUTHOR_SIDE_GITHUB_PUBLISHED_UNREVIEWED_NOT_ADMITTED_NO_NATIVE_CLAIM"
+}
