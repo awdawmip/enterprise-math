@@ -1,0 +1,7 @@
+# Next: prove or disprove exact composition with the original ten-label S23 decoder
+
+Keep scientific pin enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34. New author-side frontier: legal rational hypotheses (1/2,1/8,1/2) vs (1/2,1/8,7/8) have the same AV and AV:stop3 total variation 3/16, but the tagged Bernoulli experiment loses a maximum 1/14 in prior-dependent minimum 0-1 Bayes risk, uniquely at prior_plus=4/7. No hypothesis-independent reverse Markov kernel exists.
+
+Primary discriminating action: locate the exact lawful ten-label encoder/decoder and R_beh(k,10) objective for k=4,6; identify whether both hypotheses can access the tagged AV:stop3 outcome through ONE common legal decoder. Specify the source mixing and decoder policies, then solve the two stochastic equations P_- K=Q_- and P_+ K=Q_+ for a single hypothesis-independent K (or give an exact separating certificate). Check the experiment direction and the intended risk before transferring the 1/14 value; the mother bound [1/2,2/3] is unchanged so far.
+
+Independent admissible extension: for a fixed common a,b and any legal c_-<c_+, derive an exact formula for the prior range and maximum Bayes-risk deficit from collapsing the AV four-stop law to one bit. Retain original four-stop source provenance, all six source labels and common b; give a parametric proof rather than sampling. A different binary-event partition or a two-bit sufficient readout may repair the lost likelihood-ratio class and is a constructive alternative.

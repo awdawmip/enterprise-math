@@ -1,0 +1,7 @@
+# Scientific sources, current normative context and proof status
+
+Frozen scientific pin: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34, research_notes/brc_n4_s23_asymmetric_hull_gap_sqrt43_20261101_research1/PROOF.md.
+Prior observer result: awdawmip/enterprise-math@5a3b827cda4135517688f9a195da399f70b59982, research_notes/brc_s23_exact_observer_completion_20261105_research1/PROOF.md (PR #1773).
+Actual current canonical reads: global-knowledge main@246218409231d24cca0cd04dcb142f8a63c8a82d (00_BOOTSTRAP, OPERATING_MANUAL, ACTIVE worldview and applicable math/evidence/BRC/activity rules), enterprise-math main@bb90fecec4ad29e5f887718ae6c841046e476412 (P000, AGENTS, joint-observer-preservation, PORTABLE_RESEARCH_PROTOCOL, research_method, RESEARCH_CONTINUATION_PROTOCOL current-normative-context). This research keeps the older frozen scientific input separately from current behavioral rules.
+Evidence: PROOF.md gives all-real exact affine-minimum proof and reverse-kernel contradiction. VERIFY.py is Python-stdlib exact-Fraction code actually executed locally, with RUN_EVIDENCE.txt capturing stdout. The published file is the same verifier text; no external literature novelty claim.
+Project result class: AUTHOR_ANALYTIC_PROOF / EXACT_RATIONAL_EXECUTED / UNREVIEWED / NOT_ADMITTED. This author-side artifact is not a formal task CLAIM/Result or an independent Driver review.
