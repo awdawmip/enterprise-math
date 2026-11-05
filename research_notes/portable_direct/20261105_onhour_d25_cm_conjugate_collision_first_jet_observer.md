@@ -75,4 +75,25 @@ All statements follow from direct substitution into the two rational \(J\)-funct
 
 **BRC/information-preservation consequence:** project \((j,t',\text{branch},\text{modulus})\mapsto j\bmod p\) loses a future-needed signed first-jet observer at 13 and 19. Retain HIGH_PLUS/LOW_MINUS, their \(T\)-odd components, integer lift/finite-field quotient, original 216/2304 endpoints, signed weight, half-endpoint carry \(K_p\) and upper-shell contribution \(C_A\). This theorem concerns an external CM algebraic map, not native crystalline Frobenius.
 
+
+## Corollary: the mandatory signed finite-period correction is exactly \(+p\)
+
+The preceding author's exact high-CM period transport gave the *infinite* weighted identity \(2P_\infty=3Q_\infty\). For the *finite original* sums, consume the frozen accepted first-digit \(W_p\equiv p\pmod{p^2}\) and the already proved 2304 theorem \(V_p\equiv p\pmod{p^3}\), for \(p\equiv13,19\pmod{24}\). The exact identity
+
+\[
+2W_p-3V_p+p=2(W_p-p)-3(V_p-p)
+\]
+
+immediately gives the **uniform finite correction**
+
+\[
+\boxed{2W_p-3V_p\equiv-p\pmod{p^2}},
+\quad
+\boxed{\frac{2W_p-3V_p+p}{2p^2}
+      \equiv\frac{W_p-p}{p^2}
+      \equiv\Delta_p-R_p\pmod p}.
+\]
+
+The last equality consumes the previous original-source-aligned scalar interface. Thus a finite operator modeled on the analytic relation must account for the signed \(+p\) term **before** testing its second digit. This exact correction is a direct dependency on the frozen mother objective, not a conjectural CM normalization. Independently recomputed with original binomial coefficients at \(p=13,19,139,373\): \(W_p=V_p=p\pmod{p^3}\), and the corrected divided residual is 0 in each case; those finite checks are diagnostics.
+
 **Next exact scientific unit:** derive an integral terminating finite-\(p\) 216→2304 operator in the **marked** \((j,\epsilon_{\rm jet})\) representation and test, first at \(p=13,19\), whether it transports the original signed \(p^2\) half-endpoint carry and upper shell. The mother target \(W_p-V_p\equiv0\pmod{p^3}\), equivalently \(\Delta_p-R_p\equiv0\bmod p\) at the frozen scalar interface, remains open. The native fixed \(p=373\) original-class divided-power \([X]U\bmod139129\), rank, semilinear Frobenius/eta, kappa and independent replication remain **PENDING_OWNER** under support Issue #1559.
