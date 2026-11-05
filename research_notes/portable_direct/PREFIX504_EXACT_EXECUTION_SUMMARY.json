@@ -1,0 +1,91 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX504_EXACT_INTEGER_CERTIFICATE_SUMMARY_V1",
+  "status": "ALL_CHECKS_PASS",
+  "observed_date": "2026-11-05",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "method": "Python 3 exact signed-direction dynamic state enumeration; sparse V-block rank/unrank checked for every reachable state, each gate, n=0..9",
+  "code_file": "research_notes/portable_direct/prefix504_blocked_vprefix_certificate.py",
+  "reproduction": "python3 prefix504_blocked_vprefix_certificate.py 9",
+  "gates": {
+    "aab": {
+      "joint_states_n0_to_9": [
+        1,
+        10,
+        68,
+        323,
+        1218,
+        3868,
+        10735,
+        26693,
+        60590,
+        127403
+      ]
+    },
+    "aba": {
+      "joint_states_n0_to_9": [
+        1,
+        10,
+        68,
+        324,
+        1219,
+        3869,
+        10734,
+        26682,
+        60550,
+        127298
+      ]
+    }
+  },
+  "basic_fibers_n9": 43054,
+  "quotient_spatial_keys_n9": 1210,
+  "tested_block_widths": [
+    1,
+    2,
+    3,
+    4,
+    8,
+    "n+1"
+  ],
+  "checked_all_ranks_and_inverses": true,
+  "n9_word_counts": [
+    {
+      "b": 1,
+      "words": 19644,
+      "extra_v_words": 8428,
+      "max_oracle_calls": 1
+    },
+    {
+      "b": 2,
+      "words": 17432,
+      "extra_v_words": 6216,
+      "max_oracle_calls": 2
+    },
+    {
+      "b": 3,
+      "words": 16070,
+      "extra_v_words": 4854,
+      "max_oracle_calls": 3
+    },
+    {
+      "b": 4,
+      "words": 15894,
+      "extra_v_words": 4678,
+      "max_oracle_calls": 4
+    },
+    {
+      "b": 8,
+      "words": 15250,
+      "extra_v_words": 4034,
+      "max_oracle_calls": 8
+    },
+    {
+      "b": 10,
+      "words": 15220,
+      "extra_v_words": 4004,
+      "max_oracle_calls": 9
+    }
+  ],
+  "inherited_index_words_n9": 11216,
+  "interpretation": "Exact finite test on declared five-axis native-BRC observer; analytic sparse-block identity proves any n. Oracle in test is native-enumerated K; PREFIX-500 solver integration/production memory profile not separately benchmarked.",
+  "local_full_log_sha256": "8e384a3f53920cfd70f241b00ebfc0dd0312d8d1a42f3445e8189536dd6c44f3"
+}
