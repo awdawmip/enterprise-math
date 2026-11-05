@@ -49,7 +49,7 @@ assert all(n2((cc[i][0]-cc[j][0],cc[i][1]-cc[j][1]))>4*eps**2 for i in range(d) 
 assert all(n2(cc[0])>n2(c)+4*eps*(1+sum(map(abs,cc[0]))+sum(map(abs,c))) for c in cc[2:])
 assert all(n2(cc[2])>=n2(c) for c in cc[3:])
 assert max(rat)<F(1,1000)
-print('R568_ROUCHE_PASS',d,'disks',d*(d-1)//2,'pairs','dominant',float(S.Abs(rr[0])),'next',float(S.Abs(rr[2])),'maximum_ratio',float(max(rat)),flush=True)
+print('R568_ROUCHE_PASS',d,'disks',d*(d-1)//2,'pairs','dominant',float(S.Abs(rr[0])),'next',float(S.Abs(rr[2])),'max_ratio',float(max(rat)),flush=True)
 re,im=cc[0];r0=(re-eps)/(im+eps);r1=(re+eps)/(im-eps)
 assert F(0)<r0<r1<F(1)
 A=atan(r0,200)[0];B=atan(r1,200)[1]
