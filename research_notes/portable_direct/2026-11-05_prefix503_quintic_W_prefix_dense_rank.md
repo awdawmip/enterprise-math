@@ -102,3 +102,25 @@ time–space tradeoff and clarifies when the quintic point is useful.
 Source references: PREFIX-500 mod12 support oracle; PREFIX-501 observer-safe
 quotient and dense lex rank; PREFIX-502 absolute-value convolution and quartic
 spatial prefix, all in this repository under research_notes/portable_direct.
+
+## Native identity, task inspection and exact certificate identity (post-publication)
+
+Native session request em-prefix503-r6-20261105T0050 returned SUCCEEDED:
+Researcher-ID EM-DIRECT-C8C94A, activity RA-81791D52F94F86BE292AF79F;
+the canonical source readback of that registration is at
+research_activity_records/RA-81791D52F94F86BE292AF79F.json on commit
+aa4f779e5208b0c7dcb6fbf7cd31508a4cb01148.
+This grants author-side attribution, not a formal task CLAIM.
+
+Exact native task query em-prefix503-task-20261105T0053 returned SUCCEEDED
+with immutable publication TP2-6A1F9D8C2047E3B51C01; observed state:
+RS-X6-NATIVE-ROTATION-DYNAMICS READY / NEEDS_DISPATCH, owner
+taskbook/unassigned, no current CLAIM. Its mother target remains
+native signed-X6 rotation/path dynamics; this BRC observation coding
+is a reusable subfamily tool rather than task closure.
+
+The published Python certificate Git blob is
+aa609083a90dfe107beea7a183a65bdb7d86fe73, identical to the blob
+computed from the local Python file actually executed with argument 9.
+That exact published-source run returned ALL_CHECKS_PASS. The repository
+summary file reports the checked ranges and principal counts.
