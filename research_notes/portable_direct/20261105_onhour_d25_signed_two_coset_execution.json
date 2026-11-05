@@ -1,0 +1,65 @@
+{
+  "schema": "D25_EXACT_TWO_COSET_KERNEL_V1",
+  "date": "2026-11-05",
+  "classification": "AUTHOR_SIDE_FINITE_EXACT_EXECUTED_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "scope": "eight prime p^3 exact ring checks of two-channel/scalar/weighted finite prefix recurrence",
+  "tests": [
+    "parity_matrix",
+    "scalar_order2_k_recurrence",
+    "weighted_2304_k_recurrence",
+    "weighted_prefix_L_h_and_p_minus_1",
+    "raw_binomial_reconstruction"
+  ],
+  "edge": {
+    "T_3_1": "-64/2187",
+    "even_only": "-52/2187",
+    "signed_odd_odd_defect": "-4/729",
+    "T_3_2": "128/243"
+  },
+  "checks": [
+    {
+      "p": 5,
+      "low": 85,
+      "high": 40
+    },
+    {
+      "p": 7,
+      "low": 168,
+      "high": 175
+    },
+    {
+      "p": 11,
+      "low": 495,
+      "high": 836
+    },
+    {
+      "p": 13,
+      "low": 741,
+      "high": 1456,
+      "k0": 646
+    },
+    {
+      "p": 19,
+      "low": 950,
+      "high": 5909,
+      "k0": 3081
+    },
+    {
+      "p": 23,
+      "low": 5405,
+      "high": 6762
+    },
+    {
+      "p": 31,
+      "low": 23498,
+      "high": 6293
+    },
+    {
+      "p": 37,
+      "low": 12173,
+      "high": 38480
+    }
+  ],
+  "assertions_failed": 0,
+  "exec_program": "d25_signed_two_channel_transfer_20261105.py (local run artifact, dependency: published d25_cusp_integral_terminating_transport_20261105.py)"
+}
