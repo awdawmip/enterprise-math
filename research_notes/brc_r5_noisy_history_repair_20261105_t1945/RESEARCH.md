@@ -58,10 +58,10 @@ $$
 h_{\mathrm{TAG}}(\eta)=-43/40+1/400+[1/400-281\eta/4000]_+.
 }
 $$
-[
-h_{m TAG}-h_{m LR}=[1/400-281eta/4000]_+,qquad
-h_{m FULL}-h_{m TAG}=min(281eta/4000,1/400).
-]
+$$
+h_{\mathrm{TAG}}-h_{\mathrm{LR}}=[1/400-281\eta/4000]_+,\qquad
+h_{\mathrm{FULL}}-h_{\mathrm{TAG}}=\min(281\eta/4000,1/400).
+$$
 
 The **sharp direction-specific threshold** is `eta*=10/281`. The tag improves LR's support precisely for `0<=eta<10/281`; at and above the threshold it adds zero value in this direction. For every `eta>0` the full-history advantage remains strictly positive.
 
