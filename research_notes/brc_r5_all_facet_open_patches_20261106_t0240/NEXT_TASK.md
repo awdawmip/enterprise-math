@@ -1,0 +1,4 @@
+# Next R5 unit
+Reuse frozen GLOBAL a01383f825ef9d43b4b754254303298c64041568 / EM 86149263e38c22292c9def1e0f69092efa1be77e. Fixed δ=1/4 hull H source: EM fed51a882c12831a889cd5437da5d1dc564fd673, facets blob 3f4ccf5d86435cba687b19d0a8f874635865600f. Six-real-variable quadratic/zonotope real-membership iff: EM f00bca43d2c668e4bf05ff7974db140c9e0d2adf.
+
+New exact frontier: all 72 actual 3D facets contain relative-open real LR behavioral patches (60 cubes + 12 prisms); H contains a 4D open LR behavioral patch. Previous 237 edges are saturated; all 227 2D faces have open patches. Next select exact rational points of H in relative interiors of dimension >=2 outside exhibited patches. Decide each by six-real-variable semialgebraic iff, retaining boundaries, seeking a certified algebraic UNSAT witness or constructive parameters. Also study global coverage through topological degree; distinguish local patches from global saturation. R5 mother image inequality remains open.
