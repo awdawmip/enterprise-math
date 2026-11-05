@@ -1,0 +1,25 @@
+# OpenAI 公开数学成果吸收｜2026-11-05 来源稳定、原生读取接续
+
+状态：`SOURCE_CHECKED / DEDUP_RECONCILED / NATIVE_TASK_READ_RUNNING / UNREVIEWED / NOT_ADMITTED`。此文档属于本次对话的中立来源审计和可移植接续，不是原生 Research-Activity、CLAIM、Result、Review、Driver 发布或独立 Lean 验证。
+
+## 1. 2026-11-05 已核验公开来源
+
+- OpenAI 官方研究出版索引 <https://openai.com/research/index/publication/>：可见最近相关数学/计算复杂性成果仍为 2026-10-26 公告 <https://openai.com/index/building-scientific-understanding-with-academic-communities/>。2026-11-02 LifeVal、11-03 工程、11-04 Linux 内核安全公告在所查范围内不构成新增数学证明。10-26 公开 ETH、局部平滑/Kakeya、QFT 相关研究主张，QFT 完整材料由外部工作组暂缓公开。
+- GitHub 授权连接读取 `openai/math` 当前 main，比较 `base=4eaee87548250b2682affda7d05d947c05554bae, head=main`：`status=identical, ahead_by=0, behind_by=0, total_commits=0, files=[]`。当轮实读最新提交即 `4eaee87548250b2682affda7d05d947c05554bae`（2026-10-30 00:35:35 UTC）。
+- `history.md` blob `ce3d4ca01564fe0e796c441d1caa6489d661117b`：最新还是 2026-10-29 CM abelian varieties Hodge Comparator 命名空间修复；2026-10-07 Weil/K3 系三篇撤回状态未变。<https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/history.md>。
+- `README.md` blob `cc5b0a03bca6c742f045d683b6647a6f44ef2cae`：发布方自述 721 manuscripts / 373 families / ~42% top-line formalized，属于发布方统计。
+- 当轮源码静态回读 CM Hodge `Challenge.lean` blob `8c1726268436ce5e19513234a5b2750085db9777`、`Solution.lean` blob `e9855a415328438d063f5f3f132473bf919595e3`、`MainSolution.lean` blob `abbe7ea5f1ffbdd2a86e561925854ce56e31c2c6`、`main.json` blob `7a3ee084f1de09a45618654cd1c11f2f0c8d878a`，与 2026-10-30 既有核验一致。Comparator 目标 `HodgeCM.hodge_conjecture_for_cm_abelian_varieties`，声明允许 `propext` / `Quot.sound` / `Classical.choice`；`Challenge.lean` 的 `by sorry` 是题面占位，`Solution.lean` 通过导入 `MainSubmission` 引用 `MainSolution`。当轮读取 `lean/lean-toolchain` blob `ba8ebf2dbaf6a668cd2a0e086186d6d569b69ff5`，声明 Lean 4.34.1；`lean/lakefile.lean` blob `cd24ca2ee09fb6fe33e82400534d9e60a616125b`，mathlib pin `d13f23b723b8a846827a245b89c10fc7d3f11612`。
+- 本次运行容器无 `lean` / `lake` 命令，也无现成项目检出；`LEAN_INDEPENDENT_KERNEL_COMPARATOR_AXIOM_CHECK=PENDING`。既有 `research_notes/public_math_intake_20261030/OPENAI_CM_HODGE_COMPARATOR_FORMALIZATION_FIX.md` 已记录目标、命名空间、证明边界；未复制为新数学主张。
+
+## 2. 现行规范与保留的项目科学 pin
+
+- 本次 GitHub 当前知识库 canonical main 已核验 `awdawmip/chatgpt-global-knowledge@93c71147e7d545bd152c21d545638944f0962c88`，在该不可变提交读取 `00_BOOTSTRAP.md` blob `898ee01ec07e170ad1a2b0e794782a20f9d94459`、`OPERATING_MANUAL.md` blob `2673f77fa9b8200f4bf39f2ae6fc00d1c06c61e9`，及当前 math、temporal、EM activity、BRC 路由规则。没有修改全局知识库。
+- 当轮 EM 规范快照 `awdawmip/enterprise-math@7cadd14b1ab5d095112d145fe64a1543df58b2bd`：`docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context` blob `79002ab20e30abb464837dc4c980cf5b5b68e001`，`docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md` blob `0aa7841c21ddc275011a98833820fd91beb3c169`，P000 blob `bcc2590d3168a28f72e8b9f0f9b1f76faadcd488`，ACTIVE `HEARTBEAT_WORLD_NATIVE_X6_TIME` blob `94a02d067be2b039ca4c0f7ffedb5ebde8430e08`；应用本项目 `research_priorities/research_method.json`。
+- 先回读 2026-11-04 最高已知持久化前沿 `research_notes/public_math_intake_20261104/OPENAI_NOV04_STABLE_SOURCE_CONTINUATION.md` blob `06e66921b5d2735f183cee450af01d2d93f8db41`，并核对 2026-10-29 已发布任务去重记录 blob `ff90b0e892b38b23500e9e80aa6534fde3feafd6`。维持 family129 已接受的限定证书、三项已出版的 ETH/BRC 表示、Cell Counting、QFT/BRC 残差任务；三项正式任务科学输入继续是 `openai/math@7ef5c0cc5ca4b0e072b7a050fca09ab24bc6fa3a`。CM Hodge 有界复验来源单独是 `openai/math@4eaee87548250b2682affda7d05d947c05554bae`。没有改旧任务 pin、P000 或 ACTIVE 定义。
+
+## 3. 原生控制观察与接续
+
+- 2026-11-05 约 01:29 UTC 实读 Sites gateway `em-sites-gateway-20261104-research-rw-r1`，`write_relay_enabled=true`、`relay_configured=true`，相比前一轮的 `false` 属于传输配置变化；仍显示 `phase=CONFIGURED_NOT_LIVE_VERIFIED`、`backend_connected=false`、`backend_connectivity=NOT_CHECKED_BY_THIS_LOCAL_TOOL`、`research_authority_granted=false`；具备 relay 不等于具有原生研究/Driver 权限。设置回执写明进一步配置需独立的 Site-bound backend client 与安全输入凭据。
+- `em_status` 实读版本 `0.6.11`、`CANONICAL_CONTROL_ADAPTER_TRIAL`。本轮在可用路径发出一次原生现状只读收集请求 `openai-math-intake-read-20261105-0929-c7a1`；`em_control_tasks` 回执 `QUEUED`，之后用原请求 ID 回读为 `RUNNING`，观测阶段由 `COLLECTING` → `EVENT_INPUT_COPY` → `NATIVE_RUNNER`，固定 Source SHA `0ce66db2fed5b5e2135258ef904786ae84cd85e5`。这是控制读取请求的运行态，不是完整任务列表、发布或数学验收。未取得最终任务数据，不据此认定已/未被另一 Driver 正式覆盖。
+- 下一动作：只按原 `request_id` 回读 `em_control_result`、消耗其最终状态和 Task/owner/Result，以原请求去重；优先确定 CM Hodge 独立复验是否被既有正式任务覆盖。若需要原生研究或 Driver 写入，使用当前真实授权执行身份、当前 Source 合同及真实回执；本对话未继承旧会话能力，也未提交 CLAIM/Review/Result/V2 Task。
+- 分类：`OFFICIAL_ANNOUNCEMENT_CHECKED`、`GITHUB_MAIN_AND_WITHDRAWAL_VERIFIED`、`EXISTING_TASK_DEDUP_REUSED`、`LEAN_INDEPENDENT_CHECK_PENDING`、`NATIVE_TASK_READ_RUNNING`、`NEW_FORMAL_PUBLICATION_NONE`。本次 Source note 的 GitHub 提交和读取回执以实际执行结果为准。
