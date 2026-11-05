@@ -1,6 +1,6 @@
 # OpenAI 公开数学成果吸收｜2026-11-05 来源稳定、原生读取接续
 
-状态：`SOURCE_CHECKED / DEDUP_RECONCILED / NATIVE_TASK_READ_RUNNING / UNREVIEWED / NOT_ADMITTED`。此文档属于本次对话的中立来源审计和可移植接续，不是原生 Research-Activity、CLAIM、Result、Review、Driver 发布或独立 Lean 验证。
+状态：`SOURCE_CHECKED / DEDUP_RECONCILED / NATIVE_TASK_PAGE1_VERIFIED / UNREVIEWED / NOT_ADMITTED`。此文档属于本次对话的中立来源审计和可移植接续，不是原生 Research-Activity、CLAIM、Result、Review、Driver 发布或独立 Lean 验证。
 
 ## 1. 2026-11-05 已核验公开来源
 
@@ -20,6 +20,6 @@
 ## 3. 原生控制观察与接续
 
 - 2026-11-05 约 01:29 UTC 实读 Sites gateway `em-sites-gateway-20261104-research-rw-r1`，`write_relay_enabled=true`、`relay_configured=true`，相比前一轮的 `false` 属于传输配置变化；仍显示 `phase=CONFIGURED_NOT_LIVE_VERIFIED`、`backend_connected=false`、`backend_connectivity=NOT_CHECKED_BY_THIS_LOCAL_TOOL`、`research_authority_granted=false`；具备 relay 不等于具有原生研究/Driver 权限。设置回执写明进一步配置需独立的 Site-bound backend client 与安全输入凭据。
-- `em_status` 实读版本 `0.6.11`、`CANONICAL_CONTROL_ADAPTER_TRIAL`。本轮在可用路径发出一次原生现状只读收集请求 `openai-math-intake-read-20261105-0929-c7a1`；`em_control_tasks` 回执 `QUEUED`，之后用原请求 ID 回读为 `RUNNING`，观测阶段由 `COLLECTING` → `EVENT_INPUT_COPY` → `NATIVE_RUNNER`，固定 Source SHA `0ce66db2fed5b5e2135258ef904786ae84cd85e5`。这是控制读取请求的运行态，不是完整任务列表、发布或数学验收。未取得最终任务数据，不据此认定已/未被另一 Driver 正式覆盖。
-- 下一动作：只按原 `request_id` 回读 `em_control_result`、消耗其最终状态和 Task/owner/Result，以原请求去重；优先确定 CM Hodge 独立复验是否被既有正式任务覆盖。若需要原生研究或 Driver 写入，使用当前真实授权执行身份、当前 Source 合同及真实回执；本对话未继承旧会话能力，也未提交 CLAIM/Review/Result/V2 Task。
-- 分类：`OFFICIAL_ANNOUNCEMENT_CHECKED`、`GITHUB_MAIN_AND_WITHDRAWAL_VERIFIED`、`EXISTING_TASK_DEDUP_REUSED`、`LEAN_INDEPENDENT_CHECK_PENDING`、`NATIVE_TASK_READ_RUNNING`、`NEW_FORMAL_PUBLICATION_NONE`。本次 Source note 的 GitHub 提交和读取回执以实际执行结果为准。
+- `em_status` 实读版本 `0.6.11`、`CANONICAL_CONTROL_ADAPTER_TRIAL`。本轮在可用路径发出一次原生现状只读收集请求 `openai-math-intake-read-20261105-0929-c7a1`；`em_control_tasks` 回执 `QUEUED`，之后用原请求 ID 回读为 `RUNNING`，观测阶段由 `COLLECTING` → `EVENT_INPUT_COPY` → `NATIVE_RUNNER`，固定 Source SHA `0ce66db2fed5b5e2135258ef904786ae84cd85e5`。这是控制读取请求的运行态，不是完整任务列表、发布或数学验收。本轮随后以同一原请求取得最终 `SUCCEEDED` 的 as-of 控制页：`as_of=2026-11-05T01:32:12.339570Z`、`snapshot_id=INV-dc3d50fbdfc8caa0e7620f72d46ccea5`、`total=490`，其中 `AWAITING_REVIEW=59`、`BLOCKED=19`、`COMPLETE=124`、`DORMANT=20`、`NEEDS_DISPATCH=268`；当前只取得前 20 项（均非本次三项 OpenAI 目标），`next_cursor=INV-dc3d50fbdfc8caa0e7620f72d46ccea5.20`。回执 `event_collection.kind=COMPLETE_BYTES_REVALIDATED_AS_OF_LIST`、`source_sha=0ce66db2fed5b5e2135258ef904786ae84cd85e5`、`execution_authorized=false`，控制读取成功不等于对所有 490 项已完成去重。另已为三项既存 OpenAI 任务分别提交同一会话自己的只读 `em_control_continuation` 原请求 `openai-intake-continuation-20261105-01-fd31`、`...-02-fd31`、`...-03-fd31`，首次读取各返回 `QUEUED`，当前仍待原 ID 回执完成。
+- 下一动作：对三个新提交的各自 `request_id` 原样回读 `em_control_result`，核查固定的 Task/owner/Result；必要时用 `next_cursor` 延续已固定的 as-of 清单以确认 CM Hodge 是否被当前正式任务覆盖。若需要原生研究或 Driver 写入，使用当前真实授权执行身份、当前 Source 合同及真实回执；本对话未继承旧会话能力，也未提交 CLAIM/Review/Result/V2 Task。
+- 分类：`OFFICIAL_ANNOUNCEMENT_CHECKED`、`GITHUB_MAIN_AND_WITHDRAWAL_VERIFIED`、`EXISTING_TASK_DEDUP_REUSED`、`LEAN_INDEPENDENT_CHECK_PENDING`、`NATIVE_TASK_PAGE1_VERIFIED`、`NEW_FORMAL_PUBLICATION_NONE`。本次 Source note 的 GitHub 提交和读取回执以实际执行结果为准。
