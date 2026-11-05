@@ -1,0 +1,46 @@
+{
+  "schema": "D25_AUTHOR_SIDE_CONTINUATION_V1",
+  "date": "2026-11-05",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "science_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "mother_objective": "Delta_p-R_p=0 modp for all p≡13,19 (mod24) at original frozen scalar interface",
+  "highest_frontier": "EXACT rank-two signed Clausen cutoff prefix certificate, O(p) original scalar audit, author-side unreviewed and not native.",
+  "proof": "T=B/p² = C Σ_{i=1}^n b_i((6i+1)A_i-6J_i) modp; A_i=Σ_{r<=i}2^r R_r; J_i=Σ_{r<=i}r2^r R_r; Delta-T=(W-p)/p² modp.",
+  "verification": {
+    "prime_domain": "p≡1 mod6, 7<=p<=10000",
+    "passed": 611,
+    "failed": 0,
+    "direct_double_sums": 25,
+    "target_class_delta_equals_T": 312,
+    "native_benchmark": "NOT_RUN"
+  },
+  "evidence": [
+    "research_notes/portable_direct/20261105_onhour_d25_signed_boundary_rank2_prefix_certificate.md",
+    "research_notes/portable_direct/d25_terminal_boundary_rank2_checker_20261105.py"
+  ],
+  "do_not_repeat": [
+    "Accepted CM0/UR/JT0",
+    "Prior signed Clausen endpoint, 4F3 and p³ product consequences",
+    "Prior finite validation as universal theorem"
+  ],
+  "missing": [
+    "Frozen original R_p must be compared to T_p with original observer",
+    "All-prime LIFT or exact counterexample",
+    "Native p373 H0/B0 rank semilinear eta kappa [X]U and independent review #1559"
+  ],
+  "next_exact_action": "Source-typed comparison of frozen R_p vs computed signed T_p, then p-dependent terminal WZ for W=p modp³ at target classes.",
+  "source": {
+    "request_id": "onhour11-20261105-1300-d25-cont",
+    "receipt": "SUCCEEDED",
+    "observed_at": "2026-11-05T05:02:27.824721+00:00",
+    "execution_authorized": false,
+    "own_claim": null,
+    "own_run": null,
+    "own_checkpoint": null
+  },
+  "result": "UNREVIEWED / NOT_ADMITTED",
+  "support_issue": 1559,
+  "git": "AUTHOR_SIDE_PUBLISHED_ONLY_AFTER_VERIFIED_GITHUB_COMMIT"
+}
