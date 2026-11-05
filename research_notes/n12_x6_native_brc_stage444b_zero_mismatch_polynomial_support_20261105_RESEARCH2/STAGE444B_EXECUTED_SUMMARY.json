@@ -1,0 +1,103 @@
+{
+  "marker": "STAGE444B_ZERO_MISMATCH_POLYNOMIAL_SUPPORT_PASS",
+  "executed_on": "2026-11-05",
+  "interpreter": "Python3 stdlib exact integers",
+  "full_stdout_local_sha256": "f91c6a1ee30ea3162a08ac1e7b363b7f0b37d81ab263b6384bc62b1cd0abcb0e",
+  "reproduced_source_sha256": "f4786c2c78ee2cbedd62d79f052179eda43fed88a07c04d64207d2a6e09ca8f0",
+  "reproduced_source_git_blob": "69bd2694e6da389d814205e0a7b6ddfea5bf76c0",
+  "command": "python3 REPRO_STAGE444B.py > STAGE444B_EXECUTED.json",
+  "exhaustive_parameter_sweep": {
+    "m": "4..8",
+    "n": "4..8",
+    "kP": "0..2",
+    "kQ": "0..2",
+    "pP": "0..2",
+    "pQ": "0..2",
+    "rP": "0..1",
+    "rQ": "0..1",
+    "K": "min(m,n)",
+    "cases": 8100,
+    "nonempty_fibers": 3312,
+    "raw_history_instances": 8172,
+    "aggregate_support_classes": 5484,
+    "digest": "e26da74d7db107e91b2f1ef62301d493cba38022f5981f66f0811f2d0f1beafc"
+  },
+  "fixtures": 16,
+  "fixture_raw_histories_checked": 317,
+  "fixture_class_population_checks": 51,
+  "independent_all12_direction_future_fibers": 5,
+  "independent_full_future_states": 12168,
+  "independent_future_history_pairs": 24,
+  "benchmark": [
+    {
+      "params": [
+        15,
+        10,
+        4,
+        2,
+        10,
+        4,
+        3,
+        3,
+        2
+      ],
+      "q": 15,
+      "capacity_transitions": 36,
+      "subset_state_visits": 70,
+      "output_candidates": "131072"
+    },
+    {
+      "params": [
+        24,
+        19,
+        7,
+        5,
+        19,
+        8,
+        6,
+        6,
+        5
+      ],
+      "q": 63,
+      "capacity_transitions": 75,
+      "subset_state_visits": 112,
+      "output_candidates": "68719476736"
+    },
+    {
+      "params": [
+        32,
+        25,
+        10,
+        7,
+        25,
+        10,
+        9,
+        8,
+        10
+      ],
+      "q": 356,
+      "capacity_transitions": 120,
+      "subset_state_visits": 262,
+      "output_candidates": "562949953421312"
+    },
+    {
+      "params": [
+        64,
+        48,
+        20,
+        14,
+        48,
+        25,
+        20,
+        20,
+        20
+      ],
+      "q": 3719100,
+      "capacity_transitions": 531,
+      "subset_state_visits": null,
+      "output_candidates": "5192296858534827628530496329220096"
+    }
+  ],
+  "all_checked": true,
+  "record_kind": "EXECUTED_SUMMARY; full stdout regenerable with exact source and command"
+}
