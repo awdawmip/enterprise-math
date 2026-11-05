@@ -1,6 +1,6 @@
 # D25 — Finite Clausen square and the nontrivial weighted high-index tail
 
-2026-11-05 (Asia/Hong_Kong). TASK_RESEARCH author-side, same parent Task \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`, publication \`TP2-B6F4FC938FF94941C1B7\`, frozen input \`c47e13e4aba0e006366f989d6334d443f6333ae3\`. AUTHOR-DERIVED / EXACT FINITE-POLYNOMIAL PROOF / FINITE-EXACT-CHECKED / UNREVIEWED / NOT_ADMITTED. This is a separate second unit following the new Euler–Green same-prime gauge bridge.
+2026-11-05 (Asia/Hong_Kong). TASK_RESEARCH author-side, same parent Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`, publication `TP2-B6F4FC938FF94941C1B7`, frozen input `c47e13e4aba0e006366f989d6334d443f6333ae3`. AUTHOR-DERIVED / EXACT FINITE-POLYNOMIAL PROOF / FINITE-EXACT-CHECKED / UNREVIEWED / NOT_ADMITTED. This is a separate second unit following the new Euler–Green same-prime gauge bridge.
 
 ## Exact weighted finite Clausen identity
 
