@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""R564: k=22 exact signed BRC scalar Toeplitz-Hessenberg determinant certificate.
+"""R564: k=23 exact signed BRC scalar Toeplitz-Hessenberg determinant certificate.
 Frozen scientific input R462 (18783e01e3646c72b7aab3b16d3f565e83e6446f).
 Numeric root centers only propose rational disks; all acceptance uses integers/fractions; no Euler totient sweep.
 """
@@ -71,4 +71,4 @@ b=[(-1)**(j-1)*H(j+2)*h**(j-1) for j in range(1,d+1)];v=[1]
 for m in range(1,1025):v.append(sum(b[j-1]*v[m-j] for j in range(1,min(d,m)+1)))
 for m in range(1,13):assert S.Matrix([[raw(3+i-j) for j in range(m)] for i in range(m)]).det(method='berkowitz')==v[m]
 print('R564_RECURRENCE_PASS','positive',sum(a>0 for a in v),'negative',sum(a<0 for a in v),'zeros',sum(a==0 for a in v),'sign_changes',sum(v[j]*v[j-1]<0 for j in range(1,len(v))),'raw_determinants',12,flush=True)
-print('R564_K22_HALF_DENSITY_AUTHOR_CERT_PASS',flush=True)
+print('R564_K23_HALF_DENSITY_AUTHOR_CERT_PASS',flush=True)
