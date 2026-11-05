@@ -1,0 +1,48 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-06",
+  "role": "TASK_RESEARCH",
+  "logical_conversation_id": "chatgpt-research-hourly-enterprise-math-20260923",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Delta_p-R_p=0 mod p at p=13,19 mod24, with original scalar W_p=p mod p^3; native p373 original-class evidence pending.",
+  "completed_author_units": [
+    "General q^2 signed Lucas/carry formula for every n>=0 and prime q>=5: high index enters only through two moments T,T1; exact one-carry coefficient K_i and Fermat/harmonic corrections.",
+    "For q | 6n+1, s_i order creates a unique potentially nonzero signed carry channel (K2 for q=1 mod6, K4 for q=5 mod6), and provides exact q^2 second-digit criterion.",
+    "For all primes q>=5 with L_q=0 modq, at n0=(q^2-1)/6 and every t>=0: C_(n0+tq²)/q=2^(2t)*U_t*(C_n0/q) mod q; digit-palindrome proof; finite certified infinite arithmetic progressions for q<=1000."
+  ],
+  "evidence": {
+    "direct_integer_shadow_mod_q2": "588/588 generic pairs q=5,7,11,13,17,19,23,29,31 and n<min(4q+5,90)",
+    "direct_prime_square_bases": "11/11 q<=41",
+    "prime_square_formula_bases": "166/166 primes 5<=q<=1000, L modq=0 and C_n0 modq2=0; these base checks plus proved transfer imply all t>=0 for those q",
+    "transfer_moment_check": "32/32 q in 5,7,11,13,19,23,31,37 and t=0..3",
+    "transfer_large_n_original_check": "6/6 q in 5,7,11 and t=1,2",
+    "native_original_class": "NOT_RUN",
+    "independent_review": "PENDING"
+  },
+  "artifact_paths": [
+    "research_notes/portable_direct/20261106_hourly20_d25_lucas_q2_two_moments.md",
+    "research_notes/portable_direct/d25_lucas_q2_factorization_20261106.py",
+    "research_notes/portable_direct/20261106_hourly20_d25_prime_square_transfer.md",
+    "research_notes/portable_direct/d25_prime_square_transfer_20261106.py"
+  ],
+  "native_control": {
+    "task_request_id": "em-h20-20261106-0120-d25-task",
+    "continuation_request_id": "em-h20-20261106-0120-d25-continuation",
+    "request_outcomes": "SUCCEEDED for both",
+    "request_source_sha": "180d622772d06fb2c606544565b204460235b8ee",
+    "verified_previous_checkpoint_state": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+    "task_state": "HANDOFF_READY",
+    "live_claim": "NO_LIVE_CLAIM",
+    "route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "execution_authorized": false,
+    "old_historical_session_reference": "MCP-092d7e732273432ea9a767b696413c83",
+    "pending_mutation_and_unpublished_staging": "NOT_FULLY_VERIFIED: recovery_status not exposed; do not close or re-register on assumption",
+    "new_researcher_session_claim_run_checkpoint": "NOT_CREATED"
+  },
+  "status": "AUTHOR_PROVED_FINITE_EXACT_CHECKED_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE_CHECKPOINT",
+  "next_exact_action": "For general q, prove or disprove the universal base property q^2 | C_((q^2-1)/6) via finite-sum telescoper / Clausen signed derivative; independently seek a non-tautological finite-sum cancellation for original D25 signed F,H second-digit ports. Prioritize Source-native p373 H0/B0 and [X]U mod139129/Frobenius eta kappa when authorized source tools available.",
+  "do_not_repeat": "Mod-q Lucas factorization, initial C_n conjecture n<=500, previous Hensel/Clausen q^4, frozen WZ/Green, native Source completed units, and same prime-square scan without new proof.",
+  "formal_frontier_handling": "Do not overwrite Source checkpoint, previous contributor ids, Source pins, original-class signed branches or any old unpublished staging; no new formal CLAIM/OPEN/Result/review."
+}
