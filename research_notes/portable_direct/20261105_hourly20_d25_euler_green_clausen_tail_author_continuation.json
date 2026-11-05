@@ -1,0 +1,63 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-05",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE",
+  "logical_conversation_id": "chatgpt-research-hourly-enterprise-math-20260923",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "D24 original 216/2304 selected second digit Delta_p-R_p = 0 mod p, p mod24 in {13,19}; preserve native 373 H0/B0 and semilinear normalization separately",
+  "completed_author_units": [
+    {
+      "unit": "exact same-prime Euler/Green gauge transformation E(z)=V(z/9)+(1-z/9)^N K_h(z), both value and theta ports, Green W cancels from selected observables",
+      "evidence": "research_notes/portable_direct/20261105_hourly20_d25_green_euler_gauge_same_prime_bridge.md",
+      "checker": "research_notes/portable_direct/d25_euler_green_gauge_bridge_20261105.py",
+      "verification": "168/168 primes <=5000 p=5 mod8; 9/9 coefficientwise polynomial cases p<=149"
+    },
+    {
+      "unit": "exact weighted Clausen finite square V_p+T_p=F_p(F_p+16D_p) and upper-tail two-valuative-source decomposition; conditional tail digit and exact p=373 certificate",
+      "evidence": "research_notes/portable_direct/20261105_hourly20_d25_clausen_weighted_high_tail_bridge.md",
+      "checker": "research_notes/portable_direct/d25_clausen_high_tail_20261105.py",
+      "verification": "20/20 primes <=373 p=5 mod8 checked mod p^3; selected factor p^2 divisibility finite only"
+    }
+  ],
+  "higher_existing_author_frontier": "Finite Gauss Euler K/U, S/S' carry and short Jacobi Green W, earlier author-side notes dated 2026-11-04/05; do not replay",
+  "next_action": "Prove aggregate Clausen high-strip T_p/p = -(-3/p) directly from unit-unit + unit-p source sums, or test an independent original-216/2304 signed transport at p=13,373 using original valuation-two Chebyshev/Hadamard port; retain p=19 original-class frozen scope independently",
+  "evidence_gaps": [
+    "all-prime selected Gauss p^2 factor divisibility not proved by these two units",
+    "general original-216 to quartic-2304 W_p-V_p mod p^3 not proved by these units",
+    "native original-class 373 H0/B0 divided-power [X]U mod p^2, semilinear Frobenius direction, eta/kappa and independent review not executed in this run"
+  ],
+  "do_not_repeat": [
+    "Do not equate old Green e0=119 with finite Euler V0=124 at p373 without harmonic gauge term u*K_h0=368",
+    "Do not treat upper Clausen tail as zero: at p373 T/p=372 mod373",
+    "Do not reinterpret author-side portable progress as Source native checkpoint",
+    "Do not reuse CONTROL_PLANE_MAINTENANCE conversation ID"
+  ],
+  "native_checkpoint_mutated": false,
+  "native_session_claim_run_request": null,
+  "native_service_version_observed": "0.6.11",
+  "last_verified_native_continuation_from_prior_run": {
+    "request_id": "research-h20-20261105-0720-d25-fresh-continuation",
+    "source_pin": "c4d8e335302f70fa5850e07a8a4785d9d9250f8d",
+    "state": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+    "route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "execution_authorized": false
+  },
+  "this_run_native_reads_pending": [
+    {
+      "request_id": "research-hourly20-20261105-0820-continuation-read",
+      "last_observed": "RUNNING",
+      "source_admission_pin": "527f02fac1cfc0f4b77d1425cfc4d6bd7f6cdf29",
+      "note": "Original request must be polled/reconciled; no duplicate submission"
+    },
+    {
+      "request_id": "research-hourly20-20261105-0820-task-read",
+      "last_observed": "QUEUED/COLLECTING",
+      "source_admission_pin": "527f02fac1cfc0f4b77d1425cfc4d6bd7f6cdf29",
+      "note": "Original request must be polled/reconciled"
+    }
+  ],
+  "recovery_and_identity": "Current client exposes em_status and continuation/task reads but no callable recovery_status or session_preserve_staging despite status advertising them. Prior protected service session/staging requires actual-state readback before any close/new session, no pretend identity; unresolved queue does not establish execution permission.",
+  "mathematical_admission": "UNREVIEWED_NOT_ADMITTED"
+}
