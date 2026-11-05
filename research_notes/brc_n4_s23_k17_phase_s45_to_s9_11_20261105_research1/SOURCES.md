@@ -1,0 +1,7 @@
+# Source references and evidence provenance
+
+- Frozen scientific model: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Observational inputs and model definitions remain frozen.
+- Immediate predecessor: `awdawmip/enterprise-math@053477b8808763d9fcc35059096de66c7c2b1559`, `research_notes/brc_n4_s23_k17_phase_s34_to_s45_20261105_research1/PROOF.md`, especially common-tilt Chernoff formulas and strict nonvertex uniqueness.
+- Current normative sources (2026-11-05 read): private global knowledge `main@fe2b18de59b7df59b5ad40e649d5eb946c54385f` and enterprise-math `main@8741de0d521e46aa5bb38a1c776aab0a3c17938c`; task role, P000, ACTIVE worldview, research method and portable research delivery were consulted. The normative reads do not change the frozen scientific pin.
+- Exact code and output: this directory `VERIFY.py`, `RUN_EVIDENCE.txt`; executed under CPython using only standard library `fractions.Fraction` and `math.isqrt`. Local executed program SHA-256 expected `59a48ec2b8999cd297f5abf7cb049039f9d02fe0336620453ba0af8cc25e86bb`. Local exact output SHA-256 expected `1afa4e3b64c5bcf622f4606f8ead15446a3f1df52a6ae57a8498b1e0f0965365`. Git blob identities should be checked against executed files on publication.
+- Status: author analytic mathematical evidence, externally unreviewed and not admitted to native Task Result. Current real GitHub identity `awdawmip`. Native CLAIM/owner only after service receipt.
