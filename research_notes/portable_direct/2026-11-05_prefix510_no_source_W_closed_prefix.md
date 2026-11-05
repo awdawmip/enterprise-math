@@ -1,6 +1,6 @@
 # PREFIX-510 — Exact W-prefix for the no-source BRC observer slice
 
-Date: 2026-11-05 (Asia/Shanghai). Status: AUTHOR_PROVED / EXACT_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED. Author-side independent research, not a formal CLAIM. Frozen scientific input: `awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d`. Normative current-main entry: `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`. Direct predecessor: PREFIX-509. Parent: exact joint ranking in the declared ordered five-axis subfamily of native X6; this note addresses a specific W-aggregate, not the full X6 rotation problem.
+Date: 2026-11-05 (Asia/Shanghai). Status: AUTHOR_PROVED / EXACT_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED. Author-side independent research, not a formal CLAIM. Frozen scientific input: `awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d`. Normative current-main entry: `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`. Direct predecessor: PREFIX-509. Researcher-ID: `EM-DIRECT-44DE3E` (native MCP-issued session `MCP-3e0044b392304f3dba961ccbd33f05f5`, activity `RA-6C3B45D95C9CC98DDEE35E3E` issued and Source-verified at `62a756e8058135d3b08a87bd0f23c58d7f978d2a`). Parent: exact joint ranking in the declared ordered five-axis subfamily of native X6; this note addresses a specific W-aggregate, not the full X6 rotation problem.
 
 ## Statement: exact closed W-prefix for all first-source N states
 
