@@ -1,0 +1,13 @@
+MODEL_S eta=0 h_tag=-107/100 exact_gap=0 overlap_lower=0
+MODEL_S eta=1/1000 h_tag=-4280281/4000000 exact_gap=281/4000000 overlap_lower=1/200000
+MODEL_S eta=1/50 h_tag=-214281/200000 exact_gap=281/200000 overlap_lower=1/10000
+MODEL_S eta=10/281 h_tag=-429/400 exact_gap=1/400 overlap_lower=1/5620
+MODEL_S eta=1/20 h_tag=-429/400 exact_gap=1/400 overlap_lower=1/4000
+MODEL_S eta=1/4 h_tag=-429/400 exact_gap=1/400 overlap_lower=1/800
+MODEL_S eta=1/2 h_tag=-429/400 exact_gap=1/400 overlap_lower=1/400
+THREE_HISTORY positive_ternary {'full': Fraction(439, 3780), 'tag': Fraction(37, 540), 'loss': Fraction(1, 21), 'overlap_lower_bound': Fraction(9, 280), 'perfect': False, 'witness': [(1, 1, 1)]}
+THREE_HISTORY disjoint_support {'full': Fraction(439, 3780), 'tag': Fraction(439, 3780), 'loss': Fraction(0, 1), 'overlap_lower_bound': Fraction(0, 1), 'perfect': True, 'witness': [(0, 1, 0), (0, 1, 1)]}
+FOUR_HISTORY delta=0 {'full': Fraction(37, 360), 'tag': Fraction(37, 360), 'loss': Fraction(0, 1), 'overlap_lower_bound': Fraction(0, 1), 'perfect': True, 'witness': [(0, 1, 0), (0, 1, 1)]}
+FOUR_HISTORY delta=1/100 {'full': Fraction(37, 360), 'tag': Fraction(1823, 18000), 'loss': Fraction(3, 2000), 'overlap_lower_bound': Fraction(37, 36000), 'perfect': False, 'witness': [(0, 1, 0), (0, 1, 1)]}
+FOUR_HISTORY delta=1/4 {'full': Fraction(37, 360), 'tag': Fraction(7, 90), 'loss': Fraction(1, 40), 'overlap_lower_bound': Fraction(1, 40), 'perfect': False, 'witness': [(1, 1, 0), (1, 1, 1)]}
+PASS_EXACT_R5_FINITE_TAG_OVERLAP_DEFECT_CERTIFICATE
