@@ -1,0 +1,51 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-05",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE",
+  "requested_lane_logical_conversation_id": "chatgpt-research-hourly-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "identity_assertion": "Lane identifier is historical task routing provenance, not a service session or fresh execution attestation; no native Researcher identity claimed.",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "scientific_input_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Determine original D24 LIFT Delta_p-R_p=0 mod p for every prime p mod24 in {13,19}, retaining original p373 native H0/B0, [X]U mod p^2, eta/kappa and independent review.",
+  "current_author_unit": {
+    "name": "Reflected high-endpoint 1/10 and complementary Gauss finite-field recurrence; fused original-216 tail second-digit O(m)-time O(1)-space exact algorithm.",
+    "classification": "AUTHOR_DERIVED_GENERAL_PROOF_EXACT_FINITE_REGRESSION_UNREVIEWED_NOT_ADMITTED",
+    "evidence": "research_notes/portable_direct/20261105_hourly20_d25_original216_reflected_endpoint_constant_space.md",
+    "checker": "research_notes/portable_direct/d25_original216_reflected_tail_20261105.py",
+    "proof": [
+      "For every p=6m+1>=7 prime, b_(p-1)/p^2=1/10 mod p from Wilson and Fermat.",
+      "For 1<=r<m, d_(r+1)/d_r=36r^2/((6r+5)(3r+2)), d_r=b_(p-r)/p^2 mod p.",
+      "T_p/p^2=2sum_(i=1)^m b_i[(6i+1)A_i-6B_i] mod p with reflected A,B evaluable in O(m) time, O(1) auxiliary space."
+    ],
+    "verification": "Executed independent Python integer mod p^3 exact checker, 35/35 primes 7<=p<=373 p=1 mod6; direct O(p^2) upper strip equals fused observer; p13=0, p19=12, p373=196."
+  },
+  "predecessor_author_evidence": "research_notes/portable_direct/20261105_hourly20_d25_original216_clausen_linear_author_continuation.json",
+  "predecessor_consumed_without_recredit": true,
+  "native_source_frontier": {
+    "persisted_checkpoint": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED (historical latest successful read, Source 527f02fac1cfc0f4b77d1425cfc4d6bd7f6cdf29)",
+    "source_native_execution_authorized": false,
+    "current_read_request_id": "em-h20-20261105-1022-exact-continuation",
+    "current_read_status": "QUEUED as last observed, reconcile exact ID",
+    "prior_completed_requests": [
+      "research-hourly20-20261105-0820-continuation-read",
+      "research-hourly20-20261105-0820-task-read"
+    ],
+    "service_session_claim_run": "Not authenticated for this run; do not resume/fence/close other identities",
+    "no_native_checkpoint_written": true,
+    "control_support_issue": "https://github.com/awdawmip/enterprise-math/issues/1558"
+  },
+  "open_science": [
+    "Find an independently defined frozen geometric R_p readout; parent return expresses 1+pR_p but does not itself furnish a standalone numerical formula for R_p.",
+    "Compare R_p with (W_p-p)/p^2 plus original-216 reflected high-strip q_p for p13,19,373; do not define R_p by Delta_p.",
+    "Continue actual native H0/B0 [X]U mod p^2 and source Frobenius normalization separately."
+  ],
+  "do_not_repeat": [
+    "Do not recredit previous original-216 O(p) tail valuation proof or 2304 tail.",
+    "Do not rewrite native Source verified checkpoint completed_units or claim authorship.",
+    "Do not confuse portable exact arithmetic with native H0/B0 experiment or accepted mathematics.",
+    "Do not replay queued control read under a new request ID while original is pending."
+  ],
+  "next_exact_action": "Read original frozen source containing independent R_p definition / normalization; compute p13,p19,p373 R_p then compare with q_p and (W_p-p)/p^2. Native lane only if protected session transition and current Source permissions allow."
+}
