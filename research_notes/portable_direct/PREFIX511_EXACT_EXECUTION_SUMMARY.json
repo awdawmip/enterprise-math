@@ -1,0 +1,94 @@
+{
+  "certificate": "PREFIX511_ZERO_DISPLACEMENT_BC_W_PREFIX",
+  "status": "ALL_CHECKS_PASS",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "js_native": {
+    "status": "ALL_CHECKS_PASS",
+    "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+    "scope": "X6 signed ten-direction five-axis subfamily, zero displacement",
+    "native_n_max": 8,
+    "gates": {
+      "aab": [
+        {
+          "n": 0,
+          "m": 0,
+          "BC_states": 0
+        },
+        {
+          "n": 2,
+          "m": 1,
+          "BC_states": 2
+        },
+        {
+          "n": 4,
+          "m": 2,
+          "BC_states": 12
+        },
+        {
+          "n": 6,
+          "m": 3,
+          "BC_states": 37
+        },
+        {
+          "n": 8,
+          "m": 4,
+          "BC_states": 84
+        }
+      ],
+      "aba": [
+        {
+          "n": 0,
+          "m": 0,
+          "BC_states": 0
+        },
+        {
+          "n": 2,
+          "m": 1,
+          "BC_states": 2
+        },
+        {
+          "n": 4,
+          "m": 2,
+          "BC_states": 13
+        },
+        {
+          "n": 6,
+          "m": 3,
+          "BC_states": 41
+        },
+        {
+          "n": 8,
+          "m": 4,
+          "BC_states": 91
+        }
+      ]
+    },
+    "native_row_checks": 30,
+    "native_prefix_checks": 50,
+    "native_support_checks": 282,
+    "algebra_m_range": [
+      0,
+      60
+    ]
+  },
+  "independent_python_local": {
+    "status": "ALL_CHECKS_PASS",
+    "native_n_even": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "native_BC_members_checked": 602,
+    "native_W_rows_checked": 42,
+    "native_W_prefixes_checked": 66,
+    "analytic_m_range": [
+      0,
+      60
+    ],
+    "python_source_sha256": "c8d43c19097c07e7e36cafb3b2f9ba60df9d9cbbab601fee56a233057a8e53a9",
+    "full_execution_json_sha256": "b9a2826b5979ca25403515c948c446d56aeac817b41a3d916b1d0ce76b631efd"
+  }
+}
