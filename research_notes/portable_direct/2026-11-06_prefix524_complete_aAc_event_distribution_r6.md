@@ -62,7 +62,7 @@ Set Q(t)=(1-6t)²D(4t²); Q(0)=1 and deg Q=12. Exact polynomial Euclidean divisi
 
 In ascending order Q(t) has coefficients
 [1,-12,16,240,-1136,4992,-19968,59904,-214272,414720,-995328,-2985984,8957952].
-Consequently B_d obeys the exact homogeneous recurrence sum_(j=0)^12 Q_j B_(d-j)=0 for d>=13, and also at d=12 because B_0=0 and deg of the numerator is 12. The complete initial coefficients are calculated from the first theorem.
+Consequently B_d obeys the exact homogeneous recurrence sum_(j=0)^12 Q_j B_(d-j)=0 for every d>=13. At d=12 the product Q(t)B(t) has a nonzero t^12 coefficient, so the d=12 coefficient equation is inhomogeneous. The complete initial coefficients are calculated from the first theorem.
 
 ## 5. Executed certificate and exact checks
 
