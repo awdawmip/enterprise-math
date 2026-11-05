@@ -55,7 +55,7 @@ def candidates(K,h):
     found={}
     for cd in itertools.product('cd',repeat=r):
         letters='a'*a+'e'*e+''.join(cd)+'f'*f+'g'*g
-        for perm in set(itertools.permutations(letters)):
+        for perm in sorted(set(itertools.permutations(letters))):
             w=''.join(perm);key,delta,s=read(w)
             assert key[:3]==K and delta==TARGET
             if s:found[w]=s
