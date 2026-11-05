@@ -24,7 +24,7 @@ Among these words, exactly one avoids22: (32)^r. Proof: a balanced word with no2
 
 Every known common word containing22 synchronizes the old latent state: after its second2 all inputs are at state2. Positive symbol likelihoods only change row masses; with the same initial counts/scores the entire remaining conditional law agrees. Raw path identity is retained. For r3 the return words are233322,323232,332223. The first ends in state2, the last in(39/40,0,1/40), independently of the old state; the alternating word retains a nonzero contrast.
 
-## 3. Zero feedback at every update, but factorial contraction
+## 3. Zero residual at every update, but factorial contraction
 
 For (32)^k, every3 is entered at xi0, so e=e(0)=1/4 remains constant. Target N_k=12600*6^k. All returning visible words followed by the three tails have score columns(-1,2),(-1,0),(-1,-2), independent of prefix and returning-word identity.
 
