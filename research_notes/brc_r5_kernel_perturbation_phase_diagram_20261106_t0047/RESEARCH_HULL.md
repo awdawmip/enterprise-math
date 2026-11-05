@@ -5,23 +5,12 @@ Author status: **AUTHOR_COMPUTER_ASSISTED_EXACT_PROOF / FRACTION_EXECUTED / UNRE
 
 ## Statement
 
-In the four-stage strictly positive finite P/Q BRC specified in `RESEARCH.md`, fix `δ=1/4`. The Q kernel at the history-0/time-3-ratio-1 merger is then exactly
+In the four-stage strictly positive finite P/Q BRC specified in `RESEARCH.md`, fix `δ=1/4`. The history-0/time-3-ratio-1 terminal Q row is exactly `(47/180, 43/90, 47/180)`.
 
-[
-Q_4(\cdot\mid i=0,r_3=1)=(47/180,43/90,47/180).
-]
+The other Q kernels, P transition formula `P(child|history)=Q(child|history)*r_child/r_parent`, likelihood-ratio observations, stop/declaration choices, and four-observer vector `W=(P[declare Q], Q[declare P], E_P[tau], E_Q[tau])` are unchanged. Full-history policies may condition on all past branch identities. Seedless LR policies condition only on (time, likelihood ratio); both allow all real randomized behavioral rules and either terminal P/Q declaration.
 
-The other Q kernels, P transition formula `P(child|history)=Q(child|history)*r_child/r_parent`, likelihood-ratio observations, stop/declaration choices, and four-observer vector
-[
-W=(P[\mathrm{declare\ Q}],Q[\mathrm{declare\ P}],E_P\tau,E_Q\tau)
-]
-are unchanged. Full-history policies may condition on all past branch identities. Seedless LR policies condition only on (time, likelihood ratio); both allow all real randomized behavioral rules and either terminal P/Q declaration.
+**Theorem (exact complete O4 hull equality):** `conv O4(FULL_HIST) = conv O4(seedless LR)`.
 
-**Theorem (exact complete O4 hull equality).**
-[
-oxed{\operatorname{conv}O_4(\mathrm{FULL\_HIST})
-      =\operatorname{conv}O_4(\mathrm{seedless\ LR}).}
-]
 The quantifier covers **every real direction in four dimensions and every legal real behavior policy** of the model, including all stop decisions and both P/Q declarations. This completes the *hull-equality half* of the R5 mother objective for an explicitly history-nonlumpable strictly positive P/Q kernel. The *actual real-behavior image inequality* remains the next independent question.
 
 ## Exact rational certificate: 80 halfspaces, 82 vertices
