@@ -1,0 +1,95 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-05",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE",
+  "logical_conversation_id": "chatgpt-research-hourly-enterprise-math-20260923",
+  "maintenance_conversation_id_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "At frozen D24 original-216 scalar interface, decide Delta_p-R_p = 0 mod p for every p mod24 in {13,19}; preserve native p373 H0/B0 divided-power [X]U/Frobenius/eta/kappa and independence obligations.",
+  "new_author_units": [
+    {
+      "unit": "Original 216 weighted Clausen exact upper convolution with two valuation breaks and O(p) prefix sum for tail digit",
+      "classification": "AUTHOR_DERIVED_GENERAL_EXACT_ALGEBRAIC_PROOF_FINITE_EXACT_CHECKED_UNREVIEWED_NOT_ADMITTED",
+      "theorems": [
+        "For all primes p=6m+1>=7, T=sum_{i+j>=p}(6(i+j)+1)b_i b_j is divisible by p^2.",
+        "T/p^2 = 2 sum_{i=1}^m c_i*((6i+1) A_i-6 B_i) mod p, where c_i is stripped-p coefficient unit part and A_i=sum_{r<=i}c_{p-r}, B_i=sum_{r<=i}r c_{p-r}.",
+        "On original D24 target p=13 or19 mod24 with accepted first digit, Delta_p=(W_p-p)/p^2+T_p/p^2 mod p."
+      ],
+      "evidence": "research_notes/portable_direct/20261105_hourly20_d25_original216_clausen_linear_tail_valuation.md",
+      "checker": "research_notes/portable_direct/d25_216_clausen_linear_tail_20261105.js",
+      "execution": "Executed exact BigInt checker in JS V8, standalone file is Node 18 compatible; 35/35 primes 7<=p<=373 p=1 mod6; exact target 19/19; full direct O(p^2) and independent O(p) second-digit agree",
+      "original_216_witnesses": {
+        "13": {
+          "T_mod_p3": 0,
+          "T_over_p2": 0,
+          "Delta": 0
+        },
+        "19": {
+          "T_mod_p3": 4332,
+          "T_over_p2": 12,
+          "Delta": 12
+        },
+        "373": {
+          "T_mod_p3": 27269284,
+          "T_over_p2": 196,
+          "Delta": 196,
+          "F_mod_p3": 24495656,
+          "h_mod_p3": 4236705,
+          "W_mod_p3": 373
+        }
+      }
+    }
+  ],
+  "previous_author_frontier": "research_notes/portable_direct/20261105_hourly20_d25_euler_green_clausen_tail_author_continuation.json (Green-Euler normalizations and separate 2304 high-tail), consumed, not recredited.",
+  "original_native_source_frontier": {
+    "source_admission_pin": "527f02fac1cfc0f4b77d1425cfc4d6bd7f6cdf29",
+    "persisted_checkpoint_state": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+    "route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "takeover_readiness": "NO_LIVE_CLAIM",
+    "execution_authorized": false,
+    "source_checkpoint_mutated": false,
+    "prior_claim_id": "MCP-87631b892b41fa18d799f2d8",
+    "prior_comment_id": 6388694495,
+    "returned_requests": [
+      {
+        "request_id": "research-hourly20-20261105-0820-continuation-read",
+        "terminal": "SUCCEEDED",
+        "observed_at": "2026-11-05T00:38:12.502355+00:00"
+      },
+      {
+        "request_id": "research-hourly20-20261105-0820-task-read",
+        "terminal": "SUCCEEDED",
+        "observed_at": "2026-11-05T00:39:09.943725+00:00"
+      }
+    ]
+  },
+  "native_authority": {
+    "own_session_id": null,
+    "own_claim_id": null,
+    "own_run_id": null,
+    "own_request_id": null,
+    "registration": "REGISTER_PENDING",
+    "native_checkpoint_publication": "NOT_WRITTEN",
+    "source_admission": "NOT_ADMITTED",
+    "mathematical_review": "UNREVIEWED",
+    "blocked_step": "Cannot safely close/re-register prior service session until old pending native mutation/staging state is known. em_status advertises recovery_status and session_preserve_staging operation contracts, but callable actions are absent in this connector surface.",
+    "control_support": "Existing support issue #1558; do not duplicate unchanged issue.",
+    "successor_acceptance": "Actual callable own-subject recovery_status and session_preserve_staging or equally documented safe transition; reconcile old pending operations; inspect/preserve manifest if needed; legal own close then own session_start with contribution history; Source-native continuation_prepare/CLAIM/OPEN with fresh authorization and durable checkpoint readback."
+  },
+  "open_science_questions": [
+    "Retrieve exact frozen R_p definition/observer and evaluate equation Delta_p-R_p = (W-p)/p^2 + T/p^2 -R_p for original p=13,19,373, keeping p=19 branch.",
+    "Prove a universal finite-field identification of R_p with the original-216 triangular convolution plus W second digit, or construct an exact target counterexample.",
+    "Native p373 H0/B0 divided-power module, [X]U mod p^2, source Frobenius direction eta and kappa, original frozen p353 etc and independent formal review remain separate; auxiliary CM Gauss/2304 cannot replace."
+  ],
+  "do_not_repeat": [
+    "Do not conflate original 216 upper tail T/p^2 with quartic 2304 tail T/p (different valuation sources).",
+    "Do not promote the 35-prime finite observation W=V=p mod p^3 into an all-prime theorem.",
+    "Do not overwrite or recredit the canonical checkpoint's completed_units/contribution history; portable author notes are not Source-native predecessor progress.",
+    "Do not replay original successful continuation/task request IDs as writes, or reopen accepted parent CM0/SIMPLE/UR/JT0.",
+    "Do not use maintenance conversation_id for research execution or self-review."
+  ],
+  "next_exact_action": "Read frozen R_p mathematical formula and exact original LIFT observer; test p13/19/373 using new tail-digit O(p) formula and W second digit; investigate all-prime cancellation/proof while preserving native H0/B0 as independent.",
+  "publication_intent": "Author evidence to permitted repository under main; no claim of native task checkpoint or reviewer acceptance."
+}
