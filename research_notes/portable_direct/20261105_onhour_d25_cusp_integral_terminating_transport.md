@@ -96,6 +96,29 @@ At p=19, with p^3=6859, h=9, K=12, J=14, they are 1083 and 5776, summing to 0 (m
 
 The reproducible checker is d25_cusp_integral_terminating_transport_20261105.py. Note: it only computes portable integer arithmetic; the native fixed 373 H0/B0 divided-power benchmark remains NOT_EXECUTED and PENDING_OWNER under Issue #1559.
 
+## 4a. Second exact unit: a signed two-block witness prevents columnwise shortcuts
+
+The scalar E_p is not a sum of individually p^3-divisible k-columns. Let
+
+  e_{p,k}=b_k ( sum_{n<p}(6n+1)T[n,k] - (8k+1)*1_{k<=h} ),
+
+and let c=ceil(p/4). The exact original 2304 factorial valuation v_p(b_k)=floor(4k/p) for 0<=k<p shows that k<c is the p-unit carrier, while k>=c carries at least one p. The **signed** two-block decomposition is
+
+  E_p = sum_{k<c} e_{p,k} + sum_{c<=k<=K} e_{p,k},
+
+without replacing a sum by an absolute value or deleting either observer.
+
+Direct independent integer-binomial/program evaluation with the same exact T kernel gives:
+
+| p | c | e_{p,0} mod p^3 | sum_{k<c} e_{p,k} mod p^3 | sum_{k>=c} e_{p,k} mod p^3 | E_p mod p^3 |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 13 | 4 | 646 | 741 | 1456 | 0 |
+| 19 | 5 | 3081 | 950 | 5909 | 0 |
+
+Here e_{13,0}=646 is nonzero even modulo 13 and e_{19,0}=3081 is nonzero even modulo 19. This is an exact **finite counterexample** to termwise or columnwise p-divisibility as a possible shortcut. Both low and high blocks have nonzero residues modulo p^3, and their signed sum cancels. At these two test primes the low block is 13*57 and 19*50, respectively; the high block repairs the higher digits. Therefore a viable *uniform* proof of the frozen target through this T kernel must exhibit cancellation **across** k-columns, such as a telescoper with explicit k-boundary; neither a per-column divisibility claim nor a positive-mass quotient suffices. This negative conclusion is scoped only to the proposed termwise shortcut and the displayed exact witnesses, not to the target congruence.
+
+The same checker was extended to emit c, e_{p,0}, and both block residues for all nine test primes, and was rerun with successful assertions. No larger sample is needed to refute the termwise shortcut.
+
 ## 5. Frontier, reuse and evidence scope
 
 **Reused:** published author-side positive CM analytic transform and Puiseux signed branch; original 216/2304 arithmetic coefficients; published 2304 full-vs-half mod p^3 theorem; the accepted first-digit and previously source-aligned Delta-R interface at the exact frozen scientific scope.
