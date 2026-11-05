@@ -1,0 +1,70 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-05",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "logical_conversation_id": "chatgpt-research-hourly-enterprise-math-20260923",
+  "maintenance_conversation_id_forbidden": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_science_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Prove or precisely refute Delta_p-R_p=0 mod p for primes p=13 or 19 mod 24 at the frozen scalar interface; p373 original-class H0/B0 and independent review remain open.",
+  "new_author_progress": [
+    {
+      "unit": "INTEGER_SHADOW_TWO_JET",
+      "statement": "For primes p=6n+1>=7, W_p=S+p A+p^2 B modp^3 by finite Pochhammer-factor Taylor expansion, S=4^(-n) C_n exactly. Under first digit, (W_p-p)/p^2=carry+B modp.",
+      "evidence": "research_notes/portable_direct/20261105_hourly20_d25_integer_shadow_two_jet_bridge.md",
+      "checker": "research_notes/portable_direct/d25_integer_shadow_two_jet_20261105.py",
+      "report_commit": "60cc057e9c76b1320a7194c96c62065c4509aa94",
+      "checker_fix_commit": "f5f839d5295d0a53e7cdf616f75d5b48a7b971ee",
+      "finite_check": "94 of 94 p<=1200, p=1 mod6, locally executed and matched; independent remote execution not observed"
+    },
+    {
+      "unit": "INTEGER_SHADOW_LUCAS",
+      "statement": "For every n>=1 and prime q>=5 dividing 6n+1, C_n modq factors into weighted lowest q-digit Lq and higher unweighted digit Dq via Lucas theorem. Therefore 5|C_n for all n=4 mod5, 7|C_n for all n=1 mod7, plus finite q<=1500 transfer to any n.",
+      "evidence": "research_notes/portable_direct/20261105_hourly20_d25_integer_shadow_lucas_digit_factorization.md",
+      "checker": "research_notes/portable_direct/d25_integer_shadow_lucas_20261105.py",
+      "report_commit": "eaf8b67722b1b21e9271daa419829a5d29381074",
+      "checker_commit": "345352534514aac5d0ce3133b0a288a758eeae4a",
+      "finite_check": "237 of 237 primes q<=1500 lowest-digit Lq vanish; 179 (n,q) direct checks, locally executed"
+    }
+  ],
+  "quality": "AUTHOR_DERIVED_EXACT_ALGEBRA / FINITE_EXACT_CHECKED / UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY",
+  "native_status": {
+    "fresh_control_continuation_request_id": "research-hourly20-20261105-1720-native-continuation",
+    "fresh_control_terminal": "SUCCEEDED",
+    "fresh_control_source_sha": "4cb550228413215e51936c6e1eb8bc5046965a64",
+    "persisted_checkpoint_state": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+    "existing_source_checkpoint_preserved": true,
+    "previous_fault_request_id": "em-h20-20261105-1620-current-continuation",
+    "previous_fault": "CANONICAL_REJECTED: unknown current immutable task publication",
+    "own_recovery_request_id": "research-hourly20-20261105-1720-recovery-status",
+    "own_recovery_issue": "https://github.com/awdawmip/kimi-query-bridge/issues/6660",
+    "own_recovery_state": "SUCCEEDED_CLOSED_OLD_SESSION_NO_PENDING_OR_UNPUBLISHED_STAGING",
+    "own_new_session_request_id": "research-hourly20-20261105-1735-successor-session",
+    "own_new_session_issue": "https://github.com/awdawmip/kimi-query-bridge/issues/6661",
+    "own_new_session_state": "SUCCEEDED_SOURCE_VERIFIED",
+    "own_new_researcher_id": "EM-ENTERPRISE-EFBB9E",
+    "own_new_service_session_id": "MCP-2471c02c8fd8480c85f327927f41eb3b",
+    "own_research_activity_id": "RA-BAB0BC10D98DDB5F65FF4597",
+    "own_research_activity_source_commit": "2b9049078afeddc3b655cf1e677dcdc8854a2fda",
+    "own_exact_continuation_request_id": "research-hourly20-20261105-1741-successor-continuation",
+    "own_exact_continuation_issue": "https://github.com/awdawmip/kimi-query-bridge/issues/6662",
+    "own_exact_continuation_state": "PENDING_OR_READ_ORIGINAL_RECEIPT",
+    "own_claim_request_id": null,
+    "own_open_request_id": null,
+    "own_source_checkpoint_request_id": null,
+    "execution_authorized": false,
+    "pending_native_action": "Read Issue #6662 original request to terminal; if SUCCEEDED and the current checkpoint/source route is unchanged, call continuation_prepare with only packet_request_id and reason. Then own claim/open, then Source checkpoint only after current winning authority readback."
+  },
+  "unfinished_unit": "Use a finite WZ/telescoping or p-adic parameter derivative relation to prove carry+B=0 uniformly for frozen p=13/19 mod24, preserving signed observer and branch/source provenance. Independently seek universal proof L_q=0 for all q>=5 and prime power refinement.",
+  "do_not_repeat": [
+    "Previously accepted UR/JT0 first digit and native prior Source completed Hesse norm/Hilbert90 branch units.",
+    "Earlier high-precision tail/wilson scans and 237-prime crossclass auxiliary scan; do not treat finite evidence as a universal proof.",
+    "Do not promote author portable outputs into predecessor native Source completed_units or a native p373 H0/B0 experiment."
+  ],
+  "native_evidence_debt": [
+    "p373 H0/B0 original-class divided-power module, [X]U mod139129, Frobenius direction, eta, kappa and odd Hesse/Green port.",
+    "Need native CLAIM+OPEN with current winning Source before native publish_checkpoint.",
+    "Independent mathematical review and formal result disposition pending."
+  ],
+  "scheduler": "UNCHANGED"
+}
