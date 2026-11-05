@@ -18,3 +18,14 @@ R554_FIXED_K13_HALF_DENSITY_EXACT_CERT_PASS
 `R554_MODULAR.py` 使用精确 Möbius product 构造分圆多项式，避免高阶 SymPy 单次构造在特定 q 的性能瓶颈。有限域证明范围是全部 `φ(q)≤600` 的 `2≤q≤720000` 候选。
 
 有限零项推论依据 Skolem–Mahler–Lech；不提供最后零项的上界。原生 CLAIM、Result 与独立 Driver 审阅遵守实际 Source 状态。
+
+## 独立原始整数行列式复核
+
+独立用 `[x^r](1-x)(1+x)^{2t}(1+x^2)^{r-t}` 的整数卷积计算 `H_k(t)`，再用 `SymPy Matrix.det(method='berkowitz')` 对 `m=1,...,16` 的原始 Toeplitz–Hessenberg 行列式逐一核验。与独立整数递推全部完全相等：
+
+```text
+R554_INDEPENDENT_BERKOWITZ_PASS k=13 m=1..16 signs=
+[1,1,1,1,1,-1,-1,-1,1,1,1,1,-1,-1,-1,1,1]
+```
+
+此交叉检查从原始整数卷积开始，不调用根盘／有限域代码。检查范围为16个有限阶数；无限阶结论由上文两个精确证书及数学证明支持。
