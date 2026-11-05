@@ -1,0 +1,11 @@
+PASS_EXACT_R5_KERNAL_PERTURBATION_PHASE_DIAGRAM
+LR_policy_count_per_endpoint=5832, endpoints=4, interior_checks=7
+endpoint delta= -1/90 h_LR= -429/400 h_FULL= -107/100 gap= 1/400
+endpoint delta= 13/180 h_LR= -429/400 h_FULL= -107/100 gap= 1/400
+endpoint delta= 1/10 h_LR= -107/100 h_FULL= -107/100 gap= 0
+endpoint delta= 22/45 h_LR= -207/200 h_FULL= -207/200 gap= 0
+strict_positivity_interval= (-1/90,22/45)
+hLR= -429/400 + max(0,(9/100)*(delta-13/180))
+hFULL= -107/100 + max(0,(9/100)*(delta-1/10))
+gap= min(1/400,max(0,(9/100)*(1/10-delta)))
+all_real_delta_proof= affine policy payoffs + endpoint convex upper bound + fixed deterministic witnesses
