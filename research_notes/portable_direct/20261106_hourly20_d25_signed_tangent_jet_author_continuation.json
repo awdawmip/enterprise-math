@@ -1,0 +1,52 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-06",
+  "role": "TASK_RESEARCH",
+  "logical_conversation_id": "chatgpt-research-hourly-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Delta_p-R_p=0 mod p for p=13,19 mod24 at fixed original p-adic H0/B0, Frobenius, eta/kappa observer; W_p modulo p^3 kept separate.",
+  "source_readback": {
+    "request_id": "em-h20-20261106-0424-d25-cont",
+    "status": "SUCCEEDED",
+    "source_commit": "5ac2a88f37b26ebc47f52e37730cbf7fa5ddfc5d",
+    "native_checkpoint_state": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+    "native_checkpoint_source_commit": "b58330b74576153cdadde5d80a3d92df3a819a0e",
+    "route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "takeover_readiness": "NO_LIVE_CLAIM",
+    "execution_authorized": false,
+    "checkpoint_owned_by_previous_session": "MCP-d6dd85529e9e45a9b5f808c1025f5918",
+    "existing_contribution_history": "UNCHANGED_FROM_CANONICAL_SOURCE_PACKET",
+    "existing_completed_units": "UNCHANGED_FROM_CANONICAL_SOURCE_PACKET",
+    "source_unfinished_unit": "Original-class p373 H0/B0 and [X]U mod139129, semilinear Frobenius rank/eta, kappa and Delta_p-R_p remain missing",
+    "session_old_id": "MCP-092d7e732273432ea9a767b696413c83",
+    "session_old_protected_staging": "NOT_FULLY_VERIFIED; recovery_status/session_preserve_staging not callable from current exposed gateway",
+    "new_claim_open_checkpoint": "NONE",
+    "task_read_request_id": "em-h20-20261106-0424-d25-task",
+    "task_read_result_at_capture": "RUNNING/RECONCILE_SAME_REQUEST; do not requeue"
+  },
+  "previous_author_side_frontier": "research_notes/portable_direct/20261106_hourly20_d25_original_216_bridge_author_continuation.json",
+  "completed_author_side_unit": [
+    "Proved a four-parameter first-order F_q tangent-jet identity B=6Z+(sum H_si-phi_q(2))L-sum D_i+3D_alpha, with exact signed carry derivatives D_i=U_i+K_i for all primes q>=5.",
+    "Under L=0, algebraically replaced the diagonal prime-square obstruction by Z*Theta_q with Theta_q=W_q/q-Z+(sum D_i-3D_alpha)/6; this is an equivalent certificate, not a proof Theta_q=0.",
+    "Implemented an O(q) constant-memory tangent recurrence with no explicit carry/harmonic terms, reproducing the signed B port and 3 individual carry channels; 194/194 exact checks across primes 5<=q<=1200 and finite experimental Theta_q=0."
+  ],
+  "evidence": {
+    "proof": "research_notes/portable_direct/20261106_hourly20_d25_signed_tangent_jet_carry.md",
+    "proof_git_blob_sha1": "6bc939988dba8ec49443fb55b35145f2794b7876",
+    "executable": "research_notes/portable_direct/d25_signed_tangent_jet_20261106.py",
+    "executable_git_blob_sha1": "a58167ef2fb2e608256facb43ed7a187b3ff7237",
+    "exact_test_scope": "194 prime q<=1200, integer modular independent tangent vs harmonic/carry; Theta=0 is finite observation",
+    "status": "AUTHOR_DERIVED_PROVED_ALGEBRA_FINITE_EXACT_CHECKED_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE"
+  },
+  "open_math": [
+    "Prove or refute the all-prime finite-field parameter-jet identity Theta_q=0, preferably via creative telescoping, contiguity or involution, with exact source labels.",
+    "Transfer only source-preserving identities to D25 F,H and original H0/B0; execute true native p373 evidence under authorized session and independent review."
+  ],
+  "brc_reuse": "APPLIED: original signed weights, valuations, individually oriented 3 one-carry derivatives, four tangent components, preserved parameter observer; prevents zero-scalar factor from erasing source.",
+  "next_exact_action": "Build exact telescoping/parameter reflection for Theta_q=0 on Z!=0, using the one-pass jet recurrence and original W_q/q. On success join existing q^2 diagonal palindrome/transport, then separately address original D25 H0/B0/Frobenius.",
+  "do_not_repeat": "Reuse q/q^2 Lucas, square transfer, diagonal palindrome, original-216 bridge, all preexisting native Hesse/Hilbert and approved UR first digit; no repeat prime census unless testing a new discriminating hypothesis.",
+  "result_classification": "AUTHOR_SIDE_PERSISTED_UNREVIEWED_NOT_ADMITTED_SOURCE_NATIVE_CHECKPOINT_UNCHANGED"
+}
