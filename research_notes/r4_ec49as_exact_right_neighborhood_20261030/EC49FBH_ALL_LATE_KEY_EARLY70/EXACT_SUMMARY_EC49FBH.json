@@ -1,0 +1,40 @@
+{
+  "schema": "EC49FBH_AUTHOR_EXACT_RESULT_SUMMARY",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "date": "2026-11-05",
+  "scope": "Fixed H2 fe,ge; H3 feg,gef; globally valid H2..H9 with <=5 full positive BRC keys",
+  "H4_keys": 9,
+  "H8_H9_rank_keys": 50,
+  "necessary_pairs": 136,
+  "feasible_pairs": 124,
+  "infeasible_pairs": 12,
+  "eligible_word_counts": {
+    "H4": 206,
+    "H5": 1062,
+    "H6": 5352
+  },
+  "minimum_H2_H6": 70,
+  "unique_added_key_pair": [
+    [
+      4,
+      2,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      6,
+      4,
+      1,
+      0,
+      0,
+      0
+    ]
+  ],
+  "attaining_full_nine_count": 112,
+  "crosscheck": "Independent Python multiset and Node.js literal signed-word DP gave identical 136/136 pair minima",
+  "full_report_command": "node VERIFY_EC49FBH.js > EXACT_REPORT_EC49FBH.json",
+  "status": "PASS",
+  "admission": "AUTHOR_SIDE_ONLY"
+}
