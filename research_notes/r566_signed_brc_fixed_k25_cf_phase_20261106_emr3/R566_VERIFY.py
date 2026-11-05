@@ -68,4 +68,4 @@ b=[(-1)**(j-1)*H(j+2)*h**(j-1) for j in range(1,d+1)];v=[1]
 for m in range(1,1025):v.append(sum(b[j-1]*v[m-j] for j in range(1,min(d,m)+1)))
 for m in range(1,13):assert S.Matrix([[raw(3+i-j) for j in range(m)] for i in range(m)]).det(method='berkowitz')==v[m]
 print('R566_RECURRENCE_PASS','positive',sum(a>0 for a in v),'negative',sum(a<0 for a in v),'zeros',sum(a==0 for a in v),'sign_changes',sum(v[j]*v[j-1]<0 for j in range(1,len(v))),'raw_determinants',12,flush=True)
-print('R566_K24_HALF_DENSITY_AUTHOR_CERT_PASS',flush=True)
+print('R566_K25_HALF_DENSITY_AUTHOR_CERT_PASS',flush=True)
