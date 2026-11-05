@@ -1,0 +1,179 @@
+{
+  "certificate": "PREFIX508_EXPLICIT_MOD6_COMPILER",
+  "status": "ALL_CHECKS_PASS",
+  "observed_on": "2026-11-05",
+  "source_git_blob": "3006e4b39cd20dcd895c8f5b6ae5fb1e3edd5ab0",
+  "full_execution_json_sha256": "3ce06aa4db113a53b72ac1f970694cb47e6d3d644f15258955120b48faa65dd2",
+  "reference_program_sha256": "bd0509c5bbffbf2e09901067aa8ab528d2295c0de15485c249f35a8ff0ddccab",
+  "scope": "Native ten-direction ordered-word DP, complete n=0..6 and deterministic sampled n=7..9, both gates; independent d/e and five-color suffix checks for 60 probes at n=9,17,32,64,127.",
+  "ordered_native_dp_rows_by_gate": {
+    "aab": [
+      [
+        0,
+        1,
+        1,
+        1,
+        10
+      ],
+      [
+        1,
+        10,
+        10,
+        20,
+        150
+      ],
+      [
+        2,
+        52,
+        52,
+        156,
+        1092
+      ],
+      [
+        3,
+        190,
+        190,
+        760,
+        5320
+      ],
+      [
+        4,
+        553,
+        553,
+        2765,
+        19908
+      ],
+      [
+        5,
+        1372,
+        1372,
+        8232,
+        61740
+      ],
+      [
+        6,
+        3024,
+        3024,
+        21168,
+        166320
+      ],
+      [
+        7,
+        6084,
+        185,
+        1480,
+        12210
+      ],
+      [
+        8,
+        11385,
+        181,
+        1629,
+        14118
+      ],
+      [
+        9,
+        20086,
+        181,
+        1810,
+        16471
+      ]
+    ],
+    "aba": [
+      [
+        0,
+        1,
+        1,
+        1,
+        10
+      ],
+      [
+        1,
+        10,
+        10,
+        20,
+        150
+      ],
+      [
+        2,
+        52,
+        52,
+        156,
+        1092
+      ],
+      [
+        3,
+        190,
+        190,
+        760,
+        5320
+      ],
+      [
+        4,
+        553,
+        553,
+        2765,
+        19908
+      ],
+      [
+        5,
+        1372,
+        1372,
+        8232,
+        61740
+      ],
+      [
+        6,
+        3024,
+        3024,
+        21168,
+        166320
+      ],
+      [
+        7,
+        6084,
+        185,
+        1480,
+        12210
+      ],
+      [
+        8,
+        11385,
+        181,
+        1629,
+        14118
+      ],
+      [
+        9,
+        20086,
+        181,
+        1810,
+        16471
+      ]
+    ]
+  },
+  "row_fields": [
+    "n",
+    "available_y_W_rows",
+    "tested_y_W_rows",
+    "V_memberships_checked",
+    "inclusive_F_T_intervals_checked"
+  ],
+  "totals": {
+    "membership_comparisons": 76042,
+    "interval_moment_comparisons": 594678,
+    "large_independent_probes": 60
+  },
+  "mod6_hole": {
+    "aab": [
+      0,
+      2
+    ],
+    "aba": [
+      0,
+      2
+    ]
+  },
+  "integer_arithmetic": "Python arbitrary precision, exact floor/ceil, no floats",
+  "research_state": "AUTHOR_PROVED / EXACT_INTEGER_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
