@@ -1,52 +1,78 @@
-# D25 / SECOND-DIGIT-LIFT: CM conjugate collision and first-jet branch recovery
+# D25: exact CM conjugate collision and signed first-jet recovery
 
-2026-11-05. TASK_RESEARCH, logical research lane `chatgpt-research-onhour-enterprise-math-20260923`; Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; Publication `TP2-B6F4FC938FF94941C1B7`; frozen scientific pin `c47e13e4aba0e006366f989d6334d443f6333ae3`. **Author-side exact proof, executed exact regression, UNREVIEWED / NOT_ADMITTED**. This is separate from the native H0/B0 experiment.
+**Date:** 2026-11-05. **Task:** SECOND-DIGIT-LIFT; original publication \`TP2-B6F4FC938FF94941C1B7\`; frozen scientific pin \`c47e13e4aba0e006366f989d6334d443f6333ae3\`. Research logical lane \`chatgpt-research-onhour-enterprise-math-20260923\` (not maintenance lane). **Status:** author-side exact algebra + finite exact checks; UNREVIEWED / NOT_ADMITTED. The p373 native H0/B0 benchmark is separate and NOT_EXECUTED.
 
-## Exact branch data
+## Theorem 1: exact CM branch collision only at primes 13 and 19
 
-Let (T^2=2) and take the two marked CM points
-[
-u_pm=	frac12pm T/4,qquad v_pm=	frac12pm T/3,
-]
-for the known rational functions
-[
-J_3(u)=27(1+8u)^3/[u(1-u)^3],quad
-J_4(v)=64(1+3v)^3/[v(1-v)^2].
-]
-Direct rationalization establishes
-[
-J_3(u_pm)=J_4(v_pm)=j_pm=apm bT,
-quad a=2417472,quad b=1707264=2^8 3^3cdot13cdot19.
-]
-The exact polynomial is (P(X)=X^2-4834944X+14670139392), with discriminant (8b^2).
+Let \(T^2=2\). At the original 216/2304 marked endpoints define
 
-**Theorem 1 (CM collision at the two smallest target primes).** For (p>3), ((2/p)=-1), in the unramified quadratic ring (R_r=(mathbb Z/p^rmathbb Z)[T]/(T^2-2)), one has (j_+-j_-=2bT). The two branches have identical scalar (jmod p) precisely when (pin{13,19}). In those cases (v_p(j_+-j_-)=1), so they separate modulo (p^2); at all other (p>3), their difference is a unit. Equivalently (v_p(operatorname{disc}P)=2) exactly at 13 and 19.
+\[
+u_\pm=\frac12\pm\frac T4,\qquad
+v_\pm=\frac12\pm\frac T3,
+\]
 
-**Theorem 2 (unit first-jet branch recovery).** Mark the two branches by
-[
-u_pm(z)=(1pmsqrt{1-z})/2,quad
-v_pm(t)=(1pmsqrt{1-t})/2,quad
-J_3(u_pm(z))=J_4(v_pm(t_pm(z))).
-]
-At (z_0=1/2,t_0=1/9), their exact first derivatives are
-[
-t'_+(z_0)=8T/27,qquad t'_-(z_0)=-8T/27.
-]
-Thus the normalized observer (epsilon_{mathrm{jet}}=27t'(z_0)/(8T)in{+1,-1}) identifies the branch, with ( (t'_+-t'_-)/T=16/27) a unit modulo every (p>3), including (13,19).
+\[
+J_3(u)=\frac{27(1+8u)^3}{u(1-u)^3},\qquad
+J_4(v)=\frac{64(1+3v)^3}{v(1-v)^2}.
+\]
 
-**Theorem 3 (scoped non-descent).** At (p=13) or 19, no rule with input only (jmod p) can output the correct signed jet for both branches: the two inputs coincide, while their first-jet outputs are distinct. Keeping the marked first jet is an exact, observer-specific remedy; it does not require division by the nonunit (j_+-j_-).
+Exact rationalization gives
 
-## Proof
+\[
+J_3(u_\pm)=J_4(v_\pm)=j_\pm=a\pm bT,\qquad
+a=2417472,\quad b=1707264=2^8\cdot3^3\cdot13\cdot19.
+\]
 
-Substitution and rationalization of (J_3,J_4) give the two exact conjugate expressions and factorization of (b), proving Theorem 1. Implicit differentiation at the marked endpoint, where (u_pm'(z_0)=mp T/4), (v_pm'(t_0)=mp3T/16), gives
-(t_pm' =J_3'(u_pm)u_pm'/[J_4'(v_pm)v_pm']=pm8T/27). All relevant denominators and derivative factors are units at the exceptional target primes; (T^2=2) and (p>3) make the first-jet difference a unit for all such primes. Theorem 3 follows from the resulting two-point fiber contradiction.
+Thus the common quadratic equation is \(X^2-4834944X+14670139392=0\), with discriminant \(8b^2\). For any prime \(p>3\) with \((2/p)=-1\), work in the unramified extension \(R_r=(\mathbb Z/p^r\mathbb Z)[T]/(T^2-2)\). The difference \(j_+-j_-=2bT\) has valuation **exactly one** at \(p=13,19\), and valuation zero at every other \(p>3\). Hence **the high/low scalar CM values coincide modulo \(p\) precisely at 13 and 19**, but separate again modulo \(p^2\). Equivalently \(v_p(\operatorname{disc}P)=2\) exactly at these two primes.
 
-## Exact regression and next scientific dependency
+## Theorem 2: the signed first jet separates the branches modulo every prime above 3
 
-The accompanying checker independently differentiates both rational CM maps, verifies the exact conjugate values, factorization, discriminant, and checks every 312 target primes (p<10000) in both classes (13,19mod24) (zero failures). Representative ((p,j	ext{ const},j	ext{ odd coeff},v_p(j_+-j_-),t'_+/T,(t'_+-t'_-)/T)mod p):
-(13:(5,0,1,8,3)); (19:(7,0,1,1,2)); (139:(123,66,0,129,119)); (373:(59,43,0,97,194)).
-At (p=13,19) respectively, the normalized lifted gap ((j_+-j_-)/(pT)mod p) is 4 and 10.
+For each sign use the local algebraic CM map
 
-**BRC observer preservation:** keep HIGH_PLUS/LOW_MINUS branch, (1,T) coefficients, signed first jet, integer-lift versus finite-field reduction, original 216/2304 endpoints, upper-shell signed valuation and half-endpoint carry. Scalar (jmod p) is a lossy quotient for precisely these two small target primes.
+\[
+u_\pm(z)=\frac{1\pm\sqrt{1-z}}2,\quad
+v_\pm(t)=\frac{1\pm\sqrt{1-t}}2,\quad
+J_3(u_\pm(z))=J_4(v_\pm(t_\pm(z))).
+\]
 
-**Next exact finite-(p) unit:** construct an integral terminating transform using the *marked* pair ((j,epsilon_{mathrm{jet}})), and test whether the original (p=13,19) half-endpoint carry (K_p) and signed upper shell (C_A) map to the true (W_p-V_pmod p^3). A (j)-only divided-difference proof would lose a (p)-digit at 13 and 19. The frozen mother target remains (Delta_p-R_pequiv0mod p) for both residue classes. Original fixed (p=373) H0/B0 divided-power ([X]Umod139129), rank, semilinear direction/eta, kappa, odd observer and independent verification remain **NOT_EXECUTED/PENDING_OWNER** under Issue #1559. No Source claim/run/Result is implied.
+At \((z_0,t_0)=(1/2,1/9)\), implicit differentiation with
+
+\[
+u'_\pm(z_0)=\mp T/4,\qquad
+v'_\pm(t_0)=\mp3T/16
+\]
+
+gives the **exact** slopes
+
+\[
+t'_+(z_0)=\frac{8T}{27},\qquad
+t'_-(z_0)=-\frac{8T}{27},\qquad
+\frac{t'_+-t'_-}{T}=\frac{16}{27}.
+\]
+
+This last difference is a unit for all \(p>3\). The normalized branch observer
+
+\[
+\boxed{\epsilon_{\rm jet}:=\frac{27}{8T}t'(z_0)\in\{+1,-1\}}
+\]
+
+therefore recovers the marked branch directly, even at 13 and 19.
+
+## Theorem 3: exact scoped non-descent of a scalar-only CM observer
+
+At \(p=13\) or 19, the two marked branches have equal \(j\bmod p\), yet distinct \(t'\bmod p\). A purported function taking only \(j\bmod p\) as input and recovering both signed jets would have the same input and different outputs: impossible. This is a strict **mod-\(p\), named-observer** non-descendence result. Retaining \(\epsilon_{\rm jet}\) gives an explicit admissible replacement without dividing by \(j_+-j_-\), which is a nonunit exactly in these cases.
+
+## Proof and reproducibility
+
+All statements follow from direct substitution into the two rational \(J\)-functions, integer factorization of \(b\), and implicit differentiation. The accompanying exact SymPy checker independently obtains the conjugate values and both slopes from the rational derivatives. It checks every 312 target primes \(p<10000\), \(p\equiv13,19\bmod24\), and has zero failures. Representative reductions in the \(1,T\) basis:
+
+| \(p\) | \(a\bmod p\) | \(b\bmod p\) | \(v_p(j_+-j_-)\) | \((j_+-j_-)/(pT)\bmod p\) | \(t'_+/T\bmod p\) | \((t'_+-t'_-)/T\bmod p\) |
+|--:|--:|--:|--:|--:|--:|--:|
+|13|5|0|1|4|8|3|
+|19|7|0|1|10|1|2|
+|139|123|66|0|n/a|129|119|
+|373|59|43|0|n/a|97|194|
+
+**BRC/information-preservation consequence:** project \((j,t',\text{branch},\text{modulus})\mapsto j\bmod p\) loses a future-needed signed first-jet observer at 13 and 19. Retain HIGH_PLUS/LOW_MINUS, their \(T\)-odd components, integer lift/finite-field quotient, original 216/2304 endpoints, signed weight, half-endpoint carry \(K_p\) and upper-shell contribution \(C_A\). This theorem concerns an external CM algebraic map, not native crystalline Frobenius.
+
+**Next exact scientific unit:** derive an integral terminating finite-\(p\) 216→2304 operator in the **marked** \((j,\epsilon_{\rm jet})\) representation and test, first at \(p=13,19\), whether it transports the original signed \(p^2\) half-endpoint carry and upper shell. The mother target \(W_p-V_p\equiv0\pmod{p^3}\), equivalently \(\Delta_p-R_p\equiv0\bmod p\) at the frozen scalar interface, remains open. The native fixed \(p=373\) original-class divided-power \([X]U\bmod139129\), rank, semilinear Frobenius/eta, kappa and independent replication remain **PENDING_OWNER** under support Issue #1559.
