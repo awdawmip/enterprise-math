@@ -136,6 +136,7 @@ class Counter:
             s=opts[tok]
         return self.terminal_mass(s)
 
+
 def words(length,k):
     def go(prefix,ones):
         i=len(prefix)+1
