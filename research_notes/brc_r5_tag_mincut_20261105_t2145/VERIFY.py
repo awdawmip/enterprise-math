@@ -82,7 +82,7 @@ def check(w,A,u,T):
 
 def main():
     w=[F(1,2),F(1,2)];A=[F(1,200),-F(47,400)];u=[-F(9,500),F(49,400)]
-    print("MODEL S (inherited Bellman coefficients; not new tree execution)")
+    print("MODEL S (inherited Bellman coefficients; not a new tree execution)")
     for eta in [F(0),F(1,100),F(10,281),F(1,20),F(1,2)]:
         D,B,z,n,e=check(w,A,u,[[1-eta,eta],[eta,1-eta]])
         assert D==min(F(281)*eta/4000,F(1,400)) and B==eta/200
