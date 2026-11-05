@@ -1,0 +1,105 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "scope": "PREFIX-518 four-STAR candidate phase-switch relation; not physical rotation selection",
+  "task_frozen_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "directed_phase_states": 48,
+  "S4_group_size": 24,
+  "free_phase_orbits": 2,
+  "states_per_orbit": 24,
+  "canonical_states": {
+    "1": [
+      0,
+      -3,
+      1
+    ],
+    "-1": [
+      0,
+      3,
+      -1
+    ]
+  },
+  "canonical_ports": {
+    "1": [
+      [
+        0,
+        1,
+        -6
+      ],
+      [
+        1,
+        1,
+        -5
+      ],
+      [
+        1,
+        1,
+        -4
+      ]
+    ],
+    "-1": [
+      [
+        0,
+        -1,
+        6
+      ],
+      [
+        1,
+        -1,
+        4
+      ],
+      [
+        1,
+        -1,
+        5
+      ]
+    ]
+  },
+  "port_cocycles": {
+    "1": [
+      4,
+      8,
+      10
+    ],
+    "-1": [
+      4,
+      10,
+      8
+    ]
+  },
+  "local_microtrace_checks": 288,
+  "covariance_port_checks": 3456,
+  "two_step_matrix_shape": [
+    24,
+    24
+  ],
+  "two_step_row_sum": 9,
+  "annihilating_polynomial_descending": [
+    1,
+    -5,
+    -26,
+    -78,
+    -135,
+    243
+  ],
+  "polynomial_matrix_entries_checked": 576,
+  "initial_even_return_counts": [
+    1,
+    0,
+    5,
+    28,
+    297,
+    2360,
+    22381,
+    198996,
+    1794257,
+    16137328,
+    145306965,
+    1307483276
+  ],
+  "odd_return_counts_zero_for_n_1_to_29": true,
+  "recurrence": "a[m+5] = 5*a[m+4]+26*a[m+3]+78*a[m+2]+135*a[m+1]-243*a[m]",
+  "even_macroedge_labeled_return_count": "4^m * a[m] at 2m macroedges",
+  "hankel_5x5_determinant": -44718096384,
+  "exact_arithmetic": true,
+  "no_external_dependencies": true
+}
