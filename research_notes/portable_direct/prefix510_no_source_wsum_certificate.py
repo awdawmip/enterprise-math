@@ -84,6 +84,7 @@ def native_DP(nmax,g):
                 ns.add((*zz,vv,ww,qq))
         st=ns
 
+
 def run(nmax=12):
     t=time.time(); totals={}; checked=0; rows=0; prefixes=0; anomalies=[]
     for g in GATES:
