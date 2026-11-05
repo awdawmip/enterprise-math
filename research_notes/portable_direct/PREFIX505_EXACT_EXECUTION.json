@@ -1,0 +1,931 @@
+{
+  "research": "PREFIX-505",
+  "status": "ALL_CHECKS_PASS",
+  "frozen_input": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "native X6 five signed axes; BRC V,W; KMP q; first B/C source t",
+  "arithmetic": "exact safe integer (all tested values below 2^53)",
+  "gates": {
+    "aab": [
+      {
+        "n": 0,
+        "native_states": 1,
+        "rows": 1,
+        "row_control_states": 1,
+        "rank_inverse_checked": 1,
+        "brute_partitions": 3,
+        "widths": {
+          "2": {
+            "rows": 1,
+            "improved": 0,
+            "uniform_calls": 1,
+            "optimal_calls": 1,
+            "extra_boundary_words": 0
+          },
+          "3": {
+            "rows": 1,
+            "improved": 0,
+            "uniform_calls": 1,
+            "optimal_calls": 1,
+            "extra_boundary_words": 0
+          },
+          "4": {
+            "rows": 1,
+            "improved": 0,
+            "uniform_calls": 1,
+            "optimal_calls": 1,
+            "extra_boundary_words": 0
+          }
+        },
+        "witness": null
+      },
+      {
+        "n": 1,
+        "native_states": 10,
+        "rows": 6,
+        "row_control_states": 6,
+        "rank_inverse_checked": 6,
+        "brute_partitions": 18,
+        "widths": {
+          "2": {
+            "rows": 6,
+            "improved": 0,
+            "uniform_calls": 6,
+            "optimal_calls": 6,
+            "extra_boundary_words": 0
+          },
+          "3": {
+            "rows": 6,
+            "improved": 0,
+            "uniform_calls": 6,
+            "optimal_calls": 6,
+            "extra_boundary_words": 0
+          },
+          "4": {
+            "rows": 6,
+            "improved": 0,
+            "uniform_calls": 6,
+            "optimal_calls": 6,
+            "extra_boundary_words": 0
+          }
+        },
+        "witness": null
+      },
+      {
+        "n": 2,
+        "native_states": 68,
+        "rows": 21,
+        "row_control_states": 31,
+        "rank_inverse_checked": 31,
+        "brute_partitions": 65,
+        "widths": {
+          "2": {
+            "rows": 21,
+            "improved": 1,
+            "uniform_calls": 33,
+            "optimal_calls": 32,
+            "extra_boundary_words": 2
+          },
+          "3": {
+            "rows": 21,
+            "improved": 0,
+            "uniform_calls": 35,
+            "optimal_calls": 35,
+            "extra_boundary_words": 0
+          },
+          "4": {
+            "rows": 21,
+            "improved": 0,
+            "uniform_calls": 35,
+            "optimal_calls": 35,
+            "extra_boundary_words": 0
+          }
+        },
+        "witness": {
+          "gate": "aab",
+          "n": 2,
+          "row": "0,0,0,0,1",
+          "k": [
+            1,
+            1,
+            0
+          ],
+          "b": 2,
+          "regular": [
+            0,
+            2,
+            3
+          ],
+          "adaptive": [
+            0,
+            1,
+            3
+          ],
+          "uniform": 3,
+          "optimal": 2,
+          "gain": 1
+        }
+      },
+      {
+        "n": 3,
+        "native_states": 323,
+        "rows": 56,
+        "row_control_states": 117,
+        "rank_inverse_checked": 117,
+        "brute_partitions": 180,
+        "widths": {
+          "2": {
+            "rows": 56,
+            "improved": 7,
+            "uniform_calls": 132,
+            "optimal_calls": 124,
+            "extra_boundary_words": 12
+          },
+          "3": {
+            "rows": 56,
+            "improved": 0,
+            "uniform_calls": 146,
+            "optimal_calls": 146,
+            "extra_boundary_words": 0
+          },
+          "4": {
+            "rows": 56,
+            "improved": 0,
+            "uniform_calls": 146,
+            "optimal_calls": 146,
+            "extra_boundary_words": 0
+          }
+        },
+        "witness": {
+          "gate": "aab",
+          "n": 3,
+          "row": "1,0,0,0,1",
+          "k": [
+            2,
+            2,
+            0
+          ],
+          "b": 2,
+          "regular": [
+            0,
+            2,
+            3
+          ],
+          "adaptive": [
+            0,
+            1,
+            3
+          ],
+          "uniform": 6,
+          "optimal": 4,
+          "gain": 2
+        }
+      },
+      {
+        "n": 4,
+        "native_states": 1218,
+        "rows": 126,
+        "row_control_states": 362,
+        "rank_inverse_checked": 362,
+        "brute_partitions": 434,
+        "widths": {
+          "2": {
+            "rows": 126,
+            "improved": 25,
+            "uniform_calls": 431,
+            "optimal_calls": 395,
+            "extra_boundary_words": 44
+          },
+          "3": {
+            "rows": 126,
+            "improved": 3,
+            "uniform_calls": 496,
+            "optimal_calls": 487,
+            "extra_boundary_words": 3
+          },
+          "4": {
+            "rows": 126,
+            "improved": 3,
+            "uniform_calls": 501,
+            "optimal_calls": 486,
+            "extra_boundary_words": 3
+          }
+        },
+        "witness": {
+          "gate": "aab",
+          "n": 4,
+          "row": "0,0,0,0,1",
+          "k": [
+            2,
+            4,
+            2,
+            1,
+            0
+          ],
+          "b": 4,
+          "regular": [
+            0,
+            4,
+            5
+          ],
+          "adaptive": [
+            0,
+            1,
+            5
+          ],
+          "uniform": 20,
+          "optimal": 13,
+          "gain": 7
+        }
+      },
+      {
+        "n": 5,
+        "native_states": 3868,
+        "rows": 252,
+        "row_control_states": 958,
+        "rank_inverse_checked": 958,
+        "brute_partitions": 952,
+        "widths": {
+          "2": {
+            "rows": 252,
+            "improved": 65,
+            "uniform_calls": 1192,
+            "optimal_calls": 1077,
+            "extra_boundary_words": 124
+          },
+          "3": {
+            "rows": 252,
+            "improved": 18,
+            "uniform_calls": 1414,
+            "optimal_calls": 1358,
+            "extra_boundary_words": 18
+          },
+          "4": {
+            "rows": 252,
+            "improved": 18,
+            "uniform_calls": 1452,
+            "optimal_calls": 1353,
+            "extra_boundary_words": 18
+          }
+        },
+        "witness": {
+          "gate": "aab",
+          "n": 5,
+          "row": "1,0,0,0,1",
+          "k": [
+            3,
+            7,
+            4,
+            2,
+            0
+          ],
+          "b": 4,
+          "regular": [
+            0,
+            4,
+            5
+          ],
+          "adaptive": [
+            0,
+            1,
+            5
+          ],
+          "uniform": 37,
+          "optimal": 24,
+          "gain": 13
+        }
+      },
+      {
+        "n": 6,
+        "native_states": 10735,
+        "rows": 462,
+        "row_control_states": 2252,
+        "rank_inverse_checked": 2252,
+        "brute_partitions": 1934,
+        "widths": {
+          "2": {
+            "rows": 462,
+            "improved": 145,
+            "uniform_calls": 2900,
+            "optimal_calls": 2601,
+            "extra_boundary_words": 296
+          },
+          "3": {
+            "rows": 462,
+            "improved": 61,
+            "uniform_calls": 3516,
+            "optimal_calls": 3298,
+            "extra_boundary_words": 65
+          },
+          "4": {
+            "rows": 462,
+            "improved": 61,
+            "uniform_calls": 3690,
+            "optimal_calls": 3311,
+            "extra_boundary_words": 61
+          }
+        },
+        "witness": {
+          "gate": "aab",
+          "n": 6,
+          "row": "2,0,0,0,1",
+          "k": [
+            3,
+            11,
+            7,
+            3,
+            0
+          ],
+          "b": 4,
+          "regular": [
+            0,
+            4,
+            5
+          ],
+          "adaptive": [
+            0,
+            1,
+            5
+          ],
+          "uniform": 58,
+          "optimal": 37,
+          "gain": 21
+        }
+      },
+      {
+        "n": 7,
+        "native_states": 26693,
+        "rows": 792,
+        "row_control_states": 4809,
+        "rank_inverse_checked": 4809,
+        "brute_partitions": 3676,
+        "widths": {
+          "2": {
+            "rows": 792,
+            "improved": 286,
+            "uniform_calls": 6355,
+            "optimal_calls": 5694,
+            "extra_boundary_words": 628
+          },
+          "3": {
+            "rows": 792,
+            "improved": 155,
+            "uniform_calls": 7826,
+            "optimal_calls": 7181,
+            "extra_boundary_words": 180
+          },
+          "4": {
+            "rows": 792,
+            "improved": 156,
+            "uniform_calls": 8403,
+            "optimal_calls": 7326,
+            "extra_boundary_words": 156
+          }
+        },
+        "witness": {
+          "gate": "aab",
+          "n": 7,
+          "row": "2,0,1,0,0",
+          "k": [
+            3,
+            8,
+            8,
+            8,
+            3
+          ],
+          "b": 4,
+          "regular": [
+            0,
+            4,
+            5
+          ],
+          "adaptive": [
+            0,
+            2,
+            5
+          ],
+          "uniform": 78,
+          "optimal": 52,
+          "gain": 26
+        }
+      },
+      {
+        "n": 8,
+        "native_states": 60590,
+        "rows": 1287,
+        "row_control_states": 9498,
+        "rank_inverse_checked": 9498,
+        "brute_partitions": 6602,
+        "widths": {
+          "2": {
+            "rows": 1287,
+            "improved": 516,
+            "uniform_calls": 12800,
+            "optimal_calls": 11497,
+            "extra_boundary_words": 1220
+          },
+          "3": {
+            "rows": 1287,
+            "improved": 328,
+            "uniform_calls": 15943,
+            "optimal_calls": 14395,
+            "extra_boundary_words": 417
+          },
+          "4": {
+            "rows": 1287,
+            "improved": 335,
+            "uniform_calls": 17484,
+            "optimal_calls": 14928,
+            "extra_boundary_words": 341
+          }
+        },
+        "witness": {
+          "gate": "aab",
+          "n": 8,
+          "row": "2,1,1,0,1",
+          "k": [
+            7,
+            8,
+            8,
+            7,
+            0
+          ],
+          "b": 4,
+          "regular": [
+            0,
+            4,
+            5
+          ],
+          "adaptive": [
+            0,
+            2,
+            5
+          ],
+          "uniform": 75,
+          "optimal": 45,
+          "gain": 30
+        }
+      }
+    ],
+    "aba": [
+      {
+        "n": 0,
+        "native_states": 1,
+        "rows": 1,
+        "row_control_states": 1,
+        "rank_inverse_checked": 1,
+        "brute_partitions": 3,
+        "widths": {
+          "2": {
+            "rows": 1,
+            "improved": 0,
+            "uniform_calls": 1,
+            "optimal_calls": 1,
+            "extra_boundary_words": 0
+          },
+          "3": {
+            "rows": 1,
+            "improved": 0,
+            "uniform_calls": 1,
+            "optimal_calls": 1,
+            "extra_boundary_words": 0
+          },
+          "4": {
+            "rows": 1,
+            "improved": 0,
+            "uniform_calls": 1,
+            "optimal_calls": 1,
+            "extra_boundary_words": 0
+          }
+        },
+        "witness": null
+      },
+      {
+        "n": 1,
+        "native_states": 10,
+        "rows": 6,
+        "row_control_states": 6,
+        "rank_inverse_checked": 6,
+        "brute_partitions": 18,
+        "widths": {
+          "2": {
+            "rows": 6,
+            "improved": 0,
+            "uniform_calls": 6,
+            "optimal_calls": 6,
+            "extra_boundary_words": 0
+          },
+          "3": {
+            "rows": 6,
+            "improved": 0,
+            "uniform_calls": 6,
+            "optimal_calls": 6,
+            "extra_boundary_words": 0
+          },
+          "4": {
+            "rows": 6,
+            "improved": 0,
+            "uniform_calls": 6,
+            "optimal_calls": 6,
+            "extra_boundary_words": 0
+          }
+        },
+        "witness": null
+      },
+      {
+        "n": 2,
+        "native_states": 68,
+        "rows": 21,
+        "row_control_states": 31,
+        "rank_inverse_checked": 31,
+        "brute_partitions": 65,
+        "widths": {
+          "2": {
+            "rows": 21,
+            "improved": 1,
+            "uniform_calls": 33,
+            "optimal_calls": 32,
+            "extra_boundary_words": 2
+          },
+          "3": {
+            "rows": 21,
+            "improved": 0,
+            "uniform_calls": 35,
+            "optimal_calls": 35,
+            "extra_boundary_words": 0
+          },
+          "4": {
+            "rows": 21,
+            "improved": 0,
+            "uniform_calls": 35,
+            "optimal_calls": 35,
+            "extra_boundary_words": 0
+          }
+        },
+        "witness": {
+          "gate": "aba",
+          "n": 2,
+          "row": "0,0,0,0,1",
+          "k": [
+            1,
+            1,
+            0
+          ],
+          "b": 2,
+          "regular": [
+            0,
+            2,
+            3
+          ],
+          "adaptive": [
+            0,
+            1,
+            3
+          ],
+          "uniform": 3,
+          "optimal": 2,
+          "gain": 1
+        }
+      },
+      {
+        "n": 3,
+        "native_states": 324,
+        "rows": 56,
+        "row_control_states": 118,
+        "rank_inverse_checked": 118,
+        "brute_partitions": 180,
+        "widths": {
+          "2": {
+            "rows": 56,
+            "improved": 8,
+            "uniform_calls": 134,
+            "optimal_calls": 125,
+            "extra_boundary_words": 12
+          },
+          "3": {
+            "rows": 56,
+            "improved": 0,
+            "uniform_calls": 148,
+            "optimal_calls": 148,
+            "extra_boundary_words": 0
+          },
+          "4": {
+            "rows": 56,
+            "improved": 0,
+            "uniform_calls": 148,
+            "optimal_calls": 148,
+            "extra_boundary_words": 0
+          }
+        },
+        "witness": {
+          "gate": "aba",
+          "n": 3,
+          "row": "1,0,0,0,1",
+          "k": [
+            2,
+            2,
+            0
+          ],
+          "b": 2,
+          "regular": [
+            0,
+            2,
+            3
+          ],
+          "adaptive": [
+            0,
+            1,
+            3
+          ],
+          "uniform": 6,
+          "optimal": 4,
+          "gain": 2
+        }
+      },
+      {
+        "n": 4,
+        "native_states": 1219,
+        "rows": 126,
+        "row_control_states": 363,
+        "rank_inverse_checked": 363,
+        "brute_partitions": 434,
+        "widths": {
+          "2": {
+            "rows": 126,
+            "improved": 27,
+            "uniform_calls": 438,
+            "optimal_calls": 397,
+            "extra_boundary_words": 44
+          },
+          "3": {
+            "rows": 126,
+            "improved": 3,
+            "uniform_calls": 503,
+            "optimal_calls": 494,
+            "extra_boundary_words": 3
+          },
+          "4": {
+            "rows": 126,
+            "improved": 3,
+            "uniform_calls": 508,
+            "optimal_calls": 493,
+            "extra_boundary_words": 3
+          }
+        },
+        "witness": {
+          "gate": "aba",
+          "n": 4,
+          "row": "0,0,0,0,1",
+          "k": [
+            2,
+            4,
+            2,
+            1,
+            0
+          ],
+          "b": 4,
+          "regular": [
+            0,
+            4,
+            5
+          ],
+          "adaptive": [
+            0,
+            1,
+            5
+          ],
+          "uniform": 20,
+          "optimal": 13,
+          "gain": 7
+        }
+      },
+      {
+        "n": 5,
+        "native_states": 3869,
+        "rows": 252,
+        "row_control_states": 959,
+        "rank_inverse_checked": 959,
+        "brute_partitions": 952,
+        "widths": {
+          "2": {
+            "rows": 252,
+            "improved": 72,
+            "uniform_calls": 1214,
+            "optimal_calls": 1081,
+            "extra_boundary_words": 124
+          },
+          "3": {
+            "rows": 252,
+            "improved": 18,
+            "uniform_calls": 1437,
+            "optimal_calls": 1378,
+            "extra_boundary_words": 18
+          },
+          "4": {
+            "rows": 252,
+            "improved": 18,
+            "uniform_calls": 1478,
+            "optimal_calls": 1372,
+            "extra_boundary_words": 18
+          }
+        },
+        "witness": {
+          "gate": "aba",
+          "n": 5,
+          "row": "1,0,0,0,1",
+          "k": [
+            2,
+            8,
+            5,
+            2,
+            0
+          ],
+          "b": 4,
+          "regular": [
+            0,
+            4,
+            5
+          ],
+          "adaptive": [
+            0,
+            1,
+            5
+          ],
+          "uniform": 41,
+          "optimal": 26,
+          "gain": 15
+        }
+      },
+      {
+        "n": 6,
+        "native_states": 10734,
+        "rows": 462,
+        "row_control_states": 2251,
+        "rank_inverse_checked": 2251,
+        "brute_partitions": 1934,
+        "widths": {
+          "2": {
+            "rows": 462,
+            "improved": 160,
+            "uniform_calls": 2952,
+            "optimal_calls": 2610,
+            "extra_boundary_words": 296
+          },
+          "3": {
+            "rows": 462,
+            "improved": 61,
+            "uniform_calls": 3572,
+            "optimal_calls": 3340,
+            "extra_boundary_words": 65
+          },
+          "4": {
+            "rows": 462,
+            "improved": 61,
+            "uniform_calls": 3764,
+            "optimal_calls": 3349,
+            "extra_boundary_words": 61
+          }
+        },
+        "witness": {
+          "gate": "aba",
+          "n": 6,
+          "row": "1,0,1,0,0",
+          "k": [
+            2,
+            8,
+            6,
+            6,
+            2
+          ],
+          "b": 4,
+          "regular": [
+            0,
+            4,
+            5
+          ],
+          "adaptive": [
+            0,
+            2,
+            5
+          ],
+          "uniform": 62,
+          "optimal": 42,
+          "gain": 20
+        }
+      },
+      {
+        "n": 7,
+        "native_states": 26682,
+        "rows": 792,
+        "row_control_states": 4804,
+        "rank_inverse_checked": 4804,
+        "brute_partitions": 3676,
+        "widths": {
+          "2": {
+            "rows": 792,
+            "improved": 315,
+            "uniform_calls": 6463,
+            "optimal_calls": 5716,
+            "extra_boundary_words": 628
+          },
+          "3": {
+            "rows": 792,
+            "improved": 155,
+            "uniform_calls": 7949,
+            "optimal_calls": 7259,
+            "extra_boundary_words": 180
+          },
+          "4": {
+            "rows": 792,
+            "improved": 156,
+            "uniform_calls": 8587,
+            "optimal_calls": 7404,
+            "extra_boundary_words": 156
+          }
+        },
+        "witness": {
+          "gate": "aba",
+          "n": 7,
+          "row": "2,0,1,0,0",
+          "k": [
+            2,
+            8,
+            8,
+            8,
+            2
+          ],
+          "b": 4,
+          "regular": [
+            0,
+            4,
+            5
+          ],
+          "adaptive": [
+            0,
+            2,
+            5
+          ],
+          "uniform": 76,
+          "optimal": 48,
+          "gain": 28
+        }
+      },
+      {
+        "n": 8,
+        "native_states": 60550,
+        "rows": 1287,
+        "row_control_states": 9484,
+        "rank_inverse_checked": 9484,
+        "brute_partitions": 6602,
+        "widths": {
+          "2": {
+            "rows": 1287,
+            "improved": 564,
+            "uniform_calls": 13001,
+            "optimal_calls": 11546,
+            "extra_boundary_words": 1220
+          },
+          "3": {
+            "rows": 1287,
+            "improved": 328,
+            "uniform_calls": 16184,
+            "optimal_calls": 14526,
+            "extra_boundary_words": 417
+          },
+          "4": {
+            "rows": 1287,
+            "improved": 335,
+            "uniform_calls": 17873,
+            "optimal_calls": 15081,
+            "extra_boundary_words": 341
+          }
+        },
+        "witness": {
+          "gate": "aba",
+          "n": 8,
+          "row": "3,0,1,0,0",
+          "k": [
+            2,
+            8,
+            8,
+            8,
+            2
+          ],
+          "b": 4,
+          "regular": [
+            0,
+            4,
+            5
+          ],
+          "adaptive": [
+            0,
+            2,
+            5
+          ],
+          "uniform": 76,
+          "optimal": 48,
+          "gain": 28
+        }
+      }
+    ]
+  }
+}
