@@ -1,0 +1,63 @@
+{
+  "schema": "D25_AUTHOR_SIDE_CONTINUATION_V1",
+  "date": "2026-11-05",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "science_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_id_prohibited": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_objective": "For all primes p=13,19 mod24, original Delta_p-R_p=0 modp; strict original scalar alignment with W_p-V_p=0 modp^3.",
+  "predecessor_author_side": "research_notes/portable_direct/20261105_onhour_d25_common_unit_reflected_shell_continuation.json",
+  "highest_frontier": "Source-labelled original half/upper-shell signed transport; new exact rational certified infinite-period proximity and exact finite inert Frobenius-odd descent normalization. No proven finite A/B WZ transfer.",
+  "new_author_side_units": [
+    {
+      "scope": "EXACT_RATIONAL_CERTIFICATE",
+      "claim": "|8*A_inf^2-9*B_inf^2|<10^-145 and |2*P_inf-3*Q_inf|<10^-145 at N=500 exact rational tail bounds",
+      "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED",
+      "report": "research_notes/portable_direct/20261105_onhour_d25_period_jet_precision_and_padic_normalization.md",
+      "script": "research_notes/portable_direct/d25_period_jet_bridge_certificate_20261105.py",
+      "commits": [
+        "30bb443d831dd75a866afbc1fbf4ede3c65ce82f",
+        "d617a289a0f2c0c3d689be15d1384539b63e7dc1"
+      ],
+      "additional_witness": "p=13: original W_13=V_13=13 mod2197, but 2W_13-3V_13=156 mod169"
+    },
+    {
+      "scope": "UNIFORM_FINITE_FIELD_PROOF",
+      "claim": "At every p=13,19 mod24, E=Fp[T]/(T^2-2), s=3T/4, s^p=-s, Norm(s)=-9/8. For t in E: t*s in Fp iff t^p=-t iff t=bT; unique eta0=2T/3 gives eta0*s=1 with Norm(eta0)=-8/9.",
+      "status": "AUTHOR_PROVED_EXACT_FINITE_CHECKED",
+      "report": "research_notes/portable_direct/20261105_onhour_d25_inert_period_multiplier_frobenius_sign.md",
+      "script": "research_notes/portable_direct/d25_inert_quadratic_period_factor_check_20261105.py",
+      "commits": [
+        "22fb264d8437195a4d1202df6e702f5af4dcb9cd",
+        "3618cc62aab7ea3148bad9c61f70316e4acb9ae9"
+      ],
+      "verification": "312 target primes p<10000, zero failures; exact finite-field integer arithmetic"
+    }
+  ],
+  "mother_status": "OPEN_UNIFORM_LIFT_NOT_PROVED",
+  "unresolved_evidence": [
+    "Proof or valid counterexample for original W_p-V_p=0 modp^3 uniformly in both p=13 and 19 mod24; A/B infinite period equalities are candidates, even if numerical proximity certified.",
+    "Original fixed373 H0/B0 same-class divided-power [X]U mod139129, rank, semilinear Frobenius direction, eta, kappa, odd Hesse/Green and independent replication NOT_EXECUTED; Issue #1559 PENDING_OWNER.",
+    "No independent mathematical review or admitted Result for these author-side observations."
+  ],
+  "not_repeat": "CM0/SIMPLE/UR, 2304 supercongruence, source-alignment and prior signed half-upper-shell reductions, p4 sharpness, million-prime scan.",
+  "next_exact_action": "Seek an algebraic modular period pullback yielding the candidate s, then derive a p-parameterized terminating transform in the original 216/2304 models and test its Frobenius-odd eta normalization, signed p^2 half/upper-shell carry and p13/p19 boundaries; native benchmark remains at Issue #1559 to be executed by an actual authorized owner.",
+  "source_read": {
+    "request_id": "onhour11-20261105-1757-d25-own-continuation",
+    "status": "SUCCEEDED",
+    "observed_at": "2026-11-05T10:13:56.068605+00:00",
+    "source_commit": "14db472cb10e5f62b188e6750641f3a9038b377e",
+    "execution_authorized": false,
+    "route_action": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "takeover_readiness": "NO_LIVE_CLAIM",
+    "session_id_visible_in_Source": "MCP-092d7e732273432ea9a767b696413c83",
+    "session_key_available_in_this_run": false,
+    "claim_id": null,
+    "run_id": null,
+    "native_checkpoint_written_in_this_run": false,
+    "formal_result_written_in_this_run": false,
+    "note": "A visible Source session identifier is not possession of its private session capability or an active winning CLAIM."
+  },
+  "classification": "AUTHOR_SIDE_PUBLISHED_NOT_SOURCE_CHECKPOINT_UNREVIEWED_NOT_ADMITTED"
+}
