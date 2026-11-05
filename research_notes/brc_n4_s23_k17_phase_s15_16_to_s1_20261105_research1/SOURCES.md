@@ -1,0 +1,8 @@
+# Sources and scope (2026-11-05)
+
+- Immutable scientific input: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34` (BRC N=4 S23 auxiliary T/B). Not rebased.
+- Immediate predecessor: `awdawmip/enterprise-math@60a312ae34476f0b6b637189e7e452bf127f962a:research_notes/brc_n4_s23_k17_phase_s14_15_to_s15_16_20261105_research1/PROOF.md` and `VERIFY.py`.
+- Project canonical control observed at `main@83c3d3e1467958b74618183b310f8e569bc9630e`, with `AGENTS.md`, `p000_reality_foundation.json`, `definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json`, `definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json`, `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, and `research_priorities/research_method.json` read.
+- Global canonical read: `awdawmip/chatgpt-global-knowledge:main@313c6cfb859b2c667c56d9f9e45fb8af6c52b33a`. Applied bootstrap/manual, current P000, mathematical proof/code, temporal conclusion and BRC research policies, and TASK researcher route. Global behavioral rules are distinct from the scientific pin.
+- Mathematical references: exact Chernoff minimization, convexity of negative-log overlaps, arithmetic upper convex hull, exact interval log/sqrt. All load-bearing formulas and certificates are explicit in PROOF and VERIFY; no external scientific-paper claim is used.
+- Executed local Python 3 standard-library exact checker: 16 full-real-domain derivative inequalities and 4 root/endpoint strict signs passed; output and reproducible evidence in RUN_EVIDENCE.txt. Source remains author-side, pending independent review and native formal task admission.

@@ -1,0 +1,7 @@
+# Next active scientific question after K17 high-s completion — 2026-11-05
+
+The two-hypothesis T/B auxiliary model is now **classified for all real s in [15/16,1]**, including the unique crossover and s=1 18-fold tie. The formal s=16/17 cost breakpoint is harmless. Immutable source: `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. These are author-side, exact-checked, unreviewed results.
+
+**Parent objective:** original lawful ten-label S23 minimax risk, previous recorded bracket [1/2,2/3]. Select the *exact frozen* source defining encoder/decoder policies, hypotheses and observation laws. For a proposed law-respecting Markov kernel K, check with rational probability arithmetic both identities `P_mother * K = P_aux` and `Q_mother * K = Q_aux` (or the reverse direction, explicitly stated), including legality under policy composition. If a candidate fails, record a concrete distribution mismatch and test a changed kernel or a clearly restricted subfamily. If it succeeds, use the correctly oriented Blackwell/data-processing inequality from the predecessor to derive a mother-risk bound. Keep T's complete labeled provenance before B projection.
+
+**Review and control:** independent check of real-interval derivative argument, source/actual-execution correspondence, endpoint ties; reconcile native session, owner and CLAIM status. No autonomous RESULT/Working Truth promotion without existing authority.
