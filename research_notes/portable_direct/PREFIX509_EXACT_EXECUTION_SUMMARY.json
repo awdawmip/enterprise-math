@@ -1,0 +1,90 @@
+{
+  "certificate": "PREFIX509_INDEX_FREE_V_RANK",
+  "status": "ALL_CHECKS_PASS",
+  "executed": "2026-11-05",
+  "model": "native X6 restricted five-axis signed path; aab/aba; exact integer BRC V/W observation; order-sensitive KMP/first-source",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "program": "research_notes/portable_direct/prefix509_direct_rank_certificate.py",
+  "dependency": "research_notes/portable_direct/prefix508_mod6_compiler.py",
+  "independent_reference": "native_baseline ten-signed-direction occupancy and ordered source automaton (retains original signed counts until observer readout)",
+  "tested_domain": "all native (y,W) rows for n=0..6, uniformly spaced rows n=7,8, both gates; n=16,32,64,128,256 exact expanded V row checks",
+  "gate_results": {
+    "aab": {
+      "rows_checked": 5568,
+      "rank_unrank_checked": 17947,
+      "moment_intervals_checked": 51788,
+      "native_append_replays": 2550,
+      "long_rows": [
+        {
+          "n": 16,
+          "row_support_count": 82,
+          "compiled_intervals": 57
+        },
+        {
+          "n": 32,
+          "row_support_count": 190,
+          "compiled_intervals": 57
+        },
+        {
+          "n": 64,
+          "row_support_count": 406,
+          "compiled_intervals": 57
+        },
+        {
+          "n": 128,
+          "row_support_count": 838,
+          "compiled_intervals": 57
+        },
+        {
+          "n": 256,
+          "row_support_count": 1702,
+          "compiled_intervals": 57
+        }
+      ]
+    },
+    "aba": {
+      "rows_checked": 5568,
+      "rank_unrank_checked": 17931,
+      "moment_intervals_checked": 51788,
+      "native_append_replays": 2550,
+      "long_rows": [
+        {
+          "n": 16,
+          "row_support_count": 81,
+          "compiled_intervals": 54
+        },
+        {
+          "n": 32,
+          "row_support_count": 185,
+          "compiled_intervals": 54
+        },
+        {
+          "n": 64,
+          "row_support_count": 393,
+          "compiled_intervals": 54
+        },
+        {
+          "n": 128,
+          "row_support_count": 809,
+          "compiled_intervals": 54
+        },
+        {
+          "n": 256,
+          "row_support_count": 1641,
+          "compiled_intervals": 54
+        }
+      ]
+    }
+  },
+  "secondary_executed": {
+    "program": "prefix509_moment_block_integration.py (full source retained in local evidence archive)",
+    "result": "ALL_CHECKS_PASS",
+    "quotient_rows_per_gate": 1185,
+    "block_cost_checks_per_gate": 5093,
+    "all_gates_exhaustive_minimum_block_cases": 7112,
+    "native_append_replays_per_gate": 2550
+  },
+  "proof_status": "AUTHOR_PROVED; exact finite computation verified; independent review and formal admission pending",
+  "next_question": "PREFIX-510 explicit W-sum compiler for index-free joint V/W rank and memory reduction",
+  "note": "Full executed JSON and extended secondary source are in PREFIX509_COMPLETE_EVIDENCE.tar.gz; this JSON is an exact aggregate summary of that execution."
+}
