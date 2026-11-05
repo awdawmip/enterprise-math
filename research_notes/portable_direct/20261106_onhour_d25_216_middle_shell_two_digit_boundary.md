@@ -5,97 +5,97 @@ Date: 2026-11-06. Mode: TASK_RESEARCH, AUTHOR-SIDE EXACT DERIVATION / 80-PRIME I
 ## 1. Previously established inputs and question
 
 The inherited original 216 coefficient is
-[
-a_k=rac{(2k)!(3k)!}{216^k(k!)^5}
-=rac{inom{2k}{k}^2inom{3k}{k}}{216^k}.
-]
-The original 2304 coefficient is `b_k=binom(2k,k)^2 binom(4k,2k)/2304^k`. Put `W_p=sum_{k=0}^{p-1}(6k+1)a_k`, `V_h=sum_{k=0}^{h}(8k+1)b_k`, `h=(p-1)/2`. Consume the earlier proved full/half 2304 congruence and frozen source scalar equivalence; mother objective remains `Delta_p-R_p=0 (mod p)` for `p=13,19 (mod 24)`, corresponding to `W_p-V_h=0 (mod p^3)`. The preceding author-side CM-cusp triangular kernel `T[n,k]` and reflected 2304 compensation tail remain historical inputs; no new acceptance is inferred.
+$
+a_k=\frac{(2k)!(3k)!}{216^k(k!)^5}
+=\frac{\binom{2k}{k}^2\binom{3k}{k}}{216^k}.
+$
+The original 2304 coefficient is `b_k=binom(2k,k)^2 binom(4k,2k)/2304^k`. Put `W_p=\sum_k=0}^{p-1}(6k+1)a_k`, `V_h=\sum_k=0}^{h}(8k+1)b_k`, `h=(p-1)/2`. Consume the earlier proved full/half 2304 congruence and frozen source scalar \equivalence; mother objective remains `Delta_p-R_p=0 (mod p)` for `p=13,19 (mod 24)`, corresponding to `W_p-V_h=0 (mod p^3)`. The preceding author-side CM-cusp triangular kernel `T[n,k]` and reflected 2304 compensation tail remain historical inputs; no new acceptance is inferred.
 
 For primes `p=1 (mod 6)`, `p>=7`, define
-[
-m=(p-1)/3,quad J=(p-7)/6,quad s=(p+1)/2,quad L=lfloor(2p-1)/3floor.
-]
+$
+m=(p-1)/3,\quad J=(p-7)/6,\quad s=(p+1)/2,\quad L=\lfloor(2p-1)/3\rfloor.
+$
 The exact valuations of `a_k` on `0<=k<p` split the original 216 sum into `0<=k<=m` (valuation zero), `m+1<=k<=h` (valuation one), `s<=k<=L` (valuation two), and `k>L` (valuation at least three). This is the narrowest single-index carrier for the missing p^3 digit and retains every source index/weight.
 
 ## 2. Theorem — two p-adic digits at the middle-shell top
 
 For every prime `p=1 (mod 6)`, `p>=7`, let
-[
-q_p(a)=(a^{p-1}-1)/ppmod p,quad epsilon_p=(6/p)in{+1,-1},
-quad
-gamma_p=3+2q_p(2)-rac32q_p(6)pmod p.
-]
+$
+q_p(a)=(a^{p-1}-1)/p\pmod p,\quad \epsilon_p=(6/p)\in{+1,-1},
+\quad
+\gamma_p=3+2q_p(2)-\frac32q_p(6)\pmod p.
+$
 Then
-[
-oxed{a_h/pequiv -2epsilon_p(1+pgamma_p)pmod{p^2}.}
-]
+$
+\boxed{a_h/p\\equiv -2\epsilon_p(1+p\gamma_p)\pmod{p^2}.}
+$
 
 Proof. Since `3h=p+h-1`, exact factorial rearrangement gives
-[
-rac{a_h}{p}
-=rac{inom{p-1}{h}^{,2}}{h,216^h}
-prod_{i=1}^{h-1}(1+p/i).
-]
-Use `binom(p-1,h)=(-1)^h product_{i=1}^h(1-p/i)`, hence `binom(p-1,h)^2=1-2p H_h (mod p^2)`; multiply the remaining product to obtain `1-p(H_h+1/h)`. The standard finite harmonic identity `H_h=-2q_p(2) (mod p)` follows by expanding `2^p-2=sum_{i=1}^{p-1} binom(p,i)` and pairing the alternating harmonic sum. Further `1/h=-2(1+p) (mod p^2)`. Because `216^h=6^{3h}`, Euler's criterion and `(6^h)^2=1+p q_p(6)` give `216^{-h}=epsilon_p(1-3p q_p(6)/2) (mod p^2)`. Multiplication proves the boxed formula. All denominators are p-units.
+$
+\frac{a_h}{p}
+=\frac{\binom{p-1}{h}^{,2}}{h,216^h}
+\prod_i=1}^{h-1}(1+p/i).
+$
+Use `binom(p-1,h)=(-1)^h product_{i=1}^h(1-p/i)`, hence `binom(p-1,h)^2=1-2p H_h (mod p^2)`; multiply the remaining product to obtain `1-p(H_h+1/h)`. The standard finite harmonic identity `H_h=-2q_p(2) (mod p)` follows by expanding `2^p-2=\sum_i=1}^{p-1} binom(p,i)` and pairing the alternating harmonic sum. Further `1/h=-2(1+p) (mod p^2)`. Because `216^h=6^{3h}`, Euler's criterion and `(6^h)^2=1+p q_p(6)` give `216^{-h}=\epsilon_p(1-3p q_p(6)/2) (mod p^2)`. Multiplication proves the boxed formula. All denominators are p-units.
 
 ## 3. Theorem — exact reflected 216 hypergeometric kernel and differential endpoint
 
 For `0<=j<=J`, set
-[
+$
 Q^A_{p,j}=
-2^jrac{(-h)_j^3}
+2^j\frac{(-h)_j^3}
 {(1-p/2)_j(5/6-p/2)_j(7/6-p/2)_j},
-qquad H^A_{p,J}(z)=sum_{j=0}^{J}Q^A_{p,j}z^j.
-]
+\q\quad H^A_{p,J}(z)=\sum_j=0}^{J}Q^A_{p,j}z^j.
+$
 The exact backward ratio of the original 216 coefficient is
-[
-rac{a_{h-j-1}}{a_{h-j}}=
-rac{18(p-2j-1)^3}{(p-2j-2)(3p-6j-7)(3p-6j-5)}
-]
+$
+\frac{a_{h-j-1}}{a_{h-j}}=
+\frac{18(p-2j-1)^3}{(p-2j-2)(3p-6j-7)(3p-6j-5)}
+$
 for `j<J`. Its denominators are p-units on this precisely declared range, and the ratio equals `Q^A_{p,j+1}/Q^A_{p,j}`. Hence **exactly** `a_{h-j}/p=(a_h/p)Q^A_{p,j}` for all `0<=j<=J`.
 
-The weight reverses as `6(h-j)+1=3p-2-6j`. Thus for the original signed middle-shell sum `M_p=sum_{k=m+1}^h(6k+1)a_k`,
-[
-oxed{rac{M_p}{p}equiv
--2epsilon_p(1+pgamma_p)
-ig[(3p-2)H^A_{p,J}(1)-6	heta H^A_{p,J}(1)ig]pmod{p^2},quad	heta=z,d/dz.}
-]
+The weight reverses as `6(h-j)+1=3p-2-6j`. Thus for the original signed middle-shell sum `M_p=\sum_k=m+1}^h(6k+1)a_k`,
+$
+\boxed{\frac{M_p}{p}\equiv
+-2\epsilon_p(1+p\gamma_p)
+\big[(3p-2)H^A_{p,J}(1)-6\theta H^A_{p,J}(1)\big]\pmod{p^2},\quad\theta=z,d/dz.}
+$
 
 Its exact fourth-order inhomogeneous endpoint is
-[
-mathcal L^A_p=
-	heta(	heta-p/2)(	heta-1/6-p/2)(	heta+1/6-p/2)
--2z(	heta-h)^3(	heta+1),
-]
-[
-oxed{mathcal L^A_pH^A_{p,J}(z)=
+$
+\mathcal L^A_p=
+\theta(\theta-p/2)(\theta-1/6-p/2)(\theta+1/6-p/2)
+-2z(\theta-h)^3(\theta+1),
+$
+$
+\boxed{\mathcal L^A_pH^A_{p,J}(z)=
 -2(J+1)(J-h)^3Q^A_{p,J}z^{J+1}.}
-]
+$
 Proof: the hypergeometric coefficient recurrence annihilates each degree `0..J`. Truncation leaves exactly the displayed `J+1` endpoint. This is the **216-model** companion of the already proved, different 2304 signed-tail `4F3` operator with `z=9` and quarters `±1/4` instead of sixths `±1/6`. Do not identify the two boundaries without the lower-shell and upper-shell compensation.
 
 For first-order p-deformation, write
-[
-q_j=2^jrac{(1/2)_j^3}{j!(5/6)_j(7/6)_j},quad
-D_j=sum_{i=0}^{j-1}left[-rac3{2i+1}+rac1{2i+2}+rac3{6i+5}+rac3{6i+7}ight].
-]
+$
+q_j=2^j\frac{(1/2)_j^3}{j!(5/6)_j(7/6)_j},\quad
+D_j=\sum_i=0}^{j-1}\left[-\frac3{2i+1}+\frac1{2i+2}+\frac3{6i+5}+\frac3{6i+7}\right].
+$
 Then `Q^A_{p,j}=q_j(1+pD_j) (mod p^2)`, all declared denominators units. This supplies independently checkable two-digit transport.
 
 ## 4. Strict single-index exact reduction of the still-open LIFT
 
-Put `B_p=sum_{k=0}^{m}(6k+1)a_k`, `U_p=sum_{k=s}^{L}(6k+1)(a_k/p^2)`, where `U_p` is needed modulo p. Exact valuations give
-[
-oxed{W_pequiv B_p+p(M_p/p)+p^2U_ppmod{p^3}.}
-]
+Put `B_p=\sum_k=0}^{m}(6k+1)a_k`, `U_p=\sum_k=s}^{L}(6k+1)(a_k/p^2)`, where `U_p` is needed modulo p. Exact valuations give
+$
+\boxed{W_p\\equiv B_p+p(M_p/p)+p^2U_p\pmod{p^3}.}
+$
 For target primes `p=13,19 (mod24)`, inherited first-digit congruences supply `p | (B_p-V_h)`. Therefore define the genuine two-digit observation
-[
-D_p=(B_p-V_h)/ppmod{p^2}.
-]
-The mother third-digit condition is **equivalent**, under the already pinned source scalar bridge, to the explicit *single-index* certificate
-[
-oxed{D_p-2epsilon_p(1+pgamma_p)
-[(3p-2)H^A_{p,J}(1)-6	heta H^A_{p,J}(1)]
-+pU_pequiv0pmod{p^2}.}
-]
+$
+D_p=(B_p-V_h)/p\pmod{p^2}.
+$
+The mother third-digit condition is **\equivalent**, under the already pinned source scalar bridge, to the explicit *single-index* certificate
+$
+\boxed{D_p-2\epsilon_p(1+p\gamma_p)
+[(3p-2)H^A_{p,J}(1)-6\theta H^A_{p,J}(1)]
++pU_p\\equiv0\pmod{p^2}.}
+$
 This avoids computing the previously constructed triangular CM-cusp matrix `T[n,k]`; it consumes one low-index 216 band, the original 2304 half-sum, one finite `216-4F3` middle polynomial and one valuation-two 216 band. It is a **strict single-index representation reduction**, not a completed all-prime vanishing proof. In particular a direct identification of `M_p/p` with the 2304 `V_tail/p` fails already for `p=13` (`149 != 89 mod169`): lower/upper signed ports matter.
 
 ## 5. Exact executed evidence / provenance
