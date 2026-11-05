@@ -1,0 +1,49 @@
+{
+  "schema": "EM_AUTHOR_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-05",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_input": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Delta_p-R_p=0 mod p for p=13,19 mod24; native p373 H0/B0 remains separate",
+  "prior_checkpoint_commit": "446215ae2cb7c84c08d09da7b00de15ff29e1d02",
+  "completed_units": [
+    "Prior p3 Clausen finite square identity and signed p2 boundary, exact proof and 80-prime check",
+    "Exact conditional p-adic two-stage (A),(B) reduction of W_p=p mod p3, using genuine signed boundary",
+    "Unconditional first-digit Q_p binomial expression; finite observed Q vanishing for 45/45 target primes and nonvanishing for 35/35 complementary primes through 997",
+    "Both conditional first and second digit checks passed all 45 target primes; zero failures"
+  ],
+  "result_scope": "EXACT CONDITIONAL TWO-STAGE THEOREM PLUS FINITE RESIDUE-CLASS CONJECTURE; UNREVIEWED_NOT_ADMITTED",
+  "current_unfinished_unit": "Prove finite binomial sum sum_k binom(n,k)binom(2n,k)/2^k =0 modulo p for all target p=6n+1 congruent13 or19 mod24; prove 12ad=1 and carry plus a2+12ae+12bd-T=0 for those primes; separately perform fixed p373 native H0/B0 under #1559",
+  "next_exact_action": "Seek quadratic character/CM/Pfaff symmetry proof of first-digit binomial vanishing; construct p-dependent signed terminal WZ/adjoint certificate for two-digit condition; leave original native p373 support #1559 with executor",
+  "do_not_repeat": [
+    "D24 accepted UR",
+    "D25 old jet/shell/p4 results",
+    "Clausen square third-digit exact derivation at commit 446215a"
+  ],
+  "source_previous_request_id": "onhour11-20261105-0856-d25-cont",
+  "source_previous_receipt": "SUCCEEDED; execution_authorized=false",
+  "historical_session_id": "MCP-491afa3ba2b94ec9b900ed3df6e345a3",
+  "native_claim": "NOT_ESTABLISHED",
+  "native_run": "NOT_ESTABLISHED",
+  "native_checkpoint": "NOT_WRITTEN",
+  "formal_result": "UNREVIEWED_NOT_ADMITTED",
+  "support_issue": 1559,
+  "native_experiment": "NOT_RUN_OPEN_UNASSIGNED",
+  "evidence_paths": [
+    "research_notes/portable_direct/20261105_onhour_d25_clausen_p3_convolution_boundary.md",
+    "research_notes/portable_direct/20261105_onhour_d25_clausen_target_two_digit_observer.md",
+    "research_notes/portable_direct/d25_clausen_target_two_digit_checker_20261105.py"
+  ],
+  "validation": {
+    "primes": 80,
+    "target": 45,
+    "complement": 35,
+    "target_vanishing": 45,
+    "complement_nonvanishing": 35,
+    "first_second_pass": 45,
+    "failures": 0
+  },
+  "brc": "COMPOSE_APPLIED: preserves integer residue representative/carries, source observer, signed boundary, two p-adic digits"
+}
