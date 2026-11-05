@@ -1,0 +1,13 @@
+# Stage454-B portable continuation — grouped exact support and rank/unrank for arbitrary POP
+
+Parent: Stage453-B exact arbitrary-budget X6 binary-original future key and per-key integer population. Frozen science retained from Stage452-B: global bf84bd7c61a2444b59b1da96be57df0e9ae47e53; EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419; original P000 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Read current behavioral rules independently.
+
+Mother objective: obtain observer-safe provenance-preserving compression of ordered signed X6 histories, including the exact Boolean support and positive-integer BRC population, while accounting for total arithmetic, representation and retrieval cost.
+
+Completed increment: Theorem453.1 proves iff-key for *any* nonnegative asymmetric POP and APPEND budgets within the A/B original word family. A previously omitted P-side cross-window has an explicit same-O witness P1=AAAABAA,P2=ABAAAAA,Q=AABAAAAA under m=7,n=8,pP=1,pQ=4,rP=rQ=0: four Q POPs produce K=3 versus K=2. Theorem453.2 gives a per-key exact integer DP; a two-hidden-run aggregation argument gives a conservative polynomial route for q_F. Delivered Python checker and actual JSON verify small exact future trees and population consistency. No formal Source Result or independent review was claimed.
+
+First executable next action: implement the grouped visible-key C(sigma), hidden-prefix T and hidden Q-gap U transfer directly, not by enumerating all keys. Check against the exact enumerator on all Stage453 small fibers; then exhibit one large (m,n,kP,kQ,d,pP,pQ,rP,rQ) with #classes and #raw histories beyond enumerability. Give a tighter arithmetic and bit-complexity bound, memory bound, and ranking/unranking for supported classes and for original histories inside each class. Preserve multiplicity and source identity.
+
+Secondary scientific test: extend original directions from the initial binary {+E1,-E1} to a 3-direction alphabet, then to all 12 original native directions. Identify which step of the necessary-key argument uses the binary recovery [X=known direction] and test a 3-direction counterexample; retain the full signed 6-vector and 12x12 directed J. A mere equality bit no longer identifies a nonbinary original direction without several distinguishable probes.
+
+Publishing: save complete proof, exact code, executed evidence, remaining conjectures, source pins, current owner/claim outcome on an authorized GitHub branch (PR #1736 available); Source Result requires current authorized claim and independent review remains separate. Do not alter P000 or promote an author-side theorem.
