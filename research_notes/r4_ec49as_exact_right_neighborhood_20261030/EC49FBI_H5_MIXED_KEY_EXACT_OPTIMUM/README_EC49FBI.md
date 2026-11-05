@@ -20,9 +20,10 @@ This extends EC49FAZ (fixed L at H4/H5, M at H6–H9), and shows that **prematur
 Original operations: `a=(-1,-1)`, `b=(-2,-2)`, `c=(+1,+2,-1,-2)`, `d=(+2,+1,-2,-1)`, `e=(+3,+1,+1,-3)`, `f=(+1,-1)`, `g=(+2,-2)`. In this frozen terminal family b is excluded by the earlier endpoint-count identity. Every selected word expands into its original ordered signed-six-axis primitive steps. BRC key counts positive signed-axis occurrences. Nine-state DFA and signature/rank test are unchanged from EC49FAX/FAR.
 
 **Same-key terminal-depth lemma.** Suppose a native path ends at displacement (+2,0,0,0,0,0) and its complete positive key is K=(x,y,z,0,0,0). Total positive primitive steps = x+y+z. The six signed displacement equations give a total of x+y+z−2 negative primitive steps. Hence its native primitive length is precisely
-[
-  \ell(K)=2(x+y+z)-2.
-]
+
+$
+\ell(K)=2(x+y+z)-2.
+$
 Thus every L-key terminal lies at depth 12, and every M-key terminal lies at depth 20 of the signed-prefix trie, even when their operation-word lengths (horizons) differ. The six used operation codewords are primitive-prefix-free (first two primitive signed steps distinguish them), hence different complete operation words are different native terminal leaves. This establishes an exact finite two-depth terminal geometry and permits a single trie to retain every cross-horizon shared prefix.
 
 For any horizon h with key (x,y,z), original count conservation gives
@@ -52,7 +53,7 @@ Python 3.13.5 / SciPy 1.17.0 / HiGHS, 0-1 integrality, 26,742 variables. Unforce
 
 Separate standard-library witness checker recomputes native signed displacement, positive complete keys, DFA signatures and rank clauses for H2–H9, distinct prefix counts and the forced-H5-M condition. It obtains exact union counts 112 and 128, with five distinct keys in each witness. Lower-bound evidence is the finite ILP plus HiGHS solver status; explicit witness truth is independently checked by integer Python.
 
-Reproduction (run in an environment with SciPy): `python VERIFY_EC49FBI.py 35` for unforced; `python VERIFY_EC49FBI_FORCE_H5M.py 30` for forced. Run `python CROSSCHECK_EC49FBI.py` after producing the JSON reports. Executed local code artifacts and output reports are provided in this directory.
+Reproduction (Python 3.13 + SciPy 1.17, or compatible; outputs are written next to the script, independent of working directory): `python VERIFY_EC49FBI.py 35` for unforced; `python VERIFY_EC49FBI_FORCE_H5M.py 30` for forced. Run `python CROSSCHECK_EC49FBI.py` after producing the JSON reports. Both published optimizer programs were executed locally after making their output paths portable, and the independent witness checker passed on the newly produced JSON. The compact checked-in combined certificate preserves two valid explicit witnesses; due to multiple integer optima, a local rerun may select a different witness at the same cost.
 
 ## Next scientific unit
 

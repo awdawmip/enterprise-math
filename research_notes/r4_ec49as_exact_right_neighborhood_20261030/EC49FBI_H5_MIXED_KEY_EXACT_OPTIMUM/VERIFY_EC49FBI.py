@@ -6,6 +6,7 @@ Requires scipy; observation/endpoint integer exact, MILP return statuses explici
 from itertools import product, permutations
 from collections import defaultdict
 import json,time,sys
+from pathlib import Path
 import numpy as np
 from scipy.sparse import coo_matrix
 from scipy.optimize import milp, Bounds, LinearConstraint
@@ -107,5 +108,5 @@ def run(limit=40, gap=0.0):
                 if sol.x[at-1]>.5:selected.append([h,w,obs(w),list(key_word(w))])
         report['selected_words']=selected
     print('RESULT',json.dumps(report,ensure_ascii=False),flush=True)
-    with open('/mnt/data/EC49FBI_MILP_REPORT.json','w') as f:json.dump(report,f,indent=2,ensure_ascii=False)
+    with open(Path(__file__).resolve().parent / 'EC49FBI_MILP_REPORT.json','w') as f:json.dump(report,f,indent=2,ensure_ascii=False)
 if __name__=='__main__':run(int(sys.argv[1]) if len(sys.argv)>1 else 35)

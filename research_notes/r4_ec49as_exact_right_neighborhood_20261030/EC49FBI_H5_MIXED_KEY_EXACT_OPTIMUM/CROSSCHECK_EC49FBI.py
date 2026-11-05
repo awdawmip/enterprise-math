@@ -1,12 +1,13 @@
 """Independent Python standard-library witness verifier for EC49FBI."""
 import json, collections
+from pathlib import Path
 OP={'a':[-1,-1],'c':[1,2,-1,-2],'d':[2,1,-2,-1],'e':[3,1,1,-3],'f':[1,-1],'g':[2,-2]}
 ALPHABET='acdefg'
 TRANS=((1,2,3,1,4,5),(1,6,7,1,1,1),(2,2,8,2,2,2),(3,8,3,3,3,3),(4,2,7,4,4,4),(5,6,3,5,5,5),(6,6,8,6,6,6),(7,8,7,7,7,7),(8,8,8,8,8,8))
 SIG=(0,0,4,1,16,32,8,2,0)
 clauses=(18,20,33,40)
 BASE={2:['fe','ge'],3:['feg','gef']}
-for fn in ('/mnt/data/EC49FBI_MILP_REPORT.json','/mnt/data/EC49FBI_FORCE_H5M_REPORT.json'):
+for fn in (Path(__file__).resolve().parent / 'EC49FBI_MILP_REPORT.json', Path(__file__).resolve().parent / 'EC49FBI_FORCE_H5M_REPORT.json'):
     r=json.load(open(fn))
     allwords={h:list(ws) for h,ws in BASE.items()}
     for h,w,s,k in r['selected_words']:allwords.setdefault(h,[]).append(w)
@@ -30,4 +31,4 @@ for fn in ('/mnt/data/EC49FBI_MILP_REPORT.json','/mnt/data/EC49FBI_FORCE_H5M_REP
     assert len(keys)==5,keys
     assert len(prefs)==r['incumbent_cost'],(fn,len(prefs),r['incumbent_cost'])
     assert (len(h5M)>0)==r.get('forced_H5M_at_least_one',False)
-    print(fn.split('/')[-1], 'exact-prefix-count',len(prefs),'key-count',len(keys),'H5-M',h5M, 'verified')
+    print(fn.name, 'exact-prefix-count',len(prefs),'key-count',len(keys),'H5-M',h5M, 'verified')
