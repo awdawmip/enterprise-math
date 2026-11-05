@@ -1,0 +1,30 @@
+{
+  "branch_history_retained_when_indexed_intermediate_Cell_queries_are_requested": true,
+  "by_depth": {"0": 48, "1": 288, "2": 1728, "3": 10368},
+  "counts": {
+    "KMP_gate_frame_checks": 596736,
+    "first_last_frame_checks": 298368,
+    "histories": 12432,
+    "legal_extension_checks": 12384,
+    "native_BRC_microbranch_checks": 288,
+    "order_reconstruction_checks": 12432
+  },
+  "exact_arithmetic": true,
+  "frames": 24,
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "full_KMP_arbitrary_initial_maps_retained_for_other_operation_horizons": true,
+  "gate_patterns": ["aab", "aba"],
+  "max_macrosteps_enumerated": 3,
+  "phase_states": 48,
+  "scope": "PREFIX-518 candidate directed phase-switch groupoid, native signed X6 inner/outer shortest microbranches; arbitrary legal future macroedge concatenation; initial KMP q0 only",
+  "status": "ALL_CHECKS_PASS",
+  "theorem": "for all legal phase-aligned four-STAR microtrace words and all 24 S4 frames: KMP(q0) for both aab/aba is 1 iff last signed step becomes +L1, else 0; first/last B/C sources factor through ordered first/last occurrences of the six native axes",
+  "witness": {
+    "branch": 1,
+    "first_axis_order_L1_based": [6, 1],
+    "last_axis_order_L1_based": [1, 6],
+    "microtrace": [6, 1],
+    "next": [0, -1, 6],
+    "start": [0, 3, -1]
+  }
+}
