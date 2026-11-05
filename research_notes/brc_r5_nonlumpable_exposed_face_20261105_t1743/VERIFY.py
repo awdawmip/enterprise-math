@@ -86,3 +86,26 @@ print('MAX_DETERMINISTIC=',mx,'MAX_COUNT=',ct,'MAX_TIMES=',sorted(mt))
 print('POLICIES_EXHAUSTED=',tot)
 print('PROOF: two isolated all-real support-maximizing timing patterns; midpoint excluded')
 print('PASS_EXACT_R5_NONLUMPABLE_NONCONVEX_REAL_O4')
+
+# Additional FULL_HIST path-aware witness (different from the seedless LR strategy class).
+hist_ep=hist_eq=F(0);hist_tp=hist_tq=F(2)
+for i,r2 in enumerate(R2):
+    m2=q2[i]
+    hist_tp+=r2*m2;hist_tq+=m2
+    for j,r3 in enumerate(R3):
+        m3=m2*q3[i][j]
+        if j==1 and i==1:
+            hist_tp+=r3*m3;hist_tq+=m3
+            for k,r4 in enumerate(R4):
+                mass=m3*q4_merge[r2][k]
+                if r4<=1:hist_ep+=r4*mass
+                else:hist_eq+=mass
+        else:
+            if r3<=1:hist_ep+=r3*m3
+            else:hist_eq+=m3
+W_hist=(hist_ep,hist_eq,hist_tp,hist_tq)
+assert W_hist==(F(1141,3600),F(31,72),F(129,40),F(129,40))
+assert score(W_hist)==-F(107,100)
+assert score(W_hist)-mx==F(1,400)
+print('FULL_HISTORY_WITNESS=',W_hist,'score=',score(W_hist),'GAP=',score(W_hist)-mx)
+print('PASS_EXACT_R5_FULL_HISTORY_STRICT_SUPPORT_GAP')

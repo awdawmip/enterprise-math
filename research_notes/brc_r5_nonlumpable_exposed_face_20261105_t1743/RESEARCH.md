@@ -1,4 +1,4 @@
-# R5 — Nonlumpable four-stage merger: a nonconvex real LR image and a full-hull-equal two-source lift
+# R5 — Nonlumpable four-stage merger: nonconvex real LR image and an observer-hierarchy separation
 
 2026-11-05, Asia/Shanghai. AUTHOR_PROVED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY.
 
@@ -50,25 +50,35 @@ Both satisfy n·W=-429/400. Their midpoint
 
 also lies in the exposed supporting hyperplane. Any real behavioral policy that attained W_mid would therefore maximize the same objective, forcing its time coordinates to equal either (19/8,5/2) or (57/20,109/40), neither of which equals (209/80,209/80). Contradiction. Thus W_mid is in conv O4(LR;S) but not in the actual O4(LR;S). This is a proof for **all** real behavioral probabilities, not a finite grid search.
 
-## Theorem B: two identical-law source labels yield complete full-hull equality but different real images
+## Theorem B: source-only versus genuinely full-history observers — a necessary distinction
 
-Form S×H by drawing a genuinely observable-to-FULL source label H=A or B, with weight 1/2 under BOTH P and Q, and then running exactly S independently of which label was drawn. Each source's conditional experiment is identical, but the model retains the nonlumpable path-dependent transition inside S. FULL additionally observes H; LR only observes (time,r).
+An identical-law two-label lift of S defines a **restricted source-only FULL_H** class: draw H=A or B with weight 1/2 under P and Q; conditionally on each H run exactly S. FULL_H observes H but, like LR, does **not** retain the earlier stage-2 route when acting at the shared (3,1) key. If L=O4(seedless LR;S), then
 
-Let L=O4(seedless LR;S). Because the two source conditional laws are identical,
+    O4(LR;S×H)=L,
+    O4(FULL_H;S×H)={ (x+y)/2: x,y in L }.
 
-    O4(seedless LR;S×H)=L,
-    O4(FULL;S×H)={ (x+y)/2: x,y in L }.
+It follows that conv O4(FULL_H)=conv O4(LR), while W_mid belongs to the real FULL_H image and not the real LR image. This is an exact **source-only observer variant** and supplies a constructive label-based convexification principle.
 
-The latter contains L (take x=y) and is contained in conv(L), proving the **complete** four-dimensional convex-hull identity
+For the R5 mother question, however, the stronger **full-history FULL_HIST** observer may retain the earlier route at the nonterminal merger. Under that actual route-aware observation class, the same model has a strict **convex-hull separation**, so the source-only lift must not be mistaken for a solution to the full-history R5 target.
 
-    conv O4(FULL;S×H) = conv O4(seedless LR;S×H).
+Indeed, let FULL_HIST continue at time 1, continue from BOTH time-2 ratios 3/4 and 5/4, and at time-3 ratio 1 stop when the incoming time-2 ratio was 3/4 but continue when it was 5/4. Stop at the other time-3 nodes and use the Bayes declarations everywhere (Q for ratios below 1, P above 1, choose Q at 1). The resulting exactly evaluated vector is
 
-FULL takes policy A on source label A and B on source label B and attains W_mid. Theorem A proves W_mid is unattainable by a single seedless LR real behavioral policy. Thus the actual real images **differ** despite exact full-hull equality.
+    W_hist=(1141/3600,31/72,129/40,129/40),
 
-Scope: the two source labels have equal conditional observable laws; the model's *route-dependent* future laws are genuinely different at the shared nonterminal key. This settles the hull-versus-real-image phenomenon for an admissibility class permitting duplicate conditional source laws with nonlumpable path history. If the exact frozen R5 task additionally demands that the source-conditional experiments themselves differ, the heterogeneous-source strengthening remains an independent open condition requiring exact taskbook verification. No task admission or closure is asserted by author proof.
+with n·W_hist=-107/100. The seedless LR support maximum in Theorem A is -429/400. Hence
+
+    h_FULL_HIST(n)-h_LR(n) >= (-107/100)-(-429/400)=1/400>0.
+
+This is an exact separating-direction certificate: for this path-sensitive model, the complete FULL_HIST/LR convex hulls **differ**. It isolates the distinction between two kinds of extra information: a source label that randomizes independent conditional LR policy choices, and an incoming route that changes the optimal continuation decision at a merged LR key. The latter already creates a positive support-function gap here.
+
+Theorem A remains a general-real-strategy nonconvexity witness. The R5 target with FULL observing the entire route remains open. If the frozen R5 task instead expressly defines FULL as source-only, the above restricted lift is a complete exact mathematical construction at that scope. In either case, theorem admission and frozen task interpretation belong to current canonical review authority.
 
 ## Exact verification and next inquiry
 
-VERIFY.py is Python 3 stdlib Fraction. It verifies the positive P/Q row identities, Bellman coefficients, both explicit four-vectors, their midpoint, and exhaustively evaluates 3*(3^2)*(3^3)*(2^3)=5832 deterministic LR strategies. It finds maximum -429/400 and exactly two distinct timing pairs among all 18 maximizing deterministic strategies. These checks corroborate, but do not replace, the all-real analytic proof. EXACT_OUTPUT.txt records the actual run. NEXT_TASK.md requests a review of the frozen source admissibility and the possible genuinely heterogeneous-source extension.
+The independent full-history witness uses a route-conditional action at the shared node, and was evaluated in an additional local Python Fraction calculation. Its vector and 1/400 gap are explicitly given in Theorem B. The 5832-policy exhaustive count refers to LR only, and the full-history calculation is analytic/direct rather than an exhaustive FULL policy enumeration.
+
+
+
+VERIFY.py is Python 3 stdlib Fraction. It verifies the positive P/Q row identities, Bellman coefficients, both explicit four-vectors, their midpoint, and exhaustively evaluates 3*(3^2)*(3^3)*(2^3)=5832 deterministic LR strategies. It finds maximum -429/400 and exactly two distinct timing pairs among all 18 maximizing deterministic strategies. These checks corroborate, but do not replace, the all-real analytic proof. EXACT_OUTPUT.txt records the actual run. NEXT_TASK.md requests review of FULL information scope and an all-directions hull-equality route under the frozen R5 semantics.
 
 BRC reuse: positive rational branch weights and labeled incoming path ports are retained until observer-safe quotienting; the irreducible future-kernel residual at (3,1) is the nonconvexity mechanism. No P000 change, Foundation promotion or independent Driver review is implied.
