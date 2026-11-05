@@ -1,0 +1,157 @@
+{
+  "certificate": "PREFIX507_PRESBURGER_V_INTERVAL_MOMENTS",
+  "status": "ALL_CHECKS_PASS",
+  "scope": "All ten-direction ordered words length n<=6 compared to independent native occupancy/five-color suffix lifting; each V interval and first moment checked independently. Lengths 7..9: occupancy/suffix construction only. No quantifier-elimination compiler executed.",
+  "gates": {
+    "aab": [
+      {
+        "n": 0,
+        "raw_ordered_words": 1,
+        "observation_fibers": 1,
+        "V_interval_count_and_first_moment_comparisons": 1
+      },
+      {
+        "n": 1,
+        "raw_ordered_words": 10,
+        "observation_fibers": 10,
+        "V_interval_count_and_first_moment_comparisons": 30
+      },
+      {
+        "n": 2,
+        "raw_ordered_words": 100,
+        "observation_fibers": 55,
+        "V_interval_count_and_first_moment_comparisons": 312
+      },
+      {
+        "n": 3,
+        "raw_ordered_words": 1000,
+        "observation_fibers": 220,
+        "V_interval_count_and_first_moment_comparisons": 1900
+      },
+      {
+        "n": 4,
+        "raw_ordered_words": 10000,
+        "observation_fibers": 712,
+        "V_interval_count_and_first_moment_comparisons": 8295
+      },
+      {
+        "n": 5,
+        "raw_ordered_words": 100000,
+        "observation_fibers": 1972,
+        "V_interval_count_and_first_moment_comparisons": 28812
+      },
+      {
+        "n": 6,
+        "raw_ordered_words": 1000000,
+        "observation_fibers": 4842,
+        "V_interval_count_and_first_moment_comparisons": 84672
+      },
+      {
+        "n": 7,
+        "raw_ordered_words": null,
+        "observation_fibers": 10800,
+        "V_interval_count_and_first_moment_comparisons": 0
+      },
+      {
+        "n": 8,
+        "raw_ordered_words": null,
+        "observation_fibers": 22275,
+        "V_interval_count_and_first_moment_comparisons": 0
+      },
+      {
+        "n": 9,
+        "raw_ordered_words": null,
+        "observation_fibers": 43054,
+        "V_interval_count_and_first_moment_comparisons": 0
+      }
+    ],
+    "aba": [
+      {
+        "n": 0,
+        "raw_ordered_words": 1,
+        "observation_fibers": 1,
+        "V_interval_count_and_first_moment_comparisons": 1
+      },
+      {
+        "n": 1,
+        "raw_ordered_words": 10,
+        "observation_fibers": 10,
+        "V_interval_count_and_first_moment_comparisons": 30
+      },
+      {
+        "n": 2,
+        "raw_ordered_words": 100,
+        "observation_fibers": 55,
+        "V_interval_count_and_first_moment_comparisons": 312
+      },
+      {
+        "n": 3,
+        "raw_ordered_words": 1000,
+        "observation_fibers": 220,
+        "V_interval_count_and_first_moment_comparisons": 1900
+      },
+      {
+        "n": 4,
+        "raw_ordered_words": 10000,
+        "observation_fibers": 712,
+        "V_interval_count_and_first_moment_comparisons": 8295
+      },
+      {
+        "n": 5,
+        "raw_ordered_words": 100000,
+        "observation_fibers": 1972,
+        "V_interval_count_and_first_moment_comparisons": 28812
+      },
+      {
+        "n": 6,
+        "raw_ordered_words": 1000000,
+        "observation_fibers": 4842,
+        "V_interval_count_and_first_moment_comparisons": 84672
+      },
+      {
+        "n": 7,
+        "raw_ordered_words": null,
+        "observation_fibers": 10800,
+        "V_interval_count_and_first_moment_comparisons": 0
+      },
+      {
+        "n": 8,
+        "raw_ordered_words": null,
+        "observation_fibers": 22275,
+        "V_interval_count_and_first_moment_comparisons": 0
+      },
+      {
+        "n": 9,
+        "raw_ordered_words": null,
+        "observation_fibers": 43054,
+        "V_interval_count_and_first_moment_comparisons": 0
+      }
+    ]
+  },
+  "counterexample": {
+    "n": 2,
+    "y": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "W": 0,
+    "state": "q=0,t=N",
+    "reachable_V": [
+      0,
+      2
+    ],
+    "V0": [
+      "0,N",
+      "1,N"
+    ],
+    "V1": [
+      "0,B"
+    ],
+    "V2": [
+      "0,N"
+    ]
+  }
+}
