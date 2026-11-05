@@ -1,0 +1,52 @@
+{
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "architecture": "x86_64",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "compile_flags": "-O3 -march=native -std=c++20 -Wall -Wextra -Wpedantic",
+  "cpu_affinity": 0,
+  "available_cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "clock": "std::chrono::steady_clock",
+  "record": "uint32_t value + uint32_t original_position (8 bytes)",
+  "timing_scope": "input vector allocation/copy, all state extraction, count tables, sorting, reconstruction, and per-call frees",
+  "banks_per_condition": 8,
+  "timing_rounds": 7,
+  "target_seconds_per_algorithm_round": 0.02,
+  "sanitizers": "ASan and UBSan; ASAN_OPTIONS=detect_leaks=0 because LeakSanitizer cannot inspect /proc tasks in this runtime",
+  "source_sha256": "17313f394851b703c018c6b2303ce92db3b945b778b838e7d40a826a3795b80d",
+  "results_sha256": "7824c2f92c571ca7897860d77292f6721e4e0cad25feed3423724203c25f1527",
+  "benchmark_receipt": {
+    "benchmark_rows": 160,
+    "validated_input_banks": 160,
+    "banks_per_condition": 8,
+    "rounds": 7,
+    "record_bytes": 8,
+    "observable_sink": 4459641433517,
+    "result": "PASS"
+  },
+  "optimized_validation": {
+    "root_and_codec_points": 1000001,
+    "reciprocal_quotient_points": 6007006,
+    "verified_arrays": 5599,
+    "algorithms": 8,
+    "instrumented_and_uninstrumented_checked": true,
+    "result": "PASS"
+  },
+  "sanitized_validation": {
+    "root_and_codec_points": 1000001,
+    "reciprocal_quotient_points": 6007006,
+    "verified_arrays": 5599,
+    "algorithms": 8,
+    "instrumented_and_uninstrumented_checked": true,
+    "result": "PASS"
+  }
+}
