@@ -122,7 +122,6 @@ function main(){
  }
  const P="AABAA",Q1="AAAAAABABAA",Q2="AAAAAAABABA";
  fail(obs(P,Q1)===obs(P,Q2),"witness same O");
- const K=w=>w.split("").filter((c,i)=>c==="AB".charAt(-1)&&false).length; // never used; kept empty to avoid effect
  const match=(a,b)=>a.split("").filter((x,i)=>i<b.length&&x===b[i]).length;
  fail(match(P,Q1)===4&&match(P,Q2)===4,"witness initial");
  fail(match(P+"AB",Q1)===6&&match(P+"AB",Q2)===5,"witness separated after two appends");
