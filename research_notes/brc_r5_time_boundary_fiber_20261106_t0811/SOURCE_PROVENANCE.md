@@ -1,0 +1,7 @@
+# Provenance and exact execution scope
+
+Date: 2026-11-06 Asia/Shanghai. Current global normative main actually read at 5474e1386d31a7ef7f2475c39e6fe70cbc7e020e; EM main at 9e9bfaa8d1201ac26660bb6d888565e8da109e06. Read current 00_BOOTSTRAP.md, OPERATING_MANUAL.md, R5 source, P000, ACTIVE Heartbeat World and residual observer-preservation constraints, and portable research/current normative context. Science remains frozen at GLOBAL a01383f825ef9d43b4b754254303298c64041568 / EM 86149263e38c22292c9def1e0f69092efa1be77e.
+
+Exact model: EM 57f7d654e5dd002567e0b0d333937e6e38f3b4cb. Exact timing octagon: EM d648610de1a56f155d3a0d3caef37cd2ce0ca415. Last observed PR head before this turn: EM b1c446234454563d587dd61e090f08106ba4deb6 (variance/time real-image tube). The four-observer hull proof is inherited author-side, not rerun.
+
+Executed Python stdlib Fraction independent checker in this turn: enumerated all 64 binary timing profiles, 26 distinct time points, eight exact facets with two unique occupation vectors apiece, verified the face-wise affine degeneracy, J singleton and F=0 on rational interpolants. Analytic proof covers the continuum using convex decompositions and affine identities. Output string in EXACT_OUTPUT.txt. Native session, current R5 owner, Source CLAIM and independent mathematical review must be reported by their own read receipts, not inferred from this project draft.
