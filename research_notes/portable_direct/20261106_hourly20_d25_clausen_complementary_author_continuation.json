@@ -32,15 +32,15 @@
     ]
   },
   "author_side_progress": {
-    "kind": "Two general exact algebraic theorems: all-order Clausen defect generator/triangular Bell recurrence and exact finite-field complementary-index reflection R_j(t)R_(p-1-j)(-t)=1-t^(p-1).",
+    "kind": "Three exact results: all-order Clausen defect, complementary finite-field reflection, and strict third-order noncancellation of the naive source-weighted pairing at exceptional j=m with partner 5m for all p=6m+1>=7.",
     "mathematical_status": "AUTHOR_PROVED_EXACT_ALGEBRA; 81_PRIMES_FINITE_EXACT_CHECKED; UNREVIEWED; NOT_ADMITTED; NOT_NATIVE_CHECKPOINT",
     "verified_scope": "80 primes in [5,421] plus 1009; all j in [0,p-1], Taylor coefficients through t^4 and p=5 critical case.",
     "artifacts": [
       {
         "repository": "awdawmip/enterprise-math",
         "path": "research_notes/portable_direct/20261106_hourly20_d25_allorder_clausen_complementary_reflection.md",
-        "git_blob_sha1": "4bc453dd158cc227a1765afdae6c65553f8e37f9",
-        "commit": "0394725e2b182b204cfd8d6b19ea340ce5be6b33"
+        "git_blob_sha1": "55437c5dbc98aa33a50eda819026a14086b7f8e0",
+        "commit": "3495950bda4bfec409b33494ff741ab1b4ee376f"
       },
       {
         "repository": "awdawmip/enterprise-math",
@@ -48,10 +48,38 @@
         "git_blob_sha1": "d2d1537dba4f63573b2f4519f5302fce0045f296",
         "commit": "3dd0ae3ac04abbefaab966e4c3fb974bc96364c4"
       }
-    ]
+    ],
+    "exact_obstruction": {
+      "hypotheses": "p=6m+1>=7 prime; D25 a=2m,b=3m,c=4m; j*=m, partner=5m",
+      "conclusion": "ord_t M_m=0, ord_t M_5m=3, and weighted paired sum (6m+1)M_m(t)+(30m+1)M_5m(-t)=4[t^3]M_5m(t)t^3+O(t^4) != 0",
+      "samples_mod_p": [
+        {
+          "p": 13,
+          "source_j": 2,
+          "partner_j": 10,
+          "lead_partner": 6,
+          "weighted_residual": 11
+        },
+        {
+          "p": 19,
+          "source_j": 3,
+          "partner_j": 15,
+          "lead_partner": 14,
+          "weighted_residual": 18
+        },
+        {
+          "p": 373,
+          "source_j": 62,
+          "partner_j": 310,
+          "lead_partner": 251,
+          "weighted_residual": 258
+        }
+      ],
+      "scope": "Restricted no-go for naive two-term source pairing only; no claim about the full Theta/LIFT."
+    }
   },
-  "current_unfinished_unit": "Source-labelled finite telescope for Theta_p in G-zero/nonzero branches, respecting four signed carry shells and exceptional weighted kernel coordinate; native original H0/B0 [X]U p^2 Frobenius eta/kappa and independent review remain open.",
-  "next_exact_action": "For p=13,19,373, pair each j-shell Clausen defect with index p-1-j and compute the true original coefficient/weight factor; check if residual can be written as an exact finite telescoping difference. If not, retain counterexample residual and change pairing strategy. Continue independent native-source requirements.",
+  "current_unfinished_unit": "Three-jet-corrected source-labelled pairing or other precise telescope for Theta_p, preserving m regular-shell coefficient and 5m triple-carry term. Native original H0/B0, [X]U mod p², Frobenius eta/kappa and independent review open.",
+  "next_exact_action": "Construct a three-jet transfer/repair before pairing j=m and partner 5m, then test full signed source sums at p=13,19,373; if no correct pair exists retain exact residual and change route, not infer Theta/LIFT false.",
   "do_not_repeat": [
     "Do not recredit the original 19+ Source native units or previously proven four-shell/2nd/3rd Clausen jet.",
     "No promotion from author-side portable evidence to Source checkpoint, task Result or independent review."
