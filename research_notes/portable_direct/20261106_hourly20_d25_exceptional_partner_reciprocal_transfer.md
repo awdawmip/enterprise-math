@@ -117,3 +117,50 @@ Mother target remains the frozen second-digit LIFT certificate \(\Delta_p-R_p=0\
 Next smallest scientific unit: attempt an **actual full-sum finite telescope** using the exact K transfer across all labelled complement pairs, beginning with p=13,19,373 and computing the source-weighted residual through the required p-adic precision. If this pair-only transfer does not close Theta_p, retain the remaining labelled shell(s), rather than promoting a scalar zero to the native LIFT. Keep formal execution/Source result publication separate until a real winning Researcher claim/open is verified.
 
 Research lane configured logical ID: chatgpt-research-hourly-enterprise-math-20260923. Role-bound original session/staging ownership remains unverified in this execution; no new session, claim, open, native checkpoint, Result or review is asserted.
+
+
+## Follow-on theorem 3: fifth jet and a harmonic-square observer
+
+The exact unit K above yields one additional nontrivial coefficient without constructing any new signed source.
+
+For p=6m+1>=7, put
+\[
+\beta_m=
+\frac{\alpha_m^2}{2}
+-5H_m^{(2)}
+-\frac{H_{2m}^{(2)}}2+\frac{49}{72m^2}
+\quad\text{in }\mathbb F_p.
+\]
+Then
+\[
+\boxed{[t^5]M_{5m}(t)=\frac{\beta_m}{m^2u}.}
+\]
+The exceptional weighted pair has the sharpened five-jet reconstruction
+\[
+\boxed{
+(6m+1)M_m(t)+(30m+1)M_{5m}(-t)
+=\frac4{m^2u}\bigl(t^3-\alpha_mt^4+\beta_mt^5\bigr)+O(t^6).
+}
+\]
+
+**Proof.** The coefficient of t² in log K is exactly
+\[
+\frac12\left(9H_{5m}^{(2)}-\sum_{s}H_s^{(2)}
+-\sum_s H_{5m-s-1}^{(2)}\right).
+\]
+The involution h→p-h gives
+\(H_{p-1-k}^{(2)}=-H_k^{(2)}\), hence
+\(H_{5m}^{(2)}=-H_m^{(2)}\),
+\(H_{4m}^{(2)}=-H_{2m}^{(2)}\),
+and \(H_{3m}^{(2)}=0\).
+Using \(H_{r-1}^{(2)}=H_r^{(2)}-r^{-2}\) collapses the coefficient to
+\[
+-5H_m^{(2)}-\frac{H_{2m}^{(2)}}2+\frac{49}{72m^2}.
+\]
+Since K=exp(log K) with constant 1 and linear coefficient alpha, its quadratic coefficient is the last expression plus alpha²/2, precisely beta. The signed index j'=5m changes t to -t, and its observer weight is -4 modulo p. This proves the displayed five-jet formula.
+
+**Independent verification extension.** The standalone source verifier was extended to F_p[t]/(t^6) and rerun for all 207 primes p=1 (mod 6) through 3000: **207/207 PASS** for the new fifth-order formula, in addition to the prior third/fourth-order formulas. Exact examples (p, [t³]M, [t⁴]M, [t⁵]M, alpha, beta):
+(7,4,5,6,3,5), (13,6,10,12,6,2), (19,14,7,5,10,18),
+(373,251,194,158,243,121), (1009,66,821,468,945,374).
+
+This extension is a second substantive scientific unit after the exact reciprocal transfer. The retained source-labelled regular scalar, triple-carry order and harmonic-square data determine the signed partner's first three nonzero jets. The full LIFT certificate and native Source admission remain separate tasks.
