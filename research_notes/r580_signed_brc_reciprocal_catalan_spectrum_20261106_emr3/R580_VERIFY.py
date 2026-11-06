@@ -74,6 +74,5 @@ def main():
               'geomean_abs_root=',round(float(A)**(1/d),9))
     print('R580_CATALAN_REVERSE_COEFFICIENT_AND_RECIPROCAL_MOMENTS_EXACT_PASS')
 
-
 if __name__ == '__main__':
     main()
