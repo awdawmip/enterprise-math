@@ -1,0 +1,111 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "line": "PREFIX-535",
+  "science_pin": "enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "theorem": "For all 48 fixed roots, the even/odd rooted BRC-aAc joint series each have generic minimum eventual recurrence order exactly 11 over Q(q,z)",
+  "prior": "PREFIX-534 all-root polynomial identity Delta(t)P_s(t) degree <=22",
+  "run": {
+    "modular_specializations": [
+      {
+        "modulus": 1000000007,
+        "v": 2,
+        "q": 4,
+        "z": 3,
+        "denominator_u_degree": 11,
+        "even_gcd_one": 48,
+        "odd_gcd_one": 48,
+        "even_degrees": {
+          "10": 45,
+          "11": 3
+        },
+        "odd_degrees": {
+          "10": 48
+        },
+        "denominator_coefficients_ascending_u": [
+          1,
+          4,
+          999997703,
+          999897991,
+          997943815,
+          994028039,
+          565248000,
+          154409914,
+          484494589,
+          867973843,
+          291545939,
+          761043110
+        ]
+      },
+      {
+        "modulus": 998244353,
+        "v": 3,
+        "q": 9,
+        "z": 2,
+        "denominator_u_degree": 11,
+        "even_gcd_one": 48,
+        "odd_gcd_one": 48,
+        "even_degrees": {
+          "10": 45,
+          "11": 3
+        },
+        "odd_degrees": {
+          "10": 48
+        },
+        "denominator_coefficients_ascending_u": [
+          1,
+          4,
+          998239549,
+          997905969,
+          990387201,
+          58976256,
+          280557560,
+          861658983,
+          832111478,
+          883743202,
+          418537939,
+          420666118
+        ]
+      }
+    ],
+    "exceptional_even_roots": [
+      [
+        0,
+        -6,
+        1
+      ],
+      [
+        1,
+        -4,
+        1
+      ],
+      [
+        1,
+        -5,
+        1
+      ]
+    ],
+    "independent_forward_integer_dp": {
+      "roots": 48,
+      "depths": "0..7",
+      "root_depth_comparisons": 384,
+      "maximum_keys_per_root": 230,
+      "first_root": [
+        0,
+        3,
+        -1
+      ],
+      "first_root_weights": [
+        "1",
+        "6",
+        "36",
+        "216",
+        "3008",
+        "18048",
+        "182272",
+        "1093632"
+      ]
+    }
+  },
+  "proof_status": "AUTHOR_PROVED / EXACT_MODULAR_AND_INTEGER_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "next_question": "Benchmark exact parity-11 recurrence against 49-linear and 51-state controllers including BRC endpoint correction and provenance"
+}
