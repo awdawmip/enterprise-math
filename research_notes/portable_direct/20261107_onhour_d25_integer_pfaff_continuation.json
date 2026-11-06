@@ -1,0 +1,48 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_target": "W_p ≡ p mod p^3 for p ≡13,19 mod24, equivalent frozen Delta_p−R_p ≡0 mod p",
+  "prior_commit": "60ee874dfc21167baa5fb984b6ac3816fe2cbe10",
+  "new_exact_unit": "Exact all-m Pfaff integer identities 2^m D(1/2)=S_m; 2^m[D+6D']= (1-12m)S_m+24T_m; hence for primes p=6m+1, 2^(2m) W_p≡3S_m(S_m+8T_m) mod p.",
+  "finite_validation": "611 primes 7<=p<=10000, 312 frozen targets. S/T prime-class pattern 0 failures; independent exact integer direct sums p<500; composite m=14 p=85 S_m mod85=68 rejects composite extrapolation.",
+  "witnesses": {
+    "19": {
+      "S": 0,
+      "T": 4
+    },
+    "31": {
+      "S": 21,
+      "T": 9
+    },
+    "373": {
+      "S": 0,
+      "T": 119
+    },
+    "85_composite": {
+      "m": 14,
+      "S_mod85": 68
+    }
+  },
+  "next_exact_action": "Seek a uniform proof of S_((p-1)/6)≡0 mod p when p mod8=3,5, or a valid counterexample; then lift the paired ports to the original full p^3 scalar using prior signed boundary and nonzero shell. The native #1559 p373 original H0/B0 remains NOT_EXECUTED/PENDING_OWNER.",
+  "do_not_repeat": [
+    "D24 UR",
+    "Clausen source proof",
+    "original216 3-shell",
+    "q/g first integral",
+    "E2 tail",
+    "first-digit Gauss flux at 60ee874dfc21167baa5fb984b6ac3816fe2cbe10"
+  ],
+  "source_recovery": {
+    "target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "last_receipt": "WAITING_RESOURCE EVENT_COLLECTION_IO -> QUEUED after same-ID reconcile",
+    "client_checkpoint": "D25_ONHOUR_RESEARCH_20260923_PORTABLE rev22",
+    "session": "NOT_VERIFIED",
+    "claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED"
+  },
+  "status": "AUTHOR-SIDE PROVED INTEGER TRANSFER / FINITE-VERIFIED CHARACTER CLAIM / UNREVIEWED / NOT_ADMITTED"
+}
