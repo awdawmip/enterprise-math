@@ -104,5 +104,5 @@ def check():
 
 if __name__=='__main__':
     r=check()
-    with open('/mnt/data/STAGE468B_EXECUTED.json','w') as f:json.dump(r,f,indent=2,ensure_ascii=False)
+    with open('STAGE468B_EXECUTED.json','w') as f:json.dump(r,f,indent=2,ensure_ascii=False)
     print(json.dumps({k:v for k,v in r.items() if k!='cases'},indent=2))
