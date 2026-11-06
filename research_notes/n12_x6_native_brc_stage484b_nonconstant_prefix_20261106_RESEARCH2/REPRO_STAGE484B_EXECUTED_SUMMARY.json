@@ -1,0 +1,36 @@
+{
+  "schema": "STAGE484B_VERIFIED_EXECUTION_SUMMARY_V1",
+  "date": "2026-11-06",
+  "execution": "Python 3, standard library, exact integers; full source REPRO_STAGE484B.py",
+  "test_space": {
+    "initial_shared_T": ["ABGA", "ABGB", "GABA", "BGAB"],
+    "W_and_H_alphabet": "ABG",
+    "k": 1,
+    "u": 2,
+    "Q_POP_budget_h": [0, 1, 2, 3],
+    "P_POP_budget": 1,
+    "P_APPEND_budget": 1,
+    "Q_APPEND_budget": 1,
+    "future_APPEND_directions": 12,
+    "observation": "lengths; both signed X6 displacements; two full 144-entry adjacency vectors; K"
+  },
+  "counts": {
+    "configurations": 16,
+    "full_initial_observation_fibers": 288,
+    "history_pair_checks": 2536,
+    "paired_future_states_visited": 115582,
+    "Euler_BRC_population_and_key_rank_checks": 408,
+    "max_fiber_size": 4,
+    "distinct_history_pairs_same_future": 24,
+    "all_assertions": "PASS"
+  },
+  "per_T": {
+    "ABGA": {"fibers": 18, "classes_by_h_0_1_2_3": [21, 27, 27, 27], "pairs_per_h": 14},
+    "ABGB": {"fibers": 18, "classes_by_h_0_1_2_3": [21, 27, 27, 27], "pairs_per_h": 11},
+    "GABA": {"fibers": 18, "classes_by_h_0_1_2_3": [21, 27, 27, 27], "pairs_per_h": 14},
+    "BGAB": {"fibers": 18, "classes_by_h_0_1_2_3": [21, 27, 27, 27], "pairs_per_h": 11}
+  },
+  "source_execution_note": "The complete local verifier ran and wrote a richer 16-case JSON. GitHub's attached source is functionally equivalent except for the execution JSON output path. Run it to independently reproduce this summary.",
+  "proof_status": "AUTHOR_THEOREM_UNREVIEWED",
+  "native_status": "SESSION_FAILED_OSError; OWNER_UNCONFIRMED_EVENT_COLLECTION_IO"
+}
