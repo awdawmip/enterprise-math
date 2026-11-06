@@ -12,7 +12,7 @@ For all **real** (a,c\in[1/2,7/8]), arbitrary (b\in[1/8,1/2]), set (z=(1-a)c), (
 **Theorem (exact constructive two-sided certificate):**
 [
 \boxed{\frac{15383}{83769}\le\delta_2\le\frac{387769986271}{2048000000000}}
-quad(0.1836359512468813\le\delta_2\le0.1893408136088867).
+\quad (0.1836359512468813\le\delta_2\le0.1893408136088867).
 ]
 Both are strict improvements over the previously proved `1491/8125 <= delta2 <= 7573633/40000000`. This is a statement about the conditional tagged AV experiment, not an unverified transfer to the ten-label S23 mother minimax problem.
 
@@ -72,7 +72,7 @@ These ten coefficients sum to one. Convexity of total variation therefore gives,
 [
 \mathrm{TV}(A^{\otimes2},B^{\otimes2}K)\le\max_{i\le j}\mathrm{TV}(G_{ij}).
 ]
-The attached exact checker evaluates all ten nine-coordinate signed fractions, establishing that the maximum is (387769986271/2048000000000), attained at corner (\(theta_3=(7/8,7/8)\)) by (\mathrm{TV}(G_{33})). Thus the **worst-case error of this particular kernel** is exactly the stated upper bound.
+The attached exact checker evaluates all ten nine-coordinate signed fractions, establishing that the maximum is (387769986271/2048000000000), attained at corner $\theta_3=(7/8,7/8)$ by $\mathrm{TV}(G_{33})$. Thus the **worst-case error of this particular kernel** is exactly the stated upper bound.
 
 ## Interpretation / next discriminating steps
 
