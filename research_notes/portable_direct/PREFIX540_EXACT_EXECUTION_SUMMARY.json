@@ -1,0 +1,51 @@
+{
+  "schema": "ENTERPRISE_MATH_EXACT_AUTHOR_CERTIFICATE_V1",
+  "run_date": "2026-11-06",
+  "status": "ALL_CHECKS_PASS",
+  "source_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "construction": {
+    "phases": 48,
+    "directed_edges": 144,
+    "microstep_label_choices": 2
+  },
+  "exact_period_identities": {
+    "r=-1": "T_-1^6(0)=2 (all 48 coords)",
+    "r=0": "T_0^3(0)=1 (all 48 coords)",
+    "r=+1": "T_+1^6(0)=2 (all 48 coords)"
+  },
+  "root_type_counts": {
+    "FAST": 24,
+    "DELAYED": 16,
+    "SIGNED": 8
+  },
+  "independent_raw_endpoint_integer_checks": {
+    "roots": 48,
+    "depth_min": 0,
+    "depth_max": 36,
+    "total": 1776
+  },
+  "recurrence_crosschecks": {
+    "roots": 48,
+    "depth_min": 0,
+    "depth_max": 240
+  },
+  "support_slots": {
+    "20": {
+      "global": 1584,
+      "rooted": 1440,
+      "saved": 144
+    },
+    "23": {
+      "global": 2016,
+      "rooted": 1848,
+      "saved": 168
+    },
+    "24": {
+      "global": 2016,
+      "rooted": 2016,
+      "saved": 0
+    }
+  },
+  "limitations": "All-depth result proved by max-plus induction on finite exact identities; source reviewed by author only. No formal claim/admission.",
+  "reproduction": "python PREFIX540_exact_maxplus_certificate.py; produces PREFIX540_EXACT_EXECUTION_SUMMARY.json"
+}
