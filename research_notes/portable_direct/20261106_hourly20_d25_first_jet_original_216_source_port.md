@@ -66,3 +66,39 @@ Continue by looking for an exact first-order telescope for the regular + one-car
 ## Status separation
 
 Original read requests `em-h20-20261106-1030-d25-task-r11` and `em-h20-20261106-1030-d25-cont-r11` were reconciled to SUCCEEDED at pinned Source `8aacd7312fd930dcf093c942730cc887c0005367`; existing `SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED` preserved. They do NOT establish current execution authority. No service-issued current Researcher identity, winning CLAIM, OPEN, native checkpoint, Result, admission or independent review is claimed. The previous session's protected staging remains unverified. This file is author-side durable evidence only.
+
+## Corollary 4: compensated first-order telescope with exact exceptional-index removal
+
+Assume p divides W_p (the inherited first-digit premise), and put
+`T=sum_{j=0}^{2m}(j-m)U_j` over p-local rationals.
+Write `C=sum_{j=0}^{2m}(6j+1)(U_j mod p)D_j` and
+`S_regular=sum_{j=0}^{2m}(6j+1)e_j`.
+Then `T` is p-integral **and divisible by p**, and the full first-order target is exactly
+
+```
+Theta_p = (6*T)/p + C + (S_regular - S_singlecarry)/6 (mod p).
+```
+
+**Proof.** Put `B=sum_{j=0}^{2m}(6j+1)U_j` and
+`Z0=sum_{j=0}^{2m}U_j`. Since p=6m+1,
+`B-p*Z0=6*T` as an exact p-local identity. Theorem 2 and
+`p|W_p` imply `p|B`, hence `p|T`; and `Z0 mod p=Z`.
+Divide Theorem 2 by p, use `S=S_regular+S_singlecarry`, and
+substitute `B/p-Z0=6*T/p`. QED.
+
+At the **exceptional** index j=m, each of the three terms on the
+right has an identically zero coefficient: `j-m=0` in T and the
+weight `6m+1=p` vanishes mod p in C and S_regular. Index j=5m is
+outside the regular and one-carry shells entirely. This is therefore a
+strict **observer-scoped** elimination of the exceptional pair from
+the *first-order* Theta readout. The earlier nonzero t^3/t^4/t^5
+reciprocal transfer remains essential for higher-jet/future
+observers; no higher-order information, p-adic source branch or
+native original-class state is erased by this corollary.
+
+The independent modular verifier also checked the compensated
+moment identity at all **207/207** primes p=1 (mod 6), p<=3000.
+The first-order telescoping target has not thereby been universally
+evaluated: the next nontrivial problem is to prove the displayed
+combination vanishes by finite summation/WZ, retaining full labelled
+regular and one-carry provenance.
