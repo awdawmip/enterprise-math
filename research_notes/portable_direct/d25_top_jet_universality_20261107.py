@@ -5,7 +5,7 @@ Checks high-degree coefficients using original polynomial products and an
 independent rational closed sequence from Bernoulli power sums. No native run.
 """
 from fractions import Fraction
-from math import comb, factorial
+from math import comb, factorial, isqrt
 
 C = [Fraction(1),Fraction(-1,4),Fraction(301,288),Fraction(-865,384),
      Fraction(524161,55296),Fraction(-9262421,221184),
@@ -48,7 +48,7 @@ def rational_top_coeff(k):
 assert [rational_top_coeff(k) for k in range(len(C))]==C
 
 def prime(n):
-    return n>1 and all(n%d for d in range(2,int(n**.5)+1))
+    return n>1 and all(n%d for d in range(2,isqrt(n)+1))
 
 def pcheck(p):
     assert p%6==1 and prime(p)
