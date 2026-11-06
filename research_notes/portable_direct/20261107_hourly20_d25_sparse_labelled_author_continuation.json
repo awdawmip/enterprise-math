@@ -1,0 +1,39 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "timezone": "Asia/Hong_Kong",
+  "status": "AUTHOR_SIDE_PROVED_EXACT_FINITE_VERIFIED_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE_CHECKPOINT",
+  "logical_research_lane": "chatgpt-research-hourly-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_input_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_target": "Delta_p-R_p=0 mod p, p congruent 13 or 19 modulo 24; OPEN",
+  "previous_author_frontier": "research_notes/portable_direct/20261107_hourly20_d25_padic_newton_unimodular_source_codec.md",
+  "current_proved_units": [
+    "For p=6m+1 primes and all s>=1, exactly (p+1)/2 two-window scalar observations modulo p^s recover arbitrary individual j-labelled source coefficients u_0..u_3m, by a p-unit lower triangular evaluation matrix.",
+    "If the D25 source coefficient u_0=1 is supplied a priori, exactly (p-1)/2 scalar observations recover u_1..u_3m; both sample counts are sharp for their declared unrestricted coefficient spaces.",
+    "Recovered exact j-port coefficients determine normal/carry derivatives and the conditional second-digit tangent without p-adic loss."
+  ],
+  "finite_validation": "326/326 cases: all 80 primes <=1000 p=1(mod6), s=1,2, both original and synthetic weights, plus p=13,109,373 s=3 both weight sets. Unsampled gap, last-port witness, original fixed-u0 optimization and tangent checks passed.",
+  "proof_path": "research_notes/portable_direct/20261107_hourly20_d25_sparse_labelled_two_window_codec.md",
+  "verification_path": "research_notes/portable_direct/d25_sparse_labelled_codec_20261107.py",
+  "unfinished_unit": "Find a direct sparse-sample formula for second-digit tangent and specialized fewer-sample tangent-only observers; derive carry correction and connect to original native LIFT input.",
+  "next_action": "Test tangent-only evaluation-dual sparse support and derive an exact source-preserving second digit formula using the recovered j weights, comparing p=1093 and p=3511; do not repeat proved full-table or triangular codecs.",
+  "do_not_repeat": [
+    "prior unrestricted full-degree p-sample Newton theorem",
+    "this current two-window source weight triangular proof",
+    "native blocked write attempts without a state change"
+  ],
+  "pending_original_request_ids": [
+    "em-h20-20261106-1324-d25-task-r13",
+    "em-h20-20261106-1324-d25-cont-r13"
+  ],
+  "control_fault": "BACKEND_IDENTITY_OR_VERSION_MISMATCH; operation_sent=false",
+  "site_phase": "CONFIGURED_NOT_LIVE_VERIFIED",
+  "native_session_claim_run": "UNVERIFIED",
+  "native_checkpoint_asserted": false,
+  "formal_admission": false,
+  "activity_registration": "REGISTER_PENDING",
+  "control_support": "awdawmip/enterprise-math#1558"
+}
