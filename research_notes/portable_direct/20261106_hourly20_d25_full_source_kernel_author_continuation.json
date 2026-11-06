@@ -1,0 +1,72 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-06",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_conversation_id": "chatgpt-research-hourly-enterprise-math-20260923",
+  "conversation_attestation": "CONFIGURED_LABEL_NOT_PLATFORM_ID",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "service_session_id": null,
+  "researcher_id": null,
+  "active_claim_id": null,
+  "authorized_run_id": null,
+  "mother_goal": "Delta_p-R_p=0 mod p for p=13,19 mod24, original-class p373 H0/B0 and frozen scientific pins unchanged",
+  "status": "AUTHOR_PROVED_EXACT_KERNEL_LIFT_AND_NONDEGENERATE_FIBER_COUNT; SIX_EXACT_MODULAR_CERTIFICATES; FINITE_330_PRIME_SCAN; UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_CHECKPOINT",
+  "durable_author_evidence": [
+    {
+      "path": "research_notes/portable_direct/d25_full_source_kernel_fibers_20261106.py",
+      "commit": "56e958a61688891843894a9e0ed1249c8974ed70",
+      "git_blob_sha1": "3388990c16c32d1ec851c91164ec5701802bd3e6"
+    },
+    {
+      "path": "research_notes/portable_direct/20261106_hourly20_d25_full_source_kernel_fiber_census.md",
+      "commit": "fb1c4938d576e56c8091314c5e2feec810a30fab",
+      "git_blob_sha1": "3a3bd14eb594577d2e482bcbf52ae3b0f740b0b8"
+    }
+  ],
+  "exact_results": [
+    "For every prime p=6m+1>=7 with nonzero first source gradient A mod p, choose lifted basis of the kernel A mod p^2; then entire second-digit weighted-source difference on affine p^2 input plane is p^2 times declared quadratic Q(x,y) mod p^3.",
+    "For nonzero restricted binary Hessian discriminant D, every Q fiber has 2p-1/p-1 points in split case (at / away from critical value), and 1/p+1 in anisotropic case.",
+    "For p=1093 (target p=13 mod24) the full kernel plane has 1092 inputs with zero weighted-sum difference mod p^3, despite the previously unique diagonal-line collision.",
+    "Exact six prime cases 13,19,211,373,1093,3511: complete sum modulo p^3 agrees for nonzero source-distinct witnesses, while labelled j=1 term differs mod p^2.",
+    "Exhaustive independent full sums over all 169 and 361 kernel chart inputs for p13 and p19 pass. Exact Q histograms checked for all p13,p19,p211,p373 inputs.",
+    "New finite scan all 330 p<=5000 with p=1 mod6: no zero restricted D, 177 split and 153 nonsplit (empirical only)."
+  ],
+  "do_not_repeat": [
+    "Previously authored p211 outer plane conic and histogram for prior source section; current chart's general proof is the new result.",
+    "Earlier finite T1+T3 and W_p=p scans and the p1093 diagonal-only uniqueness certificate.",
+    "Do not promote portable author evidence to native Source checkpoint, Result or review."
+  ],
+  "next_exact_science_action": "Seek source-labelled finite-sum or WZ formula for restricted Hessian discriminant D_p; classify D_p=0 possibilities and connect to open T1+T3=0 and k_p=-3q_p(2), then H0/B0 and Frobenius obligations.",
+  "open_obligations": [
+    "Symbolic D_p formula / possible degeneracy classification beyond p<=5000.",
+    "Prove or refute T1+T3=0 and k=-3q_p(2) with source labels retained.",
+    "Original class p373 H0/B0, [X]U mod p^2, Frobenius, eta, kappa, independent review and frozen mother congruence."
+  ],
+  "historical_source_state": {
+    "service_version": "0.6.11",
+    "last_fully_successful_source_packet": "071234428fc989cb4f9403f37f7f30d8a282bbfa",
+    "last_known_checkpoint": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+    "execution_authorized": false,
+    "current_gateway_source_pin_at_read": "3593763aff4bd664ef633be8b61f1b9417b341be"
+  },
+  "unresolved_requests": [
+    {
+      "request_id": "em-h20-20261106-1324-d25-task-r13",
+      "reconcile_20261106": "QUEUED",
+      "latest_receipt": "WAITING_RESOURCE",
+      "phase": "EVENT_COLLECTION_IO"
+    },
+    {
+      "request_id": "em-h20-20261106-1324-d25-cont-r13",
+      "reconcile_20261106": "QUEUED",
+      "latest_receipt": "WAITING_RESOURCE",
+      "phase": "EVENT_COLLECTION_IO"
+    }
+  ],
+  "service_transition": "Current connector does not expose callable recovery_status/session_preserve_staging despite advertised status contract; old protected staging and session transition remain unverified. Do not close or re-register by guessing.",
+  "support": "https://github.com/awdawmip/enterprise-math/issues/1558",
+  "native_action": "NO NEW SESSION/CLAIM/OPEN/PUBLISH_CHECKPOINT/FREEZE",
+  "final_state": "PORTABLE_AUTHOR_EVIDENCE_PUBLISHED; NATIVE_SOURCE_FRONTIER_UNCHANGED"
+}
