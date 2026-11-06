@@ -97,8 +97,8 @@ for a,c in ((Q(17,25),Q(17,20)),(Q(7,10),Q(43,50)),
             (Q(35319,50000),Q(7,8)),(Q(73,100),Q(7,8))):
     assert discrepancy(K,6*D,a,c)==discrepancy(Orig,D,a,c)
 # A point outside R where symmetrization gives strict improvement.
-a,c=Q(4,5),Q(3,5)
-assert discrepancy(K,6*D,a,c)<=discrepancy(Orig,D,a,c)
+a,c=Q(1,2),Q(3,5)
+assert discrepancy(K,6*D,a,c)<discrepancy(Orig,D,a,c)
 print('PASS_S23_N3_PERMUTATION_SYMMETRIZED_KERNEL_20261107')
 print('STOCHASTIC_ROWS=8; OUTPUTS=27; S3_SIZE=6; DENOMINATOR=6000000; NONZERO_ENTRIES=92')
 print('EQUIVARIANT_ORBIT_COUNTS='+str(orbit_counts)+'; FREE_PARAMETERS='+str(sum(orbit_counts)-4))
