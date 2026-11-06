@@ -82,3 +82,21 @@ This new prime lies in p mod 24 = 1, serving as an informative adjacent class; t
 Next mathematical action: derive a symbolic finite-sum expression for `c_p`, and test which part permits the curvature-zero case at 5113 while keeping the WZ identity `T1+T3=A_m-B_m=0`, Fermat quotient and original p=373 H0/B0, Frobenius, eta/kappa as open obligations.
 
 Control state observed 2026-11-06: the original requests `em-h20-20261106-1324-d25-task-r13` and `em-h20-20261106-1324-d25-cont-r13` remain `WAITING_RESOURCE/EVENT_COLLECTION_IO`; current native successor session/claim/run was not verified or modified here. Existing support issue: #1558. This author-side note is not a native Source checkpoint.
+
+## Independent labelled-jet arithmetic certificate (same prime, different calculation)
+
+A separate undivided-binomial recurrence, reducing first derivatives modulo p^2 and the complete labelled Hessian modulo p, gives for p=5113:
+
+```text
+T = (2858, 4710, 2255)                   mod 5113
+A = (15116886, 25262930, 17243291)     mod 5113^2
+H = [ [2979,  908,  255],
+      [ 908,   78, 2557],
+      [ 255, 2557, 1624] ]               mod 5113
+v = (1704,2556,3408)                    mod 5113
+```
+
+In particular the two outer gradients sum to `2858+2255=5113`, while the curvature numerator is **literally**
+`H11+2*H13+H33 = 2979+2*255+1624 = 5113`, so `c=0 mod p`. The lifted outer gradient contributes `(A1+A3)/p=1216 mod p` and the mixed term contributes `v^T H d=1902 mod p`; together `k=1216+1902=3118 mod p`.
+
+The full-sum certificate does not use these Hessian values, giving an independent path to the same all-lambda conclusion. This exact curvature cancellation is the smallest new symbolic subproblem: express the combination `H11+2*H13+H33` as a provenance-preserving finite sum and study its prime divisibility.
