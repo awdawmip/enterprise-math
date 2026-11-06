@@ -1,0 +1,24 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "verified_statement": "deg_q P_s(d;q,z) <= floor((d+1)/3), exact for all roots and all d; same rooted cycle attains equality for each d.",
+  "proof": "2-step axis-one exclusion plus endpoint cancellation formula, witnessed by period-six path.",
+  "test_coverage": {
+    "roots": 48,
+    "depths": "0..24",
+    "exact_labeled_dynamic_program_histograms": 1200,
+    "periodic_witness_depths": "0..240"
+  },
+  "depth24": {
+    "max_p": 8,
+    "max_h": 6,
+    "max_monomials_per_root": 41,
+    "sum_monomials": 1876,
+    "distinct_root_polynomials": 26,
+    "new_candidate_cap": 42,
+    "previous_candidate_cap": 154
+  },
+  "execution": "CPython, Python standard-library, exact arbitrary-precision integers; compact certificate generated the full per-depth JSON on disk.",
+  "mathematical_status": "AUTHOR_PROVED / EXACT_INTEGER_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "provenance": "PREFIX-538; local compact certificate executed and returned ALL_CHECKS_PASS; full per-depth output regenerates by running published script."
+}
