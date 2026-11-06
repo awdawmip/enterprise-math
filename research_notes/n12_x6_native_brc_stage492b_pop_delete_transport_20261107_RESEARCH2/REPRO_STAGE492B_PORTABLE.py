@@ -14,7 +14,7 @@ def moving(w,z):
     j=len(w)-d;assert 2<=j<len(w)
     return w[:j-1]+z+w[j:]
 def delete(w,j):return w[:j-1]+w[j:]
-q1=Q('ABAAAA');q2=Q('BAAAAA')
+q1=Q('ABAGGG');q2=Q('BAAGGG')
 assert obs(P,q1)==obs(P,q2)
 assert [tri(q1,j) for j in (13,14)]==[tri(q2,j) for j in (13,14)]
 assert tri(q1,12)!=tri(q2,12)
@@ -35,6 +35,7 @@ a,b=q1[:-1],q2[:-1]
 assert obs(P,a)==obs(P,b) and obs(P,moving(a,'I'))!=obs(P,moving(b,'I'))
 a,b=delete(q1,15),delete(q2,15)
 assert obs(P,a)==obs(P,b) and obs(P,moving(a,'I'))!=obs(P,moving(b,'I'))
+assert delete(q1,15)!=q1[:-1] and delete(q2,15)!=q2[:-1] # genuinely internal
 fib=defaultdict(list)
 for x in map(''.join,product('ABGH',repeat=6)):
     q=Q(x); key=tuple(edges(q).get((a,b),0) for a in D for b in D),q[-1]
@@ -45,5 +46,5 @@ for key,qs in fib.items():
         old.add((key,tri(q,13),tri(q,14)))
         new.add((key,tri(q,12),tri(q,13),tri(q,14)))
 assert len(old)==3904 and len(new)==4096
-out={'H_population':4096,'initial_fibers':len(fib),'old_classes':len(old),'pop_aware_classes':len(new),'base_PQ_observer_checks':base_checks,'pre_pop_set_symbol_checks':13*12,'witness':{'H1':'ABAAAA','H2':'BAAAAA','SET_from_end':3,'pop_then_set_center':12,'interior_delete_center':15,'replace_with':'I','post_edit_observable_different':True},'scope':'author-side finite exact verification, not native admission'}
+out={'H_population':4096,'initial_fibers':len(fib),'old_classes':len(old),'pop_aware_classes':len(new),'base_PQ_observer_checks':base_checks,'pre_pop_set_symbol_checks':13*12,'witness':{'H1':'ABAGGG','H2':'BAAGGG','SET_from_end':3,'pop_then_set_center':12,'interior_delete_center':15,'replace_with':'I','post_edit_observable_different':True},'scope':'author-side finite exact verification, not native admission'}
 print(json.dumps(out,sort_keys=True,indent=2))
