@@ -1,0 +1,76 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-06",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_conversation_id": "chatgpt-research-hourly-enterprise-math-20260923",
+  "conversation_attestation": "CONFIGURED_NOT_PLATFORM_ID",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "service_session_id": null,
+  "researcher_id": null,
+  "active_claim_id": null,
+  "authorized_run_id": null,
+  "mother_goal": "Delta_p-R_p=0 modp for p=13,19 mod24, original-class evidence/frozen pins unchanged",
+  "status": "AUTHOR_PROVED_GENERAL_TAYLOR_LEMMA + FIXED_PRIME_EXACT_CERTIFICATES + FINITE_330_PRIME_CONJECTURE_CHECK; UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_CHECKPOINT",
+  "durable_author_evidence": [
+    {
+      "path": "research_notes/portable_direct/20261106_hourly20_d25_wieferich_outer_fiber_bifurcation.md",
+      "commit": "0ed065396c3beeac337d416b8019e71a37ff15be",
+      "git_blob_sha1": "053212cd5f18e902236d72717754dbefa514b14d"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_outer_fiber_strata_20261106.py",
+      "commit": "9ae75f14eab163fb08c6b5f4f6650eae1c8365fc",
+      "git_blob_sha1": "2a44501e1580e4c9a01365176970b08c65078cdd"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_wieferich_fiber_direct_20261106.py",
+      "commit": "3fb4a576d250e301b95e6dbac333c8a47ee252fe",
+      "git_blob_sha1": "76fd4417203ec875042b88a8d238f7bae90cd42d"
+    }
+  ],
+  "completed_author_side_units": [
+    "Proved exact second-digit polynomial Q_p(lambda)=k_p lambda+c_p lambda^2 for the fixed-middle-source outer simultaneous direction whenever first-digit source condition A1+A3=0 modp.",
+    "Exactly verified p=1093 (D25 target p=13 mod24) and p=3511: k_p=0, c_p=761/1757 nonzero, hence unique baseline collision on the outer diagonal line.",
+    "Exact 330-prime scan 7<=p<=5000,p=1mod6, including 166 target primes: candidate k_p=-3q_p(2) holds in all checked cases, and c_p nonzero. Two zero-q2 cases p=1093,3511; only outer rankzero p=7,211.",
+    "Independent full p-term modular sums for p13,19,373,1093,3511 and lambda=0,1,2, plus individual source j=1 changes, all passed."
+  ],
+  "do_not_repeat": [
+    "Prior p211 212-point conic, previous 44521-input complete histogram",
+    "Prior p<=50000 empirical T1+T3 and Wp=p modp^3 scans",
+    "Do not elevate author-side or staged evidence to native accepted Result/checkpoint"
+  ],
+  "proof_scope": "General Taylor algebra: proved; p1093/p3511 and declared finite domain: exact modular certificates; all-prime k=-3q2 and T1+T3 identities remain unproved.",
+  "open_obligations": [
+    "Prove/refute k_p=-3(2^(p-1)-1)/p modp symbolically with declared source labels and p-adic denominator scope.",
+    "Prove/refute all-prime T1+T3=0; classify c_p=0 and outer rankzero cases beyond finite bound.",
+    "Same-original-class p373 H0/B0, [X]U modp^2, Frobenius/eta/kappa, frozen Delta_p-R_p, independent review."
+  ],
+  "next_exact_science_action": "Try a source-preserving finite WZ/telescoping transformation for k_p=-3q_p(2), testing against p1093/3511 and p211, not substituting a different original series.",
+  "last_historical_source_read": {
+    "request_id": "em-h20-20261106-1136-d25-cont-r12",
+    "status": "SUCCEEDED",
+    "source_sha": "071234428fc989cb4f9403f37f7f30d8a282bbfa",
+    "checkpoint_state": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+    "execution_authorized": false
+  },
+  "unresolved_requests": [
+    {
+      "request_id": "em-h20-20261106-1324-d25-task-r13",
+      "reconcile_observed": "QUEUED",
+      "latest_receipt": "WAITING_RESOURCE",
+      "phase": "EVENT_COLLECTION_IO"
+    },
+    {
+      "request_id": "em-h20-20261106-1324-d25-cont-r13",
+      "reconcile_observed": "QUEUED",
+      "latest_receipt": "WAITING_RESOURCE",
+      "phase": "EVENT_COLLECTION_IO"
+    }
+  ],
+  "service_transition": "No callable recovery_status or session_preserve_staging in this host despite gateway status documenting contracts; do not close/restart old session until protected pending writes/staging and present Source permissions have been checked.",
+  "control_support": "https://github.com/awdawmip/enterprise-math/issues/1558",
+  "native_action": "NO NEW SESSION / CLAIM / OPEN / PUBLISH_CHECKPOINT / FREEZE",
+  "final_state": "PORTABLE_AUTHOR_EVIDENCE_PUBLISHED; NATIVE_SOURCE_FRONTIER_UNCHANGED"
+}
