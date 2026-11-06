@@ -1,8 +1,8 @@
 # D25 — Full three-source p-adic kernel charts and exact second-digit fiber census
 
-Date: 2026-11-06. Role: TASK_RESEARCH portable author evidence; logical lane label: \`chatgpt-research-hourly-enterprise-math-20260923\` (configured label, not a platform-issued conversation attestation). The separate maintenance label is not used for role-bound mutations.
+Date: 2026-11-06. Role: TASK_RESEARCH portable author evidence; logical lane label: `chatgpt-research-hourly-enterprise-math-20260923` (configured label, not a platform-issued conversation attestation). The separate maintenance label is not used for role-bound mutations.
 
-Task: \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`. Publication: \`TP2-B6F4FC938FF94941C1B7\`. Frozen science pin: \`c47e13e4aba0e006366f989d6334d443f6333ae3\` (unchanged). Status: **AUTHOR-DERIVED / EXACT FINITE-FIELD ALGEBRA / EXACT INTEGER CHECKS / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_CHECKPOINT**.
+Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`. Publication: `TP2-B6F4FC938FF94941C1B7`. Frozen science pin: `c47e13e4aba0e006366f989d6334d443f6333ae3` (unchanged). Status: **AUTHOR-DERIVED / EXACT FINITE-FIELD ALGEBRA / EXACT INTEGER CHECKS / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_CHECKPOINT**.
 
 ## Precise population, sources and observation
 
@@ -93,7 +93,7 @@ The labelled check uses
 \]
 For \(p=13,19\), independent complete \(p\)-term sums were executed for **every** \(p^2\) chart input and matched the quadratic formula; for \(p=211,373\), the entire \(p^2\) quadratic histogram was checked, and direct full sums checked the displayed witnesses; direct complete sums also checked the 1093 and 3511 witnesses. A new exact scan of all **330 primes \(7\le p\le5000,\ p\equiv1\bmod6\)** found nonzero \(D\) throughout: 177 split, 153 nonsplit. This is a **finite observation** about \(D\), not a universal nondegeneracy theorem.
 
-Reproduction: \`research_notes/portable_direct/d25_full_source_kernel_fibers_20261106.py\`; dependency: earlier persisted \`research_notes/portable_direct/d25_outer_fiber_strata_20261106.py\`. No floating-point arithmetic. Source data, sums, and comparisons are exact modular integers.
+Reproduction: `research_notes/portable_direct/d25_full_source_kernel_fibers_20261106.py`; dependency: earlier persisted `research_notes/portable_direct/d25_outer_fiber_strata_20261106.py`. No floating-point arithmetic. Source data, sums, and comparisons are exact modular integers.
 
 ## BRC information-fiber consequence and next science
 
@@ -103,4 +103,4 @@ Next exact discriminating unit: derive the restricted discriminant \(D_p\) in te
 
 ## Authority / recovery boundary
 
-Last exact known native continuation had \`SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED\` with no authorized new run. Original read request IDs \`em-h20-20261106-1324-d25-task-r13\` and \`em-h20-20261106-1324-d25-cont-r13\` were reconciled under their own IDs on 2026-11-06; subsequent receipts still report \`WAITING_RESOURCE / EVENT_COLLECTION_IO\`. Current gateway status is \`0.6.11\`, exposing a recovery contract but no callable \`recovery_status\` or \`session_preserve_staging\` operation in the present client. Existing support: Enterprise Math issue #1558. No new Source session, CLAIM, OPEN, native checkpoint or result admission was made. Author-side GitHub persistence does not overwrite prior native checkpoint or purport to represent authenticated native research ownership.
+Last exact known native continuation had `SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED` with no authorized new run. Original read request IDs `em-h20-20261106-1324-d25-task-r13` and `em-h20-20261106-1324-d25-cont-r13` were reconciled under their own IDs on 2026-11-06; subsequent receipts still report `WAITING_RESOURCE / EVENT_COLLECTION_IO`. Current gateway status is `0.6.11`, exposing a recovery contract but no callable `recovery_status` or `session_preserve_staging` operation in the present client. Existing support: Enterprise Math issue #1558. No new Source session, CLAIM, OPEN, native checkpoint or result admission was made. Author-side GitHub persistence does not overwrite prior native checkpoint or purport to represent authenticated native research ownership.
