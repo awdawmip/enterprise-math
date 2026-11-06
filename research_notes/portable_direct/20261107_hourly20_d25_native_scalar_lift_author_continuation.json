@@ -1,0 +1,40 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "timezone": "Asia/Hong_Kong",
+  "lane": "chatgpt-research-hourly-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_science_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_goal": "Delta_p-R_p=0 mod p for p=13,19 mod24; OPEN",
+  "status": "AUTHOR_PROVED_THREE_BAND_NATIVE_SCALAR_EQUIVALENCE_EXACT_CHECK_UNREVIEWED_NOT_ADMITTED",
+  "completed_units": [
+    "Direct frozen scalar: v_p(B_k)=0 on 0..m, 1 on m+1..2m, 2 on 2m+1..p-1; proof for all p=6m+1 primes.",
+    "Delta=(U*h0-1)/p + U*(h1/p)+(g2/p^2)*h0 modp, with U=(g0+g1)/p; parent UR supplies integrality; exact band-aware LIFT equivalent.",
+    "Closed mod-p factorial leading coefficients B_k/p^e for each band; low band connects to accepted H_m(1/2).",
+    "166 target primes <5000 exact full-k checks, six independent rational target checks, 165/166 have nonzero upper divided tail, p13 and p19 witness essential tail."
+  ],
+  "highest_prior_frontier": "research_notes/portable_direct/20261107_hourly20_d25_wieferich_sparse_dual_author_continuation.json",
+  "current_unfinished_unit": "Retrieve frozen R_p expression and seek symbolic cancellation / exact counterexample of K+M+Z-R_p; retain cutoff-sensitive Phi_xx/Frobenius. Do not confuse auxiliary tangent lambda with Delta.",
+  "next_action": "Read exact R_p from pinned source; combine its source ports with three-band Delta and prove/refute target LIFT in both p mod24 classes.",
+  "do_not_repeat": [
+    "proved three-band valuations and coefficient formulas",
+    "previous auxiliary Newton/sparse tangent recovery",
+    "accepted first-digit UR/JT0"
+  ],
+  "proof_and_check_paths": [
+    "research_notes/portable_direct/20261107_hourly20_d25_native_scalar_three_band_lift.md",
+    "research_notes/portable_direct/d25_lift_three_band_minimal_verified_20261107.py"
+  ],
+  "pending_original_requests": [
+    "em-h20-20261106-1324-d25-task-r13",
+    "em-h20-20261106-1324-d25-cont-r13"
+  ],
+  "native_control_fault": "BACKEND_IDENTITY_OR_VERSION_MISMATCH; operation_sent=false (this run em_status)",
+  "native_session_claim_run": "UNVERIFIED",
+  "native_checkpoint": false,
+  "activity_registration": "REGISTER_PENDING",
+  "review": "UNREVIEWED_NOT_ADMITTED",
+  "control_support": "awdawmip/enterprise-math#1558"
+}
