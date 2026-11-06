@@ -95,7 +95,7 @@ def main():
         'all_rows':rows,
         'limits':'The p mod 24 first-factor split is a finite observation, NOT a uniform theorem. The 216 supercongruence was numerically checked here, not proved. Native H0/B0 is NOT_RUN.'
     }
-    with open('/mnt/data/d25_clausen/20261106_d25_clausen_triangle_results.json','w',encoding='utf-8') as f:
+    with open('20261106_d25_clausen_triangle_results.json','w',encoding='utf-8') as f:
         json.dump(summary,f,ensure_ascii=False,indent=2)
     print(json.dumps({k:v for k,v in summary.items() if k!='all_rows'},ensure_ascii=False,indent=2))
 
