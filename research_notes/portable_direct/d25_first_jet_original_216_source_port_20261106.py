@@ -21,12 +21,13 @@ def check(p):
     U = 1      # lifted finite binomial coefficient
     D = 0      # p-adic parameter-shift correction
     u,e = 1,0  # finite-field base and directional tangent
-    W = Utot = regular_correction = Z = S = single_carry = 0
+    W = Utot = regular_correction = Z = S = single_carry = moment = 0
     for j in range(p):
         w = 6*j+1
         W = (W+w*h)%P
         if j<=a:
             Utot = (Utot+w*U)%P
+            moment=(moment+(j-m)*U)%P
             regular_correction = (regular_correction+w*(U%p)*D)%p
             assert h%p==U%p==u
             assert (h-U)%P == p*(U%p)*D%P
@@ -63,6 +64,11 @@ def check(p):
     # of a universal first digit or a universal Theta conjecture.
     assert W%p==Utot%p==0
     theta=(W//p-Z+S*pow(6,-1,p))%p
+    # Exact compensated first-order observer: no j=m contribution.
+    assert moment%p==0
+    theta_moment=(6*(moment//p)+regular_correction+
+                  (S-2*single_carry)*pow(6,-1,p))%p
+    assert theta==theta_moment, (p,"compensated source moment")
     return p,m,W//p,Z,S,single_carry,theta
 
 if __name__=='__main__':
