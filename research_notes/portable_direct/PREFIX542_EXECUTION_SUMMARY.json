@@ -1,0 +1,44 @@
+{
+  "title": "PREFIX-542 exact execution report",
+  "date": "2026-11-06",
+  "pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "status": "ALL_CHECKS_PASS",
+  "root_count": 48,
+  "depth_range": "0..24",
+  "complete_three_way_exact_polynomial_equalities": 1200,
+  "methods": [
+    "three-seed 48-phase occupancy + disjoint gate-pair binomial transform",
+    "49-coordinate rank-one sparse polynomial lift",
+    "independent raw labeled endpoint-BRC dynamic programming"
+  ],
+  "d24": {
+    "nonzero_coefficients_sum": 1876,
+    "distinct_root_polynomials": 26,
+    "max_potential_gate_count": 6
+  },
+  "benchmark": {
+    "environment": "CPython/Linux, tracemalloc enabled, 3 repeats, all roots/all depths+output conversion",
+    "results": {
+      "8": {
+        "phase_seconds_median": 0.076583,
+        "rank49_seconds_median": 0.040756,
+        "phase_peak_bytes": 443315,
+        "rank49_peak_bytes": 314648
+      },
+      "16": {
+        "phase_seconds_median": 0.371121,
+        "rank49_seconds_median": 0.184058,
+        "phase_peak_bytes": 1769407,
+        "rank49_peak_bytes": 1126032
+      },
+      "24": {
+        "phase_seconds_median": 1.341651,
+        "rank49_seconds_median": 1.044932,
+        "phase_peak_bytes": 4692203,
+        "rank49_peak_bytes": 2810000
+      }
+    }
+  },
+  "review": "AUTHOR_PROVED_EXACT_INTEGER_CHECKED_UNREVIEWED_NOT_ADMITTED",
+  "note": "Detailed executed benchmark script and report preserved in local supplementary evidence. Publication does not establish role or formal admission."
+}
