@@ -9,7 +9,7 @@ from collections import Counter
 from functools import lru_cache
 from itertools import product
 from time import perf_counter
-import json, gc, tracemalloc
+import json, gc, tracemalloc, os
 
 D = 'ABCDEF'+'GHIJKL'  # +E1..+E6; -E1..-E6
 V = {c: tuple((1 if i == j else 0) * (1 if j < 6 else -1)
@@ -243,7 +243,7 @@ def run():
 
 if __name__=='__main__':
     result=run()
-    out='/mnt/data/stage488b/STAGE488B_EXECUTED.json'
+    out=os.path.join(os.path.dirname(os.path.abspath(__file__)), 'STAGE488B_EXECUTED.json')
     with open(out,'w') as f:json.dump(result,f,ensure_ascii=False,indent=2)
     print(json.dumps({'assertions':'PASS','cases':len(result['tests']),
        'case_summaries':[(x['alphabet'],x['h'],x['sparse']['classes'],x['sparse']['raw_mass'],x['dense']['component_count'],x['sparse']['component_count']) for x in result['tests']],
