@@ -1,0 +1,59 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_target": "Original216 W_p ≡ p (mod p^3) for p≡13,19 (mod24); frozen Delta_p-R_p≡0 (mod p)",
+  "prior_highest_author_commit": "3c1cc1c84b99047689dacfb690da784e1f362286",
+  "current_scientific_unit": {
+    "a": "PROVED all primes p=6m+1: sextic power sum S_m=-sum_x f(x)^m modp, f=x^5(x+1)^2(2x+1), reciprocal involution tau=-(2x+1)/(2(x+1)) gives sum f^m = 2^-m sum f^(5m). Fixed points split exactly by Legendre (2/p). In inert case P1(Fp) maps to norm-one Fp² torus and tau corresponds to y→-y.",
+    "b": "PROVED exact INTEGER quadratic parity populations for all p=6m+1: with eps=(2/p), N_{quadratic+}=(p-4-eps)/2, N_{quadratic-}=(p-2+eps)/2.",
+    "c": "PROVED EQUIVALENCE all inert p≡13,19 mod24: S_m=0 modp iff counts N_u=N_{-u} as integers in every sixth-character bucket. Also equivalent to equality of +t/-t projective orbit counts; three possible orbit sums {0,+t,-t}. No all-inert count equality proof yet.",
+    "first_note": "research_notes/portable_direct/20261107_onhour_d25_pfaff_sextic_torus_port.md",
+    "second_note": "research_notes/portable_direct/20261107_onhour_d25_inert_quadratic_sextic_bucket_balance.md"
+  },
+  "validation": {
+    "p_range": "148 p≡1mod6 primes 7<=p<=1999 plus p=5113, 149 cases",
+    "torus": "149 involution and character checks pass; Fp² norm-one map checked for p=13,19,373",
+    "quadratic": "149 exact integer sign population checks PASS",
+    "inert": "77 target/inert p tested; S_m=0 and N_u=N_-u observed; finite evidence only",
+    "checkers": [
+      "research_notes/portable_direct/d25_pfaff_sextic_torus_check_20261107.py",
+      "research_notes/portable_direct/d25_inert_orbit_balance_check_20261107.py",
+      "research_notes/portable_direct/d25_quadratic_sextic_balance_check_20261107.py"
+    ],
+    "examples": {
+      "13": "5+5 quadratic signs, 2/2 nonzero +t/-t orbits, one zero orbit; pair x=1/9 contributes 11 nonzero mod13",
+      "19": "8+8 quadratic signs, 4/4 nonzero +t/-t orbits; pair x=1/4 contributes 6 nonzero mod19",
+      "373": "185/185 quadratic signs, 68/68 nonzero +t/-t orbits, 49 zero orbits"
+    }
+  },
+  "next_exact_action": "Prove full sixth-character opposite-bucket integer equidistribution N_u=N_-u (or construct an explicit label-switching bijection), beyond the now proven quadratic sign balance. Test a concrete candidate symmetry on p=13,19,373 and either prove all inert or find counterexample to the candidate, then resume Gauss second-jet signed p^3 obstruction and original native 373 benchmark if authorized.",
+  "proof_gap": "Mother first-digit p|S for all target primes is still unproved; N_u=N_-u equivalence is proven, equality itself only finite verified",
+  "do_not_repeat": [
+    "D24 UR",
+    "three-shell 216",
+    "Franel/E2",
+    "Pfaff Hensel",
+    "Clausen K",
+    "Gauss 2nd jet"
+  ],
+  "source_recovery": {
+    "target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "original_request_status": "UNKNOWN_READ_REJECTED_OPERATION_NOT_SENT",
+    "last_read_utc": "2026-11-06T20:02:54Z",
+    "last_error": "BACKEND_IDENTITY_OR_VERSION_MISMATCH operation_sent=false",
+    "status": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "historical_native_checkpoint": "revision 22 (historical, not current authorization)",
+    "session": "NOT_VERIFIED",
+    "claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "next_operator_action": "Confirm reviewed dedicated Site-bound backend client/version/credential and read original receipt plus Source continuation; do not replay denied mutation or reuse maintenance ID."
+  },
+  "native_benchmark": "GitHub #1559 OPEN (read this run), p373 original H0/B0/divided-power/Frobenius/κ/independent reproduction NOT_EXECUTED, PENDING_OWNER",
+  "admissibility": "AUTHOR_SIDE_PROVED / FINITE_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+  "output_scope": "GITHUB_AUTHOR_SIDE_ONLY"
+}
