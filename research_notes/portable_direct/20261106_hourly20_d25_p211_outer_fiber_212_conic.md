@@ -41,6 +41,18 @@ $$Q(x,y)=11(x-205)^2+29(x-205)(y-108)+91(y-108)^2+156.$$
 
 Thus Q=0 is an anisotropic nondegenerate binary quadratic form taking the NONZERO value 55 mod211. Any such form is a nonzero scalar times the norm from F_(211^2) to F_211. The norm map is surjective, with multiplicative kernel of cardinality 211+1, so every nonzero value has exactly 212 preimages. The axis solutions are precisely (0,0), (0,17), and (196,0). Hence 209 zeros have both x and y nonzero.
 
+## Second scientific unit: exact distribution of ALL scalar outputs
+
+The same norm identity classifies not only Q=0 but EVERY value d in F_211:
+
+$\#\{(x,y)\in F_{211}^2:Q(x,y)=d\}=
+\begin{cases}
+1,&d=156,\\
+212,&d\ne156.
+\end{cases}$
+
+Indeed translating by the unique center (205,108) makes Q equal 156 plus a nonzero multiple of the norm from F_(211^2) to F_211. Norm zero has precisely one preimage (zero in the extension field), and each nonzero norm has 212 preimages. Consequently the scalar observable on the outer-source perturbation plane has exactly 211 output residues, with one singleton fiber at (205,108) and 210 equal-size 212-point fibers. Independent exhaustive evaluation of the 44,521 Q inputs yielded the histogram {156:1; each other residue:212}, with total 1+210*212=44,521. This completely classifies this finite precision observer's information loss, not just one collision level.
+
 ## Source information lost: explicit collision
 
 The pair (x,y)=(1,53) lies on Q=0. Direct full 211-term integer-modular computation gives both weighted sums equal to 211 mod211^3. Yet the first LABELLED coefficient changes:
