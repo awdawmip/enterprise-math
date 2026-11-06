@@ -1,0 +1,49 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_target": "W_p≡p mod p^3 for p≡13,19 mod24, equivalently frozen Delta_p−R_p≡0 mod p",
+  "prior_immutable_frontier": "8ba15a97125826e510052d44ebe2db5318ade60f",
+  "new_result": "From consumed Clausen square and original 216 unperturbed parameter jet, all p=6m+1 prime satisfy W_p≡D_m(1/2)[D_m(1/2)+6D'_m(1/2)] mod p, D_m(z)=sum_(k=0)^m binom(m,k)binom(2m,k)z^k.",
+  "finite_certificate": "Executed local Python checker: 611 primes <=10000; residue-8 exclusive character pattern, target 312; 148 prime full two-digit port checks <=1999 (77 target), observed alpha+beta≡1 mod p; all finite tests PASS. Character splitting and second digit uniform claims remain conjectural.",
+  "witnesses": {
+    "19": {
+      "D": 0,
+      "derivative": 2,
+      "flux": 12,
+      "alpha": 4,
+      "beta": 16,
+      "signed_Clausen_J": 6
+    },
+    "373": {
+      "D": 0,
+      "derivative": 215,
+      "flux": 171,
+      "alpha": 209,
+      "beta": 165,
+      "signed_Clausen_J": 98
+    }
+  },
+  "do_not_redo": [
+    "D24 UR",
+    "original216 shells",
+    "q/g anti-diagonal",
+    "E2/Franel two-jet",
+    "Clausen symmetric-square identity"
+  ],
+  "next_exact_action": "Prove or falsify uniform mod-p Gauss zero at z=1/2 for p mod8=3,5 via a quadratic transformation/field character; then prove first p-linear two-port balance without collapsing source labels; continue full p^3 signed connection.",
+  "source_recovery": {
+    "original_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "read": "WAITING_RESOURCE/EVENT_COLLECTION_IO",
+    "same_id_reconcile": "QUEUED",
+    "native_checkpoint": "D25_ONHOUR_RESEARCH_20260923_PORTABLE rev22",
+    "claim": "NOT_VERIFIED",
+    "session": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "native_issue": "#1559 NOT_EXECUTED/PENDING_OWNER"
+  },
+  "state": "AUTHOR-SIDE PROVED SPECIALIZATION / FINITE-VERIFIED / UNREVIEWED / NOT_ADMITTED"
+}
