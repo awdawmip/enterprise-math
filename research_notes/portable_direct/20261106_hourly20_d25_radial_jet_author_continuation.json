@@ -1,0 +1,88 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-06",
+  "lane": "TASK_RESEARCH",
+  "configured_logical_conversation_id": "chatgpt-research-hourly-enterprise-math-20260923",
+  "logical_id_attestation": "TASK_CONFIGURED; NOT_PLATFORM_SIGNATURE",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_input_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Prove Delta_p - R_p congruent 0 modulo p, p congruent 13 or 19 modulo 24",
+  "science": {
+    "classification": "AUTHOR-PROVED ALGEBRA / LOCAL EXACT FINITE TESTS / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_CHECKPOINT",
+    "completed_units": [
+      {
+        "name": "Three-source coefficient first-jet reconstruction and zero-weight exceptional repair",
+        "statement": "For p=6m+1>=13 and s=(2m,3m,4m), Cauchy Jacobian of first three regular coefficient perturbation observations has rank 3. Weighted observer rank 3 uses j=1,3,4 for p13; j=1,2,4 for p19; j=1,2,3 for p>=31. Inverse via three-point Lagrange interpolation; scalar-first-sample loss witness x=(2m,-3m,0).",
+        "coverage": "206/206 primes p=1 mod6, 13<=p<=3000; 204 successful full Cauchy inversions.",
+        "proof": {
+          "path": "research_notes/portable_direct/20261106_hourly20_d25_three_source_jacobian_reconstruction.md",
+          "git_blob_sha1": "e43afcbd1aef13670d97a0c8033048baeb04574b",
+          "commit": "a8b0368fd39ebce05cedf353e2a6271495624afc"
+        },
+        "code": {
+          "path": "research_notes/portable_direct/d25_source_jacobian_reconstruction_20261106.py",
+          "git_blob_sha1": "4680771b5fa968c391b3b3ae71854c33299b3f96",
+          "commit": "a8b0368fd39ebce05cedf353e2a6271495624afc"
+        }
+      },
+      {
+        "name": "Original-216 exact rational source specialization and four-shell mixed-jet p-adic leading coefficients",
+        "statement": "h_j=U_j(pv) exactly, v=(-1/3,-1/2,-2/3). For carry-set I_j={i:j>s_i}, h_j/p^r = product(v_i) partial_{I_j} U_j(0) mod p, nonzero, r=|I|. Four prefactors 1,-1/3,+1/6,-1/9.",
+        "coverage": "207/207 primes p=1 mod6, 7<=p<=3000, every j<p.",
+        "proof": {
+          "path": "research_notes/portable_direct/20261106_hourly20_d25_original_216_multivariate_mixed_jet.md",
+          "git_blob_sha1": "4527356985fd91b4b770f6f8bfa0a2dc48f2e198",
+          "commit": "7285424c9ac69a0a042bb66cdadaf2b2e5d01436"
+        },
+        "code": {
+          "path": "research_notes/portable_direct/d25_original_216_mixed_jet_20261106.py",
+          "git_blob_sha1": "98151b877f44861b275ad4916c9b7d79d01c8a01",
+          "commit": "7285424c9ac69a0a042bb66cdadaf2b2e5d01436"
+        }
+      },
+      {
+        "name": "Original-216 radial source ray compresses labelled leading carry-jet observations",
+        "statement": "Put s=(p-1)*(1/3,1/2,2/3), v=-(1/3,1/2,2/3), R_j(t)=U_j(t*s). Since p v=p s-p^2*(1/3,1/2,2/3), h_j-R_j(p) divisible by p^(r+1), and h_j/p^r=[t^r]R_j(t) mod p, nonzero; only for the fixed original source path/leading readout, not general three-source perturbations.",
+        "coverage": "207/207 primes p=1 mod6, 7<=p<=3000, every j<p.",
+        "proof": {
+          "path": "research_notes/portable_direct/20261106_hourly20_d25_original_216_radial_jet.md",
+          "git_blob_sha1": "f2fff492994f8fa62f1fb1050a78d244cc00b692",
+          "commit": "5db5fc1d9c2533b98f726624155a3d790a07e68a"
+        },
+        "code": {
+          "path": "research_notes/portable_direct/d25_original_216_radial_jet_20261106.py",
+          "git_blob_sha1": "3c6a0f915e1a5d086334519384c4afe0ada8f968",
+          "commit": "5db5fc1d9c2533b98f726624155a3d790a07e68a"
+        }
+      }
+    ],
+    "native_experiment": "NOT_RUN by this research lane; must not infer from ordinary Python finite-field checks",
+    "independent_review": "NOT_DONE",
+    "larger_theorem": "General Theta and frozen Delta-R still OPEN"
+  },
+  "native_state": {
+    "original_request_id": "em-h20-20261106-1136-d25-cont-r12",
+    "original_request_last_seen": "QUEUED / REVALIDATED_CANDIDATE, source_sha 071234428fc989cb4f9403f37f7f30d8a282bbfa",
+    "old_source_checkpoint": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED (historical)",
+    "old_reported_service_session": "MCP-092d7e732273432ea9a767b696413c83",
+    "protected_staging": "UNVERIFIED",
+    "client_tool_recovery_status": false,
+    "client_tool_session_preserve_staging": false,
+    "historical_continuation_next_action": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "current_successor_session_id": null,
+    "current_claim_id": null,
+    "current_run_id": null,
+    "native_checkpoint_new": false,
+    "formal_research_admission": false,
+    "control_support": "awdawmip/enterprise-math#1558"
+  },
+  "continuation": "Next executable scientific step: treat compensated Theta_p from original regular/one-carry source as a declared scalar projection of the three-source tensor. Derive exact functional/kernel at p13,p19,p373; seek a source-labelled finite telescope/WZ. Keep p373 original H0/B0, [X]U modp², Frobenius eta/kappa, and independent review as native obligations. Avoid duplicating concurrent four-channel second-digit work.",
+  "next_control_action": "Reconcile original pending read request_id. When the actual native control interface exposes scoped staging preservation and the exact current Source packet authorizes identity transition, preserve old staging, close service session lawfully, successor Researcher own registration with prior contributions, typed continuation prepare then CLAIM/OPEN, and durable source checkpoint readback; no action inferred or simulated.",
+  "do_not_repeat": [
+    "Earlier four-shell/order, Clausen, and WZ attempts except as existing input",
+    "No new native claim/session until protected staging and exact current authority verified",
+    "Do not use CONTROL_PLANE_MAINTENANCE logical id or revive old expired claim",
+    "No native source-checkpoint promotion of author-side GitHub artifacts"
+  ]
+}
