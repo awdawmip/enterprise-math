@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-06",
+  "task": "D25 SECOND-DIGIT-LIFT",
+  "source_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "range": "primes p=6m+1 from 7 to 10007 inclusive",
+  "counts": {
+    "tested": 611,
+    "chi2_negative": 312,
+    "chi2_positive": 299,
+    "failures": 0
+  },
+  "exact_algebra": [
+    "F_m(z)=P_{2m}(sqrt(1-z)) mod p",
+    "K_p modp=2O_{m-1}-E_m",
+    "F_m squarefree",
+    "conditional first-digit inverse"
+  ],
+  "finite_observation": "chi2=-1 iff E=0; chi2=+1 iff K=0, for 611 tested primes",
+  "samples": [
+    {
+      "p": 7,
+      "E": 2,
+      "O": 1,
+      "K": 0,
+      "Kdiv": 4
+    },
+    {
+      "p": 13,
+      "E": 0,
+      "O": 3,
+      "K": 6,
+      "Sdiv": 11
+    },
+    {
+      "p": 19,
+      "E": 0,
+      "O": 6,
+      "K": 12,
+      "Sdiv": 8
+    },
+    {
+      "p": 31,
+      "E": 21,
+      "O": 26,
+      "K": 0,
+      "Kdiv": 3
+    },
+    {
+      "p": 373,
+      "E": 0,
+      "O": 272,
+      "K": 171,
+      "Sdiv": 24
+    }
+  ],
+  "status": "AUTHOR-PROVED_FINITE-VERIFIED_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE_CM"
+}
