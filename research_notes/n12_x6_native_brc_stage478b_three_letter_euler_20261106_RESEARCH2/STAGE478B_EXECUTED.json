@@ -1,0 +1,81 @@
+{
+  "status": "ALL_ASSERTIONS_PASSED",
+  "model": "P=A^m,Q=A^m W A H A,W/H in {A,B,C},m=2k+2;P POP/APPEND<=k,Q POP=0 APPEND<=1",
+  "euler_exact_verified_lengths": "1..7",
+  "euler_distinct_types_checked": 1554,
+  "small_brute_fibers": [
+    {
+      "k": 1,
+      "u": 1,
+      "fibers": 6,
+      "classes_checked": 9,
+      "rank_checks": 9
+    },
+    {
+      "k": 1,
+      "u": 2,
+      "fibers": 18,
+      "classes_checked": 21,
+      "rank_checks": 21
+    },
+    {
+      "k": 2,
+      "u": 1,
+      "fibers": 18,
+      "classes_checked": 27,
+      "rank_checks": 27
+    },
+    {
+      "k": 2,
+      "u": 2,
+      "fibers": 28,
+      "classes_checked": 63,
+      "rank_checks": 63
+    },
+    {
+      "k": 3,
+      "u": 2,
+      "fibers": 84,
+      "classes_checked": 189,
+      "rank_checks": 0
+    },
+    {
+      "k": 2,
+      "u": 3,
+      "fibers": 84,
+      "classes_checked": 162,
+      "rank_checks": 0
+    }
+  ],
+  "large": {
+    "k": 24,
+    "u": 18,
+    "m": 50,
+    "n": 94,
+    "witness_w": "ABCCABCAABABCCABCAABABCC",
+    "witness_h": "BCAACBBCBCAACBBCBC",
+    "theta": [
+      54,
+      8,
+      2,
+      2,
+      2,
+      10,
+      8,
+      4,
+      3
+    ],
+    "classes": 5331124131,
+    "population": 29751344474760,
+    "supported_types": 6716,
+    "rank_spot_checks": [
+      {
+        "rank": 2665562065,
+        "word": "BBCABBCCACCCABACAAAABCBC",
+        "population": 1200
+      }
+    ]
+  },
+  "proof_scope": "directed Euler type count for any 3-letter word; complete future equivalence only in specified structural fiber",
+  "arithmetic": "exact Python integers, no floating-point"
+}
