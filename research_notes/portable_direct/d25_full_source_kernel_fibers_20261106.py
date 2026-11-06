@@ -28,13 +28,21 @@ def chart(p):
     a,b,c=HB[0][0]*half%p,HB[0][1],HB[1][1]*half%p
     D=(b*b-4*a*c)%p
     chi=0 if D==0 else (1 if pow(D,(p-1)//2,p)==1 else -1)
+    def minor(i,j):
+        rr=[k for k in range(3) if k!=i]
+        cc=[k for k in range(3) if k!=j]
+        return H[rr[0]][cc[0]]*H[rr[1]][cc[1]]-H[rr[0]][cc[1]]*H[rr[1]][cc[0]]
+    adj=[[(1 if (i+j)%2==0 else -1)*minor(j,i)%p for j in range(3)]
+         for i in range(3)]
+    invariant=(-sum(t[i]*adj[i][j]*t[j] for i in range(3) for j in range(3)))%p
+    assert invariant==D*t[pivot]*t[pivot]%p
     assert D!=0,(p,'degenerate binary Hessian: different count theorem')
     det=(4*a*c-b*b)%p
     cx=-(2*c*lin[0]-b*lin[1])*pow(det,-1,p)%p
     cy=-(2*a*lin[1]-b*lin[0])*pow(det,-1,p)%p
     tau=(a*cx*cx+b*cx*cy+c*cy*cy+lin[0]*cx+lin[1]*cy)%p
     return dict(p=p,A=A,pivot=pivot,B=B,abc=(a,b,c),linear=lin,
-                discriminant=D,chi=chi,center=(cx,cy),tau=tau)
+                discriminant=D,cofactor_invariant=invariant,chi=chi,center=(cx,cy),tau=tau)
 
 def Q(row,x,y):
     p=row['p'];a,b,c=row['abc'];l0,l1=row['linear']
