@@ -1,0 +1,209 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "kind": "exact_evaluated_observer_benchmark",
+  "science_pin": "enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "provenance": "PREFIX-535 definitions loaded without test main",
+  "parameters": {
+    "q": 4,
+    "z": 3,
+    "root": [
+      0,
+      3,
+      -1
+    ],
+    "N_macros": [
+      64,
+      256,
+      1024
+    ],
+    "repetitions": 5,
+    "outputs": "all weighted integer coefficients a_d for d=0..N"
+  },
+  "states": {
+    "phase": 48,
+    "deterministic_controller": 51,
+    "lift_linear": 49,
+    "parity_recurrence_each": 11,
+    "controller_labeled_transitions": 306
+  },
+  "parity_denominator_u_coefficients": [
+    1,
+    4,
+    -2304,
+    -102016,
+    -2056192,
+    -5971968,
+    565248000,
+    10154409984,
+    37484494848,
+    -1492132036608,
+    -14676708556800,
+    126806761930752
+  ],
+  "raw_check": {
+    "depth_0_to_7_exact": true,
+    "root": [
+      0,
+      3,
+      -1
+    ]
+  },
+  "exact_crosschecks_at_depths": [
+    0,
+    1,
+    2,
+    7,
+    23,
+    24,
+    35,
+    60
+  ],
+  "environment": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41"
+  },
+  "benchmarks": {
+    "64": {
+      "controller_51": {
+        "median_ms": 2.021,
+        "min_ms": 1.929,
+        "max_ms": 2.195,
+        "tracemalloc_peak_bytes": 9224,
+        "final_digits": 58,
+        "final_bit_length": 192,
+        "length": 65
+      },
+      "linear_49": {
+        "median_ms": 1.781,
+        "min_ms": 1.698,
+        "max_ms": 2.177,
+        "tracemalloc_peak_bytes": 10096,
+        "final_digits": 58,
+        "final_bit_length": 192,
+        "length": 65
+      },
+      "parity_11_cold": {
+        "median_ms": 0.671,
+        "min_ms": 0.653,
+        "max_ms": 0.795,
+        "tracemalloc_peak_bytes": 6376,
+        "final_digits": 58,
+        "final_bit_length": 192,
+        "length": 65
+      }
+    },
+    "256": {
+      "controller_51": {
+        "median_ms": 9.562,
+        "min_ms": 9.454,
+        "max_ms": 10.375,
+        "tracemalloc_peak_bytes": 32496,
+        "final_digits": 232,
+        "final_bit_length": 768,
+        "length": 257
+      },
+      "linear_49": {
+        "median_ms": 8.303,
+        "min_ms": 8.05,
+        "max_ms": 8.482,
+        "tracemalloc_peak_bytes": 36532,
+        "final_digits": 232,
+        "final_bit_length": 768,
+        "length": 257
+      },
+      "parity_11_cold": {
+        "median_ms": 1.135,
+        "min_ms": 0.955,
+        "max_ms": 1.215,
+        "tracemalloc_peak_bytes": 23148,
+        "final_digits": 232,
+        "final_bit_length": 768,
+        "length": 257
+      }
+    },
+    "1024": {
+      "controller_51": {
+        "median_ms": 56.948,
+        "min_ms": 56.237,
+        "max_ms": 60.639,
+        "tracemalloc_peak_bytes": 275132,
+        "final_digits": 926,
+        "final_bit_length": 3074,
+        "length": 1025
+      },
+      "linear_49": {
+        "median_ms": 43.067,
+        "min_ms": 41.842,
+        "max_ms": 45.418,
+        "tracemalloc_peak_bytes": 290288,
+        "final_digits": 926,
+        "final_bit_length": 3074,
+        "length": 1025
+      },
+      "parity_11_cold": {
+        "median_ms": 3.074,
+        "min_ms": 2.867,
+        "max_ms": 3.43,
+        "tracemalloc_peak_bytes": 247324,
+        "final_digits": 926,
+        "final_bit_length": 3074,
+        "length": 1025
+      }
+    }
+  },
+  "all_root_benchmarks": {
+    "64": {
+      "controller_51": {
+        "median_ms": 90.426,
+        "min_ms": 88.244,
+        "max_ms": 92.893,
+        "tracemalloc_peak_bytes": 166964,
+        "output_coefficients": 3120,
+        "final_first_root_bit_length": 192
+      },
+      "linear_49_shared_sign": {
+        "median_ms": 5.684,
+        "min_ms": 5.434,
+        "max_ms": 7.399,
+        "tracemalloc_peak_bytes": 158040,
+        "output_coefficients": 3120,
+        "final_first_root_bit_length": 192
+      },
+      "parity_11_shared_cold": {
+        "median_ms": 5.217,
+        "min_ms": 4.582,
+        "max_ms": 6.499,
+        "tracemalloc_peak_bytes": 164032,
+        "output_coefficients": 3120,
+        "final_first_root_bit_length": 192
+      }
+    },
+    "256": {
+      "controller_51": {
+        "median_ms": 443.102,
+        "min_ms": 430.82,
+        "max_ms": 469.692,
+        "tracemalloc_peak_bytes": 1112656,
+        "output_coefficients": 12336,
+        "final_first_root_bit_length": 768
+      },
+      "linear_49_shared_sign": {
+        "median_ms": 29.43,
+        "min_ms": 27.149,
+        "max_ms": 30.485,
+        "tracemalloc_peak_bytes": 1072460,
+        "output_coefficients": 12336,
+        "final_first_root_bit_length": 768
+      },
+      "parity_11_shared_cold": {
+        "median_ms": 20.561,
+        "min_ms": 20.257,
+        "max_ms": 22.488,
+        "tracemalloc_peak_bytes": 1069480,
+        "output_coefficients": 12336,
+        "final_first_root_bit_length": 768
+      }
+    }
+  },
+  "all_root_reuse_lemma": "For evaluated first-axis BRC and gate counts the reverse 49-lift initial endpoint vector depends only on sign_1(root); 48 roots admit three shared 49-lift evolutions."
+}
