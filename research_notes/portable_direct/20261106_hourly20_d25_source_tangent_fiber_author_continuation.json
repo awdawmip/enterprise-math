@@ -1,0 +1,101 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-06",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "research_lane": "TASK_RESEARCH",
+  "configured_conversation": "chatgpt-research-hourly-enterprise-math-20260923",
+  "attestation": "TASK_CONFIG_ONLY_NOT_PLATFORM_ID",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_goal": "For p=13,19 mod24 prove or refute Delta_p-R_p=0 modp",
+  "science": {
+    "proven": "For any p=6m+1>=7 and p-integral source vector v, W_p(v)=B_p+p*dot(T_p,v) modp² by polynomial Taylor, including carry zeros. For p=13,19,373 the exact tangent rows have rank1 and complete dimension2 fiber kernels, with source coefficient j=1 response to delta=(1,0,1) nonzero. Formal all-prime conclusion is only the linearization, not the observed outer cancellation.",
+    "finite_certificate": "207/207 primes p=1 mod6 and <=3000 independently compare derivative row with 3 direct p² weighted finite differences; W_p(v*)=p mod p² and T1+T3=0 in all 207; p13/p19 exhaust kernel basis lines, p373 verify 0,1,7 and use linearization for all scalars.",
+    "rows": {
+      "13": {
+        "T": [
+          10,
+          12,
+          3
+        ],
+        "kernel": [
+          [
+            4,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "local_j1": 3
+      },
+      "19": {
+        "T": [
+          4,
+          15,
+          15
+        ],
+        "kernel": [
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "local_j1": 14
+      },
+      "373": {
+        "T": [
+          48,
+          75,
+          325
+        ],
+        "kernel": [
+          [
+            115,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "local_j1": 93
+      }
+    },
+    "open_conjecture": "T1+T3=0 for all primes p=6m+1, not proven",
+    "review": "UNREVIEWED",
+    "admission": "NOT_ADMITTED",
+    "native_experiment": "NOT_RUN",
+    "native_checkpoint": "NOT_WRITTEN"
+  },
+  "current_control": {
+    "old_request": "em-h20-20261106-1136-d25-cont-r12",
+    "old_result": "SUCCEEDED @ Source 071234428fc989cb4f9403f37f7f30d8a282bbfa",
+    "fresh_task_request": "em-h20-20261106-1324-d25-task-r13",
+    "fresh_continuation_request": "em-h20-20261106-1324-d25-cont-r13",
+    "fresh_status_last_seen": "WAITING_RESOURCE; retain both original request IDs; no new native claim",
+    "protected_staging": "UNVERIFIED",
+    "successor_service_session": null,
+    "current_claim": null,
+    "run": null,
+    "source_checkpoint": "Preserved historical SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED",
+    "support": "awdawmip/enterprise-math#1558"
+  },
+  "next_action": "Reconcile original r13 reads; verify current Source and protected old staging under existing support route. Independently seek finite-sum symbolic proof or counterexample for T1+T3=0, then link exact 2D tangent quotient to Theta and original native H0/B0/Frobenius eta/kappa. Native successor session/CLAIM/OPEN/checkpoint only after lawful transition.",
+  "do_not_repeat": [
+    "Do not recredit previous Clausen, first-jet, radial-jet, exceptional-pair or prior native Source units",
+    "Do not confuse finite 207-prime observation with all-prime proof",
+    "Do not borrow maintenance conversation or historical expired claim/run, nor treat author commit as Source publication"
+  ]
+}
