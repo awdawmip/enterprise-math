@@ -1,0 +1,9 @@
+# Source and evidence status — 2026-11-06
+
+- Frozen scientific input: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34. Original six-source S23 conditional AV model; lawful a,c∈[1/2,7/8], b∈[1/8,1/2]. Frozen source scope and firewall unchanged.
+- Immediate predecessor: 25ca1b5352880bafeef819f25b0db52205ee8c00:research_notes/brc_s23_av_two_iid_bernstein_near_exact_20261106_r1/PROOF.md, Draft PR #1777; previous certified gap = 1/1500000.
+- Source control read on 2026-11-06: enterprise-math main@b7b8e0f721e9ed87671f0d8c508ee1a35a13d27b, including docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context, docs/PORTABLE_RESEARCH_PROTOCOL.md, p000_reality_foundation.json, research_priorities/research_method.json, project AGENTS.md.
+- Account normative/read snapshot: awdawmip/chatgpt-global-knowledge main@4949df8ebaaa4a4ff114a99e940e2265dd6b8e1e, 00_BOOTSTRAP.md and OPERATING_MANUAL.md, ACTIVE worldview, current mathematical research/code policies.
+- Proof methods: exact total-variation triangle inequality; exact degree-(2,2) Bernstein expansion and convexity; two explicitly evaluated rational 3×3 TV coefficient tables. No unverified external literature fact is used.
+- Actual local execution: Python 3 standard library Fraction on 2026-11-06; PASS_S23_TWO_IID_EXACT_DEFICIENCY_9_49_20261106. The attached VERIFY.py is an equivalent shorter independent-formatting implementation of the same precise rational certificate; RUN_EVIDENCE.txt reproduces the local executed verifier's output (checked separately). Neither finite sample checks nor floating point are used as evidence for the full continuum.
+- Result status: AUTHOR_ANALYTIC_PROOF / EXACT_RATIONAL_EXECUTED / UNREVIEWED / NOT_ADMITTED. No formal S23 CLAIM or owner assignment is asserted by this author checkpoint.
