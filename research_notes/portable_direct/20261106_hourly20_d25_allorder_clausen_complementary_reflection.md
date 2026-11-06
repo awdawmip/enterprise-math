@@ -109,3 +109,43 @@ Next, try a labelled \((j,p-1-j)\)-paired finite telescope for
 in the \(G=0\) and \(G\ne0\) branches, starting with \(p=13,19,373\). Test the actual weights, binomial support and carry layers; a universal identity for the unweighted multiplier \(R_j\) alone does **not** establish that telescope. If a pairing fails, preserve the exact residual as a new observer datum and pursue other routes.
 
 The frozen target remains \(\Delta_p-R_p\equiv0\pmod p\) for \(p\equiv13,19\pmod{24}\). Authentic native original-class H0/B0, \([X]U\bmod p^2\), Frobenius \(\eta,\kappa\), and independent review remain separate unsatisfied obligations. BRC action: COMPOSE_APPLIED on source-labelled signed shells; no positive-mass engine or native CM experiment executed. No claim/open or formal Result is asserted.
+
+
+## 5. Follow-on unit: exact noncancellation obstruction for naive source pairing
+
+The reflection theorem is an identity of the **universal rational multiplier** \(R_j\), not of the signed source jets \(M_j\). There is a sharp obstruction at the weighted observer's lost coordinate that fully determines the next route selection.
+
+**Proposition (all \(p=6m+1\ge7\)).** For the D25 parameters \(a=2m,b=3m,c=4m\), set \(j_*=m\), \(j'=p-1-m=5m\). Then
+\[
+\operatorname{ord}_t M_m(t)=0,\qquad
+\operatorname{ord}_t M_{5m}(-t)=3.
+\]
+Their leading coefficients \(u_m=M_m(0)\) and
+\(v_{5m}=[t^3]M_{5m}(t)\) are both nonzero in \(\mathbb F_p\).
+Thus no multiplier \(U(t)\in\mathbb F_p[[t]]^\times\) can make
+\(M_m(t)=U(t)M_{5m}(-t)\) even through order \(t^2\).
+
+Moreover the D25 weights satisfy \(6m+1=p=0\pmod p\) and
+\(6(5m)+1=5p-4=-4\pmod p\). Hence
+\[
+\boxed{
+(6m+1)M_m(t)+(30m+1)M_{5m}(-t)
+=4v_{5m}t^3+O(t^4)\quad\text{in }\mathbb F_p[[t]],
+}
+\]
+with \(4v_{5m}\ne0\). The **naive paired weighted sum fails to cancel at third order**, for every prime \(p=6m+1\ge7\), including the frozen target classes.
+
+**Proof.** At \(m\le2m=a\), no binomial numerator contains a zero at \(t=0\); the constant is a product of nonzero factorial quotients. At \(5m>4m=c\), each of the three binomials contributes precisely one simple zero, hence a nonzero cubic leading coefficient by the already established four-shell theorem. Units preserve \(t\)-order. The weight identities and \(M_{5m}(-t)=-v_{5m}t^3+O(t^4)\) give the displayed nonzero residual.
+
+Checked exact coefficients:
+\[
+\begin{array}{c|c|c|c|c}
+p&j_*&j'&v_{j'}&4v_{j'}\bmod p\\\hline
+13&2&10&6&11\\
+19&3&15&14&18\\
+373&62&310&251&258
+\end{array}
+\]
+The result is a restricted source-sensitive no-go, **not** a no-go for other telescopes or for \(\Theta_p=0\). A valid source-preserving transformation must include a three-jet transfer/repair or combine additional paired coordinates; simply applying the rational \(R\)-reflection to one weighted source term is insufficient.
+
+**Updated next action:** Study a 3-jet-corrected pairing including the labelled \(j_*=m\) source repair and the \(j'=5m\) leading cubic coefficient. Test the resulting full finite sum at \(p=13,19,373\). If a candidate fails, report the exact residual rather than inferring failure of LIFT.
