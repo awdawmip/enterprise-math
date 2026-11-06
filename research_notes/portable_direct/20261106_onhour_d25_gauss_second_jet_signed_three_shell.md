@@ -60,3 +60,24 @@ p=67: P=271216, C1=3718, C2=32, S=62444, K=176556, D1=278, J=44, W=67;
 p=373: P=44816696, C1=131274, C2=248, S=24495656, K=4236705, D1=57045, J=98, W=373.
 
 Finite confirmation does not confer an all-prime proof or independent review. Script: d25_gauss_second_jet_20261106.py (same commit). Next: seek a global modular/Jacobi or multi-channel telescoper identity for (P/p+C1+pC2)(K0+pD1)−1−2pJ, keeping p=19 and 373 nonzero J as signed test cases. Native p373 original divided-power, Frobenius and κ remain PENDING_OWNER in #1559. Formal Source CLAIM/run/Result not asserted by this author-side publication.
+
+
+## Next completed science unit: four-source divided residual (2026-11-06, exact corollary)
+
+Assume the original first-digit input W≡p (mod p²), the already-stated p|P, and the signed Clausen relation. Define A=P/p+C1 (mod p²) and B=K0=(2p−1)P−2(p−1)O (mod p²). The first-digit identity supplies AB≡1 (mod p). Hence the following is **an exact equality of residue observers**, not merely a guessed cancellation:
+
+**(W−p)/p² ≡ (AB−1)/p + B C2 + A D1 − 2J (mod p).**
+
+Proof: from the two new jet statements, S≡p(A+pC2) (mod p³) and K≡B+pD1 (mod p²). Multiply, retain terms through p², insert W≡SK−2p²J, subtract p and divide by p². This is legal because AB−1 is p-divisible. Under the frozen scalar bridge (W−p)/p²≡Δ_p−R_p (mod p), the right side is a **four-source explicit model of the actual mother residual**, with individually identified original index/operation provenance.
+
+Independent target-prime exact checks with the attached modular script cover all 45 p≡13,19(mod24), p≤997. Table entries are respectively ((AB−1)/p, BC2, AD1, −2J) in F_p:
+
+- p13: (5,8,0,0); sum 0.
+- p19: (2,3,7,7); sum 0.
+- p67: (64,17,7,46); sum 0.
+- p373: (140,259,170,177); sum 0.
+- p997: (802,189,632,371); sum 0.
+
+At p=19 all four terms are nonzero. Therefore, omitting any one channel **without changing the definitions of the others** fails even at this single target prime. This is a scoped exclusion of a specific shortcut; it makes no claim that other reorganizations are impossible.
+
+The remaining uniform proof question is now exactly the mod-p four-channel cancellation, while the separately required native H0/B0 p373 experiment stays PENDING_OWNER. Author-side algebra and finite checks only; no formal Source Result or independent review.
