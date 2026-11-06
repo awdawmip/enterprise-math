@@ -1,0 +1,64 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-06",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_target": "W_p≡p mod p^3 for p mod24=13,19; equivalently Delta_p−R_p≡0 mod p",
+  "new_unit": "For p=6m+1 prime, exact first-integral (3j−1)^3 q_(j−1) g_(m−j)≡−27q_(m−1)/8 mod p; signed prefix transform, C_j and full one-q W_p mod p³.",
+  "proof_scope": "All p=6m+1>3 prime, original source definitions and previous three-shell theorem. Mother supercongruence not yet proven.",
+  "finite_validation": {
+    "primes": 149,
+    "pair_checks": 23804,
+    "failures": 0,
+    "witnesses": {
+      "19": {
+        "C1": 2,
+        "qtop": 8,
+        "G0": 5,
+        "D": 1,
+        "shell_div_p2": 9
+      },
+      "373": {
+        "C1": 181,
+        "qtop": 7,
+        "G0": 217,
+        "D": 132,
+        "shell_div_p2": 266
+      },
+      "5113": {
+        "C1": 72,
+        "qtop": 3577,
+        "G0": 1135,
+        "D": 1675,
+        "shell_div_p2": 4671
+      }
+    }
+  },
+  "artifacts": {
+    "report": "research_notes/portable_direct/20261106_onhour_d25_qg_antidiagonal_first_integral.md",
+    "checker": "research_notes/portable_direct/d25_qg_reflection_dual_kernel_check_20261106.py"
+  },
+  "do_not_repeat": [
+    "D24 completed UR",
+    "Original216 three-shell theorem",
+    "C_j reverse shell",
+    "q/g anti-diagonal theorem",
+    "E.2 p4 tail involution"
+  ],
+  "next_exact_action": "Test finite single-q nonlocal adjoint against E.2/Franel two-jet and nonzero signed J19=6, J373=98; preserve failed coefficient witness. Original native issue #1559 pending.",
+  "source_recovery": {
+    "original_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "last_request_status": "QUEUED after same-ID reconcile, earlier WAITING_RESOURCE EVENT_COLLECTION_IO",
+    "new_read_request_id": "onhour11-20261106-2305-read-source-continuation",
+    "new_read_status": "WAITING_RESOURCE EVENT_COLLECTION_IO",
+    "native_checkpoint": "D25_ONHOUR_RESEARCH_20260923_PORTABLE rev22 only",
+    "own_claim": "NOT_VERIFIED",
+    "own_session": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "native_experiment": "NOT_EXECUTED/PENDING_OWNER #1559"
+  },
+  "state": "AUTHOR-PROVED / FINITE-VERIFIED / UNREVIEWED / NOT_ADMITTED / GITHUB_AUTHOR_SIDE"
+}
