@@ -1,0 +1,76 @@
+{
+  "verdict": "ALL_CHECKS_PASS",
+  "date": "2026-11-06",
+  "model": "PREFIX-518/522/525 signed-X6 four-STAR path, typed BRC pair observer",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "phase_states": 48,
+  "phase_parity_block": 24,
+  "two_step_denominator_degree_u": 11,
+  "full_t_recurrence_order": 22,
+  "even_subsequence_order": 11,
+  "gcd_numerator_denominator": "1 in Q(q)[u]",
+  "D_factorization": [
+    "-3*q*u**2 + 2*u + 1",
+    "9*q**2*u**4 - u**3*(4*q**2 + 12*q) + u**2*(2*q + 4) + 1",
+    "-729*q**2*u**5 - u**4*(243*q**2 + 324*q) - u**3*(36*q**2 + 126*q + 36) - u**2*(30*q + 12) - u + 1"
+  ],
+  "renewal_first_terms_t": {
+    "4": {
+      "1": "20"
+    },
+    "6": {
+      "1": "288",
+      "2": "160"
+    },
+    "8": {
+      "1": "7168",
+      "2": "11840"
+    },
+    "10": {
+      "1": "116736",
+      "2": "384512",
+      "3": "102912"
+    },
+    "12": {
+      "1": "2514944",
+      "2": "11202560",
+      "3": "8864768",
+      "4": "335872"
+    }
+  },
+  "joint_factorial_moments_checked_d": 15,
+  "joint_factorial_orders_checked": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "native_word_direct_checks": 74592,
+  "maximal_gate_diagonals": "For k>=1: at d=4k-2, (H,p1)=(k,k) has 9*20^(k-1) histories; d=4k-1 has 108*20^(k-1).",
+  "top_hit_sample": {
+    "2": {
+      "1,1": "9"
+    },
+    "3": {
+      "1,1": "108"
+    },
+    "6": {
+      "2,2": "180"
+    },
+    "7": {
+      "2,2": "2160"
+    },
+    "10": {
+      "3,3": "3600"
+    },
+    "14": {
+      "4,4": "72000"
+    },
+    "15": {
+      "4,4": "864000"
+    }
+  },
+  "renewal_formula": "P(t,q,z)=P0(t,q)+(z-1)J(t,q)/(1-(z-1)S(t,q))",
+  "moment_formula": "sum_d sum_w binom(H(w),k) q^p t^d=J(t,q)*S(t,q)^(k-1), k>=1",
+  "scope": "author-proved formula, executed exact integer/symbolic certificate; independent review and admission pending"
+}
