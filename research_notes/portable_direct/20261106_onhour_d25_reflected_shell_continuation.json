@@ -1,0 +1,65 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-06",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "other_lane_not_used": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_target": "W_p=p (mod p^3) for p mod 24 in {13,19}, equivalently Delta_p-R_p=0 (mod p)",
+  "latest_proven_author_side_unit": "For all p=6m+1>3 prime, C_j=a_(4m+1-j)/p^2 in F_p has C_1=(2m-1)!/[216^(4m)((4m)!)^5], C_(j+1)/C_j=4(3j-1)^3/[3j(6j+1)(3j+1)], and original weighted valuation-two shell equals p^2 sum_j(3-6j)C_j mod p^3.",
+  "exact_finite_validation": {
+    "coverage": "148 p=1 (mod 6) primes 7..1999 plus p=5113; 149 distinct primes",
+    "coefficient_checks": 23804,
+    "failures": 0,
+    "witnesses": [
+      {
+        "p": 19,
+        "c1": 2,
+        "shell_div_p2_mod_p": 9
+      },
+      {
+        "p": 373,
+        "c1": 181,
+        "shell_div_p2_mod_p": 266
+      },
+      {
+        "p": 5113,
+        "c1": 72,
+        "shell_div_p2_mod_p": 4671
+      }
+    ]
+  },
+  "highest_frontier": {
+    "report": "research_notes/portable_direct/20261106_onhour_d25_reflected_216_second_shell.md",
+    "checker": "research_notes/portable_direct/d25_reflected_shell_check_20261106.py",
+    "existing_original216": "eec361046d7677ee6b53bf85786af97e616e325d",
+    "existing_E2_involution": "f95df526a8f1ae61e37fc5c70974ec0922ff0c0c"
+  },
+  "do_not_repeat": [
+    "Existing original 216 three-shell p^3 decomposition and low/middle p-adic jets",
+    "Existing E.2 p^4 signed high-tail involution",
+    "Old four-phase Green and complementary Gauss certificates",
+    "Native H0/B0 p373 remains original-class experiment; no portable proxy accepted",
+    "Existing old staging source items remain independent, not Result"
+  ],
+  "next_exact_action": "Try a finite nonlocal signed-boundary adjoint between reflected original216 valuation-two shell and Franel/E.2 low-index two-jet; derive exact W_p-V_p modulo p^3, test candidate at p19,p373,p5113, and discharge remaining all-prime cancellation lemma. If candidate fails, publish the minimal typed counterexample.",
+  "source_recovery": {
+    "request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "receipt_latest_this_run": "QUEUED after one same-ID reconcile, earlier WAITING_RESOURCE/EVENT_COLLECTION_IO",
+    "secondary_existing_request_id": "onhour12-20261106-1957-read-continuation",
+    "secondary_receipt_latest_this_run": "WAITING_RESOURCE/EVENT_COLLECTION_IO",
+    "source_service_version": "0.6.11",
+    "research_authority_granted": false,
+    "own_source_session": "NOT_VERIFIED_IN_THIS_RUN",
+    "winning_claim": "NOT_VERIFIED_IN_THIS_RUN",
+    "open_run": "NOT_VERIFIED_IN_THIS_RUN",
+    "result": "NONE_SUBMITTED_THIS_RUN",
+    "native_client_checkpoint": "D25_ONHOUR_RESEARCH_20260923_PORTABLE revision 22 SERVER_SQLITE_COMMITTED, not updated by this author-side note",
+    "next_control_action": "Reconcile existing original target_request_id, consume exact Source continuation and verify actual own session/claim before any role-bound write. No ID substitution, no duplicate dispatch.",
+    "native_experiment": "issue #1559 original p373 H0/B0 divided-power [X]U mod 139129; native rank, Frobenius direction/eta, signed Green/Hesse, kappa and Delta-R, independent replica; NOT_EXECUTED / PENDING_OWNER"
+  },
+  "publication_state": "AUTHOR_PROVED / FINITE_VERIFIED / UNREVIEWED / NOT_ADMITTED / PORTABLE_GITHUB_ONLY",
+  "proof_scope": "All primes p=6m+1>3 for reflected shell theorem, not all-prime W_p=V_p or W_p=p congruence",
+  "provenance": "Author side; pre-existing Source science frozen; no claimed platform role or independent review."
+}
