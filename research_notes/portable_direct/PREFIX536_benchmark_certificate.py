@@ -10,13 +10,14 @@ import json, time, gc, platform, tracemalloc
 
 SOURCE=Path(__file__).with_name('PREFIX535_rooted_parity_certificate.py')
 code=SOURCE.read_text(encoding='utf-8')
-head=code.split('\nresults=[]\n')[0]
-assert 'def delta_coefficients' in head and 'def evaluate_roots' in head
+head,separator,_=code.partition('\nresults=[]\n')
+assert separator, 'PREFIX-535 definition/test boundary not found'
+assert 'def denominator' in head and 'def evaluate' in head
 ns={'__name__':'prefix535_definition_only'}
 exec(compile(head, str(SOURCE), 'exec'), ns)
-PHASES,NEXT,TARGET=ns['PHASES'],ns['NEXT'],ns['TARGET']
-sign,flag=ns['sign'],ns['flag']
-delta_coefficients=ns['delta_coefficients']
+PHASES,NEXT,TARGET=ns['PHASES'],ns['NEXT'],ns['T']
+sign,flag=ns['sig'],ns['flag']
+delta_coefficients=ns['denominator']
 
 V=2; Q=V*V; Z=3; ROOT=0
 PRECURSORS=tuple(i for i in range(48) if TARGET in NEXT[i])

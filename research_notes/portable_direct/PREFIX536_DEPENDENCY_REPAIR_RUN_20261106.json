@@ -1,0 +1,239 @@
+{
+  "kind": "PREFIX536_dependency_compatibility_maintenance",
+  "execution_utc": "2026-11-06T12:36:36.721757+00:00",
+  "source_commit": "96ffdf1472ee4c44fce84c678f433029ff7c0d0c",
+  "original_benchmark_git_blob": "25d0c4f3e89ff82f1822e4b8f39646c30e98a5e4",
+  "dependency_git_blob": "4fecd3e18a0d2a143d54f2f8defd1fae6dae6c56",
+  "repaired_benchmark_git_blob": "102ba69e158fe6287a2dd1d229a5e954b6454342",
+  "before": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"PREFIX536_benchmark_certificate.py\", line 14, in <module>\n    assert 'def delta_coefficients' in head and 'def evaluate_roots' in head\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  "after": {
+    "exit_code": 0,
+    "stdout": "N 64 time ms {'controller_51': 2.33, 'linear_49': 2.049, 'parity_11_cold': 0.671}\nN 256 time ms {'controller_51': 8.488, 'linear_49': 9.272, 'parity_11_cold': 1.007}\nN 1024 time ms {'controller_51': 57.431, 'linear_49': 48.733, 'parity_11_cold': 3.49}\nall 48 roots N 64 time ms {'controller_51': 93.97, 'linear_49_shared_sign': 6.193, 'parity_11_shared_cold': 5.297}\nall 48 roots N 256 time ms {'controller_51': 449.705, 'linear_49_shared_sign': 29.719, 'parity_11_shared_cold': 20.081}\nALL_CHECKS_PASS\n",
+    "stderr": "",
+    "result": {
+      "status": "ALL_CHECKS_PASS",
+      "kind": "exact_evaluated_observer_benchmark",
+      "science_pin": "enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+      "provenance": "PREFIX-535 definitions loaded without test main",
+      "parameters": {
+        "q": 4,
+        "z": 3,
+        "root": [
+          0,
+          3,
+          -1
+        ],
+        "N_macros": [
+          64,
+          256,
+          1024
+        ],
+        "repetitions": 5,
+        "outputs": "all weighted integer coefficients a_d for d=0..N"
+      },
+      "states": {
+        "phase": 48,
+        "deterministic_controller": 51,
+        "lift_linear": 49,
+        "parity_recurrence_each": 11,
+        "controller_labeled_transitions": 306
+      },
+      "parity_denominator_u_coefficients": [
+        1,
+        4,
+        -2304,
+        -102016,
+        -2056192,
+        -5971968,
+        565248000,
+        10154409984,
+        37484494848,
+        -1492132036608,
+        -14676708556800,
+        126806761930752
+      ],
+      "raw_check": {
+        "depth_0_to_7_exact": true,
+        "root": [
+          0,
+          3,
+          -1
+        ]
+      },
+      "exact_crosschecks_at_depths": [
+        0,
+        1,
+        2,
+        7,
+        23,
+        24,
+        35,
+        60
+      ],
+      "environment": {
+        "python": "3.12.14",
+        "platform": "Linux-6.18.57-x86_64-with-glibc2.41"
+      },
+      "benchmarks": {
+        "64": {
+          "controller_51": {
+            "median_ms": 2.33,
+            "min_ms": 1.982,
+            "max_ms": 4.4,
+            "tracemalloc_peak_bytes": 9224,
+            "final_digits": 58,
+            "final_bit_length": 192,
+            "length": 65
+          },
+          "linear_49": {
+            "median_ms": 2.049,
+            "min_ms": 1.836,
+            "max_ms": 2.309,
+            "tracemalloc_peak_bytes": 10096,
+            "final_digits": 58,
+            "final_bit_length": 192,
+            "length": 65
+          },
+          "parity_11_cold": {
+            "median_ms": 0.671,
+            "min_ms": 0.636,
+            "max_ms": 0.999,
+            "tracemalloc_peak_bytes": 6376,
+            "final_digits": 58,
+            "final_bit_length": 192,
+            "length": 65
+          }
+        },
+        "256": {
+          "controller_51": {
+            "median_ms": 8.488,
+            "min_ms": 8.361,
+            "max_ms": 8.878,
+            "tracemalloc_peak_bytes": 32496,
+            "final_digits": 232,
+            "final_bit_length": 768,
+            "length": 257
+          },
+          "linear_49": {
+            "median_ms": 9.272,
+            "min_ms": 8.449,
+            "max_ms": 14.31,
+            "tracemalloc_peak_bytes": 36532,
+            "final_digits": 232,
+            "final_bit_length": 768,
+            "length": 257
+          },
+          "parity_11_cold": {
+            "median_ms": 1.007,
+            "min_ms": 0.963,
+            "max_ms": 1.097,
+            "tracemalloc_peak_bytes": 23148,
+            "final_digits": 232,
+            "final_bit_length": 768,
+            "length": 257
+          }
+        },
+        "1024": {
+          "controller_51": {
+            "median_ms": 57.431,
+            "min_ms": 54.594,
+            "max_ms": 59.819,
+            "tracemalloc_peak_bytes": 275132,
+            "final_digits": 926,
+            "final_bit_length": 3074,
+            "length": 1025
+          },
+          "linear_49": {
+            "median_ms": 48.733,
+            "min_ms": 43.464,
+            "max_ms": 58.927,
+            "tracemalloc_peak_bytes": 290288,
+            "final_digits": 926,
+            "final_bit_length": 3074,
+            "length": 1025
+          },
+          "parity_11_cold": {
+            "median_ms": 3.49,
+            "min_ms": 3.071,
+            "max_ms": 4.115,
+            "tracemalloc_peak_bytes": 247324,
+            "final_digits": 926,
+            "final_bit_length": 3074,
+            "length": 1025
+          }
+        }
+      },
+      "all_root_benchmarks": {
+        "64": {
+          "controller_51": {
+            "median_ms": 93.97,
+            "min_ms": 91.394,
+            "max_ms": 108.306,
+            "tracemalloc_peak_bytes": 166964,
+            "output_coefficients": 3120,
+            "final_first_root_bit_length": 192
+          },
+          "linear_49_shared_sign": {
+            "median_ms": 6.193,
+            "min_ms": 6.158,
+            "max_ms": 6.378,
+            "tracemalloc_peak_bytes": 158040,
+            "output_coefficients": 3120,
+            "final_first_root_bit_length": 192
+          },
+          "parity_11_shared_cold": {
+            "median_ms": 5.297,
+            "min_ms": 5.045,
+            "max_ms": 5.605,
+            "tracemalloc_peak_bytes": 164032,
+            "output_coefficients": 3120,
+            "final_first_root_bit_length": 192
+          }
+        },
+        "256": {
+          "controller_51": {
+            "median_ms": 449.705,
+            "min_ms": 383.199,
+            "max_ms": 476.37,
+            "tracemalloc_peak_bytes": 1112656,
+            "output_coefficients": 12336,
+            "final_first_root_bit_length": 768
+          },
+          "linear_49_shared_sign": {
+            "median_ms": 29.719,
+            "min_ms": 29.06,
+            "max_ms": 32.977,
+            "tracemalloc_peak_bytes": 1072460,
+            "output_coefficients": 12336,
+            "final_first_root_bit_length": 768
+          },
+          "parity_11_shared_cold": {
+            "median_ms": 20.081,
+            "min_ms": 19.866,
+            "max_ms": 21.688,
+            "tracemalloc_peak_bytes": 1069480,
+            "output_coefficients": 12336,
+            "final_first_root_bit_length": 768
+          }
+        }
+      },
+      "all_root_reuse_lemma": "49-lift initial endpoint depends only on sign_1(root); 48 roots need three shared evolutions."
+    }
+  },
+  "focused_checks": [
+    "Python syntax parsed",
+    "PREFIX535 test-main output absent after definition-only load",
+    "Missing definition/test marker raises before dependency execution"
+  ],
+  "coverage_status": "Finite executable regression and measurements; mathematical review and native Result admission not performed",
+  "not_run": [
+    "Repository-wide unit tests",
+    "Bilingual-pair checker",
+    "Reference checker",
+    "PREFIX537 and PREFIX538 certificates"
+  ]
+}
