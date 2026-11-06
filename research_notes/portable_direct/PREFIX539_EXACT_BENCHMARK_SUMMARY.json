@@ -1,0 +1,68 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "source_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "python_arithmetic": "exact unbounded integers",
+  "benchmark": "same CPython process, tracemalloc ON for all methods, gc before each run, 1 repeat",
+  "all_directed_edge_seed_checks": 432,
+  "scope": "four STAR X6 directed paths, two INNER/OUTER choices, aAc gate",
+  "rows": [
+    {
+      "depth": 8,
+      "root_depth_equalities": 432,
+      "sharp_support_slots_per_root": 9,
+      "max_nonzero_coefficients": 9,
+      "distinct_rooted_polynomials": 26,
+      "dense_3_seed": {
+        "wall_seconds": 0.471987,
+        "peak_bytes": 373128
+      },
+      "sparse_rank_one_3_seed": {
+        "wall_seconds": 0.06622,
+        "peak_bytes": 314592
+      },
+      "raw_48_forward": {
+        "wall_seconds": 0.374348,
+        "peak_bytes": 298464
+      }
+    },
+    {
+      "depth": 16,
+      "root_depth_equalities": 816,
+      "sharp_support_slots_per_root": 20,
+      "max_nonzero_coefficients": 20,
+      "distinct_rooted_polynomials": 26,
+      "dense_3_seed": {
+        "wall_seconds": 1.586392,
+        "peak_bytes": 1199756
+      },
+      "sparse_rank_one_3_seed": {
+        "wall_seconds": 0.310723,
+        "peak_bytes": 1125976
+      },
+      "raw_48_forward": {
+        "wall_seconds": 3.408775,
+        "peak_bytes": 1154480
+      }
+    },
+    {
+      "depth": 20,
+      "root_depth_equalities": 1008,
+      "sharp_support_slots_per_root": 33,
+      "max_nonzero_coefficients": 32,
+      "distinct_rooted_polynomials": 26,
+      "dense_3_seed": {
+        "wall_seconds": 2.053769,
+        "peak_bytes": 1948620
+      },
+      "sparse_rank_one_3_seed": {
+        "wall_seconds": 0.522365,
+        "peak_bytes": 1891764
+      },
+      "raw_48_forward": {
+        "wall_seconds": 5.382802,
+        "peak_bytes": 1855168
+      }
+    }
+  ],
+  "math_review": "AUTHOR_PROVED / EXACT_INTEGER_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
