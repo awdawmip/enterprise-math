@@ -8,9 +8,9 @@
 
 ## Exact result
 
-Let (W) denote the fixed 24-path witness with 158 distinct nonempty signed-X6 primitive prefixes. For any selected set (S) of four observation-signature slots, replace paths in (S) by any observer-valid paths with exactly the original length and full cache key, leaving the other paths unchanged. Let (C_S) be the number of distinct prefixes of all 24 paths.
+Let `W` denote the fixed 24-path witness with 158 distinct nonempty signed-X6 primitive prefixes. For any selected set (S) of four observation-signature slots, replace paths in `S` by any observer-valid paths with exactly the original length and full cache key, leaving the other paths unchanged. Let `C_S` be the number of distinct prefixes of all 24 paths.
 
-**Theorem:** For all 150 slot sets in the following families, (min C_S=158).
+**Theorem:** For all 150 slot sets in the following families, `min C_S = 158`.
 
 | Four-slot family | Slot sets | Raw path quartets | Final strict-improvement union checks | Min |
 |---|---:|---:|---:|---:|
@@ -22,15 +22,11 @@ Let (W) denote the fixed 24-path witness with 158 distinct nonempty signed-X6 pr
 
 The first family follows the exact ordering of `(early slot, two lexicographically ordered H7 slots, H8 slot)`, skipping indices 0..209 already checked in EC49FCE. The four families are mutually disjoint and disjoint from those 370 previously verified slots.
 
-**Proof/algorithm:** Let (P(w)) be the set of all nonempty ordered, signed native-X6 primitive prefixes of legal word (w), retaining its full primitive-step order. For four selected slots (S), put (F=igcup_{t
-otin S}P(W_t)). Each legal replacement (v) at slot (s) has residual (R_s(v)=P(v)setminus F). Its total four-slot cost is exactly
+**Proof/algorithm:** Let `P(w)` be the set of all nonempty ordered, signed native-X6 primitive prefixes of legal word `w`, retaining the complete primitive-step order. For the four selected slots `S`, put `F = union(P(W_t), t not in S)`. Each legal replacement `v` at slot `s` has residual `R_s(v) = P(v) minus F`. The exact cost is:
 
-[
- |F|+left|igcup_{sin S}R_s(v_s)ight|.
-]
+`cost = |F| + |union(R_s(v_s), s in S)|`.
 
-Set (d=158-|F|). A residual whose size is at least (d) cannot occur in a strict improvement. A partial union of two or three residuals with size at least (d) likewise cannot be extended to improve the witness, by monotonicity of union. Equal residual sets are interchangeable **only for this cost function and fixed observer/scope**; their source words remain in the original legal candidate generation. This is an exhaustive, integer-exact branch-and-bound decision procedure for cost below 158. Every listed slot family retains the original legal witness of cost 158, so excluding cost below 158 proves equality.
-
+Set `d = 158 - |F|`. A residual whose size is at least `d` cannot occur in a strict improvement. A partial union of two or three residuals of size at least `d` likewise cannot be extended to improve the witness, by monotonicity of union. Equal residual sets are interchangeable **only for this cost function and fixed observer/scope**; their originating words remain present in original legal candidate generation. The resulting branch-and-bound search exhausts the finite options under the stated rules and proves no cost below 158. Every listed slot family retains the original legal witness of cost 158, so the minimum equals 158.
 `VERIFY_EC49FCF_150.py` re-generates all legal candidates from the frozen nine-state DFA, with the original H4–H9 signatures and keys, evaluates all 150 combinations and writes `EC49FCF_150_CERTIFICATE.json`. The compressed full per-group certificate is stored as `EC49FCF_150_CERTIFICATE.json.gz`. `INDEPENDENT_CHECK_EC49FCF.py` computes signed step prefixes as literal integer tuples instead of indexed bitsets, cross-checking four actual slot sets; all four minimum costs and fourth-check counts matched.
 
 ### Reproduce
