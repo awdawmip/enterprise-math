@@ -1,0 +1,161 @@
+{
+  "status": "ALL_ASSERTIONS_PASSED",
+  "model": "native_X6_12_signed_directions_positive_integer_BRC",
+  "signed_alphabet": {
+    "A": "+E1",
+    "B": "+E2",
+    "C": "+E3",
+    "D": "+E4",
+    "E": "+E5",
+    "F": "+E6",
+    "G": "-E1",
+    "H": "-E2",
+    "I": "-E3",
+    "J": "-E4",
+    "K": "-E5",
+    "L": "-E6"
+  },
+  "euler_exact": {
+    "word_cases": 363,
+    "types": 300
+  },
+  "finite_fibers": {
+    "fiber_budget_cases": 1230,
+    "history_occurrences": 2886,
+    "class_occurrences": 2660,
+    "full_key_rank_checks": 2498
+  },
+  "large_sparse": {
+    "k": 16,
+    "u": 13,
+    "theta": [
+      [
+        "A",
+        "A",
+        43
+      ],
+      [
+        "A",
+        "B",
+        4
+      ],
+      [
+        "A",
+        "G",
+        3
+      ],
+      [
+        "B",
+        "A",
+        3
+      ],
+      [
+        "B",
+        "G",
+        4
+      ],
+      [
+        "G",
+        "A",
+        4
+      ],
+      [
+        "G",
+        "B",
+        3
+      ]
+    ],
+    "edge_support": 7,
+    "active_letters": 3,
+    "scenarios": [
+      {
+        "r": 0,
+        "classes": 880898,
+        "population": 333915624,
+        "w_types": 1154,
+        "distinct_R": 162,
+        "type_weighted_transitions": 0,
+        "unique_R_transitions": 0
+      },
+      {
+        "r": 1,
+        "classes": 2184817,
+        "population": 333915624,
+        "w_types": 1154,
+        "distinct_R": 162,
+        "type_weighted_transitions": 2927,
+        "unique_R_transitions": 411
+      },
+      {
+        "r": 3,
+        "classes": 8293813,
+        "population": 333915624,
+        "w_types": 1154,
+        "distinct_R": 162,
+        "type_weighted_transitions": 20028,
+        "unique_R_transitions": 2788
+      },
+      {
+        "r": 6,
+        "classes": 47641484,
+        "population": 333915624,
+        "w_types": 1154,
+        "distinct_R": 162,
+        "type_weighted_transitions": 98526,
+        "unique_R_transitions": 13558
+      },
+      {
+        "r": 9,
+        "classes": 175874227,
+        "population": 333915624,
+        "w_types": 1154,
+        "distinct_R": 162,
+        "type_weighted_transitions": 208971,
+        "unique_R_transitions": 28630
+      },
+      {
+        "r": 13,
+        "classes": 333915624,
+        "population": 333915624,
+        "w_types": 1154,
+        "distinct_R": 162,
+        "type_weighted_transitions": 276448,
+        "unique_R_transitions": 37903
+      }
+    ],
+    "full_word_search_space": "12^29"
+  },
+  "future_tree": {
+    "same_key_pair": {
+      "W": "A",
+      "H1": "AABA",
+      "H2": "ABAA",
+      "visited_states": 676
+    },
+    "different_key_pair": {
+      "W": "A",
+      "H1": "AAAB",
+      "H2": "AABA",
+      "visited_before_distinction": 5
+    },
+    "different_W_pair": {
+      "W1": "A",
+      "H1": "AAAB",
+      "W2": "B",
+      "H2": "AAAA",
+      "visited_before_distinction": 25
+    }
+  },
+  "N_cache": {
+    "hits": 391847,
+    "misses": 68384,
+    "maxsize": null,
+    "currsize": 68384
+  },
+  "types_cache": {
+    "hits": 27485,
+    "misses": 1095,
+    "maxsize": null,
+    "currsize": 1095
+  }
+}
