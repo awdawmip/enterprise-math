@@ -87,3 +87,7 @@ The scalar P observer sums paths. It does not replace the complete native signed
 ## Next unit
 
 Use the degree-22 denominator to extract coefficient-level recurrences in q,z and benchmark their true integer polynomial bit cost versus provenance-aware 96-state dynamic programming. Also test whether a concrete pair of native path histories with identical (p1,H) but different legal future behavior establishes a minimal continuation-state repair; preserve the original source/path distinction. Formal CLAIM, independent review and admission are separate canonical control actions.
+
+## Parity refinement (new exact corollary)
+
+Write P(t,q,z)=P_even(u,q,z)+t P_odd(u,q,z) with u=t^2. Because DELTA is even in t, both series have the same candidate denominator DELTA_u(u,q,z)=E(u,q)F(u,q)-(z-1)K(u,q), of degree 11 in u. Splitting the explicit numerator by even/odd t powers and taking exact polynomial GCD at (q,z)=(2,3) and (3,5) gives gcd=1 for BOTH parity numerators, with their generic degrees preserved. Hence each parity subsequence has exact minimal eventual recurrence order 11 over Q(q,z), rather than merely an upper bound. The attached executable certificate checks these four polynomial GCDs.

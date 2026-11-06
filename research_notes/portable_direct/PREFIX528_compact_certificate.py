@@ -41,3 +41,14 @@ for a,b in [(2,3),(3,5),(5,2)]:
  assert s.gcd(n,d).degree()==0
 assert s.cancel((N0/Et).subs(q,1)-48/(1-6*t))==0
 print('ALL_CHECKS_PASS; generic reduced denominator degree 22; three coprimality witnesses')
+# Each parity subsequence has generic minimal order 11 in u=t^2.
+DenU=s.Poly(sum(c*u**(term[0]//2) for term,c in s.Poly(Den,t).terms()),u)
+for parity in (0,1):
+ NumU=s.Poly(sum(c*u**((term[0]-parity)//2) for term,c in s.Poly(Num,t).terms() if term[0]%2==parity),u)
+ assert DenU.degree()==11
+ for qa,za in [(2,3),(3,5)]:
+  a=s.Poly(NumU.as_expr().subs({q:qa,z:za}),u)
+  b=s.Poly(DenU.as_expr().subs({q:qa,z:za}),u)
+  assert a.degree()==NumU.degree() and b.degree()==11
+  assert s.gcd(a,b).degree()==0
+print('PARITY_PASS; both even and odd subsequences have generic sharp order 11')

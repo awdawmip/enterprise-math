@@ -1,7 +1,7 @@
 {
   "schema": "ENTERPRISE_MATH_PREFIX528_EXACT_EXECUTION_V1",
   "date": "2026-11-06",
-  "result": "ALL_CHECKS_PASS",
+  "result": "ALL_CHECKS_PASS; PARITY_PASS",
   "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
   "model": "48 signed four-STAR phases, 3 successors x 2 provenance-labeled branches, one-axis BRC p1, literal aAc event H",
   "new_theorem": "Complete (t,q,z) joint series generic minimal eventual denominator degree is 22 in t over Q(q,z)",
@@ -45,6 +45,16 @@
         3,
         5
       ]
+    ],
+    "even_and_odd_numerator_gcd_specializations": [
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        5
+      ]
     ]
   },
   "scripts": {
@@ -52,5 +62,6 @@
     "extended_local": "PREFIX528_certificate.py"
   },
   "scientific_status": "AUTHOR_PROVED / EXACT_SYMBOLIC_AND_INTEGER_CHECKED / UNREVIEWED / NOT_ADMITTED",
-  "future": "Exact continuation-state fiber and coefficient-cost comparison; native X6 arbitrary-triad rotation mother question still open."
+  "future": "Exact continuation-state fiber and coefficient-cost comparison; native X6 arbitrary-triad rotation mother question still open.",
+  "new_corollary": "Both parity subsequences have generic minimal eventual recurrence order exactly 11 over Q(q,z), using u=t^2"
 }
