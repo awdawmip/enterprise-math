@@ -1,0 +1,51 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_target": "W_p==p modp^3, p mod24 in {13,19}; frozen Delta_p-R_p==0 modp",
+  "prior_author_ref": "2b4ce1e20364b42bcacd98d857214ffcf6f1177b",
+  "new_exact_unit": "All p=6m+1>3: F_p(1/2)=2^-m S_m+p(C_low+C_mid) modp², E_p=2^-m B_m modp. Conditional on p|S, W_p/p=2^-m B_m[2^-m(S/p)+C_low+C_mid] modp; equivalently use u_D when p∤T.",
+  "validation": "Independently checked each coefficient & W by separate recurrence: all 148 p<=1999, p=1 mod6 plus 5113 PASS; 77 target prime residue checks W/p=1 modp (finite-only).",
+  "witnesses": {
+    "19": {
+      "S_modp2": 190,
+      "uD": 16,
+      "C_low": 6,
+      "C_mid": 15,
+      "F_over_p": 8,
+      "E": 12
+    },
+    "373": {
+      "S_modp2": 109289,
+      "uD": 276,
+      "C_low": 352,
+      "C_mid": 78,
+      "F_over_p": 24,
+      "E": 171
+    }
+  },
+  "discriminating_result": "Discarding middle correction changes W/p at p19 from 1 to 11 and p373 from 1 to 91.",
+  "next_exact_action": "Prove all-target zero port or independent route; build second-order Gauss p-jet, derivative p-jet, compose with nonzero signed Clausen K for third-digit obstruction.",
+  "do_not_repeat": [
+    "D24 UR",
+    "Pfaff Hensel",
+    "original216 three-shell",
+    "signed Clausen/Green/E2/Franel"
+  ],
+  "source_recovery": {
+    "target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "receipt": "UNKNOWN_READ_REJECTED_NO_REISSUE",
+    "error": "BACKEND_IDENTITY_OR_VERSION_MISMATCH; operation_sent=false",
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED; research_authority_granted=false",
+    "native_checkpoint": "historical revision22 only",
+    "session": "NOT_VERIFIED",
+    "claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "next": "Operator approves dedicated Site client/credential/version; read original receipt before any mutation"
+  },
+  "native_benchmark": "#1559 H0/B0/Frobenius/independent replication NOT_EXECUTED_PENDING_OWNER",
+  "status": "AUTHOR_SIDE_PROVED_FINITE_VERIFIED_UNREVIEWED_NOT_ADMITTED"
+}
