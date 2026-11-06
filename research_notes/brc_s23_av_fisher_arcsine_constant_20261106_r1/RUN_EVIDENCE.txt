@@ -1,0 +1,14 @@
+Execution date: 2026-11-06 (UTC, tool runtime).
+Command: python /mnt/data/VERIFY.py
+CPython stdlib only; Fraction exact rational checks + math diagnostics.
+
+EXACT_ASSERTIONS_PASSED 144
+I_star = 0.965272185863044
+padded_fisher_limit_C = 2.139905353359433
+full_arcsine_C = 0.657498073665600
+FULL_ARCSINE_DIAGNOSTIC 100 [('1/57', '0.75676892'), ('1/15', '0.79706180'), ('1/3', '0.78409023')]
+FULL_ARCSINE_DIAGNOSTIC 1000 [('1/57', '0.74297850'), ('1/15', '0.73886396'), ('1/3', '0.73764538')]
+FULL_ARCSINE_DIAGNOSTIC 10000 [('1/57', '0.71485253'), ('1/15', '0.71420171'), ('1/3', '0.71406231')]
+PASS_S23_ARCSINE_BRC_FISHER_MIXTURE_20261106
+
+Exact checks cover normalization for m=0..120 (121 cases), one 3-entry m=2 law, 6 lawful-corner bounds, one minimum-z check, 15 exact overlap checks = 144 assertions. Floating diagnostics are approximate. Universal asymptotic theorem requires the separate analytic PROOF.md argument; no automated formal checker was run.
