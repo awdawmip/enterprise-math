@@ -1,0 +1,69 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-06",
+  "lane": "TASK_RESEARCH",
+  "configured_logical_conversation_id": "chatgpt-research-hourly-enterprise-math-20260923",
+  "logical_id_attestation": "CONFIGURED_BY_TASK; NOT_PLATFORM_ATTESTATION",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "mother_objective": "Delta_p - R_p = 0 modulo p, p congruent 13 or 19 modulo 24",
+  "frozen_scientific_input_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "new_science": {
+    "status": "AUTHOR-PROVED / EXACT FINITE-FIELD ALGEBRA / 206 FINITE PRIME CHECKS / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_CHECKPOINT",
+    "completed_units": [
+      "First-jet coefficient source Jacobian for (2m,3m,4m) is invertible via Cauchy determinant for every prime p=6m+1>=13.",
+      "Constructive three-point Lagrange inversion reconstructs source perturbation vector x from normalized coefficients at j=1,2,3 for p>=31.",
+      "Weighted signed coefficient observer retains rank3: p13 substitute j=(1,3,4), p19 substitute j=(1,2,4), p>=31 use j=(1,2,3). The unique zero-weight position j=m is avoided.",
+      "Explicit scalar non-injectivity witness x=(2m,-3m,0): delta_1=0 and delta_2!=0; retention is observer-scoped."
+    ],
+    "verification": "Exact local Python test: 206 primes p=1 mod6, 13<=p<=3000, all rank3/weight checks pass, 204 explicit Cauchy inversions pass. Normed determinants p13=12,p19=2,p31=27,p373=71,p1009=649.",
+    "artifacts": [
+      {
+        "repository": "awdawmip/enterprise-math",
+        "path": "research_notes/portable_direct/20261106_hourly20_d25_three_source_jacobian_reconstruction.md",
+        "git_blob_sha1": "e43afcbd1aef13670d97a0c8033048baeb04574b",
+        "verified_source_commit": "a8b0368fd39ebce05cedf353e2a6271495624afc"
+      },
+      {
+        "repository": "awdawmip/enterprise-math",
+        "path": "research_notes/portable_direct/d25_source_jacobian_reconstruction_20261106.py",
+        "git_blob_sha1": "4680771b5fa968c391b3b3ae71854c33299b3f96",
+        "verified_source_commit": "a8b0368fd39ebce05cedf353e2a6271495624afc"
+      }
+    ]
+  },
+  "prior_durable_frontier": {
+    "source": "prior exact continuation by this Research lane, last SUCCEEDED source at 8aacd7312fd930dcf093c942730cc887c0005367",
+    "persisted_checkpoint_state": "SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED (historical confirmed, unmodified)",
+    "preserve_native_completed_units_and_source_pins": true,
+    "author_side_prior": "research_notes/portable_direct/20261106_hourly20_d25_first_jet_original_216_source_port_author_continuation.json"
+  },
+  "current_native_control": {
+    "current_queued_request_id": "em-h20-20261106-1136-d25-cont-r12",
+    "last_observed_status": "QUEUED / REVALIDATED_CANDIDATE / source_sha=071234428fc989cb4f9403f37f7f30d8a282bbfa",
+    "operation_contract_advertises": [
+      "session_preserve_staging"
+    ],
+    "client_callable_recovery_status": false,
+    "client_callable_session_preserve_staging": false,
+    "old_reported_service_session_id": "MCP-092d7e732273432ea9a767b696413c83",
+    "old_protected_staging_status": "UNVERIFIED",
+    "new_session_id": null,
+    "new_claim_id": null,
+    "new_run_id": null,
+    "last_known_route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION (historical, refresh exact packet before write)",
+    "support_route": "awdawmip/enterprise-math#1558; CONTROL_PLANE_MAINTENANCE",
+    "native_publish_this_run": false
+  },
+  "current_unfinished_science": "Determine the exact linear functional induced by compensated regular/one-carry Theta on the three source perturbations, and its kernel (if any), without collapsing coefficientwise observer state. Test p13,p19,p373; preserve native original-class obligations and current source pins.",
+  "next_exact_action": "Consume original queued request receipt by target_request_id. Only after current native staging preservation/valid successor authority prepare/claim/open. Continue permitted portable math with source-aware linear functional; separate from concurrently authored four-channel second-digit result.",
+  "do_not_repeat": [
+    "Do not recount earlier four-shell/Clausen/directional jets as new work",
+    "Do not confuse exact coefficient-observer rank with a universal Theta cancellation proof",
+    "Do not alter maintenance conversation or overwrite prior Source checkpoint",
+    "Do not replace original queued request ID or assume staging persisted"
+  ],
+  "required_native_evidence": "Native p373 original H0/B0 divided-power and [X]U mod p², Frobenius eta/kappa, and independent review remain open.",
+  "publication_status": "PROJECT_AUTHOR_SIDE_MAIN_PERSISTED; NOT_NATIVE_EXECUTION_OR_REVIEW",
+  "prior_contribution_ids": "FROM_EXACT_CANONICAL_SOURCE_ON_VALID_SUCCESSOR; NOT_GUESSED"
+}
