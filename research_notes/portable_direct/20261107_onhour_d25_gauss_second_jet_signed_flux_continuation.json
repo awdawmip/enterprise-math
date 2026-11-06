@@ -1,0 +1,47 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_target": "W_p==p modp³ for p mod24=13/19; frozen Delta_p-R_p==0 modp",
+  "prior_author_ref": "14e2bb2b4c95a90e684c3376d9ed6fd9d9631963",
+  "new_exact_unit": "For all p=6m+1>3: Gauss F=A0+pA1+p²(A2low+A2mid+A2high) modp³, E=E0+pE1 modp²; for p|S, W/p=(A0/p+A1+pA2)(E0+pE1)-pK modp². Proven O(m) one-pass signed K reindexing.",
+  "validation": "149 exact inputs (148 primes p=1mod6 <=1999 and p=5113), termwise low/middle/high and independent original216 recurrence PASS. Target77 W/p==1 modp² observed finite only.",
+  "witnesses": {
+    "19": {
+      "A2low": 3,
+      "A2mid": 18,
+      "A2high": 10,
+      "K": 12
+    },
+    "373": {
+      "A2low": 197,
+      "A2mid": 212,
+      "A2high": 252,
+      "K": 196
+    }
+  },
+  "route_discrimination": "Omitting A2high yields W/p=248 mod19² and 65649 mod373² instead of 1.",
+  "next_exact_action": "Prove all-target p|S or independent route; construct actual cancellation for explicit finite signed third-digit obstruction. Keep native H0/B0 issue #1559.",
+  "do_not_repeat": [
+    "D24 UR",
+    "first Gauss p-jet",
+    "Pfaff/Hensel",
+    "three-shell, Clausen signed K, Franel/E2"
+  ],
+  "source_recovery": {
+    "target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "receipt": "UNKNOWN_READ_REJECTED_NO_REISSUE",
+    "error": "BACKEND_IDENTITY_OR_VERSION_MISMATCH operation_sent=false",
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED research_authority_granted=false",
+    "native_checkpoint": "historical revision22",
+    "session": "NOT_VERIFIED",
+    "claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "operator_next": "Dedicate approved Site-bound backend client credential/version; read original request receipt and Source continuation before mutation"
+  },
+  "native_benchmark": "#1559 original p373 H0/B0/Frobenius/independent replication NOT_EXECUTED_PENDING_OWNER",
+  "status": "AUTHOR_SIDE_PROVED_FINITE_VERIFIED_UNREVIEWED_NOT_ADMITTED"
+}
