@@ -58,6 +58,34 @@ At d=5 (six-axis) the direct DP has 18,191 keys; the linear lift has 9,182 f key
 
 ## Next experiment
 
-Compute the reachability–observability/Hankel rank of M49 over Q(x1,...,x6,z), using every 48 origin and terminal phase observable, to decide whether the 49-coordinate *linear* realization can be further reduced without changing this joint observation. Benchmark end-to-end sparse arithmetic and memory for the 49-coordinate lift, the 51-state deterministic machine and the 48-vector second-order recurrence, including coefficient bit lengths and output recovery.
+The Hankel minimality question is resolved by Theorem 3 below. Benchmark the end-to-end coefficient arithmetic and bit costs, and test restricted observer families for smaller specialized realizations. Benchmark end-to-end sparse arithmetic and memory for the 49-coordinate lift, the 51-state deterministic machine and the 48-vector second-order recurrence, including coefficient bit lengths and output recovery.
 
 The four-STAR language is a frozen candidate subproblem. Mother objective: arbitrary native three-axis C6 generation, complete generated group, and physical native X6 rotation-selection dynamics. Sources: original PREFIX-525/529 notes, frozen native pin, current P000/ACTIVE worldview and portable research methods.
+
+## Theorem 3 — 49 is the *exact minimum* generic linear dimension for all start/end phase-resolved histograms
+
+Consider the 48-by-48 sequence A_d(x,z) whose (r,s) entry counts all length-d histories from starting phase s to ending phase r, weighted by all six axis visits and completed aAc events. Work over the rational function field F=Q(x1,...,x6,z), with x and z algebraically independent. An arbitrary finite-dimensional linear realization of this matrix sequence has form A_d=C M^d B, where M is n-by-n and B,C may be any F-linear maps.
+
+**Theorem.** The least possible n for this exact phase-resolved matrix-valued sequence is **49**.
+
+**Proof.** From Theorem 1,
+A_0=I48,
+A_1=2W,
+A_2=4W²+(z−1)e(e^T W²).
+Form the 96-by-96 two-block Hankel matrix
+
+    H2 = [ A0  A1 ]
+         [ A1  A2 ].
+
+Since A0=I48, block Gaussian elimination gives
+
+    rank_F H2 = 48 + rank_F(A2−A1·A0^(−1)·A1)
+              = 48 + rank_F((z−1)e(e^T W²)).
+
+The row e^TW² is nonzero: the frozen phase graph has precisely nine distinct two-edge paths ending at T from nine distinct starting phases, all with nonzero monomial weights. Over F, z−1≠0, hence the rank-one outer product has rank exactly one. Thus rank_F H2=49. Any n-dimensional linear realization factors every finite block Hankel as [C;CM;...]·[B,MB,...], so rank_F H2≤n. Therefore n≥49. The explicit M49 realization proves n≤49. QED.
+
+This is a *generic, all-start/all-terminal, full-visit/gate weighted* minimality theorem. It does not impose a deterministic or positive-transition representation, and does not identify the minimum when an observer drops origin, destination, visit coordinates or the gate variable. At z=1 the gate is unobserved: A_d=(2W)^d, and the corresponding minimum dimension is exactly 48 (A0=I48 provides the lower bound). The nine-source support used in the proof is checked by the exact certificate.
+
+## Updated next question
+
+Identify observer restrictions (e.g. single-axis BRC after endpoint correction, fixed origin or terminal aggregation) for which the 49-dimensional **minimal full-observer** realization has a smaller exact linear quotient. Compare real sparse polynomial arithmetic cost to the 51-state deterministic online machine and 48-vector order-two method, including all-source and Cell-provenance storage when that observer requests it.

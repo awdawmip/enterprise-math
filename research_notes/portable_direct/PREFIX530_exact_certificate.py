@@ -62,4 +62,15 @@ def run(axes,depth):
 out={'verdict':'ALL_CHECKS_PASS','research_line':'PREFIX-530','science_pin':'enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d','model':{'phases':48,'predecessors_target':len(PREDS),'deterministic_online_states':51,'signed_linear_lift_coordinates':49,'rank_one_gate_correction':True},'tests':{}}
 out['tests']['six_axis']=run((1,2,3,4,5,6),5)
 out['tests']['single_axis']=run((1,),10)
+# Exact two-block Hankel certificate: A0=I, A1=2W,
+# A2=4W^2+(z-1)e(e^T W^2).  Schur complement is rank one.
+two_step_sources={s:sum(T in NEXT[mid] for mid in NEXT[s]) for s in range(48)}
+two_step_sources={s:n for s,n in two_step_sources.items() if n}
+assert len(two_step_sources)==9 and set(two_step_sources.values())=={1}
+# Over Q(x1,...,x6,z), (z-1)e(e^T W^2) has rank exactly one.
+# Therefore the 96x96 two-block Hankel has rank 48+1=49.
+out['hankel_minimality']={'block_hankel_levels':2,'H0_rank':48,'Schur_rank':1,
+ 'exact_full_hankel_rank':49,'linear_realization_dimension':49,
+ 'two_step_nonzero_source_columns':len(two_step_sources),
+ 'z_specialization_exception':'z=1 reduces gate-blind phase-resolved minimum to 48'}
 print(json.dumps(out,ensure_ascii=False,indent=2))
