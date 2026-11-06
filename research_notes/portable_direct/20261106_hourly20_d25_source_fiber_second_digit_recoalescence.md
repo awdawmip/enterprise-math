@@ -1,35 +1,30 @@
-# D25 — second-digit re-coalescence of distinct signed source directions
+# D25: nontrivial second-digit re-coalescence of distinct labelled sources
 
-Date: 2026-11-06. Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; scientific frozen pin `c47e13e4aba0e006366f989d6334d443f6333ae3`. Scope: author-side exact p-local source-polynomial observer, **NOT native crystalline LIFT**. Status: AUTHOR-PROVED / EXACT THREE-PRIME CERTIFICATES / UNREVIEWED / NOT_ADMITTED.
+2026-11-06 | Author-side finite exact certificate | UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_CHECKPOINT.
 
-## The quadratic fiber law
+Task RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT; frozen source c47e13e4aba0e006366f989d6334d443f6333ae3.
 
-Use the unchanged 3-source coefficient (U_j(x)=(-1/2)^jprod_iinom{s_i+x_i}{j}) for (s=(2m,3m,4m)), prime (p=6m+1ge7), and its weighted sum (mathcal W_p(v)=sum_{j<p}(6j+1)U_j(pv)). Let (A=sum_j(6j+1)
-abla U_j(0)inmathbf Z_{(p)}^3), (H=sum_j(6j+1)
-abla^2U_j(0)in M_3(mathbf Z_{(p)})). These are the exact labelled jets established in the preceding second-digit theorem.
+Retain the same 3-source U_j and weighted W_p from the earlier first-digit and p^3 second-jet notes, with lifted gradient A and Hessian H. For any p=6m+1 prime >=7, any p-local vectors v and delta satisfying A dot delta=0 (mod p), and any p-local scalar lambda:
 
-**Theorem.** For any p-local vector (delta) satisfying (Acdotdeltaequiv0pmod p), any p-local base (v) and any p-local (lambda), the second-digit difference has the explicit quadratic form
-[
- oxed{rac{mathcal W_p(v+lambdadelta)-mathcal W_p(v)}{p^2}
- equiv lambda k_p+lambda^2c_ppmod p,quad
- k_p=rac{Acdotdelta}{p}+v^{mathsf T}Hdelta,quad
- c_p=	frac12delta^{mathsf T}Hdelta.}
-]
-This follows by substituting (lambdadelta) in the proved p³ Taylor formula. For each fixed (delta,v), if (c_p
-e0) and (k_p
-e0), there is an explicit distinct nonzero second-digit **re-coalescence** parameter (lambda_*=-k_p/c_p). It preserves the full weighted scalar modulo p³, although it need not preserve the labelled source coefficients.
+```text
+[W_p(v+lambda*delta)-W_p(v)]/p^2
+     = lambda*k + lambda^2*c                    (mod p)
+k = (A dot delta)/p + v^T H delta               (mod p)
+c = (delta^T H delta)/2                         (mod p)
+```
 
-## Exact original-path tests and information-loss witness
+**Theorem:** The formula holds universally under the displayed kernel hypothesis, by substituting lambda*delta into the proved second-jet Taylor expansion. If both k and c are nonzero modulo p, its roots are lambda=0 and lambda=-k/c, two distinct p-adic source parameters with identical weighted scalar through p^3. This is a quadratic fiber law and does not assert all primes satisfy its nonzero hypotheses.
 
-For the original input (v_*=(-1/3,-1/2,-2/3)) and the observed first-digit kernel direction (delta=(1,0,1)), both (Acdotdeltaequiv0mod p) and the following triples are verified independently using the previously published p³ integer sum and the Hessian recursion:
+Take the original v*=(-1/3,-1/2,-2/3) and delta=(1,0,1), which is first-digit invisible at the following *exactly checked* primes.
 
-| p | k_p | c_p | nonzero λ_* | W_p(v_*+λ_*δ)-W_p(v_*) mod p³ | labelled j=1 change /p mod p |
+| p | k | c | nonzero lambda=-k/c (mod p) | full W difference (mod p^3) | local labelled j=1 difference divided by p (mod p) |
 |---:|---:|---:|---:|---:|---:|
 | 13 | 4 | 5 | 7 | 0 | 8 |
 | 19 | 10 | 10 | 18 | 0 | 5 |
 | 373 | 134 | 67 | 371 | 0 | 187 |
 
-In all three examples, the complete weighted scalar agrees **through p³** for two distinct parameterized source inputs. The original labelled j=1 term responds as (lambda_*,partial_delta U_1=lambda_*b/2
-e0mod p), so those inputs differ already at precision p² coefficientwise. This is an exact bounded certificate that two scalar digits do not reconstruct the full labelled source. It does not say that the authentic LIFT conjecture fails, nor that two scalar digits are insufficient for a separately proved smaller observation horizon.
+Proof of the final nonzero column: partial_delta U_1(0) = -b*(a+c)/2 = b/2 (mod p). Its changed p^2-level local source coefficient is p*lambda*b/2, nonzero at each listed nonzero lambda. Thus both the first and second scalar digits agree for distinct source inputs, while their labelled local coefficients already disagree modulo p^2. This is an explicit observer-scoped BRC information-loss certificate, not a claim that the authentic LIFT conjecture has failed.
 
-The attached independent check reuses the published `d25_source_second_jet_lift_20261106.py` implementation and asserts the six exact modular relations. A symbolic proof of the outer kernel relation (T_1+T_3=0mod p) for *all* p=6m+1 is still open (207/207 finite checks in the preceding result). The next mother-objective action is to retain the necessary source information when deriving the compensated Theta telescope, then obtain same-original-class native H0/B0, [X]U mod p² and Frobenius eta/kappa for the frozen (Delta_p-R_p) target.
+The adjacent program `d25_source_fiber_recoalescence_20261106.py` imports the separately published exact p^3 evaluator and jet routine, checks the displayed k,c,lambda, and independently compares complete weighted sums for all three primes.
+
+**Open:** Prove or refute universal T1+T3=0 for p=1(mod6); derive a source-faithful compensated Theta telescope; obtain original H0/B0, [X]U mod p^2 and genuine Frobenius eta/kappa for the frozen Delta_p-R_p=0 mod p (p=13,19 mod24). No native claim/open/checkpoint or independent mathematical review is claimed for these author-side results.

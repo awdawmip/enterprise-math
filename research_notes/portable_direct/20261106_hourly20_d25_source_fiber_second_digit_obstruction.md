@@ -1,51 +1,48 @@
-# D25 — second-digit obstruction on a verified first-digit source fiber
+# D25: p^3 second-jet repair of an invisible first-digit source direction
 
-Date: 2026-11-06. Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication `TP2-B6F4FC938FF94941C1B7`; frozen scientific pin `c47e13e4aba0e006366f989d6334d443f6333ae3`. Status: **AUTHOR-PROVED SECOND-JET FORMULA / THREE EXACT COUNTEREXAMPLES TO FIRST-DIGIT DESCENT / 207-PRIME FINITE CERTIFICATE / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_EXPERIMENT**.
+2026-11-06 | Author-side exact algebra and exact finite counterexamples | UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_EXPERIMENT.
 
-## Exact second-jet lift of the first-digit source observer
+Task RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT; publication TP2-B6F4FC938FF94941C1B7; frozen input c47e13e4aba0e006366f989d6334d443f6333ae3.
 
-Use the same full 3-source labelled p-local polynomial
-[
- U_j(x)=(-1/2)^jprod_{i=1}^3inom{s_i+x_i}{j},quad s=(2m,3m,4m),quad p=6m+1ge7,quad 0le j<p,
-]
-and weighted sum (mathcal W_p(v)=sum_j(6j+1)U_j(pv)). Define the *integrally lifted* gradient (A_i=sum_j(6j+1)partial_{x_i}U_j(0)inmathbb Z_{(p)}) and full symmetric Hessian (H_{ik}=sum_j(6j+1)partial_{x_i}partial_{x_k}U_j(0)inmathbb Z_{(p)}). Distinguish (Amod p^2) from the previously recorded first-digit row (T=Amod p).
+Use the three labelled source factors and W_p(v) defined in `20261106_hourly20_d25_source_tangent_first_digit_fibers.md`, now computed modulo p^3, for any prime p=6m+1>=7.
 
-**Theorem (all p=6m+1>=7, all p-local v,δ):**
-[
- oxed{mathcal W_p(v+delta)-mathcal W_p(v)equiv
- p Acdotdelta+p^2(v^{mathsf T}Hdelta+	frac12delta^{mathsf T}Hdelta)pmod{p^3}.}
-]
-Because j<p, every (inom{s_i+x_i}{j}) has p-integral polynomial coefficients; expand termwise to total order two, and all higher terms acquire p³. The second-order term is the full labelled Hessian, including j with one or two zero source factors; no quotient by a vanishing base coefficient is used.
+Define the *p^2-lifted* source gradient A and the *p-reduced* full source Hessian H, with weights retained:
 
-If (Tcdotdelta=0mod p), then the digit-two difference is *well defined*:
-[
- oxed{rac{mathcal W_p(v+delta)-mathcal W_p(v)}{p^2}
- equivrac{Acdotdelta}{p}+v^{mathsf T}Hdelta+	frac12delta^{mathsf T}Hdeltapmod p.}
-]
-The division in the first term uses a p-integral numerator because (delta) is a first-digit kernel vector; compute (Amod p^2) before dividing. The formula is conditional on this exact kernel property, which has been verified at the specified primes, and does not assert it universally for (delta=(1,0,1)).
+```text
+A_i  = SUM_{j<p} (6j+1)*partial_i U_j(0)         (mod p^2)
+H_ik = SUM_{j<p} (6j+1)*partial_i partial_k U_j(0) (mod p)
+T_i  = A_i (mod p)
+```
 
-## Three exact counterexamples to discarding the outer source direction
+**General theorem** (all p as above; v and delta p-local):
 
-Take the original rational p-adic source tangent (v_*=(-1/3,-1/2,-2/3)) and the first-digit invisible direction (delta=(1,0,1)). The previous exact first-digit row certificate proved (Tcdotdelta=0) at p=13,19,373; a first-digit projection identifies the two deformed sources. The new independent direct mod-p³ calculation and independent second-derivative/Hessian recursion agree:
+```text
+W_p(v+delta)-W_p(v)
+  = p*(A dot delta)
+    + p^2*(v^T H delta + (delta^T H delta)/2)       (mod p^3).
+```
 
-| p | (A_1,A_2,A_3) mod p² | (H_11,H_13,H_33) mod p | (A·δ)/p | v_*ᵀ H δ | δᵀHδ/2 | second-digit difference mod p |
+Proof: Expand every binomial coefficient U_j(pv+pdelta) to total Taylor order two over the p-local rational ring; j! and 2 are p-units. The discarded terms have factor p^3. The Hessian includes all regular, one-carry and two-carry source contributions without dividing by a vanishing coefficient.
+
+If T dot delta=0 (mod p), then A dot delta is divisible by p and a well-defined second-digit difference is:
+
+```text
+Q_p(v,delta) = (A dot delta)/p + v^T H delta
+               + (delta^T H delta)/2              (mod p).
+```
+
+The division must occur after lifting A modulo p^2; replacing A by T loses the required digit.
+
+For the original tangent v*=(-1/3,-1/2,-2/3), at each of p=13,19,373 the previously verified first-digit kernel contains delta=(1,0,1). The two independent mod-p^3 and derivative-recursion implementations give:
+
+| p | A=(A1,A2,A3) mod p^2 | H11,H13,H33 mod p | (A dot delta)/p | v*^T H delta | (delta^T H delta)/2 | Q mod p |
 |---:|---|---|---:|---:|---:|---:|
 | 13 | (75,168,81) | (11,11,3) | 12 | 5 | 5 | **9** |
 | 19 | (232,338,110) | (5,12,10) | 18 | 11 | 10 | **1** |
 | 373 | (126122,130625,80147) | (175,299,107) | 180 | 327 | 67 | **201** |
 
-In particular, at p=373:
-[
- mathcal W_{373}(v_*+delta)-mathcal W_{373}(v_*)
- equiv 201cdot373^2
-otequiv0pmod{373^3}.
-]
-All three examples have equal divided first digit (mathcal W_p/pmod p), yet differing (mathcal W_p/pmod p^2). These are **exact finite counterexamples to the assertion that the first-digit scalar-fiber quotient preserves the next digit** for this family. They do not refute the frozen LIFT conjecture: (mathcal W_p(v)) is an auxiliary source deformation, not the authenticated native H0/B0/Frobenius (Delta_p).
+For example the complete weighted source sums differ at p=373 by 201*373^2 modulo 373^3. Thus the first-digit scalar fiber quotient fails to preserve the *next* digit on all three exact instances. This is a scoped failure of the auxiliary source family projection, not a counterexample to native LIFT or the frozen Delta-R target.
 
-## Independent computation and source preservation
+Companion program `d25_source_second_jet_lift_20261106.py` evaluates A mod p^2 and H mod p using polynomial recurrences (including B'', without dividing by a vanishing B), and independently evaluates the entire source-deformed sum mod p^3. All 207 primes p=1(mod6), 7<=p<=3000 passed these exact checks; the delta second digit was nonzero in 207/207 finite cases. No universal nonzero statement is inferred.
 
-The companion Python standard-library certificate evaluates (i) the gradient modulo p² and full Hessian modulo p using derivative recurrences (B'_{j+1}=[(s-j)B'_j+B_j]/(j+1)), (B''_{j+1}=[(s-j)B''_j+2B'_j]/(j+1)), and (ii) the original weighted polynomial *independently* modulo p³. It checked all 207 primes p=1 mod6, 7<=p<=3000: **207/207 PASS** for second-jet identity and zero first-digit difference of the selected direction, with nonzero second-digit differences in 207/207 finite cases. The latter counts are finite observations; the universal outer-source kernel remains a conjecture.
-
-**BRC precision conclusion for the declared operation horizon:** The first-digit quotient by the verified kernel cannot be reused as an information-preserving observer for the second-digit evaluation on these examples without a repair coordinate. The displayed full (Amod p^2) and (Hmod p), together with source tangent/weights/valuation and operation, form a valid sufficient source tensor for this p³ Taylor step. This is a scoped factorization certificate, not a claim that these tensors reconstruct native crystalline Frobenius.
-
-**Next exact unit:** determine whether (T_1+T_3=0mod p) holds for all p=6m+1, then derive a general formula for the second-digit repair (Q_p(v_*,(1,0,1))), keeping the original regular/one-carry provenance. Separate native H0/B0, [X]U mod p², eta/kappa and (Delta_p-R_p) remain the mother-objective obligations. Source claimant/session protected staging still requires lawful transition; these are only author-side GitHub artifacts.
+**BRC source/precision accounting:** The first-digit total is not a lossless quotient for an operation that later observes the second digit. For the declared p^3 Taylor operation, retain A mod p^2, H mod p, source tangent, index/weights and carry provenance. The exact minimal repair of the native Frobenius/Delta-R interface remains open. The next portable task is a symbolic proof/counterexample of T1+T3=0 and a link between this labelled second-jet map and the original compensated Theta regular/one-carry port.
