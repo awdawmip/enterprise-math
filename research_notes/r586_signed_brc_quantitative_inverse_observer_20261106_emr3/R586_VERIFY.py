@@ -4,8 +4,10 @@ The numerical V(k) table is exploratory, not a root-isolation proof.
 from fractions import Fraction as F
 from math import comb, sqrt
 
+
 def C(n):
     return comb(2*n, n)//(n+1)
+
 
 def H(k, s):
     return comb(2*k+1+s, 2*s)*sum(
@@ -13,10 +15,12 @@ def H(k, s):
         for q in range(min(k, (s-1)//2)+1)
     )
 
+
 def spectral_coefficients(k):
     d=2*k-1
     base=H(k,2)
     return [F(H(k,j+2),base) for j in range(d+1)]
+
 
 def t2_newton(k):
     d=2*k-1
@@ -25,6 +29,7 @@ def t2_newton(k):
     # elementary inverse symmetrics come from the reversed coefficients.
     en=F(c[-2],c[-1]); e2=F(c[-3],c[-1]);
     return en*en-2*e2
+
 
 def lower_V_from_T2(k):
     d=2*k-1
