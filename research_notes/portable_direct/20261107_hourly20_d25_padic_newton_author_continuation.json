@@ -1,0 +1,47 @@
+{
+  "record_kind": "AUTHOR_SIDE_PORTABLE_CONTINUATION",
+  "date": "2026-11-07",
+  "timezone": "Asia/Hong_Kong",
+  "status": "AUTHOR_SIDE_PROVED_EXACT_FINITE_VERIFIED_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE_CHECKPOINT",
+  "logical_research_lane_label": "chatgpt-research-hourly-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_input_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Delta_p-R_p=0 mod p, p mod 24 in {13,19}; OPEN",
+  "predecessor_author_note": "research_notes/portable_direct/20261107_hourly20_d25_newton_provenance_exact_split.md",
+  "new_proved_units": [
+    "For all p=6m+1 primes and s>=1, p auxiliary scalar samples modulo p^s reconstruct normal and carry aggregate polynomials by a GL_p(Z_p) unimodular map, without digit loss.",
+    "Normal r<=4m and carry r>4m Newton coefficients yield exact source-separated derivatives modulo p^s with only p-unit denominators.",
+    "p scalar samples are optimal in unrestricted degree-bounded normal/carry pair class; explicit p-1-sample kernel G(t)=product_{i=0}^{p-2}(t-i)."
+  ],
+  "finite_validation": {
+    "full_reconstruction": "20/20 p=7,13,19,31,37,61,73,109,229,373 and s=2,3; original samples, Newton reconstruction and independent derivatives agree",
+    "scan": "611/611 primes 7<=p<=10000 p=1(mod6): auxiliary F'(4m) has v_p exactly one, finite exact observation",
+    "p373": "N'=62372, R'=4768, F'=67140=373*180 modulo 373^2; p^3 crosschecked",
+    "wieferich": "p=1093 q_p(2)=0, second digit 491; p=3511 q_p(2)=0, second digit 1678"
+  },
+  "proof_path": "research_notes/portable_direct/20261107_hourly20_d25_padic_newton_unimodular_source_codec.md",
+  "verification_paths": [
+    "research_notes/portable_direct/d25_padic_source_newton_20261107.py",
+    "research_notes/portable_direct/d25_padic_tangent_scan_20261107.py"
+  ],
+  "unfinished_unit": "Derive universal first-digit tangent cancellation and the second-digit correction; native p373 signed H0/B0/Frobenius benchmark still pending separately.",
+  "next_action": "Analyze source-labelled second-digit carry formula, test new conjectures against Wieferich witnesses; require pinned observer bridge before claiming native signed LIFT result.",
+  "prior_source_checkpoint_preserved": true,
+  "pending_original_request_ids": [
+    "em-h20-20261106-1324-d25-task-r13",
+    "em-h20-20261106-1324-d25-cont-r13"
+  ],
+  "control_fault": "BACKEND_IDENTITY_OR_VERSION_MISMATCH operation_sent=false, Site CONFIGURED_NOT_LIVE_VERIFIED and research_authority_granted=false",
+  "control_support": "awdawmip/enterprise-math#1558",
+  "native_session_claim_run": "UNVERIFIED",
+  "native_checkpoint_asserted": false,
+  "review_asserted": false,
+  "activity_registration": "REGISTER_PENDING",
+  "do_not_repeat": [
+    "re-prove existing mod-p Newton source-band split",
+    "re-report finite p-adic tests absent changed input",
+    "replay native rejected write during identity/version mismatch"
+  ]
+}
