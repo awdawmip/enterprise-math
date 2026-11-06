@@ -1,0 +1,59 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "date": "2026-11-06",
+  "line": "PREFIX-537",
+  "science_pin": "enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "observer": "48 rooted exact Z[q,z] joint BRC-gate polynomials",
+  "scope_depths": "0..24",
+  "independent_root_depth_equalities": 1200,
+  "depth_24": {
+    "total_terms_48": 1876,
+    "min_terms_per_root": 36,
+    "max_terms_per_root": 41,
+    "rooted_distributions": 26,
+    "max_gate_degree": 6,
+    "max_coefficient_bits": 61
+  },
+  "three_seed": {
+    "roots_by_sign": {
+      "0": 40,
+      "1": 4,
+      "-1": 4
+    },
+    "max_intermediate_terms_by_sign": {
+      "0": 1880,
+      "1": 1901,
+      "-1": 1900
+    }
+  },
+  "root_0_depth_6": [
+    [
+      0,
+      0,
+      "14592"
+    ],
+    [
+      1,
+      0,
+      "28800"
+    ],
+    [
+      1,
+      1,
+      "960"
+    ],
+    [
+      2,
+      0,
+      "2176"
+    ],
+    [
+      2,
+      1,
+      "128"
+    ]
+  ],
+  "validation": "48 independent raw labeled-path DPs vs three shared polynomial lifts; complete coefficient equality and support checks",
+  "review": "AUTHOR_EXACT_CHECKED_UNREVIEWED",
+  "full_execution_json": "Produced by executing PREFIX537_compact_exact_certificate.py; report and linked local file hold full per-depth statistics"
+}
