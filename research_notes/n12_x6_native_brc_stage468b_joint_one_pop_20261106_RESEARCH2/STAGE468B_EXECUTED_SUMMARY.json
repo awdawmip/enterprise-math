@@ -1,0 +1,92 @@
+{
+  "source": "Executed locally on 2026-11-06 against the exact Python source STAGE468B.py; signed X6 native 12-dir future observer, original ternary history",
+  "configurations": [
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      4,
+      6
+    ]
+  ],
+  "h_range": "all integers 0..n per configuration",
+  "configs": 33,
+  "fiber_configuration_mass_checks": 53473,
+  "multi_history_fiber_configuration_cases": 9592,
+  "future_pairs_same_key_passed": 1538,
+  "future_pairs_different_key_passed": 12789,
+  "total_future_pairs_compared": 14327,
+  "all_assertions_passed": true,
+  "witnesses": {
+    "lambda": {
+      "m": 2,
+      "n": 4,
+      "h": 1,
+      "P": "AB",
+      "Q1": "AACA",
+      "Q2": "ACAA",
+      "separation": [
+        "POP_Q"
+      ]
+    },
+    "P_m_minus_1": {
+      "m": 4,
+      "n": 5,
+      "h": 0,
+      "P1": "AABA",
+      "P2": "ABAA",
+      "Q": "AAAAA",
+      "separation": [
+        "POP_P"
+      ]
+    },
+    "e_m": {
+      "m": 3,
+      "n": 4,
+      "h": 0,
+      "P": "AAA",
+      "Q1": "AABA",
+      "Q2": "ABAA",
+      "separation": [
+        "POP_P"
+      ]
+    }
+  },
+  "large_closed_form_alternating": {
+    "k": 50,
+    "b": 23,
+    "m": 101,
+    "n": 110,
+    "classes": 2,
+    "B_last_mass": "49699896548176",
+    "C_last_mass": "58343356817424",
+    "total": "108043253365600"
+  },
+  "large_closed_form_match_bit": {
+    "m": 64,
+    "n": 80,
+    "h": 15,
+    "classes": 2,
+    "q_m_B_mass": 1,
+    "q_m_A_mass": 62,
+    "total": 63
+  },
+  "scope": "Exact exhaustive testing of all original ternary histories and complete initial-observer fibers for the six listed (m,n); exact closed-form combinatorial populations for two unbounded-parameter families. Not an independently reviewed result."
+}
