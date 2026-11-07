@@ -90,7 +90,10 @@ def test_general_current_router_remains_available_only_after_free_candidate_free
     substrate = read("definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md")
     role = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
     assert "The full current router becomes available in Phase B" in substrate
-    assert "Only after freeze may current/prior project research context be opened for Phase-B audit." in role
+    role_text = " ".join(role.split())
+    assert "Only after freeze may current/prior project agendas and general result catalogs be opened for Phase-B audit." in role_text
+    assert "The precise conditional definition/tool lookup for an independently formed, relevant question below remains a Phase-A operation." in role_text
+    assert "do not preload a whole result/tool inventory or perform Phase-B comparison and dedup at this point" in role_text
     current = read("definitions/00_CURRENT_NATIVE_FOUNDATION.md")
     # The richer router still owns current-result lookup; only its Phase-A visibility changed.
     assert "ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md" in current

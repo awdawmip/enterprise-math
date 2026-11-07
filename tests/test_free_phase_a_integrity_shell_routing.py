@@ -39,7 +39,8 @@ def test_free_role_and_anti_anchor_keep_full_integrity_policy_triggered_not_defa
     anti = read("research_roles/EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.md")
 
     assert SUBSTRATE in role
-    assert "foundational/native-semantic typing only when required" in role
+    assert "mandatory P000/Heartbeat/residual-fidelity/joint-preservation/Weighted-BRC commitments" in role
+    assert "further exact native-semantic details when actually required" in role
     assert "Phase B — mandatory tool dedup and reuse resolution" in role
 
     assert SUBSTRATE in anti
@@ -48,8 +49,8 @@ def test_free_role_and_anti_anchor_keep_full_integrity_policy_triggered_not_defa
 
     # The current hot contracts intentionally do not make the standalone shell a
     # mandatory default read. It remains an active zero-example rigor artifact,
-    # while Phase-A default input is the primitive substrate plus triggered
-    # integrity rules. This preserves the newer P000-bound/global minimal-packet
+    # while Phase-A default input includes the primitive substrate's mandatory
+    # foundation commitments plus triggered integrity rules. This preserves the P000-bound/global minimal-packet
     # design instead of reintroducing an older default-read edge through a test.
     assert SHELL not in role
     assert SHELL not in anti
