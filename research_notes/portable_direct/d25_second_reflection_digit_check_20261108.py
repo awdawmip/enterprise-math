@@ -67,11 +67,36 @@ def check(p):
     assert next_lift==(next_w+correction)%p
     return (p,m,R,Q//p2,slow,smid,correction,next_w,next_lift)
 
+def middle_normalization(p):
+    """Compute the new H/K middle port without using any intermediate b coefficients."""
+    m = (p-1)//6
+    q_m = comb(2*m,m)*pow(2,-m,p)%p
+    c = [0]*(2*m+1)
+    c[1] = pow(10,-1,p)
+    for a in range(1,2*m):
+        c[a+1] = c[a]*36*a*a*pow((6*a+5)*(3*a+2),-1,p)%p
+    H = [0]*(2*m+1)
+    U = V = 0
+    for i in range(1,2*m+1):
+        U = (U+c[i])%p
+        V = (V+i*c[i])%p
+        H[i] = ((6*i+1)*U-6*V)%p
+    K = 1
+    sigma = 0
+    for r in range(1,m+1):
+        sigma = (sigma+K*H[m+r])%p
+        if r<m:
+            K = K*3*r*(6*r+1)*pow((6*r+5)**2,-1,p)%p
+    smid = q_m*pow(25,-1,p)*sigma%p
+    return (p,q_m,sigma,smid)
+
 if __name__ == "__main__":
     primes = [p for p in range(13,2001) if p%24 in (13,19) and is_prime(p)]
     assert len(primes)==77
     rows = [check(p) for p in primes]
+    k_rows = [middle_normalization(p) for p in primes]
+    assert all(k_rows[i][3]==rows[i][5] for i in range(77))
     for p in (13,19,37,43,67,211,373):
         print(next(row for row in rows if row[0]==p))
     assert all(a[4]!=0 and a[5]!=0 and a[6]!=0 for a in rows)
-    print("PASS: 77 frozen-prime exact second reflection and LIFT-2 certificates")
+    print("PASS: 77 frozen-prime exact second reflection, LIFT-2 and normalized K/H middle-port certificates")

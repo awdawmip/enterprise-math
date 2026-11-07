@@ -141,3 +141,56 @@ The independent middle-high contribution is material even though the original fi
 This is an author-side proof and independently checkable arithmetic, **UNREVIEWED / NOT_ADMITTED**, not a Source-native checkpoint. The native same-original-class \(p=373\) H0/B0 divided-power \([X]U\), Frobenius direction and signed Hesse \(\kappa\) remain pending under issue #1559; its owner remains unassigned in the last read. The frozen publication and scientific pin are unchanged. Next exact inquiry: compare the explicit low-high, middle-high and original reflected ports against original signed \((ZH_0-1)/p\), \(SH_0\), \(ZH_1\), \(\Phi_{xx}\), first for \(p=19,373\), then seek a Fricke/Cartier proof.
 
 Native target request **onhour11-20261106-1400-exact-research-lane-continuation** is preserved. On this turn status/reconcile returned **BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE**, operation_sent=false; Site reported **CONFIGURED_NOT_LIVE_VERIFIED**, research_authority_granted=false. No own Source session/claim/run/checkpoint is verified. Current required execution configuration is the authorized Site-bound backend client and secure credential, distinct from the maintenance lane identity.
+
+
+## Second research unit — explicit normalized middle-high kernel
+
+The newly identified middle band has an independent closed, reusable normalization in terms of the original terminal Hasse coefficient, **without using any full b-series or fitted Delta**. For \(1\le r\le m\), write \(u_{m+r}=b_{m+r}/p\bmod p\), and \(q_m=2^{-m}\binom{2m}{m}\), which is a unit. Then
+
+\[
+\boxed{u_{m+r}=\frac{q_m}{50}K_r\pmod p,\qquad
+K_1=1,\qquad
+K_{r+1}=\frac{3r(6r+1)}{(6r+5)^2}K_r.}
+\tag{MID-KERNEL}
+\]
+
+Equivalently,
+\[
+K_r=\frac{(r-1)!(7/6)_{r-1}}{2^{r-1}(11/6)_{r-1}^{\,2}}\pmod p.
+\]
+
+**Proof.** The exact b-series recurrence is \(b_{k+1}/b_k=(6k+1)(3k+1)/(36(k+1)^2)\). At \(k=m\), the factor \(6m+1=p\) gives
+\[
+u_{m+1}=\frac{b_m(3m+1)}{36(m+1)^2}
+\equiv\frac{q_m}{50}\pmod p,
+\]
+since \(3m+1\equiv1/2\), \(36(m+1)^2\equiv25\). For \(k=m+r\) with \(1\le r<m\), reduce the b ratio:
+\[
+\frac{u_{m+r+1}}{u_{m+r}}\equiv
+\frac{(6r)((6r+1)/2)}{(6r+5)^2}
+=\frac{3r(6r+1)}{(6r+5)^2}\pmod p.
+\]
+The product formula follows by elementary Pochhammer multiplication. Every denominator is a unit for \(1\le r<m\). QED.
+
+Extend the *original* reflected H-observer, without changing its definition, from \(0\le i\le m\) to \(0\le i\le 2m\):
+\[
+H_i=\sum_{a=1}^{i}(1+6(i-a))c_a.
+\]
+The entire middle-high source becomes the one-dimensional exact finite-field readout
+\[
+\boxed{S_{\mathrm{mid}}=\frac{q_m}{25}\sum_{r=1}^{m}K_rH_{m+r}\pmod p.}
+\tag{MID-READOUT}
+\]
+This gives a direct bridge from the earlier original reflected/adjoint H-kernel to the previously unseen middle-high cutoff sector, retaining the extension \(H_{m+1},\ldots,H_{2m}\) as distinct observable data.
+
+The updated checker evaluates MID-READOUT with **only** \(q_m\), the c recurrence, \(K_r\) and finite prefix moments for H, and compares against the independently obtained full-cutoff S_mid for all 77 target primes \(p\le2000\); every comparison passes. In particular:
+
+| p | q_m | sum(K_r H_(m+r)) | S_mid |
+|---:|---:|---:|---:|
+| 13 | 8 | 3 | 2 |
+| 19 | 12 | 1 | 2 |
+| 43 | 8 | 21 | 5 |
+| 67 | 5 | 8 | 15 |
+| 373 | 13 | 15 | 157 |
+
+The next proof interface can now consume the independent normalized K-H middle port and the low-high d/v correction simultaneously; the native p=373 requirements remain exactly those listed above.
