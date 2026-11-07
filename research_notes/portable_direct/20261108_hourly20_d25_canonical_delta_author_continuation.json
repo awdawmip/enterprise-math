@@ -1,0 +1,55 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE_REGISTER_PENDING",
+  "lane": "chatgpt-research-hourly-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "taskbook_blob_sha1": "53a3ef039325534e3715add837f0eee332289984",
+  "accepted_first_digit": "RR-AC9B3BA5BD277CE043F5",
+  "mother_objective": "Prove frozen Delta_p-R_p=0 mod p for all p=13,19 mod24. OPEN. Do not replace with auxiliary W_p supercongruence.",
+  "durable_predecessor_author_side": [
+    "2a523115a7ffd317ad04f4e4e9b602fc21c247d8",
+    "15ea2b60d77b4fd10eaefef98c78b9ca7fb8b911"
+  ],
+  "author_side_completed": [
+    "Derived precise direct frozen-observer identity Delta_p=(Z*H0-1)/p + S*H0 + Z*H1 modulo p from exact A Gauss q/L/T and S0/S1/S2 p-adic source ports; H0=(1+12D)Q, H1=(1+12D)(L+T), Z=(Q+pL+pT)/p, S=S0+S1+S2.",
+    "Derived exact equivalent remaining certificate Delta_p-R_p=(Z*H0-1)/p+S*H0+Z*H1-R_p; no proof of vanishing, no claim of strictly smaller complexity.",
+    "Independently computed g and h from original 216 recurrence mod p^3/p^2 and checked direct divided Delta against port formula for all 94 target primes p<2500; examples p13=0,p19=12,p43=15,p67=21,p373=196. No R_p values were inferred from Delta."
+  ],
+  "author_evidence": [
+    {
+      "path": "research_notes/portable_direct/20261108_hourly20_d25_canonical_delta_source_ports.md",
+      "blob_sha1": "b8decab146961170a5eb6f3312b9773f7eebc788",
+      "status": "PROVED_SOURCE_REFORMULATION_NOT_ADMITTED"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_canonical_delta_gauss_ports_20261108.py",
+      "blob_sha1": "9500836e863aa4b0262805ea8dc94c1d026f168a",
+      "status": "LOCAL_EXECUTED_94_PRIMES_PASS"
+    }
+  ],
+  "smallest_unfinished_unit": "Obtain the originally defined R_p functional and prove or refute the exact source-resolved formula (Z H0-1)/p+S H0+Z H1=R_p modulo p uniformly. Current reformulation alone is NOT a strict reduction or proof.",
+  "next_exact_action": "Read exact frozen R_p representation from original Task/JT2 parent provenance; compare its three source terms at p19,p373 and derive a uniform p-adic cancellation using explicit retained Phi_xx/cutoff and Cartier/Wronskian.",
+  "do_not_repeat": [
+    "accepted D24 UR/JT0",
+    "auxiliary unweighted A/B bare first digit",
+    "finished first/second Gauss port coefficient scans",
+    "noncanonical derivative-ratio candidate lift",
+    "original-native H0/B0 p373 #1559"
+  ],
+  "native_control": {
+    "original_requests": [
+      "em-h20-20261106-1324-d25-task-r13",
+      "em-h20-20261106-1324-d25-cont-r13"
+    ],
+    "result": "WAITING_RESOURCE / EVENT_COLLECTION_IO after same-ID reconcile QUEUED; no success",
+    "old_session_claim_run_uploads": "UNKNOWN_PRESERVE",
+    "activity": "REGISTER_PENDING",
+    "checkpoint": "NOT_WRITTEN",
+    "support": "#1558"
+  },
+  "science_status": "EXACT_ALGEBRA_PROVED / EXACT_94_PRIME_DELTA_CHECK / R_P_COMPARISON_UNDONE / UNREVIEWED_NOT_ADMITTED"
+}
