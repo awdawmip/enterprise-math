@@ -50,7 +50,6 @@ def histogram_tv(n):
 def event_tv_difference(n):
     return (1-P1[2])**n - (1-P0[2])**n
 
-
 assert P0[1] == P1[1] == Z
 assert all(sum(x) == 1 for x in (P0, P1))
 assert F(1, 2)*F(1, 2) == Z
