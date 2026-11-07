@@ -95,8 +95,10 @@ def solve(fid,k):
                    if h in (6,small_h) and sig in (16,32) else 0)
         rank_bits=(sum(1<<(15+i) for i,mask in enumerate(clauses)
                        if sig&mask) if h==big_h else 0)
-        term[cur]|=(early_key_bit|pair_bits|rank_bits if h<=6
-                    else label[h,sig])
+        # Retained-key occurrence can be witnessed in H7, not only H4-H6.
+        # Keep key-use labels independent of the horizon/signature switch.
+        term[cur]|=(early_key_bit|
+                    (pair_bits|rank_bits if h<=6 else label[h,sig]))
     # Each terminal's 19-label mask is an optional selected complete word.
     # Subtrees combine by OR-convolution with min-plus cost.
     dp=[None]*len(nodes)
