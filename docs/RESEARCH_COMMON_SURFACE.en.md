@@ -351,6 +351,7 @@ Every `tools/*.py` file must have exactly one machine/human owner surface: Commo
 
 - `tools/apply_coordinate_address_contract.py`
 - `tools/audit_branch_lifecycle.py`
+- `tools/build_em_foundation_startup.py`
 - `tools/check_bilingual_pairs.py`
 - `tools/check_coordinate_regressions.py`
 - `tools/check_exact_arithmetic_policy.py`

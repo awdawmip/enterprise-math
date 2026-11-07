@@ -351,6 +351,7 @@ PR #274 / `main@12500185f4c222ae49816e7b844e36a82e3ac8fe` 已 canonicalize：
 
 - `tools/apply_coordinate_address_contract.py`
 - `tools/audit_branch_lifecycle.py`
+- `tools/build_em_foundation_startup.py`
 - `tools/check_bilingual_pairs.py`
 - `tools/check_coordinate_regressions.py`
 - `tools/check_exact_arithmetic_policy.py`
