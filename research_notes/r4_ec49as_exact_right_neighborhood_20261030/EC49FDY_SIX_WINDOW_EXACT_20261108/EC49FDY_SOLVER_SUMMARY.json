@@ -1,0 +1,160 @@
+{
+  "schema": "EC49FDY_FULL_H4_H9_INTEGER_OPTIMA_V1",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent_witness_commit": "f60cfd6ca32b442661622bb0382dbbd6449778f0",
+  "last_prior_model_commit": "f8b52fc60b408f5fc04c3ab34bd5e8bbc43e4037",
+  "scope": "Eight fixed H2 H3 seeds and exact three-phase complete BRC key schedule. Exhaustive literal H4..H9 candidate enumeration, one path per necessary signature group, signed native prefix-union objective.",
+  "independent_validation": {
+    "systems": 8,
+    "rank9_window_checks": 64,
+    "native_words": 192,
+    "exact_arithmetic": "Fraction 9-history rank and signed path lengths",
+    "source": "local VERIFY_EC49FDY.py adapted from verified EC49FDW independent observer"
+  },
+  "cases": [
+    {
+      "index": 0,
+      "last_key": [
+        4,
+        6,
+        1
+      ],
+      "early_cost": 35,
+      "words": 1180,
+      "free_prefixes": 8081,
+      "constraints": 19597,
+      "additional_edges": 83,
+      "total_cost": 118,
+      "HiGHS_status": "OPTIMAL",
+      "MIP_dual_bound": 83,
+      "MIP_primal": 83,
+      "MIP_gap": 0
+    },
+    {
+      "index": 1,
+      "last_key": [
+        5,
+        5,
+        1
+      ],
+      "early_cost": 35,
+      "words": 3042,
+      "free_prefixes": 19361,
+      "constraints": 51063,
+      "additional_edges": 83,
+      "total_cost": 118,
+      "HiGHS_status": "OPTIMAL",
+      "MIP_dual_bound": 83,
+      "MIP_primal": 83,
+      "MIP_gap": 0
+    },
+    {
+      "index": 2,
+      "last_key": [
+        7,
+        3,
+        1
+      ],
+      "early_cost": 35,
+      "words": 3042,
+      "free_prefixes": 19361,
+      "constraints": 51063,
+      "additional_edges": 83,
+      "total_cost": 118,
+      "HiGHS_status": "OPTIMAL",
+      "MIP_dual_bound": 83,
+      "MIP_primal": 83,
+      "MIP_gap": 0
+    },
+    {
+      "index": 3,
+      "last_key": [
+        8,
+        2,
+        1
+      ],
+      "early_cost": 35,
+      "words": 1180,
+      "free_prefixes": 8081,
+      "constraints": 19597,
+      "additional_edges": 83,
+      "total_cost": 118,
+      "HiGHS_status": "OPTIMAL",
+      "MIP_dual_bound": 83,
+      "MIP_primal": 83,
+      "MIP_gap": 0
+    },
+    {
+      "index": 4,
+      "last_key": [
+        4,
+        6,
+        1
+      ],
+      "early_cost": 35,
+      "words": 1180,
+      "free_prefixes": 8081,
+      "constraints": 19597,
+      "additional_edges": 85,
+      "total_cost": 120,
+      "HiGHS_status": "OPTIMAL",
+      "MIP_dual_bound": 85,
+      "MIP_primal": 85,
+      "MIP_gap": 0
+    },
+    {
+      "index": 5,
+      "last_key": [
+        5,
+        5,
+        1
+      ],
+      "early_cost": 35,
+      "words": 3042,
+      "free_prefixes": 19361,
+      "constraints": 51063,
+      "additional_edges": 85,
+      "total_cost": 120,
+      "HiGHS_status": "OPTIMAL",
+      "MIP_dual_bound": 85,
+      "MIP_primal": 85,
+      "MIP_gap": 0
+    },
+    {
+      "index": 6,
+      "last_key": [
+        7,
+        3,
+        1
+      ],
+      "early_cost": 35,
+      "words": 3042,
+      "free_prefixes": 19361,
+      "constraints": 51063,
+      "additional_edges": 85,
+      "total_cost": 120,
+      "HiGHS_status": "OPTIMAL",
+      "MIP_dual_bound": 85,
+      "MIP_primal": 85,
+      "MIP_gap": 0
+    },
+    {
+      "index": 7,
+      "last_key": [
+        8,
+        2,
+        1
+      ],
+      "early_cost": 35,
+      "words": 1180,
+      "free_prefixes": 8081,
+      "constraints": 19597,
+      "additional_edges": 85,
+      "total_cost": 120,
+      "HiGHS_status": "OPTIMAL",
+      "MIP_dual_bound": 85,
+      "MIP_primal": 85,
+      "MIP_gap": 0
+    }
+  ]
+}
