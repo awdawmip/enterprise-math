@@ -218,3 +218,240 @@ def rabin_irreducibility_certificate(poly, variable, p, specialization):
         "rabin_irreducible": True
     }
 
+def main():
+    assert len(PHASES) == 48 and len(ACTIONS) == 6
+    assert len(ROOTS) == 9
+    rows = native_rows(ZERO_ROOT)
+    for root in ROOTS:
+        assert native_rows(root) == rows
+    ids, quotient, growth = weighted_quotient(rows)
+    assert len(ids) == 96
+    assert (len(quotient), growth) == (37, [1, 4, 13, 21, 33, 37])
+
+    adjacency = [set() for _ in quotient]
+    for i, row in enumerate(quotient):
+        for (target, a, b, gate), multiplicity in row.items():
+            if multiplicity:
+                adjacency[i].add(target)
+                adjacency[target].add(i)
+    color = [None] * 37
+    for start in range(37):
+        if color[start] is not None:
+            continue
+        color[start] = 0
+        todo = deque([start])
+        while todo:
+            i = todo.popleft()
+            for j in adjacency[i]:
+                if color[j] is None:
+                    color[j] = color[i] ^ 1
+                    todo.append(j)
+                else:
+                    assert color[j] != color[i]
+    left = [i for i in range(37) if color[i] == 0]
+    right = [i for i in range(37) if color[i] == 1]
+    assert (len(left), len(right)) == (17, 20)
+    left_index = {state: i for i, state in enumerate(left)}
+    right_index = {state: i for i, state in enumerate(right)}
+
+    x, y, z, lam, u, v = S.symbols("x y z L u v")
+    A = S.zeros(17, 20)
+    B = S.zeros(20, 17)
+    gate_sources = Counter()
+    for i, row in enumerate(quotient):
+        for (j, a, b, gate), multiplicity in row.items():
+            term = multiplicity * x**a * y**b * z**gate
+            if color[i] == 0:
+                A[left_index[i], right_index[j]] += term
+            else:
+                B[right_index[i], left_index[j]] += term
+            if gate:
+                assert j == 5 and a == b == 0
+                gate_sources[i] += multiplicity
+    assert gate_sources == Counter({4: 1, 15: 1, 17: 1})
+
+    characteristic = (A * B).charpoly(lam).as_expr()
+    symmetric_characteristic = 0
+    for (degree_lam, degree_z), coefficient in S.Poly(
+        characteristic, lam, z
+    ).terms():
+        symmetric_characteristic += (
+            symmetrize_xy(coefficient, x, y, u, v)
+            * lam**degree_lam * z**degree_z
+        )
+    symmetric_characteristic = S.expand(symmetric_characteristic)
+    cubic = lam**3 + 4*lam**2 - (32*u + 16*v)*lam + 192*v
+    q14_quotient, cubic_remainder = S.div(
+        S.Poly(symmetric_characteristic, lam),
+        S.Poly(cubic, lam)
+    )
+    assert cubic_remainder.is_zero
+    Q14_L = S.Poly(q14_quotient.as_expr(), lam)
+    Q14 = S.Poly(q14_quotient.as_expr(), lam, u, v, z)
+    assert Q14.degree(lam) == 14 and Q14.LC() == 1
+    assert len(S.Poly(symmetric_characteristic, lam, u, v, z).terms()) == 258
+    assert len(Q14.terms()) == 159
+
+    expected = (
+        {(0, 0, 0): 2, (2, 0, 0): 2, (4, 0, 0): 2},
+        {(0, 0, 0): 4, (4, 0, 0): 2},
+        {(1, 0, 1): 6},
+        {(0, 0, 0): 4, (2, 0, 0): 2},
+        {(3, 1, 0): 6},
+    )
+    M5 = S.zeros(5, 5)
+    for i, row in enumerate(expected):
+        for (j, ax, ay), multiplicity in row.items():
+            M5[i, j] += multiplicity * x**ax * y**ay
+    chi5_squared_xy = S.expand((M5**2).charpoly(lam).as_expr())
+    Q5_expr = symmetrize_xy(chi5_squared_xy, x, y, u, v)
+    Q5 = S.Poly(Q5_expr, lam, u, v)
+
+    Q3_expr = lam**3 + 4*lam**2 - (32*u + 16*v)*lam + 192*v
+    S5_expr = (
+        lam**5 - 4*lam**4 + 64*u*lam**3 - 32*v*lam**3
+        - 256*u**2*lam**2 - 384*v*lam**2
+        + 3072*u*v*lam + 256*v**2*lam - 9216*v**2
+    )
+    R9_expected = (lam - 4) * Q3_expr * S5_expr
+    Q14_z1 = S.Poly(S.expand(Q14.as_expr().subs(z, 1)), lam, u, v)
+    S9_at_z1, rem_z1 = S.div(Q14_z1, Q5)
+    assert rem_z1.is_zero and S9_at_z1.degree(lam) == 9
+    assert S.expand(S9_at_z1.as_expr() - R9_expected) == 0
+
+    S9_generic, generic_remainder = S.div(
+        Q14,
+        S.Poly(Q5_expr, lam, u, v, z)
+    )
+    R4 = S.Poly(
+        S.cancel(generic_remainder.as_expr() / (z - 1)),
+        lam, u, v, z
+    )
+    assert S.expand(
+        generic_remainder.as_expr() - (z - 1) * R4.as_expr()
+    ) == 0
+    assert R4.degree(lam) == 4 and R4.degree(z) == 0
+    assert len(R4.terms()) == 106
+    r4_witness = R4.coeff_monomial(lam**4 * u**2)
+    assert r4_witness == -12582912
+    assert S9_generic.degree(lam) == 9 and len(S9_generic.terms()) == 131
+    assert S.expand(S9_generic.as_expr().subs(z, 1) - R9_expected) == 0
+
+    coefficients = [
+        S.Poly(S.expand(Q14_L.nth(14 - j)), u, v, z)
+        for j in range(15)
+    ]
+    c2 = S.factor(coefficients[2].as_expr())
+    companion_c2 = S.expand(-coefficients[2].as_expr())
+    assert S.expand(c2 - (-4*(2*u*z + 38*u + 84*v + z - 1))) == 0
+    constant_companion_c2 = S.Poly(companion_c2, u, v, z).coeff_monomial(1)
+    assert constant_companion_c2 == -4
+    # Direct sparse-monomial check for every first-row companion coefficient.
+    standard_orthant_invariant = True
+    orthant_witness = None
+    for j in range(1, 15):
+        companion = S.Poly(-coefficients[j].as_expr(), u, v, z)
+        for monomial, coefficient in companion.terms():
+            if coefficient < 0:
+                standard_orthant_invariant = False
+                orthant_witness = {
+                    "lag": j,
+                    "monomial_uvz": list(monomial),
+                    "coefficient": int(coefficient)
+                }
+                break
+        if orthant_witness:
+            break
+    assert not standard_orthant_invariant
+    assert orthant_witness == {
+        "lag": 2, "monomial_uvz": [0, 0, 0], "coefficient": -4
+    }
+
+    rabin = rabin_irreducibility_certificate(
+        Q14, lam, P, {u: 9, v: 26, z: 13}
+    )
+    assert rabin["rabin_irreducible"]
+
+    expressions = {
+        "Q14": str(S.expand(Q14.as_expr())),
+        "Q5": str(S.expand(Q5_expr)),
+        "R9_at_z1": str(S.expand(R9_expected)),
+        "S5": str(S.expand(S5_expr)),
+        "S9_generic_quotient": str(S.expand(S9_generic.as_expr())),
+        "R4_generic_division_defect": str(S.expand(R4.as_expr()))
+    }
+    hashes = {
+        name: hashlib.sha256(value.encode("utf-8")).hexdigest()
+        for name, value in expressions.items()
+    }
+    sign_profile = []
+    for j in range(15):
+        terms = coefficients[j].terms()
+        sign_profile.append({
+            "lag": j,
+            "monomial_terms": len(terms),
+            "positive_terms": sum(1 for _, c in terms if c > 0),
+            "negative_terms": sum(1 for _, c in terms if c < 0)
+        })
+
+    return {
+        "status": "ALL_CHECKS_PASS",
+        "science_pin": SCIENCE_PIN,
+        "source_model": "frozen four-STAR native X6-BRC, 96 ordered ports, 6 actions",
+        "roots": len(ROOTS),
+        "native_ports": 96,
+        "weighted_quotient_classes": len(quotient),
+        "partition_growth": growth,
+        "bipartition": [len(left), len(right)],
+        "gate_sources": [4, 15, 17],
+        "gate_target": 5,
+        "characteristic_terms": len(
+            S.Poly(symmetric_characteristic, lam, u, v, z).terms()
+        ),
+        "Q14_degree": Q14.degree(lam),
+        "Q14_terms": len(Q14.terms()),
+        "generic_irreducibility": {
+            "field": "Q(u,v,z)",
+            "proof": "monic specialization irreducible over F_1000003 via Rabin criterion",
+            **rabin
+        },
+        "z_equals_1_core": {
+            "Q5_is_charpoly_of_five_state_M_squared": True,
+            "Q14_specialization_divides_exactly_by_Q5": True,
+            "remainder_zero": True,
+            "R9_degree": S9_at_z1.degree(lam),
+            "R9_factorization": "(L-4)*Q3(L)*S5(L)",
+            "Q5": str(S.expand(Q5_expr)),
+            "Q3": str(S.expand(Q3_expr)),
+            "S5": str(S.expand(S5_expr))
+        },
+        "generic_core_lift_obstruction": {
+            "identity": "Q14 = Q5*S9_generic + (z-1)*R4",
+            "Q5_divides_generic_Q14": False,
+            "generic_remainder_factor": "z-1",
+            "R4_degree_L": R4.degree(lam),
+            "R4_degree_z": R4.degree(z),
+            "R4_terms": len(R4.terms()),
+            "R4_coefficient_L4_u2": int(r4_witness),
+            "S9_generic_degree_L": S9_generic.degree(lam),
+            "S9_generic_terms": len(S9_generic.terms())
+        },
+        "standard_companion_cone": {
+            "c2": str(c2),
+            "minus_c2": str(companion_c2),
+            "standard_nonnegative_orthant_invariant": False,
+            "first_negative_entry": orthant_witness
+        },
+        "Q14_coefficient_sign_profile": sign_profile,
+        "exact_polynomial_sha256": hashes,
+        "exact_polynomials": expressions,
+        "next_question": (
+            "Construct a genuinely gate-sensitive 14-dimensional invariant cone "
+            "or prove its minimum positive-realization dimension; the fixed z=1 "
+            "five-state factor does not lift, and the standard scalar companion "
+            "orthant is not invariant."
+        )
+    }
+
+if __name__ == "__main__":
+    print(json.dumps(main(), ensure_ascii=False, indent=2))
