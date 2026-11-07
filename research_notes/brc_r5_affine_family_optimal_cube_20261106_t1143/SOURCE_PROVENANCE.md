@@ -1,0 +1,9 @@
+# Provenance and status
+
+Date: 2026-11-06 Asia/Shanghai. Frozen scientific pins: GLOBAL a01383f825ef9d43b4b754254303298c64041568, EM 86149263e38c22292c9def1e0f69092efa1be77e. Prior exact model and theorem are at EM research_notes/brc_r5_sharper_lr_cube_20261106_t1035/RESEARCH.md, commit ba30a09979a06e9e82f2caf6a7fb4f7b3ce700ca; scalar lift at EM 57f7d654e5dd002567e0b0d333937e6e38f3b4cb.
+
+Current normative routing consulted via GitHub connector: global main bootstrap, manual, math/temporal/code/BRC/activity/journal policies; Enterprise Math current continuation protocol, P000 root, ACTIVE Heartbeat X6, joint observer preservation, portable research and source publication/identity contracts. This is an auxiliary BRC likelihood-ratio observer, not native X6 dynamics. Authenticated GitHub identity: awdawmip with push permission.
+
+Proof: exact rational analytic construction and an exact elementary necessary-constraint upper bound, with a four-variable LP used only to discover the optimized parameters. Verification: Python standard-library Fraction script, 625 exact grid targets and 16 extreme vertices, all seven stopped ratio keys, stochastic kernel moments and sharp rational inequalities. The published VERIFY.py uses the same mathematical checker as the locally executed source; the published file has not been separately re-executed after remote publication. EXACT_OUTPUT.txt records verified local values.
+
+Native session request EMR5-20261106T1143-R12-SESSION returned QUEUED at initial observation; task inventory request EMR5-20261106T1143-R12-TASKS likewise returned QUEUED. No native Researcher-ID/RA confirmation, formal CLAIM, Result, independent Driver review or mathematical admission is asserted. No credential, private session capability or request authentication data appears in project artifacts.

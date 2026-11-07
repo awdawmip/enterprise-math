@@ -1,0 +1,12 @@
+PASS_EXACT_R5_TWO_STAGE_LR_HEXAGON_AND_MAX_INSCRIBED_SQUARE
+strategy: time1 continuation g= 7/8 ; all stop at time2
+Q stop-masses= 3/4:7/16, 1:1/8, 5/4:7/16
+time P=Q= 15/8
+polytope inequalities: 3<=4eP+3eQ<=4; 4<=4eP+5eQ<=5; 57/64<=eP+eQ<=71/64
+hexagon CCW vertices= (0,1); (21/64,9/16); (29/64,7/16); (1,0); (43/64,7/16); (35/64,9/16)
+largest centered square halfside= 7/128 decimal= 0.0546875
+prior two-key optimal restricted-family halfside= 287903/10672000
+improvement exact factor= 83375/41129 decimal= 2.027158452673296
+universal real-square proof: affine inverse with corner bounds
+exhaustive deterministic declaration vectors= 8
+exact rational grid checks= 1089

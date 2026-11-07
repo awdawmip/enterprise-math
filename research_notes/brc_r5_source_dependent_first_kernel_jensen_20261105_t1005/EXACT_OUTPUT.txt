@@ -1,0 +1,10 @@
+K_A, K_B = ((Fraction(1, 4), Fraction(1, 2), Fraction(1, 4)), (Fraction(3, 8), Fraction(1, 4), Fraction(3, 8)))
+terminal common S = (Fraction(1, 4), Fraction(1, 2), Fraction(1, 1), Fraction(3, 2), Fraction(7, 4))
+terminal common M = ((Fraction(11, 240), Fraction(113, 120), Fraction(1, 240), Fraction(1, 240), Fraction(1, 240)), (Fraction(1, 80), Fraction(1, 80), Fraction(19, 20), Fraction(1, 80), Fraction(1, 80)), (Fraction(1, 240), Fraction(1, 240), Fraction(1, 240), Fraction(113, 120), Fraction(11, 240)))
+G0_A, G0_B, Gbar = 1/8 3/16 5/32
+G2 = (Fraction(1, 192), Fraction(1, 64), Fraction(1, 192)) ratios G2/r = (Fraction(1, 96), Fraction(1, 64), Fraction(1, 288))
+normal = (-1,-1,-5/32,0); full= -73/64 seedless LR= -37/32 gap= 1/64
+FULL witness O4 = (Fraction(3, 32), Fraction(13, 16), Fraction(3, 2), Fraction(3, 2)) l1 normal = 69/32 distinf lower bound = 1/138
+exhaustive seedless deterministic strategies= 2592 maximizers= 1792
+epsilon-family Fraction sample checks = 5, including eta=5/8 endpoint
+PASS_EXACT_R5_SOURCE_DEPENDENT_FIRST_KERNEL_JENSEN

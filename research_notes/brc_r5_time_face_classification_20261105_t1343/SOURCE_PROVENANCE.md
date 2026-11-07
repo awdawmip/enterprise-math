@@ -1,0 +1,7 @@
+# Evidence and provenance — 2026-11-05
+
+Frozen science GLOBAL a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e. Source predecessor: EM commit 706d2a90558c927a3ed03bbf9e9fa2df3cb5583b, research_notes/brc_r5_universal_late_kernel_separation_20261105_t1242/RESEARCH.md. Current behavioral context read on 2026-11-05 near 13:43 Asia/Shanghai: global main d1354439bc57071d635041a33a91c9b06680e6b9, EM main 9897296090d6907914331c3ad51ad8e4a7e31068; P000, ACTIVE worldview, and current portable delivery rules were consulted.
+
+Local execution: Python standard-library Fraction, 23,328 exhaustive seedless-LR deterministic policies under the declared five-node model, with no floating-point tolerance. Its stdout is EXACT_OUTPUT.txt. The remote VERIFY.py is the same algorithm and constants as the locally executed file; read back content and execute again when claiming byte-identical remote verification. Lemma proof and scope are in RESEARCH.md.
+
+GitHub identity: awdawmip. Native researcher identity EM-DIRECT-D73B26, activity RA-855A55ADBF2A15194A525E3D, session MCP-053d7adc8689414eb95c727337fb8d00; native Source registration commit 7bd38d9f359b9a861961026208b4c0d5cbc9613c. Activity registration is not a formal task CLAIM, independent review or admission. No credentials are stored. Literature context: Blackwell (1953) DOI 10.1214/aoms/1177729032; Laroche & Tachet des Combes (2023), PMLR 202.
