@@ -1,0 +1,46 @@
+{
+  "name": "PREFIX-552",
+  "date": "2026-11-07",
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "theorems": [
+    "For full rooted joint BRC/gate count, total auxiliary channels + one terminal-equality channel per physical root suffice exactly at every path length.",
+    "Across all 12 signed physical roots the shortest equal-auxiliary-monomial, different-return-status witness has depth 4 (frozen 96-port, 6-action graph)."
+  ],
+  "published_compact_certificate": {
+    "depth_inclusive": 8,
+    "complete_joint_histograms": 864,
+    "nonzero_positions": 61907,
+    "signed_root_witnesses": 12,
+    "enumerated_path_state_items": 22712,
+    "checked": true,
+    "git_blob_expected": "ac60870a796097ed9d13354eba1e66bd3a2a6629"
+  },
+  "extended_certificate": {
+    "three_way_polynomial_comparisons": 1728,
+    "depth_inclusive": 8,
+    "nonzero_positions": 61907,
+    "status": "ALL_CHECKS_PASS"
+  },
+  "benchmark": {
+    "repeats": 5,
+    "depth_inclusive": 7,
+    "full_outputs": 768,
+    "nonzero_output_positions": 29498,
+    "full_12_channel": {
+      "seconds_median": 1.025004,
+      "peak_bytes_median": 9135500
+    },
+    "streamed_1_match_channel": {
+      "seconds_median": 0.528286,
+      "peak_bytes_median": 7102120
+    },
+    "separate_native_51": {
+      "seconds_median": 1.872271,
+      "peak_bytes_median": 5986932
+    },
+    "timing_scope": "Kernel/class setup excluded; full output materialization included; CPython tracemalloc."
+  },
+  "formal_status": "AUTHOR_PROVED / EXACT_INTEGER_CHECKED / BENCHMARKED / UNREVIEWED / NOT_ADMITTED",
+  "next": "PREFIX-553 segmented totals checkpoint and deeper full-output memory/performance test"
+}
