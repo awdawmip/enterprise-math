@@ -1,10 +1,19 @@
-# Next scientific unit after exact N(510)
+# Next research unit — after exact 26-horizon saturation plateau
 
-Theorem closure: N(510)=2,455,069 for the declared two-point S23/AV future likelihood-sign observer. PROOF.md gives the exact first-entry obstruction; FULL_SATURATION.md and VERIFY_N510_FULL_SATURATION.py give complete 130,816-cell certified upper coverage (all nonexception cells by length 2,783). Frozen science pin remains 43ec6098b1330ae86d0a7863be336c5d97f6ef34.
+Date: 2026-11-08 Asia/Shanghai.
+Frozen science: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34.
+Established (author-side, review pending): the S23/AV two-point future likelihood-sign observer has exactly N(h)=2,455,069 for every integer h in [510,535], proved in PROOF.md, FULL_SATURATION.md and PLATEAU_H510_535.md. In the much larger range h=510..380373, N(h)>n_tail(h), while exact N(h) is not yet determined outside the established plateau.
 
-Unfinished next research:
-1. Investigate h=511 and a bounded family h>510. For each horizon, enumerate exact threshold cells and test if the same unshifted base gap stays adjacent. Determine whether N(511)=2,455,069 or whether a new interval yields a higher bound. Use rational logarithm enclosures and exact inequality-certified witnesses.
-2. Prove a general all-cell covering lemma for any h under the continued-fraction/determinant-one lattice mechanism, to replace horizon-by-horizon enumeration where practical.
-3. Preserve independent problems: full-lawful four-copy minimax TV delta4 and source/time-complete map to the six-source ten-label S23 mother model.
+## Next discriminating actions
 
-Read full scope and proof at FULL_SATURATION.md; code and stdout are VERIFY_N510_FULL_SATURATION.py and RUN_N510_FULL_SATURATION.txt. All work is author-side until independent review and native Source admission.
+1. Find the first horizon h>=536 with N(h)>2,455,069, or extend the exact constant plateau. Start at h=536. Reuse the rational log enclosure, the translated epsilon gap witnesses and the 4,000-step certified other-cell search from VERIFY_H510_535_PLATEAU.py. If uncovered cells remain, extract exact endpoints and their first-entry lattice condition, rather than assuming plateau failure.
+2. Derive a general theorem or effective computation certificate for all-cell covering under determinant-one approximants to r=ln7/ln(10/7). Track exceptional gap families and candidate witness length with a proof of the actual quantifier scope.
+3. Keep separate: the full-lawful four-copy minimax TV reconstruction error delta4, and a provenance-preserving source/time mapping from the S23/AV auxiliary likelihood experiment into the six-source ten-label mother model.
+
+## Evidence and current control
+
+- Executed exact integer certificate: VERIFY.py / RUN_EVIDENCE.txt.
+- Certified full N(510) checker: VERIFY_N510_FULL_SATURATION.py / RUN_N510_FULL_SATURATION.txt.
+- Complete certified 26-horizon checker: VERIFY_H510_535_PLATEAU.py / RUN_H510_535_PLATEAU.txt.
+- All author-side artifacts in this research directory, on existing Draft PR #1777, with immutable GitHub readback.
+- Native control unavailable (BACKEND_IDENTITY_OR_VERSION_MISMATCH, STATUS_DATABASE_UNAVAILABLE, operation_sent=false): genuine Owner/CLAIM/Research-Activity-ID and independent review unconfirmed.
