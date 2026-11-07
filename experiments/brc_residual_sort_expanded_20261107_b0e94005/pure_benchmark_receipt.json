@@ -1,0 +1,38 @@
+{
+  "argv": [
+    "taskset",
+    "-c",
+    "0",
+    "./pure_bench",
+    "--bench",
+    "pure_results.csv",
+    "1000000",
+    "0.012"
+  ],
+  "started_at_utc": "2026-11-07T10:04:56.841022+00:00",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "build_flags": [
+    "-std=c++20",
+    "-O3",
+    "-DNDEBUG",
+    "-Wall",
+    "-Wextra"
+  ],
+  "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "available_cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "elapsed_seconds": 130.00890564200017,
+  "exit_code": 0,
+  "stdout": "{\"result\":\"PASS\",\"conditions\":39,\"benchmark_rows\":390,\"validated_input_banks\":312,\"banks\":8,\"rounds\":7,\"value_bytes\":8,\"target_seconds\":0.012,\"observable_sink\":2810031749}\n",
+  "stderr": "completed pure uniform_1e6 n=100\ncompleted pure uniform_1e6 n=1000\ncompleted pure uniform_1e6 n=10000\ncompleted pure uniform_1e6 n=100000\ncompleted pure uniform_1e6 n=1000000\ncompleted pure square900_s0 n=100\ncompleted pure square900_s0 n=10000\ncompleted pure square900_s0 n=100000\ncompleted pure square900_s900 n=100\ncompleted pure square900_s900 n=10000\ncompleted pure square900_s900 n=100000\ncompleted pure square900_s1790 n=100\ncompleted pure square900_s1790 n=10000\ncompleted pure square900_s1790 n=100000\ncompleted pure square1e6_s0 n=10000\ncompleted pure square1e6_s0 n=100000\ncompleted pure square1e6_s0 n=1000000\ncompleted pure square1e6_s1999990 n=10000\ncompleted pure square1e6_s1999990 n=100000\ncompleted pure square1e6_s1999990 n=1000000\ncompleted pure square1e6_B64_D8 n=100000\ncompleted pure square1e6_B256_D8 n=100000\ncompleted pure square1e6_B20_D64 n=100000\ncompleted pure square1e6_B64_D512 n=100000\ncompleted pure square1e6_B256_D512 n=100000\ncompleted pure unique1e6_B256_D512 n=10000\ncompleted pure unique1e6_B256_D512 n=100000\ncompleted pure jitter900_B20_D8 n=10000\ncompleted pure jitter900_B20_D8 n=100000\ncompleted pure jitter1e6_B20_D8 n=10000\ncompleted pure jitter1e6_B20_D8 n=100000\ncompleted pure jitter1e6_B20_D8 n=1000000\ncompleted pure uniform_1e12 n=100\ncompleted pure uniform_1e12 n=10000\ncompleted pure uniform_1e12 n=100000\ncompleted pure square3e9_B20_D8 n=100000\ncompleted pure square900_B60_D8 n=100000\ncompleted pure square900_B20_D1801 n=100000\ncompleted pure square900_anchor7 n=100000\n"
+}

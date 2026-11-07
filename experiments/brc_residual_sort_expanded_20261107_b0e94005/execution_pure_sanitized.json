@@ -1,0 +1,59 @@
+{
+  "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "python": "3.12.14",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "available_cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "benchmark_cpu": 0,
+  "max_n": 1000000,
+  "commands": [
+    {
+      "argv": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "pure_bench.cpp",
+        "-o",
+        "pure_bench_sanitized"
+      ],
+      "started_at_utc": "2026-11-07T10:04:10.715556+00:00",
+      "elapsed_seconds": 7.681858686999476,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "taskset",
+        "-c",
+        "0",
+        "./pure_bench_sanitized",
+        "--verify"
+      ],
+      "started_at_utc": "2026-11-07T10:04:18.397699+00:00",
+      "elapsed_seconds": 2.3680296179991274,
+      "exit_code": 0,
+      "stdout": "{\"result\":\"PASS\",\"domain\":\"full uint64\",\"value_bytes\":8,\"root_points\":1010025,\"divider_points\":100050,\"verified_arrays\":1576,\"algorithms\":10,\"instrumented_and_timed_implementations_checked\":true,\"paired_translation_and_jitter_banks_checked\":8,\"unique_100000_checked\":true}\n",
+      "stderr": ""
+    }
+  ],
+  "sanitizer_options": {
+    "ASAN_OPTIONS": "detect_leaks=0"
+  },
+  "result": "PASS"
+}

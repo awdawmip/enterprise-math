@@ -1,0 +1,37 @@
+{
+  "argv": [
+    "taskset",
+    "-c",
+    "0",
+    "./record_bench",
+    "--bench",
+    "record_results.csv",
+    "1000000"
+  ],
+  "started_at_utc": "2026-11-07T10:00:43.133393+00:00",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "build_flags": [
+    "-std=c++20",
+    "-O3",
+    "-DNDEBUG",
+    "-Wall",
+    "-Wextra"
+  ],
+  "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "available_cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "elapsed_seconds": 60.08731189299942,
+  "exit_code": 0,
+  "stdout": "{\"benchmark_rows\":156,\"validated_input_banks\":208,\"banks_per_condition\":8,\"rounds\":7,\"record_bytes\":8,\"target_ms\":15,\"instrumented_and_uninstrumented_checked\":true,\"observable_sink\":11236153601778,\"result\":\"PASS\"}\n",
+  "stderr": "completed uniform n=100\ncompleted uniform n=1000\ncompleted uniform n=10000\ncompleted uniform n=100000\ncompleted uniform n=1000000\ncompleted square_shift0 n=100\ncompleted square_shift0 n=1000\ncompleted square_shift0 n=10000\ncompleted square_shift0 n=100000\ncompleted square_shift900 n=100\ncompleted square_shift900 n=1000\ncompleted square_shift900 n=10000\ncompleted square_shift900 n=100000\ncompleted square_shift1790 n=100\ncompleted square_shift1790 n=1000\ncompleted square_shift1790 n=10000\ncompleted square_shift1790 n=100000\ncompleted square_shift0 n=1000000\ncompleted square_shift1790 n=1000000\ncompleted square_B60 n=100000\ncompleted square_B100 n=100000\ncompleted full_basin20 n=100000\ncompleted single_basin n=100000\ncompleted zero_anchor n=100000\ncompleted matched_scattered n=100000\ncompleted reverse_square1790 n=100000\n"
+}
