@@ -1,0 +1,7943 @@
+{
+  "mode": "regressions",
+  "rows": [
+    {
+      "name": "old_request_stays_stale",
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 5,
+          "commands": 262,
+          "vacancy_bit_reads": 13,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 8,
+          "certifications": 2,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            3,
+            7
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "final_table": [
+            [
+              2,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "extra_old_bit_pairs": [],
+          "entries": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 0,
+              "key": 1,
+              "physical_last_before_create": 0,
+              "commands": 75,
+              "vacancy_bit_reads": 6,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                1,
+                3
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 1,
+              "answer": true,
+              "commands": 44,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                3
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                3
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 2,
+              "key": 3,
+              "physical_last_before_create": 0,
+              "commands": 84,
+              "vacancy_bit_reads": 7,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                3,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "valid",
+                0
+              ],
+              "observed_business_code": 1,
+              "answer": false,
+              "commands": 48,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                3,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "key_bit",
+                  0,
+                  true
+                ],
+                [
+                  "key_bit",
+                  1,
+                  false
+                ],
+                [
+                  "key_bit",
+                  2,
+                  false
+                ],
+                [
+                  "key_bit",
+                  3,
+                  false
+                ],
+                [
+                  "key_bit",
+                  4,
+                  false
+                ],
+                [
+                  "current_port",
+                  0,
+                  0,
+                  false
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 5,
+          "commands": 202,
+          "vacancy_bit_reads": 6,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 8,
+          "certifications": 1,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            3
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "final_table": [
+            [
+              2,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "extra_old_bit_pairs": [],
+          "entries": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 0,
+              "key": 1,
+              "physical_last_before_create": 0,
+              "commands": 75,
+              "vacancy_bit_reads": 6,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                1,
+                3
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 1,
+              "answer": true,
+              "commands": 44,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                3
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                3
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 2,
+              "key": 3,
+              "physical_last_before_create": 1,
+              "commands": 24,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                3
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "valid",
+                0
+              ],
+              "observed_business_code": 1,
+              "answer": false,
+              "commands": 48,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                3
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "key_bit",
+                  0,
+                  true
+                ],
+                [
+                  "key_bit",
+                  1,
+                  false
+                ],
+                [
+                  "key_bit",
+                  2,
+                  false
+                ],
+                [
+                  "key_bit",
+                  3,
+                  false
+                ],
+                [
+                  "key_bit",
+                  4,
+                  false
+                ],
+                [
+                  "current_port",
+                  0,
+                  0,
+                  false
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 5,
+          "commands": 202,
+          "vacancy_bit_reads": 6,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 8,
+          "certifications": 1,
+          "max_live_labels": 6,
+          "max_known_low_bits": 8,
+          "final_holes": [
+            3
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "final_table": [
+            [
+              2,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            ]
+          ],
+          "extra_old_bit_pairs": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "entries": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 0,
+              "key": 1,
+              "physical_last_before_create": 0,
+              "commands": 75,
+              "vacancy_bit_reads": 6,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                1,
+                3
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 6,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  4,
+                  0
+                ],
+                [
+                  5,
+                  0
+                ]
+              ],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 1,
+              "answer": true,
+              "commands": 44,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                3
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 8,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                3
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 8,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 2,
+              "key": 3,
+              "physical_last_before_create": 1,
+              "commands": 24,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                3
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 8,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "valid",
+                0
+              ],
+              "observed_business_code": 1,
+              "answer": false,
+              "commands": 48,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                3
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 8,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "key_bit",
+                  0,
+                  true
+                ],
+                [
+                  "key_bit",
+                  1,
+                  false
+                ],
+                [
+                  "key_bit",
+                  2,
+                  false
+                ],
+                [
+                  "key_bit",
+                  3,
+                  false
+                ],
+                [
+                  "key_bit",
+                  4,
+                  false
+                ],
+                [
+                  "current_port",
+                  0,
+                  0,
+                  false
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "copy_then_overwrite_source_slot",
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 10,
+          "commands": 543,
+          "vacancy_bit_reads": 34,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 13,
+          "certifications": 3,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            1,
+            7
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "final_table": [
+            [
+              0,
+              null,
+              null
+            ],
+            [
+              null,
+              null,
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "extra_old_bit_pairs": [],
+          "entries": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 6,
+              "key": 7,
+              "physical_last_before_create": 0,
+              "commands": 141,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "answer": true,
+              "commands": 52,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  4,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 1,
+              "key": 2,
+              "physical_last_before_create": 1,
+              "commands": 103,
+              "vacancy_bit_reads": 10,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "valid",
+                1
+              ],
+              "observed_business_code": 1,
+              "answer": false,
+              "commands": 48,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "key_bit",
+                  0,
+                  true
+                ],
+                [
+                  "key_bit",
+                  1,
+                  false
+                ],
+                [
+                  "key_bit",
+                  2,
+                  false
+                ],
+                [
+                  "key_bit",
+                  3,
+                  false
+                ],
+                [
+                  "key_bit",
+                  4,
+                  false
+                ],
+                [
+                  "current_port",
+                  0,
+                  0,
+                  false
+                ]
+              ]
+            },
+            {
+              "op": [
+                "drop",
+                0
+              ],
+              "answer": true,
+              "commands": 14,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "drop",
+                1
+              ],
+              "answer": true,
+              "commands": 14,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 0,
+              "key": 1,
+              "physical_last_before_create": 0,
+              "commands": 107,
+              "vacancy_bit_reads": 10,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                1,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 10,
+          "commands": 459,
+          "vacancy_bit_reads": 24,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 13,
+          "certifications": 2,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0,
+            2
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "final_table": [
+            [
+              1,
+              null,
+              null
+            ],
+            [
+              null,
+              null,
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "extra_old_bit_pairs": [],
+          "entries": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 6,
+              "key": 7,
+              "physical_last_before_create": 0,
+              "commands": 141,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "answer": true,
+              "commands": 52,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  4,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 1,
+              "key": 2,
+              "physical_last_before_create": 1,
+              "commands": 103,
+              "vacancy_bit_reads": 10,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "valid",
+                1
+              ],
+              "observed_business_code": 1,
+              "answer": false,
+              "commands": 48,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "key_bit",
+                  0,
+                  true
+                ],
+                [
+                  "key_bit",
+                  1,
+                  false
+                ],
+                [
+                  "key_bit",
+                  2,
+                  false
+                ],
+                [
+                  "key_bit",
+                  3,
+                  false
+                ],
+                [
+                  "key_bit",
+                  4,
+                  false
+                ],
+                [
+                  "current_port",
+                  0,
+                  0,
+                  false
+                ]
+              ]
+            },
+            {
+              "op": [
+                "drop",
+                0
+              ],
+              "answer": true,
+              "commands": 14,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "drop",
+                1
+              ],
+              "answer": true,
+              "commands": 14,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 1,
+              "key": 2,
+              "physical_last_before_create": 1,
+              "commands": 23,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 10,
+          "commands": 387,
+          "vacancy_bit_reads": 15,
+          "cached_bit_uses": 9,
+          "business_key_bit_reads": 13,
+          "certifications": 2,
+          "max_live_labels": 6,
+          "max_known_low_bits": 17,
+          "final_holes": [
+            0,
+            2
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "final_table": [
+            [
+              1,
+              null,
+              null
+            ],
+            [
+              null,
+              null,
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "extra_old_bit_pairs": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          "entries": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 6,
+              "key": 7,
+              "physical_last_before_create": 0,
+              "commands": 141,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 14,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  4,
+                  0
+                ],
+                [
+                  5,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  5,
+                  1
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  4,
+                  1
+                ],
+                [
+                  2,
+                  2
+                ]
+              ],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "observed_business_code": 1,
+              "answer": true,
+              "commands": 52,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 5,
+                "known_low_bits": 13,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  4,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 16,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 16,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 1,
+              "key": 2,
+              "physical_last_before_create": 1,
+              "commands": 31,
+              "vacancy_bit_reads": 1,
+              "cached_bit_uses": 9,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 17,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [
+                [
+                  5,
+                  2
+                ]
+              ],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "valid",
+                1
+              ],
+              "observed_business_code": 1,
+              "answer": false,
+              "commands": 48,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 17,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "key_bit",
+                  0,
+                  true
+                ],
+                [
+                  "key_bit",
+                  1,
+                  false
+                ],
+                [
+                  "key_bit",
+                  2,
+                  false
+                ],
+                [
+                  "key_bit",
+                  3,
+                  false
+                ],
+                [
+                  "key_bit",
+                  4,
+                  false
+                ],
+                [
+                  "current_port",
+                  0,
+                  0,
+                  false
+                ]
+              ]
+            },
+            {
+              "op": [
+                "drop",
+                0
+              ],
+              "answer": true,
+              "commands": 14,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 17,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "drop",
+                1
+              ],
+              "answer": true,
+              "commands": 14,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 17,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 17,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 1,
+              "key": 2,
+              "physical_last_before_create": 1,
+              "commands": 23,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 17,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "empty_bind_ignores_stale_shared_key",
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 7,
+          "commands": 331,
+          "vacancy_bit_reads": 24,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 3,
+          "certifications": 2,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            1,
+            7
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "final_table": [
+            [
+              0,
+              null,
+              null
+            ],
+            [
+              null,
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "extra_old_bit_pairs": [],
+          "entries": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 6,
+              "key": 7,
+              "physical_last_before_create": 0,
+              "commands": 141,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 0,
+              "answer": false,
+              "commands": 14,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 0
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  false
+                ]
+              ]
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 0,
+              "key": 1,
+              "physical_last_before_create": 0,
+              "commands": 107,
+              "vacancy_bit_reads": 10,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                1,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "copy",
+                0,
+                0
+              ],
+              "answer": false,
+              "commands": 8,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                1,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "same",
+                0,
+                0
+              ],
+              "answer": false,
+              "commands": 8,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                1,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            }
+          ]
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 7,
+          "commands": 331,
+          "vacancy_bit_reads": 24,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 3,
+          "certifications": 2,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            1,
+            7
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "final_table": [
+            [
+              0,
+              null,
+              null
+            ],
+            [
+              null,
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "extra_old_bit_pairs": [],
+          "entries": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 6,
+              "key": 7,
+              "physical_last_before_create": 0,
+              "commands": 141,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 0,
+              "answer": false,
+              "commands": 14,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 0
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  false
+                ]
+              ]
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 0,
+              "key": 1,
+              "physical_last_before_create": 0,
+              "commands": 107,
+              "vacancy_bit_reads": 10,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                1,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "copy",
+                0,
+                0
+              ],
+              "answer": false,
+              "commands": 8,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                1,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "same",
+                0,
+                0
+              ],
+              "answer": false,
+              "commands": 8,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                1,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            }
+          ]
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 7,
+          "commands": 255,
+          "vacancy_bit_reads": 15,
+          "cached_bit_uses": 9,
+          "business_key_bit_reads": 3,
+          "certifications": 2,
+          "max_live_labels": 6,
+          "max_known_low_bits": 16,
+          "final_holes": [
+            1,
+            7
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "final_table": [
+            [
+              0,
+              null,
+              null
+            ],
+            [
+              null,
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "extra_old_bit_pairs": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              1
+            ]
+          ],
+          "entries": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 6,
+              "key": 7,
+              "physical_last_before_create": 0,
+              "commands": 141,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 14,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  4,
+                  0
+                ],
+                [
+                  5,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  5,
+                  1
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  4,
+                  1
+                ],
+                [
+                  2,
+                  2
+                ]
+              ],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 15,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 15,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 0,
+              "answer": false,
+              "commands": 14,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 15,
+                "label_pointers": 6,
+                "certificate_residues": 0
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  false
+                ]
+              ]
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 0,
+              "key": 1,
+              "physical_last_before_create": 1,
+              "commands": 31,
+              "vacancy_bit_reads": 1,
+              "cached_bit_uses": 9,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                1,
+                7
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 16,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [
+                [
+                  4,
+                  2
+                ]
+              ],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  2,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "copy",
+                0,
+                0
+              ],
+              "answer": false,
+              "commands": 8,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                1,
+                7
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 16,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "same",
+                0,
+                0
+              ],
+              "answer": false,
+              "commands": 8,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                1,
+                7
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 16,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "source_conflicts",
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 8,
+          "commands": 432,
+          "vacancy_bit_reads": 24,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 13,
+          "certifications": 2,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0,
+            2
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              0
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "final_table": [
+            [
+              1,
+              null,
+              0
+            ],
+            [
+              [
+                0,
+                6
+              ],
+              [
+                0,
+                6
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "extra_old_bit_pairs": [],
+          "entries": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 6,
+              "key": 7,
+              "physical_last_before_create": 0,
+              "commands": 141,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "reserve",
+                1
+              ],
+              "answer": false,
+              "color": null,
+              "key": null,
+              "commands": 18,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "reserve",
+                2
+              ],
+              "answer": false,
+              "color": null,
+              "key": null,
+              "commands": 15,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "answer": true,
+              "commands": 54,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  4,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 1,
+              "key": 2,
+              "physical_last_before_create": 1,
+              "commands": 103,
+              "vacancy_bit_reads": 10,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "valid",
+                1
+              ],
+              "observed_business_code": 7,
+              "answer": false,
+              "commands": 48,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "key_bit",
+                  0,
+                  true
+                ],
+                [
+                  "key_bit",
+                  1,
+                  true
+                ],
+                [
+                  "key_bit",
+                  2,
+                  true
+                ],
+                [
+                  "key_bit",
+                  3,
+                  false
+                ],
+                [
+                  "key_bit",
+                  4,
+                  false
+                ],
+                [
+                  "current_port",
+                  0,
+                  6,
+                  false
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 8,
+          "commands": 432,
+          "vacancy_bit_reads": 24,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 13,
+          "certifications": 2,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0,
+            2
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              0
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "final_table": [
+            [
+              1,
+              null,
+              0
+            ],
+            [
+              [
+                0,
+                6
+              ],
+              [
+                0,
+                6
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "extra_old_bit_pairs": [],
+          "entries": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 6,
+              "key": 7,
+              "physical_last_before_create": 0,
+              "commands": 141,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "reserve",
+                1
+              ],
+              "answer": false,
+              "color": null,
+              "key": null,
+              "commands": 18,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "reserve",
+                2
+              ],
+              "answer": false,
+              "color": null,
+              "key": null,
+              "commands": 15,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "answer": true,
+              "commands": 54,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  4,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 1,
+              "key": 2,
+              "physical_last_before_create": 1,
+              "commands": 103,
+              "vacancy_bit_reads": 10,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "valid",
+                1
+              ],
+              "observed_business_code": 7,
+              "answer": false,
+              "commands": 48,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "key_bit",
+                  0,
+                  true
+                ],
+                [
+                  "key_bit",
+                  1,
+                  true
+                ],
+                [
+                  "key_bit",
+                  2,
+                  true
+                ],
+                [
+                  "key_bit",
+                  3,
+                  false
+                ],
+                [
+                  "key_bit",
+                  4,
+                  false
+                ],
+                [
+                  "current_port",
+                  0,
+                  6,
+                  false
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 8,
+          "commands": 360,
+          "vacancy_bit_reads": 15,
+          "cached_bit_uses": 9,
+          "business_key_bit_reads": 13,
+          "certifications": 2,
+          "max_live_labels": 6,
+          "max_known_low_bits": 15,
+          "final_holes": [
+            0,
+            2
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              0
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "final_table": [
+            [
+              1,
+              null,
+              0
+            ],
+            [
+              [
+                0,
+                6
+              ],
+              [
+                0,
+                6
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "extra_old_bit_pairs": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              1
+            ],
+            [
+              5,
+              2
+            ]
+          ],
+          "entries": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 6,
+              "key": 7,
+              "physical_last_before_create": 0,
+              "commands": 141,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 14,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  4,
+                  0
+                ],
+                [
+                  5,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  5,
+                  1
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  4,
+                  1
+                ],
+                [
+                  2,
+                  2
+                ]
+              ],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "reserve",
+                1
+              ],
+              "answer": false,
+              "color": null,
+              "key": null,
+              "commands": 18,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 14,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "reserve",
+                2
+              ],
+              "answer": false,
+              "color": null,
+              "key": null,
+              "commands": 15,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 14,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 15,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 54,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 5,
+                "known_low_bits": 13,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  4,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 5,
+                "known_low_bits": 13,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 1,
+              "key": 2,
+              "physical_last_before_create": 1,
+              "commands": 31,
+              "vacancy_bit_reads": 1,
+              "cached_bit_uses": 9,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 5,
+                "known_low_bits": 14,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [
+                [
+                  5,
+                  2
+                ]
+              ],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "valid",
+                1
+              ],
+              "observed_business_code": 7,
+              "answer": false,
+              "commands": 48,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": [
+                0,
+                2
+              ],
+              "memory": {
+                "live_labels": 5,
+                "known_low_bits": 14,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "key_bit",
+                  0,
+                  true
+                ],
+                [
+                  "key_bit",
+                  1,
+                  true
+                ],
+                [
+                  "key_bit",
+                  2,
+                  true
+                ],
+                [
+                  "key_bit",
+                  3,
+                  false
+                ],
+                [
+                  "key_bit",
+                  4,
+                  false
+                ],
+                [
+                  "current_port",
+                  0,
+                  6,
+                  false
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "read_only_business_feedback_teaches_prefix",
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 5,
+          "commands": 377,
+          "vacancy_bit_reads": 28,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 8,
+          "certifications": 2,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0,
+            1
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "final_table": [
+            [
+              0,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                6
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "extra_old_bit_pairs": [],
+          "entries": [
+            {
+              "op": [
+                "valid",
+                4
+              ],
+              "observed_business_code": 5,
+              "answer": false,
+              "commands": 48,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": null,
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 0
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "key_bit",
+                  0,
+                  true
+                ],
+                [
+                  "key_bit",
+                  1,
+                  false
+                ],
+                [
+                  "key_bit",
+                  2,
+                  true
+                ],
+                [
+                  "key_bit",
+                  3,
+                  false
+                ],
+                [
+                  "key_bit",
+                  4,
+                  false
+                ],
+                [
+                  "current_port",
+                  0,
+                  4,
+                  false
+                ]
+              ]
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 6,
+              "key": 7,
+              "physical_last_before_create": 0,
+              "commands": 141,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 0,
+              "key": 1,
+              "physical_last_before_create": 1,
+              "commands": 135,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                1
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  2,
+                  1
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 5,
+          "commands": 377,
+          "vacancy_bit_reads": 28,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 8,
+          "certifications": 2,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0,
+            1
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "final_table": [
+            [
+              0,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                6
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "extra_old_bit_pairs": [],
+          "entries": [
+            {
+              "op": [
+                "valid",
+                4
+              ],
+              "observed_business_code": 5,
+              "answer": false,
+              "commands": 48,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": null,
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 0
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "key_bit",
+                  0,
+                  true
+                ],
+                [
+                  "key_bit",
+                  1,
+                  false
+                ],
+                [
+                  "key_bit",
+                  2,
+                  true
+                ],
+                [
+                  "key_bit",
+                  3,
+                  false
+                ],
+                [
+                  "key_bit",
+                  4,
+                  false
+                ],
+                [
+                  "current_port",
+                  0,
+                  4,
+                  false
+                ]
+              ]
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 6,
+              "key": 7,
+              "physical_last_before_create": 0,
+              "commands": 141,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 0,
+              "key": 1,
+              "physical_last_before_create": 1,
+              "commands": 135,
+              "vacancy_bit_reads": 14,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                1
+              ],
+              "memory": {
+                "live_labels": 0,
+                "known_low_bits": 0,
+                "label_pointers": 0,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  4,
+                  2,
+                  1
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 5,
+          "commands": 249,
+          "vacancy_bit_reads": 12,
+          "cached_bit_uses": 16,
+          "business_key_bit_reads": 8,
+          "certifications": 2,
+          "max_live_labels": 6,
+          "max_known_low_bits": 16,
+          "final_holes": [
+            0,
+            1
+          ],
+          "initial_table": [
+            [
+              null,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "final_table": [
+            [
+              0,
+              null,
+              null
+            ],
+            [
+              [
+                0,
+                6
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ]
+            ]
+          ],
+          "extra_old_bit_pairs": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              0
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              1
+            ]
+          ],
+          "entries": [
+            {
+              "op": [
+                "valid",
+                4
+              ],
+              "observed_business_code": 5,
+              "answer": false,
+              "commands": 48,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 5,
+              "certificates": 0,
+              "holes": null,
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 3,
+                "label_pointers": 6,
+                "certificate_residues": 0
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "key_bit",
+                  0,
+                  true
+                ],
+                [
+                  "key_bit",
+                  1,
+                  false
+                ],
+                [
+                  "key_bit",
+                  2,
+                  true
+                ],
+                [
+                  "key_bit",
+                  3,
+                  false
+                ],
+                [
+                  "key_bit",
+                  4,
+                  false
+                ],
+                [
+                  "current_port",
+                  0,
+                  4,
+                  false
+                ]
+              ]
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 6,
+              "key": 7,
+              "physical_last_before_create": 0,
+              "commands": 125,
+              "vacancy_bit_reads": 12,
+              "cached_bit_uses": 2,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                7
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 15,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [
+                [
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  5,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  5,
+                  1
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  2
+                ]
+              ],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "request_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "request_key_bit",
+                  2,
+                  2,
+                  0
+                ]
+              ]
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "observed_business_code": 7,
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 3,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 16,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "current_present",
+                  0,
+                  true
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "shared_low_bit",
+                  0,
+                  2,
+                  1
+                ]
+              ]
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 0,
+              "business_key_bit_reads": 0,
+              "certificates": 0,
+              "holes": [
+                0
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 16,
+                "label_pointers": 6,
+                "certificate_residues": 1
+              },
+              "old_query_pairs": [],
+              "observations": []
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "color": 0,
+              "key": 1,
+              "physical_last_before_create": 1,
+              "commands": 23,
+              "vacancy_bit_reads": 0,
+              "cached_bit_uses": 14,
+              "business_key_bit_reads": 0,
+              "certificates": 1,
+              "holes": [
+                0,
+                1
+              ],
+              "memory": {
+                "live_labels": 6,
+                "known_low_bits": 16,
+                "label_pointers": 6,
+                "certificate_residues": 2
+              },
+              "old_query_pairs": [],
+              "observations": [
+                [
+                  "target_available",
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  "cached_request_bit",
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  "cached_request_bit",
+                  4,
+                  2,
+                  1
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "physical_answer_after_all_cache_search",
+      "creations": [
+        {
+          "op": [
+            "reserve",
+            0
+          ],
+          "answer": true,
+          "color": 6,
+          "key": 7,
+          "physical_last_before_create": 1,
+          "commands": 25,
+          "vacancy_bit_reads": 0,
+          "cached_bit_uses": 14,
+          "business_key_bit_reads": 0,
+          "certificates": 1,
+          "holes": [
+            0,
+            7
+          ],
+          "memory": {
+            "live_labels": 6,
+            "known_low_bits": 16,
+            "label_pointers": 6,
+            "certificate_residues": 2
+          },
+          "old_query_pairs": [],
+          "observations": [
+            [
+              "target_available",
+              0,
+              1
+            ],
+            [
+              "cached_request_bit",
+              0,
+              0,
+              1
+            ],
+            [
+              "cached_request_bit",
+              1,
+              0,
+              0
+            ],
+            [
+              "cached_request_bit",
+              2,
+              0,
+              1
+            ],
+            [
+              "cached_request_bit",
+              3,
+              0,
+              0
+            ],
+            [
+              "cached_request_bit",
+              4,
+              0,
+              1
+            ],
+            [
+              "cached_request_bit",
+              5,
+              0,
+              0
+            ],
+            [
+              "cached_request_bit",
+              1,
+              1,
+              1
+            ],
+            [
+              "cached_request_bit",
+              3,
+              1,
+              0
+            ],
+            [
+              "cached_request_bit",
+              5,
+              1,
+              1
+            ],
+            [
+              "cached_request_bit",
+              3,
+              2,
+              1
+            ],
+            [
+              "cached_request_bit",
+              0,
+              1,
+              0
+            ],
+            [
+              "cached_request_bit",
+              2,
+              1,
+              1
+            ],
+            [
+              "cached_request_bit",
+              4,
+              1,
+              0
+            ],
+            [
+              "cached_request_bit",
+              2,
+              2,
+              0
+            ]
+          ]
+        },
+        {
+          "op": [
+            "reserve",
+            0
+          ],
+          "answer": true,
+          "color": 0,
+          "key": 1,
+          "physical_last_before_create": 1,
+          "commands": 23,
+          "vacancy_bit_reads": 0,
+          "cached_bit_uses": 14,
+          "business_key_bit_reads": 0,
+          "certificates": 1,
+          "holes": [
+            0,
+            1
+          ],
+          "memory": {
+            "live_labels": 6,
+            "known_low_bits": 16,
+            "label_pointers": 6,
+            "certificate_residues": 2
+          },
+          "old_query_pairs": [],
+          "observations": [
+            [
+              "target_available",
+              0,
+              1
+            ],
+            [
+              "cached_request_bit",
+              0,
+              0,
+              1
+            ],
+            [
+              "cached_request_bit",
+              1,
+              0,
+              0
+            ],
+            [
+              "cached_request_bit",
+              2,
+              0,
+              1
+            ],
+            [
+              "cached_request_bit",
+              3,
+              0,
+              0
+            ],
+            [
+              "cached_request_bit",
+              4,
+              0,
+              1
+            ],
+            [
+              "cached_request_bit",
+              5,
+              0,
+              0
+            ],
+            [
+              "cached_request_bit",
+              1,
+              1,
+              1
+            ],
+            [
+              "cached_request_bit",
+              3,
+              1,
+              0
+            ],
+            [
+              "cached_request_bit",
+              5,
+              1,
+              1
+            ],
+            [
+              "cached_request_bit",
+              3,
+              2,
+              1
+            ],
+            [
+              "cached_request_bit",
+              0,
+              1,
+              1
+            ],
+            [
+              "cached_request_bit",
+              2,
+              1,
+              1
+            ],
+            [
+              "cached_request_bit",
+              4,
+              1,
+              0
+            ],
+            [
+              "cached_request_bit",
+              4,
+              2,
+              1
+            ]
+          ]
+        }
+      ],
+      "totals": {
+        "strategy": "prefixes",
+        "api_calls": 10,
+        "commands": 381,
+        "vacancy_bit_reads": 15,
+        "cached_bit_uses": 41,
+        "business_key_bit_reads": 9,
+        "certifications": 4,
+        "max_live_labels": 6,
+        "max_known_low_bits": 16,
+        "final_holes": [
+          0,
+          1
+        ],
+        "initial_table": [
+          [
+            null,
+            null,
+            null
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ]
+        ],
+        "final_table": [
+          [
+            0,
+            null,
+            null
+          ],
+          [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ]
+        ],
+        "extra_old_bit_pairs": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            2
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      }
+    },
+    {
+      "name": "last_cached_bit_is_not_physical_answer",
+      "initial_request_keys": [
+        0,
+        18,
+        9,
+        20,
+        10,
+        8
+      ],
+      "prefix_operations": [
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ]
+      ],
+      "operation": [
+        "reserve",
+        0
+      ],
+      "selected_key": 3,
+      "physical_last": 0,
+      "last_cached_bit": 1,
+      "corrected_answer": true,
+      "uncorrected_answer": false,
+      "correct_commands": 36,
+      "uncorrected_commands": 32
+    }
+  ],
+  "protected_source_raw_prefixes": 360,
+  "assertions": 1608
+}

@@ -1,0 +1,692 @@
+{
+  "status": "ORIGINAL_BRC_EXECUTION_AUTHOR_CHECKED",
+  "runtime": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "source_script": "incremental/check_incremental_vacancy.py",
+  "parent_source": {
+    "archive": "residual_batch_vacancy.zip",
+    "source_report_commit": "b8d93ab42c6baf02d4ee20bc5ec54c52d928a371",
+    "source_report_path": "research_notes/chatgpt_direct/20261105_residual_batch_vacancy_4f7a20/RESULT.md",
+    "parent_directory_modified": false
+  },
+  "costs": [
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 6,
+      "rounds": 1,
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 3,
+          "commands": 194,
+          "vacancy_bit_reads": 14,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 3,
+          "certifications": 1,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0
+          ]
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 3,
+          "commands": 194,
+          "vacancy_bit_reads": 14,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 3,
+          "certifications": 1,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0
+          ]
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 3,
+          "commands": 194,
+          "vacancy_bit_reads": 14,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 3,
+          "certifications": 1,
+          "max_live_labels": 6,
+          "max_known_low_bits": 15,
+          "final_holes": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 6,
+      "rounds": 2,
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 6,
+          "commands": 384,
+          "vacancy_bit_reads": 28,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 6,
+          "certifications": 2,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0
+          ]
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 6,
+          "commands": 384,
+          "vacancy_bit_reads": 28,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 6,
+          "certifications": 2,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0
+          ]
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 6,
+          "commands": 280,
+          "vacancy_bit_reads": 15,
+          "cached_bit_uses": 13,
+          "business_key_bit_reads": 6,
+          "certifications": 2,
+          "max_live_labels": 6,
+          "max_known_low_bits": 16,
+          "final_holes": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 6,
+      "rounds": 8,
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 24,
+          "commands": 1536,
+          "vacancy_bit_reads": 112,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 24,
+          "certifications": 8,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0
+          ]
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 24,
+          "commands": 1536,
+          "vacancy_bit_reads": 112,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 24,
+          "certifications": 8,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0
+          ]
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 24,
+          "commands": 748,
+          "vacancy_bit_reads": 15,
+          "cached_bit_uses": 97,
+          "business_key_bit_reads": 24,
+          "certifications": 8,
+          "max_live_labels": 6,
+          "max_known_low_bits": 16,
+          "final_holes": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 6,
+      "rounds": 32,
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 96,
+          "commands": 6144,
+          "vacancy_bit_reads": 448,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 96,
+          "certifications": 32,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0
+          ]
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 96,
+          "commands": 6144,
+          "vacancy_bit_reads": 448,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 96,
+          "certifications": 32,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            0
+          ]
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 96,
+          "commands": 2620,
+          "vacancy_bit_reads": 15,
+          "cached_bit_uses": 433,
+          "business_key_bit_reads": 96,
+          "certifications": 32,
+          "max_live_labels": 6,
+          "max_known_low_bits": 16,
+          "final_holes": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 7,
+      "rounds": 1,
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 3,
+          "commands": 166,
+          "vacancy_bit_reads": 11,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 3,
+          "certifications": 1,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": []
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 3,
+          "commands": 166,
+          "vacancy_bit_reads": 11,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 3,
+          "certifications": 1,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": []
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 3,
+          "commands": 166,
+          "vacancy_bit_reads": 11,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 3,
+          "certifications": 1,
+          "max_live_labels": 7,
+          "max_known_low_bits": 13,
+          "final_holes": []
+        }
+      ]
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 7,
+      "rounds": 2,
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 6,
+          "commands": 332,
+          "vacancy_bit_reads": 22,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 6,
+          "certifications": 2,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": []
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 6,
+          "commands": 332,
+          "vacancy_bit_reads": 22,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 6,
+          "certifications": 2,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": []
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 6,
+          "commands": 276,
+          "vacancy_bit_reads": 15,
+          "cached_bit_uses": 7,
+          "business_key_bit_reads": 6,
+          "certifications": 2,
+          "max_live_labels": 7,
+          "max_known_low_bits": 17,
+          "final_holes": []
+        }
+      ]
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 7,
+      "rounds": 8,
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 24,
+          "commands": 1328,
+          "vacancy_bit_reads": 88,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 24,
+          "certifications": 8,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": []
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 24,
+          "commands": 1328,
+          "vacancy_bit_reads": 88,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 24,
+          "certifications": 8,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": []
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 24,
+          "commands": 744,
+          "vacancy_bit_reads": 15,
+          "cached_bit_uses": 73,
+          "business_key_bit_reads": 24,
+          "certifications": 8,
+          "max_live_labels": 7,
+          "max_known_low_bits": 17,
+          "final_holes": []
+        }
+      ]
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 7,
+      "rounds": 32,
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 96,
+          "commands": 5312,
+          "vacancy_bit_reads": 352,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 96,
+          "certifications": 32,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": []
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 96,
+          "commands": 5312,
+          "vacancy_bit_reads": 352,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 96,
+          "certifications": 32,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": []
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 96,
+          "commands": 2616,
+          "vacancy_bit_reads": 15,
+          "cached_bit_uses": 337,
+          "business_key_bit_reads": 96,
+          "certifications": 32,
+          "max_live_labels": 7,
+          "max_known_low_bits": 17,
+          "final_holes": []
+        }
+      ]
+    },
+    {
+      "scenario": "two_coexisting_targets_with_copy",
+      "slots": 6,
+      "rounds": 12,
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 96,
+          "commands": 4659,
+          "vacancy_bit_reads": 236,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 132,
+          "certifications": 24,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": []
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 96,
+          "commands": 3492,
+          "vacancy_bit_reads": 93,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 132,
+          "certifications": 10,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": []
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 96,
+          "commands": 2860,
+          "vacancy_bit_reads": 16,
+          "cached_bit_uses": 77,
+          "business_key_bit_reads": 132,
+          "certifications": 10,
+          "max_live_labels": 6,
+          "max_known_low_bits": 18,
+          "final_holes": []
+        }
+      ]
+    },
+    {
+      "scenario": "eight_disjoint_targets",
+      "slots": 6,
+      "rounds": 3,
+      "strategies": [
+        {
+          "strategy": "fresh",
+          "api_calls": 72,
+          "commands": 4598,
+          "vacancy_bit_reads": 336,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 72,
+          "certifications": 24,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": [
+            7
+          ]
+        },
+        {
+          "strategy": "holes",
+          "api_calls": 72,
+          "commands": 3230,
+          "vacancy_bit_reads": 168,
+          "cached_bit_uses": 0,
+          "business_key_bit_reads": 72,
+          "certifications": 12,
+          "max_live_labels": 0,
+          "max_known_low_bits": 0,
+          "final_holes": []
+        },
+        {
+          "strategy": "prefixes",
+          "api_calls": 72,
+          "commands": 1994,
+          "vacancy_bit_reads": 16,
+          "cached_bit_uses": 152,
+          "business_key_bit_reads": 72,
+          "certifications": 12,
+          "max_live_labels": 6,
+          "max_known_low_bits": 18,
+          "final_holes": []
+        }
+      ]
+    }
+  ],
+  "inventories": [
+    {
+      "slots": 6,
+      "targets": 3,
+      "members": 330,
+      "candidates": 1886,
+      "additional_members": 0,
+      "additional_candidates": 0
+    },
+    {
+      "slots": 7,
+      "targets": 3,
+      "members": 393,
+      "candidates": 2627,
+      "additional_members": 0,
+      "additional_candidates": 0
+    },
+    {
+      "slots": 6,
+      "targets": 8,
+      "members": 720,
+      "candidates": 5130,
+      "additional_members": 0,
+      "additional_candidates": 0
+    }
+  ],
+  "small_domain_audit": {
+    "preparations_by_slots": {
+      "1": 77,
+      "2": 1900
+    },
+    "sequences_per_preparation": 4,
+    "batches": 7908,
+    "api_calls": 45471,
+    "primitive_uses": 1179180,
+    "new_assertions": 418967
+  },
+  "protected": {
+    "mode": "protected",
+    "rows": [
+      {
+        "phase": 0,
+        "body_operations": [
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ]
+        ],
+        "body_commands": 461,
+        "wrapper_commands": 31,
+        "protected_invocation_commands": 492,
+        "vacancy_bit_reads": 15,
+        "business_key_bit_reads": 12,
+        "contender_boundary_attempts": 462,
+        "refused_contender_commands": 5082,
+        "next_admitted_bind_commands": 73,
+        "members": 367,
+        "candidates": 1914,
+        "additional_members": 0,
+        "additional_candidates": 0
+      },
+      {
+        "phase": 1,
+        "body_operations": [
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ]
+        ],
+        "body_commands": 461,
+        "wrapper_commands": 31,
+        "protected_invocation_commands": 492,
+        "vacancy_bit_reads": 15,
+        "business_key_bit_reads": 12,
+        "contender_boundary_attempts": 462,
+        "refused_contender_commands": 5082,
+        "next_admitted_bind_commands": 73,
+        "members": 367,
+        "candidates": 1914,
+        "additional_members": 0,
+        "additional_candidates": 0
+      }
+    ],
+    "assertions": 2806,
+    "coverage": "Two inherited gate phases; each body boundary receives one separate complete competing bind attempt; one actual subsequent handoff and bind"
+  },
+  "omissions": {
+    "mode": "omissions",
+    "repeats": 2,
+    "omission_budget": 1,
+    "raw_attempts": 238,
+    "omission_positions": 238,
+    "assertions": 10037,
+    "scope": "Every single omitted original-command attempt on this one mixed invocation; sequential body"
+  },
+  "protected_source_raw_prefixes": 360,
+  "regression_names": [
+    "old_request_stays_stale",
+    "copy_then_overwrite_source_slot",
+    "empty_bind_ignores_stale_shared_key",
+    "source_conflicts",
+    "read_only_business_feedback_teaches_prefix",
+    "physical_answer_after_all_cache_search",
+    "last_cached_bit_is_not_physical_answer"
+  ],
+  "validation_correction": "A verifier originally excluded empty residue 0 dynamically; revised to the declared nonempty-request invariant. Production selection unchanged.",
+  "scope": "Additional vacancy bit reads <= r*b per stable invocation; inherited business key reads and every raw command remain explicitly counted.",
+  "reproduction_commands": [
+    "python3 incremental/check_incremental_vacancy.py costs --out incremental/costs.json",
+    "python3 incremental/check_incremental_vacancy.py regressions --out incremental/regressions.json",
+    "python3 incremental/check_incremental_vacancy.py audit --slots 1 --out incremental/audit_r1.json",
+    "python3 incremental/check_incremental_vacancy.py audit --slots 2 --out incremental/audit_r2.json",
+    "python3 incremental/check_incremental_vacancy.py omissions --out incremental/omissions.json",
+    "python3 incremental/check_incremental_vacancy.py protected --out incremental/protected.json"
+  ],
+  "execution_duration": {
+    "aggregate_wall_seconds": null,
+    "source": "Aggregate execution wall time was not instrumented. Tool-call wait durations are not substituted for runtime."
+  }
+}

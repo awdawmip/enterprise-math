@@ -1,0 +1,153 @@
+{
+  "mode": "protected",
+  "rows": [
+    {
+      "phase": 0,
+      "body_operations": [
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ]
+      ],
+      "body_commands": 461,
+      "wrapper_commands": 31,
+      "protected_invocation_commands": 492,
+      "vacancy_bit_reads": 15,
+      "business_key_bit_reads": 12,
+      "contender_boundary_attempts": 462,
+      "refused_contender_commands": 5082,
+      "next_admitted_bind_commands": 73,
+      "members": 367,
+      "candidates": 1914,
+      "additional_members": 0,
+      "additional_candidates": 0
+    },
+    {
+      "phase": 1,
+      "body_operations": [
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ]
+      ],
+      "body_commands": 461,
+      "wrapper_commands": 31,
+      "protected_invocation_commands": 492,
+      "vacancy_bit_reads": 15,
+      "business_key_bit_reads": 12,
+      "contender_boundary_attempts": 462,
+      "refused_contender_commands": 5082,
+      "next_admitted_bind_commands": 73,
+      "members": 367,
+      "candidates": 1914,
+      "additional_members": 0,
+      "additional_candidates": 0
+    }
+  ],
+  "assertions": 2806,
+  "coverage": "Two inherited gate phases; each body boundary receives one separate complete competing bind attempt; one actual subsequent handoff and bind"
+}
