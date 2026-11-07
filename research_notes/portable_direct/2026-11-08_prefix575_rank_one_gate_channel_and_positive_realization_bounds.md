@@ -1,12 +1,18 @@
-# PREFIX-575 — Rank-One Gate Channel, Exact Linear Degree 14, and Strict Perron Response
+# PREFIX-575-GC — Rank-One Gate Channel, Exact Linear Degree 14, and Strict Perron Response
 
-Status: AUTHOR-DERIVED / EXACT-CHECKED / UNREVIEWED / NOT_ADMITTED / BRANCH-PERSISTED  
+Status: AUTHOR-DERIVED / EXACT-CHECKED / UNREVIEWED / NOT_ADMITTED / BRANCH-PERSISTED / PREFIX-575-COMPANION  
 Research mode: unshared direct derivation; no task claim or shared task-state mutation  
-Project base: `awdawmip/enterprise-math@b19856a1843fd120b4fccc77ed6f94b424f69225`  
+Project branch base: `awdawmip/enterprise-math@b19856a1843fd120b4fccc77ed6f94b424f69225`  
+Concurrent canonical main after branch creation: `61b08d67197f4422fa0d8ac1c197f608e09b69af`  
 Science pin: `f42f2906d77f24085c123f3ccfe9667d41caa96d`  
 Prior frontier: PREFIX-574, exact result blob `359ea1417845140966a48fbe943b4ce8a8a8f363`; irreducibility checker blob `6cdf85ae5154b3f5f52bf6cab58b3a175e93dbb4`.
 
 ## 1. Question and exact scope
+
+### Distinction from the concurrent canonical PREFIX-575 result
+
+Canonical main now also contains `2026-11-08_prefix575_gate_frequency_and_variance_poisson.md` at `61b08d67197f4422fa0d8ac1c197f608e09b69af`. That result fixes `q1=q2=q3=q4=q5=q6=1` and studies the gate-count Poisson/martingale moments. This branch is a distinct parametric observer: `q1=q2=q3=q4=1`, `x=q5`, `y=q6`, `z=gate`, `r5=r6=0`. Both consume the same frozen science pin and the same gate-preserving 96-port/37-class source, but neither supersedes the other. This note is therefore labelled PREFIX-575-GC (gate-channel companion). The branch remains based on its recorded base commit; it was not rebased or merged after canonical main advanced, preserving owner isolation.
+
 
 The PREFIX-574 frontier leaves this question: the gate-retaining 37-class quotient has an irreducible degree-14 factor Q14, but the scalar companion orthant is not invariant. Can the gate response be isolated as a smaller exact linear system, and what does that say about the positive-realization problem?
 
@@ -211,8 +217,8 @@ Frozen scientific input: `f42f2906d77f24085c123f3ccfe9667d41caa96d`.
 Prior Q14 source: PREFIX-574 checker blob `6cdf85ae5154b3f5f52bf6cab58b3a175e93dbb4`.  
 Prior exact result: PREFIX-574 result blob `359ea1417845140966a48fbe943b4ce8a8a8f363`.  
 Independent reconstructed Q14 SHA-256: `d258201370bd030e081aefec6c538dbea1abfc69712798080583a842ce66643e`.  
-New checker SHA-256: `3f3839256ace9c7d633ed2aa4583c766f4f98d20cc944639c73ea9619afa44b0`.  
-Canonical compact result digest: `f86630503295190ef09bc3468e277a4fcd20f8b268535d0920e09465134ebae7`.
+New checker SHA-256: `1e0983012fea414bb4fcadc960a7e1b0e99e1ac2096ff51ae1a0af9c8e6a50bb`.  
+Canonical compact result digest: `55d29881c7d9a07467ca2b8e4bb0289fb2bc230ddd256adb7b0ac63f64523a6c`.
 
 ## 8. Identity, ownership and publication status
 
