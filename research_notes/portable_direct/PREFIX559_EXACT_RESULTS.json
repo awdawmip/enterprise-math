@@ -1,0 +1,113 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "scope": "fixed four-STAR native X6 BRC action graph",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "native_ports": 96,
+  "native_actions": 576,
+  "gate_edges": 3,
+  "common_gate_destination": 9,
+  "renewal_formula": "[z^k]F_i(t,z)=t^k A_i(t) kappa(t)^(k-1) B(t), k>=1",
+  "proof": "formal resolvent + rank-one gate decomposition",
+  "numerical_exact_mod_prime": 1000000007,
+  "specializations": [
+    [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13
+    ],
+    [
+      19,
+      23,
+      29,
+      31,
+      37,
+      41
+    ]
+  ],
+  "root_cases": 13,
+  "depth_inclusive": 32,
+  "numeric_equalities": 569088,
+  "symbolic_exact_checks": [
+    {
+      "root": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "D": 8,
+      "exact_polynomial_equalities": 1728,
+      "nonzero_gate_terms_compared": 13936
+    },
+    {
+      "root": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "D": 8,
+      "exact_polynomial_equalities": 1728,
+      "nonzero_gate_terms_compared": 17109
+    }
+  ],
+  "kernel_odd_coefficients_3_to_17": [
+    {
+      "s": 3,
+      "monomials": 5,
+      "native_path_count": 20,
+      "q5_q6_swap_symmetric": true
+    },
+    {
+      "s": 5,
+      "monomials": 12,
+      "native_path_count": 448,
+      "q5_q6_swap_symmetric": true
+    },
+    {
+      "s": 7,
+      "monomials": 53,
+      "native_path_count": 18608,
+      "q5_q6_swap_symmetric": true
+    },
+    {
+      "s": 9,
+      "monomials": 150,
+      "native_path_count": 586240,
+      "q5_q6_swap_symmetric": true
+    },
+    {
+      "s": 11,
+      "monomials": 295,
+      "native_path_count": 21965120,
+      "q5_q6_swap_symmetric": true
+    },
+    {
+      "s": 13,
+      "monomials": 649,
+      "native_path_count": 774427648,
+      "q5_q6_swap_symmetric": true
+    },
+    {
+      "s": 15,
+      "monomials": 1205,
+      "native_path_count": 27612441344,
+      "q5_q6_swap_symmetric": true
+    },
+    {
+      "s": 17,
+      "monomials": 1994,
+      "native_path_count": 983292461056,
+      "q5_q6_swap_symmetric": true
+    }
+  ],
+  "candidate_symmetry": "q5<->q6 established computationally for s<=17 only",
+  "elapsed_seconds": 3.127
+}
