@@ -50,7 +50,6 @@ def check(depth=8):
                     assert min(q+[six])>=0
                     assert sum(q)+six==d-1+int(e==rix)
                     poly[tuple(q)+(six,m[5])]+=n
-
             assert dict(poly)==exact[r][ids[port]],(port,d)
             assert sum(poly.values())==6**d
             checks+=1;positions+=len(poly)
