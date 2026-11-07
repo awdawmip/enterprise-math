@@ -205,3 +205,26 @@ print("PASS", hist, orbits)
 ~~~
 
 **Native-scope bridge:** the 20 can3 selectors are already-defined native X6 coordinate readouts; only the four STARs currently have complete FCC carrier-readout realization. The six-query optimum is an information theorem, not automatic physical simultaneous E-admissibility or path/BRC future-horizon preservation. In the existing P000 E/observer bridge task, determine the simultaneously E-admissible selectors under the precise state/horizon, then evaluate their cut threshold. A cut failing the target threshold provides an explicit coordinate-separation witness d=1_A. Do not create a duplicate Task or substitute this author note for an authorized Driver Review.
+
+## Addendum: exact optimal multi-error correction budgets for X6 coordinate triple observers
+
+Date: 2026-11-07 (Asia/Taipei). This is an **author-side, shared-context** mathematical continuation of the existing coordinate-observer note, not a new independent Driver review, current E-admission certificate, or canonical Result. Status: **AUTHOR_UNREVIEWED / NOT_ADMITTED**. Earlier frozen F7 scientific inputs, accepted P0 review, historical contributions and Source result/review bytes are unchanged.
+
+**Theorem (optimal redundancy, arbitrary whole-symbol corruption).** Let \(T=\binom{[6]}3\) be the 20 possible distinct three-axis selectors and \(Q\subseteq T\). Encode the relative native raw-coordinate chart \(X=\mathbb Z^6/\mathbb Z(1,1,1,1,1,1)\) by \(C_Q([z])=(\operatorname{can3}(z|_S))_{S\in Q}\), with one entire triple readout counted as one code symbol. For each \(t=1,2,3,4\), the fewest **distinct** triple observers needed to correct every pattern of at most \(t\) arbitrary errors in unknown symbol positions is precisely \(k_{\min}(t)=4t+2\). For \(t\ge5\), no selection of the available 20 triple observers permits worst-case correction. At the optimum \(k=2d,\ d=2t+1\), a family is adequate **if and only if** every one of the six axes occurs in exactly \(d\) selected triples.
+
+**Proof.** The earlier theorem gives the exact whole-symbol minimum Hamming distance \(D(Q)=\min_{\varnothing\neq A\subsetneq[6]}|\partial_Q(A)|\). A singleton cut has size \(\deg_Q(i)\). Since \(\sum_i\deg_Q(i)=3k\), \(D(Q)\le\lfloor k/2\rfloor\); unique worst-case \(t\)-error correction requires \(D(Q)\ge2t+1\), forcing \(k\ge4t+2\). Conversely suppose \(k=2d\) and \(\deg_Q(i)=d\) for every axis, where \(d\ge3\). A 1/5 cut has \(d\) crossing triples. A 2/4 cut with pair \(i,j\) has \(2d-\lambda_{ij}\ge d\) crossing triples, since pair-codegree \(\lambda_{ij}\le d\). A 3/3 cut has at most two wholly internal triples (one on each side), hence at least \(2d-2\ge d\) crossing triples. Complementary cuts give the other sizes. Thus \(D(Q)=d\), sufficient to correct \(t=(d-1)/2\) arbitrary corrupt whole-triple symbols. Necessity of regularity at the optimal cardinality follows because \(D(Q)\ge d\) makes all singleton degrees at least \(d\), but their sum is exactly \(6d\). The full 20-triple family has every axis in 10 triples; consequently no code can have distance 11, excluding \(t\ge5\).
+
+**Explicit existence.** For \(t=1\), \(Q_6=\{123,124,125,346,356,456\}\) is 3-regular. For \(t=2\), \(Q_{10}=\{123,124,125,126,134,256,345,346,356,456\}\) is 5-regular. For \(t=3\), \(Q_{14}=T\setminus Q_6\) is 7-regular. For \(t=4\), \(Q_{18}=T\setminus\{123,456\}\) is 9-regular. All are within the declared unconstrained coordinate-selector universe.
+
+**Exact finite census.** For \(k\in\{6,10,14,18\}\), enumerating all \(\binom{20}{k}\) unordered selector subfamilies, retaining those with six degrees \(k/2\), verifying all 31 complement-distinct nontrivial cuts, and quotienting by all 720 axis-label permutations yields:
+
+| Arbitrary errors \(t\) | Optimal \(k\) | Number of optimal selector families | \(S_6\) orbit sizes |
+|---:|---:|---:|---|
+| 1 | 6 | 330 | 30, 60, 60, 180 |
+| 2 | 10 | 1044 | 12, 72, 90, 90, 180, 240, 360 |
+| 3 | 14 | 330 | 30, 60, 60, 180 |
+| 4 | 18 | 10 | 10 |
+
+The finite-domain census is an exact integer check of a universal combinatorial proof; no infinite-state enumeration is claimed.
+
+**Mother-objective interface.** These are native X6 **raw-coordinate readout** information and error-correction statements, not claims of simultaneous physical E-admissibility, primitive triadic force closure, complete 3D slice identification, BRC branch/path provenance preservation, or future-operation-safe erasure. The immediate existing P000 bridge question remains whether the actual E-admissible joint selector subsets contain any of these \(d\)-regular families under a declared common-state and future-operation horizon. No separate task, new Driver authority, review, synthesis, or Foundation adoption follows from this author note.
