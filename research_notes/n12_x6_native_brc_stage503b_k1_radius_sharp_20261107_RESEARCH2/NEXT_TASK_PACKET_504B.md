@@ -1,0 +1,7 @@
+# Stage504-B — unbounded edit reach and Euler–BRC full costs
+
+Frozen scientific sources and P000 remain those in Stage503-B; current normative rules separately resolved. Parent: smallest future-sufficient X6 signed-history state under explicit future operations/observers.
+
+Latest author-only frontier: for horizon h≥1, max suffix edit offset d≥2, finite adaptive public-deletion ranks S⊂positive integers with K=max(S), full tagged suffix L=h+d and R=max(0,K+h−1−q) most recent core public markers (q public in suffix), together with interval F summaries, suffice for exact future legality and F=(six signed displacement components,144 ordered edge counts). Within this representation L and R are independently worst-case sharp. This extends Stage502 to k=1 and shrinks original h+3 to h+2 at d=2. Verified finite certificate 540 full response pairs, 15,011 paired states, 342 R witnesses and 9 L witnesses. Proof, lossless executed source and execution output in Stage503-B directory.
+
+Next discrimination: allow unbounded/dynamic SET_FROM_END(r,C) or relabel O→P in compressed core; derive any finite horizon structural repair or exact counterexample with directions, tags, operations and edge difference. Separate route: same-input heterogeneous all-144-active Euler–BRC determinant-recount versus single-solve exact ranking/anti-ranking; measure full preprocessing, bits, time, memory and output verification using executed code. Native Owner/CLAIM/Result and independent Driver review require authenticated service permission; save author frontier independently.
