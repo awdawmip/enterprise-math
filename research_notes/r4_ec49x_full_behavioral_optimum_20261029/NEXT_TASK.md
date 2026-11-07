@@ -1,0 +1,11 @@
+# EC49Y — exact nonconvex acceptance-pair region at fixed per-stage costs
+
+**Parent immutable scientific evidence:** EC49X (this research folder), concluding the previously open full behavioral optimum `max(alpha-beta) = 59/576` at `eta=1/200, C1=43/48, C2=7/8` for arbitrary real independent-coin source-blind policies. Do not redo the full max-delta proof; first obtain a separate adversarial check of its endpoint extreme-point reduction.
+
+**Remaining hard target:** Determine the *whole* `(alpha,beta)` achievable section under the same model, including random decisions to omit S, and compare with the shared-seed convex hull. Characterize exact boundary/range, semialgebraic versus polyhedral pieces, and whether every rational attainable pair is realizable using rational behavioral transition probabilities (not an ex-ante shared seed).
+
+**Useful exact parametrization:** `x_wc≥0, sum_c x_wc≤1`, `s_cu∈[0,1]`, terminal acceptance `a_cuz∈[0,1]` after buying S and `a^0_cu∈[0,1]` after omitting it; STOP acceptance can depend on initial W but its P−Q contribution is zero. Keep `Pr(S,c|w,u)=x_wc s_cu`. Cost identity `b+m=1/16` where `b=sum_w,c∈B x_wc` and `m=sum_wcu x_wc t_w(u)(1-s_cu)`. For δ support, the EC49X proof reduces to 288 endpoints; that does *not* automatically describe alpha and beta separately because shared P/Q probability offsets and STOP/no-S terminal choices matter.
+
+**Minimum research increment:** Supply a rigorously proved boundary slice, an exact rational nonconvex witness inside the fixed-cost pair region, a complete rational finite reduction for another support direction, or a certified semialgebraic decision specification with correct quantified policy variables. Include exact Fraction code or a mathematical certificate; finite numerical samples alone establish no global boundary.
+
+**Sources/authority:** Read EC49X proof, its generated exact report, GLOBAL_KNOWLEDGE_V1 and P000 current pins, and the then-current research protocol. Canonical Task owner and native role/CLAIM must be separately authorized; an author-side PR is not Source Result or independent Driver acceptance. Preserve the positive-weight BRC type and explicit observer/operation horizon; signed BRC/X6 transfer requires a new typed proof.
