@@ -1,0 +1,68 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "lane": "chatgpt-research-hourly-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE_REGISTER_PENDING",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Prove canonical second digit Delta_p-R_p=0 modp for all p=13,19 mod24; still OPEN. Accepted D24 first digit remains frozen input.",
+  "highest_author_side_frontier": "2a523115a7ffd317ad04f4e4e9b602fc21c247d8",
+  "completed_this_unit": [
+    "Proved exact divided residual splitting D_cand=D_base+t0*S_A-r0*S_B modp for a specified Hasse-derivative-ratio candidate lift.",
+    "Computed 94 target primes p<2500 with independent exact integer Hasse derivatives modp^2, Gauss recurrences modp^3, and typed second-order ports; 93/94 D_cand nonzero; p499 sole zero.",
+    "Verified exact counterexample to the specific naive Hasse derivative ratio second-digit identity at p13 (D_cand=9 mod13) and p373 (117 mod373). This does not refute canonical LIFT and is not a native p373 benchmark.",
+    "Reasserted exact gauge-dependence law for t/r second digits; a canonical geometric coefficient lift is required."
+  ],
+  "author_evidence": [
+    {
+      "path": "research_notes/portable_direct/20261108_hourly20_d25_fricke_candidate_lift_discrimination.md",
+      "git_blob_sha1": "6f86978f14fd8b676724f64799417089187bb50b",
+      "status": "AUTHOR_SIDE_PROVED_CONDITIONAL_ALGEBRA_AND_EXACT_COUNTEREXAMPLE"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_fricke_candidate_lift_test_20261108.py",
+      "git_blob_sha1": "a2e3de72bc9be6ad6324a8d1f6307f1fe6a3b269",
+      "status": "LOCAL_EXACT_PYTHON_EXECUTED_PASS"
+    }
+  ],
+  "numeric_witnesses": {
+    "p13": {
+      "D_base": 8,
+      "D_S": 1,
+      "D_cand": 9
+    },
+    "p19": {
+      "D_base": 16,
+      "D_S": 16,
+      "D_cand": 13
+    },
+    "p373": {
+      "D_base": 365,
+      "D_S": 125,
+      "D_cand": 117
+    }
+  },
+  "smallest_unfinished_unit": "Derive the actual p-adic Fricke/Cartier isogeny lift t,r modulo p^2 and signed branch/Euler factor, compare its correction with the split second-digit ports and original Gamma+E_A-E_B reduction.",
+  "next_exact_action": "Reconstruct exact modp^2 Fricke pullback and connection coefficients in the two branches; p19/p373 two-discriminant test first, then general proof. The p13 candidate residual nonzero rules out only naive J_A/J_B lift, not other lifts.",
+  "do_not_repeat": [
+    "D24 accepted UR/JT0",
+    "prior 94-prime universal p^3 Gauss coefficient scan",
+    "parallel first-lift three-port proof",
+    "naive candidate t=J_A/(6J_B) or -J_A/(8J_B) claimed as universal second-digit identity",
+    "native p373 #1559"
+  ],
+  "native_control": {
+    "original_target_request_ids": [
+      "em-h20-20261106-1324-d25-task-r13",
+      "em-h20-20261106-1324-d25-cont-r13"
+    ],
+    "receipt_after_reconcile": "QUEUED / no native claim",
+    "old_session_claim_run_uploads": "UNKNOWN_PRESERVE",
+    "activity": "REGISTER_PENDING",
+    "checkpoint": "NOT_WRITTEN",
+    "support": "#1558"
+  },
+  "proof_strength": "EXACT_PORT_DECOMPOSITION_PROVED / 94_PRIME_CANDIDATE_CHECKED / EXACT_NARROW_COUNTEREXAMPLE / UNREVIEWED_NOT_ADMITTED"
+}
