@@ -1,0 +1,59 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE_REGISTER_PENDING",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "prior_this_lane_frontier": "1ab363049fb298ce10c0575036d350c5a4549424",
+  "consumed_sibling_source": "47c8de70adfae20dd99a47eb804bb2dd72f87716",
+  "mother_objective": "D25 original reflected LIFT and 216 weighted W_p congruence; both OPEN",
+  "proven_new_unit": "For all m>=1 over Q, R_m=2[B_m+(Q+6J)U-6QV] by 0/1/infinity rational residues, where complementary r>i boundary B_m, Q_m(1/2)=Q, J=(zQ'_m)(1/2), U=F_m(1), V=F'_m(1). Consuming earlier uniform CM Hasse zero gives R_p=2B_m+12JU modp in p=13,19 mod24.",
+  "exact_witnesses": {
+    "p19": {
+      "J": 1,
+      "U": 5,
+      "B": 14,
+      "cutoff": 9,
+      "tangent": 3,
+      "R": 12
+    },
+    "p373": {
+      "J": 294,
+      "U": 45,
+      "B": 167,
+      "cutoff": 334,
+      "tangent": 235,
+      "R": 196
+    }
+  },
+  "evidence": [
+    "research_notes/portable_direct/20261108_onhour_d25_residue_cutoff_reciprocity.md",
+    "research_notes/portable_direct/d25_residue_reciprocity_check_20261108.py"
+  ],
+  "verification": "Exact rational m1..8 PASS; independently computed original Gauss and Hasse coefficients, R, cutoff and CM reduction for 77 target primes <=2000 PASS",
+  "next_exact_action": "Use B_m as an explicit infinity-cutoff source to seek a finite adjoint/Green/creative-telescoping bridge to the original divided ZH0 and Phi_xx cutoff. Test p19 and p373 first; retain original R independently of Delta.",
+  "do_not_repeat": [
+    "D24 accepted UR",
+    "CM Hasse zero",
+    "prior Fricke/Witt three-port first lift",
+    "preexisting reflected kernel and Green-Wronskian",
+    "prior 77-prime first-lift scan",
+    "native H0/B0 benchmark #1559"
+  ],
+  "native_source": {
+    "original_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "this_run": "BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE / operation_sent=false",
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "native_session": "NOT_VERIFIED",
+    "native_claim": "NOT_VERIFIED",
+    "native_run": "NOT_VERIFIED",
+    "native_checkpoint": "NOT_WRITTEN",
+    "activity": "REGISTER_PENDING",
+    "sync_debt": true,
+    "benchmark_issue": "https://github.com/awdawmip/enterprise-math/issues/1559"
+  },
+  "status": "AUTHOR_SIDE_PROVED / EXACT_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
