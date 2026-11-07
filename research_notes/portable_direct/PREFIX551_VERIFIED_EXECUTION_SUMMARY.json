@@ -1,0 +1,111 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "previous_source_commit": "002b4c8e91d0f78f464ccde9357deeb8d455165b",
+  "previous_implementation_blob": "a0d057fadf610e89983723f1392d5b798b7c05d5",
+  "exact_certificate_local_sha256": "323dfb12b002e8cdeac185f4960fd9a508c809312077b1e547ed72e660c0b2fd",
+  "complete_local_json_sha256": "ff07e8de0c2ad4a199b7dfa5bd3bd46cddc3230e759755e9b5a054199eb78fd7",
+  "phases": 48,
+  "ports": 96,
+  "legal_edges": 144,
+  "endpoint_channels": 12,
+  "quotient_states": 51,
+  "checked_degree_monomials": 25128,
+  "terminal_class_depth_equalities": 4284,
+  "rooted_polynomial_equalities": 864,
+  "rooted_nonzero_positions": 61907,
+  "depth_terminal_check": 6,
+  "depth_rooted_check": 8,
+  "witness": {
+    "start_phase": [
+      0,
+      3,
+      -1
+    ],
+    "start_bit": 0,
+    "steps": 4,
+    "path_one": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "path_two": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "same_zero_root_monomial": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    "rooted_path_one": [
+      1,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    "rooted_path_two": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0
+    ]
+  },
+  "benchmark": {
+    "depth_inclusive": 7,
+    "repeats": 3,
+    "output_polynomials": 768,
+    "output_positions": 29498,
+    "native_51": {
+      "median_seconds": 1.258624,
+      "median_peak_bytes": 5644164
+    },
+    "native_49": {
+      "median_seconds": 1.286641,
+      "median_peak_bytes": 5403020
+    },
+    "graded_51": {
+      "median_seconds": 0.697078,
+      "median_peak_bytes": 9021884
+    }
+  },
+  "status_scope": "AUTHOR_PROVED / EXACT_INTEGER_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "native_gateway": "BACKEND_IDENTITY_OR_VERSION_MISMATCH;operation_sent=false"
+}
