@@ -1,0 +1,11 @@
+# EC48Z — structured elimination of policy-coupling rank-one constraints
+
+Proposed author-side mathematical continuation only. No new native Task-ID, CLAIM, Research-Activity, Result, independent review or Foundation admission. Preserve EC48Y author context and frozen upstream EC48X source/policy pins; acquire fresh role/owner authority separately for formal Source actions.
+
+Completed frontier: EC48Y Theorem Y1 gives necessary/sufficient exact polynomial Q occupancy + common-fiber rank-one constraints + LR-weighted four readouts for any finite rational source model with a fixed causal register updater and full fine-history LR oracle. Y2 collapses this to an exact rational LP under controlled-Markov quotient kernels; rational witnesses and rational separating duals follow. A positive 4-leaf non-Markov example has exact action minor 1/4 and raw separation gap 1/8. Executed exact 3060 grid cases plus source normalization, LR and witness assertions. Neither these proofs nor tests are native X6/signed-BRC dynamics.
+
+Next distinct question: determine a sharp verifiable structural class strictly larger than controlled-Markov LR-labelled quotients in which all rank-one constraints can be eliminated without enlarging the raw four-coordinate region. Begin with two hidden histories, two future observations and one binary continue decision, comparing fiberwise equal conditional reward profiles against equality of full action kernels. Prove an LP reduction or give strictly positive rational counterexample.
+
+Second independent question: Does any finite strictly positive rational nonlumpable model with rational target O have only irrational finite-register behavioral-policy lifts? Produce the smallest exact example or prove rational lifting under a nontrivial weaker condition. Tarski-Seidenberg alone does not imply a rational lift.
+
+Evidence: exact P/Q masses, source-neutral causal updater/readout at every epoch, timing of LR oracle, complete algebraic rank/LP certificate, separation of raw S from convex hull claims, code and its actual test scope, classical references, untouched P000/ACTIVE X6 bridge obligations. Deliver to authorized Source/PR and read back content before reporting saved status.
