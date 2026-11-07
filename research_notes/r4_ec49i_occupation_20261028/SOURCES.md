@@ -1,0 +1,17 @@
+# EC49I — provenance, sources and authority (2026-10-28)
+
+**Global knowledge frozen main:** d667f21f69f7cc5b1bb5ccd681e5be36f733ed3b, remotely verified this round. Read at this commit both 00_BOOTSTRAP.md and OPERATING_MANUAL.md, the Enterprise Math project/TASK_RESEARCH role router, math/code/temporal/handoff policies, ACTIVE 我眼中的世界.md (blob 99238c3466eb0805748bae01fd1a20868a5a351e), BRC priority and activity procedure.
+
+**Enterprise Math scientific/control frozen main:** d2c0f93feaa3fc9350f843a074591c715b3bbddc, remotely verified this round. Read AGENTS.md, current p000_reality_foundation.json (blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488), definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json, definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json, current control authority, autonomous operations and portable research protocol. Project P000 was read in full; the global startup projection's older canonical blob is a historical pin, not a replacement for current project P000.
+
+**Immutable parent:** EC49H research commit 841da5bad5c1fb45f0c575465905ef676344811b, PR https://github.com/awdawmip/enterprise-math/pull/1637 — read parent PROOF.md/NEXT_TASK.md/SOURCES.md/EXACT_REPORT.json. EC49G context PR https://github.com/awdawmip/enterprise-math/pull/1635 . No earlier author result has been promoted or modified by this continuation.
+
+**External literature inspected on 2026-10-28 (comparators, not proof substitutes):**
+- Timm Spork et al., *Approximate Probabilistic Bisimulation for Continuous-Time Markov Chains*, arXiv 2505.15587, first submitted 2025-05-21. https://arxiv.org/abs/2505.15587
+- François Dufour, Tomás Prieto-Rumeau, *Absorbing Markov Decision Processes: Geometric Properties and Sufficiency of Finite Mixtures of Deterministic Policies*, arXiv 2512.17511, submitted 2025-12-19. https://arxiv.org/abs/2512.17511
+- Ali D. Kara, Serdar Yüksel, *Approximations and Learning for Continuous State and Action MDPs under Average Cost Criteria*, JMLR 27(68), 2026. https://www.jmlr.org/beta/papers/v27/24-0395.html
+- Gaoang Bian, Alessandro Abate, *Bisimulation and trace equivalence in an approximate probabilistic context*, FoSSaCS 2017. https://research.google/pubs/bisimulation-and-trace-equivalence-in-an-approximate-probabilistic-context/
+
+**Actual evidence.** Python 3 standard-library fractions.Fraction program VERIFY.py was executed locally on 2026-10-28 with all assertions passing; output JSON in EXACT_REPORT.json. It exhaustively checks 100 specified W-visible deterministic full-policy pairs under a Q-conditioned compiled policy; validates individual P/Q occupation-weighted acceptance budgets, exact clock equality, and two sharp LR-fiber rational witnesses. General real-randomized-strategy theorem is analytic, finite 100-policy exhaustive domain is limited to the indicated one-sensor model; no unexecuted general LP solver, independent review, or native signed BRC/X6 experiment is claimed.
+
+**Authority.** Authenticated GitHub login awdawmip has push permission on awdawmip/enterprise-math. Native dispatch and owner inventory calls returned CONTROL_QUOTA; native status follow-up returned BACKEND_IDENTITY_CHECK_UNAVAILABLE with operation_sent=false. The currently winning native owner/CLAIM was not verified. This document and PR are non-sensitive **author-side durable preservation**, not a source-native task publication, Research-Activity, frozen Result or Driver acceptance. No credentials or session keys included; no permission expansion or Google Drive bypass.
