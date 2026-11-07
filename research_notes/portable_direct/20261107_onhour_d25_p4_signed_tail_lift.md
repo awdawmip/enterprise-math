@@ -32,7 +32,7 @@ Define labelled index bands:
 I_A = {h<k<p : 3k<2p}       J_A = {h<k<p : 3k>=2p}
 I_B = {h<k<p : 4k<3p}       J_B = {h<k<p : 4k>=3p}.
 ```
-For k in I_A, define the p-adic unit `a_k=(6k+1)(2k-p)!(3k-p)!/[216^k(k!)^5]` in Z_(p). For k in I_B define `b_k=2(8k+1)(4k-2p)!/[2304^k(k!)^4]`. For k in J_A and J_B, respectively, define `a^3_k=-2(6k+1)(2k-p)!(3k-2p)!/[216^k(k!)^5]` and `b^3_k=-6(8k+1)(4k-3p)!/[2304^k(k!)^4]`; only their residues mod p matter.
+For k in I_A, define the p-integral, source-labelled residue port `a_k=(6k+1)(2k-p)!(3k-p)!/[216^k(k!)^5]` in Z_(p). For k in I_B define `b_k=2(8k+1)(4k-2p)!/[2304^k(k!)^4]`. For k in J_A and J_B, respectively, define `a^3_k=-2(6k+1)(2k-p)!(3k-2p)!/[216^k(k!)^5]` and `b^3_k=-6(8k+1)(4k-3p)!/[2304^k(k!)^4]`; only their residues mod p matter.
 
 Form the source-separated observations
 ```text
