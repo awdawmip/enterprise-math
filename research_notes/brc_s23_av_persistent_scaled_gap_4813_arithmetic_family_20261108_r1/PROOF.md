@@ -31,7 +31,7 @@ are adjacent open threshold cells of T_(71+t) for EVERY integer t>=0, even after
 
 ## Theorem B: exact long 79-step return sequence and first deviation
 
-Let A0=10^60/7^71, x=7^439/10^371, W=7^510/10^431. The integer inequalities 0<A0<x<1 and W>1 hold. For v>=0 write K(v)=min{k>=0:7^(k+v)<10^k}, and R(v)=7^(K(v)+v)/10^K(v). Then R(v) belongs to (A0,1) exactly when v can be a first-below-1 prefix witness for the base gap.
+Let A0=10^60/7^71, x=7^439/10^371, W=7^510/10^431. The integer inequalities 0<A0<x<1 and W>1 hold. Let v denote the number of label-4 outcomes (not the total non-3 count). For v>=0 write K(v)=min{k>=0:7^(k+v)<10^k}, and R(v)=7^(K(v)+v)/10^K(v). Then R(v) belongs to (A0,1) exactly when v admits a first-below-1 prefix witness for the base gap with k=K(v) label-1 outcomes.
 
 The exact finite seed certificate (all v=0,...,146) proves:
 - v=0,...,67: R(v)<=A0;
@@ -41,9 +41,9 @@ The exact finite seed certificate (all v=0,...,146) proves:
 
 For m>=0, v in [68,146], and k=K(v), the exact identity
 
-Lambda(k+431m,(v+79m)-(k+431m)) = R(v) W^m
+Lambda(k+431m,v+79m) = R(v) W^m
 
-is simply the exponent law 7^(v+k+510m)/10^(k+431m)=R(v)W^m; here the displayed second argument denotes the label-4 count, whereas v+79m is the total non-3 count. More directly, for each total non-3 count v'=v+79m, its candidate first-below-one k'=K(v)+431m has ratio R(v)W^m. The candidate is indeed K(v') for m<=4813: R(v)W^m<=x W^4813<1, while its predecessor k'-1 has ratio >=1, by K(v)'s minimality and W>1.
+is simply the exponent law 7^(v+k+510m)/10^(k+431m)=R(v)W^m. Here v'=v+79m remains the label-4 count, k'=K(v)+431m is the label-1 count, and their sum is the total non-3 count. The candidate k' is indeed K(v') for m<=4813: R(v)W^m<=x W^4813<1, while its predecessor k'-1 has ratio >=1, by K(v)'s minimality and W>1.
 
 The following four large comparisons are EXACT integer comparisons (no logarithms):
 
@@ -69,11 +69,11 @@ For each integer m=0,...,4812 set
 
 h_m=140+79m, t_m=h_m-71=69+79m.
 
-By Theorem A, I_(t_m) is an open adjacent cell in T_(h_m). To enter this cell, a prefix with total non-3 count s and label-1 count k must satisfy
+By Theorem A, I_(t_m) is an open adjacent cell in T_(h_m). To enter this cell, a prefix with ell label-4 outcomes and k label-1 outcomes must satisfy
 
-A0 < 7^(s+t_m)/10^k < 1.
+A0 < 7^(k+ell+t_m)/10^k < 1.
 
-Write v=s+t_m. Because t_m=v_m+1 and the next return is v_(m+1)=147+79m, Theorem B gives the first possible v and its unique smallest k=802+431m. Therefore the shortest prefix entering I_(t_m) has exact length
+Write v=ell+t_m. Because t_m=v_m+1 and the next return is v_(m+1)=147+79m, Theorem B gives the first possible v and its unique smallest k=802+431m. Therefore the shortest prefix entering I_(t_m), with ell=v-t_m and total non-3 length n=k+ell, has exact length
 
 F(t_m)=(147+79m)-(69+79m)+(802+431m)=880+431m.
 
