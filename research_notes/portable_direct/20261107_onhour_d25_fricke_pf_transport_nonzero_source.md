@@ -79,6 +79,26 @@ Companion checker `d25_onhour_fricke_transport_source_check_20261107.py`: SymPy 
 
 BRC/observer reuse: `COMPOSE_APPLIED` to the exact Fricke and finite-coefficient interfaces, keeping the independent 216 and 2304 contribution streams `C_p z^p` and `H M D_p w^p`, the `p^3` valuation, truncation index, conjugate fiber and differential-operator port. Combining only after (1) yields the unavoidable nonzero forcing residue `-1/72`; a homogeneous formal three-jet comparison through `p^4` cannot discard this source. This precise obstruction does not decide the original weighted value congruence or the three homogeneous integration constants.
 
+## Continued unit: the conjugate first jet of the forcing
+
+Write \(F_p(t)=L_U^{(t)}E_p(t)\) and \(R(t)=H(t)M(t)\). Differentiating the **exact** source identity (2), before any reduction, gives
+\[
+F_p'(t)=-p^3\left[pC_pz(t)^{p-1}z'(t)-R'(t)D_pw(t)^p-pR(t)D_pw(t)^{p-1}w'(t)\right].
+\]
+For every prime \(p>3\), reducing only after differentiation eliminates the two terms with an additional factor \(p\), while \(D_p\equiv3/32\pmod p\). Exact differentiation of the rational function \(R(t)\) at \(t_\pm=\pm6\sqrt2\) gives
+\[
+R'(t_\pm)=\frac{-35\pm25\sqrt2}{3}.
+\]
+Since \(w(t_\pm)=1/9\), this yields the **new first source-jet identity**
+\[
+\boxed{\quad F_p'(t_\pm)\equiv
+\frac{p^3}{288}(-35\pm25\sqrt2)\pmod{p^4}.\quad}\tag{4}
+\]
+Both signs are genuine conjugate coordinate ports; do not merge them into one rational observer. The numerator has norm
+\( (-35)^2-2(25)^2=-25\). Hence the first forcing jet has exact \(p\)-adic valuation 3 for all primes \(p>5\). For \(p=5\), the first jet is zero modulo \(5^4\); the source value itself remains order \(5^3\) by (3).
+
+The exact checker also verifies \(R'(t_\pm)=(-35\pm25\sqrt2)/3\). For the \(+\) fiber the coefficient pair \((\text{constant},\sqrt2\text{-coefficient})\) modulo \(p^4\) is \((6859,13718)\) at \(p=19\) and \((7991848018,13648415771)\) at \(p=373\). These are calculated in the indicated quadratic coordinate ring; they do not claim execution of the independent native Frobenius test. Formula (4) adds a branch-sensitive differential port to the rational constant source (3), giving two distinguished source values for the future inhomogeneous Frobenius transport.
+
 ## Open unit and protected status
 
 Parent target remains `Delta_p=R_p (mod p)` for `p=13,19 (mod24)`, equivalent at the consumed frozen interface to `W_p=p (mod p^3)`. The conjectural fourth-digit relation `2V_p-W_p-p(-3/p)=0 (mod p^4)` is a separate path. **Next exact mathematical action:** solve or explicitly expand the inhomogeneous pulled-back third-order equation using (2), recover the three homogeneous Frobenius/normalization constants for the finite truncated pair, and test the resulting carry-sensitive weighted first-jet at `p=19,373`. Preserve the full derivative of `w^p` and `z^p` before reducing modulo `p`; `p^3` forcing at a point alone cannot replace the original native benchmark.
