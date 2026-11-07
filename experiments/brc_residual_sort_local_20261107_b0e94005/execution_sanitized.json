@@ -1,0 +1,61 @@
+{
+  "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "selected_cpu": 0,
+  "base_source": "/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp",
+  "expected_base_source_commit": "5b8f9f76cd187d9d5aaa62028af6a9e5e2710b28",
+  "expected_base_source_blob": "868723dc6b627b7230d4c54149d276537138b7aa",
+  "sanitizer_options": {
+    "ASAN_OPTIONS": "detect_leaks=0"
+  },
+  "commands": [
+    {
+      "argv": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DBRC_BASE_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp\"",
+        "local_bench.cpp",
+        "-o",
+        "local_bench_sanitized"
+      ],
+      "started_at_utc": "2026-11-07T11:38:12.438179+00:00",
+      "elapsed_seconds": 12.995692488999339,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "In file included from local_bench.cpp:9:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp: In function \u2018int brc_previous_experiment_main(int, char**)\u2019:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp:712:1: warning: control reaches end of non-void function [-Wreturn-type]\n  712 | }\n      | ^\n"
+    },
+    {
+      "argv": [
+        "taskset",
+        "-c",
+        "0",
+        "./local_bench_sanitized",
+        "--verify"
+      ],
+      "started_at_utc": "2026-11-07T11:38:25.434175+00:00",
+      "elapsed_seconds": 3.9097282139991876,
+      "exit_code": 0,
+      "stdout": "{\"result\":\"PASS\",\"value_bytes\":8,\"domain\":\"full uint64\",\"new_algorithms\":4,\"total_algorithms\":12,\"verified_input_arrays\":5715,\"verified_algorithm_outputs\":49048,\"midpoint_boundary_values\":72,\"paired_control_banks\":40,\"independent_local_counter_shape_checked\":true,\"wide_nonendpoint_down_correction_checked\":true,\"bucket_and_counter_cap_boundaries_checked\":true,\"instrumented_and_timed_paths_checked\":true,\"unique_100000_checked\":true,\"unchanged_root_and_divider_validation_reused\":true}\n",
+      "stderr": ""
+    }
+  ],
+  "result": "PASS"
+}

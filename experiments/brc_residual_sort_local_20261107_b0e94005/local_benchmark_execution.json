@@ -1,0 +1,56 @@
+{
+  "argv": [
+    "taskset",
+    "-c",
+    "0",
+    "./local_bench",
+    "--bench",
+    "local_results.csv",
+    "1000000",
+    "0.012"
+  ],
+  "cwd": "/workspace/scratch/b0e94005ad9c/brc_local_sort",
+  "selected_cpu": 0,
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "base_source_commit": "5b8f9f76cd187d9d5aaa62028af6a9e5e2710b28",
+  "base_source_git_blob": "868723dc6b627b7230d4c54149d276537138b7aa",
+  "source_sha256": {
+    "local_bench.cpp": "da250bbcb2bfa34e5cdc51f46dc0e5518d9b02b4bf9808edc2ae925bf985d317",
+    "local_kernels.hpp": "d6bc54058e5cb6926766f55c82f63522da12e92d52872d9f0105cf05b4d252a4"
+  },
+  "binary_sha256": "fe46e983e3d8d2cf42ec8a8c880f027be270ec7929c037d3673f9104628dae56",
+  "started_at_utc": "2026-11-07T11:38:57.373608+00:00",
+  "result": "PASS",
+  "elapsed_seconds": 134.57649133200175,
+  "exit_code": 0,
+  "stdout": "{\"result\":\"PASS\",\"conditions\":24,\"benchmark_rows\":288,\"validated_input_banks\":192,\"algorithms\":12,\"banks\":8,\"rounds\":7,\"value_bytes\":8,\"target_seconds\":0.012,\"instrumented_and_timed_paths_checked\":true,\"observable_sink\":3883551809}\n",
+  "stderr": "completed local uniform_1e6 n=100\ncompleted local uniform_1e6 n=100000\ncompleted local uniform_1e6 n=1000000\ncompleted local uniform_1e12 n=100000\ncompleted local square1e6_s0 n=10000\ncompleted local square1e6_s0 n=100000\ncompleted local square1e6_s0 n=1000000\ncompleted local jitter1e6_B20_D8 n=10000\ncompleted local jitter1e6_B20_D8 n=100000\ncompleted local jitter1e6_B20_D8 n=1000000\ncompleted local square900_s0 n=100000\ncompleted local jitter900_B20_D8 n=100000\ncompleted local square900_s1790 n=100000\ncompleted local square1e6_s1999990 n=100000\ncompleted local square1e6_B256_D8 n=100000\ncompleted local square1e6_B256_D512 n=100000\ncompleted local unique1e6_B256_D512 n=100000\ncompleted local square3e9_B20_D8 n=100000\ncompleted local square900_anchor7 n=100000\ncompleted local uint64_top_window n=100000\ncompleted local heldout_jitter_K8 n=100000\ncompleted local heldout_jitter_K2 n=100000\ncompleted local heldout_jitter_3K4 n=100000\ncompleted local positive_jitter_5K4 n=100000\n",
+  "finished_at_utc": "2026-11-07T11:41:11.950303+00:00",
+  "benchmark_summary": {
+    "result": "PASS",
+    "conditions": 24,
+    "benchmark_rows": 288,
+    "validated_input_banks": 192,
+    "algorithms": 12,
+    "banks": 8,
+    "rounds": 7,
+    "value_bytes": 8,
+    "target_seconds": 0.012,
+    "instrumented_and_timed_paths_checked": true,
+    "observable_sink": 3883551809
+  },
+  "results_sha256": "c63518139f746c701543341cff4e21dcccc8e50790744a4b92e7307a4af3e575"
+}
