@@ -1,0 +1,636 @@
+{
+  "status": "PASS",
+  "scope": "AUXILIARY_BRC_INTEGER_MODEL_AUTHOR_CHECK_ONLY",
+  "statement": "Strictly positive reversible mixing preserves uniform 2m-1 horizon sharpness",
+  "parameter_domain": {
+    "m": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "c_d_pairs": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "word_lengths": "0..2m-1, all 4^t ordered joint-output words"
+  },
+  "case_count": 12,
+  "word_pair_checks": 69900,
+  "raw_integer_history_evaluations": 139800,
+  "integer_transition_products": 14330640,
+  "cases": [
+    {
+      "m": 1,
+      "N": 1,
+      "P": 2,
+      "c": 1,
+      "d": 1,
+      "source_weight_each_type": 1,
+      "transition_row_mass": 2,
+      "horizon": [
+        {
+          "t": 0,
+          "words": 1,
+          "total_each": 1,
+          "l1": 0
+        },
+        {
+          "t": 1,
+          "words": 4,
+          "total_each": 16,
+          "l1": 8
+        }
+      ],
+      "example_all_zero_word": {
+        "A": 4,
+        "B": 6,
+        "signed_gap": -2
+      },
+      "first_split_tv_exact": {
+        "numerator": 1,
+        "denominator": 4
+      }
+    },
+    {
+      "m": 1,
+      "N": 1,
+      "P": 2,
+      "c": 2,
+      "d": 1,
+      "source_weight_each_type": 1,
+      "transition_row_mass": 3,
+      "horizon": [
+        {
+          "t": 0,
+          "words": 1,
+          "total_each": 1,
+          "l1": 0
+        },
+        {
+          "t": 1,
+          "words": 4,
+          "total_each": 24,
+          "l1": 12
+        }
+      ],
+      "example_all_zero_word": {
+        "A": 6,
+        "B": 9,
+        "signed_gap": -3
+      },
+      "first_split_tv_exact": {
+        "numerator": 1,
+        "denominator": 4
+      }
+    },
+    {
+      "m": 1,
+      "N": 1,
+      "P": 2,
+      "c": 1,
+      "d": 2,
+      "source_weight_each_type": 1,
+      "transition_row_mass": 3,
+      "horizon": [
+        {
+          "t": 0,
+          "words": 1,
+          "total_each": 1,
+          "l1": 0
+        },
+        {
+          "t": 1,
+          "words": 4,
+          "total_each": 24,
+          "l1": 12
+        }
+      ],
+      "example_all_zero_word": {
+        "A": 6,
+        "B": 9,
+        "signed_gap": -3
+      },
+      "first_split_tv_exact": {
+        "numerator": 1,
+        "denominator": 4
+      }
+    },
+    {
+      "m": 2,
+      "N": 3,
+      "P": 4,
+      "c": 1,
+      "d": 1,
+      "source_weight_each_type": 4,
+      "transition_row_mass": 5,
+      "horizon": [
+        {
+          "t": 0,
+          "words": 1,
+          "total_each": 4,
+          "l1": 0
+        },
+        {
+          "t": 1,
+          "words": 4,
+          "total_each": 320,
+          "l1": 0
+        },
+        {
+          "t": 2,
+          "words": 16,
+          "total_each": 25600,
+          "l1": 0
+        },
+        {
+          "t": 3,
+          "words": 64,
+          "total_each": 2048000,
+          "l1": 1920
+        }
+      ],
+      "example_all_zero_word": {
+        "A": 84080,
+        "B": 84110,
+        "signed_gap": -30
+      },
+      "first_split_tv_exact": {
+        "numerator": 3,
+        "denominator": 6400
+      }
+    },
+    {
+      "m": 2,
+      "N": 3,
+      "P": 4,
+      "c": 2,
+      "d": 1,
+      "source_weight_each_type": 4,
+      "transition_row_mass": 6,
+      "horizon": [
+        {
+          "t": 0,
+          "words": 1,
+          "total_each": 4,
+          "l1": 0
+        },
+        {
+          "t": 1,
+          "words": 4,
+          "total_each": 384,
+          "l1": 0
+        },
+        {
+          "t": 2,
+          "words": 16,
+          "total_each": 36864,
+          "l1": 0
+        },
+        {
+          "t": 3,
+          "words": 64,
+          "total_each": 3538944,
+          "l1": 9216
+        }
+      ],
+      "example_all_zero_word": {
+        "A": 146448,
+        "B": 146592,
+        "signed_gap": -144
+      },
+      "first_split_tv_exact": {
+        "numerator": 1,
+        "denominator": 768
+      }
+    },
+    {
+      "m": 2,
+      "N": 3,
+      "P": 4,
+      "c": 1,
+      "d": 2,
+      "source_weight_each_type": 4,
+      "transition_row_mass": 9,
+      "horizon": [
+        {
+          "t": 0,
+          "words": 1,
+          "total_each": 4,
+          "l1": 0
+        },
+        {
+          "t": 1,
+          "words": 4,
+          "total_each": 576,
+          "l1": 0
+        },
+        {
+          "t": 2,
+          "words": 16,
+          "total_each": 82944,
+          "l1": 0
+        },
+        {
+          "t": 3,
+          "words": 64,
+          "total_each": 11943936,
+          "l1": 3456
+        }
+      ],
+      "example_all_zero_word": {
+        "A": 487944,
+        "B": 487998,
+        "signed_gap": -54
+      },
+      "first_split_tv_exact": {
+        "numerator": 1,
+        "denominator": 6912
+      }
+    },
+    {
+      "m": 3,
+      "N": 5,
+      "P": 6,
+      "c": 1,
+      "d": 1,
+      "source_weight_each_type": 16,
+      "transition_row_mass": 17,
+      "horizon": [
+        {
+          "t": 0,
+          "words": 1,
+          "total_each": 16,
+          "l1": 0
+        },
+        {
+          "t": 1,
+          "words": 4,
+          "total_each": 6528,
+          "l1": 0
+        },
+        {
+          "t": 2,
+          "words": 16,
+          "total_each": 2663424,
+          "l1": 0
+        },
+        {
+          "t": 3,
+          "words": 64,
+          "total_each": 1086676992,
+          "l1": 0
+        },
+        {
+          "t": 4,
+          "words": 256,
+          "total_each": 443364212736,
+          "l1": 0
+        },
+        {
+          "t": 5,
+          "words": 1024,
+          "total_each": 180892598796288,
+          "l1": 2088960
+        }
+      ],
+      "example_all_zero_word": {
+        "A": 1012292144512,
+        "B": 1012292146552,
+        "signed_gap": -2040
+      },
+      "first_split_tv_exact": {
+        "numerator": 5,
+        "denominator": 865945728
+      }
+    },
+    {
+      "m": 3,
+      "N": 5,
+      "P": 6,
+      "c": 2,
+      "d": 1,
+      "source_weight_each_type": 16,
+      "transition_row_mass": 18,
+      "horizon": [
+        {
+          "t": 0,
+          "words": 1,
+          "total_each": 16,
+          "l1": 0
+        },
+        {
+          "t": 1,
+          "words": 4,
+          "total_each": 6912,
+          "l1": 0
+        },
+        {
+          "t": 2,
+          "words": 16,
+          "total_each": 2985984,
+          "l1": 0
+        },
+        {
+          "t": 3,
+          "words": 64,
+          "total_each": 1289945088,
+          "l1": 0
+        },
+        {
+          "t": 4,
+          "words": 256,
+          "total_each": 557256278016,
+          "l1": 0
+        },
+        {
+          "t": 5,
+          "words": 1024,
+          "total_each": 240734712102912,
+          "l1": 35389440
+        }
+      ],
+      "example_all_zero_word": {
+        "A": 1352717918208,
+        "B": 1352717952768,
+        "signed_gap": -34560
+      },
+      "first_split_tv_exact": {
+        "numerator": 5,
+        "denominator": 68024448
+      }
+    },
+    {
+      "m": 3,
+      "N": 5,
+      "P": 6,
+      "c": 1,
+      "d": 2,
+      "source_weight_each_type": 16,
+      "transition_row_mass": 33,
+      "horizon": [
+        {
+          "t": 0,
+          "words": 1,
+          "total_each": 16,
+          "l1": 0
+        },
+        {
+          "t": 1,
+          "words": 4,
+          "total_each": 12672,
+          "l1": 0
+        },
+        {
+          "t": 2,
+          "words": 16,
+          "total_each": 10036224,
+          "l1": 0
+        },
+        {
+          "t": 3,
+          "words": 64,
+          "total_each": 7948689408,
+          "l1": 0
+        },
+        {
+          "t": 4,
+          "words": 256,
+          "total_each": 6295362011136,
+          "l1": 0
+        },
+        {
+          "t": 5,
+          "words": 1024,
+          "total_each": 4985926712819712,
+          "l1": 4055040
+        }
+      ],
+      "example_all_zero_word": {
+        "A": 27842970638208,
+        "B": 27842970642168,
+        "signed_gap": -3960
+      },
+      "first_split_tv_exact": {
+        "numerator": 5,
+        "denominator": 12295628928
+      }
+    },
+    {
+      "m": 4,
+      "N": 7,
+      "P": 8,
+      "c": 1,
+      "d": 1,
+      "source_weight_each_type": 64,
+      "transition_row_mass": 65,
+      "horizon": [
+        {
+          "t": 0,
+          "words": 1,
+          "total_each": 64,
+          "l1": 0
+        },
+        {
+          "t": 1,
+          "words": 4,
+          "total_each": 133120,
+          "l1": 0
+        },
+        {
+          "t": 2,
+          "words": 16,
+          "total_each": 276889600,
+          "l1": 0
+        },
+        {
+          "t": 3,
+          "words": 64,
+          "total_each": 575930368000,
+          "l1": 0
+        },
+        {
+          "t": 4,
+          "words": 256,
+          "total_each": 1197935165440000,
+          "l1": 0
+        },
+        {
+          "t": 5,
+          "words": 1024,
+          "total_each": 2491705144115200000,
+          "l1": 0
+        },
+        {
+          "t": 6,
+          "words": 4096,
+          "total_each": 5182746699759616000000,
+          "l1": 0
+        },
+        {
+          "t": 7,
+          "words": 16384,
+          "total_each": 10780113135500001280000000,
+          "l1": 5367398400
+        }
+      ],
+      "example_all_zero_word": {
+        "A": 8355944872464156913920,
+        "B": 8355944872464157241520,
+        "signed_gap": -327600
+      },
+      "first_split_tv_exact": {
+        "numerator": 63,
+        "denominator": 253063803699200000
+      }
+    },
+    {
+      "m": 4,
+      "N": 7,
+      "P": 8,
+      "c": 2,
+      "d": 1,
+      "source_weight_each_type": 64,
+      "transition_row_mass": 66,
+      "horizon": [
+        {
+          "t": 0,
+          "words": 1,
+          "total_each": 64,
+          "l1": 0
+        },
+        {
+          "t": 1,
+          "words": 4,
+          "total_each": 135168,
+          "l1": 0
+        },
+        {
+          "t": 2,
+          "words": 16,
+          "total_each": 285474816,
+          "l1": 0
+        },
+        {
+          "t": 3,
+          "words": 64,
+          "total_each": 602922811392,
+          "l1": 0
+        },
+        {
+          "t": 4,
+          "words": 256,
+          "total_each": 1273372977659904,
+          "l1": 0
+        },
+        {
+          "t": 5,
+          "words": 1024,
+          "total_each": 2689363728817717248,
+          "l1": 0
+        },
+        {
+          "t": 6,
+          "words": 4096,
+          "total_each": 5679936195263018827776,
+          "l1": 0
+        },
+        {
+          "t": 7,
+          "words": 16384,
+          "total_each": 11996025244395495764262912,
+          "l1": 348798320640
+        }
+      ],
+      "example_all_zero_word": {
+        "A": 9309872580835039150080,
+        "B": 9309872580835060439040,
+        "signed_gap": -21288960
+      },
+      "first_split_tv_exact": {
+        "numerator": 35,
+        "denominator": 2407470785888256
+      }
+    },
+    {
+      "m": 4,
+      "N": 7,
+      "P": 8,
+      "c": 1,
+      "d": 2,
+      "source_weight_each_type": 64,
+      "transition_row_mass": 129,
+      "horizon": [
+        {
+          "t": 0,
+          "words": 1,
+          "total_each": 64,
+          "l1": 0
+        },
+        {
+          "t": 1,
+          "words": 4,
+          "total_each": 264192,
+          "l1": 0
+        },
+        {
+          "t": 2,
+          "words": 16,
+          "total_each": 1090584576,
+          "l1": 0
+        },
+        {
+          "t": 3,
+          "words": 64,
+          "total_each": 4501933129728,
+          "l1": 0
+        },
+        {
+          "t": 4,
+          "words": 256,
+          "total_each": 18583979959517184,
+          "l1": 0
+        },
+        {
+          "t": 5,
+          "words": 1024,
+          "total_each": 76714669272886935552,
+          "l1": 0
+        },
+        {
+          "t": 6,
+          "words": 4096,
+          "total_each": 316678154758477269958656,
+          "l1": 0
+        },
+        {
+          "t": 7,
+          "words": 16384,
+          "total_each": 1307247422842994170389331968,
+          "l1": 10652221440
+        }
+      ],
+      "example_all_zero_word": {
+        "A": 1012655725358968979007744,
+        "B": 1012655725358968979657904,
+        "signed_gap": -650160
+      },
+      "first_split_tv_exact": {
+        "numerator": 35,
+        "denominator": 8590444736286818304
+      }
+    }
+  ],
+  "proof_scope": "General m>=1 by symbolic finite differences and renewal block decomposition",
+  "admission": "UNREVIEWED_NOT_ADMITTED_NOT_NATIVE"
+}
