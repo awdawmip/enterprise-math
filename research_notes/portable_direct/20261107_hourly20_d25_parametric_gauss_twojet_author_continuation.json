@@ -1,0 +1,60 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "lane": "chatgpt-research-hourly-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE_REGISTER_PENDING",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "For every p≡13,19 (mod24), prove W_p≡p (modp³). OPEN.",
+  "author_side_completed_units": [
+    "Exact rational universal Gauss parameter 2-jet identities L0Q=0, L0P=zKQ, L0S=zKP+c1c2 zQ-b_p z^p",
+    "Exact high-tail two-boundary identity L0R=c1c2*(-1)^(u+v)/binom(v,u) z^(v+1)-b_p z^p and universal b_p≡c1c2 modp",
+    "Derive rational first-lift Wronskian/Green flux, specialize at two CM zeros, reconstruct first unit from Q(x)/p and P(x)",
+    "Standalone exact verifier PASS on 94 target primes for both A and B models (188 instances); full coefficient/differential comparisons, independent modp² Gauss recurrence and finite flux checks"
+  ],
+  "author_evidence": [
+    {
+      "commit": "2714c1e72c42b0609a3052e35f6f9aa64ef7a0e4",
+      "path": "research_notes/portable_direct/d25_parametric_gauss_twojet_20261107.py",
+      "git_blob_sha1": "0f6cb4b42ceade7b3535d19ddecb94826d2710d6"
+    },
+    {
+      "commit": "66125943c08551744135599e160c794a4fdf9a38",
+      "path": "research_notes/portable_direct/20261107_hourly20_d25_parametric_gauss_twojet_frobenius.md",
+      "git_blob_sha1": "ea3b98a81870c259e689e56629d35b32039e867e"
+    }
+  ],
+  "author_reused_frontiers": [
+    "Previous hourly20 scalar second digit 156dc160fdf808d4c6497f873af436e17dd3c728",
+    "Previous hourly20 universal two-endpoint Gauss-Frobenius boundary 69f820fb2bcd8673f6bff8eb390526783059daab",
+    "Separate onhour author-side uniform CM zero proof c30aa207b5bb6d445c0291a9a31dbfca20743576"
+  ],
+  "smallest_unfinished_unit": "Show the source-preserving Green flux and Hasse integer lift satisfy c_A J_A(q_A+f_A)=c_B J_B(q_B+f_B)=1 modp at both inert CM fibers, without using the desired weighted supercongruence as premise.",
+  "next_exact_action": "Compute and compare Phi_A(1/2), Phi_B(1/9) under the existing Fricke mapping t=±6sqrt2, retain q_A and q_B as separate modp² integer lifts; seek direct modular Cartier/isomorphism normalization, discriminate at p=13,19,43,67,373. Then lift the proved two-jet boundary into the existing four-port p³ expression.",
+  "do_not_repeat": [
+    "CM/Hasse uniform zero proof",
+    "A/B individual Gauss high source two-endpoint equations",
+    "D25 p² Euler/Clausen, p³ three-strata, short overflow and Dixon universal B5 diagonal",
+    "Previously proved scalar Gamma low-jet formula",
+    "Native H0/B0 p373 experiment #1559 (still pending independent run)"
+  ],
+  "science_status": "AUTHOR_SIDE_PROVED_RATIONAL_ALGEBRA / EXACT_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "native_control": {
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "at_utc": "2026-11-07T15:17:06Z",
+    "observed_error": "BACKEND_IDENTITY_CHECK_UNAVAILABLE",
+    "operation_sent": false,
+    "original_request_ids": [
+      "em-h20-20261106-1324-d25-task-r13",
+      "em-h20-20261106-1324-d25-cont-r13"
+    ],
+    "original_receipt_read": "FAILED_AT_SITE_PREFLIGHT_NO_BACKEND_OPERATION",
+    "researcher_session_claim_run_staging": "UNKNOWN_PRESERVE",
+    "activity": "REGISTER_PENDING",
+    "native_checkpoint": "NOT_WRITTEN",
+    "support": "https://github.com/awdawmip/enterprise-math/issues/1558",
+    "required_action": "Site/backend owner restores authenticated same-subject status and original request receipt; research lane then reconciles prior request and validates exact continuation/Source claim/run before any native mutation."
+  }
+}
