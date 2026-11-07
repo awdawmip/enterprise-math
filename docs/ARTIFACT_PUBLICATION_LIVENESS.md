@@ -31,6 +31,14 @@ Once the mathematical/research payload is coherent:
 8. terminate publication work;
 9. **return immediately to the parent research/Driver/user objective in the same turn.**
 
+## Executable artifact preflight
+
+The validation pass covers the exact executable files that will be uploaded, not a separately typed or reconstructed copy. Before publishing a changed Python artifact, compile its frozen source with `python -m py_compile path/to/artifact.py`; for JavaScript use `node --check path/to/artifact.js`. Check every changed executable in the batch with its language's syntax checker, then run the task-relevant execution/tests. Syntax success alone is not scientific validation.
+
+Publish those checked bytes without retyping, shortening or manual reconstruction. Read back each published executable at the resulting immutable commit and compare its Git blob or content hash with the checked local bytes before calling it verified. If a current-head reconciliation changes an executable, validate the changed bytes again.
+
+When a concrete CI failure identifies an invalid artifact already on the owner branch, repair and validate that artifact before another publication from the same branch repeats the unchanged failure. Do not suppress the check or regenerate a scientific result merely to hide a source error. Preserve frozen scientific inputs and continue independent research while the bounded repair is underway; syntax repair does not confer Result, Review or Foundation authority.
+
 ## Prohibited choreography
 
 Do not expand publication into repeated regeneration/checker/manifest/archive/minification/blob/tree/commit strategy loops when a simpler bounded path exists.
