@@ -21,6 +21,10 @@
     {
       "kind": "FINITE_EXACT_DISCRIMINATION",
       "proof": "77 primes p<=2000, classes 13 and 19, two independent p^2 Gauss recurrences and explicit binomial-derivative ports; local executable PASS for each proved expansion; conjectural C_p=0 observed for 77 primes. At p=373 (qA,LA,TA)=(340,352,78), (qB,LB,TB)=(326,41,365), (RQ,RL,RT)=(4,322,47), three nonzero signed source ports cancel."
+    },
+    {
+      "kind": "PROVED_FRICKE_TANGENT_PARITY_EXCHANGE",
+      "proof": "At both t_e=e*6s, s^2=2, exact rational Fricke maps satisfy z=1/2,w=1/9, z'=-1+e 3s/4, w'=4/9-e 8s/27, hence dw/dz=e 8s/27. For p≡13,19 mod24 the Fp-linear tangent matrix on (1,s) is e[[0,16/27],[8/27,0]], square 128/729 I and invertible; exchanges even/odd eigenspaces. A simultaneous Fp-rational z/w tangent is necessarily zero. This is NOT an identification with p-adic Frobenius transport."
     }
   ],
   "evidence": [
@@ -36,11 +40,22 @@
       "git_blob_sha1": "1efd186d21ca1173e21028b47ee5f1823d666444",
       "execution": "LOCAL_PYTHON_CHECK_PASS",
       "readback": "VERIFIED"
+    },
+    {
+      "path": "research_notes/portable_direct/20261108_onhour_d25_fricke_tangent_parity_exchange.md",
+      "commit": "7b6fcde9d63d797345efaaa09f82597d85109169",
+      "git_blob_sha1": "462c87971dae8416571168c7ebd9a43deb840ba5",
+      "readback": "VERIFIED"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_fricke_tangent_parity_check_20261108.py",
+      "commit": "9e9d02e9735384b68f14e668011a6cd65c563564",
+      "execution": "LOCAL_EXACT_SYMPY_PASS (equivalent local checker)"
     }
   ],
   "proof_strength": "EXACT_GENERIC_TAYLOR_AND_PORT_DECOMPOSITION_PROVED / 77_PRIME_CROSS_MODEL_ONLY_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED",
-  "smallest_unfinished_science": "Uniform proof that the signed combination R_Q+R_L+R_T=0 across both prime classes; this is equivalent to C_p=0 and the A-model mod p^2 first digit. Do not relabel finite checks as proof.",
-  "next_exact_action": "Find an isomorphism/isogeny or Cartier transport of the CM supersingular p-adic first-lift in which unperturbed Hasse quotient q, low harmonic deformation L, single-zero-crossing tail T are all retained with epsilon=1 anti-invariant s factor. Check p=19 and p=373 and then the general polynomial identity before moving to the saved p^3 four-port correction.",
+  "smallest_unfinished_science": "Build a p-adically normalized 2-component Fricke–Cartier transport of q,L,T proving R_Q+R_L+R_T=0 in Fp, in both 13-odd and 19-even branches, from actual first-lift data; previous local tangent exchange establishes type but not p-adic first-lift.",
+  "next_exact_action": "Use exact Fricke tangent matrix ±[[0,16/27],[8/27,0]] and source-typed Gauss first-lift triple (q,L,T) to construct a Frobenius-semilinear 2x2 lifted matrix and determine its Hasse-quotient correction. Check p=13,19,373 against signed residual (R_Q,R_L,R_T), then prove a general coefficient/Cartier identity. Retain native original-class #1559 p373 benchmark as separate unexecuted requirement.",
   "do_not_repeat": [
     "D24 frozen UR result RR-AC9B3BA5BD277CE043F5",
     "Fricke 6:8 analytic map and periods",
@@ -77,5 +92,5 @@
     "sync_debt": true,
     "next_control": "Use original target_request_id receipt until terminal or actionable native reply; Source session and claim ownership must be established before any role-bound mutation, no maintenance-lane reuse."
   },
-  "result_status": "AUTHOR_SIDE_PROVED_EXACT_THREE_PORT / FINITE_77_CHECKED / NATIVE_NOT_EXECUTED / UNREVIEWED_NOT_ADMITTED"
+  "result_status": "AUTHOR_SIDE_PROVED_FIRST_LIFT_THREE_PORT_AND_FRICKE_TANGENT_PARITY / EXACT_77_GAUSS_CHECKS_AND_SYMBOLIC_TANGENT_PASS / UNREVIEWED_NOT_ADMITTED"
 }
