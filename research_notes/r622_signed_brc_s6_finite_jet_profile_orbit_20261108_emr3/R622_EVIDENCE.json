@@ -32,38 +32,286 @@
   "coefficient_only_two_append_product_checks": 1244160,
   "grade_augmented_state_count_each_degree": 720,
   "grade_separation_witnesses_d0_to_d7": [
-    {"d":0,"hidden_base_axes_1based":[2,3],"positive_grade_identity":3,"positive_grade_swapped":5,"spatial_axis_1based":2},
-    {"d":1,"hidden_base_axes_1based":[2,3],"positive_grade_identity":3,"positive_grade_swapped":5,"spatial_axis_1based":2},
-    {"d":2,"hidden_base_axes_1based":[3,4],"positive_grade_identity":5,"positive_grade_swapped":7,"spatial_axis_1based":3},
-    {"d":3,"hidden_base_axes_1based":[3,4],"positive_grade_identity":5,"positive_grade_swapped":7,"spatial_axis_1based":3},
-    {"d":4,"hidden_base_axes_1based":[4,5],"positive_grade_identity":7,"positive_grade_swapped":9,"spatial_axis_1based":4},
-    {"d":5,"hidden_base_axes_1based":[4,5],"positive_grade_identity":7,"positive_grade_swapped":9,"spatial_axis_1based":4},
-    {"d":6,"hidden_base_axes_1based":[5,6],"positive_grade_identity":9,"positive_grade_swapped":11,"spatial_axis_1based":5},
-    {"d":7,"hidden_base_axes_1based":[5,6],"positive_grade_identity":9,"positive_grade_swapped":11,"spatial_axis_1based":5}
+    {
+      "d": 0,
+      "hidden_base_axes_1based": [
+        2,
+        3
+      ],
+      "positive_grade_identity": 3,
+      "positive_grade_swapped": 5,
+      "spatial_axis_1based": 2
+    },
+    {
+      "d": 1,
+      "hidden_base_axes_1based": [
+        2,
+        3
+      ],
+      "positive_grade_identity": 3,
+      "positive_grade_swapped": 5,
+      "spatial_axis_1based": 2
+    },
+    {
+      "d": 2,
+      "hidden_base_axes_1based": [
+        3,
+        4
+      ],
+      "positive_grade_identity": 5,
+      "positive_grade_swapped": 7,
+      "spatial_axis_1based": 3
+    },
+    {
+      "d": 3,
+      "hidden_base_axes_1based": [
+        3,
+        4
+      ],
+      "positive_grade_identity": 5,
+      "positive_grade_swapped": 7,
+      "spatial_axis_1based": 3
+    },
+    {
+      "d": 4,
+      "hidden_base_axes_1based": [
+        4,
+        5
+      ],
+      "positive_grade_identity": 7,
+      "positive_grade_swapped": 9,
+      "spatial_axis_1based": 4
+    },
+    {
+      "d": 5,
+      "hidden_base_axes_1based": [
+        4,
+        5
+      ],
+      "positive_grade_identity": 7,
+      "positive_grade_swapped": 9,
+      "spatial_axis_1based": 4
+    },
+    {
+      "d": 6,
+      "hidden_base_axes_1based": [
+        5,
+        6
+      ],
+      "positive_grade_identity": 9,
+      "positive_grade_swapped": 11,
+      "spatial_axis_1based": 5
+    },
+    {
+      "d": 7,
+      "hidden_base_axes_1based": [
+        5,
+        6
+      ],
+      "positive_grade_identity": 9,
+      "positive_grade_swapped": 11,
+      "spatial_axis_1based": 5
+    }
   ],
   "orbit_rows": [
-    {"d":0,"fixed_width_bits":3,"grade_augmented_states":720,"orbit_states":6,"profile_multiplicities":[5,1],"stabilizer_states":120,"visible_nonzero_axis_profiles":1},
-    {"d":1,"fixed_width_bits":3,"grade_augmented_states":720,"orbit_states":6,"profile_multiplicities":[5,1],"stabilizer_states":120,"visible_nonzero_axis_profiles":1},
-    {"d":2,"fixed_width_bits":5,"grade_augmented_states":720,"orbit_states":30,"profile_multiplicities":[4,1,1],"stabilizer_states":24,"visible_nonzero_axis_profiles":2},
-    {"d":3,"fixed_width_bits":5,"grade_augmented_states":720,"orbit_states":30,"profile_multiplicities":[4,1,1],"stabilizer_states":24,"visible_nonzero_axis_profiles":2},
-    {"d":4,"fixed_width_bits":7,"grade_augmented_states":720,"orbit_states":120,"profile_multiplicities":[3,1,1,1],"stabilizer_states":6,"visible_nonzero_axis_profiles":3},
-    {"d":5,"fixed_width_bits":7,"grade_augmented_states":720,"orbit_states":120,"profile_multiplicities":[3,1,1,1],"stabilizer_states":6,"visible_nonzero_axis_profiles":3},
-    {"d":6,"fixed_width_bits":9,"grade_augmented_states":720,"orbit_states":360,"profile_multiplicities":[2,1,1,1,1],"stabilizer_states":2,"visible_nonzero_axis_profiles":4},
-    {"d":7,"fixed_width_bits":9,"grade_augmented_states":720,"orbit_states":360,"profile_multiplicities":[2,1,1,1,1],"stabilizer_states":2,"visible_nonzero_axis_profiles":4},
-    {"d":8,"fixed_width_bits":10,"grade_augmented_states":720,"orbit_states":720,"profile_multiplicities":[1,1,1,1,1,1],"stabilizer_states":1,"visible_nonzero_axis_profiles":5},
-    {"d":9,"fixed_width_bits":10,"grade_augmented_states":720,"orbit_states":720,"profile_multiplicities":[1,1,1,1,1,1],"stabilizer_states":1,"visible_nonzero_axis_profiles":5},
-    {"d":10,"fixed_width_bits":10,"grade_augmented_states":720,"orbit_states":720,"profile_multiplicities":[1,1,1,1,1,1],"stabilizer_states":1,"visible_nonzero_axis_profiles":6},
-    {"d":11,"fixed_width_bits":10,"grade_augmented_states":720,"orbit_states":720,"profile_multiplicities":[1,1,1,1,1,1],"stabilizer_states":1,"visible_nonzero_axis_profiles":6}
+    {
+      "d": 0,
+      "fixed_width_bits": 3,
+      "grade_augmented_states": 720,
+      "orbit_states": 6,
+      "profile_multiplicities": [
+        5,
+        1
+      ],
+      "stabilizer_states": 120,
+      "visible_nonzero_axis_profiles": 1
+    },
+    {
+      "d": 1,
+      "fixed_width_bits": 3,
+      "grade_augmented_states": 720,
+      "orbit_states": 6,
+      "profile_multiplicities": [
+        5,
+        1
+      ],
+      "stabilizer_states": 120,
+      "visible_nonzero_axis_profiles": 1
+    },
+    {
+      "d": 2,
+      "fixed_width_bits": 5,
+      "grade_augmented_states": 720,
+      "orbit_states": 30,
+      "profile_multiplicities": [
+        4,
+        1,
+        1
+      ],
+      "stabilizer_states": 24,
+      "visible_nonzero_axis_profiles": 2
+    },
+    {
+      "d": 3,
+      "fixed_width_bits": 5,
+      "grade_augmented_states": 720,
+      "orbit_states": 30,
+      "profile_multiplicities": [
+        4,
+        1,
+        1
+      ],
+      "stabilizer_states": 24,
+      "visible_nonzero_axis_profiles": 2
+    },
+    {
+      "d": 4,
+      "fixed_width_bits": 7,
+      "grade_augmented_states": 720,
+      "orbit_states": 120,
+      "profile_multiplicities": [
+        3,
+        1,
+        1,
+        1
+      ],
+      "stabilizer_states": 6,
+      "visible_nonzero_axis_profiles": 3
+    },
+    {
+      "d": 5,
+      "fixed_width_bits": 7,
+      "grade_augmented_states": 720,
+      "orbit_states": 120,
+      "profile_multiplicities": [
+        3,
+        1,
+        1,
+        1
+      ],
+      "stabilizer_states": 6,
+      "visible_nonzero_axis_profiles": 3
+    },
+    {
+      "d": 6,
+      "fixed_width_bits": 9,
+      "grade_augmented_states": 720,
+      "orbit_states": 360,
+      "profile_multiplicities": [
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "stabilizer_states": 2,
+      "visible_nonzero_axis_profiles": 4
+    },
+    {
+      "d": 7,
+      "fixed_width_bits": 9,
+      "grade_augmented_states": 720,
+      "orbit_states": 360,
+      "profile_multiplicities": [
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "stabilizer_states": 2,
+      "visible_nonzero_axis_profiles": 4
+    },
+    {
+      "d": 8,
+      "fixed_width_bits": 10,
+      "grade_augmented_states": 720,
+      "orbit_states": 720,
+      "profile_multiplicities": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "stabilizer_states": 1,
+      "visible_nonzero_axis_profiles": 5
+    },
+    {
+      "d": 9,
+      "fixed_width_bits": 10,
+      "grade_augmented_states": 720,
+      "orbit_states": 720,
+      "profile_multiplicities": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "stabilizer_states": 1,
+      "visible_nonzero_axis_profiles": 5
+    },
+    {
+      "d": 10,
+      "fixed_width_bits": 10,
+      "grade_augmented_states": 720,
+      "orbit_states": 720,
+      "profile_multiplicities": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "stabilizer_states": 1,
+      "visible_nonzero_axis_profiles": 6
+    },
+    {
+      "d": 11,
+      "fixed_width_bits": 10,
+      "grade_augmented_states": 720,
+      "orbit_states": 720,
+      "profile_multiplicities": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "stabilizer_states": 1,
+      "visible_nonzero_axis_profiles": 6
+    }
   ],
   "orientation_count": 720,
   "pass": "R622_TRUNCATED_S6_PROFILE_ORBIT_AND_GRADE_BOUNDARY_PASS",
   "schema": "EM_R622_S6_TRUNCATED_PROFILE_ORBIT_EXACT_V1",
   "science_pin": {
-    "B0_coefficients_low_to_high": [1,1],
+    "B0_coefficients_low_to_high": [
+      1,
+      1
+    ],
     "commit": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
     "k_blob": "7fa7a762f758b30c6090468ac43487daa34abad8",
     "theta": "0"
   },
   "source_formula": "R462 frozen K binomial formula reconstructed independently from the pinned source blob",
-  "truncation_degrees_checked": [0,1,2,3,4,5,6,7,8,9,10,11]
+  "truncation_degrees_checked": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ]
 }
