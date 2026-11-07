@@ -1,15 +1,21 @@
-# R5 next precise unit — bridge the two solved saturated-v ratio faces
+# R5 next unit — below the solved saturated-v physical ratio slab
 
-Date 2026-11-08 (Asia/Shanghai). Immediate author-side proved frontier: current directory RESEARCH.md. Frozen global science pin a01383f825ef9d43b4b754254303298c64041568, EM 86149263e38c22292c9def1e0f69092efa1be77e. Mathematical acceptance pending native identity/independent review.
+Date: 2026-11-08 Asia/Shanghai. Current author-proved frontier is RATIO_BRIDGE.md in this directory, extending RESEARCH.md. Frozen scientific pins: global a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e. Mathematically exact evidence includes 8 inherited rational calibrated Q matrices and the all-real convex proof; new Fraction checker: 2187 cases.
 
-Mother question: does every legal FULL_HIST four-observer point admit a seedless LR lift for arbitrary randomized seven-key terminal declaration? Existing convex-hull support equality is proven. Complete pointwise equality remains open.
+Verified proof scope: for every real 0<=s<=g<=1, 1/2<=eta<=1, 0<=p,q,theta,h<=1, FULL_HIST source
+x=(g,s,eta*s, s*(13/40+eta/80)*p, 9*eta*s/40+s*theta/10, s*(3/40+21*eta/80)*q, s*theta/10)
+and its interpolation with one seedless target y have an exact 7-key Blackwell transfer matching eP,eQ,TP,TQ for all randomized declarations. This fills the **entire physical (u,w) rectangle** at each eta in the stated interval, full saturated-v z range, and early g,s cone; residual R=(9/10)*eta*s^2*(theta-1).
 
-Current theorem: for all real 0<=s<=g<=1, 0<=p,q,theta,h<=1, source x=(g,s,s/2,53sp/160,9s/80+s*theta/10,33sq/160,s*theta/10), its entire path x_h=(1-h)x+h*y is Blackwell liftable to one seedless target y in the affine face F={z=a/10,v-z=9b/40}; 4 predecessor corner Q matrices plus identity compositions. Verified 729 exact Fraction cases with analytic proof covering all reals.
+**First new falsifiable route:** fix eta=1/4, g=s=1, p=q=1, theta=0. Exact input is
+x=(1,1,1/4, 21/64, 9/160, 9/64, 0),
+where u_max=13/40+1/320=21/64, w_max=3/40+21/320=9/64, v-z=9/160, residual R=-9/40.
+Search a legal seedless LR target y constrained to common affine face F={z=a/10, v-z=9b/40}, preserving both times and admitting a nonnegative rational 7x7 matrix Q such that
+sum_j Q[i,j]=M_i(y),
+sum_i Q[i,j]=M_j(x),
+sum_i r_i Q[i,j]=r_j M_j(x),
+with same seven r=(1/10,1/2,3/4,1,5/4,3/2,19/10).
+A rational solution would supply a new anchor to interpolate across eta in [1/4,1/2]; an exact dual infeasibility certificate would exclude only this chosen affine-face strategy, leaving other seedless faces possible. Test eta=0 edge separately: b=0 makes v=z and R=0, but z<a/10 is generally not on F.
 
-**Smallest genuinely unfinished research unit:** study the family with a=s, b=eta*s, eta in (1/2,1), and saturated v-z=9b/40. Both endpoints eta=1/2 (this work) and eta=1 (prior R5 full side rectangle) have common-face F lifts. Test whether interpolating their **source** physical side-flow capacities at matching g,s produces a nontrivial new convex hull slice that remains in F, including at nonzero z and u,w. First explicitly derive allowable (u,w) interpolation and its coverage against physical capacities; then construct Q as a convex combination of the two endpoint calibrated transports and test all seven row/Q-column/P-column equations exactly. If it does not fill the entire physical side rectangle, seek one exact rational interior point outside the known interpolated polytope and run a seedless-target/transport feasibility test. Preserve actual source history and observer scope.
+**Alternative independent route:** vary unsaturated v-z<9b/40 at a selected rational a,b,z,u,w; seek another affine face, an observer-equivalent lift, or a pointwise four-observer separation witness.
 
-Alternative independent route: unsaturated v-z<9b/40, z>0; search a new affine seedless face or an exact Blackwell dual obstruction at a rational test point.
-
-Required return: one exact all-real restricted theorem with domain and proof, or a verified rational counterexample to the selected local transport representation; retain SOURCE/FROZEN pins, normalized P/Q masses, stopping times, and the next discriminating question.
-
-Control: GitHub account awdawmip has repo admin access. Native EM status/task list returned BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE, operation_sent=false. No formal CLAIM / adopted Result established. Only author-side source note persistence is claimed.
+Mother objective remains full FULL_HIST versus seedless LR pointwise four-observer equality (not only convex support equality). Current material is author-side: GitHub authenticated user awdawmip; native status and tasks returned BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE, operation_sent=false, Site research_authority_granted=false. Active owner/formal CLAIM unresolved; review and admission pending. No protected state modified.
