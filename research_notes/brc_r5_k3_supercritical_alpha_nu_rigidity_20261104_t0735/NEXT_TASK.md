@@ -1,0 +1,9 @@
+# Next R5 unit — uniform-clock, heterogeneous-error K3 fiber
+
+Current exact proof: this directory's RESEARCH.md, VERIFY.py and EXACT_OUTPUT.txt. Scientific pins remain Global Knowledge a01383f825ef9d43b4b754254303298c64041568 and Enterprise Math 86149263e38c22292c9def1e0f69092efa1be77e. P000/ACTIVE worldview remain unchanged.
+
+Proved here: all nonuniform clock kernels with min mu>=3/8 have strict signed-clock separators. Together with the earlier author-proved common-mu and mask/fiber results, the K3 full four-observer equality candidates must have source-uniform r and v; this latter synthesis uses the stated predecessor claims.
+
+Discriminating next question: classify the full four-dimensional error-time support and exposed error fibers when r_s=r, v_s=v for all sources, 0<r,v<1, with p_s,q_s independently variable, **including v/r>1**. Start with exact mixed error-time normals that preserve a common time-exposed face while varying upstream/source stage decisions. For rational inputs r=1/5,v=2/5 and r=2/5,v=4/5, enumerate all 1,536 FULL and 16 LR deterministic observations with independently varying p and q. Produce an exact strict support separator or a universal compatible error-fiber criterion. Only an actual four-dimensional convex-hull equality candidate calls for full primal LR convex combinations (at most five extreme LR points for each FULL vector) or a rational Farkas certificate, then the real behavior-image membership test.
+
+Do not infer source-wide information preservation from time-projection equality. The R5 four-observer mother problem remains open. Native state-machine writing/claim requires current authenticated authority; the observed static read-only Site and CONTROL_QUOTA are separate from mathematical progress. Preserve complete author-side evidence on the existing R5 PR.

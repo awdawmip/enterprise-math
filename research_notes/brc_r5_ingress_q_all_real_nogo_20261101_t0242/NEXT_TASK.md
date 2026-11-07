@@ -1,0 +1,9 @@
+# Next portable R5 unit — two independent ingress repairs
+
+Source: `RESEARCH.md` and the actual `VERIFY.py`/`EXACT_OUTPUT.txt` in this same immutable commit. Exact predecessor: Enterprise Math author commit `2c74c9ed4995eeb87bf3f1d46c25847904884a11`. Global read pinned `main@ae1c9380c450555df6302dfe5ad4d58c053e9196`; EM main pinned `9412897fb2b8e77bb30ee26391fb65edaba2a8fd`.
+
+Completed, do not re-run as discovery: for all real `q`, LR `V_q=(x,u,TQ,y+qQ(LC))` convex hull has affine rank four, but FULL/LR hulls differ. Exact three interval separators and a constant determinant provide a complete proof. Scope is the fixed route-labelled two-origin auxiliary stopping model, not native X6 or formal project admission.
+
+Next exact question: Does any legal **two-parameter** route-sensitive projection `V_{q,r}=(x,u,TQ,y+qQ(LC)+rQ(LD))` have full-rank equal FULL/LR four-dimensional hulls? Derive the observer's kernel on 12 labelled terminal masses and a precise (q,r) support-cell decomposition; use finitely many exact rational separating certificates or <=5-LR-vertex convex mixtures for every FULL vertex. Preserve source and ingress tags and all time/likelihood moments. If no candidate, classify the obstruction and identify a genuinely different causal interaction rather than add redundant terminal response parameters. Only after all-signed hull equality and rank four examine strict real-behavioral image nonmembership.
+
+Authority: current native `research_authority_granted=false`, source owner query `CONTROL_QUOTA`; portable author result only, no CLAIM/Result/review. Read current owner/permission and active protocol before native execution. Save research and validation with immutable GitHub readback, respect P000/ACTIVE worldview, do not treat projection as native X6 or erase port provenance for future tasks.

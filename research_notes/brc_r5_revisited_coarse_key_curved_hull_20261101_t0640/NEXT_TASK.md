@@ -1,0 +1,11 @@
+# R5 continuation — time-aware repeated mergers, no false corner reduction
+
+Source pin: GLOBAL_KNOWLEDGE_V1 main@dfd8e064388b9ff875ce2780b657ca80be5630eb; Enterprise Math main@1fde72896593e8b10c9abb356983a265d2a4600f; prior PR #1663 research commit d5db79195a9d0cdda4f51a07dcecb3fc9d0bb8bd. Companion RESEARCH.md is an author-side unreviewed, not-admitted auxiliary-model theorem; VERIFY.py/EXACT_OUTPUT.txt give its executed rational checks.
+
+Already proved: For an LR decision rule using one COARSE hidden-phase key and fresh samples when visited twice, the aggregated 4-Q-terminal-mass actual image is a parabola; its convex hull is a nonpolyhedral curved strip rho*(1-t)^2<=qF<=rho*(1-t). FULL's image is a larger triangle, signed gap 3*rho/4. At rho=1/2 one FULL witness has exact L∞ distance (3-sqrt(5))/2. A phase-refined/time-aware decision key can instead reproduce the FULL aggregate image. This does not solve the mother eP/eQ/TP/TQ requirement; fixed 24-leaf linear observer no-go remains closed.
+
+Smallest open scientific question: Fix precisely the actual seedless LR observational sigma-field, especially whether (time, LR) includes distinct visit times. Build a new positive two-law source-sensitive reconvergent/return process whose actual key semantics are not artificially coarsened. Compute all source/path-labelled terminal P/Q atoms, four original observations, LR affine rank and polynomial degree in each behavioral parameter.
+
+If every key occurs at most once along a path, prove multi-affinity and use finite all-signed rational vertex/Farkas certificates. If a genuine key recurs, **do not** use deterministic-corner completeness; first derive a valid semialgebraic support/membership method. A successful candidate requires LR rank4 plus equality of entire FULL/LR four-observer convex hulls; only then seek strict actual real LR-image nonmembership. A single signed strict support gap is a definitive candidate kill.
+
+Gateway research authority at this turn was false, executor binding absent, code review required, and owner inventory gave CONTROL_QUOTA. Author-side storage on the current PR branch is not Source CLAIM/Result/independent Driver review. Preserve P000, ACTIVE worldview, native third-coordinate scope, owner boundaries and secrets; report pending review accurately.

@@ -1,0 +1,13 @@
+# R5 next unit — coupled-two-merger exact facet pass and facial rank test
+
+Status: portable author handoff; UNREVIEWED / NOT_ADMITTED; no native task/CLAIM implied.
+
+Mother objective: strictly positive rational finite two-law stop/continue/declare experiment, with FULL real behavioral observer image and seedless exact-LR real behavioral observer image having **equal convex hulls in all signed four-dimensional directions**, but different actual images; or prove a strictly broader impossibility result.
+
+Frozen inputs: GLOBAL_KNOWLEDGE_V1 `main@7b33f8066e9993e7c941959a9d738ed405248eb8`, Enterprise Math `main@479458b79fdae1e6328bd0d674d2e5cc24cdf81a`, locked P000, ACTIVE worldview, BRC positive source/path Q and P masses, exact LR collisions. Consume latest R5 one-merger classification at commit `5406ce8808c74dbdeb17ee64b6cc12bdb9468eee` and this package's verified exact 7-facet audit. Do not rerun this one-merger as new research.
+
+Target a two-source-sensitive interacting merger DAG with exact collision constraints `P(h)Q(h')=P(h')Q(h)` at BOTH merges, positive P/Q conditional kernels, at least one earlier continue control affecting the later merger's reachable mass. Disallow pseudo-collisions created by rounding/quantizing LR. Reuse the Bellman opposite-sign no-compensation screen before expensive hull computation.
+
+For each genuine model: 1) enumerate seedless LR deterministic four-observer outputs exactly and compute its affine hull; 2) enumerate exact rational facets relative to that hull; 3) evaluate each facet's FULL Bellman optimum using the **same two-law source-labelled flow**; 4) if every facet and affine equation passes, record a rational hull-equality certificate, not a signed grid heuristic; 5) look for an exposed face with exactly four LR deterministic policies differing at only two binary keys and affinely independent observation vectors. If found, produce target `U=(V00+V11)/2`, barycentric rank-one obstruction and explicit rational all-real L∞ bound from Theorem 2. If not, use exact semialgebraic feasibility/CAD with zero-flow boundaries. A facet failure yields a complete rational exclusion, not a mother solution.
+
+Acceptance: model input with every rational P/Q kernel, source/history tree and LR key; proof of two authentic source-sensitive mergers; exact code and executed output; all facets or an exact Farkas/no-go certificate; actual FULL witness for any successful hull+image counterexample; full provenance, limitations and unresolved question. Preserve author/Driver separation and original Task ownership. Do not call this mathematical package an admitted Result without authorized native Source and independent review.

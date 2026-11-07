@@ -1,0 +1,11 @@
+# R5 continuation — third collision gate
+
+2026-11-03 Asia/Shanghai; scientific author proof and exact Fraction verification, not Driver-admitted. Frozen inputs global a01383f825ef9d43b4b754254303298c64041568 and Enterprise Math 86149263e38c22292c9def1e0f69092efa1be77e.
+
+Read adjacent RESEARCH.md, VERIFY.py and EXACT_OUTPUT.txt at the newly committed immutable branch source and earlier physical P/Q model at enterprise-math@0592311ad484d47c449563167d2ae6521ccf4234.
+
+Highest new frontier: third actual LR collision K3=(5,4) from physically positive P/Q K2-success path masses, gate chosen before terminal-delay coins. For common base delays and answers, extra source-law probabilities r_s,v_s in (0,1), the exact all-real gap in normal n=(0,0,-1/2,4) is (2/3) min(Gplus,Gminus), g_s=v_s-r_s/2 and Gplus/minus the w* weighted positive/negative sums. Rational instance produces gap 1/64 and FULL witness W=(209/288,187/1152,773/192,2587/768), distance to LR hull at least 1/288. The present candidate is *strictly separated*, and hence not a solution to the mother equal-hull target.
+
+Next discriminating unit: keep all physical path normalization and collision keys, expand K3 to at least two independently selectable source-conditioned answer/time effects. Derive full signed support functions and search rational parameters; for every candidate enumerate all deterministic FULL and LR observer vertices and certify full hull inclusion by exact nonnegative LR convex combinations of <=5 vertices per FULL vertex, or a rational Farkas separator. Only after all-signed hull equality, examine actual real behavioral image nonmembership by exact semialgebraic methods. Alternative: classify source-faithful eliminability of a gate as an effective terminal kernel.
+
+BRC source mass remains positive with provenance; signed objective coefficients are readouts, not signed probabilities. This author-side handoff does not assert Source CLAIM, owner, Result or Driver acceptance. Project native authority requires a new permitted identity/scope; do not borrow a previous session, change P000 or alter frozen scientific input pins.

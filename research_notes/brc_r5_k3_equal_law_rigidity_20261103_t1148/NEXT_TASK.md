@@ -1,0 +1,11 @@
+# R5 follow-up: proportional P/Q K3 kernels
+
+Date: 2026-11-03 Asia/Shanghai. Parent: finite P/Q stopping experiment with coincident FULL and seedless LR four-observer convex hulls but distinct actual real-behavior observer images.
+Frozen scientific pins remain global a01383f825ef9d43b4b754254303298c64041568 and Enterprise Math 86149263e38c22292c9def1e0f69092efa1be77e. Current P000 and ACTIVE X6+time worldview remain binding.
+Predecessor: this folder's RESEARCH.md/VERIFY.py/EXACT_OUTPUT.txt; K3 all-signed oracle in Enterprise Math immutable commit 2c47ed2096e2cbdc1b5bbd88291dc8583d9f72de.
+
+Proved frontier: for every r_s in (0,1) with v_s=r_s, the full-minus-LR support gap in n(t)=(0,-12-8t,2,-4) equals (2/3) times the minimum of the source-weighted positive and negative deviations from t, with c=(1/8,1/6,1/16,3/32). Four-observer convex hull equality holds exactly for uniform r; at uniform r the actual observer sets also coincide through an explicit upstream remapping and aggregate three-gate realization. Strict rational counterexample r=(1/4,1/2,3/4,1/2) yields gap 1/96 and L-infinity separation at least 1/2112.
+
+Next discriminating unit: analyze v_s=lambda*r_s, lambda>0 and 0<r_s,lambda*r_s<1. For lambda !=2 derive K=0, J_s proportional r_s threshold directions and check upstream dominance. For lambda=2, study another signed direction since the K=0 threshold J_s degenerates; this degeneracy alone does not settle hull equality. Any surviving candidate needs exact full deterministic-vertex convex combinations (at most five LR vertices each), or an exact Farkas witness. Only a candidate passing complete four-dimensional convex hull equality proceeds to actual real-image nonmembership study. Preserve genuine source-labelled positive BRC flows.
+
+Verification here used Python Fraction on three rational kernels and seven thresholds per kernel, exhaustively enumerating 1536 observer-distinct FULL deterministic configurations and 16 LR configurations per kernel and threshold, with exact witness checks. This is portable author-side material, UNREVIEWED/NOT_ADMITTED. Actual native owner remains unconfirmed owing to CONTROL_QUOTA and the Site client lacks research write authorization. GitHub material publication is not a native CLAIM/Result/Driver review.

@@ -1,0 +1,11 @@
+# R5 successor — non-lumpable three-child compensated STOP/CONTINUE equality search
+
+Scientific predecessors: this directory's RESEARCH.md, VERIFY.py and EXACT_OUTPUT.txt; before that, R5 crossing-merger report commit b5cacce4521c98e56bf3c07ed2cf97b056f46950. Frozen input: GLOBAL_KNOWLEDGE_V1 main@f20e408007833bc0518fdb16c4919a705d7b8a77 and Enterprise Math main@a406972cef38811f58b5afe38c277037415ef81e.
+
+Mother target remains a **genuine stopping** finite P/Q tree with a full four-dimensional convex-hull equality between FULL and seedless LR, but a strict actual-real-image inequality. Never replace actual LR behavior by convex mixtures with a persistent seed.
+
+Retain the exact 12 positive P/Q branch masses and three stop stages from RESEARCH.md: Q(X,U)=((3/8,1/8),(1/8,3/8)), R_U=(3/4,5/4), R_V=(1/2,1,3/2), t_X=(1/16,1/8). Three final LR classes permit transition non-lumpability while preserving two crossing mergers and strict P/Q positivity. The prior simple LR-local error kernel is **excluded** by exact H gap 1/1024; do not repeat it. For two successor LR classes and LR-measurable rewards, the current finite Markovization theorem already proves actual real image equality.
+
+Smallest next unit: vary legitimate LR-local error coefficients or source-sensitive middle STOP/terminal baseline offsets with compensation, and determine whether any such candidate attains complete four-dimensional convex-hull equality. Check by full deterministic vertex inclusion (each FULL four-observer vector as nonnegative rational combination of at most five LR vectors) or return a signed rational Farkas separator. Do not claim equality from finitely sampled support directions. Only a hull-equal candidate advances to strict semialgebraic real-image separation or exact LR implementation. A family-wide no-go classification is an acceptable alternative.
+
+Return a runnable exact certificate, its source/provenance and coverage, explicit P000/BRC boundary, honest registration/owner/claim state, and the next smallest unfinished mathematical obstruction. This neutral author-side PR handoff is not a formal canonical Result or independent review.

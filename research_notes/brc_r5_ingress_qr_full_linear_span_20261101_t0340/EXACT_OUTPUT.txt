@@ -1,0 +1,14 @@
+FULL=4096 LR=16 P/Q normalization=EXACT_PASS
+GENERAL_RANK_MINORS: a*(24057/10240000), 513*(118*b-99*a)/10240000, -81*(118*d-99*a)/5120000
+GENERAL_LR_RANK: 4 iff (a,b,d)!=0; 3 at zero
+EXPOSED_LR_EDGE endpoints=(14,15) x=3/20 u=9/80 other_LR_d>=9/80
+EDGE_WITNESS 3643 111000111011 lambda 4/17 delta(y,c,ld) 0,1/170,3/170
+EDGE_WITNESS 3647 111000111111 lambda 16/51 delta(y,c,ld) 0,5/204,-1/102
+EDGE_CONSTRAINTS b+3d=0 AND 5b-2d=0 => b=d=0 (det=-17)
+ZERO_PARAMETER_FARKAS H=-21x-61u-19t+118y <= -19 LR16; FULL4032=-27/2; gap=11/2
+NONZERO_PARAMETER_FARKAS family algebraic bound + 5 rational regression cases PASS
+ZERO_OBSERVER_3D_HULL_EQUAL seven facets, all 4096 FULL inside, eight exact LR vertices
+GENERAL_CLASSIFICATION (a,b,d)=0 -> 3D hull equality; nonzero -> rank4 and strict hull inequality
+ALL_REAL_QR_THEOREM rank(LR4)=4 AND conv(FULL4)!=conv(LR4) for every (q,r) in R^2
+AUTHOR_PROVED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED
+PASS_EXACT_R5_INGRESS_LINEAR_SPAN_GLOBAL_CLASSIFICATION
