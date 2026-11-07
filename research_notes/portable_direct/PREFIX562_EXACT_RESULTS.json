@@ -1,0 +1,277 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "prefix": "PREFIX-562",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "proof_scope": "All path lengths under frozen 96-port X6 BRC native transition and nine exchange-fixed roots; 34+17 formal first-order observer",
+  "tool": "PREFIX562_exchange_jet_certificate.py",
+  "compact_tool": "PREFIX562_compact_certificate.py",
+  "roots": [
+    {
+      "r": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d": 12,
+      "comparisons": 2496,
+      "positions": 184436
+    },
+    {
+      "r": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d": 8,
+      "comparisons": 1728,
+      "positions": 42523
+    },
+    {
+      "r": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d": 12,
+      "comparisons": 2496,
+      "positions": 243987
+    },
+    {
+      "r": [
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d": 8,
+      "comparisons": 1728,
+      "positions": 42803
+    },
+    {
+      "r": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "d": 8,
+      "comparisons": 1728,
+      "positions": 43458
+    },
+    {
+      "r": [
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0
+      ],
+      "d": 12,
+      "comparisons": 2496,
+      "positions": 247689
+    },
+    {
+      "r": [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "d": 8,
+      "comparisons": 1728,
+      "positions": 41953
+    },
+    {
+      "r": [
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0
+      ],
+      "d": 8,
+      "comparisons": 1728,
+      "positions": 43303
+    },
+    {
+      "r": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "d": 8,
+      "comparisons": 1728,
+      "positions": 42210
+    }
+  ],
+  "independent_unspecialized_to_first_order": [
+    {
+      "r": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "depth": 7,
+      "comparisons": 1536
+    },
+    {
+      "r": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "depth": 7,
+      "comparisons": 1536
+    }
+  ],
+  "compact_published_checks": 15552,
+  "bench_depth16": {
+    "roots": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "q5_eq_q6": true,
+    "full_output_nonzero_positions": 439730,
+    "rounds": 3,
+    "checksum_sha256": "3ebe8dc78c8feefd448599aa41b3e84c7ce91eb1dfc607077c75b7a1abc2bb90",
+    "raw_columns": [
+      "wall_seconds_including_complete_hashed_readout",
+      "state_evolution_seconds",
+      "VmHWM_KiB"
+    ],
+    "observations": {
+      "96_native": {
+        "states": 96,
+        "median": [
+          1.782766,
+          1.422706,
+          131328
+        ],
+        "raw": [
+          [
+            1.805249,
+            1.44111,
+            131380
+          ],
+          [
+            1.730229,
+            1.380806,
+            131328
+          ],
+          [
+            1.782766,
+            1.422706,
+            131312
+          ]
+        ]
+      },
+      "64_orbit": {
+        "states": 64,
+        "median": [
+          1.128753,
+          0.777026,
+          119796
+        ],
+        "raw": [
+          [
+            1.131256,
+            0.783723,
+            119808
+          ],
+          [
+            1.09681,
+            0.760519,
+            119796
+          ],
+          [
+            1.128753,
+            0.777026,
+            119652
+          ]
+        ]
+      },
+      "51_class": {
+        "states": 51,
+        "median": [
+          0.803934,
+          0.460666,
+          115596
+        ],
+        "raw": [
+          [
+            0.776521,
+            0.448111,
+            115596
+          ],
+          [
+            0.812754,
+            0.479487,
+            115728
+          ],
+          [
+            0.803934,
+            0.460666,
+            115468
+          ]
+        ]
+      },
+      "34_orbit_class": {
+        "states": 34,
+        "median": [
+          0.613664,
+          0.270495,
+          109740
+        ],
+        "raw": [
+          [
+            0.613664,
+            0.270495,
+            109740
+          ],
+          [
+            0.576025,
+            0.254633,
+            109776
+          ],
+          [
+            0.627264,
+            0.280558,
+            109684
+          ]
+        ]
+      }
+    }
+  }
+}
