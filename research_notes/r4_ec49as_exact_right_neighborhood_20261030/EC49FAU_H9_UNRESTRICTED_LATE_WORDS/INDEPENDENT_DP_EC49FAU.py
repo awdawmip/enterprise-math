@@ -59,7 +59,7 @@ def main():
         if h in (8,9): out[h]['masks']={','.join(map(str,k)):v for k,v in mk.items()}
         print('h',h,'states',len(cur),'words',total,'allowed',countvalid,'classes',counts,'keys',len(mk),flush=True)
     common=set(out[8]['masks'])&set(out[9]['masks'])
-    out['common']={'rank_all':sum(rank9(out[8]['masks'][k][0]|out[8]['masks'][k][1]|out[8]['masks'][k][2]) and rank9(out[9]['masks'][k][0]|out[9]['masks'][k][1]|out[9]['masks'][k][2]) for k in common),'rank_esc':sum(rank9(out[8]['masks'][k][2]) and rank9(out[9]['masks'][k][2]) for k in common),'no_esc_keys':sorted(k for k in common if not (rank9(out[8]['masks'][k][2]) and rank9(out[9]['masks'][k][2]))}
+    out['common']={'rank_all':sum(rank9(out[8]['masks'][k][0]|out[8]['masks'][k][1]|out[8]['masks'][k][2]) and rank9(out[9]['masks'][k][0]|out[9]['masks'][k][1]|out[9]['masks'][k][2]) for k in common),'rank_esc':sum(rank9(out[8]['masks'][k][2]) and rank9(out[9]['masks'][k][2]) for k in common),'no_esc_keys':sorted(k for k in common if not (rank9(out[8]['masks'][k][2]) and rank9(out[9]['masks'][k][2])))}
     print('common',out['common'])
     with open('INDEPENDENT_DP_REPORT_EC49FAU.json','w') as f: json.dump({str(k):v for k,v in out.items()},f,sort_keys=True,indent=2)
 if __name__=='__main__':main()
