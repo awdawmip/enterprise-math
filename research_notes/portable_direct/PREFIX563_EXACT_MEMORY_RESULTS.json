@@ -1,0 +1,58 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "date": "2026-11-07",
+  "line": "PREFIX-563",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "certificate": "PREFIX563_canonical_invariant_storage_certificate.py",
+  "input_dependency": "PREFIX562_semilinear_generic_axis_certificate.py in local evidence package",
+  "all_length_proof": "tau-invariant fixed-port polynomials; canonical half-support; coefficientwise projection commutes with rowwise addition",
+  "zero_root_exact_integer_validation": {
+    "depths_inclusive": [
+      0,
+      16
+    ],
+    "orbit_polynomial_equalities": 1088,
+    "fixed_orbits": 32,
+    "swap_pair_orbits": 32,
+    "counts": [
+      {
+        "depth": 8,
+        "ordinary": 13166,
+        "canonical": 10611
+      },
+      {
+        "depth": 12,
+        "ordinary": 80962,
+        "canonical": 63913
+      },
+      {
+        "depth": 14,
+        "ordinary": 166028,
+        "canonical": 130299
+      },
+      {
+        "depth": 16,
+        "ordinary": 317708,
+        "canonical": 248341
+      }
+    ]
+  },
+  "benchmarks": {
+    "method": "CPython single process per algorithm, tracemalloc and output-support traversal, no JSONL serialization",
+    "depth": 16,
+    "output_support_positions": 1589611,
+    "plain64": {
+      "elapsed_sec": 19.18898,
+      "peak_traced_bytes": 90193552,
+      "rss_kib": 311688
+    },
+    "canonical64": {
+      "elapsed_sec": 19.9129,
+      "peak_traced_bytes": 71227824,
+      "rss_kib": 249212
+    }
+  },
+  "next": "PREFIX564 exact S-module u/v encoding vs native positive half-support compression",
+  "admission": "UNREVIEWED / NOT_ADMITTED",
+  "source_control": "MCP BACKEND_IDENTITY_OR_VERSION_MISMATCH; operation_sent=false"
+}
