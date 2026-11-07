@@ -1,0 +1,8 @@
+# Stage508-B research handoff
+Date: 2026-11-07. Frozen science pins unchanged: GK bf84bd7c61a2444b59b1da96be57df0e9ae47e53, EM 2af3fc484eb11060b69e0afc1b562bcaf5ad1419, P000 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Current norms read separately.
+
+Stage507-B `PROOF_STAGE507B.md`, `REPRO_STAGE507B.py`, `STAGE507B_EXECUTED.json` prove a finite-horizon sufficient quotient for signed-X6+BRC tagged histories. Allow POP, DELETE2, INSERT2(P), SET_END(tag-preserving), DELETE_KTH_PUBLIC(k∈S). Keep Stage506 conservative positional halo plus the rightmost max(S)+h−1 original P tokens. Opaque gaps keep exact F=(length,six signed displacement,144 directed adjacency counts). **No hidden P-count is required.** The public-token budget is worst-case sharp for that rightmost-P truncation format when POP and rank K deletion are permitted. Finite exact checker passed: 32,714 roots, 558,135 states, 623,309 transitions, 16 sharpness examples.
+
+Smallest unresolved question: construct exact joint position/rank reachability to shrink the conservative union for given S,R,h, including initial short-length legality and new P insertions. Prove soundness/completeness, demonstrate strict savings or a counterexample, and validate a finite domain. The independent heterogeneous all-144-active-edge Euler–BRC rank/unrank algorithmic time/peak-RSS/bit-cost comparison also remains open.
+
+Native status observed: em_status and em_control_tasks returned BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE / operation_sent=false. Current canonical owner/claim, native result and Driver review unconfirmed. Author-side GitHub persistence is only source evidence.
