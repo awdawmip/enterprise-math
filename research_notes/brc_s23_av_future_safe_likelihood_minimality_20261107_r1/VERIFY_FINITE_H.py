@@ -42,4 +42,12 @@ for h in range(0, 5):
                for n in range(witness_n, min(witness_n + 4, 61)))
     print(f"INTERVAL_SATURATION h={h}: states={maximum}, witness_prefix_n={witness_n}")
 
+# Exact finite evidence for the proposed sharp saturation threshold at h=1..10.
+expected_n = [6, 11, 17, 22, 28, 33, 39, 44, 50, 55]
+for h, n0 in enumerate(expected_n, start=1):
+    maximum = comb(h + 2, 2) + 2
+    assert count_signatures(n0 - 1, h) < maximum
+    assert count_signatures(n0, h) == maximum
+print("EXACT_N_H h=1..10: " + ",".join(map(str, expected_n)))
+
 print("PASS_S23_AV_BOUNDED_FUTURE_SIGN_QUOTIENT_20261107")
