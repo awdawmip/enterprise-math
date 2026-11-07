@@ -5,6 +5,8 @@ No floating-point values or true division are used in this module.
 
 from __future__ import annotations
 
+from math import isqrt
+
 
 def _require_natural(name: str, value: int) -> None:
     if isinstance(value, bool) or not isinstance(value, int) or value < 0:
@@ -23,6 +25,9 @@ def integer_nth_root(n: int, p: int) -> int:
 
     if n < 2 or p == 1:
         return n
+
+    if p == 2:
+        return isqrt(n)
 
     lo = 0
     hi = 1

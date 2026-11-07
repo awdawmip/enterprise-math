@@ -1,0 +1,971 @@
+{
+  "status": "COMPLETED_FIXED_HISTORICAL_PREFIX_MATHEMATICAL_OBSERVATIONS",
+  "researcher": "EM-HME-0CE4FD / TASK_RESEARCH",
+  "global_snapshot": "fca4ad184d83679f38a66ae99763c32abb829ee5",
+  "project_parent": "33bb079035409809399f44bbcbd126e3a6ddaf02",
+  "input_certificate_blob": "e56cfc8457e2398b5de3c90182c2b37824580ef3",
+  "source_sha256": {
+    "brc_opportunistic_shortcuts.py": "7e186c6b17b4b04c37af875c939a92907e929e8a19b2c0c818d3e3bc5f8b94e7",
+    "brc_multiplier_priority_jump.py": "ee4a01822ff9e5e33b602b5e834a6902dbd848d0258b981503cea3df513d1a0d",
+    "brc_square_gap_prefilter.py": "f8e178771a25221eaab16002b9ffacd188dc5f39be4948ec2b40ee3e22c9f716"
+  },
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19044-SP0",
+  "frozen_prefix": [
+    1,
+    48,
+    96,
+    8,
+    15,
+    80,
+    21,
+    16,
+    56,
+    45,
+    35,
+    3,
+    72,
+    7,
+    99,
+    88,
+    40,
+    55,
+    9,
+    24
+  ],
+  "budget": {
+    "public_integers": 3,
+    "prefix_slots_per_integer": 20,
+    "new_primary_api_calls_per_integer": 19,
+    "reused_positions_per_integer": 1,
+    "independent_exact_audits_per_new_position": 1,
+    "timing_repeats": 0,
+    "adaptive_parameter_changes": 0,
+    "ceiling_advances": 0,
+    "appended_fallback_candidates": 0
+  },
+  "observer_contract": {
+    "observation_input": "pinned public N and a predetermined source-catalog multiplier",
+    "output": "exact immediate square-witness status at that position",
+    "information_retained": "prefix slot, multiplier, exact gap and multiplied-state D/U/Z label",
+    "source_factors_or_hidden_S_used": false,
+    "positive_control_factors": "known by construction and never supplied to public observations",
+    "public_target_input_port": false
+  },
+  "cost_contract": {
+    "single_pass": true,
+    "api_ns": "unchanged witness API call; its current input validation and generic root implementation included",
+    "loop_ns": "new-position API calls, independent audits and evaluation-record construction",
+    "outside_timers": "imports, hash/source verification, input parsing, constructive controls and final serialization",
+    "not_claimed": "stable benchmark, first-hit production time, complete scan coverage or overall factorization speedup"
+  },
+  "positive_family": {
+    "formula": "N=t(2t+1), odd t>=3; 8N=(4t+1)^2-1",
+    "gcd_identity": "gcd(N,4t)=t",
+    "prefix_member": 8,
+    "integer_success_guaranteed_no_later_than_slot": 4,
+    "infinite_prime_pair_claim": false,
+    "checked_constructions": 15,
+    "known_prime_pairs": 5,
+    "controls": [
+      {
+        "t": 3,
+        "N": 21,
+        "pair": [
+          3,
+          7
+        ],
+        "known_prime_pair": true,
+        "base_direction": "U",
+        "multiplier": 8,
+        "witness": [
+          13,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 5,
+        "N": 55,
+        "pair": [
+          5,
+          11
+        ],
+        "known_prime_pair": true,
+        "base_direction": "D",
+        "multiplier": 8,
+        "witness": [
+          21,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 7,
+        "N": 105,
+        "pair": [
+          7,
+          15
+        ],
+        "known_prime_pair": false,
+        "base_direction": "D",
+        "multiplier": 8,
+        "witness": [
+          29,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 9,
+        "N": 171,
+        "pair": [
+          9,
+          19
+        ],
+        "known_prime_pair": false,
+        "base_direction": "D",
+        "multiplier": 8,
+        "witness": [
+          37,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 11,
+        "N": 253,
+        "pair": [
+          11,
+          23
+        ],
+        "known_prime_pair": true,
+        "base_direction": "U",
+        "multiplier": 8,
+        "witness": [
+          45,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 13,
+        "N": 351,
+        "pair": [
+          13,
+          27
+        ],
+        "known_prime_pair": false,
+        "base_direction": "U",
+        "multiplier": 8,
+        "witness": [
+          53,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 15,
+        "N": 465,
+        "pair": [
+          15,
+          31
+        ],
+        "known_prime_pair": false,
+        "base_direction": "U",
+        "multiplier": 8,
+        "witness": [
+          61,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 17,
+        "N": 595,
+        "pair": [
+          17,
+          35
+        ],
+        "known_prime_pair": false,
+        "base_direction": "D",
+        "multiplier": 8,
+        "witness": [
+          69,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 19,
+        "N": 741,
+        "pair": [
+          19,
+          39
+        ],
+        "known_prime_pair": false,
+        "base_direction": "D",
+        "multiplier": 8,
+        "witness": [
+          77,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 21,
+        "N": 903,
+        "pair": [
+          21,
+          43
+        ],
+        "known_prime_pair": false,
+        "base_direction": "D",
+        "multiplier": 8,
+        "witness": [
+          85,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 23,
+        "N": 1081,
+        "pair": [
+          23,
+          47
+        ],
+        "known_prime_pair": true,
+        "base_direction": "U",
+        "multiplier": 8,
+        "witness": [
+          93,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 25,
+        "N": 1275,
+        "pair": [
+          25,
+          51
+        ],
+        "known_prime_pair": false,
+        "base_direction": "U",
+        "multiplier": 8,
+        "witness": [
+          101,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 27,
+        "N": 1485,
+        "pair": [
+          27,
+          55
+        ],
+        "known_prime_pair": false,
+        "base_direction": "U",
+        "multiplier": 8,
+        "witness": [
+          109,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 29,
+        "N": 1711,
+        "pair": [
+          29,
+          59
+        ],
+        "known_prime_pair": true,
+        "base_direction": "D",
+        "multiplier": 8,
+        "witness": [
+          117,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      },
+      {
+        "t": 31,
+        "N": 1953,
+        "pair": [
+          31,
+          63
+        ],
+        "known_prime_pair": false,
+        "base_direction": "D",
+        "multiplier": 8,
+        "witness": [
+          125,
+          1
+        ],
+        "guaranteed_prefix_slot_at_most": 4
+      }
+    ]
+  },
+  "records": [
+    {
+      "label": "RSA-270",
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-09-en.pdf",
+      "decimal_sha256": "83b66aee65c8ffa8bbae104ad3c3e4f0723f854c105f6f29a831d11898e71432",
+      "bits": 895,
+      "base_direction": "U",
+      "evaluations": [
+        {
+          "prefix_slot": 1,
+          "multiplier": 1,
+          "status": "REUSED_PINNED_NO_WITNESS",
+          "new_api_call": false,
+          "api_ns": null,
+          "multiplied_direction": "U",
+          "gap": "31256401318596483737417209921421984498934144823954415530881150274057254210963446861826026318630314629540018068924063120688481767744482",
+          "independent_audit": "verified in pinned parent"
+        },
+        {
+          "prefix_slot": 2,
+          "multiplier": 48,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 399100,
+          "multiplied_direction": "D",
+          "gap": "4799084706810852014861497216767446750617740210329948795085737190947712485797320913094936051803476667212712221335082518362998283743354289",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 3,
+          "multiplier": 96,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 384800,
+          "multiplied_direction": "U",
+          "gap": "1901406726434218453134970863229565079262457704661639912573989349867752763396719293663699196016845686324000748381637004043801236756347652",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 4,
+          "multiplier": 8,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 366300,
+          "multiplied_direction": "D",
+          "gap": "1864138326151653791598459344717137821613985245878226856201095700799748600345971842694352877361275306375527270290692028987407109747763244",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 5,
+          "multiplier": 15,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 372800,
+          "multiplied_direction": "D",
+          "gap": "2902425512028460625285162523645109790779385023332041808918339993152726424635269572822315383168366078046767000849219451501595451262717120",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 6,
+          "multiplier": 80,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 385400,
+          "multiplied_direction": "U",
+          "gap": "128322971735344895097034829222211706842128817996505032990912218214001658713966589288837865198295821138503435159532704899112031078044065",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 7,
+          "multiplier": 21,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 372500,
+          "multiplied_direction": "U",
+          "gap": "1769769338653205866310529628399384453956088945712762120294835384033027223510691693502913358224213950450108818707284658306762694267836734",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 8,
+          "multiplier": 16,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 369600,
+          "multiplied_direction": "U",
+          "gap": "500102421097543739798675358742751751982946317183270648494098404384916067375415149789216421098085034072640289102785009931015708283911712",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 9,
+          "multiplier": 56,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 382100,
+          "multiplied_direction": "U",
+          "gap": "1853810804232056058534840570432319244402782295721479071877158279281300679565286690565224276153491519105326763153750431610984015044480508",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 10,
+          "multiplier": 45,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 381700,
+          "multiplied_direction": "U",
+          "gap": "1691586181405456111646234626578676922763373761574238046070237703113643973819735512868033132150339640397036016179231376422119613090830246",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 11,
+          "multiplier": 35,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 371100,
+          "multiplied_direction": "U",
+          "gap": "574862502563069534116452917990731934145199207130018122162675928462976010624367636671018757710316655614991651757822747954974199188333884",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 12,
+          "multiplier": 3,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 364500,
+          "multiplied_direction": "U",
+          "gap": "718071240658700568624035358445109017162169079860323440747248396377937589197303287900047446842687258352964940792672697868531947202355035",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 13,
+          "multiplier": 72,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 384200,
+          "multiplied_direction": "U",
+          "gap": "390023482148433150463003775395259013379262991203599091846309338364056437249513697690230730371043740002374541494564511920064265131545240",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 14,
+          "multiplier": 7,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 367100,
+          "multiplied_direction": "D",
+          "gap": "1996291435772260435354608916802366766564444981171321433159766417816597608808130891183556403806546967919662724454602186964264794873403875",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 15,
+          "multiplier": 99,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 382900,
+          "multiplied_direction": "D",
+          "gap": "9432333514424967917896365610881261238987400032124792083966559267887126869818706298633027729494265511798772599312075360264721781931486907",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 16,
+          "multiplier": 88,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 381700,
+          "multiplied_direction": "U",
+          "gap": "1650341333286251777210512878990343390503088319392657269534227523828550442253929787569730023929474824958054130109486482218419103214890673",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 17,
+          "multiplier": 40,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 383300,
+          "multiplied_direction": "U",
+          "gap": "328457857965686806567640406672990404123282770570112238673037720589203138427053491540224838034885007807987990595596854443606408499244801",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 18,
+          "multiplier": 55,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 384000,
+          "multiplied_direction": "U",
+          "gap": "423484703519292708692042484676366786114305223068681513686849578712168727242144884064076358484786410056781625569798261530969064821938184",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 19,
+          "multiplier": 9,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 368600,
+          "multiplied_direction": "U",
+          "gap": "281307611867368353636754889292797860490407303415589739777930352466515287898671021756434236867672831665860162620316568086196335909700338",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 20,
+          "multiplier": 24,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 369800,
+          "multiplied_direction": "U",
+          "gap": "475351681608554613283742715807391269815614426165409978143497337466938190849179823415924799004211421581000187095409251010950309189086913",
+          "independent_audit": "exact native root/gap equality verified"
+        }
+      ],
+      "new_api_calls": 19,
+      "reused_parent_positions": 1,
+      "new_witnesses": 0,
+      "sum_new_api_ns": 7171500,
+      "new_evaluation_loop_ns": 7302300,
+      "new_multiplied_direction_counts": {
+        "D": 5,
+        "U": 14
+      }
+    },
+    {
+      "label": "RSA-896",
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-10-en.pdf",
+      "decimal_sha256": "621d201b5ba6a87cf699d8d4926c448e92fe0e08a4ac66b6a00a338ae891987f",
+      "bits": 896,
+      "base_direction": "U",
+      "evaluations": [
+        {
+          "prefix_slot": 1,
+          "multiplier": 1,
+          "status": "REUSED_PINNED_NO_WITNESS",
+          "new_api_call": false,
+          "api_ns": null,
+          "multiplied_direction": "U",
+          "gap": "479868913855902308861074863051530976569935505201167263321779903778359375074091388121275289360281902368619544237889307513675669307649665",
+          "independent_audit": "verified in pinned parent"
+        },
+        {
+          "prefix_slot": 2,
+          "multiplier": 48,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 390100,
+          "multiplied_direction": "U",
+          "gap": "1881838876033633735763946764037589583376165019349778297705745875707715710380204376905272597534987632802279185312749215385953016177835508",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 3,
+          "multiplier": 96,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 385000,
+          "multiplied_direction": "U",
+          "gap": "6063206005052790783858129613565158043576257635436338984304809570402823176080295373607089195054217244820577734274499422698291754129605689",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 4,
+          "multiplier": 8,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 372500,
+          "multiplied_direction": "U",
+          "gap": "1151901348478384108805435054191654865204634754334145607576692074565111967997321631763097764769701100122242274441520313560568102555787241",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 5,
+          "multiplier": 15,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 373200,
+          "multiplied_direction": "D",
+          "gap": "2597647773641804776091999327165207689585450762151777265805279568133816251702031946525431527815998476023395740139897126201793568268750024",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 6,
+          "multiplier": 80,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 384200,
+          "multiplied_direction": "U",
+          "gap": "2186234987111851105299121100146635875440932673922521878638920014713376691536075910951756893842630961234182558731105375646553414327539609",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 7,
+          "multiplier": 21,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 383100,
+          "multiplied_direction": "D",
+          "gap": "5603424166560244970587708277339282985700886744693218968559767976088870027631287447512606454590517886583831389787977810648434858705347558",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 8,
+          "multiplier": 16,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 373500,
+          "multiplied_direction": "U",
+          "gap": "2542778478390186618839928254845045914332162411494454247345407568780083203089475483856436608541551698982088874932153721274809833906921969",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 9,
+          "multiplier": 56,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 385800,
+          "multiplied_direction": "U",
+          "gap": "1619719324807721650010513857217458427295575580523554637371964316125917354074653732977738964237425953786928665756214423617752816723961225",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 10,
+          "multiplier": 45,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 385500,
+          "multiplied_direction": "U",
+          "gap": "3382723428499542856427765553642281215277010027941128960826711348824692488629215283031002519391138204393927631296566649130585034907939905",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 11,
+          "multiplier": 35,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 384500,
+          "multiplied_direction": "D",
+          "gap": "5858502866947876457803470488087599881427645654645824157662481985488816921922552934878954463576015451422112629231633059523281952791850199",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 12,
+          "multiplier": 3,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 368300,
+          "multiplied_direction": "D",
+          "gap": "1229401919674172851353231270629583040606403749526564533112966050097970209862708774298054184708658866915887909121088827970237893409297763",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 13,
+          "multiplier": 72,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 404000,
+          "multiplied_direction": "D",
+          "gap": "10367112136305456979248915487724893786841712789007310468190228671086007711975894685867879882927309901100180469973682822045112923002085169",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 14,
+          "multiplier": 7,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 375500,
+          "multiplied_direction": "D",
+          "gap": "1790377284172126456393941524539893921605583926933951355913670354891254678681251223482695630287918428102178121036540590847464030616310807",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 15,
+          "multiplier": 99,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 478300,
+          "multiplied_direction": "U",
+          "gap": "4509913403073293861273794202833522786205246141345901372850687229489529511613476602777740607188973586310523953956522035423607541290432435",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 16,
+          "multiplier": 88,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 387800,
+          "multiplied_direction": "U",
+          "gap": "1684073855030628163418693480492658852539648410516097353631233478238201698481237377815439372630902713998298709630238861237551019315550033",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 17,
+          "multiplier": 40,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 768400,
+          "multiplied_direction": "U",
+          "gap": "2931233659095927282125017455290855157730650200315430089338090060933122329387967606143662021877450453889371151193999974431951567338767449",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 18,
+          "multiplier": 55,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 679000,
+          "multiplied_direction": "U",
+          "gap": "2626966519882699959331735420802314554829783296994813856456545722862687578398851544980083315696599228979852427505580434174879163370701104",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 19,
+          "multiplier": 9,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 428300,
+          "multiplied_direction": "U",
+          "gap": "467477117224933037546721601979191506039315293017338895543715965249984277094832448528501588325318067130708023485447368415080367507242482",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 20,
+          "multiplier": 24,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 388700,
+          "multiplied_direction": "D",
+          "gap": "4660409980498701673863284778468073546553049910663124989450401334115694142109027369975876944497956716350668372822537661999328354539885505",
+          "independent_audit": "exact native root/gap equality verified"
+        }
+      ],
+      "new_api_calls": 19,
+      "reused_parent_positions": 1,
+      "new_witnesses": 0,
+      "sum_new_api_ns": 8095700,
+      "new_evaluation_loop_ns": 8250600,
+      "new_multiplied_direction_counts": {
+        "U": 12,
+        "D": 7
+      }
+    },
+    {
+      "label": "RSA-2048",
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-38-en.pdf",
+      "decimal_sha256": "b3c2468add10e2a0c4a251d9d2bac4ba04d4b3527156ceead43a1305e03f1fc0",
+      "bits": 2048,
+      "base_direction": "D",
+      "evaluations": [
+        {
+          "prefix_slot": 1,
+          "multiplier": 1,
+          "status": "REUSED_PINNED_NO_WITNESS",
+          "new_api_call": false,
+          "api_ns": null,
+          "multiplied_direction": "D",
+          "gap": "167733554914191588939803041966262912659042427502658590406580007396740414456357482395996946061317379799646830532299859839705684383792577996085866988545837793134656535078289640420733265486988603663762470587950686323206807048078389740752755330282181154336529907629137569740509963671690410162899710483245952823668",
+          "independent_audit": "verified in pinned parent"
+        },
+        {
+          "prefix_slot": 2,
+          "multiplier": 48,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 2003300,
+          "multiplied_direction": "U",
+          "gap": "675118398974710398282149036537122331032882699398107463867822819252858192157176612602208099999196588641723773536783656940272651493351372006312156351475484202520364134983170726910091464639545421352667898323326652110133676264688613879379040345761051831898169169132558512221579706555366681068722867432364506669908",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 3,
+          "multiplier": 96,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 2005100,
+          "multiplied_direction": "D",
+          "gap": "1653525259340564288531096735592001851786890257531391193572922863073933402727551780837883574877584179401489574806652379065980435304458065397235710727730493701348885915222839426507589392670890178906533384616645491462222465539504425972895276158897730572936188833756886870106993645603049699754987928843477688365572",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 4,
+          "multiplier": 8,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1993200,
+          "multiplied_direction": "U",
+          "gap": "217535061585122351379529580200952063764243918017912721426509180350581547067349186259732198021999417017784724181203064092866455628223729033927566880255900102118378026325059331617736601043578702803075187905369223355134654836981149415301862259255802912405897610776400943778706158851880324518392073419057971934225",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 5,
+          "multiplier": 15,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1982500,
+          "multiplied_direction": "U",
+          "gap": "264668341068332349655947690825025920185032822341194765521593771965675467582074129690498174718560440894361886332248060542904542136771055940864599993976989272422709255732263320611086411592190603476416655526892040465817945481444227346513887534714805960014723902661796154788558979694512301276170730859814915332501",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 6,
+          "multiplier": 80,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1989900,
+          "multiplied_direction": "U",
+          "gap": "411491280213099122272917176259584771749831195211826714915592440750004745509826619721258671332160793863897578254142944941884127715345987960676507050003227543737342314955749478525823317373854509667609429646712313911920524326741308870626484893511251185468230652517400230949862482304963051264007361964555090843329",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 7,
+          "multiplier": 21,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1935200,
+          "multiplied_direction": "U",
+          "gap": "122282829863860075748854905424657232972595317554590946863715348863169143948686070283567339694501145546585079784292249774355437878350369100382959007166474030998970480905846298322213761530269075640604173276362322887398157684353680461344394701479526450468491008619657172765987872131736172205937732286118952492103",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 8,
+          "multiplier": 16,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1933800,
+          "multiplied_direction": "U",
+          "gap": "144021821820806156245128532883198481274943424925581993773654074290567110009720543867492844827988458671606855617757413999236238453116178487035174613171341735412012733836995214189804411135194087950854429627466655384671788497450605140790376098306780357611734624126472554042569449987300189180870773458369888253172",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 9,
+          "multiplier": 56,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 3105500,
+          "multiplied_direction": "U",
+          "gap": "628896572324752057396704130534709833786673301685016226835203430016905759202973005536752515741366820426473636683397236131464386943806280460630340331770673706168386395286388020179884415255928801885987320836599684772929766027277787009101383320226792348331417878287644077951809594441269463641763981201419684454892",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 10,
+          "multiplier": 45,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1987200,
+          "multiplied_direction": "D",
+          "gap": "1828675707447581409764617554462107397384832677377834230889186849640404442124184174422957655159290895127286559634547963936726250593218140639000205574968259404981594020092966220012486002565352311788586303232279361963272605210617382152843676129014259293149236085275919192878691215331135964494034501988097938723811",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 11,
+          "multiplier": 35,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1985200,
+          "multiplied_direction": "U",
+          "gap": "413782573506449426243586678302399404230633448164413777808726150132250657898452660987326035222914207396834551707874401967318323045192612828773139575477184192420228895827973257117523483335465962718137915632157381419273548957367944090568716844685397421962982110648894025545041206061282623610036500606582667239105",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 12,
+          "multiplier": 3,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1994200,
+          "multiplied_direction": "D",
+          "gap": "317127119631926801989176600987878743105278382232683253735254014899016909903016937246534207438424400030272265171740889959246735433679094239249102985945943570544517115503018505737775016960658884367856185638374318449464020211730054882293984056965923663080067520323287610767302069063932261580890811301285759830154",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 13,
+          "multiplier": 72,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1979500,
+          "multiplied_direction": "D",
+          "gap": "1957815554266101162415766221808568573878195262161214492838582623155233923606142676337589782197994753160062517630827576835798100654013561305348101922303100919065402236925533984559629409392208325227676691148323010196211893532830344737716760333302226211653078496987608494008355429666922920665528660771521747408025",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 14,
+          "multiplier": 7,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1972100,
+          "multiplied_direction": "D",
+          "gap": "566725253139174373461180862009341212198460138503882224635347320036687160706014060949639898289771806632846799432678827991254587076437186226414258943550912458416808377166125283618855032355029573695061941839339726851335172572361464226245189392204492185440757906909721465291243860809344497730809286330424144735590",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 15,
+          "multiplier": 99,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1981900,
+          "multiplied_direction": "D",
+          "gap": "3028011202338119165951334990986352628012507006975192069532139545007840472000404186978151218243454544639933867751499732439946488040093234020963123760144495690149883264627539812488031088583910773705302514357441637878909610978615254987705937784898109074507475652322378500397353027842997319941569324563024240907978",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 16,
+          "multiplier": 88,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1938400,
+          "multiplied_direction": "U",
+          "gap": "615569668257003912855427521963459413525011980464377459645467363757734650863649892203749989579127450119706434103303065644808430997869575681512491272072047057604699671288812583431114796036668017019168381839678554692670586618494361852998335551062323611432465637721405973537971466497615539209784265292732524311313",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 17,
+          "multiplier": 40,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 2703900,
+          "multiplied_direction": "D",
+          "gap": "2007419094188439330106022551051349018996183692066206444975525858229946638755845493593974898401744558737600035854648530724403659602770637152997293754817876707811464345762099886584722212659131157452237875718238026054618295986194839449014760941688350905726923503284678098647121097106621644620471949738352215737449",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 18,
+          "multiplier": 55,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1995400,
+          "multiplied_direction": "D",
+          "gap": "1407677485415938950579031506004395864093092130239875273455595172657983130655989794216487703756395465724538880780871763082419896252404483056720425638996628921031238944246148987267024575088987975969519165998982337616503516851490288429500394785102753411939715809934185054744201196075489447690479426314306785300446",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 19,
+          "multiplier": 9,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1986700,
+          "multiplied_direction": "D",
+          "gap": "557208847925377075411332325729988168455231066855069018884860300049183909622717651138300654994447811400793062453558609768830642571296300920895791445576766530183474380423742126583376450636663593972857822874152054738872341830779146150054657027711586097113990206934839916987493434760308801431525671496626566565943",
+          "independent_audit": "exact native root/gap equality verified"
+        },
+        {
+          "prefix_slot": 20,
+          "multiplier": 24,
+          "status": "NO_WITNESS_AT_THIS_POSITION",
+          "new_api_call": true,
+          "api_ns": 1894200,
+          "multiplied_direction": "U",
+          "gap": "413381314835141072132774183898000462946722564382847798393230715768483350681887945209470893719396044850372393701663094766495108826114516349308927681932623425337221478805709856626897348167722544726633346154161372865555616384876106493223819039724432643234047208439221717526748411400762424938746982210869422091393",
+          "independent_audit": "exact native root/gap equality verified"
+        }
+      ],
+      "new_api_calls": 19,
+      "reused_parent_positions": 1,
+      "new_witnesses": 0,
+      "sum_new_api_ns": 39367200,
+      "new_evaluation_loop_ns": 39658600,
+      "new_multiplied_direction_counts": {
+        "U": 10,
+        "D": 9
+      }
+    }
+  ],
+  "interpretation": "The finite prefix is one catalog specialist. A non-hit ends this declared budget and does not reject the retained positive family or authorize a wider scan.",
+  "goal_status": "ACTIVE; full library verification and public-RSA factoring effectiveness remain unfinished"
+}

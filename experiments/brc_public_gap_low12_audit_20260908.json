@@ -1,0 +1,559 @@
+{
+  "status": "EXACT_PREPARED_GAP_FILTER_AUDIT",
+  "researcher": "EM-HME-0CE4FD / TASK_RESEARCH",
+  "global_snapshot": "fca4ad184d83679f38a66ae99763c32abb829ee5",
+  "project_parent": "b4dc28c17176fcd2660be9dd5194b06a2499fdac",
+  "input_certificate_blob": "e56cfc8457e2398b5de3c90182c2b37824580ef3",
+  "source_sha256": {
+    "brc_opportunistic_shortcuts.py": "7e186c6b17b4b04c37af875c939a92907e929e8a19b2c0c818d3e3bc5f8b94e7",
+    "brc_square_gap_prefilter.py": "f8e178771a25221eaab16002b9ffacd188dc5f39be4948ec2b40ee3e22c9f716"
+  },
+  "source_portfolio_blob": "1214aa09770893fb3de7f85b994d1994ff56bffe",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19044-SP0",
+  "observer_contract": {
+    "input_to_filter": "prepared nonnegative completion gap A only",
+    "future_operation": "exact integer square-root predicate; N/J/R are not accessed by timed backends",
+    "separate_metadata": "public identifier, D/U state and existing shadow signature",
+    "root_preparation": "reuse the pinned earlier certificate; no new N-root computation",
+    "new_public_integers": 0,
+    "new_ceiling_positions": 0,
+    "unique_public_gaps": 3,
+    "timing_repetitions_are_new_coverage": false
+  },
+  "cost_contract": {
+    "warm_scope": "prepared-gap exact predicate only; input preparation, imports, table setup and output logging excluded",
+    "cold_scope": "one isolated cache-cold LOW12 exact observation per public gap, including needed lazy tables",
+    "full_table_setup": "all four tables, measured separately; not required for every early exit",
+    "positive_square_controls": "correctness only; not included in public timing or hit counts",
+    "amortization": "conditional replay estimate on the same fixed gap; not a new input distribution or full-pipeline gain",
+    "factor_recovery_or_adaptive_routing": "NOT_PERFORMED"
+  },
+  "modulus_tables": [
+    {
+      "modulus": 4096,
+      "square_classes": 684,
+      "payload_bytes": 512,
+      "complete_residue_set_equal": true
+    },
+    {
+      "modulus": 3465,
+      "square_classes": 288,
+      "payload_bytes": 434,
+      "complete_residue_set_equal": true
+    },
+    {
+      "modulus": 221,
+      "square_classes": 63,
+      "payload_bytes": 28,
+      "complete_residue_set_equal": true
+    },
+    {
+      "modulus": 12673,
+      "square_classes": 1800,
+      "payload_bytes": 1585,
+      "complete_residue_set_equal": true
+    }
+  ],
+  "raw_table_payload_bytes": 2559,
+  "full_table_setup_ns": 2179000,
+  "complete_period_acceptance_fraction": {
+    "numerator": 3645,
+    "denominator": 6485908,
+    "percent": 0.05619876199292374,
+    "combined_period": "39749795205120",
+    "scope": "exact uniform complete residue period; not the RSA input distribution"
+  },
+  "known_square_positive_controls": 20,
+  "records": [
+    {
+      "label": "RSA-270",
+      "direction": "U",
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-09-en.pdf",
+      "decimal_sha256": "83b66aee65c8ffa8bbae104ad3c3e4f0723f854c105f6f29a831d11898e71432",
+      "gap": "31256401318596483737417209921421984498934144823954415530881150274057254210963446861826026318630314629540018068924063120688481767744482",
+      "gap_bits": 444,
+      "shadow_tag": "M64:N55:J4:R39:Q3",
+      "cold_observation_ns": 421700,
+      "cold_tables_built": 1,
+      "expected_root": null,
+      "stages": [
+        {
+          "modulus": 4096,
+          "residue": 994,
+          "passed": false
+        }
+      ],
+      "filter_passed": false,
+      "low12_verified_root": null,
+      "timing": {
+        "rounds": [
+          {
+            "round": 1,
+            "order": [
+              "native_exact",
+              "existing_low12_exact",
+              "existing_4032_exact"
+            ],
+            "ns_per_call": {
+              "native_exact": 1298.828125,
+              "existing_low12_exact": 1613.8671875,
+              "existing_4032_exact": 949.4140625
+            }
+          },
+          {
+            "round": 2,
+            "order": [
+              "native_exact",
+              "existing_4032_exact",
+              "existing_low12_exact"
+            ],
+            "ns_per_call": {
+              "native_exact": 1282.2265625,
+              "existing_4032_exact": 938.671875,
+              "existing_low12_exact": 410.9375
+            }
+          },
+          {
+            "round": 3,
+            "order": [
+              "existing_low12_exact",
+              "native_exact",
+              "existing_4032_exact"
+            ],
+            "ns_per_call": {
+              "existing_low12_exact": 400.390625,
+              "native_exact": 1290.4296875,
+              "existing_4032_exact": 917.7734375
+            }
+          },
+          {
+            "round": 4,
+            "order": [
+              "existing_low12_exact",
+              "existing_4032_exact",
+              "native_exact"
+            ],
+            "ns_per_call": {
+              "existing_low12_exact": 415.8203125,
+              "existing_4032_exact": 908.984375,
+              "native_exact": 1278.90625
+            }
+          },
+          {
+            "round": 5,
+            "order": [
+              "existing_4032_exact",
+              "native_exact",
+              "existing_low12_exact"
+            ],
+            "ns_per_call": {
+              "existing_4032_exact": 908.984375,
+              "native_exact": 1277.5390625,
+              "existing_low12_exact": 400.5859375
+            }
+          },
+          {
+            "round": 6,
+            "order": [
+              "native_exact",
+              "existing_4032_exact",
+              "existing_low12_exact"
+            ],
+            "ns_per_call": {
+              "native_exact": 1288.8671875,
+              "existing_4032_exact": 906.0546875,
+              "existing_low12_exact": 398.6328125
+            }
+          },
+          {
+            "round": 7,
+            "order": [
+              "native_exact",
+              "existing_4032_exact",
+              "existing_low12_exact"
+            ],
+            "ns_per_call": {
+              "native_exact": 1269.140625,
+              "existing_4032_exact": 921.6796875,
+              "existing_low12_exact": 399.21875
+            }
+          }
+        ],
+        "repetitions_per_method_per_round": 512,
+        "median_ns_per_call": {
+          "native_exact": 1282.2265625,
+          "existing_4032_exact": 917.7734375,
+          "existing_low12_exact": 400.5859375
+        },
+        "low12_vs_native_ratio": 3.2008776206728426,
+        "low12_vs_4032_ratio": 2.2910775231594345,
+        "low12_faster_rounds_vs_native": 6,
+        "low12_faster_rounds_vs_4032": 6,
+        "conditional_full_table_amortization_calls_vs_4032": 4213.172205438066
+      }
+    },
+    {
+      "label": "RSA-896",
+      "direction": "U",
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-10-en.pdf",
+      "decimal_sha256": "621d201b5ba6a87cf699d8d4926c448e92fe0e08a4ac66b6a00a338ae891987f",
+      "gap": "479868913855902308861074863051530976569935505201167263321779903778359375074091388121275289360281902368619544237889307513675669307649665",
+      "gap_bits": 448,
+      "shadow_tag": "M64:N15:J3:R6:Q2",
+      "cold_observation_ns": 761800,
+      "cold_tables_built": 2,
+      "expected_root": null,
+      "stages": [
+        {
+          "modulus": 4096,
+          "residue": 3713,
+          "passed": true
+        },
+        {
+          "modulus": 3465,
+          "residue": 765,
+          "passed": false
+        }
+      ],
+      "filter_passed": false,
+      "low12_verified_root": null,
+      "timing": {
+        "rounds": [
+          {
+            "round": 1,
+            "order": [
+              "existing_4032_exact",
+              "existing_low12_exact",
+              "native_exact"
+            ],
+            "ns_per_call": {
+              "existing_4032_exact": 2151.7578125,
+              "existing_low12_exact": 921.09375,
+              "native_exact": 1231.640625
+            }
+          },
+          {
+            "round": 2,
+            "order": [
+              "existing_low12_exact",
+              "existing_4032_exact",
+              "native_exact"
+            ],
+            "ns_per_call": {
+              "existing_low12_exact": 918.75,
+              "existing_4032_exact": 2173.4375,
+              "native_exact": 1323.6328125
+            }
+          },
+          {
+            "round": 3,
+            "order": [
+              "existing_low12_exact",
+              "existing_4032_exact",
+              "native_exact"
+            ],
+            "ns_per_call": {
+              "existing_low12_exact": 6022.65625,
+              "existing_4032_exact": 3032.2265625,
+              "native_exact": 1390.625
+            }
+          },
+          {
+            "round": 4,
+            "order": [
+              "existing_4032_exact",
+              "native_exact",
+              "existing_low12_exact"
+            ],
+            "ns_per_call": {
+              "existing_4032_exact": 2157.03125,
+              "native_exact": 1241.9921875,
+              "existing_low12_exact": 936.1328125
+            }
+          },
+          {
+            "round": 5,
+            "order": [
+              "existing_low12_exact",
+              "native_exact",
+              "existing_4032_exact"
+            ],
+            "ns_per_call": {
+              "existing_low12_exact": 959.5703125,
+              "native_exact": 1220.703125,
+              "existing_4032_exact": 2160.7421875
+            }
+          },
+          {
+            "round": 6,
+            "order": [
+              "existing_low12_exact",
+              "native_exact",
+              "existing_4032_exact"
+            ],
+            "ns_per_call": {
+              "existing_low12_exact": 932.421875,
+              "native_exact": 1222.65625,
+              "existing_4032_exact": 2156.8359375
+            }
+          },
+          {
+            "round": 7,
+            "order": [
+              "native_exact",
+              "existing_4032_exact",
+              "existing_low12_exact"
+            ],
+            "ns_per_call": {
+              "native_exact": 1223.6328125,
+              "existing_4032_exact": 2145.1171875,
+              "existing_low12_exact": 928.3203125
+            }
+          }
+        ],
+        "repetitions_per_method_per_round": 512,
+        "median_ns_per_call": {
+          "native_exact": 1231.640625,
+          "existing_4032_exact": 2157.03125,
+          "existing_low12_exact": 932.421875
+        },
+        "low12_vs_native_ratio": 1.320904901550063,
+        "low12_vs_4032_ratio": 2.313364055299539,
+        "low12_faster_rounds_vs_native": 6,
+        "low12_faster_rounds_vs_4032": 6,
+        "conditional_full_table_amortization_calls_vs_4032": 1779.3429027113239
+      }
+    },
+    {
+      "label": "RSA-2048",
+      "direction": "D",
+      "source_pdf": "https://mysterytwister.org/media/challenges/pdf/mtc3-rsa-38-en.pdf",
+      "decimal_sha256": "b3c2468add10e2a0c4a251d9d2bac4ba04d4b3527156ceead43a1305e03f1fc0",
+      "gap": "167733554914191588939803041966262912659042427502658590406580007396740414456357482395996946061317379799646830532299859839705684383792577996085866988545837793134656535078289640420733265486988603663762470587950686323206807048078389740752755330282181154336529907629137569740509963671690410162899710483245952823668",
+      "gap_bits": 1024,
+      "shadow_tag": "M64:N37:J36:R21:Q1",
+      "cold_observation_ns": 421600,
+      "cold_tables_built": 1,
+      "expected_root": null,
+      "stages": [
+        {
+          "modulus": 4096,
+          "residue": 372,
+          "passed": false
+        }
+      ],
+      "filter_passed": false,
+      "low12_verified_root": null,
+      "timing": {
+        "rounds": [
+          {
+            "round": 1,
+            "order": [
+              "existing_4032_exact",
+              "native_exact",
+              "existing_low12_exact"
+            ],
+            "ns_per_call": {
+              "existing_4032_exact": 1111.71875,
+              "native_exact": 2462.6953125,
+              "existing_low12_exact": 5840.0390625
+            }
+          },
+          {
+            "round": 2,
+            "order": [
+              "native_exact",
+              "existing_4032_exact",
+              "existing_low12_exact"
+            ],
+            "ns_per_call": {
+              "native_exact": 2594.7265625,
+              "existing_4032_exact": 1178.515625,
+              "existing_low12_exact": 411.328125
+            }
+          },
+          {
+            "round": 3,
+            "order": [
+              "existing_4032_exact",
+              "existing_low12_exact",
+              "native_exact"
+            ],
+            "ns_per_call": {
+              "existing_4032_exact": 1138.4765625,
+              "existing_low12_exact": 425.78125,
+              "native_exact": 2526.953125
+            }
+          },
+          {
+            "round": 4,
+            "order": [
+              "existing_low12_exact",
+              "native_exact",
+              "existing_4032_exact"
+            ],
+            "ns_per_call": {
+              "existing_low12_exact": 413.8671875,
+              "native_exact": 2567.96875,
+              "existing_4032_exact": 1298.6328125
+            }
+          },
+          {
+            "round": 5,
+            "order": [
+              "native_exact",
+              "existing_low12_exact",
+              "existing_4032_exact"
+            ],
+            "ns_per_call": {
+              "native_exact": 2458.59375,
+              "existing_low12_exact": 491.40625,
+              "existing_4032_exact": 1129.8828125
+            }
+          },
+          {
+            "round": 6,
+            "order": [
+              "existing_4032_exact",
+              "native_exact",
+              "existing_low12_exact"
+            ],
+            "ns_per_call": {
+              "existing_4032_exact": 1125.1953125,
+              "native_exact": 2450.9765625,
+              "existing_low12_exact": 402.34375
+            }
+          },
+          {
+            "round": 7,
+            "order": [
+              "existing_4032_exact",
+              "native_exact",
+              "existing_low12_exact"
+            ],
+            "ns_per_call": {
+              "existing_4032_exact": 1126.953125,
+              "native_exact": 2443.359375,
+              "existing_low12_exact": 398.828125
+            }
+          }
+        ],
+        "repetitions_per_method_per_round": 512,
+        "median_ns_per_call": {
+          "native_exact": 2462.6953125,
+          "existing_4032_exact": 1129.8828125,
+          "existing_low12_exact": 413.8671875
+        },
+        "low12_vs_native_ratio": 5.950448324681454,
+        "low12_vs_4032_ratio": 2.7300613496932513,
+        "low12_faster_rounds_vs_native": 6,
+        "low12_faster_rounds_vs_4032": 6,
+        "conditional_full_table_amortization_calls_vs_4032": 3043.2296781232953
+      }
+    }
+  ],
+  "catalog_inventory": [
+    {
+      "id": "structural_priority",
+      "family": "multiplier_order",
+      "catalog_trigger": "odd-N multiplier scan",
+      "catalog_safety": "HEURISTIC_FALLBACK",
+      "this_audit_status": "PREREQUISITE_OR_EXECUTION_BUDGET_NOT_SUPPLIED"
+    },
+    {
+      "id": "learned_cover_prefix",
+      "family": "multiplier_order",
+      "catalog_trigger": "expensive candidate evaluation",
+      "catalog_safety": "HEURISTIC_FALLBACK",
+      "this_audit_status": "PREREQUISITE_OR_EXECUTION_BUDGET_NOT_SUPPLIED"
+    },
+    {
+      "id": "ratio_cover_prefix",
+      "family": "multiplier_order",
+      "catalog_trigger": "moderate factor-imbalance signal",
+      "catalog_safety": "HEURISTIC_FALLBACK",
+      "this_audit_status": "PREREQUISITE_OR_EXECUTION_BUDGET_NOT_SUPPLIED"
+    },
+    {
+      "id": "kernel13_prefix",
+      "family": "multiplier_prefix",
+      "catalog_trigger": "long multiplier horizon",
+      "catalog_safety": "HEURISTIC_FALLBACK",
+      "this_audit_status": "PREREQUISITE_OR_EXECUTION_BUDGET_NOT_SUPPLIED"
+    },
+    {
+      "id": "gap_sort_if_materialized",
+      "family": "multiplier_order",
+      "catalog_trigger": "states already materialized",
+      "catalog_safety": "HEURISTIC_FALLBACK",
+      "this_audit_status": "PREREQUISITE_OR_EXECUTION_BUDGET_NOT_SUPPLIED"
+    },
+    {
+      "id": "low12_compact_gap_filter",
+      "family": "filter_backend",
+      "catalog_trigger": "gap filtering dominates",
+      "catalog_safety": "EXACT",
+      "this_audit_status": "REUSE_EXECUTED_ON_THREE_PINNED_PREPARED_GAPS"
+    },
+    {
+      "id": "table_free_tail",
+      "family": "transport_backend",
+      "catalog_trigger": "memory constrained",
+      "catalog_safety": "CONDITIONAL_EXACT",
+      "this_audit_status": "PREREQUISITE_OR_EXECUTION_BUDGET_NOT_SUPPLIED"
+    },
+    {
+      "id": "quotient_jet_large_bits",
+      "family": "transport_backend",
+      "catalog_trigger": "large long tail",
+      "catalog_safety": "CONDITIONAL_EXACT",
+      "this_audit_status": "PREREQUISITE_OR_EXECUTION_BUDGET_NOT_SUPPLIED"
+    },
+    {
+      "id": "energy_jet_very_large_bits",
+      "family": "transport_backend",
+      "catalog_trigger": "very large long tail",
+      "catalog_safety": "CONDITIONAL_EXACT",
+      "this_audit_status": "PREREQUISITE_OR_EXECUTION_BUDGET_NOT_SUPPLIED"
+    },
+    {
+      "id": "gap_residue_jet_ultralarge",
+      "family": "filter_backend",
+      "catalog_trigger": "ultra-large long filter-dominated stream",
+      "catalog_safety": "CONDITIONAL_EXACT",
+      "this_audit_status": "PREREQUISITE_OR_EXECUTION_BUDGET_NOT_SUPPLIED"
+    },
+    {
+      "id": "brc_shadow_telemetry",
+      "family": "telemetry",
+      "catalog_trigger": "outcome logging",
+      "catalog_safety": "EXACT",
+      "this_audit_status": "REUSE_EXECUTED_AS_METADATA_ONLY"
+    },
+    {
+      "id": "fibonacci_delete_storage_probe",
+      "family": "cross_family_storage",
+      "catalog_trigger": "representation/table compression",
+      "catalog_safety": "HEURISTIC_FALLBACK",
+      "this_audit_status": "PREREQUISITE_OR_EXECUTION_BUDGET_NOT_SUPPLIED"
+    },
+    {
+      "id": "pisano_metadata_probe",
+      "family": "cross_family_metadata",
+      "catalog_trigger": "Pisano/rank metadata already available",
+      "catalog_safety": "CONDITIONAL_EXACT",
+      "this_audit_status": "PREREQUISITE_OR_EXECUTION_BUDGET_NOT_SUPPLIED"
+    }
+  ],
+  "catalog_family_counts": {
+    "multiplier_order": 4,
+    "multiplier_prefix": 1,
+    "filter_backend": 2,
+    "transport_backend": 3,
+    "telemetry": 1,
+    "cross_family_storage": 1,
+    "cross_family_metadata": 1
+  },
+  "goal_status": "ACTIVE; retain conditional local gains; complete shortcut library verification is unfinished"
+}
