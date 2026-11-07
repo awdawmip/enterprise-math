@@ -17,11 +17,16 @@
     "Wilson-reflected normalized p^2 Gauss tails in A and B source streams",
     "Exact projected-prefix E_A and E_B formulas with Euler C=1-z diagonal preserved for p≡13 mod24",
     "O(p) finite-field BRC readout; 94 target primes p<2500 both source streams independently checked against weighted p^3 sums",
-    "Euler diagonal counterexample to omission: p13=3, p373=289; 48 of 48 checked p≡13 mod24 nonzero"
+    "Euler diagonal counterexample to omission: p13=3, p373=289; 48 of 48 checked p≡13 mod24 nonzero",
+    "New exact finite-field Gauss Wronskian integrating-factor theorem: J'=F, Cartier coefficient [z^(p-1)]F=0, unique c_p z^p ambiguity for both normalized tails",
+    "Actual CM derivative readout xQ'(x)R(x)=-(I(x)+c_p x)/(1-x)^r at low Gauss root; exact polynomial certificates for p13,19,43,67,373",
+    "Discriminating source-dependent constants p13 (c_A,c_B)=(2,0), p373=(355,150), ruling out terminal-charge-only identification of both homogeneous ports"
   ],
   "evidence_paths": [
     "research_notes/portable_direct/20261107_onhour_d25_reflected_frobenius_prefix_ports.md",
-    "research_notes/portable_direct/d25_reverse_tail_linear_check_20261107.py"
+    "research_notes/portable_direct/d25_reverse_tail_linear_check_20261107.py",
+    "research_notes/portable_direct/20261107_onhour_d25_cartier_one_constant.md",
+    "research_notes/portable_direct/d25_cartier_one_constant_check_20261107.py"
   ],
   "do_not_repeat": [
     "D24 accepted/frozen UR",
@@ -30,8 +35,8 @@
     "previous normalized factorial-tail kernel",
     "original native p373 H0/B0 benchmark"
   ],
-  "smallest_unfinished_unit": "Prove cancellation of (G_A-G_B)/p² + E_A-E_B mod p using Fricke lower-source adjoint that preserves Euler diagonal",
-  "next_exact_action": "Combine hourly20 forced ODE lower injection mismatch with the reflected prefix-jet observer; test source-aware Fricke/gauge identity at p13,19,43,67,373",
+  "smallest_unfinished_unit": "Find source-aware Fricke adjoint transport matching projected E_A/E_B, Cartier c_A/c_B and nonzero lower Gauss injections to derive (G_A-G_B)/p² cancellation",
+  "next_exact_action": "Compose the two existing exact ports with the hourly20 forced ODE at the Fricke common CM parameter; preserve B5 Euler diagonal and test candidate p13,19,43,67,373; native #1559 remains separate",
   "original_native_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
   "native_observation": {
     "time_utc": "2026-11-07T13:05Z",
