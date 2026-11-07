@@ -1,99 +1,127 @@
-# D25 — Second reflection digit: mixed-valuation Clausen cutoff certificate
+# D25 — Second reflection digit: the mixed-valuation Clausen cutoff
 
-Date: 2026-11-08 Asia/Hong_Kong. Classification: author-side TASK_RESEARCH portable **exact theorem proved**, modular regression **77 target primes checked**; **UNREVIEWED / NOT_ADMITTED**, not a native H0/B0 benchmark. Research logical lane `chatgpt-research-onhour-enterprise-math-20260923`; maintenance lane `chatgpt-hourly-enterprise-math-20260921` excluded.
-Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication `TP2-B6F4FC938FF94941C1B7`; frozen scientific pin `c47e13e4aba0e006366f989d6334d443f6333ae3`.
+**Date:** 2026-11-08 (Asia/Hong_Kong). **Evidence:** author-side TASK_RESEARCH exact algebraic theorem; exact finite arithmetic checked at 77 frozen primes; **UNREVIEWED / NOT_ADMITTED**. Logical Research lane: chatgpt-research-onhour-enterprise-math-20260923. Maintenance lane excluded: chatgpt-hourly-enterprise-math-20260921.
 
-This unit consumes (and does not re-prove) the frozen original reflection source and the author-side first-cutoff identity from `20261026_onhour_d25_native_lift_source_port_identity.md`, then the finite Green/adjoint resonance work ending in `20261108_onhour_d25_finite_adjoint_resonance_original_R.md` (main contains `698f6bf033747ea7b2af46babb274b7a9f2689ac`). **New question:** does the proven mod-p identification `Q_p/p² = R_p (mod p)` survive one extra p-adic digit? Answer: a specific, computable low-high and middle-high correction intervenes.
+**Task:** RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT. Publication: TP2-B6F4FC938FF94941C1B7. Immutable scientific pin: c47e13e4aba0e006366f989d6334d443f6333ae3.
 
-## Exact source setup, with retained observer ports
+This proof consumes the earlier source-port alignment of the original reflected scalar, the first-digit cutoff and the finite Green/adjoint results. The new, discriminating question is whether the established first-digit congruence \(Q_p/p^2\equiv R_p\pmod p\) extends to its next digit. **A two-source correction is required**, with an independently surviving middle-high band.
 
-Let p=6m+1 be prime and p>=13 (in the frozen application p mod24 in {13,19}). In the local ring Z_(p), put
-[
- b_k=rac{(1/6)_k(1/3)_k}{2^k(k!)^2},quad 0leq k<p,qquad
- q_i=2^{-i}{mchoose i}{2mchoose i},quad 0leq ileq m.
-]
-Let `c_1=1/10`, and `c_{a+1}=c_a 36a²/((6a+5)(3a+2))` for 1<=a<2m. In particular the pre-existing original reflection uses c_a only for 1<=a<=m; the **same rational recurrence is extended here to 2m** to observe the new middle-high sector. Write `w(i,a)=1+6(i-a)`.
+## Definitions and the exact valuation partition
 
-Define the exact rational reflected lift
-[
- {cal R}_m=2sum_{i=1}^msum_{a=1}^i q_i w(i,a)c_ain{f Z}_{(p)}.
-]
-Its reduction modulo p is precisely the frozen original `R_p`. For the actual Clausen cutoff, with its independent coefficient source,
-[
- {cal Q}_p=sum_{0le i,j<p, i+jge p} (6(i+j)+1)b_i b_j.
-]
+Let \(p=6m+1\) be a prime, \(p\ge13\). In the localization \(\mathbb Z_{(p)}\), define
 
-There are exactly three b_k valuation bands below p:
-[
-v_p(b_k)=0 (0le kle m),quad 1 (m<kle2m),quad
-2 (2m<k<p).
-	ag{BAND}
-]
-Only one p-factor occurs in the numerator (6j+1) at j=m and one in (3j+1) at j=2m; all denominators are p-units.
+\[
+b_k=\frac{(1/6)_k(1/3)_k}{2^k(k!)^2}\quad(0\le k<p),\qquad
+q_i=2^{-i}\binom mi\binom{2m}i\quad(0\le i\le m).
+\]
 
-The two first-digit reflection comparisons hold in F_p:
-[
- b_i=q_iquad(0le ile m),qquad b_{p-a}/p²=c_aquad(1le ale2m).
-	ag{BASE}
-]
-The first follows by substituting `m=(p-1)/6` into q_i. For the second, Wilson's theorem gives `b_{p-1}/p²=1/10` mod p: the products of nonzero (6j+1) and (3j+1) over j=0..p-2, excluding their unique zero index, respectively have residues 1/5 and 1/2. The backward recurrence is
-[
- b_{p-a-1}/b_{p-a}=
- rac{36(p-a)^2}{(6p-6a-5)(3p-3a-2)}
- equivrac{36a^2}{(6a+5)(3a+2)}pmod p.
-]
-Every denominator is a p-unit for 1<=a<2m, so (BASE) extends through the required middle-high pairs.
+Set \(c_1=1/10\), \(c_{a+1}/c_a=36a^2/((6a+5)(3a+2))\) for \(1\le a<2m\), and \(w(i,a)=1+6(i-a)\). The frozen original reflected scalar, now retained as an exact rational lift, is
 
-Define **three independently typed first-correction arrays**, with each indicated division performed in Z_(p) *before* reduction:
-[
- d_i=(b_i-q_i)/pmod pquad(1le ile m),qquad
- v_a=(b_{p-a}/p²-c_a)/pmod pquad(1le ale2m),qquad
- u_i=b_i/pmod pquad(m<ile2m).
-]
+\[
+\mathcal R_m=2\sum_{i=1}^{m}\sum_{a=1}^{i}q_i w(i,a)c_a.
+\]
 
-## Theorem — exact second reflection digit
+Its reduction mod \(p\) is the original frozen \(R_p\). The exact finite Clausen cutoff retains the separate Gauss source:
 
-The cutoff has valuation at least two and
-[
-oxed{ rac{{cal Q}_p}{p²}equiv {cal R}_m+p(S_{m low}+S_{m mid})pmod{p²} },
-	ag{SECOND-REFLECTION}
-]
-where both new observations are well-defined in F_p:
-[
-egin{split}
- S_{m low}&=2sum_{i=1}^msum_{a=1}^i
- igl[w(i,a)(d_ic_a+q_iv_a)+6q_ic_aigr],\
- S_{m mid}&=2sum_{i=m+1}^{2m}sum_{a=1}^i w(i,a)u_ic_a.
-end{split}
-	ag{PORTS}
-]
+\[
+\mathcal Q_p=\sum_{\substack{0\le i,j<p\\i+j\ge p}}
+ (6(i+j)+1)b_i b_j.
+\]
 
-**Proof.** The index condition i+j>=p and (BAND) exhaustively partition all pairs with valuation below four into: (i) low-high, i<=m and j=p-a for 1<=a<=i, with valuation 0+2; and (ii) middle-high, m<i<=2m and j=p-a for 1<=a<=i, with valuation 1+2. Both admit the symmetric partner, hence the factor 2. Low-low, low-middle and middle-middle cannot reach i+j>=p (their largest sums are 2m, 3m, 4m respectively, all below 6m+1=p); high-high has valuation four and vanishes modulo p^4. For j=p-a the **exact** weight is w(i,a)+6p. In (i), substitute b_i=q_i+pd_i mod p² and b_{p-a}/p²=c_a+pv_a mod p². The zero-order term is `R_m` and the order-p terms give `S_low`. In (ii), use b_i=p u_i mod p² and b_{p-a}=p² c_a mod p³, giving `p S_mid`. Thus all p^4 terms are covered and the congruence follows. No absolute-value, norm, or provenance collapse is used.
+The valuation of every \(b_k\) for \(k<p\) is **exactly**
 
-## Original LIFT second-digit interface (exact conditional consequence)
+\[
+v_p(b_k)=
+\begin{cases}
+0&0\le k\le m,\\
+1&m<k\le 2m,\\
+2&2m<k<p.
+\end{cases}\tag{BANDS}
+\]
 
-Keep the **original** Gauss sums `M=sum b_k`, `N=sum k b_k`, `h=M+12N`, `G=M/p`, and original weighted `W`. Clausen convolution gives `W=Mh-Q`. Under the already recorded first-digit conditions p|M and p|(Gh-1), set `Delta=(Gh-1)/p` as a p-local rational number. Then **exactly**
-[
- Delta-rac{{cal Q}_p}{p²}=rac{W-p}{p²}.
-]
-Combining with SECOND-REFLECTION,
-[
- oxed{ Delta-{cal R}_mequivrac{W-p}{p²}+p(S_{m low}+S_{m mid})pmod{p²}. }
-	ag{LIFT-2}
-]
-When the previously checked W=p mod p³ holds for a given prime, the right side is divisible by p and the next source readout is
-[
- oxed{ rac{Delta-{cal R}_m}{p}equiv
- rac{W-p}{p³}+S_{m low}+S_{m mid}pmod p. }
-	ag{NEXT-DIGIT}
-]
-This exactly specifies the extra observation required before lifting `R_p=Q/p² (mod p)` to a second digit. It is **not** a proof of the all-prime W=p mod p³ target, nor a native CM claim.
+Indeed, the numerator recurrence has a unique multiple of \(p\) at \(j=m\) in \(6j+1\), and a unique multiple at \(j=2m\) in \(3j+1\). All factorial and 36-denominators are \(p\)-units in this range.
 
-## Executed checks and discriminating witnesses
+For \(0\le i\le m\), \(b_i\equiv q_i\pmod p\), by substitution of \(m=(p-1)/6\) in the binomial products. An extended upper-band relation also holds:
 
-A standalone standard-library checker `d25_second_reflection_digit_check_20261108.py` separately builds both Gauss and weighted `3F2` series modulo p^4; forms Q by an **independent prefix-moment convolution**; forms original rational reflected R from q,c without using Q; verifies the valuation bands, every extended reflection base coefficient and both source ports. It checks all 77 primes p<=2000 with p mod24 in {13,19}, including the original second-digit interface. All 77 satisfy SECOND-REFLECTION and NEXT-DIGIT in exact modular arithmetic; the tested S_low, S_mid and total S are nonzero for every one of the 77 examples (finite observation).
+\[
+b_{p-a}/p^2\equiv c_a\pmod p,\qquad 1\le a\le2m. \tag{BASE}
+\]
 
-| p | R_m mod p² | Q/p² mod p² | S_low | S_mid | S_total | (W-p)/p³ | (Delta-R_m)/p |
+**Proof of BASE.** At \(a=1\), the two numerator factors equal to \(p\) occur exactly once each. In the remaining products, the residues \(6j+1\) for \(0\le j\le p-2\), \(j\ne m\), run over \(\mathbb F_p^\times\setminus\{-5\}\), whose product is \(1/5\) by Wilson. Similarly \(3j+1\), excluding \(j=2m\), has product \(1/2\). The denominator is \(36^{p-1}((p-1)!)^2\equiv1\); hence \(b_{p-1}/p^2\equiv1/10=c_1\). The exact backward ratio
+
+\[
+\frac{b_{p-a-1}}{b_{p-a}}
+=\frac{36(p-a)^2}{(6p-6a-5)(3p-3a-2)}
+\equiv \frac{36a^2}{(6a+5)(3a+2)}\pmod p
+\]
+
+has unit denominators for \(a<2m\), proving the stated continuation.
+
+Retain three *different* source lifts, with division in \(\mathbb Z_{(p)}\) before reducing:
+
+\[
+d_i=\frac{b_i-q_i}{p}\bmod p\ (1\le i\le m),\quad
+v_a=\frac{b_{p-a}/p^2-c_a}{p}\bmod p\ (1\le a\le2m),\quad
+u_i=\frac{b_i}{p}\bmod p\ (m<i\le2m).
+\]
+
+## Theorem: the second reflection digit
+
+The quotient \(\mathcal Q_p/p^2\) is \(p\)-integral, and
+
+\[
+\boxed{\frac{\mathcal Q_p}{p^2}\equiv
+\mathcal R_m+p(S_{\mathrm{low}}+S_{\mathrm{mid}})\pmod{p^2}.}
+\tag{SECOND-REFLECTION}
+\]
+
+The independently observable corrections are
+
+\[
+\begin{aligned}
+S_{\mathrm{low}}&=
+2\sum_{i=1}^{m}\sum_{a=1}^{i}
+\bigl[w(i,a)(d_ic_a+q_iv_a)+6q_ic_a\bigr],\\
+S_{\mathrm{mid}}&=
+2\sum_{i=m+1}^{2m}\sum_{a=1}^{i}w(i,a)u_ic_a.
+\end{aligned}\tag{PORTS}
+\]
+
+**Proof.** The condition \(i+j\ge p\) and (BANDS) leaves just two kinds of ordered pairs with total \(p\)-valuation below four: low-high \((0\le i\le m,\ j=p-a,\ 1\le a\le i)\), whose valuation is two, and middle-high \((m<i\le2m,\ j=p-a,\ 1\le a\le i)\), whose valuation is three; both include symmetric reversals, giving the factor 2. A low-low, low-middle or middle-middle pair has sum below \(p\). A high-high pair has valuation at least four and vanishes modulo \(p^4\). For \(j=p-a\) the weight is **exactly** \(6(i+j)+1=w(i,a)+6p\).
+
+On low-high pairs insert \(b_i=q_i+pd_i\pmod{p^2}\) and \(b_{p-a}/p^2=c_a+pv_a\pmod{p^2}\); the constant term is \(\mathcal R_m\), and the order-\(p\) contribution is \(pS_{\mathrm{low}}\). On middle-high pairs insert \(b_i/p=u_i\pmod p\) and \(b_{p-a}/p^2=c_a\pmod p\), giving \(pS_{\mathrm{mid}}\). All other contributions vanish modulo \(p^2\) after division by \(p^2\). QED.
+
+## The next exact original-LIFT interface
+
+Retain the original low Gauss \(M=\sum_{k<p}b_k\), its moment \(N=\sum_{k<p}kb_k\), \(h=M+12N\), \(G=M/p\), weighted original \(W\), and original \(\Delta=(Gh-1)/p\). Under the already established first-digit divisibilities \(p\mid M\), \(p\mid(Gh-1)\), the exact Clausen convolution \(W=Mh-\mathcal Q_p\) yields
+
+\[
+\Delta-\mathcal Q_p/p^2=(W-p)/p^2.
+\]
+
+Consequently,
+
+\[
+\boxed{\Delta-\mathcal R_m\equiv
+(W-p)/p^2+p(S_{\mathrm{low}}+S_{\mathrm{mid}})\pmod{p^2}.}
+\tag{LIFT-2}
+\]
+
+When \(W\equiv p\pmod{p^3}\) at a declared prime, the next divided observation is
+
+\[
+\boxed{\frac{\Delta-\mathcal R_m}{p}\equiv
+\frac{W-p}{p^3}+S_{\mathrm{low}}+S_{\mathrm{mid}}\pmod p.}
+\tag{NEXT-DIGIT}
+\]
+
+The target \(\Delta_p-R_p\equiv0\pmod p\) remains the original mother objective. The equations above precisely quantify the extra mixed-band information required for its second-digit extension; they neither rename the original \(R_p\) nor rely on native CM substitution.
+
+## Independent reproducible finite witnesses
+
+The standalone checker **d25_second_reflection_digit_check_20261108.py** computes both Gauss and weighted \(3F_2\) coefficient streams modulo \(p^4\), the Clausen cutoff using independent suffix zeroth/first moments, and the original rational reflected \(\mathcal R_m\) without using the cutoff. It checks valuation bands, extended BASE, both corrections, and LIFT-2 for all **77 primes** \(p\le2000\), \(p\bmod24\in\{13,19\}\). All 77 passed; each sampled \(S_{\mathrm{low}},S_{\mathrm{mid}},S_{\mathrm{total}}\) is nonzero.
+
+| p | R mod p² | Q/p² mod p² | S_low | S_mid | S_total | (W-p)/p³ | (Delta-R)/p |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 13 | 130 | 104 | 9 | 2 | 11 | 9 | 7 |
 | 19 | 202 | 221 | 18 | 2 | 1 | 12 | 13 |
@@ -103,10 +131,13 @@ A standalone standard-library checker `d25_second_reflection_digit_check_2026110
 | 211 | 6238 | 19742 | 43 | 21 | 64 | 192 | 45 |
 | 373 | 52416 | 65844 | 252 | 157 | 36 | 228 | 264 |
 
-For p=373, the two source corrections total 252+157=409=36 (mod373), and `Q/p²-R=13428=373*36` modulo 373². The second digit of the frozen original reflection consequently contains a nonzero new middle-high source. Both p=19 and p=373 are nonzero-boundary controls. The finite 77-prime evidence discriminates naive second-digit reuse of R; the theorem explains *why*.
+For \(p=373\): \(S_{\mathrm{low}}+S_{\mathrm{mid}}=252+157=409\equiv36\pmod{373}\);
+\((65844-52416)/373=36\);
+\((228+36)\bmod373=264\).
+The independent middle-high contribution is material even though the original first-digit identity remains valid.
 
-## Durable continuation and authority
+## Continuation and authority
 
-Mother objectives remain `Delta_p=R_p (mod p)` and `W_p=p (mod p³)`; the native p=373 fixed H0/B0 divided-power `[X]U`, original Frobenius eta, signed Hesse κ and independent replication under issue #1559 remain pending. This author-side theorem keeps three source ports (low-high correction, middle-high, original reflected lift) independently callable; it is not a surrogate for the native benchmark.
+This is an author-side proof and independently checkable arithmetic, **UNREVIEWED / NOT_ADMITTED**, not a Source-native checkpoint. The native same-original-class \(p=373\) H0/B0 divided-power \([X]U\), Frobenius direction and signed Hesse \(\kappa\) remain pending under issue #1559; its owner remains unassigned in the last read. The frozen publication and scientific pin are unchanged. Next exact inquiry: compare the explicit low-high, middle-high and original reflected ports against original signed \((ZH_0-1)/p\), \(SH_0\), \(ZH_1\), \(\Phi_{xx}\), first for \(p=19,373\), then seek a Fricke/Cartier proof.
 
-Next exact scientific action: seek a first-digit Fricke/Cartier/Wronskian pairing of `S_low` and `S_mid` with the original divided `(ZH0-1)/p`, `SH0`, `ZH1`, `Phi_xx` before any projection. Test p=19,373 on the *original* definitions. Preserve the existing old Source request `onhour11-20261106-1400-exact-research-lane-continuation`; 2026-11-08 source status/reconcile failed `BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE`, `operation_sent=false`. Site reports `CONFIGURED_NOT_LIVE_VERIFIED`, `research_authority_granted=false`; there is no verified native own session/claim/run/checkpoint. Native source progression requires the authorized Site-bound backend client and credential. AUTHOR_SIDE_PROVED / EXACT_77_PRIME_CHECKED / UNREVIEWED / NOT_ADMITTED.
+Native target request **onhour11-20261106-1400-exact-research-lane-continuation** is preserved. On this turn status/reconcile returned **BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE**, operation_sent=false; Site reported **CONFIGURED_NOT_LIVE_VERIFIED**, research_authority_granted=false. No own Source session/claim/run/checkpoint is verified. Current required execution configuration is the authorized Site-bound backend client and secure credential, distinct from the maintenance lane identity.
