@@ -1,0 +1,166 @@
+{
+  "marker": "STAGE447B_OUTPUT_WORD_POLYNOMIAL_SUPPORT_PASS",
+  "provenance": "P000 native X6; A=+E1, B=-E1; Q static; P APPEND arbitrary one of all 12 signed directions",
+  "finite": {
+    "parameter_cases": 1728,
+    "nonempty_fibers": 550,
+    "raw_history_instances": 2150,
+    "output_class_checks": 670,
+    "lexicographic_rank_checks": 670,
+    "saturation_cases": 576
+  },
+  "independent_full_future": {
+    "fibers": 4,
+    "history_trees": 10,
+    "observation_prefixes": 10210,
+    "all_12_signed_directions": true,
+    "testCases": [
+      [
+        4,
+        7,
+        1,
+        2,
+        1,
+        3
+      ],
+      [
+        5,
+        7,
+        1,
+        1,
+        1,
+        2
+      ],
+      [
+        5,
+        8,
+        1,
+        2,
+        1,
+        3
+      ],
+      [
+        4,
+        6,
+        1,
+        1,
+        0,
+        2
+      ]
+    ]
+  },
+  "witness": {
+    "P": "AABAA",
+    "Q1": "AAAAAABABAA",
+    "Q2": "AAAAAAABABA",
+    "initial_K": 4,
+    "trace": "P:APPEND(A);P:APPEND(B)",
+    "final_K": [
+      6,
+      5
+    ]
+  },
+  "large": {
+    "m": 64,
+    "n": 80,
+    "kP": 15,
+    "kQ": 17,
+    "d": 1,
+    "rP": 12,
+    "classes": "188",
+    "population": "5061384194832966",
+    "histogram": [
+      {
+        "Bs": 0,
+        "first": "A",
+        "last": "A",
+        "classes": "1",
+        "each_mass": "74410014150351"
+      },
+      {
+        "Bs": 1,
+        "first": "A",
+        "last": "B",
+        "classes": "1",
+        "each_mass": "24803338050117"
+      },
+      {
+        "Bs": 1,
+        "first": "A",
+        "last": "A",
+        "classes": "10",
+        "each_mass": "41202239240277"
+      },
+      {
+        "Bs": 2,
+        "first": "A",
+        "last": "B",
+        "classes": "9",
+        "each_mass": "32797802380320"
+      },
+      {
+        "Bs": 2,
+        "first": "A",
+        "last": "A",
+        "classes": "36",
+        "each_mass": "49196703570480"
+      },
+      {
+        "Bs": 3,
+        "first": "A",
+        "last": "B",
+        "classes": "28",
+        "each_mass": "16398901190160"
+      },
+      {
+        "Bs": 3,
+        "first": "A",
+        "last": "A",
+        "classes": "56",
+        "each_mass": "16398901190160"
+      },
+      {
+        "Bs": 1,
+        "first": "B",
+        "last": "A",
+        "classes": "1",
+        "each_mass": "40450622935728"
+      },
+      {
+        "Bs": 2,
+        "first": "B",
+        "last": "B",
+        "classes": "1",
+        "each_mass": "32797802380320"
+      },
+      {
+        "Bs": 2,
+        "first": "B",
+        "last": "A",
+        "classes": "9",
+        "each_mass": "49196703570480"
+      },
+      {
+        "Bs": 3,
+        "first": "B",
+        "last": "B",
+        "classes": "8",
+        "each_mass": "16398901190160"
+      },
+      {
+        "Bs": 3,
+        "first": "B",
+        "last": "A",
+        "classes": "28",
+        "each_mass": "16398901190160"
+      }
+    ],
+    "rank_samples": [
+      "0",
+      "94",
+      "187"
+    ]
+  },
+  "exact_arithmetic": "JavaScript BigInt; complete specified finite domains; no numerical approximations",
+  "pass": true
+}

@@ -1,0 +1,9 @@
+# Stage485-B — Additional Q APPENDs and nonfixed-prefix variation
+
+Scientific parent: Stage484-B proof and exact execution, in Research2 Draft PR #1736. Preserve scientific frozen global main@bf84bd7c61a2444b59b1da96be57df0e9ae47e53, EM main@2af3fc484eb11060b69e0afc1b562bcaf5ad1419, P000 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Behavioral rules follow current canonical main entries.
+
+Mother problem: compact, observer-faithful positive BRC state of ordered primitive native X6 histories for all declared future POP/APPEND operations. Stage484-B proves that with fixed arbitrary T, Q=T W A H A, P budgets k/k, Q budgets h/1, the exact future key is (W,suffix_min(h,u)(H)); the sparse Euler residual must use T's real terminal direction in edge T_last→W_first. This is author-side proof and executed finite evidence, not yet independent Result/Review acceptance.
+
+First exact next action: increase Q APPEND budget from one to two and allow both POP/APPEND interleavings (P unchanged); compare all common legal future trees on T=ABGB, k=1,u=2, W/H∈{A,B,G}, h=0..3, all 12 appended directions. Ask whether the Stage484 key remains sufficient and necessary, and prove or refute it. In parallel test unequal or unknown shared T and identify the earliest new future observer discrimination, not an arbitrary repair coordinate.
+
+If the same key survives, prove Q's additional known APPEND stack updates consume budget without revealing more than h original right-boundary letters. If it fails, record a pair with equal fixed initial observer and key, a shortest legal operation word, differing final observation, and the smallest correcting label. Extend Euler/positive BRC count and rank formulas only for the tested model. Carry exact operation costs, source/provenance, valid role/owner, native status and GitHub readback into the handoff.

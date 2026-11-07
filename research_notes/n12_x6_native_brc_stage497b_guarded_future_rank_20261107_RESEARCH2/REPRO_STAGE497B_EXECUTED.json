@@ -1,0 +1,113 @@
+{
+  "model": "six_signed_components_and_all_144_ordered_edges",
+  "word_count": 363,
+  "equal_F_pairs": 69,
+  "public_contexts": 1104,
+  "guarded_state_checks": 121923,
+  "guarded_transitions": 274344,
+  "max_guarded_depth": 3,
+  "ladder": [
+    {
+      "suffix_length": 2,
+      "word_length": 6,
+      "depth": 1,
+      "trace": [
+        "SET_END_MINUS_2_TO_C"
+      ],
+      "final_pair": [
+        "AABCAA",
+        "ABACAA"
+      ],
+      "pairs_seen": 2,
+      "transitions": 2
+    },
+    {
+      "suffix_length": 3,
+      "word_length": 7,
+      "depth": 2,
+      "trace": [
+        "POP",
+        "SET_END_MINUS_2_TO_C"
+      ],
+      "final_pair": [
+        "AABCAA",
+        "ABACAA"
+      ],
+      "pairs_seen": 4,
+      "transitions": 4
+    },
+    {
+      "suffix_length": 4,
+      "word_length": 8,
+      "depth": 3,
+      "trace": [
+        "POP",
+        "POP",
+        "SET_END_MINUS_2_TO_C"
+      ],
+      "final_pair": [
+        "AABCAA",
+        "ABACAA"
+      ],
+      "pairs_seen": 7,
+      "transitions": 8
+    },
+    {
+      "suffix_length": 5,
+      "word_length": 9,
+      "depth": 4,
+      "trace": [
+        "POP",
+        "POP",
+        "POP",
+        "SET_END_MINUS_2_TO_C"
+      ],
+      "final_pair": [
+        "AABCAA",
+        "ABACAA"
+      ],
+      "pairs_seen": 12,
+      "transitions": 14
+    },
+    {
+      "suffix_length": 6,
+      "word_length": 10,
+      "depth": 5,
+      "trace": [
+        "POP",
+        "POP",
+        "POP",
+        "POP",
+        "SET_END_MINUS_2_TO_C"
+      ],
+      "final_pair": [
+        "AABCAA",
+        "ABACAA"
+      ],
+      "pairs_seen": 19,
+      "transitions": 24
+    },
+    {
+      "suffix_length": 7,
+      "word_length": 11,
+      "depth": 6,
+      "trace": [
+        "POP",
+        "POP",
+        "POP",
+        "POP",
+        "POP",
+        "SET_END_MINUS_2_TO_C"
+      ],
+      "final_pair": [
+        "AABCAA",
+        "ABACAA"
+      ],
+      "pairs_seen": 27,
+      "transitions": 38
+    }
+  ],
+  "claim": "exhaustive declared finite checks, full general horizon depth is separately proved",
+  "code_sha_note": "This JSON was produced by executing REPRO_STAGE497B.js directly in the connected tool runtime.",
+  "research_status": "author exact finite check; general statements have proof in PROOF_STAGE497B.md"
+}

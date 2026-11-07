@@ -1,0 +1,141 @@
+{
+  "marker": "STAGE432B_UNEQUAL_EULER_J_K_T_TRANSFER_PASS",
+  "arithmetic": "exact BigInt, 12 native signed X6 directions, no floating approximation",
+  "source_pins": {
+    "global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+    "em": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "p000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488"
+  },
+  "method": "two-source joint directed-edge dynamic programming; source Q completes first and then P alone; same-type edges have unit weight",
+  "cases": 66,
+  "unique_templates": 12,
+  "independent_original_pairs_checked": 844,
+  "dp_states": 1331,
+  "dp_transitions": 1320,
+  "exact_bigint_additions": 800,
+  "max_memo_count_bits": 3,
+  "max_memo_output_map_entries": 13,
+  "largest_input_bits": 167,
+  "largest_output_bits": 537,
+  "total_terminal_groups": 113,
+  "input_encoding": "sparse binary codec: 8-bit edge-record count, 4+4-bit typed directions and length-bound count, six signed-axis endpoint components and length/p/r/K fields",
+  "output_encoding": "one exact count per attained T: 4*(2p+r+1) key bits and ceil(log2(original_pair_count+1)) count bits plus group count",
+  "regression": {
+    "observer": "one full endpoint/J/K fiber",
+    "p": 1,
+    "r": 2,
+    "distinct_T": 5,
+    "group_sizes": [
+      [
+        "AA|AAA",
+        "1"
+      ],
+      [
+        "AA|ABA",
+        "2"
+      ],
+      [
+        "AA|CAA",
+        "2"
+      ],
+      [
+        "BA|AAA",
+        "1"
+      ],
+      [
+        "BA|ABA",
+        "1"
+      ]
+    ],
+    "pure_K_witness": {
+      "P": "AABACAA",
+      "P2": "AACAABA",
+      "Q": "AABAA",
+      "append": "A",
+      "current_K": 4,
+      "append_A_future_K": [
+        5,
+        4
+      ],
+      "current_J_and_endpoint_equal": true
+    }
+  },
+  "samples": [
+    {
+      "template": "AABACAA/AABAA",
+      "p": 1,
+      "r": 2,
+      "k": 4,
+      "pairs": 36,
+      "groups": 5,
+      "states": 72,
+      "transitions": 81,
+      "counts": [
+        [
+          "AA|AAA",
+          "1"
+        ],
+        [
+          "AA|ABA",
+          "2"
+        ],
+        [
+          "AA|CAA",
+          "2"
+        ],
+        [
+          "BA|AAA",
+          "1"
+        ],
+        [
+          "BA|ABA",
+          "1"
+        ]
+      ]
+    },
+    {
+      "template": "AACABA/ABAA",
+      "p": 1,
+      "r": 2,
+      "k": 4,
+      "pairs": 12,
+      "groups": 2,
+      "states": 26,
+      "transitions": 25,
+      "counts": [
+        [
+          "AA|ACA",
+          "1"
+        ],
+        [
+          "BA|ACA",
+          "1"
+        ]
+      ]
+    },
+    {
+      "template": "AABACAA/ABABA",
+      "p": 1,
+      "r": 2,
+      "k": 4,
+      "pairs": 12,
+      "groups": 2,
+      "states": 27,
+      "transitions": 29,
+      "counts": [
+        [
+          "BA|AAA",
+          "2"
+        ],
+        [
+          "BA|ACA",
+          "2"
+        ]
+      ]
+    }
+  ],
+  "bounded_verification": "12 specified templates all targetK=0..n; independent direct full-word enum and DP maps matched in all 66 fibers",
+  "execution_environment": "Node.js v22.16.0, actual local run 2026-11-04",
+  "evidence_scope": "AUTHOR_EXECUTED_FINITE_EXACT; Stage431 quotient dependent corollary remains unreviewed",
+  "data_source": "REPRO_STAGE432B_EXECUTED.json local output; this published JSON is a compact witness table, not a byte-identical copy of local original JSON"
+}

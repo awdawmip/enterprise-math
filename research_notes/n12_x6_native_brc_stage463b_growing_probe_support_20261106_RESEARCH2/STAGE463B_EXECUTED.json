@@ -1,0 +1,108 @@
+{
+  "stage": "463B",
+  "date": "2026-11-06",
+  "model": "X6 original binary isolated B; POP both <=2; P APPEND arbitrary r; Q APPEND arbitrary s; future all 12 signed directions",
+  "arithmetic": "exact nonnegative integer BRC",
+  "source": "STAGE463B_REPRO.py",
+  "small": {
+    "parameter_configurations": 48,
+    "nonempty_initial_fibres": 780,
+    "supported_class_checks": 2798,
+    "original_pair_checks_extended": 3060,
+    "each_key_population_and_rank_unrank": "PASS"
+  },
+  "large": [
+    {
+      "m": 64,
+      "n": 80,
+      "kp": 15,
+      "kq": 17,
+      "d": 1,
+      "r": 2,
+      "qF": 49,
+      "population": "5061384194832966",
+      "key_bits": 8,
+      "signature_groups": 49
+    },
+    {
+      "m": 64,
+      "n": 80,
+      "kp": 15,
+      "kq": 17,
+      "d": 1,
+      "r": 8,
+      "qF": 471,
+      "population": "5061384194832966",
+      "key_bits": 14,
+      "signature_groups": 83
+    },
+    {
+      "m": 64,
+      "n": 80,
+      "kp": 15,
+      "kq": 17,
+      "d": 1,
+      "r": 16,
+      "qF": 1232,
+      "population": "5061384194832966",
+      "key_bits": 19,
+      "signature_groups": 20
+    },
+    {
+      "m": 25,
+      "n": 38,
+      "kp": 5,
+      "kq": 7,
+      "d": 1,
+      "r": 15,
+      "qF": 550,
+      "population": "8407656"
+    }
+  ],
+  "independent_future": {
+    "cases": [
+      [
+        2,
+        4,
+        3,
+        0
+      ],
+      [
+        3,
+        5,
+        3,
+        0
+      ],
+      [
+        2,
+        4,
+        1,
+        2
+      ],
+      [
+        3,
+        4,
+        0,
+        3
+      ]
+    ],
+    "cached_states": 292149,
+    "all_twelve_signed_append_directions": true,
+    "passed": true
+  },
+  "strict_witness": {
+    "P": "AAA",
+    "Q1": "AAAAABAAAAA",
+    "Q2": "AAAAAABAAAA",
+    "trace": [
+      "APPEND_P(A)",
+      "APPEND_P(A)",
+      "APPEND_P(A)"
+    ],
+    "K_after": [
+      5,
+      6
+    ]
+  },
+  "passed": true
+}

@@ -1,0 +1,36 @@
+# Stage497-B — Guarded BRC future quotient and exact accessibility-depth hierarchy
+Date: 2026-11-07. **AUTHOR-SIDE PROVED / EXECUTED EXACT CHECKS / UNREVIEWED / NOT ADMITTED**.
+Frozen science: global `bf84bd7c61a2444b59b1da96be57df0e9ae47e53`; EM `2af3fc484eb11060b69e0afc1b562bcaf5ad1419`; original P000 blob `bcc2590d3168a28f72e8b9f0f9b1f76faadcd488`. Parent author Stage496-B `de879b12805a4a36e324b3649e5e60c5e529cd31`. Current control read, separately: GLOBAL main `6150934895c80bf30f7c0577d373eb0145a34c75`; EM main `45cee247390f9da40f2c77db628bb6267b96b416`; current P000 projection matched canonical blob `770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc`.
+
+## Definitions and typed BRC interface
+Σ has 12 **directions** `±e1,...,±e6` in the six-dimensional signed X6 chart. For ordered token word w let `D(w)=Σv(w_i)∈Z^6`, and `E_ab(w)=#{i:w_i=a,w_(i+1)=b}` for all **144 directed pairs**. `F(w)=(D(w),E(w))`. These are exact integer observations of a token-only history, not a physical heartbeat dynamics theorem. The BRC branch population consists of distinct ordered value-word histories; an F fiber may contain multiple branches. The Stage496-B boundary monoid proves for equal F blocks H,H' that `F(pHs)=F(pH's)` for any common *exact* prefix p and suffix s.
+
+## Theorem 497.1 (guarded exterior edits)
+Assume H,H' have the same length and `F(H)=F(H')`. A decorated mutable sequence is `p | H | s`, where the middle block remains contiguous. All public edits act only in the exact shared contexts p,s or at the outside cuts of H; no SET/DELETE hits a token of H, no INSERT splits H, no POP crosses its boundary. Applicability and operation choice depend only on current outer tokens, block length and public indices, not on hidden H identities. Then **all finite legal shared traces, of arbitrary length, preserve F equality**. Thus one may discard individual interior tokens and retain their F summary, length and cut positions for this *declared* operation language.
+
+*Proof.* Both states begin with the same outer contexts. The Stage496-B concatenation monoid implies `F(pHs)=F(pH's)`. One guarded operation makes exactly the same transition `(p,s)→(p',s')` in both, leaves the opaque block contiguous and untouched, and maintains equal length and summary. Reapply the concatenation identity, and induct on trace length. QED.
+
+**Finite-h reachability certificate.** Propagate current public edits and the protected interval boundaries through all legal position-only traces of length ≤h. If no reachable operation modifies/splits/pops the protected interval, Theorem497.1 proves exact horizon-h compression, without reading H's individual tokens. A failed guard means only that this sufficient certificate is unavailable; it does not prove every fiber has become distinguishable.
+
+**Provenance boundary.** F is token-only. Extending the observer to count ORIGINAL vs PUBLIC labels distinguishes two one-token histories both containing A but carrying different provenance tags; this is a changed observer. No external physical amplitude/cancellation or unbounded all-edit quotient follows.
+
+## Theorem 497.2 (unbounded hierarchy of exact distinguishing depths)
+Let A,B,C denote +e1,+e2,+e3; put `U=AABA` and `V=ABAA`. Both have displacement `3e1+e2`, pair multiset `{AA,AB,BA}` and identical first/last letter A, hence `F(U)=F(V)`. For every integer `s≥2`, define `X_s=U·A^s`, `Y_s=V·A^s`. The public language contains only (i) POP last token, (ii) SET current zero-based position `|w|−3` to C; observe full F after each step.
+
+**The shortest distinguishing trace has length exactly s−1.** For a shorter trace (≤s−2), any SET is preceded by at most s−3 POPs, so its target is index `4+s−p−3=s+1−p≥4`, strictly in the public suffix, and the POP budget cannot remove the whole suffix. Theorem497.1 gives equality at every such trace. Conversely `POP^(s−2)` leaves UAA and VAA, then SET targets index 3, the last letter of U/V, with different left neighbors B/A. The resulting edge-observer difference is
+`[BC]−[BA]−[AC]+[AA] != 0`.
+Thus this trace distinguishes and the bound is exact. QED.
+
+For any h, choose `s≥h+2` to obtain *distinct* histories whose F-compressed block remains future-safe through h public steps but becomes distinguishable later. This is a horizon hierarchy, not an impossibility of safe local compression.
+
+## Actual exact checks
+The included `REPRO_STAGE497B.js` was executed, and `REPRO_STAGE497B_EXECUTED.json` is its returned data. It computes all six signed displacement coordinates and 144 edge counts using integer arithmetic. Complete synchronous BFS on the specified two-operation system gives minimal depths 1,2,3,4,5,6 for s=2..7. Independent guarded-context enumeration over all 363 words of lengths 1..5 over {A,B,C} found 69 distinct equal-F pairs; across 1,104 public context pairs, it checked **121,923 states** and **274,344 transitions** of at most three public-only operations, all agreeing. The general theorem follows from the written induction, not from finite tests.
+
+## Separate Euler–BRC exact reference run and literature comparison
+An additional independently executed Python standard-library exact-integer recount ranked and unranked the median value-word for (a) a sparse 8-edge cycle, (b) an 8-edge support-drop word, (c) all 144 native edge types once, and (d) a 271-edge 12-letter inventory with 70 extra AA, 23 BB, 17 CD and 17 DC. It validated all 363 three-letter words of lengths 1..5, grouped into 300 endpoint/inventory cases. The all-144 inventory had **343 population bits** and selected history length 145; the skewed 271-edge inventory had **449 population bits** and length 272. That reference code recalculates an exact integer directed matrix-tree determinant for each successor; it does **not** implement the Stage495-B optimized one-solve oracle or a full enumerator. Full locally executed Python source/JSON and a long-form proof are in this run's associated research artifacts (SHA256 evidence inventory in local PROOF_STAGE497B.md).
+
+Relevant external baseline: Bals–Pissis–Tinca, *Optimal Enumeration of Eulerian Trails in Directed Graphs*, arXiv:2603.12894v3 (2026-08-11), ESA 2026 (published 2026-08-25), DOI 10.4230/LIPIcs.ESA.2026.60, https://arxiv.org/html/2603.12894v3 . Their O(m+z) contract constructs a **compressed representation** of z distinct Eulerian trails, including separate edge-distinct and node-distinct multigraph versions. Our single arbitrary lexicographic **rank/unrank** and integer population are different problems. Node-distinct sequences correspond to BRC value-word histories after quotienting equal-value parallel edges; an O(m+z) compressed-output theorem is not an O(m+z) cost to write z flat m-token outputs. No claimed universal speedup or hybrid theorem.
+
+**Remaining:** minimal fiber-constant repair for bounded *intrusive* SET/INSERT/DELETE with provenance and mixed public moves; compare full bit-operation plus input/preprocess/output cost of optimized Stage495-B versus exact reference recount on matching inventories.
+
+**Native authority:** GitHub actor awdawmip has push permission. Native status/task owner lookup both returned `BACKEND_IDENTITY_OR_VERSION_MISMATCH; operation_sent=false`. No live CLAIM, Result or Driver review is inferred.

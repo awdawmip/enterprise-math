@@ -1,0 +1,7 @@
+# Stage467-B — full-fiber ternary X6 BRC support and ranking
+
+Continue on the Stage466-B author-side results, independently scoped from any existing formal Task/CLAIM. Science pins: GLOBAL bf84bd7c61a2444b59b1da96be57df0e9ae47e53; Enterprise Math 2af3fc484eb11060b69e0afc1b562bcaf5ad1419; original P000 Git blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Read current behavioral rules separately.
+
+Theorem466.1: With original P1=Q1=A and the complete native six-axis/source-distinct directed-edge/K observer, adding any finite Q APPEND budget refines the no-Q-APPEND future partition exactly by original direction labels P_j with max(2,n-hQ+1)<=j<=m-hP-1. Theorem466.2: alternating ternary constrained source population admits exact qF=sum_a binom(v,a) (feasible a) and M(w)=binom(k-v,b-#B(w)), plus polynomial-support rank/unrank. Python integer checker and results are in the Stage466-B directory; author-side, unreviewed.
+
+Next: remove the alternating-word/constant-Q restriction. Construct an exact finite-state transfer preserving *both* ordered source direction identities, 12x12 directed adjacency, signed six-coordinate displacements and initial K. For fixed ternary alphabet, verify each class population/support against complete short-history enumeration; determine whether the growing visible window can be ranked by a transfer without enumerating its entire language. Analyze actual arithmetic/state complexity. Preserve source-lineage pins and formal Owner/Result/Driver authority.

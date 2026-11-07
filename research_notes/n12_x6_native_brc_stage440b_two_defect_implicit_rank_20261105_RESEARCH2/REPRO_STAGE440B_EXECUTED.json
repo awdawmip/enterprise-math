@@ -1,0 +1,73 @@
+{
+  "marker": "STAGE440B_TWO_SOURCE_IMPLICIT_RANK_EXACT_PASS",
+  "cases": [
+    {
+      "L": 6,
+      "a": 1,
+      "b": 1,
+      "q": 3,
+      "history_pairs": 12,
+      "population_sum": 12,
+      "within_class_future_checks": 9,
+      "between_class_future_witnesses": 3,
+      "largest_class": 6
+    },
+    {
+      "L": 7,
+      "a": 2,
+      "b": 1,
+      "q": 5,
+      "history_pairs": 20,
+      "population_sum": 20,
+      "within_class_future_checks": 15,
+      "between_class_future_witnesses": 10,
+      "largest_class": 9
+    },
+    {
+      "L": 8,
+      "a": 2,
+      "b": 2,
+      "q": 7,
+      "history_pairs": 30,
+      "population_sum": 30,
+      "within_class_future_checks": 23,
+      "between_class_future_witnesses": 21,
+      "largest_class": 12
+    },
+    {
+      "L": 8,
+      "a": 3,
+      "b": 1,
+      "q": 10,
+      "history_pairs": 30,
+      "population_sum": 30,
+      "within_class_future_checks": 20,
+      "between_class_future_witnesses": 45,
+      "largest_class": 9
+    }
+  ],
+  "algebraic_parameter_cases": 363,
+  "verified_full_future_equal_pairs": 67,
+  "verified_full_future_distinct_class_witnesses": 79,
+  "full_observation_prefix_comparisons": 2281834,
+  "append_direction_count": 12,
+  "smallest_witness": {
+    "L": 6,
+    "a": 1,
+    "b": 1,
+    "left": [
+      2,
+      3
+    ],
+    "right": [
+      5,
+      2
+    ],
+    "path": [
+      "P:POP"
+    ],
+    "K_left": 3,
+    "K_right": 3
+  },
+  "arithmetic": "exact safe JS integers on tested L<=16"
+}

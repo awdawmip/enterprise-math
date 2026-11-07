@@ -1,0 +1,19 @@
+EXACT_ADAPTIVE_MINIMAX model=mean_frozen observer=W TV=651/16384
+EXACT_ADAPTIVE_MINIMAX model=mean_frozen observer=J TV=651/16384
+EXACT_ADAPTIVE_MINIMAX model=mean_frozen observer=S TV=3255/32768
+EXACT_ADAPTIVE_MINIMAX model=mean_frozen observer=SJ TV=3255/32768
+EXACT_ADAPTIVE_MINIMAX model=sequential_posterior observer=W TV=0
+EXACT_ADAPTIVE_MINIMAX model=sequential_posterior observer=J TV=0
+EXACT_ADAPTIVE_MINIMAX model=sequential_posterior observer=S TV=651/8192
+EXACT_ADAPTIVE_MINIMAX model=sequential_posterior observer=SJ TV=651/8192
+EXACT_ADAPTIVE_MINIMAX model=J_two_moment observer=W TV=0
+EXACT_ADAPTIVE_MINIMAX model=J_two_moment observer=J TV=111/1600
+EXACT_ADAPTIVE_MINIMAX model=J_two_moment observer=S TV=5487/102400
+EXACT_ADAPTIVE_MINIMAX model=J_two_moment observer=SJ TV=549/6400
+PUBLIC_MOMENTS W=0 Y1=0 prefix_mass=5/16 m1=3/10 m2=9/80 delta_m3=63/16000
+PUBLIC_MOMENTS W=0 Y1=1 prefix_mass=3/16 m1=1/2 m2=5/16 delta_m3=0
+PUBLIC_MOMENTS W=1 Y1=0 prefix_mass=3/16 m1=1/2 m2=5/16 delta_m3=0
+PUBLIC_MOMENTS W=1 Y1=1 prefix_mass=5/16 m1=7/10 m2=41/80 delta_m3=-63/16000
+THREE_F_PUBLIC_EXACT_TV=63/6400
+OPTIMAL_FIXED_RATE_J_AUDIT=-89/64 + sqrt(22)/32 + 3*sqrt(2)/8 + sqrt(142)/16 APPROX=0.03105403387270438
+STAGE305B_NOISY_POSTERIOR_MOMENT_EXACT_PASS

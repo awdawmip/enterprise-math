@@ -1,0 +1,68 @@
+{
+  "stage": "499-B",
+  "status": "ALL_ASSERTIONS_PASSED",
+  "model": "12-signed-X6-directions with 150 exact F counters; test paths use A,B,C",
+  "actions": [
+    "POP",
+    "SET_END_MINUS_2_C",
+    "INSERT_BEFORE_LAST2_C",
+    "DELETE_END_MINUS_1",
+    "DELETE_LAST_PUBLIC"
+  ],
+  "h_values": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "gadget_counts": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "insert_semantics": [
+    "original_stage498_n_lt_8",
+    "uncapped_extension"
+  ],
+  "prefix_checks": 11346,
+  "composition_checks": 248,
+  "history_pairs": 248,
+  "trace_modes": 496,
+  "tag_counterexample": true,
+  "sample": [
+    {
+      "h": 0,
+      "k": 5,
+      "n": 23,
+      "distinct_histories_one_K": 32
+    },
+    {
+      "h": 1,
+      "k": 5,
+      "n": 24,
+      "distinct_histories_one_K": 32
+    },
+    {
+      "h": 2,
+      "k": 5,
+      "n": 25,
+      "distinct_histories_one_K": 32
+    },
+    {
+      "h": 3,
+      "k": 5,
+      "n": 26,
+      "distinct_histories_one_K": 32
+    }
+  ],
+  "provenance_counterexample": {
+    "x": "AABACCCC",
+    "y": "ABAACCCC",
+    "source_tag": "P at position 2 (1-based)",
+    "first_separating_action": "DELETE_LAST_PUBLIC"
+  },
+  "arithmetic": "exact integers",
+  "scope": "complete action tree for each generated paired history; not all possible native histories"
+}

@@ -1,0 +1,79 @@
+{
+  "schema": "STAGE475B_EXECUTION_SUMMARY_V1",
+  "date": "2026-11-06",
+  "stage": "475-B",
+  "science_frozen_pins": {
+    "global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+    "enterprise_math": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "P000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488"
+  },
+  "result_type": "author_side_exact_integer_execution",
+  "original_execution": {
+    "source": "STAGE475B.py (local execution)",
+    "source_sha256": "47dcd25c2fe1fa58fadae69c352e482ac9bd7b59c93ae82a2f6f5558ba89de01",
+    "full_result_sha256": "094e26fd2baf233368a8a29f98701f94305cc9301c03871c9767f806575df73f",
+    "small_fibers": 585,
+    "small_classes_rank_population_checked": 3164,
+    "small_configs": 14,
+    "small_cumulative_suffix_states": 16959,
+    "boundary_integration_fibers": 335,
+    "boundary_integration_classes": 2424,
+    "boundary_integration_configs": 5,
+    "independent_future_interleaving_words": 432,
+    "signed_future_append_directions": 12
+  },
+  "big_fiber": {
+    "m": 35,
+    "n": 56,
+    "k": 3,
+    "K": 18,
+    "original_P": "A^35",
+    "original_Q_edge_counts": {
+      "AA": 3,
+      "AB": 14,
+      "BA": 14,
+      "AC": 12,
+      "CA": 12
+    },
+    "population": 11154643500,
+    "support_by_t": {
+      "33": 394240,
+      "34": 394240,
+      "35": 394240,
+      "36": 394240,
+      "37": 394240,
+      "38": 394240,
+      "39": 394240,
+      "40": 300032,
+      "41": 199680,
+      "56": 52
+    }
+  },
+  "strict_witness": {
+    "P": "A^35",
+    "Q_length": 56,
+    "Q_B_positions": "2,4,...,28",
+    "Q_C_positions": [
+      30,
+      32,
+      34,
+      36,
+      39,
+      42,
+      44,
+      46,
+      48,
+      50,
+      52,
+      54
+    ],
+    "other_Q": "swap letters at positions 20 and 39",
+    "initial_observer_identical": true,
+    "repair_equal_at_t40": true,
+    "repair_different_at_t39": true,
+    "17_Q_POP_distinguishes_endpoint": true
+  },
+  "assertions_passed": true,
+  "remote_reproducer": "STAGE475B_REPRO.py is a separately shortened source based on the same recurrence; its byte identity and fresh execution are not asserted",
+  "limitations": "Stage474.1 complete-future equivalence theorem awaits independent Driver review; exact DP counts its algebraic repair key."
+}

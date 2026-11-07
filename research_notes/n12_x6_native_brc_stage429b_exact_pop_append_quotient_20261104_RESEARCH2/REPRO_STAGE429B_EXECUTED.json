@@ -1,0 +1,86 @@
+{
+  "marker": "STAGE429B_EXACT_TWO_OPERATION_QUOTIENT_PASS",
+  "native_alphabet": "12 signed X6 directions, integer endpoints, full typed directed J, absolute positional K",
+  "scoped_language": "P frozen; Q one independent POP and one independent APPEND in either order; Q length >=2; |P|-|Q|>=3",
+  "frozen_science": {
+    "global": "bf84bd7c61a2444b59b1da96be57df0e9ae47e53",
+    "em": "2af3fc484eb11060b69e0afc1b562bcaf5ad1419",
+    "p000_blob": "bcc2590d3168a28f72e8b9f0f9b1f76faadcd488"
+  },
+  "checker": "exhaustive all P,Q over 3-symbol subset embedded into native 12, all 12 APPEND probes, both orderings",
+  "histories_checked": 28431,
+  "initial_observer_fibers": 21897,
+  "nontrivial_observer_fibers": 5292,
+  "future_quotient_classes": 27648,
+  "continuations_per_history": 38,
+  "batches": [
+    {
+      "n": 2,
+      "m": 5,
+      "p_words": 243,
+      "q_words": 9,
+      "histories": 2187,
+      "observer_fibers": 1908,
+      "nontrivial_fibers": 261,
+      "future_classes": 2187
+    },
+    {
+      "n": 2,
+      "m": 6,
+      "p_words": 729,
+      "q_words": 9,
+      "histories": 6561,
+      "observer_fibers": 4563,
+      "nontrivial_fibers": 1548,
+      "future_classes": 6075
+    },
+    {
+      "n": 3,
+      "m": 6,
+      "p_words": 729,
+      "q_words": 27,
+      "histories": 19683,
+      "observer_fibers": 15426,
+      "nontrivial_fibers": 3483,
+      "future_classes": 19386
+    }
+  ],
+  "four_way_full_observer_fiber": {
+    "P_length": 12,
+    "Q_length": 5,
+    "Q_word": "CCCCC",
+    "P_word_family": "A^(j-1) B B A^(11-j), j in {3,4,5,6}",
+    "four_distinct_future_K_signatures": [
+      {
+        "B_block_start_1_based": 3,
+        "P_at_5": 0,
+        "P_at_6": 0,
+        "K_after_POP_APPEND_A": 1,
+        "K_after_APPEND_A": 1
+      },
+      {
+        "B_block_start_1_based": 4,
+        "P_at_5": 1,
+        "P_at_6": 0,
+        "K_after_POP_APPEND_A": 0,
+        "K_after_APPEND_A": 1
+      },
+      {
+        "B_block_start_1_based": 5,
+        "P_at_5": 1,
+        "P_at_6": 1,
+        "K_after_POP_APPEND_A": 0,
+        "K_after_APPEND_A": 0
+      },
+      {
+        "B_block_start_1_based": 6,
+        "P_at_5": 0,
+        "P_at_6": 1,
+        "K_after_POP_APPEND_A": 1,
+        "K_after_APPEND_A": 0
+      }
+    ]
+  },
+  "theorem_scope": "infinite/all-words exact algebraic proof; computed tests finite and independent",
+  "authority": "AUTHOR_SIDE_EXACT / UNREVIEWED / NOT_ADMITTED"
+}

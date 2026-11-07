@@ -1,0 +1,9 @@
+# Stage468-B — full ternary X6 bidirectional edit-future classes
+
+Mother objective: retain provenance-respecting minimal sufficient future observation states and exact BRC class populations/rank, without original-history or class enumeration. Author-side Stage467-B parent, original science pins GLOBAL `bf84bd7c61a2444b59b1da96be57df0e9ae47e53`, EM `2af3fc484eb11060b69e0afc1b562bcaf5ad1419`, P000 blob `bcc2590d3168a28f72e8b9f0f9b1f76faadcd488`; current behavioral rules always read separately.
+
+Verified frontier: in the full initial-observer fiber of arbitrary ternary P/Q histories (fixed P1=Q1=A, 2≤m<n), with only Q allowed POP h and APPEND s≥1, future equality is exactly equality of the Q tail Q_t..Q_n and the P tail P_{t+1}..P_m, t=max(1,n−h). A 25-counter unit-weight positive BRC hidden-prefix/visible-tail transfer yields exact class support, population and lex rank/unrank in polynomial arithmetic complexity for the fixed alphabet; source code, actual execution JSON and proof are in the same directory.
+
+Next discriminating unit: set hP=1,hQ≥1, rP=0,sQ=1; derive precisely the extra information from P POP and combined Q APPEND, considering P-last/Q-last directed edge changes and K under both operations. Construct a pair of full-observer-identical histories to distinguish any proposed joint repair key. Once a correct exact key is found, adapt the hidden-prefix boundary transfer and check complete small fibers with all 12 signed future APPEND_Q choices. Then test rP=1 and identify whether the visible suffix language remains deterministically countable.
+
+Evidence scope: source-distinct exact 6-axis endpoints, 12×12 directed adjacency and original position match K must remain represented; POP of appended direction counts against budget. Check owner/CLAIM and retain author-only vs officially accepted status separately. Current author has not claimed a formal Source Result.

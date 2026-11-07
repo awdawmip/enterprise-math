@@ -1,0 +1,10 @@
+# Stage455-B — grouped population for arbitrary two-source budgets and signed direction probes
+Parent: Stage454-B single-active-source exact future quotient (signed original alphabet), rigorous ternary strict-overrefinement witness, and Stage453-B binary original two-source arbitrary-budget exact repair. Frozen source pins: global `bf84bd7c61a2444b59b1da96be57df0e9ae47e53`, EM `2af3fc484eb11060b69e0afc1b562bcaf5ad1419`, P000 blob `bcc2590d3168a28f72e8b9f0f9b1f76faadcd488`.
+
+Mother objective: exact source/provenance preserving BRC quotient for ordered signed-X6 histories, with Boolean support, integer population and full operation-future observer semantics.
+
+Current proved frontier: exact P-only POP/APPEND quotient over any native signed original alphabet, with budget-sensitive equality-bit versus full probe-window repair. Finite JS exact future tree checker supports small ternary families; author-side, not admitted. Three-direction POP-only witness shows raw-letter repair is over-refined (Q4 C/B become identical when only [A=Qi] can be read). Stage453 gives binary-original fully two-active-source iff repair and a constructive grouped C/T/U algorithm, but no independently executed large-N grouped engine.
+
+Next executable unit: implement original Stage453 C(sigma) visible key support counting with T hidden paired-prefix and U hidden Q gap; do not enumerate visible keys or raw histories for large-N. Check against the Stage453 small exact fibers; then demonstrate an instance beyond brute-force scale. Record arithmetic and bit complexity, class ranking/unranking and raw-history ranking/unranking, distinguishing each from merely computing aggregate qF. Separately investigate signed-alphabet Q POP with at least one strict witness for when a single equality bit leaves native directions unresolved; preserve full 6-vector and 12x12 J and source identity.
+
+Publishing: task branch/PR source evidence with immutable readback; current native Owner/CLAIM gates and independent Driver review remain separately governed.

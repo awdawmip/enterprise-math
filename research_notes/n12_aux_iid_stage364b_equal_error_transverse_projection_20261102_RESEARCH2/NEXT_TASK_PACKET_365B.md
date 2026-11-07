@@ -1,0 +1,9 @@
+# Stage365-B — cusp-side transverse off-arc competition
+
+Continue Research2 portable author study in Draft PR #1736. Scientific pins: GLOBAL `bf84bd7c61a2444b59b1da96be57df0e9ae47e53`, EM `2af3fc484eb11060b69e0afc1b562bcaf5ad1419`, original P000 V4; refresh **current** behavioral/control rules separately. Preserve all 16 source/word labels, four audit ports and absolute total error `b(q1)+b(q2)<=2 beta*+E`.
+
+Stage364-B proved a new exact **equal-error** off-arc projection for every p in K=[.2312,.2318]×[.556,.558] with |r1(p)|<=1e-5: a same-b q on r1=0 in R=[.2311,.232]×[.5555,.559] has c(p)-c(q)>(4/25)r1(p) on the positive side and >(2/3)(-r1(p)) on the negative side. Uses rational J>1/60, J<1/40 and strict cost determinants plus a quantitative ODE distance-to-boundary argument. This excludes off-arc sources in that explicit tube from full two-source global minimizers but says nothing about competitors outside it.
+
+Next discriminating question: Does the same-b transverse cost projection persist near the audit-label cusp at E≈0.0021814072, x≈.2378,y≈.5757? Determine exact signs for each original audit comparison. Compute one-sided determinants D=c_x b_y-c_y b_x and common J=dr1∧db on a rational cusp-local box; obtain a strict rational interval proof OR a strict rational off-arc counterexample. One-sided label changes must not be smoothed away. A separate exact two-source rational candidate may be tested against Stage353-B restricted optimum with a certified algebraic incumbent bound. Finite floats only explore, never prove the unrestricted global claim.
+
+Deliver a proof/counterexample, executed stand-alone Fraction/SymPy checker and stdout, precise quantifiers/area, unresolved regions, actual owner/claim status and GitHub Source/readback; journal progress. P000 native X6, 3D slice, independent time, triadic closure and Cell address remain separate typed transfer obligations.
