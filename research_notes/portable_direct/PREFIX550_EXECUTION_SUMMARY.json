@@ -1,0 +1,63 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "date": "2026-11-07",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "physical_roots": 12,
+  "phases": 48,
+  "directed_phase_edges": 144,
+  "ports": 96,
+  "positive_classes": 51,
+  "shared_linear_coordinates": 49,
+  "universal_Q0_terms": 165,
+  "native_gauge_edges_checked": 6912,
+  "quotient_gauge_rows_checked": 612,
+  "reduced_49_gauge_rows_checked": 588,
+  "complete_histogram_gauge_vs_direct_checks": 864,
+  "depth_inclusive": 8,
+  "independent_native_histogram_checks": 672,
+  "independent_native_depth_inclusive": 6,
+  "independent_native_dp_nonzero_states": 140982,
+  "benchmark": {
+    "environment": "CPython 3.13.5 Linux x86_64; tracemalloc; 3 repetitions; 768 joint polynomials, depths 0..7; Q matrix prebuild excluded for all methods",
+    "nonzero_positions": 29498,
+    "positive51": {
+      "median_seconds": 1.394061,
+      "median_peak_bytes": 5642980,
+      "trials_seconds": [
+        1.305832,
+        1.394061,
+        1.3975
+      ]
+    },
+    "signed49": {
+      "median_seconds": 1.428987,
+      "median_peak_bytes": 5404060,
+      "trials_seconds": [
+        1.428987,
+        1.483895,
+        1.425828
+      ]
+    },
+    "gauge51": {
+      "median_seconds": 1.404419,
+      "median_peak_bytes": 6868020,
+      "trials_seconds": [
+        1.459532,
+        1.356898,
+        1.404419
+      ]
+    },
+    "gauge49": {
+      "median_seconds": 1.450494,
+      "median_peak_bytes": 6853132,
+      "trials_seconds": [
+        1.450494,
+        1.43696,
+        1.67142
+      ]
+    }
+  },
+  "verification": "compact published program actually executed and matched Git blob; expanded program in local evidence archive actually executed",
+  "formal_status": "AUTHOR_PROVED / EXACT_INTEGER_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "native_control": "BACKEND_IDENTITY_OR_VERSION_MISMATCH; operation_sent=false"
+}
