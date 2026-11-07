@@ -1,0 +1,78 @@
+{
+  "schema": "ENTERPRISE_MATH_R329_EXACT_EVIDENCE_V1",
+  "status": "PASS",
+  "source": {
+    "r325": "2c62f1502e640d1aed2db6f72956abc6a22ca2d5",
+    "r326": "e5478b005efd75971c31ea8468d725d4c50ea26f",
+    "r327": "8332494a0aea16df27beb9828edfb41b3f234e09",
+    "r328": "271b843173aac0830792d3df4ecb0537eb022ee2",
+    "global_snapshot": "d62b45cb24cc0a302a9e5a9651790a819fd0b151"
+  },
+  "symbolic": {
+    "executor": "Python SymPy 1.14.0",
+    "command": "python r329_symbolic.py --max-r 16 --json R329_SYMBOLIC_EVIDENCE.json",
+    "r_min": 0,
+    "r_max": 16,
+    "rows": 17,
+    "all_shift_coefficient_positive": true,
+    "degree_and_leading_coefficient_checks": true,
+    "new_r": [
+      5,
+      16
+    ],
+    "min_shift_coeff_desc_by_r": [
+      "1",
+      "6",
+      "18",
+      "36",
+      "54",
+      "324/5",
+      "324/5",
+      "1944/35",
+      "1458/35",
+      "972/35",
+      "2916/175",
+      "17496/1925",
+      "8748/1925",
+      "52488/25025",
+      "157464/175175",
+      "314928/875875",
+      "118098/875875"
+    ],
+    "local_executed_source_sha256": "9b4689130e5add4dcb2f9c0c339ae29e1bb1d8080d24e73c311637da078b4f02",
+    "local_full_symbolic_evidence_sha256": "a177635370ffecb2ad4b4cb9f7bb0638b2f988f89b129f58e12d92b75dd2947e"
+  },
+  "integer": {
+    "executor": "Python arbitrary-precision integers; no floating point",
+    "command": "python r329_independent_integer.py --q 48 --symbolic R329_SYMBOLIC_EVIDENCE.json --json R329_INTEGER_EVIDENCE.json",
+    "max_s": 96,
+    "max_q": 48,
+    "triangle_positive_checks": 4753,
+    "newton_positive_checks": 1225,
+    "diagonal_exact_matches": 697,
+    "signed_outside_triangle_negative_coefficients": 2004,
+    "newton_values_sha256": "dbd6788b32f7a5f78801849db633ddff6d3601b65613cded6002199888158c41",
+    "r5_through_r16_D_r0": [
+      "7008",
+      "80512",
+      "1028480",
+      "12814336",
+      "152553472",
+      "1752218624",
+      "19675414528",
+      "218270928896",
+      "2409111306240",
+      "26563369697280",
+      "293188550393856",
+      "3241653037629440"
+    ],
+    "local_executed_source_sha256": "b3eaac5d358df886b70a01722c6cbe2730c67ad94897613007bcb8fedaa9dedd",
+    "local_full_integer_evidence_sha256": "1409a597fc981f6e9571295870d625e5917e9230020f029269a1f9f1bf279ce6"
+  },
+  "scope": {
+    "mathematical": "All integers q>=r, 0<=r<=16; r=5..16 are new",
+    "finite_check": "q<=48,s<=96",
+    "does_not_establish": "All-q all-k D positivity, Newton full triangle beyond published R327 certificate, native 6D physics, canonical theorem admission"
+  },
+  "admission": "AUTHOR_SIDE_EXACT_SYMBOLIC_COMPUTATION_AND_INDEPENDENT_INTEGER_CROSSCHECK / DRIVER_UNREVIEWED / NOT_ADMITTED"
+}
