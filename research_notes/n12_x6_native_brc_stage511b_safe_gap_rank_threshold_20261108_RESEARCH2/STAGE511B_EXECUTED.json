@@ -1,0 +1,215 @@
+{
+  "schema": "EM_STAGE511B_LOCAL_EXACT_CHECK_V1",
+  "cap_theorem": "max(0,K-1)",
+  "examples": [
+    {
+      "K": 2,
+      "word_length": 11,
+      "D_count": 4,
+      "exposed_positions": [
+        0,
+        1,
+        8,
+        10
+      ],
+      "opaque_P_counts": [
+        0,
+        1
+      ],
+      "same_cap_K_minus_2": true,
+      "distinguished_by_cap_K_minus_1": true,
+      "deleted_origins": [
+        0,
+        1
+      ],
+      "displacement_after_delete": [
+        [
+          0,
+          1,
+          4,
+          5,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          4,
+          5,
+          0,
+          0
+        ]
+      ],
+      "edge_counts_differ": true
+    },
+    {
+      "K": 3,
+      "word_length": 11,
+      "D_count": 4,
+      "exposed_positions": [
+        0,
+        1,
+        8,
+        10
+      ],
+      "opaque_P_counts": [
+        1,
+        2
+      ],
+      "same_cap_K_minus_2": true,
+      "distinguished_by_cap_K_minus_1": true,
+      "deleted_origins": [
+        0,
+        1
+      ],
+      "displacement_after_delete": [
+        [
+          0,
+          1,
+          4,
+          5,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          4,
+          5,
+          0,
+          0
+        ]
+      ],
+      "edge_counts_differ": true
+    },
+    {
+      "K": 4,
+      "word_length": 11,
+      "D_count": 4,
+      "exposed_positions": [
+        0,
+        1,
+        8,
+        10
+      ],
+      "opaque_P_counts": [
+        2,
+        3
+      ],
+      "same_cap_K_minus_2": true,
+      "distinguished_by_cap_K_minus_1": true,
+      "deleted_origins": [
+        0,
+        1
+      ],
+      "displacement_after_delete": [
+        [
+          0,
+          1,
+          4,
+          5,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          4,
+          5,
+          0,
+          0
+        ]
+      ],
+      "edge_counts_differ": true
+    },
+    {
+      "K": 5,
+      "word_length": 12,
+      "D_count": 4,
+      "exposed_positions": [
+        0,
+        1,
+        9,
+        11
+      ],
+      "opaque_P_counts": [
+        3,
+        4
+      ],
+      "same_cap_K_minus_2": true,
+      "distinguished_by_cap_K_minus_1": true,
+      "deleted_origins": [
+        0,
+        1
+      ],
+      "displacement_after_delete": [
+        [
+          0,
+          1,
+          5,
+          5,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          5,
+          5,
+          0,
+          0
+        ]
+      ],
+      "edge_counts_differ": true
+    },
+    {
+      "K": 6,
+      "word_length": 13,
+      "D_count": 4,
+      "exposed_positions": [
+        0,
+        1,
+        10,
+        12
+      ],
+      "opaque_P_counts": [
+        4,
+        5
+      ],
+      "same_cap_K_minus_2": true,
+      "distinguished_by_cap_K_minus_1": true,
+      "deleted_origins": [
+        0,
+        1
+      ],
+      "displacement_after_delete": [
+        [
+          0,
+          1,
+          6,
+          5,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          6,
+          5,
+          0,
+          0
+        ]
+      ],
+      "edge_counts_differ": true
+    }
+  ],
+  "exhaustive_2_direction_tagged_words_up_to_n5": {
+    "roots": 6800,
+    "future_tree_crosschecks": 932,
+    "reachability_preaction_nodes": 15828,
+    "reachability_transitions": 135812,
+    "unique_compressed_states": 5868
+  },
+  "assertions": "PASS",
+  "bounds": "Finite oracle over two X6 signed primitive directions (0,+E1;2,+E2); general proof independent of enumeration."
+}
