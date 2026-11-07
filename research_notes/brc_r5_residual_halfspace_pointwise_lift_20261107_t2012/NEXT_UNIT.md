@@ -1,13 +1,15 @@
-# R5 next unit — exact reverse-residual nonconvex fiber
+# R5 next unit — joint seven-key nonconvex reverse-residual fiber
 
-Frozen scientific pins: GLOBAL `a01383f825ef9d43b4b754254303298c64041568`, EM `86149263e38c22292c9def1e0f69092efa1be77e`.
+Frozen scientific pins: GLOBAL `a01383f825ef9d43b4b754254303298c64041568`; EM `86149263e38c22292c9def1e0f69092efa1be77e`. Mother: determine whether FULL_HIST and seedless LR have the same *actual* four-observer image `(e_P,e_Q,T_P,T_Q)` under the frozen four-stage, seven-key observer.
 
-Mother target: determine whether `K_FULL=K_seedless` for the actual four-dimensional observer `(e_P,e_Q,T_P,T_Q)` in the frozen four-stage seven-key P/Q-BRC model. Equal convex hulls were proved in `research_notes/brc_r5_four_observer_convex_hull_20261107/` at `f20b9a0bdc8c1fc8f69a2abeb7c231181d1a0d27`. **Do not redo that part.**
+**Completed and not to redo:**
 
-This unit just proved a *constructive exact single-process lift* for every FULL_HIST flow satisfying `R=9bz-4a(v-z)>=0` and every terminal declaration vector. All-real proof and runnable `Fraction` checker are in this directory. The R<0 fixed-flow declaration transfer sometimes succeeds too, but its failure alone cannot separate the global nonconvex images.
+- All real four-dimensional linear supports, and hence convex hulls, coincide (previous R5 result `f20b9a0bdc8c1fc8f69a2abeb7c231181d1a0d27`).
+- `RESEARCH.md`: all real FULL_HIST flows with `R=9bz-4a(v-z)>=0` and arbitrary seven terminal declarations admit explicit pointwise *single-process* seedless lifts preserving both stopping times and both errors.
+- `REVERSE_CORNER_RECTANGLE.md`: although `R=-9/10` at `x=(1,1,1,0,9/40,0,0)`, **every** two-extreme-key declaration `d_0=s,d_6=t`, all other d's zero and `s,t in [0,1]`, admits an explicit single-process seedless lift using `y=(1,19/20,19/20,0,11/40,0,11/130)` and `d'_0=335s/363,d'_6=335t/363`. Both stopping times equal 129/40.
 
-**Smallest remaining exact unit:** Choose the R<0 corner `(g,a,b,u,v,w,z)=(1,1,1,0,9/40,0,0)`, with residual -9/10 and both times 129/40. For selected rational seven-key declarations, solve *global* seedless feasibility: all early flow variables, `9*b*z=4*a*(v-z)`, both times, both errors, all declaration bounds. Provide an actual rational lift or an exact polynomial infeasibility certificate. Float optimizer failure is merely exploratory.
+**Smallest still-open discriminating unit:** At the same R<0 corner, include declarations of the LR=1/2,3/4,1,5/4,3/2 keys rather than rerunning the solved extreme-tail rectangle. For each rational W candidate, solve *globally over all legal seedless flows*, seedless bilinear equation, both times, both errors and all declaration bounds. A valid rational lift or rigorous global polynomial infeasibility certificate is a meaningful outcome. Fixed-flow failure and floating nonlinear solver failure are not such certificates.
 
-**Alternative route:** Construct a change of `(g,a,b,u,w)` preserving these stopping times which makes a seedless experiment Blackwell dominate the reverse full corner, then recover declarations. A success enlarges the same-image domain; a verified obstruction focuses the nonconvex question.
+**Parallel analytic option:** Derive a general observer-preserving transformation of negative-R flows by changing early flow parameters `(g,a,b,u,w)` while preserving time; test whether it uniformly Blackwell-dominates the original LR experiment. Preserve the nonconvex image distinction; do not replace it with the completed support-function theorem.
 
-Source status: author-side portable research; native owner/CLAIM unconfirmed due to service backend identity/version error; independent mathematical review not yet performed. Command to verify the current solved half-space: `python3 VERIFY.py` (captured stdout `EXACT_OUTPUT.txt`).
+**Exact reproducibility:** `python3 VERIFY.py`, `python3 VERIFY_REVERSE.py`; corresponding captured files `EXACT_OUTPUT.txt`, `OUTPUT_REVERSE.txt`. Status: author-side checked, unreviewed, no native CLAIM due to Source backend identity/version mismatch.
