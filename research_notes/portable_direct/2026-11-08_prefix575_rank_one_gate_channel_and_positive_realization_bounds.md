@@ -217,8 +217,8 @@ Frozen scientific input: `f42f2906d77f24085c123f3ccfe9667d41caa96d`.
 Prior Q14 source: PREFIX-574 checker blob `6cdf85ae5154b3f5f52bf6cab58b3a175e93dbb4`.  
 Prior exact result: PREFIX-574 result blob `359ea1417845140966a48fbe943b4ce8a8a8f363`.  
 Independent reconstructed Q14 SHA-256: `d258201370bd030e081aefec6c538dbea1abfc69712798080583a842ce66643e`.  
-New checker SHA-256: `1e0983012fea414bb4fcadc960a7e1b0e99e1ac2096ff51ae1a0af9c8e6a50bb`.  
-Canonical compact result digest: `55d29881c7d9a07467ca2b8e4bb0289fb2bc230ddd256adb7b0ac63f64523a6c`.
+Executed local checker source SHA-256: `1e0983012fea414bb4fcadc960a7e1b0e99e1ac2096ff51ae1a0af9c8e6a50bb`. Persisted GitHub checker blob after readback: `9d61db526095621d0545f033c5c8a2622943e6b2`.  
+Canonical compact result digest: `55d29881c7d9a07467ca2b8e4bb0289fb2bc230ddd256adb7b0ac63f64523a6c`. Persisted result JSON Git blob after readback: `abe18145c2ff07610f50ea41e7c4a34b7c4e2c82`.
 
 ## 8. Identity, ownership and publication status
 
