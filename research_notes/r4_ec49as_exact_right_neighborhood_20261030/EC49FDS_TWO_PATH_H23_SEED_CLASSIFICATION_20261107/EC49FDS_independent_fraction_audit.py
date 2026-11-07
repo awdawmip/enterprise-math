@@ -52,6 +52,6 @@ for h in (2,3):
     pairs.append(rank9)
 assert len(pairs[0])==1 and len(pairs[1])==16
 report=json.load(open(Path(__file__).with_name('EC49FDS_seedpairs_report.json'),encoding='utf-8'))
-for v in report['all_rank9_seed_pairs']:
+for v in report.get('all_rank9_seed_pairs',report.get('cases')):
     assert rank(v['H2'])==9 and rank(v['H3'])==9
 if __name__=='__main__':print(json.dumps({'H2_rank9_pairs':pairs[0],'H3_rank9_pairs':pairs[1], 'audit':'ALL PAIRWISE H2/H3 RATIONAL RANK TESTS AGREE WITH CLAUSE CLASSIFIER', 'H2_cases_checked':15,'H3_cases_checked':703,'verified_combined_seed_pairs':len(report['all_rank9_seed_pairs'])},ensure_ascii=False,indent=2))
