@@ -1,0 +1,196 @@
+{
+  "unit": "EC49EO",
+  "status": "PASS",
+  "domain": "Exact H=3 native-X6 full return-word subsets and cached observer-transfer signatures",
+  "base": {
+    "h": 2,
+    "words": [
+      "ce",
+      "de",
+      "ec",
+      "ed"
+    ],
+    "E": 28,
+    "rank": 9,
+    "legal_return_words": [
+      "ce",
+      "de",
+      "ec",
+      "ed",
+      "ef",
+      "eg",
+      "fe",
+      "ge"
+    ],
+    "full_rank_subsets": 1
+  },
+  "h3_fibers": [
+    {
+      "p": [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "word_pool": 6,
+      "E_with_T2": 42,
+      "best_words": [
+        "feg",
+        "gef"
+      ],
+      "transfer_types": 6
+    },
+    {
+      "p": [
+        3,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "word_pool": 12,
+      "E_with_T2": 36,
+      "best_words": [
+        "ceg",
+        "deg",
+        "ecg",
+        "edg"
+      ],
+      "transfer_types": 4
+    },
+    {
+      "p": [
+        4,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "word_pool": 12,
+      "E_with_T2": 36,
+      "best_words": [
+        "cef",
+        "def",
+        "ecf",
+        "edf"
+      ],
+      "transfer_types": 4
+    },
+    {
+      "p": [
+        4,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "word_pool": 12,
+      "E_with_T2": 44,
+      "best_words": [
+        "cec",
+        "ded",
+        "ecc",
+        "edd"
+      ],
+      "transfer_types": 4
+    }
+  ],
+  "h3_exact_Pareto_EMS": [
+    [
+      36,
+      2,
+      4
+    ],
+    [
+      42,
+      1,
+      6
+    ]
+  ],
+  "h3_Pareto_witnesses": [
+    {
+      "E": 36,
+      "M": 2,
+      "S": 4,
+      "p3": [
+        3,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "words3": [
+        "ceg",
+        "deg",
+        "ecg",
+        "edg"
+      ]
+    },
+    {
+      "E": 42,
+      "M": 1,
+      "S": 6,
+      "p3": [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "words3": [
+        "feg",
+        "gef"
+      ]
+    }
+  ],
+  "short_h3_witness": {
+    "words": [
+      "ecf",
+      "edf",
+      "cef",
+      "def"
+    ],
+    "E": 36,
+    "M": 2,
+    "S": 4
+  },
+  "previous_EC49EN_witness_H3": {
+    "M_min": {
+      "E": 42,
+      "M": 1,
+      "S": 6,
+      "word_occurrences": 6,
+      "groups": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "S4": {
+      "E": 44,
+      "M": 2,
+      "S": 4,
+      "word_occurrences": 8,
+      "groups": [
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ]
+    }
+  },
+  "model": "BRC symbolic cache keys are six-axis positive-count exponent vectors, not numerical coincidences",
+  "proof_scope": "Full finite h2 and h3 witness-pool enumeration. The H3 Pareto classification does not generalize to H>=4 without additional work."
+}

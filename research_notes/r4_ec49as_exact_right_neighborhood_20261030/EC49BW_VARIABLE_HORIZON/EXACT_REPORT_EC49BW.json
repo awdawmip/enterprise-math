@@ -1,0 +1,171 @@
+{
+  "brute_force_cases": [
+    {
+      "attainable_boundary_atoms": 12,
+      "closed_words": 12,
+      "covariant_rank": 12,
+      "fixed_instrument_rank": 12,
+      "group": [
+        "identity",
+        "swap_axes_1_2"
+      ],
+      "n": 2,
+      "native_weighted_total": 24,
+      "prefix_length": 1,
+      "rank_two_boundary_atoms": 0,
+      "suffix_length": 0
+    },
+    {
+      "attainable_boundary_atoms": 144,
+      "closed_words": 396,
+      "covariant_rank": 144,
+      "fixed_instrument_rank": 156,
+      "group": [
+        "identity",
+        "swap_axes_1_2"
+      ],
+      "n": 4,
+      "native_weighted_total": 1560,
+      "prefix_length": 1,
+      "rank_two_boundary_atoms": 12,
+      "suffix_length": 1
+    },
+    {
+      "attainable_boundary_atoms": 144,
+      "closed_words": 396,
+      "covariant_rank": 144,
+      "fixed_instrument_rank": 156,
+      "group": [
+        "identity",
+        "swap_axes_1_2"
+      ],
+      "n": 4,
+      "native_weighted_total": 1560,
+      "prefix_length": 2,
+      "rank_two_boundary_atoms": 12,
+      "suffix_length": 0
+    },
+    {
+      "attainable_boundary_atoms": 144,
+      "closed_words": 19920,
+      "covariant_rank": 144,
+      "fixed_instrument_rank": 288,
+      "group": [
+        "identity",
+        "swap_axes_1_2"
+      ],
+      "n": 6,
+      "native_weighted_total": 152640,
+      "prefix_length": 1,
+      "rank_two_boundary_atoms": 144,
+      "suffix_length": 1
+    },
+    {
+      "attainable_boundary_atoms": 8364,
+      "closed_words": 19920,
+      "covariant_rank": 8364,
+      "fixed_instrument_rank": 8760,
+      "group": [
+        "identity",
+        "swap_axes_1_2"
+      ],
+      "n": 6,
+      "native_weighted_total": 152640,
+      "prefix_length": 2,
+      "rank_two_boundary_atoms": 396,
+      "suffix_length": 2
+    },
+    {
+      "attainable_boundary_atoms": 1728,
+      "closed_words": 19920,
+      "covariant_rank": 1728,
+      "fixed_instrument_rank": 2124,
+      "group": [
+        "identity",
+        "swap_axes_1_2"
+      ],
+      "n": 6,
+      "native_weighted_total": 152640,
+      "prefix_length": 3,
+      "rank_two_boundary_atoms": 396,
+      "suffix_length": 0
+    }
+  ],
+  "dynamic_programming_cases": [
+    {
+      "alphabet_upper_bound": 12,
+      "boundary_length": 1,
+      "covariant_exact_rank": 12,
+      "n": 2,
+      "rigorous_lower_bound": 1
+    },
+    {
+      "alphabet_upper_bound": 144,
+      "boundary_length": 2,
+      "covariant_exact_rank": 144,
+      "n": 4,
+      "rigorous_lower_bound": 6
+    },
+    {
+      "alphabet_upper_bound": 1728,
+      "boundary_length": 3,
+      "covariant_exact_rank": 1728,
+      "n": 6,
+      "rigorous_lower_bound": 6
+    },
+    {
+      "alphabet_upper_bound": 20736,
+      "boundary_length": 4,
+      "covariant_exact_rank": 8364,
+      "n": 6,
+      "rigorous_lower_bound": 36
+    },
+    {
+      "alphabet_upper_bound": 20736,
+      "boundary_length": 4,
+      "covariant_exact_rank": 20736,
+      "n": 8,
+      "rigorous_lower_bound": 36
+    },
+    {
+      "alphabet_upper_bound": 2985984,
+      "boundary_length": 6,
+      "covariant_exact_rank": 569100,
+      "n": 8,
+      "rigorous_lower_bound": 216
+    },
+    {
+      "alphabet_upper_bound": 248832,
+      "boundary_length": 5,
+      "covariant_exact_rank": 248832,
+      "n": 10,
+      "rigorous_lower_bound": 36
+    },
+    {
+      "alphabet_upper_bound": 2985984,
+      "boundary_length": 6,
+      "covariant_exact_rank": 2985984,
+      "n": 12,
+      "rigorous_lower_bound": 216
+    }
+  ],
+  "native_source_git_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+  "native_weight_negative": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "native_weight_positive": [
+    2,
+    3,
+    3,
+    2,
+    1,
+    1
+  ],
+  "schema": "EC49BW_EXACT_NATIVE_X6_AUDIT_V1",
+  "scope": "Finite X6 closed ordered paths; Q-linear additive source-atom observations"
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "EC49FCB_FIVE_PHASE_EXACT_AGGREGATE_V1",
+  "date": "2026-11-06",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source_generator": "EC49FBY@5b10f1c296cb8826d4b69f6fd83dba89d765df1c",
+  "source_witness": "EC49FBU@b3b43ef6abe2fd816d979792d18a67ee5d0aad50",
+  "groups": 1305,
+  "completeness": "all 2-early 2-late four-exchange sets except exactly H7+H8 late-window pair",
+  "minimum": 158,
+  "improvements": 0,
+  "totals": {
+    "raw": 1374281640000,
+    "strict_unique_residual_product": 21160274423,
+    "pair_pruned": 73560,
+    "triple_pruned": 3529916,
+    "fourth_evaluations": 2495882
+  },
+  "phases": {
+    "H7H7": {
+      "groups": 270,
+      "report_sha256": "7dc20eefe91875248096d383b0f48a22cd9161a056dc45e87855b6322169f6d6",
+      "raw": 38316240000,
+      "strict_unique_residual_product": 7027576980,
+      "pair_pruned": 30153,
+      "triple_pruned": 2001957,
+      "fourth_evaluations": 1049676
+    },
+    "H7H9": {
+      "groups": 360,
+      "report_sha256": "4adda4fdf2a83e8cb7e01e17d597314095917164028256f223fc458db5a2c3a7",
+      "raw": 137168640000,
+      "strict_unique_residual_product": 14054301344,
+      "pair_pruned": 23356,
+      "triple_pruned": 1369968,
+      "fourth_evaluations": 1275120
+    },
+    "H8H8": {
+      "groups": 270,
+      "report_sha256": "beaea1dfd31472568c83f43269296e493a866a3b5612647c07f3b0266f294d07",
+      "raw": 604399320000,
+      "strict_unique_residual_product": 38280349,
+      "pair_pruned": 8780,
+      "triple_pruned": 78676,
+      "fourth_evaluations": 59660
+    },
+    "H8H9": {
+      "groups": 360,
+      "report_sha256": "de785731fdd5d741854175bd38d546f3e508c2cc0bca58a430980f5beddd60e5",
+      "raw": 548674560000,
+      "strict_unique_residual_product": 39515110,
+      "pair_pruned": 10356,
+      "triple_pruned": 74635,
+      "fourth_evaluations": 107550
+    },
+    "H9H9": {
+      "groups": 45,
+      "report_sha256": "ebb57ce4d15b1bb7864a0dd1876ee484c6f9793dfac4d97e1f0ab4b46c99d710",
+      "raw": 45722880000,
+      "strict_unique_residual_product": 600640,
+      "pair_pruned": 915,
+      "triple_pruned": 4680,
+      "fourth_evaluations": 3876
+    }
+  },
+  "independent_check": "15 signed-integer tuple-prefix groups PASS",
+  "publication_note": "report_sha256 values bind original five full local per-group reports; portable verifier regenerates equivalent per-group mathematical results and integer aggregates; JSON format may differ"
+}

@@ -1,0 +1,9 @@
+# EC49ED — Beyond the h<=4 exact shared-prefix frontier
+
+Parent: EC49EC, EC49EB, existing Draft PR #1730. Preserve scientific input pins GLOBAL_KNOWLEDGE_V1 773d538180bfb49e24cffeb35c3ee75eb0628e2e, Enterprise Math fc0f038e7bfd12c886b4d37f900bfb770c0f61ab. Retain native X6 signed primitives a-e, historical seam and A/B first-occurrence order, dual positive BRC plus count, and protected P000/ACTIVE worldview.
+
+Done: full finite rank-nine signed-primitive prefix trie costs (T,T_equal): h=2 (28,28), h=3 (34,44), h=4 (46,46). Complete signature class inventories, independent nine-column determinants, native tries, executable verifier and actual output are in EC49EC_SHARED_PREFIX_TRIE/.
+
+Open: optimize h=5 and h=6 using exact compressed transfer signature classes and a prefix-trie dynamic program. Prove or refute sharpness of constructive bounds T(odd h)>=? and T(even h)>=?: the established upper bounds are odd T<=9h+7, odd T_equal<=12h+8, even h>=4 T,T_equal<=12h-2. Compute all minimal rank-nine signature combinations and find cost-optimal representatives, ideally without 2^word_count enumeration. Retain real X6 signed path names, known BRC factors, word/bucket identity and exact rank. If a full h6 optimum is costly, publish a certified nontrivial lower bound and a precise disambiguating counterexample. Do not extrapolate h<=4 exact values to h>=5.
+
+Status: PORTABLE_DRAFT / REGISTER_PENDING / UNREVIEWED / NOT_ADMITTED; source-native research execution permission denied on 2026-11-02; exact owner unverified due CONTROL_QUOTA. GitHub author-side storage is allowed for safe scientific handoff, without ownership takeover or formal Result.

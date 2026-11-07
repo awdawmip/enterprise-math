@@ -1,0 +1,7 @@
+# EC49EA — Minimal returning-word and observable-column certificates
+
+Parent: EC49DZ and EC49DY in Draft PR #1730. Frozen scientific inputs: GLOBAL_KNOWLEDGE_V1 773d538180bfb49e24cffeb35c3ee75eb0628e2e, Enterprise Math fc0f038e7bfd12c886b4d37f900bfb770c0f61ab. Follow currently verified normative context separately.
+
+Precise problem: For the original nine-feature first-occurrence-order observer and genuine signed native X6 operations a–e, find the least number of **distinct returning future words** at fixed operator horizon h whose five-bucket transfer columns span R^9. Separately minimize the total selected word:bucket columns. EC49DZ supplies four returning words at every h>=2 and nine independent bucket columns with determinant +1, establishing upper bounds 4 and 9. At h=2 the four words ce, ec, de, ed are necessary: each three-word family gives rank 7 (exact rational finite audit). For h=3,4 an exact exhaustive audit found every triple to have rank <=7 within c,d,e, but this does not prove the general lower bound nor cover all return words over a–e.
+
+Discriminating work: derive a normal form for each future transfer matrix based on first operation, first A/B inside future, and terminal bucket; classify possible column spans and prove an all-h lower bound 4 or find a genuine counterexample. Preserve all exact six-coordinate return constraints and the three distinct BRC channels. Report the exact finite enumeration limits separately from analytic claims; no admission implied.

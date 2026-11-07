@@ -1,0 +1,54 @@
+{
+  "analytic": {
+    "endpoint_slope_identity": true,
+    "stationary_identity": true,
+    "value_identity": true
+  },
+  "exceptional": {
+    "bilinear_corner_sign_checks": 768,
+    "garbling_kernel_exact_pair_checks": 24,
+    "independently_matched_canonical_fingerprint": true,
+    "same_full_fiber_multiset_bilinear_polynomial": true,
+    "special_edges": 8
+  },
+  "geometry": {
+    "edges": 924,
+    "feasible": 204,
+    "infeasible": 720,
+    "vertices": 168
+  },
+  "limitations": "does not independently prove source admission; relies on declared auxiliary BRC model and previous author definition of H",
+  "ordinary": {
+    "coeff_multiplicity": {
+      "1/3|-1/6": 8,
+      "1/6|0": 4,
+      "1/8|0": 2,
+      "11/64|-7/96": 8,
+      "13/32|0": 6,
+      "13/48|-1/8": 8,
+      "19/192|0": 12,
+      "19/96|0": 16,
+      "23/96|0": 12,
+      "25/192|-1/32": 8,
+      "35/96|0": 36,
+      "37/192|-7/96": 8,
+      "41/192|-11/96": 4,
+      "7/24|-1/6": 4,
+      "7/24|0": 8,
+      "7/48|0": 8,
+      "7/64|3/32": 8
+    },
+    "distinct_clipped_endpoints": 160,
+    "ordinary_edges": 196,
+    "polynomial_classes": 17,
+    "precise_scope": "all real eps in [0,1/200] by exact sign and affine endpoint interpolation",
+    "sign_counts": {
+      "atomic_endpoints_checked": 7680,
+      "identically_zero": 452,
+      "negative": 212,
+      "positive": 616
+    }
+  },
+  "scientific_new_lemma": "Blackwell degradation P_eta1 = P_eta2 K for 0<=eta1<=eta2<=1/2; exact-budget causal simulations preserve complete terminal joint law",
+  "status": "AUTHOR_SIDE_ALTERNATIVE_ALGORITHM_CHECK_NOT_INDEPENDENT_DRIVER"
+}

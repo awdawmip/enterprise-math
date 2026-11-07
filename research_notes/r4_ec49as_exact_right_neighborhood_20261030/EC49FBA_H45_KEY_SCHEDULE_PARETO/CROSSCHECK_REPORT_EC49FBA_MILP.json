@@ -1,0 +1,99 @@
+{
+  "schema": "EC49FBA_MILP_CROSSCHECK_V1",
+  "backend": "SciPy 1.17.0 / HiGHS 0/1 MILP",
+  "date": "2026-11-05",
+  "model": "binary word-selection and nonfree signed primitive-prefix edge-use variables; x_word <= x_edge for all edges; rank clause coverage in both windows; minimize edge cost",
+  "checks": [
+    {
+      "key_h4": [
+        3,
+        2,
+        1
+      ],
+      "key_h5": [
+        3,
+        3,
+        1
+      ],
+      "word_candidates": 25,
+      "prefix_edge_variables": 108,
+      "milp_status": 0,
+      "mip_gap": 0,
+      "objective_new_edges": 8,
+      "objective_total_edges": 24,
+      "selection": {
+        "4": [
+          "fegg",
+          "gefg"
+        ],
+        "5": [
+          "feggg",
+          "gefgg"
+        ]
+      }
+    },
+    {
+      "key_h4": [
+        4,
+        2,
+        1
+      ],
+      "key_h5": [
+        4,
+        2,
+        1
+      ],
+      "word_candidates": 72,
+      "prefix_edge_variables": 450,
+      "milp_status": 0,
+      "mip_gap": 0,
+      "objective_new_edges": 22,
+      "objective_total_edges": 38,
+      "selection": {
+        "4": [
+          "fegc",
+          "fegd",
+          "gefc",
+          "gefd"
+        ],
+        "5": [
+          "feggf",
+          "gefgf"
+        ]
+      }
+    },
+    {
+      "key_h4": [
+        5,
+        3,
+        1
+      ],
+      "key_h5": [
+        6,
+        4,
+        1
+      ],
+      "word_candidates": 18,
+      "prefix_edge_variables": 146,
+      "milp_status": 0,
+      "mip_gap": 0,
+      "objective_new_edges": 74,
+      "objective_total_edges": 90,
+      "selection": {
+        "4": [
+          "ccce",
+          "dedd",
+          "eccc",
+          "eddd"
+        ],
+        "5": [
+          "cccec",
+          "deddd",
+          "ecccc",
+          "edddd"
+        ]
+      }
+    }
+  ],
+  "status": "Independent numerical integer-programming crosscheck, exact lower bound supplied by native integer trie DP"
+}

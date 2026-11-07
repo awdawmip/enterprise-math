@@ -1,0 +1,217 @@
+{
+  "schema": "EC49CJ_EXACT_AUTHOR_RESEARCH_REPORT_V1",
+  "observed_date": "2026-10-31",
+  "gk_main": "39c78ebaa9ee19587b0a8a72233d2b7586c17742",
+  "em_main": "bc570ffbe807936cf285d4d0584e5fb54c84bb9d",
+  "predecessor_commit": "7636b9f909cd8d3c6f0f0a997040a203e1f0f31e",
+  "scope": "static_signed_native_X6_BRC_ordered_suffix_linear_additive_Q",
+  "weights": {
+    "W0": [
+      2,
+      3,
+      3,
+      2,
+      1,
+      1
+    ],
+    "W1": [
+      3,
+      2,
+      3,
+      2,
+      1,
+      1
+    ],
+    "negative": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "suffix_ops": {
+    "a": [
+      -1,
+      -1
+    ],
+    "b": [
+      -2,
+      -2
+    ],
+    "c": [
+      1,
+      2,
+      -1,
+      -2
+    ],
+    "d": [
+      2,
+      1,
+      -2,
+      -1
+    ]
+  },
+  "mod_prime": 1000003,
+  "theorems": {
+    "rank_exact_h": "3*(5*h*h+13*h+4)/2 for every integer h>=1 in formal 9-DFA-by-X6-by-3-channel space",
+    "rank_cumulative_1_to_h": "3*(3*h*h+7*h+1) for every integer h>=1 in same formal space",
+    "rolling_one_step_kernel_condition": "ker(T_h) subset ker(T_h composed with U_s)"
+  },
+  "h_results": [
+    {
+      "h": 1,
+      "exact_h": 33,
+      "cumulative": 33
+    },
+    {
+      "h": 2,
+      "exact_h": 75,
+      "cumulative": 81
+    },
+    {
+      "h": 3,
+      "exact_h": 132,
+      "cumulative": 147
+    },
+    {
+      "h": 4,
+      "exact_h": 204,
+      "cumulative": 231
+    }
+  ],
+  "real_length_tests": [
+    {
+      "n": 8,
+      "S3_rank_exact_Q": 120,
+      "S_leq3_rank_exact_Q": 135,
+      "dp_peak_typed_states": 2850
+    },
+    {
+      "n": 10,
+      "S3_mod_certificate_rank": 132,
+      "S_leq3_mod_certificate_rank": 147,
+      "dp_peak_typed_states": 9483
+    },
+    {
+      "n": 12,
+      "S3_mod_certificate_rank": 132,
+      "S_leq3_mod_certificate_rank": 147,
+      "S_leq4_mod_certificate_rank": 231,
+      "dp_peak_typed_states": 25858
+    }
+  ],
+  "rolling_h3": {
+    "T3_rank": 147,
+    "single_followup_joint_ranks": {
+      "a": 195,
+      "b": 195,
+      "c": 159,
+      "d": 159
+    },
+    "all_four_followup_joint_rank": 231,
+    "minimum_extra_linear_coordinates_for_one_more_step": 84,
+    "counterexample": {
+      "p": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "r": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "common_T3_readout": "zero",
+      "after_append_a_observe_a3": {
+        "p": [
+          256,
+          6561,
+          1
+        ],
+        "r": [
+          0,
+          0,
+          0
+        ],
+        "label": "00"
+      }
+    }
+  },
+  "native_brc_checks": {
+    "n": [
+      8,
+      10,
+      12
+    ],
+    "suffix_count_each_for_S_leq3": 84,
+    "total_terminal_observations_per_n": 1008,
+    "n12_S_leq4_suffix_count": 340,
+    "all_native_weight_and_count_checks": "PASS",
+    "brc_source_git_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176"
+  },
+  "original_witness": {
+    "path": "WITNESS_EC49CJ.b64",
+    "git_blob_sha1": "01dbf2bbf0fe66d5faa037cc8dc0a832888ec6d0",
+    "transport": "single-line base64(zlib(JSON)); three sets of real ordered X6 signed paths and minor rows",
+    "recheck": "python RECHECK_EC49CJ.py"
+  },
+  "witness_minors_mod_1000003": {
+    "S3_n10": [
+      8211,
+      321558,
+      281678,
+      583107,
+      321558,
+      281678,
+      416896,
+      281678,
+      416896,
+      416896
+    ],
+    "S_leq3_n10": [
+      989463,
+      358577,
+      718325,
+      583107,
+      358577,
+      718325,
+      416896,
+      718325,
+      416896,
+      416896
+    ],
+    "S_leq4_n12": [
+      723369,
+      718325,
+      70658,
+      609760,
+      908736,
+      718325,
+      70658,
+      609760,
+      91267,
+      70658,
+      609760,
+      91267,
+      609760,
+      91267,
+      91267
+    ]
+  },
+  "validation": "exact integer and rational row reductions; modular nonzero minor certifies rational lower bounds; local Python 3 scripts executed; native endpoint checks executed",
+  "project_status": "AUTHOR_ANALYTIC_PROOF / EXACT_INTEGER_MODULAR_CERTIFICATE_PASS / PORTABLE_DRAFT / REGISTER_PENDING / UNREVIEWED / NOT_ADMITTED",
+  "next": "EC49CK: classify true-path rank saturation n_sat(h), h>=5, and one-step horizon rolling residual operator",
+  "notes": "No native claim, Result, independent Driver review, physics-time theorem or P000 mutation; no claim of actual runtime speedup."
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "EC49AX_EXECUTED_EXACT_FRACTION_REPORT_V1",
+  "date": "2026-10-30",
+  "command": "python3 VERIFY_EC49AX.py > EXACT_REPORT_EC49AX_GENERATED.json",
+  "run_status": "PASS",
+  "sha256_checker": "1d809ebb7d7294a017d1d23d546c57b56ed7d38a937dacdeda5a9d3382bd8fa4",
+  "sha256_generated_full_report": "a4d5e8b7e8c33e5db5076d3cf630856afee6f4570b84f3c4a13d4109d01df6ac",
+  "counts": {
+    "vertices": 168,
+    "edges": 924,
+    "infeasible": 720,
+    "four_corner_certified": 196,
+    "residual_analytic": 8
+  },
+  "exact_dual_prices": {
+    "0": 144,
+    "23/215": 34,
+    "521/6880": 18
+  },
+  "discriminant_ascending_coefficients": [
+    -991743,
+    3245760,
+    3509368,
+    -20409088,
+    17272336
+  ],
+  "Dprime_bernstein": [
+    "1114042825920/1092727",
+    "143012147248/159135",
+    "6056281192/7725",
+    "84826272/125"
+  ],
+  "root_bracket": [
+    "3942483/10000000",
+    "3942484/10000000"
+  ],
+  "strict_counterexample": {
+    "eta": "2/5",
+    "alpha": "46459/117120",
+    "beta": "13/48",
+    "H": "594127/5036160",
+    "gain": "19/58560",
+    "C1": "43/48",
+    "C2": "13/16"
+  },
+  "note": "Executed script deterministically prints every one of the 196 edge-specific support/price witnesses in full JSON; archive of unabridged full report and second checker is in attached local evidence ZIP. The published script contains the executable complete finite certificate; all-real inference is in PROOF_EC49AX.md.",
+  "project_admission": "UNREVIEWED_NOT_ADMITTED"
+}

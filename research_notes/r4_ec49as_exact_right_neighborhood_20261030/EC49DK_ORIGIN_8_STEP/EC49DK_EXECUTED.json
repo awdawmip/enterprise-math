@@ -1,0 +1,119 @@
+{
+  "status": "PASS",
+  "model": "native_six_signed_X6_positive_integer_BRC",
+  "parameters": {
+    "x": [
+      2,
+      3,
+      1,
+      2,
+      3,
+      4
+    ],
+    "y": [
+      5,
+      7,
+      3,
+      5,
+      7,
+      9
+    ],
+    "affine_relation": "y_i=2*x_i+1",
+    "h": 2,
+    "D": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "future_languages": {
+    "exact_2": [
+      "ae",
+      "cc",
+      "cd",
+      "dc",
+      "dd",
+      "ea"
+    ],
+    "cumulative_1_to_2": [
+      "c",
+      "d",
+      "ae",
+      "cc",
+      "cd",
+      "dc",
+      "dd",
+      "ea"
+    ]
+  },
+  "exhaustive_short_lengths": {
+    "0": {
+      "complete_native_words": 1,
+      "distinct_feature_rows": 1,
+      "exact_Q_rank_h2": 1,
+      "cumulative_Q_rank_h2": 1,
+      "odd_h_upper_feature_Q_rank": 1,
+      "native_return_mass": 1,
+      "BRC_x_return_mass": 1,
+      "BRC_y_return_mass": 1
+    },
+    "2": {
+      "complete_native_words": 12,
+      "distinct_feature_rows": 6,
+      "exact_Q_rank_h2": 4,
+      "cumulative_Q_rank_h2": 4,
+      "odd_h_upper_feature_Q_rank": 4,
+      "native_return_mass": 12,
+      "BRC_x_return_mass": 30,
+      "BRC_y_return_mass": 72
+    },
+    "4": {
+      "complete_native_words": 396,
+      "distinct_feature_rows": 22,
+      "exact_Q_rank_h2": 9,
+      "cumulative_Q_rank_h2": 9,
+      "odd_h_upper_feature_Q_rank": 9,
+      "native_return_mass": 396,
+      "BRC_x_return_mass": 2442,
+      "BRC_y_return_mass": 14124
+    },
+    "6": {
+      "complete_native_words": 19920,
+      "distinct_feature_rows": 58,
+      "exact_Q_rank_h2": 15,
+      "cumulative_Q_rank_h2": 15,
+      "odd_h_upper_feature_Q_rank": 13,
+      "native_return_mass": 19920,
+      "BRC_x_return_mass": 299700,
+      "BRC_y_return_mass": 4191840
+    }
+  },
+  "length_8_witness": {
+    "native_path_count": 18,
+    "coordinate_count_even": 18,
+    "odd_h3_path_count": 15,
+    "odd_h3_coordinate_count": 15,
+    "odd_h3_determinant": "-3902729412548618265600000000000000000000",
+    "odd_h3_mod": {
+      "1000003": 135289,
+      "1000033": 989163
+    },
+    "universal_parity_lift_checks_h2_to_h9": 8,
+    "analytic_conclusion": "origin fibre saturated at n=8 for exact h>=2 (18 even / 15 odd) and cumulative 1..h (18); not global all-fibre saturation",
+    "determinant": "-26018196083657455104000000000000000000",
+    "det_mod": {
+      "1000003": 914238,
+      "1000033": 266603
+    },
+    "Q_rank_exact": 18,
+    "Q_rank_cumulative": 18,
+    "aggregate_X6_native_mass": 1281420,
+    "aggregate_BRC_x": 46647930,
+    "aggregate_BRC_y": 1582111020
+  },
+  "witness_sha256": "a84aff76290c202c2a11b73e7e54070dd9cf913ebe568bf3b374d0f394758dfe",
+  "limitation": "Author-side exact finite observer result, not full all-fibre/all-h or Source-admitted theorem."
+}

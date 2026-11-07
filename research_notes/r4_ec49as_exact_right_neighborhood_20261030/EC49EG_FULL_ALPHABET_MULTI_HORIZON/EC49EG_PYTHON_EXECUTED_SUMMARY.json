@@ -1,0 +1,87 @@
+{
+  "unit": "EC49EG_FULL_A_TO_G",
+  "original_stdout_report_sha256": "636ea0ce37710dc3afd7631277a7519f30fb68097f22abb5cd1a8689682ccb85",
+  "original_python_sha256": "050d16090a0b79022a4990b4d84b4d75de1f970bde205dc0904ffdb7b2611ee9",
+  "status": "PASS",
+  "source": "Full original executed EC49EG_EXECUTED.json distilled without altering raw program or the evidence archive",
+  "historical_atom_count": 9,
+  "history_length": 10,
+  "history_displacement": [
+    -2,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "history_positive_counts": [
+    2,
+    2,
+    0,
+    0,
+    0,
+    0
+  ],
+  "complete_return_word_audits_h1_5": [
+    {
+      "h": 1,
+      "returning_word_count": 1,
+      "full_rank": 5,
+      "rank_without_first_plus_E1": 5,
+      "rank_without_first_plus_E2": 5,
+      "minimum_signed_primitive_length": 4
+    },
+    {
+      "h": 2,
+      "returning_word_count": 8,
+      "full_rank": 9,
+      "rank_without_first_plus_E1": 7,
+      "rank_without_first_plus_E2": 7,
+      "minimum_signed_primitive_length": 6
+    },
+    {
+      "h": 3,
+      "returning_word_count": 51,
+      "full_rank": 9,
+      "rank_without_first_plus_E1": 7,
+      "rank_without_first_plus_E2": 7,
+      "minimum_signed_primitive_length": 8
+    },
+    {
+      "h": 4,
+      "returning_word_count": 304,
+      "full_rank": 9,
+      "rank_without_first_plus_E1": 7,
+      "rank_without_first_plus_E2": 7,
+      "minimum_signed_primitive_length": 10
+    },
+    {
+      "h": 5,
+      "returning_word_count": 1770,
+      "full_rank": 9,
+      "rank_without_first_plus_E1": 7,
+      "rank_without_first_plus_E2": 7,
+      "minimum_signed_primitive_length": 12
+    }
+  ],
+  "uniform_witness_horizons": {
+    "min": 2,
+    "max": 25,
+    "all_minor": -1,
+    "all_rank": 9,
+    "all_cost": "4h+4",
+    "all_positive_vectors": "F=(h+1,0,1,0,0,0); G=(h,1,1,0,0,0)"
+  },
+  "multi_window_horizons": {
+    "min": 2,
+    "max": 25,
+    "all_cost": "4H+4",
+    "H25": 104
+  },
+  "rational_rank_certification": "mod 1000003, 9-row 0/1 Hadamard bound",
+  "theorem_scope": "all integer H>=2 via analytic proof; finite exact checks h<=25",
+  "science_pins": {
+    "global": "773d538180bfb49e24cffeb35c3ee75eb0628e2e",
+    "em": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab"
+  }
+}

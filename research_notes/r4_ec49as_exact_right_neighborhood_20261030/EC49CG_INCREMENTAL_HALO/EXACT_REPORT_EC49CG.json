@@ -1,0 +1,152 @@
+{
+  "schema": "EC49CG_EXACT_PUBLISHED_SUMMARY_V2",
+  "provenance": "Transcribed exact values from actual Python 3 VERIFY_EC49CG.py report; published compact summary, not byte-identical full local report",
+  "integer_format": "ALL integer output coordinates and native totals are decimal strings; no JavaScript floating-point integer roundoff",
+  "model": "12 signed X6 steps, exact DFA A/B, positive BRC W0,W1, count; K=C2xC2",
+  "frozen_global_main": "d171cc0e7df8db282f5eb9c40c67e55ce341488b",
+  "frozen_em_main": "7a46ed70b59ca823805468daab0122ac0b230a20",
+  "full_state_vs_orbit_equal_all_layers": [
+    0,
+    2,
+    4,
+    6
+  ],
+  "geometric_brute_orbit_checked": [
+    0,
+    2,
+    4
+  ],
+  "all_12_terminal_multi_vs_fixed_exact_equal": [
+    14,
+    16,
+    18
+  ],
+  "cases": [
+    {
+      "n": 14,
+      "orbit_peak_states": 12412,
+      "halo_checkpoint_states": 2737,
+      "halo_radius": 4,
+      "native_weight": "76914770549760",
+      "native_count": "748315668672",
+      "terminal": [
+        [
+          "59886346218912",
+          "59886346218912",
+          "625052522288"
+        ],
+        [
+          "7837131534624",
+          "7837131534624",
+          "57969584512"
+        ],
+        [
+          "7837131534624",
+          "7837131534624",
+          "57969584512"
+        ],
+        [
+          "1354161261600",
+          "1354161261600",
+          "7323977360"
+        ]
+      ]
+    },
+    {
+      "n": 16,
+      "orbit_peak_states": 26006,
+      "halo_checkpoint_states": 240,
+      "halo_radius": 2,
+      "native_weight": "14233765517623080",
+      "native_count": "72729762868620",
+      "terminal": [
+        [
+          "10676127030978600",
+          "10676127030978600",
+          "58995898477128"
+        ],
+        [
+          "1618043610607200",
+          "1618043610607200",
+          "6400618966602"
+        ],
+        [
+          "1618043610607200",
+          "1618043610607200",
+          "6400618966602"
+        ],
+        [
+          "321551265430080",
+          "321551265430080",
+          "932626458288"
+        ]
+      ]
+    },
+    {
+      "n": 18,
+      "orbit_peak_states": 50594,
+      "halo_checkpoint_states": 5,
+      "halo_radius": 0,
+      "native_weight": "2758828096749067200",
+      "native_count": "7402621930738320",
+      "terminal": [
+        [
+          "1994085103267072800",
+          "1994085103267072800",
+          "5832506928132600"
+        ],
+        [
+          "343757607902858880",
+          "343757607902858880",
+          "725146390466640"
+        ],
+        [
+          "343757607902858880",
+          "343757607902858880",
+          "725146390466640"
+        ],
+        [
+          "77227777676276640",
+          "77227777676276640",
+          "119822221672440"
+        ]
+      ]
+    }
+  ],
+  "displacement_counts": [
+    {
+      "n": 14,
+      "all": "528865",
+      "one_swap_fixed": "52879",
+      "both_fixed": "4369",
+      "orbit": "159748"
+    },
+    {
+      "n": 16,
+      "all": "1110049",
+      "one_swap_fixed": "97937",
+      "both_fixed": "7153",
+      "orbit": "328269"
+    },
+    {
+      "n": 18,
+      "all": "2149033",
+      "one_swap_fixed": "169651",
+      "both_fixed": "11101",
+      "orbit": "624859"
+    }
+  ],
+  "single_host_cold_process": {
+    "multi_wall_seconds": 7.97,
+    "multi_peak_rss_kib": 134980,
+    "three_fixed_wall_seconds": 12.17,
+    "three_fixed_peak_rss_kib": 134384
+  },
+  "native_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+  "limitations": [
+    "Finite empirical audit; full analytic statements separately proved in README",
+    "At n14 halo radius4 supports only future <=4, not arbitrary append",
+    "K orbit after fixed non-equivariant suffix must be lifted or subgroup reduced",
+    "Stochastic Markov lumpability does not prove native physical time"
+  ]
+}

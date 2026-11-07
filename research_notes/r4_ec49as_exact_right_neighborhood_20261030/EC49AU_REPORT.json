@@ -1,0 +1,50 @@
+{
+  "all_real_new_eta_interval": "9/25 <= eta <= 75/206",
+  "certificate_lambda": "11/172",
+  "classification": "AUTHOR_EXACT_FRACTION_CHECK_PASS_UNREVIEWED_NOT_ADMITTED",
+  "endpoint_certificates": [
+    {
+      "cut_max": "47891/412800",
+      "cut_ties": 8,
+      "eta": "9/25",
+      "high_max": "47723/412800",
+      "high_ties": 4,
+      "lambda_value": "11/172",
+      "max_dual": "47891/412800",
+      "witness": "47891/412800"
+    },
+    {
+      "cut_max": "98797/850368",
+      "cut_ties": 8,
+      "eta": "75/206",
+      "high_max": "98797/850368",
+      "high_ties": 4,
+      "lambda_value": "11/172",
+      "max_dual": "98797/850368",
+      "witness": "98797/850368"
+    }
+  ],
+  "eta_test": "11/30",
+  "fixed_price_sharp_failure": "For 75/206 < eta <= 11/30, every lambda>=0 yields U_lambda>legal witness line (not a true policy-transition claim)",
+  "minimax_dual": {
+    "cut_max": "209867/1802560",
+    "cut_ties": 8,
+    "eta": "11/30",
+    "high_max": "209867/1802560",
+    "high_ties": 4,
+    "lambda_value": "1473/22532",
+    "max_dual": "209867/1802560",
+    "witness": "14401/123840"
+  },
+  "minimax_gap": "71/506970",
+  "minimax_lambda": "1473/22532",
+  "model": "auxiliary positive 18+18-leaf causal BRC; C1=43/48, C2=13/16, k=177/172",
+  "new_optimum": "77/688+(674*eta-175)/16512",
+  "schema": "EC49AU_EXACT_SINGLE_PRICE_DUAL_V1",
+  "scope": "Exact Fraction tests; all-real coverage by convexity of fixed-lambda upper bound; scalar-price optimality via two supporting affine lower bounds",
+  "test_witness": "14401/123840",
+  "vertex_restricted_cut_best": "14401/123840",
+  "vertex_restricted_high_best": "162689/1444800",
+  "vertices_original_high": 24,
+  "vertices_paid_cut": 144
+}

@@ -1,0 +1,11 @@
+# EC49DU — joint grammar extensions and minimal residual memory
+
+Mother objective: smallest sufficient history of an original ordered signed native X6 path for the declared future BRC observers.
+
+Frozen scientific pins retained from EC49DS: GK main 773d538180bfb49e24cffeb35c3ee75eb0628e2e; EM main fc0f038e7bfd12c886b4d37f900bfb770c0f61ab. EC49DT proof/source/report are in the sibling directory; current normative sources remain separately current-read.
+
+EC49DT has proven exact six-feature factorization for the original returning operation grammar a/b/c/d/e for every h and any positive BRC x,y. With the single hypothetical added zero-displacement f=(+E1,-E1), one extra q coordinate is necessary and sufficient: seven-dimensional future transfer for every h>=2. At n=10,D=-2E1, the extended three-instrument full rank is 21 exactly when EC49DS's 11x3 multiplicative G_C has rank three; 77 native paths and a nonzero integer determinant certify it. An explicit pair of two-path positive populations agrees on original observers but is separated by extended fe.
+
+Next exact research: additionally introduce g=(+E2,-E2) (still only a diagnostic language extension), compute the observer automaton with both f,g, derive an algebraic minimal history feature basis, and test whether the expected extra cross-boundary split on A and B is independent on reachable fixed n,D populations. Establish the complete all-horizon transfer rank by finite operation grammar, not h-grid extrapolation. If the two-port extended observer reaches eight features, classify full 24-dimensional three-instrument rank at n=10 versus parameter G_C and find its first saturation length. Preserve each signed path and the distinction between observer language, native geometry, and any genuine Heartbeat update. Alternative independent open line: the defective equal-core affine-collinear G_C strata.
+
+Use the published EC49DT_EXECUTED.json 77-witness data and VERIFY_EC49DT.js as reusable exact tests. Status remains PORTABLE_DRAFT / UNREVIEWED / NOT_ADMITTED; native role/owner unavailable at last check.

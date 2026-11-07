@@ -1,0 +1,7 @@
+# EC49AZ sources and reproducibility
+- GLOBAL_KNOWLEDGE_V1 canonical main verified read: fa44cfc3c40e2c38f2c084397d0b257194f974f4; account bootstrap + manual; P000 startup projection canonical original blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc; ACTIVE `我眼中的世界.md`.
+- Enterprise Math canonical main scientific/current control read: aeba28cc77ccd95884bbe0dec1d0225732559d9d; project `AGENTS.md`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md`.
+- Exact predecessor author-side EC49AY Git SHA: d218e04af0c0e04f0b9a99f520ad53d11e1a5af1; source PROOF_EC49AY.md and sibling VERIFY_EC49AX.py, VERIFY_EC49AY.py. PR #1730; no source-native admission.
+- Current mathematical computation is exact in Q (Fraction) for polytope/dual, Q(sqrt(202)) for point optimum (SymPy 1.14.0). No float grid, physical claim, signed-BRC claim or independent originality determination.
+- Committed verification script git blob SHA: cd5712fa0d9c698ad9b39f1d59f05ee7c8af09a9; same hash as locally executed verified script. Executed local full JSON report SHA256: 9b417b82a010bc750aeee59d0966af0a0df4684658acfc846550d27b5bc13c64.
+- Precise previous theorem/lemma proof obligations: EC49AV sparse first-stage and purchase-fiber representative; EC49AW exact 924-edge geometry; EC49AX observation signatures and paid-mass ratio; EC49AY universal algebraic identity. All are author-side, pending independent review.

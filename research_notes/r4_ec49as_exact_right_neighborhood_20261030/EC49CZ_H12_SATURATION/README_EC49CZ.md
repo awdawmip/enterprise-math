@@ -1,0 +1,37 @@
+# EC49CZ — h=12 signed-X6 BRC saturation and an all-h positive-boundary theorem
+
+Date: 2026-11-01, Asia/Shanghai. Classification: AUTHOR_EXACT_FINITE_PROOF + ANALYTIC_BOUNDARY_LEMMA / PORTABLE_DRAFT / REGISTER_PENDING / UNREVIEWED / NOT_ADMITTED.
+
+## Fixed inputs and observer
+
+GLOBAL_KNOWLEDGE_V1 canonical main `2639f7f151f9a56762bb8adc2b49c77594370e18`; Enterprise Math canonical main `4d349d63a10612d9e196f49791bd5946c6dd9bba`; preceding author PR #1730 head `d4076e52015e267e665eb886166f885225f59375`. Read current bootstrap/manual, ACTIVE worldview, P000, native X6 and joint-observer constraints, portable research protocol. P000 and the protected worldview were not changed. This is the declared positive signed-X6 BRC finite-word observer, not a physical-time evolution claim.
+
+An input prefix is an ordered word of exactly n primitive ±E1,…,±E6 signed-X6 steps. Its six-coordinate endpoint is the signed sum, and its ordered adjacent labels are A=(+E1,+E2), B=(+E2,+E1). Their four occurrence tags use the *whole nine-state* deterministic substring automaton. Two strictly-positive BRC channels assign positive-step weights W0=(2,3,3,2,1,1), W1=(3,2,3,2,1,1); negative-step weights are 1, and a separate count channel has weight 1. A complete suffix is a word on a=(-1,-1), b=(-2,-2), c=(1,2,-1,-2), d=(2,1,-2,-1), e=(3,1,1,-3). At depth h, observe all four tags and all three exact additive channels for every allowed suffix with total native displacement returning to the chosen relative cell. The six-coordinate endpoint is retained, even though the five allowed suffixes only move in E1/E2. No final public Cell address is serialized from these signed displacements.
+
+## Result 1: finite h=12 saturation
+
+The exact rational upper bound from the full nine-state automaton is
+
+`dim O_(exactly 12) = 2658`; `dim O_(depth 1..12) = 2892`.
+
+There are 169 endpoint-displacement fibers, 25 boundary fibers with a four-dimensional DFA output-row span and 144 interior fibers with a six-dimensional span. Therefore `3*(25*4+144*6)=2892`. The exact-12 signature count is 788; the cumulative 1..12 signature count is 866. The raw exact-depth word population is `5^12=244140625`; signature deduplication retains BOTH the exact signed endpoint and the full nine-state transformation, and is exact for this declared observer only.
+
+A deterministic, self-contained Python verifier independently reconstructs 2892 *genuine ordered signed-X6 length-32* prefixes and the selected suffix/tag rows; it recomputes all six endpoints, each A/B ordered tag, and the exact two BRC integer products plus count, and computes 169 full-size integer minors modulo the prime 1000003. Every minor is nonzero (observed range 320..996371). Hence 2892 real columns are independent over Q. Coupled to the rational upper bound, full saturation holds at n=32. The inherited all-h **necessary lower bound** `n_sat(h)>=2h+8` for h>=4 (EC49CU; independent review remains pending) yields `n_sat(12)=32` in this observer category. Prepending the native neutral pair (+E3,-E3) multiplies both positive BRC weights by 3 without changing endpoint or A/B tags, so all even lengths >32 also saturate.
+
+Verbatim local check result:
+`{"fibers":169,"formal_cumulative":2892,"formal_exact":2658,"h":12,"max_mod_p":996371,"min_mod_p":320,"n":32,"nonzero_minors":169,"real_paths":2892,"signatures_cumulative":866,"signatures_exact":788,"status":"PASS"}`.
+Native signed-BRC crosscheck against the inherited native_signed_brc.py kernel additionally passed for all 1, 144 and 20736 literal signed paths of lengths 0, 2 and 4, respectively; those small checks do not substitute for the length-32 minors.
+
+## Result 2: explicit all-h positive-quadrant extreme-fiber theorem
+
+For **every h=u+v>=2 and positive integers u,v**, consider the target prefix endpoint `(2u,2v,0,0,0,0)`, matched by exactly h future operations. Any suffix returning from this endpoint has total E1+E2 displacement `-2h`. Each operation a/b lowers this sum by 2, c/d leave it fixed, and e raises it by 2; consequently the *only* allowable suffix words are permutations of exactly u occurrences of a and v of b. These contain no positive steps, change neither the A/B tags nor either BRC prefix weight, and require h operations. Thus the exact-depth AND cumulative-depth observer on this one fiber has dimension at most 4 tags × 3 channels = 12.
+
+To attain 12 at prefix length `n=2h+8`, construct for each of the four tag classes a 2h-step positive prefix containing exactly 2u E1 and 2v E2. For no tag: put a neutral E3 pair between the E1 and E2 runs; for B-only: E2-run then E1-run; for A-only: E1-run then E2-run; for both: `E1^(2u-1) E2^(2v-1) E1 E2`. Insert four neutral (+E3,-E3) pairs at tag-safe positions (the no-tag class uses one such pair to separate the runs). For each tag take three variants: (0) four E3 neutral pairs, (1) replace one with (+E1,-E1), (2) replace one with (+E2,-E2), at explicitly tag-safe positions given by `boundary_path` in the checker. Every path is length `2h+8`, has the same six-dimensional endpoint, and exactly its intended tag. Replacing one E3 pair with an E1 pair multiplies W0 by 2/3 and W1 by 1; replacing it with E2 multiplies W0 by 1 and W1 by 2/3. Therefore the 3×3 channel-value block for each tag has columns `(X,Y,1), (2X/3,Y,1), (X,2Y/3,1)`, whose determinant is `XY/9 != 0`. All four tag blocks are disjoint under the a/b suffix observer; the 12×12 block determinant is nonzero. This proves **the positive-quadrant extreme boundary fiber is saturated at length 2h+8 for every h>=2**, without enumerating h. It does **not** prove all fibers or general `n_sat(h)=2h+8`.
+
+At h=12 all eleven positive-quadrant boundary fibers were replaced by those exact constructions; each corresponding modular minor was 877049 modulo 1000003, independently checked. Remaining 158 fibers have genuine literal path witness certificates, using deterministic selected random-candidate indices and 28 recorded rare-tag paths. Random sampling only discovered candidates; proof uses nonzero fully checked integer minors.
+
+## Proof/evidence, execution and scope
+
+Files: `VERIFY_EC49CZ_STANDALONE.py` (pure Python 3 standard library, full exact rational rank calculation and literal-path modular determinant replay); `EC49CZ_REPLAY_CERT.json.xz.b64` (lossless 169-fiber certificate with deterministic seeds/indices and explicit rare paths); `NEXT_EC49DA.md` (next precise question). Execute `python3 VERIFY_EC49CZ_STANDALONE.py EC49CZ_REPLAY_CERT.json.xz.b64`. The compact certificate is sufficient to regenerate every path, not just store rank assertions. Modulo-p full-rank lower bound is valid over Q because the minors have integer entries and their determinant is not divisible by p. Finite code covers h=12; the positive-quadrant boundary proof has universal h>=2 quantifiers and is separate from finite enumeration.
+
+Remaining obligations: independent Driver review/admission; formal native research activity/CLAIM (owner read returned CONTROL_QUOTA and no current native writer identity was established); a genuine all-fiber uniform construction for h>=4; phase/signed-amplitude BRC transfer, 3D-slice and physical heartbeat relations are outside this positive-weight model. The original EC49CU lower bound is author-side and unreviewed. No Source-native Result, official checkpoint, Working Truth, P000 change or independent replication is claimed.

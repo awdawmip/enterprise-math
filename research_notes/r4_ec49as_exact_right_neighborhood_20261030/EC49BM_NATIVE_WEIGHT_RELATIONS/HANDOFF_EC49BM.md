@@ -1,0 +1,9 @@
+# EC49BM handoff and next research unit EC49BN
+
+2026-10-30. Portable author research, UNREVIEWED / NOT_ADMITTED. Prior EC49BK and EC49BL material is in the adjacent folders of Draft PR #1730. Fixed GLOBAL_KNOWLEDGE_V1 main@db4d8c81b273b670c9fc6ab09ce258aa9cdca611 and Enterprise Math main@483f2688c7accbb66f43f6042e11ea15be96c1d0; native signed_brc.py Git blob 300a96e3dc24bf6fff73743037a0347a8bc83176.
+
+Read PROOF_EC49BM.md, VERIFY_EC49BM.py and EXACT_REPORT_EC49BM.json in this folder. The proved author-side result is a full-S6, fixed-weight-instrument dichotomy: on any fixed (n,d) fiber, equal six inverse-pair products q_i imply zero added weighted loop-hist residual; two unequal q_i make all signed histogram counts future distinguishable. Witnesses of shortest length n=4 and exact class counts 144 versus 204 are provided.
+
+Next EC49BN: work with a proper H<S6 (e.g. subgroup preserving axis blocks) to produce and classify a genuine intermediate lattice 0<C<W, and independently investigate covariant weight-table transport, where the weight instrument follows axis labels. Prove scope-exact minimality and calculate the smallest typed native witness. Keep per-word chi_w distinct from the actual aggregate endpoint_weight, and do not infer real-time heartbeat dynamics from path inverse.
+
+Gateway status in this run: v0.6.11, research_authority_granted=false; active native jobs=5/5, control code review required. Formal current owner was not independently established and no native CLAIM/Result/Driver review was created; this Git PR is author-side material storage. All prior-contribution context is shared; no independent mathematical review is claimed.

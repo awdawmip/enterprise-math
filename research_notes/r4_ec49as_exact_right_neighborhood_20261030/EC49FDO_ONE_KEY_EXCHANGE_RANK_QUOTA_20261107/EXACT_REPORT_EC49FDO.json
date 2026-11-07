@@ -1,0 +1,314 @@
+{
+  "schema": "EC49FDO_ONE_KEY_EXCHANGE_EXACT_FINITE_AUDIT_V1",
+  "date": "2026-11-07",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "provenance": {
+    "source_pr_head_before_run": "7d57448f17ffd43fae6bf210d0d3faa8e9e88b2b",
+    "source": "EC49FDN README/EXACT_REPORT/REPLAY plus EC49FDL DFA, observer and signed primitives",
+    "global_main_observed": "9a241d7938989ac3795a64e53460dcd9b1365d7f",
+    "project_main_observed": "cb53f8b671f4b8ada7008aae235482a32ccd6f70"
+  },
+  "signature_screen": {
+    "keys_total": 158,
+    "keys_with_nonempty_window_language": 155,
+    "rank9_one_key_replacement_events_per_family": 502,
+    "all_families_events": 2008,
+    "last_key_rank9_candidates_per_family": 49,
+    "last_key_rank9_and_exact_five_keys_and_horizon_slot_candidates_per_family": 15,
+    "horizon_quotas_by_family": {
+      "1512": [
+        4,
+        2,
+        2,
+        2,
+        4,
+        2
+      ],
+      "1513": [
+        4,
+        2,
+        2,
+        2,
+        4,
+        2
+      ],
+      "2200": [
+        2,
+        4,
+        2,
+        2,
+        4,
+        2
+      ],
+      "2203": [
+        2,
+        4,
+        2,
+        2,
+        4,
+        2
+      ]
+    }
+  },
+  "exact_five_key_milp_probes": [
+    {
+      "case": "1512",
+      "replaced": [
+        5,
+        5,
+        1
+      ],
+      "added": [
+        5,
+        5,
+        1
+      ],
+      "candidate_words": 3744,
+      "trie_edges": 19962,
+      "integer_optimum": 94,
+      "dual_bound": 94,
+      "sol_status": "OPTIMAL",
+      "signed_X6_exact_rank_audit": "PASS",
+      "witness_words": 22,
+      "explicit_signed_native_word_witness": {
+        "2": [
+          "de",
+          "ed",
+          "ce",
+          "ec"
+        ],
+        "3": [
+          "feg",
+          "gef"
+        ],
+        "4": [
+          "cegf",
+          "ecgf",
+          "fegd",
+          "gefd"
+        ],
+        "5": [
+          "feggf",
+          "gefgf"
+        ],
+        "6": [
+          "feggfg",
+          "gefgfg"
+        ],
+        "7": [
+          "feggfgg",
+          "gefgfgg"
+        ],
+        "8": [
+          "feggfggc",
+          "feggfggd",
+          "gefgfggc",
+          "gefgfggd"
+        ],
+        "9": [
+          "feggfggfg",
+          "gefgfggfg"
+        ]
+      },
+      "word_selection_binary_variables": "y[h,word]",
+      "prefix_payment_binary_variables": "x[primitive_prefix_node]",
+      "exact_horizon_slot_counts": [
+        4,
+        2,
+        4,
+        2,
+        2,
+        2,
+        4,
+        2
+      ],
+      "objective_and_independent_direct_audit_match": true
+    },
+    {
+      "case": "1512",
+      "replaced": [
+        5,
+        5,
+        1
+      ],
+      "added": [
+        6,
+        4,
+        1
+      ],
+      "candidate_words": 4966,
+      "trie_edges": 26742,
+      "integer_optimum": 98,
+      "dual_bound": 98,
+      "sol_status": "OPTIMAL",
+      "signed_X6_exact_rank_audit": "PASS",
+      "witness_words": 22,
+      "explicit_signed_native_word_witness": {
+        "2": [
+          "de",
+          "ed",
+          "ce",
+          "ec"
+        ],
+        "3": [
+          "feg",
+          "gef"
+        ],
+        "4": [
+          "fegc",
+          "fegd",
+          "gefc",
+          "gefd"
+        ],
+        "5": [
+          "fegfg",
+          "gefgf"
+        ],
+        "6": [
+          "fegfgg",
+          "gefgfg"
+        ],
+        "7": [
+          "fegfggg",
+          "gefgfgg"
+        ],
+        "8": [
+          "fegfggfc",
+          "fegfggfd",
+          "gefgfgfc",
+          "gefgfgfd"
+        ],
+        "9": [
+          "fegfggffg",
+          "gefgfgfgf"
+        ]
+      },
+      "word_selection_binary_variables": "y[h,word]",
+      "prefix_payment_binary_variables": "x[primitive_prefix_node]",
+      "exact_horizon_slot_counts": [
+        4,
+        2,
+        4,
+        2,
+        2,
+        2,
+        4,
+        2
+      ],
+      "objective_and_independent_direct_audit_match": true
+    },
+    {
+      "case": "1512",
+      "replaced": [
+        5,
+        5,
+        1
+      ],
+      "added": [
+        4,
+        6,
+        1
+      ],
+      "candidate_words": 1762,
+      "trie_edges": 8116,
+      "integer_optimum": 106,
+      "dual_bound": 106,
+      "sol_status": "OPTIMAL",
+      "signed_X6_exact_rank_audit": "PASS",
+      "witness_words": 22,
+      "explicit_signed_native_word_witness": {
+        "2": [
+          "de",
+          "ed",
+          "ce",
+          "ec"
+        ],
+        "3": [
+          "feg",
+          "gef"
+        ],
+        "4": [
+          "cefg",
+          "ecfg",
+          "fegd",
+          "gefd"
+        ],
+        "5": [
+          "feggf",
+          "gefgf"
+        ],
+        "6": [
+          "feggfg",
+          "gefgfg"
+        ],
+        "7": [
+          "feggfgg",
+          "gefgfgg"
+        ],
+        "8": [
+          "fegggggc",
+          "fegggggd",
+          "gefggggc",
+          "gefggggd"
+        ],
+        "9": [
+          "fegggggfg",
+          "gefgggggf"
+        ]
+      },
+      "word_selection_binary_variables": "y[h,word]",
+      "prefix_payment_binary_variables": "x[primitive_prefix_node]",
+      "exact_horizon_slot_counts": [
+        4,
+        2,
+        4,
+        2,
+        2,
+        2,
+        4,
+        2
+      ],
+      "objective_and_independent_direct_audit_match": true
+    }
+  ],
+  "scope": "Seed H2/H3 fixed (de,ed,ce,ec; feg,gef); signed native-X6 ordered primitive prefixes, exact five full BRC keys, six frozen transfer signatures, rational rank 9 for every H2..H9; H4..H9 quota 4,2,2,2,4,2; three named MILPs only.",
+  "remaining": "The other one-key exchanges and changed H2/H3 seed remain open; parent <=93 five-key objective open.",
+  "additional_infeasible_exact_quota_probes": [
+    {
+      "case": "1512",
+      "replaced": [
+        5,
+        5,
+        1
+      ],
+      "added": [
+        6,
+        5,
+        1
+      ],
+      "candidates": 9956,
+      "trie_edges": 59542,
+      "status": "INFEASIBLE",
+      "highs_status": 2
+    },
+    {
+      "case": "1512",
+      "replaced": [
+        5,
+        5,
+        1
+      ],
+      "added": [
+        5,
+        7,
+        1
+      ],
+      "candidates": 4240,
+      "trie_edges": 29278,
+      "status": "INFEASIBLE",
+      "highs_status": 2
+    }
+  ],
+  "corrected_milp_semantics": "Selected observation words y are distinct from prefix closure x; y<=x_terminal. Signed native prefix pricing uses x; rank, exact window quotas and five-key occurrence are enforced on selected y.",
+  "checker_status": "Actual local corrected x/y HiGHS model executed and independently exact Fraction/signed primitive prefix audited; author-side only; PR replay code published for reproduction."
+}

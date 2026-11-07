@@ -1,0 +1,684 @@
+{
+  "status": "PASS",
+  "theorem": "min{E : H=8, M=4, S<=6}=90 for frozen exact native-X6 symbolic BRC model",
+  "model_pins": {
+    "global_knowledge": "773d538180bfb49e24cffeb35c3ee75eb0628e2e",
+    "enterprise_math": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab"
+  },
+  "frozen_source": "EC49EXI/EC49EXH at PR #1730 SHA 8c81ed682aa47a8714ed7ef5b6ad931f9f97e4a1",
+  "all_H8_M4_family_assignments": 55493,
+  "fourth_key_first_at_h8_previous_lower_bound_90": 28560,
+  "four_keys_by_h7": 26933,
+  "by_H5_exact_cost_and_last_3_terminal_bounds": 22804,
+  "by_H6_exact_cost_and_last_2_terminal_bounds": 3593,
+  "by_H7_exact_bounded_cost_and_last_terminal_bound": 528,
+  "by_final_H8_bounded_DP": 8,
+  "unresolved_assignments": 0,
+  "exact_primitive_witness_resource": {
+    "E": 90,
+    "M": 4,
+    "S": 6
+  },
+  "native_witness_verification": [
+    {
+      "h": 2,
+      "words": [
+        "ce",
+        "de",
+        "ec",
+        "ed"
+      ],
+      "key": [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "observation_rank": 9,
+      "signature_count": 4,
+      "cumulative_prefix_edges": 28
+    },
+    {
+      "h": 3,
+      "words": [
+        "feg",
+        "gef"
+      ],
+      "key": [
+        3,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "observation_rank": 9,
+      "signature_count": 2,
+      "cumulative_prefix_edges": 42
+    },
+    {
+      "h": 4,
+      "words": [
+        "fegd",
+        "gefd",
+        "gefc",
+        "fegc"
+      ],
+      "key": [
+        4,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "observation_rank": 9,
+      "signature_count": 4,
+      "cumulative_prefix_edges": 58
+    },
+    {
+      "h": 5,
+      "words": [
+        "fegfg",
+        "geffg"
+      ],
+      "key": [
+        4,
+        2,
+        1,
+        0,
+        0,
+        0
+      ],
+      "observation_rank": 9,
+      "signature_count": 2,
+      "cumulative_prefix_edges": 64
+    },
+    {
+      "h": 6,
+      "words": [
+        "geffgd",
+        "geffgc",
+        "fegfgd",
+        "fegfgc"
+      ],
+      "key": [
+        5,
+        3,
+        1,
+        0,
+        0,
+        0
+      ],
+      "observation_rank": 9,
+      "signature_count": 4,
+      "cumulative_prefix_edges": 80
+    },
+    {
+      "h": 7,
+      "words": [
+        "fegfgfg",
+        "geffgfg"
+      ],
+      "key": [
+        5,
+        3,
+        1,
+        0,
+        0,
+        0
+      ],
+      "observation_rank": 9,
+      "signature_count": 2,
+      "cumulative_prefix_edges": 86
+    },
+    {
+      "h": 8,
+      "words": [
+        "fegfgfgg",
+        "geffgfgg"
+      ],
+      "key": [
+        5,
+        4,
+        1,
+        0,
+        0,
+        0
+      ],
+      "observation_rank": 9,
+      "signature_count": 2,
+      "cumulative_prefix_edges": 90
+    }
+  ],
+  "last_eight_bounded_DP_cases": [
+    {
+      "case": 0,
+      "family": [
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            4,
+            3,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            4,
+            3,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            4,
+            5,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            4,
+            5,
+            1
+          ],
+          2
+        ]
+      ],
+      "trie_nodes": 4098,
+      "eligible_words": 754,
+      "colors": 20,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=90 nodes=4098 colors=20"
+    },
+    {
+      "case": 1,
+      "family": [
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            4,
+            3,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            4,
+            3,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            5,
+            4,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            5,
+            4,
+            1
+          ],
+          2
+        ]
+      ],
+      "trie_nodes": 7256,
+      "eligible_words": 1272,
+      "colors": 20,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=90 nodes=7256 colors=20"
+    },
+    {
+      "case": 2,
+      "family": [
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            4,
+            3,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            4,
+            3,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            6,
+            3,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            6,
+            3,
+            1
+          ],
+          2
+        ]
+      ],
+      "trie_nodes": 7256,
+      "eligible_words": 1272,
+      "colors": 20,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=90 nodes=7256 colors=20"
+    },
+    {
+      "case": 3,
+      "family": [
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            4,
+            1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            5,
+            2,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            5,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            5,
+            4,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            5,
+            4,
+            1
+          ],
+          2
+        ]
+      ],
+      "trie_nodes": 7256,
+      "eligible_words": 1272,
+      "colors": 20,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=90 nodes=7256 colors=20"
+    },
+    {
+      "case": 4,
+      "family": [
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            4,
+            1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            5,
+            2,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            5,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            6,
+            3,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            6,
+            3,
+            1
+          ],
+          2
+        ]
+      ],
+      "trie_nodes": 7256,
+      "eligible_words": 1272,
+      "colors": 20,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=90 nodes=7256 colors=20"
+    },
+    {
+      "case": 5,
+      "family": [
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            4,
+            1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            5,
+            2,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            5,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            7,
+            2,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            7,
+            2,
+            1
+          ],
+          2
+        ]
+      ],
+      "trie_nodes": 4098,
+      "eligible_words": 754,
+      "colors": 20,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=90 nodes=4098 colors=20"
+    },
+    {
+      "case": 6,
+      "family": [
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            4,
+            2,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            4,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            4,
+            3,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            5,
+            4,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            5,
+            4,
+            1
+          ],
+          2
+        ]
+      ],
+      "trie_nodes": 7256,
+      "eligible_words": 1215,
+      "colors": 20,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=90 nodes=7256 colors=20"
+    },
+    {
+      "case": 7,
+      "family": [
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            4,
+            2,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            4,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            5,
+            2,
+            1
+          ],
+          2
+        ],
+        [
+          [
+            6,
+            3,
+            1
+          ],
+          4
+        ],
+        [
+          [
+            6,
+            3,
+            1
+          ],
+          2
+        ]
+      ],
+      "trie_nodes": 7256,
+      "eligible_words": 1215,
+      "colors": 20,
+      "solver_stdout": "BOUND_PASS minimum_total_at_least=90 nodes=7256 colors=20"
+    }
+  ],
+  "stage_data_sources": [
+    "EC49EXJ_H5_EXECUTED.json",
+    "EC49EXJ_H6_EXECUTED.json",
+    "EC49EXJ_H7_EXECUTED.json"
+  ],
+  "limitations": "Author-side finite exhaustive proof; not a native TASK result or independent Driver review."
+}

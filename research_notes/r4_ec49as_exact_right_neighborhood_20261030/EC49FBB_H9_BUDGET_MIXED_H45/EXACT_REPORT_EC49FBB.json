@@ -1,0 +1,947 @@
+{
+  "schema": "EC49FBB_FIXED_H23_MIXED_H45_H9_KEY_BUDGET_V1",
+  "model": "signed native X6, positive-step six-component complete cache keys, endpoint (+2,0,0,0,0,0), nine-state observer, six allowed signatures, rational rank9",
+  "scientific_input_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "ops": {
+    "a": [
+      -1,
+      -1
+    ],
+    "c": [
+      1,
+      2,
+      -1,
+      -2
+    ],
+    "d": [
+      2,
+      1,
+      -2,
+      -1
+    ],
+    "e": [
+      3,
+      1,
+      1,
+      -3
+    ],
+    "f": [
+      1,
+      -1
+    ],
+    "g": [
+      2,
+      -2
+    ]
+  },
+  "T": [
+    [
+      1,
+      2,
+      3,
+      1,
+      4,
+      5
+    ],
+    [
+      1,
+      6,
+      7,
+      1,
+      1,
+      1
+    ],
+    [
+      2,
+      2,
+      8,
+      2,
+      2,
+      2
+    ],
+    [
+      3,
+      8,
+      3,
+      3,
+      3,
+      3
+    ],
+    [
+      4,
+      2,
+      7,
+      4,
+      4,
+      4
+    ],
+    [
+      5,
+      6,
+      3,
+      5,
+      5,
+      5
+    ],
+    [
+      6,
+      6,
+      8,
+      6,
+      6,
+      6
+    ],
+    [
+      7,
+      8,
+      7,
+      7,
+      7,
+      7
+    ],
+    [
+      8,
+      8,
+      8,
+      8,
+      8,
+      8
+    ]
+  ],
+  "S": [
+    0,
+    0,
+    4,
+    1,
+    16,
+    32,
+    8,
+    2,
+    0
+  ],
+  "alphabet": "acdefg",
+  "early_words": [
+    "fe",
+    "ge",
+    "feg",
+    "gef"
+  ],
+  "legal_counts": {
+    "H4": 206,
+    "H5": 1062
+  },
+  "early_keys": [
+    "3,0,1,0,0,0",
+    "2,1,1,0,0,0",
+    "3,1,1,0,0,0"
+  ],
+  "early_usable_new_keys": [
+    "2,3,1,0,0,0",
+    "2,4,1,0,0,0",
+    "3,2,1,0,0,0",
+    "3,3,1,0,0,0",
+    "3,4,1,0,0,0",
+    "4,1,1,0,0,0",
+    "4,1,2,0,0,0",
+    "4,2,1,0,0,0",
+    "4,2,2,0,0,0",
+    "4,3,1,0,0,0",
+    "4,4,1,0,0,0",
+    "5,0,1,0,0,0",
+    "5,0,2,0,0,0",
+    "5,1,1,0,0,0",
+    "5,1,2,0,0,0",
+    "5,2,1,0,0,0",
+    "5,2,2,0,0,0",
+    "5,3,1,0,0,0",
+    "5,4,1,0,0,0",
+    "6,0,1,0,0,0",
+    "6,0,2,0,0,0",
+    "6,1,1,0,0,0",
+    "6,1,2,0,0,0",
+    "6,2,1,0,0,0",
+    "6,2,2,0,0,0",
+    "6,3,1,0,0,0",
+    "6,4,1,0,0,0"
+  ],
+  "H9_key_reusable_during_H45": [
+    "6,4,1,0,0,0"
+  ],
+  "one_new": {
+    "tested": 27,
+    "feasible": 7,
+    "minimum": 38,
+    "optima": [
+      {
+        "new_key": "4,2,1,0,0,0",
+        "best": {
+          "cost": 38,
+          "mask4": 15,
+          "mask5": 48,
+          "H4": [
+            "fegc",
+            "fegd",
+            "gefc",
+            "gefd"
+          ],
+          "H5": [
+            "feggf",
+            "gefgf"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "4,2,1,0,0,0"
+          ]
+        },
+        "nodes": 467,
+        "rootStates": 64,
+        "joins": 2034
+      }
+    ],
+    "rows": [
+      {
+        "new_key": "2,3,1,0,0,0",
+        "best": null,
+        "nodes": 25,
+        "rootStates": 2,
+        "joins": 52
+      },
+      {
+        "new_key": "2,4,1,0,0,0",
+        "best": null,
+        "nodes": 37,
+        "rootStates": 2,
+        "joins": 78
+      },
+      {
+        "new_key": "3,2,1,0,0,0",
+        "best": null,
+        "nodes": 67,
+        "rootStates": 4,
+        "joins": 148
+      },
+      {
+        "new_key": "3,3,1,0,0,0",
+        "best": {
+          "cost": 56,
+          "mask4": 15,
+          "mask5": 48,
+          "H4": [
+            "cgge",
+            "eggc",
+            "eggd",
+            "gegd"
+          ],
+          "H5": [
+            "feggg",
+            "geggf"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "3,3,1,0,0,0"
+          ]
+        },
+        "nodes": 283,
+        "rootStates": 64,
+        "joins": 1112
+      },
+      {
+        "new_key": "3,4,1,0,0,0",
+        "best": null,
+        "nodes": 322,
+        "rootStates": 16,
+        "joins": 880
+      },
+      {
+        "new_key": "4,1,1,0,0,0",
+        "best": null,
+        "nodes": 67,
+        "rootStates": 4,
+        "joins": 148
+      },
+      {
+        "new_key": "4,1,2,0,0,0",
+        "best": null,
+        "nodes": 29,
+        "rootStates": 2,
+        "joins": 60
+      },
+      {
+        "new_key": "4,2,1,0,0,0",
+        "best": {
+          "cost": 38,
+          "mask4": 15,
+          "mask5": 48,
+          "H4": [
+            "fegc",
+            "fegd",
+            "gefc",
+            "gefd"
+          ],
+          "H5": [
+            "feggf",
+            "gefgf"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "4,2,1,0,0,0"
+          ]
+        },
+        "nodes": 467,
+        "rootStates": 64,
+        "joins": 2034
+      },
+      {
+        "new_key": "4,2,2,0,0,0",
+        "best": null,
+        "nodes": 103,
+        "rootStates": 2,
+        "joins": 226
+      },
+      {
+        "new_key": "4,3,1,0,0,0",
+        "best": {
+          "cost": 70,
+          "mask4": 15,
+          "mask5": 15,
+          "H4": [
+            "cgec",
+            "egdd",
+            "gecc",
+            "gedd"
+          ],
+          "H5": [
+            "cgefg",
+            "egdgf",
+            "gecfg",
+            "gedgf"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "4,3,1,0,0,0"
+          ]
+        },
+        "nodes": 964,
+        "rootStates": 256,
+        "joins": 5862
+      },
+      {
+        "new_key": "4,4,1,0,0,0",
+        "best": null,
+        "nodes": 535,
+        "rootStates": 16,
+        "joins": 1296
+      },
+      {
+        "new_key": "5,0,1,0,0,0",
+        "best": null,
+        "nodes": 25,
+        "rootStates": 2,
+        "joins": 52
+      },
+      {
+        "new_key": "5,0,2,0,0,0",
+        "best": null,
+        "nodes": 29,
+        "rootStates": 2,
+        "joins": 60
+      },
+      {
+        "new_key": "5,1,1,0,0,0",
+        "best": {
+          "cost": 56,
+          "mask4": 15,
+          "mask5": 48,
+          "H4": [
+            "dffe",
+            "effc",
+            "effd",
+            "fefc"
+          ],
+          "H5": [
+            "feffg",
+            "gefff"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "5,1,1,0,0,0"
+          ]
+        },
+        "nodes": 283,
+        "rootStates": 64,
+        "joins": 1128
+      },
+      {
+        "new_key": "5,1,2,0,0,0",
+        "best": {
+          "cost": 72,
+          "mask4": 15,
+          "mask5": 48,
+          "H4": [
+            "ceea",
+            "deea",
+            "eeac",
+            "eead"
+          ],
+          "H5": [
+            "fegea",
+            "gefea"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "5,1,2,0,0,0"
+          ]
+        },
+        "nodes": 413,
+        "rootStates": 64,
+        "joins": 1348
+      },
+      {
+        "new_key": "5,2,1,0,0,0",
+        "best": {
+          "cost": 70,
+          "mask4": 15,
+          "mask5": 15,
+          "H4": [
+            "dfed",
+            "efcc",
+            "fecc",
+            "fedd"
+          ],
+          "H5": [
+            "dfegf",
+            "efcfg",
+            "fecfg",
+            "fedgf"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "5,2,1,0,0,0"
+          ]
+        },
+        "nodes": 964,
+        "rootStates": 256,
+        "joins": 5892
+      },
+      {
+        "new_key": "5,2,2,0,0,0",
+        "best": null,
+        "nodes": 972,
+        "rootStates": 16,
+        "joins": 2724
+      },
+      {
+        "new_key": "5,3,1,0,0,0",
+        "best": {
+          "cost": 86,
+          "mask4": 15,
+          "mask5": 15,
+          "H4": [
+            "cecc",
+            "dedd",
+            "eccc",
+            "eddd"
+          ],
+          "H5": [
+            "cecfg",
+            "dedgf",
+            "eccfg",
+            "eddgf"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "5,3,1,0,0,0"
+          ]
+        },
+        "nodes": 1041,
+        "rootStates": 256,
+        "joins": 3942
+      },
+      {
+        "new_key": "5,4,1,0,0,0",
+        "best": null,
+        "nodes": 428,
+        "rootStates": 16,
+        "joins": 1000
+      },
+      {
+        "new_key": "6,0,1,0,0,0",
+        "best": null,
+        "nodes": 37,
+        "rootStates": 2,
+        "joins": 78
+      },
+      {
+        "new_key": "6,0,2,0,0,0",
+        "best": null,
+        "nodes": 103,
+        "rootStates": 2,
+        "joins": 226
+      },
+      {
+        "new_key": "6,1,1,0,0,0",
+        "best": null,
+        "nodes": 322,
+        "rootStates": 16,
+        "joins": 898
+      },
+      {
+        "new_key": "6,1,2,0,0,0",
+        "best": null,
+        "nodes": 972,
+        "rootStates": 16,
+        "joins": 2728
+      },
+      {
+        "new_key": "6,2,1,0,0,0",
+        "best": null,
+        "nodes": 535,
+        "rootStates": 16,
+        "joins": 1306
+      },
+      {
+        "new_key": "6,2,2,0,0,0",
+        "best": null,
+        "nodes": 611,
+        "rootStates": 16,
+        "joins": 1520
+      },
+      {
+        "new_key": "6,3,1,0,0,0",
+        "best": null,
+        "nodes": 428,
+        "rootStates": 16,
+        "joins": 1004
+      },
+      {
+        "new_key": "6,4,1,0,0,0",
+        "best": null,
+        "nodes": 149,
+        "rootStates": 16,
+        "joins": 332
+      }
+    ]
+  },
+  "two_new_with_H9_key": {
+    "tested": 26,
+    "feasible": 9,
+    "minimum": 38,
+    "optima": [
+      {
+        "new_key": "4,2,1,0,0,0",
+        "best": {
+          "cost": 38,
+          "mask4": 15,
+          "mask5": 48,
+          "H4": [
+            "fegc",
+            "fegd",
+            "gefc",
+            "gefd"
+          ],
+          "H5": [
+            "feggf",
+            "gefgf"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "4,2,1,0,0,0"
+          ]
+        },
+        "nodes": 581,
+        "rootStates": 1024,
+        "joins": 6550
+      }
+    ],
+    "rows": [
+      {
+        "new_key": "2,3,1,0,0,0",
+        "best": null,
+        "nodes": 172,
+        "rootStates": 32,
+        "joins": 406
+      },
+      {
+        "new_key": "2,4,1,0,0,0",
+        "best": null,
+        "nodes": 184,
+        "rootStates": 32,
+        "joins": 430
+      },
+      {
+        "new_key": "3,2,1,0,0,0",
+        "best": {
+          "cost": 94,
+          "mask4": 48,
+          "mask5": 15,
+          "H4": [
+            "fegg",
+            "gefg"
+          ],
+          "H5": [
+            "ceccc",
+            "deddd",
+            "ecccc",
+            "edddd"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "3,2,1,0,0,0",
+            "6,4,1,0,0,0"
+          ]
+        },
+        "nodes": 213,
+        "rootStates": 64,
+        "joins": 540
+      },
+      {
+        "new_key": "3,3,1,0,0,0",
+        "best": {
+          "cost": 56,
+          "mask4": 15,
+          "mask5": 48,
+          "H4": [
+            "cgge",
+            "eggc",
+            "eggd",
+            "gegd"
+          ],
+          "H5": [
+            "feggg",
+            "geggf"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "3,3,1,0,0,0"
+          ]
+        },
+        "nodes": 400,
+        "rootStates": 1024,
+        "joins": 3540
+      },
+      {
+        "new_key": "3,4,1,0,0,0",
+        "best": null,
+        "nodes": 439,
+        "rootStates": 16,
+        "joins": 1134
+      },
+      {
+        "new_key": "4,1,1,0,0,0",
+        "best": {
+          "cost": 94,
+          "mask4": 48,
+          "mask5": 15,
+          "H4": [
+            "fegf",
+            "geff"
+          ],
+          "H5": [
+            "ceccc",
+            "deddd",
+            "ecccc",
+            "edddd"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "4,1,1,0,0,0",
+            "6,4,1,0,0,0"
+          ]
+        },
+        "nodes": 213,
+        "rootStates": 64,
+        "joins": 540
+      },
+      {
+        "new_key": "4,1,2,0,0,0",
+        "best": null,
+        "nodes": 176,
+        "rootStates": 32,
+        "joins": 414
+      },
+      {
+        "new_key": "4,2,1,0,0,0",
+        "best": {
+          "cost": 38,
+          "mask4": 15,
+          "mask5": 48,
+          "H4": [
+            "fegc",
+            "fegd",
+            "gefc",
+            "gefd"
+          ],
+          "H5": [
+            "feggf",
+            "gefgf"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "4,2,1,0,0,0"
+          ]
+        },
+        "nodes": 581,
+        "rootStates": 1024,
+        "joins": 6550
+      },
+      {
+        "new_key": "4,2,2,0,0,0",
+        "best": null,
+        "nodes": 250,
+        "rootStates": 32,
+        "joins": 578
+      },
+      {
+        "new_key": "4,3,1,0,0,0",
+        "best": {
+          "cost": 70,
+          "mask4": 15,
+          "mask5": 15,
+          "H4": [
+            "cgec",
+            "egdd",
+            "gecc",
+            "gedd"
+          ],
+          "H5": [
+            "cgefg",
+            "egdgf",
+            "gecfg",
+            "gedgf"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "4,3,1,0,0,0"
+          ]
+        },
+        "nodes": 1048,
+        "rootStates": 256,
+        "joins": 6164
+      },
+      {
+        "new_key": "4,4,1,0,0,0",
+        "best": null,
+        "nodes": 619,
+        "rootStates": 16,
+        "joins": 1484
+      },
+      {
+        "new_key": "5,0,1,0,0,0",
+        "best": null,
+        "nodes": 172,
+        "rootStates": 32,
+        "joins": 406
+      },
+      {
+        "new_key": "5,0,2,0,0,0",
+        "best": null,
+        "nodes": 176,
+        "rootStates": 32,
+        "joins": 414
+      },
+      {
+        "new_key": "5,1,1,0,0,0",
+        "best": {
+          "cost": 56,
+          "mask4": 15,
+          "mask5": 48,
+          "H4": [
+            "dffe",
+            "effc",
+            "effd",
+            "fefc"
+          ],
+          "H5": [
+            "feffg",
+            "gefff"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "5,1,1,0,0,0"
+          ]
+        },
+        "nodes": 400,
+        "rootStates": 1024,
+        "joins": 3562
+      },
+      {
+        "new_key": "5,1,2,0,0,0",
+        "best": {
+          "cost": 72,
+          "mask4": 15,
+          "mask5": 48,
+          "H4": [
+            "ceea",
+            "deea",
+            "eeac",
+            "eead"
+          ],
+          "H5": [
+            "fegea",
+            "gefea"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "5,1,2,0,0,0"
+          ]
+        },
+        "nodes": 533,
+        "rootStates": 1024,
+        "joins": 5832
+      },
+      {
+        "new_key": "5,2,1,0,0,0",
+        "best": {
+          "cost": 70,
+          "mask4": 15,
+          "mask5": 15,
+          "H4": [
+            "dfed",
+            "efcc",
+            "fecc",
+            "fedd"
+          ],
+          "H5": [
+            "dfegf",
+            "efcfg",
+            "fecfg",
+            "fedgf"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "5,2,1,0,0,0"
+          ]
+        },
+        "nodes": 1048,
+        "rootStates": 256,
+        "joins": 6194
+      },
+      {
+        "new_key": "5,2,2,0,0,0",
+        "best": null,
+        "nodes": 1089,
+        "rootStates": 16,
+        "joins": 2978
+      },
+      {
+        "new_key": "5,3,1,0,0,0",
+        "best": {
+          "cost": 86,
+          "mask4": 15,
+          "mask5": 15,
+          "H4": [
+            "cecc",
+            "dedd",
+            "eccc",
+            "eddd"
+          ],
+          "H5": [
+            "cecfg",
+            "dedgf",
+            "eccfg",
+            "eddgf"
+          ],
+          "usedKeys": [
+            "2,1,1,0,0,0",
+            "3,0,1,0,0,0",
+            "3,1,1,0,0,0",
+            "5,3,1,0,0,0"
+          ]
+        },
+        "nodes": 1089,
+        "rootStates": 256,
+        "joins": 4162
+      },
+      {
+        "new_key": "5,4,1,0,0,0",
+        "best": null,
+        "nodes": 471,
+        "rootStates": 16,
+        "joins": 1106
+      },
+      {
+        "new_key": "6,0,1,0,0,0",
+        "best": null,
+        "nodes": 184,
+        "rootStates": 32,
+        "joins": 432
+      },
+      {
+        "new_key": "6,0,2,0,0,0",
+        "best": null,
+        "nodes": 250,
+        "rootStates": 32,
+        "joins": 580
+      },
+      {
+        "new_key": "6,1,1,0,0,0",
+        "best": null,
+        "nodes": 439,
+        "rootStates": 16,
+        "joins": 1152
+      },
+      {
+        "new_key": "6,1,2,0,0,0",
+        "best": null,
+        "nodes": 1089,
+        "rootStates": 16,
+        "joins": 2982
+      },
+      {
+        "new_key": "6,2,1,0,0,0",
+        "best": null,
+        "nodes": 619,
+        "rootStates": 16,
+        "joins": 1494
+      },
+      {
+        "new_key": "6,2,2,0,0,0",
+        "best": null,
+        "nodes": 699,
+        "rootStates": 16,
+        "joins": 1716
+      },
+      {
+        "new_key": "6,3,1,0,0,0",
+        "best": null,
+        "nodes": 471,
+        "rootStates": 16,
+        "joins": 1110
+      }
+    ]
+  }
+}

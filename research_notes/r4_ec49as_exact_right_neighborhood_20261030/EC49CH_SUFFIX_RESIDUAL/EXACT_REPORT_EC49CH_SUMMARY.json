@@ -1,0 +1,118 @@
+{
+  "schema": "EC49CH_REMOTE_VERIFIED_EXECUTION_SUMMARY_V1",
+  "date": "2026-10-31",
+  "provenance": "Transcribed numerical fields from locally executed VERIFY_EC49CH.py/VERIFY_EC49CH_SPAN.py logs and verified literal certificate; this is a compact summary, not a byte-identical full JSON report.",
+  "frozen_global_main": "dcf0d53b5d5a749b42de27537f733acd7f201b84",
+  "frozen_em_main": "cb59f2d182fa47f65cbb1e9de7e9c89b01239c48",
+  "parent_author_immutable": "bd5a13481740fcfd1ad793dce26b73e722030462",
+  "native_brc_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+  "model": "signed X6 12-letter ordered paths, exact positive BRC W0,W1 and count; nine-state A/B DFA; four one-shot suffixes",
+  "exact_verification_lengths": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14
+  ],
+  "independent_full_unpruned_lengths": [
+    0,
+    2,
+    4,
+    6
+  ],
+  "rank_on_actual_path_population": [
+    {
+      "n": 0,
+      "rank": 1
+    },
+    {
+      "n": 2,
+      "rank": 7
+    },
+    {
+      "n": 4,
+      "rank": 21
+    },
+    {
+      "n": 6,
+      "rank": 33
+    },
+    {
+      "n": 8,
+      "rank": 33
+    }
+  ],
+  "nonzero_integer_minor": {
+    "paths": 33,
+    "path_length": 6,
+    "selected_rows": 33,
+    "mod_prime": 1000003,
+    "det_mod_prime": 91267,
+    "remote_certificate": "CERTIFICATE_EC49CH.json",
+    "independent_checker": "VERIFY_EC49CH_STANDALONE.py"
+  },
+  "terminal_typed_states": [
+    {
+      "n": 4,
+      "halo": 1874,
+      "op_specific": 23,
+      "peak_halo": 1874,
+      "peak_op_specific": 94
+    },
+    {
+      "n": 6,
+      "halo": 5066,
+      "op_specific": 24,
+      "peak_halo": 5932,
+      "peak_op_specific": 633
+    },
+    {
+      "n": 8,
+      "halo": 7379,
+      "op_specific": 24,
+      "peak_halo": 16022,
+      "peak_op_specific": 2850
+    },
+    {
+      "n": 10,
+      "halo": 7880,
+      "op_specific": 24,
+      "peak_halo": 38232,
+      "peak_op_specific": 9483
+    },
+    {
+      "n": 12,
+      "halo": 7880,
+      "op_specific": 24,
+      "peak_halo": 82634,
+      "peak_op_specific": 25844
+    },
+    {
+      "n": 14,
+      "halo": 7880,
+      "op_specific": 24,
+      "peak_halo": 164804,
+      "peak_op_specific": 61053
+    }
+  ],
+  "native_n14_suffix_B": {
+    "W0": "461488623298560",
+    "W1": "461488623298560",
+    "count": "748315668672"
+  },
+  "max_halo_radius": 4,
+  "halo_displacement_slots_even": 985,
+  "operation_specific_displacement_slots": 3,
+  "measured_single_process_seconds_n14": {
+    "operation_specific": 2.71,
+    "halo": 9.75,
+    "benchmark_type": "approximate single-process internal timing, not complexity theorem"
+  },
+  "local_raw_evidence_archive_sha256": "df8747af2db92ca1f2ae25539661a41d3e972afaea7c60f177718a296437617f",
+  "full_original_archive_uploaded_to_this_git_commit": false,
+  "permissions": "portable author-side only; native research_authority_granted=false, owner lookup CONTROL_QUOTA; no CLAIM/Result/review/admission",
+  "next": "EC49CI: S^2 future operation language and minimal update-sufficient residual"
+}

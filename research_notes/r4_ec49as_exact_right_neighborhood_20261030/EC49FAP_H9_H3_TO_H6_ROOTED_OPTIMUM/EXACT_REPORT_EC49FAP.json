@@ -1,0 +1,420 @@
+{
+  "status": "PASS_AUTHOR_SIDE_EXECUTED_EXACT_INTEGER",
+  "run_date": "2026-11-04",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent": "EC49FAO@d032ffb7a4dfc88f5ef5746cb47e38449654d71a",
+  "domain": "Four fixed H2-H7 schedules; H8,H9 independently rooted at H3/H4/H5/H6; exact full X6 cache key and nine-start rational-rank-9",
+  "zero_net_suffix_counts": {
+    "1": 4,
+    "2": 18,
+    "3": 88,
+    "4": 454,
+    "5": 2424,
+    "6": 13236
+  },
+  "keys_first_three": [
+    [
+      4,
+      6,
+      1
+    ],
+    [
+      5,
+      5,
+      1
+    ],
+    [
+      5,
+      6,
+      1
+    ],
+    [
+      6,
+      4,
+      1
+    ],
+    [
+      6,
+      4,
+      2
+    ],
+    [
+      6,
+      5,
+      1
+    ],
+    [
+      6,
+      6,
+      1
+    ],
+    [
+      7,
+      3,
+      1
+    ],
+    [
+      7,
+      3,
+      2
+    ],
+    [
+      7,
+      4,
+      1
+    ],
+    [
+      7,
+      4,
+      2
+    ],
+    [
+      7,
+      5,
+      1
+    ],
+    [
+      7,
+      6,
+      1
+    ],
+    [
+      8,
+      2,
+      1
+    ],
+    [
+      8,
+      2,
+      2
+    ],
+    [
+      8,
+      2,
+      3
+    ],
+    [
+      8,
+      3,
+      1
+    ],
+    [
+      8,
+      3,
+      2
+    ],
+    [
+      8,
+      4,
+      1
+    ],
+    [
+      8,
+      4,
+      2
+    ],
+    [
+      8,
+      5,
+      1
+    ],
+    [
+      8,
+      6,
+      1
+    ]
+  ],
+  "common_last_three": [
+    0,
+    0,
+    0
+  ],
+  "d9_optimistic_by_key": [
+    6,
+    6,
+    12,
+    6,
+    6,
+    12,
+    12,
+    6,
+    6,
+    12,
+    12,
+    12,
+    12,
+    6,
+    6,
+    6,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12
+  ],
+  "verification": {
+    "code": "VERIFY_EC49FAP.py (repository mechanically extended from EC49FAO verifier); local independently implemented integer verifier executed",
+    "crosscheck": "Python Fraction ranks for 256 case/mask checks; vector DP independent suffix count 13236; 4 explicit 94-edge witnesses",
+    "method": "signed-X6 trie DP + GF(1000003), det bound 3^9<1000003",
+    "kind": "author-side mathematical certificate; native Driver review pending"
+  },
+  "cases": [
+    {
+      "source_case": 1512,
+      "h8_rank9_keys": 34,
+      "h9_rank9_keys": 50,
+      "old_key_rank9_h8": 0,
+      "old_key_rank9_h9": 0,
+      "common_new_keys": 22,
+      "d8_by_key": [
+        32,
+        16,
+        40,
+        20,
+        36,
+        30,
+        48,
+        24,
+        28,
+        36,
+        48,
+        46,
+        56,
+        28,
+        32,
+        40,
+        40,
+        44,
+        48,
+        56,
+        56,
+        64
+      ],
+      "certified_lb_by_key": [
+        110,
+        94,
+        124,
+        98,
+        114,
+        114,
+        132,
+        102,
+        106,
+        120,
+        132,
+        130,
+        140,
+        106,
+        110,
+        118,
+        124,
+        128,
+        132,
+        140,
+        140,
+        148
+      ],
+      "minimum_certified_lb": 94,
+      "winning_key_first_three": [
+        5,
+        5,
+        1
+      ],
+      "classes_below_94": 0,
+      "witness_native_edges": 94
+    },
+    {
+      "source_case": 1513,
+      "h8_rank9_keys": 34,
+      "h9_rank9_keys": 50,
+      "old_key_rank9_h8": 0,
+      "old_key_rank9_h9": 0,
+      "common_new_keys": 22,
+      "d8_by_key": [
+        32,
+        24,
+        40,
+        20,
+        36,
+        36,
+        48,
+        16,
+        28,
+        30,
+        48,
+        46,
+        56,
+        28,
+        32,
+        40,
+        40,
+        44,
+        48,
+        56,
+        56,
+        64
+      ],
+      "certified_lb_by_key": [
+        110,
+        102,
+        124,
+        98,
+        114,
+        120,
+        132,
+        94,
+        106,
+        114,
+        132,
+        130,
+        140,
+        106,
+        110,
+        118,
+        124,
+        128,
+        132,
+        140,
+        140,
+        148
+      ],
+      "minimum_certified_lb": 94,
+      "winning_key_first_three": [
+        7,
+        3,
+        1
+      ],
+      "classes_below_94": 0,
+      "witness_native_edges": 94
+    },
+    {
+      "source_case": 2200,
+      "h8_rank9_keys": 34,
+      "h9_rank9_keys": 50,
+      "old_key_rank9_h8": 0,
+      "old_key_rank9_h9": 0,
+      "common_new_keys": 22,
+      "d8_by_key": [
+        24,
+        16,
+        32,
+        20,
+        28,
+        30,
+        40,
+        24,
+        30,
+        32,
+        40,
+        40,
+        48,
+        32,
+        36,
+        40,
+        44,
+        48,
+        56,
+        60,
+        68,
+        78
+      ],
+      "certified_lb_by_key": [
+        102,
+        94,
+        116,
+        98,
+        106,
+        114,
+        124,
+        102,
+        108,
+        116,
+        124,
+        124,
+        132,
+        110,
+        114,
+        118,
+        128,
+        132,
+        140,
+        144,
+        152,
+        162
+      ],
+      "minimum_certified_lb": 94,
+      "winning_key_first_three": [
+        5,
+        5,
+        1
+      ],
+      "classes_below_94": 0,
+      "witness_native_edges": 94
+    },
+    {
+      "source_case": 2203,
+      "h8_rank9_keys": 34,
+      "h9_rank9_keys": 50,
+      "old_key_rank9_h8": 0,
+      "old_key_rank9_h9": 0,
+      "common_new_keys": 22,
+      "d8_by_key": [
+        32,
+        24,
+        44,
+        20,
+        36,
+        32,
+        56,
+        16,
+        28,
+        30,
+        48,
+        40,
+        68,
+        24,
+        30,
+        40,
+        32,
+        40,
+        40,
+        60,
+        48,
+        78
+      ],
+      "certified_lb_by_key": [
+        110,
+        102,
+        128,
+        98,
+        114,
+        116,
+        140,
+        94,
+        106,
+        114,
+        132,
+        124,
+        152,
+        102,
+        108,
+        118,
+        116,
+        124,
+        124,
+        144,
+        132,
+        162
+      ],
+      "minimum_certified_lb": 94,
+      "winning_key_first_three": [
+        7,
+        3,
+        1
+      ],
+      "classes_below_94": 0,
+      "witness_native_edges": 94
+    }
+  ]
+}

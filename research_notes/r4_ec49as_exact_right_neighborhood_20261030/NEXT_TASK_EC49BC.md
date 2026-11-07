@@ -1,0 +1,7 @@
+# EC49BC — continue the exact auxiliary BRC observer optimum beyond η=43/100
+
+Proposed **author-side** next mathematical unit, not immutable canonical Task, Source CLAIM or new owner assignment. Preserve model constants C1=43/48, C2=13/16, k=177/172, hidden w and observation-only purchases/acceptance, and the positive auxiliary 18+18 branch carrier. Predecessor EC49BB gives the exact **continuous real** η∈[21/50,43/100] optimum *conditional on EC49AV sparse representative lemma*.
+
+First precise test is η=11/25=0.44: regenerate 168/924 and 196 edge price intervals, check whether the eight exceptional edges retain all score signs, purchase-density ordering and a legal single fractional fiber. Derive the exact resulting optimum or give a strict legal improving policy with three x rows, purchase p, visible acceptance events, exact C1,C2, α,β,H. If the same optimizer stays optimal, prove a nonzero interval beyond 43/100 using exact endpoint dual prices, Bernstein or algebraic sign certificates; no grid inference. Otherwise isolate an actual feasible-policy switch rather than a dual proof threshold.
+
+Independent priority: inspect EC49AV's sparse-to-edge lemma for every degenerate support, exact purchase constraint and hidden-state erasure; independently run/reimplement EC49BB exact verifier and cross-check all 196 dual prices plus all eight symmetry identifications. Maintain author proof vs independent review distinction. Later transfer to signed/phase BRC, native X6/3D slice/Heartbeat requires explicit typed maps and preservation proofs, not relabeling.

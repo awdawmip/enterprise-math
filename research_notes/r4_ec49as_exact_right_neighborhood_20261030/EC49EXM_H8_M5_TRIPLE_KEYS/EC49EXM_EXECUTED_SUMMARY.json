@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "date": "2026-11-03",
+  "model": "native X6 signed primitive operations; h2..h8; five distinct full BRC keys; exact Q-rank 9; six EC49EXL observer signatures",
+  "inherited_exact_rank_evidence": "EC49EXL 411368 native ordered return words",
+  "triple_skeletons": 8,
+  "full_key_schedules": 123147,
+  "triple_families": [
+    {
+      "horizons": [
+        3,
+        4,
+        5
+      ],
+      "common_key_choices": 1,
+      "injective_full_key_assignments": 71799
+    },
+    {
+      "horizons": [
+        4,
+        5,
+        6
+      ],
+      "common_key_choices": 3,
+      "injective_full_key_assignments": 23502
+    },
+    {
+      "horizons": [
+        4,
+        5,
+        7
+      ],
+      "common_key_choices": 1,
+      "injective_full_key_assignments": 4983
+    },
+    {
+      "horizons": [
+        4,
+        6,
+        7
+      ],
+      "common_key_choices": 1,
+      "injective_full_key_assignments": 2905
+    },
+    {
+      "horizons": [
+        5,
+        6,
+        7
+      ],
+      "common_key_choices": 7,
+      "injective_full_key_assignments": 10158
+    },
+    {
+      "horizons": [
+        5,
+        6,
+        8
+      ],
+      "common_key_choices": 3,
+      "injective_full_key_assignments": 3015
+    },
+    {
+      "horizons": [
+        5,
+        7,
+        8
+      ],
+      "common_key_choices": 3,
+      "injective_full_key_assignments": 1917
+    },
+    {
+      "horizons": [
+        6,
+        7,
+        8
+      ],
+      "common_key_choices": 13,
+      "injective_full_key_assignments": 4868
+    }
+  ],
+  "verification": [
+    "Python DFS exact-integer assignment counter (executed locally, PASS)",
+    "Node.js key-first 5-mask integer DP (executed locally, PASS)"
+  ],
+  "frozen_pins": {
+    "global": "773d538180bfb49e24cffeb35c3ee75eb0628e2e",
+    "enterprise_math": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab"
+  },
+  "open": "Minimum native signed prefix cost E across these full-key schedules; also 32 two-pair skeletons"
+}

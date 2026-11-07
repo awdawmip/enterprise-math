@@ -1,0 +1,223 @@
+{
+  "aliases": [
+    {
+      "L": 2,
+      "aliased_totals": [
+        8680,
+        8680,
+        1536
+      ],
+      "excess": [
+        7120,
+        7120,
+        1140
+      ],
+      "modulus": 100000081,
+      "n": 4,
+      "native_totals": [
+        1560,
+        1560,
+        396
+      ]
+    },
+    {
+      "L": 3,
+      "aliased_totals": [
+        197694,
+        197694,
+        21132
+      ],
+      "excess": [
+        45054,
+        45054,
+        1212
+      ],
+      "modulus": 100000081,
+      "n": 6,
+      "native_totals": [
+        152640,
+        152640,
+        19920
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "L": 1,
+      "atoms": {
+        "00": [
+          1,
+          1,
+          1
+        ],
+        "01": [
+          0,
+          0,
+          0
+        ],
+        "10": [
+          0,
+          0,
+          0
+        ],
+        "11": [
+          0,
+          0,
+          0
+        ]
+      },
+      "modulus_product": 100000081,
+      "n": 0,
+      "native_count": 1,
+      "native_weight": 1,
+      "peak_block_states": null,
+      "primes": [
+        100000081
+      ],
+      "root_points": 1
+    },
+    {
+      "L": 3,
+      "atoms": {
+        "00": [
+          24,
+          24,
+          12
+        ],
+        "01": [
+          0,
+          0,
+          0
+        ],
+        "10": [
+          0,
+          0,
+          0
+        ],
+        "11": [
+          0,
+          0,
+          0
+        ]
+      },
+      "modulus_product": 100000081,
+      "n": 2,
+      "native_count": 12,
+      "native_weight": 24,
+      "peak_block_states": null,
+      "primes": [
+        100000081
+      ],
+      "root_points": 729
+    },
+    {
+      "L": 3,
+      "atoms": {
+        "00": [
+          1488,
+          1488,
+          384
+        ],
+        "01": [
+          36,
+          36,
+          6
+        ],
+        "10": [
+          36,
+          36,
+          6
+        ],
+        "11": [
+          0,
+          0,
+          0
+        ]
+      },
+      "modulus_product": 1729,
+      "n": 4,
+      "native_count": 396,
+      "native_weight": 1560,
+      "peak_block_states": 94,
+      "primes": [
+        7,
+        13,
+        19
+      ],
+      "root_points": 729
+    },
+    {
+      "L": 5,
+      "atoms": {
+        "00": [
+          139320,
+          139320,
+          18744
+        ],
+        "01": [
+          6480,
+          6480,
+          576
+        ],
+        "10": [
+          6480,
+          6480,
+          576
+        ],
+        "11": [
+          360,
+          360,
+          24
+        ]
+      },
+      "modulus_product": 100000081,
+      "n": 6,
+      "native_count": 19920,
+      "native_weight": 152640,
+      "peak_block_states": 480,
+      "primes": [
+        100000081
+      ],
+      "root_points": 15625
+    },
+    {
+      "L": 5,
+      "atoms": {
+        "00": [
+          16560120,
+          16560120,
+          1170120
+        ],
+        "01": [
+          1129320,
+          1129320,
+          53850
+        ],
+        "10": [
+          1129320,
+          1129320,
+          53850
+        ],
+        "11": [
+          102240,
+          102240,
+          3600
+        ]
+      },
+      "modulus_product": 100000081,
+      "n": 8,
+      "native_count": 1281420,
+      "native_weight": 18921000,
+      "peak_block_states": 1874,
+      "primes": [
+        100000081
+      ],
+      "root_points": 15625
+    }
+  ],
+  "native_source_git_blob": "300a96e3dc24bf6fff73743037a0347a8bc83176",
+  "schema": "EC49CB_EXACT_PORTABLE_V1",
+  "scope": "ordered signed X6 closed paths, H={id,(1 2)}, joint DFA of substrings (+E1,+E2) and (+E2,+E1)",
+  "status": "AUTHOR_EXACT_FINITE_AUDIT; UNREVIEWED; NOT_ADMITTED",
+  "theory": "for even n: no period-L alias iff odd L and 2L>n, or even L and L>n"
+}

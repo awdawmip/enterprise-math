@@ -1,0 +1,155 @@
+{
+  "unit": "EC49EV",
+  "date": "2026-11-03",
+  "status": "AUTHOR_FINITE_EXHAUSTIVE_PROOF",
+  "model": "inherited frozen seven-operation signed native-X6 with nine-history observer and strictly positive symbolic BRC, H2..H7",
+  "theorem": "min(E|H=7,M=3,S=6)=86",
+  "candidate_global_signature_pairs": 21,
+  "fixed_3_key_schedules": 465,
+  "new_exact_integer_DP_cases": 462,
+  "inherited_previously_verified_exact_DP_cases": 3,
+  "minimum_E": 86,
+  "winning_schedule_ids": [
+    46
+  ],
+  "winner_native_trie": {
+    "nodes": 3149,
+    "terminal_colors": 14,
+    "new_edges": 58,
+    "total_E": 86,
+    "largest_state_masks": 16384,
+    "integer_convolutions": 376624
+  },
+  "independent_native_js": "PASS",
+  "independent_MILP": {
+    "status": 0,
+    "objective": 86.0,
+    "dual_bound": 86.0,
+    "gap": 0.0
+  },
+  "native_return_population_by_h": {
+    "2": 8,
+    "3": 51,
+    "4": 304,
+    "5": 1770,
+    "6": 10224,
+    "7": 58947
+  },
+  "witness": {
+    "E": 86,
+    "M": 3,
+    "S": 6,
+    "horizons": {
+      "2": {
+        "p": [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "types": 4,
+        "rank": 9,
+        "words": [
+          "ce",
+          "de",
+          "ec",
+          "ed"
+        ]
+      },
+      "3": {
+        "p": [
+          3,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "types": 2,
+        "rank": 9,
+        "words": [
+          "feg",
+          "gfe"
+        ]
+      },
+      "4": {
+        "p": [
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "types": 4,
+        "rank": 9,
+        "words": [
+          "degf",
+          "fegc",
+          "fegd",
+          "gfec"
+        ]
+      },
+      "5": {
+        "p": [
+          4,
+          2,
+          1,
+          0,
+          0,
+          0
+        ],
+        "types": 2,
+        "rank": 9,
+        "words": [
+          "fegfg",
+          "gfefg"
+        ]
+      },
+      "6": {
+        "p": [
+          5,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        "types": 4,
+        "rank": 9,
+        "words": [
+          "degffg",
+          "fegcgf",
+          "fegfgd",
+          "gfefgc"
+        ]
+      },
+      "7": {
+        "p": [
+          5,
+          3,
+          1,
+          0,
+          0,
+          0
+        ],
+        "types": 2,
+        "rank": 9,
+        "words": [
+          "fegfggf",
+          "gfefgfg"
+        ]
+      }
+    }
+  },
+  "full_exact_JSON_sha256": "64b14d372d1b5c401719bba54ec6e03393ae97c3f2004f6a31047b70185a8878",
+  "predecessor_source_blob": {
+    "MODEL_EC49EU.py": "bcad085da0655d41753c166fd993cdb35e4d4815",
+    "VERIFY_EC49EU_EXACT_DP.cpp": "d08c90554d205730ce6a36e89a59754e28f36902",
+    "EC49EU_EXACT_EXECUTED.json": "ccdaddc3d0b2fc0cebba641bb2cec95ac8b1f919"
+  },
+  "next": "EC49EW: H7/M4/S4 and H7/M4/S6 exact cost strata",
+  "admission": "PORTABLE_DRAFT / UNREVIEWED / NOT_ADMITTED"
+}

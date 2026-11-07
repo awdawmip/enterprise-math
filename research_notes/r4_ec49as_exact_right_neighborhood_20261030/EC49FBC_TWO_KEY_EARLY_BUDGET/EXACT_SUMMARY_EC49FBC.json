@@ -1,0 +1,114 @@
+{
+  "schema": "EC49FBC_SIGNED_X6_H45_TWO_KEY_BUDGET_SUMMARY_V1",
+  "date": "2026-11-05",
+  "scientific_input_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "fixed_H2": [
+    "de",
+    "ec",
+    "fe"
+  ],
+  "fixed_H3": [
+    "feg",
+    "gef"
+  ],
+  "fixed_early_edges": 31,
+  "old_cache_keys": [
+    [
+      3,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      3,
+      1,
+      1,
+      0,
+      0,
+      0
+    ]
+  ],
+  "valid_words": {
+    "H4": 206,
+    "H5": 1062
+  },
+  "new_key_classes": 27,
+  "early_compatible_H9_key": [
+    6,
+    4,
+    1,
+    0,
+    0,
+    0
+  ],
+  "one_new_early_key": {
+    "tested": 27,
+    "feasible": 7,
+    "min_edges": 53
+  },
+  "two_early_keys_reserving_H9": {
+    "tested": 325,
+    "feasible": 172,
+    "min_edges": 39
+  },
+  "two_early_keys_plus_H9": {
+    "tested": 325,
+    "feasible": 193,
+    "min_edges": 39
+  },
+  "best_early_witness": {
+    "H4": [
+      "fegg",
+      "gefg"
+    ],
+    "H5": [
+      "feggg",
+      "gefgg"
+    ],
+    "edges": 39
+  },
+  "full_legal_extension": {
+    "H6": [
+      "fegccc",
+      "fegddd",
+      "gefccc",
+      "gefddd"
+    ],
+    "H7": [
+      "fegccfg",
+      "fegddgf",
+      "gefccfg",
+      "gefddgf"
+    ],
+    "H8": [
+      "feggfgfc",
+      "feggfgfd",
+      "gefgfgfc",
+      "gefgfgfd"
+    ],
+    "H9": [
+      "feggfgfgf",
+      "gefgfgfgf"
+    ],
+    "cumulative_edges": {
+      "H2": 22,
+      "H3": 31,
+      "H4": 35,
+      "H5": 39,
+      "H6": 85,
+      "H7": 97,
+      "H8": 125,
+      "H9": 131
+    },
+    "total_edges": 131,
+    "distinct_keys": 5
+  },
+  "independent_python_check": {
+    "pool_costs_matched": 677,
+    "result": "PASS",
+    "execution": "python3 standalone standard library"
+  },
+  "status": "AUTHOR_SIDE_FINITE_EXHAUSTIVE_UNREVIEWED"
+}

@@ -1,0 +1,40 @@
+{
+  "schema": "EC49FCH_SUMMARY_V1",
+  "date": "2026-11-06",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor_head": "a0b1ffb95a4378b5c0f4f30b0b079568009cf11f",
+  "baseline_signed_native_prefixes": 158,
+  "candidate_families": {
+    "five_from_early": {
+      "groups": 252,
+      "raw_cartesian_products": 517041792,
+      "minimum": 158
+    },
+    "four_from_early_one_H7": {
+      "groups": 840,
+      "raw_cartesian_products": 62264764800,
+      "minimum": 158
+    }
+  },
+  "total_groups": 1092,
+  "distinct_group_count": 1092,
+  "all_strict_improvement_frontiers_empty": true,
+  "total_raw_cartesian_products": 62781806592,
+  "max_reachable_subthreshold_partial_unions": 2028,
+  "elimination_stage_counts": {
+    "3": 20,
+    "4": 140,
+    "5": 932
+  },
+  "independent_direct_signed_prefix_samples": 13,
+  "full_row_level_canonical_json_sha256": "e7fae35f0ff129efe2226af1c52a3d0e41c16a763696846067489a969ca96eb0",
+  "source_reproduction": [
+    "VERIFY_EC49FCH.py --family early_five",
+    "VERIFY_EC49FCH.py --family early4_h7 --start 0 --stop 160",
+    "VERIFY_EC49FCH.py --family early4_h7 --start 160 --stop 320",
+    "VERIFY_EC49FCH.py --family early4_h7 --start 320 --stop 480",
+    "VERIFY_EC49FCH.py --family early4_h7 --start 480 --stop 640",
+    "VERIFY_EC49FCH.py --family early4_h7 --start 640 --stop 840"
+  ],
+  "status": "AUTHOR_EXACT_FINITE_CERTIFICATE_UNREVIEWED"
+}

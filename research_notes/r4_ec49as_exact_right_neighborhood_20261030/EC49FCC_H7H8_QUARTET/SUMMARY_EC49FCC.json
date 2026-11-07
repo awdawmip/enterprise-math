@@ -1,0 +1,77 @@
+{
+  "schema": "EC49FCC_H7_H8_QUARTET_EXACT_AGGREGATE_V1",
+  "date": "2026-11-06",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "generator_commit": "5b10f1c296cb8826d4b69f6fd83dba89d765df1c",
+  "witness_commit": "b3b43ef6abe2fd816d979792d18a67ee5d0aad50",
+  "parent_commit": "242a8dc7caf9dfa8e601cd56bf6cb574566eecd2",
+  "scope": "Exactly 2 H4-H6 early slots plus one H7 and one H8 slot; same horizon and exact BRC cache/signature for each replacement; other 20 baseline words fixed",
+  "baseline_edges": 158,
+  "groups": 720,
+  "minimum": 158,
+  "improvements": 0,
+  "all_720_unique_groups_check": true,
+  "all_720_local_optima_check": true,
+  "totals": {
+    "raw": 411505920000,
+    "strict_unique_residual_product": 48517505776,
+    "pair_pruned": 54820,
+    "triple_pruned": 2904388,
+    "fourth_evaluations": 5395584
+  },
+  "subfamilies": {
+    "H4+H4": {
+      "groups": 96,
+      "raw": 21946982400,
+      "fourth_evaluations": 52824
+    },
+    "H4+H5": {
+      "groups": 128,
+      "raw": 29262643200,
+      "fourth_evaluations": 4736
+    },
+    "H4+H6": {
+      "groups": 256,
+      "raw": 146313216000,
+      "fourth_evaluations": 3737268
+    },
+    "H5+H5": {
+      "groups": 16,
+      "raw": 3657830400,
+      "fourth_evaluations": 52
+    },
+    "H5+H6": {
+      "groups": 128,
+      "raw": 73156608000,
+      "fourth_evaluations": 233856
+    },
+    "H6+H6": {
+      "groups": 96,
+      "raw": 137168640000,
+      "fourth_evaluations": 1366848
+    }
+  },
+  "original_local_full_report": {
+    "size_bytes": 283510,
+    "sha256": "2e4e3d2fa1e05c14559aadadd662903d4d7783890da3648d026ff1c8fc68c4c8",
+    "included_in_commit": false,
+    "reproducible_via": "VERIFY_EC49FCC.py 0 96; ...; VERIFY_EC49FCC.py 672 720; VERIFY_EC49FCC.py merge"
+  },
+  "independent_prefix_check": {
+    "groups": 6,
+    "representation": "signed integer tuple prefixes, different from bitset encoder",
+    "result": "PASS; same baseline and per-group fourth-evaluation counts",
+    "scope": "one representative group of each early-slot-pair window class"
+  },
+  "overall_quartet_coverage": {
+    "prior_proved": 2715,
+    "added": 720,
+    "proved": 3435,
+    "total": 4845,
+    "remaining": 1410,
+    "remaining_classes": {
+      "one_early_three_late": 1200,
+      "four_late": 210
+    }
+  }
+}

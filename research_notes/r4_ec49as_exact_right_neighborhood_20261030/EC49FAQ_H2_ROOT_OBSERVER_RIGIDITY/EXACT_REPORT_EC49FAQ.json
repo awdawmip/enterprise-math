@@ -1,0 +1,134 @@
+{
+  "all_horizon_key_count_formula": "sum_{k=0..floor((h-2)/2)} binom(h-2*k,2)",
+  "all_horizon_key_feasibility_condition": "full legal key and x+y>=h+2",
+  "allowed_observer_signature_count": 6,
+  "base_H2_root_signatures": {
+    "ce": [
+      1,
+      1,
+      4,
+      1,
+      3,
+      4,
+      4,
+      3,
+      4
+    ],
+    "de": [
+      2,
+      3,
+      2,
+      3,
+      3,
+      2,
+      4,
+      3,
+      4
+    ],
+    "ec": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      4,
+      4,
+      3,
+      4
+    ],
+    "ed": [
+      2,
+      2,
+      2,
+      3,
+      3,
+      2,
+      2,
+      3,
+      4
+    ]
+  },
+  "horizons": [
+    {
+      "analytic_key_count": 50,
+      "distinct_allowed_signatures_per_key": 4,
+      "eligible_h2_rooted_words_counted_with_root": 15956,
+      "exact_Q_rank_of_four_signatures": 9,
+      "h": 8,
+      "reachable_full_key_count": 50,
+      "suffix_length": 6,
+      "zero_net_suffixes": 13236
+    },
+    {
+      "analytic_key_count": 70,
+      "distinct_allowed_signatures_per_key": 4,
+      "eligible_h2_rooted_words_counted_with_root": 73932,
+      "exact_Q_rank_of_four_signatures": 9,
+      "h": 9,
+      "reachable_full_key_count": 70,
+      "suffix_length": 7,
+      "zero_net_suffixes": 73392
+    }
+  ],
+  "parent": "EC49FAP@be53f6d8f2fd26c1920ac50adec16817615e6d1b",
+  "rational_ranks_of_H2_root_signature_subsets": {
+    "1": [
+      3
+    ],
+    "2": [
+      5
+    ],
+    "3": [
+      7
+    ],
+    "4": [
+      9
+    ]
+  },
+  "result": "PASS",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "scope": "All-h analytic key/observer theorem; complete h8/h9 finite check; H2-only H8 lower bound for four fixed H2..H7 schedules. Mixed H2..H6 search open.",
+  "scoped_H2_only_H8_cost_exclusion": {
+    "1512": {
+      "lower_bound_H8_new_edges_if_all_H8_words_H2_rooted": 40,
+      "max_old_extra_per_root": {
+        "ce": 0,
+        "de": 4,
+        "ec": 0,
+        "ed": 4
+      },
+      "resulting_total_edge_lower_bound": 112
+    },
+    "1513": {
+      "lower_bound_H8_new_edges_if_all_H8_words_H2_rooted": 40,
+      "max_old_extra_per_root": {
+        "ce": 0,
+        "de": 4,
+        "ec": 0,
+        "ed": 4
+      },
+      "resulting_total_edge_lower_bound": 112
+    },
+    "2200": {
+      "lower_bound_H8_new_edges_if_all_H8_words_H2_rooted": 48,
+      "max_old_extra_per_root": {
+        "ce": 0,
+        "de": 0,
+        "ec": 0,
+        "ed": 0
+      },
+      "resulting_total_edge_lower_bound": 120
+    },
+    "2203": {
+      "lower_bound_H8_new_edges_if_all_H8_words_H2_rooted": 48,
+      "max_old_extra_per_root": {
+        "ce": 0,
+        "de": 0,
+        "ec": 0,
+        "ed": 0
+      },
+      "resulting_total_edge_lower_bound": 120
+    }
+  },
+  "unit": "EC49FAQ H2 root observer rigidity"
+}
