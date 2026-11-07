@@ -1,0 +1,9 @@
+# Stage236 successor unit — portable exact IID minimax research
+
+Mother objective: N=14 ternary IID, P=(3,1,20)/24, Q=(2,2,20)/24; all ordered-history-dependent randomized stopping decisions; eP,eQ separately bounded by alpha; objective min max(tP,tQ).
+
+Author-exact frontier at Stage235: alpha235=237666670990705/648489579282432, V235=647346693246113/81061197410304. Two prior immutable exact dual supports Stage234 (243496/3745,35676/535) and Stage235 (60024/955,62208/955). Stage235 has six binary Bellman ties, 64 exact deterministic corners, 583 balanced edge intersections, 182998 ordered-DFS visits; tP>tQ everywhere on the tight face.
+
+Next smallest question: identify the first *primal-effective* dual supporting face immediately right of alpha235. Numerical occupancy LP is only discovery; derive exact rational dual penalties by tie equations, verify all 680 count-state Bellman minima and strictly positive gaps. For k binary ties exhaust all 2^k deterministic corners by independent exact rational suffix DP and unmerged ordered P/Q integer-branch DFS, enumerate all balanced error vertices of the tight-policy convex hull, calculate exact left contact, positive full-real interval width, right value and tP-tQ margins. If no such face exists at a candidate, publish an exact obstruction. Check zero-width or unreachable pivots; do not linearize coupled ancestor coins with nonzero interactions.
+
+Deliver complete mathematical statement, assumptions, universal dual bound and primal construction, code, exact certificate and evidence readback under the existing Draft PR handoff. Carry AUTHOR_EXACT / UNREVIEWED / NOT_ADMITTED; independent Driver review and native Source CLAIM/Result separately gated. No transfer to P000 X6 without typed Cell embedding, readout and preservation of joint branch and update relations. Source handoff: Stage234-235 PROOF_STAGE234_235.md and PORTABLE_REPRO_STAGE234_235.py.

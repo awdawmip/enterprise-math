@@ -1,0 +1,13 @@
+# Stage208 — executable portable research handoff
+
+**State:** DUAL_CANDIDATE_ONLY / UNREVIEWED / NOT_ADMITTED; do not promote to a primal theorem from the dual scan alone.
+
+External N=14 ternary IID model P=(3,1,20)/24, Q=(2,2,20)/24. Ordered-history decisions, arbitrary real randomization, stop<=14. Objective: V14(alpha)=min max(E_P tau,E_Q tau) subject to both declaration errors<=alpha. This is an external auxiliary model; native P000 six-dimensional Heartbeat World Cell semantics remain unchanged.
+
+Highest author-verified primal frontier, Stage207: alpha207=1243470457111416115/3505953353861431296, V207=2141397262877228573/219122084616339456. The all-real previous segment runs from alpha206=413520058350802705/1168651117953810432 with width 1421036161625/1711891286065152; slope -2524248916944/11368289293. Equal-error Stage207 witness z(u)=164012470200881049/819200000000000000+(218780590119/3200000000000)*u, valid for every real 0<=u<=1, with zero mixed term and P-time dominance. Preserve proof and raw corners in PROOF_STAGE207.md and certificate207.json. No need to rerun parent simply to continue.
+
+**New exact dual-only candidate:** K208=19224/175, H208=168140201472112396231/1917318240392970240. Two Bellman tie states are T=(11,3,1), announce P / continue, and Z=(14,0,0), announce P / announce Q; previous Y now strict. The scan verifies 680 states, 1238 positive alternative gaps (minimum 3757/340200), and contact H208=H207+2*alpha207*(K208-K207).
+
+**Next precise mathematical work:** Compute all four deterministic tie-corner vectors (eP,eQ,tP,tQ) by exact Fraction suffix DP and separately by full unmerged ordered-history integer-weight DFS; prove or refute any T-to-Z ancestry and mixed term; solve eP=eQ for arbitrary real randomized coins, characterize the legal interval and monotone error range, prove P/Q time dominance or exhibit a specific rational obstruction, and derive the maximal new full-real primal interval with strict-right support or classify why the proposed witness fails. Compute the next dual first-switch only as necessary. Preserve BRC positive P/Q branch masses, order/multiplicity and observer scope.
+
+**Evidence and acceptance:** Complete exact proof or rational obstruction; code and raw four corners; verification and its finite completeness conditions; next precise question; genuine owner/claim state and immutable repository publication readback. Native task, claim, Source Result, Driver mathematical review and P000 transfer remain separate. Frozen pins: global main ecd9a62fddac9d34492c57cf902c9c119f4e58c1; EM main 34b47b6cc01bfebcfaa61aaaefd1e41f5ee3d92a; P000 V5 blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Use existing Draft PR #1571 as handoff.

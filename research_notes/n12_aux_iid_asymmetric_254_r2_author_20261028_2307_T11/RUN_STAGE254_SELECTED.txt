@@ -1,0 +1,19 @@
+Stage254 selected stdout from actually executed Python 3 stdlib Fraction script, 2026-10-28.
+Full execution can be reproduced with: python STAGE254_EXACT_ADJACENT.py
+
+K=1310563224/20009183
+H=204301839860512073/3629636342682624
+ties=[((1,0,0),('P','C')),((0,0,12),('P','Q'))]; states=455; strict gaps=817
+D=-112356252197265625/404341874203444641792
+a*=195427979423/696570347520; b*=43104161797/87071293440
+target x=6790947364/6903168135; target y=5752909748711/11505280225000
+target tP=3186354511333424681/580741814829219840
+target tQ=9103920614225559569/1669632717634007040
+exterior a=15492478957579/55725627801600
+exterior b=580533802651/1160950579200
+root early-P coin eta=1427992821/15493906950400
+exterior eQ=15495334943221/30987813900800
+exterior Q slack=12137690822080267/2810571913771529011200
+STAGE254_ADJACENT_EXACT_AUTHOR_PASS states=455 ties=2 gaps=817 DFS_nodes=717 terminal_branches=484
+
+This file is a selected exact-field reproduction of stdout, not an unmodified full stdout dump. The checker itself prints all four-vectors and each DFS count.

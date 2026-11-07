@@ -1,0 +1,7 @@
+# Stage209 author-side executed provenance
+
+Actual exact local script verify_stage209.py: STAGE209_AUTHOR_EXACT_FULL_REAL_PASS 245752. Two methods agree at four corners: Fraction conditional suffix DP and full ordered-history integer-product mass DFS over 66394+66394+56482+56482 visits. Bellman: 680 states, 1238 positive gaps, minimum 1547/177264. Separate arithmetic-only audit_stage209.py: STAGE209_CERTIFICATE_ALGEBRA_CROSSCHECK_PASS. Exact next first-switch scan scan_stage210.py: STAGE210_DUAL_SCAN_PASS, **dual only**.
+
+Complete actually executed original scripts, logs, certificates, full proof and SHA256 manifest: conversation attachment EM_STAGE209_AUTHOR_EXACT_PORTABLE_20261028.tar.xz (sha256 93ff280e6bcbdfc9e58ec067b7ea94f5d00dbd48105548f013cf10914a07dae3). GitHub REPRO_STAGE209.py is an equivalent standalone reference but is not the original executed source and has no GitHub-side execution claim.
+
+Verified global main@75eb1260e8d5d61a1f075ab675984d3f94d4ea55; EM main@55abd52563ee8b722ecbdd770547eda9fe64d678; global P000 blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc; prior Stage208 author proof 1cc8bf4a44dbb14518ea5d659fe7ce22480088eb. Native current owner query CONTROL_QUOTA, em_status v0.6.11 research_authority_granted=false. No Source CLAIM, Result, Driver acceptance, Lean formalization or native P000 X6 transfer. No credentials or shared-permission changes.

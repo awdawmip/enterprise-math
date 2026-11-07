@@ -1,0 +1,9 @@
+# After Stage246: asymmetric two-cap sharpness task
+
+**Parent model:** external IID P=(3,1,20)/24, Q=(2,2,20)/24, horizon N=14 (compare 9), all full-history randomized nonanticipatory rules. Minimize max(tP,tQ) with separate eP≤a,eQ≤b.
+
+**Immutable new frontier:** Stage246 fully closes the symmetric right side: V14(alpha)=24−48alpha for EVERY real alpha in [2/5,1/2], zero for alpha≥1/2; the same holds for all N≥9. Universal source-labeled maximal coupling proves max(tP,tQ)≥24(1−eP−eQ), and an explicitly executed exact nine-step witness attains both errors 2/5 and both times 24/5. Earlier Stage245 left proof is preserved at commit 333d7a3a05675189c555285dae9c241e5fbe9c3e; do not repeat the symmetric N14 right-Bellman search.
+
+**First independent next unit:** characterize exactly the unequal-cap (a,b) subset where the TV lower bound 24(1−a−b) is attainable with ≤9 and ≤14 samples. Begin with source-aware first-non-2 stopping and a randomized no-signal P/Q terminal decision; derive the rational error polytope and its horizon dependence. Determine whether all sharp policies reduce to this class, or exhibit an exact rational counterexample. Preserve separate P/Q errors and times. A floating LP search supplies candidates only; an accepted theorem needs exact witnesses and dual/separation proof.
+
+**Scope:** AUTHOR_EXACT / UNREVIEWED / NOT_ADMITTED external IID. Use fixed scientific snapshot GLOBAL_KNOWLEDGE_V1 main@ab8c7adcf8749ab86b6222a9a869423dce8abb54 and EM main@820e7c4afd18efbe031eaa226feb88ac8292e288; P000/ACTIVE worldview and future observer preservation remain in force. Native Source CLAIM/Result requires separate current authority verification.
