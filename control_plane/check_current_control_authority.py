@@ -59,6 +59,71 @@ def require_version_at_least(text: str, label: str, major: int, minor: int) -> N
         )
 
 
+def check_free_role_contract(free_role: str) -> None:
+    # These are reviewed layouts, not a minimum-version gate. A future version
+    # must be audited before this control checker treats it as compatible.
+    statuses = re.findall(r"^Status: (.+)$", free_role, re.MULTILINE)
+    supported = {
+        "`ACTIVE / ROLE-SPECIFIC CONTRACT V6.4`": "inline",
+        "`ACTIVE / ROLE-SPECIFIC CONTRACT V6.5`": "phase_b_reference",
+    }
+    require(
+        len(statuses) == 1 and statuses[0] in supported,
+        "FREE role must have one ACTIVE supported control version: V6.4 or V6.5",
+    )
+    require("Task publication: `research_task_publication_contract_v2.json`" in free_role, "FREE role must use V2 publication")
+    require("Phase B — mandatory tool dedup and reuse resolution" in free_role, "FREE Phase B must require tool reuse resolution")
+    for invariant in (
+        "The shared toolbox/method inventory is hidden as a discovery prior before freeze",
+        "Only a context clean before candidate generation may claim `BLINDNESS_STATUS = CLEAN`. Otherwise use `ANCHOR_EXPOSED`.",
+        "Do not rewrite the frozen Phase-A candidate to force convergence.",
+        "RAW_PHASE_A_CANDIDATE -> NO_TASK_PUBLICATION",
+        "AUDITED_ELIGIBLE_CANDIDATE -> RESEARCHER_MAY_PUBLISH_V2_TASK",
+        "TASK_PUBLICATION != WORKING_TRUTH",
+        "TASK_PUBLICATION != FOUNDATION_PROMOTION",
+        "WORKING_TRUTH != CANONICAL_FOUNDATION",
+        "does not grant Driver authority",
+        "QUESTION_FIRST -> TOOL_SECOND",
+    ):
+        require(invariant in free_role, f"FREE role missing control boundary: {invariant}")
+
+    phase_b = free_role
+    if supported[statuses[0]] == "phase_b_reference":
+        require(
+            "[Phase-B reference](EM_FREE_PHASE_B_REFERENCE.en.md)" in free_role,
+            "FREE V6.5 role must route to the exact Phase-B reference",
+        )
+        phase_b = read("research_roles/EM_FREE_PHASE_B_REFERENCE.en.md")
+        reference_text = " ".join(phase_b.split())
+        for boundary in (
+            "Status: `ACTIVE / PHASE-B REFERENCE / NO_NEW_MATHEMATICS`",
+            "Open this reference after the candidate/no-go packet is frozen",
+            "This reference grants no new role, task, Working Truth or Foundation authority.",
+        ):
+            require(boundary in reference_text, f"FREE Phase-B reference missing boundary: {boundary}")
+        lookup_text = " ".join(free_role.split())
+        for boundary in (
+            "Once a question has independently formed and actually contains the relevant typed branch/recurrent structure",
+            "do not preload a whole result/tool inventory or perform Phase-B comparison and dedup at this point",
+            "A legal lookup does not certify clean prior context or erase actual tool use/exposure.",
+            "Do not dump mixed raw source files, build coverage or catalog-bearing errors into Phase A.",
+        ):
+            require(boundary in lookup_text, f"FREE V6.5 role missing lookup boundary: {boundary}")
+
+    # V6.5 relocates these obligations rather than removing them. Never load a
+    # toolbox or result catalog here; only validate the role's reference text.
+    for obligation in (
+        "tool_invocation_policy.json", "enterprise_toolbox_registry.json",
+        "research_method_inventory.json", "tools/enterprise_toolbox.py",
+        "REUSE_APPLIED", "REUSE_EXECUTED", "COMPOSE_APPLIED",
+        "REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE", "EXTEND_EXISTING_TOOL",
+        "CAPABILITY_GAP_CONFIRMED", "NOT_APPLICABLE",
+    ):
+        require(f"`{obligation}`" in phase_b, f"FREE Phase B missing reuse obligation: {obligation}")
+    require("A coverage hit is not itself tool use" in phase_b,
+            "FREE Phase B must distinguish coverage from actual use")
+
+
 def check() -> None:
     authority = load_json("control_plane/current_control_authority.json")
     publication = load_json("research_task_publication_contract_v2.json")
@@ -301,9 +366,7 @@ def check() -> None:
     )
 
     free_role = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
-    require("ROLE-SPECIFIC CONTRACT V6.4" in free_role, "FREE role must be current V6.4 control version")
-    require("Task publication: `research_task_publication_contract_v2.json`" in free_role, "FREE role must use V2 publication")
-    require("Phase B — mandatory tool dedup and reuse resolution" in free_role, "FREE Phase B must require tool reuse resolution")
+    check_free_role_contract(free_role)
 
     architecture = read("docs/RESEARCH_ARCHITECTURE.md")
     require("ACTIVE / CANONICAL GOVERNANCE / V2.6" in architecture, "human research architecture must be V2.6")

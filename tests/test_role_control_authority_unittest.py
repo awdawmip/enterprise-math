@@ -49,12 +49,20 @@ class RoleControlAuthoritySimulationTests(unittest.TestCase):
 
     def test_free_researcher_simulation_preserves_phase_a_blindness_then_v2_phase_b(self):
         text = self.read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
-        self.assertIn("ROLE-SPECIFIC CONTRACT V6.4", text)
+        self.assertIn("Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V6.5`", text)
         self.assertIn("Task publication: `research_task_publication_contract_v2.json`", text)
         self.assertIn("PROJECT_TOOL_CATALOG", self.read("control_plane/current_control_authority.json"))
         self.assertIn("The shared toolbox/method inventory is hidden as a discovery prior before freeze", text)
         self.assertIn("Phase B — mandatory tool dedup and reuse resolution", text)
-        self.assertIn("REUSE_EXECUTED", text)
+        self.assertIn("[Phase-B reference](EM_FREE_PHASE_B_REFERENCE.en.md)", text)
+        phase_b = self.read("research_roles/EM_FREE_PHASE_B_REFERENCE.en.md")
+        self.assertIn("Open this reference after the candidate/no-go packet is frozen", phase_b)
+        for state in (
+            "REUSE_APPLIED", "REUSE_EXECUTED", "COMPOSE_APPLIED",
+            "REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE", "EXTEND_EXISTING_TOOL",
+            "CAPABILITY_GAP_CONFIRMED", "NOT_APPLICABLE",
+        ):
+            self.assertIn(f"`{state}`", phase_b)
         self.assertIn("tools/research_task_records.py", text)
         self.assertIn("research_control_dispatch.py", text)
         self.assertNotIn("pass `tools/research_task_registry.py audit`", text)
