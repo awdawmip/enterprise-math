@@ -34,14 +34,14 @@ It follows that the full weighted infinite sums satisfy the exact real identity
 =\frac32\sum_{k=0}^\infty(8k+1)b_k.}\tag{2}
 \]
 
-**Proof.** Put t_*=6sqrt(2), which belongs to the principal analytic interval and obeys z(t_*)=1/2, w(t_*)=1/9. Direct differentiation of the rational maps and H gives the exact values
+**Proof.** Put t_*=6\sqrt(2), which belongs to the principal analytic interval and obeys z(t_*)=1/2, w(t_*)=1/9. Direct differentiation of the rational maps and H gives the exact values
 \[
-H(t_*)=\frac{3sqrt2}{4},\qquad
+H(t_*)=\frac{3\sqrt2}{4},\qquad
 \left.\frac{H'}{z'}\right|_{t_*}=\frac12-\frac{\sqrt2}{4},\qquad
 \left.\frac{H w'}{z'}\right|_{t_*}=\frac49.
 \]
 The chain rule on U(z(t))=H(t)B(w(t)) gives (1). Now
-(U(1/2)=\frac{3sqrt2}{4}B(1/9)) from the prior theorem. Since
+(U(1/2)=\frac{3\sqrt2}{4}B(1/9)) from the prior theorem. Since
 (sum (6k+1)a_k=U(1/2)+6(1/2)U'(1/2)) and
 (sum(8k+1)b_k=B(1/9)+8(1/9)B'(1/9)), substitution cancels the algebraic square-root contribution and yields
 \[
