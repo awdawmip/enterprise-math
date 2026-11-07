@@ -1,0 +1,82 @@
+{
+  "task_id": "RS-HODGE-H0M-WEIL-SIXFOLD-SEMIREGULARITY-OBSTRUCTION-CANCELLATION",
+  "publication_id": "TP2-4D8C1A7E2B609F35C614",
+  "researcher_id": "EM-PFSS2R-B96E46",
+  "activity_id": "RA-20260917-c49ede787913",
+  "source_sha": "8349d0c93096ffb5f586c7cc692c5c3033e51160",
+  "as_of": "2026-09-17",
+  "mathematical_acceptance": false,
+  "model_sha256": "544d79988fac0fb25b0b588050b5db4bd3186cdf548a5fde35c5655734d1a164",
+  "baseline": "B_std^Weil6; standard exact exterior algebra, Hermitian arithmetic and derived deformation theory",
+  "Enterprise_strict_leverage_established": false,
+  "source_exposure": "NONBLIND_DISCLOSED",
+  "schema": "HODGE_H0M_OBSTRUCTION_CANCELLATION_V1",
+  "candidate": "M2",
+  "classification": "AUTOMATIC_TRACE_CANCELLATION_REFUTED_BY_ACTUAL_NULL_CONTROL",
+  "desired_frontier_seed_block": {
+    "missing_object": "An actual Z0 in CH^3(A_J)_Q on the frozen very-general [-3] family with P_Weil([1+2i]^*) cl(Z0) != 0.",
+    "owner": "H0M source-object / algebraic-correspondence construction route",
+    "necessity": "An algebraic projector preserves algebraicity but cannot produce a nonzero seed from zero or divisor-only classes.",
+    "unblock_condition": "Give an independently constructed cycle, sheaf characteristic class, or algebraic correspondence and verify its nonzero Weil projection on the SAME fixed frontier model."
+  },
+  "null_control": {
+    "object": "O_A^2",
+    "Ext2_dimension": 60,
+    "semiregularity_rank": 15,
+    "kernel_dimension": 45,
+    "quadratic_obstruction_matrix": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        -1
+      ]
+    ],
+    "interpretation": "u wedge v tensor [X,Y] is nonzero for independent invariant (0,1)-forms u,v; its semiregularity image is zero."
+  },
+  "process": [
+    {
+      "state": "DEFORMATION_STATE",
+      "object": "E=O_A direct-sum O_A on the fixed sixfold A",
+      "first_order": "alpha=u E12 + v E21; u,v independent invariant (0,1)-forms; dbar alpha=0"
+    },
+    {
+      "state": "EXT2_OBSTRUCTION",
+      "value": "alpha wedge alpha = (u wedge v) diag(1,-1) != 0 in H^2(O_A) tensor M2(C)",
+      "proof": "The invariant u wedge v represents a nonzero Dolbeault class. Hence dbar beta = -alpha wedge alpha has no solution; this chosen first-order deformation fails to extend modulo t^3."
+    },
+    {
+      "state": "SEMIREGULARITY_OR_TRACE_CHANNELS",
+      "value": "At(E)=0. sigma_0=trace; sigma_q=0 for q>=1. trace(diag(1,-1))=0."
+    },
+    {
+      "state": "SURVIVING_OBSTRUCTION",
+      "value": "Nonzero obstruction lies in ker sigma; zero trace does NOT imply obstruction cancellation."
+    },
+    {
+      "state": "CLASS_TRANSPORT_STATUS",
+      "value": "ch_3(O_A^2)=0. This is only the mandatory negative control, not a frontier generator."
+    }
+  ],
+  "BRC_applicability": {
+    "population": "signed matrix-valued Dolbeault obstruction contributions and K-Weil carrier coordinates",
+    "branch_identity": "u tensor E12 and v tensor E21 retained with ordered wedge/commutator provenance",
+    "alternative_composition": "vector-space addition with signs",
+    "serial_composition": "graded wedge and matrix multiplication",
+    "observations": [
+      "full obstruction cohomology class",
+      "trace image",
+      "Weil projection of characteristic class"
+    ],
+    "future_horizon": "one quadratic Maurer-Cartan extension, then declared characteristic-class transport",
+    "audit_reuse_status": "REUSE_APPLIED",
+    "positive_weighted_engine_status": "NOT_APPLICABLE",
+    "reason": "The explicit positive Weighted-BRC carrier does not encode cancellation of complex matrix-valued terms. Trace is not fiber-constant for the full-obstruction observer: 0 and a nonzero trace-free obstruction have the same trace.",
+    "retained_repair_coordinate": "trace-free Ext^2 component, dimension 45 in this control",
+    "source": "definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json at 8349d0c93096ffb5f586c7cc692c5c3033e51160; SIGNED_BOUNDARY and typed-observer commitments",
+    "native_numeric_engine_reimplemented": false
+  },
+  "attribution": "Standard deformation-theoretic counterexample, independently instantiated and exactly checked; zero claimed leverage over B_std^Weil6."
+}
