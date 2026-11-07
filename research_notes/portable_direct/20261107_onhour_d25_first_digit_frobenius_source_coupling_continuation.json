@@ -1,0 +1,46 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "prior_author_frontier": "21006d033963b83a33767ae7d058ba3924db8da1",
+  "mother_objective": "Prove W_p congruent p modulo p^3 at all p≡13,19 modulo24 (open).",
+  "new_completed_units": [
+    "Conditional theorem: if the model's frozen Gauss Hasse polynomial Q(x) vanishes modp, W_p/p or V_p/p is c*(DQ)(G_p/p) modp, with c_A=12, c_B=16 or 128/9 for respective Euler branches.",
+    "Signed source split G_p/p=Q/p+F1 modulo p; distinct zeroth-lift and first-perturbation contributions.",
+    "Independent exact modular recurrence check of both hypergeometric Gauss and original weighted streams for all 77 target primes<=2000 (154 model pairs), with Hasse zeros and normalized unit product 1.",
+    "For p=373 A low/first =325/49, B low/first=30/344; each sums to1 mod373."
+  ],
+  "evidence_paths": [
+    "research_notes/portable_direct/20261107_onhour_d25_first_digit_frobenius_source_coupling.md",
+    "research_notes/portable_direct/d25_first_digit_source_coupling_20261107.py"
+  ],
+  "exact_status": "CONDITIONAL_THEOREM_PROVED / FINITE_MODULAR_EXACT_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "smallest_unfinished_unit": "Uniform Hasse zero at frozen CM fiber and Frobenius/Wronskian unit equations, then lift retained four ports through p^3.",
+  "next_exact_action": "Prove Q_A(1/2)=Q_B(1/9)=0 modulo p for all p≡13,19 modulo24 via actual CM/Cartier bridge, then show c_A J_A(G_A/p)=c_B J_B(G_B/p)=1; retain p^3 high tail and Euler source.",
+  "do_not_repeat": [
+    "D24 frozen UR",
+    "Fricke 6:8 rational correspondence",
+    "p^3 four-port coefficient decomposition",
+    "unique high-tail overflow theorem",
+    "native p373 H0/B0 benchmark, still pending #1559"
+  ],
+  "source_status": {
+    "target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "previous_receipt": "QUEUED/EVENT_COLLECTION_IO",
+    "latest_query": "2026-11-07 14:31 UTC: BACKEND_IDENTITY_OR_VERSION_MISMATCH / UPSTREAM_STATUS_TOOL_ERROR / STATUS_DATABASE_UNAVAILABLE / operation_sent=false",
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "session": "NOT_VERIFIED",
+    "claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "activity": "REGISTER_PENDING",
+    "sync_debt": true
+  },
+  "native_benchmark": "https://github.com/awdawmip/enterprise-math/issues/1559",
+  "provenance": "GitHub author-side note and exact executable checker only; no native Source checkpoint, Result or review."
+}
