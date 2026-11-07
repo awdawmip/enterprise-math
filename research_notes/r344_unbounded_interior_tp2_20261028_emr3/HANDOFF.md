@@ -1,0 +1,11 @@
+# R344 — Portable research handoff (author-side)
+
+**Question and result.** This BRC Newton research line continues R343 (#1583). The new conditional computer-assisted theorem is `M[q,k]>0` for all `k>=1, 1<=q-k<=255`, and all nonadjacent interior 2x2 minors are positive when `1<=k<l<=q<p` and `p-k<=256`. This is genuinely unbounded in q but **not** global all-corank TP2.
+
+**Frozen source and proof scope.** GLOBAL_KNOWLEDGE_V1 `main@385fedf431899722ff6bf9c795c2418eaa18d14c`; Enterprise Math base `main@c318256f3f536a65ec691fbba8c59a995d413dd4`. P000/ACTIVE worldview unchanged. R330 rational extraction `deg H_r<=r` is a load-bearing earlier author-side hypothesis, not independently reviewed here. R331 signed-tail recurrence and 33153 exact Newton coefficients provide numerical inputs.
+
+**Files.** `R344_PROOF.zh-CN.md` contains exact definitions, identities and quantified domain; `R344_VERIFY.py` is a standalone source-reconstruction verifier; `R344_EVIDENCE_SUMMARY.json` reports complete sign counts, highest Catalan identities, digests, and exact commands. Running `python R344_VERIFY.py --rebuild --out R344_EVIDENCE.json` regenerates the complete 255-band, 65535-coefficient evidence; its full canonical line SHA256 should be `6b3f762cada37f8b00a51541a2568d93633911d6839fe0fee9bcf2ebf85aa795`. No floating-point sign inference. Original R331 input digest must match `81c190fa50e22dc8479cb337a374706ae300a877fc9c74aa7a9033c49d96cf09`.
+
+**Verification completed.** Exact full rebuild from BRC recurrence s=0..768 PASS; input based path PASS with byte-identical generated JSON; 105 coefficients at r<=13 independently compared; Catalan top coefficient 255/255 PASS. No native CLAIM/Source Result/independent Driver review: `AUTHOR_SIDE / NOT_ADMITTED`. Activity persistence and PR readback must be evaluated separately from mathematical acceptance.
+
+**Next smallest discriminating unit.** Analyze `r=256` (`H_257` necessary), construct `Q_256(v)`, test shifted Newton coefficients or find exact failure. If certificate fails distinguish positivity-cone insufficiency from a genuine negative minor. Develop a mechanism allowing r,k to co-grow, including the fixed `k=1`, q→∞ frontier. Independently review R330 degree identity.
