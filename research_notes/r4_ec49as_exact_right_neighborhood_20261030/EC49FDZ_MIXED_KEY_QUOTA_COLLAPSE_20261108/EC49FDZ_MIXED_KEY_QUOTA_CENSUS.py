@@ -107,6 +107,15 @@ for b in B:
     assert all(minimal_quota(h,(b,))[0] for h in (5,6))
 for c in C:
     assert all(minimal_quota(h,(c,))[0] for h in (7,8,9))
+# Key-rigidity upgrade: every selected word in each rank-and-quota-feasible triple
+# is forced into the same A | B,B | C,C,C schedule, EVEN WITH mixing allowed.
+assert all(not profiles[h].get(a,{}) for a in A for h in range(5,10))
+assert all(not profiles[4].get(b,{}) and all(not profiles[h].get(b,{}) for h in (7,8,9)) for b in B)
+assert all(all(not profiles[h].get(c,{}) for h in (4,5)) for c in C)
+# Some C have accepted H6 words, but they have only the 1,2,4,8 signature classes;
+# quota=2 rank nine demands exactly signatures 16 and 32, both supplied by B.
+assert all(not any(sig in profiles[6].get(c,{}) for sig in (16,32)) for c in C)
+rigidity_verified=True
 # Direct exhaustive operator-word cross-check for every (h,key) in the 64 remaining triples and H4 exceptions.
 exception_keys=[(2,3,1),(4,1,2),(5,0,1),(5,0,2),(6,4,1)]
 all_checked_keys=set(exception_keys).union(*(set(t) for t in valid))
@@ -127,6 +136,7 @@ report={'schema':'EC49FDZ_MIXED_KEY_QUOTA_CENSUS_V1','science_pin':'fc0f038e7bfd
  'four_word_quota_windows_min_accepted_word_count_for_rank_triples':four_quota_min,
  'quota_feasibility_determined_by_H4_H6_H9':True,
  'identical_key_triples_to_64_quota_three_phase_family':True,
+ 'every_feasible_word_selection_necessarily_uses_A_B_B_C_C_C':rigidity_verified,
  'independent_literal_horizon_key_profile_checks':literal_checks,
  'quota_infeasible_by_failed_window_subset':{str(k):v for k,v in sorted(unfit.items())},
  'local_min_signature_cover_size_histogram':{str(k):v for k,v in sorted(min_cover.items())},

@@ -14,7 +14,7 @@ A = {(3,2,1),(4,1,1)}; H4.
 B = {(3,4,1),(5,2,2),(6,1,1),(6,1,2)}; H5 and H6.
 C = {(4,6,1),(5,5,1),(6,4,2),(7,3,1),(7,3,2),(8,2,1),(8,2,2),(8,2,3)}; H7, H8, H9.
 
-Every rank-and-quota-feasible triple of T therefore admits a three-block witness, switching after H4 and H6, even though arbitrary intra-window mixing was permitted. This is a classification of key *sets*, not a claim that mixing cannot improve the signed primitive prefix cost for one of the 64 survivors.
+Every rank-and-quota-feasible triple of T therefore admits a three-block witness, switching after H4 and H6, even though arbitrary intra-window mixing was permitted. The further key-rigidity argument below proves that even the *literal selected keys* at every horizon are forced to the displayed three blocks.
 
 ## Proof and coverage
 
@@ -57,4 +57,16 @@ Source lineage: EC49FDU commit 73c954d996082450c632f7150688ec1de0473375; EC49FDV
 
 ## Next unit EC49FEA
 
-Within the 64 surviving later-three-key sets, jointly optimize full signed native prefixes while permitting *mixed keys in each horizon* and fixed H2/H3 initially. Separately examine the late-key families containing a rank-feasible two-key subset, and changed early key spending. The original five-key mother objective seeks a complete H2–H9 system with at most **93** native prefix edges; the validated mother-problem bound is still **94** from the earlier construction.
+The 64 surviving triple families are key-rigid at all horizons, so their signed native prefix optimization can reuse the already verified fixed-schedule models. Next investigate late-key sets containing a globally rank-feasible pair, altered early key spending, or changed complete five-key allocations. The original five-key mother objective seeks a complete H2–H9 system with at most **93** native prefix edges; the validated mother-problem bound is still **94** from the earlier construction.
+
+## EC49FEA extension — every feasible key triple is window-key rigid
+
+The finite census yields a stronger proposition about **every** rank-nine word selection under each of the 64 surviving triples. Write its unique keys as A (H4 key), B (H5–H6 key), C (H7–H9 key). Directly from exact DP multiplicities, validated for all 2+4+8 possible choices:
+
+* Every A key has accepted complete words at H4 but **none** at H5–H9, since x+y=5<h+1.
+* Every B key has accepted complete words at H5 and H6 but **none** at H4 or H7–H9. At H4 its native operation-count nonnegativity fails; at H7–H9 its x+y=7<h+1.
+* Every C key has accepted words at H7–H9 and **none** at H4 or H5. At H6, three C keys admit some words, but their signatures are confined to {1,2,4,8}; the other C keys have no accepted H6 words.
+
+Thus H4 is forced to A, H5 to B, H7/H8/H9 to C. At H6, exactly two words with rank nine require signatures 16 and 32, which must both come from B because C has neither. **Every selected complete H4–H9 word therefore has the predetermined key A|B,B|C,C,C**. Intra-window key mixing is actually impossible under the complete rank-and-quota constraints of this 64-triple family.
+
+The executable census now asserts these four exhaustive support statements, so the conclusion is subject to the same frozen nine-state observer and literal native-operation DP. In particular, the existing EC49FDY 118/120-edge fixed-early-path optima for eight triples remain their exact optima **even after allowing arbitrary per-window key mixing, provided the early literal paths and the same three later full keys are fixed**. The mother target <=93 edges remains open over changed early and later-key sets. Next prioritize late-key families possessing a globally sufficient two-key subset, and alternate early key expenditure.
