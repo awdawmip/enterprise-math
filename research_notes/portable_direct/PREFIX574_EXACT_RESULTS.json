@@ -1,0 +1,58 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_model": "frozen four-STAR native X6-BRC, 96 ordered ports, 6 actions",
+  "roots": 9,
+  "native_ports": 96,
+  "weighted_quotient_classes": 37,
+  "partition_growth": [1,4,13,21,33,37],
+  "bipartition": [17,20],
+  "gate_sources": [4,15,17],
+  "gate_target": 5,
+  "characteristic_terms": 258,
+  "Q14_degree": 14,
+  "Q14_terms": 159,
+  "generic_irreducibility": {
+    "field": "Q(u,v,z)",
+    "prime": 1000003,
+    "formal_parameter_specialization": {"u":9,"v":26,"z":13},
+    "polynomial_coefficients_ascending_mod_p": [223637,153699,569254,156237,128645,18670,778724,11058,209508,167802,663485,633859,988915,999995,1],
+    "x_p2_mod_f": [942164,75537,598282,570876,237482,350637,218318,346610,255537,178853,54661,887768,896956,331544],
+    "x_p7_mod_f": [924429,639458,454933,353647,593681,413143,586687,684235,239287,950953,340394,846173,641118,327396],
+    "x_p14_mod_f": [0,1],
+    "gcd_f_x_p2_minus_x": [1],
+    "gcd_f_x_p7_minus_x": [1],
+    "rabin_irreducible": true
+  },
+  "z_equals_1_core": {
+    "Q5_is_charpoly_of_five_state_M_squared": true,
+    "R9_factorization": "(L-4)*Q3(L)*S5(L)",
+    "Q5": "L**5 - 4*L**4 - 192*L**3*u - 288*L**3*v - 2304*L**2*u**2 - 3456*L**2*v - 82944*L*u*v + 20736*L*v**2 - 746496*v**2",
+    "Q3": "L**3 + 4*L**2 - 32*L*u - 16*L*v + 192*v",
+    "S5": "L**5 - 4*L**4 + 64*L**3*u - 32*L**3*v - 256*L**2*u**2 - 384*L**2*v + 3072*L*u*v + 256*L*v**2 - 9216*v**2"
+  },
+  "generic_core_lift_obstruction": {
+    "identity": "Q14 = Q5*S9_generic + (z-1)*R4",
+    "Q5_divides_generic_Q14": false,
+    "R4_degree_L": 4,
+    "R4_terms": 106,
+    "R4_coefficient_L4_u2": -12582912,
+    "S9_generic_degree_L": 9,
+    "S9_generic_terms": 131
+  },
+  "standard_companion_cone": {
+    "c2": "-4*(2*u*z + 38*u + 84*v + z - 1)",
+    "minus_c2": "8*u*z + 152*u + 336*v + 4*z - 4",
+    "standard_nonnegative_orthant_invariant": false,
+    "first_negative_entry": {"lag":2,"monomial_uvz":[0,0,0],"coefficient":-4}
+  },
+  "exact_polynomial_sha256": {
+    "Q14":"d258201370bd030e081aefec6c538dbea1abfc69712798080583a842ce66643e",
+    "Q5":"7e4c8f32489c9c0e2034ea3f69f6d2e4d93f676497a5b4bf2ccd95811447950d",
+    "R9_at_z1":"64c3f8f75f302b5ced75f0e5e8b113ada602f3c198b139c889c31ea9eddbbbba",
+    "S5":"f63f5f2a0cde20deda2942645833b83ed2c00cd9a1edcb84ce48062fc9ce65e2",
+    "S9_generic_quotient":"f9ae39e35796f126834e019397d6ddb5cc6ca7f700ebef558343dc27870046d8",
+    "R4_generic_division_defect":"1c6539711c5184c137e9b18dafd5abc4f5bdcd8fa59bb49577975a79d63bda0c"
+  },
+  "next_question":"Construct a genuinely gate-sensitive 14-dimensional invariant cone or prove its minimum positive-realization dimension; the fixed z=1 five-state factor does not lift, and the standard scalar companion orthant is not invariant."
+}
