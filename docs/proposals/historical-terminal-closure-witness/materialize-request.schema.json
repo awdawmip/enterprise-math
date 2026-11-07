@@ -1,0 +1,131 @@
+{
+  "$comment": "Do not install or expose this proposed operation before authenticated native context, Source writer/admission audit and closure/PRE_FINAL adapters are implemented together. A successful schema validation never means a witness is authorized. Client expected pins/routes/prose are only preconditions; server canonicalizes paths, rejects duplicate/conflicting path and route identities, and requires exact independently derived sets. uniqueItems is structural JSON equality only.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "PROPOSAL ONLY. This JSON schema validates client intent shape, grants no authority, and is not an installed native operation. Native session authentication, complete fresh runtime observation, evidence replay and Source CAS are mandatory server-internal checks. Client runtime/receipt/trust fields are forbidden.",
+  "properties": {
+    "expected_open_generation_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._-]+$",
+      "type": "string"
+    },
+    "expected_pins": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "git_blob_sha1": {
+            "pattern": "^sha1:[0-9a-f]{40}$",
+            "type": "string"
+          },
+          "path": {
+            "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^sha256:[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "git_blob_sha1"
+        ],
+        "type": "object"
+      },
+      "minItems": 9,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "expected_source_commit": {
+      "pattern": "^[0-9a-f]{40}$",
+      "type": "string"
+    },
+    "historical_packet_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._-]+$",
+      "type": "string"
+    },
+    "historical_publication_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._-]+$",
+      "type": "string"
+    },
+    "historical_result_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._-]+$",
+      "type": "string"
+    },
+    "historical_review_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._-]+$",
+      "type": "string"
+    },
+    "historical_task_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._-]+$",
+      "type": "string"
+    },
+    "parent_objective_id": {
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9._-]+$",
+      "type": "string"
+    },
+    "scope_preservation_statement": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "successor_publication_routes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "current_publication_id": {
+            "pattern": "^[A-Za-z0-9._-]+$",
+            "type": "string"
+          },
+          "original_publication_id": {
+            "pattern": "^[A-Za-z0-9._-]+$",
+            "type": "string"
+          },
+          "rationale": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "task_id": {
+            "pattern": "^[A-Za-z0-9._-]+$",
+            "type": "string"
+          },
+          "task_role": {
+            "pattern": "^[A-Za-z0-9._-]+$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "task_id",
+          "original_publication_id",
+          "current_publication_id",
+          "task_role",
+          "rationale"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    }
+  },
+  "required": [
+    "historical_task_id",
+    "historical_publication_id",
+    "historical_result_id",
+    "historical_review_id",
+    "historical_packet_id",
+    "parent_objective_id",
+    "expected_open_generation_id",
+    "expected_source_commit",
+    "expected_pins",
+    "scope_preservation_statement",
+    "successor_publication_routes"
+  ],
+  "title": "Proposed native historical closure witness materialization request",
+  "type": "object"
+}
