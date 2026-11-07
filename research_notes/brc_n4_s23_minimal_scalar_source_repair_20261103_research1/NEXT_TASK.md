@@ -1,0 +1,5 @@
+# Next executable unit
+1. Optimize repair under **noisy retained** source rows, not only the fixed-fiber setting. Write a declared error metric (e.g. maximum observed outcome probability absolute error across retained views and added scalar sensors), derive a global nine-coordinate inverse modulus and sharp witnesses for all j, four masks, and beta_N/beta_E. Reuse the exact 2x2 inverse or singleton diagonal formulas from PROOF.md.
+2. Investigate alternative source-respecting interventions on **downstream** coordinates z5..z10: can those restore a missing paired row by changing the surviving mixture mean, and at what observation cost? Explicitly separate this enlarged intervention class from the upstream-only no-go theorem.
+3. Return to the frozen original k=4/6, ten-label decoder-bank minimax problem, currently independent of these source repair statements. Preserve the main target and P000/native-time typing.
+Review: independent mathematical review, source-native owner/CLAIM and acceptance are still pending.

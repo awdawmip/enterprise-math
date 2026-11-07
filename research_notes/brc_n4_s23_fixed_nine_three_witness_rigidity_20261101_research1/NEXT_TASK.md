@@ -1,0 +1,7 @@
+# Smallest successor research unit
+
+The original nine fixed decoder kernels plus any one replacement tenth kernel cannot achieve simultaneous radius <=1/2 at W and H(1/3) while keeping J(1/3) below 2/3. The exact best shared tenth kernel on {W,H(1/3),J(1/3)} is radius 5/9, with forced BV row (4/9,4/9,0,1/9). This is an author-side model-specific no-go, not the unrestricted ten-label minimax.
+
+Next executable question: can adjusting **at least one of the original nine labels**, while keeping the four-group common encoder, achieve a strict global 11D upper bound below 2/3? Specify an explicit rational ten-kernel candidate and certify continuous admissible strategies (not merely ternary-grid points), or prove a lower bound valid for arbitrary ten stochastic decoder kernels and (separately) k=6 arbitrary encoders. A bounded first experiment is to solve exact rational constraints for W/H/J and all 64 deterministic signatures with *two* adjustable decoder labels, then run the continuous one-parameter separation oracle before any global claim.
+
+Preserve the six-row BRC source mixture and S23 information-set legality. Do not infer native P000 spatial six-axis/time dynamics from this statistical toy model. Maintain [1/2,2/3] for unrestricted R_beh(k,10) until a universally quantified proof changes it. Separate author checking, independent review, and formal admission. No CLAIM is inherited from this PR.

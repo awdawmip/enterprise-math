@@ -1,0 +1,2 @@
+# Next work: K=17, 2/3 <= s < 3/4
+Begin at proven unique boundary winner (12T,1B) at s=2/3. Enumerate rational k/m feasibility thresholds and hulls, notably m=13 activation at s=9/13. Determine the common-exponent Chernoff global winning designs, exact crossing existence and uniqueness, and endpoint jumps. Independently review current 50 exact interval inequalities, convexity and nonvertex-exclusion lemma. Preserve scientific pin 43ec6098b1330ae86d0a7863be336c5d97f6ef34. The ten-label original S23 minimax mother target retains [1/2,2/3] as a separate, unsolved bracket.

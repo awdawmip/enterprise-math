@@ -1,0 +1,7 @@
+# Exact sources and provenance
+
+- Frozen S23 mathematical input: awdawmip/enterprise-math commit 43ec6098b1330ae86d0a7863be336c5d97f6ef34.
+- Original six-source map, seven fixed kernels and unchanged concrete free-decoder bank: awdawmip/enterprise-math commit 57a6db1d81068504cca2b3a6ea809a63555473d6, research_notes/brc_n4_s23_full_five_parameter_cube_sharp_three_fifths_20261102_research1/VERIFY.js.
+- Immediate previous B-side-release proof: awdawmip/enterprise-math commit 8d85ec601ca5e64cee562ddc9f4ef687443e83dd, research_notes/brc_n4_s23_f6_bside_release_edge_sharp_91_145_20261102_research1/PROOF.md and VERIFY.js.
+- Current entry and math standards read from awdawmip/chatgpt-global-knowledge canonical main snapshot 44771121b8b69a5e447c461f88be3d8fbbf39d89; Enterprise Math current main 67d7e2b9bdaa88cd6a15b8dd4cb212d5fed0ab6f; applicable public current P000 and Heartbeat World contract read at main. The static probabilistic S23 observer is treated as a model-internal calculation retaining its original labeled inputs, not as a new P000 ontology.
+- On 2026-11-02 the JavaScript verifier was actually executed with exact arithmetic: 54432 six-dimensional vertices; 18750 six-dimensional cells; 3750 five-dimensional cells; two sharp rational witness vectors. Source Git blob 333ffad162cb4743327e3328a044791f530a088f; captured JSON Git blob 3844ec49642911a8ff1d602915df501432cfd5ac. Native owner/CLAIM and independent review were unavailable.

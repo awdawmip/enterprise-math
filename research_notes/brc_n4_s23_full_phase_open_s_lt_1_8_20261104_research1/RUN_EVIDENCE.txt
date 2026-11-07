@@ -1,0 +1,10 @@
+Run date: 2026-11-04. Executed locally using Python standard library Fraction/isqrt. Exact assertions determine all signs; floats are display-only.
+K=17, 0<s<1/8: pure B if s<1/9; 9T if 1/9<=s<s*; pure B if s*<s<1/8.
+At s* exactly 9T and 17B tie, unique switch s* in J.
+Root offset in (9805774634637,9805774634638)/10^18 relative to 1/9
+positive endpoint cells 10 strict decreasing derivative cells 128 negative extension cells 743
+g(1/9): 5.882896213311083e-09 5.882896213311083e-09
+g(1/8): -9.436984739021926e-06 -9.436984739021926e-06
+negative derivative enclosure on J: -0.0007323812374643228 -0.0004675064625404756
+PASS_S23_K17_FULL_OPEN_PARAMETER_INTERVAL_BELOW_1_8_20261104
+Local executed verifier SHA256 (source version above): 2c4a17891975bd4154969c836be307783aa36cbfd330a7113f51d9208f28335c

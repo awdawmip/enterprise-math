@@ -1,0 +1,7 @@
+# Scientific provenance and applicable rules
+
+- Scientific source pin fixed from the actual ongoing Research1 task: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`; this work does not change the ten-label mother problem or its provenance.
+- Direct immediate mathematical predecessor: `awdawmip/enterprise-math@fd0e00e297eec94dd5182c9bfc0c8d33738efa6e:research_notes/brc_n4_s23_k17_cell_s17_to_s16_20261104_research1/PROOF.md`; verifies the identical typed T/B model and exact CB formula.
+- Current project normative context (read 2026-11-05): `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `research_priorities/research_method.json`, and P000 / ACTIVE worldview, with current global entry `awdawmip/chatgpt-global-knowledge:00_BOOTSTRAP.md`, `OPERATING_MANUAL.md`, applicable math/code/temporal/BRC research policies.
+- BRC application: retain typed complete T and Bernoulli projection B (source-label observer distinction); apply the common Chernoff exponent to the product experiment rather than adding separately optimized exponents. Reused the immediate predecessor's analytic convex/secant method and exact interval arithmetic kernel.
+- Author session: GitHub writer `awdawmip`. Native service session registration request `research1-20261105-0004-session` was `QUEUED` when inspected; no current CLAIM or native Result authorization is asserted. Prior authors' research IDs do not transfer across conversations.

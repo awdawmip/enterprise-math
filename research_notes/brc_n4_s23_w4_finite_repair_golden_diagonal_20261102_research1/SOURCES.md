@@ -1,0 +1,7 @@
+# Provenance and verification scope
+
+Frozen science input: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34. Exact previous fixed-bank F4 result, verified on a 1296-cell real 4D cover: awdawmip/enterprise-math@5493b5468968ef817732f2e235b8a9c550f785a5, research_notes/brc_n4_s23_full_four_parameter_bank_exact_two_thirds_20261102_research1/. Earlier full F3 cube sharp 3/5: awdawmip/enterprise-math@de0ddc3371ec886be1eb906958cb16e3b4db0978, research_notes/brc_n4_s23_full_three_parameter_cube_sharp_three_fifths_20261102_research1/.
+
+Current global normative basis: private GLOBAL_KNOWLEDGE_V1 canonical main at 2e6b960d7bf1d81841356975a2561e7a8f4be18d; P000 startup projection checked against original P000 blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc. Project current control main at 3394518cc290181570ef446e076669aec51e703e. Current public source docs: docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context, docs/PORTABLE_RESEARCH_PROTOCOL.md and research_priorities/research_method.json.
+
+Local verification ran Python standard-library Fraction and exact integers on 2026-11-02; no native source result/review. Tool identity GitHub awdawmip with repository push/admin; gateway research_authority_granted=false, native control tasks/dispatch returned CONTROL_QUOTA. GitHub author-side publication is not a native CLAIM, Result or independent review. No account credentials or private global-rule bodies are present in these files.

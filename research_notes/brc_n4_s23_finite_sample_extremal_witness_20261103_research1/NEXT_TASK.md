@@ -1,0 +1,5 @@
+# Next independent research unit
+1. Fix F=(3,31), j=0, h=1/42 and beta_E=1/2. When only E-row-0 event-2 is returned as the repaired scalar, define an explicitly priced Bernoulli-indicator sampling operation. Compute its exact finite-n likelihood experiment jointly with retained E row1 and compare its optimal testing risk against the j=2/3/4/5 full-four-outcome experiment at equal trial budget.
+2. Price a single additional downstream-gate intervention and identify the minimal operator that separates the z2=1 near-kernel under N; give concrete row tags and test whether the extreme 21/b^2 inverse witness ceases to be extremal.
+3. Continue the original ten-label S23 decoder minimax mother problem [1/2,2/3] separately; the statistical observer result does not close it.
+Retain source freeze awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34, P000, and author-side UNREVIEWED / NOT_ADMITTED status.

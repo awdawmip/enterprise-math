@@ -1,0 +1,7 @@
+# Scientific inputs and provenance (2026-11-04)
+
+- Frozen scientific source: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34` (unchanged); source-tagged BRC N=4 S23 two-state experiment and sampling prices only.
+- Last author-side frontier: `awdawmip/enterprise-math@213f911c782a4126406b2fa2e2f90373d8ccde9f:research_notes/brc_n4_s23_chernoff_all_contrasts_endpoint_existence_20261104_research1/PROOF.md`. Finite-h local certificate: `@6897b5e082ba6d707f1cb1683032b9a3b3233882:research_notes/brc_n4_s23_chernoff_finite_h_local_unique_crossing_20261104_research1/PROOF.md`.
+- Project current governance: `docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context`, `docs/PORTABLE_RESEARCH_PROTOCOL.md`, `research_priorities/research_method.json`, P000, X6 Heartbeat World and active account-wide mathematics/output/code rules read separately from frozen scientific pin.
+- Result: a real-analytic argument for all real sufficiently small positive h and all real 0<s<1; epsilon is existential and not numerically evaluated. SymPy exact polynomial audit is supplementary finite symbolic verification of load-bearing expansions. No formal proof assistant or independent mathematical review.
+- Connected GitHub login observed: `awdawmip`. Canonical native owner/CLAIM remains unconfirmed due to `CONTROL_QUOTA` for task queries; Site-scoped static read-only gateway reports `research_authority_granted=false`. Branch research artifacts are not native Results or accepted shared theorems. No credentials or confidential personal data stored.
