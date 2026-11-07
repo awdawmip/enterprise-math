@@ -43,14 +43,16 @@ def run(p,gamma):
     assert ut==((p,0),(p,0))
     wrong=sq(Bt,sc(p,At,m2),m2)
     assert wrong!=((m2-p,0),(m2-p,0))
+    # Inverse-pullback gauge gamma^{-1}=-gamma negates both entries but preserves F^2.
     At_op=sc(-1,At,p); Bt_op=sc(-1,Bt,p)
-    opposite=sq(Bt_op,sc(-p,div,m2),m2)
+    c_op=sc(-p,div,m2)
+    opposite=sq(Bt_op,c_op,m2)
     assert opposite==qt
-    return A,B0,beta,B,gamma,At,Bt,div,c,qt,ut,wrong
+    return A,B0,beta,B,gamma,At,Bt,div,c,qt,ut,wrong,opposite
 
 def main():
     for p,g in ((19,(0,3)),(373,(104,0))):
-        A,B0,beta,B,gamma,At,Bt,div,c,qt,ut,wrong=run(p,g)
+        A,B0,beta,B,gamma,At,Bt,div,c,qt,ut,wrong,opposite=run(p,g)
         print(f"p={p}: A={A}; b={B0}; beta={beta}; Bcm={B}; gamma={gamma}")
         print(f"p={p}: Atilde={At}; Btilde={Bt}; divided={div}; lower-left={c}")
         print(f"p={p}: quartic-square={qt[0]}; untwisted-square={ut[0]}; no-sigma={wrong}")
