@@ -25,15 +25,22 @@
     "Exact rational terminating Dixon 3F2 evaluation of prior B5 Euler projection diagonal",
     "All-prime theorem p=8k+5: T_B,p=(k!)²((3k+1)!)²/192 != 0 (mod p), including p=5",
     "Original direct finite-field q_j*r_j recurrences independently agree with two factorial formulas for 1292 primes p<50000 p=5 mod8",
-    "Direct distinct off-diagonal compensation obligation: E_B=U_B+T_B,p, so omitting T requires exact compensation"
+    "Direct distinct off-diagonal compensation obligation: E_B=U_B+T_B,p, so omitting T requires exact compensation",
+    "Exact B3/B5 high-cutoff polynomial factorization CQR=Pi_<p(CQR)+z^p H with deg H<=k and explicit first k+1 reflected source coefficient formula",
+    "At any CM low-Gauss root Q(x)=0, source-preserving compact E_B(x)=16 C(x)(DQ)(x)R(x)-2x(H+8DH)(x), and exact Cartier c_B substitution",
+    "Independent full projected weighted convolution versus compact formula for 94 target primes p<2500, including 13,19,43,67,373; published Cartier products match"
   ],
   "evidence_paths": [
     "research_notes/portable_direct/20261107_hourly20_d25_euler_diagonal_dixon_nonvanishing.md",
-    "research_notes/portable_direct/d25_euler_diagonal_dixon_20261107.py"
+    "research_notes/portable_direct/d25_euler_diagonal_dixon_20261107.py",
+    "research_notes/portable_direct/20261107_hourly20_d25_cartier_short_overflow_bridge.md",
+    "research_notes/portable_direct/d25_b_source_short_overflow_20261107.py"
   ],
   "author_evidence_commits": [
     "213ed53071c7c01137b8913b2f8a791d53ee0036",
-    "ea30537d6dc07456049982cd5af05cb5c6bc0592"
+    "ea30537d6dc07456049982cd5af05cb5c6bc0592",
+    "ac27703321010bf194462c2edd778fbeae798c1c",
+    "47fd0ef22fd0f48804a6f42d0ea4207f02e86141"
   ],
   "external_standard_reference": "NIST DLMF 16.4.4 Dixon well-poised sum https://dlmf.nist.gov/16.4.E4",
   "do_not_repeat": [
@@ -44,8 +51,8 @@
     "native p373 H0/B0 and independent replication #1559",
     "accepted D24 units"
   ],
-  "current_unfinished_unit": "Construct source-aware Fricke/adjoint off-diagonal compensation using the newly closed B5 Euler-diagonal factor and pre-existing reflected-prefix/Cartier source ports",
-  "next_exact_action": "Substitute T_B,p=(k!)²((3k+1)!)²/192 into B5 E_B reflected-prefix formula; isolate off-diagonal U_B; test first at p13,19,43,67,373, preserving B3/B5 difference and A/B lower forcing terms; seek symbolic gauge identity that completes (G_A-G_B)/p² + E_A-E_B=0 mod p",
+  "current_unfinished_unit": "Prove an A/B Fricke adjoint cancellation using the source-labeled B3/B5 Cartier endpoint and the degree-k (H,DH) overflow port, with B5 universal Dixon diagonal explicitly retained",
+  "next_exact_action": "Evaluate transformed A/B ODE injections and Fricke t±=±6sqrt(2) pullbacks against the exact compact B operator E_B=-16C(I_B+c_B x)/(1-x)^r-2x(H+8DH); test possible cross-source identity at p=13,19,43,67,373; preserve independent p373 native H0/B0",
   "unknown_native_effects_preserved": {
     "old_request_ids": [
       "em-h20-20261106-1324-d25-task-r13",
@@ -66,5 +73,6 @@
     "support_issue": "awdawmip/enterprise-math#1558"
   },
   "proof_note_latest_commit": "991ef9a186933833a519f4c968c34ae9581091a4",
-  "proof_note_latest_blob_sha1": "the_note_contents_file_is_published_and_read_back"
+  "proof_note_latest_blob_sha1": "the_note_contents_file_is_published_and_read_back",
+  "portable_status": "PROVED_BY_AUTHOR_EXACT_FIELD_ALGEBRA_AND_REFERENCED_DIXON / TESTED_1292_DIAGONAL_AND_94_COMPACT / UNREVIEWED_NOT_ADMITTED"
 }
