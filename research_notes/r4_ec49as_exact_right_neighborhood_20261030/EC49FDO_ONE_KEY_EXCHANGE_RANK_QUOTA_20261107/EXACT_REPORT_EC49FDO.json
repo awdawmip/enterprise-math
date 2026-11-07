@@ -69,7 +69,60 @@
       "dual_bound": 94,
       "sol_status": "OPTIMAL",
       "signed_X6_exact_rank_audit": "PASS",
-      "witness_words": 22
+      "witness_words": 22,
+      "explicit_signed_native_word_witness": {
+        "2": [
+          "de",
+          "ed",
+          "ce",
+          "ec"
+        ],
+        "3": [
+          "feg",
+          "gef"
+        ],
+        "4": [
+          "cegf",
+          "ecgf",
+          "fegd",
+          "gefd"
+        ],
+        "5": [
+          "feggf",
+          "gefgf"
+        ],
+        "6": [
+          "feggfg",
+          "gefgfg"
+        ],
+        "7": [
+          "feggfgg",
+          "gefgfgg"
+        ],
+        "8": [
+          "feggfggc",
+          "feggfggd",
+          "gefgfggc",
+          "gefgfggd"
+        ],
+        "9": [
+          "feggfggfg",
+          "gefgfggfg"
+        ]
+      },
+      "word_selection_binary_variables": "y[h,word]",
+      "prefix_payment_binary_variables": "x[primitive_prefix_node]",
+      "exact_horizon_slot_counts": [
+        4,
+        2,
+        4,
+        2,
+        2,
+        2,
+        4,
+        2
+      ],
+      "objective_and_independent_direct_audit_match": true
     },
     {
       "case": "1512",
@@ -89,7 +142,60 @@
       "dual_bound": 98,
       "sol_status": "OPTIMAL",
       "signed_X6_exact_rank_audit": "PASS",
-      "witness_words": 22
+      "witness_words": 22,
+      "explicit_signed_native_word_witness": {
+        "2": [
+          "de",
+          "ed",
+          "ce",
+          "ec"
+        ],
+        "3": [
+          "feg",
+          "gef"
+        ],
+        "4": [
+          "fegc",
+          "fegd",
+          "gefc",
+          "gefd"
+        ],
+        "5": [
+          "fegfg",
+          "gefgf"
+        ],
+        "6": [
+          "fegfgg",
+          "gefgfg"
+        ],
+        "7": [
+          "fegfggg",
+          "gefgfgg"
+        ],
+        "8": [
+          "fegfggfc",
+          "fegfggfd",
+          "gefgfgfc",
+          "gefgfgfd"
+        ],
+        "9": [
+          "fegfggffg",
+          "gefgfgfgf"
+        ]
+      },
+      "word_selection_binary_variables": "y[h,word]",
+      "prefix_payment_binary_variables": "x[primitive_prefix_node]",
+      "exact_horizon_slot_counts": [
+        4,
+        2,
+        4,
+        2,
+        2,
+        2,
+        4,
+        2
+      ],
+      "objective_and_independent_direct_audit_match": true
     },
     {
       "case": "1512",
@@ -109,9 +215,100 @@
       "dual_bound": 106,
       "sol_status": "OPTIMAL",
       "signed_X6_exact_rank_audit": "PASS",
-      "witness_words": 22
+      "witness_words": 22,
+      "explicit_signed_native_word_witness": {
+        "2": [
+          "de",
+          "ed",
+          "ce",
+          "ec"
+        ],
+        "3": [
+          "feg",
+          "gef"
+        ],
+        "4": [
+          "cefg",
+          "ecfg",
+          "fegd",
+          "gefd"
+        ],
+        "5": [
+          "feggf",
+          "gefgf"
+        ],
+        "6": [
+          "feggfg",
+          "gefgfg"
+        ],
+        "7": [
+          "feggfgg",
+          "gefgfgg"
+        ],
+        "8": [
+          "fegggggc",
+          "fegggggd",
+          "gefggggc",
+          "gefggggd"
+        ],
+        "9": [
+          "fegggggfg",
+          "gefgggggf"
+        ]
+      },
+      "word_selection_binary_variables": "y[h,word]",
+      "prefix_payment_binary_variables": "x[primitive_prefix_node]",
+      "exact_horizon_slot_counts": [
+        4,
+        2,
+        4,
+        2,
+        2,
+        2,
+        4,
+        2
+      ],
+      "objective_and_independent_direct_audit_match": true
     }
   ],
   "scope": "Seed H2/H3 fixed (de,ed,ce,ec; feg,gef); signed native-X6 ordered primitive prefixes, exact five full BRC keys, six frozen transfer signatures, rational rank 9 for every H2..H9; H4..H9 quota 4,2,2,2,4,2; three named MILPs only.",
-  "remaining": "The other one-key exchanges and changed H2/H3 seed remain open; parent <=93 five-key objective open."
+  "remaining": "The other one-key exchanges and changed H2/H3 seed remain open; parent <=93 five-key objective open.",
+  "additional_infeasible_exact_quota_probes": [
+    {
+      "case": "1512",
+      "replaced": [
+        5,
+        5,
+        1
+      ],
+      "added": [
+        6,
+        5,
+        1
+      ],
+      "candidates": 9956,
+      "trie_edges": 59542,
+      "status": "INFEASIBLE",
+      "highs_status": 2
+    },
+    {
+      "case": "1512",
+      "replaced": [
+        5,
+        5,
+        1
+      ],
+      "added": [
+        5,
+        7,
+        1
+      ],
+      "candidates": 4240,
+      "trie_edges": 29278,
+      "status": "INFEASIBLE",
+      "highs_status": 2
+    }
+  ],
+  "corrected_milp_semantics": "Selected observation words y are distinct from prefix closure x; y<=x_terminal. Signed native prefix pricing uses x; rank, exact window quotas and five-key occurrence are enforced on selected y.",
+  "checker_status": "Actual local corrected x/y HiGHS model executed and independently exact Fraction/signed primitive prefix audited; author-side only; PR replay code published for reproduction."
 }
