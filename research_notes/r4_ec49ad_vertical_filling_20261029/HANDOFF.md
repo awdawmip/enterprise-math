@@ -1,0 +1,5 @@
+# EC49AD author-level portable handoff, 2026-10-29
+
+Complete fixed-cost 2D projection is a compact convex polygon. At d=alpha-beta positive, d∈[0,59/576], alpha∈[L(d),1-3d], where L has EC49AC's six knots; at d negative reflect by acceptance complement. One universal causal prefix w0:A0;w1:A1;w2:9/16 A0 +1/16 B0 +3/8 STOP, S always if first paid, attains every feasible point with terminal fresh-coin acceptance. For d=1/12 exact range alpha∈[1229/4016,3/4]. Proof and exact verifier: PROOF.md, VERIFY.py, EXACT_REPORT.json; SOURCES.md includes immutable inputs; NEXT_TASK.md opens EC49AE.
+
+Status AUTHOR_PROVED / EXACT_FRACTION_CHECK_PASS / PORTABLE_DRAFT / UNREVIEWED / NOT_ADMITTED; native Source owner inventory CONTROL_QUOTA, research authority false; no formal CLAIM/Result or independent Driver review. No credentials or widened sharing.
