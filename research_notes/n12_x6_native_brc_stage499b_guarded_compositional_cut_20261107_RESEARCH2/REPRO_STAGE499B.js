@@ -89,4 +89,4 @@ function run(){
     provenance_counterexample:{x:'AABACCCC',y:'ABAACCCC',source_tag:'P at position 2 (1-based)',first_separating_action:'DELETE_LAST_PUBLIC'},
     arithmetic:'exact integers',scope:'complete action tree for each generated paired history; not all possible native histories'};
 }
-return JSON.stringify(run(),null,2)+'\n';
+if (typeof process !== 'undefined' && process.stdout) process.stdout.write(JSON.stringify(run(),null,2)+'\n'); else return JSON.stringify(run(),null,2)+'\n';
