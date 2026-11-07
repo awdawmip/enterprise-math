@@ -1,0 +1,81 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_RESEARCH_CONTINUATION_V1",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "c47e13e4aba0e006366f989d6334d443f6333ae3"
+  },
+  "continuation_frontier": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "4efef1592c0e576b11478352e8ca97c835ebd3ee",
+    "path": "research_notes/portable_direct/20261108_onhour_d25_prop16_quartic_twist_cm_companion_bridge.md",
+    "blob": "ebf3a0d1efef5c472ef45eff469ecae3d9caf22c2"
+  },
+  "researcher_identity": {
+    "researcher_id": "EM-DIRECT-912549",
+    "identity_source": "DIRECT_AUTO_GENERATED",
+    "registration_state": "REGISTERED",
+    "source_binding_state": "UNCONFIRMED",
+    "mode": "TASK_RESEARCH",
+    "session_id": "local-chatgpt-enterprise-math-20261108T061040-0800",
+    "session_id_kind": "LOCAL_STABLE_KEY_NOT_PLATFORM_OR_SOURCE_SESSION"
+  },
+  "research_activity_id": "RA-0CA61A48E6C904E1952278E8",
+  "result": {
+    "status": "AUTHOR_SIDE_PROVED_EXACT_TWO_PRIME_SPECIALIZATION_CHECKED",
+    "claim": "Coefficient-side quartic-twisted semilinear CM exchange in the original-E3 eigenbasis has off-diagonal ports B_tilde and p*sigma(A_tilde), with semilinear square [-p] modulo p^2.",
+    "p373": {
+      "gamma": "104",
+      "A_tilde": "115+143T mod 373",
+      "B_tilde": "196+19T mod 373",
+      "divided_port": "115+230T mod 373",
+      "lower_left": "42895+85790T mod 139129",
+      "square": "-373 I mod 139129"
+    },
+    "p19": {
+      "gamma": "3T",
+      "A_tilde": "1+14T mod 19",
+      "B_tilde": "7+16T mod 19",
+      "divided_port": "1+5T mod 19",
+      "lower_left": "19+95T mod 361",
+      "square": "-19 I mod 361"
+    },
+    "gauge": "gamma -> -gamma negates both off-diagonal entries and preserves [-p]",
+    "native_comparison": "NOT_EXECUTED; candidate port values derived, basis map and native [X]U unavailable"
+  },
+  "verification": {
+    "method": "Python standard library exact pair arithmetic in (Z/p^3)[T]/(T^2-2), F_{p^2}, and mod p^2",
+    "checks": [
+      "coefficient sums a_(p-1), b_(p-1) mod p^3",
+      "A_p*B_CM=1 at p=19,373",
+      "gamma^2=-1 and A_tilde*B_tilde=-1",
+      "quartic semilinear square=-p mod p^2",
+      "untwisted comparator square=+p mod p^2",
+      "negative control omitting sigma fails",
+      "opposite quartic gauge preserves square"
+    ],
+    "result": "PASS_D25_QUARTIC_TWISTED_SEMILINEAR_CM_EXCHANGE_P19_P373"
+  },
+  "authority": {
+    "github_identity": "awdawmip",
+    "repository_permission": "admin",
+    "taskbook_owner": "taskbook/unassigned",
+    "native_owner": "UNCONFIRMED",
+    "native_site_phase": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "backend_connected": false,
+    "research_authority_granted": false,
+    "native_status_error": "BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE",
+    "operation_sent": false,
+    "claim_created": false,
+    "source_session_created": false,
+    "result_admitted": false
+  },
+  "next_action": [
+    "Obtain authorized native H0/B0 [X]U at p=373 modulo 139129.",
+    "Obtain authenticated typed basis map from original-E3 (omega,nu) to native H0/B0, including quartic gauge, source/target Frobenius direction, identity branch, Laurent principal part, CM normalizer, eta and kappa.",
+    "Compare native [X]U to lower-left 42895+85790T mod 139129 or divided quotient 115+230T mod 373 according to the native observer's declared type.",
+    "Cross-check the same map at p=19 and preserve any observer residual.",
+    "Continue the mother LIFT Delta_p-R_p mod p and W_p-p mod p^3 without treating this local matrix result as closure."
+  ]
+}
