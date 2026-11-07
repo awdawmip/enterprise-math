@@ -1,0 +1,108 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_model": "frozen four-STAR native X6-BRC; 96 ordered ports; 6 actions; 9 roots",
+  "weighted_quotient": {
+    "native_ports": 96,
+    "classes": 37,
+    "partition_growth": [
+      1,
+      4,
+      13,
+      21,
+      33,
+      37
+    ],
+    "bipartition": [
+      17,
+      20
+    ]
+  },
+  "gate_edges": [
+    {
+      "source": 4,
+      "target": 5,
+      "multiplicity": 1
+    },
+    {
+      "source": 15,
+      "target": 5,
+      "multiplicity": 1
+    },
+    {
+      "source": 17,
+      "target": 5,
+      "multiplicity": 1
+    }
+  ],
+  "rank_one_two_step_update": {
+    "right_block_gate_source_positions": [
+      2,
+      8,
+      10
+    ],
+    "left_block_gate_target_position": 2,
+    "B_equals_B0_plus_z_u_c": true,
+    "P_equals_P0_plus_z_b_c": true,
+    "rank": 1,
+    "P0_nonzero_entries": 117,
+    "gate_vector_nonzero_entries": 7
+  },
+  "P_support_certificate": {
+    "vertices": 17,
+    "directed_edges": 117,
+    "forward_reachable_from_0": 17,
+    "reverse_reachable_to_0": 17,
+    "max_forward_distance": 2,
+    "max_reverse_distance": 2,
+    "irreducible_for_positive_x_y_z": true,
+    "P0_same_support_as_Pz": true
+  },
+  "Q14": {
+    "degree_lambda": 14,
+    "degree_z": 1,
+    "nonzero_terms": 159,
+    "sha256": "d258201370bd030e081aefec6c538dbea1abfc69712798080583a842ce66643e",
+    "irreducibility_reused_from": "PREFIX-574 / Q14 irreducible over Q(u,v,z) by Rabin certificate"
+  },
+  "gate_transfer": {
+    "identity": "H(lambda) = c*(lambda*I-P0)^(-1)*b = -Qz(lambda)/Q0(lambda)",
+    "denominator_degree": 14,
+    "denominator_terms": 83,
+    "denominator_sha256": "1d94ddd76f887618816fad17571a6735de3514b53028f41da817c6fefb528fc6",
+    "numerator_degree": 12,
+    "numerator_terms": 76,
+    "numerator_sha256": "9bddcd8896a6148a108d7d29a0a98edaaa28520b9e169a7b58c57d4fed7893e4",
+    "numerator_leading_coefficient": "-4*(2*u + 1)",
+    "coprime": true,
+    "coprime_reason": "A common nonconstant factor of Q14(lambda,0) and dQ14/dz would divide Q14 over Q(u,v,z), contradicting irreducibility."
+  },
+  "markov_parameters": {
+    "c_b": "0",
+    "c_P0_b": "4*(2*u+1)",
+    "relative_degree_in_two_step_operator": 2,
+    "high_frequency_leading_term": "4*(2*u+1)/lambda^2"
+  },
+  "generic_positive_realization_dimension": {
+    "linear_minimum": 14,
+    "positive_upper_bound": 17,
+    "unresolved_exact_minimum": [
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  "Perron_gate_sensitivity": {
+    "P_nonnegative_for_positive_x_y_z": true,
+    "P_irreducible_for_positive_x_y_z": true,
+    "gate_update_nonzero_nonnegative_rank_one": true,
+    "rho_derivative": "left^T*(b*c)*right/(left^T*right) > 0"
+  },
+  "exact_polynomials": {
+    "Q14_sha256": "d258201370bd030e081aefec6c538dbea1abfc69712798080583a842ce66643e",
+    "Q0_sha256": "1d94ddd76f887618816fad17571a6735de3514b53028f41da817c6fefb528fc6",
+    "Qz_sha256": "9bddcd8896a6148a108d7d29a0a98edaaa28520b9e169a7b58c57d4fed7893e4",
+    "Q3": "L**3 + 4*L**2 - L*(32*u + 16*v) + 192*v"
+  }
+}
