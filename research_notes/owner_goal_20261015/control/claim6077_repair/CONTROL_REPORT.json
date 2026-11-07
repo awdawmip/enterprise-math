@@ -1,0 +1,97 @@
+{
+  "schema": "CLAIM6077_SOURCE_REVIEWED_FROZEN_RETURN_REOPEN_FINAL_CONTROL_REPORT_V1",
+  "created_utc": "2026-10-16T00:17:25.009584+00:00",
+  "classification": "LOCAL_CONTROL_FIX_CANDIDATE_NO_NEW_MATHEMATICS",
+  "problem": "prepare6072 returned RESUME from final HANDOFF_READY but the actual posted continuation6204642392 was reduced against old FROZEN_RETURN and rejected;6077 FAILED after Source ER/comment side effects.",
+  "exact_actual_events": [
+    5710114816,
+    5715323149,
+    5744808484,
+    5745200026,
+    6204642392
+  ],
+  "before": {
+    "Task6082_Source": "bfdeab630ff99aa8229c99f69e85ed522bc07b1d",
+    "all_actual_state_fields_match_full_local_Source_replay": true,
+    "chronological_state": "FROZEN_RETURN",
+    "ignored_reason": "RESUME requires a released or expired predecessor claim",
+    "final_state": "HANDOFF_READY",
+    "canonical_guard_error": "registered execution requires a current winning live Issue #240 CLAIM"
+  },
+  "candidate": {
+    "changed_production_files": 3,
+    "changes": [
+      "Operational Result adapter clears caller flags and supplies authoritative nonterminal review time plus exact current task/publication/Result ID.",
+      "Reducer consumes that one review edge and changes only the matching ownerless FROZEN_RETURN to HANDOFF_READY before applying the ordinary unchanged continuation CAS.",
+      "Canonical live binding consumes the same Result adapter before chronological reduction."
+    ],
+    "after_full_local_Source_replay": {
+      "state": "CLAIMED",
+      "dispatch_state": "LEASED",
+      "claim_id": "MCP-4e81ef90c2578a2342de3e8f",
+      "comment_id": 6204642392,
+      "session_id": "MCP-45e25848f80945b899ca8ea285c13f07",
+      "authentication_rejections": [],
+      "registered_rejections": [],
+      "guard_error": null
+    },
+    "continuation_cas_reason_and_entire_continuation_module": "BYTE_IDENTICAL",
+    "other_157_production_Python_files": "BYTE_IDENTICAL",
+    "Source_registration_six_gates_and_Native_code_allowlist": "NOT_CHANGED_OR_BYPASSED"
+  },
+  "validation": {
+    "new_regression_baseline": "21 tests;17pass+2fail+2error from existing frozen-return rejection, exit1",
+    "candidate_new_and_related": "85testsPASS exit0; includes21newtests",
+    "full_Source_graph_replay": "PASS exit0; real bootstrap/Taskbook/publication/Result/Review/intent/filter and canonical_live_claim_binding; no mocked repository lookups",
+    "negative_boundaries": [
+      "unreviewed frozen return",
+      "terminal accepted review",
+      "withheld Result authority",
+      "different/missing Result and wrong Task/publication",
+      "claim predating authoritative review",
+      "stale predecessor claim/comment CAS and wrong predecessor identity",
+      "wrong successor publication",
+      "edited/unauthorized comment",
+      "expired new claim",
+      "active predecessor owner lease preserved",
+      "old review cannot reopen later new frozen return",
+      "competing resumes have one winning epoch",
+      "caller task flags cannot create Result authority",
+      "input bytes unchanged and original Native FAILED preserved"
+    ],
+    "independent_7CDA_review": "Root reports independent bounded code review PASS and21 targeted tests PASS; independent original artifact is outside this capsule unless separately pinned",
+    "additional_tests_running_not_required_for_this_Source_freeze": [
+      "existing guard and continuation suites",
+      "pinned228 Native runner offline original-binding/expiry/session replay"
+    ]
+  },
+  "baseline_scope": {
+    "actual_local_HEAD": "7317568f2eca4aa89fa2f22266f390e5f07b6b5d",
+    "not_claimed_to_be_a_full_bfdeab_checkout": true,
+    "all_160_production_code_files_match_bfdeab_before_candidate": "Verified by actual bfdeab root/tools/control_plane Git tree metadata and exact file blobs; control_plane only noncode difference cutover JSON separately materialized.",
+    "local_operational_data": "731 Source data plus exact bfdeab newER and cutover; full local Result/Review view agrees actual Native6082 before fix. Additional own54161 RA/session copied later for separate offline Native runner only.",
+    "pending_Source1556_feature_not_included": true
+  },
+  "original_request_and_recovery": {
+    "original6077": "FAILED_UNCHANGED",
+    "new_job_or_run_created_on_service": false,
+    "reconcile": "NOT_ATTEMPTED;FAILED remains ineligible for OUTCOME_UNKNOWN-only reconcile",
+    "Native_recovery_assessment": "Separate offline assessment. A possible new request consuming exactly the same prepared event may reuse an existing unique server comment and reauthorize, contingent on actual journal/currentSource/lease/binding/codepolicy. No live recovery authorized or attempted.",
+    "Source_candidate_is_not_original_Native_success": true
+  },
+  "publication_and_deployment": {
+    "remote_writes_by_this_candidate_task": 0,
+    "draft_PR": "Root may independently publish on current main; no merge/deployment authorized here",
+    "Native_coordination": "A Source-only merge changes3 reviewed Python blobs; matching Native code_check rejects an unreviewed map. Any operator allowlist/config update requires separate exact review and deployment. No Native code patch or limit/gate relaxation is proposed.",
+    "safe_evidence": "Original target-specific Source/GitHub/native records and CONTROL code/logs; excludes unrelated raw Issue pages, session-start receipts, private keys/config/DB/host state, temporary download credentials and third-party papers/search bodies."
+  },
+  "mathematical_scope": {
+    "scientific_code": 0,
+    "roster": 0,
+    "N": "NOT_COMPUTED",
+    "affine": "NO_AFFINE_START",
+    "Global_Task": "OPEN",
+    "no_mathematical_acceptance_or_Driver_vote": true
+  },
+  "provenance": "Full prior CONTROL quota/codeCI/U2 wrapping and directed NONBLIND T6 paper plan exposure retained. Researcher EM-T6-BFF294 / own MCP-45e25848f80945b899ca8ea285c13f07; no accepted claim/run. CONTROL repair is not scientific execution authority."
+}
