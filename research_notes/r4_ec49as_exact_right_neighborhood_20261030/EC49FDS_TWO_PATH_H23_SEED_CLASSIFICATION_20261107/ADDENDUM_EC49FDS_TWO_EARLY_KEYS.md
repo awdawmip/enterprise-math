@@ -10,7 +10,7 @@ The eight seeds have one of two H2 triples:
 - H2={ce,ed,ge}, H3 in {feg,fge} × {gef,gfe}, early keys (2,1,1),(3,1,1), costs 31,35,31,35 in that H3 order.
 - H2={de,ec,fe}, same H3 alternatives, early keys (3,0,1),(3,1,1), costs 31,31,35,35.
 
-Each rank condition was checked by the existing literal signed primitive-step Fraction row-elimination implementation, independently of the signature-clause sieve. The complete key is counted from positive signed primitive axis steps. Exactly two new keys must be introduced to reach H4 and H9 (H4 feasibility implies x+y<=8, H9 implies x+y>=10; the initial keys expire by H3); consequently these seeds reserve **up to three key slots** under the five-key mother budget, providing a distinct search branch from the four viable three-key 2+2 seeds.
+Each rank condition was checked by the existing literal signed primitive-step Fraction row-elimination implementation, independently of the signature-clause sieve. The complete key is counted from positive signed primitive axis steps. At least two new keys must be introduced to cover H4 and H9 (H4 feasibility implies x+y<=8, H9 implies x+y>=10; the initial keys expire by H3); consequently these seeds reserve **up to three key slots** under the five-key mother budget, providing a distinct search branch from the four viable three-key 2+2 seeds.
 
 Reproduce by running, in the sibling EC49FDS directory:
 
