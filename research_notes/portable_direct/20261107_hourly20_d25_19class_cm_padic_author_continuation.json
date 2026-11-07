@@ -1,0 +1,68 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE",
+  "reported_research_lane": "chatgpt-research-hourly-enterprise-math-20260923",
+  "excluded_maintenance_id": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_science_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "parent_objective": "Delta_p-R_p = 0 (mod p) for p=13,19 (mod 24); OPEN",
+  "previous_author_frontier": "6309917cc5c65574663dcaffe48d0df52d897593",
+  "new_author_frontier": "c9b9650c4a34c882c34eec39ccfbc78956e42522",
+  "published_artifacts": [
+    {
+      "path": "research_notes/portable_direct/20261107_hourly20_d25_19class_cm_and_padic_strata.md",
+      "blob": "9458302ac0eefa7e3781bcd7894b7aa6e0dda293"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_19class_cm_hasse_bridge_20261107.py",
+      "blob": "5a372f1305183fd8be274b233a6f4f91e6b16b44"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_19class_padic_strata_20261107.py",
+      "blob": "444b53aaf3e99c9218be2405062816a666788e01"
+    }
+  ],
+  "completed_author_units": [
+    "Universal p=8k+3 root iff p=19(mod24) via exact polynomial quadratic transform, Hasse invariant -L_d and Deuring CM classification",
+    "Unconditional simple root and signed Fp² derivative norm/trace at p=19(mod24)",
+    "Exact three-valuation 0/1/2 Gauss coefficient partition with harmonic p³ coefficient lift and carry-labelled finite Clausen projection"
+  ],
+  "exact_checks": {
+    "cm_classes": "167 of 167 p<5000 and p=3(mod8), classes p=11(mod24):84, p=19(mod24):83",
+    "padic": "21 of 21 selected p=3(mod8), each 0<=n<p, modulo p^3 including Cauchy projection",
+    "native_experiment_p373": "NOT_EXECUTED"
+  },
+  "status": "AUTHOR_SIDE_PROVED_ALGEBRA_DEPENDS_ON_EXTERNAL_CLASSICAL_CM; FINITE_EXACT_CHECKED; UNREVIEWED; NOT_ADMITTED",
+  "current_normative_context": [
+    "awdawmip/chatgpt-global-knowledge@main:00_BOOTSTRAP.md",
+    "awdawmip/chatgpt-global-knowledge@main:OPERATING_MANUAL.md",
+    "awdawmip/chatgpt-global-knowledge@main:knowledge/preferences/MATH_RESEARCH_POLICY.json",
+    "awdawmip/enterprise-math@main:docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context",
+    "awdawmip/enterprise-math@main:research_priorities/research_method.json"
+  ],
+  "open_unit": "Find the p- and p^2-normalized signed Fricke transfer defect of the 216 vs 2304 weighted truncated series, with exact coefficient-lift and n>=p cutoff ports; seek finite WZ or p-adic certificate.",
+  "next_exact_action": "Use theorem C source-labelled B_<p(w) modulo p^3, differentiate by 1+8w∂w at w=1/9, align against pinned 216 p-adic source strata through genuine Fricke map and branch labels for p=19,43,67; calculate defect coefficients then attempt symbolic telescoping.",
+  "do_not_repeat": [
+    "13-class CM/Hasse theorem",
+    "19-class CM/Hasse root",
+    "signed Fricke local jets through order four",
+    "prior 107-prime fourth-jet scan"
+  ],
+  "protected_native_status": {
+    "last_em_status_fault": "BACKEND_IDENTITY_OR_VERSION_MISMATCH",
+    "operation_sent": false,
+    "own_native_claim_run_and_staging": "UNKNOWN_PRESERVE",
+    "registration": "REGISTER_PENDING",
+    "native_checkpoint": false,
+    "formal_result": false,
+    "review": false,
+    "original_request_ids": [
+      "em-h20-20261106-1324-d25-task-r13",
+      "em-h20-20261106-1324-d25-cont-r13"
+    ],
+    "support_issue": "awdawmip/enterprise-math#1558",
+    "recovery_required": "Fresh authenticated status/recovery/continuation; read original receipts; preserve staging and previous valid checkpoints; only then follow current typed session transition and authorization."
+  }
+}
