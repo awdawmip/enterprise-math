@@ -1,0 +1,7 @@
+# EC49FDG — break the 112-edge common-key lower bound
+
+Frozen science pin: fc0f038e7bfd12c886b4d37f900bfb770c0f61ab; unchanged signed-six-axis primitive letter expansion and 9-state observer. EC49FDF's exact 49-pair census gives minimum 112 among integer keys common to H4/H5 and to H6..H9, with four fixed H2/H3 words. At L=(4,2,1), M=(6,4,1), H4..H9 *alone* require 112 signed-prefix edges. The strongest new design lever is therefore to alter an H4..H9 path language, not merely reorder H2/H3.
+
+Next executable unit: construct a horizon-specific but BRC-typed late-key sequence M_6,M_7,M_8,M_9 (or a new native-primitive operation family). Keep per-horizon count law, full endpoint-signature feasibility, exact six-axis signed steps, 24 observer labels, branch provenance and ordered prefix accounting. Start with a bounded variation (e.g. M6=M7=(6,4,1), M8/M9 alternate feasible keys), test an explicit complete 24-word witness <=111 and independently count its signed primitive prefixes. If found, save all words and per-slot source; then run complete full-language mask-Trie minimization. If no witness, report the finite tested model's optimum or exact obstruction, and choose the next differing key. The 93-edge nine-window mother question stays open.
+
+The 49-pair class, 16 optima, exact programs and transition counts are in README_EC49FDF.md / VERIFY_EC49FDF.py / SUMMARY_CERTIFICATE.json. Author-side results are not formal Source Result or Driver review.
