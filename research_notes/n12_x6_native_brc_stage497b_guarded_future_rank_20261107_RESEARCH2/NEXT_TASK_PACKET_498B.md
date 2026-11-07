@@ -1,0 +1,9 @@
+# Stage498-B — Intrusion-tolerant finite-horizon BRC segment quotient
+
+Scientific pins unchanged: GLOBAL bf84bd7c61a2444b59b1da96be57df0e9ae47e53, Enterprise Math 2af3fc484eb11060b69e0afc1b562bcaf5ad1419, original P000 Git blob bcc2590d3168a28f72e8b9f0f9b1f76faadcd488. Stage497-B author-side findings: guarded exterior edits preserve F summary of an opaque interval; AABA·A^s and ABAA·A^s first split after exactly s−1 POP/SET steps for every s≥2. Preserve this valid frontier, do not redo it.
+
+**Next question:** Can an interval be compressed to less than its full ordered tokens even if some accessible current indices *enter* the interval, by storing only the finite-horizon response signatures to the actually allowed SET/INSERT/DELETE commands? Define a finite operation grammar including public token provenance and time-relative indices; find the least response signature for a small complete F fiber, prove a finite-horizon closure and show the first strict failure if an overly coarse signature is used. Distinguish conservative no-intrusion sufficiency from necessary-and-sufficient future equivalence.
+
+**Independent algorithm subtask:** Actual bit-level and wall-clock cost of Stage495-B one-solve versus the exact full-BEST recount at 144-edge and skew repeated-edge inventories, including parsing, preprocessing, factorials, support drop, exact linear solves/determinants, peak memory and selected rank/unrank verification. Compare the output model, not just asymptotic symbols, with ESA 2026 Bals–Pissis–Tinca's compressed Euler-trail enumerator.
+
+Deliver an exact theorem, counterexample or reproducible finite certificate; publish full source, actual executed output, mathematical scope and provenance. Native owner/CLAIM/Result/Driver acceptance remains separate from GitHub author-side branch writes.
