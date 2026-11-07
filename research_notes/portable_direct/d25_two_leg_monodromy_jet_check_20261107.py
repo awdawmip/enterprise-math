@@ -46,8 +46,8 @@ def main():
     orders_B=projective_orders(F(1,8), F(3,8), F(1))
     assert orders_A == ("infinite",2,6)
     assert orders_B == ("infinite",2,4)
-    assert 4 % 2 != 0 and 4 % 6 != 0
-    assert 6 % 2 != 0 and 6 % 4 != 0
+    assert 2 % 4 != 0 and 6 % 4 != 0
+    assert 2 % 6 != 0 and 4 % 6 != 0
     expect={19:(2888,2527,3116,7,15),373:(9878159,28243187,35390986,195,274)}
     for p,(Ap,Bp,DBp,c0,c1) in expect.items():
         assert pow(2,(p-1)//2,p)==p-1  # s^2=2 is irreducible over F_p
