@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/20261108_onhour_d25_quartic_twisted_cm_exchange_entries_check.py",
+    "ref": "a635e737116d8e1d3611189f083c68ad437c4c4f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-readback-20261108-20261108-onhour-d25-quartic-twisted-cm-exchange-entries-check-py",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact D25 quartic-twisted CM-exchange check; Python standard library only.\"\"\"\nfrom math import comb\n\ndef add(x,y,m): return ((x[0]+y[0])%m,(x[1]+y[1])%m)\ndef mul(x,y,m): return ((x[0]*y[0]+2*x[1]*y[1])%m,(x[0]*y[1]+x[1]*y[0])%m)\ndef sc(k,x,m): return (k*x[0]%m,k*x[1]%m)\ndef sig(x,m): return (x[0]%m,(-x[1])%m)\ndef inv(x,m):\n    n=(x[0]*x[0]-2*x[1]*x[1])%m\n    z=pow(n,-1,m)\n    return (x[0]*z%m,-x[1]*z%m)\n\ndef coeffs(p):\n    m=p**3; n=p-1\n    c=sc(pow(108,-1,m),(2,-1),m)\n    pw=[(1,0)]\n    for j in range(1,(n+2)//3+1): pw.append(mul(pw[-1],c,m))\n    a=(0,0); b=(0,0); i2=pow(2,-1,m)\n    for j in range(n//3+1):\n        a=add(a,sc(comb(2*j,j)*comb(n-j,2*j),pw[j],m),m)\n    for j in range(1,(n+2)//3+1):\n        b=add(b,sc(comb(2*j,j)*comb(n-j+1,2*j-1)*i2,pw[j],m),m)\n    assert a[0]%p==a[1]%p==0\n    return a,b\n\ndef sq(b,c,m):\n    return (mul(b,sig(c,m),m),mul(c,sig(b,m),m))\n\ndef run(p,gamma):\n    assert pow(2,(p-1)//2,p)==p-1 and pow(p-3,(p-1)//2,p)==1\n    m2=p*p; a,b=coeffs(p)\n    A=(a[0]//p%p,a[1]//p%p); B0=(b[0]%p,b[1]%p)\n    beta=sc(pow(72,-1,p),(4,-1),p)\n    B=mul(inv(beta,p),B0,p)\n    assert mul(A,B0,p)==beta and mul(A,B,p)==(1,0)\n    assert mul(gamma,gamma,p)==(p-1,0)\n    At=mul(gamma,A,p); Bt=mul(gamma,B,p)\n    assert mul(At,Bt,p)==(p-1,0)\n    div=sig(At,p); c=sc(p,div,m2)\n    qt=sq(Bt,c,m2); assert qt==((m2-p,0),(m2-p,0))\n    c0=sc(p,sig(A,p),m2); ut=sq(B,c0,m2)\n    assert ut==((p,0),(p,0))\n    wrong=sq(Bt,sc(p,At,m2),m2)\n    assert wrong!=((m2-p,0),(m2-p,0))\n    # Inverse-pullback gauge gamma^{-1}=-gamma negates both entries but preserves F^2.\n    At_op=sc(-1,At,p); Bt_op=sc(-1,Bt,p)\n    c_op=sc(-p,div,m2)\n    opposite=sq(Bt_op,c_op,m2)\n    assert opposite==qt\n    return A,B0,beta,B,gamma,At,Bt,div,c,qt,ut,wrong,opposite\n\ndef main():\n    for p,g in ((19,(0,3)),(373,(104,0))):\n        A,B0,beta,B,gamma,At,Bt,div,c,qt,ut,wrong,opposite=run(p,g)\n        print(f\"p={p}: A={A}; b={B0}; beta={beta}; Bcm={B}; gamma={gamma}\")\n        print(f\"p={p}: Atilde={At}; Btilde={Bt}; divided={div}; lower-left={c}\")\n        print(f\"p={p}: quartic-square={qt[0]}; untwisted-square={ut[0]}; no-sigma={wrong}\")\n    print(\"PASS_EXACT_COEFFICIENT_STREAMS_MOD_P3_AT_P19_P373\")\n    print(\"PASS_A_TIMES_BCM_EQUALS_ONE_AT_P19_P373\")\n    print(\"PASS_QUARTIC_TWISTED_PRODUCT_MINUS_ONE_AT_P19_P373\")\n    print(\"PASS_SEMILINEAR_SQUARE_MINUS_P_MOD_P2_AT_P19_P373\")\n    print(\"PASS_UNTWISTED_SQUARE_PLUS_P_MOD_P2_AT_P19_P373\")\n    print(\"PASS_NO_SIGMA_NEGATIVE_CONTROL_AT_P19_P373\")\n    print(\"PASS_OPPOSITE_QUARTIC_GAUGE_PRESERVES_SQUARE_AT_P19_P373\")\n    print(\"PASS_D25_QUARTIC_TWISTED_SEMILINEAR_CM_EXCHANGE_P19_P373\")\n\nif __name__==\"__main__\": main()\n",
+      "display_title": "20261108_onhour_d25_quartic_twisted_cm_exchange_entries_check.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a635e737116d8e1d3611189f083c68ad437c4c4f/research_notes/portable_direct/20261108_onhour_d25_quartic_twisted_cm_exchange_entries_check.py",
+      "encoding": "utf-8",
+      "sha": "b1229c6666caf38eb486a0aaf6506771f02280aa"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
