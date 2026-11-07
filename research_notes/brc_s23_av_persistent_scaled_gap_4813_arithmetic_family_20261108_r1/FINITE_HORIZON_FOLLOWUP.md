@@ -15,7 +15,7 @@ The extreme-left bound is n_tail(h)=min{n>=1:7^(n+h)<10^n}. Previous PROOF.md es
 
 N(298)=1742, N(377)=2173, N(456)=2604.
 
-Proof. These h are h_m=140+79m for m=2,3,4. The previous theorem supplies their corresponding lower bounds 880+431m. The independent exact verifier VERIFY_EXACT_N298_377_456.py constructs all T_h thresholds, sorts candidate logarithmic hints, and verifies the ENTIRE sorted order by adjacent strict integer cross-products (10^i*7^s2 < 10^i2*7^s). It then enumerates every pair (n,k), 1<=n<=880+431m, 0<=k<=n, and marks an open cell only when its left and right comparisons to the exact prefix Lambda(n-k,k) are checked with integer powers. This exhaustively witnesses every open cell by the claimed length, giving N(h)<=bound. The exact matching lower bound proves equality.
+Proof. These h are h_m=140+79m for m=2,3,4. The previous theorem supplies their corresponding lower bounds 880+431m. The independent exact verifier VERIFY_EXACT_N298_377_456.py constructs all T_h thresholds, sorts candidate logarithmic hints, and verifies the ENTIRE sorted order by adjacent strict integer cross-products (10^i*7^s2 < 10^i2*7^s). It then enumerates every pair (n,k), 1<=n<=880+431m, 0<=k<=n, and marks an open cell only when its left and right comparisons to the exact prefix Lambda(k,n-k) are checked with integer powers. This exhaustively witnesses every open cell by the claimed length, giving N(h)<=bound. The exact matching lower bound proves equality.
 
 Finite certificate:
 h=298: 44851/44851 cells, n=1742;
