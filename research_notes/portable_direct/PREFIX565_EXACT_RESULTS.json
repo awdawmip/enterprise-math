@@ -1,0 +1,82 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "frozen four-STAR native X6-BRC, 48 phases, 96 ports, six actions",
+  "formal_rational_identity_certificate": {
+    "determinant_monomial_terms": 6,
+    "cramer_monomial_terms": 7,
+    "determinants_checked": 2,
+    "arithmetic": "exact integer polynomial determinant, 5! terms"
+  },
+  "observer": "q1=q2=q3=q4=z=1, x=q5, y=q6",
+  "root_scope": "zero root and eight +/- axes 1..4 (r5=r6=0)",
+  "root_count": 9,
+  "native_projected_edges_checked": 5184,
+  "classes_and_sizes": {
+    "0": 32,
+    "1": 16,
+    "2": 16,
+    "3": 16,
+    "4": 16
+  },
+  "native_vs_5_state_exact_polynomials": 3168,
+  "native_nonzero_coefficient_positions_compared": 117248,
+  "depths_native_checked": [
+    0,
+    32
+  ],
+  "uv_positive_depths_exactly_generated": [
+    0,
+    128
+  ],
+  "positive_recurrence": {
+    "numerator": "1+4t+12ut^2+24ut^3+144vt^4",
+    "denominator": "1-2t-48ut^3-144vt^4-864vt^5"
+  },
+  "coefficient_snapshots": [
+    {
+      "depth": 0,
+      "uv_monomials": 1,
+      "q5_q6_monomials": 1,
+      "sum_uv_coefficients": 1,
+      "native_marginal_row0_total_coefficients": 1
+    },
+    {
+      "depth": 4,
+      "uv_monomials": 3,
+      "q5_q6_monomials": 4,
+      "sum_uv_coefficients": 816,
+      "native_marginal_row0_total_coefficients": 1296
+    },
+    {
+      "depth": 8,
+      "uv_monomials": 7,
+      "q5_q6_monomials": 11,
+      "sum_uv_coefficients": 685824,
+      "native_marginal_row0_total_coefficients": 1679616
+    },
+    {
+      "depth": 16,
+      "uv_monomials": 18,
+      "q5_q6_monomials": 31,
+      "sum_uv_coefficients": 550716112896,
+      "native_marginal_row0_total_coefficients": 2821109907456
+    },
+    {
+      "depth": 24,
+      "uv_monomials": 35,
+      "q5_q6_monomials": 63,
+      "sum_uv_coefficients": 437123207783252000,
+      "native_marginal_row0_total_coefficients": 4738381338321617000
+    },
+    {
+      "depth": 32,
+      "uv_monomials": 57,
+      "q5_q6_monomials": 105,
+      "sum_uv_coefficients": 3.465213275647623e+23,
+      "native_marginal_row0_total_coefficients": 7.958661109946401e+24
+    }
+  ],
+  "theorem_scope": "all nonnegative depths via 5-state exact weighted quotient and positive denominator expansion",
+  "full_seven_variable_positivity_status": "OPEN; marginal positivity does not certify separate q1..q4 or gate coefficients"
+}
