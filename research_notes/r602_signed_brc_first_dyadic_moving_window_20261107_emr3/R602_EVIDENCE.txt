@@ -1,0 +1,10 @@
+Execution: Python 3 standard-library Fraction; script R602_VERIFY.py; 2026-11-07.
+Scientific input: frozen R462 @18783e01e3646c72b7aab3b16d3f565e83e6446f; auxiliary coefficients via R590; R601 matching conditional on R600.
+All load-bearing comparisons use exact integers/Fraction. Script SHA256: bd3f27fb60f6050d665a2254cc33f5174af01dbb92e5136706daa1a34babd73f.
+R602_INPUT k=2^42 L=64 R=14 X=113/8 c=1/64
+R602_LOG_WINDOW_CERTIFICATE_PASS: 13 < c(log k)^2 < 14; dyadic 2^41 below 13
+R602_EXACT_LOW_BOUND_PASS E<1 low<1/6720
+R602_EXACT_TAIL_BOUND_PASS tail<1/6720
+R602_TOTAL_ERROR_STRICTLY_LT_1_OVER_6720_PASS
+R602_MATCHING_DISPLACEMENT_STRICTLY_LT_1_OVER_20_PASS
+R602_ALL_EXACT_CERTIFICATES_PASS

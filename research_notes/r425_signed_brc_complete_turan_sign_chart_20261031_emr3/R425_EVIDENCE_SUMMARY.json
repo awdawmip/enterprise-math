@@ -1,0 +1,35 @@
+{
+  "schema": "ENTERPRISE_MATH_R425_EXACT_EVIDENCE_SUMMARY_V1",
+  "status": "R425_EXACT_PASS",
+  "execution": "Python standard library, integers and fractions, local verified execution",
+  "command": "python R425_VERIFY.py --rmax 144 --raw-rmax 70 --edge-kmax 512 --out R425_EVIDENCE.json",
+  "executable_output": "R425_EXACT_PASS 12 2484 10296 74 2047",
+  "polynomial_identity": {
+    "degree_bound": 11,
+    "distinct_exact_roots_tested": 12,
+    "consequence": "Cross-multiplied polynomial identically zero"
+  },
+  "signed_raw_to_catalan_checks": 2484,
+  "finite_grid": {
+    "r_min": 2,
+    "r_max": 144,
+    "pairs": 10296,
+    "positive": 10222,
+    "negative": 74,
+    "exceptions_description": "s=1, even r (72 points); s=2 r=3 and r=5 (2 points)"
+  },
+  "edge_formula_direct_checks": 2047,
+  "edge_formula_max_k": 512,
+  "negative_s2_exact": {
+    "D_3_2": "-5",
+    "D_5_2": "-140"
+  },
+  "scope": "s=1,2 edge infinite sign classification follows exact formulas; s>=3 universal positivity imports R404/R407-R418/R424 author-side certificates and analytic proof, not the finite grid",
+  "originality": "new all-index classification synthesis and exact s=1,s=2 closed forms; source dependencies independently unreviewed",
+  "trust": "AUTHOR_SIDE_EXACT / GITHUB_EVIDENCE / DRIVER_UNREVIEWED / NOT_ADMITTED",
+  "source_snapshots": {
+    "GLOBAL_KNOWLEDGE_V1": "bb5d22a791f3b28aa6998efcb53f4f1b9683a12a",
+    "Enterprise_Math": "75b88a101f96112098c70438babbf626a1940da8",
+    "upstream_PR_head": "94ae64f9f7351509b21cefe20fec98e9c935aa1b"
+  }
+}

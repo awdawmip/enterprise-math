@@ -1,0 +1,17 @@
+# R583 actual execution evidence
+
+Observed: 2026-11-06, Python 3.13.5, standard-library Fraction/comb.
+Command: python /mnt/data/R583_VERIFY.py
+Local executing source SHA256: f3d152c17135242ab735cfa4025a77a046203a62e4baa1da44744b00c4910a3f
+Exact coverage: m=1..36. Two independent exact routes: t-series logarithmic derivatives and finite Lagrange binomial-sum formula. Both agree and all 36 coefficients are strictly negative.
+
+Raw stdout:
+```text
+b_1..b_12= ['-2', '-29/4', '-89/4', '-1029/16', '-2887/16', '-15925/32', '-43457/32', '-942125/256', '-2541131/256', '-13663647/512', '-36651143/512', '-392614545/2048']
+b_16= -640581698429/65536 b_36 approximate= -3243109727165351.5
+normalized b_36 / (8/3)^36= -1.4999862603830934
+R583_BM_ALL_ORDER_EXACT_36_PASS
+```
+
+The floating display on the final two lines is diagnostic only; mathematical acceptance conditions use exact rational arithmetic.
+Full all-m theorem is proved symbolically in R583_PROOF.zh-CN.md.

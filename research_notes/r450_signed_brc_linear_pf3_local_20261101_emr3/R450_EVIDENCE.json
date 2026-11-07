@@ -1,0 +1,26 @@
+{
+  "schema": "R450_SIGNED_BRC_PF3_LOCAL_CERTIFICATE_V1",
+  "checked_odd_r_from": 343,
+  "checked_odd_r_to": 501,
+  "rows": 80,
+  "positive_coefficients": 33680,
+  "positive_adjacent_2x2": 33680,
+  "positive_adjacent_3x3": 33680,
+  "total_exact_integer_sign_checks": 101040,
+  "raw_signed_convolution_crosschecks": 32,
+  "alternating_catalan_crosschecks": 32,
+  "coefficient_stream_sha256": "df39bff2b44b4c3518a2de4233aa6f73277a572e67c64b387d88ed55518065e2",
+  "adjacent_minor_stream_sha256": "204a7cdf19775dadabbfcfad56ca0572ffef010f18f88a4af9b587c4eabacc44",
+  "integer_encoding": "4-byte big-endian integer byte length + minimal nonempty unsigned big-endian integer; r ascending; j ascending; D2 then D3",
+  "arithmetic": "exact Python integers",
+  "proof_dependencies": "R441-A Schur/LR reduction and R432/R440/R441 odd r >= 99 PF4 strict negative witness",
+  "scope": "full half-infinite PF3 individually for 80 odd r, 343..501, under author-side analytic lemma; no all-r PF3 claim",
+  "reproduce": "python3 R450_VERIFY.py; generates R450_EVIDENCE_FULL.json (80-row details) in current directory",
+  "status": "AUTHOR_SIDE_EXACT_INTEGER_AND_ANALYTIC / UNREVIEWED / NOT_ADMITTED / REGISTER_PENDING",
+  "source_pins": {
+    "global": "c7ecb04571837f8758569284f6ea77ed86b1c74a",
+    "enterprise_math": "a673d9c9852957727a17317b223423451f48f6a1",
+    "prev_pr_head": "8d29e3ba5bb03dcad62b28e6918b4d7655fb6556"
+  },
+  "next": "Prove uniform D2,j>0 and D3,j>0 for all odd r>=99 and all 0<=j<=r-2, or locate an exact negative adjacent minor"
+}

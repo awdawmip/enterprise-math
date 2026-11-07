@@ -1,0 +1,43 @@
+{
+  "status": "R534_EXACT_JS_PASS",
+  "scientific_pin": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "order": 57,
+  "degree_max": 342,
+  "identity_points": 343,
+  "interpolant_actual_degree": 113,
+  "sign_blocks": [
+    {
+      "from": 1,
+      "to": 5,
+      "sign": "+"
+    },
+    {
+      "from": 6,
+      "to": 8,
+      "sign": "-"
+    },
+    {
+      "from": 9,
+      "to": 19,
+      "sign": "+"
+    },
+    {
+      "from": 20,
+      "to": "infinity",
+      "sign": "-"
+    }
+  ],
+  "tail_origin": 20,
+  "tail_sign": "-",
+  "tail_newton_count": 114,
+  "tail_all_strictly_negative": true,
+  "direct_Bareiss_checks": 20,
+  "H_B_raw_crosschecks": 1140,
+  "full_coefficient_grid_checks": 19894,
+  "independent_status": "R534_INDEPENDENT_PASS",
+  "independent_raw_determinants": 12,
+  "independent_H_B_crosschecks": 406,
+  "independent_tail_coefficients": 114,
+  "full_certificate_sha256": "d64c6a766c043a88edf12ac749988e46060a5a7ee376fb908bb005cafc6e3630",
+  "rebuild": "node R534_VERIFY.js > R534_EVIDENCE.json && python R534_INDEPENDENT.py > R534_INDEPENDENT_EVIDENCE.json"
+}

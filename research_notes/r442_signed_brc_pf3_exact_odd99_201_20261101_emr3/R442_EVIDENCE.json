@@ -1,0 +1,76 @@
+{
+  "schema": "ENTERPRISE_MATH_R442_AUTHOR_EXACT_EVIDENCE_V1",
+  "status": "AUTHOR_SIDE_EXACT_INTEGER_EXHAUSTION_UNREVIEWED_NOT_ADMITTED",
+  "date": "2026-11-01",
+  "repository": "awdawmip/enterprise-math",
+  "global_canonical_main": "8f0185bfd4c5db854f3da9795ba8e9de3f2fd382",
+  "enterprise_main": "9412897fb2b8e77bb30ee26391fb65edaba2a8fd",
+  "inherited_r441_commit": "8fba98f1654ef4050ccc562be1ec197c01f31a47",
+  "definition": "odd r 99..201 step2; H(r,s)=binom(r+s,2s)[t^r](1-t)(1+t)^(2s)(1+t^2)^(r-s); a_h=H(r,r-h), 0<=h<=r-2; Toeplitz T(i,j)=a_(j-i)",
+  "claim": "each of 52 specified odd rows has maximum Polya frequency order exactly 3",
+  "verified_input": {
+    "rows": 52,
+    "coefficient_count": 7748,
+    "all_raw_signed_vs_catalan_equal": true,
+    "all_raw_positive": true,
+    "input_file_bytes": 874872,
+    "input_sha256": "d620ffe68c8b0cd6b5eaced24a701e6cbd5dca0f165d6ac303d1d0a6a31e93c5",
+    "input_generator_git_blob": "0643a8e9cc0e218603e486eae767b9dd7440755e",
+    "independent_raw_verifier_git_blob": "2172a47d4ad1b852d322386aae7b9947d799f024"
+  },
+  "complete_schur_minors": {
+    "reduction": "all 1..3-row minors reduce via skew dual Jacobi-Trudi and nonnegative Littlewood-Richardson to contiguous-row minors",
+    "orders": [
+      {
+        "m": 1,
+        "count": 7748,
+        "positive": 7748,
+        "zero": 0,
+        "negative": 0
+      },
+      {
+        "m": 2,
+        "count": 604526,
+        "positive": 604526,
+        "zero": 0,
+        "negative": 0
+      },
+      {
+        "m": 3,
+        "count": 32762600,
+        "positive": 32762600,
+        "zero": 0,
+        "negative": 0
+      }
+    ],
+    "total": 33374874,
+    "all_integer_exact": true,
+    "arithmetic": "Boost multiprecision cpp_int; 3x3 signed integer formula; no floating arithmetic",
+    "exhaust_cpp_git_blob": "37bec1af611cc5f774a68aead631acf930ee593a",
+    "stdout_git_blob": "e1d875c0df72195852f799c7c23c0ed48fb16edf",
+    "stdout_sha256": "bdec4be26959c10ae59e44d767f0ff827fc406a1b8dd575dcfd8d0e6983f6104",
+    "last_line": "R442_INTEGER_EXHAUST_DONE rows=52 total=33374874"
+  },
+  "pf4_falsifiers": {
+    "every_row_strictly_negative": true,
+    "count": 52,
+    "rows": "i=(0,1,2,3)",
+    "columns": "j=(r-3,r-2,r-1,r)",
+    "independent_method": "Python exact 24-term Leibniz determinant on independently recomputed original signed coefficients",
+    "witness_file_git_blob": "e814ac9938f8f7d6f7e3d6bf5a9e2870e69cdf95",
+    "witness_file_sha256": "502732b4b9c4103566e5c9210d68811b6320d4ead3aa36a0a7e1bb414feee503",
+    "r99_negative_abs_bits": 431,
+    "r201_negative_abs_bits": 886
+  },
+  "native_authority": {
+    "source_owner": "UNVERIFIED_CONTROL_QUOTA",
+    "native_session": "STATIC_READONLY_SCOPE_DENIED",
+    "operation_sent": false,
+    "formal_claim": false,
+    "result": false,
+    "driver_review": false,
+    "admitted": false
+  },
+  "scope_boundary": "signed BRC auxiliary scalar Toeplitz object only; no native X6 transfer",
+  "next_question": "odd r>=203 PF3 unified analytic criterion or earliest exact 3x3 negative witness"
+}

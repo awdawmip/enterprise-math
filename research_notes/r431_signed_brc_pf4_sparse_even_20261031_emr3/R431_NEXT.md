@@ -1,0 +1,9 @@
+# R431 — research handoff (2026-10-31)
+
+Parent: signed BRC auxiliary scalar; existing Draft PR #1708. Starting immutable frontier R430 dd80416771860a1a67668ab8c14d0d10f3d88747. Global canonical main bab8501c72c23032c08c8dea882d5430007e4a59; EM canonical main cadef72c7c0768fa79c822812c76f753459cbb80.
+
+Exact new result A: explicit unbounded even-r sparse four-by-four minor is negative for r=6,8,10 and strictly positive for every even r>=12. Exact new result B: a different consecutive normalized four-by-four right-edge minor is strictly positive at all r>=6. Exact finite result C: complete semi-infinite PF4 for r=7,9,11; PF4 failure at r=5,6,8,10. See R431_PROOF.zh-CN.md; R431_VERIFY.py reconstructs local evidence from the exact signed carrier without external dependencies. Evidence summary is R431_EVIDENCE.json. Large exhaustive runs may be split by rows, keeping exact same input domains and tests.
+
+Next smallest mathematical unit: classify internal nonconsecutive four-by-four Toeplitz minors when r>=12. Search for an unbounded negative family or uniform positive inequality. Reuse Catalan signed branch algebra, finite-support reduction, and R430 Pascal window perturbation. Preserve signed branch information and finite/model scope.
+
+Authority: GitHub identity awdawmip (transport only); native service research_authority_granted=false and current owner enumeration CONTROL_QUOTA. This research is author-side, REGISTER_PENDING, DRIVER_UNREVIEWED, NOT_ADMITTED. No Source CLAIM/Result was issued and no P000/ACTIVE modifications performed. Independent review and native Source admission require their separate current authorization.

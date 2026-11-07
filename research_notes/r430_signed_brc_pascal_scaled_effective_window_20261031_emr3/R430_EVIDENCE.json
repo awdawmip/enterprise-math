@@ -1,0 +1,140 @@
+{
+  "status": "R430_EXACT_PASS",
+  "coefficient_exact_checks": 40,
+  "r429_relative_error_checks": 40,
+  "full_window_exact_minor_checks": 2534,
+  "strict_minor_checks": 1234,
+  "zero_minor_checks": 1300,
+  "parametric_threshold_bound_checks": 25,
+  "two_by_two_gap_checks": 515591,
+  "selected_thresholds": [
+    {
+      "K": 1,
+      "R429": "512",
+      "R430_all_order": "4096",
+      "R430_PF2": "256",
+      "all_order_improves": false
+    },
+    {
+      "K": 2,
+      "R429": "294912",
+      "R430_all_order": "4718592",
+      "R430_PF2": "4096",
+      "all_order_improves": false
+    },
+    {
+      "K": 3,
+      "R429": "1719926784",
+      "R430_all_order": "10871635968",
+      "R430_PF2": "20736",
+      "all_order_improves": false
+    },
+    {
+      "K": 4,
+      "R429": "313103115878400",
+      "R430_all_order": "82463372083200",
+      "R430_PF2": "65536",
+      "all_order_improves": true
+    },
+    {
+      "K": 5,
+      "R429": "3302259425280000000000",
+      "R430_all_order": "2374945115996160000",
+      "R430_PF2": "160000",
+      "all_order_improves": true
+    }
+  ],
+  "examples": [
+    {
+      "K": 1,
+      "r": 16,
+      "order": 2,
+      "u": [
+        0,
+        1
+      ],
+      "v": [
+        0,
+        1
+      ],
+      "pascal_det": "1",
+      "signed_pascal_det": "1"
+    },
+    {
+      "K": 1,
+      "r": 32,
+      "order": 2,
+      "u": [
+        0,
+        1
+      ],
+      "v": [
+        0,
+        1
+      ],
+      "pascal_det": "1",
+      "signed_pascal_det": "1"
+    },
+    {
+      "K": 2,
+      "r": 64,
+      "order": 2,
+      "u": [
+        0,
+        1
+      ],
+      "v": [
+        0,
+        1
+      ],
+      "pascal_det": "1",
+      "signed_pascal_det": "1"
+    },
+    {
+      "K": 2,
+      "r": 64,
+      "order": 2,
+      "u": [
+        0,
+        1
+      ],
+      "v": [
+        0,
+        2
+      ],
+      "pascal_det": "2",
+      "signed_pascal_det": "31/16"
+    },
+    {
+      "K": 2,
+      "r": 64,
+      "order": 2,
+      "u": [
+        0,
+        1
+      ],
+      "v": [
+        1,
+        2
+      ],
+      "pascal_det": "1",
+      "signed_pascal_det": "249733/260096"
+    },
+    {
+      "K": 2,
+      "r": 64,
+      "order": 2,
+      "u": [
+        0,
+        2
+      ],
+      "v": [
+        0,
+        2
+      ],
+      "pascal_det": "1",
+      "signed_pascal_det": "1"
+    }
+  ],
+  "scope": "K 1..5 r in {16K^2,32K^2} for finite minors; K<=5, q<=K+1 for threshold algebra checks; K 2..30 for ratio gap check; no sample proves universal theorem"
+}

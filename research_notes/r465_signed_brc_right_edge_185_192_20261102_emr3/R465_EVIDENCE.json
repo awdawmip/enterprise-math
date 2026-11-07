@@ -1,0 +1,104 @@
+{
+  "schema": "EM_R465_SIGNED_BRC_EXACT_CERTIFICATES_V1",
+  "date": "2026-11-02",
+  "prior_frontier": "d22650f431aa516feba34f32516fe0e89eb0f597",
+  "frozen_R462_input": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "s_range": [
+    185,
+    192
+  ],
+  "k_domain": "integer k>=floor((s+2)/2)",
+  "coefficient_count_strictly_positive": 15096,
+  "integer_polynomials": 16,
+  "desnanot_jacobi_polynomial_checks": 8,
+  "original_signed_raw_equalities": 80,
+  "independent_catalan_equalities": 80,
+  "R463_s175_regression_sha256": "5a68b3d2ced114ee7744e5a75b8553717314a3d0ea1b5b497b0739ba09847239",
+  "rows": [
+    {
+      "s": 185,
+      "k0": 93,
+      "degree_p2": 740,
+      "degree_p3": 1110,
+      "strict_positive_coefficients": 1852,
+      "coefficient_stream_sha256": "d34a263640b720f9c054a1afa6faa9acd929e7f1f66c1dc89fa8abeb4f116766"
+    },
+    {
+      "s": 186,
+      "k0": 94,
+      "degree_p2": 744,
+      "degree_p3": 1116,
+      "strict_positive_coefficients": 1862,
+      "coefficient_stream_sha256": "06e4f181764a4ba3812ac9b460a2300445cd9a30d0f15885cd5328e954f21b5f"
+    },
+    {
+      "s": 187,
+      "k0": 94,
+      "degree_p2": 748,
+      "degree_p3": 1122,
+      "strict_positive_coefficients": 1872,
+      "coefficient_stream_sha256": "d965d976b938b7cbdb69ccfeda2a09341c71e21b3094f0a3edcd9e698cc655e9"
+    },
+    {
+      "s": 188,
+      "k0": 95,
+      "degree_p2": 752,
+      "degree_p3": 1128,
+      "strict_positive_coefficients": 1882,
+      "coefficient_stream_sha256": "959c2964ad14acaece650b6adc9c948d441325c0115eeaba18785511d190c3a8"
+    },
+    {
+      "s": 189,
+      "k0": 95,
+      "degree_p2": 756,
+      "degree_p3": 1134,
+      "strict_positive_coefficients": 1892,
+      "coefficient_stream_sha256": "c6597419bfe3bac18eaf9b53ad396770c5acda12d1e01e9b7ab2899a506afcc0"
+    },
+    {
+      "s": 190,
+      "k0": 96,
+      "degree_p2": 760,
+      "degree_p3": 1140,
+      "strict_positive_coefficients": 1902,
+      "coefficient_stream_sha256": "d3d46c200b29e61e36109bbee7c656e5fb9ad403b1073ec467de29771290d2cb"
+    },
+    {
+      "s": 191,
+      "k0": 96,
+      "degree_p2": 764,
+      "degree_p3": 1146,
+      "strict_positive_coefficients": 1912,
+      "coefficient_stream_sha256": "c8a528624b594f4c1f626f2b9f2ae0fcf2bdce2b58903ce7da3ac37b6139c58f"
+    },
+    {
+      "s": 192,
+      "k0": 97,
+      "degree_p2": 768,
+      "degree_p3": 1152,
+      "strict_positive_coefficients": 1922,
+      "coefficient_stream_sha256": "1492fa152a818b66a6cb421d5f5a5080414a14c8448a452153c6d1b46f6743bc"
+    }
+  ],
+  "independent_row_checks": {
+    "odd_r": [
+      209,
+      211,
+      213,
+      215
+    ],
+    "positive_coefficients": 844,
+    "positive_adjacent_D2": 844,
+    "positive_adjacent_D3": 844,
+    "total_sign_checks": 2532,
+    "original_signed_equalities": 32,
+    "alternating_catalan_equalities": 32,
+    "coefficient_stream_sha256": "c29880e886710a782ffd3300c561daacbf758d20a5969484e3cf6030a14a98b1",
+    "adjacent_minor_stream_sha256": "dc47696a82cc7d8f9d73b029abaee6f537eefe2be8e96dd5c8c1e2719d9d72ed"
+  },
+  "exact_integer_arithmetic": true,
+  "em_theorem_status": "AUTHOR_SIDE_EXACT; DRIVER_UNREVIEWED; NOT_ADMITTED; REGISTER_PENDING",
+  "computation_scope": "fixed s=185..192, all k via positive integer polynomial coefficients; independently all local minors at four odd r; conditional gluing through previously author-side R447/R450",
+  "executable_upstream": "research_notes/r464_signed_brc_right_edge_177_184_20261102_emr3/R464_REPRODUCE.py",
+  "partial_batch_note": "s186 and s187 were verified completely as individual rows before corresponding multi-s batches timed out; s185,188..192 have separate completed outputs"
+}
