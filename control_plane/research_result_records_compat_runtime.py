@@ -590,10 +590,13 @@ def _single_result_state(
     task_id: str,
     root: Path,
     publication_id: str | None,
+    *, result_reader=None, review_reader=None,
 ) -> dict[str, Any] | None:
+    result_reader = iter_results if result_reader is None else result_reader
+    review_reader = latest_review if review_reader is None else review_reader
     values = [
         item
-        for item in iter_results(root)
+        for item in result_reader(root)
         if item.get("task_id") == task_id
         and (publication_id is None or item.get("publication_id") == publication_id)
     ]
@@ -601,7 +604,7 @@ def _single_result_state(
         return None
     values.sort(key=lambda item: (item.get("frozen_at", ""), item.get("result_id", "")))
     result = values[-1]
-    review = latest_review(result["result_id"], root)
+    review = review_reader(result["result_id"], root)
     if review is None:
         return {"state": "AWAITING_DRIVER_REVIEW", "result": result, "review": None, "terminal": False}
     disposition = review.get("disposition")
@@ -624,13 +627,16 @@ def task_result_state(
     task_id: str,
     root: Path = ROOT,
     publication_id: str | None = None,
+    *, result_reader=None, review_reader=None, synthesis_reader=None,
 ) -> dict[str, Any] | None:
-    """Return one control state without discarding valid parallel evidence."""
+    """Reduce supplied readers without temporarily rewriting module globals."""
+    synthesis_reader = _parallel_synthesis if synthesis_reader is None else synthesis_reader
     resolved_publication = _publication_for_state(task_id, root, publication_id)
     parallel = _parallel.state(task_id, resolved_publication, root)
     phase = parallel.get("parallel_state")
     if phase == "SINGLE_RESULT_FLOW":
-        return _single_result_state(task_id, root, resolved_publication)
+        return _single_result_state(task_id, root, resolved_publication,
+                                    result_reader=result_reader, review_reader=review_reader)
 
     result_ids = list(parallel.get("result_ids") or [])
     intake_id = parallel.get("intake_id")
@@ -661,7 +667,7 @@ def task_result_state(
         }
 
     synthesis = (
-        _parallel_synthesis(str(intake_id), str(evidence_hash), root)
+        synthesis_reader(str(intake_id), str(evidence_hash), root)
         if intake_id and evidence_hash
         else None
     )
@@ -733,3 +739,4 @@ if __name__ == "__main__":
     except ResultRecordError as exc:
         print("ERROR:", exc)
         raise SystemExit(1)
+

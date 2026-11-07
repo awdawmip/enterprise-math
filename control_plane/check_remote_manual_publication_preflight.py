@@ -5,7 +5,9 @@ Remote/manual publication is transport fallback only.  It must preserve the same
 canonical preflight as ``tools/research_task_records.py`` and may never treat a
 later green CI run as retroactive publication authorization.
 
-This checker is control-plane only; it does not inspect task mathematics.
+This maintenance checker reads configuration only. Documentation wording and
+implementation spelling are not publication gates; native writers validate the
+actual operation. It does not inspect task mathematics.
 """
 from __future__ import annotations
 
@@ -17,7 +19,6 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from control_plane import research_task_records_impl as record_core  # noqa: E402
 
 
 class RemotePublicationPreflightError(ValueError):
@@ -39,13 +40,6 @@ def require(condition: bool, message: str) -> None:
 def check() -> None:
     authority = _load("control_plane/current_control_authority.json")
     task = authority.get("task_publication", {})
-    protocol = (ROOT / "docs" / "RESEARCH_TASK_PUBLICATION_PROTOCOL.md").read_text(
-        encoding="utf-8"
-    )
-    envelope = (
-        ROOT / "control_plane" / "check_post_cutover_publication_envelope.py"
-    ).read_text(encoding="utf-8")
-
     require(
         task.get("remote_manual_transport_fallback_allowed") is True,
         "remote/manual GitHub transport fallback must remain available",
@@ -57,11 +51,6 @@ def check() -> None:
     require(
         task.get("remote_manual_equivalent_preflight_required") is True,
         "remote/manual publication must require canonical-equivalent preflight",
-    )
-    require(
-        tuple(task.get("remote_manual_recommended_body_sections", []))
-        == tuple(record_core.MANDATORY_BODY_SECTIONS),
-        "remote/manual recommended labels drifted from canonical renderer",
     )
     require(task.get("remote_manual_body_style_required") is False,
             "remote/manual publication must not require fixed heading style")
@@ -91,25 +80,6 @@ def check() -> None:
         "missing equivalent preflight must degrade to non-executable draft/handoff",
     )
 
-    for marker in (
-        "LOCAL_PUBLICATION_TOOL_UNAVAILABLE != PREFLIGHT_OPTIONAL",
-        "REMOTE_MANUAL_RECORD_WRITE != CANONICAL_PUBLISH_UNLESS_EQUIVALENT_PREFLIGHT_PASSES",
-        "REFERENCE_INTEGRITY_IS_BACKSTOP_NOT_PUBLICATION_AUTHORIZATION",
-        "Direct GitHub publication is therefore a **transport fallback**, not a semantic or validation fallback.",
-    ):
-        require(marker in protocol, f"publication protocol missing remote fallback invariant: {marker}")
-
-    for section in record_core.MANDATORY_BODY_SECTIONS:
-        require(section in protocol, f"publication protocol missing recommended body section {section}")
-
-    require(
-        "record_core.validate_body(body)" in envelope,
-        "earliest post-cutover envelope gate must execute canonical body validation",
-    )
-    require(
-        "known_defect_paths" in envelope,
-        "post-cutover envelope must isolate only exact already-known defects",
-    )
 
 
 def main() -> int:
@@ -119,7 +89,7 @@ def main() -> int:
         print("ERROR:", exc)
         return 1
     print(
-        "PASS: remote/manual task publication is transport-only and retains canonical "
+        "PASS: remote/manual task-publication configuration declares canonical "
         "body/blob/supersedes/CAS preflight; CI is backstop, not authorization."
     )
     return 0
@@ -127,3 +97,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

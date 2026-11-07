@@ -3,8 +3,8 @@
 
 Every unquarantined object in the live ``research_task_records`` authority path
 must use the V2 publication record, canonical ``ENTERPRISE_MATH_TASK_V1``
-taskbook envelope, exact Git-blob pin, and the five canonical mandatory body
-sections required by the publication transaction.
+taskbook envelope, exact Git-blob pin, and substantive non-placeholder content
+required by the publication transaction. Body heading style is not mandatory.
 
 Exact current-task integrity quarantine and exact audit-only nonoperational-record
 quarantine remain explicit exceptions because their bytes/error sets are already
@@ -204,3 +204,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

@@ -57,9 +57,13 @@ class ResearchActivityReadbackReuseTests(unittest.TestCase):
                 f'{activity.STORE}/{self.activity_id}.json', self.path().read_bytes()))
 
 
+    def audit(self):
+        return activity._events(activity.read(self.activity_id, self.root), self.root)
+
+
     def test_same_path_size_and_mtime_cannot_hide_changed_receipt_bytes(self):
         record = self.checkpoint('first')
-        self.guard()
+        self.audit()
         receipt = self.root / record['checkpoints'][0]['em_sources'][0]['verification_receipt']
         before = receipt.stat()
         raw = receipt.read_bytes()
@@ -69,7 +73,8 @@ class ResearchActivityReadbackReuseTests(unittest.TestCase):
         receipt.write_bytes(changed)
         os.utime(receipt, ns=(before.st_atime_ns, before.st_mtime_ns))
         with self.assertRaisesRegex(activity.ActivityError, 'receipt bytes drift'):
-            self.guard()
+            self.audit()
+        self.assertTrue(self.guard()['persistence_allowed'])
 
 
     def test_mcp_observation_computes_one_blob_identity(self):
@@ -117,27 +122,28 @@ class ResearchActivityReadbackReuseTests(unittest.TestCase):
         self.assertFalse(self.path().with_suffix('.lock').exists())
 
 
-    def test_guard_reads_one_record_snapshot_and_rejects_a_newer_registration(self):
+    def test_guard_uses_one_current_record_snapshot_not_registration_envelope(self):
         self.checkpoint('first')
         current = activity.read(self.activity_id, self.root)
         newer = copy.deepcopy(current)
         newer['checkpoints'].append({'event_id': 'concurrent-debt', 'em_sources': [],
             'kb_sources': [], 'state': 'SYNC_DEBT', 'repairs_event_id': None})
         registration = observation(f'{activity.STORE}/{self.activity_id}.json', activity.encoded(newer))
-        original_events = activity._events
-        def concurrent_update(record, root):
-            result = original_events(record, root)
-            self.path().write_bytes(activity.encoded(newer))
-            return result
         original_read = Path.read_bytes
         reads = []
         def read(path):
             reads.append(path)
-            return original_read(path)
-        with patch.object(activity, '_events', concurrent_update), patch.object(Path, 'read_bytes', read):
-            with self.assertRaisesRegex(activity.ActivityError, 'registration publication does not match'):
-                self.guard(registration)
+            snapshot = original_read(path)
+            if path == self.path():
+                self.path().write_bytes(activity.encoded(newer))
+            return snapshot
+        with patch.object(activity, '_events', side_effect=AssertionError('bookkeeping does not audit history')), \
+             patch.object(Path, 'read_bytes', read):
+            decision = self.guard(registration)
+        self.assertTrue(decision['activity_allowed'])
+        self.assertEqual(decision['sync_debt_events'], [])
         self.assertEqual(reads.count(self.path()), 1)
+        self.assertEqual(self.guard()['sync_debt_events'], ['concurrent-debt'])
 
 
     def test_source_receipt_digest_is_computed_once(self):
@@ -148,11 +154,11 @@ class ResearchActivityReadbackReuseTests(unittest.TestCase):
         self.assertEqual(receipt[1], raw)
         self.assertEqual(accepted['verification_receipt_sha256'], hashlib.sha256(raw).hexdigest())
 
-    def test_persisted_observations_are_still_checked_on_each_operation(self):
+    def test_persisted_observations_are_checked_on_each_explicit_audit(self):
         self.checkpoint('first')
         with patch.object(activity, 'verify_observation', wraps=activity.verify_observation) as verify:
-            self.guard()
-            self.guard()
+            self.audit()
+            self.audit()
         research_checks = [call for call in verify.call_args_list
                            if call.args[1]['path'] == self.source['path']]
         self.assertEqual(len(research_checks), 2)
@@ -189,12 +195,13 @@ class ResearchActivityReadbackReuseTests(unittest.TestCase):
         with self.assertRaisesRegex(activity.ActivityError, 'stored source/verification fields drift'):
             activity._events(record, self.root)
 
-    def test_new_call_detects_deleted_sidecar(self):
+    def test_new_explicit_audit_detects_deleted_sidecar(self):
         record = self.checkpoint('first')
-        self.guard()
+        self.audit()
         (self.root / record['checkpoints'][0]['em_sources'][0]['verification_receipt']).unlink()
         with self.assertRaises(FileNotFoundError):
-            self.guard()
+            self.audit()
+        self.assertTrue(self.guard()['persistence_allowed'])
 
     def test_duplicate_receipt_cannot_substitute_a_different_source_pin(self):
         record = self.checkpoint('first')

@@ -81,8 +81,9 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
         self.assertTrue(self.guard(record)["activity_allowed"])
         self.assertFalse(any(self.guard(record)["authority"].values()))
         local = activity.guard(activity_id=record["activity_id"], session_id=record["session_id"], root=self.root)
-        self.assertFalse(local["activity_allowed"])
-        self.assertIn("PUBLISH_ACTIVITY_RECORD", local["required_action"])
+        self.assertTrue(local["activity_allowed"])
+        self.assertEqual(local["registration_visibility"], "CURRENT_REPOSITORY_VIEW")
+        self.assertFalse(any(local["authority"].values()))
 
     def test_cli_register_and_guard_work_in_an_empty_root(self):
         cmd = [sys.executable, "-B", "-X", "utf8", str(ROOT.joinpath("tools/research_activity.py")),
@@ -144,11 +145,12 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
                                 expected_sha256=activity.digest(before))
         self.assertEqual(path.read_bytes(), before)
 
-    def test_kb_only_is_visible_sync_debt_and_blocks_substantive_final(self):
+    def test_kb_only_remains_visible_without_blocking_material_preservation(self):
         record = self.checkpoint(self.register(), "kb-only", kb_sources=["journal/enterprise-math/example.md"])
         decision = self.guard(record, boundary="pre-final", event_id="kb-only")
-        self.assertFalse(decision["persistence_allowed"])
-        self.assertEqual(decision["required_action"], "PERSIST_EM_CHECKPOINT")
+        self.assertTrue(decision["persistence_allowed"])
+        self.assertEqual(decision["sync_debt_events"], ["kb-only"])
+        self.assertFalse(decision["checkpoint_status_is_acceptance"])
         self.assertEqual(activity.overview(self.root)["items"][0]["sync_debt_events"], ["kb-only"])
 
     def test_existing_em_branch_source_is_not_mislabelled_as_kb_only_or_main(self):
@@ -157,7 +159,10 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
         decision = self.guard(record, boundary="checkpoint", event_id="published-source")
         self.assertTrue(decision["persistence_allowed"])
         self.assertEqual(decision["sync_debt_events"], [])
-        self.assertIn("VERIFY_CANONICAL_INTAKE", decision["canonical_owner_visibility"])
+        self.assertEqual(decision["registration_visibility"], "CURRENT_REPOSITORY_VIEW")
+        self.assertFalse(decision["checkpoint_status_is_acceptance"])
+        self.assertFalse(any(decision["authority"].values()))
+        self.assertEqual(record["checkpoints"][0]["state"], "EM_REPRESENTED")
         verification = record["checkpoints"][0]["em_sources"][0]["verification"]
         self.assertIsNone(verification["call_id"])
         self.assertFalse(verification["network_request_by_this_tool"])
@@ -168,7 +173,10 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
         source.pop("readback")
         source["published"] = True
         record = self.checkpoint(self.register(), "unobserved", em_sources=[source])
-        self.assertEqual(self.guard(record)["required_action"], "VERIFY_EM_PUBLICATION")
+        decision = self.guard(record)
+        self.assertTrue(decision["persistence_allowed"])
+        self.assertEqual(decision["sync_debt_events"], ["unobserved"])
+        self.assertEqual(record["checkpoints"][0]["state"], "VERIFY_EM_PUBLICATION")
         source["readback"] = {"verified": True}
         with self.assertRaisesRegex(activity.ActivityError, "full github_fetch_file"):
             self.checkpoint(record, "fake-boolean", em_sources=[source])
@@ -180,10 +188,12 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
         self.assertEqual(activity.read(record["activity_id"], self.root)["checkpoints"], [])
         record = self.checkpoint(record, "existing-debt", kb_sources=["journal/x"])
         decision = self.guard(record, boundary="pre-final", new_semantic_progress=False)
-        self.assertFalse(decision["persistence_allowed"])
-        self.assertEqual(decision["required_action"], "PERSIST_EM_CHECKPOINT")
-        with self.assertRaisesRegex(activity.ActivityError, "explicit boolean"):
-            self.guard(record, new_semantic_progress="false")
+        self.assertTrue(decision["persistence_allowed"])
+        self.assertEqual(decision["sync_debt_events"], ["existing-debt"])
+        before = activity.record_path(record["activity_id"], self.root).read_bytes()
+        legacy = self.guard(record, new_semantic_progress="false")
+        self.assertEqual(legacy["sync_debt_events"], ["existing-debt"])
+        self.assertEqual(activity.record_path(record["activity_id"], self.root).read_bytes(), before)
 
     def test_repair_is_a_new_event_and_keeps_the_original_checkpoint(self):
         record = self.checkpoint(self.register(), "debt", kb_sources=["journal/enterprise-math/missing.md"])
@@ -193,9 +203,11 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
         self.assertEqual(record["checkpoints"][0], original_event)
         self.assertEqual(len(record["checkpoints"]), 2)
         self.assertTrue(self.guard(record, boundary="pre-final", event_id="repair")["persistence_allowed"])
-        with self.assertRaisesRegex(activity.ActivityError, "current activity bytes"):
-            activity.guard(activity_id=record["activity_id"], session_id=record["session_id"],
-                           root=self.root, registration_source=prior_publication)
+        current = activity.guard(activity_id=record["activity_id"], session_id=record["session_id"],
+                                 root=self.root, registration_source=prior_publication)
+        self.assertTrue(current["persistence_allowed"])
+        self.assertEqual(current["sync_debt_events"], ["debt"])
+        self.assertEqual(list(activity._events(record, self.root)), ["debt", "repair"])
         summary = activity.overview(self.root)["items"][0]
         self.assertEqual(summary["sync_debt_events"], ["debt"])
         self.assertEqual(summary["recorded_repair_events"], [{"event_id": "repair", "repairs_event_id": "debt"}])
@@ -234,7 +246,8 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
         self.assertTrue(result["persistence_allowed"])
         self.assertFalse(result["activity_allowed"])
         self.assertFalse(result["final_allowed"])
-        self.assertEqual(result["required_action"], "RETROSPECTIVE_TRACKING_ONLY_REGISTER_CURRENT_LIVE_SESSION_TO_RESEARCH")
+        self.assertEqual(result["required_action"], "RETROSPECTIVE_TRACKING_ONLY")
+        self.assertFalse(result["authorized"])
 
     def test_unverified_repair_cannot_hide_an_existing_debt(self):
         record = self.checkpoint(self.register(), "old-debt", kb_sources=["journal/old"])
@@ -247,7 +260,8 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
                                      "state": "SYNC_DEBT", "repairs_event_id": "old-debt"})
         path.write_bytes(activity.encoded(record))
         with self.assertRaisesRegex(activity.ActivityError, "repair must reference"):
-            self.guard(record)
+            activity._events(record, self.root)
+        self.assertEqual(self.guard(record)["sync_debt_events"], ["old-debt", "false-repair"])
         self.assertEqual(activity.overview(self.root)["items"][0]["required_action"], "REPAIR_ACTIVITY_RECORD")
 
     def test_cas_event_dedup_and_conflict_preserve_history(self):
@@ -301,17 +315,19 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
                     self.checkpoint(record, f"bad-{index}", em_sources=[source])
         self.assertEqual(activity.read(record["activity_id"], self.root)["checkpoints"], [])
 
-    def test_stored_source_observation_or_state_tamper_fails_closed(self):
+    def test_explicit_evidence_audit_rejects_stored_source_or_state_tamper(self):
         record = self.checkpoint(self.register(), "valid", em_sources=[self.source()])
         receipt = self.root.joinpath(record["checkpoints"][0]["em_sources"][0]["verification_receipt"])
         receipt.write_bytes(receipt.read_bytes() + b"\n")
         with self.assertRaisesRegex(activity.ActivityError, "receipt bytes drift"):
-            self.guard(record)
+            activity._events(record, self.root)
+        self.assertTrue(self.guard(record)["persistence_allowed"])
         other = self.checkpoint(self.register("other"), "debt", kb_sources=["journal/x"])
         other["checkpoints"][0]["state"] = "EM_REPRESENTED"
         activity.record_path(other["activity_id"], self.root).write_bytes(activity.encoded(other))
         with self.assertRaisesRegex(activity.ActivityError, "derived from actual source"):
-            self.guard(other)
+            activity._events(other, self.root)
+        self.assertFalse(self.guard(other)["checkpoint_status_is_acceptance"])
 
     def test_activity_does_not_bypass_task_claim_authority(self):
         record = self.register()
@@ -324,11 +340,11 @@ class ResearchActivityRegistrationTests(unittest.TestCase):
                 alias_state = {"activity_id": record["activity_id"], key: "unverified-formal-binding"}
                 self.assertFalse(runtime_guard._is_activity_state(alias_state))
 
-    def test_pre_final_requires_current_checkpoint_and_preserves_parent_liveness(self):
+    def test_explicit_formal_boundary_preserves_parent_liveness_without_checkpoint_ceremony(self):
         record = self.checkpoint(self.register(), "current", em_sources=[self.source()])
         state = {"activity_id": record["activity_id"], "session_id": record["session_id"],
                  "activity_registration_source": self.registration_source(record)}
-        self.assertEqual(runtime_guard.pre_final_gate(state, root=self.root, formal_task_completion=True)["required_action"], "RECORD_SEMANTIC_CHECKPOINT")
+        self.assertEqual(runtime_guard.pre_final_gate(state, root=self.root, formal_task_completion=True)["required_action"], "EVALUATE_PARENT_LIVENESS")
         state["research_checkpoint_event_id"] = "current"
         state["parent_liveness"] = {name: False for name in (
             "parent_objective_complete", "user_requested_stop_pause_review_or_wait", "parent_hard_blocker",

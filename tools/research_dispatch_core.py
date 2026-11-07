@@ -855,8 +855,6 @@ def _dispatch_result_read_snapshot(root: Path = ROOT):
     """
     base_results = research_result_records.iter_results
     base_reviews = research_result_records.iter_reviews
-    cached_results = tuple(base_results(root))
-    cached_reviews = tuple(base_reviews(root))
     target_root = root.resolve()
 
     def iter_results(local_root: Path = research_result_records.ROOT):
@@ -869,13 +867,18 @@ def _dispatch_result_read_snapshot(root: Path = ROOT):
             return base_reviews(local_root)
         return list(cached_reviews)
 
-    research_result_records.iter_results = iter_results
-    research_result_records.iter_reviews = iter_reviews
-    try:
-        yield
-    finally:
-        research_result_records.iter_results = base_results
-        research_result_records.iter_reviews = base_reviews
+    # ER cache is context-local; the enclosing authority guard still checks
+    # its complete bytes/file set. No module-global execution reader changes.
+    with research_execution_records.read_snapshot(root):
+        cached_results = tuple(base_results(root))
+        cached_reviews = tuple(base_reviews(root))
+        research_result_records.iter_results = iter_results
+        research_result_records.iter_reviews = iter_reviews
+        try:
+            yield
+        finally:
+            research_result_records.iter_results = base_results
+            research_result_records.iter_reviews = base_reviews
 
 
 def effective_states(
