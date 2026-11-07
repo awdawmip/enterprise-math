@@ -1,0 +1,45 @@
+{
+  "schema": "DIRECT_SOURCE_CLARIFICATION_INTERFACE_V1",
+  "id": "P11_AP_ENDPOINT_DICTIONARY",
+  "classification": "REUSE_SCOPE_CLARIFICATION_NOT_NEW_THEOREM",
+  "author": "EM-ANALYSIS-1E507F",
+  "activity_id": "RA-9C879FA5E6538D45DD9AE10F",
+  "paper_sha256": "dbc172ee755ae06dec835675708fda658dea29bfdbeb4d4755e5907c20b31996",
+  "exact_input": "m>=2,n=m-1,d=n(2m-3); frozen complete signed S_m,tau=t^n q, Bhat=(1+x)^d q(x/(1+x))",
+  "mapping": {
+    "t=0": "x=0, initial Cauchy endpoint",
+    "t=infinity": "x=-1, terminal Cauchy layer after scaling",
+    "t=1": "x=infinity, actual beta-kernel endpoint"
+  },
+  "identities": [
+    "[x^d]Bhat=q(1)=tau(1)=kappa(1)detS(1)",
+    "ord_(t=1)detS=d-deg Bhat",
+    "b_(d-k)=sum_(r=0)^k (-1)^r binom(d-r,k-r) q^(r)(1)/r!",
+    "q^(k)(1)/k!=sum_(r=0)^k (-1)^r binom(d-r,k-r)b_(d-r)"
+  ],
+  "full_row_implication": "All nominal coefficients k=0..d strictly positive implies t=1 nonvanishing by its k=d term; no such positivity proved here.",
+  "insufficient_inputs": [
+    "known deg q=d",
+    "known nonzero q(0) and leading t coefficient",
+    "Bhat(x)>0 at every finite x>=0",
+    "positivity of Bhat coefficients only through unknown actual degree"
+  ],
+  "logical_witness": {
+    "q": "(1-t)(1+t)^(d-1)",
+    "Bhat": "(1+2x)^(d-1)",
+    "scope": "arbitrary polynomials only, not actual AP cofactor, not HCM0 counterexample"
+  },
+  "unpaid_obligation": "Actual all-m t=1 nonvanishing remains OPEN; exact claim authority needed for existing formal Task core.",
+  "execution_state": "no claim acquired, official state UNKNOWN, core not executed",
+  "no_repeat": [
+    "no finite-m AP rerun",
+    "no core98/fixed233 or m7 certificate",
+    "no collar constant variants",
+    "prior author/review bytes preserved"
+  ],
+  "method_harvest": "COMPOSE_APPLIED; no new tool family",
+  "scientific_programs": 0,
+  "formal_votes": 0,
+  "review_state": "AWAITING_DISTINCT_NONAUTHOR_PAPER_REVIEW",
+  "new_theorem_count": 0
+}
