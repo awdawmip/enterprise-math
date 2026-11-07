@@ -1,0 +1,127 @@
+{
+  "schema": "EM_R618_SIGNED_BRC_AFFINE_TAG_EVIDENCE_V1",
+  "source_pin": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "source_blob": "7fa7a762f758b30c6090468ac43487daa34abad8",
+  "arithmetic": "JavaScript BigInt only; exact integer polynomials",
+  "checked_word_lengths": {
+    "0": 1,
+    "1": 12,
+    "2": 144,
+    "3": 1728,
+    "4": 20736
+  },
+  "full_word_roundtrips": 22621,
+  "append_concatenations": 22620,
+  "distinct_tags": 22621,
+  "frozen_K1": [
+    "2",
+    "3"
+  ],
+  "frozen_K2": [
+    "0",
+    "-1",
+    "4",
+    "4"
+  ],
+  "two_word_B0_coefficient": [
+    "0",
+    "-2",
+    "3",
+    "25",
+    "32",
+    "12"
+  ],
+  "permutation_fibers": [
+    {
+      "n": 1,
+      "level_s": 3,
+      "word_count": 2,
+      "endpoint_trial": "0^6",
+      "signed_coeff_equal": true,
+      "first": {
+        "word": "1,2",
+        "tag": "145"
+      },
+      "last": {
+        "word": "2,1",
+        "tag": "156"
+      }
+    },
+    {
+      "n": 2,
+      "level_s": 6,
+      "word_count": 6,
+      "endpoint_trial": "0^6",
+      "signed_coeff_equal": true,
+      "first": {
+        "word": "1,1,2,2",
+        "tag": "20749"
+      },
+      "last": {
+        "word": "2,2,1,1",
+        "tag": "22608"
+      }
+    },
+    {
+      "n": 3,
+      "level_s": 9,
+      "word_count": 20,
+      "endpoint_trial": "0^6",
+      "signed_coeff_equal": true,
+      "first": {
+        "word": "1,1,1,2,2,2",
+        "tag": "2986141"
+      },
+      "last": {
+        "word": "2,2,2,1,1,1",
+        "tag": "3257280"
+      }
+    },
+    {
+      "n": 4,
+      "level_s": 12,
+      "word_count": 70,
+      "endpoint_trial": "0^6",
+      "signed_coeff_equal": true,
+      "first": {
+        "word": "1,1,1,1,2,2,2,2",
+        "tag": "429983581"
+      },
+      "last": {
+        "word": "2,2,2,2,1,1,1,1",
+        "tag": "469069056"
+      }
+    },
+    {
+      "n": 5,
+      "level_s": 15,
+      "word_count": 252,
+      "endpoint_trial": "0^6",
+      "signed_coeff_equal": true,
+      "first": {
+        "word": "1,1,1,1,1,2,2,2,2,2",
+        "tag": "61917386845"
+      },
+      "last": {
+        "word": "2,2,2,2,2,1,1,1,1,1",
+        "tag": "67546192896"
+      }
+    },
+    {
+      "n": 6,
+      "level_s": 18,
+      "word_count": 924,
+      "endpoint_trial": "0^6",
+      "signed_coeff_equal": true,
+      "first": {
+        "word": "1,1,1,1,1,1,2,2,2,2,2,2",
+        "tag": "8916100719709"
+      },
+      "last": {
+        "word": "2,2,2,2,2,2,1,1,1,1,1,1",
+        "tag": "9726654763008"
+      }
+    }
+  ],
+  "success_marker": "R618_EXACT_AFFINE_TAG_FIBER_PASS"
+}
