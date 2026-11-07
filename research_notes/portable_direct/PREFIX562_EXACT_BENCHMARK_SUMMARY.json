@@ -1,0 +1,86 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "date": "2026-11-07",
+  "line": "PREFIX-562",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "native_certificate_blob": "a0d057fadf610e89983723f1392d5b798b7c05d5",
+  "native_edge_checks": 7488,
+  "integer_generic_histogram_comparisons": 5472,
+  "integer_nonzero_positions": 108051,
+  "root_pair_polynomial_comparisons": 1344,
+  "mod_prime_deep_checks": 3168,
+  "specialized_four_method_polynomial_comparisons_depth0_to16": 6528,
+  "specialized_depth16_output_nonzero_positions": 115084,
+  "bench_coverage": "zero-root all depths 0..D, 96-port nonzero-position traversal, no disk serialization; single run per case",
+  "generic_benchmarks": [
+    {
+      "method": "96-native",
+      "d": 12,
+      "sec": 5.19967,
+      "peak": 33713488,
+      "resident_terms": 121829
+    },
+    {
+      "method": "64-semilinear",
+      "d": 12,
+      "sec": 4.45745,
+      "peak": 31435120,
+      "resident_terms": 80962
+    },
+    {
+      "method": "96-native",
+      "d": 14,
+      "sec": 12.73435,
+      "peak": 71376048,
+      "resident_terms": 249973
+    },
+    {
+      "method": "64-semilinear",
+      "d": 14,
+      "sec": 8.98879,
+      "peak": 66657300,
+      "resident_terms": 166028
+    },
+    {
+      "method": "96-native",
+      "d": 16,
+      "sec": 26.06226,
+      "peak": 136011188,
+      "resident_terms": 478270,
+      "rss_kib": 391716
+    },
+    {
+      "method": "64-semilinear",
+      "d": 16,
+      "sec": 19.74617,
+      "peak": 127053616,
+      "resident_terms": 317708,
+      "rss_kib": 360924
+    }
+  ],
+  "q5_eq_q6_depth16_benchmarks": [
+    {
+      "method": "96-native",
+      "sec": 7.13367,
+      "peak": 33814636
+    },
+    {
+      "method": "64-native-orbit",
+      "sec": 3.88366,
+      "peak": 22253164
+    },
+    {
+      "method": "51-observer",
+      "sec": 2.18959,
+      "peak": 18086292
+    },
+    {
+      "method": "34-observer-orbit",
+      "sec": 1.22716,
+      "peak": 11942288
+    }
+  ],
+  "proof": "local exact edge equivariance and induction; numerical benchmarks are scoped implementation observations",
+  "native_owner": "UNCONFIRMED: BACKEND_IDENTITY_OR_VERSION_MISMATCH; operation_sent=false",
+  "review": "UNREVIEWED"
+}
