@@ -1,0 +1,58 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "four-STAR native X6, q1..q4=1; independent x=q5,y=q6; z=gate, nine roots r5=r6=0",
+  "theorem_A": "for all k>=1, 32 sigma-fixed native ports, and 0<=s<=256, H_i,k,s belongs to N[u,v]",
+  "theorem_B": "H_i,k+1,s-(4+8u)H_i,k,s belongs to N[u,v] on same scope",
+  "fixed_classes": [
+    0,
+    2,
+    5,
+    7,
+    14,
+    15,
+    18,
+    25,
+    27,
+    31,
+    33
+  ],
+  "delta_by_class": {
+    "0": 4,
+    "2": 5,
+    "5": 4,
+    "7": 3,
+    "14": 5,
+    "15": 1,
+    "18": 4,
+    "25": 3,
+    "27": 4,
+    "31": 3,
+    "33": 2
+  },
+  "factor_scan_depth": [
+    0,
+    260
+  ],
+  "positive_positions": {
+    "A": 1428455,
+    "K": 129033,
+    "B": 259842
+  },
+  "total_positions": 1817330,
+  "native_edge_checks": 5184,
+  "native_involution_checks": 576,
+  "extended_direct_crosscheck": {
+    "depth": [
+      0,
+      19
+    ],
+    "gate_slice_polynomials": 231,
+    "nonzero_positions": 1455,
+    "monotonic_checks": 154
+  },
+  "arithmetic": "exact integer coefficients",
+  "published_code": "PREFIX570_compact_certificate.py",
+  "extended_code_local": "PREFIX570_positive_gate_monotonic_certificate.py",
+  "source_status": "author-proved, exactly checked, not independently reviewed or canonically admitted"
+}
