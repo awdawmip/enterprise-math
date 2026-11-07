@@ -70,4 +70,14 @@ assert S.factor(d - 6*t/((t+12)*(t*t+36*t+216))) == 0
 assert S.factor(qb - (S.diff(d,t)+d*d+pa*d+qa)) == 0
 # The t=infinity germ is normalized. Elliptic crossings need connection data.
 assert S.simplify(((t+12)**2/(t*t+36*t+216)).subs(t,6*s)-s/2) == 0
-print('PASS: eta quotients, exact degree (6,8) maps, unique shared special fiber t^2=72, Gauss gauge/jet')
+# Second cusp t=0 fixes the principal real branch; evaluate exact 3F2 first jet.
+H = S.Rational(3,2)*(t+12)**2/(t*t+36*t+216)
+u = 6*S.sqrt(2)
+alpha = S.simplify((S.diff(H,t)/S.diff(z,t)).subs(t,u))
+beta = S.simplify((H*S.diff(w,t)/S.diff(z,t)).subs(t,u))
+assert alpha == S.Rational(1,2)-S.sqrt(2)/4
+assert beta == S.Rational(4,9)
+assert S.simplify(H.subs(t,u)+3*alpha) == S.Rational(3,2)
+assert 3*beta == S.Rational(4,3)
+assert S.simplify(H.subs(t,0)-1) == 0
+print('PASS: eta maps, exact shared fiber, Gauss gauge and second-cusp weighted 3F2 first jet')
