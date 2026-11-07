@@ -1,0 +1,12 @@
+2026-10-31: Actual execution of the byte-identical VERIFY.js source published alongside this record, using JS V8 eval. No network or external numerical solver used.
+
+PASS_BRC_N4_RANDOMIZED_FIVE_CODE_SHARP_MINIMAX_20261031
+16 strictly positive leaves per P/Q law; each normalization=240/240
+six distinct lawful LR classes; all 64 S23 stage-three Boolean terminal policies
+64 sign dual certificates, 384 exact expectations: ||4f||_infty<=80; sharp=80
+sharp reverse witness w=(1,-1,0,0,0,0): ||wM||_1=1/10, ||w||_1=2
+1536 full public-output checks (64 policies x 6 rows x 4 noise values); max L1/640=16/640=1/40
+Analytic conclusion: unrestricted R5(S23,epsilon)=R5(S2,epsilon)=1/40, all real epsilon in [0,1/2].
+Analytic proof, not numerical enumeration, covers all stochastic encoders and adaptive policies.
+
+Proof validation scope: 64 sign certificates and 1536 rational full-public-output comparisons. The all-real quantifiers and arbitrary randomized encoders are established analytically in PROOF.md.

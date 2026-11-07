@@ -1,0 +1,9 @@
+# Next obligation: physical transition-source interface and actual S2/S23 minimal state
+
+Use the exact BRC 16-leaf P/Q source and this directory's proved full-word minimax obstruction 43/240, explicit two-preparation tagged Markov lifting, and six-state stage-two **full potential-prefix** quotient. Keep the earlier X6 path-order collision as predecessor; do not repeat it as new work.
+
+First question: given a genuinely independently defined native X6 time-transition law T, preparation source, and observer, what exact finite cylinder/conditional law equations are necessary and sufficient for it to reproduce BOTH P/Q experiments under all original legal stopping operations? Check whether the native source permits distinct initial preparations or an internal conditional transition/measurement port. An arbitrarily assigned P/Q lookup kernel remains a mathematical simulator rather than native physics. Preserve separately typed ordered physical time, six native axes, complete provenance and allowed observation horizon.
+
+Adversarial calculation: inspect the exact original S2/S23 stopping/continuation grammar. Determine the minimal forward-sufficient source state for that **lawful** grammar; the current six-class result assumes future J,K can be read on every s, which is a stronger potential-prefix language. Provide an exact attaining quotient and a lawful distinguishing policy or a smaller exact counterexample. Classify native K-edit only if it is actually defined; otherwise keep its physical status UNKNOWN.
+
+Evidence: precise native interfaces and pins, analytical statement with quantifiers, typed BRC finite certificate and executed output, current Owner status, GitHub readback, and clear UNREVIEWED/NOT_ADMITTED status.

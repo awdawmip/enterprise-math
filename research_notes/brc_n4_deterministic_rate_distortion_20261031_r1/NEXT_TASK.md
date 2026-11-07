@@ -1,0 +1,13 @@
+# Next executable research unit: genuinely stochastic cross-source five-code minimax
+
+**Prior frozen frontier:** PR #1757, `research_notes/brc_n4_five_symbol_quantitative_bounds_20261031_r1`: for all lawful S23 or S2, every epsilon in [0,1/2], `2/143 <= R_5^stoch <= 1/40` (unrestricted stochastic encoder, policy-aware stochastic decoder). Existing 6-policy matrix has determinant 1/50; its rank-only relaxation is not a stochastic feasibility certificate.
+
+**This run's new restricted result:** For **deterministic** encoders, K=3,4,5,6 minimax errors are exactly `1/2,1/5,1/40,0`; for **source-homogeneous stochastic** encoders, K=4,5,6 values are `1/5,1/40,0`. Analytic proofs, executed exact JS and output are in the adjacent files. Do not repeat this finite classification as an unfinished problem.
+
+**Smallest unsolved question:** With five shared codes, a *genuinely randomized, cross-S-sharing* E, and an independent stochastic decoder for each of the six lawful third-stage witness strategies, can one obtain a **strictly smaller than 1/40** worst **full-public-record** TV error simultaneously for all six prepared rows at epsilon=1/4? Either construct rational E and all six D_H with exact row sums, nonnegativity, encoded BU sensor atoms, and a statewise TV certificate <1/40; or prove a stronger universal lower bound for these six strategies using stochastic nonnegative factorization/TV constraints. A six-policy solution need not solve all S23/S2.
+
+**Promising route:** One cannot improve by changing only deterministic partitions or by randomization within source-homogeneous code supports. Search only code supports with at least one code shared by different S; use alternating linear feasibility for fixed E/D, then certify a rational witness with exact fractions, or derive an exact dual/geometric no-go. Preserve quantifier order `inf_E sup_H inf_{D_H} max_x TV`; report a finite numerical search as exploration only. A candidate must specify epsilon and the entire public tuple `(T,Decision,Z_BU)`, not just six Bernoulli decision probabilities.
+
+**Separate native transfer question:** Identify a genuinely defined P000 X6 Cell-time transition and source-preparation interface. Show observation-kernel commutation before promoting any external finite BRC result to Heartbeat dynamics; otherwise retain the typed interface gap.
+
+**Delivery:** preserve exact inputs, proof/counterexample, executable validation and captured output, source pins, unreleased authority status, and readback-verified immutable project artifact. Current evidence status is author-side, UNREVIEWED/NOT_ADMITTED.

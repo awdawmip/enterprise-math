@@ -1,0 +1,31 @@
+# Executed local verification evidence (2026-10-31)
+
+Exact command:
+
+```sh
+g++ -O3 -std=c++17 VERIFY.cpp -o em_cover_exact && ./em_cover_exact
+```
+
+The identical source was compiled and actually executed in a local C++ environment with 64-bit unsigned integer masks, C++ asserts enabled, and no floating-point computation. Source Git blob from the local executed file: `049aa171dc0bf6c22686662c976eb3e9dfc0ba0d`.
+
+```text
+S23_tables=2048 signatures=64 boxes=1296 unique_masks=949 total_weight=232 nondominated=270 max_box_points=16 max_box_weight=32
+target=8 exists=0 calls=22440 memo=19589 prune_pop=0 prune_weight=266784 prune_memo=2851 prune_dom=4045
+target=9 exists=0 calls=4511639 memo=2939731 prune_pop=502845 prune_weight=32963775 prune_memo=1552319 prune_dom=1486975
+target=10 exists=1 calls=4511649 memo=2939731 prune_pop=502845 prune_weight=32963775 prune_memo=1552319 prune_dom=1486975
+witness(10) masks=481 20002021 9061800 480d800 140005a 30030c 20d1400 6db01b6c00000000 36d80db60000000 b40b6d02d0000000
+BOX [3,4] [2,4] [3,4] [2,4]
+BOX [3,4] [2,3] [3,4] [3,4]
+BOX [3,4] [3,4] [3,4] [2,3]
+BOX [2,4] [2,4] [1,2] [1,2]
+BOX [1,2] [1,2] [2,4] [3,4]
+BOX [1,2] [1,3] [2,3] [2,4]
+BOX [2,3] [3,4] [1,2] [1,3]
+BOX [2,4] [3,4] [1,2] [1,4]
+BOX [1,3] [1,2] [1,3] [1,3]
+BOX [1,2] [1,2] [1,4] [1,2]
+```
+
+Independent Python set-membership check of the ten displayed boxes against the 64 exact listed signatures: `boxes=10, signatures=64, covered=64, uncovered=0`. Counts of signature occurrences by individual witness box: `16,16,16,6,6,6,6,6,4,3` (overlap allowed). A separate SciPy/HiGHS mixed-integer optimization yielded optimal objective 10 and dual bound 10, but this *floating-point solver result is corroboration only*: the exact exhaustive C++ checker is the claimed finite certificate, not the HiGHS status.
+
+Verification coverage: all 2048 deterministic S23 bit tables for signature legitimacy; all 1296 maximal two-choice boxes for incidence and domination; complete exact integer branch search for nonexistence of 8/9 box covers; explicit ten-box witness and independent membership check. This execution does **not** enumerate randomized stopping policies or prove P000 native dynamics; those portions are separated in PROOF.md.

@@ -1,0 +1,7 @@
+# Next research unit: two-code full-observer deficiency
+
+Do not repeat established BRC N4 full lawful policy minima: unrestricted stochastic R5=1/40; R4=1/5; now R3=1/2, for all real BU sensor epsilon in [0,1/2]. Current proof uses the four disjoint provenance groups (AU,AV,BU,BV), group-constant left kernel, all 64 lawful S23 class-subset tests and exact 3-code decoding.
+
+Determine R2 for a common two-symbol stochastic encoder and the COMPLETE public terminal record O=(T,Decision,Z_BU), first at epsilon=1/4, then entire epsilon interval if possible. The group-constant nullspace lemma provides only R2>=1/2. Binary decision-event probabilities alone do not prove the sharp full-record rate. Seek either a rational E and lawful all-policy decoder plus upper TV certificate, or a legal full-output test and rational dual lower-bound certificate >1/2. Preserve Source/provenance and no physical X6 inference.
+
+Separate native obligation: an independently specified X6 Cell preparation, time-indexed transition law and declared observation/decision interfaces commuting with the finite BRC experiment; empirical/calibrated Heartbeat claims require additional evidence. Independent review/Source admission needed to promote author proof.

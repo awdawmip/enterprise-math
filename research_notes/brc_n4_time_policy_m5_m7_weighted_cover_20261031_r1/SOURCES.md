@@ -1,0 +1,8 @@
+# Input/source pins and authority, 2026-10-31
+
+- GLOBAL_KNOWLEDGE_V1 connected-GitHub verified canonical main: `f165f59afe3e4b3d761aecf1270ed0fb8eeee99e`; read bootstrap/manual, ACTIVE worldview, math/BRC/code/temporal research policies, activity and journal paths.
+- Enterprise Math project main: `6c20d83d79d260c09b24824cadbf65dedeaf8e5e`; read AGENTS.md, p000_reality_foundation.json, definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json, docs/PORTABLE_RESEARCH_PROTOCOL.md, docs/AUTONOMOUS_RESEARCH_OPERATIONS.zh-CN.md, control_plane/current_control_authority.json, heartbeat/BRC-only requirements.
+- Immutable exact predecessor: `60aaef914954cb656a2f74140d77e2e647030eda`, `research_notes/brc_n4_time_policy_four_label_exact_20261031_emr1/PROOF.md` and `VERIFY.js`. Previous theorem R_(k,4)=2/3 is AUTHOR-SIDE, UNREVIEWED, NOT_ADMITTED.
+- Frozen 16-leaf P/Q source and six-row M are stated and independently reconstructed in VERIFY.js; 2048 lawful deterministic policy grammar and all 64 signatures are enumerated.
+- Actual connected GitHub actor: awdawmip. Native EM gateway v0.6.11 status at observation reported research_authority_granted=false, active quota=5/5, executor_binding_configured=false, UPSTREAM_CODE_REVIEW_REQUIRED. Official active task owner was not determined by this read. This portable GitHub artifact is neither a native CLAIM/Result nor an independent review.
+- Exact integer arithmetic applies only to typed positive-source finite policy/observer semantics. No native-heartbeat BRC/Shor numerical computation, π/trig route, P000 dynamics or signed-residual claim was performed.
