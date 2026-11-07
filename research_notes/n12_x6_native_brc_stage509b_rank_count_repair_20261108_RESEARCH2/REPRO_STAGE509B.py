@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Stage509-B: minimum opaque-gap safe singleton mask for X6 BRC future grammar.
+
 All scientific observations use the native signed six-axis vectors and the full
 144-element directed edge tensor F; integer arithmetic only, no scalar projection.
 """
