@@ -96,7 +96,7 @@ U_5=240497,\quad V_5=6434489,\quad
 W_5=143140289,\quad T_5=2855382857.
 \]
 
-The complete new `U,V,W,T` integer vectors and denominators are in `PREFIX577_GATE_CUMULANT_ORDER8_RESULTS.json`; the inherited `X,Y,Z` vectors remain in the PREFIX-576 certificate and are rechecked by the new checker.
+The new checker recomputes and row-verifies the complete `U,V,W,T` integer vectors; the compact result JSON records their denominators and target-class entries. The inherited `X,Y,Z` vectors remain in the PREFIX-576 certificate and are rechecked by the new checker.
 
 Consequently,
 
@@ -202,7 +202,7 @@ It verifies:
 `385151223796572526086245125219434606018278638823213973691750235774923749432850295860047477336478580736`
 
 ordered native paths;
-- exact agreement of the depth-128 first through fourth finite cumulant rates with the previously published PREFIX-576 result.
+- exact agreement of the depth-128 first through fourth finite cumulant rates with the previously published PREFIX-576 result; the regenerated eight-rate depth-128 vector has SHA-256 `8af36d5eea3e118bf9a7f8fbd7fb3127c4213419a0987d80dd1a251b7e6e1378` (the result JSON stores the matching first four and this digest, while the checker regenerates all eight).
 
 The new checker returned `ALL_CHECKS_PASS` in a source-derived local harness using the exact `edge`, `marginal_gate_rows` and `weighted_quotient` definitions fetched from the immutable PREFIX-565/566 blobs, the published PREFIX-576 `X,Y,Z` vectors, and the exact depth-128 first-four rates read from the immutable PREFIX-576 result JSON. This was not a full repository checkout run; the published script imports those existing branch-local files when run from the research directory.
 
@@ -230,7 +230,7 @@ The theorem is restricted to the frozen `q1=...=q6=1` gate-count observer. It do
 - BRC-only arithmetic route was read in both project and global forms; global BRC-only markdown blob `929b159f5fffc3d293ba6954aaa76354ca33a556`; identical global/project machine mirror blob `62ffa6bbdafd54496e27284a26a2aeaf2d04df99`; BRC priority policy blob `721ea6b559ca8a4ac11c7ed90e715219581d319b`.
 - Frozen science pin `f42f2906d77f24085c123f3ccfe9667d41caa96d` is unchanged. Existing PREFIX-565/566/575/576 source blobs at the continuation branch are `7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41`, `7b6613193847e4123cd0ac11107eb9b9c70290c8`, `f80228126d1f015615d7324bbde36f13c5b4e84b`, `d1ba22145e7c38afbda26469f23dc10849285cc0`, and prior result blob `852cf01f83c5bbf54c5ea087d41c2d77bae2d7fe`.
 - Existing author branch base, refreshed immediately before publication: `research/prefix576-gate-cumulant-r2-20261108@aac16d053758b632b506ebe3658b9312579a0b8d`.
-- New checker SHA-256 `9926a76fb948c7f11feb35f52670ed47b882a9cececc73243d9276048e7b6bef`; result JSON SHA-256 `63f50cd39d8b8cbeb3388bfe9bc10461d7554a3b4198846e5ce8001a42f23651`.
+- New checker SHA-256 `28a502846e41171c718a7df2cfda434b1c7f3d8206fa66de9047a61fa7889f58`; checker Git blob `a0ec76de790cbe51af4cea3d859ddeecfc6374c4`; result JSON Git blob `a25135680481b51bb7346b7c4f687e9a2126ab3e`.
 
 GitHub identity `awdawmip` and repository administrator/write permission were verified. The native gateway reported `CONFIGURED_NOT_LIVE_VERIFIED` with `backend_connected=false`. `em_session_start`, `em_sources`, context-manifest lookup and `em_control_dispatch` returned no native Researcher session or active Owner; dispatch specifically returned `BACKEND_IDENTITY_OR_VERSION_MISMATCH / UPSTREAM_STATUS_TOOL_ERROR / STATUS_DATABASE_UNAVAILABLE` with `operation_sent=false`. No credential was reused or submitted. This is an unshared author-side derivation, not a formal Task claim, live activity registration, Source Result, independent review or mathematical admission.
 

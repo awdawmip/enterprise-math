@@ -10,6 +10,7 @@ from fractions import Fraction
 from math import comb, factorial
 from pathlib import Path
 import json
+import hashlib
 
 from PREFIX565_positive_marginal_certificate import (
     SCIENCE_PIN, ZERO_ROOT, ROOTS, ACTIONS, edge
@@ -147,10 +148,14 @@ def finite_moment_dp(transitions, sizes, depth=DEPTH, order=ORDER):
                     value -= comb(r - 1, j - 1) * cumulants[j - 1] * raw[r - j]
                 cumulants.append(value)
             rates = [value / d for value in cumulants]
+            rate_strings = [str(v) for v in rates]
+            rate_digest = hashlib.sha256("\n".join(rate_strings).encode("utf-8")).hexdigest()
             snapshots.append({
                 "depth": d,
                 "total_paths": str(total),
-                "cumulant_rates": [str(v) for v in rates],
+                "orders_computed": order,
+                "first_four_cumulant_rates": rate_strings[:4],
+                "all_eight_cumulant_rates_sha256": rate_digest,
             })
 
         if d == depth:
@@ -320,10 +325,10 @@ def main():
         if row["depth"] == 128
     )
     new_128 = next(row for row in finite["snapshots"] if row["depth"] == 128)
-    assert new_128["cumulant_rates"][0] == old_128["mean_per_step"]
-    assert new_128["cumulant_rates"][1] == old_128["variance_per_step"]
-    assert new_128["cumulant_rates"][2] == old_128["third_cumulant_per_step"]
-    assert new_128["cumulant_rates"][3] == old_128["fourth_cumulant_per_step"]
+    assert new_128["first_four_cumulant_rates"][0] == old_128["mean_per_step"]
+    assert new_128["first_four_cumulant_rates"][1] == old_128["variance_per_step"]
+    assert new_128["first_four_cumulant_rates"][2] == old_128["third_cumulant_per_step"]
+    assert new_128["first_four_cumulant_rates"][3] == old_128["fourth_cumulant_per_step"]
 
     return {
         "status": "ALL_CHECKS_PASS",
@@ -354,10 +359,10 @@ def main():
         "new_group_inverse_potentials": {
             name: {
                 "denominator": denominators[i],
-                "integer_vector": [int(v) for v in potentials[i]],
                 "weighted_mean": "0",
                 "target_class_5": str(potentials[i][5]),
                 "integer_equation": f"(6I-C){name}=72*{names[i-1]}",
+                "full_vector_recomputed_and_row_verified": True,
             }
             for i, name in enumerate(names[3:], start=3)
         },
@@ -374,7 +379,14 @@ def main():
         "scaled_cumulant_generating_function_coefficients": {
             f"s^{k}": str(psi[k]) for k in range(1, ORDER + 1)
         },
-        "finite_stationary_integer_DP": finite,
+        "finite_stationary_integer_DP": {
+            "initial_distribution": finite["initial_distribution"],
+            "raw_moment_orders": finite["raw_moment_orders"],
+            "depth": DEPTH,
+            "total_paths": finite["snapshots"][0]["total_paths"],
+            "first_four_match_prefix576": True,
+            "all_eight_cumulant_rates_sha256": finite["snapshots"][0]["all_eight_cumulant_rates_sha256"],
+        },
         "validation": {
             "native_outdegree": 6,
             "native_indegree": 6,
