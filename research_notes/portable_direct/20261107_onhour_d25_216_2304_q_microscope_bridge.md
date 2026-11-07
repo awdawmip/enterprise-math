@@ -41,7 +41,7 @@ For p≡13,19(mod24), chi_p=1; hence (H) implies the frozen W_p≡p(modp³) and,
 
 ### Exact finite evidence
 
-The accompanying Python 3 standard-library checker was executed locally using two distinct coefficient streams modulo p^4. For every one of **667** primes 5<=p<5000 (330 with chi=+1; 337 with chi=-1), all 667 satisfy (H). The program checks Guo–Zudilin's V congruence and W's earlier observed congruence independently as diagnostics, and recomputes both sums from direct binomial coefficients for all **77** primes p<=401. Exact arithmetic only; 0 errors.
+The accompanying Python 3 standard-library checker was executed locally using two distinct coefficient streams modulo p^4. For every one of **1227** primes 5<=p<10000 (611 with chi=+1; 616 with chi=-1), all 667 satisfy (H). The program checks Guo–Zudilin's V congruence and W's earlier observed congruence independently as diagnostics, and recomputes both sums from direct binomial coefficients for all **77** primes p<=401. Exact arithmetic only; 0 errors.
 
 Representative residue triples (W_p mod p^4, V_p mod p^4, chi_p):
 ```text
@@ -65,7 +65,7 @@ Thus universal strengthening of (H) to mod p^5 is false. This single exact input
 
 Retain ordered signed provenance ports `(W_p,V_p,p chi_p)` instead of collapsing the two sequences prematurely. The integer observer `(w,v,c) -> 2v-w-c` in Z/p^4Z captures the candidate cancellation, and the p^3 quotient retains the first unreduced residual. This is a concrete signed multi-port, source-preserving use of the BRC observer discipline; it claims no additional BRC theorem or changed scientific model.
 
-The checker generates primes by a sieve, computes both sums from exact factorial-ratio modular recurrences, verifies all 667 cases and separately recomputes the 77 small cases by direct binomial integers. Because 1<=k+1<p, recurrence denominators are p-adic units. There is no floating arithmetic, stochastic sampling or hidden model assumption.
+The checker generates primes by a sieve, computes both sums from exact factorial-ratio modular recurrences, verifies all 1227 cases and separately recomputes the 77 small cases by direct binomial integers. Because 1<=k+1<p, recurrence denominators are p-adic units. There is no floating arithmetic, stochastic sampling or hidden model assumption.
 
 ## Next smallest unfinished mathematical unit
 

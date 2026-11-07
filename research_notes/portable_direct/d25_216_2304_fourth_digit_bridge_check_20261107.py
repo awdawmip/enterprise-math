@@ -26,7 +26,7 @@ def direct(p,mod):
     return x,y
 def run():
     n=small=plus=minus=0
-    for p in primes(5000):
+    for p in primes(10000):
         mod=p**4;W,V=recur(p,mod);chi=1 if p%3==1 else -1
         assert (2*V-W-p*chi)%mod==0,p
         assert (V-p*chi)%(p**3)==0,p
@@ -35,7 +35,7 @@ def run():
         if chi==1:plus+=1
         else:minus+=1
         n+=1
-    assert (n,plus,minus,small)==(667,330,337,77)
+    assert (n,plus,minus,small)==(1227,611,616,77)
     p=11;W,V=direct(p,p**5)
     assert (W,V)==(119779,103807)
     assert (2*V-W+p)%(p**5)==6*p**4
