@@ -1,0 +1,81 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "previous_author_frontier": "21f2de6927f4380141a512eac11191d097eda17e",
+  "mother_objective": "Prove W_p ≡ p (mod p^3) for every prime p ≡13,19 (mod24). OPEN.",
+  "author_side_completed": [
+    {
+      "kind": "PROVED_GENERIC_FIRST_ORDER_LEMMA",
+      "proof": "For p,0<=u<v<p,a=-u+lambda*p,b=-v+mu*p, F_<p(a,b;z) = P_{u,v}(z)+p(L_{u,v}(z)+T_{u,v}(z)) mod p^2; L uses two harmonic logarithmic derivatives on n<=u, T is single-zero-crossing derivative on u<n<=v, n>v contributes 0 to first order."
+    },
+    {
+      "kind": "PROVED_SOURCE_TYPED_RESIDUAL_DECOMPOSITION",
+      "proof": "At both target 216/2304 Gauss parameters, g_A=q_A+L_A+T_A, g_B=q_B+L_B+T_B; in the explicit signed CM eigenbasis C_p/s^epsilon=R_Q+R_L+R_T. The universal zero of RHS remains conjectural."
+    },
+    {
+      "kind": "FINITE_EXACT_DISCRIMINATION",
+      "proof": "77 primes p<=2000, classes 13 and 19, two independent p^2 Gauss recurrences and explicit binomial-derivative ports; local executable PASS for each proved expansion; conjectural C_p=0 observed for 77 primes. At p=373 (qA,LA,TA)=(340,352,78), (qB,LB,TB)=(326,41,365), (RQ,RL,RT)=(4,322,47), three nonzero signed source ports cancel."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "research_notes/portable_direct/20261108_onhour_d25_first_lift_three_port_balance.md",
+      "commit": "89b9d0d927e3d42310272acdca6d39bc9299ec9e",
+      "git_blob_sha1": "6dacbe780efc558f55de76b1ea6fdc020083c6b9",
+      "readback": "VERIFIED"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_first_lift_three_port_balance_check_20261108.py",
+      "commit": "5a13bffffcedd2136be238e8189aad946247fa85",
+      "git_blob_sha1": "1efd186d21ca1173e21028b47ee5f1823d666444",
+      "execution": "LOCAL_PYTHON_CHECK_PASS",
+      "readback": "VERIFIED"
+    }
+  ],
+  "proof_strength": "EXACT_GENERIC_TAYLOR_AND_PORT_DECOMPOSITION_PROVED / 77_PRIME_CROSS_MODEL_ONLY_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "smallest_unfinished_science": "Uniform proof that the signed combination R_Q+R_L+R_T=0 across both prime classes; this is equivalent to C_p=0 and the A-model mod p^2 first digit. Do not relabel finite checks as proof.",
+  "next_exact_action": "Find an isomorphism/isogeny or Cartier transport of the CM supersingular p-adic first-lift in which unperturbed Hasse quotient q, low harmonic deformation L, single-zero-crossing tail T are all retained with epsilon=1 anti-invariant s factor. Check p=19 and p=373 and then the general polynomial identity before moving to the saved p^3 four-port correction.",
+  "do_not_repeat": [
+    "D24 frozen UR result RR-AC9B3BA5BD277CE043F5",
+    "Fricke 6:8 analytic map and periods",
+    "p^3 Clausen–Euler four-port proof and high-tail obstruction",
+    "uniform CM -24 Hasse zero and simple-root theorem",
+    "B-model first digit proved with Guo–Zudilin",
+    "previous 77-prime bare C_p zero scan",
+    "native same-class p373 #1559 benchmark still pending, not solved by external Gauss"
+  ],
+  "native_benchmark": {
+    "issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "status": "PENDING_NATIVE_EXECUTION_INDEPENDENT_CHECK",
+    "owner": "UNASSIGNED_AT_VERIFIED_GITHUB_ISSUE_READ",
+    "must_keep": [
+      "original H0/B0 fixed class and frozen pin",
+      "[X]U mod139129",
+      "module rank and divided powers",
+      "actual Frobenius direction/eta",
+      "signed Hesse Green kappa and Delta_p-R_p",
+      "independent replication"
+    ]
+  },
+  "source": {
+    "target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "last_exact_readback": "RUNNING / REVALIDATING; collected=1233; verified_through=4; next_page=5; Source current read-only receipt. Original pending effect is not replayed.",
+    "reconcile": "NOT_RECONCILABLE for original RUNNING continuation, no new mutation",
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "native_session": "NOT_VERIFIED",
+    "native_claim": "NOT_VERIFIED",
+    "native_run": "NOT_VERIFIED",
+    "native_checkpoint": "NOT_WRITTEN",
+    "activity": "REGISTER_PENDING",
+    "sync_debt": true,
+    "next_control": "Use original target_request_id receipt until terminal or actionable native reply; Source session and claim ownership must be established before any role-bound mutation, no maintenance-lane reuse."
+  },
+  "result_status": "AUTHOR_SIDE_PROVED_EXACT_THREE_PORT / FINITE_77_CHECKED / NATIVE_NOT_EXECUTED / UNREVIEWED_NOT_ADMITTED"
+}
