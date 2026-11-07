@@ -1,0 +1,54 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE_REGISTER_PENDING",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "prior_this_lane_frontier": "de8535d04ddc62ff5661dbfadefb999be7c6ec24",
+  "consumed_sibling_green_source": "47c8de70adfae20dd99a47eb804bb2dd72f87716",
+  "mother_objective": "Original D25 Delta_p-R_p=0 modulo p and W_p=p modulo p^3 in target classes; OPEN",
+  "proven_new_unit": "For all integers m>=1, exact finite forcing L F_m=t-36m² C_m t^(m+1); exact Laurent Green 18(1-2t)DJ-9J=tW_m-36m²C_m t^(m+1)W_m+(6m+1)F_m(9D-2)W_m+(6m+1)^2 F_mW_m. For p=6m+1 prime, terminal forcing mod p is -C_m t^(m+1)W_m and has nonzero coefficient of t equal to -C_m q_m.",
+  "evidence": [
+    "research_notes/portable_direct/20261108_onhour_d25_finite_green_cutoff_forcing.md",
+    "research_notes/portable_direct/d25_finite_green_cutoff_check_20261108.py"
+  ],
+  "verification": "Exact rational full Laurent tests m=1,2,3,7,11,62 PASS; coefficient-source formula proved universally",
+  "witnesses": {
+    "p19": {
+      "Cm": 1,
+      "qm": 12,
+      "first_t_coefficient": 7,
+      "last_coefficient": 18
+    },
+    "p373": {
+      "Cm": 37,
+      "qm": 13,
+      "first_t_coefficient": 265,
+      "last_coefficient": 336
+    }
+  },
+  "do_not_repeat": [
+    "D24 UR freeze",
+    "CM Hasse zero",
+    "prior 77-prime first-lift and B 2304 unit checks",
+    "existing reflected R kernel and infinite Green",
+    "previous residue reciprocity",
+    "native p373 benchmark #1559"
+  ],
+  "next_exact_action": "Combine nonzero finite terminal forcing with previous two-observer residue cutoff B_m+6 J U; attempt a weighted adjoint finite certificate matching original Phi_xx, divided ZH0, SH0 and ZH1. Test p19,p373 before universal claim.",
+  "native_source": {
+    "original_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "status": "BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE; operation_sent=false",
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "session": "NOT_VERIFIED",
+    "claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "checkpoint": "NOT_WRITTEN",
+    "activity": "REGISTER_PENDING",
+    "benchmark_issue": "https://github.com/awdawmip/enterprise-math/issues/1559"
+  },
+  "status": "AUTHOR_SIDE_PROVED / EXACT_FRACTION_LAURENT_TESTED / UNREVIEWED / NOT_ADMITTED"
+}
