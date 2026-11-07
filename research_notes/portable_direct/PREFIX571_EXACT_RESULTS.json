@@ -1,0 +1,73 @@
+{
+  "schema": "PREFIX571_EXACT_RESEARCH_RESULTS_V1",
+  "status": "ALL_CHECKS_PASS",
+  "research_date": "2026-11-08",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": {
+    "observer": "q1=q2=q3=q4=1; x=q5,y=q6,z=gate",
+    "roots": "nine r5=r6=0",
+    "fixed_native_ports": 32,
+    "fixed_observer_classes": [
+      0,
+      2,
+      5,
+      7,
+      14,
+      15,
+      18,
+      25,
+      27,
+      31,
+      33
+    ]
+  },
+  "published_compact": {
+    "status": "ALL_CHECKS_PASS",
+    "native_edge_checks": 5184,
+    "observer_quotient_states": 37,
+    "ungated_graph_bipartite": true,
+    "gate_sources": [
+      4,
+      15,
+      17
+    ],
+    "gate_target": 5,
+    "K_t3": "4+8u",
+    "K_t5": "80u^2+128v"
+  },
+  "extended_executed": {
+    "status": "ALL_CHECKS_PASS",
+    "direct_vs_renewal_full_polynomial_checks": 84,
+    "compared_nonzero_coefficient_positions": 523,
+    "exact_finite_difference_vanishing_checks": 60,
+    "native_action_depth_range": [
+      0,
+      23
+    ],
+    "gate_count_range": [
+      1,
+      4
+    ],
+    "excess_range": [
+      0,
+      6
+    ]
+  },
+  "reexecuted_prefix570_factor_scan": {
+    "status": "ALL_CHECKS_PASS",
+    "excess_range": [
+      0,
+      256
+    ],
+    "factor_scan_depth": [
+      0,
+      260
+    ],
+    "positive_nonzero_coefficient_positions": 1817330
+  },
+  "theorem_a": "For all fixed ports, k>=1, s>=0, weighted forward difference Delta_rho^m H_(i,k,s)=0 whenever 2m>s; rho=4+8u.",
+  "theorem_b": "For all fixed ports, k>=1, m>=0 and 0<=q<=254, Delta_rho^m H_(i,k,2m+q) has nonnegative integer u,v coefficients.",
+  "sharp_diagonal": "Delta_rho^m H_(i,k,2m) = a_i(0)*(4+8u)^(k-1)*(80u^2+128v)^m.",
+  "proof_status": "AUTHOR_PROVED / EXACT_INTEGER_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "native_control": "session_start FAILED/OSError; task list WAITING_RESOURCE/EVENT_COLLECTION_IO; no formal CLAIM/Result/Review"
+}
