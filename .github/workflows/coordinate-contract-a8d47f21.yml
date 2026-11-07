@@ -15,6 +15,8 @@ on:
       - 'tools/*coordinate*'
       - 'tools/validate_cell_address.py'
       - 'tests/test_cell_address_contract.py'
+      - 'tests/test_coordinate_migration_p000.py'
+      - 'tests/fixtures/coordinate_address_migration/**'
       - 'p000_reality_foundation.json'
       - 'project_definition.json'
       - 'PROJECT_DEFINITION*'
@@ -44,6 +46,8 @@ on:
       - 'tools/*coordinate*'
       - 'tools/validate_cell_address.py'
       - 'tests/test_cell_address_contract.py'
+      - 'tests/test_coordinate_migration_p000.py'
+      - 'tests/fixtures/coordinate_address_migration/**'
       - 'p000_reality_foundation.json'
       - 'project_definition.json'
       - 'PROJECT_DEFINITION*'
@@ -76,6 +80,7 @@ jobs:
         run: |
           set -euo pipefail
           python -m pip install 'jsonschema==4.25.1' 'pytest==8.3.5'
+          python -m unittest discover -s tests -p 'test_coordinate_migration_p000.py' -v
           python -m unittest discover -s tests -p 'test_cell_address_contract.py' -v
           python - <<'PY'
           import enterprise_math as em

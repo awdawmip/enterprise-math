@@ -18,6 +18,9 @@ CONTRACT = 'coordinate_address_contract.json'
 MANIFEST = 'coordinate_contract_migration_manifest.json'
 MARK = '<!-- EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->'
 PROOF_HASH = '2971ea97ba60f0a528a915c06152cb4aec9824fa85fae0bb88c0e76e4e921b02'
+P000_MIGRATION_SOURCE = '366a7517c3baf91ade267c972833fe722902519c'
+P000_MIGRATION_FIXTURE = 'tests/fixtures/coordinate_address_migration/p000_before_366a7517.json'
+P000_CURRENT_REVISION = '7035c8011938aa0baffbb22f3827322053f520d5'
 JSON_PATHS = [
     'p000_reality_foundation.json', 'project_definition.json',
     'packet_path_foundation.json', 'native_semantics_admissibility.json',
@@ -297,6 +300,87 @@ __all__ += [
 '''
 
 
+def require_same_json(actual: object, expected: object, label: str) -> None:
+    # JSON hashing also distinguishes bool from int, unlike Python equality.
+    if objhash(actual) != objhash(expected):
+        raise ValueError(label)
+
+
+def check_p000_contract(manifest: dict, source_text: str, current: dict,
+                        *, historical_replay: bool = False) -> None:
+    """Keep the immutable migration audit separate from today's P000 contract.
+
+    The manifest describes the 2026-09-13 migration, not a permanent freeze on
+    later user-authorized foundations. Revision 7035c801 explicitly superseded
+    five axiom keys on 2026-10-02; all other axioms remain protected exactly.
+    A future foundation revision requires an explicit, reviewed rebase here.
+    """
+    require_same_json(manifest['source_main'], P000_MIGRATION_SOURCE,
+                      'P000_MIGRATION_SOURCE_CHANGED')
+    entries = [item for item in manifest['updated_surfaces']
+               if item['path'] == 'p000_reality_foundation.json']
+    if len(entries) != 1:
+        raise ValueError('P000_MIGRATION_ENTRY_MUST_BE_UNIQUE')
+    entry = entries[0]
+    require_same_json(digest(source_text), entry['before_sha256'],
+                      'P000_MIGRATION_SOURCE_BYTES_CHANGED')
+    source = json.loads(source_text)
+    require_same_json(objhash(source['axioms']), manifest['p000_axioms_sha256'],
+                      'P000_HISTORICAL_AXIOMS_HASH_CHANGED')
+    # Exercise the transforming path, not patch_json's already-migrated no-op.
+    migrated = patch_json('p000_reality_foundation.json', copy.deepcopy(source))
+    require_same_json(migrated['axioms'], source['axioms'],
+                      'P000_MIGRATION_CHANGED_AXIOMS')
+    migrated_text = json.dumps(migrated, ensure_ascii=False, indent=2) + '\n'
+    require_same_json(digest(migrated_text), entry['after_sha256'],
+                      'P000_MIGRATION_RESULT_BYTES_CHANGED')
+    if historical_replay:
+        # --apply's exact manifest audit is historical, never a current gate.
+        require_same_json(current, migrated, 'P000_HISTORICAL_REPLAY_CHANGED')
+        return
+
+    expected_axioms = copy.deepcopy(source['axioms'])
+    require_same_json(expected_axioms.pop('ENTERPRISE_PLANE_NATIVE_DIMENSION'),
+                      6, 'P000_REVISION_SOURCE_PLANE_CHANGED')
+    require_same_json(expected_axioms['CURRENT_THREE_AXIS_MODEL'],
+                      'RESEARCH_SLICE_OF_6D_SPACE',
+                      'P000_REVISION_SOURCE_THREE_AXIS_MODEL_CHANGED')
+    # Exact declarative delta from 7035c801, not a new mathematical premise or
+    # an allowlist of arbitrary hashes. Unknown additions/removals also fail.
+    expected_axioms.update({
+        'CURRENT_THREE_AXIS_MODEL': 'RESTRICTED_STATE_OR_OBSERVER_WITHIN_HEARTBEAT_X6',
+        'ENTERPRISE_NATIVE_PLANE_EXISTS': False,
+        'ALL_RESEARCH_BASIS': 'HEARTBEAT_WORLD_NATIVE_X6',
+        'TIME_MODELING': 'AS_NEEDED_SEPARATELY_TYPED',
+    })
+    require_same_json(current['axioms'], expected_axioms,
+                      'P000_CURRENT_AXIOMS_REQUIRE_EXPLICIT_REVISION_REBASE')
+    for field in ('coordinate_address_contract', 'coordinate_address_scope'):
+        require_same_json(current.get(field), migrated[field],
+                          'P000_CURRENT_ADDRESS_FIELD_CHANGED:' + field)
+    for field in ('final_cell_address',):
+        require_same_json(current.get('typed_semantics', {}).get(field),
+                          migrated['typed_semantics'][field],
+                          'P000_CURRENT_ADDRESS_TYPING_CHANGED:' + field)
+    require_same_json(current.get('typed_semantics', {}).get(
+                          'native_coordinate_origin', {}).get('scope'),
+                      migrated['typed_semantics']['native_coordinate_origin']['scope'],
+                      'P000_CURRENT_RAW_ORIGIN_SCOPE_CHANGED')
+    contract_id = 'FINAL_CELL_ADDRESS_CONSTRAINT'
+    expected_companions = [item for item in migrated['mandatory_companion_contracts']
+                           if item['contract_id'] == contract_id]
+    current_companions = [item for item in current.get('mandatory_companion_contracts', [])
+                         if item.get('contract_id') == contract_id]
+    require_same_json(current_companions, expected_companions,
+                      'P000_CURRENT_ADDRESS_COMPANION_CHANGED')
+    address_invariants = [item for item in migrated['machine_invariants']
+                          if item not in source['machine_invariants']]
+    current_invariants = current.get('machine_invariants', [])
+    if not isinstance(current_invariants, list) or any(
+            current_invariants.count(item) != 1 for item in address_invariants):
+        raise ValueError('P000_CURRENT_ADDRESS_INVARIANTS_CHANGED')
+
+
 def apply() -> None:
     prior = json.loads(read(MANIFEST)) if (ROOT/MANIFEST).exists() else None
     entries = {e['path']:e for e in prior['updated_surfaces']} if prior else {}
@@ -339,7 +423,7 @@ def apply() -> None:
 
 
 def check(verify_manifest: bool = False) -> None:
-    for path in ADD_PATHS+[MANIFEST]+EDIT_PATHS:
+    for path in ADD_PATHS+[MANIFEST, P000_MIGRATION_FIXTURE]+EDIT_PATHS:
         if not (ROOT/path).is_file():raise ValueError('Missing mandatory migration file: '+path)
     c=json.loads(read(CONTRACT))
     assert c['types']['FINAL_CELL_ADDRESS']['field_count']==6
@@ -367,13 +451,23 @@ def check(verify_manifest: bool = False) -> None:
     for path in [proof,'EnterpriseMath/CellAddress/Contract.lean']:
         assert not re.search(r'\b(sorry|admit|axiom|native_decide)\b',read(path)),path
     manifest=json.loads(read(MANIFEST))
-    assert objhash(json.loads(read('p000_reality_foundation.json'))['axioms'])==manifest['p000_axioms_sha256']
+    p000=json.loads(read('p000_reality_foundation.json'))
+    check_p000_contract(manifest, read(P000_MIGRATION_FIXTURE),
+                        p000,
+                        historical_replay=verify_manifest)
     if verify_manifest:
         for item in manifest['updated_surfaces']:
             assert digest(read(item['path']))==item['after_sha256'],item['path']
     print(json.dumps({'status':'COORDINATE_CONTRACT_CHECK_PASSED',
         'updated_current_surfaces':len(EDIT_PATHS),'new_surfaces':len(ADD_PATHS),
-        'p000_axioms_unchanged':True,'full_x6_codec_claimed':False},ensure_ascii=False))
+        # Preserve the existing field with its original, exact comparison.
+        # A valid later foundation revision makes it false, not a gate failure.
+        'p000_axioms_unchanged':objhash(p000['axioms'])==manifest['p000_axioms_sha256'],
+        'p000_axioms_unchanged_scope':'CURRENT_AXIOMS_VS_HISTORICAL_MIGRATION',
+        'p000_migration_axioms_preserved':True,
+        'p000_validation_scope':'HISTORICAL_MIGRATION' if verify_manifest else 'CURRENT_CONTRACT',
+        'p000_current_revision':None if verify_manifest else P000_CURRENT_REVISION,
+        'full_x6_codec_claimed':False},ensure_ascii=False))
 
 
 def main() -> None:
