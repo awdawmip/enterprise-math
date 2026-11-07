@@ -47,9 +47,21 @@ The target first-digit normalization `W_p≡V_p≡p (mod p^2)` is thus reduced, 
 
 In particular `325+49=374≡1 mod373` on A and `30+344=374≡1 mod373` on B, while their port components differ. This is an exact signed observer example: the p-adic quotient `g` is sufficient for the first-digit observer under the theorem, but `(q,f)` must be retained if the next operation needs source attribution or higher digits. BRC resolution: `COMPOSE_APPLIED` (signed two-source Gauss lift with derivative observer), not positive-weight BRC collapse.
 
+## Further same-turn CM discriminant discrimination (exact arithmetic + numerical locator)
+
+The target prime classes are precisely the two classes among `p≡1 mod6` for which `(2/p)=-1`. Quadratic reciprocity gives `(-6/p)=-1` in **both** classes `p≡13,19 mod24`. For comparison `(-2/p)` is **not** uniformly -1 (at p=19 it is +1). This rules out using the -8 CM inertness criterion as a uniform explanation for these two classes. The better-specified candidate is imaginary quadratic field `Q(sqrt(-6))` with fundamental discriminant `-24`.
+
+To locate its two class-number-2 j-values for a prospective Hasse bridge, evaluating the standard q-expansion `j=E4^3/Delta` at `tau=i*sqrt(6)` and `tau=i*sqrt(6)/2` numerically to 75+ decimal places agrees with
+```
+j_plus  = 2417472 + 1707264 sqrt(2)
+j_minus = 2417472 - 1707264 sqrt(2),
+H_-24(X) candidate = X^2 - 4834944 X + 14670139392.
+```
+The elementary algebra of these displayed candidate roots is exact; this q-comparison is a **numerical identification**, not yet a certified modular-polynomial derivation or a proof that the particular frozen A/B Gauss polynomials are Hasse invariants of the same CM elliptic curve. The next proof must identify the actual Fricke fiber's elliptic model and the unit/parameter-normalization relating its Cartier coefficient to each `Q_A,Q_B`, rather than inferring zero merely from class congruences.
+
 ## Next real scientific action
 
-1. Establish the target-class Hasse zero uniformly by a sourced CM/Cartier or explicit finite-field hypergeometric identity (candidate CM discriminant -8; **not asserted as proved**). Maintain separate A/B Euler branches.
+1. Establish the target-class Hasse zero uniformly by a sourced CM/Cartier or explicit finite-field hypergeometric identity. The natural inert CM candidate is discriminant **-24**, i.e. K=Q(sqrt(-6)); keep separate A/B Euler branches and verify an actual Hasse-polynomial/elliptic-curve identification before applying CM.
 2. Prove `12J_Ag_A=1` and `c_BJ_Bg_B=1` by a common Frobenius/Wronskian normalization. Then lift the same source-preserving ports through order `p^3` using the previously derived `F_2`, self-composition, and nonzero high-tail boundary; the existing mother theorem is still open.
 3. Preserve original-class p373 H0/B0, divided-power, Frobenius, Hesse/Green κ and independent replication as **native** evidence under #1559. The checks here are distinct portable integer arithmetic, not that native experiment.
 
