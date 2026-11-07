@@ -18,24 +18,27 @@
   "publication_commits": {
     "proof_initial": "e50e6d9f82190eb8282204b412fa7b612805451b",
     "proof_format_final": "721ea8991eba3e6ccd1792079a9b035e864c2260",
-    "checker": "5088cba133b76c14daa2beede05b00de980f03bd"
+    "checker": "5088cba133b76c14daa2beede05b00de980f03bd",
+    "proof_with_first_jet": "76e6bec257dc141d931ff07163202180fc2a60f4",
+    "checker_with_first_jet": "f7074a008a4d77b49e849a25ad79fd3402849ce6"
   },
   "completed_author_side_unit": [
     "Exact differential-operator transport for any thrice differentiable f: L_U^t[H(t) f(w(t))]=H(t)M(t)(L_B f)(w(t)), with explicit M(t) in Q(t)",
     "Exact all-n cutoff defect forcing L_U^t E_n=-n^3[C_n z^n-H M D_n w^n]",
     "Universal all-prime p>3 special-fiber source at t=±6sqrt2: -p^3[C_p 2^-p-4D_p 9^-p] congruent -p^3/72 modulo p^4, with exact p-adic valuation 3",
-    "SymPy exact Gauss gauge/rational coefficient and both fibers PASS; independent integer modular source PASS for p=5,7,11,13,19,373"
+    "SymPy exact Gauss gauge/rational coefficient and both fibers PASS; independent integer modular source PASS for p=5,7,11,13,19,373",
+    "Exact all-prime p>3 conjugate source first jet at t=±6sqrt2: d(L_U^t E_p)/dt congruent p^3(-35±25sqrt2)/288 mod p^4; valuation exactly 3 for p>5, checked exact rational-gauge derivative"
   ],
   "proof_status": "AUTHOR_SIDE_PROVED / EXACT_SYMBOLIC_AND_INTEGER_CHECKED / UNREVIEWED / NOT_ADMITTED",
   "brc_interface": "COMPOSE_APPLIED; preserve both hypergeometric legs, rational gauge, truncation, derivative order, valuations and Frobenius",
-  "current_unfinished_unit": "Determine the three homogeneous/Frobenius integration constants of transported finite cutoff defect, then the carry-sensitive weighted first jet; native #1559 remains separate.",
+  "current_unfinished_unit": "Use exact zeroth and conjugate first source jet to calculate the remaining second/third jet transport and homogeneous Frobenius constants before proving carry-sensitive weighted LIFT; native #1559 remains separate",
   "evidence_gaps": [
     "Fourth-digit 216/2304 congruence still conjectural, native LIFT mother proof open",
     "Dwork/Frobenius normalized finite truncation integration constants and source-aware weighted jet not computed",
     "Original-class native p373 H0/B0 divided-power Frobenius Hesse-kappa and independent replication not executed",
     "Source Researcher session, current owner CLAIM/run, review, Result/admission not verified"
   ],
-  "next_exact_action": "From exact L_U^t E_p=-p^3(C_p z^p-HM D_p w^p), derive a local inhomogeneous Frobenius-compatible solution and three integration constants at t=6sqrt2; retain z^p and w^p derivative terms before reduction; compare the weighted W_p,V_p residues at p19,373; separately execute original p373 benchmark through a legitimate native host when authorized.",
+  "next_exact_action": "Compute the second and third special-fiber derivatives of the inhomogeneous Fricke source modulo p^4, then solve matching homogeneous constants from exact finite cutoff data and Dwork/Frobenius (p=19,373); separately preserve original native #1559 experiment.",
   "do_not_repeat": [
     "D24 accepted UR/JT0 and CM0 first digit",
     "R_p=K_p Clausen exact bridge",
