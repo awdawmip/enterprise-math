@@ -91,41 +91,52 @@ def reproduce(case,old_key,new_key):
       p=next_p
      terminal[h,sig].add(p);labels[h,sig,p]=w;terms_by_key[k].add(p);terms_by_h[h].add(p)
  n=len(children)-1
+ # Two variable families: x_v is paid signed-prefix inclusion; y_j explicitly
+ # chooses an observation word. An internal prefix of a longer word need not
+ # consume a shorter horizon's word slot.
+ candidates=list(labels.items());m=len(candidates)
  rows=[];cols=[];vals=[]
  for q in range(1,n+1):
   row=q-1;rows.append(row);cols.append(q-1);vals.append(1)
   if parent_node[q]>0:
    rows.append(row);cols.append(parent_node[q]-1);vals.append(-1)
+ for j,((h,s,p),w) in enumerate(candidates):
+  row=n+j
+  rows.extend((row,row));cols.extend((n+j,p-1));vals.extend((1,-1))
  for h in range(4,10):
   for j,mask in enumerate(f.CLAUSES):
-   row=n+4*(h-4)+j
-   for sig in (1,2,4,8,16,32):
-    if sig&mask:
-     for q in terminal[h,sig]:
-      rows.append(row);cols.append(q-1);vals.append(1)
+   row=n+m+4*(h-4)+j
+   for idx,((hh,s,p),w) in enumerate(candidates):
+    if hh==h and s&mask:
+     rows.append(row);cols.append(n+idx);vals.append(1)
+ otherkeys=[k for k in keys if k!=(3,1,1)]
+ for j,k in enumerate(otherkeys):
+  row=n+m+24+j
+  for idx,((h,s,p),w) in enumerate(candidates):
+   if native_key(w)[:3]==k:
+    rows.append(row);cols.append(n+idx);vals.append(1)
  quotas={4:4,5:2,6:2,7:2,8:4,9:2}
- for j,k in enumerate(t for t in keys if t!=(3,1,1)):
-  for q in terms_by_key[k]:
-   rows.append(n+24+j);cols.append(q-1);vals.append(1)
  for h in range(4,10):
-  for q in terms_by_h[h]:
-   rows.append(n+28+(h-4));cols.append(q-1);vals.append(1)
- A=coo_matrix((np.array(vals,float),(rows,cols)),shape=(n+34,n)).tocsr()
- lo=np.full(n+34,-np.inf);hi=np.full(n+34,np.inf)
- hi[:n]=0;lo[n:n+28]=1
- for h in range(4,10):hi[n+28+(h-4)]=quotas[h]
+  row=n+m+28+(h-4)
+  for idx,((hh,s,p),w) in enumerate(candidates):
+   if hh==h:rows.append(row);cols.append(n+idx);vals.append(1)
+ A=coo_matrix((np.array(vals,float),(rows,cols)),shape=(n+m+34,n+m)).tocsr()
+ lo=np.full(n+m+34,-np.inf);hi=np.full(n+m+34,np.inf)
+ hi[:n+m]=0;lo[n+m:n+m+28]=1
+ for h in range(4,10):
+  row=n+m+28+(h-4);lo[row]=hi[row]=quotas[h]
  for p in children[0].values():hi[p-1]=1
- c=np.array(cost[1:],float)
- con=LinearConstraint(A,lo,hi);bounds=Bounds(np.zeros(n),np.ones(n))
- lp=milp(c,integrality=np.zeros(n),bounds=bounds,constraints=con)
- ip=milp(c,integrality=np.ones(n),bounds=bounds,constraints=con,options={'time_limit':60,'mip_rel_gap':0})
+ c=np.concatenate((np.array(cost[1:],float),np.zeros(m)))
+ con=LinearConstraint(A,lo,hi);bounds=Bounds(np.zeros(n+m),np.ones(n+m))
+ lp=milp(c,integrality=np.zeros(n+m),bounds=bounds,constraints=con)
+ ip=milp(c,integrality=np.ones(n+m),bounds=bounds,constraints=con,options={'time_limit':60,'mip_rel_gap':0})
  assert lp.status==ip.status==0 and abs(ip.mip_gap)<1e-10
  assert abs(ip.fun-ip.mip_dual_bound)<1e-6
  # The terminal quota forces exactly the established number of horizon words
  # in these three probes; include every selected terminal so key usage is retained.
  chosen={2:BASE[2],3:BASE[3]}
  for h in range(4,10):
-  chosen[h]=sorted({w for (hh,s,p),w in labels.items() if hh==h and ip.x[p-1]>.5})
+  chosen[h]=sorted({w for idx,((hh,s,p),w) in enumerate(candidates) if hh==h and ip.x[n+idx]>.5})
   assert len(chosen[h])==quotas[h],(case,h,len(chosen[h]))
  assert audit(chosen)==round(42+ip.fun)
  fractionals=sum(1 for x in lp.x if 1e-7<x<1-1e-7)
