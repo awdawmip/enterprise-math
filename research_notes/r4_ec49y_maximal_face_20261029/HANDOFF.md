@@ -1,0 +1,11 @@
+# EC49Y complete portable handoff
+
+**Proved increment:** For the EC49X positive probability observer at eta=1/200, C1=43/48 and C2=7/8, the exact all-real unseeded behavioral optimum is delta=59/576. EC49Y proves equality forces buying second sensor S with probability one at every occupied paid (code,u). The *complete* equality acceptance face is (alpha,beta)=(109/192+r/8,67/144+r/8) for 0<=r<=1. Every rational point on it has a rational independent-coin behavioral policy.
+
+**Evidence:** PROOF.md has the convex spanning lemma, Jensen equality-rigidity and face proof, as well as an exact degree-3 semialgebraic feasibility specification for the whole remaining region. VERIFY.py (Python standard library Fraction) regenerates EXACT_REPORT.json and ENDPOINT_CENSUS.csv. Expected stdout: EC49Y EXACT PASS, 288 vertices, 72 b=0 maximizers, 48 b=1/16 maximizers, smallest occupied-state gain 11/6400. The 288-row census was also independently reproduced using integer arithmetic with common denominator 115200. All claims are author-side UNREVIEWED / NOT_ADMITTED.
+
+**Adversarial review priorities:** Correctness of the 144-fixed-b convex spanning of every first-stage prefix; end-point affine interpolation; equality of *each* convex gain after Jensen; strict occupied gain at all maximizing endpoints; affine acceptance decomposition under a fixed common terminal rule; joint law and source-equal two-stage costs.
+
+**Frozen context:** GLOBAL_KNOWLEDGE_V1 main@f08728bcfe2bab9f89c0aac9f9d4af5b52160c72; Enterprise Math main@3fb7fc8138eca68cf5473b9da31511b017be62cb; EC49X predecessor commit 46a6784db65680d774e23a23b34a597298b6b60f. Current native directed manifest authority_granted=false and active Owner read CONTROL_QUOTA. No native CLAIM, Result, Source checkpoint, or independent Driver admission. Protected P000 and ACTIVE worldview left unchanged.
+
+**Next exact prompt:** Read PROOF.md, EXACT_REPORT.json and NEXT_TASK.md in this folder. Preserve EC49Y's proven maximal discrimination face and pursue EC49Z's exact submaximal (alpha,beta) boundary using the specified 55 behavioral variables and x*s factorization. Obtain a new exact inequality, counterexample or semialgebraic elimination certificate and link the authentic Owner/Driver state before any formal Source publication. Maintain signed BRC/native X6/heartbeat type boundaries.
