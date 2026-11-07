@@ -6,7 +6,15 @@ Protocol: `EM_CHAT_CONTROL_V1` · English: [CHATGPT_ORDINARY_CONTROL.en.md](CHAT
 
 ## 1. 准确入口与请求格式
 
-先建立账户知识库当前有效 `main` 快照，在该固定 SHA 读取 `awdawmip/chatgpt-global-knowledge` 的 `00_BOOTSTRAP.md`、`OPERATING_MANUAL.md` 和 `projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md`。**P000 的准确入口是同一个知识库 repository、同一个 SHA 下的 `projects/enterprise-math/P000_REALITY_FOUNDATION.json`。** 不在 Enterprise Math 全树猜 P000 文件名。之后按角色读取当前 `awdawmip/enterprise-math` 的控制合同和精确任务；知识库、当前控制 Source、冻结研究证据分别固定，不相互覆盖。
+建立或复用 `awdawmip/chatgpt-global-knowledge` 当前有效的不可变 main 快照，在同一固定 SHA 读取或复用 `00_BOOTSTRAP.md`、`OPERATING_MANUAL.md` 和 `projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md`。按项目路由选择实际角色与当前动作。
+
+数学推理或语义维护之前，使用该路由的 P000 加载方式：`projects/enterprise-math/P000_STARTUP.json` 是知识库 `projects/enterprise-math/P000_REALITY_FOUNDATION.json` V4 的已认可读取投影。在每个适用快照内核对一次 `canonical_blob_sha1` 与原文件的 blob 元数据；读取一行的 `fetch_file` 足以完成该元数据核对。复用未变且已经验证的输入。无法核验对应关系、全 schema 消费者或明确请求需要原文，或触发 `expand_from_canonical` 时，读取完整原文。有效投影不因进入本传输入口而要求再次读取完整原文。
+
+Source 指 `awdawmip/enterprise-math`。研究需要其基础时，TASK、Driver、Steward 或已冻结 FREE B 依 `docs/RESEARCHER_STARTUP_CONTEXT_PROTOCOL.md` 读取 `definitions/EM_FOUNDATION_STARTUP.json`；FREE A 读取独立的 `definitions/EM_FREE_A_FOUNDATION_STARTUP.json`。这些生成包保留五份必需 Source 合同及其精确来源 blob；知识库 V4 投影不能替代 Source P000 V5 及其 companion。使用所需科学版本，保留已有任务或候选的冻结版本。当前行为和控制规则单独读取；控制快照刷新或服务请求成功，都不会自动更新冻结科学输入。
+
+已有 GitHub 连接器可以在适用 ref 读取这些精确文件，无需本地 CLI 或研究会话登记。这些属于来源读取，不是新增 `EM_CHAT_CONTROL_V1` 操作，也不能证明已部署服务已经采用读取包。包不可用时，普通角色读取准确的必需来源；FREE A 使用匹配的有效 A 阶段包或获准的精确选段，不回退到未过滤的普通包或混合原文。A 阶段问题已经形成且实际相关时，可以在冻结前读取精确定义或工具资料；全量比较目录与去重仍在 B 阶段。保留真实来源使用和暴露。具体输入缺口影响依赖该输入的工作，其他独立工作继续。
+
+只读取当前动作适用的合同。单纯查询传输状态、查看进展或控制与文档维护，本身不激活研究角色，也不要求数学启动读取；维护涉及受保护语义时，仍读取对应的保护来源。
 
 在私有 `awdawmip/kimi-query-bridge` 一次创建 Issue，带 `em:control` 标签，标题为 `[EM-CONTROL] <request_id>`。**正文必须恰好一个 `json` 代码围栏**，其中一个 JSON 对象；不加说明文字、不用裸 JSON。以下为只读 `status` 示例，使用时替换为本对话稳定标识与新的唯一请求 ID：
 

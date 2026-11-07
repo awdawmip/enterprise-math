@@ -6,7 +6,46 @@ Use the existing GitHub connector. The server runs the admitted Enterprise Math 
 
 ## Bootstrap and envelope
 
-Establish a valid immutable main snapshot of `awdawmip/chatgpt-global-knowledge`; read its `00_BOOTSTRAP.md`, `OPERATING_MANUAL.md`, `projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md` and **`projects/enterprise-math/P000_REALITY_FOUNDATION.json` at that same SHA**. P000 is in this KB repository: do not guess filenames in the Enterprise Math tree. Keep KB, current control Source and frozen research evidence pins distinct. Read the current role/task contracts selectively.
+Establish or reuse a valid immutable main snapshot of
+`awdawmip/chatgpt-global-knowledge`; read or reuse its `00_BOOTSTRAP.md`,
+`OPERATING_MANUAL.md` and `projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md`
+at that same SHA. Follow the project router for the actual role and action.
+
+Before mathematical reasoning or semantic maintenance, use that router's P000
+loader: `projects/enterprise-math/P000_STARTUP.json` is the approved reading
+projection of the KB's `projects/enterprise-math/P000_REALITY_FOUNDATION.json`
+V4. Once per applicable snapshot compare its `canonical_blob_sha1` with the
+original file's blob metadata; a one-line `fetch_file` is sufficient for that
+metadata check. Reuse unchanged verified inputs. Read the full original when
+the correspondence cannot be verified, a full-schema consumer or explicit
+request needs it, or `expand_from_canonical` is triggered. A valid projection
+does not require a second full-original read merely for this transport entry.
+
+Source means `awdawmip/enterprise-math`. For research requiring its foundations,
+read `definitions/EM_FOUNDATION_STARTUP.json` for TASK, Driver, Steward or frozen
+FREE B, or the separate `definitions/EM_FREE_A_FOUNDATION_STARTUP.json` for
+FREE A, under `docs/RESEARCHER_STARTUP_CONTEXT_PROTOCOL.md`. These generated
+packages preserve the five required Source contracts and their exact source
+blobs; the KB V4 projection does not replace Source P000 V5 or its companions.
+Use the required scientific version and preserve existing task/candidate pins.
+Read current behavioral/control rules separately; neither a refreshed control
+snapshot nor a successful server request silently rebases frozen science.
+
+The existing GitHub connector can read those exact files at their applicable
+refs without a local CLI or research-session registration. These are source
+reads, not additional `EM_CHAT_CONTROL_V1` operations or evidence that a deployed
+service has adopted the packages. If a package cannot be used, ordinary roles
+read the exact required sources; FREE A uses a matching valid Phase-A package
+or a permitted exact selection, never an unfiltered ordinary or mixed-source
+fallback. A formed, relevant Phase-A question may trigger precise definitions
+or tool material before freeze; whole comparison catalogs and dedup remain B.
+Preserve actual source use and exposure. A specific unavailable input affects
+dependent work, while independent work continues.
+
+Read only contracts applicable to the current action. Pure transport status,
+progress inspection or control/document maintenance does not by itself
+activate a research role or require a mathematical bootstrap; maintenance that
+changes protected semantics still reads the corresponding protection sources.
 
 Create an Issue in private `awdawmip/kimi-query-bridge`, with label `em:control` and title `[EM-CONTROL] <request_id>`, supplying title/label/body together. The entire body must be **one `json` fenced block**, not bare JSON or explanatory prose. Replace the example IDs before use:
 
