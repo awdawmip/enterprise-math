@@ -244,6 +244,8 @@ ordered native paths. The exact per-depth cumulant fractions are in 'PREFIX576_G
 
 The finite DP is a cross-check of the integer implementation, not the proof of the asymptotic limits. The limits follow from the rank-one secular equation, the exact Poisson certificates, and the finite irreducible periodic Perron argument.
 
+Local execution boundary: the saved checker was executed in the analysis Python kernel through in-memory shims for the imported PREFIX-565/566/575 interfaces. The shim bodies/constants were copied from the exact GitHub-read source files and independently matched the 37-class construction, H/W identities, and all integer checks. The repository script imports the original published modules directly when run from the portable_direct directory; this run did not use a raw GitHub download or claim that the full module import path was exercised locally.
+
 ## 7. BRC reuse and boundaries
 
 'COMPOSE_APPLIED':

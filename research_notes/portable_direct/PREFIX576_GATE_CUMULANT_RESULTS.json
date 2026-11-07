@@ -7,13 +7,65 @@
   "quotient": {
     "native_ports": 96,
     "classes": 37,
-    "partition_growth": [1, 4, 13, 21, 33, 37],
-    "class_sizes": [8, 4, 2, 1, 1, 2, 2, 8, 4, 2, 4, 4, 2, 4, 1, 1, 1, 1, 2, 2, 4, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+    "partition_growth": [
+      1,
+      4,
+      13,
+      21,
+      33,
+      37
+    ],
+    "class_sizes": [
+      8,
+      4,
+      2,
+      1,
+      1,
+      2,
+      2,
+      8,
+      4,
+      2,
+      4,
+      4,
+      2,
+      4,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      4,
+      2,
+      4,
+      4,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
     "stationary_distribution": "pi_i=class_size_i/96",
-    "gate_sources": [4, 15, 17],
+    "gate_sources": [
+      4,
+      15,
+      17
+    ],
     "gate_target": 5,
     "gate_perturbation": "P(z)=P(1)+(z-1) g e_5^T/6",
-    "bipartition": [17, 20],
+    "bipartition": [
+      17,
+      20
+    ],
     "period": 2
   },
   "resolvent_laurent": {
@@ -24,12 +76,130 @@
   },
   "poisson_potentials": {
     "X_denominator": 384,
-    "X": [-25, -19, -43, -40, 344, -19, -28, -1, -19, -28, 29, -19, -16, -19, -37, 347, -40, 344, -37, 26, -19, -28, 29, -19, -34, 11, -10, -37, -28, 26, -16, -7, -10, 17, 26, 26, -34],
+    "X": [
+      -25,
+      -19,
+      -43,
+      -40,
+      344,
+      -19,
+      -28,
+      -1,
+      -19,
+      -28,
+      29,
+      -19,
+      -16,
+      -19,
+      -37,
+      347,
+      -40,
+      344,
+      -37,
+      26,
+      -19,
+      -28,
+      29,
+      -19,
+      -34,
+      11,
+      -10,
+      -37,
+      -28,
+      26,
+      -16,
+      -7,
+      -10,
+      17,
+      26,
+      26,
+      -34
+    ],
     "Y_denominator": 4608,
-    "Y": [-373, -115, -1183, -988, 3620, -79, -556, 299, -259, -556, 653, -259, -76, -115, -841, 3767, -988, 3620, -889, 578, -259, -556, 653, -259, -670, 599, -142, -889, -556, 578, -76, 5, -142, 245, 578, 578, -670],
+    "Y": [
+      -373,
+      -115,
+      -1183,
+      -988,
+      3620,
+      -79,
+      -556,
+      299,
+      -259,
+      -556,
+      653,
+      -259,
+      -76,
+      -115,
+      -841,
+      3767,
+      -988,
+      3620,
+      -889,
+      578,
+      -259,
+      -556,
+      653,
+      -259,
+      -670,
+      599,
+      -142,
+      -889,
+      -556,
+      578,
+      -76,
+      5,
+      -142,
+      245,
+      578,
+      578,
+      -670
+    ],
     "Z_denominator": 55296,
-    "Z": [-3709, 2957, -26551, -18940, 36356, 5801, -10012, 7907, -2803, -10012, 8333, -2803, 3716, 2957, -14833, 40463, -18940, 36356, -17041, 7970, -2803, -10012, 8333, -2803, -9406, 12815, -4414, -17041, -10012, 7970, 3716, -307, -4414, 941, 7970, 7970, -9406],
-    "integer_equations": ["(6I-C)X=2304g-72*1", "(6I-C)Y=72X", "(6I-C)Z=72Y"],
+    "Z": [
+      -3709,
+      2957,
+      -26551,
+      -18940,
+      36356,
+      5801,
+      -10012,
+      7907,
+      -2803,
+      -10012,
+      8333,
+      -2803,
+      3716,
+      2957,
+      -14833,
+      40463,
+      -18940,
+      36356,
+      -17041,
+      7970,
+      -2803,
+      -10012,
+      8333,
+      -2803,
+      -9406,
+      12815,
+      -4414,
+      -17041,
+      -10012,
+      7970,
+      3716,
+      -307,
+      -4414,
+      941,
+      7970,
+      7970,
+      -9406
+    ],
+    "integer_equations": [
+      "(6I-C)X=2304g-72*1",
+      "(6I-C)Y=72X",
+      "(6I-C)Z=72Y"
+    ],
     "weighted_mean_zero": true
   },
   "lambda_delta_coefficients": {
@@ -51,8 +221,16 @@
     "kappa4": "1137023/226492416"
   },
   "finite_stationary_integer_DP": {
-    "depths_checked": [0, 128],
-    "raw_moment_orders": [1, 2, 3, 4],
+    "depths_checked": [
+      0,
+      128
+    ],
+    "raw_moment_orders": [
+      1,
+      2,
+      3,
+      4
+    ],
     "snapshots": [
       {
         "depth": 10,
@@ -97,11 +275,50 @@
     ]
   },
   "validation": {
-    "native_gate_edges": [[7, 9], [29, 9], [31, 9]],
-    "quotient_gate_edges": [[4, 5, 1, 0, 0], [15, 5, 1, 0, 0], [17, 5, 1, 0, 0]],
+    "native_gate_edges": [
+      [
+        7,
+        9
+      ],
+      [
+        29,
+        9
+      ],
+      [
+        31,
+        9
+      ]
+    ],
+    "quotient_gate_edges": [
+      [
+        4,
+        5,
+        1,
+        0,
+        0
+      ],
+      [
+        15,
+        5,
+        1,
+        0,
+        0
+      ],
+      [
+        17,
+        5,
+        1,
+        0,
+        0
+      ]
+    ],
     "first_poisson_rows": 37,
     "second_poisson_rows": 37,
-    "higher_poisson_integer_rows": [37, 37, 37],
+    "higher_poisson_integer_rows": [
+      37,
+      37,
+      37
+    ],
     "moment_DP_states": 37,
     "moment_DP_transition_types": 109,
     "all_assertions_pass": true
@@ -111,5 +328,13 @@
     "q1..q6 are specialized to 1; no x,y parameterized gate cumulants",
     "gate index counts ordered native actions, not physical time",
     "independent review and native activity/claim/result remain pending"
-  ]
+  ],
+  "local_execution": {
+    "environment": "Python analysis kernel",
+    "script": "PREFIX576_gate_cumulant_rank_one_certificate.py executed via runpy",
+    "module_loading": "in-memory source-faithful shims for PREFIX565/566/575 interfaces, copied from the exact GitHub-read source functions/constants",
+    "raw_network_or_clone_fallback": false,
+    "full_repository_module_import_exercised": false,
+    "assertions": "ALL_CHECKS_PASS"
+  }
 }
