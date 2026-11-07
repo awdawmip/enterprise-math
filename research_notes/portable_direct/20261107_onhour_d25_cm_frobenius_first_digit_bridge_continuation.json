@@ -1,0 +1,84 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "parent_author_frontier": "c30aa207b5bb6d445c0291a9a31dbfca20743576",
+  "mother_objective": "Prove W_p ≡ p (mod p^3) for all primes p ≡ 13,19 (mod 24). OPEN.",
+  "completed_units": [
+    {
+      "kind": "UNCONDITIONAL_THEOREM_FROM_PRIOR_RESULTS_AND_PRIMARY_LITERATURE",
+      "text": "For all target primes, c_B J_B (G_B(1/9)/p)=1 in Fp, using uniform Hasse-zero/simple-root theorem, exact first-digit Clausen/Euler fold and Guo-Zudilin theorem V_p=p(-3/p) modp³ (arXiv:1803.01830). B Frobenius first-digit unit is now proved, not a second unknown."
+    },
+    {
+      "kind": "EXACT_FROBENIUS_CM_DERIVATIVE_THEOREM",
+      "text": "For p≡19: T=R_A'(x+)/R_B'(y+)=(1/6)J_A/J_B in Fp. For p≡13: T=-(s/8)J_A/J_B in sFp (s²=2). R_A'^p=-R_A'; R_B'^p=(-1)^(epsilon+1)R_B'. True for every target prime."
+    },
+    {
+      "kind": "EXACT_ONE_PORT_EQUIVALENCE",
+      "text": "For p≡19: C=T g_A-2/9 g_B=(lambda_A-1)/(72J_B). For p≡13: C=T g_A+4s/27 g_B=-s(lambda_A-1)/(96J_B). Hence W_p≡p modp² iff C=0, with C^p=(-1)^epsilon C."
+    },
+    {
+      "kind": "EXACT_FINITE_CHECK",
+      "text": "77 target primes ≤2000, two independently generated Gauss p² streams, dual-number derivative evaluation over Fp[s]/(s²-2), both Frobenius parity cases, conditional A coupled residual and known B unit: PASS. Diagnostic primes 13,19,43,67,373."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "research_notes/portable_direct/20261107_onhour_d25_cm_frobenius_first_digit_bridge.md",
+      "commit": "d3478ba59281b4dfaae960ee31197d1704dfc23e",
+      "status": "AUTHOR_SIDE_PROVED"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_cm_frobenius_derivative_bridge_check_20261107.py",
+      "commit": "e2195ed070411cef43340d53b661b5739146cddc",
+      "status": "EXECUTED_EXACT_FINITE_CHECK_LOCAL"
+    }
+  ],
+  "source_literature": "Guo and Zudilin, A q-microscope for supercongruences, Theorem 1.1, https://arxiv.org/abs/1803.01830",
+  "proof_strength": "AUTHOR_SIDE_DEDUCED_AND_EXACT_SYMBOLIC / REPRODUCIBLE_FINITE_CHECK / UNREVIEWED / NOT_ADMITTED",
+  "smallest_unfinished_unit": "Uniform signed CM Frobenius derivative bridge C_p=0 for both target prime classes; retain epsilon=1 anti-invariant sFp port. This would establish A first-digit modp² using the already proved B first-digit unit.",
+  "next_exact_action": "Seek a source-preserving Fricke/Cartier/isogeny differential transport of p-adic Gauss first lifts at CM fibers proving T*g_A=(2/9)g_B for p≡19 and T*g_A=-(4s/27)g_B for p≡13; compare separately both Euler branches at 13,19,373. If obstruction, derive precise original coefficient factorial/jet residual and evaluate at these pins. Then resume p³ signed four-port and native p373 benchmark without source conflation.",
+  "do_not_repeat": [
+    "D24 frozen UR RR-AC9B3BA5BD277CE043F5",
+    "Fricke 6:8 analytic correspondence and explicit maps",
+    "p³ Clausen Euler four-port and unique high-tail overflow proof",
+    "Uniform CM -24 Hasse-zero simple-root proof",
+    "B-model Frobenius unit (now proved via Guo–Zudilin); do not reopen as unresolved",
+    "77-prime original first-digit data scan",
+    "Native original-class p373 H0/B0 divided-power Frobenius Hesse kappa independent benchmark (pending #1559, not replaced)"
+  ],
+  "native_benchmark": {
+    "issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "status": "PENDING_EXECUTION_AND_INDEPENDENT_VALIDATION",
+    "owner": "UNASSIGNED_AT_THIS_READ",
+    "requirements": [
+      "same original H0/B0 class and frozen source pin",
+      "[X]U mod p² at p373",
+      "divided power and native module rank",
+      "semilinear Frobenius direction/eta",
+      "odd signed Green/Hesse kappa",
+      "independent replication"
+    ]
+  },
+  "source": {
+    "target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "last_known_outcome": "Prior QUEUED / EVENT_COLLECTION_IO; current status/receipt unavailable with STATUS_DATABASE_UNAVAILABLE; outcome remains unresolved.",
+    "current_error": "BACKEND_IDENTITY_OR_VERSION_MISMATCH / UPSTREAM_STATUS_TOOL_ERROR / STATUS_DATABASE_UNAVAILABLE",
+    "operation_sent": false,
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "session": "NOT_VERIFIED",
+    "claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "activity": "REGISTER_PENDING",
+    "native_checkpoint": "NOT_WRITTEN",
+    "sync_debt": true,
+    "required_secure_recovery": "Operator resolves upstream STATUS_DATABASE_UNAVAILABLE, dedicated Site-bound backend client/version/auth; reconcile original request before any mutation. Do not rebind maintenance lane."
+  },
+  "status": "AUTHOR_SIDE_PROVED_NEW_BRIDGE / B_UNIT_CONSUMED_PROVED / CHECKED_77_PRIMES / UNREVIEWED_NOT_ADMITTED"
+}
