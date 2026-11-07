@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "native_axes": 6,
+  "signed_directions": 12,
+  "directed_edge_counters": 144,
+  "exhaustive_domain": "all length 1..6 words over {+E1,-E1,+E2} with chosen site families",
+  "words": 1092,
+  "site_state_instances": 8628,
+  "single_set_checks": 208152,
+  "double_set_checks": 27000,
+  "one_step_signature_classes": {
+    "1": {
+      "histories": 3,
+      "classes": 3
+    },
+    "2": {
+      "histories": 9,
+      "classes": 9
+    },
+    "3": {
+      "histories": 27,
+      "classes": 27
+    },
+    "4": {
+      "histories": 81,
+      "classes": 81
+    },
+    "5": {
+      "histories": 243,
+      "classes": 243
+    },
+    "6": {
+      "histories": 729,
+      "classes": 729
+    }
+  },
+  "nontrivial_gap_collision_pairs": 1002,
+  "variable_rank_one_step_distinguishes_all": true,
+  "triple_merge_checks": 175,
+  "random_12_direction_sequences": 280,
+  "strict_witness": {
+    "U": "AABA",
+    "V": "ABAA",
+    "same_F": true,
+    "SET_FROM_END_rank": 2,
+    "SET_value": "C",
+    "changed_displacements": {
+      "U": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "V": [
+        3,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "sparse_collision_witness": {
+    "X": "AABAC",
+    "Y": "ABAAC",
+    "sites": [
+      4
+    ],
+    "identical_gap_state": true,
+    "after_SET_site4_D_observers_equal": true
+  },
+  "duration_seconds": 19.8011
+}
