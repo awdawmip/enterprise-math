@@ -1,0 +1,7 @@
+# Next R5 unit — remaining negative-residual flows
+
+Frozen pins: GLOBAL a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e. Parent R5 four-observer pointwise equivalence remains open. The predecessor convex-hull theorem is at f20b9a0bdc8c1fc8f69a2abeb7c231181d1a0d27. Current unit proves single-process seedless lifts on the entire residual-nonnegative flow region and the complete real two-parameter symmetric (g,a,b,u,w)=(1,1,1,0,0) fiber, by exact 7x7 two-measure joint-mass transports. See RESEARCH.md and VERIFY.py.
+
+Next mathematically discriminating unit: negative residual 9*b*z-4*a*(v-z)<0, with u or w nonzero. First attempt the three remaining nonseedless FULL corners with g=a=b=1, (u,w)=(27/80,0),(0,27/80),(27/80,27/80), v=9/40,z=0. Seek ONE seedless flow y matching both times and a nonnegative 7x7 rational transport J with row Q masses M_i(y), column Q masses M_j(x), column LR-weighted masses r_j*M_j(x). Search a rational feasible support, solve its active linear equations with exact fractions, then check a parameter-uniform construction for all u,w and eventually g,a,b. A failure of Blackwell dominance for a fixed y does not alone prove a four-observer separation; test a declaration-dependent fiber lift or exact global polynomial infeasibility certificate.
+
+Native owner and formal CLAIM need current authentication; the native gateway returned BACKEND_IDENTITY_OR_VERSION_MISMATCH with operation_sent=false. No independent mathematical review or Result is claimed by this PR material.
