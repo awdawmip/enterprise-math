@@ -271,7 +271,22 @@ class ActiveTurnContinuationLivenessTests(unittest.TestCase):
         text = read("docs/RESEARCH_ARCHITECTURE.md")
         self.assertIn("ACTIVE / CANONICAL GOVERNANCE / V2.6", text)
         self.assertIn("research_control_dispatch.py", text)
-        self.assertIn("STALE_SESSION + VALID_OWNER_CLAIM -> ADOPT_SAME_CLAIM", text)
+        self.assertIn("STALE_SESSION + VALID_OWNER_CLAIM -> PREPARE_SUCCESSOR_CLAIM", text)
+        self.assertNotIn("STALE_SESSION + VALID_OWNER_CLAIM -> ADOPT_SAME_CLAIM", text)
+        succession_text = " ".join(text.split())
+        for requirement in (
+            "control_plane/executor_succession_policy.json",
+            "a real role-authorized identity",
+            "immutable continuation evidence",
+            "a new authenticated CLAIM",
+            "exact predecessor CAS",
+            "old-writer fencing",
+            "The old claim remains provenance",
+            "neither a packet nor preparation authorizes execution",
+            "An active exact session cannot be preempted",
+        ):
+            with self.subTest(succession_requirement=requirement):
+                self.assertIn(requirement, succession_text)
         self.assertIn("TOOL_COVERAGE_LOOKUP != TOOL_USE", text)
         self.assertIn("Never use `WAITING_FOR_CONTINUE`", text)
 
