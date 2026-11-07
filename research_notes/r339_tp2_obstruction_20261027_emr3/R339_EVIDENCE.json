@@ -1,0 +1,51 @@
+{
+  "schema": "EM_R339_BRC_TP2_OBSTRUCTION_EXACT_V1",
+  "status": "PASS",
+  "executed_material": "Local original R339_VERIFY.py with original K/J and independent P_q reconstruction",
+  "witness_b": {
+    "b[5,5]": 219,
+    "b[6,5]": 3163,
+    "b[6,6]": 1258,
+    "b[7,6]": 15466
+  },
+  "witness_D": {
+    "D[5,0]": 7008,
+    "D[5,1]": 43600,
+    "D[6,0]": 80512,
+    "D[6,1]": 414400
+  },
+  "M_5_0": -606208000,
+  "earlier_positive_minor_count": 10,
+  "full_adjacent_minor_scan": {
+    "q_max": 64,
+    "total": 2080,
+    "strict_positive": 2020,
+    "strict_negative": 60,
+    "negative_positions": "(q,0) for every integer 5<=q<=64"
+  },
+  "edge_scan": {
+    "q_min": 1,
+    "q_max": 128,
+    "positive_range": [
+      1,
+      4
+    ],
+    "negative_range": [
+      5,
+      128
+    ],
+    "digest_sha256": "4bf3269334c9ca8be957e89daa1a6b77bc72dfaa3e9b898a245d73fd9fcb5a52"
+  },
+  "P_q_reconstruction_check_count": 56,
+  "signed_B_rows": [
+    0,
+    130
+  ],
+  "triangle_strict_positive": 8646,
+  "exterior_negative_retained": 3642,
+  "arithmetic": "integer exact only; full signed tails",
+  "level": "AUTHOR_SIDE; UNREVIEWED; NOT_ADMITTED",
+  "source_global_snapshot": "d9c91d03eff26a0dfeb2bba85ce7d0a467f35c23",
+  "source_EM_snapshot": "6aae6b092a857449c3ab29c724bb17ed30fe589c",
+  "remote_verifier_byte_executed": false
+}
