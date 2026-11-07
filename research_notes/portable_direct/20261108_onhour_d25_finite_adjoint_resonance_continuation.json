@@ -1,0 +1,51 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE_REGISTER_PENDING",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "prior_this_lane_frontier": "81c998c1c846b925575b0f3e4f573a1ba21ec3f6",
+  "mother_objective": "D25 original Delta_p=R_p modp, W_p=p modp^3; OPEN",
+  "new_proved_unit": "For all m>=1 rational, L* t^n=(6n+1)(3n+1)t^n-36(n+1)^2 t^(n+1). Inverting below n=m gives exact R_m/2=q_m E_m+P sum_(i<m)(9i+2)q_i h_i-P^2 sum_(i<m)q_i h_i. At p=P=6m+1 prime, R_p=2 q_m E_m modp, q_m unit. E_m nonzero obstructs p-integral extension of this particular adjoint at resonant n=m.",
+  "verification": "PASS exact rational m1..7, modular independent q/C recurrence and original R for 77 frozen primes <=2000.",
+  "discriminating": {
+    "p19": {
+      "q_m": 12,
+      "E_m": 10,
+      "R_p": 12
+    },
+    "p373": {
+      "q_m": 13,
+      "E_m": 151,
+      "R_p": 196
+    }
+  },
+  "evidence": [
+    "research_notes/portable_direct/20261108_onhour_d25_finite_adjoint_resonance_original_R.md",
+    "research_notes/portable_direct/d25_finite_adjoint_resonance_check_20261108.py"
+  ],
+  "do_not_repeat": [
+    "D24 frozen UR",
+    "prior D25 Hasse/CM zero",
+    "Green infinite and finite cutoff source",
+    "same-run reflected residue 3-point theorem",
+    "77-prime first digit check",
+    "p373 original class native #1559 unexecuted"
+  ],
+  "next_exact_action": "Attempt p-adic regularization of resonant degree m adjoint to identify original rational divided (ZH0-1)/p and Phi_xx cutoff while preserving SH0 and ZH1. Test p19, p373 first with independently computed frozen R; do not set R equal to Delta.",
+  "source": {
+    "target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "current_attempt": "BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE; operation_sent=false",
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "native_session": "NOT_VERIFIED",
+    "native_claim": "NOT_VERIFIED",
+    "native_run": "NOT_VERIFIED",
+    "native_checkpoint": "NOT_WRITTEN",
+    "activity": "REGISTER_PENDING",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/1559"
+  },
+  "status": "AUTHOR_SIDE_PROVED / EXACT_MODULAR_AND_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
