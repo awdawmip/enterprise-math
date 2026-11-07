@@ -12,7 +12,7 @@ w(t)=\frac{256t^3(t+8)(t+9)^3}{(t^2+36t+216)^4}.
 For the principal real Gauss solutions and every real 0<=t<12+12sqrt(3),
 \[
 \boxed{{}_2F_1(\tfrac16,\tfrac13;1;z(t))
-=\\sqrt{\tfrac32},\frac{t+12}{\\sqrt{t^2+36t+216}},
+=\sqrt{\tfrac32}\,\frac{t+12}{\sqrt{t^2+36t+216}}\,
 {}_2F_1(\tfrac18,\tfrac38;1;w(t)).}\tag{1}
 \]
 Both z(t),w(t) lie in [0,1) on this interval.
@@ -37,9 +37,9 @@ The pair of arguments is connected by the explicitly constructed two-legged modu
 
 ## Corollary: the previously numerically observed period ratio is exact
 
-Set (t_*=6sqrt2), which belongs to (0,12+12sqrt3). The exact polynomial-gcd certificate gives (z(t_*)=1/2), (w(t_*)=1/9), while
+Set (t_*=6\sqrt2), which belongs to (0,12+12sqrt3). The exact polynomial-gcd certificate gives (z(t_*)=1/2), (w(t_*)=1/9), while
 \[
-\frac{3(t_*+12)^2}{2(t_*^2+36t_*+216)}=\frac{3sqrt2}{4}.
+\frac{3(t_*+12)^2}{2(t_*^2+36t_*+216)}=\frac{3\sqrt2}{4}.
 \]
 Using the coefficient identities
 \[
@@ -54,7 +54,7 @@ and the absolutely convergent series gives the **proved real equality**
 \[
 \boxed{
 \sum_{k=0}^\infty\frac{\binom{2k}{k}^2\binom{3k}{k}}{216^k}
-=\frac{3sqrt2}{4}
+=\frac{3\sqrt2}{4}
 \sum_{k=0}^\infty\frac{\binom{2k}{k}^2\binom{4k}{2k}}{2304^k}.
 }\tag{3}
 \]
