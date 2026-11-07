@@ -1,22 +1,7 @@
-# R5 next unit: extend exact Blackwell lifting beyond maximal early flow
+# R5 next unit: exact Blackwell lifts for asymmetric early-flow faces
 
-Frozen scientific inputs unchanged: GLOBAL a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e.
+Frozen science pins unchanged (GLOBAL a01383f825ef9d43b4b754254303298c64041568, EM 86149263e38c22292c9def1e0f69092efa1be77e).
+Latest author-side exact result in RESEARCH_5D_CONE.md: every legal FULL_HIST flow with g=a=b=t in [0,1], all legal side and central history splits, and every real seven-key declaration admits an exact pointwise seedless LR lift preserving all (e_P,e_Q,T_P,T_Q).
+Proof uses the earlier sixteen exact transport corners and the homothetic mass identity M(tX)=(1-t)delta_3+tM(X) at likelihood key r_3=1. VERIFY_5D.py executed with exact Fraction. Independent mathematical review and native Source admission pending.
 
-New author-side exact result in RESEARCH_4D.md:
-ALL real legal FULL_HIST flows with g=a=b=1,
-0<=u,w<=27/80, 0<=z<=1/10, 0<=v-z<=9/40,
-and ALL real seven-key declarations have a seedless LR lift preserving
-(e_P,e_Q,T_P,T_Q). Both negative and positive history residuals are covered
-by sixteen nonnegative exact calibrated corner transports; all targets live
-on the common affine seedless face. VERIFY_3D.py and VERIFY_4D.py extend
-the original VERIFY.py and exact execution output is EXACT_OUTPUT_4D.txt.
-Independent review and native Source admission remain pending.
-
-Next discriminating unit: take an adjacent legal early-flow face with g<1
-or a<g or b<g. Choose rational parameter vertices, solve for legal seedless
-targets and calibrated seven-key mass transports with exact time equality.
-If the targets share an affine seedless face, apply multilinear mixing.
-If a fixed target face fails, preserve its bounded infeasibility and test a
-distinct seedless face before concluding global non-liftability.
-Retain original mother objective: decide pointwise equality or find a genuine
-certified pointwise counterexample across ALL legal FULL_HIST/seedless flows.
+Next task: address genuinely distinct early-flow patterns a<g or b<g, especially a!=b. Select a small rational set of vertices on one legal adjacent face; seek exact seedless LR flows and 7x7 calibrated transport matrices matching both times. A successful common affine seedless face permits interpolation; unsuccessful candidate transports are bounded failures, not a global obstruction. A certified separation needs coverage of the full nonlinear seedless feasible family. Retain the R5 mother target of pointwise four-observer image equality or strict pointwise separation.
