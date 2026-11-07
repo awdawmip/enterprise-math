@@ -1,0 +1,76 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "source_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_dependency_git_blobs": {
+    "PREFIX550_shared_gauge_compact_certificate.py": "a0d057fadf610e89983723f1392d5b798b7c05d5",
+    "PREFIX553_batched_depth_stream_certificate.py": "a0c84aa09ccca22d8a3c31f9095c7742d5711bbb"
+  },
+  "depth_inclusive": 10,
+  "ports": 96,
+  "records_per_mode": 1056,
+  "nonzero_coefficients_per_mode": 187844,
+  "output_bytes_per_mode": 3960235,
+  "normalized_full_output_sha256": "04decba6e3380be37099bdffc8e2832eba3352bd528ad9e629ade230c4802820",
+  "spool_partition_classes": [
+    4,
+    7,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "projected_spool_bytes": 1375683,
+  "runs": {
+    "cached": {
+      "elapsed_seconds": 14.644683,
+      "peak_traced_bytes": 14014927,
+      "normalized_output_sha256": "04decba6e3380be37099bdffc8e2832eba3352bd528ad9e629ade230c4802820"
+    },
+    "projected_spool": {
+      "elapsed_seconds": 17.118565,
+      "peak_traced_bytes": 7759617,
+      "normalized_output_sha256": "04decba6e3380be37099bdffc8e2832eba3352bd528ad9e629ade230c4802820"
+    },
+    "batch_2": {
+      "elapsed_seconds": 9.181384,
+      "peak_traced_bytes": 9588448,
+      "normalized_output_sha256": "04decba6e3380be37099bdffc8e2832eba3352bd528ad9e629ade230c4802820"
+    },
+    "batch_4": {
+      "elapsed_seconds": 7.583014,
+      "peak_traced_bytes": 12084144,
+      "normalized_output_sha256": "04decba6e3380be37099bdffc8e2832eba3352bd528ad9e629ade230c4802820"
+    },
+    "batch_5": {
+      "elapsed_seconds": 7.328871,
+      "peak_traced_bytes": 13964736,
+      "normalized_output_sha256": "04decba6e3380be37099bdffc8e2832eba3352bd528ad9e629ade230c4802820"
+    },
+    "batch_8": {
+      "elapsed_seconds": 6.525491,
+      "peak_traced_bytes": 18492144,
+      "normalized_output_sha256": "04decba6e3380be37099bdffc8e2832eba3352bd528ad9e629ade230c4802820"
+    }
+  },
+  "preliminary_depth9": {
+    "modes": [
+      "cached",
+      "projected_spool",
+      "batch_2",
+      "batch_4",
+      "batch_5",
+      "batch_8"
+    ],
+    "records_per_mode": 960,
+    "nonzero_coefficients_per_mode": 96454,
+    "normalized_full_output_sha256": "bede61e9401511e0a672c157495326ce25c29a00987e34eb298bd985bcb4175b"
+  },
+  "scope": "Exact integer seven-variable BRC+gate histograms, frozen X6 four-STAR model; finite execution N<=10, universal theorem under prior PREFIX552/549 observations",
+  "uncompleted": "Deep benchmark N=12...16 across modes; repeated-run timing, full RSS, storage I/O"
+}
