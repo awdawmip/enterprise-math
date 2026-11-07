@@ -21,7 +21,7 @@ For any direction word define its complete joint-relation observer
 `F(w)=(n,D(w),E(w))`,
 where `D(w)=sum_i v(a_i)∈Z^6` and each of the 144 entries `E_(a,b)(w)` counts immediately consecutive pairs `a,b` in that exact direction order. No ordered relation coordinate is projected away.
 
-The future grammar (any sequence of at most `h` legal operations) consists of `POP` (last token deletion), `DELETE2` (delete third from right), `INSERT2(c)` (insert a fresh `P` token immediately before the final two), `SET_END(r,c)` (update the direction but not source label at offset `r∈R` from the right), and `DELETE_KTH_PUBLIC(k)` (delete the `k∈S`-th public token counted from the right). Exact operation legality, output `F`, and source provenance are part of the declared observer/transition language. Here `R,S` are arbitrary finite sets of legal offsets/ranks, `k≥1`, and `h≥0`.
+The future grammar (any sequence of at most `h` legal operations) consists of `POP` (last token deletion), `DELETE2` (delete third from right), `INSERT2(c)` (insert a fresh `P` token immediately before the final two), `SET_END(r,c)` (update the direction but not source label at offset `r∈R` from the right), and `DELETE_KTH_PUBLIC(k)` (delete the `k∈S`-th public token counted from the right). Exact operation legality, output `F`, and source provenance are part of the declared observer/transition language. Here `R` is a finite subset of nonnegative integer end offsets, `S` is a finite subset of positive public ranks, and `h≥0`.
 
 ## Counterexample 509.1 — Stage508's gap-without-P-count abstraction fails
 
@@ -51,7 +51,7 @@ Define `C_h(w)` as an ordered sequence of:
 
 ### Proof
 
-The BRC relation summary `F` concatenates associatively. Displacement adds componentwise in `Z^6`; all 144 directed edge counts add, together with the unique junction edge between the last direction of the left nonempty piece and first direction of the right nonempty piece. Full ordered-edge counts together with the displacement and length determine the required boundary labels for all nonempty legal piece summaries; alternately store these two boundary directions explicitly as part of the exact `F` interface. P counts add under concatenation. Empty pieces contribute identity elements.
+The BRC relation summary `F` concatenates associatively. Displacement adds componentwise in `Z^6`; all 144 directed edge counts add, together with the unique junction edge between the last direction of the left nonempty piece and first direction of the right nonempty piece. The boundary directions are reconstructible from the declared `F`: for nonempty `w`, `D(w)−Σ_(a,b)E_(a,b)v(b)=v(first(w))`, and `D(w)−Σ_(a,b)E_(a,b)v(a)=v(last(w))`. The twelve signed unit vectors are distinct, so these differences uniquely identify the first and last directions. The implementation additionally caches both directions in its internal 5-tuple as a derived convenience, while the public observer remains `(n,D,E)`. P counts add under concatenation. Empty pieces contribute identity elements.
 
 Induct on the length of a legal operation prefix. Every original token that POP, DELETE2, SET_END, or the ranked public deletion might target at this pre-action prefix is by definition in `D_h(w)`, hence is an explicit singleton in the representation. An inserted token is explicit by construction. So positional deletions and SET touch a singleton, never a gap; operation legality is decided from total current length.
 
