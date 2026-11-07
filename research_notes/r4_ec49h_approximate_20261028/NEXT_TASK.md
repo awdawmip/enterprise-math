@@ -1,0 +1,11 @@
+# EC49I — sharpen approximate causal BRC quotient error certificates
+
+**Status:** proposed author-side continuation of EC49H, not canonical immutable V2 task publication, a winning CLAIM, frozen native Result or Driver acceptance. Inputs: this PR branch's PROOF.md, VERIFY.py, EXACT_REPORT.json, SOURCES.md; preceding EC49G PR #1635 and its commit c066b607682b89fd0bdb956b4d26e06cef2b0840.
+
+**Problem A — occupancy-weighted robust certificate.** For the exact-LR finite two-source observation tree, sharpen B_theta=sum epsilon_theta,t into a source- and action-specific bounded transport certificate computed using the *observable* coarse occupancy variables. Establish a rational LP dual or a counterexample where a proposed robust LP covertly assumes access to the forgotten history. Preserve both directed raw-region estimates and separately bound both acceptance and expected auxiliary clock coordinates. Give one positive-rational small model, exact inputs, an executable standard-library verifier, and the precise domain of the proof.
+
+**Problem B — LR mismatch.** Test the EC49H LR-oscillation lemma and forward penalty rho=(u-l)/(2l) in a complete positive-rational nonconstant-prefix-LR tree, enumerate admissible source-neutral controllers, and locate an improved sharp constant or counterexample. Do not use Q-kernel error alone as a P-kernel certificate when class LR differs.
+
+**Problem C — surviving open arithmetic question.** In a genuinely non-lumpable finite rational model, can a rational original four-vector require irrational randomized policy parameters for *every* implementing source-neutral controller? To prove it, exclude *all* alternative rational witness policies, not just one polynomial parameterization.
+
+**Preserve verified frontier:** EC49G's 74/5476 adaptive two-action cases and 1/48 gap; EC49H's analytically proved finite-horizon two-sided bounds, 10/100 exact one-action cases and strict 1/192 gap, plus 250 rational mixtures. Parent P000/ACTIVE worldview are unchanged. Native signed BRC / X6 future-operation type bridge, official Research-Activity/owner/CLAIM/Result and independent Driver review remain distinct obligations. Do not retry any explicitly denied operation via Drive.
