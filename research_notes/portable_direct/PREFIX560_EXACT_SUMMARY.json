@@ -1,0 +1,33 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "date": "2026-11-07",
+  "source_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "predecessor": "PREFIX-559@6e9e5c70fdeeaa67c9db0ff747e3f90a5e85119a",
+  "model": "X6 four-STAR native, 48 phases, 96 branch ports, 576 actions",
+  "exact_quotient_states": 51,
+  "full_symbolic_transition_terms_checked": 165,
+  "permutation_swap_pairs": 17,
+  "permutation_fixed_classes": 17,
+  "gate_source_classes": [
+    4,
+    16,
+    18
+  ],
+  "gate_destination_class": 5,
+  "q5_equals_q6_quotient_states": 34,
+  "full_seven_variable_polynomial_depth0_to8_equalities": 459,
+  "native_return_kernel_exact_check_depth0_to17": true,
+  "nonzero_kernel_monomials": {
+    "3": 5,
+    "5": 12,
+    "7": 53,
+    "9": 150,
+    "11": 295,
+    "13": 649,
+    "15": 1205,
+    "17": 1994
+  },
+  "proof": "exact 51-class transition conjugacy under swapping q5/q6, then induction for all d",
+  "status_category": "AUTHOR_PROVED / EXACT_FINITE_CERTIFICATE / UNREVIEWED / NOT_ADMITTED",
+  "owner_control_status": "BACKEND_IDENTITY_OR_VERSION_MISMATCH; operation_sent=false; no CLAIM"
+}
