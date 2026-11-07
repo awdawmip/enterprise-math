@@ -8,39 +8,38 @@
   "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
   "publication_id": "TP2-B6F4FC938FF94941C1B7",
   "frozen_science_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
-  "mother_target": "Delta_p-R_p≡0 mod p for p≡13,19 mod 24; W_p≡p mod p^3 remains OPEN",
-  "previous_author_frontier": "research_notes/portable_direct/20261107_hourly20_d25_frobenius_carry_factorization.md @dd3af761bcce0a6dd420b7e3fdde7a982fe547b1",
-  "new_author_frontier": [
+  "mother_target": "Delta_p-R_p≡0 mod p for p≡13,19 mod24; original W_p≡p mod p^3 remains OPEN",
+  "highest_author_frontier": [
     "research_notes/portable_direct/20261107_hourly20_d25_frobenius_carry_second_jet_multiplicity.md",
     "research_notes/portable_direct/d25_frobenius_carry_root_multiplicity_20261107.py"
   ],
-  "completed_units": [
-    "Proof for all p=8k+5: H(z)=Σ binom(3k+1,j)binom(k,j)z^j is squarefree over F_p",
-    "Proof: Frobenius aggregate carry -z^p(1-z)H^2 has full root multiplicity classification p at 0, 1 at 1, 2 at each root of H",
-    "Proof: weighted (1+8θ) carry vanishes at each H root yet θ(1+8θ) carry is nonzero, with explicit square formula",
-    "Exact finite check: 815/815 p<30000; H(1/9)=0 for 407/407 p≡13 mod24 and !=0 for 408/408 p≡5 mod24"
+  "new_completed_units": [
+    "PROVED all p=8k+5: H=sum binom(3k+1,j)binom(k,j)z^j is squarefree with no 0 or 1 root",
+    "PROVED exact aggregate carry -z^p(1-z)H^2 has root orders p at 0, 1 at 1, 2 at each H root",
+    "PROVED at any H root first weighted derivative (1+8theta)C=0 but theta(1+8theta)C!=0",
+    "PROVED at z=1/9 IF H(z)=0 then 16H''+117H'=0 and C'''=5H'^2 modp (third jet nonzero)",
+    "CHECKED exact 815 primes p<30000, all 407 p≡13mod24 roots and 408 p≡5mod24 nonroots; no universal root claim"
   ],
-  "evidence_status": "AUTHOR_SIDE_PROVED_ALGEBRA_EXACT_CHECKED_UNREVIEWED_NOT_ADMITTED",
-  "open_unit": "Prove H_p(1/9)=0 for all primes p≡13 mod24 (or find exact counterexample); connect nonzero second jet to two-legged 216/2304 weighted transfer",
-  "next_exact_action": "Attempt finite-field character sum/CM or exact telescoping of binomial H_k(1/9), preserving source labels; then constrain candidate WZ/Heun transfer against nonzero second-jet witness at p=13,37,109,373",
+  "evidence_status": "AUTHOR_SIDE_PROVED_ALGEBRA_EXACT_FINITE_VERIFIED_UNREVIEWED_NOT_ADMITTED",
+  "open_unit": "Establish or falsify universal CM residue-class H_p(1/9)=0 for all p≡13mod24, then two-legged 216/2304 weighted relation preserving second and third jets",
+  "next_exact_action": "Use character-sum/CM or telescoping proof on binomial H_k(1/9); preserve Source pin and competing onhour frontiers; compare third-jet coefficient 5 to prior cross-source five only with a proved map",
   "do_not_repeat": [
-    "prior 301-prime W/S full scan",
-    "R_p restoration",
-    "prior on-hour Gauss monodromy and quadratic p-adic jets",
-    "native p373 benchmark"
+    "prior onhour Gauss monodromy p-adic jets",
+    "prior 301-prime W/S scan",
+    "previous Frobenius factorization",
+    "native p373 check"
   ],
   "protected_native_status": {
     "fault": "BACKEND_IDENTITY_OR_VERSION_MISMATCH",
     "operation_sent": false,
     "site": "CONFIGURED_NOT_LIVE_VERIFIED",
-    "research_authority_granted": false,
+    "session_claim_run_and_staging": "UNKNOWN_PRESERVE",
+    "native_checkpoint": false,
+    "activity_registration": "REGISTER_PENDING",
     "original_request_ids": [
       "em-h20-20261106-1324-d25-task-r13",
       "em-h20-20261106-1324-d25-cont-r13"
     ],
-    "native_checkpoint": false,
-    "session_claim_run_and_staging": "UNKNOWN_PRESERVE",
-    "activity_registration": "REGISTER_PENDING",
     "support": "awdawmip/enterprise-math#1558"
   },
   "promotion": "NOT_ADMITTED",
