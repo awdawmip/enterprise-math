@@ -42,6 +42,7 @@ assert 7**20535 >= 10**17354
 assert 20025-2670 == 17355
 print('PASS_2671_CONSECUTIVE_STRICT_ANOMALIES: h=510..3180, N(510+t)>=20026-t>n_tail')
 
+
 def n_tail(h):
     lo, hi = 1, 6*h
     while lo < hi:
