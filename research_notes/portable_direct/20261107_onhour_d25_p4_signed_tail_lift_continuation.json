@@ -1,0 +1,66 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "timezone": "Asia/Hong_Kong",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_target": "Delta_p=R_p mod p, p=13,19 mod24; earlier conditional bridge gives W_p=p mod p^3.",
+  "consumed_frontier": [
+    "a1150c7286cfff20d1963bbd15e7cfd99eb1fe00",
+    "e13b05d592897846a6f826f2327bde7c31021bc4"
+  ],
+  "new_unit": {
+    "kind": "PROVED_EXACT_P4_TAIL_FACTORIAL_UNIT_JET_AND_FINITE_CHECK",
+    "status": "AUTHOR_SIDE_PROVED_FINITE_VERIFIED_UNREVIEWED_NOT_ADMITTED",
+    "statement": "For each p>3, the complete 216/2304 tails after (p-1)/2 admit the explicit p^4 signed C_A,J_A,K_B,Wilson formula; the 2304 Wilson term cancels by Guo-Zudilin full-vs-half p^3 theorem.",
+    "finite_coverage": "77 primes 5<=p<=401; independent direct integer-binomial and normalized factorial-jet checks; 0 failures.",
+    "examples": {
+      "p19": {
+        "C_A_mod_p": 9,
+        "J_A": 18,
+        "K_B": 3,
+        "wilson": 2
+      },
+      "p373": {
+        "C_A_mod_p": 266,
+        "J_A": 11,
+        "K_B": 353,
+        "wilson": 224
+      }
+    },
+    "proof_path": "research_notes/portable_direct/20261107_onhour_d25_p4_signed_tail_lift.md",
+    "checker_path": "research_notes/portable_direct/d25_p4_signed_tail_lift_check_20261107.py"
+  },
+  "open_unit": "Uniform low-window identity 2V_lo-W_lo-p chi-p^2 C_A = -p^3(2K_B-J_A+2 omega C_A) mod p^4; source labelled signed WZ/contiguous or p-adic transformation.",
+  "no_repeat": [
+    "accepted D24 UR",
+    "prior R/K and Clausen",
+    "216/2304 1227-prime scan",
+    "previous mod p^3 dual-tail cutoff",
+    "D8 first-digit support",
+    "native p373 benchmark"
+  ],
+  "next_exact_action": "Seek WZ/finite transformed relation on index 0..(p-1)/2; exact test p=11,19,373; preserve p5 counterexample and separate native p373 requirements.",
+  "source_recovery": {
+    "target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "status": "UNKNOWN_NOT_RESENT",
+    "last_error": "BACKEND_IDENTITY_OR_VERSION_MISMATCH;operation_sent=false",
+    "site_phase": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "session": "NOT_VERIFIED",
+    "claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "activity": "REGISTER_PENDING",
+    "sync_debt": true,
+    "required_actual_operator_path": "Dedicated Site-bound backend client, reviewed backend version and secure user-entered credential; read original receipt/Source before further role writes."
+  },
+  "native_benchmark": {
+    "issue": 1559,
+    "status": "OPEN_UNASSIGNED",
+    "object": "p373 H0/B0 divided-power, Frobenius, Hesse kappa, independent reproduction"
+  },
+  "scope": "GITHUB_AUTHOR_SIDE_ONLY_UNREVIEWED_NOT_ADMITTED"
+}
