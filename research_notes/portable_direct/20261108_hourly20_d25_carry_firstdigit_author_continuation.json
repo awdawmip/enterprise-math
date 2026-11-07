@@ -1,0 +1,78 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "lane": "chatgpt-research-hourly-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "taskbook_blob_sha1": "53a3ef039325534e3715add837f0eee332289984",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Prove original Delta_p=(G_p h-1)/p equals frozen reflected R_p modp for all primes p=13 or 19 mod24; OPEN",
+  "accepted_input": "D24 UR/JT0 RR-AC9B3BA5BD277CE043F5",
+  "source_frontier_status": "Canonical live claim/checkpoint unresolved; this author-side packet never supplies native completed_units or winning session/claim",
+  "consumed_prior_math": [
+    "20261108_onhour_d25_second_reflection_mixed_band_correction.md: full Clausen cutoff valuation partition and normalized K-H middle source",
+    "20261108_onhour_d25_finite_adjoint_resonance_original_R.md: R=2 q_m E_m mod p",
+    "20261108_hourly20_d25_cartier_adjoint_divided_boundary.md: Cartier 4m divided boundary"
+  ],
+  "author_side_completed": [
+    "Proved explicit carry/Fermat-quotient base digit beta=(7/10)+sum(e/r)+sum(f/s)-q_p(36) modp for all primes p=6m+1>=7.",
+    "Proved low-port lift d_i=q_i L_i and full high-port lift v_a=c_a(beta+T_a) through a<=2m.",
+    "Derived S_low=beta R_p +2 sum_i q_i sum_{a<=i}c_a[w(i,a)(L_i+T_a)+6] modp.",
+    "Derived observer-specific O(m) four-prefix contraction of S_low and composed with existing on-hour normalized middle K-H port.",
+    "Exact Python Z/(p^4) check across all 148 primes p<=2000 with p=1 mod6, including 77 target primes, independent full Clausen cutoff via suffix moments: all PASS."
+  ],
+  "artifacts": [
+    {
+      "path": "research_notes/portable_direct/20261108_hourly20_d25_residue_carry_low_high_lift.md",
+      "verified_publication_commit": "85c909e27480120ed0b60d4f0b107ab3bee2e9ad"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_reflection_carry_firstdigit_20261108.py",
+      "verified_publication_commit": "b19856a1843fd120b4fccc77ed6f94b424f69225"
+    }
+  ],
+  "signed_source_samples": {
+    "p19": {
+      "beta": 10,
+      "R": 12,
+      "S_low": 18,
+      "S_local": 12,
+      "S_mid": 2,
+      "S_total": 1
+    },
+    "p373": {
+      "beta": 17,
+      "R": 196,
+      "S_low": 252,
+      "S_local": 277,
+      "S_mid": 157,
+      "S_total": 36
+    }
+  },
+  "smallest_unfinished_unit": "Find an exact original-source Fricke/Cartier signed intertwiner relating carry-normalized local low/high Hasse prefix, middle K-H, Cartier 4m divided boundary and canonical Gauss ports (ZH0-1)/p, SH0, ZH1, Phi_xx; the mother Delta-R modp remains unproved.",
+  "next_exact_action": "First compute at p=19,373 the signed four-port defect after substituting the new beta and Hasse prefix coordinates, preserve (i,a) and (j,residue,carry) fibers, derive a candidate telescoping/adjoint identity; test at p=13,43 only after a candidate predicts them.",
+  "do_not_repeat": [
+    "accepted D24 UR/JT0 and native persisted frontier",
+    "previous original R constant-term/finite-adjoint kernel",
+    "on-hour second-reflection valuation partition, middle K-H theorem",
+    "prior Cartier gauge and 4m boundary theorem",
+    "p373 native H0/B0/divided-power/Hesse-kappa #1559"
+  ],
+  "native_control": {
+    "latest_error": "BACKEND_IDENTITY_OR_VERSION_MISMATCH / UPSTREAM_STATUS_TOOL_ERROR / STATUS_DATABASE_UNAVAILABLE",
+    "operation_sent": false,
+    "site_phase": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "original_requests": [
+      "em-h20-20261106-1324-d25-task-r13",
+      "em-h20-20261106-1324-d25-cont-r13"
+    ],
+    "request_receipts": "UNREADABLE_PRESERVE_ORIGINAL",
+    "old_service_session_claim_run_staging": "UNKNOWN_PRESERVE",
+    "research_identity": "TASK_RESEARCH_AUTHOR_SIDE / REGISTER_PENDING; service Researcher-ID UNCONFIRMED",
+    "native_checkpoint": "NOT_WRITTEN",
+    "support_issue": 1558,
+    "native_p373_experiment_issue": 1559
+  },
+  "status": "AUTHOR_SIDE_EXACT_PROOF / FINITE_148_PRIME_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
