@@ -147,3 +147,61 @@ For example using `S1,S2,S3`, set a provisional `z_12=0`. `Obs_S1` gives `z_13-z
 **Boundary and precise next test.** This is a **restricted observation/information theorem**, not a declaration that three physical carrier measurements, triadic force-closure E events, packet paths, their temporal histories or decorated joint/BRC states are interchangeable. The current X6 Foundation realizes the four STAR selectors as FCC carrier-readout triples but does not identify STAR-coordinate connectivity with admissibility of primitive `TRIADIC_CLOSURE_E` for arbitrary input. Read the actual E-admissibility and future-operation/preservation contract before attempting that bridge. The immediate non-duplicative test in the existing P000 E/observer bridge task is whether three **simultaneously E-admissible** STAR-coordinate observations can be assembled with the declared provenance/horizon; if not, exhibit the precise forbidden triple, state restriction, or operation that prevents the coordinate corollary's application. Do not open a duplicate task or promote this appendix to a formal review.
 
 Sources of previously frozen definitions (not new task science pins): `definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md` §§5,6,9; `definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.json` `relative_observer` / `fcc_star_carrier`; `definitions/P000_DISCRETE_DIRECTION_TRIADIC_BALANCE_20260905.md` primitive `E` gate; `definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json` future-operation boundary.
+
+## Addendum: exact error-correction threshold for native X6 coordinate triple observers
+
+Date: 2026-11-07 (Asia/Taipei). Author-side continuation with shared previous project/source exposure; status **AUTHOR_UNREVIEWED / NOT_ADMITTED**. This addendum is a coordinate-only mathematical certificate. Existing frozen F7 scientific pins, contributions and formal reviews are unchanged.
+
+Let X=Z^6/Z(1,1,1,1,1,1), and let Q be any family of distinct three-axis selectors S⊂{1,...,6}. Define the relative-coordinate code C_Q([z])=(can3(z|S))_(S in Q), where a whole triple observation counts as one code symbol. For nonempty proper A⊂{1,...,6}, write ∂Q(A) for those chosen triples intersecting both A and its complement.
+
+**Exact distance theorem:** min Hamming distance between different elements of X under C_Q is
+
+    d_min(Q) = min_{nonempty proper A} |∂Q(A)|.
+
+This includes d_min=0 for noninjective codes. One can uniquely recover up to e erased triple symbols precisely when d_min≥e+1, or correct up to t arbitrary unknown corrupted triple symbols precisely when d_min≥2t+1, with the usual worst-case, unrestricted output-symbol error model.
+
+**Proof.** Two can3 readouts on S agree exactly when the difference vector d=z'-z is constant on S. For any nonconstant d, select a proper nonempty value class A; each triple crossing that cut has nonconstant d, so the Hamming distance is at least the minimum cut. Conversely the difference d=1_A, from 0 to the cut indicator, produces disagreements on exactly the crossing triples. The standard Hamming-ball disjointness argument establishes the correction/erasure thresholds.
+
+**Four existing FCC/K4 STAR readouts:** min distance is exactly 2. Any three STARs connect all six edge axes, so at most two STAR readouts can agree for distinct relative states. Taking d=e_12 modifies exactly the two STARs incident at edge 12; the other two are unchanged. Thus four STARs detect one corrupt whole readout and recover one known-position erasure, but cannot uniquely correct one unknown corruption. For an explicit ambiguous received word, use the S1 output from z'=e_12, the S2 output from z=0, and the common S3,S4 outputs; it is one symbol away from each possible codeword.
+
+**Minimum six triple queries for single-error correction:** To have d_min≥3, each singleton cut must be crossed at least three times, i.e. every one of the six axis labels appears in at least three chosen triples. Thus 3|Q|≥18 and |Q|≥6. Six suffice: Q*={123,124,125,346,356,456} has every one of its 31 unordered nontrivial vertex cuts crossed by at least three triples. Hence six is the exact minimum number of selected native coordinate triple observations permitting correction of one arbitrary unknown corrupted triple readout.
+
+Across all 38,760 distinct six-selector families, exactly 330 attain d_min=3. Under all six-axis relabelings, they split into exactly four orbits with sizes 60, 60, 180, 30.
+
+**Finite integer certificate (Python 3 standard library):** The symbolic theorem and the lower bound hold without finite-range assumptions; this checker exhausts all selector families of cardinality up to six and all 31 unordered cuts, then all 720 axis relabelings for the orbit census.
+
+~~~python
+from itertools import combinations, permutations
+from collections import Counter
+tri = list(combinations(range(6), 3))
+mask = [sum(1 << i for i in s) for s in tri]
+idx = {s: i for i, s in enumerate(tri)}
+cuts = range(1, 32)  # exactly one of each cut/complement pair
+def dist(q):
+    return min(sum(0 < (mask[i] & a) < mask[i] for i in q) for a in cuts)
+hist = {m: Counter(dist(q) for q in combinations(range(20), m)) for m in range(1, 7)}
+assert hist == {
+  1: {0: 20}, 2: {0: 190}, 3: {0: 660, 1: 480},
+  4: {0: 1245, 1: 3525, 2: 75},
+  5: {0: 1512, 1: 10200, 2: 3792},
+  6: {0: 1260, 1: 14580, 2: 22590, 3: 330},
+}
+good = {q for q in combinations(range(20), 6) if dist(q) == 3}
+actions = []
+for p in permutations(range(6)):
+    actions.append(tuple(idx[tuple(sorted(p[v] for v in t))] for t in tri))
+orbits = Counter()
+while good:
+    q = min(good)
+    orbit = {tuple(sorted(a[i] for i in q)) for a in actions}
+    assert orbit <= good
+    orbits[len(orbit)] += 1
+    good -= orbit
+assert orbits == {60: 2, 180: 1, 30: 1}
+qstar = tuple(idx[tuple(i - 1 for i in t)] for t in
+              ((1,2,3),(1,2,4),(1,2,5),(3,4,6),(3,5,6),(4,5,6)))
+assert dist(qstar) == 3
+print("PASS", hist, orbits)
+~~~
+
+**Native-scope bridge:** the 20 can3 selectors are already-defined native X6 coordinate readouts; only the four STARs currently have complete FCC carrier-readout realization. The six-query optimum is an information theorem, not automatic physical simultaneous E-admissibility or path/BRC future-horizon preservation. In the existing P000 E/observer bridge task, determine the simultaneously E-admissible selectors under the precise state/horizon, then evaluate their cut threshold. A cut failing the target threshold provides an explicit coordinate-separation witness d=1_A. Do not create a duplicate Task or substitute this author note for an authorized Driver Review.
