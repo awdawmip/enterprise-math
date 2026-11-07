@@ -51,7 +51,7 @@ def search(seed, cycles=170, steps=220):
         scores=[]
         for pass_idx in range(maxpasses):
             modified=0
-            order=list(range(len(groups)););R.shuffle(order)
+            order=list(range(len(groups)));R.shuffle(order)
             for i in order:
                 u=fixed_mask
                 for j,w in enumerate(picks):
