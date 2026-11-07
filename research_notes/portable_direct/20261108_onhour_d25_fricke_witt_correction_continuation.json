@@ -1,0 +1,91 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "prior_frontier": "0d17fad946ff3ab0a90933767f6b0099ac7d80ac",
+  "mother_objective": "Prove W_p≡p modp^3 for all primes p≡13,19 mod24; OPEN",
+  "proven_new_units": [
+    "For p>3 with (2/p)=-1, sigma(s)=-s in Q_p(s), and p-unit rational r, D_p(eps*r*s)=[(eps*r*s)^p-sigma(eps*r*s)]/(p*eps*r*s) ≡ -q_p(r)-q_p(2)/2 modp.",
+    "For t=eps*6s and alpha=eps*8s/27, D_alpha-D_t=-q_p(4/81)=-2q_p(2)+4q_p(3) modp, independent of eps.",
+    "At p=13, q_p(4/81)=0 but prior source-typed R_Q=10, hence a single-port proposal R_Q=c_p*q_p(4/81) with c_p finite fails. All three Gauss ports retained."
+  ],
+  "evidence": [
+    {
+      "path": "research_notes/portable_direct/20261108_onhour_d25_fricke_witt_first_lift_correction.md",
+      "git_blob_sha1": "e6405d8ba5ed2ed89b6ba3a7bc369024c6993ecf",
+      "classification": "AUTHOR_SIDE_PROVED_UNREVIEWED_NOT_ADMITTED"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_fricke_power_vs_witt_check_20261108.py",
+      "git_blob_sha1": "1060db3e52a8275eb4e69aad43318910e852f9e5",
+      "execution": "LOCAL_PYTHON_EXACT_MODULAR_TEST_PASS",
+      "scope": "77 p<=2000, two signs, p^2 raw powers and independent Fermat quotients"
+    }
+  ],
+  "distinguishing_cases": {
+    "13": {
+      "q2": 3,
+      "q3": 8,
+      "delta_t": 7,
+      "delta_tangent": 7,
+      "relative": 0,
+      "q_4_over_81": 0,
+      "R_Q": 10,
+      "R_L": 10,
+      "R_T": 6
+    },
+    "19": {
+      "q2": 3,
+      "q3": 18,
+      "delta_t": 6,
+      "delta_tangent": 15,
+      "relative": 9,
+      "q_4_over_81": 10
+    },
+    "373": {
+      "q2": 204,
+      "q3": 301,
+      "delta_t": 139,
+      "delta_tangent": 189,
+      "relative": 50,
+      "q_4_over_81": 323
+    }
+  },
+  "scientific_scope": "True unramified arithmetic Frobenius sigma distinguished from raw p-th-power operation. Neither this lemma nor finite tests proves cross-model C_p=0 or mother modp^3 congruence.",
+  "unresolved": "Build affine p-adic Fricke-Cartier two-component lift carrying Hasse q, harmonic L and crossing tail T; discharge C_p=0 universally and then p^3 four-port. Native original-class p373 #1559 remains distinct and pending.",
+  "next_exact_action": "Construct/test two-component Frobenius-semilinear first-lift matrix including explicit raw-power gauge -q_p(4/81) and independent q,L,T affine correction; use p=13 (gauge 0, R_Q 10), p=19 (9), p=373 (50) as distinguishing cases, then attempt universal proof. Do not substitute portable computations for native #1559.",
+  "do_not_repeat": [
+    "D24 RR-AC9B3BA5BD277CE043F5 frozen UR",
+    "CM -24 Hasse zero and prior first-digit port decomposition",
+    "Fricke analytic and tangent parity proof",
+    "p^3 Clausen–Euler four-port and B 2304 Guo-Zudilin unit",
+    "77-prime bare C_p scan",
+    "native #1559 original-class experiment not executed"
+  ],
+  "native_benchmark": {
+    "issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "owner": "PENDING_OWNER",
+    "state": "OPEN",
+    "required": "original fixed H0/B0 p373 [X]U mod139129, rank/divided powers, eta, signed kappa, Delta_p-R_p, independently replicated",
+    "completed": false
+  },
+  "source": {
+    "target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "last_readback": "RUNNING/REVALIDATING; collected 1233; verified_through 4; next_page 5; formal_task_created false",
+    "reconcile": "NOT_RECONCILABLE for running continuation; unchanged",
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "native_session": "NOT_VERIFIED",
+    "native_claim": "NOT_VERIFIED",
+    "native_run": "NOT_VERIFIED",
+    "native_checkpoint": "NOT_WRITTEN",
+    "activity": "REGISTER_PENDING",
+    "sync_debt": true
+  },
+  "status": "AUTHOR_SIDE_PROVED / EXACT_77_PRIME_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
