@@ -1,0 +1,54 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "fixed_classes": [
+    0,
+    2,
+    5,
+    7,
+    14,
+    15,
+    18,
+    25,
+    27,
+    31,
+    33
+  ],
+  "minimal_gate_depths": {
+    "0": 4,
+    "2": 5,
+    "5": 4,
+    "7": 3,
+    "14": 5,
+    "15": 1,
+    "18": 4,
+    "25": 3,
+    "27": 4,
+    "31": 3,
+    "33": 2
+  },
+  "positive_excess_s": [
+    0,
+    128
+  ],
+  "gate_count": "ALL_INTEGERS_k>=1",
+  "factor_scan_depth": [
+    0,
+    132
+  ],
+  "positive_e_basis_positions": {
+    "A": 197803,
+    "K": 17755,
+    "B": 36059
+  },
+  "gate_target": 5,
+  "gate_sources": [
+    4,
+    15,
+    17
+  ],
+  "native_projected_edges": 5184,
+  "native_involution_edges": 576,
+  "theorem": "[z^k t^(delta_i+4(k-1)+s)]F_i in N[u,v] for every fixed port i, k>=1, 0<=s<=128",
+  "scope": "q1..q4=1; x=q5,y=q6; gate z; roots r5=r6=0; frozen four-STAR kernel"
+}
