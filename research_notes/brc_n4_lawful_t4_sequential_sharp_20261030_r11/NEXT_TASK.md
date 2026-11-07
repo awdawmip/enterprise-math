@@ -1,0 +1,7 @@
+# Next unit — causal T4 state-changing operations
+
+Source: this directory's exact all-real two-query terminal read-only theorem, previously proven lawful G(u,v) at commit 05d3985df6beb5e10d10aae0a9aeba3146dcf1e9, original S2/S23 at 6d9bc93c9d110418d22daf344ed83d883a4a1a23.
+
+Do not repeat: P/Q conditional k is fair given (C,j,I4). Persistent one-bit distributional read-only simulation is exact. A fresh independent two-read simulator has sharp joint TV radius (sqrt(2)-1)*max{(u+9v)/40,(u+v)/8}; for G4 this is 9(sqrt(2)-1)/40. A decoder using S alone has physical realized-k mismatch probability 1/2 per active T4 path.
+
+Next prove whether the *original* stage-four S2/S23 operation contract permits any causal action that changes k before final stop, or whether every legal fourth-stage action is terminal/readout-only. Specify lawful information, actions, transition kernel, observer and time. If intervention is legal, derive exact P/Q-common finite adaptive kernel factorization or a complete rational 16-leaf separating counterexample and smallest repair state; if not, prove the terminal-only restriction and study a separately typed model extension. Supply an executed exact verifier and formal causal-legality proof. Maintain P000 native six-dimensional / three-dimensional 晶包 layer / independent heartbeat-time bridge as a separate obligation. Obtain independent review before mathematical admission.
