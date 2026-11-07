@@ -1,0 +1,83 @@
+{
+  "schema": "R366_BRC_PF2_NONPFINFTY_ROBUSTNESS_EVIDENCE_V1",
+  "date": "2026-10-28",
+  "model": "Original signed 12-term BRC K/J auxiliary combinatorial recurrence",
+  "source_immutable_commit": "7518bab2a7210edaf1a262539ac5e2cf5751d190",
+  "input_file": "R365_Q345_352_FULL_COEFFICIENTS.txt",
+  "input_sha256": "50bf1a56fabe89d4752ed71634cbb95d6c7c320d61b09aba1c501857650555a7",
+  "source_scan_path": "research_notes/r365_brc_pf2_not_pfinfty_q345_352_20261028_emr3/R365_scan.py",
+  "exact_computation_done": true,
+  "arithmetic": "Python arbitrary precision integers, no floating-point sign tests",
+  "corank_range": [
+    345,
+    352
+  ],
+  "rows_count": 8,
+  "coefficients_checked": 5584,
+  "ordinary_turan_robust_lower_bounds_checked": 5568,
+  "j1_ulc_robust_upper_bounds_checked": 8,
+  "relative_box": "each |c'_j-c_j| <= c_j/730",
+  "result": "every real perturbed coefficient vector in box is positive PF2 and non-PF-infinity; F'_r has non-real conjugate roots",
+  "first_ULC_failure_remains_at_j1_with_radius": "1/32",
+  "integer_reciprocal_optimal_denominator": 730,
+  "optimality_counterexample": "r=352, j=344; c'_343=(730/729)c343,c'_344=(728/729)c344,c'_345=(730/729)c345, all others unchanged; Turan<0",
+  "small_r_root_crosscheck": "F1=20(131+126z+45z^2), roots=(-21±i sqrt214)/15",
+  "rows": [
+    [
+      345,
+      691,
+      689,
+      "bad5af967fbd4efe8b6e26b73d0e0f5b7fb23efcfd55eadec32871e2ae9534a6"
+    ],
+    [
+      346,
+      693,
+      691,
+      "8410d935032063fb4807cd3e0b6af8d84beb8532e8b3827e2ba7bb4943756ecf"
+    ],
+    [
+      347,
+      695,
+      693,
+      "59126001f5dcef01f7807c0bbd62a6d47b12b999b3a4a92e06825db8df66d17e"
+    ],
+    [
+      348,
+      697,
+      695,
+      "e17d9c957b84e69b7f0238ee7246049ffff5bf79f6650315351c7ea140a0f65a"
+    ],
+    [
+      349,
+      699,
+      697,
+      "5b48d06c3f552fb74f3bee5870c0704e7b117be6d7b923f087b4e8e02373d996"
+    ],
+    [
+      350,
+      701,
+      699,
+      "58ea6d3cc908a0824514e03571a4dca0344f47396edb5ae0cfdacb7c71264ffa"
+    ],
+    [
+      351,
+      703,
+      701,
+      "df12760e70950062418d984ec1fb2b9f91221213519aa907fc9ef568b8fa72f1"
+    ],
+    [
+      352,
+      705,
+      703,
+      "4ce95a4cbdbff9da9a3a9f9de7af83522f4f3d1d0d9e3316f9bbbb495f3bf40b"
+    ]
+  ],
+  "local_executed_source_sha256": "123b1e922be77eea1086da7f20eb991dae71b9766f0a1898d8e24a8d69c7b01d",
+  "local_proof_sha256": "01e3b93d9653fc0e86dc474bd81255e52b8aec621ae4a316c8d314b8be9222ba",
+  "full_local_evidence_bundle": "EnterpriseMath_R366_BRC_PF2_PFinfty_Stability_ExactResearch.zip",
+  "reproducibility": "First regenerate full R365 certificate with published R365_scan.py; run R366_robust.py with generated file as argument.",
+  "caveat": "New GitHub checker is a compact equivalent reimplementation of the locally executed robust checker, not a claim of byte-identical source. R363 extraction and native X6 correspondence remain unreviewed.",
+  "native_claim": false,
+  "independent_driver_review": false,
+  "admitted": false
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "R358_BRC_Q338_LOGCONCAVITY_EVIDENCE_SUMMARY_V1",
+  "date": "2026-10-28",
+  "scope": "signed original twelve-term BRC auxiliary combinatorial recurrence",
+  "status": "AUTHOR_SIDE_EXACT_UNREVIEWED_NOT_ADMITTED",
+  "pinned_global_main": "d40c3832bcd560666362bf55ed58bd71b040c057",
+  "pinned_em_main": "4eab4f4b0d65708233ab87bd7477b896aaccc24e",
+  "source_reuse": {
+    "R348_proof": "5347e506bd145028d7338e9f7993dcd2a2fed97c",
+    "R357_frontier": "7956ab8e57c70870847466710cc258b7240e622c",
+    "R346_dependency_blob": "1579ceb717ab1945227eca4f7a1878bf4ffa73e1"
+  },
+  "run": {
+    "B_s_max": 1019,
+    "t_powers_retained": [
+      0,
+      679
+    ],
+    "H_rows": [
+      336,
+      337,
+      338,
+      339
+    ],
+    "sign_arithmetic": "unbounded integers and Fraction",
+    "float_sign_tests": false,
+    "raw_D_minor_exact_checks": 8
+  },
+  "q337_regression": {
+    "coefficients": 675,
+    "positive": 675,
+    "zero": 0,
+    "negative": 0,
+    "sha256": "428eff96b2973013cb05bab45c194ac7f8dcbd2e86c19aaecf602f284e315b99",
+    "strict_turan_checks": 673,
+    "strict_turan_pass": 673,
+    "ULC_violations": 617,
+    "peak_index": 361
+  },
+  "q338_new": {
+    "coefficients": 677,
+    "positive": 677,
+    "zero": 0,
+    "negative": 0,
+    "sha256": "a1bfe1e15b52143446f3e9b098278a992815f0e89a80ae14c6b474588723967d",
+    "strict_turan_checks": 675,
+    "strict_turan_pass": 675,
+    "ULC_violations": 619,
+    "peak_index": 362,
+    "catalan_top_exact": true,
+    "highest_three_formula_specializations_checked": true
+  },
+  "small_probe": {
+    "r_min": 1,
+    "r_max": 48,
+    "strict_turan_checks": 2304,
+    "strict_turan_pass": 2304,
+    "ulc_violations": 1897,
+    "r1_coefficients": [
+      2620,
+      2520,
+      900
+    ],
+    "r1_ulc_cross_defect": -3081600,
+    "full_per_r_local_json_sha256": "398b18769f6d1441da4427aa3de096c0515193f50b474a480213747f4ac629fb"
+  },
+  "all_new_strict_turan_checks": 3652,
+  "artifact_sha256": {
+    "full_q338_coefficients": "a1bfe1e15b52143446f3e9b098278a992815f0e89a80ae14c6b474588723967d",
+    "R358_verify_source": "c8a7eec9b34b9ef75a06a7d0e0b6e013df267e5ddc9d2d61b816ee9015cd6cfa",
+    "R358_probe_source": "9a93d46e95698306fa662179938edb42b80bad2678c828edcaec119939d8b122",
+    "R358_run_log": "f3e944fe5598d10c906bbd9bd614db7b357913cd9a86490288c9b6bb9b78e397"
+  },
+  "remote_source_blobs": {
+    "R358_verify_py": "7206ed8e1d0fdb0c180f426897105b88a7c43a85",
+    "R358_logconcavity_probe_py": "dc465f4ea9463d63f5e33f563de34b0a691eabef"
+  },
+  "conditional_inference": "assuming unreviewed R348 A1-A5, all k>=1 and 1<=q-k<=338 have M(q,k)>0",
+  "owner_status": "CONTROL_QUOTA; native owner unverified",
+  "native_session": "not granted",
+  "driver_review": "pending",
+  "X6_transfer": "not established"
+}

@@ -1,0 +1,129 @@
+{
+  "arithmetic": "exact integer/rational/symbolic polynomials; Sturm real root count; no floating sign inference",
+  "basis": "R369_original_signed_R346_KJ; K3[t2]=-8*(1+theta); theta>-1",
+  "classification": "AUTHOR_SIDE_EXACT / FINITE_ROOT_ISOLATION / UNREVIEWED / NOT_ADMITTED",
+  "date": "2026-10-29",
+  "direct_D_verification": {
+    "equal_to_L_interpolation": true,
+    "r1_minors": 3,
+    "r2_minors": 5
+  },
+  "input_commit": "762855f46bf7f699448e0d8471d60f83fdc2747b",
+  "native_X6_transfer": "not established",
+  "numeric_display_only": {
+    "alpha2": "2.956919277198393",
+    "beta1": "1.390877081724073",
+    "eta": "(6226210/2244911, 7161091/2581990)",
+    "tau1": "(3650531/3460931, 3761645/3566274)",
+    "tau2": "(2927897/2249958, 759551/583681)"
+  },
+  "r1_PFinfty_theta_3": [
+    28,
+    792,
+    324
+  ],
+  "r1_coefficients_factored": [
+    "4*(128*theta**2 - 600*theta + 655)",
+    "24*(32*theta**2 - 120*theta + 105)",
+    "4*(8*theta - 15)**2"
+  ],
+  "r1_phase": "r1 PF2 iff -1 < theta <= tau1 OR theta >= alpha2; PF-infinity iff theta >= alpha2; all nonnegative iff -1<theta<=beta1 OR theta>=alpha2",
+  "r1_turan_factored": "16*(28672*theta**4 - 207360*theta**3 + 545600*theta**2 - 615000*theta + 249525)",
+  "r1_ulc_factored": "128*(512*theta**4 - 12320*theta**2 + 32700*theta - 24075)",
+  "r2_coefficients_factored": [
+    "-80*(3072*theta**3 - 21056*theta**2 + 56360*theta - 59885)",
+    "16*(12288*theta**4 - 145920*theta**3 + 592960*theta**2 - 1038800*theta + 677475)",
+    "16*(32768*theta**4 - 299520*theta**3 + 998080*theta**2 - 1457000*theta + 796425)",
+    "16*(8*theta - 15)**3*(56*theta - 135)",
+    "32*(8*theta - 15)**4"
+  ],
+  "r2_first_ulc_factored": "256*(452984832*theta**8 - 6731857920*theta**7 + 43192156160*theta**6 - 146953011200*theta**5 + 240854323200*theta**4 + 3606144000*theta**3 - 698632848000*theta**2 + 1062992140000*theta - 530839318125)",
+  "r2_phase": "r2 PF2 iff -1 < theta <= tau2; PF-infinity never; all nonnegative iff -1<theta<=15/8",
+  "r2_turan_factored": [
+    "4096*(9437184*theta**8 - 192675840*theta**7 + 1738424320*theta**6 - 8905062400*theta**5 + 28108806400*theta**4 - 55817452000*theta**3 + 68078516500*theta**2 - 46676704375*theta + 13781426250)",
+    "512*(360710144*theta**8 - 6307184640*theta**7 + 48003809280*theta**6 - 207416524800*theta**5 + 556494080000*theta**4 - 950282336000*theta**3 + 1010292104000*theta**2 - 612778575000*theta + 162809116875)",
+    "256*(8*theta - 15)**4*(135168*theta**4 - 1121280*theta**3 + 3504640*theta**2 - 4862000*theta + 2507775)"
+  ],
+  "raw_D_minor_3_1": "one_fifth_of_r2_c0; equals -42160 at theta=3; strictly negative for theta>=alpha2",
+  "root_counts_sturm": {
+    "r1_T_in_(-1,beta1)_one": 1,
+    "r1_U_in_(-1,beta1)_zero": 0,
+    "r1_U_in_(alpha2,infinity)_zero": 0,
+    "r2_T1_in_(-1,delta)_one": 1,
+    "r2_T2_in_(-1,tau2upper)_zero": 0,
+    "r2_T3_in_(-1,tau2upper)_zero": 0,
+    "r2_U1_in_(-1,tau2upper)_zero": 0,
+    "r2_c0_total_real_one": 1,
+    "r2_c1_total_real_two": 2,
+    "r2_c2_total_real_two": 2
+  },
+  "root_intervals_certified": {
+    "r1_PF2_first_failure_tau1": {
+      "endpoint_signs": [
+        1,
+        -1
+      ],
+      "lower": "527/500",
+      "roots_in_bracket": 1,
+      "upper": "211/200"
+    },
+    "r1_ordinary_T_second_zero": {
+      "endpoint_signs": [
+        -1,
+        1
+      ],
+      "lower": "753/500",
+      "roots_in_bracket": 1,
+      "upper": "377/250"
+    },
+    "r2_PF2_first_failure_tau2": {
+      "endpoint_signs": [
+        1,
+        -1
+      ],
+      "lower": "1301/1000",
+      "roots_in_bracket": 1,
+      "upper": "651/500"
+    },
+    "r2_c0_zero_eta": {
+      "endpoint_signs": [
+        1,
+        -1
+      ],
+      "lower": "2773/1000",
+      "roots_in_bracket": 1,
+      "upper": "1387/500"
+    },
+    "r2_c1_first_zero": {
+      "endpoint_signs": [
+        1,
+        -1
+      ],
+      "lower": "2039/1000",
+      "roots_in_bracket": 1,
+      "upper": "51/25"
+    },
+    "r2_c1_second_zero": {
+      "endpoint_signs": [
+        -1,
+        1
+      ],
+      "lower": "1437/250",
+      "roots_in_bracket": 1,
+      "upper": "23/4"
+    },
+    "r2_c2_first_zero": {
+      "endpoint_signs": [
+        1,
+        -1
+      ],
+      "lower": "1101/500",
+      "roots_in_bracket": 1,
+      "upper": "551/250"
+    }
+  },
+  "schema": "EM_R370_SIGNED_K3_LOW_CORANK_EXACT_PHASE_V1",
+  "scope": "finite r=1,2 coefficient polynomials; raw D minors exact; entire Q_r mapping conditional on independently unreviewed R363",
+  "simultaneous_PF2": "r1 and r2 PF2 iff -1<theta<=tau1",
+  "simultaneous_PFinfty": "empty for theta>-1"
+}

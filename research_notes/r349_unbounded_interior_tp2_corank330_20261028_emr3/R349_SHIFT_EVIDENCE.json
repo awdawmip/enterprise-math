@@ -1,0 +1,487 @@
+{
+  "schema": "R349_BRC_SHIFTED_NEWTON_KERNEL_NO_GO_V1",
+  "model": "full signed 12-term K/J auxiliary BRC recurrence",
+  "exact_small_arrays": {
+    "0": [
+      1
+    ],
+    "1": [
+      30,
+      30
+    ],
+    "2": [
+      800,
+      1980,
+      900
+    ]
+  },
+  "no_go_componentwise_witness": {
+    "r": 1,
+    "i": 0,
+    "j": 1,
+    "A_r1_i0": 60,
+    "A_r2_j1": 30,
+    "A_rminus1_2_i0": 1,
+    "A_rplus1_1_j1": 2880,
+    "T": -1080
+  },
+  "finite_sign_survey_r_max": 64,
+  "tested_component_brackets": 98016,
+  "sign_pattern_violations": 0,
+  "first_violations": [],
+  "observed_sign_pattern": "T_{r,i,j}>0 for 0<=j<=i<=r; T_{r,i,j}<0 for 0<=i<r and i<j<=r+1; otherwise T=0; FINITE OBSERVATION ONLY",
+  "product_kernel_verified_r_max": 10,
+  "product_kernel_exact_difference_checks": 120,
+  "rows_summary": [
+    {
+      "r": 1,
+      "negative": 2,
+      "positive": 3,
+      "zero": 4,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 2,
+      "negative": 5,
+      "positive": 6,
+      "zero": 5,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 3,
+      "negative": 9,
+      "positive": 10,
+      "zero": 6,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 4,
+      "negative": 14,
+      "positive": 15,
+      "zero": 7,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 5,
+      "negative": 20,
+      "positive": 21,
+      "zero": 8,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 6,
+      "negative": 27,
+      "positive": 28,
+      "zero": 9,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 7,
+      "negative": 35,
+      "positive": 36,
+      "zero": 10,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 8,
+      "negative": 44,
+      "positive": 45,
+      "zero": 11,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 9,
+      "negative": 54,
+      "positive": 55,
+      "zero": 12,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 10,
+      "negative": 65,
+      "positive": 66,
+      "zero": 13,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 11,
+      "negative": 77,
+      "positive": 78,
+      "zero": 14,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 12,
+      "negative": 90,
+      "positive": 91,
+      "zero": 15,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 13,
+      "negative": 104,
+      "positive": 105,
+      "zero": 16,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 14,
+      "negative": 119,
+      "positive": 120,
+      "zero": 17,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 15,
+      "negative": 135,
+      "positive": 136,
+      "zero": 18,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 16,
+      "negative": 152,
+      "positive": 153,
+      "zero": 19,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 17,
+      "negative": 170,
+      "positive": 171,
+      "zero": 20,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 18,
+      "negative": 189,
+      "positive": 190,
+      "zero": 21,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 19,
+      "negative": 209,
+      "positive": 210,
+      "zero": 22,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 20,
+      "negative": 230,
+      "positive": 231,
+      "zero": 23,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 21,
+      "negative": 252,
+      "positive": 253,
+      "zero": 24,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 22,
+      "negative": 275,
+      "positive": 276,
+      "zero": 25,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 23,
+      "negative": 299,
+      "positive": 300,
+      "zero": 26,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 24,
+      "negative": 324,
+      "positive": 325,
+      "zero": 27,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 25,
+      "negative": 350,
+      "positive": 351,
+      "zero": 28,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 26,
+      "negative": 377,
+      "positive": 378,
+      "zero": 29,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 27,
+      "negative": 405,
+      "positive": 406,
+      "zero": 30,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 28,
+      "negative": 434,
+      "positive": 435,
+      "zero": 31,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 29,
+      "negative": 464,
+      "positive": 465,
+      "zero": 32,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 30,
+      "negative": 495,
+      "positive": 496,
+      "zero": 33,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 31,
+      "negative": 527,
+      "positive": 528,
+      "zero": 34,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 32,
+      "negative": 560,
+      "positive": 561,
+      "zero": 35,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 33,
+      "negative": 594,
+      "positive": 595,
+      "zero": 36,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 34,
+      "negative": 629,
+      "positive": 630,
+      "zero": 37,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 35,
+      "negative": 665,
+      "positive": 666,
+      "zero": 38,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 36,
+      "negative": 702,
+      "positive": 703,
+      "zero": 39,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 37,
+      "negative": 740,
+      "positive": 741,
+      "zero": 40,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 38,
+      "negative": 779,
+      "positive": 780,
+      "zero": 41,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 39,
+      "negative": 819,
+      "positive": 820,
+      "zero": 42,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 40,
+      "negative": 860,
+      "positive": 861,
+      "zero": 43,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 41,
+      "negative": 902,
+      "positive": 903,
+      "zero": 44,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 42,
+      "negative": 945,
+      "positive": 946,
+      "zero": 45,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 43,
+      "negative": 989,
+      "positive": 990,
+      "zero": 46,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 44,
+      "negative": 1034,
+      "positive": 1035,
+      "zero": 47,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 45,
+      "negative": 1080,
+      "positive": 1081,
+      "zero": 48,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 46,
+      "negative": 1127,
+      "positive": 1128,
+      "zero": 49,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 47,
+      "negative": 1175,
+      "positive": 1176,
+      "zero": 50,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 48,
+      "negative": 1224,
+      "positive": 1225,
+      "zero": 51,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 49,
+      "negative": 1274,
+      "positive": 1275,
+      "zero": 52,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 50,
+      "negative": 1325,
+      "positive": 1326,
+      "zero": 53,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 51,
+      "negative": 1377,
+      "positive": 1378,
+      "zero": 54,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 52,
+      "negative": 1430,
+      "positive": 1431,
+      "zero": 55,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 53,
+      "negative": 1484,
+      "positive": 1485,
+      "zero": 56,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 54,
+      "negative": 1539,
+      "positive": 1540,
+      "zero": 57,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 55,
+      "negative": 1595,
+      "positive": 1596,
+      "zero": 58,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 56,
+      "negative": 1652,
+      "positive": 1653,
+      "zero": 59,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 57,
+      "negative": 1710,
+      "positive": 1711,
+      "zero": 60,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 58,
+      "negative": 1769,
+      "positive": 1770,
+      "zero": 61,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 59,
+      "negative": 1829,
+      "positive": 1830,
+      "zero": 62,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 60,
+      "negative": 1890,
+      "positive": 1891,
+      "zero": 63,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 61,
+      "negative": 1952,
+      "positive": 1953,
+      "zero": 64,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 62,
+      "negative": 2015,
+      "positive": 2016,
+      "zero": 65,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 63,
+      "negative": 2079,
+      "positive": 2080,
+      "zero": 66,
+      "matches_oriented_pattern": true
+    },
+    {
+      "r": 64,
+      "negative": 2144,
+      "positive": 2145,
+      "zero": 67,
+      "matches_oriented_pattern": true
+    }
+  ],
+  "arithmetic": "exact integers and Fraction, no floating-point sign comparisons",
+  "elapsed_seconds": 0.673
+}

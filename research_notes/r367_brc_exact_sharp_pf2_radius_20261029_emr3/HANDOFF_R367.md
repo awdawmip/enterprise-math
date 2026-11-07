@@ -1,0 +1,6 @@
+# R367 research handoff (author-side, local identity)
+Freeze: GLOBAL_KNOWLEDGE_V1 `main@17648bbc6d2ff598482d6aa02410e882ae7283d4`; Enterprise Math selected `main@4105dfc835284fb74468a1e121d0c1093ec47128`. P000 and ACTIVE worldview unchanged.
+Research identity: `R-EMR3-20261029-R367-LOCAL` (not native session/claim). Current Site scope is read-only; active owner query returned `CONTROL_QUOTA`. No native Result, Driver review or acceptance.
+Resume from R366 1/730 stability: R367 gives largest **real** common closed-ball PF2/not-PF∞ radius `epsilon_*=(sqrt(T)-1)/(sqrt(T)+1)`, exact witness (352,340). The j1 ULC guard is looser; T<U.
+Reproduce: obtain the 5584-row file `R365_Q345_352_FULL_COEFFICIENTS.txt` SHA256 `50bf1a56fabe89d4752ed71634cbb95d6c7c320d61b09aba1c501857650555a7` from attached R365/R366 exact research package; run `python R367_reproduce.py <file>`. Full R367 integer rational numerator/denominator, proof, two run logs and input are bundled in the newly attached R367 ZIP.
+Next uncompleted unit: construct legitimate signed K/J parameter to c_(r,j) sensitivity inequality and compare with epsilon_*; no unverified X6 transfer or full-r PF2 claim.

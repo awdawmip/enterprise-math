@@ -1,0 +1,51 @@
+{
+  "schema": "R363_SIGNED_BRC_AUTHOR_SIDE_V1",
+  "status": "AUTHOR_SIDE_EXACT_FINITE_UNREVIEWED_NOT_ADMITTED",
+  "global_knowledge_snapshot": "9e4f20918edc20e0c038133379525bd2470c37a4",
+  "em_normative_snapshot": "aab9bee8c8338a4d83f6ed20bc4098fd35da1a50",
+  "r348_author_source": "5347e506bd145028d7338e9f7993dcd2a2fed97c",
+  "r362_regression": {
+    "r": 342,
+    "n": 685,
+    "sha256": "aa4b0e6390085106420e442b79dd81ffca80f6f9e1106fb14de474e13acc2f74",
+    "match": true
+  },
+  "r363": {
+    "r": 343,
+    "b_last": 1034,
+    "coefficient_count": 687,
+    "positive": 687,
+    "strict_turan": 685,
+    "raw_D_minors_recomputed": 8,
+    "sha256": "019e7f8866384a1e5beed7ed05f69a77c784333932057106c3dd4a20dca90899",
+    "ulc_negative": 628,
+    "ulc_positive": 57,
+    "ulc_zero": 0,
+    "first_positive_j": 629,
+    "peak_j": 368
+  },
+  "ulc_scan": {
+    "range": [
+      337,
+      343
+    ],
+    "exact_checks": 4753,
+    "negative": 4358,
+    "positive": 395,
+    "zero": 0,
+    "single_sign_transition_every_r": true,
+    "table": "R363_ULC_TRANSITIONS.csv"
+  },
+  "general_theorem": {
+    "c_generic": "nonzero rational",
+    "formula": "D(r+u,u)=(4c)^u H_r(u),deg H_r<=r",
+    "complete_manual_proof": "R363_PROOF.zh-CN.md",
+    "test_examples": 84,
+    "support_violation": "K=2x+t*x^3,c=1/8,D00=1,D11=0"
+  },
+  "arithmetic": "Python exact integer / Fraction",
+  "scientific_scope": "signed auxiliary BRC combinatorial; no faithful native X6 transfer",
+  "owner": "native current owner unverified, CONTROL_QUOTA",
+  "native": "research_authority_granted=false; no session/claim/Result",
+  "driver": "not reviewed"
+}

@@ -1,0 +1,46 @@
+{
+  "schema": "R384_SIGNED_K3_GENERAL_TOP_SOURCE_EVIDENCE_V1",
+  "theta_domain": "theta>-1",
+  "all_coranks": "r>=1",
+  "conclusion": "Delta^(2r)Q_r(0)=Catalan(r)*(30-16*theta)^(2r)",
+  "H_top": "Delta^r H_r(0)=(6-16*theta/5)^r",
+  "finite_check": {
+    "points": [
+      "-1/2",
+      "0",
+      "1/2",
+      "901/1000",
+      "902/1000",
+      "1",
+      "15/8",
+      "2"
+    ],
+    "coranks": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      8,
+      12,
+      15,
+      16
+    ],
+    "equalities": 160,
+    "stdout": "R384_EXACT_PASS",
+    "degree_r16_theta15_8": {
+      "H": 8,
+      "Q": 16,
+      "negative_turan_indices": [
+        14,
+        15
+      ]
+    },
+    "local_exact_evidence_sha256": "72728f6c8ed65f017279d368011c7f4d96cd0ebff3703365deb726f7d8a85dbf"
+  },
+  "validation_scope": "original signed K/J raw D finite points; independent author-side proof supplies all-r quantifier",
+  "status": "AUTHOR_SIDE_PROOF / LOCAL_EXACT_FINITE_PASS / DRIVER_UNREVIEWED / NOT_ADMITTED",
+  "source_global_pin": "22914f0903be04abde0f1c8cca91f737a31df4a8",
+  "source_enterprise_pin": "ba18098a824b0306c55d6feb27415aaa801be71a"
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "R350_EXACT_BRC_NEWTON_Q331_SUMMARY_V1",
+  "date": "2026-10-28",
+  "status": "AUTHOR_SIDE_EXACT / UNREVIEWED / NOT_ADMITTED",
+  "parent_R348_extraction": "https://github.com/awdawmip/enterprise-math/pull/1599",
+  "parent_R349": "https://github.com/awdawmip/enterprise-math/pull/1592",
+  "source": "full signed 12-term BRC K/J from R346_verify.py",
+  "universal_new_theorems": [
+    "Delta^r H_r(0) = 6^r for all integer r >= 0, conditional on R348(A1-A5)",
+    "Delta^(2r) Q_r(0) = 30^(2r)*Catalan(r) for all integer r >=1, conditional on R348(A1-A5)"
+  ],
+  "low_t_signed_K_exact": [
+    "2x",
+    "3x-x^2",
+    "4x^2-8x^3"
+  ],
+  "E1": "z",
+  "finite": {
+    "B_indices": [
+      0,
+      998
+    ],
+    "t_degrees": [
+      0,
+      665
+    ],
+    "H_rows": [
+      329,
+      330,
+      331,
+      332
+    ],
+    "Q330_coeff_count": 661,
+    "Q330_sha256": "7c319fc417fce95229b11341427f7de5271da80627c885a7252ee58a362c3d56",
+    "Q331_coeff_count": 663,
+    "Q331_sha256": "65eb081346caaa5a373437169ec27bf419537cdd69af14601017e197c2283356",
+    "Q331_min_coeff_index": 0,
+    "Q331_nonpositive_count": 0,
+    "raw_D_minor_exact_matches": 6,
+    "arithmetic": "int+Fraction",
+    "runtime_seconds": 9.127
+  },
+  "actual_local_executed_script_sha256": "e5804306b8594dadc7cf6794b8400f1139c633da02a9c8888589dc5c62a6fb85",
+  "actual_local_full_evidence_sha256": "226a0be03cc5b3457bc472b091da83f90fab7e8d627dc0b85effc4c472f80d09",
+  "complete_coefficients_sha256": "65eb081346caaa5a373437169ec27bf419537cdd69af14601017e197c2283356",
+  "note": "The 663-decimal-row raw certificate is separately retained in the local research bundle; running the adjacent source regenerates it exactly. No independent math review or native X6 transfer."
+}

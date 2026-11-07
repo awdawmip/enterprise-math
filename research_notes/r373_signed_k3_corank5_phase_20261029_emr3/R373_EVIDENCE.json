@@ -1,0 +1,93 @@
+{
+  "schema": "EM_R373_SIGNED_K3_CORANK5_EXACT_PHASE_V1",
+  "date": "2026-10-29",
+  "research_status": "AUTHOR_SIDE_EXACT_UNREVIEWED_NOT_ADMITTED",
+  "signed_kernel_change": "K3[t2]=-8*(1+theta), theta>-1; all other signed K/J branches preserved",
+  "observations": 11,
+  "degree_sequence": [
+    5,
+    6,
+    8,
+    9,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+  ],
+  "exact_parameter_result": "PF2 iff -1<theta<=rho5 (all real theta>-1)",
+  "rho5_is_unique_zero_of_c0_in_open_rational_interval": [
+    "133/125",
+    "213/200"
+  ],
+  "rho5_decimal_display": "1.06465005666900518629858864219",
+  "c0_descending_coefficients": [
+    "-20971520000000",
+    "234291200000000",
+    "-3015884800000000",
+    "14308556800000000",
+    "-25150360960000000",
+    "13924994720000000"
+  ],
+  "rational_Bernstein_polynomial_checks": 26,
+  "exact_positive_Bernstein_coefficients": 332,
+  "ranges": {
+    "positive_c1_through_c10": "[-1,213/200]",
+    "positive_all_nine_Turan_defects": "[-1,213/200]",
+    "positive_c0": "[-1,133/125]",
+    "strictly_negative_derivative_c0": "[133/125,213/200]",
+    "negative_c0": "[213/200,211/100] and [3,infinity)",
+    "negative_c2": "[211/100,9/4], [9/4,5/2], [5/2,11/4], [11/4,3]"
+  },
+  "shifted_negative_c0_at_theta_3_coefficients_ascending": [
+    "296458720000000",
+    "3917925760000000",
+    "5844992000000000",
+    "2091827200000000",
+    "80281600000000",
+    "20971520000000"
+  ],
+  "top_coefficient_identity": "c10(theta)=42*(30-16theta)^10",
+  "theta_15_8": {
+    "exact_zero_multiplicity_index_6_through_10": [
+      2,
+      4,
+      6,
+      8,
+      10
+    ],
+    "c0_to_c5_nonzero": true,
+    "finite_polynomial_degree_drops_to": 5
+  },
+  "baseline_coefficients_at_theta0": [
+    "13924994720000000",
+    "172350537888000000",
+    "811832512659200000",
+    "2242552262726400000",
+    "4073980554547200000",
+    "5086726528032000000",
+    "4416217906320000000",
+    "2630365844400000000",
+    "1028140192800000000",
+    "238085568000000000",
+    "24800580000000000"
+  ],
+  "verified_author_local_scripts": {
+    "R373_reproduce.py": "R373_EXACT_PASS: 26 Bernstein groups, 332 positive coefficients; symbolic 11 observations",
+    "R373_independent.py": "R373_INDEPENDENT_RAW_D_CROSSCHECK_11_OF_11_PASS"
+  },
+  "remote_script_note": "Publication provides a mathematically equivalent reduced checker constructed from current R372 source with 11 raw-D symbols and same 26 certificates. Exact Git Blob identity with author's local 6635-byte script is not asserted.",
+  "dependency_paths": [
+    "research_notes/r346_unbounded_interior_tp2_corank301_20261028_emr3/R346_verify.py",
+    "research_notes/r369_signed_k3_branch_top_catalan_20261029_emr3/R369_check.py"
+  ],
+  "read_snapshots": {
+    "global": "75c30a747792c0e33c7116eb01db2f77d00868da",
+    "em": "4dab5fcd7d61f67f721f21b2f6251b4eede4750c"
+  },
+  "proof_scope": "finite 11 raw-D observations only; not full Q extraction, not X6 native",
+  "verified_native_math_admission": false,
+  "next": "r6 13-observation exact Bernstein/Turan phase, test common PF2 interval; independent R363 audit"
+}
