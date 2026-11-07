@@ -1,0 +1,90 @@
+{
+  "schema": "ENTERPRISE_MATH_R330_EVIDENCE_V1",
+  "research_activity_id": "RA-EMR3-20261027-R330-DIAG17-1320",
+  "scope": "ordered-six-edge positive-weight BRC auxiliary combinatorial model, signed out-of-triangle tails preserved",
+  "source_commit": "d00a6699e12ba3e1bcdc58abbb674636546d98e9",
+  "symbolic": {
+    "status": "PASS",
+    "command": "python r330_symbolic.py --max-r 17 --json R330_SYMBOLIC_EVIDENCE.json",
+    "arithmetic": "SymPy exact rational polynomial",
+    "r_checked": [
+      0,
+      17
+    ],
+    "positivity_all_eighteen_bands": true,
+    "new_r": 17,
+    "new_r_shift_coefficients_high_to_low": [
+      "708588/14889875",
+      "43223868/4379375",
+      "4248693648/4379375",
+      "1312849906416/21896875",
+      "740546735976/284375",
+      "506091538771416/6015625",
+      "439197186107589264/210546875",
+      "772754361532584048/19140625",
+      "58798293949371226356/95703125",
+      "703568605528640408724/95703125",
+      "10338046943092048870848/150390625",
+      "74622987076313261544352/150390625",
+      "37138356673267634892326592/13685546875",
+      "449505239349628237468085824/41056640625",
+      "117054858814186052573595136/3732421875",
+      "2467671435217897151001304064/41056640625",
+      "1376890107984269416474894336/19941796875",
+      "35906428885008384"
+    ],
+    "coefficient_count": 18,
+    "boundary_D_17_0": "35906428885008384",
+    "original_full_symbolic_json_sha256": "71caa962faa207dcbc6728a5d371efd4b3e3e5e6b87cec559c6d80f778979d70",
+    "executed_script_sha256": "803464c231d25dda241d7aa0b64e76e5536263c91ccff8b4bc6e1579ce3dcfe9"
+  },
+  "independent_integer": {
+    "status": "PASS",
+    "command": "python r330_independent_integer.py --q 64 --symbolic R330_SYMBOLIC_EVIDENCE.json --json R330_INTEGER_EVIDENCE.json",
+    "max_q": 64,
+    "max_s": 128,
+    "triangle_positive": 8385,
+    "newton_difference_positive": 2145,
+    "new_diagonal_exact_matches": 48,
+    "signed_outside_triangle_negative_coefficients": 3532,
+    "newton_values_sha256": "55aa9f97481255ce46987e6a99abddf16b4fc1d2cee789d48dd52a986cb311bf",
+    "samples": [
+      [
+        "17",
+        "0",
+        "35906428885008384"
+      ],
+      [
+        "18",
+        "1",
+        "1053263165584048128"
+      ],
+      [
+        "19",
+        "2",
+        "24252934861588922368"
+      ],
+      [
+        "24",
+        "7",
+        "22286710760766366366695424"
+      ],
+      [
+        "32",
+        "15",
+        "3727568731470586974885990400000000"
+      ],
+      [
+        "64",
+        "47",
+        "46992733106962058905979192931652069091796875000000000000000000"
+      ]
+    ],
+    "original_full_integer_json_sha256": "3f0a9940dcf26eaddb09d4b431139254ea102042ed5abc545f45d2dd7d6841dc",
+    "executed_script_sha256": "afa2cfd351f92e9c74393f194b906c83d115e9b9add2ab616bf3303367b5e6d3",
+    "arithmetic": "Python arbitrary precision integers and Fraction, no floating sign tests"
+  },
+  "inference": "Unbounded r=17 positivity from exact rational-function coefficient identity plus all-positive 18-term polynomial; finite q<=64 is an independent consistency check, not extrapolation.",
+  "native_authority": "CONTROL_QUOTA; STATIC_READONLY_SCOPE_DENIED; operation_sent=false; owner and Driver review pending",
+  "evidence_status": "AUTHOR_SIDE_COMPUTATION_NOT_CANONICALLY_ADMITTED"
+}
