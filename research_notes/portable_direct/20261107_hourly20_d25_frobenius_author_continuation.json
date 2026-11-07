@@ -1,0 +1,55 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-07",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE",
+  "logical_conversation_id": "chatgpt-research-hourly-enterprise-math-20260923",
+  "excluded_maintenance_id": "chatgpt-hourly-enterprise-math-20260921",
+  "service_execution_session": "UNVERIFIED_PRESERVE",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_science_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_target": "Delta_p-R_p≡0 (mod p), p≡13,19(mod24); existing frozen bridge W_p≡p (mod p^3); remains OPEN",
+  "highest_author_side_frontier": [
+    "research_notes/portable_direct/20261107_hourly20_d25_aggregate_carry_precision_ladder.md",
+    "research_notes/portable_direct/20261107_hourly20_d25_frobenius_carry_factorization.md"
+  ],
+  "units_completed_this_run": [
+    "Proof: aggregated Cauchy carry for Gauss 216 class begins exactly at p^2 with noncancelling highest coefficient; similarly 2304 p≡19(mod24)",
+    "Proof: 2304 p≡13(mod24) has distinct support-degree ladder mod p,p^2,p^3 and universal cross-source digit 5 mod p, with rank-one identity",
+    "Proof: for ALL p≡5(mod8), Gauss polynomial G(z)=(1-z)^((p+1)/2) H(z), and its Clausen product G²=(1-z^p)Q with Q=(1-z)H²; EXACT aggregate carry C_G=-z^p Q modp",
+    "Finite computational evidence: 12/12 primes p≡13(mod24), p<500 satisfy H(1/9)=0 (therefore C_G and its derivative vanish), while 12/12 primes p≡5(mod24), p<500 have H(1/9) nonzero; NOT a universal theorem",
+    "Proof: no one-way rational scalar pullback of complete second-order Gauss equations for the two parameter pairs",
+    "Exact scripts executed 23/23 target primes for p-adic ladder and 24/24 primes p≡5(mod8) for Frobenius factorization"
+  ],
+  "evidence_status": "AUTHOR_SIDE_PROVED_EXACT_CHECKED_UNREVIEWED_NOT_ADMITTED",
+  "new_files": [
+    "research_notes/portable_direct/d25_aggregate_carry_tail_20261107.py",
+    "research_notes/portable_direct/d25_gauss_clausen_frobenius_factor_20261107.py"
+  ],
+  "open_unit": "Prove or find counterexample to universal CM residue-class H_p(1/9)=0 for all p≡13(mod24); then construct actual weighted projected 216/2304 two-leg Heun or finite WZ relation",
+  "next_exact_action": "Read existing CM hypergeometric/finite-field transformation relevant to H_p(z), prove a 1/9 zero or produce smallest exact prime counterexample, then derive weighted finite-index Frobenius-carry correction; distinguish p=13,19,37,43,109,373",
+  "do_not_repeat": [
+    "accepted CM0/UR and R_p restoration",
+    "previous individual-port minimum, onhour fixed-band route",
+    "prior full W/S 301-prime scan",
+    "native p=373 benchmark"
+  ],
+  "protected_native_status": {
+    "status": "BACKEND_IDENTITY_OR_VERSION_MISMATCH",
+    "operation_sent": false,
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "original_request_ids": [
+      "em-h20-20261106-1324-d25-task-r13",
+      "em-h20-20261106-1324-d25-cont-r13"
+    ],
+    "session_claim_run_and_staging": "UNKNOWN_PRESERVE",
+    "native_checkpoint": false,
+    "activity_registration": "REGISTER_PENDING",
+    "sync_debt": true,
+    "controller_support": "awdawmip/enterprise-math#1558"
+  },
+  "promotion": "NOT_ADMITTED",
+  "freeze": false,
+  "driver_review": false
+}
