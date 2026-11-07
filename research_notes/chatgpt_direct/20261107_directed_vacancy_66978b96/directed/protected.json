@@ -1,0 +1,193 @@
+{
+  "mode": "protected",
+  "rows": [
+    {
+      "phase": 0,
+      "body_operations": [
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ]
+      ],
+      "body_commands": 429,
+      "wrapper_commands": 31,
+      "protected_invocation_commands": 460,
+      "vacancy_bit_reads": 11,
+      "business_key_bit_reads": 12,
+      "control_events": {
+        "witness_checks": 5,
+        "witness_hits": 0,
+        "target_searches": 5,
+        "query_node_visits": 20,
+        "candidate_count_queries": 30,
+        "selected_branches": 15,
+        "initial_labels": 6,
+        "initial_node_cells": 15,
+        "query_label_moves": 11,
+        "query_count_updates": 11,
+        "business_path_touches": 31,
+        "business_label_completions": 0,
+        "bucket_removals": 15,
+        "bucket_insertions": 21,
+        "slot_detaches": 4,
+        "slot_attaches": 4,
+        "retired_labels": 4,
+        "known_labels_introduced": 4
+      },
+      "contender_boundary_attempts": 430,
+      "refused_contender_commands": 4730,
+      "next_admitted_bind_commands": 73,
+      "members": 367,
+      "candidates": 1914,
+      "additional_members": 0,
+      "additional_candidates": 0
+    },
+    {
+      "phase": 1,
+      "body_operations": [
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ]
+      ],
+      "body_commands": 429,
+      "wrapper_commands": 31,
+      "protected_invocation_commands": 460,
+      "vacancy_bit_reads": 11,
+      "business_key_bit_reads": 12,
+      "control_events": {
+        "witness_checks": 5,
+        "witness_hits": 0,
+        "target_searches": 5,
+        "query_node_visits": 20,
+        "candidate_count_queries": 30,
+        "selected_branches": 15,
+        "initial_labels": 6,
+        "initial_node_cells": 15,
+        "query_label_moves": 11,
+        "query_count_updates": 11,
+        "business_path_touches": 31,
+        "business_label_completions": 0,
+        "bucket_removals": 15,
+        "bucket_insertions": 21,
+        "slot_detaches": 4,
+        "slot_attaches": 4,
+        "retired_labels": 4,
+        "known_labels_introduced": 4
+      },
+      "contender_boundary_attempts": 430,
+      "refused_contender_commands": 4730,
+      "next_admitted_bind_commands": 73,
+      "members": 367,
+      "candidates": 1914,
+      "additional_members": 0,
+      "additional_candidates": 0
+    }
+  ],
+  "assertions": 2744,
+  "coverage": "Two gate phases, a separate complete contender bind attempt at every body boundary, then actual handoff"
+}

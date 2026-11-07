@@ -1,0 +1,704 @@
+{
+  "status": "AUTHOR_IMPLEMENTATION_ORIGINAL_BRC_EXECUTED",
+  "runtime": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "source_script": "directed/check_directed_vacancy.py",
+  "dependencies": [
+    "incremental/check_incremental_vacancy.py",
+    "parent_bundle/"
+  ],
+  "previous_source_commit": "fda5f43aca54cc1f3c56b3628ce972c2266589f2",
+  "prior_files_modified": false,
+  "aggregate_wall_seconds": null,
+  "wall_time_note": "No aggregate wall-clock timing measured; tool wait durations are not execution totals",
+  "costs": [
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 6,
+      "rounds": 1,
+      "previous_commands": 194,
+      "directed_commands": 162,
+      "previous_added_reads": 14,
+      "directed_added_reads": 10,
+      "previous_search_bit_inputs": 14,
+      "business_key_bit_reads_previous": 3,
+      "business_key_bit_reads_directed": 3,
+      "directed_control": {
+        "witness_checks": 1,
+        "witness_hits": 0,
+        "target_searches": 1,
+        "query_node_visits": 4,
+        "candidate_count_queries": 6,
+        "selected_branches": 3,
+        "initial_labels": 6,
+        "initial_node_cells": 15,
+        "query_label_moves": 10,
+        "query_count_updates": 10,
+        "business_path_touches": 7,
+        "business_label_completions": 0,
+        "bucket_removals": 11,
+        "bucket_insertions": 17,
+        "slot_detaches": 1,
+        "slot_attaches": 1,
+        "retired_labels": 1,
+        "known_labels_introduced": 1
+      }
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 6,
+      "rounds": 2,
+      "previous_commands": 280,
+      "directed_commands": 248,
+      "previous_added_reads": 15,
+      "directed_added_reads": 11,
+      "previous_search_bit_inputs": 28,
+      "business_key_bit_reads_previous": 6,
+      "business_key_bit_reads_directed": 6,
+      "directed_control": {
+        "witness_checks": 2,
+        "witness_hits": 0,
+        "target_searches": 2,
+        "query_node_visits": 8,
+        "candidate_count_queries": 12,
+        "selected_branches": 6,
+        "initial_labels": 6,
+        "initial_node_cells": 15,
+        "query_label_moves": 11,
+        "query_count_updates": 11,
+        "business_path_touches": 15,
+        "business_label_completions": 0,
+        "bucket_removals": 13,
+        "bucket_insertions": 19,
+        "slot_detaches": 2,
+        "slot_attaches": 2,
+        "retired_labels": 2,
+        "known_labels_introduced": 2
+      }
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 6,
+      "rounds": 8,
+      "previous_commands": 748,
+      "directed_commands": 716,
+      "previous_added_reads": 15,
+      "directed_added_reads": 11,
+      "previous_search_bit_inputs": 112,
+      "business_key_bit_reads_previous": 24,
+      "business_key_bit_reads_directed": 24,
+      "directed_control": {
+        "witness_checks": 8,
+        "witness_hits": 0,
+        "target_searches": 8,
+        "query_node_visits": 32,
+        "candidate_count_queries": 48,
+        "selected_branches": 24,
+        "initial_labels": 6,
+        "initial_node_cells": 15,
+        "query_label_moves": 11,
+        "query_count_updates": 11,
+        "business_path_touches": 63,
+        "business_label_completions": 0,
+        "bucket_removals": 19,
+        "bucket_insertions": 25,
+        "slot_detaches": 8,
+        "slot_attaches": 8,
+        "retired_labels": 8,
+        "known_labels_introduced": 8
+      }
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 6,
+      "rounds": 32,
+      "previous_commands": 2620,
+      "directed_commands": 2588,
+      "previous_added_reads": 15,
+      "directed_added_reads": 11,
+      "previous_search_bit_inputs": 448,
+      "business_key_bit_reads_previous": 96,
+      "business_key_bit_reads_directed": 96,
+      "directed_control": {
+        "witness_checks": 32,
+        "witness_hits": 0,
+        "target_searches": 32,
+        "query_node_visits": 128,
+        "candidate_count_queries": 192,
+        "selected_branches": 96,
+        "initial_labels": 6,
+        "initial_node_cells": 15,
+        "query_label_moves": 11,
+        "query_count_updates": 11,
+        "business_path_touches": 255,
+        "business_label_completions": 0,
+        "bucket_removals": 43,
+        "bucket_insertions": 49,
+        "slot_detaches": 32,
+        "slot_attaches": 32,
+        "retired_labels": 32,
+        "known_labels_introduced": 32
+      }
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 7,
+      "rounds": 1,
+      "previous_commands": 166,
+      "directed_commands": 166,
+      "previous_added_reads": 11,
+      "directed_added_reads": 11,
+      "previous_search_bit_inputs": 11,
+      "business_key_bit_reads_previous": 3,
+      "business_key_bit_reads_directed": 3,
+      "directed_control": {
+        "witness_checks": 1,
+        "witness_hits": 0,
+        "target_searches": 1,
+        "query_node_visits": 4,
+        "candidate_count_queries": 6,
+        "selected_branches": 3,
+        "initial_labels": 7,
+        "initial_node_cells": 15,
+        "query_label_moves": 11,
+        "query_count_updates": 11,
+        "business_path_touches": 6,
+        "business_label_completions": 0,
+        "bucket_removals": 12,
+        "bucket_insertions": 19,
+        "slot_detaches": 1,
+        "slot_attaches": 1,
+        "retired_labels": 1,
+        "known_labels_introduced": 1
+      }
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 7,
+      "rounds": 2,
+      "previous_commands": 276,
+      "directed_commands": 276,
+      "previous_added_reads": 15,
+      "directed_added_reads": 15,
+      "previous_search_bit_inputs": 22,
+      "business_key_bit_reads_previous": 6,
+      "business_key_bit_reads_directed": 6,
+      "directed_control": {
+        "witness_checks": 2,
+        "witness_hits": 0,
+        "target_searches": 2,
+        "query_node_visits": 8,
+        "candidate_count_queries": 12,
+        "selected_branches": 6,
+        "initial_labels": 7,
+        "initial_node_cells": 15,
+        "query_label_moves": 15,
+        "query_count_updates": 15,
+        "business_path_touches": 14,
+        "business_label_completions": 0,
+        "bucket_removals": 17,
+        "bucket_insertions": 24,
+        "slot_detaches": 2,
+        "slot_attaches": 2,
+        "retired_labels": 2,
+        "known_labels_introduced": 2
+      }
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 7,
+      "rounds": 8,
+      "previous_commands": 744,
+      "directed_commands": 744,
+      "previous_added_reads": 15,
+      "directed_added_reads": 15,
+      "previous_search_bit_inputs": 88,
+      "business_key_bit_reads_previous": 24,
+      "business_key_bit_reads_directed": 24,
+      "directed_control": {
+        "witness_checks": 8,
+        "witness_hits": 0,
+        "target_searches": 8,
+        "query_node_visits": 32,
+        "candidate_count_queries": 48,
+        "selected_branches": 24,
+        "initial_labels": 7,
+        "initial_node_cells": 15,
+        "query_label_moves": 15,
+        "query_count_updates": 15,
+        "business_path_touches": 62,
+        "business_label_completions": 0,
+        "bucket_removals": 23,
+        "bucket_insertions": 30,
+        "slot_detaches": 8,
+        "slot_attaches": 8,
+        "retired_labels": 8,
+        "known_labels_introduced": 8
+      }
+    },
+    {
+      "scenario": "overwrite_one_slot",
+      "slots": 7,
+      "rounds": 32,
+      "previous_commands": 2616,
+      "directed_commands": 2616,
+      "previous_added_reads": 15,
+      "directed_added_reads": 15,
+      "previous_search_bit_inputs": 352,
+      "business_key_bit_reads_previous": 96,
+      "business_key_bit_reads_directed": 96,
+      "directed_control": {
+        "witness_checks": 32,
+        "witness_hits": 0,
+        "target_searches": 32,
+        "query_node_visits": 128,
+        "candidate_count_queries": 192,
+        "selected_branches": 96,
+        "initial_labels": 7,
+        "initial_node_cells": 15,
+        "query_label_moves": 15,
+        "query_count_updates": 15,
+        "business_path_touches": 254,
+        "business_label_completions": 0,
+        "bucket_removals": 47,
+        "bucket_insertions": 54,
+        "slot_detaches": 32,
+        "slot_attaches": 32,
+        "retired_labels": 32,
+        "known_labels_introduced": 32
+      }
+    },
+    {
+      "scenario": "two_coexisting_targets_with_copy",
+      "slots": 6,
+      "rounds": 12,
+      "previous_commands": 2860,
+      "directed_commands": 2831,
+      "previous_added_reads": 16,
+      "directed_added_reads": 14,
+      "previous_search_bit_inputs": 93,
+      "business_key_bit_reads_previous": 132,
+      "business_key_bit_reads_directed": 132,
+      "directed_control": {
+        "witness_checks": 24,
+        "witness_hits": 10,
+        "target_searches": 14,
+        "query_node_visits": 53,
+        "candidate_count_queries": 78,
+        "selected_branches": 39,
+        "initial_labels": 6,
+        "initial_node_cells": 15,
+        "query_label_moves": 14,
+        "query_count_updates": 14,
+        "business_path_touches": 192,
+        "business_label_completions": 0,
+        "bucket_removals": 39,
+        "bucket_insertions": 44,
+        "slot_detaches": 36,
+        "slot_attaches": 36,
+        "retired_labels": 25,
+        "known_labels_introduced": 24
+      }
+    },
+    {
+      "scenario": "eight_disjoint_targets",
+      "slots": 6,
+      "rounds": 3,
+      "previous_commands": 1994,
+      "directed_commands": 1994,
+      "previous_added_reads": 16,
+      "directed_added_reads": 16,
+      "previous_search_bit_inputs": 168,
+      "business_key_bit_reads_previous": 72,
+      "business_key_bit_reads_directed": 72,
+      "directed_control": {
+        "witness_checks": 24,
+        "witness_hits": 0,
+        "target_searches": 24,
+        "query_node_visits": 96,
+        "candidate_count_queries": 144,
+        "selected_branches": 72,
+        "initial_labels": 6,
+        "initial_node_cells": 15,
+        "query_label_moves": 16,
+        "query_count_updates": 16,
+        "business_path_touches": 190,
+        "business_label_completions": 0,
+        "bucket_removals": 40,
+        "bucket_insertions": 46,
+        "slot_detaches": 24,
+        "slot_attaches": 24,
+        "retired_labels": 24,
+        "known_labels_introduced": 24
+      }
+    }
+  ],
+  "pure_creates": [
+    {
+      "slots": 6,
+      "targets": 3,
+      "preparation": "empty",
+      "previous_commands": 99,
+      "directed_commands": 99,
+      "previous_added_reads": 6,
+      "directed_added_reads": 6
+    },
+    {
+      "slots": 6,
+      "targets": 3,
+      "preparation": "first_r_keys",
+      "previous_commands": 167,
+      "directed_commands": 135,
+      "previous_added_reads": 14,
+      "directed_added_reads": 10
+    },
+    {
+      "slots": 6,
+      "targets": 8,
+      "preparation": "empty",
+      "previous_commands": 233,
+      "directed_commands": 232,
+      "previous_added_reads": 6,
+      "directed_added_reads": 6
+    },
+    {
+      "slots": 6,
+      "targets": 8,
+      "preparation": "first_r_keys",
+      "previous_commands": 307,
+      "directed_commands": 291,
+      "previous_added_reads": 14,
+      "directed_added_reads": 14
+    },
+    {
+      "slots": 7,
+      "targets": 3,
+      "preparation": "empty",
+      "previous_commands": 107,
+      "directed_commands": 107,
+      "previous_added_reads": 7,
+      "directed_added_reads": 7
+    },
+    {
+      "slots": 7,
+      "targets": 3,
+      "preparation": "first_r_keys",
+      "previous_commands": 135,
+      "directed_commands": 135,
+      "previous_added_reads": 11,
+      "directed_added_reads": 11
+    },
+    {
+      "slots": 7,
+      "targets": 8,
+      "preparation": "empty",
+      "previous_commands": 248,
+      "directed_commands": 248,
+      "previous_added_reads": 7,
+      "directed_added_reads": 7
+    },
+    {
+      "slots": 7,
+      "targets": 8,
+      "preparation": "first_r_keys",
+      "previous_commands": 269,
+      "directed_commands": 269,
+      "previous_added_reads": 11,
+      "directed_added_reads": 11
+    }
+  ],
+  "inventories": [
+    {
+      "slots": 6,
+      "targets": 3,
+      "members": 330,
+      "candidates": 1886,
+      "additional_members": 0,
+      "additional_candidates": 0
+    },
+    {
+      "slots": 7,
+      "targets": 3,
+      "members": 393,
+      "candidates": 2627,
+      "additional_members": 0,
+      "additional_candidates": 0
+    },
+    {
+      "slots": 6,
+      "targets": 8,
+      "members": 720,
+      "candidates": 5130,
+      "additional_members": 0,
+      "additional_candidates": 0
+    },
+    {
+      "slots": 7,
+      "targets": 8,
+      "members": 906,
+      "candidates": 7270,
+      "additional_members": 0,
+      "additional_candidates": 0
+    }
+  ],
+  "audits": {
+    "original_kernel_batches": 7908,
+    "business_operations": 45471,
+    "single_slot_preparations": 77,
+    "two_slot_preparations": 1900,
+    "specified_sequences_per_preparation": 4,
+    "tests_each_operation": [
+      "whole_matching",
+      "exact_label_aliases",
+      "slot_cycles",
+      "prefix_buckets",
+      "all_subtree_counts",
+      "safe_witness",
+      "no_repeated_initial_bit_query",
+      "cumulative_rb_bound"
+    ]
+  },
+  "regressions": {
+    "cases": [
+      "old_request_stays_stale",
+      "copy_then_overwrite_representative",
+      "copy_within_same_alias_cycle",
+      "empty_bind_ignores_stale_shared_key",
+      "source_conflicts",
+      "business_feedback_completes_label",
+      "all_cached_no_read_search",
+      "prior_physical_register_preparation"
+    ],
+    "protected_source_primitive_prefixes": 344,
+    "zero_added_read_searches": 3
+  },
+  "omissions": {
+    "mode": "omissions",
+    "repeats": 2,
+    "omission_budget": 1,
+    "raw_attempts": 238,
+    "omission_positions": 238,
+    "CWM": {
+      "C": 238,
+      "W": "238",
+      "M": "1"
+    },
+    "assertions": 24138,
+    "scope": "Every one omitted primitive attempt on this specified sequential mixed invocation"
+  },
+  "protection": {
+    "mode": "protected",
+    "rows": [
+      {
+        "phase": 0,
+        "body_operations": [
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ]
+        ],
+        "body_commands": 429,
+        "wrapper_commands": 31,
+        "protected_invocation_commands": 460,
+        "vacancy_bit_reads": 11,
+        "business_key_bit_reads": 12,
+        "control_events": {
+          "witness_checks": 5,
+          "witness_hits": 0,
+          "target_searches": 5,
+          "query_node_visits": 20,
+          "candidate_count_queries": 30,
+          "selected_branches": 15,
+          "initial_labels": 6,
+          "initial_node_cells": 15,
+          "query_label_moves": 11,
+          "query_count_updates": 11,
+          "business_path_touches": 31,
+          "business_label_completions": 0,
+          "bucket_removals": 15,
+          "bucket_insertions": 21,
+          "slot_detaches": 4,
+          "slot_attaches": 4,
+          "retired_labels": 4,
+          "known_labels_introduced": 4
+        },
+        "contender_boundary_attempts": 430,
+        "refused_contender_commands": 4730,
+        "next_admitted_bind_commands": 73,
+        "members": 367,
+        "candidates": 1914,
+        "additional_members": 0,
+        "additional_candidates": 0
+      },
+      {
+        "phase": 1,
+        "body_operations": [
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0,
+            0
+          ],
+          [
+            "release",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ]
+        ],
+        "body_commands": 429,
+        "wrapper_commands": 31,
+        "protected_invocation_commands": 460,
+        "vacancy_bit_reads": 11,
+        "business_key_bit_reads": 12,
+        "control_events": {
+          "witness_checks": 5,
+          "witness_hits": 0,
+          "target_searches": 5,
+          "query_node_visits": 20,
+          "candidate_count_queries": 30,
+          "selected_branches": 15,
+          "initial_labels": 6,
+          "initial_node_cells": 15,
+          "query_label_moves": 11,
+          "query_count_updates": 11,
+          "business_path_touches": 31,
+          "business_label_completions": 0,
+          "bucket_removals": 15,
+          "bucket_insertions": 21,
+          "slot_detaches": 4,
+          "slot_attaches": 4,
+          "retired_labels": 4,
+          "known_labels_introduced": 4
+        },
+        "contender_boundary_attempts": 430,
+        "refused_contender_commands": 4730,
+        "next_admitted_bind_commands": 73,
+        "members": 367,
+        "candidates": 1914,
+        "additional_members": 0,
+        "additional_candidates": 0
+      }
+    ],
+    "assertions": 2744,
+    "coverage": "Two gate phases, a separate complete contender bind attempt at every body boundary, then actual handoff"
+  },
+  "control_storage": {
+    "decision_bits": "O(r log(r+1))",
+    "fixed_prefix_nodes": "2B-1, B=2^ceil(log2(r+1))",
+    "measurement_counter_bits": "O(log N) per fixed number of accumulated counters",
+    "logs_and_command_outputs": "Separate output/evidence material",
+    "production_metrics_scan_full_slots_or_tree": false
+  },
+  "method_notes": [
+    "Old search bit inputs are real plus cached input consumption; new typed control counters are not interchangeable CPU instruction units",
+    "Target start reduced modulo B before per-level capacity arithmetic",
+    "Single witness reuse is safe only because every observed binding updates it",
+    "Subtree count excludes unresolved ancestor buckets; search clears every ancestor bucket on its own descent",
+    "Original words and physical Boolean output remain authoritative"
+  ],
+  "result_files": [
+    "costs.json",
+    "pure_batch_comparison.json",
+    "regressions.json",
+    "audit_r1.json",
+    "audit_r2.json",
+    "omissions.json",
+    "protected.json"
+  ]
+}

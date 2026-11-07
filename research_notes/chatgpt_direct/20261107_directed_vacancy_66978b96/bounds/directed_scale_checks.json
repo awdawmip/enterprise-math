@@ -1,0 +1,2806 @@
+{
+  "status": "PASS",
+  "physical_BRC_execution": false,
+  "scope": "Control callbacks and exact bookkeeping; stated initial requests; same selected full keys",
+  "production_tree_source": "directed/check_directed_vacancy.py:PrefixTree",
+  "baseline_search_source": "parent_bundle/check_batch_vacancy.py:start_search/accept_bit",
+  "accounting": "Separate event counts, not a combined time or primitive-command score; test invariant scans excluded",
+  "rows": [
+    {
+      "slots": 14,
+      "rounds": 32,
+      "pattern": "reserve target0; bind slot0; release source",
+      "preparation": "retained_keys_1_to_r",
+      "old": {
+        "strategy": "retained_prefixes_with_rebuilt_quota_search",
+        "initial_labels": 14,
+        "cumulative_additional_reads": 40,
+        "cached_bit_replays": 1112,
+        "partition_label_events": 1152,
+        "certificate_color_tests": 721,
+        "certificates": 32,
+        "known_slot_writes": 32,
+        "callback_business_low_bits": 128,
+        "entries": [
+          {
+            "round": 1,
+            "selected_key": 15,
+            "additional_reads": 36,
+            "cached_bit_replays": 0
+          },
+          {
+            "round": 2,
+            "selected_key": 1,
+            "additional_reads": 4,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 3,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 4,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 5,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 6,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 7,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 8,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 9,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 10,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 11,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 12,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 13,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 14,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 15,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 16,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 17,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 18,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 19,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 20,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 21,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 22,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 23,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 24,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 25,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 26,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 27,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 28,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 29,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 30,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 31,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          },
+          {
+            "round": 32,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 36
+          }
+        ]
+      },
+      "directed": {
+        "strategy": "actual_PrefixTree_with_test_observation_callbacks",
+        "cumulative_additional_reads": 29,
+        "cached_bit_replays": 0,
+        "query_node_visits": 160,
+        "candidate_count_queries": 256,
+        "selected_branches": 128,
+        "tree_events": {
+          "initial_labels": 14,
+          "initial_node_cells": 31,
+          "query_label_moves": 29,
+          "query_count_updates": 29,
+          "business_path_touches": 318,
+          "business_label_completions": 0,
+          "bucket_removals": 61,
+          "bucket_insertions": 75,
+          "slot_detaches": 32,
+          "slot_attaches": 32,
+          "retired_labels": 32,
+          "known_labels_introduced": 32
+        },
+        "final_tree_metrics": {
+          "live_labels": 14,
+          "known_low_bits": 31,
+          "allocated_prefix_nodes": 31,
+          "label_pointers": 14
+        },
+        "callback_business_low_bits": 128,
+        "entries": [
+          {
+            "round": 1,
+            "selected_key": 15,
+            "additional_reads": 25,
+            "query_node_visits": 5,
+            "business_path_touches": 8
+          },
+          {
+            "round": 2,
+            "selected_key": 1,
+            "additional_reads": 4,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 3,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 4,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 5,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 6,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 7,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 8,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 9,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 10,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 11,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 12,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 13,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 14,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 15,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 16,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 17,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 18,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 19,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 20,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 21,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 22,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 23,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 24,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 25,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 26,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 27,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 28,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 29,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 30,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 31,
+            "selected_key": 15,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          },
+          {
+            "round": 32,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 5,
+            "business_path_touches": 10
+          }
+        ]
+      }
+    },
+    {
+      "slots": 30,
+      "rounds": 32,
+      "pattern": "reserve target0; bind slot0; release source",
+      "preparation": "retained_keys_1_to_r",
+      "old": {
+        "strategy": "retained_prefixes_with_rebuilt_quota_search",
+        "initial_labels": 30,
+        "cumulative_additional_reads": 93,
+        "cached_bit_replays": 2531,
+        "partition_label_events": 2624,
+        "certificate_color_tests": 1473,
+        "certificates": 32,
+        "known_slot_writes": 32,
+        "callback_business_low_bits": 160,
+        "entries": [
+          {
+            "round": 1,
+            "selected_key": 31,
+            "additional_reads": 82,
+            "cached_bit_replays": 0
+          },
+          {
+            "round": 2,
+            "selected_key": 1,
+            "additional_reads": 11,
+            "cached_bit_replays": 71
+          },
+          {
+            "round": 3,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 4,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 5,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 6,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 7,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 8,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 9,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 10,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 11,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 12,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 13,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 14,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 15,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 16,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 17,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 18,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 19,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 20,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 21,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 22,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 23,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 24,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 25,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 26,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 27,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 28,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 29,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 30,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 31,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          },
+          {
+            "round": 32,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 82
+          }
+        ]
+      },
+      "directed": {
+        "strategy": "actual_PrefixTree_with_test_observation_callbacks",
+        "cumulative_additional_reads": 67,
+        "cached_bit_replays": 0,
+        "query_node_visits": 192,
+        "candidate_count_queries": 320,
+        "selected_branches": 160,
+        "tree_events": {
+          "initial_labels": 30,
+          "initial_node_cells": 63,
+          "query_label_moves": 67,
+          "query_count_updates": 67,
+          "business_path_touches": 381,
+          "business_label_completions": 0,
+          "bucket_removals": 99,
+          "bucket_insertions": 129,
+          "slot_detaches": 32,
+          "slot_attaches": 32,
+          "retired_labels": 32,
+          "known_labels_introduced": 32
+        },
+        "final_tree_metrics": {
+          "live_labels": 30,
+          "known_low_bits": 70,
+          "allocated_prefix_nodes": 63,
+          "label_pointers": 30
+        },
+        "callback_business_low_bits": 160,
+        "entries": [
+          {
+            "round": 1,
+            "selected_key": 31,
+            "additional_reads": 56,
+            "query_node_visits": 6,
+            "business_path_touches": 9
+          },
+          {
+            "round": 2,
+            "selected_key": 1,
+            "additional_reads": 11,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 3,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 4,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 5,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 6,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 7,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 8,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 9,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 10,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 11,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 12,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 13,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 14,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 15,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 16,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 17,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 18,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 19,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 20,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 21,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 22,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 23,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 24,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 25,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 26,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 27,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 28,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 29,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 30,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 31,
+            "selected_key": 31,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          },
+          {
+            "round": 32,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 6,
+            "business_path_touches": 12
+          }
+        ]
+      }
+    },
+    {
+      "slots": 62,
+      "rounds": 32,
+      "pattern": "reserve target0; bind slot0; release source",
+      "preparation": "retained_keys_1_to_r",
+      "old": {
+        "strategy": "retained_prefixes_with_rebuilt_quota_search",
+        "initial_labels": 62,
+        "cumulative_additional_reads": 202,
+        "cached_bit_replays": 5430,
+        "partition_label_events": 5632,
+        "certificate_color_tests": 2977,
+        "certificates": 32,
+        "known_slot_writes": 32,
+        "callback_business_low_bits": 192,
+        "entries": [
+          {
+            "round": 1,
+            "selected_key": 63,
+            "additional_reads": 176,
+            "cached_bit_replays": 0
+          },
+          {
+            "round": 2,
+            "selected_key": 1,
+            "additional_reads": 26,
+            "cached_bit_replays": 150
+          },
+          {
+            "round": 3,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 4,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 5,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 6,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 7,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 8,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 9,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 10,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 11,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 12,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 13,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 14,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 15,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 16,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 17,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 18,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 19,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 20,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 21,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 22,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 23,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 24,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 25,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 26,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 27,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 28,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 29,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 30,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 31,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          },
+          {
+            "round": 32,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 176
+          }
+        ]
+      },
+      "directed": {
+        "strategy": "actual_PrefixTree_with_test_observation_callbacks",
+        "cumulative_additional_reads": 145,
+        "cached_bit_replays": 0,
+        "query_node_visits": 224,
+        "candidate_count_queries": 384,
+        "selected_branches": 192,
+        "tree_events": {
+          "initial_labels": 62,
+          "initial_node_cells": 127,
+          "query_label_moves": 145,
+          "query_count_updates": 145,
+          "business_path_touches": 444,
+          "business_label_completions": 0,
+          "bucket_removals": 177,
+          "bucket_insertions": 239,
+          "slot_detaches": 32,
+          "slot_attaches": 32,
+          "retired_labels": 32,
+          "known_labels_introduced": 32
+        },
+        "final_tree_metrics": {
+          "live_labels": 62,
+          "known_low_bits": 149,
+          "allocated_prefix_nodes": 127,
+          "label_pointers": 62
+        },
+        "callback_business_low_bits": 192,
+        "entries": [
+          {
+            "round": 1,
+            "selected_key": 63,
+            "additional_reads": 119,
+            "query_node_visits": 7,
+            "business_path_touches": 10
+          },
+          {
+            "round": 2,
+            "selected_key": 1,
+            "additional_reads": 26,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 3,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 4,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 5,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 6,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 7,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 8,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 9,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 10,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 11,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 12,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 13,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 14,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 15,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 16,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 17,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 18,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 19,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 20,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 21,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 22,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 23,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 24,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 25,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 26,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 27,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 28,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 29,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 30,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 31,
+            "selected_key": 63,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          },
+          {
+            "round": 32,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 7,
+            "business_path_touches": 14
+          }
+        ]
+      }
+    },
+    {
+      "slots": 7,
+      "rounds": 32,
+      "pattern": "reserve target0; bind slot0; release source",
+      "preparation": "all_empty",
+      "old": {
+        "strategy": "retained_prefixes_with_rebuilt_quota_search",
+        "initial_labels": 7,
+        "cumulative_additional_reads": 7,
+        "cached_bit_replays": 248,
+        "partition_label_events": 255,
+        "certificate_color_tests": 312,
+        "certificates": 32,
+        "known_slot_writes": 32,
+        "callback_business_low_bits": 96,
+        "entries": [
+          {
+            "round": 1,
+            "selected_key": 1,
+            "additional_reads": 7,
+            "cached_bit_replays": 0
+          },
+          {
+            "round": 2,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 3,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 4,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 5,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 6,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 7,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 8,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 9,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 10,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 11,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 12,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 13,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 14,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 15,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 16,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 17,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 18,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 19,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 20,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 21,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 22,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 23,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 24,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 25,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 26,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 27,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 28,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 29,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 30,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 31,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          },
+          {
+            "round": 32,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 8
+          }
+        ]
+      },
+      "directed": {
+        "strategy": "actual_PrefixTree_with_test_observation_callbacks",
+        "cumulative_additional_reads": 7,
+        "cached_bit_replays": 0,
+        "query_node_visits": 95,
+        "candidate_count_queries": 126,
+        "selected_branches": 63,
+        "tree_events": {
+          "initial_labels": 7,
+          "initial_node_cells": 15,
+          "query_label_moves": 7,
+          "query_count_updates": 7,
+          "business_path_touches": 254,
+          "business_label_completions": 0,
+          "bucket_removals": 39,
+          "bucket_insertions": 46,
+          "slot_detaches": 32,
+          "slot_attaches": 32,
+          "retired_labels": 32,
+          "known_labels_introduced": 32
+        },
+        "final_tree_metrics": {
+          "live_labels": 7,
+          "known_low_bits": 9,
+          "allocated_prefix_nodes": 15,
+          "label_pointers": 7
+        },
+        "callback_business_low_bits": 96,
+        "entries": [
+          {
+            "round": 1,
+            "selected_key": 1,
+            "additional_reads": 7,
+            "query_node_visits": 2,
+            "business_path_touches": 6
+          },
+          {
+            "round": 2,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 3,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 4,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 5,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 6,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 7,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 8,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 9,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 10,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 11,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 12,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 13,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 14,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 15,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 16,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 17,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 18,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 19,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 20,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 21,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 22,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 23,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 24,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 25,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 26,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 27,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 28,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 29,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 30,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 31,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          },
+          {
+            "round": 32,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 8
+          }
+        ]
+      }
+    },
+    {
+      "slots": 31,
+      "rounds": 32,
+      "pattern": "reserve target0; bind slot0; release source",
+      "preparation": "all_empty",
+      "old": {
+        "strategy": "retained_prefixes_with_rebuilt_quota_search",
+        "initial_labels": 31,
+        "cumulative_additional_reads": 31,
+        "cached_bit_replays": 992,
+        "partition_label_events": 1023,
+        "certificate_color_tests": 1056,
+        "certificates": 32,
+        "known_slot_writes": 32,
+        "callback_business_low_bits": 160,
+        "entries": [
+          {
+            "round": 1,
+            "selected_key": 1,
+            "additional_reads": 31,
+            "cached_bit_replays": 0
+          },
+          {
+            "round": 2,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 3,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 4,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 5,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 6,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 7,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 8,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 9,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 10,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 11,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 12,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 13,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 14,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 15,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 16,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 17,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 18,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 19,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 20,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 21,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 22,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 23,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 24,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 25,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 26,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 27,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 28,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 29,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 30,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 31,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          },
+          {
+            "round": 32,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 32
+          }
+        ]
+      },
+      "directed": {
+        "strategy": "actual_PrefixTree_with_test_observation_callbacks",
+        "cumulative_additional_reads": 31,
+        "cached_bit_replays": 0,
+        "query_node_visits": 95,
+        "candidate_count_queries": 126,
+        "selected_branches": 63,
+        "tree_events": {
+          "initial_labels": 31,
+          "initial_node_cells": 63,
+          "query_label_moves": 31,
+          "query_count_updates": 31,
+          "business_path_touches": 380,
+          "business_label_completions": 0,
+          "bucket_removals": 63,
+          "bucket_insertions": 94,
+          "slot_detaches": 32,
+          "slot_attaches": 32,
+          "retired_labels": 32,
+          "known_labels_introduced": 32
+        },
+        "final_tree_metrics": {
+          "live_labels": 31,
+          "known_low_bits": 35,
+          "allocated_prefix_nodes": 63,
+          "label_pointers": 31
+        },
+        "callback_business_low_bits": 160,
+        "entries": [
+          {
+            "round": 1,
+            "selected_key": 1,
+            "additional_reads": 31,
+            "query_node_visits": 2,
+            "business_path_touches": 8
+          },
+          {
+            "round": 2,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 3,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 4,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 5,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 6,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 7,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 8,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 9,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 10,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 11,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 12,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 13,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 14,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 15,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 16,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 17,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 18,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 19,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 20,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 21,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 22,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 23,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 24,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 25,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 26,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 27,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 28,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 29,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 30,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 31,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          },
+          {
+            "round": 32,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 12
+          }
+        ]
+      }
+    },
+    {
+      "slots": 127,
+      "rounds": 32,
+      "pattern": "reserve target0; bind slot0; release source",
+      "preparation": "all_empty",
+      "old": {
+        "strategy": "retained_prefixes_with_rebuilt_quota_search",
+        "initial_labels": 127,
+        "cumulative_additional_reads": 127,
+        "cached_bit_replays": 3968,
+        "partition_label_events": 4095,
+        "certificate_color_tests": 4032,
+        "certificates": 32,
+        "known_slot_writes": 32,
+        "callback_business_low_bits": 224,
+        "entries": [
+          {
+            "round": 1,
+            "selected_key": 1,
+            "additional_reads": 127,
+            "cached_bit_replays": 0
+          },
+          {
+            "round": 2,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 3,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 4,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 5,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 6,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 7,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 8,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 9,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 10,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 11,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 12,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 13,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 14,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 15,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 16,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 17,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 18,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 19,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 20,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 21,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 22,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 23,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 24,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 25,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 26,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 27,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 28,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 29,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 30,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 31,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          },
+          {
+            "round": 32,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "cached_bit_replays": 128
+          }
+        ]
+      },
+      "directed": {
+        "strategy": "actual_PrefixTree_with_test_observation_callbacks",
+        "cumulative_additional_reads": 127,
+        "cached_bit_replays": 0,
+        "query_node_visits": 95,
+        "candidate_count_queries": 126,
+        "selected_branches": 63,
+        "tree_events": {
+          "initial_labels": 127,
+          "initial_node_cells": 255,
+          "query_label_moves": 127,
+          "query_count_updates": 127,
+          "business_path_touches": 506,
+          "business_label_completions": 0,
+          "bucket_removals": 159,
+          "bucket_insertions": 286,
+          "slot_detaches": 32,
+          "slot_attaches": 32,
+          "retired_labels": 32,
+          "known_labels_introduced": 32
+        },
+        "final_tree_metrics": {
+          "live_labels": 127,
+          "known_low_bits": 133,
+          "allocated_prefix_nodes": 255,
+          "label_pointers": 127
+        },
+        "callback_business_low_bits": 224,
+        "entries": [
+          {
+            "round": 1,
+            "selected_key": 1,
+            "additional_reads": 127,
+            "query_node_visits": 2,
+            "business_path_touches": 10
+          },
+          {
+            "round": 2,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 3,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 4,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 5,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 6,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 7,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 8,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 9,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 10,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 11,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 12,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 13,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 14,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 15,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 16,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 17,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 18,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 19,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 20,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 21,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 22,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 23,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 24,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 25,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 26,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 27,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 28,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 29,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 30,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 31,
+            "selected_key": 1,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          },
+          {
+            "round": 32,
+            "selected_key": 3,
+            "additional_reads": 0,
+            "query_node_visits": 3,
+            "business_path_touches": 16
+          }
+        ]
+      }
+    }
+  ]
+}

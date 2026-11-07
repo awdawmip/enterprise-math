@@ -1,0 +1,816 @@
+{
+  "status": "PASS",
+  "physical_BRC_execution": false,
+  "scope": "Exact integer control, full residue tables used only as test oracle",
+  "candidate_formula": {
+    "max_r": 31,
+    "all_target_start_residues": true,
+    "all_low_prefix_nodes": true,
+    "checked_cells": 36766
+  },
+  "exhaustive": {
+    "max_r": 7,
+    "query_cases": 89966,
+    "full_initial_slot_cases": 50284,
+    "cached_prefix_cases": 2994,
+    "rows": [
+      {
+        "request_slots": 1,
+        "low_width": 1,
+        "cases": 6,
+        "full_initial_slot_cases": 4,
+        "maximum_reads": 1,
+        "exact_worst_bound": 1,
+        "source_label_counts": [
+          {
+            "source_labels": 0,
+            "cases": 2,
+            "maximum_reads": 0,
+            "folding_bound": 0
+          },
+          {
+            "source_labels": 1,
+            "cases": 4,
+            "maximum_reads": 1,
+            "folding_bound": 1
+          }
+        ]
+      },
+      {
+        "request_slots": 2,
+        "low_width": 2,
+        "cases": 60,
+        "full_initial_slot_cases": 40,
+        "maximum_reads": 3,
+        "exact_worst_bound": 3,
+        "source_label_counts": [
+          {
+            "source_labels": 0,
+            "cases": 4,
+            "maximum_reads": 0,
+            "folding_bound": 0
+          },
+          {
+            "source_labels": 1,
+            "cases": 16,
+            "maximum_reads": 1,
+            "folding_bound": 1
+          },
+          {
+            "source_labels": 2,
+            "cases": 40,
+            "maximum_reads": 3,
+            "folding_bound": 3
+          }
+        ]
+      },
+      {
+        "request_slots": 3,
+        "low_width": 2,
+        "cases": 140,
+        "full_initial_slot_cases": 80,
+        "maximum_reads": 4,
+        "exact_worst_bound": 4,
+        "source_label_counts": [
+          {
+            "source_labels": 0,
+            "cases": 4,
+            "maximum_reads": 0,
+            "folding_bound": 0
+          },
+          {
+            "source_labels": 1,
+            "cases": 16,
+            "maximum_reads": 1,
+            "folding_bound": 1
+          },
+          {
+            "source_labels": 2,
+            "cases": 40,
+            "maximum_reads": 3,
+            "folding_bound": 3
+          },
+          {
+            "source_labels": 3,
+            "cases": 80,
+            "maximum_reads": 4,
+            "folding_bound": 4
+          }
+        ]
+      },
+      {
+        "request_slots": 4,
+        "low_width": 3,
+        "cases": 3960,
+        "full_initial_slot_cases": 2640,
+        "maximum_reads": 7,
+        "exact_worst_bound": 7,
+        "source_label_counts": [
+          {
+            "source_labels": 0,
+            "cases": 8,
+            "maximum_reads": 0,
+            "folding_bound": 0
+          },
+          {
+            "source_labels": 1,
+            "cases": 64,
+            "maximum_reads": 1,
+            "folding_bound": 1
+          },
+          {
+            "source_labels": 2,
+            "cases": 288,
+            "maximum_reads": 3,
+            "folding_bound": 3
+          },
+          {
+            "source_labels": 3,
+            "cases": 960,
+            "maximum_reads": 4,
+            "folding_bound": 4
+          },
+          {
+            "source_labels": 4,
+            "cases": 2640,
+            "maximum_reads": 7,
+            "folding_bound": 7
+          }
+        ]
+      },
+      {
+        "request_slots": 5,
+        "low_width": 3,
+        "cases": 10296,
+        "full_initial_slot_cases": 6336,
+        "maximum_reads": 8,
+        "exact_worst_bound": 8,
+        "source_label_counts": [
+          {
+            "source_labels": 0,
+            "cases": 8,
+            "maximum_reads": 0,
+            "folding_bound": 0
+          },
+          {
+            "source_labels": 1,
+            "cases": 64,
+            "maximum_reads": 1,
+            "folding_bound": 1
+          },
+          {
+            "source_labels": 2,
+            "cases": 288,
+            "maximum_reads": 3,
+            "folding_bound": 3
+          },
+          {
+            "source_labels": 3,
+            "cases": 960,
+            "maximum_reads": 4,
+            "folding_bound": 4
+          },
+          {
+            "source_labels": 4,
+            "cases": 2640,
+            "maximum_reads": 7,
+            "folding_bound": 7
+          },
+          {
+            "source_labels": 5,
+            "cases": 6336,
+            "maximum_reads": 8,
+            "folding_bound": 8
+          }
+        ]
+      },
+      {
+        "request_slots": 6,
+        "low_width": 3,
+        "cases": 24024,
+        "full_initial_slot_cases": 13728,
+        "maximum_reads": 10,
+        "exact_worst_bound": 10,
+        "source_label_counts": [
+          {
+            "source_labels": 0,
+            "cases": 8,
+            "maximum_reads": 0,
+            "folding_bound": 0
+          },
+          {
+            "source_labels": 1,
+            "cases": 64,
+            "maximum_reads": 1,
+            "folding_bound": 1
+          },
+          {
+            "source_labels": 2,
+            "cases": 288,
+            "maximum_reads": 3,
+            "folding_bound": 3
+          },
+          {
+            "source_labels": 3,
+            "cases": 960,
+            "maximum_reads": 4,
+            "folding_bound": 4
+          },
+          {
+            "source_labels": 4,
+            "cases": 2640,
+            "maximum_reads": 7,
+            "folding_bound": 7
+          },
+          {
+            "source_labels": 5,
+            "cases": 6336,
+            "maximum_reads": 8,
+            "folding_bound": 8
+          },
+          {
+            "source_labels": 6,
+            "cases": 13728,
+            "maximum_reads": 10,
+            "folding_bound": 10
+          }
+        ]
+      },
+      {
+        "request_slots": 7,
+        "low_width": 3,
+        "cases": 51480,
+        "full_initial_slot_cases": 27456,
+        "maximum_reads": 11,
+        "exact_worst_bound": 11,
+        "source_label_counts": [
+          {
+            "source_labels": 0,
+            "cases": 8,
+            "maximum_reads": 0,
+            "folding_bound": 0
+          },
+          {
+            "source_labels": 1,
+            "cases": 64,
+            "maximum_reads": 1,
+            "folding_bound": 1
+          },
+          {
+            "source_labels": 2,
+            "cases": 288,
+            "maximum_reads": 3,
+            "folding_bound": 3
+          },
+          {
+            "source_labels": 3,
+            "cases": 960,
+            "maximum_reads": 4,
+            "folding_bound": 4
+          },
+          {
+            "source_labels": 4,
+            "cases": 2640,
+            "maximum_reads": 7,
+            "folding_bound": 7
+          },
+          {
+            "source_labels": 5,
+            "cases": 6336,
+            "maximum_reads": 8,
+            "folding_bound": 8
+          },
+          {
+            "source_labels": 6,
+            "cases": 13728,
+            "maximum_reads": 10,
+            "folding_bound": 10
+          },
+          {
+            "source_labels": 7,
+            "cases": 27456,
+            "maximum_reads": 11,
+            "folding_bound": 11
+          }
+        ]
+      }
+    ]
+  },
+  "attaining_witnesses": {
+    "max_r": 255,
+    "checked_witnesses": 1019,
+    "selected": [
+      {
+        "request_slots": 1,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          1
+        ],
+        "free_key": 2,
+        "reads": 1,
+        "layer_counts": [
+          1
+        ]
+      },
+      {
+        "request_slots": 2,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          2
+        ],
+        "free_key": 3,
+        "reads": 3,
+        "layer_counts": [
+          2,
+          1
+        ]
+      },
+      {
+        "request_slots": 3,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          3
+        ],
+        "free_key": 4,
+        "reads": 4,
+        "layer_counts": [
+          3,
+          1
+        ]
+      },
+      {
+        "request_slots": 6,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          6
+        ],
+        "free_key": 7,
+        "reads": 10,
+        "layer_counts": [
+          6,
+          3,
+          1
+        ]
+      },
+      {
+        "request_slots": 7,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          7
+        ],
+        "free_key": 8,
+        "reads": 11,
+        "layer_counts": [
+          7,
+          3,
+          1
+        ]
+      },
+      {
+        "request_slots": 14,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          14
+        ],
+        "free_key": 15,
+        "reads": 25,
+        "layer_counts": [
+          14,
+          7,
+          3,
+          1
+        ]
+      },
+      {
+        "request_slots": 15,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          15
+        ],
+        "free_key": 16,
+        "reads": 26,
+        "layer_counts": [
+          15,
+          7,
+          3,
+          1
+        ]
+      },
+      {
+        "request_slots": 20,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          20
+        ],
+        "free_key": 21,
+        "reads": 38,
+        "layer_counts": [
+          20,
+          10,
+          5,
+          2,
+          1
+        ]
+      },
+      {
+        "request_slots": 30,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          30
+        ],
+        "free_key": 31,
+        "reads": 56,
+        "layer_counts": [
+          30,
+          15,
+          7,
+          3,
+          1
+        ]
+      },
+      {
+        "request_slots": 31,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          31
+        ],
+        "free_key": 32,
+        "reads": 57,
+        "layer_counts": [
+          31,
+          15,
+          7,
+          3,
+          1
+        ]
+      },
+      {
+        "request_slots": 62,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          62
+        ],
+        "free_key": 63,
+        "reads": 119,
+        "layer_counts": [
+          62,
+          31,
+          15,
+          7,
+          3,
+          1
+        ]
+      },
+      {
+        "request_slots": 63,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          63
+        ],
+        "free_key": 64,
+        "reads": 120,
+        "layer_counts": [
+          63,
+          31,
+          15,
+          7,
+          3,
+          1
+        ]
+      },
+      {
+        "request_slots": 126,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          126
+        ],
+        "free_key": 127,
+        "reads": 246,
+        "layer_counts": [
+          126,
+          63,
+          31,
+          15,
+          7,
+          3,
+          1
+        ]
+      },
+      {
+        "request_slots": 127,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          127
+        ],
+        "free_key": 128,
+        "reads": 247,
+        "layer_counts": [
+          127,
+          63,
+          31,
+          15,
+          7,
+          3,
+          1
+        ]
+      },
+      {
+        "request_slots": 254,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          254
+        ],
+        "free_key": 255,
+        "reads": 501,
+        "layer_counts": [
+          254,
+          127,
+          63,
+          31,
+          15,
+          7,
+          3,
+          1
+        ]
+      },
+      {
+        "request_slots": 255,
+        "target_start": 1,
+        "request_key_interval": [
+          1,
+          255
+        ],
+        "free_key": 256,
+        "reads": 502,
+        "layer_counts": [
+          255,
+          127,
+          63,
+          31,
+          15,
+          7,
+          3,
+          1
+        ]
+      }
+    ]
+  },
+  "local_choice_examples": [
+    {
+      "name": "equal_child_counts_hide_different_future_costs",
+      "slots": 14,
+      "target_start": 1,
+      "request_residues": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        5,
+        9
+      ],
+      "greedy_reads": 24,
+      "best_deficit_path_reads": 23,
+      "greedy_trace": [
+        {
+          "level": 0,
+          "prefix": 0,
+          "capacity": 15,
+          "labels": 14,
+          "new_reads": 14,
+          "child_capacities": [
+            7,
+            8
+          ],
+          "child_labels": [
+            8,
+            6
+          ],
+          "eligible": [
+            1
+          ],
+          "chosen": 1
+        },
+        {
+          "level": 1,
+          "prefix": 1,
+          "capacity": 8,
+          "labels": 6,
+          "new_reads": 6,
+          "child_capacities": [
+            4,
+            4
+          ],
+          "child_labels": [
+            3,
+            3
+          ],
+          "eligible": [
+            0,
+            1
+          ],
+          "chosen": 0
+        },
+        {
+          "level": 2,
+          "prefix": 1,
+          "capacity": 4,
+          "labels": 3,
+          "new_reads": 3,
+          "child_capacities": [
+            2,
+            2
+          ],
+          "child_labels": [
+            2,
+            1
+          ],
+          "eligible": [
+            1
+          ],
+          "chosen": 1
+        },
+        {
+          "level": 3,
+          "prefix": 5,
+          "capacity": 2,
+          "labels": 1,
+          "new_reads": 1,
+          "child_capacities": [
+            1,
+            1
+          ],
+          "child_labels": [
+            1,
+            0
+          ],
+          "eligible": [
+            1
+          ],
+          "chosen": 1
+        }
+      ],
+      "oracle_best_path": [
+        1,
+        1,
+        1
+      ],
+      "comparison_scope": "Pointwise full-information oracle only; no implementable superiority claim"
+    },
+    {
+      "name": "strictly_smaller_child_can_have_more_total_reads",
+      "slots": 20,
+      "target_start": 1,
+      "request_residues": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        7,
+        11,
+        15
+      ],
+      "greedy_reads": 36,
+      "best_deficit_path_reads": 34,
+      "greedy_trace": [
+        {
+          "level": 0,
+          "prefix": 0,
+          "capacity": 21,
+          "labels": 20,
+          "new_reads": 20,
+          "child_capacities": [
+            10,
+            11
+          ],
+          "child_labels": [
+            11,
+            9
+          ],
+          "eligible": [
+            1
+          ],
+          "chosen": 1
+        },
+        {
+          "level": 1,
+          "prefix": 1,
+          "capacity": 11,
+          "labels": 9,
+          "new_reads": 9,
+          "child_capacities": [
+            6,
+            5
+          ],
+          "child_labels": [
+            5,
+            4
+          ],
+          "eligible": [
+            0,
+            1
+          ],
+          "chosen": 1
+        },
+        {
+          "level": 2,
+          "prefix": 3,
+          "capacity": 5,
+          "labels": 4,
+          "new_reads": 4,
+          "child_capacities": [
+            3,
+            2
+          ],
+          "child_labels": [
+            2,
+            2
+          ],
+          "eligible": [
+            0
+          ],
+          "chosen": 0
+        },
+        {
+          "level": 3,
+          "prefix": 3,
+          "capacity": 3,
+          "labels": 2,
+          "new_reads": 2,
+          "child_capacities": [
+            2,
+            1
+          ],
+          "child_labels": [
+            1,
+            1
+          ],
+          "eligible": [
+            0
+          ],
+          "chosen": 0
+        },
+        {
+          "level": 4,
+          "prefix": 3,
+          "capacity": 2,
+          "labels": 1,
+          "new_reads": 1,
+          "child_capacities": [
+            1,
+            1
+          ],
+          "child_labels": [
+            1,
+            0
+          ],
+          "eligible": [
+            1
+          ],
+          "chosen": 1
+        }
+      ],
+      "oracle_best_path": [
+        1,
+        0,
+        1
+      ],
+      "comparison_scope": "Pointwise full-information oracle only; no implementable superiority claim"
+    }
+  ]
+}
