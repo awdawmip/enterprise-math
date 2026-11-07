@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""PREFIX-575: exact rank-one gate channel and Perron response.
+"""PREFIX-575-GC: companion rank-one gate channel and Perron response.
 
 Reconstructs the frozen four-STAR native X6-BRC observer from the exact
 96-port/6-action source semantics. It verifies the rank-one gate update,
@@ -267,6 +267,12 @@ def main():
     q0_text = str(Q0_expr)
     qz_text = str(Qz_expr)
     return {
+        "workstream_id": "PREFIX-575-GC",
+        "parallel_canonical_prefix575": {
+            "commit": "61b08d67197f4422fa0d8ac1c197f608e09b69af",
+            "observer": "q1=q2=q3=q4=q5=q6=1; gate count retained",
+            "relationship": "distinct observer; companion result; not superseding"
+        },
         "status": "ALL_CHECKS_PASS",
         "science_pin": PIN,
         "source_model": "frozen four-STAR native X6-BRC; 96 ordered ports; 6 actions; 9 roots",
