@@ -30,10 +30,13 @@ def symbolic_transport():
     expect = ((t*t-72*t-648)*(t*t+16*t+72)*(t*t+36*t+216) /
               ((t+6)*(t+12)**3*(t*t-24*t-288)))
     assert sp.cancel(M-expect) == 0
-    for t0 in (6*sp.sqrt(2),-6*sp.sqrt(2)):
+    for sign in (1,-1):
+        t0 = sign*6*sp.sqrt(2)
         assert sp.simplify(z.subs(t,t0)-sp.Rational(1,2)) == 0
         assert sp.simplify(w.subs(t,t0)-sp.Rational(1,9)) == 0
         assert sp.simplify((H*M).subs(t,t0)-4) == 0
+        expected_jet = (-35+25*sign*sp.sqrt(2))/3
+        assert sp.simplify(sp.radsimp(sp.diff(H*M,t).subs(t,t0))-expected_jet) == 0
     print('GAUSS_SYMMETRIC_SQUARE_TRANSPORT_PASS; two fibers; M(t)=', M)
 
 
