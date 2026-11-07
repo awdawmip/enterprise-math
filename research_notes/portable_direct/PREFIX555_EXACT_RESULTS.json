@@ -1,0 +1,77 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "environment": "CPython 3.13.5 Linux x86_64",
+  "proof": "P555 sign-reversing transition graph, parity terminal match law, full-depth even projection and lossless gzip",
+  "normalized_complete_digest_N10": "04decba6e3380be37099bdffc8e2832eba3352bd528ad9e629ade230c4802820",
+  "normalized_complete_digest_N12": "f5e0ea8eead5b9daf47498238640b001e9c7acc8daf5f29a682ab88e2bd66cd4",
+  "outputs_N10": 1056,
+  "monomial_positions_N10": 187844,
+  "outputs_N12": 1248,
+  "monomial_positions_N12": 472937,
+  "N12_reference_exact_tuple_equality": true,
+  "compact_program_N10": {
+    "status": "ALL_CHECKS_PASS",
+    "source_rows": 51,
+    "weighted_edges": 306,
+    "classes_sign_minus": 24,
+    "classes_sign_plus": 27,
+    "output_bytes": 3960235,
+    "gzip_cache_bytes": 148844
+  },
+  "measured_runs": [
+    {
+      "N": 10,
+      "mode": "baseline",
+      "seconds": 7.131303,
+      "tracemalloc_peak_bytes": 7902321,
+      "maxrss_kib": 114444,
+      "cache_bytes": 1375683
+    },
+    {
+      "N": 10,
+      "mode": "parity_plain",
+      "seconds": 6.209056,
+      "tracemalloc_peak_bytes": 7883221,
+      "maxrss_kib": 114572,
+      "cache_bytes": 862884
+    },
+    {
+      "N": 10,
+      "mode": "parity_gzip",
+      "seconds": 6.602747,
+      "tracemalloc_peak_bytes": 11156210,
+      "maxrss_kib": 117516,
+      "cache_bytes": 148880
+    },
+    {
+      "N": 11,
+      "mode": "parity_plain",
+      "seconds": 8.165456,
+      "tracemalloc_peak_bytes": 12670244,
+      "maxrss_kib": 125608,
+      "cache_bytes": 862884
+    },
+    {
+      "N": 11,
+      "mode": "parity_gzip",
+      "seconds": 8.515824,
+      "tracemalloc_peak_bytes": 15163633,
+      "maxrss_kib": 128644,
+      "cache_bytes": 148880
+    },
+    {
+      "N": 12,
+      "mode": "parity_gzip",
+      "seconds": 15.911051,
+      "tracemalloc_peak_bytes": 20910777,
+      "maxrss_kib": 139724,
+      "cache_bytes": 430285
+    }
+  ],
+  "extended_script_sha256": "2ea44dc409e7b81b311ab01df52739e51949af3b3e67aac9b407e4686cb94af7",
+  "scope": "exact positive integer coefficients of full seven-variable BRC/gate histograms; paper theorem arbitrary depth; tested through depth 12",
+  "review": "UNREVIEWED",
+  "admission": "NOT_ADMITTED",
+  "native_control": "BACKEND_IDENTITY_OR_VERSION_MISMATCH; operation_sent=false"
+}
