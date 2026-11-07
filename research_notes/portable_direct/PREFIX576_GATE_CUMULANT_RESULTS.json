@@ -1,0 +1,115 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "line": "PREFIX-576",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "frozen four-STAR native X6-BRC; 96 ordered ports; six uniformly selected labeled actions",
+  "observer": "q1=q2=q3=q4=q5=q6=1; gate counter retained",
+  "quotient": {
+    "native_ports": 96,
+    "classes": 37,
+    "partition_growth": [1, 4, 13, 21, 33, 37],
+    "class_sizes": [8, 4, 2, 1, 1, 2, 2, 8, 4, 2, 4, 4, 2, 4, 1, 1, 1, 1, 2, 2, 4, 2, 4, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+    "stationary_distribution": "pi_i=class_size_i/96",
+    "gate_sources": [4, 15, 17],
+    "gate_target": 5,
+    "gate_perturbation": "P(z)=P(1)+(z-1) g e_5^T/6",
+    "bipartition": [17, 20],
+    "period": 2
+  },
+  "resolvent_laurent": {
+    "a_minus1": "1/192",
+    "r0": "-19/2304",
+    "r1": "79/27648",
+    "r2": "5801/331776"
+  },
+  "poisson_potentials": {
+    "X_denominator": 384,
+    "X": [-25, -19, -43, -40, 344, -19, -28, -1, -19, -28, 29, -19, -16, -19, -37, 347, -40, 344, -37, 26, -19, -28, 29, -19, -34, 11, -10, -37, -28, 26, -16, -7, -10, 17, 26, 26, -34],
+    "Y_denominator": 4608,
+    "Y": [-373, -115, -1183, -988, 3620, -79, -556, 299, -259, -556, 653, -259, -76, -115, -841, 3767, -988, 3620, -889, 578, -259, -556, 653, -259, -670, 599, -142, -889, -556, 578, -76, 5, -142, 245, 578, 578, -670],
+    "Z_denominator": 55296,
+    "Z": [-3709, 2957, -26551, -18940, 36356, 5801, -10012, 7907, -2803, -10012, 8333, -2803, 3716, 2957, -14833, 40463, -18940, 36356, -17041, 7970, -2803, -10012, 8333, -2803, -9406, 12815, -4414, -17041, -10012, 7970, 3716, -307, -4414, 941, 7970, 7970, -9406],
+    "integer_equations": ["(6I-C)X=2304g-72*1", "(6I-C)Y=72X", "(6I-C)Z=72Y"],
+    "weighted_mean_zero": true
+  },
+  "lambda_delta_coefficients": {
+    "c1": "1/192",
+    "c2": "-19/442368",
+    "c3": "55/127401984",
+    "c4": "-5561/2348273369088"
+  },
+  "asymptotic_cumulant_rates": {
+    "kappa1": "1/192",
+    "kappa2": "1127/221184",
+    "kappa3": "206963/42467328",
+    "kappa4": "434651857/97844723712"
+  },
+  "scaled_cumulant_generating_function_through_order_4": "s/192 + 1127*s^2/442368 + 206963*s^3/254803968 + 434651857*s^4/2348273369088 + O(s^5)",
+  "iid_bernoulli_same_mean": {
+    "kappa2": "191/36864",
+    "kappa3": "18145/3538944",
+    "kappa4": "1137023/226492416"
+  },
+  "finite_stationary_integer_DP": {
+    "depths_checked": [0, 128],
+    "raw_moment_orders": [1, 2, 3, 4],
+    "snapshots": [
+      {
+        "depth": 10,
+        "total_paths": "5804752896",
+        "mean_per_step": "1/192",
+        "variance_per_step": "114149/22394880",
+        "third_cumulant_per_step": "5245111/1074954240",
+        "fourth_cumulant_per_step": "37262659111/8358844170240"
+      },
+      {
+        "depth": 20,
+        "total_paths": "350991210246045696",
+        "mean_per_step": "1/192",
+        "variance_per_step": "30325852213/5950778711040",
+        "third_cumulant_per_step": "232135021949/47606229688320",
+        "fourth_cumulant_per_step": "262601906641966199579/59019612112944806363136"
+      },
+      {
+        "depth": 40,
+        "total_paths": "1283279475728998470512529213751296",
+        "mean_per_step": "1/192",
+        "variance_per_step": "17621885412224407033/3458180397242859747840",
+        "third_cumulant_per_step": "33715922201245384609/6916360794485719495680",
+        "fourth_cumulant_per_step": "221532376201732482873406452942378520273/49829215249478263531084512675337118269440"
+      },
+      {
+        "depth": 80,
+        "total_paths": "17154231383617637235017517819786028629915434208153767341505642496",
+        "mean_per_step": "1/192",
+        "variance_per_step": "32134871017319709327744196043687597371/6306510055012092728152883635472354030976",
+        "third_cumulant_per_step": "245910273159881601286101644964906695507/50452080440096741825223069083778832247808",
+        "fourth_cumulant_per_step": "73645399359730560870799206088816973191672065049323552046343233071197956723379/16571695447486928686823846117823704285917525412911598463668393869208031653130240"
+      },
+      {
+        "depth": 128,
+        "total_paths": "385151223796572526086245125219434606018278638823213973691750235774923749432850295860047477336478580736",
+        "mean_per_step": "1/192",
+        "variance_per_step": "5126492315922973986205390540476137318832775506375363432987041/1006095750633692430636447817507201592804540722540871774642940672",
+        "third_cumulant_per_step": "9807187358669755898874224954596835267050103050070480961087175/2012191501267384861272895635014403185609081445081743549285881344",
+        "fourth_cumulant_per_step": "46851190037209053717520756820922897460563199743155550124920646392392395928044181063638306023258471730514012384520114182279/10544048535866385655651729012786161065848896535402506466918765941952365805398580029895245304726536307432233001001635038664704"
+      }
+    ]
+  },
+  "validation": {
+    "native_gate_edges": [[7, 9], [29, 9], [31, 9]],
+    "quotient_gate_edges": [[4, 5, 1, 0, 0], [15, 5, 1, 0, 0], [17, 5, 1, 0, 0]],
+    "first_poisson_rows": 37,
+    "second_poisson_rows": 37,
+    "higher_poisson_integer_rows": [37, 37, 37],
+    "moment_DP_states": 37,
+    "moment_DP_transition_types": 109,
+    "all_assertions_pass": true
+  },
+  "status_boundary": "AUTHOR_PROVED / EXACT_RATIONAL_AND_INTEGER_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "limitations": [
+    "q1..q6 are specialized to 1; no x,y parameterized gate cumulants",
+    "gate index counts ordered native actions, not physical time",
+    "independent review and native activity/claim/result remain pending"
+  ]
+}
