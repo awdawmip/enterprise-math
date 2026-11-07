@@ -1,0 +1,38 @@
+Execution: g++ -std=c++17 -O3 -Wall -Wextra -Werror -o verify_exact VERIFY_EXACT.cpp
+Input kernel: existing KERNEL.json, blob 564acd9574876059c505fd8a40d14f2f6e0e3736.
+Local VERIFY_EXACT.cpp SHA256: 4c8ef3b448e0cdce9cd0999f787a13ef06053fa0f64d2f4aff2c8417f8f2c958.
+Command: ./verify_exact 256
+PASS_S23_N3_EXACT_GRID_CERTIFICATE
+N=256 grid_points=66049 ordered_outputs=1783323
+max_num=35098787251437814650241024
+den=147573952589676412928000000
+max_i=141 max_j=256
+extension=27/4096
+bound_lt_1/4=1
+bound_lt_6/25=0
+bound_lt_239/1000=0
+bound_lt_477/2000=0
+bound_lt_2381/10000=0
+bound_lt_4761/20000=0
+elapsed_seconds=0.017094
+
+Command: ./verify_exact 8192
+PASS_S23_N3_EXACT_GRID_CERTIFICATE
+N=8192 grid_points=67125249 ordered_outputs=1812381723
+max_num=37687045240223169510308060122316800
+den=158456325028528675187087900672000000
+max_i=4508 max_j=8192
+extension=27/131072
+bound_lt_1/4=1
+bound_lt_6/25=1
+bound_lt_239/1000=1
+bound_lt_477/2000=1
+bound_lt_2381/10000=1
+bound_lt_4761/20000=1
+elapsed_seconds=22.6269
+
+Additional exact Python Fraction post-check of emitted integers:
+max_grid = 21422604982162266373/90071992547409920000 = 0.2378386929864614...
+bound    = 21441159240880986373/90071992547409920000 = 0.23804468663880515...
+(4761/20000)-bound = 478585029945083/90071992547409920000 > 0.
+Enumeration was complete over the stated 8192 x 8192 parameter mesh. Timing is local diagnostic, not a proof ingredient.

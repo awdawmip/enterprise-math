@@ -1,0 +1,9 @@
+# Sources and scope
+
+- Frozen scientific input: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34. The user-authorized source pin was retained.
+- Earlier all-n Hoeffding upper-overlap bound: research_notes/brc_s23_av_hoeffding_fivepoint_20261106_r1/PROOF.md, Draft PR #1777, source branch research/brc-s23-av-global-reverse-deficiency-20261106-r1.
+- Immediate predecessor's constructive n^(-1/2) kernel: research_notes/brc_s23_av_constructive_global_overlap_20261106_r1/PROOF.md, commit 165330941dcc42c594c222db0e01b418ea703aa2.
+- Current normative sources (separate from the frozen science): global-knowledge canonical main via 00_BOOTSTRAP.md, OPERATING_MANUAL.md, MATH_RESEARCH_POLICY.json, OUTPUT_TEMPORAL_SEMANTICS_POLICY.json, BRC usage policy and ACTIVE worldview; Enterprise Math main docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context, docs/PORTABLE_RESEARCH_PROTOCOL.md, p000_reality_foundation.json, definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json and research_priorities/research_method.json.
+- Mathematical inputs are elementary: conditional binomial laws, the Euler beta integral for integer exponents, the binomial mode, Chebyshev's inequality and bounds on log(1+u). All needed inequalities are stated in PROOF.md; no unverified external source is used.
+- VERIFY.py was run with local CPython 3 and stdout captured in RUN_EVIDENCE.txt. The universal theorem is analytic; the program's coverage is the expressly listed rational cases. Math status: AUTHOR_ANALYTIC_PROOF / FINITE_EXACT_CHECKS / UNREVIEWED / NOT_ADMITTED.
+- Native Researcher activity registration request EM-R1-S23-20261106-2201-ONE returned FAILED/OSError. An unrelated pending task-query collection is not proof of CLAIM or ownership. No Task-ID, CLAIM, Review or canonical admission is asserted.

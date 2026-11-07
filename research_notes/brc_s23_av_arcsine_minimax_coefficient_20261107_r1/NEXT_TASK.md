@@ -1,0 +1,5 @@
+# NEXT: S23/AV after exact asymptotic coefficient
+
+Science freeze remains awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34. New author-side result (this directory PROOF.md): the minimax full-ordered reconstruction overlap is asymptotic to C_* sqrt(log n/n), C_*=2/[sqrt(3)(asin sqrt(20/21)-asin sqrt(2/3))]=2.9196578513965..., over the entire lawful real AV box. Constructive count-weighted arcsine decoder and fixed z=1/4 Bayes dual match. Finite verification in VERIFY.py and captured RUN_EVIDENCE.txt; independent review pending.
+
+Independent next research actions: derive finite-n two-sided envelopes and the first nonzero correction to C_* sqrt(log n/n), including boundary p and adaptive observed R. Separately construct the source/time-typed repeated experiment, and test whether any mother six-source/ten-label decoder/encoder can inherit a bound without changing quantifier order; start with an exact small rational case. Maintain native Owner/CLAIM/RA as unknown until authenticated control becomes available. Do not duplicate the already proved leading coefficient under a new title.

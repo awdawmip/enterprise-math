@@ -1,0 +1,22 @@
+# Author-side execution record — 2026-11-08
+Python 3 stdlib exact integer operations; no additional dependencies.
+
+Execution was performed in bounded terminal segments: the initial full verifier run printed validated rows h=91..164 before the tool execution timed out, and a follow-up imported the same verify() and verify_gap_140() functions to complete h=165..170. Thus all eighty rows were actually evaluated. The first process did not reach its final aggregate line; the continuation explicitly printed the aggregate PASS marker after completing the remaining six rows. Original local stdout was retained as RUN_S23_H91_170.txt during author-side computation.
+
+Key observed rows:
+h=91: N=497; tail=497; intervals=4279; PASS
+h=100: N=546; tail=546; intervals=5152; PASS
+h=110: N=601; tail=601; intervals=6217; PASS
+h=139: N=759; tail=759; intervals=9871; PASS
+h=140: N=880; tail=764; intervals=10012; PASS
+h=141: N=880; tail=770; intervals=10154; PASS
+h=150: N=880; tail=819; intervals=11477; PASS
+h=161: N=880; tail=879; intervals=13204; PASS
+h=162: N=884; tail=884; intervals=13367; PASS
+h=164: N=895; tail=895; intervals=13696; PASS
+h=165: N=901; tail=901; intervals=13862; PASS
+h=170: N=928; tail=928; intervals=14707; PASS
+Exact interior-gap lemma (ell=0..78, first-below-upper bound and witness at ell=78): PASS
+PASS_S23_AV_FUTURE_H91_170_EXACT_INTEGER_CERTIFICATE_20261108
+
+Completeness: suffix thresholds = (h+1)(h+2)/2 ordered via exact integer comparison. Every prefix count pair k+ell=n encountered up through first saturation for each h. A separate fixed-ell exact integer lemma bounds the new missing gap at all n<880. All statements are author-side computations pending independent mathematical audit.
