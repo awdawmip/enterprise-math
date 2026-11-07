@@ -18,7 +18,7 @@ def det_bareiss(a):
         if a[k][k] == 0:
             j = next((j for j in range(k+1,n) if a[j][k]), None)
             if j is None: return 0
-            a[k], a[j] = a[j]
+            a[k], a[j] = a[j], a[k]
             sign = -sign
         pivot=a[k][k]
         for i in range(k+1,n):
