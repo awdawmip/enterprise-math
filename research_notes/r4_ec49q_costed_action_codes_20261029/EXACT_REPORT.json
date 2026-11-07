@@ -1,0 +1,146 @@
+{
+  "P": {
+    "00": "3/8",
+    "01": "1/8",
+    "10": "1/8",
+    "11": "3/8"
+  },
+  "Q": {
+    "00": "1/4",
+    "01": "1/4",
+    "10": "1/4",
+    "11": "1/4"
+  },
+  "W_Z": [
+    0,
+    1
+  ],
+  "carrier": "four exact positive-rational P/Q atoms; auxiliary P-Q difference",
+  "compressed_rational_witness": [
+    "9/16",
+    "3/8",
+    "1",
+    "1"
+  ],
+  "cost_A_B": [
+    1,
+    2
+  ],
+  "deterministic_policies": {
+    "compressed": 256,
+    "full": 4096
+  },
+  "exact_support_gap": "1/16",
+  "full_witness": [
+    "3/4",
+    "1/2",
+    "1",
+    "1"
+  ],
+  "grid_budget_frontier": {
+    "0": {
+      "cost_budget": "0",
+      "enumerated_feasible_grid_pairs": 1,
+      "max_L": "0",
+      "witness_x0_y0_x1_y1_cost": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    "1": {
+      "cost_budget": "1",
+      "enumerated_feasible_grid_pairs": 127,
+      "max_L": "3/16",
+      "witness_x0_y0_x1_y1_cost": [
+        "0",
+        "1/2",
+        "1",
+        "0",
+        "1"
+      ]
+    },
+    "1/2": {
+      "cost_budget": "1/2",
+      "enumerated_feasible_grid_pairs": 30,
+      "max_L": "1/8",
+      "witness_x0_y0_x1_y1_cost": [
+        "0",
+        "0",
+        "1",
+        "0",
+        "1/2"
+      ]
+    },
+    "1/4": {
+      "cost_budget": "1/4",
+      "enumerated_feasible_grid_pairs": 8,
+      "max_L": "1/16",
+      "witness_x0_y0_x1_y1_cost": [
+        "0",
+        "0",
+        "1/2",
+        "0",
+        "1/4"
+      ]
+    },
+    "2": {
+      "cost_budget": "2",
+      "enumerated_feasible_grid_pairs": 225,
+      "max_L": "1/4",
+      "witness_x0_y0_x1_y1_cost": [
+        "0",
+        "1",
+        "1",
+        "0",
+        "3/2"
+      ]
+    },
+    "3/2": {
+      "cost_budget": "3/2",
+      "enumerated_feasible_grid_pairs": 209,
+      "max_L": "1/4",
+      "witness_x0_y0_x1_y1_cost": [
+        "0",
+        "1",
+        "1",
+        "0",
+        "3/2"
+      ]
+    },
+    "3/4": {
+      "cost_budget": "3/4",
+      "enumerated_feasible_grid_pairs": 72,
+      "max_L": "5/32",
+      "witness_x0_y0_x1_y1_cost": [
+        "0",
+        "1/4",
+        "1",
+        "0",
+        "3/4"
+      ]
+    },
+    "5/4": {
+      "cost_budget": "5/4",
+      "enumerated_feasible_grid_pairs": 177,
+      "max_L": "7/32",
+      "witness_x0_y0_x1_y1_cost": [
+        "0",
+        "3/4",
+        "1",
+        "0",
+        "5/4"
+      ]
+    }
+  },
+  "linear_functional": "H=alpha-beta-(E_P T+E_Q T)/16",
+  "rational_grid_initial_policy_pair_evaluations": 849,
+  "same_cost_clone_full_deterministic_cases_checked": 4096,
+  "scope": "one-purchase-stage auxiliary two-source positive-weight observation; not native BRC signed amplitude/X6",
+  "support_compressed_max": "1/16",
+  "support_full_max": "1/8",
+  "unit": "EC49Q",
+  "verification": "PASS: exact Fraction finite checks; all-real generality by PROOF.md analytic argument"
+}
