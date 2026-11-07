@@ -1,12 +1,9 @@
-# R5 continuation: low-slack negative-residual complement
+# R5 continuation: new side flows and global negative-residual coverage
 
-Frozen science GLOBAL a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e.
-Earlier predecessor a5c2575f344fdf3043f26198293704daa9c1be1f.
+Frozen scientific pins: GLOBAL a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e. Prior science: a5c2575f344fdf3043f26198293704daa9c1be1f. Current branch includes RESEARCH.md, SIDE_LOW_SLACK.md and two independent exact Fraction checkers.
 
-Proved complementary regions:
-(A) Every legal R>=0 flow has a universal declaration-preserving seedless Blackwell lift by the two-edge z0=4av/(4a+9b) repair. No stopping slack is required.
-(B) An earlier all-real six-edge shift covers R<=0, b>0, and g+R/(9b)>=max(a,b).
-The current fixed-six-coordinate sign theorem shows that its unique seedless target is NOT Blackwell dominating for R<0; other flow coordinates must change for a uniform lift.
+Current proved coverage: (1) universal Blackwell lift for EVERY legal R>=0 flow, by a seedless z0=4av/(4a+9b) replacement and two-edge calibrated transport; (2) earlier six-edge shift for R<=0 with g+R/(9b)>=max(a,b); (3) new low-slack negative segment x_t=(1-t)x+t*y with exact x=(1,1,1/2,0,9/80,0,0), y=(39/40,19/20,9/20,0,3/16,0,57/628), all real t in [0,1], and exact 7x7 transport Q_t=(1-t)Q+t diag(M(y)). The source x lies outside the previous convex join conv(C union F union H_slack); its six-edge shift is not legal.
 
-Next exact unit: choose a rational legal x with R<0 and g-max(a,b)<-R/(9b), outside earlier proven convex regions C,F,H_slack. Find seedless y changing at least one of g,a,b,u,v,w, with two exact stop-time equations and a nonnegative calibrated 7x7 Blackwell transport; or furnish a rational dual infeasibility certificate for a precisely stated candidate/region. First deduplicate earlier C-region coverage, especially x=(1,1,1,0,9/40,0,0), which has R=-9/10 yet belongs to known earlier slab.
-Report all exact inputs, constraints, branch masses and observer scope. Full four-dimensional image pointwise equality is still the mother question; mathematical review and formal CLAIM require authenticated control authority.
+Next discriminating unit: choose another rational negative-residual low-slack source with at least one NONZERO early side flow u or w, a != b, outside previously proved joins. Preserve its exact seven M_i, both stop times and R. Search a seedless y allowed to vary g,a,b,u,v,w,z with exact calibrated 7x7 transport or prove a restricted candidate face infeasible by a rational dual. Try extending the current low-slack certificate to a two-parameter convex face by discovering other vertices sharing an affine seedless target. A failed numerical search alone does not prove global infeasibility. Another route: characterize exact boundary inequalities for existence of a seedless Blackwell dominator at fixed stopping times.
+
+Complete mother question: pointwise equality or strict separation of FULL_HIST and seedless LR *four-observation* attainable images for ALL legal flows/declarations. The convex hull result is previously proved but does not settle this nonconvex question. Preserve frozen science and role authority: current native Owner and CLAIM are unconfirmed because status collection stopped in WAITING_RESOURCE/OSError. Author evidence is not mathematical admission.
