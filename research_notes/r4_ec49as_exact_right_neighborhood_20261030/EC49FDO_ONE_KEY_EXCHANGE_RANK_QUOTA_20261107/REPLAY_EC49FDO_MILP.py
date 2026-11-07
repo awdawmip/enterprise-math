@@ -128,6 +128,7 @@ def reproduce(case,old_key,new_key):
   chosen[h]=sorted({w for (hh,s,p),w in labels.items() if hh==h and ip.x[p-1]>.5})
   assert len(chosen[h])==quotas[h],(case,h,len(chosen[h]))
  assert audit(chosen)==round(42+ip.fun)
+ fractionals=sum(1 for x in lp.x if 1e-7<x<1-1e-7)
  return {'case':case,'old_key':old_key,'new_key':new_key,'keys':[list(k) for k in keys],'candidate_words':len(labels),
   'trie_edges':n,'milp_rows':A.shape[0],'milp_nonzeros':A.nnz,
   'prepaid_edges':42,'lp_bound':42+lp.fun,'lp_fractional_nodes':fractionals,
