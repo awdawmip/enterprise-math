@@ -1,0 +1,150 @@
+{
+  "complexity_post_constraints": "O(n+number_of_edges)",
+  "directed_X6_relations": 144,
+  "first_right_opt_gap": {
+    "R": [
+      2
+    ],
+    "S": [
+      1,
+      2
+    ],
+    "edges": [
+      [
+        0,
+        1
+      ]
+    ],
+    "h": 1,
+    "length": 3,
+    "mandatory": [
+      0,
+      2
+    ],
+    "optimal": [
+      0,
+      2
+    ],
+    "right_only": [
+      0,
+      1,
+      2
+    ],
+    "tags": "OOO"
+  },
+  "native_directions": 12,
+  "rank_count_fiber_counterexample": {
+    "P_positions_x": [
+      1,
+      4,
+      7
+    ],
+    "P_positions_y": [
+      1,
+      7
+    ],
+    "R": [
+      2,
+      10,
+      11
+    ],
+    "S": [
+      1,
+      3
+    ],
+    "h": 1,
+    "n": 12,
+    "rank_3_legal_x": true,
+    "rank_3_legal_y": false,
+    "same_direct_touch_mask": true,
+    "same_stage508_uncounted_compact": true
+  },
+  "stage": "509-B",
+  "stage508_witness": {
+    "R": [
+      2,
+      11
+    ],
+    "S": [
+      1,
+      3
+    ],
+    "h": 3,
+    "insertion_original_adjacency_edges": [
+      [
+        14,
+        15
+      ],
+      [
+        15,
+        16
+      ],
+      [
+        16,
+        17
+      ]
+    ],
+    "mandatory": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      12,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "n": 19,
+    "optimal": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      12,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "optimal_count": 12,
+    "right_only_count": 12,
+    "stage507_count": 15,
+    "stage508": [
+      3,
+      5,
+      6,
+      7,
+      8,
+      9,
+      12,
+      14,
+      15,
+      16,
+      17,
+      18
+    ],
+    "stage508_count": 12
+  },
+  "status": "ALL_ASSERTIONS_PASS",
+  "tests": {
+    "abstract_prefix_states": 3455,
+    "abstract_transitions": 18671,
+    "all_future_prefix_nodes": 48844,
+    "all_future_transitions": 59280,
+    "all_insert_edges_already_mandatory": 1790,
+    "bruteforce_min_covered": 1815,
+    "max_saved_stage508": 1,
+    "optimal_lt_right_mask": 760,
+    "optimal_lt_stage508": 778,
+    "rank_count_regressions": 3,
+    "roots": 1839
+  },
+  "theorem": "DIRECT_TOUCH_MASK_WITH_F_AND_GAP_PUBLIC_COUNTS_IS_FUTURE_LOSSLESS"
+}
