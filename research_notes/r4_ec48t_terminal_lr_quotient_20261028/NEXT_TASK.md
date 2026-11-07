@@ -1,0 +1,7 @@
+# EC48U — History-dependent terminal refinements and minimal predictive repair
+
+Reuse EC48T Theorems A-C only in their exact auxiliary finite, strictly positive, two-source, terminal-only, private-randomization scope. Full-history terminal acceptance quotient is characterized by equality of the joint P/Q likelihood ratio within each merged fiber. Invariance for every memory budget m was proved only for terminal clones whose source-neutral probability kernel depends on the old terminal symbol, **not hidden prefix history**.
+
+Next discriminating question: if the new clone kernel is P/Q-source-independent conditional on full hidden history, but *depends* on such a history discarded by the memory-m controller, is the original four-coordinate region still invariant? If no, supply a minimal strictly positive rational branch tree, legal controllers and exact support gap/nonrealizability certificate. If yes under an observation condition, give a causal simulator with sufficient memory/readout assumptions. Then distinguish clones with no future operations from clones before a further informative transition.
+
+Do not promote these auxiliary probabilities to native X6 dynamics without a typed X6 embedding, readout, time, and preserved relation/update law. Cross-check novelty against Blackwell statistical-experiment literature; preserve exact source pins, prior contribution, and current owner uncertainty. Proposed portable next unit only: no formal Source task/CLAIM/Result/Driver registration is asserted.
