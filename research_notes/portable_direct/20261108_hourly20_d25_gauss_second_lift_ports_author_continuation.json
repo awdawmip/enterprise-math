@@ -1,0 +1,81 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "lane": "chatgpt-research-hourly-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "role": "TASK_RESEARCH_AUTHOR_SIDE_REGISTER_PENDING",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "taskbook_blob_sha1": "53a3ef039325534e3715add837f0eee332289984",
+  "mother_objective": "Canonical D24 second digit LIFT Delta_p-R_p=0 for all p=13,19 mod24 remains OPEN; accepted D24 first digit is input.",
+  "author_side_completed": [
+    "Proved full three-stratum source-retaining Taylor expansion of p-term truncated Gauss polynomials modulo p^3: low harmonic S0, single-zero-crossing S1, and double-zero-crossing S2.",
+    "Proved at CM root the Gauss divided-lift formula G(x)/p=(Q(x)+pL(x)+pT(x))/p + p(S0(x)+S1(x)+S2(x)) modulo p^2.",
+    "Proved second-digit residual is dependent on the chosen lifts of the first-digit Fricke coefficients: t->t+pa,r->r+pb shifts divided residual by a*gA-b*gB modulo p.",
+    "Executed independently computed raw Gauss recurrences and explicit harmonic/factorial expansion: 94 target primes p<2500, 188 A/B models, 214148 coefficient comparisons modulo p^3 all PASS."
+  ],
+  "author_evidence": [
+    {
+      "path": "research_notes/portable_direct/20261108_hourly20_d25_gauss_second_lift_source_ports.md",
+      "git_blob_sha1": "b4d7caeb0e8bc4cd716e30c4bd594cdd70276da0",
+      "status": "AUTHOR_SIDE_PROVED_ALGEBRA_NOT_ADMITTED"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_gauss_second_lift_three_strata_20261108.py",
+      "git_blob_sha1": "ea906b1a0ed62dca50195e572db538b708d38e59",
+      "status": "LOCAL_EXACT_PYTHON_EXECUTED_PASS"
+    }
+  ],
+  "read_parent_frontiers": [
+    "20261108_hourly20_d25_frobenius_parameter_gap_author_continuation.json",
+    "20261108_onhour_d25_first_lift_three_port_continuation.json"
+  ],
+  "distinguishing_witnesses": {
+    "p373_A": {
+      "Q_over_p": 340,
+      "L": 352,
+      "T": 78,
+      "S0": 197,
+      "S1": 212,
+      "S2": 252,
+      "S_total": 288,
+      "Gauss_over_p_mod_p2": 65672
+    },
+    "p373_B5": {
+      "Q_over_p": 326,
+      "L": 41,
+      "T": 365,
+      "S0": 239,
+      "S1": 222,
+      "S2": 308,
+      "S_total": 23,
+      "Gauss_over_p_mod_p2": 36167
+    }
+  },
+  "smallest_unfinished_unit": "Find canonical signed Fricke/CM coefficient lifts t,r modulo p^2 (including Euler B5 factor), then prove matching second-digit Cartier/overflow transformation; do not arbitrarily choose lift digits.",
+  "next_exact_action": "Compute geometrically fixed t,r first at p=19 and p=373 and compare (Q+pL+pT)/p and p*(S0+S1+S2) with existing Gamma+E_A-E_B; derive a general isogeny/Cartier port identity, preserving signed s and original source pins.",
+  "do_not_repeat": [
+    "accepted D24 UR/JT0 and first digit",
+    "prior Gauss q/L/T first lift (parallel onhour)",
+    "A/B p³ Clausen-Euler four-port decomposition",
+    "prior 94-prime Gauss parameter endpoint scans",
+    "original-native p373 benchmark #1559"
+  ],
+  "native_control": {
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "original_target_request_ids": [
+      "em-h20-20261106-1324-d25-task-r13",
+      "em-h20-20261106-1324-d25-cont-r13"
+    ],
+    "receipt_before": "WAITING_RESOURCE / EVENT_COLLECTION_IO",
+    "receipt_after_same_id_reconcile": "QUEUED (both), not SUCCEEDED",
+    "old_session_claim_run_uploads": "UNKNOWN_PRESERVE",
+    "activity": "REGISTER_PENDING",
+    "native_checkpoint": "NOT_WRITTEN",
+    "support": "https://github.com/awdawmip/enterprise-math/issues/1558",
+    "acceptance": "Original receipts terminal / exact Source continuation plus authorized real Researcher identity, claim/open and checkpoint durable readback."
+  },
+  "proof_strength": "GENERIC_COEFFICIENTWISE_PROVED / 214148_EXACT_MOD_P3_CHECKED / NATIVE_NOT_EXECUTED / UNREVIEWED_NOT_ADMITTED"
+}
