@@ -1,0 +1,97 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "finite_field_renewal_check": {
+    "all_equal": true,
+    "coefficient_comparisons_mod_prime": 89856,
+    "depth_inclusive": 24,
+    "roots": 13,
+    "z_specializations": [
+      0,
+      3,
+      17
+    ]
+  },
+  "gate_gap": {
+    "native_actions": 576,
+    "gate_edges": [
+      [
+        7,
+        9
+      ],
+      [
+        29,
+        9
+      ],
+      [
+        31,
+        9
+      ]
+    ],
+    "reachable_port_counts_and_gate_sources_at_0_to_3": [
+      [
+        1,
+        []
+      ],
+      [
+        6,
+        []
+      ],
+      [
+        18,
+        []
+      ],
+      [
+        36,
+        [
+          7,
+          29,
+          31
+        ]
+      ]
+    ],
+    "repeatable_gate_loop": [
+      9,
+      22,
+      82,
+      29,
+      9
+    ],
+    "sharp_bound": "max_gate_count(d)=ceil(d/4) for d>=1",
+    "shortest_gate_separation": 4
+  },
+  "zero_modes_and_rankone": {
+    "Q0_exact_nullspace_basis_global_indices": [
+      [
+        4,
+        3
+      ],
+      [
+        16,
+        15
+      ],
+      [
+        18,
+        17
+      ]
+    ],
+    "nullspace_dimension": 3,
+    "rank_Q0": 48,
+    "finite_field_AB_determinant": 641735106,
+    "gated_B_entries": [
+      [
+        2,
+        2
+      ],
+      [
+        8,
+        2
+      ],
+      [
+        10,
+        2
+      ]
+    ],
+    "24_core_gated_component": "H(z)=H(0)+z*u*e_2^T; u=A*b"
+  }
+}
