@@ -34,6 +34,8 @@ with total 96 and exact stationarity identity
 
 `sum_i size_i * C[i,j] = 6 * size_j`.
 
+Here `pi` denotes this stationary probability vector, not the classical circle constant.
+
 The marked quotient edges are exactly
 
 `4 -> 5`, `15 -> 5`, `17 -> 5`,
@@ -218,7 +220,7 @@ The finite DP is an independent integer cross-check of the recurrence and higher
 - `PREFIX576_gate_cumulant_rank_one_certificate.py`: existing first through third group-inverse potentials and order-four cumulant result;
 - exact Fraction/integer group-inverse extension and moment DP in the new PREFIX-577 checker.
 
-No new top-level BRC family is claimed. No classical trigonometry, pi expansion, Taylor/Padé/Cayley propagation, floating-point scientific update or physical-time interpretation is used. The exact rational algebra is a derived observer on the actual typed native BRC transition table.
+No new top-level BRC family is claimed. No classical trigonometry or circle-constant expansion is used. The only series is exact rational coefficient extraction from the rank-one secular equation for the derived gate-count observer; no Taylor/Padé/Cayley state propagation, floating-point BRC update or physical-time interpretation is used. The exact rational algebra is a derived observer on the actual typed native BRC transition table.
 
 The theorem is restricted to the frozen `q1=...=q6=1` gate-count observer. It does not prove the parameterized `x=q5,y=q6` gate-sensitive positivity problem, a physical gate law, physical-time calibration, instantaneous transmission or Shor speedup.
 
