@@ -1,0 +1,11 @@
+# EC49O — Controlled memory coding under priced adaptive sensors
+
+Author-side proposal only; no canonical Task/CLAIM/Result/Driver authority.
+
+**Mother objective.** Establish minimal causal memory retaining the *raw* four-vector (P accept,Q accept,E_PT,E_QT) when original W histories are partially forgotten, own actions are retained, and sensor kernels depend on actions.
+
+**EC49N verified frontier (do not redo).** The predecessor PROOF.md and VERIFY.py exhibit two W histories with uniform legal action menus, arbitrary early acceptance, strictly positive rational P/Q potential-outcome atoms. When A1 sensor is uninformative the compact support of alpha-beta is 1/4 versus full 1/2, sharp separation 1/4, and one external bit is necessary/sufficient for the full region. When both actions have identical kernels/costs, first action codes W and entire raw regions are equal, with rational realization for every rational reachable four-vector. Scope: auxiliary positive-weight BRC, not native signed BRC/X6.
+
+**Next independent discriminating unit.** Use three distinct external W histories and two adaptive priced sensors. Preserve exact P/Q joint outcome tables, source-labelled branch provenance, common first-action menus, full observation/stopping operations and T under both sources. Determine the minimum added causal W memory (including a 0/1/2-bit decision) or a controlled bisimulation/safe-quotient theorem. A new strict source-coupled linear separation or all-real constructive policy compilation counts as proof. Separately study whether a rational target may require irrational *fresh behavioral* parameters when early/pre-purchase and post-purchase terminal choices are fully flexible in an action-dependent imperfect-recall model; EC49N resolves only the neutral-action subcase.
+
+**Evidence contract.** Supply complete model and action/observation partitions, precise quantifiers, source-independent policies, exact Fraction/symbolic execution and raw report, full four observables, proof limitations and prior-art references. Respect live owners: native Task and Result need fresh exact authority; PR is author evidence, not admission. Preserve P000 and ACTIVE worldview.
