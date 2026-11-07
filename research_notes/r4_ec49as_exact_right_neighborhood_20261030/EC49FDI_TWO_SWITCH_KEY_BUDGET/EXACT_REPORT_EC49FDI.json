@@ -1,0 +1,86 @@
+{
+  "schema": "EC49FDI_TWO_SWITCH_NATIVE_KEY_BUDGET_V1",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "budgeted_minima_at_most": {
+    "5": 112,
+    "6": 96,
+    "7": 92
+  },
+  "results": [
+    {
+      "h6_new": false,
+      "h8_new": false,
+      "full_positive_keys": 5,
+      "optimum": 112,
+      "candidate_words": 4372,
+      "trie_nodes": 26705,
+      "inspected_pairs": 21972032,
+      "compatible_pairs": 5977571,
+      "root_states": 1048576
+    },
+    {
+      "h6_new": true,
+      "h8_new": false,
+      "full_positive_keys": 6,
+      "optimum": 96,
+      "candidate_words": 4492,
+      "trie_nodes": 25605,
+      "inspected_pairs": 25909100,
+      "compatible_pairs": 6362459,
+      "root_states": 1048576
+    },
+    {
+      "h6_new": false,
+      "h8_new": true,
+      "full_positive_keys": 6,
+      "optimum": 106,
+      "candidate_words": 5492,
+      "trie_nodes": 31159,
+      "inspected_pairs": 21984948,
+      "compatible_pairs": 5998415,
+      "root_states": 1048576
+    },
+    {
+      "h6_new": true,
+      "h8_new": true,
+      "full_positive_keys": 7,
+      "optimum": 92,
+      "candidate_words": 5612,
+      "trie_nodes": 30059,
+      "inspected_pairs": 25815852,
+      "compatible_pairs": 6359743,
+      "root_states": 1048576
+    }
+  ],
+  "witness96": {
+    "edge_count": 96,
+    "distinct_full_positive_keys": 6,
+    "prefix_sha256": "dd8c0a68979ee66fc83970d351bea1d65608d00fa46ebbaaa3fb7ec0b9310f69",
+    "label_words": {
+      "2:16": "fe",
+      "2:32": "ge",
+      "3:16": "feg",
+      "3:32": "gef",
+      "4:1": "gefd",
+      "4:2": "fegd",
+      "4:4": "fegc",
+      "4:8": "gefc",
+      "5:16": "feggf",
+      "5:32": "gefgf",
+      "6:1": "gefdfg",
+      "6:2": "fegdfg",
+      "6:4": "feggfc",
+      "6:8": "gefgfc",
+      "7:1": "gefdfgd",
+      "7:2": "fegdfgd",
+      "7:4": "feggfcc",
+      "7:8": "gefgfcc",
+      "8:1": "gefdfggf",
+      "8:2": "fegdfggf",
+      "8:4": "feggfcfg",
+      "8:8": "gefgfcfg",
+      "9:16": "feggffggf",
+      "9:32": "gefgffggf"
+    }
+  }
+}
