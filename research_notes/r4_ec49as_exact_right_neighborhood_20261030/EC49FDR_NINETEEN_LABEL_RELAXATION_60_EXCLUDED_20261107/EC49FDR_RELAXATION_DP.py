@@ -91,7 +91,7 @@ def solve(fid,k):
                 cost.append(int(path[-1] not in paid))
             cur=nxt
         early_key_bit=(1<<(8+old_keys.index(kk)) if kk in old_keys else 0)
-        pair_bits=(1<<({6:11,small_h:13}[h]+(16,32).index(sig)
+        pair_bits=(1<<({6:11,small_h:13}[h]+(16,32).index(sig))
                    if h in (6,small_h) and sig in (16,32) else 0)
         rank_bits=(sum(1<<(15+i) for i,mask in enumerate(clauses)
                        if sig&mask) if h==big_h else 0)
