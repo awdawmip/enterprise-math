@@ -1,5 +1,6 @@
 import importlib.util
-spec=importlib.util.spec_from_file_location('repro506','/mnt/data/REPRO_STAGE506B.py')
+from pathlib import Path
+spec=importlib.util.spec_from_file_location('repro506',str(Path(__file__).with_name('REPRO_STAGE506B.py')))
 m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 
 def brute(n,h,R):
