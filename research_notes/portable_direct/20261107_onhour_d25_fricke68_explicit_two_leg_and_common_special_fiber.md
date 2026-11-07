@@ -57,7 +57,7 @@ Degrees are 6 and 8 after checking no numerator/denominator cancellation. Cusp a
 
 **Theorem 2.** Over an algebraic closure of Q, for finite t away from poles,
 \[
-\boxed{z(t)=\tfrac12;\land;w(t)=\tfrac19\iff t^2=72.}
+\boxed{z(t)=\tfrac12\;\land\;w(t)=\tfrac19\iff t^2=72.}
 \]
 Proof: clear the denominators of 2z-1 and 9w-1:
 \[
@@ -68,7 +68,7 @@ Q(t)=2304t^3(t+8)(t+9)^3-(t^2+36t+216)^4.
 \]
 Exact Euclidean polynomial gcd over Q[t] gives the monic gcd t^2-72; both roots are non-poles. Hence t=+6sqrt(2),-6sqrt(2) are all common preimages. Their exact first-coordinate Jacobian is
 \[
-\boxed{\left.\frac{dz}{dw}\right|_{t=pm6sqrt2}=\pm\frac{27sqrt2}{16}.}
+\boxed{\left.\frac{dz}{dw}\right|_{t=\pm6\sqrt2}=\pm\frac{27\sqrt2}{16}.}
 \]
 This resolves the previously open *special-point matching* unit: it is TRUE, not merely an inferred consequence of group indices.
 
@@ -86,7 +86,7 @@ Q_B=d'+d^2+P_A d+Q_A.
 \]
 As d=(log G)' for G=(t+12)/\sqrt(t^2+36t+216), the two pullback differential operators are conjugate by G. Normalizing at the common cusp t=infinity (both Gauss series are 1+O(1/t), G->1) proves the **local analytic germ** identity
 \[
-\boxed{F_A(z(t))=G(t),F_B(w(t))\quad\text{near }t=\infty.}
+\boxed{F_A(z(t))=G(t)F_B(w(t))\quad\text{near }t=\infty.}
 \]
 This is an equation of branch-normalized analytic germs, not an unqualified equality of principal real Gauss values throughout the t-plane.
 
