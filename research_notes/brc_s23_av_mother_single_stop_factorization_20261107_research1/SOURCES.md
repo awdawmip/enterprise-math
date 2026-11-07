@@ -1,0 +1,6 @@
+# Frozen sources and verification scope
+
+- Scientific pin: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34. Exact original eleven-control six-source S23 model: research_notes/brc_n4_s23_11d_multiaffine_cell_certificate_20261101_research1/PROOF.md (M20, source AV stopped law, policy selection, fixed E/D).
+- Auxiliary comparison: PR #1777@ce7762b32d79402781d2391a767b6edd3e13a3ed, research_notes/brc_s23_av_n3_exact_full27_minimax_20261107_research1/PROOF.md.
+- Current behavioral routes were read from global main on 2026-11-07: 00_BOOTSTRAP.md, OPERATING_MANUAL.md, projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md, P000_STARTUP.json (original canonical P000 blob 770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc), ACTIVE 我眼中的世界.md, mathematical evidence, temporal, activity and BRC rules. EM main: docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context, docs/PORTABLE_RESEARCH_PROTOCOL.md, research_priorities/research_method.json, native joint-observer rule, AGENTS.md.
+- Proofs are author-side elementary algebra and finite interval-cover analysis. Python standard-library Fraction code actually executed for pure AV M row, exact four-point finite difference, and rational constants; stdout attached. Neither an independent mathematical review nor formal claim/admission is asserted.
