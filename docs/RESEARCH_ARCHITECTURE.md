@@ -1,5 +1,7 @@
 # Enterprise Math Research Architecture V2
 
+[Chinese version](RESEARCH_CONTROL_ARCHITECTURE.zh-CN.md)
+
 Status: `ACTIVE / CANONICAL GOVERNANCE / V2.6`
 Date: `2026-08-28`
 Driver-ID: `EM-DVR-K7Q4N8`
@@ -54,7 +56,15 @@ Freeze:
 
 `OFFICIAL_POST_CUTOVER_TASK -> IMMUTABLE_V2_PUBLICATION_RECORD`.
 
-`UNREGISTERED_NEW_TASK -> NO READY / NO CLAIM / NO EXECUTION`.
+`UNREGISTERED_NEW_TASK -> NO READY / NO CLAIM / NO_SHARED_TASK_EXECUTION_AUTHORITY`.
+
+This lifecycle governs formal shared tasks. Direct unshared derivation,
+construction, computation preparation and material preservation can proceed
+once the applicable foundation and exact question are understood. Activity
+visibility, tool coverage, formal novelty, shared intake and control writes
+retain their actual operation-specific timing; they are not a universal
+registration prerequisite for every useful step. Unbound control/document
+maintenance does not acquire a research identity or CLAIM through this route.
 
 `OWNER_LEASE != SESSION_LIVENESS`.
 
@@ -76,7 +86,10 @@ All new or modified post-cutover tasks use:
 
 Allowed publishers: `RESEARCHER`, `RESEARCH_DRIVER`, `FOUNDATION_STEWARD`.
 
-`research_task_records/<task-id>/<publication-id>.json` and `tools/research_task_records.py` are historical migration provenance, not post-cutover publication authority.
+`research_task_records/<task-id>/<publication-id>.json` and
+`tools/research_task_records.py` are the current immutable V2 publication
+surfaces. The old V1 shared registry and registry writer are historical
+migration provenance, not post-cutover publication authority.
 
 Freeze:
 
@@ -110,7 +123,14 @@ It composes fault-isolated runtime views, stale-owner recovery, ordinary fresh s
 
 Freeze:
 
-`STALE_SESSION + VALID_OWNER_CLAIM -> ADOPT_SAME_CLAIM`.
+`STALE_SESSION + VALID_OWNER_CLAIM -> PREPARE_SUCCESSOR_CLAIM`.
+
+Under `research_dispatch_contract.json` and
+`control_plane/executor_succession_policy.json`, a cross-session successor uses
+a real role-authorized identity, immutable continuation evidence, a new
+authenticated CLAIM, exact predecessor CAS and old-writer fencing. The old
+claim remains provenance; neither a packet nor preparation authorizes
+execution. An active exact session cannot be preempted.
 
 `FRESH_SELECTOR_EMPTY + VALID_OWNER_LIVENESS_UNKNOWN -> VERIFY_SESSION_LIVENESS`.
 
@@ -127,6 +147,10 @@ Freeze:
 FREE Phase A loads only primitive substrate, exact primitives actually needed, protected relevant worldview and integrity/typing rules. Current task/route/history, downstream achievements, other-branch Working Truth, suggestion menus and project-tool/representation convenience are not discovery priors.
 
 After candidate freeze, current/prior context becomes Phase-B audit material.
+Before freeze, an independently formed question that actually contains the
+relevant typed structure may use precise definitions, applicability conditions
+and necessary tool sources under the FREE role/substrate contract. This does
+not open whole catalogs, comparison or dedup, or erase previous exposure.
 
 ## 6. Candidate lifecycle
 
@@ -146,11 +170,17 @@ Working Truth activates only after explicit Driver freeze or exact task semantic
 
 ## 8. Tool lookup and actual reuse
 
-Once TASK semantics are understood—and after any explicit discovery firewall freeze—run the reuse gate before inventing new general machinery.
+After understanding TASK semantics, apply the actual timing in
+`tool_invocation_policy.json` and `control_plane/current_control_authority.json`:
+lookup may run alongside unshared derivation or after preserving its results.
+Coverage and relevant-match resolution are required before method-novelty
+claims or shared-tool acceptance, not merely to start private exploration.
+An explicit discovery firewall retains its source scope and freeze point.
 
 `TOOL_COVERAGE_LOOKUP != TOOL_USE`.
 
-A relevant match must receive explicit reuse resolution under `tool_invocation_policy.json`, including as appropriate:
+At that required novelty/shared-acceptance step, each relevant match must receive
+explicit reuse resolution under `tool_invocation_policy.json`, including as appropriate:
 
 - `REUSE_APPLIED`;
 - `REUSE_EXECUTED`;
@@ -198,7 +228,11 @@ Independent runs do not share candidate packets or a suggestion menu before free
 
 FREE: `ROLE -> PRIMITIVE SUBSTRATE -> NEEDED PRIMITIVES -> DISCOVERY`.
 
-TASK: `AGENTS -> EXACT TASK -> FIRST DEPENDENCY -> WORK -> TRIGGERED EXPANSION`.
+TASK: `APPLICABLE FOUNDATION/RULES -> EXACT TASK OR PACKET -> FIRST DEPENDENCY -> WORK -> TRIGGERED EXPANSION`.
+
+Reuse host-injected `AGENTS.md` when present; ordinary TASK start does not add a
+remote fetch of that router. Use the current role-specific foundation and
+transport routes in `docs/RESEARCHER_STARTUP_CONTEXT_PROTOCOL.md`.
 
 Control-plane work uses the cooperative soft watchdog in `active_turn_liveness.json`:
 
@@ -230,7 +264,7 @@ Mathematical L4 remains one bounded active promotion attempt at a time. Strict `
 ## 15. Persistence / truth
 
 - immutable V2 task records = post-cutover task existence/provenance;
-- `research_task_records/<task-id>/<publication-id>.json` = V1 compatibility mirror only;
+- `research_task_records/<task-id>/<publication-id>.json` = canonical immutable V2 task publication record;
 - taskbook = task-local research content;
 - Issue #240 = sparse runtime ownership/control events;
 - immutable result/review records = terminal provenance;

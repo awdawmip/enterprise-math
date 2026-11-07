@@ -97,6 +97,7 @@ class ResearcherStartupPacketTests(unittest.TestCase):
         self.assertEqual(packet["schema"], startup.SCHEMA)
         self.assertEqual(packet["task"]["projection_mode"], "INLINE_EXACT_TASKBOOK_SECTIONS")
         self.assertEqual(packet["task"]["projection"]["Mother question"], SECTIONS["Mother question"])
+        self.assertEqual(packet["task"]["taskbook_title"], "T1")
         self.assertNotIn("ENTERPRISE_MATH_TASK_V1", json.dumps(packet))
         self.assertEqual(
             packet["read_plan"]["first_dependency_ref"],
@@ -371,6 +372,120 @@ class ResearcherStartupPacketTests(unittest.TestCase):
         root, _ = self.make_root()
         self.assertIsNone(startup._existing_repo_path(root, ["branch@deadbeef"]))
         self.assertIsNone(startup._existing_repo_path(root, ["research_returns\\R1.md@main"]))
+
+    def replace_taskbook_body(self, root, body):
+        taskbook = root / "research_tasks/T1.md"
+        taskbook.write_text(body, encoding="utf-8")
+        path = root / "research_task_records/T1/P1.json"
+        publication = json.loads(path.read_text(encoding="utf-8"))
+        publication["taskbook_blob_sha1"] = startup._git_blob_sha1(taskbook.read_bytes())
+        path.write_text(json.dumps(publication), encoding="utf-8")
+
+    def test_extra_and_preamble_constraints_use_exact_taskbook(self):
+        for placement in ("extra", "preamble"):
+            with self.subTest(placement=placement):
+                root, receipt = self.make_root()
+                body = (root / "research_tasks/T1.md").read_text(encoding="utf-8")
+                if placement == "extra":
+                    body += "## Additional frozen constraint\n\nPreserve the held-out input.\n"
+                else:
+                    body = body.replace("# T1\n", "# T1\n\nPreserve the held-out input.\n")
+                self.replace_taskbook_body(root, body)
+                packet = startup.build_packet(receipt, root)
+                self.assertEqual(packet["task"]["projection_mode"], "EXACT_TASKBOOK_REQUIRED")
+                self.assertIsNone(packet["task"]["projection"])
+                self.assertIn("UNREPRESENTED_TASKBOOK_CONTENT",
+                              packet["task"]["projection_incomplete_reasons"])
+                self.assertEqual(packet["task"]["taskbook_path"], "research_tasks/T1.md")
+                self.assertEqual(packet["read_plan"]["external_taskbook_bytes"], len(body.encode()))
+
+    def test_duplicate_or_out_of_order_sections_use_exact_taskbook(self):
+        for layout in ("duplicate", "out_of_order"):
+            with self.subTest(layout=layout):
+                root, receipt = self.make_root()
+                names = list(SECTIONS)
+                if layout == "out_of_order":
+                    names[0], names[1] = names[1], names[0]
+                body = "# T1\n\n" + "\n".join(
+                    f"## {name}\n\n{SECTIONS[name]}\n" for name in names)
+                if layout == "duplicate":
+                    body += "## Mother question\n\nAn additional target.\n"
+                self.replace_taskbook_body(root, body)
+                packet = startup.build_packet(receipt, root)
+                self.assertEqual(packet["task"]["projection_mode"], "EXACT_TASKBOOK_REQUIRED")
+                self.assertIsNone(packet["task"]["projection"])
+
+    def test_fenced_fake_headings_remain_exact_section_body(self):
+        for delimiter in ("```", "~~~~"):
+            with self.subTest(delimiter=delimiter):
+                root, receipt = self.make_root()
+                body = (root / "research_tasks/T1.md").read_text(encoding="utf-8")
+                example = f"{delimiter}markdown\n## Extra example heading\nexample\n{delimiter}"
+                body = body.replace(SECTIONS["Frozen inputs and scope"],
+                                    SECTIONS["Frozen inputs and scope"] + "\n\n" + example)
+                self.replace_taskbook_body(root, body)
+                packet = startup.build_packet(receipt, root)
+                self.assertEqual(packet["task"]["projection_mode"], "INLINE_EXACT_TASKBOOK_SECTIONS")
+                self.assertEqual(packet["task"]["projection"]["Frozen inputs and scope"],
+                                 SECTIONS["Frozen inputs and scope"] + "\n\n" + example)
+
+    def test_nonstandard_taskbook_remains_a_valid_exact_read(self):
+        for body in ("# T1\n\n## 母问题\n\n保留原始定义域。\n",
+                     "# T1\n\nThe task is expressed without section headings.\n"):
+            with self.subTest(body=body):
+                root, receipt = self.make_root()
+                self.replace_taskbook_body(root, body)
+                packet = startup.build_packet(receipt, root)
+                self.assertEqual(packet["task"]["projection_mode"], "EXACT_TASKBOOK_REQUIRED")
+                self.assertEqual(packet["task"]["taskbook_blob_sha1"],
+                                 startup._git_blob_sha1(body.encode()))
+                self.assertEqual(packet["packet_bytes"], len(startup._serialized_packet(packet)))
+
+    def test_unclosed_code_fence_does_not_claim_complete_projection(self):
+        root, receipt = self.make_root()
+        body = (root / "research_tasks/T1.md").read_text(encoding="utf-8")
+        body += "```text\nunfinished example\n"
+        self.replace_taskbook_body(root, body)
+        packet = startup.build_packet(receipt, root)
+        self.assertIsNone(packet["task"]["projection"])
+        self.assertIn("UNCLOSED_TASKBOOK_FENCE", packet["task"]["projection_incomplete_reasons"])
+
+    def test_unknown_frontmatter_constraint_is_preserved_in_inline_packet(self):
+        root, receipt = self.make_root()
+        metadata = {"task_id": "T1", "unfamiliar_hard_constraint": {
+            "allowed_inputs": ["frozen/input-a"],
+            "forbidden_operation": "Never inspect the held-out validation population.",
+            "exceptions": [],
+        }}
+        self.rewrite_metadata(root, metadata)
+        packet = startup.build_packet(receipt, root)
+        self.assertEqual(packet["task"]["projection_mode"], "INLINE_EXACT_TASKBOOK_SECTIONS")
+        self.assertEqual(packet["task"]["taskbook_metadata"], metadata)
+        self.assertEqual(packet["task"]["projection"], SECTIONS)
+
+    def test_large_frontmatter_uses_whole_taskbook_without_partial_metadata(self):
+        root, receipt = self.make_root()
+        metadata = {"task_id": "T1", "extra_scope_constraints": "x" * 12000}
+        self.rewrite_metadata(root, metadata)
+        packet = startup.build_packet(receipt, root)
+        self.assertEqual(packet["task"]["projection_mode"], "EXACT_TASKBOOK_REQUIRED_PACKET_BUDGET")
+        self.assertIsNone(packet["task"]["projection"])
+        self.assertIsNone(packet["task"]["taskbook_metadata"])
+        self.assertIsNone(packet["task"]["taskbook_title"])
+        self.assertEqual(packet["read_plan"]["external_taskbook_bytes"],
+                         len((root / "research_tasks/T1.md").read_bytes()))
+
+    def test_embedded_metadata_example_is_not_routing_frontmatter(self):
+        root, receipt = self.make_root()
+        example = '<!-- ENTERPRISE_MATH_TASK_V1\n{"task_id":"EXAMPLE","source_refs":["research_returns/R1.md"]}\n-->'
+        body = "\n".join(f"## {name}\n\n{value}\n" for name, value in SECTIONS.items())
+        body += "\n```markdown\n" + example + "\n```\n"
+        self.replace_taskbook_body(root, body)
+        packet = startup.build_packet(receipt, root)
+        self.assertEqual(packet["task"]["projection_mode"], "INLINE_EXACT_TASKBOOK_SECTIONS")
+        self.assertEqual(packet["task"]["taskbook_metadata"], {})
+        self.assertIsNone(packet["read_plan"]["first_dependency_ref"])
+        self.assertIn(example, packet["task"]["projection"]["Success, kill, and return criteria"])
 
 
 if __name__ == "__main__":

@@ -1,5 +1,7 @@
 # EM FREE_RESEARCHER — Anti-Anchoring Axiom Discovery Protocol
 
+[Chinese version](EM_FREE_RESEARCHER_ANTI_ANCHORING_PROTOCOL.zh-CN.md)
+
 Status: `ACTIVE / ROLE-SPECIFIC GOVERNANCE V7`
 Date: `2026-08-22`
 Role: `EM_FREE_RESEARCHER`
@@ -104,6 +106,16 @@ Allowed direction:
 
 `RESEARCHER_GENERATES_QUESTION -> CHOOSE_MINIMAL_TOOL_TO_TEST_IT`.
 
+After an independent question actually contains the relevant typed structure,
+the required precise definitions, applicability conditions and tool material
+may be read while the candidate is still unfrozen. Preserve the question and
+source relationship in the existing notes. This permission does not open whole
+tool/result inventories, current-work comparison or dedup before Phase B.
+Use the Phase-A foundation package and actual exact-selection reader described
+by the substrate/role routes; errors, diagnostics and fallback have the same
+information scope as successful reads. A legal relevant lookup is not itself a
+phase transition, and it does not remove any earlier agenda exposure.
+
 Thus:
 
 `TOOL_AVAILABILITY != DISCOVERY_PRIOR`.
@@ -116,7 +128,9 @@ Thus:
 
 ## Phase-A freeze
 
-Before opening current/prior agenda or downstream-result context, freeze the packet required by `research_axiom_candidate_state_machine.json`.
+Before opening current/prior agenda or general downstream-result comparison
+context, freeze the packet required by `research_axiom_candidate_state_machine.json`.
+The preceding question-first precise lookup permission remains applicable.
 
 Required content includes:
 

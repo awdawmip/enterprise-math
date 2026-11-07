@@ -1,5 +1,7 @@
 # Enterprise Math — FREE_AXIOM_DISCOVERY Primitive Substrate Router
 
+[Chinese version](00_FREE_AXIOM_DISCOVERY_SUBSTRATE.zh-CN.md)
+
 <!-- EM_FINAL_CELL_ADDRESS_CONTRACT_V1 -->
 ## Public address typing only (2026-09-13)
 
@@ -38,7 +40,13 @@ Freeze:
 
 ## P000 — mandatory, locked, not a discovery target
 
-Before free question generation load `../p000_reality_foundation.json`.
+Before free question generation load the mandatory Source foundation commitments
+at the chosen scientific snapshot. The generated
+`definitions/EM_FREE_A_FOUNDATION_STARTUP.json` preserves the normative fields
+of P000 and the complete mandatory foundation relation: Heartbeat World,
+residual fidelity, joint-relation preservation and global Weighted-BRC typing.
+It is a reading projection, not a new foundation authority. Current role and
+behavioral rules are read separately from frozen scientific inputs.
 
 FREE research must assume:
 
@@ -89,6 +97,10 @@ By explicit user promotion on 2026-09-02, the minimal branch-typing commitments 
 `definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`
 
 are part of **all** Enterprise Math research foundations, including FREE Phase A.
+
+Read those normative fields through the Phase-A package or another exact
+role-appropriate selection. The full source also contains detailed downstream
+locators; a plain full-file fetch is not the Phase-A filtering mechanism.
 
 A FREE researcher therefore starts with the following type discipline:
 
@@ -210,7 +222,9 @@ After the free researcher freezes its candidate packet, the withheld current-res
 - comparison with existing Enterprise Math work;
 - prior-art/novelty analysis;
 - selection of verification tools;
-- full lookup of `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json` and `t0.weighted_brc_cwm` when relevant.
+- the exact further evidence and tool references collected in
+  [`EM_FREE_PHASE_B_REFERENCE.en.md`](../research_roles/EM_FREE_PHASE_B_REFERENCE.en.md)
+  when relevant.
 
 These are audit functions after discovery, not a menu for generating the candidate.
 
@@ -226,7 +240,20 @@ It is intentionally richer than this file because it indexes current downstream 
 
 Therefore during FREE Phase A:
 
-`USE = p000_reality_foundation.json + definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md + definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json`.
+`USE = definitions/EM_FREE_A_FOUNDATION_STARTUP.json + definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md + CURRENT_FREE_ROLE_AND_ANTI_ANCHORING_RULES`.
+
+The generated package covers the five mandatory Source contracts; the former
+three-file shorthand was a locator summary, not permission to omit Heartbeat,
+residual fidelity or joint-preservation. A matching package may be reused while
+its actual scientific sources remain applicable. Its local role reader is
+`python tools/build_em_foundation_startup.py --read free_phase_a`; it returns
+classified content before the response reaches the model. The build report and
+the ordinary research package are maintenance/other-role surfaces.
+
+If a package cannot be used, take a matching valid role-appropriate package or
+an exact permitted source selection. Never replace it with an unfiltered
+mixed-source dump. If neither is available, preserve that specific reading gap,
+continue work independent of it and keep actual exposure truthful.
 
 `DO_NOT_PRELOAD = definitions/00_CURRENT_NATIVE_FOUNDATION.md + detailed current result/tool catalogs`.
 
@@ -248,6 +275,10 @@ For P000 content, `../p000_reality_foundation.json` controls.
 
 For the minimal all-research Weighted-BRC substrate, `ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json` controls.
 
-For detailed Weighted-BRC theorem scope, `ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json` controls after the relevant structure is selected.
+After the researcher independently selects a relevant structure, its precise
+definition/theorem/tool source controls that exact scope. Such a required
+question-first lookup may occur before candidate freeze; use the exact source
+selector and necessary dependencies, not a whole comparison catalog. The
+Phase-B reference supplies comparison and dedup locators after freeze.
 
 For discovery-information boundaries, `research_architecture.json`, the FREE role contract and anti-anchoring protocol control except where the explicit user promotion recorded above adds the new minimal global substrate.

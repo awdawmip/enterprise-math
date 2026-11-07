@@ -1,10 +1,12 @@
 # EM FREE_RESEARCHER — Autonomous Axiom Discovery Role
 
-Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V6.4`
+[Chinese version](EM_FREE_RESEARCHER_ROLE.zh-CN.md)
+
+Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V6.5`
 Role key: `EM_FREE_RESEARCHER`
 Research mode: `FREE_AXIOM_DISCOVERY`
 Identity lane: `EM-FREE`
-Date: `2026-08-28`
+Date: `2026-11-07`
 Architecture: `research_architecture.json`
 Candidate lifecycle: `research_axiom_candidate_state_machine.json`
 Task publication: `research_task_publication_contract_v2.json`
@@ -46,11 +48,18 @@ Start from the smallest packet needed to know primitive commitments:
 
 1. global/project FREE bootstrap;
 2. this role file and anti-anchoring protocol;
-3. `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md`;
+3. `definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md` and its complete mandatory foundation relation;
 4. only exact primitive definition(s) actually needed;
 5. relevant protected ACTIVE worldview facts;
 6. repository safety/identity/liveness rules;
-7. foundational/native-semantic typing only when required.
+7. the mandatory P000/Heartbeat/residual-fidelity/joint-preservation/Weighted-BRC commitments; further exact native-semantic details when actually required.
+
+`definitions/EM_FREE_A_FOUNDATION_STARTUP.json` is the generated Phase-A reading
+of those five Source foundation contracts. It preserves their actual normative
+values and source blobs; it does not replace this role or the anti-anchoring
+contract. Reuse a package at the required scientific input version. Read current
+behavioral/control rules separately; a current control update does not move a
+frozen discovery snapshot. A mixed ordinary package is not the Phase-A input.
 
 Do **not** preload `definitions/00_CURRENT_NATIVE_FOUNDATION.md` during Phase A. It is Phase-B/current-state comparison knowledge.
 
@@ -96,28 +105,20 @@ Freedom includes deciding **what primitive question is worth asking and how to f
 
 Before opening current/prior agenda or general result catalogs, freeze the packet required by `research_axiom_candidate_state_machine.json`, including candidate statement, primitive dependencies, semantic layer, substrate/worldview snapshot, route-independent motivation, immediate consequences, falsifiers, blindness status and stable time/hash when practical.
 
-Only after freeze may current/prior project research context be opened for Phase-B audit.
+Only after freeze may current/prior project agendas and general result catalogs
+be opened for Phase-B audit. The precise conditional definition/tool lookup for
+an independently formed, relevant question below remains a Phase-A operation.
 
 ## Phase B — mandatory tool dedup and reuse resolution
 
 After candidate/no-go freeze, the shared toolbox becomes legitimate comparison evidence.
 
-Before claiming a new method, reusable calculus, invariant engine, certificate system or representation tool, use:
-
-- `tool_invocation_policy.json`;
-- `enterprise_toolbox_registry.json`;
-- `research_method_inventory.json`;
-- `tools/enterprise_toolbox.py` for coverage discovery when executable repository access exists.
-
-A coverage hit is not itself tool use. Every relevant match must receive an explicit reuse-resolution state such as:
-
-- `REUSE_APPLIED`;
-- `REUSE_EXECUTED`;
-- `COMPOSE_APPLIED`;
-- `REUSE_IDENTIFIED_EXECUTION_UNAVAILABLE`;
-- `EXTEND_EXISTING_TOOL`;
-- `CAPABILITY_GAP_CONFIRMED`;
-- `NOT_APPLICABLE`.
+Before claiming a new method, reusable calculus, invariant engine, certificate
+system or representation tool, follow the precise comparison sources and
+reuse-resolution states in [Phase-B reference](EM_FREE_PHASE_B_REFERENCE.en.md).
+Its inventories are opened after freeze, not preloaded to choose a question.
+A coverage hit is not itself tool use; each relevant match receives its actual
+reuse-resolution state.
 
 Do not rewrite the frozen Phase-A candidate to force convergence. Dedup/reuse resolution classifies the frozen result; it does not retroactively steer discovery.
 
@@ -142,7 +143,9 @@ Canonical publication surfaces:
 - `tools/research_task_records.py`;
 - immutable `research_task_records/<task-id>/<publication-id>.json`.
 
-`research_task_records/<task-id>/<publication-id>.json` and `tools/research_task_records.py` are historical migration provenance and are not new publication authority.
+These immutable V2 records and `tools/research_task_records.py` are the current
+publication surfaces. The old V1 shared registry and its registry writer are
+migration provenance, not authority for a new V2 publication.
 
 Freeze:
 
@@ -174,6 +177,24 @@ Phase A may use generic computation/formalization to test a question that arose 
 
 Current project tool catalogs remain hidden as a discovery prior until candidate freeze.
 
+Once a question has independently formed and actually contains the relevant
+typed branch/recurrent structure, exact definitions, applicability conditions
+and the needed tool material may be read before freeze. Use the minimal precise
+source and necessary dependencies; do not preload a whole result/tool inventory
+or perform Phase-B comparison and dedup at this point. The local reader
+`tools/build_em_foundation_startup.py --lookup REQUEST.json` supports exact
+registered selectors; other relevant precise reads retain their existing
+stage-appropriate source route. Record the question/source relationship in the
+existing notes, without a new role, registration or freeze step. A legal lookup
+does not certify clean prior context or erase actual tool use/exposure.
+
+If a generated package is missing, stale or unsupported, use a matching valid
+Phase-A package or an exact role-appropriate source reading. Do not dump mixed
+raw source files, build coverage or catalog-bearing errors into Phase A.
+`--read free_phase_a` reconstructs from classified exact inputs when possible
+and otherwise returns a bounded unavailable result. Continue independent work;
+retain the actual exposure state for anything already received.
+
 ## Independent replication
 
 For an independent free-research ensemble:
@@ -191,7 +212,7 @@ Phase A is normally remote-silent after minimal substrate reads.
 
 Do not create a task or Foundation question merely to legitimize raw free research. At an audited Phase-B candidate/negative checkpoint, valuable unresolved work may be captured through V2.
 
-Task publication is a SUBFLOW boundary: after publication, return to the current parent objective automatically rather than waiting for a user `继续` message.
+Task publication is a SUBFLOW boundary: after publication, return to the current parent objective automatically rather than waiting for another user continuation message.
 
 ## User-supplied direction
 

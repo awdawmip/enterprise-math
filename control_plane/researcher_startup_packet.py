@@ -70,7 +70,7 @@ def _git_blob_sha1(raw: bytes) -> str:
 
 
 def _task_metadata(text: str) -> dict[str, Any]:
-    match = TASK_FRONTMATTER.search(text)
+    match = TASK_FRONTMATTER.match(text.lstrip())
     if not match:
         return {}
     try:
@@ -81,19 +81,84 @@ def _task_metadata(text: str) -> dict[str, Any]:
     return value
 
 
-def _extract_sections(text: str) -> dict[str, str]:
+def _section_projection(text: str) -> tuple[dict[str, str], list[str], str | None]:
+    """Extract only a layout whose complete task body fits the five sections.
+
+    Extra text is potentially a task constraint, even when every expected heading
+    exists.  Keep such tasks on the exact-taskbook path instead of silently
+    dropping it. Fenced examples are body text, not Markdown section boundaries.
+    """
+    metadata = TASK_FRONTMATTER.match(text.lstrip())
+    if metadata:
+        text = text.lstrip()[metadata.end():]
     lines = text.splitlines()
     wanted = set(TASK_SECTIONS)
     out: dict[str, list[str]] = {name: [] for name in TASK_SECTIONS}
     current: str | None = None
+    seen: list[str] = []
+    issues: list[str] = []
+    document_title: str | None = None
+    fence_char: str | None = None
+    fence_length = 0
+
+    def issue(code: str) -> None:
+        if code not in issues:
+            issues.append(code)
+
     for line in lines:
+        fence = re.match(r"^ {0,3}(`{3,}|~{3,})(.*)$", line)
+        if fence_char is not None:
+            if current is not None:
+                out[current].append(line)
+            elif line.strip():
+                issue("UNREPRESENTED_TASKBOOK_CONTENT")
+            if (fence and fence.group(1)[0] == fence_char
+                    and len(fence.group(1)) >= fence_length
+                    and not fence.group(2).strip()):
+                fence_char = None
+            continue
+        if fence:
+            fence_char, fence_length = fence.group(1)[0], len(fence.group(1))
+            if current is not None:
+                out[current].append(line)
+            else:
+                issue("UNREPRESENTED_TASKBOOK_CONTENT")
+            continue
         if line.startswith("## "):
             name = line[3:].strip()
+            if name in seen:
+                issue("DUPLICATE_TASK_SECTION")
+            if name in wanted:
+                seen.append(name)
+            else:
+                issue("UNREPRESENTED_TASKBOOK_CONTENT")
             current = name if name in wanted else None
             continue
+        # Preserve the one document title separately; all other preamble/body
+        # text uses exact fallback rather than being assumed non-normative.
+        if line.startswith("# "):
+            if document_title is None and not seen:
+                document_title = line[2:]
+                continue
+            issue("UNREPRESENTED_TASKBOOK_CONTENT")
         if current is not None:
             out[current].append(line)
-    return {name: "\n".join(out[name]).strip() for name in TASK_SECTIONS if "\n".join(out[name]).strip()}
+        elif line.strip():
+            issue("UNREPRESENTED_TASKBOOK_CONTENT")
+    if fence_char is not None:
+        issue("UNCLOSED_TASKBOOK_FENCE")
+    sections = {name: "\n".join(out[name]).strip() for name in TASK_SECTIONS
+                if "\n".join(out[name]).strip()}
+    if not all(name in sections for name in TASK_SECTIONS):
+        issue("MISSING_REQUIRED_TASK_SECTIONS")
+    if seen != [name for name in TASK_SECTIONS if name in seen]:
+        issue("TASK_SECTION_ORDER_NOT_PRESERVED")
+    return sections, issues, document_title
+
+
+def _extract_sections(text: str) -> dict[str, str]:
+    """Compatibility helper; completeness is decided by _section_projection."""
+    return _section_projection(text)[0]
 
 
 def _candidate_paths(value: Any) -> Iterable[str]:
@@ -227,14 +292,16 @@ def _task_projection(
     _require(expected_sha1 == actual_sha1, f"taskbook blob mismatch: {taskbook_path}")
     text = raw.decode("utf-8")
     metadata = _task_metadata(text)
-    sections = _extract_sections(text)
+    sections, coverage_issues, document_title = _section_projection(text)
     return (
         {
             "taskbook_path": taskbook_path,
             "taskbook_blob_sha1": actual_sha1,
             "taskbook_bytes": len(raw),
             "sections": sections,
-            "complete": all(name in sections for name in TASK_SECTIONS),
+            "document_title": document_title,
+            "complete": not coverage_issues,
+            "coverage_issues": coverage_issues,
         },
         metadata,
     )
@@ -370,8 +437,14 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
             if projection["complete"]
             else "EXACT_TASKBOOK_REQUIRED",
             "projection": projection["sections"] if projection["complete"] else None,
+            # Unknown metadata can contain a frozen scope or hard constraint.
+            # Carry it whole, not just the few fields used for routing.
+            "taskbook_metadata": metadata if projection["complete"] else None,
+            "taskbook_title": projection["document_title"] if projection["complete"] else None,
             "required_task_sections": list(TASK_SECTIONS),
         }
+        if projection["coverage_issues"]:
+            packet["task"]["projection_incomplete_reasons"] = projection["coverage_issues"]
         for field in ("execution_cohort_id", "execution_lane_id", "output_prefix",
                       "lane_output_prefix", "last_progress_ref", "last_progress_at"):
             if field in target:
@@ -384,6 +457,8 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
         and packet["task"]["projection"] is not None
     ):
         packet["task"]["projection"] = None
+        packet["task"]["taskbook_metadata"] = None
+        packet["task"]["taskbook_title"] = None
         packet["task"]["projection_mode"] = "EXACT_TASKBOOK_REQUIRED_PACKET_BUDGET"
         size = _annotate_packet_size(packet)
     liveness = packet.get("liveness_targets")

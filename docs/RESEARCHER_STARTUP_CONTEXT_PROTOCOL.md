@@ -1,5 +1,7 @@
 # Researcher startup context protocol
 
+[Chinese version](RESEARCHER_STARTUP_CONTEXT_PROTOCOL.zh-CN.md)
+
 Status: `ACTIVE / CONTROL-PLANE / NO_NEW_MATHEMATICS`
 Schema: `ENTERPRISE_MATH_RESEARCHER_COLD_START_ENVELOPE_V1`
 
@@ -36,15 +38,30 @@ When a dispatch target exists, the builder:
 1. resolves the exact immutable publication at `research_task_records/<task-id>/<publication-id>.json`;
 2. resolves its exact `taskbook_path`;
 3. verifies the current taskbook bytes against `taskbook_blob_sha1`;
-4. extracts only these authoritative sections when all are present:
+4. extracts these authoritative sections only when all are present once, in
+   their declared order, and no other task body is omitted:
    - Mother question;
    - Frozen inputs and scope;
    - Hard target and required outputs;
    - Research value to preserve;
    - Success, kill, and return criteria;
-5. inlines that exact projection only if the complete startup packet remains within the hard packet budget.
+5. preserves the complete frontmatter metadata as `taskbook_metadata` and the
+   document title as `taskbook_title`, including unknown constraint fields;
+6. inlines that exact projection only if the complete startup packet remains within the hard packet budget.
 
-If the exact projection is too large, the builder omits it entirely and tells the consumer to fetch the exact taskbook. It never truncates or paraphrases task semantics merely to satisfy the context budget.
+If the exact projection is too large, the builder omits the sections, metadata
+and title together and tells the consumer to fetch the exact taskbook. It never
+truncates or paraphrases task semantics merely to satisfy the context budget.
+Only leading task frontmatter is metadata; a fenced metadata example in the
+body stays literal content and cannot choose the dependency route.
+
+Additional constraint sections, substantive preamble, duplicate/reordered
+headings, an unfinished code fence or a nonstandard layout use
+`EXACT_TASKBOOK_REQUIRED`. Markdown headings inside fenced examples remain
+literal section content. Chinese or unheaded legal taskbooks remain usable by
+their exact path/blob; the five English headings are a projection format, not
+task-publication eligibility. A bounded `projection_incomplete_reasons` list
+describes the fallback without placing omitted task text in diagnostics.
 
 ## First dependency
 
@@ -67,9 +84,44 @@ Freeze:
 
 The intended path is:
 
-`GLOBAL_BOOTSTRAP -> ENTERPRISE_TASK_BOOTSTRAP -> P000 -> HOST_INJECTED_AGENTS_IF_PRESENT -> EXACT_COMPACT_STARTUP_PACKET -> INLINE_TASK_PROJECTION_OR_EXACT_TASKBOOK -> FIRST_EXACT_DEPENDENCY_IF_NEEDED -> SUBSTANTIVE_RESEARCH`.
+`GLOBAL_BOOTSTRAP -> ENTERPRISE_TASK_BOOTSTRAP -> SOURCE_FOUNDATION_AT_REQUIRED_SCIENTIFIC_VERSION -> HOST_INJECTED_AGENTS_IF_PRESENT -> EXACT_COMPACT_STARTUP_PACKET -> INLINE_TASK_PROJECTION_OR_EXACT_TASKBOOK -> FIRST_EXACT_DEPENDENCY_IF_NEEDED -> SUBSTANTIVE_RESEARCH`.
 
 Ordinary startup must not remotely fetch `AGENTS.md` merely for task start. It must not load the full dispatch receipt, full current-control-authority JSON, full Issue #240 stream, recursive repository tree, or high-fanout task/result directories unless a concrete diagnostic condition makes that surface necessary.
+
+### Role and foundation reading routes
+
+Read only the route for the current work, reusing valid already loaded context.
+The global P000 V4 projection covers its own global source; it does not replace
+Source P000 V5 and its mandatory companions. The Source generator
+`tools/build_em_foundation_startup.py` preserves the complete five-contract
+relation and actual normative values in two deterministic reading packages:
+
+- `definitions/EM_FOUNDATION_STARTUP.json`: TASK, Driver, Steward and frozen FREE B;
+- `definitions/EM_FREE_A_FOUNDATION_STARTUP.json`: FREE A, without a detailed
+  comparison catalog or a menu of unopened conditional topics.
+
+Keep current control rules and frozen scientific input refs distinct. A package
+is suitable only for its actual source blobs; a new main/control snapshot does
+not silently update an old task's scientific assumptions. The packages do not
+grant role, task, theorem, review or Foundation authority.
+
+| Current work | Required route after applicable global rules |
+|---|---|
+| Direct unshared TASK derivation | Relevant foundation, exact question/input and applicable research method; begin the actual argument/construction. Formal novelty, shared intake and control operations trigger their own contracts. |
+| Dispatched/restored TASK | Reuse a known task or continuation request; otherwise select only when a new task is needed. Follow the actual returned prepare/claim/open/recovery action, exact packet/taskbook and required dependency. |
+| FREE A | Phase-A foundation package, current FREE role, anti-anchoring and primitive substrate; exact further primitives when needed. After an independently formed problem actually contains the relevant structure, precise definitions/tool material may be read before freeze. |
+| FREE B | Preserve the frozen candidate, source and exposure history; use the ordinary foundation package and relevant Phase-B comparison/dedup sources. |
+| Driver | `docs/RESEARCH_DRIVER_OPERATING_CONTRACT.md`, actual transport/activation requirements, and exact decision or result evidence; priorities/continuity only when triggered. |
+| Steward | `foundation_steward.json`, actual control requirements, and the exact Foundation maintenance evidence. |
+| Progress/document maintenance | Exact current artifacts and applicable control/semantic protection sources; no automatic research identity, activity, CLAIM or mathematical bootstrap. |
+
+Local `--read` checks or reconstructs an exact role-appropriate package from
+classified inputs. For a missing/stale/unsupported package, ordinary roles may
+read exact canonical sources; FREE A uses a matching valid Phase-A package or
+an exact permitted selection. Its errors and fallback do not expose a mixed raw
+source or build coverage. A specific unavailable input affects work depending
+on it; other independent work continues. Detailed build/lookup usage is in
+`docs/FOUNDATION_STARTUP_READING.en.md`.
 
 ## Produce and consume one current request
 
@@ -119,7 +171,8 @@ transport evidence; the packet's typed `action` still decides the next step.
 | Packet `action` | Required next step |
 | --- | --- |
 | `CLAIM_NEW_OWNER` | Follow the current CLAIM protocol for the exact publication and any lane; refresh live claim authority before the write and verify the winning claim before mathematical execution. The packet itself is not a claim. |
-| `ADOPT_OWNER_CLAIM` | Preserve the exact winning claim, task/publication and lane, verify its durable frontier, and use the existing runtime adoption guard. Do not create a replacement claim. |
+| `PREPARE_SUCCESSOR_CLAIM` | Preserve the exact predecessor claim/comment, task/publication, lane and durable frontier. Follow the returned continuation guard and current role authorization; a cross-session successor requires a new authenticated CLAIM, predecessor CAS, old-writer fencing and winning readback. Preparation is not execution authority. |
+| `ADOPT_OWNER_CLAIM` | Legacy action name: re-evaluate under the current continuation guard, preserving the exact predecessor and frontier. Cross-session recovery follows authenticated successor CLAIM/CAS; same-session resume is allowed only by the applicable current guard. The name does not authorize private adoption or execution. |
 | `VERIFY_SESSION_LIVENESS` | Obtain only the required exact owner-scope evidence. Submit a fresh request with valid V2 observations when evidence exists; report the precise missing evidence otherwise. This action is not `NO_DISPATCH`. |
 | `NO_DISPATCH` | Report no dispatch for this exact request/source snapshot. Do not infer permanent queue exhaustion or scan the queue manually. |
 
@@ -172,9 +225,23 @@ Canonical component ceilings are in `research_context_budget.json`.
 - aggregate raw cold-start soft target: `<= 65536` bytes;
 - aggregate raw cold-start hard envelope: `<= 81920` bytes.
 
+The global TASK bootstrap already specifies the ordinary compact read window
+as **after the packet**, and this protocol specifies its end as **before
+substantive mathematics**. Preserve that applicable TASK start/end window.
+The general `bounded_defaults.startup_source_reads_soft_max=3` and compact
+`researcher_cold_start_envelope.normal_remote_source_reads_before_math_max=2`
+have distinct scopes. The current packet propagates a configured limit; the
+static checker does not count actual events. Cross-entry applicability, which
+in-window source objects count, segmented-read units and exceptions are not
+fully specified by those numbers. In particular, do not silently exclude an
+in-window foundation/rule read merely by calling it overhead. Preserve raw
+events and report any unresolved comparison scope instead of claiming a new
+unified counting contract. This clarification leaves existing numeric limits
+unchanged and adds no research-start approval step.
+
 The hard component ceilings sum below the aggregate hard envelope. This is a raw-byte guard, not a claim about provider tokenization. Product/runtime token measurement remains a separate platform concern.
 
-The packet additionally reports `taskbook_bytes`, `external_taskbook_bytes` (zero for an inline projection), and `packet_plus_external_taskbook_bytes`. This is partial payload accounting, explicitly `PACKET_AND_EXTERNAL_TASKBOOK_ONLY_NOT_END_TO_END`: dependencies, tool schemas, registration/readback, diagnostics, and host-injected context are not measured. An 8 KiB packet PASS is not an end-to-end startup PASS. For large external taskbooks use bounded exact-section reads while preserving all five required sections and frozen scope; do not delete semantics to fit a budget.
+The packet additionally reports `taskbook_bytes`, `external_taskbook_bytes` (zero for an inline projection), and `packet_plus_external_taskbook_bytes`. This is partial payload accounting, explicitly `PACKET_AND_EXTERNAL_TASKBOOK_ONLY_NOT_END_TO_END`: dependencies, tool schemas, registration/readback, diagnostics, and host-injected context are not measured. An 8 KiB packet PASS is not an end-to-end startup PASS. For large external taskbooks use bounded exact-section reads while preserving the complete actual task body, all required content and frozen scope; do not delete semantics to fit a budget.
 
 ## Bridge persistence and concurrency
 
@@ -190,4 +257,9 @@ A workflow-only replay still performs live routing and packet construction for v
 
 `tests/test_researcher_startup_context_envelope.py` runs the packet builder against the repository's current real dispatch receipt and verifies that diagnostic bulk fields do not leak into the compact packet.
 
-`.github/workflows/researcher-startup-context-validation.yml` is the permanent gate.
+The locally executable packet, envelope and foundation tests validate these
+changes. The existing `.github/workflows/researcher-startup-context-validation.yml`
+is a hosted check surface; its actual enabled/required status is a separate
+deployment fact. Do not add or dispatch hosted checks merely for this local
+validation. Any existing binding transport or required-check dependency retains
+its scope until a verified replacement exists.
