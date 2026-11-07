@@ -1,0 +1,78 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": {
+    "phases": 48,
+    "phase_edges": 144,
+    "ports": 96,
+    "classes": 51,
+    "negative_sector": 24,
+    "positive_sector": 27
+  },
+  "finite_field": {
+    "prime": 1000000007,
+    "q": [
+      2,
+      3,
+      5,
+      7,
+      11,
+      13
+    ],
+    "z": 17,
+    "det_AB_24": 641735106,
+    "det_Krylov_49": 291645334,
+    "minor_rows_excluded": [
+      16,
+      18
+    ]
+  },
+  "symbolic_conclusions": {
+    "generic_rank_Q0": 48,
+    "generic_Krylov_rank_Q0_ones": 49,
+    "min_poly": "t*det(t^2*I24-AB)",
+    "AB_terms": 225,
+    "AB_weighted_paths": 864
+  },
+  "exact_check": {
+    "initial_vectors": 13,
+    "depth_inclusive": 8,
+    "polynomial_entries": 5967,
+    "physical_output_records": 864,
+    "monomial_coefficients": 61907,
+    "complete_output_sha256": "2aa4d99f1de7cb78936b779766a962c91834bce9642c99af757d165bad957de0"
+  },
+  "performance": {
+    "depth_inclusive": 8,
+    "runs": 3,
+    "baseline_seconds": [
+      1.551455,
+      1.434083,
+      1.47212
+    ],
+    "two_step_24core_seconds": [
+      2.253308,
+      2.323237,
+      2.260975
+    ],
+    "baseline_median": 1.47212,
+    "two_step_median": 2.260975,
+    "baseline_traced_peak_bytes": [
+      4485656,
+      4423448,
+      4423432
+    ],
+    "two_step_traced_peak_bytes": [
+      5529427,
+      5529299,
+      5529147
+    ],
+    "measurement": "CPython perf_counter and tracemalloc; initialization and full disk output included"
+  },
+  "dependencies": {
+    "prefix550_blob": "a0d057fadf610e89983723f1392d5b798b7c05d5",
+    "prefix553_blob": "a0c84aa09ccca22d8a3c31f9095c7742d5711bbb"
+  },
+  "author_status": "UNREVIEWED_NOT_ADMITTED",
+  "research_identity": "UNCONFIRMED_GATEWAY_IDENTITY_OR_VERSION_MISMATCH"
+}
