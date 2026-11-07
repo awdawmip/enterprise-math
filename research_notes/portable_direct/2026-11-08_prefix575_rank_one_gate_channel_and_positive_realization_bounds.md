@@ -42,24 +42,24 @@ In the 37-class quotient, the only gate-marked edges are
 
 each with multiplicity one. The three sources lie in the 20-state right block and share the same target in the 17-state left block.
 
-Let A be the 17×20 left-to-right weighted matrix and B(z) the 20×17 right-to-left matrix. Let u be the indicator of right-block positions 2, 8, 10, and let c=e_2^T select the left-block position corresponding to quotient class 5. Then the exact matrix identity is
+Let A be the 17×20 left-to-right weighted matrix and B(z) the 20×17 right-to-left matrix. Let η be the indicator of right-block positions 2, 8, 10, and let c=e_2^T select the left-block position corresponding to quotient class 5. Then the exact matrix identity is
 
 \[
-B(z)=B_0+zuc.
+B(z)=B_0+zηc.
 \]
 
 Consequently the two-step operator is
 
 \[
 P(z)=AB(z)=P_0+zbc,\qquad
-P_0=AB_0,\quad b=Au.
+P_0=AB_0,\quad b=Aη.
 \]
 
 Thus the gate perturbation has rank exactly one. In the 17-state realization, b has 7 nonzero entries and c has one. The identity was checked entrywise over exact symbolic polynomials.
 
 ## 3. The gate transfer function has exact McMillan degree 14
 
-The existing characteristic factorization is
+Set the symmetric polynomial variables \(u=x+y\) and \(v=xy\). The existing characteristic factorization is
 
 \[
 \chi(\lambda,z)=\det(\lambda I-P(z))
