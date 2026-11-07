@@ -62,12 +62,15 @@ class AgentsRouterContractTests(unittest.TestCase):
 
     def test_free_role_preserves_blind_tool_timing_and_has_footer(self):
         text = read("research_roles/EM_FREE_RESEARCHER_ROLE.md")
-        self.assertIn("V6.4", text)
+        self.assertIn("Status: `ACTIVE / ROLE-SPECIFIC CONTRACT V6.5`", text)
         self.assertIn("NO_DEFAULT_DISCOVERY_LENS_MENU", text)
         self.assertIn("Phase B — mandatory tool dedup and reuse resolution", text)
         self.assertIn("tool_invocation_policy.json", text)
         self.assertIn("Researcher-ID: <ID> / FREE_AXIOM_DISCOVERY", text)
-        self.assertIn("REUSE_EXECUTED", text)
+        self.assertIn("[Phase-B reference](EM_FREE_PHASE_B_REFERENCE.en.md)", text)
+        phase_b = read("research_roles/EM_FREE_PHASE_B_REFERENCE.en.md")
+        self.assertIn("Open this reference after the candidate/no-go packet is frozen", phase_b)
+        self.assertIn("`REUSE_EXECUTED`", phase_b)
         self.assertIn("research_task_publication_contract_v2.json", text)
         self.assertIn("tools/research_task_records.py", text)
         for seeded_example in (
