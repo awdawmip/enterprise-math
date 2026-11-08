@@ -1,0 +1,42 @@
+{
+  "schema": "EM_PREFIX601_GENERIC_THREE_STAR_V1",
+  "date": "2026-11-08",
+  "status": "AUTHOR_PROVED_UNREVIEWED_NOT_ADMITTED",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "native_scope": "only original four-STAR graph has frozen BRC status; other incidences abstract",
+  "theorem": "for 3-label stars with each label incident to exactly two different stars, A is 12s dimensional, det A=3^(3s), SNF(A)=diag(1^(9s),3^(3s)), four-nonzero sparse inverse 3A^-1",
+  "cases": [
+    {
+      "graph": "triple-edge",
+      "stars": 2,
+      "phases": 24,
+      "determinant": "729"
+    },
+    {
+      "graph": "K4",
+      "stars": 4,
+      "phases": 48,
+      "determinant": "531441"
+    },
+    {
+      "graph": "K3,3",
+      "stars": 6,
+      "phases": 72,
+      "determinant": "387420489"
+    },
+    {
+      "graph": "triangular prism",
+      "stars": 6,
+      "phases": 72,
+      "determinant": "387420489"
+    },
+    {
+      "graph": "cube",
+      "stars": 8,
+      "phases": 96,
+      "determinant": "282429536481"
+    }
+  ],
+  "checks": "ALL_CHECKS_PASS, native combinatorial phase formalism, stdlib Python",
+  "next": "symbolic interaction of triple-STAR phase inversion and full seven-reward gate kernels"
+}
