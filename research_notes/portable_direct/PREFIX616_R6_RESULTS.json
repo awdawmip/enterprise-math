@@ -1,0 +1,150 @@
+{
+  "schema": "PREFIX616_R6_EXACT_SIGN_COMPLETE_STOPPING_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "parent_model": "PREFIX-610 signed-label one-step law",
+  "uniform": {
+    "d2_q12": {
+      "mean_exact": "50/1",
+      "variance_exact": "770/1",
+      "mean_rounded": 50,
+      "variance_rounded": 770,
+      "N95_min": null,
+      "N99_min": null
+    },
+    "d2_q24": {
+      "mean_exact": "100/1",
+      "variance_exact": "3180/1",
+      "mean_rounded": 100,
+      "variance_rounded": 3180,
+      "N95_min": null,
+      "N99_min": null
+    },
+    "d4_q12": {
+      "mean_exact": "2283/35",
+      "variance_exact": "997844/1225",
+      "mean_rounded": 65.228571,
+      "variance_rounded": 814.566531,
+      "N95_min": null,
+      "N99_min": null
+    },
+    "d4_q24": {
+      "mean_exact": "4566/35",
+      "variance_exact": "4151186/1225",
+      "mean_rounded": 130.457143,
+      "variance_rounded": 3388.723265,
+      "N95_min": null,
+      "N99_min": null
+    },
+    "d12_q12": {
+      "mean_exact": "1347822955/14872858",
+      "variance_exact": "1185036869794808377/1422012246995340",
+      "mean_rounded": 90.622996,
+      "variance_rounded": 833.352084,
+      "N95_min": 145,
+      "N99_min": 183
+    },
+    "d12_q24": {
+      "mean_exact": "1347822955/7436429",
+      "variance_exact": "1249470375069700702/355503061748835",
+      "mean_rounded": 181.245993,
+      "variance_rounded": 3514.654329,
+      "N95_min": 293,
+      "N99_min": 370
+    }
+  },
+  "asymmetric": {
+    "d2_q12": {
+      "theta": [
+        "0/1",
+        "1/96"
+      ],
+      "mean_exact": "2214/35",
+      "variance_exact": "2269922/1225",
+      "mean_rounded": 63.257143,
+      "variance_rounded": 1852.997551
+    },
+    "d2_q24": {
+      "theta": [
+        "0/1",
+        "1/96"
+      ],
+      "mean_exact": "4428/35",
+      "variance_exact": "9234668/1225",
+      "mean_rounded": 126.514286,
+      "variance_rounded": 7538.50449
+    },
+    "d4_q12": {
+      "theta": [
+        "0/1",
+        "1/96",
+        "-1/192",
+        "1/192"
+      ],
+      "mean_exact": "1281097629407/16174233075",
+      "variance_exact": "15994511269323454284752/9020890191876688125",
+      "mean_rounded": 79.206082,
+      "variance_rounded": 1773.052429
+    },
+    "d4_q24": {
+      "theta": [
+        "0/1",
+        "1/96",
+        "-1/192",
+        "1/192"
+      ],
+      "mean_exact": "2562195258814/16174233075",
+      "variance_exact": "65407063811766837279458/9020890191876688125",
+      "mean_rounded": 158.412164,
+      "variance_rounded": 7250.621881
+    }
+  },
+  "rare_sign": {
+    "1/4": {
+      "mean_exact": "24238/231",
+      "mean_rounded": 104.926407,
+      "p_rare": "1/96",
+      "rare_wait_mean": "96/1",
+      "excess_mean": "2062/231",
+      "remaining_coupon_mean_bound": "14884/385",
+      "ratio_mean_to_rare_wait": "12119/11088"
+    },
+    "1/8": {
+      "mean_exact": "35803982/181815",
+      "mean_rounded": 196.925347,
+      "p_rare": "1/192",
+      "rare_wait_mean": "192/1",
+      "excess_mean": "895502/181815",
+      "remaining_coupon_mean_bound": "136532/3565",
+      "ratio_mean_to_rare_wait": "17901991/17454240"
+    },
+    "1/16": {
+      "mean_exact": "2211995950/5721639",
+      "mean_rounded": 386.601802,
+      "p_rare": "1/384",
+      "rare_wait_mean": "384/1",
+      "excess_mean": "14886574/5721639",
+      "remaining_coupon_mean_bound": "1167028/30597",
+      "ratio_mean_to_rare_wait": "1105997975/1098554688"
+    },
+    "1/32": {
+      "mean_exact": "27874079638/36231195",
+      "mean_rounded": 769.339229,
+      "p_rare": "1/768",
+      "rare_wait_mean": "768/1",
+      "excess_mean": "48521878/36231195",
+      "remaining_coupon_mean_bound": "9645428/253365",
+      "ratio_mean_to_rare_wait": "13937039819/13912778880"
+    },
+    "1/64": {
+      "mean_exact": "1771132988182/1152571355",
+      "mean_rounded": 1536.679686,
+      "p_rare": "1/1536",
+      "rare_wait_mean": "1536/1",
+      "excess_mean": "783386902/1152571355",
+      "remaining_coupon_mean_bound": "78420724/2061845",
+      "ratio_mean_to_rare_wait": "885566494091/885174800640"
+    }
+  },
+  "checks": 141,
+  "verification": "ALL_CHECKS_PASS"
+}
