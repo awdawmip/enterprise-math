@@ -35,7 +35,25 @@
     "native_checkpoint": "NOT_WRITTEN",
     "research_activity": "REGISTER_PENDING",
     "formal_admission": "NOT_ADMITTED",
-    "unmerged_staging": "SEPARATE"
+    "unmerged_staging": "SEPARATE",
+    "pending_requests": [
+      {
+        "request_id": "onhour11-20261108-2202-current-task-continuation",
+        "operation": "continuation",
+        "last_verified_status": "QUEUED",
+        "effect": "NONE_CONFIRMED",
+        "recovery": "Read original request receipt; do not resubmit."
+      },
+      {
+        "request_id": "onhour11-20261108-2202-own-researcher-session-start",
+        "operation": "session_start",
+        "last_verified_status": "QUEUED",
+        "returned_preliminary_session_id": "MCP-ecbfd1c046864bb3bff1a2e04c87d207",
+        "effect": "NATIVE_SESSION_REGISTRATION_NOT_YET_CONFIRMED",
+        "recovery": "Reconcile exact original request and Source before any new session, registration, prepare, CLAIM or open; no session key is persisted in Git."
+      }
+    ],
+    "recovery_note": "Historical old continuation request SUCCEEDED is separate from two newly QUEUED read/registration operations. A queued session_start response is not proof of persisted native identity or task ownership. Researcher authority remains unverified."
   },
   "native_benchmark": {
     "issue": 1559,
