@@ -1,6 +1,6 @@
 # EC49FEZ — H8-mixed 4789: exact 94-edge native-prefix obstruction
 
-Date: 2026-11-09 (Asia/Shanghai). Scientific input frozen at \`fc0f038e7bfd12c886b4d37f900bfb770c0f61ab\`. Status: **author-side finite exact proof**, independent Driver acceptance pending. Applies the existing P000 native signed X6 and positive complete forward BRC key semantics. Earlier frontier: EC49FEU H8 census and EC49FEV–FEY pooled-key method on PR #1730.
+Date: 2026-11-09 (Asia/Shanghai). Scientific input frozen at `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`. Status: **author-side finite exact proof**, independent Driver acceptance pending. Applies the existing P000 native signed X6 and positive complete forward BRC key semantics. Earlier frontier: EC49FEU H8 census and EC49FEV–FEY pooled-key method on PR #1730.
 
 ## Mathematical statement
 
@@ -34,11 +34,11 @@ C_{\mathrm{native}}\ge \sum_{d=1}^{20}|D_d|
 =\boxed{94}.
 \]
 
-The full 20-layer witness D_d is in \`EXACT_DISJOINT_H8_4789.json\`. There are **no floating-point weights or optimizer results in the load-bearing proof**. The independent Python-standard-library verification regenerates all pooled keys, original words, nine-state labels, six-axis endpoints and signed prefix sets, and checks every layer/group pair for collisions. Local result: \`EXACT_INTEGER_PASS\`, 23 groups, 20 layers, 54,423 endpoint/label checks, 72,070 group-word-depth checks and 50,113 distinct checked prefixes summed over layers. The exploratory \`depthwise.py\` (SciPy-based search) is available with the local evidence but is not needed to verify the certificate.
+The full 20-layer witness D_d is in `EXACT_DISJOINT_H8_4789.json`. There are **no floating-point weights or optimizer results in the load-bearing proof**. The independent Python-standard-library verification regenerates all pooled keys, original words, nine-state labels, six-axis endpoints and signed prefix sets, and checks every layer/group pair for collisions. Local result: `EXACT_INTEGER_PASS`, 23 groups, 20 layers, 54,423 endpoint/label checks, 72,070 group-word-depth checks and 50,113 distinct checked prefixes summed over layers. The exploratory `depthwise.py` (SciPy-based search) is available with the local evidence but is not needed to verify the certificate.
 
 ## Reproduction and limits
 
-Run \`python3 VERIFY_EC49FEZ.py EXACT_DISJOINT_H8_4789.json\` with Python 3 standard library; it must print \`EXACT_INTEGER_PASS\` and the integer lower bound 94. Original counts and full pairwise-disjointness are recomputed, not trusted from the JSON.
+Run `python3 VERIFY_EC49FEZ.py EXACT_DISJOINT_H8_4789.json` with Python 3 standard library; it must print `EXACT_INTEGER_PASS` and the integer lower bound 94. Original counts and full pairwise-disjointness are recomputed, not trusted from the JSON.
 
 This one H8/4789 structure is now fully excluded from the <=93 cost target. The other H8 structures and EC49FEY's open H7/5789,6789 structures remain concrete continuation units. In the H8 placement, the other tested depthwise-only lower bounds were 88 (4589), 72 (4689), 78 (5689), 82 (5789), and 90 (6789); those weaker bounds are exploratory sieve outputs, **not** exact optima. Next try improved group-prefix dual or coupled optimization on these survivors. The mother target remains <=5 complete BRC keys and C_native<=93; the existing 94-edge 22-word construction remains the best previously recorded mother-family witness.
 
