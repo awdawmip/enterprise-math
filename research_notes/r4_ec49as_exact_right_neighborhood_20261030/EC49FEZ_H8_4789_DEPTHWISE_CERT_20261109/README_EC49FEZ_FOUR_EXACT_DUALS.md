@@ -52,7 +52,7 @@ OPENBLAS_NUM_THREADS=1 python3 REGENERATE_DUALS_EC49FEZ.py 8 4789 120
 OPENBLAS_NUM_THREADS=1 python3 REGENERATE_DUALS_EC49FEZ.py 8 6789 120
 ```
 
-These commands write the four `DUAL_H8_*.json` files in the local evidence directory (the generator currently uses the fixed path `/mnt/data/EC49FEZ_20261109`; change the destination for another checkout). Verify independently via `python3 VERIFY_DUALS_EC49FEZ.py /path/to/DUAL_H8_4589.json` and analogously for the other three. The original file names/ordering are deterministic given the original word model, while floating solver candidate selection may vary across implementations; the resulting exact integer checks are the decisive evidence.
+These commands write the four `DUAL_H8_*.json` files in the local evidence directory (the published generator writes into the current working directory; SciPy/HiGHS is used only for coefficient search). Verify independently via `python3 VERIFY_DUALS_EC49FEZ.py /path/to/DUAL_H8_4589.json` and analogously for the other three. The original file names/ordering are deterministic given the original word model, while floating solver candidate selection may vary across implementations; the resulting exact integer checks are the decisive evidence.
 
 ## Current frontier and scope
 
