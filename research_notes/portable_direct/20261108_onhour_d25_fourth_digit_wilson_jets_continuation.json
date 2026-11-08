@@ -1,0 +1,79 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "logical_research_lane_label": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Delta_p-R_p=0 mod p and W216_p=p mod p^3 in classes 13,19 mod24; open native H0/B0 original-class evidence.",
+  "prior_author_frontier": "research_notes/portable_direct/20261108_onhour_d25_wv_fourth_digit_transport_continuation.json",
+  "prior_fourth_digit": "W-2V+p*(-3/p)=0 mod p^4 conjecture, 1227 finite primes checked, not a theorem",
+  "new_unit": {
+    "id": "fourth_digit_wilson_harmonic_grade1_second_grade2_first_jets",
+    "evidence_status": "AUTHOR_SIDE_PROVED_JET_IDENTITIES_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+    "statement": "For all primes p>3, exact factorial-complement expansions give grade-one p² correction E_r-omega*H_r and grade-two p correction, and a four-grade source-indexed finite-sum formula (JET4) equivalent to open C4 modulo p^4.",
+    "proof_path": "research_notes/portable_direct/20261108_onhour_d25_original_fourth_digit_wilson_grade_jets.md",
+    "script_path": "research_notes/portable_direct/d25_fourth_digit_wilson_grade_jets_20261108.py",
+    "exact_computation": "301 primes 5..2000; independent recurrence versus all 8 source grade ports, 2408 comparisons matched; 13,19,373 printed exact grade sums",
+    "falsifier": "Setting Wilson quotient to zero only in jet formulas yields nonzero C4 residuals mod p^4 at p=13,19,373: 17576,63536,14810282050. It does not disprove transformed schemes.",
+    "not_proved": "C4 all-prime vanishing; original W target universal theorem; Delta-R; native H0/B0 benchmark."
+  },
+  "evidence": [
+    {
+      "repo": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/20261108_onhour_d25_original_fourth_digit_wilson_grade_jets.md",
+      "commit": "4cab934d9e006d3719b619a623b62e97255497d6",
+      "blob": "e05cce804b6adff8a7c8b9543a43f6ccdfbb0edc",
+      "readback": "VERIFIED"
+    },
+    {
+      "repo": "awdawmip/enterprise-math",
+      "path": "research_notes/portable_direct/d25_fourth_digit_wilson_grade_jets_20261108.py",
+      "commit": "529b29513ed2744b2814fc88684ceefefd45370f",
+      "blob": "659533ce903a4129b581ec7545055de79c6df2bc",
+      "readback": "VERIFIED"
+    }
+  ],
+  "brc": "COMPOSE_APPLIED: (original model, index n, signed coefficient, valuation grade, Wilson/harmonic jet, mod-p^4 additive observer). No positive-mass conflation or native X6 geometry inferred.",
+  "not_redo": [
+    "D24 accepted UR RR",
+    "previous original grade-3 kernel proof and 1227-prime C4 test",
+    "zero-grade exact and first-grade linear jets",
+    "native original-class benchmark remains unexecuted"
+  ],
+  "next_exact_action": "Seek a terminating Fricke-Cartier or WZ identity for the explicit JET4 finite expression; study its reduction into two carry congruences, with no claim of all-prime C4 until proof. Original #1559 native p373 experiment remains independent priority.",
+  "native_benchmark": {
+    "issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "state": "OPEN",
+    "execution": "NOT_EXECUTED",
+    "owner": "PENDING_OWNER",
+    "required": [
+      "p373 original-class H0/B0 divided-power [X]U modulo 139129",
+      "native module rank",
+      "semilinear Frobenius direction and eta",
+      "odd signed Green/Hesse kappa",
+      "Delta-R and independent reproduction"
+    ]
+  },
+  "source": {
+    "original_target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "initial_read": "WAITING_RESOURCE/EVENT_COLLECTION_IO",
+    "same_request_reconcile": "QUEUED",
+    "formal_task_created": false,
+    "not_reissued": true,
+    "site_phase": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "service_version": "0.6.11",
+    "session_id": null,
+    "claim_id": null,
+    "run_id": null,
+    "execution_identity": "NOT_VERIFIED",
+    "native_checkpoint": "NOT_WRITTEN",
+    "research_activity": "REGISTER_PENDING",
+    "historical_staging": "SEPARATE_UNMERGED",
+    "maintenance_identity_borrowed": false,
+    "safe_config_requirement": "Separate Site-bound backend client and secure user-entered credential; no transfer of old session identity."
+  },
+  "delivery_status": "AUTHOR_SIDE_CHECKPOINT_ONLY / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE"
+}
