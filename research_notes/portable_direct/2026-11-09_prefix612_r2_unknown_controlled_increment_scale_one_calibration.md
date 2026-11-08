@@ -62,6 +62,15 @@ For W and W' above, their phase-4 first-transition contrasts are respectively 3 
 
 The n+3 scalars (Z,Y_-1,Y_0,Y_1,...,Y_n) exactly recover n+3 independent real unknowns. The n+2 phase-3 scalars alone provably do not; moreover any continuously differentiable lossless encoding with differentiable recovery of all unknowns needs at least n+3 real statistics by Jacobian rank. For two synchronized experiments the raw readout is 2(n+3) phase scalars: twice each of the n+2 phase-3 post-gate readings, plus twice phase 4 at the first gate.
 
+## Corollary 612.3: exact support criterion for calibrating a known nonuniform probe direction
+
+For an arbitrary known source increment direction d in the original 48-phase coordinates, the marked original phase-4 row of Q(b) has its only nonzero coefficients equal to 1 in columns 11, 26, and 35 (all zero-based). Therefore the extra first-gate sensor gives exactly
+
+    Z_d = [Q(b)(v+lambda*d)-Q(b)v][4]
+        = lambda*(d[11]+d[26]+d[35]).
+
+Thus, for an unknown scalar lambda, one original phase-4 contrast independently identifies lambda if and only if kappa(d):=d[11]+d[26]+d[35] is nonzero, using lambda=Z_d/kappa(d). For a nonnegative d this is precisely the condition that its support intersect {11,26,35}. If kappa(d)=0 the phase-4 first-gate observation is identically zero for every lambda and every b. This is an exact calibration criterion for this particular sensor; it leaves general nonuniform d gate identifiability as the next research question. The checker verifies the row-support identity symbolically and three exact nonuniform directions, including one zero-support witness.
+
 ## Exact verification and reproducibility
 
 Standalone script: PREFIX612_R2_unknown_probe_scale_checker.py.
