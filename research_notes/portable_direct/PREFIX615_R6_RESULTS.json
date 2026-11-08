@@ -1,0 +1,34 @@
+{
+  "result": "ALL_CHECKS_PASS",
+  "assertions": 374,
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "PREFIX-610 signed-label law; independent one-step trials",
+  "coverage_test": {
+    "d": [
+      2,
+      4,
+      6
+    ],
+    "r": [
+      1,
+      2
+    ],
+    "horizon": 16
+  },
+  "adaptive_test": {
+    "theta": [
+      "0",
+      "1/96"
+    ],
+    "horizon": 24,
+    "rule": "both labels observed AND one direction has both signs",
+    "mean_q12": "198/7",
+    "variance_q12": "14090/49",
+    "third_cumulant_q12": "2492850/343",
+    "mean_q24": "396/7",
+    "variance_q24": "59132/49",
+    "third_cumulant_q24": "21184572/343"
+  },
+  "new_native_graph_execution": false,
+  "independent_math_review": false
+}
