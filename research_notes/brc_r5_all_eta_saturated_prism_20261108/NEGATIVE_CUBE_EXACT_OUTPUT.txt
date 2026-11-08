@@ -1,0 +1,10 @@
+Actual locally executed Python standard-library Fraction postverification for the eight exact G-face rational certificates, entire four-parameter eta/kappa/p/q fractional test grid and nontrivial (s,g,h) scaling/interpolation. The executed local script was VERIFY_R5_NEGATIVE_CUBE.py (uses the existing local r5_exactify.verify / r5_lp_explore.mass helpers, which invoke only Fraction checks during validation). The reproducible remote VERIFY_NEGATIVE.py source is a self-contained standard-library-only equivalent that imports the adjacent remote VERIFY.py. No remote execution is claimed.
+
+EXACT_G_FACE_NEGATIVE_CORNER_CERTIFICATES_PASS 8
+EXACT_4D_PARAMETER_GRID_PASS 500
+EXACT_SCALING_SOURCE_INTERPOLATION_PASS
+PASS_R5_NEGATIVE_RESIDUAL_G_FACE_ALL_REAL_ETA_KAPPA_PQ_CUBE
+
+The all-real statement rests on a multi-affine convex combination of eight exact G-face rational 7x7 Blackwell anchor certificates and G-face identities, not on the finite-grid test. For source x=(1,1,eta,(13/40+eta/80)p,(9eta*kappa/40),(3/40+21eta/80)q,0), history residual is R=-9eta*kappa/10; this is strictly negative for eta,kappa>0.
+
+Source data file NEGATIVE_CUBE_CERTIFICATES_B64.txt is base64(zlib(compact UTF-8 JSON)), with exactly 8 witnesses and no omitted edges. Expected payload length 1148 characters; local copy FNV-1a_32 e88fc818; this is an accidental-copy check, not a proof or authentication.
