@@ -15,7 +15,7 @@ target y = (403649/517950, 462959/2071800, 403649/517950,
             462959/20718000)
 ```
 
-The source has `9*b*z-4*a*(v-z) = 1/20` (calculate from the listed exact fractions); the target obeys the seedless relation exactly. Both are lawful, with `T_P=169/60` and `T_Q=217/80` on both sides.
+The source has `9*b*z-4*a*(v-z) = 3/40` (calculate from the listed exact fractions); the target obeys the seedless relation exactly. Both are lawful, with `T_P=169/60` and `T_Q=217/80` on both sides.
 
 Set `E[i,j]` (row = target likelihood node, column = source node) to the following **11 positive rational entries**, and set all 38 omitted entries to zero:
 
