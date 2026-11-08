@@ -1,0 +1,128 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "scope": "exact consequences of PREFIX-610 native tagged-terminal signed-coin likelihood under independent one-step sampling",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "original_native_blob": "7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41",
+  "upstream_commit": "4bdeec79b72e184703390c74bbb020910340b97e",
+  "one_hit": "q^-N * sum_j (-1)^j*C(d,j)*(q-j)^N",
+  "two_hits": "q^-N * sum_j (-1)^j*C(d,j)*sum_a C(j,a)*(N)_a*(q-j)^(N-a)",
+  "per_fiber_informative_probability": {
+    "slot0": "1/12",
+    "slot1": "1/24",
+    "slot2": "1/24"
+  },
+  "sufficient_experiment": "P(l,sign)=(1+48 sign theta_l)/(2q); P(neutral)=1-d/q",
+  "blackwell": "B0 strictly Blackwell dominates B1 and B2 by independent 1/2 deletion of marked signs",
+  "TV_one_direction": {
+    "slot0": "2*abs(delta_theta)",
+    "slot1": "abs(delta_theta)",
+    "slot2": "abs(delta_theta)"
+  },
+  "threshold_rows": [
+    {
+      "d": 2,
+      "q": 12,
+      "target": "95/100",
+      "minimum_one_hit": 43,
+      "minimum_two_hits": 65
+    },
+    {
+      "d": 2,
+      "q": 12,
+      "target": "99/100",
+      "minimum_one_hit": 61,
+      "minimum_two_hits": 86
+    },
+    {
+      "d": 2,
+      "q": 24,
+      "target": "95/100",
+      "minimum_one_hit": 87,
+      "minimum_two_hits": 132
+    },
+    {
+      "d": 2,
+      "q": 24,
+      "target": "99/100",
+      "minimum_one_hit": 125,
+      "minimum_two_hits": 176
+    },
+    {
+      "d": 4,
+      "q": 12,
+      "target": "95/100",
+      "minimum_one_hit": 51,
+      "minimum_two_hits": 74
+    },
+    {
+      "d": 4,
+      "q": 12,
+      "target": "99/100",
+      "minimum_one_hit": 69,
+      "minimum_two_hits": 95
+    },
+    {
+      "d": 4,
+      "q": 24,
+      "target": "95/100",
+      "minimum_one_hit": 103,
+      "minimum_two_hits": 151
+    },
+    {
+      "d": 4,
+      "q": 24,
+      "target": "99/100",
+      "minimum_one_hit": 141,
+      "minimum_two_hits": 194
+    },
+    {
+      "d": 12,
+      "q": 12,
+      "target": "95/100",
+      "minimum_one_hit": 63,
+      "minimum_two_hits": 89
+    },
+    {
+      "d": 12,
+      "q": 12,
+      "target": "99/100",
+      "minimum_one_hit": 82,
+      "minimum_two_hits": 109
+    },
+    {
+      "d": 12,
+      "q": 24,
+      "target": "95/100",
+      "minimum_one_hit": 129,
+      "minimum_two_hits": 180
+    },
+    {
+      "d": 12,
+      "q": 24,
+      "target": "99/100",
+      "minimum_one_hit": 167,
+      "minimum_two_hits": 223
+    }
+  ],
+  "rational_TV_witnesses": [
+    {
+      "d": 2,
+      "TV_slot0": "1/5000",
+      "TV_slot1_or_2": "1/10000"
+    },
+    {
+      "d": 4,
+      "TV_slot0": "1/5000",
+      "TV_slot1_or_2": "1/10000"
+    },
+    {
+      "d": 12,
+      "TV_slot0": "1/5000",
+      "TV_slot1_or_2": "1/10000"
+    }
+  ],
+  "checks": 230,
+  "arithmetic": "integer and Fraction exact; independent truncated-count DP",
+  "native_source_reexecuted": false,
+  "status_level": "AUTHOR_PROVED / EXACT_COMBINATORIAL_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
