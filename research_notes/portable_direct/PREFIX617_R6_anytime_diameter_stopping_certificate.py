@@ -6,8 +6,8 @@ No simulation or original native 96-port graph rerun is claimed.
 from fractions import Fraction as F
 from math import comb
 from functools import lru_cache
-from pathlib import Path
 import json
+from pathlib import Path
 
 alpha = F(1,20)
 d = 2
