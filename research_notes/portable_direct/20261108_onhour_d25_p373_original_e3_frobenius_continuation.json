@@ -1,0 +1,74 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_research_lane_label": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_objective": "For all p≡13,19 (mod 24), Delta_p-R_p=0 mod p (equivalently W216_p=p mod p^3 using the already proved source port), and original native H0/B0 Frobenius experiment remains open.",
+  "prior_author_frontier": "research_notes/portable_direct/20261108_onhour_d25_v2304_half_tail_fourth_digit_obstruction_continuation.json",
+  "new_unit": {
+    "id": "p373_original_E3_exhaustive_geometric_q_frobenius_calibration",
+    "status": "AUTHOR_SIDE_EXACT_FINITE_OBJECT_PROVED / ORIGINAL_E3_139129_FIELD_ELEMENTS_CHECKED_TWICE / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE",
+    "proof_path": "research_notes/portable_direct/20261108_onhour_d25_p373_original_E3_exhaustive_frobenius_calibration.md",
+    "script_path": "research_notes/portable_direct/d25_p373_original_e3_geometric_frobenius_exact_20261108.py",
+    "prime": 373,
+    "field_order": 139129,
+    "curve": "Original E3: y²+xy+((2-T)/108)y=x³ over F_373[T]/(T²-2)",
+    "coefficient_c": [
+      76,
+      335
+    ],
+    "square_image_size": 69565,
+    "discriminant_zero_roots": [
+      [
+        17,
+        245
+      ],
+      [
+        31,
+        228
+      ],
+      [
+        45,
+        273
+      ]
+    ],
+    "discriminant_nonzero_squares": 69190,
+    "discriminant_nonsquares": 69936,
+    "character_sum": -746,
+    "points": 138384,
+    "trace_q": 746,
+    "frobenius_polynomial": "(X-373)^2",
+    "geometric_frobenius": "+[373]",
+    "reproducer_checks": "For every 139129 field x, exact chi_p(N(D)) equals explicit square-image membership; same algorithm p13->144 and p19->324",
+    "proof_strength": "Finite specific-prime theorem by complete enumeration, endomorphism no-zero-divisors; not a uniform all-p argument and not native crystalline H0/B0 data."
+  },
+  "source": {
+    "original_request": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "receipt": "SUCCEEDED / read-only preexisting continuation (not own execution authority)",
+    "recovery_status_attempt": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
+    "site_phase": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "session_id": null,
+    "claim_id": null,
+    "run_id": null,
+    "native_checkpoint": "NOT_WRITTEN",
+    "research_activity": "REGISTER_PENDING",
+    "unmerged_staging": "SEPARATE",
+    "formal_admission": "NOT_ADMITTED"
+  },
+  "native_benchmark": {
+    "issue": "#1559",
+    "status": "NOT_EXECUTED/PENDING_OWNER",
+    "first_case": "Authenticated original-class p373 fixed H0/B0 divided-power [X]U mod139129, rank, Frobenius direction/eta, signed Green/Hesse kappa, Delta-R, independent native reproducer",
+    "new_geometric_oracle": "If same-original-class native Frobenius maps to geometric Frob_{373²} on H1-crystalline, its square must match +[373], not -[373]; identify the map, lattice, normalization and direction first."
+  },
+  "do_not_repeat": [
+    "D24 accepted UR/JT0 and Source-inherited original 19 units",
+    "Already verified portable W/V fourth-digit JET4 and V_half H4",
+    "Previously obtained p13,p19 E3 counts; this unit independently extends actual original-class exhaustive count to p373"
+  ],
+  "next_action": "Authorized Source/native #1559 owner executes original fixed H0/B0 [X]U modulo139129, records rank, semilinear Frobenius direction and eta and signed kappa and Delta-R, then compares actual geometric p373 sign oracle. Native Source role/claim must be independently verified before mutation. If native path unavailable, retain original request, unreviewed author artifact, and OPEN/PENDING_OWNER evidence."
+}
