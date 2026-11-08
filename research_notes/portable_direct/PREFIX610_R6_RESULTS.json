@@ -1,0 +1,27 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "original_native_blob": "7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41",
+  "sympy_version": "1.14.0",
+  "full_joint_likelihood": "For each active fiber l, sign S_l in {+1,-1,0}; Pr(S_l=+1)=m_j/2*(1+48 theta_l), Pr(S_l=-1)=m_j/2*(1-48 theta_l). Uninformative complementary atoms do not depend on theta_l.",
+  "informative_mass_per_active_fiber": {
+    "slot0": "1/12",
+    "slot1": "1/24",
+    "slot2": "1/24"
+  },
+  "conditional_sign_success_prob": "(1+48*theta_l)/2",
+  "fisher_full_cube": {
+    "slot0": "diag_l(192/(1-2304*theta_l**2))",
+    "slot1": "diag_l(96/(1-2304*theta_l**2))",
+    "slot2": "diag_l(96/(1-2304*theta_l**2))"
+  },
+  "M_l_distribution": "Binomial(N,m_j) marginally; joint group counts multinomial",
+  "exact_conditional_variance_given_M_l_positive": "(1-2304*theta_l**2)/(2304*M_l)",
+  "Pr_M_l_zero": "(1-m_j)**N",
+  "global_unbiased_score_estimator_covariance": "(diag_l(1/c_j)-theta*theta^T)/N",
+  "nonzero_observation_atoms_checked": 240,
+  "symbolic_mass_equalities_checked": 144,
+  "directions_checked": 12,
+  "tags_checked": 3,
+  "status_level": "AUTHOR_PROVED / EXACT_SYMBOLIC_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
