@@ -8,9 +8,9 @@ Status: `AUTHOR_DERIVED / ABSTRACT_EXACT_CHECKED / NATIVE_PREMISE_REUSED / UNREV
 
 The original X6 BRC native dynamics has 96 ports, six labeled actions, and nine allowed roots `0, ±e1, ±e2, ±e3, ±e4`. Retain the **specified** triple reward observer
 
-[
-T=192K-5R_1+R_2-5R_3+R_4+4R_5+4R_6,quad P_0=R_1+R_2,quad P_1=R_3+R_4.
-]
+$$
+T=192K-5R_1+R_2-5R_3+R_4+4R_5+4R_6,\quad P_0=R_1+R_2,\quad P_1=R_3+R_4.
+$$
 
 This is an observer of six native spatial axes, not a three-dimensional native space. The declared output is the *entire ordered triple-reward history* and, where stated, the final 34-class state. It hides original action labels and starting port.
 
@@ -21,9 +21,9 @@ Immutable scientific premises read at Enterprise Math `main@cd054e38a53ff762130d
 
 Denote four behavior vertices by `A=[6,30], B=[29], C=[7,31], D=[28]`, the other 30 by `E_1,...,E_30`. The only affine circuit is
 
-[
-v_A+v_B=v_C+v_D. 	ag{1}
-]
+$$
+v_A+v_B=v_C+v_D. \tag{1}
+$$
 
 Let `c=e_A+e_B-e_C-e_D` be the signed **coefficient difference** (not a negative BRC branch probability). Let `O(p)=Σ_X p_X v_X` for any 34-component nonnegative initial-class mass vector `p`, normalized or unnormalized.
 
@@ -37,22 +37,22 @@ The behavior polytope is affinely equivalent to a **30-fold pyramid over a paral
 
 For nonnegative initial masses `p,q` of equal total mass:
 
-[
-O(p)=O(q)iff q=p+t c,qquad -min(p_A,p_B)le tlemin(p_C,p_D). 	ag{2}
-]
+$$
+O(p)=O(q)\iff q=p+t c,\qquad -\min(p_A,p_B)\le t\le\min(p_C,p_D). \tag{2}
+$$
 
 Define
 
-[
-N(p)=p-min(p_A,p_B)c. 	ag{3}
-]
+$$
+N(p)=p-\min(p_A,p_B)c. \tag{3}
+$$
 
 Then `N(p)` is nonnegative, has exactly the same total mass and all universal triple observations as `p`, is idempotent, and is **the unique normalized representative of its observable equivalence fiber** satisfying `min(N(p)_A,N(p)_B)=0`.
 
 The resulting canonical positive domain is precisely the union of two 32-dimensional simplices,
-[
-operatorname{conv}(Vsetminus{A}) cup operatorname{conv}(Vsetminus{B}), 	ag{4}
-]
+$$
+\operatorname{conv}(V\setminus\{A\})\ \cup\ \operatorname{conv}(V\setminus\{B\}). \tag{4}
+$$
 each with 33 affinely independent vertices, intersecting in their shared 31-dimensional simplex on `V\{A,B}`. Thus one **chart bit** plus at most **33 nonnegative barycentric slots** (32 independent normalized coefficients) encodes every admissible initial mixture exactly. This is a **switching nonlinear coordinate representation**, not a 33-state fixed positive Markov model.
 
 **Proof.** The difference between equal-mass representations of equal behaviors is an affine dependence; by uniqueness of (1), it is `t c`. The four coordinates give the interval in (2). Choosing its left endpoint gives (3). If `q=p+t c` is nonnegative, then `min(q_A,q_B)=min(p_A,p_B)+t`, so `N(q)=N(p)`. Idempotence follows. Deleting either `A` or `B` eliminates the unique affine dependence and leaves 33 affinely independent points. Every `N(p)` has at least one of these two coefficients zero, and conversely every point in either simplex is canonical. QED.
@@ -61,9 +61,9 @@ each with 33 affinely independent vertices, intersecting in their shared 31-dime
 
 For each allowed root `r` and emitted *triple reward increment* `rho=(ΔT,ΔP0,ΔP1)`, let `K[r,rho]` be the 34-by-34 nonnegative reward-labeled transition matrix of the exact PREFIX-595 strong quotient. Then
 
-[
-cK[r,rho]=0,qquad pK[r,rho]=N(p)K[r,rho] 	ag{5}
-]
+$$
+cK[r,\rho]=0,\qquad pK[r,\rho]=N(p)K[r,\rho]. \tag{5}
+$$
 
 for **every** `r,rho` and nonnegative `p`. The joint distribution of the next triple reward and the next 34-class state is identical for two initial distributions in the same observer fiber, *already after one step*.
 
