@@ -36,3 +36,4 @@ def native_prefixes(w):
         for step in OPERATIONS[ch]:
             current+= (step,)
             yield current
+
