@@ -26,7 +26,7 @@ def r_bounds(terms):
 def rational_key(H):
     assert isinstance(H,int) and H>=1
     terms=12
-    for _ in range(16):
+    while True:
         low,high=r_bounds(terms)
         mid=(low+high)/2
         x=mid
@@ -46,7 +46,6 @@ def rational_key(H):
             if x==0:break
             x=1/x
         terms*=2
-    raise RuntimeError('log enclosure precision iteration budget exceeded')
 
 def ceildiv(a,b):
     return -((-a)//b)
