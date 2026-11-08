@@ -9,3 +9,10 @@
 - Exact proof dimensions: general rank identity (all finite H), four-displacement rank/select up to H=12,275,854, scaled toy exhaustive comparisons H=0..35, actual S23/AV endpoint direction enumeration with exact rational inequalities; no full large-H threshold enumeration.
 - Native Researcher-ID: `EM-DIRECT-EC5C10`; native RA: `RA-30DF56E21A5303FA53D45870`, Source-reported successful registration and readback. Formal CLAIM and active task Owner not established by registration.
 - Math admission: author-side proof and arithmetic evidence; independent review pending.
+
+## All-finite-H floor-sum extension (same research turn)
+
+- Mathematical derivation: `FLOOR_SUM_ALL_H.md`. Code: `VERIFY_FLOOR_SUM.py`. Actual executed stdout: `RUN_FLOOR_SUM.txt`.
+- Locally executed floor-sum verifier SHA-256: `8da9577bc1f8050bcf842b3f19bda7e55ff263f0c64c418b0137ed5516261c27`; stdout SHA-256: `c319370d8871d310c641f78b4f53926127c955ffa58f0ac40c7b4aa868b9aab9`.
+- Independent full direction-enumeration crosschecks at `H=4,910,647;4,910,648;7,365,717;9,820,786;9,821,296;12,275,855;25,000,000;100,000,000`, six sample G points at each horizon; exact analytic floor sums tested at `H=10^9,10^12,10^15`.
+- Scope: exact finite rank correction and certified irrational floor-sum computations. No full enumeration at very large H, independent review pending.
