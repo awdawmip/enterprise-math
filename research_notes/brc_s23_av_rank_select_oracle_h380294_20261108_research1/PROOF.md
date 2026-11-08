@@ -98,7 +98,7 @@ The rank oracle shows that `(0,0)` and `(79,431)` are adjacent in `T_510`, with 
 ```
 P2*79-D2*431=12.
 ```
-So the prefix key `K=P2*l-D2*k` must lie strictly between `-12` and `0`; there are **exactly eleven candidate integer keys**, `K=-11,...,-1`, regardless of n. Since `0<=l<n<D2`, the modular inverse gives a unique minimal nonnegative candidate for each key:
+So the prefix key `K=P2*l-D2*k` must lie strictly between `-12` and `0`; there are **exactly eleven candidate integer keys**, `K=-11,...,-1`, regardless of n. Since `0<=l<=n<D2`, the modular inverse gives a unique minimal nonnegative candidate for each key:
 `l_K=(K*P2^(-1)) mod D2`,
 `k_K=(P2*l_K-K)/D2`. Any later solution increases l by D2 and k by P2, hence increases prefix length. The exact finite certificate is:
 
