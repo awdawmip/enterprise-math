@@ -39,7 +39,7 @@ Rows are A family 0/1, followed by B option 0..5 in the order above. The first c
 | 1 | 4 | 133 | 141 | 8 |
 | 1 | 5 | 143 | 147 | 4 |
 
-Within these twelve **explicit fixed contexts**, allowing a genuine H5 mixture costs between **4 and 12 additional native prefix edges** relative to the all-B minimum. This is a new local result delimiting the EC49FEB mixing route. It leaves the simultaneous optimization of the other 20 words and H2/H3 structure open.
+Across all twelve fixed contexts, the exhaustive enumerator evaluated **7,447,104 distinct four-word H5 choices** (all-B or genuine B/C mixtures). Within these twelve **explicit fixed contexts**, allowing a genuine H5 mixture costs between **4 and 12 additional native prefix edges** relative to the all-B minimum. This is a new local result delimiting the EC49FEB mixing route. It leaves the simultaneous optimization of the other 20 words and H2/H3 structure open.
 
 The exhaustive product sizes per B option are: all-B `4096,746496,746496,497664,4096,497664`, and genuine B/C mixtures `9488,289488,289488,314544,9488,314544`; the same cardinalities occur for both A options. Candidate counts are derived from distinct literal complete words, not signatures treated as interchangeable.
 
