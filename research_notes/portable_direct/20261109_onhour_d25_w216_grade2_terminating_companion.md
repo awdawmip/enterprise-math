@@ -1,6 +1,6 @@
 # D25: Original W216 third-digit grade-2 tail — terminating hypergeometric companion
 
-2026-11-09, Asia/Hong_Kong. TASK_RESEARCH author-side exact theorem, independent arithmetic regression; **UNREVIEWED / NOT_ADMITTED / NOT_NATIVE**. Original task \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`, publication \`TP2-B6F4FC938FF94941C1B7\`, immutable science pin \`c47e13e4aba0e006366f989d6334d443f6333ae3\`. Continues earlier source crosswalk and W/V proof-target reduction; accepted D24 and older scans remain consumed.
+2026-11-09, Asia/Hong_Kong. TASK_RESEARCH author-side exact theorem, independent arithmetic regression; **UNREVIEWED / NOT_ADMITTED / NOT_NATIVE**. Original task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`, publication `TP2-B6F4FC938FF94941C1B7`, immutable science pin `c47e13e4aba0e006366f989d6334d443f6333ae3`. Continues earlier source crosswalk and W/V proof-target reduction; accepted D24 and older scans remain consumed.
 
 ## Exact theorem, every prime p=6m+1>3
 
@@ -91,11 +91,11 @@ The separately executed original-binomial checker agrees with the companion form
 \(7,13,19,31,37,43,61,67,73,97,109,127,157,163,193,211,229,373\).
 An exhaustive sieve of all 611 primes \(p\equiv1\pmod6\), \(p\le10000\), finds zero vanishing companion values. This is a finite observation only.
 
-Proof reproducer: \`research_notes/portable_direct/d25_w216_grade2_companion_20261109.py\`.
-Raw output: \`research_notes/portable_direct/d25_w216_grade2_companion_results_20261109.json\`.
+Proof reproducer: `research_notes/portable_direct/d25_w216_grade2_companion_20261109.py`.
+Raw output: `research_notes/portable_direct/d25_w216_grade2_companion_results_20261109.json`.
 
 **Next exact research unit:** test finite-field hypergeometric transformations of the terminating \(U_j\) sum against the lower two valuation grades and the already proved 2304 full sum. A verified cross-grade cancellation identity would address the unresolved \(W_p-V_p\bmod p^3\) and original \(\Delta_p-R_p\) target; the 611 nonvanishing cases independently refute any blanket policy of discarding W grade 2.
 
-**Distinct native benchmark:** #1559 still requires the source-pinned original p=373 H0/B0 divided-power \([X]U\bmod139129\), real module rank, semilinear orientation/eta, signed Green/Hesse \(\kappa\), original \(\Delta-R\) and independent reproducer. In this run the native gateway rejected status/capabilities/recovery with \`BACKEND_IDENTITY_CHECK_UNAVAILABLE; operation_sent=false\`. Historical source-issued Researcher \`EM-ENTERPRISE-4DEB43\`, session \`MCP-ecbfd1c046864bb3bff1a2e04c87d207\`, activity \`RA-9553E027FD14223807511263\` are provenance; there is no verified current winning claim, native checkpoint or Result.
+**Distinct native benchmark:** #1559 still requires the source-pinned original p=373 H0/B0 divided-power \([X]U\bmod139129\), real module rank, semilinear orientation/eta, signed Green/Hesse \(\kappa\), original \(\Delta-R\) and independent reproducer. In this run the native gateway rejected status/capabilities/recovery with `BACKEND_IDENTITY_CHECK_UNAVAILABLE; operation_sent=false`. Historical source-issued Researcher `EM-ENTERPRISE-4DEB43`, session `MCP-ecbfd1c046864bb3bff1a2e04c87d207`, activity `RA-9553E027FD14223807511263` are provenance; there is no verified current winning claim, native checkpoint or Result.
 
 The BRC/source valuation decomposition is an auxiliary external arithmetic representation that retains exact coefficients, signed weights, cutoffs and observer provenance; it does not assert a new native X6 isomorphism.
