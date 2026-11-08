@@ -1,0 +1,62 @@
+{
+  "schema": "ENTERPRISE_MATH_ONE_STEP_NATIVE_SEVEN_REWARD_KERNEL_RANK_V1",
+  "unit": "PREFIX-599-R6",
+  "date": "2026-11-08",
+  "researcher_id": "EM-DIRECT-B900FB",
+  "activity_id": "RA-CC93244CAE5F854895CE2C8E",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "native_source": "research_notes/portable_direct/PREFIX565_positive_marginal_certificate.py",
+  "native_source_blob": "7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41",
+  "source_formulas_locally_transcribed": true,
+  "original_native_module_executed_this_run": false,
+  "status": "AUTHOR_DERIVED / EXACT_RATIONAL_SOURCE_TRANSCRIPTION_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "exact_finite_domain": {
+    "initial_native_ports": 96,
+    "source_phases": 48,
+    "actions": 6,
+    "roots": 9,
+    "observers": [
+      "full seven rewards + exact next original port",
+      "same plus primitive action"
+    ]
+  },
+  "every_root_result": {
+    "without_primitive_action": {
+      "rank": 49,
+      "nullity": 47,
+      "columns": 97,
+      "minimal_variable_linear_initial_probabilities": 48
+    },
+    "with_primitive_action": {
+      "rank": 50,
+      "nullity": 46,
+      "columns": 194,
+      "minimal_variable_linear_initial_probabilities": 49
+    }
+  },
+  "kernels_same_for_all_nine_roots": true,
+  "native_target_phase": 4,
+  "gate_predecessor_phases": [
+    3,
+    14,
+    15
+  ],
+  "non_target_phases": 45,
+  "exact_null_vectors": {
+    "without_action": "d_p (p outside {3,14,15}) and d_3-d_14, d_14-d_15",
+    "with_action": "d_p (p outside {3,14,15}) and d_14-d_15",
+    "d_p": "delta_(2p)-delta_(2p+1)"
+  },
+  "local_verification": "18 exact Fraction Gaussian eliminations of 96-row native formula-transcribed integer matrices; all nine roots have ranks 49 and 50. Full candidate null vectors independently checked in PREFIX-598 and via structural gate formula.",
+  "repository_native_checker": "research_notes/portable_direct/PREFIX599_R6_native_kernel_rank_certificate.py",
+  "repository_native_checker_executed_this_run": false,
+  "future_language": "all n>=1 ordered full 7 reward histories + original final port (action labels included in stronger variant); deterministic or compatible observed-history-root-adaptive schedules",
+  "reuse": [
+    "PREFIX565",
+    "PREFIX595",
+    "PREFIX596",
+    "PREFIX597",
+    "PREFIX598"
+  ],
+  "next": "Uniform combinatorial lower-rank certificate for all roots, and native-source-import checker execution."
+}
