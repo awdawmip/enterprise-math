@@ -67,3 +67,21 @@ An accompanying **local** stdlib verifier reread the inherited parent certificat
 Observed native Source continuation for D25 at `2026-11-08T09:48:28Z` (request `h40-r11-d25-current-20261108t0942-read-v1`): `NEEDS_DISPATCH`, `owner=taskbook/unassigned`, `claim=null`, `execution_authorized=false`; this author's Source research authority is absent. The D25 canonical original-class divided-power H0/B0 and `[X]U mod p²` work remains distinct and pending. This GitHub note is **author-side portable evidence only**, no activity admission, CLAIM, OPEN, Source checkpoint, Result, Driver review, Working Truth or P000 promotion.
 
 Next exact scientific unit: choose a **new specified original native BRC observer**, derive its genuine finite-state symmetry kernel using labeled native-port actions, and test whether the resulting integral start-law cone admits a similarly small Markov/toric generating set. The original nine-root theorem and already terminal D24/UR Result/Review stay intact.
+
+## New Theorem D — bijective native-start rank/unrank and exact uniform sampler
+
+The complete toric fiber presentation supports an **exact deterministic bijection** for all integer resolution totals `N>=0` between integers `0,...,L_P(N)-1` and **original 96-port balanced integer starting measures** of total mass `N`.
+
+Define the number of ways to fill the 32 unrestricted singleton ports as `D_0(r)=binom(r+31,31)`. For `j=1,...,16`, recursively define the exact integer counts
+
+```text
+D_j(r) = sum_(0<=n<=floor(r/2)) (n+1)^2 D_(j-1)(r-2n), 0<=r<=N.
+```
+
+Then `D_16(N)=L_P(N)`. To unrank at block `j` (traverse `j=16` down to 1), order choices by the balanced side mass `n=0,...,floor(r/2)`. Choice `n` corresponds to an interval of exactly `(n+1)^2 D_(j-1)(r-2n)` integer ranks. Find the interval containing the current rank; within that interval use quotient/remainder division by `D_(j-1)(r-2n)` to select the block's pair of original port masses `a1,c1` (each in `0,...,n`) and the residual suffix rank. Set `a2=n-a1`, `c2=n-c1`. When the 16 blocks are exhausted, lexicographically unrank the remaining weak composition into the 32 exact singleton port labels.
+
+Every interval is disjoint and its width is the actual number of suffix measures. Induction proves unranking is a bijection whose inverse is the corresponding rank formula. A uniform integer from `[0,D_16(N))` therefore yields an **exactly uniform** integer-resolution original starting law, without overcounting multiple primitive cross-pair decompositions.
+
+The straightforward dynamic program uses `O(16 N²)` big-integer arithmetic operations and `O(16N)` stored integers. The direct rank/unrank path uses `O(16N+32N)` further such operations; these are **arithmetic-operation counts**, not bit complexity or a claim of improved generic sorting complexity. Source code uses the real 96-port indices from the inherited certificate.
+
+**Exact author regression:** all `L_P(0)+L_P(1)+L_P(2)+L_P(3)=8657` native integer mass vectors with `N<=3` were enumerated and subjected to both inverse checks, with unique outputs; selected boundary/interior ranks at `4<=N<=8` also passed. The first six full counts still match `1,32,592,8032,88216,826016`. This is a new validated constructive tool over the frozen author-inherited 16-block balance family; Source mathematical admission is unchanged.
