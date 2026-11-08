@@ -9,15 +9,6 @@
   "canonical_source_frontier_commit": "b58330b74576153cdadde5d80a3d92df3a819a0e1",
   "previous_author_side_continuation": "research_notes/portable_direct/20261109_onhour_d25_WV_cubic_kernel_final_continuation.json",
   "mother_objective": "Prove/refute original Delta_p-R_p=0 mod p for all p=13,19 mod24, equivalent under earlier frozen crosswalk to W216_full-V2304_full=0 mod p^3; original native H0/B0 remains pending.",
-  "research_unit": {
-    "id": "D25-WV-FIRST-JET-CUBIC-KERNEL",
-    "kind": "AUTHOR_SIDE_ALL_PRIME_PROOF",
-    "scope": "p>3; 1<=q<p; source-labelled W216/V2304 coefficient complementary-product ratio",
-    "statement": "Normalized W/V complementary product ratio mod p^2 equals the six-strip rational rho(q)*(1+p*(Q_p(32/3)+2H_{r2-1}+3H_{r3-1}-4H_{r4-1}-H_{q-1})), with r_l=(lq mod p) and H_n harmonic modulo p. J(q)=J(p-q).",
-    "proof_status": "AUTHOR_PROVED / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE",
-    "exact_regression": "49 primes (all 5<=p<=229 and p=373), 5436 original integer pair-ratio checks and 5436 mirror checks; PASS.",
-    "discriminating_witness": "p=373; same central strip q125->J321,R123098 and q126->J117,R70878 (mod139129); refutes constant strip multiplier lift to mod p^2."
-  },
   "author_side_evidence": [
     {
       "path": "research_notes/portable_direct/20261109_onhour_d25_WV_complementary_first_jet_harmonic_cocycle.md",
@@ -26,10 +17,18 @@
     {
       "path": "research_notes/portable_direct/d25_WV_complementary_first_jet_20261109.py",
       "git_blob_sha1": "f527d0a7fbada4458ccf332b54deefd909a722d9"
+    },
+    {
+      "path": "research_notes/portable_direct/20261109_onhour_d25_WV_firstjet_bulk_difference_boundary_defects.md",
+      "git_blob_sha1": "b8bd45eb008a9e5f43f288ec26b01aac320a45f8"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_WV_firstjet_signed_mirror_abelfinite_20261109.py",
+      "git_blob_sha1": "9bf39e93bf5fc63ddd07c83c7a6d4104fa7566f8"
     }
   ],
-  "minimum_unfinished_scientific_unit": "Produce source-preserving additive signed finite-difference/telescoping transfer coupling W216 and V2304 original weights with previous Theta three-channel modp sum, retaining the nonconstant harmonic J_p(q), or exact counterexample to frozen LIFT.",
-  "next_exact_action": "Build candidate telescoping boundary terms on grade1/grade2 complementary pairs using J_p(q), then test unmodified original signed sums at p=373 and p=19; preserve multipliers, source labels, and grade-0 baseline.",
+  "minimum_unfinished_scientific_unit": "Identify an exact coupling of the signed W216 grade2 mirror moment M_p=Σ w_q J_p(q) with the frozen Theta_p=(B_p+K1S1+K2S2) and distinct V2304 original signed observer, or give an exact counterexample to a specific proposed coupling. Original native benchmark separately unresolved.",
+  "next_exact_action": "Derive a candidate transport for the original W216/V2304 weighted additive sums via the no-pole W grade1 rational first-jet connection and four retained BRC boundaries. Use p373 signed moment 362 and Theta channels 190,290,266 as initial discriminating certificate; never replace original Theta by this new moment.",
   "do_not_repeat": [
     "Accepted D24 UR/JT0, earlier native source-completed units",
     "Previous crosswalk, source-port, W216 first/second grade formulas and Theta",
@@ -58,5 +57,31 @@
     "source_checkpoint": "NOT_WRITTEN",
     "old_staging": "NOT_ADMITTED / NOT_MERGED"
   },
-  "publication_state": "AUTHOR_SIDE_GITHUB_CHECKPOINT_PENDING_READBACK / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE"
+  "publication_state": "AUTHOR_SIDE_GITHUB_CHECKPOINT_VERIFIED / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE",
+  "research_units_this_run": [
+    {
+      "id": "D25-WV-FIRST-JET-CUBIC-KERNEL",
+      "kind": "AUTHOR_SIDE_ALL_PRIME_PROOF",
+      "scope": "p>3; 1<=q<p; source-labelled W216/V2304 coefficient complementary-product ratio",
+      "statement": "Normalized W/V complementary product ratio mod p^2 equals the six-strip rational rho(q)*(1+p*(Q_p(32/3)+2H_{r2-1}+3H_{r3-1}-4H_{r4-1}-H_{q-1})), with r_l=(lq mod p) and H_n harmonic modulo p. J(q)=J(p-q).",
+      "proof_status": "AUTHOR_PROVED / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE",
+      "exact_regression": "49 primes (all 5<=p<=229 and p=373), 5436 original integer pair-ratio checks and 5436 mirror checks; PASS.",
+      "discriminating_witness": "p=373; same central strip q125->J321,R123098 and q126->J117,R70878 (mod139129); refutes constant strip multiplier lift to mod p^2."
+    },
+    {
+      "id": "D25-WV-FIRST-JET-RATIONAL-DIFFERENCE",
+      "kind": "AUTHOR_SIDE_ALL_PRIME_PROOF",
+      "statement": "At each nonpole step 1<=q<=p-2, J_p(q+1)-J_p(q)=-5(2q+1)/((3q+1)(3q+2)(4q+1)(4q+3)) mod p; midpoint crossing removable. Four division-boundary defects are retained as direct harmonic jumps. Finite Abel summation gives exact additive transfer for arbitrary source-labelled weights.",
+      "proof_status": "AUTHOR_PROVED / UNREVIEWED / NOT_ADMITTED",
+      "exact_regression": "49 primes; 5193 regular adjacent differences, 194 singular boundary steps; all original harmonic checks passed."
+    },
+    {
+      "id": "D25-W-SIGNED-GRADE2-ABEL",
+      "kind": "SOURCE_PRESERVING_EXACT_SPECIAL_FAMILY",
+      "statement": "For p=6m+1 and the original W grade1 interval 2m+1<=q<=3m, w_q=(1-6q)/(36q^3 (A_q/p)), sum w_q=T2,p/p^2, and sum w_q J(q)=J(3m)T2,p/p^2 - sum_prefix(w)*D(q) mod p with regular D throughout interval.",
+      "proof_status": "AUTHOR_PROVED / EXACT_FINITE_REGRESSION / NOT_ADMITTED",
+      "exact_regression": "All p=1 mod6 <=229 and p373. At p373: signed tail 266, endpoint J=278, bulk=105, signed first-jet moment=362 mod373."
+    }
+  ],
+  "next_turn_read_first": "Read this continuation and original request receipts; before any native mutation verify current independent Researcher session capability, own winning CLAIM/run and Source head; never replay historical session start."
 }
