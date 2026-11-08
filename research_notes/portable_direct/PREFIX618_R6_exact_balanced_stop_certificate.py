@@ -35,8 +35,8 @@ def wide(m, k):
     assert not inside(m,k,hi)
     while hi-lo > 1:
         x=(lo+hi)//2
-        if inside(m,k,x): hi=x
-        else: lo=x
+        if inside(m,k,x): lo=x
+        else: hi=x
     right_lo,right_hi=lo,hi
     if 4*(right_lo-left_hi)>D: return True
     if 4*(right_hi-left_lo)<D: return False
