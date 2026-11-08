@@ -1,0 +1,124 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Delta_p-R_p=0 mod p; W_p=p mod p^3 for p mod 24 in {13,19}; OPEN",
+  "consumed_not_redone": [
+    "D24 accepted supersingular unit reciprocity RR-AC9B3BA5BD277CE043F5",
+    "Original W216 all-prime signed grade-two 3F2 kernel",
+    "Guo-Zudilin sourced V2304 grade-two aggregate zero",
+    "Original W216/V2304 Wilson-harmonic first-grade mod p^2"
+  ],
+  "new_proved_units": [
+    {
+      "id": "quadratic_grade_zero_jet",
+      "statement": "For all primes p>3 each original zero-grade X0 equals its terminating integer-binomial base A_X minus p times first harmonic jet J_X plus p² times second harmonic jet K_X mod p³.",
+      "status": "PROVED_ALL_PRIMES_BY_TERMWISE_P_ADIC_PRODUCT",
+      "carrier": "source model,index,valuation grade,weight,binomial base,first and second harmonic observer"
+    },
+    {
+      "id": "full_graded_three_port_bridge",
+      "statement": "For all primes p>3 Wp-Vp equals DeltaA + p(DeltaB-DeltaJ) + p²(DeltaK+DeltaH-Wilson_quotient*DeltaB+tau_W-tau_V) mod p³.",
+      "status": "PROVED_ALL_PRIMES; UNIFORM_ZERO_OF_RHS_OPEN",
+      "proof_dependency": "Above quadratic jet and previously proved Wilson/harmonic first-grade theorem"
+    }
+  ],
+  "exact_checks": {
+    "method": "Standard Python exact modular integers; original factorial coefficients independent of terminating binomial jets; original full binomial sums for selected primes",
+    "primes_upto": 2000,
+    "prime_count": 301,
+    "complete_zero_grade_model_checks": 602,
+    "termwise_checks": "ALL_PASS",
+    "mixed_port_full_precision_checks": 301,
+    "full_original_three_grade_crosschecks": [
+      5,
+      11,
+      13,
+      19,
+      37,
+      373
+    ],
+    "sample_13": {
+      "deltaA": 845,
+      "deltaJ": 17,
+      "deltaK": 12,
+      "deltaB": 108,
+      "deltaH": 5,
+      "omega": 0,
+      "tauW": 10,
+      "d_over_p": 12,
+      "correction": 1
+    },
+    "sample_19": {
+      "deltaA": 4864,
+      "deltaJ": 66,
+      "deltaK": 7,
+      "deltaB": 323,
+      "deltaH": 14,
+      "omega": 2,
+      "tauW": 9,
+      "d_over_p": 27,
+      "correction": 11
+    },
+    "sample_373": {
+      "deltaA": 17893183,
+      "deltaJ": 88258,
+      "deltaK": 359,
+      "deltaB": 36930,
+      "deltaH": 56,
+      "omega": 224,
+      "tauW": 266,
+      "d_over_p": -9,
+      "correction": 9
+    },
+    "scope": "Finite computation validates formula implementation and produces discriminating witnesses, not a proof of universal W/V vanishing."
+  },
+  "brc": "COMPOSE_APPLIED; signed graded indexed carrier with ordered first and second digit observers",
+  "status": "AUTHOR_SIDE_PROVED / EXACT_301_PRIME_CHECKED / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE",
+  "evidence": [
+    "research_notes/portable_direct/20261108_onhour_d25_zero_grade_quadratic_jet_and_three_port_bridge.md@38f9ba2e3d3a6ec983058b795a73f5259cd5cbf0",
+    "research_notes/portable_direct/d25_zero_grade_second_jet_check_20261108.py@eacf36084d17a886bffdd8c41f94f59c14373dc4"
+  ],
+  "next_exact_action": "Derive or falsify the two terminating binomial-harmonic carry congruences in Theorem 2 equation (5), with particular focus on p373 nonzero Wilson term; do not repeat completed first-grade or grade-two proofs. Native same-original-class H0/B0 remains priority evidence.",
+  "native_benchmark": {
+    "issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "state_read": "OPEN on 2026-11-08",
+    "owner": "PENDING_OWNER",
+    "executed": false,
+    "required": [
+      "original p373 same-class divided-power [X]U mod 139129",
+      "original module rank",
+      "Frobenius direction and eta",
+      "signed Green/Hesse kappa",
+      "Delta-R",
+      "independent reproduction"
+    ],
+    "responsible_path": "Current Source-authorized Task owner or assigned native evaluator / Codex implementation maintainer; unassigned as observed"
+  },
+  "source": {
+    "original_target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "read_time_utc": "2026-11-08T07:02:00Z",
+    "request_status": "WAITING_RESOURCE",
+    "progress_phase": "EVENT_COLLECTION_IO",
+    "formal_task_created": false,
+    "reconcile_policy": "Retain original request ID; check receipt/reconcile when underlying resource/IO is repaired; no resubmission",
+    "site_status": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "native_session_id": null,
+    "native_claim_id": null,
+    "native_run_id": null,
+    "native_checkpoint": "NOT_WRITTEN",
+    "research_activity": "REGISTER_PENDING",
+    "old_staging": "SEPARATE_UNMERGED",
+    "maintenance_identity_borrowed": false
+  },
+  "unverified_or_missing": [
+    "Native Source recovery_status ownership and winning claim; this client has no authenticated Researcher execution authority",
+    "Original p373 H0/B0 experiment",
+    "Uniform proof of the binomial-harmonic two-digit vanishing; native independent review"
+  ]
+}
