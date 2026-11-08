@@ -45,7 +45,7 @@ The uniform-start condition is substantive. At **fixed source native port 16**, 
 
 ## Reproducible evidence and continuation
 
-Conversation-local reproducible bundle: `PREFIX577_R6_GATE_PAIR_FULL_JOINT_LAW_PORTABLE_20261108.zip`, 20,738 bytes, SHA-256 `6dc675065406b70f77fcf6b9dc7662c315e9cc137d5078308609568ef0b7cd8a`, containing:
+Conversation-local reproducible bundle: `PREFIX577_R6_GATE_PAIR_FULL_JOINT_LAW_PORTABLE_20261108.zip`, 27,049 bytes, SHA-256 `b6b54546e8b82d00a359ae4999007bb851aec868eb8b37975e025b5f980dd900`, containing:
 
 - the complete expanded mathematical theorem and proof (`PREFIX577_R6_GATE_PAIR_FULL_JOINT_LAW_THEOREM_20261108.md`);
 - exact GMP C++ polynomial checker (`exact_joint_gate_pair_all_distribution_gmp.cpp`, SHA-256 `fe93d1ceb78426153b5bab15de541bbe6124351c1943fc097d0c393747647f5a`);
@@ -72,4 +72,26 @@ Let q_C(n;x,y) be the generating polynomial of paths of length n from any state 
 
 for **all n≥0 by direct induction**. This is a constructive all-depth joint-law proof that needs no 192-length check; the earlier polynomial certificate is a separate exact regression.
 
-The full exact 37-class and 109 distinct weighted-quotient-entry certificate is `weighted_bisimulation_37_certificate.json`, SHA-256 `1015c0cb22658a376b341f3554bc4b903e8f8990326c3384e986ab1ab821b299`; stdlib-only construction is `gate_pair_weighted_bisimulation_37.py`, SHA-256 `56365f573c342869a558fa29a021cc112d24283cdfda4483487549675e378c6f`. Both are in the updated **11-file** conversation-local portable bundle (SHA-256 `6dc675065406b70f77fcf6b9dc7662c315e9cc137d5078308609568ef0b7cd8a`). The expanded local theorem includes the full exact proof and explicit fixed-port counterexample. This author-side evidence is still unreviewed/not admitted; Source claim/session/writer status is separately gated.
+The full exact 37-class and 109 distinct weighted-quotient-entry certificate is `weighted_bisimulation_37_certificate.json`, SHA-256 `1015c0cb22658a376b341f3554bc4b903e8f8990326c3384e986ab1ab821b299`; stdlib-only construction is `gate_pair_weighted_bisimulation_37.py`, SHA-256 `56365f573c342869a558fa29a021cc112d24283cdfda4483487549675e378c6f`. Both are in the updated **15-file** conversation-local portable bundle (SHA-256 `b6b54546e8b82d00a359ae4999007bb851aec868eb8b37975e025b5f980dd900`). The expanded local theorem includes the full exact proof and explicit fixed-port counterexample. This author-side evidence is still unreviewed/not admitted; Source claim/session/writer status is separately gated.
+
+## Strongest exact result: full trivariate gate/axis5/axis6 exchangeability
+
+A further exact structural extension proves, for the **same frozen 96-port, six-action zero-root model** with **uniform initial native port**, the complete three-variable identity
+
+`E[x^(K_n) y^(R5_n) z^(R6_n)] = E[x^(K_n) y^(R6_n) z^(R5_n)]`
+
+for **every integer n ≥ 0**, as an identity in Q[x,y,z]. Thus for every n,k,a,b≥0,
+
+`P(K_n=k,R5_n=a,R6_n=b)=P(K_n=k,R5_n=b,R6_n=a)`.
+
+The full trivariate joint law is invariant under swapping axes five and six while keeping the gate observation fixed. This strictly strengthens the preceding all-depth bivariate theorem and all earlier finite-order gate-pair moment equalities.
+
+**Exact constructive proof:** Take the disjoint union of two 96-state native transfer automata, weighted by `x^k y^r5 z^r6` and `x^k y^r6 z^r5` on corresponding labeled native actions. Refine by the full exact monomial-labeled successor multisets `(k,r5_or_swapped,r6_or_swapped,target_class,multiplicity)`, retaining old class ID to make splitting monotone. The partition sizes are `1→4→13→21→33→37→37` and stabilize at **37 weighted row-equitable classes**.
+
+Each class has identical full labeled action-count/target-class signature for every member and occurs **the same number of times in both 96-state halves**. It therefore induces one common 37×37 polynomial transition matrix over Z[x,y,z] and one identical starting class weight vector. The all-one terminal vector is common. Exact induction on path length gives equality of the two weighted path-generating polynomials for all n≥0. The final quotient has **109 distinct weighted transition entries**.
+
+A stdlib-only verifier recomputes all class memberships, edge-label multiplicities, equal class frequencies and stability; complete certificate `trivariate_swap_37_certificate.json` SHA-256 `7cd96d8b837aac3b397afa51a654d9bc825a675be185f319c0c6dc557bde715e`. An independent direct exact integer polynomial regression verifies coefficientwise swap symmetry for **every n=0,…,40**, checking total mass `96·6^n`; regression certificate SHA-256 `1eb7d03aa9d02101f86c4a56e4aaa376f37f3c35637a4d6cd264c3a979a9f141`. These source/code/certificate files and the expanded complete proof are contained in the updated **15-file** conversation-local ZIP (27,049 bytes), SHA-256 `b6b54546e8b82d00a359ae4999007bb851aec868eb8b37975e025b5f980dd900`.
+
+The condition of a uniform initial native port is material: at fixed port 16 already at length one, R5=0 and R6=1 for all six labeled actions (and K=0). This is exact author proof evidence under the pinned kernel, not canonical Source admission or a live owner checkpoint.
+
+**Next differentiating frontier:** classify whether the same weighted-quotient mechanism extends to additional pairs or subgroups of all six native axes, while keeping the gate; first consume the current authenticated Source continuation/owner to avoid duplicate research. UR V2 original-bundle provenance debt and native Source authorization recovery are unchanged.
