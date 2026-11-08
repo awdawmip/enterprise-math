@@ -60,6 +60,14 @@ def edge(port,slot,nb):
  return (2*dest+nb,abs(PHASE[phase][2]),int(bit==nb==1 and dest==TARGET))
 gates=[(port,slot,nb) for port in range(96) for slot,nb in product(range(3),(0,1)) if edge(port,slot,nb)[2]]
 assert len(gates)==3 and {edge(*z)[1] for z in gates}=={1}
+# Exact uniform one-step mixed moment and covariance: reduced observer separator.
+total=96*6
+axis_counts=[sum(1 for v in range(96) for sl,nb in product(range(3),(0,1)) if edge(v,sl,nb)[1]==i) for i in range(1,7)]
+assert axis_counts==[96]*6
+pK=Fraction(len(gates),total)
+cov1=Fraction(3,total)-Fraction(axis_counts[0],total)*pK
+cov3=Fraction(0,total)-Fraction(axis_counts[2],total)*pK
+assert pK==Fraction(1,192) and cov1==Fraction(5,1152) and cov3==Fraction(-1,1152)
 swap=(1,2,3,4,6,5)
 def image(x):return (1 if x>0 else -1)*swap[abs(x)-1]
 map48=[]
@@ -82,6 +90,7 @@ result={'schema':'PREFIX583_R2_SYMMETRY_V1','science_pin':'f42f2906d77f24085c123
  'axis_candidates_by_invariants':len(perms),'quartic_group_order':len(quad),'quartic_permutations':[[i+1 for i in p] for p in quad],
  'native_marked_group_order':len(native),'native_permutations':[[i+1 for i in p] for p in native],
  'gate_edge_count':len(gates),'gate_source_axis':1,'checked_native_lift_edges':96*6,
+ 'uniform_depth_one_gate_expectation':str(pK),'uniform_depth_one_cov_R1_K':str(cov1),'uniform_depth_one_cov_R3_K':str(cov3),
  'phase_lift_swap_5_6':map48,'status':'ALL_ASSERTIONS_PASS_AUTHOR_SIDE_UNREVIEWED'}
 Path(__file__).with_name('PREFIX583_R2_symmetry_certificate_results.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({k:result[k] for k in ('quartic_group_order','native_marked_group_order','checked_native_lift_edges','status')},indent=2))
