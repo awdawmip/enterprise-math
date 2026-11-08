@@ -80,7 +80,7 @@ The standalone VERIFY_EXACT.py contains all 8 historical kappa=0 sparse supports
 
 New t=T seam/F anchors: 16 rational kernels, 167 strictly positive nonzero entries in total; minimum strictly positive entry 107/8437500. Exact checks of 161 rational mixed-domain parameters, 100 additional strict-F-region rational points and the relevant seam/end boundary corners all passed in local execution. SciPy was used only to discover supports; the published verification path needs standard-library fractions only. These finite checks verify the explicit rational certificates; the universal real extension is the algebraic interpolation proof above.
 
-The previous kappa=19/20 barrier was a capacity face of the specific a'=z'=0 G target; the new F construction realizes the whole residual kappa interval with a'=z'>0 where appropriate.
+The previous kappa=19/20 barrier was a capacity face of the specific a'=z'=0 G target; the new F construction realizes the whole residual kappa interval with a'>0 and z'=a'/10 where appropriate.
 
 ## Next question and operational state
 
