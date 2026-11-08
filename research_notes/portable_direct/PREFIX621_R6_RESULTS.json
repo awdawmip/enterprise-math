@@ -1,0 +1,55 @@
+{
+  "schema": "PREFIX621_R6_SHARP_STOCHASTIC_TAIL_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "dependency": "PREFIX620_R6_global_worst_parameter_certificate.py (Bernstein-unimodality integer certificate)",
+  "parameters": "d=2, q in {12,24}, beta=1/40, delta=1/4, (p1,p2) in [0,1]^2",
+  "first_possible_stop_informative": 25,
+  "forced_stop_informative": 189,
+  "fair_survivor_count_m25": "33554430",
+  "q12_cdf_at_50_balanced": "1755702867191/3557702244900861779616271187262348179890451798551966241897003876352",
+  "q12_cdf_at_50_quarter_fair": "371896760234776550087951/59688339026386656662766578823276864081228966161894824865014283786394796032",
+  "q12_cdf_at_60_balanced": "1465223254933718170070468878812920341/225570350794822764113901037627883235016479310265198560861070620371380883897188352",
+  "q24_cdf_at_50_balanced": "1755702867191/4005616626107674553396296201996567105973679643019201784170061928678573417219227648",
+  "q24_cdf_at_60_balanced": "3728928738543925375863866650082070611869/260064908233061341870733402467581895899327945626683143247582579386878149314412262496337254313623552",
+  "claim": "P(T_q(p1,p2)>n)<=P(T_q(1/2,1/2)>n) for every integer n>=0, strict for n>=50 if parameters differ",
+  "integer_root_checks": 364185,
+  "symmetry_checks": 18144,
+  "unimodality_checks": 9025,
+  "verification": "ALL_CHECKS_PASS",
+  "scope": "Exact dyadic first-passage carrier + finite CDF checks; infinite n/all-parameter inequality follows analytic conditional-order argument and prior PREFIX620 finite shape lemma.",
+  "parameter_uniform_minimum_sample_quantiles": [
+    {
+      "q": 12,
+      "confidence_percent": 95,
+      "minimum_n": 2578,
+      "cdf_at_n_minus_1": "0.949433623759",
+      "cdf_at_n": "0.950103370021",
+      "exact_check": "PASS"
+    },
+    {
+      "q": 12,
+      "confidence_percent": 99,
+      "minimum_n": 2687,
+      "cdf_at_n_minus_1": "0.989891999969",
+      "cdf_at_n": "0.990054326333",
+      "exact_check": "PASS"
+    },
+    {
+      "q": 24,
+      "confidence_percent": 95,
+      "minimum_n": 5171,
+      "cdf_at_n_minus_1": "0.949971227076",
+      "cdf_at_n": "0.950296034773",
+      "exact_check": "PASS"
+    },
+    {
+      "q": 24,
+      "confidence_percent": 99,
+      "minimum_n": 5393,
+      "cdf_at_n_minus_1": "0.989931011396",
+      "cdf_at_n": "0.99001037637",
+      "exact_check": "PASS"
+    }
+  ],
+  "finite_tail_formula": "tail=(2*marginal_survival - joint_survival)/(2*q)^n; marginal=sum C(n,m)*A_m*(2*(q-1))^(n-m); joint=sum multinomial(n;a,b,n-a-b)*A_a*A_b*(2*(q-2))^(n-a-b); A_m=0 if m>=189."
+}
