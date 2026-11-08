@@ -1,0 +1,44 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Delta-R=0 mod p; W_p=p mod p^3 for p mod24=13,19; OPEN",
+  "consumed": [
+    "D24 accepted UR do not repeat",
+    "V2304 grade2 aggregate zero from Guo-Zudilin theorem",
+    "W216 signed all-prime 3F2 grade2 source port"
+  ],
+  "new_unit": {
+    "theorem": "All-prime exact Wilson-harmonic first-grade quotient mod p^2 for original W216 and V2304; exact two-stage BRC carry equivalence",
+    "proof_strength": "EXACT_ALL_PRIME_FORMULA_PROVED; UNIVERSAL_WV_CORRESPONDENCE_UNPROVED",
+    "computation": "301 primes to 2000; 602 exact first-grade model checks; p5,p11,p13,p19,p373 two-stage original model witnesses",
+    "counterexample": "p13 original W0-V0=455=13*35 not 0 mod13^2; c0=35,c1=4,tau=10",
+    "p373": "c0=93620;c1=85420;tau=266; Wilson quotient=224; first-grade W/p=103721 V/p=18301",
+    "brc": "COMPOSE_APPLIED signed valuation and index carrier; two ordered carry digits",
+    "status": "AUTHOR_SIDE_PROVED / EXACT_CHECKED / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE"
+  },
+  "evidence": [
+    "research_notes/portable_direct/20261108_onhour_d25_wv_grade_one_wilson_harmonic_two_carry.md",
+    "research_notes/portable_direct/d25_lower_grade_wilson_harmonic_check_20261108.py"
+  ],
+  "next_exact_action": "Derive grade-zero difference c0 formula and test explicit cancellation with Wilson-harmonic c1 and signed grade-two tau at p13,p19,p373; prioritize authentic native #1559.",
+  "native_benchmark": {
+    "issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "status": "PENDING_OWNER/NOT_EXECUTED"
+  },
+  "source": {
+    "original_target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "read_status": "RUNNING/REVALIDATING collected=1233 verified_through=4 next_page=5 formal_task_created=false",
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED; research_authority_granted=false",
+    "session": "NOT_VERIFIED",
+    "claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "native_checkpoint": "NOT_WRITTEN",
+    "registration": "REGISTER_PENDING",
+    "old_staging": "SEPARATE"
+  }
+}
