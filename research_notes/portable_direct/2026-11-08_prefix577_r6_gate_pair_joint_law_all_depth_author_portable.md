@@ -45,7 +45,7 @@ The uniform-start condition is substantive. At **fixed source native port 16**, 
 
 ## Reproducible evidence and continuation
 
-Conversation-local reproducible bundle: `PREFIX577_R6_GATE_PAIR_FULL_JOINT_LAW_PORTABLE_20261108.zip`, 15,885 bytes, SHA-256 `348a9d69cce423403b3c9a30a43b07a65a5884fe2cfaf33785e8e74aefcf9e46`, containing:
+Conversation-local reproducible bundle: `PREFIX577_R6_GATE_PAIR_FULL_JOINT_LAW_PORTABLE_20261108.zip`, 20,738 bytes, SHA-256 `6dc675065406b70f77fcf6b9dc7662c315e9cc137d5078308609568ef0b7cd8a`, containing:
 
 - the complete expanded mathematical theorem and proof (`PREFIX577_R6_GATE_PAIR_FULL_JOINT_LAW_THEOREM_20261108.md`);
 - exact GMP C++ polynomial checker (`exact_joint_gate_pair_all_distribution_gmp.cpp`, SHA-256 `fe93d1ceb78426153b5bab15de541bbe6124351c1943fc097d0c393747647f5a`);
@@ -56,4 +56,20 @@ The bundle is a **conversation-local** portable artifact; its digest does not as
 
 The Source `em_status` read in this turn still returned `BACKEND_IDENTITY_OR_VERSION_MISMATCH / UPSTREAM_STATUS_TOOL_ERROR / STATUS_DATABASE_UNAVAILABLE` with `operation_sent=false`. Current Source owner/session/recovery remains to be authenticated; no mutation or new dispatch was attempted. Original UR V2 debt is separate: locate the exact 94,687-byte four-file object with SHA-256 `4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76`, then add only lawful writer/provenance/checkpoint. Do not re-prove UR or substitute four older files for the original bundle. On current-input seed, perform complete input readback and preserve predecessor `completed_units=[]`.
 
-**Next scientific question:** derive a smaller weighted automaton quotient or explicit boundary-preserving transformation explaining this full all-depth bivariate identity; avoid duplicate live-owner work. **Next control action:** reconcile the original request and exact Source continuation after authentic backend recovery before any owner mutation. Prior identifiers are provenance, not permissions.
+**Next scientific question:** extend this common 37-state weighted quotient to additional native joint observers, with current owner/dedup checks before Source-bound work. **Next control action:** reconcile the original request and exact Source continuation after authentic backend recovery before any owner mutation. Prior identifiers are provenance, not permissions.
+
+## Stronger constructive proof: common 37-state exact weighted quotient
+
+The 192-depth polynomial/Cayley–Hamilton verification above has an additional, much smaller, independent structural explanation. Construct the **disjoint tagged union** of the two 96-state native weighted automata, one with labeled-edge weights `x^gate y^R5` and the other `x^gate y^R6`. Refine the initial one-class partition by the exact multiset of triples `(gate_increment,axis_increment,destination_class)`, counting parallel labeled edges, and retain the previous class ID on each refinement to enforce monotonic splitting. The class counts evolve as:
+
+`1 → 3 → 8 → 21 → 33 → 37 → 37 (stable)`.
+
+This produces a **common 37-class row-equitable partition** of the 192 tagged states. For any two states in one class, the multiset of their six labeled successors, grouped by the increment pair and destination class, is exactly equal. The quotient therefore defines **one 37×37 transfer matrix B(x,y) over Z[x,y]** shared by both original automata. Independently, the exact certificate verifies that **every quotient class has the same number m_C of original ports on the axis-5 side and axis-6 side** (the sums are 96 per side).
+
+Let q_C(n;x,y) be the generating polynomial of paths of length n from any state in C. Because the partition is row-equitable, q_C(0)=1 and q_C(n+1)=Σ_D B_CD(x,y) q_D(n). Consequently the stationary pooled polynomials satisfy
+
+`P_n^(5)(x,y)=Σ_C m_C q_C(n;x,y)=P_n^(6)(x,y)`
+
+for **all n≥0 by direct induction**. This is a constructive all-depth joint-law proof that needs no 192-length check; the earlier polynomial certificate is a separate exact regression.
+
+The full exact 37-class and 109 distinct weighted-quotient-entry certificate is `weighted_bisimulation_37_certificate.json`, SHA-256 `1015c0cb22658a376b341f3554bc4b903e8f8990326c3384e986ab1ab821b299`; stdlib-only construction is `gate_pair_weighted_bisimulation_37.py`, SHA-256 `56365f573c342869a558fa29a021cc112d24283cdfda4483487549675e378c6f`. Both are in the updated **11-file** conversation-local portable bundle (SHA-256 `6dc675065406b70f77fcf6b9dc7662c315e9cc137d5078308609568ef0b7cd8a`). The expanded local theorem includes the full exact proof and explicit fixed-port counterexample. This author-side evidence is still unreviewed/not admitted; Source claim/session/writer status is separately gated.
