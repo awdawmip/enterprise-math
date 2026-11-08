@@ -73,7 +73,7 @@ for **every** `r,rho` and nonnegative `p`. The joint distribution of the next tr
 
 ## Corollary — feedback-controlled nine-root sequences
 
-The earlier universal law treated externally predetermined nine-root schedules. Equation (5) also permits **observable-feedback policies**: the root at time `n` can be a measurable function of previously observed triple reward increments and exogenous randomness independent of the hidden initial port, with the same random seed coupling. Under any such policy, two mixtures related by `t c` produce identical full ordered triple-reward histories *and final 34-class distributions* at every horizon.
+The earlier universal law treated externally predetermined nine-root schedules. Equation (5) also permits **observable-feedback policies**: the root at time `n` can be a measurable function of previously observed triple reward increments and exogenous randomness independent of the hidden initial port, with the same random seed coupling. Under any such policy, two mixtures related by `t c` produce identical full ordered triple-reward histories for every horizon `n>=0` and identical joint laws of the history with the final 34-class state for every `n>=1`. At `n=0`, the initial class law can remain different.
 
 **Proof.** Condition on the exogenous seed. At the first step the policies select the same root, and (5) shows equality for each emitted `rho` even jointly with next class. Induct on observed history: the conditional next-class vectors and selected roots agree at each stage. Integrate over the seed. QED.
 
