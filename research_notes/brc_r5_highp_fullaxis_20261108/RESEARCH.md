@@ -4,7 +4,7 @@
 
 ## Source and frozen scientific inputs
 
-Inherited exact R5 statistical inputs are frozen at GLOBAL_KNOWLEDGE \`a01383f825ef9d43b4b754254303298c64041568\` and Enterprise Math \`86149263e38c22292c9def1e0f69092efa1be77e\`, as recorded in [PR #1821](https://github.com/awdawmip/enterprise-math/pull/1821). Its established author-side result covers the entire five-parameter box \`0<=t<=1/13\`.
+Inherited exact R5 statistical inputs are frozen at GLOBAL_KNOWLEDGE `a01383f825ef9d43b4b754254303298c64041568` and Enterprise Math `86149263e38c22292c9def1e0f69092efa1be77e`, as recorded in [PR #1821](https://github.com/awdawmip/enterprise-math/pull/1821). Its established author-side result covers the entire five-parameter box `0<=t<=1/13`.
 
 Current applicable operational rules were separately read from canonical main on 2026-11-08, including account bootstrap/manual, Source research continuation protocol/current normative context, P000, ACTIVE worldview, and the portable research method. This is a seven-node P/Q-BRC **terminal-observer model** theorem. The observer is the seven randomized terminal claims together with two stopping-time readouts. Its scope is not equality of latent FULL_HIST paths or native X6 dynamics.
 
@@ -50,7 +50,7 @@ The LR node list is
 r=(1/10,1/2,3/4,1,5/4,3/2,19/10).
 \]
 
-The pinned exact mass and time maps \(M_i(f),T_P(f),T_Q(f)\) are reproduced explicitly in \`VERIFY.py\`. Define for each of the five interior LR nodes
+The pinned exact mass and time maps \(M_i(f),T_P(f),T_Q(f)\) are reproduced explicitly in `VERIFY.py`. Define for each of the five interior LR nodes
 
 \[
 H_k(f)=\sum_{i=0}^6(r_i-r_k)_+M_i(f),\qquad k=1,\ldots,5.
@@ -63,7 +63,7 @@ t_i\in\{1/13,1\},\quad p_j\in\{5/7,1\},
 \quad (q,\theta,\kappa)=(k,l,m)\in\{0,1\}^3.
 \]
 
-The pure-standard-library \`Fraction\` verifier checks at every corner:
+The pure-standard-library `Fraction` verifier checks at every corner:
 
 1. All source and target physical-capacity inequalities; nonnegative seven-node masses; exactly unit mass and unit LR first moment.
 2. The target F face, implying the seedless polynomial \(9b'z'=4a'(v'-z')\).
@@ -94,22 +94,22 @@ The seven LR laws have equal unit mass and unit LR mean. Nonnegative differences
 \sum_i r_iE_{ij}=r_jM_j(x).
 \]
 
-These are the exact Blackwell equations for the declared P/Q terminal observer; \`E\` need not depend on the terminal declaration. The full joint branch mass vector is retained for the certificate rather than erased to a scalar.
+These are the exact Blackwell equations for the declared P/Q terminal observer; `E` need not depend on the terminal declaration. The full joint branch mass vector is retained for the certificate rather than erased to a scalar.
 
 Reference: Leskelä & Vihola, *Conditional convex orders and measurable martingale couplings*, Bernoulli (2017), arXiv:1404.0999 (finite-support use).
 
 ## Reproduction and frontier
 
-Run \`python3 VERIFY.py\` using Python standard library only. The published \`EXACT_OUTPUT.txt\` is:
+Run `python3 VERIFY.py` using Python standard library only. The published `EXACT_OUTPUT.txt` is:
 
-\`\`\`text
+```text
 PASS_EXACT_F_FACE_32_CORNERS 32
 PASS_EXACT_307_INTERIOR_REGRESSIONS
 PASS_ALL_REAL_F_FACE_INTERPOLATION_T_1_13_TO_1_P_5_7_TO_1
-\`\`\`
+```
 
 The 307 exact rational regression samples check the interpolation implementation. The all-real proof is the corner and multiaffine argument plus finite Strassen coupling theorem.
 
-**Next exact research unit:** On the F face at \((t,q,\kappa,\theta)=(1/13,1,0,0)\), determine the sharp rational threshold in \(p\) for which the F-face representation is feasible. Exact test \`p=7/10\` against \`p=71/100\`, then reconstruct a rational dual obstruction or a constructive target. Seek a new face/triangle chart extending below \`p=5/7\`. Preserve any obstruction only for the tested representation, and keep the full FULL_HIST mother objective open.
+**Next exact research unit:** On the F face at \((t,q,\kappa,\theta)=(1/13,1,0,0)\), determine the sharp rational threshold in \(p\) for which the F-face representation is feasible. Exact test `p=7/10` against `p=71/100`, then reconstruct a rational dual obstruction or a constructive target. Seek a new face/triangle chart extending below `p=5/7`. Preserve any obstruction only for the tested representation, and keep the full FULL_HIST mother objective open.
 
 **Control scope:** author proof and portable evidence; native Researcher-ID, live task ownership/CLAIM, checkpoint, Result, independent review and mathematical admission require their own actual receipts.
