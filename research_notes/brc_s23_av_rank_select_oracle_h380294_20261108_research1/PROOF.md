@@ -73,3 +73,58 @@ The previous full stream at H=7000 processed 24,510,501 thresholds in `O(H^2 log
 Next: use this oracle to inspect the `v+j=H` frontier and construct a verified incremental class/extremal witness update; then establish or refute `N(H)<=2455069` on a larger exact range. Retain `N(510)=2455069` and the H=7000 endpoint proof as inherited author-side dependencies; new claims about the first jump of N still require their own complete coverage certificate.
 
 Control: GitHub read/write as `awdawmip`; native Researcher-ID, owner and CLAIM not verified because the native status/task API returned `BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE`, `operation_sent=false` on 2026-11-08. This is an author-side mathematical proof, not an accepted Result or independent review.
+
+## Extension: exact prefix-occupancy oracle for n<=2,455,069
+
+Let prefix scores be `E(k,l)=k-r*l` with `k,l>=0,k+l<=n`; the unused label-3 observations pad to the common length n. A second rational convergent
+`P2/D2=24900305/4564093` satisfies `gcd(P2,D2)=1`,
+```
+n+H <= 2455069+380294 = 2835363 < D2,
+(n+H)*max(abs(LO*D2-P2*Q),abs(HI*D2-P2*Q)) < Q.
+```
+Thus the same proof as (A) certifies all comparisons of a transformed prefix point `r*l-k` with `-t(v,j)=-r*v+j`, because their coefficient difference in r has magnitude `l+v<=n+H<D2`. Equality at the common zero is handled by strict integer endpoints.
+
+For two threshold coordinates `left=(vL,jL)`, `right=(vR,jR)` with `t(left)<t(right)`, put
+`X=-P2*vR+D2*jR`, `Y=-P2*vL+D2*jL`.
+Then the exact count of attainable prefix scores strictly inside that cell is
+```
+O(H,n,left,right)= C_n^{P2,D2}(Y) - C_n^{P2,D2}(X+1).
+```
+Here `C_n^{P2,D2}` is the rank/count formula in (B) with triangular horizon n and integer projection P2,D2. For integer keys, `X<K<Y` is exactly `K<Y` minus `K<=X`. This certifies cell occupancy without enumerating `(n+1)(n+2)/2` prefix pairs. Two logarithmic rank queries suffice. Implementation and exhaustive small-case tests are in `VERIFY_OCCUPANCY.py` and `RUN_OCCUPANCY_EVIDENCE.txt`.
+
+### New compact independent lower-bound certificate at H=510
+
+The rank oracle shows that `(0,0)` and `(79,431)` are adjacent in `T_510`, with `t(0,0)=0<t(79,431)`. In the P2/D2 projection,
+```
+P2*79-D2*431=12.
+```
+So the prefix key `K=P2*l-D2*k` must lie strictly between `-12` and `0`; there are **exactly eleven candidate integer keys**, `K=-11,...,-1`, regardless of n. Since `0<=l<n<D2`, the modular inverse gives a unique minimal nonnegative candidate for each key:
+`l_K=(K*P2^(-1)) mod D2`,
+`k_K=(P2*l_K-K)/D2`. Any later solution increases l by D2 and k by P2, hence increases prefix length. The exact finite certificate is:
+
+```
+K     minimal k+l
+-11    12276365
+-10    24553240
+ -9     7365717
+ -8    19642592
+ -7     2455069
+ -6    14731944
+ -5    27008819
+ -4     9821296
+ -3    22098171
+ -2     4910648
+ -1    17187523
+```
+
+Therefore the first prefix point entering this particular threshold cell is exactly
+```
+(k,l)=(2074774,380295),  k+l=2455069,  K=-7.
+```
+Equivalently `O(510,2455068,(0,0),(79,431))=0` and `O(510,2455069,(0,0),(79,431))=1`. This proves the exact sharp **lower bound** `N(510)>=2455069` with an 11-key modular certificate. The upper bound `N(510)<=2455069` remains the separately published prior endpoint coverage result. Thus this independent calculation provides a small verification of the load-bearing lower bound previously used to extend the plateau.
+
+As a scoped higher-horizon probe, the code examined exactly 617 distinct cells at each of H=7000,100000,200000,300000,380294 at n=2455069; all tested cells were occupied, minimum certified count 1. This is a sampled observation, not full endpoint coverage at those larger horizons.
+
+## Reproducible materials and identity
+
+Files: `VERIFY_ORACLE.py`, `RUN_EVIDENCE.txt`, `VERIFY_OCCUPANCY.py`, `RUN_OCCUPANCY_EVIDENCE.txt`; standard-library-only Python. Both source blobs were compared with the local files actually executed, and the run output blobs with the local transcripts. Native Source status/owner/CLAIM remained unavailable; this author-side result is a valid resumable proof candidate, not an authenticated task result.
