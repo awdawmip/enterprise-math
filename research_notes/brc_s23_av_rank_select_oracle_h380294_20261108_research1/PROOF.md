@@ -54,7 +54,7 @@ For a fixed v, `P*v-D*j<m` is equivalent to `j>=j_min(v)`, so the number in that
 
 ## Exact finite validation (reproducible)
 
-`VERIFY_ORACLE.py` independently recomputes the 45-term logarithm enclosure, confirms the maximal declared horizon, and compares every rank, select and successor against a brute integer-key sort for H=1,2,3,10,80,150 (16,? values in the largest individual test: 11,476). It also runs 250 seeded rank/select/next-roundtrips at each of H=7000, H=100000, H=380294, without constructing their complete threshold sets.
+`VERIFY_ORACLE.py` independently recomputes the 45-term logarithm enclosure, confirms the maximal declared horizon, and compares every rank, select and successor against a brute integer-key sort for H=1,2,3,10,80,150 (11,476 values at H=150). It also runs 250 seeded rank/select/next-roundtrips at each of H=7000, H=100000, H=380294, without constructing their complete threshold sets.
 
 Exact sizes:
 ```
