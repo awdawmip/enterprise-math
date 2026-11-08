@@ -1,0 +1,72 @@
+{
+  "schema": "PREFIX586_R6_NATIVE_PURE_PORT_TWO_STEP_V1",
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "initial_port_count": 96,
+  "native_labeled_actions": 576,
+  "native_length_two_paths_examined": 3456,
+  "first_pair_deterministic_per_port": true,
+  "second_pair_support_cardinality_all_ports": 2,
+  "all_96_local_cumulant_matrices_rank_one_nonzero": true,
+  "nonproportional_to_uniform_M_count": 96,
+  "distinct_exact_local_matrices": 15,
+  "local_matrix_multiplicities": [
+    1,
+    2,
+    2,
+    4,
+    4,
+    4,
+    4,
+    6,
+    7,
+    8,
+    8,
+    8,
+    12,
+    12,
+    14
+  ],
+  "port0": {
+    "atom_table": [
+      {
+        "pair": [
+          0,
+          0,
+          1
+        ],
+        "H": -1,
+        "count": 24
+      },
+      {
+        "pair": [
+          0,
+          1,
+          0
+        ],
+        "H": -4,
+        "count": 12
+      }
+    ],
+    "scalar": "-1/864",
+    "matrix": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-1/864",
+        "1/864"
+      ],
+      [
+        "0",
+        "1/864",
+        "-1/864"
+      ]
+    ]
+  },
+  "scope": "zero root, each of 96 deterministic initial ports, six equiprobable native actions at each of two steps",
+  "proof": "finite exhaustive enumeration of 96 x 6 x 6 native ordered action paths, exact Fraction cumulants; two-point pair support yields rank-one tensor factorization"
+}
