@@ -1,0 +1,38 @@
+{
+  "all_54_checked": true,
+  "per_depth_independent_mip_checked": 1140,
+  "case_min": 109,
+  "case_max": 166,
+  "all_cases_ge_109": true,
+  "witness_cost": 109,
+  "witness_24_paths": 24,
+  "witness_keys": [
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      3,
+      1,
+      1
+    ],
+    [
+      3,
+      2,
+      1
+    ],
+    [
+      4,
+      3,
+      1
+    ],
+    [
+      6,
+      4,
+      1
+    ]
+  ],
+  "solver": "scipy.optimize.milp via HiGHS",
+  "exact_arithmetic_note": "Native-X6 BRC signed integer pool, independent 0-1 per-depth set-cover MILP; all 1140 optimum statuses and dual bound matches; independent exact recursion in accompanying source."
+}
