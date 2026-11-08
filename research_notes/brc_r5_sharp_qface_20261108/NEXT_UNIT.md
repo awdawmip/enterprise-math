@@ -1,11 +1,12 @@
-# R5 continuation after sharp C_(3/4) q threshold
+# R5 next frontier: integrate four-parameter q=1 and chart-specific sharp boundary
 
-Frozen science pins: Global `a01383f825ef9d43b4b754254303298c64041568`, EM `86149263e38c22292c9def1e0f69092efa1be77e`. Existing PR #1802 remains intact.
+**Frozen source pins:** Global `a01383f825ef9d43b4b754254303298c64041568`, EM `86149263e38c22292c9def1e0f69092efa1be77e`, unchanged. Current control/normative snapshot is separate from scientific pins.
 
-**New completed exact unit:** On source `x(q)=(1,0,1,0,9/160,21q/80,0)`, common seedless face `C_(3/4)` admits a calibrated Blackwell lift iff `q<=1343/1589`. Exact separating time functional, 12+13-edge endpoint witnesses, and all-real convex interpolation: `RESEARCH.md` / `VERIFY.py`.
+**Verified completed new units (do not redo):**
+1. `RESEARCH.md`, `VERIFY.py`: For source `x(q)=(1,0,1,0,9/160,21q/80,0)`, a nonnegative Blackwell kernel on common face `C_(3/4)` exists iff `q∈[0,1343/1589]`; exact stopping-time separator, 12-edge and 13-edge endpoint witnesses, 1001 exact regressions. This is strictly fixed-face; on C_(1/4) the source itself is seedless even at q=1.
+2. `Q1_PRISM.md`, `VERIFY_Q1_PRISM.py`: Three-dimensional full `(t,p,q)` box at `theta=1/4,kappa=3/4`, `t∈[0,1/5]`, `p,q∈[0,1]`. Exact 8 corners, 37 transport edges at 4 nontrivial corners, 601 tests.
+3. **Stronger latest**: `THETA_PRISM.md`, `VERIFY_THETA_PRISM.py`: All real `t∈[0,1/5],p,q∈[0,1],theta∈[0,3/4]`, fixed `kappa=3/4` have a seedless target on one common C_(3/4) face and a calibrated Blackwell transport. Proof uses 16 exact corners (4 nontrivial t=1/5,theta=0 corners with 37 positive transfer edges), multi-affinity and 601 exact regression tests. This **subsumes unit 2**. Signed residual `9t(theta-3/4)/10` is nonpositive, negative in its interior.
 
-**Meaningful contrasting observation:** At `t=0`, every `x(q)` is already seedless and lies on `C_(1/4)`. Thus the sharp no-go is representation-specific.
+**Next discriminating target**: Extend the current four-dimensional prism across varying `kappa` (positive-residual region) and/or `theta∈(3/4,1]` while retaining full `p,q∈[0,1]`. At fixed `t=1/5,p,q∈{0,1}`, test `theta=1,kappa=3/4` on charts `C_(1/4),C_(1/2),C_(3/4)`; use one exact rational feasible kernel or an exact Farkas separator for each selected face. A true global counterexample requires excluding **all** lawful seedless targets, not just one face. Separate LP float discovery from Fraction certificate construction.
 
-**Next discriminating unit:** Fix `t=1/20,p=0,q=1,theta=kappa=1/4`. Search a target face `C_tau` with `tau=1/4,1/2,3/4`, and derive an exact rational kernel for an admissible face if possible. If a face fails, seek a scoped rational separator from the exact LP dual. Then ask for a shared chart or triangulation covering a positive-t neighborhood together with the t=0 identity. In parallel, test the mixed residual corners `(theta,kappa)=(3/4,1/4)` and `(1/4,3/4)` to avoid extrapolating from zero residual.
-
-**Controls:** Task owner/CLAIM unchanged and unconfirmed in this author-side note; native research authority was not established. No edits to P000, ACTIVE worldview, frozen science pins or prior task/Result/Review.
+**Source status**: GitHub author-side mathematical proof only, independent review/admission pending. Native active owner/claim/unshared task authority not inferred. No edits to P000, protected worldview, Result/Review or frozen task scientific pins.
