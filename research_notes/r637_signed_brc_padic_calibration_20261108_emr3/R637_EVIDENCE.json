@@ -1,0 +1,157 @@
+{
+  "schema": "R637_EXACT_EVIDENCE_V1",
+  "result": "PASS",
+  "marker": "R637_5ADIC_CALIBRATION_PRECISION_TAX_EXACT_PASS",
+  "scientific_pin": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "r636_source": "87cf91ddd0162c4f4e0e7c15037a4e4c7334f7e2",
+  "arithmetic": "Python exact Z[t] and coefficientwise Z/(5**N), no floating point",
+  "vector": [
+    0,
+    5,
+    1,
+    2,
+    3,
+    4
+  ],
+  "pair_count": 15,
+  "gain_orders": [
+    1,
+    2,
+    4
+  ],
+  "permutations_per_pair_per_a": 720,
+  "recovery_checks": 32400,
+  "pair_minimum_moduli": [
+    {
+      "axes_1based": [
+        1,
+        2
+      ],
+      "delta": 5,
+      "modulus": 25
+    },
+    {
+      "axes_1based": [
+        1,
+        3
+      ],
+      "delta": 1,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        1,
+        4
+      ],
+      "delta": 2,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        1,
+        5
+      ],
+      "delta": 3,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        1,
+        6
+      ],
+      "delta": 4,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        2,
+        3
+      ],
+      "delta": -4,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        2,
+        4
+      ],
+      "delta": -3,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        2,
+        5
+      ],
+      "delta": -2,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        2,
+        6
+      ],
+      "delta": -1,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        3,
+        4
+      ],
+      "delta": 1,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        3,
+        5
+      ],
+      "delta": 2,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        3,
+        6
+      ],
+      "delta": 3,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        4,
+        5
+      ],
+      "delta": 1,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        4,
+        6
+      ],
+      "delta": 2,
+      "modulus": 5
+    },
+    {
+      "axes_1based": [
+        5,
+        6
+      ],
+      "delta": 1,
+      "modulus": 5
+    }
+  ],
+  "collision": {
+    "axes_1based": [
+      1,
+      2
+    ],
+    "identical_all_signed_outputs_as_integer_polynomials": true,
+    "matching_both_refs_mod5": true,
+    "second_ref_distinguishes_mod25": true
+  },
+  "scope": "fixed rank-two static signed BRC observer; source-native X6 operator unverified",
+  "analytic_argument": "R637_PROOF.zh-CN.md"
+}
