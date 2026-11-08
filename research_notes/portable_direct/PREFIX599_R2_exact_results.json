@@ -1,0 +1,29 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX599_R2_CERTIFICATE_RESULT_V1",
+  "date": "2026-11-08",
+  "frozen_science": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "operator": "native-48-phase positive-tail X6-BRC with original 96-port adapter",
+  "axes": [
+    "1",
+    "1",
+    "1",
+    "1",
+    "w",
+    "w"
+  ],
+  "weights_scope": "w>=0, z>=0 for nonnegative dynamics; determinant identity over Z[w,z,t]",
+  "proof_scope": "exact symbolic characteristic identity and sharp w=0 real nonnegative z minimal-polynomial branch",
+  "certificate": "PREFIX599_R2_parametric_spectrum_certificate.py",
+  "tested": "Local Python+SymPy, 48x48 exact symbolic matrices over Z[w,z,t], 15 additional integer parameter matrix characteristic calculations",
+  "result": "ALL_ASSERTIONS_PASS",
+  "theorem_1": "det(tI48-Q(w,z)) = F30(w,t)*(P18(w,t)-(z-1)*B14(w,t))",
+  "theorem_2": "det(Q)=2^46*3^12*(z+3)*w^16",
+  "theorem_3": {
+    "w=0,z=1": "mu=t^2*(t^4-16), sharp degree 6",
+    "w=0,z>=0,z!=1": "mu=t^2*(t^4-16)*(t^4-4*(z+3)), sharp degree 10"
+  },
+  "native_researcher_id": "EM-DIRECT-1C076C",
+  "activity_id": "RA-D8B36FCD19B160E4AE44D76C",
+  "limitations": "Author-side symbolic proof/checker. Formal CLAIM, Native Result, independent Driver review absent. Generic w>0 minimal-polynomial exceptions unresolved.",
+  "next": "Classify exact common-root locus of H10 and gate factor R18 for w>0, z>=0; derive sharp recurrence orders, preserve endpoint/source observables."
+}
