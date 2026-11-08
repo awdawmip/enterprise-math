@@ -1,9 +1,11 @@
-# R5 next exact research unit — small-p triangular middle gap
+# R5: exact next research unit after complementary G/F five-parameter prisms
 
-Frozen scientific pins unchanged: GK a01383f825ef9d43b4b754254303298c64041568, EM 86149263e38c22292c9def1e0f69092efa1be77e. Source: this run's RESEARCH.md and VERIFY.py; predecessor PRs #1821, #1823, #1824.
+Immutable frozen inputs: GLOBAL_KNOWLEDGE a01383f825ef9d43b4b754254303298c64041568; Enterprise Math 86149263e38c22292c9def1e0f69092efa1be77e; P000 and ACTIVE worldview unchanged.
 
-**Proved author-side frontier:** for every real 3/20<=t<=7/39, 303/2450<=p<=1 and 0<=q,theta,kappa<=1, a single seedless F-face Blackwell representation exists. At t=3/20,q=1,theta=kappa=0, 303/2450 is the exact threshold for that F face, by a rational affine dual identity and attaining certificates. Independent review and formal Task CLAIM/Result remain pending.
+## Highest author-side verified frontier
+All real 3/20<=t<=7/39, 0<=p<=1, 3/20<=q<=1, 0<=theta<=1, 0<=kappa<=7/20 have lawful seedless Blackwell realizations preserving all seven terminal declarations and both stop times. This follows by gluing the F-face all-real slab at p>=303/2450 (RESEARCH.md, VERIFY.py) to the explicit G-face all-real slab at p<=303/2450 (G_PRISM.md, VERIFY_G_PRISM.py). The F face alone also handles arbitrary q,theta,kappa when p>=303/2450. The 303/2450 cutoff is sharp for the F face at t=3/20,q=1,theta=kappa=0, not for all seedless targets.
 
-**Next discriminating question:** For 3/20<t<7/39, 0<=p<303/2450, p<=q<=1 and 0<=theta,kappa<=1, construct a legal G, C_c, or mixed chart target. Start at the exact rational source (t,p,q,theta,kappa)=(1/6,0,1,0,0), compute lawful target capacities, five hinge inequalities and two stop-time equations, then certify a positive rational solution or give an exact chart-scoped dual obstruction. Test chart compatibility at p=303/2450. If a target is feasible, use a finite exact triangle/barycentric partition in (p,q,t,kappa) to extend an all-real subregion. If one face fails, keep the obstruction on that face and test another seedless representation. Pursue sparse explicit E martingale kernels after the next convex-order construction.
+## Exact next question
+Extend the small-p sector p<303/2450 to (i) q<3/20, or (ii) kappa>7/20, maintaining t in [3/20,7/39] and theta full. Start with the genuinely nonseedless source (t,p,q,theta,kappa)=(1/6,0,0,1,1/2) and seek an exact rational G/C_c/other-face seedless target whose seven LR masses, five convex hinges and both times pass. Use any witness to build a subprism by exact rational corners and multiaffine interpolation, and any failure to obtain an exact chart-scoped dual. The theta=kappa=0 source is already seedless at this model boundary and is not an appropriate research lead.
 
-The mother objective is full FULL_HIST vs seedless LR four-observer equivalence; P000, ACTIVE worldview, and the frozen science remain untouched.
+Independent mathematical review / official Owner-CLAIM / Result and native activity checkpoint are not verified; the PR is durable author-side evidence.
