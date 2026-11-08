@@ -119,3 +119,7 @@ Test `0<t<1/1000` on a **t-dependent seedless chart** `C(t)=3/4+lambda t`, start
 ## Provenance and authority
 
 Research activity and actual current native session are evaluated separately. GitHub author transport uses the authenticated `awdawmip` identity, but branch publication grants no formal Task CLAIM/Result/Review, theorem acceptance, or native Heartbeat law. Exact GitHub immutable SHA and Source registration, if available, are to be supplied by the durable commit/receipt, not invented here.
+
+## Verified Source research activity (2026-11-08)
+
+The native Enterprise Math service issued this actual current role identity after this author's research run: `Researcher-ID: EM-DIRECT-D20310 / TASK_RESEARCH`, session `MCP-03faacec3d6a4d7c94184d40cf46ab7b`, activity `RA-6A29F796D3B96F8EDAB8C156`. The service's `em-r5-t11-20261108T1850-reg` receipt confirmed canonical Source registration and verified remote readback of `research_activity_records/RA-6A29F796D3B96F8EDAB8C156.json` and the session record at canonical main commit `e488f46541858937efdee71476ba966dc564931e`. `activity.checkpoints=[]`; formal Task CLAIM, Result/Review and activity checkpoint binding are still absent. This metadata is not an execution capability; no session secret is included.
