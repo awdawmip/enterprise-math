@@ -1,0 +1,50 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-09",
+  "role": "TASK_RESEARCH",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "parent": "Delta_p-R_p=0 mod p for p≡13,19 mod24; equivalently W216_full-V2304_full=0 modp^3 (prior exact source crosswalk)",
+  "previous_checkpoint_path": "research_notes/portable_direct/20261109_onhour_d25_onefield_cross_grade_lift_certificate.md",
+  "latest_science": {
+    "kind": "AUTHOR_SIDE_PROVED_EXACT_ALL_TARGET_PRIME_TWIST_RELATION",
+    "statement": "For K=Q(T), T²=2, t=(2-T)/4, v=(3-2T)/6, E4(v): z²=u³+u²+(1-v)u/4 is the d=-3T quadratic twist of E3^sigma; j=2417472-1707264T; a_{p²}(E4)=(-2/p) a_{p²}(E3^sigma) for p≡13,19 mod24",
+    "geometric_bridge": "Compose established Phi:E3->E3sigma with explicit K(s),s²=-3T, twist isomorphism: differential scalar T/s. NOT a native H0/B0 comparison.",
+    "p373": "New E4(F_(373²))=139876, Frobenius [-373], versus E3sigma [+373]",
+    "verification": "Exact Qsqrt2 invariant checks, exhaustive finite Fp² character counts and independent square-set check for p=13,19,37,43,373; 142877 field points per curve."
+  },
+  "published_evidence": [
+    "research_notes/portable_direct/20261109_onhour_d25_w216_v2304_quartic_twist_bridge.md",
+    "research_notes/portable_direct/d25_w216_v2304_quartic_twist_bridge_20261109.py",
+    "research_notes/portable_direct/d25_w216_v2304_quartic_twist_results_20261109.json"
+  ],
+  "native_benchmark": {
+    "issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "status": "OPEN/PENDING_OWNER/NOT_EXECUTED (as read this turn)",
+    "remaining": "Fixed original p373 H0/B0 divided-power [X]U mod139129, actual rank, sigma direction and eta, signed odd kappa, Delta-R, independent native reproducer"
+  },
+  "source_context": {
+    "historical_request_id": "onhour11-20261108-2202-current-task-continuation",
+    "historical_session_start_id": "onhour11-20261108-2202-own-researcher-session-start",
+    "both_historical_status": "SUCCEEDED",
+    "historical_researcher_id": "EM-ENTERPRISE-4DEB43",
+    "historical_session_id": "MCP-ecbfd1c046864bb3bff1a2e04c87d207",
+    "own_recovery": "SESSION_CAPABILITY_REQUIRED",
+    "current_claim_id": null,
+    "current_run_id": null,
+    "native_checkpoint": "NOT_WRITTEN",
+    "unknown_effects": []
+  },
+  "do_not_repeat": [
+    "D24 UR/JT0 accepted first digit",
+    "prior E3 explicit 2-isogeny, original E3 p373 point count",
+    "previous W/V Clausen source crosswalk and cross-grade Theta equivalent certificate",
+    "no reclassification of auxiliary curve geometry as native H0/B0"
+  ],
+  "current_unfinished_scientific_unit": "Prove or refute W216_full-V2304_full=0 modp³ for both target classes, with signed finite-cutoff comparison; original H0/B0 remains independent pending experiment",
+  "next_exact_action": "Transport actual weighted period derivatives, signed twist/differential factor T/s and p-adic truncation second-digit along explicit 2-isogeny/twist, testing cancellation for both target classes; keep original H0/B0 support unaltered.",
+  "status": "AUTHOR_SIDE_PROVED/5_EXHAUSTIVE_FP2_TWO_PATH_CHECKS/UNREVIEWED/NOT_ADMITTED/NOT_NATIVE"
+}
