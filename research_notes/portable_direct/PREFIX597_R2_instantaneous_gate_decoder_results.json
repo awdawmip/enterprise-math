@@ -1,0 +1,24 @@
+{
+  "schema": "PREFIX597_R2_INSTANTANEOUS_NATIVE_BRC_DECODER_V1",
+  "scientific_input": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "phase_count": 48,
+  "port_count": 96,
+  "labeled_edges": 576,
+  "gate_phase": 4,
+  "gate_predecessors": [
+    3,
+    14,
+    15
+  ],
+  "reversal_phase": 2,
+  "decoder": "delta=(z-1)*(v[3]+v[14]+v[15]-2*v[2])/(3*(z+3))",
+  "exact_polynomial_basis_checks": 864,
+  "exact_local_row_identity_checks": 864,
+  "nonstationary_full_port_checks": 5760,
+  "integer_parity_coordinate_checks": 270720,
+  "initial_input_families": 120,
+  "sequences": 6,
+  "boundary_first_step_counterexample": true,
+  "result": "ALL_ASSERTIONS_PASS",
+  "review": "AUTHOR_SIDE_UNREVIEWED"
+}
