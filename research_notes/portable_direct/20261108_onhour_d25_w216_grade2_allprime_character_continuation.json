@@ -1,0 +1,51 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Original Delta-R=0 modp, W_p=p modp^3 for p mod24=13,19; OPEN",
+  "prior_completed": [
+    "Source-accepted D24 UR/CM0/JT0, do not repeat",
+    "Published 2304 universal grade2 tail zero",
+    "Original W p-free evaluator (1227 finite scan), do not repeat",
+    "W/V diagonal grade-transfer counterexample",
+    "Original W p=1 mod6 grade2 3F2 port at fc6474d8",
+    "Legendre signed prefactor p=1 mod6 at 4661e0b1"
+  ],
+  "new_unit": {
+    "claim": "For EVERY prime p>3, N=(p+1)/2, M=floor((p+4)/6), T_W(p)=chi_p(6)/9 * sum_{r=0}^{M-1}(6r+4) (1)_r(5/6)_r(7/6)_r/((3/2)_r^3 2^r) modp.",
+    "proof": "Wilson product of two p-shifted factorials; common base and ratio for p mod6=1,5; reflected half factorial and Euler criterion.",
+    "proof_strength": "EXACT_ALL_PRIME_AUTHOR_SIDE_PROVED",
+    "exact_computation": "301 primes p=5..2000, direct original integer binomial modp^3 and hypergeometric recurrence; all agree",
+    "evidence": [
+      "research_notes/portable_direct/20261108_onhour_d25_w216_grade2_allprime_character_kernel.md",
+      "research_notes/portable_direct/d25_w216_grade2_allprime_character_checker_20261108.py"
+    ]
+  },
+  "native_benchmark": {
+    "issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "status": "PENDING_OWNER/NOT_EXECUTED"
+  },
+  "remaining": [
+    "Full original mother supercongruence remains open",
+    "Original p373 native H0/B0 fixed benchmark awaits designated executor",
+    "Canonical Source run/claim unavailable in this Site client"
+  ],
+  "next_exact_action": "Develop original source-preserving W/V lower-grade transfer whose correction equals signed all-prime finite K sum; discriminate at p5,11,13,19,373. Prioritize authentic #1559 native evaluator.",
+  "source": {
+    "original_target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "read_at": "2026-11-08T04:56:48Z",
+    "error": "BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE / operation_sent=false",
+    "site": "CONFIGURED_NOT_LIVE_VERIFIED; research_authority_granted=false",
+    "session": "NOT_VERIFIED",
+    "claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "checkpoint": "NOT_WRITTEN",
+    "registration": "REGISTER_PENDING",
+    "old_staging": "SEPARATE"
+  },
+  "status": "AUTHOR_SIDE_PROVED/EXACT_301_PRIME_CHECKED/UNREVIEWED/NOT_ADMITTED/NOT_NATIVE"
+}
