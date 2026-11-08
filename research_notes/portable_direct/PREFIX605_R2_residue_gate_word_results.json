@@ -1,0 +1,56 @@
+{
+  "schema": "PREFIX605_R2_GATE_RESIDUE_WORD_EXACT_V1",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "inherited_native_model": "48 phases; 96 ports; 576 tagged actions; axis weights (1,1,1,1,0,0); gate target 4",
+  "source_dependency": "PREFIX602, PREFIX604; native-derived Q(g), E,K,T,H,W,L",
+  "exact_identity": "B(q_n)...B(q_1) e_j =4^N_j * product_{t: (t-1)%4=(3-j)%4}(q_t+3) e_{(j+n)%4} (zero-based j)",
+  "full_48_phase_operator_equality": "For fixed n after any common two-step transient: iff four residue products agree",
+  "symbolic_lengths_verified": 14,
+  "minimal_smooth_endpoint_statistic_jacobian_ranks": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "7": 4,
+    "10": 4
+  },
+  "rational_integer_sequences_checked": 30,
+  "48_phase_basis_comparisons": 144,
+  "baseline_gate_word": [
+    0,
+    2,
+    1,
+    5,
+    3,
+    4,
+    7,
+    6
+  ],
+  "same_residue_permutation": [
+    3,
+    2,
+    1,
+    5,
+    0,
+    4,
+    7,
+    6
+  ],
+  "across_residue_permutation": [
+    2,
+    0,
+    1,
+    5,
+    3,
+    4,
+    7,
+    6
+  ],
+  "example_nonzero_difference": {
+    "row_zero_based": 4,
+    "input_phase_zero_based": 32,
+    "baseline_minus_across_value": -384
+  },
+  "status": "AUTHOR_SIDE_EXACT_PROOF_AND_EXECUTED_CHECKS; INDEPENDENT_REVIEW_PENDING",
+  "boundary": "Complete 48 phase linear endpoint readout after the 2-step transient; not a lossless source for typed paths or intermediate-time observations."
+}
