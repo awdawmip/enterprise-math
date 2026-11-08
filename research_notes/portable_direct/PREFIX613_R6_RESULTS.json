@@ -1,0 +1,35 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "status_level": "AUTHOR_PROVED / EXACT_MARTINGALE_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "upstream_prefix611_commit": "9b5a1df1a87eca3478a0b2f665b887135ae14711",
+  "factor": "1/((m+1)*C(m,k)*p^k*(1-p)^(m-k))",
+  "joint_e": "product of d direction factors",
+  "joint_region": "product_l ((m_l+1)*C(m_l,k_l)*p_l^k_l*(1-p_l)^(m_l-k_l)) > alpha",
+  "rectangle": "each direction product factor > alpha/d",
+  "anytime_coverage": "P_theta(all N>=0, theta in joint or rectangular region)>=1-alpha",
+  "checks": 799,
+  "exact_finite_horizon": [
+    {
+      "alpha": "1/5",
+      "rectangle": false,
+      "P_ever_cross_by_8": "1725351663809/41990400000000"
+    },
+    {
+      "alpha": "1/5",
+      "rectangle": true,
+      "P_ever_cross_by_8": "83936505181/8398080000000"
+    },
+    {
+      "alpha": "1/10",
+      "rectangle": false,
+      "P_ever_cross_by_8": "6921796021/524880000000"
+    },
+    {
+      "alpha": "1/10",
+      "rectangle": true,
+      "P_ever_cross_by_8": "3859016983/3359232000000"
+    }
+  ],
+  "native_original_graph_reexecuted": false
+}
