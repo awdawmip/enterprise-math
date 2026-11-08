@@ -1,0 +1,7 @@
+# Continuation after twentieth S23/AV capacity plateau
+
+Frozen science: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Current author-side milestone: `N(h)=41880515` for each integer `7226985<=h<=7607279`, proved by a 194-critical-cell exact rational coverage certificate in `PROOF.md` and `VERIFY.py`; independent review pending.
+
+Next exact unit: compute `a21=floor(21*d/eps)`, `V21=380295*21+79*a21`, `K21=2074774*21+431*a21`, `H21=V21+510`, and the first-entry lower bound `M21=K21+V21-(V20+1)`. At `H21` classify every displacement of width `<eps` via `b=79*x-eps*dv`, derive the actual finite b bound and its exact triangular embeddability. Build v/j/s critical cuts from admissible translated witnesses and narrower feasible displacements, as in `VERIFY.py`. Certify all feasible cells, top rows and both exterior cells using strict rational comparisons. If the twenty-one obvious witnesses leave cells uncovered, locate the precise coordinate cell and construct one new offset before extending the claim.
+
+Retain source and content hashes for proof, checker and actual stdout. Keep original P000/ACTIVE-worldview scope, joint-count BRC observer and frozen science unchanged. Do not replace the full six-source mother experiment with an auxiliary observer claim. A formal current CLAIM/Result requires native owner and role authorization; author-side durable notes do not imply it.
