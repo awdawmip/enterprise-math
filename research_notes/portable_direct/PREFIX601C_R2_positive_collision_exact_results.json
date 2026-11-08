@@ -1,0 +1,87 @@
+{
+  "schema": "PREFIX601C_R2_POSITIVE_RATIONAL_COLLISION_CERT_V1",
+  "date": "2026-11-08",
+  "source_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "inputs": {
+    "axes": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2
+    ],
+    "gate_points": [
+      {
+        "curve": "A",
+        "z": "109/17",
+        "shared_factor": "u-8"
+      },
+      {
+        "curve": "B",
+        "z": "153/13",
+        "shared_factor": "u+24"
+      }
+    ]
+  },
+  "exact_computation": {
+    "ambient_native_ports": 96,
+    "labeled_actions": 576,
+    "half_matrix_size": 24,
+    "base_polynomial_degree": 5,
+    "gate_sensitive_polynomial_degree": 9,
+    "cases": [
+      {
+        "name": "A",
+        "z": "109/17",
+        "nu_degree": 13,
+        "Q_degree": 26,
+        "factor_deletion_nnz": [
+          576,
+          16,
+          128,
+          248,
+          576
+        ],
+        "factors": [
+          "u-8",
+          "u-4",
+          "u+24",
+          "u^2+12u-96",
+          "8th-degree rational irreducible"
+        ]
+      },
+      {
+        "name": "B",
+        "z": "153/13",
+        "nu_degree": 13,
+        "Q_degree": 26,
+        "factor_deletion_nnz": [
+          128,
+          16,
+          576,
+          248,
+          576
+        ],
+        "factors": [
+          "u-8",
+          "u-4",
+          "u+24",
+          "u^2+12u-96",
+          "8th-degree rational irreducible"
+        ]
+      }
+    ],
+    "source_port_equalities": 96,
+    "exact_arithmetic": "sympy rational matrices",
+    "assertions": "ALL_ASSERTIONS_PASS"
+  },
+  "sources": [
+    "research_notes/portable_direct/PREFIX601_R2_exact_certificate.py",
+    "research_notes/portable_direct/PREFIX601C_R2_positive_collision_exact.py"
+  ],
+  "status": "AUTHOR_SIDE_EXACT_UNREVIEWED",
+  "researcher_id": "EM-DIRECT-4A37D4",
+  "activity_id": "RA-420E5CA18B6618002BCE5A9F",
+  "next": "Exact Jordan/minimum-polynomial classification along full positive collision curves including their algebraic intersection."
+}
