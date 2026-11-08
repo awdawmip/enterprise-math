@@ -1,0 +1,33 @@
+{
+  "schema": "PREFIX587_R6_LAW_OF_TOTAL_CUMULANCE_V1",
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "ports": 96,
+  "actions": 6,
+  "ordered_length_two_paths": 3456,
+  "conditional_local_cumulant_average": "0*M",
+  "conditional_means_third_cumulant": "(1/7776)*M",
+  "cov_meanY_conditional_pair_cov": "(-1/1296)*M",
+  "cross_meanPair_conditional_Ypair_cov_sum": "(-1/1944)*M",
+  "pooled_cumulant": "(-1/864)*M",
+  "direct_pooled_check": true,
+  "matrix_M": [
+    [
+      0,
+      1,
+      -1
+    ],
+    [
+      1,
+      -1,
+      0
+    ],
+    [
+      -1,
+      0,
+      1
+    ]
+  ],
+  "proof": "finite exhaustive native two-step path law and exact third-order law of total cumulance; exact rational arithmetic",
+  "conclusion": "Uniform-start depth-two cubic matrix arises completely from between-initial-port mixing terms; conditional local matrices cancel in their uniform mean."
+}
