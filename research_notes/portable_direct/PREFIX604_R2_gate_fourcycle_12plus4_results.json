@@ -1,0 +1,38 @@
+{
+  "schema": "PREFIX604_R2_GATE_FOURCYCLE_SPLIT_EXACT_V1",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "fixed_axis_weights": [
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+  ],
+  "native_port_count": 96,
+  "native_tagged_actions": 576,
+  "phase_count": 48,
+  "full_phase_tail_dimension": 16,
+  "gate_sensitive_dimension": 4,
+  "gate_independent_dimension": 12,
+  "M_det": 256,
+  "H_reachability_ranks": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "J_reachability_ranks": [
+    2,
+    3,
+    4
+  ],
+  "B(z)": "[[0,0,0,4(z+3)],[1,0,0,0],[0,1,0,0],[0,0,1,0]]",
+  "four_step_formula": "4*diag(z4+3,z3+3,z2+3,z1+3)",
+  "gate_free_fourth_power": "T|Z^4=16I",
+  "rank_two_order_defect_future_closure": 4,
+  "full_48_phase_exact_comparisons": 1683,
+  "scope": "After 2-step typed-native phase transient: arbitrary nonnegative gate sequences, complete 48-phase linear observer",
+  "source_preservation": "Original tagged native paths and 96-bit-port history retain separate source carrier",
+  "status": "AUTHOR_SIDE_EXACT_VERIFICATION; INDEPENDENT_REVIEW_PENDING"
+}
