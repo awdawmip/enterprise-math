@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Independent exact verifier for R5 positive-residual theta extension.
-Needs R5_CERTIFICATES.json in same directory. Python standard library only.
+Needs CERTIFICATES.zlib.b64 in same directory. Python standard library only.
 No numerical optimizer is imported or used for verification.
 """
 import json, base64, zlib
