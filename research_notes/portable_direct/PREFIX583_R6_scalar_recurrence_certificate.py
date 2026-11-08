@@ -59,6 +59,25 @@ if __name__=="__main__":
     c=[F(1),F(1,3),-F(2,9),-F(2,3),-F(1,3),-F(1,9)]
     numerator=[sum(c[k]*q[i-k] for k in range(i+1)) for i in range(5)]
     assert numerator==[F(0),F(9,5184),-F(3,5184),-F(1,5184),-F(1,5184)]
+    # A nonzero 5x5 Hankel determinant certifies minimal scalar recurrence order.
+    def determinant(M):
+        V=[[F(x) for x in row] for row in M]
+        product=F(1)
+        for k in range(len(V)):
+            j=next(i for i in range(k,len(V)) if V[i][k])
+            if j!=k:
+                V[k],V[j]=V[j],V[k]
+                product=-product
+            pivot=V[k][k]
+            product*=pivot
+            for i in range(k+1,len(V)):
+                ratio=V[i][k]/pivot
+                for t in range(k,len(V)):
+                    V[i][t]-=ratio*V[k][t]
+        return product
+    nine=[F(Qs[i],576*N*6**i) for i in range(9)]
+    hankel_det=determinant([[nine[i+j] for j in range(5)] for i in range(5)])
+    assert hankel_det==F(1,131621703842267136),hankel_det
     print("ALL_CHECKS_PASS")
     print(json.dumps({
       "status":"ALL_CHECKS_PASS",
@@ -71,6 +90,8 @@ if __name__=="__main__":
       "characteristic":"(x-1)(3x^2+2x+1)^2",
       "generating_function":"-z(z^3+z^2+3z-9)/[5184(1-z)(1+2z/3+z^2/3)^2]",
       "limit":"1/5184",
+      "minimal_order":5,
+      "hankel_det_5x5":str(hankel_det),
       "error":"O(n*3^(-n/2))",
       "elapsed_seconds":round(time.monotonic()-start,3)
     },indent=2))
