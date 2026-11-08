@@ -61,7 +61,7 @@ Reproducible executable source: `VERIFY_STREAM.py`. Executed locally under CPyth
 
 Independent regression at H=5000 gave the **identical prior** 29-class certificate digest `9d51dbf18b2e242f7fc20d6d1514f1265f2399bb69502922b27fb3defc3c0e29`, confirming the streaming reimplementation against the prior in-memory sort result.
 
-H=7000 reports 33 classes, all covered, and class table SHA-256 `2aef3d6d6f687ae0ebed385e34653a822139f49c881d2a0dfaf7ce325643242d`. Executed local source SHA-256: `eb004919adc10975403ddadc2d3f900074b2f4f5fc454607cb259202187317c2`. Real output SHA-256: `9d40c02809cabf3686bb0b191a72da35ee186654e82f4605616b781e0e9ac4cd`.
+H=7000 reports 33 classes, all covered, and class table SHA-256 `2aef3d6d6f687ae0ebed385e34653a822139f49c881d2a0dfaf7ce325643242d`. Executed local source SHA-256: `a43722bb2a0c0e989998f99abe60e7bb3b117f6678d9582bc0a7e37890c5de13`. Real output SHA-256: `fe96f099a931ad13ffaae82c340fd0c70760a1713f01cc1d51970b9ff40d344e`.
 
 The method reuses the exact likelihood observer and class-lift lemma from the predecessor; the new engineering contribution is the streaming exact ordering with `O(H+C_H)` memory rather than storing `O(H^2)` threshold coordinates. BRC information retained: joint label-1/label-4 counts, unit-ratio label-3 padding, and future horizon. This is not an X6/native-geometric transfer.
 
