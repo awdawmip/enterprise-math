@@ -1,0 +1,200 @@
+{
+  "research_label": "PREFIX-578-R2",
+  "status": "AUTHOR_PROVED_EXACT_RATIONAL_CHECKED_UNREVIEWED_NOT_ADMITTED",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "execution": "Local exact rational eigenvector recurrence and independent 96-port integer DP both executed; source-native Python interfaces transcribed from GitHub rather than original modules imported in checkout",
+  "model": {
+    "ports": 96,
+    "actions_per_port": 6,
+    "quotient_classes": 37,
+    "quotient_growth": [
+      1,
+      4,
+      13,
+      21,
+      33,
+      37
+    ],
+    "marked_native_edges": [
+      [
+        7,
+        9
+      ],
+      [
+        29,
+        9
+      ],
+      [
+        31,
+        9
+      ]
+    ],
+    "observer": "q1..q4=1; q5,q6,gate"
+  },
+  "directional_third_cumulants": {
+    "K": {
+      "kappa3": "206963/42467328",
+      "mean": "1/192",
+      "variance": "1127/221184"
+    },
+    "S": {
+      "kappa3": "-1/162",
+      "mean": "1/3",
+      "variance": "1/27"
+    },
+    "D": {
+      "kappa3": "0",
+      "mean": "0",
+      "variance": "1/6"
+    },
+    "S+K": {
+      "kappa3": "-175877/42467328",
+      "mean": "65/192",
+      "variance": "8807/221184"
+    },
+    "S-K": {
+      "kappa3": "-23665/1572864",
+      "mean": "21/64",
+      "variance": "3277/73728"
+    },
+    "D+K": {
+      "kappa3": "299123/42467328",
+      "mean": "1/192",
+      "variance": "37991/221184"
+    },
+    "D-K": {
+      "kappa3": "-299123/42467328",
+      "mean": "-1/192",
+      "variance": "37991/221184"
+    },
+    "axis5": {
+      "kappa3": "-49/5184",
+      "mean": "1/6",
+      "variance": "11/216"
+    },
+    "axis6": {
+      "kappa3": "-49/5184",
+      "mean": "1/6",
+      "variance": "11/216"
+    },
+    "axis5+K": {
+      "kappa3": "-2937/524288",
+      "mean": "11/64",
+      "variance": "4045/73728"
+    },
+    "axis5-K": {
+      "kappa3": "-710191/42467328",
+      "mean": "31/192",
+      "variance": "12647/221184"
+    }
+  },
+  "third_mixed_exact": {
+    "S_K_K": "-6053/5308416",
+    "S_S_K": "1/5184",
+    "D_D_K": "5/6912",
+    "D_K_K": "0",
+    "R5_R5_K": "19/82944",
+    "R6_R6_K": "19/82944",
+    "R5_R6_K": "-11/82944",
+    "R5_K_K": "-6053/10616832",
+    "R6_K_K": "-6053/10616832"
+  },
+  "local_rational_checks": "ALL_ASSERTIONS_PASS",
+  "local_independent_dp": {
+    "arithmetic": "all native 96-port raw moments exactly as integers; rationals only at final expectation/cumulant recovery",
+    "tested_depths": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      96
+    ],
+    "snapshots": [
+      {
+        "depth": 1,
+        "S_K_K_per_depth": "-0.001718026620",
+        "S_S_K_per_depth": "-0.000578703704",
+        "D_D_K_per_depth": "-0.001736111111",
+        "D_K_K_per_depth": "0.000000000000",
+        "R5_K_K_per_depth": "-0.000859013310",
+        "K_K_K_per_depth": "0.005127235695"
+      },
+      {
+        "depth": 2,
+        "S_K_K_per_depth": "-0.001699942130",
+        "S_S_K_per_depth": "0.000578703704",
+        "D_D_K_per_depth": "-0.001736111111",
+        "D_K_K_per_depth": "0.000000000000",
+        "R5_K_K_per_depth": "-0.000849971065",
+        "K_K_K_per_depth": "0.005046703197"
+      },
+      {
+        "depth": 4,
+        "S_K_K_per_depth": "-0.001294045782",
+        "S_S_K_per_depth": "0.000128600823",
+        "D_D_K_per_depth": "0.000385802469",
+        "D_K_K_per_depth": "0.000000000000",
+        "R5_K_K_per_depth": "-0.000647022891",
+        "K_K_K_per_depth": "0.004887333623"
+      },
+      {
+        "depth": 8,
+        "S_K_K_per_depth": "-0.001222501651",
+        "S_S_K_per_depth": "0.000211159376",
+        "D_D_K_per_depth": "0.000423906417",
+        "D_K_K_per_depth": "0.000000000000",
+        "R5_K_K_per_depth": "-0.000611250826",
+        "K_K_K_per_depth": "0.004878347194"
+      },
+      {
+        "depth": 16,
+        "S_K_K_per_depth": "-0.001181066506",
+        "S_S_K_per_depth": "0.000196940329",
+        "D_D_K_per_depth": "0.000563876427",
+        "D_K_K_per_depth": "0.000000000000",
+        "R5_K_K_per_depth": "-0.000590533253",
+        "K_K_K_per_depth": "0.004876814656"
+      },
+      {
+        "depth": 32,
+        "S_K_K_per_depth": "-0.001160663831",
+        "S_S_K_per_depth": "0.000194910613",
+        "D_D_K_per_depth": "0.000643506495",
+        "D_K_K_per_depth": "0.000000000000",
+        "R5_K_K_per_depth": "-0.000580331915",
+        "K_K_K_per_depth": "0.004875142387"
+      },
+      {
+        "depth": 64,
+        "S_K_K_per_depth": "-0.001150464325",
+        "S_S_K_per_depth": "0.000193905928",
+        "D_D_K_per_depth": "0.000683443046",
+        "D_K_K_per_depth": "0.000000000000",
+        "R5_K_K_per_depth": "-0.000575232162",
+        "K_K_K_per_depth": "0.004874303262"
+      },
+      {
+        "depth": 96,
+        "S_K_K_per_depth": "-0.001147064489",
+        "S_S_K_per_depth": "0.000193571031",
+        "D_D_K_per_depth": "0.000696755240",
+        "D_K_K_per_depth": "0.000000000000",
+        "R5_K_K_per_depth": "-0.000573532244",
+        "K_K_K_per_depth": "0.004874023554"
+      }
+    ],
+    "result": "ALL_CHECKS_PASS"
+  },
+  "source_blobs": {
+    "native565": "7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41",
+    "quotient566": "7b6613193847e4123cd0ac11107eb9b9c70290c8",
+    "main576": "6675709ce3344957b02402cfefc87eddd229e55e"
+  },
+  "review": "UNREVIEWED",
+  "native_researcher_id": null,
+  "live_owner": null,
+  "claim": null
+}
