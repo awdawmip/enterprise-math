@@ -26,7 +26,7 @@ det B(t) = product_{ {e,f} in J-pairs } (1-4 t_e t_f)
 det M(t) = product_{ {e,f} in J-pairs } (1-4 t_e t_f)^2.
 ```
 
-In particular, each of the six native shared edges contributes a distinct independent factor; the determinant is insensitive to the other ten incidence weights when one pair is varied.
+In particular, each of the six native shared edges contributes a distinct independent factor; the factor belonging to any selected reciprocal pair is independent of the other ten incidence weights.
 
 **Proof.** The native frozen incidence identity persists because the primitive graph itself is unmodified:
 
