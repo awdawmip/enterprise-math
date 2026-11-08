@@ -38,7 +38,7 @@ The full per-inventory exact witness set consists of JSONL records `{keys,lower_
 
 ## Reproduce / audit
 
-Use the Python standard library. Run `h8_key_depth_sieve.py 5689 --limit 0` to regenerate 5,472 witnesses and `h8_key_depth_sieve.py 5789 --limit 0` for 9,216. For bounded-memory repeated calls, support `--start / --limit` and concatenate disjoint consecutive ranges in inventory enumeration order. Then run `VERIFY_H8_DUAL_DEPTH.py 5689 WITNESSES_5689.jsonl` and likewise for 5789. No LP, floating-point search, numeric tolerance, or third-party optimizer is used in the proof or validation.
+Use the Python standard library. Run `python3 h8_key_depth_sieve.py 5689 --limit 0` and `python3 h8_key_depth_sieve.py 5789 --limit 0`. The generator names these outputs `WITNESSES_5689_0_0.jsonl` and `WITNESSES_5789_0_0.jsonl`. Run `python3 VERIFY_H8_DUAL_DEPTH.py 5689 WITNESSES_5689_0_0.jsonl` and analogously for 5789. For bounded-memory repeated runs, use `--start / --limit` and concatenate disjoint consecutive ranges in inventory enumeration order; a `--limit` bound is exclusive. No LP, floating-point search, numeric tolerance, or third-party optimizer is used in the proof or validation.
 
 The generator/validator reproduce the exact immutable source oracle `VERIFY_EC49FEZ.py` from the previous EC49FEZ research note; frozen source commit `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab` is the unchanged science pin. The certificate proof checks complete BRC keys rather than a pooled-key relaxation, preserving possible mixed keys within every window.
 
