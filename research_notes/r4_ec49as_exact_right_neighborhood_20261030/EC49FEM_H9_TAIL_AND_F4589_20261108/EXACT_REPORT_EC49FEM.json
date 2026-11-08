@@ -1,0 +1,85 @@
+{
+  "schema": "EC49FEM_22PATH_ANALYTIC_PLUS_EXACT_FINITE_V1",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "high_tail_no_go": {
+    "h9_low_family_count": 5,
+    "excluded_inventories": 5760,
+    "analytic_reason": "A high Hh word has c+d=0 and x+y=h+1; all five available high keys h<=8 have x+y<=9, incompatible with any length-9 word requiring x+y>=10"
+  },
+  "F4589": {
+    "high": [
+      3,
+      4,
+      5,
+      8,
+      9
+    ],
+    "low": [
+      2,
+      6,
+      7
+    ],
+    "inventory_count": 1536,
+    "quota_infeasible": 576,
+    "quota_feasible_excluded93": 960,
+    "case_encoding": "zlib-deflate + base64, sorted lexicographic product(high_keys(4),high_keys(5),high_keys(8),high_keys(9)), each byte 0 means quota-infeasible; 94..105 gives exact partial-depth lower bound at the first stop depth",
+    "case_bytes_base64_zlib": "eNqtlAuS4yAMRDmp/rLg/hfYFs5kQ2ZSU1u1CvlgFPxotTyGjhgm4xHlXuSIqosRMSlohszrWoEYIzufvvKNyIzwinCRoDRLVdNUd/zIKior5dIq1eXMzu7hjJskc977UYxn6LChcs7zmNOxnkNe/s9EgI6ozSNyTbqan/al5tfOt6/8mH04iRDBX22qgRb81fAYM3xyUMvg4Bdc5F5nw+J/4T/zW6BgwxdL6y9hYkEoArlZ655H/i4ObX6dU2baAxG0qKKuFYsXJ8ZcKzUzcTXZCTnM+pOeNDLOudpnfm49D/9s+uhKt38sbLby4fbU3577GZjx6lEToZBVdGuvuZZCe7beyfEuAKusXl+9nqmP/d7092P+er/v+ed5F7dakbg39Fp6o7XGpMCf9/nTPvlfCdpyOwN8UJpB/5BC/D4G+kLU7T7jb374V/8oODk80KwOOWGNHhM1mHzzv/kHAXMJ+qCuiwL9C41hjYbDKdpZ7X80UBdAMgEO//dAS+d3HoK+r/7p+at/CP2SH/ul721FvGqH/+r/C/zX5seRZyQF9+PrNgwKUXjUVKvuF7bDsQDum9/hnx/4DXzv86TP/N48f58/2/+0/d9x+wcf0Bc1mL3fqx7dE+gQoE/vWuT2v2xvoHkVD4On/6u2rZ7+1+3/vd+b3nzwn/qf+X8AE/BwrA==",
+    "case_bytes_sha256": "6c92b100d6c2d609380de64ae5e736e4738544881c43327b614444b8382e3e97",
+    "case_byte_distribution": {
+      "0": 576,
+      "94": 80,
+      "95": 112,
+      "96": 100,
+      "97": 168,
+      "98": 90,
+      "99": 78,
+      "100": 126,
+      "101": 76,
+      "102": 10,
+      "103": 38,
+      "104": 54,
+      "105": 28
+    },
+    "independent_MILP_checks": 11,
+    "full_original_partitions_sha256": {
+      "0_384": "7ee4504c47ec2bb6ee36e13cb493465766a297073dd1bc24f6248a587c235f08",
+      "384_768": "7f5c9533884fc8de4ce77755972746e63af6add1095661048f461df1bf73139c",
+      "768_1152": "9b6a560a797929204c95d59c77dc599fd181a648fa97e840c403788e227fd548",
+      "1152_1536": "6888cd1febc95039c1e1d2e4bab9e22f12855ac83cd90244fadc9ea066374068"
+    }
+  },
+  "six_family_feasibility": [
+    [
+      "3,4,5,8,9",
+      1536,
+      960
+    ],
+    [
+      "3,4,7,8,9",
+      3456,
+      1956
+    ],
+    [
+      "3,5,6,7,9",
+      3456,
+      3456
+    ],
+    [
+      "3,5,6,8,9",
+      4608,
+      4608
+    ],
+    [
+      "3,5,7,8,9",
+      6912,
+      6912
+    ],
+    [
+      "3,6,7,8,9",
+      10368,
+      4224
+    ]
+  ],
+  "full_local_evidence_archive_sha256": "3f7a29afe29dc7c5cde7ebb316b29384baee8718552a66fde4b6a55b0e8478c0",
+  "classification": "AUTHOR_ANALYTIC_PROOF_EXACT_FINITE_CHECK_UNREVIEWED_NOT_ADMITTED"
+}
