@@ -58,10 +58,33 @@ Therefore the exact one-step covariances are
 
 The observable permutation (1 3)(2 4), although a symmetry of the *asymptotic fourth cumulant*, fails already at the finite-depth **second** joint cumulant. For the declared uniform starting ensemble and length 1, all first moments of (R1,...,R6,K) are symmetric in the six axes, so order two is the least cumulant order distinguishing this candidate at depth 1. This is an exact BRC branch-counting identity, with no analytic limit or approximations.
 
+
+## Finite trace evidence — 12 exact original-length checks
+
+There is evidence of a more extensive *closed-cycle observer* symmetry than the proven native port automorphism group. For each length d, define the exact integer multivariate closed-path trace polynomial
+
+    C_d(x1,...,x6,z) =
+      sum_{v0->v1->...->vd=v0} x1^{R1} ... x6^{R6} z^K,
+
+where the sum includes every original labeled length-d action path and all 96 initial/final ports. (The corresponding 1/6-weighted transition trace is 6^{-d} C_d.) A standard-library integer dynamic program enumerated all original 96 initial ports and all legal labeled transitions for each d=1,...,12, retaining the exact seven-dimensional reward exponent vector and multiplicities. The full monomial dictionaries were compared under the axis interchange (1 3)(2 4), gate fixed.
+
+**Certified finite result:** C_d is exactly invariant for each 1<=d<=12. Odd d and d=2 have no closed walks. The nonzero even-depth counts are:
+
+    d    distinct monomials    total labeled closed paths
+    4          20                     3,840
+    6          39                    86,016
+    8         157                 3,649,536
+    10        419               115,998,720
+    12        915             4,400,283,648
+
+All are integer counts; no floating-point equality test is used. Source: companion PREFIX583_R2_finite_trace_scan.py, raw count summary PREFIX583_R2_finite_trace_scan_results.json.
+
+This complements the exact finite-depth *open-path* second-cumulant counterexample above: different observers can have different symmetries. The new trace calculation proves these twelve specified polynomial identities, while whether the same holds for every d (equivalently, a complete characteristic-polynomial identity after a suitable proof) is now a focused candidate for the next research step.
+
 ## Evidence and continuation
 
 The companion PREFIX583_R2_symmetry_certificate.py reads the exact 126-monomial PREFIX-581 rational certificate, checks eight invariant-compatible candidates, confirms the quartic stabilizer, reconstructs the original 48-phase/96-port/576-action BRC graph, proves the gate-edge source-axis invariant, and verifies all 576 edges of the explicit (5 6) native lift. All computations use exact fractions; result JSON is PREFIX583_R2_symmetry_certificate_results.json.
 
 BRC reuse: REUSE_EXECUTED; exact scientific pin and labeled branch/gate provenance retained. Independent Driver mathematical review, original Source Researcher-ID, CLAIM, activity and Result remain pending because the native backend was unavailable. This is author-side reproducible evidence.
 
-Next: characterize which gate-marked axis permutations preserve asymptotic cumulant generating functions of all orders, distinguishing exact finite-depth symmetry from asymptotic spectral symmetry. At uniform depth one the smallest distinguishing reduced joint cumulant is now proved to be order two.
+Next: seek an exact all-length characteristic-polynomial identity behind the finite closed-trace symmetry; a structural proof would decide all-order spectral symmetry and explain its coexistence with the depth-one open-path covariance witness. At uniform depth one the smallest distinguishing reduced joint cumulant is now proved to be order two.
