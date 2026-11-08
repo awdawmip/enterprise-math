@@ -50,7 +50,6 @@ for w,z in [(1,1),(1,2),(2,1),(2,2),(3,0),(3,2)]:
  for f,_ in S.factor_list(p.as_expr())[1]:
   assert not evalpoly(p.exquo(S.Poly(f,T)),M).is_zero_matrix
  print('PASS',w,z,'degree half',p.degree(),'full',2*p.degree())
-
 # Typed 96-port adapter and nonstationary two-step identity.
 E=[[] for _ in range(7)]
 for i in range(48):
