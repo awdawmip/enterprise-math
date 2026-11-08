@@ -1,0 +1,96 @@
+{
+  "schema": "EM_R625_COMMON_GAIN_TOMOGRAPHY_EXACT_V1",
+  "status": "AUTHOR_SIDE_EXACT_COMPUTATION",
+  "method": "Python standard-library exact integer and Fraction, original frozen signed K binomial formula; no floating-point",
+  "observed_utc": "2026-11-08T01:24:00Z",
+  "source_pin": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "verification_local_file_sha256": "18342fea1dfac8c62179278e79d4290b1c432b64772264224ab5c97970e710c5",
+  "verifier_local_sha256": "b00a36805385107be4412212e34f802b9841db0c53db4d3b4b46dd9703acf2ff",
+  "local_run_marker": "R625_COMMON_GAIN_VALUATION_TOMOGRAPHY_EXACT_PASS",
+  "samples": [
+    [
+      "unit",
+      [
+        1
+      ],
+      0
+    ],
+    [
+      "bad_common_gain",
+      [
+        1,
+        0,
+        0,
+        2,
+        97
+      ],
+      0
+    ],
+    [
+      "shifted",
+      [
+        0,
+        0,
+        1,
+        1,
+        0,
+        2
+      ],
+      2
+    ],
+    [
+      "signed_shift",
+      [
+        0,
+        -3,
+        0,
+        1
+      ],
+      1
+    ]
+  ],
+  "finite_exhaustive_checks": {
+    "cases": 38,
+    "orientations_each": 720,
+    "exact_deconvolutions": 4
+  },
+  "raw_tap_counterexample": {
+    "common_gain": [
+      1,
+      0,
+      0,
+      2,
+      97
+    ],
+    "signatures": [
+      [
+        0,
+        4
+      ],
+      [
+        394,
+        -11
+      ],
+      [
+        561,
+        0
+      ],
+      [
+        561,
+        0
+      ],
+      [
+        83,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "distinct_orientation_codes": 360
+  },
+  "theorem": "For any nonzero common A in Z[[t]] of valuation r, d-jet orientation recoverable iff d>=r+8, with orbit 720/(6-k)!; algebraic proof in PROOF",
+  "replay": "python R625_VERIFY.py > R625_GENERATED_EVIDENCE.json",
+  "evidence_limit": "finite verification of selected gains and depths; universal claims supported by written proof, not enumeration"
+}
