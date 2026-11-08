@@ -6,4 +6,6 @@ New theorem: A complete directed-edge histogram h of legal active-triad transiti
 
 Verified using independently coded standard-library Python: 20 active triads, 180 directed edges, 1080 state-edge transition checks, 120 reachable slot states, six same-histogram witness paths, PASS marker R642_HISTOGRAM_PARITY_SHARP_TRIT_REPAIR_PASS. Exact proof in R642_PROOF.zh-CN.md; runnable R642_EXACT_VERIFY.py and R642_EVIDENCE.json. Classification: author mathematical theorem, not Driver-admitted.
 
+Further exact corollary: with the start triad fixed, edge-flow divergence D_h(v)=1_(v=start)-1_(v=end) recovers the final active triad from h. Thus (h,q) is future-step closed for the precise (terminal triad, full inherited slot map) readout; 120 shortest representative paths and their 1080 extensions checked endpoint recovery. Histograms themselves are unbounded.
+
 Typed boundary: PF10 (u,Omega) contrasts belong to four internal ports, with no established event-time update or port↔triad transition bridge. Next question: find a source-defined PF10 event update, type an explicit edge-event map, then check whether (u,Omega,h,q) is a closed future observer; if not, construct an exact same-observer/different-successor witness and retain needed internal reference counts. Owner, formal CLAIM and independent review require Source authority, not a Git commit or checkpoint.

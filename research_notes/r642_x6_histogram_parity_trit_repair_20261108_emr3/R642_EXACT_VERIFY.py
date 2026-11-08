@@ -35,6 +35,17 @@ def edge_bit(s,t):
     return (s.index(leaving)+t.index(entering))%2
 def parity(p): return sum(p[i]>p[j] for i in range(3) for j in range(i+1,3))%2
 def hist(path): return Counter(zip(path,path[1:]))
+
+def endpoint_from_hist(h, start=BASE):
+    flow=Counter()
+    for (s,t),m in h.items():
+        flow[s]+=m
+        flow[t]-=m
+    nonzero={v:b for v,b in flow.items() if b}
+    if not nonzero: return start
+    assert len(nonzero)==2 and nonzero[start]==1
+    return next(v for v,b in nonzero.items() if b==-1)
+
 def run(path):
     sigma=ID
     assert path[0]==BASE
@@ -101,11 +112,31 @@ while queue:
         if nxt not in seen:
             seen.add(nxt); queue.append(nxt)
 assert len(seen)==120
+# Check endpoint recovery from complete histogram on a shortest legal path
+# to each of the 120 reachable states and all 1080 one-edge extensions.
+paths_to_state={(BASE,ID):(BASE,)}
+frontier=deque([(BASE,ID)])
+endpoint_checks=0
+while frontier:
+    s,p=frontier.popleft()
+    path=paths_to_state[(s,p)]
+    assert endpoint_from_hist(hist(path))==s
+    endpoint_checks+=1
+    for t in ADJ[s]:
+        next_path=path+(t,)
+        assert endpoint_from_hist(hist(next_path))==t
+        endpoint_checks+=1
+        nxt=(t,transport(s,p,t))
+        if nxt not in paths_to_state:
+            paths_to_state[nxt]=next_path
+            frontier.append(nxt)
+assert len(paths_to_state)==120 and endpoint_checks==120+1080
 result={
 "marker":"R642_HISTOGRAM_PARITY_SHARP_TRIT_REPAIR_PASS",
 "date":"2026-11-08","vertices":len(V),"directed_edges":len(all_edges),
 "edge_parity_checks":len(all_edges),"slot_transition_checks":checks,
 "reachable_states":len(seen),
+"endpoint_recovery_checks":endpoint_checks,
 "even_shared_histogram":{str(a)+"->"+str(b):n for (a,b),n in sorted(h0.items())},
 "even_outcomes":{k:list(run(v)) for k,v in paths.items()},
 "odd_outcomes":{k:list(run(v)) for k,v in odd_paths.items()},
