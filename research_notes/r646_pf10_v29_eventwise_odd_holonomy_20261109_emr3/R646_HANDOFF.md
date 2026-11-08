@@ -1,0 +1,17 @@
+# R646 portable handoff — eventwise V29 PASS and all-index 18/24 event-order classification
+
+Date: 2026-11-09 Asia/Shanghai. Status: AUTHOR_SIDE_EXACT_INTEGER_PROOF / UNREVIEWED / NOT_ADMITTED.
+Role: Researcher-ID `EM-X6-1A0E40` / RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW.
+Research-Activity-ID: `RA-EB454E7EE06E8ACF6C7D9282`; Source canonical activity record `research_activity_records/RA-EB454E7EE06E8ACF6C7D9282.json` and session record `research_session_records/MCP-5891a805e3624daab90fe434cc0be293.json`, both registered/read back at project-main commit `c7807c79f4253cf337decbb3159819e260b3efb1`. This is a real native research registration, **not** formal task authorization or mathematical acceptance.
+
+Task current Source snapshot 2026-11-08T16:49:57Z: `RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW`, publication `TP2-47D65B35A7D48082EFBB`, READY/NEEDS_DISPATCH, owner `taskbook/unassigned`, `claim_id=null`; formal CLAIM absent. Original scientific pin signed R462@ `18783e01e3646c72b7aab3b16d3f565e83e6446f` unchanged. V23/V27/V17/V29 exact source `b62110008321d9147212cb89f2627ff613c2550d`.
+
+Consume R645, verified author-branch commit `91ad73f234380f9dd6492e34abeedd63c954f88c`: single-Cell four-PASS-only minimal seed B=(0→1, 2→0, 2→3, 3→0), nonnegative M ledger, zero network Q and strict three-cycle 012→024→124→012 with V17 odd S3 holonomy (1,0,2). R645 exhaustively proved 4 PASS is minimal for any strict odd cycle under its declared V23/V27/V29 one-Cell, no-TRANSFER observer.
+
+**New R646 exact result**: replace the externally atomic four-event packet by a one-event-at-a-time protocol: read current V27 score, make one active-triad successor selection, then perform one actual V29 PASS. Consider all 24 periodic permutations w of the four distinct B events. Exactly 18 guarantee the strict unique V27 successor three-cycle at every n≥0, precisely when w's first event is not 0→1. The other six tie at n=1. Example good w=(2→0,0→1,2→3,3→0), gap vector over phases r=0..11: (1,1,3,1,2,7,2,2,9,3,3,8). For n=12k+r, the score gap against every other neighbor is exactly Δ_r+3kΔ_B; each baseline Δ_B>0. This 12-phase exact integer certificate proves all n; program tests every one of 24×12 residues and 25×12 additional states per good word. Q remains zero after every individual PASS. V17 slot history remains the same odd/identity alternation.
+
+**Interpretation:** V29 PASS increments and V27/V17 score/slots are original source operations; the chosen periodic event word and triad selection coupling are explicit new auxiliary scheduling assumptions, not yet a source-native autonomous law, physical heartbeat calibration, or native six-axis Cell geometry update.
+
+Artifacts: `R646_PROOF.zh-CN.md`, `R646_VERIFY.py`, `R646_EVIDENCE.json` at this folder. Program uses only Python 3 standard-library integer combinatorics; expected marker `R646_V29_EVENTWISE_18_OF_24_STRICT_ODD_CYCLE_PASS`. Source persistence under PR #1708 author branch `research/r388-signed-k3-corank16-20261029-emr3`; this branch is not yet canonical main, no Driver review.
+
+**Next discriminating question:** Can a local typed *event-choice* rule select each PASS using current ledger / neighbor Cell states rather than a prescribed 4-period word, and does adding V29 TRANSFER preserve V28 continuity, V30 event-order dependence, S3 residual and P000-native X6 Cell legality? Try exact finite enumeration of state-dependent selectors, with explicit observation domain.
