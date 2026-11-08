@@ -1,0 +1,74 @@
+{
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "native_phases": 48,
+  "native_ports": 96,
+  "native_typed_actions": 576,
+  "interpolation": {
+    "w_nodes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "z_nodes": [
+      1,
+      2
+    ],
+    "deg_w_max": 16,
+    "deg_z_max": 1,
+    "all_exact_comparisons_pass": true
+  },
+  "special_cases": [
+    {
+      "w": 2,
+      "z": "109/17",
+      "common_factor": "t**2 - 8",
+      "sharp_minpoly_degree": 26,
+      "exact_rational_annihilation": true,
+      "modulus": 1000003,
+      "explicit_krylov_seed": "(i+1)^3+5i+1",
+      "krylov_rank": 26
+    },
+    {
+      "w": 2,
+      "z": "153/13",
+      "common_factor": "t**2 + 24",
+      "sharp_minpoly_degree": 26,
+      "exact_rational_annihilation": true,
+      "modulus": 1000003,
+      "explicit_krylov_seed": "(i+1)^3+5i+1",
+      "krylov_rank": 26
+    }
+  ],
+  "w2_z1": {
+    "sharp_minpoly_degree": 22,
+    "krylov_rank_mod_prime": 22
+  },
+  "w2_z2": {
+    "sharp_minpoly_degree": 28,
+    "krylov_rank_mod_prime": 28
+  },
+  "w2_all_real_z": {
+    "z=1": 22,
+    "z=109/17": 26,
+    "z=153/13": 26,
+    "otherwise": 28
+  },
+  "resonance_candidates": {
+    "t^2=4w": "(4*w**2 - 100*w + 75)/(4*w - 25)",
+    "t^2=-12w": "(12*w**3 + 28*w**2 - 23*w - 9)/(5*w + 3)"
+  }
+}
