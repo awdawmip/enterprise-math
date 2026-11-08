@@ -1,0 +1,90 @@
+{
+  "schema": "ENTERPRISE_MATH_NATIVE_PHASE_BIT_SWAP_EXACT_RESULT_V1",
+  "unit": "PREFIX-598-R6",
+  "date": "2026-11-08",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "researcher_id": "EM-DIRECT-B900FB",
+  "research_activity_id": "RA-CC93244CAE5F854895CE2C8E",
+  "evidence_status": "AUTHOR_DERIVED_EXACT_SOURCE_TRANSCRIPTION_CHECKED; NATIVE_MODULE_REEXECUTION_PENDING; UNREVIEWED_NOT_ADMITTED",
+  "source_module": "research_notes/portable_direct/PREFIX565_positive_marginal_certificate.py",
+  "source_blob": "7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41",
+  "phase_counts": 48,
+  "native_ports": 96,
+  "labeled_actions": 6,
+  "gate_target_phase": 4,
+  "unique_target_predecessors": [
+    3,
+    14,
+    15
+  ],
+  "target_slots": {
+    "3": 0,
+    "14": 1,
+    "15": 1
+  },
+  "phases": {
+    "3": [
+      0,
+      -6,
+      1
+    ],
+    "14": [
+      1,
+      -4,
+      1
+    ],
+    "15": [
+      1,
+      -5,
+      1
+    ]
+  },
+  "roots": 9,
+  "phase_pairs": [
+    [
+      3,
+      14
+    ],
+    [
+      3,
+      15
+    ],
+    [
+      14,
+      15
+    ]
+  ],
+  "full7_next_original_port_identity_exact_local_checks": 27,
+  "action_aware_comparisons": 27,
+  "action_aware_equal_pairs_per_root": [
+    [
+      14,
+      15
+    ]
+  ],
+  "action_aware_equal_checks": 9,
+  "action_aware_4atom_difference_checks": 18,
+  "example_new_pair_start_law_1": [
+    6,
+    31
+  ],
+  "example_new_pair_start_law_2": [
+    7,
+    30
+  ],
+  "action_visible_equal_pair_1": [
+    28,
+    31
+  ],
+  "action_visible_equal_pair_2": [
+    29,
+    30
+  ],
+  "proof_principle": "The signed difference of initial branch bits for any predecessor phase is supported only at the unique target transition with action newbit=1; all three target predecessor phases share signed c=+1, yielding identical seven rewards at the target. Action-aware equality iff native target slot agrees.",
+  "exact_finite_local_test": "ALL_DIRECT_PHASE_SWAP_CHECKS_PASS",
+  "local_verification": "Independent typed transcription of the frozen PREFIX565 module, exact integer Counter enumeration of all 48 phases and all 27 root/phase-pair cases.",
+  "repository_native_checker": "research_notes/portable_direct/PREFIX598_R6_native_phase_bit_swap_certificate.py",
+  "repository_native_checker_executed_this_turn": false,
+  "all_horizon_inference": "One-step identity of full seven rewards and exact next original port yields all n>=1 ordered full-seven-reward history plus terminal port equality by Markov conditioning. For action-labeled equal pair (14,15), ordered action/reward histories also match.",
+  "next": "Native-source-executed direct audit; construct general gate-predecessor symmetry, measure common kernel dimension and determine extendibility beyond frozen nine-root model."
+}
