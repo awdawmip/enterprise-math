@@ -83,7 +83,13 @@ result={'schema':'PREFIX622_R6_EXACT_VARIANCE_COUNTEREXAMPLE_V1',
         'single_endpoint_validation':'p=1 first 25 informative signs deterministic; negative-binomial Var=25*q*(q-1)',
         'cases':rows,'verification':'ALL_CHECKS_PASS',
         'scope':'Exact BRC signed-label statistical model; inherits PREFIX620 first-passage finite carrier; original 96-port graph not rerun'}
-out=Path(__file__).with_name('PREFIX622_R6_RESULTS.json')
+import sys
+if '--full' in sys.argv:
+    out=Path(__file__).with_name('PREFIX622_R6_EXACT_RATIONAL_DETAILS.json')
+else:
+    result['cases']=[{k:r[k] for k in ('p1','p2','E_T12_decimal','Var_T12_decimal','Var_T24_decimal')} for r in rows]
+    result['exact_verification']='All inequalities compared as exact Fraction values; run --full for numerator/denominator details.'
+    out=Path(__file__).with_name('PREFIX622_R6_RESULTS.json')
 out.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 print('ALL_CHECKS_PASS PREFIX622 q12 Var balanced,quarter,eighth =',*[x['Var_T12_decimal'] for x in rows[:3]])
 print('Output',out)
