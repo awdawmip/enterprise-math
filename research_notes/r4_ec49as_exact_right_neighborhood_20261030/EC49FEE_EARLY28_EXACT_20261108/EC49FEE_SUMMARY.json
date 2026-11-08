@@ -1,0 +1,157 @@
+{
+  "schema": "EC49FEE_EARLY28_EXACT_TWO_TRIPLES_V1",
+  "date": "2026-11-08",
+  "frozen_science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "python": "3.13.5",
+  "scipy": "1.17.0",
+  "solver": "scipy.optimize.milp / HiGHS",
+  "fixed_late_triples": [
+    {
+      "A": [
+        4,
+        1,
+        1
+      ],
+      "B": [
+        5,
+        2,
+        1
+      ],
+      "C": [
+        7,
+        3,
+        1
+      ]
+    },
+    {
+      "A": [
+        3,
+        2,
+        1
+      ],
+      "B": [
+        4,
+        3,
+        1
+      ],
+      "C": [
+        5,
+        5,
+        1
+      ]
+    }
+  ],
+  "early_schedule_count": 28,
+  "instances": 56,
+  "solver_optimal_count": 56,
+  "zero_mip_gap_count": 56,
+  "per_triple_full_cost_histogram": {
+    "109": 4,
+    "112": 4,
+    "113": 4,
+    "116": 12,
+    "118": 2,
+    "122": 2
+  },
+  "per_triple_late_new_edges_histogram": {
+    "74": 24,
+    "76": 2,
+    "80": 2
+  },
+  "minimizing_early_indices": [
+    20,
+    22,
+    24,
+    25
+  ],
+  "independent_verified_systems": 56,
+  "independent_window_checks": 448,
+  "independent_literal_paths": 1344,
+  "literal_native_and_operator_trie_costs_match": true,
+  "qualifier": "HiGHS reported numerical zero gap and matching primal/dual. Independent checker validates primal feasibility, not formal dual branch certificate.",
+  "full_evidence_archive_sha256": "52dbea0225b3e86826ce78fd35faee23ac1ed2c59fa6db3e4cd5e1d40335c692",
+  "T0_example_109_words": {
+    "2": [
+      "ce",
+      "ec",
+      "ed",
+      "ge"
+    ],
+    "3": [
+      "feg",
+      "gef"
+    ],
+    "4": [
+      "fegf",
+      "geff"
+    ],
+    "5": [
+      "geffd",
+      "fegfd",
+      "fegfc",
+      "geffc"
+    ],
+    "6": [
+      "fegfgf",
+      "geffgf"
+    ],
+    "7": [
+      "geffdfd",
+      "fegfdfd",
+      "fegfcfc",
+      "geffcfc"
+    ],
+    "8": [
+      "geffdfgf",
+      "fegfdfgf",
+      "fegfcffg",
+      "geffcffg"
+    ],
+    "9": [
+      "fegfgfgff",
+      "geffgfgff"
+    ]
+  },
+  "T1_example_109_words": {
+    "2": [
+      "ce",
+      "ec",
+      "ed",
+      "ge"
+    ],
+    "3": [
+      "feg",
+      "gef"
+    ],
+    "4": [
+      "fegg",
+      "gefg"
+    ],
+    "5": [
+      "gefgd",
+      "feggd",
+      "feggc",
+      "gefgc"
+    ],
+    "6": [
+      "feggfg",
+      "gefggf"
+    ],
+    "7": [
+      "gefgdgd",
+      "feggddg",
+      "feggcgc",
+      "gefgcgc"
+    ],
+    "8": [
+      "gefgdggf",
+      "feggfggd",
+      "feggcgfg",
+      "gefgcgfg"
+    ],
+    "9": [
+      "feggfgggf",
+      "gefggffgg"
+    ]
+  }
+}
