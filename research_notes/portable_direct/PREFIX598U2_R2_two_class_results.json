@@ -1,0 +1,59 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX598U2_R2_EXACT_CERTIFICATE",
+  "date": "2026-11-08",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "weights": [
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
+  ],
+  "stationary_gate": true,
+  "phase_count": 48,
+  "native_ports": 96,
+  "labeled_actions": 576,
+  "charpoly": "F30(t)*(P18(t)-(z-1)B14(t))",
+  "F30": "(t-2)*(t+2)*(t^2-8)^6*(t^2+24)^2*(t^4+12*t^2-96)^3",
+  "H10": "(t-2)*(t+2)*(t^2-8)*(t^2+24)*(t^4+12*t^2-96)",
+  "P18": "(t-2)*(t+2)*(t^4+12*t^2-96)*(t^3-2*t^2-24*t-144)*(t^3-2*t^2+8*t+48)*(t^3+2*t^2-24*t+144)*(t^3+2*t^2+8*t-48)",
+  "B14": "4*(9*t^14+160*t^12+5200*t^10-111488*t^8+104448*t^6-37601280*t^4+429981696*t^2-1146617856)",
+  "krylov_rank": 18,
+  "base_diagonalizable_exact": true,
+  "gcd_P18_B14": "1",
+  "gcd_H10_B14": "1",
+  "exact_full_matrix_annihilator_cases": [
+    {
+      "z": 0,
+      "sharp_degree": 28
+    },
+    {
+      "z": 1,
+      "sharp_degree": 22
+    },
+    {
+      "z": 2,
+      "sharp_degree": 28
+    },
+    {
+      "z": 3,
+      "sharp_degree": 28
+    }
+  ],
+  "other_exact_profile": {
+    "weights": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "minimal_degree_z1": 24,
+    "minimal_degree_z2": 30
+  },
+  "result": "ALL_ASSERTIONS_PASS",
+  "status": "AUTHOR_SIDE_EXACT_COMPUTATION_UNREVIEWED",
+  "checker": "research_notes/portable_direct/PREFIX598U2_R2_two_class_certificate.py"
+}
