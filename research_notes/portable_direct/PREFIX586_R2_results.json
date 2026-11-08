@@ -1,0 +1,79 @@
+{
+  "schema": "EM_PREFIX586_R2_NATIVE_INTERTWINER_EXACT_CERTIFICATE_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "predecessor_immutable_commit": "5ec3c4c3787fb1e98cc9d8f288cf0d2f28f2efd7",
+  "phase_count": 48,
+  "port_count": 96,
+  "labeled_actions": 576,
+  "gate_target": 4,
+  "rank_phase_S": 48,
+  "det_phase_S": "531441",
+  "T_equals_3_S_inverse": true,
+  "T_histogram": {
+    "0": 2112,
+    "1": 144,
+    "-2": 48
+  },
+  "T_nonzero_count": 192,
+  "T_nnz_each_row_and_col": 4,
+  "S_T_and_T_S_equal_3I": true,
+  "all_axis_weights_nonzero": {
+    "rank_U": 96,
+    "det_U_formula": "3^24 * product(x_i^16 for i=1..6)",
+    "inverse_U_formula": "(1/3)*(X_inverse T_transpose tensor I2)*H_inverse",
+    "open_endpoint_similarity": "A(alpha*x,z)=U*A(x,z)^T*U_inverse, all z"
+  },
+  "rank_U_at_zero_axis_weights": "16*number_of_nonzero_axis_weights",
+  "rank_V": "48 if z=1; 49 if z!=1",
+  "rank_A_for_zero_axis_weights": "8*number_of_nonzero_axis_weights + indicator(x_1!=0 and z!=1)",
+  "modular_rank_coverage": {
+    "field_prime": 101,
+    "all_64_axis_support_masks": true,
+    "z_values": [
+      0,
+      1,
+      2
+    ],
+    "cases": 192,
+    "all_passed": true
+  },
+  "ranks_at_all_positive_axes": {
+    "z=1": 48,
+    "z!=1": 49
+  },
+  "boundary_conversion": "l^T*A(x,z)^d*r=(U^{-T}r)^T*A(alpha*x,z)^d*(U*l)",
+  "inverse_T_entries": "-2, 0, +1; signs show no positivity-preserving endpoint map on the whole nonnegative orthant",
+  "positive_endpoint_cone": {
+    "scope": "x_i>0 for i=1..6; nonnegative original boundary vectors",
+    "U_l": "(U*l)[H(j,u)] = x_axis(p_j) * sum_{i: S_ij=1} l[i,u]",
+    "U_inverse_transpose_r": "(U^-T*r)[H(j,u)] = (sum_i T[j,i]*r[i,u])/(3*x_axis(p_j))",
+    "exact_inequalities": "for each of 48 j and u=0,1: -2*r[i_negative(j),u] + sum_{3 other i in row-support(T[j,*])} r[i,u]>=0",
+    "number_of_inequalities": 96,
+    "independent_of_positive_x": true,
+    "uniform_boundary_twist": "U*1[H(j,u)]=3*x_axis(p_j), U^-T*1[H(j,u)]=1/(3*x_axis(p_j))",
+    "all_length_exact_identity": true,
+    "open_path_examples": [
+      {
+        "d": 0,
+        "total_original_open_paths_weighted": "96",
+        "positive_twisted_alpha_total": "96"
+      },
+      {
+        "d": 1,
+        "total_original_open_paths_weighted": "4032",
+        "positive_twisted_alpha_total": "4032"
+      },
+      {
+        "d": 8,
+        "total_original_open_paths_weighted": "335036471205888",
+        "positive_twisted_alpha_total": "335036471205888"
+      }
+    ]
+  },
+  "test_cases": {
+    "x_allones_z1": "PASS",
+    "x_2_3_5_7_11_13_z17": "PASS",
+    "x_1_2_3_4_5_6_z0": "PASS"
+  },
+  "status": "ALL_ASSERTIONS_PASS_AUTHOR_SIDE_UNREVIEWED"
+}
