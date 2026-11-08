@@ -1,0 +1,13 @@
+Exact executed local source: VERIFY_R5_ALL_ETA.py (Python 3 standard library Fraction); original frozen 43 rational witnesses in R5_ALL_ETA_CERTIFICATES.json.
+The GitHub VERIFY.py is a smaller self-contained anchor witness checker using the losslessly compressed certificates; it was written after the local run and no remote execution is claimed.
+
+EXACT_ANCHOR_CERTIFICATES_PASS 43
+GLOBAL_PARAMETER_GRID_PASS 1950
+SWITCH_BOUNDARY_GRID_PASS 780
+SCALING_AND_INTERPOLATION_EXACT_PASS 4
+PASS_R5_ALL_ETA_SATURATED_PHYSICAL_PRISM_BLACKWELL_GLUE
+
+Recorded provenance: executed 2026-11-08 Asia/Shanghai via container local Python, all calculations Python fractions.Fraction. Algebraic all-real conclusion comes from the analytic same-face interpolation in RESEARCH.md, not from grid alone.
+Certificate content format: base64(zlib(compact UTF-8 JSON)); Python decoding is json.loads(zlib.decompress(base64.b64decode(Path(...).read_text())).decode()).
+Expected uncompressed compact JSON sha256: cd6eea2b6428bb02539cc2125268be3225c455e141d99eeef10613e25919f0fd.
+Expected plain encoded base64 (no trailing newline) fnv1a_32: c9bc6ccb; 5932 characters. This is an accidental-copy check; Git immutable blob/ref supplies file identity, not mathematical acceptance.
