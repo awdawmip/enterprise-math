@@ -5,9 +5,9 @@ Date: 2026-11-09. Status: **AUTHOR_PROVED / EXACT_INTEGER_AND_MODULAR_CERTIFIED 
 ## All-96-port, all-length theorem
 
 Use the original frozen 96 native ports, 576 transitions, labels `a=(slot,newbit)`, and gate output `K∈{0,1}`. Compare four permitted controller operations: passive 6-way uniform, newbit fixed with uniform slot, slot fixed with uniform newbit, and full label fixed. For each control choice `u` and gate `g`, define the **integer** transition matrix
-[
+\[
 M_{u,g}[p,q]=\#\{a:\operatorname{control}(a)=u,\ K(p,a)=g,\ \operatorname{next}(p,a)=q\}.
-]
+\]
 For any controlled gate word `w`, its all-initial-port count column is `v_w=M_w 1`. Probabilities are obtained by known nonzero per-step factors of `1/6,1/3,1/2,1` for the four policies. Define `V=span_Q{v_w : all finite gate-control words}`. This is the linear predictive space for the **family of all 96 separate native starting ports** (not necessarily a fixed initial mixture).
 
 | Policy | Exact minimal `Q`-linear prediction dimension | Gate-language equivalent native-port classes | Strong output-bisimulation blocks |
