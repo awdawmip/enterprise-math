@@ -1,0 +1,15 @@
+# R648 — two-Cell V29 TRANSFER source-pairing handoff
+
+Date: 2026-11-09, Asia/Shanghai. TASK-related **author-side exploratory research**. Parent task: `RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW`. R647 precursor: `research_notes/r647_pf10_signed_observer_local_balancer_20261109_emr3/` in PR #1708.
+
+Frozen science R462@`18783e01e3646c72b7aab3b16d3f565e83e6446f`. Source event semantics V29@`b62110008321d9147212cb89f2627ff613c2550d`, code `experiments/x6_network_event_ledger_v29_20260906/check_network_event_ledger.py`, Git Blob `2a67e8d4c79912147e0bd1c036065152792e6877`. P000 and ACTIVE worldview unchanged.
+
+**Question:** Does even the *full* V29 per-Cell cumulative state preserve paired sender/receiver endpoints of TRANSFER? **No.** From zero, two histories `(x0→y0),(x1→y1)` and `(x0→y1),(x1→y0)` leave every V29 `M,rin,rout` field, and all signed `u,Ω`, equal; yet the transfer pair counts differ. This is a minimal two-event collision.
+
+**Theorem:** On an oriented 4-by-4 port link, the row/column margin map has rank 7 over a 16-dimensional integer transfer-count space. Its zero-margin integer kernel has rank 9, with basis `E_ij−E_i3−E_3j+E_33` for `i,j<3`. Nine additional additive counters `Z=N[:3,:3]` recover every endpoint pair count and update locally on each labeled TRANSFER. They are sharp among *linear additive* counter augmentations. On a two-Cell bidirectional pair, both directed margin maps have rank 14 on 32 transfer counts, so exactly **18** such additional counters (`9+9`) are necessary and sufficient. Arbitrary internal PASS events can interleave without changing those transfer-specific residual updates. This linear-counter rank bound does not claim an arbitrary nonlinear encoding lower bound.
+
+**Evidence:** `R648_PROOF.zh-CN.md` — full analytical proof; `R648_VERIFY.py` — runnable Python standard-library exact checker; `R648_EVIDENCE.json` — local captured output. Exact checks: all 4,369 unidirectional length≤3 words over 16 TRANSFER types, all 1,057 bidirectional length≤2 words over 32 types, 32 singleton uniqueness checks, two-event collision, rank `7/16` and `14/32`. Expected marker `R648_TRANSFER_PAIRING_NINE_PLUS_NINE_EXACT_PASS`.
+
+**Source status:** GitHub author-branch preservation is independent of formal native Source CLAIM, Result freeze and Driver admission. The current native task-owner request `r648-emr3-task-read-20261109-0221` returned `WAITING_RESOURCE / CURRENT_CACHE_MAINTENANCE_HANDOFF` during this research; therefore active Owner/CLAIM are unconfirmed here. The native session-start request `r648-emr3-session-20261109-0223` was still queued as last read; no new Researcher-ID/Activity-ID or authenticated execution capability is asserted. Preserve the native pending receipts for later reconciliation, without replacing prior identities.
+
+**Next scientific unit:** Compose `Z^{xy},Z^{yx}` with V17/R642 ordered frame residuals and try a concrete two-Cell V27 choice / V29 event step. Identify smallest order-dependent residual for future source-sensitive feedback, under an actual X6 Cell adjacency and event-permission interface. Preserve six native spatial axes and typed time ordering.
