@@ -1,0 +1,258 @@
+{
+  "schema": "D25_RANK2_FROBENIUS_EXACT_V1",
+  "test_kind": "SYNTHETIC_MODEL_REGRESSION_NOT_NATIVE_BENCHMARK",
+  "observer": "full free integral rank-two semilinear F^2=eps*pI",
+  "cases": [
+    {
+      "p": 13,
+      "coefficient_ring": "(Z/169)[T]/(T^2-2)",
+      "gauge_det": [
+        0,
+        168
+      ],
+      "gauge_det_norm": 167,
+      "sign_+1": {
+        "F2_equals": "+1p I (mod p^2)",
+        "matrix_mod_p2": [
+          [
+            [
+              27,
+              156
+            ],
+            [
+              0,
+              142
+            ]
+          ],
+          [
+            [
+              0,
+              162
+            ],
+            [
+              27,
+              13
+            ]
+          ]
+        ],
+        "det_mod_p2": [
+          13,
+          0
+        ],
+        "matrix_rank_mod_p": 1,
+        "elementary_divisor_valuations": [
+          0,
+          1
+        ],
+        "pass": true
+      },
+      "sign_-1": {
+        "F2_equals": "-1p I (mod p^2)",
+        "matrix_mod_p2": [
+          [
+            [
+              144,
+              13
+            ],
+            [
+              0,
+              25
+            ]
+          ],
+          [
+            [
+              0,
+              6
+            ],
+            [
+              144,
+              156
+            ]
+          ]
+        ],
+        "det_mod_p2": [
+          156,
+          0
+        ],
+        "matrix_rank_mod_p": 1,
+        "elementary_divisor_valuations": [
+          0,
+          1
+        ],
+        "pass": true
+      }
+    },
+    {
+      "p": 19,
+      "coefficient_ring": "(Z/361)[T]/(T^2-2)",
+      "gauge_det": [
+        0,
+        360
+      ],
+      "gauge_det_norm": 359,
+      "sign_+1": {
+        "F2_equals": "+1p I (mod p^2)",
+        "matrix_mod_p2": [
+          [
+            [
+              39,
+              342
+            ],
+            [
+              0,
+              322
+            ]
+          ],
+          [
+            [
+              0,
+              351
+            ],
+            [
+              39,
+              19
+            ]
+          ]
+        ],
+        "det_mod_p2": [
+          19,
+          0
+        ],
+        "matrix_rank_mod_p": 1,
+        "elementary_divisor_valuations": [
+          0,
+          1
+        ],
+        "pass": true
+      },
+      "sign_-1": {
+        "F2_equals": "-1p I (mod p^2)",
+        "matrix_mod_p2": [
+          [
+            [
+              324,
+              19
+            ],
+            [
+              0,
+              37
+            ]
+          ],
+          [
+            [
+              0,
+              9
+            ],
+            [
+              324,
+              342
+            ]
+          ]
+        ],
+        "det_mod_p2": [
+          342,
+          0
+        ],
+        "matrix_rank_mod_p": 1,
+        "elementary_divisor_valuations": [
+          0,
+          1
+        ],
+        "pass": true
+      }
+    },
+    {
+      "p": 373,
+      "coefficient_ring": "(Z/139129)[T]/(T^2-2)",
+      "gauge_det": [
+        0,
+        139128
+      ],
+      "gauge_det_norm": 139127,
+      "sign_+1": {
+        "F2_equals": "+1p I (mod p^2)",
+        "matrix_mod_p2": [
+          [
+            [
+              747,
+              138756
+            ],
+            [
+              0,
+              138382
+            ]
+          ],
+          [
+            [
+              0,
+              138942
+            ],
+            [
+              747,
+              373
+            ]
+          ]
+        ],
+        "det_mod_p2": [
+          373,
+          0
+        ],
+        "matrix_rank_mod_p": 1,
+        "elementary_divisor_valuations": [
+          0,
+          1
+        ],
+        "pass": true
+      },
+      "sign_-1": {
+        "F2_equals": "-1p I (mod p^2)",
+        "matrix_mod_p2": [
+          [
+            [
+              138384,
+              373
+            ],
+            [
+              0,
+              745
+            ]
+          ],
+          [
+            [
+              0,
+              186
+            ],
+            [
+              138384,
+              138756
+            ]
+          ]
+        ],
+        "det_mod_p2": [
+          138756,
+          0
+        ],
+        "matrix_rank_mod_p": 1,
+        "elementary_divisor_valuations": [
+          0,
+          1
+        ],
+        "pass": true
+      },
+      "ordinary_Hesse_negative_control": {
+        "a": [
+          92060,
+          21788
+        ],
+        "N(a)_mod_p2": [
+          122102,
+          0
+        ],
+        "N(a)_mod_p": 131,
+        "complete_geometric_F2_match": false,
+        "source_type": "previous ordinary-Hesse candidate; not H0/B0"
+      }
+    }
+  ],
+  "all_pass": true
+}
