@@ -9,7 +9,7 @@ assert len(E)==12 and d['mul'](V,d['mul'](Wi,U))==[[2*x for x in row] for row in
 pairs=[(i,row.index(1)) for i,row in enumerate(J) if i<row.index(1)]
 assert len(pairs)==6
 
-def mul(A,B):return [[sum(x*y for x,y in zip(row,col)) for col in zip(*B)]
+def mul(A,B):return [[sum(x*y for x,y in zip(row,col)) for col in zip(*B)] for row in A]
 def test(t):
  B=[[F(W[i][j])+sum(F(U[i][e])*t[e]*V[e][j] for e in range(12)) for j in range(24)] for i in range(24)]
  A=[[F(i==j)+2*J[i][j]*t[j] for j in range(12)] for i in range(12)]
