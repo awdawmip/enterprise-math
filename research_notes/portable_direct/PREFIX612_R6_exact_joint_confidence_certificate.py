@@ -92,9 +92,7 @@ def run():
             for target in (Fraction(19,20),Fraction(99,100)):
                 n=sharp_threshold(words,q,12,r,target)
                 rows.append({"r":r,"d":12,"q":q,"target":str(target),
-                             "minimum_N":n,
-                             "probability_at_N":str(Fraction(words[n],q**n)),
-                             "probability_at_N_minus_1":str(Fraction(words[n-1],q**(n-1)))})
+                             "minimum_N":n})
                 checks += 2
     assert [(x["r"],x["q"],x["target"],x["minimum_N"]) for x in rows] == [
        (3,12,"19/20",110),(3,12,"99/100",133),
