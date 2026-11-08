@@ -1,0 +1,619 @@
+{
+  "title": "PREFIX-614-R6 exact waiting-time moments for native BRC signed-label coverage",
+  "model": "P(Y=(l,s))=(1+48*s*theta_l)/(2*q); neutral 1-d/q; independent trials",
+  "scope": "d=2k<=12; q=12 tag slot0 or q=24 tag slot1/2; r>=1; any admissible theta",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "calculations": "Exact rational: Poissonized gamma integral + finite capped-count Markov chain",
+  "checks": 148,
+  "status": "ALL_CHECKS_PASS",
+  "results": [
+    {
+      "d": 1,
+      "r": 1,
+      "gamma_max_mean": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "gamma_max_variance": {
+        "numerator": "1",
+        "denominator": "1"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "12",
+            "denominator": "1"
+          },
+          "variance_trials": {
+            "numerator": "132",
+            "denominator": "1"
+          },
+          "expected_trials_decimal": 12,
+          "variance_trials_decimal": 132
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "24",
+            "denominator": "1"
+          },
+          "variance_trials": {
+            "numerator": "552",
+            "denominator": "1"
+          },
+          "expected_trials_decimal": 24,
+          "variance_trials_decimal": 552
+        }
+      }
+    },
+    {
+      "d": 1,
+      "r": 2,
+      "gamma_max_mean": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "gamma_max_variance": {
+        "numerator": "2",
+        "denominator": "1"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "24",
+            "denominator": "1"
+          },
+          "variance_trials": {
+            "numerator": "264",
+            "denominator": "1"
+          },
+          "expected_trials_decimal": 24,
+          "variance_trials_decimal": 264
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "48",
+            "denominator": "1"
+          },
+          "variance_trials": {
+            "numerator": "1104",
+            "denominator": "1"
+          },
+          "expected_trials_decimal": 48,
+          "variance_trials_decimal": 1104
+        }
+      }
+    },
+    {
+      "d": 1,
+      "r": 3,
+      "gamma_max_mean": {
+        "numerator": "3",
+        "denominator": "1"
+      },
+      "gamma_max_variance": {
+        "numerator": "3",
+        "denominator": "1"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "36",
+            "denominator": "1"
+          },
+          "variance_trials": {
+            "numerator": "396",
+            "denominator": "1"
+          },
+          "expected_trials_decimal": 36,
+          "variance_trials_decimal": 396
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "72",
+            "denominator": "1"
+          },
+          "variance_trials": {
+            "numerator": "1656",
+            "denominator": "1"
+          },
+          "expected_trials_decimal": 72,
+          "variance_trials_decimal": 1656
+        }
+      }
+    },
+    {
+      "d": 1,
+      "r": 4,
+      "gamma_max_mean": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "gamma_max_variance": {
+        "numerator": "4",
+        "denominator": "1"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "48",
+            "denominator": "1"
+          },
+          "variance_trials": {
+            "numerator": "528",
+            "denominator": "1"
+          },
+          "expected_trials_decimal": 48,
+          "variance_trials_decimal": 528
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "96",
+            "denominator": "1"
+          },
+          "variance_trials": {
+            "numerator": "2208",
+            "denominator": "1"
+          },
+          "expected_trials_decimal": 96,
+          "variance_trials_decimal": 2208
+        }
+      }
+    },
+    {
+      "d": 2,
+      "r": 1,
+      "gamma_max_mean": {
+        "numerator": "3",
+        "denominator": "2"
+      },
+      "gamma_max_variance": {
+        "numerator": "5",
+        "denominator": "4"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "18",
+            "denominator": "1"
+          },
+          "variance_trials": {
+            "numerator": "162",
+            "denominator": "1"
+          },
+          "expected_trials_decimal": 18,
+          "variance_trials_decimal": 162
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "36",
+            "denominator": "1"
+          },
+          "variance_trials": {
+            "numerator": "684",
+            "denominator": "1"
+          },
+          "expected_trials_decimal": 36,
+          "variance_trials_decimal": 684
+        }
+      }
+    },
+    {
+      "d": 2,
+      "r": 2,
+      "gamma_max_mean": {
+        "numerator": "11",
+        "denominator": "4"
+      },
+      "gamma_max_variance": {
+        "numerator": "35",
+        "denominator": "16"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "33",
+            "denominator": "1"
+          },
+          "variance_trials": {
+            "numerator": "282",
+            "denominator": "1"
+          },
+          "expected_trials_decimal": 33,
+          "variance_trials_decimal": 282
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "66",
+            "denominator": "1"
+          },
+          "variance_trials": {
+            "numerator": "1194",
+            "denominator": "1"
+          },
+          "expected_trials_decimal": 66,
+          "variance_trials_decimal": 1194
+        }
+      }
+    },
+    {
+      "d": 2,
+      "r": 3,
+      "gamma_max_mean": {
+        "numerator": "63",
+        "denominator": "16"
+      },
+      "gamma_max_variance": {
+        "numerator": "783",
+        "denominator": "256"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "189",
+            "denominator": "4"
+          },
+          "variance_trials": {
+            "numerator": "6291",
+            "denominator": "16"
+          },
+          "expected_trials_decimal": 47.25,
+          "variance_trials_decimal": 393.1875
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "189",
+            "denominator": "2"
+          },
+          "variance_trials": {
+            "numerator": "6669",
+            "denominator": "4"
+          },
+          "expected_trials_decimal": 94.5,
+          "variance_trials_decimal": 1667.25
+        }
+      }
+    },
+    {
+      "d": 2,
+      "r": 4,
+      "gamma_max_mean": {
+        "numerator": "163",
+        "denominator": "32"
+      },
+      "gamma_max_variance": {
+        "numerator": "3991",
+        "denominator": "1024"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "489",
+            "denominator": "8"
+          },
+          "variance_trials": {
+            "numerator": "32007",
+            "denominator": "64"
+          },
+          "expected_trials_decimal": 61.125,
+          "variance_trials_decimal": 500.109375
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "489",
+            "denominator": "4"
+          },
+          "variance_trials": {
+            "numerator": "33963",
+            "denominator": "16"
+          },
+          "expected_trials_decimal": 122.25,
+          "variance_trials_decimal": 2122.6875
+        }
+      }
+    },
+    {
+      "d": 6,
+      "r": 1,
+      "gamma_max_mean": {
+        "numerator": "49",
+        "denominator": "20"
+      },
+      "gamma_max_variance": {
+        "numerator": "5369",
+        "denominator": "3600"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "147",
+            "denominator": "5"
+          },
+          "variance_trials": {
+            "numerator": "4634",
+            "denominator": "25"
+          },
+          "expected_trials_decimal": 29.4,
+          "variance_trials_decimal": 185.36
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "294",
+            "denominator": "5"
+          },
+          "variance_trials": {
+            "numerator": "20006",
+            "denominator": "25"
+          },
+          "expected_trials_decimal": 58.8,
+          "variance_trials_decimal": 800.24
+        }
+      }
+    },
+    {
+      "d": 6,
+      "r": 2,
+      "gamma_max_mean": {
+        "numerator": "390968681",
+        "denominator": "97200000"
+      },
+      "gamma_max_variance": {
+        "numerator": "21263750669400239",
+        "denominator": "9447840000000000"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "390968681",
+            "denominator": "8100000"
+          },
+          "variance_trials": {
+            "numerator": "18096904353300239",
+            "denominator": "65610000000000"
+          },
+          "expected_trials_decimal": 48.267738395062,
+          "variance_trials_decimal": 275.825397855513
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "390968681",
+            "denominator": "4050000"
+          },
+          "variance_trials": {
+            "numerator": "19680327511350239",
+            "denominator": "16402500000000"
+          },
+          "expected_trials_decimal": 96.535476790123,
+          "variance_trials_decimal": 1199.837068212178
+        }
+      }
+    },
+    {
+      "d": 6,
+      "r": 3,
+      "gamma_max_mean": {
+        "numerator": "2286878604508883",
+        "denominator": "419904000000000"
+      },
+      "gamma_max_variance": {
+        "numerator": "514828743626406175339174092311",
+        "denominator": "176319369216000000000000000000"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "2286878604508883",
+            "denominator": "34992000000000"
+          },
+          "variance_trials": {
+            "numerator": "434806287497431341403174092311",
+            "denominator": "1224440064000000000000000000"
+          },
+          "expected_trials_decimal": 65.354326832101,
+          "variance_trials_decimal": 355.106223882455
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "2286878604508883",
+            "denominator": "17496000000000"
+          },
+          "variance_trials": {
+            "numerator": "474817515561918758371174092311",
+            "denominator": "306110016000000000000000000"
+          },
+          "expected_trials_decimal": 130.708653664202,
+          "variance_trials_decimal": 1551.133549194022
+        }
+      }
+    },
+    {
+      "d": 6,
+      "r": 4,
+      "gamma_max_mean": {
+        "numerator": "1123744794837016266658717",
+        "denominator": "165299408640000000000000"
+      },
+      "gamma_max_variance": {
+        "numerator": "96895982472095838559622089429870628184647913911",
+        "denominator": "27323894496733706649600000000000000000000000000"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "1123744794837016266658717",
+            "denominator": "13774950720000000000000"
+          },
+          "variance_trials": {
+            "numerator": "81416453301359429054559883696444388184647913911",
+            "denominator": "189749267338428518400000000000000000000000000"
+          },
+          "expected_trials_decimal": 81.578861346156,
+          "variance_trials_decimal": 429.073874399465
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "1123744794837016266658717",
+            "denominator": "6887475360000000000000"
+          },
+          "variance_trials": {
+            "numerator": "89156217886727633807090986563157508184647913911",
+            "denominator": "47437316834607129600000000000000000000000000"
+          },
+          "expected_trials_decimal": 163.157722692313,
+          "variance_trials_decimal": 1879.453220290174
+        }
+      }
+    },
+    {
+      "d": 12,
+      "r": 1,
+      "gamma_max_mean": {
+        "numerator": "86021",
+        "denominator": "27720"
+      },
+      "gamma_max_variance": {
+        "numerator": "240505109",
+        "denominator": "153679680"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "86021",
+            "denominator": "2310"
+          },
+          "variance_trials": {
+            "numerator": "200763407",
+            "denominator": "1067220"
+          },
+          "expected_trials_decimal": 37.238528138528,
+          "variance_trials_decimal": 188.118107794082
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "86021",
+            "denominator": "1155"
+          },
+          "variance_trials": {
+            "numerator": "220634258",
+            "denominator": "266805"
+          },
+          "expected_trials_decimal": 74.477056277056,
+          "variance_trials_decimal": 826.949487453384
+        }
+      }
+    },
+    {
+      "d": 12,
+      "r": 2,
+      "gamma_max_mean": {
+        "numerator": "100198141867917057561160920463178960683",
+        "denominator": "20714566287331516712528553984000000000"
+      },
+      "gamma_max_variance": {
+        "numerator": "953136904645824598031997038712959625218310926923064109933638294830340173511",
+        "denominator": "429093256472251416202952013094337614718059730530002272256000000000000000000"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "100198141867917057561160920463178960683",
+            "denominator": "1726213857277626392710712832000000000"
+          },
+          "variance_trials": {
+            "numerator": "780173483679956660860148374388498717416467107897220293327806710574340173511",
+            "denominator": "2979814281057301501409388979821788991097637017569460224000000000000000000"
+          },
+          "expected_trials_decimal": 58.045033902078,
+          "variance_trials_decimal": 261.819499503551
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "100198141867917057561160920463178960683",
+            "denominator": "863106928638813196355356416000000000"
+          },
+          "variance_trials": {
+            "numerator": "866655194162890629446072706550729171317389017410142201630722502702340173511",
+            "denominator": "744953570264325375352347244955447247774409254392365056000000000000000000"
+          },
+          "expected_trials_decimal": 116.090067804156,
+          "variance_trials_decimal": 1163.368065818361
+        }
+      }
+    },
+    {
+      "d": 12,
+      "r": 3,
+      "gamma_max_mean": {
+        "numerator": "12641899726597994558575876149366220750912912356589123208861665067841165691",
+        "denominator": "1981383002469270608729359945024358394080506692202030694400000000000000000"
+      },
+      "gamma_max_variance": {
+        "numerator": "10962191266173873647680342377262226363145192923279306395046075629040633936430607114451879663710510949521568331493808223730524266185207686284492519",
+        "denominator": "3925878602474141619169308131039060430211087165158760187262551487746891726174860525997890097018030251079746191360000000000000000000000000000000000"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "12641899726597994558575876149366220750912912356589123208861665067841165691",
+            "denominator": "165115250205772550727446662085363199506708891016835891200000000000000000"
+          },
+          "variance_trials": {
+            "numerator": "8874820829740358173859767019154726312528173771617728318489462103133622184504222646860637950010837819861736122126935058275675446985207686284492519",
+            "denominator": "27263045850514872355342417576660141876465883091380279078212163109353414765103198097207570118180765632498237440000000000000000000000000000000000"
+          },
+          "expected_trials_decimal": 76.564095144714,
+          "variance_trials_decimal": 325.525653971372
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "12641899726597994558575876149366220750912912356589123208861665067841165691",
+            "denominator": "82557625102886275363723331042681599753354445508417945600000000000000000"
+          },
+          "variance_trials": {
+            "numerator": "9918506047957115910770054698208476337836683347448517356767768866087128060467414880656258806860674384691652226810371641003099856585207686284492519",
+            "denominator": "6815761462628718088835604394165035469116470772845069769553040777338353691275799524301892529545191408124559360000000000000000000000000000000000"
+          },
+          "expected_trials_decimal": 153.128190289428,
+          "variance_trials_decimal": 1455.230806174916
+        }
+      }
+    },
+    {
+      "d": 12,
+      "r": 4,
+      "gamma_max_mean": {
+        "numerator": "15216223883623616776433095266031176684695280137084851110249209926629988178966491969860131537303503391158320667",
+        "denominator": "1942902849252023669821910609199059789135308367405320979606169987052115103549222813696000000000000000000000000"
+      },
+      "gamma_max_variance": {
+        "numerator": "12540956805595993091391215141361496280297602380337870515583985570601391011526896784086316222741487524127461919134645209632279005706966503576826979294143991062079986857509496487610155720996459518649042375170972400675111",
+        "denominator": "3774871481631631813288366820622861161180941195381136828543225705414137026199294324221389760341259263497359634211389915153978112221382734462361700217079400460151125180416000000000000000000000000000000000000000000000000"
+      },
+      "slot_models": {
+        "12": {
+          "expected_trials": {
+            "numerator": "15216223883623616776433095266031176684695280137084851110249209926629988178966491969860131537303503391158320667",
+            "denominator": "161908570771001972485159217433254982427942363950443414967180832254342925295768567808000000000000000000000000"
+          },
+          "variance_trials": {
+            "numerator": "10077319744066908252841324674094381462406015297652976650482101850450441210443285705206152180237715738167495869172682454050752548782748455003608462574567698806533350304277611731111466859999171582649042375170972400675111",
+            "denominator": "26214385289108554258946991809880980285978758301257894642661289620931507126383988362648540002369855996509441904245763299680403557092935655988622918174162503195493924864000000000000000000000000000000000000000000000000"
+          },
+          "expected_trials_decimal": 93.980348360588,
+          "variance_trials_decimal": 384.419456452171
+        },
+        "24": {
+          "expected_trials": {
+            "numerator": "15216223883623616776433095266031176684695280137084851110249209926629988178966491969860131537303503391158320667",
+            "denominator": "80954285385500986242579608716627491213971181975221707483590416127171462647884283904000000000000000000000000"
+          },
+          "variance_trials": {
+            "numerator": "11309138274831450672116269907727938871351808838995423583033043710525916110985091244646234201489601631147478894153663831841515777244857479290217720934355844934306668580893554109360811290497815550649042375170972400675111",
+            "denominator": "6553596322277138564736747952470245071494689575314473660665322405232876781595997090662135000592463999127360476061440824920100889273233913997155729543540625798873481216000000000000000000000000000000000000000000000000"
+          },
+          "expected_trials_decimal": 187.960696721175,
+          "variance_trials_decimal": 1725.638522529861
+        }
+      }
+    }
+  ]
+}
