@@ -7,7 +7,37 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "em_sources": [
+        {
+          "commit": "8bf6a677359b62d406eaa7258f5541431466315b",
+          "path": "experiments/brc_residual_sort_sampled_20261108_b0e94005/README.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "efec78fe348100be4aee0653ed593c84ffa19eec03c3ab44dc9d82f62c3a413f",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "0648904c82ff8a2e67ade3749a6725153b8d1932",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/8bf6a677359b62d406eaa7258f5541431466315b/experiments/brc_residual_sort_sampled_20261108_b0e94005/README.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "sampled-residual-readme-8bf6a677-20261108",
+            "server_signature_authenticated": false,
+            "tool_name": "github_fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-F9EFA12FBDF0EE5FF9158589/readbacks/875508b09cbe7ecb2273b097ef691eea4c5a6ff3cb0e6430301d8aa9aff0cf44.json",
+          "verification_receipt_sha256": "875508b09cbe7ecb2273b097ef691eea4c5a6ff3cb0e6430301d8aa9aff0cf44"
+        }
+      ],
+      "event_id": "brc-sampled-recursive-b0e94005-20261108",
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/788d59fcd18d7f183f24ccc4925db3da8ccf336e/journal/enterprise-math/2026-11-08/20261108T155222Z-brc-sampled-recursive-b0e94005.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-08T15:13:16.596970+00:00",
   "registration_key": "session:MCP-0d700f879f2c408195398e03c2999279:TASK_RESEARCH",
