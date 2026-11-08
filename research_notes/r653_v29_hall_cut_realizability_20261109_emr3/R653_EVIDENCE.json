@@ -1,0 +1,103 @@
+{
+  "marker": "R653_SPARSE_TRANSFER_HALL_REALIZABILITY_EXACT_PASS",
+  "margin_instances_exhaustively_checked": 512,
+  "feasible_instances": 74,
+  "balanced_but_not_feasible_instances": 14,
+  "two_port_counterexample": {
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "out": [
+      0,
+      1
+    ],
+    "in": [
+      0,
+      1
+    ],
+    "violating_Hall_U": [
+      1
+    ],
+    "lhs": 1,
+    "rhs": 0
+  },
+  "x6_unit_step_four_cell_counterexample": {
+    "relative_positions": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "out_per_cell_port0": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "in_per_cell_port0": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "signed_witness": [
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        -1
+      ],
+      [
+        2,
+        3,
+        1
+      ]
+    ],
+    "nonnegative_realization": false
+  },
+  "proof": "integer max flow/min cut, all Hall inequalities",
+  "status": "author-side exact proof; native identity/claim unconfirmed"
+}
