@@ -1,0 +1,38 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "states": 96,
+  "labeled_actions": 576,
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "original_edge_git_blob": "7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41",
+  "operator_dimension": 768,
+  "CH_integer_zero_checks": 1536,
+  "checks": {
+    "Q00": 768,
+    "Q12": 768
+  },
+  "matrix_generator": [
+    [
+      0,
+      1,
+      -1
+    ],
+    [
+      1,
+      -1,
+      0
+    ],
+    [
+      -1,
+      0,
+      1
+    ]
+  ],
+  "first_values": {
+    "q0": "0",
+    "q1": "1/576",
+    "q2": "-1/864"
+  },
+  "domain": "all n>=0, zero root, initial port uniform, six equal-probability labeled actions",
+  "verification": "local Python exact integer source program run returns ALL_CHECKS_PASS; finite-window plus monic CH exact recurrence",
+  "status_scope": "author-level theorem conditional on frozen BRC source, not independently reviewed"
+}
