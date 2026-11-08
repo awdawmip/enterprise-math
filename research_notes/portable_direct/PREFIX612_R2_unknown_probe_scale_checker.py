@@ -24,6 +24,10 @@ def Q(z):
 u=S.ones(48,1); z=S.symbols('z');
 assert S.factor((Q(z)*u)[3]-(z+7))==0
 assert S.factor((Q(z)*u)[4]-3)==0
+assert [j for j in range(48) if Q(z)[4,j]!=0]==[11,26,35]
+assert all(Q(z)[4,j]==1 for j in [11,26,35])
+for d in [S.eye(48)[:,11], S.eye(48)[:,26]+S.eye(48)[:,35], S.eye(48)[:,4]]:
+    assert S.factor((Q(z)*d)[4]-(d[11]+d[26]+d[35]))==0
 A,B=S.symbols('a b')
 assert S.factor((Q(A)*Q(B)*u)[3]-3*(A+7))==0
 C=S.symbols('c',positive=True)
@@ -77,6 +81,8 @@ out={
  'original_phases':48,'native_ports':96,'tagged_actions':576,
  'fixed_axis_weights':[1,1,1,1,0,0],
  'sensors_zero_based':[3,4],
+ 'general_probe_scale_sensor_support':[11,26,35],
+ 'known_nonuniform_probe_scale_condition':'d[11]+d[26]+d[35]!=0',
  'first_gate_calibration':'delta_phase4=3*lambda',
  'first_gate_phase3':'delta_phase3=lambda*(b+7)',
  'full_trace_phase3_counterexample':list(map(str,traces[0])),
