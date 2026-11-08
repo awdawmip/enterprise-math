@@ -1,0 +1,77 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "status_level": "AUTHOR_PROVED / EXACT_ARITHMETIC_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "native_blob": "7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41",
+  "upstream_prefix611_commit": "9b5a1df1a87eca3478a0b2f665b887135ae14711",
+  "scope": "Independent one-step BRC signed-label experiment; count-only stopping",
+  "confidence": "CP binomial tails >= beta/2; m=0 yields full parameter interval",
+  "beta": "1/240",
+  "joint_coverage": "(1-beta)^d >= 19/20 for d<=12",
+  "occupancy": "D0(n)=(q-d)^n; Di(n)=sum(m>=r) C(n,m)*D(i-1)(n-m)",
+  "sharp_threshold_rows": [
+    {
+      "r": 3,
+      "d": 12,
+      "q": 12,
+      "target": "19/20",
+      "minimum_N": 110
+    },
+    {
+      "r": 3,
+      "d": 12,
+      "q": 12,
+      "target": "99/100",
+      "minimum_N": 133
+    },
+    {
+      "r": 3,
+      "d": 12,
+      "q": 24,
+      "target": "19/20",
+      "minimum_N": 224
+    },
+    {
+      "r": 3,
+      "d": 12,
+      "q": 24,
+      "target": "99/100",
+      "minimum_N": 270
+    },
+    {
+      "r": 4,
+      "d": 12,
+      "q": 12,
+      "target": "19/20",
+      "minimum_N": 131
+    },
+    {
+      "r": 4,
+      "d": 12,
+      "q": 12,
+      "target": "99/100",
+      "minimum_N": 155
+    },
+    {
+      "r": 4,
+      "d": 12,
+      "q": 24,
+      "target": "19/20",
+      "minimum_N": 265
+    },
+    {
+      "r": 4,
+      "d": 12,
+      "q": 24,
+      "target": "99/100",
+      "minimum_N": 314
+    }
+  ],
+  "first_hit_expectations": {
+    "q12": "86021/2310",
+    "q24": "86021/1155"
+  },
+  "confidence_grid_size": 78,
+  "exact_checks": 300,
+  "native_graph_reexecuted": false
+}
