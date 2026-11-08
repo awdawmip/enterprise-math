@@ -1,11 +1,22 @@
-# R5 next unit — scale-uniform small-t positive-residual bridge
+# R5 next research unit — variable-kappa full physical observer
 
-Date 2026-11-08; frozen science pins Global a01383f825ef9d43b4b754254303298c64041568, EM 86149263e38c22292c9def1e0f69092efa1be77e.
+Date: 2026-11-08. Scientific pins unchanged: Global a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e.
 
-This research branch proves, with 64 exact rational vertex certificates and a 1004-case Fraction regression, seedless equivalence on four slabs covering every real t in [10^-6,369/43076], p,q in [0,1], theta in [3/4,1], kappa=3/4. The chart ratio changes with each slab, avoiding the known sharp *fixed* C_(4/5) separator. PR #1804 provides [369/43076,1/5] with theta≥3/4, and PR #1803 provides theta≤3/4 for all t∈[0,1/5]. Therefore the current author-side union covers p,q,theta in [0,1] for t in [10^-6,1/5] at kappa=3/4. At t=0 the source is itself seedless.
+## Verified author-side frontier
 
-Smallest unfinished scientific unit: **0<t<10^-6**, theta>3/4 at fixed kappa=3/4. Evidence is author-proved and unreviewed, not a formally accepted Result.
+UNIFORM_THEOREM.md and VERIFY_UNIFORM.py now give a constructive symbolic exact Blackwell kernel for every real 0<=t<=1/100000 and p,q∈[0,1], theta∈[3/4,1], fixed kappa=3/4; 16 vertex rational-function families have 792 exact nonnegative Bernstein polynomial checks of degree <=3.
 
-Suggested symbolic research: For each 0<epsilon<=10^-5 set tau=3/4+epsilon/4 and t in [epsilon/10,epsilon]. Use the 16 existing sparse vertex supports in VERIFY.py as initial rational templates. Parameterize the 23 calibrated equalities and solve their support-constrained rational linear systems over Q(epsilon); determine an exact positivity range for every resulting rational edge and target physical slack. Proving this for all real epsilon would cover the remaining interval by scaled slabs, not merely finite tests. Then investigate varying kappa away from 3/4 without dropping the likelihood-weighted joint-observer constraints.
+RESEARCH.md and VERIFY.py additionally cover t∈[10^-6,369/43076], theta>=3/4 with four exact finite slabs. PR #1804 covers t∈[369/43076,1/5], theta>=3/4. PR #1803 covers t∈[0,1/5], theta<=3/4. The scoped composition covers **all real t∈[0,1/5], p,q,theta∈[0,1] at fixed kappa=3/4**. The general lawful wedge PR #1800 also supplies t∈[1/5,1] at g=b=1, yielding an author-side composite full t∈[0,1] for this fixed kappa source family. Each component is still awaiting independent mathematical review; no formal native Result/Review admission.
 
-Identity for this evidence: Researcher-ID EM-DIRECT-7CD960; RA-20FC5EC4B18E1949386AF83E; GitHub awdawmip. Native Task CLAIM/Owner and independent mathematical admission not confirmed. Verification: python3 VERIFY.py, check saved EXACT_OUTPUT.txt.
+## Smallest genuinely open adjacent science
+
+Vary the source history fraction **kappa away from 3/4**, retaining both side capacities independently and theta∈[0,1]. For g=b=1,a=t, define
+
+    u=(13t/40+1/80)p,
+    w=(3t/40+21/80)q,
+    z=t*theta/10,
+    v=z+9*kappa/40.
+
+The source's history residual is R=9t(theta-kappa)/10. A first small-bounded experiment: choose kappa=1/2 and 1/4, p,q∈{0,1}, theta∈{0,kappa,1}, t∈{0,1/100,1/5}; test candidate common charts C_tau and recover exact rational certificates or exact chart-scoped separators. Then attempt adjoining real kappa intervals via multi-affinity/convex chart gluings. Compare with currently open full mother FULL_HIST/seedless P/Q 4-observer equivalence.
+
+Preserve the seven-node calibrated laws, P likelihood-weighted columns, both stops, seedless chart lawfulness, and frozen science. Native identity: Researcher-ID EM-DIRECT-7CD960, RA-20FC5EC4B18E1949386AF83E; no current Task CLAIM/Owner established.
