@@ -87,3 +87,31 @@ Calculate the full symmetric cubic tensor including unmarked `(R5,R6)` sectors, 
 ## Authority / session
 
 GitHub authenticated login `awdawmip`, both repos admin. Native `em_status`, `em_session_start` and `em_control_tasks` returned `BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE` with `operation_sent=false`; live owner, native Researcher-ID, CLAIM and Native Result remain unconfirmed, no independent Driver review. This artifact records the author's scientific frontier on a research branch without altering P000 or frozen input.
+
+
+## Corollary 578.2 (complete order-three joint tensor)
+
+The exact third-order joint cumulant tensor of `(R5,R6,K)` has ten symmetric coordinate multisets. The native axis exchange involution reduces them to six distinct rational entries; all ten follow from Theorem 578.1 and the already computed `c3(R5),c3(S)`:
+
+| Coordinate multiset | Asymptotic third cumulant rate |
+| --- | --- |
+| `(5,5,5)` and `(6,6,6)` | `-49/5184` |
+| `(5,5,6)` and `(5,6,6)` | `11/5184` |
+| `(5,5,K)` and `(6,6,K)` | `19/82944` |
+| `(5,6,K)` | `-11/82944` |
+| `(5,K,K)` and `(6,K,K)` | `-6053/10616832` |
+| `(K,K,K)` | `206963/42467328` |
+
+Here `C(5,5,6)=(c3(S)-2c3(R5))/6=( -1/162 - 2(-49/5184))/6=11/5184`; the other entries are Theorem 578.1 and exact reproduction of the previously checked gate third cumulant. Thus the complete cubic homogeneous cumulant form for any observer `aR5+bR6+cK` is determined:
+
+```
+c3(aR5+bR6+cK) =
+ (-49/5184)*(a^3+b^3)
+ + (33/5184)*(a^2*b+a*b^2)
+ + (57/82944)*(a^2+b^2)*c
+ - (66/82944)*a*b*c
+ - (18159/10616832)*(a+b)*c^2
+ + (206963/42467328)*c^3.
+```
+
+Every coefficient above includes the binomial/multinomial multiplicity of its coordinate multiset. This formula is an exact all-direction third-order cumulant invariant for the declared three-observer quotient; future directions can be evaluated without another 37-state solve. The next new computation is the fourth-order mixed tensor.
