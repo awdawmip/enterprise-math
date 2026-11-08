@@ -46,3 +46,31 @@ H = (1+5*t)/6, L = (1-t)/6, 0<L<H.
 **New exact checker**: `verify_38_uniform_to_vertex_rays.py` tested `t=1/13,2/5,4/7` × all 38 native preserving vertices × all 9 frozen roots, enumerated every cover containing each `v`, and verified the 24 exact rational output coordinates and the original signed seven-reward/next-port observation; PASS. The finite checks validate implementation while the argument above proves the complete parameter range. Clean ZIP rerun including all three programs and hash-manifest checks passed.
 
 **Updated eight-file portable package SHA-256**: `6fd35e44ca64e7a4b2120d2cfd1df570504f16003a5f0bd054439a837962fc9c`. Same frozen scientific input, origin, nine roots, and `UNREVIEWED / NOT_ADMITTED` status. This parametric family is a new local mathematical extension, not a new canonical Source task claim.
+
+## NEW quadratic BRC residual: certified exactly seven terms for a nonuniform full-support policy
+
+**General exact lower-bound theorem.** For any full-support `x` in the frozen 38-vertex preserving policy polytope, define each source port's *native labeled-action marginal second moment* `M2(p)=sum_{a=0}^5 x[p,a]^2`. If two source ports have different `M2` values, any preserving deterministic convex decomposition has **at least seven terms**. Proof: as all 24 action coordinates are positive and every pure preserving controller covers exactly four (one per source), at least six terms are necessary. With exactly six terms, the 24 source-action slots must be covered exactly once, so each port's six action probabilities are the same multiset of the six mixture weights. Their sums of squares must therefore all be equal. A nonzero second-moment contrast excludes six or fewer terms by a short exact rational certificate.
+
+**Explicit original-native optimal seven-term input.** Take the six-preserving perfect cover
+```
+v0=(0,0,0,0)  v1=(1,1,3,3)  v2=(2,2,1,1)
+v3=(3,3,2,2)  v4=(4,4,4,4)  v5=(5,5,5,5)
+```
+and a seventh different preserving controller `v6=(0,1,2,3)`, with weights `(1,2,3,4,5,6,7)/28`. All seven original four-tuples pass the exact signed full-seven-component reward/next-port test at all nine frozen roots. The resulting policy `x=sum_i w_i v_i` has all 24 original coordinates positive. The seventh controller overlaps base controllers numbered `(0,1,3,1)` at the four source ports. Thus, by direct exact integer computation, the four second moments have numerator `(154,168,196,168)` over `28^2=784`, namely
+```
+M2(6)  = 11/56
+M2(7)  = 3/14
+M2(28) = 1/4
+M2(29) = 3/14
+```
+The moments differ, proving the seven displayed controllers are *provably minimum*: `min_support(x)=7`. This is a complete positive construction and matching lower bound with a constant-length rational certificate; no exhaustive search over all six-controller subsets is necessary.
+
+**Parametric exact-seven family.** For *any* six-controller perfect cover `v0,...,v5`, an extra preserving pure controller `v_*`, positive masses `a0,...,a5,h`, and `S=sum_i a_i+h`, let `c_p` be the index of the base controller that uses `v_*`'s selected action at source port `p`. The resulting seven-term policy has
+```
+M2(p) = (sum_i a_i^2 + 2*h*a[c_p] + h^2) / S^2.
+```
+Whenever `a[c_p] != a[c_q]` for two ports, `M2(p)-M2(q)=2*h*(a[c_p]-a[c_q])/S^2` is nonzero, so the given seven-term representation is exactly optimal for **all positive real masses** satisfying that explicit condition. This uses second-moment source contrast as a signed native BRC observation; positive-mass aggregate compression would erase the distinguishing source label.
+
+**Exact implementation check:** `verify_seven_term_moment_obstruction.py` reproduces the rational policy and its four moments, verifies all seven original controllers on all nine roots with complete native signed seven-reward and target atoms, and verifies the complete weighted 24-action policy. Exact certificate `SEVEN_TERM_MOMENT_OBSTRUCTION_CERTIFICATE.json`, SHA-256 `ada20a18a33ce0f5abb8fc7b3e44b4f733d002eb8727e78b7bf0fc5c94755a03`. All four author-side programs passed in a clean extracted directory. Updated **10-file complete portable bundle** SHA-256 `093467fdd8e47611abc7f0003bd76cab1018f90dce35d98d7386ca4260321f7e`.
+
+**Status:** exact model-internal author proof / exact rational verification / no Source-native CLAIM or writer / UNREVIEWED / NOT_ADMITTED. The original Source D25, native CM, and authentic UR V2 provenance remain separate unchanged obligations.
