@@ -55,7 +55,7 @@ A separate program enumerates the exact integer weighted path moments `M_j(n,v)`
 
 The Poisson certificate supplies the all-depth proof; finite-depth integer recursion supplies an independent regression.
 
-Evidence local to the author conversation: full 13-file ZIP `PREFIX577_R6_GATE_ORTHOGONAL_RESIDUAL_FOURTH_PORTABLE_20261108.zip` SHA-256 `116dfba0a231f121b772500adf1e020f89e4128edf06c6d36fba7dc796e78b24`; exact certificate SHA-256 `0cd86ded660397c872541cb4908027cb387aed69e02af6e965e7a9af50c476f8`; independent integer-moment certificate SHA-256 `5628ab2650a16f0d411982535f7823878da036a0e5f1e18c8041a67cfc4599c9`. ZIP is conversation-local, not an assertion of native Source publication.
+Evidence local to the author conversation: full 15-file ZIP `PREFIX577_R6_GATE_ORTHOGONAL_RESIDUAL_FOURTH_PORTABLE_20261108.zip` SHA-256 `83e09a6037e6c50df0f672413c46e25ade1046fa30267f21e452136a9a211ddd`; exact certificate SHA-256 `0cd86ded660397c872541cb4908027cb387aed69e02af6e965e7a9af50c476f8`; independent integer-moment certificate SHA-256 `5628ab2650a16f0d411982535f7823878da036a0e5f1e18c8041a67cfc4599c9`. ZIP is conversation-local, not an assertion of native Source publication.
 
 ## Continuation and authority
 
@@ -77,7 +77,7 @@ This is an **all-length exact finite-state theorem for the specified two scalar 
 
 `M_j(n+1,v)=sum_(i→v)sum_(q=0)^j binom(j,q) h(i,v)^q M_(j-q)(n,i)`, where the edge increment is `h=K+R_axis`. Each fixed axis has a 480-coordinate integer linear update operator (96 ports × five degrees). The difference of their total moment sequences is a linear readout of the block diagonal 960×960 integer update. By Cayley–Hamilton, each scalar difference obeys a monic recurrence of order at most 960. The complete integer program checks **every** depth `n=0,...,959` and every degree 0,...,4 exactly, finding zero differences. The linear recurrence then establishes all `n≥0). No guessed automorphism or numerical limit is needed. This equality concerns the uniform-start ensemble and does not assert full joint distributional equality of `(K,R5)` and `(K,R6)`.
 
-The exact finite certificate `pair_all_depth_certificate.json` has SHA-256 `51af1844ec0c3497d449161c499eadf06abbcf4a0c053d7be232ca468ca298c9`. Code `prefix577_gate_pair_all_depth_cayley_hamilton.py` and a shorter 128-depth integer regression are packaged in the updated local 13-file ZIP (SHA-256 `116dfba0a231f121b772500adf1e020f89e4128edf06c6d36fba7dc796e78b24`).
+The exact finite certificate `pair_all_depth_certificate.json` has SHA-256 `51af1844ec0c3497d449161c499eadf06abbcf4a0c053d7be232ca468ca298c9`. Code `prefix577_gate_pair_all_depth_cayley_hamilton.py` and a shorter 128-depth integer regression are packaged in the updated local 15-file ZIP (SHA-256 `83e09a6037e6c50df0f672413c46e25ade1046fa30267f21e452136a9a211ddd`).
 
 Independently, evaluating the exact fourth log-Perron derivative at `K+aR5` and `K+aR6` for `a=0,±1,±2`, with 2,880 rational Poisson row checks, gives the **identical degree-four polynomial** in both cases:
 
@@ -99,3 +99,22 @@ Consequently
 This exact mixed fourth-order projection certificate has SHA-256 `6201f2aa18238eb64027341efc4f2faaf142997ea14fb0d38c128e15bf91e9e1`. The all-length finite moment identity and the asymptotic projection equality have different, explicitly scoped statements. Both are portable unreviewed author evidence, not canonical Source completion.
 
 Next discriminating route: test whether `K+R5` and `K+R6` have matching raw moments at all higher orders; derive a structural transfer identity or certify the first finite counterexample. Maintain original frozen source and avoid overlap with authenticated owner progress.
+
+## Stronger finite-state extension: eighth raw moment, all lengths
+
+The preceding exact integer moment comparison was independently extended from degree 4 to **degree 8**, still for the two stationary-start native scalar observations `S5(n)=K(n)+R5(n)` and `S6(n)=K(n)+R6(n)`.
+
+For each axis, the raw moment vector `(M_j(n,v): v=0..95, j=0..8)` is 864-dimensional and evolves under one fixed integer linear operator. The two-axis difference is a linear readout of the block-diagonal **1728-dimensional** update. The integer checker evaluated **every n=0,...,1727**, for **every j=0,...,8**, with zero difference in the pooled integer path moments. Cayley–Hamilton then supplies a monic recurrence of order at most 1728 for every such difference sequence. Thus exactly
+
+```text
+E[(K_n+R5_n)^j] = E[(K_n+R6_n)^j]
+for every integer n≥0 and j∈{0,1,2,3,4,5,6,7,8},
+under uniform initial distribution over 96 ports
+and equiprobable 6 labeled actions per port.
+```
+
+All corresponding **scalar** cumulants through order 8 also match for every length. This subsumes the earlier degree-four stationary-start finite-length result; the independent exact fourth compensated gate rational theorem above remains separate. Nothing here requires a claim about equality of full joint bivariate distributions or *every* cumulant order.
+
+Order-eight runner `prefix577_gate_pair_order8_cayley_hamilton.py` and verified exact JSON `pair_all_depth_order8_certificate.json` (SHA-256 `fb35a9029425d053896f3a29d62824fb6ab22591116c5950d846e777bfe1d028`) are in the **15-file** conversation-local portable bundle, SHA-256 `83e09a6037e6c50df0f672413c46e25ade1046fa30267f21e452136a9a211ddd`. No native Source task/writer registration was inferred from this author-side publication.
+
+The next precise science question is to find an exact transfer/gauge symmetry explaining all-order gate-paired-axis equality, or a first higher-moment counterexample. Check current authenticated Source owner and cross-lane evidence before extending this portable thread.
