@@ -1,0 +1,236 @@
+{
+  "schema": "EM_R631_ODD_PRIME_MODULAR_BRC_PROBE_V1",
+  "date": "2026-11-08",
+  "frozen_R462": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "predecessor_R630": "256e0b45069acaa4b6e8eb7bc6c1a86bcfdd5310",
+  "original_K_blob": "7fa7a762f758b30c6090468ac43487daa34abad8",
+  "delta_leading": [
+    "2",
+    "-8",
+    "6",
+    "106",
+    "83",
+    "9"
+  ],
+  "unit_modulus_exclusions": [
+    53,
+    83
+  ],
+  "special_modulus": 3,
+  "prime_candidates_tested": [
+    3,
+    5,
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    37,
+    41,
+    43,
+    47,
+    59,
+    61,
+    67,
+    71,
+    73,
+    79,
+    89,
+    97,
+    101,
+    103,
+    107,
+    109,
+    113,
+    127,
+    131,
+    137,
+    139,
+    149,
+    151,
+    157,
+    163,
+    167,
+    173,
+    179,
+    181,
+    191,
+    193,
+    197,
+    199,
+    211
+  ],
+  "mod3_valuations": [
+    0,
+    2,
+    7,
+    6,
+    8,
+    11
+  ],
+  "standard_unit_valuations": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "sampling": "L=minimal p^s>h for selected prime p; compare across unit-signature odd primes",
+  "optimal_schedule_examples": [
+    {
+      "h": 0,
+      "p": 3,
+      "L": 1
+    },
+    {
+      "h": 1,
+      "p": 3,
+      "L": 3
+    },
+    {
+      "h": 2,
+      "p": 3,
+      "L": 3
+    },
+    {
+      "h": 3,
+      "p": 5,
+      "L": 5
+    },
+    {
+      "h": 4,
+      "p": 5,
+      "L": 5
+    },
+    {
+      "h": 5,
+      "p": 7,
+      "L": 7
+    },
+    {
+      "h": 6,
+      "p": 7,
+      "L": 7
+    },
+    {
+      "h": 7,
+      "p": 3,
+      "L": 9
+    },
+    {
+      "h": 8,
+      "p": 3,
+      "L": 9
+    },
+    {
+      "h": 9,
+      "p": 11,
+      "L": 11
+    },
+    {
+      "h": 10,
+      "p": 11,
+      "L": 11
+    },
+    {
+      "h": 11,
+      "p": 13,
+      "L": 13
+    },
+    {
+      "h": 12,
+      "p": 13,
+      "L": 13
+    },
+    {
+      "h": 13,
+      "p": 17,
+      "L": 17
+    },
+    {
+      "h": 23,
+      "p": 5,
+      "L": 25
+    },
+    {
+      "h": 24,
+      "p": 5,
+      "L": 25
+    },
+    {
+      "h": 25,
+      "p": 3,
+      "L": 27
+    },
+    {
+      "h": 26,
+      "p": 3,
+      "L": 27
+    },
+    {
+      "h": 27,
+      "p": 29,
+      "L": 29
+    },
+    {
+      "h": 28,
+      "p": 29,
+      "L": 29
+    },
+    {
+      "h": 52,
+      "p": 59,
+      "L": 59
+    },
+    {
+      "h": 53,
+      "p": 59,
+      "L": 59
+    },
+    {
+      "h": 54,
+      "p": 59,
+      "L": 59
+    },
+    {
+      "h": 82,
+      "p": 89,
+      "L": 89
+    },
+    {
+      "h": 83,
+      "p": 89,
+      "L": 89
+    },
+    {
+      "h": 84,
+      "p": 89,
+      "L": 89
+    },
+    {
+      "h": 99,
+      "p": 101,
+      "L": 101
+    },
+    {
+      "h": 100,
+      "p": 101,
+      "L": 101
+    }
+  ],
+  "checks": {
+    "prime_signatures": 44,
+    "optimal_index_calculations": 101,
+    "binomial_gcd": 1010,
+    "orientation_recovery": 51840,
+    "one_probe_zero_fiber": 4320
+  },
+  "total": 57315,
+  "arithmetic": "BigInt integer signed K coefficients and binomial gcd",
+  "status": "AUTHOR_SIDE_EXACT_UNREVIEWED",
+  "marker": "R631_ODD_PRIME_SPARSE_BRC_EXACT_PASS"
+}
