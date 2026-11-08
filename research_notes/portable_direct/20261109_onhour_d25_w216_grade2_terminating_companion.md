@@ -1,104 +1,101 @@
-# D25 — exact p²-grade of the original 216 series as a terminating companion hypergeometric sum
+# D25: Original W216 third-digit grade-2 tail — terminating hypergeometric companion
 
-Date: 2026-11-09 (Asia/Hong_Kong). Author-side mathematical work in the pre-existing TASK_RESEARCH objective, **UNREVIEWED / NOT_ADMITTED / NOT_NATIVE**. Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication `TP2-B6F4FC938FF94941C1B7`; scientific input pinned at `c47e13e4aba0e006366f989d6334d443f6333ae3`. This note continues `20261109_onhour_d25_cm_sign_to_proven_v2304_comparison.md`, without recrediting accepted D24 work or earlier finite W/V scans.
+2026-11-09, Asia/Hong_Kong. TASK_RESEARCH author-side exact theorem, independent arithmetic regression; **UNREVIEWED / NOT_ADMITTED / NOT_NATIVE**. Original task \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`, publication \`TP2-B6F4FC938FF94941C1B7\`, immutable science pin \`c47e13e4aba0e006366f989d6334d443f6333ae3\`. Continues earlier source crosswalk and W/V proof-target reduction; accepted D24 and older scans remain consumed.
 
-## A. A theorem on the original third-digit deficit (all primes p=1 mod 6)
+## Exact theorem, every prime p=6m+1>3
 
-Let p=6m+1>3 be prime. Use the original **full** 216 truncation and original integer binomial coefficient
-[
- C_n=inom{2n}{n}^{2}inom{3n}{n}
-     =rac{(2n)!(3n)!}{(n!)^{5}},quad
- W_p=sum_{n=0}^{p-1}(6n+1)C_n,216^{-n}.
-]
-All inverses are in (mathbf Z/p^3mathbf Z) or (mathbf F_p), as indicated; 216 is a unit for p>3. Grade by the **binomial coefficient** (v_p(C_n)), keeping the separate original weight (6n+1) (which itself is divisible by p when n=m).
-
-For 0<=n<p the exact valuation is
-[
+Keep the unchanged full 216 series:
+$$
+C_n=\binom{2n}{n}^{2}\binom{3n}{n}=\frac{(2n)!(3n)!}{(n!)^5},
+\qquad
+W_p=\sum_{n=0}^{p-1}(6n+1)C_n216^{-n}.
+$$
+For the **binomial coefficient** (not the additionally weighted term), the exact p-adic grades on \(0\le n<p\) are
+$$
 v_p(C_n)=
-egin{cases}
-0 & 0le nle 2m,\
-1 & 2m+1le nle 3m,\
-2 & 3m+1le nle 4m,\
-3 & 4m+1le nle 6m.
-end{cases}
-]
-The nontrivial grade-2 tail is (mathcal T_{2,p}=sum_{n=3m+1}^{4m}(6n+1)C_n216^{-n}), an *original* subset of the unchanged full W sum, not a new cutoff replacing W.
+\begin{cases}
+0&0\le n\le2m,\\
+1&2m+1\le n\le3m,\\
+2&3m+1\le n\le4m,\\
+3&4m+1\le n\le6m.
+\end{cases}
+$$
+In particular the full original grade-2 contribution is
+$$
+\mathcal T_{2,p}=\sum_{n=3m+1}^{4m}(6n+1)C_n\,216^{-n}.
+$$
+In \(\mathbf F_p\), define the unit and a terminating hypergeometric sequence
+$$
+K_p=\frac{(3m+2)!}{((3m+1)!)^5}216^{-(3m+1)},
+\qquad
+U_j=\frac{(1)_j(5/6)_j(7/6)_j}{(3/2)_j^3\,2^j}\quad(0\le j<m).
+$$
+All denominators are p-units. Since \(7/6\equiv1-m\pmod p\), the numerator naturally terminates at \(j=m\) in characteristic p. The resulting **uniform exact identity** is
+$$
+\boxed{\frac{\mathcal T_{2,p}}{p^2}
+\equiv K_p\sum_{j=0}^{m-1}(6j+4)
+\frac{(1)_j(5/6)_j(7/6)_j}{(3/2)_j^3\,2^j}
+\pmod p.}
+$$
+This directly expresses the missing third-digit layer of the original D25 216 sum; it is not a change of the frozen cutoff.
 
-Put
-[
-K_p=rac{(3m+2)!}{[(3m+1)!]^5},216^{-(3m+1)}inmathbf F_p^	imes
-]
-and (U_0=1), with
-[
-U_j=rac{(1)_j(5/6)_j(7/6)_j}{(3/2)_j^3,2^j},qquad
-U_{j+1}=U_jrac{(j+1)(j+5/6)(j+7/6)}{2(j+3/2)^3}.
-]
-All the displayed denominators for (0le j<m) are p-units. In (mathbf F_p), the parameter (7/6=1-m), so the companion is naturally terminating at (j=m).
+## Proof
 
-**Exact all-prime congruence**
-[
-oxed{
-rac{mathcal T_{2,p}}{p^2}
-equiv K_p,sum_{j=0}^{m-1}(6j+4)
-rac{(1)_j(5/6)_j(7/6)_j}{(3/2)_j^3,2^j}
-pmod p.}
-]
-This evaluates the actual p²-valuation layer that enters the unresolved (mod p^3) claim, and specifies a terminating hypergeometric transform as the next finite identity to attack.
+For \(n=3m+1+j,\ 0\le j<m\), write
+\(2n=p+(2j+1)\) and \(3n=p+(3m+2+3j)\).
+Wilson's theorem gives \((p+r)!/p\equiv-r!\pmod p\) for \(0\le r<p\). Hence
+$$
+\frac{C_n}{p^2}
+\equiv
+\frac{(2j+1)!\,(3m+2+3j)!}{((3m+1+j)!)^5}\pmod p,
+\quad6n+1=3p+6j+4.
+$$
+The \(j=0\) factorial term times \(216^{-(3m+1)}\) is precisely \(K_p\).
+Successive normalized factorial terms have ratio
+$$
+\frac{(2j+2)(2j+3)
+(3m+3+3j)(3m+4+3j)(3m+5+3j)}
+{216(3m+2+j)^5}
+\equiv
+\frac{(j+1)(j+5/6)(j+7/6)}{2(j+3/2)^3}\pmod p.
+$$
+This is \(U_{j+1}/U_j\) and proves the identity term-by-term.
+The grade-3 tail \(n\ge4m+1\) vanishes modulo \(p^3\).
 
-## B. Exact derivation
+## Exact original p=373 certificate and cross-grade obstruction
 
-For n=3m+1+j, 0<=j<m, we have (2n=p+(2j+1)) and (3n=p+(3m+2+3j)). Wilson's theorem yields, whenever 0<=r<p,
-[
-(p+r)!/pequiv-r!pmod p.
-]
-Therefore
-[
-rac{C_n}{p^2}equiv
-rac{(2j+1)!(3m+2+3j)!}{[(3m+1+j)!]^5}pmod p.
-]
-Also (6n+1=3p+6j+4). The j=0 factorial-unit factor is K_p. The quotient of consecutive factorial-unit factors modulo p is
-[
-rac{(2j+2)(2j+3)
-  (3m+3+3j)(3m+4+3j)(3m+5+3j)}
- {216(3m+2+j)^5}
-equiv
-rac{(j+1)(j+5/6)(j+7/6)}{2(j+3/2)^3}.
-]
-This proves the displayed identity term-by-term in the p²-grade. Terms n>4m have coefficient valuation >=3, so vanish modulo p³ without any altered source input.
+For \(p=373,\ m=62,\ p^3=51895117\), exact integer computations yield
+$$
+K_{373}=290,\quad\sum_{j=0}^{61}(6j+4)U_j=217,\quad
+K_{373}\cdot217\equiv266\pmod{373}.
+$$
+Thus
+$$
+\boxed{\mathcal T_{2,373}\equiv266\cdot373^2
+=37008314\not\equiv0\pmod{373^3}.}
+$$
+For comparison, the separately source-labelled original coefficients of
+\(V_p=\sum_{n=0}^{p-1}(8n+1)\binom{4n}{2n}\binom{2n}{n}^2/2304^n\)
+give the following exact valuation-grade residues modulo \(51895117\):
 
-## C. Direct p=373 diagnostic and cross-model obstruction
+| original series | grade 0 | grade 1 | grade 2 | grade >=3 |
+| --- | ---: | ---: | ---: | ---: |
+| W216 | 28094360 | 38687933 | 37008314 | 0 |
+| V2304 | 45069217 | 6826273 | 0 | 0 |
 
-For p=373, m=62, (mod p^3=51,895,117), the exact original binomial computations give:
-[
-(K_{373},sum(6j+4)U_j,mathcal T_{2,373}/373^2)
-=(290,217,266)pmod{373}.
-]
-Since (290cdot217equiv266mod373),
-[
-oxed{mathcal T_{2,373}equiv37,008,314=266cdot373^2
-otequiv0
-pmod{373^3}.}
-]
-Original valuation-group residues mod 51,895,117 (the group is determined by binomial coefficient valuation, not by total weighted-term valuation):
-[
-(W_0,W_1,W_2,W_{ge3})=(28,094,360, 38,687,933, 37,008,314, 0),
-]
-[
-(V_0,V_1,V_2,V_{ge3})=(45,069,217, 6,826,273, 0, 0).
-]
-Both sums are 373 mod p³, **but the grade-2 pieces differ by 37,008,314**. Consequently a proposed grade-preserving term-by-term W/V transfer at the third digit is false already at the original p=373. Any successful W-to-V p³ transfer must contain cross-grade correction. The previously proved GZ full-vs-half mod-p³ congruence already explains V grade-2 cancellation; that is consumed, not recredited here.
+Both totals are 373 modulo \(373^3\), but grade 2 differs by \(37008314\). This is a **strict counterexample to an attempted grade-by-grade W-to-V third-digit matching**. A full W/V transformation has to transfer contributions across grades. Earlier Guo–Zudilin full/half \(V\bmod p^3\) is consumed, not re-proved here.
 
-## D. Exact computational checks and next discriminating experiment
+## Checks and continuation
 
-The companion recurrence and original binomial-grade computation were implemented separately using Python integer arithmetic. All **18** checked primes
-7,13,19,31,37,43,61,67,73,97,109,127,157,163,193,211,229,373
-give identical (mathcal T_{2,p}/p^2inmathbf F_p). On a separate **611-prime exhaustive sieve range** (all primes p≡1 mod6, p<=10000) the companion value was nonzero in each case; this is finite evidence, not a universal nonvanishing theorem.
+The separately executed original-binomial checker agrees with the companion formula for 18 primes:
+\(7,13,19,31,37,43,61,67,73,97,109,127,157,163,193,211,229,373\).
+An exhaustive sieve of all 611 primes \(p\equiv1\pmod6\), \(p\le10000\), finds zero vanishing companion values. This is a finite observation only.
 
-Reproducer: `research_notes/portable_direct/d25_w216_grade2_companion_20261109.py`.
-Raw results: `research_notes/portable_direct/d25_w216_grade2_companion_results_20261109.json`.
+Proof reproducer: \`research_notes/portable_direct/d25_w216_grade2_companion_20261109.py\`.
+Raw output: \`research_notes/portable_direct/d25_w216_grade2_companion_results_20261109.json\`.
 
-**Next local scientific action:** seek an exact transformation/certificate relating the terminating companion (S_p=sum_{j<m}(6j+4)U_j) to the lower two valuation groups and the proven full 2304 sum, or explicitly locate a prime where the observed companion nonvanishing fails. A closed formula for its cross-grade cancellation would supply the unresolved third-digit W-V proof step. Do not replace the frozen same-class H0/B0 benchmark.
+**Next exact research unit:** test finite-field hypergeometric transformations of the terminating \(U_j\) sum against the lower two valuation grades and the already proved 2304 full sum. A verified cross-grade cancellation identity would address the unresolved \(W_p-V_p\bmod p^3\) and original \(\Delta_p-R_p\) target; the 611 nonvanishing cases independently refute any blanket policy of discarding W grade 2.
 
-**Native benchmark:** issue #1559 remains the distinct original p=373 H0/B0 divided-power ([X]Umod139129) with actual module rank, semilinear direction, eta, signed Green/Hesse kappa, original Delta-R and independent reproducer. In the current run the Sites gateway reported `BACKEND_IDENTITY_CHECK_UNAVAILABLE` with `operation_sent=false` for status/capabilities/recovery; no current winning CLAIM/run or native checkpoint is claimed. Historical Researcher `EM-ENTERPRISE-4DEB43`, session `MCP-ecbfd1c046864bb3bff1a2e04c87d207`, activity `RA-9553E027FD14223807511263` are provenance only; no maintenance lane credentials used.
+**Distinct native benchmark:** #1559 still requires the source-pinned original p=373 H0/B0 divided-power \([X]U\bmod139129\), real module rank, semilinear orientation/eta, signed Green/Hesse \(\kappa\), original \(\Delta-R\) and independent reproducer. In this run the native gateway rejected status/capabilities/recovery with \`BACKEND_IDENTITY_CHECK_UNAVAILABLE; operation_sent=false\`. Historical source-issued Researcher \`EM-ENTERPRISE-4DEB43\`, session \`MCP-ecbfd1c046864bb3bff1a2e04c87d207\`, activity \`RA-9553E027FD14223807511263\` are provenance; there is no verified current winning claim, native checkpoint or Result.
 
-Source-labelled BRC grouping retains exact original integer coefficients, n-ranges, weighted terms, valuation and intended future readout; this is an auxiliary arithmetic representation, **not** a new native X6 state or accepted Result.
+The BRC/source valuation decomposition is an auxiliary external arithmetic representation that retains exact coefficients, signed weights, cutoffs and observer provenance; it does not assert a new native X6 isomorphism.
