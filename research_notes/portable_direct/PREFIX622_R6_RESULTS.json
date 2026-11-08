@@ -1,0 +1,49 @@
+{
+  "schema": "PREFIX622_R6_EXACT_VARIANCE_COUNTEREXAMPLE_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "d=2,q=12 or 24,beta=1/40,delta=1/4, first passage",
+  "theorem": "Var_Tq(1/4,1/4)>Var_Tq(1/2,1/2), both q; fair uniquely maximizes E_Tq, not Var_Tq",
+  "formula": "E_Tq=q*mu, Var_Tq=q^2*(2*H-mu^2)-q*mu; mu=S1+S2-J1, H=H1+H2-J2",
+  "q_identity": "E_T24=2E_T12; Var_T24=4Var_T12+E_T24",
+  "single_endpoint_validation": "p=1 first 25 informative signs deterministic; negative-binomial Var=25*q*(q-1)",
+  "cases": [
+    {
+      "p1": "1/2",
+      "p2": "1/2",
+      "E_T12_decimal": "2350.8871013999329674336846958203177",
+      "Var_T12_decimal": "17445.437043378321026214650779488317",
+      "Var_T24_decimal": "74483.522376313150039725972509593902"
+    },
+    {
+      "p1": "1/4",
+      "p2": "1/4",
+      "E_T12_decimal": "1797.0110591692067460733039577960040",
+      "Var_T12_decimal": "31093.689908873979659174695955407532",
+      "Var_T24_decimal": "127968.78175383433212884539173722214"
+    },
+    {
+      "p1": "1/8",
+      "p2": "1/8",
+      "E_T12_decimal": "1083.2179011018683321663281013457792",
+      "Var_T12_decimal": "50204.442069243653567328496239642857",
+      "Var_T24_decimal": "202984.20407917835093364664116126299"
+    },
+    {
+      "p1": "1/2",
+      "p2": "1/4",
+      "E_T12_decimal": "2259.0006921668339046544048389902574",
+      "Var_T12_decimal": "24636.725680697522329852190233523779",
+      "Var_T24_decimal": "103064.90410712375712871757061207563"
+    },
+    {
+      "p1": "1/2",
+      "p2": "2/5",
+      "E_T12_decimal": "2314.3143563612934790082659057783718",
+      "Var_T12_decimal": "18671.792466242848516709069685374060",
+      "Var_T24_decimal": "79315.798577693981024852810553052984"
+    }
+  ],
+  "verification": "ALL_CHECKS_PASS",
+  "scope": "Exact BRC signed-label statistical model; inherits PREFIX620 first-passage finite carrier; original 96-port graph not rerun",
+  "exact_verification": "All inequalities compared as exact Fraction values; run --full for numerator/denominator details."
+}
