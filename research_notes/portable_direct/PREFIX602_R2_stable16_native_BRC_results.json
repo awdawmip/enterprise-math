@@ -1,0 +1,124 @@
+{
+  "schema": "PREFIX602_R2_NATIVE_BRC_STABLE_16_V1",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "axis_weights": [
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+  ],
+  "phase_count": 48,
+  "native_ports": 96,
+  "typed_native_actions": 576,
+  "gate_target": 4,
+  "basis_source": "E=16 pivot columns of Q(1)^2, deterministic zero-based ordering",
+  "basis_cols": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14,
+    21,
+    23,
+    28,
+    30,
+    32,
+    34
+  ],
+  "basis_rows": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    16,
+    17,
+    18,
+    19,
+    24,
+    25,
+    26,
+    27
+  ],
+  "V_dim": 16,
+  "common_inclusions": {
+    "A2": {
+      "rank": 16,
+      "nonzero_entries": 144
+    },
+    "A_G": {
+      "rank": 1,
+      "nonzero_entries": 3
+    },
+    "G_A": {
+      "rank": 1,
+      "nonzero_entries": 9
+    },
+    "G2": {
+      "rank": 0,
+      "nonzero_entries": 0
+    },
+    "A_E": {
+      "rank": 16,
+      "nonzero_entries": 56
+    },
+    "G_E": {
+      "rank": 1,
+      "nonzero_entries": 3
+    }
+  },
+  "G_rank": 1,
+  "G_square_zero": true,
+  "two_step_minor_formula": "-2^28*(a+3)*(b+3)",
+  "two_step_minor_grid": {
+    "0,0": "-2415919104",
+    "0,1": "-3221225472",
+    "1,0": "-3221225472",
+    "1,1": "-4294967296"
+  },
+  "T_characteristic_polynomial": "(t^4-16)^3*(t^4-4*z-12)",
+  "T_determinant": "2^14*(z+3)",
+  "Tz_nonzero_entries": 36,
+  "E_nonzero_entries": 72,
+  "K_nonzero_entries": 36,
+  "sequences": [
+    [
+      0,
+      2,
+      1,
+      5,
+      3,
+      0
+    ],
+    [
+      1,
+      0,
+      2,
+      4,
+      1,
+      7
+    ],
+    [
+      2,
+      3,
+      0,
+      1,
+      0,
+      6
+    ]
+  ],
+  "exact_full_phase_comparisons": 612,
+  "scope": "arbitrary nonnegative gate sequence after two steps, full 48-phase tail output; positive 96-port bridge from PREFIX596 only",
+  "warning": "T has negative entries; signed exact linear coordinate, not a positive native-path replacement or typed-branch history equivalent",
+  "status": "AUTHOR_SIDE_EXACT_CHECKS_PASSED; DRIVER_REVIEW_PENDING"
+}
