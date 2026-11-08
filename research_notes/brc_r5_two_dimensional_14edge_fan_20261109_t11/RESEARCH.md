@@ -1,8 +1,70 @@
-# R5 — Exact two-dimensional physical 14-edge Blackwell transport atlas; sharp width on the chosen transverse ray
+# R5 — Exact two-dimensional physical 14-edge Blackwell atlas: sharp triangular fan and full-width rectangle
 
 Date: 2026-11-09 (Asia/Shanghai). **Author-side exact proof, locally executed rational verification, independent review pending.**
 
 Frozen scientific inputs unchanged: GLOBAL `a01383f825ef9d43b4b754254303298c64041568`, EM `86149263e38c22292c9def1e0f69092efa1be77e`. Reuses the complete literal predecessor endpoint certificates from [PR #1843](https://github.com/awdawmip/enterprise-math/pull/1843), immutable commit `7244646fed297cc29e2af74755c3fe909c21ff01`. Statistical observer: seven-LR-node P/Q-BRC, a restricted observer within the declared Enterprise Math worldview.
+
+## Stronger theorem — a full-width two-dimensional rectangle via an exact observer-kernel lift
+
+The following strengthens the triangular fan above by **preserving a nonzero transverse width at the endpoint \(\lambda=1\)**. It also illustrates a use of BRC residual bookkeeping: change the source's hidden flow coordinates along an *exact kernel of the declared statistical observer*, while retaining that internal flow distinction for other possible operations.
+
+Define the nonzero source-flow direction
+
+$
+K=\left(
+-\frac{49400}{295513},
+-\frac{49400}{295513},
+-\frac{49400}{295513},
+-\frac{33345}{591026},
+\frac{132145}{295513},
+-\frac{33345}{591026},
+1
+\right).
+$
+
+Exact substitution into the frozen maps proves
+
+$
+M(X_0+K)-M(X_0)=0,\qquad
+T_P(X_0+K)-T_P(X_0)=T_Q(X_0+K)-T_Q(X_0)=0,
+$
+
+and \(K_g=K_b\). Since all these maps are affine, \(K\) lies in their common linear kernel globally on the flow-coordinate space. Set
+
+$
+\widetilde D_X=D_X-K,\qquad \widetilde D_Y=D_Y.
+$
+
+The mass variation of \(x\) is unchanged, as are both stop-time equalities, the source \(g=b\) identity, and the exact nonnegative transport formulas. Only the *physical source-flow lift* changes.
+
+**Full rectangle theorem.** For **every pair of real numbers**
+
+$
+\boxed{0\le\lambda\le1,\qquad 0\le\delta\le\frac1{120}}
+$
+
+the physical flows
+
+$
+\widetilde x(\lambda,\delta)
+=(1-\lambda)X_0+\lambda X_1+\delta\widetilde D_X,\qquad
+\widetilde y(\lambda,\delta)
+=(1-\lambda)Y_0+\lambda Y_1+\delta D_Y
+$
+
+are lawful FULL_HIST source and seedless F-face LR target, have exactly equal stopping times, and admit a declaration-independent Blackwell transport with **at most 14 positive edges**. The transport is the *same two-chart formula* \(E^A,E^B\) displayed in the preceding theorem, now over the full closed rectangle.
+
+**Proof.** The support \(\{(0,0),(3,3),(6,6)\}\) of \(D\) belongs to both charts, and \(K\) changes neither source marginals nor stop times. Therefore all 21 transport equations and the seedless identities are exact affine identities. The left chart rectangle \(\lambda\in[0,1/2],\delta\in[0,1/120]\) has its four corners at A0, AH and the two new top certificates A0top, AHtop. The right chart rectangle has its corners BH, B1 and BHtop, B1top. The independent VERIFY_RECTANGLE.py checks all four new top certificates using exact Fraction arithmetic: each physical capacity, seedless identity, full Q/P normalization, stop-time equality, 21 transport equations and matrix nonnegativity passes. The original \(\delta=0\) corners were already verified. Affine convexity proves the result for all reals in the full rectangle. The same exact marginal Jacobian determinant \(-367/48000\) remains nonzero; this is a genuine 2D rectangle in statistical marginal space.
+
+**Exact sharpness for this fixed lifted ray.** At \(\lambda=0\), the source starts at \(z_0=1/120\), while \(\widetilde D_{X,z}=-1\). Thus physical \(z\ge0\) holds only for \(\delta\le1/120\); equality occurs at the upper rectangle edge. Exact verification shows every other required chart-corner inequality remains nonnegative at this width. Therefore **\(1/120\) is the largest possible uniform rectangle width along the specific lifted direction \(\widetilde D_X\)**. This statement is scoped to this lift; other transverse directions may admit larger regions.
+
+The kernel equality is certified for the declared seven-LR-node distribution and stop-time observer. It is not a declaration that the distinct native X6/Heartbeat internal flow states can be globally identified. The saved original \(D_X\), residual \(K\), and lifted \(\widetilde D_X\) preserve both representations and their provenance.
+
+**Code and execution:** VERIFY_2D.py includes the predecessor's literal rational matrices. VERIFY_RECTANGLE.py imports that local file, verifies the exact kernel and all top-chart rational certificates, and emits the output in EXACT_OUTPUT_RECTANGLE.txt. Both scripts were executed locally with standard-library Fraction, and the full real-parameter theorem follows from the affine proof.
+
+**Next question:** Construct a finite collection of similar kernel-assisted physical lift charts covering a larger high-dimensional stratum of the time-matched F-face pair space, or find an exact physically lawful pair whose smallest coupling requires 15 edges. Independently review the R5 global coverage author proof in PR #1831.
+
+---
 
 ## Theorem (all real parameters; genuine 2D statistical family)
 
