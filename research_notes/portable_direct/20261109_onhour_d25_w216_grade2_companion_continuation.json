@@ -39,11 +39,18 @@
       "original_exact_vs_companion_prime_count": 18,
       "nonvanishing_companion_screen_p1mod6_under10000": 611,
       "zero_count": 0,
-      "universal_nonvanishing_claim": "NOT_PROVED"
+      "universal_nonvanishing_claim": "NOT_PROVED",
+      "binomial_companion_611_prime_mismatch_count": 0
     },
     "proof_path": "research_notes/portable_direct/20261109_onhour_d25_w216_grade2_terminating_companion.md",
     "checker_path": "research_notes/portable_direct/d25_w216_grade2_companion_20261109.py",
-    "raw_data_path": "research_notes/portable_direct/d25_w216_grade2_companion_results_20261109.json"
+    "raw_data_path": "research_notes/portable_direct/d25_w216_grade2_companion_results_20261109.json",
+    "binomial_companion": {
+      "theorem": "S_p=sum_{j=0}^{m-1}(6j+4)(-1/2)^j*binom(m-1,j)*binom(5m,j)/binom(3m-1,j)^3 modp, every prime p=6m+1>3",
+      "proof": "5/6=-5m, 7/6=1-m, 3/2=-(3m-1) modp; (-a)_j=(-1)^j j! binom(a,j), so Pochhammer ratios termwise match",
+      "computed_verification": "611 primes p=1 mod6 <=10000, independently structured binomial recurrence equals hypergeometric S_p; plus 18 original-binomial p2-grade checks",
+      "p373": "both companion expressions 217 mod373; K=290 and T2/p2=266"
+    }
   },
   "native_benchmark": {
     "issue": 1559,
@@ -76,6 +83,6 @@
     "Earlier D25 p373 E3 proofs and 1227-prime p4 scans",
     "Existing #1559 support request"
   ],
-  "next_exact_action": "First check native #1559 and original request receipts/canonical current session authority. If native benchmark remains unexecuted, develop a certified terminating finite-field hypergeometric transformation for S_p, or a cross-grade cancellation identity connecting p2 companion to W lower grades/V full p3. For a candidate vanishing of S_p test the exact domain and preserve any counterexample. Do not claim the native H0/B0 unit or mother congruence from the portable certificate.",
+  "next_exact_action": "Read prior original receipts/native #1559 and restore own Source authorization only when backend is available. Use the exact two equivalent hypergeometric/binomial formulas for W grade2 S_p to derive cross-grade cancellation against lower W terms and the proved V2304 p3 full truncation. Test a precise creative-telescoping identity preserving W and V cutoffs; the 611-prime nonvanishing is finite evidence only. Original p373 H0/B0 remains an independent native benchmark.",
   "status": "UNREVIEWED / NOT_ADMITTED / NOT_NATIVE / SOURCE_CHECKPOINT_PENDING"
 }
