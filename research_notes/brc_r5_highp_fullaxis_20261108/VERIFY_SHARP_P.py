@@ -47,5 +47,16 @@ def main():
         y=tuple((1-s)*u+s*v for u,v in zip(y0,y1))
         base.verify(src(p),y)
     print('PASS_201_EXACT_INTERVAL_REGRESSIONS')
+    # Exact G-face cross-chart witness at p=7/10, below F-face threshold.
+    pg=F(7,10)
+    yg=(F(1),F(0),F(1),F(1,80),F(443,5200),F(2447,10400),F(0))
+    base.lawful(src(pg));base.lawful(yg)
+    assert yg[1]==yg[6]==0
+    assert base.tp(src(pg))==base.tp(yg) and base.tq(src(pg))==base.tq(yg)
+    diffs=tuple(base.hinge(yg,r)-base.hinge(src(pg),r) for r in base.R[1:-1])
+    assert all(d>0 for d in diffs)
+    assert diffs==(F(1142617,105300000),F(960367,64800000),F(102259,3600000),
+                   F(14734771,842400000),F(692617,105300000))
+    print('PASS_EXACT_G_FACE_P7_OVER10_BELOW_F_FACE_THRESHOLD',len(diffs))
     print('THEOREM_SHARP_F_FACE_P_IF_AND_ONLY_IF_2741_OVER_3900_LE_P_LE_1')
 if __name__=='__main__': main()
