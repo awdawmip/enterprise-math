@@ -41,10 +41,27 @@ For each of all 576 original actions, the image of its source and destination un
 
 The extra quartic symmetry (1 3)(2 4) is therefore a genuine identity of a fourth-order *observer* but not of the provenance-retaining marked native edge system. This exhibits an exact distinction between low-order observable symmetry and original carrier symmetry.
 
+
+## Theorem 583.3 — First separating *reduced* cumulant occurs at order two, depth one
+
+Fix the native uniform distribution on all 96 initial ports, and choose one of the six equally weighted labeled actions. Let Ri(1) and K(1) be their original axis reward and gate indicator. Exactly 96 of the 576 labeled edges have source reward on each axis, while exactly three gate edges have source axis 1. Consequently
+
+    E[Ri(1)] = 1/6 for all i,
+    E[K(1)] = 3/576 = 1/192,
+    E[R1(1) K(1)] = 1/192,
+    E[R3(1) K(1)] = 0.
+
+Therefore the exact one-step covariances are
+
+    Cov(R1(1),K(1)) = 5/1152,
+    Cov(R3(1),K(1)) = -1/1152.
+
+The observable permutation (1 3)(2 4), although a symmetry of the *asymptotic fourth cumulant*, fails already at the finite-depth **second** joint cumulant. For the declared uniform starting ensemble and length 1, all first moments of (R1,...,R6,K) are symmetric in the six axes, so order two is the least cumulant order distinguishing this candidate at depth 1. This is an exact BRC branch-counting identity, with no analytic limit or approximations.
+
 ## Evidence and continuation
 
 The companion PREFIX583_R2_symmetry_certificate.py reads the exact 126-monomial PREFIX-581 rational certificate, checks eight invariant-compatible candidates, confirms the quartic stabilizer, reconstructs the original 48-phase/96-port/576-action BRC graph, proves the gate-edge source-axis invariant, and verifies all 576 edges of the explicit (5 6) native lift. All computations use exact fractions; result JSON is PREFIX583_R2_symmetry_certificate_results.json.
 
 BRC reuse: REUSE_EXECUTED; exact scientific pin and labeled branch/gate provenance retained. Independent Driver mathematical review, original Source Researcher-ID, CLAIM, activity and Result remain pending because the native backend was unavailable. This is author-side reproducible evidence.
 
-Next: determine the lowest-order reduced mixed cumulant or finite-depth readout that separates the quartic-only symmetry (1 3)(2 4) from genuine native (5 6) symmetry. The one-step marked-edge measure already separates them at the full native source-level; minimality at reduced observers is the remaining discriminating question.
+Next: characterize which gate-marked axis permutations preserve asymptotic cumulant generating functions of all orders, distinguishing exact finite-depth symmetry from asymptotic spectral symmetry. At uniform depth one the smallest distinguishing reduced joint cumulant is now proved to be order two.
