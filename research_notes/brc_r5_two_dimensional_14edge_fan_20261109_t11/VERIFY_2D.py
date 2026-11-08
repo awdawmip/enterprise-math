@@ -69,7 +69,7 @@ print('PROVED_REAL_LAMBDA_0_TO_1_TWO_14_EDGE_SUPPORTS')
 DX=Q('-1802718000/1111424393 -1802718000/1111424393 -1802718000/1111424393 -608417325/1111424393 -496963350/1111424393 -608417325/1111424393 0')
 DY=Q('-6000/3761 -6000/3761 -6000/3761 -2025/3761 -1950/3761 -2025/3761 -600/3761')
 D={(0,0):-F(1,2),(6,6):-F(1,2),(3,3):F(1)}
-EPS=F(1,1000)
+EPS=F(1111424393/21632616000)
 def add(v,d,t):return tuple(a+t*z for a,z in zip(v,d))
 def linear(v,w,t):return tuple((1-t)*a+t*z for a,z in zip(v,w))
 def shifted(s,weights,t):return tuple(w+t*D.get(e,F(0)) for e,w in zip(s,weights))
@@ -103,3 +103,7 @@ det=dlambda_nu0*my[1]-mx[0]*dlambda_mu1
 assert det==-F(367,48000)
 print('EXACT_TWO_INDEPENDENT_MARGINAL_COORDINATES_DETERMINANT',det)
 print('THEOREM_ALL_REAL_TWO_DIMENSIONAL_14_EDGE_TRIANGLE', 'delta<=',EPS,'*(1-lambda)')
+
+assert slack(add(X0,DX,EPS))[10]==0
+assert slack(add(X0,DX,EPS+F(1,100000000)))[10]<0
+print('EXACT_SHARP_FACET_UPPER_BOUND',EPS)
