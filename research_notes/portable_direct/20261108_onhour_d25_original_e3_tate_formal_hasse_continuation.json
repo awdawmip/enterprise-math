@@ -1,0 +1,80 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_research_lane_label": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_objective": "For p≡13,19 (mod24) prove/refute original Δ_p-R_p=0 (equivalent at accepted port W216_p=p mod p^3), and obtain separately the native original H0/B0 divided-power [X]U experiment.",
+  "prior_author_frontier": "research_notes/portable_direct/20261108_onhour_d25_original_e3_cartier_two_jet_continuation.json",
+  "new_unit": {
+    "id": "original_E3_Tate_formal_differential_Hasse_second_digit_source_port",
+    "status": "AUTHOR_SIDE_ALL_PRIME_PROVED / EXACT_EIGHT_PRIME_TWO_PATH_CHECK / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE",
+    "proof_path": "research_notes/portable_direct/20261108_onhour_d25_original_e3_tate_formal_vs_cubic_hasse_second_digit.md",
+    "script_path": "research_notes/portable_direct/d25_original_e3_formal_differential_second_digit_check_20261108.py",
+    "results_path": "research_notes/portable_direct/d25_original_e3_formal_differential_second_digit_results_20261108.json",
+    "assumptions": "p prime >3; original E3:y^2+xy+cy=x^3 c=(2-T)/108; T^2=2, p-local denominators units 3k≤p-1; formal parameter t=-x/y",
+    "identity": "B_p=[t^{p-1}]dt^{-1}omega=sum_k a_k c^k product_{j=k+1}^{3k}(1-p/j); H_p=[x^{p-1}](4x^3+(x+c)^2)^{(p-1)/2}; H_p-B_p=-(p/2) sum_k a_k c^k H_k mod p^2.",
+    "validation": "Eight exact primes [13,19,37,43,61,67,211,373]; independent literal binomial and formal Taylor recursion; correct termwise harmonic difference; all PASS",
+    "p373": {
+      "formal_B_mod_p3": [
+        46042747,
+        33130606
+      ],
+      "cubic_H_mod_p3": [
+        7225756,
+        36025459
+      ],
+      "formal_B_over_p_mod_p2": [
+        123439,
+        88822
+      ],
+      "cubic_H_over_p_mod_p2": [
+        19372,
+        96583
+      ],
+      "H_minus_B_over_p_mod_p": [
+        0,
+        301
+      ],
+      "harmonic_sum_mod_p": [
+        0,
+        144
+      ],
+      "formal_B_over_p_norm_mod_p2": 120550,
+      "comparison_source_H_norm_mod_p2": 134077,
+      "comparison_ordinary_A_norm_mod_p2": 122102
+    },
+    "observer": "B=original E3 Tate-parameter formal invariant-differential coefficient; H=original E3 cubic Hasse coefficient; A=ordinary Hesse candidate; neither is native DP [X]U without explicit fixed normalization/comparison."
+  },
+  "source": {
+    "original_request": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "receipt": "SUCCEEDED / read-only historical exact continuation; no current Researcher owner claim",
+    "own_recovery_status": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
+    "site_phase": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "native_session_id": null,
+    "native_claim_id": null,
+    "native_run_id": null,
+    "native_checkpoint": "NOT_WRITTEN",
+    "research_activity": "REGISTER_PENDING",
+    "formal_admission": "NOT_ADMITTED",
+    "source_continuation_snapshot": "e9a4ab3d8143239da6d086834e294f929c1712a5",
+    "unmerged_staging": "SEPARATE",
+    "current_normative_context": "docs/RESEARCH_CONTINUATION_PROTOCOL.md#current-normative-context; research_priorities/research_method.json; GLOBAL_KNOWLEDGE_V1"
+  },
+  "native_benchmark": {
+    "issue": 1559,
+    "status": "NOT_EXECUTED / PENDING_OWNER",
+    "first_case": "p=373 original H0/B0 fixed class divided-power [X]U mod 139129, module rank, semilinear direction and eta, signed odd κ, Δ-R, independent replication",
+    "new_unit_use": "Second-digit original coordinate transport comparison only when an explicit H0/B0-to-E3 original Tate/cubic map and integral normalization is supplied."
+  },
+  "do_not_repeat": [
+    "Previously source-accepted D24 UR and source-native Green work",
+    "E3 p373 q-Frobenius [+373] finite point count",
+    "Prior original cubic Hasse second-jet and W216/V2304 fourth-digit port results",
+    "Original Source predecessor claim, sealed result/review, or other lane session"
+  ],
+  "next_action": "Execute #1559 actual original-class native H0/B0 divided-power [X]U at p=373 and report rank/eta/semilinear direction/signed κ/Δ-R with independent replication; only then test new original Tate B vs cubic H vs native [X]U under an explicit source-pinned comparison. If owner still missing, leave #1559 PENDING_OWNER; never substitute an ordinary coefficient or re-dispatch over active claim."
+}
