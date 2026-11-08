@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""S23/AV gap classes, exact rational enclosure and O(H) memory streaming audit.
+"""S23/AV gap classes, exact rational enclosure and O(H) heap streaming audit; total O(H + number of gap classes) memory.
 
 Input model and verification pattern come from Enterprise Math
 research_notes/brc_s23_av_gap_class_h5000_20261108_r1/VERIFY_H5000.py
