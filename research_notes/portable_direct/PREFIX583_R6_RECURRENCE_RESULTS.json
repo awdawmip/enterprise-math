@@ -1,0 +1,24 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_blob": "7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41",
+  "native_states": 96,
+  "labeled_actions": 576,
+  "integer_moment_depths": 773,
+  "integer_recurrence_checks": 768,
+  "initial": [
+    "0",
+    "1/576",
+    "-1/864",
+    "1/1728",
+    "1/1944"
+  ],
+  "recurrence": "9*q[n+5]+3*q[n+4]-2*q[n+3]-6*q[n+2]-3*q[n+1]-q[n]=0",
+  "characteristic": "(x-1)*(3*x^2+2*x+1)^2",
+  "generating_function": "-z*(z^3+z^2+3*z-9)/[5184*(1-z)*(1+2*z/3+z^2/3)^2]",
+  "limit": "1/5184",
+  "error": "O(n*3^(-n/2))",
+  "scope": "all n>=0, native zero root, stationary uniform initial port, labeled equiprobable six actions",
+  "proof": "768 exact integer finite witnesses + Cayley-Hamilton common order768 recurrence",
+  "review_state": "UNREVIEWED / NOT_ADMITTED"
+}
