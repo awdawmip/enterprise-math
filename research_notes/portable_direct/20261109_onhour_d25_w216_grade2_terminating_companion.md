@@ -99,3 +99,37 @@ Raw output: `research_notes/portable_direct/d25_w216_grade2_companion_results_20
 **Distinct native benchmark:** #1559 still requires the source-pinned original p=373 H0/B0 divided-power \([X]U\bmod139129\), real module rank, semilinear orientation/eta, signed Green/Hesse \(\kappa\), original \(\Delta-R\) and independent reproducer. In this run the native gateway rejected status/capabilities/recovery with `BACKEND_IDENTITY_CHECK_UNAVAILABLE; operation_sent=false`. Historical source-issued Researcher `EM-ENTERPRISE-4DEB43`, session `MCP-ecbfd1c046864bb3bff1a2e04c87d207`, activity `RA-9553E027FD14223807511263` are provenance; there is no verified current winning claim, native checkpoint or Result.
 
 The BRC/source valuation decomposition is an auxiliary external arithmetic representation that retains exact coefficients, signed weights, cutoffs and observer provenance; it does not assert a new native X6 isomorphism.
+
+## Second exact theorem: finite binomial normal form of the same defect
+
+The terminating companion above has a second **termwise exact** form, which removes all rational Pochhammer symbols while retaining the original source-labelled p²-grade. For every prime \(p=6m+1>3\),
+$$
+\boxed{
+S_p\equiv\sum_{j=0}^{m-1}(6j+4)
+\left(-\frac12\right)^j
+\frac{\binom{m-1}{j}\binom{5m}{j}}{\binom{3m-1}{j}^{\,3}}
+\pmod p.}
+$$
+Every displayed denominator is invertible modulo \(p\). Indeed the parameter congruences
+$$
+\frac56\equiv-5m,\qquad
+\frac76\equiv1-m,\qquad
+\frac32\equiv-(3m-1)\pmod p
+$$
+imply, for \(0\le j<m\),
+$$
+(5/6)_j=(-1)^j j!\binom{5m}{j},\qquad
+(7/6)_j=(-1)^j j!\binom{m-1}{j},\qquad
+(3/2)_j=(-1)^j j!\binom{3m-1}{j}
+\pmod p.
+$$
+Substituting into the definition of \(U_j\) gives
+$$
+U_j\equiv \left(-\frac12\right)^j
+\frac{\binom{m-1}{j}\binom{5m}{j}}{\binom{3m-1}{j}^{\,3}}\pmod p.
+$$
+The signs and the original weight \(6j+4\) are explicit. This is a **different finite representation of exactly the same original D25 grade**: it offers a combinatorial summation/creative-telescoping target without changing \(W_p,V_p\), the original full cutoffs, or \(\Delta-R\).
+
+An independent implementation evaluates this second expression using modular binomial recurrences, without sharing the hypergeometric \(U_j\) recurrence. It agrees with the first companion expression for **all 611 primes \(p\equiv1\pmod6\), \(p\le10000\)** and agrees with the exact original binomial p²-grade computation on the stated 18 primes. At \(p=373\), both forms yield \(S_{373}=217\bmod373\).
+
+The failed preliminary exploratory implementation used \((-2)^j\), which is different from the needed \((-1/2)^j\); the exponent/inversion correction is incorporated in the actually executed checker. No claim about uniform \(S_p\ne0\) follows from the finite sweep.
