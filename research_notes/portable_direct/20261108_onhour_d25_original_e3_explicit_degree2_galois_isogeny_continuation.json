@@ -1,0 +1,54 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_research_lane_label": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_objective": "Prove/refute frozen Delta_p-R_p=0 mod p for p≡13,19 mod24, and independently execute actual original-class H0/B0 divided-power [X]U benchmark",
+  "prior_author_frontier": "research_notes/portable_direct/20261108_onhour_d25_original_e3_tate_formal_hasse_continuation.json",
+  "new_unit": {
+    "id": "original_E3_explicit_degree2_galois_isogeny_and_p373_composed_geometric_frobenius",
+    "status": "AUTHOR_SIDE_EXACT_ALGEBRAIC_PROOF / EXACT_139659_FINITE_FIELD_U_CHECKS / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE",
+    "proof_path": "research_notes/portable_direct/20261108_onhour_d25_original_e3_explicit_degree2_galois_isogeny.md",
+    "checker_path": "research_notes/portable_direct/d25_original_e3_degree2_isogeny_certificate_20261108.py",
+    "results_path": "research_notes/portable_direct/d25_original_e3_degree2_isogeny_results_20261108.json",
+    "frozen_original_curve": "E3:y²+xy+((2-T)/108)y=x³; T²=2",
+    "exact_geometric_map": "e=(2T-3)/36; a=T/6; b=(3-2T)/432; U=u+a+b/u; Z=z(1-b/u²); x_sigma=U/2+e_sigma; y_sigma=TZ/4-(x_sigma+c_sigma)/2",
+    "theorem": "Phi:E3→E3^sigma degree2; Phi*omega_sigma=T omega; Phi^sigma∘Phi=[-2]. For p≡13,19 mod24 with Fr_p:E→E^sigma, A_p=Phi^sigma∘Fr_p satisfies A_p²=[-2]∘Fr_(p²).",
+    "p373_consequence": "Earlier exact original #E3(F_(373²))=138384 implies Fr_(373²)=[+373]; therefore A_373²=[-746], degree A_373=746",
+    "exact_checks": "40 rational chart, all 139659 u across F_(13²),F_(19²),F_(373²), 384 nonpole conjugate composition; all passed",
+    "dependency_note": "p373 Frob_[+373] is reused prior independent original-curve finite point count; not rerun or recredited",
+    "source_observer": "actual original-class isogeny and geometric p-Frobenius; no native DP coefficient, rank or eta",
+    "BRC": "COMPOSE_APPLIED source-preserving sigma/isogeny/Frobenius/sign; existing Vélu map REUSE_APPLIED"
+  },
+  "current_source": {
+    "exact_historical_request": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "receipt": "SUCCEEDED / read-only Source continuation",
+    "own_recovery_status": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
+    "sites_phase": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "native_session_id": null,
+    "native_claim_id": null,
+    "native_run_id": null,
+    "native_checkpoint": "NOT_WRITTEN",
+    "research_activity": "REGISTER_PENDING",
+    "formal_admission": "NOT_ADMITTED",
+    "unmerged_staging": "SEPARATE"
+  },
+  "native_benchmark": {
+    "issue": 1559,
+    "status": "OPEN / PENDING_OWNER / NOT_EXECUTED",
+    "first_case": "p373 authentic fixed H0/B0 divided-power [X]U mod139129; rank; semilinear direction/eta; signed odd Green/Hesse kappa; frozen Delta-R and independent replication",
+    "new_exact_geometric_comparison": "Only after proving native H0/B0 cohomology maps to this same E3 original-class operator, test the appropriately induced A_373²=[-746]; geometric map is not a substitute for the original experiment."
+  },
+  "do_not_repeat": [
+    "Source accepted D24 UR/JT0 and frozen first digit",
+    "earlier original E3 p373 point count",
+    "earlier formal vs cubic Hasse second-digit calculation",
+    "previous native rank-one unramified half-slope no-go",
+    "other Researcher/maintenance identities or claims"
+  ],
+  "next_action": "Identify authorized native owner/evaluator for existing Issue #1559, execute same-original-class p373 H0/B0 [X]U and record actual rank/eta/signed kappa/Delta-R, independently reproduce, then test current explicit degree2 isogeny/Frobenius comparison if the native-to-geometric mapping is proven. If no owner, leave PENDING_OWNER; no shadow rerun or duplicate dispatch."
+}
