@@ -1,0 +1,42 @@
+{
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "48-phase positive tail from original 96 ports, 576 typed actions",
+  "axis_weights": [
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+  ],
+  "observer": "uniform right vector e=ones(48); all-phase f_n=e^T Q^n e",
+  "vector_annihilator": "t^2*(t-2)*(t^4-4z-12)",
+  "z=1_vector_annihilator": "t^2*(t^4-16)",
+  "minimal_zero_start_uniform_order": {
+    "z=1": 6,
+    "z>=0,z!=1": 7
+  },
+  "hankel7_factorization": "-260919263232*(z - 1)**2*(z + 3)**3*(81*z**3 - 27*z**2 + 27*z + 11)*(4*z**4 + 31*z**3 + 123*z**2 + 61*z + 613)",
+  "hankel6_z1": "-179821690748928",
+  "generating_denominator": "(1-2u)*(1-(4z+12)u^4)",
+  "generating_numerator_coefficients": [
+    "48",
+    "3*(z + 32)",
+    "3*(3*z + 61)",
+    "18*(z - 1)",
+    "-8*(20*z + 77)",
+    "-32*(11*z + 38)",
+    "-768*(z + 3)"
+  ],
+  "exact_parameter_checks": [
+    "0",
+    "1",
+    "2",
+    "3/2",
+    "5"
+  ],
+  "verification": "all coefficient identities in Z[z], exact Hankel determinants, 5 x 21-step rational trajectories",
+  "status": "AUTHOR_SIDE_EXACT_CHECKS_PASS_INDEPENDENT_REVIEW_PENDING",
+  "research_activity_id": "RA-79CF6AC40EFDC108B48AC3A7",
+  "executed_local_checker_file": "PREFIX600_R2_uniform_observer_recurrence_checker.py"
+}
