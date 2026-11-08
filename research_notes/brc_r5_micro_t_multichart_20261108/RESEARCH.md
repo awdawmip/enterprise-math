@@ -1,3 +1,5 @@
+> **Subsequent stronger theorem (2026-11-08):** `UNIFORM_THEOREM.md` and `VERIFY_UNIFORM.py` establish symbolic epsilon-uniform calibrated Blackwell kernels for **every real 0<t<=1/100000** (all p,q capacities, theta∈[3/4,1], kappa=3/4). This closes the previously open 0<t<10^-6 gap described below. The independent 64-vertex four-slab proof remains useful exact evidence for the middle range. `NEXT_UNIT.md` now names variable kappa as the next unit.
+
 # R5 — Four exact common-chart slabs to t = 10^-6
 
 Date: 2026-11-08. Status: AUTHOR_PROVED / EXACT_FRACTION_EXECUTED / UNREVIEWED / NOT_ADMITTED / PORTABLE_ONLY.
