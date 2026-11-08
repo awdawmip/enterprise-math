@@ -1,0 +1,399 @@
+{
+  "schema": "EC49FFG_GREEDY_INTERVAL_CERTIFICATE_V1",
+  "date": "2026-11-09",
+  "scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "domain": "H2..H9, original nine-state BRC observer; exact reachability/minimum full-key cardinality; nonnegative y or strictly-positive domains",
+  "algorithm": "force high terminal horizons; greedily stab uncovered low intervals [h+1,2h-1] at right endpoints 2h-1, scanning h=2..9",
+  "source_staircase": "EC49FFD at df0dbc54707a6926db858631e5a03fea189dccde",
+  "source_canonical_quota": "EC49FFF at 58cdba9c360bc180028183cff711405d2e2f37c0",
+  "verification": {
+    "count_admissible": {
+      "histogram": {
+        "0": 1,
+        "1": 76,
+        "2": 1146,
+        "3": 6748,
+        "4": 20109,
+        "5": 34152,
+        "6": 35192,
+        "7": 22576,
+        "8": 8896,
+        "9": 1984,
+        "10": 192
+      },
+      "at_most_five_masks": 62232,
+      "exhaustive_masks_checked": 131072,
+      "independent_subset_counterexample": null
+    },
+    "strict_positive": {
+      "histogram": {
+        "0": 1,
+        "1": 75,
+        "2": 1071,
+        "3": 5677,
+        "4": 14432,
+        "5": 19720,
+        "6": 15472,
+        "7": 7104,
+        "8": 1792,
+        "9": 192,
+        "99": 65536
+      },
+      "at_most_five_masks": 40976,
+      "exhaustive_masks_checked": 131072,
+      "independent_subset_counterexample": null
+    }
+  },
+  "all_eight_lows": {
+    "minimum_keys": 4,
+    "witness_keys": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        6,
+        4,
+        1
+      ],
+      [
+        10,
+        8,
+        1
+      ]
+    ]
+  },
+  "simultaneous_eight_lows_four_high_3_5_7_9": {
+    "minimum_keys": 5,
+    "witness_keys": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        5,
+        3,
+        1
+      ],
+      [
+        6,
+        4,
+        1
+      ],
+      [
+        10,
+        8,
+        1
+      ]
+    ]
+  },
+  "all_eight_lows_and_H3_to_H9_high": {
+    "minimum_keys": 8,
+    "witness_keys": [
+      [
+        3,
+        1,
+        1
+      ],
+      [
+        3,
+        2,
+        1
+      ],
+      [
+        4,
+        2,
+        1
+      ],
+      [
+        4,
+        3,
+        1
+      ],
+      [
+        5,
+        3,
+        1
+      ],
+      [
+        5,
+        4,
+        1
+      ],
+      [
+        6,
+        4,
+        1
+      ],
+      [
+        10,
+        8,
+        1
+      ]
+    ]
+  },
+  "all_eight_lows_high_requirements_distribution": [
+    {
+      "high_bit_count": 0,
+      "minimum_keys": 4,
+      "mask_count": 1
+    },
+    {
+      "high_bit_count": 1,
+      "minimum_keys": 4,
+      "mask_count": 7
+    },
+    {
+      "high_bit_count": 1,
+      "minimum_keys": 5,
+      "mask_count": 2
+    },
+    {
+      "high_bit_count": 2,
+      "minimum_keys": 4,
+      "mask_count": 12
+    },
+    {
+      "high_bit_count": 2,
+      "minimum_keys": 5,
+      "mask_count": 23
+    },
+    {
+      "high_bit_count": 2,
+      "minimum_keys": 6,
+      "mask_count": 1
+    },
+    {
+      "high_bit_count": 3,
+      "minimum_keys": 4,
+      "mask_count": 6
+    },
+    {
+      "high_bit_count": 3,
+      "minimum_keys": 5,
+      "mask_count": 48
+    },
+    {
+      "high_bit_count": 3,
+      "minimum_keys": 6,
+      "mask_count": 30
+    },
+    {
+      "high_bit_count": 4,
+      "minimum_keys": 5,
+      "mask_count": 27
+    },
+    {
+      "high_bit_count": 4,
+      "minimum_keys": 6,
+      "mask_count": 79
+    },
+    {
+      "high_bit_count": 4,
+      "minimum_keys": 7,
+      "mask_count": 20
+    },
+    {
+      "high_bit_count": 5,
+      "minimum_keys": 6,
+      "mask_count": 50
+    },
+    {
+      "high_bit_count": 5,
+      "minimum_keys": 7,
+      "mask_count": 69
+    },
+    {
+      "high_bit_count": 5,
+      "minimum_keys": 8,
+      "mask_count": 7
+    },
+    {
+      "high_bit_count": 6,
+      "minimum_keys": 7,
+      "mask_count": 49
+    },
+    {
+      "high_bit_count": 6,
+      "minimum_keys": 8,
+      "mask_count": 34
+    },
+    {
+      "high_bit_count": 6,
+      "minimum_keys": 9,
+      "mask_count": 1
+    },
+    {
+      "high_bit_count": 7,
+      "minimum_keys": 8,
+      "mask_count": 27
+    },
+    {
+      "high_bit_count": 7,
+      "minimum_keys": 9,
+      "mask_count": 9
+    },
+    {
+      "high_bit_count": 8,
+      "minimum_keys": 9,
+      "mask_count": 8
+    },
+    {
+      "high_bit_count": 8,
+      "minimum_keys": 10,
+      "mask_count": 1
+    },
+    {
+      "high_bit_count": 9,
+      "minimum_keys": 10,
+      "mask_count": 1
+    }
+  ],
+  "proof_scope": "exact observation-quota key cardinality, no native ordered-prefix cost conclusion",
+  "status": "EXACT_INTEGER_PASS",
+  "secondary_surrogate_lexicographic": {
+    "scope": "canonical representatives, first minimize number of keys, then minimize sum of one native word length per key; not ordered prefix union",
+    "verification": "EXACT_ALL_SUBSET_AND_SUPERMASK_PASS",
+    "improvements": {
+      "count_admissible": {
+        "masks_where_length_surrogate_improves_vs_right_endpoint_greedy": 93216,
+        "max_total_length_saving": 22
+      },
+      "strict_positive": {
+        "masks_where_length_surrogate_improves_vs_right_endpoint_greedy": 46608,
+        "max_total_length_saving": 22
+      }
+    },
+    "examples": {
+      "count_admissible": {
+        "all_low_requirement": 255,
+        "right_end_greedy_keys": [
+          [
+            3,
+            1,
+            1
+          ],
+          [
+            4,
+            2,
+            1
+          ],
+          [
+            6,
+            4,
+            1
+          ],
+          [
+            10,
+            8,
+            1
+          ]
+        ],
+        "right_end_greedy_total_path_length": 76,
+        "lexicographic_opt_keys": [
+          [
+            3,
+            1,
+            1
+          ],
+          [
+            3,
+            2,
+            1
+          ],
+          [
+            4,
+            3,
+            1
+          ],
+          [
+            6,
+            5,
+            1
+          ]
+        ],
+        "lexicographic_opt_total_path_length": 54,
+        "minimum_keys": 4
+      },
+      "strict_positive": {
+        "all_low_requirement": 255,
+        "right_end_greedy_keys": [
+          [
+            3,
+            1,
+            1
+          ],
+          [
+            4,
+            2,
+            1
+          ],
+          [
+            6,
+            4,
+            1
+          ],
+          [
+            10,
+            8,
+            1
+          ]
+        ],
+        "right_end_greedy_total_path_length": 76,
+        "lexicographic_opt_keys": [
+          [
+            3,
+            1,
+            1
+          ],
+          [
+            3,
+            2,
+            1
+          ],
+          [
+            4,
+            3,
+            1
+          ],
+          [
+            6,
+            5,
+            1
+          ]
+        ],
+        "lexicographic_opt_total_path_length": 54,
+        "minimum_keys": 4
+      }
+    }
+  },
+  "dynamic_lexicographic": {
+    "objective": "minimize (complete key count, sum selected canonical key native word lengths)",
+    "algorithm": "sort low horizons uncovered by forced high keys; F(i)=min_(h_i+1<=H<=2h_i-1) [(1,2(H+1))+F(first j with h_j>=H)]; prepend mandatory H2 high and H3-H9 high keys",
+    "time_per_mask": "O(U^2) integer operations where low horizons subset of H2..HU (U=9)",
+    "verification": {
+      "count_admissible": {
+        "all_requirement_masks": 131072,
+        "reachable_and_exact_lexicographic_matches": 131072,
+        "mismatches": 0
+      },
+      "strict_positive": {
+        "all_requirement_masks": 131072,
+        "reachable_and_exact_lexicographic_matches": 65536,
+        "mismatches": 0
+      }
+    }
+  }
+}
