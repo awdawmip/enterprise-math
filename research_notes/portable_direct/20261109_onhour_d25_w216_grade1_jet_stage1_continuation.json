@@ -1,0 +1,76 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-09",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_goal": "Prove or refute original Delta_p-R_p congruent 0 mod p for every p congruent 13 or19 mod24, equivalently W216_full-V2304_full mod p^3 under established source crosswalk.",
+  "prior_frontier": "research_notes/portable_direct/20261109_onhour_d25_w216_grade2_companion_continuation.json",
+  "current_completed_unit": {
+    "title": "W216 grade-1 first p-adic jet and cross-grade reduced certificate",
+    "scope": "All primes p=6m+1>3",
+    "theorem": "T1 ≡ p K1 (S0+p S1) mod p^3, where U_j=(7/6)_j(1)_j(4/3)_j/[2^j(5/3)_j^3], S0=sum (6j+5)U_j modulo p^2, S1=sum [2+(6j+5)D_j]U_j modulo p, D_j=(H_j(7/6)+H_j(1)+H_j(4/3)-3H_j(5/3))/3.",
+    "original_crossgrade_equivalence": "W_full-V_full ≡ W0-V_half+pK1(S0+pS1)+p²K2S2 mod p³, using earlier Guo–Zudilin V full-half and prior W grade2 theorem.",
+    "p373": {
+      "p2": 139129,
+      "p3": 51895117,
+      "K1": 93197,
+      "S0": 11471,
+      "S1": 269,
+      "T1_mod_p3": 38687933,
+      "K2": 290,
+      "S2": 217,
+      "T2_mod_p3": 37008314,
+      "W0": 28094360,
+      "Vhalf": 373,
+      "congruence_residue": 0
+    },
+    "finite_check": "18 exact prime checks using original integer binomial oracle and hypergeometric jet/companion modular recurrences",
+    "status": "UNREVIEWED/NOT_ADMITTED/NOT_NATIVE"
+  },
+  "durable_artifacts": [
+    {
+      "path": "research_notes/portable_direct/20261109_onhour_d25_w216_grade1_first_jet_cross_grade_certificate.md",
+      "git_blob_sha1": "a6bd246acbfe6ed1397da34f183ef3b303e33a66",
+      "publish_commit": "aa3aee79dbb773f0299a7038187b480a8bbdb2e5"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_w216_grade1_jet_cross_grade_20261109.py",
+      "git_blob_sha1": "0391c49c0ed0bc7423504f3c9b237361c39f09c4",
+      "publish_commit": "b4ad21ed04fb03bf9a27014f9fd787d80b2d8b63"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_w216_grade1_jet_cross_grade_results_20261109.json",
+      "git_blob_sha1": "1bd39932654a1857125b79fc0658f35bc0e25aab",
+      "publish_commit": "7906320f9d0e22335dda60672a70ea0f8b19f85a"
+    }
+  ],
+  "next_exact_action": "Use established first-digit UR on target residue classes to divide the new cross-grade numerator by p² and obtain one explicit F_p scalar certificate; test its exact p373 components, and seek cancellation mechanism.",
+  "native_benchmark": {
+    "issue": 1559,
+    "state": "OPEN, unassigned as of 2026-11-09 GitHub read",
+    "exact_requirement": "same original p373 H0/B0 divided-power [X]U modulo 139129, rank, Frobenius orientation/eta, signed kappa, Delta-R and independent reproduction",
+    "responsible_path": "canonical Source Task owner/authorized native evaluator; no confirmed assignee"
+  },
+  "source_status": {
+    "service_version": "0.6.11",
+    "read": "historical exact continuation SUCCEEDED",
+    "site_recovery_status": "SESSION_CAPABILITY_REQUIRED",
+    "historical_researcher_id": "EM-ENTERPRISE-4DEB43",
+    "historical_session_id": "MCP-ecbfd1c046864bb3bff1a2e04c87d207",
+    "historical_activity_id": "RA-9553E027FD14223807511263",
+    "private_session_capability_available": false,
+    "own_claim": null,
+    "own_run": null,
+    "source_native_checkpoint": "NOT_WRITTEN",
+    "unresolved_request_ids": []
+  },
+  "do_not_repeat": [
+    "Accepted D24 UR and frozen CM0/SIMPLE",
+    "Original p373 E3 geometry and previous D25 Hesse coefficient results",
+    "Previous W grade2 theorem and 611-prime scan",
+    "Existing native benchmark support issue #1559"
+  ]
+}
