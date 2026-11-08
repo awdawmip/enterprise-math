@@ -82,7 +82,7 @@ lim E T_delta(24) = 11740411062003525 / 17592186044416
 
 The PREFIX-615 neutral-thinning identity yields `E[T_delta(24)]=2 E[T_delta(12)]` at every interior theta, as the rule ignores neutral gaps.
 
-In contrast, PREFIX-616 sign-complete collection of *both* signs necessarily waits for an increasingly rare negative sign: for `p_ell=1-epsilon/2`, its expected stopping cost is `2q/epsilon+O(1)`. Both results hold simultaneously because their inference targets differ: a target-diameter confidence sequence can certify a near-one Bernoulli parameter without waiting to see a negative outcome.
+In contrast, PREFIX-616 sign-complete collection of *both* signs requires rare negatives. If only one p_ell tends to 1 and other directions stay interior, `E[T_sign-complete]=2q/epsilon+O(1)` for `p_ell=1-epsilon/2`. In the exact two-boundary comparison above, where **both** `p_1=p_2=1-epsilon/2`, two negative coupons each have mass `epsilon/(2q)`: waiting for the first has geometric mean `q/epsilon`, then waiting for the other has mean `2q/epsilon`. All nonrare coupons have uniformly bounded completion cost, so `E[T_sign-complete]=3q/epsilon+O(1)`. The confidence-diameter time instead converges to the finite value above, since it need not await any negative observation.
 
 ## Reproduction, provenance and next question
 
