@@ -68,6 +68,28 @@ def companion(p):
             'W_grade2_over_p2_mod_p':kappa*h%p}
 
 
+
+def companion_binomial(p):
+    """Second, independently structured F_p expression for the same S_p.
+
+    (5/6,7/6,3/2) = (-5m,1-m,-(3m-1)) (mod p).
+    Use (-a)_j=(-1)^j j! binom(a,j), j<m.
+    """
+    assert p > 3 and p % 6 == 1
+    m = (p-1)//6
+    inv_neg2 = pow(-2, -1, p)
+    power, b1, b2, b3 = 1, 1, 1, 1
+    answer = 0
+    for j in range(m):
+        answer = (answer+(6*j+4)*power*b1*b2*pow(b3,-3,p))%p
+        if j+1 < m:
+            inv_step = pow(j+1,-1,p)
+            b1 = b1*(m-1-j)*inv_step%p
+            b2 = b2*(5*m-j)*inv_step%p
+            b3 = b3*(3*m-1-j)*inv_step%p
+            power = power*inv_neg2%p
+    return answer
+
 def main():
     explicit_primes=[7,13,19,31,37,43,61,67,73,97,109,127,157,163,193,211,229,373]
     examples=[]
@@ -75,11 +97,14 @@ def main():
         a=original_w_grades(p)
         c=companion(p)
         assert a[2] == p*p*c['W_grade2_over_p2_mod_p']
+        assert companion_binomial(p) == c['companion_sum_mod_p']
         assert a[3]==0
         assert sum(a)%(p**3) == sum(original_w_grades(p))%(p**3)
-        examples.append({**c,'original_grade2_mod_p3':a[2], 'verified_equal':True})
+        examples.append({**c,'original_grade2_mod_p3':a[2], 'verified_equal':True,'binomial_companion_sum_mod_p':companion_binomial(p),'binomial_companion_verified':True})
     prime_scan=primes_up_to(10000)
     zeros=[p for p in prime_scan if companion(p)['W_grade2_over_p2_mod_p']==0]
+    binomial_mismatches=[p for p in prime_scan if companion_binomial(p)!=companion(p)['companion_sum_mod_p']]
+    assert not binomial_mismatches
     w=original_w_grades(373)
     v=original_v_grades(373)
     assert sum(w)%(373**3)==373
@@ -90,15 +115,14 @@ def main():
     payload={
         'scope':'AUTHOR_SIDE_EXACT_GRADE2_COMPANION_NOT_NATIVE_H0_B0_NOT_UNIVERSAL_W_V_PROOF',
         'theorem_domain':'prime p=6m+1>3; original full n=0..p-1',
-        'verification':'18 exact original-binomial grade vs modular companion, 611-prime modular finite screening',
+        'verification':'18 original-binomial grade vs two companion formulas; 611-prime comparison across two mod-p companion formulas',
         'examples':examples,
-        'finite_nonzero_screen':{'upper_bound':10000,'p_1_mod_6_count':len(prime_scan),'zero_count':len(zeros),'zero_primes':zeros},
+        'finite_nonzero_screen':{'upper_bound':10000,'p_1_mod_6_count':len(prime_scan),'zero_count':len(zeros),'zero_primes':zeros,'binomial_companion_mismatch_count':len(binomial_mismatches)},
         'p373':{'modulus':373**3,'W_grade_residues':w,'V_grade_residues':v,
                 'W_minus_V_grade2_mod_p3':(w[2]-v[2])%(373**3),
-                'companion':companion(373)}
+                'companion':companion(373),'binomial_companion_sum':companion_binomial(373)}
     }
     print(json.dumps(payload, indent=2, ensure_ascii=False))
-
 
 if __name__=='__main__':
     main()
