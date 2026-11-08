@@ -1,0 +1,82 @@
+{
+  "schema": "ENTERPRISE_MATH_PREFIX598U_R2_EXACT_CERTIFICATE",
+  "date": "2026-11-08",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "reference": "PREFIX597-R2",
+  "phases": 48,
+  "ports": 96,
+  "typed_arcs": 576,
+  "gate_phase": 4,
+  "charpoly_z1": "(t - 6)*(t - 2)^13*(t + 2)^13*(t + 6)*(t^2 + 12)^6*(t^2 - 4*t + 12)^2*(t^2 + 4*t + 12)^2",
+  "characteristic_family": "F38(t) * (P10(t) - (z-1)B6(t))",
+  "P10": "t^10 - 20*t^8 - 416*t^6 - 4992*t^4 - 34560*t^2 + 248832",
+  "H8": "t^8 + 16*t^6 + 160*t^4 + 768*t^2 - 6912",
+  "B6": "20*t^6 + 48*t^4 + 1728*t^2 - 62208",
+  "gcd_P10_B6": "1",
+  "krylov_rank": 10,
+  "zero_matrix_checks": [
+    0,
+    1,
+    2,
+    3,
+    5
+  ],
+  "jump_depths": [
+    0,
+    1,
+    2,
+    8,
+    32,
+    128,
+    512
+  ],
+  "exact_cases": [
+    {
+      "z": 0,
+      "minimal_polynomial_degree": 18,
+      "bits_at_512": 1327
+    },
+    {
+      "z": 1,
+      "minimal_polynomial_degree": 10,
+      "bits_at_512": 1331
+    },
+    {
+      "z": 2,
+      "minimal_polynomial_degree": 18,
+      "bits_at_512": 1335
+    },
+    {
+      "z": 3,
+      "minimal_polynomial_degree": 18,
+      "bits_at_512": 1339
+    },
+    {
+      "z": 5,
+      "minimal_polynomial_degree": 18,
+      "bits_at_512": 1346
+    }
+  ],
+  "sample_python_exact_integer_timing_z2_ms": [
+    {
+      "n": 128,
+      "iterative": 2.669,
+      "polynomial_jump": 0.656,
+      "bits": 340
+    },
+    {
+      "n": 512,
+      "iterative": 12.397,
+      "polynomial_jump": 0.857,
+      "bits": 1335
+    },
+    {
+      "n": 2048,
+      "iterative": 81.161,
+      "polynomial_jump": 3.042,
+      "bits": 5317
+    }
+  ],
+  "result": "ALL_ASSERTIONS_PASS",
+  "code": "research_notes/portable_direct/PREFIX598U_R2_uniform_gate_certificate.py"
+}
