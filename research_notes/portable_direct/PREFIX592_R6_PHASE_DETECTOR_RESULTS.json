@@ -1,0 +1,39 @@
+{
+  "schema": "PREFIX592_R6_PHASE_DETECTOR_CERTIFICATE_V1",
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "native_input": "PREFIX565 original edge, zero root, 96 ports, six labeled actions",
+  "graded_dimensions": [
+    1,
+    13,
+    32,
+    33
+  ],
+  "native_phase_index": 42,
+  "native_phase_tuple": [
+    3,
+    -2,
+    4
+  ],
+  "branch_ports": [
+    84,
+    85
+  ],
+  "generator": "g(i)=1 if i//2==42 else 0",
+  "exact_decomposition": "W3 = W2 direct_sum Q*g",
+  "native_operator_witness": "B_(0,0,1) applied to W2 basis[24] has quotient remainder 3/4*g",
+  "proof": "W3.contains(g), not W2.contains(g), dim W3=33, dim W2=32",
+  "cubic_moment_residuals_mod_W2_by_depth": {
+    "0": {},
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {
+      "2/0/1": "-13824",
+      "2/1/0": "13824",
+      "3/0/0": "331776"
+    }
+  },
+  "scope": "All path lengths via previously certified W3 closure; root zero; cubic and lower T,P0,P1 moments; arbitrary initial port law",
+  "formal_native_claim_or_review": false
+}
