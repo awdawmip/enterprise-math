@@ -36,15 +36,16 @@ scales=[S.Rational(1),S.Rational(2,3),S.Rational(7,5)]
 sensor4_calibrations=0; decoded_parameters=0; exact_state_differences=0
 for v in sources:
   for c in scales:
-    x=v; xp=v+c*u
+    x=v; xp=v+c*u; expected=c*u
     y=[]; first4=None
     for k,gate in enumerate(base+word):
         x=Q(gate)*x; xp=Q(gate)*xp
         diff=xp-x
+        expected=Q(gate)*expected
+        assert diff==expected
         if k==0: first4=diff[4]; sensor4_calibrations+=1
         y.append(diff[3])
         assert all(val>=0 for val in x) and all(val>=0 for val in xp)
-        assert diff==c*Q(gate)*u if k==0 else True
         exact_state_differences+=48
     c_recovered=S.cancel(first4/3)
     assert c_recovered==c
