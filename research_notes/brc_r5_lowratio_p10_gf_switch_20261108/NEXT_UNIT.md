@@ -1,17 +1,22 @@
-# Next R5 unit after p=1,q=0 G/F face switching
+# Next R5 unit — mixed side-branch physical rectangle, after complete maximal-u/zero-w low-ratio solution
 
-Frozen science: global `a01383f825ef9d43b4b754254303298c64041568`, Enterprise Math `86149263e38c22292c9def1e0f69092efa1be77e`. Existing proof: `RESEARCH.md` in this directory and the 3 exact anchors in `CERTIFICATES.json`. Native Source owner/CLAIM unresolved at 2026-11-08; this is an author-side scientific handoff.
+Source frontier: `FULL_LOW_RATIO_BRIDGE.md` (this folder) now proves exact four-observer Blackwell lift for **every** `0<=eta<=1/40`, `0<=theta<=1`, `p=1,q=0`, with all `0<=s<=g<=1` and source-target interpolation `h`. Its three exact anchors are `CERTIFICATES.json`; the executed 450-check output is `EXACT_FULL_OUTPUT.txt`. Scientific pins unchanged: global `a01383f825ef9d43b4b754254303298c64041568`, EM `86149263e38c22292c9def1e0f69092efa1be77e`.
 
-## A. Close variable-eta theta>3/4 for maximal-u corner
+## Current unresolved mathematical unit
 
-For `0<eta<1/40`, source `x_eta(theta)=(1,1,eta,13/40+eta/80,9eta/40+theta/10,0,theta/10)`. We proved G-face lift for `theta<=3/4` and full-theta G/F switch for `eta=1/40`. Test exact G upper feasibility threshold `theta_G(eta)` and F lower threshold `theta_F(eta)`; seek `theta_F(eta)<=theta_G(eta)` with explicit rational certificates / symbolic nonnegative families, or a different seedless family. Distinguish a fixed-face LP obstruction from full seedless impossibility.
+For `eta=1/40` and `29/112<theta<1`, investigate the **full** physical `p,q` rectangle:
+```text
+x=(1,1,eta, (13/40+eta/80)*p,
+   9eta/40+theta/10, (3/40+21eta/80)*q, theta/10).
+```
+Earlier evidence gives a common G-face interpolation for all p,q at theta<=29/112. The p=0,q=1 corner admits an all-theta F-face lift, and our maximal-u p=1,q=0 corner now admits an all-theta G/F switch. Endpoint lifts on different nonlinear seedless representations are **not automatically** a single seedless interpolation across arbitrary p,q. Find a calibrated kernel and target valid over a useful **open** interior p/q region, or a sharp scoped obstruction to a selected face.
 
-Discriminating evidence: compute rigorously at `eta=1/1000,1/100,1/80,1/40` with source and observer equations in `RESEARCH.md`, reconstruct sparse rational Q matrices, and prove bounds via exact dual inequalities if needed. A local floating LP scan suggests overlap for positive eta but is exploration, not a certificate. Candidate threshold values are **not** treated as proved.
+Concrete first test: `eta=1/40, theta=1/2, p=q=1/2`. Search for exact lawful seedless y and rational 7x7 Q with all row-Q, column-Q, r-weighted column-P and two time equations. Compare F, G and interior `R=0` strategies, using exact rational reconstruction and a genuinely scoped dual if a linear face fails. An exact example discriminates the simplest mixed branch family. Then extend with an analytic 2D interpolation/family if possible. A failed F/G LP at one point is only a fixed-face finding.
 
-## B. Full p/q rectangle across intermediate theta
+## Secondary research
 
-For `eta=1/40`, all `p,q` corners have G-face lifts up to `theta=29/112`; the `p=0,q=1` corner lifts on F for all theta, and this unit adds `p=1,q=0` for all theta using face switching. Find a common affine seedless face at selected theta, or a nonlinear seedless family, that supports all four corners under p/q interpolation for `29/112<theta<1`. Exact domain and hypotheses must be frozen before a universal claim.
+For `1/40<eta<46/705`, revisit the physical rectangle, especially mixed p/q and positive z. Exact low/high eta constructions may support a new seedless surface with verified calibration. Do not repeat the now-complete `0<=eta<=1/40,p=1,q=0` full-theta proof.
 
-## Output
+## Handoff and actual control state
 
-A self-contained proof/counterexample, exact rational Blackwell certificate or Farkas dual where useful, executable exact checker and actual verification output. Preserve branch labels, likelihood-weighted masses, owner/CLAIM state and the mother R5 question. Publish author-side evidence to `research_notes/` if native Source remains unavailable; integrate formally only through the actual authenticated task controls.
+Save symbolic proof or exact numerical certificate, explicit parameter scope, executed verifier and output. Native Source `em_control_tasks` and `em_session_start` returned `BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE`, `operation_sent=false`; no active owner/CLAIM was authenticated. Source-side preservation is author evidence pending independent review.
