@@ -8,31 +8,31 @@ Source scientific pins retained from preceding R5 research: global `a01383f825ef
 
 Let $t,p,q,\theta,\kappa$ be arbitrary real numbers in
 
-$
+$$
 0\le t\le 1/50,\qquad 0\le p,q,\theta,\kappa\le1.
-$
+$$
 
 For the lawful FULL_HIST source
 
-$
+$$
 x=(1,t,1,(13t/40+1/80)p,9\kappa/40+t\theta/10,
 (3t/40+21/80)q,t\theta/10),
-$
+$$
 
 there exist a lawful seedless target $y=(g',a',b',u',v',w',z')$ and a nonnegative 7-by-7 Blackwell matrix $E$, independent of the terminal declaration, satisfying
 
-$
+$$
 \sum_j E_{ij}=M_i(y),\qquad
 \sum_i E_{ij}=M_j(x),\qquad
 \sum_i r_i E_{ij}=r_j M_j(x),
-$
+$$
 
 for all $i,j=0,\ldots,6$, with
 
-$
+$$
 r=(1/10,1/2,3/4,1,5/4,3/2,19/10),\quad
 T_P(x)=T_P(y),\quad T_Q(x)=T_Q(y).
-$
+$$
 
 Therefore every randomized seven-node terminal declaration is transported to a declaration with exactly the same $(e_P,e_Q,T_P,T_Q)$. All real endpoints and irrational parameters are included.
 
@@ -42,10 +42,10 @@ Write (\mu_f=\sum_i M_i(f)\delta_{r_i}) for the (Q) LR law. The seven masses obe
 
 For any two lawful flows (x,y), a nonnegative (E) with the three sets of row/column/moment identities above exists **if and only if** the following five scalar inequalities hold:
 
-$
+$$
 H_k(y)\ge H_k(x),\quad
 H_k(f)=\sum_{i=0}^6(r_i-r_k)_+M_i(f),\quad k=1,2,3,4,5.
-$
+$$
 
 Necessity follows from conditional Jensen, since (E) couples a target LR (Y) with a source LR (X) and $\mathbb E[Y\mid X]=X$. Conversely, linear interpolation on the ordered finite support expresses every convex function (modulo an affine function) as a nonnegative combination of the five interior hinge functions. The inequalities plus the equal masses/means give $\mu_x\preceq_{cx}\mu_y$. The finite-support martingale coupling theorem (Strassen) supplies (E) with precisely these marginals and conditional mean. Source: L. Leskelä and M. Vihola, *Conditional convex orders and measurable martingale couplings* (2015), arXiv:1404.0999, and the finite-support formulation in Econlib Probability Order Strassen DiscreteGeneral, https://lean4.party/docs/Econlib/Probability/Order/Strassen/DiscreteGeneral.html . This is an application of an established theorem, not a claim of new Strassen theory.
 
@@ -55,13 +55,13 @@ Every hinge is affine in the seven flow coordinates. Consequently, the existence
 
 For $p,q\in[0,1]$ let
 
-$
+$$
 s_{00}=s_{10}=3/4,\quad s_{01}=9/10,\quad s_{11}=4/5,
-$
+$$
 $
 S(p,q)=\sum_{i,j\in\{0,1\}}s_{ij}p^i(1-p)^{1-i}q^j(1-q)^{1-j},
 \qquad h(t,p,q)=1-50t\bigl(1-S(p,q)\bigr).
-$
+$$
 
 Thus $3/4\le h\le1$.
 
