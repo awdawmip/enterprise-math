@@ -67,6 +67,34 @@ All capacity, mass, LR normalization and stop-time conditions also hold exactly.
 
 For every real \(p\in[p_*,1]\), convexly interpolate the two targets using \(s=(p-p_*)/(1-p_*)\). The source is affine in p, the F face is linear, and all capacity/mass/time/hinge constraints are affine. Their nonnegative interpolation therefore preserves every condition. Finite-support Strassen gives the required seven-node Blackwell transfer, establishing exact sufficiency for the whole real interval.
 
+## Exact complementary G-face witness below the F threshold
+
+At \(p=7/10<2741/3900\), the same source has
+
+\[
+x=(1,1/13,1,21/800,0,279/1040,0).
+\]
+
+A lawful seedless target on the alternative **G** face \(a'=z'=0\) is
+
+\[
+\boxed{y_G=(1,0,1,1/80,443/5200,2447/10400,0).}
+\]
+
+Both stop-time differences are exactly zero. Its five hinge differences, checked using the same mass law, are
+
+\[
+\left(
+1142617/105300000,\;
+960367/64800000,\;
+102259/3600000,\;
+14734771/842400000,\;
+692617/105300000
+\right)>0.
+\]
+
+Thus the **same exact source** lies below the sharp F-face cutoff and nevertheless admits a valid G-face Blackwell realization. This is a direct observer-scoped certificate that the derived obstruction is representational. The G target is also the \(p=7/10\) convex interpolation of the two frozen \(t=1/13,q=1,\theta=\kappa=0\) G-face vertices from prior PR #1821.
+
 ## Reproduction and continuation
 
 Execute python3 VERIFY_SHARP_P.py beside VERIFY.py. The former checks nine affine-basis evaluations for the identity, two exact endpoints, and 201 rational interpolation regressions. Exact local stdout is in SHARP_OUTPUT.txt. The all-real proof follows from the polynomial identity and affine interpolation.
