@@ -4,7 +4,7 @@
 
 ## 精确范围及输入
 
-冻结科学输入：\`awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d\`；调用原生BRC 96端口、每端口六种带标签原生动作。实际可执行边定义为 \`research_notes/portable_direct/PREFIX565_positive_marginal_certificate.py\`（Git blob \`7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41\`），该实现具有原生支路和完整六轴、门控奖励。本定理固定原生允许零根、96端口**均匀初始分布**及每一步六种原生动作等概率。长度 \(n\) 是原生动作数，未等同物理心跳时间。
+冻结科学输入：`awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d`；调用原生BRC 96端口、每端口六种带标签原生动作。实际可执行边定义为 `research_notes/portable_direct/PREFIX565_positive_marginal_certificate.py`（Git blob `7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41`），该实现具有原生支路和完整六轴、门控奖励。本定理固定原生允许零根、96端口**均匀初始分布**及每一步六种原生动作等概率。长度 \(n\) 是原生动作数，未等同物理心跳时间。
 
 设 \(R_i(n)\) 为六个原生轴的累计奖励，\(K_n\) 为累计门控次数。定义
 \[
@@ -79,12 +79,12 @@ M_s(n,u)\prod_{\ell\in m\setminus s} w_\ell(u\to v).
 
 4. 任一双变量二重矩只需4个子集/端口，故被 \(p(E)^4\) 消去。对任何 \(p(E)f=0\)，利用 \([p(E),n]=Ep'(E)\) 可得 \(p(E)^2(nf)=0\)。因此三个 \(n\cdot S_{\text{二重矩}}\) 都被 \(p(E)^8\) 消去。由于 \(A\mathbf1=6\mathbf1\)，有 \((E-6)\mid p(E)\)，故 \(n^3D_n\) 被 \((E-6)^4\mid p(E)^8\) 消去。由式(2)，**每个** \(Q_{ij}(n)\) 都满足同一个次数至多768的首一线性递推 \(p(E)^8 Q_{ij}=0\)。
 
-5. 实际执行同目录 \`PREFIX582_R6_pair_cubic_ch768_certificate.py\`，对原生576边和上式的768维整数递推，**穷举全部 n=0,1,...,767**，同时验证两个指定全整数序列：
+5. 实际执行同目录 `PREFIX582_R6_pair_cubic_ch768_certificate.py`，对原生576边和上式的768维整数递推，**穷举全部 n=0,1,...,767**，同时验证两个指定全整数序列：
 \[
 \boxed{Q_{00}(n)=0,\qquad Q_{12}(n)=0
 \quad(0\le n<768).}
 \]
-一共 **1536 个完整零式**，全部精确整数通过，打印 \`ALL_CHECKS_PASS\`。由第4步的首一递推，这两个序列对全部 \(n\ge0\) 恒零。这是一个有有限、完整验证范围的严格无界长度代数证书。
+一共 **1536 个完整零式**，全部精确整数通过，打印 `ALL_CHECKS_PASS`。由第4步的首一递推，这两个序列对全部 \(n\ge0\) 恒零。这是一个有有限、完整验证范围的严格无界长度代数证书。
 
 6. \(\sum_iP_i(n)=n\) 是路径恒等式，故对任何 \(j\)，\(\sum_i C^{(n)}_{ij}=\operatorname{cum}(Y_n,n,P_j(n))=0\)。结合矩阵对称性以及 \(C_{00}^{(n)}=C_{12}^{(n)}=0\)，逐项解线性方程得到唯一形式
 \[
@@ -94,8 +94,8 @@ C^{(n)}=\begin{pmatrix}0&q&-q\\q&-q&0\\-q&0&q\end{pmatrix}.
 
 ## 证据、关系、下一问题
 
-精确整数证书由一个独立Python标准库驱动从冻结BRC原生边函数重建96×6路径，直接迭代768长度层，校验所有1536零式；本轮实际复跑结果为 \`ALL_CHECKS_PASS\`。结果摘要 \`PREFIX582_R6_PAIR_CUBIC_CH768_RESULTS.json\`。数值公式 \(q_1,q_2\) 来自 PREFIX-581-R6 的独立原始路径整数矩证书。
+精确整数证书由一个独立Python标准库驱动从冻结BRC原生边函数重建96×6路径，直接迭代768长度层，校验所有1536零式；本轮实际复跑结果为 `ALL_CHECKS_PASS`。结果摘要 `PREFIX582_R6_PAIR_CUBIC_CH768_RESULTS.json`。数值公式 \(q_1,q_2\) 来自 PREFIX-581-R6 的独立原始路径整数矩证书。
 
-本结论对指定**零根+均匀端口初始分布**的**全部有限整数长度**适用，保留精确路径、端口、六轴/门控联合计数。BRC复用 \`REUSE_EXECUTED\`；这是一项PREFIX-580-R6的进一步精确有限深度结构，同时保留一切原生来源。无任何原生Source任务 CLAIM、Result、Review 或Working Truth接受之声称。
+本结论对指定**零根+均匀端口初始分布**的**全部有限整数长度**适用，保留精确路径、端口、六轴/门控联合计数。BRC复用 `REUSE_EXECUTED`；这是一项PREFIX-580-R6的进一步精确有限深度结构，同时保留一切原生来源。无任何原生Source任务 CLAIM、Result、Review 或Working Truth接受之声称。
 
-下一最小可执行问题：求 \(q_n\) 的紧凑有理生成函数/低阶整数递推，给出严格二阶奇偶符号或衰减规律；其次研究如何从原生门控来源构造更短的路径配对证书，并测试非均匀起点及其它冻结允许根的确切适用范围。原生控制服务 \`STATUS_DATABASE_UNAVAILABLE\`，正式活跃Owner及新Source会话未确认。
+下一最小可执行问题：求 \(q_n\) 的紧凑有理生成函数/低阶整数递推，给出严格二阶奇偶符号或衰减规律；其次研究如何从原生门控来源构造更短的路径配对证书，并测试非均匀起点及其它冻结允许根的确切适用范围。原生控制服务 `STATUS_DATABASE_UNAVAILABLE`，正式活跃Owner及新Source会话未确认。

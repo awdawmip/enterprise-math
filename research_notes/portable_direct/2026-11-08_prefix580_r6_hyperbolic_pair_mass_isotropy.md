@@ -4,7 +4,7 @@
 
 ## 科学输入与新问题
 
-冻结输入仍为 \`awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d\`，包括96个原生BRC端口、576条带标签原生动作、六轴累积计数 \(R_1,\ldots,R_6\) 以及门控 \(K\)。每步从六种动作等概率选择。本轮继承 PREFIX-579-R6 的已发布精确三阶矩阵：
+冻结输入仍为 `awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d`，包括96个原生BRC端口、576条带标签原生动作、六轴累积计数 \(R_1,\ldots,R_6\) 以及门控 \(K\)。每步从六种动作等概率选择。本轮继承 PREFIX-579-R6 的已发布精确三阶矩阵：
 
 \[
 Y_n=K_n-\frac{5R_1-R_2+5R_3-R_4-4R_5-4R_6}{192},
@@ -23,7 +23,7 @@ N=\begin{pmatrix}
 \end{pmatrix}.
 \]
 
-父证明：\`research_notes/portable_direct/2026-11-08_prefix579_r6_gate_residual_cross_axis_cumulant.md\`，固定提交 \`512b4b9f8c622399560a0af78736ed2585945ada\`。本文对该矩阵作新代数研究，不重复宣称原生96端口三阶Poisson全张量的计算。
+父证明：`research_notes/portable_direct/2026-11-08_prefix579_r6_gate_residual_cross_axis_cumulant.md`，固定提交 `512b4b9f8c622399560a0af78736ed2585945ada`。本文对该矩阵作新代数研究，不重复宣称原生96端口三阶Poisson全张量的计算。
 
 ## 定理：四坐标精确双曲公式
 
@@ -112,12 +112,12 @@ T=\begin{pmatrix}
 
 ## 执行、来源和验证边界
 
-同目录的 \`PREFIX580_R6_hyperbolic_certificate.py\` 以纯标准库精确整数/有理数核验矩阵同余、非零行列式、完整零耦合基的16项测试、核向量及符号实例；运行输出 \`ALL_CHECKS_PASS\`。验证元数据在 \`PREFIX580_R6_RESULTS.json\`。该证明的逻辑输入是 PREFIX-579-R6 经作者精确有理数证书证明的矩阵；本轮是其**全系数代数推论**。根独立性继承已发布的原生端点势差和转移谱相似定理。其意义限于指定原生BRC模型的**渐近三阶累积量率**；并不添加新的有限路径长度零式。
+同目录的 `PREFIX580_R6_hyperbolic_certificate.py` 以纯标准库精确整数/有理数核验矩阵同余、非零行列式、完整零耦合基的16项测试、核向量及符号实例；运行输出 `ALL_CHECKS_PASS`。验证元数据在 `PREFIX580_R6_RESULTS.json`。该证明的逻辑输入是 PREFIX-579-R6 经作者精确有理数证书证明的矩阵；本轮是其**全系数代数推论**。根独立性继承已发布的原生端点势差和转移谱相似定理。其意义限于指定原生BRC模型的**渐近三阶累积量率**；并不添加新的有限路径长度零式。
 
-BRC复用为 \`REUSE_APPLIED\`：原生六轴、标签、分支及后续联合观察仍保留；四个新坐标仅是本次第三阶观测的精确计算表示。结论按作者研究材料保存，待独立审查。
+BRC复用为 `REUSE_APPLIED`：原生六轴、标签、分支及后续联合观察仍保留；四个新坐标仅是本次第三阶观测的精确计算表示。结论按作者研究材料保存，待独立审查。
 
 ## 下一科学问题
 
 优先在576条原生动作上寻找路径对合或精确边势，解释配对轴和 \(P_{12}=R_1+R_2,P_{34}=R_3+R_4,P_{56}=R_5+R_6\) 对残差的三阶互耦为何消失；区分有限长度的真实零式、有界端点修正和反例。并测试双曲四坐标在第四阶残差混合累积量下是否闭合，保留无法恢复的原生联合方向。
 
-本轮Source原生控制查询失败：\`BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE\`，\`operation_sent=false\`。活跃Owner和新的原生Researcher-ID未确认，未创建正式CLAIM、Result或Review。
+本轮Source原生控制查询失败：`BACKEND_IDENTITY_OR_VERSION_MISMATCH / STATUS_DATABASE_UNAVAILABLE`，`operation_sent=false`。活跃Owner和新的原生Researcher-ID未确认，未创建正式CLAIM、Result或Review。
