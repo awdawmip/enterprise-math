@@ -1,0 +1,31 @@
+{
+  "research_unit": "PREFIX-601-R6",
+  "status": "ALL_CHECKS_PASS",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "native_implementation_git_blob": "7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41",
+  "native_incidence_count": 12,
+  "reciprocal_edge_pairs": 6,
+  "determinant_formula": "det(B(t))=product_pairs(1-4*t_e*t_f)",
+  "rank_formula": "rank(M(t))=48-2*number_of_critical_pairs",
+  "cases": [
+    {"weights": "all_1_original", "det_B": "729", "rank_B": 24, "rank_M": 48},
+    {"weights": "all_0", "det_B": "1", "rank_B": 24, "rank_M": 48},
+    {"weights": "12_distinct_i_plus_1_over_i_plus_3", "det_B": "-1094608/4729725", "rank_B": 24, "rank_M": 48},
+    {"weights": "one_critical_pair", "det_B": "0", "rank_B": 23, "rank_M": 46},
+    {"weights": "two_critical_pairs", "det_B": "0", "rank_B": 22, "rank_M": 44},
+    {"weights": "all_half", "det_B": "0", "rank_B": 18, "rank_M": 36}
+  ],
+  "witness": {
+    "initial_plus_phase_indices": [0,1,6,7],
+    "native_phase_ids": [2,3,14,15],
+    "left_null_vector": ["1/2","1/2","-1/2","-1/2"],
+    "baseline": "1/24 across 24 positive-signed phases",
+    "perturbation": "plus_or_minus_1_over_24_times_left_null_vector",
+    "exact_next_phase_laws_equal": true
+  },
+  "arithmetic": "exact_integer_and_Fraction",
+  "executed_local_full_certificate": true,
+  "executed_local_short_certificate": true,
+  "independent_review": false,
+  "formal_result_or_review": false
+}
