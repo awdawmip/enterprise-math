@@ -1,0 +1,51 @@
+{
+  "marker": "R642_HISTOGRAM_PARITY_SHARP_TRIT_REPAIR_PASS",
+  "date": "2026-11-08",
+  "vertices": 20,
+  "directed_edges": 180,
+  "edge_parity_checks": 180,
+  "slot_transition_checks": 1080,
+  "reachable_states": 120,
+  "worst_case_same_histogram_fiber": 3,
+  "even_outcomes": {
+    "AABB": [
+      0,
+      1,
+      2
+    ],
+    "ABAB": [
+      2,
+      0,
+      1
+    ],
+    "BABA": [
+      1,
+      2,
+      0
+    ]
+  },
+  "odd_outcomes": {
+    "AABB": [
+      0,
+      2,
+      1
+    ],
+    "ABAB": [
+      2,
+      1,
+      0
+    ],
+    "BABA": [
+      1,
+      0,
+      2
+    ]
+  },
+  "histogram_even": "2*h(A)+2*h(B)",
+  "histogram_odd": "3*h(A)+2*h(B)",
+  "added_residual": "q modulo3; epsilon determined by exact directed-edge histogram",
+  "source_commit": "b62110008321d9147212cb89f2627ff613c2550d",
+  "predecessor": "f1b10d4dadac4c015de6f0256b3fb281147de7f7",
+  "frozen_science": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "status": "AUTHOR_EXACT_PROOF_AND_FINITE_CHECK_UNREVIEWED"
+}
