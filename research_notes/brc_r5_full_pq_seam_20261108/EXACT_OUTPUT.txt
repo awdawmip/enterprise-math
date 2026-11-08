@@ -1,0 +1,12 @@
+$ python3 VERIFY.py
+PASS_EXACT_VERTEX_HINGE_AND_SEEDLESS 64
+PASS_EXACT_INTERIOR_INTERPOLATION 151
+THEOREM_ALL_REAL_FIVE_PARAMETER_LOW_RATIO_COMPLETE_PRISM
+
+Executed locally on 2026-11-08 with Python stdlib fractions only, in /mnt/data/r5_verify_seam.py.
+Discovery (not part of proof): SciPy linear feasibility search.
+Exactification: SymPy rational active-set reconstruction of 32 target vertices.
+Independent exact cross-check: 32 explicit rational martingale transfer solutions reconstructed and checked, 301 positive entries total, using /mnt/data/r5_exact_transfer.py (not published as a proof dependency).
+Proof dependency: finite-support Strassen theorem + checked five hinge inequalities at every vertex + multiaffine convex interpolation.
+Original scientific inputs: GK a01383f825ef9d43b4b754254303298c64041568; EM 86149263e38c22292c9def1e0f69092efa1be77e.
+Research is author-side/unreviewed; P000 protected.
