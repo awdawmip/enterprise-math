@@ -9,9 +9,9 @@
 ## Theorem A: all real initial probability laws
 
 For an arbitrary probability vector `μ=(μ0,...,μ95)` on the 96 original native ports, define the full seven-variable path polynomial
-[
-F_n^{mu}(x_1,ldots,x_6;y)=mathbb E_mu!left[y^{K_n}prod_{i=1}^6 x_i^{R_i(n)}ight].
-]
+
+`F_n^μ(x1,...,x6;y) = E_μ[y^(K_n) ∏_(i=1)^6 x_i^(R_i(n))]`.
+
 Let `τ` exchange only `x5,x6`. Then **`F_n^μ=τF_n^μ` coefficientwise for every integer `n≥0` if and only if** each of the 16 disjoint four-port blocks `A|B` below satisfies `Σ_(u∈A) μu=Σ_(u∈B) μu`:
 
 | Block | A | B |
@@ -49,11 +49,8 @@ Their difference proves `q50-q48=q42-q41` **for all n**. The 96 original port-cl
 
 `F_n^μ-τF_n^μ = Σ_(j=1)^16 ( μ(A_j)-μ(B_j) ) H_j(n)`.
 
-The `H_j` are 16 exact integer path-response families, not a numerically fitted basis; original six-axis/gate increments, parallel native action multiplicities and original ports are retained. An integer coefficient matrix for their monomials at path lengths `0,...,5` has an explicit **16×16 minor**
-[
-det M equiv 681390811 pmod{1000000007}
-e 0.
-]
+The `H_j` are 16 exact integer path-response families, not a numerically fitted basis; original six-axis/gate increments, parallel native action multiplicities and original ports are retained. An integer coefficient matrix for their monomials at path lengths `0,...,5` has an explicit **16×16 minor** with `det(M) ≡ 681390811 (mod 1000000007) ≠ 0`.
+
 The reproducer records the 16 selected depth/monomial rows and recomputes the determinant, so the 16 response families are linearly independent over `Q`; hence all-depth invariance forces precisely the 16 displayed balances.
 
 For each four-port block, nonnegative left/right masses `l_a,r_b` share a total `t`; if `t>0`, coupling `γ_ab=l_a r_b/t` gives its contribution as `Σ_(a,b)2γ_ab(δa+δb)/2`. Add the 32 unconstrained singleton masses. This constructs every feasible law from the 96 vertices. Support arguments show each listed law is extreme. The 16 disjoint independent block equations, one normalization and an interior strictly positive uniform law give dimension `96-16-1=79`.
