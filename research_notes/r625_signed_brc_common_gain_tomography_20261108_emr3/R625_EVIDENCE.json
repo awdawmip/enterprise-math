@@ -1,34 +1,61 @@
 {
   "schema": "EM_R625_COMMON_GAIN_TOMOGRAPHY_EXACT_V1",
   "status": "AUTHOR_SIDE_EXACT_COMPUTATION",
-  "method": "Python standard-library exact integer and Fraction, original frozen signed K binomial formula; no floating-point",
-  "observed_utc": "2026-11-08T01:24:00Z",
-  "source_pin": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
-  "verification_local_file_sha256": "18342fea1dfac8c62179278e79d4290b1c432b64772264224ab5c97970e710c5",
-  "verifier_local_sha256": "b00a36805385107be4412212e34f802b9841db0c53db4d3b4b46dd9703acf2ff",
-  "local_run_marker": "R625_COMMON_GAIN_VALUATION_TOMOGRAPHY_EXACT_PASS",
+  "science": {
+    "frozen_commit": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+    "K_source_blob": "7fa7a762f758b30c6090468ac43487daa34abad8",
+    "theta": "0",
+    "K_leading_coefficients": [
+      2,
+      -1,
+      -8,
+      -11,
+      6,
+      53,
+      106,
+      119,
+      83,
+      36,
+      9,
+      1
+    ],
+    "K_valuations": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  },
   "samples": [
-    [
-      "unit",
-      [
+    {
+      "sample": "unit",
+      "coefficients": [
         1
       ],
-      0
-    ],
-    [
-      "bad_common_gain",
-      [
+      "valuation_r": 0
+    },
+    {
+      "sample": "bad_common_gain",
+      "coefficients": [
         1,
         0,
         0,
         2,
         97
       ],
-      0
-    ],
-    [
-      "shifted",
-      [
+      "valuation_r": 0
+    },
+    {
+      "sample": "shifted",
+      "coefficients": [
         0,
         0,
         1,
@@ -36,33 +63,28 @@
         0,
         2
       ],
-      2
-    ],
-    [
-      "signed_shift",
-      [
+      "valuation_r": 2
+    },
+    {
+      "sample": "signed_shift",
+      "coefficients": [
         0,
         -3,
         0,
         1
       ],
-      1
-    ]
+      "valuation_r": 1
+    }
   ],
-  "finite_exhaustive_checks": {
-    "cases": 38,
-    "orientations_each": 720,
-    "exact_deconvolutions": 4
-  },
-  "raw_tap_counterexample": {
-    "common_gain": [
+  "raw_packet_collision": {
+    "gain_coefficients": [
       1,
       0,
       0,
       2,
       97
     ],
-    "signatures": [
+    "axis_signatures": [
       [
         0,
         4
@@ -88,9 +110,289 @@
         0
       ]
     ],
-    "distinct_orientation_codes": 360
+    "colliding_axes": [
+      3,
+      4
+    ],
+    "distinct_orientation_codes": 360,
+    "total_orientations": 720
   },
-  "theorem": "For any nonzero common A in Z[[t]] of valuation r, d-jet orientation recoverable iff d>=r+8, with orbit 720/(6-k)!; algebraic proof in PROOF",
-  "replay": "python R625_VERIFY.py > R625_GENERATED_EVIDENCE.json",
-  "evidence_limit": "finite verification of selected gains and depths; universal claims supported by written proof, not enumeration"
+  "coverage": {
+    "cases": 38,
+    "orientations_per_case": 720,
+    "total_orientation_case_checks": 27360,
+    "exact_common_gain_deconvolution_tests": 4,
+    "jet_cases": [
+      {
+        "sample": "unit",
+        "valuation_r": 0,
+        "jet_d": 0,
+        "visible_axes": 1,
+        "distinct_orientation_codes": 6
+      },
+      {
+        "sample": "unit",
+        "valuation_r": 0,
+        "jet_d": 1,
+        "visible_axes": 1,
+        "distinct_orientation_codes": 6
+      },
+      {
+        "sample": "unit",
+        "valuation_r": 0,
+        "jet_d": 2,
+        "visible_axes": 2,
+        "distinct_orientation_codes": 30
+      },
+      {
+        "sample": "unit",
+        "valuation_r": 0,
+        "jet_d": 4,
+        "visible_axes": 3,
+        "distinct_orientation_codes": 120
+      },
+      {
+        "sample": "unit",
+        "valuation_r": 0,
+        "jet_d": 6,
+        "visible_axes": 4,
+        "distinct_orientation_codes": 360
+      },
+      {
+        "sample": "unit",
+        "valuation_r": 0,
+        "jet_d": 7,
+        "visible_axes": 4,
+        "distinct_orientation_codes": 360
+      },
+      {
+        "sample": "unit",
+        "valuation_r": 0,
+        "jet_d": 8,
+        "visible_axes": 5,
+        "distinct_orientation_codes": 720
+      },
+      {
+        "sample": "unit",
+        "valuation_r": 0,
+        "jet_d": 10,
+        "visible_axes": 6,
+        "distinct_orientation_codes": 720
+      },
+      {
+        "sample": "unit",
+        "valuation_r": 0,
+        "jet_d": 12,
+        "visible_axes": 6,
+        "distinct_orientation_codes": 720
+      },
+      {
+        "sample": "bad_common_gain",
+        "valuation_r": 0,
+        "jet_d": 0,
+        "visible_axes": 1,
+        "distinct_orientation_codes": 6
+      },
+      {
+        "sample": "bad_common_gain",
+        "valuation_r": 0,
+        "jet_d": 1,
+        "visible_axes": 1,
+        "distinct_orientation_codes": 6
+      },
+      {
+        "sample": "bad_common_gain",
+        "valuation_r": 0,
+        "jet_d": 2,
+        "visible_axes": 2,
+        "distinct_orientation_codes": 30
+      },
+      {
+        "sample": "bad_common_gain",
+        "valuation_r": 0,
+        "jet_d": 4,
+        "visible_axes": 3,
+        "distinct_orientation_codes": 120
+      },
+      {
+        "sample": "bad_common_gain",
+        "valuation_r": 0,
+        "jet_d": 6,
+        "visible_axes": 4,
+        "distinct_orientation_codes": 360
+      },
+      {
+        "sample": "bad_common_gain",
+        "valuation_r": 0,
+        "jet_d": 7,
+        "visible_axes": 4,
+        "distinct_orientation_codes": 360
+      },
+      {
+        "sample": "bad_common_gain",
+        "valuation_r": 0,
+        "jet_d": 8,
+        "visible_axes": 5,
+        "distinct_orientation_codes": 720
+      },
+      {
+        "sample": "bad_common_gain",
+        "valuation_r": 0,
+        "jet_d": 10,
+        "visible_axes": 6,
+        "distinct_orientation_codes": 720
+      },
+      {
+        "sample": "bad_common_gain",
+        "valuation_r": 0,
+        "jet_d": 12,
+        "visible_axes": 6,
+        "distinct_orientation_codes": 720
+      },
+      {
+        "sample": "shifted",
+        "valuation_r": 2,
+        "jet_d": 1,
+        "visible_axes": 0,
+        "distinct_orientation_codes": 1
+      },
+      {
+        "sample": "shifted",
+        "valuation_r": 2,
+        "jet_d": 2,
+        "visible_axes": 1,
+        "distinct_orientation_codes": 6
+      },
+      {
+        "sample": "shifted",
+        "valuation_r": 2,
+        "jet_d": 3,
+        "visible_axes": 1,
+        "distinct_orientation_codes": 6
+      },
+      {
+        "sample": "shifted",
+        "valuation_r": 2,
+        "jet_d": 4,
+        "visible_axes": 2,
+        "distinct_orientation_codes": 30
+      },
+      {
+        "sample": "shifted",
+        "valuation_r": 2,
+        "jet_d": 6,
+        "visible_axes": 3,
+        "distinct_orientation_codes": 120
+      },
+      {
+        "sample": "shifted",
+        "valuation_r": 2,
+        "jet_d": 8,
+        "visible_axes": 4,
+        "distinct_orientation_codes": 360
+      },
+      {
+        "sample": "shifted",
+        "valuation_r": 2,
+        "jet_d": 9,
+        "visible_axes": 4,
+        "distinct_orientation_codes": 360
+      },
+      {
+        "sample": "shifted",
+        "valuation_r": 2,
+        "jet_d": 10,
+        "visible_axes": 5,
+        "distinct_orientation_codes": 720
+      },
+      {
+        "sample": "shifted",
+        "valuation_r": 2,
+        "jet_d": 12,
+        "visible_axes": 6,
+        "distinct_orientation_codes": 720
+      },
+      {
+        "sample": "shifted",
+        "valuation_r": 2,
+        "jet_d": 14,
+        "visible_axes": 6,
+        "distinct_orientation_codes": 720
+      },
+      {
+        "sample": "signed_shift",
+        "valuation_r": 1,
+        "jet_d": 0,
+        "visible_axes": 0,
+        "distinct_orientation_codes": 1
+      },
+      {
+        "sample": "signed_shift",
+        "valuation_r": 1,
+        "jet_d": 1,
+        "visible_axes": 1,
+        "distinct_orientation_codes": 6
+      },
+      {
+        "sample": "signed_shift",
+        "valuation_r": 1,
+        "jet_d": 2,
+        "visible_axes": 1,
+        "distinct_orientation_codes": 6
+      },
+      {
+        "sample": "signed_shift",
+        "valuation_r": 1,
+        "jet_d": 3,
+        "visible_axes": 2,
+        "distinct_orientation_codes": 30
+      },
+      {
+        "sample": "signed_shift",
+        "valuation_r": 1,
+        "jet_d": 5,
+        "visible_axes": 3,
+        "distinct_orientation_codes": 120
+      },
+      {
+        "sample": "signed_shift",
+        "valuation_r": 1,
+        "jet_d": 7,
+        "visible_axes": 4,
+        "distinct_orientation_codes": 360
+      },
+      {
+        "sample": "signed_shift",
+        "valuation_r": 1,
+        "jet_d": 8,
+        "visible_axes": 4,
+        "distinct_orientation_codes": 360
+      },
+      {
+        "sample": "signed_shift",
+        "valuation_r": 1,
+        "jet_d": 9,
+        "visible_axes": 5,
+        "distinct_orientation_codes": 720
+      },
+      {
+        "sample": "signed_shift",
+        "valuation_r": 1,
+        "jet_d": 11,
+        "visible_axes": 6,
+        "distinct_orientation_codes": 720
+      },
+      {
+        "sample": "signed_shift",
+        "valuation_r": 1,
+        "jet_d": 13,
+        "visible_axes": 6,
+        "distinct_orientation_codes": 720
+      }
+    ]
+  },
+  "method": "Python exact ints/Fraction, reconstruct original signed K by integer binomial formula, verify individual 720 permutations per finite sample and deconvolution. Full exact record reconstructed from passed local R625_VERIFY.py run; general theorem established by proof.",
+  "local_full_evidence_sha256": "18342fea1dfac8c62179278e79d4290b1c432b64772264224ab5c97970e710c5",
+  "local_verified_python_sha256": "b00a36805385107be4412212e34f802b9841db0c53db4d3b4b46dd9703acf2ff",
+  "result": "R625_COMMON_GAIN_VALUATION_TOMOGRAPHY_EXACT_PASS"
 }
