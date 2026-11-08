@@ -55,3 +55,22 @@ This is a local rational-transport theorem and exact, source-preserving finite-f
 ## Recovery
 
 The mother task remains `Delta_p-R_p=0 mod p` for `p=13,19 mod24`; existing first-jet and grade results retain their exact proof scopes. Next: instantiate (SBP) with the **original signed W first-valuation unit and mirrored grade2 weights** (then compare against the separate V2304 and B_p channels), testing p=373 before claiming a full LIFT proof. Native original H0/B0 benchmark remains #1559 **OPEN / PENDING_OWNER / NOT_EXECUTED**, requiring `[X]U mod139129` and actual Frobenius/eta/kappa/Delta-R. No Source CLAIM/run was acquired in this author-side note.
+
+## Source-preserving signed grade-2 mirror instance
+
+For every prime `p=6m+1>3`, use the *actual W216 grade-1* coefficient units `U_q=A_q/p (mod p)` on `I={2m+1,...,3m}`. By the previously proved complementary-product law, the exact *original signed grade-2* W contribution satisfies
+
+`T_(2,p)/p^2 = sum_(q in I) w_q (mod p)`, where `w_q=(1-6q)/[36 q^3 U_q] (mod p)`.
+
+Define the source-preserving new first-jet moment `M_p=sum_(q in I) w_q J_p(q)` and prefix weights `P_q=sum_(r=2m+1)^q w_r`. The rational connection is regular on **all** `q in I`, and the *signed additive* identity is
+
+```
+M_p = J_p(3m)*(T_(2,p)/p^2)
+      - sum_(q=2m+1)^(3m-1) P_q *
+             [-5(2q+1)/((3q+1)(3q+2)(4q+1)(4q+3))]
+      (mod p).                                                (M)
+```
+
+This is a direct application of finite Abel summation, using actual source-labelled W first-grade units and the original `1-6q` weight; no synthetic replacement or extra assumption. A second exact calculation verified (M) for all primes `p=1 mod6` up to 229 and `p=373`. At `p=373`, the interval is `125<=q<=186`; `T_(2,373)/373^2=266`, `J(186)=278`, the rational prefix bulk is `105`, and the **new weighted first-jet moment is `M_373=362 (mod 373)`**. Indeed `266*278-105=362 (mod 373)`.
+
+This gives a concrete additive transfer for an actual signed original-model grade, ready for comparison with the distinct `B_p`, first-grade harmonic correction and V2304 channels of `Theta_p`. The criterion connecting `M_p` to that three-channel target remains open.
