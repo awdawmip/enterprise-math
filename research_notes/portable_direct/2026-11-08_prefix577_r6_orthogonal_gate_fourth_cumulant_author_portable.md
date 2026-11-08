@@ -55,7 +55,7 @@ A separate program enumerates the exact integer weighted path moments `M_j(n,v)`
 
 The Poisson certificate supplies the all-depth proof; finite-depth integer recursion supplies an independent regression.
 
-Evidence local to the author conversation: full 7-file ZIP `PREFIX577_R6_GATE_ORTHOGONAL_RESIDUAL_FOURTH_PORTABLE_20261108.zip` SHA-256 `9c97e38f3b9a05068ed3a9f88fe8bd20b7dc36b9c0c2818df2a3f443b9d50e92`; exact certificate SHA-256 `0cd86ded660397c872541cb4908027cb387aed69e02af6e965e7a9af50c476f8`; independent integer-moment certificate SHA-256 `5628ab2650a16f0d411982535f7823878da036a0e5f1e18c8041a67cfc4599c9`. ZIP is conversation-local, not an assertion of native Source publication.
+Evidence local to the author conversation: full 13-file ZIP `PREFIX577_R6_GATE_ORTHOGONAL_RESIDUAL_FOURTH_PORTABLE_20261108.zip` SHA-256 `116dfba0a231f121b772500adf1e020f89e4128edf06c6d36fba7dc796e78b24`; exact certificate SHA-256 `0cd86ded660397c872541cb4908027cb387aed69e02af6e965e7a9af50c476f8`; independent integer-moment certificate SHA-256 `5628ab2650a16f0d411982535f7823878da036a0e5f1e18c8041a67cfc4599c9`. ZIP is conversation-local, not an assertion of native Source publication.
 
 ## Continuation and authority
 
@@ -64,3 +64,38 @@ Parent task: Source-legitimate independent Enterprise Math research under the fr
 Separate UR V2 provenance debt: retrieve the **original** 94,687-byte four-file object with SHA-256 `4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76`; four historically verified predecessor source files are not this object. Existing D24 Result/Review is retained; do not redo its math.
 
 Next discriminating science unit, only after dedup/owner routing: exact mixed fourth cumulants involving `R5,R6,K`, testing the pair-axis symmetry of the gate. The author-side fourth proof does not assert Source-native `frontier_notes.completed_units`.
+
+## Additional exact unit: stationary-start all-depth gate/paired-axis fourth-moment identity
+
+For the same unchanged native kernel, let `S5(n)=K(n)+R5(n)` and `S6(n)=K(n)+R6(n)`. For a uniformly chosen starting port among all 96 and each integer path length `n>=0`, the exact raw moments satisfy
+
+```text
+E[S5(n)^j] = E[S6(n)^j],   j = 0,1,2,3,4, n = 0,1,2,...
+```
+
+This is an **all-length exact finite-state theorem for the specified two scalar observables through degree four**. The proof uses the full native labeled actions, with integer path-moment recursion
+
+`M_j(n+1,v)=sum_(i→v)sum_(q=0)^j binom(j,q) h(i,v)^q M_(j-q)(n,i)`, where the edge increment is `h=K+R_axis`. Each fixed axis has a 480-coordinate integer linear update operator (96 ports × five degrees). The difference of their total moment sequences is a linear readout of the block diagonal 960×960 integer update. By Cayley–Hamilton, each scalar difference obeys a monic recurrence of order at most 960. The complete integer program checks **every** depth `n=0,...,959` and every degree 0,...,4 exactly, finding zero differences. The linear recurrence then establishes all `n≥0). No guessed automorphism or numerical limit is needed. This equality concerns the uniform-start ensemble and does not assert full joint distributional equality of `(K,R5)` and `(K,R6)`.
+
+The exact finite certificate `pair_all_depth_certificate.json` has SHA-256 `51af1844ec0c3497d449161c499eadf06abbcf4a0c053d7be232ca468ca298c9`. Code `prefix577_gate_pair_all_depth_cayley_hamilton.py` and a shorter 128-depth integer regression are packaged in the updated local 13-file ZIP (SHA-256 `116dfba0a231f121b772500adf1e020f89e4128edf06c6d36fba7dc796e78b24`).
+
+Independently, evaluating the exact fourth log-Perron derivative at `K+aR5` and `K+aR6` for `a=0,±1,±2`, with 2,880 rational Poisson row checks, gives the **identical degree-four polynomial** in both cases:
+
+```text
+F(a) = 434651857/97844723712
+     - (3378511/1528823808)*a
+     + (39167/28311552)*a²
+     + (319/746496)*a³
+     - (659/93312)*a⁴ .
+```
+
+Consequently
+
+```text
+κ4(K,K,K,R5)=κ4(K,K,K,R6)=-3378511/6115295232
+κ4(K,K,R5,R5)=κ4(K,K,R6,R6)=39167/169869312.
+```
+
+This exact mixed fourth-order projection certificate has SHA-256 `6201f2aa18238eb64027341efc4f2faaf142997ea14fb0d38c128e15bf91e9e1`. The all-length finite moment identity and the asymptotic projection equality have different, explicitly scoped statements. Both are portable unreviewed author evidence, not canonical Source completion.
+
+Next discriminating route: test whether `K+R5` and `K+R6` have matching raw moments at all higher orders; derive a structural transfer identity or certify the first finite counterexample. Maintain original frozen source and avoid overlap with authenticated owner progress.
