@@ -1,0 +1,47 @@
+{
+  "schema": "PREFIX592_R2_ADAPTIVE_POSITIVE_CHANNEL_RESULTS_V1",
+  "date": "2026-11-08",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "original_native_state_count": 96,
+  "original_labelled_actions": 576,
+  "block_count": 24,
+  "per_block_negative_sign_bound": 2,
+  "uniform_single_positive_stream_condition": "for all 4-port blocks G and i in G: 3*r[i] <= sum(r[j] for j in G)",
+  "pointwise_minimal_pair": "p_i = max((H*r)_i, 0); q_i = max(-(H*r)_i, 0)",
+  "comparison_horizon": "depths 1..12 inclusive; each step cycles 4 fixed nonuniform integer weight tuples",
+  "source": "PREFIX589_R2_dual_carrier_certificate.py, PREFIX591_R2_integer_lattice_core.py",
+  "exact_labelled_nonzero_edge_term_totals": {
+    "singleton_port_0": {
+      "native": 2658,
+      "signed": 2400,
+      "fixed_two_positive": 5412,
+      "adaptive_two_positive": 5412
+    },
+    "uniform_all_ports": {
+      "native": 6912,
+      "signed": 6912,
+      "fixed_two_positive": 13824,
+      "adaptive_two_positive": 6912
+    },
+    "block_balanced_4_ports": {
+      "native": 3000,
+      "signed": 2760,
+      "fixed_two_positive": 5520,
+      "adaptive_two_positive": 2760
+    },
+    "sparse_native_endpoints": {
+      "native": 5658,
+      "signed": 5268,
+      "fixed_two_positive": 11880,
+      "adaptive_two_positive": 11880
+    },
+    "two_heavy_in_one_block": {
+      "native": 2844,
+      "signed": 2592,
+      "fixed_two_positive": 5508,
+      "adaptive_two_positive": 5496
+    }
+  },
+  "scope": "exact BRC transition reference edge terms, all endpoint and dual channel equality checked; not elapsed runtime or universal algorithmic speedup",
+  "result": "ALL_ASSERTIONS_PASS_AUTHOR_SIDE_UNREVIEWED"
+}
