@@ -1,0 +1,81 @@
+{
+  "schema": "PREFIX603_R2_NATIVE_REACHABLE_ONE_STEP_SHARP_MINPOLY",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "original_native_ports": 96,
+  "original_native_typed_edges": 576,
+  "tail_dimension": 48,
+  "gate_target_phase": 4,
+  "axis_weights": [
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+  ],
+  "factorization": "F=C*A; Q=F*E",
+  "symbolic_32_minor": "7044820107264*(z + 3)",
+  "rank_F_and_Q_for_all_z_ge_0": 32,
+  "sharp_mu_restricted_image_F": {
+    "z=1": "t*(t - 2)*(t + 2)*(t**2 + 4)",
+    "z>=0,z!=1": "-t*(t - 2)*(t + 2)*(t**2 + 4)*(-t**4 + 4*z + 12)"
+  },
+  "native_nonnegative_port_16_reaches_sharp_mu": true,
+  "port_16_tail_support": [
+    [
+      2,
+      "2"
+    ],
+    [
+      14,
+      "2"
+    ],
+    [
+      15,
+      "2"
+    ]
+  ],
+  "port_16_krylov_9_minor": "-34359738368*(z - 1)**4*(z + 3)",
+  "port_16_krylov_9_minor_rows": [
+    2,
+    3,
+    4,
+    5,
+    14,
+    16,
+    17,
+    26,
+    27
+  ],
+  "port_16_rank_at_z1": 5,
+  "native_raw_port_first_step_support_counts": {
+    "0": {
+      "0": 32,
+      "3": 64
+    },
+    "1": {
+      "0": 32,
+      "3": 64
+    },
+    "2": {
+      "0": 32,
+      "3": 64
+    }
+  },
+  "native_raw_port_sharp_degree_census": {
+    "1": {
+      "0": 32,
+      "4": 32,
+      "5": 32
+    },
+    "2": {
+      "0": 32,
+      "4": 32,
+      "5": 16,
+      "9": 16
+    }
+  },
+  "observer": "all 48 phase outputs from first original 96-port step onward",
+  "future_operation_scope": "arbitrary count of further stationary same-parameter Q steps",
+  "proof_status": "AUTHOR_SIDE_EXACT_CHECK; independent driver review pending"
+}
