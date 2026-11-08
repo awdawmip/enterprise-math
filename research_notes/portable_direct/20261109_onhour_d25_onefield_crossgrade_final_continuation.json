@@ -1,0 +1,120 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-09",
+  "role": "TASK_RESEARCH",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "original_mother_goal": "For all primes p≡13,19 mod24 prove or refute original (Delta_p-R_p) ≡0 modp, equivalently original W216_full-V2304_full mod p³ under the earlier exact source crosswalk.",
+  "parent_science_inputs": "Preserve frozen pin and accepted D24 UR/JT0; do not redo CM0/SIMPLE or accepted result; original W/V coefficients, weights, cutoffs and signed observer unchanged.",
+  "previous_checkpoint_path": "research_notes/portable_direct/20261109_onhour_d25_w216_grade1_jet_stage1_continuation.json",
+  "latest_science": {
+    "unit_A": {
+      "kind": "AUTHOR_SIDE_PROVED_EXACT_ALL_PRIME_IDENTITY",
+      "scope": "Every prime p=6m+1>3",
+      "theorem": "T1 modp³ =p K1(S0+p S1), p²-precision grade-1 jet; definitions/proof in research_notes/portable_direct/20261109_onhour_d25_w216_grade1_first_jet_cross_grade_certificate.md",
+      "cross_grade_relation": "W_full-V_full≡W0-Vhalf+pK1(S0+p S1)+p²K2S2 modp³, combining previous W grade2 lemma and published Guo–Zudilin V full/half congruence."
+    },
+    "unit_B": {
+      "kind": "AUTHOR_SIDE_PROVED_EQUIVALENT_REDUCED_CERTIFICATE",
+      "scope": "Every prime p≡13,19 mod24, using accepted first-digit UR",
+      "theorem": "B_p=(W0-Vhalf+pK1S0)/p² modp is integral, Theta_p=B_p+(K1 modp)S1+K2S2 modp, and Theta_p=0 iff original W_full-V_full≡0 modp³. This equals zero-test for frozen Delta_p-R_p via earlier proven source-port equivalence; no numerical identity of Theta and Delta-R asserted.",
+      "novel_witness": "p373 source-labeled triple (190,290,266) has total 746=0 modulo373; grade2 alone 266 is nonzero, demonstrating cross-grade cancellation."
+    }
+  },
+  "exact_finite_evidence": {
+    "primes": [
+      7,
+      13,
+      19,
+      31,
+      37,
+      43,
+      61,
+      67,
+      73,
+      97,
+      109,
+      127,
+      157,
+      163,
+      193,
+      211,
+      229,
+      373
+    ],
+    "all_18_passed": true,
+    "methods": "Original integer-binomial oracle (Python math.comb), independent modular hypergeometric first-jet/grade2 recurrences, independent JavaScript BigInt reimplementation; B_p triple also projected from exact raw integer results.",
+    "p373": {
+      "p2": 139129,
+      "p3": 51895117,
+      "K1": 93197,
+      "S0": 11471,
+      "S1": 269,
+      "K2": 290,
+      "S2": 217,
+      "W0": 28094360,
+      "Vhalf": 373,
+      "T1_mod_p3": 38687933,
+      "T2_mod_p3": 37008314,
+      "B": 190,
+      "jet": 290,
+      "grade2": 266,
+      "Theta": 0
+    }
+  },
+  "published_evidence": [
+    {
+      "path": "research_notes/portable_direct/20261109_onhour_d25_w216_grade1_first_jet_cross_grade_certificate.md",
+      "blob": "a6bd246acbfe6ed1397da34f183ef3b303e33a66"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_w216_grade1_jet_cross_grade_20261109.py",
+      "blob": "0391c49c0ed0bc7423504f3c9b237361c39f09c4"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_w216_grade1_jet_cross_grade_results_20261109.json",
+      "blob": "1bd39932654a1857125b79fc0658f35bc0e25aab"
+    },
+    {
+      "path": "research_notes/portable_direct/20261109_onhour_d25_w216_grade1_jet_stage1_continuation.json",
+      "blob": "0cda62cfb8a4ca6826bfd6dcfe2ac6d504ded1db"
+    },
+    {
+      "path": "research_notes/portable_direct/20261109_onhour_d25_onefield_cross_grade_lift_certificate.md",
+      "blob": "28355d011d2f14d2307ac1bab9088bd7fefaae8e"
+    }
+  ],
+  "native_benchmark": {
+    "issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "latest_read": "2026-11-09 open, no assignee",
+    "remaining": "Run exact p373 same-original-class H0/B0 divided-power [X]U mod139129, get native module rank, semilinear orientation/eta, signed Green/Hesse kappa, original Delta-R and independent reproducer.",
+    "responsible_path": "Authorized current canonical Source Task owner / designated native H0/B0 evaluator; no verified assignee."
+  },
+  "source_context": {
+    "version": "0.6.11",
+    "historical_request_id": "onhour11-20261108-2202-current-task-continuation",
+    "historical_request_status": "SUCCEEDED",
+    "historical_session_start_id": "onhour11-20261108-2202-own-researcher-session-start",
+    "historical_researcher_id": "EM-ENTERPRISE-4DEB43",
+    "historical_activity_id": "RA-9553E027FD14223807511263",
+    "historical_session_id": "MCP-ecbfd1c046864bb3bff1a2e04c87d207",
+    "own_recovery": "SESSION_CAPABILITY_REQUIRED",
+    "private_key_available": false,
+    "own_claim_id": null,
+    "own_run_id": null,
+    "outstanding_requests": [],
+    "native_checkpoint": "NOT_WRITTEN"
+  },
+  "do_not_repeat": [
+    "D24 accepted UR/JT0, CM0/SIMPLE and other fixed parent results",
+    "Existing source-to-W/V crosswalk, Guo-Zudilin V theorem, W grade2 theorem, and 611-prime grade2 screen",
+    "This run's proven grade1 first jet and Theta equivalent certificate",
+    "Existing #1559 support ticket"
+  ],
+  "current_unfinished_scientific_unit": "An all-prime cancellation mechanism proving or refuting Theta_p=0 for both target classes; existing compact certificate is only an equivalent criterion.",
+  "next_exact_action": "Seek exact WZ/Fricke or terminating finite-field p-adic relation showing B_p+(K1 modp)S1+K2S2=0 for each target prime; retain all three F_p source-labelled observer channels, original cutoffs, signs, denominator units. Do not replace native benchmark.",
+  "status": "AUTHOR_SIDE_2_EXACT_DERIVATIONS/18_EXACT_PRIME_CHECK/UNREVIEWED/NOT_ADMITTED/NOT_NATIVE/SOURCE_CHECKPOINT_PENDING"
+}
