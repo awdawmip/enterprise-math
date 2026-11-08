@@ -1,0 +1,30 @@
+# Execution evidence 2026-11-08 Asia/Shanghai
+
+Run locally with Python standard library. Code in VERIFY_UNIVERSAL.py and VERIFY_H30001.py implements the same tested algorithms. Floating-point time measurement is diagnostic only; all proof comparisons and outputs are integer/rational.
+
+$ python VERIFY_UNIVERSAL.py
+SMALL_EXACT_PASS 1 3 11 2
+SMALL_EXACT_PASS 2 6 60 11
+SMALL_EXACT_PASS 3 10 60 11
+SMALL_EXACT_PASS 10 66 60 11
+SMALL_EXACT_PASS 25 351 371 68
+SMALL_EXACT_PASS 80 3321 2074774 380295
+BIG_EXACT_PASS 380294 thresholds 72312333660 key 2074774 380295 terms 12 probes 6
+BIG_EXACT_PASS 4564092 thresholds 10415474738371 key 24900305 4564093 terms 24 probes 6
+BIG_EXACT_PASS 1000000000 thresholds 500000001500000001 key 7866425054 1441873725 terms 24 probes 6
+BIG_EXACT_PASS 1000000000000 thresholds 500000000001500000000001 key 5522166062156 1012183564383 terms 48 probes 6
+PASS_UNIVERSAL_DYNAMIC_EXACT_ORDER_ORACLE
+
+$ python VERIFY_H30001.py
+PASS small brute rank/select and occupancy
+progress 0 distinct_cells 1 seconds 0.0
+progress 5000 distinct_cells 10001 seconds 1.78
+progress 10000 distinct_cells 20001 seconds 3.82
+progress 15000 distinct_cells 30001 seconds 6.27
+progress 20000 distinct_cells 40001 seconds 8.21
+progress 25000 distinct_cells 50001 seconds 10.05
+progress 30000 distinct_cells 60001 seconds 11.8
+ENDPOINT 30001 prefix 2455069 newpoints 30002 affected 60002 checked 60002 minocc 1 firstzero None minpos ((0, 29491), (79, 29922), 20439) elapsed 11.8046
+PASS_S23_AV_EXACT_N_H30001_ENDPOINT
+
+Precision caveat: total wall-clock time varies by machine; numerical decisions do not depend on it.
