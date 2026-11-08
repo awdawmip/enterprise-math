@@ -85,3 +85,10 @@ Bitmask check interface: if `u` is the total mass of unseen coupons and `m_a,w_a
 Reusable theorem interface: inputs `d,q,theta` restricted as above, outputs exact CDF/moments, uniform sharp thresholds and rare-sign asymptotics. Reuse resolution: `REUSE_APPLIED` PREFIX-610 native signed-label map, PREFIX-615 thinning law and standard weighted coupon inclusion–exclusion; `EXTEND_EXISTING_TOOL` R6 signed-label observer family. The signed-label projection is certified for this defined likelihood and stopping operation, with original raw native data retained for other future operations.
 
 Next discriminating unit: construct the exact PREFIX-613 confidence-diameter sign-adaptive stopping rule, then calculate or rigorously bound its expected trial count as a function of `epsilon,alpha,theta`, first for `d=2`. Compare to both direction-count thresholds and sign-complete collection under the same observation cost. Independent mathematical review and any canonical task Result/Review admission remain open.
+
+
+## Prior mathematical literature (checked 2026-11-09)
+
+The coupon-collector techniques used in this report are well-established probability results. Nath, *Waiting Time in the Coupon-Collector's Problem*, Australian Journal of Statistics **15** (1973), 132–135, DOI `10.1111/j.1467-842X.1973.tb00018.x`, studies unequal coupon probabilities and waiting-time distributions, means and variances. May, *Coupon Collecting with Quotas*, Electronic Journal of Combinatorics **15** (2008), #N31, DOI `10.37236/906`, derives finite generating-function expressions for nonuniform probabilities and quotas. Shank–Yang, *Coupon Collector Problem for Non-Uniform Coupons and Random Quotas*, Electronic Journal of Combinatorics **20** (2013), #P33, DOI `10.37236/3348`, treats nonuniform and random quotas.
+
+The contribution documented in this note is the **specific exact reduction of the frozen native BRC signed-label readout to a sign-complete sampling target, the parameterized sign-boundary cost, and exact native-observer trial thresholds**, with source-scoped checking; it is not a claim of inventing generalized coupon collection.
