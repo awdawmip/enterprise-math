@@ -1,0 +1,94 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-08",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Delta_p-R_p = 0 mod p; W_p = p mod p^3 for p mod24 in {13,19}; OPEN",
+  "highest_preexisting_author_frontier": "main@54926a6c7120b719edc3452e6e94c9efd529219f: zero-grade quadratic jet + three-grade carry",
+  "consumed_not_redone": [
+    "D24 accepted supersingular unit reciprocity RR-AC9B3BA5BD277CE043F5",
+    "source-derived V2304 p*(-3/p) mod p^3 theorem",
+    "W216 grade-two kernel",
+    "W/V grade-zero quadratic and grade-one Wilson/harmonic jets"
+  ],
+  "new_units": [
+    {
+      "id": "grade_three_tail_kernels",
+      "type": "UNCONDITIONAL_PROVED",
+      "domain": "all primes p>3",
+      "statement": "Original W216 and V2304 grade-three tails /p^3 have explicit Wilson-complement factorial sums over r<=floor((p-3)/3) and r<=floor((p-4)/4); note includes proof and exact formulas.",
+      "independent_exact_checks": "301 primes <=2000; 602 port checks"
+    },
+    {
+      "id": "fourth_digit_WV_transport",
+      "type": "CONJECTURE_FINITE_CHECKED",
+      "statement": "W_p-2V_p+p*(-3/p) == 0 mod p^4",
+      "checks": "All 1227 primes 5..10000 by modular recurrence, 0 counterexamples",
+      "independent_exact_checks": "Original binomial path at p=13,19,373",
+      "scope": "Universal proof OPEN"
+    },
+    {
+      "id": "fifth_digit_obstruction",
+      "type": "EXACT_COUNTEREXAMPLE",
+      "statement": "Same expression is not identically 0 mod p^5; (W-2V+p*(-3/p))/p^4 mod p is 9,14,174 at p=13,19,373 respectively.",
+      "status": "PROVED_BY_DIRECT_INTEGER_COMPUTATION"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "research_notes/portable_direct/20261108_onhour_d25_original216_2304_fourth_digit_transport_and_grade3_kernels.md",
+      "commit": "8e2ab1231df8b0a90064737e4ff51f0a0831eb02",
+      "blob": "3f77c37005deb4f62e964093f4ada679b3f8f16e",
+      "remote_readback": "VERIFIED"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_w216_v2304_fourth_digit_probe_20261108.py",
+      "commit": "f0e6cbd899f970016f415c7b70fec6fbb03ae047",
+      "blob": "9d902b7383ad2c1633e6f9f9fa0082e131e04ac4",
+      "remote_readback": "VERIFIED"
+    }
+  ],
+  "brc": "COMPOSE_APPLIED, signed source-preserving tuple (model,index,coefficient-grade,weight,unit factorial,modular observer), no weight-to-positive-mass conflation",
+  "status": "AUTHOR_SIDE_PROVED_GRADE3_KERNELS / EXACT_1227_PRIME_C4_CHECKED / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE",
+  "next_exact_action": "Derive order-p^3 jets of original grade-zero/one, order-p correction of grade-two, and combine with proved grade-three tail kernels to reduce fourth-digit conjecture to a terminating source-preserving sum; seek WZ/Fricke-Cartier proof or exact counterexample beyond 10000. Do not substitute computation for universal theorem.",
+  "native_benchmark": {
+    "issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "state": "OPEN",
+    "owner": "PENDING_OWNER",
+    "executed": false,
+    "requirements": [
+      "original p373 same-class divided-power [X]U mod 139129",
+      "module rank",
+      "Frobenius direction and eta",
+      "signed Green/Hesse kappa",
+      "Delta-R",
+      "independent reproduction"
+    ],
+    "responsible_path": "Source-authorized owner or designated native/Codex evaluator; none verified"
+  },
+  "source": {
+    "original_target_request_id": "onhour11-20261106-1400-exact-research-lane-continuation",
+    "latest_read_date": "2026-11-08",
+    "receipt_status": "WAITING_RESOURCE",
+    "progress_phase": "EVENT_COLLECTION_IO",
+    "formal_task_created": false,
+    "next_operation": "Reconcile original request when I/O resource repaired; do not resubmit",
+    "site_status": "CONFIGURED_NOT_LIVE_VERIFIED",
+    "research_authority_granted": false,
+    "session_id": null,
+    "claim_id": null,
+    "run_id": null,
+    "native_checkpoint": "NOT_WRITTEN",
+    "research_activity": "REGISTER_PENDING",
+    "old_staging": "SEPARATE_UNMERGED",
+    "maintenance_identity_borrowed": false
+  },
+  "not_redo": [
+    "Existing D24 UR",
+    "Existing W/V first three grade derivations",
+    "Native p373 remains independent and unsatisfied"
+  ]
+}
