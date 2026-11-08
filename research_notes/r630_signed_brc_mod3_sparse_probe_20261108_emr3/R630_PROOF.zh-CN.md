@@ -29,7 +29,7 @@ Y_x^L - Y_x^0 = -A_x D_j + sum_(l=1)^h B_(x,l) binom(L,l)
 ```
 This holds coefficientwise in F3[[t]] for *arbitrary* nuisance coefficients, without solving for H_x or assuming a time-independent background.
 
-When h>=1, the integer span of `{binom(L,l):1<=l<=h}` is **exactly 3Z**. All generators are divisible by3. Because L is the least 3-power above h, `h>=L/3`. For `j=L/3`, `binom(L,j)=3 binom(L-1,j-1)`. Moreover `(1+X)^(L-1)=(1+X^L)/(1+X)` in F3[X] up to degree L-1, so the coefficient `binom(L-1,j-1)` equals `(-1)^(j-1) !=0` mod3. Thus `v_3(binon(L,j))=1` and the gcd is3. [The symbol binon here means binom; identity is ordinary integer binomial arithmetic.] Consequently every increment in `3Z[[t]]` is realizable by some permissible Newton nuisance difference `H(L)-H(0)`. For h=0 the nuisance increment is identically zero.
+When h>=1, the integer span of `{binom(L,l):1<=l<=h}` is **exactly 3Z**. All generators are divisible by3. Because L is the least 3-power above h, `h>=L/3`. For `j=L/3`, `binom(L,j)=3 binom(L-1,j-1)`. Moreover `(1+X)^(L-1)=(1+X^L)/(1+X)` in F3[X] up to degree L-1, so the coefficient `binom(L-1,j-1)` equals `(-1)^(j-1) !=0` mod3. Thus `v_3(binon(L,j))=1` and the gcd is3. Thus the integer binomial coefficient at j=L/3 has 3-adic valuation exactly one. Consequently every increment in `3Z[[t]]` is realizable by some permissible Newton nuisance difference `H(L)-H(0)`. For h=0 the nuisance increment is identically zero.
 
 ## 3. Frozen signed BRC F3 signatures
 
