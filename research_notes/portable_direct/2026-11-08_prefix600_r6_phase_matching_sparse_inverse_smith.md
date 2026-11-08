@@ -17,20 +17,19 @@ An original port is `i=2p+b` with `0<=p<48`, `b∈{0,1}`. The six native actions
 ## Theorem 1 — permutation and 12 disjoint twin-pair swaps
 
 Define `A∈Mat_48(Z)` and `S∈Mat_48(Z)` by
-[
- A_{pq}=#{s∈{0,1,2}:NEXT[p][s]=q},qquad
- S_{pq}=mathbf 1{NEXT[p][0]=q}.
-]
+$$
+A_{pq}=\#\{s\in\{0,1,2\}:\mathrm{NEXT}[p][s]=q\},\qquad
+S_{pq}=\mathbf 1\{\mathrm{NEXT}[p][0]=q\}.
+$$
 Let `F` swap the two native phases with the same first two phase components `(a,p)` and different third signed component `c`. Set
-[
- B=S^{mathsf T}A-I.
-]
+$$
+B=S^{\mathsf T}A-I.
+$$
 Then the following are **exact integer identities** in the frozen 48-phase model:
-[
- S^{mathsf T}S=SS^{mathsf T}=I,quad F^2=I,quad
- BF=FB=B,quad B^2=2(I+F).
-	ag{1}
-]
+$$
+S^{\mathsf T}S=SS^{\mathsf T}=I,\quad F^2=I,\quad
+BF=FB=B,\quad B^2=2(I+F). \tag{1}
+$$
 The first-action permutation `S` consists of exactly eight disjoint 6-cycles, so `det S=+1`. The 24 `F`-twin pairs are carried by `B` to other twin pairs: each source phase has **one edge to each of the two phases in its target pair**, and both members of a source pair have the same target pair. The induced map `tau` on the 24 twin pairs is a fixed-point-free involution, hence **12 disjoint transpositions**.
 
 A compact exact witness is the following list of `(source pair, target pair)` for these twelve transpositions; each pair lists original *phase indices* (not 96-port IDs):
@@ -49,30 +48,32 @@ A compact exact witness is the following list of `(source pair, target pair)` fo
 ## Theorem 2 — exact determinant, sparse inverse, and Smith form
 
 Under a permutation of phase indices by the twelve paired orbits of Theorem 1, `B` is a direct sum of twelve identical 4-by-4 blocks
-[
-H=egin{pmatrix}0&0&1&1\\0&0&1&1\\1&1&0&0\\1&1&0&0end{pmatrix}.
-]
+$$
+H=\begin{pmatrix}
+0&0&1&1\\
+0&0&1&1\\
+1&1&0&0\\
+1&1&0&0
+\end{pmatrix}.
+$$
 The eigenvalues of `H` are `2,-2,0,0`, so
-[
-oxed{det A=det Sprod_{j=1}^{12}det(I_4+H)=(-3)^{12}=3^{12}=531441.}
-	ag{2}
-]
+$$
+\boxed{\det A=\det S\prod_{j=1}^{12}\det(I_4+H)=(-3)^{12}=3^{12}=531441.}\tag{2}
+$$
 More constructively, (1) implies
-[
- (I+B)(I+B-2F)=3I,
-]
+$$
+(I+B)(I+B-2F)=3I.
+$$
 and hence the **exact explicit inverse**
-[
-oxed{3A^{-1}=(I+B-2F)S^{mathsf T}in Mat_{48}(mathbb Z).}
-	ag{3}
-]
+$$
+\boxed{3A^{-1}=(I+B-2F)S^{\mathsf T}\in\mathrm{Mat}_{48}(\mathbb Z).}\tag{3}
+$$
 Each row of `3A^{-1}` has exactly **four** nonzero entries, one `-2` and three `+1`. Therefore an already-given 48-coordinate phase-background vector can be inverted using a constant-four-sparse rational readout (48 divisions by 3 and at most three additions per row, with no dense inversion). This is a claim about this specific finite phase-background step, not a blanket complexity speedup for full BRC input/output or full reward histories.
 
 Since `3A^{-1}` is integral, every invariant factor of `A` divides 3; since `|det A|=3^{12}`, its exact integer Smith form is
-[
-oxed{operatorname{SNF}(A)=operatorname{diag}(1^{36},3^{12}).}
-	ag{4}
-]
+$$
+\boxed{\operatorname{SNF}(A)=\operatorname{diag}(1^{36},3^{12}).}\tag{4}
+$$
 In particular `rank_Q(A)=48`, `rank_F3(A)=36`, and `A` is invertible modulo every prime other than 3. QED.
 
 ## Theorem 3 — direct root-uniform 49/50 rank proof for the strong one-step BRC observer
@@ -81,10 +82,10 @@ Let `L_r` retain the full original **seven-component** BRC reward and exact next
 
 Now let `d_p=e_{2p}-e_{2p+1}`. Away from native target predecessors `P={3,14,15}`, the gate never fires and `L_r(d_p)=L_r^{act}(d_p)=0`; the underlying six-axis edge rewards do not depend on the source bit. For the three predecessors, the only surviving term has destination exact port 9. All three have the same signed component `c=+1`, giving the same complete six-axis native reward for a fixed root. Hence `L_r(d_3)=L_r(d_{14})=L_r(d_{15})
 e0`: a single new independent direction beyond the 48 background rows (it projects to zero under the next-phase marginal). With action retained, `d_3` survives only at action `(0,1)`, while `d_{14},d_{15}` survive only at `(1,1)`; these two nonzero disjoint-action contrasts are independent. Therefore for **each** of the nine frozen allowed roots,
-[
-oxed{operatorname{rank}_Q L_r=49,quad operatorname{rank}_Q L_r^{act}=50.}
-	ag{5}
-]
+$$
+\boxed{\operatorname{rank}_{\mathbb Q}L_r=49,\quad
+\operatorname{rank}_{\mathbb Q}L_r^{\mathrm{act}}=50.}\tag{5}
+$$
 Their kernel dimensions are `47` and `46`. The full bases are exactly those in PREFIX-599: all `d_p` outside `P`, plus `d_3-d_{14},d_{14}-d_{15}` when action hidden, or `d_{14}-d_{15}` when action retained. This proves the previous rank theorem by an explicit 48-phase integer identity and the gate-bit structure rather than an 18-matrix rational elimination.
 
 **Observer scope.** The next original port and all seven reward coordinates are included. Dropping the next port, keeping history actions, changing the root family, or claiming a universal state quotient is not covered. Original X6 spatial, signed-axis, phase and provenance identities are preserved. The rational signed-kernel vectors are mathematical witnesses; no negative transition probability is introduced.
