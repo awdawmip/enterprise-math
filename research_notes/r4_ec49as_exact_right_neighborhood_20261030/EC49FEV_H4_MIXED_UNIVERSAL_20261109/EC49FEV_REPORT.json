@@ -1,0 +1,136 @@
+{
+  "schema": "EC49FEV_H4_MIXED_COMPLETE_LOWER_BOUND_V1",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "branch_count": 6,
+  "signature_feasible_original_sum": 8800,
+  "qualification": "Complete H4 type-B late-high-set branches, mixed labels (1,8,16), exactly 23 native words and five BRC full keys. Original 90,258 type-B late-mixed possibilities include other mixed placements H5-H8.",
+  "method": "Pool all possible complete keys separately by high horizon; ignore five-key coupling (relaxation), then exact integer group-native-prefix dual. Unpooled costs cannot be lower than pooled optimum.",
+  "results": [
+    {
+      "mixed": 4,
+      "late_high_horizons": [
+        4,
+        5,
+        6,
+        9
+      ],
+      "eligible_pool_keys": 31,
+      "pooled_words": 78233,
+      "prefixes": 414212,
+      "group_prefix_pairs": 466685,
+      "nonzero_integer_weights": 382021,
+      "lp_value_finding_only": 115.0,
+      "exact_dual_numerator": 115000000,
+      "Q": 1000000,
+      "integer_lower_bound": 115,
+      "elapsed_s": 8.665,
+      "signature_feasible_in_original_census": 864,
+      "certificate_file": "UNIVERSAL_H4_4569.json"
+    },
+    {
+      "mixed": 4,
+      "late_high_horizons": [
+        4,
+        5,
+        7,
+        9
+      ],
+      "eligible_pool_keys": 34,
+      "pooled_words": 73515,
+      "prefixes": 377530,
+      "group_prefix_pairs": 431925,
+      "nonzero_integer_weights": 348164,
+      "lp_value_finding_only": 101.0,
+      "exact_dual_numerator": 101000000,
+      "Q": 1000000,
+      "integer_lower_bound": 101,
+      "elapsed_s": 7.711,
+      "signature_feasible_in_original_census": 2304,
+      "certificate_file": "UNIVERSAL_H4_4579.json"
+    },
+    {
+      "mixed": 4,
+      "late_high_horizons": [
+        4,
+        5,
+        8,
+        9
+      ],
+      "eligible_pool_keys": 37,
+      "pooled_words": 48491,
+      "prefixes": 218536,
+      "group_prefix_pairs": 269044,
+      "nonzero_integer_weights": 182548,
+      "lp_value_finding_only": 108.0,
+      "exact_dual_numerator": 108000000,
+      "Q": 1000000,
+      "integer_lower_bound": 108,
+      "elapsed_s": 5.502,
+      "signature_feasible_in_original_census": 1920,
+      "certificate_file": "UNIVERSAL_H4_4589.json"
+    },
+    {
+      "mixed": 4,
+      "late_high_horizons": [
+        4,
+        6,
+        7,
+        9
+      ],
+      "eligible_pool_keys": 36,
+      "pooled_words": 71479,
+      "prefixes": 374746,
+      "group_prefix_pairs": 418325,
+      "nonzero_integer_weights": 353341,
+      "lp_value_finding_only": 103.0,
+      "exact_dual_numerator": 103000000,
+      "Q": 1000000,
+      "integer_lower_bound": 103,
+      "elapsed_s": 4.685,
+      "signature_feasible_in_original_census": 1408,
+      "certificate_file": "UNIVERSAL_H4_4679.json"
+    },
+    {
+      "mixed": 4,
+      "late_high_horizons": [
+        4,
+        6,
+        8,
+        9
+      ],
+      "eligible_pool_keys": 39,
+      "pooled_words": 47075,
+      "prefixes": 216416,
+      "group_prefix_pairs": 260007,
+      "nonzero_integer_weights": 185480,
+      "lp_value_finding_only": 105.0,
+      "exact_dual_numerator": 105000000,
+      "Q": 1000000,
+      "integer_lower_bound": 105,
+      "elapsed_s": 3.541,
+      "signature_feasible_in_original_census": 1536,
+      "certificate_file": "UNIVERSAL_H4_4689.json"
+    },
+    {
+      "mixed": 4,
+      "late_high_horizons": [
+        4,
+        7,
+        8,
+        9
+      ],
+      "eligible_pool_keys": 42,
+      "pooled_words": 32689,
+      "prefixes": 139506,
+      "group_prefix_pairs": 181472,
+      "nonzero_integer_weights": 111460,
+      "lp_value_finding_only": 109.0,
+      "exact_dual_numerator": 109000000,
+      "Q": 1000000,
+      "integer_lower_bound": 109,
+      "elapsed_s": 2.401,
+      "signature_feasible_in_original_census": 768,
+      "certificate_file": "UNIVERSAL_H4_4789.json"
+    }
+  ]
+}
