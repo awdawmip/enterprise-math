@@ -128,3 +128,17 @@ As a scoped higher-horizon probe, the code examined exactly 617 distinct cells a
 ## Reproducible materials and identity
 
 Files: `VERIFY_ORACLE.py`, `RUN_EVIDENCE.txt`, `VERIFY_OCCUPANCY.py`, `RUN_OCCUPANCY_EVIDENCE.txt`; standard-library-only Python. Both source blobs were compared with the local files actually executed, and the run output blobs with the local transcripts. Native Source status/owner/CLAIM remained unavailable; this author-side result is a valid resumable proof candidate, not an authenticated task result.
+
+## Application: verified incremental plateau extension to H=7001
+
+**Incremental-cell lemma.** If all bounded open cells of `T_(H-1)` contain prefix points of length at most n, then for `T_H` it suffices to check the at most `2(H+1)` bounded cells incident to the `H+1` newly added threshold points `(v,j)` with `v+j=H`, plus the two exterior cells. Proof: any cell in `T_H` whose endpoints are both from `T_(H-1)` contains no new threshold and hence equals a previously occupied cell. Every other bounded cell has at least one endpoint from the new frontier. Rank/select determines its exact adjacent endpoints, and the prefix-occupancy oracle certifies whether it contains an attainable prefix. Exterior cells have explicit witnesses.
+
+**Executed certificate at H=7001.** `VERIFY_INCREMENTAL.py` enumerated exactly all 7002 new frontier points `v+j=7001`; for each it computed ranks and exact predecessors/successors, deduplicating interval ranks. The resulting 14,002 *distinct affected bounded cells* all had positive exact prefix count at n=2,455,069; the smallest count was 1. Both exterior cells are witnessed by prefix coordinates `(k,l)=(0,1284)` and `(38196,0)`, respectively (the finite rational ordering certificate verifies the strict inequalities). The local check passed, and its full output is in `RUN_INCREMENTAL_EVIDENCE.txt`.
+
+Inherit the previous complete `T_7000` endpoint coverage certificate. By the incremental-cell lemma, every cell of `T_7001` is occupied at prefix length n=2,455,069, so `N(7001)<=2455069`. The independent H=510 lower bound (the 11-residue certificate above) and nesting `T_510 subset T_7001` give `N(7001)>=2455069`. Thus the current author-side exact theorem is
+```
+N(h)=2455069, for every integer h with 510<=h<=7001.
+```
+The new part, beyond the earlier H=7000 frontier, is the exact one-step upper-bound certificate and a reusable incremental checking method requiring only `O(H)` changed-cell queries rather than a full `O(H^2)` threshold sort. Each query invokes the logarithmic rank/select and occupancy routines; all arithmetic is exact and the theorem inherits only the prior H=7000 coverage dependency.
+
+Next discriminating step: extend the incremental certificate from H=7002 upward, searching for the first empty newly split cell and retaining exact rank/occupancy witnesses. The H=7001 run is complete; no claim is made for an unverified higher endpoint.
