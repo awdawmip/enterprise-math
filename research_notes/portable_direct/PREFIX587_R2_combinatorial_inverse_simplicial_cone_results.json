@@ -1,0 +1,22 @@
+{
+  "schema": "PREFIX587_R2_NATIVE_COMBINATORIAL_INVERSE_CONE_V1",
+  "source_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "phases": 48,
+  "native_ports": 96,
+  "signed_current_axis_groups": 12,
+  "phases_per_group": 4,
+  "branch_bits": 2,
+  "independent_cone_blocks": 24,
+  "combinatorial_inverse": "3*S^-1 = S^T-2*R, R(j)=reverse_phase(j)=(a,c,p)",
+  "SS_transpose_groups": "12 copies of I4+2J4",
+  "S_singular_values": "12 copies of 3 and 36 copies of 1",
+  "S_two_norm_condition_number": 3,
+  "positive_cone": "in each signed-axis/bit group, r_i = sum(lambda)-lambda_i for 4 nonnegative lambda_i",
+  "extreme_rays_per_group": 4,
+  "total_extreme_rays": 96,
+  "facet_inequalities_irredundant": 96,
+  "all_original_phase_edges_checked": 144,
+  "full_matrix_ST_and_TS_checks": 4608,
+  "all_original_row_overlaps_checked": 2304,
+  "code_execution_status": "ALL_ASSERTIONS_PASS_AUTHOR_SIDE_UNREVIEWED"
+}
