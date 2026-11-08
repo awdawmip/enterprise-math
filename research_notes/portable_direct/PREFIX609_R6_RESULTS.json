@@ -1,0 +1,315 @@
+{
+  "status": "ALL_CHECKS_PASS",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "native_git_blob": "7d4ffaaa5f2e804bff01196f2c2c5cc8bcb79f41",
+  "sympy_version": "1.14.0",
+  "domain": "any set of k critical incidence pairs; positive weights on all 12 incidences; six independent critical x when all six selected; 48-phase uniform baseline",
+  "experimental_observer": "one independent draw of initial phase; one native weighted slot; (terminal_phase, Boolean_slot_j)",
+  "directions": "two signed +1,+1,-1,-1 source contrasts per active critical pair",
+  "endpoint_partition_sizes": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "source_partition_sizes": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "symbolic_null_equations": 576,
+  "symbolic_diagonal_fisher_checks": 36,
+  "structural_off_diagonal_pairs_per_tag": 66,
+  "all_critical_FIM_diagonal": {
+    "slot0": "192*I_12",
+    "slot1": "96*I_12",
+    "slot2": "96*I_12"
+  },
+  "k_critical_FIM_diagonal": {
+    "slot0": "192*I_(2k)",
+    "slot1": "96*I_(2k)",
+    "slot2": "96*I_(2k)"
+  },
+  "trace_inverse_single_trial": {
+    "slot0": "k/96",
+    "slot1": "k/48",
+    "slot2": "k/48"
+  },
+  "baseline_MSE_for_N_independent_draws": {
+    "slot0": "k/(96*N)",
+    "slot1": "k/(48*N)",
+    "slot2": "k/(48*N)"
+  },
+  "fisher_certificates": [
+    {
+      "slot": 0,
+      "pair": 0,
+      "signed_block": 0,
+      "Fisher_at_uniform": "192",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 0,
+      "pair": 0,
+      "signed_block": 1,
+      "Fisher_at_uniform": "192",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 0,
+      "pair": 1,
+      "signed_block": 0,
+      "Fisher_at_uniform": "192",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 0,
+      "pair": 1,
+      "signed_block": 1,
+      "Fisher_at_uniform": "192",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 0,
+      "pair": 2,
+      "signed_block": 0,
+      "Fisher_at_uniform": "192",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 0,
+      "pair": 2,
+      "signed_block": 1,
+      "Fisher_at_uniform": "192",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 0,
+      "pair": 3,
+      "signed_block": 0,
+      "Fisher_at_uniform": "192",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 0,
+      "pair": 3,
+      "signed_block": 1,
+      "Fisher_at_uniform": "192",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 0,
+      "pair": 4,
+      "signed_block": 0,
+      "Fisher_at_uniform": "192",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 0,
+      "pair": 4,
+      "signed_block": 1,
+      "Fisher_at_uniform": "192",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 0,
+      "pair": 5,
+      "signed_block": 0,
+      "Fisher_at_uniform": "192",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 0,
+      "pair": 5,
+      "signed_block": 1,
+      "Fisher_at_uniform": "192",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 1,
+      "pair": 0,
+      "signed_block": 0,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 1,
+      "pair": 0,
+      "signed_block": 1,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 1,
+      "pair": 1,
+      "signed_block": 0,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 1,
+      "pair": 1,
+      "signed_block": 1,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 1,
+      "pair": 2,
+      "signed_block": 0,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 1,
+      "pair": 2,
+      "signed_block": 1,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 1,
+      "pair": 3,
+      "signed_block": 0,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 1,
+      "pair": 3,
+      "signed_block": 1,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 1,
+      "pair": 4,
+      "signed_block": 0,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 1,
+      "pair": 4,
+      "signed_block": 1,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 1,
+      "pair": 5,
+      "signed_block": 0,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 1,
+      "pair": 5,
+      "signed_block": 1,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 2,
+      "pair": 0,
+      "signed_block": 0,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 2,
+      "pair": 0,
+      "signed_block": 1,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 2,
+      "pair": 1,
+      "signed_block": 0,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 2,
+      "pair": 1,
+      "signed_block": 1,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 2,
+      "pair": 2,
+      "signed_block": 0,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 2,
+      "pair": 2,
+      "signed_block": 1,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 2,
+      "pair": 3,
+      "signed_block": 0,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 2,
+      "pair": 3,
+      "signed_block": 1,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 2,
+      "pair": 4,
+      "signed_block": 0,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 2,
+      "pair": 4,
+      "signed_block": 1,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 2,
+      "pair": 5,
+      "signed_block": 0,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    },
+    {
+      "slot": 2,
+      "pair": 5,
+      "signed_block": 1,
+      "Fisher_at_uniform": "96",
+      "endpoint_support_size": 4
+    }
+  ],
+  "claim_stage": "AUTHOR_PROVED / EXACT_SYMBOLIC_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
