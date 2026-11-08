@@ -1,0 +1,16 @@
+{
+  "started_utc": "2026-11-08T15:38:24.953768+00:00",
+  "elapsed_seconds": 0.719289525000022,
+  "cwd": "/workspace/scratch/b0e94005ad9c",
+  "argv": [
+    "taskset",
+    "-c",
+    "1",
+    "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench",
+    "--verify"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"result\":\"PASS\",\"domain\":\"full uint64\",\"value_bytes\":8,\"algorithms\":15,\"new_algorithms\":5,\"verified_input_arrays\":8324,\"verified_algorithm_outputs\":85244,\"lifted_above_cutoff_arrays\":2728,\"sample_index_sets\":22,\"exact_cell_budget_cases\":4,\"planted_spill_cases\":8,\"recursive_focused_cases\":12,\"mechanism_cases\":5,\"recursive_paths_exercised\":7,\"recursive_half_budget_boundaries_checked\":true,\"recursive_child_cutoff_boundaries_checked\":true,\"recursive_multilevel_contraction_checked\":true,\"recursive_child_cell_fallback_checked\":true,\"recursive_trace_conservation_checked\":true,\"recursive_geometric_work_bounds_checked\":true,\"forced_depth_cap_checked\":true,\"sample_constant_nonconstant_input_checked\":true,\"sample_position_trap_checked\":true,\"backward_merge_duplicates_checked\":true,\"full_uint64_shift_edges_checked\":true,\"flat_collision_growth_checked\":true,\"constructive_zero_spill_bound_checked\":true,\"instrumented_and_timed_paths_checked\":true,\"unchanged_root_divider_checks_reused\":true}\n",
+  "stderr": "",
+  "purpose": "optimized correctness verification only; no benchmark execution"
+}

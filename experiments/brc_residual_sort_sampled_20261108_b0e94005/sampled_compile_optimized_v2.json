@@ -1,0 +1,25 @@
+{
+  "started_utc": "2026-11-08T15:37:58.697294+00:00",
+  "elapsed_seconds": 10.967401924999649,
+  "cwd": "/workspace/scratch/b0e94005ad9c",
+  "argv": [
+    "taskset",
+    "-c",
+    "1",
+    "g++",
+    "-std=c++20",
+    "-O3",
+    "-DNDEBUG",
+    "-Wall",
+    "-Wextra",
+    "-DBRC_BASE_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp\"",
+    "-DBRC_LOCAL_KERNELS=\"/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp\"",
+    "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp",
+    "-o",
+    "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "In file included from /workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp:11:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp: In function ‘int brc_previous_experiment_main(int, char**)’:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp:712:1: warning: control reaches end of non-void function [-Wreturn-type]\n  712 | }\n      | ^\n",
+  "purpose": "optimized correctness build only; no benchmark execution"
+}

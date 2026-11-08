@@ -1,0 +1,47 @@
+{
+  "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "selected_cpu": 0,
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "base_source": "/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp",
+  "previous_local_kernels": "/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp",
+  "base_scientific_commit": "5b8f9f76cd187d9d5aaa62028af6a9e5e2710b28",
+  "local_scientific_commit": "4b66597bce400f6d19336058ac780e877188a769",
+  "source_sha256": {
+    "sampled_bench.cpp": "5d3b009fe128070228e03d5803d526692617fb5ce0101b1692fa5eb79975afd2",
+    "sampled_kernels.hpp": "a88a8058885dc4d0ffca1b249b524ca9d328157b2a137db41a04a1bc5de1c299",
+    "flat_frequency.hpp": "3993c376b0160e87eee16acb7ca3e832fa2e7ac227320b909bb922f53f89350a"
+  },
+  "validation_receipts": [
+    "sampled_validation_optimized.json",
+    "execution_sanitized_calibration.json"
+  ],
+  "argv": [
+    "taskset",
+    "-c",
+    "0",
+    "./sampled_bench",
+    "--bench",
+    "results_calibration_v1.csv",
+    "1000000",
+    "0.012",
+    "calibration"
+  ],
+  "started_at_utc": "2026-11-08T15:24:03.407767+00:00",
+  "elapsed_seconds": 35.86025081400021,
+  "exit_code": 0,
+  "stdout": "{\"result\":\"PASS\",\"subset\":\"calibration\",\"conditions\":9,\"benchmark_rows\":126,\"validated_input_banks\":72,\"algorithms\":14,\"banks\":8,\"rounds\":7,\"value_bytes\":8,\"target_seconds\":0.012,\"instrumented_and_timed_paths_checked\":true,\"observable_sink\":181347}\n",
+  "stderr": "completed sampled calibration/uniform_1e6 n=100\ncompleted sampled calibration/uniform_1e6 n=100000\ncompleted sampled calibration/uniform_1e12 n=100000\ncompleted sampled calibration/square1e6_s0 n=100000\ncompleted sampled calibration/jitter1e6_B20_D8 n=100000\ncompleted sampled calibration/square1e6_B256_D8 n=100000\ncompleted sampled calibration/square1e6_B256_D512 n=100000\ncompleted sampled calibration/unique1e6_B256_D512 n=100000\ncompleted sampled calibration/uint64_top_window n=100000\n",
+  "result": "PASS"
+}

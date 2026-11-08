@@ -1,0 +1,55 @@
+{
+  "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "selected_cpu": 0,
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "base_source": "/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp",
+  "previous_local_kernels": "/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp",
+  "base_scientific_commit": "5b8f9f76cd187d9d5aaa62028af6a9e5e2710b28",
+  "local_scientific_commit": "4b66597bce400f6d19336058ac780e877188a769",
+  "frozen_implementation": {
+    "frozen_at_utc": "2026-11-08T15:38:59.962652+00:00",
+    "decision": "No algorithm or parameter changes after observing final heldout timings",
+    "sources": {
+      "sampled_bench.cpp": "596cf4add967669ec1feb02344f49ec448bd4c0b927ed9b791cc03d802b86468",
+      "sampled_kernels.hpp": "2890d16a360fa9c874dc8de1edec1508f9522602397fc2cb7fbe6e2da55cb192",
+      "flat_frequency.hpp": "3993c376b0160e87eee16acb7ca3e832fa2e7ac227320b909bb922f53f89350a"
+    },
+    "scientific_dependency_commits": {
+      "pure": "5b8f9f76cd187d9d5aaa62028af6a9e5e2710b28",
+      "local": "4b66597bce400f6d19336058ac780e877188a769"
+    }
+  },
+  "validation_receipts": [
+    "sampled_validation_optimized_v2.json",
+    "execution_sanitized_final.json"
+  ],
+  "argv": [
+    "taskset",
+    "-c",
+    "0",
+    "./sampled_bench",
+    "--bench",
+    "results_all.csv",
+    "1000000",
+    "0.012",
+    "all"
+  ],
+  "started_at_utc": "2026-11-08T15:40:09.610285+00:00",
+  "elapsed_seconds": 228.70290962499985,
+  "exit_code": 0,
+  "stdout": "{\"result\":\"PASS\",\"subset\":\"all\",\"conditions\":39,\"benchmark_rows\":585,\"validated_input_banks\":312,\"algorithms\":15,\"banks\":8,\"rounds\":7,\"value_bytes\":8,\"target_seconds\":0.012,\"recursive_trace_rows\":404,\"instrumented_and_timed_paths_checked\":true,\"observable_sink\":2723989049112}\n",
+  "stderr": "completed sampled calibration/uniform_1e6 n=100\ncompleted sampled calibration/uniform_1e6 n=100000\ncompleted sampled regression/uniform_1e6 n=1000000\ncompleted sampled calibration/uniform_1e12 n=100000\ncompleted sampled regression/square1e6_s0 n=10000\ncompleted sampled calibration/square1e6_s0 n=100000\ncompleted sampled regression/square1e6_s0 n=1000000\ncompleted sampled regression/jitter1e6_B20_D8 n=10000\ncompleted sampled calibration/jitter1e6_B20_D8 n=100000\ncompleted sampled regression/jitter1e6_B20_D8 n=1000000\ncompleted sampled regression/square900_s0 n=100000\ncompleted sampled regression/jitter900_B20_D8 n=100000\ncompleted sampled regression/square900_s1790 n=100000\ncompleted sampled regression/square1e6_s1999990 n=100000\ncompleted sampled calibration/square1e6_B256_D8 n=100000\ncompleted sampled calibration/square1e6_B256_D512 n=100000\ncompleted sampled calibration/unique1e6_B256_D512 n=100000\ncompleted sampled regression/square3e9_B20_D8 n=100000\ncompleted sampled regression/square900_anchor7 n=100000\ncompleted sampled calibration/uint64_top_window n=100000\ncompleted sampled regression/heldout_jitter_K8 n=100000\ncompleted sampled regression/heldout_jitter_K2 n=100000\ncompleted sampled regression/heldout_jitter_3K4 n=100000\ncompleted sampled regression/positive_jitter_5K4 n=100000\ncompleted sampled heldout/new_jitter_quarter_seeds n=100000\ncompleted sampled heldout/new_jitter_threequarter_seeds n=100000\ncompleted sampled heldout/skew90_cluster0 n=100000\ncompleted sampled heldout/rare_far_cluster n=100000\ncompleted sampled heldout/two_uint64_outliers n=100000\ncompleted sampled heldout/sample_position_trap n=100000\ncompleted sampled heldout/uniform_uint64 n=100000\ncompleted sampled heldout/log_uniform_bits64 n=100000\ncompleted sampled heldout/uniform_4096 n=100000\ncompleted sampled heldout/power2_separated_clusters n=100000\ncompleted sampled mechanism/mechanism_quarter_hidden n=100000\ncompleted sampled mechanism/mechanism_half_hidden n=32768\ncompleted sampled mechanism/mechanism_half_plus_one n=32768\ncompleted sampled mechanism/mechanism_four_level_chain n=131072\ncompleted sampled mechanism/mechanism_child_cell_reject n=16384\n",
+  "result": "PASS"
+}
