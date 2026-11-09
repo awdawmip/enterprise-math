@@ -1,0 +1,94 @@
+{
+  "schema": "ENTERPRISE_MATH_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-10",
+  "research_lane_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "role": "TASK_RESEARCH; AUTHORITY_NOT_INFERRED_FROM_AUTHOR_SIDE_PERSISTENCE",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "mother_objective": "For p≡13,19 (mod24), prove/refute/strictly reduce original Delta_p-R_p≡0 modp under accepted UR and frozen bridge.",
+  "scientific_source_commit_frozen": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "source_control": {
+    "previous_succeeded_continuation": "onhour11-20261110-0500-current-continuation",
+    "previous_control_source_commit": "cb21c9452f5bc094493cd92bfa37be99ab988782",
+    "new_continuation_request_id": "onhour11-20261110-0556-current-continuation",
+    "new_receipt_as_last_read": "QUEUED; use exact request id em_control_result, do not reissue",
+    "recovery_status_request_id": "onhour11-20261110-0555-recovery",
+    "recovery_status_error": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
+    "historical_registration_researcher_id": "EM-ENTERPRISE-3C3875",
+    "verified_own_winning_claim": null,
+    "verified_open_run": null,
+    "source_checkpoint_written": false,
+    "session_key_in_hand": false,
+    "native_result_published": false
+  },
+  "author_unit": {
+    "name": "W216 original grade-0 two-jet and grade-1 first-jet",
+    "mathematical_status": "AUTHOR_SIDE_PROVED_UNREVIEWED_NOT_ADMITTED",
+    "scope": "all primes p=6m+1>3, original signed (6k+1) binomial W216 coefficient 0<=k<p",
+    "statement": "For k<=2m, grade-0 coefficient equals signed binomial B_k*(1-p alpha_k+p^2/2(alpha_k^2-beta_k)) modulo p^3; for 2m<k<=3m, grade-1 equals p T_k/3*(1+p gamma_k) modulo p^3; grade-2 reuses published K_p H_(m-1) and grade-3 vanishes modulo p^3. Given prior first-digit W≡p modulo p², (W-p)/p² ≡ (L_p-p)/p² + K_p H_(m-1) modulo p.",
+    "evidence": "Coefficientwise elementary factor/zero extraction and harmonic expansions; modular p-adic denominators all units.",
+    "validation": {
+      "scope": "13 selected primes p≡1 mod6 from 7 through 373",
+      "primes": [
+        7,
+        13,
+        19,
+        31,
+        37,
+        43,
+        61,
+        67,
+        73,
+        109,
+        157,
+        181,
+        373
+      ],
+      "result": "13/13 exact original-integer binomial independent coefficientwise checks PASS",
+      "p373": {
+        "grade_sums_mod_51895117": [
+          28094360,
+          38687933,
+          37008314,
+          0
+        ],
+        "lower_grade_mod_51895117": 14887176,
+        "lower_residue_mod_373": 107,
+        "grade2_residue_mod_373": 266,
+        "combined_residue_mod_373": 0
+      }
+    },
+    "artifacts": [
+      {
+        "path": "research_notes/portable_direct/20261110_onhour_d25_W216_lower_grade_twojet_completion.md",
+        "git_blob_sha1": "6e902f8ba360e08ac11dc5c85e27046e3651856c",
+        "commit": "a513baa12a6f8558c63eac2d6efef70a5c1e6501"
+      },
+      {
+        "path": "research_notes/portable_direct/d25_w216_three_band_jet_20261110.py",
+        "git_blob_sha1": "003a39f75dc865b660fa741d1bc9905d9b2123e8",
+        "commit": "adc2af873ca31493c862004a1d34a3ca025006b8"
+      }
+    ]
+  },
+  "native_frontier": {
+    "status": "NOT_RUN / PENDING_OWNER",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "must_execute": "Original same-class p=373 H0/B0 divided-power [X]U mod139129 with module rank, actual Frobenius direction, eta, signed odd Green/Hesse, kappa, Delta_p-R_p, independent reproduction.",
+    "candidate_comparison": "Only after proven native rank-one identification and eta: F^2 vs Norm(eta)*122102 mod139129."
+  },
+  "do_not_repeat": [
+    "accepted D24 UR first digit and prior native Source checkpoint",
+    "previous W216 grade-2 finite-field bridge and first-jet",
+    "CM24 Pfaff/Legendre and old WZ/Green",
+    "broad 10-million-prime scan and unchanged 157-prime tests"
+  ],
+  "next_exact_actions": [
+    "Read original queued continuation via em_control_result with target_request_id onhour11-20261110-0556-current-continuation; reconcile only if returned outcome unknown.",
+    "Native executor under current authorized Researcher CLAIM/run performs the fixed original-class H0/B0 benchmark from #1559; if no owner, preserve PENDING_OWNER.",
+    "On portable mathematics, couple explicit lower-grade jet L_p with previously proved grade-2 K_p H_(m-1) using a signed finite WZ/Jacobi telescoper to prove or refute uniform residual zero for both m-parities; preserve exact original Delta/R bridge."
+  ],
+  "source_classification": "AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "scheduler": "UNCHANGED; no scheduler, Actions, cron, notification modifications"
+}
