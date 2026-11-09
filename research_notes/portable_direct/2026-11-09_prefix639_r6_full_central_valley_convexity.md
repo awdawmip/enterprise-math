@@ -59,7 +59,7 @@ These gaps refer to the variance W and expectation mu of informative Poisson sto
 
 ## Verification and continuation
 
-The standalone companion Python standard-library exact certificate regenerates all 189 stopping layers and all 188+2×375 restricted Bernstein controls, then validates the rational implications. Actual local execution 2026-11-09: ALL_CHECKS_PASS 14719, with extrema listed above. This is an exhaustive finite algebraic proof of the stated universal-in-p inequalities within the fixed statistical observer, not a finite sample mesh. No independent mathematical review or Result/Review admission has occurred.
+The standalone companion Python standard-library exact certificate regenerates all 189 stopping layers and all 188+2×375 restricted Bernstein controls, then validates the rational implications. Actual local execution 2026-11-09: ALL_CHECKS_PASS 14720, with extrema listed above. This is an exhaustive finite algebraic proof of the stated universal-in-p inequalities within the fixed statistical observer, not a finite sample mesh. No independent mathematical review or Result/Review admission has occurred.
 
 Predecessor references: PREFIX-631 (cab564fd9a112feed4a5a1fac0ee5556ebe7d7b6), PREFIX-635 (ec03483204af911eef75785bcdaf610d24519ab2), PREFIX-636 (c70457fde1d39265b126976bd92126731c31c23e), PREFIX-638 (2ebec8fa75126f8c2c3bc8c086a7add9ae5a0c2a).
 
