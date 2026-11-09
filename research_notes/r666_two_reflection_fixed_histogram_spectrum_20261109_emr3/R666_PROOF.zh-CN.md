@@ -6,15 +6,20 @@
 
 设群元素 a,b 满足 a²=b²=e，r=ab 的阶为 p≥2。m,n≥0。由恰好 m 个 a 和 n 个 b 构成的全部词，其输运集合为
 
-[
-mathcal H_{m,n}=left{r^{,n-2x}a^{(m+n)mod2}:Lle xle Uight},
-quad L=max(0,n-lfloor(m+n)/2floor),quad U=min(n,lceil(m+n)/2ceil).
-]
+\[
+\mathcal H_{m,n}=
+\left\{r^{\,n-2x}a^{(m+n)\bmod 2}:L\le x\le U\right\},
+\]
+其中
+\[
+L=\max(0,n-\lfloor(m+n)/2\rfloor),\qquad
+U=\min(n,\lceil(m+n)/2\rceil).
+\]
 
 **精确基数为**
-[
-oxed{|mathcal H_{m,n}|=minigl(p/gcd(p,2),,min(m,n)+1igr).}
-]
+\[
+\boxed{|\mathcal H_{m,n}|=\min\bigl(p/\gcd(p,2),\,\min(m,n)+1\bigr).}
+\]
 
 证明：a r a=r⁻¹，b=r⁻¹a。把每一个字母写成 r^e a，其中 a 的 e=0，b 的 e=-1。令 x 为 b 在奇数位出现次数，y 为 b 在偶数位出现次数，x+y=n。逐字复合的旋转指数为 -x+y=n-2x，翻转奇偶为 (m+n) mod 2。因为奇数位共有 ceil((m+n)/2) 个、偶数位共有 floor((m+n)/2) 个，x 的充要整数范围正是 [L,U]；区间中每个 x 都可任意选取 x 个奇位和 n-x 个偶位放 b，从而构造对应词。U-L+1=min(m,n)+1。相邻指数差 2，其在 Z/p 中的周期是 p/gcd(p,2)；因此此连续等差序列的不同值个数等于公式。证毕。该证明覆盖所有 p≥2 和任意有限 m,n。
 
@@ -27,9 +32,9 @@ B: 012→013→123→012，净槽位置换 b=(2,1,0)。
 
 这里置换乘法 (a∘b)[i]=a[b[i]]。ab=(1,2,0)，阶 p=3。每一个闭路块都回到基点 012，故将 m 个 A 块、n 个 B 块以任何次序拼接，得到完全**相同的有向边次数表** C=m C_A+n C_B。其终端 V17 槽位像在这套闭路块拼接语言内的精确基数为
 
-[
-oxed{min(3,min(m,n)+1).}
-]
+\[
+\boxed{\min(3,\min(m,n)+1).}
+\]
 
 当 m,n≥2，三个可能的同奇偶 S3 槽位全都出现；根据 R665 的有向直方图奇偶定理，它们也穷尽**全部与这个次数表兼容的合法 V17 历史**的终端槽位取值，不限于闭路块拼接。
 
@@ -41,7 +46,7 @@ B: 012→013→123→012，净槽位置换 b=(2,1,0)。
 
 ## 验证与未完成部分
 
-配套 R666_VERIFY.py 使用标准库精确整数，独立的有限群格点动态规划、全词穷举、V17 三元组槽位继承核对，输出 R666_EVIDENCE.json。核验 p=2..19，m,n=0..22 共9522个 DP 格；p=2..10，m,n=0..7 共576个输入格、115821条全词；四组 J(6,3) 局部见证基数分别为2、2、3、3。标记 `R666_TWO_REFLECTION_FIXED_HISTOGRAM_DIHEDRAL_SPECTRUM_PASS`。形式证明为解析推导，有限计算为独立交叉检查；未经独立 Driver 数学审核或 Lean 形式化。
+配套 R666_VERIFY.py 使用标准库精确整数，独立的有限群格点动态规划、全词穷举、V17 三元组槽位继承核对，输出 R666_EVIDENCE.json。核验 p=2..19，m,n=0..22 共9522个 DP 格；p=2..10，m,n=0..7 共576个输入格、115821条全词；四组 J(6,3) 局部见证基数分别为2、2、3、3。标记 `R666_TWO_REFLECTION_FIXED_HISTOGRAM_DIHEDRAL_SPECTRUM_PASS`。解析证明与有限计算分别成立；未经独立 Driver 数学审核或 Lean 形式化。
 
 下一问题：以冻结 pin 下的真实 V29/V27/V30 许可、严格方向选择和自主调度为语言约束，在共享 Cell 双环 X6 网络判定哪些上述闭环可以实际实现，并计算合法输运谱是否达到三值上界。P000 和六维 X6 + 独立时间的起点不变。
 
