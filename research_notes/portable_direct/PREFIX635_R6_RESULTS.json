@@ -1,0 +1,39 @@
+{
+  "schema": "PREFIX635_R6_LOCAL_UNIQUENESS_AND_GAP_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "p2": "19/128",
+  "p1_window": [
+    "4/25",
+    "161/1000"
+  ],
+  "q_range": [
+    12,
+    24
+  ],
+  "survival_levels": 189,
+  "first_stop": 25,
+  "final_state_empty": true,
+  "fixed_point_denominator_power": 116,
+  "patches": 4,
+  "mu_prime_bounds": "300 < mu_prime < 310",
+  "F_second_bounds": "23000 < F_q_second < 50000 for every q in [12,24]",
+  "critical_points": {
+    "12": {
+      "left": "168247/1048576",
+      "right": "21031/131072",
+      "left_gradient_sign": "NEGATIVE",
+      "right_gradient_sign": "POSITIVE"
+    },
+    "24": {
+      "left": "167883/1048576",
+      "right": "41971/262144",
+      "left_gradient_sign": "NEGATIVE",
+      "right_gradient_sign": "POSITIVE"
+    }
+  },
+  "spacing_bounds": "1/4000 < c_12-c_24 < 31/55200",
+  "dyadic_spacing_bounds": "363/1048576 < c_12-c_24 < 365/1048576",
+  "proof": "Bernstein convex hull + outward fixed-point de Casteljau + IVT + positive second derivative + IFT + integral bound",
+  "validation": "ALL_CHECKS_PASS",
+  "status": "AUTHOR_PROVED / EXACT_INTEGER_INTERVAL_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
