@@ -1,0 +1,55 @@
+{
+  "schema": "D25_ORIGINAL_TWO_VARIABLE_TANGENT_FINITE_V1",
+  "date": "2026-11-09",
+  "program": "d25_affine_two_variable_tangent_reproducer_20261109.py",
+  "tested_primes": "all 548 primes 5<=p<4000",
+  "failures": 0,
+  "independent_binomial_primes": [
+    5,
+    7,
+    13,
+    19,
+    37,
+    43,
+    73,
+    373
+  ],
+  "proposed_unproved_all_prime_identity": "3*Wprime_p(1)+8*chi(-3,p)*Vprime_p(1)==0 mod p",
+  "rigorous_first_second_taylor_modulus": "p^2 / p^3",
+  "anchors": [
+    {
+      "p": 13,
+      "chi": 1,
+      "A": 3,
+      "B": 7,
+      "common_shift_mod_p2": 26,
+      "adapted_slope": 3,
+      "adapted_mod_p2": 0,
+      "second_jet_residue": 7,
+      "p2_correction": 7
+    },
+    {
+      "p": 19,
+      "chi": 1,
+      "A": 12,
+      "B": 5,
+      "common_shift_mod_p2": 38,
+      "adapted_slope": 5,
+      "adapted_mod_p2": 0,
+      "second_jet_residue": 18,
+      "p2_correction": 17
+    },
+    {
+      "p": 373,
+      "chi": 1,
+      "A": 292,
+      "B": 77,
+      "common_shift_mod_p2": 51474,
+      "adapted_slope": 123,
+      "adapted_mod_p2": 0,
+      "second_jet_residue": 348,
+      "p2_correction": 259
+    }
+  ],
+  "author_status": "UNREVIEWED_NOT_ADMITTED_NOT_NATIVE"
+}
