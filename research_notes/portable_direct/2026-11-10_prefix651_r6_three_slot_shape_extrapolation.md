@@ -47,7 +47,7 @@ Consequently R(g)−g(0)=g'''(ξ)h³/48. Apply Theorem 651.1 to determine both s
 
 ## Verification, relation to P000 and continuation
 
-The companion Python standard-library Fraction certificate checks the exact rational third-derivative majorants, polynomial differentiation identities at rational witnesses, Lagrange coefficients and the q=12 error fractions. Observed: ALL_CHECKS_PASS 53. The universal derivative identities and interpolation-remainder proof are written above; numerical checks are supplementary.
+The companion Python standard-library Fraction certificate checks the exact rational third-derivative majorants, polynomial differentiation identities at rational witnesses, Lagrange coefficients and the q=12 error fractions. Observed: ALL_CHECKS_PASS 43. The universal derivative identities and interpolation-remainder proof are written above; numerical checks are supplementary.
 
 Inputs are the published cumulative evidence from PREFIX-645@f11c0345bf89321aba48d90671c244bdec25d416, PREFIX-648@6b53f51abe70ac29a591fa9fcd29c1308f6c98e2, PREFIX-649@cb21c9452f5bc094493cd92bfa37be99ab988782, PREFIX-650@7b796596aad06919954529220566561096aaf27a. No 189-layer survivor-state or 96-port native dynamics run was repeated. The (p,z) coordinates are statistical observer readouts, not a native two-dimensional spatial plane. P000 and frozen scientific inputs are unchanged. The 48-slot value is a rigorously permissible comparison within the stated parameter domain; no physical 48-slot execution is asserted.
 
