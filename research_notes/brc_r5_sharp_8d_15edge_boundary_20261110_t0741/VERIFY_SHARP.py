@@ -206,3 +206,18 @@ print("BOUNDARY_ZERO_EDGE",(1,3),"POSITIVE_EDGE_COUNT",sum(v>0 for v in vst))
 print("BOUNDARY_EXTRA_ZERO_SLACKS",tuple(i for i,v in enumerate(both_slacks(pst)) if not v))
 print("PASS_UNIFORM_MIN_SUPPORT_15_FOR_ALL_REAL_LINF_CUBES_RHO_LT_RSTAR")
 print("PASS_EXACT_PHYSICALLY_LAWFUL_14_EDGE_AT_RSTAR")
+
+
+# At the boundary the ten dual bounds remain strictly positive.
+# Exhaust every possible <=13-edge support by extending the forced ten
+# with three of the remaining twenty edges: choose(20,3)=1140.
+b_boundary=[F(scale(i)*rhs(pst)[PIV[i]]) for i in range(15)]
+counter13=0
+for optional in combinations(remaining,3):
+    relations=list(exact_row_relations(forced+optional))
+    assert any(sum(yy[i]*b_boundary[i] for i in range(15)) != 0
+               for yy in relations), ("unexpected <=13-edge span",optional)
+    counter13+=1
+assert counter13==1140
+print("EXACT_BOUNDARY_13_EDGE_EXCLUSIONS",counter13)
+print("PASS_SHARP_TRANSITION_MIN_SUPPORT_15_TO_EXACTLY_14")
