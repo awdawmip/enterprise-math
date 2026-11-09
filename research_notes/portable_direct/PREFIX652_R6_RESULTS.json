@@ -1,0 +1,67 @@
+{
+  "record": "PREFIX-652-R6",
+  "status": "AUTHOR_DERIVED_EXACT_RATIONAL_INTERVAL_CHECKED_UNREVIEWED_NOT_ADMITTED",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "center": {
+    "p": "1/6",
+    "z": "19/128"
+  },
+  "source": "PREFIX-645 exact certified cumulant rational six-decimal intervals",
+  "interval_witnesses": {
+    "gamma1_48": "-201083135/10^9 < gamma1(48) < -201083133/10^9",
+    "gamma2_48": "451414521/10^9 < gamma2(48) < 451414524/10^9",
+    "skew_error": "-1/300000 < R1-gamma1_inf < -1/400000",
+    "kurt_error": "1/160000 < R2-gamma2_inf < 1/120000"
+  },
+  "exact_checks_passed": 16,
+  "check_names": [
+    "a_positive",
+    "b_positive",
+    "c_negative",
+    "d_positive",
+    "gamma48_skew_lo",
+    "gamma48_skew_hi",
+    "skew_error_lo",
+    "skew_error_hi",
+    "skew_651_sign",
+    "skew_651_magnitude",
+    "gamma48_kurt_lo",
+    "gamma48_kurt_hi",
+    "kurt_error_lo",
+    "kurt_error_hi",
+    "kurt_651_sign",
+    "kurt_651_magnitude"
+  ],
+  "display_only_approximate_ranges": {
+    "skewness": {
+      "gamma_48": [
+        -0.20108313499287306,
+        -0.20108313389882976
+      ],
+      "extrapolation": [
+        -0.19566445401764013,
+        -0.19566444835462038
+      ],
+      "signed_error": [
+        -0.000002885753712,
+        -0.000002879057558
+      ]
+    },
+    "excess_kurtosis": {
+      "gamma_48": [
+        0.451414521071,
+        0.4514145238359
+      ],
+      "extrapolation": [
+        0.444032734254246,
+        0.444032748456054
+      ],
+      "signed_error": [
+        0.00000707351299,
+        0.00000709036018
+      ]
+    }
+  },
+  "model_189_layers_recomputed": false,
+  "native_96_port_recomputed": false
+}
