@@ -180,6 +180,23 @@ for r,actions_expected in ((decoder(v,deltaA),listA),(decoder(v,deltaB),listB)):
         recomposed[dest]+=w*r[src]
     assert recomposed==terminalA==terminalB
 
+# A strictly positive original native action cycle witnesses tagged paths for every k.
+cycle=[29,80,52,8]
+cycle_labels=[(40,14,0,1),(26,40,0,0),(4,26,0,0),(14,4,1,0)]
+stateA=pA[:];stateB=pB[:]
+edge_weight_product=F(1)
+for k in range(1,129):
+    src=cycle[(k-1)%4]
+    dest=cycle[k%4]
+    candidates=[(w,label) for o,j,w,label in actions(F(1)) if o==dest and j==src and w]
+    assert candidates==[(F(1),cycle_labels[(k-1)%4])]
+    edge_weight_product*=candidates[0][0]
+    assert pA[29]*edge_weight_product==48
+    assert pB[29]*edge_weight_product==40
+    stateA=native_step(stateA,F(1))
+    stateB=native_step(stateB,F(1))
+    assert stateA==stateB
+
 result={
   "schema":"PREFIX623_NATIVE96_TAGGED_ANCESTRY_FIBER_V1",
   "date":"2026-11-09",
@@ -203,6 +220,11 @@ result={
   "full_576_labelled_actions_recovered_from_one_scalar":True,
   "one_scalar_lower_bound_witness":True,
   "shared_future_gates_tested":["0","1","2","7/3"],
+  "arbitrary_horizon_positive_cycle_ports":cycle,
+  "arbitrary_horizon_typed_action_labels":[list(x) for x in cycle_labels],
+  "positive_cycle_edge_weights":["1","1","1","1"],
+  "positive_tagged_path_masses_all_horizons":["48","40"],
+  "finite_horizon_lengths_exactly_checked":128,
   "full_terminal_ports":[str(z) for z in terminalA],
   "review":"AUTHOR_SIDE_UNREVIEWED",
   "result":"ALL_ASSERTIONS_PASS"
