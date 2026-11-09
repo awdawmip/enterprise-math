@@ -1,0 +1,47 @@
+{
+  "schema": "PREFIX636_R6_TRANSVERSE_STABILITY_EXACT_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_dependency": "enterprise-math@ec03483204af911eef75785bcdaf610d24519ab2 (PREFIX-635)",
+  "model_scope": "two-information-direction BRC signed statistical first-passage observer; original native 96-port graph frozen",
+  "p1_range": [
+    "4/25",
+    "161/1000"
+  ],
+  "p2_center": "19/128",
+  "p2_radius": "1/8589934592",
+  "q_range": [
+    12,
+    24
+  ],
+  "N": 189,
+  "M": 188,
+  "K_mu_mix": 6680016,
+  "K_grad_mix": 13887753264,
+  "K_curv_mix": 5933858212800,
+  "delta_K0": "417501/536870912",
+  "delta_K1": "867984579/536870912",
+  "delta_K2": "92716534575/134217728",
+  "left_margin_from_prefix635": "318665/131072",
+  "right_margin_from_prefix635": "205827/16384",
+  "strict_mu_prime_bounds": "299 < mu_p1 < 311",
+  "strict_curvature_bounds": "22000 < F_q_p1p1 < 51000",
+  "unique_minimum": true,
+  "monotonic_in_q": "dc/dq < 0",
+  "gap_lower_strict": "299/1224000",
+  "gap_upper_strict": "311/528000",
+  "transverse_root_sensitivity_bound": "78907689/125",
+  "checks": {
+    "p2_interval_inside_unit": true,
+    "alpha_beta_nb_weights": true,
+    "mu_prime_perturbation_lt_one": true,
+    "q_endpoint_grad_margin_left": true,
+    "q_endpoint_grad_margin_right": true,
+    "F_second_perturbation_lt_1000": true,
+    "uniform_strict_convexity": true,
+    "uniform_curvature_upper": true,
+    "uniform_mu_prime_lower": true,
+    "uniform_mu_prime_upper": true
+  },
+  "validation": "ALL_CHECKS_PASS",
+  "status": "AUTHOR_DERIVED_FROM_PREFIX635 / EXACT_RATIONAL_BOUND_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
