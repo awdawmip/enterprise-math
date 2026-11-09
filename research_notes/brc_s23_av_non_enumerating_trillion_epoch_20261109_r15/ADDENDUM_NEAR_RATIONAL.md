@@ -37,3 +37,30 @@ The standalone Python integer verifier `VERIFY_NEAR_RATIONAL.py` uses an exact i
 ## Algorithmic consequence
 
 The R15 S23/AV trillion-step algorithm is output-sensitive to its actual Farey-epoch sequence and delivers 78 epochs for the frozen S23/AV theta. Near-rational slopes may create almost one Farey-epoch transition per two integer horizons over a very long finite range. A more uniform algorithm should compress Farey-epoch runs via continued-fraction partial-quotient or event-level grouping rather than paying one pass per epoch. Evaluate this against true risk-change block counts and full rational-bit costs, preserving historical arc provenance and the precise Bayes-risk observable.
+
+## Exact risk law: billions of singleton risk blocks admit a one-line compression
+
+**Second theorem (a fixed near-half-integer irrational window).** Let `m>=4` be even, `N>=m`, and `theta=1/2+epsilon` irrational with `0<epsilon<1/(2(N+1))`. The optimal uniform-phase whole-future prediction error for the labelled historical-arc observer, as defined in `PROOF.md`, is **exactly**
+
+`R_theta(m,L)=2 epsilon L=(2 theta-1)L` for **every integer** `0<=L<=N-m`.
+
+Consequently, every consecutive integer horizon produces a strict risk increase `2 epsilon`, so the number of maximal constant-risk blocks over `0<=L<=N-m` is precisely `N-m+1`. All those distinct blocks admit a *single* affine arithmetic-progression representation `(L, (2 theta-1)L)`.
+
+**Proof.** Since `i epsilon<1/2` for `0<=i<N`, the phase cuts split by parity into two strictly ordered clusters:
+
+`t_{2j}=2j epsilon`, and `t_{2j+1}=1/2+(2j+1)epsilon`.
+
+For the first m historical cuts, all but two consecutive-circle arcs are the small gaps of length `2 epsilon`. The two larger historical arcs are `I_E: t_{m-2} -> t_1`, length `1/2-(m-3)epsilon`, and `I_O: t_{m-1} -> t_0` wrapping clockwise, length `1/2-(m-1)epsilon`. There are precisely `m-2` small historical arcs, unaffected by all later cuts.
+
+As `n=m+L` grows, every additional even-index cut lies in `I_E`, immediately after the previous largest even cut; every additional odd-index cut lies in `I_O`, immediately after the previous largest odd cut. Each new cut separates a gap of length `2 epsilon` from the current large gap and shortens that large gap by precisely `2 epsilon`. Across all n<=N, each surviving large gap is greater than `2 epsilon`, because its length is at least `1/2-(N-1)epsilon>2 epsilon` under the stated hypothesis. Thus the maximum remaining subgap in the affected historical arc drops by exactly `2 epsilon` at every step; the maxima of all other historical arcs are unchanged. The risk `1-sum_I M(I;n)` starts at zero when `L=0`, and increases by `2 epsilon` at each of the L future cuts. Therefore the exact formula holds for every stated L. QED.
+
+**Certified fixed-irrational example.** With `theta_*=1/2+sqrt(2)/10^12`, `m=128`, `N=10^11`, the stronger hypothesis `sqrt(2)/10^12<1/(2(N+1))` holds. Hence throughout the *same fixed* input window:
+
+- `E_theta(128,10^11)=49,999,999,937` Farey epochs;
+- `B_theta(128,10^11)=99,999,999,873` distinct maximal constant-risk blocks;
+- `R_theta(128,L)=2 sqrt(2)L/10^12` for all `0<=L<=99,999,999,872`;
+- one symbolic arithmetic progression describes all B risk values without listing any of those billions of singleton blocks.
+
+The independent exact `VERIFY_NEAR_RATIONAL_RISK.py` directly sorts all circular cuts and evaluates every historical arc maximum at ten selected horizons up to n=2000, for both rational endpoints of a rigorously certified interval around theta_*. All twenty exact equalities matched the theorem. The finite test supports the algebraic proof; N=10^11 was treated symbolically, without billion-step enumeration.
+
+This contrasts with frozen S23/AV theta, where the exact trillion-step partition has only 9,698 maximal constant blocks: neither the Farey epoch count nor the raw block count alone is a uniform measure of the shortest *symbolic* risk description. Next work: identify provable affine runs and compressed event templates in the Farey epoch generator, with accurate worst-case output/bit accounting.
