@@ -1,0 +1,6 @@
+# R665 research handoff (author side, unreviewed)
+Parent: RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW; frozen science R462@18783e01e3646c72b7aab3b16d3f565e83e6446f; prior R664@7bb93e0223248761592285b2f3c40f2cc3405bc7.
+Question: after exact directed J(6,3) edge histogram is retained, what additional finite observation makes V17 frame recoverable and future-closed?
+Result: parity is exactly the edge-histogram mod-2 sum; a remaining r∈Z3 is sufficient and necessary, as an explicit nine-step histogram fiber has three frames. Exact D3 update (r,p)*(s,q)=(r+(-1)^p*s mod3,p xor q). General bidirected inverse-edge group transport factors through directed histogram iff its based loop holonomy image is Abelian.
+Evidence: self-contained R665_PROOF.zh-CN.md; executable Python R665_VERIFY.py; reproducible R665_EVIDENCE.json. 20 triads, 180 directed edges, 1,080 frame update checks, six nine-step orders with same histogram, all three r values. No native V29 port H or autonomous timing verified.
+Next: retrieve actual permitted double-ring X6 events and endpoint selection; calculate the based loop image and constrained fiber of r under actual V29/V36; establish online sufficient joint state with accounts/score. No formal CLAIM or Driver acceptance inferred from this GitHub branch.
