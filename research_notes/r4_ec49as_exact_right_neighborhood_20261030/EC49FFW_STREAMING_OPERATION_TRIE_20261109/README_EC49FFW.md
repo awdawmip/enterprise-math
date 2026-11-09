@@ -14,7 +14,7 @@ For original BRC windows H2,Hh, each demanding one operation word of each origin
 
 Thus `C_min(H2,Hh)=4h+42` for **h=11,12,13**, extending the earlier independent H10=82 calculation to the finite range 10..13. No infinite-h lower bound is claimed. H14 was attempted, but the run timed out and **has no completed result**.
 
-## Exact operation-code prefix identity (all finite word families)
+## Reuse of the exact EC49FBS operation-code prefix identity (all finite word families)
 
 The original signed native six-axis words are
 
@@ -24,7 +24,7 @@ d = ( 2, 1,-2,-1)    e = ( 3, 1, 1,-3)
 f = ( 1,-1)          g = ( 2,-2)
 ```
 
-Their first **two** signed microsteps are pairwise distinct. In particular, the code is prefix-free; only c/f share their **first** microstep, and only d/g share their first microstep.
+**Prior work.** This exact identity and its combinatorial proof were already established in `EC49FBS_LOSSLESS_PRIMITIVE_TRIE/README_EC49FBS.md` (2026-11-05), for all finite operation-word families. EC49FFW is not claiming priority for the identity. The **new** work here is the exact streaming observer-constrained subset DP, its H11–H13 exhaustive runs and witness certificates. We independently rechecked the earlier identity on a different candidate domain.\n\nTheir first **two** signed microsteps are pairwise distinct. In particular, the code is prefix-free; only c/f share their **first** microstep, and only d/g share their first microstep.
 
 For any finite set W of complete operation words, form its operation-prefix trie. Let S(P) be the set of outgoing operation labels at operation-prefix P. Then the exact native microstep prefix edge count is
 
@@ -69,8 +69,8 @@ DFA signatures, complete keys, endpoint six-axis signed displacement (2,0,0,0,0,
 - Exact operation trie identity independently checked for all 156,832 legal low-signature words across H2..H8, with **zero** mismatch: 225,952 operation edges versus 623,044 native microstep edges (both exclude root). This is a *node/edge representation reduction of 63.73%* in that finite full candidate trie, not an end-to-end running-time claim.
 - The h14 streaming attempt timed out without an answer; no result or negative mathematical inference is drawn from timeout.
 
-## Provenance, authority and next discriminating question
+## Prior-work attribution, authority and next discriminating question
 
-Frozen model source: `research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FFT_H2_CROSSOVER_20261109/VERIFY_EC49FFT.py`, and `EC49FFV_H9_H10_UNRESTRICTED_20261109/README_EC49FFV.md` at immutable commit `de8f6306e63828368b972509a78ceea0b358401d`. EC49FFW is a separate author-side finite extension and reusable exact compression. It does not alter P000, the frozen science pin, a current Owner, Claim, Result or reviewed Working Truth.
+Earlier operation-trie theorem: `research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FBS_LOSSLESS_PRIMITIVE_TRIE/README_EC49FBS.md` (2026-11-05); its compressed 0–1 formulation was proposed but not executed. EC49FFW extends it to a streaming exact 16-mask solver and new complete H11–H13 results. Frozen model source: `research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FFT_H2_CROSSOVER_20261109/VERIFY_EC49FFT.py`, and `EC49FFV_H9_H10_UNRESTRICTED_20261109/README_EC49FFV.md` at immutable commit `de8f6306e63828368b972509a78ceea0b358401d`. EC49FFW is a separate author-side finite extension and reusable exact compression. It does not alter P000, the frozen science pin, a current Owner, Claim, Result or reviewed Working Truth.
 
-**Next:** use the streaming recursion with tighter exact dynamic programming or symbolic recurrence certificates to decide H14 and test whether the `4h+42` pattern extends beyond the verified finite range; separately route the full frozen 22-demand problem, including H3 high signatures and the <=5 complete-key and <=93 native-edge limits, through an actual current task publication and owner authorization.
+**Scope separation:** The auxiliary H2/Hh instance here has **four low signatures at H2**, whereas the historical frozen mother template in EC49FDF fixes **high signatures 16/32 at H2/H3** and 24 labels. Therefore the 86/90/94 bounds are **not automatically lower bounds on that different mother problem**. Check the exact task publication before applying any inequality.\n\n**Next:** use the streaming recursion with tighter exact dynamic programming or symbolic recurrence certificates to decide H14 and test whether the `4h+42` pattern extends beyond the verified finite range; separately route the full frozen 22-demand problem, including H3 high signatures and the <=5 complete-key and <=93 native-edge limits, through an actual current task publication and owner authorization.
