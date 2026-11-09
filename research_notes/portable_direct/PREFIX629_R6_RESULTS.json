@@ -1,0 +1,36 @@
+{
+  "schema": "PREFIX629_R6_BERNSTEIN_SIGNED_INTERVAL_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "d": 2,
+  "q": "all real q>=2",
+  "p2_range": [
+    "37/256",
+    "39/256"
+  ],
+  "source": "PREFIX621 exact first-passage counts and PREFIX624 monotonicity; PREFIX622 independent Poissonized moments; PREFIX626 edge witnesses",
+  "certificate": "188 exact rational Bernstein control points at each of two intervals",
+  "results": [
+    {
+      "p1_max": "1/16",
+      "bernstein_degree": 187,
+      "coefficients_certified": 188,
+      "max_bernstein_coefficient_display": "-188.215230639075304589033332400",
+      "strict_upper_bound_for_F": "-188",
+      "proven_dV_dp1_upper_bound": "-376*q^2",
+      "max_coefficient_fraction_sha256": "8cf72be47441612a4449e7487f5c55149c038feed520d8eeab2d49476e8650f4",
+      "result": "PASS"
+    },
+    {
+      "p1_max": "1/14",
+      "bernstein_degree": 187,
+      "coefficients_certified": 188,
+      "max_bernstein_coefficient_display": "-18.4645527468804398792193904112",
+      "strict_upper_bound_for_F": "-18",
+      "proven_dV_dp1_upper_bound": "-36*q^2",
+      "max_coefficient_fraction_sha256": "c056b7a8e12f0a7b5becd3a784ec618fb617b6fe48c13f9a673e602d6a518c87",
+      "result": "PASS"
+    }
+  ],
+  "verification": "ALL_CHECKS_PASS",
+  "status": "AUTHOR_PROVED / EXACT_RATIONAL_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
