@@ -1,0 +1,113 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-09",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "previous_author_side_continuation": "research_notes/portable_direct/20261109_onhour_d25_AF4_grade1_secondjet_continuation.json",
+  "mother_objective": "Delta_p-R_p congruent 0 modulo p for all p congruent 13 or 19 (mod 24), using original W216-V2304 modulo p^3; independent original p373 H0/B0 benchmark still pending",
+  "last_durable_frontier": {
+    "highest_verified_author": "AF4 0/1/2/3 grades previously constructed; new exact p^5 counterexamples at p=13,19 prove no uniform p^5 strengthening in either frozen class; bounded p^5 quotient scan",
+    "scientific_status": "AUTHOR_EXACT_COUNTEREXAMPLES_AND_FINITE_EXPERIMENT_UNREVIEWED_NOT_ADMITTED",
+    "artifacts": [
+      "research_notes/portable_direct/20261109_onhour_d25_AF4_p5_sharpness_counterexamples.md",
+      "research_notes/portable_direct/d25_AF4_p5_sharpness_20261109.py"
+    ],
+    "exact_witnesses": {
+      "p13": {
+        "p5": 371293,
+        "W": 276835,
+        "V": 195546,
+        "chi": 1,
+        "E_mod_p5": 257049,
+        "q_mod_p": 9
+      },
+      "p19": {
+        "p5": 2476099,
+        "W": 603611,
+        "V": 1865667,
+        "chi": 1,
+        "E_mod_p5": 1824494,
+        "q_mod_p": 14
+      },
+      "p373": {
+        "p5": 7220115733093,
+        "W": 2934720761840,
+        "V": 3393369805886,
+        "chi": 1,
+        "E_mod_p5": 3368096883534,
+        "q_mod_p": 174
+      }
+    },
+    "tested_scope": {
+      "prime_range": "5<=p<=4000",
+      "prime_count": 548,
+      "frozen_class_count": 139,
+      "AF4_mod_p4_pass": 548,
+      "q_mod_p_zero_primes": [
+        5,
+        7
+      ],
+      "independent_direct_binomial_crosscheck_primes": [
+        5,
+        7,
+        13,
+        19,
+        37,
+        43,
+        73,
+        373
+      ]
+    }
+  },
+  "completed_units_this_run": [
+    {
+      "id": "AF4-P5-SHARPNESS-FROZEN-CLASS",
+      "status": "EXACT_COUNTEREXAMPLE_PROVED_FOR_P5_STRENGTHENING",
+      "evidence": "original full W216/V2304 modulo p^5, at p13 q=9 and p19 q=14 with distinct original-class witnesses"
+    },
+    {
+      "id": "AF4-P5-BOUNDED-DISCRIMINATOR",
+      "status": "FINITE_EXACT_NOT_UNIVERSAL",
+      "evidence": "548 original-full primes 5<=p<=4000; 139 frozen class, none q=0; direct-binomial crosschecks 8"
+    }
+  ],
+  "current_unfinished_unit": "Prove AF4 fourth-digit additive cancellation E_{<=2,p}/p^3=-L_p mod p, preserving full original cutoffs and signed weights; then meet frozen parent LIFT; native H0/B0 remains independently NOT_EXECUTED",
+  "next_exact_action": "Use exact grade 0/1/2/3 data to seek an actual boundary-telescoping (finite WZ/Fricke) certificate for E_{<=2,p}/p^3+L_p in both p mod 24 classes. Start p=13 and p=19 with signed boundary terms, test proposed identity at p=373, and retain the original source/observer. Separately procure authorized native p373 H0/B0 [X]U mod139129 and independent check via existing issue #1559.",
+  "evidence_gaps": [
+    "AF4 universal cancellation remains a conjecture, p5 sharpness is not its proof",
+    "Native fixed original-class p373 H0/B0 [X]U mod139129, module rank, Frobenius direction, eta, signed kappa, Delta-R and independent raw trace missing",
+    "Current Source-authenticated Researcher winning CLAIM, run and native checkpoint not verified"
+  ],
+  "do_not_repeat": [
+    "Accepted D24 UR/JT0 frozen result and old W216/V2304 p^3 finite scans",
+    "Prior AF4 174 and 382 prime p^4 scans, four-grade Wilson/harmonic decomposition, cubic reciprocal kernel",
+    "This p5 scan/counterexample once saved and verified; use to constrain future higher-precision claims only",
+    "Old staging remains independent origin and NOT_ADMITTED"
+  ],
+  "source_session": {
+    "historical_researcher_id": "EM-ENTERPRISE-4DEB43",
+    "historical_session_id": "MCP-ecbfd1c046864bb3bff1a2e04c87d207",
+    "historical_session_start_request": "onhour11-20261108-2202-own-researcher-session-start",
+    "last_resolved_continuation_request": "onhour11-20261109-0926-fresh-task-read",
+    "last_resolved_continuation_receipt": "SUCCEEDED",
+    "latest_recovery_status_attempt": "onhour11-20261109-1100-recovery",
+    "recovery_status_error": "SESSION_CAPABILITY_REQUIRED",
+    "current_usable_session_capability": false,
+    "winning_claim_verified": false,
+    "execution_run_verified": false,
+    "native_checkpoint": "NOT_WRITTEN",
+    "new_pending_source_mutations": []
+  },
+  "native_benchmark": {
+    "issue": 1559,
+    "observed_open_at": "2026-11-09",
+    "assignees": [],
+    "status": "PENDING_OWNER_NOT_EXECUTED",
+    "required": "original p373 H0/B0 [X]U modulo139129 and actual Frobenius/rank/eta/signed kappa/Delta-R evidence"
+  },
+  "publication_state": "AUTHOR_SIDE_GITHUB_ONLY_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "finalization": "No Source HANDOFF/release because no own current winning claim; preserve historical session and same stable Research lane ID; scheduler and notifications not changed"
+}
