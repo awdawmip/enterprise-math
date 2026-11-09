@@ -22,7 +22,7 @@ Any reduced rational fraction p/q > 1/2 with 1<=q<=H satisfies `2p-q>=1`, so
 
 `p/q-1/2=(2p-q)/(2q)>=1/(2H)>epsilon`.
 
-Thus no order-H Farey fraction lies in the open interval `(1/2,theta)`: the lower neighbour is 1/2 itself. The least fraction strictly above 1/2 in the order-H sequence is `(q_H+1)/(2q_H)`, since its odd denominator q_H attains the largest denominator among the solutions of `2p-q=1`; fractions with `2p-q>=2` lie farther above 1/2, with lower bound `1/H>=1/q_H` (and for H=2 the only alternative is 1, farther). Its determinant with 1/2 is `2*(q_H+1)/2-q_H=1`; it is therefore the right Farey neighbour. The same strict bound ensures theta lies strictly beneath it.
+Thus no order-H Farey fraction lies in the open interval `(1/2,theta)`: the lower neighbour is 1/2 itself. The candidate fraction `(q_H+1)/(2q_H)` is reduced, and its determinant with `1/2` is `2*(q_H+1)/2-q_H=1`. Moreover the denominators satisfy `2+q_H>H` (since q_H is H or H-1). The elementary Farey adjacency criterion (determinant one and denominator sum above H) therefore proves that the two fractions are consecutive in the order-H Farey sequence. Equivalently, any intermediate reduced fraction would have denominator at least `2+q_H>H`. The same strict bound ensures theta lies strictly beneath it.
 
 As H ranges from m-1 to N-1, q_H changes exactly once for every two increments of H and assumes every successive odd integer from q_0 through q_N. The claimed exact epoch count follows. QED.
 
