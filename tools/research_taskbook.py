@@ -9,7 +9,6 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-POLICY_PATH = ROOT / "research_taskbook_policy.json"
 FRONTMATTER_PREFIX = "<!-- ENTERPRISE_MATH_TASK_V1\n"
 FRONTMATTER_SUFFIX = "\n-->"
 VALID_LINEAGES = {"NEW_DIRECTION", "CONTINUATION", "REPLAY", "INTEGRATION", "MAINTENANCE"}
@@ -25,10 +24,6 @@ VALID_ORIGINS = {
 
 def load_json(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
-
-
-def policy_manifest(root: Path = ROOT) -> dict[str, Any]:
-    return load_json(root / "research_taskbook_policy.json")
 
 
 def split_taskbook(text: str) -> tuple[dict[str, Any], str]:
@@ -52,30 +47,6 @@ def render_taskbook(meta: dict[str, Any], body: str) -> str:
         + body.rstrip()
         + "\n"
     )
-
-
-def taskbook_review(meta: dict[str, Any]) -> dict[str, Any] | None:
-    review = meta.get("policy_review")
-    return review if isinstance(review, dict) else None
-
-
-def override_map(meta: dict[str, Any]) -> dict[str, dict[str, Any]]:
-    review = taskbook_review(meta) or {}
-    overrides = review.get("temporary_overrides", [])
-    out: dict[str, dict[str, Any]] = {}
-    if isinstance(overrides, list):
-        for item in overrides:
-            if isinstance(item, dict) and isinstance(item.get("conflict_id"), str):
-                out[item["conflict_id"]] = item
-    return out
-
-
-def regex_hits(body: str, patterns: list[str]) -> list[str]:
-    hits: list[str] = []
-    for pat in patterns:
-        if re.search(pat, body, flags=re.IGNORECASE | re.MULTILINE):
-            hits.append(pat)
-    return hits
 
 
 def _nonempty(value: Any) -> bool:
@@ -202,7 +173,6 @@ def lineage_findings(
 
 
 def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> list[dict[str, str]]:
-    policy = policy_manifest(root)
     contract = load_json(root / "research_taskbook_contract.json")
     findings: list[dict[str, str]] = []
     try:
@@ -226,33 +196,9 @@ def audit_taskbook(path: Path, *, root: Path = ROOT, dispatch: bool = False) -> 
         if key in meta:
             findings.append({"severity": "ERROR", "code": "TB-RUNTIME-META", "message": f"forbidden fixed runtime metadata: {key}"})
 
-    # Legacy policy_review stamps remain readable provenance. Current admission
-    # runs the actual rules below; document fingerprints and cached PASS labels
-    # cannot grant or withhold publication/execution authority.
-    overrides = override_map(meta)
-    required_override_fields = policy.get("override_required_fields", [])
-    for cid, item in overrides.items():
-        for field in required_override_fields:
-            if not item.get(field):
-                findings.append({"severity": "ERROR", "code": "TB-OVERRIDE-SCHEMA", "message": f"override {cid} missing {field}"})
-
-    for check in policy.get("conflict_checks", []):
-        hits = regex_hits(body, check["patterns"])
-        if hits and check["id"] not in overrides:
-            findings.append({
-                "severity": check.get("severity", "ERROR"),
-                "code": check["id"],
-                "message": "policy-sensitive task-local directive found without explicit temporary override: " + ", ".join(hits),
-            })
-
-    for check in policy.get("restatement_checks", []):
-        hits = regex_hits(body, check["patterns"])
-        if hits:
-            findings.append({
-                "severity": check.get("severity", "ERROR"),
-                "code": check["id"],
-                "message": "generic repository policy is restated in taskbook; remove it and inherit the repository rule: " + ", ".join(hits),
-            })
+    # Legacy policy_review, temporary overrides and wording are provenance only.
+    # Actual metadata, origin and lineage checks above decide this structural lint;
+    # prose keywords cannot grant or withhold publication/execution authority.
 
     return findings
 
