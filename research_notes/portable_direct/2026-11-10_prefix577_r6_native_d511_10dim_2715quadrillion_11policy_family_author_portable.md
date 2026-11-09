@@ -96,8 +96,22 @@ B=[8,491,1,1,7,3;
 
 Rows sum 511; all entries positive; full signed native observer checks pass; gcd(511,B coordinates)=1.
 
-A separately packaged exact verifier `verify_10dim.py` re-enumerates 1296 original actions, 38 legal policies, 9 signed roots, checks ranks 13/13/11, original map J, all 24 affine coordinates and positivity, injectivity and sample. Two *different* exact cardinality methods (bounded integer dynamic programming and finite binomial double sums) agree on both totals. No float arithmetic and no simulated/native research execution claimed. Reproduction archive SHA256 `6e01dd2b8e4ebebf6042cbfc7e8bf825a774600e146ce35ba42044aafed6fe30` has original frozen kernel, full Chinese proof, JSON certificate, script and README, clean extraction self-test PASS.
+A separately packaged exact verifier `verify_10dim.py` re-enumerates 1296 original actions, 38 legal policies, 9 signed roots, checks ranks 13/13/11, original map J, all 24 affine coordinates and positivity, injectivity and sample. Two *different* exact cardinality methods (bounded integer dynamic programming and finite binomial double sums) agree on both totals. No float arithmetic and no simulated/native research execution claimed. Reproduction archive SHA256 `a977fe17568fb2f40aa9bca8c3c6e80b95e35cc5d364005a256d9607353c8108` has original frozen kernel, full Chinese proof, JSON certificate, script and README, clean extraction self-test PASS.
 
 Source continuation: D25/H0-B0 native divided-power and [X]U mod p^2, Frobenius/eta/kappa and signed Hesse/Green remain with authorized Source owner. Original UR V2 four-file target remains 94,687 bytes, SHA256 `4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76`, not recovered; completed UR mathematics must not be recomputed. Next: classify other fixed supports and seek a target-specific exact full <=12 separation certificate for any nine-bit 13-minimal candidate outside this compression family, preserving Research1 deduplication.
 
 **Proof scope / provenance:** new result is the ten-dimensional parameter construction and the exact counting/irreducible nine-bit subfamily. Prior C/J/S4 and historical reductions are inherited. All evidence remains author-only, unreviewed and not admitted.
+
+
+## Exact historical five-dimensional-family intersection (ownership boundary)
+
+The inherited older five-dimensional family uses `v=(a,b,c,4,2,4,8,d,e,1,f)`, with `a,b>=1, c,e>=5, d>=13, f>=4` and sum `a+b+c+d+e+f=492`. Solving equality with the present eleven-parameter `v` forces
+
+```text
+t=0, s=2, r=7, k=3, p=1,
+m=a-5, n=b-1, j=c-5, q=d-13, h=e-5, u=f-4.
+```
+
+These new parameters are all nonnegative if and only if the older family additionally has `a>=5`. The exact shared count is `binom(464,5)=175,395,504,592`, whereas the old family has `binom(468,5)=183,121,078,608`; exactly `7,725,574,016` old-family members (a in 1,2,3,4) do not belong to this particular new nonnegative slice. **The new ten-dimensional subset uses the same inherited exact 11-policy linear map and intersects most, but does not contain all, of the old five-dimensional slice.** Novelty means the newly proved higher-dimensional family and its exact cardinalities, not blanket set inclusion or reassignment of historical authorship.
+
+Both binomial values and their difference are now asserted in the bundled `verify_10dim.py` and passed after archive repackaging.
