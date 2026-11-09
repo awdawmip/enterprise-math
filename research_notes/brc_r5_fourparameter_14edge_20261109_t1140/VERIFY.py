@@ -171,3 +171,25 @@ print('PASS_R5_RHO_1E-5_ALL_16_VERTICES',s,e)
 print('PASS_R5_SHARP_RADIUS_ALL_16_VERTICES',rho_star,s2,e2)
 print('PASS_R5_SHARP_BOX_BOUNDARY_ZEROS',z2)
 print('PASS_R5_14_STRICT_EDGES_FOR_EVERY_REAL_PARAMETER_INSIDE_OPEN_RADIUS_BOX')
+
+# Stronger boundary certificate: the sharp radius is a Blackwell-feasibility
+# boundary, not merely a property of this choice of 14-edge representation.
+PHI_COEFF={0:F(23,5),1:F(3),2:F(2),3:F(1),7:-F(23,5),
+           8:-F(5),9:-F(5),10:-F(5),15:F(4),16:F(4),17:F(4)}
+ALLOWED=tuple((i,j) for j in (0,1,2,3,5,6)
+              for i in range(7) if j not in (0,6) or i==j)
+PRICE={(i,j):PHI_COEFF.get(i,F(0))+PHI_COEFF.get(7+j,F(0))+
+              R[i]*PHI_COEFF.get(14+j,F(0)) for i,j in ALLOWED}
+assert len(ALLOWED)==30 and min(PRICE.values())==0
+assert PRICE[(5,1)]==1 and all(PRICE[edge]==0 for edge in S if edge!=(5,1))
+outside=rho_star+F(1,10**9)
+physical=combine(X,U,(-outside,outside,outside,HI/4))
+nu=mass(physical)
+assert physical[0]==physical[2] and times(physical)==times(Y)
+assert min(slack(physical))==0 and min(nu)>=0 and sum(nu)==1
+phi=F(23,5)*(mu0[0]-nu[0])+3*(mu0[1]-nu[1])+2*(mu0[2]-nu[2])+mu0[3]-nu[3]
+assert phi==-F(16537,12960000000000)
+assert min(z for i,z in enumerate(slack(physical)) if i!=4)>0
+print('PASS_GLOBAL_PHI_DUAL_NONNEGATIVE_ON_ALL_30_ALLOWED_EDGES')
+print('PASS_EXACT_PHYSICALLY_LAWFUL_BUT_BLACKWELL_INFEASIBLE_OUTSIDE',outside,phi)
+print('SHARP_UNIFORM_RECTANGULAR_BLACKWELL_FEASIBILITY_RADIUS',rho_star)
