@@ -1,0 +1,11 @@
+# R662 handoff: 4-Cell X6 square completion with localized D3 memory
+
+Date 2026-11-09 Asia/Shanghai. Task RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW, source publication TP2-47D65B35A7D48082EFBB (R661 source). Reuse R661@b02966b4b454732023d113ab4a38f07de69d9c55, R660@53353d25dac6cff8a2722df8ac235ebc8b7056f5, frozen R462@18783e01e3646c72b7aab3b16d3f565e83e6446f and V23/V27/V17/V29@b62110008321d9147212cb89f2627ff613c2550d.
+
+Question: when the R661 3-Cell shared-vertex D3 defect is extended around the fourth edge of a true four-Cell native X6 unit-axis cycle, does strict unique V27 direction selection remain available and does the defect persist for arbitrary four-port transfer completions?
+
+Result: YES in the declared fixed-seed finite family. Nodes c0=(0,0,0,0,0,0), c1=(1,0,0,0,0,0), c2=(1,1,0,0,0,0), c3=(0,1,0,0,0,0); initial nonnegative PASS counts outer=(3,3,3,3), centre=(2,0,1,1). Compare (e,f,g,h,k) with (f,e,g,h,k), e=(0,0,1,2), f=(1,0,2,0), g=(1,1,2,0), h=(2,a,3,b), k=(3,c,0,d), a,b,c,d∈{0,1,2,3}. 256/256 pairs execute strictly, end with equal complete ledger, per-pair counts, triads, parity; relative D3 exactly (id,(1,2,0),id,id). Directed-edge counts fixed (1,2,1,1). Shared future right-action invariance proved algebraically.
+
+Verification: Python standard library exact integers; R662_VERIFY.py emits R662_EVIDENCE_RECOMPUTED.json; repository stores R662_EVIDENCE.json compact certificate. Additional 24 permutations of four distinct edge events all strict and none have the target terminal slot collision in this fixed-control domain. Status AUTHOR SIDE; formal Claim and independent Driver acceptance remain governed by fresh native receipts. Do not substitute this witness for an undeclared native port permission H, independent autonomous event selector, or a complete three-dimensional slice.
+
+Next: retrieve current owner/CLAIM; specify Source-approved H and event scheduler; test multiple interacting D3 defects, native rotation/graph relabeling covariance, and sufficiency of per-Cell D3 plus typed V28 margins, pairing and cycle-order memory. Preserve actual source-read/evidence provenance; no credentials in artifacts.
