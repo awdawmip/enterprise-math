@@ -1,0 +1,31 @@
+# Actual local Python/Fraction executions (2026-11-09, Linux Python 3, standard library only)
+
+$ python /mnt/data/em_r17/VERIFY_DIRECT_AFFINE.py
+PASS_DIRECT_FAREY_TO_AFFINE_2M
+exact_theta_LO_HI 262204504569236716045286 262204504569236716045287 1000000000000000000000000
+m_n_final 128 2000128 epochs 29 thresholds 6577 candidates_risk_calls 6606
+affine_runs 102 positive_runs 52 distinct_deltas 13
+last_risk (-21156991, 80688896)
+stream_sha256 26707bc77d7b7267495df34045f1c5111a2d21cb7c8222e83e65775897b013e1 bytes 3677
+exact_prior_r16_byte_match True
+first_six [(128, 164, 0, 0, 16, -61), (164, 292, 576, -2196, -43, 164), (292, 328, -4928, 18796, 0, 0), (328, 456, -4928, 18796, -43, 164), (456, 492, -10432, 39788, 0, 0), (492, 553, -10432, 39788, -43, 164)]
+elapsed_s 8.999
+
+The local executable compared output bytes directly against the mounted previous r16 table. The repository copy instead checks the pinned known r16 SHA-256 and optionally compares a locally present prior TSV, so it can run on a clean checkout. No new 1T direct event run was executed.
+
+$ python /mnt/data/em_r17/VERIFY_INDEPENDENT_SLOPES.py
+SQRT2_MINUS_1 interval 51776695296636881100211/125000000000000000000000 414213562373095048801689/1000000000000000000000000 m 17 nmax 3017 farey_epochs 13 candidates 338 runs 36 checks 20 final (-9808, 23681)
+NEAR_HALF_SQRT2 interval 6250000176776695296636881100211/12500000000000000000000000000000 50000001414213562373095048801689/100000000000000000000000000000000 m 128 nmax 5128 farey_epochs 2501 candidates 5001 runs 1 checks 20 final (-5000, 10000)
+PASS_NON_S23_TWO_SLOPES_EXACT_TWO_ENDPOINT_BRUTE
+
+$ python /mnt/data/em_r17/VERIFY_RATIONAL_CLUSTER.py
+PASS_CLUSTER 1 2 m 128 last_n 380 runs 1 slope (-1, 2) checked_endpoints 506
+PASS_CLUSTER 1 3 m 33 last_n 322 runs 1 slope (-1, 3) checked_endpoints 580
+PASS_CLUSTER 2 3 m 30 last_n 333 runs 1 slope (-2, 3) checked_endpoints 608
+PASS_CLUSTER 2 5 m 40 last_n 240 runs 1 slope (-2, 5) checked_endpoints 402
+PASS_CLUSTER 3 7 m 28 last_n 210 runs 1 slope (-3, 7) checked_endpoints 366
+PASS_CLUSTER 0 1 m 17 last_n 200 runs 1 slope (0, 1) checked_endpoints 368
+PASS_OUTSIDE_SCOPE_WITNESS p=1 q=3 m=6 n=12 eps=sqrt2/25; extrapolated risk > 1
+PASS_RATIONAL_CLUSTER_ALL 2830 exact rational endpoint comparisons
+
+Verification semantics: exact Fraction evaluation at strict rational endpoints, integer-sqrt enclosure of sqrt(2), and explicit combinatorial proof for the irrational parameter itself. S23/AV parameter uses an independently reconstructed 160-term strict log bound; all required branch and winner comparisons are certified at both endpoints. Direct-stream 2M table SHA exactly matches prior r16 source. The approximately 9-second timing is local and excludes repo checkout, installation, GitHub read/write and review.
