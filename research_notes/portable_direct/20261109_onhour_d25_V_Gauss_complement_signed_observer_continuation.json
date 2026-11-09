@@ -1,0 +1,66 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-09",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "source_frontier_unmodified": "b58330b74576153cdadde5d80a3d92df3a819a0e",
+  "prior_author_side": "research_notes/portable_direct/20261109_onhour_d25_V_Gauss_affine_firstjet_p13_continuation.json",
+  "mother_objective": "Prove/refute or strictly reduce Delta_p-R_p mod p for both p=13,19(mod24), keeping true original-class p373 native H0/B0 divided-power [X]U mod139129 and full signed odd observer.",
+  "author_side_new_units": [
+    {
+      "type": "ALL_PRIME_EXACT_MODP_POLYNOMIAL_AND_SIGNED_DERIVATIVE_OBSERVER",
+      "scope": "every p=13(mod24)",
+      "result": "For a=(5p-1)/8,b=(7p-3)/8,u=(p-5)/8,h=(p+1)/2, P=sum_k C(a,k)C(b,k)z^k equals (1-z)^h Q(z) in Fp[z], Q=sum_{k=0}^u C(u,k)C(3u+1,k)z^k. At z=1/9 the original Gauss M=-8Q/9 modp and H=M+16N=-128Q'/81 modp, without presupposing Q=0.",
+      "note": "research_notes/portable_direct/20261109_onhour_d25_V_Gauss_modp_complement_signed_observer.md",
+      "script": "research_notes/portable_direct/d25_V_Gauss_complement_observer_20261109.py",
+      "argument_status": "ALGEBRAIC_PROOF_UNREVIEWED_NOT_ADMITTED",
+      "arithmetic": "exact modular integer p, no float",
+      "observer": "retain value M and signed first derivative H; no unsourced identification with native Frobenius"
+    }
+  ],
+  "observations": [
+    "157/157 primes p<=10000, p=13(mod24): exact modular original Gauss M,N and short Q,Q' observers agree",
+    "6/6 primes p=13,37,61,109,157,181: full coefficientwise polynomial identity by independent convolution",
+    "Observed (not proved uniformly): Q(1/9)=0 and Q'(1/9) != 0 for 157/157 primes",
+    "p373: u=46, Q(1/9)=0, Q'(1/9)=369, M=0, H=80 mod373",
+    "BRC method application: signed finite-field value/derivative pair is an exact sufficient port at modp; at modp2 retain quotient difference (P-(1-z)^h Q)/p and affine middle T"
+  ],
+  "do_not_repeat": [
+    "D24 accepted supersingular unit reciprocity and its frozen certificates",
+    "Previous V Clausen signed cutoff, original W cutoff Q/R and V2 Guo-Zudilin modp3",
+    "Original full affine P,L,T first-jet formula and 157 old Gauss modp2 scans",
+    "Completed W2 firstjet, AF4 p5 scan and Hasse B2/B3; no substitution for native p373 H0/B0"
+  ],
+  "current_unfinished_unit": "Prove Q_u(1/9)=0 in Fp uniformly for p=8u+5=13(mod24), then discharge P/p+L+T=0 modp with a p2 repair coordinate and the exact T middle band. In parallel actual native p373 H0/B0 same-class [X]U remains the top unmet experiment.",
+  "next_exact_action": "Try a p=13(mod24) CM/Hasse-invariant bridge for Q_u, or a finite telescoping/Jacobi identity at z=1/9, retaining H=-128Q'/81 and explicit p2 defect; no separate research task dispatch without original Source selector. For #1559 locate real native H0/B0 evaluator, preserve p373 [X]U mod139129, rank, semilinear eta, signed kappa and Delta-R.",
+  "source_state": {
+    "last_succeeded_continuation_request_id": "onhour11-20261109-2003-fresh-continuation",
+    "source_sha": "c8664d5335ac245d0ba711f00d5003ad4c2cabc9",
+    "source_route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "source_claim": "NO_LIVE_CLAIM",
+    "historical_registered_researcher": "EM-ENTERPRISE-F0B4A2",
+    "historical_registered_session": "MCP-b2108cf3e4614e26b52719f13f8e334c",
+    "historical_session_start_request_id": "onhour11-20261109-1826-own-research-session-start",
+    "session_capability": "NOT_RETAINED",
+    "own_recovery_request_id": "onhour11-20261109-2003-own-recovery",
+    "own_recovery_status": "SESSION_CAPABILITY_REQUIRED",
+    "previous_unknown_request_id": "onhour11-20261109-1903-own-recovery",
+    "previous_unknown_reconcile": "CONTROL_REQUEST_NOT_FOUND",
+    "claim_id": null,
+    "run_id": null,
+    "execution_authorized": false,
+    "native_checkpoint": "NOT_WRITTEN",
+    "maintenance_lane_accessed": false
+  },
+  "native_benchmark": {
+    "support_issue": 1559,
+    "source_status": "OPEN_NO_ASSIGNEE_OBSERVED_2026-11-09",
+    "execution": "NOT_RUN",
+    "scope": "Original fixed same-class p373 H0/B0 divided-power [X]U mod139129, matrix rank, Frobenius semilinear direction/eta, signed kappa/Delta-R, independent replication."
+  },
+  "publication_state": "AUTHOR_SIDE_GITHUB_PERSISTED_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "scheduler_mutated": false
+}
