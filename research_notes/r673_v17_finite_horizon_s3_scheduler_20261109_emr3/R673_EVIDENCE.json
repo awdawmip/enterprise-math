@@ -1,0 +1,17 @@
+{
+  "alphabet": "ABC",
+  "arithmetic": "exact finite tuple permutations and integers; exhaustive BFS of 40 reachable states",
+  "counts_by_suffix_length": {"0": 1, "1": 3, "2": 36},
+  "example_equal_T1": {"distinguishing_future": "CA", "history_1": "AB", "history_2": "ACBA", "shared_group": [1, 2, 0], "shared_next_letter": "C"},
+  "generators": {"A": [0, 2, 1], "B": [2, 1, 0], "C": [1, 0, 2]},
+  "group": "S3",
+  "independent_combinatorial_counts": {"0": 6, "1": 22, "2": 40},
+  "max_shortest_reachable_witness_length": 7,
+  "pass": true,
+  "quotient_by_prediction_horizon": {"0": 6, "1": 22, "2": 40, "3": 40},
+  "reachable_raw_states": 40,
+  "right_action_convention": "compose(p,q)[i] = p[q[i]]",
+  "schema": "R673_HORIZON_QUOTIENT_V1",
+  "source": "R672 exact V17 three transposition blocks, auxiliary no-last-two-repeat scheduler",
+  "stabilizes_at_horizon": 2
+}
