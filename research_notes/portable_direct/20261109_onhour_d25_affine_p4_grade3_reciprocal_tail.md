@@ -19,43 +19,43 @@ The grade-three portions, retained at modulus p^4 but absent at modulus p^3, are
 
 ## Proposition: reciprocal low-grade representation (all p>3)
 For integer j with 1<=j<p/3,
-[
+\[
  A_{p-j}/p^3\equiv -1/(18j^3 A_j)\pmod p.
-]
+\]
 For 1<=j<p/4,
-[
+\[
  C_{p-j}/p^3\equiv -1/(96j^3 C_j)\pmod p.
-]
+\]
 Thus the full signed grade-three AF4 channel is the **finite low-index reciprocal sum**
-[
+\[
  L_p:=(W_{3,p}-2V_{3,p})/p^3\equiv
  -\sum_{1\le j<p/3}\frac{1-6j}{18j^3 A_j}
  +\sum_{1\le j<p/4}\frac{1-8j}{48j^3 C_j}\pmod p.\tag{G3}
-]
+\]
 All denominators here are units. Both formulas are specialized consequences of the already proved complementary cubic-product kernel (2026-11-09), now explicitly applied to the **fourth-digit, weighted, complete-cutoff AF4 observer**; the earlier kernel is not claimed as a new theorem.
 
 ### Direct proof / sign audit
 For k<p^2, let h=floor(k/p), r=k-hp. The elementary factorial block identity is `k!/p^h=(-1)^h h! r! (mod p)` when h<p. Wilson reflection gives `(p-j)!=(-1)^j/(j-1)! (mod p)`. For n=p-j, j<p/3, the factorial valuations of (2n)! and (3n)! are respectively 1 and 2. Their unit parts and Wilson reflection give
-[
+\[
  A_{p-j}/p^3\equiv -2\cdot216^{j-1}\frac{(j-1)!^5}{(2j-1)!(3j-1)!}
  =-\frac1{18j^3A_j}\pmod p.
-]
+\]
 Likewise, j<p/4 makes the numerator (4n)! have valuation three:
-[
+\[
  C_{p-j}/p^3\equiv -6\cdot2304^{j-1}\frac{(j-1)!^4}{(4j-1)!}
  =-\frac1{96j^3C_j}\pmod p.
-]
+\]
 Finally n=p-j changes the **original weights** to 1-6j and 1-8j mod p; replacing high indices by low reciprocals gives (G3), with coefficient +1/48 for the -2V contribution. This explicitly retains the source index, weight, valuation and sign observer.
 
 ## Fourth-digit splitting certificate
 Let `W_{<=2,p}=W_p-W_{3,p}`, `V_{<=2,p}=V_p-V_{3,p}` as exact rational partial sums, and `E_{<=2,p}=W_{<=2,p}-2V_{<=2,p}+chi_p p`. The equality
-[
+\[
  W_p-2V_p+\chi_pp=E_{<=2,p}+p^3L_p\pmod{p^4}
-]
+\]
 is exact for every prime p>3. Whenever `E_{<=2,p}` is divisible by p^3, the fourth-digit AF4 conjecture is equivalent to the explicit single-field check
-[
+\[
  E_{<=2,p}/p^3+L_p\equiv0\pmod p.\tag{AF4-G3}
-]
+\]
 The divisibility condition is verified separately by full original-binomial arithmetic in the recorded witnesses; it is not assumed globally.
 
 | p | W3/p^3 mod p | V3/p^3 mod p | Lp mod p | E<=2/p^3 mod p | sum mod p |
