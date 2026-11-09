@@ -1,0 +1,86 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-10",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "mother_objective": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_input_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "highest_native_frontier_commit": "b58330b74576153cdadde5d80a3d92df3a819a0e",
+  "consumed_author_side_predecessor": "18d75030ca8a6d9a479c6c0fe45261f82ad76524",
+  "new_author_side": {
+    "proof": {
+      "commit": "a21e5692e1c041b1ae4898180f58562938dd849f",
+      "path": "research_notes/portable_direct/20261110_onhour_d25_Legendre_resonant_primitive_Frobenius_carry.md",
+      "git_blob_sha1": "ee4b970b368102e7a50fe28dce51ee3c8bd637a2"
+    },
+    "checker": {
+      "commit": "e4ab948e2f909bd88349a38cbdf880bc1c99019c",
+      "path": "research_notes/portable_direct/d25_cm_resonant_primitive_carry_20261110.py",
+      "git_blob_sha1": "2b44f2040cd6dbea2fa0d369d05968b521d3555e"
+    },
+    "proven": "All p=4q+1 primes: reduction modulo p of the p-local primitive integral_0^x P_q(t) P_3q(t) dt equals integral_0^x (P_q mod p)^2 dt - 2 x^p, despite P_3q=P_q mod p. Its precise exceptional (q,3q) signed-valuation fiber is -2.",
+    "proved_firstjet": "With J=(P_3q-P_q)/p, x(1-x)(P_q J'-P_q'J)=-2q(I_q(x)-2x^p) mod p.",
+    "conditional_cm_reduction": "For p=13 mod24, p-local Hasse lift U_p=P_q(s)/p, D=P_q'(s) and s=(1/2-T/3), s^p=1-s, the previous open 24*g=36/D mod p is equivalent to 2*D*U_p-9*(I_q(s)-2*s^p)=3*T mod p.",
+    "verification": "22 primes p<1000 with p=13 mod24: original integer polynomial coefficient carry, first-jet Wronskian and p^2 Gauss modular paths exact PASS, including p=373; finite target checks not all-prime proof.",
+    "p373": {
+      "p": 373,
+      "q": 93,
+      "rho": 371,
+      "D": 193,
+      "I_basis_1_T": [
+        1,
+        115
+      ],
+      "J_basis_1_T": [
+        0,
+        372
+      ],
+      "P_over_p": [
+        0,
+        22
+      ],
+      "G_over_p": [
+        0,
+        115
+      ],
+      "target_residual": [
+        0,
+        0
+      ]
+    },
+    "status": "AUTHOR_SIDE_PROVED_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE_H0B0"
+  },
+  "source": {
+    "continuation_request_id": "onhour11-20261110-0404-continuation",
+    "continuation_receipt": "SUCCEEDED",
+    "source_snapshot": "765809898c37ffcd139d3be50aaa4c6be07a7933",
+    "as_of": "2026-11-09T20:09:39.680375+00:00",
+    "route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "recovery_status_request_id": "onhour11-20261110-0404-recovery",
+    "recovery_error": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
+    "historical_session_id": "MCP-5cee78358a374d6a986506e7c2e767e9",
+    "historical_researcher_id": "EM-ENTERPRISE-3C3875",
+    "session_capability": "NOT_AVAILABLE_FOR_THIS_RUN",
+    "own_winning_claim": "NOT_VERIFIED",
+    "own_open_run": "NOT_VERIFIED",
+    "native_checkpoint": "NOT_WRITTEN",
+    "original_native_h0_b0": "NOT_RUN"
+  },
+  "open": [
+    "Prove universal p=13 mod24 CM Frobenius-corrected Hasse lift criterion 2*D*U_p-9*(I_q(s)-2*s^p)=3*T mod p; preserve signed T odd port.",
+    "Prove original frozen second-digit Delta_p-R_p=0 for p=13,19 mod24 or supply a strict equivalent reduction/counterexample.",
+    "Native same-original-class p373 fixed H0/B0 divided-power coefficient [X]U modulo139129, rank, semilinear Frobenius direction/eta, signed kappa and original Delta-R; reproducible and independently checked; support Issue #1559 OPEN/PENDING_OWNER."
+  ],
+  "do_not_repeat": [
+    "Accepted D24 UR and first digit",
+    "Original native predecessor checkpoint and 19+2 completed units",
+    "Older 157-prime CM zero scan",
+    "Previously closed finite-log Legendre Wronskian",
+    "Maintenance conversation/session/claim",
+    "Do not reinterpret auxiliary quadratic ring as original native H0/B0"
+  ],
+  "next_exact_action": "Explore p-adic CM Hasse lift U_p via the original E3 degree-2 isogeny/period port and isolate exact relation with I_q(s)-2s^p. In parallel route #1559 to authorized native evaluator; Source CLAIM only after own real session capability and winning claim.",
+  "publication_boundary": "GitHub author-side provenance only, no Source checkpoint/Result/review."
+}
