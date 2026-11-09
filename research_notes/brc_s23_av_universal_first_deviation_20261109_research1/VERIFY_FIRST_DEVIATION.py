@@ -66,7 +66,7 @@ def main():
         after_increment=sub(after,before)
         assert not less(after_increment,(0,0))
         assert less(after_increment,eps)
-        assert not less(nearest_return(q),after_increment)
+        assert after_increment==nearest_return(q),(m,q,after_increment,nearest_return(q))
         print('CERT_FIRST_DEVIATION',f'm={m}',f'best_d={dstar}',
               f'q_next={q}',f'linear_through={H}',f'first_failure={H+1}',
               f'epsilon={eps}',f'first_increment={after_increment}',

@@ -1,18 +1,10 @@
-# Next research unit — S23/AV first-increment equality and plateau 413
+# Next — beyond the first exact horizon break and plateau 413
 
 Frozen science: awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34.
-Current author proof: this directory's PROOF.md, VERIFY_FIRST_DEVIATION.py, RUN_EVIDENCE.txt.
-Previous exact Bayes-risk partition theorem: 540863cb933fe4c5b76523c08f5379fe04b66d8f.
-Status: author-side proven mathematical argument, independent project review pending; no shared Task CLAIM.
+Current theorem/provenance: PROOF.md and ADDENDUM_EXACT_FIRST_INCREMENT.md here, plus exact code and RUN_EVIDENCE.txt. Independent review pending. Real author activity RA-FA8E4343F21DAE6B53EED33E / EM-DIRECT-7183AF; no shared CLAIM.
 
-The all-index first-deviation question is answered:
-for irrational theta, e_m=min_{d<=m}||d theta|| and q(m) the next strictly better return,
-R(m,L)=L e_m exactly through L=q(m)-m, and first fails at L=q(m)-m+1.
+Resolved all-index: for any irrational theta and any m>=1, define delta=min_(1<=d<=m)||d theta|| and q first n>m with ||n theta||<delta. Circle-partition Bayes risk obeys R(m,L)=L delta exactly for 0<=L<=q-m, and R(m,q-m+1)=(q-m)delta+||q theta||. See addendum for the exact first increment proof.
 
-## Smallest new open question
+New smallest question: find the *second* nonlinear breakpoint and complete piecewise affine formula R(m,L) for L>q-m+1. Use exact gap insertion and continued-fraction/three-gap partitions. Construct at least one nontrivial family of m where the full risk can be computed without sorting all m+L cuts. Compare preprocessing, precision, core operation, output and certificate costs in any complexity claim.
 
-The observed first increment in all ten certified frozen S23/AV cases equals ||q(m)theta||. Determine whether this is true for every irrational theta and m. Begin with the old P_m cell adjacent to t_0 and use three-gap/continued-fraction structure to decide whether its maximal refined subgap is necessarily the one split by t_{q(m)}. If false, construct an exact rationally enclosed irrational-rotation counterexample, preserving m, q(m), original gap partition, and exact first increment.
-
-Second independent option: geometric coverage certificate for S23/AV plateau 413, using frozen critical-cell checker and its original covering obligations. The return-time theorem is about auxiliary observer forecasting and is not by itself a plateau covering witness.
-
-Implementation follow-up: a certified incremental partition-refinement algorithm could compute all R(m,L), L<=Lmax, without repeated sorting; compare full precision/cut construction/update/verification costs.
+Independent project research unit: resume frozen S23/AV plateau 413 critical-cell exact verifier, prior original checker Git blob 261d7e22da0e62d667009cb50acfe77ac4e35c3f. Examine whether phase-state classes permit sharing geometry covering witnesses with 412. Retain its separate covering obligations, task/owner and frozen scientific pin.
