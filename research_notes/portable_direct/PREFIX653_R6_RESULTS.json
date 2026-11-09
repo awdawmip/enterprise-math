@@ -1,0 +1,58 @@
+{
+  "schema": "EM_PREFIX653_EXACT_IMPLICATION_V1",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "upstream": [
+    "PREFIX-643",
+    "PREFIX-649",
+    "PREFIX-650",
+    "PREFIX-651"
+  ],
+  "observer": "signed BRC dual-informative-direction first-stop statistical observer",
+  "max_exclusion": {
+    "p_interval": [
+      "3/20",
+      "1/6"
+    ],
+    "z_center": "19/128",
+    "z_half_width": "1/262144",
+    "q_interval": [
+      12,
+      24
+    ],
+    "strict_Fpp_lower": 1930,
+    "midpoint_p": "19/120",
+    "strict_var_gap_q12": "193/20",
+    "strict_var_gap_q24": "193/5"
+  },
+  "four_slot": {
+    "q_multipliers": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "weights": [
+      "-1/21",
+      "2/3",
+      "-8/3",
+      "64/21"
+    ],
+    "skew_derivative_lower": "-1/2",
+    "skew_derivative_upper": "0",
+    "kurt_derivative_lower": "0",
+    "kurt_derivative_upper": "7/4",
+    "skew_derivative_upper_bound_exact": "215605092307/501245550000",
+    "kurt_derivative_upper_bound_exact": "82383535243328/47136806640625",
+    "skew_extrap_error_q12": [
+      "0",
+      "1/63700992"
+    ],
+    "kurt_extrap_error_q12": [
+      "-7/127401984",
+      "0"
+    ]
+  },
+  "assertions_passed": 21,
+  "result": "ALL_CHECKS_PASS",
+  "evidence_scope": "Exact rational implications of inherited upstream inequalities; no native experiment"
+}
