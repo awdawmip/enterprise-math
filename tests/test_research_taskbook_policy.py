@@ -169,7 +169,7 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
             path.write_text(rt.render_taskbook(meta, body))
             self.assertEqual([], rt.audit_taskbook(path, root=root, dispatch=True))
 
-    def test_current_machine_rule_is_still_enforced_without_any_stamp(self):
+    def test_retired_lexical_configuration_cannot_reintroduce_admission_gate(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
         path = self.write_task(root, body="Current prohibited instruction")
@@ -180,32 +180,28 @@ class ResearchTaskbookPolicyTests(unittest.TestCase):
         policy = json.loads(policy_path.read_text())
         policy["conflict_checks"].append({"id":"TB-CURRENT-RULE", "severity":"ERROR", "patterns":["prohibited instruction"]})
         policy_path.write_text(json.dumps(policy))
-        self.assertIn("TB-CURRENT-RULE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+        self.assertEqual([], rt.audit_taskbook(path, root=root, dispatch=True))
 
-    def test_remote_directive_requires_explicit_override(self):
+    def test_remote_terms_need_no_lexical_override(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
         path = self.write_task(root, body="Use GitHub Actions for remote validation.\n")
-        self.assertIn("TB-REMOTE-RUNTIME", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+        self.assertEqual([], rt.audit_taskbook(path, root=root, dispatch=True))
 
-    def test_complete_override_allows_policy_sensitive_directive(self):
+    def test_legacy_override_is_unchanged_provenance_not_an_admission_gate(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
-        override = {
-            "conflict_id": "TB-REMOTE-RUNTIME",
-            "scope": "one final validation after a complete proof candidate",
-            "reason": "pinned environment is unavailable locally",
-            "replacement_behavior": "one batched remote validation; no iterative remote proof loop",
-            "expires_when": "the validation result is captured or the task ends",
-        }
+        override = {"conflict_id": "TB-REMOTE-RUNTIME"}
         path = self.write_task(root, body="Use GitHub Actions for one remote validation.\n", overrides=[override])
-        self.assertNotIn("TB-REMOTE-RUNTIME", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+        before = path.read_bytes()
+        self.assertEqual([], rt.audit_taskbook(path, root=root, dispatch=True))
+        self.assertEqual(before, path.read_bytes())
 
-    def test_generic_policy_restatement_is_rejected(self):
+    def test_generic_policy_restatement_produces_no_warning_or_error(self):
         td, root = self.make_root()
         self.addCleanup(td.cleanup)
         path = self.write_task(root, body="CI_NOT_REQUIRED_FOR_RESEARCH.\n")
-        self.assertIn("TB-RESTATE-REMOTE", self.codes(rt.audit_taskbook(path, root=root, dispatch=True)))
+        self.assertEqual([], rt.audit_taskbook(path, root=root, dispatch=True))
 
     def test_unstamped_legacy_still_checks_actual_metadata(self):
         td, root = self.make_root()
