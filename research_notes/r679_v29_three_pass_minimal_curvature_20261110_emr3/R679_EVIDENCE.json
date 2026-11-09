@@ -1,0 +1,241 @@
+{
+  "schema": "R679_COMPLETED_BATCH_EXACT_FINITE_EVIDENCE_V1",
+  "date": "2026-11-10",
+  "status": "AUTHOR_SIDE_FINITE_CERTIFICATE",
+  "frozen_scientific_input": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "source": "V23 fields + V27 selector + V29 primitive PASS; R678 predecessor",
+  "model": {
+    "pass_order_labels": [
+      "A:0->1",
+      "B:1->2",
+      "C:2->0"
+    ],
+    "initial_omega_zero": true,
+    "final_omega": [
+      [
+        0,
+        1,
+        -1,
+        0
+      ],
+      [
+        -1,
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "initial_and_final_u_same": true,
+    "integer_domain": "4-field signed integer u; L1<=19"
+  },
+  "exhaustive_search": {
+    "total": 97281,
+    "shells": [
+      {
+        "norm": 0,
+        "tested": 1,
+        "globally_strict": 0,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 1,
+        "tested": 8,
+        "globally_strict": 0,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 2,
+        "tested": 32,
+        "globally_strict": 0,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 3,
+        "tested": 88,
+        "globally_strict": 0,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 4,
+        "tested": 192,
+        "globally_strict": 0,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 5,
+        "tested": 360,
+        "globally_strict": 0,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 6,
+        "tested": 608,
+        "globally_strict": 0,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 7,
+        "tested": 952,
+        "globally_strict": 0,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 8,
+        "tested": 1408,
+        "globally_strict": 6,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 9,
+        "tested": 1992,
+        "globally_strict": 18,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 10,
+        "tested": 2720,
+        "globally_strict": 36,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 11,
+        "tested": 3608,
+        "globally_strict": 78,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 12,
+        "tested": 4672,
+        "globally_strict": 150,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 13,
+        "tested": 5928,
+        "globally_strict": 312,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 14,
+        "tested": 7392,
+        "globally_strict": 438,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 15,
+        "tested": 9080,
+        "globally_strict": 756,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 16,
+        "tested": 11008,
+        "globally_strict": 984,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 17,
+        "tested": 13192,
+        "globally_strict": 1560,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 18,
+        "tested": 15648,
+        "globally_strict": 1878,
+        "nonflat_recurrent": 0
+      },
+      {
+        "norm": 19,
+        "tested": 18392,
+        "globally_strict": 2862,
+        "nonflat_recurrent": 6
+      }
+    ],
+    "minimum_nonflat_L1": 19,
+    "minimizers": [
+      [
+        -4,
+        -3,
+        -2,
+        10
+      ],
+      [
+        -3,
+        -2,
+        -4,
+        10
+      ],
+      [
+        -2,
+        -4,
+        -3,
+        10
+      ],
+      [
+        2,
+        4,
+        3,
+        -10
+      ],
+      [
+        3,
+        2,
+        4,
+        -10
+      ],
+      [
+        4,
+        3,
+        2,
+        -10
+      ]
+    ],
+    "minimizer_count": 6,
+    "nonflat_cycle_length": 6,
+    "nonflat_slot_permutation": [
+      2,
+      1,
+      0
+    ],
+    "flat_cycle_length": 2
+  },
+  "prefix_brc": {
+    "branch_model": "positive unit weights, six distinct PASS order labels per fixed vector, ordered serial prefix",
+    "tested_minimal_bias_vectors": 6,
+    "ordered_histories_per_vector": 6,
+    "total_histories": 36,
+    "all_prefix_strictness": [
+      true,
+      false,
+      false,
+      true
+    ],
+    "full_staged_histograms": "Regenerate all 36 per-vector four-stage winner-set cardinality histograms by executing R679_VERIFY.py; full JSON also packaged locally",
+    "note": "No physical amplitude inference"
+  },
+  "separated_event_class": {
+    "minimum_boundary_transfer_units": 19,
+    "required_pass_events": 3,
+    "total_minimum_events": 22,
+    "scope": "boundary-first, fixed one triadic PASS batch at shared Cell"
+  },
+  "verification": {
+    "arithmetic": "exact integers and complete finite enumeration",
+    "checker": "R679_VERIFY.py",
+    "pass_marker": "R679_THREE_PASS_MINIMAL_CURVATURE_BRC_EXACT_PASS",
+    "independent_review": false
+  }
+}
