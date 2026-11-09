@@ -1,0 +1,49 @@
+{
+  "schema": "PREFIX640_R6_EXACT_RATIONAL_IMPLICATION_V1",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "parent_claims": [
+    "PREFIX-631 endpoint signs for all z in [37/256,39/256], q>=12",
+    "PREFIX-636 |mu_pz| <= K0 and |F_ppz| < K2 for q>=12",
+    "PREFIX-639 center z=19/128: 274<mu_p<321 and 27100<F_pp<48100 on I, 12<=q<=24"
+  ],
+  "domain": {
+    "p1": "[3/20,1/6]",
+    "p2": "[19/128-2^-28,19/128+2^-28]",
+    "q": "[12,24] real"
+  },
+  "constants": {
+    "K0": "6680016",
+    "K2": "5933858212800",
+    "h": "1/268435456",
+    "K0h": "417501/16777216",
+    "K2h": "92716534575/4194304"
+  },
+  "certified_implied_bounds": {
+    "mu_p": "273<mu_p<322",
+    "F_pp": "4000<F_pp<71000",
+    "c12_minus_c24": "91/568000 < c(12,z)-c(24,z) < 161/48000",
+    "minus_Phi_tt": "273^2/71000 < -Phi_tt < 322^2/4000"
+  },
+  "checks": [
+    "source_K0",
+    "source_K2",
+    "exact_K0h",
+    "exact_K2h",
+    "centered_band_within_PREFIX631",
+    "mu_derivative_lower",
+    "mu_derivative_upper",
+    "curvature_lower",
+    "curvature_upper",
+    "q_interval",
+    "q_inverse_integral",
+    "minimizer_gap_lower",
+    "minimizer_gap_upper",
+    "minimizer_gap_interval",
+    "strong_concavity_lower",
+    "strong_concavity_upper",
+    "new_radius_vs_PREFIX636"
+  ],
+  "status": "ALL_CHECKS_PASS",
+  "scope": "Exact algebraic implications of the named predecessor results; no rerun of native BRC graph or 189-layer model",
+  "math_review": "UNREVIEWED_NOT_ADMITTED"
+}
