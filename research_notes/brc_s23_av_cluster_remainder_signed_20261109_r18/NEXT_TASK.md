@@ -7,4 +7,4 @@ Date: 2026-11-09. Frozen science: awdawmip/enterprise-math@43ec6098b1330ae86d0a7
 3. Compare the above near-rational method with r16's million/billion/trillion risk codec. Avoid claiming a trillion-horizon S23 algorithm from this short cluster interval; the carried state includes q, p, eta, active cluster membership, and boundary-gap provenance.
 4. Independent mathematical review of PROOF.md and evidence is still pending. Keep P000 and native X6 observer transfer separate.
 
-Expected next return: an exact boundary-exchange lemma and a finite checker reproducing at least one post-cluster change, or a certified rank/select shortcut with measured operation counts and scope.
+Expected next return: an exact n=226 boundary-exchange lemma and a finite checker reproducing at least one post-cluster change, or a certified rank/select shortcut with measured operation counts and scope.
