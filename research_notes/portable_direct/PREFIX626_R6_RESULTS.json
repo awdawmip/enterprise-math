@@ -1,0 +1,27 @@
+{
+  "schema": "PREFIX626_R6_BOUNDARY_NORMAL_GRADIENT_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "d=2; q=12,24; beta=1/40; width=1/4; [0,1/2]^2",
+  "interval_p2": [
+    "37/256",
+    "39/256"
+  ],
+  "proved": "partial_p1 Var(T_q)(0,p2) < -332*q^2 for every p2 in interval and q>=2; PREFIX623 gives full-square strict boundary local maxima for q=12,24.",
+  "exact_checks": [
+    "mu(0,a)>87",
+    "partial_1 mu(0,b)>4",
+    "partial_1 H(0,a)<182",
+    "2*(partial_1 H(0,a)-mu(0,a)*partial_1 mu(0,b))<-332"
+  ],
+  "first_passage_derivative_support": "n=25..33; coefficient 25",
+  "central_coefficient_checks": 8930,
+  "reused_prefix621_integer_threshold_tests": 357260,
+  "display_approximations": {
+    "mu_at_a": "87.31364593314114",
+    "dmu_dp1_at_b": "4.248199959435103",
+    "dH_dp1_at_a": "181.3781658317787",
+    "upper_bound_dW_dp1": "-379.0953225590449"
+  },
+  "verification": "ALL_CHECKS_PASS",
+  "status": "AUTHOR_PROVED / EXACT_RATIONAL_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
