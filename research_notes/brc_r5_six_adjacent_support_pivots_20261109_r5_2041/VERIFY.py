@@ -285,3 +285,12 @@ assert pivots==[(6,1),(6,2),(6,3),(0,5),(2,5),(3,5)]
 print('PASS_EXHAUSTIVE_SIX_ADJACENT_14_EDGE_PIVOTS',pivots)
 print('PASS_SIX_REAL_INTERVALS_BY_EXACT_ENDPOINT_CHECKS')
 print('STATUS AUTHOR_EXACT_VERIFICATION; INDEPENDENT_REVIEW_PENDING')
+
+
+# Strict interiors supply genuine open 4D neighborhoods for each new support.
+for edge in pivots:
+    coeff=solve_column(edge)
+    xx,ee=pivot_run(DELTA_MAX/2,edge,coeff)
+    assert min(ee.values())>0
+    assert min(z for i,z in enumerate(slack(xx)) if i!=4)>0
+print('PASS_SIX_STRICT_OPEN_FOUR_DIMENSIONAL_CHARTS')

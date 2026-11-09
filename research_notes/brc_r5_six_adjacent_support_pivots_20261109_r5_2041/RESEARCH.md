@@ -54,6 +54,11 @@ For each of the six negative-coefficient candidates, use t=E_old(5,5)/alpha_e(5,
 
 This is a complete classification of single-new-edge replacements **of (5,5) on this specific ray**, not a universal classification of all R5 strategies or all supports.
 
+
+### Six full-dimensional adjacent charts
+
+The six pivots yield more than a one-dimensional ray: each has a nonempty **open four-dimensional** physical-parameter region, on the same affine (p,q,r,epsilon) equality manifold. At delta=delta_max/2, all fourteen pivoted coupling weights are strictly positive for each of the six choices and all physical capacity slacks except the required g-b=0 are strictly positive. Because each pivot is an exact affine representation of all 21 coupling equations, continuity supplies an open four-dimensional neighborhood of this interior point. The U1..U4 physical directions are independent by the predecessor's exact minor. These are six distinct affine support charts; their full overlap and adjacency outside the common ray remain to be classified.
+
 ## BRC / observer interpretation and next unit
 
 The four physical directions have three observable probability directions and one observer-kernel residual as established in the immutable predecessor. This new ray changes marginal probabilities and crosses the old support boundary while retaining the branch-resolved transport carrier. The six support substitutions are distinct exact representatives of the same observed Blackwell marginals; their positive-branch provenance should be retained rather than quotienting to total mass without the stated observer lease.
