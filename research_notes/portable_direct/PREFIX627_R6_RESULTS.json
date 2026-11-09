@@ -1,0 +1,20 @@
+{
+  "schema": "PREFIX627_R6_UNIFORM_INWARD_STRIP_CERTIFICATE_V1",
+  "date": "2026-11-09",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "frozen signed-direction d=2, q>=2, beta=1/40, width=1/4",
+  "dependency": "PREFIX-626 exact edge-gradient bound, PREFIX-621 finite survivor horizon",
+  "M": 189,
+  "A": 17766,
+  "B": 4429656,
+  "D": 631225980,
+  "W_second_derivative_bound": 5242533408,
+  "variance_Hessian_bound_divided_by_q_squared": 5244748236,
+  "strip_width": "1/16777216",
+  "strict_margin_divided_by_q_squared": "81321869/4194304",
+  "conclusion": "For p2 in [37/256,39/256], 0<=p1<=2^-24, q>=2: partial1 Var(T_q)<-19q^2; for p1>0, V_q(p1,p2)<V_q(0,p2)-19q^2 p1.",
+  "verification": "ALL_CHECKS_PASS",
+  "assertions_executed": 16,
+  "scope": "New bound exact arithmetic; prior exact survivor certificate and original native graph not rerun.",
+  "admission": "AUTHOR_PROVED / EXACT_ARITHMETIC_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
