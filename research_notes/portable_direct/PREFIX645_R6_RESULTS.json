@@ -1,0 +1,112 @@
+{
+  "schema": "PREFIX645_R6_CUMULANT_TRANSFER_V1",
+  "date": "2026-11-10",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "observer": "signed two-informative-direction, dyadic 189-layer stopping observer",
+  "p": "1/6",
+  "z": "19/128",
+  "poissonized_cumulants": {
+    "kappa_1": {
+      "interval_6dp": [
+        "54327837/500000",
+        "4346227/40000"
+      ],
+      "decimal_display": "108.655674655"
+    },
+    "kappa_2": {
+      "interval_6dp": [
+        "42102733/125000",
+        "67364373/200000"
+      ],
+      "decimal_display": "336.821864618"
+    },
+    "kappa_3": {
+      "interval_6dp": [
+        "-1209500201/1000000",
+        "-6047501/5000"
+      ],
+      "decimal_display": "-1209.500200859"
+    },
+    "kappa_4": {
+      "interval_6dp": [
+        "25187126503/500000",
+        "50374253007/1000000"
+      ],
+      "decimal_display": "50374.253006190"
+    }
+  },
+  "native_action_cumulants": {
+    "12": {
+      "kappa_1": {
+        "interval_6dp": [
+          "260773619/200000",
+          "20372939/15625"
+        ],
+        "decimal_display": "1303.868095857"
+      },
+      "kappa_2": {
+        "interval_6dp": [
+          "47198480409/1000000",
+          "4719848041/100000"
+        ],
+        "decimal_display": "47198.480409117"
+      },
+      "kappa_3": {
+        "interval_6dp": [
+          "-279277440563/125000",
+          "-2234219524503/1000000"
+        ],
+        "decimal_display": "-2234219.524503818"
+      },
+      "kappa_4": {
+        "interval_6dp": [
+          "1057438820990309/1000000",
+          "105743882099031/100000"
+        ],
+        "decimal_display": "1057438820.990309715"
+      }
+    },
+    "24": {
+      "kappa_1": {
+        "interval_6dp": [
+          "2607736191/1000000",
+          "40745878/15625"
+        ],
+        "decimal_display": "2607.736191713"
+      },
+      "kappa_2": {
+        "interval_6dp": [
+          "47850414457/250000",
+          "191401657829/1000000"
+        ],
+        "decimal_display": "191401.657828180"
+      },
+      "kappa_3": {
+        "interval_6dp": [
+          "-17299551222547/1000000",
+          "-8649775611273/500000"
+        ],
+        "decimal_display": "-17299551.222546004"
+      },
+      "kappa_4": {
+        "interval_6dp": [
+          "16814644408063811/1000000",
+          "4203661102015953/250000"
+        ],
+        "decimal_display": "16814644408.063812256"
+      }
+    }
+  },
+  "finite_rows": "0..188; extinction at 189; first stop at 25",
+  "all_order_identity": "kappa_r(T_q)=sum_{j=1}^r(-1)^(r-j)S(r,j)q^j kappa_j(Y)",
+  "inverse": "q^r kappa_r(Y)=sum_{j=1}^r unsigned_s(r,j)kappa_j(T_q)",
+  "toy_cumulants": [
+    "3/2",
+    "5/4",
+    "9/4",
+    "51/8"
+  ],
+  "exact_checks": "passed: 189-layer survivor invariants, positive finite moments, r<=4 Stirling inverses q=12/24, two-mark independent exact toy through r=4",
+  "status": "AUTHOR_PROVED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "native_96port_reexecution": false
+}
