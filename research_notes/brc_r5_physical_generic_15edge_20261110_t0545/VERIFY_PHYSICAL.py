@@ -143,3 +143,11 @@ print('PASS_6x30_QUOTIENT_AND_7_EXCEPTIONAL_FLAT_RANKS')
 print('PASS_30_EDGE_TRANSPORT_AND_8_EXACT_RIGHT_INVERSE_DIRECTIONS')
 print('PASS_EXPLICIT_PHYSICAL_TRANSCENDENTAL_WITNESS_BOUNDS')
 print('THEOREM_GENERIC_PHYSICAL_MIN_SUPPORT_15')
+
+# Stronger rational result: the original frozen, lawful p0 is excluded
+# by all three 14-column quotient hyperplane supports. The four 24-column
+# hyperplanes already contradict a strictly positive source-column deficit.
+for k,ix in enumerate(hyperplane_edges[4:],start=4):
+    sub=C[:,ix]
+    assert sub.row_join(b0).rank()==sub.rank()+1
+print('PASS_ORIGINAL_RATIONAL_PHYSICAL_P0_MIN_SUPPORT_EXACTLY_15')
