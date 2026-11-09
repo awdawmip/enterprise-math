@@ -271,7 +271,7 @@ class ActiveTurnContinuationLivenessTests(unittest.TestCase):
         text = read("docs/RESEARCH_ARCHITECTURE.md")
         self.assertIn("ACTIVE / CANONICAL GOVERNANCE / V2.6", text)
         self.assertIn("research_control_dispatch.py", text)
-        self.assertIn("STALE_SESSION + VALID_OWNER_CLAIM -> ADOPT_SAME_CLAIM", text)
+        self.assertIn("STALE_SESSION + VALID_OWNER_CLAIM -> PREPARE_SUCCESSOR_CLAIM", text)
         self.assertIn("TOOL_COVERAGE_LOOKUP != TOOL_USE", text)
         self.assertIn("Never use `WAITING_FOR_CONTINUE`", text)
 

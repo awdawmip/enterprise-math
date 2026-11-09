@@ -656,7 +656,8 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                 progress_readback = {"pin": pin, "original_reference": progress,
                     "historical_work_status": "UNKNOWN_NOT_ESTABLISHED_BY_CURRENT_READBACK"}
                 if (input_seed_unchanged and not restricted and not state.get("claim_id")
-                        and state.get("dispatch_state") == "NEEDS_DISPATCH" and state.get("last_claim_id")):
+                        and state.get("dispatch_state") == "NEEDS_DISPATCH" and state.get("last_claim_id")
+                        and (progress != record["publication_id"] or publication_input_seed)):
                     continuation_seed = {"state": "CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS",
                         "task_id": task_id, "publication_id": record["publication_id"],
                         "previous_claim_id": state["last_claim_id"],

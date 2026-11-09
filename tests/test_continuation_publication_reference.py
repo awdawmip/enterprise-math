@@ -65,4 +65,18 @@ class ProgressReferenceTests(unittest.TestCase):
   value=self.packet();self.assertEqual(value['continuation_seed']['completed_units'],[]);self.assertFalse(value['continuation_seed']['completed_research_units_verified'])
   self.assertEqual(value['continuation_seed']['previous_claim_id'],'CL-PRIOR')
 
+ def test_reference_readback_does_not_relax_recovery_seed_conditions(self):
+  self.state.update(last_claim_id='CL-PRIOR',last_claim_comment_id=17)
+  for changes in ({'last_claim_comment_id':None},{'last_claim_comment_id':True},
+                  {'last_claim_comment_id':0},{'last_claim_comment_id':-1},
+                  {'dispatch_state':'COMPLETE'},{'claim_id':'CL-LIVE','last_owner_activity_at':'2026-11-08T00:00:00+00:00'},
+                  {'last_progress_at':None},{'last_progress_at':'2026-11-02T00:00:00+00:00'}):
+   with self.subTest(changes=changes):
+    previous=copy.deepcopy(self.state);self.state.update(changes)
+    try:
+     value=self.packet();self.assertIsNone(value['continuation_seed'])
+     self.assertEqual(value['artifact_errors'],[])
+     self.assertEqual(value['progress_reference_readback']['pin']['path'],self.pubpath)
+    finally:self.state=previous
+
 if __name__=='__main__':unittest.main()
