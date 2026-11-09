@@ -216,3 +216,52 @@ assert min(negative_radii)==F(5194221,10938329600)
 print('PASS_STABLE_QUADRILATERAL_OVER_ALL_REAL_BOX','radius',F(1,2500),
       'four_valid_pairs',valid,'twenty_excluded_pairs',invalid,
       'minimal_infeasibility_radius',min(negative_radii))
+
+# Global exact criterion on the fixed union, beyond the local 9D box.
+# After solving on SA, nonnegativity of the 16-edge affine kernel slice
+# reduces to nine one-variable linear inequalities and 8 fixed edge signs.
+VARIABLE={(0,2),(0,5),(2,2),(2,5),(3,2),(3,5),(5,2),(5,5)}
+assert len(VARIABLE)==8 and len(set(U)-VARIABLE)==8
+
+def strip_certificate(p):
+    particular=solve(operator(SA),target(*model(p)))
+    ref=dict(zip(SA,particular))
+    if any(ref[edge]<0 for edge in set(U)-VARIABLE):return None
+    a,b,c,d,e,f=(ref[(0,2)],ref[(2,2)],ref[(3,2)],
+                  ref[(2,5)],ref[(5,2)],ref[(5,5)])
+    if c<0:return None
+    # Each pair lower <= upper gives an affine half-line on s.
+    lowers=((F(0),-f),(-F(1,3),F(0)),(-F(9,14),-F(13,28)*b))
+    uppers=((F(0),e),(-F(1,3),F(13,15)*a),(-F(9,14),F(13,28)*d))
+    s_low=F(0);s_high=c
+    for low_slope,low_const in lowers:
+        for up_slope,up_const in uppers:
+            slope=low_slope-up_slope;rhs=up_const-low_const
+            if slope>0:s_high=min(s_high,rhs/slope)
+            elif slope<0:s_low=max(s_low,rhs/slope)
+            elif rhs<0:return None
+    if s_low>s_high:return None
+    s=s_low
+    t=max(slope*s+constant for slope,constant in lowers)
+    assert t<=min(slope*s+constant for slope,constant in uppers)
+    coupling={edge:ref.get(edge,F(0))+s*k1.get(edge,F(0))+
+              t*k2.get(edge,F(0)) for edge in U}
+    assert all(v>=0 for v in coupling.values())
+    assert sum(v>0 for v in coupling.values())<=14
+    assert all(sum(coupling[edge]*row[j] for j,edge in enumerate(U))==rhs
+               for row,rhs in zip(AU,target(*model(p))))
+    return s,t,coupling
+
+center_cert=strip_certificate(p0)
+assert center_cert is not None
+p1=tuple(X1[i] for i in (0,1,3,4,5,6))+tuple(Y1[i] for i in (0,1,2))
+ref1=dict(zip(SA,solve(operator(SA),target(*model(p1)))))
+assert ref1[(5,5)]==-F(83405933,3456000000)
+end_cert=strip_certificate(p1)
+assert end_cert is not None
+print('PASS_GLOBAL_16_EDGE_STRIP_CRITERION_AT_SEAM',
+      'edges',sum(w>0 for w in center_cert[2].values()),'s',center_cert[0],'t',center_cert[1])
+print('PASS_GLOBAL_16_EDGE_STRIP_CRITERION_OUTSIDE_BOX',
+      'old_SA_negative',ref1[(5,5)],'edges',sum(w>0 for w in end_cert[2].values()),
+      's',end_cert[0],'t',end_cert[1])
+print('THEOREM_S_RESTRICTED_FEASIBILITY_REDUCES_TO_NINE_LINEAR_INEQUALITIES_IN_ONE_SCALAR_AND_14_EDGE_EXTRACTION')
