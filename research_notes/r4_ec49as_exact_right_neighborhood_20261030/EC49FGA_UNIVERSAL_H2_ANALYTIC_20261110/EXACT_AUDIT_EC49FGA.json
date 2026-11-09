@@ -1,0 +1,71 @@
+{
+  "schema": "EC49FGA_ANALYTIC_INFINITE_BOUND_FINITE_AUDIT_V1",
+  "created_date": "2026-11-10",
+  "scientific_input_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "model": "original nine-state signed-X6 BRC H2-low/Hh-low, positive keys unrestricted",
+  "first_code_low_reachability": {
+    "a": [
+      2,
+      8
+    ],
+    "c": [
+      4
+    ],
+    "d": [
+      1
+    ],
+    "e": [
+      2,
+      8
+    ],
+    "f": [
+      2,
+      4
+    ],
+    "g": [
+      1,
+      8
+    ]
+  },
+  "two_code_covering_pairs": [
+    "fg"
+  ],
+  "baseline_native_prefix_count": 28,
+  "witness_range": [
+    4,
+    200
+  ],
+  "witness_cases_checked": 197,
+  "witness_h4": 58,
+  "witness_h200": 842,
+  "analytic_case_A": "28+2*(2h+4-1)+4+4=4h+42",
+  "analytic_case_B": "6h+14>=4h+42 for integer h>=14",
+  "h10_h13_cited_exact_prior_costs": {
+    "10": 82,
+    "11": 86,
+    "12": 90,
+    "13": 94
+  },
+  "prior_evidence": [
+    {
+      "commit": "de8f6306e63828368b972509a78ceea0b358401d",
+      "path": "research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FFV_H9_H10_UNRESTRICTED_20261109/report_H10.json",
+      "blob_sha": "c8d24fdf4dac3df9f09d36d57cdf1a05714e00df",
+      "h": [
+        10
+      ]
+    },
+    {
+      "commit": "aa91c76788d5bc60c41221e9ea8cdb2426add1f2",
+      "path": "research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FFW_STREAMING_OPERATION_TRIE_20261109/EXACT_REPORT_EC49FFW.json",
+      "blob_sha": "5c50c0edd7ec081b6d5e62be8116b8f97165060f",
+      "h": [
+        11,
+        12,
+        13
+      ]
+    }
+  ],
+  "audit": "PASS",
+  "note": "197 explicit witnesses computed with exact native prefixes, 28-edge baseline and DFA root reachable sets checked. Prior h10-h13 values are immutable source readbacks, not recomputed enumerations; the infinite lower proof is analytical in README."
+}
