@@ -97,6 +97,39 @@ The accompanying self-contained Python Fraction verifier checks each of four dir
 
 Tool reuse: REUSE_APPLIED to the predecessor's rational mass/slack/time and fourteen-edge chart; EXTEND_EXISTING_TOOL with exact four-parameter rank and corner certificates. This is author-side exact proof verification; independent review and formal task admission remain separate.
 
+## A stronger sharpness result: the boundary is globally Blackwell-infeasible beyond rho_star
+
+The preceding radius also has a **global feasibility meaning within this fixed-target, fixed-epsilon-interval physical parameter family**. PR #1859's exact Phi dual has coefficients for the 21 Blackwell equations
+
+    l[0]=23/5, l[1]=3, l[2]=2, l[3]=1,
+    l[7]=-23/5, l[8]=l[9]=l[10]=-5,
+    l[15]=l[16]=l[17]=4,
+
+with all other coefficients zero. For each of the 30 physically allowed edges (i,j) (columns j=0 and j=6 may only be diagonal), its edge price
+
+    c_(i,j) = l[i] + l[7+j] + r_i*l[14+j]
+
+is nonnegative, as checked exactly in the executable proof. Consequently every nonnegative Blackwell transport, on ANY support, obeys
+
+    Phi(M(Y),M(X)) = sum_(i,j) c_(i,j) E_(i,j) >= 0.
+
+At the first sharp corner, Phi equals zero, while for p=-rho,q=rho,r=rho and epsilon=H/4 it is
+
+    Phi = (3211/8100)*(H/4) - (16537/12960)*rho.
+
+Thus Phi<0 whenever rho>rho_star. Crucially, the specific *slightly outside* choice
+
+    rho' = rho_star + 1/1000000000
+         = 177747844141933/2254141933000000000
+
+has a fully lawful physical source (all physical slacks other than g-b=0 are strictly positive, probability masses are normalized and nonnegative, and the two stopping times still agree), yet
+
+    Phi = -16537/12960000000000 < 0.
+
+Hence that physically lawful source cannot admit any nonnegative Blackwell coupling to Y, even with all 30 allowed edges. By continuity, every radius larger than rho_star contains such a smaller nearby lawful but globally Blackwell-infeasible point. Together with the explicit nonnegative transports at rho_star, this proves rho_star is the **largest symmetric p/q/r radius on the stated epsilon interval for which every point in that entire real rectangular chart remains Blackwell feasible**. This is a sharp local classification of *feasibility*, not only of a chosen support.
+
+This global dual also identifies the right next pivot: the (5,1) corner lies on an actual feasibility boundary, whereas the opposite (5,5) boundary may admit a different 14-edge chart for physical points beyond this affine representation.
+
 ## Next discriminating action
 
-Perform exact adjacent-support pivots at the two active boundary edges (5,1) and (5,5) and test which support substitutions create another legal full-dimensional chart, then continue the all-physical 14-versus-15 question. Preserve the frozen inputs and task-owner state; no formal CLAIM/Result is asserted by this note.
+Perform exact adjacent-support pivots at the active (5,5) boundary and test which support substitutions create another legal full-dimensional chart, then continue the all-physical 14-versus-15 question. Preserve the frozen inputs and task-owner state; no formal CLAIM/Result is asserted by this note.
