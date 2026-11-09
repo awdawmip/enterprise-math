@@ -1,0 +1,127 @@
+{
+  "schema": "PREFIX626_NATIVE_X6_BRC_EXACT_VERIFICATION_SUMMARY_V1",
+  "date": "2026-11-09",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "research_identity": {
+    "researcher_id": "EM-X6-E90CA6",
+    "activity_id": "RA-DBF18FC5261DB71FA7124AE9",
+    "status": "AUTHOR_SIDE_UNREVIEWED"
+  },
+  "native_model": {
+    "phases": 48,
+    "ports": 96,
+    "labelled_actions": 576,
+    "weights": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  "exact_symbolic_certificates": {
+    "E_nonzero_zero_based": [
+      [
+        7,
+        9
+      ],
+      [
+        29,
+        9
+      ],
+      [
+        31,
+        9
+      ]
+    ],
+    "E_rank": 1,
+    "E_squared_zero": true,
+    "column_krylov": "A0^5*u=12*A0*u",
+    "row_krylov": "v^T*A0^5=12*v^T",
+    "scalar_feedback_k0_to_k4": [
+      0,
+      0,
+      0,
+      4,
+      0
+    ],
+    "scalar_feedback_all_k": "v^T A0^k u = 4*12^((k-3)/4) when k>=3 and k%4==3, else 0",
+    "support_4_residue_classes_pairwise_disjoint": true
+  },
+  "operator_theorem": {
+    "domain": "all finite n>=2, real-valued g1..gn algebraically; in native model all gates nonnegative",
+    "four_residue_products": "P_r=prod_{j=2..n-1, j%4==r}(1+g_j/3)",
+    "fixed_boundary_gate_equal_products_imply_identical_full_96x96_endpoint_operator": true,
+    "if_both_boundary_gates_zero_equal_operator_iff_equal_four_active_products": true,
+    "all_four_internal_residues_nonempty_for_n_ge": 6
+  },
+  "execution": {
+    "checker_path": "research_notes/portable_direct/PREFIX626_native_gate_residue_invariant_checker.py",
+    "checker_git_blob_sha1": "ca42ab69d03d92b7e1824568d32c53c3ab5ebf19",
+    "test_arithmetic": "SymPy exact integer/rational native BRC actions",
+    "verified_full_96x96_gate_product_trials": 22,
+    "horizons": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      13,
+      17
+    ],
+    "test_patterns_per_horizon": 2,
+    "status": "ALL_ASSERTIONS_PASS",
+    "full_raw_json_generated_by_checker": "PREFIX626_native_gate_residue_invariant_results.json"
+  },
+  "exact_tagged_path_counterexample": {
+    "length": 10,
+    "gates_alpha": [
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "2",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "gates_beta": [
+      "0",
+      "2",
+      "0",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "residue_two_product": "20/9",
+    "full_endpoint_operators_equal": true,
+    "complete_action_tagged_path_mass_alpha": "1",
+    "complete_action_tagged_path_mass_beta": "2",
+    "path_port_sequence": [
+      22,
+      9,
+      29,
+      80,
+      52,
+      8,
+      28,
+      80,
+      52,
+      8,
+      28
+    ]
+  },
+  "distinction": "This summary records executed author-side exact checks and algebraic proof certificates. It is not independent Driver acceptance or a formal Native Result.",
+  "next_question": "Minimum online memory for selected bounded-lag ordered action provenance while preserving the universal four-product gate endpoint quotient."
+}
