@@ -162,3 +162,59 @@ so the original fixed-SA chart fails. The strip algorithm nevertheless returns a
 `(s_*,t_*)=(0,83405933/3456000000)`.
 
 The attached verifier computes both certificates with `Fraction` and checks the full 21 equations. Theorem 4 is therefore a reusable **exact feasibility/constructive elimination rule** for the frozen 16-edge restricted coupling model; it does not equate S-feasibility to feasibility in the unrestricted 49-edge Blackwell model, nor establish a universal physical 14-edge bound outside S.
+
+## Theorem 5 — exact physical counterexample to global coverage by the four S charts
+
+Theorem 4 has a strict boundary: **there exist lawful `g=b` FULL_HIST sources and lawful seedless F targets with a legitimate full seven-node Blackwell coupling, yet no coupling supported in our four-chart 16-edge union S exists.** The following exact rational example proves it constructively, while providing an even sparser unrestricted 13-edge solution.
+
+Set the FULL_HIST source
+
+```
+x=(999/1000,1/6,999/1000,1/20,29/240,11/160,1/120)
+```
+
+and target `y=model(p5)[1]` using its exact free coordinates
+
+```
+(G,A,B)=(1,2002911/10904720,26095487/40892700)
+```
+
+and the explicit seedless-F and time-equality formula for its other four coordinates given above. All 13 physical slack inequalities for both x and y are nonnegative; the target's slacks `1-G`, `13A/40+B/80-U`, `A/10-Z`, `Z+9B/40-V` vanish, and its remaining physical slacks are nonnegative. Both strategies preserve the exact stopping times
+
+`T_P=17609/6000, T_Q=33857/12000`.
+
+An exact strictly positive **13-edge** transfer certificate is:
+
+| target i | source j | mass E(i,j) |
+|---:|---:|---:|
+|0|0|33553/432000|
+|0|1|3997/624000|
+|0|2|309035731/15310226880|
+|2|1|3997/390000|
+|2|2|283041195263/765511344000|
+|2|3|8294919533/294427440000|
+|3|3|4095218743/29442744000|
+|4|2|309035731/11777097600|
+|4|3|8294919533/294427440000|
+|4|5|172449787/1363090000|
+|5|5|219439/545236000|
+|6|5|172449787/2180944000|
+|6|6|38053/432000|
+
+All other 36 masses equal zero. `VERIFY.py` checks **exactly** all 7 target rows, 7 source columns, 7 weighted likelihood-ratio columns, normalization, capacity inequalities, seedless conditions and time equality. The smallest positive mass is `219439/545236000`.
+
+**Exact impossibility certificate for the four-chart union S.** The sixteen-edge union contains only `(3,3)` in source column 3, and the only edges targeting row 3 are `(3,2),(3,3),(3,5)`. Therefore any *nonnegative S-supported* coupling would have `E(3,3)=M_3(x)` and
+
+```
+M_3(y)-M_3(x)=E(3,2)+E(3,5) >= 0.
+```
+
+For the explicit physical strategies above, exact calculation instead gives
+
+```
+M_3(y)-M_3(x)= -8294919533/147213720000 < 0.
+```
+
+This contradiction rules out **every** S-supported nonnegative coupling, without using a numerical optimization or scanning supports. The valid thirteen-edge coupling avoids the obstruction via positive edges `(2,3)` and `(4,3)`, which route some source-node-3 mass away from target row 3.
+
+This result is an explicit **counterexample to global completeness of the four-chart S support atlas**. It is **not** a counterexample to a possible universal 14-edge upper bound: this very instance has an unrestricted thirteen-edge coupling. The next constructive problem is to find an alternative finite support chart family that covers both the four-chart region and this new exact physical witness, and then test complete coverage or a genuine 15-edge-required witness. The `Fraction` output and the analytic one-line negative-margin obstruction establish the claimed scope without dependence on the floating-point LP search used to discover the candidate.
