@@ -60,6 +60,36 @@ For the four-point-probe family above, **zero such scalars are insufficient**, e
 
 This is a conditional **one-step** conservation/reconstruction statement; for multiple ancestral steps one must preserve a suitable earlier readout or tagged history state. The current endpoint is a sufficient state for **future endpoint-only** questions under common gates, but not for this declared path-label observer.
 
+## Theorem 623.3 — arbitrary finite-horizon separation by one periodic native path
+
+Fix the same five-step histories in Theorem 623.1, and subsequently use the **same gate 1 for every one of `k>=1` steps**. The complete native 96-port endpoint states after these `k` steps are identical for both histories. Yet a single ordered length-`k` native labelled path has different exact mass in the two worlds, for **every finite `k>=1`**.
+
+One explicit all-positive original native port cycle, with port indices, is
+
+```
+29 -> 80 -> 52 -> 8 -> 29
+```
+
+(repeated). Its four original typed-action labels `(destination phase, source phase, destination bit, source bit)` are
+
+```
+(40,14,0,1), (26,40,0,0), (4,26,0,0), (14,4,1,0).
+```
+
+All four exact action weights at common gate 1 equal 1. Take the first `k` edges of the repeated cycle. The ordered path-coordinate mass is the starting native source-port mass times the product of its edge weights. Consequently,
+
+```
+J^A_{path(k)} = 48,       J^B_{path(k)} = 40
+```
+
+for every finite `k>=1`, even though the aggregate current 96-port states coincide at each such step.
+
+**Proof.** Theorem 623.1 establishes that the first identical gate kills the predecessor difference. Further common linear native updates preserve equality. The four displayed positive action labels form a directed cycle in the original enumerated 576-action graph. Repeating this cycle supplies a valid strictly positive labelled path of any prescribed finite length. Since each edge has weight 1, the path mass remains exactly its initial port-29 mass, which is 48 or 40. ∎
+
+In the conditional observer class where the complete predecessor phase `v` and all subsequent gate values are known, `δ` determines the native 96-port predecessor by Theorem 623.2. Multiplying its coordinates by the actual typed edge weights then reconstructs **every ordered `k`-step path mass for arbitrary finite `k`** (with explicit path labels, not only terminal-port sums). The two histories above show that the one-scalar lower bound holds for every `k>=1` in this class. This is a path-query result with an explicitly supplied **starting phase observer**, not a generic ability to infer past phases from a present endpoint.
+
+The checker also tests all `k=1,...,128` using the original 576-action propagation and the positive cycle, while the general statement follows from the explicit edge identities.
+
 ## Reproducible original-native evidence
 
 `PREFIX623_native_ancestry_checker.py` is a standalone Python-standard-library `fractions.Fraction` checker. It reconstructs all 48 STAR phases, enumerates all 576 original typed-action weights, propagates both six-gate histories, tests `A(0)h=A(1)h=0` (which certifies affine `A(s)h=0`), compares all 96 terminal ports, and constructs all 576 labelled action masses before endpoint summation. It additionally verifies the `(v,δ)` decoder for both histories, six positive outgoing source-29 contributions and four later shared gates. The complete 96-vector and tagged port differences are in the companion JSON. Result: all assertions passed on exact rational arithmetic.
