@@ -1,0 +1,173 @@
+{
+  "schema": "R674_V29_DOUBLE_LOOP_V17_NONABELIAN_FIBER_V1",
+  "scope": "V29 H_diag + two 4-transfer X6 loops sharing one of seven Cells + explicit V17 block-completion frame coupling; no native autonomous V27 scheduler claimed",
+  "cells": 7,
+  "directed_edges": 8,
+  "loop_A": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "loop_B": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "H_diag": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      3
+    ]
+  ],
+  "V17_A": [
+    0,
+    2,
+    1
+  ],
+  "V17_B": [
+    2,
+    1,
+    0
+  ],
+  "AB_h": [
+    1,
+    2,
+    0
+  ],
+  "BA_h": [
+    2,
+    0,
+    1
+  ],
+  "full_V29_ledger_AB_BA_identical": true,
+  "all_end_of_loop_u_zero": true,
+  "network_Q_zero_after_every_transfer": true,
+  "spectra_0_to_4": {
+    "0,0": 1,
+    "0,1": 1,
+    "0,2": 1,
+    "0,3": 1,
+    "0,4": 1,
+    "1,0": 1,
+    "1,1": 2,
+    "1,2": 2,
+    "1,3": 2,
+    "1,4": 2,
+    "2,0": 1,
+    "2,1": 2,
+    "2,2": 3,
+    "2,3": 3,
+    "2,4": 3,
+    "3,0": 1,
+    "3,1": 2,
+    "3,2": 3,
+    "3,3": 3,
+    "3,4": 3,
+    "4,0": 1,
+    "4,1": 2,
+    "4,2": 3,
+    "4,3": 3,
+    "4,4": 3
+  },
+  "sample_distributions": {
+    "1,1": {
+      "(1, 2, 0)": 1,
+      "(2, 0, 1)": 1
+    },
+    "2,2": {
+      "(0, 1, 2)": 4,
+      "(1, 2, 0)": 1,
+      "(2, 0, 1)": 1
+    }
+  },
+  "exact_words_checked": 251,
+  "same_ledger_checks": 226,
+  "pass": true,
+  "verification": "Exact standard-library finite run executed locally (equivalent local verifier); see R674_VERIFY.py for full reproducibility."
+}
