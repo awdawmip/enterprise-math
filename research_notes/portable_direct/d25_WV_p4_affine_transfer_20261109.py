@@ -40,6 +40,17 @@ def original_binomial_sums(p, precision=5):
     return W % modulus, V % modulus
 
 
+def half_direct(p):
+    """Independent original-binomial half-cutoff test, NOT the frozen full sum."""
+    modulus = p**4
+    m = (p-1)//6
+    W = sum((6*n+1)*comb(2*n,n)**2*comb(3*n,n)
+            *pow(216, -n, modulus) for n in range(3*m+1)) % modulus
+    V = sum((8*n+1)*comb(4*n,2*n)*comb(2*n,n)**2
+            *pow(2304, -n, modulus) for n in range(3*m+1)) % modulus
+    return W, V, (W-2*V+p)%modulus
+
+
 def certificate(p):
     W, V = recurrence_sums(p)
     chi = 1 if p % 3 == 1 else -1   # Legendre (-3/p), p>3
@@ -72,11 +83,16 @@ def main():
     assert next(r for r in checks if r["p"]==373)["affine_quotient_p4_mod_p"] == 174
     assert next(r for r in checks if r["p"]==373)["W_minus_V_quotient_p3_mod_p"] == 114
     assert next(r for r in checks if r["p"]==13)["W_minus_V_quotient_p3_mod_p"] == 11
+    half_witnesses = {13:(24687,4407,15886), 19:(127091,20596,85918),
+                      373:(7176413322,6953946051,12625400234)}
+    for p, expected in half_witnesses.items():
+        assert half_direct(p) == expected
+        assert expected[2] % p**2 == 0 and expected[2] % p**3 != 0
     out={"classification":"EXACT_FINITE_EXPERIMENT / CONJECTURE / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE",
          "science_pin":"c47e13e4aba0e006366f989d6334d443f6333ae3",
          "formula":"W_p - 2 V_p + (-3/p)*p = 0 mod p^4 (CONJECTURE ONLY)",
          "count":len(checks),"independent_direct_oracle_primes":witnesses,
-         "p4_all_pass":True,"p5_zero_primes":[r["p"] for r in checks if r["affine_mod_p5"]==0],
+         "p4_all_pass":True,"half_cutoff_counterexamples":half_witnesses,"p5_zero_primes":[r["p"] for r in checks if r["affine_mod_p5"]==0],
          "rows":checks}
     path=Path(__file__).with_name('d25_WV_p4_affine_transfer_results_20261109.json')
     path.write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
