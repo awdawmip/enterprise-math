@@ -1,0 +1,61 @@
+{
+  "schema": "PREFIX630_R6_DISCONNECTED_VARIANCE_PATCH_VERIFIED_RESULT_V1",
+  "date": "2026-11-09",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_prefixes": [
+    "PREFIX-621",
+    "PREFIX-622",
+    "PREFIX-627",
+    "PREFIX-629"
+  ],
+  "research_identity": {
+    "researcher_id": "EM-DIRECT-F055AE",
+    "activity_id": "RA-52877582FE83635F579B93A5",
+    "mode": "TASK_RESEARCH"
+  },
+  "model": {
+    "directions": 2,
+    "original_trial_probabilities": "p_i/q and (1-p_i)/q",
+    "q_range": "q >= 2",
+    "stopping_beta": "1/40",
+    "stopping_diameter": "1/4",
+    "last_survivor_length": 188
+  },
+  "exact_witness": {
+    "p1": "1/8",
+    "p2": "37/256",
+    "mean_mu_exact_sha256": "4520cbb99c6809baacaf8def13f29203cff837eb1d70b175bf56e17487618a29",
+    "mean_gradient_U_exact_sha256": "d1fec6273bb568925901010152afb716138c75987da0a1bc2c47da78f41172af",
+    "variance_gradient_Wp_exact_sha256": "64b60044203dbe6233b9d9e0f713071299532622bd36d374805c91f83571dd4f",
+    "exact_assertions": [
+      "U > 0",
+      "Wp = 2*(J-mu*U) < -1500"
+    ],
+    "display_approximate": {
+      "Wp": -1516.506597637739,
+      "U": 210.72681977375348
+    },
+    "full_exact_rational_numbers": "Generated in full by PREFIX630_R6_disconnected_variance_patch_certificate.py in PREFIX630_R6_RESULTS.json; this repository JSON is a compact verified digest for navigability."
+  },
+  "rectangle": {
+    "p1_min": "2097151/16777216",
+    "p1_max": "2097153/16777216",
+    "p2_min": "37/256",
+    "p2_max": "2424833/16777216"
+  },
+  "Hessian_bounds": {
+    "partial_11_V_over_q2": "5244748236",
+    "partial_12_V_over_q2": "4004112924"
+  },
+  "certified_gradient_gap": {
+    "exact": "1989620355/2097152",
+    "strictly_greater_than": 948,
+    "conclusion": "partial_p1 Var(T_q) < -948*q^2 throughout rectangle for every real q>=2"
+  },
+  "validation": {
+    "assertions": 14710,
+    "output": "ALL_CHECKS_PASS",
+    "source": "local Python 3 Fraction execution; original 96-port graph not rerun"
+  },
+  "status": "AUTHOR_PROVED / EXACT_RATIONAL_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
