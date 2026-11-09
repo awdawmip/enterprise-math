@@ -383,8 +383,9 @@ def inventory_projection(*, root: Path, events: list[dict[str, Any]], now: datet
     """Internal one-pass projection for service-owned snapshot pagination."""
     from tools import research_dispatch, research_result_records
     verify_source_snapshot(root, source_commit)
-    states = research_dispatch.effective_states(events, now=now, root=root)
-    result_scopes = {(row.get("task_id"), row.get("publication_id")) for row in research_result_records.iter_results(root)}
+    with research_dispatch._dispatch_result_read_snapshot(root):
+        states = research_dispatch.effective_states(events, now=now, root=root)
+        result_scopes = {(row.get("task_id"), row.get("publication_id")) for row in research_result_records.iter_results(root)}
     counts = dict(sorted(Counter(row.get("dispatch_state", "UNKNOWN") for row in states).items()))
     version = hashlib.sha256(json.dumps({"source_commit": source_commit, "events": events,
         "states": [{k: row.get(k) for k in ("task_id", "publication_id", "state", "dispatch_state", "claim_id", "lease_until")}
@@ -625,8 +626,10 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
         and _text(state.get("last_claim_id"))
         and type(state.get("last_claim_comment_id")) is int
         and state["last_claim_comment_id"] > 0)
+    # A current publication ID denotes its immutable record even before a claim.
+    # Resolving that reference does not establish prior work or a recovery seed.
     progress_path = (f"research_task_records/{task_id}/{record['publication_id']}.json"
-                     if publication_input_seed else progress)
+                     if _text(progress) and progress == record['publication_id'] else progress)
     fixed = _fixed_source_candidate(progress, "AUTHENTICATED_RUNTIME_LAST_PROGRESS_REF")
     if fixed and (not restricted or (fixed["source_commit"], fixed["path"]) in allowed):
         external.append(fixed)
@@ -653,7 +656,8 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                 progress_readback = {"pin": pin, "original_reference": progress,
                     "historical_work_status": "UNKNOWN_NOT_ESTABLISHED_BY_CURRENT_READBACK"}
                 if (input_seed_unchanged and not restricted and not state.get("claim_id")
-                        and state.get("dispatch_state") == "NEEDS_DISPATCH" and state.get("last_claim_id")):
+                        and state.get("dispatch_state") == "NEEDS_DISPATCH" and state.get("last_claim_id")
+                        and (progress != record["publication_id"] or publication_input_seed)):
                     continuation_seed = {"state": "CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS",
                         "task_id": task_id, "publication_id": record["publication_id"],
                         "previous_claim_id": state["last_claim_id"],
