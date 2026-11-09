@@ -7,9 +7,9 @@ Date: 2026-11-09. Parent Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SE
 For p>3, partition by *coefficient* valuation `v_p(A_n)=floor(2n/p)+floor(3n/p)`, `v_p(C_n)=floor(4n/p)` for 0<=n<p. Preserve weight factors before reduction. `W_g,V_g` denote the corresponding signed sums, computed modulo p^4. `chi=(-3/p)`.
 
 Set `L=(W_0+W_1)-2(V_0+V_1)+p chi`, `M=W_2-2V_2`, and `H=W_3-2V_3`, modulo p^4. For the chosen p, `p²|L,M` and `p³|H` were verified with original coefficients. Define canonical residues `ell=L/p² mod p²`, `b=M/p² mod p²`, `t=H/p³ mod p`. Then exactly
-[
-  (W_p-2V_p+p\chi)/p^2 \equiv \ell+b+pt \pmod{p^2}.
-]
+$
+\frac{W_p-2V_p+p\chi}{p^2}\equiv\ell+b+pt\pmod{p^2}.
+$
 This is the *specific* remaining additive AF4 interface, not a claim that the conjecture holds for all p.
 
 ## Exact decimal data: first direct zero/first-grade vs B/Z/D boundary comparison
@@ -28,10 +28,10 @@ This newly computes `ell` on the **original coefficient-grade zero and one carri
 ## New explicit carry-level boundary condition
 
 Choose base-p digits `ell=ell0+p*ell1`, `b=b0+p*b1` with each digit in `{0,...,p-1}`. Whenever `ell0+b0` is divisible by p, its **unreduced carry** `c=(ell0+b0)/p` is 0 or 1. By exact base-p arithmetic, AF4 for this input is equivalent to *both*:
-[
+$
 \ell_0+b_0\equiv0\pmod p,\qquad
 \ell_1+b_1+c+t\equiv0\pmod p.
-]
+$
 The carry is not optional: it transfers one full unit to the fourth p-adic digit. In all six checked cases `c=1`. For the frozen representatives:
 
 | p | ell0 | b0 | c | ell1 | b1 | t | ell1+b1+t | ell1+b1+c+t |
