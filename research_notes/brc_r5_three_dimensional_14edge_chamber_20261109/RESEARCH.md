@@ -66,7 +66,7 @@ This extends the previously constructed 2D statistical region to a positive-volu
 ## Exact proof
 
 1. **Affine coupling direction.** The exact frozen mass and time maps give
-   `M(X0+HX)-M(X0)=M(Y0+HY)-M(Y0)=(-23/36,0,1,1,0,0,-13/36)` and `T(X0+HX)-T(X0)=T(Y0+HY)-T(Y0)`.
+   `M(X0+HX)-M(X0)=M(Y0+HY)-M(Y0)=(-23/36,0,1,0,0,0,-13/36)` and `T(X0+HX)-T(X0)=T(Y0+HY)-T(Y0)`.
    Moreover `HX[g]=HX[b]`, `HY[z]=HY[a]/10`, and `HY[v]-HY[z]=9*HY[b]/40`. Thus the source remains `g=b` and the target remains on the seedless F face. The signed `H` has zero total mass and likelihood-ratio weighted sum:
    `-23/36-13/36+1=0` and `-(1/10)*(23/36)-(19/10)*(13/36)+3/4=0`.
    Since `H` is diagonal, all its column moment constraints hold entrywise. In particular its support is a subset of `SA`.
