@@ -14,17 +14,17 @@ The p=373 ordinary candidate is inherited evidence, not rediscovered or promoted
 ## Theorem A — unramified norm surjectivity and unit ambiguity
 
 Let p be any odd prime with `(2/p)=-1` (in particular target p≡13,19 mod24), and
-[
-R_r=(\mathbb Z/p^r\mathbb Z)[T]/(T^2-2),quad
-\sigma(T)=-T,quad N(u)=u\sigma(u).
-]
+$
+R_r=(\mathbb Z/p^r\mathbb Z)[T]/(T^2-2),\quad
+\sigma(T)=-T,\quad N(u)=u\sigma(u).
+$
 For every r≥1 the norm map `N:R_r^× → (Z/p^r)^×` is surjective, and every target unit has exactly `(p+1)p^(r-1)` preimages.
 
 **Proof.** Mod p, `R_1=F_(p²)` and its norm is `x↦x^(p+1)`, onto `F_p^×` by cyclicity. Suppose a solution modulo p^r is lifted arbitrarily to `R_(r+1)`; its norm has the correct residue modulo p^r. If the needed multiplicative correction is `1+p^r d`, multiply the lifted element by the **central base scalar** `1+p^r d/2`. Its norm is `(1+p^r d/2)^2=1+p^r d (mod p^(r+1))`; induction proves surjectivity. Counting units,
-[
-|R_r^×|=(p^2-1)p^{2r-2},qquad
+$
+|R_r^×|=(p^2-1)p^{2r-2},\qquad
 |(\mathbb Z/p^r)^×|=(p-1)p^{r-1},
-]
+$
 gives the stated uniform fiber size. QED.
 
 **Identifiability consequence.** If a native purported rank-one `F=a σ` is compared to `N(eta) N(a)` but `eta∈R_r^×` is left unconstrained by the original H0/B0 source, then any **unit** target for `F²` can be matched by choosing eta after seeing it. Thus that bare equality, without a native pinned eta, cannot certify an identification of operators. Source-derived, independently fixed eta and operator/basis map are required. This is a precise nonidentifiability result for the *unit-rank-one comparison* only, not a no-go for native H0/B0 itself.
@@ -38,32 +38,32 @@ In particular a source normalization **multiplying** a by an eta is not the same
 ## p=373 exact discriminating witness
 
 Use integer arithmetic in `R_2`, p=373 and p²=139129. The previously author-reported ordinary Hesse source candidate is
-[
+$
 a=92060+21788 T.
-]
+$
 Direct multiplication:
-[
+$
 N(a)=92060^2-2(21788)^2\equiv122102\pmod{139129},
 \qquad N(a)\bmod373=131.
-]
+$
 Euler checks give `2^186 mod373=372` and `131^186 mod373=372`. The first is the coefficient-field inert condition; the second establishes that 131 is a **quadratic nonresidue**. Therefore **no rank-one basis gauge makes this ordinary Hesse candidate's sigma-semilinear coefficient base-valued modulo 373 or 139129**.
 
 However, the independently explicit multiplier
-[
+$
 \eta=89901+6579T
-]
+$
 satisfies
-[
+$
 a\eta=1\pmod{139129},\qquad N(\eta)=18818,\qquad
 122102\cdot18818\equiv1\pmod{139129}.
-]
+$
 Thus, if eta were allowed to be chosen freely, its norm could make a proposed unit-norm comparison equal to 1 even though no basis gauge makes a itself base-valued. This is the concrete ambiguity the authentic native normalization must resolve.
 
 The actual p=373 sigma-semilinear **matrix of the candidate** in the external coefficient basis (1,T), mod p, is
-[
+$
 M_a=\begin{pmatrix}302&65\\154&71\end{pmatrix},
 \qquad\det M_a\equiv242\pmod{373}.
-]
+$
 This is an invertible **external candidate**; it is not the original whole-E3 crystalline Frobenius matrix. The separate previously published odd-valuation obstruction to identifying a unit-rank-one unramified module with the *whole* geometric supersingular E3 remains in force.
 
 ## Reproducible exact exhaustive checks
