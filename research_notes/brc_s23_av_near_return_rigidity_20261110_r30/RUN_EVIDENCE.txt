@@ -1,0 +1,18 @@
+R30 exact local execution, Python3, 2026-11-10 Asia/Shanghai.
+
+$ python /mnt/data/em_r30/VERIFY_R30.py --certificate /mnt/data/em_r30/CERTIFICATE_R30.json
+PASS_R30_NEAR_RETURN_RIGIDITY
+mu_lower= 192343669352678928363/125000000000000000000000 attained_d= 164
+last_offsets= 128 two_blocks=[-164,-98],[-61,-1]
+samples= 3 historical_arcs= 128 minimum_suffix= 164
+r27_regimes_crosschecked= 0 r27_events_crosschecked= 0
+
+$ python /mnt/data/em_r30/VERIFY_R30.py --regimes /mnt/data/em_r27/REGIMES_R27.tsv --events /mnt/data/em_r27/EVENTS_R27.tsv --certificate /mnt/data/em_r30/CERTIFICATE_R30.json
+PASS_R30_NEAR_RETURN_RIGIDITY
+mu_lower= 192343669352678928363/125000000000000000000000 attained_d= 164
+last_offsets= 128 two_blocks=[-164,-98],[-61,-1]
+samples= 3 historical_arcs= 128 minimum_suffix= 164
+r27_regimes_crosschecked= 47 r27_events_crosschecked= 6016
+
+R27 inputs are pre-existing conversation artifacts, not downloaded or reconstructed in R30.
+No floats are used for phase comparisons or proof decisions. No official Task CLAIM, Result, review, or acceptance asserted.
