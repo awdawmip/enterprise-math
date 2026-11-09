@@ -1,14 +1,20 @@
-# Next scientific unit — S23/AV Farey rank/select and BRC observer
+# Next scientific unit — compressed Farey risk runs and near-rational stress
 
-Frozen science: `43ec6098b1330ae86d0a7863be336c5d97f6ef34`.
-Verified author-side predecessor: this directory's `PROOF.md`, `VERIFY_FAST_1T.py`, `RUN_EVIDENCE.txt`.
+Frozen science: `awdawmip/enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34`.
+Verified author-side research: `PROOF.md` (entire 10^12-horizon exact S23/AV block sequence), `ADDENDUM_NEAR_RATIONAL.md` (exact near-rational Farey epoch and risk-run theorems), and paired exact Python verification/evidence files in this directory.
 
-**Mother objective:** make exact S23/AV multistep residual-phase risk and plateau geometry efficiently and verifiably computable across scales, preserving observer labels. The new generator has produced the complete 1T risk-block partition; the scientific tool interface can now be costed and compressed.
+**Mother objective.** Build exact, efficient, residual-faithful S23/AV multistep-risk and capacity tools with fully accounted precision, preprocessing, generation and output costs. Preserve BRC phase/gap labels and keep the 413th plateau geometry on its separate frontier.
 
-1. Test near-rational slopes with a single extremely large partial quotient. Record Farey-epoch count E(N), output block count B, exact arithmetic operations, endpoint certification precision, and end-to-end bit/time/memory costs. Compare per-horizon Farey direct evaluator, O(N)-scan event generator, and nonenumerating floor-sum rank/select event generator on the same certified inputs.
-2. Improve the epoch handoff to update only affected historical arcs without reinitializing m maxima. Aim for `O(B + E*m*log N*log Q)` arithmetic work with a certified rational interval; test whether the event representation admits compressed runs without listing every unit-increase block.
-3. Investigate extending the finite rational θ enclosure with adaptive additional exact log-series terms when a Farey boundary or max-gap comparison is undecided; report actual precision and bit complexity.
-4. Independent mathematical audit: inspect the successor-index ranges, the proof `u_I=p`, floor-sum arc membership and endpoint-uniformity of rank/select; replicate random exact horizons with an independently written evaluator. Formal acceptance follows current project review rules.
-5. Keep S23/AV 413th capacity plateau critical-region coverage in a separate claimable geometric research unit, anchored in the last exact plateau certificate; do not treat this circle-observer risk result as an X6 geometric proof.
+**Now verified scientific frontiers.**
+- Frozen S23/AV theta, m=128: 78 Farey epochs, 19,072 candidate threshold positions, 9,698 maximal constant blocks through L=10^12, endpoint exact affine risk.
+- Counterregime with fixed irrational `theta*=1/2+sqrt(2)/10^12`: for all m=128, n<=10^11, Farey epochs number exactly 49,999,999,937; full integer-horizon risk is `R=(2theta*-1)(n-128)`, yielding 99,999,999,873 singleton maximal blocks but ONE compressible affine progression. Complete finite epoch enumeration performed through N=100,000; direct circular risk independently checked at ten horizons through n=2,000. The 10^11 claims follow from separate universal theorems.
 
-Next discriminating test: construct a family `theta=[0;a_1,a_2,...]` with a very large chosen partial quotient, calculate E and B for increasing N, then determine whether the observed generator gains persist when the slope is exceptionally close to a rational.
+**Next discriminating unit.** Design a compressed output object `(n_start,n_end,A0,B0,delta_A,delta_B)` for an affine run of risk values, alongside ordinary constant-value blocks, and a mathematical criterion for when consecutive event updates share a constant affine increment. Derive a correct direct merge criterion from the labelled arc-gap changes, then implement and compare against (i) full r15 1T S23/AV block table and (ii) the near-half-integer family where complete singleton-block enumeration would be prohibitively large. Certify exact reconstructed values at block endpoints and random interior horizons. Count output objects, floor-sum calls, integer-bit operations, memory, and precision-refinement failures.
+
+**Further routes.**
+1. Explore batched Farey transitions across large continued-fraction partial quotients and skip epochs that provably create no observable-risk changes.
+2. Separate output-listing lower bounds from the complexity of computing one risk value and from compressed sequence representation.
+3. Submit the threshold proof and near-rational exact risk law for genuine independent mathematical audit. Do not count shared context as independent validation.
+4. Preserve the S23/AV capacity plateau 413 geometric critical-zone audit as a separate authorized research unit.
+
+Acceptance for the next unit is an exact reconstruction/certificate and measured total costs for both contrasting slope families. Failure to compress one family must be reported at its precise input/observer scope without extrapolating beyond it.
