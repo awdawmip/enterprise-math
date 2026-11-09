@@ -1,0 +1,11 @@
+# R658 Research handoff — exact signed BRC parity quotient
+
+Date: 2026-11-09. Task RS-X6-GLOBAL-TRIADIC-FIELD-NETWORK-LAW / immutable publication TP2-47D65B35A7D48082EFBB. Predecessor R657@46f632eaf8d699cd4b5488cadec4c754f7b13bbc; frozen R462@18783e01e3646c72b7aab3b16d3f565e83e6446f and V23/V27/V17/V29@b62110008321d9147212cb89f2627ff613c2550d.
+
+Author-side exact model result: V17 successor parity equals previous parity XOR (departing member index in old sorted triad + entering member index in new sorted triad mod 2). V27 signed score does not read individual slot labels. For a declared event-first V29→strict V27→V17 protocol, retaining (ledger, current triad, one parity bit per Cell) is future-closed for strict legality, cost, terminal triad and parity over all finite valid event words. Two Cell slot-state factor 36→4, not an unconditional 9x full-runtime improvement. R657's identical aggregate-ledger-and-triads pair with differing x parity supplies a one-bit x lower bound for that observer.
+
+New positive-cost multi-plan witness: PASS seeds x=(0,1,3,0), y=(3,3,3,3); send=(1,1,1,0); old receive=(0,1,1,1); H={(0,0),(0,1),(1,1),(2,2)}; K has identity cost0, 3→0 and 3→1 cost1. Exactly 3 distinct detailed optimal aggregate plans, 2 actual pairing histograms; 18 legal scheduled words, 12 fully strict; minimum cost 1. Optimal strict terminals {(034,even,012,odd),(034,odd,012,odd)}. Independent exact parity Bellman recurrence matches full-slot enumeration; 3072 additional bounded event words and 1072 strict cases have zero quotient/full mismatch.
+
+Read R658_PROOF.zh-CN.md, execute python3 R658_VERIFY.py (stdlib integers; writes expanded R658_EVIDENCE.json). The committed evidence JSON contains the essential fixed verified values; regenerated output includes strict-word traces. Source H/K, native V28/V30 timing, and any wider law are unverified; no formal CLAIM or Driver mathematical acceptance follows from this PR.
+
+Next unit: obtain the actual Source H/K/V28/V30 timing and find two histories with equal Q34, triads and parity but different same-parity full V17 slots; quantify minimum non-Abelian state for full-slot observers. Preserve six native X6 axes vs four PF10 ports and typed event time.
