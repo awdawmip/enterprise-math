@@ -203,7 +203,7 @@ def run(n):
             if prev is not None:
                 blocks.append((first, L - 1, prev))
             first, prev = L, d
-        if L in (36, 37, 1142, 10000, n):
+        if L in (36, 37, 1142, 10000, 100000, n):
             selected[L] = risk
     blocks.append((first, n, prev))
     for h in (1142, 10000, 100000):
