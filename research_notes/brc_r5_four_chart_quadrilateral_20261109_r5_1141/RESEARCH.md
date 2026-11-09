@@ -121,3 +121,44 @@ Indeed the smallest, over those twenty pairs, of the **best available negative-c
 Consequently none of the twenty invalid active pairs can become feasible anywhere in the box. The original four distinct candidate pairs remain feasible with exactly fourteen strictly positive edges by Theorem 2. A bounded 2D nonnegative polytope has a vertex at a pair of independent active constraints; therefore it has exactly four vertices and is a quadrilateral for every real p in the box.
 
 The appended `VERIFY.py` block performs all rational evaluations of the pair candidates at `p*` and each nine basis direction, checks `four_valid_pairs=4` and `twenty_excluded_pairs=20`, and certifies the strict negative-coordinate margin uniformly. This is finite exhaustive enumeration of a defined 16-variable, 2-kernel model; it is **not** a claim that the full R5 Blackwell coupling polytope has only four vertices.
+
+## Theorem 4 — exact global one-variable feasibility test on the fixed 16-edge union
+
+The four-chart construction admits a stronger **exact decision criterion for arbitrary real nine-parameter inputs**, not merely those in the small box of Theorems 2–3. It is a criterion for existence of a nonnegative Blackwell coupling **using only edges in the fixed union S**. As before, the source must lie in the lawful `g=b` physical flow face and the seedless target must be in the lawful F face; `model(p)` enforces the identical pair of stopping times.
+
+Let `e^A(p)` be the unique **signed** solution of all 21 mass/moment equations on the 14 edges of SA. The proof of universal affine compatibility in Theorem 2 establishes its existence for every real p, regardless of nonnegativity. Write the six components
+
+```
+a=e^A_(0,2),  b=e^A_(2,2),  c=e^A_(3,2),
+d=e^A_(2,5),  e=e^A_(5,2),  f=e^A_(5,5).
+```
+
+(The lower-case `a,b,c,d,e,f` are temporary **coupling weights**, not the original flow coordinate `a`.) The eight fixed edges, on which both `K1` and `K2` vanish, must individually be nonnegative. The remaining eight edge inequalities for `e^A+s K1+t K2\ge0` are exactly
+
+```
+0 <= s <= c,
+-f <= t <= e,
+0 <= 5s+15t <= 13a,
+-13b <= 18s+28t <= 13d.
+```
+
+Thus a nonnegative transport supported on S exists **if and only if** these eight fixed-edge conditions hold and there is some real `s\in[0,c]` satisfying
+
+```
+L(s)=max(-f, -s/3, (-13b-18s)/28)
+    <= U(s)=min(e, (13a-5s)/15, (13d-18s)/28).
+```
+
+This existential test has **an exact closed rational-interval algorithm**: for each of the three lower affine functions and each of the three upper affine functions, form the inequality `lower_i(s)<=upper_j(s)`. Intersect these **nine affine half-lines** with `[0,c]`. An empty intersection means no S-supported coupling; otherwise choose its *smallest* element `s_*` and set `t_*=L(s_*)`. The resulting `e^A+s_*K1+t_*K2` is nonnegative, meets all 21 constraints and has **at most 14 positive edges**.
+
+The 14-edge support bound follows because the chosen pair `(s_*,t_*)` is an extreme point of the feasible two-dimensional polygon: if `s_*=0`, then both the lower-s wall and an active lower-t wall are met; if `s_*>0`, then the left interval endpoint is attained at a crossing of a lower-t and an upper-t affine wall, hence two linearly independent edge inequalities are active (a degenerate all-s coincident equality can be handled at `s=0` when feasible). Each active edge inequality sets one of the sixteen nonnegative masses to zero, giving at most fourteen positive entries.
+
+As an exact nonlocal test, use the lawful predecessor endpoint `(X1,Y1)` from PR #1843, far outside the common center box. Its SA-particular solution has
+
+`e^A_(5,5)=-83405933/3456000000<0`,
+
+so the original fixed-SA chart fails. The strip algorithm nevertheless returns an S-supported **12-positive-edge** transport using
+
+`(s_*,t_*)=(0,83405933/3456000000)`.
+
+The attached verifier computes both certificates with `Fraction` and checks the full 21 equations. Theorem 4 is therefore a reusable **exact feasibility/constructive elimination rule** for the frozen 16-edge restricted coupling model; it does not equate S-feasibility to feasibility in the unrestricted 49-edge Blackwell model, nor establish a universal physical 14-edge bound outside S.
