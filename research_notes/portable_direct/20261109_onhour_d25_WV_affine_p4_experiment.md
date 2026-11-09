@@ -59,6 +59,22 @@ For `0<=n<p-1`, all denominators are p-adic units. Thus the executable calculati
 Program: `research_notes/portable_direct/d25_WV_p4_affine_transfer_20261109.py`.
 Compact finite certificates: `research_notes/portable_direct/d25_WV_p4_affine_compact_results_20261109.json`. Their p^4 quotient column records the fifth-digit defect; a nonzero entry is **expected and not a (AF4) failure**. The first 166 primes are exhaustive only below 1000.
 
+## Second discriminating research unit: the complete cutoff matters already at p^3
+
+The original weighted sums run to `p-1`. To test a tempting but invalid shortening, put `p=6m+1` and truncate **both** original W and V to indices `n=0,...,3m`. Define the truncated affine defect `E_half=W_half-2*V_half+p mod p^4` (the three witnesses below have `chi_p=1`).
+
+The original-integer-binomial independent path gives:
+
+| p | W_half mod p^4 | V_half mod p^4 | E_half mod p^4 | E_half/p² mod p |
+|---:|---:|---:|---:|---:|
+| 13 | 24,687 | 4,407 | 15,886 | 3 |
+| 19 | 127,091 | 20,596 | 85,918 | 10 |
+| 373 | 7,176,413,322 | 6,953,946,051 | 12,625,400,234 | 107 |
+
+The three `E_half` are all divisible by `p²` but **none** by `p³`. In particular, the full-sum (AF4) observation **fails modulo p³** under this shorter-cutoff variant, whereas the full original `p-1` cutoff passes modulo p⁴ for each of these same primes. Thus *tail terms and their cross-grade contribution are load-bearing* for any proposed AF4 proof. These three finite exact counterexamples concern the **half-cutoff statement**, not the complete-sum conjecture.
+
+Updated reproducible script tests both direct original-binomial half cutoffs and the full-sum recurrence, and asserts the three residues. This is a second distinct experimental unit, not another scan of the same unchanged candidate.
+
 ## Research significance and next exact action
 
 Earlier graded calculations at p=373 gave the nonzero 3-source cancellation `190+290+266=0 mod373`. The new exact full-sum experiment finds the sharper relation `W-2V+chi*p=0 mod p^4` on a much broader sample; this points to a *combined signed transformation*, not grade-by-grade cancellation. Next: formulate a candidate hypergeometric/Fricke or creative-telescoping identity whose **complete original p-1 truncation** yields (AF4); start by testing its p^3 coefficient at p=13 and 373 and the existing BRC four-boundary first jet, then attempt proof for the two frozen classes. Reuse old grade and first-jet certificates rather than recount them.
