@@ -1,0 +1,58 @@
+{
+  "schema": "R671_EXACT_512_SCHEDULER_GRAPHS",
+  "scope": "All 512 directed 3x3 one-step scheduler matrices; initial ABC allowed; G=S3; full-group-and-suffix-language observer",
+  "matrices_checked": 512,
+  "histogram": {
+    "4": 1,
+    "5": 9,
+    "6": 37,
+    "7": 37,
+    "8": 63,
+    "9": 27,
+    "10": 18,
+    "11": 15,
+    "12": 42,
+    "13": 45,
+    "14": 27,
+    "15": 27,
+    "18": 90,
+    "19": 74
+  },
+  "max_at_most_two_edges": 14,
+  "min_edges_for_19": 3,
+  "three_edge_masks": [
+    14,
+    42,
+    70,
+    98,
+    140,
+    168,
+    196,
+    224
+  ],
+  "samples": {
+    "empty": {
+      "mask": 0,
+      "minimal": 4
+    },
+    "complete": {
+      "mask": 511,
+      "minimal": 6
+    },
+    "no_repeat": {
+      "mask": 238,
+      "minimal": 19
+    },
+    "directed_cycle": {
+      "mask": 98,
+      "minimal": 19
+    },
+    "undirected_path": {
+      "mask": 170,
+      "minimal": 13
+    }
+  },
+  "cycle_has_19_reachable_pairs_with_shortest_word_length_at_most": 6,
+  "independent_BFS_and_Moore_partition_refinement_match_all_512": true,
+  "note": "This is the declared V17 S3 auxiliary scheduling model H_s; not native V29 port H_port or a BRC physics simulation."
+}
