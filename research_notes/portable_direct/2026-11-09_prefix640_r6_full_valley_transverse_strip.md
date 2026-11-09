@@ -1,6 +1,6 @@
 # PREFIX-640-R6 — Whole-valley transverse uniqueness strip, 32 times wider
 
-Date: 2026-11-09 (Asia/Shanghai). Scope: independent TASK_RESEARCH. Status: AUTHOR_DERIVED / EXACT_RATIONAL_IMPLICATION_CHECKED / UNREVIEWED / NOT_ADMITTED. Frozen scientific input: \`f42f2906d77f24085c123f3ccfe9667d41caa96d\`.
+Date: 2026-11-09 (Asia/Shanghai). Scope: independent TASK_RESEARCH. Status: AUTHOR_DERIVED / EXACT_RATIONAL_IMPLICATION_CHECKED / UNREVIEWED / NOT_ADMITTED. Frozen scientific input: `f42f2906d77f24085c123f3ccfe9667d41caa96d`.
 
 ## Question and model
 
@@ -82,7 +82,7 @@ Hence the optimized statistical-observer value is uniformly strongly concave on 
 
 ## Executed arithmetic verification and scientific scope
 
-The companion \`PREFIX640_R6_FULL_INTERVAL_TRANSVERSE_CERTIFICATE.py\` checks all 17 arithmetic assertions exactly using Python's Fraction, including both rational products, all four strict margins, domain inclusion, the integrated gap, and the 32-fold width. Execution result on 2026-11-09: \`ALL_CHECKS_PASS 17\`. The JSON preserves the exact inputs and comparison outputs. It is a certificate of the **logical/arithmetic implication from PREFIX-631/636/639**; it does not rerun the predecessor's 189-layer recurrence or the native 96-port graph. Predecessor mathematical results and this deduction are author-proved, awaiting independent review.
+The companion `PREFIX640_R6_FULL_INTERVAL_TRANSVERSE_CERTIFICATE.py` checks all 17 arithmetic assertions exactly using Python's Fraction, including both rational products, all four strict margins, domain inclusion, the integrated gap, and the 32-fold width. Execution result on 2026-11-09: `ALL_CHECKS_PASS 17`. The JSON preserves the exact inputs and comparison outputs. It is a certificate of the **logical/arithmetic implication from PREFIX-631/636/639**; it does not rerun the predecessor's 189-layer recurrence or the native 96-port graph. Predecessor mathematical results and this deduction are author-proved, awaiting independent review.
 
 ## Next exact research unit
 
@@ -90,7 +90,7 @@ Seek \(F_{q,pp}>0\) over the larger \(I\times[37/256,39/256]\) using two-variabl
 
 ## Fixed provenance
 
-- PREFIX-631 \`enterprise-math@cab564fd9a112feed4a5a1fac0ee5556ebe7d7b6:research_notes/portable_direct/2026-11-09_prefix631_r6_uniform_gradient_reversal_valley.md\`.
-- PREFIX-636 \`enterprise-math@c70457fde1d39265b126976bd92126731c31c23e:research_notes/portable_direct/2026-11-09_prefix636_r6_transverse_unique_valley_stability.md\`.
-- PREFIX-639 \`enterprise-math@6acbf4f472a48d846859a71a31af243808961cff:research_notes/portable_direct/2026-11-09_prefix639_r6_full_central_valley_convexity.md\`.
-- Frozen scientific input: \`f42f2906d77f24085c123f3ccfe9667d41caa96d\`.
+- PREFIX-631 `enterprise-math@cab564fd9a112feed4a5a1fac0ee5556ebe7d7b6:research_notes/portable_direct/2026-11-09_prefix631_r6_uniform_gradient_reversal_valley.md`.
+- PREFIX-636 `enterprise-math@c70457fde1d39265b126976bd92126731c31c23e:research_notes/portable_direct/2026-11-09_prefix636_r6_transverse_unique_valley_stability.md`.
+- PREFIX-639 `enterprise-math@6acbf4f472a48d846859a71a31af243808961cff:research_notes/portable_direct/2026-11-09_prefix639_r6_full_central_valley_convexity.md`.
+- Frozen scientific input: `f42f2906d77f24085c123f3ccfe9667d41caa96d`.
