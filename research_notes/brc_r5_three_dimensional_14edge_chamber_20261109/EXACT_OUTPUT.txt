@@ -1,0 +1,25 @@
+# R5 9D/8D rational certificate execution transcript
+
+Executed: 2026-11-09 (Asia/Shanghai), local Python 3 + SymPy exact Rational + fractions.Fraction.
+Verification used the fetched frozen predecessor's exact model expressions and endpoint constants as reconstituted in the local analysis environment; the exported VERIFY_9D.py uses the same equations and imports that predecessor file from its adjacent research directory.
+The local checker body ran with zero failed assertions. This transcript records an executed exact calculation, not an external CI or independent mathematical review.
+
+PASS_EXACT_AFFINE_CONSTRAINT_RANK 19 KERNEL_DIMENSION 9
+PASS_EXACT_9D_UNIFORM_CUBE_EPS 1/100000 DIRECT_L1_BOUND 1181037643981/2086671428467200
+PASS_EXACT_PHYSICAL_RANK_9_MINOR -83980800000/1111424393
+PASS_EXACT_STATISTICAL_IMAGE_RANK_8_MINOR 1/6
+THEOREM_ALL_REAL_9D_PHYSICAL_8D_STATISTICAL_FIXED_14_EDGE_CHAMBER
+
+Additional 3D exact corner verifier body:
+PASS_EXACT_VERTEX 0 lambda 1/5 delta 1/480 eta -1/1000 edges 14 min_weight 146/24375
+PASS_EXACT_VERTEX 1 lambda 1/5 delta 1/480 eta 1/1000 edges 14 min_weight 146/24375
+PASS_EXACT_VERTEX 2 lambda 1/5 delta 1/160 eta -1/1000 edges 14 min_weight 146/24375
+PASS_EXACT_VERTEX 3 lambda 1/5 delta 1/160 eta 1/1000 edges 14 min_weight 146/24375
+PASS_EXACT_VERTEX 4 lambda 3/10 delta 1/480 eta -1/1000 edges 14 min_weight 36079/6240000
+PASS_EXACT_VERTEX 5 lambda 3/10 delta 1/480 eta 1/1000 edges 14 min_weight 36079/6240000
+PASS_EXACT_VERTEX 6 lambda 3/10 delta 1/160 eta -1/1000 edges 14 min_weight 36079/6240000
+PASS_EXACT_VERTEX 7 lambda 3/10 delta 1/160 eta 1/1000 edges 14 min_weight 36079/6240000
+PASS_EXACT_3D_MARGINAL_JACOBIAN -367/48000
+THEOREM_ALL_REAL_THREE_PARAMETER_14_EDGE_CHAMBER
+
+Coverage: all real points of the displayed 9-cube are certified by exact affine identities and l1-ratio inequality; finite code establishes the coefficients and nonzero minors. A standalone workspace invocation of the published scripts remains a separate verification step.

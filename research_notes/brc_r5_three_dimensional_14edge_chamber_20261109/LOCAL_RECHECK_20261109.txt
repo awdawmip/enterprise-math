@@ -1,0 +1,24 @@
+2026-11-09 — additional local independent rerun after exact Fraction EPS repair
+
+Environment: Python 3, SymPy 1.14.0, fractions.Fraction. The connector-read predecessor exact formulas/constants from the corrected PR #1845 VERIFY_2D.py were faithfully reconstructed in a local temporary file; VERIFY_3D.py and VERIFY_9D.py were run as standalone scripts against that local source subset. This is a separate code execution witness (not GitHub CI or an official independent mathematical review).
+
+$ python VERIFY_3D.py
+PASS_EXACT_VERTEX 0 lambda 1/5 delta 1/480 eta -1/1000 edges 14 min_weight 146/24375
+PASS_EXACT_VERTEX 1 lambda 1/5 delta 1/480 eta 1/1000 edges 14 min_weight 146/24375
+PASS_EXACT_VERTEX 2 lambda 1/5 delta 1/160 eta -1/1000 edges 14 min_weight 146/24375
+PASS_EXACT_VERTEX 3 lambda 1/5 delta 1/160 eta 1/1000 edges 14 min_weight 146/24375
+PASS_EXACT_VERTEX 4 lambda 3/10 delta 1/480 eta -1/1000 edges 14 min_weight 36079/6240000
+PASS_EXACT_VERTEX 5 lambda 3/10 delta 1/480 eta 1/1000 edges 14 min_weight 36079/6240000
+PASS_EXACT_VERTEX 6 lambda 3/10 delta 1/160 eta -1/1000 edges 14 min_weight 36079/6240000
+PASS_EXACT_VERTEX 7 lambda 3/10 delta 1/160 eta 1/1000 edges 14 min_weight 36079/6240000
+PASS_EXACT_THREE_DIMENSIONAL_MARGINAL_JACOBIAN -367/48000
+PASS_ALL_REAL_3D_BOX_BY_AFFINE_VERTEX_CERTIFICATES (Fraction(1, 5), Fraction(3, 10)) (Fraction(1, 480), Fraction(1, 160)) (Fraction(-1, 1000), Fraction(1, 1000)) MIN_EDGE 36079/6240000
+
+$ python VERIFY_9D.py
+PASS_EXACT_AFFINE_CONSTRAINT_RANK 19 KERNEL_DIMENSION 9
+PASS_EXACT_9D_UNIFORM_CUBE_EPS 1/100000 DIRECT_L1_BOUND 1181037643981/2086671428467200
+PASS_EXACT_PHYSICAL_RANK_9_MINOR -83980800000/1111424393
+PASS_EXACT_STATISTICAL_IMAGE_RANK_8_MINOR 1/6
+THEOREM_ALL_REAL_9D_PHYSICAL_8D_STATISTICAL_FIXED_14_EDGE_CHAMBER
+
+Both exit codes 0; all assertions passed. The all-real conclusions rely on affine-equality and uniform l1-bound proofs in the saved research notes, not on finitely sampled numeric regressions.
