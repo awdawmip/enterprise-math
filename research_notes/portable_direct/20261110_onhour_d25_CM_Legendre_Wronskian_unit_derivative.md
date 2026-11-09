@@ -1,91 +1,89 @@
 # D25 — Exact Legendre-second-kind Wronskian and CM unit-derivative criterion
 
-Date: 2026-11-10; task RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT; publication TP2-B6F4FC938FF94941C1B7. Logical author lane `chatgpt-research-onhour-enterprise-math-20260923`, not maintenance. Frozen science pin `c47e13e4aba0e006366f989d6334d443f6333ae3`; highest Source native frontier `b58330b74576153cdadde5d80a3d92df3a819a0e` retained. **AUTHOR_SIDE / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_H0_B0.**
+Date: 2026-11-10. Task: RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT; publication TP2-B6F4FC938FF94941C1B7. Logical Research lane \`chatgpt-research-onhour-enterprise-math-20260923\`, not maintenance. Frozen science pin \`c47e13e4aba0e006366f989d6334d443f6333ae3\`; Source native frontier \`b58330b74576153cdadde5d80a3d92df3a819a0e\` retained. **AUTHOR_SIDE / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_H0_B0.**
 
-## New exact theorem over Q (any integer n >= 1)
+## Exact theorem over Q, for every integer n >= 1
 
-Put
-[
-P_n(x)=P_n^{\rm Legendre}(1-2x)=\sum_{k=0}^{n}C_kx^k,\quad C_k=(-1)^k\binom nk\binom{n+k}k,
-]
-and
-[
-U_n(x)=\sum_{r=0}^{n-1}U_rx^r,\qquad U_r=\sum_{k=r+1}^{n}\frac{C_k}{k-r}.
-]
-Define (mathcal D_n=x(1-x)\partial_x^2+(1-2x)\partial_x+n(n+1)). Then the following identities are polynomial identities over Q:
-[
-oxed{\mathcal D_nU_n=2P_n'},\qquad
-oxed{x(1-x)(P_nU_n'-P_n'U_n)=P_n^2-1}. \tag{W}
-]
+Define the normalized Legendre polynomial and the finite signed second-kind polynomial
+\[
+P_n(x)=P_n^{\rm Legendre}(1-2x)=\sum_{k=0}^{n}C_kx^k,\qquad
+C_k=(-1)^k\binom nk\binom{n+k}k,
+\]
+\[
+U_n(x)=\sum_{r=0}^{n-1}U_rx^r,\qquad
+U_r=\sum_{k=r+1}^{n}\frac{C_k}{k-r}.
+\]
+Let \(\mathcal D_n=x(1-x)\partial_x^2+(1-2x)\partial_x+n(n+1)\). The following are exact polynomial identities over \(\mathbb Q\):
+\[
+\boxed{\mathcal D_n U_n=2P_n'},\qquad
+\boxed{x(1-x)(P_nU_n'-P_n'U_n)=P_n^2-1}. \tag{W}
+\]
 
-**Elementary proof without invoking the analytic Legendre second-kind function.** In the formal Laurent ring at infinity let
-[
-\Lambda(x)=\sum_{j\ge1}\frac{x^{-j}}j,\quad
-\Lambda'=\frac1{x(1-x)},\quad [P_n\Lambda]_{\ge0}=U_n.
-]
-The Legendre differential equation gives (mathcal D_nP_n=0).
-By the product rule, (mathcal D_n(P_n\Lambda)=2P_n'), because (x(1-x)\Lambda'=1). The differential operator preserves the negative-power part of a Laurent series, so polynomial-part extraction yields (mathcal D_nU_n=2P_n'). Set (W=P_nU_n'-P_n'U_n). Sturm–Liouville cancellation gives
-[
-[x(1-x)W]'=P_n\mathcal D_nU_n-U_n\mathcal D_nP_n
+**Proof (formal Laurent algebra, no analytic continuation).** Set \(\Lambda(x)=\sum_{j\ge1}x^{-j}/j\) in \(\mathbb Q((x^{-1}))\). Then \(\Lambda'=1/[x(1-x)]\) and the nonnegative-power part of \(P_n\Lambda\) is \(U_n\) by coefficient comparison. The Legendre equation is \(\mathcal D_nP_n=0\). The product rule and \(x(1-x)\Lambda'=1\) yield \(\mathcal D_n(P_n\Lambda)=2P_n'\). Since \(\mathcal D_n\) maps negative Laurent powers to negative Laurent powers, polynomial-part extraction proves \(\mathcal D_nU_n=2P_n'\).
+
+For \(W_0=P_nU_n'-P_n'U_n\), direct Sturm–Liouville cancellation gives
+\[
+[x(1-x)W_0]'=P_n\mathcal D_nU_n-U_n\mathcal D_nP_n
 =2P_nP_n'=(P_n^2)'.
-]
-The constant is (-1) by (P_n(0)=1) and the vanishing of the left side at (x=0). This proves (W) exactly, including all endpoints and signs.
+\]
+At \(x=0\), the left primitive vanishes and \(P_n(0)^2=1\). The integration constant is \(-1\), proving (W), including endpoints and signs. QED.
 
-## Consequence for the frozen CM(-24) branch
+## CM(-24): exact finite-log evaluation at a supersingular Hasse root
 
-Let (p\equiv13\pmod{24}) be prime; (q=(p-1)/4) is odd. Work in (mathbb F_p[t]/(t^2-2)). Set
-[
+Let \(p\equiv13\pmod{24}\) be prime and \(q=(p-1)/4\), which is odd. Work over \(\mathbb F_p[t]/(t^2-2)\) and put
+\[
 s=\tfrac12-\tfrac t3,\quad s^*=\tfrac12+\tfrac t3,\quad
-s+s^*=1,\ ss^*=\tfrac1{36},\ s^p=s^*.
-]
-Use the previously author-proved CM Hasse root (P_q(s)=0\pmod p); (W) itself proves this root is simple, because at any root (a\notin\{0,1\}),
-(-a(1-a)P_q'(a)U_q(a)=-1).
+s+s^*=1,\quad ss^*=\tfrac1{36},\quad s^p=s^*.
+\]
+Use the earlier author-side CM result \(P_q(s)=0\bmod p\). Identity (W) itself proves this root is simple, since at a root \(a\notin\{0,1\}\),
+\(-a(1-a)P_q'(a)U_q(a)=-1\).
 
-The previous finite logarithm is (L_p(x)=\sum_{j=1}^{p-1}x^j/j) and (A_p(x)=[P_q(x)L_p(x)]_{<p}) over (mathbb F_p). Coefficient extraction gives the exact polynomial identity
-[
-P_q(x)L_p(x)=A_p(x)-x^pU_q(x).
-]
-At the CM root (s), this and (W) yield
-[
+The original finite-log object is \(L_p(x)=\sum_{j=1}^{p-1}x^j/j\) and \(A_p(x)=[P_q(x)L_p(x)]_{<p}\). Exact coefficient extraction in \(\mathbb F_p[x]\) gives
+\[
+P_q(x)L_p(x)=A_p(x)-x^p U_q(x).
+\]
+At \(s\) this gives \(A_p(s)=s^pU_q(s)\). The Wronskian supplies
+\[
 U_q(s)=\frac1{s(1-s)P_q'(s)},\qquad
-oxed{A_p(s)=\frac1{sP_q'(s)}=\frac{18+12t}{D_p}}, \tag{CM-W}
-]
-where (D_p=P_q'(s)\in\mathbb F_p^\times): (P_q(1-x)=-P_q(x)) for odd (q), hence the derivative is fixed by conjugation.
+\boxed{A_p(s)=\frac1{sP_q'(s)}=\frac{18+12t}{D_p}}, \tag{CM-W}
+\]
+where \(D_p=P_q'(s)\in\mathbb F_p^\times\). Indeed \(P_q(1-x)=-P_q(x)\) for odd \(q\), so \(P_q'(1-x)=P_q'(x)\), showing \(D_p\) is Galois-fixed.
 
-For two **distinct retained observers**, the ordinary quadratic trace (operatorname{Tr}(u+vt)=2u) and the signed (t)-coordinate (operatorname{Coeff}_t(u+vt)=v), we have the exact field-level result
-[
-oxed{\operatorname{Tr}A_p(s)=36D_p^{-1}},\qquad
-oxed{\operatorname{Coeff}_t A_p(s)=12D_p^{-1}},
-\quad \operatorname{Tr}A_p(s)=3\operatorname{Coeff}_t A_p(s).
-]
-This completely evaluates the previous quarter-length finite-log tail at CM(-24) using a **single derivative** of the original Hasse/Legendre polynomial. It does not replace the native six-dimensional space or the native H0/B0 evaluation.
+Both distinct original observers now have closed forms:
+\[
+\boxed{\operatorname{Tr} A_p(s)=\frac{36}{D_p}},\qquad
+\boxed{\operatorname{Coeff}_t A_p(s)=\frac{12}{D_p}},\qquad
+\operatorname{Tr} A_p(s)=3\,\operatorname{Coeff}_t A_p(s).
+\]
+Here \(\operatorname{Tr}(a+bt)=2a\), while \(\operatorname{Coeff}_t(a+bt)=b\). This *fully evaluates* the former quarter-length finite-log tail using one Legendre derivative. The auxiliary quadratic ring remains separate from the native six-dimensional state and H0/B0 Frobenius.
 
-## Next exact unresolved p^2 identity
+## The remaining concrete p² proof obligation
 
-From the prior verified author-side first jet,
-[
-6pg_p\equiv3f_q(8/9)+f_{3q}(8/9)\pmod{p^2},
-\quad P_n^{\rm Legendre}(y)=y f_n(y^2)\ (n\text{ odd}),
-]
-and its original target (operatorname{Tr} A_p(s)\stackrel?=24g_p\pmod p), (CM-W) gives the strictly equivalent **finite unit-derivative certificate**
-[
-oxed{D_p\left(3f_q(8/9)+f_{3q}(8/9)\right)
-\stackrel?\equiv9p\pmod{p^2}.} \tag{UD}
-]
-Here (D_p\) is evaluated modulo (p) and its product with the p-divisible bracket is unambiguous modulo (p^2). (UD) is an **unproved all-prime conjectural identity**. Proving it would discharge the current finite CM carry subunit; it does not by itself fulfill the original p=373 native [X]U experiment.
+The prior author-side first-jet relation (unchanged) is
+\[
+6pg_p\equiv3f_q(8/9)+f_{3q}(8/9)\pmod{p^2},\qquad
+P_n^{\rm Legendre}(y)=y f_n(y^2)\quad(n\ \text{odd}).
+\]
+The previous unresolved relation \(\operatorname{Tr}A_p(s)\stackrel?=24g_p\bmod p\) is now *equivalent* to the single integral-residue condition
+\[
+\boxed{D_p\bigl(3f_q(8/9)+f_{3q}(8/9)\bigr)
+\stackrel?{\equiv}9p\pmod{p^2}.} \tag{UD}
+\]
+Since the bracket is divisible by \(p\) and \(D_p\) is nonzero modulo \(p\), the product modulo \(p^2\) is independent of the chosen lift of \(D_p\). The all-prime identity (UD) remains **unproved**. An exact p² Legendre contiguous/Wronskian relation or local CM Frobenius lift is the next discriminating route.
 
-## Exact checks
+## Reproducible exact tests and evidence strength
 
-Two independently constructed routes were run with standard-library Python: for 22 primes (p<1000, p\equiv13\pmod{24}), a direct rational-coefficient/Wronskian polynomial check, original finite-log convolution, original (G_p(s)) coefficient recurrence modulo (p^2), and the (UD) equivalent numerical test all passed. An additional coefficient-recurrence route, **not using (U_n) or a finite log**, tested (UD) for all 157 primes (p\le10000, p\equiv13\pmod{24}); all passed. This does not prove (UD) for all primes.
+The companion standard-library Python file independently constructs the rational polynomial Wronskian, the untruncated finite-log coefficient product, the original \(G_p(s)\) recurrence modulo \(p^2\), and the derivative formula. All 22 primes \(p<1000\) with \(p\equiv13\bmod24\) passed each of these checks. A separate derivative-coefficient/Gauss recurrence path (without constructing \(U_n\) or \(A_p\)) tested (UD) for all 157 primes \(p\le10000\), all PASS. These tests support (UD) only on that stated finite window; (W) is separately proved over \(\mathbb Q\).
 
-Samples ((p,q,\operatorname{Tr}A_p,\operatorname{Coeff}_tA_p,D_p,g_p)):
-[
-(13,3,7,11,7,3),\ (37,9,19,31,35,27),\
-(373,93,149,174,193,115),\ (613,153,599,404,85,357),\
+Rows \((p,q,\operatorname{Tr}A,\operatorname{Coeff}_tA,D_p,g_p)\):
+\[
+(13,3,7,11,7,3),\quad (37,9,19,31,35,27),\quad
+(373,93,149,174,193,115),\quad
+(613,153,599,404,85,357),\quad
 (997,249,799,931,453,241).
-]
-For (p=373), (D_p=193) and (36/D_p=149=24\cdot115\pmod{373}). Computational evidence is finite and separate from the exact Q-Wronskian theorem.
+\]
+At \(p=373\), \(36/193=149=24\cdot115\bmod373\). No floating-point arithmetic was used.
 
-## Continuation
+## Frontier
 
-Consume (CM-W) and (W); do not reproduce prior 157-prime CM zero scan or old convolution computations. The smallest unproved mathematical statement is (UD), preferably attacked through an exact mod-(p^2) Wronskian/Legendre contiguous relation and the CM root. Preserve the original p=373 H0/B0 native benchmark `[X]U mod 139129`, rank, Frobenius semilinearity/normalization, signed kappa, original Delta-R and independent replication as **NOT_RUN**; GitHub issue #1559 is the support track, not an experiment certificate. No winning Source CLAIM, open run, formal checkpoint, frozen Result or mathematical admission is asserted here.
+Consume (W) and (CM-W) rather than redoing the earlier 157-prime Hasse zero scan and finite-log convolution. Focus next on proving (UD) directly, with the fixed original CM point and p-adic signs. Keep the original same-class p=373 native H0/B0 divided-power experiment [X]U modulo 139129 and rank, semilinearity/normalization, signed kappa, original Delta-R, independent replication **NOT_RUN** (support issue #1559). Source native checkpoint remains unchanged. No winning CLAIM, open run, frozen Result, review or native completion is asserted.
