@@ -1,0 +1,65 @@
+{
+  "schema": "PREFIX623_R6_EDGE_VARIANCE_STATIONARITY_V1",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "models": "2 directions; p1=0 edge of [0,1]^2; q=12 or 24; beta=1/40; diameter delta=1/4",
+  "theorem": "For q=12,24 an edge stationary maximum exists in (37/256,39/256); exact derivative signs positive at 37/256, negative at 39/256.",
+  "verification": "ALL_CHECKS_PASS",
+  "integer_root_comparison_checks": 357260,
+  "values": {
+    "q12": [
+      [
+        "p=0",
+        "2535.99377416628631031710"
+      ],
+      [
+        "p=1/8",
+        "82195.2926352916864804960"
+      ],
+      [
+        "p=37/256",
+        "85949.4538952560528757674"
+      ],
+      [
+        "p=39/256",
+        "85949.3793448034760823266"
+      ],
+      [
+        "p=1/2",
+        "25155.0346959972981167696"
+      ]
+    ],
+    "q24": [
+      [
+        "p=0",
+        "10811.3402002606754703542"
+      ],
+      [
+        "p=1/8",
+        "330620.014329558389338749"
+      ],
+      [
+        "p=37/256",
+        "345893.343083419598779365"
+      ],
+      [
+        "p=39/256",
+        "345995.735440235083396919"
+      ],
+      [
+        "p=1/2",
+        "105135.215377145920809358"
+      ]
+    ]
+  },
+  "derivative_signs": {
+    "q12": {
+      "at_37_256": 1,
+      "at_39_256": -1
+    },
+    "q24": {
+      "at_37_256": 1,
+      "at_39_256": -1
+    }
+  },
+  "scope": "Exact rational author certificate; original 96-port graph not rerun; independent review pending"
+}
