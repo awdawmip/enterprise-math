@@ -1,0 +1,40 @@
+{
+  "schema": "PREFIX646_R6_CUMULANT_STABILITY_V1",
+  "date": "2026-11-10",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_witness": "PREFIX-645 f11c0345bf89321aba48d90671c244bdec25d416",
+  "center": {
+    "p": "1/6",
+    "z": "19/128"
+  },
+  "rectangular_half_width": "1/134217728",
+  "L1_delta_max": "1/67108864",
+  "gamma_shape_cap": 189,
+  "raw_moment_caps": {
+    "1": "378",
+    "2": "71820",
+    "3": "13717620"
+  },
+  "raw_moment_lipschitz": {
+    "1": "71442",
+    "2": "13573980",
+    "3": "2592630180"
+  },
+  "variance_lipschitz": 42007896,
+  "third_cumulant_lipschitz": 43064237412,
+  "strict_margin_checks": {
+    "mean": "35721/33554432",
+    "variance": "5250987/8388608",
+    "third_cumulant": "10766059353/16777216"
+  },
+  "certified_uniform_bounds": {
+    "E_Y": "<110",
+    "Var_Y": ">335",
+    "kappa3_Y": "<-567",
+    "kappa3_Tq": "<0 for all q>=12"
+  },
+  "checks": "ALL_CHECKS_PASS",
+  "native_96port_reexecution": false,
+  "survivor_reexecution": false,
+  "status": "AUTHOR_PROVED / EXACT_RATIONAL_IMPLICATION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
