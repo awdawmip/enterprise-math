@@ -52,7 +52,12 @@ import research_driver_authority as _driver_authority  # noqa: E402
 import research_result_control_replacements as _result_replacements  # noqa: E402
 
 ROOT = _base.ROOT
-_BASE_TASK_RESULT_STATE = _base.task_result_state
+# The CLI imports this facade again under tools.* after __main__ installed
+# its composed reducer on the compatibility module. Keep the original base
+# once so the second import never wraps another facade as its reducer.
+if "_canonical_original_task_result_state" not in _base.__dict__:
+    _base._canonical_original_task_result_state = _base.task_result_state
+_BASE_TASK_RESULT_STATE = _base._canonical_original_task_result_state
 _BASE_ITER_RESULTS = _base.iter_results
 _BASE_ITER_REVIEWS = _base.iter_reviews
 _BASE_AUDIT = _base.audit
