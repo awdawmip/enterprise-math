@@ -51,6 +51,25 @@ The eight signed paths form exactly 2 distinct prefixes at microstep depths 1..(
 
 for every integer h>=5. This analytic witness proves the uniform upper bound and is the first tested mechanism behind the exact finite pattern. The direct model-and-prefix checker audits h=5 through 64 with exact integer tuples.
 
+## Universal analytic lower bound — the remaining gap is at most eight native edges
+
+For **every** integer h>=5 and every single complete key K supporting all eight low-signature demands at horizons h,h+1, write L=2(x+y+z-1) for their common native path length. The later horizon requires `#c+#d=x+y-h-2>=1`, hence `L>=2h+6`.
+
+We prove `C_native>=2L+20` using four disjoint prefix-depth ranges:
+
+1. At each signed microstep depth 1,...,L-4, at least two distinct prefixes occur. Indeed low signature 4 forces initial +E1, whereas low signature 1 forces initial +E2, by the original nine-state DFA; each of those two words belongs to the required set.
+2. At depth L-3, at least four prefixes occur, by the EC49FFM single-window last-three-prefix lemma: two distinct low signatures at the same horizon sharing L-3 microsteps would have equal readout.
+3. At depth L-2, **all eight** horizon/readout demands require distinct prefixes. Within one horizon, distinct low signatures already separate at L-3. Across the two horizons, equality of native signed prefixes through L-2 forces equal total counts of long c/d operations: each operation is uniquely determined by its first two signed microsteps; a long c/d beginning no later than depth L-3 is therefore forced identically in both paths, and the only possible differing last two microsteps belong to short codes a/f/g. But original count equations require #c+#d to differ by exactly one between the two horizons. Contradiction.
+4. Thus at each of the final three depths L-2,L-1,L, there are at least eight prefixes.
+
+Summing the disjoint depth ranges yields `C_native>=2(L-4)+4+8*3=2L+20>=4h+32`.
+
+Combined with our explicit infinite family, the rigorous **two-sided bound** is
+
+`4h+32 <= C_min^{one-key}(Hh,H(h+1)) <= 4h+40` for every integer h>=5.
+
+The exhaustive integer classifications show that the upper bound is tight for h=5,6,7,8. Proving whether the remaining 8-edge gap closes universally is the next exact subproblem. This lower theorem is independent of a finite enumeration and uses only the frozen operation-code decoding, observer lemma and complete-key count equations.
+
 ## Verification, status and next question
 
 A self-contained Python 3 standard-library script `VERIFY_EC49FFQ.py` reproduces all 76 common-key optimizations and checks the explicit infinite-family formula on h=5..64. It uses exact integer arithmetic; its result JSON contains every key-specific optimum, trie size and eligible-word counts. Additional independently reconstructed optimal witness sets for h=5..8 are in the local complete evidence bundle, including signed-prefix-depth profiles. Author proof and computation are complete for the stated domains; no independent Driver mathematical review or native Result acceptance is asserted.
