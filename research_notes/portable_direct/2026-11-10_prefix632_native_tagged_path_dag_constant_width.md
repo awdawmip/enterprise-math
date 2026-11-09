@@ -2,6 +2,7 @@
 
 **日期：**2026-11-10（Asia/Shanghai）；**性质：**作者侧结构证明 + 原生有理数有限验证，待独立 Driver 审查。  
 **衔接：**PREFIX-629（相位观察下的记忆量）、PREFIX-630（16维快速后缀重建）、PREFIX-631（全标签路径数及显式位成本）；原生科学输入固定在 `awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d`。  
+**Researcher-ID：** `EM-X6-463648`；**Research-Activity-ID：** `RA-C77B71E8E239965197AD48BC`（Source 登记已回读）。  
 **任务线：**`RS-X6-NATIVE-ROTATION-DYNAMICS`，本笔成果为独立作者侧研究；不宣称拥有正式 CLAIM、Result、Review 或 Foundation 准入。
 
 ## 1. 精确问题与观察
@@ -61,7 +62,7 @@ K_paths(t,L) = 72 * 2^(L-1).
 - 全部 **140850** 条实际暴力枚举路径精确质量比较，以及 **210** 次跨长度编号定位；
 - 检查四个相位支撑集、24条继续边和72条末步边；包括长度64的隐式 DAG，路径数量为 `664082786653543858176`，DAG仅 **796个顶点、1584条边**。
   
-运行结果：`ALL_ASSERTIONS_PASS`。保留实际执行源码与完整 JSON 证据；代码/结果中的精确整数与分数计算均沿用原生正权带标签 BRC 动作核。一次性的 Python 毫秒数仅代表本次环境：`L=8` DAG 构造约3.111ms，显式全部路径构建约23.818ms；`L=64` DAG构造约23.32ms，不进行指数路径展开。未将单次计时作为一般硬件速度定理。
+运行结果：`ALL_ASSERTIONS_PASS`。保留实际执行源码与完整 JSON 证据；代码/结果中的精确整数与分数计算均沿用原生正权带标签 BRC 动作核。一次性的 Python 毫秒数仅代表本次环境：`L=8` DAG 构造约2.613ms，显式全部路径构建约21.578ms；`L=64` DAG构造约20.307ms，不进行指数路径展开。未将单次计时作为一般硬件速度定理。
 
 本轮文件本地原始 SHA256（读回时可核验）：
 - `PREFIX632_native_path_dag_checker.py`: `1b9561ee3bfac89646554c6a76eef95ed195b275a05474142e00cfae8fbb021f`
@@ -70,3 +71,16 @@ K_paths(t,L) = 72 * 2^(L-1).
 ## 6. 下一研究问题
 
 将该 DAG 接入 PREFIX-630 的 16维反推器，形成从**终点48相位 + 既有最小附加门控寄存器**到完整动作路径 DAG 的端到端精确管线；分别核算反推输入位长、DAG 形成、单条路径随机访问、全部路径输出的位成本。进一步检查哪些历史查询（例如动作子串、指定源的质量总和和条件化分布）能直接在这个共享 DAG 上求值，以及哪些必须保留新的来源残差。共享 DAG 属于该指定探针原生动作图的作者侧算法结果，独立数学审查和状态机正式采纳仍待完成。
+
+## 7. 恢复实际执行的程序与结果
+
+仓库为使文本型 GitHub Contents API 完整保留二进制压缩数据，存储 UTF-8 的 `.gz.b64` 文件；验证器与结果本体可无损解码。以下命令在该目录内执行：
+
+```sh
+base64 -d PREFIX632_native_path_dag_checker.py.gz.b64 | gzip -d > PREFIX632_native_path_dag_checker.py
+base64 -d PREFIX632_native_dag_results.json.gz.b64 | gzip -d > PREFIX632_native_dag_results.json
+sha256sum PREFIX632_native_path_dag_checker.py PREFIX632_native_dag_results.json
+python PREFIX632_native_path_dag_checker.py
+```
+
+对应解码后的 SHA256 分别为 `1b9561ee3bfac89646554c6a76eef95ed195b275a05474142e00cfae8fbb021f` 与 `d4c216872e834ed74f1c3c551dee9148ed9f546d23ef94594bdcdaa8622b0ae8`。完整结果 JSON 记录原生邻接支撑、各参数范围、实例汇总、验证计数、位/速度例子。程序运行会重新生成同名 JSON，因此可直接在干净目录再验。
