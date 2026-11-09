@@ -1,0 +1,166 @@
+{
+  "schema": "PREFIX625_NATIVE_X6_ANY_FINITE_HORIZON_RANK16_V1",
+  "date": "2026-11-09",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "theorem_domain": "all finite n>=2, all sequences of nonnegative real gates, arbitrary nonnegative precursor 96-port state",
+  "endpoint_rank_all_n_ge_2": 16,
+  "complete_ordered_tagged_path_rank_all_n_ge_1": 64,
+  "minimal_extra_linear_scalar_precursor_observations_all_n_ge_2": 48,
+  "same_fixed_extra_source_ports_all_horizons": [
+    1,
+    5,
+    9,
+    13,
+    17,
+    19,
+    21,
+    23,
+    25,
+    29,
+    32,
+    33,
+    36,
+    37,
+    40,
+    41,
+    43,
+    44,
+    45,
+    47,
+    48,
+    49,
+    52,
+    53,
+    57,
+    61,
+    65,
+    66,
+    67,
+    69,
+    70,
+    71,
+    72,
+    73,
+    76,
+    77,
+    80,
+    81,
+    84,
+    85,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95
+  ],
+  "fixed_16_minor_rows": [
+    0,
+    2,
+    4,
+    6,
+    8,
+    10,
+    12,
+    14,
+    32,
+    34,
+    36,
+    38,
+    48,
+    50,
+    52,
+    54
+  ],
+  "fixed_16_minor_columns": [
+    0,
+    4,
+    8,
+    12,
+    16,
+    18,
+    20,
+    22,
+    24,
+    28,
+    42,
+    46,
+    56,
+    60,
+    64,
+    68
+  ],
+  "minor_formula": "-65536*16384**(n-2)*product_{j=2}^{n-1}(g_j+3)",
+  "N0_det": "49152",
+  "N1_rank": 1,
+  "N1_only_nonzero_entry": {
+    "row": 2,
+    "column": 7,
+    "value": "1/2"
+  },
+  "det_N_symbolic": "16384*(z+3)",
+  "four_complete_96_by_16_coefficient_identity_checks": true,
+  "each_live_source_has_positive_live_successor_at_zero_gate": true,
+  "exact_positive_rational_horizon_checks": [
+    {
+      "n": 2,
+      "gates": [
+        "0",
+        "0"
+      ],
+      "minor_determinant": "-65536",
+      "recovery_exact": true
+    },
+    {
+      "n": 3,
+      "gates": [
+        "1",
+        "1",
+        "1"
+      ],
+      "minor_determinant": "-4294967296",
+      "recovery_exact": true
+    },
+    {
+      "n": 4,
+      "gates": [
+        "0",
+        "7/3",
+        "2",
+        "0"
+      ],
+      "minor_determinant": "-1407374883553280/3",
+      "recovery_exact": true
+    },
+    {
+      "n": 5,
+      "gates": [
+        "2",
+        "1",
+        "0",
+        "7/3",
+        "1"
+      ],
+      "minor_determinant": "-18446744073709551616",
+      "recovery_exact": true
+    },
+    {
+      "n": 6,
+      "gates": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "minor_determinant": "-382511685112441262309376",
+      "recovery_exact": true
+    }
+  ],
+  "arithmetic": "original typed BRC action arithmetic; exact SymPy rational/integer; no classical surrogate",
+  "review": "AUTHOR_SIDE_UNREVIEWED",
+  "status": "ALL_ASSERTIONS_PASS"
+}
