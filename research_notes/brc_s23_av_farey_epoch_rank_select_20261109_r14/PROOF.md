@@ -64,6 +64,8 @@ Here theta = 79*(2074774-380295*r)/(79*r-431)-46, r=ln(7)/ln(10/7). A separate 1
        < theta <
     262204504569236716045287 / 10^24.
 
+**Why the finite endpoint check certifies the entire real interval.** For every phase index i<N and every historical cut index p<m, the function (i-p)*theta crosses an integer at most once between LO and HI, because abs(i-p)*(HI-LO)<2000128/10^24<1. An arc assignment can change only at such a crossing. Agreement of the two endpoint assignments therefore certifies each i's historical-arc membership throughout the interval. The same bound fixes each phase relation to the zero cut. The Farey mediant signs and all affine gap-max comparisons are separately fixed at both rational endpoints, so their chosen cells and winners are likewise stable. This covers the exact irrational theta, not merely the rational midpoint.
+
 Take m=128 and N=2,000,128 (L=2,000,000). An exact two-endpoint enumeration of the N phase memberships gives:
 
     Farey epochs: 29
