@@ -11,12 +11,10 @@ Use the frozen seven likelihood ratios `r=(1/10,1/2,3/4,1,5/4,3/2,19/10)`, seven
 Set `lambda=1/4`, `delta=1/240`, `DX2=DX-K` with the exact predecessor observer-kernel lift, and define the *exact rational interior point*
 
 ```text
-x* = (X0+3*X1)/4 + DX2/240,
-y* = (Y0+3*Y1)/4 + DY/240,
+x* = (3*X0+X1)/4 + DX2/240,
+y* = (3*Y0+Y1)/4 + DY/240,
 E* = (A0+AH)/2 + D/240,   on the 14-entry support SA.
 ```
-
-**Correction to notation:** the intended interpolation coefficient is `x*=(3*X0+X1)/4`, `y*=(3*Y0+Y1)/4`. In the formulas above, `(X0+3*X1)/4` and `(Y0+3*Y1)/4` are *not* the basepoint; use the corrected formulas here and the executable `VERIFY_9D.py`. The coupling formula `(A0+AH)/2` is correct.
 
 Let `A` be the 26×28 rational homogeneous matrix acting on increments `(dx_7,dy_7,dE_{14})`, whose rows require:
 * seven target-mass row sums `sum_j dE[i,j]=dM_i(y)`;
