@@ -24,7 +24,7 @@ def run(p):
         c.append(c[-1]*(k-q)*(k+q+1)*pow(k+1,-2,p)%p)
     a=[0]*p
     for n in range(1,p):
-        a[n]=sum(c[k]*pow(n-k,-1,p) for k in range(max(0,n-(p-1)),min(q,n)))%p
+        a[n]=sum(c[k]*pow(n-k,-1,p) for k in range(max(0,n-(p-1)),min(q,n-1)+1))%p
     direct=(0,0); spow=(1,0)
     for coef in a:
         direct=add(direct,scale(spow,coef)); spow=mul(spow,s)
