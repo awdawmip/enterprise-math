@@ -1,7 +1,7 @@
 # D25 AF4: grade-two first jet from factorial blocks (fourth-digit input)
 
 2026-11-09 (Asia/Hong_Kong). TASK_RESEARCH / AUTHOR_PROVED / EXACT_REGRESSION / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE.
-Task \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`; publication \`TP2-B6F4FC938FF94941C1B7\`; frozen scientific pin \`c47e13e4aba0e006366f989d6334d443f6333ae3\`. Research lane \`chatgpt-research-onhour-enterprise-math-20260923\`. Follow-up to the separately published grade-three AF4 reciprocal-tail certificate.
+Task `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication `TP2-B6F4FC938FF94941C1B7`; frozen scientific pin `c47e13e4aba0e006366f989d6334d443f6333ae3`. Research lane `chatgpt-research-onhour-enterprise-math-20260923`. Follow-up to the separately published grade-three AF4 reciprocal-tail certificate.
 
 ## Exact prime-factorial first-jet lemma
 
