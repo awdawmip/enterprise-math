@@ -1,0 +1,56 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-10",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "source_native_durable_frontier_unmodified": "b58330b74576153cdadde5d80a3d92df3a819a0e",
+  "prior_author_side": "research_notes/portable_direct/20261110_onhour_d25_CM_overflow_valuation_band_firstjet_continuation.json",
+  "completed_units_author_side": [
+    "Unconditional all-prime p≡13 mod24 exact first-jet signed original Gauss overflow valuation bands and p² cutoff r>3(p−1)/4 (previous current-run unit)",
+    "Conditional on the prior declared G_p(1−X)=−G_p(X) mod p², new ALL-PRIME POLYNOMIAL finite-log reconstruction E_p(X)=−2G_p(X)+2p A_p(1−X) mod p² where A_p=[Gbar_p * sum X^j/j]_<p",
+    "Derived exact equivalent target S_p/p=2Tr(A_p(s)) and Tr(A_p(s))=24g_p mod p; all signed original coefficients and sigma-odd repair retained",
+    "Five independent all-coefficient tests for p=13,37,61,109,373 using raw original binomial overflow, Gauss recurrence and finite-log polynomial; p373 Tr(A(s))=149, S=111154 modulo139129"
+  ],
+  "evidence": {
+    "note": "research_notes/portable_direct/20261110_onhour_d25_CM_overflow_logcarry_reconstruction.md",
+    "checker": "research_notes/portable_direct/d25_cm_overflow_logcarry_20261110.py",
+    "note_commit": "9bcf1c75107068fece700634ad66277d051c88a6",
+    "checker_commit": "ee45f077408c7fba416d7be45508156c99d65741",
+    "preceding_note": "research_notes/portable_direct/20261110_onhour_d25_CM_overflow_valuation_band_firstjet.md"
+  },
+  "unproved_target": "Prove Tr(A_p(s))=24g_p mod p for all p≡13 mod24, with s=(3−2√2)/6, A_p=[(G_p mod p) sum_{j=1}^{p−1}X^j/j]_<p and G_p(s)=pg_p√2 modp². Equivalently S_p=48pg_p modp²; AF4 and native H0/B0 still open.",
+  "next_exact_action": "Use the explicit finite-log/Hasse coefficient truncation in the ring Fp[√2], seeking exact CM trace identity or a counterexample; preserve odd g and signed original Gauss source. Highest native experiment still #1559 p373 fixed H0/B0 [X]U mod139129, rank, semilinear Frobenius/eta, kappa and Delta-R, awaiting executor.",
+  "do_not_repeat": [
+    "D24 accepted UR",
+    "prior 157-prime CM root scans",
+    "prior Gauss raw overflow double-sum and carry reflection",
+    "this run's completed original coefficient band/finite-log proofs",
+    "native benchmark is NOT_RUN"
+  ],
+  "source_state": {
+    "service": "0.6.11",
+    "fresh_continuation_request_id": "onhour11-20261110-0104-current-continuation",
+    "fresh_continuation_receipt": "SUCCEEDED",
+    "fresh_observed_at": "2026-11-09T17:09:04.245070+00:00",
+    "source_version": "5344b1fcfca30449e5fc154b1c1deb7a118833b3",
+    "native_route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "historical_researcher": "EM-ENTERPRISE-F0B4A2",
+    "historical_session": "MCP-b2108cf3e4614e26b52719f13f8e334c",
+    "session_capability": "UNAVAILABLE",
+    "own_claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "native_checkpoint": "NOT_WRITTEN",
+    "failed_recovery_request_id": "onhour11-20261109-1903-own-recovery",
+    "failed_recovery_lookup": "CONTROL_REQUEST_NOT_FOUND"
+  },
+  "native_benchmark": {
+    "issue": 1559,
+    "status_as_observed": "OPEN_PENDING_OWNER",
+    "executed": false
+  },
+  "publication_state": "AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "scheduler_changed": false
+}
