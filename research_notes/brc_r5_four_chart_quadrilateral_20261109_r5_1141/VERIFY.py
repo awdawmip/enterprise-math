@@ -305,3 +305,22 @@ print('PASS_EXACT_NON_S_PHYSICAL_13_EDGE_BLACKWELL_CERTIFICATE',
 print('PASS_S_RESTRICTED_NO_GO_VIA_ROW3_SOURCE3',
       'M3_target_minus_M3_source',obstruction)
 print('COUNTEREXAMPLE_FOUR_CHART_S_ATLAS_NOT_GLOBAL_FOR_PHYSICALLY_LAWFUL_PAIRS')
+
+# Exact finite obstruction to extending this 13-edge witness support into a
+# full-dimensional 9-parameter affine 14-edge chart by adding just one edge.
+base13=tuple(W13)
+assert rank(operator(base13))==13
+B=[target(*model(p)) for p in p_basis]
+assert rank([list(r) for r in zip(*B)])==9
+support_extensions={}
+for extra in ((i,j) for i in range(7) for j in range(7)):
+    if extra in W13:continue
+    A14=operator(base13+(extra,))
+    m=rank(A14)
+    augmented=[row+[b[i] for b in B] for i,row in enumerate(A14)]
+    mr=rank(augmented)
+    support_extensions[(m,mr)]=support_extensions.get((m,mr),0)+1
+assert support_extensions=={(13,15):4,(14,15):13,(14,16):19}
+print('PASS_EXACT_36_POSSIBLE_ONE_EDGE_EXTENSIONS_INSUFFICIENT_FOR_FULL_9D_CHART',
+      'rank_counts',sorted(support_extensions.items()))
+print('SCOPED_NO_GO_AUGMENTING_THIS_SPECIFIC_13_EDGE_SUPPORT_BY_ONLY_ONE_EDGE_FOR_A_9D_OPEN_CHART')
