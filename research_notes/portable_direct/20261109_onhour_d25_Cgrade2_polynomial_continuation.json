@@ -1,0 +1,109 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-09",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Prove original Delta_p-R_p=0 (mod p) for p≡13,19 (mod24), preserving cutoff-sensitive second-digit observer; original-class H0/B0 fixed p373 native experiment independently pending",
+  "previous_author_side_continuation": "research_notes/portable_direct/20261109_onhour_d25_AF4_low_high_carry_continuation.json",
+  "last_durable_frontier": {
+    "theorem": "For every prime p>3, original signed 2304 coefficient-grade-2 V2/p² mod p equals Kp*P_N(1) with N=floor((p-3)/4) and P_N(x)=Σ_{j=0}^N(8j+5)*(-N)_j*(N+2)_j*(1)_j/(3/2)_j³*(x/9)^j in F_p[x]; Kp=C_((p+1)/2)/p² is nonzero",
+    "proof_status": "AUTHOR_PROVED_ORIGINAL_SOURCE_PRESERVING_REDUCTION_UNREVIEWED_NOT_ADMITTED",
+    "finite_exact_unit": {
+      "range": "all prime p 5..10000",
+      "prime_count": 1227,
+      "max_prime": 9973,
+      "P_N_at_1_zeros": 1227,
+      "original_V2_over_p2_zeros": 1227,
+      "simple_roots_at_1_except_p5": 1226,
+      "original_low_mid_carry_equals_1": 1227,
+      "direct_binomial_crosschecks": [
+        13,
+        19,
+        373
+      ],
+      "records_sha256": "09de1b21406c355d9cd14cff5994d36dce0a7b563783652fccc225f2ca9eefa6",
+      "record_fields": [
+        "p",
+        "N",
+        "ell0",
+        "b0",
+        "Pprime1",
+        "Kp"
+      ],
+      "failed_checks": 0
+    },
+    "observed_examples": {
+      "13": {
+        "N": 2,
+        "Kp": 4,
+        "P1": 0,
+        "Pprime1": 3,
+        "V2_over_p2": 0,
+        "W2_over_p2": 10,
+        "ell0": 3,
+        "carry": 1
+      },
+      "19": {
+        "N": 4,
+        "Kp": 9,
+        "P1": 0,
+        "Pprime1": 2,
+        "V2_over_p2": 0,
+        "W2_over_p2": 9,
+        "ell0": 10,
+        "carry": 1
+      },
+      "373": {
+        "N": 92,
+        "Kp": 114,
+        "P1": 0,
+        "Pprime1": 152,
+        "V2_over_p2": 0,
+        "W2_over_p2": 266,
+        "ell0": 107,
+        "carry": 1
+      }
+    },
+    "note_path": "research_notes/portable_direct/20261109_onhour_d25_Cgrade2_polynomial_carry_scan.md",
+    "reproducible_script": "research_notes/portable_direct/d25_C_grade2_polynomial_20261109.py",
+    "observer": "Original signed coefficients W=(6n+1) A_n, V=(8n+1) C_n; v_p(A_n)=floor(2n/p)+floor(3n/p); v_p(C_n)=floor(4n/p), full original cutoff 0..p-1; base-p carry c=(ell0+b0)/p",
+    "limitations": "Uniform P_N(1)=0, uniform simple root and carry1 not proved, no original native H0/B0 evaluator run"
+  },
+  "current_unfinished_unit": "Find valid all-prime proof or counterexample for the normalized original 2304 second-grade zero P_N(1)=0 and integrate with original grade0+grade1 216/2304 signed AF4 interface; separately native p373 original H0/B0 [X]U is pending owner",
+  "next_exact_action": "Analyze finite F_p hypergeometric P_N(x) at x=1 with p=4N+3 or4N+5: seek finite WZ/Jacobi/holonomic certificate, retain derivative root test and full cutoff; if proven simplify b0 to original W2/p², then attack fourth-digit carry and frozen Delta-R. Native benchmark route: existing #1559 requires authorized original H0/B0 operator evaluator, raw [X]U mod139129, Frobenius rank/direction/eta, signed kappa/Delta-R, independent check.",
+  "do_not_repeat": [
+    "D24 accepted UR",
+    "prior p4 and p5 whole-sum 548-prime scans",
+    "grade1/grade2 first jets and 373 low/high carry calculation",
+    "this 1227-prime polynomial scan absent a new targeted question"
+  ],
+  "source_state": {
+    "latest_continuation_request_id": "onhour11-20261109-1400-current-task-continuation",
+    "receipt_status": "SUCCEEDED",
+    "observed_at": "2026-11-09T06:06:02.986542Z",
+    "source_at_admission": "e5767c967c906a613cfc4255fa37129055cfa18e",
+    "latest_head_at_collection": "337e5f2a32a49ec1b803ae42aef6a1c11c03589f",
+    "source_unchanged_at_completion": false,
+    "route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "claim_state": "NO_LIVE_CLAIM",
+    "execution_authorized": false,
+    "own_recovery_operation_error": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
+    "historical_researcher_id": "EM-ENTERPRISE-4DEB43",
+    "historical_session_id": "MCP-ecbfd1c046864bb3bff1a2e04c87d207",
+    "owns_current_session_capability": false,
+    "native_checkpoint": "NOT_WRITTEN",
+    "pending_mutations": [],
+    "recovered_read_request_status": "SUCCEEDED"
+  },
+  "original_native_benchmark": {
+    "issue": 1559,
+    "state": "OPEN_NOT_ASSIGNED_AT_2026-11-09",
+    "native_p373": "NOT_RUN",
+    "required": "same-original-class H0/B0 divided-power [X]U mod139129, module rank, semilinearity, eta, signed odd Green/Hesse, kappa, Delta-R, independent check"
+  },
+  "publication_state": "GITHUB_AUTHOR_SIDE_ONLY_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "scheduler_mutated": false
+}
