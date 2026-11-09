@@ -1,0 +1,65 @@
+{
+  "marker": "R655_CONSTRAINED_TARGET_MINCOST_BRC_GAP_EXACT_PASS",
+  "scope": "Composed Hall graph and directed weighted receiver relocation; exact integers",
+  "stats": {
+    "graph_cost_models": 250,
+    "balanced_tests": 11970,
+    "infeasible_cases": 5070,
+    "positive_hall_deficit_cases": 5070,
+    "feasible_cases": 6900,
+    "certified_integer_event_assignments": 6900
+  },
+  "score_checks": 471,
+  "native_four_cell_example": {
+    "Hall_unrestricted": 1,
+    "one_step_Hall": 1,
+    "one_step_feasible": false,
+    "two_step_min_cost": 2,
+    "actual_transfer": "c0/port0 -> c1/port0"
+  },
+  "signed_winner_change": {
+    "seed_PASS": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "old_receiver_port": 1,
+    "new_receiver_port": 3,
+    "active_triad": [
+      0,
+      1,
+      4
+    ],
+    "old_winner": [
+      1,
+      2,
+      4
+    ],
+    "new_winner": [
+      0,
+      3,
+      4
+    ],
+    "old_gap": 1,
+    "new_gap": 1,
+    "signed_delta_u": [
+      0,
+      -1,
+      0,
+      1
+    ]
+  }
+}
