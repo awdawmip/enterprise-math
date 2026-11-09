@@ -1,0 +1,49 @@
+{
+  "schema": "PREFIX625_R6_BIVARIATE_GLOBAL_VARIANCE_OPTIMIZER_COST_ORDER_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "d=2; q=12,24; beta=1/40; width=1/4; closure [0,1/2]^2",
+  "theorem": "All global optimizer pairs for q2>q1>=2 have mu(y)>=mu(x) and W(y)>=W(x); both strict for q1=12,q2=24.",
+  "proof_basis": "Poissonization plus central unimodality and s25 strictness; exact corner-exclusion witness.",
+  "checks": {
+    "reused_prefix621_integer_threshold_tests": 364185,
+    "central_coefficient_checks": 9025,
+    "strict_witness_inequalities": 3,
+    "variance_transfer": 4
+  },
+  "values": [
+    {
+      "point": "witness_edge",
+      "p1": "0",
+      "p2": "1/8",
+      "poissonized_mean": "76.61849118298514236521914123",
+      "native_Var_q12": "82195.29263529168648049603033",
+      "native_Var_q24": "330620.014329558389338749"
+    },
+    {
+      "point": "corner_zero_zero",
+      "p1": "0",
+      "p2": "0",
+      "poissonized_mean": "27.80687931648042621191052604",
+      "native_Var_q12": "2535.993774166286310317097040",
+      "native_Var_q24": "10811.3402002606754703542"
+    },
+    {
+      "point": "corner_zero_half",
+      "p1": "0",
+      "p2": "1/2",
+      "poissonized_mean": "188.1281913815303475949928954",
+      "native_Var_q12": "25155.03469599729811676964634",
+      "native_Var_q24": "105135.215377145920809358"
+    },
+    {
+      "point": "corner_half_half",
+      "p1": "1/2",
+      "p2": "1/2",
+      "poissonized_mean": "195.9072584499944139528070580",
+      "native_Var_q12": "17445.43704337832102621465078",
+      "native_Var_q24": "74483.5223763131500397"
+    }
+  ],
+  "verification": "ALL_CHECKS_PASS",
+  "status": "AUTHOR_PROVED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
