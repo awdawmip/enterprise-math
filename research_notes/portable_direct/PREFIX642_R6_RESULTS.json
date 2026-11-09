@@ -1,0 +1,49 @@
+{
+  "schema": "PREFIX642_R6_POISSON_CAP_SEVENFOLD_VALLEY_CERTIFICATE_V1",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "N": 189,
+  "mu_global_upper": "199 (strict)",
+  "A": 17766,
+  "B": 4429656,
+  "C": 2250360,
+  "D": 631225980,
+  "E": 35721,
+  "J": 96451329744,
+  "K": "920566268685",
+  "radius": "7/268435456",
+  "K_times_radius": "6443963880795/268435456",
+  "domain": {
+    "p1": "[3/20,1/6]",
+    "p2": "[19/128-7/2^28,19/128+7/2^28]",
+    "q": "real [12,24]"
+  },
+  "conclusions": [
+    "273<mu_p<322",
+    "3000<F_q,pp<72200",
+    "91/577600<c(12,z)-c(24,z)<161/36000",
+    "273^2/72200 < -Phi_tt < 322^2/3000"
+  ],
+  "checks": [
+    "gamma_cap_from_cauchy",
+    "mean_cap_strict",
+    "K_refined_exact",
+    "K_less_than_PREFIX641",
+    "radius_times7",
+    "z_domain",
+    "mu_p_lower",
+    "mu_p_upper",
+    "curvature_margin",
+    "curvature_lower",
+    "curvature_upper",
+    "valley_gap_lower",
+    "valley_gap_upper",
+    "valley_gap_consistent",
+    "curvature_strong_lower",
+    "curvature_strong_upper"
+  ],
+  "check_count": 16,
+  "status": "ALL_CHECKS_PASS",
+  "proof_basis": "Gamma(N,1) independent arrival cap, degreewise Bernstein and exact rational implication from PREFIX-631/639",
+  "scope": "fixed signed statistical observer; prior native-graph and 189-state results reused",
+  "review": "AUTHOR_DERIVED / EXACT_RATIONAL_IMPLICATION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
