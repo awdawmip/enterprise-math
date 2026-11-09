@@ -54,13 +54,18 @@
   "source_state": {
     "last_succeeded_continuation_request_id": "onhour11-20261109-1508-current-task-continuation",
     "current_continuation_request_id": "onhour11-20261109-1615-current-task-continuation",
-    "current_continuation_last_known_status": "RUNNING",
+    "current_continuation_last_known_status": "SUCCEEDED",
     "subsequent_error": "BACKEND_IDENTITY_CHECK_UNAVAILABLE, operation_sent=false",
     "own_recovery": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
     "session_id": null,
     "claim_id": null,
     "run_id": null,
-    "native_checkpoint": "NOT_WRITTEN"
+    "native_checkpoint": "NOT_WRITTEN",
+    "current_continuation_observed_at": "2026-11-09T08:16:17.526438+00:00",
+    "current_continuation_source_sha": "ab5ec3f0475886ed96d3dff50761cbe860dc26c5",
+    "route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "execution_authorized": false,
+    "current_continuation_last_known_status_note": "Original request reconciled by exact em_control_result; preserves stable Research lane and immutable previous Source frontier."
   },
   "original_native_benchmark": {
     "issue": 1559,
