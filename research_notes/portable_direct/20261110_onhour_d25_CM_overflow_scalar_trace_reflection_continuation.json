@@ -1,0 +1,60 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-10",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "source_native_durable_frontier_unmodified": "b58330b74576153cdadde5d80a3d92df3a819a0e",
+  "prior_author_side": "research_notes/portable_direct/20261109_onhour_d25_CM_quadratic_overflow_trace_continuation.json",
+  "completed_units_author_side": [
+    "ALL-PRIME exact odd-coordinate constraint 2u+3v+6g=0 and scalar-equivalence 36F=S-48pg modulo p², conditional on prior author-side CM roots/reflection",
+    "EXACT mod-p² Frobenius-reflected trace powers with carry ζ and signed half-index pairing",
+    "10 independent exact raw-binomial/rational-series/trace/half-pairing checks executed (p=13,37,61,109,157,181,373,397,421,541)"
+  ],
+  "evidence": {
+    "note": "research_notes/portable_direct/20261110_onhour_d25_CM_overflow_scalar_trace_reflection.md",
+    "checker": "research_notes/portable_direct/d25_cm_overflow_scalar_trace_reflection_20261110.py",
+    "p373": {
+      "g": 115,
+      "u": 149,
+      "v": 168,
+      "S_mod_139129": 111154,
+      "F_mod_139129": 0
+    },
+    "new_checks": [
+      397,
+      421,
+      541
+    ]
+  },
+  "unproved_target": "For all primes p≡13 mod24, S_p=48 p g_p modulo p² (equiv u=24g). Original AF4 and exact native H0/B0 still open.",
+  "next_exact_action": "Finite WZ/Jacobi pairing of e_(p+r),e_(2p-r) with reflected T and ζ carry, prove scalar S_p-48pg=0 modulo p² while retaining original signed ports; native p373 H0/B0 owned by existing support path #1559.",
+  "do_not_repeat": [
+    "D24 accepted UR",
+    "CM24 all-prime short root",
+    "prior 157-prime survey",
+    "old 7-prime overflow calculations",
+    "native p373 H0/B0 has not run"
+  ],
+  "source_state": {
+    "service": "0.6.11",
+    "historical_request_id": "onhour11-20261110-0018-current-continuation",
+    "historical_receipt": "SUCCEEDED",
+    "recovery_status": "SESSION_CAPABILITY_REQUIRED",
+    "researcher_historical": "EM-ENTERPRISE-F0B4A2",
+    "session_historical": "MCP-b2108cf3e4614e26b52719f13f8e334c",
+    "session_capability": "UNAVAILABLE",
+    "winning_claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "native_checkpoint": "NOT_WRITTEN"
+  },
+  "native_benchmark": {
+    "issue": 1559,
+    "status": "OPEN_PENDING_OWNER",
+    "executed": false
+  },
+  "publication_state": "AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "scheduler_changed": false
+}
