@@ -25,9 +25,9 @@ def check_point(t):
     h=rhs(t);mu=h[:7];nu=h[7:14]
     assert mu[1]>0 and nu[4]==0 and sum(mu)==sum(nu)==1
     C={e:v.col(e) for e in v.D}
-    weights,det=v.square_solve(
-        [[C[e][i] for e in v.B] for i in v.PIVOT_ROWS],
-        tuple(h[i] for i in v.PIVOT_ROWS))
+    weights,det=v.solve(
+        [[C[e][i] for e in v.B] for i in v.I],
+        tuple(h[i] for i in v.I))
     assert det==F("-299/1600") and min(weights)>0
     E=dict(zip(v.B,weights))
     assert all(sum(E.get(e,F(0))*C[e][i] for e in v.D)==h[i] for i in range(21))
@@ -39,8 +39,8 @@ def check_point(t):
 def main():
     h0=rhs(T0)
     hd=tuple(rhs(T0+1)[i]-h0[i] for i in range(21))
-    D0=lcm(*(scaled_row(i,h0[i]).denominator for i in v.PIVOT_ROWS))
-    dmax=max(abs(scaled_row(i,hd[i])) for i in v.PIVOT_ROWS)
+    D0=lcm(*(scaled_row(i,h0[i]).denominator for i in v.I))
+    dmax=max(abs(scaled_row(i,hd[i])) for i in v.I)
     assert D0==1148267016000000 and dmax==F(23,40)
     # Nonzero augmented minor at t0 on each support: |minor|>=1/D0.
     # On an (r+1)-minor for r<=14, |slope|<=15*14!*38^14*dmax.
