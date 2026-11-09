@@ -65,15 +65,15 @@ Examples from the executed standalone import-based program, milliseconds; same e
 
 | n | L | Synthetic replay | 16-state pullback | Measured ratio | Terminal max numerator bits |
 |---:|---:|---:|---:|---:|---:|
-| 5 | 1 | 0.5098 | 0.9029 | 0.5646x | 9 |
-| 7 | 3 | 1.2836 | 2.0590 | 0.6234x | 11 |
-| 16 | 1 | 1.7659 | 0.6104 | 2.8930x | 20 |
-| 64 | 1 | 9.5484 | 0.7149 | 13.3563x | 68 |
-| 128 | 1 | 17.3732 | 0.6198 | 28.0303x | 132 |
-| 256 | 1 | 35.8018 | 0.8475 | 42.2440x | 260 |
-| 512 | 1 | 82.2394 | 0.6785 | 121.2077x | 516 |
-| 512 | 3 | 74.4425 | 2.5630 | 29.0451x | 516 |
-| 1024 | 1 | 175.0133 | 0.6808 | 257.0701x | 1028 |
+| 5 | 1 | 0.5419 | 0.6254 | 0.8665x | 9 |
+| 7 | 3 | 1.2983 | 2.1043 | 0.6170x | 11 |
+| 16 | 1 | 1.8967 | 0.8081 | 2.3471x | 20 |
+| 64 | 1 | 8.2094 | 0.7870 | 10.4313x | 68 |
+| 128 | 1 | 16.8520 | 0.6274 | 26.8601x | 132 |
+| 256 | 1 | 36.1090 | 0.6653 | 54.2748x | 260 |
+| 512 | 1 | 87.3867 | 0.7542 | 115.8667x | 516 |
+| 512 | 3 | 76.2930 | 2.3136 | 32.9759x | 516 |
+| 1024 | 1 | 191.9684 | 0.7410 | 259.0667x | 1028 |
 
 For these runs L=1 produced 72 nonzero original labelled path entries and L=3 produced 288. The shorter synthetic replay can win at very small n; for fixed small L at larger n this 16-state pullback wins in these measured runs. Exact bit lengths increase with age (e.g., 1028 numerator bits at n=1024). These are implementation measurements, not machine-independent speed lower bounds.
 
