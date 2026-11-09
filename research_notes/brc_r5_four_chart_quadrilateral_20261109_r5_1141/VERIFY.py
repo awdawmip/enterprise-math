@@ -177,3 +177,42 @@ d=det(tuple(zip(*cols)))
 assert d==-F(1111424393,139968000000)
 print('PASS_OBSERVER_EIGHT_DIMENSIONAL_MINOR',d)
 print('THEOREM_FOUR_DISTINCT_14_EDGE_CHARTS_OVER_COMMON_9D_PHYSICAL_BOX')
+
+# Stronger atlas theorem: quadrilateral combinatorics remain unchanged
+# throughout the nine-dimensional closed physical box.
+ref_basis=[]
+for p in p_basis:
+    sw=solve(operator(SA),target(*model(p)))
+    ref_basis.append(tuple(dict(zip(SA,sw)).get(edge,F(0)) for edge in U))
+def two_active_candidate(ref,i,j):
+    a,b,c,d=K1[i],K2[i],K1[j],K2[j]
+    denominator=a*d-b*c
+    if denominator==0:return None
+    s=(-ref[i]*d+b*ref[j])/denominator
+    t=(-a*ref[j]+c*ref[i])/denominator
+    return tuple(ref[k]+s*K1[k]+t*K2[k] for k in range(16))
+valid=invalid=0
+negative_radii=[]
+for i,j in combinations(range(16),2):
+    candidates=[two_active_candidate(v,i,j) for v in ref_basis]
+    if candidates[0] is None:continue
+    v0=candidates[0]
+    if all(v>=0 for v in v0):
+        assert frozenset(U[k] for k,z in enumerate(v0) if not z) in expected
+        valid+=1
+    else:
+        negatives=[]
+        for k,z in enumerate(v0):
+            if z>=0:continue
+            grad_l1=sum(abs(v[k]-z) for v in candidates[1:])
+            if grad_l1==0:negatives.append(F(1000000))
+            else:negatives.append(-z/grad_l1)
+        witness_radius=max(negatives)
+        assert witness_radius>F(1,2500),('unstable infeasible pair',U[i],U[j])
+        negative_radii.append(witness_radius)
+        invalid+=1
+assert valid==4 and invalid==20
+assert min(negative_radii)==F(5194221,10938329600)
+print('PASS_STABLE_QUADRILATERAL_OVER_ALL_REAL_BOX','radius',F(1,2500),
+      'four_valid_pairs',valid,'twenty_excluded_pairs',invalid,
+      'minimal_infeasibility_radius',min(negative_radii))
