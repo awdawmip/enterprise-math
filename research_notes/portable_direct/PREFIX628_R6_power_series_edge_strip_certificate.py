@@ -36,7 +36,7 @@ assert R1_num>0 and R1_num<30*H
 # Moment witnesses: mu(0,a)>87, U(0,b)>4, J(0,a)<182.
 # R0<7/8, R1<30 => mu>87, U>25/8, J<212 everywhere in strip.
 # dW=2J-2muU < -479/4 < -119, dVar_q=q^2*dW-q*U < -119*q^2.
-assert 4*(2*212)-2*87*25 < -119*4
+assert 4*(2*212)-87*25 < -119*4
 with localcontext() as ctx:
     ctx.prec=35
     r0=str(Decimal(R0_num)/Decimal(H))
