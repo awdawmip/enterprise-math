@@ -1,0 +1,24 @@
+{
+  "record": "PREFIX-650-R6",
+  "status": "AUTHOR_PROVED_EXACT_RATIONAL_CHECKED_UNREVIEWED_NOT_ADMITTED",
+  "region": "|p-1/6|<=2^-29; |z-19/128|<=2^-29; q>=12",
+  "dependencies": ["PREFIX-645","PREFIX-648","PREFIX-649"],
+  "curvature_bounds": {"skew": "-1/4<gamma1''(t)<0", "kurt": "0<gamma2''(t)<3/4"},
+  "exact_intermediate": {
+    "B_lower": {"numerator":1955,"denominator":6,"decimal":"325.833333333"},
+    "N1_upper": {"numerator":10476010435,"denominator":18,"decimal":"582000579.722"},
+    "D1_lower":"2471625000",
+    "M1_upper": {"numerator":2095202087,"denominator":8897850000,"decimal":"0.235472848722"},
+    "N2_upper": {"numerator":23880888404,"denominator":3,"decimal":"7960296134.67"},
+    "D2_lower":"11156640625",
+    "M2_upper": {"numerator":23880888404,"denominator":33469921875,"decimal":"0.713502962247"}
+  },
+  "two_slot_bounds": {
+    "skew":"gamma1_inf < 2*gamma1(24)-gamma1(12) < gamma1_inf + 1/2304",
+    "kurt":"gamma2_inf - 1/768 < 2*gamma2(24)-gamma2(12) < gamma2_inf",
+    "general":"skew extrapolation is upper by < 1/(16*q^2); kurt extrapolation lower by < 3/(16*q^2)"
+  },
+  "exact_checks_passed":38,
+  "upstream_189_layers_recomputed":false,
+  "native_96_port_recomputed":false
+}
