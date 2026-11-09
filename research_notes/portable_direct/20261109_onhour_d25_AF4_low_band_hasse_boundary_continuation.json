@@ -1,0 +1,80 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-09",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "source_frontier_unmodified": "b58330b74576153cdadde5d80a3d92df3a819a0e",
+  "mother_objective": "Original signed Delta_p-R_p =0 mod p for p=13,19 mod24, retaining native H0/B0 benchmark and source/observer semantics.",
+  "immediate_predecessor": "research_notes/portable_direct/20261109_onhour_d25_W_grade2_firstjet_signed_AF4_continuation.json",
+  "new_units": [
+    {
+      "kind": "AUTHOR_SIDE_EXACT_PROOF",
+      "result": "Low grade0+1 of both original 216 W and 2304 V models is exactly the evaluation at X=p of a finite three-parameter Hasse micro-deformation. Coefficients through X^3 calculate four p-adic digits and preserve n, weight, model and low/high grade boundaries.",
+      "scope": "All primes p=6m+1>3; p=4t+1 and p=4t+3 cases of V separately; precise low cutoff N_W=3m, N_V=(p-1)/2.",
+      "evidence": "research_notes/portable_direct/20261109_onhour_d25_AF4_low_band_hasse_quadratic_boundary.md"
+    },
+    {
+      "kind": "AUTHOR_SIDE_EXACT_PROOF",
+      "result": "Finite hypergeometric differential telescoper theta^3-z product(theta+alpha_i(X)) has explicit endpoint -z^(N+1) u_N(X) product_i(N+alpha_i(X)); boundary polynomial divisible by X^2 (not just X), with separate closed nonzero quadratic factorial formulas for W and both V residue classes.",
+      "scope": "All primes p=6m+1>3 in original coefficient models; rational polynomial identity before mod p reductions.",
+      "evidence": "research_notes/portable_direct/20261109_onhour_d25_AF4_low_band_hasse_quadratic_boundary.md"
+    }
+  ],
+  "exact_check": {
+    "method": "Local Python modular Hasse polynomial jets plus independent original integer-binomial low sums, 4-digit residues and two-path quadratic boundary closed formula",
+    "tested": "All 80 primes p=6m+1, 7<=p<=1000, Hasse and explicit quadratic boundary; independent original binomial comparisons for all eligible p<=373.",
+    "examples": {
+      "p13": {
+        "ell": 94,
+        "boundary_w_modp": 2,
+        "boundary_v_modp": 6
+      },
+      "p19": {
+        "ell": 238,
+        "boundary_w_modp": 5,
+        "boundary_v_modp": 6
+      },
+      "p373": {
+        "ell": 90746,
+        "boundary_w_modp": 57,
+        "boundary_v_modp": 79
+      }
+    },
+    "script": "research_notes/portable_direct/d25_AF4_low_grade_hasse_micro_20261109.py",
+    "code_review": "Author-side code equivalently validated in local environment; remote published script requires consumer-side execution if independent review is needed."
+  },
+  "do_not_repeat": [
+    "Accepted D24 supersingular UR",
+    "Existing original W2 first jet and 2304 grade2 uniform zero",
+    "Existing signed low/high carry and p4/p5 prime scan",
+    "Existing lower/upper reciprocal tail and Abel identities"
+  ],
+  "current_unfinished_unit": "Find genuine original-weight WZ/Fricke morphism between two finite inhomogeneous Hasse differential equations including quadratic endpoint, third-jet carry, and p13/p19/373 tests; original native p373 H0/B0 divided-power execution remains PENDING_OWNER.",
+  "next_exact_action": "Use explicit [X^2]B_W, [X^2]B_V as endpoint constraints when attempting finite differential transformation; test candidate at p13,p19 then 373 against ell=(94,238,90746) and prior (b,t,carry). Require independent native same-class H0/B0 [X]U mod139129 and actual rank, Frobenius direction, eta, signed kappa Delta-R through issue #1559.",
+  "source_state": {
+    "last_succeeded_continuation_request_id": "onhour11-20261109-1826-continuation",
+    "last_read_at": "2026-11-09T10:32:37.397104+00:00",
+    "last_source_sha": "edb5026f5f26d98f4063e4fc10a47cee3107630b",
+    "last_route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "execution_authorized": false,
+    "own_recovery": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
+    "new_session_start_request_id": "onhour11-20261109-1826-own-research-session-start",
+    "new_session_start_last_known_status": "QUEUED (receipt not yet reconciled; no claim/run)",
+    "session_id": "MCP-b2108cf3e4614e26b52719f13f8e334c",
+    "session_key_not_stored": true,
+    "claim_id": null,
+    "run_id": null,
+    "native_checkpoint": "NOT_WRITTEN"
+  },
+  "native_benchmark": {
+    "issue": 1559,
+    "last_read_state": "OPEN_UNASSIGNED_2026-11-09T09:13:27Z",
+    "status": "NOT_RUN/PENDING_OWNER",
+    "target": "Original same-class p373 H0/B0 [X]U mod139129, actual module rank, semilinear direction, eta, signed kappa Delta-R, independent reproducer."
+  },
+  "publication_state": "GITHUB_AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "scheduler_mutated": false
+}
