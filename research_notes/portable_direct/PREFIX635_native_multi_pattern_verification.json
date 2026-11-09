@@ -1,0 +1,139 @@
+{
+  "schema": "PREFIX635_NATIVE_BRC_MULTIPATTERN_VERIFICATION_V1",
+  "date": "2026-11-10",
+  "frozen_science": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "native_model": {
+    "phases": 48,
+    "ports": 96,
+    "original_action_ids": 576,
+    "weights": [
+      1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "probe": [
+      4,
+      11,
+      14,
+      32
+    ]
+  },
+  "input": {
+    "lambda": "(3+seed)/(2+seed)",
+    "gates": [
+      "one",
+      "rational",
+      "zero_mix",
+      "all_zero"
+    ],
+    "n_L_pairs_full": [
+      [
+        5,
+        1
+      ],
+      [
+        7,
+        3
+      ],
+      [
+        9,
+        4
+      ],
+      [
+        10,
+        5
+      ],
+      [
+        12,
+        6
+      ],
+      [
+        16,
+        8
+      ]
+    ],
+    "n_L_pairs_implicit": [
+      [
+        32,
+        12
+      ],
+      [
+        128,
+        32
+      ],
+      [
+        1024,
+        64
+      ]
+    ],
+    "seed_full": 2,
+    "seed_implicit": 1
+  },
+  "patterns": [
+    [
+      485,
+      316,
+      52,
+      174
+    ],
+    [
+      316,
+      52,
+      174,
+      485
+    ],
+    [
+      52,
+      174
+    ]
+  ],
+  "execution": {
+    "python": "Python 3 stdlib, Fraction exact",
+    "source_file": "PREFIX635_native_multi_pattern_moments.py.gz.b64",
+    "source_file_decode_sha256": "6cd344a83d87d392be96f1f92763edf3014d5b3baddb1ba87f23509477d992fe",
+    "full_locally_executed_json_sha256": "8c1e5d54f4e72ff830e04a72597c18714e0b87f5b13586e4ca4eb785467beaa2",
+    "case_count": 33,
+    "brute_full_cases": 24,
+    "independent_prefix634_kmp_checks": 99,
+    "ac_exhaustive_word_checks": 16383,
+    "all_assertions_pass": true,
+    "actual_exit_code": 0
+  },
+  "witness": {
+    "n": 16,
+    "t": 8,
+    "L": 8,
+    "gates": "all_one",
+    "lambda": "5/4",
+    "AC_states": 11,
+    "nonzero_original_paths": 9216,
+    "prob_any": "169/1344",
+    "prob_each": [
+      "85/3584",
+      "85/3584",
+      "169/1344"
+    ],
+    "prob_joint_P0_P1": "55/5376",
+    "expected_count": [
+      "1/42",
+      "1/42",
+      "11/84"
+    ],
+    "count_covariance_P0_P1": "139/14112"
+  },
+  "long_case": {
+    "n": 1024,
+    "t": 960,
+    "L": 64,
+    "AC_states": 11,
+    "nonzero_original_paths": "664082786653543858176",
+    "peak_product_states": 38,
+    "prob_any": "3685650200036281/5910974510923776"
+  },
+  "review": "AUTHOR_SIDE_UNREVIEWED",
+  "reproduce": "Decode .py.gz.b64 with base64 -d | gzip -d, put with PREFIX629, PREFIX630, PREFIX633, PREFIX634 original Python dependencies, run python PREFIX635_native_multi_pattern_moments.py; it writes the full result JSON and prints ALL_ASSERTIONS_PASS",
+  "next": "Exact sliding-window AC×native BRC incremental transition representation including precision cost"
+}
