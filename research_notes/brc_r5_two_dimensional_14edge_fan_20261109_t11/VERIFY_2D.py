@@ -69,7 +69,7 @@ print('PROVED_REAL_LAMBDA_0_TO_1_TWO_14_EDGE_SUPPORTS')
 DX=Q('-1802718000/1111424393 -1802718000/1111424393 -1802718000/1111424393 -608417325/1111424393 -496963350/1111424393 -608417325/1111424393 0')
 DY=Q('-6000/3761 -6000/3761 -6000/3761 -2025/3761 -1950/3761 -2025/3761 -600/3761')
 D={(0,0):-F(1,2),(6,6):-F(1,2),(3,3):F(1)}
-EPS=F(1111424393/21632616000)
+EPS=F(1111424393,21632616000)
 def add(v,d,t):return tuple(a+t*z for a,z in zip(v,d))
 def linear(v,w,t):return tuple((1-t)*a+t*z for a,z in zip(v,w))
 def shifted(s,weights,t):return tuple(w+t*D.get(e,F(0)) for e,w in zip(s,weights))
