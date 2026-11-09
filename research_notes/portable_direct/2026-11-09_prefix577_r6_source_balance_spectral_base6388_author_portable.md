@@ -60,3 +60,12 @@ Reuse original five-pair/6971 author work: `awdawmip/enterprise-math@1fe044cc70f
 Original UR V2 four-file 94,687-byte SHA-256 `4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76` is still not recovered from visible files. Do not recompute completed UR mathematics; original provenance/writer is outstanding. Original D25 original-class H0/B0, [X]U mod p^2, source semilinear Frobenius eta/kappa/Delta-R/CM remain NOT_RUN/UNFINISHED; original D25 continuation historical receipt succeeded but execution_authorized=false. Existing service-issued own researcher `EM-DIRECT-B65969`, session `MCP-8375f0482abf46d191c1bd7bba3bf24e`, RA `RA-C8A528E52B511A73C8BEF944` are registered history without recoverable private session capability, winning CLAIM or native task checkpoint here. No identity switching. All present evidence remains AUTHOR/UNREVIEWED/NOT_ADMITTED pending legitimate writer/provenance and independent Driver review.
 
 **Next unit:** seek a shorter exact explicit <=35-bit 13-minimal instance and certificate, or a tighter source-incidence/eigenvalue bound; preserve prior work and avoid Research1 J1/J2 duplication.
+
+
+## Same-turn extension: occupancy-sensitive spectral bound
+
+For r labelled sources, q actions each, and a chosen set of k>=2 source-one-hot deterministic policy columns U, put n_{p,a}=number of columns using source p/action a, H=sum_{p,a}n_{p,a}^2, t_i=sum_p n_{p,v_{i,p}}, T=sum_i t_i^2, G=U^T U. Then tr G=r*k, 1^T G 1=H, G1=(t_i), and ||G1||^2=T. By the PSD spectral inequality, lambda_max(G)>=T/H>=H/k>=r. Eigenvalue AM-GM therefore bounds every k-row integer minor by
+
+**|det U_R| <= floor(sqrt((T/H)*((r*k-T/H)/(k-1))^(k-1))).**
+
+All arithmetic can use exact rational numerators and denominators (no floating acceptance). Applied to the inherited lawful 13-policy prefix above, the four original source occupancy-square sums are [41,39,31,29], giving H=140; its Gram row sums are [14,9,6,8,10,11,10,8,10,15,14,14,11], giving T=1600 and lambda_max>=80/7. The resulting exact **instance-specific** bound on every 13-row minor of this specific 24-by-13 matrix is **5049**. The independent portable helper `occupancy_sensitive_spectral_certificate.py` checks this integer certificate. This additional observer is useful for pruning individual candidate supports; **5049 is not a universal replacement for 6387** when alternative legal columns may enter a determinant functional. Preserves labelled source occupancy and original observer distinction.
