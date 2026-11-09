@@ -1,0 +1,15 @@
+Executed locally on 2026-11-10. Source code: VERIFY_R31_GITHUB.py (same Python source as the GitHub VERIFY_R31.py after code comparison is checked).
+
+$ python VERIFY_R31_GITHUB.py
+PASS_R31_EXACT_DIRECTIONAL_RADIUS and 12 independent risk checks
+rho_plus >= 192343669352678928363/125000000000000000000000 rho_minus >= 159458876869555592417/40000000000000000000000 negative/positive ratio 3986471921738889810425/1538749354821431426904
+
+$ python VERIFY_R31_GITHUB.py /mnt/data/em_r27/REGIMES_R27.tsv /mnt/data/em_r27/EVENTS_R27.tsv
+R27 cross-check: 75 stages, 74 event-bearing, 9472 signed-affine events; directional-only stage q=164,j=389
+PASS_R31_EXACT_DIRECTIONAL_RADIUS and 12 independent risk checks
+rho_plus >= 192343669352678928363/125000000000000000000000 rho_minus >= 159458876869555592417/40000000000000000000000 negative/positive ratio 3986471921738889810425/1538749354821431426904
+
+Input SHA256 REGIMES_R27.tsv: d8e1dd426869b4f6c5d029bf170436ece3d5dfb361bc25908706386a247d5bae
+Input SHA256 EVENTS_R27.tsv: cb51b2cd873d8fb86e5d7edd916e9a2b614dc76e4d8fc1837898d932a808723b
+Calculations: Python fractions.Fraction; zero tolerance; integer sorting.
+This log records the observed local command results, not formal independent review.
