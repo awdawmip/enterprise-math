@@ -1,0 +1,24 @@
+{
+  "schema": "PREFIX624_R6_STRICT_EDGE_VARIANCE_MAXIMIZER_ORDER_V1",
+  "date": "2026-11-09",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "Two signed native BRC observer directions on compact closure p1=0, p2 in [0,1/2]; q=12/24; beta=1/40; diameter=1/4",
+  "theorem": "For all a in Argmax_[0,1/2] V12(p), all b in Argmax_[0,1/2] V24(p), a<b",
+  "proof": "V24=4V12+24mu; all alpha_n>0; central-unimodal survivors s_n, s25 strictly increasing, so mu' >0; verified endpoints not maximizers",
+  "checks": {
+    "dyadic": 357260,
+    "shape": 8930,
+    "symmetry": 9120,
+    "positive_alpha": 189
+  },
+  "verification": "ALL_CHECKS_PASS",
+  "status": "AUTHOR_PROVED / EXACT_INTEGER_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "dependencies": [
+    "PREFIX610",
+    "PREFIX613",
+    "PREFIX621",
+    "PREFIX622",
+    "PREFIX623"
+  ],
+  "next": "Certify full bivariate global variance maximum with Bernstein subdivision, retain native X6/BRC observer scope"
+}
