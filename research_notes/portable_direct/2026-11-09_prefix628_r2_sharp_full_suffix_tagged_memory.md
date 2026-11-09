@@ -46,11 +46,15 @@ The full original labelled suffix observer distinguishes every member of this fa
 
 (1) PREFIX-625's exact native action graph shows each of 64 live source ports has a weight-one gate-free path of every positive finite length. In particular the L-step labelled tensor directly reads the actual source-port masses r_t[28] and r_t[29], since both are live.
 
-(2) On the constant-endpoint family, the prefix residue products Π_r(t) and λ are fixed because all gates after t are held fixed when gt alone varies; for the simultaneous variation argument, the late gates after t also vary, but the suffix observer itself recursively determines them as shown in (3). More generally, the native split δ_t=(gt−1)ℓ_t/[3(gt+3)], ℓ_t>0, and the full tagged observer includes enough source-port data to reconstruct the split. For the fixed-product slice where future gates are fixed, δ_t strictly distinguishes gt. The exact complete labelled-history map is locally injective in the L free gate parameters, as can also be established by the gate-free source readings and the original gate-edge path readings in (3).
+(2) Native phases 2, 3, 14 and 15 all have positive source-axis weight one, so both ports of each of these phases are among the live precursors. Their gate-free full-length paths reveal the actual values v_t[2],v_t[3],v_t[14],v_t[15], and also δ_t=r_t[29]−r_t[28]. The exact original port identity gives ℓ_t=v_t[3]+v_t[14]+v_t[15]−2v_t[2]>0 and
+
+gt=(ℓ_t+9δ_t)/(ℓ_t−3δ_t),
+
+where the denominator is positive. Hence the full suffix tensor directly recovers gt from the observed live precursor masses, even when the four residue products before time t are not separately known.
 
 (3) Once the precursor live-port masses and earlier suffix gates are determined, recover each next gate from a positive labelled path: use any positive action prefix reaching source port 9 at the relevant time, take gated edge 9→29, and extend via a gate-free positive path. There is a positive prefix because r_j[9]>0 in the original four-point family for all j≥2; positive gate-free extension exists by the live-port graph. The path weight divided by its known positive prefix and suffix factors gives the gate, including boundary value zero by algebraic continuation.
 
-In particular, for two histories with the same full suffix tensor, first compare gate-free source coordinates; then recover the future gates by (3), and hence the fixed prefix products; then identify gt by the strictly monotone split in (2). Therefore the suffix tensor is injective in the L-dimensional constant-terminal family. A continuous m-register map on that fiber must be injective; invariance of domain implies m≥L.
+In particular, for two histories with the same full suffix tensor, gate-free paths recover the live precursor ports and (2) fixes gt; then (3) recovers g_(t+1),...,gn successively. Therefore the suffix tensor is injective in the L-dimensional constant-terminal family. A continuous m-register map on that fiber must be injective; invariance of domain implies m≥L.
 
 At t=4 there are only L−1 freely variable tail gates g5,...,g_(n−1) after holding terminal products and gn fixed. The same labelled-path argument distinguishes them, proving m≥L−1, including the L=1, n=5 zero-register boundary. Both bounds match the online constructions.
 
