@@ -1,0 +1,40 @@
+# Actual local execution evidence — 2026-11-09
+
+Frozen science: enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34.
+Work product: PROOF.md, VERIFY_FAST_1T.py. Author-side research; independent mathematics review pending.
+
+Executed locally using Python standard library exact Fraction/integer operations, without a Git network read from the container:
+
+1. Full instrumented proof-of-method generator (separate local code path, rank/select and certified two-endpoint choices):
+   `python GENERATE_EPOCH_EVENTS.py --max-l 1000000000000 --output BLOCKS_R15_1T.tsv`
+
+   `{"blocks":9698,"candidates":19072,"changed_points":9697,"elapsed_sec":26.973,"epochs":78,"max_L":1000000000000,"max_n":1000000000128,"risk_endpoint_checks":161,"sha256":"85f950419ffe8a8a9480135800640dfb73684c308c26438b1ac35d0f09d6371e","verified_selections":9984}`
+
+2. Independently compressed standalone executable, reproduced the *same mathematical rows* with n-coordinate output:
+
+   `python VERIFY_FAST_1T.py 2000000 BLOCKS_COMPACT_2M.tsv`
+   `PASS_CERTIFIED_NONENUMERATING_EPOCH_SWEEP 2000000 29 6577 3426 f9dd46e0e9e70b8871717b9d24a7f3361c4228f8894bef00d50458086cebb548`
+
+   `python VERIFY_FAST_1T.py 1000000000000 BLOCKS_COMPACT_1T.tsv`
+   `PASS_CERTIFIED_NONENUMERATING_EPOCH_SWEEP 1000000000000 78 19072 9698 82a0ffdc13e5743cec32eec6985b3e31ae9cf30b8233de7aa04e1755f141245d`
+
+   Both compressed and instrumented algorithms produced exactly the same affine pair at every block endpoint, after converting `n=L+128`. The 2M TSV matches all 3,426 rows of r14's preserved `BLOCKS_2M.tsv` in this execution environment. Published `VERIFY_FAST_1T.py` was exactly the tested 4,019-byte local source; SHA-256 `078f2d581f72f3788a6af6fdd139183f260518f8d0cb805d1ce6c0a3424051e7`.
+
+3. A separate *direct* Farey-gap evaluator (not the epoch event algorithm) checked 175 distinct horizons (150 pseudorandom plus boundary/known cases). Every exact affine pair matched the appropriate generated block. It independently reproduced the 2M and 1T endpoints and located the first strict post-2M increase:
+
+   `PASS_1T_BLOCKS_NONENUMERATING_EXACT`
+   `full_maximal_blocks 9698`
+   `queried_horizons 175`
+   `first_growth_after_2M L=2843577 delta=455482-1737125*theta`
+   `last_risk_affine (-4017401528447, 15321634290944)`
+   `TSV_sha256 85f950419ffe8a8a9480135800640dfb73684c308c26438b1ac35d0f09d6371e`
+
+   Additional checks in direct evaluator: 2,000 integer floor sums against brute force, rational arc counts against direct membership on small examples, and 160-term logarithmic series enclosure for analytic theta.
+
+Finite coverage: EVERY 128<=n<=1000000000128 is represented by exactly one of the 9,698 adjacent blocks, and their inequalities are verified at both certified rational theta endpoints. There is no enumeration of the future trillion phase indices. The exact-bounded certificate depends on the 160-term positive rational logarithm-series bound. Floating-point values are presentation only.
+
+Reproduce the full certifying list from this directory (it is 9,699 TSV lines including header):
+
+`python VERIFY_FAST_1T.py 1000000000000 BLOCKS_1T.tsv`
+
+At present the complete TSV is regenerable from the source; the independent 1T output is also retained as a conversation artifact. The GitHub proof, verifier and evidence are the durable project records.
