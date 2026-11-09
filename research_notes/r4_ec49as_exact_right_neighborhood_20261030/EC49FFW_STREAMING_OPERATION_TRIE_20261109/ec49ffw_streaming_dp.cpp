@@ -67,5 +67,5 @@ Row eval(int k,int e,int a,int f,int q,string &prefix){
 int main(int argc,char **argv){H=argc>1?atoi(argv[1]):11;
  memo.assign((size_t)(H+1)*(H+1)*(H+1)*(H+1)*9,-1);
  auto start=chrono::steady_clock::now();string p;Row result=eval(0,0,0,0,0,p);auto end=chrono::steady_clock::now();
- cout<<"{\\\"h\\\":"<<H<<",\\\"candidate_words\\\":"<<viable_words<<",\\\"viable_operation_nodes\\\":"<<viable_nodes<<",\\\"exact_cost\\\":"<<28+result[15]<<",\\\"runtime_seconds\\\":"<<chrono::duration<double>(end-start).count()<<"}\\n";
+ cout<<"{\"h\":"<<H<<",\"candidate_words\":"<<viable_words<<",\"viable_operation_nodes\":"<<viable_nodes<<",\"exact_cost\":"<<28+result[15]<<",\"runtime_seconds\":"<<chrono::duration<double>(end-start).count()<<"}\n";
 }
