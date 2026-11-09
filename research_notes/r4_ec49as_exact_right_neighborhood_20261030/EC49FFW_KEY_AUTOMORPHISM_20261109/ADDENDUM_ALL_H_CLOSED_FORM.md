@@ -57,3 +57,37 @@ At H14 these counts are 377,182,130; 523,806,700; 377,182,130; 523,806,700 respe
 **Implementation impact:** candidate-list cardinality and per-signature coverage can be computed exactly by finite sums without enumerating keys or operation words. This does **not** solve the ordered signed X6 prefix-union optimization: distinct words and signatures still need their actual native microstep paths for a cost lower bound/witness.
 
 Next: use the closed form as a strict completeness invariant for EC49FFV/FFW suffix-pruned trie construction, benchmark an H11 instance and investigate an 86-edge exact optimum against the proven upper construction. Preserve the original 22-demand target independently.
+
+## Theorem: exact complete-key-resolved formulas (stronger than global generating functions)
+
+Fix h and a positive legal complete BRC key K=(x,y,z). Write
+```
+a=z-1, e=z, m=x+y-h-1, f=h+1-y-2z, g=h+1-x,
+```
+where a,e,m,f,g are all nonnegative integers and a+e+m+f+g=h.
+If m=0, the key has **no** low-signature words because every word lacks both c and d.
+If m>=1, exactly **two** c/d quota splits can yield a low signature:
+```
+(c,d)=(m,0) or (0,m).
+```
+Any split with both c and d positive necessarily ends in the absorbing DFA state 8; this follows directly from the four-region theorem above. Each viable split has
+```
+P = h!/(a! e! m! f! g!)
+```
+words, and every word in either split has a low terminal signature. The exact **per-key signature counts** are
+```
+A_{h,K}(1) = P*(m+g)/h;
+A_{h,K}(2) = P*(a+e+f)/h;
+A_{h,K}(4) = P*(m+f)/h;
+A_{h,K}(8) = P*(a+e+g)/h.
+```
+The four counts are integers and sum to 2P. Proof: the first-letter signature rule in the previous section partitions the c-only words into first letter c/f versus a/e/g, and the d-only words into d/g versus a/e/f. Among all permutations with fixed quotas, exactly `n_j/h` start with letter j. Summing those exact multinomial counts yields the four expressions. The BRC word-to-key bijection ensures they are counts at the **specified** key, not summed across keys.
+
+Furthermore the number of positive admissible keys, and the number of keys supporting any low signature, are respectively:
+```
+K_pos(h) = sum_{z=1}^{floor((h+1)/2)} ( binom(h-2z+3,2) - 1 )
+K_low(h) = sum_{z=1}^{floor(h/2)} binom(h-2z+2,2).
+```
+Proof: the equation `m+f+g=h-2z+1`, with m,f,g>=0 and m+g>=1, counts all legal positive keys. For keys with m>=1, put `m'=m-1` and count nonnegative triples `m'+f+g=h-2z`. Distinct triples give distinct keys by the recovery formula.
+
+Independent exact finite verification: for every positive legal key at h=3,...,14, the above four per-key formulas agree with the original DFA's **quota-aware backward suffix DP**, rather than only matching totals. At H10, 120 positive keys contain 415 c/d quota splits, but exactly 95 keys with 190 viable low splits; at H11, 155 keys contain 575 splits, with 125 keys and 250 viable splits; at H14, 301 keys contain 1,337 splits, with 252 keys and 504 viable splits. No DFA search or word permutation enumeration is required to evaluate the closed-form per-key **counts**. Finding minimum signed six-axis prefix cost still requires the original path data and cost algorithm.
