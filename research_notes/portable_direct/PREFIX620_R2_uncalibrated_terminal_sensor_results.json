@@ -1,0 +1,279 @@
+{
+  "schema": "PREFIX620_R2_UNCALIBRATED_TERMINAL_SENSOR_CERTIFICATE_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "observer_scope": "native original X6 positive-branch 48-phase sum with d=e4+e11+e14+e32",
+  "tested_input_configs": 4,
+  "tested_lengths": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    12,
+    20
+  ],
+  "tested_cases": 44,
+  "exact_full48_reconstruction_coordinate_checks": 4224,
+  "symbolic_affine_intertwiner_coordinate_checks": 768,
+  "time_specific_minimum": "3 at t=0, 4 at t=1, 5 at t>=2",
+  "uniform_time_independent_minimum_for_all_t_ge_4": 6,
+  "six_sensors": [
+    14,
+    3,
+    40,
+    26,
+    27,
+    4
+  ],
+  "uniform_six_rank_certificates": [
+    5,
+    5,
+    5,
+    5
+  ],
+  "possible_support_rows": [
+    2,
+    3,
+    4,
+    5,
+    14,
+    15,
+    16,
+    17,
+    26,
+    27,
+    28,
+    29,
+    38,
+    39,
+    40,
+    41
+  ],
+  "all_five_subsets_tested": 4368,
+  "five_sets_full_rank_at_all_four_time_residues": 0,
+  "best_five_set_full_rank_residues": 2,
+  "time_specific_examples": [
+    {
+      "t": 0,
+      "dynamic_sensors": [
+        14,
+        40,
+        26
+      ],
+      "uniform_sensors": [
+        14,
+        3,
+        40,
+        26,
+        27,
+        4
+      ],
+      "recovered_lambda": "3/2",
+      "pass": true
+    },
+    {
+      "t": 1,
+      "dynamic_sensors": [
+        14,
+        40,
+        26,
+        4
+      ],
+      "uniform_sensors": [
+        14,
+        3,
+        40,
+        26,
+        27,
+        4
+      ],
+      "recovered_lambda": "3/2",
+      "pass": true
+    },
+    {
+      "t": 2,
+      "dynamic_sensors": [
+        14,
+        40,
+        26,
+        4,
+        2
+      ],
+      "uniform_sensors": [
+        14,
+        3,
+        40,
+        26,
+        27,
+        4
+      ],
+      "recovered_lambda": "3/2",
+      "pass": true
+    },
+    {
+      "t": 3,
+      "dynamic_sensors": [
+        14,
+        40,
+        26,
+        4,
+        28
+      ],
+      "uniform_sensors": [
+        14,
+        3,
+        40,
+        26,
+        27,
+        4
+      ],
+      "recovered_lambda": "3/2",
+      "pass": true
+    },
+    {
+      "t": 4,
+      "dynamic_sensors": [
+        14,
+        40,
+        26,
+        4,
+        38
+      ],
+      "uniform_sensors": [
+        14,
+        3,
+        40,
+        26,
+        27,
+        4
+      ],
+      "recovered_lambda": "3/2",
+      "pass": true
+    },
+    {
+      "t": 5,
+      "dynamic_sensors": [
+        14,
+        40,
+        26,
+        4,
+        16
+      ],
+      "uniform_sensors": [
+        14,
+        3,
+        40,
+        26,
+        27,
+        4
+      ],
+      "recovered_lambda": "3/2",
+      "pass": true
+    },
+    {
+      "t": 6,
+      "dynamic_sensors": [
+        14,
+        40,
+        26,
+        4,
+        2
+      ],
+      "uniform_sensors": [
+        14,
+        3,
+        40,
+        26,
+        27,
+        4
+      ],
+      "recovered_lambda": "3/2",
+      "pass": true
+    },
+    {
+      "t": 7,
+      "dynamic_sensors": [
+        14,
+        40,
+        26,
+        4,
+        28
+      ],
+      "uniform_sensors": [
+        14,
+        3,
+        40,
+        26,
+        27,
+        4
+      ],
+      "recovered_lambda": "3/2",
+      "pass": true
+    },
+    {
+      "t": 8,
+      "dynamic_sensors": [
+        14,
+        40,
+        26,
+        4,
+        38
+      ],
+      "uniform_sensors": [
+        14,
+        3,
+        40,
+        26,
+        27,
+        4
+      ],
+      "recovered_lambda": "3/2",
+      "pass": true
+    },
+    {
+      "t": 12,
+      "dynamic_sensors": [
+        14,
+        40,
+        26,
+        4,
+        38
+      ],
+      "uniform_sensors": [
+        14,
+        3,
+        40,
+        26,
+        27,
+        4
+      ],
+      "recovered_lambda": "3/2",
+      "pass": true
+    },
+    {
+      "t": 20,
+      "dynamic_sensors": [
+        14,
+        40,
+        26,
+        4,
+        38
+      ],
+      "uniform_sensors": [
+        14,
+        3,
+        40,
+        26,
+        27,
+        4
+      ],
+      "recovered_lambda": "3/2",
+      "pass": true
+    }
+  ],
+  "status": "PASS_AUTHOR_SIDE_EXACT_AND_EXHAUSTIVE_5_SUBSETS; INDEPENDENT_REVIEW_PENDING"
+}
