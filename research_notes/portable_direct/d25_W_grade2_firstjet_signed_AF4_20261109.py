@@ -3,7 +3,7 @@ Run from research_notes/portable_direct next to previous first-bridge code.
 No native benchmark, Source CLAIM, Result or review is asserted.
 """
 from math import comb
-from d25_W_grade2_finitefield_bridge_20261109 import primes_to, grade2_recurrence
+from d25_W_grade2_finitefield_bridge_20261109 import primes_to, recurrence as grade2_recurrence
 
 def original_w2(p):
     m=(p-1)//6; mod=p**4
