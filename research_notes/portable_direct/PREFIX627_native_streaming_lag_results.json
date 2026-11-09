@@ -1,0 +1,1189 @@
+{
+  "schema": "PREFIX627_NATIVE_X6_ONLINE_FINITE_LAG_PROVENANCE_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "domain": "n>=L+4; L>=1 integer; lambda>0 and all gates>=0",
+  "claim": "Native endpoint plus L-1 continuous scalar registers suffices and is sharp for W(n,k), k=n-L+1..n; fixed-lag online rolling exact implementation",
+  "operator": "original 48 phase, 96 port, 576 typed labelled positive X6-BRC actions",
+  "backend": "Python stdlib Fraction, exact rational validation",
+  "trials": 144,
+  "coordinate_equalities": 687,
+  "explicit_same_endpoint_different_path_cases": 39,
+  "tested_horizons": [
+    6,
+    7,
+    8,
+    9,
+    12,
+    16,
+    24,
+    32,
+    48
+  ],
+  "tested_lags": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    8,
+    16,
+    32
+  ],
+  "explanation": "Native endpoint admits lambda, final gate, and four modulo-4 shifted gate products. Store just preceding L-1 gates; lower bound by compensated first-four gates and invariance of domain.",
+  "review": "AUTHOR_SIDE_UNREVIEWED",
+  "status": "ALL_ASSERTIONS_PASS",
+  "validation_cases": [
+    {
+      "n": 6,
+      "lag": 1,
+      "seed": 0,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 6,
+      "lag": 1,
+      "seed": 1,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 6,
+      "lag": 1,
+      "seed": 2,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 6,
+      "lag": 2,
+      "seed": 0,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 6,
+      "lag": 2,
+      "seed": 1,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 6,
+      "lag": 2,
+      "seed": 2,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 7,
+      "lag": 1,
+      "seed": 0,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 7,
+      "lag": 1,
+      "seed": 1,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 7,
+      "lag": 1,
+      "seed": 2,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 7,
+      "lag": 2,
+      "seed": 0,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 7,
+      "lag": 2,
+      "seed": 1,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 7,
+      "lag": 2,
+      "seed": 2,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 7,
+      "lag": 3,
+      "seed": 0,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 7,
+      "lag": 3,
+      "seed": 1,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 7,
+      "lag": 3,
+      "seed": 2,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 8,
+      "lag": 1,
+      "seed": 0,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 8,
+      "lag": 1,
+      "seed": 1,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 8,
+      "lag": 1,
+      "seed": 2,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 8,
+      "lag": 2,
+      "seed": 0,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 8,
+      "lag": 2,
+      "seed": 1,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 8,
+      "lag": 2,
+      "seed": 2,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 8,
+      "lag": 3,
+      "seed": 0,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 8,
+      "lag": 3,
+      "seed": 1,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 8,
+      "lag": 3,
+      "seed": 2,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 8,
+      "lag": 4,
+      "seed": 0,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 8,
+      "lag": 4,
+      "seed": 1,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 8,
+      "lag": 4,
+      "seed": 2,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 1,
+      "seed": 0,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 1,
+      "seed": 1,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 1,
+      "seed": 2,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 2,
+      "seed": 0,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 2,
+      "seed": 1,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 2,
+      "seed": 2,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 3,
+      "seed": 0,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 3,
+      "seed": 1,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 3,
+      "seed": 2,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 4,
+      "seed": 0,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 4,
+      "seed": 1,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 4,
+      "seed": 2,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 5,
+      "seed": 0,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 5,
+      "seed": 1,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 9,
+      "lag": 5,
+      "seed": 2,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 1,
+      "seed": 0,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 1,
+      "seed": 1,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 1,
+      "seed": 2,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 2,
+      "seed": 0,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 2,
+      "seed": 1,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 2,
+      "seed": 2,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 3,
+      "seed": 0,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 3,
+      "seed": 1,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 3,
+      "seed": 2,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 4,
+      "seed": 0,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 4,
+      "seed": 1,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 4,
+      "seed": 2,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 5,
+      "seed": 0,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 5,
+      "seed": 1,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 5,
+      "seed": 2,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 8,
+      "seed": 0,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 8,
+      "seed": 1,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 12,
+      "lag": 8,
+      "seed": 2,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 1,
+      "seed": 0,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 1,
+      "seed": 1,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 1,
+      "seed": 2,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 2,
+      "seed": 0,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 2,
+      "seed": 1,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 2,
+      "seed": 2,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 3,
+      "seed": 0,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 3,
+      "seed": 1,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 3,
+      "seed": 2,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 4,
+      "seed": 0,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 4,
+      "seed": 1,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 4,
+      "seed": 2,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 5,
+      "seed": 0,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 5,
+      "seed": 1,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 5,
+      "seed": 2,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 8,
+      "seed": 0,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 8,
+      "seed": 1,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 16,
+      "lag": 8,
+      "seed": 2,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 1,
+      "seed": 0,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 1,
+      "seed": 1,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 1,
+      "seed": 2,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 2,
+      "seed": 0,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 2,
+      "seed": 1,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 2,
+      "seed": 2,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 3,
+      "seed": 0,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 3,
+      "seed": 1,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 3,
+      "seed": 2,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 4,
+      "seed": 0,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 4,
+      "seed": 1,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 4,
+      "seed": 2,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 5,
+      "seed": 0,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 5,
+      "seed": 1,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 5,
+      "seed": 2,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 8,
+      "seed": 0,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 8,
+      "seed": 1,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 8,
+      "seed": 2,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 16,
+      "seed": 0,
+      "registers": 15,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 16,
+      "seed": 1,
+      "registers": 15,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 24,
+      "lag": 16,
+      "seed": 2,
+      "registers": 15,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 1,
+      "seed": 0,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 1,
+      "seed": 1,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 1,
+      "seed": 2,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 2,
+      "seed": 0,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 2,
+      "seed": 1,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 2,
+      "seed": 2,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 3,
+      "seed": 0,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 3,
+      "seed": 1,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 3,
+      "seed": 2,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 4,
+      "seed": 0,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 4,
+      "seed": 1,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 4,
+      "seed": 2,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 5,
+      "seed": 0,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 5,
+      "seed": 1,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 5,
+      "seed": 2,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 8,
+      "seed": 0,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 8,
+      "seed": 1,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 8,
+      "seed": 2,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 16,
+      "seed": 0,
+      "registers": 15,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 16,
+      "seed": 1,
+      "registers": 15,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 32,
+      "lag": 16,
+      "seed": 2,
+      "registers": 15,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 1,
+      "seed": 0,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 1,
+      "seed": 1,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 1,
+      "seed": 2,
+      "registers": 0,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 2,
+      "seed": 0,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 2,
+      "seed": 1,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 2,
+      "seed": 2,
+      "registers": 1,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 3,
+      "seed": 0,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 3,
+      "seed": 1,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 3,
+      "seed": 2,
+      "registers": 2,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 4,
+      "seed": 0,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 4,
+      "seed": 1,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 4,
+      "seed": 2,
+      "registers": 3,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 5,
+      "seed": 0,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 5,
+      "seed": 1,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 5,
+      "seed": 2,
+      "registers": 4,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 8,
+      "seed": 0,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 8,
+      "seed": 1,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 8,
+      "seed": 2,
+      "registers": 7,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 16,
+      "seed": 0,
+      "registers": 15,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 16,
+      "seed": 1,
+      "registers": 15,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 16,
+      "seed": 2,
+      "registers": 15,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 32,
+      "seed": 0,
+      "registers": 31,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 32,
+      "seed": 1,
+      "registers": 31,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    },
+    {
+      "n": 48,
+      "lag": 32,
+      "seed": 2,
+      "registers": 31,
+      "native_port_support": 28,
+      "all_suffix_path_mass_verified": true
+    }
+  ]
+}
