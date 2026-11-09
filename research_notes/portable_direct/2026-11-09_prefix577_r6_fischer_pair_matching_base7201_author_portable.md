@@ -92,3 +92,17 @@ BRC reuse here is concrete: native source-labelled incidence is retained, overla
 **Unfinished original frontier:** UR four-file V2 bundle original bytes (94,687 bytes, SHA-256 `4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76`) remain unrecovered; D25/LIFT/JT2 native `H0/B0`, `[X]U mod p²`, semilinear `eta`, `kappa`/Delta comparison and CM remain NOT_RUN/UNFINISHED. Source CLAIM, formal checkpoint, independent review and acceptance remain separate. The last known durable D25 continuation request is read-only, and this note does not republish old Source research as new owner progress.
 
 **Next discriminating action:** strengthen the ≥4 collision-matching guarantee if true for frozen 38-vertex subsets, with an exact counterexample otherwise; or construct a named ≤35-bit full-positive 13-minimal rational witness with a complete exclusion certificate rather than relying on the existing existential statement.
+
+
+## Finite strengthening test: six guaranteed disjoint pairs is false
+
+An exact search among frozen lawful pure-policy indices yields the following **13-column counterexample** to replacing the four guaranteed disjoint equal-action pairs by six in the overlap-graph argument:
+
+```
+S = [0,7,8,11,15,21,22,23,29,31,33,34,35]
+(0,0,0,0) (0,5,2,1) (1,0,3,2) (1,5,3,1)
+(2,2,4,4) (3,3,5,5) (4,0,0,2) (4,1,0,3)
+(4,5,0,1) (5,1,1,3) (5,5,0,0) (5,5,1,1) (5,5,2,2)
+```
+
+Construct the graph with these 13 vertices and an edge precisely when two policies share the *same action at any of the four source ports*. The connected-component sizes are **11, 1, 1**. The isolated vertices are original policy indices `15=(2,2,4,4)` and `21=(3,3,5,5)`. Every matching is therefore confined to the 11-vertex component and has size at most five; an integer subset-DP on the 13-vertex graph constructs five disjoint edges, so the maximum matching is **exactly five** (260 memoized states). This is a complete finite counterexample to a *six-pair universal* sharpening, not a counterexample to the proven four-pair/7200 bound. Whether a stronger **five-pair** guarantee holds for all frozen 13-subsets is left open. The exact component list and DP trace are recorded in the author-side `MATCHING_SIX_COUNTEREXAMPLE.json`.
