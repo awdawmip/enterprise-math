@@ -265,3 +265,43 @@ print('PASS_GLOBAL_16_EDGE_STRIP_CRITERION_OUTSIDE_BOX',
       'old_SA_negative',ref1[(5,5)],'edges',sum(w>0 for w in end_cert[2].values()),
       's',end_cert[0],'t',end_cert[1])
 print('THEOREM_S_RESTRICTED_FEASIBILITY_REDUCES_TO_NINE_LINEAR_INEQUALITIES_IN_ONE_SCALAR_AND_14_EDGE_EXTRACTION')
+
+# Exact physical witness outside the fixed S union: the four-chart atlas is not
+# globally sufficient, even though the full 49-edge Blackwell problem is feasible.
+# No floating point is used in this published certificate or validation.
+p5=tuple(X0[i] for i in (0,1,3,4,5,6))+(F(1),F(2002911,10904720),F(26095487,40892700))
+x5,y5=model(p5)
+W13={
+ (0,0):F(33553,432000),
+ (0,1):F(3997,624000),
+ (0,2):F(309035731,15310226880),
+ (2,1):F(3997,390000),
+ (2,2):F(283041195263,765511344000),
+ (2,3):F(8294919533,294427440000),
+ (3,3):F(4095218743,29442744000),
+ (4,2):F(309035731,11777097600),
+ (4,3):F(8294919533,294427440000),
+ (4,5):F(172449787,1363090000),
+ (5,5):F(219439,545236000),
+ (6,5):F(172449787,2180944000),
+ (6,6):F(38053,432000)
+}
+assert len(W13)==13 and all(t>0 for t in W13.values())
+assert all(v>=0 for v in slacks(x5)+slacks(y5))
+assert x5[0]==x5[2] and y5[6]==y5[1]/10
+assert y5[4]-y5[6]==F(9,40)*y5[2]
+assert times(x5)==times(y5)==(F(17609,6000),F(33857,12000))
+assert all(sum(W13.get((i,j),F(0)) for j in range(7))==masses(y5)[i] for i in range(7))
+assert all(sum(W13.get((i,j),F(0)) for i in range(7))==masses(x5)[j] for j in range(7))
+assert all(sum(R[i]*W13.get((i,j),F(0)) for i in range(7))==R[j]*masses(x5)[j] for j in range(7))
+assert sum(W13.values())==1
+# Every coupling supported in S has E[3,3]=M_3(x) (source-column 3
+# has no other edge). Its target row 3 then needs M_3(y)>=M_3(x).
+obstruction=masses(y5)[3]-masses(x5)[3]
+assert obstruction==-F(8294919533,147213720000)<0
+assert strip_certificate(p5) is None
+print('PASS_EXACT_NON_S_PHYSICAL_13_EDGE_BLACKWELL_CERTIFICATE',
+      'min_edge',min(W13.values()),'P',times(x5)[0],'Q',times(x5)[1])
+print('PASS_S_RESTRICTED_NO_GO_VIA_ROW3_SOURCE3',
+      'M3_target_minus_M3_source',obstruction)
+print('COUNTEREXAMPLE_FOUR_CHART_S_ATLAS_NOT_GLOBAL_FOR_PHYSICALLY_LAWFUL_PAIRS')
