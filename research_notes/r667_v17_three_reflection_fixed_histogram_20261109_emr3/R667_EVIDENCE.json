@@ -1,12 +1,89 @@
 {
+  "dp_all_three_support": 1728,
+  "dp_bound_per_count": 12,
+  "dp_count_vectors": 2197,
+  "exhaustive_distinct_count_vectors": 220,
+  "exhaustive_max_block_word_length": 9,
+  "exhaustive_words": 29524,
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
   "marker": "R667_THREE_REFLECTION_FIXED_MULTIPLICITY_S3_SPECTRUM_EXACT_PASS",
   "model": "V17, 20 vertices J(6,3), fixed base 012, three closed length-3 reflection loops",
-  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "native_slot_historic_checks": 3280,
+  "one_block_frames": {
+    "A": [
+      0,
+      2,
+      1
+    ],
+    "B": [
+      2,
+      1,
+      0
+    ],
+    "C": [
+      1,
+      0,
+      2
+    ]
+  },
+  "review": "AUTHOR_SIDE_UNREVIEWED",
+  "same_complete_directed_histogram": true,
+  "scope": "arbitrary permutations of closed reflection blocks, not an autonomous V29/V27 schedule",
   "source_predecessors": {
     "R665": "c28925c3c0881894111a7049e16216fb2656cd60",
     "R666": "42b81a59b9bdb174a01c86e1fbf4326a8d141101"
   },
   "theorem": "support<=1:1; support==2:min(3,1+min(positive counts)); support==3:3",
+  "three_block_witness": {
+    "ABC": {
+      "frame": [
+        2,
+        1,
+        0
+      ],
+      "frame_parity": 1
+    },
+    "ACB": {
+      "frame": [
+        1,
+        0,
+        2
+      ],
+      "frame_parity": 1
+    },
+    "BAC": {
+      "frame": [
+        0,
+        2,
+        1
+      ],
+      "frame_parity": 1
+    },
+    "BCA": {
+      "frame": [
+        1,
+        0,
+        2
+      ],
+      "frame_parity": 1
+    },
+    "CAB": {
+      "frame": [
+        0,
+        2,
+        1
+      ],
+      "frame_parity": 1
+    },
+    "CBA": {
+      "frame": [
+        2,
+        1,
+        0
+      ],
+      "frame_parity": 1
+    }
+  },
   "three_loops": {
     "A": [
       [
@@ -75,83 +152,6 @@
       ]
     ]
   },
-  "one_block_frames": {
-    "A": [
-      0,
-      2,
-      1
-    ],
-    "B": [
-      2,
-      1,
-      0
-    ],
-    "C": [
-      1,
-      0,
-      2
-    ]
-  },
-  "dp_bound_per_count": 12,
-  "dp_count_vectors": 2197,
-  "dp_all_three_support": 1728,
-  "exhaustive_max_block_word_length": 9,
-  "exhaustive_words": 29524,
-  "exhaustive_distinct_count_vectors": 220,
-  "native_slot_historic_checks": 3280,
-  "three_block_witness": {
-    "ABC": {
-      "frame": [
-        2,
-        1,
-        0
-      ],
-      "frame_parity": 1
-    },
-    "ACB": {
-      "frame": [
-        1,
-        0,
-        2
-      ],
-      "frame_parity": 1
-    },
-    "BAC": {
-      "frame": [
-        0,
-        2,
-        1
-      ],
-      "frame_parity": 1
-    },
-    "BCA": {
-      "frame": [
-        1,
-        0,
-        2
-      ],
-      "frame_parity": 1
-    },
-    "CAB": {
-      "frame": [
-        0,
-        2,
-        1
-      ],
-      "frame_parity": 1
-    },
-    "CBA": {
-      "frame": [
-        2,
-        1,
-        0
-      ],
-      "frame_parity": 1
-    }
-  },
-  "same_complete_directed_histogram": true,
-  "two_support_first_three_value_count": "A2B2, four blocks",
   "three_support_first_three_value_count": "A1B1C1, three blocks",
-  "scope": "arbitrary permutations of closed reflection blocks, not an autonomous V29/V27 schedule",
-  "review": "AUTHOR_SIDE_UNREVIEWED"
+  "two_support_first_three_value_count": "A2B2, four blocks"
 }
