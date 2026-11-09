@@ -2,6 +2,8 @@
 
 **Date:** 2026-11-10 Asia/Shanghai. **Research mode:** author-side exploratory TASK_RESEARCH, no formal CLAIM/Result/review. **Frozen scientific input:** `awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d`. **Continuation:** PREFIX-635 (multi-pattern moments) and PREFIX-636 (noncommutative two-stack sliding avoidance transfer, PR #1917, head `32ba9fd2e52d6537cfb326a0bc2a4b49443a1488`).
 
+**Native Researcher-ID:** `EM-X6-AB58FD`; **Research-Activity-ID:** `RA-74D5A1F6AC6B480BF13ED09E` (Source session-start main@`d5b422aafcb734da39ebbd8192953e3f8f3047d6`, verified). No formal CLAIM was acquired.
+
 ## Statement and typed scope
 
 Work within the declared restricted, original-labelled BRC observation graph with 48 STAR phases, 96 ports, 576 original actions, source weights `(1,1,1,1,0,0)`, a nonnegative rational gated action family, and four-point input `d=e4+e11+e14+e32` of rational intensity `lambda>0`. This is an observer/path-fiber carrier inside P000's native signed X6, not a new native plane, a replacement for the six spatial axes, or a claim of a full physical rotation law. Every step and action ID remains ordered; the quotient is only for the stated pattern-count observers. Time indexes transition order rather than a seventh spatial axis.
