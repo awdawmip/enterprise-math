@@ -1,0 +1,88 @@
+{
+  "schema": "ENTERPRISE_MATH_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "observed_at": "2026-11-10T05:02:50+08:00",
+  "research_lane_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "lane_separation": "RESEARCH_ONLY; NO_MAINTENANCE_SESSION_OR_MUTATION",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "mother_objective": "For p mod 24 in {13,19}, prove/refute/strictly reduce Delta_p=(G_p*h-1)/p congruent original R_p mod p.",
+  "scientific_source_commit_frozen": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "source_control": {
+    "continuation_request_id": "onhour11-20261110-0500-current-continuation",
+    "receipt": "SUCCEEDED",
+    "control_source_commit": "cb21c9452f5bc094493cd92bfa37be99ab988782",
+    "route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "dispatch_state": "NEEDS_DISPATCH",
+    "claim_id": null,
+    "run_id": null,
+    "source_checkpoint_written": false,
+    "recovery_status_attempt": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
+    "session_key_in_hand": false
+  },
+  "author_scientific_unit": {
+    "identifier": "D25_W216_TERMINAL_P4_BOUNDARY_20261110",
+    "status": "AUTHOR_SIDE_PROVED_UNREVIEWED_NOT_ADMITTED",
+    "scope": "p>3, exact rational c_k; finite Picard-Fuchs operator modulo p^4",
+    "theorem": "v_p(c_(p-1))=3; c_(p-1)/p^3=-1 mod p; L F_p(z)=-p^3 z^p/9 mod p^4; last weighted W coefficient=5p^3 mod p^4",
+    "equivalence_to_native": false,
+    "original_lift_closed": false,
+    "validation": {
+      "arithmetic": "exact integer modular ring Z/p^4Z, no floating point",
+      "primes": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        37,
+        43,
+        73,
+        373
+      ],
+      "outcome": "11/11 PASS; all polynomial coefficients 0..p; two independent c_(p-1) computations",
+      "p373": {
+        "normalized_operator_zp": 290,
+        "normalized_operator_at_half": 145
+      }
+    }
+  },
+  "artifacts": [
+    {
+      "path": "research_notes/portable_direct/20261110_onhour_d25_W216_terminal_p4_boundary.md",
+      "project_blob_sha1": "35b416d1e420545ef2e9d7bb2a730056895cf49f",
+      "commit": "f5da4097b0d3dbd8535266ef74288a72c9e94eaf"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_W216_terminal_boundary_20261110.py",
+      "project_blob_sha1": "0f41f6e4397a700cc6d4c467ecdd07f7e92cfa7e",
+      "commit": "7d13430256b631f2c66699482c2dbb99e8d6cf87"
+    }
+  ],
+  "durable_native_frontier": {
+    "status": "NOT_RUN / PENDING_OWNER",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "same_original_class": "H0/B0 divided-power coefficient [X]U modulo 139129 at p=373",
+    "must_retain": [
+      "native module rank",
+      "semilinear Frobenius direction",
+      "eta basis normalization",
+      "signed odd Hesse/Green",
+      "kappa",
+      "Delta_p-R_p",
+      "independent reproduction"
+    ],
+    "conditional_comparison": "rank-one and eta/candidate verified THEN compare native F^2 with Norm(eta)*122102 mod139129"
+  },
+  "do_not_repeat": [
+    "accepted D=-24 UR/JT0 and parent CM0/SIMPLE",
+    "original W/R reflected cutoff equality",
+    "completed old WZ/Green and broad prime scan",
+    "previous author CM finite logarithm/Legendre proofs",
+    "no redefinition of original source or native benchmark"
+  ],
+  "next_exact_action": "Obtain authorized native original H0/B0 evaluator and execute fixed p373 object; no executor confirmed. Separately if lawful portable unit available test W216 finite telescoping at original weighted z=1/2 using signed p^4 forcing without deleting last coefficient.",
+  "reporting": "No new scheduler or automation changes. The new author artifact is not formal Source checkpoint/Result/review."
+}
