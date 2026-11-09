@@ -8,15 +8,14 @@
 
 The four native six-action source distributions are
 
-[
- X=rac1{8191}
- egin{pmatrix}
-7681&2&4&8&112&384\
-3587&4224&4&8&48&320\
-592&1152&4097&2&2052&296\
-528&1088&3&4224&2052&296
-end{pmatrix}.
+```text
+X=(1/8191)*[
+  [7681,    2,    4,    8,  112,  384],
+  [3587, 4224,    4,    8,   48,  320],
+  [ 592, 1152, 4097,    2, 2052,  296],
+  [ 528, 1088,    3, 4224, 2052,  296]
 ]
+```
 
 All 24 entries are strictly positive; every row sums to 8191. The policy IDs
 
@@ -24,10 +23,7 @@ All 24 entries are strictly positive; every row sums to 8191. The policy IDs
 
 with integer weights `(1,2,4,8,16,32,64,128,256,512,1024,2048,4096)` give an explicit convex representation. The exact frozen native joint-observer relation holds at all nine roots. Thus `minSupport(X) <= 13`.
 
-**Theorem.** In this original native 38-policy class,
-[
-oxed{operatorname{minSupport}(X)=13,quad D=8191,quadmathrm{bitlen}(D)=13.}
-]
+**Theorem.** In this original native 38-policy class, **minSupport(X)=13**, with exact common denominator **D=8191**, which has **13 binary bits**.
 
 ## Exact lower-bound proof
 
@@ -37,10 +33,8 @@ Let `C` be the 24×38 integer indicator matrix of native policies. Use chart row
 
 `A=C[R,:]`, `B=A[:,I]`; exact calculation gives `rank(A)=13`, `det(B)=-1`. Define `Q=B^{-1}A`, an integer 13×38 matrix with every `|Q_ij|<=2` and `Q[:,I]=I_13`. The 13-dimensional target coordinates are `w=(1,2,4,...,4096)`.
 
-Reuse the already established native sharp-minor certificate, commit `e38d623754636b3e2c2d31935752295e12a27023`: every 13×13 chart minor has magnitude ≤3. If a nonnegative representation used at most 12 policies, extend its independent support to a 12-element independent set `T`. The 13 cofactors `d_i=det([A_T|B_i])` would be a nonzero integer vector with `|d_i|<=3` and
-[
-sum_{i=0}^{12}2^i d_i=0.
-]
+Reuse the already established native sharp-minor certificate, commit `e38d623754636b3e2c2d31935752295e12a27023`: every 13×13 chart minor has magnitude ≤3. If a nonnegative representation used at most 12 policies, extend its independent support to a 12-element independent set `T`. The 13 integer cofactors `d_i=det([A_T|B_i])` (i=0,...,12) would be a nonzero vector with `|d_i|<=3` and `sum(i=0..12, 2^i*d_i)=0`, by multilinearity.
+
 All columns of `T` would lie in the zero set `Z(d)={j:d^T Q_j=0}`, so `rank(Q[:,Z(d)])=12`.
 
 **Complete finite exact check:** enumerate all `d_i ∈ {-3,-2,-1,0,1,2,3}` satisfying that sum. Two independently implemented algorithms (descending-digit recursion with exact remaining-sum pruning, and split 7+6 exact meet-in-the-middle) agree on all zero-column masks:
@@ -53,10 +47,8 @@ All columns of `T` would lie in the zero set `Z(d)={j:d^T Q_j=0}`, so `rank(Q[:,
 | Distinct zero-column masks | 7,930 |
 | Exact ranks 6,7,8,9,10,11,12 | 32, 373, 2564, 3434, 1374, 152, **1** |
 
-Ranks were checked by exact SymPy integer rational elimination and also modulo the prime `p=2^61-1`. This modular check is rigorous for rank 12 because `|Q_ij|<=2` and every 12×12 minor is bounded by Hadamard:
-[
-|det| leq (2sqrt{12})^{12}=48^6=12230590464<p.
-]
+Ranks were checked by exact SymPy integer rational elimination and also modulo the prime `p=2^61-1`. This modular check is rigorous for rank 12 because `|Q_ij|<=2` and every 12x12 minor is bounded by the exact Hadamard inequality `|det| <= (2*sqrt(12))^12 = 48^6 = 12230590464 < p`.
+
 Every nonzero 12×12 minor over the integers therefore remains nonzero mod `p`. The verifier uses 128-bit intermediates for exact modular multiplication.
 
 The **only** rank-12 mask is decimal `41612261764`, representing the 14 policy IDs
