@@ -75,3 +75,21 @@ Independent exact integer and SymPy verification re-enumerated the original 1296
 Next independent task: classify further valid fixed supports by their *actual intersection* with this D511 chart and seek candidate-specific complete exclusion of every ≤12 support to establish a new nine-bit minimum-thirteen example. This result shows that one eleven-policy support alone compresses an enormous exact subfamily, not that 13-minimality is impossible.
 
 Canonical D25 still requires original-class native H0/B0 divided-power [X]U mod p² and Frobenius/eta/kappa/odd Hesse-Green experiment with genuine Source owner/CLAIM. Historical UR V2 four-file original target remains 94,687 bytes and SHA256 `4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76`; original bytes were not verified in this turn. This author-side note does not promote unpublished UR materials or reprove completed UR mathematics.
+
+
+## Exact all-parameter native numerators and three previous-support exclusion screens
+
+With the six parameters as above, the **entire exact 4×6 numerator matrix** (no per-point enumeration needed) is
+
+    [a+b+c+4, 2,     4, 8, d+e,   f+1]
+    [a+b+c+3, f,     4, 8, d+4,   e  ]
+    [a+e+12,  b+f+1, 4, 2, c,     d  ]
+    [a+16,    b+e,   3, f, c,     d  ].
+
+Every entry is strictly positive under the displayed parameter bounds, and every row sums to 511. In particular the first-row action-1 numerator is exactly 2, so gcd(2,511)=1: the common denominator **cannot be reduced below 511**, and nine bits are intrinsic to these exact probability values, not just to the chosen display weights.
+
+For the three previously proved fixed twelve-policy supports on the same chart I, the exact prior residuals were r1=w6−w9−w11, r2=w2−w0−w1 and r3=−w3+w4+w7+w9+w10. The present five-dimensional family has
+
+    r1=e−a−c,  r2=1,  r3=a+b+f+9 (>0).
+
+Thus no family member belongs to the complete S2 or S3 fixed-support cone. For the remaining S1, its unique candidate coefficient L1(w) at index 11 is w8−w4=4−16=−12 for **every** parameter tuple. Hence **none** of the 183,121,078,608 family members belongs to the earlier three particular fixed twelve-policy cones S1/S2/S3, while each has its explicit positive eleven-policy S4 representation. This is a support-specific separation, not a global exclusion of alternate supports.
