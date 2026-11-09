@@ -20,8 +20,6 @@ The inherited exact rank certificate proves `rank(B_8)=8`.
 **Theorem.** Every real parameter vector `t=(t_1,...,t_8)` satisfying
 `|t_k| <= 10^-100` determines a physically lawful matched-time `g=b`/seedless-F pair
 `p(t)=p0+P t`, with a nonnegative Blackwell coupling supported on the fixed 15-edge basis
-`SB=((0,0),(0,1),(2,1),(0,2),(2,2),(4,2),(0,3),(1,3),(3,3),(4,3),(5,3),(4,5),(5,3)? )`
-as corrected below:
 `SB=((0,0),(0,1),(2,1),(0,2),(2,2),(4,2),(0,3),(1,3),(3,3),(4,3),(5,3),(4,5),(5,5),(6,5),(6,6))`.
 For every such `t`, every legal nonnegative Blackwell coupling has at least 15 positive edges. Consequently
 `min_support(b(p(t))) = 15` **at every point of an explicit nondegenerate eight-dimensional parameter box**, not only almost everywhere.
