@@ -92,7 +92,7 @@ Together with the older independent grade-two bridge $W_{2,p}/p^2=K_p\mathcal H_
 
 ## Executed arithmetic / BRC observation scope
 
-The attached standard-library checker validates (R), (S), and (T) by exact integer modular arithmetic for every one of the 148 primes $p\le2000$, $p\equiv1\bmod6$: 22,952 individually paired coefficients. For $p=7,13,19,373$ an independent original integer-binomial construction checks both coefficients of every pair (138 original terms across these samples). No floating-point calculations.
+The attached standard-library checker validates (R), (S), and (T) by exact integer modular arithmetic for every one of the 148 primes $p\le2000$, $p\equiv1\bmod6$: 22,952 individually paired coefficients. For $p=7,13,19,373$ an independent original integer-binomial construction checks both coefficients of every pair (136 original terms across these samples). No floating-point calculations.
 
 Selected outputs: $p=13$, $(u_0,W_{2,p}/p^2)=(2,10)$; $p=19$, $(14,9)$; $p=373$, $(320,266)$; $p=997$, $(377,27)$, all modulo their own $p$. At $p=373$, $L_{125}=320$, $H_{125}=181$, and their product is $105=1/(36\cdot125^3)$ modulo 373.
 
