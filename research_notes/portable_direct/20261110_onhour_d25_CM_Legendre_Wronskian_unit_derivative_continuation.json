@@ -1,0 +1,51 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-10",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "canonical_native_frontier_unchanged": "b58330b74576153cdadde5d80a3d92df3a819a0e",
+  "preceding_author_side_commit": "f02771a057923dd8cf775471f6e8b26253b2e0ab",
+  "current_author_side_proof_commit": "1e104b9faa0afef426b8a37800f65b45adc21ac4",
+  "current_author_side_program_commit": "dadc7c850447e4265a56faef3b230d8d52e7e914",
+  "proof_path": "research_notes/portable_direct/20261110_onhour_d25_CM_Legendre_Wronskian_unit_derivative.md",
+  "program_path": "research_notes/portable_direct/d25_cm_wr_frobenius_20261110.py",
+  "proved_author_side": [
+    "All n >=1 rational Legendre second-kind U_n satisfies D_n U_n=2P_n' and x(1-x)(P_n U_n'-P_n' U_n)=P_n^2-1.",
+    "Conditional on earlier CM(-24) root for primes p=13 mod24, the exact F_p² observation A_p(s)=1/[s P_q'(s)] holds and the root is simple.",
+    "Preserving distinct observers, Tr A_p(s)=36/D_p and odd_t A_p(s)=12/D_p, D_p=P_q'(s) in F_p^×.",
+    "Previous open Tr A=24g is exactly equivalent to D_p*(3f_q(8/9)+f_3q(8/9))=9p mod p² for p=13 mod24."
+  ],
+  "check": "22 target primes p<1000: full finite polynomial Wronskian, finite log convolution and original p² Gauss all PASS; independent 157 primes p<=10000: derivative/Gauss p² candidate PASS; exact standard-library integer computations, not universal acceptance.",
+  "unresolved": "PROVE all-prime unit-derivative mod-p² Legendre congruence UD; original fixed p373 native H0/B0 [X]U mod139129 remains NOT_RUN, rank and Frobenius semilinearity/normalization and signed kappa/Delta-R independent replication outstanding.",
+  "next_exact_action": "Derive a p² contiguous/Legendre Wronskian or CM Frobenius lifting identity for D_p*(3f_q(8/9)+f_3q(8/9))=9p modulo p², preserving original g from Gauss; in parallel obtain native benchmark execution through #1559 assigned implementer.",
+  "do_not_repeat": [
+    "accepted D24 supersingular UR",
+    "157-prime CM root scanning",
+    "formerly completed quarter-length finite log direct convolution",
+    "19 original native units and prior 2 Source-completed Green/p373 branch units",
+    "native p373 H0/B0 is NOT_RUN"
+  ],
+  "source_state": {
+    "current_continuation_request_id": "onhour11-20261110-0304-continuation",
+    "current_continuation_receipt": "SUCCEEDED",
+    "source_sha": "0732ec4dbcd26eeaa3d80fcce28c7f4d872b2612",
+    "observed_at": "2026-11-09T19:14:37.605651+00:00",
+    "route": "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION",
+    "historical_session_start_request_id": "onhour11-20261110-0200-research-session-start",
+    "historical_session_start_receipt": "SUCCEEDED",
+    "historical_session_id": "MCP-5cee78358a374d6a986506e7c2e767e9",
+    "historical_researcher_id": "EM-ENTERPRISE-3C3875",
+    "historical_activity_id": "RA-175C9B13019A78102A204938",
+    "recovery_request_id": "onhour11-20261110-0304-own-recovery",
+    "recovery_error": "SESSION_CAPABILITY_REQUIRED",
+    "claim": "NO_VERIFIED_OWN_WINNING_CLAIM",
+    "run": "NO_VERIFIED_OWN_OPEN_RUN",
+    "native_checkpoint": "NOT_WRITTEN",
+    "original_native_h0_b0_experiment": "NOT_RUN",
+    "source_authorization": "READ_ONLY_THIS_RUN_NO_PRIVATE_SESSION_CAPABILITY"
+  },
+  "classification": "AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE"
+}
