@@ -1,0 +1,69 @@
+{
+  "schema": "R31_DIRECTIONAL_CLEARANCE_EXACT_CERTIFICATE_V1",
+  "science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "L": "262204504569236716045286/1000000000000000000000000",
+  "U": "262204504569236716045287/1000000000000000000000000",
+  "rho_plus": "164*theta-43",
+  "rho_minus": "59-225*theta",
+  "uniform_positive": "192343669352678928363/125000000000000000000000",
+  "uniform_negative": "159458876869555592417/40000000000000000000000",
+  "equality_witnesses": {
+    "positive": {
+      "age": 37,
+      "left_historical_source": 24,
+      "right_historical_source": 127
+    },
+    "negative": {
+      "age": 98,
+      "left_historical_source": 127,
+      "right_historical_source": 66
+    }
+  },
+  "terminal_ages": "[1,61] union [98,164]",
+  "matched_stages": 75,
+  "matched_positive_stages": 74,
+  "matched_events": 9472,
+  "zero_event_stages": 1,
+  "newly_certified_directional_only": {
+    "q": 164,
+    "j": 389,
+    "range": [
+      390,
+      553
+    ],
+    "positive_runs": [
+      [
+        390,
+        456
+      ],
+      [
+        493,
+        553
+      ]
+    ],
+    "zero_run": [
+      457,
+      492
+    ],
+    "event_count": 128
+  },
+  "r27_reference": {
+    "repo": "awdawmip/enterprise-math",
+    "commit": "6cfd0bf078b3bd05fbd4c51508a868a4706a5823",
+    "REGIMES_R27_sha256": "d8e1dd426869b4f6c5d029bf170436ece3d5dfb361bc25908706386a247d5bae",
+    "EVENTS_R27_sha256": "cb51b2cd873d8fb86e5d7edd916e9a2b614dc76e4d8fc1837898d932a808723b"
+  },
+  "independent_full_partition_check": {
+    "n": [
+      390,
+      456,
+      457,
+      492,
+      493,
+      553
+    ],
+    "parameter_endpoints": 2,
+    "total_cases": 12,
+    "passed": true
+  }
+}
