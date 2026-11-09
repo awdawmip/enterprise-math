@@ -2,94 +2,98 @@
 
 Date: 2026-11-10. Status: **AUTHOR_SIDE / EXACT_ELEMENTARY_PROOF / 11-PRIME INDEPENDENT REGRESSION / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_H0_B0**.
 
-Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; publication `TP2-B6F4FC938FF94941C1B7`. Scientific input frozen at `c47e13e4aba0e006366f989d6334d443f6333ae3`. Research conversation: `chatgpt-research-onhour-enterprise-math-20260923`; not the Maintenance lane. This is a **new author-side boundary/precision certificate for the original weighted 216-model coefficients**, not the native H0/B0 experiment, a Result, or proof of LIFT.
+Task: RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT; publication TP2-B6F4FC938FF94941C1B7. Scientific input frozen at c47e13e4aba0e006366f989d6334d443f6333ae3. Research conversation: chatgpt-research-onhour-enterprise-math-20260923; separate from Maintenance. This is an **author-side boundary/precision certificate for the original weighted 216-model coefficients**, not the native H0/B0 experiment, a formal Result, or a proof of LIFT.
 
 ## Exact statement and operator
 
-Let p>3 be prime and work in Z_(p). For 0<=k<p define
+For a prime p>3, in the p-local rational ring, define the exact original coefficients
 
-[
-c_k=rac{(1/2)_k(1/3)_k(2/3)_k}{(k!)^3}
-    =rac{inom{2k}{k}^{,2}inom{3k}{k}}{108^k},
-qquad F_p(z)=sum_{k=0}^{p-1}c_kz^k.
-]
+$$
+c_k=\frac{(1/2)_k(1/3)_k(2/3)_k}{(k!)^3}
+=\frac{\binom{2k}{k}^{2}\binom{3k}{k}}{108^k},
+\quad F_p(z)=\sum_{k=0}^{p-1}c_k z^k,\quad \theta=z\frac{d}{dz}.
+$$
 
-The original weighted model is `W_p=[(1+6 theta)F_p(z)]_{z=1/2}`, with `theta=z d/dz`. Its p-local finite operator is
+The original weighted 216 model is $W_p=[(1+6\theta)F_p]_{z=1/2}$. The standard finite Picard–Fuchs differential operator is
 
-[
-mathcal L=	heta^3-z(	heta+	frac12)(	heta+	frac13)(	heta+	frac23).
-]
+$$
+\mathcal L=\theta^3-z(\theta+\tfrac12)(\theta+\tfrac13)(\theta+\tfrac23).
+$$
 
-**Theorem (all primes p>3).** Exact valuation and first terminal unit:
+**Theorem (every prime p>3).** The exact terminal valuation and residue are
 
-[
-v_p(c_{p-1})=3,qquad rac{c_{p-1}}{p^3}equiv-1pmod p.
-	ag{1}
-]
+$$
+\boxed{v_p(c_{p-1})=3,\qquad c_{p-1}/p^3\equiv-1\pmod p.}\tag{1}
+$$
 
-The finite Picard–Fuchs equation has one exact endpoint forcing term:
+The **exact finite polynomial** satisfies
 
-[
-mathcal L F_p(z)
-=-c_{p-1}(p-	frac12)(p-	frac23)(p-	frac13)z^p
-equiv-rac{p^3}{9}z^p pmod{p^4}.
-	ag{2}
-]
+$$
+\mathcal L F_p(z)
+=-c_{p-1}(p-\tfrac12)(p-\tfrac23)(p-\tfrac13)z^p
+\equiv-\frac{p^3}{9}z^p\pmod{p^4}.\tag{2}
+$$
 
-Consequently at the frozen original z=1/2,
+At the frozen $z=\tfrac12$:
 
-[
-[mathcal L F_p](1/2)/p^3equiv-1/18pmod p.
-	ag{3}
-]
+$$
+\boxed{[\mathcal L F_p](1/2)/p^3\equiv-1/18\pmod p.}\tag{3}
+$$
 
-The actual **last weighted W coefficient** (k=p-1, z=1/2) is
+The original **last weighted coefficient** (index $k=p-1$) is
 
-[
-(6p-5)c_{p-1}2^{-(p-1)}
-equiv5p^3pmod{p^4}.
-	ag{4}
-]
+$$
+\boxed{(6p-5)c_{p-1}2^{-(p-1)}\equiv5p^3\pmod{p^4}.}\tag{4}
+$$
 
-For the target primes p≡13,19 (mod24), p>=13, (3) and (4) are both nonzero modulo p after dividing p³. Thus the finite ODE is homogeneous through p³, but the **first omitted p⁴ digit is a fixed, signed, source-preserving boundary**, and truncation of W at p-2 versus p-1 is safe mod p³ but not mod p⁴.
+For both frozen target prime classes $p\equiv13,19\pmod{24}$, $p\ge13$, the right-hand normalized residues (3) and (4) are nonzero. Thus the differential equation is homogeneous modulo $p^3$ and has a fixed signed first forcing coefficient modulo $p^4$; omitting the final weighted term is safe modulo $p^3$, but **not** modulo $p^4$.
 
-## Proof
+## Exact algebraic proof
 
-For a numerator factor `(r/d)_(p-1)`, with (r,d)=(1,2),(1,3),(2,3), write
+For any of the three numerator Pochhammer parameters $(r,d)=(1,2),(1,3),(2,3)$,
 
-[
-(r/d)_{p-1}=d^{-(p-1)}prod_{j=0}^{p-2}(dj+r).
-]
+$$
+(r/d)_{p-1}=d^{-(p-1)}\prod_{j=0}^{p-2}(dj+r).
+$$
 
-Precisely one factor `dj+r=mu p` occurs in this range, of valuation one. All other factors are the distinct nonzero residues modulo p, except the omitted index j=p-1 whose residue is r-d. Wilson and Fermat give
+There is precisely one index in $0,\ldots,p-2$ whose factor equals $\mu p$ for $\mu\in\{1,2\}$; its p-valuation is exactly one. All other factors represent the nonzero residues modulo $p$ with precisely the residue $r-d$ (from the omitted index $j=p-1$) absent. Wilson and Fermat give
 
-[
-rac{(r/d)_{p-1}}pequivrac{mu}{d-r}pmod p.
-]
+$$
+\frac{(r/d)_{p-1}}p\equiv\frac{\mu}{d-r}\pmod p.
+$$
 
-For (r,d)=(1,2), mu=1. For (1,3),(2,3), the pair of values is (1,2) if p≡1 (mod3) and (2,1) if p≡2 (mod3); the product of the three normalized units is
-`1 * (mu_1/2) * mu_2=1`. Since `(p-1)! ≡ -1 (mod p)`, division by `((p-1)!)^3` yields (1) and exact valuation three.
+For $(r,d)=(1,2)$, $\mu=1$. For $(1,3)$ and $(2,3)$ the pair of $\mu$ values is $(1,2)$ for $p\equiv1\pmod3$ and $(2,1)$ for $p\equiv2\pmod3$. Therefore the product of the three normalized numerator residues is $1\cdot(\mu_1/2)\cdot\mu_2=1$. Wilson gives $((p-1)!)^3\equiv-1\pmod p$, proving (1) and exact valuation three.
 
-For every n=1,...,p-1, the Pochhammer recurrence gives
+The coefficient recurrence
 
-[
-n^3c_n=(n-1+	frac12)(n-1+	frac13)(n-1+	frac23)c_{n-1}.
-]
+$$
+n^3c_n=(n-1+\tfrac12)(n-1+\tfrac13)(n-1+\tfrac23)c_{n-1}
+\quad(1\le n<p)
+$$
 
-The constant coefficient also vanishes under `L`; the only unmatched coefficient is that of z^p, giving the **exact** finite identity in (2). Substituting (1) and reducing the three terminal factors modulo p gives the coefficient `-1/9` modulo p. Finally Fermat implies `2^{-p} ≡ 1/2 (mod p)` and `2^{-(p-1)} ≡ 1 (mod p)`; thus (3) and (4) follow.
+cancels every coefficient of $\mathcal L F_p$ except the $z^p$ boundary. This proves the exact equality of (2). The product of the three terminal factors modulo $p$ is $-1/9$, which combined with $c_{p-1}\equiv-p^3\pmod{p^4}$ gives (2). Fermat's $2^{-p}\equiv1/2$ and $2^{-(p-1)}\equiv1\pmod p$ yield (3) and (4).
 
-All reductions and divisions by p are taken in their stated order. The nonzero obstruction concerns the ODE at p⁴, not the value of `W_p-p` at p³.
+Every division by $p$ is made only after the relevant p-integrality is established. All products carry their original signs, p-valuations, and source branches.
 
-## Executed exact checks and reuse value
+## Actual exact validation
 
-The independent standard-library checker `research_notes/portable_direct/d25_W216_terminal_boundary_20261110.py` computes `c_k` by a modular Pochhammer recurrence and **independently** by integer binomial coefficients. It checks every polynomial coefficient of `L F_p`, including the z^p coefficient and the two z=1/2 readouts, mod p⁴. Executed: p=5,7,11,13,17,19,23,37,43,73,373; 11/11 PASS. At p=373 the normalized residual forcing coefficient is 290 mod373, at z=1/2 it is 145 mod373. These finite checks are a regression; the above argument is the theorem proof.
+The linked independent Python checker uses two independent coefficient pathways: (i) the modular Pochhammer recurrence and (ii) the exact binomial formula using arbitrary-precision integers. It checks *every* polynomial coefficient of $\mathcal L F_p$, from $z^0$ through $z^p$, modulo $p^4$, and both $z=1/2$ residue formulas. Executed for $p=5,7,11,13,17,19,23,37,43,73,373$: **11/11 PASS**. At $p=373$, the normalized residual coefficient is $290\pmod{373}$, and its value at $z=1/2$ is $145\pmod{373}$. The full all-prime statement rests on the algebraic proof, not the finite scan.
 
-This is a BRC source/observer audit: preserve the original k=p-1 branch, p-valuation three, sign, weighted readout and the post-differentiation boundary; reducing the terminal c modulo p³ before applying the operator erases the p⁴ forcing. No claim is made about the native rank, Frobenius/eta, kappa, the p373 original `Delta=R=196` port, or proving the two-class universal `Delta_p-R_p=0`.
+Artifact: research_notes/portable_direct/d25_W216_terminal_boundary_20261110.py.
 
-## Durable continuation
+## BRC / mother-target and durability
 
-Highest canonical Source continuation read: request `onhour11-20261110-0500-current-continuation`, SUCCEEDED, observed 2026-11-09T21:02:50Z, Source commit `cb21c9452f5bc094493cd92bfa37be99ab988782`; route requests genuine Researcher capability and CLAIM. Own recovery status attempt returned `SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED`. No own winning CLAIM/run is verified, and no Source checkpoint is published.
+The observer is the *original* last weighted $W_p$ branch, not an unsigned convolution or a fitted replacement. A premature quotient modulo $p^3$ suppresses the force that becomes observable only modulo $p^4$. The exact parent LIFT interface remains
 
-Mother target remains original two-class LIFT `Delta_p-R_p`. The **highest native missing unit** remains same-original-class H0/B0 divided-power `[X]U mod139129` at p373, module rank, semilinear Frobenius, eta, signed kappa, Delta-R and independent reproduction; support Issue #1559 is OPEN, responsible executor PENDING_OWNER. Prior accepted UR, prior Source checkpoint units, signed Green/Hesse branch and frozen original inputs remain intact.
+$$
+\Delta_p-R_p\equiv(W_p-p)/p^2\pmod p
+\quad(p\equiv13,19\pmod{24}),
+$$
 
-Next math-only action if an authorized portable unit is selected: use the explicit p³ terminal forcing to audit a finite WZ/Picard–Fuchs telescoping certificate for the exact original `(W_p-p)/p²`, retaining z^p boundary, without re-proving UR or rerunning broad prime scans. **No known native experimental acceptance is implied.**
+under frozen accepted UR and the earlier author-side signed-cutoff bridge; that bridge and the native experiment are **not** newly proved here. In particular $p=373$ has the original $\Delta_{373}=R_{373}=196$, not zero.
+
+Fresh control continuation: request onhour11-20261110-0500-current-continuation, SUCCEEDED at 2026-11-09T21:02:50Z, control Source cb21c9452f5bc094493cd92bfa37be99ab988782. The own recovery_status call was refused with SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED. No own winning CLAIM/open run or formal Source checkpoint is verified; this proof is an author-side immutable research note.
+
+**Highest native outstanding unit:** original-class fixed H0/B0 divided-power $[X]U\bmod139129$ at $p=373$, native rank, semilinear Frobenius direction, $\eta$, signed odd Green/Hesse branch, $\kappa$, original $\Delta_p-R_p$ and independent reproducibility. Issue #1559 remains OPEN / PENDING_OWNER. The comparison against the external Hesse candidate norm 122102 is conditional on actual authenticated native rank-one identification and $\eta$.
+
+**Next discriminating actions:** an authorized native executor must run the exact frozen H0/B0 object and publish reproducible operator data. On a separate authorized portable mathematical route, test whether a finite WZ/Picard–Fuchs telescope for the original weighted $W_p$ retains the sharp $z^p$ boundary and exposes $(W_p-p)/p^2$ without deleting provenance. Do not re-run accepted UR, previous WZ/Green results, or broad finite scans. Research and Maintenance conversation IDs, proof/source pin, accepted old Results and owners remain separated.
