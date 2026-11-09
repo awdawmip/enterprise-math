@@ -1,0 +1,78 @@
+{
+  "schema": "EM_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "date": "2026-11-09",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_pin": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "source_native_durable_frontier_unmodified": "b58330b74576153cdadde5d80a3d92df3a819a0e",
+  "prior_author_side": "research_notes/portable_direct/20261109_onhour_d25_CM_two_Jacobi_spectral_curvature_continuation.json",
+  "completed_units_author_side": [
+    "ALL prime p=5 mod8 coefficientwise two-Jacobi modp² and exact spectral curvature correction modp³, previous note (UNREVIEWED)",
+    "ALL odd primes p and 0<=q<p: P_{p+q}=P_{2p-q-1}=t^p P_q over Fp[t] PROVED, via reciprocal H polynomial and Frobenius generating series",
+    "CM p=13 mod24: both individual Jacobi J_a(1/9),J_b(1/9) vanish modp assuming preceding CM(-24) Hasse proof, p-quotients are uniformly integral",
+    "145 exact scalar P_n checks and seven quadratic-ring branch specializations including p373 EXECUTED"
+  ],
+  "unproved_target": "All-prime CM class 7A_p+5B_p=0 modp; original full AF4 and native original-class H0/B0 p373",
+  "evidence": {
+    "note": "research_notes/portable_direct/20261109_onhour_d25_CM_Legendre_p_block_transfer.md",
+    "checker": "research_notes/portable_direct/d25_legendre_index_transfer_20261109.py",
+    "selected_numeric_prime_list": [
+      5,
+      13,
+      29,
+      37,
+      61,
+      109
+    ],
+    "independent_scalar_checks": 145,
+    "quadratic_ring_check_primes": [
+      5,
+      13,
+      29,
+      37,
+      61,
+      109,
+      373
+    ],
+    "p373": {
+      "q": 93,
+      "Ja_mod_p": 0,
+      "Jb_mod_p": 0,
+      "Pq_mod_p": 0,
+      "Ja_mod_p2": 92131,
+      "Jb_mod_p2": 93623,
+      "quotients": [
+        247,
+        251
+      ],
+      "prior_K_mod_p": 300
+    }
+  },
+  "do_not_repeat": [
+    "D24 accepted UR, predecessor Source Native Task units and WZ/Green proofs",
+    "Previous signed CM overflow and Pfaff CM root proofs",
+    "All-prime Jacobi spectral p³ identity from immediately previous note",
+    "Do not substitute Jacobi for native H0/B0 [X]U"
+  ],
+  "current_unfinished_unit": "Modp² first p-block defect of P_{p+q} vs P_{2p-q-1}; evaluate weighted CM quotient 7A+5B; native original-class p373 H0/B0 benchmark pending owner",
+  "next_exact_action": "Compute and analyze p-divided generating-function Frobenius defect (D(y)^p-D(y^p))/p and reciprocal coefficients at q=(p-1)/4; prove or refute 7A+5B modp; independent authorized native owner must execute [X]U mod139129 and full matrix/eta/kappa/Delta-R",
+  "source_state": {
+    "service": "0.6.11",
+    "observed_continuation_request_id": "onhour11-20261109-2341-continuation",
+    "continuation_receipt": "SUCCEEDED",
+    "current_private_session_capability": "UNAVAILABLE",
+    "own_recovery": "SESSION_CAPABILITY_REQUIRED",
+    "winning_claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "native_checkpoint": "NOT_WRITTEN"
+  },
+  "native_benchmark": {
+    "issue": 1559,
+    "status": "OPEN_PENDING_OWNER",
+    "executed": false
+  },
+  "publication_state": "AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
+  "scheduler_changed": false
+}
