@@ -102,3 +102,22 @@ The proof of box positivity is `h(p)>=h(p*)-||p-p*||_infinity sum|c_j|`. The quo
 BRC is reused through the frozen LR statistical observer and retained physical flow coordinates. The 2D quadrilateral is a **coupling-parameter polygon**, not a new 2D native spatial plane; the nine-dimensional parameter chart and eight-dimensional observation image are not native X6 spatial axes. No native dynamics, full R5 coverage, minimum global support, P000 change or formal mathematical admission is asserted.
 
 **Next:** derive the four nonnegativity halfspace systems in the eight-dimensional observed quotient, and their relation to the eleven canonical physical fiber chambers. Search for finite 14-edge support atlas coverage, or an exact physical 15-edge-required instance. Existing full-model R5 PR #1831 remains for independent checking. Preserve task pins and real Owner/CLAIM and review boundaries.
+## Theorem 3 — uniform four-vertex quadrilateral over the entire physical box
+
+The exact restricted quadrilateral conclusion in Theorem 1 also holds **for every real p in the full box of Theorem 2**, with precisely the same four zero-edge support patterns; these four vertices vary rational-affinely in p.
+
+This is a separate stronger claim: the persistence of four feasible candidate vertices alone would not exclude the spontaneous appearance of other vertices. Here the needed exclusion is certified as follows.
+
+For each of the at most 120 pairs of candidate active coordinates in the fixed 16-edge union, let the unique candidate solution (when the two kernel-coordinate rows are independent) be `v_{ij}(p)`. It is affine in p because the particular SA coupling `e0(p)` is affine and both kernel vectors are constant. At p*, precisely four independent pairs yield nonnegative candidates, and precisely twenty more yield candidates with a negative edge; dependent pairs cannot specify a unique 2D vertex.
+
+For each of the twenty negative pairs the verifier selects a coordinate k having `v_{ij,k}(p*)<0` and proves over the **entire** 9D box that
+
+`-v_{ij,k}(p*) > (1/2500)*sum_l |partial_l v_{ij,k}|`.
+
+Indeed the smallest, over those twenty pairs, of the **best available negative-coordinate ratios** is exactly
+
+`5194221/10938329600 > 1/2500`.
+
+Consequently none of the twenty invalid active pairs can become feasible anywhere in the box. The original four distinct candidate pairs remain feasible with exactly fourteen strictly positive edges by Theorem 2. A bounded 2D nonnegative polytope has a vertex at a pair of independent active constraints; therefore it has exactly four vertices and is a quadrilateral for every real p in the box.
+
+The appended `VERIFY.py` block performs all rational evaluations of the pair candidates at `p*` and each nine basis direction, checks `four_valid_pairs=4` and `twenty_excluded_pairs=20`, and certifies the strict negative-coordinate margin uniformly. This is finite exhaustive enumeration of a defined 16-variable, 2-kernel model; it is **not** a claim that the full R5 Blackwell coupling polytope has only four vertices.
