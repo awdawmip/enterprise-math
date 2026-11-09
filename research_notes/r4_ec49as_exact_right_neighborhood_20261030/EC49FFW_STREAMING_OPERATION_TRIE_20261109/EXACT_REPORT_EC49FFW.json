@@ -1,0 +1,143 @@
+{
+  "schema": "EC49FFW_EXACT_OPERATION_PREFIX_DP_V1",
+  "date": "2026-11-09",
+  "frozen_science_input": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "model_source_commit": "de8f6306e63828368b972509a78ceea0b358401d",
+  "model_files": [
+    "research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FFT_H2_CROSSOVER_20261109/VERIFY_EC49FFT.py",
+    "research_notes/r4_ec49as_exact_right_neighborhood_20261030/EC49FFV_H9_H10_UNRESTRICTED_20261109/README_EC49FFV.md"
+  ],
+  "exact_scope": "H2/Hh, signatures 1,2,4,8 at each, unrestricted number of positive complete keys, ordered signed-native-X6 union prefix cost",
+  "mathematical_identity": "C_native(W)=sum_{operation_prefix P}(sum_{u in S(P)} len(code(u)) - I(c,f subset S(P)) - I(d,g subset S(P)))",
+  "baseline_H2_words": {
+    "1": "de",
+    "2": "ed",
+    "4": "ce",
+    "8": "ec"
+  },
+  "baseline_prefixes": 28,
+  "verification": "exact integer streaming prefix DP with signature mask 15 and admissible suffix memo, plus independent original signed-native witness recount; materialized second DP agrees h3..11",
+  "rows": [
+    {
+      "h": 3,
+      "words": 30,
+      "nodes": 54,
+      "cost": 36
+    },
+    {
+      "h": 4,
+      "words": 176,
+      "nodes": 313,
+      "cost": 44
+    },
+    {
+      "h": 5,
+      "words": 950,
+      "nodes": 1689,
+      "cost": 52
+    },
+    {
+      "h": 6,
+      "words": 4932,
+      "nodes": 8798,
+      "cost": 59,
+      "seconds_streaming": 0.000489184
+    },
+    {
+      "h": 7,
+      "words": 25060,
+      "nodes": 44882,
+      "cost": 65,
+      "seconds_streaming": 0.00212544
+    },
+    {
+      "h": 8,
+      "words": 125680,
+      "nodes": 225953,
+      "cost": 71,
+      "seconds_streaming": 0.0111963
+    },
+    {
+      "h": 9,
+      "words": 625050,
+      "nodes": 1127617,
+      "cost": 77,
+      "seconds_streaming": 0.0625435
+    },
+    {
+      "h": 10,
+      "words": 3091460,
+      "nodes": 5594055,
+      "cost": 82,
+      "seconds_streaming": 0.255582
+    },
+    {
+      "h": 11,
+      "words": 15233900,
+      "nodes": 27639185,
+      "cost": 86,
+      "seconds_streaming": 1.2578,
+      "seconds_materialized_generation": 3.841,
+      "seconds_materialized_solve": 2.63
+    },
+    {
+      "h": 12,
+      "words": 74884944,
+      "nodes": 136180483,
+      "cost": 90,
+      "seconds_streaming": 6.0591
+    },
+    {
+      "h": 13,
+      "words": 367524430,
+      "nodes": 669712759,
+      "cost": 94,
+      "seconds_streaming": 29.7554
+    }
+  ],
+  "new_finite_exact": [
+    {
+      "h": 11,
+      "cost": 86
+    },
+    {
+      "h": 12,
+      "cost": 90
+    },
+    {
+      "h": 13,
+      "cost": 94
+    }
+  ],
+  "direct_witness_family": {
+    "h_min": 11,
+    "h_max": 13,
+    "key_Hh": "(4,h-2,1)",
+    "words": {
+      "1": "gfe g^(h-4) d",
+      "2": "fe g^(h-3) d",
+      "4": "fe g^(h-3) c",
+      "8": "gfe g^(h-4) c"
+    },
+    "achieved_cost": "4h+42"
+  },
+  "auxiliary_full_trie_check": {
+    "h_range": [
+      2,
+      8
+    ],
+    "candidate_word_count": 156832,
+    "operation_edges": 225952,
+    "native_edges": 623044,
+    "difference": 397092,
+    "edge_reduction_ratio": 0.6373418249754431,
+    "identity_mismatches": 0
+  },
+  "runtime_note": "seconds are single observed local process wall-clock of exact solver, not a benchmarking claim",
+  "attempted_incomplete": {
+    "h": 14,
+    "status": "TIMEOUT_NO_RESULT"
+  },
+  "admission": "AUTHOR_SIDE_FINITE_COMPUTATIONAL_CERTIFICATE_PENDING_INDEPENDENT_DRIVER_REVIEW",
+  "source_claim": false
+}
