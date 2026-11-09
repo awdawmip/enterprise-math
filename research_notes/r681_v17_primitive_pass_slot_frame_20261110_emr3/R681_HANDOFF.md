@@ -13,3 +13,9 @@ Evidence: R681_PROOF.zh-CN.md (complete statements, proof and boundaries), R681_
 Open dependencies: the event order is still an external labeled input rather than a source-derived autonomous X6 scheduler; V39 loop current j is not updated; full typed rotation covariance and general future minimum for autonomous many-Cell X6 remain unproved. Next unit: derive permitted PASS/TRANSFER scheduler and V39 current updates; compare (M,F,j,scheduler) future observers for safe quotient and BRC source preservation. No physical calibration.
 
 Researcher role as verified in current native session: EM-X6-5440A9, activity RA-6A1C3418CDA2B529D75E6504; Source registration is independent of formal CLAIM.
+
+## R681-B continuation (same author-side PR)
+
+A second exact result in R681B_BOUNDED_EVENT_SCHEDULER.md now specifies an **internally selected, one-shot bounded PASS order**, rather than taking the word as an external schedule. Given current u, nonnegative M and the source-reused covector w, eligible A/B/C events have score G_e=2*(u_source-u_target)+(w_source-w_target). Sixty relevant prefix cases have unique maximizers and full pairwise primary preference preservation; K=2 is sharp for that stronger property (K=1 has eight strict-order violations). The six generated orders are CBA, BCA, ABC, BCA, CAB, BAC. On 120 initial triads, 64 complete paths retain a nonsorted V17 ordered frame. This is **constructive within an explicit one-shot event-capacity rule**, and the general native multi-Cell event eligibility and V39 j update remain open.
+
+New files: R681_SCHEDULER_VERIFY.py, R681_SCHEDULER_EVIDENCE.json. The earlier proof/data remain intact and are still required. Both increments are author-side and do not grant formal CLAIM or Driver acceptance.
