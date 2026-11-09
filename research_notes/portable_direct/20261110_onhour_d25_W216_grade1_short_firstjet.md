@@ -1,115 +1,103 @@
-# D25 — Original 216 grade-1 short terminating first p-adic jet
+# D25 — Original W216 grade-1 terminating first p-adic jet
 
-Date: 2026-11-10. **AUTHOR_SIDE / EXACT ALGEBRAIC PROOF / 13 INDEPENDENT EXACT CHECKS / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_H0_B0**.
+Date: 2026-11-10. Status: **AUTHOR_SIDE / EXACT ALGEBRAIC PROOF / 13 EXACT PRIME CHECKS / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_H0_B0**.
 
-Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`. Publication: `TP2-B6F4FC938FF94941C1B7`. Frozen science: `c47e13e4aba0e006366f989d6334d443f6333ae3`. Research lane: `chatgpt-research-onhour-enterprise-math-20260923`, disjoint from maintenance.
+Task RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT; publication TP2-B6F4FC938FF94941C1B7; frozen scientific pin c47e13e4aba0e006366f989d6334d443f6333ae3. Research logical conversation chatgpt-research-onhour-enterprise-math-20260923, separate from maintenance.
 
-## Statement — all primes p=6m+1>3
+## Theorem — all primes p=6m+1>3
 
-Use the **original** 216 coefficients and signed weight:
+Retain the original, signed 216 coefficient:
 
-[
-A_k=rac{inom{2k}{k}^2inom{3k}{k}}{216^k}
-=rac{(2k)!(3k)!}{(k!)^5 216^k},qquad W_p=sum_{k=0}^{p-1}(6k+1)A_k.
-]
+$$
+A_k=\frac{\binom{2k}{k}^{2}\binom{3k}{k}}{216^k}
+=\frac{(2k)!(3k)!}{(k!)^5\,216^k},
+\qquad W_p=\sum_{k=0}^{p-1}(6k+1)A_k.
+$$
 
-The precise valuation-one band is (2m<kle3m). Let (n_1=2m+1=(p+2)/3), (0le jle m-1) and
+The valuation-one band is $2m<k\le3m$. Set $n_1=2m+1=(p+2)/3$. The Wilson quotient is $w_p=((p-1)!+1)/p$ reduced mod $p$. Put $u_0=A_{n_1}/p$ mod $p^2$.
 
-[
-w_p=rac{(p-1)!+1}{p}pmod p,qquad u_0=A_{n_1}/ppmod{p^2}.
-]
+**Seed formula:**
 
-**Exact seed first jet:**
+$$
+\boxed{u_0\equiv
+-\frac{2(2n_1)!}{(n_1!)^5\,216^{n_1}}
+\left[1+p\left(\frac32-w_p\right)\right]\pmod{p^2}.}\tag{1}
+$$
 
-[
-oxed{u_0equiv
--rac{2(2n_1)!}{(n_1!)^5,216^{n_1}}
-left[1+pleft(rac32-w_pight)ight]pmod{p^2}.}	ag{1}
-]
+Set $g_0=1$, $S_0=0$ and, for $0\le j<m-1$, define
 
-Introduce a unit-coefficient terminating sequence (g_0=1,S_0=0). For (0le j<m-1):
+$$
+r_j=\frac{3(6j+7)(j+1)(3j+4)}{4(3j+5)^3},
+\qquad
+E_j=\frac{2}{6j+7}+\frac{1}{3(j+1)}
++\frac{1}{3j+4}-\frac{3}{3j+5},
+$$
 
-[
-r_j=rac{3(6j+7)(j+1)(3j+4)}{4(3j+5)^3},qquad
-E_j=rac2{6j+7}+rac1{3(j+1)}+rac1{3j+4}-rac3{3j+5},
-]
-[
-g_{j+1}=g_jr_jpmod{p^2},qquad S_{j+1}=S_j+E_jpmod p.
-]
+$$
+g_{j+1}=g_jr_j\pmod{p^2},\qquad S_{j+1}=S_j+E_j\pmod p.
+$$
 
-All division denominators above are p-units on their exact index domains.
+All fractions involve $p$-units on their displayed index ranges. For every $0\le j\le m-1$,
 
-**Uniform first-jet result**:
+$$
+\boxed{\frac{A_{n_1+j}}p\equiv u_0g_j(1+pS_j)\pmod{p^2}.}\tag{2}
+$$
 
-[
-oxed{rac{A_{n_1+j}}pequiv u_0g_j(1+pS_j)pmod{p^2}
-quad(0le jle m-1).}	ag{2}
-]
+Consequently the **original signed** valuation-one contribution is a length-$m$ terminating first jet:
 
-Consequently the original, not reweighted, valuation-one band satisfies
+$$
+\boxed{\frac{W_{1,p}}p\equiv
+u_0\sum_{j=0}^{m-1}(2p+5+6j)\,g_j(1+pS_j)
+\pmod{p^2}.}\tag{3}
+$$
 
-[
-oxed{rac{W_{1,p}}pequiv
-u_0sum_{j=0}^{m-1}(5+6j+2p),g_j(1+pS_j)
-pmod{p^2}.}	ag{3}
-]
-
-Equations (1)–(3) constitute a length-(m) terminating rational-hypergeometric *first jet*, with exact sign, Wilson quotient and (2p) weight contribution. The factor at the formal next index (j=m) is zero modulo p; we stop at (j=m-1), before any p-nonunit denominator.
+At the transition step $j=m-1\to m$, the factor $6j+7$ equals $p$; the first-jet recurrence is used only for $j<m-1$. The next coefficient belongs to valuation grade two, whose previously proved jet is separately retained.
 
 ## Proof
 
-The coefficient recurrence (valid in the exact rational ring) is
+The exact original coefficient recurrence is
 
-[
-rac{A_{k+1}}{A_k}=
-rac{(2k+1)(3k+1)(3k+2)}{36(k+1)^3}.
-]
+$$
+\frac{A_{k+1}}{A_k}=
+\frac{(2k+1)(3k+1)(3k+2)}{36(k+1)^3}.
+$$
 
-Substitute (k=n_1+j=(p+2)/3+j) and factor it **exactly** as
+After substituting $k=n_1+j$, it becomes *exactly*
 
-[
-rac{A_{n_1+j+1}}{A_{n_1+j}}=
-r_jleft(1+pE_jight)pmod{p^2}
-]
+$$
+\frac{(j+\frac76+\frac p3)(j+1+\frac p3)(j+\frac43+\frac p3)}
+{2(j+\frac53+\frac p3)^3}.
+$$
 
-for every (j<m-1). This expansion follows from the exact four-factor form
+Expanding to first order in $p$ gives $r_j(1+pE_j)\pmod{p^2}$ for $j<m-1$. Multiplying produces the harmonic prefix $S_j$ and proves (2) from (1). For (1), use $3n_1=p+2$ and
 
-[
-rac{(j+7/6+p/3)(j+1+p/3)(j+4/3+p/3)}
-{2(j+5/3+p/3)^3}.
-]
+$$
+\frac{(p+2)!}{p}=(p-1)!(p+1)(p+2),\qquad
+(p-1)!=-1+pw_p.
+$$
 
-Multiplying first jets gives (2) with (S_j=sum_{a<j}E_a). Seed (1) follows from (3n_1=p+2), hence
+The exact weight $6(n_1+j)+1=2p+5+6j$ proves (3). All termwise divisions are performed only after the valuation-one factor has been established.
 
-[
-rac{(p+2)!}{p}=(p-1)!(p+1)(p+2)
-]
+## BRC provenance and earlier results
 
-and Wilson's lift ((p-1)!=-1+pw_p). The signed original weight is exactly (6(n_1+j)+1=2p+5+6j), giving (3). Thus every operation and p-adic division is unit-justified.
+The carrier is $(k,v_p(A_k),A_k,6k+1)$, and the typed port is $(j,u_0,g_j,S_j,2p+5+6j)$. Equations (2)–(3) prove preservation of the signed original grade-1 observer at the declared $p^2$ precision.
 
-## Bridge to previous completed units
+This consumes the already completed grade-2 first-jet result, research_notes/portable_direct/20261109_onhour_d25_W_grade2_firstjet_signed_AF4.md, and the preceding new grade-0 second-jet reconstruction, research_notes/portable_direct/20261110_onhour_d25_W216_lower_grade_twojet_completion.md. No prior result is recredited. The new first-jet format supplies a second length-$m$ terminating port for a future *signed cross-band* finite WZ/Jacobi telescope; the grade-0 second jet and original 2304 signed cross-band carry remain independent inputs.
 
-Previously published grade-2 first jet:
-`research_notes/portable_direct/20261109_onhour_d25_W_grade2_firstjet_signed_AF4.md`, with (W_{2,p}/p^2=B_pSigma_ppmod{p^2}).
+## Executed independent exact checks
 
-Previously published grade-0 and grade-1 coefficientwise reconstruction:
-`research_notes/portable_direct/20261110_onhour_d25_W216_lower_grade_twojet_completion.md`.
+Source code: research_notes/portable_direct/d25_w216_grade1_short_firstjet_20261110.py. The checker compares every predicted coefficient $A_{n_1+j}/p\bmod p^2$ and the weighted sum with independently computed original integer binomial sums modulo $p^3$.
 
-The new first-jet formulation of the grade-1 band is an exact shorter, algebraically equivalent representation of the **same original signed band**. It allows both grade1 and grade2 to be evaluated by length-(m) terminating first-jet ports without dropping the grade0 second jet, the original 2304 observer, or cross-band carry. In the original LIFT equation, only the full sum after preserving these separate ports is eligible for the quotient ((W_p-p)/p^2). The universal cancellation remains open.
+For $p=7,13,19,31,37,43,61,67,73,109,157,181,373$, all **13/13** primes pass, in exact integer modular arithmetic without floats. Representatives:
 
-**BRC composition applied:** indexed original carrier ((k,v_p(A_k),A_k,6k+1)) maps to ((j,u_0,g_j,S_j,5+6j+2p)); exact modular coefficient checks certify its claimed observer ((W_{1,p}/p)mod p^2). Grade changes, odd Green/Hesse and native (kappa) remain distinct.
+- $p=13$: $u_0=28$, $W_{1,p}/p=149\bmod169$;
+- $p=19$: $u_0=337$, $W_{1,p}/p=254\bmod361$;
+- $p=373$: $u_0=93197$, $W_{1,p}/p=103721\bmod139129$; leading digit $27\bmod373$.
 
-## Actual exact validation
+## Live obligations
 
-`research_notes/portable_direct/d25_w216_grade1_short_firstjet_20261110.py` independently evaluates the original integer-binomial coefficient modulo (p^3) for **every** grade-1 index, compares its divided value modulo (p^2) with (2), checks the seed (1), and compares the full weighted sum (3). Executed with exact integer arithmetic for (p=7,13,19,31,37,43,61,67,73,109,157,181,373), **13/13 PASS**.
+The parent $\Delta_p-R_p\pmod p$ for $p\equiv13,19\pmod{24}$ remains OPEN. The next portable research operation is to couple the grade-0 second jet, the present grade-1 first jet, and the previously proved grade-2 first jet into a signed original $W_p-p$ telescoper preserving p-adic carry and both $m$ parities.
 
-Examples:
-- (p=13): (u_0=28), (W_{1,p}/p=149mod169).
-- (p=19): (u_0=337), (W_{1,p}/p=254mod361).
-- (p=373): (u_0=93197), (W_{1,p}/p=103721mod139129), so the grade-1 leading digit is (27mod373).
+The **highest original native benchmark** remains fixed p=373 same-original-class H0/B0 divided-power $[X]U\bmod139129$, native rank, semilinear Frobenius direction, normalization $\eta$, signed odd Green/Hesse, native $\kappa$, $\Delta_p-R_p$, and independent reproduction. Existing support Issue #1559 is PENDING_OWNER; this proof is not native execution.
 
-## Exact unresolved obligations and continuation
-
-Highest native experiment remains the original-class fixed (p=373) H0/B0 divided-power ([X]Umod139129), module rank, Frobenius semilinear direction and normalization (eta), signed odd observer and native (kappa,Delta_p-R_p), plus independent reproduction. Existing support Issue #1559 is PENDING_OWNER; this note does not execute it. No current own CLAIM/run or Source checkpoint has been verified; author-side files do not grant native authority.
-
-For portable mathematics, attempt a finite **signed inter-band creative telescoper** coupling the new grade1 length-(m) first jet with the prior grade2 length-(m) first jet and the old grade0 second jet. The target is the exact ((W_p-p)/p^2mod p) at both (m)-parities, then the frozen (Delta_p-R_p) bridge; retain all original denominators, Wilson quotients, signed weights and carries. The queued fresh continuation request `onhour11-20261110-0556-current-continuation` must be read by its exact ID; do not reissue.
+Native Source: the fresh continuation request onhour11-20261110-0556-current-continuation later reconciled to SUCCEEDED, but the Research lane has no authenticated current issued session key, winning CLAIM or run. All outputs here are AUTHOR_SIDE / UNREVIEWED / NOT_ADMITTED.
