@@ -1,0 +1,297 @@
+{
+  "schema": "R679_PASS_CYCLE_MIN_ODD_BIAS_EXACT_V1",
+  "date": "2026-11-10",
+  "method": "Complete integer L1 spheres 0..19, 20 V23 triads each with 9 exact V27 neighbors, V17 slot transport",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "pass_sequence": [
+    "0->1",
+    "1->2",
+    "2->0"
+  ],
+  "final_omega": [
+    [
+      0,
+      1,
+      -1,
+      0
+    ],
+    [
+      -1,
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      -1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "final_du": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "search": [
+    {
+      "l1_norm": 0,
+      "tested": 1,
+      "globally_strict": 0,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 1,
+      "tested": 8,
+      "globally_strict": 0,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 2,
+      "tested": 32,
+      "globally_strict": 0,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 3,
+      "tested": 88,
+      "globally_strict": 0,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 4,
+      "tested": 192,
+      "globally_strict": 0,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 5,
+      "tested": 360,
+      "globally_strict": 0,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 6,
+      "tested": 608,
+      "globally_strict": 0,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 7,
+      "tested": 952,
+      "globally_strict": 0,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 8,
+      "tested": 1408,
+      "globally_strict": 6,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 9,
+      "tested": 1992,
+      "globally_strict": 18,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 10,
+      "tested": 2720,
+      "globally_strict": 36,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 11,
+      "tested": 3608,
+      "globally_strict": 78,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 12,
+      "tested": 4672,
+      "globally_strict": 150,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 13,
+      "tested": 5928,
+      "globally_strict": 312,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 14,
+      "tested": 7392,
+      "globally_strict": 438,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 15,
+      "tested": 9080,
+      "globally_strict": 756,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 16,
+      "tested": 11008,
+      "globally_strict": 984,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 17,
+      "tested": 13192,
+      "globally_strict": 1560,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 18,
+      "tested": 15648,
+      "globally_strict": 1878,
+      "odd_holonomy": 0
+    },
+    {
+      "l1_norm": 19,
+      "tested": 18392,
+      "globally_strict": 2862,
+      "odd_holonomy": 6
+    }
+  ],
+  "total_bias_vectors": 97281,
+  "minimal_odd_l1": 19,
+  "number_of_minimizers": 6,
+  "minimizers": [
+    {
+      "u": [
+        -4,
+        -3,
+        -2,
+        10
+      ],
+      "first_PASS_tied_triads": {
+        "0->1": 1,
+        "1->2": 1,
+        "2->0": 2
+      },
+      "final_min_gap": 1,
+      "final_nontrivial_cycles": [
+        "012->123->234->034->035->025"
+      ]
+    },
+    {
+      "u": [
+        -3,
+        -2,
+        -4,
+        10
+      ],
+      "first_PASS_tied_triads": {
+        "0->1": 1,
+        "1->2": 2,
+        "2->0": 1
+      },
+      "final_min_gap": 1,
+      "final_nontrivial_cycles": [
+        "012->123->234->034->035->025"
+      ]
+    },
+    {
+      "u": [
+        -2,
+        -4,
+        -3,
+        10
+      ],
+      "first_PASS_tied_triads": {
+        "0->1": 2,
+        "1->2": 1,
+        "2->0": 1
+      },
+      "final_min_gap": 1,
+      "final_nontrivial_cycles": [
+        "012->123->234->034->035->025"
+      ]
+    },
+    {
+      "u": [
+        2,
+        4,
+        3,
+        -10
+      ],
+      "first_PASS_tied_triads": {
+        "0->1": 7,
+        "1->2": 3,
+        "2->0": 4
+      },
+      "final_min_gap": 1,
+      "final_nontrivial_cycles": [
+        "124->134->345->045->015->125"
+      ]
+    },
+    {
+      "u": [
+        3,
+        2,
+        4,
+        -10
+      ],
+      "first_PASS_tied_triads": {
+        "0->1": 4,
+        "1->2": 7,
+        "2->0": 3
+      },
+      "final_min_gap": 1,
+      "final_nontrivial_cycles": [
+        "124->134->345->045->015->125"
+      ]
+    },
+    {
+      "u": [
+        4,
+        3,
+        2,
+        -10
+      ],
+      "first_PASS_tied_triads": {
+        "0->1": 3,
+        "1->2": 4,
+        "2->0": 7
+      },
+      "final_min_gap": 1,
+      "final_nontrivial_cycles": [
+        "124->134->345->045->015->125"
+      ]
+    }
+  ],
+  "network_realization": {
+    "example_field_u": [
+      -2,
+      -4,
+      -3,
+      10
+    ],
+    "bridge": [
+      0,
+      2,
+      1,
+      3
+    ],
+    "port_u": [
+      -2,
+      -3,
+      -4,
+      10
+    ],
+    "transfer_event_count": 19,
+    "internal_PASS_count": 3,
+    "total_primitive_event_count": 22,
+    "global_scalar_Q": "exactly zero at all stages for zero initial ledger"
+  },
+  "status": "AUTHOR_SIDE_EXACT_INTEGER_COMPUTATION_AND_FINITE_EXHAUSTIVE_PROOF"
+}
