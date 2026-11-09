@@ -1,0 +1,53 @@
+{
+  "schema": "PREFIX632_R6_MINIMIZER_ORDER_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "general_theorem": "For fixed p2 in [37/256,39/256], 12<=q1<q2, all interval-I minimizers b for q2 and a for q1 satisfy b<a, mu(b)<mu(a), W(b)<W(a); I=[3/20,1/6].",
+  "rational_witness": "At p2=19/128 there exist local minima V24 in (4/25,401/2500) and V12 in (401/2500,161/1000).",
+  "results": [
+    {
+      "p1": "4/25",
+      "p2": "19/128",
+      "q": 24,
+      "sign": "NEGATIVE",
+      "g_over_q2_display": "-3.914429973426",
+      "U_display": "303.474476646556",
+      "verification": "exact Fraction sign"
+    },
+    {
+      "p1": "401/2500",
+      "p2": "19/128",
+      "q": 24,
+      "sign": "POSITIVE",
+      "g_over_q2_display": "10.751695778673",
+      "U_display": "304.562914927630",
+      "verification": "exact Fraction sign"
+    },
+    {
+      "p1": "401/2500",
+      "p2": "19/128",
+      "q": 12,
+      "sign": "NEGATIVE",
+      "g_over_q2_display": "-1.938425676645",
+      "U_display": "304.562914927630",
+      "verification": "exact Fraction sign"
+    },
+    {
+      "p1": "161/1000",
+      "p2": "19/128",
+      "q": 12,
+      "sign": "POSITIVE",
+      "g_over_q2_display": "19.584388322157",
+      "U_display": "306.185872051714",
+      "verification": "exact Fraction sign"
+    }
+  ],
+  "checks": {
+    "first_stopping_level": 25,
+    "last_stopping_level": 189,
+    "positive_alpha_coefficients": 189,
+    "positive_beta_coefficients": 189,
+    "exact_gradient_signs": 4
+  },
+  "verification": "ALL_CHECKS_PASS",
+  "status": "AUTHOR_PROVED / EXACT_RATIONAL_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
