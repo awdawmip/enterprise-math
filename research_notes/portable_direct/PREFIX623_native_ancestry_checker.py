@@ -207,5 +207,5 @@ result={
   "review":"AUTHOR_SIDE_UNREVIEWED",
   "result":"ALL_ASSERTIONS_PASS"
 }
-Path(__file__).with_name("PREFIX623_native_ancestry_results.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\\n")
+Path(__file__).with_name("PREFIX623_native_ancestry_results.json").write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n")
 print(json.dumps({k:v for k,v in result.items() if k not in ("full_terminal_ports","tagged_terminal_port_difference_values")},ensure_ascii=False))
