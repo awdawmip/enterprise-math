@@ -1,0 +1,27 @@
+{
+  "schema": "PREFIX631_R6_UNIFORM_GRADIENT_VALLEY_V1",
+  "pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "parameter_scope": "p2 in [37/256,39/256]; q real >=12; p1 at 3/20 or 1/6",
+  "theorem": "For every p2 in bracket and every q>=12, dV/dp1<0 at p1=3/20 and >0 at p1=1/6; each slice has at least one interior local minimum in (3/20,1/6).",
+  "proof": "Exact degree-376 Bernstein coefficients of q-normalized derivative; positivity of basis; compactness and endpoint derivatives.",
+  "results": [
+    {
+      "p1": "3/20",
+      "sign": "NEGATIVE",
+      "bernstein_coefficients_verified": 377,
+      "min_dV_q12_over_q2_display": "-658.31632764",
+      "max_dV_q12_over_q2_display": "-226.73057297",
+      "exact_inequality": "all 377 rational Bernstein coefficients have the certified sign"
+    },
+    {
+      "p1": "1/6",
+      "sign": "POSITIVE",
+      "bernstein_coefficients_verified": 377,
+      "min_dV_q12_over_q2_display": "32.35401037",
+      "max_dV_q12_over_q2_display": "352.87711698",
+      "exact_inequality": "all 377 rational Bernstein coefficients have the certified sign"
+    }
+  ],
+  "verification": "ALL_CHECKS_PASS",
+  "status": "AUTHOR_PROVED / EXACT_RATIONAL_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
