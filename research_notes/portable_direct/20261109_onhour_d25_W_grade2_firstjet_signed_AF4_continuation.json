@@ -39,7 +39,9 @@
     "exact_verification": "80 primes 7<=p<=1000 p=1 mod6, integer binomial W2/V2 modp4, Wilson root unit, jet and original independent W2 recurrence modp3 all passed.",
     "status": "AUTHOR_SIDE_PROVED_WITH_EXACT_REGRESSION_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE",
     "note_path": "research_notes/portable_direct/20261109_onhour_d25_W_grade2_firstjet_signed_AF4.md",
-    "script_path": "research_notes/portable_direct/d25_W_grade2_firstjet_signed_AF4_20261109.py"
+    "script_path": "research_notes/portable_direct/d25_W_grade2_firstjet_signed_AF4_20261109.py",
+    "script_import_correction": "Original bridge module exposes recurrence(), imported as grade2_recurrence; corrected direct code at commit cdb822db9b58ef57e1ac451aad2f812c91fb2a22, verified remote readback and locally rerun 80 prime checks.",
+    "script_commit": "cdb822db9b58ef57e1ac451aad2f812c91fb2a22"
   },
   "do_not_repeat": [
     "Already accepted D24 UR",
