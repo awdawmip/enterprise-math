@@ -1,0 +1,24 @@
+{
+  "command": [
+    "g++",
+    "-std=c++20",
+    "-O3",
+    "-DNDEBUG",
+    "-Wall",
+    "-Wextra",
+    "-march=native",
+    "-DBRC_BASE_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp\"",
+    "-DBRC_LOCAL_KERNELS=\"/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp\"",
+    "-DBRC_SAMPLED_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_robust_sort/build/sampled_frozen_include.hpp\"",
+    "-I",
+    "/workspace/scratch/b0e94005ad9c/brc_sampled_sort",
+    "/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench.cpp",
+    "-o",
+    "/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench"
+  ],
+  "started_at_utc": "2026-11-10T01:47:21.624132+00:00",
+  "wall_seconds": 14.636960234999606,
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "In file included from /workspace/scratch/b0e94005ad9c/brc_robust_sort/build/sampled_frozen_include.hpp:11,\n                 from /workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench.cpp:6:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp: In function \u2018int brc_previous_experiment_main(int, char**)\u2019:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp:712:1: warning: control reaches end of non-void function [-Wreturn-type]\n  712 | }\n      | ^\n"
+}

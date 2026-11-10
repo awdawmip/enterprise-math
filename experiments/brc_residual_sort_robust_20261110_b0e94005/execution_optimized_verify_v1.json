@@ -1,0 +1,133 @@
+{
+  "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "selected_cpu": 1,
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "dependency_checks": [
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp",
+      "hash_kind": "git_blob_sha1",
+      "hash": "868723dc6b627b7230d4c54149d276537138b7aa",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp",
+      "hash_kind": "git_blob_sha1",
+      "hash": "3c5a7302066f333a084101a3ab08b37f974660de",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp",
+      "hash_kind": "sha256",
+      "hash": "596cf4add967669ec1feb02344f49ec448bd4c0b927ed9b791cc03d802b86468",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_kernels.hpp",
+      "hash_kind": "sha256",
+      "hash": "2890d16a360fa9c874dc8de1edec1508f9522602397fc2cb7fbe6e2da55cb192",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/flat_frequency.hpp",
+      "hash_kind": "sha256",
+      "hash": "3993c376b0160e87eee16acb7ca3e832fa2e7ac227320b909bb922f53f89350a",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/vendor/pdqsort.h",
+      "hash_kind": "git_blob_sha1",
+      "hash": "36360cd1d69d0bd6977d9ba2313b10612b889142",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/vendor/license.txt",
+      "hash_kind": "git_blob_sha1",
+      "hash": "41d496076f0e134ba66096cf89acee8e124afef5",
+      "result": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "robust_bench.cpp": "d1f9d696ad8f02efad7d79adfca55087dac0a060e4ec4977cb3bc1c597256d26",
+    "robust_kernels.hpp": "46b6ad5f0a7791c733cb8920ee34a01adfade778035c13c14a7390516c8eea68",
+    "prepare_frozen_include.py": "b8d7b00b36e7b0f0566f2edeb1ac8ee99b600134822033c3e425da2a1970be52",
+    "run_experiment.py": "e1f401dfde343216ad15cf73f5341e67a8dabeb522fdc703a4df1133d4a526e6"
+  },
+  "scientific_commits": {
+    "expanded": "5b8f9f76cd187d9d5aaa62028af6a9e5e2710b28",
+    "local": "4b66597bce400f6d19336058ac780e877188a769",
+    "sampled": "8bf6a677359b62d406eaa7258f5541431466315b",
+    "pdqsort": "b1ef26a55cdb60d236a5cb199c4234c704f46726"
+  },
+  "sanitizer_options": {},
+  "performance_subset": "all",
+  "performance_output": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/results_all.csv",
+  "commands": [
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort/prepare_frozen_include.py",
+        "--source",
+        "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp",
+        "--output",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort/build/sampled_frozen_include.hpp"
+      ],
+      "started_at_utc": "2026-11-10T02:00:55.629901+00:00",
+      "elapsed_seconds": 0.08492614900023909,
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS\", \"source_commit\": \"8bf6a677359b62d406eaa7258f5541431466315b\", \"source\": \"/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp\", \"source_sha256\": \"596cf4add967669ec1feb02344f49ec448bd4c0b927ed9b791cc03d802b86468\", \"output\": \"/workspace/scratch/b0e94005ad9c/brc_robust_sort/build/sampled_frozen_include.hpp\", \"replacements\": 1, \"generated_sha256\": \"1984bae19f3118d58f279d0d187ae4bec71a1ebde9a1b2508656490ec93330f1\"}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-march=native",
+        "-O3",
+        "-DNDEBUG",
+        "-DBRC_BASE_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp\"",
+        "-DBRC_LOCAL_KERNELS=\"/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp\"",
+        "-DBRC_SAMPLED_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_robust_sort/build/sampled_frozen_include.hpp\"",
+        "-I",
+        "/workspace/scratch/b0e94005ad9c/brc_sampled_sort",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench.cpp",
+        "-o",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort/build/robust_bench"
+      ],
+      "started_at_utc": "2026-11-10T02:00:55.719277+00:00",
+      "elapsed_seconds": 20.466175526999905,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "In file included from /workspace/scratch/b0e94005ad9c/brc_robust_sort/build/sampled_frozen_include.hpp:11,\n                 from /workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench.cpp:6:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp: In function \u2018int brc_previous_experiment_main(int, char**)\u2019:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp:712:1: warning: control reaches end of non-void function [-Wreturn-type]\n  712 | }\n      | ^\n"
+    },
+    {
+      "argv": [
+        "taskset",
+        "-c",
+        "1",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort/build/robust_bench",
+        "--verify"
+      ],
+      "started_at_utc": "2026-11-10T02:01:16.186957+00:00",
+      "elapsed_seconds": 0.32615557900044223,
+      "exit_code": 0,
+      "stdout": "{\"result\":\"PASS\",\"domain\":\"full uint64\",\"value_bytes\":8,\"algorithm_candidates\":20,\"new_variants_checked\":4,\"pdqsort_checked\":true,\"verified_input_arrays\":2824,\"verified_algorithm_outputs\":28238,\"exhaustive_short_arrays\":1365,\"lifted_above_cutoff_arrays\":1364,\"random_boundary_arrays\":70,\"focused_cases\":25,\"paths_exercised\":16,\"dense_exact_and_one_above_checked\":true,\"full_span_overflow_checked\":true,\"sample_actual_range_mismatch_checked\":true,\"trim_constant_checked\":true,\"trim_rank_ties_checked\":true,\"trimmed_keys_preserved_checked\":true,\"below_and_above_origin_checked\":true,\"trim_actual_half_boundary_checked\":true,\"child_dense_and_trim_routes_checked\":true,\"central_contaminant_limit_checked\":true,\"compact_exact_budget_checked\":true,\"compact_uint64_padding_checked\":true,\"compact_actual_half_boundary_checked\":true,\"child_compact_route_checked\":true,\"compact_trimmed_interval_checked\":true,\"forced_depth_cap_checked\":true,\"trace_conservation_checked\":true,\"geometric_work_bounds_checked\":true,\"instrumented_and_nullptr_checked\":true,\"unchanged_root_divider_checks_reused\":true,\"fresh_heldout_banks_evaluated\":false}\n",
+      "stderr": ""
+    }
+  ],
+  "binary_sha256": "7b3cf76aea23ed875081e302ffa169813d1fdd67824838ab5b03cf59b26ad6d4",
+  "result": "PASS"
+}

@@ -1,0 +1,98 @@
+{
+  "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "selected_cpu": 0,
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "dependency_checks": [
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp",
+      "hash_kind": "git_blob_sha1",
+      "hash": "868723dc6b627b7230d4c54149d276537138b7aa",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp",
+      "hash_kind": "git_blob_sha1",
+      "hash": "3c5a7302066f333a084101a3ab08b37f974660de",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp",
+      "hash_kind": "sha256",
+      "hash": "596cf4add967669ec1feb02344f49ec448bd4c0b927ed9b791cc03d802b86468",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_kernels.hpp",
+      "hash_kind": "sha256",
+      "hash": "2890d16a360fa9c874dc8de1edec1508f9522602397fc2cb7fbe6e2da55cb192",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/flat_frequency.hpp",
+      "hash_kind": "sha256",
+      "hash": "3993c376b0160e87eee16acb7ca3e832fa2e7ac227320b909bb922f53f89350a",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/vendor/pdqsort.h",
+      "hash_kind": "git_blob_sha1",
+      "hash": "36360cd1d69d0bd6977d9ba2313b10612b889142",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/vendor/license.txt",
+      "hash_kind": "git_blob_sha1",
+      "hash": "41d496076f0e134ba66096cf89acee8e124afef5",
+      "result": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "robust_bench.cpp": "d1f9d696ad8f02efad7d79adfca55087dac0a060e4ec4977cb3bc1c597256d26",
+    "robust_kernels.hpp": "46b6ad5f0a7791c733cb8920ee34a01adfade778035c13c14a7390516c8eea68",
+    "prepare_frozen_include.py": "b8d7b00b36e7b0f0566f2edeb1ac8ee99b600134822033c3e425da2a1970be52",
+    "run_experiment.py": "e1f401dfde343216ad15cf73f5341e67a8dabeb522fdc703a4df1133d4a526e6"
+  },
+  "scientific_commits": {
+    "expanded": "5b8f9f76cd187d9d5aaa62028af6a9e5e2710b28",
+    "local": "4b66597bce400f6d19336058ac780e877188a769",
+    "sampled": "8bf6a677359b62d406eaa7258f5541431466315b",
+    "pdqsort": "b1ef26a55cdb60d236a5cb199c4234c704f46726"
+  },
+  "sanitizer_options": {},
+  "performance_subset": "calibration",
+  "performance_output": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/results_calibration_final.csv",
+  "commands": [
+    {
+      "argv": [
+        "taskset",
+        "-c",
+        "0",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort/build/robust_bench",
+        "--bench",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort/results_calibration_final.csv",
+        "1000000",
+        "0.012",
+        "calibration"
+      ],
+      "started_at_utc": "2026-11-10T02:02:40.136889+00:00",
+      "elapsed_seconds": 35.33326102400042,
+      "exit_code": 0,
+      "stdout": "{\"result\":\"PASS\",\"conditions\":8,\"rows\":160,\"validated_input_banks\":64,\"algorithms\":20,\"banks\":8,\"rounds\":7,\"trace_nodes\":464,\"validated_algorithm_outputs\":2560,\"target_seconds_per_algorithm_round\":0.012,\"copy_setup_allocation_output_destruction_included\":true,\"observable_sink\":243575512}\n",
+      "stderr": "completed calibration uniform_1e6 n=100\ncompleted calibration jitter1e6_B20_D8 n=100000\ncompleted calibration square1e6_B256_D8 n=100000\ncompleted calibration uint64_top_window n=100000\ncompleted calibration rare_far_cluster n=100000\ncompleted calibration two_uint64_outliers n=100000\ncompleted calibration uniform_uint64 n=100000\ncompleted calibration uniform_4096 n=100000\n"
+    }
+  ],
+  "binary_sha256": "7b3cf76aea23ed875081e302ffa169813d1fdd67824838ab5b03cf59b26ad6d4",
+  "result": "PASS"
+}

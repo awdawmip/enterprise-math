@@ -1,0 +1,52 @@
+{
+  "model": "Ideal uniform permutation of a population with fixed tail multiplicities; a fixed set of distinct sample positions. Joint multivariate hypergeometric counts, with exact integer binomial coefficients.",
+  "event": "A lower or upper selected rank remains in a tail because that sampled side has at least17 observations. This does not itself prove every layout rejects, or that removal guarantees counting success; the geometric conditions in THEORY.md remain necessary for the positive family.",
+  "not_used_for_tuning": true,
+  "cases": [
+    {
+      "name": "one_sided_0p01pct",
+      "n": 100000,
+      "sample": 1024,
+      "cut_each_side": 16,
+      "low_tail_occurrences": 0,
+      "high_tail_occurrences": 10,
+      "probability_a_trim_endpoint_remains_in_a_tail": "0"
+    },
+    {
+      "name": "two_sided_0p3pct",
+      "n": 100000,
+      "sample": 1024,
+      "cut_each_side": 16,
+      "low_tail_occurrences": 150,
+      "high_tail_occurrences": 150,
+      "probability_a_trim_endpoint_remains_in_a_tail": "7.95953413584847457890071625989006540980065142997028252729461E-13"
+    },
+    {
+      "name": "one_sided_1pct",
+      "n": 100000,
+      "sample": 1024,
+      "cut_each_side": 16,
+      "low_tail_occurrences": 0,
+      "high_tail_occurrences": 1000,
+      "probability_a_trim_endpoint_remains_in_a_tail": "0.0311888075311090203629524836058244633766458021999888721727242"
+    },
+    {
+      "name": "one_sided_2pct",
+      "n": 100000,
+      "sample": 1024,
+      "cut_each_side": 16,
+      "low_tail_occurrences": 0,
+      "high_tail_occurrences": 2000,
+      "probability_a_trim_endpoint_remains_in_a_tail": "0.812412914668390285515007217101885970972585141200515788648678"
+    },
+    {
+      "name": "two_sided_5pct",
+      "n": 100000,
+      "sample": 1024,
+      "cut_each_side": 16,
+      "low_tail_occurrences": 2500,
+      "high_tail_occurrences": 2500,
+      "probability_a_trim_endpoint_remains_in_a_tail": "0.999337536259605289814394900474430543387890990291663574382168"
+    }
+  ]
+}

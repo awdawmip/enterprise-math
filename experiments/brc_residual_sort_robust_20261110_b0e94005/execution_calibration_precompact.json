@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "taskset",
+    "-c",
+    "0",
+    "/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench",
+    "--bench",
+    "/workspace/scratch/b0e94005ad9c/brc_robust_sort/results_calibration_precompact.csv",
+    "1000000",
+    ".012",
+    "calibration"
+  ],
+  "started_at_utc": "2026-11-10T01:52:11.829450+00:00",
+  "binary_sha256": "26ab550f8d8ca8c004c30e99c0750406e935ef3bc576fb7677139c7354788b53",
+  "stage": "developmental calibration only; no fresh heldout inputs",
+  "compiled_source_receipt": "robust_compile_optimized_precompact_v2.json",
+  "elapsed_seconds": 33.12148924199937,
+  "exit_code": 0,
+  "stdout": "{\"result\":\"PASS\",\"conditions\":8,\"rows\":152,\"validated_input_banks\":64,\"algorithms\":19,\"banks\":8,\"rounds\":7,\"trace_nodes\":376,\"validated_algorithm_outputs\":2432,\"target_seconds_per_algorithm_round\":0.012,\"copy_setup_allocation_output_destruction_included\":true,\"observable_sink\":0}\n",
+  "stderr": "completed calibration uniform_1e6 n=100\ncompleted calibration jitter1e6_B20_D8 n=100000\ncompleted calibration square1e6_B256_D8 n=100000\ncompleted calibration uint64_top_window n=100000\ncompleted calibration rare_far_cluster n=100000\ncompleted calibration two_uint64_outliers n=100000\ncompleted calibration uniform_uint64 n=100000\ncompleted calibration uniform_4096 n=100000\n"
+}

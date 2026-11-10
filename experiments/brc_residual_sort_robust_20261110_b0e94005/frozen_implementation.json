@@ -1,0 +1,34 @@
+{
+  "frozen_at_utc": "2026-11-10T02:04:03.245944+00:00",
+  "stage": "Final policy frozen after the eight known calibration conditions and before generating or timing any of the14 fresh input-bank conditions.",
+  "policy_changes_after_calibration": "none",
+  "candidate_count": 20,
+  "condition_count": 58,
+  "calibration_conditions": 8,
+  "regression_conditions": 31,
+  "old_mechanism_conditions_inside_regression": 5,
+  "fresh_heldout_conditions": 14,
+  "new_mechanism_conditions": 5,
+  "banks": 8,
+  "rounds": 7,
+  "target_seconds_per_candidate_round": 0.012,
+  "performance_cpu": 0,
+  "hash_algorithm": "SHA256",
+  "files": {
+    "robust_bench.cpp": "d1f9d696ad8f02efad7d79adfca55087dac0a060e4ec4977cb3bc1c597256d26",
+    "robust_kernels.hpp": "46b6ad5f0a7791c733cb8920ee34a01adfade778035c13c14a7390516c8eea68",
+    "prepare_frozen_include.py": "b8d7b00b36e7b0f0566f2edeb1ac8ee99b600134822033c3e425da2a1970be52",
+    "run_experiment.py": "e1f401dfde343216ad15cf73f5341e67a8dabeb522fdc703a4df1133d4a526e6",
+    "analyze_results.py": "2acb0e4c834051ebf1a60247dc87c54e6128289f55bc7c9e974b36f4d6ed0670",
+    "vendor/pdqsort.h": "1916aff237fc7ecc638dec6397662334552a1b6f823fa65011a8dfe831237fc0",
+    "vendor/license.txt": "323fc18e35fcf058d69d684022ef844f206cb8fefb2bac1298fa1767e0b9ae38",
+    "vendor/SOURCE.json": "1a806feb44eefe90f1e5eb58fbb2dac8a322c030ee80634e7fa9456c185b5d8a"
+  },
+  "optimized_binary_sha256": "7b3cf76aea23ed875081e302ffa169813d1fdd67824838ab5b03cf59b26ad6d4",
+  "diagnostic_validation_receipt": "execution_optimized_verify_v1.json",
+  "calibration_receipts": [
+    "execution_calibration_precompact.json",
+    "execution_calibration_final.json"
+  ],
+  "development_note": "The compact policy was specified before reading precompact calibration timings; calibration was used to check mechanics, not to fit constants. Four new policies remain fixed for all final conditions."
+}

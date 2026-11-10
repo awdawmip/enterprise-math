@@ -1,0 +1,98 @@
+{
+  "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "selected_cpu": 0,
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "dependency_checks": [
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp",
+      "hash_kind": "git_blob_sha1",
+      "hash": "868723dc6b627b7230d4c54149d276537138b7aa",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp",
+      "hash_kind": "git_blob_sha1",
+      "hash": "3c5a7302066f333a084101a3ab08b37f974660de",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp",
+      "hash_kind": "sha256",
+      "hash": "596cf4add967669ec1feb02344f49ec448bd4c0b927ed9b791cc03d802b86468",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_kernels.hpp",
+      "hash_kind": "sha256",
+      "hash": "2890d16a360fa9c874dc8de1edec1508f9522602397fc2cb7fbe6e2da55cb192",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/flat_frequency.hpp",
+      "hash_kind": "sha256",
+      "hash": "3993c376b0160e87eee16acb7ca3e832fa2e7ac227320b909bb922f53f89350a",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/vendor/pdqsort.h",
+      "hash_kind": "git_blob_sha1",
+      "hash": "36360cd1d69d0bd6977d9ba2313b10612b889142",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/vendor/license.txt",
+      "hash_kind": "git_blob_sha1",
+      "hash": "41d496076f0e134ba66096cf89acee8e124afef5",
+      "result": "PASS"
+    }
+  ],
+  "source_sha256": {
+    "robust_bench.cpp": "d1f9d696ad8f02efad7d79adfca55087dac0a060e4ec4977cb3bc1c597256d26",
+    "robust_kernels.hpp": "46b6ad5f0a7791c733cb8920ee34a01adfade778035c13c14a7390516c8eea68",
+    "prepare_frozen_include.py": "b8d7b00b36e7b0f0566f2edeb1ac8ee99b600134822033c3e425da2a1970be52",
+    "run_experiment.py": "e1f401dfde343216ad15cf73f5341e67a8dabeb522fdc703a4df1133d4a526e6"
+  },
+  "scientific_commits": {
+    "expanded": "5b8f9f76cd187d9d5aaa62028af6a9e5e2710b28",
+    "local": "4b66597bce400f6d19336058ac780e877188a769",
+    "sampled": "8bf6a677359b62d406eaa7258f5541431466315b",
+    "pdqsort": "b1ef26a55cdb60d236a5cb199c4234c704f46726"
+  },
+  "sanitizer_options": {},
+  "performance_subset": "all",
+  "performance_output": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/results_all.csv",
+  "commands": [
+    {
+      "argv": [
+        "taskset",
+        "-c",
+        "0",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort/build/robust_bench",
+        "--bench",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort/results_all.csv",
+        "1000000",
+        "0.012",
+        "all"
+      ],
+      "started_at_utc": "2026-11-10T02:05:50.332211+00:00",
+      "elapsed_seconds": 367.15681365599994,
+      "exit_code": 0,
+      "stdout": "{\"result\":\"PASS\",\"conditions\":58,\"rows\":1160,\"validated_input_banks\":464,\"algorithms\":20,\"banks\":8,\"rounds\":7,\"trace_nodes\":3225,\"validated_algorithm_outputs\":18560,\"target_seconds_per_algorithm_round\":0.012,\"copy_setup_allocation_output_destruction_included\":true,\"observable_sink\":47267049120}\n",
+      "stderr": "completed calibration uniform_1e6 n=100\ncompleted regression uniform_1e6 n=100000\ncompleted regression uniform_1e6 n=1000000\ncompleted regression uniform_1e12 n=100000\ncompleted regression square1e6_s0 n=10000\ncompleted regression square1e6_s0 n=100000\ncompleted regression square1e6_s0 n=1000000\ncompleted regression jitter1e6_B20_D8 n=10000\ncompleted calibration jitter1e6_B20_D8 n=100000\ncompleted regression jitter1e6_B20_D8 n=1000000\ncompleted regression square900_s0 n=100000\ncompleted regression jitter900_B20_D8 n=100000\ncompleted regression square900_s1790 n=100000\ncompleted regression square1e6_s1999990 n=100000\ncompleted calibration square1e6_B256_D8 n=100000\ncompleted regression square1e6_B256_D512 n=100000\ncompleted regression unique1e6_B256_D512 n=100000\ncompleted regression square3e9_B20_D8 n=100000\ncompleted regression square900_anchor7 n=100000\ncompleted calibration uint64_top_window n=100000\ncompleted regression heldout_jitter_K8 n=100000\ncompleted regression heldout_jitter_K2 n=100000\ncompleted regression heldout_jitter_3K4 n=100000\ncompleted regression positive_jitter_5K4 n=100000\ncompleted regression new_jitter_quarter_seeds n=100000\ncompleted regression new_jitter_threequarter_seeds n=100000\ncompleted regression skew90_cluster0 n=100000\ncompleted calibration rare_far_cluster n=100000\ncompleted calibration two_uint64_outliers n=100000\ncompleted regression sample_position_trap n=100000\ncompleted calibration uniform_uint64 n=100000\ncompleted regression log_uniform_bits64 n=100000\ncompleted calibration uniform_4096 n=100000\ncompleted regression power2_separated_clusters n=100000\ncompleted regression mechanism_quarter_hidden n=100000\ncompleted regression mechanism_half_hidden n=32768\ncompleted regression mechanism_half_plus_one n=32768\ncompleted regression mechanism_four_level_chain n=131072\ncompleted regression mechanism_child_cell_reject n=16384\ncompleted heldout fresh_narrow_offsets n=131072\ncompleted heldout fresh_tail_0p01pct_high n=100000\ncompleted heldout fresh_tail_0p3pct_both n=100000\ncompleted heldout fresh_tail_1pct_high n=100000\ncompleted heldout fresh_tail_2pct_high n=100000\ncompleted heldout fresh_tail_5pct_both n=100000\ncompleted heldout fresh_dense4096_two_extremes n=100000\ncompleted heldout fresh_dense8192_0p3pct_extremes n=131072\ncompleted heldout fresh_interior_contamination n=100000\ncompleted heldout fresh_heterogeneous_widths n=100000\ncompleted heldout fresh_skew97_24clusters n=100000\ncompleted heldout fresh_uniform_uint64 n=131072\ncompleted heldout fresh_actual_sampler_trap n=131072\ncompleted heldout fresh_128clusters_0p3pct_tail n=250000\ncompleted mechanism witness_dense_budget_exact n=8192\ncompleted mechanism witness_dense_budget_plus_one n=8192\ncompleted mechanism witness_trim16_tail_success n=100000\ncompleted mechanism witness_trim17_tie_reject n=100000\ncompleted mechanism witness_sample_constant_extremes n=16384\n"
+    }
+  ],
+  "binary_sha256": "7b3cf76aea23ed875081e302ffa169813d1fdd67824838ab5b03cf59b26ad6d4",
+  "result": "PASS"
+}
