@@ -1,0 +1,100 @@
+# PREFIX-674-R6 — Uniform slot-adaptive dyadic witnesses for the frozen BRC stopping-variance boundary strip
+
+Date: 2026-11-10 (Asia/Shanghai). Mode: independent portable TASK_RESEARCH.
+Researcher-ID: EM-DIRECT-CC0FDD; Research-Activity-ID: RA-32C9501A4ED1AB5256BD541D.
+Frozen scientific pin: f42f2906d77f24085c123f3ccfe9667d41caa96d.
+Evidence: AUTHOR_DERIVED / EXACT_INTEGER_FRACTION_REPLAY_CHECKED / UNREVIEWED / NOT_ADMITTED.
+
+## 1. Selected unit and exact observer
+
+Mother objective: maximize the frozen 189-survivor-layer two-informative-direction BRC first-stop *statistical observer* variance on the full two-probability domain. Retain the exact signed-path-count carrier A_m(k), binomial observation, and Gamma-clock moments. The two probabilities p,z are observer readouts inside native Enterprise Math X6, not independent native space axes or a two-dimensional native plane.
+
+Set μ(p,z)=E[Y(p,z)], W(p,z)=Var(Y(p,z)), V_q(p,z)=q²W(p,z)−qμ(p,z). Let I=[607/4096,609/4096], R=[0,1/64]×I, g_q(z)=V_q(0,z), M(q)=max_{z∈I}g_q(z).
+
+Exact predecessor hypotheses, retaining original author-only evidence status:
+- PREFIX-660-R6: for each real q∈[12,24], g_q is strictly concave on I, with g_q' positive at the left endpoint and negative at the right. Its unique interior maximizer is z_*(q). On all I, g_12''>−13,000,000 and g_24''>−52,000,000, and g_q''/q=qW_zz−μ_zz is affine in q. Also W_z(0,z)>19 on I. Original: research_notes/portable_direct/2026-11-10_prefix660_r6_moving_edge_maximum.md.
+- PREFIX-670-R6: on R, for every real q∈[12,24],
+  M(q)−V_q(p,z) ≥ L(q)p+C(q)p²+6,400,000(z−z_*(q))²,
+  where L(q)=q(76650/12+76595(q−12)/144)≥76650 and C(q)=(15000q²+221q)/2. Original: research_notes/portable_direct/2026-11-10_prefix670_r6_slot_resolved_normal_stability.md.
+
+PREFIX-672-SC used a *q-independent* rational witness and excluded p≥1/245197 for real q∈[12,24]. PREFIX-673-R6 gave two distinct rational witnesses and excluded p≥10^(−13) for q=12,24. This unit constructs one rational witness **for each q**, fixed across all test points (p,z).
+
+## 2. Theorem 674.1 — Continuous real-slot exclusion to p=2^(−120)
+
+For **every real q∈[12,24]**, there exists a dyadic rational r_q∈I with denominator dividing 2^66 such that for **every real p,z** satisfying
+
+  2^(−120)≤p≤1/64,  607/4096≤z≤609/4096,
+
+the strict inequality holds:
+
+  V_q(0,r_q)−V_q(p,z) > 410075/2^123 > 3/10^32 > 0.
+
+A choice of r_q is obtained by at most 53 dyadic bisection sign comparisons using the derivative g_q'. At any fixed q the same r_q works simultaneously for the entire excluded rectangle.
+
+The excluded fraction of the previously certified R is exactly 1−2^(−114) for each q.
+
+For rational q the construction is executable by exact integer/rational arithmetic on the frozen BRC polynomial. For arbitrary real q the selection is an exact-real mathematical construction, or a comparison against rational slot thresholds; no finite-precision floating-point decisions are asserted to certify arbitrary real inputs.
+
+## 3. Proof
+
+**Lemma A — q-uniform curvature.** The normalized boundary curvature g_q''/q is affine in q. By PREFIX-660, it is strictly negative at both endpoints. Moreover its magnitude is bounded by the maximum of 13,000,000/12 and 52,000,000/24. Since q≤24, the entire interval satisfies
+
+  −52,000,000 < g_q''(z) < 0
+
+for every q∈[12,24], z∈I.
+
+**Lemma B — rational bracket.** The I width is 2^(−11). Start with [a,b]=I; strict concavity and endpoint signs ensure the unique zero z_*(q) of g_q' is enclosed. At midpoint c=(a+b)/2, if g_q'(c)>0 replace a by c; if g_q'(c)<0 replace b by c; if g_q'(c)=0 take r_q=c and terminate. After 53 nonterminal midpoint steps, [a,b] has width exactly 2^(−64). Its midpoint r_q has dyadic denominator dividing 2^66 and |r_q−z_*(q)|≤2^(−65).
+
+At rational midpoint c, g_q'(c)=q(qW_z(0,c)−μ_z(0,c)), with W_z and μ_z rational because the frozen path and moments yield finite rational polynomials. PREFIX-660 also has W_z>19 on I, so the sign test is exactly the comparison of q to the rational μ_z(0,c)/W_z(0,c). This gives exact arithmetic for rational q and a well-defined real comparison for any q.
+
+**Lemma C — centered competitor gap.** Taylor's theorem at stationary z_*(q), with Lemma A, gives
+
+  0≤M(q)−g_q(r_q)<(52,000,000/2)·(2^(−65))²
+  =203125/2^123.
+
+In the zero-slope branch the left side equals zero and satisfies the same strict upper bound.
+
+**Final subtraction.** The PREFIX-670 normal penalty gives
+
+  M(q)−V_q(p,z)≥76650 p≥76650·2^(−120)=613200/2^123.
+
+Hence
+
+  V_q(0,r_q)−V_q(p,z)
+  =[M(q)−V_q(p,z)]−[M(q)−g_q(r_q)]
+  >(613200−203125)/2^123
+  =410075/2^123>3/10^32.
+
+Finally area([2^(−120),1/64]×I)/area(R)=1−64·2^(−120)=1−2^(−114). QED.
+
+## 4. Full frozen-count replay, two rational witnesses and coverage
+
+The companion Python script PREFIX674_R6_UNIFORM_ADAPTIVE_WITNESS_CERTIFICATE.py reconstructs the exact 189-layer frozen count predicate, all 190 survivor rows, the Gamma-clock moment polynomials with integer scaling S=2^216, and 53 dyadic sign bisections for q=12 and q=24. Computation uses Python integers and Fraction only. It reports ALL_CHECKS_PASS 22.
+
+q=12:
+- a = 342193343978016881/2305843009213693952
+- b = 2737546751824135049/18446744073709551616
+- r_12 = 5475093503648270097/36893488147419103232
+
+q=24:
+- a = 685559421909163797/4611686018427387904
+- b = 2742237687636655189/18446744073709551616
+- r_24 = 5484475375273310377/36893488147419103232
+
+Each bracket has width 2^(−64), sits inside the exact older PREFIX-660 bracket, and has strictly positive left endpoint slope and strictly negative right endpoint slope. Complete rational outputs: PREFIX674_R6_RESULTS.json.
+
+The two examples replay the **original frozen count recurrence** independently of the earlier saved numeric result. The universal real-q inequality is an exact deduction from the preceding PREFIX-660 curvature/root and PREFIX-670 normal-stability author certificates; independent mathematical review of these precursor certificates remains pending.
+
+## 5. Precision-to-exclusion law
+
+For every integer b≥11, b−11 midpoint steps from I give a dyadic bracket of width 2^(−b) and a rational witness with a strict edge gap below 52,000,000·2^(−2b−3). Consequently for any 0<p_0≤1/64 satisfying
+
+  76650·p_0 > 52,000,000·2^(−2b−3),
+
+the resulting q-adaptive rational witness strictly dominates every point (p,z)∈[p_0,1/64]×I, uniformly for every q∈[12,24]. Thus the required number of exact derivative-sign comparisons is logarithmic in 1/p_0. The comparison cost includes exact polynomial evaluation with potentially growing integer bit lengths; the logarithmic statement counts bisection queries, not total bit complexity.
+
+## 6. Next research frontier
+
+Apply the q-adaptive rational witnesses to rigorous signed/Bernstein cell upper bounds on the symmetry-reduced domain 0≤p≤z≤1/2, prioritizing cells outside p≤1/64 and outside the existing narrow z band. Preserve separate proof and verification obligations for any full-square global maximum claim.
+
+Source pins and role/promotion authority are unchanged. This is a proven implication within the frozen statistical observer under the named author-derived source lemmas, not a promotion to Working Truth or Foundation.

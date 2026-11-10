@@ -1,0 +1,51 @@
+{
+  "result_id": "PREFIX-674-R6",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "frozen 189-survivor-layer BRC two-direction first-stop statistical observer",
+  "proof_scope": {
+    "q": "every real q in [12,24]",
+    "p": "[2^-120,1/64]",
+    "z": "[607/4096,609/4096]",
+    "witness": "one q-dependent dyadic rational, fixed for all (p,z) at that q"
+  },
+  "algorithm": {
+    "starting_band_width": "2^-11",
+    "bisections": 53,
+    "final_root_interval_width": "1/18446744073709551616",
+    "rational_q_sign_comparisons": "exact BRC polynomial arithmetic",
+    "real_q_selection": "exact real comparison at rational derivative threshold"
+  },
+  "uniform_witness_gap_upper_strict": "203125/10633823966279326983230456482242756608",
+  "normal_penalty_lower": "38325/664613997892457936451903530140172288",
+  "uniform_margin_lower_strict": "410075/10633823966279326983230456482242756608",
+  "simple_margin_lower_strict": "3/10^32",
+  "excluded_rectangle_fraction": "20769187434139310514121985316880383/20769187434139310514121985316880384",
+  "q_specific_exact_replay": {
+    "12": {
+      "left": "342193343978016881/2305843009213693952",
+      "right": "2737546751824135049/18446744073709551616",
+      "dyadic_witness": "5475093503648270097/36893488147419103232",
+      "width": "1/18446744073709551616",
+      "bisections": 53,
+      "left_slope_positive": true,
+      "right_slope_negative": true
+    },
+    "24": {
+      "left": "685559421909163797/4611686018427387904",
+      "right": "2742237687636655189/18446744073709551616",
+      "dyadic_witness": "5484475375273310377/36893488147419103232",
+      "width": "1/18446744073709551616",
+      "bisections": 53,
+      "left_slope_positive": true,
+      "right_slope_negative": true
+    }
+  },
+  "slot_margin_lower_strict": {
+    "12": "2249675/42535295865117307932921825928971026432",
+    "24": "2248795/10633823966279326983230456482242756608"
+  },
+  "checks_passed": 22,
+  "dependency_status": "Full model replay for two dyadic examples. Real-q universal implication relies on author-derived PREFIX-660 strict curvature/edge-root certificates and PREFIX-670 normal coercivity; those predecessor theorems are not independently reviewed.",
+  "scientific_status": "AUTHOR_DERIVED / EXACT_INTEGER_FRACTION_REPLAY_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "next_question": "Connect q-adaptive witnesses to full symmetry-reduced triangular-domain signed Bernstein exclusion beyond p=1/64."
+}
