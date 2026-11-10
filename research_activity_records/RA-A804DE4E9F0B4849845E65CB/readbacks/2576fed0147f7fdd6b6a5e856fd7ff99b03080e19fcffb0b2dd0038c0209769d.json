@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "experiments/divisor_extrema/20261110_c62_exact_schedule_certificate.json",
+    "ref": "2b5c626cfa364d425b5ebe568e383b1fbe6802bf",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "local-c62-GitHub.fetch_file-turn1241",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"C62_EXACT_FINITE_EVIDENCE_V1\",\n  \"event_id\": \"prime-c62-schedule-extrema-20261110-286bae2ce7\",\n  \"date\": \"2026-11-10\",\n  \"proof_source\": {\n    \"repository\": \"awdawmip/enterprise-math\",\n    \"commit\": \"c1b02040c8c3aa6086fe8e1ef76dd940adb0ac23\",\n    \"path\": \"research_notes/divisor_extrema/20261110_c62_schedule_extrema_and_short_sync.md\",\n    \"blob\": \"5ba6dea796742f8d68150426906d210a661ad98d\"\n  },\n  \"method\": \"Complete weak-composition enumeration using Fraction; independent inherited three-state and explicit latent-branch comparisons; symbolic positive-polynomial certificates.\",\n  \"coverage\": {\n    \"k_min\": 2,\n    \"k_max\": 10,\n    \"schedules\": 125475,\n    \"schedule_count_formula\": \"binomial(2*k-1,k)\",\n    \"unique_minimizer_each_tested_k\": \"(523)^(k-1)23\",\n    \"zero_gaps\": 0\n  },\n  \"finite_records\": [\n    {\n      \"k\": 3,\n      \"count\": 10,\n      \"min\": \"575/139861568\",\n      \"max\": \"281175/864923392\",\n      \"max_allocation\": [\n        0,\n        2,\n        0,\n        0\n      ]\n    },\n    {\n      \"k\": 5,\n      \"count\": 126,\n      \"min\": \"70580886025/42350045934394332272908\",\n      \"max\": \"441476943590475/226991814366973130752\",\n      \"max_allocation\": [\n        0,\n        2,\n        2,\n        0,\n        0,\n        0\n      ]\n    },\n    {\n      \"k\": 10,\n      \"count\": 92378,\n      \"min\": \"913206202072422226540327946212386861575203125/2612197157220190563347862208716706773584951636552867573231554895649826074226\",\n      \"max\": \"190069185814683053632122483823110144289474939997485500/20514842528874661921882007932807720627194174956494798486683880487\",\n      \"max_allocation\": [\n        0,\n        2,\n        2,\n        0,\n        3,\n        0,\n        2,\n        0,\n        0,\n        0,\n        0\n      ]\n    }\n  ],\n  \"additional_checks\": {\n    \"inherited_schedule_rows\": 174,\n    \"matched_scores\": 522,\n    \"adjacent_exchange_identities\": 310,\n    \"explicit_complete_word_branches\": 54,\n    \"native_BRC_operations\": 54\n  },\n  \"status\": \"ALL_DECLARED_ASSERTIONS_PASSED\",\n  \"proof_scope\": \"All-k optimal logarithmic orders are proved in the linked note. Exact unique minimizer only exhaustively established for k=2..10.\",\n  \"artifact\": \"prime_quantum_schedule_extrema_c62.zip\"\n}\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/2b5c626cfa364d425b5ebe568e383b1fbe6802bf/experiments/divisor_extrema/20261110_c62_exact_schedule_certificate.json",
+      "encoding": "utf-8",
+      "sha": "dc56c363b550fe4ed6d88978df98452a1dcf75d1"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
