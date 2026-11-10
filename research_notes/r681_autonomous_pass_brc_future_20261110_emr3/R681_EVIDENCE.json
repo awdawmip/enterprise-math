@@ -1,0 +1,87 @@
+{
+  "schema": "R681_EXACT_FINITE_CERTIFICATE_V1",
+  "predecessor": "R680@151d820a1c776fe4b1401ab0a23b1d0867c13883",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "population": {
+    "biases": 6,
+    "initial_triads": 20,
+    "legal_pass_words": 6,
+    "histories": 720,
+    "prefix_occurrences": 2880
+  },
+  "observer": {
+    "state": "(u,M,S); fixed w and typed candidate encoding",
+    "distinct_states_by_prefix": [
+      120,
+      114,
+      117,
+      48
+    ],
+    "total_distinct_future_states": 399,
+    "complete_suffix_signature_checks": 2880
+  },
+  "scheduler": {
+    "rule": "max_e (max_T(7 Phi_e(S,T)+w.c(T)),w[a_e]-w[b_e]) on unused PASS",
+    "priority_edge_gradient": {
+      "A": -2,
+      "B": 3,
+      "C": -1
+    },
+    "autonomous_runs": 120,
+    "order_counts": {
+      "ABC": 10,
+      "ACB": 6,
+      "BAC": 45,
+      "BCA": 40,
+      "CAB": 11,
+      "CBA": 8
+    },
+    "candidate_ties_at_first_event": {
+      "1": 59,
+      "2": 10,
+      "3": 51
+    },
+    "candidate_ties_at_second_event": {
+      "1": 110,
+      "2": 10
+    },
+    "initial_012_traces": {
+      "(-4, -3, -2, 10)": {
+        "word": "BCA",
+        "final_triad": "123"
+      },
+      "(-3, -2, -4, 10)": {
+        "word": "BAC",
+        "final_triad": "025"
+      },
+      "(-2, -4, -3, 10)": {
+        "word": "BCA",
+        "final_triad": "034"
+      },
+      "(2, 4, 3, -10)": {
+        "word": "BCA",
+        "final_triad": "023"
+      },
+      "(3, 2, 4, -10)": {
+        "word": "BAC",
+        "final_triad": "023"
+      },
+      "(4, 3, 2, -10)": {
+        "word": "BAC",
+        "final_triad": "023"
+      }
+    },
+    "bias_needed_witness": {
+      "initial_S": "013",
+      "first_pass_by_bias": [
+        "C",
+        "A",
+        "A",
+        "B",
+        "B",
+        "B"
+      ]
+    }
+  },
+  "observed_scope": "declared three-PASS once-each grammar and R680 6 baseline biases; exact integer arithmetic"
+}
