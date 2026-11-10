@@ -1,0 +1,232 @@
+{
+  "status": "ALL_EXACT_ASSERTIONS_PASS",
+  "run": "2026-11-10",
+  "frozen_task_source": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "R691 E* X6 native labeled four-step square, direction sigma repeated each macro, 15 equally weighted unordered axis pairs",
+  "observer": "return to input S3 frame after k macros",
+  "raw_four_step_paths": 360,
+  "numerical_semantics": "exact safe integers: k<=6 and all counts <=15^6",
+  "cases": [
+    {
+      "root_phase_a": 0,
+      "sigma": "--",
+      "group_counts": {
+        "021": 9,
+        "012": 6
+      },
+      "return_numerators_k0_k6": [
+        1,
+        6,
+        117,
+        1674,
+        25353,
+        379566,
+        5695677
+      ]
+    },
+    {
+      "root_phase_a": 0,
+      "sigma": "-+",
+      "group_counts": {
+        "120": 3,
+        "021": 6,
+        "012": 6
+      },
+      "return_numerators_k0_k6": [
+        1,
+        6,
+        72,
+        891,
+        11664,
+        158436,
+        2213973
+      ]
+    },
+    {
+      "root_phase_a": 0,
+      "sigma": "+-",
+      "group_counts": {
+        "201": 6,
+        "012": 6,
+        "021": 3
+      },
+      "return_numerators_k0_k6": [
+        1,
+        6,
+        45,
+        594,
+        9153,
+        136566,
+        1998189
+      ]
+    },
+    {
+      "root_phase_a": 0,
+      "sigma": "++",
+      "group_counts": {
+        "120": 3,
+        "201": 6,
+        "012": 6
+      },
+      "return_numerators_k0_k6": [
+        1,
+        6,
+        72,
+        1107,
+        16848,
+        253206,
+        3797361
+      ]
+    },
+    {
+      "root_phase_a": 1,
+      "sigma": "--",
+      "group_counts": {
+        "120": 6,
+        "201": 3,
+        "012": 6
+      },
+      "return_numerators_k0_k6": [
+        1,
+        6,
+        72,
+        1107,
+        16848,
+        253206,
+        3797361
+      ]
+    },
+    {
+      "root_phase_a": 1,
+      "sigma": "-+",
+      "group_counts": {
+        "120": 6,
+        "012": 9
+      },
+      "return_numerators_k0_k6": [
+        1,
+        9,
+        81,
+        945,
+        14337,
+        234009,
+        3727377
+      ]
+    },
+    {
+      "root_phase_a": 1,
+      "sigma": "+-",
+      "group_counts": {
+        "201": 3,
+        "012": 12
+      },
+      "return_numerators_k0_k6": [
+        1,
+        12,
+        144,
+        1755,
+        22032,
+        287712,
+        3919833
+      ]
+    },
+    {
+      "root_phase_a": 1,
+      "sigma": "++",
+      "group_counts": {
+        "012": 15
+      },
+      "return_numerators_k0_k6": [
+        1,
+        15,
+        225,
+        3375,
+        50625,
+        759375,
+        11390625
+      ]
+    },
+    {
+      "root_phase_a": 2,
+      "sigma": "--",
+      "group_counts": {
+        "012": 15
+      },
+      "return_numerators_k0_k6": [
+        1,
+        15,
+        225,
+        3375,
+        50625,
+        759375,
+        11390625
+      ]
+    },
+    {
+      "root_phase_a": 2,
+      "sigma": "-+",
+      "group_counts": {
+        "012": 12,
+        "021": 3
+      },
+      "return_numerators_k0_k6": [
+        1,
+        12,
+        153,
+        2052,
+        28593,
+        409212,
+        5961033
+      ]
+    },
+    {
+      "root_phase_a": 2,
+      "sigma": "+-",
+      "group_counts": {
+        "021": 6,
+        "012": 9
+      },
+      "return_numerators_k0_k6": [
+        1,
+        9,
+        117,
+        1701,
+        25353,
+        379809,
+        5695677
+      ]
+    },
+    {
+      "root_phase_a": 2,
+      "sigma": "++",
+      "group_counts": {
+        "021": 9,
+        "012": 6
+      },
+      "return_numerators_k0_k6": [
+        1,
+        6,
+        117,
+        1674,
+        25353,
+        379566,
+        5695677
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "root_phase_a": 0,
+      "least_horizon_for_four_distinct_return_signatures": 3
+    },
+    {
+      "root_phase_a": 1,
+      "least_horizon_for_four_distinct_return_signatures": 1
+    },
+    {
+      "root_phase_a": 2,
+      "least_horizon_for_four_distinct_return_signatures": 1
+    }
+  ],
+  "limits": "Author E* model; no unverified Link/Port, V29 or V39 interpretation"
+}
