@@ -105,7 +105,7 @@ def solve():
     ck(F(868,10)<mulower<F(869,10), 'exact mean bracket')
     return {'schema':'EM_PREFIX668_R6_COUPLED_BLOCK_STRIP_V1',
       'science_pin':'f42f2906d77f24085c123f3ccfe9667d41caa96d',
-      'domain':{'p':['0','1/128'],'z':['607/4096','609/4096'],'q':['12','24']},
+      'domain':{'p':['0','1/64'],'z':['607/4096','609/4096'],'q':['12','24']},
       'taylor_order':R-2,'bernstein_degree':d,'subinterval_count':PARTS,
       'exact_envelopes':{'mu_lower':str(mulower),'mu_pp_lower':str(mu2lower),
          'H_pp_upper':str(H2upper),'W_pp_upper':str(W2upper),'block_W_pp_uppers':[str(x) for x in block_W2upper],
