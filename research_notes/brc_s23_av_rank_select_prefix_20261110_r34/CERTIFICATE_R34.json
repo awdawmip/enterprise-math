@@ -1,0 +1,139 @@
+{
+  "frozen_science": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "theta_interval": {
+    "strict": true,
+    "low_numerator": "262204504569236716045286",
+    "high_numerator": "262204504569236716045287",
+    "denominator": "1000000000000000000000000"
+  },
+  "history_cut_count": 128,
+  "start_n": 128,
+  "end_n": 389,
+  "farey_regimes": [
+    {
+      "start": 128,
+      "end": 164,
+      "lower": "27/103",
+      "upper": "16/61",
+      "interior_last_survivor_events": 36,
+      "delta": [
+        16,
+        -61
+      ],
+      "event_intervals": [
+        [
+          129,
+          164
+        ]
+      ]
+    },
+    {
+      "start": 165,
+      "end": 225,
+      "lower": "43/164",
+      "upper": "16/61",
+      "interior_last_survivor_events": 60,
+      "delta": [
+        -43,
+        164
+      ],
+      "event_intervals": [
+        [
+          166,
+          225
+        ]
+      ]
+    },
+    {
+      "start": 226,
+      "end": 389,
+      "lower": "43/164",
+      "upper": "59/225",
+      "interior_last_survivor_events": 127,
+      "delta": [
+        -43,
+        164
+      ],
+      "event_intervals": [
+        [
+          227,
+          292
+        ],
+        [
+          329,
+          389
+        ]
+      ]
+    }
+  ],
+  "transition_events": [
+    {
+      "n": 165,
+      "delta": [
+        -43,
+        164
+      ]
+    },
+    {
+      "n": 226,
+      "delta": [
+        -43,
+        164
+      ]
+    }
+  ],
+  "positive_events": 225,
+  "zero_events": 36,
+  "complete_oracle_queries": 6,
+  "source_rank_select_calls": "at most 128 per stage; binary suffix counts",
+  "prefix_runs": [
+    {
+      "l": 129,
+      "r": 164,
+      "delta": [
+        16,
+        -61
+      ]
+    },
+    {
+      "l": 165,
+      "r": 292,
+      "delta": [
+        -43,
+        164
+      ]
+    },
+    {
+      "l": 293,
+      "r": 328,
+      "delta": [
+        0,
+        0
+      ]
+    },
+    {
+      "l": 329,
+      "r": 389,
+      "delta": [
+        -43,
+        164
+      ]
+    }
+  ],
+  "R389": [
+    -7551,
+    28800
+  ],
+  "independent_exact_phase_partition_positions": 261,
+  "integrated_quasi_euclidean_batches": 28,
+  "integrated_farey_stages": 78,
+  "integrated_tail_positive_blocks": 148,
+  "integrated_risk_runs": 298,
+  "integrated_risk_N": [
+    -4017401528447,
+    15321634290944
+  ],
+  "full_tsv_sha256": "2573a84999d53dfd1cce772c45a41abaff251da735171efe904c860f2b2294f6",
+  "author_computation_complete": true,
+  "independent_peer_review": false
+}
