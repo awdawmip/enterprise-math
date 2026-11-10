@@ -71,8 +71,10 @@ def curvature_tail(b,d):
  return sum(k*(k-1)*abs(b[k])*d**(k-2) for k in range(3,len(b)))/S**2
 
 def dec(x,n=12,up=False):
- a=(x.numerator*10**n+(x.denominator-1 if up else 0))//x.denominator
- return str(a//10**n)+'.'+str(a%10**n).zfill(n)
+ sign='-' if x<0 else ''
+ y=abs(x)
+ a=(y.numerator*10**n+(y.denominator-1 if up else 0))//y.denominator
+ return sign+str(a//10**n)+'.'+str(a%10**n).zfill(n)
 
 def main():
  rows=make_rows()
