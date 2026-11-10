@@ -12,3 +12,8 @@ Exact scientific pin: 43ec6098b1330ae86d0a7863be336c5d97f6ef34. Reuse R41 pinned
 4. Preserve exact historical owner labels and independent oracle; distinguish written author evidence from review/admission and native X6 correspondence. Reject only the exact current route on a proved counterexample, retaining useful local results.
 
 Deliver full code, source pins, mathematical statement, proof or counterexample, exact re-run evidence and bounded next question in a new author-side research note. Do not invent a shared TASK CLAIM or a Driver review.
+
+
+## Updated verified frontier (2026-11-10)
+
+The full two-path 298-interval integration in item 1 above has now been executed and passed (INTEGRATION_EVIDENCE.md). Consume it as completed work. Active R43 units: consecutive-J source-vector streaming, precision-refinement cost and complete full-compiler bit complexity. Preserve current owners and independent-review requirements.
