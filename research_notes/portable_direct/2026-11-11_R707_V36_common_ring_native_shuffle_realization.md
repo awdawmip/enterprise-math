@@ -67,15 +67,15 @@ With the same 12-Cell directed context graph, the same V20 update, the same Cell
 
 ```text
 H0 = A ; A^- ; B ; B^- :  (0,1,2)
-H1 = A ; B ; A^- ; B^- :  (2,0,1)
-H2 = B ; A ; B^- ; A^- :  (1,2,0)
+H1 = A ; B ; A^- ; B^- :  (1,2,0)
+H2 = B ; A ; B^- ; A^- :  (2,0,1)
 ```
 
 Therefore the coarsened observer retaining Cell-0 endpoint, ring topology, full V29 counts and fixed update law loses a three-element holonomy fiber. At least ceil(log2(3))=2 bits of extra history information are needed to answer the V39 exact h-query for this finite family. Full initial triad configurations distinguish these histories; this is an observer-specific repair claim, not a claim about identical full initial physical states.
 
 ## Exact finite executable check
 
-`R707_NATIVE_RING_SHUFFLE_VERIFY.py` independently implements the canonical slot replacement, validates J(6,3) adjacency of every constituent step and cross-packet join, simulates m synchronous copy-ring layers for each distinct oriented packet ordering, and accumulates the resulting Cell-0 frame tuple. It checks the R706 binomial/factorial closed histogram for (k,l)=(1,1),(1,2),(2,1),(2,2): respectively 24, 180, 180, 2520 full oriented words, 2904 total checked realizations. It also verifies the three displayed 12-Cell witnesses. All integer assertions passed: `R707_NATIVE_RING_BRC_SHUFFLES_EXACT_PASS`.
+`R707_NATIVE_RING_SHUFFLE_VERIFY.py` independently implements the canonical slot replacement, validates J(6,3) adjacency of every constituent step and cross-packet join, simulates m synchronous copy-ring layers for each distinct oriented packet ordering, and accumulates the resulting Cell-0 frame tuple. It checks the R706 binomial/factorial closed histogram for (k,l)=(1,1),(1,2),(2,1),(2,2): respectively 24, 180, 180, 2520 full oriented words, 2904 total checked realizations. It also verifies the three displayed 12-Cell witnesses. The checker propagates the slot-to-axis list and then inverts it to output the V17/V37 native displayed axis-to-slot tuple; this matters for distinguishing the two inverse three-cycles, although the complete histogram is invariant under their exchange. All integer assertions passed: `R707_NATIVE_RING_BRC_SHUFFLES_EXACT_PASS`.
 
 The checker performs the V36 consequence X_i(t+1)=X_{i+1}(t) and uses V36's published K unique-max lemma as an imported exact model premise. The V29 overlay counts are derived symbolically from its explicit schedule, with no continuous/arbitrary-precision approximation.
 
