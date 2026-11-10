@@ -190,3 +190,44 @@ The methodological BRC content is an explicit, typed distinction between the aux
 **Next research unit:** derive exact tangent-cone inequalities at the three-edge minimizer segment, test whether any non-diagonal Blackwell realization can leave the segment with 4–9 positive edges, and map the resulting legal lower-support strata to the already certified 14/15 boundary. Preserve the original frozen physical input and all provenance.
 
 Source identity: `EM-DIRECT-C534A2 / TASK_RESEARCH`; research activity `RA-A797EAA416A7AF97A8A79E39`. Formal R5 Owner/CLAIM remains unconfirmed; this author-side evidence is not a Source Result or an independent review.
+
+
+## 8. Stronger result: complete 3/4/5/6 support stratification of the physical equality locus
+
+The four-dimensional lawful family from Section 4 admits a **complete exact minimum-support classification**. It is stronger than isolated rational witnesses. Write the same equality-family coordinates as
+
+$$
+x=y=(1,a,1,u,v,w,a/10),\quad
+0\le a\le1,\quad
+0\le u\le13a/40+1/80,\quad
+0\le w\le3a/40+21/80,\quad
+a/10\le v\le a/10+9/40.
+$$
+
+At every point of this family, equality of source and target margins makes the diagonal coupling feasible. The minimum number of positive edges equals **exactly the number of positive source columns**: each column needs an outgoing edge, while the diagonal coupling attains that bound. Moreover any coupling *attaining this minimum* is diagonal, because each source column then has a single edge, and distinct likelihood ratios force that edge to be $(j,j)$.
+
+Define $c_1=13a/40+1/80-u$, $c_2=(1-a)/2$, $c_5=3a/40+21/80-w$. All three are nonnegative physical masses. There are exactly two cases.
+
+**Case A (ordinary locus).** If at least one of $u,w,a/10,v-a/10$ is strictly positive, both $\nu_0$ and $\nu_6$ are strictly positive. The column-3 mass is always positive. Consequently the *exact global (over couplings for this pair) support count* is
+
+$$
+\boxed{m(x,x)=3+\mathbf1_{c_1>0}+\mathbf1_{c_2>0}+\mathbf1_{c_5>0}.}
+$$
+
+Each of the eight possible strict/zero patterns of $(c_1,c_2,c_5)$ is attainable in the lawful four-dimensional physical equality family. Thus the strata are nonempty and have the following **relative** dimensions inside the equality family: minimum-3 has dimension 1 (all three zero); minimum-4 has dimension 2 (exactly two zero); minimum-5 has dimension 3 (exactly one zero); minimum-6 has dimension 4 (none zero). Their indicated relative interiors give genuine nonempty cells/chambers of the equality-locus stratification.
+
+**Case B (exceptional corner).** If $u=w=a/10=v-a/10=0$, then $a=u=v=w=0$ and the exact physical point is $x=y=(1,0,1,0,0,0,0)$. Here $\nu_0=\nu_6=0$ and precisely the four columns $(1,2,3,5)$ are positive, so $m(x,x)=4$. This is an *additional isolated zero-dimensional minimum-4 stratum*, not included in Case A.
+
+Exact rational witnesses checked with the original 13 physical capacities, source normalization and all 21 Blackwell conditions include:
+
+| Support minimum | Physical parameter tuple $x=y$ | Positive source columns |
+|---|---|---|
+| 3 | $(1,1,1,27/80,1/10,27/80,1/10)$ | $0,3,6$ |
+| 4 (ordinary) | $(1,1,1,27/80,1/5,1/8,1/10)$ | $0,3,5,6$ |
+| 4 (isolated) | $(1,0,1,0,0,0,0)$ | $1,2,3,5$ |
+| 5 | $(1,1,1,1/5,1/5,1/8,1/10)$ | $0,1,3,5,6$ |
+| 6 | $(1,1/2,1,1/20,1/10,1/16,1/20)$ | $0,1,2,3,5,6$ |
+
+The finite checker STRATA.py and local execution output STRATA_OUTPUT.txt accompany the original global minimum proof and initial VERIFY.py. The universal classification is the source-column/diagonal martingale argument together with the complete sign partition above; the five explicit samples are exact witnesses of nonemptiness.
+
+This establishes a **nested 1D–2D–3D–4D diagonal-support hierarchy**, plus an exceptional isolated 4-edge corner, using only the original frozen P/Q–BRC model and no new coordinate or observer assumptions. The next question is whether non-diagonal *nearby* physical pairs admit 4–9-edge couplings, and what tangent-cone crossings attach to these diagonal strata.
