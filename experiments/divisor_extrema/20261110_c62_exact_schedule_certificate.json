@@ -1,0 +1,77 @@
+{
+  "schema": "C62_EXACT_FINITE_EVIDENCE_V1",
+  "event_id": "prime-c62-schedule-extrema-20261110-286bae2ce7",
+  "date": "2026-11-10",
+  "proof_source": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "c1b02040c8c3aa6086fe8e1ef76dd940adb0ac23",
+    "path": "research_notes/divisor_extrema/20261110_c62_schedule_extrema_and_short_sync.md",
+    "blob": "5ba6dea796742f8d68150426906d210a661ad98d"
+  },
+  "method": "Complete weak-composition enumeration using Fraction; independent inherited three-state and explicit latent-branch comparisons; symbolic positive-polynomial certificates.",
+  "coverage": {
+    "k_min": 2,
+    "k_max": 10,
+    "schedules": 125475,
+    "schedule_count_formula": "binomial(2*k-1,k)",
+    "unique_minimizer_each_tested_k": "(523)^(k-1)23",
+    "zero_gaps": 0
+  },
+  "finite_records": [
+    {
+      "k": 3,
+      "count": 10,
+      "min": "575/139861568",
+      "max": "281175/864923392",
+      "max_allocation": [
+        0,
+        2,
+        0,
+        0
+      ]
+    },
+    {
+      "k": 5,
+      "count": 126,
+      "min": "70580886025/42350045934394332272908",
+      "max": "441476943590475/226991814366973130752",
+      "max_allocation": [
+        0,
+        2,
+        2,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "k": 10,
+      "count": 92378,
+      "min": "913206202072422226540327946212386861575203125/2612197157220190563347862208716706773584951636552867573231554895649826074226",
+      "max": "190069185814683053632122483823110144289474939997485500/20514842528874661921882007932807720627194174956494798486683880487",
+      "max_allocation": [
+        0,
+        2,
+        2,
+        0,
+        3,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "additional_checks": {
+    "inherited_schedule_rows": 174,
+    "matched_scores": 522,
+    "adjacent_exchange_identities": 310,
+    "explicit_complete_word_branches": 54,
+    "native_BRC_operations": 54
+  },
+  "status": "ALL_DECLARED_ASSERTIONS_PASSED",
+  "proof_scope": "All-k optimal logarithmic orders are proved in the linked note. Exact unique minimizer only exhaustively established for k=2..10.",
+  "artifact": "prime_quantum_schedule_extrema_c62.zip"
+}
