@@ -1,0 +1,29 @@
+# Actual locally executed exact-rational two-dimensional polygon vertex enumeration
+# Command: python /mnt/data/r5_eight_edge/verify_polygon.py
+# Coordinates refer to exact nullspace basis K7=ker(N7*T) produced by SymPy
+# in source predecessor parameterization, around the printed rational 7-edge point.
+# At every vertex there are NO zero selected seven-edge weights.
+UNIQUE_FEASIBLE_VERTICES 5 CANDIDATE_PAIRS 231
+VERTICES
+0 (-6899170269277912947477/9212164544517818510000000, 376811033021285560719/918460410671546926150000)
+   active_edges [] capacity_zero_indices [1,2,4,6,14,15,19,21,23,24]
+1 (362635427709548057451904055871/2158198272996000967067270000000, 376811033021285560719/918460410671546926150000)
+   active_edges [] capacity_zero_indices [1,2,4,6,14,15,19,21,23,25]
+2 (9675118179609320059437542821895397/430237462180989008976423311890000000, -1522047091472381043931193/14255321840870605610637500)
+   active_edges [] capacity_zero_indices [1,4,6,7,11,14,15,19,21,23]
+3 (10204271613217382848424377226727/133988621046710996255503990000000, -1522047091472381043931193/14255321840870605610637500)
+   active_edges [] capacity_zero_indices [1,4,6,7,14,15,19,21,23,25]
+4 (-6899170269277912947477/9212164544517818510000000, -4831729232300899241453889/92480315336168416685600000)
+   active_edges [] capacity_zero_indices [1,4,6,11,14,15,19,21,23,24]
+MIN_SELECTED_SEVEN_EDGE_WEIGHTS
+(0,0) 570031933801575355927/3025154085489542635200
+(3,3) 14170803349658977/52340117054042400
+(4,3) 239395417525/4981713920508
+(4,5) 95758167010/1245428480127
+(6,5) 239395417525/4981713920508
+(6,6) 16939155808730941927/3025154085489542635200
+(0,3) 1196977087625/89670850569144
+PASS_EXACT_BOUNDED_7_EDGE_POLYGON_WITH_NO_6_EDGE_BIODEGENERATION
+# Boundedness check evaluated each +/- perpendicular to each nonzero
+# inequality row normal plus +/- coordinate-axis direction as extreme-ray candidates.
+# Exact global polygon minimal support=7 also uses six strict dual bounds at every vertex.
