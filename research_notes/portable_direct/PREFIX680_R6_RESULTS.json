@@ -1,0 +1,47 @@
+{
+  "title": "PREFIX-680-R6",
+  "date": "2026-11-11",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": "independent frozen 189-row BRC Poissonized diagonal-edge observer",
+  "center": "53/1000",
+  "radius": "1/625000",
+  "q_band": [
+    "447/25",
+    "901/50"
+  ],
+  "comparison": "D_q(z)=V_q(z,z)-V_q(0,z)=q*A(z)*(q-q0(z))",
+  "claims": [
+    "437/1000 < A(z) < 444/1000",
+    "789/100 < B(z) < 791/100",
+    "45000 < q0_prime(z) < 100000",
+    "unique transverse crossover z_q in I for every real q in J",
+    "sign D_q(z)>0 left of z_q and D_q(z)<0 right of z_q"
+  ],
+  "third_derivative_bounds": {
+    "A": "218571424275456",
+    "B": "69527880576"
+  },
+  "center_jets_floor_times_100000000": {
+    "A0": 44000296,
+    "A1": -168056589514,
+    "A2": -6667624082229,
+    "B0": 789752024,
+    "B1": 12845959424,
+    "B2": -99127959112,
+    "q0": 1794878866,
+    "q0_prime": 6884631251314,
+    "q0_second": 52862665534319200
+  },
+  "conservative_exact_slope_enclosure_floor_ceiling": {
+    "lower_floor": 45427,
+    "upper_ceiling": 92872
+  },
+  "survivor_rows": 189,
+  "occupied_cells": 9529,
+  "width_multiplier_over_PREFIX678": "14000/19",
+  "radius_multiplier_over_PREFIX678": 528,
+  "verification": "Python int/Fraction exact model replay: ALL_CHECKS_PASS",
+  "status": "AUTHOR_DERIVED_EXACT_INTEGER_FRACTION_RECOMPUTED_UNREVIEWED_NOT_ADMITTED",
+  "proof": "research_notes/portable_direct/2026-11-11_r6_prefix680_third_order_large_crossover_band.md",
+  "checker": "research_notes/portable_direct/PREFIX680_R6_EXACT_THIRD_ORDER_CROSSOVER_CERTIFICATE.py"
+}
