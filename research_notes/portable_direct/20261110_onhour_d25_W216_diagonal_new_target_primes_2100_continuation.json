@@ -39,9 +39,36 @@
       "max_terms": 2685619
     },
     "precision": "For each p: W_{p^r} modulo p^13, D divisible by p^(3r) checked before computing E modulo p^4",
-    "global_proof": "NONE; exact finite computation only"
+    "global_proof": "NONE; exact finite computation only",
+    "three_scale_exact_identity": "C_(p,r)=W_(p^(r+1))-(chi_p*p+p^3)*W_(p^r)+chi_p*p^4*W_(p^(r-1))=p^(3r+3)*(E_(p,r+1)-E_(p,r)); if E are p-integral, v_p(E_diff)>=r iff C=0 mod p^(4r+3). The digit is C/p^(4r+3) mod p.",
+    "integral_witnesses": [
+      {
+        "p": 109,
+        "r": 1,
+        "C_mod_p_4r_plus4": "8591783867838443",
+        "digit": 47
+      },
+      {
+        "p": 109,
+        "r": 2,
+        "C_mod_p_4r_plus4": "1212800410493541658983323",
+        "digit": 47
+      },
+      {
+        "p": 139,
+        "r": 1,
+        "C_mod_p_4r_plus4": "7017810579005653",
+        "digit": 7
+      },
+      {
+        "p": 139,
+        "r": 2,
+        "C_mod_p_4r_plus4": "2619755994683623009784773",
+        "digit": 7
+      }
+    ]
   },
-  "next_action": "Priority 1: authorized original H0/B0 evaluator to compute frozen p=373 native [X]U mod 139129, rank, semilinear eta, odd signed kappa, Delta-R and independent replay; existing #1559 PENDING_OWNER. Separately derive or counterexample a finite p-block transfer bound v_p(E_{p,r+1}-E_{p,r})>=r; no repeated unbounded scans.",
+  "next_action": "Priority 1 native: authorized frozen p373 H0/B0 [X]U mod139129/rank/eta/signed kappa/Delta-R, independent verification via existing #1559 (PENDING_OWNER). Mathematical: attack exact three-scale W216 integral operator C_(p,r)≡0 mod p^(4r+3), prove or refute via existing p-block transport; preserve already completed finite sample sets.",
   "native": {
     "support_issue": 1559,
     "state": "NOT_RUN/PENDING_OWNER",
