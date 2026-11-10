@@ -105,7 +105,8 @@ def main():
         gap=lo-b1
         lip=q*q*DW+q*Dmu
         loss=2*h*lip
-        ck(gap>0 and gap>loss,'entire rectangle wins')
+        ck(gap>0,'point beats B maximum')
+        ck(gap>loss,'entire rectangle wins')
         slot[str(q)]={
           'witness_variance_interval_strict':[str(lo),str(hi)],
           'prior_box_max_interval_strict':[str(b0),str(b1)],
