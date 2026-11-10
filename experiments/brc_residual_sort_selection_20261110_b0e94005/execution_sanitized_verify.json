@@ -1,0 +1,178 @@
+{
+  "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "selected_cpu": 1,
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "dependency_checks": [
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/adaptive_bench.cpp",
+      "hash_kind": "sha256",
+      "hash": "c98662a7ed38858c186dfd238c4b6b1d1bacdd51cff891ba7f5591c583d831a9",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/adaptive_kernels.hpp",
+      "hash_kind": "sha256",
+      "hash": "6461477abf5cadd4b8c54429ba39c5da073bfb6ac0a194f21ee39fa01b81f25b",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/run_experiment.py",
+      "hash_kind": "sha256",
+      "hash": "b9fc3c916db505a4731a8a9371bd2c05308c51c8d06ea05c8b0ef247c4043365",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench.cpp",
+      "hash_kind": "sha256",
+      "hash": "d1f9d696ad8f02efad7d79adfca55087dac0a060e4ec4977cb3bc1c597256d26",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_kernels.hpp",
+      "hash_kind": "sha256",
+      "hash": "46b6ad5f0a7791c733cb8920ee34a01adfade778035c13c14a7390516c8eea68",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/run_experiment.py",
+      "hash_kind": "sha256",
+      "hash": "e1f401dfde343216ad15cf73f5341e67a8dabeb522fdc703a4df1133d4a526e6",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp",
+      "hash_kind": "sha256",
+      "hash": "596cf4add967669ec1feb02344f49ec448bd4c0b927ed9b791cc03d802b86468",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_kernels.hpp",
+      "hash_kind": "sha256",
+      "hash": "2890d16a360fa9c874dc8de1edec1508f9522602397fc2cb7fbe6e2da55cb192",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/flat_frequency.hpp",
+      "hash_kind": "sha256",
+      "hash": "3993c376b0160e87eee16acb7ca3e832fa2e7ac227320b909bb922f53f89350a",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp",
+      "hash_kind": "git_blob_sha1",
+      "hash": "868723dc6b627b7230d4c54149d276537138b7aa",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp",
+      "hash_kind": "git_blob_sha1",
+      "hash": "3c5a7302066f333a084101a3ab08b37f974660de",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/vendor/pdqsort.h",
+      "hash_kind": "git_blob_sha1",
+      "hash": "36360cd1d69d0bd6977d9ba2313b10612b889142",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/vendor/license.txt",
+      "hash_kind": "git_blob_sha1",
+      "hash": "41d496076f0e134ba66096cf89acee8e124afef5",
+      "result": "PASS"
+    }
+  ],
+  "adaptive_scientific_commit": "1001e80fd510c8de6a9761dc20068e0e3c8c671d",
+  "source_sha256": {
+    "selection_bench.cpp": "b1ffc89eadba94ab620276a600a65412b6d7b5716d661b384c3092c8e3c183c9",
+    "selection_kernels.hpp": "323b790c1540ccc0d69cb2af2c3300ac172e2a7b062e134b01e08063d83566fc",
+    "prepare_frozen_include.py": "8e00e354333c2b48ca38cab917122d87a0a76c91b209ab2794530a18ca2c1af1",
+    "run_experiment.py": "0b9790275060609f9c0544aab60260efd755ef500f4257440b53a422b27b9e3d"
+  },
+  "sanitizer_options": {
+    "ASAN_OPTIONS": "detect_leaks=0"
+  },
+  "performance_subset": "all",
+  "performance_output": "/workspace/scratch/b0e94005ad9c/brc_selection_sort/results_all.csv",
+  "commands": [
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/b0e94005ad9c/brc_selection_sort/prepare_frozen_include.py",
+        "--adaptive-source",
+        "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/adaptive_bench.cpp",
+        "--robust-source",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench.cpp",
+        "--sampled-source",
+        "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp",
+        "--output-dir",
+        "/workspace/scratch/b0e94005ad9c/brc_selection_sort/build"
+      ],
+      "started_at_utc": "2026-11-10T09:15:00.788122+00:00",
+      "elapsed_seconds": 0.02997164199996405,
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS\", \"files\": [{\"source\": \"/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/adaptive_bench.cpp\", \"source_sha256\": \"c98662a7ed38858c186dfd238c4b6b1d1bacdd51cff891ba7f5591c583d831a9\", \"output\": \"/workspace/scratch/b0e94005ad9c/brc_selection_sort/build/adaptive_frozen_include.hpp\", \"replacements\": 1, \"generated_sha256\": \"9f0fb2c804810f882bc58a68a188ef451fa35acc02b927e1088b8f2564ca4c95\"}, {\"source\": \"/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench.cpp\", \"source_sha256\": \"d1f9d696ad8f02efad7d79adfca55087dac0a060e4ec4977cb3bc1c597256d26\", \"output\": \"/workspace/scratch/b0e94005ad9c/brc_selection_sort/build/robust_frozen_include.hpp\", \"replacements\": 1, \"generated_sha256\": \"885d8b5d29ccac4de77094e6432bced23192f815e28261ea9d81938452174ba6\"}, {\"source\": \"/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp\", \"source_sha256\": \"596cf4add967669ec1feb02344f49ec448bd4c0b927ed9b791cc03d802b86468\", \"output\": \"/workspace/scratch/b0e94005ad9c/brc_selection_sort/build/sampled_frozen_include.hpp\", \"replacements\": 1, \"generated_sha256\": \"1984bae19f3118d58f279d0d187ae4bec71a1ebde9a1b2508656490ec93330f1\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-march=native",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DBRC_BASE_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp\"",
+        "-DBRC_LOCAL_KERNELS=\"/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp\"",
+        "-DBRC_SAMPLED_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_selection_sort/build/sampled_frozen_include.hpp\"",
+        "-DBRC_ROBUST_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_selection_sort/build/robust_frozen_include.hpp\"",
+        "-DBRC_ADAPTIVE_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_selection_sort/build/adaptive_frozen_include.hpp\"",
+        "-I",
+        "/workspace/scratch/b0e94005ad9c/brc_sampled_sort",
+        "-I",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort",
+        "-I",
+        "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort",
+        "/workspace/scratch/b0e94005ad9c/brc_selection_sort/selection_bench.cpp",
+        "-o",
+        "/workspace/scratch/b0e94005ad9c/brc_selection_sort/build/selection_bench_sanitized"
+      ],
+      "started_at_utc": "2026-11-10T09:15:00.818455+00:00",
+      "elapsed_seconds": 50.77654428200003,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "In file included from /workspace/scratch/b0e94005ad9c/brc_selection_sort/build/sampled_frozen_include.hpp:11,\n                 from /workspace/scratch/b0e94005ad9c/brc_selection_sort/build/robust_frozen_include.hpp:6,\n                 from /workspace/scratch/b0e94005ad9c/brc_selection_sort/build/adaptive_frozen_include.hpp:6,\n                 from /workspace/scratch/b0e94005ad9c/brc_selection_sort/selection_bench.cpp:5:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp: In function \u2018int brc_previous_experiment_main(int, char**)\u2019:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp:712:1: warning: control reaches end of non-void function [-Wreturn-type]\n  712 | }\n      | ^\n"
+    },
+    {
+      "argv": [
+        "taskset",
+        "-c",
+        "1",
+        "/workspace/scratch/b0e94005ad9c/brc_selection_sort/build/selection_bench_sanitized",
+        "--verify"
+      ],
+      "started_at_utc": "2026-11-10T09:15:51.616595+00:00",
+      "elapsed_seconds": 2.196607542000038,
+      "exit_code": 0,
+      "stdout": "{\"result\":\"PASS\",\"algorithm_candidates\":26,\"new_variants_checked\":3,\"verified_input_arrays\":734,\"verified_algorithm_outputs\":4456,\"exhaustive_short_arrays\":341,\"lifted_arrays\":340,\"random_boundary_arrays\":32,\"focused_cases\":21,\"frozen_ablation_reference_outputs\":52,\"density_helper_cases\":8,\"gap_helper_cases\":48884,\"fused_helper_cases\":6,\"paths_exercised\":17,\"all_node_membership_oracle_checked\":true,\"output_ablation_decisions_checked\":true,\"new_selector_output_parity_checked\":true,\"fresh_heldout_banks_evaluated\":false}\n",
+      "stderr": ""
+    }
+  ],
+  "binary_sha256": "779ad123cda20c27e5a69d6985dd5e9e855e54f446ccb06bb1540970dbd0bee6",
+  "result": "PASS"
+}

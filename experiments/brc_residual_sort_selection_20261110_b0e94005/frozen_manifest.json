@@ -1,0 +1,57 @@
+{
+  "frozen_at_utc": "2026-11-10T09:20:16.303185+00:00",
+  "fresh_input_generation_started": false,
+  "performance_started": false,
+  "policy": "All three phase-three policies, generator, candidate roster and analysis fixed before calibration. No selection tuning based on calibration in this phase.",
+  "measurement": "CPU0; serial; all26 candidates; eight banks; seven randomized within-process rounds; .012 second per candidate-round target with whole-bank cycles; full uint64 sorting including copy/allocation/setup/output/destruction.",
+  "files": {
+    "selection_bench.cpp": {
+      "sha256": "b1ffc89eadba94ab620276a600a65412b6d7b5716d661b384c3092c8e3c183c9",
+      "bytes": 53272
+    },
+    "selection_kernels.hpp": {
+      "sha256": "323b790c1540ccc0d69cb2af2c3300ac172e2a7b062e134b01e08063d83566fc",
+      "bytes": 25044
+    },
+    "prepare_frozen_include.py": {
+      "sha256": "8e00e354333c2b48ca38cab917122d87a0a76c91b209ab2794530a18ca2c1af1",
+      "bytes": 2100
+    },
+    "run_experiment.py": {
+      "sha256": "0b9790275060609f9c0544aab60260efd755ef500f4257440b53a422b27b9e3d",
+      "bytes": 8410
+    },
+    "analyze_results.py": {
+      "sha256": "ff63e52ae122224abf0034fe14fb459017209a27181e623648e7446677067141",
+      "bytes": 8997
+    },
+    "DESIGN.md": {
+      "sha256": "6efea91c8dd242b80a4e96fa787b2d13a74122f25bdff3be763d5715388829da",
+      "bytes": 2951
+    },
+    "THEORY.md": {
+      "sha256": "3958afc46b297b52b78e49b9a5c09236f50d415b413819ac78ca329ec78bee86",
+      "bytes": 20186
+    },
+    "selection_certificate.py": {
+      "sha256": "f05d9e7913b4a7ca5ceebc4692dbfd6d5a43dbbaa64c708c37b05c4d980b30d9",
+      "bytes": 1432
+    },
+    "selection_certificate_results.json": {
+      "sha256": "f1c15df9b9a26cded46296dece2e8af668167c6aa4a2e88a977b7f1014c0e131",
+      "bytes": 1200
+    },
+    "execution_harness_verify_v2.json": {
+      "sha256": "6722242843806dd3471d5f0c90018e45ea0f4d20793577d5d86071776972d9aa",
+      "bytes": 8908
+    },
+    "execution_sanitized_verify.json": {
+      "sha256": "f884c1e499584d02e753601dac15ef7a7af609705b72608608059b461e0a6b23",
+      "bytes": 9036
+    },
+    "build/selection_bench": {
+      "sha256": "575694d50074851633d8db2cdf310720efbe08a2e1a4f38ede5e8587bec980a0",
+      "bytes": 804256
+    }
+  }
+}

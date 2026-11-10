@@ -1,0 +1,28 @@
+{
+  "recorded_date": "2026-11-10",
+  "source": "selection_certificate.py",
+  "execution_kind": "Exact selector enumeration; no sorter performance run",
+  "source_preservation": "The already executed stdin source is retained verbatim in selection_certificate.py; the observed result is preserved here without rerunning the enumeration after saving.",
+  "domain": {
+    "bins": 3,
+    "widths_each": [1, 2, 3, 4, 5],
+    "learning_masses_each": [1, 2, 3, 4, 5],
+    "budgets": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "sample_mass": "sum of the three learning masses",
+    "exact_reference": "all eight subsets"
+  },
+  "cases": 156250,
+  "certified_sample_optimal": 121805,
+  "certified_half_mass_infeasible": 37660,
+  "greedy_half_fail_with_feasible_exact": 1629,
+  "first_failure": {
+    "widths": [1, 1, 2],
+    "learning_masses": [1, 3, 5],
+    "budget": 2,
+    "greedy_mass": 4,
+    "exact_best_mass": 5,
+    "fractional_upper_floor": 5
+  },
+  "result": "PASS",
+  "observed_stdout": "{'cases': 156250, 'certified_sample_optimal': 121805, 'certified_half_mass_infeasible': 37660, 'greedy_half_fail_with_feasible_exact': 1629, 'first_failure': ((1, 1, 2), (1, 3, 5), 2, 4, 5, 5), 'result': 'PASS'}\n"
+}
