@@ -1,0 +1,72 @@
+{
+  "schema": "R686_BRC_S3_COCYCLE_CERTIFICATE_V1",
+  "date": "2026-11-10",
+  "task": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "predecessor": "R685@8505a08128e307c5ffbba1dd0522f66f515a401e",
+  "scope": "abstract V17 active triad transitions J(6,3), exact rational BRC, NOT native physical X6 time",
+  "coverage": {
+    "triads": 20,
+    "neighbors": 9,
+    "frames_each": 6,
+    "directed_frame_edge_checks": 1080,
+    "reachable_states": 120,
+    "triangles": {
+      "identity": 18,
+      "transposition": 18
+    },
+    "shortest_return_lengths": {
+      "102": 3,
+      "120": 4,
+      "201": 4,
+      "210": 3,
+      "012": 0,
+      "021": 3
+    }
+  },
+  "witnesses": {
+    "L": [
+      "012",
+      "013",
+      "023",
+      "012"
+    ],
+    "K": [
+      "012",
+      "013",
+      "123",
+      "012"
+    ],
+    "L_frame": "021",
+    "K_frame": "210",
+    "LK_frame": "201",
+    "KL_frame": "120",
+    "same_directed_edge_histogram": {
+      "(0, 1, 2):(0, 1, 3)": 2,
+      "(0, 1, 3):(0, 2, 3)": 1,
+      "(0, 1, 3):(1, 2, 3)": 1,
+      "(0, 2, 3):(0, 1, 2)": 1,
+      "(1, 2, 3):(0, 1, 2)": 1
+    },
+    "event_steps": 6,
+    "exact_BRC_frame_mass": {
+      "120": "1/2",
+      "201": "1/2"
+    },
+    "both_even_permutations": true
+  },
+  "theorems": {
+    "cocycle": "p_next=r(S,T)p",
+    "holonomy": "full S3",
+    "first_nonidentity_return": 3,
+    "first_three_cycle_return": 4,
+    "abelian_quotient": "commutator subgroup A3 erased by homomorphic abelian readout"
+  },
+  "not_claimed": [
+    "V29 PASS = arbitrary V17 edge",
+    "native X6 Link/Cell",
+    "V39 j",
+    "physical duration",
+    "independent Driver approval"
+  ]
+}
