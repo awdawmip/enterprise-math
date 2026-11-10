@@ -4,7 +4,7 @@
 // Prints full verified JSON to stdout (redirect to a file if desired).
 const assert = require('node:assert/strict');
 const E=[0,1,2], A=[0,2,1], B=[1,0,2];
-const compose=(next,prev)=>prev.map(i=>next[i]); // V39 h(gamma;r)=h(r) o h(gamma)
+const compose=(next,prev)=>next.map(i=>prev[i]); // native V17/V37 slot tuple: A then B -> 201
 const key=x=>x.join(''), unpack=s=>[...s].map(Number);
 const parity=x=>{let n=0;for(let i=0;i<3;i++)for(let j=i+1;j<3;j++)n+=(x[i]>x[j])?1:0;return n%2;};
 const choose=(n,k)=>{let p=1n;for(let i=1;i<=k;i++)p=p*BigInt(n-i+1)/BigInt(i);return p;};
@@ -31,7 +31,7 @@ assert.equal(dp[2][2].get(key(E)),4n);
 for(const x of Object.values(witnesses))assert.equal(parity(x),0);
 const result={research_unit:'R703',status:'R703_S3_TWO_PACKET_SUPPORT_EXACT_PASS',
   a_range:[0,N],b_range:[0,N],complete_count_pairs:checks,
-  v38_generators:{A,B},v39_composition:'next o previous',
+  v38_generators:{A,B},v39_composition:'native V17/V37 slot-tuple (A then B -> 201)',
   support_theorem:'1 if a*b=0; 2 if min(a,b)=1 and a*b>0; 3 if min(a,b)>=2',
   zero_current_four_packet_witness_holonomies:witnesses,
   four_oriented_packet_histogram:{identity:16,cycle1:4,cycle2:4},
