@@ -1,0 +1,7 @@
+# R39 candidate — shared Euclidean rank/select for remaining narrow arcs
+
+Mother objective: exact source-provenance-preserving risk evolution in S23/AV finite-horizon auxiliary rotation observer, and usable extensions to new historical lengths and rotation parameters. Keep frozen S23 scientific pin `43ec6098b1330ae86d0a7863be336c5d97f6ef34`, preserve Source-native P000, and keep theorem admission separate from author-side proof.
+
+Verified author frontier: R37 suffix-saturation theorem; R38 one-winding q-lane selector for `theta=p/q+eta`, `q*eta<=historical_arc_width`. In seven exact tests, last-source vectors matched a separate per-arc Floor Sum oracle. The high-partial-quotient m=21 case uses 63 lane candidates (0 Floor Sum) vs 581 reference counts. The mixed m=257 test selects 212 arcs by lanes and 45 by fallback, costing 636 lane candidates plus 1245 fallback counts rather than 7109 all-arc reference count calls.
+
+Next discriminating problem: for the narrow 45 arcs, share Euclidean/Floor Sum intermediary remainders across endpoints. Compare (i) offline multi-arc cumulative endpoint count tables, and (ii) Ostrowski digit block decomposition with complete owner labels. Evaluate q growing, m=16,32,128,257, input precision and integer bit complexity; preserve an independent per-arc exact oracle and one brute-force small-window test. Determine whether the shared method improves total cost including preprocessing and output recovery. Remain on independent author research unless current native live owner/claim authorizes shared task mutation.
