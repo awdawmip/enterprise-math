@@ -1,6 +1,6 @@
 # Enterprise Math R34 — Exact arc-max floor-sum and source-select prefix compiler
 
-Date: 2026-11-10. Frozen science: \`43ec6098b1330ae86d0a7863be336c5d97f6ef34\`. Parent: R33 Draft PR #1935 (\`18d43c744aaed7041e5f7e87f98d278489b6aa57\`), R32 Draft PR #1929 (\`87fdeff1cba7055f50a5fd8dadaad390476d9da1\`). Scope: the auxiliary irrational-circle S23/AV observer; author-side derivation and exact finite tests.
+Date: 2026-11-10. Frozen science: `43ec6098b1330ae86d0a7863be336c5d97f6ef34`. Parent: R33 Draft PR #1935 (`18d43c744aaed7041e5f7e87f98d278489b6aa57`), R32 Draft PR #1929 (`87fdeff1cba7055f50a5fd8dadaad390476d9da1`). Scope: the auxiliary irrational-circle S23/AV observer; author-side derivation and exact finite tests.
 
 ## 1. New theorem — source-indexed arc maxima by floor sums
 
@@ -80,7 +80,7 @@ Exact floor-sum/select returns **36, 60 and 127** interior-stage source events, 
 
 The compiler never iterates all 261 prefix update positions. An independent oracle **does** reconstruct all 261 complete phase partitions at both rational endpoints as a regression; its results agree exactly with the floor-sum risk query at each \(n\). This distinction is deliberate: generation is bulk, validation exhaustive finite.
 
-Using R33's exact quotient-prefix Farey jumps for the following stages and R31's applicable two-block source-age theorem for later stages, the complete horizon \(128\le n\le10^{12}+128\) produces **78 Farey stages, 28 quotient decisions, 148 later positive blocks, 298 maximal affine runs**. The canonical R32 fixture comparison is byte-for-byte identical, with SHA-256 \`2573a84999d53dfd1cce772c45a41abaff251da735171efe904c860f2b2294f6\`. Final value:
+Using R33's exact quotient-prefix Farey jumps for the following stages and R31's applicable two-block source-age theorem for later stages, the complete horizon \(128\le n\le10^{12}+128\) produces **78 Farey stages, 28 quotient decisions, 148 later positive blocks, 298 maximal affine runs**. The canonical R32 fixture comparison is byte-for-byte identical, with SHA-256 `2573a84999d53dfd1cce772c45a41abaff251da735171efe904c860f2b2294f6`. Final value:
 
 \[
  \boxed{R_{10^{12}+128}=-4017401528447+15321634290944\theta.}
@@ -90,7 +90,7 @@ Extra generic finite regressions on the same enclosure give exact agreement of t
 
 ## 4. Reproducibility and bit cost
 
-\`VERIFY_R34_PORTABLE.py\` is a standalone Python 3 standard-library exact-parameter checker of the 3-stage bulk prefix plus the 298-run compiler and output digest. \`VERIFY_R34.py\` is the fully independent local regression checker (261 separate phase sorts), preserved in the conversation artifact. \`VERIFY_R34_GENERAL.py\` tests \(m=64,256\). All listed tests were actually executed with integer arithmetic.
+`VERIFY_R34_PORTABLE.py` is a standalone Python 3 standard-library exact-parameter checker of the 3-stage bulk prefix plus the 298-run compiler and output digest. `VERIFY_R34.py` is the fully independent local regression checker (261 separate phase sorts), preserved in the conversation artifact. `VERIFY_R34_GENERAL.py` tests \(m=64,256\). All listed tests were actually executed with integer arithmetic.
 
 For an arc, each class-presence query is at most two Euclidean floor sums; a last-source query requires \(O(\log n)\) such counts. With \(m\) historical arcs and \(S\) Farey stages, the generic source-selection operation count is \(O(mS\log N\log D)\) Euclidean integer divisions, plus historical-arc phase ordering, Farey-stage generation and output integration; this is a loose arithmetic-operation upper bound when all \(m\) sources require last-select in each stage. The frozen fast path uses only 3 prefix stages and 223 successful source selects, then two constant-size blocks per eligible later stage. Bit operands scale with the parameter denominator \(D\), the index horizon \(N\), and coefficient size; division is not treated as unit bit cost. The raw input must furnish a certified rational enclosure, and exact affine outputs retain their integer bit lengths.
 
