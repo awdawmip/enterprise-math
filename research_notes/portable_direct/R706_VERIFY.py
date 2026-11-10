@@ -39,7 +39,9 @@ for k in range(25):
         examples.append({"k":k,"l":l,"binary_shuffles":str(C),"D":str(T),"W_e":str(E),"W_c_each":str(O),"oriented_multiplier":str(M),"oriented_e":str(E*M),"oriented_c_each":str(O*M),"identity_bias_ratio": f"{T}/{C}"})
 for k in range(1,25):
     assert term(k,k) <= 3**(2*k)
+    assert term(k,k)*(4*k+1) >= 3**(2*k)
     assert term(k,k) <= comb(4*k,2*k)
+    assert comb(4*k,2*k)*(4*k+1) >= 16**k
 j={"result":"R706_S3_SHUFFLE_CLOSED_FORM_PASS", "group_generators":{"A":a,"B":b,"AB":c,"BA":ci},"checked_even_count_pairs":checks,"domain":"0 <= k,l <= 24; exact integer DP and factorial-sum formula", "formula":"C=binom(2k+2l,2k); D=sum_{r=0}^{min(k,l)}(k+l)!/((k-r)!(l-r)!(2r)!); W_e=(C+2D)/3; W_AB=W_BA=(C-D)/3", "examples":examples}
 with open(Path(__file__).with_name('R706_RESULTS.json'),'w') as f: json.dump(j,f,indent=2,ensure_ascii=False)
 print(j['result'],checks,"pairs", "examples", examples)
