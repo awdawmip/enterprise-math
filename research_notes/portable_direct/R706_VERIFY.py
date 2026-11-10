@@ -24,10 +24,22 @@ for n in range(1,97):
 def term(k,l):
     return sum(factorial(k+l)//(factorial(k-r)*factorial(l-r)*factorial(2*r)) for r in range(min(k,l)+1))
 
+def term_recur(k,l):
+    t=comb(k+l,k)
+    total=t
+    for r in range(min(k,l)):
+        numer=t*(k-r)*(l-r)
+        denom=(2*r+1)*(2*r+2)
+        assert numer%denom==0
+        t=numer//denom
+        total+=t
+    return total
+
 checks=0; examples=[]
 for k in range(25):
  for l in range(25):
     z=D[(2*k,2*l)]; C=comb(2*k+2*l,2*k); T=term(k,l)
+    assert term_recur(k,l)==T
     assert (C+2*T)%3==0 and (C-T)%3==0, (k,l)
     E=(C+2*T)//3; O=(C-T)//3
     assert z.get(e,0)==E and z.get(c,0)==O and z.get(ci,0)==O, (k,l,z,E,O)
@@ -42,6 +54,9 @@ for k in range(1,25):
     assert term(k,k)*(4*k+1) >= 3**(2*k)
     assert term(k,k) <= comb(4*k,2*k)
     assert comb(4*k,2*k)*(4*k+1) >= 16**k
-j={"result":"R706_S3_SHUFFLE_CLOSED_FORM_PASS", "group_generators":{"A":a,"B":b,"AB":c,"BA":ci},"checked_even_count_pairs":checks,"domain":"0 <= k,l <= 24; exact integer DP and factorial-sum formula", "formula":"C=binom(2k+2l,2k); D=sum_{r=0}^{min(k,l)}(k+l)!/((k-r)!(l-r)!(2r)!); W_e=(C+2D)/3; W_AB=W_BA=(C-D)/3", "examples":examples}
+for k in range(101):
+ for l in range(101):
+    assert term_recur(k,l)==term(k,l)
+j={"result":"R706_S3_SHUFFLE_CLOSED_FORM_PASS", "group_generators":{"A":a,"B":b,"AB":c,"BA":ci},"checked_even_count_pairs":checks,"checked_recurrence_pairs":10201,"domain":"0 <= k,l <= 24; exact integer DP and factorial-sum formula", "formula":"C=binom(2k+2l,2k); D=sum_{r=0}^{min(k,l)}(k+l)!/((k-r)!(l-r)!(2r)!); W_e=(C+2D)/3; W_AB=W_BA=(C-D)/3", "examples":examples}
 with open(Path(__file__).with_name('R706_RESULTS.json'),'w') as f: json.dump(j,f,indent=2,ensure_ascii=False)
 print(j['result'],checks,"pairs", "examples", examples)
