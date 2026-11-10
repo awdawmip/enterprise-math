@@ -36,13 +36,12 @@ A second, separately written program re-enumerates full alphabet words by DFA re
 
 ## Exact files and reproducibility
 
-Evidence bundle `EC49FGQ_EVIDENCE_20261110.tar.xz.b64` (same folder) contains both executed stdlib Python verifiers, full 276-pair-per-profile JSON report, independent crosscheck JSON, the parent witness copy, this explanatory note, and SHA256SUMS. Run:
+The GitHub evidence bundle `EC49FGQ_EVIDENCE_20261110.tar.xz.b64` contains the complete executed standard-library bitmask verifier, the baseline A/B witness source data, and the independent crosscheck's exact summary JSON. Running the bitmask verifier regenerates the full 552-pair JSON report. The separately retained complete local evidence archive additionally contains the independent verifier source, full precomputed report, README and SHA256 checksums. To reproduce the principal GitHub-hosted proof:
 
 ```bash
 base64 -d EC49FGQ_EVIDENCE_20261110.tar.xz.b64 | tar -xJf -
-cd EC49FGQ_EVIDENCE_20261110
+cd remote_min
 python EC49FGQ_TWO_SWAP_EXACT.py
-python EC49FGQ_DIRECT_CROSSCHECK.py
 ```
 
 Next useful action: search exact radius-three neighborhoods, particularly simultaneous H6/H7/H8 changes, pruning with the same fixed-background and per-path difference constraints. A ≤93 certificate would sharpen the upper bound; a complete absence proves the corresponding local obstruction.
