@@ -35,7 +35,7 @@ def proof():
     he=sum((n+1)*(S0[n]+S[n]) for n in range(m.N))-dot(S0,S,J)
     hd1=2*sum((n+1)*S1[n] for n in range(m.N))-2*dot(S1,S,J)
     he1=sum((n+1)*S1[n] for n in range(m.N))-dot(S0,S1,J)
-    hd2=2*sum((n+1)*S2[n] for n in range(m.N))-2*dot(S2,S2 if False else S,J)-2*dot(S1,S1,J)
+    hd2=2*sum((n+1)*S2[n] for n in range(m.N))-2*dot(S2,S,J)-2*dot(S1,S1,J)
     he2=sum((n+1)*S2[n] for n in range(m.N))-dot(S0,S2,J)
     B0,B1,B2=md-me,md1-me1,md2-me2
     A0=2*(hd-he)-md**2+me**2
