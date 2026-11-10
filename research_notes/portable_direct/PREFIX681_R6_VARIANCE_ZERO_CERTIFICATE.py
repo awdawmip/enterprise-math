@@ -30,6 +30,8 @@ def main():
     assert (ar*10**6).__floor__() == -16179
     assert (bl*10**6).__floor__() == 7930886
     assert (br*10**6).__floor__() == 7932168
+    ac, bc = exact_gap(rows, Q(53,1000))
+    assert ac > 0 and 18*ac > bc
     assert right - left == Q(1,100000)
     # PREFIX-680, exact center jet and global 3rd derivative:
     # B(53/1000) > 789/100, B'(53/1000) > 0,
@@ -49,6 +51,7 @@ def main():
       "left_exact_sign_A": "+", "right_exact_sign_A": "-",
       "left_exact_floor_A_1e6": 803, "right_exact_floor_A_1e6": -16179,
       "left_exact_floor_B_1e6": 7930886, "right_exact_floor_B_1e6": 7932168,
+      "center_F18_sign": "+", "crossing_existence_all_real_q_from": "18",
       "inherited_center_jet_source": "PREFIX-680-R6",
       "uniform_B_lower_on_53_over_1000_to_107_over_2000": str(B_lower),
       "conclusion": "at least one A-zero; at its point D_q<-6q for all q>0; B/A has a pole",
