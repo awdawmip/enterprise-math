@@ -1,0 +1,51 @@
+{
+  "schema": "EC49FGY_RADIUS5_EXACT_BUDGET11_TO15_V1",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "model": "original nine-state BRC / signed ordered X6 microstep prefixes",
+  "domain": "all five-label replacement positions with no original-key release, budget B in 11..15",
+  "profiles": [
+    {
+      "witness": "A",
+      "counts": {
+        "all_positions": 3524,
+        "pair_rejected": 1458,
+        "five_tested": 2066,
+        "five_rejected": 2066
+      },
+      "five_rejected_by_budget": {
+        "11": 1376,
+        "12": 13,
+        "13": 421,
+        "14": 214,
+        "15": 42
+      }
+    },
+    {
+      "witness": "B",
+      "counts": {
+        "all_positions": 3524,
+        "pair_rejected": 1484,
+        "five_tested": 2040,
+        "five_rejected": 2040
+      },
+      "five_rejected_by_budget": {
+        "11": 1376,
+        "13": 408,
+        "14": 214,
+        "15": 42
+      }
+    }
+  ],
+  "independent_crosscheck": {
+    "method": "Direct set-DFS, separate catalogue/prefix construction",
+    "sampling": "two cases at each budget 11,12,13,14,15 for each A/B profile, 20 cases total",
+    "result": "all 20 infeasible under exact signed-prefix union budget",
+    "source": "EC49FGY_INDEPENDENT_CHECK.py included in local evidence archive"
+  },
+  "unresolved": {
+    "per_profile_no_key_release": 744,
+    "per_profile_with_key_release": 4898,
+    "per_profile_total": 5642
+  },
+  "claim_strength": "exact finite exhaustive five-way budget range, author calculation; not complete global C_min(7) classification"
+}
