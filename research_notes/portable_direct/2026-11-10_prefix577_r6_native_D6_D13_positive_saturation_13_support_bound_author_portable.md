@@ -1,5 +1,8 @@
 # BRC-X6 原生九根联合观察：D≤13 全正整数饱和与 13 项最优分母下界
 
+> **2026-11-10 provenance correction / 去重声明：** 在本轮 GitHub 发布后回读客户端同一研究 lane 的最新检查点 `EM_H40_TASK_RESEARCH_R11_PORTABLE_20261108@revision 61`，确认 D≤14、D15 的更强定理已于本轮开始前完成，并在 GitHub `59b1c9a6c60ce8d198fba122148fef920501eee4` 持久化。本文件所述 D=13 精确枚举是对已有结论的 **重复验证/补充复算证书，不是新的原始数学进展**，不计入新 completed_units，不新建研究身份或 claim；当前科学前沿按 rev61 恢复至 D16。此前此文件末尾“本轮新前沿”或类似表述仅描述本文件计算相对 D12 文本的增量，不代表相对本 lane 最新 checkpoint 的新成果。此纠偏不撤销独立计算的确切有限事实。
+
+
 2026-11-10 · 科学输入 pin `f42f2906d77f24085c123f3ccfe9667d41caa96d` · **AUTHOR_PROVED / EXACT_FINITE_COMPUTATION_VERIFIED / UNREVIEWED / NOT_ADMITTED**.
 
 本文件是本会话的作者级可移植数学证据；并非原生 Source CLAIM、Result、独立审阅或数学准入。此前同一模型 D≤12 的完整有限分母定理见历史提交 `9bafbdab52ac89b5328084c3074df10bd8dfd45b`，该部分不重复计入本轮发现。
