@@ -29,12 +29,13 @@
     "last_verified_prior_continuation_request": "onhour11-20261110-2305-exact-cont",
     "last_verified_status": "SUCCEEDED",
     "new_read_request": "onhour11-20261110-2355-exact-read",
-    "new_read_status": "QUEUED; later receipt read returned BACKEND_IDENTITY_CHECK_UNAVAILABLE; reconcile same request",
+    "new_read_status": "SUCCEEDED via original request receipt; as-of-source 4dc28da53c6036c80a4098a3b6cd12d92e1d8a69; route PREPARE_TYPED_CONTINUATION_WITH_EXACT_PREDECESSOR_AND_FRONTIER; actor/claim none; does not grant own authority",
     "recovery_status": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
     "historical_session_id": "MCP-5378d3819d8947bda9049c9428493e2d",
     "private_capability_available": false,
     "winning_claim_id": null,
-    "open_run_id": null
+    "open_run_id": null,
+    "reconciled_at": "2026-11-11 Asia/Hong_Kong automation run"
   },
   "published_by": "Author-side GitHub write; NOT native Source checkpoint/Result or reviewed Researcher contribution",
   "completed_units": [
@@ -43,7 +44,7 @@
   "do_not_repeat": [
     "Do not redo accepted D24 UR or prior all-prime mod-p reflection",
     "Do not interpret portable fourth-band data as native H0/B0 experiment",
-    "Do not duplicate the 2355 continuation read request or re-register historical Researcher identity"
+    "Consume verified original 2355 exact continuation read; do not requeue"
   ],
   "next_exact_action": "First reconcile original onhour11-20261110-2355-exact-read with receipt after backend restored; use only own authenticated session for current claim. Obtain real p373 fixed-class H0/B0 native evaluator through issue #1559; execute and independently verify raw [X]U/139129, module rank, Frobenius direction/eta, signed odd Green/Hesse, kappa and original Delta-R. If unavailable, retain PENDING_OWNER and pursue only canonical-allowed portable science without claiming native completion.",
   "source_admission": "UNREVIEWED / NOT_ADMITTED"
