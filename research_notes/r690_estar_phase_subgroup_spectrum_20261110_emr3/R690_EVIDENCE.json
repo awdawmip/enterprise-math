@@ -1,0 +1,129 @@
+{
+  "schema": "R690_ESTAR_BRC_MACRO_COSET_SPECTRUM_V1",
+  "date": "2026-11-10",
+  "parent": "R689@b63c3d60ada517586a649a7e92cd268ed55fdbc7",
+  "candidate": "R687_ESTAR@028d5612f9562bc22ac7593f03426fc32b1a9259",
+  "frozen_science": "RS-X6-TRIADIC-CLOSURE-DYNAMICS@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "R462_pin": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "arithmetic": "exact integer source-path enumeration and positive rational BRC group mass",
+  "scope": "60 equally weighted returning native four-step squares, repeated from same Cell",
+  "observer": "complete V17 S3 frame with source paths retained separately",
+  "native_square_cases": 360,
+  "phases": {
+    "0": {
+      "all_b_identical": true,
+      "macro_counts": {
+        "120": 6,
+        "201": 12,
+        "012": 24,
+        "021": 18
+      },
+      "reachable_subgroup": [
+        "012",
+        "021",
+        "102",
+        "120",
+        "201",
+        "210"
+      ],
+      "minimal_polynomial_integer_ascending": [
+        -2,
+        -43,
+        270,
+        -475,
+        250
+      ],
+      "sample_distributions_integer_counts": {
+        "1": {
+          "120": 6,
+          "201": 12,
+          "012": 24,
+          "021": 18
+        },
+        "2": {
+          "102": 324,
+          "120": 432,
+          "201": 612,
+          "210": 324,
+          "012": 1044,
+          "021": 864
+        },
+        "8": {
+          "102": 27772381695744,
+          "120": 27716274123264,
+          "201": 27919146541824,
+          "210": 27772381695744,
+          "012": 28400416992000,
+          "021": 28380998951424
+        }
+      }
+    },
+    "1": {
+      "all_b_identical": true,
+      "macro_counts": {
+        "120": 12,
+        "201": 6,
+        "012": 42
+      },
+      "reachable_subgroup": [
+        "012",
+        "120",
+        "201"
+      ],
+      "minimal_polynomial_integer_ascending": [
+        -31,
+        141,
+        -210,
+        100
+      ],
+      "sample_distributions_integer_counts": {
+        "1": {
+          "120": 12,
+          "201": 6,
+          "012": 42
+        },
+        "2": {
+          "120": 1044,
+          "201": 648,
+          "012": 1908
+        },
+        "8": {
+          "120": 56673584596224,
+          "201": 54974164243968,
+          "012": 56313851159808
+        }
+      }
+    },
+    "2": {
+      "all_b_identical": true,
+      "macro_counts": {
+        "012": 42,
+        "021": 18
+      },
+      "reachable_subgroup": [
+        "012",
+        "021"
+      ],
+      "minimal_polynomial_integer_ascending": [
+        2,
+        -7,
+        5
+      ],
+      "sample_distributions_integer_counts": {
+        "1": {
+          "012": 42,
+          "021": 18
+        },
+        "2": {
+          "012": 2088,
+          "021": 1512
+        },
+        "8": {
+          "012": 84035837657088,
+          "021": 83925762342912
+        }
+      }
+    }
+  },
+  "verification_marker": "R690_ESTAR_MACRO_COSET_SPECTRUM_EXACT_PASS"
+}
