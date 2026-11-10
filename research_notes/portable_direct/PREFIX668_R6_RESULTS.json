@@ -1,0 +1,74 @@
+{
+  "schema": "EM_PREFIX668_R6_COUPLED_BLOCK_STRIP_V1",
+  "date": "2026-11-10",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scientific_model": "unchanged PREFIX665 frozen 189-layer, two-direction BRC first-stop statistical observer",
+  "domain": {
+    "p": [
+      "0",
+      "1/64"
+    ],
+    "z": [
+      "607/4096",
+      "609/4096"
+    ],
+    "q": [
+      "12",
+      "24"
+    ],
+    "quantifier": "all real p,z,q in closed domain"
+  },
+  "certificate_parameters": {
+    "survival_layers": 189,
+    "taylor_derivative_order": 26,
+    "signed_polynomial_degree": 23,
+    "bernstein_partitions": 16,
+    "arithmetic": "Python 3 integers + fractions.Fraction; no float decisions"
+  },
+  "exact_rational_brackets": {
+    "mean_lower": [
+      "434/5",
+      "869/10"
+    ],
+    "mu_pp_lower": [
+      "221",
+      "222"
+    ],
+    "H_pp_upper": [
+      "21690",
+      "21691"
+    ],
+    "max_same_block_W_pp_upper": [
+      "-15403",
+      "-15402"
+    ],
+    "intervals_open": true
+  },
+  "derived": {
+    "mu": ">86.8",
+    "mu_pp": ">221",
+    "H_pp": "<21691",
+    "W_pp": "<-15000",
+    "Vq_pp": "<-15000*q^2",
+    "unique_maximizer": "(0,z_star(q)) on this strip; uses PREFIX660 and PREFIX661 edge proofs",
+    "stability": "M_q-V_q(p,z)>=76650*p+7500*q^2*p^2+6400000*(z-z_star(q))^2",
+    "area_gain_vs_prefix667": 2,
+    "area_gain_vs_prefix665": 64
+  },
+  "method": "For each of 16 same-p subintervals, form W_pp upper bound 2*H_pp_upper_i -2*mu_global_lower*mu_pp_lower_i; maximum over coupled blocks is strictly below -15402.",
+  "validation": {
+    "result": "ALL_CHECKS_PASS",
+    "checks": 18,
+    "source": "PREFIX668_R6_COUPLED_BLOCK_CERTIFICATE.py",
+    "full_fraction_numerators_denominators": "printed reproducibly by exact companion executable",
+    "independent_review": false,
+    "formal_admission": false
+  },
+  "dependencies": [
+    "PREFIX665_R6_SIGNED_CURVATURE_CERTIFICATE.py frozen predicate + kernels",
+    "PREFIX660 edge z-star maximum and quadratic gap",
+    "PREFIX661 edge p-normal slope"
+  ],
+  "next": "Refine signed mixed p,z variation for p in [1/64,1/32] or begin global ordered triangle Bernstein upper bound pruning.",
+  "status": "AUTHOR_PROVED / EXACT_FRACTION_REPLAY_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
