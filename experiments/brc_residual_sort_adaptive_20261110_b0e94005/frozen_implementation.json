@@ -1,0 +1,34 @@
+{
+  "frozen_at_utc": "2026-11-10T02:31:43.808524+00:00",
+  "phase": "Adaptive second experiment, after observing phase-one results",
+  "policy_changes_after_calibration": "none",
+  "candidate_count": 23,
+  "control_count": 20,
+  "condition_count": 24,
+  "calibration_conditions": 8,
+  "fresh_seed_bank_conditions": 12,
+  "mechanism_conditions": 4,
+  "fresh_million_element_conditions": [
+    "adaptive_fresh_narrow_offsets",
+    "adaptive_fresh_tail_2p5pct_high",
+    "adaptive_fresh_uniform_uint64"
+  ],
+  "calibration_scope": "Exactly8 known phase-one input-bank conditions; the previous phase-one fresh cases are now known calibration, not heldout.",
+  "heldout_scope": "Fresh targeted seed banks, frozen before any generation/timing; known distribution families and newly larger contamination rates.",
+  "banks": 8,
+  "rounds": 7,
+  "target_seconds_per_candidate_round": 0.012,
+  "performance_cpu": 0,
+  "files": {
+    "adaptive_bench.cpp": "c98662a7ed38858c186dfd238c4b6b1d1bacdd51cff891ba7f5591c583d831a9",
+    "adaptive_kernels.hpp": "6461477abf5cadd4b8c54429ba39c5da073bfb6ac0a194f21ee39fa01b81f25b",
+    "prepare_frozen_include.py": "c95586d037071abf635a61b12550b7151ec829632153767c99035223adafa4d7",
+    "run_experiment.py": "b9fc3c916db505a4731a8a9371bd2c05308c51c8d06ea05c8b0ef247c4043365",
+    "analyze_results.py": "f34fa3ee3ad9acb459179472f2b56a84e7a657d5d7d4053aa9e83b80824419bb"
+  },
+  "optimized_binary_sha256": "131ffe42f261e423cfd02762dfcd6982737e7701e70126b95e74e8bd9f3cdaef",
+  "phase_one_scientific_commit": "085ff2fb544cd2bfc85beb75cfd72ed15f6a0569",
+  "calibration_receipt": "execution_calibration.json",
+  "verification_receipt": "execution_optimized_verify_v2.json",
+  "selection_policy": "Original compact interval or ordinary grid when eligible; otherwise original-full-sample rank cuts S/64,S/16,S/4 as enabled. Prune widest rows until budget fits as enabled, with retained learning mass>=ceil(original S/2). First eligible model gets one actual scan; half-size actual contraction, otherwise radix. No post-scan model retry."
+}

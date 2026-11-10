@@ -1,0 +1,155 @@
+{
+  "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+  "selected_cpu": 1,
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "dependency_checks": [
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench.cpp",
+      "hash_kind": "sha256",
+      "hash": "d1f9d696ad8f02efad7d79adfca55087dac0a060e4ec4977cb3bc1c597256d26",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_kernels.hpp",
+      "hash_kind": "sha256",
+      "hash": "46b6ad5f0a7791c733cb8920ee34a01adfade778035c13c14a7390516c8eea68",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/run_experiment.py",
+      "hash_kind": "sha256",
+      "hash": "e1f401dfde343216ad15cf73f5341e67a8dabeb522fdc703a4df1133d4a526e6",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp",
+      "hash_kind": "sha256",
+      "hash": "596cf4add967669ec1feb02344f49ec448bd4c0b927ed9b791cc03d802b86468",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_kernels.hpp",
+      "hash_kind": "sha256",
+      "hash": "2890d16a360fa9c874dc8de1edec1508f9522602397fc2cb7fbe6e2da55cb192",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/flat_frequency.hpp",
+      "hash_kind": "sha256",
+      "hash": "3993c376b0160e87eee16acb7ca3e832fa2e7ac227320b909bb922f53f89350a",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp",
+      "hash_kind": "git_blob_sha1",
+      "hash": "868723dc6b627b7230d4c54149d276537138b7aa",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp",
+      "hash_kind": "git_blob_sha1",
+      "hash": "3c5a7302066f333a084101a3ab08b37f974660de",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/vendor/pdqsort.h",
+      "hash_kind": "git_blob_sha1",
+      "hash": "36360cd1d69d0bd6977d9ba2313b10612b889142",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/vendor/license.txt",
+      "hash_kind": "git_blob_sha1",
+      "hash": "41d496076f0e134ba66096cf89acee8e124afef5",
+      "result": "PASS"
+    }
+  ],
+  "robust_scientific_commit": "085ff2fb544cd2bfc85beb75cfd72ed15f6a0569",
+  "source_sha256": {
+    "adaptive_bench.cpp": "c98662a7ed38858c186dfd238c4b6b1d1bacdd51cff891ba7f5591c583d831a9",
+    "adaptive_kernels.hpp": "6461477abf5cadd4b8c54429ba39c5da073bfb6ac0a194f21ee39fa01b81f25b",
+    "prepare_frozen_include.py": "c95586d037071abf635a61b12550b7151ec829632153767c99035223adafa4d7",
+    "run_experiment.py": "b9fc3c916db505a4731a8a9371bd2c05308c51c8d06ea05c8b0ef247c4043365"
+  },
+  "sanitizer_options": {
+    "ASAN_OPTIONS": "detect_leaks=0"
+  },
+  "performance_subset": "all",
+  "performance_output": "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/results_all.csv",
+  "commands": [
+    {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/prepare_frozen_include.py",
+        "--robust-source",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench.cpp",
+        "--sampled-source",
+        "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp",
+        "--output-dir",
+        "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/build"
+      ],
+      "started_at_utc": "2026-11-10T02:31:42.321951+00:00",
+      "elapsed_seconds": 0.12942669200037926,
+      "exit_code": 0,
+      "stdout": "{\"result\": \"PASS\", \"files\": [{\"source\": \"/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench.cpp\", \"source_sha256\": \"d1f9d696ad8f02efad7d79adfca55087dac0a060e4ec4977cb3bc1c597256d26\", \"output\": \"/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/build/robust_frozen_include.hpp\", \"replacements\": 1, \"generated_sha256\": \"885d8b5d29ccac4de77094e6432bced23192f815e28261ea9d81938452174ba6\"}, {\"source\": \"/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp\", \"source_sha256\": \"596cf4add967669ec1feb02344f49ec448bd4c0b927ed9b791cc03d802b86468\", \"output\": \"/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/build/sampled_frozen_include.hpp\", \"replacements\": 1, \"generated_sha256\": \"1984bae19f3118d58f279d0d187ae4bec71a1ebde9a1b2508656490ec93330f1\"}]}\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "g++",
+        "-std=c++20",
+        "-Wall",
+        "-Wextra",
+        "-march=native",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DBRC_BASE_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp\"",
+        "-DBRC_LOCAL_KERNELS=\"/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp\"",
+        "-DBRC_SAMPLED_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/build/sampled_frozen_include.hpp\"",
+        "-DBRC_ROBUST_SOURCE=\"/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/build/robust_frozen_include.hpp\"",
+        "-I",
+        "/workspace/scratch/b0e94005ad9c/brc_sampled_sort",
+        "-I",
+        "/workspace/scratch/b0e94005ad9c/brc_robust_sort",
+        "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/adaptive_bench.cpp",
+        "-o",
+        "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/build/adaptive_bench_sanitized"
+      ],
+      "started_at_utc": "2026-11-10T02:31:42.451863+00:00",
+      "elapsed_seconds": 58.03835508799966,
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": "In file included from /workspace/scratch/b0e94005ad9c/brc_adaptive_sort/build/sampled_frozen_include.hpp:11,\n                 from /workspace/scratch/b0e94005ad9c/brc_adaptive_sort/build/robust_frozen_include.hpp:6,\n                 from /workspace/scratch/b0e94005ad9c/brc_adaptive_sort/adaptive_bench.cpp:6:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp: In function \u2018int brc_previous_experiment_main(int, char**)\u2019:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp:712:1: warning: control reaches end of non-void function [-Wreturn-type]\n  712 | }\n      | ^\n"
+    },
+    {
+      "argv": [
+        "taskset",
+        "-c",
+        "1",
+        "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/build/adaptive_bench_sanitized",
+        "--verify"
+      ],
+      "started_at_utc": "2026-11-10T02:32:40.516821+00:00",
+      "elapsed_seconds": 1.6059000710001783,
+      "exit_code": 0,
+      "stdout": "{\"result\":\"PASS\",\"algorithm_candidates\":23,\"new_variants_checked\":3,\"verified_input_arrays\":732,\"verified_algorithm_outputs\":4392,\"exhaustive_short_arrays\":341,\"lifted_arrays\":340,\"random_boundary_arrays\":32,\"focused_cases\":19,\"paths_exercised\":15,\"exact_ladder_ties_checked\":true,\"independent_pruning_order_oracle_checked\":true,\"actual_prefix_membership_oracle_checked\":true,\"sample_mass_rejection_checked\":true,\"empty_pruning_proposal_checked\":true,\"actual_half_contraction_checked\":true,\"child_pruning_checked\":true,\"forced_depth_checked\":true,\"instrumented_and_nullptr_checked\":true,\"unchanged_baseline_receipts_reused\":true,\"fresh_heldout_banks_evaluated\":false}\n",
+      "stderr": ""
+    }
+  ],
+  "binary_sha256": "a0f4d36fcf1a2ae6547ce69a384621fe4523ca44503ce7bc5f2545f5294048b6",
+  "result": "PASS"
+}

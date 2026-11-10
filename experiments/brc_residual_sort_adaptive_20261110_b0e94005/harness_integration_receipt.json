@@ -1,0 +1,46 @@
+{
+  "receipt": "execution_optimized_verify_v2.json",
+  "verification": {
+    "result": "PASS",
+    "algorithm_candidates": 23,
+    "new_variants_checked": 3,
+    "verified_input_arrays": 732,
+    "verified_algorithm_outputs": 4392,
+    "exhaustive_short_arrays": 341,
+    "lifted_arrays": 340,
+    "random_boundary_arrays": 32,
+    "focused_cases": 19,
+    "paths_exercised": 15,
+    "exact_ladder_ties_checked": true,
+    "independent_pruning_order_oracle_checked": true,
+    "actual_prefix_membership_oracle_checked": true,
+    "sample_mass_rejection_checked": true,
+    "empty_pruning_proposal_checked": true,
+    "actual_half_contraction_checked": true,
+    "child_pruning_checked": true,
+    "forced_depth_checked": true,
+    "instrumented_and_nullptr_checked": true,
+    "unchanged_baseline_receipts_reused": true,
+    "fresh_heldout_banks_evaluated": false
+  },
+  "source_hashes_match_after_compile": {
+    "adaptive_bench.cpp": true,
+    "adaptive_kernels.hpp": true,
+    "prepare_frozen_include.py": true,
+    "run_experiment.py": true
+  },
+  "binary_sha256": "131ffe42f261e423cfd02762dfcd6982737e7701e70126b95e74e8bd9f3cdaef",
+  "conditions": 24,
+  "stages": {
+    "calibration": 8,
+    "heldout": 12,
+    "mechanism": 4
+  },
+  "fresh_million_conditions": [
+    "adaptive_fresh_narrow_offsets",
+    "adaptive_fresh_tail_2p5pct_high",
+    "adaptive_fresh_uniform_uint64"
+  ],
+  "benchmark_calls_by_harness_agent": 0,
+  "compiler_stderr": "In file included from /workspace/scratch/b0e94005ad9c/brc_adaptive_sort/build/sampled_frozen_include.hpp:11,\n                 from /workspace/scratch/b0e94005ad9c/brc_adaptive_sort/build/robust_frozen_include.hpp:6,\n                 from /workspace/scratch/b0e94005ad9c/brc_adaptive_sort/adaptive_bench.cpp:6:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp: In function \u2018int brc_previous_experiment_main(int, char**)\u2019:\n/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp:712:1: warning: control reaches end of non-void function [-Wreturn-type]\n  712 | }\n      | ^\n"
+}
