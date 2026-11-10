@@ -1,0 +1,69 @@
+{
+  "schema": "EM_PREFIX665_R6_SIGNED_P_CURVATURE_STRIP_V1",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "domain": {
+    "p": [
+      "0",
+      "1/4096"
+    ],
+    "z": [
+      "607/4096",
+      "609/4096"
+    ],
+    "q": [
+      "12",
+      "24"
+    ]
+  },
+  "center_exact_rational_brackets": {
+    "mu": [
+      "89.455",
+      "89.456"
+    ],
+    "mu_pp": [
+      "231",
+      "232"
+    ],
+    "H_pp": [
+      "10472",
+      "10474"
+    ],
+    "mu_ppp": [
+      "8308",
+      "8310"
+    ],
+    "H_ppp": [
+      "526257",
+      "526260"
+    ],
+    "mu_ppz": [
+      "-7322",
+      "-7320"
+    ],
+    "H_ppz": [
+      "-330968",
+      "-330964"
+    ]
+  },
+  "signed_enclosures": {
+    "mean_lower_rational": "4527621/51200",
+    "mu_pp_error_upper_rational": "37547206677619/2199023255552",
+    "H_pp_error_upper_rational": "15323198055973819/8796093022208",
+    "mu_pp_lower_rational": "470427165354893/2199023255552",
+    "H_pp_upper_rational": "107453476370580411/8796093022208",
+    "W_pp_upper_rational": "-754511415287856738753/56294995342131200"
+  },
+  "theorem": "mu_pp>210; W_pp<-12000; V_q,pp<-12000*q^2 on rectangle for all real 12<=q<=24",
+  "stability": "M_q - V_q(p,z) >= 76650*p + 6000*q^2*p^2 + 6400000*(z-z_star(q))^2",
+  "unique_maximizer": "(0,z_star(q))",
+  "area_gain_vs_PREFIX664": 8,
+  "proof_dependencies": [
+    "PREFIX-659 frozen model and edge mean",
+    "PREFIX-660 strict boundary z curvature",
+    "PREFIX-661 boundary p-gradient",
+    "PREFIX-664 kernel and Bernstein derivation"
+  ],
+  "checks_passed": 4920,
+  "result": "ALL_CHECKS_PASS",
+  "status": "AUTHOR_PROVED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
