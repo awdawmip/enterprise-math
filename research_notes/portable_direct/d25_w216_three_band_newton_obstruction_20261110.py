@@ -111,3 +111,22 @@ if __name__=="__main__":
         q2=independent_q2_p4(p)
         assert q2==expected*p**3
         print("STRICT_MOD_P4_COUNTERWITNESS",p,q2,expected)
+
+def grade2_by_grade1_reflection(p):
+    """Independently reuse established A_k*A_(p-k) leading unit theorem."""
+    m=(p-1)//6
+    vals=list(coefficients(p,p,4))
+    s=0
+    for k in range(2*m+1,3*m+1):
+        A=vals[k][1]
+        assert vals[k][2]==1
+        u=(A//p)%p
+        s=(s+(1-6*k)*pow((6*k**3*u)%p,-1,p))%p
+    return s
+
+if __name__=="__main__":
+    for p in (7,13,19,37,43,73,109,373):
+        direct=signed_firstjet(p)["S0_S1_S2"][2]
+        reflection=grade2_by_grade1_reflection(p)
+        assert direct==reflection
+        print("GRADE2_FROM_SIGNED_GRADE1_REFLECTION",p,reflection)
