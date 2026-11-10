@@ -1,0 +1,46 @@
+{
+  "schema": "EM_PREFIX664_R6_K1_BERNSTEIN_LOCAL_MEAN_STRIP_V1",
+  "date": "2026-11-10",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "domain": {
+    "p": [
+      "0",
+      "1/32768"
+    ],
+    "z": [
+      "607/4096",
+      "609/4096"
+    ],
+    "q": [
+      "12",
+      "24"
+    ]
+  },
+  "integer_budgets": {
+    "A0": "13800",
+    "A1": "670800",
+    "B2": "45727338888",
+    "C0": "485400",
+    "C1": "28815600",
+    "E2": "7240161990600"
+  },
+  "mean_uniform_upper_rational": "1629075806660385760079/18014398509481984000",
+  "mean_uniform_strict": "<91",
+  "gradient_loss_exact": "314339667689549517864494883454305/4951760157141521099596496896",
+  "gradient_loss_strict": "<64000",
+  "gradient_strict": "d_p V_q < -12650",
+  "unique_maximizer": "(0,z_star(q))",
+  "stability": "M_q-V_q(p,z) >= 12650*p+6400000*(z-z_star(q))^2",
+  "area_gain_vs_prefix663": 4,
+  "area_gain_vs_prefix662": 64,
+  "area_gain_vs_prefix661": 32768,
+  "dependencies": [
+    "PREFIX-659 exact mean at Q and score bound",
+    "PREFIX-660 z-band strict concavity",
+    "PREFIX-661 boundary inward p-gradient",
+    "PREFIX-662 low-count recurrence / moment kernels"
+  ],
+  "checks_passed": 758,
+  "result": "ALL_CHECKS_PASS",
+  "status": "AUTHOR_DERIVED / EXACT_RATIONAL_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
