@@ -39,6 +39,6 @@ int main(int argc,char**argv){
  for(size_t e=d+1;e<omit.size();++e)
   n7omit+=((mandatory|omit[a]|omit[b]|omit[c]|omit[d]|omit[e])==FULL);
  cout<<"EXACT_5 "<<n5<<"\nEXACT_6 "<<n6<<"\nEXACT_7 "<<n7
- "<<"\nSEVEN_WITHOUT_3_1_1 "<<n7omit"<<"\nSEVEN_WITH_3_1_1 "<<(n7-n7omit)<<"\n";
+ <<"\nSEVEN_WITHOUT_3_1_1 "<<n7omit<<"\nSEVEN_WITH_3_1_1 "<<(n7-n7omit)<<"\n";
  return (n5==16&&n6==2004&&n7==108434&&n7omit==1956)?0:2;
 }
