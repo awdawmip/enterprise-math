@@ -40,3 +40,25 @@ Theorem A assumes all 20 unordered three-axis types are available at the Cell. L
 Executed standard-library Python exact integers and fractions. Full test program and JSON evidence are in experiments/R708*. Tested every n in {0,1,2,3}^6 with sum divisible by 3 and sum<=12: 1,309 profiles, of which 1,077 are feasible and 232 infeasible, using independent H^m coefficients, first-token count recurrence and greedy witness. Four six-token examples have exact uniform labeled partition probability 1/D, with D=4,10,6,4. Also checked the profile polynomial for m=0..10, and Theorem D for m=1..8. Marker R708_TRIADIC_FEASIBILITY_UNIFORM_BRC_EXACT_PASS. Proofs above apply for all indicated m; finite checks validate the implementation on the stated domain.
 
 Next: inspect the *frozen* native X6 Cell/Link/Port, V29 PASS/TRANSFER and V39 j-flow input bytes; determine one typed A(c,state), enumerate or prove its integer semigroup cover feasibility, and execute a single admissible atomic three-token event with source identity, conservation and native rotation transformation. This candidate study does not claim a native authenticated task Result or independent Driver review.
+
+## Theorem E — Rotation-equivariant, order-free BRC source law
+
+In the same complete-permissive candidate model, for m>=1 and D(n)>0, choose the **next unordered labeled triad** S={u,v,w} of three distinct axes with probability
+
+P(S|n)=D(n-1_{axes(S)})/(m D(n)).
+
+The total mass is exactly 1: count ordered pairs (P,S), with P a full labeled partition and S one of its m constituent triads. There are m D(n) such pairs, while a particular labeled triad S occurs in exactly D(n-1_S) full partitions. The equal-positive-rational weighting is therefore normalized. After choosing S remove its three labeled tokens and recurse. For a fixed full unordered partition P, each ordering of its m distinct triples has probability
+
+prod_{r=m,...,1} D(n_{r-1})/(r D(n_r))=1/(m! D(n)),
+
+and the m! possible orders give the exact final probability 1/D(n). QED.
+
+At the coarse *axis-type* BRC observer the next triple T={i,j,k} has probability
+
+P(T|n)=n_i n_j n_k D(n-e_i-e_j-e_k)/(m D(n)),
+
+where a missing axis makes the term zero. This records how positive mass is partitioned among the 20 types while preserving full token-level provenance upstream.
+
+Let π∈S6 act on native axis indices and simultaneously transport every labeled token and its signed/source metadata; the corresponding count tuple is πn. The axis-type kernel and the labeled-triple kernel satisfy P(πT|πn)=P(T|n), respectively P(πS|πn)=P(S|n), because D(πn)=D(n). The complete labeled partition measure is consequently **exactly S6-equivariant**. This explicitly removes the arbitrary 'first nonzero axis' choice from the operational sampler. It verifies covariance under the known finite axis-permutation skeleton, not the currently open full native rotation generators.
+
+Exact verification: a six-token sample n=(2,2,1,1,0,0) yields type probabilities 1/2 for {0,1,2} and {0,1,3} and zero for the other two possible triple types; all 720 S6 axis permutations preserve these positive-rational masses and their transformed type keys. This finite check illustrates the general proof.
