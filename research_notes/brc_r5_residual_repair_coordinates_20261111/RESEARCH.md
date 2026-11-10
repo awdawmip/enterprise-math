@@ -2,7 +2,7 @@
 
 Date: 2026-11-11 (Asia/Shanghai). Status: author-side exact derivation and executed rational verification.
 Frozen scientific pins (unchanged): global `a01383f825ef9d43b4b754254303298c64041568`, EM `86149263e38c22292c9def1e0f69092efa1be77e`.
-Predecessor: PR #2017 and exact physical witness at `research_notes/brc_r5_six_edge_circuits_20261111/WITNESS.txt` (blob `f9e3671e12604bc29ee2cc07ffc59724bafacc90`). This is the original seven-ratio, 21-observer-row, 30-arc auxiliary Blackwell model, under its fixed original 14-variable physically lawful pair. P000 and native X6 semantics remain unchanged.
+Predecessor: PR #2017 and exact physical witness at `research_notes/brc_r5_six_edge_circuits_20261111/WITNESS.txt` (blob `f9e3671e12604bc29ee2cc07ffc59724bafacc90`). The exact predecessor WITNESS.txt is copied into this note directory to allow execution on a branch whose main base has not merged PR #2017; it is used as a pinned fixture, not a new scientific input. This is the original seven-ratio, 21-observer-row, 30-arc auxiliary Blackwell model, under its fixed original 14-variable physically lawful pair. P000 and native X6 semantics remain unchanged.
 
 ## Theorem 1: constructive lossless fiber coordinates
 
