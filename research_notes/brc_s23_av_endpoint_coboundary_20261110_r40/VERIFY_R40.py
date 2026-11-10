@@ -164,6 +164,7 @@ class CoboundarySelector:
                        'euclidean_floor_sum_calls':0,'owner_count_queries':self.owner_count_queries,
                        'total_request_groups':self.query_groups}
 
+
 def brute(obs,J,N):
     result=[None]*obs.m
     for t in range(J-N,J):result[obs.owner(t,obs.mid)]=t
