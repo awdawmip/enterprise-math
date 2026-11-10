@@ -1,0 +1,37 @@
+{
+  "schema": "EM_PREFIX661_R6_EDGE_TO_STRIP_STABILITY_V1",
+  "date": "2026-11-10",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "predecessor": "PREFIX660_R6_EDGE_CONCAVITY_CERTIFICATE.py",
+  "rectangle": {
+    "p": [
+      "0",
+      "1/1073741824"
+    ],
+    "z": [
+      "607/4096",
+      "609/4096"
+    ]
+  },
+  "uniform_for_real_q": "12<=q<=24",
+  "strict_uniform_p_derivative": "dVq/dp < -73000",
+  "unique_2d_maximizer": "(0,z*(q)) with z*(q) as in PREFIX660",
+  "quantitative_stability": "M(q)-Vq(p,z) >= 73000*p + 6400000*(z-z*(q))^2; strict off maximizer",
+  "q_values": {
+    "12": {
+      "center_inward_p_gradient": "-77040.007814362335",
+      "inward_gradient_taylor_error_upper": "388.691003320",
+      "uniform_edge_inward_gradient_upper": "-76650"
+    },
+    "24": {
+      "center_inward_p_gradient": "-308045.118936370432",
+      "inward_gradient_taylor_error_upper": "1553.905231981",
+      "uniform_edge_inward_gradient_upper": "-306490"
+    }
+  },
+  "p_second_derivative_budget": "3019805554752",
+  "checks_passed": 13,
+  "arithmetic": "integer/Fraction, analytic Bernstein second derivative bound",
+  "status": "AUTHOR_DERIVED / EXACT_RATIONAL_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "next_question": "extend p-strip with sharper mixed partial bounds; full-domain triangular chamber elimination"
+}
