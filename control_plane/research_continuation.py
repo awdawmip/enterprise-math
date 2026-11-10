@@ -365,7 +365,10 @@ def _route(state: Mapping[str, Any], *, result_available: bool | None = None) ->
     elif dispatch == "LEASED":
         role, action = "RESEARCHER", "VERIFY_LIVENESS_THEN_PREPARE_EXPLICIT_TAKEOVER"
     elif dispatch == "NEEDS_DISPATCH":
-        role, action = "RESEARCHER", "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION"
+        role = "RESEARCHER"
+        action = ("PREPARE_TYPED_CONTINUATION_WITH_EXACT_PREDECESSOR_AND_FRONTIER"
+                  if state.get("last_claim_id") else
+                  "REGISTER_NEW_SESSION_AND_CLAIM_CURRENT_PUBLICATION")
     elif dispatch == "COHORT_ACTIVE" or state.get("execution_cohort_id") or state.get("execution_lane_id"):
         role, action = "CONTROL_PLANE_MAINTENANCE", "SUPPORTED_NATIVE_LANE_ADAPTER_REQUIRED"
     else:
@@ -374,8 +377,19 @@ def _route(state: Mapping[str, Any], *, result_available: bool | None = None) ->
         role, action = "CONTROL_PLANE_MAINTENANCE", "SUPPORTED_NATIVE_LANE_ADAPTER_REQUIRED"
     if role == "RESEARCHER" and state.get("kind") == "GOVERNANCE":
         role = "RESEARCH_DRIVER"
-    return {"required_role": role, "action": action, "execution_authorized": False,
-            "requires_predecessor_contact": False, "requires_current_role_authorization": role != "NONE"}
+    route = {"required_role": role, "action": action, "execution_authorized": False,
+             "requires_predecessor_contact": False, "requires_current_role_authorization": role != "NONE"}
+    if action == "PREPARE_TYPED_CONTINUATION_WITH_EXACT_PREDECESSOR_AND_FRONTIER":
+        route["preparation"] = {
+            "operation": "continuation_prepare",
+            "expected_previous_claim_id": state.get("last_claim_id"),
+            "expected_previous_comment_id": state.get("last_claim_comment_id"),
+            "verified_frontier_required": True,
+            "use_current_own_session": True,
+            "ordinary_prepare_allowed": False,
+            "preparation_grants_claim": False,
+        }
+    return route
 
 
 def inventory_projection(*, root: Path, events: list[dict[str, Any]], now: datetime,
