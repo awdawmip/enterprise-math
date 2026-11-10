@@ -1,0 +1,135 @@
+{
+  "schema": "PREFIX641_NATIVE_ROLLING_BENCHMARK_EVIDENCE_V1",
+  "date": "2026-11-10 Asia/Shanghai",
+  "role": "AUTHOR_UNREVIEWED",
+  "input": "48 phases, 96 ports, 576 actions; P0=(485,316,52,174), P1=(52,174)",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "formal_task_publication": "TP2-6A1F9D8C2047E3B51C01",
+  "checks": {
+    "prefix_cut_checks": 60,
+    "native_split_cases": 36,
+    "benchmark_workloads": 13,
+    "raw_benchmark_mode_rows": 31,
+    "status": "ALL_ASSERTIONS_PASS"
+  },
+  "precise_results_sha256": "de7c53c7bd7906f4970ec08a32185442dc273dfdaabbf7f02443f3c831a9a020",
+  "prefix_certificate_sha256": "83d732bbd295dda95a32902eb8ac9d3f41b7badd4b5fb90408e69c1d8e18c111",
+  "source_python_sha256": "0c3c0aaf4cbddfcb3b4ea36ed1eeca91280a49f4434e6dd5bf4139272f65ac25",
+  "certificate_python_sha256": "35396b73c423d65a5c762c8c0c70a0ee2224c01889a08ad176729996a81af068",
+  "cases": [
+    [
+      "one",
+      4,
+      12,
+      0.200284,
+      3.016962,
+      0.081855
+    ],
+    [
+      "rational",
+      4,
+      12,
+      0.196136,
+      2.980195,
+      0.080889
+    ],
+    [
+      "zeros",
+      4,
+      12,
+      0.193258,
+      2.974806,
+      0.087291
+    ],
+    [
+      "one",
+      8,
+      16,
+      0.413747,
+      5.377537,
+      0.234581
+    ],
+    [
+      "rational",
+      8,
+      16,
+      0.424758,
+      5.503661,
+      0.239391
+    ],
+    [
+      "one",
+      16,
+      12,
+      0.435266,
+      null,
+      0.374041
+    ],
+    [
+      "rational",
+      16,
+      12,
+      0.52328,
+      null,
+      0.380033
+    ],
+    [
+      "one",
+      32,
+      16,
+      0.981637,
+      null,
+      1.066061
+    ],
+    [
+      "rational",
+      32,
+      16,
+      1.023744,
+      null,
+      1.029407
+    ],
+    [
+      "one",
+      64,
+      64,
+      2.511673,
+      null,
+      8.184486
+    ],
+    [
+      "rational",
+      64,
+      64,
+      2.681738,
+      null,
+      9.078833
+    ],
+    [
+      "one",
+      128,
+      32,
+      3.721631,
+      null,
+      8.513931
+    ],
+    [
+      "rational",
+      128,
+      32,
+      3.863725,
+      null,
+      9.238607
+    ]
+  ],
+  "columns": [
+    "gate",
+    "L",
+    "windows",
+    "integer_queue_s",
+    "fraction_queue_s_or_null",
+    "native_dp_s"
+  ],
+  "timing_scope": "Single local run; includes native prefix forward transition from t=4, AC step generation, queue build/rebalance, vector contraction, exact Fraction output; 48-phase endpoint inversion not included; all six exact output jets matched original labelled DP.",
+  "full_raw_files": "Full exact JSON (including 36 split tests, 31 mode row bit stats and 60 cut details) in companion local tar reproducibility archive; hash values above are for original bytes, not this summary."
+}
