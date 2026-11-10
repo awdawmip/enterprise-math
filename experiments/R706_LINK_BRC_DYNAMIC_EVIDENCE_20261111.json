@@ -1,0 +1,44 @@
+{
+  "marker": "R706_RECIPROCAL_X6_LINK_BRC_DYNAMICS_EXACT_PASS",
+  "frozen_science_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "mode": "bare reciprocal undirected Boolean Link candidate; 132 initial/middle Links open; 480 terminal Links independent",
+  "paths": 960,
+  "endpoints": 160,
+  "shell_link_counts": [
+    12,
+    120,
+    480
+  ],
+  "total_links": 612,
+  "terminal_links": 480,
+  "sources_per_terminal_link": 2,
+  "endpoint_observer_classes": {
+    "r0": 4,
+    "r1": 6,
+    "r2": 8,
+    "r3": 8
+  },
+  "fixed_code_bits": {
+    "r0": 320,
+    "r1": 414,
+    "r2": 480,
+    "r3": 480
+  },
+  "uniform_toggler": "1/480 per terminal Link",
+  "expected_open_links": "240*(1-(239/240)^n)",
+  "expected_path_sources": "480*(1-(239/240)^n)",
+  "two_step_return": "1/480",
+  "same_endpoint_distinct": "1/240",
+  "different_endpoints": "477/480",
+  "future_loss_witness": {
+    "before": [
+      2,
+      2
+    ],
+    "after_named_q": [
+      0,
+      4
+    ]
+  },
+  "native_binding": "PENDING actual V29 PASS/TRANSFER, V39 j-flow, Link/Port occupancy and TRIADIC_CLOSURE_E; no native acceptance"
+}
