@@ -1,0 +1,27 @@
+Execution: 2026-11-10, Python 3 with sympy; exact rational local reproduction file /mnt/data/r5_margin_audit.py. This is NOT claimed to be stdout from the separately published VERIFY_HALF_CUBE.py blob. Existing 4845+1140 quotient-support exclusions are inherited from immutable PR #1939.
+
+rank C 5 rank marginal 8
+rho_phys 63/75872500 slack index 25 center slack 63/34100000 slope Matrix([[0, 0, 0, 9/40, 0, -1, 0, 1]]) sum abs 89/40
+negative_corner_zstar [0, 0, 0, -63/75872500, 0, 63/75872500, 0, -63/75872500] mu1= -16443/6069800000
+slack25_at_center 63/34100000
+slack25_at_corner 0
+min other slack-at_corner -16443/6069800000
+ratio_to_previous 252000/30349
+comparison {'rho<=14_wt': True, 'rho<13_separator': True, 'tmax<forcing': True, 'max_t': 24631/6069800000}
+EXACT_PHYSICAL_RHO_PASS
+mu1_grad [0, 0, 0, 1/80, -1, 0, 0, 13/4]
+conditional_phys_candidate (273/225912500, 25, 4/13, 159/104)
+conditional_phys_candidate (17073/93775000, 2, 0, 11/2)
+conditional_phys_candidate (12141057409/45028826218750, 21, 3/13, 155/104)
+conditional_phys_candidate (68138017/26009775000, 6, 1, 1017/160)
+conditional_phys_candidate (27372166542451/5812204684893750, 10, 4/13, 108/65)
+conditional_phys_candidate (55409809/5524200000, 0, 40/13, 216/13)
+conditional_phys_candidate (8514839/276210000, 1, 0, 27)
+conditional_phys_candidate (1/20, 5, 0, 1)
+conditional_phys_candidate (33665901328156257/667901249469025000, 12, 0, 179/80)
+conditional_phys_candidate (11098419708727/188249544450000, 13, 40/13, 81/26)
+conditional_phys_candidate (11098419708727/188249544450000, 22, 4/13, 81/260)
+conditional_phys_candidate (943613256359/13944410700000, 18, 0, 1)
+PHYSICAL_CONDITIONAL_SHARP_RADIUS 273/225912500 index 25 opt_lambda 4/13 denominator 159/104 float 1.2084324683229127e-06
+corner_mdotx 0 corner_slack25_slope -159/104 cond_mincost 159/104
+PASS_SHARP_CONDITIONAL_HALF_CUBE
