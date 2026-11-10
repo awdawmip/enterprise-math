@@ -119,6 +119,18 @@ def verify():
     # Exact rational normalized positive BRC kernel: four sources U={0,1}.
     assert {k:Fraction(v,4) for k,v in evidence['kernel']['0:3']['counts'].items()}=={
         '021':Fraction(1,2),'201':Fraction(1,2)}
+    # A static signed-direction mask enables Q iff both axes admit both signs.
+    directed=defaultdict(Counter)
+    for bits in range(1<<12):
+        U=tuple(i for i in range(6)
+            if bits&(1<<(2*i)) and bits&(1<<(2*i+1)))
+        has_mixed=any(i in E for i in U) and any(j in O for j in U)
+        directed[len(U)]['FULL' if has_mixed else 'TRIVIAL']+=1
+    assert [directed[n]['FULL'] for n in range(7)]==[0,0,729,486,135,18,1]
+    assert [directed[n]['TRIVIAL'] for n in range(7)]==[729,1458,486,54,0,0,0]
+    assert sum(v['FULL'] for v in directed.values())==37**2==1369
+    assert sum(v['TRIVIAL'] for v in directed.values())==2727
+    evidence['directed_static_masks']={str(n):dict(directed[n]) for n in range(7)}
     evidence['verification_marker']='R691_ESTAR_AXIS_PERMISSION_BRC_EXACT_PASS'
     Path(__file__).with_name('R691_EVIDENCE.json').write_text(
         json.dumps(evidence,indent=2,ensure_ascii=False,sort_keys=True)+'\n',encoding='utf-8')
