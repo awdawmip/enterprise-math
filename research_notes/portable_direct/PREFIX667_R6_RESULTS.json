@@ -1,0 +1,74 @@
+{
+  "schema": "EM_PREFIX667_R6_BERNSTEIN_DOUBLE_STRIP_V1",
+  "date": "2026-11-10",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_model": "PREFIX665_R6_SIGNED_CURVATURE_CERTIFICATE.py and PREFIX666_R6_JET_STRIP_CERTIFICATE.py",
+  "domain": {
+    "p": [
+      "0",
+      "1/128"
+    ],
+    "z": [
+      "607/4096",
+      "609/4096"
+    ],
+    "q": [
+      "12",
+      "24"
+    ],
+    "q_quantifier": "all real q in interval"
+  },
+  "computation": {
+    "type": "EXACT_INTEGER_FRACTION",
+    "N": 189,
+    "taylor_derivative_order": 22,
+    "taylor_polynomial_degree": 19,
+    "bernstein_partition_count": 16,
+    "full_exact_envelopes": "computed and printed as numerator/denominator strings by companion Python certificate"
+  },
+  "interval_witnesses": {
+    "mu_lower": {
+      "lower": "438/5",
+      "upper": "877/10",
+      "strict": true
+    },
+    "mu_pp_lower": {
+      "lower": "226",
+      "upper": "227",
+      "strict": true
+    },
+    "H_pp_upper": {
+      "lower": "15361",
+      "upper": "15362",
+      "strict": true
+    },
+    "W_pp_upper": {
+      "lower": "-8994",
+      "upper": "-8993",
+      "strict": true
+    }
+  },
+  "theorem": {
+    "mu": ">438/5",
+    "mu_pp": ">226",
+    "H_pp": "<15362",
+    "W_pp": "<-8900",
+    "Vq_pp": "<-8900*q^2",
+    "unique_maximizer": "(0,z_star(q)) on certified strip, conditional on PREFIX660/661 edge certificates",
+    "stability": "M_q-V_q(p,z)>=76650*p+4450*q^2*p^2+6400000*(z-z_star(q))^2",
+    "area_gain_vs_prefix666": 2
+  },
+  "local_validation": {
+    "result": "ALL_CHECKS_PASS",
+    "checks": 18,
+    "execution": "Python 3 stdlib, 2026-11-10; exact rational inequalities",
+    "review": "UNREVIEWED"
+  },
+  "dependencies": [
+    "PREFIX665 frozen 189-layer predicate",
+    "PREFIX660 edge z maximum and quadratic gap",
+    "PREFIX661 boundary inward p slope"
+  ],
+  "next": "Use interval-centered signed Bernstein jets and a coupled mu_p^2 bound for p in [1/128,1/64]; begin full ordered-triangle upper-bound pruning.",
+  "status": "AUTHOR_PROVED / EXACT_FRACTION_REPLAY_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
