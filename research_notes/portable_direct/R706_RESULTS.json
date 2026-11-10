@@ -135,5 +135,7 @@
       "oriented_c_each": "2230623825441278688110099302317427429366246236684690000",
       "identity_bias_ratio": "5603455843421135356413/6435067013866298908421603100"
     }
-  ]
+  ],
+  "checked_recurrence_pairs": 10201,
+  "recurrence": "t0=binom(k+l,k); t_{r+1}=t_r*(k-r)*(l-r)/((2r+1)*(2r+2)); D=sum_r t_r; exact for 0<=k,l<=100 (10201 pairs)"
 }
