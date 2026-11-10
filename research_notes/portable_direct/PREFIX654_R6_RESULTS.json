@@ -1,0 +1,65 @@
+{
+  "schema": "EM_PREFIX654_EDGE_SIGN_CERTIFICATE_V1",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "observer": "signed BRC 189-layer two-information-direction first-stop model",
+  "inputs": {
+    "p_edges": [
+      "3/20",
+      "1/6"
+    ],
+    "z_bounds": [
+      "38911/262144",
+      "38913/262144"
+    ],
+    "q_slots": [
+      12,
+      24
+    ],
+    "layer_count": 189,
+    "grid_denominator": 262144
+  },
+  "endpoint_exact_interval_enclosures": [
+    {
+      "z": "38911/262144",
+      "q": 12,
+      "D_lower": "-113097/500",
+      "D_upper": "-226193/1000"
+    },
+    {
+      "z": "38911/262144",
+      "q": 24,
+      "D_lower": "-157071/200",
+      "D_upper": "-392677/500"
+    },
+    {
+      "z": "38913/262144",
+      "q": 12,
+      "D_lower": "-227097/1000",
+      "D_upper": "-28387/125"
+    },
+    {
+      "z": "38913/262144",
+      "q": 24,
+      "D_lower": "-788977/1000",
+      "D_upper": "-98622/125"
+    }
+  ],
+  "uniform_second_derivative_bound": {
+    "deltaW_zz": "77282100",
+    "deltaMu_zz": "94500",
+    "Dq_interpolation_errors": {
+      "12": "695609775/8589934592",
+      "24": "1391148675/4294967296"
+    }
+  },
+  "conclusions": {
+    "D12_all_z": "<-226",
+    "D24_all_z": "<-785",
+    "Dq_all_z_for_real_q_between_12_and_24": "<0 by affinity of Dq/q in q",
+    "maximum_over_central_strip": "left p-edge = 3/20 for every real 12 <= q <= 24"
+  },
+  "assertions_passed": 14718,
+  "result": "ALL_CHECKS_PASS",
+  "arithmetic": "Python standard library exact integer and Fraction, no floating-point comparisons",
+  "scope": "Pinned 189-layer first-stop statistical observer; previous PREFIX643 convexity inherited"
+}
