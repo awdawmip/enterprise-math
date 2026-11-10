@@ -1,0 +1,9 @@
+# R704 research handoff — X6 three-step signed triadic Port/BRC
+
+Parent task `RS-X6-TRIADIC-CLOSURE-DYNAMICS`, immutable publication `TP2-8B7E13C5904A2D6F1142`, source pin `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`. Previous R703 marked-source result: `ab68d798d7c7564d03d9baa2025a979930632719`. Source artifacts: this branch's `research_notes/R704_X6_SIGNED_TRIADIC_GATE_THEOREM_20261111.md`, `experiments/R704_X6_TRIADIC_GATE_VERIFY_20261111.py`, and JSON evidence.
+
+**Author result:** 960 ordered signed, three-distinct-axis X6 primitive paths have 160 native endpoints, each 6 source paths; no three-step Cell returns. A static candidate directed-port field has 612 relevant ports arranged as 12×80, 120×8, and 480×2. All 612 single-port faults are distinct for the *labeled source* observer. Last-port faults have only 160 endpoint-count loss signatures with three possible faults per endpoint. For terminal-gate-only variation there are exactly `2^480` full source states (480-bit minimum) but `4^160` endpoint count states (320-bit minimum). Verified by the exact integer checker; analytical partition proofs support exponential count formulas.
+
+**Next exact unit:** Use an actual source-pinned native Link/Port occupancy, V29 PASS/TRANSFER and V39 `j` event to test the smallest explicit endpoint-fiber witness: two different last-axis gates at the same endpoint have equal endpoint count but different ordered source sets. Determine the extra bit/interaction needed for that real event and then define typed `TRIADIC_CLOSURE_E` and rotation checks. No previous R702/R703 material needs rerunning.
+
+**Actual status:** Source branch publication/PR is author-side, not a formal RESULT, native CLAIM, independent Driver review or Working Truth. The static Boolean gate is a candidate assumption and the triadic paths are a candidate transport carrier, not an approved 3-force balance law.
