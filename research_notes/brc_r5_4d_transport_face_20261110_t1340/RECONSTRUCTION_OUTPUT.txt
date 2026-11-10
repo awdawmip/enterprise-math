@@ -1,0 +1,40 @@
+Execution: Python/SymPy exact-rational independent local reconstruction using frozen PR #1950/#1954 formulas. The locally run support model was independently transcribed; VERIFY_FACE.py in this branch was published as a wrapper around the pinned predecessor and was not run byte-for-byte against that repository checkout in this local environment.
+
+FROZEN_PINS: GK a01383f825ef9d43b4b754254303298c64041568 EM 86149263e38c22292c9def1e0f69092efa1be77e
+ALL_FOUR_SUPPORT_CLASS 4845
+MATCHING 28
+POSITIVE 12
+RANK_UNION 14
+DIMENSION_FIBER 4
+VERTEX_AFFINE_DIM 4
+FACET (2,1) ZERO_VERTICES 8 RANK 3
+FACET (3,1) ZERO_VERTICES 8 RANK 3
+FACET (4,1) ZERO_VERTICES 8 RANK 3
+FACET (3,2) ZERO_VERTICES 6 RANK 3
+FACET (4,2) ZERO_VERTICES 6 RANK 3
+FACET (0,3) ZERO_VERTICES 6 RANK 3
+FACET (2,3) ZERO_VERTICES 6 RANK 3
+SHARED_POSITIVE_ARCS 11
+GRAPH_EDGES 24
+GRAPH_DEGREE 4
+CONNECTED_COMPONENTS 1
+SKELETON K3 CARTESIAN K2 CARTESIAN K2
+OPTIONS:
+VERTEX 01 ((2,1),(3,2),(0,3))
+VERTEX 02 ((2,1),(3,2),(2,3))
+VERTEX 03 ((2,1),(4,2),(0,3))
+VERTEX 04 ((2,1),(4,2),(2,3))
+VERTEX 05 ((3,1),(3,2),(0,3))
+VERTEX 06 ((3,1),(3,2),(2,3))
+VERTEX 07 ((3,1),(4,2),(0,3))
+VERTEX 08 ((3,1),(4,2),(2,3))
+VERTEX 09 ((4,1),(3,2),(0,3))
+VERTEX 10 ((4,1),(3,2),(2,3))
+VERTEX 11 ((4,1),(4,2),(0,3))
+VERTEX 12 ((4,1),(4,2),(2,3))
+MIN_POS_IN_EACH_VERTEX 16932541854726549/313632293625596000000
+G1_TOTAL_DISTINCT_VALUES 3
+PASS_RANK14_AND_EXACT_PIVOT_ADJACENCY
+PASS_4D_POLYTOPE_12_VERTICES_7_FACETS_PRODUCT_DELTA2_I_I_COMBINATORIAL
+
+The complete independently executed stdout in this turn also recorded all twelve basis-specific arc weights, 24 pivot adjacency edges, physical checks, and exact rational facet ranks. This file is a faithful normalized extraction of that output, not a claim of byte-identical execution of the repository wrapper.
