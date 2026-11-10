@@ -24,7 +24,7 @@ The frozen positive-key count equations for a length-h legal word, writing `a=z-
 
 Number the 24 demand labels and represent `S(K)` by its 24-bit mask `m(K)`. For the first i keys in a fixed enumeration, let `F_i(k,U)` be the number of unordered subsets containing exactly k of those keys and having union mask U. Initialize `F_0(0,0)=1`, others 0. On adding key i with mask m, update `F_{i+1}(k,U) = F_i(k,U) + sum_{V : V OR m = U} F_i(k-1,V)`. This is an exact integer recurrence: every subset either includes or excludes the new key, and the cases are disjoint. At U=2^24-1 the recurrence yields the table.
 
-The two H2 signature masks each have a unique key in the complete catalogue, establishing the forced pair. Deleting `(3,1,1)` and re-evaluating the same recurrence gives 1956 seven-key covers without that key. The dynamic-program state counts at k=0..7 are `[1,21,171,716,1793,3002,3746,3951]`.
+The two H2 signature masks each have a unique key in the complete catalogue, establishing the forced pair. Deleting `(3,1,1)` and re-evaluating the same recurrence gives 1956 seven-key covers without that key. The actually emitted Python defaultdict key counts at k=0..7 are `[2,22,172,717,1794,3002,3746,3951]`.
 
 ## Executed verification
 
