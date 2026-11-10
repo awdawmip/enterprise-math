@@ -1,0 +1,40 @@
+{
+  "schema": "EM_PREFIX662_R6_LOW_COUNT_BERNSTEIN_STRIP_CERTIFICATE_V1",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "domain": {
+    "p": [
+      "0",
+      "1/2097152"
+    ],
+    "z": [
+      "607/4096",
+      "609/4096"
+    ],
+    "q": [
+      "12",
+      "24"
+    ]
+  },
+  "low_count_support_last_n": 41,
+  "moment_second_derivative_coefficients": {
+    "mu_A": "13800",
+    "H_C": "485400",
+    "mu_B": "617937012",
+    "H_E": "93926425824"
+  },
+  "mu_p0_uniform_upper": "225",
+  "new_gradient_loss_exact": "257162703256418492566176496126353/79228162514264337593543950336",
+  "new_gradient_loss_strict": "<3246",
+  "gradient_strict": "d_p V_q < -73404",
+  "maximizer": "(0,z_star(q)), unique on new strip",
+  "stability": "M_q-V_q(p,z) >= 73404*p+6400000*(z-z_star(q))^2",
+  "area_gain_over_PREFIX661": "512",
+  "predecessor_assumptions": [
+    "PREFIX660 strict z concavity",
+    "PREFIX661 exact p=0 gradient on z band"
+  ],
+  "verification": "integer and Fraction arithmetic, frozen predicate for k<=2, analytic Bernstein tail",
+  "status": "AUTHOR_DERIVED / EXACT_RATIONAL_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "checks_passed": 569,
+  "result": "ALL_CHECKS_PASS"
+}
