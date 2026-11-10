@@ -61,3 +61,16 @@ Python 3 standard library script R706_VERIFY.py independently constructs S3 mult
 ## Next executable unit
 
 Intersect the R703 based-packet shuffle language with actual intermediate-time native X6 Link/Port, V20/V36 triadic update and V39 composition rules. Track (native Cell/active-triad state, V29 additive ledger, S3 holonomy) in a product-state automaton and compare reachable-word counts against H_(k,l). The exact discrepancy then measures the scheduler restriction on temporal BRC holonomy. A packet-level algebraic result is preserved as such until its intermediate event admissibility has been checked. This author-side note has no formal native CLAIM, Result or independent review.
+
+## Theorem 3 — exact exponential rate without analytic asymptotics
+
+For every n>=1, the D(n,n) above is the central coefficient [z^(2n)] (1+z+z^2)^(2n), i.e. the central trinomial coefficient of even order. Its coefficient sequence is symmetric and unimodal. For completeness, unimodality follows inductively: convolving a nonnegative symmetric unimodal sequence with the length-three sequence (1,1,1) preserves symmetry and unimodality; equivalently the forward difference of the new coefficient b_j=a_j+a_(j-1)+a_(j-2) is b_j-b_(j-1)=a_j-a_(j-3), nonnegative up to the new center by the old symmetry/unimodality. Hence the central coefficient is at least the average of the (4n+1) coefficients, whose sum is 9^n, and at most that total. Similarly, the central binomial coefficient C(n,n) is between 16^n/(4n+1) and 16^n. Therefore, with delta(n,n)=D(n,n)/C(n,n),
+
+    (9/16)^n/(4n+1) <= delta(n,n) <= (4n+1)(9/16)^n.
+
+Taking positive n-th roots proves the **exact exponential base**
+
+    lim_(n->infinity) (delta(n,n))^(1/n) = 9/16,
+    lim_(n->infinity) TV(n)^(1/n) = 9/16,
+
+where TV(n)=2delta(n,n)/3. The added lower bound distinguishes a true exponential decay rate from an upper bound alone, and uses only finite integer coefficient combinatorics. The accompanying checker explicitly verifies both lower and upper coefficient bounds for n=1,...,24.
