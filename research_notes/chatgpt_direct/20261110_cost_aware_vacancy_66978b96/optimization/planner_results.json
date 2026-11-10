@@ -1,0 +1,806 @@
+{
+  "status": "PASS",
+  "model": "FINITE_MASKED_OBSERVATION_CONTROL_ONLY",
+  "generated_at_utc": "2026-11-10T09:18:53.045995+00:00",
+  "checked_implementation": "bellman_planner.py",
+  "value_units": "Eight commands per added bit read plus full-key-dependent creation/binding weight; fixed business words are separate",
+  "scope": "All initial residue tables in each of four stated sequence domains, plus all four completions of the observed-high-bit seed",
+  "total_initial_tables": 116,
+  "cases": [
+    {
+      "slots": 2,
+      "colors": 3,
+      "width": 2,
+      "target_sequence": [
+        0
+      ],
+      "initial_knowledge": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "actual_initial_residue_domains": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "initial_tables_exhausted": 16,
+      "minimax_variable_commands": 28,
+      "actual_maximum": 28,
+      "cost_histogram": {
+        "18": 4,
+        "20": 4,
+        "22": 4,
+        "26": 2,
+        "28": 2
+      },
+      "read_histogram": {
+        "2": 12,
+        "3": 4
+      },
+      "worst_input_count": 2,
+      "worst_witness": {
+        "initial_residues": [
+          2,
+          0
+        ],
+        "cost": 28,
+        "vacancy_bit_reads": 3,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "key": 3,
+            "key_weight": 4
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "final_residues": [
+          3,
+          0
+        ]
+      },
+      "selected_key_schedules": [
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "planner_metrics": {
+        "states": 96,
+        "cache_hits": 196,
+        "query_actions": 108,
+        "creation_actions": 75
+      },
+      "replay_final_metrics": {
+        "states": 96,
+        "cache_hits": 248,
+        "query_actions": 108,
+        "creation_actions": 75
+      },
+      "elapsed_seconds": {
+        "planning": 0.0004561470000226109,
+        "replays": 0.00020112300012442574,
+        "total": 0.0006746859999111621
+      }
+    },
+    {
+      "slots": 2,
+      "colors": 3,
+      "width": 2,
+      "target_sequence": [
+        0,
+        1
+      ],
+      "initial_knowledge": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "actual_initial_residue_domains": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "initial_tables_exhausted": 16,
+      "minimax_variable_commands": 34,
+      "actual_maximum": 34,
+      "cost_histogram": {
+        "24": 4,
+        "28": 4,
+        "32": 4,
+        "34": 4
+      },
+      "read_histogram": {
+        "2": 8,
+        "3": 8
+      },
+      "worst_input_count": 4,
+      "worst_witness": {
+        "initial_residues": [
+          0,
+          2
+        ],
+        "cost": 34,
+        "vacancy_bit_reads": 3,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "key": 3,
+            "key_weight": 4
+          },
+          {
+            "kind": "create",
+            "round": 1,
+            "target": 1,
+            "key": 4,
+            "key_weight": 6
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "final_residues": [
+          0,
+          2
+        ]
+      },
+      "selected_key_schedules": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "planner_metrics": {
+        "states": 109,
+        "cache_hits": 213,
+        "query_actions": 114,
+        "creation_actions": 93
+      },
+      "replay_final_metrics": {
+        "states": 109,
+        "cache_hits": 285,
+        "query_actions": 114,
+        "creation_actions": 93
+      },
+      "elapsed_seconds": {
+        "planning": 0.00041921199999706005,
+        "replays": 0.0002859000001080858,
+        "total": 0.000716519999969023
+      }
+    },
+    {
+      "slots": 2,
+      "colors": 3,
+      "width": 2,
+      "target_sequence": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "initial_knowledge": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "actual_initial_residue_domains": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "initial_tables_exhausted": 16,
+      "minimax_variable_commands": 40,
+      "actual_maximum": 40,
+      "cost_histogram": {
+        "36": 12,
+        "40": 4
+      },
+      "read_histogram": {
+        "2": 8,
+        "3": 8
+      },
+      "worst_input_count": 4,
+      "worst_witness": {
+        "initial_residues": [
+          0,
+          3
+        ],
+        "cost": 40,
+        "vacancy_bit_reads": 3,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 0,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "key": 2,
+            "key_weight": 2
+          },
+          {
+            "kind": "create",
+            "round": 1,
+            "target": 0,
+            "key": 1,
+            "key_weight": 6
+          },
+          {
+            "kind": "create",
+            "round": 2,
+            "target": 0,
+            "key": 2,
+            "key_weight": 2
+          },
+          {
+            "kind": "create",
+            "round": 3,
+            "target": 0,
+            "key": 1,
+            "key_weight": 6
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "final_residues": [
+          1,
+          3
+        ]
+      },
+      "selected_key_schedules": [
+        [
+          1,
+          2,
+          1,
+          2
+        ],
+        [
+          1,
+          3,
+          1,
+          3
+        ],
+        [
+          2,
+          1,
+          2,
+          1
+        ],
+        [
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          3,
+          1,
+          3,
+          1
+        ],
+        [
+          3,
+          2,
+          3,
+          2
+        ]
+      ],
+      "planner_metrics": {
+        "states": 135,
+        "cache_hits": 233,
+        "query_actions": 122,
+        "creation_actions": 123
+      },
+      "replay_final_metrics": {
+        "states": 135,
+        "cache_hits": 337,
+        "query_actions": 122,
+        "creation_actions": 123
+      },
+      "elapsed_seconds": {
+        "planning": 0.0004839690000153496,
+        "replays": 0.0004123710000385472,
+        "total": 0.0009062060000815109
+      }
+    },
+    {
+      "slots": 3,
+      "colors": 4,
+      "width": 2,
+      "target_sequence": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "initial_knowledge": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "actual_initial_residue_domains": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "initial_tables_exhausted": 64,
+      "minimax_variable_commands": 64,
+      "actual_maximum": 64,
+      "cost_histogram": {
+        "48": 12,
+        "50": 8,
+        "56": 6,
+        "58": 8,
+        "60": 16,
+        "62": 4,
+        "64": 10
+      },
+      "read_histogram": {
+        "3": 8,
+        "4": 24,
+        "5": 32
+      },
+      "worst_input_count": 10,
+      "worst_witness": {
+        "initial_residues": [
+          0,
+          2,
+          0
+        ],
+        "cost": 64,
+        "vacancy_bit_reads": 5,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "key": 3,
+            "key_weight": 4
+          },
+          {
+            "kind": "read",
+            "round": 1,
+            "slot": 2,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 1,
+            "target": 1,
+            "key": 5,
+            "key_weight": 8
+          },
+          {
+            "kind": "create",
+            "round": 2,
+            "target": 2,
+            "key": 11,
+            "key_weight": 6
+          },
+          {
+            "kind": "create",
+            "round": 3,
+            "target": 0,
+            "key": 1,
+            "key_weight": 6
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "final_residues": [
+          1,
+          2,
+          0
+        ]
+      },
+      "selected_key_schedules": [
+        [
+          1,
+          6,
+          9,
+          2
+        ],
+        [
+          1,
+          7,
+          9,
+          3
+        ],
+        [
+          1,
+          8,
+          9,
+          4
+        ],
+        [
+          2,
+          5,
+          10,
+          1
+        ],
+        [
+          2,
+          7,
+          10,
+          3
+        ],
+        [
+          2,
+          8,
+          10,
+          4
+        ],
+        [
+          3,
+          5,
+          11,
+          1
+        ],
+        [
+          3,
+          6,
+          11,
+          2
+        ],
+        [
+          3,
+          8,
+          11,
+          4
+        ],
+        [
+          4,
+          5,
+          12,
+          1
+        ],
+        [
+          4,
+          6,
+          12,
+          2
+        ],
+        [
+          4,
+          7,
+          12,
+          3
+        ]
+      ],
+      "planner_metrics": {
+        "states": 1057,
+        "cache_hits": 2976,
+        "query_actions": 1634,
+        "creation_actions": 764
+      },
+      "replay_final_metrics": {
+        "states": 1057,
+        "cache_hits": 3512,
+        "query_actions": 1634,
+        "creation_actions": 764
+      },
+      "elapsed_seconds": {
+        "planning": 0.006127483000000211,
+        "replays": 0.0016021240001009573,
+        "total": 0.007745761000023776
+      }
+    }
+  ],
+  "observed_high_bit_seed": {
+    "slots": 2,
+    "colors": 3,
+    "width": 2,
+    "target_sequence": [
+      0,
+      1
+    ],
+    "initial_knowledge": [
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "actual_initial_residue_domains": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "initial_tables_exhausted": 4,
+    "minimax_variable_commands": 8,
+    "actual_maximum": 8,
+    "cost_histogram": {
+      "8": 4
+    },
+    "read_histogram": {
+      "0": 4
+    },
+    "worst_input_count": 4,
+    "worst_witness": {
+      "initial_residues": [
+        0,
+        0
+      ],
+      "cost": 8,
+      "vacancy_bit_reads": 0,
+      "events": [
+        {
+          "kind": "create",
+          "round": 0,
+          "target": 0,
+          "key": 3,
+          "key_weight": 4
+        },
+        {
+          "kind": "create",
+          "round": 1,
+          "target": 1,
+          "key": 6,
+          "key_weight": 4
+        }
+      ],
+      "final_knowledge": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "final_residues": [
+        2,
+        0
+      ]
+    },
+    "selected_key_schedules": [
+      [
+        3,
+        6
+      ]
+    ],
+    "planner_metrics": {
+      "states": 21,
+      "cache_hits": 23,
+      "query_actions": 8,
+      "creation_actions": 27
+    },
+    "replay_final_metrics": {
+      "states": 21,
+      "cache_hits": 31,
+      "query_actions": 8,
+      "creation_actions": 27
+    },
+    "elapsed_seconds": {
+      "planning": 7.991999996193044e-05,
+      "replays": 3.7506999888137216e-05,
+      "total": 0.00012525800002549659
+    }
+  },
+  "elapsed_seconds": 0.010205407000057676
+}

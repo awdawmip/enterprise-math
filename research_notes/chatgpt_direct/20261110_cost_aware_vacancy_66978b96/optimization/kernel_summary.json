@@ -1,0 +1,56 @@
+{
+  "status": "PASS",
+  "completed_results": 7,
+  "results": {
+    "kernel_word_lengths.json": {
+      "status": "PASS",
+      "mode": "word_lengths",
+      "assertions": 324
+    },
+    "kernel_family.json": {
+      "status": "PASS",
+      "mode": "family",
+      "assertions": 19835,
+      "original_kernel_runs": 56,
+      "formula_prefixes_checked": 86
+    },
+    "kernel_regressions.json": {
+      "status": "PASS",
+      "mode": "regressions",
+      "assertions": 1464,
+      "protected_source_primitive_prefixes": 360
+    },
+    "kernel_protected.json": {
+      "status": "PASS",
+      "mode": "protected",
+      "assertions": 2246
+    },
+    "kernel_omissions.json": {
+      "status": "PASS",
+      "mode": "omissions",
+      "assertions": 29545,
+      "omission_positions": 468
+    },
+    "kernel_future_plan.json": {
+      "status": "PASS",
+      "mode": "future_plan",
+      "assertions": 102
+    },
+    "kernel_minimax.json": {
+      "status": "PASS",
+      "mode": "minimax",
+      "assertions": 4299,
+      "original_kernel_runs": 97,
+      "exhaustive_preparation_runs": 96
+    }
+  },
+  "test_scope": "Original BRC execution with declared finite preparations and schedules",
+  "production_dependencies": [
+    "optimization/selector.py",
+    "optimization/bellman_planner.py",
+    "future/check_region_certificate.py",
+    "directed/check_directed_vacancy.py"
+  ],
+  "new_persistent_members": 0,
+  "new_candidate_relations": 0
+}

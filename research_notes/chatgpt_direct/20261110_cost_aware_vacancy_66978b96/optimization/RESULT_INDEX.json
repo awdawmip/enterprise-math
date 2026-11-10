@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "result_files": 11,
+  "results": [
+    {
+      "file": "optimization/kernel_family.json",
+      "status": "PASS",
+      "model": "family",
+      "sha256": "c792f257e61a7904ad774e059ab8fd988721b52c507b467992e674fd2bb07f93"
+    },
+    {
+      "file": "optimization/kernel_future_plan.json",
+      "status": "PASS",
+      "model": "future_plan",
+      "sha256": "6a8ba515efff664d5300d51ee52d5a9f52a8e7fe4022aebc78ad8aa989f5403d"
+    },
+    {
+      "file": "optimization/kernel_minimax.json",
+      "status": "PASS",
+      "model": "minimax",
+      "sha256": "dd1521d7d2f43a3d37d86ba358db87f24ab35d4f185d904daa8057a7154b113f"
+    },
+    {
+      "file": "optimization/kernel_omissions.json",
+      "status": "PASS",
+      "model": "omissions",
+      "sha256": "d609c810646fa7a1f190f439f17b036cb9230f5cfa2b3f03652f735c1a6e323a"
+    },
+    {
+      "file": "optimization/kernel_protected.json",
+      "status": "PASS",
+      "model": "protected",
+      "sha256": "af89763864aef986f5e0cdc4cccdd6e0adfe2b7f9449e043857bdc1201745cf8"
+    },
+    {
+      "file": "optimization/kernel_regressions.json",
+      "status": "PASS",
+      "model": "regressions",
+      "sha256": "ac4a4ab5a94a2359b8374099fa3538ffc1baa48e2c3b441b089b57ba9339f667"
+    },
+    {
+      "file": "optimization/kernel_word_lengths.json",
+      "status": "PASS",
+      "model": "word_lengths",
+      "sha256": "1cc6fc4c509f87d178fe072b9000ed58f46180768c5614a80abe864e0ad3ec84"
+    },
+    {
+      "file": "optimization/planner_results.json",
+      "status": "PASS",
+      "model": "FINITE_MASKED_OBSERVATION_CONTROL_ONLY",
+      "sha256": "4a9ecddd745b6ba810a6af975c2d06356f95269f5091daef82c90d88db9ed8eb"
+    },
+    {
+      "file": "optimization/selector_results.json",
+      "status": "PASS",
+      "model": null,
+      "sha256": "6f0c45d5f8466a3299284e00b812af99bd0696910bbaf8ae72c720c66246704e"
+    },
+    {
+      "file": "optimization/strategy_checks.json",
+      "status": "PASS",
+      "model": "FINITE_INTEGER_CONTROL_ONLY",
+      "sha256": "40a7b1469055af3cb6db038e452251bfc4b5b57e694be0086ff7396b82ac5382"
+    },
+    {
+      "file": "optimization/symmetry_results.json",
+      "status": "PASS",
+      "model": "EXACT_SLOT_SYMMETRY_BELLMAN_QUOTIENT",
+      "sha256": "18a58e02a1ed678752e27d4fbdd7f294bc1d7d50b8afec286f089aa079e45df0"
+    }
+  ],
+  "validation_scope": "Each file distinguishes control enumeration, original word lengths, complete original-kernel runs and exact decision-game computations."
+}

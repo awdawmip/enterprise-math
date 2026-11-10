@@ -1,0 +1,1723 @@
+{
+  "status": "PASS",
+  "model": "EXACT_SLOT_SYMMETRY_BELLMAN_QUOTIENT",
+  "generated_at_utc": "2026-11-10T09:31:18.613035+00:00",
+  "checked_implementation": "symmetry_planner.py",
+  "variable_units": "8 per newly observed request bit plus complete-key-dependent creation/binding weight",
+  "preservation": "Slot zero is distinguished before the final round; every histogram query reads exactly one physical slot.",
+  "pruning": "Final-round exact lower bounds only; every old small-domain state is compared with the labelled recurrence, and r=4 is also compared with the unpruned b=3 quotient.",
+  "scope": "Exact quotient solutions; exhaustive static control inputs only for the four inherited small domains and the seed. One attaining original-BRC execution for each of r=4,5,6.",
+  "small_cases": [
+    {
+      "slots": 2,
+      "target_sequence": [
+        0
+      ],
+      "minimax_variable_commands": 28,
+      "labelled_metrics": {
+        "states": 96,
+        "cache_hits": 196,
+        "query_actions": 108,
+        "creation_actions": 75
+      },
+      "labelled_nonterminal_states": 81,
+      "labelled_terminal_states": 15,
+      "quotient_metrics_without_pruning": {
+        "states": 46,
+        "nonterminal_states": 45,
+        "last_round_states": 45,
+        "distinguished_slot_states": 0,
+        "terminal_states": 1,
+        "cache_hits": 64,
+        "query_actions": 54,
+        "creation_actions": 45,
+        "pruning": false,
+        "lower_bound_cuts": 0,
+        "dominated_branch_cuts": 0,
+        "safe_creation_cuts": 0,
+        "pattern_types": 9,
+        "histogram_field_bits": 2,
+        "last_round_state_capacity": 45,
+        "distinguished_round_state_capacity": 81
+      },
+      "all_labelled_nonterminal_values_compared": 81,
+      "pruned_and_unpruned_values_agree": true,
+      "initial_tables_exhausted": 16,
+      "cost_histogram": {
+        "18": 4,
+        "20": 4,
+        "22": 4,
+        "26": 2,
+        "28": 2
+      },
+      "read_histogram": {
+        "2": 12,
+        "3": 4
+      },
+      "worst_static_witness": {
+        "initial_residues": [
+          2,
+          0
+        ],
+        "initial_constraints": [
+          [
+            3,
+            2
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "cost": 28,
+        "vacancy_bit_reads": 3,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "key": 3,
+            "key_weight": 4
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "final_residues": [
+          3,
+          0
+        ]
+      },
+      "elapsed_seconds": 0.0012542140002551605
+    },
+    {
+      "slots": 2,
+      "target_sequence": [
+        0,
+        1
+      ],
+      "minimax_variable_commands": 34,
+      "labelled_metrics": {
+        "states": 109,
+        "cache_hits": 213,
+        "query_actions": 114,
+        "creation_actions": 93
+      },
+      "labelled_nonterminal_states": 96,
+      "labelled_terminal_states": 13,
+      "quotient_metrics_without_pruning": {
+        "states": 94,
+        "nonterminal_states": 93,
+        "last_round_states": 12,
+        "distinguished_slot_states": 81,
+        "terminal_states": 1,
+        "cache_hits": 211,
+        "query_actions": 114,
+        "creation_actions": 88,
+        "pruning": false,
+        "lower_bound_cuts": 0,
+        "dominated_branch_cuts": 0,
+        "safe_creation_cuts": 0,
+        "pattern_types": 9,
+        "histogram_field_bits": 2,
+        "last_round_state_capacity": 45,
+        "distinguished_round_state_capacity": 81
+      },
+      "all_labelled_nonterminal_values_compared": 96,
+      "pruned_and_unpruned_values_agree": true,
+      "initial_tables_exhausted": 16,
+      "cost_histogram": {
+        "24": 4,
+        "28": 4,
+        "32": 4,
+        "34": 4
+      },
+      "read_histogram": {
+        "2": 8,
+        "3": 8
+      },
+      "worst_static_witness": {
+        "initial_residues": [
+          1,
+          0
+        ],
+        "initial_constraints": [
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "cost": 34,
+        "vacancy_bit_reads": 3,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 0,
+            "answer": 1
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "key": 2,
+            "key_weight": 2
+          },
+          {
+            "kind": "read",
+            "round": 1,
+            "slot": 1,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 1,
+            "target": 1,
+            "key": 5,
+            "key_weight": 8
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "final_residues": [
+          1,
+          0
+        ]
+      },
+      "elapsed_seconds": 0.0016931260001911141
+    },
+    {
+      "slots": 2,
+      "target_sequence": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "minimax_variable_commands": 40,
+      "labelled_metrics": {
+        "states": 135,
+        "cache_hits": 233,
+        "query_actions": 122,
+        "creation_actions": 123
+      },
+      "labelled_nonterminal_states": 122,
+      "labelled_terminal_states": 13,
+      "quotient_metrics_without_pruning": {
+        "states": 120,
+        "nonterminal_states": 119,
+        "last_round_states": 10,
+        "distinguished_slot_states": 109,
+        "terminal_states": 1,
+        "cache_hits": 233,
+        "query_actions": 122,
+        "creation_actions": 120,
+        "pruning": false,
+        "lower_bound_cuts": 0,
+        "dominated_branch_cuts": 0,
+        "safe_creation_cuts": 0,
+        "pattern_types": 9,
+        "histogram_field_bits": 2,
+        "last_round_state_capacity": 45,
+        "distinguished_round_state_capacity": 81
+      },
+      "all_labelled_nonterminal_values_compared": 122,
+      "pruned_and_unpruned_values_agree": true,
+      "initial_tables_exhausted": 16,
+      "cost_histogram": {
+        "36": 12,
+        "40": 4
+      },
+      "read_histogram": {
+        "2": 8,
+        "3": 8
+      },
+      "worst_static_witness": {
+        "initial_residues": [
+          0,
+          3
+        ],
+        "initial_constraints": [
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "cost": 40,
+        "vacancy_bit_reads": 3,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 0,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "key": 2,
+            "key_weight": 2
+          },
+          {
+            "kind": "create",
+            "round": 1,
+            "target": 0,
+            "key": 1,
+            "key_weight": 6
+          },
+          {
+            "kind": "create",
+            "round": 2,
+            "target": 0,
+            "key": 2,
+            "key_weight": 2
+          },
+          {
+            "kind": "create",
+            "round": 3,
+            "target": 0,
+            "key": 1,
+            "key_weight": 6
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "final_residues": [
+          1,
+          3
+        ]
+      },
+      "elapsed_seconds": 0.0019334179996803869
+    },
+    {
+      "slots": 3,
+      "target_sequence": [
+        0,
+        1,
+        2,
+        0
+      ],
+      "minimax_variable_commands": 64,
+      "labelled_metrics": {
+        "states": 1057,
+        "cache_hits": 2976,
+        "query_actions": 1634,
+        "creation_actions": 764
+      },
+      "labelled_nonterminal_states": 981,
+      "labelled_terminal_states": 76,
+      "quotient_metrics_without_pruning": {
+        "states": 554,
+        "nonterminal_states": 553,
+        "last_round_states": 40,
+        "distinguished_slot_states": 513,
+        "terminal_states": 1,
+        "cache_hits": 1556,
+        "query_actions": 844,
+        "creation_actions": 472,
+        "pruning": false,
+        "lower_bound_cuts": 0,
+        "dominated_branch_cuts": 0,
+        "safe_creation_cuts": 0,
+        "pattern_types": 9,
+        "histogram_field_bits": 2,
+        "last_round_state_capacity": 165,
+        "distinguished_round_state_capacity": 405
+      },
+      "all_labelled_nonterminal_values_compared": 981,
+      "pruned_and_unpruned_values_agree": true,
+      "initial_tables_exhausted": 64,
+      "cost_histogram": {
+        "48": 12,
+        "50": 8,
+        "56": 6,
+        "58": 8,
+        "60": 16,
+        "62": 4,
+        "64": 10
+      },
+      "read_histogram": {
+        "3": 8,
+        "4": 24,
+        "5": 32
+      },
+      "worst_static_witness": {
+        "initial_residues": [
+          0,
+          2,
+          0
+        ],
+        "initial_constraints": [
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "cost": 64,
+        "vacancy_bit_reads": 5,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "key": 3,
+            "key_weight": 4
+          },
+          {
+            "kind": "create",
+            "round": 1,
+            "target": 1,
+            "key": 5,
+            "key_weight": 8
+          },
+          {
+            "kind": "create",
+            "round": 2,
+            "target": 2,
+            "key": 11,
+            "key_weight": 6
+          },
+          {
+            "kind": "create",
+            "round": 3,
+            "target": 0,
+            "key": 1,
+            "key_weight": 6
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "final_residues": [
+          1,
+          2,
+          0
+        ]
+      },
+      "elapsed_seconds": 0.013144724000085262
+    }
+  ],
+  "larger_single_round_cases": [
+    {
+      "slots": 4,
+      "colors": 5,
+      "width": 3,
+      "target_sequence": [
+        0
+      ],
+      "initial_residue_table_count": 4096,
+      "initial_tables_exhausted": false,
+      "minimax_variable_commands": 60,
+      "planner_metrics": {
+        "states": 12851,
+        "nonterminal_states": 12850,
+        "last_round_states": 12850,
+        "distinguished_slot_states": 0,
+        "terminal_states": 1,
+        "cache_hits": 27709,
+        "query_actions": 26942,
+        "creation_actions": 9938,
+        "pruning": true,
+        "lower_bound_cuts": 169,
+        "dominated_branch_cuts": 13326,
+        "safe_creation_cuts": 7483,
+        "pattern_types": 27,
+        "histogram_field_bits": 3,
+        "last_round_state_capacity": 27405,
+        "distinguished_round_state_capacity": 98658
+      },
+      "final_metrics": {
+        "states": 12851,
+        "nonterminal_states": 12850,
+        "last_round_states": 12850,
+        "distinguished_slot_states": 0,
+        "terminal_states": 1,
+        "cache_hits": 27748,
+        "query_actions": 26942,
+        "creation_actions": 9938,
+        "pruning": true,
+        "lower_bound_cuts": 169,
+        "dominated_branch_cuts": 13326,
+        "safe_creation_cuts": 7483,
+        "pattern_types": 27,
+        "histogram_field_bits": 3,
+        "last_round_state_capacity": 27405,
+        "distinguished_round_state_capacity": 98658
+      },
+      "worst_static_witness": {
+        "initial_residues": [
+          4,
+          0,
+          2,
+          2
+        ],
+        "initial_constraints": [
+          [
+            7,
+            4
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "cost": 60,
+        "vacancy_bit_reads": 7,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 2,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 3,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 2,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "key": 5,
+            "key_weight": 4
+          }
+        ],
+        "final_knowledge": [
+          [
+            7,
+            5
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "final_residues": [
+          5,
+          0,
+          2,
+          2
+        ]
+      },
+      "exact_pruning_crosscheck": {
+        "status": "PASS",
+        "all_pruned_states_compared": 12850,
+        "unpruned_metrics": {
+          "states": 27406,
+          "nonterminal_states": 27405,
+          "last_round_states": 27405,
+          "distinguished_slot_states": 0,
+          "terminal_states": 1,
+          "cache_hits": 182762,
+          "query_actions": 98658,
+          "creation_actions": 36575,
+          "pruning": false,
+          "lower_bound_cuts": 0,
+          "dominated_branch_cuts": 0,
+          "safe_creation_cuts": 0,
+          "pattern_types": 27,
+          "histogram_field_bits": 3,
+          "last_round_state_capacity": 27405,
+          "distinguished_round_state_capacity": 98658
+        },
+        "elapsed_seconds": 0.160715705000257
+      },
+      "original_kernel_witness": {
+        "status": "PASS",
+        "original_kernel_runs": 1,
+        "initial_full_codes": [
+          4,
+          8,
+          2,
+          2
+        ],
+        "initial_residues": [
+          4,
+          0,
+          2,
+          2
+        ],
+        "full_key_width": 4,
+        "business_constant": 70,
+        "variable_commands": 60,
+        "actual_commands": 130,
+        "vacancy_bit_reads": 7,
+        "selected_keys": [
+          5
+        ],
+        "kernel_assertions": 22,
+        "result": {
+          "strategy": "cost_aware_observed",
+          "api_calls": 3,
+          "commands": 130,
+          "vacancy_bit_reads": 7,
+          "business_key_bit_reads": 3,
+          "control_events": {
+            "witness_checks": 0,
+            "witness_hits": 0,
+            "target_searches": 0,
+            "query_node_visits": 0,
+            "candidate_count_queries": 0,
+            "selected_branches": 0,
+            "initial_labels": 4,
+            "initial_node_cells": 15,
+            "query_label_moves": 0,
+            "query_count_updates": 0,
+            "business_path_touches": 5,
+            "business_label_completions": 0,
+            "bucket_removals": 1,
+            "bucket_insertions": 5,
+            "slot_detaches": 1,
+            "slot_attaches": 1,
+            "retired_labels": 1,
+            "known_labels_introduced": 1,
+            "cost_selections": 0,
+            "candidate_prefix_checks": 0,
+            "candidate_probe_attempts": 0,
+            "candidate_probe_successes": 0,
+            "explicit_probe_bit_reads": 7,
+            "initial_even_probes": 0,
+            "initial_probe_fallbacks": 0,
+            "initial_high_probes": 0,
+            "cached_bits_promoted_to_prefix": 0,
+            "weighted_query_visits": 0,
+            "observed_prefix_visits": 0,
+            "region_acquisitions": 0,
+            "region_slot_writes": 0,
+            "region_member_changes": 0,
+            "region_first_references": 0,
+            "region_last_releases": 0,
+            "region_region_queries": 0,
+            "region_region_hits": 0,
+            "region_region_misses": 0,
+            "region_query_visits": 0,
+            "region_update_visits": 0,
+            "region_nodes_created": 0,
+            "region_retired_slot_marks": 0
+          },
+          "final_witness": null,
+          "max_live_labels": 4,
+          "max_known_low_bits": 3,
+          "allocated_prefix_nodes": 15,
+          "initial_policy": "deficit",
+          "probe_at": null,
+          "successful_reserves": 1,
+          "future_planner": true,
+          "final_region": {
+            "mask": null,
+            "value": null,
+            "free_count": null,
+            "occupied_residues": 0,
+            "marked_slots": 0
+          },
+          "compiled_target_windows": 3,
+          "arbitrary_observation_mask_records": 4,
+          "arbitrary_observed_bits": 7,
+          "additional_persistent_members": 0,
+          "additional_candidate_relations": 0,
+          "first_steps": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "key": 5,
+              "commands": 79,
+              "vacancy_bit_reads": 7,
+              "business_key_bit_reads": 0,
+              "witness": 5,
+              "old_query_pairs": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  0
+                ]
+              ],
+              "physical_last_before_create": 1,
+              "control_events": {
+                "explicit_probe_bit_reads": 7
+              },
+              "selected_key_weight": 4
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "answer": true,
+              "commands": 40,
+              "vacancy_bit_reads": 0,
+              "business_key_bit_reads": 3,
+              "witness": null,
+              "old_query_pairs": [],
+              "control_events": {
+                "business_path_touches": 5,
+                "bucket_removals": 1,
+                "bucket_insertions": 1,
+                "slot_detaches": 1,
+                "slot_attaches": 1,
+                "retired_labels": 1,
+                "known_labels_introduced": 1
+              }
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "business_key_bit_reads": 0,
+              "witness": null,
+              "old_query_pairs": [],
+              "control_events": {}
+            }
+          ]
+        }
+      },
+      "elapsed_seconds": {
+        "planning": 0.06255852100002812,
+        "kernel": 0.06752714200001719,
+        "total": 0.29106747000014366
+      }
+    },
+    {
+      "slots": 5,
+      "colors": 6,
+      "width": 3,
+      "target_sequence": [
+        0
+      ],
+      "initial_residue_table_count": 32768,
+      "initial_tables_exhausted": false,
+      "minimax_variable_commands": 70,
+      "planner_metrics": {
+        "states": 96591,
+        "nonterminal_states": 96590,
+        "last_round_states": 96590,
+        "distinguished_slot_states": 0,
+        "terminal_states": 1,
+        "cache_hits": 280031,
+        "query_actions": 253595,
+        "creation_actions": 71057,
+        "pruning": true,
+        "lower_bound_cuts": 1490,
+        "dominated_branch_cuts": 130570,
+        "safe_creation_cuts": 52509,
+        "pattern_types": 27,
+        "histogram_field_bits": 3,
+        "last_round_state_capacity": 169911,
+        "distinguished_round_state_capacity": 739935
+      },
+      "final_metrics": {
+        "states": 96591,
+        "nonterminal_states": 96590,
+        "last_round_states": 96590,
+        "distinguished_slot_states": 0,
+        "terminal_states": 1,
+        "cache_hits": 280075,
+        "query_actions": 253595,
+        "creation_actions": 71057,
+        "pruning": true,
+        "lower_bound_cuts": 1490,
+        "dominated_branch_cuts": 130570,
+        "safe_creation_cuts": 52509,
+        "pattern_types": 27,
+        "histogram_field_bits": 3,
+        "last_round_state_capacity": 169911,
+        "distinguished_round_state_capacity": 739935
+      },
+      "worst_static_witness": {
+        "initial_residues": [
+          0,
+          0,
+          6,
+          3,
+          0
+        ],
+        "initial_constraints": [
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "cost": 70,
+        "vacancy_bit_reads": 8,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 3,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 4,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 3,
+            "bit": 0,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 2,
+            "answer": 1
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "key": 2,
+            "key_weight": 6
+          }
+        ],
+        "final_knowledge": [
+          [
+            7,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            2,
+            0
+          ]
+        ],
+        "final_residues": [
+          2,
+          0,
+          6,
+          3,
+          0
+        ]
+      },
+      "exact_pruning_crosscheck": null,
+      "original_kernel_witness": {
+        "status": "PASS",
+        "original_kernel_runs": 1,
+        "initial_full_codes": [
+          8,
+          8,
+          6,
+          3,
+          8
+        ],
+        "initial_residues": [
+          0,
+          0,
+          6,
+          3,
+          0
+        ],
+        "full_key_width": 5,
+        "business_constant": 72,
+        "variable_commands": 70,
+        "actual_commands": 142,
+        "vacancy_bit_reads": 8,
+        "selected_keys": [
+          2
+        ],
+        "kernel_assertions": 26,
+        "result": {
+          "strategy": "cost_aware_observed",
+          "api_calls": 3,
+          "commands": 142,
+          "vacancy_bit_reads": 8,
+          "business_key_bit_reads": 3,
+          "control_events": {
+            "witness_checks": 0,
+            "witness_hits": 0,
+            "target_searches": 0,
+            "query_node_visits": 0,
+            "candidate_count_queries": 0,
+            "selected_branches": 0,
+            "initial_labels": 5,
+            "initial_node_cells": 15,
+            "query_label_moves": 0,
+            "query_count_updates": 0,
+            "business_path_touches": 5,
+            "business_label_completions": 0,
+            "bucket_removals": 1,
+            "bucket_insertions": 6,
+            "slot_detaches": 1,
+            "slot_attaches": 1,
+            "retired_labels": 1,
+            "known_labels_introduced": 1,
+            "cost_selections": 0,
+            "candidate_prefix_checks": 0,
+            "candidate_probe_attempts": 0,
+            "candidate_probe_successes": 0,
+            "explicit_probe_bit_reads": 8,
+            "initial_even_probes": 0,
+            "initial_probe_fallbacks": 0,
+            "initial_high_probes": 0,
+            "cached_bits_promoted_to_prefix": 0,
+            "weighted_query_visits": 0,
+            "observed_prefix_visits": 0,
+            "region_acquisitions": 0,
+            "region_slot_writes": 0,
+            "region_member_changes": 0,
+            "region_first_references": 0,
+            "region_last_releases": 0,
+            "region_region_queries": 0,
+            "region_region_hits": 0,
+            "region_region_misses": 0,
+            "region_query_visits": 0,
+            "region_update_visits": 0,
+            "region_nodes_created": 0,
+            "region_retired_slot_marks": 0
+          },
+          "final_witness": null,
+          "max_live_labels": 5,
+          "max_known_low_bits": 3,
+          "allocated_prefix_nodes": 15,
+          "initial_policy": "deficit",
+          "probe_at": null,
+          "successful_reserves": 1,
+          "future_planner": true,
+          "final_region": {
+            "mask": null,
+            "value": null,
+            "free_count": null,
+            "occupied_residues": 0,
+            "marked_slots": 0
+          },
+          "compiled_target_windows": 3,
+          "arbitrary_observation_mask_records": 5,
+          "arbitrary_observed_bits": 8,
+          "additional_persistent_members": 0,
+          "additional_candidate_relations": 0,
+          "first_steps": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "key": 2,
+              "commands": 87,
+              "vacancy_bit_reads": 8,
+              "business_key_bit_reads": 0,
+              "witness": 2,
+              "old_query_pairs": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  4,
+                  1
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  3,
+                  0
+                ],
+                [
+                  2,
+                  2
+                ]
+              ],
+              "physical_last_before_create": 1,
+              "control_events": {
+                "explicit_probe_bit_reads": 8
+              },
+              "selected_key_weight": 6
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "answer": true,
+              "commands": 44,
+              "vacancy_bit_reads": 0,
+              "business_key_bit_reads": 3,
+              "witness": null,
+              "old_query_pairs": [],
+              "control_events": {
+                "business_path_touches": 5,
+                "bucket_removals": 1,
+                "bucket_insertions": 1,
+                "slot_detaches": 1,
+                "slot_attaches": 1,
+                "retired_labels": 1,
+                "known_labels_introduced": 1
+              }
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "business_key_bit_reads": 0,
+              "witness": null,
+              "old_query_pairs": [],
+              "control_events": {}
+            }
+          ]
+        }
+      },
+      "elapsed_seconds": {
+        "planning": 0.6038216779998038,
+        "kernel": 0.01608837699996002,
+        "total": 0.6201408349998019
+      }
+    },
+    {
+      "slots": 6,
+      "colors": 7,
+      "width": 3,
+      "target_sequence": [
+        0
+      ],
+      "initial_residue_table_count": 262144,
+      "initial_tables_exhausted": false,
+      "minimax_variable_commands": 86,
+      "planner_metrics": {
+        "states": 670932,
+        "nonterminal_states": 670931,
+        "last_round_states": 670931,
+        "distinguished_slot_states": 0,
+        "terminal_states": 1,
+        "cache_hits": 2399229,
+        "query_actions": 2045944,
+        "creation_actions": 493564,
+        "pruning": true,
+        "lower_bound_cuts": 13064,
+        "dominated_branch_cuts": 1021729,
+        "safe_creation_cuts": 342905,
+        "pattern_types": 27,
+        "histogram_field_bits": 3,
+        "last_round_state_capacity": 906192,
+        "distinguished_round_state_capacity": 4587597
+      },
+      "final_metrics": {
+        "states": 670932,
+        "nonterminal_states": 670931,
+        "last_round_states": 670931,
+        "distinguished_slot_states": 0,
+        "terminal_states": 1,
+        "cache_hits": 2399283,
+        "query_actions": 2045944,
+        "creation_actions": 493564,
+        "pruning": true,
+        "lower_bound_cuts": 13064,
+        "dominated_branch_cuts": 1021729,
+        "safe_creation_cuts": 342905,
+        "pattern_types": 27,
+        "histogram_field_bits": 3,
+        "last_round_state_capacity": 906192,
+        "distinguished_round_state_capacity": 4587597
+      },
+      "worst_static_witness": {
+        "initial_residues": [
+          0,
+          0,
+          4,
+          6,
+          4,
+          0
+        ],
+        "initial_constraints": [
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "cost": 86,
+        "vacancy_bit_reads": 10,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 2,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 2,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 2,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 3,
+            "bit": 2,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 4,
+            "bit": 2,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 5,
+            "bit": 2,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 3,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 4,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 3,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "key": 7,
+            "key_weight": 6
+          }
+        ],
+        "final_knowledge": [
+          [
+            7,
+            7
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            6,
+            4
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "final_residues": [
+          7,
+          0,
+          4,
+          6,
+          4,
+          0
+        ]
+      },
+      "exact_pruning_crosscheck": null,
+      "original_kernel_witness": {
+        "status": "PASS",
+        "original_kernel_runs": 1,
+        "initial_full_codes": [
+          8,
+          8,
+          4,
+          6,
+          4,
+          8
+        ],
+        "initial_residues": [
+          0,
+          0,
+          4,
+          6,
+          4,
+          0
+        ],
+        "full_key_width": 5,
+        "business_constant": 72,
+        "variable_commands": 86,
+        "actual_commands": 158,
+        "vacancy_bit_reads": 10,
+        "selected_keys": [
+          7
+        ],
+        "kernel_assertions": 31,
+        "result": {
+          "strategy": "cost_aware_observed",
+          "api_calls": 3,
+          "commands": 158,
+          "vacancy_bit_reads": 10,
+          "business_key_bit_reads": 3,
+          "control_events": {
+            "witness_checks": 0,
+            "witness_hits": 0,
+            "target_searches": 0,
+            "query_node_visits": 0,
+            "candidate_count_queries": 0,
+            "selected_branches": 0,
+            "initial_labels": 6,
+            "initial_node_cells": 15,
+            "query_label_moves": 0,
+            "query_count_updates": 0,
+            "business_path_touches": 5,
+            "business_label_completions": 0,
+            "bucket_removals": 1,
+            "bucket_insertions": 7,
+            "slot_detaches": 1,
+            "slot_attaches": 1,
+            "retired_labels": 1,
+            "known_labels_introduced": 1,
+            "cost_selections": 0,
+            "candidate_prefix_checks": 0,
+            "candidate_probe_attempts": 0,
+            "candidate_probe_successes": 0,
+            "explicit_probe_bit_reads": 10,
+            "initial_even_probes": 0,
+            "initial_probe_fallbacks": 0,
+            "initial_high_probes": 0,
+            "cached_bits_promoted_to_prefix": 0,
+            "weighted_query_visits": 0,
+            "observed_prefix_visits": 0,
+            "region_acquisitions": 0,
+            "region_slot_writes": 0,
+            "region_member_changes": 0,
+            "region_first_references": 0,
+            "region_last_releases": 0,
+            "region_region_queries": 0,
+            "region_region_hits": 0,
+            "region_region_misses": 0,
+            "region_query_visits": 0,
+            "region_update_visits": 0,
+            "region_nodes_created": 0,
+            "region_retired_slot_marks": 0
+          },
+          "final_witness": null,
+          "max_live_labels": 6,
+          "max_known_low_bits": 3,
+          "allocated_prefix_nodes": 15,
+          "initial_policy": "deficit",
+          "probe_at": null,
+          "successful_reserves": 1,
+          "future_planner": true,
+          "final_region": {
+            "mask": null,
+            "value": null,
+            "free_count": null,
+            "occupied_residues": 0,
+            "marked_slots": 0
+          },
+          "compiled_target_windows": 3,
+          "arbitrary_observation_mask_records": 6,
+          "arbitrary_observed_bits": 10,
+          "additional_persistent_members": 0,
+          "additional_candidate_relations": 0,
+          "first_steps": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "answer": true,
+              "key": 7,
+              "commands": 105,
+              "vacancy_bit_reads": 10,
+              "business_key_bit_reads": 0,
+              "witness": 7,
+              "old_query_pairs": [
+                [
+                  0,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  2
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  5,
+                  2
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  1
+                ],
+                [
+                  4,
+                  1
+                ],
+                [
+                  3,
+                  0
+                ]
+              ],
+              "physical_last_before_create": 1,
+              "control_events": {
+                "explicit_probe_bit_reads": 10
+              },
+              "selected_key_weight": 6
+            },
+            {
+              "op": [
+                "bind",
+                0,
+                0
+              ],
+              "answer": true,
+              "commands": 42,
+              "vacancy_bit_reads": 0,
+              "business_key_bit_reads": 3,
+              "witness": null,
+              "old_query_pairs": [],
+              "control_events": {
+                "business_path_touches": 5,
+                "bucket_removals": 1,
+                "bucket_insertions": 1,
+                "slot_detaches": 1,
+                "slot_attaches": 1,
+                "retired_labels": 1,
+                "known_labels_introduced": 1
+              }
+            },
+            {
+              "op": [
+                "release",
+                1
+              ],
+              "answer": true,
+              "commands": 11,
+              "vacancy_bit_reads": 0,
+              "business_key_bit_reads": 0,
+              "witness": null,
+              "old_query_pairs": [],
+              "control_events": {}
+            }
+          ]
+        }
+      },
+      "elapsed_seconds": {
+        "planning": 5.094576438999866,
+        "kernel": 0.02668624899979477,
+        "total": 5.121525483999903
+      }
+    }
+  ],
+  "distinguished_slot_regression": {
+    "status": "PASS",
+    "targets": [
+      0,
+      1
+    ],
+    "left": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "right": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "multi_round_values": [
+      28,
+      20
+    ],
+    "final_round_values": [
+      22,
+      22
+    ],
+    "explanation": "Identical whole-slot multisets need different values before slot zero is overwritten; only the last round merges every slot."
+  },
+  "observed_high_bit_seed": {
+    "status": "PASS",
+    "initial_knowledge": [
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        0
+      ]
+    ],
+    "minimax_variable_commands": 8,
+    "additional_bit_reads": 0,
+    "key_schedules": [
+      [
+        3,
+        6
+      ]
+    ],
+    "initial_tables_exhausted": 4
+  },
+  "total_small_initial_tables_exhausted": 116,
+  "total_labelled_nonterminal_values_compared": 1280,
+  "original_kernel_runs": 3,
+  "elapsed_seconds": 6.073565667999901
+}

@@ -1,0 +1,560 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact Python integers",
+  "scope": "FINITE_CONTROL_AND_COMPILER_WORD_LENGTHS",
+  "profiles": {
+    "widths": [
+      1,
+      2,
+      3
+    ],
+    "mask_class_occupancy_profiles": 464,
+    "complete_positive_key_intervals": 109184,
+    "rank_comparisons": 336,
+    "point_updates": 3990,
+    "max_observed_query_node_visits": 14,
+    "domain": "Every ternary fixed/free-bit mask, every occupied subset, start=1..4B, colors=1..B"
+  },
+  "larger_carries": {
+    "seed": 20261110,
+    "widths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "profiles": 480,
+    "queries": 2880,
+    "representative_carries": [
+      {
+        "width": 4,
+        "mask": 9,
+        "value": 1,
+        "start": 11,
+        "colors": 12,
+        "key": 17,
+        "key_cost": 8
+      },
+      {
+        "width": 4,
+        "mask": 9,
+        "value": 1,
+        "start": 28,
+        "colors": 6,
+        "key": 33,
+        "key_cost": 8
+      },
+      {
+        "width": 4,
+        "mask": 9,
+        "value": 1,
+        "start": 61,
+        "colors": 11,
+        "key": 65,
+        "key_cost": 8
+      },
+      {
+        "width": 4,
+        "mask": 9,
+        "value": 1,
+        "start": 120,
+        "colors": 11,
+        "key": 129,
+        "key_cost": 8
+      },
+      {
+        "width": 4,
+        "mask": 9,
+        "value": 1,
+        "start": 504,
+        "colors": 13,
+        "key": 513,
+        "key_cost": 8
+      },
+      {
+        "width": 4,
+        "mask": 9,
+        "value": 1,
+        "start": 2046,
+        "colors": 5,
+        "key": 2049,
+        "key_cost": 8
+      },
+      {
+        "width": 4,
+        "mask": 14,
+        "value": 12,
+        "start": 12,
+        "colors": 6,
+        "key": 12,
+        "key_cost": 4
+      },
+      {
+        "width": 4,
+        "mask": 14,
+        "value": 12,
+        "start": 26,
+        "colors": 16,
+        "key": 28,
+        "key_cost": 6
+      }
+    ]
+  },
+  "prefix_adapters": {
+    "empty_prefix_queries": 18040,
+    "observed_partial_label_states": 308,
+    "observed_prefix_queries": 32608,
+    "domain": "Empty low prefixes b=1..4; all one/two-label prefix states b=1..3; all positive windows start=1..2B, colors=1..B"
+  },
+  "updates": {
+    "widths": [
+      1,
+      2
+    ],
+    "slots": 2,
+    "states": 804,
+    "one_step_updates": 18696,
+    "domain": "All masks; all two-slot full codes 0..2B; bind/copy/drop, including aliases and nonempty residue zero"
+  },
+  "word_weights": {
+    "kind": "COMPILER_WORD_LENGTH_CHECK",
+    "constructed_round_words": 234,
+    "rows": [
+      {
+        "slots": 1,
+        "targets": 3,
+        "key_width": 3,
+        "residue_width": 1,
+        "legal_keys": 6
+      },
+      {
+        "slots": 2,
+        "targets": 3,
+        "key_width": 4,
+        "residue_width": 2,
+        "legal_keys": 9
+      },
+      {
+        "slots": 3,
+        "targets": 3,
+        "key_width": 4,
+        "residue_width": 2,
+        "legal_keys": 12
+      },
+      {
+        "slots": 6,
+        "targets": 3,
+        "key_width": 5,
+        "residue_width": 3,
+        "legal_keys": 21
+      },
+      {
+        "slots": 7,
+        "targets": 3,
+        "key_width": 5,
+        "residue_width": 3,
+        "legal_keys": 24
+      },
+      {
+        "slots": 14,
+        "targets": 3,
+        "key_width": 6,
+        "residue_width": 4,
+        "legal_keys": 45
+      }
+    ],
+    "physical_execution": "Companion kernel runs, not this component check"
+  },
+  "fixed_target_DP": {
+    "cases": 3717,
+    "widths": [
+      1,
+      2,
+      3
+    ],
+    "max_safe_keys": 4,
+    "horizons": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "domain": "All positive legal-key subsets of size <=4; initial previous absent or any key"
+  },
+  "future_target_witness": {
+    "width": 2,
+    "colors": 3,
+    "certified_region": [
+      2,
+      3
+    ],
+    "targets": [
+      0,
+      1
+    ],
+    "myopic_keys": [
+      2,
+      null
+    ],
+    "optimal_no_read_keys": [
+      3,
+      6
+    ],
+    "optimal_key_dependent_commands": 8,
+    "interpretation": "At the second target myopic regional evidence misses; a planner keeps coverage without a new observation"
+  },
+  "carry_witness": {
+    "width": 3,
+    "colors": 8,
+    "target": 7,
+    "certified_mask": 1,
+    "certified_value": 0,
+    "legal_interval": [
+      57,
+      64
+    ],
+    "selected_key": 64,
+    "alternatives": [
+      {
+        "key": 60,
+        "residue": 4,
+        "cost": 8
+      },
+      {
+        "key": 64,
+        "residue": 0,
+        "cost": 6
+      }
+    ]
+  },
+  "constructive_examples": [
+    {
+      "width": 3,
+      "region": "odd_low_class",
+      "mask": 3,
+      "value": 1,
+      "keys": [
+        5,
+        1,
+        5,
+        1,
+        5,
+        1,
+        5,
+        1
+      ],
+      "key_costs": [
+        4,
+        6,
+        4,
+        6,
+        4,
+        6,
+        4,
+        6
+      ]
+    },
+    {
+      "width": 3,
+      "region": "even_low_class",
+      "mask": 3,
+      "value": 0,
+      "keys": [
+        4
+      ],
+      "key_costs": [
+        2
+      ]
+    },
+    {
+      "width": 3,
+      "region": "high_half",
+      "mask": 4,
+      "value": 4,
+      "keys": [
+        4,
+        5,
+        4,
+        5,
+        4,
+        5,
+        4,
+        5
+      ],
+      "key_costs": [
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4
+      ]
+    },
+    {
+      "width": 4,
+      "region": "odd_low_class",
+      "mask": 3,
+      "value": 1,
+      "keys": [
+        9,
+        1,
+        9,
+        1,
+        9,
+        1,
+        9,
+        1
+      ],
+      "key_costs": [
+        4,
+        6,
+        4,
+        6,
+        4,
+        6,
+        4,
+        6
+      ]
+    },
+    {
+      "width": 4,
+      "region": "even_low_class",
+      "mask": 3,
+      "value": 0,
+      "keys": [
+        8,
+        12,
+        8,
+        12,
+        8,
+        12,
+        8,
+        12
+      ],
+      "key_costs": [
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4
+      ]
+    },
+    {
+      "width": 4,
+      "region": "high_half",
+      "mask": 8,
+      "value": 8,
+      "keys": [
+        8,
+        9,
+        8,
+        9,
+        8,
+        9,
+        8,
+        9
+      ],
+      "key_costs": [
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4
+      ]
+    },
+    {
+      "width": 5,
+      "region": "odd_low_class",
+      "mask": 3,
+      "value": 1,
+      "keys": [
+        17,
+        1,
+        17,
+        1,
+        17,
+        1,
+        17,
+        1
+      ],
+      "key_costs": [
+        4,
+        6,
+        4,
+        6,
+        4,
+        6,
+        4,
+        6
+      ]
+    },
+    {
+      "width": 5,
+      "region": "even_low_class",
+      "mask": 3,
+      "value": 0,
+      "keys": [
+        16,
+        20,
+        16,
+        20,
+        16,
+        20,
+        16,
+        20
+      ],
+      "key_costs": [
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4
+      ]
+    },
+    {
+      "width": 5,
+      "region": "high_half",
+      "mask": 16,
+      "value": 16,
+      "keys": [
+        16,
+        17,
+        16,
+        17,
+        16,
+        17,
+        16,
+        17
+      ],
+      "key_costs": [
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4
+      ]
+    },
+    {
+      "width": 6,
+      "region": "odd_low_class",
+      "mask": 3,
+      "value": 1,
+      "keys": [
+        33,
+        1,
+        33,
+        1,
+        33,
+        1,
+        33,
+        1
+      ],
+      "key_costs": [
+        4,
+        6,
+        4,
+        6,
+        4,
+        6,
+        4,
+        6
+      ]
+    },
+    {
+      "width": 6,
+      "region": "even_low_class",
+      "mask": 3,
+      "value": 0,
+      "keys": [
+        32,
+        36,
+        32,
+        36,
+        32,
+        36,
+        32,
+        36
+      ],
+      "key_costs": [
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4
+      ]
+    },
+    {
+      "width": 6,
+      "region": "high_half",
+      "mask": 32,
+      "value": 32,
+      "keys": [
+        32,
+        33,
+        32,
+        33,
+        32,
+        33,
+        32,
+        33
+      ],
+      "key_costs": [
+        2,
+        4,
+        2,
+        4,
+        2,
+        4,
+        2,
+        4
+      ]
+    }
+  ],
+  "checks": {
+    "free-bit unpacking is monotone": 39,
+    "pack/unpack inverse": 39,
+    "rank_le exact": 336,
+    "available count exact": 464,
+    "all small-mask interval minima exact": 109184,
+    "range minimum visits <= 4d+1 per piece": 109184,
+    "restoration count exact": 2660,
+    "complete restoration coalesces to implicit free root": 464,
+    "point update visits <= d+1": 1330,
+    "larger windows and high-quotient carries exact": 2880,
+    "empty-low-prefix adapter exact across carry": 18040,
+    "observed-prefix chooser uses exactly provable absence": 32608,
+    "masked slot marks exact after update": 18696,
+    "masked reference multiplicities exact": 18696,
+    "masked free cardinality exact": 18696,
+    "masked choice after slot update exact": 74784,
+    "compiler binding cost exact": 117,
+    "full compiler word cost decomposes exactly": 234,
+    "two-cheapest greedy equals exact fixed-target DP": 3717,
+    "future-target DP avoids a myopic regional miss": 1,
+    "complete-key carry changes the least-cost choice": 1
+  }
+}

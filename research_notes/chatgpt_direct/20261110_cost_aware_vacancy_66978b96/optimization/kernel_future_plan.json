@@ -1,0 +1,478 @@
+{
+  "status": "PASS",
+  "mode": "future_plan",
+  "initial_table": [
+    [
+      null,
+      null,
+      null
+    ],
+    [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  ],
+  "operations": [
+    [
+      "reserve",
+      0
+    ],
+    [
+      "bind",
+      0,
+      0
+    ],
+    [
+      "release",
+      1
+    ],
+    [
+      "reserve",
+      1
+    ],
+    [
+      "bind",
+      0,
+      1
+    ],
+    [
+      "release",
+      4
+    ]
+  ],
+  "greedy": {
+    "strategy": "cost_aware_observed",
+    "api_calls": 6,
+    "commands": 159,
+    "vacancy_bit_reads": 3,
+    "business_key_bit_reads": 4,
+    "control_events": {
+      "witness_checks": 0,
+      "witness_hits": 0,
+      "target_searches": 1,
+      "query_node_visits": 3,
+      "candidate_count_queries": 4,
+      "selected_branches": 2,
+      "initial_labels": 2,
+      "initial_node_cells": 7,
+      "query_label_moves": 1,
+      "query_count_updates": 1,
+      "business_path_touches": 10,
+      "business_label_completions": 0,
+      "bucket_removals": 3,
+      "bucket_insertions": 5,
+      "slot_detaches": 2,
+      "slot_attaches": 2,
+      "retired_labels": 2,
+      "known_labels_introduced": 2,
+      "cost_selections": 3,
+      "candidate_prefix_checks": 4,
+      "candidate_probe_attempts": 0,
+      "candidate_probe_successes": 0,
+      "explicit_probe_bit_reads": 2,
+      "initial_even_probes": 0,
+      "initial_probe_fallbacks": 0,
+      "initial_high_probes": 1,
+      "cached_bits_promoted_to_prefix": 0,
+      "weighted_query_visits": 0,
+      "observed_prefix_visits": 0,
+      "region_acquisitions": 2,
+      "region_slot_writes": 2,
+      "region_member_changes": 2,
+      "region_first_references": 2,
+      "region_last_releases": 0,
+      "region_region_queries": 3,
+      "region_region_hits": 2,
+      "region_region_misses": 1,
+      "region_query_visits": 5,
+      "region_update_visits": 3,
+      "region_nodes_created": 3,
+      "region_retired_slot_marks": 1
+    },
+    "final_witness": null,
+    "max_live_labels": 2,
+    "max_known_low_bits": 3,
+    "allocated_prefix_nodes": 7,
+    "initial_policy": "high_half",
+    "probe_at": null,
+    "successful_reserves": 2,
+    "future_planner": false,
+    "final_region": {
+      "mask": 3,
+      "value": 0,
+      "free_count": 0,
+      "occupied_residues": 1,
+      "marked_slots": 1
+    },
+    "compiled_target_windows": 3,
+    "arbitrary_observation_mask_records": 2,
+    "arbitrary_observed_bits": 3,
+    "additional_persistent_members": 0,
+    "additional_candidate_relations": 0,
+    "first_steps": [
+      {
+        "op": [
+          "reserve",
+          0
+        ],
+        "answer": true,
+        "key": 2,
+        "commands": 38,
+        "vacancy_bit_reads": 2,
+        "business_key_bit_reads": 0,
+        "witness": 2,
+        "old_query_pairs": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "physical_last_before_create": 1,
+        "control_events": {
+          "cost_selections": 1,
+          "explicit_probe_bit_reads": 2,
+          "initial_high_probes": 1,
+          "region_acquisitions": 1,
+          "region_region_queries": 1,
+          "region_region_hits": 1,
+          "region_query_visits": 1
+        },
+        "selected_key_weight": 2
+      },
+      {
+        "op": [
+          "bind",
+          0,
+          0
+        ],
+        "answer": true,
+        "commands": 31,
+        "vacancy_bit_reads": 0,
+        "business_key_bit_reads": 2,
+        "witness": null,
+        "old_query_pairs": [],
+        "control_events": {
+          "business_path_touches": 4,
+          "bucket_removals": 1,
+          "bucket_insertions": 1,
+          "slot_detaches": 1,
+          "slot_attaches": 1,
+          "retired_labels": 1,
+          "known_labels_introduced": 1,
+          "region_slot_writes": 1,
+          "region_member_changes": 1,
+          "region_first_references": 1,
+          "region_update_visits": 2,
+          "region_nodes_created": 2
+        }
+      },
+      {
+        "op": [
+          "release",
+          1
+        ],
+        "answer": true,
+        "commands": 11,
+        "vacancy_bit_reads": 0,
+        "business_key_bit_reads": 0,
+        "witness": null,
+        "old_query_pairs": [],
+        "control_events": {}
+      },
+      {
+        "op": [
+          "reserve",
+          1
+        ],
+        "answer": true,
+        "key": 4,
+        "commands": 33,
+        "vacancy_bit_reads": 1,
+        "business_key_bit_reads": 0,
+        "witness": 0,
+        "old_query_pairs": [
+          [
+            1,
+            0
+          ]
+        ],
+        "physical_last_before_create": 1,
+        "control_events": {
+          "target_searches": 1,
+          "query_node_visits": 3,
+          "candidate_count_queries": 4,
+          "selected_branches": 2,
+          "query_label_moves": 1,
+          "query_count_updates": 1,
+          "bucket_removals": 1,
+          "bucket_insertions": 1,
+          "cost_selections": 2,
+          "candidate_prefix_checks": 4,
+          "region_acquisitions": 1,
+          "region_region_queries": 2,
+          "region_region_hits": 1,
+          "region_region_misses": 1,
+          "region_query_visits": 4,
+          "region_retired_slot_marks": 1
+        },
+        "selected_key_weight": 6
+      },
+      {
+        "op": [
+          "bind",
+          0,
+          1
+        ],
+        "answer": true,
+        "commands": 35,
+        "vacancy_bit_reads": 0,
+        "business_key_bit_reads": 2,
+        "witness": null,
+        "old_query_pairs": [],
+        "control_events": {
+          "business_path_touches": 6,
+          "bucket_removals": 1,
+          "bucket_insertions": 1,
+          "slot_detaches": 1,
+          "slot_attaches": 1,
+          "retired_labels": 1,
+          "known_labels_introduced": 1,
+          "region_slot_writes": 1,
+          "region_member_changes": 1,
+          "region_first_references": 1,
+          "region_update_visits": 1,
+          "region_nodes_created": 1
+        }
+      },
+      {
+        "op": [
+          "release",
+          4
+        ],
+        "answer": true,
+        "commands": 11,
+        "vacancy_bit_reads": 0,
+        "business_key_bit_reads": 0,
+        "witness": null,
+        "old_query_pairs": [],
+        "control_events": {}
+      }
+    ]
+  },
+  "planned": {
+    "strategy": "cost_aware_observed",
+    "api_calls": 6,
+    "commands": 151,
+    "vacancy_bit_reads": 2,
+    "business_key_bit_reads": 4,
+    "control_events": {
+      "witness_checks": 0,
+      "witness_hits": 0,
+      "target_searches": 0,
+      "query_node_visits": 0,
+      "candidate_count_queries": 0,
+      "selected_branches": 0,
+      "initial_labels": 2,
+      "initial_node_cells": 7,
+      "query_label_moves": 0,
+      "query_count_updates": 0,
+      "business_path_touches": 10,
+      "business_label_completions": 0,
+      "bucket_removals": 2,
+      "bucket_insertions": 4,
+      "slot_detaches": 2,
+      "slot_attaches": 2,
+      "retired_labels": 2,
+      "known_labels_introduced": 2,
+      "cost_selections": 2,
+      "candidate_prefix_checks": 0,
+      "candidate_probe_attempts": 0,
+      "candidate_probe_successes": 0,
+      "explicit_probe_bit_reads": 2,
+      "initial_even_probes": 0,
+      "initial_probe_fallbacks": 0,
+      "initial_high_probes": 1,
+      "cached_bits_promoted_to_prefix": 0,
+      "weighted_query_visits": 0,
+      "observed_prefix_visits": 0,
+      "region_acquisitions": 1,
+      "region_slot_writes": 2,
+      "region_member_changes": 2,
+      "region_first_references": 2,
+      "region_last_releases": 1,
+      "region_region_queries": 1,
+      "region_region_hits": 1,
+      "region_region_misses": 0,
+      "region_query_visits": 3,
+      "region_update_visits": 6,
+      "region_nodes_created": 4,
+      "region_retired_slot_marks": 0
+    },
+    "final_witness": null,
+    "max_live_labels": 2,
+    "max_known_low_bits": 2,
+    "allocated_prefix_nodes": 7,
+    "initial_policy": "high_half",
+    "probe_at": null,
+    "successful_reserves": 2,
+    "future_planner": false,
+    "final_region": {
+      "mask": 2,
+      "value": 2,
+      "free_count": 1,
+      "occupied_residues": 1,
+      "marked_slots": 1
+    },
+    "compiled_target_windows": 3,
+    "arbitrary_observation_mask_records": 2,
+    "arbitrary_observed_bits": 2,
+    "additional_persistent_members": 0,
+    "additional_candidate_relations": 0,
+    "first_steps": [
+      {
+        "op": [
+          "reserve",
+          0
+        ],
+        "answer": true,
+        "key": 3,
+        "commands": 39,
+        "vacancy_bit_reads": 2,
+        "business_key_bit_reads": 0,
+        "witness": 3,
+        "old_query_pairs": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "physical_last_before_create": 1,
+        "control_events": {
+          "cost_selections": 1,
+          "explicit_probe_bit_reads": 2,
+          "initial_high_probes": 1,
+          "region_acquisitions": 1
+        },
+        "selected_key_weight": 4
+      },
+      {
+        "op": [
+          "bind",
+          0,
+          0
+        ],
+        "answer": true,
+        "commands": 32,
+        "vacancy_bit_reads": 0,
+        "business_key_bit_reads": 2,
+        "witness": null,
+        "old_query_pairs": [],
+        "control_events": {
+          "business_path_touches": 4,
+          "bucket_removals": 1,
+          "bucket_insertions": 1,
+          "slot_detaches": 1,
+          "slot_attaches": 1,
+          "retired_labels": 1,
+          "known_labels_introduced": 1,
+          "region_slot_writes": 1,
+          "region_member_changes": 1,
+          "region_first_references": 1,
+          "region_update_visits": 2,
+          "region_nodes_created": 2
+        }
+      },
+      {
+        "op": [
+          "release",
+          1
+        ],
+        "answer": true,
+        "commands": 11,
+        "vacancy_bit_reads": 0,
+        "business_key_bit_reads": 0,
+        "witness": null,
+        "old_query_pairs": [],
+        "control_events": {}
+      },
+      {
+        "op": [
+          "reserve",
+          1
+        ],
+        "answer": true,
+        "key": 6,
+        "commands": 26,
+        "vacancy_bit_reads": 0,
+        "business_key_bit_reads": 0,
+        "witness": 2,
+        "old_query_pairs": [],
+        "physical_last_before_create": 1,
+        "control_events": {
+          "cost_selections": 1,
+          "region_region_queries": 1,
+          "region_region_hits": 1,
+          "region_query_visits": 3
+        },
+        "selected_key_weight": 4
+      },
+      {
+        "op": [
+          "bind",
+          0,
+          1
+        ],
+        "answer": true,
+        "commands": 32,
+        "vacancy_bit_reads": 0,
+        "business_key_bit_reads": 2,
+        "witness": null,
+        "old_query_pairs": [],
+        "control_events": {
+          "business_path_touches": 6,
+          "bucket_removals": 1,
+          "bucket_insertions": 1,
+          "slot_detaches": 1,
+          "slot_attaches": 1,
+          "retired_labels": 1,
+          "known_labels_introduced": 1,
+          "region_slot_writes": 1,
+          "region_member_changes": 1,
+          "region_first_references": 1,
+          "region_last_releases": 1,
+          "region_update_visits": 4,
+          "region_nodes_created": 2
+        }
+      },
+      {
+        "op": [
+          "release",
+          4
+        ],
+        "answer": true,
+        "commands": 11,
+        "vacancy_bit_reads": 0,
+        "business_key_bit_reads": 0,
+        "witness": null,
+        "old_query_pairs": [],
+        "control_events": {}
+      }
+    ]
+  },
+  "assertions": 102,
+  "scope": "Two specified targets; desired first key is checked against actual acquired evidence"
+}

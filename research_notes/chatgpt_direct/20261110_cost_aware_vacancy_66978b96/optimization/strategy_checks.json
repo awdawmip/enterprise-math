@@ -1,0 +1,492 @@
+{
+  "status": "PASS",
+  "model": "FINITE_INTEGER_CONTROL_ONLY",
+  "formula": "8r+(8b+2q+41)T-(T mod2)",
+  "source": "strategy_proofs.md",
+  "weights": {
+    "slot_domain": [
+      2,
+      63
+    ],
+    "horizon_domain": [
+      1,
+      64
+    ],
+    "legal_key_weight_cells": 2077,
+    "dp_state_cells": 132928,
+    "selected_formula_values": [
+      {
+        "slots": 2,
+        "width": 2,
+        "full_width": 4,
+        "horizon": 1,
+        "weight_minimum": 2,
+        "original_command_formula": 80
+      },
+      {
+        "slots": 2,
+        "width": 2,
+        "full_width": 4,
+        "horizon": 2,
+        "weight_minimum": 6,
+        "original_command_formula": 146
+      },
+      {
+        "slots": 2,
+        "width": 2,
+        "full_width": 4,
+        "horizon": 8,
+        "weight_minimum": 24,
+        "original_command_formula": 536
+      },
+      {
+        "slots": 2,
+        "width": 2,
+        "full_width": 4,
+        "horizon": 32,
+        "weight_minimum": 96,
+        "original_command_formula": 2096
+      },
+      {
+        "slots": 3,
+        "width": 2,
+        "full_width": 4,
+        "horizon": 1,
+        "weight_minimum": 2,
+        "original_command_formula": 88
+      },
+      {
+        "slots": 3,
+        "width": 2,
+        "full_width": 4,
+        "horizon": 2,
+        "weight_minimum": 6,
+        "original_command_formula": 154
+      },
+      {
+        "slots": 3,
+        "width": 2,
+        "full_width": 4,
+        "horizon": 8,
+        "weight_minimum": 24,
+        "original_command_formula": 544
+      },
+      {
+        "slots": 3,
+        "width": 2,
+        "full_width": 4,
+        "horizon": 32,
+        "weight_minimum": 96,
+        "original_command_formula": 2104
+      },
+      {
+        "slots": 6,
+        "width": 3,
+        "full_width": 5,
+        "horizon": 1,
+        "weight_minimum": 2,
+        "original_command_formula": 122
+      },
+      {
+        "slots": 6,
+        "width": 3,
+        "full_width": 5,
+        "horizon": 2,
+        "weight_minimum": 6,
+        "original_command_formula": 198
+      },
+      {
+        "slots": 6,
+        "width": 3,
+        "full_width": 5,
+        "horizon": 8,
+        "weight_minimum": 24,
+        "original_command_formula": 648
+      },
+      {
+        "slots": 6,
+        "width": 3,
+        "full_width": 5,
+        "horizon": 32,
+        "weight_minimum": 96,
+        "original_command_formula": 2448
+      },
+      {
+        "slots": 14,
+        "width": 4,
+        "full_width": 6,
+        "horizon": 1,
+        "weight_minimum": 2,
+        "original_command_formula": 196
+      },
+      {
+        "slots": 14,
+        "width": 4,
+        "full_width": 6,
+        "horizon": 2,
+        "weight_minimum": 6,
+        "original_command_formula": 282
+      },
+      {
+        "slots": 14,
+        "width": 4,
+        "full_width": 6,
+        "horizon": 8,
+        "weight_minimum": 24,
+        "original_command_formula": 792
+      },
+      {
+        "slots": 14,
+        "width": 4,
+        "full_width": 6,
+        "horizon": 32,
+        "weight_minimum": 96,
+        "original_command_formula": 2832
+      },
+      {
+        "slots": 30,
+        "width": 5,
+        "full_width": 7,
+        "horizon": 1,
+        "weight_minimum": 2,
+        "original_command_formula": 334
+      },
+      {
+        "slots": 30,
+        "width": 5,
+        "full_width": 7,
+        "horizon": 2,
+        "weight_minimum": 6,
+        "original_command_formula": 430
+      },
+      {
+        "slots": 30,
+        "width": 5,
+        "full_width": 7,
+        "horizon": 8,
+        "weight_minimum": 24,
+        "original_command_formula": 1000
+      },
+      {
+        "slots": 30,
+        "width": 5,
+        "full_width": 7,
+        "horizon": 32,
+        "weight_minimum": 96,
+        "original_command_formula": 3280
+      },
+      {
+        "slots": 62,
+        "width": 6,
+        "full_width": 8,
+        "horizon": 1,
+        "weight_minimum": 2,
+        "original_command_formula": 600
+      },
+      {
+        "slots": 62,
+        "width": 6,
+        "full_width": 8,
+        "horizon": 2,
+        "weight_minimum": 6,
+        "original_command_formula": 706
+      },
+      {
+        "slots": 62,
+        "width": 6,
+        "full_width": 8,
+        "horizon": 8,
+        "weight_minimum": 24,
+        "original_command_formula": 1336
+      },
+      {
+        "slots": 62,
+        "width": 6,
+        "full_width": 8,
+        "horizon": 32,
+        "weight_minimum": 96,
+        "original_command_formula": 3856
+      }
+    ]
+  },
+  "information": {
+    "domains": [
+      {
+        "slots": 2,
+        "width": 2,
+        "actual_value_range": [
+          0,
+          1
+        ],
+        "preparations": 4,
+        "mask_states_per_preparation": 16,
+        "tested_under_budget_masks_per_preparation": 5
+      },
+      {
+        "slots": 3,
+        "width": 2,
+        "actual_value_range": [
+          0,
+          1
+        ],
+        "preparations": 8,
+        "mask_states_per_preparation": 64,
+        "tested_under_budget_masks_per_preparation": 22
+      },
+      {
+        "slots": 4,
+        "width": 3,
+        "actual_value_range": [
+          0,
+          3
+        ],
+        "preparations": 256,
+        "mask_states_per_preparation": 4096,
+        "tested_under_budget_masks_per_preparation": 299
+      }
+    ],
+    "preparations": 268,
+    "complete_mask_state_domain_size": 1049152,
+    "under_budget_mask_states_actually_checked": 76740,
+    "high_bit_certificates_checked": 268,
+    "note": "All under-r probe masks in each declared domain; other masks are counted as domain size, not executed"
+  },
+  "fixed_entry": {
+    "width_domain": [
+      3,
+      8
+    ],
+    "horizon_domain": [
+      1,
+      256
+    ],
+    "horizons": 1536,
+    "first_even_use_lower_bound_cases": 195840,
+    "selected": [
+      {
+        "slots": 6,
+        "horizon": 1,
+        "without_expansion": 4,
+        "with_round2_expansion": null,
+        "minimum": 4
+      },
+      {
+        "slots": 6,
+        "horizon": 2,
+        "without_expansion": 10,
+        "with_round2_expansion": 22,
+        "minimum": 10
+      },
+      {
+        "slots": 6,
+        "horizon": 7,
+        "without_expansion": 34,
+        "with_round2_expansion": 38,
+        "minimum": 34
+      },
+      {
+        "slots": 6,
+        "horizon": 8,
+        "without_expansion": 40,
+        "with_round2_expansion": 40,
+        "minimum": 40
+      },
+      {
+        "slots": 6,
+        "horizon": 9,
+        "without_expansion": 44,
+        "with_round2_expansion": 44,
+        "minimum": 44
+      },
+      {
+        "slots": 6,
+        "horizon": 10,
+        "without_expansion": 50,
+        "with_round2_expansion": 46,
+        "minimum": 46
+      },
+      {
+        "slots": 14,
+        "horizon": 1,
+        "without_expansion": 4,
+        "with_round2_expansion": null,
+        "minimum": 4
+      },
+      {
+        "slots": 14,
+        "horizon": 2,
+        "without_expansion": 10,
+        "with_round2_expansion": 54,
+        "minimum": 10
+      },
+      {
+        "slots": 14,
+        "horizon": 23,
+        "without_expansion": 114,
+        "with_round2_expansion": 118,
+        "minimum": 114
+      },
+      {
+        "slots": 14,
+        "horizon": 24,
+        "without_expansion": 120,
+        "with_round2_expansion": 120,
+        "minimum": 120
+      },
+      {
+        "slots": 14,
+        "horizon": 25,
+        "without_expansion": 124,
+        "with_round2_expansion": 124,
+        "minimum": 124
+      },
+      {
+        "slots": 14,
+        "horizon": 26,
+        "without_expansion": 130,
+        "with_round2_expansion": 126,
+        "minimum": 126
+      },
+      {
+        "slots": 30,
+        "horizon": 1,
+        "without_expansion": 4,
+        "with_round2_expansion": null,
+        "minimum": 4
+      },
+      {
+        "slots": 30,
+        "horizon": 2,
+        "without_expansion": 10,
+        "with_round2_expansion": 118,
+        "minimum": 10
+      },
+      {
+        "slots": 30,
+        "horizon": 55,
+        "without_expansion": 274,
+        "with_round2_expansion": 278,
+        "minimum": 274
+      },
+      {
+        "slots": 30,
+        "horizon": 56,
+        "without_expansion": 280,
+        "with_round2_expansion": 280,
+        "minimum": 280
+      },
+      {
+        "slots": 30,
+        "horizon": 57,
+        "without_expansion": 284,
+        "with_round2_expansion": 284,
+        "minimum": 284
+      },
+      {
+        "slots": 30,
+        "horizon": 58,
+        "without_expansion": 290,
+        "with_round2_expansion": 286,
+        "minimum": 286
+      },
+      {
+        "slots": 62,
+        "horizon": 1,
+        "without_expansion": 4,
+        "with_round2_expansion": null,
+        "minimum": 4
+      },
+      {
+        "slots": 62,
+        "horizon": 2,
+        "without_expansion": 10,
+        "with_round2_expansion": 246,
+        "minimum": 10
+      },
+      {
+        "slots": 62,
+        "horizon": 119,
+        "without_expansion": 594,
+        "with_round2_expansion": 598,
+        "minimum": 594
+      },
+      {
+        "slots": 62,
+        "horizon": 120,
+        "without_expansion": 600,
+        "with_round2_expansion": 600,
+        "minimum": 600
+      },
+      {
+        "slots": 62,
+        "horizon": 121,
+        "without_expansion": 604,
+        "with_round2_expansion": 604,
+        "minimum": 604
+      },
+      {
+        "slots": 62,
+        "horizon": 122,
+        "without_expansion": 610,
+        "with_round2_expansion": 606,
+        "minimum": 606
+      },
+      {
+        "slots": 126,
+        "horizon": 1,
+        "without_expansion": 4,
+        "with_round2_expansion": null,
+        "minimum": 4
+      },
+      {
+        "slots": 126,
+        "horizon": 2,
+        "without_expansion": 10,
+        "with_round2_expansion": 502,
+        "minimum": 10
+      },
+      {
+        "slots": 126,
+        "horizon": 247,
+        "without_expansion": 1234,
+        "with_round2_expansion": 1238,
+        "minimum": 1234
+      },
+      {
+        "slots": 126,
+        "horizon": 248,
+        "without_expansion": 1240,
+        "with_round2_expansion": 1240,
+        "minimum": 1240
+      },
+      {
+        "slots": 126,
+        "horizon": 249,
+        "without_expansion": 1244,
+        "with_round2_expansion": 1244,
+        "minimum": 1244
+      },
+      {
+        "slots": 126,
+        "horizon": 250,
+        "without_expansion": 1250,
+        "with_round2_expansion": 1246,
+        "minimum": 1246
+      },
+      {
+        "slots": 254,
+        "horizon": 1,
+        "without_expansion": 4,
+        "with_round2_expansion": null,
+        "minimum": 4
+      },
+      {
+        "slots": 254,
+        "horizon": 2,
+        "without_expansion": 10,
+        "with_round2_expansion": 1014,
+        "minimum": 10
+      }
+    ]
+  }
+}
