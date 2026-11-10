@@ -1,0 +1,54 @@
+{
+  "schema": "EM_PREFIX666_R6_TAYLOR_BERNSTEIN_STRIP_V1",
+  "frozen_scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "domain": {
+    "p": [
+      "0",
+      "1/256"
+    ],
+    "z": [
+      "607/4096",
+      "609/4096"
+    ],
+    "q": [
+      "12",
+      "24"
+    ]
+  },
+  "k": 12,
+  "certificate_thresholds": {
+    "mu_lower": ">879/10",
+    "mu_pp_lower": ">193",
+    "H_pp_upper": "<12855",
+    "W_pp_upper": "<-8000"
+  },
+  "rational_brackets_for_exact_computed_envelopes": {
+    "mu_lower": [
+      "879/10",
+      "88"
+    ],
+    "mu_pp_lower": [
+      "193",
+      "194"
+    ],
+    "H_pp_upper": [
+      "12854",
+      "12855"
+    ],
+    "W_pp_upper": [
+      "-8400",
+      "-8300"
+    ]
+  },
+  "implied": "V_q,pp < -8000*q^2; unique maximizer (0,z_star(q)) on strip",
+  "stability": "M_q-V_q(p,z)>=76650*p+4000*q^2*p^2+6400000*(z-z_star(q))^2",
+  "area_gain_vs_PREFIX665": 16,
+  "local_checks": 12,
+  "local_result": "ALL_CHECKS_PASS",
+  "provenance": {
+    "researcher_id": "EM-DIRECT-4D0FD7",
+    "activity_id": "RA-FF547EFAD41019F3529D02C5",
+    "dependency": "PREFIX665_R6_SIGNED_CURVATURE_CERTIFICATE.py"
+  },
+  "status": "AUTHOR_PROVED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
