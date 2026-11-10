@@ -1,0 +1,51 @@
+{
+  "schema": "EM_R708_AUTHOR_EXACT_EVIDENCE_V1",
+  "date": "2026-11-11",
+  "model": "R707 candidate Cell-local equal-q distinct-axis triad covering",
+  "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "verification": "R708_X6_TRIADIC_SATURATION_BRC_EXACT_PASS",
+  "exhaustive_domain": "n_i in {0,1,2,3}, 6 axes, sum(n) divisible by 3",
+  "profiles": 1366,
+  "feasible": 1135,
+  "pair_checks": 10755,
+  "two_saturated_profiles": 390,
+  "proofs": [
+    "feasible iff max_i n_i <= m for sum(n)=3m",
+    "third-axis branch W_ij,k=n_k D(n-e_i-e_j-e_k) with saturated-axis support",
+    "if two axes saturated D=(m!)^2 and Pr(k|fixed pair together)=n_k/m"
+  ],
+  "examples": {
+    "nA": {
+      "counts": [
+        3,
+        3,
+        3,
+        0,
+        0,
+        0
+      ],
+      "D": 36,
+      "third_weights": {
+        "2": 12
+      }
+    },
+    "nB": {
+      "counts": [
+        3,
+        3,
+        1,
+        1,
+        1,
+        0
+      ],
+      "D": 36,
+      "third_weights": {
+        "2": 4,
+        "3": 4,
+        "4": 4
+      },
+      "pair_23_together_probability": "0"
+    }
+  },
+  "boundaries": "author-side exact candidate theorem; actual TRIADIC_CLOSURE_E and V29/V39 native dynamics pending"
+}
