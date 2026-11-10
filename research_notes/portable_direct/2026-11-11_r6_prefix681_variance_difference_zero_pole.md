@@ -88,3 +88,19 @@ Run `python3 research_notes/portable_direct/PREFIX681_R6_VARIANCE_ZERO_CERTIFICA
 Next independently executable unit: certify `F_q'(z)<0` (or exact sign structure) on rational Bernstein boxes covering `[0.052,0.054]×[12,24]`, separately from pole-free `q₀` subintervals. Then apply the complete `p=0` boundary maximum from PREFIX-675 as the competing benchmark for true two-dimensional parameter pruning.
 
 Provenance: author calculation, frozen model; neither formal Task Result nor independent review has occurred.
+
+
+## Additional theorem: crossovers for every large real slot parameter
+
+Let `z_A` be the **smallest** zero of `A` in `(53/1000,5327/100000)`. Such a zero exists because PREFIX-680 gives `A(53/1000)>0` and the new exact endpoint calculation gives `A(5327/100000)<0`. By the choice of smallest zero and continuity, `A(z)>0` throughout `[53/1000,z_A)`.
+
+The certified center ratio from PREFIX-680 obeys `q₀(53/1000)<18`. Therefore for **every real q≥18**, the division-free residual `F_q(z)=qA(z)-B(z)` satisfies
+[
+F_q(53/1000)=A(53/1000)(q-q₀(53/1000))>0,qquad
+F_q(z_A)=-B(z_A)<-6.
+]
+Consequently **every real `q≥18` has at least one diagonal–edge variance crossover `z_q∈(53/1000,z_A)`**. This extends crossover *existence* beyond the prior sampled slot interval `[12,24]`; it uses the same finite frozen observer and is not a claim of unique roots.
+
+There is also a certified large-slot limiting law. For each `q≥18`, choose any root `z_q∈(b,z_A)`, where `b=53/1000`. On the compact interval `[b,z_A]`, `B` is bounded, while `A` is continuous and strictly positive on every `[b,z_A-ε]` for `ε>0`. The root identity `qA(z_q)=B(z_q)` therefore forces `z_q→z_A` as real `q→+∞`. This conclusion does **not** require an assumed global monotonicity of `q₀`.
+
+This constructive endpoint/limit result suggests separating the crossover study into the finite-`q` pole-free chart and the `q^{-1}` near-zero chart: the second has the regular equation `A(z)-q^{-1}B(z)=0`, which remains well defined across `A=0`.
