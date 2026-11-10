@@ -36,7 +36,7 @@ A second, separately written program re-enumerates full alphabet words by DFA re
 
 ## Exact files and reproducibility
 
-The GitHub evidence bundle `EC49FGQ_EVIDENCE_20261110.tar.xz.b64` contains the complete executed standard-library bitmask verifier, the baseline A/B witness source data, and the independent crosscheck's exact summary JSON. Running the bitmask verifier regenerates the full 552-pair JSON report. The separately retained complete local evidence archive additionally contains the independent verifier source, full precomputed report, README and SHA256 checksums. To reproduce the principal GitHub-hosted proof:
+The GitHub evidence bundle `EC49FGQ_EVIDENCE_20261110.tar.xz.b64` contains the complete executed standard-library bitmask verifier, the baseline A/B witness source data, and the independent crosscheck's exact summary JSON. Running the bitmask verifier regenerates the full 552-pair JSON report. The independently executed alphabet-recursion verifier is also published as `EC49FGQ_DIRECT_CROSSCHECK.py` in this GitHub folder; the complete local evidence archive additionally contains both programs, both resulting JSON reports, the source witness, README and SHA256 checksums. To reproduce the principal GitHub-hosted proof:
 
 ```bash
 base64 -d EC49FGQ_EVIDENCE_20261110.tar.xz.b64 | tar -xJf -
