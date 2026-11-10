@@ -1,0 +1,68 @@
+{
+  "schema": "ENTERPRISE_MATH_AUTHOR_SIDE_PORTABLE_CONTINUATION_V1",
+  "observed_at_local": "2026-11-10 (Asia/Hong_Kong), research-run 11",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "logical_research_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_source_commit": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "mother_objective": "Original signed Delta_p-R_p=0 mod p at p≡13,19(mod24) and independent same-original-class native H0/B0 benchmark p=373",
+  "highest_author_frontier": {
+    "kind": "EXACT_ALL_PRIME_MULTISCALE_TERMINAL_CARRY_PROVED_PLUS_FINITE_FROBENIUS_HYPOTHESIS",
+    "proof_path": "research_notes/portable_direct/20261110_onhour_d25_W216_primepower_terminal_dwork_bridge.md",
+    "checker_path": "research_notes/portable_direct/d25_w216_primepower_terminal_dwork_20261110.py",
+    "proved": [
+      "p>3,r>=1: v_p(a_(p^r-1))=3r and a/p^(3r)=-1 mod p",
+      "for t=v_p(k+1), v_p(d_k a_k)>=t",
+      "W_(p^r)-S_(p^r)=-7p^(3r) mod p^(3r+1)"
+    ],
+    "finite_only": {
+      "hypothesis": "W_(p^r)-chi_p*p*W_(p^(r-1))=c_p*p^(3r) mod p^(3r+1), c_p=(W_p-chi_p*p)/p^3 mod p",
+      "r2_primes": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29,
+        31,
+        37
+      ],
+      "r3_primes": [
+        5,
+        7,
+        11,
+        13
+      ],
+      "r4_primes": [
+        5,
+        7
+      ],
+      "status": "EXACT_FINITE_WITNESSES_NOT_GENERAL_PROOF"
+    },
+    "source_classification": "AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED"
+  },
+  "do_not_repeat": [
+    "Previously proved r=1 inverse-moment identity and terminal lemma; higher r is the new proof.",
+    "Accepted D24 UR and prior original source-port, Clausen and four-grade coefficients.",
+    "No native H0/B0 benchmark has been executed by this author-side computation."
+  ],
+  "pending_native": {
+    "support_issue": 1559,
+    "status_at_latest_read": "OPEN (owner to be rechecked)",
+    "object": "fixed original-class [X]U mod139129, rank, eta, kappa, original Delta-R, independent reproduction"
+  },
+  "pending_control": {
+    "original_request_id": "onhour11-20261110-1157-source-cont",
+    "request_status_at_last_read": "QUEUED",
+    "previous_succeeded_request_id": "onhour11-20261110-0958-current-source-continuation",
+    "own_recovery": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
+    "own_authenticated_claim": false,
+    "own_open_run": false,
+    "formal_source_checkpoint": false
+  },
+  "next_exact_action": "Test and derive finite block/contiguous WZ identity for W_(p^2)-chi*p W_p defect; simultaneously preserve independent original p373 H0/B0 experimental requirement.",
+  "notification_and_scheduler": "UNCHANGED"
+}
