@@ -1,0 +1,57 @@
+{
+  "schema": "R682C_FOUR_CELL_V29_V39_LEDGER_V1",
+  "status": "AUTHOR_SIDE_EXACT_MODEL_THEOREM_AND_FINITE_CHECK",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "source_V29_blob": "6849ebd3fc776fb7da3b46627376490aba3dad99",
+  "source_V35_blob": "32909981c33d1739f3028fef8a5c02170913b460",
+  "source_V39_blob": "8151d0b6a4b65225b93d858bbc8a5d7037bf9cef",
+  "native_spatial_axes": 6,
+  "cell_coordinates": [
+    "(0,0,0,0,0,0)",
+    "(1,0,0,0,0,0)",
+    "(1,1,0,0,0,0)",
+    "(0,1,0,0,0,0)"
+  ],
+  "directed_edges": [
+    "v0→v1",
+    "v1→v2",
+    "v2→v3",
+    "v3→v0"
+  ],
+  "permitted_port_pairs": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      3
+    ]
+  ],
+  "internal_event_batch": [
+    "PASS 0→1 at v0",
+    "PASS 1→2 at v0",
+    "PASS 2→0 at v0"
+  ],
+  "network_event_batch": [
+    "TRANSFER v0:0→v1:0",
+    "TRANSFER v1:0→v2:0",
+    "TRANSFER v2:0→v3:0",
+    "TRANSFER v3:0→v0:0"
+  ],
+  "theorem": "For all integers r,s>=0, r internal batches and s spatial TRANSFER batches give (j_star(v0), j_V39)=(r,s*c), Q preserved at 0; j_V39 is net intercell edge-chain not internal PASS cycle credit",
+  "finite_check": "(r,s) in {0,...,8}^2:81 cases",
+  "all_cell_scalar_boundary_changes_zero": true,
+  "primitive_event_counts_nonnegative": true,
+  "mapping_status": "Potential balanced-submonoid bridge r→r*c is algebraic only; no native event coupling asserted",
+  "checker": "R682C_FOUR_CELL_VERIFY.py",
+  "marker": "R682C_V29_V39_FOUR_CELL_INDEPENDENCE_EXACT_PASS"
+}
