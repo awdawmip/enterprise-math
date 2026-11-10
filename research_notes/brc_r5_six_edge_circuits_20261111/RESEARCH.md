@@ -67,3 +67,8 @@ The BRC-relevant observation is a precise **minimum invisible signed branch-resi
 ## Next discriminating scientific action
 
 Use the frozen 14-variable physical mass map, five equalities, and 26 capacity inequalities to determine whether any of these 210 \(K_{2,3}\) circuits has a strictly positive *physically lawful* base coupling. Construct a rational feasible witness, or derive an exact physical infeasibility certificate for the candidate family. This would decide whether the observer-level residual is also realized in the constrained physical R5 model. Retain PR #2013's five-arc minimality result and all frozen pins unchanged.
+
+
+## Update: physical realization established in this same PR
+
+The next-action question above has been answered by the separately verified follow-up **PHYSICAL_REALIZATION.md** and **WITNESS.txt / VERIFY_ALL_210.py / EXACT_PHYSICAL_OUTPUT.txt** at this branch. An exact original-physical 14-variable pair admits a coupling strictly positive on all 30 allowed arcs with minimum mass 196521/33975844. For the same fixed physical pair every one of the 210 minimal K2,3 kernel circuits can be perturbed with common positive amplitude 196521/135903376, preserving all five physical equalities, 26 capacities and 21 Blackwell readouts. The physical coupling fiber has a relatively open 15-dimensional set. The remaining unit is exact extreme-point and support classification of this fixed-physical fiber.
