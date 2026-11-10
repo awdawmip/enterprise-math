@@ -7,7 +7,7 @@ from fractions import Fraction as F
 from math import isqrt
 from bisect import bisect_right
 from pathlib import Path
-import json, hashlib, time
+import json, hashlib
 
 FROZEN_S23='43ec6098b1330ae86d0a7863be336c5d97f6ef34'
 D=10**45
@@ -137,7 +137,6 @@ class Model:
 
 def do_case(kind,m,p,q,j,N,independent=True):
     model=Model(kind,m)
-    t0=time.perf_counter()
     pred,stats=model.select(j,N,p,q,cert=True)
     if pred is None:return {**stats,'case':kind,'m':m,'p':p,'q':q,'j':j,'N':N}
     if independent:
@@ -146,7 +145,7 @@ def do_case(kind,m,p,q,j,N,independent=True):
     else:calls=None
     stats.update(case=kind,p=p,selected_owners=sum(x is not None for x in pred),
                  oracle_floor_sum_queries=calls,last_source_by_historical_arc=pred,
-                 elapsed_s=round(time.perf_counter()-t0,4))
+                 )
     return stats
 
 def brute_tests():
