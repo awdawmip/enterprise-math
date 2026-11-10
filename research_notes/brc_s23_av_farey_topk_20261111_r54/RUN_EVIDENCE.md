@@ -31,3 +31,17 @@ This is author-side finite checking of a hand-proved proposition; independent ma
 ## New output
 
 Certified top-k generation needs one strict Farey bracket and k index updates, so it replaces a per-k Floor Sum rank search in the frozen phase-cut subproblem. The user-visible and future observer-relevant original history labels are preserved in the source sweep. Overall bit complexity and integration with the full Farey risk compiler remain the concrete next work.
+
+
+## R54 risk-prefix integration (executed after first publication)
+
+The additionally executed and now published code `VERIFY_R54_RISK_PREFIX.py` uses the R54 Farey successor to construct the complete circular phase order at every n=128,...,389, computes the **affine per-original-history-label maximum-gap risk**, and independently recomputes that risk from directly sorted exact phases. The rank generator contains no sort of the n input phases. Every state was compared as a pair of integer affine coefficients (constant, theta coefficient).
+
+```text
+PASS_R54_RISK_PREFIX lower n 128 .. 389 states 262 R_389 (-7551, 28800)
+PASS_R54_RISK_PREFIX mid n 128 .. 389 states 262 R_389 (-7551, 28800)
+PASS_R54_RISK_PREFIX upper n 128 .. 389 states 262 R_389 (-7551, 28800)
+PASS_R54_RISK_PREFIX_TOTAL 786 matched exact affine risk states
+```
+
+The three parameter values are both certified endpoints and their rational midpoint. At every n the Farey cut bracket from the frozen midpoint was also checked to contain both interval endpoints strictly, ensuring stable cut ordering. The script reuses an explicit original-label owner map from historical phase positions, and independently reconstructs the scalar risk at every n, not merely the final value. The exact far-horizon 298-run compiler was not rerun in this turn.
