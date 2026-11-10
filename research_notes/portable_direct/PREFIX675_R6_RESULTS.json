@@ -1,0 +1,167 @@
+{
+  "result_id": "PREFIX-675-R6-EDGE-GLOBAL",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "date": "2026-11-10",
+  "researcher_id": "EM-DIRECT-9F3462",
+  "activity_id": "RA-59D34738FA9229BDC58D7E47",
+  "q_domain": "every real q in [12,24]",
+  "p_boundary": 0,
+  "root_interval": [
+    "607/4096",
+    "609/4096"
+  ],
+  "global_edge_maximizers": "z_*(q), 1-z_*(q)",
+  "derivative_factor": "P_q'=(1-2z)D_q",
+  "degree_derivative": 375,
+  "degree_quotient": 374,
+  "checks_passed": 12,
+  "strict_Bernstein_sign_cells": 30,
+  "strict_Bernstein_curvature_cells": 4,
+  "certificate": {
+    "12": {
+      "positive": [
+        [
+          "0",
+          "1/8"
+        ],
+        [
+          "1/8",
+          "9/64"
+        ],
+        [
+          "9/64",
+          "37/256"
+        ],
+        [
+          "37/256",
+          "75/512"
+        ],
+        [
+          "75/512",
+          "151/1024"
+        ],
+        [
+          "151/1024",
+          "303/2048"
+        ],
+        [
+          "303/2048",
+          "607/4096"
+        ]
+      ],
+      "negative": [
+        [
+          "609/4096",
+          "305/2048"
+        ],
+        [
+          "305/2048",
+          "153/1024"
+        ],
+        [
+          "153/1024",
+          "77/512"
+        ],
+        [
+          "77/512",
+          "39/256"
+        ],
+        [
+          "39/256",
+          "5/32"
+        ],
+        [
+          "5/32",
+          "3/16"
+        ],
+        [
+          "3/16",
+          "1/4"
+        ],
+        [
+          "1/4",
+          "1/2"
+        ]
+      ]
+    },
+    "24": {
+      "positive": [
+        [
+          "0",
+          "1/8"
+        ],
+        [
+          "1/8",
+          "9/64"
+        ],
+        [
+          "9/64",
+          "37/256"
+        ],
+        [
+          "37/256",
+          "75/512"
+        ],
+        [
+          "75/512",
+          "151/1024"
+        ],
+        [
+          "151/1024",
+          "303/2048"
+        ],
+        [
+          "303/2048",
+          "607/4096"
+        ]
+      ],
+      "negative": [
+        [
+          "609/4096",
+          "305/2048"
+        ],
+        [
+          "305/2048",
+          "153/1024"
+        ],
+        [
+          "153/1024",
+          "77/512"
+        ],
+        [
+          "77/512",
+          "39/256"
+        ],
+        [
+          "39/256",
+          "5/32"
+        ],
+        [
+          "5/32",
+          "3/16"
+        ],
+        [
+          "3/16",
+          "1/4"
+        ],
+        [
+          "1/4",
+          "1/2"
+        ]
+      ]
+    }
+  },
+  "curvature_cells": [
+    [
+      "607/4096",
+      "608/4096"
+    ],
+    [
+      "608/4096",
+      "609/4096"
+    ]
+  ],
+  "local_run": "ALL_CHECKS_PASS 12; strict Bernstein sign boxes=30; curvature boxes=4",
+  "proof_status": "AUTHOR_DERIVED / EXACT_INTEGER_BERNSTEIN_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "next": "bivariate Bernstein cell exclusion in 0<=p<=z<=1/2"
+}
