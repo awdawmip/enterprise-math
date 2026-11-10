@@ -1,0 +1,22 @@
+Independent local exact-rational reproduction (not claimed as stdout of VERIFY_SHARP.py).
+Date: 2026-11-10 Asia/Shanghai. Local command: python /mnt/data/r5_stability.py
+Python 3; sympy 1.14.0. All arithmetic in support certificates is exact integer/Rational/Fraction; decimal approximations are informational only.
+Input source: PR #1902 (immutable commit 684ded4d951a0f1b8d314a421b29c39dd1afee64) and PR #1930 (d616f7a934e36006fc07201c9ec475aabc401cf8). Scientific pins unchanged.
+
+L_SCALE 1
+V_DIMENSION (5, 15) (5, 20)
+CENTRAL_ALL_4845_SUPPORT_SEPARATORS_VERIFIED 4845 RANKS {4: 3669, 3: 1143, 2: 33}
+MIN_CERTIFIED_SEPARATION_RADIUS 23/17050000 approx 1.3489736070381233e-06
+MIN_WITNESS_SUPPORT ((2, 1), (3, 1), (4, 1), (5, 1))
+CAPACITY_RADIUS 23/17050000 1.3489736070381233e-06
+15_EDGE_POSITIVE_RADIUS 23/17050000 1.3489736070381233e-06
+DUAL_FORCING_RADIUS 18052765669/423284426970000 4.2649255485790595e-05 edge (5, 5)
+ALL_POINT_RHO_MAX 23/17050000
+CONTROLLING_EDGE (1, 3) E0= 23/4000000 derivatives= [0, 0, 0, 1/80, -1, 0, 0, 13/4]
+BOUNDARY_T [0, 0, 0, -23/17050000, 23/17050000, 0, 0, -23/17050000] E_NONNEGATIVE 0 NUM_POSITIVE 14
+BOUNDARY_ZERO_EDGES [(1, 3)]
+BOUNDARY_LAWFUL 0 (Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1))
+BOUNDARY_PHYSICAL_SLACK 19 23/4000000 341/80
+FINISHED
+
+Verification-scope statement: The executed local reproducer independently constructs the physical tangent, 5x15 quotient annihilator, ten full-carrier dual inequalities, all 4845 support separating normals, physical/15-edge positivity radii, and a legal 14-edge boundary witness. The separately published VERIFY_SHARP.py extends PR #1930's CERTIFICATE.py and supplies executable equivalent checks; do not misidentify this local output as verbatim stdout of that published combined program. Independent human mathematical review and native Result admission pending.
