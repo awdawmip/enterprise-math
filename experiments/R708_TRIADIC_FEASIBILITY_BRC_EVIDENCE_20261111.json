@@ -100,5 +100,27 @@
     "D": 0
   },
   "assertions": "Finite checks executed with Python standard library exact integers and fractions; analytic theorems cover all m in stated domain",
-  "native_admission": "author-side candidate only, V29/V39 yet to be checked"
+  "native_admission": "author-side candidate only, V29/V39 yet to be checked",
+  "equivariant_kernel": {
+    "theorem": "P(S|n)=D(n-1_axes(S))/(m D(n)) for each allowed labeled triple; total probability one; full unordered partitions uniformly 1/D(n)",
+    "axis_type_probability": "n_i*n_j*n_k*D(n-e_i-e_j-e_k)/(m*D(n))",
+    "observer": "X6 finite S6 axis permutation skeleton",
+    "exact_permutations_checked": 720,
+    "example_n": [
+      2,
+      2,
+      1,
+      1,
+      0,
+      0
+    ],
+    "example_type_masses": {
+      "0,1,2": "1/2",
+      "0,1,3": "1/2",
+      "0,2,3": "0/1",
+      "1,2,3": "0/1"
+    },
+    "marker": "R708_S6_EQUIVARIANT_BRC_KERNEL_PASS",
+    "full_native_rotation": "OPEN"
+  }
 }
