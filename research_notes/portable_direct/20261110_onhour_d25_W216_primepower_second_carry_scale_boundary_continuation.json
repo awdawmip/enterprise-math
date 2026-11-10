@@ -1,0 +1,98 @@
+{
+  "schema": "ENTERPRISE_MATH_AUTHOR_SIDE_RESEARCH_CONTINUATION_V1",
+  "date": "2026-11-10",
+  "classification": "AUTHOR_SIDE_UNREVIEWED_NOT_ADMITTED",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "research_lane_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_scientific_source": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "current_control_observed_source": "ee1d5709918327b02ba1920a9d62ae10d16179d6",
+  "parent_author_side_provenance": "7819e9eeaca0faafd202742eca71718266c3c36b",
+  "result_kind": "EXACT_FINITE_COUNTEREXAMPLE_TO_STRONGER_INTERSCALE_SECOND_CARRY",
+  "math_observer": "D_{p,r}=W_{p^r}-chi_p*p*W_{p^(r-1)}; E_{p,r}=D/p^(3r) mod p^2 when divisible",
+  "disproof": [
+    {
+      "p": 13,
+      "comparison": {
+        "r1": 126,
+        "r2": 61,
+        "modulus": 169
+      },
+      "consequence": "naive E_r=E_1 mod p^2 false for r=2"
+    },
+    {
+      "p": 19,
+      "comparison": {
+        "r1": 88,
+        "r2": 297,
+        "modulus": 361
+      },
+      "consequence": "naive E_r=E_1 mod p^2 false for r=2"
+    }
+  ],
+  "experimental_stability": {
+    "candidate": "for r>=2, E_{p,r}=E_{p,2} mod p^2",
+    "state": "CONJECTURE_WITH_FINITE_EXACT_EVIDENCE",
+    "values": {
+      "13": [
+        126,
+        61,
+        61,
+        61
+      ],
+      "19": [
+        88,
+        297,
+        297,
+        297
+      ],
+      "37": [
+        537,
+        870,
+        870
+      ],
+      "43": [
+        1266,
+        1438,
+        1438
+      ],
+      "61": [
+        373,
+        2447,
+        2447
+      ],
+      "67": [
+        3941,
+        591,
+        591
+      ]
+    },
+    "independently_checked_paths": [
+      "factorial_unit",
+      "forward_valuation_recurrence"
+    ],
+    "cases": 20
+  },
+  "proof_strength": "exact integer modular refutation of the stronger all-scale second-carry claim; no uniform proof of stabilization",
+  "native": {
+    "benchmark": "fixed original H0/B0 divided-power p373 [X]U modulo139129; rank, Frobenius eta, odd kappa, independent replication",
+    "issue": 1559,
+    "status": "NOT_RUN/PENDING_OWNER",
+    "own_recovery_status": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
+    "own_historical_session": "MCP-5378d3819d8947bda9049c9428493e2d",
+    "own_authenticated_claim": null,
+    "own_open_run": null,
+    "latest_continuation_request_id": "onhour11-20261110-1936-exact-source",
+    "latest_continuation_receipt": "SUCCEEDED",
+    "source_checkpoint_written": false
+  },
+  "do_not_repeat": [
+    "accepted D24 UR/JT0",
+    "completed original W216 first-jet/Clausen and terminal results",
+    "prior 20 target-class coefficient scans",
+    "native H0/B0 still NOT_RUN"
+  ],
+  "next_action": "Native executor obtains fixed original p373 H0/B0 [X]U mod139129 and native semilinearity, normalization, odd kappa, and independent replication; portable math derive/falsify E_{p,3}=E_{p,2} modp^2 using block transfer.",
+  "origin": "author-side exact code and independent modular computation; not native Source canonical Result",
+  "scheduler_modified": false
+}
