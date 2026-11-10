@@ -68,9 +68,9 @@
   },
   "evidence": {
     "proof_path": "research_notes/portable_direct/20261110_onhour_d25_W216_three_band_harmonic_newton_obstruction.md",
-    "proof_blob_sha1": "3383b89cf81d3d78dc5a6514cd7714508efb1635",
+    "proof_blob_sha1": "93cfb7d9054f746c158b7c1b8073c662dd070d1a",
     "script_path": "research_notes/portable_direct/d25_w216_three_band_newton_obstruction_20261110.py",
-    "script_blob_sha1": "09487747abe46799e95a37cce504090a6147b050"
+    "script_blob_sha1": "81c4ef2fe2a54b3017aaea157ca16d99e9dd4cdd"
   },
   "prior_evidence": "research_notes/portable_direct/20261110_onhour_d25_W216_pblock_degree_filtered_transfer.md",
   "do_not_repeat": [
@@ -80,7 +80,7 @@
     "Retain the previous Source native frontier and unassigned benchmark Issue #1559."
   ],
   "current_unfinished_unit": "Uniform three-band harmonic cancellation S0+S1+S2=0 mod p for p=13,19 mod24 (or an exact counterexample); then establish an actual original signed Delta-R bridge. Native same-class H0/B0 benchmark remains independent and NOT_RUN/PENDING_OWNER.",
-  "next_exact_action": "Try an explicit reflection/telescoping certificate for S0+S1+S2 by reusing the prior grade1/grade2 first-jet reflection and retain all three signed branches; independently secure native original [X]U mod139129 under #1559 from an authorized executor.",
+  "next_exact_action": "Seek a finite signed telescope for the two-band harmonic/inverse-unit expression proved equivalent to q2=0 mod p^3; preserve the original Delta-R, Frobenius and native H0/B0 obligations.",
   "source_control": {
     "exact_read_request_id": "onhour11-20261110-1433-exact-cont",
     "request_status": "SUCCEEDED",
@@ -100,5 +100,26 @@
   },
   "native_support_issue": 1559,
   "native_benchmark_status": "NOT_RUN/PENDING_OWNER",
-  "scheduler": "UNCHANGED"
+  "scheduler": "UNCHANGED",
+  "followon_scientific_unit": {
+    "proved": "Use the existing grade1/grade2 reflection A_k/p*A_(p-k)/p^2=1/(36k^3) mod p to eliminate the third band S2 as sum_(k=2m+1 to 3m) (1-6k)/(6 k^3 (A_k/p)) mod p.",
+    "status": "EXACT_ALGEBRAIC_COMPOSITION_PROVED_UNREVIEWED",
+    "scope": "All primes p=6m+1>=7, retaining original signed gradings and reflection involution.",
+    "checked_primes": [
+      7,
+      13,
+      19,
+      37,
+      43,
+      73,
+      109,
+      373
+    ],
+    "specific_check": {
+      "p": 373,
+      "reflected_S2_mod_p": 104,
+      "direct_S2_mod_p": 104
+    },
+    "remaining": "Prove or find a counterexample to the two-band harmonic/inverse-unit cancellation, and establish original Delta-R bridge."
+  }
 }
