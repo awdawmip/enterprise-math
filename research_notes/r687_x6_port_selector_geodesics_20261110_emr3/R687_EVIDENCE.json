@@ -1,0 +1,65 @@
+{
+  "schema": "R687_V17_ARRANGEMENT_GRAPH_GEODESIC_V1",
+  "researcher": "EM-X6-D25498",
+  "activity": "RA-6C1366327FFA1470566EC73A",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "predecessor": "R686@1e25c6319dc0205d1f8ac58755ceca9f259effdf",
+  "graph": "arrangement graph A(6,3)",
+  "vertices": 120,
+  "undirected_edges": 540,
+  "directed_edges": 1080,
+  "distance_formula": "m(x,y)+number_of_directed_dependency_cycles",
+  "diameter": 4,
+  "root": "012",
+  "shells": {
+    "0": 1,
+    "1": 9,
+    "2": 36,
+    "3": 63,
+    "4": 11
+  },
+  "root_geodesic_mass_hist": {
+    "0": {
+      "1": 1
+    },
+    "1": {
+      "1": 9
+    },
+    "2": {
+      "1": 18,
+      "2": 18
+    },
+    "3": {
+      "1": 18,
+      "3": 36,
+      "6": 9
+    },
+    "4": {
+      "9": 2,
+      "20": 9
+    }
+  },
+  "length4_word_mass": 198,
+  "all_pairs_checks": 14400,
+  "x6_switch_move_commutator": [
+    -1,
+    0,
+    0,
+    1,
+    0,
+    0
+  ],
+  "commutator_L_E_squared": 2,
+  "unrestricted_min_events": "sum(abs(z_i))+count(nonzero_axes_not_initially_selected)",
+  "positive_all_six_fixed_path_min_switches": {
+    "3": 360,
+    "4": 360
+  },
+  "just_in_time_optimal_BRC_hist": {
+    "3": 3240,
+    "4": 9720
+  },
+  "support_DP_checked": 64,
+  "arithmetic": "exact integer",
+  "scope": "author-side typed selector model; no claim of P000 native triadic force closure or admission"
+}
