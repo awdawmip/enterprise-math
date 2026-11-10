@@ -1,0 +1,412 @@
+{
+  "schema": "EM_R697_KNOWN_PORT_COUNT_TWO_PROBE_CERTIFICATE_V1",
+  "status": "R697_ALL_INTEGER_ASSERTIONS_PASS",
+  "input_source": {
+    "r696_commit": "0d0a7a3b1464685bfbdba48ea91c11943548b8eb",
+    "r692c_commit": "3dacca5010104893d96301af4d61608d5a5a0879"
+  },
+  "scope": "E* candidate with static independent binary path ports, not V29/V39 native event authorization",
+  "group_capacities": [
+    24,
+    18,
+    6,
+    12
+  ],
+  "scalar_probe_rows": {
+    "mask3": {
+      "w": [
+        12,
+        15,
+        0,
+        3
+      ],
+      "D": 30
+    },
+    "mask8": {
+      "w": [
+        6,
+        0,
+        6,
+        3
+      ],
+      "D": 15
+    }
+  },
+  "kernel_direction": [
+    3,
+    -4,
+    -7,
+    8
+  ],
+  "retained_count_side_information": "s=60-k, 1<=s<=60",
+  "exact_decoder": "U=10*s*T3,V=5*s*T8,A=U-s,B=V-s,c=(2*(3*B-A)) mod 7,t=(A-3*B+4*c)/7,e=t+B-c,z=s-e-t-c",
+  "nonzero_retained_count_histograms": 43224,
+  "counts_by_retained_total": [
+    4,
+    10,
+    20,
+    35,
+    56,
+    84,
+    119,
+    161,
+    210,
+    266,
+    329,
+    399,
+    475,
+    556,
+    641,
+    729,
+    819,
+    910,
+    1000,
+    1088,
+    1173,
+    1254,
+    1330,
+    1400,
+    1462,
+    1515,
+    1558,
+    1590,
+    1610,
+    1617,
+    1610,
+    1590,
+    1558,
+    1515,
+    1462,
+    1400,
+    1330,
+    1254,
+    1173,
+    1088,
+    1000,
+    910,
+    819,
+    729,
+    641,
+    556,
+    475,
+    399,
+    329,
+    266,
+    210,
+    161,
+    119,
+    84,
+    56,
+    35,
+    20,
+    10,
+    4,
+    1
+  ],
+  "same_s_signatures_unique": true,
+  "integer_decoder_checks": 43224,
+  "all_s_single_probe_collision_witnesses": [
+    {
+      "mask": 0,
+      "left": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "weighted_deleted_sum": 1
+    },
+    {
+      "mask": 1,
+      "left": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "right": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "weighted_deleted_sum": 6
+    },
+    {
+      "mask": 2,
+      "left": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "weighted_deleted_sum": 12
+    },
+    {
+      "mask": 3,
+      "left": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "right": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "weighted_deleted_sum": 15
+    },
+    {
+      "mask": 4,
+      "left": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "weighted_deleted_sum": 12
+    },
+    {
+      "mask": 5,
+      "left": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "weighted_deleted_sum": 24
+    },
+    {
+      "mask": 6,
+      "left": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "right": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "weighted_deleted_sum": 18
+    },
+    {
+      "mask": 7,
+      "left": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "weighted_deleted_sum": 36
+    },
+    {
+      "mask": 8,
+      "left": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "weighted_deleted_sum": 12
+    },
+    {
+      "mask": 9,
+      "left": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "right": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "weighted_deleted_sum": 18
+    },
+    {
+      "mask": 10,
+      "left": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "weighted_deleted_sum": 18
+    },
+    {
+      "mask": 11,
+      "left": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "right": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "weighted_deleted_sum": 24
+    },
+    {
+      "mask": 12,
+      "left": [
+        2,
+        0,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "weighted_deleted_sum": 24
+    },
+    {
+      "mask": 13,
+      "left": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "right": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "weighted_deleted_sum": 30
+    },
+    {
+      "mask": 14,
+      "left": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "right": [
+        0,
+        0,
+        2,
+        0
+      ],
+      "weighted_deleted_sum": 24
+    },
+    {
+      "mask": 15,
+      "left": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "right": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "weighted_deleted_sum": 36
+    }
+  ],
+  "padded_single_probe_checks": 912,
+  "min_scalar_queries_given_exact_k": {
+    "k0": 0,
+    "k1": 1,
+    "k2_through_58": 2,
+    "k59": 1,
+    "k60": "undefined empty kernel"
+  },
+  "classes_for_each_single_probe_at_two_deletions": [
+    3,
+    6,
+    5,
+    9,
+    5,
+    5,
+    7,
+    6,
+    5,
+    7,
+    3,
+    6,
+    3,
+    6,
+    8,
+    7
+  ],
+  "mask3_singleton_extremes_pass": true,
+  "capacity_7_sharpness_example": {
+    "left": [
+      3,
+      0,
+      0,
+      8
+    ],
+    "right": [
+      0,
+      4,
+      7,
+      0
+    ],
+    "total": 11,
+    "mask3_dot": 60,
+    "mask8_dot": 42
+  },
+  "arithmetic": "Exact integer enumeration, integer modular decoding, fixed finite complete witness family. No floating-point calculations.",
+  "result_scope": "known active-port count s is extra side information; individual path identity remains outside 4-bin group observer"
+}
