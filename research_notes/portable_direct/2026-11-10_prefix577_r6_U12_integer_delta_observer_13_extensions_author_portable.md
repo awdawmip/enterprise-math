@@ -4,7 +4,7 @@ Date: 2026-11-10. Status: **AUTHOR_PROVED / EXACT_INTEGER_VERIFIED / UNREVIEWED 
 
 ## Frozen original-native input, inherited frontier
 
-Science SHA256 `f42f2906d77f24085c123f3ccfe9667d41caa96d`. Preserve the 96 original ports, six distinct labeled actions per port, source ports `(6,7,28,29)`, signs `(+,-,-,+)`, all nine frozen roots, and complete signed seven-variable next-port/reward joint observers. Direct tests of the `6^4=1296` four-tuples return exactly 38 legal deterministic policies `c_j`, (j=0,ldots,37), indexed lexicographically. Their uncollapsed four-source-by-six-action incidence matrix is `C in Z^(24x38)`, rank 13; row index `6s+a` retains source `s` and action `a`.
+Science SHA256 `f42f2906d77f24085c123f3ccfe9667d41caa96d`. Preserve the 96 original ports, six distinct labeled actions per port, source ports `(6,7,28,29)`, signs `(+,-,-,+)`, all nine frozen roots, and complete signed seven-variable next-port/reward joint observers. Direct tests of the `6^4=1296` four-tuples return exactly 38 legal deterministic policies `c_j`, (j=0,\ldots,37), indexed lexicographically. Their uncollapsed four-source-by-six-action incidence matrix is `C in Z^(24x38)`, rank 13; row index `6s+a` retains source `s` and action `a`.
 
 Prior work (not recredited): original-native twelve-policy full-positive cone
 `U=(0,1,3,6,7,8,12,17,28,29,30,31)`, published at immutable author commit `b9504c1d23f792e393f6f4503554672d1c274045`. This turn derives the additional signed quotient coordinate for all 38 legal policies, classifies all single-column rank-13 extensions and supplies exact D511 counts and a global sparse-reduction counterexample.
@@ -15,34 +15,34 @@ Take `R=(0,1,2,3,4,5,6,7,10,12,13,16)` and `B=C[R,U]`. Exact integer elimination
 `det(B)=-1` and `C[14,U] B^{-1}=(1,1,0,0,0,1,-1,-1,0,0,0,0)`.
 
 For any original-native integer numerator vector `b`, define the exact signed residual observer
-[
-oxed{delta(b)=b_{14}-b_0-b_1-b_5+b_6+b_7.}
-]
+$
+oxed{\delta(b)=b_{14}-b_0-b_1-b_5+b_6+b_7.}
+$
 Here `b14` is source 2/action 2, not a relabeled marginal or collapsed port.
 
 For every one of the 38 legal original policies:
-[
-delta(c_j)in{-1,0,1},quad #(delta=-1,0,+1)=(7,24,7).
-]
+$
+\delta(c_j)\in\{-1,0,1},\quad \#(delta=-1,0,+1)=(7,24,7).
+$
 The `+1` policy IDs are `(2,5,14,19,22,23,26)`; the `-1` IDs are `(10,11,32,33,34,36,37)`; all other 24 IDs (including U) have zero residual.
 
 The stronger integer identity, on all 24 native coordinates, is
-[
-oxed{c_j-C_U B^{-1}c_j[R]=delta(c_j)(e_{14}-e_{17}+e_{20}-e_{23})}.
-]
+$
+oxed{c_j-C_U B^{-1}c_j[R]=\delta(c_j)(e_{14}-e_{17}+e_{20}-e_{23})}.
+$
 Proof: compute `B^{-1}` by exact rational/integer arithmetic; since `det B=-1`, all coefficients are integers. Directly enumerate all 38 original nine-root-legal columns and verify the displayed identity on each of 24 rows. The residues are exactly 0, `+z` or `-z`, with `z=e14-e17+e20-e23`. Extend linearly. Thus for any legal nonnegative weights `x_j`,
-[
-delta(Cx)=sum_{j:delta(c_j)=+1}x_j-sum_{j:delta(c_j)=-1}x_j.
-]
-The signed difference is a true retained original-native observer; a total positive mass projection would lose it. In particular `delta(b)!=0` certifies `b` lies outside the *fixed* U-span; it does **not** prove any lower bound of 13 legal policies across all 38.
+$
+\delta(Cx)=\sum_{j:\delta(c_j)=+1}x_j-\sum_{j:\delta(c_j)=-1}x_j.
+$
+The signed difference is a true retained original-native observer; a total positive mass projection would lose it. In particular `\delta(b)!=0` certifies `b` lies outside the *fixed* U-span; it does **not** prove any lower bound of 13 legal policies across all 38.
 
 ## Theorem B: all 14 one-column integral 13-dimensional extensions
 
 Of the 26 lawful policies not already in U, 12 have zero quotient residual and 14 have `±1`. For any `j` among the 14 nonzero classes, `W_j=U+(j,)` has rank 13 and an explicit unimodular native minor:
-[
-oxed{det C[R+(14,),W_j]=-delta(c_j)in{-1,+1}}.
-]
-Consequently integer coefficients in each such `W_j` are uniquely recovered from the 24 integer numerators via an integer left inverse. For `b=C_{W_j}v`, `gcd(b_0,ldots,b_{23})=gcd(v_0,ldots,v_{12})`; the probability vector `b/D` has true reduced denominator `D=sum(v)` iff `gcd(D,v_0,ldots,v_{12})=1`.
+$
+oxed{det C[R+(14,),W_j]=-\delta(c_j)\in\{-1,+1}}.
+$
+Consequently integer coefficients in each such `W_j` are uniquely recovered from the 24 integer numerators via an integer left inverse. For `b=C_{W_j}v`, `gcd(b_0,\ldots,b_{23})=gcd(v_0,\ldots,v_{12})`; the probability vector `b/D` has true reduced denominator `D=sum(v)` iff `gcd(D,v_0,\ldots,v_{12})=1`.
 
 This is a rank/integer-lattice result, not an assertion that any such 13-policy expression is globally 13-minimal.
 
@@ -51,24 +51,24 @@ This is a rank/integer-lattice result, not an assertion that any such 13-policy 
 For each `W_j`, count full-positive original-native vectors `b=C_{W_j}v`, `v` nonnegative integral and `sum(v)=D`, with all 24 coordinates of `b` positive. Because of the integer left inverse, every distinct integer `v` gives a distinct 24-coordinate `b`.
 
 Exhaustively enumerate the `2^13=8192` positive-weight support subsets in each of 14 rank-13 single-column extensions. The largest D511 count within this **restricted 14-extension comparison** is achieved by `j=14` and `j=19`. For each, the complete covering support histogram by size `k=7,...,13` is
-[
+$
 h_k=(3,17,38,43,26,8,1).
-]
+$
 Hence the exact formula, valid for all positive integers D, is
-[
-N_{14}(D)=sum_{k=7}^{13}h_kinom{D-1}{k-1}.
-]
+$
+N_{14}(D)=\sum_{k=7}^{13}h_kinom{D-1}{k-1}.
+$
 At `D=511=7*73`:
-[
+$
 oxed{N_{14}(511)=684603279358325920172736}.
-]
+$
 Relative to fixed U, there are exactly `669078474004137781858560` new D511 *distinct original 24-coordinate* numerator vectors, all lying outside the U linear span (because their coefficient of `j=14` is positive).
 
 By the unimodular minor and Möbius inversion, vectors with genuinely irreducible denominator 511 number
-[
+$
 P_{14}(511)=N_{14}(511)-N_{14}(73)-N_{14}(7)+N_{14}(1)
 =oxed{684603279300702648718843}.
-]
+$
 The exact irreducible-D511 increment outside U is `669078473954025128610733`.
 
 The 14 eligible extensions divide into 7 equal-count groups (listed in decreasing D511 count):
