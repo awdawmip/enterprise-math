@@ -1,4 +1,4 @@
-# PREFIX-671-R6 — A slot-uniform fixed-witness exclusion for the BRC variance strip
+# PREFIX-671-FW-R6 — A slot-uniform fixed-witness exclusion for the BRC variance strip
 
 Date: 2026-11-10 (Asia/Shanghai). Frozen scientific input: `f42f2906d77f24085c123f3ccfe9667d41caa96d`. Status: `AUTHOR_DERIVED / EXACT_RATIONAL_IMPLICATION_CHECKED / UNREVIEWED / NOT_ADMITTED`.
 
@@ -111,11 +111,13 @@ For larger p the margin increases. This completes the proof. The linear-budget t
 
 ## Verification, reuse, and scope
 
-`PREFIX671_R6_UNIFORM_FIXED_WITNESS_CERTIFICATE.py` checks 31 exact Python `Fraction` comparisons/identities. `PREFIX671_R6_RESULTS.json` captures the exact gap, cutoff, area fraction and assumption scope. The run is an **implication certificate** of the existing PREFIX-659, 660, and 670 author-proven bounds; it does not rerun original 189-layer path generation. None of the statements above promotes a native 6D physical model or a full-square extremum claim.
+`PREFIX671_R6_UNIFORM_FIXED_WITNESS_CERTIFICATE.py` checks 31 exact Python `Fraction` comparisons/identities. `PREFIX671_R6_FIXED_WITNESS_RESULTS.json` captures the exact gap, cutoff, area fraction and assumption scope. The run is an **implication certificate** of the existing PREFIX-659, 660, and 670 author-proven bounds; it does not rerun original 189-layer path generation. None of the statements above promotes a native 6D physical model or a full-square extremum claim.
 
 Reusable interval-solver rule: for any box `B` within `[1/61317,1/64] x I` and any real `12<=q<=24`, mark it `FIXED_Q_UNIFORMLY_EXCLUDED` using the single exact point `(0,19/128)`. The comparison has a strict rational safety margin and therefore requires neither evaluation of `z_*(q)` nor interval recalculation at each q. It uses BRC frozen survivor-multiplicity observer results (`COMPOSE_APPLIED`).
 
 Sources: PREFIX-659 (`65536b12a268b619e0e1e89f685de3fb2162bea3`), PREFIX-660 (`2026-11-10_prefix660_r6_moving_edge_maximum.md`), PREFIX-670 (`24c22a1496db5cb5da05ffef104b55b8d52f520e`). All use the same immutable scientific pin above.
+
+Publication note: a parallel independent research note also used the numeric prefix PREFIX-671 for a different nonconcavity witness; this artifact is disambiguated as **PREFIX-671-FW-R6** and its machine results use the distinct `PREFIX671_R6_FIXED_WITNESS_RESULTS.json` path. The two results have separate statements and evidence; no existing file was overwritten.
 
 ## Next discriminating scientific action
 
