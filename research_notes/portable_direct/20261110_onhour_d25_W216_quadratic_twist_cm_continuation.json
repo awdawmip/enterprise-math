@@ -1,0 +1,117 @@
+{
+  "schema": "ENTERPRISE_MATH_AUTHOR_SIDE_RESEARCH_CONTINUATION_V1",
+  "created_at": "2026-11-10T18:25:00+08:00",
+  "classification": "AUTHOR_SIDE_PROVED_EXACT_REDUCTION_AND_FINITE_CHECKED_UNREVIEWED_NOT_ADMITTED",
+  "parent_task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_source": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "research_lane_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_disallowed": "chatgpt-hourly-enterprise-math-20260921",
+  "new_math_unit": "QUADRATIC_TWIST_DICKSON_LAURENT_CT_FOR_ORIGINAL_J_MOD_P",
+  "result_statement": "For all primes p=6m+1 congruent to 13 or 19 mod 24, with u(v)=(2v^3-8v^2+v+16)/(2(v-3)^2), C_m=CT_t D_m(t+5+7/(2t)+1/(2t^2),1/2), T_p=sum_{v !=3} (v^2-8|p) D_m(u(v),1/2), original Clausen J_p=sum_{k=0}^{p-1}B_k satisfies J_p=2^(-m-1)(C_m-T_p) mod p. Thus J_p=0 modp iff T_p=C_m modp. Proof uses exact involution w<->2/w without fixed points (2|p)=-1, pair-product 1/2 and two finite-field constant-term identities.",
+  "scope": "ALL_TARGET_PRIMES_EXACT_ALGEBRAIC_BRIDGE; NOT_UNIFORM_CM_VANISHING_PROOF",
+  "brc_resolution": "COMPOSE_APPLIED: preserves orbit pair, discriminant-character signed branch, original coefficient labels and higher-jets as independent downstream obligations.",
+  "arithmetic_checks": {
+    "precision": "exact finite-field integer modulo p; no float; direct binomial; direct rational x-sum; Dickson character sum; independent Laurent CT recurrence",
+    "target_primes_le_1000": 45,
+    "large_primes": [
+      10069,
+      10099
+    ],
+    "total": 47,
+    "status": "EXECUTED_PASS",
+    "values": [
+      {
+        "p": 13,
+        "J": 0,
+        "A": 8,
+        "T": 5,
+        "C": 5
+      },
+      {
+        "p": 19,
+        "J": 0,
+        "A": 4,
+        "T": 15,
+        "C": 15
+      },
+      {
+        "p": 373,
+        "J": 0,
+        "A": 96,
+        "T": 277,
+        "C": 277
+      },
+      {
+        "p": 10069,
+        "J": 0,
+        "A": 4180,
+        "T": 5889,
+        "C": 5889
+      },
+      {
+        "p": 10099,
+        "J": 0,
+        "A": 10084,
+        "T": 15,
+        "C": 15
+      }
+    ]
+  },
+  "artifacts": [
+    {
+      "path": "research_notes/portable_direct/20261110_onhour_d25_W216_quadratic_twist_cm_constant_term.md",
+      "source_commit": "a658042169d5e534e0aa94ec898cf767e9dcaa3d",
+      "git_blob_sha1": "578e643fdf27417fa3e2a8c106d2ac94cb1fcec9",
+      "repository": "awdawmip/enterprise-math"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_w216_quadratic_twist_cm_20261110.py",
+      "source_commit": "e111159938349bcb8f37f1ccfab2f2a33d1b1f98",
+      "git_blob_sha1": "88cc42957c0b01fd21974313fa63d1c1e3ba85cc",
+      "repository": "awdawmip/enterprise-math"
+    }
+  ],
+  "previous_author_side_continuation": "research_notes/portable_direct/20261110_onhour_d25_W216_unsigned_Clausen_firstjet_continuation.json",
+  "completed_units": [
+    "Exact target-prime involution w<->2/w, no fixed points, Dickson polynomial trace and quadratic character formula",
+    "Exact Laurent constant-term reduction J_p=2^(-m-1)(C_m-T_p) modp, retaining signed twist and branch count",
+    "47 prime four-route finite checks and nonzero orbitwise witness p13/v5"
+  ],
+  "do_not_repeat": [
+    "D24 supersingular UR accepted units; SOURCE Green, native Hesse, Hilbert90 units",
+    "Previous W216 Clausen-square and signed/unsigned cutoff first and second carries, terminal Fermat, p-block and Newton work",
+    "This exact quadratic-twist CT reduction; future research should target proof/disproof T_p=C_m, not reiterate formula",
+    "No ordinary finite-field, scalar or Hesse calculation promoted to native H0/B0 Frobenius or odd signed kappa"
+  ],
+  "current_unfinished_unit": "Native same-original-class p373 divided-power [X]U mod139129, module rank, Frobenius eta and odd signed kappa remain NOT_RUN/PENDING_OWNER; mathematically uniform proof/disproof of T_p=C_m and signed tau+j²=R_p open.",
+  "next_exact_actions": [
+    "Authorized native operator for Issue #1559 computes original H0/B0 p373 [X]U mod139129, rank, semilinear direction, eta, original odd kappa/Delta-R and independent reproducibility",
+    "Portable: evaluate exact Jacobi character sum T_p with chi(v²-8) against C_m for all primes p≡13,19 mod24; seek proof or exact original-class counterexample",
+    "Once J=0 modp proved, consume prior F0=J² modp²; independently prove first digit W=p modp² and signed first-jet tau+j²=R_p modp"
+  ],
+  "unexecuted_evidence": [
+    "Uniform two-class CM identity T_p=C_m",
+    "Universal original signed LIFT",
+    "Native H0/B0 fixed-object benchmark and independent replica",
+    "Independent Driver review/admission"
+  ],
+  "native_control": {
+    "last_original_read_request_id": "onhour11-20261110-1825-cont-read",
+    "last_original_read_receipt": "SUCCEEDED",
+    "read_asof_source": "13c0b79bfc2a1ef5350ceeec9db3aae5341a76c6",
+    "historical_session_start_request_id": "onhour11-20261110-1515-research-session",
+    "historical_session_id": "MCP-5378d3819d8947bda9049c9428493e2d",
+    "historical_researcher_id": "EM-ENTERPRISE-43C218",
+    "historical_research_activity_id": "RA-C3371503F6CA7F93D8D60568",
+    "own_private_session_capability_available": false,
+    "own_recovery_status": "SESSION_CAPABILITY_REQUIRED",
+    "own_current_winning_claim_verified": false,
+    "own_current_open_run_verified": false,
+    "native_checkpoint_written": false,
+    "native_support_issue": 1559,
+    "native_benchmark_status": "NOT_RUN_PENDING_OWNER"
+  },
+  "scheduler_modified": false,
+  "handback": "Continue from exact previous Source receipt and these author-side Git evidence pins. No role-bound write without own current private capability and exact winning claim."
+}
