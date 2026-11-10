@@ -1,0 +1,142 @@
+{
+  "os": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "selected_cpu": 0,
+  "cpu_affinity": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "dependency_checks": [
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_selection_sort/selection_bench.cpp",
+      "hash_kind": "sha256",
+      "hash": "b1ffc89eadba94ab620276a600a65412b6d7b5716d661b384c3092c8e3c183c9",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_selection_sort/selection_kernels.hpp",
+      "hash_kind": "sha256",
+      "hash": "323b790c1540ccc0d69cb2af2c3300ac172e2a7b062e134b01e08063d83566fc",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/adaptive_bench.cpp",
+      "hash_kind": "sha256",
+      "hash": "c98662a7ed38858c186dfd238c4b6b1d1bacdd51cff891ba7f5591c583d831a9",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/adaptive_kernels.hpp",
+      "hash_kind": "sha256",
+      "hash": "6461477abf5cadd4b8c54429ba39c5da073bfb6ac0a194f21ee39fa01b81f25b",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_adaptive_sort/run_experiment.py",
+      "hash_kind": "sha256",
+      "hash": "b9fc3c916db505a4731a8a9371bd2c05308c51c8d06ea05c8b0ef247c4043365",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_bench.cpp",
+      "hash_kind": "sha256",
+      "hash": "d1f9d696ad8f02efad7d79adfca55087dac0a060e4ec4977cb3bc1c597256d26",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/robust_kernels.hpp",
+      "hash_kind": "sha256",
+      "hash": "46b6ad5f0a7791c733cb8920ee34a01adfade778035c13c14a7390516c8eea68",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/run_experiment.py",
+      "hash_kind": "sha256",
+      "hash": "e1f401dfde343216ad15cf73f5341e67a8dabeb522fdc703a4df1133d4a526e6",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_bench.cpp",
+      "hash_kind": "sha256",
+      "hash": "596cf4add967669ec1feb02344f49ec448bd4c0b927ed9b791cc03d802b86468",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/sampled_kernels.hpp",
+      "hash_kind": "sha256",
+      "hash": "2890d16a360fa9c874dc8de1edec1508f9522602397fc2cb7fbe6e2da55cb192",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_sampled_sort/flat_frequency.hpp",
+      "hash_kind": "sha256",
+      "hash": "3993c376b0160e87eee16acb7ca3e832fa2e7ac227320b909bb922f53f89350a",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_expanded_sort/pure_bench.cpp",
+      "hash_kind": "git_blob_sha1",
+      "hash": "868723dc6b627b7230d4c54149d276537138b7aa",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_local_sort/local_kernels.hpp",
+      "hash_kind": "git_blob_sha1",
+      "hash": "3c5a7302066f333a084101a3ab08b37f974660de",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/vendor/pdqsort.h",
+      "hash_kind": "git_blob_sha1",
+      "hash": "36360cd1d69d0bd6977d9ba2313b10612b889142",
+      "result": "PASS"
+    },
+    {
+      "path": "/workspace/scratch/b0e94005ad9c/brc_robust_sort/vendor/license.txt",
+      "hash_kind": "git_blob_sha1",
+      "hash": "41d496076f0e134ba66096cf89acee8e124afef5",
+      "result": "PASS"
+    }
+  ],
+  "selection_scientific_commit": "6b096de75513160a579032ea11bc6cf8abd06008",
+  "adaptive_scientific_commit": "1001e80fd510c8de6a9761dc20068e0e3c8c671d",
+  "source_sha256": {
+    "certified_bench.cpp": "d5466c4d5c418d23323d3b2f6c92b210a9221ca9f4c9297e71adbb2e08218303",
+    "certified_kernels.hpp": "47629f6640aeb0e99e53e22c81c0865a741e951d60875711e5c89ebc1343c959",
+    "prepare_frozen_include.py": "23bb5fcb37ae799abfd53b6a929fc05376832e97152a6d0ce62deeb82ac480d6",
+    "run_experiment.py": "19dc98e4fcf6df2faeb0ec31fd7e8a73a7c7b53bd4e623249b9ce1249f026f5c"
+  },
+  "sanitizer_options": {},
+  "performance_subset": "all",
+  "performance_output": "/workspace/scratch/b0e94005ad9c/brc_certified_sort/results_all.csv",
+  "commands": [
+    {
+      "argv": [
+        "taskset",
+        "-c",
+        "0",
+        "/workspace/scratch/b0e94005ad9c/brc_certified_sort/build/certified_bench",
+        "--bench",
+        "/workspace/scratch/b0e94005ad9c/brc_certified_sort/results_all.csv",
+        "1000000",
+        "0.012",
+        "all"
+      ],
+      "started_at_utc": "2026-11-10T09:41:07.074345+00:00",
+      "elapsed_seconds": 293.87005971200006,
+      "exit_code": 0,
+      "stdout": "{\"result\":\"PASS\",\"conditions\":20,\"rows\":540,\"validated_input_banks\":160,\"algorithms\":27,\"banks\":8,\"rounds\":7,\"trace_nodes\":2761,\"trace_attempts\":315,\"selection_trace_attempts\":3888,\"validated_algorithm_outputs\":8640,\"no_accepted_repair_parity_cases\":111,\"target_seconds_per_algorithm_round\":0.012,\"copy_setup_allocation_output_destruction_included\":true,\"all_bank_unchanged_policy_decisions_checked\":true,\"observable_sink\":344191}\n",
+      "stderr": "completed calibration selection_fresh_popular_wide n=100000\ncompleted calibration selection_fresh_rare_wide n=100000\ncompleted calibration selection_fresh_tail_12pct_asymmetric n=1000000\ncompleted calibration selection_fresh_tail_15pct_high n=100000\ncompleted calibration selection_fresh_tail_15pct_low n=100000\ncompleted calibration selection_fresh_uniform_uint64 n=1000000\ncompleted calibration selection_fresh_narrow_offsets n=1000000\ncompleted calibration selection_fresh_interior_contamination n=100000\ncompleted calibration selection_fresh_128clusters_12pct_tail n=250000\ncompleted calibration witness_density_mass_width n=100000\ncompleted heldout certified_fresh_three_bins_balanced n=100000\ncompleted heldout certified_fresh_three_bins_shifted n=100000\ncompleted heldout certified_fresh_three_bins_low_dominant n=100000\ncompleted heldout certified_fresh_three_bins_high_dominant n=100000\ncompleted heldout certified_fresh_eight_bins_infeasible n=100000\ncompleted heldout certified_fresh_three_bins_million n=1000000\ncompleted mechanism witness_exact_mass_dp n=100000\ncompleted mechanism witness_exact_mass_hidden_majority n=100000\ncompleted mechanism witness_best_singleton n=100000\ncompleted mechanism witness_fractional_mass_reject n=100000\n"
+    }
+  ],
+  "binary_sha256": "37ca2132ca6360ba3f16f088bdb0dcb89e7eab1b452e2175a09c43475f6efb00",
+  "result": "PASS"
+}

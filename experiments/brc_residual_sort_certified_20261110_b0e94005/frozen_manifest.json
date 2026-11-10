@@ -1,0 +1,50 @@
+{
+  "frozen_at_utc": "2026-11-10T09:41:06.516851+00:00",
+  "fresh_input_generation_started": false,
+  "performance_started": false,
+  "policy": "One fixed certified_combined_1024 candidate with unchanged successful phase-three paths. Generator and analysis frozen before any phase-four timing or fresh generation. No calibration retuning.",
+  "measurement": "One serial all20-condition run onCPU0; all27candidates,8banks,7randomized within-process rounds,.012second nominal per candidate-round with complete-bank cycles. Known10conditions run once as part ofthismatrix;6fresh natural-sample families and4prescribed-sample mechanisms remainseparate. Fullcopy/setup/allocation/output/destructionincluded.",
+  "selection_scientific_commit": "6b096de75513160a579032ea11bc6cf8abd06008",
+  "files": {
+    "certified_bench.cpp": {
+      "sha256": "d5466c4d5c418d23323d3b2f6c92b210a9221ca9f4c9297e71adbb2e08218303",
+      "bytes": 61719
+    },
+    "certified_kernels.hpp": {
+      "sha256": "47629f6640aeb0e99e53e22c81c0865a741e951d60875711e5c89ebc1343c959",
+      "bytes": 25293
+    },
+    "prepare_frozen_include.py": {
+      "sha256": "23bb5fcb37ae799abfd53b6a929fc05376832e97152a6d0ce62deeb82ac480d6",
+      "bytes": 2191
+    },
+    "run_experiment.py": {
+      "sha256": "19dc98e4fcf6df2faeb0ec31fd7e8a73a7c7b53bd4e623249b9ce1249f026f5c",
+      "bytes": 9394
+    },
+    "analyze_results.py": {
+      "sha256": "29589121e4b7f192f43d9e3a5354cdef58794cb90edd9bb6b3b1bc54f0d3796a",
+      "bytes": 7559
+    },
+    "DESIGN.md": {
+      "sha256": "5798d35b644b048abbb31b7ed4539e867d644d7d52dc07fa6be159b761723ef1",
+      "bytes": 4441
+    },
+    "THEORY.md": {
+      "sha256": "c452977351261717783c2f2c4704382eba99dfb7e92da21a7304502501f7af86",
+      "bytes": 15289
+    },
+    "execution_optimized_verify_v1.json": {
+      "sha256": "88e1e562b1beb695401c2230dd7932324aac361f6a1fb1f694fab358504b5fec",
+      "bytes": 10419
+    },
+    "execution_sanitized_verify.json": {
+      "sha256": "bb3ad2b209f75e20d6cc5d702a663d229f8f3ca67e61eb92921a3b126b9f6206",
+      "bytes": 10545
+    },
+    "build/certified_bench": {
+      "sha256": "37ca2132ca6360ba3f16f088bdb0dcb89e7eab1b452e2175a09c43475f6efb00",
+      "bytes": 965560
+    }
+  }
+}
