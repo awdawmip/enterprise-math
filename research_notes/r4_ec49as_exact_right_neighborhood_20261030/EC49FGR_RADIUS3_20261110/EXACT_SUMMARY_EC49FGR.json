@@ -1,0 +1,99 @@
+{
+  "schema": "EC49FGR_EXACT_THREE_WORD_AUTHOR_AUDIT_V1",
+  "date": "2026-11-10",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "base_witness_git_blob": "e65c1598ad9fa2680558046ed1e59d83806536b8",
+  "original_24_demands": true,
+  "observer": "frozen nine-state BRC",
+  "native_cost": "nonempty ordered signed-X6 microstep-prefix union",
+  "theorem": "Each profile A/B with at most 7 distinct complete raw cache keys has minimum 94 native prefixes among all modifications of up to three of the 24 baseline labelled operation words.",
+  "scope": "exact finite Hamming-distance <=3 neighborhoods of two pinned witnesses",
+  "key_forcing": {
+    "fixed_prefix_blocked": 816,
+    "screened": 1208,
+    "classes": {
+      "all_seven_keys_fixed": 974,
+      "missing_only_forced_H2_keys": 228,
+      "missing_unique_H3_key": 6
+    },
+    "H2_unique_paths": {
+      "2/16": "fe",
+      "2/32": "ge"
+    },
+    "H3_key_support": {
+      "3/16": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          4,
+          0,
+          1
+        ]
+      ],
+      "3/32": [
+        [
+          3,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          1
+        ]
+      ]
+    },
+    "interpretation": "every <=93 candidate in the screened triple neighborhoods with <=7 total complete keys is forced to reuse only the seven baseline complete keys"
+  },
+  "programs": {
+    "primary": "RADIUS3_EXACT.py (exact integer-bitmask, frozen BRC count-vector words)",
+    "independent": "RADIUS3_INDEPENDENT.py (separate direct-alphabet DFA recursion, tuple signed prefix sets)"
+  },
+  "profiles": [
+    {
+      "profile": "A",
+      "original_cost": 94,
+      "all_triples": 2024,
+      "fixed_prefix_reject": 816,
+      "eligible": 1208,
+      "empty_label_reject": 914,
+      "empty_pair_reject": 52,
+      "exhaustive_three_set_reject": 242,
+      "pair_tests": 42855,
+      "triple_tests": 151570,
+      "feasible_cost_at_most_93": 0
+    },
+    {
+      "profile": "B",
+      "original_cost": 94,
+      "all_triples": 2024,
+      "fixed_prefix_reject": 816,
+      "eligible": 1208,
+      "empty_label_reject": 914,
+      "empty_pair_reject": 60,
+      "exhaustive_three_set_reject": 234,
+      "pair_tests": 42787,
+      "triple_tests": 150451,
+      "feasible_cost_at_most_93": 0
+    }
+  ],
+  "budget_histogram": {
+    "1": 544,
+    "3": 160,
+    "5": 16,
+    "7": 272,
+    "9": 132,
+    "10": 34,
+    "11": 20,
+    "12": 8,
+    "15": 16,
+    "17": 4,
+    "18": 2,
+    "-1": 816
+  },
+  "next_question": "Does any seven-key cost-93 witness exist outside radius-three of both EC49FGJ A/B? Begin exact radius-four conditional search.",
+  "proof_status": "AUTHOR_EXACT_FINITE_TWO_IMPLEMENTATIONS_PASS;NOT_DRIVER_REVIEWED;NOT_ADMITTED"
+}
