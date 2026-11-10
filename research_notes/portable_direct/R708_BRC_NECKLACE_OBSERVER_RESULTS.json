@@ -1,0 +1,85 @@
+{
+  "schema": "R708_BRC_NECKLACE_OBSERVER_EXACT_V1",
+  "status": "R708_EXACT_BRC_NECKLACE_PASS",
+  "source_model": "V17+V20+V36+V38+V39; unit labeled oriented BRC packet branches",
+  "tests": [
+    {
+      "k": 1,
+      "l": 1,
+      "branches": 24,
+      "holonomy_counts": {
+        "120": 4,
+        "201": 4,
+        "012": 16
+      },
+      "necklaces": 6,
+      "flat_necklaces": 4,
+      "nonflat_necklaces": 2,
+      "all_markov_profiles": 1
+    },
+    {
+      "k": 1,
+      "l": 2,
+      "branches": 180,
+      "holonomy_counts": {
+        "120": 36,
+        "201": 36,
+        "012": 108
+      },
+      "necklaces": 30,
+      "flat_necklaces": 18,
+      "nonflat_necklaces": 12,
+      "all_markov_profiles": 1
+    },
+    {
+      "k": 2,
+      "l": 1,
+      "branches": 180,
+      "holonomy_counts": {
+        "120": 36,
+        "201": 36,
+        "012": 108
+      },
+      "necklaces": 30,
+      "flat_necklaces": 18,
+      "nonflat_necklaces": 12,
+      "all_markov_profiles": 1
+    },
+    {
+      "k": 2,
+      "l": 2,
+      "branches": 2520,
+      "holonomy_counts": {
+        "120": 612,
+        "201": 612,
+        "012": 1296
+      },
+      "necklaces": 318,
+      "flat_necklaces": 164,
+      "nonflat_necklaces": 154,
+      "all_markov_profiles": 1
+    }
+  ],
+  "witness": {
+    "rooted_words": [
+      "AbaB",
+      "BAba"
+    ],
+    "holonomies": [
+      "120",
+      "201"
+    ],
+    "cyclic_deck_radii_checked": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      12,
+      24,
+      25,
+      48
+    ]
+  },
+  "scope": "exact complete enumeration of 2904 rooted packet orderings; universal mathematical proof in accompanying note"
+}
