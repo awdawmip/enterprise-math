@@ -9,10 +9,10 @@ Status: hand proof with full finite integer checker; UNREVIEWED, no CLAIM/Result
 
 The typed object is the original E* **static independent binary path-gate candidate**, with 60 distinct labeled X6 return paths partitioned into four S3-output groups. The group histogram is `v=(e,t,c,z)`, bounded componentwise by `N=(24,18,6,12)`, and exact known `s=e+t+c+z`. Its two previously frozen contextual return probes are
 
-[
+\[
 T_3(v)=\frac{4e+5t+z}{10s}=\frac U{10s},\quad
 T_8(v)=\frac{2e+2c+z}{5s}=\frac V{5s}.
-]
+\]
 
 Original ordered path provenance, port permissions, V29 events and V39 legality are retained **outside** this group histogram: only the two explicitly declared static observers are being decoded. Allowed future operation: the fixed two contextual probes used in R697–R698, each measured with its own independent absolute error bound; this is not a full future-event observational quotient.
 
@@ -34,13 +34,13 @@ The quantifiers cover **all** valid integer states and **all** errors in the cor
 
 Equivalently, if `D_s` is the set of unordered distinct pairs of signatures and `P_s` denotes its coordinatewise-minimal absolute difference pairs `(|Delta U|,|Delta V|)`, the complete Pareto sets are
 
-[
+\[
 P_s=\begin{cases}
 \{(1,1),(4,0)\},&s\in\{1,59\},\\
 \{(0,1),(3,0)\},&s\in\{2,58\},\\
 \{(0,1),(1,0)\},&3\le s\le57.
 \end{cases}
-]
+\]
 
 The error rectangles of two states intersect exactly when `|Delta U|<=a` and `|Delta V|<=b`, explaining the iff.
 
