@@ -297,3 +297,54 @@ print("EXACT_13EDGE_SEPARATION_RADIUS",separation,min_triplet)
 print("EXACT_PHYSICAL_MARGIN",physical_margin)
 print("EXACT_14EDGE_MARGIN",coupling_margin)
 print("PROVED_EVERY_REAL_POINT_7D_CUBE_EPS",epsilon,"MIN_SUPPORT_14")
+
+
+# ---- New exact 8D local support phase classification ----
+S8=jac(both_slacks)*P
+permanent=[i for i in range(26) if sb[i]==0 and all(S8[i,k]==0 for k in range(8))]
+face_only=[i for i in range(26) if sb[i]==0 and any(S8[i,k]!=0 for k in range(8))]
+assert permanent==[4,15,23] and face_only==[19]
+def margin8(vals,der):
+    return min((v/sum(abs(der[i,k]) for k in range(8)),i)
+               for i,v in enumerate(vals) if v>0 and sum(abs(der[i,k]) for k in range(8))>0)
+physical8=margin8(sb,S8)
+edge8=margin8(Eb,DB)
+assert physical8==(Rational(63,75872500),25)
+assert edge8==(Rational(50915668197609,1202833246639750000),12)
+assert (DB[edge13,:]*H7)==Matrix.zeros(1,7)
+# Exact cofactor normal for a rank-4 quotient support.
+def face_normal(s):
+    M=V[:,list(s)]
+    return Matrix([(-1)**i*M.extract([j for j in range(5) if j!=i],list(range(4))).det() for i in range(5)])
+rank4_through=0;nonparallel=0;zero_gradient=0;outside=0;min_off=None;witness_off=None
+for ss in combinations(range(20),4):
+    M=V[:,list(ss)]
+    w=face_normal(ss)
+    if w==Matrix.zeros(5,1):
+        ws=[a for a in M.T.nullspace() if (a.T*qB)[0]!=0]
+        assert ws  # no rank<=3 support spans qB by the exact triple proof
+    elif (w.T*qB)[0]==0:
+        rank4_through+=1
+        if w.T*Q8*H7!=Matrix.zeros(1,7):nonparallel+=1
+        if w.T*Q8==Matrix.zeros(1,8):zero_gradient+=1
+        continue
+    else:
+        ws=[w]
+    outside+=1
+    for a in ws:
+        numerator=abs((a.T*qB)[0])
+        denominator=sum(abs((a.T*Q8[:,k])[0]) for k in range(8))
+        if denominator:
+            radius=numerator/denominator
+            if min_off is None or radius<min_off:
+                min_off=radius
+                witness_off=tuple(OTHER[j] for j in ss)
+assert rank4_through==1031 and nonparallel==0 and zero_gradient==0
+assert outside==3814 and min_off==Rational(49948501046391,3920403670319950000)
+assert epsilon<physical8[0] and epsilon<edge8[0] and epsilon<min_off
+assert max(abs(tb[k])+epsilon for k in range(8))<dual_radius[0]
+print("PASS_LOCAL_8D_FACE_PHASE", "14 iff mu_1=0; 15 if mu_1>0")
+print("FOUR_SUPPORTS_THROUGH_FACE",rank4_through,"NONPARALLEL",nonparallel,
+      "NOT_THROUGH",outside)
+print("OFF_FACE_EXCLUSION_RADIUS",min_off,witness_off)
+print("LOCAL_8D_PHYSICAL_MARGIN",physical8,"OTHER_14_EDGE_MARGIN",edge8)
