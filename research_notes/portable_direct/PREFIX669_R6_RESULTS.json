@@ -1,0 +1,35 @@
+{
+  "schema": "EM_PREFIX669_R6_EDGE_SLOT_ENVELOPE_V1",
+  "scientific_input_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": {"p": "0", "z": ["607/4096", "609/4096"], "q": ["12", "24"]},
+  "source_status": "AUTHOR_CERTIFICATES_PREFIX659_660_668; NO_INDEPENDENT_ADMISSION",
+  "certified_implications": {
+    "W_range": "604 < W(0,z) < 606",
+    "W_z_range": "19 < W_z(0,z) < 66",
+    "maximizer_motion": "12*19/52000000 < z_star_prime < 24*66/12800000",
+    "edge_max_derivative": "M_prime(q) > 14282",
+    "edge_max_second_derivative": "1208 < M_double_prime(q) < 1213",
+    "midpoint_chord_deficit": "21744 < (M(12)+M(24))/2-M(18) < 21834",
+    "midpoint_lower_bound": "1555306557/8000",
+    "midpoint_upper_bound": "3889006743878673/20000000000",
+    "optimizer_separation": "4265/16777216 < z_star(24)-z_star(12) < 4267/16777216"
+  },
+  "exact_auxiliary": {
+    "W_center_lower": "43560779/72000",
+    "W_center_upper": "87121571/144000",
+    "W_band_lower": "1393907803/2304000",
+    "W_band_upper": "1393982261/2304000",
+    "W_z_lower_derived": "2501/128",
+    "W_z_upper_derived": "8379/128",
+    "M_qq_upper_derived": "60609801/50000",
+    "z_star_prime_lower_derived": "57/13000000",
+    "z_star_prime_upper_derived": "99/800000",
+    "M_18_chord_lower": "1943603371939191/10000000000",
+    "M_18_chord_upper": "3889006743878673/20000000000",
+    "V_18_Q_lower": "1555306557/8000",
+    "V_18_Q_upper": "777653283/4000"
+  },
+  "checks_passed": 19,
+  "result": "ALL_CHECKS_PASS",
+  "mathematical_status": "AUTHOR_DERIVED / EXACT_FRACTION_IMPLICATION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
