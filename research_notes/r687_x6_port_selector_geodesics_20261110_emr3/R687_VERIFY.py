@@ -74,12 +74,12 @@ def free_event_cost(support):
         best = 10**9
         for axis in remaining:
             if axis in active:
-                value = 1 + rec(remaining - (axis,), active)
+                value = 1 + rec(tuple(v for v in remaining if v != axis), active)
                 best = min(best, value)
             else:
                 for evicted in active:
                     new_active = tuple(sorted(set(active) - {evicted} | {axis}))
-                    value = 2 + rec(remaining - (axis,), new_active)
+                    value = 2 + rec(tuple(v for v in remaining if v != axis), new_active)
                     best = min(best, value)
         return best
     return rec(tuple(sorted(support)), ROOT)
