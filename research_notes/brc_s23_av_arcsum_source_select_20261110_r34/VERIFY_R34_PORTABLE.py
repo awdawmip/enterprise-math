@@ -20,6 +20,7 @@ def fs(n,m,a,b):
 def res(t,T):return t*T%D
 p=sorted(range(M),key=lambda t:res(t,L))
 assert p==sorted(range(M),key=lambda t:res(t,U))
+assert all(k*L//D==k*U//D for k in range(-M+1,390))  # collision-free frozen prefix
 arcs=[(p[k],p[(k+1)%M],int(res(p[k],L)>res(p[(k+1)%M],L))) for k in range(M)]
 
 def count(lo,hi,arc,T):
