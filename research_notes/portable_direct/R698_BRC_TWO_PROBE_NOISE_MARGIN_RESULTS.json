@@ -1,0 +1,1274 @@
+{
+  "schema": "EM_R698_BRC_TWO_PROBE_NOISE_MARGIN_V1",
+  "status": "R698_ALL_EXACT_ASSERTIONS_PASS",
+  "frozen_candidate_source": "2c1c87f9f543aa8046aa847c30c5b7581caba64c",
+  "scope": "R697 E* static independent binary path gate candidate, known exact retained path count s, no native V29/V39 realization asserted",
+  "capacities": [
+    24,
+    18,
+    6,
+    12
+  ],
+  "total_integer_configurations": 43224,
+  "raw_observers": "T3=U/(10s),T8=V/(5s), U=4e+5t+z, V=2e+2c+z",
+  "scaled_signature": "(U,2V)=(10s T3,10s T8)",
+  "min_separation_scaled_raw_chebyshev": {
+    "s_1_2_58_59": 2,
+    "s_3_through_57": 1,
+    "s_60": "single state"
+  },
+  "sharp_uniform_abs_measurement_error_radius": {
+    "s_1_2_58_59": "1/(10s)",
+    "s_3_through_57": "1/(20s)",
+    "s_60": "no observation needed"
+  },
+  "proof": "integer lattice spacing; kernel inversion of R697; for |DeltaU|=1, DeltaV=0 the bounded difference vectors are (1,-1,-2,2) or (-2,3,5,-6) up to sign; the first is feasible precisely for s=3..57, the second for s=8..52; c-z swap gives edge distance 2",
+  "checked_near_pairs": 406650,
+  "by_s": [
+    {
+      "s": 1,
+      "histogram_count": 4,
+      "integer_scaled_probe_min_Linf": 2,
+      "witness": {
+        "left": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "right": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "deltaU": -1,
+        "deltaV": 1
+      }
+    },
+    {
+      "s": 2,
+      "histogram_count": 10,
+      "integer_scaled_probe_min_Linf": 2,
+      "witness": {
+        "left": [
+          0,
+          0,
+          0,
+          2
+        ],
+        "right": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "deltaU": -1,
+        "deltaV": 1
+      }
+    },
+    {
+      "s": 3,
+      "histogram_count": 20,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          2,
+          0
+        ],
+        "right": [
+          1,
+          0,
+          0,
+          2
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 4,
+      "histogram_count": 35,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "right": [
+          1,
+          0,
+          0,
+          3
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 5,
+      "histogram_count": 56,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          2,
+          2
+        ],
+        "right": [
+          1,
+          0,
+          0,
+          4
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 6,
+      "histogram_count": 84,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "right": [
+          1,
+          0,
+          0,
+          5
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 7,
+      "histogram_count": 119,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          2,
+          4
+        ],
+        "right": [
+          1,
+          0,
+          0,
+          6
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 8,
+      "histogram_count": 161,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          2,
+          5
+        ],
+        "right": [
+          1,
+          0,
+          0,
+          7
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 9,
+      "histogram_count": 210,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          2,
+          6
+        ],
+        "right": [
+          1,
+          0,
+          0,
+          8
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 10,
+      "histogram_count": 266,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          2,
+          7
+        ],
+        "right": [
+          1,
+          0,
+          0,
+          9
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 11,
+      "histogram_count": 329,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          2,
+          8
+        ],
+        "right": [
+          1,
+          0,
+          0,
+          10
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 12,
+      "histogram_count": 399,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          2,
+          9
+        ],
+        "right": [
+          1,
+          0,
+          0,
+          11
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 13,
+      "histogram_count": 475,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          2,
+          10
+        ],
+        "right": [
+          1,
+          0,
+          0,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 14,
+      "histogram_count": 556,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          3,
+          10
+        ],
+        "right": [
+          1,
+          0,
+          1,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 15,
+      "histogram_count": 641,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          4,
+          10
+        ],
+        "right": [
+          1,
+          0,
+          2,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 16,
+      "histogram_count": 729,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          5,
+          10
+        ],
+        "right": [
+          1,
+          0,
+          3,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 17,
+      "histogram_count": 819,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          1,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          0,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 18,
+      "histogram_count": 910,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          2,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          1,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 19,
+      "histogram_count": 1000,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          3,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          2,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 20,
+      "histogram_count": 1088,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          4,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          3,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 21,
+      "histogram_count": 1173,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          5,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          4,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 22,
+      "histogram_count": 1254,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          6,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          5,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 23,
+      "histogram_count": 1330,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          7,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          6,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 24,
+      "histogram_count": 1400,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          8,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          7,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 25,
+      "histogram_count": 1462,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          9,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          8,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 26,
+      "histogram_count": 1515,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          10,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          9,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 27,
+      "histogram_count": 1558,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          11,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          10,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 28,
+      "histogram_count": 1590,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          12,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          11,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 29,
+      "histogram_count": 1610,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          13,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          12,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 30,
+      "histogram_count": 1617,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          14,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          13,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 31,
+      "histogram_count": 1610,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          15,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          14,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 32,
+      "histogram_count": 1590,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          16,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          15,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 33,
+      "histogram_count": 1558,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          17,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          16,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 34,
+      "histogram_count": 1515,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          0,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          1,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 35,
+      "histogram_count": 1462,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          1,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          2,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 36,
+      "histogram_count": 1400,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          2,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          3,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 37,
+      "histogram_count": 1330,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          3,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          4,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 38,
+      "histogram_count": 1254,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          4,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          5,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 39,
+      "histogram_count": 1173,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          5,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          6,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 40,
+      "histogram_count": 1088,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          6,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          7,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 41,
+      "histogram_count": 1000,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          7,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          8,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 42,
+      "histogram_count": 910,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          8,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          9,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 43,
+      "histogram_count": 819,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          9,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          10,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 44,
+      "histogram_count": 729,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          10,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          11,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 45,
+      "histogram_count": 641,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          11,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          12,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 46,
+      "histogram_count": 556,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          12,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          13,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 47,
+      "histogram_count": 475,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          13,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          14,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 48,
+      "histogram_count": 399,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          14,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          15,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 49,
+      "histogram_count": 329,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          15,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          16,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 50,
+      "histogram_count": 266,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          16,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          17,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 51,
+      "histogram_count": 210,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          17,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          18,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 52,
+      "histogram_count": 161,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          18,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          19,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 53,
+      "histogram_count": 119,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          19,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          20,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 54,
+      "histogram_count": 84,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          20,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          21,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 55,
+      "histogram_count": 56,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          21,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          22,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 56,
+      "histogram_count": 35,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          22,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          23,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 57,
+      "histogram_count": 20,
+      "integer_scaled_probe_min_Linf": 1,
+      "witness": {
+        "left": [
+          23,
+          18,
+          6,
+          10
+        ],
+        "right": [
+          24,
+          17,
+          4,
+          12
+        ],
+        "deltaU": 1,
+        "deltaV": 0
+      }
+    },
+    {
+      "s": 58,
+      "histogram_count": 10,
+      "integer_scaled_probe_min_Linf": 2,
+      "witness": {
+        "left": [
+          23,
+          18,
+          5,
+          12
+        ],
+        "right": [
+          23,
+          18,
+          6,
+          11
+        ],
+        "deltaU": -1,
+        "deltaV": 1
+      }
+    },
+    {
+      "s": 59,
+      "histogram_count": 4,
+      "integer_scaled_probe_min_Linf": 2,
+      "witness": {
+        "left": [
+          24,
+          18,
+          5,
+          12
+        ],
+        "right": [
+          24,
+          18,
+          6,
+          11
+        ],
+        "deltaU": -1,
+        "deltaV": 1
+      }
+    },
+    {
+      "s": 60,
+      "histogram_count": 1,
+      "integer_scaled_probe_min_Linf": null,
+      "witness": null
+    }
+  ]
+}
