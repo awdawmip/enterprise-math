@@ -1,0 +1,289 @@
+{
+  "schema": "R701B_NATIVE_X6_SQUARE_FRAME_PACKET_V1",
+  "status": "R701B_X6_SQUARE_FULL_S3_PASS",
+  "native_X6_vertices": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "directed_unit_edges": [
+    {
+      "from": 0,
+      "to": 1,
+      "delta": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "from": 1,
+      "to": 2,
+      "delta": [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "from": 2,
+      "to": 3,
+      "delta": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "from": 3,
+      "to": 0,
+      "delta": [
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "pure_signed_unit_cell_triangle_possible": false,
+  "minimum_simple_pure_native_cycle_length": 4,
+  "ordered_triad_frame_states": 120,
+  "frame_state_outdegree": 9,
+  "microstate_reachability_shells": [
+    1,
+    9,
+    36,
+    63,
+    11
+  ],
+  "microstate_max_distance": 4,
+  "four_layer_based_active_triad_words": 369,
+  "s3_frame_holonomy_histogram": {
+    "[0,1,2]": 207,
+    "[0,2,1]": 48,
+    "[2,1,0]": 48,
+    "[1,2,0]": 9,
+    "[2,0,1]": 9,
+    "[1,0,2]": 48
+  },
+  "holonomy_witnesses": {
+    "[0,1,2]": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "[0,2,1]": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        1,
+        4
+      ],
+      [
+        0,
+        2,
+        4
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "[2,1,0]": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        1,
+        4
+      ],
+      [
+        1,
+        2,
+        4
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "[1,2,0]": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "[2,0,1]": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        3
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        0,
+        2,
+        3
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ],
+    "[1,0,2]": [
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        3
+      ],
+      [
+        0,
+        2,
+        4
+      ],
+      [
+        1,
+        2,
+        4
+      ],
+      [
+        0,
+        1,
+        2
+      ]
+    ]
+  },
+  "all_six_holonomies_reached": true,
+  "path_cell_loop_legal_under_declared_V36_copy_rule": true,
+  "hypothetical_V29_matched_transfer_edge_counts": [
+    4,
+    4,
+    4,
+    4
+  ],
+  "matched_transfer_balance_per_cell": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "candidate_microframe_V29_PASS_count_checks": 44280,
+  "all_assertions_passed": true
+}
