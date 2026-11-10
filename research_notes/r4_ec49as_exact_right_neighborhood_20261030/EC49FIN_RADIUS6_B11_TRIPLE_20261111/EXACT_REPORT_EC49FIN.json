@@ -1,0 +1,44 @@
+{
+  "schema": "EC49FIN_RADIUS6_B11_TRIPLE_EXACT_V1",
+  "date": "2026-11-11",
+  "science_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "predecessor_pr": 1730,
+  "predecessor_head": "f665586316c5d3c47ae424ec5cf6bf449a1e02f6",
+  "original_94_edge_witness_sha1": "e65c1598ad9fa2680558046ed1e59d83806536b8",
+  "claim": "Every six-label replacement with 18 unchanged paths retaining all seven original raw cache keys and 93-edge residual budget 11 is 94-edge optimal, for both EC49FGJ witnesses A/B.",
+  "cost_model": "distinct ordered signed six-axis nonempty native prefixes; cached complete key tuple counts; candidate words exhaustive in frozen 9-state observer",
+  "verified_cases_per_profile": 6284,
+  "summary": {
+    "A": {
+      "checked": 6284,
+      "pair_excluded": 1100,
+      "triple_new_excluded": 5184,
+      "triple_survivors": 0
+    },
+    "B": {
+      "checked": 6284,
+      "pair_excluded": 1100,
+      "triple_new_excluded": 5184,
+      "triple_survivors": 0
+    }
+  },
+  "crosscheck": {
+    "literal_union_triples_per_profile": 20,
+    "literal_cost": 12,
+    "crosscheck_reference": "EXACT_DIRECT_TRIPLE_20.json",
+    "small_trie_crosscheck_per_profile": 8
+  },
+  "data_sha256": {
+    "TRIE_A.txt": "d05d93f6d73a37155d506b40c0a3dc42fe86fb5d34ef4d4525ad6acd7adeb0a0",
+    "QS_A_11.txt": "5ec8f805a0d0670946a465b99658bda7e6375d838a3558fb1a3a7b8bca46dac0",
+    "run_A11_chunk_logs_summary": "6a293c5ba67151c2c4373d5ee643204e563e87e9711a857c6ce95ec58d53f5d0",
+    "TRIE_B.txt": "8e42cd2f07a834cca2ad4920f0668ab9418649f878e95731e1d7c86a1e3254a9",
+    "QS_B_11.txt": "5ec8f805a0d0670946a465b99658bda7e6375d838a3558fb1a3a7b8bca46dac0",
+    "run_B11_chunk_logs_summary": "b1096d63f8295da23915605ca4da32b9e5b242dcdfbb5327d865361309e69f44"
+  },
+  "next": "B=13 fixed-key six-way classifications; arbitrary released-key cases; independent Driver review",
+  "published_code_sha256": {
+    "MAKE_INPUT_EC49FIN.py": "2fdc0bc973f15093090ee4f8ddf14dd02afa3fbbae4a27f2afe9b886a16a6f67",
+    "VERIFY_EC49FIN.cpp": "8322b08c8fc30288b16e5b679fde3dfe2c3c334f54a22e9dc2d34d14b83baa60"
+  }
+}
