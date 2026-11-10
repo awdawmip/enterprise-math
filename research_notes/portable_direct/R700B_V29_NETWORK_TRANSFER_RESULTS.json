@@ -1,0 +1,61 @@
+{
+  "schema": "EM_R700B_V29_BOUNDARY_REPAIR_V1",
+  "status": "R700B_BOUNDARY_REPAIR_EXACT_PASS",
+  "parent": "R700@4bcc0f651f15c681e07520d50553897ad395aeb4",
+  "source_model": {
+    "capacities": [
+      24,
+      18,
+      6,
+      12
+    ],
+    "group_to_PASS": [
+      "0->1",
+      "1->2",
+      "2->3",
+      "3->0"
+    ]
+  },
+  "histograms_checked": 43224,
+  "one_in_one_out_matched_transfer_cases": 691584,
+  "counterexample": {
+    "caseA": {
+      "group_counts": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "ring_PASS": "0->1",
+      "outgoing_transfer": "x:0 -> y:0",
+      "incoming_transfer": "y:1 -> x:1",
+      "observed_u": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "P": 1
+    },
+    "caseB": {
+      "group_counts": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "ring_PASS": "1->2",
+      "outgoing_transfer": "x:1 -> y:1",
+      "incoming_transfer": "y:2 -> x:2",
+      "observed_u": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "P": 1
+    }
+  },
+  "exact_repair": "u_internal = u_observed - Rin + Rout; s = P_after - P_baseline; v=R700 inverse(u_internal,s)",
+  "interpretation": "Full V29 network transfer counts must be retained or compensated to recover ring source histogram. V29 grammar specified, physical X6 Link/Port path realization unresolved."
+}
