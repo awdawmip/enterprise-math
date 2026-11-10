@@ -13,7 +13,7 @@ F_q(z) = q A(z) - B(z)
 I = [L,U] = [2663/50000, 53261/1000000]
 ```
 
-PREFIX-682/684 prove on I: `-1800<A'(z)<-1600`, `100<B'(z)<150`, `793/100<B(z)<794/100`, `|A''(z)|<110000000`, a unique `z_A` with `A(z_A)=0`, and, for every real `q>=q_c=B(L)/A(L)`, a unique `z_q in I` satisfying `F_q(z_q)=0`, with `L<=z_q<z_A`. For `q>q_c`, `z_q>L`. PREFIX-685 certifies the **exact** rational endpoint enclosures, all strict, with denominator `S=10^24`:
+PREFIX-682/683/684 collectively certify on I: `-1800<A'(z)<-1600`, `100<B'(z)<150`, `793/100<B(z)<794/100`, `|A''(z)|<110000000`, a unique `z_A` with `A(z_A)=0`, and, for every real `q>=q_c=B(L)/A(L)`, a unique `z_q in I` satisfying `F_q(z_q)=0`, with `L<=z_q<z_A`. For `q>q_c`, `z_q>L`. PREFIX-685 certifies the **exact** rational endpoint enclosures, all strict, with denominator `S=10^24`:
 
 ```
 803334881118283114227/S < A(L) < 803334881118283114228/S
