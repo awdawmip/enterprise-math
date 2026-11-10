@@ -38,7 +38,11 @@
     "claim_origin_identity_after_adoption": "PRESERVE_AS_PROVENANCE"
   },
   "expired_or_absent_claim": {
-    "action": "USE_ORDINARY_FRESH_DISPATCH_AND_CREATE_ONE_NEW_CLAIM",
+    "action": "SELECT_PREPARATION_BY_RECORDED_PREDECESSOR",
+    "without_recorded_predecessor": "USE_ORDINARY_FRESH_DISPATCH_AND_CREATE_ONE_NEW_CLAIM",
+    "with_recorded_predecessor": "PREPARE_TYPED_CONTINUATION_WITH_EXACT_PREDECESSOR_AND_FRONTIER",
+    "predecessor_fields": ["last_claim_id", "last_claim_comment_id"],
+    "reuse_current_own_session": true,
     "task_restart_required": false,
     "frontier_rule": "RECONCILE_DURABLE_FRONTIER_BEFORE_CONTINUING"
   },
