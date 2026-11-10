@@ -178,3 +178,49 @@ run; `em_site_control(recovery_status)` returned
 request `onhour11-20261110-1433-exact-cont` was still QUEUED at the latest
 receipt; reconcile the original request_id. GitHub publication here is
 AUTHOR_SIDE, not a Source-native checkpoint or formal Result.
+
+## 6. FOLLOW-ON SAME-TURN SCIENTIFIC UNIT — reflection removes the grade-2 sum
+
+Consume the **earlier proved and independently checked** grade-1/grade-2
+leading-unit reflection (no new claim of its authorship). For
+`2m+1<=k<=3m` let `u_k=A_k/p mod p`, a unit, and put `b=p-k`,
+which bijects grade 1 with grade 2. The previously obtained exact
+leading-unit identity is
+
+```text
+(A_k/p) * (A_(p-k)/p^2) = (36 k^3)^(-1) (mod p).
+```
+
+Therefore the entire grade-2 contribution is representable using
+**only original grade-1 units**:
+
+```text
+S2 = sum_{k=2m+1}^{3m} (1-6k)/(6 k^3 u_k) (mod p).
+```
+
+This is a genuine use of the existing reciprocal BRC interface, not
+a new method nor a replacement of the signed source: the mapping
+`(grade2,b,A_b/p^2) -> (grade1,k=p-b,u_k^-1)` retains its
+inverse, sign, provenance and original cutoff labels.
+
+Hence the previously open first-jet statement `q2=0 mod p^3`
+is equivalent to the **two-band harmonic/inverse-unit identity**
+
+```text
+sum_{b=0}^{2m} A_b [((6b+1)/2)(U_b^2-K_b)+6U_b]
++ sum_{k=2m+1}^{3m} [
+       3 (A_k/p) ((6k+1)U_k+6)
+     + (1-6k)/(6 k^3 (A_k/p))
+  ] = 0 (mod p).
+```
+
+This identity is **not yet proved uniformly**. Its reduction from the
+three-band formula and the existing reflection theorem is proved.
+
+Exact independent reflection checks:
+`p=7,13,19,37,43,73,109,373` all give the same `S2` as
+the direct grade-2 computation; at `p=373` both read `104 mod373`.
+The remaining proof obligation is a finite signed telescoping identity
+between grade 0 and grade 1, rather than three separately expanded sums.
+Its target still is the original `Delta_p-R_p` and the distinct native
+H0/B0 support gate.
