@@ -135,3 +135,38 @@ def run():
 
 if __name__=='__main__':
     print(json.dumps(run(),sort_keys=True))
+
+def _s6_axis_type_kernel(n):
+    """Exact axis-type law induced by the order-free labeled-triple BRC kernel."""
+    m=sum(n)//3
+    den=m*D(tuple(n))
+    assert m>=1 and den>0
+    out={}
+    for tr in combinations(range(AXES),3):
+        if any(n[i]==0 for i in tr):continue
+        sub=list(n)
+        for i in tr:sub[i]-=1
+        out[tr]=Fraction(prod(n[i] for i in tr)*D(tuple(sub)),den)
+    assert sum(out.values(),Fraction(0))==1
+    return out
+
+def test_s6_kernel():
+    from itertools import permutations
+    n=(2,2,1,1,0,0)
+    base=_s6_axis_type_kernel(n)
+    assert base[(0,1,2)]==Fraction(1,2)
+    assert base[(0,1,3)]==Fraction(1,2)
+    assert base[(0,2,3)]==base[(1,2,3)]==0
+    checks=0
+    for perm in permutations(range(AXES)):
+        p_n=[0]*AXES
+        for i,x in enumerate(n):p_n[perm[i]]=x
+        got=_s6_axis_type_kernel(tuple(p_n))
+        mapped={tuple(sorted(perm[i] for i in tr)):mass for tr,mass in base.items()}
+        assert got==mapped
+        checks+=1
+    assert checks==720
+    print('R708_S6_EQUIVARIANT_BRC_KERNEL_PASS',checks)
+
+if __name__=='__main__':
+    test_s6_kernel()
