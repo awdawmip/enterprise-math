@@ -8,7 +8,7 @@ from __future__ import annotations
 from fractions import Fraction as F
 from math import isqrt, gcd
 from pathlib import Path
-import json, hashlib, time
+import json, hashlib
 
 OUT=Path(__file__).resolve().parent
 PIN='43ec6098b1330ae86d0a7863be336c5d97f6ef34'
@@ -180,7 +180,6 @@ def brute_tau(mdl,j,N,theta):
 
 def do_case(label,p,q,root,scale,m,j,N):
     lo,hi=theta_pair(p,q,root,scale);mdl=ArcModel(lo,hi,m)
-    start=time.perf_counter()
     got,cert=lane_selector(mdl,p,q,j,N)
     want,calls=oracle_tau(mdl.arcs,j-N,j,mdl.P,mdl.Q)
     assert got==want,[(i,a,b) for i,(a,b) in enumerate(zip(got,want)) if a!=b]
@@ -197,8 +196,7 @@ def do_case(label,p,q,root,scale,m,j,N):
             'fallback_floor_stability_endpoint_evaluations':cert['fallback_floor_stability_endpoint_evaluations'],
             'reference_floor_sum_count_calls':calls,
             'candidate_endpoints_verified':cert['fraction_endpoint_candidate_checks'],
-            'selected_owner_count':sum(x is not None for x in got),'last_source_by_historical_arc':got,
-            'elapsed_seconds_diagnostic':round(time.perf_counter()-start,4)}
+            'selected_owner_count':sum(x is not None for x in got),'last_source_by_historical_arc':got}
 
 def main():
     cases=[('NEAR_THIRD_R37',1,3,2,10**7,21,10**9,10**8),
