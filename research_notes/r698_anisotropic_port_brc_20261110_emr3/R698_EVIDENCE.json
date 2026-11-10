@@ -1,0 +1,162 @@
+{
+  "marker": "R698_ANISOTROPIC_BRC_EXACT_PASS",
+  "source_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "weights": [
+    [
+      1,
+      10
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      3,
+      10
+    ],
+    [
+      2,
+      5
+    ]
+  ],
+  "dp_vs_inclusion_exclusion_exact_cases": 3328,
+  "horizon_inclusive": [
+    0,
+    12
+  ],
+  "quotient_counts": [
+    {
+      "weight_numerators_over_12": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "states": 5
+    },
+    {
+      "weight_numerators_over_12": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "states": 8
+    },
+    {
+      "weight_numerators_over_12": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "states": 9
+    },
+    {
+      "weight_numerators_over_12": [
+        1,
+        1,
+        2,
+        3
+      ],
+      "states": 12
+    },
+    {
+      "weight_numerators_over_12": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "states": 16
+    }
+  ],
+  "two_tick_counterexample": {
+    "A": [
+      0,
+      3
+    ],
+    "B": [
+      1,
+      2
+    ],
+    "both_active_rate": [
+      1,
+      2
+    ],
+    "P_A_HALT": [
+      2,
+      25
+    ],
+    "P_B_HALT": [
+      3,
+      25
+    ]
+  },
+  "hitting_time": {
+    "expectation": [
+      445,
+      36
+    ],
+    "CDF_4": [
+      36,
+      625
+    ],
+    "CDF_8": [
+      319977,
+      781250
+    ]
+  },
+  "spectral": [
+    {
+      "sum_rate": [
+        0,
+        1
+      ],
+      "coefficient": 1
+    },
+    {
+      "sum_rate": [
+        1,
+        10
+      ],
+      "coefficient": -1
+    },
+    {
+      "sum_rate": [
+        1,
+        5
+      ],
+      "coefficient": -1
+    },
+    {
+      "sum_rate": [
+        1,
+        2
+      ],
+      "coefficient": 2
+    },
+    {
+      "sum_rate": [
+        4,
+        5
+      ],
+      "coefficient": -1
+    },
+    {
+      "sum_rate": [
+        9,
+        10
+      ],
+      "coefficient": -1
+    },
+    {
+      "sum_rate": [
+        1,
+        1
+      ],
+      "coefficient": 1
+    }
+  ],
+  "classical_background": "May 2008 DOI:10.37236/906; Berthet 2017 arXiv:1703.01886"
+}
