@@ -1,0 +1,2198 @@
+{
+  "status": "PASS",
+  "arithmetic": "exact integers",
+  "scope": "Control callbacks on inherited production PrefixTree; no BRC command claim",
+  "intersection_examples": {
+    "examined": 13,
+    "examples": {
+      "probe_increases_reads": {
+        "r": 2,
+        "residues": [
+          0,
+          0
+        ],
+        "phases": [
+          1,
+          3
+        ],
+        "target_residues": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            2,
+            3,
+            0
+          ]
+        ],
+        "single": {
+          "strategy": "single",
+          "observations": 2,
+          "searches": 2,
+          "node_visits": 4,
+          "candidate_build_writes": 18,
+          "choices": [
+            1,
+            3
+          ],
+          "held": [
+            3
+          ],
+          "common_probe_result": null,
+          "query_trace": [
+            {
+              "candidates": [
+                0,
+                1,
+                2
+              ],
+              "result": 1,
+              "observations": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  3,
+                  2
+                ],
+                [
+                  1,
+                  1,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                2,
+                3,
+                0
+              ],
+              "result": 3,
+              "observations": [],
+              "visits": [
+                [
+                  0,
+                  0,
+                  3,
+                  2
+                ],
+                [
+                  1,
+                  1,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        "intersection": {
+          "strategy": "intersection",
+          "observations": 4,
+          "searches": 1,
+          "node_visits": 3,
+          "candidate_build_writes": 6,
+          "choices": [
+            2,
+            2
+          ],
+          "held": [
+            2
+          ],
+          "common_probe_result": 2,
+          "query_trace": [
+            {
+              "candidates": [
+                0,
+                2
+              ],
+              "result": 2,
+              "observations": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  2,
+                  2
+                ],
+                [
+                  1,
+                  0,
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  2,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "probe_reduces_reads": {
+        "r": 2,
+        "residues": [
+          0,
+          1
+        ],
+        "phases": [
+          0,
+          1
+        ],
+        "target_residues": [
+          [
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "single": {
+          "strategy": "single",
+          "observations": 4,
+          "searches": 2,
+          "node_visits": 6,
+          "candidate_build_writes": 18,
+          "choices": [
+            3,
+            2
+          ],
+          "held": [
+            2
+          ],
+          "common_probe_result": null,
+          "query_trace": [
+            {
+              "candidates": [
+                1,
+                2,
+                3
+              ],
+              "result": 3,
+              "observations": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  3,
+                  2
+                ],
+                [
+                  1,
+                  1,
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  3,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                0,
+                1,
+                2
+              ],
+              "result": 2,
+              "observations": [
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  3,
+                  2
+                ],
+                [
+                  1,
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  2,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        "intersection": {
+          "strategy": "intersection",
+          "observations": 3,
+          "searches": 1,
+          "node_visits": 3,
+          "candidate_build_writes": 6,
+          "choices": [
+            2,
+            2
+          ],
+          "held": [
+            2
+          ],
+          "common_probe_result": 2,
+          "query_trace": [
+            {
+              "candidates": [
+                1,
+                2
+              ],
+              "result": 2,
+              "observations": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  2,
+                  2
+                ],
+                [
+                  1,
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  2,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "retention_example": {
+    "examined": 124200,
+    "example": null
+  },
+  "prescribed": [
+    {
+      "r": 6,
+      "residues": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "phases": [
+        0,
+        2
+      ],
+      "rows": [
+        {
+          "strategy": "single",
+          "observations": 10,
+          "searches": 1,
+          "node_visits": 4,
+          "candidate_build_writes": 28,
+          "choices": [
+            7,
+            7
+          ],
+          "held": [
+            7
+          ],
+          "common_probe_result": null,
+          "query_trace": [
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "result": 7,
+              "observations": [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  2,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "retained",
+          "observations": 10,
+          "searches": 1,
+          "node_visits": 4,
+          "candidate_build_writes": 28,
+          "choices": [
+            7,
+            7
+          ],
+          "held": [
+            7
+          ],
+          "common_probe_result": null,
+          "query_trace": [
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "result": 7,
+              "observations": [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  2,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "intersection",
+          "observations": 10,
+          "searches": 1,
+          "node_visits": 4,
+          "candidate_build_writes": 24,
+          "choices": [
+            7,
+            7
+          ],
+          "held": [
+            7
+          ],
+          "common_probe_result": 7,
+          "query_trace": [
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                7
+              ],
+              "result": 7,
+              "observations": [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  2,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  6,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "r": 6,
+      "residues": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "phases": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "rows": [
+        {
+          "strategy": "single",
+          "observations": 14,
+          "searches": 2,
+          "node_visits": 8,
+          "candidate_build_writes": 56,
+          "choices": [
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "held": [
+            0
+          ],
+          "common_probe_result": null,
+          "query_trace": [
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "result": 7,
+              "observations": [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  2,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": 0,
+              "observations": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  2,
+                  1
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  0,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "retained",
+          "observations": 14,
+          "searches": 2,
+          "node_visits": 8,
+          "candidate_build_writes": 56,
+          "choices": [
+            7,
+            0,
+            7,
+            7,
+            7,
+            7,
+            7,
+            7
+          ],
+          "held": [
+            7,
+            0
+          ],
+          "common_probe_result": null,
+          "query_trace": [
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "result": 7,
+              "observations": [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  2,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": 0,
+              "observations": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  2,
+                  1
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  0,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "intersection",
+          "observations": 14,
+          "searches": 2,
+          "node_visits": 8,
+          "candidate_build_writes": 56,
+          "choices": [
+            7,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "held": [
+            0
+          ],
+          "common_probe_result": null,
+          "query_trace": [
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "result": 7,
+              "observations": [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  2,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": 0,
+              "observations": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  2,
+                  1
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  0,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "r": 6,
+      "residues": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "phases": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "rows": [
+        {
+          "strategy": "single",
+          "observations": 14,
+          "searches": 6,
+          "node_visits": 24,
+          "candidate_build_writes": 168,
+          "choices": [
+            7,
+            0,
+            7,
+            0,
+            7,
+            0
+          ],
+          "held": [
+            0
+          ],
+          "common_probe_result": null,
+          "query_trace": [
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "result": 7,
+              "observations": [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  2,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": 0,
+              "observations": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  2,
+                  1
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  0,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "result": 7,
+              "observations": [],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": 0,
+              "observations": [],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  0,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "result": 7,
+              "observations": [],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": 0,
+              "observations": [],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  0,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "retained",
+          "observations": 14,
+          "searches": 2,
+          "node_visits": 8,
+          "candidate_build_writes": 56,
+          "choices": [
+            7,
+            0,
+            7,
+            0,
+            7,
+            0
+          ],
+          "held": [
+            7,
+            0
+          ],
+          "common_probe_result": null,
+          "query_trace": [
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "result": 7,
+              "observations": [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  2,
+                  0
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": 0,
+              "observations": [
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  2,
+                  1
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  0,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "strategy": "intersection",
+          "observations": 18,
+          "searches": 7,
+          "node_visits": 37,
+          "candidate_build_writes": 192,
+          "choices": [
+            7,
+            0,
+            7,
+            0,
+            7,
+            0
+          ],
+          "held": [
+            0
+          ],
+          "common_probe_result": null,
+          "query_trace": [
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": null,
+              "observations": [
+                [
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  0,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  0,
+                  1
+                ],
+                [
+                  5,
+                  0,
+                  0
+                ],
+                [
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  1,
+                  0
+                ],
+                [
+                  5,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  2,
+                  0
+                ],
+                [
+                  5,
+                  2,
+                  1
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  4,
+                  1,
+                  0
+                ],
+                [
+                  2,
+                  2,
+                  0
+                ],
+                [
+                  0,
+                  2,
+                  0
+                ],
+                [
+                  4,
+                  2,
+                  1
+                ]
+              ],
+              "visits": [
+                [
+                  0,
+                  0,
+                  6,
+                  6
+                ],
+                [
+                  1,
+                  0,
+                  3,
+                  3
+                ],
+                [
+                  2,
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  4,
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  2,
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  2,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  6,
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1,
+                  3,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  3,
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  1,
+                  2,
+                  2
+                ],
+                [
+                  3,
+                  1,
+                  1,
+                  1
+                ],
+                [
+                  3,
+                  5,
+                  1,
+                  1
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "result": 7,
+              "observations": [],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": 0,
+              "observations": [],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  0,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "result": 7,
+              "observations": [],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": 0,
+              "observations": [],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  0,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "result": 7,
+              "observations": [],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  1,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  3,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  7,
+                  1,
+                  0
+                ]
+              ]
+            },
+            {
+              "candidates": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6
+              ],
+              "result": 0,
+              "observations": [],
+              "visits": [
+                [
+                  0,
+                  0,
+                  7,
+                  6
+                ],
+                [
+                  1,
+                  0,
+                  4,
+                  3
+                ],
+                [
+                  2,
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  3,
+                  0,
+                  1,
+                  0
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

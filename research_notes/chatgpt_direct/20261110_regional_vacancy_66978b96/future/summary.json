@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "completed_results": 16,
+  "results": {
+    "costs.json": {
+      "mode": "costs",
+      "assertions": 4213
+    },
+    "regressions.json": {
+      "mode": "regressions",
+      "assertions": 1107,
+      "protected_source_raw_prefixes": 344
+    },
+    "path_tradeoffs.json": {
+      "mode": "path_tradeoffs",
+      "assertions": 162
+    },
+    "audit_r1.json": {
+      "mode": "audit",
+      "slots": 1,
+      "domain": 77,
+      "sequences_run": 231,
+      "api_calls": 1309,
+      "assertions": 4462
+    },
+    "audit_r2.json": {
+      "mode": "audit",
+      "slots": 2,
+      "domain": 1900,
+      "sequences_run": 5700,
+      "api_calls": 32300,
+      "assertions": 107281
+    },
+    "omissions.json": {
+      "mode": "omissions",
+      "slots": 2,
+      "omission_positions": 304,
+      "assertions": 7929
+    },
+    "protected.json": {
+      "mode": "protected",
+      "assertions": 2364
+    },
+    "region_costs.json": {
+      "mode": "costs",
+      "assertions": 5453
+    },
+    "region_regressions.json": {
+      "mode": "regressions",
+      "assertions": 1563,
+      "protected_source_raw_prefixes": 344
+    },
+    "region_audit_r1.json": {
+      "mode": "audit",
+      "slots": 1,
+      "domain": 77,
+      "sequences_run": 154,
+      "api_calls": 1386,
+      "assertions": 5195
+    },
+    "region_audit_r2.json": {
+      "mode": "audit",
+      "slots": 2,
+      "domain": 1900,
+      "sequences_run": 3800,
+      "api_calls": 34200,
+      "assertions": 144401
+    },
+    "region_omissions.json": {
+      "mode": "omissions",
+      "slots": 2,
+      "omission_positions": 440,
+      "assertions": 32633
+    },
+    "region_protected.json": {
+      "mode": "protected",
+      "assertions": 2366,
+      "region_assertions": 26
+    },
+    "region_gain.json": {
+      "mode": "regional_gain",
+      "assertions": 2668
+    },
+    "region_path_tradeoff.json": {
+      "mode": "path_tradeoff",
+      "slots": 10,
+      "assertions": 95
+    },
+    "horizon_costs.json": {
+      "mode": "horizon_costs",
+      "actual_prefix_comparisons": 68,
+      "completed_original_kernel_runs": 4
+    }
+  },
+  "finite_batches": 9885,
+  "finite_api_actions": 69195,
+  "indexed_counter_refinement": {
+    "behavior": "Fixed finite-domain indexed counters replace dictionary counters, preserving region update and selection semantics",
+    "before_refinement_results": [
+      "region_costs.json",
+      "region_audit_r1.json",
+      "region_omissions.json",
+      "region_protected.json"
+    ],
+    "after_refinement_results": [
+      "region_regressions.json",
+      "region_audit_r2.json",
+      "region_gain.json",
+      "region_path_tradeoff.json",
+      "horizon_costs.json"
+    ],
+    "control_checks": "Parent and bounds verifier cover indexed-counter states separately; see regional/ and future_bounds/ results",
+    "unchanged": "Original BRC words, physical output handling, prefix-tree observation and region API semantics"
+  },
+  "note": "Exact original BRC execution; author verification with finite scopes in each result"
+}

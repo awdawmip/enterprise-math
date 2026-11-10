@@ -1,0 +1,660 @@
+{
+  "status": "PASS",
+  "scope": "Exact finite control states and declared update transitions",
+  "physical_BRC_execution": false,
+  "exhaustive": [
+    {
+      "slots": 2,
+      "width": 2,
+      "modulus": 4,
+      "colors": 3,
+      "initial_states": 175,
+      "controlled_transitions": 2800,
+      "empty_prefix_reacquisitions": 581,
+      "selector_queries": 17024
+    },
+    {
+      "slots": 2,
+      "width": 3,
+      "modulus": 8,
+      "colors": 3,
+      "initial_states": 1215,
+      "controlled_transitions": 29160,
+      "empty_prefix_reacquisitions": 11385,
+      "selector_queries": 411840
+    }
+  ],
+  "alias_recycling": [
+    {
+      "operation": [
+        "bind",
+        0,
+        1
+      ],
+      "refs": {
+        "1": 1
+      },
+      "free": 3
+    },
+    {
+      "operation": [
+        "copy",
+        1,
+        0
+      ],
+      "refs": {
+        "1": 2
+      },
+      "free": 3
+    },
+    {
+      "operation": [
+        "drop",
+        0
+      ],
+      "refs": {
+        "1": 1
+      },
+      "free": 3
+    },
+    {
+      "operation": [
+        "drop",
+        1
+      ],
+      "refs": {},
+      "free": 4
+    },
+    {
+      "operation": [
+        "bind",
+        0,
+        8
+      ],
+      "refs": {},
+      "free": 4
+    },
+    {
+      "operation": [
+        "bind",
+        1,
+        0
+      ],
+      "refs": {},
+      "free": 4
+    },
+    {
+      "operation": [
+        "copy",
+        1,
+        0
+      ],
+      "refs": {},
+      "free": 4
+    },
+    {
+      "operation": [
+        "drop",
+        0
+      ],
+      "refs": {},
+      "free": 4
+    },
+    {
+      "operation": [
+        "drop",
+        1
+      ],
+      "refs": {},
+      "free": 4
+    },
+    {
+      "operation": [
+        "bind",
+        0,
+        3
+      ],
+      "refs": {
+        "3": 1
+      },
+      "free": 3
+    },
+    {
+      "operation": [
+        "copy",
+        1,
+        0
+      ],
+      "refs": {
+        "3": 2
+      },
+      "free": 3
+    },
+    {
+      "operation": [
+        "bind",
+        0,
+        5
+      ],
+      "refs": {
+        "3": 1,
+        "5": 1
+      },
+      "free": 2
+    },
+    {
+      "operation": [
+        "drop",
+        1
+      ],
+      "refs": {
+        "5": 1
+      },
+      "free": 3
+    }
+  ],
+  "reuse_family": [
+    {
+      "rounds": 8,
+      "request_slots": 6,
+      "prefix": [
+        1,
+        1
+      ],
+      "mu": 3,
+      "initial_observation_boundary": "supplied proved empty prefix",
+      "old_request_bit_reads_after_boundary": 0,
+      "final_members": [
+        5,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "final_refs": {
+        "5": 1
+      },
+      "events": {
+        "acquisitions": 1,
+        "slot_writes": 8,
+        "member_changes": 8,
+        "first_references": 8,
+        "last_releases": 7,
+        "region_queries": 8,
+        "region_hits": 8,
+        "region_misses": 0,
+        "query_visits": 30,
+        "update_visits": 45,
+        "nodes_created": 24,
+        "retired_slot_marks": 0
+      },
+      "snapshots": [
+        {
+          "turn": 0,
+          "target_start": 1,
+          "key": 1,
+          "residue": 1,
+          "free": 3,
+          "refs": {
+            "1": 1
+          }
+        },
+        {
+          "turn": 1,
+          "target_start": 0,
+          "key": 11,
+          "residue": 3,
+          "free": 3,
+          "refs": {
+            "3": 1
+          }
+        },
+        {
+          "turn": 2,
+          "target_start": 7,
+          "key": 15,
+          "residue": 7,
+          "free": 3,
+          "refs": {
+            "7": 1
+          }
+        },
+        {
+          "turn": 3,
+          "target_start": 6,
+          "key": 25,
+          "residue": 1,
+          "free": 3,
+          "refs": {
+            "1": 1
+          }
+        },
+        {
+          "turn": 4,
+          "target_start": 5,
+          "key": 29,
+          "residue": 5,
+          "free": 3,
+          "refs": {
+            "5": 1
+          }
+        },
+        {
+          "turn": 5,
+          "target_start": 4,
+          "key": 39,
+          "residue": 7,
+          "free": 3,
+          "refs": {
+            "7": 1
+          }
+        },
+        {
+          "turn": 6,
+          "target_start": 3,
+          "key": 43,
+          "residue": 3,
+          "free": 3,
+          "refs": {
+            "3": 1
+          }
+        },
+        {
+          "turn": 7,
+          "target_start": 2,
+          "key": 53,
+          "residue": 5,
+          "free": 3,
+          "refs": {
+            "5": 1
+          }
+        }
+      ]
+    },
+    {
+      "rounds": 32,
+      "request_slots": 6,
+      "prefix": [
+        1,
+        1
+      ],
+      "mu": 3,
+      "initial_observation_boundary": "supplied proved empty prefix",
+      "old_request_bit_reads_after_boundary": 0,
+      "final_members": [
+        5,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "final_refs": {
+        "5": 1
+      },
+      "events": {
+        "acquisitions": 1,
+        "slot_writes": 32,
+        "member_changes": 32,
+        "first_references": 32,
+        "last_releases": 31,
+        "region_queries": 32,
+        "region_hits": 32,
+        "region_misses": 0,
+        "query_visits": 123,
+        "update_visits": 189,
+        "nodes_created": 96,
+        "retired_slot_marks": 0
+      },
+      "snapshots": [
+        {
+          "turn": 0,
+          "target_start": 1,
+          "key": 1,
+          "residue": 1,
+          "free": 3,
+          "refs": {
+            "1": 1
+          }
+        },
+        {
+          "turn": 1,
+          "target_start": 0,
+          "key": 11,
+          "residue": 3,
+          "free": 3,
+          "refs": {
+            "3": 1
+          }
+        },
+        {
+          "turn": 2,
+          "target_start": 7,
+          "key": 15,
+          "residue": 7,
+          "free": 3,
+          "refs": {
+            "7": 1
+          }
+        },
+        {
+          "turn": 3,
+          "target_start": 6,
+          "key": 25,
+          "residue": 1,
+          "free": 3,
+          "refs": {
+            "1": 1
+          }
+        },
+        {
+          "turn": 4,
+          "target_start": 5,
+          "key": 29,
+          "residue": 5,
+          "free": 3,
+          "refs": {
+            "5": 1
+          }
+        },
+        {
+          "turn": 5,
+          "target_start": 4,
+          "key": 39,
+          "residue": 7,
+          "free": 3,
+          "refs": {
+            "7": 1
+          }
+        },
+        {
+          "turn": 6,
+          "target_start": 3,
+          "key": 43,
+          "residue": 3,
+          "free": 3,
+          "refs": {
+            "3": 1
+          }
+        },
+        {
+          "turn": 7,
+          "target_start": 2,
+          "key": 53,
+          "residue": 5,
+          "free": 3,
+          "refs": {
+            "5": 1
+          }
+        },
+        {
+          "turn": 31,
+          "target_start": 2,
+          "key": 221,
+          "residue": 5,
+          "free": 3,
+          "refs": {
+            "5": 1
+          }
+        }
+      ]
+    },
+    {
+      "rounds": 128,
+      "request_slots": 6,
+      "prefix": [
+        1,
+        1
+      ],
+      "mu": 3,
+      "initial_observation_boundary": "supplied proved empty prefix",
+      "old_request_bit_reads_after_boundary": 0,
+      "final_members": [
+        5,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "final_refs": {
+        "5": 1
+      },
+      "events": {
+        "acquisitions": 1,
+        "slot_writes": 128,
+        "member_changes": 128,
+        "first_references": 128,
+        "last_releases": 127,
+        "region_queries": 128,
+        "region_hits": 128,
+        "region_misses": 0,
+        "query_visits": 495,
+        "update_visits": 765,
+        "nodes_created": 384,
+        "retired_slot_marks": 0
+      },
+      "snapshots": [
+        {
+          "turn": 0,
+          "target_start": 1,
+          "key": 1,
+          "residue": 1,
+          "free": 3,
+          "refs": {
+            "1": 1
+          }
+        },
+        {
+          "turn": 1,
+          "target_start": 0,
+          "key": 11,
+          "residue": 3,
+          "free": 3,
+          "refs": {
+            "3": 1
+          }
+        },
+        {
+          "turn": 2,
+          "target_start": 7,
+          "key": 15,
+          "residue": 7,
+          "free": 3,
+          "refs": {
+            "7": 1
+          }
+        },
+        {
+          "turn": 3,
+          "target_start": 6,
+          "key": 25,
+          "residue": 1,
+          "free": 3,
+          "refs": {
+            "1": 1
+          }
+        },
+        {
+          "turn": 4,
+          "target_start": 5,
+          "key": 29,
+          "residue": 5,
+          "free": 3,
+          "refs": {
+            "5": 1
+          }
+        },
+        {
+          "turn": 5,
+          "target_start": 4,
+          "key": 39,
+          "residue": 7,
+          "free": 3,
+          "refs": {
+            "7": 1
+          }
+        },
+        {
+          "turn": 6,
+          "target_start": 3,
+          "key": 43,
+          "residue": 3,
+          "free": 3,
+          "refs": {
+            "3": 1
+          }
+        },
+        {
+          "turn": 7,
+          "target_start": 2,
+          "key": 53,
+          "residue": 5,
+          "free": 3,
+          "refs": {
+            "5": 1
+          }
+        },
+        {
+          "turn": 127,
+          "target_start": 2,
+          "key": 893,
+          "residue": 5,
+          "free": 3,
+          "refs": {
+            "5": 1
+          }
+        }
+      ]
+    },
+    {
+      "rounds": 512,
+      "request_slots": 6,
+      "prefix": [
+        1,
+        1
+      ],
+      "mu": 3,
+      "initial_observation_boundary": "supplied proved empty prefix",
+      "old_request_bit_reads_after_boundary": 0,
+      "final_members": [
+        5,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "final_refs": {
+        "5": 1
+      },
+      "events": {
+        "acquisitions": 1,
+        "slot_writes": 512,
+        "member_changes": 512,
+        "first_references": 512,
+        "last_releases": 511,
+        "region_queries": 512,
+        "region_hits": 512,
+        "region_misses": 0,
+        "query_visits": 1983,
+        "update_visits": 3069,
+        "nodes_created": 1536,
+        "retired_slot_marks": 0
+      },
+      "snapshots": [
+        {
+          "turn": 0,
+          "target_start": 1,
+          "key": 1,
+          "residue": 1,
+          "free": 3,
+          "refs": {
+            "1": 1
+          }
+        },
+        {
+          "turn": 1,
+          "target_start": 0,
+          "key": 11,
+          "residue": 3,
+          "free": 3,
+          "refs": {
+            "3": 1
+          }
+        },
+        {
+          "turn": 2,
+          "target_start": 7,
+          "key": 15,
+          "residue": 7,
+          "free": 3,
+          "refs": {
+            "7": 1
+          }
+        },
+        {
+          "turn": 3,
+          "target_start": 6,
+          "key": 25,
+          "residue": 1,
+          "free": 3,
+          "refs": {
+            "1": 1
+          }
+        },
+        {
+          "turn": 4,
+          "target_start": 5,
+          "key": 29,
+          "residue": 5,
+          "free": 3,
+          "refs": {
+            "5": 1
+          }
+        },
+        {
+          "turn": 5,
+          "target_start": 4,
+          "key": 39,
+          "residue": 7,
+          "free": 3,
+          "refs": {
+            "7": 1
+          }
+        },
+        {
+          "turn": 6,
+          "target_start": 3,
+          "key": 43,
+          "residue": 3,
+          "free": 3,
+          "refs": {
+            "3": 1
+          }
+        },
+        {
+          "turn": 7,
+          "target_start": 2,
+          "key": 53,
+          "residue": 5,
+          "free": 3,
+          "refs": {
+            "5": 1
+          }
+        },
+        {
+          "turn": 511,
+          "target_start": 2,
+          "key": 3581,
+          "residue": 5,
+          "free": 3,
+          "refs": {
+            "5": 1
+          }
+        }
+      ]
+    }
+  ]
+}

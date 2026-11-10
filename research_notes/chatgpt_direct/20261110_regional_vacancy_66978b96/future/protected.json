@@ -1,0 +1,217 @@
+{
+  "mode": "protected",
+  "rows": [
+    {
+      "phase": 0,
+      "body_operations": [
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ]
+      ],
+      "body_commands": 390,
+      "wrapper_commands": 31,
+      "protected_invocation_commands": 421,
+      "vacancy_bit_reads": 6,
+      "business_key_bit_reads": 12,
+      "final_certificate": [
+        3,
+        5
+      ],
+      "control_events": {
+        "witness_checks": 5,
+        "witness_hits": 3,
+        "target_searches": 2,
+        "query_node_visits": 5,
+        "candidate_count_queries": 6,
+        "selected_branches": 3,
+        "initial_labels": 6,
+        "initial_node_cells": 15,
+        "query_label_moves": 6,
+        "query_count_updates": 6,
+        "business_path_touches": 30,
+        "business_label_completions": 0,
+        "bucket_removals": 10,
+        "bucket_insertions": 16,
+        "slot_detaches": 4,
+        "slot_attaches": 4,
+        "retired_labels": 4,
+        "known_labels_introduced": 4,
+        "certificate_checks": 3,
+        "certificate_hits": 3,
+        "certificate_misses": 0,
+        "certificate_acquisitions": 2,
+        "internal_class_acquisitions": 2,
+        "certificate_refinements": 3,
+        "certificate_exhaustions": 1,
+        "residue_changes_inside_certificate": 0
+      },
+      "contender_boundary_attempts": 391,
+      "refused_contender_commands": 4301,
+      "next_admitted_bind_commands": 72,
+      "members": 367,
+      "candidates": 1914,
+      "additional_members": 0,
+      "additional_candidates": 0
+    },
+    {
+      "phase": 1,
+      "body_operations": [
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          0,
+          0
+        ],
+        [
+          "release",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ]
+      ],
+      "body_commands": 390,
+      "wrapper_commands": 31,
+      "protected_invocation_commands": 421,
+      "vacancy_bit_reads": 6,
+      "business_key_bit_reads": 12,
+      "final_certificate": [
+        3,
+        5
+      ],
+      "control_events": {
+        "witness_checks": 5,
+        "witness_hits": 3,
+        "target_searches": 2,
+        "query_node_visits": 5,
+        "candidate_count_queries": 6,
+        "selected_branches": 3,
+        "initial_labels": 6,
+        "initial_node_cells": 15,
+        "query_label_moves": 6,
+        "query_count_updates": 6,
+        "business_path_touches": 30,
+        "business_label_completions": 0,
+        "bucket_removals": 10,
+        "bucket_insertions": 16,
+        "slot_detaches": 4,
+        "slot_attaches": 4,
+        "retired_labels": 4,
+        "known_labels_introduced": 4,
+        "certificate_checks": 3,
+        "certificate_hits": 3,
+        "certificate_misses": 0,
+        "certificate_acquisitions": 2,
+        "internal_class_acquisitions": 2,
+        "certificate_refinements": 3,
+        "certificate_exhaustions": 1,
+        "residue_changes_inside_certificate": 0
+      },
+      "contender_boundary_attempts": 391,
+      "refused_contender_commands": 4301,
+      "next_admitted_bind_commands": 72,
+      "members": 367,
+      "candidates": 1914,
+      "additional_members": 0,
+      "additional_candidates": 0
+    }
+  ],
+  "assertions": 2364,
+  "coverage": "Two gate phases; a separate complete contender bind at every body boundary; actual handoff"
+}

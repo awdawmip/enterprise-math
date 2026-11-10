@@ -1,0 +1,99 @@
+{
+  "mode": "audit",
+  "slots": 1,
+  "domain": 77,
+  "sequences": [
+    [
+      [
+        "reserve",
+        0
+      ],
+      [
+        "bind",
+        0,
+        0
+      ],
+      [
+        "copy",
+        0,
+        0
+      ],
+      [
+        "drop",
+        0
+      ],
+      [
+        "release",
+        1
+      ],
+      [
+        "reserve",
+        2
+      ],
+      [
+        "valid",
+        0
+      ],
+      [
+        "drop",
+        0
+      ],
+      [
+        "reserve",
+        0
+      ]
+    ],
+    [
+      [
+        "reserve",
+        2
+      ],
+      [
+        "bind",
+        0,
+        2
+      ],
+      [
+        "copy",
+        0,
+        0
+      ],
+      [
+        "execute",
+        0
+      ],
+      [
+        "reserve",
+        2
+      ],
+      [
+        "bind",
+        0,
+        2
+      ],
+      [
+        "drop",
+        0
+      ],
+      [
+        "release",
+        4
+      ],
+      [
+        "reserve",
+        2
+      ]
+    ]
+  ],
+  "sequences_run": 154,
+  "api_calls": 1386,
+  "CWM": {
+    "C": 154,
+    "W": "154",
+    "M": "1"
+  },
+  "assertions": 5195,
+  "inherited_assertions": 23968,
+  "members": 81,
+  "candidates": 142
+}

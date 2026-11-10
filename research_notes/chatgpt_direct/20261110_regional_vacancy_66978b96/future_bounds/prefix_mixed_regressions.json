@@ -1,0 +1,447 @@
+{
+  "status": "PASS",
+  "method": "Greedy deletion and value simplification of seeded exact counterexamples",
+  "examples": {
+    "less": {
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "operations": [
+        [
+          "reserve",
+          5
+        ],
+        [
+          "bind",
+          8
+        ],
+        [
+          "reserve",
+          4
+        ]
+      ],
+      "point": {
+        "strategy": "point",
+        "reads": 12,
+        "searches": 2,
+        "certificate_hits": 0,
+        "nodes": 7,
+        "refinements": 0,
+        "discards": 1,
+        "trace": [
+          {
+            "op": [
+              "reserve",
+              5
+            ],
+            "choice": 11,
+            "cert": [
+              4,
+              11
+            ],
+            "additional_reads": 11
+          },
+          {
+            "op": [
+              "bind",
+              8
+            ],
+            "choice": null,
+            "cert": null,
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "reserve",
+              4
+            ],
+            "choice": 13,
+            "cert": [
+              4,
+              13
+            ],
+            "additional_reads": 1
+          }
+        ]
+      },
+      "prefix": {
+        "strategy": "prefix",
+        "reads": 11,
+        "searches": 1,
+        "certificate_hits": 1,
+        "nodes": 3,
+        "refinements": 1,
+        "discards": 0,
+        "trace": [
+          {
+            "op": [
+              "reserve",
+              5
+            ],
+            "choice": 11,
+            "cert": [
+              2,
+              3
+            ],
+            "additional_reads": 11
+          },
+          {
+            "op": [
+              "bind",
+              8
+            ],
+            "choice": null,
+            "cert": [
+              3,
+              7
+            ],
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "reserve",
+              4
+            ],
+            "choice": 15,
+            "cert": [
+              3,
+              7
+            ],
+            "additional_reads": 0
+          }
+        ]
+      }
+    },
+    "more": {
+      "residues": [
+        7,
+        7,
+        0,
+        0,
+        5,
+        0,
+        1,
+        0,
+        1,
+        2
+      ],
+      "operations": [
+        [
+          "reserve",
+          9
+        ],
+        [
+          "bind",
+          8
+        ],
+        [
+          "reserve",
+          1
+        ],
+        [
+          "bind",
+          7
+        ],
+        [
+          "reserve",
+          14
+        ],
+        [
+          "bind",
+          8
+        ],
+        [
+          "reserve",
+          13
+        ],
+        [
+          "bind",
+          1
+        ],
+        [
+          "reserve",
+          0
+        ],
+        [
+          "bind",
+          9
+        ],
+        [
+          "reserve",
+          10
+        ]
+      ],
+      "point": {
+        "strategy": "point",
+        "reads": 25,
+        "searches": 6,
+        "certificate_hits": 0,
+        "nodes": 26,
+        "refinements": 0,
+        "discards": 5,
+        "trace": [
+          {
+            "op": [
+              "reserve",
+              9
+            ],
+            "choice": 6,
+            "cert": [
+              4,
+              6
+            ],
+            "additional_reads": 16
+          },
+          {
+            "op": [
+              "bind",
+              8
+            ],
+            "choice": null,
+            "cert": null,
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "reserve",
+              1
+            ],
+            "choice": 13,
+            "cert": [
+              4,
+              13
+            ],
+            "additional_reads": 7
+          },
+          {
+            "op": [
+              "bind",
+              7
+            ],
+            "choice": null,
+            "cert": null,
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "reserve",
+              14
+            ],
+            "choice": 11,
+            "cert": [
+              4,
+              11
+            ],
+            "additional_reads": 2
+          },
+          {
+            "op": [
+              "bind",
+              8
+            ],
+            "choice": null,
+            "cert": null,
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "reserve",
+              13
+            ],
+            "choice": 6,
+            "cert": [
+              4,
+              6
+            ],
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "bind",
+              1
+            ],
+            "choice": null,
+            "cert": null,
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "reserve",
+              0
+            ],
+            "choice": 3,
+            "cert": [
+              4,
+              3
+            ],
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "bind",
+              9
+            ],
+            "choice": null,
+            "cert": null,
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "reserve",
+              10
+            ],
+            "choice": 2,
+            "cert": [
+              4,
+              2
+            ],
+            "additional_reads": 0
+          }
+        ]
+      },
+      "prefix": {
+        "strategy": "prefix",
+        "reads": 26,
+        "searches": 5,
+        "certificate_hits": 1,
+        "nodes": 23,
+        "refinements": 2,
+        "discards": 3,
+        "trace": [
+          {
+            "op": [
+              "reserve",
+              9
+            ],
+            "choice": 6,
+            "cert": [
+              3,
+              6
+            ],
+            "additional_reads": 16
+          },
+          {
+            "op": [
+              "bind",
+              8
+            ],
+            "choice": null,
+            "cert": [
+              4,
+              14
+            ],
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "reserve",
+              1
+            ],
+            "choice": 14,
+            "cert": [
+              4,
+              14
+            ],
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "bind",
+              7
+            ],
+            "choice": null,
+            "cert": null,
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "reserve",
+              14
+            ],
+            "choice": 13,
+            "cert": [
+              4,
+              13
+            ],
+            "additional_reads": 7
+          },
+          {
+            "op": [
+              "bind",
+              8
+            ],
+            "choice": null,
+            "cert": null,
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "reserve",
+              13
+            ],
+            "choice": 10,
+            "cert": [
+              4,
+              10
+            ],
+            "additional_reads": 1
+          },
+          {
+            "op": [
+              "bind",
+              1
+            ],
+            "choice": null,
+            "cert": null,
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "reserve",
+              0
+            ],
+            "choice": 3,
+            "cert": [
+              3,
+              3
+            ],
+            "additional_reads": 1
+          },
+          {
+            "op": [
+              "bind",
+              9
+            ],
+            "choice": null,
+            "cert": [
+              4,
+              11
+            ],
+            "additional_reads": 0
+          },
+          {
+            "op": [
+              "reserve",
+              10
+            ],
+            "choice": 15,
+            "cert": [
+              4,
+              15
+            ],
+            "additional_reads": 1
+          }
+        ]
+      }
+    }
+  }
+}

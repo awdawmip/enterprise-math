@@ -1,0 +1,400 @@
+{
+  "status": "PASS",
+  "scope": "Exact integer controller callbacks; no BRC command claim",
+  "mixed": {
+    "examined": 1098900,
+    "examples": {
+      "prefix_reads_less": {
+        "residues": [
+          0,
+          0
+        ],
+        "operations": [
+          [
+            "reserve",
+            0
+          ],
+          [
+            "bind",
+            0
+          ],
+          [
+            "reserve",
+            3
+          ],
+          [
+            "bind",
+            1
+          ],
+          [
+            "reserve",
+            0
+          ]
+        ],
+        "point": {
+          "strategy": "point",
+          "reads": 3,
+          "searches": 3,
+          "certificate_hits": 0,
+          "nodes": 8,
+          "refinements": 0,
+          "discards": 2,
+          "trace": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "choice": 1,
+              "cert": [
+                2,
+                1
+              ],
+              "additional_reads": 2
+            },
+            {
+              "op": [
+                "bind",
+                0
+              ],
+              "choice": null,
+              "cert": null,
+              "additional_reads": 0
+            },
+            {
+              "op": [
+                "reserve",
+                3
+              ],
+              "choice": 2,
+              "cert": [
+                2,
+                2
+              ],
+              "additional_reads": 1
+            },
+            {
+              "op": [
+                "bind",
+                1
+              ],
+              "choice": null,
+              "cert": null,
+              "additional_reads": 0
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "choice": 3,
+              "cert": [
+                2,
+                3
+              ],
+              "additional_reads": 0
+            }
+          ]
+        },
+        "prefix": {
+          "strategy": "prefix",
+          "reads": 2,
+          "searches": 2,
+          "certificate_hits": 1,
+          "nodes": 4,
+          "refinements": 1,
+          "discards": 1,
+          "trace": [
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "choice": 1,
+              "cert": [
+                1,
+                1
+              ],
+              "additional_reads": 2
+            },
+            {
+              "op": [
+                "bind",
+                0
+              ],
+              "choice": null,
+              "cert": [
+                2,
+                3
+              ],
+              "additional_reads": 0
+            },
+            {
+              "op": [
+                "reserve",
+                3
+              ],
+              "choice": 3,
+              "cert": [
+                2,
+                3
+              ],
+              "additional_reads": 0
+            },
+            {
+              "op": [
+                "bind",
+                1
+              ],
+              "choice": null,
+              "cert": null,
+              "additional_reads": 0
+            },
+            {
+              "op": [
+                "reserve",
+                0
+              ],
+              "choice": 2,
+              "cert": [
+                1,
+                0
+              ],
+              "additional_reads": 0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "stable_family": [
+    {
+      "b": 3,
+      "r": 6,
+      "targets": 32,
+      "phases": [
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4,
+        0,
+        4
+      ],
+      "point": {
+        "strategy": "point",
+        "reads": 8,
+        "searches": 32,
+        "certificate_hits": 0,
+        "nodes": 96,
+        "refinements": 0,
+        "discards": 0
+      },
+      "prefix": {
+        "strategy": "prefix",
+        "reads": 8,
+        "searches": 1,
+        "certificate_hits": 31,
+        "nodes": 3,
+        "refinements": 0,
+        "discards": 0
+      }
+    },
+    {
+      "b": 5,
+      "r": 30,
+      "targets": 32,
+      "phases": [
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16,
+        0,
+        16
+      ],
+      "point": {
+        "strategy": "point",
+        "reads": 52,
+        "searches": 32,
+        "certificate_hits": 0,
+        "nodes": 160,
+        "refinements": 0,
+        "discards": 0
+      },
+      "prefix": {
+        "strategy": "prefix",
+        "reads": 52,
+        "searches": 1,
+        "certificate_hits": 31,
+        "nodes": 5,
+        "refinements": 0,
+        "discards": 0
+      }
+    },
+    {
+      "b": 7,
+      "r": 126,
+      "targets": 32,
+      "phases": [
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64,
+        0,
+        64
+      ],
+      "point": {
+        "strategy": "point",
+        "reads": 240,
+        "searches": 32,
+        "certificate_hits": 0,
+        "nodes": 224,
+        "refinements": 0,
+        "discards": 0
+      },
+      "prefix": {
+        "strategy": "prefix",
+        "reads": 240,
+        "searches": 1,
+        "certificate_hits": 31,
+        "nodes": 7,
+        "refinements": 0,
+        "discards": 0
+      }
+    },
+    {
+      "b": 9,
+      "r": 510,
+      "targets": 32,
+      "phases": [
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256,
+        0,
+        256
+      ],
+      "point": {
+        "strategy": "point",
+        "reads": 1004,
+        "searches": 32,
+        "certificate_hits": 0,
+        "nodes": 288,
+        "refinements": 0,
+        "discards": 0
+      },
+      "prefix": {
+        "strategy": "prefix",
+        "reads": 1004,
+        "searches": 1,
+        "certificate_hits": 31,
+        "nodes": 9,
+        "refinements": 0,
+        "discards": 0
+      }
+    }
+  ]
+}

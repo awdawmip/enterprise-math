@@ -1,0 +1,426 @@
+{
+  "status": "PASS",
+  "scope": "Exact controller feedback; no BRC commands inferred",
+  "general_family": [
+    {
+      "b": 3,
+      "r": 6,
+      "rounds": 8,
+      "mu": 1,
+      "point": {
+        "strategy": "point",
+        "reads": 11,
+        "searches": 8,
+        "certificate_hits": 0,
+        "nodes": 24,
+        "refinements": 0,
+        "discards": 8
+      },
+      "prefix": {
+        "strategy": "prefix",
+        "reads": 11,
+        "searches": 5,
+        "certificate_hits": 3,
+        "nodes": 15,
+        "refinements": 5,
+        "discards": 3
+      },
+      "region": {
+        "strategy": "region",
+        "reads": 9,
+        "searches": 1,
+        "certificate_hits": 7,
+        "nodes": 3,
+        "refinements": 0,
+        "discards": 0,
+        "region_metrics": {
+          "prefix": [
+            2,
+            1
+          ],
+          "free_count": 1,
+          "occupied_residues": 1,
+          "marked_slots": 1
+        },
+        "region_events": {
+          "acquisitions": 1,
+          "slot_writes": 8,
+          "member_changes": 8,
+          "first_references": 8,
+          "last_releases": 7,
+          "region_queries": 7,
+          "region_hits": 7,
+          "region_misses": 0,
+          "query_visits": 18,
+          "update_visits": 30,
+          "nodes_created": 16,
+          "retired_slot_marks": 0
+        }
+      }
+    },
+    {
+      "b": 4,
+      "r": 14,
+      "rounds": 8,
+      "mu": 3,
+      "point": {
+        "strategy": "point",
+        "reads": 27,
+        "searches": 8,
+        "certificate_hits": 0,
+        "nodes": 24,
+        "refinements": 0,
+        "discards": 8
+      },
+      "prefix": {
+        "strategy": "prefix",
+        "reads": 27,
+        "searches": 3,
+        "certificate_hits": 5,
+        "nodes": 9,
+        "refinements": 6,
+        "discards": 2
+      },
+      "region": {
+        "strategy": "region",
+        "reads": 21,
+        "searches": 1,
+        "certificate_hits": 7,
+        "nodes": 3,
+        "refinements": 0,
+        "discards": 0,
+        "region_metrics": {
+          "prefix": [
+            2,
+            1
+          ],
+          "free_count": 3,
+          "occupied_residues": 1,
+          "marked_slots": 1
+        },
+        "region_events": {
+          "acquisitions": 1,
+          "slot_writes": 8,
+          "member_changes": 8,
+          "first_references": 8,
+          "last_releases": 7,
+          "region_queries": 7,
+          "region_hits": 7,
+          "region_misses": 0,
+          "query_visits": 25,
+          "update_visits": 45,
+          "nodes_created": 24,
+          "retired_slot_marks": 0
+        }
+      }
+    },
+    {
+      "b": 5,
+      "r": 30,
+      "rounds": 8,
+      "mu": 7,
+      "point": {
+        "strategy": "point",
+        "reads": 59,
+        "searches": 8,
+        "certificate_hits": 0,
+        "nodes": 24,
+        "refinements": 0,
+        "discards": 8
+      },
+      "prefix": {
+        "strategy": "prefix",
+        "reads": 59,
+        "searches": 3,
+        "certificate_hits": 5,
+        "nodes": 9,
+        "refinements": 7,
+        "discards": 1
+      },
+      "region": {
+        "strategy": "region",
+        "reads": 45,
+        "searches": 1,
+        "certificate_hits": 7,
+        "nodes": 3,
+        "refinements": 0,
+        "discards": 0,
+        "region_metrics": {
+          "prefix": [
+            2,
+            1
+          ],
+          "free_count": 7,
+          "occupied_residues": 1,
+          "marked_slots": 1
+        },
+        "region_events": {
+          "acquisitions": 1,
+          "slot_writes": 8,
+          "member_changes": 8,
+          "first_references": 8,
+          "last_releases": 7,
+          "region_queries": 7,
+          "region_hits": 7,
+          "region_misses": 0,
+          "query_visits": 32,
+          "update_visits": 60,
+          "nodes_created": 32,
+          "retired_slot_marks": 0
+        }
+      }
+    },
+    {
+      "b": 7,
+      "r": 126,
+      "rounds": 8,
+      "mu": 31,
+      "point": {
+        "strategy": "point",
+        "reads": 251,
+        "searches": 8,
+        "certificate_hits": 0,
+        "nodes": 24,
+        "refinements": 0,
+        "discards": 8
+      },
+      "prefix": {
+        "strategy": "prefix",
+        "reads": 251,
+        "searches": 2,
+        "certificate_hits": 6,
+        "nodes": 6,
+        "refinements": 7,
+        "discards": 1
+      },
+      "region": {
+        "strategy": "region",
+        "reads": 189,
+        "searches": 1,
+        "certificate_hits": 7,
+        "nodes": 3,
+        "refinements": 0,
+        "discards": 0,
+        "region_metrics": {
+          "prefix": [
+            2,
+            1
+          ],
+          "free_count": 31,
+          "occupied_residues": 1,
+          "marked_slots": 1
+        },
+        "region_events": {
+          "acquisitions": 1,
+          "slot_writes": 8,
+          "member_changes": 8,
+          "first_references": 8,
+          "last_releases": 7,
+          "region_queries": 7,
+          "region_hits": 7,
+          "region_misses": 0,
+          "query_visits": 46,
+          "update_visits": 90,
+          "nodes_created": 48,
+          "retired_slot_marks": 0
+        }
+      }
+    }
+  ],
+  "previous_mixed_cases": {
+    "less": {
+      "strategy": "region",
+      "reads": 11,
+      "searches": 1,
+      "certificate_hits": 1,
+      "nodes": 3,
+      "refinements": 0,
+      "discards": 0,
+      "trace": [
+        {
+          "op": [
+            "reserve",
+            5
+          ],
+          "choice": 11,
+          "cert": null,
+          "additional_reads": 11
+        },
+        {
+          "op": [
+            "bind",
+            8
+          ],
+          "choice": null,
+          "cert": null,
+          "additional_reads": 0
+        },
+        {
+          "op": [
+            "reserve",
+            4
+          ],
+          "choice": 15,
+          "cert": null,
+          "additional_reads": 0
+        }
+      ],
+      "region_metrics": {
+        "prefix": [
+          2,
+          3
+        ],
+        "free_count": 3,
+        "occupied_residues": 1,
+        "marked_slots": 1
+      },
+      "region_events": {
+        "acquisitions": 1,
+        "slot_writes": 1,
+        "member_changes": 1,
+        "first_references": 1,
+        "last_releases": 0,
+        "region_queries": 1,
+        "region_hits": 1,
+        "region_misses": 0,
+        "query_visits": 5,
+        "update_visits": 3,
+        "nodes_created": 3,
+        "retired_slot_marks": 0
+      }
+    },
+    "more": {
+      "strategy": "region",
+      "reads": 26,
+      "searches": 5,
+      "certificate_hits": 1,
+      "nodes": 23,
+      "refinements": 0,
+      "discards": 0,
+      "trace": [
+        {
+          "op": [
+            "reserve",
+            9
+          ],
+          "choice": 6,
+          "cert": null,
+          "additional_reads": 16
+        },
+        {
+          "op": [
+            "bind",
+            8
+          ],
+          "choice": null,
+          "cert": null,
+          "additional_reads": 0
+        },
+        {
+          "op": [
+            "reserve",
+            1
+          ],
+          "choice": 14,
+          "cert": null,
+          "additional_reads": 0
+        },
+        {
+          "op": [
+            "bind",
+            7
+          ],
+          "choice": null,
+          "cert": null,
+          "additional_reads": 0
+        },
+        {
+          "op": [
+            "reserve",
+            14
+          ],
+          "choice": 13,
+          "cert": null,
+          "additional_reads": 7
+        },
+        {
+          "op": [
+            "bind",
+            8
+          ],
+          "choice": null,
+          "cert": null,
+          "additional_reads": 0
+        },
+        {
+          "op": [
+            "reserve",
+            13
+          ],
+          "choice": 10,
+          "cert": null,
+          "additional_reads": 1
+        },
+        {
+          "op": [
+            "bind",
+            1
+          ],
+          "choice": null,
+          "cert": null,
+          "additional_reads": 0
+        },
+        {
+          "op": [
+            "reserve",
+            0
+          ],
+          "choice": 3,
+          "cert": null,
+          "additional_reads": 1
+        },
+        {
+          "op": [
+            "bind",
+            9
+          ],
+          "choice": null,
+          "cert": null,
+          "additional_reads": 0
+        },
+        {
+          "op": [
+            "reserve",
+            10
+          ],
+          "choice": 15,
+          "cert": null,
+          "additional_reads": 1
+        }
+      ],
+      "region_metrics": {
+        "prefix": [
+          4,
+          15
+        ],
+        "free_count": 1,
+        "occupied_residues": 0,
+        "marked_slots": 0
+      },
+      "region_events": {
+        "acquisitions": 5,
+        "slot_writes": 5,
+        "member_changes": 5,
+        "first_references": 5,
+        "last_releases": 0,
+        "region_queries": 5,
+        "region_hits": 1,
+        "region_misses": 4,
+        "query_visits": 8,
+        "update_visits": 8,
+        "nodes_created": 7,
+        "retired_slot_marks": 5
+      }
+    }
+  }
+}
