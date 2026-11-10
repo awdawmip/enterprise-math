@@ -17,7 +17,70 @@ TRIE = PARENT / "EC49FHD_PREFIX_TRIE_RADIUS5_20261110"
 sys.path.insert(0, str(SOURCE))
 sys.path.insert(0, str(TRIE))
 from EC49FGW_RADIUS5_SCREEN import W, PIN, all_words, pref, raw_key, validate_profile
-from VERIFY_EC49FHD import solve_group_tree
+
+def solve_group_tree(options, fixed_prefixes):
+    """Exact rooted-prefix-tree group-Steiner DP for 1..5 terminal groups."""
+    n = len(options)
+    assert 1 <= n <= 5
+    nodes = {b"": 0}
+    parent = [-1]
+    ends = [0]
+    edges = [b""]
+    children = [[]]
+    for group, words in enumerate(options):
+        assert words
+        for word in words:
+            v = 0
+            for i in range(1, len(word) + 1):
+                p = word[:i]
+                u = nodes.get(p)
+                if u is None:
+                    u = len(parent)
+                    nodes[p] = u
+                    parent.append(v)
+                    ends.append(0)
+                    edges.append(p)
+                    children.append([])
+                    children[v].append(u)
+                v = u
+            ends[v] |= 1 << group
+    full = (1 << n) - 1
+    INF = 10 ** 6
+    dp = [None] * len(parent)
+    visited = 0
+    for v in range(len(parent) - 1, -1, -1):
+        terminal = ends[v]
+        if not terminal and not children[v]:
+            continue
+        cur = [0 if mask & ~terminal == 0 else INF for mask in range(full + 1)]
+        for u in children[v]:
+            sub = dp[u]
+            if sub is None:
+                continue
+            added = int(edges[u] not in fixed_prefixes)
+            if terminal == 0 and cur[0] == 0 and all(
+                    cost == INF for cost in cur[1:]):
+                cur = [0] + [cost + added if cost < INF else INF
+                             for cost in sub[1:]]
+                continue
+            merged = [INF] * (full + 1)
+            for mask in range(full + 1):
+                choice = mask
+                best = cur[mask]
+                while choice:
+                    left = cur[mask ^ choice]
+                    right = sub[choice]
+                    if left < INF and right < INF:
+                        best = min(best, left + right + added)
+                    choice = (choice - 1) & mask
+                merged[mask] = best
+            cur = merged
+        dp[v] = cur
+        visited += 1
+    best = dp[0][full]
+    assert best < INF
+    return best, {"trie_nodes": len(nodes), "computed_nodes": visited}
+
 
 H9_LABELS = ((9, 16), (9, 32))
 catalog = collections.defaultdict(list)
