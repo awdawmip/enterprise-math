@@ -1,0 +1,96 @@
+{
+  "schema": "EM_R700_V29_BRC_RING_V1",
+  "status": "R700_EXACT_BRC_V29_RING_PASS",
+  "capacities": [
+    24,
+    18,
+    6,
+    12
+  ],
+  "ring_arcs": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      0
+    ]
+  ],
+  "histograms_checked": 43224,
+  "unique_count_plus_contrast": 43224,
+  "contrast_fiber_count": 12121,
+  "max_contrast_fiber": 7,
+  "worst_case_additional_bits": 3,
+  "witness_contrast": [
+    1,
+    -1,
+    0,
+    0
+  ],
+  "seven_witness_histograms": [
+    [
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      2,
+      1,
+      1,
+      1
+    ],
+    [
+      3,
+      2,
+      2,
+      2
+    ],
+    [
+      4,
+      3,
+      3,
+      3
+    ],
+    [
+      5,
+      4,
+      4,
+      4
+    ],
+    [
+      6,
+      5,
+      5,
+      5
+    ],
+    [
+      7,
+      6,
+      6,
+      6
+    ]
+  ],
+  "seven_witness_totals": [
+    1,
+    5,
+    9,
+    13,
+    17,
+    21,
+    25
+  ],
+  "decoder": "e=(s+u0-2*u1-u2)/4; t=e+u1; c=e+u1+u2; z=e-u0",
+  "modulus": "s ≡ 2u1+u2-u0 (mod 4)",
+  "sharp_noise": "Given exact u, |s_measured-s|<2 suffices; s=1 and s=5 share u and meet at measured s=3 at error 2",
+  "scope": "Positive BRC E* candidate group tokens encoded as syntactic V29 PASS ring; genuine X6 Link/Port and V39 legal-loop lifting pending."
+}
