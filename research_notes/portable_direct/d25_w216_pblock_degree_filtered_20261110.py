@@ -84,3 +84,29 @@ if __name__ == "__main__":
         print("P_BLOCK_PROVED_METHOD_CHECK",p,
               "W_p2",z["W_p2"],"q",z["Newton"],
               "FINITE_ONLY_DWORK_c",z["base_c"])
+
+def prime_list(n):
+    flags = [True]*(n+1)
+    flags[0]=flags[1]=False
+    for j in range(2,int(n**0.5)+1):
+        if flags[j]:
+            for k in range(j*j,n+1,j):
+                flags[k]=False
+    return [j for j in range(5,n+1) if flags[j]]
+
+if __name__ == "__main__":
+    for p in prime_list(3000):
+        chi = 1 if p%3==1 else -1
+        z = fast_w_p2(p,3)
+        # Finite-only first-jet conjecture, not an all-prime theorem.
+        assert z["Newton"] == [chi*p % p**3, 6*chi*p % p**3, 0]
+    print("FINITE_ONLY_FIRST_JET",428,"PRIMES_THROUGH_2999")
+    for p in (10069,10099):
+        # These are mathematically certified by the p-block theorem;
+        # the O(p**2) independent brute comparison is NOT performed.
+        z = fast_w_p2(p,7)
+        assert z["base_congruence_observed"]
+        assert z["observed_defect_div_p6"] == z["base_c"]
+        assert z["Newton"][0] == z["W_p"]
+        print("THEOREM_BASED_LARGE_P",p,"W_p2",z["W_p2"],
+              "FINITE_ONLY_DWORK_c",z["base_c"])

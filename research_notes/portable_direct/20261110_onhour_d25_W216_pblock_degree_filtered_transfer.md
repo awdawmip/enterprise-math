@@ -128,3 +128,32 @@ Native H0/B0 same-original-class p=373 divided-power ([X]Umod139129), rank, sem
 u_b) branches and exceptional-factor provenance. Failure yields a concrete exact residual, not an unsupported negation. Separately obtain native H0/B0 from actual authorized executor under #1559.
 
 **Control:** Existing exact Source continuation request `onhour11-20261110-1337-exact-cont` returned SUCCEEDED for read and current `HANDOFF_READY / NEEDS_DISPATCH`; `em_site_control(recovery_status)` returned `SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED`. No authenticated own winning claim or run; this note is author-side only. Research logical lane is `chatgpt-research-onhour-enterprise-math-20260923`; maintenance lane was neither accessed as an owner nor written. Original D24 result and frozen Source pin unchanged.
+
+## 6. FOLLOW-ON SAME-TURN SCIENTIFIC UNIT — exact defect-moment certificate
+
+This unit applies the just-proved block transfer; it is not a new normalization or separate task.
+
+Define (chi_p=1) for p≡1 mod3 and -1 otherwise. Write (M_j=sum_{a<p}A_ainom aj), so the **exact rational identity** (W_p=M_0+6M_1) holds. For (1le mle p-1) the preceding theorem gives
+[
+oxed{W_{p^2}-chi_ppW_p
+equiv (q_0-chi_pp)M_0+(q_1-6chi_pp)M_1
++sum_{j=2}^{m-1}q_jM_jpmod{p^m}.}
+]
+Since (q_0=C_p(0)=W_p) exactly, every term is derived from the original indexed signed coefficients; this is an explicit *seven-moment certificate* at m=7, including all p-adic correction terms. It is strictly computationally shorter than the p²-summand direct defect, and it exposes which moments must cancel to reach order p⁶. This equality is **PROVED for all p≥5 and all 1≤m≤p−1**, regardless of whether the Dwork conjecture is true.
+
+**Additional exact finite observation, not proved uniformly:** for every one of the 428 primes (5le ple2999), the first three Newton coefficients at precision m=3 were
+[
+(q_0,q_1,q_2)equiv(chi_pp,,6chi_pp,,0)pmod{p^3}.
+]
+This is a precise candidate for a p-block first-jet theorem. It predicts that all three low-degree correction terms above vanish mod p³, but does not settle their higher-precision cancellation. A verified counterexample outside the scanned range would refute this exact candidate only.
+
+At two larger original target-class primes, the proven seven-moment formula was evaluated using 7p anchor terms **without running a p²-term brute comparison at these scales**:
+
+| p | p mod24 | W_(p²) mod p⁷ from filtered transfer | ((W_{p²}-chi_ppW_p)/p^6mod p) |
+|---:|---:|---:|---:|
+| 10069 | 13 | 3875141268925110066410693917 | 7949 |
+| 10099 | 19 | 8259241290967245500892435106 | 3966 |
+
+The residues match independently existing first-scale (c_p) values; this is finite evidence only for the r=2 conjecture, not an all-prime Frobenius statement. The full p-adic prime-power terminal theorem and original signed (Delta-R) obligation remain logically distinct from this moment transfer.
+
+**Updated minimal next mathematical action:** prove or find one exact counterexample to ((q_0,q_1,q_2)=(chi p,6chi p,0)pmod{p^3}) using the exceptional-factor b-bands. Then derive p³ through p⁶ moment cancellation for p≡13,19 (mod24), with a genuine native H0/B0 run still separately outstanding. Preserve the 428-prime finite check as a regression oracle only.
