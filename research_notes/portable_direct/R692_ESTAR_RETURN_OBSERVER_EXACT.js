@@ -1,4 +1,4 @@
-(function R692Exact() {
+const R692_RESULT = (function R692Exact() {
   "use strict";
   const T={"0,0":"012","1,0":"013","2,0":"014","0,1":"023","1,1":"123","2,1":"013"};
   const signs={"--":[-1,-1],"-+":[-1,1],"+-":[1,-1],"++":[1,1]};
@@ -73,3 +73,5 @@
   numerical_semantics:"exact safe integers: k<=6 and all counts <=15^6",
   cases,profiles,limits:"Author E* model; no unverified Link/Port, V29 or V39 interpretation"};
 })();
+
+if (typeof console !== 'undefined') console.log(JSON.stringify(R692_RESULT,null,2));
