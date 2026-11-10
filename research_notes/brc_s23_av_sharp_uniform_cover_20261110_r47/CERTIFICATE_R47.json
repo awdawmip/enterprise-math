@@ -1,0 +1,45 @@
+{
+  "schema": "EM_R47_AUTHOR_EXACT_CERTIFICATE_V1",
+  "frozen_science": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "comparison_ref": "99bff704811c7bf39eafb3717c8f1b4dbc6659eb",
+  "theta_enclosure": {
+    "lo_numer": "262204504569236716045286",
+    "hi_numer": "262204504569236716045287",
+    "denom": "1000000000000000000000000"
+  },
+  "m": 128,
+  "min_all_integer_offsets_H": 225,
+  "first_strict_max_gap_H": 389,
+  "delta_affine": "16-61*theta",
+  "g224_affine": "103*theta-27",
+  "g225_affine": "16-61*theta",
+  "g389_affine": "59-225*theta",
+  "g224_delta_diff_affine": "164*theta-43",
+  "shortest_historical_arc_indices": [
+    103,
+    42
+  ],
+  "longest_225_gap_indices": [
+    164,
+    103
+  ],
+  "source_gap_historical_gap_endpoint_comparisons": 57600,
+  "source_order_stable_indices": "0..388",
+  "farey_stages": 78,
+  "positive_steps": 9697,
+  "affine_runs": 298,
+  "final_risk_coefficients": [
+    -4017401528447,
+    15321634290944
+  ],
+  "output_tsv_sha256": "2573a84999d53dfd1cce772c45a41abaff251da735171efe904c860f2b2294f6",
+  "source_inspections_per_endpoint_old": 30342,
+  "source_inspections_per_endpoint_new": 17550,
+  "auxiliary_sqrt2_minus1": {
+    "m4": 7,
+    "m7": 17,
+    "m13": 41,
+    "m21": 41
+  },
+  "evidence_scope": "Exact integer enclosure at both endpoints + affine-order stability; universal all-J iff theorem is mathematical proof, not finite testing; 78-stage regression is exact finite computation."
+}
