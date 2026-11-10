@@ -1,23 +1,37 @@
 {
-  "schema": "R690_ESTAR_BRC_MACRO_COSET_SPECTRUM_V1",
-  "date": "2026-11-10",
-  "parent": "R689@b63c3d60ada517586a649a7e92cd268ed55fdbc7",
-  "candidate": "R687_ESTAR@028d5612f9562bc22ac7593f03426fc32b1a9259",
-  "frozen_science": "RS-X6-TRIADIC-CLOSURE-DYNAMICS@a72226e2430ffa4786321ac86e7f0c599d5f0389",
   "R462_pin": "18783e01e3646c72b7aab3b16d3f565e83e6446f",
   "arithmetic": "exact integer source-path enumeration and positive rational BRC group mass",
-  "scope": "60 equally weighted returning native four-step squares, repeated from same Cell",
-  "observer": "complete V17 S3 frame with source paths retained separately",
+  "candidate": "R687_ESTAR@028d5612f9562bc22ac7593f03426fc32b1a9259",
+  "date": "2026-11-10",
+  "frozen_science": "RS-X6-TRIADIC-CLOSURE-DYNAMICS@a72226e2430ffa4786321ac86e7f0c599d5f0389",
   "native_square_cases": 360,
+  "observer": "complete V17 S3 frame with source paths retained separately",
+  "parent": "R689@b63c3d60ada517586a649a7e92cd268ed55fdbc7",
   "phases": {
     "0": {
       "all_b_identical": true,
+      "characteristic_polynomial_ascending": [
+        "1/6250",
+        "93/12500",
+        "141/2500",
+        "-337/500",
+        "201/100",
+        "-12/5",
+        "1"
+      ],
       "macro_counts": {
         "120": 6,
         "201": 12,
         "012": 24,
         "021": 18
       },
+      "minimal_polynomial_integer_ascending": [
+        -2,
+        -43,
+        270,
+        -475,
+        250
+      ],
       "reachable_subgroup": [
         "012",
         "021",
@@ -25,13 +39,6 @@
         "120",
         "201",
         "210"
-      ],
-      "minimal_polynomial_integer_ascending": [
-        -2,
-        -43,
-        270,
-        -475,
-        250
       ],
       "sample_distributions_integer_counts": {
         "1": {
@@ -60,21 +67,30 @@
     },
     "1": {
       "all_b_identical": true,
+      "characteristic_polynomial_ascending": [
+        "961/10000",
+        "-4371/5000",
+        "32901/10000",
+        "-3271/500",
+        "723/100",
+        "-21/5",
+        "1"
+      ],
       "macro_counts": {
         "120": 12,
         "201": 6,
         "012": 42
       },
-      "reachable_subgroup": [
-        "012",
-        "120",
-        "201"
-      ],
       "minimal_polynomial_integer_ascending": [
         -31,
         141,
         -210,
         100
+      ],
+      "reachable_subgroup": [
+        "012",
+        "120",
+        "201"
       ],
       "sample_distributions_integer_counts": {
         "1": {
@@ -96,18 +112,27 @@
     },
     "2": {
       "all_b_identical": true,
+      "characteristic_polynomial_ascending": [
+        "8/125",
+        "-84/125",
+        "354/125",
+        "-763/125",
+        "177/25",
+        "-21/5",
+        "1"
+      ],
       "macro_counts": {
         "012": 42,
         "021": 18
       },
-      "reachable_subgroup": [
-        "012",
-        "021"
-      ],
       "minimal_polynomial_integer_ascending": [
         2,
         -7,
         5
+      ],
+      "reachable_subgroup": [
+        "012",
+        "021"
       ],
       "sample_distributions_integer_counts": {
         "1": {
@@ -125,5 +150,7 @@
       }
     }
   },
+  "schema": "R690_ESTAR_BRC_MACRO_COSET_SPECTRUM_V1",
+  "scope": "60 equally weighted returning native four-step squares, repeated from same Cell",
   "verification_marker": "R690_ESTAR_MACRO_COSET_SPECTRUM_EXACT_PASS"
 }
