@@ -13,3 +13,6 @@
 
 ## 具体未完成单元
 把 U 改成按轴符号及每个 Cell 位置更新的端口许可，在原生四步的每一步判定，并检验当前 `(a,s,m,L)` 未来充分性的最短反例；随后逐事件接入真正 X6 Link/Port、V29 PASS/TRANSFER 守恒账本及 V39 事件回路流 j，检验联合观察 `(z,ports,M,S,p,j)`。需要冻结输入不变且重新核验最新任务 Owner/CLAIM，不能从本次作者 PR 推断所有权。
+
+## R691 additional exact corollary
+Static signed-direction permissions D reduce, for the four-step returning-square alphabet only, to bidirectional axis set U(D); full S3/A3/C2 group masks number 37²=1369 out of 4096, trivial/HALT masks 2727. The executable verifier and JSON evidence now include the complete seven-size census. First intended new unit is Cell-dependent/ledger-dependent per-step port gating, where this reduction has an explicit testable failure mode.
