@@ -1,0 +1,123 @@
+{
+  "schema": "EM_R38_VERIFIABLE_CERTIFICATE_MANIFEST_V1",
+  "frozen_science": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "generator": "VERIFY_R38.py",
+  "generated_file": "CERTIFICATE_R38.json",
+  "expected_generated_sha256": "3cfe3229415e707bd3266e2dedef4a2d9ee6f8139dc7fa7de3174107b8f9425c",
+  "deterministic_repeat_execution": true,
+  "cases": [
+    [
+      "NEAR_3",
+      21,
+      1,
+      3,
+      "1000000000",
+      "100000000",
+      63,
+      581,
+      21
+    ],
+    [
+      "NEAR_3",
+      21,
+      1,
+      3,
+      "1000000000000",
+      "1000000000",
+      63,
+      650,
+      21
+    ],
+    [
+      "NEAR_3",
+      63,
+      1,
+      3,
+      "1000000000000",
+      "1000000000",
+      189,
+      1949,
+      63
+    ],
+    [
+      "NEAR_7",
+      31,
+      2,
+      7,
+      "1000000000",
+      "100000000",
+      217,
+      858,
+      31
+    ],
+    [
+      "NEAR_7",
+      70,
+      2,
+      7,
+      "1000000000000",
+      "1000000000",
+      490,
+      2165,
+      70
+    ],
+    [
+      "NEAR_3_NEG",
+      21,
+      1,
+      3,
+      "1000000000000",
+      "1000000000",
+      63,
+      650,
+      21
+    ],
+    [
+      "SQRT2",
+      16,
+      5,
+      12,
+      "1000000000000",
+      "1000000000",
+      192,
+      496,
+      16
+    ],
+    [
+      "S23",
+      128,
+      43,
+      164,
+      "1000000000000",
+      "1000000000",
+      20992,
+      3960,
+      128
+    ],
+    [
+      "SQRT2",
+      16,
+      2,
+      5,
+      "1000000000000",
+      "1000000000",
+      null,
+      null,
+      null
+    ]
+  ],
+  "columns": [
+    "kind",
+    "m",
+    "p",
+    "q",
+    "j",
+    "N",
+    "q_times_m_candidates",
+    "oracle_floor_sum_queries",
+    "matched_owner_count"
+  ],
+  "brute_small_window_tests": 94,
+  "inapplicable_case": "SQRT2,m=16,p/q=2/5: lambda_min < abs(q*theta-p)",
+  "note": "Each successful case includes full owner-labelled exact last-source vector in deterministic generated file; run python VERIFY_R38.py to reconstruct all bytes. No S23 native X6 claim or 298-run recomputation."
+}
