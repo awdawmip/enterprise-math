@@ -5,7 +5,7 @@ Evidence status: author-side mathematical proof with executed exact-rational Sym
 
 ## 1. Model, fixed provenance, statement
 
-This is a new research unit **within the same seven-likelihood-ratio statistical Blackwell model** as PR #1939, immutable predecessor commit \`9f39dc7f2145548c2a9a04e387d9f33fdec1ce4e\`. Frozen scientific input pins remain account \`a01383f825ef9d43b4b754254303298c64041568\` and Enterprise Math \`86149263e38c22292c9def1e0f69092efa1be77e\`. P000 and its six native spatial axes remain unchanged; the seven ratios below are auxiliary statistical observations.
+This is a new research unit **within the same seven-likelihood-ratio statistical Blackwell model** as PR #1939, immutable predecessor commit `9f39dc7f2145548c2a9a04e387d9f33fdec1ce4e`. Frozen scientific input pins remain account `a01383f825ef9d43b4b754254303298c64041568` and Enterprise Math `86149263e38c22292c9def1e0f69092efa1be77e`. P000 and its six native spatial axes remain unchanged; the seven ratios below are auxiliary statistical observations.
 
 The likelihood ratios, in index order 0 through 6, are
 
@@ -21,7 +21,7 @@ $$
 \sum_i r_iE_{ij}=r_j\nu_j.
 $$
 
-The 30 allowed directed edges are exactly those from the PR #1939 checker: source columns $j=0,1,2,3,5,6$; columns $0,6$ have only the diagonal edges $(0,0),(6,6)$; each of columns $1,2,3,5$ may target any of seven rows. Source physical parameters are $x=(g,a,b,u,v,w,z)$; target physical parameters are $y=(G,A,B,U,V,W,Z)$. We retain all 13 physical capacity inequalities per strategy, the source condition $g=b$, target conditions $G=1$ and $Z=A/10$, the two matched stopping-time equations, and the *same* affine mass and time maps in \`VERIFY.py\`.
+The 30 allowed directed edges are exactly those from the PR #1939 checker: source columns $j=0,1,2,3,5,6$; columns $0,6$ have only the diagonal edges $(0,0),(6,6)$; each of columns $1,2,3,5$ may target any of seven rows. Source physical parameters are $x=(g,a,b,u,v,w,z)$; target physical parameters are $y=(G,A,B,U,V,W,Z)$. We retain all 13 physical capacity inequalities per strategy, the source condition $g=b$, target conditions $G=1$ and $Z=A/10$, the two matched stopping-time equations, and the *same* affine mass and time maps in `VERIFY.py`.
 
 ### Theorem: global minimum, including all equality cases
 
@@ -183,10 +183,10 @@ This is a nonempty four-dimensional relative-open physical family of exact six-e
 
 ## 7. Reproduction, BRC scope, and next question
 
-\`VERIFY.py\` is the locally executed exact-rational SymPy source: it checks the rank-9 physical/equal-margin linear system, the complete five-parameter affine parameterization, both sign-forcing slacks, the whole minimizer's symbolic mass formulas, exact 21-row Blackwell equalities at both endpoints and one interior point, and the six-edge interior example. \`EXACT_OUTPUT.txt\` contains the actual local stdout and an explanatory provenance header. The **universal claim** is proved by Sections 2–5, rather than extrapolated from three numerical samples. No Lean or independent project review is asserted.
+`VERIFY.py` is the locally executed exact-rational SymPy source: it checks the rank-9 physical/equal-margin linear system, the complete five-parameter affine parameterization, both sign-forcing slacks, the whole minimizer's symbolic mass formulas, exact 21-row Blackwell equalities at both endpoints and one interior point, and the six-edge interior example. `EXACT_OUTPUT.txt` contains the actual local stdout and an explanatory provenance header. The **universal claim** is proved by Sections 2–5, rather than extrapolated from three numerical samples. No Lean or independent project review is asserted.
 
 The methodological BRC content is an explicit, typed distinction between the auxiliary statistical observer and physical flow states. The physical observation fiber is resolved by **capacity signs** instead of discarding its unobserved residual. These statistical dimensions are not P000 spatial dimensions.
 
 **Next research unit:** derive exact tangent-cone inequalities at the three-edge minimizer segment, test whether any non-diagonal Blackwell realization can leave the segment with 4–9 positive edges, and map the resulting legal lower-support strata to the already certified 14/15 boundary. Preserve the original frozen physical input and all provenance.
 
-Source identity: \`EM-DIRECT-C534A2 / TASK_RESEARCH\`; research activity \`RA-A797EAA416A7AF97A8A79E39\`. Formal R5 Owner/CLAIM remains unconfirmed; this author-side evidence is not a Source Result or an independent review.
+Source identity: `EM-DIRECT-C534A2 / TASK_RESEARCH`; research activity `RA-A797EAA416A7AF97A8A79E39`. Formal R5 Owner/CLAIM remains unconfirmed; this author-side evidence is not a Source Result or an independent review.
