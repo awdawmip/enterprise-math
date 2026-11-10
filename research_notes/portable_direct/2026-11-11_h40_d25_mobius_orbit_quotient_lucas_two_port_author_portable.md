@@ -64,3 +64,18 @@ An independent implementation computes original A/B from binomial integers, and 
 The previous Möbius involution and two-branch moment representation are antecedents, not recredited. The new result is the **orbit quotient, cubic trace map C, Lucas observer pair and fixed-fiber aggregation**. The Legendre(-6/p) two-port selector remains a 3243-prime finite observation, not yet proved uniformly; the exact quotient isolates the Lucas cancellation problem. Next test a Cartier/eigenspace relation for the paired weighted Lucas sums, preserving the ε branch and the H coordinate.
 
 Native original-class H0/B0 divided-power Frobenius, η/rank and κ versus Δ-R remain `NOT_RUN`; Source continuation still requires a current own issued session and winning CLAIM. UR V2 four-file original bundle also remains missing (historical 94,687 bytes; SHA-256 `4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76`). No repeat of finished UR mathematics.
+
+## Additional exact corollaries (same research turn)
+
+**Differential Lucas lifting.** The recurrence satisfies `dL_m(C)/dC = m J_m(C)` as an identity in the integer polynomial ring. Moreover direct differentiation gives
+`dC_λ/dλ = [(2λ+1)/(λ+1)] α_λ`.
+Consequently, **without dividing by 2λ+1**, the following identity holds at every λ≠-1:
+```text
+m (2λ+1) H_λ = (λ+1) Δ_λ (d/dλ) L_m(C_λ).
+```
+This converts the antisymmetric correction into a typed derivative of the quotient Lucas observer. It exposes a concrete next route: investigate finite-field summation by parts/Cartier residues of the weighted Lucas pair at the declared p and ε.
+
+**Discriminant-branch protection.** Another exact rational identity is
+`C_λ²-8 = α_λ² Δ_λ`. A procedure reading only the discriminant of `Y²-CY+2` must preserve the separate splitting bit `Legendre(Δ_λ)` at `α_λ=0`: e.g. at p=7, λ=0 gives `(Δ,α,C,ν)=(1,0,6,1)`, whereas λ=1 gives `(3,0,1,0)`. In both fibers `C²-8=0`, yet one is split and the other nonsplit. Thus the quotient's Legendre(Δ) coordinate has a concrete distinct fiber role even though the Lucas quadratic is degenerate in both cases.
+
+These are algebraic corollaries of the proved quotient theorem, not a separate independent review or a claimed proof of the all-prime zero-port selector.
