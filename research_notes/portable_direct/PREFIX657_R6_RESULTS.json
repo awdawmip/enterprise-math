@@ -1,43 +1,80 @@
 {
-  "schema": "EM_PREFIX657_LEFT_EXTENSION_CERTIFICATE_V1",
+  "schema": "EM_PREFIX657_COMPARATIVE_VARIANCE_RECTANGLE_V1",
   "date": "2026-11-10",
-  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
-  "new_domain": {
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "researcher_id": "EM-DIRECT-836E3B",
+  "research_activity_id": "RA-21063825209E93F6ED82C60A",
+  "layers": 189,
+  "witness": [
+    "3/20",
+    "1/8"
+  ],
+  "competitor_rectangle": {
     "p": [
-      "3/20",
-      "1/6"
+      "3/20-1/524288",
+      "3/20+1/524288"
     ],
     "z": [
-      "622575/4194304",
-      "38913/262144"
-    ],
-    "q": [
-      12,
-      24
+      "1/8",
+      "1/8+1/524288"
     ]
   },
-  "unique_corners": [
-    [
-      "3/20",
-      "622575/4194304"
-    ],
-    [
-      "622575/4194304",
-      "3/20"
-    ]
+  "model_mean_interval_strict": [
+    "98.334",
+    "98.335"
   ],
-  "strict_bounds": {
-    "Fpp_lower": "356",
-    "D12_upper": "-199",
-    "D24_upper": "-678",
-    "V12z_upper": "-4600",
-    "V24z_upper": "-12090",
-    "variance_12_lower": "47425.460",
-    "variance_24_lower": "192190.139"
+  "model_variance_interval_strict": [
+    "366.012",
+    "366.013"
+  ],
+  "score_derivative_bound": "21",
+  "gradient_certification_domain": [
+    "1/8",
+    "1/6"
+  ],
+  "one_coordinate_gradient_bounds": {
+    "mu": "3969",
+    "H": "377055",
+    "W": "3754674"
   },
-  "gain_lower_12": "3690149263/2199023255552",
-  "gain_lower_24": "5725333935/1099511627776",
-  "fraction_checks": 37,
+  "slots": {
+    "12": {
+      "witness_variance_interval_strict": [
+        "51525.770",
+        "51525.771"
+      ],
+      "prior_box_max_interval_strict": [
+        "47425.459",
+        "47425.460"
+      ],
+      "point_advantage_lower": "4100.310",
+      "sup_coordinate_derivative_bound": "540720684",
+      "rectangle_loss_upper": "135180171/65536",
+      "rectangle_advantage_lower": "3338443629/1638400"
+    },
+    "24": {
+      "witness_variance_interval_strict": [
+        "208463.103",
+        "208463.104"
+      ],
+      "prior_box_max_interval_strict": [
+        "192190.134",
+        "192190.135"
+      ],
+      "point_advantage_lower": "16272.968",
+      "sup_coordinate_derivative_bound": "2162787480",
+      "rectangle_loss_upper": "270348435/32768",
+      "rectangle_advantage_lower": "32860522553/4096000"
+    }
+  },
+  "checks_passed": 4930,
   "result": "ALL_CHECKS_PASS",
-  "evidence_kind": "Author exact arithmetic, inherited pinned strict premises"
+  "arithmetic": "Fraction exact rational and integer dyadic bisection",
+  "scoped_conclusion": "For all real q in [12,24], V_q at each C point exceeds max over B",
+  "full_domain_condition": "C is contained in the intended global parameter domain",
+  "dependencies": [
+    "PREFIX-643@ae7872ca18676397fcc0dd9424fb77e08928bee7",
+    "PREFIX-655@3dc372940c317cf540c96fc02b55284462549bac",
+    "PREFIX-656@5352d203d66148eb8262ff1c38d49d3f1700f510"
+  ]
 }
