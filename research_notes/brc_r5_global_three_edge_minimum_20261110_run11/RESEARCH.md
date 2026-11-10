@@ -1,155 +1,192 @@
-# R5: global minimum is three positive Blackwell coupling edges, with an exact one-parameter minimizer locus
+# R5: an exact global three-edge minimum in the frozen P/Q–BRC Blackwell model
 
-Date: 2026-11-10 (Asia/Shanghai). Status: author-side exact proof and local rational/SymPy verification; independent Source mathematical review pending.
+Date: 2026-11-10 (Asia/Shanghai)  
+Evidence status: author-side mathematical proof with executed exact-rational SymPy checks; no independent mathematical review or official Source Result yet.
 
-## Frozen sources and theorem domain
+## 1. Model, fixed provenance, statement
 
-The *same auxiliary seven-likelihood-ratio P/Q–BRC Blackwell model* used in PR #1939, commit `9f39dc7f2145548c2a9a04e387d9f33fdec1ce4e`, is fixed throughout. Preserve account frozen science pin `a01383f825ef9d43b4b754254303298c64041568` and EM frozen pin `86149263e38c22292c9def1e0f69092efa1be77e`. These are provenance pins, not refreshed scientific assumptions. The ratios are
-[
-r=(1/10,,1/2,,3/4,,1,,5/4,,3/2,,19/10).
-]
-A coupling `E_(i,j)>=0` has source columns `j in {0,1,2,3,5,6}` (column 4 has zero source mass), target rows `i=0,...,6`, with only `(0,0)` and `(6,6)` allowed in source columns 0 and 6. It satisfies exactly
-[
-sum_jE_{ij}=mu_i,quad sum_iE_{ij}=
-u_j,quad
-sum_i r_iE_{ij}=r_j
-u_j.
-]
-The source physical parameters are `x=(g,a,b,u,v,w,z)`, target `y=(G,A,B,U,V,W,Z)`. Both obey the 13 capacity inequalities of PR #1939. The source has `g=b`, target `G=1, Z=A/10`, and the two stopping-time expectations agree. The physical-to-statistical mass functions and stopping-time formulas are **unchanged** from the frozen PR #1939 verifier.
+This is a new research unit **within the same seven-likelihood-ratio statistical Blackwell model** as PR #1939, immutable predecessor commit \`9f39dc7f2145548c2a9a04e387d9f33fdec1ce4e\`. Frozen scientific input pins remain account \`a01383f825ef9d43b4b754254303298c64041568\` and Enterprise Math \`86149263e38c22292c9def1e0f69092efa1be77e\`. P000 and its six native spatial axes remain unchanged; the seven ratios below are auxiliary statistical observations.
 
-## Main result: global sharp bound and complete equality case
+The likelihood ratios, in index order 0 through 6, are
 
-**Theorem.** Over *all* physically lawful source/target pairs in this frozen model admitting a Blackwell coupling, the minimum number of positive coupling edges is **three**. Every pair with a three-edge coupling is, in physical parameters, exactly
-[
-oxed{x=y=(1,1,1,27/80,v,27/80,1/10),quad 1/10le vle13/40.}
-]
-For such a pair the **unique** coupling with three positive edges is diagonal, supported on
-[
-oxed{{(0,0),(3,3),(6,6)}.}
-]
-Its exact edge masses are
-[
-oxed{E_{00}=E_{66}=s(v)=rac{7933}{36000}+rac{67}{162}(v-1/10),quad E_{33}=1-2s(v).}
-]
-Both endpoints are included; all three masses remain strictly positive on the entire interval. In particular at `v=1/10` the weights are
-[
-(E_{00},E_{33},E_{66})=(7933/36000,,10067/18000,,7933/36000).
-]
-This is a **global minimum of the number of positive edges**, not a claim that all physical strategies can use three edges. PR #1939 independently identifies a local 14/15-edge transition; the present theorem classifies the opposite extreme.
+$$
+r=(1/10,\ 1/2,\ 3/4,\ 1,\ 5/4,\ 3/2,\ 19/10).
+$$
 
-### Proof 1: at least three source columns carry positive mass
+A nonnegative Blackwell coupling $E=(E_{ij})$ obeys all 21 equations
 
-Write `d=v-z`. The source capacity inequalities and `g=b` imply
-[
-0le ale ble1,quad 0le ule13a/40+b/80,quad
-0le wle3a/40+21b/80,quad
-0le zle a/10,quad 0le dle9b/40.
-]
-Necessarily `b>0`: if `b=0`, these inequalities force `a=u=v=w=z=0` and source second stopping time is exactly 1. The target has `G=1` and nonnegative physical variables, so its second stopping time is at least 2, contradicting the required equality.
+$$
+\sum_j E_{ij}=\mu_i,\quad
+\sum_i E_{ij}=\nu_j,\quad
+\sum_i r_iE_{ij}=r_j\nu_j.
+$$
 
-The source mass in column 3 is
-[
+The 30 allowed directed edges are exactly those from the PR #1939 checker: source columns $j=0,1,2,3,5,6$; columns $0,6$ have only the diagonal edges $(0,0),(6,6)$; each of columns $1,2,3,5$ may target any of seven rows. Source physical parameters are $x=(g,a,b,u,v,w,z)$; target physical parameters are $y=(G,A,B,U,V,W,Z)$. We retain all 13 physical capacity inequalities per strategy, the source condition $g=b$, target conditions $G=1$ and $Z=A/10$, the two matched stopping-time equations, and the *same* affine mass and time maps in \`VERIFY.py\`.
 
-u_3=(1-b)+(a/10-z)+(9b/40-d)+191(u+w)/450+43z/90+14d/81.
-]
-All terms are nonnegative. Since `0le dle9b/40`,
-[
-oxed{
-u_3ge1-b+7b/180>0}.
-]
-The source masses of columns 0 and 6 are
-[
+### Theorem: global minimum, including all equality cases
 
-u_0=509u/900+47z/180+67d/162+w/100,qquad
+Among all physically lawful source–target pairs that admit a Blackwell coupling, the **least possible number of positive coupling edges is 3**. The physically lawful pairs admitting a coupling with exactly 3 positive edges are precisely
 
-u_6=u/100+47z/180+67d/162+509w/900.
-]
-Both are strictly positive simultaneously whenever at least one of `u,w,z,d` is positive. Then columns `0,3,6` are all positive. If instead `u=w=z=d=0`, the masses `
-u_1=13a/40+b/80>0`, `
-u_5=3a/40+21b/80>0` accompany `
-u_3>0`. Thus every lawful source has **at least three** strictly positive source columns, regardless of which target is Blackwell-feasible. Every coupling consequently has at least three positive edges.
+$$
+\boxed{x=y=(1,1,1,27/80,v,27/80,1/10),\quad 1/10\le v\le13/40.}
+$$
 
-### Proof 2: three edges force identical statistical margins
+For every such pair, the **unique** coupling with only 3 positive edges is the diagonal support
 
-If there are exactly three coupling edges, Step 1 implies exactly three source columns are positive and each contains **one** edge. For a positive column `j` with sole edge `(i,j)`, the exact moment equation yields `r_i=r_j`. The seven displayed likelihood ratios are pairwise distinct. Therefore `i=j` for each active source column, the coupling is diagonal and `mu=
-u`.
+$$
+\boxed{\{(0,0),(3,3),(6,6)\}},
+$$
 
-### Proof 3: physical capacities upgrade equal statistical margins to x=y
+with masses
 
-Solve the five physical equalities (including the two stopping times) together with the seven linear equations `mu=
-u`. Their exact rational coefficient matrix has rank **9** in the 14 physical coordinates, leaving five affine parameters. Writing `Z=y_z`, `z=x_z`, `Delta=Z-z` and retaining target `U,V,W`, the *entire* affine solution is
-[
-egin{aligned}
-y&=(1,10Z,1,U,V,W,Z),\
-x&=igl(1+kappaDelta, 10Z+kappaDelta, 1+kappaDelta, 
-U+lambdaDelta, V-gammaDelta, W+lambdaDelta, zigr),
-end{aligned}
-]
-where
-[
-kappa=49400/295513,quad
-lambda=33345/591026,quad
-gamma=132145/295513.
-]
-Direct substitution proves all equations; the five columns in this parameterization are independent, and rank 9 proves completeness. Two *original* physical source-capacity slacks are
-[
-1-x_g=-kappaDeltage0,qquad
-x_a/10-x_z=(300453/295513)Deltage0.
-]
-The coefficients are positive, forcing `Delta=0`. Therefore `x=y`, not merely equality of current statistics. This is an exact example where the physical inequalities eliminate a one-dimensional affine observation fiber that the moment readout alone cannot distinguish.
+$$
+E_{00}=E_{66}=s(v),\quad E_{33}=1-2s(v),\qquad
+s(v)=\frac{7933}{36000}+\frac{67}{162}\left(v-\frac1{10}\right).
+$$
 
-On this lawful equality locus the parameters are necessarily
-[
+All three masses are strictly positive for the **whole closed interval** (including both endpoints). At $v=1/10$ they are $(7933/36000,\ 10067/18000,\ 7933/36000)$. This theorem describes the **global sparsest realization**; the independent local classification of **14/15-edge necessary regions** in PR #1939 remains intact.
+
+## 2. Universal lower bound: every lawful source uses at least three columns
+
+Write $d=v-z$. The source's original capacity inequalities plus $g=b$ imply
+
+$$
+0\le a\le b\le1,\quad
+0\le u\le\frac{13a}{40}+\frac b{80},\quad
+0\le w\le\frac{3a}{40}+\frac{21b}{80},\quad
+0\le z\le a/10,\quad
+0\le d\le9b/40.
+$$
+
+Necessarily $b>0$: at $b=0$, nonnegative slacks enforce $a=u=v=w=z=0$ and the source's second stopping time equals 1, whereas every lawful target has $G=1$ and second stopping time at least 2. The two stopping times must match.
+
+The source column-3 mass is *exactly*
+
+$$
+\nu_3=(1-b)+(a/10-z)+(9b/40-d)
+       +(191/450)(u+w)+(43/90)z+(14/81)d.
+$$
+
+Every summand is nonnegative. The last two terms involving $d$ yield the uniform bound
+
+$$
+\nu_3\ge 1-b+\frac7{180}b>0.
+$$
+
+The extreme column masses are
+
+$$
+\begin{aligned}
+\nu_0&=(509/900)u+(47/180)z+(67/162)d+w/100,\\
+\nu_6&=u/100+(47/180)z+(67/162)d+(509/900)w.
+\end{aligned}
+$$
+
+If at least one of $u,w,z,d$ is positive, both $\nu_0$ and $\nu_6$ are strictly positive. Then columns $0,3,6$ all have positive mass. In the complementary case $u=w=z=d=0$, we have $\nu_1=13a/40+b/80>0$ and $\nu_5=3a/40+21b/80>0$, together with $\nu_3>0$. Therefore **at least three distinct source columns always carry strictly positive mass**. Every coupling with those source margins requires at least one positive edge per positive source column; hence it has at least three positive edges.
+
+## 3. Three edges force a diagonal coupling and equal statistical margins
+
+Suppose a lawful coupling has exactly three positive edges. By the preceding proof there are exactly three positive source columns, each with **one** positive edge. If the sole edge from column $j$ is $(i,j)$ of weight $\nu_j>0$, the exact column moment equation is
+
+$$
+r_i\nu_j=r_j\nu_j.
+$$
+
+Since the seven likelihood ratios are pairwise distinct, $i=j$. All three edges are diagonal and consequently $\mu=\nu$.
+
+## 4. Physical capacity inequalities force x=y
+
+The system comprising the five independent physical equations (source $g=b$, target $G=1$, target $Z=A/10$, two matched times) and the seven equal-margin equations $\mu_i-\nu_i=0$ has **exact rational coefficient rank 9** in fourteen physical variables. Its **complete five-parameter affine solution** is
+
+$$
+\begin{aligned}
+y&=(1,10Z,1,U,V,W,Z),\\
+x&=(1+\kappa\Delta,\ 10Z+\kappa\Delta,\ 1+\kappa\Delta,\
+       U+\lambda\Delta,\ V-\gamma\Delta,\ W+\lambda\Delta,\ z),\\
+\Delta&=Z-z,\\
+\kappa&=49400/295513,\quad
+\lambda=33345/591026,\quad
+\gamma=132145/295513.
+\end{aligned}
+$$
+
+Substitution into all twelve equations is exact, and the five parameters are independent; rank 9 therefore establishes completeness. The two *existing* source capacity slacks give
+
+$$
+1-x_g=-\kappa\Delta\ge0,\qquad
+x_a/10-x_z=\frac{300453}{295513}\Delta\ge0.
+$$
+
+Both coefficients are positive, hence $\Delta=0$ and **$x=y$**. In particular this is an explicit observation-fiber phenomenon: equal statistical margins alone leave an affine one-dimensional difference direction, but the lawful physical capacity cone cuts that direction to zero.
+
+It follows that every lawful equal-margin pair is of the form
+
+$$
 x=y=(1,a,1,u,v,w,a/10)
-]
-with `0le ale1`, `0le ule13a/40+1/80`, `0le wle3a/40+21/80`, and `a/10le vle a/10+9/40`. The two stopping-time equalities hold identically. This is a four-dimensional relative physical family.
+$$
 
-### Proof 4: classify precisely when its source has three positive columns
+with
 
-On the equality locus, `
-u_3>0`, and `
-u_0,
-u_6` are either both positive or both zero.
+$$
+0\le a\le1,\quad
+0\le u\le13a/40+1/80,\quad
+0\le w\le3a/40+21/80,\quad
+a/10\le v\le a/10+9/40.
+$$
 
-If both vanish, the positive-coefficient formulas force `u=w=z=v-z=0`, hence `a=0`; this leaves the **four** positive columns `1,2,3,5`. If both are positive, having just three positive columns means `
-u_1=
-u_2=
-u_5=0`. The mass formulas
-[
+The remaining original capacities and two matched stopping times hold throughout this family. It is a four-dimensional relative physical family.
 
-u_1=13a/40+1/80-u,quad
+## 5. Classify the minimum-support equality cases
 
-u_2=(1-a)/2,quad
+On the above equality locus, $\nu_3>0$ and $\nu_0,\nu_6$ are either both positive or both zero.
 
-u_5=3a/40+21/80-w
-]
-imply successively `a=1`, `u=27/80`, `w=27/80`, `z=1/10`, and the capacity interval `1/10le vle13/40`. All other margins vanish, and the three displayed masses are positive. Their diagonal coupling obeys all 21 Blackwell equations and has exactly three positive edges. Steps 1–4 prove the theorem.
+If both extreme masses vanish, their strictly positive coefficient formulas require $u=w=z=v-z=0$. Since $z=a/10$, this forces $a=0$. Columns $1,2,3,5$ are then all positive, yielding **four** positive source columns (not three).
 
-## Additional reusable six-edge interior family
+If $\nu_0,\nu_6>0$, three positive columns are possible **only if** $\nu_1=\nu_2=\nu_5=0$. But exactly
 
-In the strict four-dimensional subregion
-[
-0<a<1,quad
-0<u<13a/40+1/80,quad
-0<w<3a/40+21/80,quad
+$$
+\nu_1=13a/40+1/80-u,\qquad
+\nu_2=(1-a)/2,\qquad
+\nu_5=3a/40+21/80-w.
+$$
+
+These equalities force $a=1,\ u=27/80,\ w=27/80$ and hence $z=1/10$. The original remaining capacity bounds give $1/10\le v\le13/40$.
+
+For every $v$ in that interval, direct substitution gives the three positive masses specified in the theorem, normalization to one, all capacities, both stopping-time equations, and the 21 exact Blackwell equations for the diagonal coupling. Thus the necessary conditions are sufficient, proving the **if-and-only-if classification**.
+
+## 6. Further exact low-support interior family
+
+At any interior point satisfying
+
+$$
+0<a<1,\quad
+0<u<13a/40+1/80,\quad
+0<w<3a/40+21/80,\quad
 a/10<v<a/10+9/40,
-]
-all six permitted source columns `0,1,2,3,5,6` are positive; the unique minimum-support coupling has six diagonal edges. One exact example is
-[
-x=y=(1,1/2,1,1/20,1/10,1/16,1/20),
-]
-whose positive masses, in source-column order `(0,1,2,3,5,6)`, are
-[
-(40589/648000, 1/8, 1/4, 82711/324000, 19/80, 45089/648000).
-]
-The same one-edge-per-column/martingale argument proves six is minimal for this source.
+$$
 
-## Evidence, model scope and next inquiry
+all six source columns $0,1,2,3,5,6$ are strictly positive. The diagonal coupling uses exactly six edges and is minimal, by the lower bound of one edge per active source column.
 
-`VERIFY.py` uses exact rational SymPy algebra, verifies rank 9, the five-dimensional parameterization, the pair of sign-forcing physical slacks, the complete explicit three-edge family at two endpoints and one interior point, all 21 Blackwell identities, and the six-edge example. `EXACT_OUTPUT.txt` is its *actual local execution output*. The human proof supplies the universal nonnegative inequalities and support argument; finite tested parameter values are witnesses, not the universal proof.
+For example the rational pair
 
-BRC/observer reading: a five-dimensional equal-statistics **affine** fiber is reduced by the stated capacities to a four-dimensional physical equality locus. The seven likelihood ratios are auxiliary statistical states, not the locked six P000 spatial axes or native heartbeat arithmetic. P000 and frozen science pins are unchanged.
+$$
+x=y=(1,1/2,1,1/20,1/10,1/16,1/20)
+$$
 
-**Next scientific unit:** classify physical seven-, eight- and nine-edge realizations near the four-dimensional diagonal family using exact tangent-cone feasibility, then connect these lower-support strata to the established 14/15 local bifurcation. Separately check whether the three-edge diagonal segment has a nontrivial transverse admissible Blackwell tangent, and give a rational certificate for any such branch.
+has source masses in column order $(0,1,2,3,5,6)$:
 
-Control: author-side research evidence only; formal R5 Owner/CLAIM, Source Result and independent mathematical review are separate. Native researcher `EM-DIRECT-C534A2 / TASK_RESEARCH`, activity `RA-A797EAA416A7AF97A8A79E39`.
+$$
+(40589/648000,\ 1/8,\ 1/4,\ 82711/324000,\ 19/80,\ 45089/648000).
+$$
+
+This is a nonempty four-dimensional relative-open physical family of exact six-edge realizations.
+
+## 7. Reproduction, BRC scope, and next question
+
+\`VERIFY.py\` is the locally executed exact-rational SymPy source: it checks the rank-9 physical/equal-margin linear system, the complete five-parameter affine parameterization, both sign-forcing slacks, the whole minimizer's symbolic mass formulas, exact 21-row Blackwell equalities at both endpoints and one interior point, and the six-edge interior example. \`EXACT_OUTPUT.txt\` contains the actual local stdout and an explanatory provenance header. The **universal claim** is proved by Sections 2–5, rather than extrapolated from three numerical samples. No Lean or independent project review is asserted.
+
+The methodological BRC content is an explicit, typed distinction between the auxiliary statistical observer and physical flow states. The physical observation fiber is resolved by **capacity signs** instead of discarding its unobserved residual. These statistical dimensions are not P000 spatial dimensions.
+
+**Next research unit:** derive exact tangent-cone inequalities at the three-edge minimizer segment, test whether any non-diagonal Blackwell realization can leave the segment with 4–9 positive edges, and map the resulting legal lower-support strata to the already certified 14/15 boundary. Preserve the original frozen physical input and all provenance.
+
+Source identity: \`EM-DIRECT-C534A2 / TASK_RESEARCH\`; research activity \`RA-A797EAA416A7AF97A8A79E39\`. Formal R5 Owner/CLAIM remains unconfirmed; this author-side evidence is not a Source Result or an independent review.
