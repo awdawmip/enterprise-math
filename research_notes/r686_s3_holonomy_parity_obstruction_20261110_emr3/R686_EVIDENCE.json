@@ -1,0 +1,75 @@
+{
+  "schema": "R686_S3_COCYCLE_PARITY_V1",
+  "date": "2026-11-10",
+  "frozen_science": "R462@18783e01e3646c72b7aab3b16d3f565e83e6446f",
+  "predecessor": "R685@8505a08128e307c5ffbba1dd0522f66f515a401e",
+  "graph_vertices": 20,
+  "directed_edges": 180,
+  "frame_edge_checks": 1080,
+  "closed_walks_at_012_by_length": {
+    "1": {
+      "102": 0,
+      "120": 0,
+      "201": 0,
+      "210": 0,
+      "012": 0,
+      "021": 0
+    },
+    "2": {
+      "102": 0,
+      "120": 0,
+      "201": 0,
+      "210": 0,
+      "012": 9,
+      "021": 0
+    },
+    "3": {
+      "102": 6,
+      "120": 0,
+      "201": 0,
+      "210": 6,
+      "012": 18,
+      "021": 6
+    },
+    "4": {
+      "102": 48,
+      "120": 9,
+      "201": 9,
+      "210": 48,
+      "012": 207,
+      "021": 48
+    }
+  },
+  "holonomy_generated_group": "S3",
+  "first_nontrivial_loop_length": 3,
+  "first_nonidentity_even_loop_length": 4,
+  "witness_time": 227,
+  "witness_field": {
+    "u": [
+      4,
+      4,
+      -17,
+      10
+    ],
+    "M01_M12_M20": [
+      75,
+      83,
+      69
+    ],
+    "S": "025"
+  },
+  "witness_unconditional_group_masses": {
+    "120": "1/4",
+    "012": "1/2"
+  },
+  "witness_conditional_group_masses": {
+    "120": "1/3",
+    "012": "2/3"
+  },
+  "both_frame_classes_even": true,
+  "arithmetic": "int and fractions.Fraction",
+  "scope": "All legal finite triad paths for cocycle; based closed walks length <=4 for counts; R685 specific t227 witness.",
+  "local_full_original": "The stand-alone full-length independent checker and detailed evidence are also preserved in the downloadable R686 ZIP delivered in this run.",
+  "verification_command": "python3 R686_VERIFY.py",
+  "verification_marker": "R686_S3_COCYCLE_PARITY_EXACT_PASS"
+}
