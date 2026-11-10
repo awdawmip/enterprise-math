@@ -1,0 +1,20 @@
+{
+  "schema": "EM_PREFIX670_R6_SLOT_RESOLVED_STABILITY_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "scope": {
+    "p": ["0","1/64"],
+    "z": ["607/4096","609/4096"],
+    "q": ["12","24"]
+  },
+  "L_formula": "q*(76650/12+76595*(q-12)/144)",
+  "C_formula": "(15000*q*q+221*q)/2",
+  "z_term": "6400000*(z-z_star(q))^2",
+  "examples": {
+    "12": {"L":"76650","C":"1081326"},
+    "18": {"L":"689685/4","C":"2431989"},
+    "24": {"L":"306490","C":"4322652"}
+  },
+  "checks_passed": 46,
+  "result": "ALL_CHECKS_PASS",
+  "status": "AUTHOR_DERIVED / EXACT_RATIONAL_IMPLICATION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
