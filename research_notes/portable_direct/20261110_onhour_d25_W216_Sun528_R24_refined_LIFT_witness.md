@@ -7,7 +7,7 @@ Date 2026-11-10 Asia/Hong_Kong. Task RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-
 Consume this round's **proved all-prime terminal-Fermat signed bridge**, source file 20261110_onhour_d25_W216_Sun529_Fermat_terminal_lift_bridge.md. Its exact target-class consequence is
 
 ~~~text
-epsilon_p = q_p(216)-3*alpha_p + (3/2)*lambda_p mod p,
+epsilon_p = q_p(216)-3*alpha_p - (3/2)*lambda_p mod p,
 alpha_p=F0/p², epsilon_p=(F2-13F1/2+5p/2)/p²,
 lambda_p=(W_p-p)/p², p≡13,19 (mod24),
 ~~~
