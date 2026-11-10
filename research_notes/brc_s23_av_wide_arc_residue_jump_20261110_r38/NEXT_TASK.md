@@ -1,0 +1,7 @@
+# R38 next discriminating task: narrow arcs and modular return jumps
+
+Mother objective: compute exact provenance-preserving last-source indices and risk for auxiliary irrational-rotation observers. Inherit frozen S23 science enterprise-math@43ec6098b1330ae86d0a7863be336c5d97f6ef34; preserve previous 298-run digest 2573a84999d53dfd1cce772c45a41abaff251da735171efe904c860f2b2294f6.
+
+Verified author frontier: R38 proves exact O(qm) modular-residue last-source selection when every historical arc length is ≥|qθ−p|, with positive/negative endpoint tie rules, rational-enclosure certifications, eight exact oracle-matched experiments and 94 brute finite-window regressions. Existing R37 suffix and R36 Floor Sum fallback remain valid.
+
+Next unit: derive (or construct a counterexample to) a precise narrow-arc modular return-map skip algorithm when some λ_h<|qθ−p|. Use sqrt(2)−1, m=16, p/q=2/5 as first nonapplicable instance. Compare exact Floor Sum and brute-force selected labels; vary q,m,source length N and continued-fraction partial quotients. Establish operation and integer-bit complexity; provide explicit failure witness for any naive first-turn formula. No shared CLAIM or theorem admission inferred from author research; S23 owner remains unconfirmed.
