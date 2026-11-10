@@ -1,8 +1,8 @@
 # D25/W216 — two new exact target-class diagonal carry witnesses (p=109,139)
 
-Date: 2026-11-10, 21:00 +08:00. Research lane: \`chatgpt-research-onhour-enterprise-math-20260923\`.
+Date: 2026-11-10, 21:00 +08:00. Research lane: `chatgpt-research-onhour-enterprise-math-20260923`.
 Classification: **AUTHOR_SIDE / FINITE_EXACT_COMPUTATION / UNREVIEWED / NOT_ADMITTED / NATIVE_H0_B0_NOT_RUN**.
-Task: \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`; immutable publication \`TP2-B6F4FC938FF94941C1B7\`; frozen scientific Source \`c47e13e4aba0e006366f989d6334d443f6333ae3\` (unchanged).
+Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`; immutable publication `TP2-B6F4FC938FF94941C1B7`; frozen scientific Source `c47e13e4aba0e006366f989d6334d443f6333ae3` (unchanged).
 
 ## 1. New discriminating input, preserving original observer
 
@@ -18,7 +18,7 @@ For target primes \(p\equiv13,19\bmod24\), put \(\chi_p=1\) (since \(p\equiv1\bm
 D_{p,r}=W_{p^r}-\chi_ppW_{p^{r-1}},\qquad
 E_{p,r}=\frac{D_{p,r}}{p^{3r}}\in\mathbf Z_{(p)}
 \]
-at each tested input (integrality explicitly checked). The previous finite note at commit \`c75eebea65ac724d1545534c6bc82d39b587c2ad\` found constant diagonal digits for p=13,19,37,43,61,67. This unit checks **two previously untested original target primes**, 109 (class 13) and 139 (class 19), each at scales \(r=1,2,3\), rather than repeating those prior samples.
+at each tested input (integrality explicitly checked). The previous finite note at commit `c75eebea65ac724d1545534c6bc82d39b587c2ad` found constant diagonal digits for p=13,19,37,43,61,67. This unit checks **two previously untested original target primes**, 109 (class 13) and 139 (class 19), each at scales \(r=1,2,3\), rather than repeating those prior samples.
 
 The tested candidate is
 \[
@@ -49,7 +49,7 @@ The two independent methods agree for all six \((p,r)\) scale residues. The full
 
 ## 3. Independent constructions and observer fidelity
 
-The accompanying standard-library checker \`d25_w216_diagonal_target_primes_20261110.py\` implements:
+The accompanying standard-library checker `d25_w216_diagonal_target_primes_20261110.py` implements:
 
 - **Ratio construction:** advance the original recurrence
   \[
@@ -64,11 +64,11 @@ BRC / residual-fidelity carrier: \((p,r,k,v_p(A_k),u_p(A_k),6k+1,W_{p^r},D_{p,r}
 
 ## 4. Frozen mother objective and exact continuation
 
-The accepted D24 UR/JT0 is already completed. The live mother goal remains the original **signed** \(\Delta_p-R_p\equiv0\bmod p\) for both target prime classes. The prior author source-port proof at \`research_notes/portable_direct/20261026_onhour_d25_native_lift_source_port_identity.md\` gives the exact equivalence with \(W_p\equiv p\bmod p^3\), keeping the cutoff correction \(R_p\), not dropping it. This finite unit checks \(W_p\equiv p\bmod p^3\) at its two new primes but supplies no uniform LIFT proof.
+The accepted D24 UR/JT0 is already completed. The live mother goal remains the original **signed** \(\Delta_p-R_p\equiv0\bmod p\) for both target prime classes. The prior author source-port proof at `research_notes/portable_direct/20261026_onhour_d25_native_lift_source_port_identity.md` gives the exact equivalence with \(W_p\equiv p\bmod p^3\), keeping the cutoff correction \(R_p\), not dropping it. This finite unit checks \(W_p\equiv p\bmod p^3\) at its two new primes but supplies no uniform LIFT proof.
 
 Highest native evidence debt: the *same-original-class*, fixed \(p=373\) divided-power H0/B0 \([X]U\bmod139129\), actual module rank, Frobenius semilinear direction and basis-normalization \(\eta\), signed odd Hesse/Green \(\kappa\), original \(\Delta-R\), and independent replication. Existing support Issue #1559 is the responsible intake, OPEN / PENDING_OWNER; no native executor is asserted.
 
-Source continuation read \`onhour11-20261110-1957-exact-continuation\` was **SUCCEEDED**, as-of Source \`abf7c03205b83f96b114747e2fc326dbc3615cdb\`; current own recovery_status attempted this run returned \`SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED\`. Previous historical Researcher session \`MCP-5378d3819d8947bda9049c9428493e2d\` is public history, not a currently recoverable private capability. No new winning CLAIM, open run, Source-native checkpoint, Result, review or formal admission is claimed; maintenance logical conversation is not used.
+Source continuation read `onhour11-20261110-1957-exact-continuation` was **SUCCEEDED**, as-of Source `abf7c03205b83f96b114747e2fc326dbc3615cdb`; current own recovery_status attempted this run returned `SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED`. Previous historical Researcher session `MCP-5378d3819d8947bda9049c9428493e2d` is public history, not a currently recoverable private capability. No new winning CLAIM, open run, Source-native checkpoint, Result, review or formal admission is claimed; maintenance logical conversation is not used.
 
 **Next exact mathematical action:** derive or find a counterexample to the \(p\)-block transfer bound \(v_p(E_{p,r+1}-E_{p,r})\ge r\) from the already built finite Newton/moment transfer, rather than widening the sample census again. **Next native owner action:** obtain authorized original H0/B0 evaluator and independently publish the exact fixed p373 benchmark with all rank/normalization/signed checks under the frozen source, then route for independent review.
 
