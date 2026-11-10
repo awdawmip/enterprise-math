@@ -1,0 +1,66 @@
+{
+  "schema": "EM_PREFIX655_UNIQUE_CORNER_CERTIFICATE_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "inputs": {
+    "p_interval": [
+      "3/20",
+      "1/6"
+    ],
+    "z_interval": [
+      "38911/262144",
+      "38913/262144"
+    ],
+    "q_interval": [
+      12,
+      24
+    ],
+    "layers": 189
+  },
+  "center_mu_band": [
+    "103",
+    "104"
+  ],
+  "max_strip_mu_upper": "105",
+  "second_derivative_bound": {
+    "W_zz": "141976800",
+    "mu_zz": "283500"
+  },
+  "derivative_bands": [
+    {
+      "q": 12,
+      "center_dV_dz_lower": "-21870191/250",
+      "center_dV_dz_upper": "-87480763/1000",
+      "M_q": "20448061200",
+      "M_q_h": "1278003825/16384",
+      "certified_uniform_dV_dz_upper": "-9476"
+    },
+    {
+      "q": 24,
+      "center_dV_dz_lower": "-343577977/1000",
+      "center_dV_dz_upper": "-42947247/125",
+      "M_q": "81785440800",
+      "M_q_h": "2555795025/8192",
+      "certified_uniform_dV_dz_upper": "-31590"
+    }
+  ],
+  "corner_variance_bands": [
+    {
+      "q": 12,
+      "at_p": "3/20",
+      "at_z": "38911/262144",
+      "variance_lower": "47425459/1000",
+      "variance_upper": "2371273/50"
+    },
+    {
+      "q": 24,
+      "at_p": "3/20",
+      "at_z": "38911/262144",
+      "variance_lower": "96095067/500",
+      "variance_upper": "38438027/200"
+    }
+  ],
+  "conclusion": "Under PREFIX643 convexity and PREFIX654 p-edge ordering, unique strip maximizer (p,z)=(3/20,38911/262144) for every real 12<=q<=24",
+  "checks_passed": 21,
+  "result": "ALL_CHECKS_PASS",
+  "arithmetic": "Python standard library Fraction and integer arithmetic"
+}
