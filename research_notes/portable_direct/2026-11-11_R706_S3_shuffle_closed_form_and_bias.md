@@ -74,3 +74,11 @@ Taking positive n-th roots proves the **exact exponential base**
     lim_(n->infinity) TV(n)^(1/n) = 9/16,
 
 where TV(n)=2delta(n,n)/3. The added lower bound distinguishes a true exponential decay rate from an upper bound alone, and uses only finite integer coefficient combinatorics. The accompanying checker explicitly verifies both lower and upper coefficient bounds for n=1,...,24.
+
+## Corollary 4 — linear-length exact integer summation algorithm
+
+Define t_0=binom(k+l,k) and, for r=0,...,min(k,l)-1,
+
+    t_(r+1) = t_r (k-r)(l-r) / [(2r+1)(2r+2)].
+
+Each quotient is an exact nonnegative integer because t_r=(k+l)!/((k-r)!(l-r)!(2r)!) and t_(r+1) is the next multinomial summand. Hence D(k,l)=sum_(r=0)^min(k,l) t_r. The method needs min(k,l) recurrence steps after initial binomial evaluation, rather than the (2k+1)(2l+1) DP grid. Counts may have large bit length, so this is an arithmetic-operation bound, not a unit-cost bit-complexity claim. The verifier independently checks recurrence equality for all 10,201 pairs 0<=k,l<=100, besides 625 full group-DP comparison pairs.
