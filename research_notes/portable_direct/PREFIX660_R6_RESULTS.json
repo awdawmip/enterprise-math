@@ -1,0 +1,73 @@
+{
+  "schema": "EM_PREFIX660_R6_MOVING_EDGE_MAX_V1",
+  "date": "2026-11-10",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "layer_count": 189,
+  "edge": "p=0",
+  "z_band": [
+    "607/4096",
+    "609/4096"
+  ],
+  "exact_global_band_conclusion": "for every real 12<=q<=24 unique stationary point; strict concave max; z*(q) strictly increasing",
+  "W_prime_uniform_lower": ">19",
+  "q_values": {
+    "12": {
+      "V_at_Q": "86048.098714215475",
+      "V_prime_at_Q": "-451.704977094",
+      "V_double_prime_at_Q": "-12939017.950290",
+      "uniform_curvature_interval": [
+        "-13000000",
+        "-12800000"
+      ],
+      "curvature_deviation_upper_decimal": "42467.4936683",
+      "band_endpoint_slopes": [
+        "2713.806661",
+        "-3605.945080"
+      ],
+      "stationary_offset_bracket": [
+        "-73/2097152",
+        "-583/16777216"
+      ],
+      "stationary_z_bracket": [
+        "311223/2097152",
+        "2489785/16777216"
+      ],
+      "max_value_strict_interval_decimal": [
+        "86048.1065484294",
+        "86048.1065484353"
+      ],
+      "variance_gain_lower_decimal": "0.0078342139"
+    },
+    "24": {
+      "V_at_Q": "346339.323267905992",
+      "V_prime_at_Q": "11345.487098003",
+      "V_double_prime_at_Q": "-51763368.154849",
+      "uniform_curvature_interval": [
+        "-52000000",
+        "-51500000"
+      ],
+      "curvature_deviation_upper_decimal": "169651.8167869",
+      "band_endpoint_slopes": [
+        "24003.650264",
+        "-1272.637751"
+      ],
+      "stationary_offset_bracket": [
+        "1841/8388608",
+        "3683/16777216"
+      ],
+      "stationary_z_bracket": [
+        "1247025/8388608",
+        "2494051/16777216"
+      ],
+      "max_value_strict_interval_decimal": [
+        "346340.5678394088",
+        "346340.5678394320"
+      ],
+      "variance_gain_lower_decimal": "1.2445715028"
+    }
+  },
+  "checks_passed": 22,
+  "verification": "stdlib integer/Fraction, exact polynomial Taylor majorant, no floating-point proof comparisons",
+  "status": "AUTHOR_DERIVED / EXACT_RATIONAL_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "open_problem": "certify inward p derivative near entire moving z*(q), then global triangular-region Bernstein elimination"
+}
