@@ -74,3 +74,8 @@ Python benchmark medians in BENCHMARK_R42.json cover three local timings of R42 
 ## 7. Next research unit
 
 R43: insert R42 into the complete R41 R33/R36/R32 compiler and actually regenerate both R42-suffix and R40-fallback 298-interval outputs; batch multiple adjacent J values via a maintained modulo-phase state; investigate certificate refinement when width δ/Q is insufficient, including input-conversion/bit-cost tradeoffs. Independent review and formal shared task authority remain separate Source decisions.
+
+
+## 8. Verified end-to-end addendum (2026-11-10)
+
+R42 recurrence-first and R40 endpoint-only preparation were actually executed in the frozen R41/R33/R36/R32 compiler. Both recreated all 298 affine intervals byte-for-byte (SHA256 2573a84999d53dfd1cce772c45a41abaff251da735171efe904c860f2b2294f6), with final risk -4017401528447 + 15321634290944 θ. See VERIFY_R42_INTEGRATION.py and INTEGRATION_EVIDENCE.md. This supersedes the earlier §6 pre-integration state. Independent review remains pending.
