@@ -12,7 +12,7 @@ Date: 2026-11-11 (Asia/Shanghai). Mother task: `RS-X6-TRIADIC-CLOSURE-DYNAMICS`,
 
 ## Theorem 1: exact S3 holonomy-support classification of two based packets
 
-Let A,B be two distinct noncommuting transpositions in S3. For nonnegative integers a,b, define `W_(a,b)(g)` to be the number of words of length a+b with exactly a copies of A and b copies of B and resulting ordered holonomy g, using the V39 composition convention. Let `S_(a,b)={g:W_(a,b)(g)>0}`.
+Let A,B be two distinct noncommuting transpositions in S3. For nonnegative integers a,b, define `W_(a,b)(g)` to be the number of words of length a+b with exactly a copies of A and b copies of B and resulting ordered holonomy g, using the native V17/V37 slot-tuple convention. Let `S_(a,b)={g:W_(a,b)(g)>0}`.
 
 Then **for every a,b>=0**:
 
@@ -47,7 +47,7 @@ H+ = A ; B ; A^{-1} ; B^{-1}       -> h=c
 H- = B ; A ; B^{-1} ; A^{-1}       -> h=c^{-1}
 ```
 
-The two nontrivial 3-cycles may exchange the labels c/c^{-1} under the alternative permutation-action convention; with this note's V39 left-composition convention and A=(0,2,1), B=(1,0,2), the explicit images are H+=(2,0,1), H-=(1,2,0). The invariant result is the full even coset, regardless of notation. This *strengthens* V38's two-history witness to three pairwise-distinct future-holonomy outputs at identical exact zero current and event multiplicities.
+The two nontrivial 3-cycles may exchange the labels c/c^{-1} under the alternative permutation-action convention; with the V17/V37 native slot-tuple convention and A=(0,2,1), B=(1,0,2), the explicit images are H+=(1,2,0), H-=(2,0,1), consistent with V38's four-packet commutator witness. The invariant result is the full even coset, regardless of notation. This *strengthens* V38's two-history witness to three pairwise-distinct future-holonomy outputs at identical exact zero current and event multiplicities.
 
 **Proof of optimality.** With the full count ledger and the exact multiset fixed, the three proven histories remain distinct under V39's direct h query. One bit has at most two codes; two bits code three outcomes. Sufficiency follows from keeping their exact h value and V39 compositionality. QED.
 
@@ -57,10 +57,10 @@ For labeled packet *types* A and B, define `W_(a,b)(g)` as in Theorem 1. For a,b
 
 ```
 W_(0,0)(e)=1; all other W_(0,0)(g)=0;
-W_(a,b)(g) = W_(a-1,b)(A^{-1} o g) + W_(a,b-1)(B^{-1} o g)
+W_(a,b)(g) = W_(a-1,b)(g o A^{-1}) + W_(a,b-1)(g o B^{-1})
 ```
 
-with invalid negative-count terms interpreted as zero, and left multiplication convention. This follows by the unique last packet of each word and is equivalent in formal group algebra to
+with invalid negative-count terms interpreted as zero, using the V17/V37 native slot-tuple convention: appending a packet multiplies the displayed tuple on the right. In abstract V39 left-composition coordinates use the corresponding inverse-coordinate identification; the support and count theorems are invariant. This follows by the unique last packet of each word and is equivalent in formal group algebra to
 
 ```
 sum_(a,b>=0) sum_(g in S3) W_(a,b)(g) g x^a y^b
