@@ -1,0 +1,139 @@
+{
+  "result": "R706_S3_SHUFFLE_CLOSED_FORM_PASS",
+  "group_generators": {
+    "A": [
+      0,
+      2,
+      1
+    ],
+    "B": [
+      1,
+      0,
+      2
+    ],
+    "AB": [
+      2,
+      0,
+      1
+    ],
+    "BA": [
+      1,
+      2,
+      0
+    ]
+  },
+  "verified_pairs": 625,
+  "verification": "Independent executable Python script R706_VERIFY.py: 0<=k,l<=24, exact group DP with integer tuple composition, factorial sum, binomial counts and asserts",
+  "symbolic_proof": "2026-11-11_R706_S3_shuffle_closed_form_and_bias.md",
+  "formula": "C=binom(2k+2l,2k); D=sum_r (k+l)!/((k-r)!(l-r)!(2r)!); W_e=(C+2D)/3; W_AB=W_BA=(C-D)/3",
+  "examples": [
+    {
+      "k": 1,
+      "l": 1,
+      "binary_shuffles": "6",
+      "D": "3",
+      "W_e": "4",
+      "W_c_each": "1",
+      "oriented_multiplier": "4",
+      "oriented_e": "16",
+      "oriented_c_each": "4",
+      "identity_bias_ratio": "3/6"
+    },
+    {
+      "k": 1,
+      "l": 2,
+      "binary_shuffles": "15",
+      "D": "6",
+      "W_e": "9",
+      "W_c_each": "3",
+      "oriented_multiplier": "12",
+      "oriented_e": "108",
+      "oriented_c_each": "36",
+      "identity_bias_ratio": "6/15"
+    },
+    {
+      "k": 1,
+      "l": 24,
+      "binary_shuffles": "1225",
+      "D": "325",
+      "W_e": "625",
+      "W_c_each": "300",
+      "oriented_multiplier": "64495207366200",
+      "oriented_e": "40309504603875000",
+      "oriented_c_each": "19348562209860000",
+      "identity_bias_ratio": "325/1225"
+    },
+    {
+      "k": 2,
+      "l": 2,
+      "binary_shuffles": "70",
+      "D": "19",
+      "W_e": "36",
+      "W_c_each": "17",
+      "oriented_multiplier": "36",
+      "oriented_e": "1296",
+      "oriented_c_each": "612",
+      "identity_bias_ratio": "19/70"
+    },
+    {
+      "k": 3,
+      "l": 3,
+      "binary_shuffles": "924",
+      "D": "141",
+      "W_e": "402",
+      "W_c_each": "261",
+      "oriented_multiplier": "400",
+      "oriented_e": "160800",
+      "oriented_c_each": "104400",
+      "identity_bias_ratio": "141/924"
+    },
+    {
+      "k": 4,
+      "l": 4,
+      "binary_shuffles": "12870",
+      "D": "1107",
+      "W_e": "5028",
+      "W_c_each": "3921",
+      "oriented_multiplier": "4900",
+      "oriented_e": "24637200",
+      "oriented_c_each": "19212900",
+      "identity_bias_ratio": "1107/12870"
+    },
+    {
+      "k": 8,
+      "l": 8,
+      "binary_shuffles": "601080390",
+      "D": "5196627",
+      "W_e": "203824548",
+      "W_c_each": "198627921",
+      "oriented_multiplier": "165636900",
+      "oriented_e": "33760866274621200",
+      "oriented_c_each": "32900113087884900",
+      "identity_bias_ratio": "5196627/601080390"
+    },
+    {
+      "k": 12,
+      "l": 12,
+      "binary_shuffles": "32247603683100",
+      "D": "27948336381",
+      "W_e": "10767833451954",
+      "W_c_each": "10739885115573",
+      "oriented_multiplier": "7312459672336",
+      "oriented_e": "78739347875844166638944544",
+      "oriented_c_each": "78534976793149223070888528",
+      "identity_bias_ratio": "27948336381/32247603683100"
+    },
+    {
+      "k": 24,
+      "l": 24,
+      "binary_shuffles": "6435067013866298908421603100",
+      "D": "5603455843421135356413",
+      "W_e": "2145026073592661916897438642",
+      "W_c_each": "2145020470136818495762082229",
+      "oriented_multiplier": "1039907943302284685225610000",
+      "oriented_e": "2230629652519520205351936318495012278275028902021620000",
+      "oriented_c_each": "2230623825441278688110099302317427429366246236684690000",
+      "identity_bias_ratio": "5603455843421135356413/6435067013866298908421603100"
+    }
+  ]
+}
