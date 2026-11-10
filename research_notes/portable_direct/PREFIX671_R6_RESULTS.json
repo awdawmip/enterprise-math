@@ -1,0 +1,39 @@
+{
+  "schema": "EM_PREFIX671_R6_NONCONCAVE_VARIANCE_WITNESS_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "observer": "189_layer_two_direction_first_stop",
+  "z": "19/128",
+  "p": {
+    "a": "1/8",
+    "b": "5/32",
+    "c": "7/32",
+    "d": "9/32",
+    "e": "3/32"
+  },
+  "q_scope": "all real q in [12,24]",
+  "replay": {
+    "survivor_rows": 189,
+    "surviving_coefficient_entries": 9529,
+    "arithmetic": "exact Python fractions; no floats"
+  },
+  "strict_gaps": {
+    "12": {
+      "a-b": {"lower_integer": 4193, "upper_integer": 4194},
+      "c-b": {"lower_integer": 2060, "upper_integer": 2061},
+      "c-d": {"lower_integer": 5911, "upper_integer": 5912},
+      "e-2b+c": {"lower_integer": 16707, "upper_integer": 16708},
+      "b-2c+d": {"lower_integer": -7972, "upper_integer": -7971}
+    },
+    "24": {
+      "a-b": {"lower_integer": 16591, "upper_integer": 16592},
+      "c-b": {"lower_integer": 8773, "upper_integer": 8774},
+      "c-d": {"lower_integer": 23090, "upper_integer": 23091},
+      "e-2b+c": {"lower_integer": 67066, "upper_integer": 67067},
+      "b-2c+d": {"lower_integer": -31865, "upper_integer": -31864}
+    }
+  },
+  "checks_passed": 37,
+  "result": "ALL_CHECKS_PASS",
+  "theorem": "For every real q in [12,24], Vq(p,19/128) has >=2 distinct interior stationary points on [1/8,9/32]; neither convex nor concave on that interval.",
+  "status": "AUTHOR_DERIVED / EXACT_RATIONAL_REPLAY_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
