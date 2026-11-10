@@ -1,0 +1,104 @@
+{
+  "marker": "R708_TRIADIC_FEASIBILITY_UNIFORM_BRC_EXACT_PASS",
+  "date": "2026-11-11",
+  "frozen_scientific_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "parent": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "model": "same-Cell, common-positive-q distinguishable tokens; all 20 distinct-axis triples permitted; signs and provenance retained",
+  "exhaustive_domain": "n in {0,1,2,3}^6, sum(n)%3=0, sum(n)<=12",
+  "checked": 1309,
+  "feasible": 1077,
+  "infeasible": 232,
+  "independent_checks": [
+    "greedy certificate",
+    "D first-token recursion",
+    "H^m polynomial coefficient",
+    "exact Fraction masses via brute labeled partitions"
+  ],
+  "uniform_examples": [
+    {
+      "n": [
+        2,
+        2,
+        2,
+        0,
+        0,
+        0
+      ],
+      "D": 4,
+      "mass": "1/4"
+    },
+    {
+      "n": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "D": 10,
+      "mass": "1/10"
+    },
+    {
+      "n": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "D": 6,
+      "mass": "1/6"
+    },
+    {
+      "n": [
+        2,
+        2,
+        1,
+        1,
+        0,
+        0
+      ],
+      "D": 4,
+      "mass": "1/4"
+    }
+  ],
+  "family_m_1_to_8": [
+    "1",
+    "6",
+    "60",
+    "1008",
+    "25920",
+    "950400",
+    "47174400",
+    "3048192000"
+  ],
+  "feasible_profile_F6_m_0_to_10": [
+    1,
+    20,
+    141,
+    580,
+    1751,
+    4332,
+    9331,
+    18152,
+    32661,
+    55252,
+    88913
+  ],
+  "additional_obstruction": {
+    "n": [
+      4,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "m": 3,
+    "D": 0
+  },
+  "assertions": "Finite checks executed with Python standard library exact integers and fractions; analytic theorems cover all m in stated domain",
+  "native_admission": "author-side candidate only, V29/V39 yet to be checked"
+}
