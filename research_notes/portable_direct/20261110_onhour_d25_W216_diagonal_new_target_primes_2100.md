@@ -73,3 +73,41 @@ Source continuation read `onhour11-20261110-1957-exact-continuation` was **SUCCE
 **Next exact mathematical action:** derive or find a counterexample to the \(p\)-block transfer bound \(v_p(E_{p,r+1}-E_{p,r})\ge r\) from the already built finite Newton/moment transfer, rather than widening the sample census again. **Next native owner action:** obtain authorized original H0/B0 evaluator and independently publish the exact fixed p373 benchmark with all rank/normalization/signed checks under the frozen source, then route for independent review.
 
 Do not repeat: predecessor accepted UR/CM0/JT0; previous finite scale sets and their 16 transitions; already completed W216 auxiliary proofs; Source's inherited checkpoint units. Keep old staging and separate Research vs Maintenance contribution histories intact.
+
+
+## 5. Same-turn exact integral three-scale defect operator
+
+A second exact algebraic unit converts the rational-looking divided carry into a direct signed-W216 integer congruence. For any prime p>3, \(\chi_p=\pm1\) defined above, and integer \(r\ge1\), write \(W_r^\star=W_{p^r}\) and \(W_0^\star=W_1=1\). Set
+\[
+\mathcal C_{p,r}
+=W_{r+1}^\star-(\chi_p p+p^3)W_r^\star
++\chi_p p^4 W_{r-1}^\star.
+\]
+The defining expressions give the exact rational identity
+\[
+\boxed{ \mathcal C_{p,r}
+=D_{p,r+1}-p^3D_{p,r}
+=p^{3r+3}(E_{p,r+1}-E_{p,r}). }
+\]
+Where the divided defects \(E_{p,r},E_{p,r+1}\) are p-integral, this is an **if-and-only-if** equivalence, for every such p,r:
+\[
+\boxed{ v_p(E_{p,r+1}-E_{p,r})\ge r
+\iff \mathcal C_{p,r}\equiv0\pmod{p^{4r+3}}. }
+\]
+Moreover the sharper diagonal digit is exactly the next residue of the *original* three-scale sum:
+\[
+\boxed{\delta_{p,r}=
+\frac{\mathcal C_{p,r}}{p^{4r+3}}\bmod p,}
+\]
+whenever the lower divisibility holds. This removes divided E from the proof target and specifies an exact p-block/WZ target on original signed W values; it **does not assert** the divisibility for untested inputs.
+
+The two newly tested primes verify it independently of the E difference, directly from the \(W\bmod p^{13}\) residues:
+
+| p | r | \(\mathcal C_{p,r}\bmod p^{4r+4}\) | \(\mathcal C_{p,r}/p^{4r+3}\bmod p\) |
+|---:|---:|---:|---:|
+|109|1|8591783867838443|47|
+|109|2|1212800410493541658983323|47|
+|139|1|7017810579005653|7|
+|139|2|2619755994683623009784773|7|
+
+The needed divisibility precision at \(r=2\) is \(p^{11}\) for the lower bound, and \(p^{12}\) for the digit. Both are covered by the actual \(p^{13}\) calculation. Next construction can therefore attack \(\mathcal C_{p,r}\) directly as an alternating three-scale signed block sum with a *fixed, exact modulus*, rather than assembling ever-larger tables of E residues.
