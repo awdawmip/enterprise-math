@@ -78,3 +78,22 @@ The executable companion `PREFIX657_R6_COMPARATIVE_VARIANCE_WITNESS_CERTIFICATE.
 Dependencies: PREFIX-643@ae7872ca18676397fcc0dd9424fb77e08928bee7 (score lemma); PREFIX-655@3dc372940c317cf540c96fc02b55284462549bac (local corner enclosures); PREFIX-656@5352d203d66148eb8262ff1c38d49d3f1700f510 (symmetric B maxima). Source data/recurrence follow PREFIX-654/655, science pin unchanged.
 
 Next: resolve parent task's immutable *full* parameter domain; if it contains C, use C as the strict exclusion witness and certify further lower-z regions (including z=0 if allowed) with adaptive interval/Bernstein bounds. A preliminary floating mesh suggests higher edge candidates, but only this exact rectangle has been certified in this unit. Formal task CLAIM/Result/Review and independent admission have not been created.
+
+## Addendum 657.2 — Original full parameter domain and the concurrently enlarged boxes
+
+The precise original statistical observer parameter domain is **[0,1]²** (including its limit-probability boundaries), as specified in the frozen-line source files `2026-11-09_prefix620_r6_global_worst_balanced_parameter_theorem.md` and `2026-11-09_prefix621_r6_sharp_stochastic_tail_quantiles_and_root_fix.md`. Thus C is indeed a subset of the complete *statistical observer* domain. On this domain the old PREFIX-655/656 B-corners cannot be global maximizers, since the point P and indeed every point of C gives larger variance for all 12<=q<=24. No assertion is made about the maximizer of the full domain.
+
+Concurrently a different research activity (RA-E8E056342FF60C4A19714BAE) published a separate `PREFIX-657` left-extension result, source `c470f3b7ad01c51cb9a1622a80da38d477d21dcb`. It certified the enlarged boxes B' = ([L,R]×Z') ∪ (Z'×[L,R]), with Z'=[a-d,b], d=2^-22, a'=622575/4194304, b=38913/262144, and exact maxima M'_q=V_q(L,a')=V_q(a',L). Our new theorem is independent of that extension and remains valid.
+
+The already established one-coordinate derivative bounds on [1/8,1/6]² give `|M'_q-M_q|<K_q*d`, where `K_12=540720684`, `K_24=2162787480`. Because `(L,a)` and `(L,a')` lie inside this region, we may transfer the strict full-C comparison to the *enlarged* B' without recomputing a survivor row. Exact rational subtraction gives, for every (p,z) in C:
+
+```
+V_12(p,z) - max_B' V_12 > 50035593789/26214400 > 1900;
+V_24(p,z) - max_B' V_24 > 491974806473/65536000 > 7500.
+```
+
+The corresponding point-only margins at P are strictly greater than `104107662189/26214400>3971` and `1032671676473/65536000>15757`. For each fixed point in C, `[V_q(p,z)-M'_q]/q` is affine in q, so endpoint positivity proves **V_q(p,z)>max_B' V_q for all real 12<=q<=24**.
+
+The original article and JSON contain a deliberately conditional full-domain statement because the exact statistical parameter domain had not yet been reread in that subflow. The condition is discharged for the frozen [0,1]² statistical observer by the cited PREFIX-620/621 domain declarations. This extension also differentiates the concurrently numbered PREFIX-657 notes by exact file paths/activities.
+
+Arithmetic check (stdlib `fractions.Fraction`): both displayed fractions agree with `gap_q - (2*2^-19 + 2^-22)K_q` for `gap_12=4100.310`, `gap_24=16272.968`, and both are strictly greater than their displayed integer thresholds. These strict inherited gap bounds already incorporate the previous maximizers' upper thousandth enclosures. Independent mathematics review remains open.
