@@ -30,7 +30,7 @@ For a mixed-width partition, apply direct lanes to the good arcs `G={i:w_i>=s}` 
 ## Enclosure certificates
 For a strict algebraic interval `θ∈[ℓ,u]` with rational endpoints, verify `floor(dℓ)=floor(du)` for `1<=d<m` to fix historical order. Arc endpoints and widths are then affine in θ; test `w_i>=qθ-p` at both endpoints. For each wide arc, compute the winding `h`, branch and integer candidate at both endpoints. Equality certifies all intermediate θ: relevant winding/branch inequalities are affine, and `(b+h-rθ)/(qθ-p)` is monotone linear-fractional with positive denominator. The final source membership inequalities are also affine.
 
-For a narrow arc whose reference last source is `t`, certify its omitted suffix `[t+1,j)` contains no arc source (or the entire `[j-N,j)` when empty). For each historical index `z∈{0,left_endpoint,right_endpoint}`, require equality of the endpoint sums
+For a narrow arc whose reference last source is `t`, certify its omitted suffix `[t+1,j)` contains no arc source (or the entire `[j-N,j)` when empty). The stated monotone-floor certificate assumes the checked suffix lower endpoint is at least `m-1`, so every `v-z` below is nonnegative; the performed seven tests satisfy this. For earlier source windows, use the signed Floor Sum form or direct endpoint subdivision instead. For each historical index `z∈{0,left_endpoint,right_endpoint}`, require equality of the endpoint sums
 `sum_{v=L}^{j-1} floor((v-z)ℓ) = sum_{v=L}^{j-1} floor((v-z)u)`.
 Here `v-z>=0`, so every individual summand is nondecreasing in θ; equality of the sums forces every floor term to stay fixed throughout the interval. The R36 arc-count identity then certifies the suffix. Check membership of `t` at both endpoints as well.
 
