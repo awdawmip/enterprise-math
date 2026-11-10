@@ -1,0 +1,80 @@
+{
+  "schema": "R700_FINITE_CERTIFICATE_V1",
+  "input": {
+    "caps": [
+      24,
+      18,
+      6,
+      12
+    ],
+    "sum_known": true,
+    "nonzero_histogram_count": 43224
+  },
+  "observer": {
+    "U": "4e+5t+z",
+    "V": "2e+2c+z",
+    "W": "U+46V",
+    "P": "T3+23*T8=W/(10s)"
+  },
+  "least_nonnegative_integer_k": 46,
+  "counterexample_formula": {
+    "exceptions": {
+      "0": [
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "1": [
+        0,
+        0,
+        -1,
+        1
+      ],
+      "2": [
+        0,
+        -1,
+        2,
+        -1
+      ],
+      "3": [
+        0,
+        -2,
+        1,
+        1
+      ],
+      "6": [
+        -1,
+        -2,
+        1,
+        2
+      ]
+    },
+    "range": "k=4,5 or k=7..45: k-1=4x+3y, 0<=y<=6, x-y<=5, delta=(-x,-y,1+x-y,2y-1)",
+    "translation": "vplus=max(delta,0), vminus=max(-delta,0)"
+  },
+  "exact_decoder": "Q=W-47s; c=(5Q)%7; H=(Q-45c)/7=7e-6t; e=H mod6; t=(7e-H)/6; z=s-e-t-c",
+  "min_gaps": {
+    "s=1,59": 4,
+    "s=2,58": 3,
+    "s=3..57": 1,
+    "s=60": null
+  },
+  "gap_middle_witnesses": [
+    [
+      1,
+      0,
+      0,
+      2
+    ],
+    [
+      0,
+      1,
+      2,
+      0
+    ]
+  ],
+  "checker": "R700_SINGLE_FUSION_VERIFY.py",
+  "checker_local_result": "R700_SINGLE_FUSION_MINIMAL_COEFFICIENT_EXACT_PASS 43224 46",
+  "limits": "Static E* group observer only; no native X6 V29/V39 packet realization, CLAIM, Result or independent review"
+}
