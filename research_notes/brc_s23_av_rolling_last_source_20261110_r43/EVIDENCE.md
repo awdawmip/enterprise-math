@@ -16,6 +16,6 @@ Command: `python VERIFY_R43.py` using exact Python Fraction and integer residues
 | negative J m16 N12 K60 | 61 | 30 |
 | historical endpoint m16 N16 K20 | 21 | 15 |
 
-**PASS_R43_ROLLING_LABELLED_LAST_SOURCE_11_CASES**. Totals: **491 complete last-source vectors / 17,447 labelled values**. For six cases all vectors compared against independent Euclidean Floor Sum; the mixed 257 case compares against an independently restarted R42; short-window cases also have literal brute-force checks. S23 terminal source ages: H0=164, terminal max age=138, no expiry during 32 shifts. All comparisons use exact rational/integer mathematics.
+**PASS_R43_ROLLING_LABELLED_LAST_SOURCE_11_CASES**. Totals: **491 complete last-source vectors / 17,447 labelled values**. For ten cases all vectors compared against independent Euclidean Floor Sum; the mixed 257 case compares against an independently restarted R42; short-window cases also have literal brute-force checks. S23 terminal source ages: H0=164, terminal max age=138, no expiry during 32 shifts. All comparisons use exact rational/integer mathematics.
 
 Scope: source-selection subroutine for auxiliary observer. This run did not rerun S23's full 298-segment affine risk compiler; its R42 two-path validation remains a separate prior result. Independent mathematical review pending.
