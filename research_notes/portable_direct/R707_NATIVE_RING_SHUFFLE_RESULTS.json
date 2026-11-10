@@ -1,0 +1,111 @@
+{
+  "verdict": "R707_NATIVE_RING_BRC_SHUFFLES_EXACT_PASS",
+  "source_scope": "V36 deterministic directed ring via canonical V20 coupling; V17 slot holonomy; V29 additive legal matched TRANSFER overlay not a derived coupled event scheduler",
+  "cases": [
+    {
+      "k": 1,
+      "l": 1,
+      "cells": 12,
+      "histogram": {
+        "120": 4,
+        "201": 4,
+        "012": 16
+      },
+      "total_oriented_words": 24,
+      "V29_uniform_overlay_transfers": 144,
+      "per_edge_count": 12,
+      "net_cycle_current_coefficient": 12
+    },
+    {
+      "k": 1,
+      "l": 2,
+      "cells": 18,
+      "histogram": {
+        "120": 36,
+        "201": 36,
+        "012": 108
+      },
+      "total_oriented_words": 180,
+      "V29_uniform_overlay_transfers": 324,
+      "per_edge_count": 18,
+      "net_cycle_current_coefficient": 18
+    },
+    {
+      "k": 2,
+      "l": 1,
+      "cells": 18,
+      "histogram": {
+        "120": 36,
+        "201": 36,
+        "012": 108
+      },
+      "total_oriented_words": 180,
+      "V29_uniform_overlay_transfers": 324,
+      "per_edge_count": 18,
+      "net_cycle_current_coefficient": 18
+    },
+    {
+      "k": 2,
+      "l": 2,
+      "cells": 24,
+      "histogram": {
+        "120": 612,
+        "201": 612,
+        "012": 1296
+      },
+      "total_oriented_words": 2520,
+      "V29_uniform_overlay_transfers": 576,
+      "per_edge_count": 24,
+      "net_cycle_current_coefficient": 24
+    }
+  ],
+  "three_witnesses": {
+    "H0": {
+      "packet_order": [
+        "A",
+        "a",
+        "B",
+        "b"
+      ],
+      "holonomy": [
+        0,
+        1,
+        2
+      ],
+      "ring_cells": 12
+    },
+    "H1": {
+      "packet_order": [
+        "A",
+        "B",
+        "a",
+        "b"
+      ],
+      "holonomy": [
+        2,
+        0,
+        1
+      ],
+      "ring_cells": 12
+    },
+    "H2": {
+      "packet_order": [
+        "B",
+        "A",
+        "b",
+        "a"
+      ],
+      "holonomy": [
+        1,
+        2,
+        0
+      ],
+      "ring_cells": 12
+    }
+  },
+  "notes": {
+    "network_initial_state": "different complete initial Cell triad fields per shuffle; same ring topology, update law, cell0 triad and transfer overlay",
+    "V29_layer_schedule": "for each t=0..m-1, serialize TRANSFER(i:p->i+1:p) for i=0..m-1 and then apply V36 synchronous triad update; p is a fixed declared interface label",
+    "observation": "Cell0 base holonomy; all cases have M=0, Rin=Rout=m at all Cells and identical edge multiset counts"
+  }
+}
