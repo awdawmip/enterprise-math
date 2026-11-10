@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Exact 15-coordinate R5 residual reconstruction and one rational 14-arc vertex.
-Requires the previously published adjacent brc_r5_six_edge_circuits_20261111/WITNESS.txt.
+Requires the copied immutable predecessor witness WITNESS.txt in this same directory.
 """
 from fractions import Fraction as Q
 from itertools import combinations
@@ -9,7 +9,7 @@ from sympy import Matrix, Rational
 
 r=tuple(map(Q,('1/10','1/2','3/4','1','5/4','3/2','19/10')))
 D=tuple((i,j) for j in (0,1,2,3,5,6) for i in range(7) if j not in (0,6) or i==j)
-data=dict(line.split('=',1) for line in (Path(__file__).resolve().parent.parent/'brc_r5_six_edge_circuits_20261111'/'WITNESS.txt').read_text().splitlines())
+data=dict(line.split('=',1) for line in Path(__file__).with_name('WITNESS.txt').read_text().splitlines())
 E0=tuple(map(Q,data['ARCS'].split(',')))
 assert len(D)==len(E0)==30 and min(E0)==Q(data['MARGIN'])>0
 
