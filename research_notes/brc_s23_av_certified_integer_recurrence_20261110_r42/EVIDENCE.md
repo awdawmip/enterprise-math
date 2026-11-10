@@ -29,3 +29,8 @@ Three-run Python local elapsed-time medians, R42/R41, in milliseconds: frozen S2
 Local deterministic certificate SHA256 (full regenerated 8-case JSON): dcbb2a778a47a7e57c01a1f600caf9146d36d3081cc08e0b242ca0b6ca184b68. Local executable VERIFY_R42.py SHA256: 7308d54fde6281fa551b2a3ffe868a14ce9a87eb3d7ac15cbd951c36200da23c.
 
 Checkpoint: source-owner subroutine R42 verified on declared cases; direct end-to-end 298-run compiler replay using R42 is the next unit.
+
+
+### Executed complete integration
+
+Ran VERIFY_R42_INTEGRATION.py with pinned R41 predecessor scripts. Two full calculations (R42 recurrence-first; forced R40 endpoint-only) each generated 298 runs and matched SHA256 2573a84999d53dfd1cce772c45a41abaff251da735171efe904c860f2b2294f6, final risk (-4017401528447,15321634290944), and emitted PASS_R42_298_AFFINE_RUNS_WITH_RECURRENCE_AND_R40_FORCED_ENDPOINT. See INTEGRATION_EVIDENCE.md.
