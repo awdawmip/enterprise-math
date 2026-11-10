@@ -1,0 +1,419 @@
+#!/usr/bin/env python3
+"""Self-contained exact rational 11-arc Blackwell physical witness and 5D local stratum.
+Frozen scientific precursor: PR #1950 at c8a0ade3904507cf4dda38bfa888bdb490b1ea87.
+Uses no floating point and no network; tests all 21 original equations and 21+210 finite exclusions.
+"""
+from fractions import Fraction as F
+from itertools import combinations
+from functools import reduce
+from math import gcd
+from collections import Counter,deque
+import sympy as S
+
+def Q(s): return tuple(F(t) for t in s.split())
+def mass(x):
+    g,a,b,u,v,w,z=x
+    return (F(509,900)*u+F(47,180)*z+F(67,162)*(v-z)+w/100,
+      F(13,40)*a+b/80-u,(g-a)/2,
+      1-g+a/10+F(9,40)*b-v+F(191,450)*(u+w)+F(43,90)*z+F(14,81)*(v-z),
+      (g-b)/2,F(3,40)*a+F(21,80)*b-w,
+      u/100+F(47,180)*z+F(67,162)*(v-z)+F(509,900)*w)
+def times(x):
+    g,a,b,u,v,w,z=x
+    return (1+g+F(3,8)*a+F(5,8)*b+u/2+v+F(3,2)*w,1+g+(a+b)/2+u+v+w)
+def restrictions(p):
+    x,y=p[:7],p[7:]
+    return (x[0]-x[2],y[0]-1,y[6]-y[1]/10,*(a-b for a,b in zip(times(x),times(y))))
+def slacks(x):
+    g,a,b,u,v,w,z=x
+    return (a,g-a,1-g,b,g-b,u,F(13,40)*a+b/80-u,w,
+       F(3,40)*a+F(21,80)*b-w,z,a/10-z,v-z,z+F(9,40)*b-v)
+def phys(p):return slacks(p[:7])+slacks(p[7:])
+def jac(fun):
+    zero=(F(0),)*14
+    f0=fun(zero)
+    return S.Matrix([[S.Rational(fun(tuple(F(j==k) for j in range(14)))[i]-f0[i])
+         for k in range(14)]for i in range(len(f0))])
+J=jac(restrictions)
+assert J.rank()==5
+N=J.nullspace()
+P=S.Matrix.hstack(*(N[i] for i in (0,1,2,4,5,6,7,8)))
+X=Q("999/1000 1/6 999/1000 1/20 29/240 11/160 1/120")
+Y=Q("1 2002911/10904720 26095487/40892700 442758619/6542832000 11037627/68154500 394502727/2180944000 2002911/109047200")
+DY=Q("0 1 0 -1/4 -1/4 0 1/10")
+H=F(17774559,17507527960)
+p=tuple(X[:6]+(X[6]+H/2,))+tuple(y+F(1,100000)*d for y,d in zip(Y,DY))
+assert restrictions(p)==(F(0),)*5
+star=S.Rational(23,17050000)
+tstar=S.Matrix([0,0,0,-star,star,0,0,-star])
+R=S.Rational(49948501046391,3920403670319950000)
+zc=R*S.Matrix([-1,1,1,-1,-1,-1,-1,1])
+pstar=S.Matrix(p)+P*tstar
+center=S.Matrix(phys(tuple(F(v) for v in pstar)))
+A=jac(phys)*P
+r=tuple(F(v) for v in '1/10 1/2 3/4 1 5/4 3/2 19/10'.split())
+def rhs(u):
+    mu,nu=mass(u[7:]),mass(u[:7]);return mu+nu+tuple(r[j]*nu[j] for j in range(7))
+D=tuple((i,j) for j in (0,1,2,3,5,6) for i in range(7) if j not in (0,6) or i==j)
+FSET=((0,0),(0,1),(0,2),(2,2),(3,3),(4,3),(4,5),(5,5),(6,5),(6,6))
+OTHER=tuple(e for e in D if e not in FSET)
+I=(0,1,2,3,4,5,6,7,8,9,10,12,15,16,17)
+def edgecol(e):
+    i,j=e;v=[F(0)]*21;v[i]=1;v[7+j]=1;v[14+j]=r[i];return S.Matrix(v)
+C=S.Matrix.hstack(*(S.Matrix([edgecol(e)[i]*(20 if i>=14 else 1) for i in I]) for e in D))
+FC=C[:,[D.index(e) for e in FSET]]
+assert FC.rank()==10
+L=S.Matrix.vstack(*(t.T for t in FC.T.nullspace()))
+V=L*C[:,[D.index(e) for e in OTHER]]
+hsc=S.Matrix([rhs(p)[i]*(20 if i>=14 else 1) for i in I]);B=jac(rhs)*P
+T=S.Matrix([[B[I[i],k]*(20 if I[i]>=14 else 1) for k in range(8)] for i in range(15)])
+
+# 11-arc contact: explicitly rational tangent displacement of the lawful 13-arc point.
+alpha=S.Rational(53523764802790621389,287880142016181828437500)
+z13=zc-alpha*S.eye(8)[:,5]-S.Rational(293725,3287440)*alpha*S.eye(8)[:,7]
+k5=S.Matrix([S.Rational(14343940,34101),0,0,-260,0,0,0,1])
+h=S.Rational(-2110010319589186676373085701,21647807832978109719298700000000)
+z11=z13+h*k5
+p11=tuple(F(v) for v in S.Matrix(p)+P*(tstar+z11))
+assert restrictions(p11)==(F(0),)*5
+phys11=center+A*z11
+assert [i for i,v in enumerate(phys11) if v==0]==[4,15,19,23]
+assert all(v>=0 for v in phys11)
+q=hsc+T*(tstar+z11)
+F9=((0,0),(0,1),(2,2),(3,3),(4,3),(4,5),(5,5),(6,5),(6,6))
+S2=((2,1),(0,3))
+support=F9+S2
+M11=C[:,[D.index(e) for e in support]]
+assert M11.rank()==11 and M11.row_join(q).rank()==11
+weights,_=M11.gauss_jordan_solve(q)
+assert all(v>0 for v in weights)
+C21=S.Matrix.hstack(*(edgecol(e) for e in support))
+assert C21*weights==S.Matrix(rhs(p11))  # All original 21 equations.
+# Explicit exact duals inherited as candidate vectors from PR #1963; verified again
+# against all thirty columns and the new right-hand side.
+DUAL={
+ (0,0):'7:1',
+ (0,1):'1:-5/13 8:15/13 12:-1/13',
+ (0,2):'1:-5/9 2:-5/18 9:10/9 13:-1/18',
+ (2,2):'0:-18/5 1:-2 7:18/5 8:54/13 9:4 12:-18/65 13:-1/5',
+ (3,3):'0:-36/5 1:-4 2:-2 7:36/5 8:8 9:8 10:5 12:-2/5 13:-2/5 14:-1/5',
+ (4,3):'0:-69/10 1:-9/2 2:-3 3:-2 7:69/10 8:15/2 9:15/2 10:6 12:-3/10 13:-3/10 14:-1/5',
+ (4,5):'0:-18/5 1:-2 2:-1 4:1 7:18/5 8:4 9:4 10:4 12:-1/5 13:-1/5 14:-1/5',
+ (5,5):'0:-23/5 1:-3 2:-2 3:-1 5:1 7:23/5 8:5 9:5 10:5 12:-1/5 13:-1/5 14:-1/5',
+ (6,5):'0:-36/13 1:-28/13 2:-23/13 3:-18/13 4:-1 5:-1 7:36/13 8:38/13 9:38/13 10:38/13 11:1 12:-1/13 13:-1/13 14:-1/13',
+ (6,6):'0:2/25 2:3/5 3:4/5 4:1 5:1 6:1 7:-2/25 11:-1 12:-1/25 13:-1/25 14:-1/25'
+}
+assert set(F9).issubset(DUAL)
+dual_lower={}
+for e in F9:
+    y=S.zeros(15,1)
+    for term in DUAL[e].split():
+        row,v=term.split(':');y[int(row)]=S.Rational(v)
+    assert all((y.T*C[:,j])[0]<=int(D[j]==e) for j in range(30))
+    lower=(y.T*q)[0]
+    assert lower>0
+    dual_lower[e]=lower
+assert len(dual_lower)==9
+
+# Complete one-extra-edge finite exclusion (any <=10-arc coupling uses 9 forced
+# arcs and at most one of the other 21). The vector q is not in any span.
+CF9=C[:,[D.index(e) for e in F9]]
+assert CF9.rank()==9
+other=tuple(e for e in D if e not in F9)
+L9=S.Matrix.vstack(*(v.T for v in CF9.T.nullspace()))
+assert L9.shape==(6,15)
+V9=L9*C[:,[D.index(e) for e in other]]
+qr=L9*q
+assert all(V9[:,[j]].row_join(qr).rank()>V9[:,[j]].rank()
+           for j in range(len(other)))
+
+# All 210 possible two-extra-edge supports: precisely one subspace contains
+# the new right-hand side, namely the explicit positive basis.
+matched=[]
+for i,j in combinations(range(len(other)),2):
+    M2=V9[:,[i,j]]
+    if M2.row_join(qr).rank()==M2.rank():
+        matched.append((other[i],other[j]))
+assert matched==[S2]
+
+# Codimension-three affine local minimal-11 sheet inside the 8D physical family.
+# One of the four left annihilator rows of M11 vanishes after pulling back to
+# the physical parameter directions, leaving three independent equations.
+N11=S.Matrix.vstack(*(v.T for v in M11.T.nullspace()))
+assert N11.shape==(4,15)
+G=N11*T
+assert G.rank()==3
+assert N11*q==S.zeros(4,1)
+K11=G.nullspace()
+assert len(K11)==5
+assert all(M11.row_join(T*v).rank()==11 for v in K11)
+# The nine dual bounds, 11 weights, 22 nonstructural physical slacks, and
+# 209 rank exclusions are strict at z11; finite continuity yields a common
+# open relative neighborhood in this 5D affine plane with minimal=11.
+print('MODEL', 'frozen seven-likelihood-ratio P/Q-BRC Blackwell auxiliary transport')
+print('SCIENTIFIC_PIN_GLOBAL', 'a01383f825ef9d43b4b754254303298c64041568')
+print('SCIENTIFIC_PIN_EM', '86149263e38c22292c9def1e0f69092efa1be77e')
+print('CONTACT_SCALAR',h)
+print('CONTACT_PARAMETER',tuple(z11))
+print('SUPPORT_11',support)
+print('FULL_21_EQUATIONS',True,'PHYSICAL_5_EQUALITIES',True,'PHYSICAL_26_SLACKS',True)
+print('MIN_POS_MASS',min(weights))
+print('MIN_POS_PHYSICAL_SLACK',min(v for v in phys11 if v>0))
+print('MIN_FORCED_DUAL_LOWER',min(dual_lower.values()))
+print('FORCED_DUALS',len(dual_lower))
+print('EXHAUSTIVE_ONE_EXTRA_EXCLUSIONS',len(other))
+print('EXHAUSTIVE_TWO_EXTRA_MATCHES',len(matched),'FROM',len(other)*(len(other)-1)//2,'MATCHED',matched)
+print('LOCAL_PARAMETER_NORMAL_RANK',G.rank(),'LOCAL_DIMENSION',8-G.rank())
+print('LOCAL_TANGENT_BASIS',tuple(tuple(v) for v in K11))
+print('PASS_EXACT_LAWFUL_MINIMAL_11_ARCS_AND_LOCAL_5D_STRATUM')
+
+
+# ---------------------------------------------------------------------------
+# Exact nine-arc continuation of the preceding frozen eleven-arc certificate.
+# The eight surviving duals are rechecked against all 30 original columns.
+# ---------------------------------------------------------------------------
+K9=S.Matrix.hstack(*K11)
+W9=S.Matrix.hstack(*(M11.gauss_jordan_solve(T*v)[0] for v in K11))
+assert M11*W9==T*K9
+initial=S.Matrix([S.Rational(1,100),S.Rational(1,100),
+                  -S.Rational(1,100),-S.Rational(1,100),0])
+tau=-(weights[1]+(W9.row(1)*initial)[0])/W9[1,4]
+assert tau==S.Rational(
+  32588385367342445179133179624463329,
+  10293597568004590105855689746100000000)
+delta=initial+S.Matrix([0,0,0,0,tau])
+z9=z11+K9*delta
+weights9=weights+W9*delta
+physical9=center+A*z9
+assert all(v>=0 for v in physical9)
+assert [i for i,v in enumerate(physical9) if v==0]==[4,6,15,19,23]
+assert [support[i] for i,v in enumerate(weights9) if v==0]==[(0,1),(2,1)]
+assert all(v>=0 for v in weights9)
+p9=tuple(F(v) for v in S.Matrix(p)+P*(tstar+z9))
+assert restrictions(p9)==(F(0),)*5
+assert phys(p9)==tuple(F(v) for v in physical9)
+E9=tuple((e,v) for e,v in zip(support,weights9) if v>0)
+assert len(E9)==9 and all(v>0 for e,v in E9)
+assert S.Matrix.hstack(*(edgecol(e) for e,v in E9))*S.Matrix([v for e,v in E9])==S.Matrix(rhs(p9))
+q9=hsc+T*(tstar+z9)
+assert M11*weights9==q9
+
+forced8=tuple(e for e in F9 if e!=(0,1))
+assert len(forced8)==8
+for e in forced8:
+    y=S.zeros(15,1)
+    for term in DUAL[e].split():
+        row,value=term.split(':')
+        y[int(row)]=S.Rational(value)
+    assert all((y.T*C[:,j])[0]<=int(D[j]==e) for j in range(30))
+    assert (y.T*q9)[0]>0
+
+CF8=C[:,[D.index(e) for e in forced8]]
+assert CF8.rank()==8
+L8=S.Matrix.vstack(*(v.T for v in CF8.T.nullspace()))
+assert L8.shape==(7,15)
+q8=L8*q9
+others=tuple(e for e in D if e not in forced8)
+matching=[]
+for e in others:
+    v=L8*C[:,D.index(e)]
+    if v.row_join(q8).rank()==v.rank():
+        matching.append(e)
+assert matching==[(0,3)]
+# For any transport the eight strict duals force eight distinct edges.
+# At most eight edges would consist only of those eight, but quotient q8
+# is nonzero (indeed it belongs to the unique ninth-column span).
+assert q8!=S.zeros(7,1)
+print('NINE_EDGE_TAU',tau)
+print('NINE_EDGE_DELTA',tuple(delta))
+print('NINE_EDGE_Z',tuple(z9))
+print('NINE_EDGE_SUPPORT',tuple(e for e,v in E9))
+print('NINE_EDGE_WEIGHTS',tuple(v for e,v in E9))
+print('NINE_EDGE_PHYSICAL_ZERO_SLACKS',[i for i,v in enumerate(physical9) if not v])
+print('NINE_EDGE_MIN_POSITIVE_WEIGHT',min(v for e,v in E9))
+print('NINE_EDGE_MIN_POSITIVE_PHYSICAL_SLACK',min(v for v in physical9 if v>0))
+print('EIGHT_STRICT_FORCING_DUALS',len(forced8))
+print('EXACT_SINGLETON_QUOTIENT_TESTS',len(others),'MATCHES',matching)
+print('PASS_EXACT_LAWFUL_GLOBAL_MINIMUM_NINE_ARCS_AT_EXPLICIT_POINT')
+
+
+# Four-dimensional local minimal-nine sheet; zero physical slacks persist
+# identically under its tangent variations.
+M9=C[:,[D.index(e) for e,v in E9]]
+assert M9.rank()==9 and M9.row_join(q9).rank()==9
+N9=S.Matrix.vstack(*(v.T for v in M9.T.nullspace()))
+G9=N9*T
+assert G9.rank()==4
+K9local=S.Matrix.hstack(*G9.nullspace())
+assert K9local.shape==(8,4)
+assert all(A.row(i)*K9local==S.zeros(1,4) for i in (4,6,15,19,23))
+print('NINE_EDGE_SHEET_PARAMETER_DIM',8-G9.rank())
+print('NINE_EDGE_SHEET_ZERO_CAPACITY_FACES_STABLE',True)
+print('PASS_EXACT_LAWFUL_FOUR_DIMENSIONAL_MINIMUM_NINE_SHEET')
+
+
+# ---------------------------------------------------------------------------
+# 2026-11-10 continuation: exact legal 8-arc contact, then seven-arc contact.
+# Reproduce the seven-edge center, six strict duals and the full 2D polygon.
+# Historical code above is byte-identical to the cited nine-edge verifier.
+# ---------------------------------------------------------------------------
+K9sheet=K9local
+W9sheet=S.Matrix.hstack(*(M9.gauss_jordan_solve(T*K9sheet[:,i])[0]
+                        for i in range(4)))
+w9vec=M9.gauss_jordan_solve(q9)[0]
+s8=S.Matrix([S.Rational(63,250),S.Rational(3,125),-S.Rational(3,500),w9vec[1]/5])
+assert s8[3]==S.Rational(1904037272845196213852040637,
+                         24234128183825913403050000000)
+z8=z9+K9sheet*s8
+w8all=w9vec+W9sheet*s8
+assert [i for i,v in enumerate(w8all) if not v]==[1]
+E8=tuple((e,v) for (e,_),v in zip(E9,w8all) if v>0)
+assert len(E8)==8
+M8=C[:,[D.index(e) for e,v in E8]]
+q8=hsc+T*(tstar+z8)
+assert M8*S.Matrix([v for e,v in E8])==q8
+assert all(v>=0 for v in center+A*z8)
+assert restrictions(tuple(F(v) for v in S.Matrix(p)+P*(tstar+z8)))==(F(0),)*5
+N8=S.Matrix.vstack(*(v.T for v in M8.T.nullspace()))
+K8=S.Matrix.hstack(*(v for v in (N8*T).nullspace()))
+assert K8.shape==(8,3)
+W8=S.Matrix.hstack(*(M8.gauss_jordan_solve(T*K8[:,i])[0]
+                       for i in range(3)))
+w8vec=M8.gauss_jordan_solve(q8)[0]
+a,b=S.Rational(47,10000),-S.Rational(3,40)
+c=-(w8vec[4]+W8[4,0]*a+W8[4,1]*b)/W8[4,2]
+assert c==S.Rational(3343991687719263127,31363229362559600000)
+s7=S.Matrix([a,b,c])
+z7=z8+K8*s7
+w7all=w8vec+W8*s7
+assert [i for i,v in enumerate(w7all) if not v]==[4]
+E7=tuple((e,v) for (e,_),v in zip(E8,w7all) if v>0)
+assert len(E7)==7
+p7=tuple(F(v) for v in S.Matrix(p)+P*(tstar+z7))
+q7=hsc+T*(tstar+z7)
+p7phys=center+A*z7
+assert restrictions(p7)==(F(0),)*5 and all(v>=0 for v in p7phys)
+M7=C[:,[D.index(e) for e,v in E7]]
+assert M7.rank()==7 and M7*S.Matrix([v for e,v in E7])==q7
+assert S.Matrix.hstack(*(edgecol(e) for e,v in E7))*S.Matrix(
+    [v for e,v in E7])==S.Matrix(rhs(p7))
+F6=tuple(e for e,v in E7 if e!=(0,3))
+assert len(F6)==6
+for e in F6:
+    y=S.zeros(15,1)
+    for term in DUAL[e].split():
+        j,v=term.split(':');y[int(j)]=S.Rational(v)
+    assert all((y.T*C[:,i])[0]<=int(D[i]==e) for i in range(30))
+    assert (y.T*q7)[0]>0
+M6=C[:,[D.index(e) for e in F6]]
+L6=S.Matrix.vstack(*(v.T for v in M6.T.nullspace()))
+assert M6.rank()==6 and L6*q7!=S.zeros(L6.rows,1)
+matches=[e for e in D if e not in F6 and
+         (L6*C[:,D.index(e)]).row_join(L6*q7).rank()==
+         (L6*C[:,D.index(e)]).rank()]
+assert matches==[(0,3)]
+# Entire physical seven-arc sheet is a bounded, five-vertex rational polygon.
+N7=S.Matrix.vstack(*(v.T for v in M7.T.nullspace()))
+G7=N7*T
+assert G7.rank()==6
+K7=S.Matrix.hstack(*G7.nullspace())
+assert K7.shape==(8,2)
+W7=S.Matrix.hstack(*(M7.gauss_jordan_solve(T*K7[:,i])[0]
+                    for i in range(2)))
+coef=S.Matrix.vstack(W7,A*K7)
+base=S.Matrix.vstack(S.Matrix([v for e,v in E7]),p7phys)
+assert all(coef[i,0]==coef[i,1]==0 for i in range(coef.rows)if base[i]==0)
+active=[i for i in range(coef.rows)if coef[i,0] or coef[i,1]]
+verts=set()
+for i,j in combinations(active,2):
+    det=coef[i,0]*coef[j,1]-coef[i,1]*coef[j,0]
+    if not det:continue
+    u=(-base[i]*coef[j,1]+coef[i,1]*base[j])/det
+    v=(-coef[i,0]*base[j]+base[i]*coef[j,0])/det
+    if all(base[k]+coef[k,0]*u+coef[k,1]*v>=0
+           for k in range(coef.rows)):
+        verts.add((u,v))
+assert len(verts)==5
+# Exhaust possible extremal recession rays and coordinate axes: none feasible.
+rays=[(1,0),(-1,0),(0,1),(0,-1)]
+rays += [(coef[i,1],-coef[i,0]) for i in active]
+rays += [(-coef[i,1],coef[i,0]) for i in active]
+for u,v in rays:
+    assert not all(coef[i,0]*u+coef[i,1]*v>=0 for i in active)
+masses_min={}
+for i,(e,w) in enumerate(E7):
+    val=min(base[i]+coef[i,0]*u+coef[i,1]*v for u,v in verts)
+    assert val>0
+    masses_min[e]=val
+dual_min={}
+for e in F6:
+    y=S.zeros(15,1)
+    for term in DUAL[e].split():
+        j,v=term.split(':');y[int(j)]=S.Rational(v)
+    val=min((y.T*(q7+T*K7*S.Matrix([u,v])))[0] for u,v in verts)
+    assert val>0
+    dual_min[e]=val
+# Every point in the closed polygon has 7 positive edges, six forced edges,
+# and a strictly positive 7th component outside their span. Thus N_min = 7.
+print('R5_SEVEN_EDGE_P7',p7)
+print('R5_SEVEN_EDGE_SUPPORT',tuple(e for e,v in E7))
+print('R5_SEVEN_EDGE_WEIGHTS',tuple(v for e,v in E7))
+print('R5_SEVEN_ZERO_PHYSICAL_SLACKS',
+      [i for i,x in enumerate(p7phys) if not x])
+print('R5_EXACT_SIX_DUALS_24_EXTRA_TESTS',len(F6),len(D)-len(F6),matches)
+print('R5_SEVEN_SHEET_DIMENSION_AND_POLYGON_VERTICES',K7.cols,len(verts))
+print('R5_MIN_WEIGHTS_ON_ENTIRE_POLYGON',masses_min)
+print('R5_MIN_DUAL_BOUNDS_ON_ENTIRE_POLYGON',dual_min)
+print('PASS_EXACT_LAWFUL_SEVEN_ARC_MINIMUM_ON_COMPLETE_CLOSED_2D_POLYGON')
+
+# ------------------------------------------------------------------------
+# 2026-11-10 new theorem: whole lawful 7-to-3 bridge, no 4/5/6 minima.
+# Source: exact seven-edge variables from this predecessor verifier;
+# terminal three-edge family from immutable PR #1945.
+# This composite is published for future full execution. A separately
+# executed standalone Fraction reproduction supplied EXACT_OUTPUT.txt.
+# ------------------------------------------------------------------------
+triad=((0,0),(3,3),(6,6))
+x3=Q("1 1 1 27/80 1/10 27/80 1/10")
+p3=x3+x3
+s=S.Rational(7933,36000)
+w3=S.Matrix([s,1-2*s,s])
+q3=S.Matrix([rhs(p3)[i]*(20 if i>=14 else 1) for i in I])
+assert restrictions(p3)==(F(0),)*5 and all(v>=0 for v in phys(p3))
+assert S.Matrix.hstack(*(edgecol(e) for e in triad))*w3==S.Matrix(rhs(p3))
+assert C[:,[D.index(e) for e in triad]]*w3==q3
+assert all(v>0 for v in w3)
+assert tuple(e for e,_ in E7)==((0,0),(3,3),(4,3),(4,5),(6,5),(6,6),(0,3))
+assert all(v>0 for e,v in E7)
+expected={
+(0,0):(1,0,0),(3,3):(0,1,0),(4,3):(0,0,0),
+(4,5):(0,0,0),(6,5):(0,0,0),(6,6):(0,0,1)}
+for e in F6:
+    yf=S.zeros(15,1)
+    for term in DUAL[e].split():
+        j,v=term.split(':');yf[int(j)]=S.Rational(v)
+    assert all((yf.T*C[:,i])[0]<=int(D[i]==e) for i in range(30))
+    assert tuple((yf.T*C[:,D.index(d)])[0] for d in triad)==expected[e]
+    assert (yf.T*q7)[0]>0
+    assert (yf.T*q3)[0]>=0
+ell=S.zeros(15,1)
+ell[3]=-S.Rational(5,23);ell[10]=S.Rational(25,23)
+ell[14]=-S.Rational(1,23)
+assert all((ell.T*C[:,D.index(d)])[0]==0 for d in F6+triad)
+assert (ell.T*C[:,D.index((0,3))])[0]==1
+assert (ell.T*q3)[0]==0
+assert (ell.T*q7)[0]==dict(E7)[(0,3)]>0
+# Midpoint is a fully exact, nondegenerate example.
+p_half=tuple((a+b)/2 for a,b in zip(p7,p3))
+whalf=S.Matrix([(w+(w3[triad.index(e)] if e in triad else 0))/2 for e,w in E7])
+assert all(v>0 for v in whalf)
+assert restrictions(p_half)==(F(0),)*5 and all(v>=0 for v in phys(p_half))
+q_half=S.Matrix([rhs(p_half)[i]*(20 if i>=14 else 1) for i in I])
+assert C[:,[D.index(e) for e,v in E7]]*whalf==q_half
+assert S.Matrix.hstack(*(edgecol(e) for e,v in E7))*whalf==S.Matrix(rhs(p_half))
+assert (ell.T*q_half)[0]>0
+print('BRIDGE_6_DUALS_30_COLUMNS_AND_3_DIAGONAL_COLUMNS',True)
+print('BRIDGE_7TH_ELL_AND_21_ORIGINAL_EQUATIONS',True)
+print('BRIDGE_EXACT_HALF_POINT_PHYSICAL_5_EQUALITIES_26_SLACKS',True)
+print('BRIDGE_THEOREM_MINIMUM_7_FOR_0_LE_T_LT_1_AND_3_AT_T_EQ_1',
+      'proved using full P7 predecessor bounds')
