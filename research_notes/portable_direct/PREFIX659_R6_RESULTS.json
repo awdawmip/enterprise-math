@@ -1,0 +1,98 @@
+{
+  "schema": "EM_PREFIX659_R6_EXACT_EDGE_WITNESS_AND_SLOT_TRANSITION_V1",
+  "date": "2026-11-10",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "exact_witness": [
+    "0",
+    "19/128"
+  ],
+  "layers": 189,
+  "strict_mu_interval": [
+    "89.455",
+    "89.456"
+  ],
+  "strict_W_interval": [
+    "605.010",
+    "605.011"
+  ],
+  "slot_transition_q0": "mu_z/W_z",
+  "slot_transition_strict_interval": [
+    "12",
+    "13"
+  ],
+  "selected_edge_rectangle": {
+    "p": [
+      "0",
+      "1/131072"
+    ],
+    "z": [
+      "9727/65536",
+      "9729/65536"
+    ]
+  },
+  "old_eight_squares_center": [
+    "3/20",
+    "1/8"
+  ],
+  "old_eight_squares_half_width": "61/16777216",
+  "single_rectangle_area_ratio_to_old_square": "16384/3721",
+  "new_orbit_rectangle_count": 8,
+  "derivative_bounds": {
+    "p_mu": "17766",
+    "p_H": "2250360",
+    "p_W": "17931816",
+    "z_mu": "3969",
+    "z_H": "377055",
+    "z_W": "3754674"
+  },
+  "q_values": {
+    "12": {
+      "witness_variance_strict": [
+        "43024049/500",
+        "86048099/1000"
+      ],
+      "inward_p_derivative_strict_integer_enclosure": [
+        -77041,
+        -77039
+      ],
+      "z_derivative_strict_integer_enclosure": [
+        -451,
+        -449
+      ],
+      "p_gradient_cap": "2582394696",
+      "z_gradient_cap": "540720684",
+      "edge_rectangle_loss_upper": "114494877/4096",
+      "previous_eight_squares_excess_upper": "8245990431/2097152",
+      "strict_new_rectangle_over_all_old_squares_lower": "691399957213/262144000"
+    },
+    "24": {
+      "witness_variance_strict": [
+        "346339323/1000",
+        "86584831/250"
+      ],
+      "inward_p_derivative_strict_integer_enclosure": [
+        -308046,
+        -308044
+      ],
+      "z_derivative_strict_integer_enclosure": [
+        11344,
+        11347
+      ],
+      "p_gradient_cap": "10329152400",
+      "z_gradient_cap": "2162787480",
+      "edge_rectangle_loss_upper": "228980115/2048",
+      "previous_eight_squares_excess_upper": "16491254535/1048576",
+      "strict_new_rectangle_over_all_old_squares_lower": "1355577599893/131072000"
+    }
+  },
+  "arithmetic": "Exact stdlib Fraction and integer bisection",
+  "proof_status": "AUTHOR_PROVED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "scope": "frozen two-direction BRC observer on full [0,1]^2, real q in [12,24]",
+  "uniform_q_interval": [
+    "12",
+    "24"
+  ],
+  "strict_gap_for_all_q_and_all_new_old_pairs": ">2600",
+  "checks_passed": 37,
+  "result": "ALL_CHECKS_PASS"
+}
