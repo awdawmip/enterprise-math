@@ -27,7 +27,8 @@ def slot_holonomy(word):
   assert adjacent(s,t)
   leave=next(iter(ss-tt)); enter=next(iter(tt-ss))
   slots[slots.index(leave)]=enter
- return tuple(slots)
+ # V17/V37 native displayed axis-to-slot tuple is inverse of propagated slot-to-axis list.
+ return tuple(slots.index(x) for x in BASE)
 
 def ring_initial(packets):
  expanded=[BASE]
