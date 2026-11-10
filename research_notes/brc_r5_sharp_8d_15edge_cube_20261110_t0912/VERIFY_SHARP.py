@@ -115,7 +115,7 @@ L=Matrix.vstack(*(vec.T for vec in FC.T.nullspace()))
 assert L.shape==(5,15) and L*FC==Matrix.zeros(5,10)
 assert all(x.q==1 for x in L)  # the canonical SymPy nullspace basis is integral here
 V=L*C[:,[D.index(e) for e in OTHER]]
-hsc=Matrix([v*(20 if i>=14 else 1) for i,v in zip(I,rhs(p))])
+hsc=Matrix([rhs(p)[i]*(20 if i>=14 else 1) for i in I])
 q0=L*hsc
 Q8=L*T
 columns=[[int(V[i,j]) for i in range(5)] for j in range(20)]
