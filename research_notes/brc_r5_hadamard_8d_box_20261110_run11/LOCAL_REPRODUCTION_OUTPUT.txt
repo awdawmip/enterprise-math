@@ -1,0 +1,15 @@
+Exact independently executed local reconstruction; 2026-11-10 Asia/Shanghai.
+Python 3 with SymPy exact Rational and standard-library fractions.Fraction.
+Source: /mnt/data/r5_hadamard/VERIFY.py (not claimed byte-identical to CERTIFICATE.py).
+The independent script reconstructed the physical mass/time/Jacobian, 15-edge Blackwell basis,
+the same 8 physical RREF tangent directions and the new Hadamard bound.
+The immutable 4,845-case center exclusion remains inherited from PR #1902.
+
+PASS exact rank(B8)=8, physical equalities, all-21-row basis, and positive margins
+OLD_SCALED_ROW_BOUND_WRONG expected=457/8 corrected=405/2
+SCALED_ROW_16_COMPONENT_MINUS75 -75
+EXACT_SQUARED_ROWSUM_NORM 15396036457529/233280000 < 67600
+HADAMARD_CAP 260*39^14, D0= 1148267016000000
+CERTIFIED_U 5622387007488071807106526559830560000000
+CERTIFIED_BOX_RHO 1/10000000000000000000000000000000000000000
+PASS 8D_15EDGE_BOX_RADIUS_10^-40 (conditional on original 4,845 exact center exclusions in PR #1902)
