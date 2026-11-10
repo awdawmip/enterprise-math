@@ -44,3 +44,7 @@ Local material SHA-256, to resolve the uncompressed complete package:
 - Full local paper: `1b1d7f23e5aceb14ebe7ddae109ab6e55303d5e24afb165330a7cc8f3b3b524b`
 
 Frozen science: `f42f2906d77f24085c123f3ccfe9667d41caa96d`. Authorship-only evidence, not an independently reviewed formal Task Result.
+
+## Byte-identical published-source re-execution
+
+After initial publication, the full source retrieved from the immutable Git commit was reconstructed locally and checked to have **Git blob SHA-1 `1d74ba0df2827e27d369893ee76a585ae00751f5`**, equal to the actual GitHub `fetch_file` remote blob. This byte-identical program was then run under Python with the frozen PREFIX-666 native inputs. It produced `ALL_INTERVALS_CERTIFIED 16`; the complete output log had SHA-256 `ffd865708619a907b6bb1bd6e2635cfbc63cc251fb0b24c1574038cf66f63093`, identical to the separately executed certificate log. This closes the published-source execution correspondence without altering the scientific pin.
