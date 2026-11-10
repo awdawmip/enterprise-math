@@ -1,0 +1,82 @@
+{
+  "schema": "EM_PREFIX656_SYMMETRIC_ERROR_BOUND_V1",
+  "date": "2026-11-10",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "dependencies": [
+    "PREFIX-643@ae7872ca18676397fcc0dd9424fb77e08928bee7",
+    "PREFIX-654@429849fc4985a5e3b475f09b1d446ab853a15b1b",
+    "PREFIX-655@3dc372940c317cf540c96fc02b55284462549bac"
+  ],
+  "rectangles": {
+    "B1": {
+      "first": [
+        "3/20",
+        "1/6"
+      ],
+      "second": [
+        "38911/262144",
+        "38913/262144"
+      ]
+    },
+    "B2": {
+      "first": [
+        "38911/262144",
+        "38913/262144"
+      ],
+      "second": [
+        "3/20",
+        "1/6"
+      ]
+    }
+  },
+  "q_range": [
+    "12",
+    "24"
+  ],
+  "universal_deficit_coefficients": {
+    "first_linear": "1130*q*(p-L)",
+    "second_linear": "(2369/3)*q*(z-a)",
+    "first_quadratic": "965*q^2*(p-L)*(R-p)"
+  },
+  "q_specific": {
+    "12": {
+      "strict_p_linear_coefficient": "13560",
+      "strict_z_linear_coefficient": "9476",
+      "strict_p_quadratic_coefficient": "138960",
+      "p_distance_upper_if_deficit_under_1_over_1000": "1/13560000",
+      "z_distance_upper_if_deficit_under_1_over_1000": "1/9476000"
+    },
+    "24": {
+      "strict_p_linear_coefficient": "47100",
+      "strict_z_linear_coefficient": "31590",
+      "strict_p_quadratic_coefficient": "555840",
+      "p_distance_upper_if_deficit_under_1_over_1000": "1/47100000",
+      "z_distance_upper_if_deficit_under_1_over_1000": "1/31590000"
+    }
+  },
+  "corner_variance_enclosures": {
+    "12": [
+      "47425459/1000",
+      "47425460/1000"
+    ],
+    "24": [
+      "192190134/1000",
+      "192190135/1000"
+    ]
+  },
+  "corner_set": [
+    [
+      "3/20",
+      "38911/262144"
+    ],
+    [
+      "38911/262144",
+      "3/20"
+    ]
+  ],
+  "source_of_inequalities": "Exact inherited PREFIX643/654/655 bounds and proved affine interpolation / symmetry",
+  "checked_only": "Arithmetic and algebraic consequences of inherited strict inequalities",
+  "new_native_96port_run": false,
+  "checks_passed": 29,
+  "result": "ALL_CHECKS_PASS"
+}
