@@ -1,0 +1,49 @@
+{
+  "schema": "ENTERPRISE_MATH_R702_BRC_SOURCE_MOMENT_EVIDENCE_V1",
+  "status": "R702_EXACT_BRC_MOMENT_LUMPABILITY_PASS",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "publication_id": "TP2-8B7E13C5904A2D6F1142",
+  "researcher_id": "EM-X6-1A036C",
+  "research_activity_id": "RA-38793378AD64168BDEAF4CAA",
+  "domain": "R699 E* a=b=0 static 60-labeled four-group ordered X6 return-path candidate",
+  "caps": [
+    24,
+    18,
+    6,
+    12
+  ],
+  "weights": [
+    96,
+    5,
+    92,
+    47
+  ],
+  "all_histograms_including_empty": 43225,
+  "distinct_mass_moment_pairs": 43225,
+  "source_labeled_support_states": "1152921504606846976",
+  "minimum_fixed_histogram_bits": 16,
+  "naive_s_W_fixed_bits": 18,
+  "maximum_W": 3510,
+  "zero_to_two_step_return_probability": "1/60",
+  "n_0_through_8_expected_active": [
+    "0",
+    "1",
+    "59/30",
+    "2611/900",
+    "102719/27000",
+    "3788851/810000",
+    "134176679/24300000",
+    "4620123691/729000000",
+    "155853587039/21870000000"
+  ],
+  "two_step_positive_terminal_histograms": 11,
+  "verification": "Local standard-library Python integer/Fraction checker executed; stdout: R702_EXACT_BRC_MOMENT_LUMPABILITY_PASS 43225 43225 11",
+  "proof_scope": "exact finite candidate model, all 43225 histograms, all group-permutation-equivariant Markov kernels (analytic orbit proof), histogram-only finite-horizon observers",
+  "source_gate_model": "uniform toggling of one of 60 named sources; branch probability 1/60; positive BRC weights and original labels retained",
+  "native_v29_v39_event_executed": false,
+  "formal_task_claim": false,
+  "driver_review": "UNREVIEWED",
+  "frozen_scientific_source_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor_r699_commit": "55743642c88a24377ad4797cc2c6359c98b20553",
+  "predecessor_r700_r701_commit": "cea16baea4d54f9aa8de67509d1ce62a2ffd4ef1"
+}
