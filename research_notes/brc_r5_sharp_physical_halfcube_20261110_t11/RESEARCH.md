@@ -21,7 +21,7 @@ For **every real** `z` with `|z_k|<=rho_+`:
 2. At every physically lawful point there is a Blackwell transport; its minimum number of strictly positive edges is **exactly 14 when `m(z)=0`**, and **exactly 15 when `m(z)>0`**.
 3. This is the **largest** `rho` for which `m(z)>=0` alone characterizes physical legality at *every point* of the entire eight-dimensional cube `|z_k|<=rho`. For each `rho>rho_+`, the point with `z=rho*(0,0,0,-1,-1,1,0,-79/260)` satisfies `m(z)=0`, while violating the source-defined 26th capacity slack.
 
-The guaranteed cube radius grows from `1/10000000` to `273/225912500`, an exact factor of `(273/225912500)*10000000 = 109200/90365`. Its interior contains an 8D 15-edge lawful half-chamber and a 7D 14-edge boundary chamber.
+The guaranteed cube radius grows from `1/10000000` to `273/225912500`, an exact factor of `(273/225912500)*10000000 = 218400/18073`. Its interior contains an 8D 15-edge lawful half-chamber and a 7D 14-edge boundary chamber.
 
 At the critical parameter `z=rho_+*(0,0,0,-1,-1,1,0,-79/260)`, the two *independent* faces `mu_1=0` and target capacity `z_y+9 b_y/40-v_y=0` meet. The fixed 14 positive edges stay positive and all 13-edge candidates remain excluded: this is a lawful **14-edge/capacity-facet intersection**, not a 13-edge transition.
 
