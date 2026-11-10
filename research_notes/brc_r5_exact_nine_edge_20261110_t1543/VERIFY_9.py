@@ -235,3 +235,18 @@ print('NINE_EDGE_MIN_POSITIVE_PHYSICAL_SLACK',min(v for v in physical9 if v>0))
 print('EIGHT_STRICT_FORCING_DUALS',len(forced8))
 print('EXACT_SINGLETON_QUOTIENT_TESTS',len(others),'MATCHES',matching)
 print('PASS_EXACT_LAWFUL_GLOBAL_MINIMUM_NINE_ARCS_AT_EXPLICIT_POINT')
+
+
+# Four-dimensional local minimal-nine sheet; zero physical slacks persist
+# identically under its tangent variations.
+M9=C[:,[D.index(e) for e,v in E9]]
+assert M9.rank()==9 and M9.row_join(q9).rank()==9
+N9=S.Matrix.vstack(*(v.T for v in M9.T.nullspace()))
+G9=N9*T
+assert G9.rank()==4
+K9local=S.Matrix.hstack(*G9.nullspace())
+assert K9local.shape==(8,4)
+assert all(A.row(i)*K9local==S.zeros(1,4) for i in (4,6,15,19,23))
+print('NINE_EDGE_SHEET_PARAMETER_DIM',8-G9.rank())
+print('NINE_EDGE_SHEET_ZERO_CAPACITY_FACES_STABLE',True)
+print('PASS_EXACT_LAWFUL_FOUR_DIMENSIONAL_MINIMUM_NINE_SHEET')
