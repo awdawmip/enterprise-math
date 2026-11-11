@@ -37,6 +37,8 @@ For every exact two-key replacement `K=(K0\{a,b}) âˆª {c,d}` with distinct `a,bâ
 | (5,4,1)+(6,4,1) | 828 |
 | **Total** | **6,315** |
 
+Independent exact check: the separate `VERIFY_GROUPED_MASK_EC49FKZ.py` groups all 87 outside keys by their restricted demand-support masks. For each missing-demand mask M, it computes the feasible unordered added-key count by `sum_{s<t, s|t=M} f(s)f(t)+sum_{s=M} C(f(s),2)`, an independent frequency-count formulation. All 21 counts and the 6,315 total match the direct pair enumeration (`EC49FKZ_INDEPENDENT_GROUPED_SUPPORT_PASS` on the local author-side run). Run the primary verifier first to regenerate its report JSON.
+
 There are **13** zero-coverability dropped-pair classes. Every removal of (2,1,1) together with one other starting key is coverability-impossible under any pair of incoming keys.
 
 ## Additional exact original signed-prefix cost experiments
