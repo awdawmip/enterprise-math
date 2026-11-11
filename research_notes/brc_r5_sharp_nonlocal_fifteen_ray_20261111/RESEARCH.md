@@ -58,3 +58,27 @@ Run `python3 VERIFY_R5_SHARP_RAY.py`; `EXACT_OUTPUT.txt` contains the captured a
 Theorem 1 proves finite legal connectivity for arbitrary strictly positive hidden-fiber endpoint pairs with an explicit endpoint-dependent length bound. Theorem 2 proves exact 15-step length along the stated maximal ray. **Unresolved:** whether every positive endpoint pair in this fiber always admits some legal 15-step atom permutation/decomposition, or there exists a pair whose minimum exceeds 15. An immediately executable next unit is to search endpoint directions whose available five-atom bases force incompatible source-3 prefix margins; use rational LP/MILP or exact Farkas certificates to distinguish a true >15 lower bound from failure of a chosen ordering.
 
 Owner/authority: authored as independent R5 continuation. No other task's active CLAIM changed, and no P000/native X6 theorem, formal Source Result or independent review is asserted.
+
+
+## Theorem 3 — exact feasible-order census on the entire maximal ray
+
+The fifteen atoms in Theorem 2 are labeled and commute **algebraically** (their vector sum is order-independent), but their intermediate nonnegative constraints do depend on order. For each of the `2^15=32768` subsets `S` define the exact prefix state
+`X_S=X+epsilon_max*sum_(a in S) a`.
+Call `S` admissible if all 28 coordinates of `X_S` are nonnegative. A 15-atom permutation is legal at the terminal endpoint precisely when its successive prefix subsets form a monotone chain through admissible subsets of the Boolean lattice.
+
+The dynamic-programming recurrence
+`ways(empty)=1`, `ways(S)=1_admissible(S)*sum_(a in S) ways(S minus {a})`
+counts every such permutation **exactly once**. The new `VERIFY_ORDER_CENSUS.py` forms each subset mass vector as a 28-component *integer* vector by multiplying all rational input masses by one common positive denominator; no float sign tests are used. It independently checks the forward and backward chain counts and the totals classified by prefix size.
+
+The complete finite census is:
+
+- Admissible subsets: **7,109** out of 32,768.
+- Legal maximal-endpoint orders: **3,514,190,816** out of `15!=1,307,674,368,000`; exact fraction `109818463/40864824000`.
+- Exactly **eight** distinct first atoms occur in such legal orders: `(1,2),(1,3),(1,4),(1,5),(2,2),(2,3),(2,4),(2,5)`.
+- Exactly **four** distinct last atoms occur: `(5,2),(5,3),(5,4),(5,5)`.
+
+Because every prefix mass is affine in `epsilon` and `X` is strictly positive, an order legal at `epsilon_max` is also legal at **all** `0<=epsilon<epsilon_max`. Conversely, an order legal **uniformly on the closed maximal ray** is legal at the terminal endpoint. Hence `3,514,190,816` is the **exact number of 15-atom permutations valid over the complete maximal feasible ray**; for each fixed interior endpoint the count may be larger.
+
+This gives a finite exact scheduling algorithm for a prescribed BRC atom multiset: label the operations, compute every subset's observation-preserving mass and nonnegative feasibility, and find/count feasible monotone Boolean-lattice chains. The search has `O(2^m*m*d)` elementary coordinate work for `m` labeled atoms and `d` mass coordinates, instead of examining `m!` permutations. This is a schedule feasibility theorem for a fixed multiset; selecting different atom bases remains an independent optimization question.
+
+Artifact: `VERIFY_ORDER_CENSUS.py` and executed `ORDER_CENSUS_OUTPUT.txt`. The numerical counts above use exact integer arithmetic and are independently reproducible from the published `VERIFY_R5_SHARP_RAY.py` witness.
