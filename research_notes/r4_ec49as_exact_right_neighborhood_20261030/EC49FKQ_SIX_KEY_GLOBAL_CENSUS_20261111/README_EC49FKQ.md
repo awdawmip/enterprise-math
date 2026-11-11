@@ -1,0 +1,41 @@
+# EC49FKQ — six-key covering census and forced-depth signed-X6 exact lower bounds
+
+Date: 2026-11-11. Frozen scientific input pin: `fc0f038e7bfd12c886b4d37f900bfb770c0f61ab`. Status: exact finite author-side research; independent Driver mathematical review pending. Derived from the EC49FKM and EC49FKN source in draft PR #1730.
+
+## Exact theorem for the frozen nine-state BRC catalogue
+
+The original frozen generator enumerates exactly 178,850 legal ordered signed native-X6 operation words, 94 distinct complete raw cache keys and 24 required observation labels. The full native path cost is the count of distinct nonempty *ordered signed X6 microstep prefixes*, not endpoint coordinates.
+
+**(1) Complete six-key census.** Exactly **2,004 distinct sets of six complete raw keys** cover all 24 observation labels. Among these, **1,376** contain a five-key covering subset, and **628** are inclusion-minimal six-key covers.
+
+**(2) Exact depthwise necessary bound.** For **1,263** of the 2,004 six-key sets, the computed forced-depth lower bound on the total native prefix cost is **at least 94**, excluding a 93-or-fewer-prefix solution on those key sets. The excluded partition is 823 sets extending a five-key cover and 440 inclusion-minimal six-key sets.
+
+**(3) Finite survivor reduction.** Exactly **741** six-key sets pass this particular necessary lower-bound sieve (553 extending a five-key cover, 188 inclusion-minimal six-key sets). Thus any 93-or-fewer-prefix construction using exactly six complete raw keys must select one of these 741 sets. They are the next exact prefix-union optimization targets. The previously found seven-key construction has cost 94.
+
+### Completeness of the six-key census
+
+The five exact observation labels
+
+    (2,16), (2,32), (3,16), (4,1), (7,1)
+
+are respectively attainable by 1, 1, 2, 7 and 34 complete raw keys in the frozen catalogue. These five key-eligibility families are *pairwise disjoint*. Therefore every six-key cover includes a transversal choosing one key from each family, plus one extra key. Enumerate the 1×1×2×7×34=476 transversals, add each of the 94 raw keys not already present, and require the bitwise union of exact 24-label support masks to equal (1<<24)-1. Deduplicating six-element sets yields exactly 2,004. The previously enumerated 16 five-key covers permit the exact 1,376/628 subset test.
+
+### Native signed-prefix depth lemma
+
+Fix a covering key set K. Let W_i(K) be the set of all literal eligible BRC words with label i and key in K, and define L_i as the minimum native signed microstep length of such words. For each d≥1, define A_d={i : L_i≥d}. For a complete *ordered signed* length-d prefix p, let S_d(p) comprise those i∈A_d for which **some** word of W_i(K) has prefix p, and define M_d=max_p |S_d(p)|. Any realization of every label has at least one depth-d prefix per label in A_d, and one distinct prefix covers at most M_d of them. Hence for all assignments of literal words:
+
+    |union_i P(w_i)| >= sum_{d=1}^{max_i L_i} ceil(|A_d| / M_d).
+
+This applies separately to each of the 2,004 complete six-key coverings. Every L_i, A_d and S_d is derived exhaustively from the signed native BRC catalogue. Prefixes at distinct depths are distinct cost objects; no quotient by endpoint, mass, cache-key count or unsigned coordinate is applied. The exact bound values range from 67 to 146. The full count-by-value histogram is in the JSON summary.
+
+### Reproduction
+
+Run `python EC49FKP_sixkey_census.py` then `python EC49FKQ_sixkey_depth_bounds.py` in this directory. The two source files `EC49FGW_RADIUS5_SCREEN.py` and `EC49FGJ_SEVEN_KEY_94_WITNESSES.json` are frozen input copies read from the PR #1730 head `52b4b359606134604de931ba96a9db75b1e80976` (original Git blobs `e3663682afe80bdcbbc90c442cb2daaccc0dee66` and `6e54f83f9d39bf932d7f36addf4b1987ca88b077`). The programs were actually executed in Python 3 with the complete frozen catalogue on 2026-11-11.
+
+The depth script generates `EC49FKQ_SIXKEY_DEPTH_REPORT.json` containing all 2,004 full raw key sets and every per-depth tuple (d,N_d,M_d,r_d). The companion `EC49FKQ_SIXKEY_DEPTH_SUMMARY.json` contains the exact histogram. The 2,004 byte-sized lower bounds in lexicographically sorted key-index tuple order have SHA-256 `ecfc32b60f0dd9df41fc930c009f6373365247457d5ecd275125cb60dc5258a6`, and are encoded in the compact 2,004-byte certificate `EC49FKQ_2004_BOUNDS.b64`. This reproduces all lower-bound values without persisting a second oversized JSON copy.
+
+## Next scientific action
+
+Apply a complete native signed-prefix union solver to the 741 remaining six-key covers, prioritizing the 188 inclusion-minimal six-key covers. This discriminates actual ≤93 feasibility, while the wider mother objective remains C_min(7) ?= 94.
+
+Provenance: a stand-alone author-side continuation of the frozen EC49AS scientific question, without an unrelated task CLAIM. The native Researcher activity, review and formal Result are separately reported; P000 and ACTIVE worldview are unchanged.
