@@ -51,7 +51,7 @@ for i,j in cells:
       'new_L0_floor_micro':int(b0*10**6),
       'new_L_half_floor_micro':int(b2*10**6)})
 assert len(records)==4
-result_path=folder/'PREFIX713_R6_RESULTS.json'
+result_path=folder/'PREFIX713_R6_EXACT_TWO_WITNESS_RESULTS.json'
 result=json.loads(result_path.read_text())
 result['new_fine_cells_evaluated']=records
 result['newly_certified_ordered_fine_beyond_PREFIX712_at_least']=8
