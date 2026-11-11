@@ -1,0 +1,65 @@
+{
+  "schema": "R733_FOUR_PORT_FLOW_INTEGRAL_CERT_V1",
+  "status": "PASS",
+  "date_local": "2026-11-12",
+  "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "source_refs": [
+    "https://github.com/awdawmip/enterprise-math/pull/2119",
+    "https://github.com/awdawmip/enterprise-math/pull/2124"
+  ],
+  "scope": "R730 optimal masks A,B; positive integer BRC arc multiplicity; four-port/two-PASS V29 candidate",
+  "theorem": "For both masks, block matrix [12 native cumulative PASS counter rows; 3 selected vertex-flow rows] has determinant +/-2, hence all-length injectivity on arc count vectors and image parity index 2.",
+  "codebook": "j(i)=(floor(i/12),i mod 12), 0<=i<15; both symbols increment the same 12-entry cumulative ledger",
+  "systems": {
+    "A": {
+      "arc_mask": "211733226574",
+      "balance_rows": [
+        "012",
+        "013",
+        "014"
+      ],
+      "determinant": -2,
+      "rooted_nonbacktracking_prefixes_through_10_arcs": 3669,
+      "terminal_ledger_fibers": 1411,
+      "max_holonomies_per_tested_fiber": 3,
+      "length_12_multiset_holonomies": {
+        "XXYY": "012",
+        "XYXY": "120",
+        "XYYX": "012",
+        "YXXY": "012",
+        "YXYX": "201",
+        "YYXX": "012"
+      }
+    },
+    "B": {
+      "arc_mask": "5363347296468",
+      "balance_rows": [
+        "012",
+        "013",
+        "123"
+      ],
+      "determinant": 2,
+      "rooted_nonbacktracking_prefixes_through_10_arcs": 3371,
+      "terminal_ledger_fibers": 1361,
+      "max_holonomies_per_tested_fiber": 3,
+      "length_12_multiset_holonomies": {
+        "XXYY": "012",
+        "XYXY": "201",
+        "XYYX": "012",
+        "YXXY": "012",
+        "YXYX": "120",
+        "YYXX": "012"
+      }
+    }
+  },
+  "checked_methods": [
+    "exact BigInt Bareiss 15x15 determinants",
+    "all rooted nonbacktracking prefixes length<=10 with actual pooled counters",
+    "independent six length-12 rooted CNB X/X/Y/Y arrangements and transported V17 frame"
+  ],
+  "tests_completed": "Exact in-session computations completed; uploaded verifier supplied for independent rerun",
+  "physical_force_certificate": "NOT_CONSTRUCTED",
+  "formal_claim": "NOT_OBTAINED",
+  "mathematical_review": "NOT_PERFORMED",
+  "next_question": "Obtain frozen P000 signed three-quantum TRIADIC_CLOSURE_E event and lawful V29/V39 coupling; test whether signed force legality preserves this observer."
+}
