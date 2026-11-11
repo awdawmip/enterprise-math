@@ -1,0 +1,6838 @@
+{
+  "addressed_word_audits": [
+    {
+      "compiled_nonempty_address_suffixes_checked": 252,
+      "examples": [
+        {
+          "commands": 44,
+          "destination": 0,
+          "key": 1,
+          "target": 0
+        },
+        {
+          "commands": 41,
+          "destination": 5,
+          "key": 6,
+          "target": 0
+        }
+      ],
+      "physical_address_bind_executions": 18,
+      "slots": 6
+    },
+    {
+      "compiled_nonempty_address_suffixes_checked": 1260,
+      "examples": [
+        {
+          "commands": 53,
+          "destination": 0,
+          "key": 1,
+          "target": 0
+        },
+        {
+          "commands": 51,
+          "destination": 13,
+          "key": 14,
+          "target": 0
+        }
+      ],
+      "physical_address_bind_executions": 42,
+      "slots": 14
+    }
+  ],
+  "copied_alias": {
+    "at_schedule_start_codes": [
+      1,
+      5,
+      1
+    ],
+    "at_schedule_start_knowledge": [
+      [
+        3,
+        1
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "body_commands": 281,
+    "body_vacancy_reads": 1,
+    "checked_api_boundaries": 13,
+    "final_full_codes": [
+      12,
+      7,
+      1
+    ],
+    "final_knowledge": [
+      [
+        3,
+        0
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "fixed_commands": 251,
+    "initial_full_codes": [
+      1,
+      5,
+      9
+    ],
+    "preparation_bit_commands": 0,
+    "preparation_copy_commands": 43,
+    "selected_keys": [
+      2,
+      7,
+      12,
+      1
+    ],
+    "selected_round_receipts": [
+      {
+        "codes_after": [
+          1,
+          5,
+          2
+        ],
+        "codes_before": [
+          1,
+          5,
+          1
+        ],
+        "cumulative_commands": 72,
+        "cumulative_reads": 1,
+        "destination": 2,
+        "key": 2,
+        "read_events": [
+          [
+            1,
+            1,
+            0
+          ]
+        ],
+        "round": 1,
+        "round_commands": 72,
+        "round_reads": 1,
+        "target": 0,
+        "word_lengths": [
+          30,
+          31,
+          11
+        ]
+      },
+      {
+        "codes_after": [
+          1,
+          7,
+          2
+        ],
+        "codes_before": [
+          1,
+          5,
+          2
+        ],
+        "cumulative_commands": 143,
+        "cumulative_reads": 1,
+        "destination": 1,
+        "key": 7,
+        "read_events": [],
+        "round": 2,
+        "round_commands": 71,
+        "round_reads": 0,
+        "target": 1,
+        "word_lengths": [
+          27,
+          33,
+          11
+        ]
+      },
+      {
+        "codes_after": [
+          12,
+          7,
+          2
+        ],
+        "codes_before": [
+          1,
+          7,
+          2
+        ],
+        "cumulative_commands": 213,
+        "cumulative_reads": 1,
+        "destination": 0,
+        "key": 12,
+        "read_events": [],
+        "round": 3,
+        "round_commands": 70,
+        "round_reads": 0,
+        "target": 2,
+        "word_lengths": [
+          23,
+          36,
+          11
+        ]
+      },
+      {
+        "codes_after": [
+          12,
+          7,
+          1
+        ],
+        "codes_before": [
+          12,
+          7,
+          2
+        ],
+        "cumulative_commands": 281,
+        "cumulative_reads": 1,
+        "destination": 2,
+        "key": 1,
+        "read_events": [],
+        "round": 4,
+        "round_commands": 68,
+        "round_reads": 0,
+        "target": 0,
+        "word_lengths": [
+          22,
+          35,
+          11
+        ]
+      }
+    ],
+    "total_including_preparation": 324,
+    "variable_commands": 30
+  },
+  "exact_residue_schedules": [
+    {
+      "actual_worst": 222,
+      "fixed": 186,
+      "histogram": {
+        "214": 4,
+        "222": 12
+      },
+      "original_preparation_count": 16,
+      "rounds": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "sample_format": [
+        "initial residues",
+        "original commands",
+        "reads",
+        "chosen full keys"
+      ],
+      "samples": [
+        [
+          [
+            0,
+            0
+          ],
+          214,
+          2,
+          [
+            2,
+            3,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          214,
+          2,
+          [
+            2,
+            3,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          222,
+          3,
+          [
+            3,
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            3
+          ],
+          222,
+          3,
+          [
+            2,
+            1,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            0
+          ],
+          214,
+          2,
+          [
+            2,
+            3,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            1
+          ],
+          214,
+          2,
+          [
+            2,
+            3,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          222,
+          3,
+          [
+            3,
+            1,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            3
+          ],
+          222,
+          3,
+          [
+            2,
+            1,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            0
+          ],
+          222,
+          3,
+          [
+            3,
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            1
+          ],
+          222,
+          3,
+          [
+            3,
+            2,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            2
+          ],
+          222,
+          3,
+          [
+            1,
+            3,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            3
+          ],
+          222,
+          3,
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            0
+          ],
+          222,
+          3,
+          [
+            2,
+            3,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            1
+          ],
+          222,
+          3,
+          [
+            2,
+            3,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            2
+          ],
+          222,
+          3,
+          [
+            1,
+            3,
+            2
+          ]
+        ],
+        [
+          [
+            3,
+            3
+          ],
+          222,
+          3,
+          [
+            1,
+            2,
+            3
+          ]
+        ]
+      ],
+      "slots": 2,
+      "worst_variable": 36,
+      "worst_witness": {
+        "at_schedule_start_codes": [
+          4,
+          2
+        ],
+        "at_schedule_start_knowledge": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "body_commands": 222,
+        "body_vacancy_reads": 3,
+        "checked_api_boundaries": 9,
+        "final_full_codes": [
+          2,
+          1
+        ],
+        "final_knowledge": [
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "fixed_commands": 186,
+        "initial_full_codes": [
+          4,
+          2
+        ],
+        "preparation_bit_commands": 0,
+        "preparation_copy_commands": 0,
+        "selected_keys": [
+          3,
+          1,
+          2
+        ],
+        "selected_round_receipts": [
+          {
+            "codes_after": [
+              3,
+              2
+            ],
+            "codes_before": [
+              4,
+              2
+            ],
+            "cumulative_commands": 90,
+            "cumulative_reads": 3,
+            "destination": 0,
+            "key": 3,
+            "read_events": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                1
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "round": 1,
+            "round_commands": 90,
+            "round_reads": 3,
+            "target": 0,
+            "word_lengths": [
+              47,
+              32,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              3,
+              1
+            ],
+            "codes_before": [
+              3,
+              2
+            ],
+            "cumulative_commands": 158,
+            "cumulative_reads": 3,
+            "destination": 1,
+            "key": 1,
+            "read_events": [],
+            "round": 2,
+            "round_commands": 68,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              22,
+              35,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              2,
+              1
+            ],
+            "codes_before": [
+              3,
+              1
+            ],
+            "cumulative_commands": 222,
+            "cumulative_reads": 3,
+            "destination": 0,
+            "key": 2,
+            "read_events": [],
+            "round": 3,
+            "round_commands": 64,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              22,
+              31,
+              11
+            ]
+          }
+        ],
+        "total_including_preparation": 222,
+        "variable_commands": 36
+      }
+    },
+    {
+      "actual_worst": 313,
+      "fixed": 251,
+      "histogram": {
+        "303": 8,
+        "305": 8,
+        "311": 12,
+        "313": 36
+      },
+      "original_preparation_count": 64,
+      "rounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "sample_format": [
+        "initial residues",
+        "original commands",
+        "reads",
+        "chosen full keys"
+      ],
+      "samples": [
+        [
+          [
+            0,
+            0,
+            0
+          ],
+          305,
+          4,
+          [
+            2,
+            7,
+            9,
+            4
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            1
+          ],
+          305,
+          4,
+          [
+            2,
+            7,
+            9,
+            4
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            2
+          ],
+          313,
+          5,
+          [
+            3,
+            5,
+            10,
+            4
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            3
+          ],
+          313,
+          5,
+          [
+            2,
+            5,
+            11,
+            4
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            0
+          ],
+          305,
+          4,
+          [
+            2,
+            7,
+            12,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            1
+          ],
+          305,
+          4,
+          [
+            2,
+            7,
+            12,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            2
+          ],
+          311,
+          5,
+          [
+            3,
+            8,
+            10,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            3
+          ],
+          311,
+          5,
+          [
+            2,
+            8,
+            11,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            0
+          ],
+          313,
+          5,
+          [
+            3,
+            5,
+            12,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            1
+          ],
+          311,
+          5,
+          [
+            3,
+            8,
+            9,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            2
+          ],
+          311,
+          5,
+          [
+            1,
+            8,
+            11,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            2,
+            3
+          ],
+          311,
+          5,
+          [
+            1,
+            8,
+            11,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            0
+          ],
+          313,
+          5,
+          [
+            2,
+            5,
+            12,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            1
+          ],
+          311,
+          5,
+          [
+            2,
+            8,
+            9,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            2
+          ],
+          311,
+          5,
+          [
+            1,
+            8,
+            10,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            3,
+            3
+          ],
+          311,
+          5,
+          [
+            1,
+            8,
+            10,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            0
+          ],
+          305,
+          4,
+          [
+            2,
+            7,
+            9,
+            4
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            1
+          ],
+          305,
+          4,
+          [
+            2,
+            7,
+            9,
+            4
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            2
+          ],
+          313,
+          5,
+          [
+            3,
+            5,
+            10,
+            4
+          ]
+        ],
+        [
+          [
+            1,
+            0,
+            3
+          ],
+          313,
+          5,
+          [
+            2,
+            5,
+            11,
+            4
+          ]
+        ],
+        [
+          [
+            1,
+            1,
+            0
+          ],
+          305,
+          4,
+          [
+            2,
+            7,
+            12,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          305,
+          4,
+          [
+            2,
+            7,
+            12,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            1,
+            2
+          ],
+          311,
+          5,
+          [
+            3,
+            8,
+            10,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            1,
+            3
+          ],
+          311,
+          5,
+          [
+            2,
+            8,
+            11,
+            1
+          ]
+        ],
+        [
+          [
+            1,
+            2,
+            0
+          ],
+          313,
+          5,
+          [
+            3,
+            5,
+            12,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2,
+            1
+          ],
+          311,
+          5,
+          [
+            3,
+            8,
+            9,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2,
+            2
+          ],
+          313,
+          5,
+          [
+            4,
+            5,
+            11,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            2,
+            3
+          ],
+          313,
+          5,
+          [
+            4,
+            5,
+            11,
+            2
+          ]
+        ],
+        [
+          [
+            1,
+            3,
+            0
+          ],
+          313,
+          5,
+          [
+            2,
+            5,
+            12,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            3,
+            1
+          ],
+          311,
+          5,
+          [
+            2,
+            8,
+            9,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            3,
+            2
+          ],
+          313,
+          5,
+          [
+            4,
+            5,
+            10,
+            3
+          ]
+        ],
+        [
+          [
+            1,
+            3,
+            3
+          ],
+          313,
+          5,
+          [
+            4,
+            5,
+            10,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            0
+          ],
+          313,
+          5,
+          [
+            3,
+            6,
+            9,
+            4
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            1
+          ],
+          313,
+          5,
+          [
+            3,
+            6,
+            9,
+            4
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            2
+          ],
+          313,
+          5,
+          [
+            1,
+            7,
+            10,
+            4
+          ]
+        ],
+        [
+          [
+            2,
+            0,
+            3
+          ],
+          313,
+          5,
+          [
+            1,
+            6,
+            11,
+            4
+          ]
+        ],
+        [
+          [
+            2,
+            1,
+            0
+          ],
+          313,
+          5,
+          [
+            3,
+            6,
+            12,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            1,
+            1
+          ],
+          313,
+          5,
+          [
+            3,
+            6,
+            12,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            1,
+            2
+          ],
+          313,
+          5,
+          [
+            4,
+            7,
+            10,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            1,
+            3
+          ],
+          313,
+          5,
+          [
+            4,
+            6,
+            11,
+            1
+          ]
+        ],
+        [
+          [
+            2,
+            2,
+            0
+          ],
+          313,
+          5,
+          [
+            1,
+            7,
+            12,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            2,
+            1
+          ],
+          313,
+          5,
+          [
+            4,
+            7,
+            9,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            2,
+            2
+          ],
+          303,
+          4,
+          [
+            1,
+            8,
+            11,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            2,
+            3
+          ],
+          303,
+          4,
+          [
+            1,
+            8,
+            11,
+            2
+          ]
+        ],
+        [
+          [
+            2,
+            3,
+            0
+          ],
+          313,
+          5,
+          [
+            1,
+            6,
+            12,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3,
+            1
+          ],
+          313,
+          5,
+          [
+            4,
+            6,
+            9,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3,
+            2
+          ],
+          303,
+          4,
+          [
+            1,
+            8,
+            10,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            3,
+            3
+          ],
+          303,
+          4,
+          [
+            1,
+            8,
+            10,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            0,
+            0
+          ],
+          313,
+          5,
+          [
+            2,
+            7,
+            9,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            0,
+            1
+          ],
+          313,
+          5,
+          [
+            2,
+            7,
+            9,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            0,
+            2
+          ],
+          313,
+          5,
+          [
+            1,
+            7,
+            10,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            0,
+            3
+          ],
+          313,
+          5,
+          [
+            1,
+            6,
+            11,
+            4
+          ]
+        ],
+        [
+          [
+            3,
+            1,
+            0
+          ],
+          313,
+          5,
+          [
+            2,
+            7,
+            12,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            1,
+            1
+          ],
+          313,
+          5,
+          [
+            2,
+            7,
+            12,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            1,
+            2
+          ],
+          313,
+          5,
+          [
+            4,
+            7,
+            10,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            1,
+            3
+          ],
+          313,
+          5,
+          [
+            4,
+            6,
+            11,
+            1
+          ]
+        ],
+        [
+          [
+            3,
+            2,
+            0
+          ],
+          313,
+          5,
+          [
+            1,
+            7,
+            12,
+            2
+          ]
+        ],
+        [
+          [
+            3,
+            2,
+            1
+          ],
+          313,
+          5,
+          [
+            4,
+            7,
+            9,
+            2
+          ]
+        ],
+        [
+          [
+            3,
+            2,
+            2
+          ],
+          303,
+          4,
+          [
+            1,
+            8,
+            11,
+            2
+          ]
+        ],
+        [
+          [
+            3,
+            2,
+            3
+          ],
+          303,
+          4,
+          [
+            1,
+            8,
+            11,
+            2
+          ]
+        ],
+        [
+          [
+            3,
+            3,
+            0
+          ],
+          313,
+          5,
+          [
+            1,
+            6,
+            12,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            3,
+            1
+          ],
+          313,
+          5,
+          [
+            4,
+            6,
+            9,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            3,
+            2
+          ],
+          303,
+          4,
+          [
+            1,
+            8,
+            10,
+            3
+          ]
+        ],
+        [
+          [
+            3,
+            3,
+            3
+          ],
+          303,
+          4,
+          [
+            1,
+            8,
+            10,
+            3
+          ]
+        ]
+      ],
+      "slots": 3,
+      "worst_variable": 62,
+      "worst_witness": {
+        "at_schedule_start_codes": [
+          4,
+          4,
+          2
+        ],
+        "at_schedule_start_knowledge": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "body_commands": 313,
+        "body_vacancy_reads": 5,
+        "checked_api_boundaries": 12,
+        "final_full_codes": [
+          4,
+          10,
+          5
+        ],
+        "final_knowledge": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "fixed_commands": 251,
+        "initial_full_codes": [
+          4,
+          4,
+          2
+        ],
+        "preparation_bit_commands": 0,
+        "preparation_copy_commands": 0,
+        "selected_keys": [
+          3,
+          5,
+          10,
+          4
+        ],
+        "selected_round_receipts": [
+          {
+            "codes_after": [
+              3,
+              4,
+              2
+            ],
+            "codes_before": [
+              4,
+              4,
+              2
+            ],
+            "cumulative_commands": 106,
+            "cumulative_reads": 5,
+            "destination": 0,
+            "key": 3,
+            "read_events": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                1,
+                1
+              ],
+              [
+                2,
+                0,
+                0
+              ]
+            ],
+            "round": 1,
+            "round_commands": 106,
+            "round_reads": 5,
+            "target": 0,
+            "word_lengths": [
+              63,
+              32,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              3,
+              4,
+              5
+            ],
+            "codes_before": [
+              3,
+              4,
+              2
+            ],
+            "cumulative_commands": 179,
+            "cumulative_reads": 5,
+            "destination": 2,
+            "key": 5,
+            "read_events": [],
+            "round": 2,
+            "round_commands": 73,
+            "round_reads": 0,
+            "target": 1,
+            "word_lengths": [
+              26,
+              36,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              3,
+              10,
+              5
+            ],
+            "codes_before": [
+              3,
+              4,
+              5
+            ],
+            "cumulative_commands": 245,
+            "cumulative_reads": 5,
+            "destination": 1,
+            "key": 10,
+            "read_events": [],
+            "round": 3,
+            "round_commands": 66,
+            "round_reads": 0,
+            "target": 2,
+            "word_lengths": [
+              23,
+              32,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              4,
+              10,
+              5
+            ],
+            "codes_before": [
+              3,
+              10,
+              5
+            ],
+            "cumulative_commands": 313,
+            "cumulative_reads": 5,
+            "destination": 0,
+            "key": 4,
+            "read_events": [],
+            "round": 4,
+            "round_commands": 68,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              22,
+              35,
+              11
+            ]
+          }
+        ],
+        "total_including_preparation": 313,
+        "variable_commands": 62
+      }
+    }
+  ],
+  "irregular_four_keys": [
+    {
+      "destinations": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0
+      ],
+      "four_key_weight": 24,
+      "four_keys": {
+        "at_schedule_start_codes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "at_schedule_start_knowledge": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "body_commands": 792,
+        "body_vacancy_reads": 14,
+        "checked_api_boundaries": 24,
+        "final_full_codes": [
+          8,
+          9,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "final_knowledge": [
+          [
+            15,
+            8
+          ],
+          [
+            15,
+            9
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ]
+        ],
+        "fixed_commands": 656,
+        "initial_full_codes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "selected_keys": [
+          8,
+          9,
+          8,
+          10,
+          12,
+          8,
+          9,
+          8
+        ],
+        "selected_round_receipts": [
+          {
+            "codes_after": [
+              8,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 196,
+            "cumulative_reads": 14,
+            "destination": 0,
+            "key": 8,
+            "read_events": [
+              [
+                0,
+                3,
+                0
+              ],
+              [
+                1,
+                3,
+                0
+              ],
+              [
+                2,
+                3,
+                0
+              ],
+              [
+                3,
+                3,
+                0
+              ],
+              [
+                4,
+                3,
+                0
+              ],
+              [
+                5,
+                3,
+                0
+              ],
+              [
+                6,
+                3,
+                0
+              ],
+              [
+                7,
+                3,
+                0
+              ],
+              [
+                8,
+                3,
+                0
+              ],
+              [
+                9,
+                3,
+                0
+              ],
+              [
+                10,
+                3,
+                0
+              ],
+              [
+                11,
+                3,
+                0
+              ],
+              [
+                12,
+                3,
+                0
+              ],
+              [
+                13,
+                3,
+                0
+              ]
+            ],
+            "round": 1,
+            "round_commands": 196,
+            "round_reads": 14,
+            "target": 0,
+            "word_lengths": [
+              136,
+              49,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              8,
+              9,
+              2,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              12,
+              9,
+              2,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 792,
+            "cumulative_reads": 14,
+            "destination": 0,
+            "key": 8,
+            "read_events": [],
+            "round": 8,
+            "round_commands": 84,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              24,
+              49,
+              11
+            ]
+          }
+        ],
+        "variable_commands": 136
+      },
+      "slots": 14,
+      "three_key_weight": 26,
+      "three_keys": {
+        "at_schedule_start_codes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "at_schedule_start_knowledge": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "body_commands": 794,
+        "body_vacancy_reads": 14,
+        "checked_api_boundaries": 24,
+        "final_full_codes": [
+          9,
+          10,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "final_knowledge": [
+          [
+            15,
+            9
+          ],
+          [
+            15,
+            10
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ]
+        ],
+        "fixed_commands": 656,
+        "initial_full_codes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "selected_keys": [
+          8,
+          9,
+          8,
+          10,
+          8,
+          9,
+          10,
+          9
+        ],
+        "selected_round_receipts": [
+          {
+            "codes_after": [
+              8,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 196,
+            "cumulative_reads": 14,
+            "destination": 0,
+            "key": 8,
+            "read_events": [
+              [
+                0,
+                3,
+                0
+              ],
+              [
+                1,
+                3,
+                0
+              ],
+              [
+                2,
+                3,
+                0
+              ],
+              [
+                3,
+                3,
+                0
+              ],
+              [
+                4,
+                3,
+                0
+              ],
+              [
+                5,
+                3,
+                0
+              ],
+              [
+                6,
+                3,
+                0
+              ],
+              [
+                7,
+                3,
+                0
+              ],
+              [
+                8,
+                3,
+                0
+              ],
+              [
+                9,
+                3,
+                0
+              ],
+              [
+                10,
+                3,
+                0
+              ],
+              [
+                11,
+                3,
+                0
+              ],
+              [
+                12,
+                3,
+                0
+              ],
+              [
+                13,
+                3,
+                0
+              ]
+            ],
+            "round": 1,
+            "round_commands": 196,
+            "round_reads": 14,
+            "target": 0,
+            "word_lengths": [
+              136,
+              49,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              9,
+              10,
+              2,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              8,
+              10,
+              2,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 794,
+            "cumulative_reads": 14,
+            "destination": 0,
+            "key": 9,
+            "read_events": [],
+            "round": 8,
+            "round_commands": 86,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              25,
+              50,
+              11
+            ]
+          }
+        ],
+        "variable_commands": 138
+      }
+    },
+    {
+      "destinations": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "four_key_weight": 44,
+      "four_keys": {
+        "at_schedule_start_codes": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          3
+        ],
+        "at_schedule_start_knowledge": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "body_commands": 1100,
+        "body_vacancy_reads": 6,
+        "checked_api_boundaries": 42,
+        "final_full_codes": [
+          4,
+          7,
+          2,
+          3,
+          3,
+          3
+        ],
+        "final_knowledge": [
+          [
+            7,
+            4
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "fixed_commands": 1008,
+        "initial_full_codes": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          3
+        ],
+        "selected_keys": [
+          4,
+          5,
+          4,
+          6,
+          4,
+          5,
+          4,
+          5,
+          7,
+          4,
+          5,
+          4,
+          5,
+          4
+        ],
+        "selected_round_receipts": [
+          {
+            "codes_after": [
+              4,
+              2,
+              2,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              2,
+              2,
+              2,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 122,
+            "cumulative_reads": 6,
+            "destination": 0,
+            "key": 4,
+            "read_events": [
+              [
+                0,
+                2,
+                0
+              ],
+              [
+                1,
+                2,
+                0
+              ],
+              [
+                2,
+                2,
+                0
+              ],
+              [
+                3,
+                2,
+                0
+              ],
+              [
+                4,
+                2,
+                0
+              ],
+              [
+                5,
+                2,
+                0
+              ]
+            ],
+            "round": 1,
+            "round_commands": 122,
+            "round_reads": 6,
+            "target": 0,
+            "word_lengths": [
+              71,
+              40,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              4,
+              7,
+              2,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              5,
+              7,
+              2,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 1100,
+            "cumulative_reads": 6,
+            "destination": 0,
+            "key": 4,
+            "read_events": [],
+            "round": 14,
+            "round_commands": 74,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              23,
+              40,
+              11
+            ]
+          }
+        ],
+        "variable_commands": 92
+      },
+      "slots": 6,
+      "three_key_weight": 46,
+      "three_keys": {
+        "at_schedule_start_codes": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          3
+        ],
+        "at_schedule_start_knowledge": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "body_commands": 1102,
+        "body_vacancy_reads": 6,
+        "checked_api_boundaries": 42,
+        "final_full_codes": [
+          6,
+          4,
+          2,
+          3,
+          3,
+          3
+        ],
+        "final_knowledge": [
+          [
+            7,
+            6
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "fixed_commands": 1008,
+        "initial_full_codes": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          3
+        ],
+        "selected_keys": [
+          4,
+          5,
+          4,
+          6,
+          4,
+          5,
+          4,
+          5,
+          4,
+          6,
+          5,
+          6,
+          5,
+          6
+        ],
+        "selected_round_receipts": [
+          {
+            "codes_after": [
+              4,
+              2,
+              2,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              2,
+              2,
+              2,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 122,
+            "cumulative_reads": 6,
+            "destination": 0,
+            "key": 4,
+            "read_events": [
+              [
+                0,
+                2,
+                0
+              ],
+              [
+                1,
+                2,
+                0
+              ],
+              [
+                2,
+                2,
+                0
+              ],
+              [
+                3,
+                2,
+                0
+              ],
+              [
+                4,
+                2,
+                0
+              ],
+              [
+                5,
+                2,
+                0
+              ]
+            ],
+            "round": 1,
+            "round_commands": 122,
+            "round_reads": 6,
+            "target": 0,
+            "word_lengths": [
+              71,
+              40,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              6,
+              4,
+              2,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              5,
+              4,
+              2,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 1102,
+            "cumulative_reads": 6,
+            "destination": 0,
+            "key": 6,
+            "read_events": [],
+            "round": 14,
+            "round_commands": 76,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              24,
+              41,
+              11
+            ]
+          }
+        ],
+        "variable_commands": 94
+      }
+    }
+  ],
+  "late_extra_bit": {
+    "baseline": {
+      "at_schedule_start_codes": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "at_schedule_start_knowledge": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "body_commands": 20296,
+      "body_vacancy_reads": 14,
+      "checked_api_boundaries": 696,
+      "cycle": [
+        8,
+        9,
+        10,
+        12,
+        11,
+        13,
+        14,
+        15
+      ],
+      "cycle_weights": [
+        2,
+        4,
+        4,
+        4,
+        6,
+        6,
+        6,
+        8
+      ],
+      "final_full_codes": [
+        15,
+        9,
+        10,
+        12,
+        11,
+        13,
+        14,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "final_knowledge": [
+        [
+          15,
+          15
+        ],
+        [
+          15,
+          9
+        ],
+        [
+          15,
+          10
+        ],
+        [
+          15,
+          12
+        ],
+        [
+          15,
+          11
+        ],
+        [
+          15,
+          13
+        ],
+        [
+          15,
+          14
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          0
+        ],
+        [
+          8,
+          0
+        ]
+      ],
+      "fixed_commands": 19024,
+      "initial_full_codes": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "selected_round_receipts": [
+        {
+          "codes_after": [
+            8,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 196,
+          "cumulative_reads": 14,
+          "destination": 0,
+          "key": 8,
+          "read_events": [
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              2,
+              3,
+              0
+            ],
+            [
+              3,
+              3,
+              0
+            ],
+            [
+              4,
+              3,
+              0
+            ],
+            [
+              5,
+              3,
+              0
+            ],
+            [
+              6,
+              3,
+              0
+            ],
+            [
+              7,
+              3,
+              0
+            ],
+            [
+              8,
+              3,
+              0
+            ],
+            [
+              9,
+              3,
+              0
+            ],
+            [
+              10,
+              3,
+              0
+            ],
+            [
+              11,
+              3,
+              0
+            ],
+            [
+              12,
+              3,
+              0
+            ],
+            [
+              13,
+              3,
+              0
+            ]
+          ],
+          "round": 1,
+          "round_commands": 196,
+          "round_reads": 14,
+          "target": 0,
+          "word_lengths": [
+            136,
+            49,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 718,
+          "cumulative_reads": 14,
+          "destination": 6,
+          "key": 14,
+          "read_events": [],
+          "round": 7,
+          "round_commands": 88,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            26,
+            51,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            15,
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 808,
+          "cumulative_reads": 14,
+          "destination": 0,
+          "key": 15,
+          "read_events": [],
+          "round": 8,
+          "round_commands": 90,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            27,
+            52,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            14,
+            15,
+            9,
+            10,
+            12,
+            11,
+            13,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            14,
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 1504,
+          "cumulative_reads": 14,
+          "destination": 1,
+          "key": 15,
+          "read_events": [],
+          "round": 16,
+          "round_commands": 90,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            27,
+            52,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            10,
+            12,
+            11,
+            13,
+            14,
+            15,
+            9,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            10,
+            12,
+            11,
+            13,
+            14,
+            8,
+            9,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 18904,
+          "cumulative_reads": 14,
+          "destination": 5,
+          "key": 15,
+          "read_events": [],
+          "round": 216,
+          "round_commands": 90,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            27,
+            52,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            8,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            9,
+            10,
+            12,
+            11,
+            13,
+            15,
+            8,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 19510,
+          "cumulative_reads": 14,
+          "destination": 5,
+          "key": 14,
+          "read_events": [],
+          "round": 223,
+          "round_commands": 88,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            26,
+            51,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            15,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            8,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 19600,
+          "cumulative_reads": 14,
+          "destination": 6,
+          "key": 15,
+          "read_events": [],
+          "round": 224,
+          "round_commands": 90,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            27,
+            52,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            8,
+            10,
+            12,
+            11,
+            13,
+            14,
+            15,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            15,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 19684,
+          "cumulative_reads": 14,
+          "destination": 0,
+          "key": 8,
+          "read_events": [],
+          "round": 225,
+          "round_commands": 84,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            24,
+            49,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            15,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 20206,
+          "cumulative_reads": 14,
+          "destination": 6,
+          "key": 14,
+          "read_events": [],
+          "round": 231,
+          "round_commands": 88,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            26,
+            51,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            15,
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 20296,
+          "cumulative_reads": 14,
+          "destination": 0,
+          "key": 15,
+          "read_events": [],
+          "round": 232,
+          "round_commands": 90,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            27,
+            52,
+            11
+          ]
+        }
+      ],
+      "variable_commands": 1272
+    },
+    "expanded": {
+      "at_schedule_start_codes": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "at_schedule_start_knowledge": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "body_commands": 20294,
+      "body_vacancy_reads": 21,
+      "checked_api_boundaries": 696,
+      "cycle": [
+        8,
+        9,
+        10,
+        12,
+        11,
+        13,
+        14,
+        4
+      ],
+      "cycle_weights": [
+        2,
+        4,
+        4,
+        4,
+        6,
+        6,
+        6,
+        6
+      ],
+      "final_full_codes": [
+        4,
+        9,
+        10,
+        12,
+        11,
+        13,
+        14,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "final_knowledge": [
+        [
+          15,
+          4
+        ],
+        [
+          15,
+          9
+        ],
+        [
+          15,
+          10
+        ],
+        [
+          15,
+          12
+        ],
+        [
+          15,
+          11
+        ],
+        [
+          15,
+          13
+        ],
+        [
+          15,
+          14
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          12,
+          0
+        ],
+        [
+          12,
+          0
+        ]
+      ],
+      "fixed_commands": 19024,
+      "initial_full_codes": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "selected_round_receipts": [
+        {
+          "codes_after": [
+            8,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 196,
+          "cumulative_reads": 14,
+          "destination": 0,
+          "key": 8,
+          "read_events": [
+            [
+              0,
+              3,
+              0
+            ],
+            [
+              1,
+              3,
+              0
+            ],
+            [
+              2,
+              3,
+              0
+            ],
+            [
+              3,
+              3,
+              0
+            ],
+            [
+              4,
+              3,
+              0
+            ],
+            [
+              5,
+              3,
+              0
+            ],
+            [
+              6,
+              3,
+              0
+            ],
+            [
+              7,
+              3,
+              0
+            ],
+            [
+              8,
+              3,
+              0
+            ],
+            [
+              9,
+              3,
+              0
+            ],
+            [
+              10,
+              3,
+              0
+            ],
+            [
+              11,
+              3,
+              0
+            ],
+            [
+              12,
+              3,
+              0
+            ],
+            [
+              13,
+              3,
+              0
+            ]
+          ],
+          "round": 1,
+          "round_commands": 196,
+          "round_reads": 14,
+          "target": 0,
+          "word_lengths": [
+            136,
+            49,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            2,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 718,
+          "cumulative_reads": 14,
+          "destination": 6,
+          "key": 14,
+          "read_events": [],
+          "round": 7,
+          "round_commands": 88,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            26,
+            51,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            4,
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 862,
+          "cumulative_reads": 21,
+          "destination": 0,
+          "key": 4,
+          "read_events": [
+            [
+              7,
+              2,
+              0
+            ],
+            [
+              8,
+              2,
+              0
+            ],
+            [
+              9,
+              2,
+              0
+            ],
+            [
+              10,
+              2,
+              0
+            ],
+            [
+              11,
+              2,
+              0
+            ],
+            [
+              12,
+              2,
+              0
+            ],
+            [
+              13,
+              2,
+              0
+            ]
+          ],
+          "round": 8,
+          "round_commands": 144,
+          "round_reads": 7,
+          "target": 0,
+          "word_lengths": [
+            80,
+            53,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            14,
+            4,
+            9,
+            10,
+            12,
+            11,
+            13,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            14,
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 1556,
+          "cumulative_reads": 21,
+          "destination": 1,
+          "key": 4,
+          "read_events": [],
+          "round": 16,
+          "round_commands": 88,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            24,
+            53,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            10,
+            12,
+            11,
+            13,
+            14,
+            4,
+            9,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            10,
+            12,
+            11,
+            13,
+            14,
+            8,
+            9,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 18906,
+          "cumulative_reads": 21,
+          "destination": 5,
+          "key": 4,
+          "read_events": [],
+          "round": 216,
+          "round_commands": 88,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            24,
+            53,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            8,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            9,
+            10,
+            12,
+            11,
+            13,
+            4,
+            8,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 19512,
+          "cumulative_reads": 21,
+          "destination": 5,
+          "key": 14,
+          "read_events": [],
+          "round": 223,
+          "round_commands": 88,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            26,
+            51,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            4,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            8,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 19600,
+          "cumulative_reads": 21,
+          "destination": 6,
+          "key": 4,
+          "read_events": [],
+          "round": 224,
+          "round_commands": 88,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            24,
+            53,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            8,
+            10,
+            12,
+            11,
+            13,
+            14,
+            4,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            4,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 19684,
+          "cumulative_reads": 21,
+          "destination": 0,
+          "key": 8,
+          "read_events": [],
+          "round": 225,
+          "round_commands": 84,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            24,
+            49,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            4,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 20206,
+          "cumulative_reads": 21,
+          "destination": 6,
+          "key": 14,
+          "read_events": [],
+          "round": 231,
+          "round_commands": 88,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            26,
+            51,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            4,
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            8,
+            9,
+            10,
+            12,
+            11,
+            13,
+            14,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 20294,
+          "cumulative_reads": 21,
+          "destination": 0,
+          "key": 4,
+          "read_events": [],
+          "round": 232,
+          "round_commands": 88,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            24,
+            53,
+            11
+          ]
+        }
+      ],
+      "variable_commands": 1270
+    },
+    "expansion_minus_baseline": {
+      "1": 0,
+      "7": 0,
+      "8": 54,
+      "16": 52,
+      "216": 2,
+      "223": 2,
+      "224": 0,
+      "225": 0,
+      "231": 0,
+      "232": -2
+    },
+    "fixed_per_round": 82,
+    "rotation_size": 7,
+    "rounds": 232,
+    "slots": 14
+  },
+  "lifetime_pair": {
+    "certificates": [
+      [
+        [],
+        [
+          -1,
+          2,
+          2,
+          -1
+        ]
+      ],
+      [
+        [],
+        [
+          -1,
+          2,
+          2,
+          -1
+        ]
+      ]
+    ],
+    "first": {
+      "at_schedule_start_codes": [
+        1,
+        1,
+        2
+      ],
+      "at_schedule_start_knowledge": [
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "body_commands": 134,
+      "body_vacancy_reads": 0,
+      "checked_api_boundaries": 6,
+      "final_full_codes": [
+        3,
+        4,
+        2
+      ],
+      "final_knowledge": [
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "fixed_commands": 124,
+      "initial_full_codes": [
+        1,
+        1,
+        2
+      ],
+      "preparation_bit_commands": 48,
+      "preparation_copy_commands": 0,
+      "selected_keys": [
+        3,
+        4
+      ],
+      "selected_round_receipts": [
+        {
+          "codes_after": [
+            3,
+            1,
+            2
+          ],
+          "codes_before": [
+            1,
+            1,
+            2
+          ],
+          "cumulative_commands": 66,
+          "cumulative_reads": 0,
+          "destination": 0,
+          "key": 3,
+          "read_events": [],
+          "round": 1,
+          "round_commands": 66,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            23,
+            32,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            3,
+            4,
+            2
+          ],
+          "codes_before": [
+            3,
+            1,
+            2
+          ],
+          "cumulative_commands": 134,
+          "cumulative_reads": 0,
+          "destination": 1,
+          "key": 4,
+          "read_events": [],
+          "round": 2,
+          "round_commands": 68,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            22,
+            35,
+            11
+          ]
+        }
+      ],
+      "total_including_preparation": 182,
+      "variable_commands": 10
+    },
+    "rounds": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "second": {
+      "at_schedule_start_codes": [
+        2,
+        1,
+        2
+      ],
+      "at_schedule_start_knowledge": [
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "body_commands": 134,
+      "body_vacancy_reads": 0,
+      "checked_api_boundaries": 6,
+      "final_full_codes": [
+        3,
+        4,
+        2
+      ],
+      "final_knowledge": [
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "fixed_commands": 124,
+      "initial_full_codes": [
+        2,
+        1,
+        2
+      ],
+      "preparation_bit_commands": 48,
+      "preparation_copy_commands": 0,
+      "selected_keys": [
+        3,
+        4
+      ],
+      "selected_round_receipts": [
+        {
+          "codes_after": [
+            3,
+            1,
+            2
+          ],
+          "codes_before": [
+            2,
+            1,
+            2
+          ],
+          "cumulative_commands": 66,
+          "cumulative_reads": 0,
+          "destination": 0,
+          "key": 3,
+          "read_events": [],
+          "round": 1,
+          "round_commands": 66,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            23,
+            32,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            3,
+            4,
+            2
+          ],
+          "codes_before": [
+            3,
+            1,
+            2
+          ],
+          "cumulative_commands": 134,
+          "cumulative_reads": 0,
+          "destination": 1,
+          "key": 4,
+          "read_events": [],
+          "round": 2,
+          "round_commands": 68,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            22,
+            35,
+            11
+          ]
+        }
+      ],
+      "total_including_preparation": 182,
+      "variable_commands": 10
+    }
+  },
+  "local_assertions": 19898,
+  "only_next_destination_counterexample": {
+    "first": {
+      "at_schedule_start_codes": [
+        4,
+        1,
+        2
+      ],
+      "at_schedule_start_knowledge": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "body_commands": 202,
+      "body_vacancy_reads": 0,
+      "checked_api_boundaries": 9,
+      "final_full_codes": [
+        1,
+        4,
+        2
+      ],
+      "final_knowledge": [
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "fixed_commands": 186,
+      "initial_full_codes": [
+        4,
+        1,
+        2
+      ],
+      "preparation_bit_commands": 48,
+      "preparation_copy_commands": 0,
+      "selected_keys": [
+        3,
+        4,
+        1
+      ],
+      "selected_round_receipts": [
+        {
+          "codes_after": [
+            3,
+            1,
+            2
+          ],
+          "codes_before": [
+            4,
+            1,
+            2
+          ],
+          "cumulative_commands": 66,
+          "cumulative_reads": 0,
+          "destination": 0,
+          "key": 3,
+          "read_events": [],
+          "round": 1,
+          "round_commands": 66,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            23,
+            32,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            3,
+            4,
+            2
+          ],
+          "codes_before": [
+            3,
+            1,
+            2
+          ],
+          "cumulative_commands": 134,
+          "cumulative_reads": 0,
+          "destination": 1,
+          "key": 4,
+          "read_events": [],
+          "round": 2,
+          "round_commands": 68,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            22,
+            35,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            1,
+            4,
+            2
+          ],
+          "codes_before": [
+            3,
+            4,
+            2
+          ],
+          "cumulative_commands": 202,
+          "cumulative_reads": 0,
+          "destination": 0,
+          "key": 1,
+          "read_events": [],
+          "round": 3,
+          "round_commands": 68,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            22,
+            35,
+            11
+          ]
+        }
+      ],
+      "total_including_preparation": 250,
+      "variable_commands": 16
+    },
+    "rounds": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "second": {
+      "at_schedule_start_codes": [
+        4,
+        2,
+        1
+      ],
+      "at_schedule_start_knowledge": [
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "body_commands": 198,
+      "body_vacancy_reads": 0,
+      "checked_api_boundaries": 9,
+      "final_full_codes": [
+        2,
+        4,
+        1
+      ],
+      "final_knowledge": [
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "fixed_commands": 186,
+      "initial_full_codes": [
+        4,
+        2,
+        1
+      ],
+      "preparation_bit_commands": 48,
+      "preparation_copy_commands": 0,
+      "selected_keys": [
+        3,
+        4,
+        2
+      ],
+      "selected_round_receipts": [
+        {
+          "codes_after": [
+            3,
+            2,
+            1
+          ],
+          "codes_before": [
+            4,
+            2,
+            1
+          ],
+          "cumulative_commands": 66,
+          "cumulative_reads": 0,
+          "destination": 0,
+          "key": 3,
+          "read_events": [],
+          "round": 1,
+          "round_commands": 66,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            23,
+            32,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            3,
+            4,
+            1
+          ],
+          "codes_before": [
+            3,
+            2,
+            1
+          ],
+          "cumulative_commands": 134,
+          "cumulative_reads": 0,
+          "destination": 1,
+          "key": 4,
+          "read_events": [],
+          "round": 2,
+          "round_commands": 68,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            22,
+            35,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            2,
+            4,
+            1
+          ],
+          "codes_before": [
+            3,
+            4,
+            1
+          ],
+          "cumulative_commands": 198,
+          "cumulative_reads": 0,
+          "destination": 0,
+          "key": 2,
+          "read_events": [],
+          "round": 3,
+          "round_commands": 64,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            22,
+            31,
+            11
+          ]
+        }
+      ],
+      "total_including_preparation": 246,
+      "variable_commands": 12
+    }
+  },
+  "parking": {
+    "immediate": {
+      "at_schedule_start_codes": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "at_schedule_start_knowledge": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "body_commands": 350,
+      "body_vacancy_reads": 6,
+      "checked_api_boundaries": 12,
+      "final_full_codes": [
+        4,
+        5,
+        2,
+        3,
+        3,
+        3
+      ],
+      "final_knowledge": [
+        [
+          7,
+          4
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "fixed_commands": 288,
+      "initial_full_codes": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "selected_keys": [
+        4,
+        5,
+        6,
+        5
+      ],
+      "selected_round_receipts": [
+        {
+          "codes_after": [
+            4,
+            2,
+            2,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            2,
+            2,
+            2,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 122,
+          "cumulative_reads": 6,
+          "destination": 0,
+          "key": 4,
+          "read_events": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              2,
+              2,
+              0
+            ],
+            [
+              3,
+              2,
+              0
+            ],
+            [
+              4,
+              2,
+              0
+            ],
+            [
+              5,
+              2,
+              0
+            ]
+          ],
+          "round": 1,
+          "round_commands": 122,
+          "round_reads": 6,
+          "target": 0,
+          "word_lengths": [
+            71,
+            40,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            4,
+            5,
+            2,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            4,
+            2,
+            2,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 198,
+          "cumulative_reads": 6,
+          "destination": 1,
+          "key": 5,
+          "read_events": [],
+          "round": 2,
+          "round_commands": 76,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            24,
+            41,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            4,
+            6,
+            2,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            4,
+            5,
+            2,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 274,
+          "cumulative_reads": 6,
+          "destination": 1,
+          "key": 6,
+          "read_events": [],
+          "round": 3,
+          "round_commands": 76,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            24,
+            41,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            4,
+            5,
+            2,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            4,
+            6,
+            2,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 350,
+          "cumulative_reads": 6,
+          "destination": 1,
+          "key": 5,
+          "read_events": [],
+          "round": 4,
+          "round_commands": 76,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            24,
+            41,
+            11
+          ]
+        }
+      ],
+      "variable_commands": 62
+    },
+    "planned": {
+      "at_schedule_start_codes": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "at_schedule_start_knowledge": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "body_commands": 348,
+      "body_vacancy_reads": 6,
+      "checked_api_boundaries": 12,
+      "final_full_codes": [
+        5,
+        4,
+        2,
+        3,
+        3,
+        3
+      ],
+      "final_knowledge": [
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          4,
+          0
+        ]
+      ],
+      "fixed_commands": 288,
+      "initial_full_codes": [
+        2,
+        2,
+        2,
+        3,
+        3,
+        3
+      ],
+      "selected_keys": [
+        5,
+        4,
+        6,
+        4
+      ],
+      "selected_round_receipts": [
+        {
+          "codes_after": [
+            5,
+            2,
+            2,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            2,
+            2,
+            2,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 124,
+          "cumulative_reads": 6,
+          "destination": 0,
+          "key": 5,
+          "read_events": [
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              2,
+              2,
+              0
+            ],
+            [
+              3,
+              2,
+              0
+            ],
+            [
+              4,
+              2,
+              0
+            ],
+            [
+              5,
+              2,
+              0
+            ]
+          ],
+          "round": 1,
+          "round_commands": 124,
+          "round_reads": 6,
+          "target": 0,
+          "word_lengths": [
+            72,
+            41,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            5,
+            4,
+            2,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            5,
+            2,
+            2,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 198,
+          "cumulative_reads": 6,
+          "destination": 1,
+          "key": 4,
+          "read_events": [],
+          "round": 2,
+          "round_commands": 74,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            23,
+            40,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            5,
+            6,
+            2,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            5,
+            4,
+            2,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 274,
+          "cumulative_reads": 6,
+          "destination": 1,
+          "key": 6,
+          "read_events": [],
+          "round": 3,
+          "round_commands": 76,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            24,
+            41,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            5,
+            4,
+            2,
+            3,
+            3,
+            3
+          ],
+          "codes_before": [
+            5,
+            6,
+            2,
+            3,
+            3,
+            3
+          ],
+          "cumulative_commands": 348,
+          "cumulative_reads": 6,
+          "destination": 1,
+          "key": 4,
+          "read_events": [],
+          "round": 4,
+          "round_commands": 74,
+          "round_reads": 0,
+          "target": 0,
+          "word_lengths": [
+            23,
+            40,
+            11
+          ]
+        }
+      ],
+      "variable_commands": 60
+    },
+    "rounds": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ]
+    ]
+  },
+  "protected_schedule": {
+    "contender": [
+      "bind",
+      2,
+      2
+    ],
+    "initial_codes": [
+      4,
+      4,
+      2
+    ],
+    "rounds": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "runs": [
+      {
+        "additional_members_or_relations": 0,
+        "body_commands": 313,
+        "candidate_relations": 541,
+        "members": 196,
+        "phase": 0,
+        "posthandoff_contender_commands": 44,
+        "primitive_boundaries": 314,
+        "protected_total": 344,
+        "reads": 5,
+        "refused_contender_commands": 3454,
+        "wrapper_commands": 31
+      },
+      {
+        "additional_members_or_relations": 0,
+        "body_commands": 313,
+        "candidate_relations": 541,
+        "members": 196,
+        "phase": 1,
+        "posthandoff_contender_commands": 44,
+        "primitive_boundaries": 314,
+        "protected_total": 344,
+        "reads": 5,
+        "refused_contender_commands": 3454,
+        "wrapper_commands": 31
+      }
+    ],
+    "scope": "independent full other-writer attempt from each held boundary in each of two phases; not an arbitrary interleaving graph"
+  },
+  "repeated_single_omissions": {
+    "distinct_old_reads": 2,
+    "expanded_positions": 302,
+    "final_full_codes": [
+      6,
+      3
+    ],
+    "initial_full_codes": [
+      1,
+      2
+    ],
+    "non_omitted_controls": 1,
+    "repeats": 2,
+    "rounds": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "runs_with_exactly_one_omission": 302,
+    "scope": "one fixed sequential schedule, no interleavings; every single omitted emission of a doubled original word",
+    "selected_keys": [
+      3,
+      6
+    ]
+  },
+  "rotations": [
+    {
+      "cycle": [
+        4,
+        5,
+        6
+      ],
+      "cycle_weights": [
+        2,
+        4,
+        4
+      ],
+      "execution": {
+        "at_schedule_start_codes": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          3
+        ],
+        "at_schedule_start_knowledge": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "body_commands": 650,
+        "body_vacancy_reads": 6,
+        "checked_api_boundaries": 24,
+        "final_full_codes": [
+          4,
+          5,
+          2,
+          3,
+          3,
+          3
+        ],
+        "final_knowledge": [
+          [
+            7,
+            4
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "fixed_commands": 576,
+        "initial_full_codes": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          3
+        ],
+        "selected_keys": [
+          4,
+          5,
+          6,
+          4,
+          5,
+          6,
+          4,
+          5
+        ],
+        "selected_round_receipts": [
+          {
+            "codes_after": [
+              4,
+              2,
+              2,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              2,
+              2,
+              2,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 122,
+            "cumulative_reads": 6,
+            "destination": 0,
+            "key": 4,
+            "read_events": [
+              [
+                0,
+                2,
+                0
+              ],
+              [
+                1,
+                2,
+                0
+              ],
+              [
+                2,
+                2,
+                0
+              ],
+              [
+                3,
+                2,
+                0
+              ],
+              [
+                4,
+                2,
+                0
+              ],
+              [
+                5,
+                2,
+                0
+              ]
+            ],
+            "round": 1,
+            "round_commands": 122,
+            "round_reads": 6,
+            "target": 0,
+            "word_lengths": [
+              71,
+              40,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              6,
+              5,
+              2,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              4,
+              5,
+              2,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 274,
+            "cumulative_reads": 6,
+            "destination": 0,
+            "key": 6,
+            "read_events": [],
+            "round": 3,
+            "round_commands": 76,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              24,
+              41,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              5,
+              6,
+              2,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              5,
+              4,
+              2,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 500,
+            "cumulative_reads": 6,
+            "destination": 1,
+            "key": 6,
+            "read_events": [],
+            "round": 6,
+            "round_commands": 76,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              24,
+              41,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              4,
+              5,
+              2,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              4,
+              6,
+              2,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 650,
+            "cumulative_reads": 6,
+            "destination": 1,
+            "key": 5,
+            "read_events": [],
+            "round": 8,
+            "round_commands": 76,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              24,
+              41,
+              11
+            ]
+          }
+        ],
+        "variable_commands": 74
+      },
+      "rotation_size": 2,
+      "rounds": 8,
+      "slots": 6
+    },
+    {
+      "cycle": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "cycle_weights": [
+        2,
+        4,
+        4,
+        6
+      ],
+      "execution": {
+        "at_schedule_start_codes": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          3
+        ],
+        "at_schedule_start_knowledge": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "body_commands": 806,
+        "body_vacancy_reads": 6,
+        "checked_api_boundaries": 30,
+        "final_full_codes": [
+          5,
+          7,
+          4,
+          3,
+          3,
+          3
+        ],
+        "final_knowledge": [
+          [
+            7,
+            5
+          ],
+          [
+            7,
+            7
+          ],
+          [
+            7,
+            4
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ],
+        "fixed_commands": 720,
+        "initial_full_codes": [
+          2,
+          2,
+          2,
+          3,
+          3,
+          3
+        ],
+        "selected_keys": [
+          4,
+          5,
+          6,
+          7,
+          4,
+          5,
+          6,
+          7,
+          4,
+          5
+        ],
+        "selected_round_receipts": [
+          {
+            "codes_after": [
+              4,
+              2,
+              2,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              2,
+              2,
+              2,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 122,
+            "cumulative_reads": 6,
+            "destination": 0,
+            "key": 4,
+            "read_events": [
+              [
+                0,
+                2,
+                0
+              ],
+              [
+                1,
+                2,
+                0
+              ],
+              [
+                2,
+                2,
+                0
+              ],
+              [
+                3,
+                2,
+                0
+              ],
+              [
+                4,
+                2,
+                0
+              ],
+              [
+                5,
+                2,
+                0
+              ]
+            ],
+            "round": 1,
+            "round_commands": 122,
+            "round_reads": 6,
+            "target": 0,
+            "word_lengths": [
+              71,
+              40,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              7,
+              5,
+              6,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              4,
+              5,
+              6,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 352,
+            "cumulative_reads": 6,
+            "destination": 0,
+            "key": 7,
+            "read_events": [],
+            "round": 4,
+            "round_commands": 78,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              25,
+              42,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              6,
+              7,
+              5,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              6,
+              4,
+              5,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 656,
+            "cumulative_reads": 6,
+            "destination": 1,
+            "key": 7,
+            "read_events": [],
+            "round": 8,
+            "round_commands": 78,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              25,
+              42,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              5,
+              7,
+              4,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              6,
+              7,
+              4,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 806,
+            "cumulative_reads": 6,
+            "destination": 0,
+            "key": 5,
+            "read_events": [],
+            "round": 10,
+            "round_commands": 76,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              24,
+              41,
+              11
+            ]
+          }
+        ],
+        "variable_commands": 86
+      },
+      "rotation_size": 3,
+      "rounds": 10,
+      "slots": 6
+    },
+    {
+      "cycle": [
+        8,
+        9,
+        10,
+        12
+      ],
+      "cycle_weights": [
+        2,
+        4,
+        4,
+        4
+      ],
+      "execution": {
+        "at_schedule_start_codes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "at_schedule_start_knowledge": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "body_commands": 966,
+        "body_vacancy_reads": 14,
+        "checked_api_boundaries": 30,
+        "final_full_codes": [
+          9,
+          12,
+          8,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "final_knowledge": [
+          [
+            15,
+            9
+          ],
+          [
+            15,
+            12
+          ],
+          [
+            15,
+            8
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            0
+          ]
+        ],
+        "fixed_commands": 820,
+        "initial_full_codes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "selected_keys": [
+          8,
+          9,
+          10,
+          12,
+          8,
+          9,
+          10,
+          12,
+          8,
+          9
+        ],
+        "selected_round_receipts": [
+          {
+            "codes_after": [
+              8,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 196,
+            "cumulative_reads": 14,
+            "destination": 0,
+            "key": 8,
+            "read_events": [
+              [
+                0,
+                3,
+                0
+              ],
+              [
+                1,
+                3,
+                0
+              ],
+              [
+                2,
+                3,
+                0
+              ],
+              [
+                3,
+                3,
+                0
+              ],
+              [
+                4,
+                3,
+                0
+              ],
+              [
+                5,
+                3,
+                0
+              ],
+              [
+                6,
+                3,
+                0
+              ],
+              [
+                7,
+                3,
+                0
+              ],
+              [
+                8,
+                3,
+                0
+              ],
+              [
+                9,
+                3,
+                0
+              ],
+              [
+                10,
+                3,
+                0
+              ],
+              [
+                11,
+                3,
+                0
+              ],
+              [
+                12,
+                3,
+                0
+              ],
+              [
+                13,
+                3,
+                0
+              ]
+            ],
+            "round": 1,
+            "round_commands": 196,
+            "round_reads": 14,
+            "target": 0,
+            "word_lengths": [
+              136,
+              49,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              12,
+              9,
+              10,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              8,
+              9,
+              10,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 454,
+            "cumulative_reads": 14,
+            "destination": 0,
+            "key": 12,
+            "read_events": [],
+            "round": 4,
+            "round_commands": 86,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              25,
+              50,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              10,
+              12,
+              9,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              10,
+              8,
+              9,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 796,
+            "cumulative_reads": 14,
+            "destination": 1,
+            "key": 12,
+            "read_events": [],
+            "round": 8,
+            "round_commands": 86,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              25,
+              50,
+              11
+            ]
+          },
+          {
+            "codes_after": [
+              9,
+              12,
+              8,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "codes_before": [
+              10,
+              12,
+              8,
+              2,
+              2,
+              2,
+              2,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ],
+            "cumulative_commands": 966,
+            "cumulative_reads": 14,
+            "destination": 0,
+            "key": 9,
+            "read_events": [],
+            "round": 10,
+            "round_commands": 86,
+            "round_reads": 0,
+            "target": 0,
+            "word_lengths": [
+              25,
+              50,
+              11
+            ]
+          }
+        ],
+        "variable_commands": 146
+      },
+      "rotation_size": 3,
+      "rounds": 10,
+      "slots": 14
+    }
+  ],
+  "scope": "single cooperative sequential successful round schedule; original command bodies, no lock fees",
+  "status": "PASS",
+  "typed_full_key": {
+    "all_targets_initially_absent": true,
+    "fixed_commands": 127,
+    "initial_full_codes": [
+      1,
+      1
+    ],
+    "physical_seeds": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ]
+    ],
+    "preparation_commands": 16,
+    "residue_greedy": {
+      "body_commands": 159,
+      "body_vacancy_reads": 3,
+      "selected_keys": [
+        2,
+        4
+      ]
+    },
+    "residue_planned": {
+      "at_schedule_start_codes": [
+        1,
+        1
+      ],
+      "at_schedule_start_knowledge": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "body_commands": 151,
+      "body_vacancy_reads": 2,
+      "checked_api_boundaries": 6,
+      "final_full_codes": [
+        6,
+        1
+      ],
+      "final_knowledge": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "fixed_commands": 127,
+      "initial_full_codes": [
+        1,
+        1
+      ],
+      "selected_keys": [
+        3,
+        6
+      ],
+      "selected_round_receipts": [
+        {
+          "codes_after": [
+            3,
+            1
+          ],
+          "codes_before": [
+            1,
+            1
+          ],
+          "cumulative_commands": 82,
+          "cumulative_reads": 2,
+          "destination": 0,
+          "key": 3,
+          "read_events": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              1,
+              0
+            ]
+          ],
+          "round": 1,
+          "round_commands": 82,
+          "round_reads": 2,
+          "target": 0,
+          "word_lengths": [
+            39,
+            32,
+            11
+          ]
+        },
+        {
+          "codes_after": [
+            6,
+            1
+          ],
+          "codes_before": [
+            3,
+            1
+          ],
+          "cumulative_commands": 151,
+          "cumulative_reads": 2,
+          "destination": 0,
+          "key": 6,
+          "read_events": [],
+          "round": 2,
+          "round_commands": 69,
+          "round_reads": 0,
+          "target": 1,
+          "word_lengths": [
+            26,
+            32,
+            11
+          ]
+        }
+      ],
+      "variable_commands": 24
+    },
+    "rounds": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "scope": "fixed mixed-evidence witness; no claim of an optimal mixed-state policy",
+    "typed_commands": 149,
+    "typed_events": [
+      {
+        "after_codes": [
+          2,
+          1
+        ],
+        "cumulative_commands": 80,
+        "destination": 0,
+        "evidence_before": [
+          [
+            "old",
+            2,
+            0
+          ],
+          [
+            "old",
+            2,
+            0
+          ]
+        ],
+        "exclusion_reasons": [
+          "observed_bit_mismatch",
+          "observed_bit_mismatch"
+        ],
+        "key": 2,
+        "observed_business_code": 2,
+        "physical_before": [
+          1,
+          1
+        ],
+        "round": 1,
+        "round_commands": 64,
+        "target": 0
+      },
+      {
+        "after_codes": [
+          6,
+          1
+        ],
+        "cumulative_commands": 149,
+        "destination": 0,
+        "evidence_before": [
+          [
+            "exact",
+            2
+          ],
+          [
+            "old",
+            2,
+            0
+          ]
+        ],
+        "exclusion_reasons": [
+          "distinct_full_key",
+          "observed_bit_mismatch"
+        ],
+        "key": 6,
+        "observed_business_code": 6,
+        "physical_before": [
+          2,
+          1
+        ],
+        "round": 2,
+        "round_commands": 69,
+        "target": 1
+      }
+    ],
+    "typed_key_weights": [
+      2,
+      4
+    ]
+  }
+}

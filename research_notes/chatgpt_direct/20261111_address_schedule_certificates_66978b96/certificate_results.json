@@ -1,0 +1,171 @@
+{
+  "basis": "full identity, independent initial table 0..9, fixed target library of three; values exclude fixed business words unless marked",
+  "table_schedule_equalities": 400,
+  "cases": [
+    {
+      "rounds": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "distinct_hints": 12,
+      "pointwise_range": [
+        22,
+        28
+      ],
+      "uniform_full_identity_minimax": 32
+    },
+    {
+      "rounds": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "distinct_hints": 24,
+      "pointwise_range": [
+        28,
+        36
+      ],
+      "uniform_full_identity_minimax": 36
+    },
+    {
+      "rounds": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "distinct_hints": 15,
+      "pointwise_range": [
+        26,
+        30
+      ],
+      "uniform_full_identity_minimax": 36
+    },
+    {
+      "rounds": [
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "distinct_hints": 17,
+      "pointwise_range": [
+        32,
+        38
+      ],
+      "uniform_full_identity_minimax": 42
+    }
+  ],
+  "hint_matches": 1546,
+  "hint_fallbacks": 5254,
+  "alias_example": {
+    "initial": [
+      1,
+      1
+    ],
+    "rounds": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ]
+    ],
+    "variable": 22,
+    "fixed": 127,
+    "total": 149,
+    "keys": [
+      2,
+      6
+    ],
+    "minimum_masks": [
+      1,
+      1
+    ],
+    "answers": [
+      1,
+      1
+    ],
+    "physical_masks": [
+      2,
+      2
+    ],
+    "physical_answers": [
+      0,
+      0
+    ]
+  },
+  "threshold_r14": [
+    {
+      "T": 8,
+      "high": 808,
+      "expanded": 862,
+      "optimal": 808
+    },
+    {
+      "T": 216,
+      "high": 18904,
+      "expanded": 18906,
+      "optimal": 18904
+    },
+    {
+      "T": 223,
+      "high": 19510,
+      "expanded": 19512,
+      "optimal": 19510
+    },
+    {
+      "T": 224,
+      "high": 19600,
+      "expanded": 19600,
+      "optimal": 19600
+    },
+    {
+      "T": 225,
+      "high": 19684,
+      "expanded": 19684,
+      "optimal": 19684
+    },
+    {
+      "T": 231,
+      "high": 20206,
+      "expanded": 20206,
+      "optimal": 20206
+    },
+    {
+      "T": 232,
+      "high": 20296,
+      "expanded": 20294,
+      "optimal": 20294
+    }
+  ]
+}

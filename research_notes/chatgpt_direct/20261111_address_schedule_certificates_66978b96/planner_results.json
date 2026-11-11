@@ -1,0 +1,1836 @@
+{
+  "status": "PASS",
+  "unit": "One fresh residue-bit query costs 8; weights use complete positive keys; fixed BRC words are separate.",
+  "scope": "Exact control decision games and static replays. No original BRC run is counted by this script.",
+  "small_cases": [
+    {
+      "slots": 2,
+      "schedule": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "variable_value": 38,
+      "ordered_nonterminal_values_compared": 103,
+      "all_static_preparations_replayed_by_each": 16,
+      "cost_histograms": {
+        "orbit": {
+          "30": 8,
+          "36": 6,
+          "38": 2
+        },
+        "lifetime": {
+          "30": 8,
+          "36": 6,
+          "38": 2
+        }
+      },
+      "cold_metrics": {
+        "ordered": {
+          "states": 110,
+          "nonterminal_states": 103,
+          "terminal_states": 7,
+          "cache_hits": 222,
+          "query_actions": 114,
+          "creation_actions": 103
+        },
+        "orbit": {
+          "nonterminal_states": 92,
+          "states_by_position": [
+            71,
+            15,
+            6
+          ],
+          "named_at_positions": [
+            [
+              0,
+              1
+            ],
+            [
+              1
+            ],
+            []
+          ],
+          "orbit_capacity_by_position": [
+            81,
+            81,
+            45
+          ],
+          "cache_hits": 136,
+          "query_actions": 99,
+          "creation_actions": 95
+        },
+        "lifetime": {
+          "nonterminal_states": 92,
+          "states_by_position": [
+            71,
+            15,
+            6
+          ],
+          "expiry_by_position": [
+            [
+              0,
+              1
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "cache_hits": 136,
+          "query_actions": 99,
+          "creation_actions": 95
+        }
+      },
+      "worst_static_lifetime": {
+        "initial_residues": [
+          1,
+          0
+        ],
+        "initial_constraints": [
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "cost": 38,
+        "vacancy_bit_reads": 3,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 0,
+            "answer": 1
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "destination": 0,
+            "key": 2,
+            "key_weight": 2
+          },
+          {
+            "kind": "read",
+            "round": 1,
+            "slot": 1,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 1,
+            "target": 1,
+            "destination": 1,
+            "key": 5,
+            "key_weight": 8
+          },
+          {
+            "kind": "create",
+            "round": 2,
+            "target": 0,
+            "destination": 0,
+            "key": 3,
+            "key_weight": 4
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "final_residues": [
+          3,
+          1
+        ]
+      },
+      "elapsed_seconds": 0.0034703779999745166
+    },
+    {
+      "slots": 3,
+      "schedule": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "variable_value": 56,
+      "ordered_nonterminal_values_compared": 861,
+      "all_static_preparations_replayed_by_each": 64,
+      "cost_histograms": {
+        "orbit": {
+          "46": 4,
+          "48": 4,
+          "52": 32,
+          "54": 12,
+          "56": 12
+        },
+        "lifetime": {
+          "46": 4,
+          "48": 4,
+          "52": 32,
+          "54": 12,
+          "56": 12
+        }
+      },
+      "cold_metrics": {
+        "ordered": {
+          "states": 885,
+          "nonterminal_states": 861,
+          "terminal_states": 24,
+          "cache_hits": 2820,
+          "query_actions": 1546,
+          "creation_actions": 612
+        },
+        "orbit": {
+          "nonterminal_states": 662,
+          "states_by_position": [
+            572,
+            82,
+            8
+          ],
+          "named_at_positions": [
+            [
+              0,
+              1
+            ],
+            [
+              1
+            ],
+            []
+          ],
+          "orbit_capacity_by_position": [
+            729,
+            405,
+            165
+          ],
+          "cache_hits": 1605,
+          "query_actions": 1174,
+          "creation_actions": 467
+        },
+        "lifetime": {
+          "nonterminal_states": 646,
+          "states_by_position": [
+            562,
+            76,
+            8
+          ],
+          "expiry_by_position": [
+            [
+              0,
+              1,
+              3
+            ],
+            [
+              3,
+              1,
+              3
+            ],
+            [
+              3,
+              3,
+              3
+            ]
+          ],
+          "cache_hits": 1589,
+          "query_actions": 1174,
+          "creation_actions": 435
+        }
+      },
+      "worst_static_lifetime": {
+        "initial_residues": [
+          0,
+          0,
+          2
+        ],
+        "initial_constraints": [
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "cost": 56,
+        "vacancy_bit_reads": 5,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "destination": 0,
+            "key": 3,
+            "key_weight": 4
+          },
+          {
+            "kind": "create",
+            "round": 1,
+            "target": 0,
+            "destination": 1,
+            "key": 1,
+            "key_weight": 6
+          },
+          {
+            "kind": "create",
+            "round": 2,
+            "target": 0,
+            "destination": 0,
+            "key": 4,
+            "key_weight": 6
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "final_residues": [
+          0,
+          1,
+          2
+        ]
+      },
+      "elapsed_seconds": 0.02806675700003325
+    },
+    {
+      "slots": 3,
+      "schedule": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "variable_value": 62,
+      "ordered_nonterminal_values_compared": 885,
+      "all_static_preparations_replayed_by_each": 64,
+      "cost_histograms": {
+        "orbit": {
+          "60": 20,
+          "62": 44
+        },
+        "lifetime": {
+          "60": 20,
+          "62": 44
+        }
+      },
+      "cold_metrics": {
+        "ordered": {
+          "states": 909,
+          "nonterminal_states": 885,
+          "terminal_states": 24,
+          "cache_hits": 2820,
+          "query_actions": 1546,
+          "creation_actions": 636
+        },
+        "orbit": {
+          "nonterminal_states": 593,
+          "states_by_position": [
+            483,
+            90,
+            16,
+            4
+          ],
+          "named_at_positions": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2
+            ],
+            []
+          ],
+          "orbit_capacity_by_position": [
+            729,
+            729,
+            405,
+            165
+          ],
+          "cache_hits": 1204,
+          "query_actions": 949,
+          "creation_actions": 427
+        },
+        "lifetime": {
+          "nonterminal_states": 584,
+          "states_by_position": [
+            474,
+            90,
+            16,
+            4
+          ],
+          "expiry_by_position": [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              4,
+              1,
+              2
+            ],
+            [
+              4,
+              4,
+              2
+            ],
+            [
+              4,
+              4,
+              4
+            ]
+          ],
+          "cache_hits": 1195,
+          "query_actions": 949,
+          "creation_actions": 409
+        }
+      },
+      "worst_static_lifetime": {
+        "initial_residues": [
+          0,
+          0,
+          0
+        ],
+        "initial_constraints": [
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "cost": 62,
+        "vacancy_bit_reads": 5,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "destination": 0,
+            "key": 2,
+            "key_weight": 2
+          },
+          {
+            "kind": "create",
+            "round": 1,
+            "target": 1,
+            "destination": 1,
+            "key": 7,
+            "key_weight": 6
+          },
+          {
+            "kind": "read",
+            "round": 2,
+            "slot": 2,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 2,
+            "target": 2,
+            "destination": 2,
+            "key": 9,
+            "key_weight": 8
+          },
+          {
+            "kind": "create",
+            "round": 3,
+            "target": 0,
+            "destination": 0,
+            "key": 4,
+            "key_weight": 6
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "final_residues": [
+          0,
+          3,
+          1
+        ]
+      },
+      "elapsed_seconds": 0.02640246699979798
+    },
+    {
+      "slots": 3,
+      "schedule": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "variable_value": 64,
+      "ordered_nonterminal_values_compared": 981,
+      "all_static_preparations_replayed_by_each": 64,
+      "cost_histograms": {
+        "orbit": {
+          "48": 12,
+          "50": 8,
+          "56": 6,
+          "58": 8,
+          "60": 16,
+          "62": 4,
+          "64": 10
+        },
+        "lifetime": {
+          "48": 12,
+          "50": 8,
+          "56": 6,
+          "58": 8,
+          "60": 16,
+          "62": 4,
+          "64": 10
+        }
+      },
+      "cold_metrics": {
+        "ordered": {
+          "states": 1013,
+          "nonterminal_states": 981,
+          "terminal_states": 32,
+          "cache_hits": 3020,
+          "query_actions": 1634,
+          "creation_actions": 764
+        },
+        "orbit": {
+          "nonterminal_states": 463,
+          "states_by_position": [
+            330,
+            55,
+            43,
+            35
+          ],
+          "named_at_positions": [
+            [
+              0
+            ],
+            [
+              0
+            ],
+            [
+              0
+            ],
+            []
+          ],
+          "orbit_capacity_by_position": [
+            405,
+            405,
+            405,
+            165
+          ],
+          "cache_hits": 908,
+          "query_actions": 664,
+          "creation_actions": 379
+        },
+        "lifetime": {
+          "nonterminal_states": 455,
+          "states_by_position": [
+            325,
+            55,
+            43,
+            32
+          ],
+          "expiry_by_position": [
+            [
+              0,
+              4,
+              4
+            ],
+            [
+              1,
+              4,
+              4
+            ],
+            [
+              2,
+              4,
+              4
+            ],
+            [
+              4,
+              4,
+              4
+            ]
+          ],
+          "cache_hits": 906,
+          "query_actions": 664,
+          "creation_actions": 363
+        }
+      },
+      "worst_static_lifetime": {
+        "initial_residues": [
+          0,
+          2,
+          0
+        ],
+        "initial_constraints": [
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "cost": 64,
+        "vacancy_bit_reads": 5,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "destination": 0,
+            "key": 3,
+            "key_weight": 4
+          },
+          {
+            "kind": "create",
+            "round": 1,
+            "target": 1,
+            "destination": 0,
+            "key": 5,
+            "key_weight": 8
+          },
+          {
+            "kind": "create",
+            "round": 2,
+            "target": 2,
+            "destination": 0,
+            "key": 11,
+            "key_weight": 6
+          },
+          {
+            "kind": "create",
+            "round": 3,
+            "target": 0,
+            "destination": 1,
+            "key": 1,
+            "key_weight": 6
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "final_residues": [
+          3,
+          1,
+          0
+        ]
+      },
+      "elapsed_seconds": 0.021910884999897462
+    },
+    {
+      "slots": 3,
+      "schedule": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "variable_value": 66,
+      "ordered_nonterminal_values_compared": 885,
+      "all_static_preparations_replayed_by_each": 64,
+      "cost_histograms": {
+        "orbit": {
+          "54": 4,
+          "56": 6,
+          "58": 18,
+          "60": 8,
+          "62": 12,
+          "64": 10,
+          "66": 6
+        },
+        "lifetime": {
+          "54": 4,
+          "56": 6,
+          "58": 18,
+          "60": 8,
+          "62": 12,
+          "64": 10,
+          "66": 6
+        }
+      },
+      "cold_metrics": {
+        "ordered": {
+          "states": 909,
+          "nonterminal_states": 885,
+          "terminal_states": 24,
+          "cache_hits": 2820,
+          "query_actions": 1546,
+          "creation_actions": 636
+        },
+        "orbit": {
+          "nonterminal_states": 691,
+          "states_by_position": [
+            577,
+            90,
+            20,
+            4
+          ],
+          "named_at_positions": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0
+            ],
+            []
+          ],
+          "orbit_capacity_by_position": [
+            729,
+            729,
+            405,
+            165
+          ],
+          "cache_hits": 1681,
+          "query_actions": 1202,
+          "creation_actions": 474
+        },
+        "lifetime": {
+          "nonterminal_states": 681,
+          "states_by_position": [
+            567,
+            90,
+            20,
+            4
+          ],
+          "expiry_by_position": [
+            [
+              0,
+              1,
+              4
+            ],
+            [
+              2,
+              1,
+              4
+            ],
+            [
+              2,
+              4,
+              4
+            ],
+            [
+              4,
+              4,
+              4
+            ]
+          ],
+          "cache_hits": 1671,
+          "query_actions": 1202,
+          "creation_actions": 454
+        }
+      },
+      "worst_static_lifetime": {
+        "initial_residues": [
+          1,
+          2,
+          2
+        ],
+        "initial_constraints": [
+          [
+            3,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "cost": 66,
+        "vacancy_bit_reads": 5,
+        "events": [
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 1,
+            "answer": 0
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 1,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 2,
+            "bit": 1,
+            "answer": 1
+          },
+          {
+            "kind": "read",
+            "round": 0,
+            "slot": 0,
+            "bit": 0,
+            "answer": 1
+          },
+          {
+            "kind": "create",
+            "round": 0,
+            "target": 0,
+            "destination": 0,
+            "key": 4,
+            "key_weight": 6
+          },
+          {
+            "kind": "create",
+            "round": 1,
+            "target": 1,
+            "destination": 1,
+            "key": 5,
+            "key_weight": 8
+          },
+          {
+            "kind": "read",
+            "round": 2,
+            "slot": 2,
+            "bit": 0,
+            "answer": 0
+          },
+          {
+            "kind": "create",
+            "round": 2,
+            "target": 2,
+            "destination": 0,
+            "key": 11,
+            "key_weight": 6
+          },
+          {
+            "kind": "create",
+            "round": 3,
+            "target": 0,
+            "destination": 2,
+            "key": 4,
+            "key_weight": 6
+          }
+        ],
+        "final_knowledge": [
+          [
+            3,
+            3
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "final_residues": [
+          3,
+          1,
+          0
+        ]
+      },
+      "elapsed_seconds": 0.026183945000184394
+    }
+  ],
+  "all_preparations_per_policy_small": 272,
+  "ordered_nonterminal_states_compared_small": 3715,
+  "full_image_transition_checks": [
+    {
+      "slots": 2,
+      "schedule": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "positions": [
+        {
+          "position": 0,
+          "named_count": 2,
+          "ordered_patterns": 81,
+          "orbit_capacity": 81,
+          "lifetime_capacity": 81,
+          "physical_answer_edges": 216,
+          "certified_creation_edges": 75
+        },
+        {
+          "position": 1,
+          "named_count": 1,
+          "ordered_patterns": 81,
+          "orbit_capacity": 81,
+          "lifetime_capacity": 81,
+          "physical_answer_edges": 216,
+          "certified_creation_edges": 75
+        },
+        {
+          "position": 2,
+          "named_count": 0,
+          "ordered_patterns": 81,
+          "orbit_capacity": 45,
+          "lifetime_capacity": 45,
+          "physical_answer_edges": 216,
+          "certified_creation_edges": 75
+        }
+      ]
+    },
+    {
+      "slots": 3,
+      "schedule": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "positions": [
+        {
+          "position": 0,
+          "named_count": 3,
+          "ordered_patterns": 729,
+          "orbit_capacity": 729,
+          "lifetime_capacity": 717,
+          "physical_answer_edges": 2916,
+          "certified_creation_edges": 500
+        },
+        {
+          "position": 1,
+          "named_count": 2,
+          "ordered_patterns": 729,
+          "orbit_capacity": 729,
+          "lifetime_capacity": 717,
+          "physical_answer_edges": 2916,
+          "certified_creation_edges": 500
+        },
+        {
+          "position": 2,
+          "named_count": 1,
+          "ordered_patterns": 729,
+          "orbit_capacity": 405,
+          "lifetime_capacity": 399,
+          "physical_answer_edges": 2916,
+          "certified_creation_edges": 500
+        },
+        {
+          "position": 3,
+          "named_count": 0,
+          "ordered_patterns": 729,
+          "orbit_capacity": 165,
+          "lifetime_capacity": 159,
+          "physical_answer_edges": 2916,
+          "certified_creation_edges": 500
+        }
+      ]
+    },
+    {
+      "slots": 3,
+      "schedule": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "positions": [
+        {
+          "position": 0,
+          "named_count": 2,
+          "ordered_patterns": 729,
+          "orbit_capacity": 729,
+          "lifetime_capacity": 717,
+          "physical_answer_edges": 2916,
+          "certified_creation_edges": 500
+        },
+        {
+          "position": 1,
+          "named_count": 2,
+          "ordered_patterns": 729,
+          "orbit_capacity": 729,
+          "lifetime_capacity": 717,
+          "physical_answer_edges": 2916,
+          "certified_creation_edges": 500
+        },
+        {
+          "position": 2,
+          "named_count": 1,
+          "ordered_patterns": 729,
+          "orbit_capacity": 405,
+          "lifetime_capacity": 399,
+          "physical_answer_edges": 2916,
+          "certified_creation_edges": 500
+        },
+        {
+          "position": 3,
+          "named_count": 0,
+          "ordered_patterns": 729,
+          "orbit_capacity": 165,
+          "lifetime_capacity": 159,
+          "physical_answer_edges": 2916,
+          "certified_creation_edges": 500
+        }
+      ]
+    }
+  ],
+  "counterexamples": {
+    "next_destination_only": {
+      "schedule": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "rows": [
+        {
+          "initial_residues": [
+            0,
+            1,
+            2
+          ],
+          "variable_value": 16,
+          "witness_keys": [
+            3,
+            4,
+            1
+          ],
+          "weights": [
+            4,
+            6,
+            6
+          ],
+          "lifetime_certificate": [
+            [],
+            [
+              0,
+              1,
+              3,
+              -1
+            ]
+          ],
+          "slot_orbit": [
+            4,
+            5,
+            7
+          ]
+        },
+        {
+          "initial_residues": [
+            0,
+            2,
+            1
+          ],
+          "variable_value": 12,
+          "witness_keys": [
+            3,
+            4,
+            2
+          ],
+          "weights": [
+            4,
+            6,
+            2
+          ],
+          "lifetime_certificate": [
+            [],
+            [
+              0,
+              3,
+              1,
+              -1
+            ]
+          ],
+          "slot_orbit": [
+            4,
+            7,
+            5
+          ]
+        }
+      ],
+      "minimality": "With at most 2 slots fixing the next bind destination leaves no two other addresses to permute. At most 2 rounds have at most one effective bind destination."
+    },
+    "strict_known_shadow": {
+      "schedule": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "rows": [
+        {
+          "initial_residues": [
+            1,
+            1,
+            2
+          ],
+          "variable_value": 10,
+          "witness_keys": [
+            3,
+            4
+          ],
+          "weights": [
+            4,
+            6
+          ],
+          "lifetime_certificate": [
+            [],
+            [
+              -1,
+              2,
+              2,
+              -1
+            ]
+          ],
+          "slot_orbit": [
+            5,
+            5,
+            7
+          ]
+        },
+        {
+          "initial_residues": [
+            2,
+            1,
+            2
+          ],
+          "variable_value": 10,
+          "witness_keys": [
+            3,
+            4
+          ],
+          "weights": [
+            4,
+            6
+          ],
+          "lifetime_certificate": [
+            [],
+            [
+              -1,
+              2,
+              2,
+              -1
+            ]
+          ],
+          "slot_orbit": [
+            7,
+            5,
+            7
+          ]
+        }
+      ]
+    },
+    "current_support_only": {
+      "schedule": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "rows": [
+        {
+          "initial_residues": [
+            1,
+            2
+          ],
+          "variable_value": 10,
+          "witness_keys": [
+            3,
+            1
+          ],
+          "weights": [
+            4,
+            6
+          ],
+          "lifetime_certificate": [
+            [],
+            [
+              -1,
+              0,
+              2,
+              -1
+            ]
+          ],
+          "slot_orbit": [
+            5,
+            7
+          ]
+        },
+        {
+          "initial_residues": [
+            2,
+            1
+          ],
+          "variable_value": 6,
+          "witness_keys": [
+            3,
+            2
+          ],
+          "weights": [
+            4,
+            2
+          ],
+          "lifetime_certificate": [
+            [],
+            [
+              -1,
+              2,
+              0,
+              -1
+            ]
+          ],
+          "slot_orbit": [
+            7,
+            5
+          ]
+        }
+      ]
+    }
+  },
+  "larger_four_slot_case": {
+    "slots": 4,
+    "schedule": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "implementations": {
+      "SchedulePlanner": {
+        "value": 72,
+        "planning_seconds": 1.6425027740001497,
+        "cold_metrics": {
+          "nonterminal_states": 229658,
+          "states_by_position": [
+            213758,
+            14335,
+            1565
+          ],
+          "named_at_positions": [
+            [
+              0,
+              1
+            ],
+            [
+              1
+            ],
+            []
+          ],
+          "orbit_capacity_by_position": [
+            275562,
+            98658,
+            27405
+          ],
+          "cache_hits": 1152704,
+          "query_actions": 871484,
+          "creation_actions": 279792
+        },
+        "static_preparations": 4096,
+        "cost_histogram": {
+          "54": 128,
+          "56": 128,
+          "58": 256,
+          "60": 512,
+          "62": 576,
+          "64": 320,
+          "66": 608,
+          "68": 896,
+          "70": 480,
+          "72": 192
+        },
+        "worst_static": {
+          "initial_residues": [
+            0,
+            2,
+            2,
+            4
+          ],
+          "initial_constraints": [
+            [
+              6,
+              0
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              5,
+              4
+            ]
+          ],
+          "cost": 72,
+          "vacancy_bit_reads": 7,
+          "events": [
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 0,
+              "bit": 1,
+              "answer": 0
+            },
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 1,
+              "bit": 1,
+              "answer": 1
+            },
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 2,
+              "bit": 2,
+              "answer": 0
+            },
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 2,
+              "bit": 1,
+              "answer": 1
+            },
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 3,
+              "bit": 2,
+              "answer": 1
+            },
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 0,
+              "bit": 2,
+              "answer": 0
+            },
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 3,
+              "bit": 0,
+              "answer": 0
+            },
+            {
+              "kind": "create",
+              "round": 0,
+              "target": 0,
+              "destination": 0,
+              "key": 5,
+              "key_weight": 4
+            },
+            {
+              "kind": "create",
+              "round": 1,
+              "target": 1,
+              "destination": 1,
+              "key": 8,
+              "key_weight": 6
+            },
+            {
+              "kind": "create",
+              "round": 2,
+              "target": 0,
+              "destination": 3,
+              "key": 1,
+              "key_weight": 6
+            }
+          ],
+          "final_knowledge": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          "final_residues": [
+            5,
+            0,
+            2,
+            1
+          ]
+        }
+      },
+      "LifetimePlanner": {
+        "value": 72,
+        "planning_seconds": 3.434177886999805,
+        "cold_metrics": {
+          "nonterminal_states": 227694,
+          "states_by_position": [
+            212043,
+            14142,
+            1509
+          ],
+          "expiry_by_position": [
+            [
+              0,
+              1,
+              3,
+              3
+            ],
+            [
+              3,
+              1,
+              3,
+              3
+            ],
+            [
+              3,
+              3,
+              3,
+              3
+            ]
+          ],
+          "cache_hits": 1147795,
+          "query_actions": 869740,
+          "creation_actions": 274648
+        },
+        "static_preparations": 4096,
+        "cost_histogram": {
+          "54": 128,
+          "56": 128,
+          "58": 256,
+          "60": 512,
+          "62": 576,
+          "64": 320,
+          "66": 608,
+          "68": 896,
+          "70": 480,
+          "72": 192
+        },
+        "worst_static": {
+          "initial_residues": [
+            0,
+            2,
+            2,
+            4
+          ],
+          "initial_constraints": [
+            [
+              6,
+              0
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              5,
+              4
+            ]
+          ],
+          "cost": 72,
+          "vacancy_bit_reads": 7,
+          "events": [
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 0,
+              "bit": 1,
+              "answer": 0
+            },
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 1,
+              "bit": 1,
+              "answer": 1
+            },
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 2,
+              "bit": 2,
+              "answer": 0
+            },
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 2,
+              "bit": 1,
+              "answer": 1
+            },
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 3,
+              "bit": 2,
+              "answer": 1
+            },
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 0,
+              "bit": 2,
+              "answer": 0
+            },
+            {
+              "kind": "read",
+              "round": 0,
+              "slot": 3,
+              "bit": 0,
+              "answer": 0
+            },
+            {
+              "kind": "create",
+              "round": 0,
+              "target": 0,
+              "destination": 0,
+              "key": 5,
+              "key_weight": 4
+            },
+            {
+              "kind": "create",
+              "round": 1,
+              "target": 1,
+              "destination": 1,
+              "key": 8,
+              "key_weight": 6
+            },
+            {
+              "kind": "create",
+              "round": 2,
+              "target": 0,
+              "destination": 3,
+              "key": 1,
+              "key_weight": 6
+            }
+          ],
+          "final_knowledge": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              0
+            ],
+            [
+              6,
+              2
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          "final_residues": [
+            5,
+            0,
+            2,
+            1
+          ]
+        }
+      }
+    }
+  },
+  "last_round_b3_r6_capacity": {
+    "ordered": 387420489,
+    "orbit": 906192,
+    "lifetime": 824656
+  },
+  "elapsed_seconds": 5.813617577999821
+}
