@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_exact_frontier_crossover_20261112_r83/verification.json",
+    "ref": "d4451a0d8ffd359ec43565fa681f23932b6b0405",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r83-observed-verification-json-d4451a0d8ffd",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_R83_EXACT_FRONTIER_CROSSOVER_V1\",\n  \"date\": \"2026-11-12\",\n  \"model\": \"auxiliary rational circular-source; certified stable full-real-interval subclass\",\n  \"scientific_pin\": \"43ec6098b1330ae86d0a7863be336c5d97f6ef34\",\n  \"status\": \"LOCAL_EXECUTION_PASSED\",\n  \"checkpoint\": \"R83_PASS 6 all-real certificates and 4 pointwise checks per scenario\",\n  \"method\": \"R75 heapq C implementation rebuilt each query; R76 immutable Python AVL root retained; same exact R71 certificate\",\n  \"repetitions_by_g\": {\n    \"32\": 16,\n    \"128\": 16,\n    \"512\": 8\n  },\n  \"units\": \"nanoseconds per matched query median\",\n  \"cases\": [\n    {\n      \"g\": 32,\n      \"scenario\": \"EARLY_WINNER\",\n      \"heap_ns\": 29223,\n      \"avl_ns\": 30205,\n      \"avl_build_nodes\": 222\n    },\n    {\n      \"g\": 32,\n      \"scenario\": \"ALL_EXCLUDED\",\n      \"heap_ns\": 487842,\n      \"avl_ns\": 586904,\n      \"avl_build_nodes\": 213\n    },\n    {\n      \"g\": 128,\n      \"scenario\": \"EARLY_WINNER\",\n      \"heap_ns\": 37045,\n      \"avl_ns\": 30890,\n      \"avl_build_nodes\": 1148\n    },\n    {\n      \"g\": 128,\n      \"scenario\": \"ALL_EXCLUDED\",\n      \"heap_ns\": 2089756,\n      \"avl_ns\": 2393822,\n      \"avl_build_nodes\": 1137\n    },\n    {\n      \"g\": 512,\n      \"scenario\": \"EARLY_WINNER\",\n      \"heap_ns\": 66473,\n      \"avl_ns\": 31892,\n      \"avl_build_nodes\": 5626\n    },\n    {\n      \"g\": 512,\n      \"scenario\": \"ALL_EXCLUDED\",\n      \"heap_ns\": 8580834,\n      \"avl_ns\": 10657456,\n      \"avl_build_nodes\": 5613\n    }\n  ],\n  \"limitations\": [\n    \"Isolated winner-frontier comparison, not entire three-index R82 pipeline\",\n    \"Single-machine unreplicated CPython timing; heapq C vs AVL Python\",\n    \"Only STABLE and STABLE_NONE certified cases, not general CHANGES witnesses\",\n    \"No rigorous bit-operation counts; history memory measured by constructed nodes rather than retained bytes\"\n  ]\n}\n",
+      "display_title": "verification.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/d4451a0d8ffd359ec43565fa681f23932b6b0405/research_notes/brc_s23_av_exact_frontier_crossover_20261112_r83/verification.json",
+      "encoding": "utf-8",
+      "sha": "4e0e066baeedd4f5d7a0e1347f1749fd08eb082d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
