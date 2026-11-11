@@ -169,7 +169,9 @@ def full_check():
         errors.append(str(e))
     assert Q(errors[3])<Q(31,10**13)
     assert Q(errors[4])<Q(2,10**20)
-    output.update({"verification":"ALL_CHECKS_PASS PREFIX695-R6",
+    output.update({"title":"PREFIX-695-R6",
+      "status":"AUTHOR_RECOMPUTED / FULL_189_ROW_EXACT_INTEGER_KERNEL / UNREVIEWED / NOT_ADMITTED",
+      "verification":"ALL_CHECKS_PASS PREFIX695-R6",
       "independent_common_denominator_replay":True,
       "correction":{"old_RESULTS_A5":"-36266294695911140","exact_A5":str(fa[5]),"paper_checker_A5":str(FLOORA[5])},
       "newton_certified":{"q_band":[str(q_lo),str(q_hi)],"bridge":[str(left),str(right)],
