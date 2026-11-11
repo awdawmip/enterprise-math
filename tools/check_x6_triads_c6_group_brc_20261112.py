@@ -52,3 +52,28 @@ assert min_branches(displacement(e2,e3))==2
 assert min_branches(displacement(e1,e3))==2
 assert path_count(4,displacement(e1,e3))==120
 print("PASS",len(G),len(seen),2*2,120,2)
+
+
+# Every unoriented triad has an algebraic 12-Cell outer microcycle.
+def basis(i,sign=1): return tuple(sign if j==i else 0 for j in range(6))
+def plus(a,b): return tuple(x+y for x,y in zip(a,b))
+def minus(a,b): return tuple(x-y for x,y in zip(a,b))
+def neg(a): return tuple(-x for x in a)
+def norm2(a): return sum(x*x for x in a)
+def apply(g,x):
+    y=[0]*6
+    for i,u in enumerate(x):
+        y[abs(g[i])-1]+=(1 if g[i]>0 else -1)*u
+    return tuple(y)
+for tri in combinations(range(6),3):
+    i,j,k=tri
+    a=[basis(i),basis(j),basis(k),basis(i,-1),basis(j,-1),basis(k,-1)]
+    mid=[plus(a[r],a[(r+1)%6]) for r in range(6)]
+    cells=[v for r in range(6) for v in (a[r],mid[r])]
+    g=gen(tuple(t+1 for t in tri))
+    assert len(set(cells))==12
+    assert [norm2(v) for v in cells]==[1,2]*6
+    assert all(sum(map(abs,minus(cells[(t+1)%12],cells[t])))==1 for t in range(12))
+    assert all(apply(g,cells[t])==cells[(t+2)%12] for t in range(12))
+    assert all(neg(cells[t])==cells[(t+6)%12] for t in range(12))
+print("PASS all 20 triads: 12 distinct Cells, primitive edges, F2=R, F6=-id")
