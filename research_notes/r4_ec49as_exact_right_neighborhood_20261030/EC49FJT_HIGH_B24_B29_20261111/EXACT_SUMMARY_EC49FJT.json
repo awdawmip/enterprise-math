@@ -1,0 +1,48 @@
+{
+  "schema": "EC49FJT_B24_B29_COMPLETE_FINITE_VERIFICATION_V1",
+  "date": "2026-11-11",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "domain": "two EC49FGJ 94-prefix seven-key witnesses; six-of-24 replacements; all seven original complete keys retained by fixed 18 paths; B in [24,25,27,28,29]",
+  "catalog_words": 178850,
+  "complete_raw_keys": 94,
+  "native_prefix_model": "ordered signed X6 microsteps; precise frozen EC49FGW nine-state observer",
+  "counts": {
+    "A": {
+      "24": 38,
+      "25": 54,
+      "27": 12,
+      "28": 10,
+      "29": 2
+    },
+    "B": {
+      "24": 38,
+      "25": 54,
+      "27": 12,
+      "28": 10,
+      "29": 2
+    }
+  },
+  "contexts": 232,
+  "keyset_options": 232,
+  "root_trie_node_min": 9986,
+  "root_trie_node_max": 31223,
+  "execution": {
+    "compiler": "g++ -O3 -std=c++17",
+    "case_evaluator": "FJT_EXACT_TRIE.cpp",
+    "complete_case_results": 232,
+    "all_clipped_exact_optimum": "best_clipped = B+1",
+    "all_feasible_93": 0,
+    "independent_python_antichain_checks": 9,
+    "python_checker_status": "9 exact selected A-profile cases passed; larger 20-case attempt exceeded bounded runtime"
+  },
+  "file_evidence_sha256": {
+    "GENERATE_EC49FJT.py": "09368a4d4400767adf940cdcd1a09ef50ef9efb124496736c3c679c8dc9fa50a",
+    "FJT_EXACT_TRIE.cpp": "effee6533ffb1fd99c75ab6976d4a5ad6c4be2b9a8b87a5c81c591f7cf11d53f",
+    "FJT_CASES.tsv": "b3e574011e7a0c60dc48b1eee58799559ad914580a0f5627d4163dc5c9bbde94",
+    "FJT_INPUT_SUMMARY.json": "94d75b86da34daacc9e8629029a52bc34e835b95dc368ae549868f8f6025d5aa",
+    "FJT_CPP_RESULTS.jsonl": "5e76cdea8a1fd3c76fc3e3c75ee50fcd2d48c2422f703fea0f4759f74e204ff9",
+    "FJT_PY_CROSSCHECK_REPORT.json": "ae85d19a58ec13cb672be796e80e6401d111dd1ca62d7251c63881ea74c64db2"
+  },
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "next_question": "Full six-path census reconciliation, then seven-path neighborhoods and direct 93-prefix global search"
+}
