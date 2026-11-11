@@ -63,17 +63,23 @@ def axis(a,d):
     return T
 
 @lru_cache(None)
+def axis_kernel(j):
+    B=axis(j,768)
+    K0=tuple(sum(coeff[n][m]*B[m] for m in range(N)) for n in range(N))
+    K1=tuple(sum(coeff1[n][m]*B[m] for m in range(N)) for n in range(N))
+    return K0,K1
+
+@lru_cache(None)
 def pair(i,j):
-    # Fine cell lattice: x=(i/768,j/768), integer counts with common denominator.
+    # Fine cell lattice: x=(i/768,j/768).
     if j<i:i,j=j,i
     d=768;L=d**(N-1);R=L*L*Z
     A=axis(i,d);B=axis(j,d)
     s1=(sum(A)+sum(B))*L*Z
     s2=2*(sum((n+1)*x for n,x in enumerate(A))+sum((m+1)*x for m,x in enumerate(B)))*L*Z
-    nzA=[(n,x) for n,x in enumerate(A) if x]
-    nzB=[(m,x) for m,x in enumerate(B) if x]
-    cross0=sum(x*y*coeff[n][m] for n,x in nzA for m,y in nzB)
-    cross1=sum(x*y*coeff1[n][m] for n,x in nzA for m,y in nzB)
+    K0,K1=axis_kernel(j)
+    cross0=sum(x*y for x,y in zip(A,K0))
+    cross1=sum(x*y for x,y in zip(A,K1))
     return F(s1-cross0,R),F(s2-cross1,R)
 
 @lru_cache(None)
