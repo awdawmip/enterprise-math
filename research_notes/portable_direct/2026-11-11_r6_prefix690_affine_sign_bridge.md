@@ -12,53 +12,53 @@ The object is the exact 189-level independent-Poissonized first-stop maximum obs
 - PREFIX-680 global third-derivative certificate is inherited via the above verified predecessor statements; not recomputed here.
 
 Write
-[
+\[
  A(z)=\operatorname{Var}(Y(z,z))-\operatorname{Var}(Y(0,z)),\quad
  B(z)=E[Y(z,z)]-E[Y(0,z)],\quad F_q(z)=q A(z)-B(z).
-]
+\]
 For q>0, `V_q(z,z)-V_q(0,z)=qF_q(z)`, with `V_q=q² Var(Y)-q E[Y]`.
 The declared readout is the comparison of these two observers; no native Heartbeat physical-time or X6 dynamics is being inferred.
 
 Set `L=0.0528706` and `R=0.0530659`. Pinned exact certificate data provide
-[
+\[
 F_{12}(L)\ge2028625/10^9>0,\qquad F_{24}(R)<-7369716/10^9<0,
-]
-[
+\]
+\[
 0.656<A(L)<0.657,\qquad0.329<A(R)<0.330.
-]
+\]
 For the right upper bound: `floor(10^9 F_24(R))=-7369717`.
 
 Define the following exact rational q endpoints:
-[
+\[
 q_-:=12-\frac{2028625/10^9}{657/1000}=\frac{63055771}{5256000}
 \approx11.996912290715374,
-]
-[
+\]
+\[
 q_+:=24+\frac{7369716/10^9}{330/1000}=\frac{660614143}{27500000}
 \approx24.02233247272727.
-]
+\]
 
 ## Theorem 690.1 (one crossing for every real q across the full bridge)
 
 For **every real** `q ∈ [q_-,q_+]`, there is at least one real `z ∈ (L,R)` satisfying `F_q(z)=0`, hence `V_q(z,z)=V_q(0,z)`.
 
 **Proof.** For `q<=12`, affineness in q and `A(L)<657/1000` give
-[
+\[
 F_q(L)=F_{12}(L)-(12-q)A(L)
 >2028625/10^9-(12-q)657/1000\ge0
-]
+\]
 for all `q>=q_-`. Strictness also holds at `q=q_-`. For `q>=12`, `A(L)>0` immediately implies `F_q(L)>0`. Similarly, if `q<=24`, `A(R)>0` implies `F_q(R)<0`; for `q>=24`,
-[
+\[
 F_q(R)=F_{24}(R)+(q-24)A(R)
 <-7369716/10^9+(q-24)330/1000\le0
-]
+\]
 for `q<=q_+`, also strict at the endpoint. As the finite observer yields polynomial A,B, `F_q` is continuous in z. Apply the intermediate value theorem. QED.
 
 This establishes an exact q-width `434538558277/36135000000` (about 12.02542), covering every intermediate real q rather than just the two earlier collars. For the concrete internal sample `q=18`, the exact strict endpoint margins are
-[
+\[
 F_{18}(L)>31504229/8000000=3.938028625,\qquad
 F_{18}(R)<-495342429/250000000=-1.981369716.
-]
+\]
 
 ## Theorem 690.2 (ordered interpolation between the two earlier roots)
 
