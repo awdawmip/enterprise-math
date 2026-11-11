@@ -84,6 +84,6 @@ out={
   'author_verification':'ALL_CHECKS_PASS PREFIX713-R6',
   'grade':'AUTHOR_RECOMPUTED / EXACT_INTEGER_GAMMA_KERNEL / UNREVIEWED / NOT_ADMITTED'
 }
-Path(__file__).with_name('PREFIX713_R6_RESULTS.json').write_text(
+Path(__file__).with_name('PREFIX713_R6_EXACT_TWO_WITNESS_RESULTS.json').write_text(
     json.dumps(out,indent=2)+'\n')
 print('ALL_CHECKS_PASS PREFIX713-R6')
