@@ -1,0 +1,67 @@
+{
+  "schema": "EM_R67_AUTHORED_EXACT_EXPERIMENT_SUMMARY_V1",
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "source_program": "check_r67.py",
+  "program_git_blob_sha1": "0c927973f9763ce98be56e8e8965615bbf77b9a4",
+  "program_sha256": "8d2d391ba452f6c15606b299246d198f0e6e0a74855c38f1fc20c0ad692c9622",
+  "full_generated_certificate_sha256": "8f04e11d4a22834fb4d4ed403697ef4f40c51f1e1521c4cba2c4936ab9cd86ee",
+  "full_generated_certificate_bytes": 19288,
+  "cases": 120,
+  "matched_interval_queries": 1800,
+  "certified_queries": 1800,
+  "old_root_observation_checks": 360,
+  "cross_version_hits_on_first_interval": 96,
+  "baseline": {
+    "leaf_boundary_tests": 4126,
+    "nominal_nodes": 22912,
+    "subtree_checks": 9829,
+    "subtree_events": 30560,
+    "subtree_prunes": 3541,
+    "time_prunes": 3478,
+    "walk_nodes": 13307,
+    "winner_boundary_tests": 3456
+  },
+  "cached": {
+    "cache_hits": 2896,
+    "leaf_boundary_tests": 4126,
+    "nominal_nodes": 22912,
+    "saved_events": 24203,
+    "subtree_checks": 6933,
+    "subtree_events": 30560,
+    "subtree_prunes": 3541,
+    "time_prunes": 3478,
+    "walk_nodes": 13307,
+    "winner_boundary_tests": 3456
+  },
+  "large_time": {
+    "intervals": 51,
+    "certified": 51
+  },
+  "frozen_s23": {
+    "intervals": 12,
+    "certified": 12,
+    "labels": [
+      0,
+      31,
+      63,
+      127
+    ],
+    "m": 128,
+    "H": 225
+  },
+  "build_inserts": 4271,
+  "cache_entries": 1304,
+  "maximum_time_bits": 60,
+  "maximum_parameter_denominator_bits": 87,
+  "wall_seconds": {
+    "build": 0.134306,
+    "uncached": 0.612827,
+    "cached": 0.478788,
+    "oracle_validation": 0.856637
+  },
+  "r64_winner_change_detected": true,
+  "integer_collision_boundary_checked": true,
+  "evidence_scope": "The full deterministic program regenerated a 19,288-byte JSON certificate with 360 per-version hit rows; this compact summary preserves the totals and exact full-output SHA256. Re-run the saved program to regenerate the entire certificate; wall-clock fields vary across machines.",
+  "author_review_status": "AUTHOR_CHECKED_ONLY; INDEPENDENT_REVIEW_PENDING",
+  "origin": "R66 author-side continuation; R65/R66 subtree exclusion theorem reused with same hypotheses"
+}
