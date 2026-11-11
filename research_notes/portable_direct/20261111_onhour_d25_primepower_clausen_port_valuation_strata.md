@@ -67,3 +67,25 @@ Next local mathematics: prove or find an exact counterexample to the all-prime-p
 ## Control/source boundary
 
 Last exact Source task read `onhour-20261111-nexttask-read-1900` returned `SUCCEEDED` at Source `2d258707eb0e68509e79b3bb0b676398dabeb9cf` (as-of 2026-11-11T11:06:02Z): `HANDOFF_READY/NEEDS_DISPATCH`, no active owner, canonical typed predecessor continuation with unchanged high frontier. The prior bridge `recovery_status` #6759 recovered only its old `REGISTRATION_FAILED` session, no winning CLAIM/open. This report is independent GitHub author-side material; no role-bound mutation has been attempted and the maintenance logical conversation has not been used.
+
+## Additional exact Jacobi-jet representation (all integers m, e)
+
+The classical binomial definition of Jacobi polynomials gives the **exact** identity, not a prime-power observation,
+
+```
+P(x) = P_m^(0,m+e)(x)
+     = sum_(k=0)^m binom(m,k)binom(2m+e,k)
+         ((x-1)/2)^k ((x+1)/2)^(m-k).
+U = P(3).
+4 P'(3) = m U + sum_(k=0)^m k c_k.
+V = 48 P'(3) + (3+2e-2N)P(3).
+```
+
+This is proved termwise: at x=3, the summand is c_k and its derivative is (m+k)c_k/4. Since N=6m+1+4e, the last equality follows from V=(1-6e)U+12 sum k c_k. Therefore modulo *any* N of this form,
+
+```
+U V ≡ P_m^(0,m+e)(3) * [48 P_m^(0,m+e)'(3)
+                          +(3+2e)P_m^(0,m+e)(3)] (mod N).
+```
+
+This is a precise, same-named-port **Jacobi value/derivative reduction** of the H40 composite conjecture. It retains the prime-power BRC coordinates when evaluated over Z/p^r. SymPy's standard Jacobi definition independently matched all 12 exact integer pairs (m=1..6, e=0,1); the displayed equations are also proved by the binomial formula. The next analytical direction is to study the p-adic divisibility of this Jacobi value and its stated derivative combination, including the observed inert ceil/floor split. No ordinary JET2/native-crystal identification follows from this algebra alone.
