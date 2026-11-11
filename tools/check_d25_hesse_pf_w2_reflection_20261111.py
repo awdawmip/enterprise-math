@@ -14,6 +14,22 @@ def mul(x, y, q):
             (x[0] * y[1] + x[1] * y[0]) % q)
 
 
+def invquad(x, q):
+    norm = (x[0] * x[0] - 2 * x[1] * x[1]) % q
+    z = pow(norm, -1, q)
+    return (x[0] * z % q, -x[1] * z % q)
+
+
+def qpow(x, n, q):
+    ans = (1, 0)
+    while n:
+        if n & 1:
+            ans = mul(ans, x, q)
+        x = mul(x, x, q)
+        n //= 2
+    return ans
+
+
 def eval_at_quadratic(cs, u, q):
     v = (0, 0)
     for c in reversed(cs):
@@ -45,6 +61,19 @@ def check_prime(p):
     assert all(c % p == 0 for c in cs[n + 1:])
     inv4 = pow(4, -1, q)
     u = (2 * inv4 % q, -inv4 % q)  # (2-T)/4, T²=2
+    # Source original E3_v has the opposite signed j-port from Hesse(a³=1/v).
+    one_minus = ((1 - u[0]) % q, (-u[1]) % q)
+    v9 = ((9 - 8 * u[0]) % q, (-8 * u[1]) % q)
+    numerator = mul((27, 0), qpow(v9, 3, q), q)
+    denominator = mul(qpow(u, 3, q), one_minus, q)
+    j_original_e3 = mul(numerator, invquad(denominator, q), q)
+    t = (4 % q, 2 % q)  # a³=4+2T, the conjugate Hesse CM j-port
+    tplus8 = ((t[0] + 8) % q, t[1])
+    tminus1 = ((t[0] - 1) % q, t[1])
+    j_hesse = mul(mul((27, 0), t, q), qpow(tplus8, 3, q), q)
+    j_hesse = mul(j_hesse, invquad(qpow(tminus1, 3, q), q), q)
+    assert j_original_e3 == (2417472 % q, 1707264 % q)
+    assert j_hesse == (2417472 % q, -1707264 % q)
     an = eval_at_quadratic(cs[:n + 1], u, q)
     p2 = eval_at_quadratic(cs, u, q)
     assert p2[1] == 0, ('quadratic port', p, p2)
@@ -78,6 +107,7 @@ def main():
     target = [p for p in tested if p % 24 in (13, 19)]
     print('PASS: polynomial PF mod p² and reflection,', len(tested), 'primes p<500 with p≡1 (mod3)')
     print('PASS: quadratic CM port parity and supersingular residue,', len(target), 'target primes p<500')
+    print('PASS: signed original E3 versus Hesse conjugate j-ports, all', len(tested), 'primes')
     print('PASS: p=373 A_n/p = (302,154), P_2n/p = (24,0); independent factorial witness')
 
 
