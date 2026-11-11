@@ -1,0 +1,93 @@
+{
+  "schema": "R721_FIVE_AXIS_CNB_MINIMUM_DIRECTED_ARCS",
+  "status": "R721_18_ARCS_SHARP_EXACT_PASS",
+  "domain": {
+    "triads": 10,
+    "all_directed_arcs": 60,
+    "mandatory_arcs": 9,
+    "optional_arcs": 51,
+    "targets": 18
+  },
+  "full_graph_raw_path_counts": {
+    "4": {
+      "102": 16,
+      "120": 6,
+      "201": 6,
+      "210": 16,
+      "012": 12,
+      "021": 16
+    },
+    "5": {
+      "102": 40,
+      "120": 66,
+      "201": 66,
+      "210": 40,
+      "012": 60,
+      "021": 40
+    },
+    "6": {
+      "102": 248,
+      "120": 324,
+      "201": 324,
+      "210": 248,
+      "012": 270,
+      "021": 248
+    }
+  },
+  "distinct_optional_witness_masks": {
+    "4": {
+      "102": 16,
+      "120": 6,
+      "201": 6,
+      "210": 16,
+      "012": 12,
+      "021": 16
+    },
+    "5": {
+      "102": 40,
+      "120": 66,
+      "201": 66,
+      "210": 40,
+      "012": 60,
+      "021": 40
+    },
+    "6": {
+      "102": 228,
+      "120": 324,
+      "201": 324,
+      "210": 228,
+      "012": 223,
+      "021": 228
+    }
+  },
+  "eight_or_fewer_optional_arcs": {
+    "possible": false,
+    "visited_masks": 319
+  },
+  "nine_optional_arcs": {
+    "possible": true,
+    "visited_masks": 6
+  },
+  "minimum_directed_arcs_with_R719q_repair_triangles": 18,
+  "example_directed_arcs": [
+    "012>013",
+    "012>023",
+    "012>123",
+    "012>124",
+    "013>014",
+    "013>123",
+    "014>012",
+    "014>024",
+    "023>024",
+    "023>123",
+    "024>012",
+    "024>014",
+    "123>124",
+    "123>234",
+    "124>012",
+    "124>014",
+    "124>024",
+    "234>024"
+  ],
+  "unbounded_length_step": "R719q identity-root-triangle insertion by +3"
+}
