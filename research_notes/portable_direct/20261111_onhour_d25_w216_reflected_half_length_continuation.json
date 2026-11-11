@@ -1,0 +1,72 @@
+{
+  "schema": "ENTERPRISE_MATH_AUTHOR_SIDE_CONTINUATION_V1",
+  "timestamp": "2026-11-11T15:08:00+08:00",
+  "classification": "AUTHOR_SIDE_EXACT_PROOF_11_PRIME_CHECKS_UNREVIEWED_NOT_ADMITTED_NOT_NATIVE_H0B0",
+  "mother_objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_source_commit": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "scientific_input_rebased": false,
+  "logical_research_conversation_declared": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "platform_conversation_attested": false,
+  "researcher_id_historical": "EM-ENTERPRISE-CF1028",
+  "session_id_historical": "MCP-7af27f545c01441eaf19206f89c6832b",
+  "activity_id_historical": "RA-47ADB5B97D6D92FC28504B60",
+  "session_start_request_id": "onhour11-20261111-1000-onhour-researcher-start",
+  "private_session_capability_available": false,
+  "site_own_recovery_error": "SITE_CONTROL_OWN_ISSUED_SESSION_REQUIRED",
+  "current_execution_authorized": false,
+  "winning_own_claim": null,
+  "open_run": null,
+  "native_checkpoint_published": false,
+  "current_continuation_request_id": "onhour11-20261111-1457-cont",
+  "current_continuation_receipt_status": "SUCCEEDED",
+  "read_source_snapshot": "58cf47c7c048494e3e17318a0b47e9744b737847",
+  "previous_author_side_continuation": "research_notes/portable_direct/20261111_onhour_d25_parameter_p2_torsor_continuation.json",
+  "highest_author_side_unit": {
+    "name": "D25_W216_REFLECTED_HALF_LENGTH_P3",
+    "mathematical_status": "EXACT_ALL_PRIMES_P_GT_3_PROOF_BY_FACTORIAL_COMPLEMENT",
+    "statement": "For all p>3 prime, W_p ≡ sum_{0<=k<p/2}(6k+1)a_k + p^2 sum_{p/3<k<p/2}(1-6k)/(36k^3(a_k/p mod p)) mod p^3, with a_k=(2k)!(3k)!/(216^k(k!)^5); the second sum is in F_p.",
+    "structural_lemma": "v_k+v_{p-k}=3 and u_k*u_{p-k}=(-1)^(1+floor(2k/p)+floor(3k/p))*floor(3k/p)!*(2-floor(3k/p))!/(36k^3) mod p",
+    "exact_checker": "research_notes/portable_direct/d25_w216_mirror_half_length_20261111.py",
+    "note": "research_notes/portable_direct/20261111_onhour_d25_w216_reflected_half_length_exact_certificate.md",
+    "verification": "PASSED exact modular original-recursion and independent factorial-unit checker, all mirror k, strata and folded sum for 11 primes 5,7,11,13,19,37,43,109,139,157,373; finite cases support general symbolic proof, not substitute for it.",
+    "p373": {
+      "p": 373,
+      "p2": 139129,
+      "p3": 51895117,
+      "layer_counts": [
+        125,
+        62,
+        62,
+        124
+      ],
+      "lower_half_raw_mod_p3": 14887176,
+      "mirror_tail_coefficient_mod_p": 266,
+      "folded_W_mod_p3": 373,
+      "original_padic_second_digit_I1": 107,
+      "original_padic_second_digit_I2": 266
+    },
+    "brc_typed_observer": "Preserve original signed k, v_p(a_k), p-free unit u_k and 6k+1. Involution k->p-k safely removes high-index coefficients only for the W_p mod p^3 observer."
+  },
+  "native_h0b0_status": "NOT_RUN",
+  "native_support_issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+  "native_support_owner": "PENDING_OWNER",
+  "native_missing_evidence": [
+    "p373 original-class divided-power H0/B0 fixed [X]U modulo 139129",
+    "native evaluator, original module rank, basis, semilinear Frobenius direction, eta",
+    "signed odd Green/Hesse observer kappa, source coordinate comparison through p^3",
+    "same-source Delta_p-R_p crosscheck and genuinely independent replication"
+  ],
+  "do_not_repeat": [
+    "accepted D24 UR/JT0, CM0, SIMPLE",
+    "historical 1227-prime W216 full scan, geometric E3, formal group auxiliary theorems",
+    "p^2 deformation-coordinate torsor and Hensel simple zero",
+    "now-completed exact mirror-pair half-length theorem"
+  ],
+  "next_exact_mathematical_action": "Target the half-length identity short_sum + p^2*mirror_tail ≡ p (mod p^3) for all p≡13,19 mod24 at the frozen original parameter; seek a uniform cancellation identity involving the lower half and paired inverse units, or one exact original-class falsifier.",
+  "next_exact_native_action": "Issue #1559 authorized owner to execute exact original-class p373 H0/B0 divided-power [X]U mod139129, retain native rank/Frobenius/eta/kappa/source-normalization and independent replication. This author-side result is NOT a native substitute.",
+  "status": "UNREVIEWED_NOT_ADMITTED_RESULT_NOT_FROZEN",
+  "scheduler_configuration_changed": false
+}
