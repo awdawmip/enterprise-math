@@ -9,6 +9,7 @@ from random import Random
 import json
 from time import perf_counter
 
+
 def frac(x):return x-floor(x)
 
 def direct_present(t,j,x,a,b,z):
