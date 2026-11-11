@@ -72,3 +72,36 @@ The published single-file verifier combines exactly the earlier frozen PR #2123 
 ## Next research question
 
 Extend the first-zero affine envelope and exact schedule loss transfer through +5/5083 and -1/1633. Report separately coordinate-minimizer changes, unique first-zero phase values and complete legal schedule losses; a new minimizer wall can reassign first-zero witnesses without adding a new numerical phase. Preserve original scientific pins and formal source/owner separation.
+
+
+## 2026-11-12 addendum — six full intervals and eight local phase-loss transfers
+
+Further exact verification extends the four full affine-minimizer intervals above to **six**: add the adjoining closed intervals [5/5083,1/851] and [-1/1219,-1/1633]. The 32,767-mask, 28-coordinate complete endpoint check proves the additional midpoint winner populations:
+
+- positive third interval: k14=14,646; k15=11,013; k7=299; outside ray=6,809;
+- negative third interval: k14=14,667; k15=10,992; k7=299; outside ray=6,809.
+
+The positive wall r=5/5083 changes precisely masks 14597 and 31509; negative r=-1/1633 changes precisely mask 15109. The following next possible walls are therefore +1/851 and -1/1219.
+
+**Important distinction:** At a *single perturbation value* r=1/1265, three phase-value pairs coincide at *three distinct epsilon values*: (F_110,Q_3), (F_440,Q_12), (F_550,Q_15). Likewise r=-1/2461 has (F_107,Q_3), (F_428,Q_12), (F_535,Q_15). Only the first pair at each of these walls switches an actual subset's winning affine coordinate; the additional pair coincidences still redistribute legal full-order losses. They must be counted as separate epsilon-phase events.
+
+The local losses were therefore recomputed using rational samples immediately on either side of each collision, bounded by the nearest other *phase-value* crossing F_n=Q_q, rather than arbitrary midpoints of the broader minimizer chambers. The exact eight phase-pair outcomes are:
+
+| Perturbation wall r | Pair | F loss before -> after as r increases | Q loss before -> after | Change to Q loss | Constant combined loss |
+|---|---|---|---|---:|---:|
+| +1/1265 | F_110,Q_3 | 216738876 -> 193333788 | 12939867720 -> 12963272808 | +23405088 | 13156606596 |
+| +1/1265 | F_440,Q_12 | 936566072 -> 805044224 | 140525965632 -> 140657487480 | +131521848 | 141462531704 |
+| +1/1265 | F_550,Q_15 | 956531904 -> 695889312 | 383921342928 -> 384181985520 | +260642592 | 384877874832 |
+| -1/2461 | F_107,Q_3 | 126633932 -> 83034876 | 12847872840 -> 12891471896 | +43599056 | 12974506772 |
+| -1/2461 | F_428,Q_12 | 657640968 -> 501071304 | 137055984032 -> 137212553696 | +156569664 | 137713625000 |
+| -1/2461 | F_535,Q_15 | 1929707664 -> 880505088 | 377728635456 -> 378777838032 | +1049202576 | 379658343120 |
+| +5/5083 | F_442,Q_12 | 338727248 -> 227619620 | 140996629764 -> 141107737392 | +111107628 | 141335357012 |
+| -1/1633 | F_426,Q_12 | 746030624 -> 545161644 | 136660470420 -> 136861339400 | +200868980 | 137406501044 |
+
+All eight pair losses retain their combined value in this frozen model. The numbers on either side are evaluated in *adjacent phase-order chambers*: for a given r-wall, form the finite set of fixed/moving crossings r_(n,q)=(n-36q)/(23n), find the nearest crossing strictly below and above, sample the exact rational midpoint between the wall and each neighbor, and count legal full permutations by the same subset DP. This avoids crossing other unrelated F/Q events between two compared samples.
+
+These eight pair loss identities were executed on the frozen source in local exact-Fraction programs. The published combined verifier now includes assertions for all six full endpoint chambers, all precise switching masks and all eight local phase-loss pairs; independently executing its newly published bytes remains the next reproducibility check.
+
+### Updated next mathematical unit
+
+Continue the certified affine-minimizer fan beyond **r=+1/851** and **r=-1/1219**; separately determine which fixed/moving phase-value collisions actually change prefix minimizers, and how many labeled complete legal orders are lost at each distinct epsilon event. Reuse the same frozen 28-dimensional observer, 15 labeled atoms and source pins. Formal mathematical Source acceptance and independent review remain separate.
