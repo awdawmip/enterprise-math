@@ -119,3 +119,25 @@ The original D25/LIFT target remains: prove or correctly classify Delta_p=(G_p h
 Next: bind the original source's divided-power fixed H0/B0 and Frobenius lift to (e0,e1) or the cyclic basis Q_t, compute a true 2×2 sigma-semilinear native [X]U modulo 139129 on the p373 original curve and its conjugate, and compare its normalized omega+6*nabla_lambda(omega), kappa and Delta/R readouts with the three distinct coefficient objects A_p/p, C_p/p and P_p/p. Preserve full matrix and signed ports. Independently check a source-approved H0/B0 basis-change matrix; missing native API/implementation should be recorded as a precise task-bound support request rather than replacing the experiment with this theorem.
 
 No independent review, formal checker, or canonical Result acceptance is claimed.
+
+## V. Exact original E3 port alignment (corrective source-bound discriminator)
+
+The frozen source's *unmodified original E3 model* is
+
+    E3_v: y²+xy+(v/27)y=x³,   v=(2-T)/4.
+
+Here `v` must be distinguished from the Hesse parameter `a` and the Hesse inverse parameter `u=1/a³`. Direct computation of its Weierstrass invariants gives
+
+    c4(E3_v)=(9-8v)/9,
+    Delta(E3_v)=v³(1-v)/27³,
+    j(E3_v)=27(9-8v)³/[v³(1-v)].
+
+In the exact quadratic field T²=2, the resulting **signed port alignment** is
+
+    j(E3_v)=2417472+1707264*T,
+    j(Hesse_{a³=1/v})=2417472-1707264*T,
+    j(Hesse_{a³=1/(1-v)})=2417472+1707264*T.
+
+Thus the Hesse model `a³=4+2T` in sections I–III belongs to the CM **conjugate j-port** of E3_v; to match the E3_v j-port, start instead with the sigma-conjugate Hesse parameter `a_bar³=4-2T`. At p=373 (mod 139129), j(E3_v)=52279+37716*T, whereas j(Hesse_{a³=4+2T})=52279+101413*T. These are distinct in the quadratic ring. The p² Picard–Fuchs reflection theorem remains valid for **both** ports and its P_p(v) is σ-even, but the isomorphism or source-prescribed isogeny, coordinate/differential gauge, and H0/B0 basis comparison between Hesse_{a_bar} and *unmodified* E3_v still require explicit verification. Matching j alone does not supply the needed native comparison or its signed operator orientation.
+
+This correction supersedes any shorthand in the preceding sections or prior W2 staging that identifies the particular `a³=4+2T` Hesse curve directly with E3_v at the same signed T-port. The mathematical matrix and reflection statements are unchanged as **Hesse-family statements**. Preserve `T↦-T` and both odd observables until a source-authenticated full two-column comparison is made. Native [X]U and κ/Delta-R remain NOT_RUN.
