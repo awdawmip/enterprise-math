@@ -54,6 +54,29 @@ The open NB masses e_O P_prefix (1,1)^T are **11/4** for U and **7/2** for V. Th
 
 This is an observation-design theorem for this candidate weighted path model, not a theorem identifying the unique physical Cell trajectory, general X6 rotation law, or all possible phase-observer reconstruction schemes. For a future native X6 successor, test which phase clock, incoming branch, orientation and intermediate observations must remain in state rather than relying solely on six-step coarse-grained transfer.
 
+## 3.1. Exact tomography from phase-registered cyclic boundary transfers
+
+The loss above is specific to observing only a **fixed phase origin** at every whole turn. Retain the complete labelled 2-by-2 transfer measured from each cyclic starting phase:
+
+    P_j = T(t_j) T(t_{j+1}) ... T(t_{j+5}),  indices modulo 6.
+
+For strictly positive t_j, all entries of P_j are positive (every six-factor product has positive entries). Define b_j=(P_j)_{1,2} and c_j=(P_j)_{2,1}. The cyclic products satisfy
+
+    P_j T(t_j) = T(t_j) P_{j+1}.
+
+Indeed, the two sides are both T(t_j)...T(t_{j+5})T(t_j). Comparing the (2,2) entry gives
+
+    c_j t_j = b_{j+1},  hence  t_j = b_{j+1}/c_j.
+
+**Tomography theorem.** Knowing all six phase-registered whole-turn endpoint matrices P_1,...,P_6 in their true cyclic order determines all six positive activities *uniquely*, by the above explicit rational quotients. This is a constructive, algebraic inverse, not a numerical fit or a claim of minimal observation cost.
+
+The collision U,V has identical starting-phase transfers P_1,P_2,P_3, but differs already at start phase 4:
+
+    P_4(U) = [[23/2,33/8],[9,13/4]],
+    P_4(V) = [[23/2,33/4],[9/2,13/4]].
+
+Thus retaining **cyclic starting-phase registration**, unlike repeating only the same whole-turn measurement, can resolve the ambiguity. This gives two exact and distinct experimental repairs: an intermediate phase-three prefix readout (section 3) or sufficiently rich cyclic boundary tomography. Neither replaces the missing physical native rotation definition.
+
 ## 4. Exact reproduction
 
 The proof is the displayed four-factor matrix identity, followed by multiplication and elementary properties of powers. The following independent rational arithmetic check verifies every displayed finite identity (it is not the universal proof):
