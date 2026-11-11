@@ -1,0 +1,23 @@
+Executed 2026-11-11 (Asia/Shanghai) with Python stdlib Fraction/integer arithmetic.
+Execution source: independent local stand-alone verifier reconstructed from the frozen 15 R5 atom coefficients and 28 X fractions in PR #2102. The published VERIFY_DOMINANT_PHASE_607.py imports the exact parent PR #2105 files instead of duplicating those fractions; its full published bytes have NOT been separately executed in a clean GitHub checkout. The output below is a locally executed exact-equivalent mathematical verification, not a remote CI result.
+
+FROZEN_PARENT_PR_2102 435e77af0d180eac32bd1f9c4c464bc4010b7551
+FROZEN_PHASE_PR_2105 666bdb981aa1abaf4643ff7742a48239f4086932
+PHASE_INDEX 607
+PHASE_EPSILON 155682221/377131868400000000
+NEW_INFEASIBLE_PREFIX_MASKS 4114
+SOURCE3_TARGET1_RACE_MASKS 4096
+SOURCE3_TARGET0_EXTRA_MASKS 18
+SOURCE3_TARGET0_EXTRA_MASK_IDS 3152,3976,7380,7470,10800,11283,11608,15028,15511,15836,19640,19652,23581,24382,27300,27783,28108,30977
+PRE_PHASE_LEGAL_ORDERS 851207682192
+PAIR_RACE_ONLY_FILTERED_ORDERS 471427082208
+AFTER_PHASE_LEGAL_ORDERS 470447833008
+RACE_ATTRIBUTED_ORDER_DROP 379780599984
+ADDITIONAL_TARGET0_ORDER_DROP 979249200
+TOTAL_ORDER_DROP 380759849184
+DIRECT_EXACT_CHECK_BOTH_SIDES True
+PASS_R5_PHASE607_RESOURCE_RACE_AND_18_EXCEPTIONS
+
+Local stand-alone verifier SHA256 (evidence locator only):
+d4f06c589b68f1fa362f520d40d92f06936ab77ef818817a7c19f51c70bcd0dc
+The script and its generated local output reside in this run's working artifact set. For reproducibility, run the published verifier from the stacked PR checkout containing PR #2102, #2105 and this branch.
