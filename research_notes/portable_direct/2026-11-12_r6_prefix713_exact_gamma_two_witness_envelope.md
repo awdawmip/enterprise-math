@@ -2,7 +2,7 @@
 
 Date: 2026-11-12 (Asia/Shanghai).  
 Scientific input pin: `awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d`.  
-Parent target: PREFIX-675; immediate verified predecessor: PREFIX-712, with the corrected Gamma maximum kernel from PREFIX-710.  
+Parent target: PREFIX-675; inherited base: PREFIX-712, with the corrected Gamma maximum kernel from PREFIX-710. This is an independent two-witness supplement alongside the concurrently published PREFIX-713 coupled-moment work and PREFIX-714 certificate union.  
 Status: AUTHOR_RECOMPUTED / EXACT_INTEGER_GAMMA_KERNEL / UNREVIEWED / NOT_ADMITTED.  
 Scope: the **auxiliary** two-coordinate statistical observer on (D=[0,1/2]^2), not a native X6 slice.
 
@@ -87,8 +87,21 @@ of the full auxiliary square, uniformly for all real (q\ge2). This is a **verifi
 
 Local Python standard-library verifier A (`PREFIX713_R6_EXACT_TWO_WITNESSES.py`) rebuilt the frozen count rows, exactly evaluated the three rational Gamma witness moments and proved the two strict pointwise inequalities and crossing enclosure: `ALL_CHECKS_PASS PREFIX713-R6`.
 
-Local exact cell checker B (`PREFIX713_R6_FINE_CELL_CERTIFICATES.py`) independently computed the Gamma kernel at eight distinct axes' required corner values and exactly checked the old failures/new endpoint successes for four cells: `ALL_CHECKS_PASS PREFIX713-FINE`. Its mirrored four cells follow from exchangeability. The machine-readable counts and finite tests are in `PREFIX713_R6_RESULTS.json`.
+Local exact cell checker B (`PREFIX713_R6_EXACT_CELL_CERTIFICATES.py`) independently computed the Gamma kernel at eight distinct axes' required corner values and exactly checked the old failures/new endpoint successes for four cells: `ALL_CHECKS_PASS PREFIX713-FINE`. Its mirrored four cells follow from exchangeability. The machine-readable counts and finite tests are in `PREFIX713_R6_EXACT_TWO_WITNESS_RESULTS.json`.
 
 A broader uniform piecewise-witness exhaustive 192/384-grid attempt was not completed; no count is claimed from that attempt. The present certificate requires only the verified eight added cells and prior PREFIX-712 proof.
 
 Next scientific unit: use the two-witness envelope (P(t)) with exact breakpoints to certify all remaining PREFIX-712 fine cells, then refine only truly unexcluded cells. Use the exact Gamma maximum kernel, not the invalid count-maximum substitution from PREFIX-709. Compare with interior stationary-point candidates to solve PREFIX-675's actual global optimizer problem. The result is author-checked research, not an independent Result/Review or promoted foundation.
+
+
+## 5. Concurrent-frontier reconciliation (2026-11-12)
+
+At publication/readback, the project already contained the independent `PREFIX713_R6_COUPLED_MOMENT_CERTIFICATE.py`, `PREFIX713_R6_MULTICOMPETITOR_CERTIFICATE.py`, and `PREFIX714_R6_CERTIFICATE_UNION_CHECK.py`. The current combined author-level **stronger** certified union is:
+- all real q >= 2: **137278 / 147456 = 68639 / 73728** of D;
+- 12 <= q <= 24: **137494 / 147456 = 68747 / 73728** of D.
+
+The eight newly verified cells here (four listed and their transposes) are a **subset** of the twenty multi-competitor cells in `PREFIX713_R6_MULTICOMPETITOR_RESULTS.json`. Therefore **they add zero new cells beyond PREFIX-714's existing union** and must not be counted again as a fresh area increase. The numerical fraction `17147/18432` above is the lower bound for this supplement considered only together with PREFIX-712, not the current project-wide frontier.
+
+The independent scientific contribution retained by this supplement is the exact **coordinatewise mean/variance domination** of the old universal comparator by `(0,149/1000)`, the quantitative gap for every real q > 0, and a two-point rational switching parameter t*. These are directly reusable to tighten existing universal lower bounds and design an efficient next-stage adaptive-competitor certificate. Do not overwrite the distinct `PREFIX713_R6_RESULTS.json` coupled-moment data: these scripts write the separately named `PREFIX713_R6_EXACT_TWO_WITNESS_RESULTS.json`.
+
+Current unresolved work: combine or improve the existing PREFIX-714 union by testing its *actual remaining cells* against the exact q-adaptive witness envelope and coupled moment bound. Count only disjoint new cells and leave owner/claim, Result and Review to their respective current authenticated routes.
