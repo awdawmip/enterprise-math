@@ -1,0 +1,51 @@
+{
+  "schema": "EM_R83_REFINED_NO_SINGLE_GLOBAL_CONVEX_CERTIFICATE_V1",
+  "date": "2026-11-12",
+  "status": "LOCAL_EXECUTION_PASSED",
+  "derivation": "q=g+2; residues {0} union {3,...,q-1}; source times q for r=0 and q+r otherwise; epsilon=1/(1000q^2); target [theta,2theta)",
+  "claim": "Each group R71-excluded on all real theta in I; single global convex phase envelope includes target at anchor",
+  "cases": [
+    {
+      "g": 32,
+      "scenario": "EARLY_WINNER",
+      "heap_median_ns": 29228,
+      "avl_median_ns": 29739
+    },
+    {
+      "g": 32,
+      "scenario": "ALL_EXCLUDED",
+      "heap_median_ns": 527746,
+      "avl_median_ns": 614525
+    },
+    {
+      "g": 128,
+      "scenario": "EARLY_WINNER",
+      "heap_median_ns": 36068,
+      "avl_median_ns": 30920
+    },
+    {
+      "g": 128,
+      "scenario": "ALL_EXCLUDED",
+      "heap_median_ns": 2135627,
+      "avl_median_ns": 2481485
+    },
+    {
+      "g": 512,
+      "scenario": "EARLY_WINNER",
+      "heap_median_ns": 68781,
+      "avl_median_ns": 32893
+    },
+    {
+      "g": 512,
+      "scenario": "ALL_EXCLUDED",
+      "heap_median_ns": 8567108,
+      "avl_median_ns": 10570885
+    }
+  ],
+  "repetitions": "16 for 32 and 128 groups, 8 for 512",
+  "scopes": [
+    "winner-frontier isolated; group certificate work identical",
+    "not a full R82 three-index benchmark",
+    "no information-theoretic impossibility of stronger global certificates"
+  ]
+}
