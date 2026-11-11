@@ -3,6 +3,7 @@
 from bisect import bisect_right
 from math import gcd
 from random import Random
+from pathlib import Path
 import json
 
 PIN='43ec6098b1330ae86d0a7863be336c5d97f6ef34'
@@ -146,6 +147,6 @@ def main():
             'small_replayed_events':total_individual,'small_delta_endpoints':total_endpoints,
             'frozen_cases':frozen,
             'deletion_witness':{'A_before':[1,2],'B_before':[2],'latest_before':2,'delete':2,'A_latest_after':1,'B_latest_after':None}}
-    with open('/mnt/data/em_r58/CERTIFICATE.json','w',encoding='utf-8') as f:json.dump(result,f,indent=2,ensure_ascii=False)
+    with open(Path(__file__).with_name('CERTIFICATE.json'),'w',encoding='utf-8') as f:json.dump(result,f,indent=2,ensure_ascii=False)
     print('PASS_R58',case_count,'checkpoint_queries',total_queries,'microevents',total_individual,'delta_updates',total_endpoints,'S23',frozen,'deletion_witness_ok')
 if __name__=='__main__':main()
