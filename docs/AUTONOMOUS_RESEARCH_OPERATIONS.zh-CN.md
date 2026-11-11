@@ -4,6 +4,12 @@
 
 状态：ACTIVE。用途是执行编排，不新增任务准入、数学结论或角色权限。研究证据是主要交付；状态说明、支持请求和轮询本身不是研究进展。
 
+## 每轮的轻量消费路径
+
+沿 GK 已读项目入口进入当前任务路由；复用本 lane 的已登记身份、未落定原请求和有用科学前沿。进入新单元自然边界时，消费当前可执行选择并读取所选 Task，再完成自身 prepare／有前任的 typed continuation → 真实获胜 CLAIM → open。选择和登记都不等于领取；继续已有科学方向不必强制改题。Sites 沿既有原生工具和回执的 `worker_transition.native`（实际宣告时）；GitHub Chat 可用 `worker_pull`，并非只有无 Sites 时才可使用。保留原 subject 和私密能力，不跨传输采用别的 lane 身份；没有新工具宣告时沿已有精确路由，不重签或全扫。
+
+已有成果先保存 GitHub，并按本身已读的 activity 规则更新自己的既有 activity checkpoint：`tools/research_activity.py checkpoint` 及其 connector JSON／非强制 CAS 合同均可记录真实 Source 来源。它是活动记账，不是 CLAIM 或正式 semantic checkpoint；不能把仅有作者分支保存称为 activity 已回写。没有匹配当前研究的已发布 Task 时，明确报告缺的绑定，保留原研究，不把另一方向的推荐冒称已领取。以上按真实工作边界执行，不新增必读文件或每轮完整状态扫描。
+
 ## 职责
 
 现有三条 Researcher、一条 Driver、一条控制维护定时任务保留原有时刻。角色数量不代替可执行路径：
