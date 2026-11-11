@@ -2,7 +2,7 @@
 
 Date: 2026-11-11 (Asia/Shanghai). Author-side mathematical derivation, independent review pending.
 
-Parent task: \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\`, immutable publication \`TP2-8B7E13C5904A2D6F1142\`. Frozen scientific input: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`, unchanged. Inputs: R715 @ \`ccc019123731b3ef59497c7f064151b0e3c00c7f\`; R716/R716b @ \`1ed250c30b02e42cc0eb57beded21eed8630df9d\`.
+Parent task: `RS-X6-TRIADIC-CLOSURE-DYNAMICS`, immutable publication `TP2-8B7E13C5904A2D6F1142`. Frozen scientific input: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`, unchanged. Inputs: R715 @ `ccc019123731b3ef59497c7f064151b0e3c00c7f`; R716/R716b @ `1ed250c30b02e42cc0eb57beded21eed8630df9d`.
 
 ## Population, BRC carrier, and observer
 
@@ -125,9 +125,9 @@ This is an exact raw-history reconstruction bound for the specified observer. A 
 
 ## Reproducible validation
 
-The accompanying Python verifier \`R717_ODD_ASYMMETRY_VERIFY.py\` completely enumerates legal rooted cyclic pair words of minimal excess three for odd m=5,7,9,11,13,15,17, recomputing all four D_j for every word and checking the whole histogram of R against W_m(r). The enumerated rooted totals are respectively 40, 168, 576, 1,848, 5,720, 17,280, 51,272.
+The accompanying Python verifier `R717_ODD_ASYMMETRY_VERIFY.py` completely enumerates legal rooted cyclic pair words of minimal excess three for odd m=5,7,9,11,13,15,17, recomputing all four D_j for every word and checking the whole histogram of R against W_m(r). The enumerated rooted totals are respectively 40, 168, 576, 1,848, 5,720, 17,280, 51,272.
 
-Separately for k=0,...,500 (501 exact integer parameter checks, m up to 1005), it compares the binomial coefficient distribution with integer Fibonacci/Lucas recurrences and an independent exact recurrence for the first two H_k derivatives at u=1, including both rational moment identities. All assertions passed in a local Python standard-library run: \`R717_ODD_RING_ASYMMETRY_EXACT_PASS\`. The companion JSON records output counts and selected rational examples. Finite checks corroborate, but do not replace, the proofs for all odd m.
+Separately for k=0,...,500 (501 exact integer parameter checks, m up to 1005), it compares the binomial coefficient distribution with integer Fibonacci/Lucas recurrences and an independent exact recurrence for the first two H_k derivatives at u=1, including both rational moment identities. All assertions passed in a local Python standard-library run: `R717_ODD_RING_ASYMMETRY_EXACT_PASS`. The companion JSON records output counts and selected rational examples. Finite checks corroborate, but do not replace, the proofs for all odd m.
 
 **BRC method resolution:** COMPOSE_APPLIED (R715 labelled event provenance and exact profile fibers, R716 free dihedral action). The compressed R observer retains only the explicitly stated boundary contrast. Scientific pin remains unchanged. The five-phase inventory/Cell scheduler is the previously declared candidate; the full native Link/Port and V39 observer mapping is the next separate research question.
 
