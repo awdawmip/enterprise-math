@@ -1,0 +1,88 @@
+{
+  "schema": "R722_CNB_15_ARC_RADIUS_TWO_EXACT_V1",
+  "status": "R722_LOCAL_LOWER_BOUND_EXACT_PASS",
+  "source": "R721b, ab1faa492bec4e7f56a81dc8bba09d96b0d6cffc",
+  "root": "012",
+  "axes": "01234",
+  "possible_directed_arcs": 60,
+  "base_arcs": [
+    "012>024",
+    "012>123",
+    "012>124",
+    "013>012",
+    "013>023",
+    "023>012",
+    "023>013",
+    "024>023",
+    "024>124",
+    "123>013",
+    "123>023",
+    "123>134",
+    "124>123",
+    "124>134",
+    "134>013"
+  ],
+  "claim": "Every 14-arc set obtained by deleting k=1,2,3 base arcs and adding k-1 new arcs fails six-state reachability at length 4 or 5.",
+  "path_catalog_distinct_masks": {
+    "length_4": {
+      "102": 16,
+      "120": 6,
+      "201": 6,
+      "210": 16,
+      "012": 12,
+      "021": 16
+    },
+    "length_5": {
+      "102": 40,
+      "120": 66,
+      "201": 66,
+      "210": 40,
+      "012": 60,
+      "021": 40
+    }
+  },
+  "classification": {
+    "1": {
+      "candidate_count": 15,
+      "fails_at_4": 13,
+      "passes_4_fails_5": 2,
+      "passes_4_and_5": 0
+    },
+    "2": {
+      "candidate_count": 4725,
+      "fails_at_4": 4679,
+      "passes_4_fails_5": 46,
+      "passes_4_and_5": 0
+    },
+    "3": {
+      "candidate_count": 450450,
+      "fails_at_4": 450433,
+      "passes_4_fails_5": 17,
+      "passes_4_and_5": 0
+    }
+  },
+  "total_candidates": 455190,
+  "cross_checked_by_independent_propagation": 65,
+  "examples": [
+    {
+      "deleted": [
+        "024>124"
+      ],
+      "added": [],
+      "missing_at_5": [
+        "012",
+        "102"
+      ]
+    },
+    {
+      "deleted": [
+        "123>134"
+      ],
+      "added": [],
+      "missing_at_5": [
+        "120"
+      ]
+    }
+  ],
+  "remaining": "Global 14-or-fewer directed-arc constructions and native Link/Port admissibility are open."
+}
