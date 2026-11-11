@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "distinct_helper_families": 8,
+      "helper_family_sizes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "residual_demand_family_comparisons": 224,
+      "strict_savings_comparisons": 0,
+      "worlds": 3
+    },
+    {
+      "distinct_helper_families": 128,
+      "helper_family_sizes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "residual_demand_family_comparisons": 15360,
+      "strict_savings_comparisons": 112,
+      "worlds": 4
+    },
+    {
+      "distinct_helper_families": 121,
+      "helper_family_sizes": [
+        0,
+        1,
+        2
+      ],
+      "residual_demand_family_comparisons": 60016,
+      "strict_savings_comparisons": 1248,
+      "worlds": 5
+    }
+  ],
+  "scope": "control comparisons, unique splits up to complement, all nonempty residuals and all subsets of nonzero demanded worlds; all helper families for 3,4 worlds and at most two helpers for 5 worlds",
+  "status": "PASS",
+  "total_comparisons": 75600
+}

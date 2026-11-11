@@ -1,0 +1,769 @@
+{
+  "ambient": [
+    {
+      "by_demand_and_gain": {},
+      "dimension": 1,
+      "smallest_strict": null,
+      "strict_by_histories": {},
+      "tasks": 0
+    },
+    {
+      "by_demand_and_gain": {
+        "1:0": 30
+      },
+      "dimension": 2,
+      "smallest_strict": null,
+      "strict_by_histories": {},
+      "tasks": 30
+    },
+    {
+      "by_demand_and_gain": {
+        "1:0": 765,
+        "2:0": 765
+      },
+      "dimension": 3,
+      "smallest_strict": null,
+      "strict_by_histories": {},
+      "tasks": 1530
+    },
+    {
+      "by_demand_and_gain": {
+        "1:0": 262140,
+        "2:0": 393210,
+        "3:0": 261948,
+        "3:1": 192
+      },
+      "dimension": 4,
+      "smallest_strict": {
+        "binary_order": "bit 0 first coordinate",
+        "demand": [
+          1,
+          2,
+          3
+        ],
+        "dimension": 4,
+        "histories": [
+          1,
+          3,
+          4,
+          8
+        ]
+      },
+      "strict_by_histories": {
+        "4": 192
+      },
+      "tasks": 917490
+    }
+  ],
+  "fibre_census": {
+    "conventions": "label 0 has no demand marker, helpers ordered",
+    "depths_single_a_single_b_both": {
+      "5:3,3,3": 400,
+      "5:3,4,3": 240,
+      "5:4,3,3": 240,
+      "5:4,4,4": 144,
+      "6:3,3,3": 1560,
+      "6:3,4,3": 1960,
+      "6:4,3,3": 1960,
+      "6:4,4,3": 240,
+      "6:4,4,4": 1960
+    },
+    "first_synergy": {
+      "6:4,4,3": [
+        [
+          0,
+          3
+        ],
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    "total": 8704
+  },
+  "greedy_histories": {
+    "demand": [
+      0
+    ],
+    "result": {
+      "advice": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "depth": 1,
+      "min_tree": {
+        "one": {
+          "output": [
+            1
+          ]
+        },
+        "query": 0,
+        "zero": {
+          "output": [
+            0
+          ]
+        }
+      },
+      "root_depths": {
+        "0": 1,
+        "1": 2,
+        "2": 2
+      }
+    },
+    "words": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "world_split": {
+      "0": [
+        3,
+        1
+      ],
+      "1": [
+        2,
+        2
+      ],
+      "2": [
+        2,
+        2
+      ]
+    }
+  },
+  "greedy_labels": {
+    "optimum": 4,
+    "results": {
+      "0": {
+        "depth_if_first": 5,
+        "labels_per_branch": [
+          8,
+          1
+        ]
+      },
+      "1": {
+        "depth_if_first": 5,
+        "labels_per_branch": [
+          8,
+          1
+        ]
+      },
+      "10": {
+        "depth_if_first": 4,
+        "labels_per_branch": [
+          6,
+          3
+        ]
+      },
+      "2": {
+        "depth_if_first": 5,
+        "labels_per_branch": [
+          8,
+          1
+        ]
+      },
+      "3": {
+        "depth_if_first": 5,
+        "labels_per_branch": [
+          8,
+          1
+        ]
+      },
+      "4": {
+        "depth_if_first": 5,
+        "labels_per_branch": [
+          8,
+          1
+        ]
+      },
+      "5": {
+        "depth_if_first": 5,
+        "labels_per_branch": [
+          8,
+          1
+        ]
+      },
+      "6": {
+        "depth_if_first": 5,
+        "labels_per_branch": [
+          8,
+          1
+        ]
+      },
+      "7": {
+        "depth_if_first": 5,
+        "labels_per_branch": [
+          8,
+          1
+        ]
+      },
+      "8": {
+        "depth_if_first": 5,
+        "labels_per_branch": [
+          5,
+          4
+        ]
+      },
+      "9": {
+        "depth_if_first": 4,
+        "labels_per_branch": [
+          6,
+          3
+        ]
+      }
+    },
+    "rows": [
+      [
+        0,
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        1,
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      [
+        2,
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      [
+        3,
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        4,
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        5,
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      [
+        6,
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      [
+        7,
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      [
+        8,
+        [
+          1,
+          0,
+          1
+        ]
+      ]
+    ]
+  },
+  "masked_synergy": [
+    {
+      "helpers": 2,
+      "histories": 8,
+      "labels": 4,
+      "worst_by_available_helper_count": [
+        3,
+        3,
+        3
+      ]
+    },
+    {
+      "helpers": 2,
+      "histories": 10,
+      "labels": 5,
+      "worst_by_available_helper_count": [
+        4,
+        4,
+        4
+      ]
+    },
+    {
+      "helpers": 2,
+      "histories": 12,
+      "labels": 6,
+      "worst_by_available_helper_count": [
+        5,
+        5,
+        4
+      ]
+    },
+    {
+      "helpers": 2,
+      "histories": 14,
+      "labels": 7,
+      "worst_by_available_helper_count": [
+        6,
+        6,
+        5
+      ]
+    },
+    {
+      "helpers": 2,
+      "histories": 16,
+      "labels": 8,
+      "worst_by_available_helper_count": [
+        7,
+        7,
+        5
+      ]
+    },
+    {
+      "helpers": 3,
+      "histories": 24,
+      "labels": 6,
+      "worst_by_available_helper_count": [
+        5,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "helpers": 3,
+      "histories": 28,
+      "labels": 7,
+      "worst_by_available_helper_count": [
+        6,
+        6,
+        6,
+        6
+      ]
+    },
+    {
+      "helpers": 3,
+      "histories": 32,
+      "labels": 8,
+      "worst_by_available_helper_count": [
+        7,
+        7,
+        7,
+        6
+      ]
+    },
+    {
+      "helpers": 3,
+      "histories": 36,
+      "labels": 9,
+      "worst_by_available_helper_count": [
+        8,
+        8,
+        8,
+        7
+      ]
+    },
+    {
+      "helpers": 4,
+      "histories": 64,
+      "labels": 8,
+      "worst_by_available_helper_count": [
+        7,
+        7,
+        7,
+        7,
+        7
+      ]
+    },
+    {
+      "helpers": 4,
+      "histories": 80,
+      "labels": 10,
+      "worst_by_available_helper_count": [
+        9,
+        9,
+        9,
+        9,
+        8
+      ]
+    }
+  ],
+  "model": "adaptive binary single-coordinate observations; output projection; no error; minimax",
+  "synergistic_helpers": {
+    "rows_label_ab": [
+      [
+        0,
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        1,
+        [
+          0,
+          0
+        ]
+      ],
+      [
+        2,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        3,
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        2,
+        [
+          1,
+          0
+        ]
+      ],
+      [
+        4,
+        [
+          1,
+          0
+        ]
+      ]
+    ],
+    "tables": {
+      "a_only": {
+        "advice": [
+          4,
+          2,
+          1,
+          0
+        ],
+        "depth": 4,
+        "min_tree": {
+          "one": {
+            "output": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "query": 0,
+          "zero": {
+            "one": {
+              "output": [
+                0,
+                1,
+                0,
+                0
+              ]
+            },
+            "query": 1,
+            "zero": {
+              "one": {
+                "output": [
+                  0,
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "query": 2,
+              "zero": {
+                "one": {
+                  "output": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "query": 3,
+                "zero": {
+                  "output": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "root_depths": {
+          "0": 4,
+          "1": 4,
+          "2": 4,
+          "3": 4,
+          "4": 4
+        }
+      },
+      "b_only": {
+        "advice": [
+          4,
+          2,
+          1,
+          0
+        ],
+        "depth": 4,
+        "min_tree": {
+          "one": {
+            "output": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "query": 0,
+          "zero": {
+            "one": {
+              "output": [
+                0,
+                1,
+                0,
+                0
+              ]
+            },
+            "query": 1,
+            "zero": {
+              "one": {
+                "output": [
+                  0,
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "query": 2,
+              "zero": {
+                "one": {
+                  "output": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "query": 3,
+                "zero": {
+                  "output": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "root_depths": {
+          "0": 4,
+          "1": 4,
+          "2": 4,
+          "3": 4,
+          "5": 4
+        }
+      },
+      "both": {
+        "advice": [
+          3,
+          2,
+          1,
+          0
+        ],
+        "depth": 3,
+        "min_tree": {
+          "one": {
+            "one": {
+              "output": [
+                0,
+                1,
+                0,
+                0
+              ]
+            },
+            "query": 1,
+            "zero": {
+              "output": [
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          },
+          "query": 4,
+          "zero": {
+            "one": {
+              "one": {
+                "output": [
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              },
+              "query": 1,
+              "zero": {
+                "output": [
+                  0,
+                  0,
+                  1,
+                  0
+                ]
+              }
+            },
+            "query": 5,
+            "zero": {
+              "one": {
+                "output": [
+                  1,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "query": 0,
+              "zero": {
+                "output": [
+                  0,
+                  0,
+                  0,
+                  0
+                ]
+              }
+            }
+          }
+        },
+        "root_depths": {
+          "0": 4,
+          "1": 4,
+          "2": 4,
+          "3": 4,
+          "4": 3,
+          "5": 3
+        }
+      },
+      "no_helpers": {
+        "advice": [
+          4,
+          2,
+          1,
+          0
+        ],
+        "depth": 4,
+        "min_tree": {
+          "one": {
+            "output": [
+              1,
+              0,
+              0,
+              0
+            ]
+          },
+          "query": 0,
+          "zero": {
+            "one": {
+              "output": [
+                0,
+                1,
+                0,
+                0
+              ]
+            },
+            "query": 1,
+            "zero": {
+              "one": {
+                "output": [
+                  0,
+                  0,
+                  1,
+                  0
+                ]
+              },
+              "query": 2,
+              "zero": {
+                "one": {
+                  "output": [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "query": 3,
+                "zero": {
+                  "output": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "root_depths": {
+          "0": 4,
+          "1": 4,
+          "2": 4,
+          "3": 4
+        }
+      }
+    }
+  }
+}
