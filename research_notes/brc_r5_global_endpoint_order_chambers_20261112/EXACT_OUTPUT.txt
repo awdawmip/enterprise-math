@@ -1,0 +1,40 @@
+2026-11-12 Asia/Shanghai — author-side exact rational local execution
+
+Verified source provenance:
+- Original frozen fixture: awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551, research_notes/brc_r5_sharp_nonlocal_fifteen_ray_20261111/VERIFY_R5_SHARP_RAY.py
+- Local execution: equivalent manual transcription of original fixture into /mnt/data/r5_explore.py and exact same new verifier logic, with a lightweight local parent-module adapter; parent source itself was read via authenticated GitHub connector.
+- All calculations use Python Fraction (exact rational) and Python arbitrary-precision integers.
+- This records executed local arithmetic, not a claimed clean-checkout execution of the published GitHub original-import script.
+
+FIXTURE_SHA_REF 435e77af0d180eac32bd1f9c4c464bc4010b7551
+TOTAL_MASKS 32768 INTERVAL_VALID_MASKS 16462
+R_DOMAIN -427508577031693280/628800490619 1/23
+ONLY_RIGHT_GATE_VALUES (
+ -16881105436483/2066058754891,
+ -13486918620883/2066058754891,
+ -3304358174083/2066058754891
+)
+GATE_MASKS_REMOVED (3592, 3347, 2414)
+PERMANENTLY_INFEASIBLE_MASKS 16306
+NEW_GATE_ACTIVE_COORDINATE (target1,source3)
+NEW_GATE_INTEGER_DELTA_COORDINATE (-540, -432, -108)
+CHAMBER_FEASIBLE_MASKS_AND_LEGAL_ORDERS (
+ (16462, 88224369664),
+ (12870, 22377295168),
+ (9523, 8884916032),
+ (7109, 3514190816)
+)
+ORDER_DROPS (65847074496, 13492379136, 5370725216)
+BOUNDARY_INCLUSION left-plateau-closed: r=gate is still feasible for the masks disappearing immediately to its right.
+CHECKED_R_VALUES: L; the 4 exact midpoint samples of I partition; all 3 exact gates; U.
+BOTH_INDEPENDENT_DP_RECURRENCES_MATCH True
+PASS_R5_GLOBAL_ENDPOINT_ORDER_FOUR_CHAMBERS
+
+Additional exact point checks:
+r=-10: feasible masks 16462; legal orders 88224369664
+r=0: feasible masks 7109; legal orders 3514190816
+r=1/23: feasible masks 7109; legal orders 3514190816
+ratio of -10 to 0 legal order counts = 2757011552/109818463 (~25.1051733623).
+
+Coverage: every one of 2^15 labeled prefix subsets, all 28 transfer coordinates, every real r in the exact admissible interval by affine inequality endpoint classification, 2 independent integer dynamic-programming recurrences. No sampling-based extrapolation.
+Outstanding: independent clean-checkout rerun of the exact published wrapper; native Source formal Result/admission and independent mathematical review.
