@@ -1,0 +1,122 @@
+{
+  "inverses": [
+    {
+      "H": "269335961/264606236",
+      "all_scale_ceiling": 15,
+      "candidate_sizes": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "exact_schedules_compared": 174,
+      "preimages": [
+        {
+          "k": 2,
+          "gaps": [
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "larger": []
+    },
+    {
+      "H": "2400769/2371744",
+      "all_scale_ceiling": 17,
+      "candidate_sizes": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "exact_schedules_compared": 174,
+      "preimages": [
+        {
+          "k": 2,
+          "gaps": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "larger": [
+        {
+          "k": 2,
+          "gaps": [
+            0,
+            0,
+            1
+          ],
+          "H": "269335961/264606236"
+        }
+      ]
+    },
+    {
+      "H": "5276761/5218711",
+      "all_scale_ceiling": 17,
+      "candidate_sizes": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "exact_schedules_compared": 174,
+      "preimages": [
+        {
+          "k": 2,
+          "gaps": [
+            1,
+            0,
+            0
+          ]
+        }
+      ],
+      "larger": [
+        {
+          "k": 2,
+          "gaps": [
+            0,
+            0,
+            1
+          ],
+          "H": "269335961/264606236"
+        },
+        {
+          "k": 2,
+          "gaps": [
+            0,
+            1,
+            0
+          ],
+          "H": "2400769/2371744"
+        }
+      ]
+    },
+    {
+      "H": "17/16",
+      "all_scale_ceiling": 13,
+      "candidate_sizes": [
+        2,
+        3,
+        4
+      ],
+      "exact_schedules_compared": 48,
+      "preimages": [],
+      "larger": []
+    }
+  ],
+  "unrestricted_decoding_k_through_4": {
+    "smallest_H": "1307403304187185831/1307403285302824231",
+    "small_schedules": 48,
+    "all_scale_ceiling": 43,
+    "minimum_log_H_lower": "18884361600/1307403304187185831",
+    "max_outside_modular_census_upper": "69156693489834861579120752230369112593478019936887502812653159379185434624/57621337746445534147918028057827430023697108632400478478689370569839554130058345175",
+    "outside_maximizer": [
+      17
+    ],
+    "in_range_proof": "joint finite-field no-duplicates certificate, all 405187824 full arrangements k=2..16"
+  }
+}
