@@ -754,7 +754,7 @@ def select_state(
     if selection.get("priority_weights"):
         from tools.research_fair_selection import select
         return select([s for s in states if kind == "ANY" or s.get("kind") == kind],
-                      candidates, selection["priority_weights"])
+                      candidates, selection["priority_weights"], rotation=selection.get("random_rotation"))
 
     def key(value: dict[str, Any]) -> tuple[Any, ...]:
         try:

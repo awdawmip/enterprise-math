@@ -19,7 +19,11 @@ from tools import research_runtime_reducer as rr
 from tools import research_fair_selection as fair
 
 BASE = datetime(2026, 10, 28, tzinfo=timezone.utc)
-POLICY = rr.load_policy()
+# Preserve the exact-share legacy accounting contract here; seeded rotation
+# has separate replay, waiting-opportunity and accepted-service regressions.
+POLICY = copy.deepcopy(rr.load_policy())
+POLICY["selection_policy"].pop("random_rotation", None)
+POLICY["selection_policy"]["method"] = "AVAILABLE_WEIGHTED_SUCCESSFUL_CLAIMS"
 
 
 def task(name, priority="P0", **kw):

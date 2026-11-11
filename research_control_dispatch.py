@@ -350,7 +350,12 @@ def route_from_candidates(
                 choices[_state_target_key(state)] = (_adoption_result(target, decision), state)
         fresh = ([s for s in states if s.get("dispatch_state") == "NEEDS_DISPATCH"]
                  if states is not None else [s for s in (fresh_task, fresh_lane) if s is not None])
+        skipped_publication = []
+        rotation_enabled = policy["selection_policy"].get("random_rotation", {}).get("enabled") is True
         for state in fresh:
+            if rotation_enabled and not state.get("publication_id"):
+                skipped_publication.append(state.get("task_id"))
+                continue  # A definition-only item cannot become a native CLAIM.
             key = _state_target_key(state)
             choices[key] = ({
                 "action": research_runtime.CLAIM_NEW_OWNER,
@@ -364,7 +369,8 @@ def route_from_candidates(
             selected = research_runtime_reducer.select_state(
                 states if states is not None else pool, policy, kind="ANY", candidates=pool)
             result, _ = choices[_state_target_key(selected)]
-            result["fair_selection"] = selected["fair_selection"]
+            result["fair_selection"] = {**selected["fair_selection"],
+                                        "skipped_missing_publication": len(skipped_publication)}
             result["target"] = {k: v for k, v in result["target"].items() if k != "scheduling_trace"}
             return result
 
@@ -657,6 +663,8 @@ def route_control(
     root: Path = ROOT,
     assigned_driver_task: Mapping[str, Any] | None = None,
     assigned_research_task: Mapping[str, Any] | None = None,
+    selection_seed: str | None = None,
+    selection_at: str | None = None,
 ) -> dict[str, Any]:
     observations = observations or {}
     if priority is not None:
@@ -706,15 +714,17 @@ def route_control(
         leased = _leased_targets(events, now=now, kind=kind, root=root, states=states)
         fresh_task = research_runtime_reducer.select_state(states, policy, kind=kind)
         fresh_lane = _fresh_lane(events, now=now, kind=kind, root=root, states=states)
-    result = route_from_candidates(
-        leased,
-        observations=observations,
-        now=now,
-        fresh_task=fresh_task,
-        fresh_lane=fresh_lane,
-        policy=policy,
-        states=fair_states,
-    )
+    from tools.research_fair_selection import selection_scope
+    with selection_scope(selection_seed, selection_at or now):
+        result = route_from_candidates(
+            leased,
+            observations=observations,
+            now=now,
+            fresh_task=fresh_task,
+            fresh_lane=fresh_lane,
+            policy=policy,
+            states=fair_states,
+        )
     if priority is not None:
         result["selection_filter"] = {"kind": kind, "priority": priority}
         result["reason"] = f"Within requested {kind}/{priority} scope: " + result["reason"]
@@ -750,6 +760,7 @@ def main() -> int:
     )
     parser.add_argument("--events", type=Path)
     parser.add_argument("--now")
+    parser.add_argument("--selection-seed", help="reuse a returned new-unit draw seed for replay")
     parser.add_argument(
         "--kind", choices=["RESEARCH", "GOVERNANCE", "ANY"], default="RESEARCH"
     )
@@ -790,7 +801,7 @@ def main() -> int:
         raise ControlDispatchError("assigned research input must be an object")
     if research_assignment is not None and args.events is None:
         raise ControlDispatchError("assigned research route requires the actual Issue 240 event snapshot")
-    result = route_control(events, now=now, observations=observations, kind=args.kind, priority=args.priority,
+    result = route_control(events, now=now, observations=observations, kind=args.kind, priority=args.priority, selection_seed=args.selection_seed,
                            assigned_driver_task=assignment, assigned_research_task=research_assignment)
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
     return 2 if result.get("action") == research_runtime.NO_DISPATCH else 0

@@ -7,6 +7,12 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 from fractions import Fraction
+from contextlib import contextmanager
+from contextvars import ContextVar
+import hashlib
+import json
+import math
+import secrets
 
 
 def trace_availability(state, at, comment_id):
@@ -119,7 +125,96 @@ def directions(states):
     return result
 
 
-def select(states, candidates, weights):
+_SELECTION = ContextVar("research_new_unit_selection", default=None)
+
+
+@contextmanager
+def selection_scope(seed=None, at=None):
+    """One new-unit draw; callers retain the returned seed for exact replay."""
+    token = _SELECTION.set({"seed": str(seed) if seed is not None else secrets.token_hex(16),
+                            "at": lifecycle_clock(at) or datetime.now(timezone.utc)})
+    try:
+        yield
+    finally:
+        _SELECTION.reset(token)
+
+
+def _draw(items, seed, domain, weight):
+    # Independent hash races are insensitive to input order. A random seed is
+    # consumed once at the new-unit boundary, never on receipt polling.
+    def score(item):
+        key = json.dumps(item, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+        value = int.from_bytes(hashlib.sha256((seed + "\0" + domain + "\0" + key).encode()).digest()[:8], "big")
+        unit = min(1 - 2**-53, (value + 1) / (2**64 + 1))
+        return (-math.log(unit) / max(float(weight(item)), 1e-12), key)
+    return min(items, key=score)
+
+
+def _waiting_days(state, at):
+    if state.get("scheduling_history_degraded"):
+        return 0.0  # Unknown lifecycle time cannot manufacture old waiting debt.
+    entries = [e for e in state.get("scheduling_trace", []) if e.get("event") == "AVAILABLE"]
+    if not entries:
+        return 0.0
+    edge = max(entries, key=lambda e: (_clock(e["at"]), e.get("comment_id") or 0, e.get("phase", 0)))
+    known = lifecycle_clock(edge.get("at"))
+    if known is None or not edge.get("eligible"):
+        return 0.0
+    if known.tzinfo is None:known = known.replace(tzinfo=timezone.utc)
+    return max(0.0, (at - known).total_seconds() / 86400)
+
+
+def _rotate(candidates, by_key, family, weights, credits, direction_credit,
+            counts, successful, missing, reasons, config):
+    context = _SELECTION.get()
+    if context is None:
+        with selection_scope() as _:
+            return _rotate(candidates, by_key, family, weights, credits, direction_credit,
+                           counts, successful, missing, reasons, config)
+    seed, at = context["seed"], context["at"]
+    scale = max(1.0, float(config.get("wait_scale_days", 7)))
+    cap = min(4.0, max(0.0, float(config.get("max_wait_bonus", 3))))
+    unclaimed = min(2.0, max(1.0, float(config.get("unclaimed_bonus", 1.5))))
+    def age(s):
+        return 1.0 + min(cap, _waiting_days(by_key[target_key(s)], at) / scale)
+    def service(value):
+        return min(4.0, max(0.25, 1.0 + float(value)))
+    active = {s.get("priority") for s in candidates} & weights.keys()
+    unproved = any(by_key[target_key(s)].get("scheduling_history_degraded") for s in candidates)
+    effective = {p: float(weights[p]) * (1 if unproved else service(credits[p])) for p in active}
+    if active:
+        priority = _draw(sorted(active), seed, "priority", effective.__getitem__)
+        pool = [s for s in candidates if s.get("priority") == priority]
+    else:
+        priority, pool = None, candidates
+    groups = {family[target_key(s)] for s in pool}
+    def direction_weight(group):
+        wait = max(age(s) for s in pool if family[target_key(s)] == group)
+        debt = 1 if unproved else service(direction_credit.get((priority, group), Fraction()))
+        return debt * (1 + (wait - 1) / max(1.0, cap))
+    group = _draw(sorted(groups), seed, "direction:" + str(priority), direction_weight)
+    pool = [s for s in pool if family[target_key(s)] == group]
+    def task_weight(key):
+        state = by_key[key]
+        n = counts.get(key, 0)
+        return age(state) * (unclaimed if n == 0 else 1.0) / (1 + min(n, 3))
+    selected_key = _draw(sorted(target_key(s) for s in pool), seed, "task:" + group, task_weight)
+    winner = next(s for s in pool if target_key(s) == selected_key)
+    return {**{k: v for k, v in winner.items() if k != "scheduling_trace"}, "fair_selection": {
+        "method": "SEEDED_WEIGHTED_WAITING_ROTATION_V1", "weights": dict(weights),
+        "effective_priority_weights": effective, "successful_claims": len(successful),
+        "priority_credit": {p: str(credits[p]) for p in weights}, "direction": group,
+        "direction_basis": "EXPLICIT_PARENT_CHAIN" if winner.get("parent_task_id") else "EXACT_TASK_ID",
+        "selection_seed": seed, "selection_at": at.isoformat(),
+        "candidate_count": len(candidates), "selected_waiting_days": round(_waiting_days(by_key[selected_key], at), 3),
+        "selected_successful_claims": counts.get(selected_key, 0), "selected_task_weight": task_weight(selected_key),
+        "candidate_set_sha256": hashlib.sha256(json.dumps(sorted(target_key(s) for s in candidates)).encode()).hexdigest(),
+        "missing_history_tasks": missing, "degraded_history_reasons": sorted(reasons),
+        "boundary": "NEW_RESEARCH_UNIT_ONLY", "retry_policy": "REUSE_ORIGINAL_REQUEST_RECEIPT_AND_SEED",
+        "history_scope": "CURRENT_AUTHENTICATED_PUBLICATION_AND_LANE_REPLAY", "atomic_global_quota": False}}
+
+
+def select(states, candidates, weights, *, rotation=None):
     """Smooth weighted fair service, accruing only while a candidate is present.
 
     An absent class accrues no debt. Its existing fractional residual is retained
@@ -202,6 +297,9 @@ def select(states, candidates, weights):
         pair = (priority, family[key])
         direction_credit[pair] -= 1
 
+    if isinstance(rotation, dict) and rotation.get("enabled") is True:
+        return _rotate(candidates, by_key, family, weights, credits, direction_credit,
+                       counts, successful, missing, degradation_reasons, rotation)
     active = {s.get("priority") for s in candidates} & weights.keys()
     if not active:
         # Historical metadata outside configured priorities remains selectable.
