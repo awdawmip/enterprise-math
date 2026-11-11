@@ -188,3 +188,66 @@ for lo,hi,_ in chambers:
         assert min(X[k]+r*x*H[k] for k in range(28))>0
         assert min(X[k]+r*x*H[k]+epsmax*F(P[-1][k],36) for k in range(28))==0
 print("PASS_R5_EXACT_NEXT_TWO_AFFINE_WALLS_AND_ORDER_TRANSFER")
+
+
+# Further outward adjacent closed chambers: +5/5083 -> +1/851,
+# and -1/1219 -> -1/1633. Both are full 28-coordinate certificates.
+certify_chamber(F(5,5083),F(1,851),
+                {14:14646,15:11013,7:299,"outside":6809})
+certify_chamber(-F(1,1219),-F(1,1633),
+                {14:14667,15:10992,7:299,"outside":6809})
+assert wall_ties(F(5,5083))==[14597,31509]
+assert wall_ties(-F(1,1633))==[15109]
+print("SECOND_POSITIVE_NEW_WALL",F(5,5083),"MASKS",wall_ties(F(5,5083)))
+print("SECOND_NEGATIVE_NEW_WALL",-F(1,1633),"MASKS",wall_ties(-F(1,1633)))
+
+def immediate_crossing(wall,left,right,pairs,expected):
+    """Take nearest F/Q phase collision on either side, not a distant sample."""
+    assert left<wall<right
+    midway=(left+wall)/2
+    t=labels(midway)
+    ns={n for typ,n in t if typ=="F"}
+    qs={q for typ,q in t if typ=="Q"}
+    all_crossings=sorted({F(n-36*q,23*n) for n in ns for q in qs})
+    before=max([left]+[v for v in all_crossings if left<v<wall])
+    after=min([right]+[v for v in all_crossings if wall<v<right])
+    sample_before=(before+wall)/2
+    sample_after=(after+wall)/2
+    tags_before=labels(sample_before)
+    tags_after=labels(sample_after)
+    actual_pairs=sorted((n,q) for n in ns for q in qs if F(n-36*q,23*n)==wall)
+    assert actual_pairs==sorted(pairs),(wall,actual_pairs)
+    print("SIMULTANEOUS_PHASE_PAIRS",wall,actual_pairs,
+          "NEIGHBOR_PHASE_ROOTS",before,after)
+    for n,q in pairs:
+        a=(drop(sample_before,"F",n,tags_before),
+           drop(sample_before,"Q",q,tags_before))
+        b=(drop(sample_after,"F",n,tags_after),
+           drop(sample_after,"Q",q,tags_after))
+        assert (a,b)==expected[(n,q)],(wall,(n,q),a,b)
+        assert sum(a)==sum(b)
+        print("IMMEDIATE_TRANSFER",wall,"F",n,"Q",q,
+              "BEFORE",a,"AFTER",b,
+              "TO_MOVING_IN_INCREASING_R",b[1]-a[1],"PAIR_TOTAL",sum(a))
+
+immediate_crossing(
+    F(1,1265),F(1,2507),F(5,5083),
+    [(110,3),(440,12),(550,15)],
+    {(110,3):((216738876,12939867720),(193333788,12963272808)),
+     (440,12):((936566072,140525965632),(805044224,140657487480)),
+     (550,15):((956531904,383921342928),(695889312,384181985520))})
+immediate_crossing(
+    -F(1,2461),-F(1,1633),-F(1,4945),
+    [(107,3),(428,12),(535,15)],
+    {(107,3):((126633932,12847872840),(83034876,12891471896)),
+     (428,12):((657640968,137055984032),(501071304,137212553696)),
+     (535,15):((1929707664,377728635456),(880505088,378777838032))})
+immediate_crossing(
+    F(5,5083),F(1,1265),F(1,851),
+    [(442,12)],
+    {(442,12):((338727248,140996629764),(227619620,141107737392))})
+immediate_crossing(
+    -F(1,1633),-F(1,1219),-F(1,2461),
+    [(426,12)],
+    {(426,12):((746030624,136660470420),(545161644,136861339400))})
+print("PASS_R5_SIX_CLOSED_AFFINE_CHAMBERS_EIGHT_PHASE_COLLISION_TRANSFERS")
