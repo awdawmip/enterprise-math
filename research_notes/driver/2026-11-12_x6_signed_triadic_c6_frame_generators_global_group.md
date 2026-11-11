@@ -113,3 +113,58 @@ Reused proven inputs:
 - `research_notes/driver/2026-11-12_x6_signed_brc_boundary_transfer_nonbacktracking.md` (Source Git blob `1642cb9c1328e8df2997f710a0d4c4f33145583e`): explicitly declared path seam law and its operation-safe boundary matrix.
 
 The new result answers the **algebraic signed-frame generator/group subquestion** for the presented candidate triadic C6 family. Parent Task physical rotation dynamics, canonical native relation to carrier phases across twenty triads, and global BRC path-fiber dynamics remain open for research. This note is a GitHub-preserved mathematical audit, not a Native RR, independent mathematical review, approved candidate promotion, new Task, real CLAIM, or mother-objective closure.
+
+## 6. Stronger exact result — three of the four established FCC/K4 STAR triads already generate H
+
+For the standard K4 edge-label model of six X6 axis labels, use `AB,AC,AD,BC,BD,CD` and the four STAR triples:
+
+```text
+S_A={AB,AC,AD}
+S_B={AB,BC,BD}
+S_C={AC,BC,CD}
+S_D={AD,BD,CD}
+```
+
+These are exactly the four *combinatorial* FCC STAR axis selections; the particular `L1,...,L6` names in the original carrier atlas are isomorphic under an axis relabeling. Select one candidate signed-C6 generator `R_S` for each of any three of these STARs. Then **any three suffice**:
+
+```text
+< R_S : S any three distinct K4 STARs >
+  = (C2)^6 ⋊ A6, of order 23,040.
+```
+
+Moreover this is sharp among these STAR generators: any one generates a local C6 (order 6); any two generate a signed five-axis group of order `2^5 * 5!/2 = 1,920`; any three or all four generate the full 23,040-element group.
+
+**Proof of the three-STAR claim.** Any two STARs intersect in exactly their common K4 edge, so their underlying unsigned 3-cycles share exactly one label and move altogether five labels. Such two 3-cycles generate `A5` on those five labels (a standard elementary finite permutation lemma; for instance `(1 2 3)` and `(1 4 5)` generate `A5`). A third STAR contains the unique sixth edge label and two labels from those five. Conjugating its underlying 3-cycle by the `A5` subgroup, which acts 2-transitively on five labels, generates every 3-cycle containing the sixth label. Together with `A5`, these are all of `A6`.
+
+Each `R_S^3` flips the three axes of S. The just-proved `A6` projection can be lifted to *pure* axis permutations because `R_S R_S^3` is a pure 3-cycle on S, and its generated subgroup is `A6`. Conjugating the available triple sign-flips by these pure permutations obtains **every** triple flip: `A6` is transitive on the twenty 3-element subsets. As proved in Theorem 2, their binary incidence vectors span `F2^6`; hence the full `(C2)^6` diagonal sign group occurs. The reverse containment follows because each generator projects to an even unsigned permutation. This proves the full group equality. QED.
+
+With only two STARs, the unique sixth axis is fixed by every generator, so they cannot generate H. On their five-axis support, the same `A5` plus the orbit of a triple flip generates `(C2)^5`, proving the 1,920 count. This is a *minimal number of distinct STAR **candidate signed-frame generators***, not a minimal physical rotation actuator count.
+
+**Finite exhaustive verification.** Using `compose`, `gen` and `identity` from the checker above, encode the four STAR triples as zero-based positions
+`((0,1,2),(0,3,4),(1,3,5),(2,4,5))`. Apply the same BFS closure with generators from each k-subset of the four STARs; verified group orders are:
+
+| STAR generators selected | resulting group order |
+| --- | ---: |
+| any one | 6 |
+| any two | 1,920 |
+| any three | 23,040 |
+| all four | 23,040 |
+
+The computations are exact finite permutations. Their algebraic meaning depends on the explicitly chosen signed-frame extension `R_S` from the existing restricted local C6 phase rotation.
+
+### Exact bridge back to the previously proved restricted C12 Cell microcycle
+
+For an established STAR, let `a_0,...,a_5` be the six signed unit-shell phase directions in the already-proved local native C6 order, satisfying `a_(r+3)=-a_r`. They are exactly the six signed basis directions of that STAR. There is a unique signed permutation of its three basis axes fixing the other three axes and sending `a_r -> a_(r+1)` for every r. It is one of the `R_S` or `R_S^{-1}` candidates above (the precise orientation depends on the selected cyclic order).
+
+The original outer C12 microcycle has intermediate Cells `m_r=a_r+a_(r+1)` and exact native primitive successor
+`F:a_r->m_r->a_(r+1)`. Thus, on its twelve *actual native Cell* states,
+
+```text
+R_S(a_r)=a_(r+1)=F^2(a_r)
+R_S(m_r)=m_(r+1)=F^2(m_r)
+R_S | (12-Cell outer cycle) = F^2.
+```
+
+This is an exact correspondence between the **two-primitive-step outer microcycle** and the candidate signed-frame automorphism restricted to that proven local orbit. It uses the original `C12` native Cell dynamics as evidence, not an inferred global physical action. The extension of R beyond that orbit and its compositions across different STAR frames remain algebraic signed-frame choices; establishing them as a single atlas-wide native rotation dynamics is the remaining physical/semantic task.
+
+**Attribution:** original restricted C12 outer cycle and six-phase labeling: `EM-FREE-7D3C9A`, pinned source `research_notes/VIETE_X6_FIXED_RADIUS_MICROTRACE_C12_20260905.md` Git blob `e8185ae28bef4d55c50622848b225c0b5e3125aa`. New derived frame-group generation and bridge are presented for Driver mathematical audit in a shared review context.
