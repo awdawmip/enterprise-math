@@ -9,18 +9,18 @@ Date: 2026-11-11 (Asia/Shanghai). Status: **researcher-side exact theorem + inte
 - Prior immutable R5 witness and fifteen atoms: `435e77af0d180eac32bd1f9c4c464bc4010b7551` (Draft PR #2102), files in `research_notes/brc_r5_sharp_nonlocal_fifteen_ray_20261111/`.
 - All actual input fractions are inherited byte-for-byte from `VERIFY_R5_SHARP_RAY.py` at the cited parent commit. The added verifier imports that file from the stacked PR base, without silently changing the scientific input.
 
-There are 28 dynamic nonnegative source/target masses, and fifteen **labeled** six-arc elementary atoms (M_a), each separately in the exact observer kernel. The starting vector (X) has every coordinate positive. The endpoint ray (Y(\varepsilon)=X+\varepsilon\sum_a M_a) is nonnegative exactly for (0\le\varepsilon\le\varepsilon_{\max}=9/115400000). The atom convention here includes the unscaled coefficient (c_{j,i}/36), so that the parameter \(\varepsilon\) scales all fifteen moves.
+There are 28 dynamic nonnegative source/target masses, and fifteen **labeled** six-arc elementary atoms $M_a$, each separately in the exact observer kernel. The starting vector $X$ has every coordinate positive. The endpoint ray $Y(\varepsilon)=X+\varepsilon\sum_a M_a$ is nonnegative exactly for $0\le\varepsilon\le\varepsilon_{\max}=9/115400000$. The atom convention here includes the unscaled coefficient $c_{j,i}/36$, so that the parameter \(\varepsilon\) scales all fifteen moves.
 
 ## Theorem 1 — universal-order feasibility threshold (general finite lemma)
 
-For any finite family of real coordinate moves (M_1,\ldots,M_m\in\mathbb R^d) and strictly positive (X\in\mathbb R^d), write
+For any finite family of real coordinate moves $M_1,\ldots,M_m\in\mathbb R^d$ and strictly positive $X\in\mathbb R^d$, write
 \[
 L_k=\sum_{a=1}^{m}\max(0,-M_a[k]),\qquad
 \varepsilon_{\rm all}=\min_{k:L_k>0}\frac{X[k]}{L_k}
 \]
-(with the minimum of the empty set interpreted as (+\infty)). **Every permutation** of the (m) moves has all prefix states (X+\varepsilon\sum_{a\in S}M_a\ge0) if and only if (0\le\varepsilon\le\varepsilon_{\rm all}). The statement concerns all labeled permutations, not the existence of at least one legal ordering.
+(with the minimum of the empty set interpreted as $+\infty$). **Every permutation** of the $m$ moves has all prefix states $X+\varepsilon\sum_{a\in S}M_a\ge0$ if and only if $0\le\varepsilon\le\varepsilon_{\rm all}$. The statement concerns all labeled permutations, not the existence of at least one legal ordering.
 
-**Proof.** Each prefix of any permutation is a subset (S\subseteq\{1,\dots,m\}). For fixed coordinate (k), minimizing \(\sum_{a\in S}M_a[k]\) over all subsets picks exactly the negative coordinate contributions, giving \(-L_k\). All subsets can occur as prefixes of some permutation. Thus every prefix of every permutation is nonnegative exactly when (X[k]-\varepsilon L_k\ge0) for all (k). For \(\varepsilon>\varepsilon_{\rm all}\), the subset consisting of the negative contributors at a minimizing coordinate yields an illegal prefix, establishing sharpness. All moves separately preserve the observer here, so mass feasibility is the only remaining legality test. QED.
+**Proof.** Each prefix of any permutation is a subset $S\subseteq\{1,\dots,m\}$. For fixed coordinate $k$, minimizing \(\sum_{a\in S}M_a[k]\) over all subsets picks exactly the negative coordinate contributions, giving \(-L_k\). All subsets can occur as prefixes of some permutation. Thus every prefix of every permutation is nonnegative exactly when $X[k]-\varepsilon L_k\ge0$ for all $k$. For \(\varepsilon>\varepsilon_{\rm all}\), the subset consisting of the negative contributors at a minimizing coordinate yields an illegal prefix, establishing sharpness. All moves separately preserve the observer here, so mass feasibility is the only remaining legality test. QED.
 
 For the frozen fifteen atoms, exact computation yields
 \[
@@ -34,14 +34,14 @@ The unique first bottleneck is coordinate `(target=0,source=3)`, flat index 14, 
 
 ## Theorem 2 — exact first two open phases and critical rational breakpoints
 
-For any subset (S), define the first coordinate-zero value
+For any subset $S$, define the first coordinate-zero value
 \[
 \tau_S=\min_{k:\sum_{a\in S}M_a[k]<0}
 \frac{-X[k]}{\sum_{a\in S}M_a[k]}\,,
 \]
-with \(\tau_S=+\infty\) if no coordinate decreases. The subset remains legal for the **closed** interval (0\le\varepsilon\le\tau_S). Consequently the number (N(\varepsilon)) of legal permutations is an integer-valued, nonincreasing **left-continuous step function** on (0\le\varepsilon\le\varepsilon_{\max}), with changes only just *above* one of the finitely many rational \(\tau_S\). The last claim is for the rational frozen R5 model.
+with \(\tau_S=+\infty\) if no coordinate decreases. The subset remains legal for the **closed** interval $0\le\varepsilon\le\tau_S$. Consequently the number $N(\varepsilon)$ of legal permutations is an integer-valued, nonincreasing **left-continuous step function** on $0\le\varepsilon\le\varepsilon_{\max}$, with changes only just *above* one of the finitely many rational \(\tau_S\). The last claim is for the rational frozen R5 model.
 
-The exact integerized scan of all (2^{15}=32768) subsets produces the first three distinct thresholds:
+The exact integerized scan of all $2^{15}=32768$ subsets produces the first three distinct thresholds:
 
 | Threshold | Exact value | Newly invalid subset mask immediately above threshold |
 |---|---|---|
