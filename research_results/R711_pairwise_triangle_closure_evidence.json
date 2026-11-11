@@ -1,0 +1,49 @@
+{
+  "schema": "EM_R711_SIX_AXIS_CLOSURE_V1",
+  "scope": "all 2^20 Boolean triple-license subsets of 20 three-axis choices on six labeled indices",
+  "candidate_support_maps": 1048576,
+  "graph_generated_maps": 6115,
+  "non_graph_generated_maps": 1042461,
+  "independent_graph_image_count": 6115,
+  "closure_defect_distribution": {
+    "0": 6115,
+    "1": 17080,
+    "2": 35530,
+    "3": 60180,
+    "4": 90450,
+    "5": 121536,
+    "6": 144510,
+    "7": 156000,
+    "8": 148950,
+    "9": 123140,
+    "10": 85730,
+    "11": 43920,
+    "12": 13545,
+    "13": 1860,
+    "14": 30
+  },
+  "pasch_missing_triads": [
+    [
+      0,
+      1,
+      3
+    ],
+    [
+      0,
+      2,
+      4
+    ],
+    [
+      1,
+      2,
+      5
+    ],
+    [
+      3,
+      4,
+      5
+    ]
+  ],
+  "status": "EXACT_ENUMERATION_PASS",
+  "verification": "Python integer exhaustive fixed-point count; independent image-of-2^15-graphs count"
+}
