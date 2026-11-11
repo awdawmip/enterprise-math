@@ -11,3 +11,10 @@
 **Next scientific unit:** Using frozen P000 and the precise V29/V39 inputs, construct one *legal* signed/timed Cell/Link/Port X6 event and a typed map from its 3-source identity/phase to the 20-dimensional candidate source carrier and 15-dimensional pair ledger. Compare (i) integer congruence, (ii) positive cone membership, (iii) star-local update tags, and (iv) safe query/readout descent; retain signed/phase/loop source as distinct typed data.
 
 **Durability:** Author GitHub Draft PR stores mathematics, code, machine evidence and handoff; this does not constitute a native Result, Source checkpoint or independent Driver review.
+
+## Verified research identity after native readback
+
+- Researcher-ID: `EM-X6-CD074A` for `RS-X6-TRIADIC-CLOSURE-DYNAMICS`.
+- Research-Activity-ID: `RA-FA533318337524630986F7DA`, registered at `2026-11-11T10:32:11.200720Z`.
+- Authenticated Source registration commit: `e62ab330a2829ff1588c654c7a8373f448785115`, activity path `research_activity_records/RA-FA533318337524630986F7DA.json`, session record path `research_session_records/MCP-85cd0c7453bc4bb48d231e6609c36081.json`. Both were returned by successful native session registration with remote Source readback.
+- Scope: native research identity and activity visibility. `CLAIM=false`, task execution authority=false, formal Result and independent Driver review pending.
