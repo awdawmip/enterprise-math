@@ -71,6 +71,27 @@ A separate categorical obstruction is immediate: no **strict inverse-preserving*
 
 **Additional exact check:** the stabilizer \((1\ 2)(3\ 4)\) fixes \(d=e_1+e_2\) and exchanges its two minimal words. Exact six-integer permutation/word checks pass. These are author-verified mathematical claims only, not a physical P000 rotation license or independent formal admission.
 
+
+## New exact restricted construction: an algebraic 12-Cell outer microcycle for **every** signed triad
+
+For any ordered triple of distinct signed native axis labels \(i,j,k\), choose the oriented six-phase shell
+\[
+a_0=e_i,\ a_1=e_j,\ a_2=e_k,\ a_3=-e_i,\ a_4=-e_j,\ a_5=-e_k,\quad a_{r+6}=a_r.
+\]
+Define the six outer intermediates \(m_r=a_r+a_{r+1}\) and the alternating Cell sequence
+\[
+C=(a_0,m_0,a_1,m_1,\ldots,a_5,m_5).
+\]
+**Theorem (all 20 triad coordinate selections).** These are twelve distinct native X6 Cells, with successive differences \(m_r-a_r=a_{r+1}\) and \(a_{r+1}-m_r=-a_r\) being primitive signed native-axis steps. The alternating squared radii are \((1,2,1,2,\ldots,1,2)\). Let \(F\) advance by one Cell along the cyclic sequence. Then
+\[
+F^{12}=\mathrm{id},\qquad F^6(z)=-z,\qquad F^2(z)=R_{ijk}(z)
+\]
+on exactly this twelve-Cell orbit, where \(R_{ijk}\) is the signed algebraic triad generator. These identities follow from \(a_{r+3}=-a_r\), \(m_{r+3}=-m_r\), and the linear action of \(R\) on sums. Distinctness follows from one-axis versus two-axis supports, and the six listed signed pairs \((+i,+j),(+j,+k),(+k,-i),(-i,-j),(-j,-k),(-k,+i)\) being distinct.
+
+All **20** unordered triples of six axes were enumerated exactly with integer native Cell coordinates, testing 12 distinct states, 12 primitive adjacency edges, the alternating radii and all 12 instances of \(F^2=R,\ F^6=-\mathrm{id}\). This extends the **native signed coordinate path construction** of a 12-step candidate microcycle to all triads. It does **not** extend the established FCC/K4 STAR *carrier ray, Cell/gate, incidence or true physical rotation* theorem to the other sixteen coordinate selections. A formal coordinate loop is not evidence of an admitted native triadic closure law or a universal physical C12 observer.
+
+The next discriminating issue is to specify a triadic incidence/force/time observer for one formerly non-STAR triple and determine whether this coordinate cycle admits a P000-typed operation-safe physical/phase reading. In its absence the algebraic C12 orbit is the maximal exact claim of this construction.
+
 ## Exact checker and remaining frontier
 
 Local exact Python checker executed: 20 candidate generators, group order 23,040, each triple cube, all six individual sign-flip constructions, unsigned even parity, and integer DP for the 4/120/2 witness. Results are independent of floating-point. It tests these finite contracts only; it does not authenticate native physical rotation or all channel/force behavior. Checker is supplied in a separate source file.
