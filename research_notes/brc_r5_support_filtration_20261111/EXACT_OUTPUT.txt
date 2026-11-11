@@ -1,0 +1,17 @@
+# Actual local exact rational verification, 2026-11-11 (Asia/Shanghai)
+# The locally executed equivalent script used Python Fraction, with a SymPy-only
+# equivalent helper for the preceding four-mask linear solve; all mathematical
+# comparisons and Farkas checks were exact. The remote copied predecessor
+# checker uses standard-library Fraction exclusively. This transcript does not
+# assert independent execution of the GitHub-hosted new bytes.
+FIVE_TARGET_POSITIVE [(0, 1, 3, 4, 6), (0, 2, 3, 4, 5), (0, 2, 3, 4, 6), (0, 2, 3, 5, 6), (1, 2, 3, 4, 5), (1, 2, 3, 4, 6), (1, 2, 3, 5, 6), (1, 3, 4, 5, 6), (2, 3, 4, 5, 6)]
+FIVE_TARGET_FARKAS_EXCLUDED [(0, 1, 2, 3, 4), (0, 1, 2, 3, 5), (0, 1, 2, 3, 6), (0, 1, 2, 4, 5), (0, 1, 2, 4, 6), (0, 1, 2, 5, 6), (0, 1, 3, 4, 5), (0, 1, 3, 5, 6), (0, 1, 4, 5, 6), (0, 2, 4, 5, 6), (0, 3, 4, 5, 6), (1, 2, 4, 5, 6)]
+FIVE_TARGET_COUNTS (9, 12) FACE_DIM 13
+SIX_TARGET_POSITIVE [(0, 1, 2, 3, 4, 5), (0, 1, 2, 3, 4, 6), (0, 1, 2, 3, 5, 6), (0, 1, 3, 4, 5, 6), (0, 2, 3, 4, 5, 6), (1, 2, 3, 4, 5, 6)]
+SIX_TARGET_EXCLUDED [(0, 1, 2, 4, 5, 6)] FACE_DIM 14
+SUPPORT_AT_MOST_4_CONNECTED_COMPONENTS 3
+SUPPORT_AT_MOST_5_CONNECTED_COMPONENTS 3 COMPONENT_SIZE_FIVE_FACES [1, 1, 7]
+SUPPORT_AT_MOST_6_CONNECTED_COMPONENTS 1 SIX_FACE_COUNT 6
+SUPPORT_AT_MOST_7_CONNECTED_COMPONENTS 1 FULL_DIM 15
+MINIMAX_PEAK_SUPPORT_FOR_ALL_PAIRS_OF_FOUR_FACES 5
+PASS_EXACT_R5_SUPPORT_FILTRATION_4_TO_7_AND_NINE_FIVE_MASKS
