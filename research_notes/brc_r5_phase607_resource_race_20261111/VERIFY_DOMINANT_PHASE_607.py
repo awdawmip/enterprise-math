@@ -121,3 +121,48 @@ print("ADDITIONAL_TARGET0_ORDER_DROP",filtered-after)
 print("TOTAL_ORDER_DROP",before-after)
 print("DIRECT_EXACT_CHECK_BOTH_SIDES",True)
 print("PASS_R5_PHASE607_RESOURCE_RACE_AND_18_EXCEPTIONS")
+
+
+# Complete critical-value spectrum: the 1D target0/source3 subset sums generate
+# every INTERIOR phase threshold; only source2/target0 supplies the endpoint.
+k03 = V.index((0,3))
+weights = tuple(int(36*m[k03]) for m in M)
+assert weights == (336,184,18,169,64,84,299,126,52,16,
+                   -420,-483,-144,-221,-80)
+support = {0}
+for weight in weights:
+    support |= {s + weight for s in tuple(support)}
+assert len(support) == 2293
+allowed = {s for s in support if s <= -3}
+assert len(allowed) == 1144
+q0 = {-36*X[k03]/s/eps_max for s in allowed}
+assert q0 == set(phase[:-1])
+assert phase[-1] == 1
+
+first_zero_coords = Counter()
+ties = 0
+joint_phase_indices = []
+for index,q in enumerate(phase,1):
+    seen = set()
+    for mask,coord in thresholds[q]:
+        zeros = [V[k] for k in range(28) if
+                 base[k]*q.denominator +
+                 (states[mask][k]-base[k])*q.numerator == 0]
+        assert V[coord] in zeros
+        assert len(zeros) in (1,2)
+        first_zero_coords.update(zeros)
+        ties += len(zeros) == 2
+        seen.update(zeros)
+    if len(seen) == 2:
+        joint_phase_indices.append(index)
+    assert seen == ({(0,2)} if index == 1145 else
+                    ({(0,3),(1,3)} if index in (607,715,1039)
+                     else {(0,3)}))
+assert first_zero_coords == {(0,3):14662,(1,3):11002,(0,2):299}
+assert ties == 5
+assert joint_phase_indices == [607,715,1039]
+print("FULL_FIRST_ZERO_COORDINATE_COUNTS",dict(first_zero_coords))
+print("FULL_FIRST_ZERO_TWO_COORDINATE_TIES",ties)
+print("INTERIOR_PHASE_VALUES_FROM_ONE_DIMENSION",len(q0))
+print("PHASES_WITH_SECOND_COORDINATE_RESONANCE",*joint_phase_indices)
+print("PASS_R5_COMPLETE_ONE_COORDINATE_PHASE_SPECTRUM")
