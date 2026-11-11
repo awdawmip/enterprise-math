@@ -1,0 +1,116 @@
+{
+  "schema": "EM_R68_EXACT_CERTIFICATE_SUMMARY_V1",
+  "generated_date": "2026-11-11",
+  "source_program": "research_notes/brc_s23_av_anchored_hull_20261111_r68/check_r68.py",
+  "inherited_kernel": "research_notes/brc_s23_av_certificate_cache_20261111_r67/check_r67.py",
+  "science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "scope": "author-executed finite exact auxiliary rational circle model",
+  "seed": 68001,
+  "variants": [
+    {
+      "cap": null,
+      "models": 80,
+      "matched_queries": 1600,
+      "certified": 1600,
+      "linear_certified": 1600,
+      "oracle_checks": 8000,
+      "source_rectangles": {
+        "uncached": 7959,
+        "legacy_list": 6883,
+        "anchored_hull": 6067
+      },
+      "hull_hits": 1892,
+      "hull_extensions": 408,
+      "hull_keys": 688,
+      "legacy_interval_entries": 1912,
+      "evictions": 0,
+      "wall_seconds": {
+        "plain": 1.918338,
+        "legacy": 1.845629,
+        "hull": 1.697085,
+        "linear": 1.451211
+      }
+    },
+    {
+      "cap": 64,
+      "models": 80,
+      "matched_queries": 1600,
+      "certified": 1600,
+      "linear_certified": 1600,
+      "oracle_checks": 8000,
+      "source_rectangles": {
+        "uncached": 7959,
+        "legacy_list": 6883,
+        "anchored_hull": 6067
+      },
+      "hull_hits": 1892,
+      "hull_extensions": 408,
+      "hull_keys": 64,
+      "legacy_interval_entries": 1912,
+      "evictions": 624,
+      "wall_seconds": {
+        "plain": 2.014186,
+        "legacy": 1.826339,
+        "hull": 1.74269,
+        "linear": 1.498467
+      }
+    },
+    {
+      "cap": 16,
+      "models": 80,
+      "matched_queries": 1600,
+      "certified": 1600,
+      "linear_certified": 1600,
+      "oracle_checks": 8000,
+      "source_rectangles": {
+        "uncached": 7959,
+        "legacy_list": 6883,
+        "anchored_hull": 6067
+      },
+      "hull_hits": 1892,
+      "hull_extensions": 408,
+      "hull_keys": 16,
+      "legacy_interval_entries": 1912,
+      "evictions": 672,
+      "wall_seconds": {
+        "plain": 2.024363,
+        "legacy": 1.923285,
+        "hull": 1.801793,
+        "linear": 1.548354
+      }
+    }
+  ],
+  "adversarial": {
+    "alternating_labels": {
+      "queries": 85,
+      "certified": 85,
+      "uncached_checks": 630,
+      "unbounded_hull_checks": 422,
+      "unbounded_hull_hits": 208,
+      "cap2_checks": 630,
+      "cap2_hits": 0,
+      "cap2_evictions": 258
+    },
+    "unique_signatures": {
+      "queries": 400,
+      "certified": 400,
+      "uncached_checks": 2975,
+      "cap32_checks": 2975,
+      "cap32_hits": 0,
+      "cap32_evictions": 1196,
+      "wall_seconds_one_run": {
+        "uncached": 0.180849,
+        "cap32": 0.19701
+      }
+    }
+  },
+  "operand_input_width_envelope_bits": {
+    "time": 8,
+    "theta_denominator": 8,
+    "interval_denominator": 37,
+    "observation_denominator": 7
+  },
+  "comparison_status": "all certified values matched uncached R66, R67 legacy list, R68 hull, linear competitor, and five exact oracle parameter checks per query",
+  "caveats": "Wall time is host-specific, measured by perf_counter; operand width envelope is not a complete integer bit-operation ledger; no independent theorem review",
+  "reproduce": "python research_notes/brc_s23_av_anchored_hull_20261111_r68/check_r68.py --cap 64 --count 80 --output /tmp/r68.json"
+}
