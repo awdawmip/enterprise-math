@@ -7,7 +7,7 @@ Date: 2026-11-11 Asia/Shanghai. Research mode: independent author-side TASK_RESE
 Let Y(p,z) be the maximum of two independent Poissonized first-stop clocks of the frozen 189-level model, and set
 
 - A(z) = Var(Y(z,z)) - Var(Y(0,z)).
-- B(z) = E[Y(z,z)] - E[Y(0,z)).
+- B(z) = E[Y(z,z)] - E[Y(0,z)].
 - F_q(z) = q A(z) - B(z).
 
 The two precise assertions are:
