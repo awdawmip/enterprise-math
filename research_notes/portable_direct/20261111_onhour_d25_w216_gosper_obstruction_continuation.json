@@ -1,0 +1,79 @@
+{
+  "schema": "ENTERPRISE_MATH_AUTHOR_SIDE_RESEARCH_CONTINUATION_V1",
+  "created_date": "2026-11-11",
+  "provenance_kind": "AUTHOR_SIDE_PORTABLE_UNREVIEWED_NOT_ADMITTED",
+  "parent_objective_id": "ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION",
+  "task_id": "RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT",
+  "publication_id": "TP2-B6F4FC938FF94941C1B7",
+  "frozen_scientific_source_sha": "c47e13e4aba0e006366f989d6334d443f6333ae3",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "new_author_side_unit": {
+    "type": "EXACT_PROOF_AND_SELECTED_INTEGER_CHECKS",
+    "theorem": "Original signed W216 has no single-term rational Gosper telescoper T(k) in Q(k); nevertheless W_p=-2*M0+(13*M1-2*M2)/3 mod p^3 for all primes p>3 where Mj=sum_{k=0}^{p-2}a_k/(k+1)^j, j=0,1,2.",
+    "exact_boundary": "W_p=(7-6p)*a_(p-1)-sum_{k=0}^{p-2}(k-1)(6k+5)*a_k/[3(k+1)^2]; v_p(a_(p-1))=3.",
+    "observed_evidence": "13 distinct primes [5,7,11,13,17,19,23,31,37,43,109,157,373], exact p^5 recurrence, direct signed W and p-free factorial endpoint.",
+    "p373": {
+      "modulus": 51895117,
+      "M0": 9878159,
+      "M1": 48777891,
+      "M2": 27945670,
+      "W": 373,
+      "endpoint_mod_p3": 19431435,
+      "last_boundary_mod_p3": 19431435
+    },
+    "scoped_inference": "Eliminates one-term rational Gosper route; supplies three source-preserving p-unit denominator moments, not a proof of all-prime LIFT or a native H0/B0 computation.",
+    "admission": "UNREVIEWED_NOT_ADMITTED"
+  },
+  "remote_evidence": [
+    {
+      "path": "research_notes/portable_direct/20261111_onhour_d25_w216_gosper_obstruction_three_moments.md",
+      "git_blob_sha1": "6dfbbc26cd751fcd57bd011ac9e21a527d2a3d18",
+      "write_commit": "e1c4bb350bef749b94f080b642e4f4e1b4246671"
+    },
+    {
+      "path": "research_notes/portable_direct/d25_w216_gosper_moment_verify_20261111.py",
+      "git_blob_sha1": "a544b4a9837cc19d1911acf51081069be5205171",
+      "write_commit": "a20766a7cf093094a1d1cdf5ed17bd9308a12763"
+    }
+  ],
+  "do_not_repeat": [
+    "Accepted D24 supersingular UR and CM0; no replay of accepted RR.",
+    "Completed prior reflected/Legendre/Wilson/Harmonic/Clausen and original source-port identities.",
+    "Finite original W216 scans up to 10000 and 10000<p<=30000.",
+    "This rational one-term Gosper obstruction unless assumptions/term change.",
+    "Do not present surrogate scalar/E3 computations as native H0/B0."
+  ],
+  "source_transport": {
+    "channel": "EM_CHAT_CONTROL_V1_GITHUB_ISSUE_ONLY",
+    "own_recovery_request_id": "onhour-d25-20261111-1802-bridge-recovery-diagnostic",
+    "own_recovery_issue": 6759,
+    "recovery_status": "SUCCEEDED_REGISTRATION_FAILED",
+    "old_start_request_id": "session-start-20261007-1122-d25-01",
+    "old_start_status": "FAILED_UPSTREAM_CODE_REVIEW_REQUIRED",
+    "last_exact_continuation_request_id": "onhour-d25-20261111-1810-source-continuation",
+    "last_exact_continuation_issue": 6760,
+    "last_exact_continuation_status": "SUCCEEDED",
+    "last_exact_source_sha": "d8203792ff835058e2212a7654f85830a9b51aca",
+    "route": "PREPARE_TYPED_CONTINUATION_WITH_EXACT_PREDECESSOR_AND_FRONTIER",
+    "requires_current_own_role_authorization": true,
+    "execution_authorized": false,
+    "own_winning_claim_verified": false,
+    "own_open_run_verified": false
+  },
+  "immutable_native_frontier": {
+    "hard_target": "same-original-class H0/B0 divided-power [X]U mod 139129 at p=373",
+    "state": "NOT_RUN",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/1559",
+    "native_executor_confirmed": false,
+    "due": [
+      "Native divided-power coefficient ring/module and representative",
+      "Native H0/B0 rank",
+      "Actual semilinear Frobenius and eta normalization",
+      "Signed odd Green/Hesse kappa",
+      "Original Delta-R and independent reproduction"
+    ]
+  },
+  "next_exact_action": "Do not reopen completed scalar lemmas. Native route: identify actually authorized H0/B0 evaluator from existing Issue #1559, obtain pinned original [X]U modulo 139129 and complete rank/direction/eta/kappa/Delta-R receipt; independently verify before native Source checkpoint. In parallel only if legitimately tasked, seek a non-Gosper higher-order/parameter telescoper that evaluates the three specific moments, or an original-target counterexample. No own CLAIM/open yet. Reconcile only original unknown requests.",
+  "publication_boundary": "GitHub author-side verification only; NOT a Source-native checkpoint, Result, review, owner transfer, or scheduler change."
+}
