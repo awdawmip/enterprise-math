@@ -564,7 +564,7 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                 unresolved_refs.append(ref)
     result_state = research_result_records.task_result_state(task_id, root, record["publication_id"])
     result_available = result_state is not None
-    result_pins, result_errors = {}, []
+    result_pins, result_errors, frozen_result_pins = {}, [], []
     if isinstance(result_state, dict) and not restricted:
         result = result_state.get("result")
         parallel_ids = result_state.get("parallel_result_ids", result.get("parallel_result_ids") if isinstance(result, dict) else None)
@@ -596,7 +596,20 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                 except (ValueError, OSError) as exc:
                     result_errors.append({"path": path, "error": str(exc)})
         for selected in selected_results:
-            refs += [value for value in (selected.get("_record_path"), selected.get("return_path")) if isinstance(value, str)]
+            frozen_paths = set()
+            if "artifact_sources" in selected:
+                from control_plane.research_result_github_artifacts import normalize_sources, artifact_pin as committed_artifact_pin
+                try:
+                    references = normalize_sources(selected["artifact_sources"])
+                    frozen_paths = {pin["path"] for pin in references}
+                    for reference in references:
+                        frozen_result_pins.append({**committed_artifact_pin(reference, root),
+                                                   "result_id": selected.get("result_id"),
+                                                   "provenance": "RESULT_SELECTED_GITHUB_CONTENT"})
+                except (ValueError, OSError) as exc:
+                    result_errors.append({"path": selected.get("_record_path"), "error": str(exc)})
+            refs += [value for value in (selected.get("_record_path"), selected.get("return_path"))
+                     if isinstance(value, str) and value not in frozen_paths]
             if selected.get("record_schema") == "ENTERPRISE_MATH_HISTORICAL_RESULT_INTAKE_V1":
                 intake = selected["historical_intake"]
                 refs.append(f"research_historical_result_intakes/{task_id}/{intake['intake_id']}.json")
@@ -610,8 +623,9 @@ def continuation_packet(task_id: str, *, root: Path, events: list[dict[str, Any]
                 refs.append(f"research_result_records/{task_id}/{selected['result_id']}.json")
             if selected.get("execution_record_id") and selected.get("record_schema") != "ENTERPRISE_MATH_HISTORICAL_RESULT_INTAKE_V1":
                 refs.append(f"research_execution_records/{task_id}/{selected['execution_record_id']}.json")
-            refs += [item["path"] for item in selected.get("output_manifest", []) if isinstance(item, dict) and isinstance(item.get("path"), str)]
-    pins, artifact_errors = [], result_errors
+            refs += [item["path"] for item in selected.get("output_manifest", [])
+                     if isinstance(item, dict) and isinstance(item.get("path"), str) and item["path"] not in frozen_paths]
+    pins, artifact_errors = frozen_result_pins, result_errors
     for path in dict.fromkeys(refs):
         try:
             pin = result_pins.get(path) or artifact_pin(root, path, source_commit)

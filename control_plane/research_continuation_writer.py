@@ -1,7 +1,8 @@
 """Restricted native writer adapter for an isolated writable Source snapshot.
 
-No network or Git publication occurs here. The service owns snapshot creation,
-allowed artifact uploads, fresh raw server evidence and the final Source CAS.
+No Git publication occurs here. The service owns authority snapshot creation,
+fresh raw server evidence and the final Source CAS. The native artifact reader
+may read selected immutable public GitHub content without credentials.
 Only the fixed, admitted native result/review CLI is executable by this adapter.
 """
 from __future__ import annotations
@@ -85,12 +86,15 @@ def prepare_freeze(*, root: Path, source_commit: str, runtime_state: Mapping[str
                    raw_comments: list[dict[str, Any]], payload: Mapping[str, Any]) -> dict[str, Any]:
     """Create a real RR locally; return exact bytes plus an unsubmitted HANDOFF."""
     _sandbox(root, source_commit)
-    if set(payload) != FREEZE_FIELDS:
-        raise ContinuationError("freeze payload must contain exactly the native freeze fields")
+    if not FREEZE_FIELDS <= set(payload) or set(payload) - FREEZE_FIELDS - {"artifact_sources"}:
+        raise ContinuationError("freeze payload must contain the native fields and optional artifact_sources")
     if not isinstance(payload["output_paths"], list) or not payload["output_paths"]:
         raise ContinuationError("freeze requires explicit output_paths")
-    for path in [payload["return_path"], *payload["output_paths"]]:
-        _path(root, path)
+    if "artifact_sources" not in payload:
+        for path in [payload["return_path"], *payload["output_paths"]]:
+            _path(root, path)
+    # Referenced artifacts are read by commit/path in the native writer. They
+    # need not exist in this current authority snapshot or its output scope.
     before = _capture(root)
     with tempfile.TemporaryDirectory(prefix="em-freeze-input-") as temp:
         state_path, event_path = Path(temp) / "state.json", Path(temp) / "events.json"
@@ -98,8 +102,8 @@ def prepare_freeze(*, root: Path, source_commit: str, runtime_state: Mapping[str
         event_path.write_text(json.dumps(raw_comments, ensure_ascii=False), encoding="utf-8")
         arguments = ["--source-commit", source_commit, "--runtime-state-file", str(state_path), "--events", str(event_path)]
         for key, value in payload.items():
-            flag = "--output-paths-json" if key == "output_paths" else "--" + key.replace("_", "-")
-            arguments.extend([flag, json.dumps(value, ensure_ascii=False) if key == "output_paths" else str(value)])
+            flag = {"output_paths": "--output-paths-json", "artifact_sources": "--artifact-sources-json"}.get(key, "--" + key.replace("_", "-"))
+            arguments.extend([flag, json.dumps(value, ensure_ascii=False) if key in {"output_paths", "artifact_sources"} else str(value)])
         record = _invoke(root, "freeze", arguments)
     files = _changes(root, before)
     expected_path = f"research_result_records/{record['task_id']}/{record['result_id']}.json"
