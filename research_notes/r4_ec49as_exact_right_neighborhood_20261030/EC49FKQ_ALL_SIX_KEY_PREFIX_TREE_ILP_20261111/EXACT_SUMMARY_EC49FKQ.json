@@ -1,0 +1,221 @@
+{
+  "schema": "EC49FKQ_NINE_SIX_KEY_PREFIX_TREE_01_MIP_V1",
+  "date": "2026-11-11",
+  "source_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "source": "EC49FJD_RELEASE_B11_COMPLETE_20261111/EC49FGW_RADIUS5_SCREEN.py; EC49FKP_SIX_KEY_INCOMPATIBILITY_20261111/EXACT_SUMMARY_EC49FKP.json",
+  "solver": "SciPy 1.17.0 / scipy.optimize.milp / HiGHS; 0-1 integrality; mip_rel_gap=0; each status 0; primal=dual; no timeout",
+  "frozen_catalogue_legal_words": 178850,
+  "labels": 24,
+  "complete_raw_keys": 94,
+  "six_key_cover_sets": 2004,
+  "previously_excluded": 1995,
+  "previous_survivors": 9,
+  "base_keys": [
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      3,
+      0,
+      1
+    ],
+    [
+      3,
+      1,
+      1
+    ],
+    [
+      4,
+      2,
+      1
+    ]
+  ],
+  "rows": [
+    [
+      0,
+      [
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          5,
+          5,
+          1
+        ]
+      ],
+      4366,
+      19962,
+      19983,
+      98
+    ],
+    [
+      1,
+      [
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      5578,
+      26704,
+      26725,
+      98
+    ],
+    [
+      2,
+      [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      5578,
+      26704,
+      26725,
+      98
+    ],
+    [
+      3,
+      [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          7,
+          3,
+          1
+        ]
+      ],
+      4366,
+      19962,
+      19983,
+      98
+    ],
+    [
+      4,
+      [
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ]
+      ],
+      6828,
+      42024,
+      42045,
+      112
+    ],
+    [
+      5,
+      [
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          7,
+          5,
+          1
+        ]
+      ],
+      8170,
+      46278,
+      46299,
+      112
+    ],
+    [
+      6,
+      [
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          7,
+          6,
+          1
+        ]
+      ],
+      6142,
+      39100,
+      39121,
+      112
+    ],
+    [
+      7,
+      [
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          8,
+          4,
+          1
+        ]
+      ],
+      6828,
+      42024,
+      42045,
+      112
+    ],
+    [
+      8,
+      [
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          8,
+          5,
+          1
+        ]
+      ],
+      6142,
+      39100,
+      39121,
+      112
+    ]
+  ],
+  "row_fields": [
+    "index",
+    "extra_keys",
+    "eligible_words",
+    "prefix_nodes",
+    "constraints",
+    "MIP_optimum"
+  ],
+  "witnesses_utf8_json_sha256": "45326f659546b3ec1776221eb5e5050362740aad4b4c4e4741610464da220265",
+  "witness_validation": "EC49FKQ_ALL_NINE_WITNESS_PASS; independent literal DFA, signed native displacement, label, raw key and ordered prefix union",
+  "scope": "all six-full-key covers: <=93 prefixes impossible, under exact solver interpretation; global seven-key optimum unresolved",
+  "math_equivalence": "min union of literal signed prefixes of one word per demand = min sum(x_p) over 0-1 prefix nodes with child <= parent and each demand having one selected admissible terminal",
+  "formal_review": "pending independent Driver review; solver's internal branch and bound was not exported as a proof-checker certificate"
+}
