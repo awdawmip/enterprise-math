@@ -1,0 +1,73 @@
+{
+  "result": "ALL_FOUR_INDEPENDENT_CHECKS_PASS PREFIX688-R6",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "189-level independent Poissonized first-stop maximum observer",
+  "nonzero_survivor_cells": 9529,
+  "checks": [
+    {
+      "q": 12,
+      "interval": [
+        "0.0528706",
+        "0.0528708"
+      ],
+      "F_signs": [
+        1,
+        -1
+      ],
+      "F_floor_1e9": [
+        2028625,
+        -2009751
+      ],
+      "center": "0.0528707",
+      "radius": "1/10000000",
+      "A_center_jet_floors_1e6": [
+        656742,
+        -1671941380,
+        -66726857069
+      ],
+      "B_center_jet_floors_1e6": [
+        7880902,
+        128587655,
+        -989565080
+      ],
+      "Fprime_upper_floor": -20179,
+      "strict_local_uniqueness": true
+    },
+    {
+      "q": 24,
+      "interval": [
+        "0.0530655",
+        "0.0530659"
+      ],
+      "F_signs": [
+        1,
+        -1
+      ],
+      "F_floor_1e9": [
+        8857119,
+        -7369717
+      ],
+      "center": "0.0530657",
+      "radius": "1/5000000",
+      "A_center_jet_floors_1e6": [
+        329445,
+        -1684945674,
+        -66650317279
+      ],
+      "B_center_jet_floors_1e6": [
+        7905957,
+        128394438,
+        -992151722
+      ],
+      "Fprime_upper_floor": -40462,
+      "strict_local_uniqueness": true
+    }
+  ],
+  "third_derivative_bounds": {
+    "A3": 218571424275456,
+    "B3": 69527880576,
+    "provenance": "PREFIX-680 frozen certificate"
+  },
+  "arithmetic": "Python arbitrary-precision integer and Fraction; 4 distinct local PASS checks; no independent review",
+  "status": "AUTHOR_DERIVED / EXACT_RATIONAL_RECOMPUTED / UNREVIEWED / NOT_ADMITTED"
+}
