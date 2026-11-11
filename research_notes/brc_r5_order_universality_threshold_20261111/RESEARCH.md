@@ -82,6 +82,34 @@ with \(\mathrm{ways}(\varnothing)=1\). It verifies:
 
 The endpoint tally reproduces the previous independent R5 order census of PR #2102. `VERIFY_ORDER_THRESHOLD.py` and the captured `EXACT_OUTPUT.txt` record all enumerations and check the exact identities. No floating point comparison, random sampling, or changed source/target label is used.
 
+
+## Theorem 3 — the complete 1144-jump phase census, and the dominant discontinuity
+
+For the unchanged fifteen labeled atoms, exact enumeration identifies **1,145 distinct rational first-zero thresholds** in the closed ray (the final threshold equals the endpoint), realized by 25,958 of the 32,768 atom subsets. All **1,144 interior thresholds** produce a strictly positive drop in the number of fully legal labeled permutations; there are **zero redundant interior feasibility thresholds** in this particular model.
+
+To prove this as a finite exact classification, assign each subset $S$ a rank $r(S)$: the one-based position of its first-zero threshold among the 1,145 sorted rational values; use the sentinel 1,146 if no coordinate can reach zero within the closed ray. The exact signed integerization from Theorem 2 determines every rank.
+
+For each integer $i=0,\dots,1144$, define $W_i(\varnothing)=1$ and
+\[
+W_i(S)=\mathbf 1_{r(S)>i}\sum_{a\in S}W_i(S\setminus\{a\}).
+\]
+Then $W_i(\{1,\dots,15\})$ counts the schedules valid **strictly above** the $i$-th interior threshold and up to the next one (when $i=0$ it counts all initial schedules). This equality is a bijection between labeled atom permutations and maximal Boolean-lattice chains, checked at each prefix by the exact nonnegativity condition. The verifier evaluates all 1,145 rank-cuts using integer additions and certifies that their 1,144 successive count differences are all **strictly positive**. In particular, the whole ordering-count step function has no unknown phases in this exact R5 ray.
+
+The **single largest drop** occurs at interior phase index **607**:
+\[
+\varepsilon_{607}
+=\frac{155682221}{377131868400000000},
+\]
+where the number of valid schedules falls from
+\[
+851207682192\quad\longrightarrow\quad470447833008,
+\]
+a loss of **380,759,849,184** schedules at one breakpoint. Intriguingly, this exact rational parameter is precisely the previously verified **lexicographically sorted fifteen-atom order's first failure point** in parent PR #2102; the numerical equality is checked against the previously frozen rational value, not inferred from floating-point coincidence. (The theorem states a phase-count equality, not that the sorted order alone causes all this loss.)
+
+The endpoint count remains **3,514,190,816**. The ordered phase ledger, including all 1,145 rational thresholds and adjacent counts, is generated deterministically by `VERIFY_ALL_ORDER_PHASES.py`. `ALL_PHASES_SUMMARY.txt` contains the captured local exact output and a digest of a canonical ledger encoding for independent rerun comparison. The full ledger is algorithmically specified rather than copied into a long textual appendix.
+
+All three theorems apply to the **fixed labeled fifteen-atom multiset** and its parameter ray. This establishes an exact scheduling phase diagram, not the minimal number of atoms between arbitrary positive hidden-fiber states. The parent R5 frozen scientific pins and source/target indices remain unchanged.
+
 ## New practical rule and next unresolved question
 
 For a prescribed multiset of observer-preserving BRC atoms, the **universal scheduling radius** requires only \(O(md)\) coordinate additions: compute \(L_k\) then take the minimum ratio. Above that radius, existence and counting of *some* legal order remains a subset-DP problem; this R5 instance has at least 3,514,190,816 successful orders even at the endpoint. Distinguish *all schedules safe* from *at least one schedule safe*.
