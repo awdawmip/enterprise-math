@@ -1,8 +1,8 @@
 # X6 arbitrary-triad signed C6 group and exact BRC path-fiber composition — on-hour 2026-11-12
 
-**Status:** \`AUTHOR_PROVED / EXACT_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED\`. Portable independent evidence, NOT native claim/checkpoint/Result, independent review, P000 alteration or a physical rotation law.
+**Status:** `AUTHOR_PROVED / EXACT_FINITE_CHECKED / UNREVIEWED / NOT_ADMITTED`. Portable independent evidence, NOT native claim/checkpoint/Result, independent review, P000 alteration or a physical rotation law.
 
-**Frozen scientific pin:** \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`; specifically \`p000_reality_foundation.json\`, \`definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md\`, \`research_notes/VIETE_X6_FIXED_RADIUS_MICROTRACE_C12_20260905.md\`, \`experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py\`. **Task:** \`RS-X6-NATIVE-ROTATION-DYNAMICS / TP2-6A1F9D8C2047E3B51C01\`; native Research subject \`chatgpt-research-onhour-enterprise-math-20260923\`. Observer: signed X6 Cell torsor \(\mathbb Z^6\); operations: candidate signed-frame map, ordered primitive steps and future intermediate Cell tests; time remains a separate label.
+**Frozen scientific pin:** `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`; specifically `p000_reality_foundation.json`, `definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md`, `research_notes/VIETE_X6_FIXED_RADIUS_MICROTRACE_C12_20260905.md`, `experiments/x6_signed_native_spatial_v16_20260905/signed_brc.py`. **Task:** `RS-X6-NATIVE-ROTATION-DYNAMICS / TP2-6A1F9D8C2047E3B51C01`; native Research subject `chatgpt-research-onhour-enterprise-math-20260923`. Observer: signed X6 Cell torsor \(\mathbb Z^6\); operations: candidate signed-frame map, ordered primitive steps and future intermediate Cell tests; time remains a separate label.
 
 ## Theorem 1: arbitrary-triad algebraic C6
 
