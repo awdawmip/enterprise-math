@@ -7,20 +7,20 @@ Mother objective: `ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION`; Task `RS-ENT
 ## New theorem — the original curve's actual formal [p] coefficient
 
 Let p>=5, and let F be a one-dimensional commutative formal group over a p-local characteristic-zero ring with normalized invariant differential
-[
+$$
 \omega_F(z)=\sum_{n\ge0}H_nz^n\,dz,\qquad H_0=1.
-]
+$$
 Put
-[
+$$
 \ell(z)=\int\omega_F=\sum_{n\ge1}\frac{H_{n-1}}n z^n,\qquad
 [p]_F(z)=\ell^{-1}(p\ell(z)).
-]
+$$
 For p-unit coefficients H_n, the coefficient of z^p satisfies the **exact p-adic congruence**
-[
+$$
 \boxed{[z^p][p]_F(z)\equiv H_{p-1}
 -\frac{p^2H_1}{2}\sum_{i=1}^{p-1}\frac{H_{i-1}H_{p-i-1}}{i(p-i)}
 \pmod{p^3}.}\tag{1}
-]
+$$
 In particular, [z^p][p]_F(z)≡H_(p-1) (mod p²). The two sides are in the original formal parameter z, without quotienting to a trace, norm or j invariant.
 
 **Proof.** Write `e(w)=ell^{-1}(w)=sum_{n>=1}e_n w^n`. Because all log coefficients of degree below p lie in the p-local ring, `e_n` is p-integral for n<p, and `e_2=-H_1/2`. At degree p, `e_p` has p-adic valuation at least -1, since the only new possible nonunit coefficient is `H_(p-1)/p`. In `e(p ell(z))`, the n=1 term contributes `p*[z^p]ell(z)=H_(p-1)`. The n=2 term contributes `-p² H_1/2 * [z^p]ell(z)²`, and the indices of the convolution are exactly 1<=i<p, with p-unit denominators. Terms 3<=n<p vanish mod p³; n=p contributes `p^p e_p` and vanishes modulo p³ for p>=5; n>p cannot contribute at degree p. This proves (1). QED.
@@ -28,32 +28,32 @@ In particular, [z^p][p]_F(z)≡H_(p-1) (mod p²). The two sides are in the origi
 ## Evaluation on the original CM curve, not a model Frobenius
 
 Use exactly the previously source-pinned E3 curve and local coordinate
-[
+$$
 E_3(t):y^2+xy+(t/27)y=x^3,\quad
 t=(2-T)/4,\quad T^2=2,\quad z=-x/y.
-]
+$$
 With `a=t/27=(2-T)/108`, original fixed-z invariant differential has coefficients
-[
+$$
 H_n=\sum_{j=0}^{\lfloor n/3\rfloor}
 {n-j\choose j}{n-2j\choose j}a^j,
 \qquad H_0=H_1=1.
-]
+$$
 This follows independently from `w=-1/y`, `(1-z)w-aw²=z³` and `omega=dz/(1-z-2aw)`, the same exact original E3 model used in the earlier verified formal-differential note. Thus (1) specializes with `H_1=1`.
 
 In `(Z/373³Z)[T]/(T²-2)`, the two independently constructed E3 coefficient sequences agree for every `0<=n<=372`. Their new convolution, computed only modulo 373 since multiplied by 373², is
-[
+$$
 S_{373}:=\sum_{i=1}^{372}\frac{H_{i-1}H_{372-i}}{i(373-i)}
 \equiv46+350T\pmod{373}.
-]
+$$
 The previously checked original coefficient is independently reproduced:
-[
+$$
 H_{372}\equiv46042747+33130606T\pmod{51895117}.
-]
+$$
 Hence the **actual original E3 formal multiplication** has
-[
+$$
 \boxed{[z^{373}][373]_{E_3}(z)
 \equiv42842780+8783031T\pmod{51895117}.}\tag{2}
-]
+$$
 The new p² correction is `373²*(350+198T)`. Its p-divided coefficient is `114860+23547T mod 373²`, with mod-373 first digit `349+48T`. The signed odd component `48T` survives; this observation retains both source labels.
 
 Additional exact checks performed for p=5,7,13,19,37,43,109,139,157,373. For each p, the factorial/binomial sequence and the independent original formal-curve recurrence agreed for every H_n up to n=p−1. A third, fully independent characteristic-zero inverse-composition of `ell^{-1}(p ell(z))` to degree p matched (1) for p=5,7,13. Sample p=13: `S=10+8T`; `H_12=2054+1469T mod 2197`; `[z^13][13]_{E_3}=1209+793T mod2197`. The reproducible checker is `research_notes/portable_direct/d25_e3_actual_formal_p_series_20261111.py`.
