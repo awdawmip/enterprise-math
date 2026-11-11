@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-11",
+  "model": "auxiliary rational circle-source original-labelled half-open arc",
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "exact_scripts_run": [
+    "check_r70.py (full locally executed)",
+    "check_r70_min.py (executed; code published here)"
+  ],
+  "min_checker_stdout": "R70_MIN_PASS 671 86 315",
+  "cases": 36,
+  "queries_per_method": 252,
+  "oracle_points": 1260,
+  "boundary_stress": {
+    "tested": 671,
+    "old_unknown_new_certified": 86,
+    "observed_transitions_on_101_grid": 315
+  },
+  "repeated_16": {
+    "n16": {
+      "R69_visits": 784,
+      "LRU_misses": 49,
+      "LRU_evictions": 0,
+      "times_ms": [
+        7.6,
+        9.63,
+        7.94,
+        7.55
+      ]
+    },
+    "n256": {
+      "R69_visits": 8496,
+      "LRU_misses": 8211,
+      "LRU_evictions": 8064,
+      "times_ms": [
+        86.06,
+        90.76,
+        90.81,
+        92.64
+      ]
+    },
+    "n1024": {
+      "R69_visits": 10144,
+      "LRU_misses": 9979,
+      "LRU_evictions": 9840,
+      "times_ms": [
+        101.93,
+        108.53,
+        117.07,
+        100.47
+      ]
+    }
+  }
+}
