@@ -39,3 +39,19 @@ Retain the ordered observer (p,e,m,A mod p²,B mod p²,zero-port label,v_p), rat
 Previously pending read requests h40-20261111-0949-exact-d25-continuation and h40-20261111-0946-canonical-tasks were reconciled as SUCCEEDED. Own native execution session and winning CLAIM are unavailable; this note is author-only and is not predecessor completed research for CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS.
 
 Original UR V2 exact four-file object still requires 94687 bytes and SHA-256 4eed27397cf4442aeb6464e4bf4af171552fc581c79f8783adb32dc3c19c1b76. Already completed UR mathematics is not re-proved.
+
+
+## Original W_p fourth-digit crosscheck: a precise non-implication
+
+For the original D25 observation a_k=(2k)!(3k)!/[216^k(k!)^5], W_p=sum_{k=0}^{p-1}(6k+1)a_k, use two independent exact algorithms modulo p^4: recurrence
+a_{k+1}/a_k=(2k+1)(2k+2)(3k+1)(3k+2)(3k+3)/[216(k+1)^5]
+and factorial products. Both check all residue values at the two exceptional primes:
+
+| p | chi_{-3}(p) | W_p mod p^4 | (W_p-chi_{-3}(p)p)/p^3 mod p |
+|---|---|---|---|
+| 149 | -1 | 287791414 | 87 |
+| 211 | +1 | 1803634963 | 192 |
+
+Thus W_p ≡ chi_{-3}(p)p (mod p^3) holds at both inputs, but W_p ≢ chi_{-3}(p)p (mod p^4). The suggested extra-lift implication "an auxiliary vanishing Clausen port with p-adic order >=2 forces the original W_p congruence to lift to p^4" is **refuted** by each of these exact finite examples. This remains a statement about the auxiliary port-to-W bridge, not a native Frobenius H0/B0 calculation.
+
+The executable three-file portable ZIP includes a separate original-W factorial crosscheck and the 5,131-row full certificate; GitHub's compact prime checker concerns the two-port scan.
