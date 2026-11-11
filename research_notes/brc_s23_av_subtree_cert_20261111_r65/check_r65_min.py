@@ -18,6 +18,7 @@ def noninteger(a,b,L,U):
     v,w=a+b*L,a+b*U
     return floor(v)==floor(w) and v.denominator!=1 and w.denominator!=1
 def excluded(th0,L,U,m,j,x,z,times):
+    assert 0<L<=th0<=U<1
     h=order(th0,m); labs=[z0 for v,z0 in h]
     if not all(noninteger(F(0),F(a-b),L,U)
         for a,b in zip(labs,labs[1:]+labs[:1])): return False
