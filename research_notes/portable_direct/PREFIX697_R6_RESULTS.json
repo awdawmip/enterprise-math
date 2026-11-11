@@ -1,0 +1,47 @@
+{
+  "id": "PREFIX-697-R6",
+  "date": "2026-11-11",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "prerequisites": [
+    "PREFIX-695 exact integer-kernel formula",
+    "PREFIX-696 certified A>0, Q'>0 and -1870<A'<-1490, 128<B'<129 on J"
+  ],
+  "model": {
+    "levels": 189,
+    "survivor_nonzero_cells": 9529,
+    "typed_readout": "auxiliary joint-clock variance difference"
+  },
+  "spatial_interval": [
+    "1321/25000",
+    "1329/25000"
+  ],
+  "q_endpoint_rational_enclosures": {
+    "left_strict": [
+      "11125016126410650/1000000000000000",
+      "11125016126410651/1000000000000000"
+    ],
+    "right_strict": [
+      "46505912169160542/1000000000000000",
+      "46505912169160543/1000000000000000"
+    ]
+  },
+  "maximal_real_interior_q": "(Q(left),Q(right)), with Q=B/A defined by exact frozen observer moments",
+  "maximal_nonnegative_integer_parameters": [
+    12,
+    46
+  ],
+  "q46_root_strict_interval": [
+    "0.0531587456",
+    "0.0531590002"
+  ],
+  "q46_root_mvt": "R-(B(R)-46*A(R))/68668 < z_46 < R-(B(R)-46*A(R))/86149",
+  "q46_derivative_range": [
+    "-86149",
+    "-68668"
+  ],
+  "execution": "LOCAL_EQUIVALENT_INDEPENDENT_FRACTION_IMPLEMENTATION_ALL_CHECKS_PASS",
+  "local_replay_note": "Separate author-side integer zero-jet computation confirmed the two exact Q floor-1e15 values and q=46 root bracket; GitHub companion script stores algorithm and assertions, remote CI not asserted.",
+  "formal_review": "NOT_EXECUTED",
+  "status": "AUTHOR_RECOMPUTED_EXACT_FRACTION / UNREVIEWED / NOT_ADMITTED",
+  "next": "Build piecewise derivative / Bernstein or Sturm certificates on [0.052,0.054], then feed sign partition into PREFIX-675 global triangular variance mother objective."
+}
