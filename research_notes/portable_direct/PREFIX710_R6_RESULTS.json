@@ -1,0 +1,24 @@
+{
+  "schema": "PREFIX710_R6_CORRECT_GAMMA_MAX_INTERVAL_V1",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "independent Gamma(N_p,1) clocks; Y=max(T_p,T_z)",
+  "survivor_rows": 189,
+  "surviving_count_cells": 9529,
+  "grid_per_axis": 192,
+  "certified_ordered_cells": 26445,
+  "unresolved_ordered_cells": 10419,
+  "certified_fraction_of_full_square": "8815/12288",
+  "certified_area": "8815/49152",
+  "ratio_to_PREFIX708": "2256640/1037793",
+  "strict_all_real_q_ge_2_margin": "15701/1000000 times q^2",
+  "PREFIX709_counterexample": {
+    "point": "(191/384,191/384)",
+    "count_max_bound_upper": "< 1",
+    "true_gamma_max_variance_lower": "> 137",
+    "issue": "PREFIX709 mistakes count-max survivor moments for gamma-max moments"
+  },
+  "zero_point_exact_gamma_mean": "3913470354001175/140737488355328",
+  "witness_floor_millionths": 559812917,
+  "verification": "ALL_CHECKS_PASS PREFIX710-R6",
+  "grade": "AUTHOR_RECOMPUTED / EXACT_INTEGER_GAMMA_KERNEL / UNREVIEWED / NOT_ADMITTED"
+}
