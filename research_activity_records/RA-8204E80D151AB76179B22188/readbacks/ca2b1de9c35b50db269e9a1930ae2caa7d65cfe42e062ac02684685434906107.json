@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_first_entry_exact_20261111_r73/verification.json",
+    "ref": "7230816201f56d70526568a69bb87211adc0602b",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "s23-r73-verification.json-7230816201f5",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"model\": \"stable_nonwrapping_affine_half_open_arc\",\n  \"random_seed\": 731126,\n  \"valid_cases\": 7339,\n  \"routes\": {\n    \"LEFT_ENDPOINT\": 2759,\n    \"ALL_OUT\": 1948,\n    \"UPPER_BOUNDARY_LEAVE\": 1297,\n    \"LOWER_BOUNDARY_ENTER\": 1335\n  },\n  \"disagreements\": 0,\n  \"large_time\": {\n    \"1000000000000000003\": {\n      \"exists_member\": true,\n      \"route\": \"LOWER_BOUNDARY_ENTER\",\n      \"witness\": \"240000000000000001/1000000000000000002\",\n      \"integer_levels_upper_bound\": \"20000000000000000\",\n      \"elapsed_seconds_single_run\": 0.00008576700000162418\n    },\n    \"1000000000000000000000000000003\": {\n      \"exists_member\": true,\n      \"route\": \"LOWER_BOUNDARY_ENTER\",\n      \"witness\": \"240000000000000000000000000001/1000000000000000000000000000002\",\n      \"integer_levels_upper_bound\": \"20000000000000000000000000000\",\n      \"elapsed_seconds_single_run\": 0.00013395999999943342\n    }\n  },\n  \"scientific_pin\": \"43ec6098b1330ae86d0a7863be336c5d97f6ef34\",\n  \"scope\": \"rational input; entire real parameter interval by exact proof; author-side\"\n}\n",
+      "display_title": "verification.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/7230816201f56d70526568a69bb87211adc0602b/research_notes/brc_s23_av_first_entry_exact_20261111_r73/verification.json",
+      "encoding": "utf-8",
+      "sha": "fd6086bfd169d823803a3620853b7d91fb13b39f"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
