@@ -1,0 +1,746 @@
+{
+  "schema": "R734_SHARP_THREE_STATE_FIBER_THRESHOLD_V1",
+  "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "source_note": "R732 + R733 four-port count-flow injectivity",
+  "arithmetic": "exact integer and finite set checks; universal theorem by group parity and three-step pumping",
+  "model": "root 012; cyclic nonbacktracking; V17 named S3 frame; pooled four-port ledger",
+  "systems": {
+    "A": {
+      "arc_mask": "211733226574",
+      "num_arcs": 15,
+      "finite_exact_grades": [
+        {
+          "m": 1,
+          "rooted_cnb_histories": 0,
+          "arc_count_fibers": 0,
+          "four_port_ledger_fibers": 0,
+          "max_named_holonomies_per_fiber": 0,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 2,
+          "rooted_cnb_histories": 0,
+          "arc_count_fibers": 0,
+          "four_port_ledger_fibers": 0,
+          "max_named_holonomies_per_fiber": 0,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 3,
+          "rooted_cnb_histories": 3,
+          "arc_count_fibers": 3,
+          "four_port_ledger_fibers": 3,
+          "max_named_holonomies_per_fiber": 1,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 4,
+          "rooted_cnb_histories": 7,
+          "arc_count_fibers": 7,
+          "four_port_ledger_fibers": 7,
+          "max_named_holonomies_per_fiber": 1,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 5,
+          "rooted_cnb_histories": 8,
+          "arc_count_fibers": 8,
+          "four_port_ledger_fibers": 8,
+          "max_named_holonomies_per_fiber": 1,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 6,
+          "rooted_cnb_histories": 13,
+          "arc_count_fibers": 10,
+          "four_port_ledger_fibers": 10,
+          "max_named_holonomies_per_fiber": 2,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 7,
+          "rooted_cnb_histories": 42,
+          "arc_count_fibers": 19,
+          "four_port_ledger_fibers": 19,
+          "max_named_holonomies_per_fiber": 2,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 8,
+          "rooted_cnb_histories": 97,
+          "arc_count_fibers": 41,
+          "four_port_ledger_fibers": 41,
+          "max_named_holonomies_per_fiber": 2,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 9,
+          "rooted_cnb_histories": 163,
+          "arc_count_fibers": 60,
+          "four_port_ledger_fibers": 60,
+          "max_named_holonomies_per_fiber": 3,
+          "three_holonomy_fibers": 1
+        },
+        {
+          "m": 10,
+          "rooted_cnb_histories": 309,
+          "arc_count_fibers": 82,
+          "four_port_ledger_fibers": 82,
+          "max_named_holonomies_per_fiber": 3,
+          "three_holonomy_fibers": 6
+        },
+        {
+          "m": 11,
+          "rooted_cnb_histories": 721,
+          "arc_count_fibers": 115,
+          "four_port_ledger_fibers": 115,
+          "max_named_holonomies_per_fiber": 3,
+          "three_holonomy_fibers": 21
+        }
+      ],
+      "base_witnesses": {
+        "9": {
+          "common_arc_counts": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            2,
+            0
+          ],
+          "common_four_port_ledger": [
+            7,
+            6,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "paths": {
+            "120": [
+              "012",
+              "024",
+              "034",
+              "023",
+              "013",
+              "123",
+              "012",
+              "023",
+              "123",
+              "012"
+            ],
+            "201": [
+              "012",
+              "023",
+              "123",
+              "012",
+              "024",
+              "034",
+              "023",
+              "013",
+              "123",
+              "012"
+            ],
+            "012": [
+              "012",
+              "023",
+              "013",
+              "123",
+              "012",
+              "024",
+              "034",
+              "023",
+              "123",
+              "012"
+            ]
+          }
+        },
+        "10": {
+          "common_arc_counts": [
+            0,
+            0,
+            2,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            2,
+            0
+          ],
+          "common_four_port_ledger": [
+            8,
+            5,
+            2,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "paths": {
+            "120": [
+              "012",
+              "024",
+              "034",
+              "023",
+              "013",
+              "123",
+              "012",
+              "024",
+              "023",
+              "123",
+              "012"
+            ],
+            "201": [
+              "012",
+              "024",
+              "023",
+              "123",
+              "012",
+              "024",
+              "034",
+              "023",
+              "013",
+              "123",
+              "012"
+            ],
+            "012": [
+              "012",
+              "024",
+              "023",
+              "013",
+              "123",
+              "012",
+              "024",
+              "034",
+              "023",
+              "123",
+              "012"
+            ]
+          }
+        },
+        "11": {
+          "common_arc_counts": [
+            0,
+            0,
+            2,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            1
+          ],
+          "common_four_port_ledger": [
+            9,
+            4,
+            3,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "paths": {
+            "102": [
+              "012",
+              "024",
+              "023",
+              "123",
+              "013",
+              "012",
+              "024",
+              "034",
+              "023",
+              "013",
+              "123",
+              "012"
+            ],
+            "210": [
+              "012",
+              "024",
+              "023",
+              "013",
+              "123",
+              "012",
+              "024",
+              "034",
+              "023",
+              "123",
+              "013",
+              "012"
+            ],
+            "021": [
+              "012",
+              "024",
+              "034",
+              "023",
+              "013",
+              "123",
+              "012",
+              "024",
+              "023",
+              "123",
+              "013",
+              "012"
+            ]
+          }
+        }
+      },
+      "three_step_pump": {
+        "path": [
+          "012",
+          "014",
+          "013",
+          "012"
+        ],
+        "holonomy": "012",
+        "arc_counts": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "four_port_ledger": [
+          4,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "root_outgoing": [
+          "014",
+          "023",
+          "024"
+        ],
+        "root_incoming": [
+          "013",
+          "123"
+        ]
+      },
+      "all_length_max_fiber_theorem": "m1..2:0;m3..5:1;m6..8:2;all m>=9:3"
+    },
+    "B": {
+      "arc_mask": "5363347296468",
+      "num_arcs": 15,
+      "finite_exact_grades": [
+        {
+          "m": 1,
+          "rooted_cnb_histories": 0,
+          "arc_count_fibers": 0,
+          "four_port_ledger_fibers": 0,
+          "max_named_holonomies_per_fiber": 0,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 2,
+          "rooted_cnb_histories": 0,
+          "arc_count_fibers": 0,
+          "four_port_ledger_fibers": 0,
+          "max_named_holonomies_per_fiber": 0,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 3,
+          "rooted_cnb_histories": 3,
+          "arc_count_fibers": 3,
+          "four_port_ledger_fibers": 3,
+          "max_named_holonomies_per_fiber": 1,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 4,
+          "rooted_cnb_histories": 7,
+          "arc_count_fibers": 7,
+          "four_port_ledger_fibers": 7,
+          "max_named_holonomies_per_fiber": 1,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 5,
+          "rooted_cnb_histories": 8,
+          "arc_count_fibers": 8,
+          "four_port_ledger_fibers": 8,
+          "max_named_holonomies_per_fiber": 1,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 6,
+          "rooted_cnb_histories": 14,
+          "arc_count_fibers": 11,
+          "four_port_ledger_fibers": 11,
+          "max_named_holonomies_per_fiber": 2,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 7,
+          "rooted_cnb_histories": 43,
+          "arc_count_fibers": 20,
+          "four_port_ledger_fibers": 20,
+          "max_named_holonomies_per_fiber": 2,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 8,
+          "rooted_cnb_histories": 97,
+          "arc_count_fibers": 42,
+          "four_port_ledger_fibers": 42,
+          "max_named_holonomies_per_fiber": 2,
+          "three_holonomy_fibers": 0
+        },
+        {
+          "m": 9,
+          "rooted_cnb_histories": 169,
+          "arc_count_fibers": 62,
+          "four_port_ledger_fibers": 62,
+          "max_named_holonomies_per_fiber": 3,
+          "three_holonomy_fibers": 2
+        },
+        {
+          "m": 10,
+          "rooted_cnb_histories": 329,
+          "arc_count_fibers": 85,
+          "four_port_ledger_fibers": 85,
+          "max_named_holonomies_per_fiber": 3,
+          "three_holonomy_fibers": 8
+        },
+        {
+          "m": 11,
+          "rooted_cnb_histories": 751,
+          "arc_count_fibers": 125,
+          "four_port_ledger_fibers": 125,
+          "max_named_holonomies_per_fiber": 3,
+          "three_holonomy_fibers": 24
+        }
+      ],
+      "base_witnesses": {
+        "9": {
+          "common_arc_counts": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "common_four_port_ledger": [
+            9,
+            3,
+            2,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "paths": {
+            "102": [
+              "012",
+              "023",
+              "013",
+              "012",
+              "123",
+              "023",
+              "034",
+              "014",
+              "124",
+              "012"
+            ],
+            "210": [
+              "012",
+              "123",
+              "023",
+              "034",
+              "014",
+              "124",
+              "012",
+              "023",
+              "013",
+              "012"
+            ],
+            "021": [
+              "012",
+              "123",
+              "023",
+              "013",
+              "012",
+              "023",
+              "034",
+              "014",
+              "124",
+              "012"
+            ]
+          }
+        },
+        "10": {
+          "common_arc_counts": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1
+          ],
+          "common_four_port_ledger": [
+            10,
+            3,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "paths": {
+            "102": [
+              "012",
+              "023",
+              "013",
+              "014",
+              "012",
+              "123",
+              "023",
+              "034",
+              "014",
+              "124",
+              "012"
+            ],
+            "210": [
+              "012",
+              "023",
+              "013",
+              "014",
+              "124",
+              "012",
+              "123",
+              "023",
+              "034",
+              "014",
+              "012"
+            ],
+            "021": [
+              "012",
+              "023",
+              "034",
+              "014",
+              "012",
+              "123",
+              "023",
+              "013",
+              "014",
+              "124",
+              "012"
+            ]
+          }
+        },
+        "11": {
+          "common_arc_counts": [
+            0,
+            2,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            2,
+            0,
+            1
+          ],
+          "common_four_port_ledger": [
+            10,
+            5,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0
+          ],
+          "paths": {
+            "120": [
+              "012",
+              "123",
+              "023",
+              "034",
+              "014",
+              "012",
+              "123",
+              "023",
+              "013",
+              "014",
+              "124",
+              "012"
+            ],
+            "201": [
+              "012",
+              "123",
+              "023",
+              "013",
+              "014",
+              "124",
+              "012",
+              "123",
+              "023",
+              "034",
+              "014",
+              "012"
+            ],
+            "012": [
+              "012",
+              "123",
+              "023",
+              "013",
+              "014",
+              "012",
+              "123",
+              "023",
+              "034",
+              "014",
+              "124",
+              "012"
+            ]
+          }
+        }
+      },
+      "three_step_pump": {
+        "path": [
+          "012",
+          "123",
+          "124",
+          "012"
+        ],
+        "holonomy": "012",
+        "arc_counts": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        "four_port_ledger": [
+          1,
+          4,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "root_outgoing": [
+          "023",
+          "123"
+        ],
+        "root_incoming": [
+          "013",
+          "014",
+          "124"
+        ]
+      },
+      "all_length_max_fiber_theorem": "m1..2:0;m3..5:1;m6..8:2;all m>=9:3"
+    }
+  },
+  "status": "PASS"
+}
