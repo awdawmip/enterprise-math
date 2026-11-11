@@ -56,6 +56,21 @@ For a prescribed valid chain of \(k\) adjacent signed unit-shell C6 macro transi
 
 A prescribed fixed word of signed primitive translations acts as \(x\mapsto x+d\), hence cannot equal a nonidentity anchored linear \(R\) at every Cell (evaluate \(x=0\), forcing \(d=0\)). More strongly, \(R_{ijk}(Ne_i)=Ne_j\) requires \(\|Ne_j-Ne_i\|_1=2N\) primitive Cell adjacency steps. Thus no **uniform finite microstep-length bound** can implement \(R\) across all unbounded signed X6 Cells. This is an exact obstruction for the specified implementation class, *not* a no-go result for physical rotation: state-dependent/scale-dependent native dynamics or an admitted additional operation remains open.
 
+
+## Additional theorem: no global equivariant single-shortest-trace selector, even for H
+
+Write \(\mathcal S_{\min}(d)\) for the exact set of shortest signed-axis words with displacement \(d\). Its **set-valued** assignment is equivariant for every algebraic signed permutation \(h\in H\):
+\[
+h\mathcal S_{\min}(d)=\mathcal S_{\min}(hd).
+\]
+Indeed \(h\) permutes the twelve signed letters and preserves each word's length and displacement. This gives a constructive symmetry-respecting set-valued shortest-trace lift.
+
+**No deterministic H-equivariant selector** \(s(d)\in\mathcal S_{\min}(d)\) exists for *all* \(d\in\mathbf Z^6\). For the explicit displacement \(d=e_1+e_2\), its only two shortest words are \((e_1,e_2)\) and \((e_2,e_1)\). The even unsigned permutation \(h=(1\ 2)(3\ 4)\) is an element of \(A_6\subset H\), fixes \(d\), and swaps these two words, fixing neither. Equivariance would force \(s(d)=s(hd)=h\,s(d)\), impossible. This is a two-word finite counterexample to an **equivariant deterministic** native minimal-path rule; it does not prevent a rule using declared frame/chirality residual or a set-valued/nonuniform path dynamics.
+
+A separate categorical obstruction is immediate: no **strict inverse-preserving** lift of a nontrivial groupoid arrow into the category of unreduced finite primitive path words exists. For nonempty \(w\), the composite of \(w\) and a reverse word \(w^{-1}\) has positive length, so cannot equal the empty identity word. A reduced-word quotient could restore formal inverses but would erase loop and BRC path provenance and must be certified against the actual future observers. These two results sharpen the missing physical law and exact retention boundary.
+
+**Additional exact check:** the stabilizer \((1\ 2)(3\ 4)\) fixes \(d=e_1+e_2\) and exchanges its two minimal words. Exact six-integer permutation/word checks pass. These are author-verified mathematical claims only, not a physical P000 rotation license or independent formal admission.
+
 ## Exact checker and remaining frontier
 
 Local exact Python checker executed: 20 candidate generators, group order 23,040, each triple cube, all six individual sign-flip constructions, unsigned even parity, and integer DP for the 4/120/2 witness. Results are independent of floating-point. It tests these finite contracts only; it does not authenticate native physical rotation or all channel/force behavior. Checker is supplied in a separate source file.
