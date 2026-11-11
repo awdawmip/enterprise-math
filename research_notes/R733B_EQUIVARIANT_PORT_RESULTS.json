@@ -1,0 +1,43 @@
+{
+  "schema": "R733B_EQUIVARIANT_PORT_CODE_CERT_V1",
+  "status": "PASS",
+  "date_local": "2026-11-12",
+  "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "scope": {
+    "n5": "all 60 ordered 3-subset adjacency arcs of 5 labels; S5 acts naturally on 5 local ports",
+    "n6": "all 180 ordered 3-subset adjacency arcs of 6 labels; exactly six local axis-labeled ports with natural S6 action",
+    "code": "stateless fixed-length ordered off-diagonal PASS letters; completed word boundary; no attached source-triad state"
+  },
+  "theorems": {
+    "n5": {
+      "min_port_count": 5,
+      "min_word_length_at_5_ports": 2,
+      "code": "[(leaving -> entering),(outside -> leaving)]",
+      "S5_equivariant": true,
+      "injective": true,
+      "proof": "A5 simple order 60 cannot act nontrivially on <=4 ports, and A5 is transitive on all 60 arcs; 20 one-letter pairs at 5 ports insufficient"
+    },
+    "n6": {
+      "stateless_S6_equivariant_injective_fixed_length_code_exists": false,
+      "port_scope": "exactly 6 natural axis-labeled ports",
+      "proof": "common-pair and outside-pair transpositions fix the arc; each ordered word letter must use only leaving/entering labels; all six arcs with same leaving/entering collapse",
+      "stateful_repair": "retain source triad S, single PASS(leaving -> entering) updates S"
+    }
+  },
+  "verification": {
+    "exact_arcs_n5": 60,
+    "distinct_two_letter_codes": 60,
+    "S5_permutations": 120,
+    "covariance_cases": 7200,
+    "exact_arcs_n6": 180,
+    "leave_enter_pairs": 30,
+    "source_arcs_per_pair": 6,
+    "in_session_marker": "R733B_EQUIVARIANT_PORT_CODE_EXACT_PASS"
+  },
+  "admission": {
+    "formal_result": false,
+    "independent_driver_review": false,
+    "physical_TRIADIC_CLOSURE_E_event": false
+  },
+  "source_material": "research_notes/R733B_EQUIVARIANT_PORT_CODING_20261112.md"
+}
