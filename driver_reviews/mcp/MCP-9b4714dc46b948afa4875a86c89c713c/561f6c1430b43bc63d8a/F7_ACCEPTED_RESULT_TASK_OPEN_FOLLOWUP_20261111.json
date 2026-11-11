@@ -1,0 +1,113 @@
+{
+  "decision": "RESULT_ACCEPTED_TASK_OPEN_CONTINUATION",
+  "gate_decisions": [
+    {
+      "gate": "MATHEMATICAL_CONTINUATION",
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "reason": "Repaired A0/J proof covers exact invertible C2 F7 statement; A6 and richer carriers remain separate.",
+      "evidence_refs": [
+        "driver_reviews/mcp/MCP-9b4714dc46b948afa4875a86c89c713c/ff10f4851afec9ad3773/F7_CURRENT_DRIVER_SCOPE_BOUND_REVIEW_20261111.md",
+        "driver_reviews/mcp/MCP-157ce62686ff486caac106be9504d2fe/876bc8476de3dedcea97/CBRC_F7_REVISED_INDEPENDENT_MATHEMATICAL_REVIEW.md",
+        "research_artifacts/COHERENT_BRC_F7_RANK_TWO_BALANCED_MIXING_EXISTENCE_AND_SELECTOR_CLASSIFICATION_REVISION/proof_obligations.json"
+      ]
+    },
+    {
+      "gate": "LEAN_FORMALIZATION",
+      "decision": "NOT_REQUIRED",
+      "reason": "Result-only paper proof; no L4 or Foundation admission.",
+      "evidence_refs": []
+    },
+    {
+      "gate": "EXTERNAL_PRIOR_ART_DUPLICATION",
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "reason": "Existing bounded October 15 independent search categorized adjacent Montel mixed-difference work, without exact match in inspected candidates or any novelty claim.",
+      "evidence_refs": [
+        "driver_reviews/mcp/MCP-157ce62686ff486caac106be9504d2fe/876bc8476de3dedcea97/CBRC_F7_REVISED_INDEPENDENT_MATHEMATICAL_REVIEW.md",
+        "research_notes/owner_goal_20261015/reviews/cbrcf7_formal_driver_nonauthor/EXTERNAL_PRIOR_ART_SEARCH_ACTUAL.json"
+      ]
+    },
+    {
+      "gate": "INDEPENDENT_REPLICATION",
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "reason": "Nonauthor mathematical review, separate adversarial support and checker replay supply scoped evidence; neither is a second Native DR.",
+      "evidence_refs": [
+        "driver_reviews/mcp/MCP-157ce62686ff486caac106be9504d2fe/876bc8476de3dedcea97/CBRC_F7_REVISED_INDEPENDENT_MATHEMATICAL_REVIEW.md",
+        "research_notes/owner_goal_20261015/reviews/cbrcf7_formal_driver_nonauthor/math_support/F7_REVISED_PROOF_ADVERSARIAL_SUPPORT.md"
+      ]
+    },
+    {
+      "gate": "INTEGRATION_OR_TOOL_HARVEST",
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "reason": "Published exact theorem interface preserves hypotheses and old-lemma retraction; raw method harvest CANDIDATE_NOT_TOOL.",
+      "evidence_refs": [
+        "driver_reviews/mcp/MCP-9b4714dc46b948afa4875a86c89c713c/ff10f4851afec9ad3773/F7_CURRENT_DRIVER_SCOPE_BOUND_REVIEW_20261111.md",
+        "driver_reviews/mcp/MCP-9b4714dc46b948afa4875a86c89c713c/a1fb8b4f82a2cd5c27aa/F7_SCOPE_INTERFACE_20261111_1704.json"
+      ]
+    },
+    {
+      "gate": "ADVERSARIAL_AUDIT",
+      "decision": "SATISFIED_BY_REVIEWED_RESULT",
+      "reason": "False standalone Lemma 3.3 retracted; rank blocks, hubs, periods, integral saturation and ablations audited.",
+      "evidence_refs": [
+        "driver_reviews/mcp/MCP-157ce62686ff486caac106be9504d2fe/876bc8476de3dedcea97/CBRC_F7_REVISED_INDEPENDENT_MATHEMATICAL_REVIEW.md",
+        "research_artifacts/COHERENT_BRC_F7_RANK_TWO_BALANCED_MIXING_EXISTENCE_AND_SELECTOR_CLASSIFICATION_REVISION/proof_obligations.json",
+        "driver_reviews/mcp/MCP-9b4714dc46b948afa4875a86c89c713c/ff10f4851afec9ad3773/F7_CURRENT_DRIVER_SCOPE_BOUND_REVIEW_20261111.md"
+      ]
+    }
+  ],
+  "tasks": [],
+  "result_continuation": {
+    "source_result_id": "RR-AA38973D56330E59D315",
+    "parent_objective_id": "COHERENT_BRC_WORKING_EXTENSION",
+    "original_terminal_verdict": "NO_GO",
+    "accepted_result_scope": "At the exact F7 working-extension domain C2 = Z e ⊕ Z f ⊕ Z/3, no balanced reversible two-slot model exists: its free quotient would give A in GL4(Z) preserving a nonnegative J-even scalar f with strict positivity when the old coordinate is nonzero and both old first-column output entries nonzero (A0), which is impossible by the repaired integral block-rank argument.",
+    "scope_evidence": {
+      "scientific_review_id": "DR-BA31C61E1DBDAA82D9CF",
+      "historical_source_commit": "80df6ad5686052c784a8d3e69a4c6b9451a1db7a",
+      "report_artifact": {
+        "repository": "awdawmip/enterprise-math",
+        "path": "driver_reviews/mcp/MCP-9b4714dc46b948afa4875a86c89c713c/ff10f4851afec9ad3773/F7_CURRENT_DRIVER_SCOPE_BOUND_REVIEW_20261111.md",
+        "git_blob_sha1": "c0db81f7be59d629299f476081740674287676be",
+        "sha256": "8400f653a18b346a2da02bad3af63b6d33e1f23aa33d2c6d99593493ac6b4528"
+      },
+      "interface_artifact": {
+        "repository": "awdawmip/enterprise-math",
+        "path": "driver_reviews/mcp/MCP-9b4714dc46b948afa4875a86c89c713c/a1fb8b4f82a2cd5c27aa/F7_SCOPE_INTERFACE_20261111_1704.json",
+        "git_blob_sha1": "e5d018754bd656498ce949a91ad36bfd81004691",
+        "sha256": "45be72ffa23fd17d0910ebdf4fba3464b256c4d2d1e093b472ff644251b3835d"
+      },
+      "selected_scope_pointer": "/scope",
+      "consumption": "FULL_DOCUMENT"
+    },
+    "original_process_status": "UNKNOWN",
+    "unresolved_obligations": [
+      {
+        "kind": "ORIGINAL_PROCESS_PROVENANCE",
+        "status": "UNKNOWN",
+        "description": "Original V2 pre-mathematics stamp and blind-freeze chronology unverified; later repair source-exposed and no fresh blind audit claimed.",
+        "evidence_refs": [
+          "research_result_records/RS-CBRC-F7-RANK-TWO-BALANCED-MIXING-EXISTENCE-AND-SELECTOR-CLASSIFICATION/RR-AA38973D56330E59D315.json",
+          "driver_reviews/mcp/MCP-157ce62686ff486caac106be9504d2fe/876bc8476de3dedcea97/CBRC_F7_REVISED_INDEPENDENT_MATHEMATICAL_REVIEW.md",
+          "driver_reviews/mcp/MCP-9b4714dc46b948afa4875a86c89c713c/a1fb8b4f82a2cd5c27aa/F7_SCOPE_INTERFACE_20261111_1704.json"
+        ]
+      }
+    ],
+    "action": "REEVALUATE_CANONICAL_PORTFOLIO",
+    "dispatcher": "research_control_dispatch.py",
+    "next_action": "Reevaluate COHERENT_BRC_WORKING_EXTENSION using current canonical portfolio after preserving scoped F7 science; resolve original V2 process provenance separately and do not automatically publish F8.",
+    "remaining_parent_scope": [
+      "The V2 original pre-mathematics stamp and clean blind-freeze chronology remain UNKNOWN.",
+      "Parent working-extension Objective and other routes remain OPEN for independent portfolio assessment."
+    ],
+    "evidence_refs": [
+      "driver_reviews/mcp/MCP-9b4714dc46b948afa4875a86c89c713c/ff10f4851afec9ad3773/F7_CURRENT_DRIVER_SCOPE_BOUND_REVIEW_20261111.md",
+      "driver_reviews/mcp/MCP-9b4714dc46b948afa4875a86c89c713c/a1fb8b4f82a2cd5c27aa/F7_SCOPE_INTERFACE_20261111_1704.json",
+      "research_result_records/RS-CBRC-F7-RANK-TWO-BALANCED-MIXING-EXISTENCE-AND-SELECTOR-CLASSIFICATION/RR-AA38973D56330E59D315.json",
+      "driver_reviews/mcp/MCP-157ce62686ff486caac106be9504d2fe/876bc8476de3dedcea97/CBRC_F7_REVISED_INDEPENDENT_MATHEMATICAL_REVIEW.md",
+      "research_notes/owner_goal_20261015/reviews/cbrcf7_formal_driver_nonauthor/EXTERNAL_PRIOR_ART_SEARCH_ACTUAL.json"
+    ],
+    "task_completion_granted": false,
+    "parent_completion_granted": false,
+    "parent_final_granted": false
+  }
+}
