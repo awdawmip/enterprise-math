@@ -71,6 +71,24 @@ for a,b in ((2,3),(3,2)):
     assert not row(1,rem) and not row(5,rem)
     assert row(2,rem)=={i:-z for i,z in row(3,rem).items()}
     assert len(row(2,rem))==5 # one six-edge atom has only 3 targets
+# Any length-four adjacent ray must have all four active source rows and
+# source-support degrees 3,3,4,4. The k=3 candidate (4,4,4) cannot be a circuit:
+# target conservation then gives at most six occupied target ports, making
+# the restricted rank at most 6+2*3-2=10 < 12-1.
+from itertools import product
+profiles={}
+for k in (2,3,4):
+    candidates={tuple(sorted(v)) for v in product(range(3,8),repeat=k)
+        if sum(v)<=2*k+6 and sum(v)-max(v)-2*(k-1)>=4}
+    profiles[k]=candidates
+assert profiles=={2:set(),3:{(4,4,4)},4:{(3,3,4,4)}}
+assert 12-(6+2*3-2)>1   # k3 candidate: kernel dimension at least two
+row_degrees=tuple(sorted(len(row(j,d)) for j in J))
+target_degrees=[sum(bool(d[D.index((i,j))]) for j in J) for i in range(7)]
+assert row_degrees==(3,3,4,4)
+assert target_degrees==[2]*7
+print('LENGTH_FOUR_NECESSARY_SOURCE_DEGREES',row_degrees)
+print('LENGTH_FOUR_NECESSARY_TARGET_DEGREES',tuple(target_degrees))
 print('DICT_ATOMS',n,'EDGE_ENDPOINT_SUPPORTS',len(supp(V)),len(supp(W)))
 print('SHARP_EDGE_UNION',len(U),'UNION_RANK',C[:,U].rank())
 print('SHARP_EDGE_MINIMUM_WORD_LENGTH',4)
