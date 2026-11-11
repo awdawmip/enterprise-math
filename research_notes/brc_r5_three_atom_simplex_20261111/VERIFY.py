@@ -102,3 +102,40 @@ assert min(radii)==F(1,6)
 print('MAX_UNIFORM_PAIR_CUT_CERT_RADIUS_INF',str(min(radii)))
 print('RATIONAL_BARYCENTRIC_ENDPOINT_MIN_ATOMS',3)
 print('PASS_R5_EXACT_OPEN_2_SIMPLEX_GENERIC_THREE_ATOM_END_POINT_RIGIDITY')
+
+
+# Exact complete distance stratification on the full closed barycentric triangle.
+# A cut can vanish at a strictly positive lambda iff its 3 coefficients have
+# opposite signs, since all three weights are positive and sum to one.
+interior_cuts=[]
+for r,p,q,v in values:
+    a=tuple(unit[m][p]*(R[p]-R[r])+unit[m][q]*(R[q]-R[r]) for m in (2,3,4))
+    assert any(a)
+    if min(a)<0<max(a):interior_cuts.append((r,p,q,a))
+assert interior_cuts==[
+    (3,2,4,(F(8,3),F(0),F(-8))),
+    (3,5,6,(F(-8,3),F(0),F(8)))
+]
+# Their shared zero line is lambda_2=3*lambda_4; on it, the endpoint
+# decomposes into the single exit Z -> Y_3 followed by one 234 atom.
+P=step(Z,5,{3:-4,5:9,6:-5},c/F(5))
+assert P==end[1] and mask(P)==(2,3,4,5)
+allowed_B=[k for k,(i,j) in enumerate(V) if j!=3 or i in (2,3,4,5)]
+assert all(P[k]>0 for k in allowed_B)
+# Both sides depend affinely on t. Check t=0 and t=1/4 exactly, thereby
+# certifying equality for every rational/real 0 <= t <= 1/4.
+for t in (F(0),F(1,4)):
+    weighted=tuple(3*t*end[0][k]+(1-4*t)*end[1][k]+t*end[2][k] for k in range(28))
+    via_two=step(P,5,{2:-1,3:2,4:-1},F(8,5)*c*t)
+    assert weighted==via_two
+# Every interior t keeps the terminal B-face state strictly positive;
+# the segment Y_3 -> Y(lambda) is nonnegative by convexity.
+for t in (F(1,1000),F(1,20),F(1,8),F(249,1000)):
+    weighted=tuple(3*t*end[0][k]+(1-4*t)*end[1][k]+t*end[2][k] for k in range(28))
+    via_two=step(P,5,{2:-1,3:2,4:-1},F(8,5)*c*t)
+    assert via_two==weighted and mask(via_two)==(2,3,4,5)
+print('STRICT_INTERIOR_ZERO_CUTS',[(r,p,q) for r,p,q,_ in interior_cuts])
+print('EXCEPTIONAL_TWO_ATOM_LINE','lambda2=3*lambda4','0<lambda4<1/4')
+print('EXCEPTIONAL_TWO_ATOM_FIRST_STATE_B_INTERIOR',all(P[k]>0 for k in allowed_B))
+print('EXACT_ATOMIC_DISTANCE_STRATA','vertices=1;open_edges=2;interior_exceptional_line=2;other_interior=3')
+print('PASS_R5_EXACT_COMPLETE_C_TO_B_SIMPLEX_DISTANCE_STRATIFICATION')
