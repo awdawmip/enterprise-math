@@ -1,8 +1,8 @@
 # R720 — Three-tag-local BRC triad source recovery: optimal fixed four versus adaptive three queries
 
 **Status:** author-side mathematically proved linear statements + complete finite exact integer computation; not a native Result, independent review, or verified legal X6 dynamic event.
-**Parent task:** \`RS-X6-TRIADIC-CLOSURE-DYNAMICS\`; publication \`TP2-8B7E13C5904A2D6F1142\`. **Frozen scientific input:** \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`. Predecessor R719: Draft PR #2083, \`2026-11-11_R719_BRC_TWO_AXIS_LEDGER_TWO_PROBE_THEOREM.md\`.
-**Original researcher:** \`EM-X6-562B89\`, activity \`RA-0876B79D7B866702F881CB83\`. No formal CLAIM or task semantic checkpoint.
+**Parent task:** `RS-X6-TRIADIC-CLOSURE-DYNAMICS`; publication `TP2-8B7E13C5904A2D6F1142`. **Frozen scientific input:** `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`. Predecessor R719: Draft PR #2083, `2026-11-11_R719_BRC_TWO_AXIS_LEDGER_TWO_PROBE_THEOREM.md`.
+**Original researcher:** `EM-X6-562B89`, activity `RA-0876B79D7B866702F881CB83`. No formal CLAIM or task semantic checkpoint.
 
 ## Model and observer
 
@@ -56,7 +56,7 @@ The statements about optimal fixed/adaptive queries are **exhaustive finite comb
 
 ## Verified evidence
 
-Execute \`python R720_BRC_THREE_AXIS_LEDGER_VERIFY.py\` (Python 3 + SymPy). Integer Gray-code enumeration visits exactly \(2^{19}\) distinct states and records a base-5 packed pair ledger (all individual pair counts are at most four, hence no radix carry). It computes all collisions, their exact support masks, all 969 three-query and all 3,876 four-query sets, all exact adaptive decision trees, the 15×19 rank and the quoted determinant. Machine-readable expected results: \`R720_BRC_THREE_AXIS_LEDGER_EVIDENCE.json\`. Verified local run: \`R720_BRC_THREE_AXIS_LEDGER_EXACT_PASS\`. No numerical tolerance or sampling was used.
+Execute `python R720_BRC_THREE_AXIS_LEDGER_VERIFY.py` (Python 3 standard library). Integer Gray-code enumeration visits exactly \(2^{19}\) distinct states and records a base-5 packed pair ledger (all individual pair counts are at most four, hence no radix carry). It computes all collisions, their exact support masks, all 969 three-query and all 3,876 four-query sets, all exact adaptive decision trees, the 15×19 rank and the quoted determinant. Machine-readable expected results: `R720_BRC_THREE_AXIS_LEDGER_EVIDENCE.json`. Verified local run: `R720_BRC_THREE_AXIS_LEDGER_EXACT_PASS`. No numerical tolerance or sampling was used.
 
 ## Next test: real X6 event
 
