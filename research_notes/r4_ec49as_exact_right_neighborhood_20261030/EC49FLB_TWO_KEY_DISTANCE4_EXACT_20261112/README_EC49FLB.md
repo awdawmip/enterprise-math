@@ -16,7 +16,7 @@ For two distinct deleted keys `a,b` and two distinct added keys `u,v` outside K*
 
 **For all distinct two-key replacement sets with d<=4, if all 24 observer labels remain coverable, the exact minimum original signed-prefix count is at least 84.** Equality occurs in exactly **one** of the 410 feasible key sets in this specified neighborhood, when deleting `(5,4,1),(6,4,1)` and adding `(6,3,1),(7,3,1)`. That new key set has exact optimum 84 (root05=42, root06=42, root07 unused). Thus the EC49FKX witness is also a **non-strict local optimum under every matched-distance <=4 two-key replacement**.
 
-This theorem extends EC49FLA (d<=3, strict lower bound 90 on distinct replacements). The original global seven-key optimum is still open with the explicit upper bound `C_min(7)<=84`. The second 84-optimal key set is proved by full finite integer optimization; a separate explicit list of its 24 realizing operation words remains a useful next extract.
+This theorem extends EC49FLA (d<=3, strict lower bound 90 on distinct replacements). The original global seven-key optimum is still open with the explicit upper bound `C_min(7)<=84`. The second 84-optimal key set has also been **constructively verified**: `EXPLICIT_84_WITNESS_EC49FLB.json` lists 24 actual legal operation words. `VERIFY_EXPLICIT_84_EC49FLB.py` independently checks all nine-state transitions, 24 exact labels, six signed-axis displacements, seven complete raw keys and exactly 84 distinct native prefixes. Its h7/h8/h9 suffixes use `f`, `ff` and `fffg` extensions rather than the corresponding older `g` extensions. This supplies a second explicit lawful 84-prefix witness.
 
 ## Complete finite counts
 
@@ -55,6 +55,6 @@ The **independently implemented** EC49FKY Python standard-library native-trie DP
 
 **Reproduce:** generate `EC49FLB_CASE_INDEX.json` and `EC49FLB_CASES.txt` with `REPRO_EC49FLB.py`. Build `../EC49FKY_ONE_KEY_SWAP_84_LOCAL_OPTIMUM_20261112/SCAN_7KEY_GENERAL.cpp` using `g++ -O3 -std=c++17` and solve the cases. Compare its 410 ordered integer minima with `COSTS_EC49FLB.json`. Run `VERIFY_EC49FLB_SELECTED.py` after generating the case index to rerun independent reference checks.
 
-**Next discriminating unit:** continue beyond matched distance 4 (all 6,315 coverable two-key sets), identify a lawful <=83 prefix witness or new lower-bound certificate, and extract 24 explicit realizing words for case 266. Preserve full keys, literal signed native prefix sharing, all 24 labels and frozen pin.
+**Next discriminating unit:** continue beyond matched distance 4 (all 6,315 coverable two-key sets), identify a lawful <=83 prefix witness or new lower-bound certificate, and investigate the verified `f`/`g` suffix variants for additional 84- or <=83-prefix configurations. Preserve full keys, literal signed native prefix sharing, all 24 labels and frozen pin.
 
 **Source/authority state:** author-side GitHub evidence on Draft PR #1730, no independent Driver mathematical review or verified current formal EC49AS CLAIM/Result; protected P000 and ACTIVE worldview unchanged.
