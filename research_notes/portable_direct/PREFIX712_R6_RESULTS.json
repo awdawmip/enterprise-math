@@ -1,0 +1,40 @@
+{
+  "schema": "PREFIX712_R6_SPARSE_DYADIC_GAMMA_EXCLUSION_V1",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "independent Gamma(N_p,1) clocks; Y=max(T_p,T_z)",
+  "base_grid": 192,
+  "refinement_factor_per_axis": 2,
+  "raw_rows": 189,
+  "nonzero_count_cells": 9529,
+  "baseline": {
+    "base": 26445,
+    "all": 28724,
+    "range": 28871
+  },
+  "adaptive": {
+    "all": {
+      "base_certified": 28724,
+      "added_refined_subcells": 22272,
+      "uncertified_refined_subcells": 10288,
+      "total_certified_equivalent_fine_cells": 137168,
+      "fine_total": 147456,
+      "fraction": "8573/9216"
+    },
+    "range": {
+      "base_certified": 28871,
+      "added_refined_subcells": 21914,
+      "uncertified_refined_subcells": 10058,
+      "total_certified_equivalent_fine_cells": 137398,
+      "fine_total": 147456,
+      "fraction": "68699/73728"
+    }
+  },
+  "endpoint_tests": {
+    "all": "0,1/2",
+    "range": "1/24,1/12"
+  },
+  "exact_arithmetic": true,
+  "baseline_regression": "PASS",
+  "author_verification": "ALL_CHECKS_PASS PREFIX712-R6",
+  "grade": "AUTHOR_RECOMPUTED / EXACT_INTEGER_GAMMA_KERNEL / UNREVIEWED / NOT_ADMITTED"
+}
