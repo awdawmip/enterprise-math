@@ -1,8 +1,8 @@
 # PREFIX-715-R6 — Exact rational multi-witness / multi-bound exclusion certificate
 
-Date: 2026-11-12 (Asia/Shanghai). Scientific input pin (unchanged): \`awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d\`. Parent: PREFIX-675. Reuses PREFIX-710's corrected Gamma maximum, PREFIX-712's fine-grid exclusion, PREFIX-713's witness/moment certificates and PREFIX-714's nonoverlapping union.
+Date: 2026-11-12 (Asia/Shanghai). Scientific input pin (unchanged): `awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d`. Parent: PREFIX-675. Reuses PREFIX-710's corrected Gamma maximum, PREFIX-712's fine-grid exclusion, PREFIX-713's witness/moment certificates and PREFIX-714's nonoverlapping union.
 
-Status: \`AUTHOR_PROVED / EXACT_FRACTION_TOY_CHECKED / UNREVIEWED / NOT_ADMITTED\`. Scope is the **auxiliary two-parameter statistical observer** \(D=[0,1/2]^2\), not a native X6 two-dimensional plane.
+Status: `AUTHOR_PROVED / EXACT_FRACTION_TOY_CHECKED / UNREVIEWED / NOT_ADMITTED`. Scope is the **auxiliary two-parameter statistical observer** \(D=[0,1/2]^2\), not a native X6 two-dimensional plane.
 
 ## Exact question
 
@@ -67,7 +67,7 @@ U_1(t)=E[Y(h)^2]-\mu(a)^2-t\mu(a).
 
 The corner order implies \(\mu(x)\ge\mu(a)\) and \(E[Y(x)^2]\le E[Y(h)^2]\) for all \(x\in[a,h]\); hence \(W(x)-t\mu(x)\le U_1(t)\) for \(t\ge0\). Other affine upper bounds can be added **only after** their cell-uniform validity is proved independently, e.g. by an existing coupled-moment certificate with the correct Gamma clock. This theorem never treats the maximum of stopping counts as the maximum of Gamma completion clocks; that substitution caused PREFIX-709's invalid certificate.
 
-The witness and bound families may depend on the chosen cell but not on an unproved within-cell optimizer. The exact source-reuse decision is \`COMPOSE_APPLIED\`: combine the existing PREFIX-713 multi-competitor/dual-witness lines and the already valid interval/coupled bounds. No new general-purpose BRC family, Foundation admission or actual new cell count follows automatically.
+The witness and bound families may depend on the chosen cell but not on an unproved within-cell optimizer. The exact source-reuse decision is `COMPOSE_APPLIED`: combine the existing PREFIX-713 multi-competitor/dual-witness lines and the already valid interval/coupled bounds. No new general-purpose BRC family, Foundation admission or actual new cell count follows automatically.
 
 ## Fully verified exact example
 
@@ -90,6 +90,6 @@ These exact rational toy tests illustrate a general proof; they are **not** meas
 
 ## Reproduction, limitations and next discriminating experiment
 
-Run \`python PREFIX715_R6_AFFINE_ENVELOPE.py\` (Python standard library). It writes \`PREFIX715_R6_RESULTS.json\` and reports \`ALL_CHECKS_PASS PREFIX715-R6\`. The author locally executed the same exact rational algorithm, including the positive two-witness margin, single-witness failures, nonpositive failure locator and improved multi-bound case. No frozen 189-level recalculation or 384-by-384 BRC scan is claimed; no new BRC grid cells were certified in this unit.
+Run `python PREFIX715_R6_AFFINE_ENVELOPE.py` (Python standard library). It writes `PREFIX715_R6_RESULTS.json` and reports `ALL_CHECKS_PASS PREFIX715-R6`. The author locally executed the same exact rational algorithm, including the positive two-witness margin, single-witness failures, nonpositive failure locator and improved multi-bound case. No frozen 189-level recalculation or 384-by-384 BRC scan is claimed; no new BRC grid cells were certified in this unit.
 
 Next use the PREFIX-714 **actual remaining** cell set, the exact Gamma moment witness curves at \((0,149/1000)\), \((0,146/1000)\) and the existing multi-competitors. Combine these only with independently proved cell bounds, run the exact envelope check on \([0,1/2]\) and \([1/24,1/12]\), and count only newly disjoint cells. For failed certificates retain the exact minimizer \(t_0\) and active competing lines to direct local witness search or a tighter valid upper bound. Preserve scientific pin, genuine Owner/CLAIM status, the Source activity boundary, and separate author proof from independent review.
