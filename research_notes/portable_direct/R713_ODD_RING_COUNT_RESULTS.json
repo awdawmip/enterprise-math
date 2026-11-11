@@ -1,0 +1,166 @@
+{
+  "verdict": "R713_ODD_RING_AREA_OPTIMAL_ENTROPY_PASS",
+  "science_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "dependency": "R712@e74bb4deb28b07bbfb12c147a282a336d72dd4e5",
+  "claim_scope": "5-phase odd labelled full cycles, minimum unsigned current time-area A=m+3",
+  "area_minimal_odd_length_generating_function": "8*z^5*(5-9*z^2+z^4)/(1-3*z^2+z^4)^2",
+  "coefficient_recurrence": "c0=40;c1=168;c2=576;c3=1848; c[k]=6c[k-1]-11c[k-2]+6c[k-3]-c[k-4] (k>=4)",
+  "determinant_y_coefficients": [
+    {
+      "0": 1,
+      "2": -3,
+      "4": 1
+    },
+    {
+      "2": -2,
+      "4": 2
+    },
+    {
+      "2": -4,
+      "4": 11,
+      "6": -2
+    },
+    {
+      "2": -4,
+      "4": 16,
+      "5": -8,
+      "6": -6
+    }
+  ],
+  "independent_integer_dp": "Executed locally for all 49 odd sizes m=5,7,...,101 against the recurrence; all assertions passed",
+  "odd_size_count": 49,
+  "untyped_counts_by_m": {
+    "5": "40",
+    "7": "168",
+    "9": "576",
+    "11": "1848",
+    "13": "5720",
+    "15": "17280",
+    "17": "51272",
+    "19": "150024",
+    "21": "434112",
+    "23": "1244760",
+    "25": "3542200",
+    "27": "10015488",
+    "29": "28163176",
+    "31": "78817128",
+    "33": "219658560",
+    "35": "609926520",
+    "37": "1688054552",
+    "39": "4658269824",
+    "41": "12820919432",
+    "43": "35202949320",
+    "45": "96449146560",
+    "47": "263729683608",
+    "49": "719834265976",
+    "51": "1961471006208",
+    "53": "5336578066600",
+    "55": "14498563243560",
+    "57": "39338012500032",
+    "59": "106601876714424",
+    "61": "288547924180952",
+    "63": "780196412983680",
+    "65": "2107424559698120",
+    "67": "5687072483739528",
+    "69": "15333395299478976",
+    "71": "41306925420944088",
+    "73": "111189214574134840",
+    "75": "299072407127558400",
+    "77": "803861239676052712",
+    "79": "2159199321677038824",
+    "81": "5795967521816868672",
+    "83": "15548707623382542840",
+    "85": "41687937690695881880",
+    "87": "111708448096191493248",
+    "89": "299179652197972647176",
+    "91": "800863902650522205768",
+    "93": "2142769992611887193280",
+    "95": "5730486491607223286040",
+    "97": "15318452794617741177592",
+    "99": "40931121413047791873024",
+    "101": "109323896694523050807592"
+  },
+  "selected_typed": {
+    "5": {
+      "U_m": "40",
+      "T_m": "1280",
+      "minimal_fixed_bits": 11
+    },
+    "7": {
+      "U_m": "168",
+      "T_m": "21504",
+      "minimal_fixed_bits": 15
+    },
+    "9": {
+      "U_m": "576",
+      "T_m": "294912",
+      "minimal_fixed_bits": 19
+    },
+    "11": {
+      "U_m": "1848",
+      "T_m": "3784704",
+      "minimal_fixed_bits": 22
+    },
+    "13": {
+      "U_m": "5720",
+      "T_m": "46858240",
+      "minimal_fixed_bits": 26
+    },
+    "19": {
+      "U_m": "150024",
+      "T_m": "78655782912",
+      "minimal_fixed_bits": 37
+    },
+    "31": {
+      "U_m": "78817128",
+      "T_m": "169258493562322944",
+      "minimal_fixed_bits": 58
+    },
+    "101": {
+      "U_m": "109323896694523050807592",
+      "T_m": "277169006528202179163905778268147157704082903672029184",
+      "minimal_fixed_bits": 178
+    }
+  },
+  "finite_peak_area_count": {
+    "5": {
+      "area_optimal": "40",
+      "simultaneous_peak_and_area_optimal": 40
+    },
+    "7": {
+      "area_optimal": "168",
+      "simultaneous_peak_and_area_optimal": 168
+    },
+    "9": {
+      "area_optimal": "576",
+      "simultaneous_peak_and_area_optimal": 72
+    },
+    "11": {
+      "area_optimal": "1848",
+      "simultaneous_peak_and_area_optimal": 528
+    },
+    "13": {
+      "area_optimal": "5720",
+      "simultaneous_peak_and_area_optimal": 104
+    },
+    "15": {
+      "area_optimal": "17280",
+      "simultaneous_peak_and_area_optimal": 1320
+    },
+    "17": {
+      "area_optimal": "51272",
+      "simultaneous_peak_and_area_optimal": 136
+    },
+    "19": {
+      "area_optimal": "150024",
+      "simultaneous_peak_and_area_optimal": 2736
+    },
+    "21": {
+      "area_optimal": "434112",
+      "simultaneous_peak_and_area_optimal": 168
+    }
+  },
+  "reproducibility": "python R713_ODD_RING_COUNT_VERIFY.py > R713_ODD_RING_COUNT_RESULTS.json",
+  "math_review": "UNREVIEWED",
+  "event_scope": "positive source-labelled BRC transfers retained, signed integer current as separate derived observer, frozen candidate gate"
+}
