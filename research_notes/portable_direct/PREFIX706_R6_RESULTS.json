@@ -1,0 +1,78 @@
+{
+  "schema": "PREFIX706_R6_ASYMMETRIC_CORNER_RECTANGLES_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "input_surviving_cells": 9529,
+  "low_bound_ticks": [
+    275220940,
+    275220941
+  ],
+  "witness_W_minus_mu_over_2_ticks": [
+    559812917,
+    559812918
+  ],
+  "q_domain": "every real q>=2",
+  "stochastic_order_dependency": "PREFIX705 exact 17766 Bernstein derivative coefficients nonnegative",
+  "cases": {
+    "strong_margin": {
+      "low_side": "1/64",
+      "high_side": "1/11",
+      "high_bound_ticks": [
+        271896051,
+        271896052
+      ],
+      "upper_W_by_corner_type_ticks": {
+        "low_low": [
+          550441880,
+          550441881
+        ],
+        "mixed": [
+          547116992,
+          547116993
+        ],
+        "high_high": [
+          543792103,
+          543792104
+        ]
+      },
+      "strict_certified_gap_ticks": [
+        9371036,
+        9371037
+      ],
+      "uniform_gap_claim": "93/10",
+      "excluded_area": "5625/495616",
+      "area_multiple_vs_PREFIX705": "5625/484"
+    },
+    "larger_area": {
+      "low_side": "1/64",
+      "high_side": "3/32",
+      "high_bound_ticks": [
+        279763526,
+        279763527
+      ],
+      "upper_W_by_corner_type_ticks": {
+        "low_low": [
+          550441880,
+          550441881
+        ],
+        "mixed": [
+          554984466,
+          554984467
+        ],
+        "high_high": [
+          559527052,
+          559527053
+        ]
+      },
+      "strict_certified_gap_ticks": [
+        285865,
+        285866
+      ],
+      "uniform_gap_claim": "7/25",
+      "excluded_area": "49/4096",
+      "area_multiple_vs_PREFIX705": "49/4"
+    }
+  },
+  "verification": "ALL_CHECKS_PASS PREFIX706-R6",
+  "scope": "Exact Fraction recomputation of frozen survivor and witness values, using original PREFIX700 recurrence; inherits PREFIX705 stochastic tail monotonicity, and Efron-Stein variance tensorization.",
+  "admission": "AUTHOR_RECOMPUTED / EXACT_FRACTION_IMPLICATION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
