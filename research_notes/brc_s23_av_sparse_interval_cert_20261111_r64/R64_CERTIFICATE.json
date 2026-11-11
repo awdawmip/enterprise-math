@@ -1,0 +1,73 @@
+{
+  "schema": "EM_R64_AUXILIARY_EXACT_VALIDATION_V1",
+  "date": "2026-11-11",
+  "science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "mode": "author-side exact rational auxiliary circle observer; independent review pending",
+  "researcher_id": "EM-DIRECT-E75625",
+  "research_activity_id": "RA-3AE5D6FCA0C04F1999E69F27",
+  "execution": {
+    "runtime": "Python 3, stdlib Fraction/Random, fixed seed 640211",
+    "reproduction": "python check_r64_min.py && python check_r64_random.py",
+    "compact_result": "R64_MIN_PASS: frozen selected label, stale-index counterexample, duplicate-phase/branch deletion",
+    "random_result": "R64_RANDOM_PASS 399 268 131 2412",
+    "full_check": "check_r64.py in local handoff bundle; standard-library exact fractions",
+    "random_cases": 399,
+    "certified": 268,
+    "inconclusive": 131,
+    "independent_exact_oracle_checkpoints": 2412,
+    "assertions_passed": true
+  },
+  "frozen_s23_case": {
+    "p": "262204504569236716045286",
+    "q": "1000000000000000000000000",
+    "m": 2,
+    "source_ages": [
+      "1",
+      "1000000000000000000000000"
+    ],
+    "selected_z": 1,
+    "certified_age": 1,
+    "affine_tests": 4,
+    "full_vectors_at_two_interior_parameters": [
+      "(EMPTY,1)",
+      "(q,1)"
+    ]
+  },
+  "stale_tree_witness": {
+    "theta0": "1/30",
+    "theta1": "1003/30000",
+    "timestamps": [
+      9,
+      15,
+      6042
+    ],
+    "m": 13,
+    "j": 10000,
+    "x": "8/15",
+    "z": 12,
+    "nominal_winner": 6042,
+    "later_true_winner": 15,
+    "stale_tree_claim": 6042,
+    "inspected_nodes": [
+      15,
+      9
+    ]
+  },
+  "branch_witness": {
+    "theta": "2/7",
+    "j": 20,
+    "time_branch_ids": [
+      "(1,old)",
+      "(8,alpha)",
+      "(8,beta)"
+    ],
+    "ages_after_deletions": [
+      12,
+      12,
+      19,
+      null
+    ]
+  },
+  "claim_scope": "Theorem proved under stated interval noncollision hypotheses; experiments do not claim standalone formal theorem acceptance.",
+  "native_activity_checkpoint": "not yet bound to research artifact"
+}
