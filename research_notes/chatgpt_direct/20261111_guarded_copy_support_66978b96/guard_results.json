@@ -1,0 +1,238 @@
+{
+  "status": "PASS",
+  "scope": "Control-level exact finite checks; native executions are reported separately.",
+  "linear_routes": {
+    "matrix_shapes": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "matrices": 4706,
+    "literal_guard_world_executions": 71172,
+    "equal_cost_checks": 71172,
+    "memory_tradeoff_cases": 16589,
+    "example": [
+      {
+        "rows": [
+          14,
+          11,
+          5
+        ],
+        "n": 4,
+        "m": 3,
+        "r": 11,
+        "rank": 2,
+        "physical_histories": 16,
+        "exclusion_classes": 4,
+        "cost": 1704,
+        "basis_rows": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "single_parity": [
+    {
+      "n": 1,
+      "r": 4,
+      "h": 4,
+      "distinct_gate_words": 2,
+      "raw_prefix_fee": 168,
+      "odd_DNF_terms": 1,
+      "T4": {
+        "T": 4,
+        "odd_optimal_after_forget": 16,
+        "even_optimal_after_forget": 16
+      },
+      "T5": {
+        "T": 5,
+        "odd_optimal_after_forget": 18,
+        "even_optimal_after_forget": 20
+      }
+    },
+    {
+      "n": 2,
+      "r": 5,
+      "h": 4,
+      "distinct_gate_words": 4,
+      "raw_prefix_fee": 382,
+      "odd_DNF_terms": 2,
+      "T4": {
+        "T": 4,
+        "odd_optimal_after_forget": 16,
+        "even_optimal_after_forget": 16
+      },
+      "T5": {
+        "T": 5,
+        "odd_optimal_after_forget": 18,
+        "even_optimal_after_forget": 20
+      }
+    },
+    {
+      "n": 3,
+      "r": 6,
+      "h": 4,
+      "distinct_gate_words": 8,
+      "raw_prefix_fee": 566,
+      "odd_DNF_terms": 4,
+      "T4": {
+        "T": 4,
+        "odd_optimal_after_forget": 16,
+        "even_optimal_after_forget": 16
+      },
+      "T5": {
+        "T": 5,
+        "odd_optimal_after_forget": 18,
+        "even_optimal_after_forget": 20
+      }
+    },
+    {
+      "n": 4,
+      "r": 7,
+      "h": 4,
+      "distinct_gate_words": 16,
+      "raw_prefix_fee": 750,
+      "odd_DNF_terms": 8,
+      "T4": {
+        "T": 4,
+        "odd_optimal_after_forget": 16,
+        "even_optimal_after_forget": 16
+      },
+      "T5": {
+        "T": 5,
+        "odd_optimal_after_forget": 18,
+        "even_optimal_after_forget": 20
+      }
+    },
+    {
+      "n": 5,
+      "r": 8,
+      "h": 8,
+      "distinct_gate_words": 32,
+      "raw_prefix_fee": 934,
+      "odd_DNF_terms": 16,
+      "T4": {
+        "T": 4,
+        "odd_optimal_after_forget": 16,
+        "even_optimal_after_forget": 16
+      },
+      "T5": {
+        "T": 5,
+        "odd_optimal_after_forget": 18,
+        "even_optimal_after_forget": 20
+      }
+    },
+    {
+      "n": 6,
+      "r": 9,
+      "h": 8,
+      "distinct_gate_words": 64,
+      "raw_prefix_fee": 1118,
+      "odd_DNF_terms": 32,
+      "T4": {
+        "T": 4,
+        "odd_optimal_after_forget": 16,
+        "even_optimal_after_forget": 16
+      },
+      "T5": {
+        "T": 5,
+        "odd_optimal_after_forget": 18,
+        "even_optimal_after_forget": 20
+      }
+    },
+    {
+      "n": 7,
+      "r": 10,
+      "h": 8,
+      "distinct_gate_words": 128,
+      "raw_prefix_fee": 1506,
+      "odd_DNF_terms": 64,
+      "T4": {
+        "T": 4,
+        "odd_optimal_after_forget": 16,
+        "even_optimal_after_forget": 16
+      },
+      "T5": {
+        "T": 5,
+        "odd_optimal_after_forget": 18,
+        "even_optimal_after_forget": 20
+      }
+    },
+    {
+      "n": 8,
+      "r": 11,
+      "h": 8,
+      "distinct_gate_words": 256,
+      "raw_prefix_fee": 1719,
+      "odd_DNF_terms": 128,
+      "T4": {
+        "T": 4,
+        "odd_optimal_after_forget": 16,
+        "even_optimal_after_forget": 16
+      },
+      "T5": {
+        "T": 5,
+        "odd_optimal_after_forget": 18,
+        "even_optimal_after_forget": 20
+      }
+    }
+  ],
+  "guarded_joins": {
+    "conditional_conjunction": [
+      {
+        "initial_X": 1,
+        "final": [
+          2,
+          0,
+          0
+        ],
+        "final_origin": "Y",
+        "body_to_join": 112
+      },
+      {
+        "initial_X": 2,
+        "final": [
+          2,
+          0,
+          0
+        ],
+        "final_origin": "X",
+        "body_to_join": 112
+      }
+    ],
+    "product_of_separate_unions_wrongly_blocks": 1,
+    "endogenous": {
+      "initial": [
+        0,
+        0
+      ],
+      "target": 1,
+      "long_branch_key": 6,
+      "actual_full_cost_by_key": {
+        "4": 87,
+        "5": 89,
+        "6": 129
+      },
+      "pointwise_minimum": 87,
+      "unattainable_short_leaf_unconstrained_minimum": 85
+    }
+  }
+}
