@@ -1,0 +1,61 @@
+# R732 — Equivariant V29 PASS lifting and the sharp three-event order residual
+
+Date: 2026-11-12 (Asia/Shanghai). Author exact combinatorial research for RS-X6-TRIADIC-CLOSURE-DYNAMICS. Scientific inputs **remain frozen** at awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389. Separately declared candidate V29 count-event grammar: Source 30fb16d39465708fd1b54c70a58d06ad20f310f8; predecessor R731 graded PASS note: PR #2119, head 7fba48583039602ded1f1d0ecb8e9d0cc1f5040c; R730 carrier masks: 8fdfef5e3f2097d9e6ebb29682b2b81a6ea0247a.
+
+## 1. Model and canonical partial transition
+
+Let X have n labels, 1<=k<=n-1, and let S be a k-subset. For distinct labels a,b define the partial transition
+
+\[
+P_{ab}(S)=(S\setminus\{a\})\cup\{b\}, \quad a\in S,\ b\notin S.
+\]
+
+At one chosen native X6 Cell declare axis-indexed names for the local V29 port set. The **genuine V29 PASS count event** increments nonnegative M_x[a,b] by 1, leaving other M/Rin/Rout unchanged. A *separately declared candidate coupling* updates the active triad by P_ab and carries the V17 source slot from a to b. This port-to-axis indexing and coupled succession are research choices, not an asserted P000 force or physical closure law.
+
+**Theorem A.** Every directed adjacent k-subset arc S->T (one element replaced) has exactly one pair of leaving/entering labels (a,b), and equals P_ab(S). Its inverse is P_ba; all known-initial-S ordered PASS words uniquely reconstruct every intermediate subset, and known-initial-frame words uniquely reconstruct all carried V17 frames. For any permutation g in S_n, g(P_ab(S)) = P_{g(a),g(b)}(g(S)), so this source-dependent coding is S_n-equivariant (subgraphs are transformed covariantly). It avoids the arbitrary one-edge/one-unique-port-code injection used in the preceding 15-arc construction.
+
+**Proof:** For adjacent sets, S\T and T\S are singleton sets; set difference and union give uniqueness, reversibility and covariance. Induction recovers a path and its transported frame.
+
+## 2. Optimal single-letter source ambiguity
+
+**Theorem B.** If only PASS letter (a,b) is observed, without the preceding k-subset S, the number of possible source/target arcs is exactly
+
+\[
+F(n,k)=\binom{n-2}{k-1}.
+\]
+
+Therefore exactly ceil(log2 F(n,k)) fixed-length auxiliary Boolean bits are necessary and sufficient to identify the arc among that letter's possibilities. For k=3, n=5 gives 60 arcs/20 PASS letters/3 arcs per letter/**2 repair bits**; n=6 gives 180 arcs/30 letters/6 arcs per letter/**3 repair bits**. If S is already known the per-step arc identity repair is **zero**; this does not count the memory cost of retaining S.
+
+**Proof:** the common k-1 members are an arbitrary (k-1)-subset of the n-2 labels outside {a,b}. Such choices are in bijection with legal arcs; information capacity gives the lower bound, indexing the subset attains it.
+
+For any allowed directed arc set E define the zero–one transition matrices P_ab^E, with a single nonzero row-to-column entry S,P_ab(S) when that arc belongs to E. For formal weights w_ab, the exact BRC transfer matrix K_E(w)=sum_{a!=b} w_ab P_ab^E satisfies: (K_E(w)^m)_{S,T} equals the positive-integer generating polynomial for *all ordered length-m allowed paths* from S to T, with monomials recording PASS-letter multiplicity and coefficients counting distinct ordered paths. Full provenance keeps the ordered word. Nonbacktracking is handled by expanded (previous,current) states, including the closing seam constraint. Every PASS-only lifted history has exact V29 ledger grade increment Delta Gamma=m. These statements follow by expanding matrix products and the actual nonnegative PASS increment rule.
+
+## 3. Sharp three-event BRC order residual
+
+Start at active triad S=012 with initial V17 slot labels F(0)=0, F(1)=1, F(2)=2. Consider two fully legal nonbacktracking three-step PASS words:
+
+~~~text
+W1: (0->3),(1->0),(0->4)
+    012 -> 123 -> 023 -> 234
+    final frame indexed by (2,3,4): (2,0,1)
+
+W2: (0->4),(1->0),(0->3)
+    012 -> 124 -> 024 -> 234
+    final frame indexed by (2,3,4): (2,1,0)
+~~~
+
+**Theorem C.** Both histories have exactly the same final *entire nonnegative V29 ledger increment*: M[0,3]=M[0,4]=M[1,0]=1, other new counters zero. Hence they also have the same final Omega=M-M^T, u=Omega*1+Rin-Rout, grade=3 and terminal active triad 234. They have **different source-slot frames**. For this rooted count-and-triad fiber there are exactly two possible final frames; one additional bit of ordered BRC provenance is both required and sufficient to recover its frame.
+
+**The first such collision has length three.** Length 0/1 admits only one event ordering. A length-two same-multiset ambiguity can only swap two PASS letters (a,b) and (c,d). If both orders are legal from the same source S, then a and c are distinct elements initially inside S and b and d are distinct elements initially outside S. Thus the two distinct slot moves are disjoint and commute, giving the same final frame. The exhibited length-three pair is therefore minimal, not just the first found in a finite search.
+
+This counterexample shows that final cumulative V29 counts (even with final active triad) are not a future-safe quotient for observers reading the V17 frame. It is a **typed candidate count/frame model** statement; it does not rely on or assert a TRIADIC_CLOSURE_E force witness.
+
+## 4. Exact reproducible computational evidence
+
+The companion Python 3 standard-library exact checker enumerates all adjacency arcs of 3-subsets for n=5 (60 arcs) and n=6 (180 arcs), all S5 and S6 permutation/arc compatibility cases (**7,200 + 129,600** checks), the R730 A/B 15-arc frozen masks via rooted nonbacktracking path prefixes through seven steps (**419 / 382**), and every rooted six-axis legal PASS word of lengths 0,1,2,3 (**1,9,81,729**). It confirms no specified count/triad/frame collision at length <3 and the displayed two-frame witness. Exact result marker: R732_COVARIANT_PASS_EXACT_PASS. All finite tests use exact integers and Booleans; general statements above have the analytic proofs given here.
+
+## 5. Next action and status
+
+Select one *genuine legal* X6 Cell/Link/Port TRIADIC_CLOSURE_E event from frozen inputs with three signed nonzero force sources, their identities and closure witness. Derive the actual participant-to-port interpretation, check a native force-to-PASS mapping, and examine both displayed three-event histories under the actual scheduler and V39 loop flow j. The V29 count grammar above was read from separately declared later candidate Source, not silently injected into frozen scientific inputs. P000 remains unchanged.
+
+Status: scoped author-side proof and finite verification. Formal Source CLAIM, semantic checkpoint and independent Driver mathematical review are distinct outstanding tasks.
