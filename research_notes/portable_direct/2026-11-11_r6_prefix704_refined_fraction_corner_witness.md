@@ -1,0 +1,61 @@
+# PREFIX-704-R6 — Exact rational witness strengthens BRC corner exclusion
+
+Date: 2026-11-11 (Asia/Shanghai). Frozen science: awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d.
+Dependencies: PREFIX-700 (189-level integer first-stop recurrence and exact moments), PREFIX-701 (coordinate derivative bound), PREFIX-702 (previous exclusion radii).
+Status: AUTHOR_RECOMPUTED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED.
+
+## Exact question and observer
+
+Can a new exact rational witness improve the corner exclusions simultaneously for every real q>=2? Preserve the same two labelled signed first-stop path populations, survivor multiplicities and finite Poisson-clock moment kernels. For the auxiliary probability square D=[0,1/2]^2, let mu=E[Y], W=Var(Y), V_q=q^2 W-q mu, t=1/q and f_t=W-t mu. This square is an observation-parameter space, not a native spatial plane of X6. The mathematical limit t=0 is included for a uniform bound.
+
+## Theorem 704.1: a stronger single rational witness
+
+Take e=(0,3/20). The companion checker re-executes the exact 189-level integer survivor recurrence of PREFIX-700 (9,529 nonzero survivor cells), evaluates mu and W using Fraction, and certifies the following strict millionth-tick rational enclosures; [a,b) means [a/1000000,b/1000000).
+
+| Corner c | mu(e)-mu(c) | W(e)-W(c) |
+| --- | --- | --- |
+| (0,0) | [62503978,62503979) | [585040038,585040039) |
+| (0,1/2) | [-97817334,-97817333) | [414603256,414603257) |
+| (1/2,1/2) | [-105596401,-105596400) | [467493873,467493874) |
+
+The fourth square corner is equivalent to (0,1/2) by exchanging the labelled streams. Set a=414603256/1000000 and b=97817333/1000000. For every real t in [0,1/2] and every corner c,
+
+    f_t(e)-f_t(c) > a+b*t.
+
+Proof: Exact ticks give lower bound dw_lower-t*dm_upper at any t>=0. For (0,1/2) this equals a+b*t. The gap between the (0,0) lower bound and a+b*t, in millionth ticks, is 170436782-160321312*t, which is >=90276126 on the interval. The (1/2,1/2) corresponding gap is 52890617+7779067*t>0. Hence all four inequalities hold throughout the entire continuum, not just sampled q values.
+
+## Theorem 704.2: adaptive and uniform strict exclusions
+
+PREFIX-701's certified coordinate derivative envelope yields
+
+    |partial_i f_t| <= M(t) := 17931816+17766*t,  i=1,2.
+
+Every point x in D within L1 distance at most rho(t) of any corner c is strictly dominated by e, where
+
+    rho(t)=(414603256+97817333*t)/(1000000*(17931816+17766*t)).
+
+Proof: integrate each coordinate derivative on an axis-aligned path in D. The corner gap is strictly greater than a+bt, whereas |f_t(x)-f_t(c)|<=M(t)*||x-c||_1. At radius rho(t) the strict inequality is retained.
+
+The rational derivative test b*17931816-a*17766>0 proves rho(t) increases strictly with t. Therefore, for ALL real q>=2, the fixed radius r=1/43251 is admissible, with the uniform quantitative margin
+
+    V_q(e)-V_q(x) > (4/1000)*q^2
+
+for every x within that L1 radius of any corner. Exact margin at t=0 is a-17931816/43251 = 7892719/1802125000 >4/1000. At fixed r the gap-minus-Lipschitz expression increases in t.
+
+For the complete real parameter interval 12<=q<=24, radius r=1/42840 is valid with the improved bound
+
+    V_q(e)-V_q(x) > (8/100)*q^2.
+
+Here t>=1/24, and the exact minimum margin is 2045477/24000000 >8/100 at t=1/24. At q=2 alone, radius 1/38707 is certified.
+
+The all-q excluded area, summing four disjoint corner triangles of area r^2/2, exceeds PREFIX-702's certified area by the exact ratio
+
+    (46357/43251)^2 = 2148971449/1870649001 > 1.148.
+
+For 12<=q<=24, the corresponding area ratio is (45809/42840)^2 >1.14. Thus the new witness increases the uniformly excluded full-square area by more than 14.8% and the q12-to-q24 exclusion by more than 14% relative to PREFIX-702.
+
+## Validation, reuse and next unit
+
+Execute PREFIX704_R6_REFINED_CORNER_WITNESS.py from research_notes/portable_direct with Python 3. It invokes the existing exact PREFIX700_R6_STRICT_OPTIMIZER_ORDER.py via runpy to reuse the frozen recurrence, then independently checks the new 3/20 rational witness, signed ticks, formula, monotonicity, radii, margins and area ratios. The full machine-readable result is PREFIX704_R6_RESULTS.json. Local equivalent run: ALL_CHECKS_PASS PREFIX704-R6. Exact arithmetic, no finite floating sampling. This is an author-derived observer theorem; no independent review or native heartbeat evolution is claimed.
+
+Next: replace the conservative global M(t) by local Bernstein/interval derivatives near corners, or apply affine-in-t comparator tests to additional interior cells for 12<=q<=24, continuing PREFIX-675's full-square global variance maximization.
