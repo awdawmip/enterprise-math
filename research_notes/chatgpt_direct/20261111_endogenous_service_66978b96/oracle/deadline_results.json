@@ -1,0 +1,286 @@
+{
+  "census": {
+    "minimal": {
+      "coordinates": 3,
+      "deadline_one": 3,
+      "free": 2,
+      "histories": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "payloads": [
+        [],
+        [
+          1,
+          2
+        ]
+      ],
+      "selector": 0
+    },
+    "per_coordinates": {
+      "1": 3,
+      "2": 120,
+      "3": 12240
+    },
+    "strict_by_coordinates_and_histories": {
+      "(3, 4)": 288,
+      "(3, 5)": 96
+    },
+    "total": 12363,
+    "totals_by_coordinates_and_penalty": {
+      "(1, 0)": 3,
+      "(2, 0)": 120,
+      "(3, 0)": 11856,
+      "(3, 1)": 384
+    }
+  },
+  "heterogeneous_blocks": [
+    {
+      "block_dimensions": [
+        2
+      ],
+      "histories": 4,
+      "latencies": [
+        0,
+        1,
+        2
+      ],
+      "optimal_worst_probes": [
+        null,
+        3,
+        2
+      ],
+      "oracle_states": 23
+    },
+    {
+      "block_dimensions": [
+        3
+      ],
+      "histories": 8,
+      "latencies": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "optimal_worst_probes": [
+        null,
+        4,
+        4,
+        3
+      ],
+      "oracle_states": 78
+    },
+    {
+      "block_dimensions": [
+        4
+      ],
+      "histories": 16,
+      "latencies": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "optimal_worst_probes": [
+        null,
+        5,
+        5,
+        5,
+        4
+      ],
+      "oracle_states": 235
+    },
+    {
+      "block_dimensions": [
+        5
+      ],
+      "histories": 32,
+      "latencies": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "optimal_worst_probes": [
+        null,
+        6,
+        6,
+        6,
+        6,
+        5
+      ],
+      "oracle_states": 668
+    },
+    {
+      "block_dimensions": [
+        6
+      ],
+      "histories": 64,
+      "latencies": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "optimal_worst_probes": [
+        null,
+        7,
+        7,
+        7,
+        7,
+        7,
+        6
+      ],
+      "oracle_states": 1841
+    },
+    {
+      "block_dimensions": [
+        2,
+        2
+      ],
+      "histories": 16,
+      "latencies": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "optimal_worst_probes": [
+        null,
+        6,
+        5,
+        4
+      ],
+      "oracle_states": 306
+    },
+    {
+      "block_dimensions": [
+        2,
+        3
+      ],
+      "histories": 32,
+      "latencies": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "optimal_worst_probes": [
+        null,
+        7,
+        6,
+        6,
+        5
+      ],
+      "oracle_states": 1054
+    },
+    {
+      "block_dimensions": [
+        3,
+        3
+      ],
+      "histories": 64,
+      "latencies": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "optimal_worst_probes": [
+        null,
+        8,
+        8,
+        7,
+        7,
+        6
+      ],
+      "oracle_states": 3552
+    },
+    {
+      "block_dimensions": [
+        2,
+        4
+      ],
+      "histories": 64,
+      "latencies": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "optimal_worst_probes": [
+        null,
+        8,
+        7,
+        7,
+        7,
+        6
+      ],
+      "oracle_states": 3412
+    },
+    {
+      "block_dimensions": [
+        2,
+        2,
+        2
+      ],
+      "histories": 64,
+      "latencies": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "optimal_worst_probes": [
+        null,
+        9,
+        8,
+        7,
+        6
+      ],
+      "oracle_states": 3730
+    },
+    {
+      "block_dimensions": [
+        2,
+        2,
+        3
+      ],
+      "histories": 128,
+      "latencies": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "optimal_worst_probes": [
+        null,
+        10,
+        9,
+        8,
+        8,
+        7
+      ],
+      "oracle_states": 12613
+    }
+  ],
+  "parameter_tests": 57,
+  "status": "PASS"
+}
