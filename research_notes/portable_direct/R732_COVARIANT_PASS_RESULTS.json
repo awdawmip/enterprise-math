@@ -1,0 +1,135 @@
+{
+  "schema": "R732_COVARIANT_AXIS_PASS_LIFT_CERT_V1",
+  "scope": "k=3 subsets of n=5 or n=6; chosen axis-indexed local V29 ports; combinatorial PASS plus explicit active-triad update",
+  "universal_proof": "fiber binomial(n-2,k-1), partial bijection, S_n-equivariance (see R732 proof note)",
+  "exact_finite_checks": {
+    "5": {
+      "n": 5,
+      "triad_states": 10,
+      "oriented_adjacent_arcs": 60,
+      "PASS_port_letters": 20,
+      "arcs_per_PASS_without_source": 3,
+      "min_fixed_aux_bits_without_source": 2,
+      "aux_bits_with_known_source": 0,
+      "all_axis_permutation_arc_checks": 7200
+    },
+    "6": {
+      "n": 6,
+      "triad_states": 20,
+      "oriented_adjacent_arcs": 180,
+      "PASS_port_letters": 30,
+      "arcs_per_PASS_without_source": 6,
+      "min_fixed_aux_bits_without_source": 3,
+      "aux_bits_with_known_source": 0,
+      "all_axis_permutation_arc_checks": 129600
+    }
+  },
+  "both_frozen_15arc_carriers": {
+    "A": {
+      "carrier": "A",
+      "arc_count": 15,
+      "root_prefixes_through_7": 419,
+      "prefix_count_by_length": {
+        "0": 1,
+        "1": 3,
+        "2": 6,
+        "3": 12,
+        "4": 24,
+        "5": 51,
+        "6": 106,
+        "7": 216
+      },
+      "single_PASS_symbols_appearing": 13,
+      "root_word_reconstruction_all_checked": true
+    },
+    "B": {
+      "carrier": "B",
+      "arc_count": 15,
+      "root_prefixes_through_7": 382,
+      "prefix_count_by_length": {
+        "0": 1,
+        "1": 2,
+        "2": 6,
+        "3": 11,
+        "4": 21,
+        "5": 45,
+        "6": 97,
+        "7": 199
+      },
+      "single_PASS_symbols_appearing": 14,
+      "root_word_reconstruction_all_checked": true
+    }
+  },
+  "order_residual_witness": {
+    "root": "012",
+    "rooted_words_tested_by_length": {
+      "0": 1,
+      "1": 9,
+      "2": 81,
+      "3": 729
+    },
+    "no_order_sensitive_frame_collision_through_2": true,
+    "minimum_length_with_collision": 3,
+    "word_1": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        4
+      ]
+    ],
+    "word_2": [
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "triad_path_1": [
+      "012",
+      "123",
+      "023",
+      "234"
+    ],
+    "triad_path_2": [
+      "012",
+      "124",
+      "024",
+      "234"
+    ],
+    "terminal_triad": "234",
+    "final_frame_1": [
+      2,
+      0,
+      1
+    ],
+    "final_frame_2": [
+      2,
+      1,
+      0
+    ],
+    "equal_PASS_multisets": true,
+    "same_contrast_and_grade": true,
+    "minimal_extra_bits_for_this_two_frame_fiber": 1
+  },
+  "source_pins": {
+    "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+    "R731_V29": "7fba48583039602ded1f1d0ecb8e9d0cc1f5040c",
+    "V29_contract": "30fb16d39465708fd1b54c70a58d06ad20f310f8",
+    "R730_masks": "8fdfef5e3f2097d9e6ebb29682b2b81a6ea0247a"
+  },
+  "validation": "R732_COVARIANT_PASS_EXACT_PASS"
+}
