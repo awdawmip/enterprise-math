@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_dual_gcd_phase_index_20261112_r82/check_r82_min.py",
+    "ref": "731f9ca14e596d15f29e75ed3a89a2e0b043b65e",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "observer-r82-mini-source-readback-20261112",
+  "result": {
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Compact exact R82 reproduction: gcd, normalized readout, class certificates.\"\"\"\nfrom fractions import Fraction as Q\nfrom math import gcd, floor, ceil\nfrom random import Random\n\ndef frac(x): return x-floor(x)\n\ndef winner(events,a,b,j,x,theta):\n    A,B=frac(a*theta),frac(b*theta)\n    if A==B:return None\n    def inside(z):return (A<=z<B) if A<B else (z>=A or z<B)\n    return max(((t,k) for t,k in events if inside(frac(x+(t-j)*theta))),default=None)\n\ndef gap_gcd(events,j,a,b):\n    times=sorted(set(t for t,k in events))\n    if not times:return gcd(abs(a),abs(b))\n    d=0\n    for u,v in zip(times,times[1:]):d=gcd(d,v-u)\n    return gcd(gcd(abs(a),abs(b)),gcd(d,abs(times[0]-j)))\n\ndef direct_gcd(events,j,a,b):\n    d=gcd(abs(a),abs(b))\n    for t,k in events:d=gcd(d,abs(t-j))\n    return d\n\ndef normalized_winner(events,a,b,j,x,theta,g):\n    eta=g*theta; A,B=frac(a//g*eta),frac(b//g*eta)\n    if A==B:return None\n    def inside(z):return (A<=z<B) if A<B else (z>=A or z<B)\n    return max(((t,k) for t,k in events if inside(frac(x+(t-j)//g*eta))),default=None)\n\ndef out_class(times,r,p,q,a,b,j,x,L,U):\n    anchor=Q(p,q);ka,kb=floor(a*L),floor(b*L)\n    assert ka==floor(a*U) and kb==floor(b*U)\n    assert a*L-ka<b*L-kb and a*U-ka<b*U-kb\n    beta=frac(Q(r,q)+x-j*anchor)\n    products=[(t-j)*(z-anchor) for t in (min(times),max(times)) for z in (L,U)]\n    sm,sp=beta+min(products),beta+max(products)\n    qlo=min(a*L-ka,a*U-ka);qhi=max(b*L-kb,b*U-kb)\n    return ceil(sm-qhi)>floor(sp-qlo)\n\nrng=Random(8220261112)\nfor n in range(2500):\n    E={(rng.randrange(-20,21),rng.randrange(5)) for _ in range(rng.randrange(1,24))}\n    a,b,j=(rng.randrange(-30,31) for _ in range(3))\n    g=gap_gcd(E,j,a,b);assert g==direct_gcd(E,j,a,b)\n    theta=Q(rng.randrange(-60,61),rng.randrange(1,50))\n    x=Q(rng.randrange(-15,16),rng.randrange(1,40))\n    if g>0:\n        assert winner(E,a,b,j,x,theta)==normalized_winner(E,a,b,j,x,theta,g)\n        assert winner(E,a,b,j,x,theta)==winner(E,a,b,j,x,theta+Q(1,g))\nfor N in (1,2,4,8,16,32,64,128,256):\n    E={(16*k,0) for k in range(1,N+1)}|{(16*k-4,1) for k in range(1,N+1)}\n    theta0=Q(1,16);L=theta0-Q(1,1000*N);U=theta0+Q(1,1000*N)\n    assert gap_gcd(E,0,4,8)==4\n    groups={r:sorted(t for t,k in E if t%16==r) for r in (0,12)}\n    assert all(out_class(ts,r,1,16,4,8,0,Q(0),L,U) for r,ts in groups.items())\n    assert winner(E,4,8,0,Q(0),theta0) is None\n    new=E|{(16*N+5,2)}\n    assert gap_gcd(new,0,4,8)==1\n    assert winner(new,4,8,0,Q(0),theta0)==(16*N+5,2)\nprint('R82_MIN_PASS',2500,9)\n",
+      "display_title": "check_r82_min.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/731f9ca14e596d15f29e75ed3a89a2e0b043b65e/research_notes/brc_s23_av_dual_gcd_phase_index_20261112_r82/check_r82_min.py",
+      "encoding": "utf-8",
+      "sha": "6477205664b0c6159f8ea4a8aa5b083bbdc28417"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
