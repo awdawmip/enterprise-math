@@ -16,6 +16,14 @@ Keep the existing schedules for the three Researcher jobs, one Driver job, and o
 
 Two types of reference pass do not require finding two additional reviewers. When sufficient canonical reviews already exist, do not add a third review merely to repair transport. Authors/contributors must not use a new identity to independently review their own results; disclose shared context truthfully.
 
+## Select the transport contract first
+
+The logical conversation ID and keyless recovery_status in the GitHub Chat guide belong to the EM_CHAT_CONTROL_V1 Issue bridge. A direct Sites MCP connection uses a different subject. Do not send the bridge's recovery payload to em_site_control or adopt its older session as a Sites identity.
+
+For Sites, read em_sites_connection_status and then em_status. If owner private custody is explicitly enabled, discover the approved profiles in private_session_profiles. Recover an existing profile with em_private_session_control operation=status: without custody_ref, request_id must be that profile's original start_request_id; an arbitrary new status request name does not select it. With an existing public ref, pass custody_ref. Invoke native session tools through operation=use and payload={tool, arguments}; the host supplies the capability. Omit session_id, session_key and nested request_id. Sites own-session recovery uses tool=em_site_control with arguments={operation: recovery_status, payload: {}}.
+
+Preserve each lane's existing session, contributions, CLAIM and run. The owner's two profiles are not identities to assign automatically to every parallel Researcher lane. A profile without that lane's identity continuity cannot adopt its run. Formal checkpoint publication and Result freezing retain current CLAIM/open requirements; GitHub author work and client checkpoints remain valid preservation surfaces without being reported as completed native checkpoints or Results. research_authority_granted=false and execution_authorized=false in status/read-only metadata do not, by themselves, indicate deployment failure.
+
 ## Entry to each run
 
 1. Reuse a still-valid account knowledge-base read lease and unchanged files. Read the necessary entries according to current control authority, P000, and the actual role. Expand only material needed for the next action.

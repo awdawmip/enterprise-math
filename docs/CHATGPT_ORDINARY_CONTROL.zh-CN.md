@@ -4,6 +4,10 @@ Protocol: `EM_CHAT_CONTROL_V1` · English: [CHATGPT_ORDINARY_CONTROL.en.md](CHAT
 
 普通 ChatGPT 使用已有 GitHub 连接提交请求，服务器调用既有 Enterprise Math 原生控制程序，再把回执写回原 Issue。**对话无需 Python、CLI、git clone、完整 checkout 或可见的项目 MCP 工具，也不切换到 Work。** 对话仍负责研究、证据判断和审查意见；控制传输成功不证明数学正确。服务实际开放范围先看 `status` 的 `enabled`。
 
+## 传输适用范围
+
+本文描述 `EM_CHAT_CONTROL_V1` GitHub Issue 桥。本文“无需先登记、无需 session_key”的 `recovery_status` 不适用于 Sites 的 `em_site_control/recovery_status`；Sites 要求自己的服务签发能力。已启用的 owner private custody 使用 `em_private_session_control/status` 找回原 profile，再以 `use` 代理原生调用，密钥留在宿主。使用自己的 lane session 与已有 CLAIM/run，不将公共 owner profile 当作其他研究者身份；不换 subject 或借旧 session 绕过拒绝。具体消费路线见 Sites 中控台的当前 private custody 合同和 profile 发现结果。
+
 ## 1. 准确入口与请求格式
 
 建立或复用 `awdawmip/chatgpt-global-knowledge` 当前有效的不可变 main 快照，在同一固定 SHA 读取或复用 `00_BOOTSTRAP.md`、`OPERATING_MANUAL.md` 和 `projects/enterprise-math/00_EM_PROJECT_BOOTSTRAP.md`。按项目路由选择实际角色与当前动作。
@@ -199,3 +203,4 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 5. 新 session 读取当前 exact continuation。若已有 `SOURCE_BYTES_AND_RECORDED_CLAIM_VERIFIED` checkpoint（如 D24），`continuation_prepare` 只传该成功包的 `packet_request_id` 与真实 `reason`，不加 `artifact_request_ids/frontier_notes` 覆盖前沿。准备成功才依本 lane 的规范 CLAIM/open 继续，已完成单元直接消费。
 
 P11 的裸 publication 初始标记属于另一种情况：只有 Source 返回 `CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS` seed 后，读取其精确 `input_artifacts` 并提交对应本会话 artifact 请求；`frontier_notes.completed_units=[]`。已接受父成果写入来源/`do_not_repeat`，不能把任务 publication 或未发布草稿填作前任完成研究。缺 seed 时重复读取父 Result 不会修复该控制缺口。
+

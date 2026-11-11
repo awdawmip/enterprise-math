@@ -16,6 +16,14 @@
 
 两类 reference pass 不等于必须再找两位审阅者。已有足够的规范审阅时，不为修传输而追加第三份审阅。作者/贡献者不得借新身份独立审自己的结果；共享上下文必须如实披露。
 
+## 先区分传输合同
+
+本文件的 `conversation_id` 与无密钥 `recovery_status` 指 `EM_CHAT_CONTROL_V1` GitHub Issue 桥。直接连接 Sites MCP 的对话属于另一个 subject，不能把本节参数直接传给 `em_site_control`，也不能借桥中的旧身份恢复 Sites session。
+
+Sites 用户先读 `em_sites_connection_status` 和 `em_status`。若当前 owner 已批准并启用了 private custody，可从 `private_session_profiles` 取得该 owner 的原登记 request ID，用 `em_private_session_control(operation=status, request_id=原start_request_id)` 恢复公开 ref；已有 ref 时直接传 `custody_ref`。新造的 status 请求名在未传 ref 时不能选中旧 profile。调用原生会话操作时使用 `operation=use`、`payload={tool, arguments}`，由宿主注入该 profile 的私密能力；不在 arguments 填 session_id、session_key 或内层 request_id。Sites 的 own recovery 对应 tool=`em_site_control`、arguments=`{operation: recovery_status, payload: {}}`。
+
+这两个 owner profile 不能机械分配给研究 1–6 或其他并行 lane。已有合法 lane session、CLAIM/run、贡献历史和原始 request journal 保持不变；owner 托管身份没有该 lane 的身份连续性时，不接管其 run，不重签或借用能力。正式 checkpoint/Result 仍需当前 CLAIM/open；GitHub 成果和 client checkpoint 可先保全，但不冒称已完成 Native semantic checkpoint 或 Result。部署/身份状态中的 `research_authority_granted=false`、`execution_authorized=false` 本身不代表故障。
+
 ## 每轮入口
 
 1. 复用仍有效的账户知识库读租约和未变文件，按当前控制 authority、P000 及实际角色读取必要入口。只展开下一动作所需材料。
@@ -94,3 +102,4 @@
 恢复后优先消费 Source 的已验证 checkpoint。D24 这类 native frontier 的 `continuation_prepare` 仅用新成功 packet 的 `packet_request_id` 和 `reason`，不重写 frontier。P11 这类初始 publication 输入 seed 则读取精确 seed pin、保留 `completed_units=[]`，既有父成果放来源/不重做项；没有 seed 不用重复父 Result 阅读替代修复。两路均不提前 CLAIM/open、不重算已完成研究。
 
 验收必须分别记录：中立保全完成、own close/新身份与贡献继承、真实任务 continuation_prepare 成功、后续合法执行恢复。单凭 archive、文档发布或支持单关闭，不得宣称科研恢复或成果验收。
+

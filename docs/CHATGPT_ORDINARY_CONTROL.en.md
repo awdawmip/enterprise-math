@@ -4,6 +4,10 @@ Protocol: `EM_CHAT_CONTROL_V1` · Chinese: [CHATGPT_ORDINARY_CONTROL.zh-CN.md](C
 
 Use the existing GitHub connector. The server runs the admitted Enterprise Math native writers and returns receipts to the original Issue. **No Python, CLI, git clone, full checkout or visible project MCP tools are required in ordinary ChatGPT. Do not require a switch to Work.** The chat still supplies research, evidence judgments and independent review decisions; successful control transport does not prove mathematical correctness. Check `status.enabled` for actual enabled capabilities.
 
+## Transport applicability
+
+This guide describes the EM_CHAT_CONTROL_V1 GitHub Issue bridge. Its keyless recovery_status does not apply to Sites em_site_control/recovery_status, which requires the caller's own service-issued capability. Where explicitly enabled, owner private custody recovers an existing profile through em_private_session_control/status and calls the native handler through use while keeping the key on the host. Keep each lane's actual session, contribution history and CLAIM/run. A public owner profile is not another researcher's identity, and changing transport or borrowing an older session must not bypass a refusal. Use the current Site's custody contract and profile-discovery response for its consumption route.
+
 ## Bootstrap and envelope
 
 Establish or reuse a valid immutable main snapshot of
