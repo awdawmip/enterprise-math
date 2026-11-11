@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/divisor_extrema/20261111_c66_readout_identification/arithmetic/INVERSE.md",
+    "ref": "b05582d938dff9f65a9a968f8bc2c994c60b46d7",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "c66-inverse-20261111-754ba1df-2",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 一个准确三尾读数的全规模反演\n\n设 $h=p/d>1$ 为给定正有理数（$p>d>0$）。在完整目标 $36\\,6^k5^{k+1}7$ 的全部 $k\\ge2$ 和平衡间隙安排中，产生 $H=h$ 的安排只有有限个，并可全部求出。所有可实现 $H$ 都是大于 1 的有理数；全体值在实数轴上只有一个聚点 1。\n\n**显式的规模上界。** 取第一个满足 $3^{t-1}(p-d)>2(2t+1)p$ 的正整数 $t$，则只需检查 $2\\le k\\le2t-1$。理由如下。C62 的内部投影距离收缩给出\n\n$$\n d_{\\rm Hilbert}\\le k\\ln4\\,3^{1-\\lfloor k/2\\rfloor}.\n$$\n\n在原一维块后状态 $(7,u,1-u)/8$ 上，Hilbert 距离正是两输入 $\\log(u/(1-u))$ 的差的绝对值；末隙正对角重加权保持这一距离。尾部正概率矩阵的每列跨历史比值是输入状态各比值的正加权平均，所以 $\\ln H\\le d_{\\rm Hilbert}$。若 $H\\ge h$，则 $\\ln H\\ge(p-d)/p$。对 $k=2s,2s+1$ 用 $k\\le2s+1$，再用 $\\ln4<2$ 和 $3^{s-1}/(2s+1)$ 严格递增，即得上界。任一非空有限规模的日程其 $H>1$，而取任意 $k\\to\\infty$ 所得 $H\\to1$，因此 1 是唯一聚点。给定 $h=1$ 无原像。\n\n**可计算的整数剪枝。** 一个内部块在 logit 坐标的最大斜率为 $\\kappa=|\\rho-1|/(\\rho+1+2\\sqrt\\rho)$。对 $\\rho=u/v$、正整数 $B=4096$，以\n$$\n \\kappa^+=\\frac{B|u-v|}{B(u+v)+2\\lfloor B\\sqrt{uv}\\rfloor}\n$$\n作有理数上界。第一块从 $0,1$ 出发，输出跨度为 $|\\ln\\rho|$，可取上界 $I=\\min(2\\max(1,m),|\\rho-1|/\\min(1,\\rho))$，此处 $4^{-m}\\le\\rho\\le4$。置 $G(0,c)=1$，递推\n$$\n G(r,c)=\\max_{0\\le m\\le c-2}\\kappa^+(r,c,m)G(r-1,c-m).\n$$\n对给定 $k$ 在 $r=k-1$ 枚举每个准备首隙及随后首内部 $m$，取 $I(r,c,m)G(r-1,c-m)$ 的最大值 $U_k$。所有安排均有 $\\ln H\\le U_k$，故 $U_k<(p-d)/p$ 的规模全部排除。枚举余下规模并比较原三尾的准确有理数，即得完整原像。计算复杂度取决于所给读数；定理给出有限终止性。\n\n**全部规模上最大的三个读数。** 对下表的每一个阈值，初步截止是 15 或 17，整数剪枝后只剩 $2\\le k\\le5$。将这 174 条日程逐项比较得到以下全局严格次序。各读数在所有 $k\\ge2$ 中均唯一。\n\n| 按 $H$ 自大到小的名次 | $H$ | $k$ | 全间隙向量 |\n|---:|---|---:|---|\n|1|$269335961/264606236$|2|001|\n|2|$2400769/2371744$|2|010|\n|3|$5276761/5218711$|2|100|\n\n**48 个全规模唯一读数。** $k=2,3,4$ 共有 48 种安排。取其最小读数 $h_0=1307403304187185831/1307403285302824231$，粗界排除所有 $k\\ge44$。在 $17\\le k\\le43$，上面的精确有理 $U_k$ 最大值于 17 取得，小于 $1.201\\times10^{-9}$；而 $(h_0-1)/h_0>1.44\\times10^{-8}$。剩余 $2\\le k\\le16$ 由 405,187,824 个词的[跨规模唯一性证书](EXACT_READOUT.md)排除所有重合。因此这 48 个读数各自从一个读数就能在无界的模型中恢复 $k$ 和所有间隙。\n\n~~~bash\npython arithmetic/inverse_readout.py --model ../C64/checks --output rerun_inverse.json\ncmp rerun_inverse.json arithmetic/inverse_readout.json\n~~~\n\n传入额外的 --H 正有理数参数可查询其它准确读数。程序中的额外示例 $17/16$ 在全部规模内原像为空。\n",
+      "display_title": "INVERSE.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/b05582d938dff9f65a9a968f8bc2c994c60b46d7/research_notes/divisor_extrema/20261111_c66_readout_identification/arithmetic/INVERSE.md",
+      "encoding": "utf-8",
+      "sha": "8d8db47935c3fb8fe6a082eab7870413f591467d"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
