@@ -1,0 +1,22 @@
+{
+  "seed": 761126,
+  "random_models": 36,
+  "persistent_updates": 3600,
+  "historical_versions_audited": 720,
+  "matched_complete_interval_queries": 512,
+  "changes_witness_queries": 200,
+  "aggregate": {
+    "groups_excluded": 574,
+    "times_skipped": 871,
+    "individual_checks": 476,
+    "groups_examined": 1040
+  },
+  "favorable_two_phase": [
+    {"sources":32,"build_seconds":0.000711,"twenty_queries_seconds":0.001057,"phase_groups":2,"individual_checks_per_query":0,"groups_excluded_per_query":2},
+    {"sources":128,"build_seconds":0.004913,"twenty_queries_seconds":0.002082,"phase_groups":2,"individual_checks_per_query":0,"groups_excluded_per_query":2},
+    {"sources":512,"build_seconds":0.023365,"twenty_queries_seconds":0.001114,"phase_groups":2,"individual_checks_per_query":0,"groups_excluded_per_query":2},
+    {"sources":1024,"build_seconds":0.04504,"twenty_queries_seconds":0.004205,"phase_groups":2,"individual_checks_per_query":0,"groups_excluded_per_query":2}
+  ],
+  "all_assertions": "PASS",
+  "reference_note": "The globally descending reference shares the R74 per-source predicate; the integration, order, persistence and witness latest-time outputs were cross-checked."
+}
