@@ -1,0 +1,89 @@
+{
+  "title": "PREFIX-695-R6",
+  "date": "2026-11-11",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "provenance": {
+    "researcher_id": "EM-DIRECT-192A00",
+    "activity_id": "RA-FEED90A8D5CFD47BD62B4CDB",
+    "model": "exact 189-level BRC survivor recurrence and joint-clock readout",
+    "survivor_cells": 9529,
+    "replay_method": "independent whole-integer common-denominator K/J moment accumulation; no floating point",
+    "local_replay": "completed in 3.58 s, matched original PREFIX693 Python checker jets (not blinded review)",
+    "published_checker_execution": "not separately executed on remote GitHub host; complete self-contained checker and raw local equivalent computations available"
+  },
+  "jets_floor_1e8": {
+    "A": [
+      "44000296",
+      "-168056589514",
+      "-6667624082229",
+      "39352687679231",
+      "3189837819999830",
+      "-36266294695911132"
+    ],
+    "B": [
+      "789752024",
+      "12845959424",
+      "-99127959112",
+      "-1326952329685",
+      "-14895243921676",
+      "-1960958310350017"
+    ]
+  },
+  "upstream_correction": {
+    "target": "research_notes/portable_direct/PREFIX693_R6_RESULTS.json",
+    "historical_jet_A5": "-36266294695911140",
+    "exact_jet_A5": "-36266294695911132",
+    "paper_checker_jet_A5": "-36266294695911132",
+    "repair_commit": "bb8943f7f647786dc9778dfa4ed40f6b669fa64e",
+    "prefix694_provenance_repair_commit": "a186a9898f0c37c07329e8b13b2103a4ffce41dc",
+    "large_integer_serialization": "preserved all exact integer literals as text; no binary64 JSON numerical round-trip"
+  },
+  "solver": {
+    "q_interval": [
+      "63055771/5256000",
+      "660614143/27500000"
+    ],
+    "z_interval": [
+      "264353/5000000",
+      "530659/10000000"
+    ],
+    "bridge_width": "1953/10000000",
+    "d_min": "11361735009/584000",
+    "d_max": "1160282864393/27500000",
+    "M": "660630643/11",
+    "C": "192904147756000/124979085099",
+    "rho": "10465050015763/34716412527500",
+    "steps": [
+      {
+        "n": 1,
+        "approx_upper": "5.887198933529017e-5"
+      },
+      {
+        "n": 2,
+        "approx_upper": "5.349604150743141e-6"
+      },
+      {
+        "n": 3,
+        "approx_upper": "4.417204632831719e-8"
+      },
+      {
+        "n": 4,
+        "exact_claim": "e4 < 31/10000000000000",
+        "approx_upper": "3.011613689908869e-12"
+      },
+      {
+        "n": 5,
+        "exact_claim": "e5 < 2/100000000000000000000",
+        "approx_upper": "1.399918490864999e-20"
+      }
+    ],
+    "error_recurrence": "e0=W; e_(n+1)=C*e_n^2",
+    "iteration": "x_(n+1)=project_[L,R](x_n-F_q(x_n)/F'_q(x_n))",
+    "quantifier": "every real q in Q and every x0 in I; conditional on PREFIX690/693/694 frozen polynomial certificates",
+    "auxiliary_not_native_update": true
+  },
+  "code": "research_notes/portable_direct/PREFIX695_R6_FAST_INTEGER_KERNEL_AND_NEWTON_CERTIFICATE.py",
+  "paper": "research_notes/portable_direct/2026-11-11_r6_prefix695_exact_jet_reconciliation_and_safeguarded_newton.md",
+  "status": "AUTHOR_RECOMPUTED / EXACT_189_ROW_INTEGER_KERNEL_REPLAY + EXACT_FRACTION_IMPLICATION_CHECK / UNREVIEWED / NOT_ADMITTED",
+  "verification": "LOCAL_EQUIVALENT_INTEGER_KERNEL_REPLAY_PASSED; EXACT_FRACTION_STEPS_PASSED"
+}
