@@ -1,6 +1,6 @@
 # R712 | Exact X6 triad-to-pair shadow fibers and the minimum BRC source repair
 
-**Parent task:** RS-X6-TRIADIC-CLOSURE-DYNAMICS. **Research status:** author-side finite combinatorics with two independent exact integer checks; native V29/V39 event admissibility and independent Driver review remain open. **Native Researcher-ID / RA:** pending service confirmation; no identity or CLAIM is inferred from GitHub authorship.
+**Parent task:** RS-X6-TRIADIC-CLOSURE-DYNAMICS. **Research status:** author-side finite combinatorics with two independent exact integer checks; native V29/V39 event admissibility and independent Driver review remain open. **Native Researcher-ID:** EM-X6-536D3B; **Research-Activity-ID:** RA-039BDE12EFED1D1976153479. Source registration verified at 7838373729a751a165e2e82a3b11fe7698596fdf; neither registration nor GitHub authorship grants a task CLAIM.
 
 **Immutable frozen scientific-input pin:** awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389. No P000 or ACTIVE worldview change. **Starting frontier:** R711 pairwise-triad closure and its 6,115 pairwise-representable support maps; prior author PR #2052.
 
