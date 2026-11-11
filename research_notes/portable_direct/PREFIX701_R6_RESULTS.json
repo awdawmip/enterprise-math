@@ -1,0 +1,61 @@
+{
+  "schema": "PREFIX701_R6_ALL_SLOT_CORNER_TRIANGLE_EXCLUSION_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "two labelled independent Poissonized signed BRC first-stop clocks; D=[0,1/2]^2; q real >=2",
+  "theorem": "For every real q>=2 and every point at L1 distance <=1/65536 from any square corner, V_q(0,1/8)-V_q(point)>7356197*q^2/65536.",
+  "derivative_bound_normalized": "17940699",
+  "radius": "1/65536",
+  "margin_lower_bound": "7356197/65536",
+  "corner_checks": [
+    {
+      "corner": "zero_zero",
+      "delta_mu_1e6_ticks": [
+        48811611,
+        48811612
+      ],
+      "delta_W_1e6_ticks": [
+        557257209,
+        557257210
+      ],
+      "uniform_over_q_ge_2_gap_lower_bound": "532851403/1000000",
+      "net_margin_lower_bound": "265316414797/1024000000",
+      "inequality_verified": true
+    },
+    {
+      "corner": "zero_half",
+      "delta_mu_1e6_ticks": [
+        -111509701,
+        -111509700
+      ],
+      "delta_W_1e6_ticks": [
+        386820427,
+        386820428
+      ],
+      "uniform_over_q_ge_2_gap_lower_bound": "386820427/1000000",
+      "net_margin_lower_bound": "115780695373/1024000000",
+      "inequality_verified": true
+    },
+    {
+      "corner": "half_half",
+      "delta_mu_1e6_ticks": [
+        -119288768,
+        -119288767
+      ],
+      "delta_W_1e6_ticks": [
+        439711044,
+        439711045
+      ],
+      "uniform_over_q_ge_2_gap_lower_bound": "109927761/250000",
+      "net_margin_lower_bound": "169940687181/1024000000",
+      "inequality_verified": true
+    }
+  ],
+  "dependencies": [
+    "PREFIX625 exact formula and strict mean derivative",
+    "PREFIX630 global moment derivative envelopes",
+    "PREFIX700 exact rational corner sign ticks"
+  ],
+  "check": "ALL_CHECKS_PASS PREFIX701-R6",
+  "verification_scope": "Exact Fraction check of predecessor numerical bounds and new Lipschitz consequence; no independent 189-row replay in this script; requires ancestor certificates",
+  "admission": "AUTHOR_DERIVED/EXACT_FRACTION_IMPLICATION_CHECKED/UNREVIEWED/NOT_ADMITTED"
+}
