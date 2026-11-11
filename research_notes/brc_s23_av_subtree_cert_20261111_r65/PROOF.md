@@ -8,7 +8,7 @@ Scientific input pin `43ec6098b1330ae86d0a7863be336c5d97f6ef34`; predecessor R64
 
 This is the source-labelled **auxiliary circle-rotation observer** used by R62–R64. It is an exact external mathematical model, not a replacement for P000, native X6/Heartbeat dynamics or native BRC arithmetic. Each underlying event is `(t,branch_id)`, with individual branch identity retained for future deletions. The derived observer can return a time maximum, without collapsing the event carrier.
 
-Take a rational anchor `0<theta0<1`, rational closed interval `I=[L,U] subset (0,1)`, integer history count `m>=2`, observation time `j`, rational phase `x`, and finite events `S={(t,b):t<j}`. At a parameter `theta`, the labelled history points are `h_v(theta)={v theta}` for `0<=v<m` and the half-open, counterclockwise arc `A_v(theta)` starts at `h_v` and ends at the next labelled point. We work on the domain where history points are distinct. For label `z`, let
+Take a rational anchor `0<theta0<1` **inside** the rational closed interval `I=[L,U] subset (0,1)` (`L<=theta0<=U`), integer history count `m>=2`, observation time `j`, rational phase `x`, and finite events `S={(t,b):t<j}`. At a parameter `theta`, the labelled history points are `h_v(theta)={v theta}` for `0<=v<m` and the half-open, counterclockwise arc `A_v(theta)` starts at `h_v` and ends at the next labelled point. We work on the domain where history points are distinct. For label `z`, let
 
 `W_z(theta)=max{t:(t,b) in S, {x+(t-j)theta} in A_z(theta)}`,
 
