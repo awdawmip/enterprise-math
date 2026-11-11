@@ -5,15 +5,15 @@
 **Lineage:** Parent ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION (OPEN). Historical Task RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT, publication TP2-B6F4FC938FF94941C1B7; scientific pin awdawmip/enterprise-math@c47e13e4aba0e006366f989d6334d443f6333ae3 remains frozen. Input: prior author-derived exact two-port ODE recurrences at `research_notes/portable_direct/2026-11-11_h40_d25_two_port_differential_ode_closure_author_portable.md`. No claim of new native ownership or independent audit.
 
 For m>=0, e∈{0,1}, define
-[
+\[
 K_m^{(e)}(X)=\sum_{k=0}^m {m\choose k}{2m+e\choose k}X^k,\quad A_m=K_m^{(e)}(1/2),\quad B_m=(1-6e)A_m+6(K_m^{(e)})'(1/2).
-]
+\]
 
 The **pair** (A_m,B_m), not its product, is the retained BRC observer. The existing rational theorem is
-[
+\[
 d_n A_{n+1}=\alpha_n A_n+\beta_n A_{n-1}+\gamma_n A_{n-2},\qquad
 c B_n=s_n A_n+t_n A_{n-1}+\rho B_{n-1}.
-]
+\]
 Negative subscripts are zero; A_0=1, B_0=1-6e. Branch coefficients are:
 
 | e | c | rho | d_n | alpha_n | beta_n | gamma_n | s_n | t_n |
@@ -23,31 +23,31 @@ Negative subscripts are zero; A_0=1, B_0=1-6e. Branch coefficients are:
 
 **Theorem (integral lifting and zero-preserving observer).** Set q_n=c d_n, P_n=∏_{j=0}^{n-1}q_j, U_n=P_n A_n, T_n=c^n P_n B_n, Q_n=c^nP_n (empty product=1). Then U_0=1, T_0=1-6e, Q_0=1, and
 
-[
+\[
 U_{n+1}=c[\alpha_n U_n+\beta_n q_{n-1}U_{n-1}+\gamma_n q_{n-1}q_{n-2}U_{n-2}],
-]
-[
+\]
+\[
 T_{n+1}=c^n[s_{n+1}U_{n+1}+t_{n+1}q_nU_n]+\rho q_n T_n,\qquad
 Q_{n+1}=c q_nQ_n.
-]
+\]
 
 Terms with negative indices vanish. All U_n,T_n,Q_n are integers and
 
-[
+\[
 Q_m=\begin{cases}500^m(2m)!,&e=0,\\2048^m(2m+1)!,&e=1.\end{cases}
-]
+\]
 
 For **every prime p>=5 of the form p=6m+1+4e**, Q_m is a unit modulo p. Consequently
 
-[
+\[
 A_m\equiv c^m U_m Q_m^{-1}\ (\bmod p),\qquad
 B_m\equiv T_m Q_m^{-1}\ (\bmod p).
-]
+\]
 In particular
-[
+\[
 A_m\equiv0\ (\bmod p)\iff U_m\equiv0\ (\bmod p),\quad
 B_m\equiv0\ (\bmod p)\iff T_m\equiv0\ (\bmod p).
-]
+\]
 
 **Proof.** Multiply the rational A recurrence by P_{n+1}=c d_n P_n; replace P_n/P_{n-1}=q_{n-1} and P_n/P_{n-2}=q_{n-1}q_{n-2}. This yields the U recurrence. Multiply the B recurrence at n+1 by c^nP_{n+1} and substitute U,T: this yields the T recurrence. Integrality follows by induction from the integer recurrences and initial states. The product identities ∏_{j<n} d_j=20^n(2n)! (e=0), respectively 32^n(2n+1)! (e=1), give the displayed Q. Since 2m+1<p at the target index and the base 500 (resp. 2048) is coprime to the applicable prime, Q_m is invertible (p=5 has m=0 and Q_0=1). Reconstruction and zero equivalence follow. QED.
 
