@@ -1,0 +1,25 @@
+{
+  "schema": "PREFIX702_R6_ADAPTIVE_CERTIFIED_CORNER_RADIUS_V1",
+  "date": "2026-11-11",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "predecessors": [
+    "PREFIX700_R6_RESULTS.json",
+    "PREFIX701_R6_RESULTS.json"
+  ],
+  "q_domain": "all real q>=2",
+  "model": "two signed Poissonized first-stop streams, auxiliary D=[0,1/2]^2",
+  "witness": "(0,1/8)",
+  "gap_lower_q": "386820427/1000000 + 111509700/(1000000*q)",
+  "norm_gradient_upper_q": "17931816+17766/q",
+  "adaptive_radius_q": "(386820427*q+111509700)/(1000000*(17931816*q+17766))",
+  "uniform_envelope_radius_inf": "55260061/2561688000000",
+  "uniform_explicit_radius": "1/46357",
+  "universal_q2_gap": "18534439/46357000000",
+  "area_ratio_vs_PREFIX701": "4294967296/2148971449",
+  "q12_to_q24_radius": "1/45809",
+  "q12_to_q24_q2_gap": "14756219/4822000000",
+  "verification": "ALL_CHECKS_PASS PREFIX702-R6",
+  "verification_scope": "Exact rational implications of the pinned PREFIX700/701 certified bins and derivative bounds; no independent 189-row replay",
+  "admission": "AUTHOR_DERIVED/EXACT_FRACTION_IMPLICATION_CHECKED/UNREVIEWED/NOT_ADMITTED",
+  "source_control": "Unshared mathematics, native session/owner dispatch pending as separate receipts"
+}
