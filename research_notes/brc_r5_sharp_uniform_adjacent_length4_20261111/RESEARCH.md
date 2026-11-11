@@ -62,6 +62,14 @@ For $k=4$, $|S|\le14$ and $s_p\ge\lceil |S|/4\rceil$, so $L(d)\le14-4-6=4$. For 
 
 **5. Exact sharpness witness.** PR #2038 contains rational adjacent $15$-support endpoints $V,W$ with $14$-supported direction $d$, a $16$-arc support union of rank $15$, and an explicit four-atom decomposition. Its structural obstruction excludes any three-atom representation, even with arbitrary real coefficients: the only two possible three-atom source-pair arrangements leave five nonzero targets in a row that one remaining atom could cover on at most three targets. The accompanying checker reproduces the vertices, $C$-equalities, rank, four-atom identity and both obstruction cases. Thus $L(d)=4$, proving sharpness.
 
+## Necessary support geometry of every sharp edge
+
+**Corollary.** Every adjacent edge direction satisfying $L(d)=4$ has **all four** variable source ports active, source-row support degrees $(3,3,4,4)$ in some order, and **exactly two nonzero source entries at each of the seven targets**. Equivalently, its signed support projects to a seven-edge target-labeled multigraph on the four source ports with source degrees $(3,3,4,4)$, each target label joining precisely two source ports.
+
+**Proof.** The bound in Step 4 can be at least four only when $(k,|S|,s_1,\ldots,s_k)$ is either $(3,12,4,4,4)$ or $(4,14,3,3,4,4)$, up to permutation. In the first case, conservation at each target requires at least two nonzero source entries per active target. Twelve nonzero arcs therefore occupy at most six targets. Restricting $C$ to these three active sources and at most six target columns gives rank at most $6+2\cdot3-2=10$; twelve arc-columns then have kernel dimension at least two, contrary to circuit minimality. Thus $k=4$, $|S|=14$, with source degrees $(3,3,4,4)$.
+
+Let $t$ be the number of active target columns. For four complete source rows and $t$ targets, $\operatorname{rank}(C_S)\le t+2\cdot4-2=t+6$. Because the fourteen-supported $S$ is a circuit, its rank is thirteen, so $t\ge7$. All seven targets occur, and conservation forces at least two nonzeros at each. There are exactly fourteen such nonzeros, hence precisely two for every target. The sharp witness has these degrees. This is a **necessary support classification** for length four; the displayed degree conditions alone do not assert sufficiency.
+
 ## Generalization (reusable independent lemma)
 
 For a complete $k$-source, $n$-target mass-plus-first-moment observer with pairwise distinct target ratios, the same proof gives, for an edge direction with $k\ge3$ active source rows,
@@ -76,4 +84,4 @@ The saved `VERIFY_SHARP_BOUND.py` (SymPy exact rationals) checks all eleven subs
 
 BRC is applied to the labeled transfer-branch mass carrier. The $K_{2,3}$ atoms retain the unobserved branch residual under fixed marginals and first moments; the nonnegative fiber identifies which composites occur as extreme transfer directions. This theorem concerns the pinned auxiliary Blackwell model.
 
-**Next exact question:** classify which adjacent edges attain length four and count their incidence in the fixed physical fiber's vertex-adjacency graph. A search for length-five adjacent rays in this model is now closed by the sharp universal bound. The separate mother objective concerning low-support transport and richer BRC observers remains open.
+**Next exact question:** within the seven-target, four-source degree class $(2,2,2,2,2,2,2)$ / $(3,3,4,4)$, determine which supported adjacent rays attain length four and count their incidence in the fixed physical fiber's vertex-adjacency graph. A search for length-five adjacent rays in this model is now closed by the sharp universal bound. The separate mother objective concerning low-support transport and richer BRC observers remains open.
