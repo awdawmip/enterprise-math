@@ -87,7 +87,7 @@ for m,answer in [(1,(64,21,18)),(2,(4096,377,322))]:
         word=tuple(x for r,b in enumerate(bs) for x in micro(r,b))
         assert len(word)==12*m
         assert Counter(word)==expected(m)
-        assert sum(1 if z==i else -1 if z==-i else 0 for z in word for i in ())==0
+        assert all(sum(1 if z==i else -1 if z==-i else 0 for z in word)==0 for i in (1,3,6))
         open_nb=valid_nb(word)
         closed_nb=open_nb and word[-1]!=-word[0]
         totals[0]+=1; totals[1]+=int(open_nb); totals[2]+=int(closed_nb)
