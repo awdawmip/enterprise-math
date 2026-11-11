@@ -1,0 +1,99 @@
+{
+  "seed": 781126,
+  "independent_valid_random_models": 256,
+  "direct_point_comparisons": 1768,
+  "reference_strata_evaluated": 2024,
+  "statuses": {
+    "STABLE_NONE": 71,
+    "STABLE": 50,
+    "CHANGES": 135
+  },
+  "oscillation_family": [
+    {
+      "t": 24,
+      "explicit_cells": 13,
+      "oracle_sources": 1,
+      "status": "CHANGES"
+    },
+    {
+      "t": 48,
+      "explicit_cells": 25,
+      "oracle_sources": 1,
+      "status": "CHANGES"
+    },
+    {
+      "t": 96,
+      "explicit_cells": 49,
+      "oracle_sources": 1,
+      "status": "CHANGES"
+    },
+    {
+      "t": 192,
+      "explicit_cells": 97,
+      "oracle_sources": 1,
+      "status": "CHANGES"
+    },
+    {
+      "t": 384,
+      "explicit_cells": 193,
+      "oracle_sources": 1,
+      "status": "CHANGES"
+    },
+    {
+      "t": 768,
+      "explicit_cells": 385,
+      "oracle_sources": 1,
+      "status": "CHANGES"
+    }
+  ],
+  "large_integer_witnesses": [
+    {
+      "decimal_exponent": 6,
+      "time_bits": 24,
+      "status": "CHANGES",
+      "witness_denominator_bits": 24
+    },
+    {
+      "decimal_exponent": 12,
+      "time_bits": 44,
+      "status": "CHANGES",
+      "witness_denominator_bits": 44
+    },
+    {
+      "decimal_exponent": 24,
+      "time_bits": 84,
+      "status": "CHANGES",
+      "witness_denominator_bits": 84
+    },
+    {
+      "decimal_exponent": 60,
+      "time_bits": 203,
+      "status": "CHANGES",
+      "witness_denominator_bits": 203
+    },
+    {
+      "decimal_exponent": 120,
+      "time_bits": 403,
+      "status": "CHANGES",
+      "witness_denominator_bits": 403
+    }
+  ],
+  "indicative_timing": [
+    {
+      "t": 96,
+      "lazy_ms": 0.0618,
+      "explicit_ms": 0.4676
+    },
+    {
+      "t": 384,
+      "lazy_ms": 0.073,
+      "explicit_ms": 1.9106
+    },
+    {
+      "t": 1536,
+      "lazy_ms": 0.0628,
+      "explicit_ms": 7.8371
+    }
+  ],
+  "result": "PASS"
+}
