@@ -2,11 +2,11 @@
 
 **Evidence status:** AUTHOR_SIDE / FINITE_EXACT / UNREVIEWED / NOT_ADMITTED / NOT_NATIVE_H0B0. No Source CLAIM, native checkpoint, Result, freeze or independent review follows from this file.
 
-Mother objective: \`ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION\`.
-Task: \`RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT\`.
-Publication: \`TP2-B6F4FC938FF94941C1B7\`.
-Frozen scientific source: \`c47e13e4aba0e006366f989d6334d443f6333ae3\`.
-Logical conversation: \`chatgpt-research-onhour-enterprise-math-20260923\` (maintenance lane \`chatgpt-hourly-enterprise-math-20260921\` is excluded).
+Mother objective: `ENTERPRISE_BOTTOM_LAYER_LOGIC_BLIND_VALIDATION`.
+Task: `RS-ENTERPRISE-BRC-HALF-COUPLING-INERT-PLUS-D24-SECOND-DIGIT-LIFT`.
+Publication: `TP2-B6F4FC938FF94941C1B7`.
+Frozen scientific source: `c47e13e4aba0e006366f989d6334d443f6333ae3`.
+Logical conversation: `chatgpt-research-onhour-enterprise-math-20260923` (maintenance lane `chatgpt-hourly-enterprise-math-20260921` is excluded).
 
 ## 1. Exact finite mathematical statement
 
@@ -53,7 +53,7 @@ a_k=p^{\lfloor2k/p\rfloor+\lfloor3k/p\rfloor}
 without calling the adjacent-coefficient recurrence. All 21 selected crosscheck primes agreed:
 5, 7, 11, 13, 17, 19, 23, 31, 37, 43, 73, 109, 139, 157, 373, 997, 1009, 1997, 3001, 4001, 4999.
 
-Full local 667-row JSON: \`d25_w216_character_5_5000_records_20261111.json\`; exact bytes SHA-256 \`522e3637b07b12cf1f8db22011fff9807aca11793156c51c14707a7df4cfd1d1\`. The companion script recreates this complete table using only Python standard-library arithmetic. The local JSON has not been separately uploaded to the Source repository.
+Full local 667-row JSON: `d25_w216_character_5_5000_records_20261111.json`; exact bytes SHA-256 `522e3637b07b12cf1f8db22011fff9807aca11793156c51c14707a7df4cfd1d1`. The companion script recreates this complete table using only Python standard-library arithmetic. The local JSON has not been separately uploaded to the Source repository.
 
 ## 3. Source-aligned interpretation
 
@@ -65,6 +65,6 @@ The same infinite summand also appears in the Ramanujan series \(\sum_{k\ge0}(6k
 
 Native same-original-class H0/B0 divided-power \([X]U \bmod139129\) at \(p=373\) remains **NOT_RUN**, with module rank, semilinear direction, eta, signed odd Green/Hesse kappa, original \(\Delta_p-R_p\), and independent native reproduction still due. Existing support Issue #1559 remains the responsible PENDING_OWNER path; no executor is asserted.
 
-Original bridge continuation Issue #6762 is now confirmed **SUCCEEDED**, not QUEUED; it returned Source \`fbee999c36d3a31601256192f10b817a50329782\`, route \`PREPARE_TYPED_CONTINUATION_WITH_EXACT_PREDECESSOR_AND_FRONTIER\`, predecessor claim \`MCP-d0d70cd041b01e5db192870a\` and predecessor comment \`6390431276\`. This was a read-only result, not a winning CLAIM. This lane's prior ordinary bridge recovery Issue #6759 identified historical session_start FAILED / UPSTREAM_CODE_REVIEW_REQUIRED. No new identity, claim/open or ambiguous write was replayed here.
+Original bridge continuation Issue #6762 is now confirmed **SUCCEEDED**, not QUEUED; it returned Source `fbee999c36d3a31601256192f10b817a50329782`, route `PREPARE_TYPED_CONTINUATION_WITH_EXACT_PREDECESSOR_AND_FRONTIER`, predecessor claim `MCP-d0d70cd041b01e5db192870a` and predecessor comment `6390431276`. This was a read-only result, not a winning CLAIM. This lane's prior ordinary bridge recovery Issue #6759 identified historical session_start FAILED / UPSTREAM_CODE_REVIEW_REQUIRED. No new identity, claim/open or ambiguous write was replayed here.
 
 **Next scientific step:** obtain the true original-class divided-power evaluator/readout for native H0/B0 from the actual authorized execution host and its normalization. An independent scalar proof route may test whether a terminating identity explains the \(\left(\frac{-3}{p}\right)\) sign across all odd primes, while preserving the narrower frozen Task scope.
