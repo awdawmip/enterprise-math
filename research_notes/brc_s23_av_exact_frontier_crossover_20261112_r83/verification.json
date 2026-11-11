@@ -1,0 +1,65 @@
+{
+  "schema": "EM_R83_EXACT_FRONTIER_CROSSOVER_V1",
+  "date": "2026-11-12",
+  "model": "auxiliary rational circular-source; certified stable full-real-interval subclass",
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "status": "LOCAL_EXECUTION_PASSED",
+  "checkpoint": "R83_PASS 6 all-real certificates and 4 pointwise checks per scenario",
+  "method": "R75 heapq C implementation rebuilt each query; R76 immutable Python AVL root retained; same exact R71 certificate",
+  "repetitions_by_g": {
+    "32": 16,
+    "128": 16,
+    "512": 8
+  },
+  "units": "nanoseconds per matched query median",
+  "cases": [
+    {
+      "g": 32,
+      "scenario": "EARLY_WINNER",
+      "heap_ns": 29223,
+      "avl_ns": 30205,
+      "avl_build_nodes": 222
+    },
+    {
+      "g": 32,
+      "scenario": "ALL_EXCLUDED",
+      "heap_ns": 487842,
+      "avl_ns": 586904,
+      "avl_build_nodes": 213
+    },
+    {
+      "g": 128,
+      "scenario": "EARLY_WINNER",
+      "heap_ns": 37045,
+      "avl_ns": 30890,
+      "avl_build_nodes": 1148
+    },
+    {
+      "g": 128,
+      "scenario": "ALL_EXCLUDED",
+      "heap_ns": 2089756,
+      "avl_ns": 2393822,
+      "avl_build_nodes": 1137
+    },
+    {
+      "g": 512,
+      "scenario": "EARLY_WINNER",
+      "heap_ns": 66473,
+      "avl_ns": 31892,
+      "avl_build_nodes": 5626
+    },
+    {
+      "g": 512,
+      "scenario": "ALL_EXCLUDED",
+      "heap_ns": 8580834,
+      "avl_ns": 10657456,
+      "avl_build_nodes": 5613
+    }
+  ],
+  "limitations": [
+    "Isolated winner-frontier comparison, not entire three-index R82 pipeline",
+    "Single-machine unreplicated CPython timing; heapq C vs AVL Python",
+    "Only STABLE and STABLE_NONE certified cases, not general CHANGES witnesses",
+    "No rigorous bit-operation counts; history memory measured by constructed nodes rather than retained bytes"
+  ]
+}
