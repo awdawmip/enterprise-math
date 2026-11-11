@@ -1,0 +1,42 @@
+{
+  "schema": "PREFIX705_R6_BERNSTEIN_STOCHASTIC_ORDER_CORNER_BOX_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "surviving_cells": 9529,
+  "tail_derivative_bernstein_coefficients": {
+    "total": 17766,
+    "nonnegative": 17766,
+    "zero": 4513,
+    "positive": 13253,
+    "negative": 0
+  },
+  "clock_upper_bounds_millionth_ticks": {
+    "low_p_le_1_64": [
+      275220940,
+      275220941
+    ],
+    "high_p_ge_31_64": [
+      193171736,
+      193171737
+    ]
+  },
+  "witness_W_minus_mu_over_2_millionth_ticks": [
+    559812917,
+    559812918
+  ],
+  "strict_margin_millionth_ticks": [
+    9371036,
+    9371037
+  ],
+  "q_domain": "real q>=2",
+  "excluded_boxes": "four closed square corners, side length 1/64",
+  "exclusion_margin": "V_q(0,3/20)-V_q(p,z)>93*q^2/10",
+  "excluded_total_area": "1/1024",
+  "area_multiplier_vs_PREFIX704_triangles": "1870649001/2048",
+  "reuses": [
+    "PREFIX700_R6_STRICT_OPTIMIZER_ORDER.py",
+    "PREFIX701",
+    "PREFIX704"
+  ],
+  "validation": "ALL_CHECKS_PASS PREFIX705-R6",
+  "admission": "AUTHOR_RECOMPUTED/EXACT_FRACTION_BERNSTEIN_CHECKED/UNREVIEWED/NOT_ADMITTED"
+}
