@@ -1,0 +1,85 @@
+{
+  "schema": "ENTERPRISE_MATH_R69_AUXILIARY_EXACT_VERIFICATION_V1",
+  "date": "2026-11-11",
+  "science_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "model": "auxiliary fixed-anchor circle-source observer, nonwrapping original-labelled arc",
+  "theta0": {
+    "numerator": "27413",
+    "denominator": "65521"
+  },
+  "m_values": [
+    8,
+    32,
+    128
+  ],
+  "n_values": [
+    16,
+    64,
+    256,
+    1024
+  ],
+  "source_time_offsets": [
+    "0",
+    "1000000000000000000"
+  ],
+  "query_repetitions": [
+    1,
+    4,
+    16,
+    64
+  ],
+  "cases": 96,
+  "queries_per_algorithm": 2040,
+  "independent_exact_oracle_points_per_algorithm": 10200,
+  "all_assertions_passed": true,
+  "measurement": "single host Python run; time only covers query() calls; oracle excluded; nanoseconds",
+  "q64_by_n": [
+    {
+      "n": 16,
+      "cases": 6,
+      "event_tests_uncached": 5184,
+      "event_tests_cache64": 81,
+      "hits_cache64": 5103,
+      "ns_fraction": 121044901,
+      "ns_integer": 44519140,
+      "ns_cache64": 40567586
+    },
+    {
+      "n": 64,
+      "cases": 6,
+      "event_tests_uncached": 12416,
+      "event_tests_cache64": 194,
+      "hits_cache64": 12222,
+      "ns_fraction": 285363833,
+      "ns_integer": 107262765,
+      "ns_cache64": 94736505
+    },
+    {
+      "n": 256,
+      "cases": 6,
+      "event_tests_uncached": 36736,
+      "event_tests_cache64": 32830,
+      "hits_cache64": 3906,
+      "ns_fraction": 828991721,
+      "ns_integer": 306995561,
+      "ns_cache64": 322548527
+    },
+    {
+      "n": 1024,
+      "cases": 6,
+      "event_tests_uncached": 42816,
+      "event_tests_cache64": 39918,
+      "hits_cache64": 2898,
+      "ns_fraction": 965960732,
+      "ns_integer": 360057931,
+      "ns_cache64": 381785378
+    }
+  ],
+  "limitations": [
+    "n,m,theta0 model bounds are finite",
+    "not a native Heartbeat/BRC program",
+    "exact bit-operation tracing not yet implemented",
+    "no independent review",
+    "full per-case 96-row local JSON not copied in this compact summary; regenerate from source"
+  ]
+}
