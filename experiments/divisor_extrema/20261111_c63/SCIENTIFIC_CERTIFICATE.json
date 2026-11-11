@@ -1,0 +1,148 @@
+{
+  "k_checked": [
+    2,
+    100
+  ],
+  "cut": 63,
+  "least_finite_competitor_stock": 64,
+  "small_cut_competitor_lower_over_U_floor": 14,
+  "canonical_cut_min_over_U_exceeds": "99/100",
+  "prefix_canonical_distortion_exceeds": "377/378",
+  "high_defect_comparison_exceeds": "2",
+  "unbounded_stock_start": 319,
+  "activity_id": "RA-D36D8996C697371BD39116CD",
+  "scientific_status": "AUTHOR_DERIVED_COMPUTER_ASSISTED_INDEPENDENT_REVIEW_PENDING",
+  "uniform_gap": "k>=3: all competitors have TV strictly greater than 2*TV(A_k)",
+  "finite_domain": "k=2..100, by two-minimum rational dynamic programming",
+  "fiber_crosschecks": {
+    "cases": [
+      {
+        "X57": 2,
+        "c": 4,
+        "d": 8,
+        "lower": [
+          "7557",
+          "85/88"
+        ],
+        "r": 1,
+        "upper": [
+          "5775",
+          "1"
+        ]
+      },
+      {
+        "X57": 2,
+        "c": 5,
+        "d": 11,
+        "lower": [
+          "7557",
+          "253/255"
+        ],
+        "r": 1,
+        "upper": [
+          "5775",
+          "22011/21760"
+        ]
+      }
+    ],
+    "checks": {
+      "fiber_inventory_checks": 1470,
+      "legal_outward_transfer_checks": 24153,
+      "nonsingleton_fiber_inventory_checks": 975,
+      "posterior_odds_endpoint_checks": 2940,
+      "word_inventory_checks": 10293
+    },
+    "interior_sync": [
+      {
+        "X57": 4,
+        "c": 2,
+        "d": 6,
+        "r": 1,
+        "rhos": [
+          "13/16",
+          "1",
+          "11/8"
+        ],
+        "size": 3,
+        "words": [
+          "7775577",
+          "7757757",
+          "7577775"
+        ]
+      },
+      {
+        "X57": 23,
+        "c": 10,
+        "d": 8,
+        "r": 2,
+        "rhos": [
+          "8486179/10813440",
+          "1",
+          "6003/5632"
+        ],
+        "size": 35,
+        "words": [
+          "755755555777",
+          "555577775557",
+          "555577577755"
+        ]
+      }
+    ],
+    "order_reversal": {
+      "first": "57777557",
+      "inventories": [
+        {
+          "c": 4,
+          "d": 6,
+          "r": 29,
+          "ratio_of_rhos": "4260864/4260865"
+        },
+        {
+          "c": 4,
+          "d": 6,
+          "r": 30,
+          "ratio_of_rhos": "132275/132273"
+        }
+      ],
+      "second": "75757775"
+    },
+    "success": true,
+    "tied_rho_distinct_update": {
+      "X57": 15,
+      "c": 7,
+      "d": 7,
+      "maps": [
+        {
+          "F(0)": "2130128/83251703",
+          "word": "57577557557"
+        },
+        {
+          "F(0)": "254562/10049503",
+          "word": "75755575775"
+        }
+      ],
+      "r": 2,
+      "rho": "68875/147456"
+    }
+  },
+  "c62_model_crosschecks": {
+    "c62_complete_frontiers_checked": 9,
+    "block_weight_ratio_checks_with_repetitions_across_k": 1485,
+    "full_paths_checked_through_k7": 2352
+  },
+  "native_BRC": {
+    "fiber_sizes": [
+      3,
+      35
+    ],
+    "serial": 1551,
+    "recoalescences": 114,
+    "native_git_blob": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+  },
+  "reproducibility_outputs": {
+    "numeric/schedule_certificates.json": "bbdca3739bd797e359d5ddc94ccd35d9121e620feb2aa1d61e7f6f23f29afa65",
+    "numeric/cut63_full.json": "7325cd59615c4309dc190ff6bc512488b078376b7fd41a6a869d9b14359bf524",
+    "numeric/cut63_extension.json": "2e302e85dd1ed759e44043a34d1d5374ce9f857f8f91c4cf80c013ece62ee4c7",
+    "global/gluing_results.json": "b07cf73735fd3f0c16da531919482af0a94124fb9d12595967ae73271bc1c447"
+  }
+}
