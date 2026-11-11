@@ -168,6 +168,6 @@ results={
  'author_check':'ALL_CHECKS_PASS PREFIX713-R6',
  'evidence_status':'AUTHOR_RECOMPUTED / EXACT_INTEGER_GAMMA_KERNEL / UNREVIEWED / NOT_ADMITTED'
 }
-path=Path(__file__).with_name('PREFIX713_R6_RESULTS.json')
+path=Path(__file__).with_name('PREFIX713_R6_MULTICOMPETITOR_RESULTS.json')
 path.write_text(json.dumps(results,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 print('ALL_CHECKS_PASS PREFIX713-R6',flush=True)
