@@ -6,7 +6,7 @@ five mutually disjoint label key support families and one free sixth key.
 import collections,itertools,sys,json,time
 from pathlib import Path
 P=Path(__file__).resolve().parent
-sys.path.insert(0,str(P/'EC49FJR'))
+sys.path.insert(0,str(P))
 import EC49FGW_RADIUS5_SCREEN as g
 labels=sorted((h,s) for h,ss in g.REQ.items() for s in ss); LI={x:i for i,x in enumerate(labels)}
 keys=sorted({g.raw_key(w) for lab,w in g.all_words()});KI={k:i for i,k in enumerate(keys)}
