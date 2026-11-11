@@ -1,0 +1,54 @@
+{
+  "schema": "R731_V29_GRADED_BRC_LIFT_CERT_V1",
+  "origin": "R730 A/B masks + X6 V29 PASS grammar",
+  "ports": 6,
+  "possible_off_diagonal_PASS_types": 30,
+  "systems": {
+    "A": {
+      "arc_mask": "211733226574",
+      "arc_count": 15,
+      "injective_event_assignment": true,
+      "initial_cycle": [
+        "012",
+        "023",
+        "123",
+        "012"
+      ],
+      "cycle_is_cyclic_nonbacktracking": true,
+      "one_cycle_holonomy": "102",
+      "holonomy_order": 2,
+      "abstract_triad_and_frame_return_after_steps": 6,
+      "native_ledger_increment_on_return": 6,
+      "distinct_PASS_counters_on_return": 3,
+      "nonbacktracking_root_prefixes_tested_through_7_steps": 419
+    },
+    "B": {
+      "arc_mask": "5363347296468",
+      "arc_count": 15,
+      "injective_event_assignment": true,
+      "initial_cycle": [
+        "012",
+        "023",
+        "123",
+        "013",
+        "012"
+      ],
+      "cycle_is_cyclic_nonbacktracking": true,
+      "one_cycle_holonomy": "201",
+      "holonomy_order": 3,
+      "abstract_triad_and_frame_return_after_steps": 12,
+      "native_ledger_increment_on_return": 12,
+      "distinct_PASS_counters_on_return": 4,
+      "nonbacktracking_root_prefixes_tested_through_7_steps": 382
+    }
+  },
+  "null_contrast_pump": {
+    "iterations_checked": 20,
+    "total_completed_PASS_events": 40,
+    "recovered_u_zero": true,
+    "recovered_Omega_zero": true,
+    "ledger_mass": 40,
+    "exact_symbolic_family": "M_k=M_0+k(E_01+E_10): u_k=u_0, Omega_k=Omega_0, Gamma_k=Gamma_0+2k for every k>=0"
+  },
+  "status": "PASS"
+}
