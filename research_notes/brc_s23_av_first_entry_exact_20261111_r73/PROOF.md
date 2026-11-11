@@ -1,0 +1,68 @@
+# R73 / S23-AV: Constant-candidate exact interval membership
+
+Scientific status: independently derived **author-side auxiliary circular-source theorem** with exact computation. **Not** a heartbeat-native BRC/X6 theorem, a formal Task CLAIM, a Result, a Review or mathematical acceptance. Scientific input remains pinned at 43ec6098b1330ae86d0a7863be336c5d97f6ef34, unchanged. Prior evidence: R72 commit 917f62a46d986a757476e0e4bc35ad603eba4fb9, research_notes/brc_s23_av_persistent_phase_index_20261111_r72/PROOF.md.
+
+## Precise problem
+
+R72 used a complete integer-level exact oracle for source membership in a stable nonwrapping arc, by enumerating integer lifts. For a source at a large time t, this can require a number of iterations exponential in the bit length of t. We seek the SAME whole-real-parameter existential answer in a constant number of rational operations.
+
+Let theta lie in a rational closed interval I=[L,U]. Integers t,j,a,b and rational x are supplied. Original-labelled target arc: A(theta)=a theta-k_a, B(theta)=b theta-k_b, where the two floors k_a=floor(a theta), k_b=floor(b theta) remain constant throughout I. Assume 0<=A(theta)<B(theta)<1 throughout I. The source event identity is (t,branch), whose branch remains independently retained. Its phase is alpha(theta)=x+(t-j)theta. Query: does there exist **any real theta** in I with fractional_part(alpha(theta)) in [A(theta),B(theta))?
+
+Define u(theta)=alpha(theta)-A(theta), v(theta)=alpha(theta)-B(theta), and w(theta)=u(theta)-v(theta)=B(theta)-A(theta)>0. By integer lifting, membership at theta is equivalent to existence of an integer k with v(theta)<k<=u(theta). All functions are affine with exact rational coefficients.
+
+## Theorem: three-test exact decision
+
+Let k0=floor(u(L)). There exists a member on I if and only if at least one of the following holds:
+
+1. LEFT_ENDPOINT: k0 > v(L).
+2. LOWER_BOUNDARY_ENTER: u(U)>u(L) and floor(u(U))>k0.
+3. UPPER_BOUNDARY_LEAVE: v(U)<v(L) and v(U)<floor(v(L)).
+
+Otherwise ALL_OUT (the source is absent for **every real theta** in I). This is an exact decision, not a sufficient-only certificate. No enumeration over integer lifts or source phase wrap points is required.
+
+### Witness construction and sufficiency
+
+For condition 1, return theta=L and k=k0.
+
+For condition 2, set k=k0+1. The affine function u increases from u(L)<k to u(U)>=k, so its unique rational crossing theta_* in (L,U] satisfies u(theta_*)=k. Since v(theta_*)=k-w(theta_*)<k, membership holds exactly at theta_*; the included lower boundary matters here.
+
+For condition 3, set k=floor(v(L)). The affine v decreases from v(L)>=k to v(U)<k, yielding a rational crossing theta_* in [L,U) with v(theta_*)=k and u(theta_*)=k+w(theta_*)>k. Because the upper boundary is exclusive, the crossing itself need not qualify. Choose the explicitly positive rational
+
+    delta=min((U-theta_*)/2, w(theta_*)/[2(|t-j-a|+1)])
+
+and return theta=theta_*+delta. Then theta is inside (theta_*,U), v(theta)<k and u(theta)>k. Hence membership holds.
+
+### Necessity
+
+Suppose condition 1 fails but there is a qualifying theta>L and integer k with v(theta)<k<=u(theta). No integer lies in (v(L),u(L)]. Thus either k>u(L) or k<=v(L). If k>u(L), then u has positive slope and u(U)>=u(theta)>=k>u(L); therefore floor(u(U))>floor(u(L)) and condition 2 holds. Otherwise k<=v(L), so v has negative slope and v(U)<=v(theta)<k<=floor(v(L)); condition 3 holds. This exhausts every possibility. A singleton I admits only the first condition.
+
+Therefore the three tests and witnesses prove soundness and completeness for all real theta in the declared interval and retain exact half-open boundary semantics.
+
+## Complexity and strict improvement over the R72 enumerator
+
+The checker uses O(1) rational evaluations/floors/comparisons and at most one rational root and a rational offset. Given bit length N of rational input and integer t,j,a,b, usual exact integer arithmetic has **polynomial** total bit cost in N, including witness output bit length. This is a local exact-query improvement over R72's per-k enumeration; it does not claim sublinear work in the number of source identities or improvement of native BRC.
+
+Example: t=10^30+3, j=x=0, a=1,b=2, I=[6/25,13/50]. Stable arc [theta,2theta) satisfies all assumptions. The upper bound of R72's integer candidate loop equals 20000000000000000000000000000. The new decision checks two endpoints, finds an increasing u integer-crossing and returns the rational witness
+
+    240000000000000000000000000001/1000000000000000000000000000002
+
+without enumerating that many candidates.
+
+## Reproduction and evidence
+
+The attached check_r73.py uses Python Fraction, seed 731126. It compares the three-test algorithm against an **independent** finite integer-level intersection enumeration on 7,339 valid generated instances (including negative time/labels and point intervals). It also directly evaluates the fractional-part predicate at each generated rational witness. All comparisons passed with zero disagreements. Route counts:
+
+- LEFT_ENDPOINT = 2759
+- LOWER_BOUNDARY_ENTER = 1335
+- UPPER_BOUNDARY_LEAVE = 1297
+- ALL_OUT = 1948
+
+Two additional large-time inputs (10^18+3, 10^30+3) were validated by exact witness checking, with integer candidate-span totals evaluated symbolically rather than enumerated. The exact test data and scope are in verification.json. These finite tests support the implementation; the all-real conclusion rests on the proof above. The calculations do not assert any independent mathematical review.
+
+## BRC reuse and residual preservation
+
+The narrow carrier is R72's auxiliary circle source model, not typed native heartbeat/BRC arithmetic. All underlying (t,branch) identities, original labels and observer parameters remain intact. The theorem replaces a calculation but does not quotient out time, branch, old-version sources or future relevant residual. There is no claimed conversion of this auxiliary theorem into the six-axis heartbeat world; that bridge would require a separately typed proof.
+
+## R74: next discriminating research unit
+
+Integrate this exact O(1) per-source predicate into R72's persistent phase-group index while preserving the same ALL_OUT/EXISTS_MEMBER outputs. Compare indexed vs unindexed algorithms using the **same complete whole-real-interval query** across random and favorable phase structures, counting index construction, copy-on-update, cache costs, rational bit operations and witness recovery. Investigate latest-source stability with equal-time branch ties: an existential witness is not a uniform latest-source certificate. Explicitly partition original arcs if they cross zero.
