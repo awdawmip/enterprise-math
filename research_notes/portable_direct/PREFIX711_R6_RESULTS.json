@@ -1,0 +1,28 @@
+{
+  "schema": "PREFIX711_R6_MEAN_AWARE_GAMMA_INTERVAL_V1",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "model": "independent Gamma(N_p,1) clocks; Y=max(T_p,T_z)",
+  "grid_per_axis": 192,
+  "total_ordered_cells": 36864,
+  "survivor_rows": 189,
+  "surviving_count_cells": 9529,
+  "certified_counts": {
+    "PREFIX710": 26445,
+    "all_q": 28724,
+    "q12to24": 28871,
+    "all_q_extra": 2279,
+    "q12to24_extra": 2426
+  },
+  "certified_fractions": {
+    "PREFIX710": "8815/12288",
+    "all_q": "7181/9216",
+    "q12to24": "28871/36864",
+    "all_q_extra": "2279/36864",
+    "q12to24_extra": "1213/18432"
+  },
+  "comparison_witness": "(0,3/20)",
+  "all_q_certificate": "two affine endpoint tests at t=0 and t=1/2",
+  "bounded_q_certificate": "two affine endpoint tests at t=1/24 and t=1/12",
+  "verification": "ALL_CHECKS_PASS PREFIX711-R6",
+  "grade": "AUTHOR_RECOMPUTED / EXACT_INTEGER_GAMMA_KERNEL / UNREVIEWED / NOT_ADMITTED"
+}
