@@ -1,0 +1,57 @@
+{
+  "title": "PREFIX-693-R6",
+  "date": "2026-11-11",
+  "frozen_science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "levels": 189,
+  "survivor_cells": 9529,
+  "bridge": [
+    "264353/5000000",
+    "530659/10000000"
+  ],
+  "q_band": [
+    "63055771/5256000",
+    "660614143/27500000"
+  ],
+  "jets_floor_1e8": {
+    "A": [
+      44000296,
+      -168056589514,
+      -6667624082229,
+      39352687679231,
+      3189837819999830,
+      -36266294695911140
+    ],
+    "B": [
+      789752024,
+      12845959424,
+      -99127959112,
+      -1326952329685,
+      -14895243921676,
+      -1960958310350017
+    ]
+  },
+  "sixth_derivative_bounds": {
+    "A": "201273663850076722544640",
+    "B": "17896441402901698560"
+  },
+  "certified_uniform_derivative_bounds": {
+    "A_prime": "-1751 < A'(z) < -1611",
+    "B_prime": "128 < B'(z) < 129"
+  },
+  "exact_fraction_checker": "PREFIX693_R6_FULL_BRIDGE_UNIQUENESS.py",
+  "display_only_intervals": {
+    "A_prime": [
+      "-1750.049419546131",
+      "-1611.082370723869"
+    ],
+    "B_prime": [
+      "128.32580077014737",
+      "128.59338771985264"
+    ]
+  },
+  "new_theorem": "For all real q in the closed q band, exactly one simple zero of qA(z)-B(z) exists in the whole spatial bridge; analytic increasing inverse, explicit slope bounds.",
+  "verification": "ALL_CHECKS_PASS PREFIX693-R6",
+  "status": "AUTHOR_DERIVED / FULL_189_ROW_EXACT_FRACTION_REPLAY / UNREVIEWED / NOT_ADMITTED",
+  "researcher_id": "EM-DIRECT-951682",
+  "activity_id": "RA-93F7717F1FB34A806E144081"
+}
