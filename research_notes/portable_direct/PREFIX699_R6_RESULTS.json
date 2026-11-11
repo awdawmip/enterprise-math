@@ -1,0 +1,46 @@
+{
+  "id": "PREFIX-699-R6",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "join_interval": [
+    "213/4000",
+    "2663/50000"
+  ],
+  "join_radius_from_center": "13/50000",
+  "A_second_interval_num_den": [
+    [
+      "-239941419115737968581780343917",
+      "6250000000000000000000"
+    ],
+    [
+      "239107966105459406081780343917",
+      "6250000000000000000000"
+    ]
+  ],
+  "B_first_interval_num_den": [
+    [
+      "640121086526073451806094510821",
+      "5000000000000000000000000000"
+    ],
+    [
+      "644474855923926548193905489179",
+      "5000000000000000000000000000"
+    ]
+  ],
+  "A_second_abs_bound": 40000000,
+  "A_first_join_upper_strict": "-1200",
+  "B_first_join_lower_strict": "128",
+  "Q_first_join_lower_strict": "29000000",
+  "integer_neighbor_root_gap_upper_strict": "1/29000000 (for consecutive q in 447..9872)",
+  "Q_interval_left_floor12": "9166464293188",
+  "Q_interval_right_floor12": "446012343644423",
+  "Q_near_zero_floor12": "9872453419496357",
+  "integer_partition": {
+    "Jstar": "10..446",
+    "join": "447..9872",
+    "near_zero": "9873..infinity"
+  },
+  "main_theorem": "For all real q>Q(211/4000), exactly one z in (211/4000,z_A) solves q A(z)=B(z). For integer q>=0 this is iff q>=10.",
+  "verification": "ALL_CHECKS_PASS PREFIX699-R6",
+  "scope": "Exact rational implication of inherited PREFIX-698 and PREFIX-687 certificates; no fresh 189-row recomputation",
+  "review": "UNREVIEWED / NOT_ADMITTED"
+}
