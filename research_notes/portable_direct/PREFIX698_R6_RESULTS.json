@@ -1,0 +1,45 @@
+{
+  "id": "PREFIX-698-R6",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "levels": 189,
+  "live_cells": 9529,
+  "bridge_J": [
+    "211/4000",
+    "213/4000"
+  ],
+  "endpoint_A_floor12": [
+    "858059787356",
+    "17778889403"
+  ],
+  "endpoint_B_floor12": [
+    "7865374402224",
+    "7929604130236"
+  ],
+  "endpoint_Q_floor12": [
+    "9166464293188",
+    "446012343644423"
+  ],
+  "exact_real_q_condition": "Q(211/4000)<q<Q(213/4000)",
+  "integer_q_with_unique_interior_root": [
+    10,
+    446
+  ],
+  "integer_count": 437,
+  "uniform_derivative_certificate": {
+    "A_prime_lower_strict": "-3336",
+    "A_prime_upper_strict": "-25",
+    "B_prime_lower_strict": "128",
+    "B_prime_upper_strict": "129"
+  },
+  "proof_checks": {
+    "A_R_gt_0_017": true,
+    "B_L_gt_7_86": true,
+    "F10_left_positive": true,
+    "F446_right_negative": true,
+    "Q_prime_positive_on_entire_bridge": true
+  },
+  "verification": "ALL_CHECKS_PASS PREFIX698-R6",
+  "verification_scope": "Exact 189-row endpoint zero-jet and strict rational implication of inherited PREFIX-693/695 j<=5 center jet floors and global sixth derivative bounds",
+  "status": "AUTHOR_RECOMPUTED / EXACT_189_ROW_ENDPOINTS_AND_RATIONAL_DERIVATIVE / UNREVIEWED / NOT_ADMITTED",
+  "next": "Certify [0.05325,0.0532600], then test global variance on the complete auxiliary triangle."
+}
