@@ -1,0 +1,13 @@
+# R712 research handoff: triad-to-pair shadow source information
+
+Parent: RS-X6-TRIADIC-CLOSURE-DYNAMICS. Frozen science stays at a72226e2430ffa4786321ac86e7f0c599d5f0389. Source input: R711 six-axis closure PR #2052. No inherited identity, CLAIM or Driver right is asserted.
+
+**Verified locally:** rigorous all-n≥4 maximal-fiber injection theorem; six-axis complete shadow has 477965 distinct triple supports; 6115 possible shadows; 19-bit fixed auxiliary source tag is necessary and sufficient given the exact 15-bit shadow, with an explicit ranking decoder. Two independent exact counts agree. Equal-shadow witness masks 1048575 and 1048574 differ at triple 012.
+
+**Files:** current proof markdown; R712_SHADOW_FIBER_VERIFY.py; R712_SHADOW_FIBER_RESULTS.json. To reproduce, run Python 3.10+ in a writable directory with the verification script; it writes the JSON output and prints R712_SHADOW_FIBER_EXACT_PASS 6115 477965 19 2713 477965. All arithmetic is integer-exact; 2^20 source masks and 2^15 edge-inclusion-exclusion masks were covered.
+
+**Scientific boundary:** candidate 3-uniform Boolean license observer on six native-axis labels. Actual frozen V29/V39 source dynamics and P000 triadic event must still be tested; the graph-theoretic result is ready for exact native applicability testing, not independent theorem admission.
+
+**Next executable:** pin actual V29 PASS/TRANSFER + V39 j + X6 Cell/Link/Port source definitions from immutable task freeze; define 20-bit H for one legal common Cell, time, signed inventory and source population. If no such complete map is legal, extract the legal subfamily and compute its actual shadow fibers with the provided algorithm. Test the event transition on two shadow-equal, source-different legal states; report conservation and S6 covariance. Route to the task's actual active owner and independent Driver review, without taking another owner's lease.
+
+**Control status as observed:** native gateway requests for task, continuation and own Researcher session were queued; later control_result initially reported BACKEND_IDENTITY_CHECK_UNAVAILABLE, operation_sent=false, and subsequently displayed RUNNING for the session. Neither a successful Source Researcher-ID/Activity-ID nor formal ownership is verified at this publication stage. GitHub author-side branch material is a separate durable research artifact.
