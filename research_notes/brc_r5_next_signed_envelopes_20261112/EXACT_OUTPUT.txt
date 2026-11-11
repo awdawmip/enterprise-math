@@ -1,0 +1,54 @@
+R5 next signed affine envelope calculation — 2026-11-12
+Arithmetic: Python fractions.Fraction and exact integer Boolean-lattice dynamic programming.
+Inputs: immutable original R5 frozen 28 rational X and 15 labeled residuals at 435e77af0d180eac32bd1f9c4c464bc4010b7551.
+Computation executed locally by equivalently transcribed source and 15-mask verifier extension; publication wrapper not separately re-run from GitHub bytes.
+
+POSITIVE_NEXT_PREFIX_ENVELOPE
+  next_r=1/1265
+  start_boundary_tied_masks=[11236,29474]
+  next_crossing_masks=[6516,6714,18788,18986,23214,28732,30846]
+NEGATIVE_NEXT_PREFIX_ENVELOPE
+  next_r=-1/2461
+  start_boundary_tied_masks=[14357,26629]
+  next_crossing_masks=[10926,28966]
+POSITIVE_INTERIOR_TAG_COUNTS
+  F=14655 Q=11004 O=6809 E=299
+NEGATIVE_INTERIOR_TAG_COUNTS
+  F=14664 Q=10995 O=6809 E=299
+BOTH_INTERIOR_CHAMBERS
+  unique fixed phase forms=1144
+  moving phase forms Q={3,12,15}
+  distinct generic interior times=1147
+  strict positive initial states at both chamber boundaries=True
+  nonnegative full-ray endpoint at both chamber boundaries=True
+POSITIVE_NEW_COLLISIONS
+  (r=1/2093,q=15,n=546)
+  (r=5/10051,q=12,n=437)
+  (r=7/12581,q=15,n=547)
+  (r=1/1679,q=12,n=438)
+  (r=2/3151,q=15,n=548)
+  (r=7/10097,q=12,n=439)
+  (r=1/1403,q=15,n=549)
+NEGATIVE_NEW_COLLISIONS in decreasing r order
+  (r=-1/4117,q=15,n=537)
+  (r=-1/3289,q=12,n=429)
+  (r=-1/3082,q=15,n=536)
+
+POSITIVE_PHASE_TRANSFERS (r,q,n; fixed/moving before => fixed/moving after; delta moving)
+1/2093,15,546; (1939757328,381887096928) => (1912411728,381914442528); +27345600
+5/10051,12,437; (1282724064,139528111472) => (465095312,140345740224); +817628752
+7/12581,15,547; (2364497424,381914442528) => (1028447232,383250492720); +1336050192
+1/1679,12,438; (1699060312,140345740224) => (1654375672,140390424864); +44684640
+2/3151,15,548; (1864417728,383250492720) => (1531027200,383583883248); +333390528
+7/10097,12,439; (493170768,140390424864) => (357630000,140525965632); +135540768
+1/1403,15,549; (1163469744,383583883248) => (826010064,383921342928); +337459680
+NEGATIVE_PHASE_TRANSFERS (decreasing r)
+-1/4117,15,537; (688205424,379132598736) => (776700912,379044103248); -88495488
+-1/3289,12,429; (425868064,137556558848) => (769873216,137212553696); -344005152
+-1/3082,15,536; (1873401600,379044103248) => (2139666816,378777838032); -266265216
+
+PAIRED_LOSS_CONSERVATION: true for all ten collisions
+FULL_RAY_ENDPOINT_VALID_ORDER_COUNT: 3514190816 in both extended chambers
+PASS_R5_NEXT_TWO_AFFINE_ENVELOPES_AND_10_COLLISION_TRANSFERS
+
+Coverage limits: exact frozen external auxiliary model only; finite all-32767-subset envelope and ten-event integer-DP verification. No formal Source scientific Result, clean independent review, or native-X6 model inference asserted.
