@@ -56,7 +56,7 @@ def fast_ports(p):
     m=(p-1-4*e)//6
     inv=[0]*(2*m+4);inv[1]=1
     for k in range(2,len(inv)):
-        inv[k]=(-p//k * inv[p%k])%p if False else (p-(p//k)*inv[p%k]%p)%p
+        inv[k]=(p-(p//k)*inv[p%k]%p)%p
     prev2=prev1=0
     a=1;b=(1 if e==0 else -5)%p
     c=pow(40 if e==0 else 64,-1,p)
