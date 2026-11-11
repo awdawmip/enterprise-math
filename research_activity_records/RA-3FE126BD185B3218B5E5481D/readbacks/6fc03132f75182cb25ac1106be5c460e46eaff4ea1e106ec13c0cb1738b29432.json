@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/brc_s23_av_persistent_observer_gcd_20261111_r81/check_r81_min.py",
+    "ref": "1d7e851e4caa3d4319fb8f574a2900df6fd0e23f",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r81-connector-observed-check_r81_min-py-1d7e851e4caa",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"R81 exact reproducible checks for observer-independent time-gap GCD.\"\"\"\nfrom fractions import Fraction as Q\nfrom functools import reduce\nfrom math import gcd\nfrom random import Random\n\ndef summary(times):\n    s=sorted(set(times))\n    return (s[0],reduce(gcd,(v-u for u,v in zip(s,s[1:])),0)) if s else (None,0)\ndef query(times,j,a,b):\n    anchor,d=summary(times)\n    return gcd(abs(a),abs(b),d,abs(anchor-j) if anchor is not None else 0)\ndef direct(times,j,a,b):return reduce(gcd,[abs(a),abs(b)]+[abs(t-j) for t in times],0)\ndef frac(v):return v-(v.numerator//v.denominator)\ndef win(times,j,x,a,b,z):\n    A,B=frac(a*z),frac(b*z)\n    if A==B:return None\n    return max((t for t in times if (A<=frac(x+(t-j)*z)<B if A<B else frac(x+(t-j)*z)>=A or frac(x+(t-j)*z)<B)),default=None)\ndef main():\n    R=Random(8120261111)\n    n=0;p=0\n    for _ in range(400):\n        times=[R.randrange(-30,31) for _ in range(R.randrange(0,16))]\n        for _ in range(8):\n            j,a,b=(R.randrange(-40,41) for k in range(3))\n            g=query(times,j,a,b)\n            assert g==direct(times,j,a,b)\n            n+=1\n            if g:\n                z=Q(R.randrange(-20,21),R.randrange(1,15))\n                x=Q(R.randrange(-5,6),R.randrange(1,10))\n                assert win(times,j,x,a,b,z)==win(times,j,x,a,b,z+Q(1,g))\n                p+=1\n    assert summary([4,8])==(4,4) and summary([4,6,8])==(4,2)\n    assert direct([4,6],0,12,24)==direct([4,10],0,12,24)==2\n    assert direct([6],0,12,24)==6 and direct([10],0,12,24)==2\n    for s in [1,7,31,2**127+1]:\n        z=Q(3,10*s)\n        assert query([4*s],0,s,2*s)==query([4*s,5*s],0,s,2*s)==s\n        assert win([4*s],0,Q(0),s,2*s,z) is None\n        assert win([4*s,5*s],0,Q(0),s,2*s,z)==5*s\n    print('R81_MIN_PASS',n,p)\nif __name__=='__main__':main()\n",
+      "display_title": "check_r81_min.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/1d7e851e4caa3d4319fb8f574a2900df6fd0e23f/research_notes/brc_s23_av_persistent_observer_gcd_20261111_r81/check_r81_min.py",
+      "encoding": "utf-8",
+      "sha": "48d64d94ca9c76cd628fcf8a7eccf11856d0dd6c"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
