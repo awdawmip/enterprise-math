@@ -1,0 +1,12 @@
+# High-separation lemma for the fourth-place certificate
+
+At r=63 the exact cut calculation in rank_four.py proves W_cut D/U>49508 at each c=65,...,72, with D a lower bound on every suffix. Only the weaker threshold 121 is needed below. For k≥65: For every schedule with at least one noncanonical edge at r≥64, its TV ratio R to A_k is strictly greater than 250.
+
+Use h=377/378 for simultaneous high canonical-edge distortion, d=99/100 for the universal weighted cut factor, and b=21/10 for each C63 noncanonical multiplicative factor. All quoted edge contributions are L/(G_r Q), where Q=W_next/W. Free endpoint potential W_0≤1. Let p be the positive number of noncanonical high edges.
+
+1. If p≥8 then R>h·d·b⁸>370. If b₀≥3 then W_0≤16⁻² and R>h·d·b·256>530. Hence we may take p≤7 and b₀≤2, i.e. s_start=1−b₀∈{−1,0,1}. Before a noncanonical edge s≤7 since each prior noncanonical edge can raise s by at most 1. At the cut s≤8.
+2. If some high edge has m≥2 then c=r+1+s≤r+8. For r≥64 one has (r+8)/(2r+1)<3/5. Bounding each of the m+1 factor ratios in ρ by (1+4·3/5)/(1+3/5)=17/8 gives ρ≤4^(−m)(17/8)^(m+1)≤4913/8192<3/5 (24565<24576). By C63 Appendix A, τ/(τ+max(1,ρ))² ≥(2/5)16^(−m). Consequently L>(4/25)16^(−m) and L/G_r>16r²16^(−m). Since Q≤16^(2−m), the edge contributes more than r²/16≥256. Thus R>h·d·256>252.
+3. Suppose every high edge has m∈{0,1}. If b₀=2, the first high edge has s=−1, c=r and W_0=1/16. When m=1, the exact inequality |ρ−1|>1/(2r) holds off the canonical inventory, and Q=1. Here τ∈[7/16,63]: its lower bound is C63's, and its upper bound follows from H₀/H₂≤1, D₂/D₀≤3 and (D₂−1)/(D₁−1)≤3 at c'=r−1. On this interval τ/(τ+max(1,ρ))²≥τ/(τ+4)²>1/80 (check its two endpoints). Therefore the initial edge has L/(G_r Q)>5r/8≥40. When m=0, Q=16, ρ−1=3r/(3r+1)>3/4 and τ∈[7,63] by the same ratio bounds; hence L/(G_r Q)>15r²/256≥240. In either case R>h·d·16·40>630.
+4. Finally b₀∈{0,1} and m≤1. The surplus s is nonnegative and nondecreasing. It cannot end at zero: then it would have started at zero, stayed zero, and all high edges would be canonical, contradicting p≥1. Thus s_cut∈{1,...,8} and c_cut∈{65,...,72}. The finite cut assumption gives R>h·b·121>253.
+
+These cases are exhaustive. The only new finite input is the bound at the eight positive-surplus inventories. The infinite-inventory part and exact definitions are C63, §§2–5 and Appendix A, as recorded in inherited/C63_RESEARCH_NOTE.md.
