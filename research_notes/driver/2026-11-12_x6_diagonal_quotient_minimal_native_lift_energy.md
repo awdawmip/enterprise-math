@@ -79,10 +79,25 @@ For $r=(3,4,0)$, one has $S=7$, $Q_{\mathrm{car}}=13$, $\mu_*=-2$, and $G_*=9$. 
 
 All $7^3-6^3=127$ triples $r\in\{0,\ldots,6\}^3$ with $\min_i r_i=0$ were enumerated in Python 3. The check compared $G_*$ with $\lceil 2Q_{\mathrm{car}}/3\rceil$, checked the spectrum formula for $\mu\in[-8,8]$, checked the minimum against levels $\mu\in[-10,10]$, and checked the equality criterion for all pairs $\mu<\nu$ with $\mu,\nu\in[-7,7]$. There were **zero mismatches** in these finite domains; the 127 charts split into $43$ with $S\equiv0\pmod3$ and $42$ in each of the two other residue classes. The proof above is universal; this is supplementary regression evidence only.
 
+
+## Sharp one-bit recovery and a signed-BRC counterexample
+
+The fiber classification yields a precise **full native displacement-recovery** result, not merely an axis query. Given a realizable pair $(r,G(d))$, the compatible integer common levels form a singleton except when $3\mid S$ and $G(d)>G_*(r)$, in which case there are exactly two. Thus an additional binary choice of sign of $\mu-\mu_*$ is necessary and sufficient precisely in the exceptional case; zero extra information is needed otherwise. This is an information-theoretic statement **conditioned on the exact native squared gauge already being available**, not a claim that this gauge can be computed from the observer chart alone.
+
+The extra bit can also matter to exact native shortest-path/BRC readouts. Take $r=(3,0,0)$, with $S=3$ and $\mu_*=-1$. The two nonminimal signed lifts
+
+$
+d_+=(3,0,0)\quad(\mu=0),\qquad d_-=(1,-2,-2)\quad(\mu=-2)
+$
+
+share **exactly the same** observer chart $r$ and squared gauge $G=9$, but their native $L^1$ shortest step counts differ: $T(d_+)=3$ and $T(d_-)=5$. For the stated signed-axis shortest-word convention, with weights $T!/\prod_i|d_i|!$, their path multiplicities are $M(d_+)=1$ and $M(d_-)=30$. These are exact integer calculations in the already established signed-$\mathbb Z^3$ slice; they prove that neither $T$ nor this signed shortest-path multiplicity universally factors through the pair $(\rho(d),G(d))$.
+
+This counterexample closes the immediate factorization discriminator without asserting anything about physical X6 rotation, path-word identity beyond shortest-word counts, or general Weighted-BRC composition laws. The bit recovers the entire signed triple and hence its associated exact shortest-word count, but does **not** by itself identify which of several native paths was traveled, their order/provenance, or a complete dynamical successor rule.
+
 ## Existing sources, obligations and next discriminator
 
 This theorem quantitatively links the already-defined quotient carrier form in definitions/ENTERPRISE_DERIVED_DIAGONAL_DISPLACEMENT_QUOTIENT_20260826.md (verified Git blob 175d2c0f00db8e94a263442dbdc77928c0dc9567) to the retyped signed native gauge in definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md (blob 875e3b274e5be03c5872f782872065a0b96d14eb), and extends research_notes/driver/2026-11-12_x6_lp011_observer_axis_minimal_side_channel.md (blob 8eb065792d646594d16132626e14e9439fa30878). It establishes neither native rotation dynamics nor BRC path-fiber equivalence.
 
 The X6 historical HRI remains REQUEST_REVISION. Unresolved documentary obligations are the exact pre-rebase original LP-011 wording and the secondary digest mismatch in recomputation_summary.json. The existing frozen custody map reports a declared SHA256 a40e89f66ffa42b684b918780994cdfd86b176eebdd3a71d87b89c815e975839, but byte-custody SHA256 21ac687263bc55283be5e50dcbab8dd3b6024900a323f941b3f703077cebf46f and original primary Git blob c6d42b50e75a9c05e93e922e88ddfd9f1e2eb14a. The mathematical theorem does not resolve this historical integrity discrepancy.
 
-Next discriminating question: determine whether signed shortest-BRC path-fiber invariants factor through $(r,G(d))$ when $3\mid S$, using two distinct actual signed lifts with equal $(r,G)$; distinguish endpoint-count invariants from path-word identities and composition.
+Next discriminating question: determine the minimum state needed to recover operation-safe **individual path identity and composition** from a signed endpoint and step-count or multiplicity data; the one-bit theorem above settles only endpoint displacement recovery once the exact native squared gauge is supplied.
