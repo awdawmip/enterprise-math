@@ -1,58 +1,89 @@
 {
-  "schema": "PREFIX704_R6_REFINED_RATIONAL_CORNER_WITNESS_V1",
-  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
-  "witness": "(0,3/20)",
-  "surviving_cells": 9529,
-  "exact_tick_bins": [
+  "schema": "PREFIX704_R6_EXACT_STRUCTURAL_TOY_V1",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_dependencies": [
+    "PREFIX-621",
+    "PREFIX-625",
+    "PREFIX-700",
+    "PREFIX-703"
+  ],
+  "toy_only": true,
+  "model_189_row_recomputed": false,
+  "cad_executed": false,
+  "transition_t": "1/10",
+  "transition_delta_mu": "10",
+  "transition_delta_W": "1",
+  "analytic_branch_Hsecond": "2",
+  "sample_points": [
     {
-      "corner": "c00",
-      "delta_mu_1e6_ticks": [
-        62503978,
-        62503979
+      "t": "0",
+      "H": "10",
+      "active": [
+        0
       ],
-      "delta_W_1e6_ticks": [
-        585040038,
-        585040039
+      "means": [
+        "50"
+      ],
+      "variances": [
+        "10"
       ]
     },
     {
-      "corner": "c01",
-      "delta_mu_1e6_ticks": [
-        -97817334,
-        -97817333
+      "t": "1/20",
+      "H": "3001/400",
+      "active": [
+        0
       ],
-      "delta_W_1e6_ticks": [
-        414603256,
-        414603257
+      "means": [
+        "499/10"
+      ],
+      "variances": [
+        "3999/400"
       ]
     },
     {
-      "corner": "c11",
-      "delta_mu_1e6_ticks": [
-        -105596401,
-        -105596400
+      "t": "1/10",
+      "H": "501/100",
+      "active": [
+        0,
+        1
       ],
-      "delta_W_1e6_ticks": [
-        467493873,
-        467493874
+      "means": [
+        "249/5",
+        "199/5"
+      ],
+      "variances": [
+        "999/100",
+        "899/100"
+      ]
+    },
+    {
+      "t": "1/8",
+      "H": "257/64",
+      "active": [
+        1
+      ],
+      "means": [
+        "159/4"
+      ],
+      "variances": [
+        "575/64"
+      ]
+    },
+    {
+      "t": "1/2",
+      "H": "-43/4",
+      "active": [
+        1
+      ],
+      "means": [
+        "39"
+      ],
+      "variances": [
+        "35/4"
       ]
     }
   ],
-  "gap_lower": "(414603256+97817333*t)/1000000, 0<=t<=1/2",
-  "derivative_envelope": "17931816+17766*t",
-  "adaptive_radius": "(414603256+97817333*t)/(1000000*(17931816+17766*t))",
-  "radius_q_ge_2": "1/43251",
-  "radius_q_12_to_24": "1/42840",
-  "radius_q_2": "1/38707",
-  "normalized_margin_q_ge_2_gt": "4/1000",
-  "normalized_margin_q12_24_gt": "8/100",
-  "area_multiplier_all": "2148971449/1870649001",
-  "area_multiplier_q12_24": "2098464481/1835265600",
-  "dependencies": [
-    "PREFIX700",
-    "PREFIX701",
-    "PREFIX702"
-  ],
-  "verification": "ALL_CHECKS_PASS PREFIX704-R6",
-  "status": "AUTHOR_RECOMPUTED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+  "scope": "exact Fraction check for a two-branch illustrative envelope; BRC theorem proofs are symbolic deductions from pinned-source antecedents",
+  "status": "AUTHOR_DERIVED; EXACT_RATIONAL_TOY_CHECKED; UNREVIEWED; NOT_ADMITTED"
 }
