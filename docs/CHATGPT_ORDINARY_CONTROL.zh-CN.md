@@ -6,7 +6,7 @@ Protocol: `EM_CHAT_CONTROL_V1` · English: [CHATGPT_ORDINARY_CONTROL.en.md](CHAT
 
 ## 传输适用范围
 
-本文描述 `EM_CHAT_CONTROL_V1` GitHub Issue 桥。本文“无需先登记、无需 session_key”的 `recovery_status` 不适用于 Sites 的 `em_site_control/recovery_status`；Sites 要求自己的服务签发能力。已启用的 owner private custody 使用 `em_private_session_control/status` 找回原 profile，再以 `use` 代理原生调用，密钥留在宿主。使用自己的 lane session 与已有 CLAIM/run，不将公共 owner profile 当作其他研究者身份；不换 subject 或借旧 session 绕过拒绝。具体消费路线见 Sites 中控台的当前 private custody 合同和 profile 发现结果。
+本文描述 `EM_CHAT_CONTROL_V1` GitHub Issue 桥。本文“无需先登记、无需 session_key”的 `recovery_status` 不适用于 Sites 的 `em_site_control/recovery_status`；Sites 要求自己的服务签发能力。已启用的 owner private custody 使用 `em_private_session_control/status` 找回原 profile，再以 `use` 代理原生调用，密钥留在宿主。使用自己的 lane session 与已有 CLAIM/run，不将公共 owner profile 当作其他研究者身份；不换 subject 或借旧 session 绕过拒绝。具体消费路线见 Sites 中控台的当前 private custody 合同和 profile 发现结果。两种传输按各自既有身份选择，GitHub 桥并非仅为 Sites 不可用时备用。
 
 ## 1. 准确入口与请求格式
 
@@ -49,7 +49,7 @@ Source 指 `awdawmip/enterprise-math`。研究需要其基础时，TASK、Driver
 |---|---|---|
 | `status` | 无，`{}` | 返回操作名、enabled、当前 conversation 服务会话；不授予研究权限 |
 | `dispatch` | 无 | `kind`: `RESEARCH`（默认）、`GOVERNANCE`、`ANY`；可选 `priority`: `P0`、`P1`、`P2`、`P3`；省略保留普通路由，显式 null 拒绝；核对原生 `selection_filter` |
-| `pre_final` | `parent_liveness` 和下述对应路径字段 | 只读调用原生最终回复门；注册、freeze、review 或 close 成功不等于允许最终回复 |
+| `pre_final` | `{}`；兼容旧字段 | 可选、非阻断的沟通提示；不检查或授予正式任务完成权 |
 | `tasks` | 无 | `limit` 默认 20、1–100；`cursor`、`dispatch_state`；分页复用返回 cursor |
 | `task` / `continuation` | `task_id` | 精确任务/续接包；有现存会话时服务自动绑定 |
 | `artifact` | `packet_request_id`, `path` | `start_char=0`, `char_count=12000`（最多 24000）、`source_commit`、`related_start=0`；依赖成功的 continuation/artifact/publish_checkpoint；0.6.6 还可按 preserve 回执的 `manifest_read` 读取中立清单 |
@@ -70,7 +70,7 @@ QUEUED/RUNNING/POSTING/RECONCILE 时继续读原请求；OUTCOME_UNKNOWN 时发 
 
 `task_id` 可省略；若有旧贡献身份，必须填入 `prior_contribution_ids`，示例空数组只表示确实没有既往贡献。Driver 用 `role=RESEARCH_DRIVER`、`research_mode=RESEARCH_DRIVER`。角色/模式不允许混搭；一个 conversation 同时只有一个未关闭服务会话。服务生成 session、Researcher/Driver ID、CLAIM、ER、publication/taskbook pin、generation 和授权；**对话只传前一步 request_id，不抄 pin、不手拼身份，不传 session_key。** 私有 session key 保存在服务器，不写 GitHub。
 
-研究员通常执行 `dispatch → session_start → prepare → claim → open → artifact_upload → publish_checkpoint → freeze`。每步必须先拿到前一步 SUCCEEDED 并检查实际任务和约束；注册或 prepare 成功不等于取得 CLAIM。
+已有本 lane 的合法 session 先复用；当前有用研究先继续。新单元经 `dispatch → 理解所选 Task → prepare／typed continuation → claim → open`，每步消费原成功回执。GitHub Chat 可调用实际已宣告的 `worker_pull`：先恢复原工作或取得建议，模型决定采用后按返回的 selection／packet 请求继续，直至真实 `RUN_READY`。Sites 使用既有原生接口，按实际宣告的 `worker_transition.native` 续下一步；无需迁移为 Chat 身份。注册或 prepare 成功不等于 CLAIM，选题不等于领取；不为此另加启动全扫描。已有 GitHub 成果在需要正式 Result 时可用 `freeze_github`，无需再复制正文。
 
 | operation | payload 必填 | 行为/注意 |
 |---|---|---|
@@ -149,16 +149,11 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 
 服务器控制接口不提供任意 shell，也不运行上传的数学代码；pinned spectralDNS/shenfun/MPI/FFTW、Lean 等真正实验仍需实际宿主和任务指定证据。环境缺失时保存前沿与最小未完单元，不重复数学来凑次数。不得仅凭服务测试/提示发布宣称原普通 ChatGPT 已验收成功。
 
-## 8. 最终回复前的只读检查
+## 8. 沟通与正式完成权分开
 
-正式研究路径最终回复前，通过同一 GitHub 通道提交 `pre_final`，由服务器运行已准入 Source 的 `tools/research_runtime_guard.py` 原生判据。freeze/review 成功或 session_close 都不代替 PRE_FINAL。`status=SUCCEEDED` 仅指评估完成；必须读取 `receipt.result.final_allowed` 与 `required_action`。false 时继续指定动作。该检查不授数学或执行权限。
+依据 [PORTABLE_RESEARCH_PROTOCOL.md](PORTABLE_RESEARCH_PROTOCOL.md)，普通成果、欠项和下一动作汇报不需要先提交 `pre_final`。桥的 `pre_final {}` 是可选、非阻断提示，返回 `authorized=false`、`formal_task_completion_checked=false`；旧 liveness／receipt 字段只作兼容，不是回复许可。登记、freeze、review、close 或结束一条回复均不自动赋予正式任务／父目标完成权，也不自动释放 CLAIM。
 
-- 正式任务已冻结或已交接：传本会话成功 open/resume 的 `run_request_id`、成功 freeze 或 release=true 的 publish_checkpoint 对应 `completion_request_id`，以及 `parent_liveness`。已经冻结/关闭的历史 run 仍可检查，不重新授权已结束研究。服务器校验真实回执、session 与 Source 执行意图，并从当前 Source 推导父目标是否关闭；客户端填 COMPLETE 不能覆盖。其它正式状态暂不支持，不冒称完成。
-- 无正式 run 的 Driver 控制工作：传自己的 `session_request_id` 与 `parent_liveness`；可选 `research_mode` 只能为 `RESEARCH_DRIVER`。该 Driver session 已有正式 run 时必须走正式路径。
-- 本逻辑会话从未发行研究 session，且无正式 task/claim/execution 或 activity 绑定的 `CONTROL_PLANE_MAINTENANCE`：直接依据真实父目标、已完成动作与剩余阻断报告；可按需复用已有本地 liveness 结果。无需为允许回复而创建八字段自报对象或远端请求。需要诊断时仍可选传 `research_mode=CONTROL_PLANE_MAINTENANCE` 与 `parent_liveness`；其 `authorized=false` 不授任何研究/写入权限。诊断服务不可用不阻止如实报告，不能据此称父目标已完成。不能删去既有研究绑定或把研究会话改称维护来选择此例外。
-
-实际调用正式或可选诊断 API 时，`parent_liveness` 保留真实原父目标，严格包含八个布尔字段：`parent_objective_complete`、`user_requested_stop_pause_review_or_wait`、`parent_hard_blocker`、`platform_or_tool_hard_limit`、`independent_safe_work_exhausted`、`same_action_repeated_without_state_change`、`supported_alternative_available`、`parent_state_recomputed_without_change`；另有非负整数 `executable_next_actions`，可选布尔 `continuation_lease_active`。不得为获得 final 而虚构用户停止要求或硬限制。正式父目标完成状态由 Source 独立推导；closure 未核实时明确返回 false 和修复/核对动作。保存回执中的 Source pin 与 evaluated-state hash。
-
+需要正式完成权时，使用 Source 实际支持的正式检查（原生 CLI 的 `--formal-task-completion`）及其当前任务、父目标和证据约束；不要把本桥可选提示当成该检查。保留真实身份和 EM-Source-Status 角标，按实际持久化回读报告成功或欠项，不为角标制造研究写入。
 
 ## Portable research delivery (2026-09-23)
 
@@ -168,7 +163,7 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 
 新回执以 `delivery_requirements` 公开交付要求，不暴露任何私有 capability。若 `continuation_seed.state=CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS`，表示当前可信 Source 中的任务初始输入仍未被可验证的 owner 进展替代。读取其 `input_artifacts`，将成功的本会话 `artifact` 请求传给 `continuation_prepare.artifact_request_ids`，并提供真实 `frontier_notes`；此路径的 `completed_units` 必须为空，不能把初始输入当作前任完成成果。仍需匹配 Task/publication/前任 CLAIM/comment 并取得新 CLAIM/open；有活跃 owner 或来源隔离时不得绕过原路线。
 
-已关闭、从未 CLAIM/open 的真实 Researcher 会话也可用自己的 `session_request_id` 和真实 `parent_liveness` 请求 `pre_final`。服务保留 Researcher/RA 类型并复核当前 Source；存在下一研究动作时返回 `final_allowed=false` 和 `next_research_route`，继续研究。这个入口不授予完成状态，也不是伪装为维护会话的退出通道。
+已关闭或从未 CLAIM/open 的 Researcher 同样按实际成果和剩余工作汇报；无需为了回复重复登记或请求 `pre_final`。旧版本有关强制 pre_final／liveness 的描述由上节当前沟通合同取代；正式研究状态仍沿真实原生工具推进。
 
 
 ## 0.6.4：审阅综合、后继任务和完整动作摘要
@@ -204,3 +199,5 @@ checkpoint 中 `completed_units`、`do_not_repeat` 是字符串数组；`current
 
 P11 的裸 publication 初始标记属于另一种情况：只有 Source 返回 `CURRENT_TASK_INPUTS_WITH_NO_RECORDED_OWNER_PROGRESS` seed 后，读取其精确 `input_artifacts` 并提交对应本会话 artifact 请求；`frontier_notes.completed_units=[]`。已接受父成果写入来源/`do_not_repeat`，不能把任务 publication 或未发布草稿填作前任完成研究。缺 seed 时重复读取父 Result 不会修复该控制缺口。
 
+
+已有实际研究成果时，及时保存 Source 并更新自己的既有 activity checkpoint；参照已读 activity 规则和 `tools/research_activity.py` 的 checkpoint／connector JSON CAS 合同记录真实来源。activity 记账、共享任务 CLAIM、Source semantic checkpoint 和 Result 分别回读，不能用作者分支保存代替其它实际未做的状态变更。
