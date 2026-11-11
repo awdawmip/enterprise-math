@@ -1,0 +1,51 @@
+{
+  "schema": "EC49FJV_RADIUS7_TRIPLE_FINITE_THEOREM_V1",
+  "pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "date": "2026-11-11",
+  "model": "Frozen nine-state BRC, 178850 legal words, 94 complete raw cache keys; fixed 17 words retain original seven complete keys",
+  "per_profile": {
+    "B5": {
+      "contexts": 10556,
+      "singleton": 0,
+      "pair": 7920,
+      "new_triple": 2636,
+      "unresolved": 0,
+      "original_upper_bound": 94
+    },
+    "B7": {
+      "contexts": 12252,
+      "singleton": 8472,
+      "pair": 1260,
+      "new_triple": 2520,
+      "unresolved": 0,
+      "original_upper_bound": 94
+    },
+    "prior_EC49FJU_certificates": 66980,
+    "new_EC49FJV_certificates": 5156,
+    "total_certificates": 72136,
+    "retained_seven_contexts": 153408,
+    "retained_seven_unresolved": 81272,
+    "released_key_contexts": 192696
+  },
+  "both_profiles_new_exact_94_certificates": 10312,
+  "both_profiles_combined_certificates": 144272,
+  "all_resolved_retained_key_budget_classes": [
+    -1,
+    1,
+    3,
+    5,
+    7,
+    10
+  ],
+  "crosschecks": {
+    "source": "R7_TRIPLE_DIRECT_CHECK.py",
+    "tested": 40,
+    "pass": true
+  },
+  "source_persistence": {
+    "surface": "GitHub Draft PR 1730",
+    "formal_result": false,
+    "independent_driver_review": false
+  },
+  "next": "Exact native 7-demand trie for 81272 retained-key cases per witness; key-aware DP for 192696 released-key cases; direct global 93-prefix constructive search"
+}
