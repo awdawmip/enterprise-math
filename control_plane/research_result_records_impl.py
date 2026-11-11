@@ -311,6 +311,7 @@ def freeze_result(
     next_control_plane_recommendation: str,
     frozen_at: str,
     root: Path = ROOT,
+    artifact_sources: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     execution = execution_map(root).get(execution_record_id)
     if execution is None:
@@ -333,14 +334,29 @@ def freeze_result(
         raise ResultRecordError("invalid source_exposure_status")
     if not next_control_plane_recommendation.strip():
         raise ResultRecordError("next_control_plane_recommendation is required")
-    if not return_path.exists():
-        raise ResultRecordError(f"return artifact does not exist: {return_path}")
-    return_rel = _relative(return_path, root)
-    all_paths = list(output_paths)
-    if return_rel not in {_relative(path, root) for path in all_paths}:
-        all_paths.append(return_path)
-    manifest = build_output_manifest(all_paths, execution, root)
-    return_blob = _blob(return_path)
+    from control_plane import research_result_github_artifacts as github_artifacts
+    if artifact_sources is None:
+        artifact_sources = github_artifacts.current_freeze_sources()
+    if artifact_sources is not None:
+        # A reference reads material; it does not write into an execution output
+        # directory. Resolve lexical repository paths without consulting main.
+        def reference_path(path):
+            relative = path.relative_to(root) if path.is_absolute() else path
+            return github_artifacts.relative_path(relative.as_posix())
+        return_rel = reference_path(return_path)
+        selected = list(dict.fromkeys([*(reference_path(path) for path in output_paths), return_rel]))
+        artifact_sources, manifest = github_artifacts.reference_manifest(artifact_sources, selected, root)
+        returned = next(row for row in manifest if row["path"] == return_rel)
+        return_blob, return_digest = returned["git_blob_sha1"], returned["sha256"]
+    else:
+        if not return_path.exists():
+            raise ResultRecordError(f"return artifact does not exist: {return_path}")
+        return_rel = _relative(return_path, root)
+        all_paths = list(output_paths)
+        if return_rel not in {_relative(path, root) for path in all_paths}:
+            all_paths.append(return_path)
+        manifest = build_output_manifest(all_paths, execution, root)
+        return_blob, return_digest = _blob(return_path), _sha256(return_path)
     rid = result_id(task_id, execution_record_id, return_blob, owner_head.lower())
     value: dict[str, Any] = {
         "record_schema": RESULT_SCHEMA,
@@ -355,7 +371,7 @@ def freeze_result(
         "execution_branch_base": execution["execution_branch_base"],
         "return_path": return_rel,
         "return_blob_sha1": return_blob,
-        "return_sha256": _sha256(return_path),
+        "return_sha256": return_digest,
         "owner_head": owner_head.lower(),
         "researcher_id": execution["researcher_id"],
         "frozen_at": frozen_at,
@@ -369,6 +385,8 @@ def freeze_result(
         "next_control_plane_recommendation": next_control_plane_recommendation,
         "driver_review_required": True,
     }
+    if artifact_sources is not None:
+        value["artifact_sources"] = artifact_sources
     if execution.get("execution_cohort_id") is not None:
         value.update(
             {
@@ -465,14 +483,22 @@ def audit_result_record(
             for field in ("execution_cohort_id", "execution_lane_id", "lane_output_prefix"):
                 if item.get(field) != execution.get(field):
                     errors.append(f"{prefix}: execution-linked lane field mismatch: {field}")
-    path_value = item.get("return_path")
-    if not isinstance(path_value, str) or not (root / path_value).exists():
-        errors.append(f"{prefix}: return artifact missing")
+    github_reference = "artifact_sources" in item
+    if github_reference:
+        from control_plane.research_result_github_artifacts import audit_references
+        try:
+            audit_references(item, root)
+        except (ValueError, OSError, KeyError, TypeError) as exc:
+            errors.append(f"{prefix}: committed GitHub artifact unavailable or invalid: {exc}")
     else:
-        if not _same_git_blob_identity(_blob(root / path_value), item.get("return_blob_sha1")):
-            errors.append(f"{prefix}: return artifact blob drift")
-        if _sha256(root / path_value) != item.get("return_sha256"):
-            errors.append(f"{prefix}: return artifact SHA-256 drift")
+        path_value = item.get("return_path")
+        if not isinstance(path_value, str) or not (root / path_value).exists():
+            errors.append(f"{prefix}: return artifact missing")
+        else:
+            if not _same_git_blob_identity(_blob(root / path_value), item.get("return_blob_sha1")):
+                errors.append(f"{prefix}: return artifact blob drift")
+            if _sha256(root / path_value) != item.get("return_sha256"):
+                errors.append(f"{prefix}: return artifact SHA-256 drift")
     if item.get("terminal_verdict") not in TERMINAL_VERDICTS:
         errors.append(f"{prefix}: invalid terminal_verdict")
     if item.get("method_harvest") not in METHOD_HARVEST:
@@ -495,6 +521,8 @@ def audit_result_record(
             if not isinstance(output, dict) or not isinstance(output.get("path"), str):
                 errors.append(f"{prefix}: invalid output manifest row")
                 continue
+            if github_reference:
+                continue  # Actual selected bytes were audited above, independently of main.
             path = root / output["path"]
             if not path.exists():
                 errors.append(f"{prefix}: output missing: {output['path']}")
@@ -646,6 +674,7 @@ def main() -> int:
     freeze.add_argument("--return-path", required=True)
     freeze.add_argument("--output-paths-json", required=True)
     freeze.add_argument("--owner-head", required=True)
+    freeze.add_argument("--artifact-sources-json")
     freeze.add_argument("--terminal-verdict", choices=sorted(TERMINAL_VERDICTS), required=True)
     freeze.add_argument("--hard-target-disposition", required=True)
     freeze.add_argument("--unresolved-residue", required=True)
@@ -670,7 +699,10 @@ def main() -> int:
     audit_parser = sub.add_parser("audit")
     audit_parser.set_defaults(func=command_audit)
     args = parser.parse_args()
-    return args.func(args)
+    from control_plane.research_result_github_artifacts import freeze_sources
+    references = json.loads(args.artifact_sources_json) if getattr(args, "artifact_sources_json", None) is not None else None
+    with freeze_sources(references):
+        return args.func(args)
 
 
 if __name__ == "__main__":
