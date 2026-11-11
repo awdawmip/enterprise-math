@@ -1,0 +1,132 @@
+{
+  "status": "R717_ODD_RING_ASYMMETRY_EXACT_PASS",
+  "date": "2026-11-11",
+  "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_science_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "counting_scope": "odd m>=5; A=m+3; rooted phase-pair words with spatially labelled edges; each edge two independent source-order choices",
+  "reproduction_command": "python3 R717_ODD_ASYMMETRY_VERIFY.py",
+  "exact_formula": "W_m(r)=8*m*binom(k+r+1,2*r+1), k=(m-5)/2",
+  "complete_enumerations": [
+    {
+      "m": 5,
+      "rooted_words": 40,
+      "R_histogram": [
+        40
+      ]
+    },
+    {
+      "m": 7,
+      "rooted_words": 168,
+      "R_histogram": [
+        112,
+        56
+      ]
+    },
+    {
+      "m": 9,
+      "rooted_words": 576,
+      "R_histogram": [
+        216,
+        288,
+        72
+      ]
+    },
+    {
+      "m": 11,
+      "rooted_words": 1848,
+      "R_histogram": [
+        352,
+        880,
+        528,
+        88
+      ]
+    },
+    {
+      "m": 13,
+      "rooted_words": 5720,
+      "R_histogram": [
+        520,
+        2080,
+        2184,
+        832,
+        104
+      ]
+    },
+    {
+      "m": 15,
+      "rooted_words": 17280,
+      "R_histogram": [
+        720,
+        4200,
+        6720,
+        4320,
+        1200,
+        120
+      ]
+    },
+    {
+      "m": 17,
+      "rooted_words": 51272,
+      "R_histogram": [
+        952,
+        7616,
+        17136,
+        16320,
+        7480,
+        1632,
+        136
+      ]
+    }
+  ],
+  "additional_exact_integer_checks": {
+    "k_start": 0,
+    "k_end": 500,
+    "parameter_sets": 501,
+    "m_start": 5,
+    "m_end": 1005,
+    "checks": [
+      "binomial distribution sum = Fibonacci F_(2k+2)",
+      "first and second derivative recurrences",
+      "exact rational mean and variance",
+      "r0 and r1 formulas"
+    ]
+  },
+  "sample_exact_statistics": [
+    {
+      "m": 7,
+      "mean": {
+        "numerator": "1",
+        "denominator": "3"
+      },
+      "variance": {
+        "numerator": "2",
+        "denominator": "9"
+      }
+    },
+    {
+      "m": 9,
+      "mean": {
+        "numerator": "3",
+        "denominator": "4"
+      },
+      "variance": {
+        "numerator": "7",
+        "denominator": "16"
+      }
+    },
+    {
+      "m": 15,
+      "mean": {
+        "numerator": "25",
+        "denominator": "12"
+      },
+      "variance": {
+        "numerator": "143",
+        "denominator": "144"
+      }
+    }
+  ],
+  "method": "full combinatorial cyclic-word enumeration for small m and independent exact recurrence against 501 combinatorial coefficient sets",
+  "review": "UNREVIEWED_AUTHOR_SIDE_PROOF",
+  "next_question": "Native V39 observer-equivariance and minimal predictive repair coordinate for same (m,A,D) histories"
+}
