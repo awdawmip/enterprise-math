@@ -1,0 +1,35 @@
+{
+  "schema": "EC49FIX_EXECUTED_AUDIT_V1",
+  "frozen_science": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "execution": "2026-11-11",
+  "original_grammar": "EC49FGW_RADIUS5_SCREEN.py frozen pinned at fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "native_scope": "signed ordered X6 microstep prefix sets; seven complete raw cache keys",
+  "primary_python": {
+    "command": "python VERIFY_EC49FIX.py",
+    "runtime_seconds": 6.44,
+    "peak_rss_kib": 161172,
+    "stdout": [
+      "EC49FIX_PROFILE_PASS A B3 release 8856, previously singleton 3540, new forced-key pair 5310, alternative-key previous 6",
+      "EC49FIX_PROFILE_PASS B B3 release 8856, previously singleton 3540, new forced-key pair 5310, alternative-key previous 6",
+      "EC49FIX_EXACT_PASS new 10620; all within-7-original-key B3 released backgrounds certified"
+    ]
+  },
+  "independent_cpp": {
+    "compile": "g++ -std=c++17 -O3 VERIFY_PAIR_EC49FIX.cpp -o verify_pair",
+    "reproduction": "verify_pair <reconstructed EC49FIO TRIE_A.txt or TRIE_B.txt> <regenerated B3_REP_MASKS_A.txt or B3_REP_MASKS_B.txt>",
+    "trie_nodes_per_profile": 42735,
+    "fixed_prefix_groups_per_profile": 10,
+    "computed_pair_minima_per_profile": 2760,
+    "H8_pair_assertions_per_profile": 6,
+    "result": [
+      "EC49FIX_INDEPENDENT_PAIR_PASS A groups 10 all-pair-minima 2760 H8-pairs-confirmed 6",
+      "EC49FIX_INDEPENDENT_PAIR_PASS B groups 10 all-pair-minima 2760 H8-pairs-confirmed 6"
+    ],
+    "note": "An initial invocation accidentally supplied 2,760-row pair-output data instead of the 42,735-row source trie; that invocation failed its input-size assertion. Re-ran on the correct original FIO trie inputs: all 5,520 pair computations and twelve H8 checks passed."
+  },
+  "proof_status": "author-side exact finite computational proof; mathematical Driver review pending",
+  "files_required": [
+    "EC49FGW_RADIUS5_EXACT_SCREENS_20261110/EC49FGW_RADIUS5_SCREEN.py",
+    "EC49FIO_RADIUS6_B13_FULL_DP_20261111/MAKE_INPUT_EC49FIO.py"
+  ]
+}
