@@ -2,8 +2,8 @@
 """Complete exact triple necessary-condition screen for radius-seven B11 pairscreen survivors."""
 import json,collections,itertools,sys,time
 from pathlib import Path
-from EC49FJW_RADIUS7_B9_PAIR import g, bykey, choices_by_label
-import EC49FJW_RADIUS7_B9_PAIR as pair_module
+from EC49FJX_RADIUS7_B11_PAIR import g, bykey, choices_by_label
+import EC49FJX_RADIUS7_B11_PAIR as pair_module
 pair_module.B=11
 B=11
 
