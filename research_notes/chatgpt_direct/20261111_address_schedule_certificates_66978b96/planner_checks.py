@@ -5,7 +5,7 @@ different internal states.  The physical BRC runs are supplied in separate files
 """
 from __future__ import annotations
 from collections import Counter
-from itertools import product, permutations
+from itertools import product
 from math import comb
 from pathlib import Path
 from time import perf_counter
@@ -157,7 +157,6 @@ def main():
     larger=large_case()
     L=LifetimePlanner(2,())
     assert L.value(((0,0),(0,0)),0)==0
-    atlas=None  # Prepared separately only if it answers a scientific question.
     result=dict(status='PASS',unit='One fresh residue-bit query costs 8; weights use complete positive keys; fixed BRC words are separate.',
                 scope='Exact control decision games and static replays. No original BRC run is counted by this script.',
                 small_cases=checks,all_preparations_per_policy_small=sum(c['all_static_preparations_replayed_by_each'] for c in checks),
