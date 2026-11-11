@@ -6,7 +6,7 @@ Frozen scientific pins: GLOBAL `a01383f825ef9d43b4b754254303298c64041568`, EM `8
 
 ## Exact model
 
-The seven target likelihood ratios are (r_i=(2,10,15,20,25,30,38)_i/20), with distinct values. The four variable source ports are (J=\{1,2,3,5\}); singleton arcs at (0,0), (6,6) have zero residual. The 21-by-30 observer (C) records target marginal masses, source marginal masses, and first target-ratio moments at each source. Let (F_b=\{E\ge0:CE=b\}). A signed six-arc (K_{2,3}) atom places opposite zero-mass/zero-first-moment three-target vectors at two source ports. Define (L(d)) as the least number of arbitrarily real-scaled such atoms summing to (d\in\ker C).
+The seven target likelihood ratios are $r_i=(2,10,15,20,25,30,38)_i/20$, with distinct values. The four variable source ports are $J=\{1,2,3,5\}$; singleton arcs at (0,0), (6,6) have zero residual. The 21-by-30 observer (C) records target marginal masses, source marginal masses, and first target-ratio moments at each source. Let $F_b=\{E\ge0:CE=b\}$. A signed six-arc (K_{2,3}) atom places opposite zero-mass/zero-first-moment three-target vectors at two source ports. Define (L(d)) as the least number of arbitrarily real-scaled such atoms summing to (d\in\ker C).
 
 ## Theorem 1 — iff criterion for sharp adjacent rays
 
@@ -17,18 +17,18 @@ For any nonempty observer fiber (F_b) and distinct adjacent vertices (V,W), (d=W
 By the global sharp bound and necessary geometry proved in PR #2043, any (L(d)=4) adjacent ray has four active source ports, 14 signed nonzero arcs, source degrees (3,3,4,4) and exactly two nonzeros at each of seven targets. Adjacent edge support (S) is a linear-matroid circuit: (dim\ker C_S=1) and its unique nonzero direction has full support. Conversely, throughout the proof start with any adjacent ray having this degree pattern.
 
 Write (p,q) for degree-three ports and (h,k) for degree-four ports; let (m_{uv}) count target labels linking (u,v). Degree equations imply
-[
-m_{hk}=m_{pq}+1,quad m_{ph}=m_{qk}=x,quad
+$
+m_{hk}=m_{pq}+1,\quad m_{ph}=m_{qk}=x,quad
 m_{pk}=m_{qh}=3-m_{pq}-x.
-]
+$
 If any source pair shared three distinct target labels, those six arcs would themselves contain a nonzero (K_{2,3}) kernel vector, contradicting circuit minimality of the 14-arc support. Thus (a=m_{pq}\in\{0,1\}).
 
 **Three-atom criterion.** Every source row with three nonzero targets needs at least one atom appearance; a row with four needs at least two. Three atoms provide exactly six source appearances, exhausting the minimum (1+1+2+2=6). If (p,q) are paired to each other in one atom, their entire three-target supports must coincide and be negatives. The other four target labels would all join (h,k), which contains a proper six-arc kernel circuit. Hence a three-atom representation must pair (p) with one high port, (q) with the other high port, and have a final atom between (h,k).
 
 For the matching (p\leftrightarrow h, q\leftrightarrow k), the first two atoms are uniquely fixed by the complete three-target rows of (p,q). Their subtraction leaves opposite residual high rows with zero mass and first moment, supported exactly on target labels **not** linking (p-h) or (q-k). The residual support therefore has size (7-m_{ph}-m_{qk}). A nonzero zero-mass/zero-moment row on distinct ratios must use at least three labels; it is one atom if and only if this size is at most three. Therefore a three-atom representation exists iff one of the two matchings has at least four target labels:
-[
+$
 L(d)=3 \iff \max\{m_{ph}+m_{qk},m_{pk}+m_{qh}\}\ge4.
-]
+$
 Two atoms are impossible by the six required source appearances.
 
 When (a=0), the matching sizes are (2x) and (2(3-x)), so one is at least four: (L=3). When (a=1), they are (2x) and (2(2-x)): (x=0,2) give (L=3), while (x=1) gives neither matching four labels, hence (L\ge4), and PR #2043 supplies (L\le4). The (a=x=1) case is precisely one label on every source pair, and a second label on the (h-k) pair. This proves the criterion.
@@ -42,17 +42,17 @@ For these seven *frozen* target ratios, there are exactly **14,832** distinct fu
 Choose low ports (p,q), high ports (h,k). Denote seven target labels by (A=pq,B=ph,C=pk,D=qh,E=qk,F=hk,G=hk), with (F<G). The (7!/2=2520) assignments for each low-pair choice exhaust the possible labeled support graphs. Let (a,b,c,d,e,f,g) be the corresponding **integer** ratio numerators (divide by 20 only when interpreting their physical ratio).
 
 Define
-[
+$
 \begin{aligned}
 u_A&=(b-c)(d-e),&u_B&=(c-a)(d-e),&u_C&=(a-b)(d-e),\\
 u_D&=-(b-c)(e-a),&u_E&=-(b-c)(a-d).
 \end{aligned}
-]
+$
 On the low rows place (p:(u_A,u_B,u_C)), (q:(-u_A,u_D,u_E)) at their incident labels. Set (\Delta=g-f). Multiply all five values by (\Delta). The remaining flows on high source (h) at (F,G) are
-[
-v_F=(-u_B)(b-g)+(-u_D)(d-g),qquad
+$
+v_F=(-u_B)(b-g)+(-u_D)(d-g),\qquad
 v_G=(-u_B)(f-b)+(-u_D)(f-d),
-]
+$
 and the high source (k) takes their negatives. The high source (h) also has (-\Delta u_B,-\Delta u_D), while (k) has (-\Delta u_C,-\Delta u_E).
 
 All four row mass and first-moment sums vanish exactly; each target has equal/opposite masses. Because the ratios are distinct, the five (u)'s and (\Delta) are nonzero. The two low-row equations and their common (A) edge fix the first five flows up to scalar; the two-by-two system at (F,G) has determinant (g-f\ne0) and uniquely fixes the last two. Hence the restricted seven-target-edge kernel has dimension one for every assignment. Its 14-arc support is a circuit precisely when (v_F v_G\ne0).
