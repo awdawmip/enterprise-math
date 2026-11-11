@@ -1,0 +1,50 @@
+{
+  "schema": "PREFIX707_R6_PARTITIONED_CORNER_CERTIFICATE_V1",
+  "date": "2026-11-11 Asia/Shanghai",
+  "scientific_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_preconditions": [
+    "PREFIX700 frozen 189-level survivor recurrence",
+    "PREFIX705 exact stochastic monotonicity of s_n on [0,1/2]",
+    "PREFIX706 exact witness B>559812917/1000000",
+    "Efron-Stein bound for max of independent clocks"
+  ],
+  "survivor_cells": 9529,
+  "partition_cells_per_interval": 256,
+  "low_interval": [
+    "0",
+    "1/18"
+  ],
+  "high_interval": [
+    "1/3",
+    "1/2"
+  ],
+  "max_single_clock_variance_cap_low_ticks": [
+    263733972,
+    263733973
+  ],
+  "max_single_clock_variance_cap_high_ticks": [
+    273906511,
+    273906512
+  ],
+  "low_max_cell_index_zero_based": 255,
+  "high_max_cell_index_zero_based": 0,
+  "B_strict_lower_bound": "559812917/1000000",
+  "uniform_competitor_gap_strict_lower_ticks": [
+    11999893,
+    11999894
+  ],
+  "uniform_gap_claim": "V_q(e)-V_q(x)>119*q^2/10 for all real q>=2 and x in C",
+  "excluded_area": "4/81",
+  "fraction_of_full_auxiliary_square": "16/81",
+  "area_multiple_vs_PREFIX706": "16384/3969",
+  "recomputed_regression_L_1_64_ticks": [
+    275220940,
+    275220941
+  ],
+  "recomputed_regression_U_3_32_ticks": [
+    279763526,
+    279763527
+  ],
+  "verification": "ALL_CHECKS_PASS PREFIX707-R6",
+  "admission": "AUTHOR_RECOMPUTED / EXACT_FRACTION_IMPLICATION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
