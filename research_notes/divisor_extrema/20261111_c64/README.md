@@ -1,11 +1,13 @@
 # C64 复算
 
-从[中文研究笔记](C64_RESEARCH_NOTE.md)开始。本文比较 C62 自然条件于完整共同词后的状态总变差，并用三个匹配尾的实际概率检验最优安排。高段引理、前部扰动的解析式与隐藏双字的证明分别见 [HIGH_AND_TAIL.md](HIGH_AND_TAIL.md)、[MOVING_FOURTH.md](MOVING_FOURTH.md)、[TWO_SYMBOL_SYNC.md](TWO_SYMBOL_SYNC.md)。
+从[中文研究笔记](C64_RESEARCH_NOTE.md)开始；实际尾读数的全排名和四项概率读取见[观测排名与两尾公式](OBSERVED_RANKS.md)。本文比较 C62 自然条件于完整共同词后的状态总变差，并用三个匹配尾的实际概率检验最优安排。高段引理、前部扰动的解析式与隐藏双字的证明分别见 [HIGH_AND_TAIL.md](HIGH_AND_TAIL.md)、[MOVING_FOURTH.md](MOVING_FOURTH.md)、[TWO_SYMBOL_SYNC.md](TWO_SYMBOL_SYNC.md)。
 
 以下命令从本文件所在目录运行，参考环境为 Python 3.12、SymPy 1.14.0。仅单调性脚本使用 SymPy。下载包自带继承材料。在项目仓库内，使用既有 C63 程序 experiments/divisor_extrema/20261111_c63/numeric/certify_schedules.py 作为 --model 路径，并把项目 src 目录传给 brc_crosscheck.py 的 --inherited。数据为有理数、严格区间或明确标为下取整的整数值。
 
 ~~~bash
 python checks/fourth_certificate.py --model inherited/certify_schedules.py --output fourth_rerun.json
+python checks/observed_four.py --model inherited/certify_schedules.py --output observed_rerun.json
+python checks/two_tail_observables.py
 python checks/cut_stocks.py --model inherited/certify_schedules.py --output stocks_rerun.json
 python checks/check_high_tail.py
 python checks/check_moving_fourth.py
