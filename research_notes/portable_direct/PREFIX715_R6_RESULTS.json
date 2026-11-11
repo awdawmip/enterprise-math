@@ -1,0 +1,54 @@
+{
+  "schema": "PREFIX715_R6_AFFINE_ENVELOPE_TEST_V1",
+  "scope": "Exact rational affine-envelope lemma; synthetic toy, no new BRC cells certified",
+  "t_interval": [
+    "0",
+    "1/2"
+  ],
+  "witnesses": [
+    [
+      "51/5",
+      "-4"
+    ],
+    [
+      "99/10",
+      "-2"
+    ]
+  ],
+  "single_upper_bound": [
+    [
+      "10",
+      "-3"
+    ]
+  ],
+  "combined": {
+    "certified": true,
+    "min_margin": "1/20",
+    "minimizer_t": "3/20",
+    "critical_point_count": 3,
+    "affine_pair_count": 2,
+    "nonpositive_witness_t": null
+  },
+  "individual_certification": [
+    false,
+    false
+  ],
+  "failure_locator": {
+    "certified": false,
+    "min_margin": "0",
+    "minimizer_t": "1/10",
+    "critical_point_count": 3,
+    "affine_pair_count": 2,
+    "nonpositive_witness_t": "1/10"
+  },
+  "adaptive_upper_bounds": {
+    "certified": true,
+    "min_margin": "3/20",
+    "minimizer_t": "1/20",
+    "critical_point_count": 6,
+    "affine_pair_count": 4,
+    "nonpositive_witness_t": null
+  },
+  "verification": "ALL_CHECKS_PASS PREFIX715-R6",
+  "author_grade": "EXACT_FRACTION_TOY_AND_GENERAL_PROOF / NOT_BRC_GRID_RECOMPUTATION / UNREVIEWED / NOT_ADMITTED"
+}
