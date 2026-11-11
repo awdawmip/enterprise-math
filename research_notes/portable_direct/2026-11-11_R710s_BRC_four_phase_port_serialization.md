@@ -43,7 +43,7 @@ All edges fire in every macrostep. The inventories remain constant, and for all 
 X_i(t)=S_{i+t\bmod m}.
 \]
 
-Proof: at t=0 the packet sequence is pairwise Johnson-adjacent and all required sources have tokens. Theorem 2's displayed updates with f_i=1 have zero increments at every Cell, and the triad copy shifts the entire cyclic word. Induct on t. The full completed V29 ledger and pointed S3 holonomy after m layers are identical to the uniform-stock R709b case. In particular all three S3 outcomes for k,l>0 persist for an unbounded family of genuinely nonuniform stocks. QED.
+Proof: at t=0 the packet sequence is pairwise Johnson-adjacent and all required sources have tokens. Theorem 1's displayed updates with f_i=1 have zero increments at every Cell, and the triad copy shifts the entire cyclic word. Induct on t. The full completed V29 ledger and pointed S3 holonomy after m layers are identical to the uniform-stock R709b case. In particular all three S3 outcomes for k,l>0 persist for an unbounded family of genuinely nonuniform stocks. QED.
 
 ## 4. Scoped stock-fiber theorem
 
