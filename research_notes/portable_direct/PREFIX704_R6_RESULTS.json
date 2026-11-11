@@ -1,0 +1,58 @@
+{
+  "schema": "PREFIX704_R6_REFINED_RATIONAL_CORNER_WITNESS_V1",
+  "science_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "witness": "(0,3/20)",
+  "surviving_cells": 9529,
+  "exact_tick_bins": [
+    {
+      "corner": "c00",
+      "delta_mu_1e6_ticks": [
+        62503978,
+        62503979
+      ],
+      "delta_W_1e6_ticks": [
+        585040038,
+        585040039
+      ]
+    },
+    {
+      "corner": "c01",
+      "delta_mu_1e6_ticks": [
+        -97817334,
+        -97817333
+      ],
+      "delta_W_1e6_ticks": [
+        414603256,
+        414603257
+      ]
+    },
+    {
+      "corner": "c11",
+      "delta_mu_1e6_ticks": [
+        -105596401,
+        -105596400
+      ],
+      "delta_W_1e6_ticks": [
+        467493873,
+        467493874
+      ]
+    }
+  ],
+  "gap_lower": "(414603256+97817333*t)/1000000, 0<=t<=1/2",
+  "derivative_envelope": "17931816+17766*t",
+  "adaptive_radius": "(414603256+97817333*t)/(1000000*(17931816+17766*t))",
+  "radius_q_ge_2": "1/43251",
+  "radius_q_12_to_24": "1/42840",
+  "radius_q_2": "1/38707",
+  "normalized_margin_q_ge_2_gt": "4/1000",
+  "normalized_margin_q12_24_gt": "8/100",
+  "area_multiplier_all": "2148971449/1870649001",
+  "area_multiplier_q12_24": "2098464481/1835265600",
+  "dependencies": [
+    "PREFIX700",
+    "PREFIX701",
+    "PREFIX702"
+  ],
+  "verification": "ALL_CHECKS_PASS PREFIX704-R6",
+  "status": "AUTHOR_RECOMPUTED / EXACT_FRACTION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
