@@ -70,8 +70,57 @@ By the triangle inequality, if `max_m abs(lambda_m-1/3)<1/6`, then every `L(lamb
 
 `VERIFY.py` reconstructs the predecessor's exact `Z` from its rational `C`, a six-arc repair, the 13-pivot positive C-face witness and a rational convex combination; checks the 15 exact observation equalities and each intermediate transfer; derives the rational barycenter vector; exhausts all 30 pair cuts and verifies the uniform radius `1/6`. `EXACT_OUTPUT.txt` stores an actual Python `fractions.Fraction` run. Finite completeness follows from the five-nonzero-support argument above. The theorem concerns the frozen **auxiliary positive-mass observation fiber** and uses BRC atoms with labeled branches and signed move directions, not a new native Heartbeat/X6 physical evolution claim.
 
-## Next scientific question
+## Stronger result: exact distance on the entire closed two-simplex
 
-Classify the exceptional lines in the full `lambda` simplex on which a two-triple source-3 decomposition is algebraically possible, then test exact compensation-capacity/nonnegative intermediate constraints. Establish the resulting **complete endpoint-specific atomic distance stratification** (one atom at vertices, two on open edges, and two or three in the interior) with rational primal/dual certificates. Another independent direction is whether port diversity can be reduced to two in a completely general three-atom A→B path; no port-diversity conclusion is inferred from the present endpoint obstruction.
+The preceding open-region theorem admits a **complete extension**. In fact, for every set of barycentric weights `lambda_2,lambda_3,lambda_4 >=0` summing to one, the exact minimal number of allowed six-arc BRC atoms between the fixed `Z` and `Y(lambda)` is
 
-Research provenance and status: no active task CLAIM was changed, all inherited science pins are preserved. Author-side proof is pending independent mathematical review and formal Source Result admission.
+| Barycentric stratum | Minimum number of atoms |
+| --- | ---: |
+| Three vertices (one weight equals 1) | **1** |
+| Any open edge (exactly two weights positive) | **2** |
+| Strict interior with `lambda_2=3*lambda_4` | **2** |
+| All other strict interior points | **3** |
+
+All upper-bound constructions stay in the original frozen fiber, use only compensator source 5, and keep `peak_source3 <=5`; all lower bounds allow any compensator and intermediate supports.
+
+### Why there is exactly one exceptional interior line
+
+The five-support obstruction proof above provides 30 exact pair-cut affine linear forms in the three weights. A nonzero linear form `L(lambda)=a_2*lambda_2+a_3*lambda_3+a_4*lambda_4` can vanish for **strictly positive** weights iff its coefficients have both positive and negative signs. Exhaustive exact sign classification of all 30 necessary cuts yields just two such cases:
+
+```
+shared target r=3, unique pair {2,4}:
+    (a_2,a_3,a_4)=(8/3,0,-8)
+shared target r=3, complementary unique pair {5,6}:
+    (a_2,a_3,a_4)=(-8/3,0,8)
+```
+
+Both define precisely `lambda_2=3*lambda_4`. Every other cut retains a strict sign throughout the barycentric interior and therefore cannot vanish there. Because the pair-cut is also **sufficient for a two-triple source-3 algebraic decomposition** (subtract its three-target moment-null component; the remainder is the complementary moment-null triple), this is the unique possible interior two-atom locus at the source-3 level. We now show actual **nonnegative full-fiber realization** on this line.
+
+### Explicit exact two-atom bridge for the exceptional line
+
+Write `lambda=(3s,1-4s,s)` with `0<s<1/4`. First use the already verified one-atom exit at vertex `lambda=(0,1,0)`:
+
+```
+Z -> P = Y_3 = Z + (c/5)*H_5({3:-4,5:+9,6:-5})
+```
+
+The exact prior witness and current checker establish that `P` lies in the relative interior of the B-face, with all 25 allowed dynamic arcs strictly positive. The remaining difference factorizes as
+
+```
+Y(3s,1-4s,s)-P
+   = (8*c*s/5)*H_5({2:-1,3:+2,4:-1}).
+```
+
+This is an identity affine in `s`, checked algebraically at the two rational endpoints `s=0` and `s=1/4` in the checker, so it holds identically for all `0<=s<=1/4`. The terminal state is a convex combination of the three interior B-face endpoints and is therefore nonnegative and strictly positive on allowed B arcs. The segment from `P` to this terminal is nonnegative by convexity, and its source-3 support stays B (four positive targets). The first segment has peak five. Thus exactly two atoms suffice on this exceptional line. One atom is impossible there because all five components `{2,3,4,5,6}` of the source-3 delta are nonzero.
+
+At each triangle vertex, its predecessor defining atom yields the upper bound of one and the endpoint differs from Z, giving equality. On an open edge the delta has four nonzero source-3 targets (the two selected m-labels plus 5 and 6), excluding one atom, while the two selected defining atoms provide a legal path. In the strict interior away from `lambda_2=3*lambda_4`, all 30 pair cuts are nonzero, so the existing three-step path is optimal.
+
+This proves a complete exact **one / two / three** endpoint-distance stratification of the two-dimensional simplex. Notably, the one-atom distance between the two *faces* coexists with an open family of fixed C-interior to B-interior endpoint pairs at distance three.
+
+## Validation and next question
+
+The updated `VERIFY.py` now checks the classification of 30 affine cut signs, uniquely identifies the two complementary `r=3` cases, reconstructs the exceptional-line first endpoint `P` in the relative interior of B, and verifies the exact affine two-atom identity at `s=0,1/4` plus additional rational interior tests. `EXACT_OUTPUT.txt` records an actual standard-library `Fraction` execution, including `PASS_R5_EXACT_COMPLETE_C_TO_B_SIMPLEX_DISTANCE_STRATIFICATION`.
+
+Next, classify endpoint-specific distances for **arbitrary** pairs `(X,Y)` in the full 12D `C/B` faces (not only this two-simplex from Z), and separately resolve the unrestricted three-atom A→B compensator-port diversity question. The present result preserves the frozen P/Q–BRC science and does not claim a native X6 dynamics theorem.
+
+Provenance: author-side mathematical contribution only. No prior task CLAIM is displaced and formal Source Result plus independent review remain pending.
