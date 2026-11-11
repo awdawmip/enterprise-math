@@ -8,7 +8,7 @@ sys.path.insert(0,str(D))
 import EC49FGW_RADIUS5_SCREEN as g
 C=json.loads((BASE/'EXACT_TRIPLE_CERTS_EC49FKC.json').read_text())
 assert C['frozen_pin']==g.PIN=='fc0f038e7bfd12c886b4d37f900bfb770c0f61ab'
-STEP={'a':(-1,-1),'c':(1,2,-1,-2),'d':(2,1,-1,-2),'e':(3,1,1,-3),'f':(1,-1),'g':(2,-2)}
+STEP={'a':(-1,-1),'c':(1,2,-1,-2),'d':(2,1,-2,-1),'e':(3,1,1,-3),'f':(1,-1),'g':(2,-2)}
 def prefix(w):
     path=();res=set()
     for op in w:
