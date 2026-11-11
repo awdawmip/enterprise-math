@@ -87,3 +87,48 @@ Previously verified sources retained without reassigning authorship:
 - Task `RS-X6-NATIVE-ROTATION-DYNAMICS`, immutable publication `TP2-6A1F9D8C2047E3B51C01`, parent `PO-X6-UPPER-STRUCTURE-20260906` under actual frozen signed-X6 source, with existing authorship and task ownership preserved.
 
 Review/admission: Driver-authored scoped theorem note, not a clean-independent reference pass, formal native review/Result admission, new Task, CLAIM, physical-rotation identification or mother-objective closure.
+
+## Corollary C — exact C6 two-branch microtrace population under the declared NB rule
+
+The earlier restricted local native C6 construction (original researcher `EM-FREE-7D3C9A`, `research_notes/VIETE_X6_FIXED_RADIUS_MICROTRACE_C12_20260905.md`, pinned task-source Git blob `e8185ae28bef4d55c50622848b225c0b5e3125aa`) has six unit-shell phases `a_r` (indices mod 6), with `a_(r+3)=-a_r`, adjacent phases on different signed axes, and two shortest primitive microtraces for each macrotransition `a_r -> a_(r+1)`:
+
+- `I_r=(-a_r,+a_(r+1))`: INNER, through the pivot Cell `0`;
+- `O_r=(+a_(r+1),-a_r)`: OUTER, through native Cell `a_r+a_(r+1)`.
+
+All these are legal signed unit-axis steps and each two-step word is internally NB. For consecutive macrosteps `r,r+1`, the NB seam is forbidden **if and only if** the branch pair is `(I_r,I_(r+1))`. Indeed `I_r` ends `+a_(r+1)` and `I_(r+1)` begins `-a_(r+1)`. The other three seam types are legal by the distinct signed-axis labels at neighboring phases and the antipodal relation at a three-phase offset. Hence the exact NB condition on a sequence of local C6 macrobranches is simply **no two consecutive INNER choices**.
+
+Let `f_n` count split-provenance-preserving legal choices along an open sequence of `n` forward C6 macrosteps. With `F_0=0, F_1=1` denoting Fibonacci numbers,
+
+`f_n=F_(n+2)`.
+
+For a cyclic sequence of `n` C6 macrosteps, when the closing last-to-first primitive seam is also required NB (a repeatable closed path), the count is
+
+`g_n=tr([[1,1],[1,0]]^n)=F_(n-1)+F_(n+1)=L_n`,
+
+where `L_n` is the Lucas number. This follows from the two-state transfer on branch choices `{O,I}`: `O` may be followed by `O` or `I`, whereas `I` must be followed by `O`. For one complete C6 phase circuit (`n=6`), all `2^6=64` shortest two-step branch sequences return to the start unit-shell Cell after twelve primitive steps, but precisely
+
+- **21** have no immediate inverse turn along the 12-step *open* word;
+- **18** also satisfy the cyclic closing seam and can be repeated without immediate inverse at the joining point.
+
+These counts are native Cell-path **occurrence counts for the declared NB refinement**, with all branch choices retained as provenance. They do not claim a selection law for the physical rotation. Requiring all intermediate microphase directions to remain nonzero selects the unique all-OUTER loop, a different (stronger) rule already justified at its restricted scope in the original C12 source.
+
+Exact integer verification uses the legitimate carrier-phase ordering
+`a=(+1,-3,+2,-1,+3,-2)` as signed native-axis labels, enumerates all 64 six-branch strings, expands each branch by the two words above, and checks internal and closing seams separately:
+
+```python
+from itertools import product
+a = (1,-3,2,-1,3,-2)
+word = lambda r,b: (a[(r+1)%6],-a[r]) if b=="O" else (-a[r],a[(r+1)%6])
+ok = lambda w: all(v != -u for u,v in zip(w,w[1:]))
+seq = [(b,tuple(x for r,s in enumerate(b) for x in word(r,s)))
+       for b in product("OI",repeat=6)]
+open_ok = [(b,w) for b,w in seq if ok(w)]
+cyclic_ok = [(b,w) for b,w in open_ok if w[-1] != -w[0]]
+assert (len(seq),len(open_ok),len(cyclic_ok)) == (64,21,18)
+assert all(sum((1 if x==j else -1 if x==-j else 0) for x in w)==0
+           for b,w in seq for j in (1,2,3))
+assert all(all(not (b[r]=="I" and b[(r+1)%6]=="I") for r in range(6))
+           for b,w in cyclic_ok)
+```
+
+**Scientific use:** this provides a concrete exact `C6`-macrostep instance of the operation-safe matrix transfer theorem, identifies the local seam-memory variable, and computes the branch-population effect of a precise candidate microtrace constraint. The remaining dynamical selection question is whether the actual X6 native physical rotation grammar adopts NB, nonzero-phase refinement, another path constraint, or a typed combination.
