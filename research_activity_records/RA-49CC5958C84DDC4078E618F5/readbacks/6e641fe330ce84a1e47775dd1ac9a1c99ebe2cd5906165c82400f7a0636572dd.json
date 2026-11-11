@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/divisor_extrema/20261111_c68_deterministic_recovery/twoblocks/TWO_STOCKS.md",
+    "ref": "b33dad96447719460514b5f12e20f5010f6c06f6",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "c68-deterministic-recovery-20261111-bd7793e4-4",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# 增加一个 5 的配对试验与首隙反演\n\n原制备线始终为 $\\pi(u)=(7,u,1-u)/8$，原尾为 $557,575,755$。在库存 $(r,c)$ 有 $r$ 对 23、$c$ 个 5、一个 7，末尾保留两个 5 和 7。设确定词的首隙含 $m$ 个 5，随后执行 23，记该隙之后的 5 库存为 $v=c-m$。词只用于定义实验；解码时其各隙未知。在新库存 $(r,c+1)$ 上给同一词最前面增添一个 5，两条词到达首块后的库存与余词完全相同。两次实验使用不同因子库存。\n\n## 两次实验反推出首隙\n\n写 $K=2r+1$，$\\rho=q_1/q_2$，$\\tau=7q_0/q_2$，其中 $q_i$ 是首块从纯态 $i$ 的实际似然。对首块后任一尾列的正端点比 $t=P(1)/P(0)$，当前端点比是 $x=(\\rho+\\tau t)/(1+\\tau t)$。$\\rho\\ne1$ 由 C62 的整数判据给出。三个比值同处 1 的一侧；其极端 $x_-<x_+$ 从原线 H 可恢复。具体地，用 $h=H(0,1/2),g=H(0,1)$，则 $x_-=1+(2h-g-1)/(g-h)$，$x_+=gx_-$。\n\n多加一个 5 后首块的两个参数恰变为 $\\theta\\rho,\\eta\\tau$，其中\n$$\\theta=\\frac{K+4(c+1)}{4(K+c+1)},\\qquad \\eta=\\frac{K+4(c+1)}{4(4K+c+1)}.$$\n这是把原首隙乘积多取库存 $c+1$ 的一项。令 $y_-<y_+$ 为新实验端点。在原库存记\n$$D(c)=\\operatorname{sgn}(1-x_-)\\left|\\frac1{1-x_-}-\\frac1{1-x_+}\\right|.$$\n由于 $1/(1-x)=(1+\\tau t)/(1-\\rho)$，有 $D(c)=\\tau(t_{\\max}-t_{\\min})/(1-\\rho)$。三尾非盲且所有块可逆，故宽度严格为正。定义 $D(c+1)$ 时使用新实验自身的符号。即使增加一个 5 越过 $\\rho=1$ 的两侧，仍有\n$$R=\\eta D(c)/D(c+1)=\\frac{1-\\theta\\rho}{1-\\rho},\\qquad \\rho=\\frac{R-1}{R-\\theta}.$$\n$R-\\theta=(1-\\theta)/(1-\\rho)\\ne0$。原库存上 $\\rho$ 随合法整数 $m$ 严格递减，故这四个有理输入的 $H$ 确定首隙。两项极端列各自是哪一列毋须预先知道。\n\n如能读取同一个有标记尾的原质量端点比 $x,y$，只需解一次线性方程：\n$$(y-\\theta\\rho)(1-x)=\\eta(x-\\rho)(1-y).$$\n系数退化只可能为 $x=4/5,y=4\\theta/5$：分母 $\\theta(1-x)-\\eta(1-y)$ 及分子同时为零必有 $y=\\theta x$，再用 $(\\theta-\\eta)/[\\theta(1-\\eta)]=4/5$。此时 $y<4/5$，从新库存再增加一个 5，后一对实验必能解码。这里给出代数上全部潜在退化值。\n\n## 任意深度的完整词\n\n进行一次原实验，并在第 $j$ 个 23 前的间隙额外加入一个 5，分别进行 $j=1,\\ldots,r-1$ 的实验。所有测量都从同一原制备线开始；增加的 5 在本次目标库存中另加。第 $j$ 次扰动前方的 $j-1$ 个间隙与原实验相同。原实验及本次扰动各自的初始库存已知，故已恢复的前缀可用\n$$t=(x-\\rho)/[\\tau(1-x)]$$\n逐块反解，分别得到该截面的两极端。套用两库存公式确定第 $j$ 隙。只剩最后一对 23 时，使用 C67 的末两隙单调定理，在原实验已得到的极端中读出余词。这样共需 $r$ 次实验、$2r$ 个有理输入对的 $H$，无须中途重新制备状态。C66 对有理斜率的二次无理输入反演也可把每次实验压为一次精确的 $H(0,\\sqrt2-1)$。\n\n## 对所有初始库存至多一个异常点\n\n现在固定 $r$、首块后的库存 $v$ 和固定后续词，让前区库存 $c$ 变化，新加入的 5 全部放在首隙。写\n$$a(c)=\\prod_{n=3}^c\\frac{K+4n}{4(K+n)},\\quad P(c)=\\prod_{j=K+1}^{4K}(c+j),\\quad b(c)=a(c)/P(c).$$\n则 $\\rho(c,v)=a(c)A_v$，$\\tau(c,v)=b(c)T_v$，其中 $A_v=\\rho(v,v)/a(v),\\ T_v=\\tau(v,v)P(v)/a(v)$；此处两个参数的第二个下标指首块后库存。$A_v$ 随 $v$ 严格递增，因为 $A_{v+1}/A_v=4(K+v)/(K+4v)>1$。把后续的两极端乘以 $T_v$ 得正数 $B_0<B_1$。第一族两列为\n$$x_j(c)=\\frac{a(c)A_v+b(c)B_j}{1+b(c)B_j}.$$\n与另一族 $w\\ne v$、系数 $A_w,C_0<C_1$ 比较。若输出无序极端相同，两者的 $\\rho$ 必都大于 1 或都小于 1，故两端按 $B,C$ 的排序对应。交叉相乘并除去 $b(c)$，得到\n$$(A_v-A_w)P(c)+(B_j-C_j)+a(c)(A_vC_j-A_wB_j)=0\\qquad(j=0,1).$$\n置 $d=B_1-B_0,e=C_1-C_0,D=A_v e-A_w d$。若 $D=0$，相减要求 $d=e$，会推出 $A_v=A_w$，故无解。否则唯一可能的两个数是\n$$ a_*=(e-d)/D,\\qquad P_*=(d C_0-e B_0)/D.$$\n$P(c)$ 是严格递增的整值多项式。这给出有限整数测试：$P_*$ 必须是某个 $c\\ge\\max(v,w)$ 的 $P(c)$，随后须有 $a(c)=a_*$。全部条件成立时两端等式确实同时成立；因式分母全正。故两族在所有可选初始库存中至多有一次全输入并列，包括后续完全不同的情况。若 $v=w$，公共首块可逆，问题直接归入较短的共同库存。深度 2、$v,w\\le18$ 时，精确核对 10,812 对异库存模板，904 对通过正性与范围筛选，均没有整值 $P_*$，因此可一次覆盖所有外层库存。\n\n代码 stock_shift.py 从深度 1 至 5、$2\\le c\\le8$ 的 1,708 条完整词重建全部间隙，输入共 14,588 个准确有理读数。五个样例再用 C62/C67 原生 BRC 核按全部正分支复核，共 1,008 个计重尾分支。运行方式及输出见 [stock_shift.json](stock_shift.json)。\n\n~~~bash\npython twoblocks/stock_shift.py --native ../C64/inherited --c67-joint ../C67/joint\n~~~\n",
+      "display_title": "TWO_STOCKS.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/b33dad96447719460514b5f12e20f5010f6c06f6/research_notes/divisor_extrema/20261111_c68_deterministic_recovery/twoblocks/TWO_STOCKS.md",
+      "encoding": "utf-8",
+      "sha": "714115b84128ddaeb583b1ac9f397f6328e0b775"
+    }
+  },
+  "tool_name": "github_fetch_file"
+}
