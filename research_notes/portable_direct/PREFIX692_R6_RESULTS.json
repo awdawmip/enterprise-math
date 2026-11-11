@@ -1,0 +1,50 @@
+{
+  "result": "ALL_CHECKS_PASS PREFIX692-R6",
+  "frozen_pin": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "dependencies": [
+    "PREFIX680 center-jet and third-derivative certificate @2c91711f60aa74d93880780929f532da24140ec0",
+    "PREFIX690 endpoint-sign envelope @e1394a13ec0627a579db9414242a3633b773304e"
+  ],
+  "bridge": [
+    "264353/5000000",
+    "530659/10000000"
+  ],
+  "q_interval": [
+    "63055771/5256000",
+    "660614143/27500000"
+  ],
+  "max_center_distance": "647/5000000",
+  "B_lower_exact": "4909863349354430849559/625000000000000000000",
+  "B_upper_exact": "4962036956895569150441/625000000000000000000",
+  "all_root_A_lower_strict": "215875000/660614143",
+  "endpoint_margins": {
+    "12": [
+      "16229/8000000",
+      "-988842429/250000000"
+    ],
+    "18": [
+      "31504229/8000000",
+      "-495342429/250000000"
+    ],
+    "24": [
+      "62992229/8000000",
+      "-1842429/250000000"
+    ],
+    "63055771/5256000": [
+      "0",
+      "-2599345321037/657000000000"
+    ],
+    "660614143/27500000": [
+      "433877329991/55000000000",
+      "0"
+    ]
+  },
+  "proved_analytically": [
+    "nested nonnegative-sign sets",
+    "strict increase of least and greatest roots",
+    "least-root left continuity",
+    "greatest-root right continuity"
+  ],
+  "scope": "exact inherited-certificate implications; no new 189-state recurrence",
+  "status": "AUTHOR_DERIVED / EXACT_FRACTION_IMPLICATION_CHECKED / UNREVIEWED / NOT_ADMITTED"
+}
