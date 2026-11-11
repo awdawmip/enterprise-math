@@ -1,21 +1,21 @@
 # PREFIX-689-R6 — Uniform analytic parameter collars around the q=12 and q=24 BRC variance crossovers
 
-Date: 2026-11-11 (Asia/Shanghai). Mode: independent author-side TASK_RESEARCH. Frozen scientific pin: \`f42f2906d77f24085c123f3ccfe9667d41caa96d\`. The object is the exact finite 189-row independent Poissonized first-stop observer of PREFIX-688, not a newly claimed native Heartbeat evolution or physical identification.
+Date: 2026-11-11 (Asia/Shanghai). Mode: independent author-side TASK_RESEARCH. Frozen scientific pin: `f42f2906d77f24085c123f3ccfe9667d41caa96d`. The object is the exact finite 189-row independent Poissonized first-stop observer of PREFIX-688, not a newly claimed native Heartbeat evolution or physical identification.
 
 ## Definitions and inherited evidence
 
 For that *same frozen model*, let Y(p,z) be the maximum of two independent Poissonized first-stop times and set
 
 A(z) = Var(Y(z,z)) - Var(Y(0,z)),
-B(z) = E[Y(z,z)] - E[Y(0,z)),
+B(z) = E[Y(z,z)] - E[Y(0,z)],
 F_q(z) = q A(z) - B(z).
 
 For q>0 the normalized variance contrast has the same sign as F_q(z): V_q(z,z)-V_q(0,z) = q F_q(z), where V_q=q² Var(Y)-q E[Y].
 
 Use the immutable PREFIX-688 source files:
-- \`research_notes/portable_direct/2026-11-11_r6_prefix688_low_slot_exact_local_crossover.md\`;
-- \`research_notes/portable_direct/PREFIX688_R6_RESULTS.json\`;
-- \`research_notes/portable_direct/PREFIX688_R6_CROSSING_BRACKETS.py\`.
+- `research_notes/portable_direct/2026-11-11_r6_prefix688_low_slot_exact_local_crossover.md`;
+- `research_notes/portable_direct/PREFIX688_R6_RESULTS.json`;
+- `research_notes/portable_direct/PREFIX688_R6_CROSSING_BRACKETS.py`.
 
 PREFIX-688's exact integer/Fraction calculation established endpoint signs, midpoint derivative jets (integer floors scaled by 10^6) and local uniqueness for q=12 and q=24. Its third-derivative bound is inherited from PREFIX-680:
 
@@ -82,7 +82,7 @@ Their exact conservative margins for q0=12 are >461/8000000 at the left and <-31
 
 ## Computational scope, provenance and continuation
 
-Verifier: \`PREFIX689_R6_PARAMETER_COLLAR_CERTIFICATE.py\`; output: \`PREFIX689_R6_RESULTS.json\`. Both use standard Python integer and Fraction operations only. The current proof performs a new implication audit on the immutable numerical certificates; it does NOT rerun the 189-row recurrence or independently validate the predecessor's M_A3/M_B3 derivation. Result: ALL_CHECKS_PASS PREFIX689-R6.
+Verifier: `PREFIX689_R6_PARAMETER_COLLAR_CERTIFICATE.py`; output: `PREFIX689_R6_RESULTS.json`. Both use standard Python integer and Fraction operations only. The current proof performs a new implication audit on the immutable numerical certificates; it does NOT rerun the 189-row recurrence or independently validate the predecessor's M_A3/M_B3 derivation. Result: ALL_CHECKS_PASS PREFIX689-R6.
 
 This extends the two isolated q=12,24 local uniqueness results to **two genuine continuous q-neighborhoods** and proves a quantitative monotone continuation map within each. It does not assert a complete root count outside the stated windows.
 
