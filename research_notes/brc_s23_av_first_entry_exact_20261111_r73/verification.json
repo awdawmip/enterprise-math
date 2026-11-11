@@ -1,0 +1,30 @@
+{
+  "model": "stable_nonwrapping_affine_half_open_arc",
+  "random_seed": 731126,
+  "valid_cases": 7339,
+  "routes": {
+    "LEFT_ENDPOINT": 2759,
+    "ALL_OUT": 1948,
+    "UPPER_BOUNDARY_LEAVE": 1297,
+    "LOWER_BOUNDARY_ENTER": 1335
+  },
+  "disagreements": 0,
+  "large_time": {
+    "1000000000000000003": {
+      "exists_member": true,
+      "route": "LOWER_BOUNDARY_ENTER",
+      "witness": "240000000000000001/1000000000000000002",
+      "integer_levels_upper_bound": 20000000000000000,
+      "elapsed_seconds_single_run": 0.00008576700000162418
+    },
+    "1000000000000000000000000000003": {
+      "exists_member": true,
+      "route": "LOWER_BOUNDARY_ENTER",
+      "witness": "240000000000000000000000000001/1000000000000000000000000000002",
+      "integer_levels_upper_bound": 2e+28,
+      "elapsed_seconds_single_run": 0.00013395999999943342
+    }
+  },
+  "scientific_pin": "43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "scope": "rational input; entire real parameter interval by exact proof; author-side"
+}
