@@ -1,0 +1,159 @@
+{
+  "status": "PASS",
+  "source": "awdawmip/enterprise-math@de41b8cd9e6b0ea52345d5f669af924f9379318a",
+  "kernel_blobs": {
+    "brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+    "brc_rational_holonomy.py": "2591640fe348da9cd7f293a957bea9ae92c82943",
+    "brc_weighted_recurrent.py": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+  },
+  "cases": [
+    {
+      "k": 2,
+      "name": "A",
+      "gaps": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "k": 3,
+      "name": "exceptional_second",
+      "gaps": [
+        0,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "k": 4,
+      "name": "A",
+      "gaps": [
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "k": 4,
+      "name": "B",
+      "gaps": [
+        1,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "k": 4,
+      "name": "C",
+      "gaps": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "k": 4,
+      "name": "D",
+      "gaps": [
+        1,
+        0,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "k": 4,
+      "name": "E",
+      "gaps": [
+        2,
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "k": 9,
+      "name": "D",
+      "gaps": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "k": 9,
+      "name": "E",
+      "gaps": [
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "k": 10,
+      "name": "D",
+      "gaps": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        2,
+        0
+      ]
+    },
+    {
+      "k": 10,
+      "name": "E",
+      "gaps": [
+        2,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "counts": {
+    "histogram_serial": 1616,
+    "histogram_recoalesce": 1814,
+    "compact_state_coordinates_checked": 66,
+    "complete_tail_branches_with_multiplicity": 18984,
+    "complete_tails_checked": 66,
+    "schedule_TV_and_H_matches": 11
+  }
+}
