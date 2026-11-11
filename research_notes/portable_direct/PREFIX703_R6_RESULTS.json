@@ -1,0 +1,58 @@
+{
+  "schema": "PREFIX703_R6_CONVEX_ENVELOPE_FINITE_ALGEBRAIC_EXCEPTION_V1",
+  "frozen_science": "f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "source_dependencies": [
+    "PREFIX-621",
+    "PREFIX-625",
+    "PREFIX-700",
+    "PREFIX-701"
+  ],
+  "corners": [
+    {
+      "corner": "zero_zero",
+      "t_endpoint_margins_lower": [
+        "557257209/1000000",
+        "532851403/1000000"
+      ],
+      "strict_uniform_gap_gt_386": true
+    },
+    {
+      "corner": "zero_half",
+      "t_endpoint_margins_lower": [
+        "386820427/1000000",
+        "442575277/1000000"
+      ],
+      "strict_uniform_gap_gt_386": true
+    },
+    {
+      "corner": "half_half",
+      "t_endpoint_margins_lower": [
+        "109927761/250000",
+        "199742171/400000"
+      ],
+      "strict_uniform_gap_gt_386": true
+    }
+  ],
+  "t_domain": "[0,1/2]",
+  "q_domain": "[2,infinity)",
+  "inherited_clock_mean_bounds": [
+    "25",
+    "378"
+  ],
+  "polynomial_coordinate_degree_bound": {
+    "mu": 188,
+    "second_moment": 188,
+    "W": 376
+  },
+  "author_proved": [
+    "H strictly convex on [0,1/2]",
+    "E finite and real algebraic",
+    "optimal moment pair single-valued off E",
+    "lexicographic high-q selection",
+    "0< Wmax-W(xq) <=353/q",
+    "max Vq=q^2 Wmax-q mu_star+o(q)"
+  ],
+  "verification": "ALL_CHECKS_PASS PREFIX703-R6",
+  "scope": "exact Fraction checks of inherited corner bins; symbolic proofs in paper; no fresh 189-row recurrence or CAD",
+  "admission": "AUTHOR_DERIVED; EXACT_FRACTION_IMPLICATION_CHECKED; UNREVIEWED; NOT_ADMITTED"
+}
