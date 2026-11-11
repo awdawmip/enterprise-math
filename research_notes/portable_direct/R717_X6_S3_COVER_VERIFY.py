@@ -232,7 +232,7 @@ out={
  'asymptotic':'conditional holonomy distribution on 6 permutations tends to uniform, TV=(5/3)*(2/3)^m+O((1/3)^m) (m integer -> infinity)',
  'status':'exact finite operator certificate + inductive all-length consequences within explicit candidate model; independent mathematical review pending'
 }
-with open('/mnt/data/R717_X6_S3_COVER_RESULTS.json','w',encoding='utf-8') as f:
+with open(__import__('pathlib').Path(__file__).with_name('R717_X6_S3_COVER_RESULTS.json'),'w',encoding='utf-8') as f:
     json.dump(out,f,indent=2,ensure_ascii=False,sort_keys=True)
     f.write('\n')
 print(out['verdict'])
