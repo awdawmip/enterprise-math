@@ -1,0 +1,137 @@
+{
+  "status": "PASS",
+  "closed_form_comparisons": 4800,
+  "extra_queries_hist": {
+    "2": 2050,
+    "0": 2000,
+    "1": 750
+  },
+  "representative_count_hist": {
+    "2": 4099,
+    "1": 701
+  },
+  "scope": "pointwise exact for exactly one creation and any fixed copy/drop prefix and suffix; direct linear origin scan plus eligible-key scan; not physical BRC except separately stated",
+  "extremal": {
+    "r": 39,
+    "target": 1,
+    "old": [
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      80,
+      0
+    ],
+    "keys": [
+      48,
+      79
+    ],
+    "certificate_reads": 39,
+    "rows": [
+      {
+        "n": 0,
+        "keys": [
+          48
+        ],
+        "costs": [
+          419,
+          429
+        ]
+      },
+      {
+        "n": 1,
+        "keys": [
+          48
+        ],
+        "costs": [
+          490,
+          499
+        ]
+      },
+      {
+        "n": 2,
+        "keys": [
+          48
+        ],
+        "costs": [
+          561,
+          569
+        ]
+      },
+      {
+        "n": 9,
+        "keys": [
+          48
+        ],
+        "costs": [
+          1058,
+          1059
+        ]
+      },
+      {
+        "n": 10,
+        "keys": [
+          48,
+          79
+        ],
+        "costs": [
+          1129,
+          1129
+        ]
+      },
+      {
+        "n": 11,
+        "keys": [
+          79
+        ],
+        "costs": [
+          1200,
+          1199
+        ]
+      },
+      {
+        "n": 12,
+        "keys": [
+          79
+        ],
+        "costs": [
+          1271,
+          1269
+        ]
+      }
+    ]
+  }
+}

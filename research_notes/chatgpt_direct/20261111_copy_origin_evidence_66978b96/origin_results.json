@@ -1,0 +1,479 @@
+{
+  "alias_chain": {
+    "forbidden": [
+      1,
+      2
+    ],
+    "initial_root_0": {
+      "copies": 2,
+      "last_live_creation": 1
+    },
+    "permitted": [
+      2,
+      1
+    ],
+    "schedule": [
+      [
+        "C",
+        1,
+        0
+      ],
+      [
+        "D",
+        0
+      ],
+      [
+        "C",
+        2,
+        1
+      ],
+      [
+        "D",
+        1
+      ],
+      [
+        "W",
+        0,
+        0
+      ],
+      [
+        "D",
+        2
+      ],
+      [
+        "W",
+        0,
+        1
+      ]
+    ]
+  },
+  "deadline_only_counterexample": {
+    "chosen": [
+      2
+    ],
+    "compulsory_outputs": [
+      [
+        1
+      ],
+      [
+        3
+      ]
+    ],
+    "last_profiles": [
+      {
+        "1": 1,
+        "3": 1
+      },
+      {
+        "1": 1,
+        "3": 1
+      }
+    ],
+    "old": [
+      [
+        1,
+        3,
+        0
+      ],
+      [
+        3,
+        1,
+        0
+      ]
+    ],
+    "schedule": [
+      [
+        "C",
+        2,
+        0
+      ],
+      [
+        "W",
+        0,
+        2
+      ]
+    ],
+    "variable_costs": [
+      45,
+      46
+    ]
+  },
+  "exhaustive": {
+    "feasible": 95810,
+    "infeasible": 37290,
+    "schedules": 343,
+    "table_schedule_trace_comparisons": 133100
+  },
+  "low_family_crossover": [
+    {
+      "copy_count": 0,
+      "min_keys": [
+        3
+      ],
+      "minimum": 82,
+      "paths": [
+        {
+          "base_word": 62,
+          "copy_word": 43,
+          "extra_probe_commands": 16,
+          "key": 1,
+          "total": 84,
+          "w": 6
+        },
+        {
+          "base_word": 62,
+          "copy_word": 44,
+          "extra_probe_commands": 16,
+          "key": 3,
+          "total": 82,
+          "w": 4
+        }
+      ]
+    },
+    {
+      "copy_count": 1,
+      "min_keys": [
+        3
+      ],
+      "minimum": 126,
+      "paths": [
+        {
+          "base_word": 62,
+          "copy_word": 43,
+          "extra_probe_commands": 16,
+          "key": 1,
+          "total": 127,
+          "w": 6
+        },
+        {
+          "base_word": 62,
+          "copy_word": 44,
+          "extra_probe_commands": 16,
+          "key": 3,
+          "total": 126,
+          "w": 4
+        }
+      ]
+    },
+    {
+      "copy_count": 2,
+      "min_keys": [
+        1,
+        3
+      ],
+      "minimum": 170,
+      "paths": [
+        {
+          "base_word": 62,
+          "copy_word": 43,
+          "extra_probe_commands": 16,
+          "key": 1,
+          "total": 170,
+          "w": 6
+        },
+        {
+          "base_word": 62,
+          "copy_word": 44,
+          "extra_probe_commands": 16,
+          "key": 3,
+          "total": 170,
+          "w": 4
+        }
+      ]
+    },
+    {
+      "copy_count": 3,
+      "min_keys": [
+        1
+      ],
+      "minimum": 213,
+      "paths": [
+        {
+          "base_word": 62,
+          "copy_word": 43,
+          "extra_probe_commands": 16,
+          "key": 1,
+          "total": 213,
+          "w": 6
+        },
+        {
+          "base_word": 62,
+          "copy_word": 44,
+          "extra_probe_commands": 16,
+          "key": 3,
+          "total": 214,
+          "w": 4
+        }
+      ]
+    },
+    {
+      "copy_count": 4,
+      "min_keys": [
+        1
+      ],
+      "minimum": 256,
+      "paths": [
+        {
+          "base_word": 62,
+          "copy_word": 43,
+          "extra_probe_commands": 16,
+          "key": 1,
+          "total": 256,
+          "w": 6
+        },
+        {
+          "base_word": 62,
+          "copy_word": 44,
+          "extra_probe_commands": 16,
+          "key": 3,
+          "total": 258,
+          "w": 4
+        }
+      ]
+    }
+  ],
+  "single_create_single_copy_reversal": [
+    {
+      "copy_count": 0,
+      "min_keys": [
+        7
+      ],
+      "minimum": 84,
+      "paths": [
+        {
+          "base_word": 62,
+          "copy_word": 45,
+          "extra_probe_commands": 16,
+          "key": 7,
+          "total": 84,
+          "w": 6
+        },
+        {
+          "base_word": 62,
+          "copy_word": 40,
+          "extra_probe_commands": 16,
+          "key": 9,
+          "total": 86,
+          "w": 8
+        }
+      ]
+    },
+    {
+      "copy_count": 1,
+      "min_keys": [
+        9
+      ],
+      "minimum": 126,
+      "paths": [
+        {
+          "base_word": 62,
+          "copy_word": 45,
+          "extra_probe_commands": 16,
+          "key": 7,
+          "total": 129,
+          "w": 6
+        },
+        {
+          "base_word": 62,
+          "copy_word": 40,
+          "extra_probe_commands": 16,
+          "key": 9,
+          "total": 126,
+          "w": 8
+        }
+      ]
+    }
+  ],
+  "six_crossover_thresholds": {
+    "admissible_triples": [
+      {
+        "d": 3,
+        "dl": 1,
+        "dw": 2,
+        "first_strict": 3,
+        "h": -1,
+        "u": 1
+      },
+      {
+        "d": 1,
+        "dl": 3,
+        "dw": 2,
+        "first_strict": 1,
+        "h": 0,
+        "u": 1
+      },
+      {
+        "d": 2,
+        "dl": 2,
+        "dw": 4,
+        "first_strict": 3,
+        "h": 0,
+        "u": 1
+      },
+      {
+        "d": 3,
+        "dl": 1,
+        "dw": 6,
+        "first_strict": 7,
+        "h": 0,
+        "u": 1
+      },
+      {
+        "d": -1,
+        "dl": 1,
+        "dw": 2,
+        "first_strict": 3,
+        "h": 1,
+        "u": 0
+      },
+      {
+        "d": -1,
+        "dl": 5,
+        "dw": 2,
+        "first_strict": 1,
+        "h": 1,
+        "u": 1
+      },
+      {
+        "d": 0,
+        "dl": 4,
+        "dw": 4,
+        "first_strict": 2,
+        "h": 1,
+        "u": 1
+      },
+      {
+        "d": 1,
+        "dl": 3,
+        "dw": 6,
+        "first_strict": 3,
+        "h": 1,
+        "u": 1
+      },
+      {
+        "d": 2,
+        "dl": 2,
+        "dw": 8,
+        "first_strict": 5,
+        "h": 1,
+        "u": 1
+      },
+      {
+        "d": 3,
+        "dl": 1,
+        "dw": 10,
+        "first_strict": 11,
+        "h": 1,
+        "u": 1
+      }
+    ],
+    "all_six_attained_by_actual_legal_pairs": {
+      "1": {
+        "delta_base": 2,
+        "delta_copy": 5,
+        "k": 7,
+        "l": 9,
+        "r": 2,
+        "target": 2,
+        "weak_tie_at_m_minus_1": false
+      },
+      "2": {
+        "delta_base": 4,
+        "delta_copy": 4,
+        "k": 6,
+        "l": 9,
+        "r": 4,
+        "target": 1,
+        "weak_tie_at_m_minus_1": true
+      },
+      "3": {
+        "delta_base": 2,
+        "delta_copy": 1,
+        "k": 3,
+        "l": 1,
+        "r": 2,
+        "target": 0,
+        "weak_tie_at_m_minus_1": true
+      },
+      "5": {
+        "delta_base": 8,
+        "delta_copy": 2,
+        "k": 24,
+        "l": 39,
+        "r": 19,
+        "target": 1,
+        "weak_tie_at_m_minus_1": true
+      },
+      "7": {
+        "delta_base": 6,
+        "delta_copy": 1,
+        "k": 240,
+        "l": 351,
+        "r": 116,
+        "target": 2,
+        "weak_tie_at_m_minus_1": true
+      },
+      "11": {
+        "delta_base": 10,
+        "delta_copy": 1,
+        "k": 48,
+        "l": 79,
+        "r": 39,
+        "target": 1,
+        "weak_tie_at_m_minus_1": true
+      }
+    },
+    "scope": "number m of required nonself copies of this creation; not arbitrary-horizon whole-schedule minimax",
+    "thresholds": [
+      1,
+      2,
+      3,
+      5,
+      7,
+      11
+    ],
+    "unbounded_proof": "dw>0 and dl>0 imply -1<=d<=3; r>=2 for distinct-address copies"
+  },
+  "status": "PASS",
+  "two_fronts": {
+    "old0_copy_count": 2,
+    "old0_first_full_after_n_creates": 1,
+    "old0_last_live_create": 2,
+    "schedule": [
+      [
+        "W",
+        1,
+        2
+      ],
+      [
+        "C",
+        2,
+        0
+      ],
+      [
+        "C",
+        1,
+        2
+      ],
+      [
+        "D",
+        0
+      ],
+      [
+        "W",
+        0,
+        2
+      ],
+      [
+        "D",
+        1
+      ],
+      [
+        "W",
+        0,
+        1
+      ]
+    ]
+  },
+  "unit": "Control: w plus entire mandatory nonself copy words; fixed W business constant, self copy and drop lengths separate (included in the one-create table where applicable)."
+}

@@ -1,0 +1,3222 @@
+{
+  "assertions": 36157,
+  "lifetime_pair": {
+    "opaque_full_copy": {
+      "business_rounds": 3,
+      "events": [
+        {
+          "answer": 0,
+          "commands": 8,
+          "cumulative": 8,
+          "op": [
+            "read",
+            0,
+            1
+          ]
+        },
+        {
+          "answer": 0,
+          "commands": 8,
+          "cumulative": 16,
+          "op": [
+            "read",
+            1,
+            0
+          ]
+        },
+        {
+          "after": [
+            1,
+            3
+          ],
+          "before": [
+            1,
+            2
+          ],
+          "before_ledger": [
+            {
+              "mask": 2,
+              "origin": "old:0",
+              "present": null,
+              "value": 0
+            },
+            {
+              "mask": 1,
+              "origin": "old:1",
+              "present": null,
+              "value": 0
+            }
+          ],
+          "business_words": [
+            15,
+            8,
+            32,
+            11
+          ],
+          "commands_including_extra_reads": 66,
+          "cumulative": 82,
+          "key": 3,
+          "op": [
+            "round",
+            0,
+            1
+          ],
+          "requested_key": 3
+        },
+        {
+          "after": [
+            1,
+            1
+          ],
+          "before": [
+            1,
+            3
+          ],
+          "bits": [
+            [
+              "reference_key_bit",
+              0,
+              0,
+              1
+            ],
+            [
+              "reference_key_bit",
+              0,
+              1,
+              0
+            ],
+            [
+              "reference_key_bit",
+              0,
+              2,
+              0
+            ],
+            [
+              "reference_key_bit",
+              0,
+              3,
+              0
+            ]
+          ],
+          "commands": 43,
+          "cumulative": 125,
+          "delivered": 1,
+          "ledger": [
+            {
+              "mask": 2,
+              "origin": "old:0",
+              "present": true,
+              "value": 0
+            },
+            {
+              "mask": 2,
+              "origin": "old:0",
+              "present": true,
+              "value": 0
+            }
+          ],
+          "op": [
+            "copy",
+            1,
+            0
+          ],
+          "present": true
+        },
+        {
+          "answer": 1,
+          "commands": 8,
+          "cumulative": 133,
+          "op": [
+            "read",
+            1,
+            0
+          ]
+        },
+        {
+          "after": [
+            4,
+            1
+          ],
+          "before": [
+            1,
+            1
+          ],
+          "before_ledger": [
+            {
+              "mask": 3,
+              "origin": "old:0",
+              "present": true,
+              "value": 1
+            },
+            {
+              "mask": 3,
+              "origin": "old:0",
+              "present": true,
+              "value": 1
+            }
+          ],
+          "business_words": [
+            18,
+            7,
+            35,
+            11
+          ],
+          "commands_including_extra_reads": 71,
+          "cumulative": 204,
+          "key": 4,
+          "op": [
+            "round",
+            1,
+            0
+          ],
+          "requested_key": 4
+        },
+        {
+          "after": [
+            4,
+            0
+          ],
+          "before": [
+            4,
+            1
+          ],
+          "commands": 13,
+          "cumulative": 217,
+          "ledger": [
+            {
+              "mask": 15,
+              "origin": "write:2",
+              "present": true,
+              "value": 4
+            },
+            {
+              "mask": 15,
+              "origin": "empty",
+              "present": false,
+              "value": 0
+            }
+          ],
+          "op": [
+            "drop",
+            1
+          ],
+          "present": true
+        },
+        {
+          "after": [
+            1,
+            0
+          ],
+          "before": [
+            4,
+            0
+          ],
+          "before_ledger": [
+            {
+              "mask": 15,
+              "origin": "write:2",
+              "present": true,
+              "value": 4
+            },
+            {
+              "mask": 15,
+              "origin": "empty",
+              "present": false,
+              "value": 0
+            }
+          ],
+          "business_words": [
+            15,
+            7,
+            35,
+            11
+          ],
+          "commands_including_extra_reads": 68,
+          "cumulative": 285,
+          "key": 1,
+          "op": [
+            "round",
+            0,
+            0
+          ],
+          "requested_key": 1
+        }
+      ],
+      "extra_vacancy_reads": 3,
+      "final_codes": [
+        1,
+        0
+      ],
+      "initial": [
+        1,
+        2
+      ],
+      "mandatory_copy_key_bits": 4,
+      "negative_fork": {
+        "after_valid": true,
+        "before_valid": false,
+        "forced_key": 1,
+        "request_origin": "old:0",
+        "request_slot": 1,
+        "retained_full_key": 1,
+        "scope": "diagnostic branch only; no negative command is charged to either correct schedule"
+      },
+      "nonself_copies": 1,
+      "total": 285
+    },
+    "use_full_copy": {
+      "business_rounds": 3,
+      "events": [
+        {
+          "answer": 0,
+          "commands": 8,
+          "cumulative": 8,
+          "op": [
+            "read",
+            0,
+            1
+          ]
+        },
+        {
+          "answer": 0,
+          "commands": 8,
+          "cumulative": 16,
+          "op": [
+            "read",
+            1,
+            0
+          ]
+        },
+        {
+          "after": [
+            1,
+            3
+          ],
+          "before": [
+            1,
+            2
+          ],
+          "before_ledger": [
+            {
+              "mask": 2,
+              "origin": "old:0",
+              "present": null,
+              "value": 0
+            },
+            {
+              "mask": 1,
+              "origin": "old:1",
+              "present": null,
+              "value": 0
+            }
+          ],
+          "business_words": [
+            15,
+            8,
+            32,
+            11
+          ],
+          "commands_including_extra_reads": 66,
+          "cumulative": 82,
+          "key": 3,
+          "op": [
+            "round",
+            0,
+            1
+          ],
+          "requested_key": 3
+        },
+        {
+          "after": [
+            1,
+            1
+          ],
+          "before": [
+            1,
+            3
+          ],
+          "bits": [
+            [
+              "reference_key_bit",
+              0,
+              0,
+              1
+            ],
+            [
+              "reference_key_bit",
+              0,
+              1,
+              0
+            ],
+            [
+              "reference_key_bit",
+              0,
+              2,
+              0
+            ],
+            [
+              "reference_key_bit",
+              0,
+              3,
+              0
+            ]
+          ],
+          "commands": 43,
+          "cumulative": 125,
+          "delivered": 1,
+          "ledger": [
+            {
+              "mask": 15,
+              "origin": "old:0",
+              "present": true,
+              "value": 1
+            },
+            {
+              "mask": 15,
+              "origin": "old:0",
+              "present": true,
+              "value": 1
+            }
+          ],
+          "op": [
+            "copy",
+            1,
+            0
+          ],
+          "present": true
+        },
+        {
+          "after": [
+            4,
+            1
+          ],
+          "before": [
+            1,
+            1
+          ],
+          "before_ledger": [
+            {
+              "mask": 15,
+              "origin": "old:0",
+              "present": true,
+              "value": 1
+            },
+            {
+              "mask": 15,
+              "origin": "old:0",
+              "present": true,
+              "value": 1
+            }
+          ],
+          "business_words": [
+            18,
+            7,
+            35,
+            11
+          ],
+          "commands_including_extra_reads": 71,
+          "cumulative": 196,
+          "key": 4,
+          "op": [
+            "round",
+            1,
+            0
+          ],
+          "requested_key": 4
+        },
+        {
+          "after": [
+            4,
+            0
+          ],
+          "before": [
+            4,
+            1
+          ],
+          "commands": 13,
+          "cumulative": 209,
+          "ledger": [
+            {
+              "mask": 15,
+              "origin": "write:2",
+              "present": true,
+              "value": 4
+            },
+            {
+              "mask": 15,
+              "origin": "empty",
+              "present": false,
+              "value": 0
+            }
+          ],
+          "op": [
+            "drop",
+            1
+          ],
+          "present": true
+        },
+        {
+          "after": [
+            1,
+            0
+          ],
+          "before": [
+            4,
+            0
+          ],
+          "before_ledger": [
+            {
+              "mask": 15,
+              "origin": "write:2",
+              "present": true,
+              "value": 4
+            },
+            {
+              "mask": 15,
+              "origin": "empty",
+              "present": false,
+              "value": 0
+            }
+          ],
+          "business_words": [
+            15,
+            7,
+            35,
+            11
+          ],
+          "commands_including_extra_reads": 68,
+          "cumulative": 277,
+          "key": 1,
+          "op": [
+            "round",
+            0,
+            0
+          ],
+          "requested_key": 1
+        }
+      ],
+      "extra_vacancy_reads": 2,
+      "final_codes": [
+        1,
+        0
+      ],
+      "initial": [
+        1,
+        2
+      ],
+      "mandatory_copy_key_bits": 4,
+      "negative_fork": {
+        "after_valid": true,
+        "before_valid": false,
+        "forced_key": 1,
+        "request_origin": "old:0",
+        "request_slot": 1,
+        "retained_full_key": 1,
+        "scope": "diagnostic branch only; no negative command is charged to either correct schedule"
+      },
+      "nonself_copies": 1,
+      "total": 277
+    }
+  },
+  "observation_hierarchy": {
+    "full": {
+      "business_rounds": 1,
+      "events": [
+        {
+          "after": [
+            1,
+            1
+          ],
+          "before": [
+            1,
+            1
+          ],
+          "bits": [
+            [
+              "reference_key_bit",
+              0,
+              0,
+              1
+            ],
+            [
+              "reference_key_bit",
+              0,
+              1,
+              0
+            ],
+            [
+              "reference_key_bit",
+              0,
+              2,
+              0
+            ],
+            [
+              "reference_key_bit",
+              0,
+              3,
+              0
+            ]
+          ],
+          "commands": 43,
+          "cumulative": 43,
+          "delivered": 1,
+          "ledger": [
+            {
+              "mask": 15,
+              "origin": "old:0",
+              "present": true,
+              "value": 1
+            },
+            {
+              "mask": 15,
+              "origin": "old:0",
+              "present": true,
+              "value": 1
+            }
+          ],
+          "op": [
+            "copy",
+            1,
+            0
+          ],
+          "present": true
+        },
+        {
+          "after": [
+            2,
+            1
+          ],
+          "before": [
+            1,
+            1
+          ],
+          "before_ledger": [
+            {
+              "mask": 15,
+              "origin": "old:0",
+              "present": true,
+              "value": 1
+            },
+            {
+              "mask": 15,
+              "origin": "old:0",
+              "present": true,
+              "value": 1
+            }
+          ],
+          "business_words": [
+            15,
+            7,
+            31,
+            11
+          ],
+          "commands_including_extra_reads": 64,
+          "cumulative": 107,
+          "key": 2,
+          "op": [
+            "round",
+            0,
+            0
+          ],
+          "requested_key": 2
+        }
+      ],
+      "extra_vacancy_reads": 0,
+      "final_codes": [
+        2,
+        1
+      ],
+      "initial": [
+        1,
+        1
+      ],
+      "mandatory_copy_key_bits": 4,
+      "nonself_copies": 1,
+      "possible_positive_full_keys_after_copy": [
+        1
+      ],
+      "selected": 2,
+      "total": 107
+    },
+    "length_and_presence": {
+      "business_rounds": 1,
+      "events": [
+        {
+          "after": [
+            1,
+            1
+          ],
+          "before": [
+            1,
+            1
+          ],
+          "bits": [
+            [
+              "reference_key_bit",
+              0,
+              0,
+              1
+            ],
+            [
+              "reference_key_bit",
+              0,
+              1,
+              0
+            ],
+            [
+              "reference_key_bit",
+              0,
+              2,
+              0
+            ],
+            [
+              "reference_key_bit",
+              0,
+              3,
+              0
+            ]
+          ],
+          "commands": 43,
+          "cumulative": 43,
+          "delivered": 1,
+          "ledger": [
+            {
+              "mask": 0,
+              "origin": "old:0",
+              "present": true,
+              "value": 0
+            },
+            {
+              "mask": 0,
+              "origin": "old:0",
+              "present": true,
+              "value": 0
+            }
+          ],
+          "op": [
+            "copy",
+            1,
+            0
+          ],
+          "present": true
+        },
+        {
+          "after": [
+            3,
+            1
+          ],
+          "before": [
+            1,
+            1
+          ],
+          "before_ledger": [
+            {
+              "mask": 0,
+              "origin": "old:0",
+              "present": true,
+              "value": 0
+            },
+            {
+              "mask": 0,
+              "origin": "old:0",
+              "present": true,
+              "value": 0
+            }
+          ],
+          "business_words": [
+            15,
+            8,
+            32,
+            11
+          ],
+          "commands_including_extra_reads": 66,
+          "cumulative": 109,
+          "key": 3,
+          "op": [
+            "round",
+            0,
+            0
+          ],
+          "requested_key": 3
+        }
+      ],
+      "extra_vacancy_reads": 0,
+      "final_codes": [
+        3,
+        1
+      ],
+      "initial": [
+        1,
+        1
+      ],
+      "mandatory_copy_key_bits": 4,
+      "nonself_copies": 1,
+      "possible_positive_full_keys_after_copy": [
+        1,
+        2,
+        4
+      ],
+      "selected": 3,
+      "total": 109
+    },
+    "presence_only": {
+      "business_rounds": 1,
+      "events": [
+        {
+          "after": [
+            1,
+            1
+          ],
+          "before": [
+            1,
+            1
+          ],
+          "bits": [
+            [
+              "reference_key_bit",
+              0,
+              0,
+              1
+            ],
+            [
+              "reference_key_bit",
+              0,
+              1,
+              0
+            ],
+            [
+              "reference_key_bit",
+              0,
+              2,
+              0
+            ],
+            [
+              "reference_key_bit",
+              0,
+              3,
+              0
+            ]
+          ],
+          "commands": 43,
+          "cumulative": 43,
+          "delivered": 1,
+          "ledger": [
+            {
+              "mask": 0,
+              "origin": "old:0",
+              "present": true,
+              "value": 0
+            },
+            {
+              "mask": 0,
+              "origin": "old:0",
+              "present": true,
+              "value": 0
+            }
+          ],
+          "op": [
+            "copy",
+            1,
+            0
+          ],
+          "present": true
+        },
+        {
+          "answer": 1,
+          "commands": 8,
+          "cumulative": 51,
+          "op": [
+            "read",
+            0,
+            0
+          ]
+        },
+        {
+          "after": [
+            2,
+            1
+          ],
+          "before": [
+            1,
+            1
+          ],
+          "before_ledger": [
+            {
+              "mask": 1,
+              "origin": "old:0",
+              "present": true,
+              "value": 1
+            },
+            {
+              "mask": 1,
+              "origin": "old:0",
+              "present": true,
+              "value": 1
+            }
+          ],
+          "business_words": [
+            15,
+            7,
+            31,
+            11
+          ],
+          "commands_including_extra_reads": 64,
+          "cumulative": 115,
+          "key": 2,
+          "op": [
+            "round",
+            0,
+            0
+          ],
+          "requested_key": 2
+        }
+      ],
+      "extra_vacancy_reads": 1,
+      "final_codes": [
+        2,
+        1
+      ],
+      "initial": [
+        1,
+        1
+      ],
+      "mandatory_copy_key_bits": 4,
+      "nonself_copies": 1,
+      "possible_positive_full_keys_after_copy": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "selected": 2,
+      "total": 115
+    }
+  },
+  "physical_minimax": [
+    {
+      "all_physical_preparations": 100,
+      "events": [
+        [
+          "round",
+          0,
+          0
+        ],
+        [
+          "copy",
+          0,
+          1
+        ],
+        [
+          "drop",
+          1
+        ],
+        [
+          "round",
+          1,
+          1
+        ]
+      ],
+      "first_minimum": {
+        "action_replies": [
+          [
+            "read",
+            0,
+            1,
+            0
+          ],
+          [
+            "read",
+            1,
+            0,
+            0
+          ],
+          [
+            "round",
+            0,
+            0,
+            3
+          ],
+          [
+            "copy",
+            0,
+            1,
+            0
+          ],
+          [
+            "drop",
+            1,
+            false
+          ],
+          [
+            "round",
+            1,
+            1,
+            6
+          ]
+        ],
+        "final": [
+          0,
+          6
+        ],
+        "initial": [
+          0,
+          0
+        ],
+        "total": 201,
+        "vacancy_reads": 2
+      },
+      "first_worst": {
+        "action_replies": [
+          [
+            "read",
+            0,
+            1,
+            1
+          ],
+          [
+            "read",
+            1,
+            1,
+            0
+          ],
+          [
+            "read",
+            0,
+            0,
+            0
+          ],
+          [
+            "round",
+            0,
+            0,
+            3
+          ],
+          [
+            "copy",
+            0,
+            1,
+            5
+          ],
+          [
+            "drop",
+            1,
+            true
+          ],
+          [
+            "round",
+            1,
+            1,
+            6
+          ]
+        ],
+        "final": [
+          5,
+          6
+        ],
+        "initial": [
+          2,
+          5
+        ],
+        "total": 216,
+        "vacancy_reads": 3
+      },
+      "histogram": {
+        "201": 6,
+        "202": 6,
+        "203": 6,
+        "205": 6,
+        "206": 12,
+        "207": 20,
+        "209": 8,
+        "210": 12,
+        "211": 6,
+        "212": 6,
+        "213": 4,
+        "214": 2,
+        "215": 4,
+        "216": 2
+      },
+      "planner_minimax": 216
+    },
+    {
+      "all_physical_preparations": 100,
+      "events": [
+        [
+          "copy",
+          0,
+          0
+        ],
+        [
+          "round",
+          0,
+          1
+        ],
+        [
+          "copy",
+          1,
+          0
+        ],
+        [
+          "drop",
+          0
+        ],
+        [
+          "round",
+          2,
+          1
+        ]
+      ],
+      "first_minimum": {
+        "action_replies": [
+          [
+            "copy",
+            0,
+            0,
+            false
+          ],
+          [
+            "read",
+            1,
+            0,
+            1
+          ],
+          [
+            "round",
+            0,
+            1,
+            2
+          ],
+          [
+            "copy",
+            1,
+            0,
+            0
+          ],
+          [
+            "drop",
+            0,
+            false
+          ],
+          [
+            "round",
+            2,
+            1,
+            7
+          ]
+        ],
+        "final": [
+          0,
+          7
+        ],
+        "initial": [
+          0,
+          1
+        ],
+        "total": 198,
+        "vacancy_reads": 1
+      },
+      "first_worst": {
+        "action_replies": [
+          [
+            "copy",
+            0,
+            0,
+            true
+          ],
+          [
+            "read",
+            0,
+            1,
+            1
+          ],
+          [
+            "read",
+            1,
+            1,
+            0
+          ],
+          [
+            "read",
+            0,
+            0,
+            0
+          ],
+          [
+            "round",
+            0,
+            1,
+            3
+          ],
+          [
+            "copy",
+            1,
+            0,
+            6
+          ],
+          [
+            "drop",
+            0,
+            true
+          ],
+          [
+            "round",
+            2,
+            1,
+            7
+          ]
+        ],
+        "final": [
+          0,
+          7
+        ],
+        "initial": [
+          6,
+          0
+        ],
+        "total": 223,
+        "vacancy_reads": 3
+      },
+      "histogram": {
+        "198": 5,
+        "200": 5,
+        "208": 5,
+        "209": 5,
+        "210": 5,
+        "211": 5,
+        "212": 10,
+        "213": 5,
+        "214": 10,
+        "215": 5,
+        "216": 4,
+        "217": 8,
+        "218": 4,
+        "221": 6,
+        "222": 12,
+        "223": 6
+      },
+      "planner_minimax": 223
+    }
+  ],
+  "price_reversals": {
+    "three_slots_B_nonempty": [
+      {
+        "copy_costs": [
+          44
+        ],
+        "cumulative": [
+          93,
+          137
+        ],
+        "k": 6,
+        "receipt": {
+          "business_rounds": 1,
+          "events": [
+            {
+              "answer": 1,
+              "commands": 8,
+              "cumulative": 8,
+              "op": [
+                "read",
+                0,
+                0
+              ]
+            },
+            {
+              "answer": 1,
+              "commands": 8,
+              "cumulative": 16,
+              "op": [
+                "read",
+                1,
+                0
+              ]
+            },
+            {
+              "answer": 1,
+              "commands": 8,
+              "cumulative": 24,
+              "op": [
+                "read",
+                2,
+                0
+              ]
+            },
+            {
+              "after": [
+                6,
+                1,
+                1
+              ],
+              "before": [
+                1,
+                1,
+                1
+              ],
+              "before_ledger": [
+                {
+                  "mask": 1,
+                  "origin": "old:0",
+                  "present": null,
+                  "value": 1
+                },
+                {
+                  "mask": 1,
+                  "origin": "old:1",
+                  "present": null,
+                  "value": 1
+                },
+                {
+                  "mask": 1,
+                  "origin": "old:2",
+                  "present": null,
+                  "value": 1
+                }
+              ],
+              "business_words": [
+                18,
+                8,
+                32,
+                11
+              ],
+              "commands_including_extra_reads": 69,
+              "cumulative": 93,
+              "key": 6,
+              "op": [
+                "round",
+                1,
+                0
+              ],
+              "requested_key": 6
+            },
+            {
+              "after": [
+                6,
+                6,
+                1
+              ],
+              "before": [
+                6,
+                1,
+                1
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 44,
+              "cumulative": 137,
+              "delivered": 6,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                },
+                {
+                  "mask": 1,
+                  "origin": "old:2",
+                  "present": null,
+                  "value": 1
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            }
+          ],
+          "extra_vacancy_reads": 3,
+          "final_codes": [
+            6,
+            6,
+            1
+          ],
+          "initial": [
+            1,
+            1,
+            1
+          ],
+          "mandatory_copy_key_bits": 4,
+          "nonself_copies": 1,
+          "total": 137
+        }
+      },
+      {
+        "copy_costs": [
+          39
+        ],
+        "cumulative": [
+          95,
+          134
+        ],
+        "k": 8,
+        "receipt": {
+          "business_rounds": 1,
+          "events": [
+            {
+              "answer": 1,
+              "commands": 8,
+              "cumulative": 8,
+              "op": [
+                "read",
+                0,
+                0
+              ]
+            },
+            {
+              "answer": 1,
+              "commands": 8,
+              "cumulative": 16,
+              "op": [
+                "read",
+                1,
+                0
+              ]
+            },
+            {
+              "answer": 1,
+              "commands": 8,
+              "cumulative": 24,
+              "op": [
+                "read",
+                2,
+                0
+              ]
+            },
+            {
+              "after": [
+                8,
+                1,
+                1
+              ],
+              "before": [
+                1,
+                1,
+                1
+              ],
+              "before_ledger": [
+                {
+                  "mask": 1,
+                  "origin": "old:0",
+                  "present": null,
+                  "value": 1
+                },
+                {
+                  "mask": 1,
+                  "origin": "old:1",
+                  "present": null,
+                  "value": 1
+                },
+                {
+                  "mask": 1,
+                  "origin": "old:2",
+                  "present": null,
+                  "value": 1
+                }
+              ],
+              "business_words": [
+                18,
+                7,
+                35,
+                11
+              ],
+              "commands_including_extra_reads": 71,
+              "cumulative": 95,
+              "key": 8,
+              "op": [
+                "round",
+                1,
+                0
+              ],
+              "requested_key": 8
+            },
+            {
+              "after": [
+                8,
+                8,
+                1
+              ],
+              "before": [
+                8,
+                1,
+                1
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  1
+                ]
+              ],
+              "commands": 39,
+              "cumulative": 134,
+              "delivered": 8,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 8
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 8
+                },
+                {
+                  "mask": 1,
+                  "origin": "old:2",
+                  "present": null,
+                  "value": 1
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            }
+          ],
+          "extra_vacancy_reads": 3,
+          "final_codes": [
+            8,
+            8,
+            1
+          ],
+          "initial": [
+            1,
+            1,
+            1
+          ],
+          "mandatory_copy_key_bits": 4,
+          "nonself_copies": 1,
+          "total": 134
+        }
+      }
+    ],
+    "two_slots_B_empty": [
+      {
+        "copy_costs": [
+          43,
+          43,
+          43
+        ],
+        "cumulative": [
+          87,
+          130,
+          173,
+          216
+        ],
+        "k": 4,
+        "receipt": {
+          "business_rounds": 1,
+          "events": [
+            {
+              "answer": 0,
+              "commands": 8,
+              "cumulative": 8,
+              "op": [
+                "read",
+                0,
+                2
+              ]
+            },
+            {
+              "answer": 0,
+              "commands": 8,
+              "cumulative": 16,
+              "op": [
+                "read",
+                1,
+                2
+              ]
+            },
+            {
+              "after": [
+                4,
+                0
+              ],
+              "before": [
+                0,
+                0
+              ],
+              "before_ledger": [
+                {
+                  "mask": 4,
+                  "origin": "old:0",
+                  "present": null,
+                  "value": 0
+                },
+                {
+                  "mask": 4,
+                  "origin": "old:1",
+                  "present": null,
+                  "value": 0
+                }
+              ],
+              "business_words": [
+                18,
+                7,
+                35,
+                11
+              ],
+              "commands_including_extra_reads": 71,
+              "cumulative": 87,
+              "key": 4,
+              "op": [
+                "round",
+                1,
+                0
+              ],
+              "requested_key": 4
+            },
+            {
+              "after": [
+                4,
+                4
+              ],
+              "before": [
+                4,
+                0
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 43,
+              "cumulative": 130,
+              "delivered": 4,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 4
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 4
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            },
+            {
+              "after": [
+                4,
+                4
+              ],
+              "before": [
+                4,
+                4
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 43,
+              "cumulative": 173,
+              "delivered": 4,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 4
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 4
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            },
+            {
+              "after": [
+                4,
+                4
+              ],
+              "before": [
+                4,
+                4
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 43,
+              "cumulative": 216,
+              "delivered": 4,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 4
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 4
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            }
+          ],
+          "extra_vacancy_reads": 2,
+          "final_codes": [
+            4,
+            4
+          ],
+          "initial": [
+            0,
+            0
+          ],
+          "mandatory_copy_key_bits": 12,
+          "nonself_copies": 3,
+          "total": 216
+        }
+      },
+      {
+        "copy_costs": [
+          44,
+          44,
+          44
+        ],
+        "cumulative": [
+          85,
+          129,
+          173,
+          217
+        ],
+        "k": 6,
+        "receipt": {
+          "business_rounds": 1,
+          "events": [
+            {
+              "answer": 0,
+              "commands": 8,
+              "cumulative": 8,
+              "op": [
+                "read",
+                0,
+                2
+              ]
+            },
+            {
+              "answer": 0,
+              "commands": 8,
+              "cumulative": 16,
+              "op": [
+                "read",
+                1,
+                2
+              ]
+            },
+            {
+              "after": [
+                6,
+                0
+              ],
+              "before": [
+                0,
+                0
+              ],
+              "before_ledger": [
+                {
+                  "mask": 4,
+                  "origin": "old:0",
+                  "present": null,
+                  "value": 0
+                },
+                {
+                  "mask": 4,
+                  "origin": "old:1",
+                  "present": null,
+                  "value": 0
+                }
+              ],
+              "business_words": [
+                18,
+                8,
+                32,
+                11
+              ],
+              "commands_including_extra_reads": 69,
+              "cumulative": 85,
+              "key": 6,
+              "op": [
+                "round",
+                1,
+                0
+              ],
+              "requested_key": 6
+            },
+            {
+              "after": [
+                6,
+                6
+              ],
+              "before": [
+                6,
+                0
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 44,
+              "cumulative": 129,
+              "delivered": 6,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            },
+            {
+              "after": [
+                6,
+                6
+              ],
+              "before": [
+                6,
+                6
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 44,
+              "cumulative": 173,
+              "delivered": 6,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            },
+            {
+              "after": [
+                6,
+                6
+              ],
+              "before": [
+                6,
+                6
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 44,
+              "cumulative": 217,
+              "delivered": 6,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            }
+          ],
+          "extra_vacancy_reads": 2,
+          "final_codes": [
+            6,
+            6
+          ],
+          "initial": [
+            0,
+            0
+          ],
+          "mandatory_copy_key_bits": 12,
+          "nonself_copies": 3,
+          "total": 217
+        }
+      }
+    ],
+    "two_slots_B_nonempty": [
+      {
+        "copy_costs": [
+          43,
+          43,
+          43
+        ],
+        "cumulative": [
+          87,
+          130,
+          173,
+          216
+        ],
+        "k": 4,
+        "receipt": {
+          "business_rounds": 1,
+          "events": [
+            {
+              "answer": 1,
+              "commands": 8,
+              "cumulative": 8,
+              "op": [
+                "read",
+                0,
+                0
+              ]
+            },
+            {
+              "answer": 1,
+              "commands": 8,
+              "cumulative": 16,
+              "op": [
+                "read",
+                1,
+                0
+              ]
+            },
+            {
+              "after": [
+                4,
+                1
+              ],
+              "before": [
+                1,
+                1
+              ],
+              "before_ledger": [
+                {
+                  "mask": 1,
+                  "origin": "old:0",
+                  "present": null,
+                  "value": 1
+                },
+                {
+                  "mask": 1,
+                  "origin": "old:1",
+                  "present": null,
+                  "value": 1
+                }
+              ],
+              "business_words": [
+                18,
+                7,
+                35,
+                11
+              ],
+              "commands_including_extra_reads": 71,
+              "cumulative": 87,
+              "key": 4,
+              "op": [
+                "round",
+                1,
+                0
+              ],
+              "requested_key": 4
+            },
+            {
+              "after": [
+                4,
+                4
+              ],
+              "before": [
+                4,
+                1
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 43,
+              "cumulative": 130,
+              "delivered": 4,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 4
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 4
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            },
+            {
+              "after": [
+                4,
+                4
+              ],
+              "before": [
+                4,
+                4
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 43,
+              "cumulative": 173,
+              "delivered": 4,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 4
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 4
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            },
+            {
+              "after": [
+                4,
+                4
+              ],
+              "before": [
+                4,
+                4
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 43,
+              "cumulative": 216,
+              "delivered": 4,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 4
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 4
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            }
+          ],
+          "extra_vacancy_reads": 2,
+          "final_codes": [
+            4,
+            4
+          ],
+          "initial": [
+            1,
+            1
+          ],
+          "mandatory_copy_key_bits": 12,
+          "nonself_copies": 3,
+          "total": 216
+        }
+      },
+      {
+        "copy_costs": [
+          44,
+          44,
+          44
+        ],
+        "cumulative": [
+          85,
+          129,
+          173,
+          217
+        ],
+        "k": 6,
+        "receipt": {
+          "business_rounds": 1,
+          "events": [
+            {
+              "answer": 1,
+              "commands": 8,
+              "cumulative": 8,
+              "op": [
+                "read",
+                0,
+                0
+              ]
+            },
+            {
+              "answer": 1,
+              "commands": 8,
+              "cumulative": 16,
+              "op": [
+                "read",
+                1,
+                0
+              ]
+            },
+            {
+              "after": [
+                6,
+                1
+              ],
+              "before": [
+                1,
+                1
+              ],
+              "before_ledger": [
+                {
+                  "mask": 1,
+                  "origin": "old:0",
+                  "present": null,
+                  "value": 1
+                },
+                {
+                  "mask": 1,
+                  "origin": "old:1",
+                  "present": null,
+                  "value": 1
+                }
+              ],
+              "business_words": [
+                18,
+                8,
+                32,
+                11
+              ],
+              "commands_including_extra_reads": 69,
+              "cumulative": 85,
+              "key": 6,
+              "op": [
+                "round",
+                1,
+                0
+              ],
+              "requested_key": 6
+            },
+            {
+              "after": [
+                6,
+                6
+              ],
+              "before": [
+                6,
+                1
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 44,
+              "cumulative": 129,
+              "delivered": 6,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            },
+            {
+              "after": [
+                6,
+                6
+              ],
+              "before": [
+                6,
+                6
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 44,
+              "cumulative": 173,
+              "delivered": 6,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            },
+            {
+              "after": [
+                6,
+                6
+              ],
+              "before": [
+                6,
+                6
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 44,
+              "cumulative": 217,
+              "delivered": 6,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 6
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            }
+          ],
+          "extra_vacancy_reads": 2,
+          "final_codes": [
+            6,
+            6
+          ],
+          "initial": [
+            1,
+            1
+          ],
+          "mandatory_copy_key_bits": 12,
+          "nonself_copies": 3,
+          "total": 217
+        }
+      }
+    ],
+    "two_slots_C_nonempty": [
+      {
+        "copy_costs": [
+          45
+        ],
+        "cumulative": [
+          84,
+          129
+        ],
+        "k": 7,
+        "receipt": {
+          "business_rounds": 1,
+          "events": [
+            {
+              "answer": 0,
+              "commands": 8,
+              "cumulative": 8,
+              "op": [
+                "read",
+                0,
+                0
+              ]
+            },
+            {
+              "answer": 0,
+              "commands": 8,
+              "cumulative": 16,
+              "op": [
+                "read",
+                1,
+                0
+              ]
+            },
+            {
+              "after": [
+                7,
+                8
+              ],
+              "before": [
+                8,
+                8
+              ],
+              "before_ledger": [
+                {
+                  "mask": 1,
+                  "origin": "old:0",
+                  "present": null,
+                  "value": 0
+                },
+                {
+                  "mask": 1,
+                  "origin": "old:1",
+                  "present": null,
+                  "value": 0
+                }
+              ],
+              "business_words": [
+                15,
+                9,
+                33,
+                11
+              ],
+              "commands_including_extra_reads": 68,
+              "cumulative": 84,
+              "key": 7,
+              "op": [
+                "round",
+                2,
+                0
+              ],
+              "requested_key": 7
+            },
+            {
+              "after": [
+                7,
+                7
+              ],
+              "before": [
+                7,
+                8
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  0
+                ]
+              ],
+              "commands": 45,
+              "cumulative": 129,
+              "delivered": 7,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 7
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 7
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            }
+          ],
+          "extra_vacancy_reads": 2,
+          "final_codes": [
+            7,
+            7
+          ],
+          "initial": [
+            8,
+            8
+          ],
+          "mandatory_copy_key_bits": 4,
+          "nonself_copies": 1,
+          "total": 129
+        }
+      },
+      {
+        "copy_costs": [
+          40
+        ],
+        "cumulative": [
+          86,
+          126
+        ],
+        "k": 9,
+        "receipt": {
+          "business_rounds": 1,
+          "events": [
+            {
+              "answer": 0,
+              "commands": 8,
+              "cumulative": 8,
+              "op": [
+                "read",
+                0,
+                0
+              ]
+            },
+            {
+              "answer": 0,
+              "commands": 8,
+              "cumulative": 16,
+              "op": [
+                "read",
+                1,
+                0
+              ]
+            },
+            {
+              "after": [
+                9,
+                8
+              ],
+              "before": [
+                8,
+                8
+              ],
+              "before_ledger": [
+                {
+                  "mask": 1,
+                  "origin": "old:0",
+                  "present": null,
+                  "value": 0
+                },
+                {
+                  "mask": 1,
+                  "origin": "old:1",
+                  "present": null,
+                  "value": 0
+                }
+              ],
+              "business_words": [
+                15,
+                8,
+                36,
+                11
+              ],
+              "commands_including_extra_reads": 70,
+              "cumulative": 86,
+              "key": 9,
+              "op": [
+                "round",
+                2,
+                0
+              ],
+              "requested_key": 9
+            },
+            {
+              "after": [
+                9,
+                9
+              ],
+              "before": [
+                9,
+                8
+              ],
+              "bits": [
+                [
+                  "reference_key_bit",
+                  0,
+                  0,
+                  1
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  1,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  2,
+                  0
+                ],
+                [
+                  "reference_key_bit",
+                  0,
+                  3,
+                  1
+                ]
+              ],
+              "commands": 40,
+              "cumulative": 126,
+              "delivered": 9,
+              "ledger": [
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 9
+                },
+                {
+                  "mask": 15,
+                  "origin": "write:1",
+                  "present": true,
+                  "value": 9
+                }
+              ],
+              "op": [
+                "copy",
+                1,
+                0
+              ],
+              "present": true
+            }
+          ],
+          "extra_vacancy_reads": 2,
+          "final_codes": [
+            9,
+            9
+          ],
+          "initial": [
+            8,
+            8
+          ],
+          "mandatory_copy_key_bits": 4,
+          "nonself_copies": 1,
+          "total": 126
+        }
+      }
+    ]
+  },
+  "protected": {
+    "contender": [
+      "copy",
+      1,
+      0
+    ],
+    "initial": [
+      1,
+      2
+    ],
+    "runs": [
+      {
+        "additional_inventory": 0,
+        "admitted_after_handoff_commands": 74,
+        "body": 277,
+        "candidates": 321,
+        "gate_entry": 19,
+        "gate_exit": 12,
+        "held_boundaries": 278,
+        "members": 160,
+        "omission_check": {
+          "admissible_pair_masks": 3,
+          "all_logical_endpoints_unchanged": true,
+          "checked_local_transitions": 554,
+          "doubled_emissions": 554,
+          "original_commands": 277,
+          "scope": "one or both emissions of each doubled command present; composition of local equalities on this exact held body; excludes both missing and does not cover wrapper omissions",
+          "state_changing_commands": 172
+        },
+        "other_copy_refused_attempts": 278,
+        "other_copy_refused_commands": 3058,
+        "phase": 0,
+        "protected_total": 308
+      },
+      {
+        "additional_inventory": 0,
+        "admitted_after_handoff_commands": 74,
+        "body": 277,
+        "candidates": 321,
+        "gate_entry": 19,
+        "gate_exit": 12,
+        "held_boundaries": 278,
+        "members": 160,
+        "omission_check": null,
+        "other_copy_refused_attempts": 278,
+        "other_copy_refused_commands": 3058,
+        "phase": 1,
+        "protected_total": 308
+      }
+    ]
+  },
+  "scope": "Original BRC body, free initial target sources. All masks use true observations; complete tables and isolated invalid paths are separate test oracles.",
+  "self_copy": {
+    "discard_presence": {
+      "business_rounds": 1,
+      "events": [
+        {
+          "after": [
+            0
+          ],
+          "before": [
+            0
+          ],
+          "bits": [],
+          "commands": 8,
+          "cumulative": 8,
+          "delivered": null,
+          "ledger": [
+            {
+              "mask": 0,
+              "origin": "old:0",
+              "present": null,
+              "value": 0
+            }
+          ],
+          "op": [
+            "copy",
+            0,
+            0
+          ],
+          "present": false
+        },
+        {
+          "answer": 0,
+          "commands": 8,
+          "cumulative": 16,
+          "op": [
+            "read",
+            0,
+            0
+          ]
+        },
+        {
+          "after": [
+            1
+          ],
+          "before": [
+            0
+          ],
+          "before_ledger": [
+            {
+              "mask": 1,
+              "origin": "old:0",
+              "present": null,
+              "value": 0
+            }
+          ],
+          "business_words": [
+            15,
+            6,
+            22,
+            11
+          ],
+          "commands_including_extra_reads": 54,
+          "cumulative": 70,
+          "key": 1,
+          "op": [
+            "round",
+            0,
+            0
+          ],
+          "requested_key": 1
+        }
+      ],
+      "extra_vacancy_reads": 1,
+      "final_codes": [
+        1
+      ],
+      "initial": [
+        0
+      ],
+      "mandatory_copy_key_bits": 0,
+      "nonself_copies": 0,
+      "total": 70
+    },
+    "use_presence": {
+      "business_rounds": 1,
+      "events": [
+        {
+          "after": [
+            0
+          ],
+          "before": [
+            0
+          ],
+          "bits": [],
+          "commands": 8,
+          "cumulative": 8,
+          "delivered": null,
+          "ledger": [
+            {
+              "mask": 7,
+              "origin": "old:0",
+              "present": false,
+              "value": 0
+            }
+          ],
+          "op": [
+            "copy",
+            0,
+            0
+          ],
+          "present": false
+        },
+        {
+          "after": [
+            1
+          ],
+          "before": [
+            0
+          ],
+          "before_ledger": [
+            {
+              "mask": 7,
+              "origin": "old:0",
+              "present": false,
+              "value": 0
+            }
+          ],
+          "business_words": [
+            15,
+            6,
+            22,
+            11
+          ],
+          "commands_including_extra_reads": 54,
+          "cumulative": 62,
+          "key": 1,
+          "op": [
+            "round",
+            0,
+            0
+          ],
+          "requested_key": 1
+        }
+      ],
+      "extra_vacancy_reads": 0,
+      "final_codes": [
+        1
+      ],
+      "initial": [
+        0
+      ],
+      "mandatory_copy_key_bits": 0,
+      "nonself_copies": 0,
+      "total": 62
+    }
+  },
+  "status": "PASS",
+  "word_audit": [
+    {
+      "candidates": 142,
+      "copy_nonself": 0,
+      "copy_self": 7,
+      "drop": 7,
+      "legal_codes_including_zero": 7,
+      "members": 81,
+      "paid_copy_by_source_code": {},
+      "slots": 1,
+      "width": 3
+    },
+    {
+      "candidates": 293,
+      "copy_nonself": 20,
+      "copy_self": 20,
+      "drop": 20,
+      "legal_codes_including_zero": 10,
+      "members": 123,
+      "paid_copy_by_source_code": {
+        "0": 37,
+        "1": 43,
+        "2": 43,
+        "3": 44,
+        "4": 43,
+        "5": 44,
+        "6": 44,
+        "7": 45,
+        "8": 39,
+        "9": 40
+      },
+      "slots": 2,
+      "width": 4
+    },
+    {
+      "candidates": 513,
+      "copy_nonself": 78,
+      "copy_self": 39,
+      "drop": 39,
+      "legal_codes_including_zero": 13,
+      "members": 159,
+      "paid_copy_by_source_code": {
+        "0": 37,
+        "1": 43,
+        "10": 40,
+        "11": 41,
+        "12": 40,
+        "2": 43,
+        "3": 44,
+        "4": 43,
+        "5": 44,
+        "6": 44,
+        "7": 45,
+        "8": 39,
+        "9": 40
+      },
+      "slots": 3,
+      "width": 4
+    },
+    {
+      "candidates": 1886,
+      "copy_nonself": 660,
+      "copy_self": 132,
+      "drop": 132,
+      "legal_codes_including_zero": 22,
+      "members": 330,
+      "paid_copy_by_source_code": {
+        "0": 46,
+        "1": 52,
+        "10": 53,
+        "11": 54,
+        "12": 53,
+        "13": 54,
+        "14": 54,
+        "15": 55,
+        "16": 48,
+        "17": 49,
+        "18": 49,
+        "19": 50,
+        "2": 52,
+        "20": 49,
+        "21": 50,
+        "3": 53,
+        "4": 52,
+        "5": 53,
+        "6": 53,
+        "7": 54,
+        "8": 52,
+        "9": 53
+      },
+      "slots": 6,
+      "width": 5
+    }
+  ]
+}
