@@ -47,7 +47,7 @@ The exact verifier checks all 16 states at `ε_max` are nonnegative and in the s
 
 **Sharpness:** For each port, the indicated coefficient vector does not belong to the span of any four of the 35 three-target atom directions. The executable finite-field certificate enumerates all `C(35,4)=52360` subsets, obtaining 46,198 rank-four sets, 6,162 lower-rank sets and 3,468 distinct hyperplane normals over prime `p=2147483647`. Every normal has nonzero modular dot product with each of the three coefficient vectors. Because all 4×4 minors of the integer atom dictionary have absolute value at most `4!36^4<p`, modular rank four is equivalent to rational rank four. A nonzero modular dot product proves rational non-membership. Any algebraic atom decomposition must therefore use at least five atoms **at each of the three distinct compensator ports**. Positive scaling by `ε` preserves that lower bound. The above 15-step legal path achieves it:
 
-**For every real `0<ε≤9/115400000`, the exact legal elementary-atom distance `d_BRC(X,Y(ε))=15`.**
+**For every rational `0<ε≤9/115400000` in the frozen rational model, the exact legal elementary-atom distance `d_BRC(X,Y(ε))=15`.** The same algebraic path and lower bound also hold for real `ε` if the auxiliary linear model is explicitly extended to nonnegative real masses.
 
 This proves a nonlocal, full endpoint ray of sharp fifteen-step transfers, including a boundary endpoint. It also gives a concrete instance where operation **ordering**, rather than adding residual atoms, restores positivity across the entire feasible ray.
 
