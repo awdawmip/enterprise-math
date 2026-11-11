@@ -1,0 +1,200 @@
+{
+  "schema": "EC49FKP_SIX_KEY_PAIRWISE_PREFIX_EXACT_FINITE_V1",
+  "date": "2026-11-11",
+  "frozen_scientific_pin": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "nine_state_signed_X6_legal_words": 178850,
+  "full_raw_cache_keys": 94,
+  "observation_labels": 24,
+  "total_complete_six_key_sets": 2004,
+  "first_depth_necessary_bound_exclusions": 1263,
+  "new_pairwise_incompatibility_clique_exclusions": 732,
+  "total_excluded_for_cost_at_most_93": 1995,
+  "remaining_six_key_sets": 9,
+  "minimal_six_key_cover_sets": 628,
+  "minimal_six_key_sets_all_excluded": true,
+  "family_breakdown": {
+    "contains_a_complete_five_key_subcover": {
+      "total": 1376,
+      "first_excluded": 823,
+      "additional_excluded": 544,
+      "remaining": 9
+    },
+    "inclusion_minimal_six_key": {
+      "total": 628,
+      "first_excluded": 440,
+      "additional_excluded": 188,
+      "remaining": 0
+    }
+  },
+  "unresolved_common_four_keys": [
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      3,
+      0,
+      1
+    ],
+    [
+      3,
+      1,
+      1
+    ],
+    [
+      4,
+      2,
+      1
+    ]
+  ],
+  "unresolved_extra_key_pairs_and_per_depth_bounds": [
+    {
+      "extra_keys": [
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          5,
+          5,
+          1
+        ]
+      ],
+      "necessary_depth_prefix_lower_bound": 92
+    },
+    {
+      "extra_keys": [
+        [
+          5,
+          4,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      "necessary_depth_prefix_lower_bound": 92
+    },
+    {
+      "extra_keys": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          6,
+          4,
+          1
+        ]
+      ],
+      "necessary_depth_prefix_lower_bound": 92
+    },
+    {
+      "extra_keys": [
+        [
+          6,
+          3,
+          1
+        ],
+        [
+          7,
+          3,
+          1
+        ]
+      ],
+      "necessary_depth_prefix_lower_bound": 92
+    },
+    {
+      "extra_keys": [
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          6,
+          6,
+          1
+        ]
+      ],
+      "necessary_depth_prefix_lower_bound": 92
+    },
+    {
+      "extra_keys": [
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          7,
+          5,
+          1
+        ]
+      ],
+      "necessary_depth_prefix_lower_bound": 86
+    },
+    {
+      "extra_keys": [
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          7,
+          6,
+          1
+        ]
+      ],
+      "necessary_depth_prefix_lower_bound": 92
+    },
+    {
+      "extra_keys": [
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          8,
+          4,
+          1
+        ]
+      ],
+      "necessary_depth_prefix_lower_bound": 92
+    },
+    {
+      "extra_keys": [
+        [
+          6,
+          4,
+          1
+        ],
+        [
+          8,
+          5,
+          1
+        ]
+      ],
+      "necessary_depth_prefix_lower_bound": 92
+    }
+  ],
+  "every_newly_excluded_set_combined_lower_bound_at_least": 96,
+  "all_nine_set_cover_per_depth_optimal_values_match_clique": true,
+  "exact_bitset_verifier": "VERIFY_EC49FKP_PORTABLE.py",
+  "executed_sentinel": "EC49FKP_ALL_1995_EXCLUDED_9_SURVIVORS_PASS",
+  "full_741_case_result_sha256": "47b75aa011aa28825b63f64d832085211f8fc71a9ebf673bc20368a66defd73e",
+  "original_complete_evidence_archive": "EC49FKP_six_key_1995_excluded_9_survivors_evidence_20261111.tar.xz",
+  "evidence_archive_sha256": "449a8117455a0c83858ac36d67c036966c089892b3e6572b70200a57ed4f6e0b",
+  "proof_rule": "At each depth d, construct graph whose vertices are forced labels (every eligible word length >=d), joining pairs that can share no full literal signed native prefix. Every clique forces distinct prefixes. Summing max(original forced-label support ceiling, exact clique number) across depths gives rigorous necessary total prefix lower bound.",
+  "scope": "All six-key complete covering sets, not all seven-key solutions",
+  "project_status": "AUTHOR_COMPUTATION_PUBLISHED / PENDING_DRIVER_REVIEW / NO_NATIVE_CLAIM_OR_RESULT",
+  "control_gateway": "BACKEND_IDENTITY_CHECK_UNAVAILABLE; operation_sent=false",
+  "next_question": "Exactly solve joint prefix unions for nine explicitly listed six-key sets; use cross-depth constraints, and independently search seven-key 93-prefix witnesses."
+}
