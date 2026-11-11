@@ -67,7 +67,7 @@ counts each labeled legal ordering exactly once by its last atom. Evaluating it 
 
 ## Interpretation and next question
 
-An observation-invisible redistribution can strongly change legal order multiplicity while keeping the observation, complete endpoint, labeled operations and the 1,144 fixed first-zero capacity values unchanged. The full admissible perturbation domain has **exactly three endpoint-order gates**. This gives a compact exact control statistic for this frozen external model.
+An observation-invisible redistribution can strongly change legal order multiplicity while keeping the observed output, the total endpoint increment, the labeled operations and the 1,144 fixed first-zero capacity values unchanged. The hidden initial and terminal state vectors themselves vary with r. The full admissible perturbation domain has **exactly three endpoint-order gates**. This gives a compact exact control statistic for this frozen external model.
 
 Next: classify the *moving first-zero threshold spectrum* globally over I and compare its chambers with these three endpoint-order gates. Examine whether a general sufficient criterion for one-coordinate gate domination can be extracted from the per-mask affine half-line construction, and whether a smaller combinatorial certificate can replace full-mask enumeration in similar BRC fibers.
 
