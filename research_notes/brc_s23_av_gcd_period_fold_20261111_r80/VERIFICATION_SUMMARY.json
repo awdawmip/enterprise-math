@@ -1,0 +1,73 @@
+{
+  "schema": "EM_R80_EXACT_VERIFICATION_V1",
+  "model": "R77/R79 auxiliary rational circular-source observer; frozen science 43ec6098b1330ae86d0a7863be336c5d97f6ef34",
+  "executable": "check_r80_min.py (GitHub); check_r80.py (full local bundle)",
+  "seed": 80261111,
+  "random_models": 260,
+  "independent_original_full_strata": 176130,
+  "direct_point_periodicity_checks": 1300,
+  "random_statuses": {
+    "STABLE_NONE": 70,
+    "STABLE": 2,
+    "CHANGES": 188
+  },
+  "gcd_family_original_reference_strata": [
+    {
+      "g": 1,
+      "strata": 13
+    },
+    {
+      "g": 2,
+      "strata": 25
+    },
+    {
+      "g": 8,
+      "strata": 97
+    },
+    {
+      "g": 32,
+      "strata": 385
+    },
+    {
+      "g": 128,
+      "strata": 1537
+    },
+    {
+      "g": 512,
+      "strata": 6145
+    },
+    {
+      "g": 1024,
+      "strata": 12289
+    }
+  ],
+  "gcd_family_reduced_witness_evaluations": 6,
+  "giant_factor_bits": [
+    33,
+    129,
+    513,
+    1025,
+    2049,
+    4097
+  ],
+  "giant_factor_reduced_witness_evaluations": [
+    6,
+    6,
+    6,
+    6,
+    6,
+    6
+  ],
+  "giant_factor_reduced_cutpoints": [
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
+  ],
+  "compact_checker": "R80_MIN_PASS 120 7 6",
+  "assertions": "PASS",
+  "evidence_scope": "Exact rational regression and direct witness check; universal all-real statement follows the mathematical proofs, not sampling.",
+  "limits": "No matching full integer-bit complexity claim or native BRC transfer; no independent formal review."
+}
